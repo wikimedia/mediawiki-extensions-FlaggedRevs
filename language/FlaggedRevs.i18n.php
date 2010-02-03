@@ -184,7 +184,7 @@ Please hit the "back" button in your browser and try again.',
 	'revreview-visibility3'        => '\'\'\'This page does not have a [[{{MediaWiki:Validationpage}}|published version]]; page stability settings can be [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} configured].\'\'\'',
 	'revreview-revnotfound'        => 'The old revision of the page you asked for could not be found.
 Please check the URL you used to access this page.',
-	'right-autoreview'             => 'Automatically mark revisions as checked',
+	'right-autoreview'             => 'Automatically mark revisions as "checked"',
 	'right-movestable'             => 'Move published pages',
 	'right-review'                 => 'Mark revisions as being "checked"',
 	'right-stablesettings'         => 'Configure how the published version is selected and displayed',

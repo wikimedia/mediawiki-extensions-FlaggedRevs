@@ -1170,7 +1170,7 @@ class FlaggedRevsHooks {
 		global $wgFlaggedRevsAutoconfirm, $wgMemc;
 		# Make sure bots always have autoreview
 		if ( $user->isAllowed( 'bot' ) ) {
-			$promote[] = 'autoreview';
+			$promote[] = 'autoreview'; // add the group
 			return true;
 		}
 		# Check if $wgFlaggedRevsAutoconfirm is actually enabled
@@ -1273,8 +1273,7 @@ class FlaggedRevsHooks {
 				return true;
 			}
 		}
-		# Add the right
-		$promote[] = 'autoreview';
+		$promote[] = 'autoreview';  // add the group
 		return true;
 	}
 

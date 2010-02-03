@@ -213,7 +213,7 @@ $wgFlaggedRevsAutopromote = array(
 	'maxRevertedEdits'    => 5, # Max edits the user could have had rolled back?
 );
 
-# Define when users get to have their own edits auto-reviewed
+# Define when users get to have their own edits auto-reviewed.
 # This can be used for newer, semi-trusted users to improve workflow.
 $wgFlaggedRevsAutoconfirm = false;
 /* (example usage)
