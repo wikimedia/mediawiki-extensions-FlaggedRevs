@@ -1604,6 +1604,13 @@ Konfigurasi tak dapat diterapkan.',
 	'stabilization-review' => 'Tinjau versi sekarang',
 );
 
+/** Igbo (Igbo)
+ * @author Ukabia
+ */
+$messages['ig'] = array(
+	'stabilization-sel-short-1' => 'O digị',
+);
+
 /** Ido (Ido)
  * @author Malafaya
  */

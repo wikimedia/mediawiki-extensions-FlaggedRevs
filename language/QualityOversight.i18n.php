@@ -409,7 +409,7 @@ $messages['no'] = array(
  * @author Cedric31
  */
 $messages['oc'] = array(
-	'qualityoversight' => 'Qualitat supervisor',
+	'qualityoversight' => 'Supervision de qualitat',
 	'qualityoversight-list' => 'Aquesta pagina lista las aprobacions recentas e las depreciacions de las versions.',
 	'qualityoversight-legend' => 'Recercar los jornals de las revisions recentas',
 );
