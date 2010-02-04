@@ -785,8 +785,8 @@ $messages['ro'] = array(
  */
 $messages['roa-tara'] = array(
 	'stablepages' => 'Pàggene sicure',
-	'stablepages-stable' => 'versiona sicure',
-	'stablepages-text' => "Sotte ste 'na liste de pàggene ca onne state configurete manualmende pe fa vedè 'a versiona secure cumme pàgene cu 'u condenute iniziele pe le visitatore.",
+	'stablepages-stable' => 'versiona pubblecate',
+	'stablepages-text' => "Sotte ste 'na liste de pàggene ca onne state configurete manualmende pe fa vedè 'a versiona pubblecate cumme pàgene cu 'u condenute iniziale pe le visitature.",
 	'stablepages-none' => "Non ge stonne pàggene jndr'à sta liste",
 	'stablepages-config' => 'Configurazione',
 	'stablepages-prec-none' => 'nisciuna in precedenze',
@@ -874,7 +874,7 @@ $messages['sv'] = array(
 	'stablepages-config' => 'Konfigurering',
 	'stablepages-prec-none' => 'ingen rangordning',
 	'stablepages-prec-quality' => 'kvalitetsordning',
-	'stablepages-prec-pristine' => 'ursprunglig rangordning',
+	'stablepages-prec-pristine' => 'företräde för orörda',
 	'stablepages-precedence' => 'Rangordning:',
 );
 

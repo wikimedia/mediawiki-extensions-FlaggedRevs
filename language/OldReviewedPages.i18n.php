@@ -183,14 +183,19 @@ $messages['ast'] = array(
 $messages['bar'] = array(
 	'oldreviewedpages' => 'Åide, gsichtete Seitn',
 	'oldreviewedpages-legend' => 'Listn vu gsichtete Seitn mid nu ned gsichtete Veasionen',
+	'oldreviewedpages-list' => "De Spezialseitn zoagt {{PLURAL:$1|a gsichtete|gsichtete}} Seitn, vu {{PLURAL:$1|dea's|de's}} nu ned gsichtete Veasionen gibt.",
 	'oldreviewedpages-none' => "Momentan gibt's kane Seitn, de wås zu de Kriterien passn.",
 	'oldreviewedpages-hours' => '($1 Stund)',
 	'oldreviewedpages-days' => '($1 Tåg)',
 	'oldreviewedpages-recent' => '(weniga wia a Stund)',
-	'oldreviewed-watched' => 'auf meina Beobåchtungslistn',
+	'oldreviewed-category' => 'Kategorie:',
+	'oldreviewed-watched' => 'Seitn auf meina Beobåchtungslistn',
+	'oldreviewed-stable' => 'Stabile Veasion',
 	'oldreviewed-diff' => 'sichtn',
 	'oldreviewed-size' => "Maximale Ändarungsgreß (in ''Bytes''):",
 	'oldreviewedpages-unwatched' => '(ned beobåchtet)',
+	'oldreviewedpages-watched' => '(vu $1 {{PLURAL:$1|aktivm|aktive}} Benutza beobåchtet)',
+	'oldreviewedpages-viewing' => '(wiad üwaprüft)',
 );
 
 /** Southern Balochi (بلوچی مکرانی)
@@ -1288,7 +1293,7 @@ $messages['roa-tara'] = array(
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|sciurne|sciurne}})',
 	'oldreviewedpages-recent' => "(mene de n'ore)",
 	'oldreviewed-category' => 'Categorije:',
-	'oldreviewed-watched' => "Sus 'a liste meje de le paggène condrollete",
+	'oldreviewed-watched' => 'Paggène condrollate da me',
 	'oldreviewed-stable' => 'Stabbilizzate',
 	'oldreviewed-diff' => 'riviste',
 	'oldreviewed-size' => "Cange 'a dimenzione massime de byte:",

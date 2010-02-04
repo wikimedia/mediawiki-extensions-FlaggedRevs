@@ -582,7 +582,7 @@ $messages['ro'] = array(
  */
 $messages['roa-tara'] = array(
 	'unstablepages' => 'Pàggene ingerte',
-	'unstablepages-stable' => 'versione stabile',
+	'unstablepages-stable' => 'versione pubblecate',
 	'unstablepages-text' => "Sotte ste 'na liste de pàggene configurete manualmende pe fà vedè 'a versione a bozza cumme pàgene de default pe le condenute pe le revisitatore.",
 	'unstablepages-none' => "Non ge stonne pàgene jndr'à sta liste",
 	'unstablepages-config' => 'Configurazione',

@@ -463,7 +463,7 @@ $messages['ro'] = array(
  * @author Joetaras
  */
 $messages['roa-tara'] = array(
-	'qualityoversight' => 'Qualità supervisionete',
+	'qualityoversight' => 'Archivije de le reviste avanzate',
 	'qualityoversight-list' => "Sta pàgene fece vedè l'urteme approvazziune e scartaminde de le revisiune.",
 	'qualityoversight-legend' => "Cirche jndr'à l'archivie de le revisitaziune recende",
 );

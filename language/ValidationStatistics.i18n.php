@@ -1512,18 +1512,18 @@ Editorii şi recenzorii sunt utilizatori stabiliţi care pot verifica modificăr
  */
 $messages['roa-tara'] = array(
 	'validationstatistics' => 'Statisteche de validazione',
-	'validationstatistics-users' => "'''{{SITENAME}}''' jndr'à quiste mumende tène '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|utende|utinde}} cu le deritte de [[{{MediaWiki:Validationpage}}|cangiatore]] e '''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$2|utende|utinde}} cu le deritte de[[{{MediaWiki:Validationpage}}|revisione]].
+	'validationstatistics-users' => "'''{{SITENAME}}''' jndr'à quiste mumende tène '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|utende|utinde}} cu le deritte de [[{{MediaWiki:Validationpage}}|cangiatore]].
 
-Le cangiature e le revisure onne state stabbelite da l'utinde ca ponne verificà le revisiune de le pàggene.",
+Le cangiature sonde utinde stabbelite ca ponne fà verifiche a cambione de le revisiune a le pàggene.",
 	'validationstatistics-time' => "'''A seguende date ha state aggiornate l'urtema vote 'u $5 a le $6.''
 
 Le cangiaminde ca onne state verificate da l'utinde stabbelite onne state conziderate riviste.
 
 'A medie attese pe le cangiaminde da ''utinde ca non ge sonde collegate'' jè '''$1'''; 'a medie jè '''$3'''.
 $4
-'U timbe medie pe le [[Special:OldReviewedPages|pàggene non aggiornete]] jè '''$2'''.
-Ste pàggene sonde conziderate ''scadute''. Pò, stonne le pàggene ca sonde conziderate ''singronizzate'' ce 'a [[{{MediaWiki:Validationpage}}|versiona secure]] jè ppure 'a versiona attuale a bozza.
-Le versiune secure sonde revisiune de pàggene verificate da almene 'n'utende stabbilite.",
+'U timbe medie pe le [[Special:OldReviewedPages|pàggene cu cangiaminde none reviste pendende]] jè '''$2'''.
+Ste pàggene sonde conziderate ''scadute''. Pò, stonne le pàggene ca sonde conziderate ''singronizzate'' ce non ge stonne cangiaminde pendende de reviste.
+'A versione pubblecate de 'na pàgene jè a cchiù nova revisione ca ha state approvate ca tutte le letture vedane cumme base.",
 	'validationstatistics-table' => "Le statisteche pe ogne namespace sonde mostrete aqquà sotte, 'scludenne le pàggene de redirezionaminde.",
 	'validationstatistics-ns' => 'Neimspeise',
 	'validationstatistics-total' => 'Pàggene',
