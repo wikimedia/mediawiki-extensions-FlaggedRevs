@@ -380,9 +380,8 @@ class FlaggedArticleView {
 						$srev->getRevId(), $revsSince );
 				}
 				$icon = '';
-				# Show if this the stable or draft, unless tabs already do that
-				# and there is only review tier (making icon redundant).
-				if ( !FlaggedRevs::versionTabsShown() || FlaggedRevs::qualityVersions() ) {
+				# For protection based configs, show lock only if it's not redundant.
+				if ( $this->showRatingIcon() ) {
 					$icon = $synced
 						? FlaggedRevsXML::stableStatusIcon( $quality )
 						: FlaggedRevsXML::draftStatusIcon();
@@ -446,9 +445,8 @@ class FlaggedArticleView {
 			// Simple icon-based UI
 			if ( FlaggedRevs::useSimpleUI() ) {
 				$icon = '';
-				# Show if this the stable or draft, unless tabs already do that
-				# and there is only review tier (making icon redundant).
-				if ( !FlaggedRevs::versionTabsShown() || FlaggedRevs::qualityVersions() ) {
+				# For protection based configs, show lock only if it's not redundant.
+				if ( $this->showRatingIcon() ) {
 					$icon = FlaggedRevsXML::stableStatusIcon( $quality );
 				}
 				$revsSince = FlaggedRevs::getRevCountSince( $this->article, $srev->getRevId() );
@@ -527,9 +525,8 @@ class FlaggedArticleView {
 			// Simple icon-based UI
 			if ( FlaggedRevs::useSimpleUI() ) {
 				$icon = '';
-				# Show if this the stable or draft, unless tabs already do that
-				# and there is only review tier (making icon redundant).
-				if ( !FlaggedRevs::versionTabsShown() || FlaggedRevs::qualityVersions() ) {
+				# For protection based configs, show lock only if it's not redundant.
+				if ( $this->showRatingIcon() ) {
 					$icon = FlaggedRevsXML::stableStatusIcon( $quality );
 				}
 				if ( !$wgUser->getId() ) {
@@ -581,6 +578,16 @@ class FlaggedArticleView {
 			return $this->article->viewRedirect( $rTarget );
 		}
 		return '';
+	}
+	
+	// Show icons for draft/stable/old reviewed versions
+	protected function showRatingIcon() {
+		if ( FlaggedRevs::forDefaultVersionOnly() ) {
+			// If there is only on quality level and we have tabs to know
+			// which version we are looking at, then just use the lock icon...
+			return ( !FlaggedRevs::versionTabsShown() || FlaggedRevs::qualityVersions() );
+		}
+		return true;
 	}
 
 	/**
