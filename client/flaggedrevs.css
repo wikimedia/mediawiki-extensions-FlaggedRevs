@@ -178,7 +178,7 @@ a.flaggedrevs_toggle {
 	cursor:pointer;
 }
 
-li.flaggedrevs_hist_stable {
+li.fr-hist-stable-margin {
 	margin-top: 2em;
 }
 

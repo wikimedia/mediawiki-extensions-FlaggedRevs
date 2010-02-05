@@ -1790,7 +1790,7 @@ class FlaggedRevsHooks {
 			list( $link, $class ) = self::markHistoryRow( $title, $row );
 			# Space out and demark the stable revision
 			if ( $revId == $history->fr_stableRevId && $history->fr_pendingRevs ) {
-				$liClasses[] = 'flaggedrevs_hist_stable';
+				$liClasses[] = 'fr-hist-stable-margin';
 			}
 		}
 		# Style the row as needed
@@ -1836,8 +1836,9 @@ class FlaggedRevsHooks {
 	}
 	
 	public static function addToFileHistLine( $hist, $file, &$s, &$rowClass ) {
-		if ( !$file->isVisible() )
+		if ( !$file->isVisible() ) {
 			return true; // Don't bother showing notice for deleted revs
+		}
 		# Quality level for old versions selected all at once.
 		# Commons queries cannot be done all at once...
 		if ( !$file->isOld() || !$file->isLocal() ) {
