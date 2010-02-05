@@ -433,7 +433,8 @@ class Stabilization extends UnlistedSpecialPage
 		$row = $dbw->selectRow( 'flaggedpage_config',
 			array( 'fpc_select', 'fpc_override', 'fpc_level', 'fpc_expiry' ),
 			array( 'fpc_page_id' => $this->page->getArticleID() ),
-			__METHOD__
+			__METHOD__,
+			'FOR UPDATE'
 		);
 		# If setting to site default values and there is a row...erase it
 		if ( $row && $reset ) {
