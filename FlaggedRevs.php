@@ -519,6 +519,9 @@ $wgHooks['WikiExporter::dumpStableQuery'][] = 'FlaggedRevsHooks::stableDumpQuery
 
 # Duplicate flagged* tables in parserTests.php
 $wgHooks['ParserTestTables'][] = 'FlaggedRevsHooks::onParserTestTables';
+
+# Database schema changes
+$wgHooks['LoadExtensionSchemaUpdates'][] = 'FlaggedRevsHooks::addSchemaUpdates';
 # ########
 
 function efSetFlaggedRevsConditionalHooks() {
@@ -603,34 +606,3 @@ function efFlaggedRevsUnreviewedPagesUpdate() {
 # B/C ...
 $wgLogActions['rights/erevoke']  = 'rights-editor-revoke';
 
-# Schema changes
-$wgHooks['LoadExtensionSchemaUpdates'][] = 'efFlaggedRevsSchemaUpdates';
-
-function efFlaggedRevsSchemaUpdates() {
-	global $wgDBtype, $wgExtNewFields, $wgExtPGNewFields, $wgExtNewIndexes, $wgExtNewTables;
-	$base = dirname( __FILE__ );
-	if ( $wgDBtype == 'mysql' ) {
-		$wgExtNewTables[] = array( 'flaggedrevs', "$base/FlaggedRevs.sql" ); // Initial install tables
-		$wgExtNewFields[] = array( 'flaggedpage_config', 'fpc_expiry', "$base/archives/patch-fpc_expiry.sql" );
-		$wgExtNewIndexes[] = array( 'flaggedpage_config', 'fpc_expiry', "$base/archives/patch-expiry-index.sql" );
-		$wgExtNewTables[] = array( 'flaggedrevs_promote', "$base/archives/patch-flaggedrevs_promote.sql" );
-		$wgExtNewTables[] = array( 'flaggedpages', "$base/archives/patch-flaggedpages.sql" );
-		$wgExtNewFields[] = array( 'flaggedrevs', 'fr_img_name', "$base/archives/patch-fr_img_name.sql" );
-		$wgExtNewTables[] = array( 'flaggedrevs_tracking', "$base/archives/patch-flaggedrevs_tracking.sql" );
-		$wgExtNewFields[] = array( 'flaggedpages', 'fp_pending_since', "$base/archives/patch-fp_pending_since.sql" );
-		$wgExtNewFields[] = array( 'flaggedpage_config', 'fpc_level', "$base/archives/patch-fpc_level.sql" );
-		$wgExtNewTables[] = array( 'flaggedpage_pending', "$base/archives/patch-flaggedpage_pending.sql" );
-	} elseif ( $wgDBtype == 'postgres' ) {
-		$wgExtNewTables[] = array( 'flaggedrevs', "$base/FlaggedRevs.pg.sql" ); // Initial install tables
-		$wgExtPGNewFields[] = array( 'flaggedpage_config', 'fpc_expiry', "TIMESTAMPTZ NULL" );
-		$wgExtNewIndexes[] = array( 'flaggedpage_config', 'fpc_expiry', "$base/postgres/patch-expiry-index.sql" );
-		$wgExtNewTables[] = array( 'flaggedrevs_promote', "$base/postgres/patch-flaggedrevs_promote.sql" );
-		$wgExtNewTables[] = array( 'flaggedpages', "$base/postgres/patch-flaggedpages.sql" );
-		$wgExtNewIndexes[] = array( 'flaggedrevs', 'fr_img_sha1', "$base/postgres/patch-fr_img_name.sql" );
-		$wgExtNewTables[] = array( 'flaggedrevs_tracking', "$base/postgres/patch-flaggedrevs_tracking.sql" );
-		$wgExtNewIndexes[] = array( 'flaggedpages', 'fp_pending_since', "$base/postgres/patch-fp_pending_since.sql" );
-		$wgExtPGNewFields[] = array( 'flaggedpage_config', 'fpc_level', "TEXT NULL" );
-		$wgExtNewTables[] = array( 'flaggedpage_pending', "$base/postgres/patch-flaggedpage_pending.sql" );
-	}
-	return true;
-}
