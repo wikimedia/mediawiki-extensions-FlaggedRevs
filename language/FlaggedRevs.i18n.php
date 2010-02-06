@@ -1923,8 +1923,7 @@ Gwelet [[Special:ReviewedPages|roll ar pajennoù adwelet]] evit kaout roll ar pa
 Gant ar [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} brouilhed] ez eus [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|c'hemm|kemm}}] kinniget.",
 	'revreview-basic-old' => "Hemañ zo ur stumm bet [[{{MediaWiki:Validationpage}}|gwiriet]] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} gwelet an holl]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprouet] d'an <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Kemmoù] nevez a c'hell bezañ bet graet.",
-	'revreview-basic-same' => "Setu an diwezhañ stumm bet [[{{MediaWiki:Validationpage}}|adwelet]] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} gwelet an holl]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprouet] d'an <i>$2</i>.
-Gallout a ra ar bajenn bezañ '''[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} kemmet]'''.",
+	'revreview-basic-same' => "Ar [[{{MediaWiki:Validationpage}}|stumm embannet]] eo, bet [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} gwiriet] d'an <i>$2</i>.",
 	'revreview-basic-source' => "Ur [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} stumm gwiriet] eus ar bajenn-mañ, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprouet] d'an <i>$2</i>, a zo diazezet war ar stumm-mañ.",
 	'revreview-failed' => "'''N'eus ket bet tu adlenn.''' N'eo ket klok ar sujidigezh pe n'eo ket mat.",
 	'revreview-current' => 'Brouilhed',
@@ -1956,7 +1955,7 @@ Ar ''brouilhed'', a weler dindan, en deus [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&
 	'revreview-pending-quality' => "Ar [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} stumm embannet] a zo bet [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprouet] d'an <i>$2</i>. Ar [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} brouilhed] en deus
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 kemm{{PLURAL:$3||}}] er mare-mañ.",
 	'revreview-pending-nosection' => "Klask gwelet ar [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} brouilhed], e lec'h ma 'vez [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2  kemm{{PLURAL:$2||}}], a-benn gwelet ma 'z eo bet dilerc'hiet pe dilamet an diuzadenn.",
-	'revreview-noflagged' => "N'eus stumm reizhet ebet eus ar bajenn-mañ, setu marteze n'eo '''ket''' bet [[{{MediaWiki:Validationpage}}|gwiriekaet]] he ferzhioù.",
+	'revreview-noflagged' => "N'eus stumm [[{{MediaWiki:Validationpage}}|adlennet]] ebet eus ar bajenn-mañ, setu marteze n'eo '''ket''' bet [[{{MediaWiki:Validationpage}}|gwiriekaet]] he ferzhioù.",
 	'revreview-note' => 'Skrivet eo bet an notennoù-mañ gant [[User:$1|$1]] e-ser [[{{MediaWiki:Validationpage}}|adwelet]] ar stumm :',
 	'revreview-notes' => 'Evezhiadennoù ha notennoù da ziskouez :',
 	'revreview-oldrating' => 'E boentadur :',
@@ -1977,14 +1976,16 @@ Gallout a ra ar bajenn bezañ '''[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} kemm
 	'revreview-quick-quality' => "'''[[{{MediaWiki:Validationpage}}|Pennad a-feson]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} gwelet brouilhed]]",
 	'revreview-quick-quality-old' => "'''[[{{MediaWiki:Validationpage}}|Pennad a-feson]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} gwelet brouilhed]]",
 	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|Pennad a-feson]]'''",
-	'revreview-quick-see-basic' => "'''Brouilhed''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} gwelet ar pennad]]
-([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} keñveriañ])",
+	'revreview-quick-see-basic' => '[[{{MediaWiki:Validationpage}}|Brouilhed]] [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} stumm embannet]]
+([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} keñveriañ])',
 	'revreview-quick-see-quality' => "'''[[{{MediaWiki:Validationpage}}|Brouilhed]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} stumm embannet]]
 ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} keñveriañ])",
 	'revreview-selected' => "Adweladenn dibabet eus '''$1 :'''",
 	'revreview-source' => 'Mammenn ar brouilhed',
 	'revreview-stable' => 'Pajenn embannet',
 	'revreview-basic-title' => 'Ur stumm gwiriet eus ar bajenn-mañ eo',
+	'revreview-stable1' => "Marteze o peus c'hoant gwelet [{{fullurl:$1|stableid=$2}} ar stumm merket] a-benn gouzout ma 'z eo bremañ [{{fullurl:$1|stable=1}} ar stumm embannet] eus ar bajenn-mañ.",
+	'revreview-stable2' => "Marteze o peus c'hoant gwelet [{{fullurl:$1|stable=1}} ar stumm embannet] eus ar bajenn-mañ (ma 'z eus unan).",
 	'revreview-style' => 'Lennuster',
 	'revreview-style-0' => 'Ket aprouet',
 	'revreview-style-1' => 'Degemeradus',
@@ -2000,7 +2001,7 @@ Gallout a ra ar bajenn bezañ '''[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} kemm
 	'revreview-update' => "Mar plij [[{{MediaWiki:Validationpage}}|adwelit]] an holl gemmoù ''(diskouezet a-is)'' bet graet abaoe ma oa bet [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprouet] ar stumm embannet.
 '''Hizivaet e oa bet patromoù/skeudennoù zo :'''",
 	'revreview-update-includes' => "'''Hizivaet eo bet patromoù/restroù 'zo:'''",
-	'revreview-update-none' => "Mar plij [[{{MediaWiki:Validationpage}}|adwelit]] an holl gemmoù ''(diskouezet a-is)'' bet graet abaoe ma oa bet [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprouet] ar stumm embannet.",
+	'revreview-update-none' => "Mar plij [[{{MediaWiki:Validationpage}}|adlennit]] an holl gemmoù ''(diskouezet a-is)'' bet graet abaoe ma oa bet [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprouet] ar stumm embannet.",
 	'revreview-update-use' => "'''NOTENN :''' M'o deus ur stumm stabil neb hini eus ar patromoù/restroù-se, neuze ez eo dija implijet ar stumm embannet-se war ar bajenn.",
 	'revreview-visibility' => "Er bajenn-mañ ez eus ur [[{{MediaWiki:Validationpage}}|stumm embannet]]. Posubl eo [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}}kefluniañ] arventennoù ar stabilded.'''",
 	'revreview-revnotfound' => "N'eo ket bet kavet stumm kent ar bajenn-mañ. Gwiriit an URL lakaet ganeoc'h evit mont d'ar bajenn-mañ.",
@@ -10014,11 +10015,14 @@ Lë [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} sbòss] a conten [{{fullurl:{{FULLPA
 Lë [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} sbòss] a conten [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} cambe dë stamp/file] ch'a speto revision.",
 	'revreview-basic-old' => "Sòn sì a l'é na [[{{MediaWiki:Validationpage}}|revision]] controlà ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} lista tut]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovà] dël <i>$2</i>.
 Neuv [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} cambe] a peulo esse stàit fàit.",
-	'revreview-changed' => "'''L'arcesta a l'é nen podusse sodisfé për lòn ch'a toca sta revision-sì.'''
-	
-	A puel esse ch'a sia ciamasse në stamp ò na figura sensa ch'a fussa butasse la version. Sòn a peul rivé quand në 
-	stamp dinàmich a transclud na figura ò n'àotr ëstamp conforma a na variàbil dont contnù a peul esse cambià da  
-	quand a l'ha anandiasse a vardé sta pàgina-sì. Carié torna la pàgina e anandiesse da zero a peul arsolve la gran-a.",
+	'revreview-basic-same' => "Sòn sì a l'é la [[{{MediaWiki:Validationpage}}|vërsion publicà]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} controlà] dël <i>$2</i>.",
+	'revreview-basic-source' => "Na [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} vërsion controlà] dë sta pàgina-sì, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovà] dël <i>$2</i>, a l'é stàita basà fòra dë sta revision-sì.",
+	'revreview-failed' => "'''As peul pa revisioné sta revision-sì.''' La sotmission a l'é ancompleta o dasnà pa bon-a.",
+	'revreview-changed' => "'''L'assion ciamà a l'é nen podusse sodisfé su sta revision-sì dël [[:$1|$1]].'''
+
+Në stamp ò na figura a peul esse stàit ciamà sensa ch'a fussa butasse la version. 
+Sòn a peul rivé quand në stamp dinàmich a transclud na figura ò n'àutr ëstamp conforma a na variàbil dont contnù a peul esse cambià da  quand a l'ha anandiasse a vardé sta pàgina-sì. 
+Carié torna la pàgina e anandiesse da zero a peul arsolve la gran-a.",
 	'revreview-current' => 'Version corenta',
 	'revreview-depth' => 'Ancreus',
 	'revreview-depth-0' => 'Pa aprovà',
@@ -10026,62 +10030,138 @@ Neuv [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} cambe] a peulo 
 	'revreview-depth-2' => 'Mes',
 	'revreview-depth-3' => 'Bon',
 	'revreview-depth-4' => 'Premià',
-	'revreview-edit' => 'Modifiché la bruta',
+	'revreview-draft-title' => "Sta sì a l'é na pàgina dë sbòss.",
+	'revreview-draft-rev' => 'Revision dë sbòss',
+	'revreview-edit' => 'Modìfica',
+	'revreview-editnotice' => "'''Ij tò cambe a saran [[{{MediaWiki:Validationpage}}|publicà]] na vira che n'utent autorisà aj [[{{MediaWiki:Validationpage}}|revision-a]].'''",
+	'revreview-check-flag' => 'Pùblica le modìfiche pëndente al moment',
+	'revreview-edited' => "'''Ij cambe a saran [[{{MediaWiki:Validationpage}}|publicà]] na vira che n'utent autorisà aj [[{{MediaWiki:Validationpage}}|revision-a]].'''
+Lë ''sbòss'', mostà sota, a conten [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 {{PLURAL:$2|cambe|cambe}} pëndent].",
+	'revreview-edited-section' => 'Artorna a la session ëd pàgina ciamà "[[#$1|$2]]".',
 	'revreview-flag' => 'Revisioné sta version',
+	'revreview-reflag' => 'Revision-a torna sta revision-sì',
+	'revreview-invalid' => "'''Obietiv pa bon:000 pa gnun-e revision [[{{MediaWiki:Validationpage}}|revisionà]] a corispondo a l'ID dàit.",
 	'revreview-legend' => "Deje 'l vot al contnù dla version:",
 	'revreview-log' => 'Coment për ël registr:',
-	'revreview-main' => "Për podej revisioné a venta ch'as selession-a na version ëd na pàgina ëd contnù. 
+	'revreview-main' => 'It deuve selessioné na revision particolar ëd na pàgina ëd contnù për revisionela.
 
-	Ch'a varda [[Special:Unreviewedpages|da revisioné]] për na lista ëd pàgine ch'a speto na revision.",
-	'revreview-newest-basic' => "L'[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} ùltima version vardà]
-	([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} vardeje tute]) dë sta pàgina-sì a l'é staita [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovà]
-	 dël <i>$2</i>. <br /> A-i {{PLURAL:$3|é|son}} $3 version ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} modìfiche]) ch'a speto na revision.",
-	'revreview-newest-quality' => "L'[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} ùltim vot ëd qualità]
-	([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} vardeje tuti]) dë sta pàgina-sì a l'é stait [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovà]
-	 dël <i>$2</i>. <br /> A-i {{PLURAL:$3|é|son}} $3 version ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} modìfiche]) ch'a speto d'esse revisionà.",
-	'revreview-noflagged' => "A-i é pa gnun-a version revisionà dë sta pàgina-sì, donca a l'é belfé ch'a la sia '''nen''' staita
-	[[{{MediaWiki:Validationpage}}|controlà]] coma qualità.",
+Varda la [[Special:Unreviewedpages|lista dle pàgine pa revisionà]].',
+	'revreview-newest-basic' => "La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} vërsion publicà] a l'é stàita [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} controlà] dël <i>$2</i>. Lë sbòss a conten [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|cambe|cambe}} pëndent].",
+	'revreview-newest-basic-i' => "La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} vërsion publicà] a l'é stàita [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} controlà] dël <i>$2</i>. Lë sbòss a conten
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} cambe dë stamp/file] ch'a speto revision.",
+	'revreview-newest-quality' => "La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} version publicà] a l'é stàita [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovà] dël <i>$2</i>. Lë sbòss a conten [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|cambe|cambe}} pending].",
+	'revreview-newest-quality-i' => "La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} version publicà] a l'é stàita [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovà] dël <i>$2</i>. Lë sbòss a conten  
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} cambe dë stamp/file] ch'a speto revision.",
+	'revreview-pending-basic' => "La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} version publicà] a l'é stàita [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} controlà] dël <i>$2</i>. Lë [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} sbòss] a conten  
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|cambe|cambe}} pendent].",
+	'revreview-pending-quality' => "La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} version publicà] a l'é stàita [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovà] dël <i>$2</i>. Lë [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} sbòss] a conten  
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|cambe|cambe}} pendent].",
+	'revreview-pending-nosection' => "Preuva a vëdde lë [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} sbòss], ch'a anclud
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 {{PLURAL:$2|cambe|cambe}} pendent], për vëdde se la session a l'é stàita tramudà o scanselà.",
+	'revreview-noflagged' => "A-i é pa gnun-a version [[{{MediaWiki:Validationpage}}|revisionà]] dë sta pàgina-sì, donca a l'é belfé ch'a la sia '''nen''' staita 
+[[{{MediaWiki:Validationpage}}|controlà]] coma qualità.",
 	'revreview-note' => "[[User:$1|$1]] a l'ha buta-ie ste nòte-sì a la revision, antramentr ch'a la [[{{MediaWiki:Validationpage}}|controlava]]:",
 	'revreview-notes' => 'Osservation ò nòte da smon-e:',
 	'revreview-oldrating' => "A l'é stait giudicà për:",
-	'revreview-quality' => "Costa-sì a l'é l'ùltima revision ëd [[{{MediaWiki:Validationpage}}|qualità]] dë sta pàgina, e a l'é staita
-	[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovà] dël <i>$2</i>. La [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} version corenta]
-	për sòlit as peul [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} modifichesse] e a l'é pì agiornà. A-i {{PLURAL:$3|é|son}} $3 version
-	([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} modìfiche]) da revisioné.",
-	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|Vardà]]'''. [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} version corenta]]",
-	'revreview-quick-none' => "'''Corenta'''. Pa gnun-a version revisionà.",
-	'revreview-quick-quality' => "'''[[{{MediaWiki:Validationpage}}|Qualità]]'''. [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} version corenta]]",
-	'revreview-quick-see-basic' => "'''Corenta'''. [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} ùltima version vardà]",
-	'revreview-quick-see-quality' => "'''Corenta'''. [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} ùltima version votà për qualità]",
+	'revreview-quality' => "Costa-sì a l'é la [[{{MediaWiki:Validationpage}}|version publicà]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovà] dël <i>$2</i>. 
+Lë [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} sbòss] a conten [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|cambe|cambe}} pendent] ch'a speto revision.",
+	'revreview-quality-i' => "Sta sì a l'é la [[{{MediaWiki:Validationpage}}|version publicà]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovà] dël <i>$2</i>.
+Lë [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} sbòss] a l'ha [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} template/file cambe] ch'a spet revision.",
+	'revreview-quality-old' => "Sta sì a l'é la revision ëd [[{{MediaWiki:Validationpage}}|qualità]] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} lista tut]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovà] dël <i>$2</i>.
+Neuv [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} cambe] a peulo esse stàit fàit.",
+	'revreview-quality-same' => "Sta sì a l'é la [[{{MediaWiki:Validationpage}}|version publicà]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovà] dël <i>$2</i>.",
+	'revreview-quality-source' => "Na [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} version ëd qualità] dë sta pàgina-sì, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovà] dël <i>$2</i>, a l'era basà fòra dë sta version.",
+	'revreview-quality-title' => "Sta sì a l'é na vërsin ëd qualità dë sta pàgina-sì",
+	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|Pàgina cntrolà]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} varda sbòss]]",
+	'revreview-quick-basic-old' => "'''[[{{MediaWiki:Validationpage}}|Pàgina controlà]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} varda sbòss]]",
+	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|Pàgina controlà]]'''",
+	'revreview-quick-invalid' => "'''ID revision pa bon'''",
+	'revreview-quick-none' => "'''[[{{MediaWiki:Validationpage}}|Pàgina dë sbòss]]''' (pa revisionà)",
+	'revreview-quick-quality' => "'''[[{{MediaWiki:Validationpage}}|Pàgina ëd qualità]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} varda sbòss]]",
+	'revreview-quick-quality-old' => "'''[[{{MediaWiki:Validationpage}}|Pàgina ëd quality]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} varda sbòss]]",
+	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|Pàgina ëd quality]]'''",
+	'revreview-quick-see-basic' => "'''[[{{MediaWiki:Validationpage}}|Sbòss]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} versin publicà]]
+([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} confronta])",
+	'revreview-quick-see-quality' => "'''[[{{MediaWiki:Validationpage}}|Sbòss]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} version publicà]]
+([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} confronta])",
 	'revreview-selected' => "Version selessionà ëd '''$1:'''",
-	'revreview-source' => 'sorgiss dla bruta',
-	'revreview-stable' => 'Version stàbila',
+	'revreview-source' => 'Sorgiss dlë sbòss',
+	'revreview-stable' => 'Pàgina publicà',
+	'revreview-basic-title' => "Sta sì a l'é na vërsion controlà dë sta pàgina-sì",
+	'revreview-stable1' => "It peule volèj vardé [{{fullurl:$1|stableid=$2}} sta vërsion signalà-sì] e vëdde s'a l'é adess la [{{fullurl:$1|stable=1}} vërsin publicà] dë sta pàgina-sì.",
+	'revreview-stable2' => "It peule volèj vardé la [{{fullurl:$1|stable=1}} vërsion publicà] dë sta pàgina-sì (s'a-i n'a-i é ancó un-a)",
 	'revreview-style' => 'Belfé da lese',
 	'revreview-style-0' => 'Pa aprovà',
 	'revreview-style-1' => 'A peul andé',
 	'revreview-style-2' => 'Bon-a',
 	'revreview-style-3' => 'Concisa',
 	'revreview-style-4' => 'Premià',
-	'revreview-submit' => 'Buta la revision',
-	'revreview-text' => "Për sòlit pitòst che nen j'ùltime, as ësmon-o për contnù le version stàbij.",
+	'revreview-submit' => 'Spediss',
+	'revreview-submit-review' => 'Marca revisionà',
+	'revreview-submit-unreview' => 'Marca pa revisionà',
+	'revreview-submitting' => 'Spedì ...',
+	'revreview-successful' => "'''Revision ëd [[:$1|$1]] signalà da bin. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} varda vërsion revisionà])'''",
+	'revreview-successful2' => "'''Revision ëd [[:$1|$1]] dësignalà da bin.'''",
+	'revreview-text' => "''[[{{MediaWiki:Validationpage}}|Vërsion revisionà]] a son vërsion ëd pàgine controlà dovrà për determiné la vërsion publicà.''",
 	'revreview-toggle' => '(visca/dësmòrta ij detaj)',
-	'revreview-toolow' => 'A venta ch\'a buta tuti j\'atribut ambelessì sota almanch pì àot che "pa aprovà" përché
-	na version ës conta da revisionà. Për dëspresié na version ch\'a-i buta tuti ij camp a "pa aprovà".',
-	'revreview-update' => "Për piasì, ch'a contròla le modìfiche (smonùe ambelessì sota) faite da quand a l'é staita publicà la revision stàbila dla pàgina. A son stait modificà ëdcò jë stamp e le figure smonùe ambelessì dapress:",
-	'revreview-update-none' => "Për piasì, ch'a contròla le modìfiche (smonùe ambelessì sota) faite da quand a l'é staita publicà la revision stàbila dla pàgina.",
-	'revreview-visibility' => "Sta pàgina-sì a l'ha na [[{{MediaWiki:Validationpage}}|version stàbila]], ch'as peul [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} regolesse].",
+	'revreview-toggle-title' => 'mosta/stërma detaj',
+	'revreview-toolow' => "'''It deuve stimé mincadun ëd j'atribù sota pi àut che \"pa aprovà\" përchè na revision a sia considrà revisionà.'''
+Për depreché na revision, amposta tùit ij camp a \"pa aprovà\".
+
+Për piasì sgnaca ël boton \"andré\" an tò browser e preuva torna.",
+	'revreview-update' => "Për piasì [[{{MediaWiki:Validationpage}}|revision-a]] mina cambe ''(smonù ambelessì sota)'' fàit da quand la revision publicà a l'é stàita [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovà].<br />. 
+'''Cheich stamp/file a son ëstàit cangià:'''",
+	'revreview-update-includes' => "'''Cheich stamp/file a son ëstàit cangià:'''",
+	'revreview-update-none' => "Për piasì [[{{MediaWiki:Validationpage}}|revision-a]] minca cambe ''(smonù ambelessì sota)'' fàit da quand la version publicà a l'é stàita [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovà].",
+	'revreview-update-use' => "'''NOTA:''' Se mincadun dë sti stamp/file a l'han na vërsion publicà, antlora a l'é già dovrà ant la vërsion publicà dë sta pàgina-sì.",
+	'revreview-visibility' => "'''Sta pàgina-sì a l'ha na [[{{MediaWiki:Validationpage}}|vërsion publicà]]; j'ampostassion dë stabilità dla pàgina a peulo esse [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} configurà].'''",
+	'revreview-visibility2' => "'''Sta pàgina-sì a l'ha na [[{{MediaWiki:Validationpage}}|vërsion publicà]] veja; j'ampostassion dë stabilità dla pàgina a peulo esse [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} configurà].'''",
+	'revreview-visibility3' => "'''Sta pàgina-sì a l'ha pa na [[{{MediaWiki:Validationpage}}|vërsion publicà]]; j'ampostassion dë stabilità dla pàgina a peulo esse [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} configurà].'''",
 	'revreview-revnotfound' => "La version prima dl'artìcol che a l'ha ciamà a l'é pa staita trovà.
 Che as controla për piasì l'adrëssa (URL) che a l'ha dovrà për rivé a sta pàgina-sì.",
+	'right-autoreview' => 'Avèj na pròpria modìfica automaticament marcà com "verificà"',
+	'right-movestable' => 'Tramuda pàgine publicà',
+	'right-review' => 'Marca revision com a sio "controlà"',
+	'right-stablesettings' => "Configura com la vërsion publicà a l'é selessionà e visualisà",
+	'right-validate' => 'Marca revision com a sio ëd "qualità"',
 	'right-unreviewedpages' => 'Varda [[Special:UnreviewedPages|lista dle pàgine pa revisionà]]',
+	'rights-editor-autosum' => 'autopromovù',
 	'rights-editor-revoke' => 'gava-je la qualìfica ëd redator a [[$1]]',
+	'specialpages-group-quality' => 'Assicurassion ëd qualità',
 	'stable-logentry-config' => 'regolà la version stàbila ëd [[$1]]',
 	'stable-logentry-reset' => 'azerà la version stàbila për [[$1]]',
 	'stable-logpage' => 'Registr dle version stàbij',
 	'stable-logpagetext' => "Cost-sì a l'é un registr dle modìfiche fàite a la configurassion dla [[{{MediaWiki:Validationpage}}|version publicà]] dle pàgine ëd contnù.
 La lista dle pàgine ch'a l'han damanca ëd n'aprovassion editorial a resta ant la [[Special:StablePages|lista dle pàgine stàbij]].",
+	'revreview-filter-all' => 'tute',
+	'revreview-filter-stable' => 'publicà',
+	'revreview-filter-approved' => 'Aprovà',
+	'revreview-filter-reapproved' => 'Torna aprovà',
+	'revreview-filter-unapproved' => 'Pa aprovà',
+	'revreview-filter-auto' => 'Automàtich',
+	'revreview-filter-manual' => 'Manual',
+	'revreview-statusfilter' => 'Cambe dë stat:',
+	'revreview-typefilter' => 'Sòrt:',
+	'revreview-levelfilter' => 'Livel:',
+	'revreview-lev-basic' => 'controlà',
+	'revreview-lev-quality' => 'qualità',
+	'revreview-lev-pristine' => 'ancontaminà',
+	'revreview-reviewlink' => 'revision',
 	'tooltip-ca-current' => 'Vardé la bruta corenta dë sta pàgina-sì',
-	'tooltip-ca-stable' => 'Vardé la version stàbila dla pàgina',
+	'tooltip-ca-stable' => 'Vardé la version publicà dë sta pàgina-sì',
 	'tooltip-ca-default' => 'Regolassion dij Contròj ëd Qualità',
+	'flaggedrevs-protect-legend' => 'Pùblica modìfiche',
+	'flaggedrevs-protect-none' => "Autorisa tùit j'utent",
+	'flaggedrevs-protect-basic' => 'Ampostassion ëd default',
+	'revreview-locked-title' => "Le modìfiche a deuvo esse revisionà prima d'esse publicà su sta pàgina-sì.",
+	'revreview-unlocked-title' => "Le modìfiche a deuvo pa esse revisionà prima d'esse publicà su sta pàgina-sì.",
+	'revreview-locked' => "'''Nòta.''' Le modìfiche a devo esse [[{{MediaWiki:Validationpage}}|revisionà]] prima d'esse publicà su sta pàgina-sì.",
+	'revreview-unlocked' => "'''Nòta.''' Le modìfiche a devo pa esse [[{{MediaWiki:Validationpage}}|revisionà]] prima d'esse publicà su sta pàgina-sì.",
+	'log-show-hide-review' => '$1 registr ëd le revision',
+	'revreview-tt-review' => 'Ampòsta sto stat-sì a sta revision-sì',
+	'revreview-tt-flag' => 'Marca sta revision com revisionà',
+	'revreview-tt-unflag' => 'marca sta revision com pa revisionà',
+	'validationpage' => '{{ns:help}}:Validassion ëd pàgina',
 );
 
 /** Pashto (پښتو)
@@ -10670,10 +10750,10 @@ Pe piacere cazze 'u buttone \"back\" d'u browser tune e pruève arrete.",
 	'revreview-visibility3' => "'''Sta pàgene non ge tène 'na [[{{MediaWiki:Validationpage}}|versiona secure]] aggiornate; le 'mbostaziune de'a stabbiletà d'a pàgene ponne essere [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} configurate].'''",
 	'revreview-revnotfound' => "'A vecchia revisione d'a pàgene ca tu è cerchete non ge se iacchije.
 Pe piacere condrolle l'URL ca tu è ausete pe trasè jndr'à sta pagene.",
-	'right-autoreview' => 'Signe le revisiune cumme viste automaticamende',
+	'right-autoreview' => 'Certe cangiaminde tue onne state marcate automaticamende cumme "verificate"',
 	'right-movestable' => 'Spuèste le pàggene pubblecate',
 	'right-review' => 'Signe le revisiune cumme ce onne state "verificate"',
-	'right-stablesettings' => 'Configure cumme versiona secure quedde ca jè selezionete e visualizzete',
+	'right-stablesettings' => 'Configure cumme versiona pubblecate quedde ca jè selezionate e visualizzate',
 	'right-validate' => 'Signe le revisiune cumme ce onne state de "qualità"',
 	'right-unreviewedpages' => "Vide [[Special:UnreviewedPages|a liste de le pàggene ca non g'onne state rivisitete]]",
 	'rights-editor-autosum' => 'auto promosse',
