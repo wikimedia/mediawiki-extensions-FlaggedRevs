@@ -1369,7 +1369,7 @@ class FlaggedRevs {
 	* @param Title, $title
 	* @return bool
 	*/
-	public static function isPageReviewable( $title ) {
+	public static function inReviewNamespace( $title ) {
 		global $wgFlaggedRevsWhitelist;
 		$namespaces = self::getReviewNamespaces();
 		$ns = ( $title->getNamespace() == NS_MEDIA ) ?
@@ -1382,11 +1382,11 @@ class FlaggedRevs {
 	}
 	
 	/**
-	* Is this page in patrolable namespace?
+	* Is this page in patrollable namespace?
 	* @param Title, $title
 	* @return bool
 	*/
-	public static function isPagePatrollable( $title ) {
+	public static function inPatrolNamespace( $title ) {
 		$namespaces = self::getPatrolNamespaces();
 		$ns = ( $title->getNamespace() == NS_MEDIA ) ?
 			NS_FILE : $title->getNamespace(); // Treat NS_MEDIA as NS_FILE

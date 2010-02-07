@@ -33,7 +33,7 @@ class ReviewedVersions extends UnlistedSpecialPage
 	protected function showStableList() {
 		global $wgOut, $wgUser;
 		# Must be a content page
-		if ( !FlaggedRevs::isPageReviewable( $this->page ) ) {
+		if ( !FlaggedRevs::inReviewNamespace( $this->page ) ) {
 			$wgOut->addHTML( wfMsgExt( 'reviewedversions-none', array( 'parse' ),
 				$this->page->getPrefixedText() ) );
 			return;

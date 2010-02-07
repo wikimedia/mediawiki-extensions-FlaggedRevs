@@ -43,7 +43,7 @@ class ApiStabilize extends ApiBase {
 		if( $title == null ) {
 			$this->dieUsage( "Invalid title given.", "invalidtitle" );
 		}
-		if( !FlaggedRevs::isPageReviewable($title) ) {
+		if( !FlaggedRevs::inReviewNamespace($title) ) {
 			$this->dieUsage( "Title given does not correspond to a reviewable page.", "invalidtitle" );
 		}
 		$errors = $title->getUserPermissionsErrors('stablesettings', $wgUser);

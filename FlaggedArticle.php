@@ -71,7 +71,7 @@ class FlaggedArticle extends Article {
 	 * @param bool $titleOnly, only check if title is in reviewable namespace
 	 */
 	public function isReviewable( $titleOnly = false ) {
-		if ( !FlaggedRevs::isPageReviewable( $this->getTitle() ) ) {
+		if ( !FlaggedRevs::inReviewNamespace( $this->getTitle() ) ) {
 			return false;
 		} elseif ( !$titleOnly && FlaggedRevs::forDefaultVersionOnly()
 			&& !$this->isStableShownByDefault() )
@@ -87,7 +87,7 @@ class FlaggedArticle extends Article {
 	* @return bool
 	*/
 	public function isPatrollable( $titleOnly = false ) {
-		if ( FlaggedRevs::isPagePatrollable( $this->getTitle() ) ) {
+		if ( FlaggedRevs::inPatrolNamespace( $this->getTitle() ) ) {
 			return true;
 		} elseif ( !$titleOnly && FlaggedRevs::forDefaultVersionOnly()
 			&& !$this->isStableShownByDefault() )

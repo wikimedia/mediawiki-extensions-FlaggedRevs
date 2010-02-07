@@ -53,7 +53,7 @@ class ApiReview extends ApiBase {
 		$form->oldid = $revid;
 		$title = $rev->getTitle();
 		$form->page = $title;
-		if( !FlaggedRevs::isPageReviewable( $title ) )
+		if( !FlaggedRevs::inReviewNamespace( $title ) )
 			$this->dieUsage( "Provided revision or page can not be reviewed.", 'notreviewable' );
 
 		if( isset( $params['unapprove'] ) ) 

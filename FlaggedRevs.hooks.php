@@ -236,7 +236,7 @@ class FlaggedRevsHooks {
 		if ( $fa->isReviewable() ) {
 			// Moved from non-reviewable to reviewable NS?
 			if ( FlaggedRevs::autoReviewNewPages() && $user->isAllowed( 'autoreview' )
-				&& !FlaggedRevs::isPageReviewable( $otitle ) )
+				&& !FlaggedRevs::inReviewNamespace( $otitle ) )
 			{
 				$rev = Revision::newFromTitle( $ntitle );
 				// Treat this kind of like a new page...
@@ -460,7 +460,7 @@ class FlaggedRevsHooks {
 		# Should be in reviewable namespace, this saves unneeded DB checks as
 		# well as enforce site settings if they are later changed.
 		if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_STABLE
-			&& FlaggedRevs::isPageReviewable( $title ) && $title->getArticleId() )
+			&& FlaggedRevs::inReviewNamespace( $title ) && $title->getArticleId() )
 		{
 			$id = $dbr->selectField( 'flaggedpages', 'fp_stable',
 				array( 'fp_page_id' => $title->getArticleId() ),
@@ -533,7 +533,7 @@ class FlaggedRevsHooks {
 		# well as enforce site settings if they are later changed.
 		$sha1 = '';
 		if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_STABLE
-			&& FlaggedRevs::isPageReviewable( $title ) )
+			&& FlaggedRevs::inReviewNamespace( $title ) )
 		{
 			$srev = FlaggedRevision::newFromStable( $title );
 			if ( $srev && $srev->getFileTimestamp() ) {
@@ -627,7 +627,7 @@ class FlaggedRevsHooks {
 		# well as enforce site settings if they are later changed.
 		$sha1 = "";
 		if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_STABLE
-			&& FlaggedRevs::isPageReviewable( $nt ) )
+			&& FlaggedRevs::inReviewNamespace( $nt ) )
 		{
 			$srev = FlaggedRevision::newFromStable( $nt );
 			if ( $srev && $srev->getFileTimestamp() ) {
@@ -773,7 +773,7 @@ class FlaggedRevsHooks {
 		}
 		# Don't let users vandalize pages by moving them...
 		if ( $action === 'move' ) {
-			if ( !FlaggedRevs::isPageReviewable( $title ) || !$title->exists() )
+			if ( !FlaggedRevs::inReviewNamespace( $title ) || !$title->exists() )
 				return true;
 			$flaggedArticle = FlaggedArticle::getTitleInstance( $title );
 			# If the current shows be default anyway, nothing to do...
@@ -791,7 +791,7 @@ class FlaggedRevsHooks {
 			# Pages in reviewable namespace can be patrolled IF reviewing
 			# is disabled for pages that don't show the stable by default.
 			# In such cases, we let people with 'review' rights patrol them.
-			if ( FlaggedRevs::isPageReviewable( $title ) && !$user->isAllowed( 'review' ) ) {
+			if ( FlaggedRevs::inReviewNamespace( $title ) && !$user->isAllowed( 'review' ) ) {
 				$result = false;
 				return false;
 			}
@@ -1005,7 +1005,7 @@ class FlaggedRevsHooks {
 		# Must be in reviewable namespace
 		$title = $article->getTitle();
 		# Revision must *be* null (null edit). We also need the user who made the edit.
-		if ( !$user || $rev !== null || !FlaggedRevs::isPageReviewable( $title ) ) {
+		if ( !$user || $rev !== null || !FlaggedRevs::inReviewNamespace( $title ) ) {
 			return true;
 		}
 		# Get the current revision ID
@@ -1047,7 +1047,7 @@ class FlaggedRevsHooks {
 			return true;
 		}
 		// Is the page reviewable?
-		if ( FlaggedRevs::isPageReviewable( $rc->getTitle() ) ) {
+		if ( FlaggedRevs::inReviewNamespace( $rc->getTitle() ) ) {
 			# Note: pages in reviewable namespace with FR disabled
 			# won't autopatrol. May or may not be useful...
 			$quality = FlaggedRevs::getRevQuality( $rc->mAttribs['rc_cur_id'],
@@ -1061,7 +1061,7 @@ class FlaggedRevsHooks {
 		}
 		// Is this page in patrollable namespace?
 		$patrol = $record = false;
-		if ( FlaggedRevs::isPagePatrollable( $rc->getTitle() ) ) {
+		if ( FlaggedRevs::inPatrolNamespace( $rc->getTitle() ) ) {
 			# Bots and users with 'autopatrol' have edits to patrolleable pages
 			# marked  automatically on edit.
 			$patrol = $wgUser->isAllowed( 'autopatrol' ) || $wgUser->isAllowed( 'bot' );
@@ -1617,7 +1617,7 @@ class FlaggedRevsHooks {
 		&$title, $request, &$ignoreRedirect, &$target, &$article
 	) {
 		# Get an instance on the title ($wgTitle)
-		if ( !FlaggedRevs::isPageReviewable( $title ) ) {
+		if ( !FlaggedRevs::inReviewNamespace( $title ) ) {
 			return true;
 		}
 		if ( $request->getVal( 'stableid' ) ) {
@@ -1878,7 +1878,7 @@ class FlaggedRevsHooks {
 	) {
 		if ( empty( $rc->mAttribs['fpp_rev_id'] ) )
 			return true; // page is not listed in pending edit table
-		if ( !FlaggedRevs::isPageReviewable( $rc->getTitle() ) )
+		if ( !FlaggedRevs::inReviewNamespace( $rc->getTitle() ) )
 			return true; // confirm that page is in reviewable namespace
 		$rlink = $list->skin->makeKnownLinkObj( $rc->getTitle(), wfMsg( 'revreview-reviewlink' ),
 			'oldid=' . intval( $rc->mAttribs['fpp_rev_id'] ) . '&diff=cur' );
@@ -2015,7 +2015,7 @@ class FlaggedRevsHooks {
 		global $wgUser, $wgRequest, $wgOut, $wgLang;
 		if ( !FlaggedRevs::useProtectionLevels() || !$article->exists() ) {
 			return true; // nothing to do
-		} else if ( !FlaggedRevs::isPageReviewable( $article->getTitle() ) ) {
+		} else if ( !FlaggedRevs::inReviewNamespace( $article->getTitle() ) ) {
 			return true; // not a reviewable page
 		}
 		# Can the user actually do anything?
@@ -2148,7 +2148,7 @@ class FlaggedRevsHooks {
 	public static function insertStabilityLog( $article, $out ) {
 		if ( !FlaggedRevs::useProtectionLevels() || !$article->exists() ) {
 			return true; // nothing to do
-		} else if ( !FlaggedRevs::isPageReviewable( $article->getTitle() ) ) {
+		} else if ( !FlaggedRevs::inReviewNamespace( $article->getTitle() ) ) {
 			return true; // not a reviewable page
 		}
 		# Show relevant lines from the stability log:
@@ -2166,7 +2166,7 @@ class FlaggedRevsHooks {
 		if ( wfReadOnly() || !$wgUser->isAllowed( 'stablesettings' ) ) {
 			return true; // user cannot change anything
 		}
-		if ( !FlaggedRevs::isPageReviewable( $article->getTitle() ) ) {
+		if ( !FlaggedRevs::inReviewNamespace( $article->getTitle() ) ) {
 			return true; // not a reviewable page
 		}
 		$form = new Stabilization();

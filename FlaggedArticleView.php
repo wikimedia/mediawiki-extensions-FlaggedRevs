@@ -981,7 +981,7 @@ class FlaggedArticleView {
 			return true; // simple custom levels set for action=protect
 		}
 		$title = $this->article->getTitle()->getSubjectPage();
-		if ( !FlaggedRevs::isPageReviewable( $title ) ) {
+		if ( !FlaggedRevs::inReviewNamespace( $title ) ) {
 			return true; // Only reviewable pages need these tabs
 		}
 		// Check if we should show a stabilization tab

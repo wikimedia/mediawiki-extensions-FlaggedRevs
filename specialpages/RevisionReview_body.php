@@ -78,7 +78,7 @@ class RevisionReview extends UnlistedSpecialPage
 	private function markReviewed() {
 		global $wgRequest, $wgOut, $wgUser;
 		# Must be in reviewable namespace
-		if ( !FlaggedRevs::isPageReviewable( $this->page ) ) {
+		if ( !FlaggedRevs::inReviewNamespace( $this->page ) ) {
 			$wgOut->addHTML( wfMsgExt( 'revreview-main', array( 'parse' ) ) );
 			return;
 		}
@@ -197,7 +197,7 @@ class RevisionReview extends UnlistedSpecialPage
 			{
 				case "target":
 					$form->page = Title::newFromUrl( $val );
-					if ( is_null( $form->page ) || !FlaggedRevs::isPageReviewable( $form->page ) ) {
+					if ( is_null( $form->page ) || !FlaggedRevs::inReviewNamespace( $form->page ) ) {
 						return '<err#>' . wfMsgExt( 'revreview-failed', 'parseinline' );
 					}
 					break;

@@ -59,7 +59,7 @@ class Stabilization extends UnlistedSpecialPage
 		} elseif ( !$this->page->exists() ) {
 			return $wgOut->addHTML( wfMsgExt( 'stabilization-notexists', array( 'parseinline' ),
 				$this->page->getPrefixedText() ) );
-		} elseif ( !FlaggedRevs::isPageReviewable( $this->page ) ) {
+		} elseif ( !FlaggedRevs::inReviewNamespace( $this->page ) ) {
 			return $wgOut->addHTML( wfMsgExt( 'stabilization-notcontent', array( 'parseinline' ),
 				$this->page->getPrefixedText() ) );
 		}

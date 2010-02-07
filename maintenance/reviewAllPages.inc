@@ -35,7 +35,7 @@ function autoreview_current( $user, $db ) {
 			# Is it already reviewed?
 			$frev = FlaggedRevision::newFromTitle( $title, $row->page_latest, FR_MASTER );
 			# Should exist, but to be safe...
-			if( !$frev && $rev && FlaggedRevs::isPageReviewable($title) ) {
+			if( !$frev && $rev && FlaggedRevs::inReviewNamespace($title) ) {
 				$text = $rev->getText();
 				$article = new Article( $title );
 				FlaggedRevs::autoReviewEdit( $article, $user, $text, $rev, $flags, true );
