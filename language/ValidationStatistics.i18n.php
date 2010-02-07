@@ -1318,7 +1318,7 @@ Den publiserte versjonen av en side er den nyeste revisjonen som har blitt godkj
  */
 $messages['oc'] = array(
 	'validationstatistics' => 'Estatisticas de validacion',
-	'validationstatistics-users' => "'''{{SITENAME}}''' dispausa actualament de '''[[Special:ListUsers/editor|$1]]''' utilizaire{{PLURAL:$1||s}} amb los dreches de [[{{MediaWiki:Validationpage}}|contributor]] e de '''[[Special:ListUsers/reviewer|$2]]''' utilizaire{{PLURAL:$2||s}} amb los dreches de [[{{MediaWiki:Validationpage}}|relector]].
+	'validationstatistics-users' => "'''{{SITENAME}}''' dispausa actualament de '''[[Special:ListUsers/editor|$1]]''' utilizaire{{PLURAL:$1||s}} amb los dreches de [[{{MediaWiki:Validationpage}}|contributor]].
 
 Los contributors e relectors son d'utilizaires establits que pòdon verificar las revisions de las paginas.",
 	'validationstatistics-time' => "'''Las donadas seguentas son en amagatal e son estadas mesas a jorn pel darrièr còp lo $5 a $6.''
@@ -1328,8 +1328,8 @@ Las modificacions que son estadas verificadas per d'utilizaires establits son co
 Lo temps de relectura mejan de las modificacions per ''d'utilizaires que son pas connectats'' es '''$1''' ; la valor mediana es '''$3'''.
 $4
 Lo relambi mejan per las [[Special:OldReviewedPages|paginas que contenon de modificacions pas relegidas en cors]] es '''$2'''.
-Aquelas paginas son consideradas ''perimidas''. Amai, las paginas son declaradas ''sincronizadas'' se la [[{{MediaWiki:Validationpage}}|version establa]] es tanben la version de borrolhon correnta.
-Las versions establas son de versions de paginas verificadas per al mens un utilizaire regular.",
+Aquelas paginas son consideradas ''perimidas''. Amai, las paginas son declaradas ''sincronizadas'' se i a pas cap de modificacion qu'espère una relectura.
+La version publicada es la version de la pagina mai recenta qu'es estada verificada per èsser afichada per defaut a totes los lectors.",
 	'validationstatistics-table' => "Las estatisticas per cada espaci de noms son afichadas çaijós, a ''l’exclusion'' de las paginas de redireccion.",
 	'validationstatistics-ns' => 'Nom de l’espaci',
 	'validationstatistics-total' => 'Paginas',

@@ -690,8 +690,8 @@ $messages['no'] = array(
  */
 $messages['oc'] = array(
 	'stablepages' => 'Paginas establas',
-	'stablepages-stable' => 'version establa',
-	'stablepages-text' => 'Vaquí, çaijós, una lista de las pagians normalament configuradas per veire lo contengut de la version establa pels revisaires.',
+	'stablepages-stable' => 'version publicada',
+	'stablepages-text' => 'Aquí, çaijós, una lista de las paginas configuradas manualament per far pas veire que la version publicada coma contengut per defaut pels lectors.',
 	'stablepages-none' => 'Existís pas cap de pagina dins aquesta lista',
 	'stablepages-config' => 'Configuracion',
 	'stablepages-prec-none' => 'pas cap de prioritat',
