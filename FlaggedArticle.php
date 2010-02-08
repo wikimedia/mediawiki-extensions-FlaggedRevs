@@ -68,33 +68,24 @@ class FlaggedArticle extends Article {
 
 	 /**
 	 * Is this article reviewable?
-	 * @param bool $titleOnly, only check if title is in reviewable namespace
+     * @returns bool
 	 */
-	public function isReviewable( $titleOnly = false ) {
+	public function isReviewable() {
 		if ( !FlaggedRevs::inReviewNamespace( $this->getTitle() ) ) {
 			return false;
-		} elseif ( !$titleOnly && FlaggedRevs::forDefaultVersionOnly()
-			&& !$this->isStableShownByDefault() )
-		{
-			return false;
 		}
-		return true;
+        return !( FlaggedRevs::forDefaultVersionOnly() && !$this->isStableShownByDefault() );
 	}
 	
 	/**
 	* Is this page in patrolable?
-	* @param bool $titleOnly, only check if title is in reviewable namespace
 	* @return bool
 	*/
-	public function isPatrollable( $titleOnly = false ) {
-		if ( FlaggedRevs::inPatrolNamespace( $this->getTitle() ) ) {
-			return true;
-		} elseif ( !$titleOnly && FlaggedRevs::forDefaultVersionOnly()
-			&& !$this->isStableShownByDefault() )
-		{
-			return true;
-		}
-		return false;
+	public function isPatrollable() {
+        if ( !FlaggedRevs::inPatrolNamespace( $this->getTitle() ) ) {
+			return false;
+        }
+        return !$this->isReviewable(); // pages that are reviewable are not patrollable
 	}
 
 	/**

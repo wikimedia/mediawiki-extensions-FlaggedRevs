@@ -45,7 +45,7 @@ class FlaggedRevsHooks {
 		}
 		$fa = FlaggedArticleView::globalArticleInstance();
 		# Try to only add to relevant pages
-		if ( !$fa || !$fa->isReviewable( true ) ) {
+		if ( !$fa || !$fa->isReviewable() ) {
 			return true;
 		}
 		global $wgScriptPath, $wgJsMimeType, $wgFlaggedRevsStylePath, $wgFlaggedRevStyleVersion;
@@ -78,7 +78,7 @@ class FlaggedRevsHooks {
 		global $wgUser;
 		$fa = FlaggedArticleView::globalArticleInstance();
 		# Try to only add to relevant pages
-		if ( !$fa || !$fa->isReviewable( true ) ) {
+		if ( !$fa || !FlaggedRevs::inReviewNamespace( $fa->getTitle() ) ) {
 			return true;
 		}
 		# Get the review tags on this wiki
@@ -773,8 +773,9 @@ class FlaggedRevsHooks {
 		}
 		# Don't let users vandalize pages by moving them...
 		if ( $action === 'move' ) {
-			if ( !FlaggedRevs::inReviewNamespace( $title ) || !$title->exists() )
+			if ( !FlaggedRevs::inReviewNamespace( $title ) || !$title->exists() ) {
 				return true;
+			}
 			$flaggedArticle = FlaggedArticle::getTitleInstance( $title );
 			# If the current shows be default anyway, nothing to do...
 			if ( !$flaggedArticle->isStableShownByDefault() ) {
@@ -788,27 +789,14 @@ class FlaggedRevsHooks {
 			}
 		# Don't let users patrol pages not in $wgFlaggedRevsPatrolNamespaces
 		} else if ( $action === 'patrol' || $action === 'autopatrol' ) {
-			# Pages in reviewable namespace can be patrolled IF reviewing
-			# is disabled for pages that don't show the stable by default.
-			# In such cases, we let people with 'review' rights patrol them.
-			if ( FlaggedRevs::inReviewNamespace( $title ) && !$user->isAllowed( 'review' ) ) {
+			$flaggedArticle = FlaggedArticle::getTitleInstance( $title );
+			# For a page to be patrollable it must not be reviewable.
+			# Note: normally, edits to non-reviewable, non-patrollable, pages are
+			# silently marked patrolled automatically. With $wgUseNPPatrol on, the
+			# first edit to those pages is left as being unpatrolled.
+			if ( $flaggedArticle->isReviewable() ) {
 				$result = false;
 				return false;
-			}
-			$flaggedArticle = FlaggedArticle::getTitleInstance( $title );
-			# The page must be in a patrollable namespace ($wgFlaggedRevsPatrolNamespaces)...
-			if ( !$flaggedArticle->isPatrollable() ) {
-				global $wgUseNPPatrol;
-				# ...unless the page is not in a reviewable namespace and
-				# new page patrol is enabled. In this scenario, any edits
-				# to pages outside of patrollable namespaces would already
-				# be auto-patrolled, except for the new page edits.
-				if ( $wgUseNPPatrol && !$flaggedArticle->isReviewable() ) {
-					return true;
-				} else {
-					$result = false;
-					return false;
-				}
 			}
 		# Enforce autoreview restrictions
 		} else if( $action === 'autoreview' ) {
@@ -1046,15 +1034,13 @@ class FlaggedRevsHooks {
 		if ( empty( $rc->mAttribs['rc_this_oldid'] ) ) {
 			return true;
 		}
+		$fa = FlaggedArticle::getTitleInstance( $rc->getTitle() );
 		// Is the page reviewable?
-		if ( FlaggedRevs::inReviewNamespace( $rc->getTitle() ) ) {
-			# Note: pages in reviewable namespace with FR disabled
-			# won't autopatrol. May or may not be useful...
-			$quality = FlaggedRevs::getRevQuality( $rc->mAttribs['rc_cur_id'],
-				$rc->mAttribs['rc_this_oldid'], GAID_FOR_UPDATE );
+		if ( $fa->isReviewable() ) {
+			$revId = $rc->mAttribs['rc_this_oldid'];
+			$quality = FlaggedRevs::getRevQuality( $rc->mAttribs['rc_cur_id'], $revId, FR_MASTER );
 			if ( $quality !== false && $quality >= FlaggedRevs::getPatrolLevel() ) {
-				RevisionReview::updateRecentChanges( $rc->getTitle(),
-					$rc->mAttribs['rc_this_oldid'] );
+				RevisionReview::updateRecentChanges( $rc->getTitle(), $revId );
 				$rc->mAttribs['rc_patrolled'] = 1; // make sure irc/email notifs know status
 			}
 			return true;
@@ -1062,21 +1048,22 @@ class FlaggedRevsHooks {
 		// Is this page in patrollable namespace?
 		$patrol = $record = false;
 		if ( FlaggedRevs::inPatrolNamespace( $rc->getTitle() ) ) {
-			# Bots and users with 'autopatrol' have edits to patrolleable pages
-			# marked  automatically on edit.
+			# Bots and users with 'autopatrol' have edits to patrollable
+			# pages marked automatically on edit.
 			$patrol = $wgUser->isAllowed( 'autopatrol' ) || $wgUser->isAllowed( 'bot' );
-			$record = true;
+			$record = true; // record if patrolled
 		} else {
 			global $wgUseNPPatrol;
-			# Mark patrolled by default unless this is a new page and new page patrol 
-			# is enabled (except when the user has 'autopatrol', then patrol it).
-			# This is just to avoid RC clutter for non-patrollable pages.
-			if ( $wgUser->isAllowed( 'autopatrol' ) ) {
-				$patrol = true;
-				# Record patrolled new pages if $wgUseNPPatrol is on
-				$record = ( $wgUseNPPatrol && !empty( $rc->mAttribs['rc_new'] ) );
+			// Is this is a new page edit and $wgUseNPPatrol is enabled?
+			if( $wgUseNPPatrol && !empty( $rc->mAttribs['rc_new'] ) ) {
+				# Automatically mark it patrolled if the user can do so
+				$patrol = $wgUser->isAllowed( 'autopatrol' );
+				$record = true;
+			// Otherwise, this edit is not patrollable
 			} else {
-				$patrol = !( $wgUseNPPatrol && !empty( $rc->mAttribs['rc_new'] ) );
+				# Silently mark it "patrolled" so that it doesn't show up as being unpatrolled
+				$patrol = true;
+				$record = false;
 			}
 		}
 		// Set rc_patrolled flag and add log entry as needed

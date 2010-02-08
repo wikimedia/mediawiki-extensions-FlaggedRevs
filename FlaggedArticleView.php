@@ -122,8 +122,8 @@ class FlaggedArticleView {
 	public function displayTag() {
 		global $wgOut, $wgRequest;
 		$this->load();
-		// Sanity check that this is in reviewable namespace
-		if ( $this->article->isReviewable( true ) ) {
+		// Sanity check that this is a reviewable page
+		if ( $this->article->isReviewable() ) {
 			$wgOut->appendSubtitle( $this->reviewNotice );
 		}
 		return true;
@@ -945,7 +945,7 @@ class FlaggedArticleView {
 		if ( FlaggedRevs::getProtectionLevels() )
 			return true; // simple custom levels set for action=protect
 		# Check only if the title is reviewable
-		if ( !$this->article->isReviewable( true ) ) {
+		if ( !FlaggedRevs::inReviewNamespace( $this->article->getTitle() ) ) {
 			return true;
 		}
 		$action = $wgRequest->getVal( 'action', 'view' );

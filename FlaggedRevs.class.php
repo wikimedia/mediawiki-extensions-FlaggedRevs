@@ -98,7 +98,7 @@ class FlaggedRevs {
 			self::$restrictionLevels = array( '' ) + self::$restrictionLevels;
 		}
 		# Make sure no talk namespaces are in review namespace
-		global $wgFlaggedRevsNamespaces;
+		global $wgFlaggedRevsNamespaces, $wgFlaggedRevsPatrolNamespaces;
 		foreach ( $wgFlaggedRevsNamespaces as $ns ) {
 			if ( MWNamespace::isTalk( $ns ) ) {
 				throw new MWException( 'FlaggedRevs given talk namespace in $wgFlaggedRevsNamespaces!' );
@@ -107,11 +107,8 @@ class FlaggedRevs {
 			}
 		}
 		self::$reviewNamespaces = $wgFlaggedRevsNamespaces;
-		# Reviewable namespaces override patrolable ones
-		global $wgFlaggedRevsPatrolNamespaces;
-		self::$patrolNamespaces = array_diff(
-			$wgFlaggedRevsPatrolNamespaces, $wgFlaggedRevsNamespaces
-		);
+		# Note: reviewable *pages* override patrollable ones
+		self::$patrolNamespaces = $wgFlaggedRevsPatrolNamespaces;
 		
 		self::$loaded = true;
 	}
@@ -1107,12 +1104,13 @@ class FlaggedRevs {
 	/**
 	 * @param int $page_id
 	 * @param int $rev_id
-	 * @param $flags, GAID_FOR_UPDATE
+	 * @param $flags, FR_MASTER
 	 * @returns mixed (int or false)
 	 * Get quality of a revision
 	 */
 	public static function getRevQuality( $page_id, $rev_id, $flags = 0 ) {
-		$db = ( $flags & GAID_FOR_UPDATE ) ? wfGetDB( DB_MASTER ) : wfGetDB( DB_SLAVE );
+		$db = ( $flags & FR_MASTER ) ?
+			wfGetDB( DB_MASTER ) : wfGetDB( DB_SLAVE );
 		return $db->selectField( 'flaggedrevs',
 			'fr_quality',
 			array( 'fr_page_id' => $page_id, 'fr_rev_id' => $rev_id ),
@@ -1124,7 +1122,7 @@ class FlaggedRevs {
 	/**
 	 * @param Title $title
 	 * @param int $rev_id
-	 * @param $flags, GAID_FOR_UPDATE
+	 * @param $flags, FR_MASTER
 	 * @returns bool
 	 * Useful for quickly pinging to see if a revision is flagged
 	 */
