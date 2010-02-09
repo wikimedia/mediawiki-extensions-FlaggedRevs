@@ -33,7 +33,7 @@ $messages['qqq'] = array(
  * @author Naudefj
  */
 $messages['af'] = array(
-	'unstablepages-stable' => 'stabiele weergawe',
+	'unstablepages-stable' => 'gepubliseerde weergawe',
 	'unstablepages-config' => 'Voorkeure',
 );
 

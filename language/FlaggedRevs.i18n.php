@@ -535,9 +535,13 @@ $messages['af'] = array(
 	'editor' => 'Redakteur',
 	'flaggedrevs-pref-UI' => 'Basiese koppelvlak:',
 	'prefs-flaggedrevs' => 'Stabiele weergawe',
+	'group-editor' => 'Redakteurs',
 	'group-editor-member' => 'Redakteur',
+	'group-reviewer' => 'Beoordelaars',
 	'group-reviewer-member' => 'resensent',
 	'grouppage-editor' => '{{ns:project}}:Redakteur',
+	'revreview-diff-toggle-show' => '(wys veranderinge)',
+	'revreview-diff-toggle-hide' => '(versteek veranderinge)',
 	'review-logentry-id' => 'weergawe: $2',
 	'reviewer' => 'Resensent',
 	'revreview-accuracy' => 'Akkuraatheid',
@@ -567,6 +571,7 @@ $messages['af'] = array(
 ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} vergelyk])",
 	'revreview-selected' => "Geselekteerde weergawe van '''$1:'''",
 	'revreview-stable' => 'Gepubliseerde bladsy',
+	'revreview-style' => 'Leesbaarheid',
 	'revreview-style-0' => 'Nie goedgekeur nie',
 	'revreview-style-1' => 'Aanvaarbaar',
 	'revreview-style-2' => 'Goed',
@@ -577,7 +582,7 @@ $messages['af'] = array(
 	'revreview-toggle-title' => 'wys/versteek details',
 	'revreview-update-includes' => "'''Sommige sjablone/lêers is bygewerk:'''",
 	'revreview-revnotfound' => 'Die ou weergawe wat jy aangevra het kon nie gevind word nie. Gaan asseblief die URL na wat jy gebruik het.',
-	'right-movestable' => 'Skuif stabiele bladsye',
+	'right-movestable' => 'Skuif gepubliseerde bladsye',
 	'specialpages-group-quality' => 'Gehaltebeheer',
 	'revreview-filter-all' => 'Alles',
 	'revreview-filter-stable' => 'stabiel',
@@ -591,6 +596,7 @@ $messages['af'] = array(
 	'revreview-levelfilter' => 'Vlak:',
 	'revreview-lev-quality' => 'kwaliteit',
 	'revreview-lev-pristine' => 'onaangeroerd',
+	'tooltip-ca-default' => 'Instellings vir kwaliteitsbeheer',
 	'flaggedrevs-protect-legend' => 'Publiseer wysigings',
 	'flaggedrevs-protect-none' => 'Alle gebruikers toelaat',
 	'flaggedrevs-protect-basic' => 'Verstekinstellings',
@@ -9744,6 +9750,7 @@ $messages['pdc'] = array(
  * @author Maikking
  * @author McMonster
  * @author Pimke
+ * @author Soeb
  * @author Sp5uhe
  * @author ToSter
  * @author Wpedzich
@@ -9755,7 +9762,7 @@ $messages['pl'] = array(
 	'flaggedrevs-backlog' => "Mamy zaległości w sprawdzaniu [[Special:OldReviewedPages|zmian oczekujących]] na przejrzenie. '''Potrzebna jest Twoja pomoc!'''",
 	'flaggedrevs-watched-pending' => "Na Twojej liście obserwowanych stron znajdują się strony [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} oczekujące na przejrzenie]. '''Potrzebna jest Twoja pomoc!'''",
 	'flaggedrevs-desc' => 'Umożliwia redaktorom i weryfikatorom ocenę edycji oraz oznaczenie zweryfikowanej wersji strony',
-	'flaggedrevs-pref-UI' => 'Interfejs wersji oznaczonych:',
+	'flaggedrevs-pref-UI' => 'Podstawowy interfejs:',
 	'flaggedrevs-pref-UI-0' => 'Użyj szczegółowego interfejsu',
 	'flaggedrevs-pref-UI-1' => 'Użyj prostego interfejsu',
 	'prefs-flaggedrevs' => 'Wersje oznaczone',
@@ -9831,6 +9838,7 @@ Odświeżenie strony i ponowne sprawdzenie może rozwiązać ten problem.",
 	'revreview-check-flag' => 'Oznacz oczekujące edycje jako przejrzane',
 	'revreview-edited' => "'''Edycje zostaną dołączone do [[{{MediaWiki:Validationpage}}|wersji przejrzanej]] po przejrzeniu ich przez uprawnionego użytkownika.'''
 '''''Wersję roboczą'' pokazano poniżej.''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 {{PLURAL:$2|zmiana oczekuje|zmiany oczekują|zmian oczekuje}}] na sprawdzenie.",
+	'revreview-edited-section' => 'Wróć do sekcji „[[#$1|$2]]“.',
 	'revreview-flag' => 'Oznacz tę wersję',
 	'revreview-reflag' => 'Wycofaj oznaczenie w tej wersji',
 	'revreview-invalid' => "'''Niewłaściwy obiekt:''' brak [[{{MediaWiki:Validationpage}}|wersji przejrzanej]] odpowiadającej podanemu ID.",
@@ -9908,6 +9916,7 @@ By wycofać weryfikację, należy ustawić wszystkie pola na „nieakceptowalny�
 	'right-review' => 'Oznaczanie wersji jako przejrzane',
 	'right-stablesettings' => 'Określać sposób, w jaki wersja zweryfikowana ma być wybierana i wyświetlana',
 	'right-validate' => 'Oznaczać wersję jako zweryfikowaną',
+	'right-unreviewedpages' => 'Dostęp do [[Special:UnreviewedPages|listy nieprzejrzanych stron]]',
 	'rights-editor-autosum' => 'nadano automatycznie',
 	'rights-editor-revoke' => 'odebrał uprawnienia redaktora [[$1]]',
 	'specialpages-group-quality' => 'Jakość stron',

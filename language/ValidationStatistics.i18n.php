@@ -1360,9 +1360,9 @@ $messages['pdc'] = array(
  */
 $messages['pl'] = array(
 	'validationstatistics' => 'Statystyki oznaczania',
-	'validationstatistics-users' => "W '''{{GRAMMAR:MS.lp|{{SITENAME}}}}''' zarejestrowanych jest obecnie  '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|użytkownik|użytkowników}} z uprawnieniami [[{{MediaWiki:Validationpage}}|redaktora]] oraz  '''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$2|użytkownik|użytkowników}} z uprawnieniami [[{{MediaWiki:Validationpage}}|weryfikatora]].
+	'validationstatistics-users' => "W '''{{GRAMMAR:MS.lp|{{SITENAME}}}}''' zarejestrowanych jest obecnie  '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|użytkownik|użytkowników}} z uprawnieniami [[{{MediaWiki:Validationpage}}|redaktora]].
 
-Redaktorzy i weryfikatorzy to doświadczeni użytkownicy, którzy mogą oznaczać dowolne wersje stron.",
+Redaktorzy są doświadczonymi użytkownikami, którzy mogą oznaczać dowolne wersje stron.",
 	'validationstatistics-time' => "''Ostatnia aktualizacja danych na tej stronie miała miejsce $5 o godzinie $6.''
 
 Edycje wykonane przez doświadczonych użytkowników są uznawane za przejrzane.
