@@ -1181,11 +1181,12 @@ class FlaggedRevs {
 	/**
 	 * Get visibility restrictions on page
 	 * @param Title $title, page title
-	 * @param bool $forUpdate, use master DB?
+	 * @param int $flags, FR_MASTER
 	 * @returns Array (select,override)
 	 */
-	public static function getPageVisibilitySettings( $title, $forUpdate = false ) {
-		$db = wfGetDB( $forUpdate ? DB_MASTER : DB_SLAVE );
+	public static function getPageVisibilitySettings( $title, $flags = 0 ) {
+		$db = ($flags & FR_MASTER) ?
+			wfGetDB( DB_MASTER ) : wfGetDB( DB_SLAVE );
 		$row = $db->selectRow( 'flaggedpage_config',
 			array( 'fpc_select', 'fpc_override', 'fpc_level', 'fpc_expiry' ),
 			array( 'fpc_page_id' => $title->getArticleID() ),

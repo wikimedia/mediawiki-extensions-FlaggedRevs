@@ -25,7 +25,7 @@ class FlaggedRevision {
 	private $mRevId;
 
 	/**
-	 * @param Row $row (from database)
+	 * @param mixed $row (DB row or array)
 	 */
 	public function __construct( $row ) {
 		if ( is_object( $row ) ) {
@@ -69,11 +69,12 @@ class FlaggedRevision {
 	}
 	
 	/**
+     * Get a FlaggedRevision for a title and rev ID.
+     * Note: will return NULL if the revision is deleted.
 	 * @param Title $title
 	 * @param int $revId
 	 * @param int $flags
 	 * @returns mixed FlaggedRevision (null on failure)
-	 * Will not return a revision if deleted
 	 */
 	public static function newFromTitle( Title $title, $revId, $flags = 0 ) {
 		$columns = self::selectFields();
@@ -116,7 +117,7 @@ class FlaggedRevision {
 	}
 	
 	/**
-	 * Get latest quality rev, if not, the latest reviewed one.
+     * Get a FlaggedRevision of the stable version of a title.
 	 * @param Title $title, page title
 	 * @param int $flags
      * @param array $config, optional page config (use to skip queries)

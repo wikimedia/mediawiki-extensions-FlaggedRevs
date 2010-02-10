@@ -33,11 +33,12 @@ class FlaggedArticle extends Article {
 
 	 /**
 	 * Is the stable version shown by default for this page?
+     * @param int $flags, FR_MASTER
 	 * @returns bool
 	 */
-	public function isStableShownByDefault() {
+	public function isStableShownByDefault( $flags = 0 ) {
 		# Get page configuration
-		$config = $this->getVisibilitySettings();
+		$config = $this->getVisibilitySettings( $flags );
 		return (bool)$config['override'];
 	}
 
@@ -68,24 +69,27 @@ class FlaggedArticle extends Article {
 
 	 /**
 	 * Is this article reviewable?
+     * @param int $flags, FR_MASTER
      * @returns bool
 	 */
-	public function isReviewable() {
+	public function isReviewable( $flags = 0 ) {
 		if ( !FlaggedRevs::inReviewNamespace( $this->getTitle() ) ) {
 			return false;
 		}
-        return !( FlaggedRevs::forDefaultVersionOnly() && !$this->isStableShownByDefault() );
+        return !( FlaggedRevs::forDefaultVersionOnly()
+            && !$this->isStableShownByDefault( $flags ) );
 	}
 	
 	/**
 	* Is this page in patrolable?
+    * @param int $flags, FR_MASTER
 	* @return bool
 	*/
-	public function isPatrollable() {
+	public function isPatrollable( $flags = 0 ) {
         if ( !FlaggedRevs::inPatrolNamespace( $this->getTitle() ) ) {
 			return false;
         }
-        return !$this->isReviewable(); // pages that are reviewable are not patrollable
+        return !$this->isReviewable( $flags ); // pages that are reviewable are not patrollable
 	}
 
 	/**
@@ -115,38 +119,18 @@ class FlaggedArticle extends Article {
 
 	/**
 	 * Get visiblity restrictions on page
-	 * @param Bool $forUpdate, use DB master?
+	 * @param int $flags, FR_MASTER
 	 * @returns Array (select,override)
-	*/
-	public function getVisibilitySettings( $forUpdate = false ) {
+	 */
+	public function getVisibilitySettings( $flags = 0 ) {
 		# Cached results available?
 		if ( !is_null( $this->pageConfig ) ) {
 			return $this->pageConfig;
 		}
 		# Get the content page, skip talk
 		$title = $this->getTitle()->getSubjectPage();
-		$config = FlaggedRevs::getPageVisibilitySettings( $title, $forUpdate );
+		$config = FlaggedRevs::getPageVisibilitySettings( $title, $flags );
 		$this->pageConfig = $config;
 		return $config;
-	}
-
-	/**
-	 * @param int $revId
-	 * @returns Array, output of the flags for a given revision
-	 */
-	public function getFlagsForRevision( $revId ) {
-		# Cached results?
-		if ( isset( $this->flags[$revId] ) ) {
-			return $this->flags[$revId];
-		}
-		# Get the flags
-		$flags = FlaggedRevs::getRevisionTags( $this->getTitle(), $revId );
-		# Don't let cache get too big
-		if ( count( $this->flags ) >= self::CACHE_MAX ) {
-			$this->flags = array();
-		}
-		# Try to cache results
-		$this->flags[$revId] = $flags;
-		return $flags;
 	}
 }

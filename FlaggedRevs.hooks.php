@@ -233,7 +233,7 @@ class FlaggedRevsHooks {
 	public static function onTitleMoveComplete( &$otitle, &$ntitle, $user, $pageId ) {
 		$fa = FlaggedArticle::getTitleInstance( $ntitle );
 		// Re-validate NS/config (new title may not be reviewable)
-		if ( $fa->isReviewable() ) {
+		if ( $fa->isReviewable( FR_MASTER ) ) {
 			// Moved from non-reviewable to reviewable NS?
 			if ( FlaggedRevs::autoReviewNewPages() && $user->isAllowed( 'autoreview' )
 				&& !FlaggedRevs::inReviewNamespace( $otitle ) )
@@ -261,8 +261,8 @@ class FlaggedRevsHooks {
 			$sv = $u->fr_stableRev; // Try the process cache...
 		} else {
 			$fa = FlaggedArticle::getTitleInstance( $linksUpdate->mTitle );
-			if ( $fa->isReviewable() ) { // re-validate NS/config
-				$sv = $fa->getStableRev( FR_MASTER );
+			if ( FlaggedRevs::inReviewNamespace( $linksUpdate->mTitle ) ) {
+				$sv = $fa->getStableRev( FR_MASTER ); // re-validate NS/config
 			} else {
 				$sv = null;
 			}
@@ -863,7 +863,7 @@ class FlaggedRevsHooks {
 		global $wgRequest;
 		# Edit must be non-null, and to a reviewable page
 		$fa = FlaggedArticle::getArticleInstance( $article );
-		if ( !$rev || !$fa->isReviewable() ) {
+		if ( !$rev || !$fa->isReviewable( FR_MASTER ) ) {
 			return true;
 		}
 		if ( !$user ) {
@@ -1036,7 +1036,7 @@ class FlaggedRevsHooks {
 		}
 		$fa = FlaggedArticle::getTitleInstance( $rc->getTitle() );
 		// Is the page reviewable?
-		if ( $fa->isReviewable() ) {
+		if ( $fa->isReviewable( FR_MASTER ) ) {
 			$revId = $rc->mAttribs['rc_this_oldid'];
 			$quality = FlaggedRevs::getRevQuality( $rc->mAttribs['rc_cur_id'], $revId, FR_MASTER );
 			if ( $quality !== false && $quality >= FlaggedRevs::getPatrolLevel() ) {
@@ -1996,7 +1996,7 @@ class FlaggedRevsHooks {
 		return false; // final
 	}
 	
-	// Add radio of review "protection" options
+	// Add selector of review "protection" options
 	// Code stolen from Stabilization (which was stolen from ProtectionForm)
 	public static function onProtectionForm( $article, &$output ) {
 		global $wgUser, $wgRequest, $wgOut, $wgLang;
