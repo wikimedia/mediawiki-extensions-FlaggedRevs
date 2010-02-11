@@ -8,7 +8,6 @@ class FlaggedArticle extends Article {
 	# Process cache variables
 	protected $stableRev = null;
 	protected $pageConfig = null;
-	protected $flags = array();
 
 	/**
 	 * Get a FlaggedArticle for a given title
@@ -106,7 +105,6 @@ class FlaggedArticle extends Article {
 		$srev = FlaggedRevision::newFromStable( $this->getTitle(), $flags );
 		if ( $srev ) {
 			$this->stableRev = $srev;
-			$this->flags[$srev->getRevId()] = $srev->getTags();
 			return $srev;
 		} else {
 			$this->stableRev = false;

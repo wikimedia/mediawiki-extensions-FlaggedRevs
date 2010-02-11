@@ -120,7 +120,7 @@ class FlaggedArticleView {
 	 * Output review notice
 	 */
 	public function displayTag() {
-		global $wgOut, $wgRequest;
+		global $wgOut;
 		$this->load();
 		// Sanity check that this is a reviewable page
 		if ( $this->article->isReviewable() ) {
@@ -182,7 +182,7 @@ class FlaggedArticleView {
 	 * Adds a quick review form on the bottom if needed
 	 */
 	public function setPageContent( &$outputDone, &$pcache ) {
-		global $wgRequest, $wgOut, $wgUser, $wgLang, $wgContLang;
+		global $wgRequest, $wgOut, $wgLang, $wgContLang;
 		$this->load();
 		# Only trigger on article view for content pages, not for protect/delete/hist...
 		$action = $wgRequest->getVal( 'action', 'view' );
@@ -596,7 +596,7 @@ class FlaggedArticleView {
 	* @returns bool, diff added to output
 	*/
 	protected function maybeShowTopDiff( $srev, $quality ) {
-		global $wgUser, $wgOut, $wgMemc;
+		global $wgUser, $wgOut;
 		$this->load();
 		if ( !$wgUser->getBoolOption( 'flaggedrevsviewdiffs' ) )
 			return false; // nothing to do here
