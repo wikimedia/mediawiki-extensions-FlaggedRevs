@@ -10,9 +10,6 @@ class FlaggedArticle extends Article {
 	protected $pageConfig = null;
 	protected $flags = array();
 
-	# Max number of revisions in tag cache
-	const CACHE_MAX = 1000;
-
 	/**
 	 * Get a FlaggedArticle for a given title
 	 */
