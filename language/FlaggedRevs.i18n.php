@@ -3868,16 +3868,25 @@ $messages['eu'] = array(
 	'prefs-flaggedrevs' => 'Egonkortasuna',
 	'group-editor' => 'Editoreak',
 	'group-editor-member' => 'editorea',
+	'grouppage-editor' => '{{ns:project}}:Editorea',
 	'review-logentry-id' => 'berrikuspena: $2',
 	'revreview-accuracy' => 'Zehaztasuna',
 	'revreview-auto' => '(automatikoa)',
-	'revreview-draft-title' => 'Zirriborroa',
+	'revreview-current' => 'Zirriborroa',
+	'revreview-depth' => 'Sakonera',
+	'revreview-depth-1' => 'Oinarrizkoa',
+	'revreview-depth-3' => 'Altua',
+	'revreview-depth-4' => 'Nabarmendua',
+	'revreview-draft-title' => 'Zirriborro orrialdea da hau',
+	'revreview-edit' => 'Aldatu',
 	'revreview-log' => 'Iruzkina:',
+	'revreview-style-2' => 'Ona',
+	'revreview-style-4' => 'Nabarmendua',
 	'revreview-submit' => 'Bidali',
 	'revreview-submitting' => 'Bidaltzen...',
 	'revreview-toggle-title' => 'erakutsi/ezkutatu xehetasunak',
 	'revreview-revnotfound' => 'Ezin izan da eskatzen ari zaren orrialdearen berrikuspen zaharra aurkitu. Mesedez, egiaztatu orrialde honetara iristeko erabili duzun URLa.',
-	'right-movestable' => 'Mugitu orrialde egonkorrak',
+	'right-movestable' => 'Mugitu argitaratutako orrialdeak',
 	'revreview-filter-all' => 'Guztiak',
 	'revreview-filter-auto' => 'Automatikoa',
 	'revreview-filter-manual' => 'Eskuzkoa',
@@ -3885,6 +3894,8 @@ $messages['eu'] = array(
 	'revreview-typefilter' => 'Mota:',
 	'revreview-levelfilter' => 'Maila:',
 	'revreview-lev-quality' => 'kalitatea',
+	'flaggedrevs-protect-none' => 'Lankide guztiak baimendu',
+	'flaggedrevs-protect-basic' => 'Lehenetsitako aukerak',
 );
 
 /** Extremaduran (Estremeñu)
@@ -13057,24 +13068,27 @@ $messages['uk'] = array(
 	'revreview-main' => 'Ви повинні обрати одну з версій сторінки для перевірки.
 
 Див. також [[Special:Unreviewedpages|список неперевірених сторінок]].',
-	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Остання переглянута версія] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} список усіх]) була [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} перевірена] <i>$2</i>.
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|редагування|редагування|редагувань}}] {{PLURAL:$3|потребує|потребують|потребують}} перевірки.',
-	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Остання переглянута версія] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} список усіх]);  [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} перевірена] <i>$2</i>.
-Потрібна перевірка [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} змін у шаблонах або зображеннях].',
-	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Остання якісна версія] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} список усіх]) була [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} перевірена] <i>$2</i>.
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|редагування|редагування|редагувань}}] {{PLURAL:$3|потребує|потребують|потребують}} перевірки.',
+	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Опублікована версія] була [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} перевірена] <i>$2</i>.
+Чернетка містить [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|запропоновану зміну|запропонованих зміни|запропонованих змін}}].',
+	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Опублікована версія] була [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} перевірена] <i>$2</i>. Чернетка містить
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} зміни шаблону/файлу] в очікуванні рецензування.',
+	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Опублікована версія] була [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} затверджена] <i>$2</i>. Чернетка містить [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|запропоновану зміну|запропонованих зміни|запропонованих змін}}].',
 	'revreview-newest-quality-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Опублікована версія] була [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} затверджена] <i>$2</i>. Чернетка містить
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} зміни шаблона/файлу] в очікуванні рецензії.',
+	'revreview-pending-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Опублікована версія] була [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} перевірена] <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Чернетка] містить  
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|запропоновану зміну|запропонованих зміни|запропонованих змін}}].',
+	'revreview-pending-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Опублікована версія] була [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} затверджена] <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Чернетка] містить  
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|запропоновану зміну|запропонованих зміни|запропонованих змін}}].',
 	'revreview-pending-nosection' => 'Спробуйте переглянути [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} чорнову версію], яка містить
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 {{PLURAL:$2|неперевірену зміну|неперевірені зміни|неперевірених змін}}], щоб дізнатися, чи не був розділ перейменований або вилучений.',
 	'revreview-noflagged' => "Немає [[{{MediaWiki:Validationpage}}|рецензованих]] версій цієї сторінки, імовірно, вона '''не''' [[{{MediaWiki:Validationpage}}|перевірялася]] за якісністю.",
 	'revreview-note' => '[[Користувач:$1|$1]] зробив наступний коментар, [[{{MediaWiki:Validationpage}}|перевіряючи]] цю версію:',
 	'revreview-notes' => 'Спостереження і коментарі для показу:',
 	'revreview-oldrating' => 'Була оцінена:',
-	'revreview-quality' => 'Це [[{{MediaWiki:Validationpage}}|стабільна версія]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} перевірена] <i>$2</i>.
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|запропоноване редагування|запропоновані редагування|запропонованих редагувань}}] [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} чернетки] {{PLURAL:$3|очікує|очікують|очікують}} на  перевірку.',
-	'revreview-quality-i' => 'Це остання [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} якісна] версія; [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} перевірена] <i>$2</i>.
-У [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} чернетці] є [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} зміни в шаблонах та зображеннях], що потребують перевірки.',
+	'revreview-quality' => 'Це [[{{MediaWiki:Validationpage}}|опублікована версія]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} затверджена] <i>$2</i>.
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Чернетка] містить [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|запропоноване редагування|запропоновані редагування|запропонованих редагувань}}] в очікуванні рецензування.',
+	'revreview-quality-i' => 'Це [[{{MediaWiki:Validationpage}}|опублікована версія]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} затверджена] <i>$2</i>.
+[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Чернетка] містить [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} зміни шаблону/файлу] в очікуванні рецензування.',
 	'revreview-quality-old' => 'Це [[{{MediaWiki:Validationpage}}|якісна]] версія ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} список усіх]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} затверджена] <i>$2</i>.
 Могли бути зроблені нові [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} редагування].',
 	'revreview-quality-same' => 'Це [[{{MediaWiki:Validationpage}}|опублікована версія]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} затверджена] <i>$2</i>.',
@@ -13113,10 +13127,10 @@ $messages['uk'] = array(
 	'revreview-text' => "''[[{{MediaWiki:Validationpage}}|Перевірені версії]] — проконтрольовані версії сторінок, що використовуються для визначення опублікованої версії.''",
 	'revreview-toggle' => '(+/-)',
 	'revreview-toggle-title' => 'показати/приховати подробиці',
-	'revreview-toolow' => "'''Вам слід зазначити для всіх значень рівень, вищий, ніж «не зазначена», щоб версія сторінки вважалася перевіреною.'''
-Щоб зняти позначку перевіреної версії, встановіть усі значення в «не зазначена».
+	'revreview-toolow' => "'''Ви повинні встановити кожен з нижченаведених атрибутів у значення вище, ніж \"не затверджена\", відповідно до процедури позначення версії рецензованою.'''
+Щоб відкинуту версію, встановіть усі поля у значення \"не затверджена\".
 
-Будь ласка, натисніть кнопку «Назад» у браузері, щоб повторити дію.",
+Будь ласка, натисніть кнопку «Назад» у браузері і спробуйте ще раз.",
 	'revreview-update' => "Будь ласка, [[{{MediaWiki:Validationpage}}|перевірте]] всі зміни ''(показані нижче)'', зроблені після [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} затвердження] опублікованої версії.<br />
 '''Деякі шаблони/файли були оновлені:'''",
 	'revreview-update-includes' => "'''Деякі шаблони або файли були оновлені:'''",

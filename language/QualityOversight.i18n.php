@@ -525,7 +525,7 @@ $messages['te'] = array(
  * @author Hanberke
  */
 $messages['tk'] = array(
-	'qualityoversight' => 'Hil esewany',
+	'qualityoversight' => 'Giňeldilen gözden geçirme gündeligi',
 	'qualityoversight-list' => 'Bu sahypa wersiýalaryň iň soňky tassyklamalaryny we könelmelerini sanawlaýar.',
 	'qualityoversight-legend' => 'Ýaňy-ýakyndaky gözden geçirme gündeliklerini gözle',
 );

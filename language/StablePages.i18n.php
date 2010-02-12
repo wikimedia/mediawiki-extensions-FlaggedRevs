@@ -283,12 +283,14 @@ $messages['es'] = array(
 );
 
 /** Basque (Euskara)
+ * @author An13sa
  * @author Kobazulo
  */
 $messages['eu'] = array(
 	'stablepages' => 'Orrialde egonkorrak',
-	'stablepages-stable' => 'bertsio egonkorra',
+	'stablepages-stable' => 'argitaratutako bertsioa',
 	'stablepages-config' => 'Konfigurazioa',
+	'stablepages-precedence' => 'Jatorria:',
 );
 
 /** Persian (فارسی) */

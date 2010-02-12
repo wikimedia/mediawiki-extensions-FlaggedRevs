@@ -966,11 +966,16 @@ $messages['eu'] = array(
 	'stabilization-select' => 'Argitaratutako bertsioaren aukeraketa',
 	'stabilization-submit' => 'Baieztatu',
 	'stabilization-comment' => 'Arrazoia:',
+	'stabilization-otherreason' => 'Beste arrazoirik:',
 	'stabilization-expiry' => 'Epemuga:',
+	'stabilization-othertime' => 'Beste denbora:',
 	'stabilization-sel-short-0' => 'Kalitatea',
+	'stabilization-sel-short-1' => 'Bat ere',
 	'stabilization-def-short' => 'Lehenetsia',
 	'stabilization-def-short-0' => 'Oraingoa',
 	'stabilization-def-short-1' => 'Argitaratua',
+	'stabilize_expiry_invalid' => 'Iraungipen-data okerra.',
+	'stabilize-expiring' => 'iraungipen-data: $1 (UTC)',
 );
 
 /** Extremaduran (Estremeñu)
