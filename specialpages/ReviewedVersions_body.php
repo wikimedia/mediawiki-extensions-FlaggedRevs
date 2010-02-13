@@ -17,7 +17,7 @@ class ReviewedVersions extends UnlistedSpecialPage
 		$this->skin = $wgUser->getSkin();
 		# Our target page
 		$this->target = $wgRequest->getText( 'page' );
-		$this->page = Title::newFromUrl( $this->target );
+		$this->page = Title::newFromURL( $this->target );
 		# Revision ID
 		$this->oldid = $wgRequest->getVal( 'oldid' );
 		$this->oldid = ( $this->oldid == 'best' ) ? 'best' : intval( $this->oldid );

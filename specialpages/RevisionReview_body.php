@@ -49,7 +49,7 @@ class RevisionReview extends UnlistedSpecialPage
 		}
 		$this->setHeaders();
 		# Our target page
-		$this->page = Title::newFromUrl( $wgRequest->getVal( 'target' ) );
+		$this->page = Title::newFromURL( $wgRequest->getVal( 'target' ) );
 		if ( is_null( $this->page ) ) {
 			$wgOut->showErrorPage( 'notargettitle', 'notargettext' );
 			return;
@@ -196,7 +196,7 @@ class RevisionReview extends UnlistedSpecialPage
 			switch( $par )
 			{
 				case "target":
-					$form->page = Title::newFromUrl( $val );
+					$form->page = Title::newFromURL( $val );
 					if ( is_null( $form->page ) || !FlaggedRevs::inReviewNamespace( $form->page ) ) {
 						return '<err#>' . wfMsgExt( 'revreview-failed', 'parseinline' );
 					}

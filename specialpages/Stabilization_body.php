@@ -92,7 +92,7 @@ class Stabilization extends UnlistedSpecialPage
 	*/
 	public function handleParams() {
 		# Our target page
-		$this->page = Title::newFromUrl( $this->target );
+		$this->page = Title::newFromURL( $this->target );
 		# We need a page...
 		if ( is_null( $this->page ) ) {
 			return false; // can't continue
