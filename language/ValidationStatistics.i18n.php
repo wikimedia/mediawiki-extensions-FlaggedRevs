@@ -269,6 +269,18 @@ Objavljenja verzija je najnovija revizija stranice koja je provjerena i prikazuj
  */
 $messages['ca'] = array(
 	'validationstatistics' => 'Estadístiques de validació',
+	'validationstatistics-users' => "'''{{SITENAME}}''' té actualment '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|usuari|usuaris}} amb drets d'[[{{MediaWiki:Validationpage}}|Editor]].
+
+Els Editors són usuaris experimentats que poden validar les revisions de les pàgines.",
+	'validationstatistics-time' => "''Les següents dades van ser actualitzades per darrera vegada el dia $5 a les $6.''
+
+Es consideren revisades aquelles edicions que han estat validades per usuaris establerts.
+
+La mitja d'espera de les edicions d'''usuaris no registrats'' per a ser revisades és de '''$1'''; la mitjana és de '''$3'''.
+$4
+El retard mig per a [[Special:OldReviewedPages|pàgines amb edicions no revisades pendents]] és '''$2'''.
+Aquestes pàgines es consideren ''obsoletes''. De la mateixa manera, es consideren com a ''sincronitzades'' quan no hi ha modificacions pendents de revisió.
+La versió publicada d'una pàgina és la revisió més recent que ha estat aprovada per a ser mostrada per defecte a tots els lectors.",
 	'validationstatistics-ns' => "Nom d'espai",
 	'validationstatistics-total' => 'Pàgines',
 	'validationstatistics-stable' => "S'ha revisat",
@@ -654,9 +666,9 @@ Os editores son usuarios autoconfirmados que poden comprobar revisións de páxi
 
 As edicións que foron comprobadas polos usuarios autoconfirmados considéranse revisadas.
 
-O promedio de espera de revisión para as edicións feitas polos ''usuarios que non accederon ao sistema'' é de '''$1'''; a media é de '''$3'''.  
+A media de espera de revisión para as edicións feitas polos ''usuarios que non accederon ao sistema'' é de '''$1'''; o valor medio é de '''$3'''.  
 $4
-O promedio de atraso para as [[Special:OldReviewedPages|páxinas con edicións sen revisión]] é de '''$2'''.
+A media de atraso para as [[Special:OldReviewedPages|páxinas con edicións sen revisión]] é de '''$2'''.
 Estas páxinas son consideradas ''obsoletas''. Do mesmo xeito, as páxinas son consideradas ''sincronizadas'' se non hai edicións agardando unha revisión.
 A versión publicada dunha páxina é a revisión máis nova que foi aprobada para mostrarlla por defecto a todos os lectores.",
 	'validationstatistics-table' => "A continuación amósanse as estatísticas para cada espazo de nomes, ''excluíndo'' as páxinas de redirección.",

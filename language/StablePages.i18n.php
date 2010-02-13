@@ -165,10 +165,13 @@ $messages['bs'] = array(
 );
 
 /** Catalan (Català)
+ * @author Aleator
  * @author Jordi Roqué
  * @author Paucabot
  */
 $messages['ca'] = array(
+	'stablepages' => 'Pàgines estables',
+	'stablepages-stable' => 'versió publicada',
 	'stablepages-none' => 'No hi ha pàgines a la llista',
 	'stablepages-config' => 'Configuració',
 );

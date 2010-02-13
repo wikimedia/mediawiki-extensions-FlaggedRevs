@@ -107,11 +107,12 @@ $messages['bs'] = array(
 );
 
 /** Catalan (Català)
+ * @author Aleator
  * @author Paucabot
  */
 $messages['ca'] = array(
 	'unstablepages' => 'Pàgines no estables',
-	'unstablepages-stable' => 'Versió estable',
+	'unstablepages-stable' => 'versió publicada',
 	'unstablepages-none' => 'No hi ha pàgines en aquesta llista',
 	'unstablepages-config' => 'Configuració',
 );

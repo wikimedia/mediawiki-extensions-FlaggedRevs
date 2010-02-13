@@ -248,13 +248,13 @@ $messages['bs'] = array(
 );
 
 /** Catalan (Català)
+ * @author Aleator
  * @author Jordi Roqué
  * @author Qllach
  * @author SMP
  * @author Toniher
  */
 $messages['ca'] = array(
-	'right-unreviewedpages' => 'Veure la [[Special:UnreviewedPages|llista de pàgines no revisades]]',
 	'unreviewedpages' => 'Pàgines per revisar',
 	'unreviewed-legend' => 'Llista de pàgines amb contingut no revisat',
 	'unreviewed-category' => 'Categoria:',
@@ -264,6 +264,8 @@ $messages['ca'] = array(
 	'unreviewed-list' => 'Aquesta pàgina llista les pàgines de contingut que no han estat revisades al nivell indicat.',
 	'unreviewed-none' => 'En aquest moment no hi ha pàgines que compleixin aquests criteris',
 	'unreviewed-viewing' => '(sota revisió)',
+	'unreviewed-hours' => '($1 {{PLURAL:$1|hora|hores}})',
+	'unreviewed-days' => '($1 {{PLURAL:$1|dia|dies}})',
 	'unreviewed-recent' => "(menys d'una hora)",
 );
 

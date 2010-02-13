@@ -995,6 +995,7 @@ $messages['arc'] = array(
 );
 
 /** Egyptian Spoken Arabic (مصرى)
+ * @author Dudi
  * @author Ghaly
  * @author Meno25
  * @author Ramsis II
@@ -1027,7 +1028,7 @@ $messages['arz'] = array(
 	'grouppage-autoreview' => '{{ns:project}}:مراجع تلقائي',
 	'revreview-hist-draft' => 'مراجعه مسودة',
 	'revreview-hist-quality' => 'مراجعه جودة',
-	'revreview-hist-quality-user' => '[{{fullurl:$1|stableid=$2}} وافق] عليها [[User:$3|$3]]',
+	'revreview-hist-quality-user' => '[{{fullurl:$1|stableid=$2}} اتأكد] عليها من [[User:$3|$3]]',
 	'revreview-hist-basic' => 'مراجعه منقحة',
 	'revreview-hist-basic-user' => '[{{fullurl:$1|stableid=$2}} تم التحقق منها] بواسطه [[User:$3|$3]]',
 	'revreview-hist-basic-auto' => '[{{fullurl:$1|stableid=$2}} تم التحقق منها تلقائيا]',
@@ -1079,7 +1080,7 @@ $messages['arz'] = array(
 	'revreview-edited' => "'''التغييرات [[{{MediaWiki:Validationpage}}|ستنشر]] متى [[{{MediaWiki:Validationpage}}|راجعها]] مستخدم مخول.'''
 ''المسودة''، المعروضه بالأسفل، تحتوى على  [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 {{PLURAL:$2|تغيير|تغيير}}] مقترح.",
 	'revreview-flag' => 'راجع هذه المراجعة',
-	'revreview-reflag' => 'أعد مراجعه هذه المراجعة',
+	'revreview-reflag' => 'راجع تانى المراجعه دى',
 	'revreview-invalid' => "'''هدف غير صحيح:''' لا مراجعه [[{{MediaWiki:Validationpage}}|مراجعة]] تتطابق مع الرقم المعطى.",
 	'revreview-legend' => 'قيم محتوى المراجعة',
 	'revreview-log' => 'تعليق:',
@@ -1139,10 +1140,10 @@ $messages['arz'] = array(
 	'revreview-successful2' => "'''مراجعه [[:$1|$1]] تمت إزاله علمها بنجاح.'''",
 	'revreview-text' => "''[[{{MediaWiki:Validationpage}}|النسخ المراجعة]] هى نسخ مفحوصه للصفحات تستخدم لتحديد النسخ المنشوره.''",
 	'revreview-toggle-title' => 'عرض/إخفاء التفاصيل',
-	'revreview-toolow' => '\'\'\'يجب عليك تقييم كل من المحددات بالأسفل أعلى من "غير مقبولة" لكى تعتبر المراجعه مراجعه.\'\'\'
-لسحب تقييم مراجعه، اضبط كل الحقول ك"غير مقبولة".
+	'revreview-toolow' => '\'\'\'لازم تقيّم كل المحددات اللى تحت أكتر من "مش متأكد عليها" علشان المراجعه تعتبر متراجعه.\'\'\'
+علشان يتنفض لمراجعه, اعمل عليهم كلهم بـ "مش متأكد عليها".
 
-من فضلك اضغط زر "رجوع" فى متصفحك وحاول مجددا.',
+لو سمحت دوس على زرار "back" فى البراوزر بتاعتك و جرّب تانى.',
 	'revreview-update' => "من فضلك [[{{MediaWiki:Validationpage}}|راجع]] أيه تغييرات ''(معروضه بالأسفل)'' تمت منذ [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} اعتماد] المراجعه المنشوره.<br />
 '''بعض القوالب/الملفات تم تحديثها:'''",
 	'revreview-update-includes' => "'''بعض القوالب/الملفات تم تحديثها:'''",
@@ -1158,6 +1159,7 @@ $messages['arz'] = array(
 	'right-review' => 'التعليم على المراجعات "كمتحقق منها"',
 	'right-stablesettings' => 'ضبط كيف يتم اختيار وعرض النسخه المنشورة',
 	'right-validate' => 'التعليم على المراجعات "كجودة"',
+	'right-unreviewedpages' => 'رؤيه [[Special:UnreviewedPages|قائمه الصفحات غير المراجعة]]',
 	'rights-editor-autosum' => 'ترقيه تلقائية',
 	'rights-editor-revoke' => 'أزال حاله محرر من [[$1]]',
 	'specialpages-group-quality' => 'توكيد الجودة',
@@ -2686,6 +2688,7 @@ Ein Neuladen der Seite und erneutes Speichern der Markierung kann das Problem be
 	'revreview-editnotice' => "'''Bearbeitungen dieser Seite werden erst als [[{{MediaWiki:Validationpage}}|gesichtete Version veröffentlicht]], sobald ein dazu berechtigter Benutzer die Änderung kontrolliert hat.'''",
 	'revreview-edited' => "'''Neue Bearbeitungen werden als [[{{MediaWiki:Validationpage}}|gesichtete Version veröffentlicht]], sobald ein dazu berechtigter Benutzer die Änderung kontrolliert hat.'''
 Die unten angezeigte Entwurfsversion enthält [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 nicht kontrollierte {{PLURAL:$2|Änderung|Änderungen}}].",
+	'revreview-edited-section' => 'Zurück zum Seitenabschnitt „[[#$1|$2]]“.',
 	'revreview-flag' => 'Markiere Version',
 	'revreview-reflag' => 'Diese Version erneut markieren',
 	'revreview-invalid' => "'''Ungültiges Ziel:''' keine [[{{MediaWiki:Validationpage}}|gesichtete]] Version zur angegebenden ID gefunden.",
@@ -2761,7 +2764,6 @@ Klicke auf die „Zurück“-Schaltfläche deines Browsers und versuche es erneu
 	'revreview-update-includes' => "'''Einige Vorlagen/Dateien wurden aktualisiert:'''",
 	'revreview-update-none' => "Bitte [[{{MediaWiki:Validationpage}}|sichte]] die Änderungen ''(siehe unten)'', die seit der [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} letzten gesichteten Version] vorgenommen wurden.",
 	'revreview-update-use' => "'''Bitte beachten:''' Falls eine dieser Vorlagen/Dateien eine gesichtete Version hat, wird diese in der gesichteten Version dieser Seite angezeigt.",
-	'revreview-diffonly' => "''Um diese Seite zu sichten, klicke bitte auf den Link „Aktuelle Version“ und verwende die Sichtungsbox dort.''",
 	'revreview-visibility' => "'''Diese Seite hat eine aktualisierte [[{{MediaWiki:Validationpage}}|markierte Version]]; die Anzeigeeinstellungen können [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} konfiguriert] werden.'''",
 	'revreview-visibility2' => "'''Diese Seite hat eine veraltete [[{{MediaWiki:Validationpage}}|markierte Version]];
 die Anzeigeeinstellungen können [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} konfiguriert] werden.'''",
@@ -2772,6 +2774,7 @@ die Anzeigeeinstellungen können [{{fullurl:{{#Special:Stabilization}}|page={{FU
 	'right-review' => 'Versionen als gesichtet markieren',
 	'right-stablesettings' => 'Anzeige von stabilen Versionen konfigurieren',
 	'right-validate' => 'Versionen als geprüft markieren',
+	'right-unreviewedpages' => '[[Special:UnreviewedPages|Liste der ungesichteten Seiten]] ansehen',
 	'rights-editor-autosum' => 'automatisch erteilt',
 	'rights-editor-revoke' => 'entfernte Prüfer-Status von „[[$1]]“',
 	'specialpages-group-quality' => 'Qualitätssicherung',
@@ -10223,6 +10226,7 @@ $messages['ps'] = array(
  * @author Lijealso
  * @author Luckas Blade
  * @author Malafaya
+ * @author RmSilva
  * @author Waldir
  */
 $messages['pt'] = array(
@@ -10247,7 +10251,7 @@ $messages['pt'] = array(
 	'group-reviewer-member' => 'revisor',
 	'grouppage-editor' => '{{ns:project}}:Editor',
 	'grouppage-reviewer' => '{{ns:project}}:Revisor',
-	'group-autoreview' => 'Autorevisores',
+	'group-autoreview' => 'Autorrevisores',
 	'group-autoreview-member' => 'autorevisor',
 	'grouppage-autoreview' => '{{ns:project}}:Autorevisor',
 	'revreview-hist-draft' => 'rascunho',

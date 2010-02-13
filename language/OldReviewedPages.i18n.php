@@ -306,6 +306,7 @@ $messages['ca'] = array(
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|dia|dies}})',
 	'oldreviewedpages-recent' => "(menys d'una hora)",
 	'oldreviewed-category' => 'Categoria:',
+	'oldreviewed-watched' => 'Pàgines de la meva llista de seguiment',
 );
 
 /** Czech (Česky)
