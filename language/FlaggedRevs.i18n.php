@@ -1100,8 +1100,8 @@ $messages['arz'] = array(
 	'revreview-note' => '[[User:$1|$1]] كتب الملاحظات التاليه [[{{MediaWiki:Validationpage}}|عند مراجعة]] هذه المراجعة:',
 	'revreview-notes' => 'الملاحظات للعرض:',
 	'revreview-oldrating' => 'تم تقييمها ك:',
-	'revreview-quality' => 'هذه هى [[{{MediaWiki:Validationpage}}|النسخه المنشورة]]، [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} التى تمت الموافقه عليها] فى <i>$2</i>.
-[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} المسودة] تحتوى على [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|تغيير مقترح|تغييرات مقترحة}}] بانتظار المراجعه.',
+	'revreview-quality' => 'هى دى [[{{MediaWiki:Validationpage}}|النسخه المنشوره]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} اتأكد عليها] فى <i>$2</i>.
+[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} المسوده] فيها [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|تغيير|تغييرات}}] مستنيّه المراجعه.',
 	'revreview-quality-i' => 'هذه هى [[{{MediaWiki:Validationpage}}|النسخه المنشورة]]، [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} التى تمت الموافقه عليها] فى <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} المسودة] بها [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} تغييرات قالب/ملف] بانتظار المراجعه.',
 	'revreview-quality-old' => 'هذه مراجعه [[{{MediaWiki:Validationpage}}|جودة]] ([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} عرض الكل]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} تمت الموافقه عليها] فى <i>$2</i>.
@@ -13902,6 +13902,7 @@ $messages['wo'] = array(
  * @author פוילישער
  */
 $messages['yi'] = array(
+	'revreview-edit' => 'רעדאַקטירן',
 	'revreview-revnotfound' => 'די אלטע רעוויזיע איר האט געבעטן קען נישט געפינען ווערן.
 ביטע טשעקט די URL וואס ברויכט אריינצוגיין אין דעם בלאט.',
 	'revreview-filter-all' => 'אַלע',

@@ -80,13 +80,14 @@ $messages['ar'] = array(
 );
 
 /** Egyptian Spoken Arabic (مصرى)
+ * @author Dudi
  * @author Meno25
  * @author Ramsis II
  */
 $messages['arz'] = array(
 	'stablepages' => 'صفحات مستقرة',
-	'stablepages-stable' => 'نسخه منشورة',
-	'stablepages-text' => 'بالأسفل قائمه الصفحات المضبوطه يدويا لتعرض النسخه المنشوره كمحتوى الصفحه الافتراضى للقراء.',
+	'stablepages-stable' => 'نسخه منشوره',
+	'stablepages-text' => 'تحت فيه ليستة الصفح اللى مترتّبه يدوى علشان تخلّى النسخه المنشوره تبقى محتوى الصفحه الاساسى للقرّايين.',
 	'stablepages-none' => 'لا توجد صفحات فى هذه القائمة',
 	'stablepages-config' => 'ضبط',
 	'stablepages-prec-none' => 'لا سابقة',

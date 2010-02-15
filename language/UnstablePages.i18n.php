@@ -49,11 +49,12 @@ $messages['ar'] = array(
 );
 
 /** Egyptian Spoken Arabic (مصرى)
+ * @author Dudi
  * @author Meno25
  */
 $messages['arz'] = array(
 	'unstablepages' => 'صفحات غير مستقرة',
-	'unstablepages-stable' => 'نسخه منشورة',
+	'unstablepages-stable' => 'نسخه منشوره',
 	'unstablepages-text' => 'بالأسفل قائمه بالصفحات المضبوطه يدويا لعرض نسخه المسوده كمحتوى الصفحه الافتراضى للقراء.',
 	'unstablepages-none' => 'لا توجد صفحات فى هذه القائمة',
 	'unstablepages-config' => 'ضبط',
