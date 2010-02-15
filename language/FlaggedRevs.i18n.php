@@ -21,7 +21,7 @@ $messages['en'] = array(
 	'flaggedrevs'                  => 'Flagged Revisions',
 	'flaggedrevs-backlog'          => 'There is currently a backlog of [[Special:OldReviewedPages|pending edits]] to reviewed pages. \'\'\'Your attention is needed!\'\'\'',
 	'flaggedrevs-watched-pending'  => 'There are currently [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} pending edits] to reviewed pages on your watchlist. \'\'\'Your attention is needed!\'\'\'',
-	'flaggedrevs-desc'             => 'Gives editors and reviewers the ability to review revisions and stabilize pages',
+	'flaggedrevs-desc'             => 'Gives Editors and Reviewers the ability to review revisions and stabilize pages',
 	'flaggedrevs-pref-UI'          => 'Basic interface:',
 	'flaggedrevs-pref-UI-0'        => 'Use detailed boxes to show approval status of pages',
 	'flaggedrevs-pref-UI-1'        => 'Use small icons and minimal text to show approval status of pages',
@@ -74,7 +74,7 @@ $messages['en'] = array(
 	'revreview-approved'           => 'Approved',
 	'revreview-auto'               => '(automatic)',
 	'revreview-basic'              => 'This is the [[{{MediaWiki:Validationpage}}|published version]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} checked] on <i>$2</i>.
-The [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} draft] contains [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 pending  {{PLURAL:$3|change|changes}}].',
+The [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} draft] contains [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 pending {{PLURAL:$3|change|changes}}].',
 	'revreview-basic-i'            => 'This is the [[{{MediaWiki:Validationpage}}|published version]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} checked] on <i>$2</i>.
 The [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} draft] contains [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} template/file changes] awaiting review.',
 	'revreview-basic-old'          => 'This is a [[{{MediaWiki:Validationpage}}|checked]] revision ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} list all]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>.
@@ -100,7 +100,7 @@ Refreshing the page and rereviewing can solve this problem.',
 	'revreview-editnotice'         => '\'\'\'Your changes will be [[{{MediaWiki:Validationpage}}|published]] once an authorised user [[{{MediaWiki:Validationpage}}|reviews]] them.\'\'\'',
 	'revreview-check-flag'         => 'Publish currently pending edits',
 	'revreview-edited'             => '\'\'\'Changes will be [[{{MediaWiki:Validationpage}}|published]] once an authorised user [[{{MediaWiki:Validationpage}}|reviews]] them.\'\'\'
-The \'\'draft\'\', shown below, contains  [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 pending {{PLURAL:$2|change|changes}}].',
+The \'\'draft\'\', shown below, contains [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 pending {{PLURAL:$2|change|changes}}].',
 	'revreview-edited-section'     => 'Return to page section named "[[#$1|$2]]".',
 	'revreview-flag'               => 'Review this revision',
 	'revreview-reflag'             => 'Re-review this revision',
