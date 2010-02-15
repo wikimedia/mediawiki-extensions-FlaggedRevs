@@ -29,11 +29,11 @@ class FlaggedArticleView {
 	*/
 	protected function load() {
 		if ( !$this->loaded ) {
+			$this->loaded = true;
 			$this->article = self::globalArticleInstance();
 			if ( $this->article == null ) {
 				throw new MWException( 'FlaggedArticleViewer has no context article!' );
 			}
-			$this->loaded = true;
 		}
 	}
 
