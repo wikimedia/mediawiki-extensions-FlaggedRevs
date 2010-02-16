@@ -345,7 +345,7 @@ $messages['fr'] = array(
  */
 $messages['frp'] = array(
 	'stablepages' => 'Pâges stâbles.',
-	'stablepages-stable' => 'vèrsion stâbla',
+	'stablepages-stable' => 'vèrsion publeyê',
 	'stablepages-text' => 'Vê-que una lista de les pâges configurâs a la man por que lo contegnu de lor vèrsion stâbla seye montrâ per dèfôt por los liésors.',
 	'stablepages-none' => 'Y at gins de pâge dens ceta lista.',
 	'stablepages-config' => 'Configuracion',

@@ -139,6 +139,7 @@ $messages['ar'] = array(
 );
 
 /** Egyptian Spoken Arabic (مصرى)
+ * @author Dudi
  * @author Meno25
  * @author Ramsis II
  */
@@ -151,7 +152,7 @@ $messages['arz'] = array(
 	'oldreviewedpages-days' => '({{PLURAL:$1||يوم واحد|يومان|$1 أيام|$1 يومًا|$1 يوم}})',
 	'oldreviewedpages-recent' => '(أقل من ساعة)',
 	'oldreviewed-category' => 'تصنيف:',
-	'oldreviewed-watched' => 'الصفحات على قائمه مراقبتي',
+	'oldreviewed-watched' => 'الصفح على ليستة مراقبتى',
 	'oldreviewed-stable' => 'مستقرة',
 	'oldreviewed-diff' => 'راجع',
 	'oldreviewed-size' => 'أقصى تغيير (بايت):',
@@ -582,7 +583,7 @@ $messages['frp'] = array(
 	'oldreviewedpages-days' => '($1 jorn{{PLURAL:$1||s}})',
 	'oldreviewedpages-recent' => '(muens de yona hora)',
 	'oldreviewed-category' => 'Catègorie :',
-	'oldreviewed-watched' => 'Dens ma lista de survelyence',
+	'oldreviewed-watched' => 'Pâges dens ma lista de survelyence',
 	'oldreviewed-stable' => 'Stabilisâ',
 	'oldreviewed-diff' => 'revêre',
 	'oldreviewed-size' => 'Difèrence de talye la ples grôssa (en octèts) :',

@@ -261,7 +261,7 @@ $messages['fr'] = array(
  */
 $messages['frp'] = array(
 	'unstablepages' => 'Pâges pas stâbles.',
-	'unstablepages-stable' => 'vèrsion stâbla',
+	'unstablepages-stable' => 'vèrsion publeyê',
 	'unstablepages-text' => 'Vê-que una lista de les pâges configurâs a la man por que lo contegnu de lor vèrsion brolyon seye montrâ per dèfôt por los liésors.',
 	'unstablepages-none' => 'Y at gins de pâge dens ceta lista.',
 	'unstablepages-config' => 'Configuracion',
