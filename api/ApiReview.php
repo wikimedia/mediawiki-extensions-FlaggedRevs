@@ -41,8 +41,6 @@ class ApiReview extends ApiBase {
 			$this->dieUsageMsg( array( 'badaccess-group0' ) );
 		if( $wgUser->isBlocked() )
 			$this->dieUsageMsg( array( 'blockedtext' ) );
-		if( !$wgUser->matchEditToken( $params['token'] ) )
-			$this->dieUsageMsg( array( 'sessionfailure' ) );
 
 		// Construct submit form
 		$form = new RevisionReview();
@@ -161,6 +159,10 @@ class ApiReview extends ApiBase {
 
 	public function getDescription() {
 		return 'Review a revision via FlaggedRevs.';
+	}
+	
+	public function getTokenSalt() {
+		return null;
 	}
 
 	protected function getExamples() {
