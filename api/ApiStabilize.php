@@ -36,9 +36,6 @@ class ApiStabilize extends ApiBase {
 		if( !isset($params['token']) )
 			$this->dieUsageMsg( array('missingparam', 'token') );
 
-		if( !$wgUser->matchEditToken($params['token']) )
-			$this->dieUsageMsg( array('sessionfailure') );
-
 		$title = Title::newFromText( $params['title'] );
 		if( $title == null ) {
 			$this->dieUsage( "Invalid title given.", "invalidtitle" );
@@ -103,7 +100,7 @@ class ApiStabilize extends ApiBase {
 				$this->dieUsage( wfMsg($status) );
 			}
 		} else {
-			$this->dieUsage( "Invalid config parameters given. The precendence level may beyond your rights." );
+			$this->dieUsage( "Invalid config parameters given. The precendence level may beyond your rights.", 'invalidconfig' );
 		}
 		# Output success line with the title and config parameters
 		$res = array();
@@ -226,6 +223,23 @@ class ApiStabilize extends ApiBase {
 
 	public function getDescription() {
 		return 'Change page stabilization settings.';
+	}
+	
+	public function getPossibleErrors() {
+		return array_merge( parent::getPossibleErrors(), array(
+			array('missingparam', 'title'),
+			array('missingparam', 'token'),
+			array('missingparam', 'default'),
+			array( 'code' => 'invalidtitle', 'info' => 'Invalid title given.' ),
+			array( 'code' => 'invalidtitle', 'info' => 'Target page does not exist.' ),
+			array( 'code' => 'invalidtitle', 'info' => 'Title given does not correspond to a reviewable page.' ),
+			array( 'code' => 'badprotectlevel', 'info' => 'Invalid protection level given.' ),
+			array( 'code' => 'invalidconfig', 'info' => 'Invalid config parameters given. The precendence level may beyond your rights.' ),
+		) );
+	}
+	
+	public function getTokenSalt() {
+		return '';
 	}
 
 	protected function getExamples() {

@@ -161,6 +161,18 @@ class ApiReview extends ApiBase {
 		return 'Review a revision via FlaggedRevs.';
 	}
 	
+	public function getPossibleErrors() {
+		return array_merge( parent::getPossibleErrors(), array(
+			array( 'badaccess-group0' ),
+			array( 'blockedtext' ),
+			array( 'code' => 'notarget', 'info' => 'Provided revision or page can not be reviewed.' ),
+			array( 'code' => 'notreviewable', 'info' => 'Provided revision or page can not be reviewed.' ),
+			array( 'code' => 'mixedapproval', 'info' => 'Either all or none of the flags have to be set to zero.' ),
+			array( 'code' => 'permissiondenied', 'info' => 'You don\'t have the necessary rights to set the specified flags.' ),
+			array( 'code' => 'syncfailure', 'info' => 'A sync failure has occured while reviewing. Please try again.' ),
+		) );
+	}
+	
 	public function getTokenSalt() {
 		return '';
 	}

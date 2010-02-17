@@ -181,6 +181,6 @@ class ApiQueryUnreviewedpages extends ApiQueryGeneratorBase {
 	}
 	
 	public function getVersion() {
-		return __CLASS__.': $Id: ApiQueryUnreviewedpages.php 52567 aaron $';
+		return __CLASS__.': $Id$';
 	}
 }

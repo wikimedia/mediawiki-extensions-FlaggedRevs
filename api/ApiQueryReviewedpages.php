@@ -198,6 +198,6 @@ class ApiQueryReviewedpages extends ApiQueryGeneratorBase {
 	}
 	
 	public function getVersion() {
-		return __CLASS__.': $Id: ApiQueryReviewedpages.php 52557 aaron $';
+		return __CLASS__.': $Id$';
 	}
 }

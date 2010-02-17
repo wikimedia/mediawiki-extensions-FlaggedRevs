@@ -215,6 +215,12 @@ class ApiQueryOldreviewedpages extends ApiQueryGeneratorBase {
 			'sorted by timestamp of the first unreviewed edit of that page.'
 		);
 	}
+	
+	public function getPossibleErrors() {
+		return array_merge( parent::getPossibleErrors(), array(
+			array( 'code' => 'notloggedin', 'info' => 'You must be logged-in to have a watchlist' ),
+		) );
+	}
 
 	protected function getExamples() {
 		return array (

@@ -83,4 +83,14 @@ abstract class FlaggedRevsApiHooks extends ApiQueryBase {
 		$db->freeResult( $res );
 		return true;
 	}
+	
+	public function getPossibleErrors() {
+		return array_merge( parent::getPossibleErrors(), array(
+			array( 'code' => 'missingparam', 'info' => 'if rvprop=flagged is set, you must also set rvprop=ids' ),
+		) );
+	}
+	
+	public function getVersion() {
+		return __CLASS__ . ': $Id$';
+	}
 }
