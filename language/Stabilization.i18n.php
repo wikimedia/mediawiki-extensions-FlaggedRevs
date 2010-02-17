@@ -1125,20 +1125,20 @@ Voici les paramètres actuels de [[:$1|$1]] :",
 $messages['frp'] = array(
 	'stabilization-tab' => 'Controlar',
 	'stabilization' => 'Stabilisacion de la pâge.',
-	'stabilization-text' => "'''Changiéd los paramètres ce-desot por dèfenir la façon que la vèrsion stâbla de [[:$1|$1]] est chouèsia et montrâ.'''
+	'stabilization-text' => "'''Changiéd los paramètres ce-desot por dèfenir la façon que la vèrsion publeyê de [[:$1|$1]] est chouèsia et montrâ.'''
 
-Quand vos configurâd lo ''chouèx de la vèrsion stâbla'' por utilisar les vèrsions « de qualitât » ou ben « sen tache » per dèfôt,
+Quand vos configurâd lo ''chouèx de la vèrsion publeyê'' por utilisar les vèrsions « de qualitât » ou ben « sen tache » per dèfôt,
 assurâd-vos qu’y at verément de tâles vèrsions dens la pâge, ôtrament los changements aront gins de rèsultat.",
-	'stabilization-perm' => 'Voutron compto at pas los drêts por changiér los paramètres de la vèrsion stâbla.
+	'stabilization-perm' => 'Voutron compto at pas los drêts por changiér los paramètres de la vèrsion publeyê.
 Vê-que los paramètres d’ora de [[:$1|$1]] :',
 	'stabilization-page' => 'Nom de la pâge :',
-	'stabilization-leg' => 'Confirmar los paramètres de la vèrsion stâbla',
-	'stabilization-select' => 'Prioritât de chouèx de la vèrsion stâbla',
+	'stabilization-leg' => 'Confirmar los paramètres de la vèrsion publeyê',
+	'stabilization-select' => 'Prioritât de chouèx de la vèrsion publeyê',
 	'stabilization-select1' => 'La dèrriére vèrsion de qualitât, ôtrament la dèrriére vèrsion revua',
 	'stabilization-select2' => 'La dèrriére vèrsion revua, sen tegnir compto du nivél de validacion',
 	'stabilization-select3' => 'La dèrriére vèrsion sen tache, ôtrament la dèrriére vèrsion de qualitât ou ben revua',
 	'stabilization-def' => 'Vèrsion montrâ pendent la visualisacion per dèfôt de la pâge',
-	'stabilization-def1' => 'La vèrsion stâbla ; s’y en at pas, adonc cela d’ora ou ben lo brolyon',
+	'stabilization-def1' => 'La vèrsion publeyê ; s’y en at pas, adonc cela d’ora ou ben lo brolyon',
 	'stabilization-def2' => 'La vèrsion d’ora ou ben lo brolyon',
 	'stabilization-restrict' => 'Rèstriccions sur les rèvisions ôtomatiques',
 	'stabilization-restrict-none' => 'Gins de rèstriccion de ples',

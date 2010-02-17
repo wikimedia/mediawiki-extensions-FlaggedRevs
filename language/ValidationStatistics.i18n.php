@@ -622,9 +622,9 @@ La version publiée est la version de la page la plus récente qui a été véri
  */
 $messages['frp'] = array(
 	'validationstatistics' => 'Statistiques de validacion.',
-	'validationstatistics-users' => "'''{{SITENAME}}''' at ora '''[[Special:ListUsers/editor|$1]]''' utilisator{{PLURAL:$1||s}} avouéc los drêts de [[{{MediaWiki:Validationpage}}|contributor]] et '''[[Special:ListUsers/reviewer|$2]]''' utilisator{{PLURAL:$2||s}} avouéc los drêts de [[{{MediaWiki:Validationpage}}|rèvisor]].
+	'validationstatistics-users' => "'''{{SITENAME}}''' at ora '''[[Special:ListUsers/editor|$1]]''' utilisator{{PLURAL:$1||s}} avouéc los drêts de [[{{MediaWiki:Validationpage}}|contributor]].
 
-Los contributors et los rèvisors sont des utilisators ètablis que pôvont controlar les rèvisions de les pâges.",
+Los contributors sont des utilisators ètablis que pôvont controlar les vèrsions de les pâges.",
 	'validationstatistics-time' => "''Cetes balyês sont en cache et ont étâ betâs a jorn por lo dèrriér côp lo $5 a $6.''
 
 Los changements qu’ont étâ controlâs per des utilisators ètablis sont considèrâs coment revus.
@@ -632,8 +632,8 @@ Los changements qu’ont étâ controlâs per des utilisators ètablis sont cons
 Lo temps moyen de rèvision des changements per des ''utilisators pas branchiês'' est '''$1''' ; la valor du méten est '''$3'''.
 $4
 Lo dèlê moyen por les [[Special:OldReviewedPages|pâges que contegnont des changements que sont aprés étre revus]] est '''$2'''.
-Celes pâges sont considèrâs ''dèpassâs''. De mémo, les pâges sont dècllarâs ''sincronisâs'' se la [[{{MediaWiki:Validationpage}}|vèrsion stâbla]] est asse-ben la vèrsion de brolyon d’ora.
-Les vèrsions stâbles sont des vèrsions de pâges controlâs per u muens yon utilisator règuliér.",
+Celes pâges sont considèrâs ''dèpassâs''. De mémo, les pâges sont dècllarâs ''sincronisâs'' s’y at gins de changement qu’atend una rèvision.
+La vèrsion publeyê est la vèrsion de la pâge la ples novèla qu’at étâ controlâ por étre montrâ per dèfôt a tôs los liésors.",
 	'validationstatistics-table' => "Les statistiques por châque èspâço de noms sont montrâs ce-desot, a l’''èxcllusion'' de les pâges de redirèccion.",
 	'validationstatistics-ns' => 'Èspâço de noms',
 	'validationstatistics-total' => 'Pâges',

@@ -200,7 +200,7 @@ $messages['fr'] = array(
  * @author ChrisPtDe
  */
 $messages['frp'] = array(
-	'qualityoversight' => 'Supèrvision de qualitât.',
+	'qualityoversight' => 'Jornal de les rèvisions avanciês',
 	'qualityoversight-list' => 'Ceta pâge liste les novèles aprobacions et les dèprèciacions de les vèrsions.',
 	'qualityoversight-legend' => 'Rechèrchiér los jornals de les novèles rèvisions',
 );
