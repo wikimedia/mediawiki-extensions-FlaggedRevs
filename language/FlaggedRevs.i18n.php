@@ -3567,6 +3567,7 @@ Listo de stabiligitaj paĝoj estas trovebla ĉe la [[Special:StablePages|Listo d
 
 /** Spanish (Español)
  * @author Crazymadlover
+ * @author Dferg
  * @author Drini
  * @author Imre
  * @author Lin linao
@@ -3584,7 +3585,7 @@ $messages['es'] = array(
 	'flaggedrevs-watched-pending' => "Hay actualmente [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} ediciones pendientes] a páginas revisadas en tu lista de vigilancia. '''Se necesita tu atención!'''",
 	'flaggedrevs-desc' => 'Ofrece a los editores y revisores la habilidad de validar revisiones y estabilizar páginas',
 	'flaggedrevs-pref-UI' => 'Interfaz básica:',
-	'flaggedrevs-pref-UI-0' => 'Usar la versión detallada de la interfaz de versiones estables',
+	'flaggedrevs-pref-UI-0' => 'Usar cajas detalladas para mostrar el estado de aprobación de las páginas',
 	'flaggedrevs-pref-UI-1' => 'Use iconos pequeños y texto mínimo para mostrar el estado de aprobación de las páginas',
 	'prefs-flaggedrevs' => 'Estabilidad',
 	'prefs-flaggedrevs-ui' => 'Revisiones verificadas',
@@ -3637,9 +3638,9 @@ Ver la [[Special:ReviewedPages|lista de páginas revisadas]] para una lista de p
 El [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} borrador] contiene [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|cambio|cambios}}] sugeridos.',
 	'revreview-basic-i' => 'Esta es la [[{{MediaWiki:Validationpage}}|versión estable]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} vista] el <i>$2</i>.
 El [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} borrador] contiene [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} cambios de plantilla/archivo] esperando revisión.',
-	'revreview-basic-old' => 'Esta es una revisión [[{{MediaWiki:Validationpage}}|observada]] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} listar todo]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprobado] en <i>$2</i>.
-Nuevos [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} cambios] pueden haber sido hechos',
-	'revreview-basic-same' => 'Esta es la última revisión [[{{MediaWiki:Validationpage}}|observada]] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} listar todo]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprobado] en <i>$2</i>.',
+	'revreview-basic-old' => 'Esta es una revisión [[{{MediaWiki:Validationpage}}|verificada]] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} ver todas]),[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprobada] el <i>$2</i>.
+Puede que se hayan realizado [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} más cambios] desde entonces.',
+	'revreview-basic-same' => 'Esta es la [[{{MediaWiki:Validationpage}}|versión publicada]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} verificada] el <i>$2</i>.',
 	'revreview-basic-source' => 'Una [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} versión observada] de esta página, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprobada] en <i>$2</i>, estuvo basada en esta revisión.',
 	'revreview-failed' => "'''Incapaz de revisar esta revisión.''' La propuesta es incompleta o sino inválida.",
 	'revreview-changed' => "'''La acción solicitada no pudo ser ejecutada en esta revisión de [[:$1|$1]].'''
@@ -3660,6 +3661,7 @@ Refrescar la página y volviendo a revisar puede solucionar este problema.",
 	'revreview-editnotice' => "'''Tus cambios serán [[{{MediaWiki:Validationpage}}|publicados]] una vez que un usuario autorizado los [[{{MediaWiki:Validationpage}}|revise]].'''",
 	'revreview-check-flag' => 'Publicar ediciones actualmente pendientes',
 	'revreview-edited' => "'''Los cambios serán [[{{MediaWiki:Validationpage}}|publicados]] una vez que un usuario autorizado los [[{{MediaWiki:Validationpage}}|revise]]. ''' El ''borrador'' mostrado abajo, contiene [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 {{PLURAL:$2|cambio|cambios}}] sugeridos.",
+	'revreview-edited-section' => 'Volver a la sección de la página llamada "[[#$1|$2]]".',
 	'revreview-flag' => 'Verificar esta revisión',
 	'revreview-reflag' => 'Volver a verificar esta revisión',
 	'revreview-invalid' => "'''Destino inválido:''' no hay  [[{{MediaWiki:Validationpage}}|versión revisada]] que corresponda a tal ID.",
@@ -3772,6 +3774,8 @@ Por favor, revise la dirección que usó para acceder a esta página.',
 	'revreview-unlocked' => 'Las ediciones no requieren revisión antes de ser mostradas en esta página!',
 	'log-show-hide-review' => '$1 registro de revisiones',
 	'revreview-tt-review' => 'Aplicar este status a esta revisión',
+	'revreview-tt-flag' => 'Marcar esta revisión como revisada',
+	'revreview-tt-unflag' => 'Marcar esta revisión como no revisada',
 	'validationpage' => '{{ns:help}}:Validación de artículo',
 );
 
@@ -7835,7 +7839,7 @@ D'Säit aktualiséieren an nokucke kann dëse Problem léisen.",
 	'revreview-editnotice' => "'''Är Ännerungen gi [[{{MediaWiki:Validationpage}}|verëffentlecht]] esoubal wéi en autoriséierte Benotzer se nogekuckt huet.'''",
 	'revreview-check-flag' => "D'Ännerungen déi nach net nogekuckt sinn publizéieren",
 	'revreview-edited' => "'''D'Ännerunge gi [[{{MediaWiki:Validationpage}}|verëffentlecht]] esoubal wéi en autoriséierte Benotzer se nogekuckt huet.'''
-D'''Virberedung'' steet hei ënnendrënner an huet [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 {{PLURAL:$2|Ännerung déi drop ward|Ännerungen déi drop waarden}}] fir nogekuckt ze ginn.",
+D'''Virbereedung'' steet hei ënnendrënner an huet [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 {{PLURAL:$2|Ännerung déi drop waart|Ännerungen déi drop waarde}}] fir nogekuckt ze ginn.",
 	'revreview-edited-section' => 'Zréck op den Säitenabschnitt mam Numm "[[#$1|$2]]".',
 	'revreview-flag' => 'Dës Versioun nokucken',
 	'revreview-reflag' => 'Dës Versioun nach emol nokucken oder als net nogekuckt markéieren',
@@ -7920,6 +7924,7 @@ Klickt w.e.g op den ''Zréck''-Knäppche vun Ärem Browser a versicht et nach en
 	'right-review' => 'Versiounen als "nogekuckt" markéieren',
 	'right-stablesettings' => 'Astelle wéi eng publizéiert Versioun erausgesicht an ugewise gëtt',
 	'right-validate' => 'Versiounen als "Qualitéit" markéieren',
+	'right-unreviewedpages' => '[[Special:UnreviewedPages|Lëscht vun den net iwwerkuckte Säite]] weisen',
 	'rights-editor-autosum' => 'automatesch promovéiert',
 	'rights-editor-revoke' => 'huet dem [[$1]] den Editeur-Statut ewechgeholl',
 	'specialpages-group-quality' => 'Qualitéitssécherung',
@@ -10686,14 +10691,14 @@ Vide 'a [[Special:ReviewedPages|liste de le pàggene riviste]] pe 'na liste de l
 	'revreview-accuracy-4' => 'Dettagliete',
 	'revreview-approved' => 'Approvete',
 	'revreview-auto' => '(automatiche)',
-	'revreview-basic' => "Queste jè 'a [[{{MediaWiki:Validationpage}}|versiona secure]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approvate] 'u <i>$2</i>.
+	'revreview-basic' => "Queste jè 'a [[{{MediaWiki:Validationpage}}|versiona pubblecate]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} verificate] 'u <i>$2</i>.
 'A [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} bozza] tène [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|cangiamende|cangiaminde}}] ca aspettane 'na reviste.",
-	'revreview-basic-i' => "Queste è 'a [[{{MediaWiki:Validationpage}}|versiona secure]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approvate] 'u <i>$2</i>.
+	'revreview-basic-i' => "Queste è 'a [[{{MediaWiki:Validationpage}}|versiona pubblecate]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} verificate] 'u <i>$2</i>.
 'A [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} bozza] tène [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} cangiaminde a template/file] ca aspettane 'a revisione.",
-	'revreview-basic-old' => "Queste jè 'na revisiona [[{{MediaWiki:Validationpage}}|viste]], ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} elengale tutte]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approvate] 'u <i>$2</i>.
+	'revreview-basic-old' => "Queste jè 'na revisiona [[{{MediaWiki:Validationpage}}|verificate]], ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} elengale tutte]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approvate] 'u <i>$2</i>.
 Nuève [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} cangiaminde] ponne essere state fatte.",
-	'revreview-basic-same' => "Queste jè l'urtema revisiona [[{{MediaWiki:Validationpage}}|viste]] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} elengale tutte]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approvate] 'u <i>$2</i>.",
-	'revreview-basic-source' => "'Na [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} versiona visitete] de sta pàgene, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approvete] sus a <i>$2</i>, ere basete sus 'a sta revisione.",
+	'revreview-basic-same' => "Queste jè l'urtema [[{{MediaWiki:Validationpage}}|versione pubblecate]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} verificate] 'u <i>$2</i>.",
+	'revreview-basic-source' => "'Na [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} versiona verificate] de sta pàgene, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approvate] sus 'u <i>$2</i>, ere basate sus 'a sta revisione.",
 	'revreview-failed' => "'''None ge se pò rivedè sta revsione.''' 'A conferme jè incomblete o stè quacche otra cose de invalide.",
 	'revreview-changed' => "'''L'aziona richieste non ge pò essere fatte sus a sta revisione de [[:$1|$1]].'''
 
@@ -10711,7 +10716,7 @@ Aggiorne 'a pàgene e repruève 'n'otra vote a fa 'na rivisita ca pò essere ca 
 	'revreview-draft-rev' => 'Revisione bozza',
 	'revreview-edit' => 'Cange',
 	'revreview-editnotice' => "'''Le cangiaminde tune avènene [[{{MediaWiki:Validationpage}}|pubblecate]] 'na vote ca 'n'utende autorizzate l'ha [[{{MediaWiki:Validationpage}}|reviste]].'''",
-	'revreview-check-flag' => 'Signe le cangiaminde pendende cumme reviste',
+	'revreview-check-flag' => 'Pubbleche le cangiaminde pendende de mò',
 	'revreview-edited' => "'''Le cangiaminde avènene [[{{MediaWiki:Validationpage}}|pubblecate]] 'na vote ca 'n'utende autorizzate l'ha [[{{MediaWiki:Validationpage}}|reviste]].'''
 'A ''bozze'' ta stoche a fazze vedè aqquà sotte, tène [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 {{PLURAL:$2|cangiamende ca ste aspette|cangiaminde ca stonne aspettane}}] 'a revisione.",
 	'revreview-edited-section' => 'Tuèrne a \'a sezione d\'a pàgene ca se chiame "[[#$1|$2]]".',
@@ -10723,15 +10728,20 @@ Aggiorne 'a pàgene e repruève 'n'otra vote a fa 'na rivisita ca pò essere ca 
 	'revreview-main' => "Tu a selezionà ìna particolera revisione da 'na vosce pe fà 'na revisitazione.
 
 Vide 'a [[Special:Unreviewedpages|liste de le pàggene ca non g'onne state rivisitete]].",
-	'revreview-newest-basic' => "L'[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} urtema revisiona riviste] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} elenghe tutte]) èrene [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approvate] 'u <i>$2</i>.
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|cangiamende|cangiaminde}}] {{PLURAL:$3|abbesogne|abbesognene}} de 'na reviste.",
-	'revreview-newest-basic-i' => "L'[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} urtema revisiona riviste] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} elenghe tutte]) èrene [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approvate] 'u <i>$2</i>.
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} cangiaminde sus a template/file] abbesognene de 'na reviste.",
-	'revreview-newest-quality' => "L'[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} urtema revisiona de qualità] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} elenghe tutte]) èrene [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approvate] 'u <i>$2</i>.
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|cangiamende|cangiaminde}}] {{PLURAL:$3|abbesogne|abbesognene}} de 'na reviste.",
-	'revreview-newest-quality-i' => "L'[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} urtema revisiona de qualità] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} elenghe tutte]) èrene [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approvate] 'u <i>$2</i>.
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} cangiaminde de template/file] abbesognene de 'na reviste.",
-	'revreview-noflagged' => "Non ge stonne revisiune reviste de sta pàgene, accussì '''non''' ge se pò [[{{MediaWiki:Validationpage}}|verificà]] 'a qualità.",
+	'revreview-newest-basic' => "' A[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} versione pubblecate] ere [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approvate] 'u <i>$2</i>.
+'A bozze tène [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|cangiamende|cangiaminde}}] pendende",
+	'revreview-newest-basic-i' => "'A [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} versiona pubblecate] ere [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} verificate] 'u <i>$2</i>.
+'A bozza tène [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} cangiaminde sus a template/file] abbesognene de 'na reviste.",
+	'revreview-newest-quality' => "'A [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} versiona pubblecate] ere [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approvate] 'u <i>$2</i>.
+'A bozze tène [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|cangiamende|cangiaminde}}] pendende.",
+	'revreview-newest-quality-i' => "'A [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} versiona pubblecate] ere [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approvate] 'u <i>$2</i>.
+'A bozze tène [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} cangiaminde de template/file] abbesognene de 'na reviste.",
+	'revreview-pending-basic' => "'A [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} versiona pubblecate] ere [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} verificate] 'u <i>$2</i>.
+'A [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} bozze] tène [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|cangiamende|cangiaminde}} pendende].",
+	'revreview-pending-quality' => "'A [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} versiona pubblecate] ere [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approvate] 'u <i>$2</i>.
+'A [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} bozze] tène [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|cangiamende|cangiaminde}} pendende].",
+	'revreview-pending-nosection' => "Pruève a vedè 'a [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} bozze], ca inglude [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 {{PLURAL:$2|cangiamende|cangiaminde}} pendende], pe vedè ce 'a sezione ha state spustate o scangellate.",
+	'revreview-noflagged' => "Non ge stonne revisiune [[{{MediaWiki:Validationpage}}|reviste]] de sta pàgene, accussì '''non''' ge se pò [[{{MediaWiki:Validationpage}}|verificà]] 'a qualità.",
 	'revreview-note' => '[[User:$1|$1]] ha fatte le note seguende [[{{MediaWiki:Validationpage}}|revesetanne]] sta revisione:',
 	'revreview-notes' => 'Osservaziune o annotaziune da fa vedè:',
 	'revreview-oldrating' => 'Tenève stu pundegge:',
@@ -11152,9 +11162,9 @@ $messages['sah'] = array(
 	'revreview-selected' => "'''$1''' талыллыбыт торума:",
 	'revreview-source' => 'черновик бастакы торума',
 	'revreview-stable' => 'Бигэргэтиллибит барыл',
-	'revreview-basic-title' => 'Бу көрүллүбүт сирэй',
+	'revreview-basic-title' => 'Бу сирэй көрүллүбүт барыла',
 	'revreview-stable1' => 'Баҕар эн [{{fullurl:$1|stableid=$2}} бу бэлиэтэммит барылы]  эбэтэр, баар буоллаҕына, сирэй [{{fullurl:$1|stable=1}} бигэ барылын] көрүөххүн баҕарарыҥ буолуо.',
-	'revreview-stable2' => 'Баҕар, эн, баар буоллаҕына, бу сирэй [{{fullurl:$1|stable=1}} бигэ барылын] көрүөххүн баҕарарыҥ буолуо.',
+	'revreview-stable2' => 'Эн өссө бу сирэй [{{fullurl:$1|stable=1}} бигэ барылын] көрүөххүн сөп (баар буоллаҕына).',
 	'revreview-style' => 'Ааҕарга табыгастааҕа',
 	'revreview-style-0' => 'Бигэргэтиллибэтэх',
 	'revreview-style-1' => 'Син аҕай',
