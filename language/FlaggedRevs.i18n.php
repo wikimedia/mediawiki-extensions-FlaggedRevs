@@ -3641,7 +3641,7 @@ El [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} borrador] contiene [{{fullurl:{{FULLP
 	'revreview-basic-old' => 'Esta es una revisión [[{{MediaWiki:Validationpage}}|verificada]] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} ver todas]),[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprobada] el <i>$2</i>.
 Puede que se hayan realizado [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} más cambios] desde entonces.',
 	'revreview-basic-same' => 'Esta es la [[{{MediaWiki:Validationpage}}|versión publicada]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} verificada] el <i>$2</i>.',
-	'revreview-basic-source' => 'Una [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} versión observada] de esta página, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprobada] en <i>$2</i>, estuvo basada en esta revisión.',
+	'revreview-basic-source' => 'Una [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} versión verificada] de esta página, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprobada] en <i>$2</i>, estuvo basada en esta revisión.',
 	'revreview-failed' => "'''Incapaz de revisar esta revisión.''' La propuesta es incompleta o sino inválida.",
 	'revreview-changed' => "'''La acción solicitada no pudo ser ejecutada en esta revisión de [[:$1|$1]].'''
 
@@ -3670,8 +3670,7 @@ Refrescar la página y volviendo a revisar puede solucionar este problema.",
 	'revreview-main' => 'Debes seleccionar una revisión particular de una página de contenido para verificar.
 
 Mira la [[Special:Unreviewedpages|lista de páginas no revisadas]].',
-	'revreview-newest-basic' => 'La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} última versión vista] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} mostrar todas]) fue [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprobada] el <i>$2</i>.
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|cambio|cambios}}] {{PLURAL:$3|necesita|necesitan}} revisión.',
+	'revreview-newest-basic' => 'La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} versión publicada] fue [{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} verificada] en <i>$2</i>. El borrador contiene [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|cambio|cambios}}] pendientes.',
 	'revreview-newest-basic-i' => 'La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} última revisión vista] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} mostrar todas]) fue [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprobada] el <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} cambios a plantilla/archivo] necesitan revisión.',
 	'revreview-newest-quality' => 'La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} última revisión de calidad] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} mostrar todas]) fue [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprobada] el <i>$2</i>.
@@ -3695,20 +3694,20 @@ Nuevos [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} cambios] pued
 	'revreview-quick-basic-old' => "'''[[{{MediaWiki:Validationpage}}|Artículo visto]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} ver esbozo]]",
 	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|Checked page]]'''",
 	'revreview-quick-invalid' => "'''ID de revisión inválido'''",
-	'revreview-quick-none' => "'''[[{{MediaWiki:Validationpage}}|Versión actual]]''' (sin revisar)",
+	'revreview-quick-none' => "'''[[{{MediaWiki:Validationpage}}|Página borrador]]''' (sin revisar)",
 	'revreview-quick-quality' => "'''[[{{MediaWiki:Validationpage}}|Artículo de calidad]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} ver esbozo]]",
 	'revreview-quick-quality-old' => "'''[[{{MediaWiki:Validationpage}}|Artículo de calidad]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} ver esbozo]]",
 	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|Artículo de calidad]]'''",
-	'revreview-quick-see-basic' => "'''[[{{MediaWiki:Validationpage}}|Borrador]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} versión estable]]
+	'revreview-quick-see-basic' => "'''[[{{MediaWiki:Validationpage}}|Borrador]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} versión publicada]]
 ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} comparar])",
 	'revreview-quick-see-quality' => "'''[[{{MediaWiki:Validationpage}}|Borrador]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} versión estable]]
 ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} comparar])",
 	'revreview-selected' => "Revisión seleccionada de '''$1:'''",
 	'revreview-source' => 'Fuente del borrador',
 	'revreview-stable' => 'Página publicada',
-	'revreview-basic-title' => 'Esta es una página vista',
+	'revreview-basic-title' => 'Esta es una versión verificada de esta página',
 	'revreview-stable1' => 'Puedes desear ver [{{fullurl:$1|stableid=$2}} esta versión verificada] y ver si esta es ahora la [{{fullurl:$1|stable=1}} versión estable] de esta página.',
-	'revreview-stable2' => 'puedes desear ver la [{{fullurl:$1|stable=1}} versión estable] de esta página (si aún hay una).',
+	'revreview-stable2' => 'Puedes desear ver la [{{fullurl:$1|stable=1}} versión publicada] de esta página (si aún hay una).',
 	'revreview-style' => 'Legibilidad',
 	'revreview-style-0' => 'Reprobada',
 	'revreview-style-1' => 'Aceptable',
@@ -3721,7 +3720,7 @@ Nuevos [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} cambios] pued
 	'revreview-submitting' => 'Enviando...',
 	'revreview-successful' => "'''La revisión de [[:$1|$1]] ha sido exitósamente marcada. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} ver versiones estables])'''",
 	'revreview-successful2' => "'''Se ha desmarcado la revisión de [[:$1|$1]]'''",
-	'revreview-text' => "''[[{{MediaWiki:Validationpage}}|Las versiones estables]] son las predeterminadas para los lectores en vez de las más recientes.''",
+	'revreview-text' => "''[[{{MediaWiki:Validationpage}}|Las versiones revisadas]] son versiones verificadas de páginas usadas para determinar la versión publicada.''",
 	'revreview-toggle-title' => 'mostrar/ocultar detalles',
 	'revreview-toolow' => 'Debes al menos valorar cada uno de los atributos de abajo más alto que "desaprobado" para que la revisión sea considerada verificada.
 Para depreciar un arevisión, marque todos los campos como "desaprobado".',
@@ -3729,7 +3728,7 @@ Para depreciar un arevisión, marque todos los campos como "desaprobado".',
 '''algunas plantillas/archivos fueron actualizados:'''",
 	'revreview-update-includes' => "'''Algunas plantillas/archivos fueron actualizados:'''",
 	'revreview-update-none' => "Por favor [[{{MediaWiki:Validationpage}}|revisa]] los cambios ''(mostrados abajo)'' hecho desde que la versión estable fue  [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprobada].",
-	'revreview-update-use' => "'''NOTA:''' si alguna de estas plantillas/archivos tiene una versión estable, entonces ya se usa en la versión estable de esta página.",
+	'revreview-update-use' => "'''NOTA:''' si alguna de estas plantillas/archivos tiene una versión publicada, entonces ya se usa en la versión pubcada de esta página.",
 	'revreview-visibility' => "'''Esta página tiene una [[{{MediaWiki:Validationpage}}|versión estable]] actualizada; configuraciones de estabilidad de página pueden ser [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} configuradas].'''",
 	'revreview-visibility2' => "'''Esta página tiene una [[{{MediaWiki:Validationpage}}|versión estable]] desactualizada; configuraciones de estabilidad de página pueden ser [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} configuradas].'''",
 	'revreview-visibility3' => "'''Esta página no tiene una [[{{MediaWiki:Validationpage}}|versión estable]]; Configuraciones de estabilidad de página pueden ser [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} configuradas].'''",
@@ -10745,33 +10744,33 @@ Vide 'a [[Special:Unreviewedpages|liste de le pàggene ca non g'onne state rivis
 	'revreview-note' => '[[User:$1|$1]] ha fatte le note seguende [[{{MediaWiki:Validationpage}}|revesetanne]] sta revisione:',
 	'revreview-notes' => 'Osservaziune o annotaziune da fa vedè:',
 	'revreview-oldrating' => 'Tenève stu pundegge:',
-	'revreview-quality' => "Queste jè 'a [[{{MediaWiki:Validationpage}}|versiona secure]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approvate] 'u <i>$2</i>.
+	'revreview-quality' => "Queste jè 'a [[{{MediaWiki:Validationpage}}|versiona pubblecate]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approvate] 'u <i>$2</i>.
 'A [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} bozze] tène [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|cangiamende ca ste spette|cangiaminde ca stonne spettene}}] 'na reviste.",
-	'revreview-quality-i' => "Queste jè 'a [[{{MediaWiki:Validationpage}}|versiona secure]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approvate] 'u <i>$2</i>.
+	'revreview-quality-i' => "Queste jè 'a [[{{MediaWiki:Validationpage}}|versiona pubblecate]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approvate] 'u <i>$2</i>.
 'A [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} bozze] tène [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} cangiaminde de template/file] ca stonne spettene 'na reviste.",
 	'revreview-quality-old' => "Queste jè 'na revisione [[{{MediaWiki:Validationpage}}|de qualità]] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} elenghe tutte]) [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approvate] 'u <i>$2</i>.
-Le [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} cangiaminde] nuève ponne essere fatte.",
-	'revreview-quality-same' => "Queste jè l'[[{{MediaWiki:Validationpage}}|urtema revisiona de qualità]] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} elenghe tutte]) èrene [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approvate] 'u <i>$2</i>.",
+Le [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} cangiaminde] nuève ponne essere state fatte.",
+	'revreview-quality-same' => "Queste jè l'[[{{MediaWiki:Validationpage}}|versiona pubblecate]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approvate] 'u <i>$2</i>.",
 	'revreview-quality-source' => "'Na [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} versione de qualità] de sta pàgene, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approvate] 'u <i>$2</i>, ere basate sus a stà revisione.",
 	'revreview-quality-title' => "Queste jè 'na versione de qualità de sta vôsce",
-	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|Pàgene viste]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} vide 'a bozze]]",
-	'revreview-quick-basic-old' => "'''[[{{MediaWiki:Validationpage}}|Pàgene viste]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} vide 'a bozze]]",
-	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|Pàgene viste]]'''",
+	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|Pàgene verificate]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} vide 'a bozze]]",
+	'revreview-quick-basic-old' => "'''[[{{MediaWiki:Validationpage}}|Pàgene verificate]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} vide 'a bozze]]",
+	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|Pàgene verificate]]'''",
 	'revreview-quick-invalid' => "'''ID d'a revisione invalide'''",
-	'revreview-quick-none' => "'''[[{{MediaWiki:Validationpage}}|Revisiona corrende]]''' (non reviste)",
+	'revreview-quick-none' => "'''[[{{MediaWiki:Validationpage}}|Pàgene bozze]]''' (non reviste)",
 	'revreview-quick-quality' => "'''[[{{MediaWiki:Validationpage}}|Pàgene de qualità]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} vide 'a bozze]]",
 	'revreview-quick-quality-old' => "'''[[{{MediaWiki:Validationpage}}|Pàgene de qualità]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} vide 'a bozze]]",
 	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|Pàgene de qualità]]'''",
-	'revreview-quick-see-basic' => "'''[[{{MediaWiki:Validationpage}}|Bozza]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} versiona secure]]
+	'revreview-quick-see-basic' => "'''[[{{MediaWiki:Validationpage}}|Bozza]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} versiona pubblecate]]
 ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} combronde])",
-	'revreview-quick-see-quality' => "'''[[{{MediaWiki:Validationpage}}|Bozza]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} versiona secure]]
+	'revreview-quick-see-quality' => "'''[[{{MediaWiki:Validationpage}}|Bozza]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} versiona pubblecate]]
 ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} combronde])",
 	'revreview-selected' => "Revisiona selezionete de '''$1:'''",
 	'revreview-source' => 'Bozza sorgende',
 	'revreview-stable' => 'Pàgena pubblecate',
 	'revreview-basic-title' => "Queste jè 'na versiona verificate de sta pàgene",
-	'revreview-stable1' => "Tu puè vulè vedè [{{fullurl:$1|stableid=$2}} sta versiona marcate] e vide ce ijedde ète 'a [{{fullurl:$1|stable=1}} versiona secure] de sta pàgene.",
-	'revreview-stable2' => "Tu puè putè vedè 'a [{{fullurl:$1|stable=1}} versiona secure] de sta pàgene (ce ne stè almene une).",
+	'revreview-stable1' => "Tu puè vulè vedè [{{fullurl:$1|stableid=$2}} sta versiona marcate] e vide ce ijedde ète 'a [{{fullurl:$1|stable=1}} versiona pubblecate] de sta pàgene.",
+	'revreview-stable2' => "Tu puè putè vedè 'a [{{fullurl:$1|stable=1}} versiona pubblecate] de sta pàgene (ce ne stè almene une).",
 	'revreview-style' => 'Leggibbilità',
 	'revreview-style-0' => 'Fasce schife, bocciete',
 	'revreview-style-1' => 'Accettabbele',
@@ -10784,20 +10783,20 @@ Le [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} cangiaminde] nuè
 	'revreview-submitting' => 'Stoche a conferme',
 	'revreview-successful' => "'''Revisione de [[:$1|$1]] ha state mise 'u flag.''' ([{{fullurl:{{#Special:ReviewedVersions}}|pàgene=$2}} vide le versiune secure])'''",
 	'revreview-successful2' => "'''Revisione de [[:$1|$1]] ha state luete 'u flag.'''",
-	'revreview-text' => "''Le [[{{MediaWiki:Validationpage}}|versiune secure]] sonde le pàggene normale pe le visitature quanne le pàggene so troppe nuève.''",
+	'revreview-text' => "''Le [[{{MediaWiki:Validationpage}}|versiune reviste]] sonde le versiune verificate de le pàggene ausate pe determinà 'a versiona pubblecate.''",
 	'revreview-toggle-title' => 'fa vedè/scunne le dettaglie',
-	'revreview-toolow' => "'''Tu a almene valutà ogneune de le attrebbute ca stonne aqquà sotte cu 'nu vote cchiù ierte de \"non approvate\" respettanne 'a revisione pe essere conziderate reviste.'''
+	'revreview-toolow' => "'''Tu ninde ninde a valutà ogneune de le attrebbute ca stonne aqquà sotte cu 'nu vote cchiù ierte de \"non approvate\" respettanne 'a revisione pe essere conziderate reviste.'''
 Pe sckefà 'na revisione, 'mboste tutte le cambe a \"non approvate\".
 
 Pe piacere cazze 'u buttone \"back\" d'u browser tune e pruève arrete.",
-	'revreview-update' => "Pe piacere [[{{MediaWiki:Validationpage}}|revide]] ogne cangiamende ''(le vide aqquà sotte)'' fatte da 'a revisiona secure ca avère state [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approvate].<br />
+	'revreview-update' => "Pe piacere [[{{MediaWiki:Validationpage}}|revide]] ogne cangiamende ''(le vide aqquà sotte)'' fatte da 'a versiona pubblecate ca avère state [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approvate].<br />
 '''Alcune template e file onne state aggiornate:'''",
 	'revreview-update-includes' => "'''Certe template/file onne state aggiornate:'''",
-	'revreview-update-none' => "Pe piacere [[{{MediaWiki:Validationpage}}|revide]] ogne cangiamende ''(le vide aqquà sotte)'' fatte da 'a revisiona secure ca avère state [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approvate].",
-	'revreview-update-use' => "'''VIDE BBUENE:''' Ce quacche template/file tènene 'na versiona secure, allore onne state ausate jndr'à sta pàgene ausanne quedda versiona.",
-	'revreview-visibility' => "'''Sta pàgene tène 'na [[{{MediaWiki:Validationpage}}|versiona secure]] aggiornate; le 'mbostaziune de'a stabbilità d'a pàgene ponne essere [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} configurate].'''",
-	'revreview-visibility2' => "'''Sta pàgene non ge tène 'na [[{{MediaWiki:Validationpage}}|versiona secure]] aggiornate; le 'mbostaziune de'a stabbiletà d'a pàgene ponne essere [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} configurate].'''",
-	'revreview-visibility3' => "'''Sta pàgene non ge tène 'na [[{{MediaWiki:Validationpage}}|versiona secure]] aggiornate; le 'mbostaziune de'a stabbiletà d'a pàgene ponne essere [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} configurate].'''",
+	'revreview-update-none' => "Pe piacere [[{{MediaWiki:Validationpage}}|revide]] ogne cangiamende ''(le vide aqquà sotte)'' fatte da 'a versiona pubblecate ca avère state [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approvate].",
+	'revreview-update-use' => "'''VIDE BBUENE:''' Ce quacche template/file tènene 'na versiona pubblecate, allore onne state ausate jndr'à sta pàgene ausanne quedda versiona.",
+	'revreview-visibility' => "'''Sta pàgene tène 'na [[{{MediaWiki:Validationpage}}|versiona pubblecate]] aggiornate; le 'mbostaziune de'a stabbilità d'a pàgene ponne essere [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} configurate].'''",
+	'revreview-visibility2' => "'''Sta pàgene non ge tène 'na [[{{MediaWiki:Validationpage}}|versiona pubblecate]] aggiornate; le 'mbostaziune de'a stabbiletà d'a pàgene ponne essere [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} configurate].'''",
+	'revreview-visibility3' => "'''Sta pàgene non ge tène 'na [[{{MediaWiki:Validationpage}}|versiona pubblecate]] aggiornate; le 'mbostaziune de'a stabbiletà d'a pàgene ponne essere [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} configurate].'''",
 	'revreview-revnotfound' => "'A vecchia revisione d'a pàgene ca tu è cerchete non ge se iacchije.
 Pe piacere condrolle l'URL ca tu è ausete pe trasè jndr'à sta pagene.",
 	'right-autoreview' => 'Certe cangiaminde tue onne state marcate automaticamende cumme "verificate"',
