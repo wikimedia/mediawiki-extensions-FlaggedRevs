@@ -855,18 +855,18 @@ Stabilna wersija strony je najnowša wersija, kotraž je so wobkrućena, zo by s
  */
 $messages['hu'] = array(
 	'validationstatistics' => 'Ellenőrzési statisztika',
-	'validationstatistics-users' => "A(z) '''{{SITENAME}}''' wikinek jelenleg '''[[Special:ListUsers/editor|{{PLURAL:$1|egy|$1}}]]''' [[{{MediaWiki:Validationpage}}|járőrjoggal]], valamint '''[[Special:ListUsers/reviewer|{{PLURAL:$2|egy|$2}}]]''' [[{{MediaWiki:Validationpage}}|lektorjoggal]] rendelkező szerkesztője van.
+	'validationstatistics-users' => "A(z) '''{{SITENAME}}''' wikinek jelenleg '''[[Special:ListUsers/editor|$1]]''' [[{{MediaWiki:Validationpage}}|járőrjoggal]]  rendelkező szerkesztője van.
 
-A járőrök és lektorok olyan tapasztalt szerkesztők, akik ellenőrizhetik a lapok változatait.",
+A járőrök olyan tapasztalt szerkesztők, akik ellenőrizhetik a lapok változatait.",
 	'validationstatistics-time' => "''Az alábbi adatok utolsó frissítése: $5 $6''
 
-Azok a szerkesztések, amelyeket tapasztalt szerkesztők ellenőriztek, lektoráltnak tekinthetőek.
+Azok a szerkesztések, amelyeket tapasztalt szerkesztők átnéztek, ellenőrzöttnek tekinthetőek.
 
 Az átlagos várakozási idő ''nem bejelentkezett szerkesztők'' szerkesztéseinek ellenőrzésére '''$1''', a medián '''$3'''.
 $4
 Az átlagos átfutási idő [[Special:OldReviewedPages|megtekintésre váró szerkesztésekkel rendelkező lapoknál]] '''$2'''.
-Ezek a lapok ''elavultnak'' tekintendőek. Hasonlóképpen, a lapok ''szinkronizáltnak'' tekintendőek, ha a [[{{MediaWiki:Validationpage}}|stabil változat]] egyben a jelenlegi nem ellenőrzött változat (a lap utolsó változata).
-A lap stabil változata a legújabb elfogadott változat, amit alapértelmezetten látnak az olvasók.",
+Ezek a lapok ''elavultnak'' tekintendőek. Hasonlóképpen, a lapok ''szinkronizáltnak'' tekintendőek, ha nincsenek ellenőrzésre váró szerkesztések.
+A lap publikált változata a legújabb elfogadott változat, amit alapértelmezetten látnak az olvasók.",
 	'validationstatistics-table' => "Ezen az oldalon a névterekre bontott statisztika látható, az átirányítások ''nélkül''.",
 	'validationstatistics-ns' => 'Névtér',
 	'validationstatistics-total' => 'Lapok',

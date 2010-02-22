@@ -2020,6 +2020,8 @@ Gallout a ra ar bajenn bezañ '''[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} kemm
 	'revreview-update-none' => "Mar plij [[{{MediaWiki:Validationpage}}|adlennit]] an holl gemmoù ''(diskouezet a-is)'' bet graet abaoe ma oa bet [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprouet] ar stumm embannet.",
 	'revreview-update-use' => "'''NOTENN :''' M'o deus ur stumm stabil neb hini eus ar patromoù/restroù-se, neuze ez eo dija implijet ar stumm embannet-se war ar bajenn.",
 	'revreview-visibility' => "Er bajenn-mañ ez eus ur [[{{MediaWiki:Validationpage}}|stumm embannet]]. Posubl eo [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}}kefluniañ] arventennoù ar stabilded.'''",
+	'revreview-visibility2' => "Ur [[{{MediaWiki:Validationpage}}|stumm embannet]] he deus ar bajenn-mañ ; tu 'zo [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} kefluniañ] arventennoù stabilder ar bajenn.'''",
+	'revreview-visibility3' => "N'he deus ket ar bajenn-mañ ur [[{{MediaWiki:Validationpage}}|stumm embannet]] ; tu 'zo [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} kefluniañ] arventennoù stabilder ar bajenn.'''",
 	'revreview-revnotfound' => "N'eo ket bet kavet stumm kent ar bajenn-mañ. Gwiriit an URL lakaet ganeoc'h evit mont d'ar bajenn-mañ.",
 	'right-autoreview' => 'Merkañ emgefre an adweladennoù evel gwiriet',
 	'right-movestable' => "Dilec'hiañ pajennoù embannet",

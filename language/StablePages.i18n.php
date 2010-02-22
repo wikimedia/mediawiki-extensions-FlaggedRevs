@@ -464,8 +464,8 @@ $messages['hsb'] = array(
  */
 $messages['hu'] = array(
 	'stablepages' => 'Stabil lapok',
-	'stablepages-stable' => 'stabil változat',
-	'stablepages-text' => 'Ez a lista azokat a lapokat tartalmazza, amelyeknél külön be lett állítva, hogy az olvasók számára mindig a stabil változat jelenjen meg.',
+	'stablepages-stable' => 'közzétett változat',
+	'stablepages-text' => 'Ez a lista azokat a lapokat tartalmazza, amelyeknél külön be lett állítva, hogy az olvasók számára mindig a közzétett változat jelenjen meg.',
 	'stablepages-none' => 'Nem található egyetlen lap sem a listában',
 	'stablepages-config' => 'beállítás',
 	'stablepages-prec-none' => 'nincs precedencia',

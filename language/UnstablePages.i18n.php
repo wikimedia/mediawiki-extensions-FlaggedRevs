@@ -340,7 +340,7 @@ $messages['hsb'] = array(
  */
 $messages['hu'] = array(
 	'unstablepages' => 'Nem stabil lapok',
-	'unstablepages-stable' => 'stabil változat',
+	'unstablepages-stable' => 'közzétett változat',
 	'unstablepages-text' => 'Lent azon lapok listája található, amelyeknél külön be lett állítva, hogy az olvasók számára mindig a legutolsó változat jelenjen meg.',
 	'unstablepages-none' => 'Nincsenek lapok a listában',
 	'unstablepages-config' => 'beállítás',

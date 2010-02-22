@@ -270,9 +270,10 @@ $messages['hsb'] = array(
 
 /** Hungarian (Magyar)
  * @author Dani
+ * @author Glanthor Reviol
  */
 $messages['hu'] = array(
-	'qualityoversight' => 'Minőségellenőrzés',
+	'qualityoversight' => 'Haladó ellenőrzési napló',
 	'qualityoversight-list' => 'Ez a lap a legutóbb végzett értékeléseket listázza.',
 	'qualityoversight-legend' => 'Keresés a legutóbbi ellenőrzések naplójában',
 );
