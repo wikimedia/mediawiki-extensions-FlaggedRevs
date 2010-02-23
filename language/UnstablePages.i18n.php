@@ -181,7 +181,7 @@ $messages['el'] = array(
  */
 $messages['eo'] = array(
 	'unstablepages' => 'Malstabilaj paĝoj',
-	'unstablepages-stable' => 'stabila versio',
+	'unstablepages-stable' => 'publikigita versio',
 	'unstablepages-text' => 'Jen listo de paĝoj permane konfiguritaj por montri la malnetan version kiel defaŭltan paĝ-enhavon por legantoj.',
 	'unstablepages-none' => 'Neniuj paĝoj estas en ĉi tiu listo',
 	'unstablepages-config' => 'Konfiguro',
@@ -236,7 +236,7 @@ $messages['fa'] = array(
  */
 $messages['fi'] = array(
 	'unstablepages' => 'Epävakaat sivut',
-	'unstablepages-stable' => 'vakaa versio',
+	'unstablepages-stable' => 'julkaistu versio',
 	'unstablepages-text' => 'Alla on lista manuaalisesti asetetuista sivuista, joilla luonnosversio on oletussisältö lukijoille.',
 	'unstablepages-none' => 'Tällä listalla ei ole sivuja',
 	'unstablepages-config' => 'Asetukset',

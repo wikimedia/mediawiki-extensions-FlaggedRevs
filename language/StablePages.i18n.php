@@ -260,7 +260,7 @@ $messages['el'] = array(
  */
 $messages['eo'] = array(
 	'stablepages' => 'Stabilaj paĝoj',
-	'stablepages-stable' => 'stabila versio',
+	'stablepages-stable' => 'publikigita versio',
 	'stablepages-text' => 'Jen listo de paĝoj permane konfiguritaj montri la stabilan version kiel la defaŭltan paĝon por rigardantoj.',
 	'stablepages-none' => 'Neniuj paĝoj estas en ĉi tiu listo',
 	'stablepages-config' => 'Konfiguro',
@@ -308,12 +308,13 @@ $messages['fa'] = array(
 
 /** Finnish (Suomi)
  * @author Cimon Avaro
+ * @author Crt
  * @author Str4nd
  * @author ZeiP
  */
 $messages['fi'] = array(
 	'stablepages' => 'Vakaat sivut',
-	'stablepages-stable' => 'vakaa versio',
+	'stablepages-stable' => 'julkaistu versio',
 	'stablepages-none' => 'Tällä listalla ei ole sivuja.',
 	'stablepages-config' => 'Asetukset',
 	'stablepages-prec-none' => 'ei järjestystä',

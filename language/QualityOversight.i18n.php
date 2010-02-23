@@ -154,7 +154,7 @@ $messages['el'] = array(
  * @author Yekrats
  */
 $messages['eo'] = array(
-	'qualityoversight' => 'Atentado de bonkvalito',
+	'qualityoversight' => 'Protokolo de progresa kontrolo',
 	'qualityoversight-list' => 'Ĉi tiu paĝo montras kaj lastatempajn aprobojn kaj malvalidigojn de versioj.',
 	'qualityoversight-legend' => 'Serĉi lastajn protokolerojn',
 );
