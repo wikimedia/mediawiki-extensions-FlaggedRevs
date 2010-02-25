@@ -39,10 +39,16 @@ Parameter $1 is the number of reviewed pages for use with PLURAL.',
 );
 
 /** Afrikaans (Afrikaans)
+ * @author Arnobarnard
  * @author Naudefj
  */
 $messages['af'] = array(
+	'reviewedpages' => 'Gekontroleerde bladsye',
+	'reviewedpages-leg' => "'n Lys van bladsye met die hoogste kontrolevlak",
+	'reviewedpages-list' => 'Die volgende bladsye is (op sy hoogste) gekontroleer tot die aangegewe vlak.',
+	'reviewedpages-none' => 'Daar is geen bladsye in hierdie lys nie',
 	'reviewedpages-lev-2' => 'Uitgelig',
+	'reviewedpages-all' => 'gekontroleerde weergawes',
 	'reviewedpages-best' => 'beste weergawe',
 );
 
@@ -335,16 +341,17 @@ $messages['fa'] = array(
 
 /** Finnish (Suomi)
  * @author Cimon Avaro
+ * @author Crt
  * @author ZeiP
  */
 $messages['fi'] = array(
 	'reviewedpages' => 'Arvioidut sivut',
 	'reviewedpages-leg' => 'Listaa sivut korkeimman arviointitason mukaan',
-	'reviewedpages-list' => 'Tämä sivu listaa sivut jotka on arvioitu (korkeimmalle) annetulla tasolla.',
+	'reviewedpages-list' => 'Tämä sivu listaa sivut, jotka on arvioitu (korkeimmalle) annetulla tasolla.',
 	'reviewedpages-none' => 'Tällä listalla ei ole sivuja.',
-	'reviewedpages-lev-0' => 'Kertaalleen silmäilty',
-	'reviewedpages-lev-2' => 'Suositeltu',
-	'reviewedpages-all' => 'tarkistetut versiot',
+	'reviewedpages-lev-0' => '{{int:revreview-lev-basic}}',
+	'reviewedpages-lev-2' => '{{int:revreview-lev-pristine}}',
+	'reviewedpages-all' => 'tarkastetut versiot',
 );
 
 /** French (Français)

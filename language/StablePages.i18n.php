@@ -44,7 +44,7 @@ $messages['qqq'] = array(
  */
 $messages['af'] = array(
 	'stablepages' => 'Stabiele bladsye',
-	'stablepages-stable' => 'stabiele weergawe',
+	'stablepages-stable' => 'gepubliseerde weergawe',
 	'stablepages-none' => 'Daar is geen bladsye in hierdie lys nie',
 	'stablepages-config' => 'Voorkeure',
 	'stablepages-prec-none' => 'geen voorrang',

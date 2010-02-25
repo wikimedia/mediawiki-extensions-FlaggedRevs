@@ -562,19 +562,18 @@ $messages['fi'] = array(
 	'validationstatistics' => 'Validointitilastot',
 	'validationstatistics-time' => "''Seuraavat tiedot päivitettiin viimeksi $5 kello $6.''
 
-Vakiintuneiden käyttäjien tarkistamat muutokset katsotaan arvioiduiksi.
+Vakiintuneiden käyttäjien tarkastamat muutokset katsotaan arvioiduiksi.
 
 Keskiarvoinen viive ''sisäänkirjautumattomien käyttäjien'' muutoksien arvioimiseen on '''$1'''; mediaani on '''$3'''.
 $4
 Keskiarvoinen viive [[Special:OldReviewedPages|sivuille, joilla on arvioimattomia muokkauksia  odottamassa]] on '''$2'''.
-Nämä sivut katsotaan ''vanhentuneiksi''. Vastaavasti, sivut katsotaan ''synkronoiduiksi'' jos 
-[[{{MediaWiki:Validationpage}}|vakaa versio]] on myös uusin luonnosversio.
-Vakaa versio sivusta on uusin versio joka on hyväksytty näytettäväksi oletuksena kaikille lukijoille.",
+Nämä sivut katsotaan ''vanhentuneiksi''. Vastaavasti, sivut katsotaan ''synkronoiduiksi'', jos yhtään muutosta ei ole odottamassa tarkastamista.
+Julkaistu versio sivusta on uusin versio, joka on hyväksytty näytettäväksi oletuksena kaikille lukijoille.",
 	'validationstatistics-table' => "Alla on tilastot kaikille nimiavaruuksille ''lukuun ottamatta'' ohjaussivuja.",
 	'validationstatistics-ns' => 'Nimiavaruus',
 	'validationstatistics-total' => 'Sivut',
 	'validationstatistics-stable' => 'Arvioitu',
-	'validationstatistics-latest' => 'Sivu, jonka uusin versio on tarkastettu',
+	'validationstatistics-latest' => 'Synkronoitu',
 	'validationstatistics-synced' => 'Synkronoitu/arvioitu',
 	'validationstatistics-old' => 'Vanhentunut',
 	'validationstatistics-utable' => 'Alla on lista viidestä ahkerimmasta arvioijasta edellisen tunnin aikana.',
@@ -1073,14 +1072,14 @@ $4
 );
 
 /** Karachay-Balkar (Къарачай-Малкъар)
+ * @author Iltever
  * @author Къарачайлы
  */
 $messages['krc'] = array(
 	'validationstatistics' => 'Сынауну статистикасы',
-	'validationstatistics-users' => "'''{{SITENAME}}''' сайтда бусагъатда [[{{MediaWiki:Validationpage}}|Редактор]] хакълагъа ие '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|къошулуучу|къошулуучу}} эм [[{{MediaWiki:Validationpage}}|Сынаучу]] хакълагъа ие
-'''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$2|къошулуучу|къошулуучу}} барды.
+	'validationstatistics-users' => "{{SITENAME}}''' проектде бусагъатда [[{{MediaWiki:Validationpage}}|Редактор]] хакълагъа ие '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|къошулуучу|къошулуучу}} барды.
 
-Редакторла бла Сынаучула  белгили бетлеге сайлама сынау бардырыргъа эркиндиле.",
+«Редакторла» —  бетлени белгили версияларын сайлама сынау бардырыргъа эркин къошулуучуладыла.",
 );
 
 /** Ripoarisch (Ripoarisch)

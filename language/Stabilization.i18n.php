@@ -1039,8 +1039,8 @@ $messages['fa'] = array(
 $messages['fi'] = array(
 	'stabilization-tab' => 'tarkistus',
 	'stabilization' => 'Sivun vakaus',
-	'stabilization-perm' => 'Käyttäjätililläsi ei ole oikeutta muuttaa vakaiden versioiden konfiguraatiota.
-Tässä ovat nykyiset asetukset käyttäjätilille [[:$1|$1]]:',
+	'stabilization-perm' => 'Tunnuksellasi ei ole oikeutta muuttaa julkaistujen versioiden kokoonpanoa.
+Tässä ovat nykyiset asetukset tunnukselle [[:$1|$1]]:',
 	'stabilization-page' => 'Sivun nimi',
 	'stabilization-leg' => 'Vahvista julkaistujen versioiden asetukset',
 	'stabilization-select' => 'Julkaistun version valintajärjestys',
