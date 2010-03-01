@@ -851,17 +851,11 @@ class FlaggedArticleView {
 		# Only for pages manually made to be stable...
 		if ( $this->article->isPageLocked() ) {
 			$s = wfMsgExt( 'revreview-locked', 'parseinline' );
-			$logHtml = '';
-			LogEventsList::showLogExtract( $logHtml, 'stable',
-				$this->article->getTitle()->getPrefixedText(), '', array( 'lim' => 1 ) );
-			$s .= $logHtml;
+			$s .= FlaggedRevsXML::stabilityLogExcerpt( $this->article );
 		# ...or unstable
 		} elseif ( $this->article->isPageUnlocked() ) {
 			$s = wfMsgExt( 'revreview-unlocked', 'parseinline' );
-			$logHtml = '';
-			LogEventsList::showLogExtract( $logHtml, 'stable',
-				$this->article->getTitle()->getPrefixedText(), '', array( 'lim' => 1 ) );
-			$s .= $logHtml;
+			$s .= FlaggedRevsXML::stabilityLogExcerpt( $this->article );
 		}
 		return $s;
 	}
