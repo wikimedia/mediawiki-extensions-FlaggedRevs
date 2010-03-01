@@ -619,7 +619,7 @@ $messages['vec'] = array(
  */
 $messages['vep'] = array(
 	'problemchanges' => 'Znamoitud toižetusiden arvostelend',
-	'problemchanges-legend' => 'Varastajiden arvostelendad lehtpoliden znamoitud toižetusidenke nimikirjutez',
+	'problemchanges-legend' => 'Lehtpoled znamoitud toižetusidenke, kudambad varastadas arvostelendad - nimikirjutez',
 	'problemchanges-none' => "Nügüd' ei ole sättujid nenid kriterijoidme lehtpolid",
 	'problemchanges-category' => 'Kategorii:',
 );

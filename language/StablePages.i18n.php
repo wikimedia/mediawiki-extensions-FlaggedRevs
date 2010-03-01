@@ -448,8 +448,8 @@ $messages['hr'] = array(
  */
 $messages['hsb'] = array(
 	'stablepages' => 'Stabilne strony',
-	'stablepages-stable' => 'stabilna wersija',
-	'stablepages-text' => 'Deleka je lisćina stronow, kotrež buchu manuelnje konfigurowane, zo bychu stabilnu wersiju jako standardny wobsah strony za přehladowarjow pokazali',
+	'stablepages-stable' => 'wozjewjena wersija',
+	'stablepages-text' => 'Deleka je lisćina stronow, kotrež buchu manuelnje konfigurowane, zo bychu wozjewjenu wersiju jako standardny wobsah strony za čitarjow pokazali.',
 	'stablepages-none' => 'W tutej lisćinje strony njejsu.',
 	'stablepages-config' => 'Konfiguracija',
 	'stablepages-prec-none' => 'žana prěnjosć',
@@ -977,8 +977,8 @@ $messages['vec'] = array(
  */
 $messages['vep'] = array(
 	'stablepages' => 'Stabiližed lehtpoled',
-	'stablepages-stable' => 'stabiline versii',
-	'stablepages-text' => 'Lehtpoled, kudambad oma järgetud ičeksaz, miše ozutada lugijoile stabiližid versijoid augotižjärgendusen mödhe - nimikirjutez:',
+	'stablepages-stable' => 'Publikoitud versii',
+	'stablepages-text' => 'Lehtpoled, kudambad oma käzil järgetud muga, miše ozutada lugijoile stabiližid versijoid augotižjärgendusen mödhe - nimikirjutez.',
 	'stablepages-none' => 'Neciš nimikirjuteses ei ole lehtpolid',
 	'stablepages-config' => 'Järgendused',
 	'stablepages-prec-none' => 'ei ole tobmust',

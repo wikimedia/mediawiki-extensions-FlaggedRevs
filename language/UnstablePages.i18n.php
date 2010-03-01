@@ -328,7 +328,7 @@ $messages['hr'] = array(
  */
 $messages['hsb'] = array(
 	'unstablepages' => 'Njestabilne strony',
-	'unstablepages-stable' => 'stabilna wersija',
+	'unstablepages-stable' => 'wozjewjena wersija',
 	'unstablepages-text' => 'Deleka je lisćina stronow, kotrež buchu manuelnje konfigurowane, zo bychu naćiskowu wersiju jako standardny wobsah strony za přehladowarjow pokazali.',
 	'unstablepages-none' => 'W tutej lisćinje strony njejsu.',
 	'unstablepages-config' => 'Konfiguracija',
@@ -744,7 +744,7 @@ $messages['vec'] = array(
  */
 $messages['vep'] = array(
 	'unstablepages' => 'Stabilitomad lehtpoled',
-	'unstablepages-stable' => 'Stabiline versii',
+	'unstablepages-stable' => 'Publikoitud versii',
 	'unstablepages-text' => 'Kehtpoled, kudambiden täht om ičeksaz sätud järgenduz "ozutada mustkirjutuz augotižjärgendusen mödhe" (nimikirjutez).',
 	'unstablepages-none' => 'Neciš nimikirjuteses ei ole lehtpolid',
 	'unstablepages-config' => 'Järgendused',

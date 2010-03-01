@@ -263,7 +263,7 @@ $messages['hr'] = array(
  * @author Michawiki
  */
 $messages['hsb'] = array(
-	'qualityoversight' => 'Kwalitna kontrola',
+	'qualityoversight' => 'Protokol rozšěrjeneje kontrole',
 	'qualityoversight-list' => 'Tuta strona nalistuje aktulane schwalenja a njeschwalenja skontrolowanych wersijow.',
 	'qualityoversight-legend' => 'Aktualne kontrolowe zapiski přepytać',
 );
@@ -571,7 +571,7 @@ $messages['vec'] = array(
  * @author Игорь Бродский
  */
 $messages['vep'] = array(
-	'qualityoversight' => 'Ladun revizor',
+	'qualityoversight' => 'Levitadud kodvindoiden aiglehtez',
 	'qualityoversight-list' => 'Necil lehtolel om tantoižiden vahvištusiden da ladunpindoiden heitmižiden nimikirjutez.',
 	'qualityoversight-legend' => 'Ecmine kodvindoiden aigkirjas',
 );

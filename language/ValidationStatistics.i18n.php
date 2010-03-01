@@ -1867,8 +1867,9 @@ I revisori i xe utenti che pode verificar le revision de le pagine.",
 $messages['vep'] = array(
 	'validationstatistics' => 'Kodvindoiden statistik',
 	'validationstatistics-users' => "{{SITENAME}}-projektas nügüd' '''[[Special:ListUsers/editor|$1]]''' {{plural:$1|kävutajal|kävutajil}} 
-oma [[{{MediaWiki:Validationpage}}|«redaktoran»]] oiktused, i '''[[Special:ListUsers/reviewer|$2]]''' {{plural:$1|kävutajal|kävutajil}} 
-oma [[{{MediaWiki:Validationpage}}|«kodvijan»]] oiktused.",
+oma [[{{MediaWiki:Validationpage}}|«redaktoran»]] oiktused.
+
+Redaktorad oma mugomad kävutajad, kudambil om oiktuz kodvda valitud lehtseiden konkretižed versijad.",
 	'validationstatistics-time' => "''Alemba anttud informacii om ottud kešaspäi i sikš voib olda vanhtunuden.''
 
 Keskvarastuz ''registriruimatomiden kävutajiden'' redakcijoiden täht om '''\$1'''; median om'''\$3'''.
