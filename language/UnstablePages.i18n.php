@@ -528,7 +528,7 @@ $messages['oc'] = array(
  */
 $messages['pl'] = array(
 	'unstablepages' => 'Strony z domyślnie prezentowaną wersją bieżącą',
-	'unstablepages-stable' => 'wersja przejrzana',
+	'unstablepages-stable' => 'wersja opublikowana',
 	'unstablepages-text' => 'Poniżej znajduje się lista stron tak skonfigurowanych, by czytelnikom domyślnie prezentowana była ich wersja robocza.',
 	'unstablepages-none' => 'Brak stron na tej liście',
 	'unstablepages-config' => 'Konfiguracja',

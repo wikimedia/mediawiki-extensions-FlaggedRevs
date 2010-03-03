@@ -595,12 +595,13 @@ $messages['tr'] = array(
 );
 
 /** Ukrainian (Українська)
+ * @author Ahonc
  * @author NickK
  * @author Prima klasy4na
  */
 $messages['uk'] = array(
 	'problemchanges' => 'Перегляд відмічених змін',
-	'problemchanges-legend' => 'Список сторінок із відзначеними редагуваннями в очікуванні перевірки',
+	'problemchanges-legend' => 'Список сторінок із позначеними редагуваннями, що очікують перевірки',
 	'problemchanges-none' => 'Наразі немає сторінок, які відповідають цим критеріям',
 	'problemchanges-category' => 'Категорія:',
 );

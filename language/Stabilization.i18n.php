@@ -2489,8 +2489,8 @@ Po zmianie sposobu ''wyboru wersji oznaczonej'', aby korzystała domyślnie z we
 	'stabilization-perm' => 'Nie masz wystarczających uprawnień, by zmienić konfigurację wersji oznaczonych.
 Aktualne ustawienia dla strony [[:$1|$1]]:',
 	'stabilization-page' => 'Nazwa strony:',
-	'stabilization-leg' => 'Zatwierdź konfigurację wersji oznaczonej',
-	'stabilization-select' => 'Pierwszeństwo wyboru wersji oznaczonej',
+	'stabilization-leg' => 'Zatwierdź konfigurację wersji opublikowanej',
+	'stabilization-select' => 'Pierwszeństwo wyboru wersji opublikowanej',
 	'stabilization-select1' => 'Ostatnia wersja zweryfikowana, a jeśli nie istnieje, to ostatnia wersja przejrzana',
 	'stabilization-select2' => 'Ostatnia wersja oznaczona, niezależnie od poziomu oznaczenia',
 	'stabilization-select3' => 'Ostatnia nienaruszona wersja, a jeśli nie istnieje, to ostatnia wersja zweryfikowana lub przejrzana',
