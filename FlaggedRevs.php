@@ -509,7 +509,7 @@ $wgHooks['getUserPermissionsErrors'][] = 'FlaggedRevsHooks::onUserCan';
 $wgHooks['GetAutoPromoteGroups'][] = 'FlaggedRevsHooks::checkAutoPromote';
 
 # Check if a page is currently being reviewed
-$wgHooks['MediaWikiPerformAction'][] = 'FlaggedRevsHooks::markUnderReview';
+$wgHooks['MediaWikiPerformAction'][] = 'FlaggedRevsHooks::onMediaWikiPerformAction';
 
 # Actually register special pages
 $wgHooks['SpecialPage_initList'][] = 'FlaggedRevsHooks::defineSpecialPages';
