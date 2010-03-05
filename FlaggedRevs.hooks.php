@@ -150,6 +150,10 @@ class FlaggedRevsHooks {
 		if( !$user->isAllowed( 'review' ) ) {
 			return true; // user cannot review
 		}
+		$fa = FlaggedArticleView::globalArticleInstance();
+		if( !$fa->isReviewable() ) {
+			return true; // not reviewable...
+		}
 		# Set a key to note when someone is reviewing this.
 		# NOTE: diff-to-stable views already handled elsewhere.
 		if ( $request->getInt( 'reviewing' ) || $request->getInt( 'rcid' ) ) {
