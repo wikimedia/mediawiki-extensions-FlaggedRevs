@@ -473,7 +473,7 @@ class FlaggedRevsXML {
 				wfMsgHtml( 'revreview-unlocked-title' ) . "\"></span>";
 		}
 	}
-	
+
 	/*
 	* @param FlaggedArticle $flaggedArticle
 	* @param FlaggedRevision $frev
@@ -503,8 +503,12 @@ class FlaggedRevsXML {
 	*/
 	public static function stabilityLogExcerpt( $article ) {
 		$logHtml = '';
+		$params = array(
+			'lim'   => 1,
+			'flags' => LogEventsList::NO_EXTRA_USER_LINKS
+		);
 		LogEventsList::showLogExtract( $logHtml, 'stable',
-			$article->getTitle()->getPrefixedText(), '', array( 'lim' => 1 ) );
+			$article->getTitle()->getPrefixedText(), '', $params );
 		return "<div id=\"mw-fr-logexcerpt\">$logHtml</div>";
 	}
 }
