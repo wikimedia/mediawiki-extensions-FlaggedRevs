@@ -922,7 +922,7 @@ $messages['ar'] = array(
 	'revreview-submit' => 'أرسل',
 	'revreview-submit-review' => 'علم كمراجعة',
 	'revreview-submit-unreview' => 'علم كغير مراجعة',
-	'revreview-submitting' => 'جاري التنفيذ...',
+	'revreview-submitting' => 'يرسل...',
 	'revreview-successful' => "'''عُلّمت مراجعة [[:$1|$1]] بنجاح. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} اعرض النسخ المستقرة])'''",
 	'revreview-successful2' => "'''مراجعة [[:$1|$1]] تمت إزالة علمها بنجاح.'''",
 	'revreview-text' => "''[[{{MediaWiki:Validationpage}}|النسخ المراجعة]] هي نسخ مفحوصة للصفحات تستخدم لتحديد النسخ المنشورة.''",
@@ -1963,8 +1963,8 @@ Ar ''brouilhed'', a weler dindan, en deus [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&
 	'revreview-invalid' => "'''Pal direizh :''' n'eus [[{{MediaWiki:Validationpage}}|stumm adwelet ebet]] o klotañ gant an niverenn merket.",
 	'revreview-legend' => 'Priziañ danvez ar stumm',
 	'revreview-log' => 'Notenn :',
-	'revreview-newest-basic' => "An [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} adweladenn gwelet da ziwezhañ] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} diskouez an holl]) a oa [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprouet] d'an <i>$2</i>.
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|kemm|kemm}}] {{PLURAL:$3|a c'houlenn|a c'houlenn}} bezañ adwelet.",
+	'revreview-newest-basic' => "Ar [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} stumm embannet] a zo bet [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprouet] d'an <i>$2</i>. Ar brouilhed en deus  
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 kemm{{PLURAL:$3||}} red].",
 	'revreview-newest-quality' => "Ar [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} stumm embannet] a zo bet [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprouet] d'an <i>$2</i>. Er brouilhed ez eus [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|c'hemm|kemm}}] o vezañ adwelet.",
 	'revreview-newest-quality-i' => "Ar [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} stumm embannet] a zo bet [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprouet] d'an <i>$2</i>. Er brouilhed ez eus [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} kemmoù patromoù/restroù] o c'hortoz bezañ adlennet.",
 	'revreview-pending-basic' => "Ar [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} stumm embannet] a zo bet [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprouet] d'an <i>$2</i>. Ar [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} brouilhed] en deus
@@ -1978,11 +1978,9 @@ Ar ''brouilhed'', a weler dindan, en deus [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&
 	'revreview-oldrating' => 'E boentadur :',
 	'revreview-quality' => "Setu an diwezhañ stumm [[{{MediaWiki:Validationpage}}|a-feson]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprouet] d'an <i>$2</i>.
 Gant ar [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} brouilhed] ez eus [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|c'hemm|kemm}}] a c'hortoz bezañ adwelet.",
-	'revreview-quality-old' => "Hemañ zo ur stumm [[{{MediaWiki:Validationpage}}|a-feson]] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} gwelet an holl]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprouet] d'an <i>$2</i>.
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Kemmoù] nevez zo bet graet.",
-	'revreview-quality-same' => "Setu an diwezhañ stumm [[{{MediaWiki:Validationpage}}|a-feson]] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} gwelet an holl]),
-[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprouet] d'an <i>$2</i>.
-Gallout a ra ar bajenn bezañ '''[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} kemmet]'''.",
+	'revreview-quality-old' => "Un adweladenn [[{{MediaWiki:Validationpage}}|a galite]] eo ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} gwelet ar roll]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprouet] d'an <i>$2</i>.
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Kemmoù] nevez a c'hell bezañ bet graet.",
+	'revreview-quality-same' => "Ar [[{{MediaWiki:Validationpage}}|stumm embannet]] eo, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprouet] d'an <i>$2</i>.",
 	'revreview-quality-source' => "Ur [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} stumm a-feson] eus ar bajenn-mañ, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprouet] d'an <i>$2</i>, zo bet diazezet er-maez eus ar stumm-mañ.",
 	'revreview-quality-title' => 'Ur stumm a galite eus ar bajenn eo',
 	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|Pennad gwiriet]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} gwelet brouilhed]]",
@@ -2013,6 +2011,7 @@ Gallout a ra ar bajenn bezañ '''[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} kemm
 	'revreview-submit-review' => 'Merkañ evel adwelet',
 	'revreview-submit-unreview' => 'Merkañ evel nann-adwelet',
 	'revreview-submitting' => 'O kas...',
+	'revreview-successful' => "'''An adweladenn eus [[:$1|$1]] a zo bet merket ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} gwelet ar stummoù stabil])'''",
 	'revreview-successful2' => "'''Stumm eus [[:$1|$1]] diwiriekaat.'''",
 	'revreview-toggle-title' => 'diskouez/kuzhat munudoù',
 	'revreview-update' => "Mar plij [[{{MediaWiki:Validationpage}}|adwelit]] an holl gemmoù ''(diskouezet a-is)'' bet graet abaoe ma oa bet [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprouet] ar stumm embannet.
@@ -2027,6 +2026,7 @@ Gallout a ra ar bajenn bezañ '''[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} kemm
 	'right-autoreview' => 'Merkañ emgefre an adweladennoù evel gwiriet',
 	'right-movestable' => "Dilec'hiañ pajennoù embannet",
 	'right-review' => 'Merkañ an adweladennoù evel gwiriet',
+	'right-stablesettings' => 'Kefluniañ arventennoù diuzañ ha diskwel ar stummoù embannet',
 	'right-validate' => 'Merkañ an adweladennoù evel "a galite"',
 	'right-unreviewedpages' => "Sellet ouzh [[Special:UnreviewedPages|roll ar pajennoù n'int ket bet adwelet]]",
 	'rights-editor-autosum' => 'emanvet',
@@ -8556,7 +8556,7 @@ $messages['ml'] = array(
 	'flaggedrevs-backlog' => "സംശോധനം ചെയ്ത താളുകളിലെ [[Special:OldReviewedPages|പരിശോധിക്കേണ്ട തിരുത്തലുകളുടെ]] രേഖയുണ്ട്. '''താങ്കളുടെ ശ്രദ്ധ ക്ഷണിക്കുന്നു!'''",
 	'flaggedrevs-watched-pending' => "താങ്കൾ ശ്രദ്ധിക്കുന്ന താളുകളുടെ പട്ടികയിലെ സംശോധനം ചെയ്ത താളുകളിൽ [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} പരിശോധിക്കേണ്ട തിരുത്തലുകൾ] ഉണ്ട്. '''താങ്കളുടെ ശ്രദ്ധ ക്ഷണിക്കുന്നു!'''",
 	'flaggedrevs-desc' => 'തിരുത്തുന്നവര്‍ക്കും സം‌ശോധകര്‍ക്കും നാൾപ്പതിപ്പുകൾ സംശോധനം ചെയ്യാനും താളുകള്‍ സ്ഥിരപ്പെടുത്താനുമുള്ള അവകാശം കൊടുക്കുന്നു.',
-	'flaggedrevs-pref-UI' => 'അടിസ്ഥാന ദൃശ്യമണ്ഡലം:',
+	'flaggedrevs-pref-UI' => 'അടിസ്ഥാന സമ്പർക്കമുഖം:',
 	'flaggedrevs-pref-UI-0' => 'താളിന്റെ അംഗീകരണ സ്ഥിതി പ്രദർശിപ്പിക്കാൻ വിപുലമായ പെട്ടികൾ ഉപയോഗിക്കുക',
 	'flaggedrevs-pref-UI-1' => 'താളുകളുടെ അംഗീകരണ സ്ഥിതി പ്രദർശിപ്പിക്കൻ ചെറിയ ഐകോണുകളും കുറച്ച് എഴുത്തും ഉപയോഗിക്കുക',
 	'prefs-flaggedrevs' => 'സ്ഥിരത',
@@ -8708,6 +8708,7 @@ $messages['ml'] = array(
 	'right-review' => 'നാൾപ്പതിപ്പുകൾ "പരിശോധിച്ചതായി" അടയാളപ്പെടുത്തുക',
 	'right-stablesettings' => 'പ്രസിദ്ധീകരിക്കപ്പെട്ട പതിപ്പ് എപ്രകാരം തിരഞ്ഞെടുക്കണം എന്നും പ്രദർശിപ്പിക്കണം എന്നും ക്രമീകരിക്കുക',
 	'right-validate' => 'നാൾപ്പതിപ്പുകൾ "ഗുണമേന്മയുള്ളവയായി" അടയാളപ്പെടുത്തുക',
+	'right-unreviewedpages' => '[[Special:UnreviewedPages|സം‌ശോധനം ചെയ്തിട്ടില്ലാത്ത താളുകളുടെ പട്ടിക]] കാണുക',
 	'rights-editor-autosum' => 'യാന്ത്രികമായി സ്ഥാനക്കയറ്റം നല്‍കിയിരിക്കുന്നു',
 	'rights-editor-revoke' => '[[$1]] എന്ന ഉപയോക്താവിന്റെ എഡിറ്റര്‍ അവകാശം പിന്‍‌വലിച്ചിരിക്കുന്നു',
 	'specialpages-group-quality' => 'ഗുണമേന്മാ ഉറപ്പ്',
