@@ -1005,85 +1005,90 @@ class FlaggedArticleView {
 	 * SkinTemplateTabs, to inlude flagged revs UI elements
 	 */
 	public function setViewTabs( $skin, &$views ) {
-		global $wgRequest, $wgUser;
+		global $wgRequest;
 		$this->load();
 		// Get the actual content page
 		$title = $this->article->getTitle()->getSubjectPage();
 		$fa = FlaggedArticle::getTitleInstance( $title );
-
+		// Get the type of action requested
 		$action = $wgRequest->getVal( 'action', 'view' );
 		if ( !$fa->isReviewable() ) {
 			return true; // Not a reviewable page or the UI is hidden
 		}
+		// XXX: shouldn't the session slave position check handle this?
 		$flags = ( $action == 'rollback' ) ? FR_MASTER : 0;
 		$srev = $fa->getStableRev( $flags );
 	   	if ( !$srev ) {
 			return true; // No stable revision exists
 		}
 		$synced = FlaggedRevs::stableVersionIsSynced( $srev, $fa );
-		// Set draft tab as needed...
-	   	if ( !$skin->mTitle->isTalkPage() && !$synced ) {
+		$pendingEdits = !$synced && $fa->isStableShownByDefault();
+		// Set the edit tab names as needed...
+	   	if ( !$skin->mTitle->isTalkPage() && $pendingEdits ) {
 	   		if ( isset( $views['edit'] ) ) {
-				if ( $fa->isStableShownByDefault() ) {
-					$views['edit']['text'] = wfMsg( 'revreview-edit' );
-				}
-				if ( $this->pageOverride() ) {
-					$views['edit']['href'] = $title->getLocalUrl( 'action=edit' );
-				}
+				$views['edit']['text'] = wfMsg( 'revreview-edit' );
 	   		}
 	   		if ( isset( $views['viewsource'] ) ) {
-				if ( $fa->isStableShownByDefault() ) {
-					$views['viewsource']['text'] = wfMsg( 'revreview-source' );
-				}
-				if ( $this->pageOverride() ) {
-					$views['viewsource']['href'] = $title->getLocalUrl( 'action=edit' );
-				}
+				$views['viewsource']['text'] = wfMsg( 'revreview-source' );
 			}
 	   	}
 	 	if ( !FlaggedRevs::versionTabsShown() || $synced ) {
-	 		// Exit, since either the stable/draft tabs should not be shown
+	 		// Exit, since either the draft tab should not be shown
 	 		// or the page is already the most current revision
 	   		return true;
 	 	}
 	 	$tabs = array(
-	 		'stable' => array(
-				'text' => wfMsg( 'revreview-stable' ), // unused
-				'href' => $title->getLocalUrl( 'stable=1' ),
+	 		'stable' => array( // view stable
+				'text'  => wfMsg( 'revreview-stable' ), // unused
+				'href'  => $title->getLocalUrl( 'stable=1' ),
 	 			'class' => ''
 	 		),
-	 		'current' => array(
-				'text' => wfMsg( 'revreview-current' ),
-				'href' => $title->getLocalUrl( 'stable=0&redirect=no' ),
+	 		'draft' => array( // view draft
+				'text'  => wfMsg( 'revreview-current' ),
+				'href'  => $title->getLocalUrl( 'stable=0&redirect=no' ),
 	 			'class' => ''
 	 		),
 	 	);
 		if ( $this->pageOverride() || $wgRequest->getVal( 'stableid' ) ) {
-			// We are looking a the stable version
+			// We are looking a the stable version or an old reviewed one
 			$tabs['stable']['class'] = 'selected';
-		} elseif (
-			( self::isViewAction( $action ) || $action == 'edit' ) &&
-			!$skin->mTitle->isTalkPage()
-		) {
-			// We are looking at the current revision or in edit mode
-			$tabs['current']['class'] = 'selected';
+		} elseif ( self::isViewAction( $action ) && !$skin->mTitle->isTalkPage() ) {
+			// We are looking at a draft revision
+			$tabs['draft']['class'] = 'selected';
 		}
 		$first = true;
 		$newViews = array();
+		// Rebuild tabs array. Deals with Monobook vs Vector differences.
 		foreach ( $views as $tabAction => $data ) {
-			// Very first tab (page link)
+			// The first tab ('page' or 'view')...
 			if ( $first ) {
-				if ( $synced ) {
-					// Use existing first tabs when synced
-					$newViews[$tabAction] = $data;
+				$first = false;
+				// 'view' tab? In this case, the "page"/"discussion" tabs are not
+				// part of $views. Also, both the page/talk page have a 'view' tab.
+				if( $tabAction == 'view' ) {
+					if( $skin->mTitle->isTalkPage() ) {
+						// 'view' for talk page; leave it alone
+						$newViews[$tabAction] = $data;
+					} else {
+						// 'view' for content page; make it go to the stable version
+						$newViews[$tabAction]['text'] = $data['text']; // keep tab name
+						$newViews[$tabAction]['href'] = $tabs['stable']['href'];
+						$newViews[$tabAction]['class'] = $tabs['stable']['class'];
+					}
+				// 'page' tab? Make it go to the stable version...
 				} else {
-					// Use split current and stable tabs when not synced
 					$newViews[$tabAction]['text'] = $data['text']; // keep tab name
 					$newViews[$tabAction]['href'] = $tabs['stable']['href'];
-					$newViews[$tabAction]['class'] = $tabs['stable']['class'];
-					$newViews['current'] = $tabs['current'];
+					$newViews[$tabAction]['class'] = $data['class']; // keep tab class
 				}
-				$first = false;
+			// All other tabs...
 			} else {
+				// Add 'draft' tab to content page to the left of 'edit'...
+				if( $tabAction == 'edit' || $tabAction == 'viewsource' ) {
+					if( !$skin->mTitle->isTalkPage() ) {
+						$newViews['current'] = $tabs['draft'];
+					}
+				}
 				$newViews[$tabAction] = $data;
 			}
 	   	}
