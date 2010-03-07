@@ -1938,6 +1938,8 @@ Gwelet [[Special:ReviewedPages|roll ar pajennoù adwelet]] evit kaout roll ar pa
 	'revreview-auto' => '(emgefre)',
 	'revreview-basic' => "Setu ar [[{{MediaWiki:Validationpage}}|stumm embannet]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprouet] d'an <i>$2</i>.
 Gant ar [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} brouilhed] ez eus [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|c'hemm|kemm}}] kinniget.",
+	'revreview-basic-i' => "Ar [[{{MediaWiki:Validationpage}}|stumm embannet]] eo, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} gwiriet] d'an <i>$2</i>.
+Ar [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} brouilhed] en deus [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} kemmoù patromoù pe restroù] o c'hortoz bezañ adlennet.",
 	'revreview-basic-old' => "Hemañ zo ur stumm bet [[{{MediaWiki:Validationpage}}|gwiriet]] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} gwelet an holl]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprouet] d'an <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Kemmoù] nevez a c'hell bezañ bet graet.",
 	'revreview-basic-same' => "Ar [[{{MediaWiki:Validationpage}}|stumm embannet]] eo, bet [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} gwiriet] d'an <i>$2</i>.",
@@ -1965,6 +1967,7 @@ Ar ''brouilhed'', a weler dindan, en deus [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&
 	'revreview-log' => 'Notenn :',
 	'revreview-newest-basic' => "Ar [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} stumm embannet] a zo bet [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprouet] d'an <i>$2</i>. Ar brouilhed en deus  
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 kemm{{PLURAL:$3||}} red].",
+	'revreview-newest-basic-i' => "Ar [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} stumm embannet] a zo bet [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} gwiriet] d'an <i>$2</i>. Ar brouilhed en deus [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} kemmoù eus ar restroù pe ar patromoù] o c'hortoz bezañ adlennet.",
 	'revreview-newest-quality' => "Ar [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} stumm embannet] a zo bet [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprouet] d'an <i>$2</i>. Er brouilhed ez eus [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|c'hemm|kemm}}] o vezañ adwelet.",
 	'revreview-newest-quality-i' => "Ar [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} stumm embannet] a zo bet [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprouet] d'an <i>$2</i>. Er brouilhed ez eus [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} kemmoù patromoù/restroù] o c'hortoz bezañ adlennet.",
 	'revreview-pending-basic' => "Ar [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} stumm embannet] a zo bet [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprouet] d'an <i>$2</i>. Ar [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} brouilhed] en deus
@@ -1976,8 +1979,10 @@ Ar ''brouilhed'', a weler dindan, en deus [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&
 	'revreview-note' => 'Skrivet eo bet an notennoù-mañ gant [[User:$1|$1]] e-ser [[{{MediaWiki:Validationpage}}|adwelet]] ar stumm :',
 	'revreview-notes' => 'Evezhiadennoù ha notennoù da ziskouez :',
 	'revreview-oldrating' => 'E boentadur :',
-	'revreview-quality' => "Setu an diwezhañ stumm [[{{MediaWiki:Validationpage}}|a-feson]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprouet] d'an <i>$2</i>.
-Gant ar [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} brouilhed] ez eus [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|c'hemm|kemm}}] a c'hortoz bezañ adwelet.",
+	'revreview-quality' => "Ar [[{{MediaWiki:Validationpage}}|stumm embannet]] eo, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprouet] d'an <i>$2</i>.
+Ar [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} brouilhed] en deus [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 kemm{{PLURAL:$3||}}] hag o deus ezhomm bezañ adlennet.",
+	'revreview-quality-i' => "Ar [[{{MediaWiki:Validationpage}}|stumm embannet]] eo, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} parouet] d'an <i>$2</i>.
+Ar [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} brouilhed] en deus [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} kemmoù patromoù pe restroù] o c'hortoz bezañ adlennet.",
 	'revreview-quality-old' => "Un adweladenn [[{{MediaWiki:Validationpage}}|a galite]] eo ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} gwelet ar roll]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprouet] d'an <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Kemmoù] nevez a c'hell bezañ bet graet.",
 	'revreview-quality-same' => "Ar [[{{MediaWiki:Validationpage}}|stumm embannet]] eo, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprouet] d'an <i>$2</i>.",
@@ -2032,6 +2037,8 @@ Gant ar [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} brouilhed] ez eus [{{fullurl:{{F
 	'rights-editor-autosum' => 'emanvet',
 	'rights-editor-revoke' => 'en deus dilamet ar gwirioù skridaozer da [[$1]]',
 	'specialpages-group-quality' => 'Kretadur a-zoare',
+	'stable-logentry-config' => 'en deus kefluniet ar stummoù embannet eus [[$1]]',
+	'stable-logentry-reset' => 'en deus adderaouekaet ar stumm embannet eus [[$1]]',
 	'stable-logpage' => 'Marilh ar stummoù stabil',
 	'revreview-filter-all' => 'pep tra',
 	'revreview-filter-stable' => 'Embannet',
