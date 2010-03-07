@@ -189,7 +189,7 @@ Please check the URL you used to access this page.',
 	'right-review'                 => 'Mark revisions as being "checked"',
 	'right-stablesettings'         => 'Configure how the published version is selected and displayed',
 	'right-validate'               => 'Mark revisions as being "quality"',
-	'right-unreviewedpages'        => 'View the list of unreviewed pages', # no links allowed
+	'right-unreviewedpages'        => 'View the [[Special:UnreviewedPages|list of unreviewed pages]]',
 	'rights-editor-autosum'        => 'autopromoted',
 	'rights-editor-revoke'         => 'removed editor status from [[$1]]', # B/C
 	'specialpages-group-quality'   => 'Quality assurance',
