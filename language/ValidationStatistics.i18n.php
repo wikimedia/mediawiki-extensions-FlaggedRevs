@@ -168,7 +168,7 @@ $messages['ast'] = array(
  * @author Red Winged Duck
  */
 $messages['be-tarask'] = array(
-	'validationstatistics' => 'Статыстыка праверак',
+	'validationstatistics' => 'Статыстыка рэцэнзаваньня старонак',
 	'validationstatistics-users' => "'''{{SITENAME}}''' цяпер налічвае '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|удзельніка|удзельнікаў|удзельнікаў}} з правамі «[[{{MediaWiki:Validationpage}}|рэдактара]]».
 
 Рэдактары — асобныя удзельнікі, якія могуць правяраць вэрсіі старонак.",
@@ -657,7 +657,7 @@ $messages['ga'] = array(
  * @author Toliño
  */
 $messages['gl'] = array(
-	'validationstatistics' => 'Estatísticas de validación',
+	'validationstatistics' => 'Estatísticas de revisión da páxina',
 	'validationstatistics-users' => "Actualmente, '''{{SITENAME}}''' ten '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|usuario|usuarios}} con
 dereitos de [[{{MediaWiki:Validationpage}}|editor]].
 
@@ -1188,7 +1188,7 @@ $4
  * @author Sadik Khalid
  */
 $messages['ml'] = array(
-	'validationstatistics' => 'സ്ഥിരീകരണ കണക്കുകള്‍',
+	'validationstatistics' => 'താൾ സംശോധനത്തിന്റെ സ്ഥിതിവിവരം',
 	'validationstatistics-users' => "{{SITENAME}}''' പദ്ധതിയില്‍ '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|ഉപയോക്താവിന്|ഉപയോക്താക്കള്‍ക്ക്}} [[{{MediaWiki:Validationpage}}|എഡിറ്റർ]] പദവിയുണ്ട്.
 
 താളുകളുടെ നാൾവഴികൾ പരിശോധിച്ച് തെറ്റുതിരുത്താൻ കഴിയുന്ന സ്ഥാപിത ഉപയോക്താക്കളാണ് എഡിറ്റർമാർ.",
@@ -1300,7 +1300,7 @@ Stabile versjonar er sideversjonar for sider som er sjekka av minst ein etablert
  * @author Nghtwlkr
  */
 $messages['no'] = array(
-	'validationstatistics' => 'Valideringsstatistikk',
+	'validationstatistics' => 'Siderevideringsstatistikk',
 	'validationstatistics-users' => "'''{{SITENAME}}''' har på nåværende tidspunkt '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|bruker|brukere}} med [[{{MediaWiki:Validationpage}}|skribentrettigheter]].
 
 Skribenter er etablerte brukere som kan punktsjekke revisjoner på siden.",
@@ -1817,7 +1817,7 @@ Bir sayfanın yayımlanmış sürümü, tüm okuyuculara varsayılan olarak gös
  * @author Prima klasy4na
  */
 $messages['uk'] = array(
-	'validationstatistics' => 'Статистика перевірок',
+	'validationstatistics' => 'Статистика рецензувань сторінок',
 	'validationstatistics-users' => "У проекті '''{{SITENAME}}''' зараз '''[[Special:ListUsers/editor|$1]]''' {{plural:$1|користувач має|користувачі мають|користувачів мають}} права [[{{MediaWiki:Validationpage}}|«редактор»]].
 
 «Редактори» — визначені користувачі, що мають можливість робити вибіркову перевірку конкретних версій сторінок.",

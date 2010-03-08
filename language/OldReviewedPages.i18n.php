@@ -605,7 +605,7 @@ $messages['ga'] = array(
  * @author Toliño
  */
 $messages['gl'] = array(
-	'oldreviewedpages' => 'Páxinas revisadas fóra de data',
+	'oldreviewedpages' => 'Páxinas con cambios pendentes',
 	'oldreviewedpages-legend' => 'Listar as páxinas revisadas con revisións sen revisar',
 	'oldreviewedpages-list' => 'Esta páxina lista {{PLURAL:$1|a páxina revisada|as páxinas revisadas}} que {{PLURAL:$1|ten|teñen}} edicións pendentes.',
 	'oldreviewedpages-none' => 'Actualmente non hai páxinas que coincidan con ese criterio',
@@ -987,7 +987,7 @@ $messages['mk'] = array(
  * @author Shijualex
  */
 $messages['ml'] = array(
-	'oldreviewedpages' => 'സംശോധനം ചെയ്തതില്‍ കാലഹരണപ്പെട്ട താളുകള്‍',
+	'oldreviewedpages' => 'സംശോധനം ചെയ്യൽ അവശേഷിക്കുന്ന താളുകൾ',
 	'oldreviewedpages-legend' => 'സംശോധനം ചെയ്ത താളുകളൂടെ പട്ടികയോടൊപ്പം സം‌ശോധനം ചെയ്തിട്ടില്ലാത്ത പതിപ്പുകള്‍ പ്രദര്‍ശിപ്പിക്കുക',
 	'oldreviewedpages-list' => 'ഈ താളിൽ പരിശോധിക്കേണ്ട തിരുത്തലുകളവശേഷിക്കുന്ന {{PLURAL:$1|സംശോധനം ചെയ്ത താൾ|സംശോധനം ചെയ്ത താളുകൾ}} നൽകിയിരിക്കുന്നു.',
 	'oldreviewedpages-none' => 'ഈ മാനദണ്ഡം പാലിക്കുന്ന താളുകളൊന്നും നിലവിലില്ല',
@@ -1112,7 +1112,7 @@ $messages['nn'] = array(
  * @author Nghtwlkr
  */
 $messages['no'] = array(
-	'oldreviewedpages' => 'Utdaterte anmeldte sider',
+	'oldreviewedpages' => 'Sider med ventende endringer',
 	'oldreviewedpages-legend' => 'Vis anmeldte sider med uanmeldte sideversjoner',
 	'oldreviewedpages-list' => 'Denne siden lister opp {{PLURAL:$1|én vurdert side|vurderte sider}} som har ventende endringer.',
 	'oldreviewedpages-none' => 'Det er for tiden ingen sider som passer med disse kriteriene',
@@ -1518,7 +1518,7 @@ $messages['tr'] = array(
  * @author Prima klasy4na
  */
 $messages['uk'] = array(
-	'oldreviewedpages' => 'Застарілі перевірені сторінки',
+	'oldreviewedpages' => 'Сторінки з нерецензованими змінами',
 	'oldreviewedpages-legend' => 'Список перевірених сторінок з неперевіреними версіями',
 	'oldreviewedpages-list' => 'На цій сторінці {{PLURAL:$1|зазначена перевірена сторінка, яка в подальшому редагувались|зазначені перевірені сторінки, які в подальшому редагувались}}',
 	'oldreviewedpages-none' => 'Зараз нема сторінок, що задовольняють цим умовам',

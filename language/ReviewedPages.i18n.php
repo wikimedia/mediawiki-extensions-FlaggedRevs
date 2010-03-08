@@ -45,7 +45,7 @@ Parameter $1 is the number of reviewed pages for use with PLURAL.',
  */
 $messages['af'] = array(
 	'reviewedpages' => 'Gekontroleerde bladsye',
-	'reviewedpages-leg' => "'n Lys van bladsye met die hoogste kontrolevlak",
+	'reviewedpages-leg' => 'Lys met bladsye wat gekontrolleer is',
 	'reviewedpages-list' => 'Die volgende bladsye is (op sy hoogste) gekontroleer tot die aangegewe vlak.',
 	'reviewedpages-none' => 'Daar is geen bladsye in hierdie lys nie',
 	'reviewedpages-lev-2' => 'Uitgelig',
@@ -395,14 +395,15 @@ $messages['frp'] = array(
  */
 $messages['gl'] = array(
 	'reviewedpages' => 'Páxinas revisadas',
-	'reviewedpages-leg' => 'Lista as páxinas polo nivel máis alto de revisión',
-	'reviewedpages-list' => 'Esta páxina lista as páxinas que foron revisadas (polo maior) ao nivel especificado.',
+	'reviewedpages-leg' => 'Listar as páxinas que foron revisadas',
+	'reviewedpages-list' => "Estas listas conteñen as páxinas [[{{MediaWiki:Validationpage}}|revisadas]] cuxo nivel de revisión ''maior alcanzado'' (dunha revisión) é o nivel especificado.
+Dáse unha ligazón cara á última revisión dese nivel.",
 	'reviewedpages-none' => 'Non hai páxinas nesta lista',
 	'reviewedpages-lev-0' => 'Revisado',
 	'reviewedpages-lev-1' => 'Calidade',
 	'reviewedpages-lev-2' => 'Destacado',
 	'reviewedpages-all' => 'Versións revisadas',
-	'reviewedpages-best' => 'revisión principal',
+	'reviewedpages-best' => 'mellor revisión',
 );
 
 /** Ancient Greek (Ἀρχαία ἑλληνικὴ)
@@ -422,14 +423,14 @@ $messages['grc'] = array(
  */
 $messages['gsw'] = array(
 	'reviewedpages' => 'Lischt vu dr Syte, wu vum Fäldhieter gsäh sin',
-	'reviewedpages-leg' => 'D Syte no em hegschte Prief-Level uflischte',
+	'reviewedpages-leg' => 'Priefti Syte uflischte',
 	'reviewedpages-list' => 'Die Syte zeigt Syte, wu uf em hegschte Nivo prieft sin.',
 	'reviewedpages-none' => 'Die Lischt isch läär.',
 	'reviewedpages-lev-0' => 'Vum Fäldhieter gsäh',
 	'reviewedpages-lev-1' => 'Prieft',
 	'reviewedpages-lev-2' => 'Bsundersch glunge',
 	'reviewedpages-all' => 'Vum Fäldhieter aagluegti Versione',
-	'reviewedpages-best' => 'leschti Version, wu am hegschte gwärtet woren isch',
+	'reviewedpages-best' => 'am hegschte gwärteti Version',
 );
 
 /** Hebrew (עברית)
@@ -519,14 +520,14 @@ $messages['hu'] = array(
  */
 $messages['ia'] = array(
 	'reviewedpages' => 'Paginas revidite',
-	'reviewedpages-leg' => 'Listar paginas per plus alte nivello de revision',
-	'reviewedpages-list' => 'Iste pagina lista paginas que ha essite revidite (al maximo) al nivello specificate.',
+	'reviewedpages-leg' => 'Listar paginas que ha essite revidite',
+	'reviewedpages-list' => "Iste pagina contine paginas [[{{MediaWiki:Validationpage}}|revidite]] del quales le nivello de revision ''le plus alte attingite'' (de un version) es le nivello specificate. Un ligamine es date al version le plus recente de iste nivello.",
 	'reviewedpages-none' => 'Il non ha paginas in iste lista',
 	'reviewedpages-lev-0' => 'Mirate',
 	'reviewedpages-lev-1' => 'Qualitate',
 	'reviewedpages-lev-2' => 'Pristine',
 	'reviewedpages-all' => 'versiones revidite',
-	'reviewedpages-best' => 'version principal',
+	'reviewedpages-best' => 'le melior version',
 );
 
 /** Indonesian (Bahasa Indonesia)
@@ -728,14 +729,14 @@ $messages['mk'] = array(
  */
 $messages['ml'] = array(
 	'reviewedpages' => 'സംശോധനം നടന്ന താളുകള്‍',
-	'reviewedpages-leg' => 'സംശോധന തലങ്ങളുടെ ക്രമമനുസരിച്ചുള്ള താളുകളുടെ പട്ടിക',
+	'reviewedpages-leg' => 'സംശോധനം ചെയ്യപ്പെട്ട താളുകളുടെ പട്ടിക',
 	'reviewedpages-list' => 'താഴെ പ്രദര്‍ശിപ്പിച്ചിരിക്കുന്ന താളുകള്‍ ഒരു പ്രത്യേക തലത്തിലുള്ള (ഏറ്റവും കൂടുതൽ) സം‌ശോധനം പൂര്‍ത്തിയാക്കിയിരിക്കുന്നു.',
 	'reviewedpages-none' => 'ഈ പട്ടികയില്‍ താളുകള്‍ ഒന്നും ഇല്ല',
 	'reviewedpages-lev-0' => 'സൈറ്റഡ്',
 	'reviewedpages-lev-1' => 'ഉന്നത നിലവാരം',
 	'reviewedpages-lev-2' => 'തിരഞ്ഞെടുക്കപ്പെട്ടത്',
 	'reviewedpages-all' => 'സംശോധനം ചെയ്ത പതിപ്പുകള്‍',
-	'reviewedpages-best' => 'മുഖ്യ പതിപ്പ്',
+	'reviewedpages-best' => 'ഏറ്റവും നല്ല നാൾപ്പതിപ്പ്',
 );
 
 /** Marathi (मराठी)
@@ -777,12 +778,13 @@ $messages['nah'] = array(
 );
 
 /** Dutch (Nederlands)
+ * @author McDutchie
  * @author SPQRobin
  * @author Siebrand
  */
 $messages['nl'] = array(
 	'reviewedpages' => "Gecontroleerde pagina's",
-	'reviewedpages-leg' => "Een lijst met pagina's met het hoogste controleniveau",
+	'reviewedpages-leg' => "Lijst met pagina's die gecontroleerd zijn",
 	'reviewedpages-list' => "De volgende pagina's zijn (op zijn hoogst) gecontroleerd tot het aangegeven niveau.",
 	'reviewedpages-none' => 'Geen resultaten',
 	'reviewedpages-lev-0' => 'Gecontroleerd',
@@ -814,14 +816,15 @@ $messages['nn'] = array(
  */
 $messages['no'] = array(
 	'reviewedpages' => 'Anmeldte sider',
-	'reviewedpages-leg' => 'List opp sider etter høyeste vurderingsnivå',
-	'reviewedpages-list' => 'Denne siden lister opp sider som har blitt vurdert (på sitt høyeste) til det spesifiserte nivået.',
+	'reviewedpages-leg' => 'List opp sider som har blitt revidert',
+	'reviewedpages-list' => "Denne listen inneholder [[{{MediaWiki:Validationpage}}|reviderte]] sider som ''på det meste''  har hatt et revisjonsnivå på et oppgitt nivå.
+En lenke er oppgitt til den siste revisjonen med det nivået.",
 	'reviewedpages-none' => 'Det er ingen sider i denne listen',
 	'reviewedpages-lev-0' => 'Sjekket',
 	'reviewedpages-lev-1' => 'Kvalitet',
 	'reviewedpages-lev-2' => 'Utmerket',
 	'reviewedpages-all' => 'anmeldte sideversjoner',
-	'reviewedpages-best' => 'primærversjon',
+	'reviewedpages-best' => 'beste revisjon',
 );
 
 /** Northern Sotho (Sesotho sa Leboa)
@@ -1058,6 +1061,7 @@ $messages['su'] = array(
  * @author Boivie
  * @author Lejonel
  * @author M.M.S.
+ * @author McDutchie
  * @author Najami
  * @author Per
  */
@@ -1070,7 +1074,7 @@ $messages['sv'] = array(
 	'reviewedpages-lev-1' => '{{int:revreview-lev-quality}}',
 	'reviewedpages-lev-2' => '{{int:revreview-lev-pristine}}',
 	'reviewedpages-all' => 'granskade versioner',
-	'reviewedpages-best' => 'främsta version',
+	'reviewedpages-best' => 'bästa versionen',
 );
 
 /** Telugu (తెలుగు)
@@ -1166,8 +1170,9 @@ $messages['tr'] = array(
  */
 $messages['uk'] = array(
 	'reviewedpages' => 'Перевірені сторінки',
-	'reviewedpages-leg' => 'Список сторінок з найвищим рівнем оцінки',
-	'reviewedpages-list' => 'Список сторінок, що були перевірені і оцінені на зазначений рівень',
+	'reviewedpages-leg' => 'Список сторінок, що були рецензовані',
+	'reviewedpages-list' => "Цей список містить [[{{MediaWiki:Validationpage}}|рецензовані]] сторінки, чий ''найвищий досягнутий'' рівень рецензії (або версії) є зазначений рівень.
+Посилання веде на останню версію цього рівня.",
 	'reviewedpages-none' => 'У цьому списку відсутні сторінки',
 	'reviewedpages-lev-0' => 'Переглянута',
 	'reviewedpages-lev-1' => 'Якісна',

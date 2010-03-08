@@ -222,7 +222,7 @@ $messages['frp'] = array(
  * @author Toliño
  */
 $messages['gl'] = array(
-	'problemchanges' => 'Revisar os cambios etiquetados',
+	'problemchanges' => 'Cambios etiquetados pendentes',
 	'problemchanges-legend' => 'Listar as páxinas con edicións etiquetadas pendentes de revisión',
 	'problemchanges-none' => 'Actualmente non hai páxinas que reúnan estes criterios',
 	'problemchanges-category' => 'Categoría:',
@@ -397,7 +397,7 @@ $messages['mk'] = array(
  * @author Praveenp
  */
 $messages['ml'] = array(
-	'problemchanges' => 'റ്റാഗോടെയുള്ള മാറ്റങ്ങൾ സംശോധമ ചെയ്യുക',
+	'problemchanges' => 'റ്റാഗോടെ അവശേഷിക്കുന്ന മാറ്റങ്ങൾ',
 	'problemchanges-legend' => 'തിരുത്തലുകളിൽ സംശോധനം പ്രതിക്ഷിക്കുന്നവ എന്ന റ്റാഗുള്ള താളുകളുടെ പട്ടിക',
 	'problemchanges-none' => 'ഈ മാനദണ്ഡങ്ങളുമായി ഒത്തു പോകുന്ന താളുകൾ ഒന്നും ഇപ്പോൾ ലഭ്യമല്ല',
 	'problemchanges-category' => 'വർഗ്ഗം:',
@@ -423,10 +423,11 @@ $messages['nl'] = array(
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
  * @author Jon Harald Søby
  * @author Laaknor
+ * @author Nghtwlkr
  * @author Simny
  */
 $messages['no'] = array(
-	'problemchanges' => 'Se igjennom merkede endringer',
+	'problemchanges' => 'Merket ventende endringer',
 	'problemchanges-legend' => 'Vis sider som inneholder merkede redigeringer som trenger gjennomsyn',
 	'problemchanges-none' => 'Det er for øyeblikket ingen sider som passer med disse kjennetegnene',
 	'problemchanges-category' => 'Kategori:',
@@ -600,7 +601,7 @@ $messages['tr'] = array(
  * @author Prima klasy4na
  */
 $messages['uk'] = array(
-	'problemchanges' => 'Перегляд відмічених змін',
+	'problemchanges' => 'Відмічені нерецензовані зміни',
 	'problemchanges-legend' => 'Список сторінок із позначеними редагуваннями, що очікують перевірки',
 	'problemchanges-none' => 'Наразі немає сторінок, які відповідають цим критеріям',
 	'problemchanges-category' => 'Категорія:',
