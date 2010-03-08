@@ -8,7 +8,7 @@
 $messages = array();
 
 $messages['en'] = array(
-	'problemchanges' => 'Review tagged changes',
+	'problemchanges' => 'Tagged pending changes',
 	'problemchanges-legend' => 'List pages with tagged edits pending review',
 	'problemchanges-none' => 'There are currently no pages meeting these criteria',
 	'problemchanges-category' => 'Category:',

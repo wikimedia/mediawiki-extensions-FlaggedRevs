@@ -8,7 +8,7 @@
 $messages = array();
 
 $messages['en'] = array(
-	'validationstatistics'        => 'Validation statistics',
+	'validationstatistics'        => 'Page review statistics',
 	'validationstatistics-users'  => '\'\'\'{{SITENAME}}\'\'\' currently has \'\'\'[[Special:ListUsers/editor|$1]]\'\'\' {{PLURAL:$1|user|users}} with [[{{MediaWiki:Validationpage}}|Editor]] rights.
 
 Editors are established users that can spot-check revisions to pages.',
