@@ -9,14 +9,15 @@ $messages = array();
 
 $messages['en'] = array(
 	'reviewedpages' => 'Reviewed pages',
-	'reviewedpages-leg' => 'List pages by highest review level',
-	'reviewedpages-list' => 'This page lists pages that been reviewed (at highest) to the specified level.',
+	'reviewedpages-leg' => 'List pages that have been reviewed',
+	'reviewedpages-list' => 'This lists contains [[{{MediaWiki:Validationpage}}|reviewed]] pages whose \'\'highest attained\'\' review level (of a revision) is the specified level.
+	A link is given to the latest revision of that level.',
 	'reviewedpages-none' => 'There are no pages in this list',
 	'reviewedpages-lev-0' => '{{int:revreview-lev-basic}}',
 	'reviewedpages-lev-1' => '{{int:revreview-lev-quality}}',
 	'reviewedpages-lev-2' => '{{int:revreview-lev-pristine}}',
 	'reviewedpages-all' => 'reviewed versions',
-	'reviewedpages-best' => 'prime revision',
+	'reviewedpages-best' => 'best revision',
 );
 
 /** Message documentation (Message documentation)

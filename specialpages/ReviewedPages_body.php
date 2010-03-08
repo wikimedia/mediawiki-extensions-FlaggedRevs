@@ -69,7 +69,10 @@ class ReviewedPages extends SpecialPage
 			$this->namespace, $this->hideRedirs );
 		$num = $pager->getNumRows();
 		if ( $num ) {
-			$wgOut->addHTML( wfMsgExt( 'reviewedpages-list', array( 'parse' ), $num ) );
+			// Text to explain level select (if there are several levels)
+			if ( FlaggedRevs::qualityVersions() ) {
+				$wgOut->addHTML( wfMsgExt( 'reviewedpages-list', array( 'parse' ), $num ) );
+			}
 			$wgOut->addHTML( $pager->getNavigationBar() );
 			$wgOut->addHTML( $pager->getBody() );
 			$wgOut->addHTML( $pager->getNavigationBar() );
@@ -93,13 +96,23 @@ class ReviewedPages extends SpecialPage
 					$wgLang->formatNum( $size ) ) . '</small>';
 		}
 
-		$SVtitle = SpecialPage::getTitleFor( 'ReviewedVersions' );
-		$list = $this->skin->makeKnownLinkObj( $SVtitle, wfMsgHtml( 'reviewedpages-all' ),
-			'page=' . $title->getPrefixedUrl() );
-		$best = $this->skin->makeKnownLinkObj( $title, wfMsgHtml( 'reviewedpages-best' ),
-			'stableid=best' );
+		$list = $this->skin->makeKnownLinkObj(
+			SpecialPage::getTitleFor( 'ReviewedVersions' ),
+			wfMsgHtml( 'reviewedpages-all' ),
+			'page=' . $title->getPrefixedUrl()
+		);
 
-		return "<li>$link $stxt ($list) [$best]</li>";
+		$best = '';
+		if ( FlaggedRevs::qualityVersions() ) {
+			$best = $this->skin->makeKnownLinkObj(
+				$title,
+				wfMsgHtml( 'reviewedpages-best' ),
+				'stableid=best'
+			);
+			$best = " [$best]";
+		}
+
+		return "<li>$link $stxt ($list)$best</li>";
 	}
 }
 
