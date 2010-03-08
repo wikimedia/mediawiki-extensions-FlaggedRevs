@@ -112,7 +112,7 @@ CREATE TABLE IF NOT EXISTS /*_*/flaggedpage_config (
   fpc_select integer NOT NULL,
   -- Override the page?
   fpc_override bool NOT NULL,
-  -- The protection level (Sysop, etc) for autoreview
+  -- The protection level (Sysop, etc) for autoreview/review
   fpc_level varbinary(60) NULL,
   -- Field for time-limited settings
   fpc_expiry varbinary(14) NOT NULL default 'infinity'

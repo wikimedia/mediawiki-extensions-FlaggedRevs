@@ -806,8 +806,8 @@ class FlaggedRevsHooks {
 				$result = false;
 				return false;
 			}
-		# Enforce autoreview restrictions
-		} else if( $action === 'autoreview' ) {
+		# Enforce autoreview/review restrictions
+		} else if( $action === 'autoreview' || $action === 'review' ) {
 			# Get autoreview restriction settings...
 			$config = FlaggedRevs::getPageVisibilitySettings( $title, true );
 			# Convert Sysop -> protect
