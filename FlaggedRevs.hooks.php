@@ -24,7 +24,9 @@ class FlaggedRevsHooks {
 		if ( $wgUseTagFilter && ChangeTags::listDefinedTags() ) {
 			$list['ProblemChanges'] = $wgSpecialPages['ProblemChanges'] = 'ProblemChanges';
 		}
-		$list['ReviewedPages'] = $wgSpecialPages['ReviewedPages'] = 'ReviewedPages';
+		if( !FlaggedRevs::stableOnlyIfConfigured() ) {
+			$list['ReviewedPages'] = $wgSpecialPages['ReviewedPages'] = 'ReviewedPages';
+		}
 		$list['QualityOversight'] = $wgSpecialPages['QualityOversight'] = 'QualityOversight';
 		$list['ValidationStatistics'] = $wgSpecialPages['ValidationStatistics'] = 'ValidationStatistics';
 		if ( !$wgFlaggedRevsOverride ) {
