@@ -359,19 +359,21 @@ $messages['fi'] = array(
  * @author Dereckson
  * @author Grondin
  * @author IAlex
+ * @author Peter17
  * @author PieRRoMaN
  * @author Urhixidur
  */
 $messages['fr'] = array(
 	'reviewedpages' => 'Pages passées en revue',
-	'reviewedpages-leg' => 'Liste des pages par plus haut niveau de relecture',
-	'reviewedpages-list' => 'Cette page liste les pages ont été passées en revue (au plus) au niveau spécifié.',
+	'reviewedpages-leg' => 'Lister les pages qui ont été relues',
+	'reviewedpages-list' => "Cette liste contient les pages [[{{MediaWiki:Validationpage}}|relues]] dont une des versions a atteint ''le plus haut'' niveau de relecture spécifié.
+Le lien donné pointe vers la dernière version de ce niveau.",
 	'reviewedpages-none' => 'Cette liste est vide',
 	'reviewedpages-lev-0' => 'Visualisée',
 	'reviewedpages-lev-1' => 'De qualité',
 	'reviewedpages-lev-2' => 'Distinguée',
 	'reviewedpages-all' => 'versions passées en revue',
-	'reviewedpages-best' => 'version principale',
+	'reviewedpages-best' => 'meilleure version',
 );
 
 /** Franco-Provençal (Arpetan)
@@ -681,8 +683,9 @@ $messages['ksh'] = array(
  */
 $messages['lb'] = array(
 	'reviewedpages' => 'Lëscht vun den iwwerkuckte Säiten',
-	'reviewedpages-leg' => 'Lëscht vun de Säite mat dem héichste Niveau vum Iwwerliesen',
-	'reviewedpages-list' => 'Op dëser Säit sti Säiten déi nogekuckt goufen (amhéichsten) an entspriechen dem Niveau deen uginn ass.',
+	'reviewedpages-leg' => 'Lëscht vu Säite déi nogekuckt goufen',
+	'reviewedpages-list' => "Op dëser Säit stinn  [[{{MediaWiki:Validationpage}}|nogekuckte]] Säiten deene hiren ''héichsten erreeechten'' Niveau (vun enger Versioun) deen Niveau ass deen uginn ass.
+Et gëtt e Link op déi leschte Versioun vun deem Niveau.",
 	'reviewedpages-none' => 'Dës Lëscht ass eidel',
 	'reviewedpages-lev-0' => 'iwwerkuckt',
 	'reviewedpages-lev-1' => 'Qualitéit',
@@ -713,14 +716,15 @@ $messages['li'] = array(
  */
 $messages['mk'] = array(
 	'reviewedpages' => 'Проверени страници',
-	'reviewedpages-leg' => 'Листа на страници по највисоко ниво на оценка',
-	'reviewedpages-list' => 'На оваа страница се наведени страници кои се оценети (највисоко) до назначеното ниво.',
+	'reviewedpages-leg' => 'Листа на оценети страници',
+	'reviewedpages-list' => "Овие листи содржат [[{{MediaWiki:Validationpage}}|проверени]] страници чие назначено ниво е ''највисоко'' оценето ниво (на ревизија).
+Наведена е врска кон најновата ревизија на тоа ниво.",
 	'reviewedpages-none' => 'Нема страници во оваа листа',
 	'reviewedpages-lev-0' => 'Прегледани',
 	'reviewedpages-lev-1' => 'Квалитетни',
 	'reviewedpages-lev-2' => 'Одлични',
 	'reviewedpages-all' => 'проверени верзии',
-	'reviewedpages-best' => 'главна верзија',
+	'reviewedpages-best' => 'најдобра ревизија',
 );
 
 /** Malayalam (മലയാളം)
@@ -785,7 +789,8 @@ $messages['nah'] = array(
 $messages['nl'] = array(
 	'reviewedpages' => "Gecontroleerde pagina's",
 	'reviewedpages-leg' => "Lijst met pagina's die gecontroleerd zijn",
-	'reviewedpages-list' => "De volgende pagina's zijn (op zijn hoogst) gecontroleerd tot het aangegeven niveau.",
+	'reviewedpages-list' => "De volgende pagina's zijn [[{{MediaWiki:Validationpage}}|gecontroleerd]] tot het '''hoogst aangegeven''' niveau (van een versie).
+Er wordt een verwijzing gegeven naar de laatste versie voor dat niveau.",
 	'reviewedpages-none' => 'Geen resultaten',
 	'reviewedpages-lev-0' => 'Gecontroleerd',
 	'reviewedpages-lev-1' => 'Kwaliteit',
@@ -954,8 +959,9 @@ $messages['roa-tara'] = array(
  */
 $messages['ru'] = array(
 	'reviewedpages' => 'Проверенные страницы',
-	'reviewedpages-leg' => 'Список страниц по высшему уровню оценки',
-	'reviewedpages-list' => 'На этой странице перечислены страницы, которые были оценены на указанный уровень.',
+	'reviewedpages-leg' => 'Список проверенных страниц',
+	'reviewedpages-list' => "На этой странице перечислены [[{{MediaWiki:Validationpage}}|проверенные]] страницы, чья ''наилучшая оценка'' (одной из версий) соответствует указанному уровню.
+Ссылка ведёт на последнюю версию страницы с этой оценкой.",
 	'reviewedpages-none' => 'В данном списке отсутствуют страницы',
 	'reviewedpages-lev-0' => 'Досмотренная',
 	'reviewedpages-lev-1' => 'Выверенная',

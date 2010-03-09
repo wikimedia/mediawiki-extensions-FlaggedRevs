@@ -202,7 +202,7 @@ $messages['fi'] = array(
  * @author Peter17
  */
 $messages['fr'] = array(
-	'problemchanges' => 'Relire les modifications balisées',
+	'problemchanges' => 'Modifications balisées en attente',
 	'problemchanges-legend' => 'Lister les pages avec des modifications balisées en attente de relecture',
 	'problemchanges-none' => "Il n'y a pour le moment aucune page satisfaisant ces critères",
 	'problemchanges-category' => 'Catégorie :',
@@ -290,7 +290,7 @@ $messages['hu'] = array(
  * @author McDutchie
  */
 $messages['ia'] = array(
-	'problemchanges' => 'Revider modificationes etiquettate',
+	'problemchanges' => 'Modificationes pendente etiquettate',
 	'problemchanges-legend' => 'Listar paginas con modificationes etiquettate que attende revision',
 	'problemchanges-none' => 'Al momento il non ha paginas que satisface iste criterios',
 	'problemchanges-category' => 'Categoria:',
@@ -377,7 +377,7 @@ $messages['ksh'] = array(
  * @author Robby
  */
 $messages['lb'] = array(
-	'problemchanges' => 'Markéiert Ännerunge bewerten',
+	'problemchanges' => 'Markéiert Ännerunge am Suspens',
 	'problemchanges-legend' => 'Lëscht vun de markéierte Säiten déi nach net nogekuckt sinn',
 	'problemchanges-none' => 'Et gëtt el keng Säiten déi dës Kriterien entspriechen',
 	'problemchanges-category' => 'Kategorie:',
@@ -387,7 +387,7 @@ $messages['lb'] = array(
  * @author Bjankuloski06
  */
 $messages['mk'] = array(
-	'problemchanges' => 'Проверка на означени промени',
+	'problemchanges' => 'Означени промени во исчекување',
 	'problemchanges-legend' => 'Листа на прегледани промени со означени уредувања во исчекување на проверка',
 	'problemchanges-none' => 'Моментално нема страници кои ги задоволуваат овие критериуми',
 	'problemchanges-category' => 'Категорија:',
@@ -414,7 +414,7 @@ $messages['ms'] = array(
  * @author Siebrand
  */
 $messages['nl'] = array(
-	'problemchanges' => 'Gelabelde wijzigingen controleren',
+	'problemchanges' => 'Gelabelde te controleren wijzigingen',
 	'problemchanges-legend' => "Ongecontroleerde pagina's met gelabelde bewerkingen weergeven",
 	'problemchanges-none' => "Er zijn geen pagina's die voldoen aan deze criteria",
 	'problemchanges-category' => 'Categorie:',
@@ -524,7 +524,7 @@ $messages['roa-tara'] = array(
  * @author Александр Сигачёв
  */
 $messages['ru'] = array(
-	'problemchanges' => 'Досмотр отмеченных изменений',
+	'problemchanges' => 'Отмеченные непроверенные изменения',
 	'problemchanges-legend' => 'Список cтраниц с отмеченными правками, ожидающими проверки',
 	'problemchanges-none' => 'В настоящее время нет отвечающих этим условиям страниц',
 	'problemchanges-category' => 'Категория:',

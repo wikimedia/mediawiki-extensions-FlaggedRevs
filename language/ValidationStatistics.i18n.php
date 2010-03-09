@@ -586,12 +586,13 @@ Julkaistu versio sivusta on uusin versio, joka on hyväksytty näytettäväksi o
  * @author Grondin
  * @author IAlex
  * @author McDutchie
+ * @author Peter17
  * @author PieRRoMaN
  * @author Verdy p
  * @author Zetud
  */
 $messages['fr'] = array(
-	'validationstatistics' => 'Statistiques de validation',
+	'validationstatistics' => 'Statistiques de relecture des pages',
 	'validationstatistics-users' => "'''{{SITENAME}}''' dispose actuellement de '''[[Special:ListUsers/editor|$1]]''' utilisateur{{PLURAL:$1||s}} avec les droits de [[{{MediaWiki:Validationpage}}|contributeur]].
 
 Les contributeurs et relecteurs sont des utilisateurs établis qui peuvent vérifier les révisions des pages.",
@@ -882,7 +883,7 @@ A lap publikált változata a legújabb elfogadott változat, amit alapértelmez
  * @author McDutchie
  */
 $messages['ia'] = array(
-	'validationstatistics' => 'Statisticas de validation',
+	'validationstatistics' => 'Statisticas de revision de paginas',
 	'validationstatistics-users' => "'''{{SITENAME}}''' ha al momento '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|usator|usatores}} con privilegios de [[{{MediaWiki:Validationpage}}|Redactor]].
 
 Le Redactores es usatores establite qui pote selectivemente verificar versiones de paginas.",
@@ -1123,7 +1124,7 @@ $messages['kw'] = array(
  * @author Robby
  */
 $messages['lb'] = array(
-	'validationstatistics' => 'Statistike vun de Validatiounen',
+	'validationstatistics' => 'Statistike vun denogekuckte Säiten',
 	'validationstatistics-users' => "'''{{SITENAME}}''' huet elo '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|Benotzer|Benotzer}} mat [[{{MediaWiki:Validationpage}}|Editeursrechter]].
 
 Editeure si confirméiert Benotzer déi nogekuckte Versioune vu Säiten derbäisetze kënnen.",
@@ -1158,7 +1159,7 @@ $messages['mhr'] = array(
  * @author Brest
  */
 $messages['mk'] = array(
-	'validationstatistics' => 'Потврдни статистики',
+	'validationstatistics' => 'Статистики за оценки',
 	'validationstatistics-users' => "'''{{SITENAME}}''' моментално има '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|корисник|корисници}} со права на „[[{{MediaWiki:Validationpage}}|Уредник]]“.
 
 Уредниците се докажани корисници кои можат да прават моментални проверки на ревизии на страници.",
@@ -1243,7 +1244,7 @@ $messages['myv'] = array(
  * @author Siebrand
  */
 $messages['nl'] = array(
-	'validationstatistics' => 'Controlestatistieken',
+	'validationstatistics' => 'Paginacontrolestatistieken',
 	'validationstatistics-users' => "'''{{SITENAME}}''' heeft op het moment '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|gebruiker|gebruikers}} in de rol van [[{{MediaWiki:Validationpage}}|Redacteur]].
 
 Redacteuren zijn gebruikers die zich bewezen hebben en versies van pagina's als gecontroleerd mogen markeren.",
@@ -1559,7 +1560,7 @@ Ste pàggene sonde conziderate ''scadute''. Pò, stonne le pàggene ca sonde con
  * @author Александр Сигачёв
  */
 $messages['ru'] = array(
-	'validationstatistics' => 'Статистика проверок',
+	'validationstatistics' => 'Статистика проверок страниц',
 	'validationstatistics-users' => "В проекте {{SITENAME}} на данный момент '''[[Special:ListUsers/editor|$1]]''' {{plural:$1|участник имееет|участника имеют|участников имеют}} полномочия [[{{MediaWiki:Validationpage}}|«редактора»]].
 
 «Редакторы» — это определённые участники, имеющие возможность делать выборочную проверку конкретных версий страниц.",

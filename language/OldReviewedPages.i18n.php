@@ -549,12 +549,13 @@ $messages['fi'] = array(
  * @author Crochet.david
  * @author Grondin
  * @author IAlex
+ * @author Peter17
  * @author PieRRoMaN
  * @author Verdy p
  * @author Yekrats
  */
 $messages['fr'] = array(
-	'oldreviewedpages' => 'Pages dont les révisions sont périmées',
+	'oldreviewedpages' => 'Pages ayant des modifications en attente',
 	'oldreviewedpages-legend' => 'Lister les pages revues avec des versions à réviser',
 	'oldreviewedpages-list' => 'Cette page liste {{PLURAL:$1|une page déjà revue qui comporte|des pages déjà revues qui comportent}} de nouvelles modifications.',
 	'oldreviewedpages-none' => 'Il n’existe actuellement aucune page respectant ces critères',
@@ -764,7 +765,7 @@ $messages['hu'] = array(
  * @author McDutchie
  */
 $messages['ia'] = array(
-	'oldreviewedpages' => 'Paginas revidite obsolete',
+	'oldreviewedpages' => 'Paginas con modificationes pendente',
 	'oldreviewedpages-legend' => 'Listar le paginas revidite con versiones attendente revision',
 	'oldreviewedpages-list' => 'Iste pagina lista {{PLURAL:$1|un pagina|le paginas}} revidite que ha modificationes attendente.',
 	'oldreviewedpages-none' => 'Al momento non existe paginas que satisface iste criterios',
@@ -943,7 +944,7 @@ $messages['kw'] = array(
  * @author Robby
  */
 $messages['lb'] = array(
-	'oldreviewedpages' => 'Vereelste nogekuckte Säiten',
+	'oldreviewedpages' => 'Säite mat Ännerungen déi nozekucke sinn',
 	'oldreviewedpages-legend' => 'Lëscht vun den nogekuckte Säite mat net nogekuckte Versiounen',
 	'oldreviewedpages-list' => 'Op dëser Säit {{PLURAL:$1|steet eng nogekuckte Säit|stinn nogekuckte Säite}} mat Ännerungen am Suspens.',
 	'oldreviewedpages-none' => 'Et gëtt elo keng Säiten déi dene Critèren entspriechen',
@@ -965,7 +966,7 @@ $messages['lb'] = array(
  * @author Brest
  */
 $messages['mk'] = array(
-	'oldreviewedpages' => 'Застарени проверени страници',
+	'oldreviewedpages' => 'Страници со промени во исчекување',
 	'oldreviewedpages-legend' => 'Листа на проверени страници со верзии во исчекување за проверка',
 	'oldreviewedpages-list' => 'Оваа страница наведува {{PLURAL:$1|прегледана страница|прегледани страници}} со уредувања во исчекување на проверка.',
 	'oldreviewedpages-none' => 'Моментално нема страници кои ги задоволуваат овие критериуми',
@@ -1068,7 +1069,7 @@ $messages['nds'] = array(
  * @author Siebrand
  */
 $messages['nl'] = array(
-	'oldreviewedpages' => "Verouderde gecontroleerde pagina's",
+	'oldreviewedpages' => "Pagina's met te controleren wijzigingen",
 	'oldreviewedpages-legend' => "Lijst met gecontroleerde pagina's met ongecontroleerde versies",
 	'oldreviewedpages-list' => "Op deze pagina {{PLURAL:$1|wordt de gecontroleerde pagina|worden de gecontroleerde pagina's}} weergegeven waarvoor nog te controleren versies zijn.",
 	'oldreviewedpages-none' => "Er zijn geen pagina's die aan de criteria voldoen",
@@ -1310,7 +1311,7 @@ $messages['roa-tara'] = array(
  * @author Александр Сигачёв
  */
 $messages['ru'] = array(
-	'oldreviewedpages' => 'Устаревшие проверенные страницы',
+	'oldreviewedpages' => 'Страницы с непроверенными изменениями',
 	'oldreviewedpages-legend' => 'Список проверенных страниц с непроверенными версиями',
 	'oldreviewedpages-list' => 'На этой странице {{PLURAL:$1|перечислена проверенная страница, которая в дальнейшем правилась|перечислены проверенные страницы, которые в дальнейшем правились}}',
 	'oldreviewedpages-none' => 'В настоящее время нет страниц, удовлетворяющих этим условиям',
