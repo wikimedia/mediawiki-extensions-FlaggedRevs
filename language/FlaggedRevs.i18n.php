@@ -193,8 +193,8 @@ Please check the URL you used to access this page.',
 	'rights-editor-autosum'        => 'autopromoted',
 	'rights-editor-revoke'         => 'removed editor status from [[$1]]', # B/C
 	'specialpages-group-quality'   => 'Quality assurance',
-	'stable-logentry-config'       => 'configured published versioning for [[$1]]',
-	'stable-logentry-reset'        => 'reset published versioning for [[$1]]',
+	'stable-logentry-config'       => 'configured publication settings for [[$1]]',
+	'stable-logentry-reset'        => 'reset publication settings for [[$1]]',
 	'stable-logpage'               => 'Stability log',
 	'stable-logpagetext'           => 'This is a log of changes to the [[{{MediaWiki:Validationpage}}|published version]] configuration of content pages.
 	The list of pages that require edit approval can be found at the [[Special:StablePages|stable pages list]].',
