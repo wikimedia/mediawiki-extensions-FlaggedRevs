@@ -565,7 +565,7 @@ class FlaggedRevs {
 		global $wgParser;
 		# Make our hooks trigger (force unstub so setting doesn't get lost)
 		$wgParser->firstCallInit();
-		$wgParser->fr_isStable = true;
+		$wgParser->fr_isStable = ( FlaggedRevs::inclusionSetting() != FR_INCLUDES_CURRENT );
 		# Parse with default options
 		$options = self::makeParserOptions();
 		$outputText = $wgParser->preprocess( $text, $title, $options, $id );
@@ -590,7 +590,7 @@ class FlaggedRevs {
 		$title = $article->getTitle(); // avoid pass-by-reference error
 		# Make our hooks trigger (force unstub so setting doesn't get lost)
 		$wgParser->firstCallInit();
-		$wgParser->fr_isStable = true;
+		$wgParser->fr_isStable = ( FlaggedRevs::inclusionSetting() != FR_INCLUDES_CURRENT );
 		# Don't show section-edit links, they can be old and misleading
 		$options = self::makeParserOptions();
 		# Parse the new body, wikitext -> html

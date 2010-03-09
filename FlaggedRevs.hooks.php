@@ -462,9 +462,6 @@ class FlaggedRevsHooks {
 		if ( !$parser || empty( $parser->fr_isStable ) || $title->getNamespace() < 0 ) {
 			return true;
 		}
-		if( FlaggedRevs::inclusionSetting() == FR_INCLUDES_CURRENT ) {
-			return true; // use the current version as normal
-		}
 		$dbr = wfGetDB( DB_SLAVE );
 		# Check for stable version of template if this feature is enabled.
 		# Should be in reviewable namespace, this saves unneeded DB checks as
@@ -525,9 +522,6 @@ class FlaggedRevsHooks {
 		# Trigger for stable version parsing only
 		if ( empty( $parser->fr_isStable ) ) {
 			return true;
-		}
-		if( FlaggedRevs::inclusionSetting() == FR_INCLUDES_CURRENT ) {
-			return true; // use the current version as normal
 		}
 		$file = null;
 		$isKnownLocal = $isLocalFile = false; // local file on this wiki?
@@ -626,9 +620,6 @@ class FlaggedRevsHooks {
 		# Trigger for stable version parsing only
 		if ( empty( $ig->mParser->fr_isStable ) || $nt->getNamespace() != NS_FILE ) {
 			return true;
-		}
-		if( FlaggedRevs::inclusionSetting() == FR_INCLUDES_CURRENT ) {
-			return true; // use the current version as normal
 		}
 		$file = null;
 		$isKnownLocal = $isLocalFile = false; // local file on this wiki?
