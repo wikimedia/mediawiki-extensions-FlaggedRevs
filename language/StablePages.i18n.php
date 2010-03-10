@@ -386,7 +386,7 @@ $messages['grc'] = array(
  * @author Als-Holder
  */
 $messages['gsw'] = array(
-	'stablepages' => 'Lischt vu Syte, wu einzeln konfiguriert sin',
+	'stablepages' => 'Syte mit Bearbeitigskontrolle',
 	'stablepages-stable' => 'Vereffetligti Version',
 	'stablepages-text' => 'Do isch e Lischt vu däne Syte, wu eso vu Hand konfiguriert wore sin, ass byyn ene di vereffetligt Version as Standardinhalt aazeigt wird.',
 	'stablepages-none' => 'Die Lischt isch läär.',
@@ -429,7 +429,6 @@ $messages['hi'] = array(
 /** Croatian (Hrvatski)
  * @author Dalibor Bosits
  * @author Ex13
- * @author Suradnik13
  */
 $messages['hr'] = array(
 	'stablepages' => 'Važeće stranice',
@@ -614,7 +613,7 @@ $messages['mk'] = array(
  * @author Shijualex
  */
 $messages['ml'] = array(
-	'stablepages' => 'സ്ഥിരതയുള്ള താളുകള്‍',
+	'stablepages' => 'തിരുത്തൽ അംഗീകരണം ഉപയോഗിക്കുന്ന താളുകൾ',
 	'stablepages-stable' => 'പ്രസിദ്ധീകരിച്ച പതിപ്പ്',
 	'stablepages-text' => 'പ്രസിദ്ധീകരിച്ച പതിപ്പ് ഒരു താളിന്റെ സ്വതവെയുള്ള ഉള്ളടക്കമായി വായനക്കാരെ കാണിക്കുവാന്‍ സ്വതവേയല്ലാതെ ക്രമീകരണം ചെയ്യപ്പെട്ട താളുകള്‍ ആണ്‌ താഴെയുള്ള പട്ടികയില്‍.',
 	'stablepages-none' => 'ഈ പട്ടികയില്‍ താളുകള്‍ ഒന്നും ഇല്ല',
@@ -644,6 +643,21 @@ $messages['ms'] = array(
 	'stablepages-text' => 'Yang berikut ialah senarai laman yang telah ditetapkan untuk memaparkan versi stabil sebagai kandungan lalai kepada para pengunjung.',
 	'stablepages-none' => 'Tiada laman dalam senarai ini',
 	'stablepages-config' => 'Konfigurasi',
+);
+
+/** Maltese (Malti)
+ * @author Chrisportelli
+ */
+$messages['mt'] = array(
+	'stablepages' => 'Paġni stabbli',
+	'stablepages-stable' => 'verżjoni pubblikata',
+	'stablepages-text' => "Hawn taħt hawn lista ta' paġni konfigurati manwalment biex juru l-verżjoni pubblikata bħala l-paġna awtomatika għall-qarrejja.",
+	'stablepages-none' => "M'hemm ebda paġni f'din il-lista",
+	'stablepages-config' => 'Konfigurazzjoni',
+	'stablepages-prec-none' => 'ebda preċedenza',
+	'stablepages-prec-quality' => "preċedenza ta' kwalità",
+	'stablepages-prec-pristine' => 'preċedenza pura',
+	'stablepages-precedence' => 'Preċedenza:',
 );
 
 /** Dutch (Nederlands)
@@ -681,7 +695,7 @@ $messages['nn'] = array(
  * @author Nghtwlkr
  */
 $messages['no'] = array(
-	'stablepages' => 'Stabile sider',
+	'stablepages' => 'Sider som bruker redigeringsgodkjenning',
 	'stablepages-stable' => 'publisert versjon',
 	'stablepages-text' => 'Nedenfor er en liste over sider manuelt innstilt til å vise den publiserte versjonen som standard sideinnhold for lesere.',
 	'stablepages-none' => 'Det er ingen sider i denne listen',
@@ -791,7 +805,7 @@ $messages['ro'] = array(
  * @author Joetaras
  */
 $messages['roa-tara'] = array(
-	'stablepages' => 'Pàggene sicure',
+	'stablepages' => "Pàggene ca ausane 'nu cangiamende approvate",
 	'stablepages-stable' => 'versiona pubblecate',
 	'stablepages-text' => "Sotte ste 'na liste de pàggene ca onne state configurete manualmende pe fa vedè 'a versiona pubblecate cumme pàgene cu 'u condenute iniziale pe le visitature.",
 	'stablepages-none' => "Non ge stonne pàggene jndr'à sta liste",
@@ -946,7 +960,7 @@ $messages['tr'] = array(
  * @author Prima klasy4na
  */
 $messages['uk'] = array(
-	'stablepages' => 'Стабільні сторінки',
+	'stablepages' => 'Сторінки, що використовують затвердження редагувань',
 	'stablepages-stable' => 'опублікована версія',
 	'stablepages-text' => 'Нижче поданий список сторінок, які вручну налаштовані на показ опублікованої версії за замовчуванням для читачів.',
 	'stablepages-none' => 'У цьому списку нема сторінок',

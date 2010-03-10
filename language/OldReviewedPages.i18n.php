@@ -259,7 +259,7 @@ $messages['bg'] = array(
  * @author Y-M D
  */
 $messages['br'] = array(
-	'oldreviewedpages' => 'Pajennoù adlennet re bell zo',
+	'oldreviewedpages' => "Pajennoù gant kemmoù o c'hortoz",
 	'oldreviewedpages-legend' => 'Rollañ ar pajennoù adlennet gant stummoù da adwelet',
 	'oldreviewedpages-list' => 'War ar bajenn-mañ e kaver {{PLURAL:$1|ur bajenn adlennet|pajennoù adlennet}} zo bet degaset kemmoù enno abaoe.',
 	'oldreviewedpages-none' => "N'eus pajenn ebet diouzh an dezverkoù-mañ evit poent",
@@ -639,7 +639,7 @@ $messages['grc'] = array(
  * @author Als-Holder
  */
 $messages['gsw'] = array(
-	'oldreviewedpages' => 'Alti vum Fäldhieter aagluegti Versione',
+	'oldreviewedpages' => 'Syte mit hängige Änderige',
 	'oldreviewedpages-legend' => 'Lischt vu Syte, wu vum Fäldhieter gsäh sin mit Versione, wu nit gsäh sin',
 	'oldreviewedpages-list' => 'Die Spezialsyte zeigt {{PLURAL:$1|e vum Fäldhieter aagluegti Syte, wu nonig aagluegti Bearbeitige het|vum Fäldhieter aagluegti Syte, wu nonig aagluegti Bearbeitige hän}}.',
 	'oldreviewedpages-none' => 'Im Momänt git s no kei Syte mit däne Kriterie.',
@@ -720,7 +720,7 @@ $messages['hr'] = array(
  * @author Michawiki
  */
 $messages['hsb'] = array(
-	'oldreviewedpages' => 'Zestarjene skontrolowane strony',
+	'oldreviewedpages' => 'Strony z njepřepruwowanymi změnami',
 	'oldreviewedpages-legend' => 'Lisćina skontrolowanych stronow z njeskontrolowanymi wersijemi',
 	'oldreviewedpages-list' => 'Tuta strona nalistuje {{PLURAL:$1|přepruwowanu stronu, kotraž|přepruwowanej stronje, kotrejž|přepruwowane strony, kotrež|přepruwowane strony, kotrež}} hišće njeskontrolowane změny {{PLURAL:$1|ma|matej|maja|maja}}.',
 	'oldreviewedpages-none' => 'Tuchwilu žane strony njejsu, kotrež tutym kriterijam wotpowěduja',
@@ -1190,7 +1190,7 @@ $messages['pl'] = array(
  * @author Dragonòt
  */
 $messages['pms'] = array(
-	'oldreviewedpages' => 'Pàgine revisionà da temp',
+	'oldreviewedpages' => 'Pàgine con dle modìfiche an cors',
 	'oldreviewedpages-legend' => 'Lista le pàgine revisionà con vërsion pendente dle revision',
 	'oldreviewedpages-list' => 'Sta pàgina-sì a lista {{PLURAL:$1|na pàgina revisionà|le pàgine revisionà}} con modìfiche pendente.',
 	'oldreviewedpages-none' => 'Al moment a-i son pa gnun-e pàgine con sti criteri-sì',
@@ -1288,7 +1288,7 @@ $messages['ro'] = array(
  * @author Joetaras
  */
 $messages['roa-tara'] = array(
-	'oldreviewedpages' => 'Pàggene riviste non aggiornete',
+	'oldreviewedpages' => 'Pàggene cu cangiaminde pendende',
 	'oldreviewedpages-legend' => 'Liste de le pàggene riviste cu revisiune non reviste',
 	'oldreviewedpages-list' => "Sta pàgene elenghe {{PLURAL:$1|'na pàgene reviste ca tène|le pàggene reviste ca tènene}} cangiaminde pendende.",
 	'oldreviewedpages-none' => 'Non ge stonne pàggene ca ingontrene chiste criterie',

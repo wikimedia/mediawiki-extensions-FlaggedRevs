@@ -72,7 +72,7 @@ $messages['bg'] = array(
  * @author Y-M D
  */
 $messages['br'] = array(
-	'problemchanges' => "Adwelet ar c'hemmoù balizennet",
+	'problemchanges' => "Kemmoù balizennet o c'hortoz",
 	'problemchanges-legend' => "Rollañ ar pajennoù adwelet gant kemmoù balizennet a c'hortoz bezañ adlennet",
 	'problemchanges-none' => "N'eus pajenn ebet diouzh an dezverkoù-mañ evit poent",
 	'problemchanges-category' => 'Rummad :',
@@ -239,7 +239,7 @@ $messages['grc'] = array(
  * @author Als-Holder
  */
 $messages['gsw'] = array(
-	'problemchanges' => 'Markierti Bearbeitige priefe',
+	'problemchanges' => 'Markierti hängigi Änderige',
 	'problemchanges-legend' => 'Lischt vu Syte mit markierte Bearbeitige, wu nonig prieft sin',
 	'problemchanges-none' => 'Zur Zyt träffe fir kei Syte die Kriterie zue',
 	'problemchanges-category' => 'Kategorii:',
@@ -269,7 +269,7 @@ $messages['hr'] = array(
  * @author Michawiki
  */
 $messages['hsb'] = array(
-	'problemchanges' => 'Markěrowane změny přepruwować',
+	'problemchanges' => 'Markěrowane njepřepruwowane změny',
 	'problemchanges-legend' => 'Lisćina stronow z markěrowanymi změnami, kotrež dyrbja so hišće přepruwować',
 	'problemchanges-none' => 'Strony, kotrež tutym kriterijam wotpowěduja, tuchwilu njejsu',
 	'problemchanges-category' => 'Kategorija:',
@@ -462,10 +462,11 @@ $messages['pl'] = array(
 );
 
 /** Piedmontese (Piemontèis)
+ * @author Borichèt
  * @author Dragonòt
  */
 $messages['pms'] = array(
-	'problemchanges' => 'Arvëdd ij cambi etichetà',
+	'problemchanges' => 'Modìfiche etichëttà an cors',
 	'problemchanges-legend' => 'Lista le pàgine con ëd le revision pendente ëd modìfiche etichëttà',
 	'problemchanges-none' => 'A-i é pa al moment ëd pàgine che a sodisfo sto criteri-sì',
 	'problemchanges-category' => 'Categorìa:',
@@ -513,7 +514,7 @@ $messages['ro'] = array(
  * @author Joetaras
  */
 $messages['roa-tara'] = array(
-	'problemchanges' => 'Revide le cangiaminde taggate',
+	'problemchanges' => 'Tagghe le cangiaminde pendende',
 	'problemchanges-legend' => "Liste de le pàggene riviste cu le cangiaminde taggate aspettane 'na riviste",
 	'problemchanges-none' => 'Non ge stonne pàggene ca ingontrene chiste criterie',
 	'problemchanges-category' => 'Categorije:',

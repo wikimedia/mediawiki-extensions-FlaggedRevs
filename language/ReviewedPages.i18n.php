@@ -173,13 +173,13 @@ $messages['bn'] = array(
  */
 $messages['br'] = array(
 	'reviewedpages' => 'Pajennoù adwelet',
-	'reviewedpages-leg' => 'Rollañ ar pajennoù dre al live adlenn uhelañ',
+	'reviewedpages-leg' => 'Rollañ ar pajennoù hag a zo bet adlennet',
 	'reviewedpages-list' => "Rollet eo war ar bajenn-mañ ar pajennoù bet adwelet (d'ar muiañ) d'al live spisaet.",
 	'reviewedpages-none' => "N'eus pajenn ebet er roll",
 	'reviewedpages-lev-1' => 'Perzhded',
 	'reviewedpages-lev-2' => 'Lakaet war wel',
 	'reviewedpages-all' => 'stummoù adwelet',
-	'reviewedpages-best' => 'adweladenn bennañ',
+	'reviewedpages-best' => 'adweladenn wellañ',
 );
 
 /** Bosnian (Bosanski)
@@ -426,7 +426,9 @@ $messages['grc'] = array(
 $messages['gsw'] = array(
 	'reviewedpages' => 'Lischt vu dr Syte, wu vum Fäldhieter gsäh sin',
 	'reviewedpages-leg' => 'Priefti Syte uflischte',
-	'reviewedpages-list' => 'Die Syte zeigt Syte, wu uf em hegschte Nivo prieft sin.',
+	'reviewedpages-list' => "Die Lischte zeigt [[{{MediaWiki:Validationpage}}|priefti]] Syte, wu uf em ''hegschte Nivo'' prieft sin (vun ere Version).
+
+E Gleich isch aagee zue dr letschte Version uf däm Nivo.",
 	'reviewedpages-none' => 'Die Lischt isch läär.',
 	'reviewedpages-lev-0' => 'Vum Fäldhieter gsäh',
 	'reviewedpages-lev-1' => 'Prieft',
@@ -489,14 +491,15 @@ $messages['hr'] = array(
  */
 $messages['hsb'] = array(
 	'reviewedpages' => 'Pruwowane strony',
-	'reviewedpages-leg' => 'Strony po najwyšej pruwowanskej runinje nalistować',
-	'reviewedpages-list' => 'Tuta strona nalistuje strony, kotrež buchu (w najwyšim padźe) na podatej runinje přepruwowane.',
+	'reviewedpages-leg' => 'Přepruwowane strony nalistować',
+	'reviewedpages-list' => "Tuta lisćina wobsahuje [[{{MediaWiki:Validationpage}}|přepruwowane]] strony, kotrychž ''najlěpša docpěta'' pruwowanska runina (wersije) je podata runina.
+Wotkaz k najnowšej wersiji teje runiny je podaty.",
 	'reviewedpages-none' => 'W tutej lisćinje strony njejsu',
 	'reviewedpages-lev-0' => 'Přehladany',
 	'reviewedpages-lev-1' => 'Kwalita',
 	'reviewedpages-lev-2' => 'Z funkcijemi',
 	'reviewedpages-all' => 'přepruwowane wersije',
-	'reviewedpages-best' => 'Najlěpša wersija',
+	'reviewedpages-best' => 'najlěpša wersija',
 );
 
 /** Hungarian (Magyar)
@@ -578,6 +581,7 @@ $messages['it'] = array(
 /** Japanese (日本語)
  * @author Aotake
  * @author Fryed-peach
+ * @author Hosiryuhosi
  * @author JtFuruhata
  */
 $messages['ja'] = array(
@@ -734,7 +738,8 @@ $messages['mk'] = array(
 $messages['ml'] = array(
 	'reviewedpages' => 'സംശോധനം നടന്ന താളുകള്‍',
 	'reviewedpages-leg' => 'സംശോധനം ചെയ്യപ്പെട്ട താളുകളുടെ പട്ടിക',
-	'reviewedpages-list' => 'താഴെ പ്രദര്‍ശിപ്പിച്ചിരിക്കുന്ന താളുകള്‍ ഒരു പ്രത്യേക തലത്തിലുള്ള (ഏറ്റവും കൂടുതൽ) സം‌ശോധനം പൂര്‍ത്തിയാക്കിയിരിക്കുന്നു.',
+	'reviewedpages-list' => "വ്യക്തമാക്കപ്പെട്ടിട്ടുള്ള തലത്തിന്റെ ''സാദ്ധ്യമായതിൽ ഉന്നതമായ'' സംശോധന തലത്തിൽ (ഒരു നാൾപ്പതിപ്പിന്റെ) എത്തിച്ചേരാൻ കഴിഞ്ഞ [[{{MediaWiki:Validationpage}}|സംശോധനം ചെയ്ത]] താളുകൾ ഈ പട്ടികയിൽ നൽകിയിരിക്കുന്നു.
+ആ തലത്തിലെ ഏറ്റവും പുതിയ നാൾപ്പതിപ്പിലേയ്ക്കുള്ള കണ്ണിയും നൽകിയിരിക്കുന്നു.",
 	'reviewedpages-none' => 'ഈ പട്ടികയില്‍ താളുകള്‍ ഒന്നും ഇല്ല',
 	'reviewedpages-lev-0' => 'സൈറ്റഡ്',
 	'reviewedpages-lev-1' => 'ഉന്നത നിലവാരം',
@@ -871,15 +876,17 @@ $messages['pl'] = array(
 );
 
 /** Piedmontese (Piemontèis)
+ * @author Borichèt
  * @author Dragonòt
  */
 $messages['pms'] = array(
 	'reviewedpages' => 'Pàgine revisionà',
-	'reviewedpages-leg' => 'Lista pàgine dal livel ëd revision pì àut',
-	'reviewedpages-list' => 'Sta pàgina-sì a lista le pàgine che a son stàite revisionà (al pì) al livel spessifià.',
+	'reviewedpages-leg' => "Listé le pàgine ch'a son ëstàite revisionà",
+	'reviewedpages-list' => "Sta lista-sì a conten le pàgine [[{{MediaWiki:Validationpage}}|revisionà]] dont ël ''pì àut'' livel ëd revision (ëd na revision) a l'é ël livel spessificà.
+Un colegament a l'é dàit a l'ùltima revision ëd col livel.",
 	'reviewedpages-none' => 'A-i é pa ëd pàgine an sta lista-sì',
 	'reviewedpages-all' => 'vërsion revisionà',
-	'reviewedpages-best' => 'rla mèj revision',
+	'reviewedpages-best' => 'la mèj revision',
 );
 
 /** Pashto (پښتو)
@@ -943,14 +950,15 @@ $messages['ro'] = array(
  */
 $messages['roa-tara'] = array(
 	'reviewedpages' => 'Pàggene reviste',
-	'reviewedpages-leg' => 'Elenghe de le pàggene cu le levèlle cchiù ierte de revisite',
-	'reviewedpages-list' => "Sta pàgene elenghe le pàggene ca onne state reviste (le cchiù ierte) sus a 'nu specifiche levèlle.",
+	'reviewedpages-leg' => 'Elenghe de le pàggene ca onne state reviste',
+	'reviewedpages-list' => "Ste elenghe condène le pàggene [[{{MediaWiki:Validationpage}}|reviste]] cu 'u ''cchiù ierte '' grade de attendibbeletà (de 'na revisione) jè 'u levèlle specificate.<br />
+'Nu collegamende jè date pe l'urtema revisione de quidde levèlle.",
 	'reviewedpages-none' => "Non ge stonne pàggene jndr'à sta liste",
 	'reviewedpages-lev-0' => 'Viste',
 	'reviewedpages-lev-1' => 'Qualità',
 	'reviewedpages-lev-2' => 'Dettagliete',
 	'reviewedpages-all' => 'versiune reviste',
-	'reviewedpages-best' => 'prima revisione',
+	'reviewedpages-best' => 'megghia revisione',
 );
 
 /** Russian (Русский)
