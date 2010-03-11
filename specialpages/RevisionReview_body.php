@@ -713,17 +713,14 @@ class RevisionReview extends UnlistedSpecialPage
 	public static function userCan( $tag, $value, $config = null ) {
 		global $wgUser;
 		$restrictions = FlaggedRevs::getTagRestrictions();
-		# Levels may not apply for some pages.
-		# Skip this check if $config is not given.
-		if ( !is_null( $config ) && !self::levelAvailable( $tag, $value, $config ) ) {
-			return false;
-		}
 		# No restrictions -> full access
-		if ( !isset( $restrictions[$tag] ) )
+		if ( !isset( $restrictions[$tag] ) ) {
 			return true;
+		}
 		# Validators always have full access
-		if ( $wgUser->isAllowed( 'validate' ) )
+		if ( $wgUser->isAllowed( 'validate' ) ) {
 			return true;
+		}
 		# Check if this user has any right that lets him/her set
 		# up to this particular value
 		foreach ( $restrictions[$tag] as $right => $level ) {
@@ -759,20 +756,6 @@ class RevisionReview extends UnlistedSpecialPage
 			} elseif ( $level < 0 || $level > $highest ) {
 				return false; // flag range is invalid
 			}
-		}
-		return true;
-	}
-	
-	// Check if a given level for a tag is available in $config
-	public static function levelAvailable( $tag, $val, $config ) {
-		global $wgFlagAvailability;
-		if ( $val == 0 )
-			return true; // unreviewed is always applicable
-		if ( !array_key_exists( 'select', $config ) )
-			return true; // missing config
-		if ( isset( $wgFlagAvailability[$tag] ) && isset( $wgFlagAvailability[$tag][$val] ) ) {
-			$precedence = $wgFlagAvailability[$tag][$val];
-			return ( $config['select'] === $precedence );
 		}
 		return true;
 	}
