@@ -239,8 +239,11 @@ class FlaggedRevsXML {
 		$box .= "<td style='text-align:right;'>" . self::ratingToggle() . "</td></tr>\n";
 		$box .= "<tr><td id='mw-fr-revisionratings'>$html<br />";
 		# Add any rating tags as needed...
-		if ( $flags && ( $type == 'stable' || $type == 'oldstable' ) ) {
-			$box .= self::addTagRatings( $flags, true, $color );
+		if( $flags && !FlaggedRevs::binaryFlagging() ) {
+			# Don't show the ratings on draft views
+			if ( $type == 'stable' || $type == 'oldstable' ) {
+				$box .= self::addTagRatings( $flags, true, $color );
+			}
 		}
 		$box .= "</td><td></td></tr></table>";
         return $box;
