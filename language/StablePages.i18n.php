@@ -112,7 +112,7 @@ $messages['bcc'] = array(
  * @author Jim-by
  */
 $messages['be-tarask'] = array(
-	'stablepages' => 'Стабільныя старонкі',
+	'stablepages' => 'Старонкі, якія выкарыстоўваюць зацьверджаньні рэдагаваньняў',
 	'stablepages-stable' => 'апублікаваная вэрсія',
 	'stablepages-text' => 'Ніжэй пададзены сьпіс старонак, якія ўручную настроеныя для паказу апублікаванай вэрсіі па змоўчваньні для чытачоў.',
 	'stablepages-none' => 'У гэтым сьпісе няма старонак',
@@ -327,10 +327,11 @@ $messages['fi'] = array(
  * @author Grondin
  * @author IAlex
  * @author Mihai
+ * @author Peter17
  * @author Verdy p
  */
 $messages['fr'] = array(
-	'stablepages' => 'Pages stables',
+	'stablepages' => 'Pages utilisant la validation des modifications',
 	'stablepages-stable' => 'version publiée',
 	'stablepages-text' => 'Ci-dessous figure une liste de pages manuellement configurées pour ne montrer que la version publiée comme contenu par défaut pour les lecteurs.',
 	'stablepages-none' => 'Il n’existe aucune page dans cette liste',
@@ -446,7 +447,7 @@ $messages['hr'] = array(
  * @author Michawiki
  */
 $messages['hsb'] = array(
-	'stablepages' => 'Stabilne strony',
+	'stablepages' => 'Strony, kotrež schwalenje změnow wužiwaja',
 	'stablepages-stable' => 'wozjewjena wersija',
 	'stablepages-text' => 'Deleka je lisćina stronow, kotrež buchu manuelnje konfigurowane, zo bychu wozjewjenu wersiju jako standardny wobsah strony za čitarjow pokazali.',
 	'stablepages-none' => 'W tutej lisćinje strony njejsu.',
@@ -478,7 +479,7 @@ $messages['hu'] = array(
  * @author McDutchie
  */
 $messages['ia'] = array(
-	'stablepages' => 'Paginas stabile',
+	'stablepages' => 'Paginas subjecte al approbation de modificationes',
 	'stablepages-stable' => 'version publicate',
 	'stablepages-text' => 'Infra es un lista de paginas manualmente configurate de sorta que le version publicate se monstra como le contento predefinite del pagina pro lectores.',
 	'stablepages-none' => 'Il non ha paginas in iste lista',
@@ -581,7 +582,7 @@ $messages['ksh'] = array(
  * @author Robby
  */
 $messages['lb'] = array(
-	'stablepages' => 'Stabil Säiten',
+	'stablepages' => 'Säiten déi Zoustëmmung vun den Ännerunge benotzen',
 	'stablepages-stable' => 'publizéiert Versioun',
 	'stablepages-text' => 'Hei ass eng Lëscht vu Säiten déi manuell konfiguréiert goufen fir déi publizéiert Versioun als Standard Säiteninhalt fir Lieser ze weisen.',
 	'stablepages-none' => 'Dës Lëscht ass eidel',
@@ -597,7 +598,7 @@ $messages['lb'] = array(
  * @author Brest
  */
 $messages['mk'] = array(
-	'stablepages' => 'Стабилни страници',
+	'stablepages' => 'Страници што користат оодобрување на уредувања',
 	'stablepages-stable' => 'објавена верзија',
 	'stablepages-text' => 'Подолу е наведена листа на страници рачно конфигурирани да ја прикажуваат објавената верзија по основно за читателите.',
 	'stablepages-none' => 'Нема страници во оваа листа',
@@ -743,7 +744,7 @@ $messages['pl'] = array(
  * @author Dragonòt
  */
 $messages['pms'] = array(
-	'stablepages' => 'Pàgine stabij',
+	'stablepages' => "Pàgine ch'a deuvro l'aprovassion ëd le modìfiche",
 	'stablepages-stable' => 'version publicà',
 	'stablepages-text' => 'Sota a-i é na lista ëd pàgine configurà manualment për smon-e la version publicà com contnù ëd la pàgina dë stàndard për ij visitador.',
 	'stablepages-none' => 'A-i é pa gnun-e pàgine an sta lista-sì',
@@ -821,7 +822,7 @@ $messages['roa-tara'] = array(
  * @author Александр Сигачёв
  */
 $messages['ru'] = array(
-	'stablepages' => 'Стабильные страницы',
+	'stablepages' => 'Страницы, использующие утверждение правок',
 	'stablepages-stable' => 'опубликованная версия',
 	'stablepages-text' => 'Ниже показан список страниц, вручную настроенных на показ опубликованной версии по умолчанию для читателей.',
 	'stablepages-none' => 'В данном списке отсутствуют страницы',

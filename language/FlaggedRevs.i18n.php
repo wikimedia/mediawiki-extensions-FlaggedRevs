@@ -2769,7 +2769,6 @@ Neue [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Änderungen] k�
 	'revreview-successful' => "'''Die Version der Seite ''[[:$1|$1]]'' wurde erfolgreich markiert ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} alle markierten Versionen dieser Seite])'''.",
 	'revreview-successful2' => "'''Die Markierung der Version von [[:$1|$1]] wurde erfolgreich aufgehoben.'''",
 	'revreview-text' => 'Einer [[{{MediaWiki:Validationpage}}|gesichteten Version]] wird bei der Seitendarstellung der Vorzug vor einer neueren, nicht gesichteten Version gegeben.',
-	'revreview-toggle' => '(+/−)',
 	'revreview-toggle-title' => 'Details zeigen/verstecken',
 	'revreview-toolow' => 'Du musst für jedes der untenstehenden Attribute einen Wert höher als „{{int:revreview-accuracy-0}}“ einstellen, damit eine Version als gesichtet gilt.
 Um eine Version zu verwerfen, müssen alle Attribute auf „{{int:revreview-accuracy-0}}“ stehen.
@@ -3345,6 +3344,7 @@ $messages['el'] = array(
 	'right-review' => 'Σἠμανση επεξεργασιών ως επιθεωρημένων',
 	'right-stablesettings' => 'Διαμόρφωση του πως μία σταθερή έκδοση επιλέγεται και προβάλλεται',
 	'right-validate' => 'Σἠμανση επεξεργασιών ως επικυρωμένων',
+	'right-unreviewedpages' => 'Δείτε τον [[Special:UnreviewedPages|κατάλογο των σελίδων χωρίς κριτική]]',
 	'rights-editor-autosum' => 'αυτόματα προωθημένο',
 	'specialpages-group-quality' => 'Διαβεβαίωση ποιότητας',
 	'stable-logpage' => 'Αρχείο καταγραφής σταθερών εκδόσεων',
@@ -3865,6 +3865,7 @@ $messages['et'] = array(
 	'revreview-toggle-title' => 'Näita või peida üksikasjad',
 	'revreview-revnotfound' => 'Vana redaktsiooni, mille järele te pärisite, ei leitud.
 Palun kontrollige internetiaadressi, mille abil te seda leida püüdsite.',
+	'right-unreviewedpages' => 'Vaadata [[Special:UnreviewedPages|ülevaatamata lehekülgede loendit]]',
 	'specialpages-group-quality' => 'Kvaliteedi tagamine',
 	'revreview-filter-approved' => 'Heakskiidetud',
 	'revreview-filter-unapproved' => 'Heakskiiduta',
@@ -4315,6 +4316,7 @@ Donne la possibilité aux contributeurs et aux relecteurs de relire les versions
 	'revreview-diff-toggle-hide' => '(cacher les modifications)',
 	'revreview-diff-toggle-title' => "Basculer l'affichage des modifications entre le brouillon et la version publiée",
 	'revreview-log-toggle-show' => '(afficher le journal de stabilité)',
+	'revreview-log-details-show' => '(afficher les détails)',
 	'review-diff2stable' => 'Voir les modifications en cours par rapport à la version publiée',
 	'review-logentry-app' => 'a relu une version de [[$1]]',
 	'review-logentry-dis' => 'a déprécié une version de [[$1]]',
@@ -4418,9 +4420,11 @@ De nouvelles [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} modific
 	'revreview-style-3' => 'Concise',
 	'revreview-style-4' => 'Remarquable',
 	'revreview-submit' => 'Soumettre',
-	'revreview-submit-review' => 'Marquer comme relu',
-	'revreview-submit-unreview' => 'Marquer comme non-relu',
+	'revreview-submit-review' => 'Marquer comme vérifié',
+	'revreview-submit-unreview' => 'Marquer comme non-vérifié',
 	'revreview-submitting' => 'Soumission…',
+	'revreview-submit-reviewed' => 'Fait. Vérifié !',
+	'revreview-submit-unreviewed' => 'Fait. Non-vérifié !',
 	'revreview-successful' => "'''La version sélectionnée de [[:$1|$1]] a été marquée avec succès ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} voir les versions stables])'''",
 	'revreview-successful2' => "'''Version de [[:$1|$1]] invalidée.'''",
 	'revreview-text' => "''Les [[{{MediaWiki:Validationpage}}|versions relues]] sont des versions vérifiées des pages utilisées pour déterminer la version publiée.''",
@@ -4479,8 +4483,8 @@ Vous pouvez également consulter la [[Special:StablePages|liste de pages stables
 	'revreview-unlocked' => 'Les modifications ne nécessitent pas de relecture avant d’être affichées sur cette page !',
 	'log-show-hide-review' => "$1 l'historique des relectures",
 	'revreview-tt-review' => 'Appliquer ce statut à cette version',
-	'revreview-tt-flag' => 'Marquer cette révision comme relue',
-	'revreview-tt-unflag' => 'Marquer cette révision comme non relue',
+	'revreview-tt-flag' => 'Approuver cette version en la marquant comme vérifiée',
+	'revreview-tt-unflag' => 'Désapprouver cette version en la marquant comme non-vérifiée',
 	'validationpage' => '{{ns:help}}:Validation de la page',
 );
 
@@ -8144,7 +8148,7 @@ Klickt w.e.g op den ''Zréck''-Knäppche vun Ärem Browser a versicht et nach en
 	'rights-editor-autosum' => 'automatesch promovéiert',
 	'rights-editor-revoke' => 'huet dem [[$1]] den Editeur-Statut ewechgeholl',
 	'specialpages-group-quality' => 'Qualitéitssécherung',
-	'stable-logentry-config' => 'huet stabil Versioune fir [[$1]] agestallt',
+	'stable-logentry-config' => "huet d'Astellunge vun der Publikatioun fir [[$1]] agestallt",
 	'stable-logentry-reset' => "huet d'Plubicatiouns-Astellung fir [[$1]] zréckgesat",
 	'stable-logpage' => 'Lëscht vun de stabile Versiounen',
 	'stable-logpagetext' => "Dëst ass d'Logbuch vun den Ännerunge vun der Astellung vun der [[{{MediaWiki:Validationpage}}|publizéierter Versioun]] vu Säite mat Inhalt.
@@ -8608,6 +8612,7 @@ $messages['ml'] = array(
 	'revreview-diff-toggle-hide' => '(മാറ്റങ്ങൾ മറയ്ക്കുക)',
 	'revreview-diff-toggle-title' => 'കരട് പതിപ്പും പ്രസിദ്ധീകരിച്ച പതിപ്പും തമ്മിലുള്ള മാറ്റങ്ങൾ മാറി മാറി പ്രദർശിപ്പിക്കാൻ അനുവദിക്കുക',
 	'revreview-log-toggle-show' => '(സ്ഥിരതക്രമീകരിക്കൽ രേഖ പ്രദർശിപ്പിക്കുക)',
+	'revreview-log-details-show' => '(കൂടുതൽ വിവരങ്ങൾ പ്രദർശിപ്പിക്കുക)',
 	'review-diff2stable' => 'പ്രസിദ്ധീകരിക്കപ്പെട്ട പതിപ്പിൽ അവശേഷിക്കുന്ന മാറ്റങ്ങൾ കാണുക',
 	'review-logentry-app' => '[[$1]] താളിന്റെ പതിപ്പ് സംശോധനം ചെയ്തിരിക്കുന്നു',
 	'review-logentry-dis' => '[[$1]] താളിന്റെ ഒരു പതിപ്പ് ഒതുക്കിയിരിക്കുന്നു',
@@ -8707,9 +8712,11 @@ $messages['ml'] = array(
 	'revreview-style-3' => 'സംക്ഷിപ്തമായത്',
 	'revreview-style-4' => 'തിരഞ്ഞെടുക്കപ്പെട്ടത്',
 	'revreview-submit' => 'സമര്‍പ്പിക്കുക',
-	'revreview-submit-review' => 'സംശോധനം ചെയ്തതായി അടയാളപ്പെടുത്തുക',
-	'revreview-submit-unreview' => 'സംശോധനം ചെയ്തില്ലെന്ന് അടയാളപ്പെടുത്തുക',
+	'revreview-submit-review' => 'പരിശോധിച്ചതായി അടയാളപ്പെടുത്തുക',
+	'revreview-submit-unreview' => 'പരിശോധിച്ചതല്ലെന്ന് അടയാളപ്പെടുത്തുക',
 	'revreview-submitting' => 'സമർപ്പിക്കുന്നു...',
+	'revreview-submit-reviewed' => 'ചെയ്തുകഴിഞ്ഞു. പരിശോധിക്കപ്പെട്ടിരിക്കുന്നു!',
+	'revreview-submit-unreviewed' => 'ചെയ്തുകഴിഞ്ഞു. പരിശോധിച്ചിട്ടില്ല!',
 	'revreview-successful' => "'''[[:$1|$1]] താളിന്റെ നാൾപ്പതിപ്പിൽ പതാക വിജയകരമായി ചേർത്തിരിക്കുന്നു. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} സ്ഥിരതയുള്ള പതിപ്പുകൾ കാണുക])'''",
 	'revreview-successful2' => "'''[[:$1|$1]] താളിന്റെ നാൾപ്പതിപ്പിൽ നിന്നും പതാക വിജയകരമായി നീക്കിയിരിക്കുന്നു.'''",
 	'revreview-text' => "''പ്രസിദ്ധീകരിക്കാനുള്ള പതിപ്പുകൾക്കായി പരിശോധിക്കപ്പെട്ട പതിപ്പുകളാണ് [[{{MediaWiki:Validationpage}}|സംശോധനം ചെയ്ത പതിപ്പുകൾ]].''",
@@ -8763,8 +8770,8 @@ $messages['ml'] = array(
 	'revreview-unlocked' => 'ഈ താളിൽ പ്രദർശിക്കപ്പെടുന്നതിനു മുമ്പ് തിരുത്തലുകൾ [[{{MediaWiki:Validationpage}}|സംശോധനം]] ചെയ്യേണ്ടതില്ല.',
 	'log-show-hide-review' => 'സംശോധന രേഖ $1',
 	'revreview-tt-review' => 'ഈ നാൾപ്പതിപ്പിന് ഈ പദവി നൽകുക',
-	'revreview-tt-flag' => 'ഈ നാൾപ്പതിപ്പ് സംശോധനം ചെയ്തതായി അടയാളപ്പെടുത്തുക',
-	'revreview-tt-unflag' => 'ഈ നാൾപ്പതിപ്പ് സംശോധനം ചെയ്തില്ല എന്നടയാളപ്പെടുത്തുക',
+	'revreview-tt-flag' => 'ഈ നാൾപ്പതിപ്പ് പരിശോധിച്ചതായി അടയാളപ്പെടുത്തി അംഗീകരിക്കുക',
+	'revreview-tt-unflag' => 'ഈ നാൾപ്പതിപ്പ് പരിശോധിച്ചതല്ല എന്നടയാളപ്പെടുത്തി അംഗീകാരം നീക്കുക',
 	'validationpage' => '{{ns:help}}:താളിന്റെ സാധുത',
 );
 
@@ -10252,6 +10259,7 @@ $messages['pms'] = array(
 	'revreview-diff-toggle-hide' => '(stërmé ij cangiament)',
 	'revreview-diff-toggle-title' => 'Visualisassion dle modìfiche tra version sbòss e publicà',
 	'revreview-log-toggle-show' => '(smon-e ël registr dë stabilità)',
+	'revreview-log-details-show' => '(mosta detaj)',
 	'review-diff2stable' => 'Varda ij cangiament an cors an sla version publicà',
 	'review-logentry-app' => "a l'ha revisionà na version ëd [[$1]]",
 	'review-logentry-dis' => 'deprecà na version ëd [[$1]]',
@@ -10359,13 +10367,14 @@ Dij neuv [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} cangiament]
 	'revreview-style-3' => 'Concisa',
 	'revreview-style-4' => 'Premià',
 	'revreview-submit' => 'Spediss',
-	'revreview-submit-review' => 'Marché tanme revisionà',
-	'revreview-submit-unreview' => 'Marché tanme nen revisionà',
+	'revreview-submit-review' => 'Marché revisionà',
+	'revreview-submit-unreview' => 'Marché pa revisionà',
 	'revreview-submitting' => 'Spedì ...',
+	'revreview-submit-reviewed' => 'Fàit. Revisionà!',
+	'revreview-submit-unreviewed' => 'Fàit. Pa revisionà!',
 	'revreview-successful' => "'''Revision ëd [[:$1|$1]] signalà da bin. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} vardé le version revisionà])'''",
 	'revreview-successful2' => "'''Gavà për da bin la marca a la revision ëd [[:$1|$1]].'''",
 	'revreview-text' => "''Le [[{{MediaWiki:Validationpage}}|version revisionà]] a son dle version controlà dle pàgine dovrà për determiné la version publicà.''",
-	'revreview-toggle' => '(visca/dësmòrta ij detaj)',
 	'revreview-toggle-title' => 'smon-e/stërmé ij detaj',
 	'revreview-toolow' => "'''A venta ch'a stima mincadun ëd j'atribù sì-sota pi àut che \"pa aprovà\" përchè na revision a sia considerà revisionà.'''
 Për depreché na revision, ch'a ampòsta tùit ij camp a \"pa aprovà\".
@@ -10421,8 +10430,8 @@ La lista dle pàgine ch'a l'han damanca ëd n'aprovassion editorial a resta ant 
 	'revreview-unlocked' => "'''Nòta.''' A-i é nen damanca che le modìfiche a sio [[{{MediaWiki:Validationpage}}|revisionà]] prima d'esse publicà su sta pàgina-sì.",
 	'log-show-hide-review' => '$1 registr ëd le revision',
 	'revreview-tt-review' => 'Amposté së statù a costa revision-sì',
-	'revreview-tt-flag' => 'Marca sta revision com revisionà',
-	'revreview-tt-unflag' => 'marca sta revision com pa revisionà',
+	'revreview-tt-flag' => 'Apreuva sta revision-sì an marcandla com revisionà',
+	'revreview-tt-unflag' => 'Gava da aprovà sta revision-sì an marcandla com pa revisionà',
 	'validationpage' => '{{ns:help}}:Validassion ëd la pàgina',
 );
 
@@ -11622,7 +11631,6 @@ Je možné, že boli vykonané ďalšie [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&di
 	'revreview-successful' => "'''Vybraná revízia [[:$1|$1]] bola úspešne označená. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} zobraziť stabilné verzie])'''",
 	'revreview-successful2' => "'''Označenie vybranej revízie [[:$1|$1]] bolo úspešne zrušené.'''",
 	'revreview-text' => "''[[{{MediaWiki:Validationpage}}|Stabilné verzie]], nie najnovšie verzie, sú nastavené ako štandardný obsah stránky pre čitateľov.''",
-	'revreview-toggle' => '(+/-)',
 	'revreview-toggle-title' => 'zobraziť/skryť podrobnosti',
 	'revreview-toolow' => "'''Musíte ohodnotiť každý z nasledujúcich atribútov minimálne vyššie ako „neschválené“, aby bolo možné verziu považovať za skontrolovanú.'''
 Ak chcete učiniť verziu zavrhovanou, nastavte všetky polia na „neschválené“.
@@ -13157,7 +13165,6 @@ Yeni [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} değişiklikler
 	'revreview-successful' => "'''[[:$1|$1]] için revizyonu başarıyla işaretlendi. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} kararlı sürümleri gör])'''",
 	'revreview-successful2' => "'''[[:$1|$1]] için revizyonun işareti başarıyla kaldırıldı.'''",
 	'revreview-text' => "''[[{{MediaWiki:Validationpage}}|Gözden geçirilmiş sürümler]] yayımlanmış sürümü belirlemek için kullanılan, sayfaların kontrol edilmiş sürümleridir.''",
-	'revreview-toggle' => '(+/-)',
 	'revreview-toggle-title' => 'detayları göster/gizle',
 	'revreview-toolow' => '\'\'\'Bir revizyonun gözden geçirilmiş sayılabilmesi için aşağıdaki özniteliklerden her birini "onaylanmamış"dan yüksek oylamalısınız.\'\'\'
 Bir revizyonu aşındırmak için, tüm alanları "onaylanmamış" seçin.
@@ -13368,13 +13375,12 @@ $messages['uk'] = array(
 	'revreview-style-3' => 'стисла',
 	'revreview-style-4' => 'вибрана',
 	'revreview-submit' => 'Позначити',
-	'revreview-submit-review' => 'Позначити переглянутою',
-	'revreview-submit-unreview' => 'Позначити непереглянутою',
+	'revreview-submit-review' => 'Позначити перевіреною',
+	'revreview-submit-unreview' => 'Позначити неперевіреною',
 	'revreview-submitting' => 'Надсилання...',
 	'revreview-successful' => "'''Обрана версія [[:$1|$1]] успішно позначена. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} перегляд усіх стабільних версій])'''",
 	'revreview-successful2' => "'''Із обраної версії [[:$1|$1]] успішно знята позначка.'''",
 	'revreview-text' => "''[[{{MediaWiki:Validationpage}}|Перевірені версії]] — проконтрольовані версії сторінок, що використовуються для визначення опублікованої версії.''",
-	'revreview-toggle' => '(+/-)',
 	'revreview-toggle-title' => 'показати/приховати подробиці',
 	'revreview-toolow' => "'''Ви повинні встановити кожен з нижченаведених атрибутів у значення вище, ніж \"не затверджена\", відповідно до процедури позначення версії рецензованою.'''
 Щоб відкинуту версію, встановіть усі поля у значення \"не затверджена\".
@@ -13430,8 +13436,8 @@ $messages['uk'] = array(
 	'revreview-unlocked' => 'Редагування не вимагають попередньої [[{{MediaWiki:Validationpage}}|перевірки]] перед тим, як будуть показані на цій сторінці.',
 	'log-show-hide-review' => '$1 журнал перевірок',
 	'revreview-tt-review' => 'Застосувати статус до цієї версії',
-	'revreview-tt-flag' => 'Позначити цю версію як перевірену',
-	'revreview-tt-unflag' => 'Позначити цю версію як неперевірену',
+	'revreview-tt-flag' => 'Затвердити цю версію з позначенням її перевіреною',
+	'revreview-tt-unflag' => 'Зняти затвердження цієї версії і позначити її неперевіреною',
 	'validationpage' => '{{ns:help}}:Перевірка сторінки',
 );
 

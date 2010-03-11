@@ -54,7 +54,7 @@ $messages['arz'] = array(
  * @author Jim-by
  */
 $messages['be-tarask'] = array(
-	'problemchanges' => 'Рэцэнзаваць пазначаныя зьмены',
+	'problemchanges' => 'Пазначаныя нерэцэнзаваныя зьмены',
 	'problemchanges-legend' => 'Сьпіс старонак з пазначанымі рэдагаваньнямі, якія чакаюць рэцэнзаваньня',
 	'problemchanges-none' => 'Зараз няма старонак, якія адпавядаюць гэтым крытэрам',
 	'problemchanges-category' => 'Катэгорыя:',

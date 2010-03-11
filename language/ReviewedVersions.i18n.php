@@ -128,7 +128,7 @@ $messages['bcl'] = array(
  * @author EugeneZelenko
  */
 $messages['be-tarask'] = array(
-	'reviewedversions' => 'Паказаць рэцэнзаваныя вэрсіі',
+	'reviewedversions' => 'Рэцэнзаваныя вэрсіі',
 	'reviewedversions-leg1' => 'Сьпіс правераных вэрсіяў старонкі',
 	'reviewedversions-page' => 'Назва старонкі:',
 	'reviewedversions-none' => '«[[:$1]]» ня мае правераных вэрсіяў.',
@@ -348,11 +348,12 @@ $messages['fi'] = array(
 /** French (Français)
  * @author Grondin
  * @author IAlex
+ * @author Peter17
  * @author PieRRoMaN
  * @author Sherbrooke
  */
 $messages['fr'] = array(
-	'reviewedversions' => 'Visionner les versions relues',
+	'reviewedversions' => 'Versions passées en revue',
 	'reviewedversions-leg1' => "Dernières révisions revues d'une page",
 	'reviewedversions-page' => 'Nom de la page :',
 	'reviewedversions-none' => "« [[:$1]] » n'a pas de version révisée.",
@@ -460,7 +461,7 @@ $messages['hr'] = array(
  * @author Michawiki
  */
 $messages['hsb'] = array(
-	'reviewedversions' => 'Stabilne wersije wobhladać',
+	'reviewedversions' => 'Přepruwowane wersije',
 	'reviewedversions-leg1' => 'Přepruwowane wersije za nastawk nalistować',
 	'reviewedversions-page' => 'Mjeno nastawka',
 	'reviewedversions-none' => '[[:$1]] přepruwowane wersije nima.',
@@ -619,7 +620,7 @@ $messages['la'] = array(
  * @author Robby
  */
 $messages['lb'] = array(
-	'reviewedversions' => 'Weis déi stabil Versiounen',
+	'reviewedversions' => 'nogekuckte Versiounen',
 	'reviewedversions-leg1' => 'Lëscht vun den nogekuckte Versioune vun enger Säit',
 	'reviewedversions-page' => 'Säitenumm:',
 	'reviewedversions-none' => '"[[:$1]]" huet keng nogekuckte Versiounen.',
@@ -659,7 +660,7 @@ $messages['mhr'] = array(
  * @author Brest
  */
 $messages['mk'] = array(
-	'reviewedversions' => 'Преглед на стабилни верзии',
+	'reviewedversions' => 'Проверени верзии',
 	'reviewedversions-leg1' => 'Листа на прегледани ревизии за страница',
 	'reviewedversions-page' => 'Наслов на страница:',
 	'reviewedversions-none' => '"[[:$1]]" нема прегледани ревизии.',
@@ -806,11 +807,12 @@ $messages['pl'] = array(
 );
 
 /** Piedmontese (Piemontèis)
+ * @author Borichèt
  * @author Bèrto 'd Sèra
  * @author Dragonòt
  */
 $messages['pms'] = array(
-	'reviewedversions' => 'Varda le version revisionà',
+	'reviewedversions' => 'Version revisionà',
 	'reviewedversions-leg1' => 'Fé na lista dle version aprovà ëd na pàgina',
 	'reviewedversions-page' => 'Nòm dla pàgina',
 	'reviewedversions-none' => "[[:$1]] a l'ha pa gnun-a version revisionà.",
@@ -878,7 +880,7 @@ $messages['roa-tara'] = array(
  * @author Александр Сигачёв
  */
 $messages['ru'] = array(
-	'reviewedversions' => 'Показать проверенные версии',
+	'reviewedversions' => 'Проверенные версии',
 	'reviewedversions-leg1' => 'Список проверенных версий страницы',
 	'reviewedversions-page' => 'Название страницы:',
 	'reviewedversions-none' => '«[[:$1]]» не имеет проверенных версий.',
