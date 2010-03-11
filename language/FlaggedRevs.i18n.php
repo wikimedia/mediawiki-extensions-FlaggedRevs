@@ -54,6 +54,7 @@ $messages['en'] = array(
 	'revreview-diff-toggle-hide'   => '(hide changes)',
 	'revreview-diff-toggle-title'  => 'Toggle display of changes between draft and the published version',
 	'revreview-log-toggle-show'    => '(show stability log)',
+	'revreview-log-details-show'   => '(show details)',
 	'review-diff2stable'           => 'View pending changes to published version',
 	'review-logentry-app'          => 'reviewed a version of [[$1]]',
 	'review-logentry-dis'          => 'deprecated a version of [[$1]]',
@@ -162,13 +163,16 @@ The [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} draft] has [{{fullurl:{{FULLPAGENAME
 	'revreview-style-3'            => 'Concise',
 	'revreview-style-4'            => 'Featured',
 	'revreview-submit'             => 'Submit',
-	'revreview-submit-review'      => 'Mark reviewed',
-	'revreview-submit-unreview'    => 'Mark unreviewed',
+	'revreview-submit-review'      => 'Mark checked',
+	'revreview-submit-unreview'    => 'Mark unchecked',
 	'revreview-submitting'         => 'Submitting...',
+	'revreview-submit-reviewed'    => 'Done. Checked!',
+	'revreview-submit-unreviewed'  => 'Done. Unchecked!',
 	'revreview-successful'         => '\'\'\'Revision of [[:$1|$1]] successfully flagged. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} view reviewed versions])\'\'\'',
 	'revreview-successful2'        => '\'\'\'Revision of [[:$1|$1]] successfully unflagged.\'\'\'',
 	'revreview-text'               => '\'\'[[{{MediaWiki:Validationpage}}|Reviewed versions]] are checked versions of pages used to determine the published version.\'\'',
-	'revreview-toggle'             => '(+/-)',
+	'revreview-toggle-show'        => '(+)',
+	'revreview-toggle-hide'        => '(-)',
 	'revreview-toggle-title'       => 'show/hide details',
 	'revreview-toolow'             => '\'\'\'You must rate each of the below attributes higher than "unapproved" in order for a revision to be considered reviewed.\'\'\'
 To deprecate a revision, set all fields to "unapproved".
@@ -236,8 +240,8 @@ Please check the URL you used to access this page.',
 	'log-show-hide-review'         => '$1 review log',
 	
 	'revreview-tt-review'          => 'Apply this status to this revision',
-	'revreview-tt-flag'            => 'Mark this revision as reviewed',
-	'revreview-tt-unflag'		   => 'Mark this revision as not reviewed',
+	'revreview-tt-flag'            => 'Approve this revision by marking it as checked',
+	'revreview-tt-unflag'		   => 'De-approve this revision by marking it as unchecked',
 	'validationpage'               => '{{ns:help}}:Page validation',
 );
 

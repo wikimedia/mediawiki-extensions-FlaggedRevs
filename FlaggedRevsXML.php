@@ -257,7 +257,7 @@ class FlaggedRevsXML {
 		return '<a id="mw-fr-revisiontoggle" class="flaggedrevs_toggle" style="display:none;"' .
 			' onclick="FlaggedRevs.toggleRevRatings()" title="' .
 			wfMsgHtml( 'revreview-toggle-title' ) . '" >' .
-			wfMsgHtml( 'revreview-toggle' ) . '</a>';
+			wfMsgHtml( 'revreview-toggle-show' ) . '</a>';
 	}
 
 	/**
@@ -275,11 +275,11 @@ class FlaggedRevsXML {
 	 * @returns string
 	 * Generates (+/-) JS toggle HTML
 	 */
-	public static function logToggle() {
+	public static function logToggle( $msg ) {
 		return '<a id="mw-fr-logtoggle" class="flaggedrevs_toggle" style="display:none;"' .
 			' onclick="FlaggedRevs.toggleLog()" title="' .
-			wfMsgHtml( 'revreview-log-toggle-show' ) . '" >' .
-			wfMsgHtml( 'revreview-log-toggle-show' ) . '</a>';
+			wfMsgHtml( $msg ) . '" >' .
+			wfMsgHtml( $msg ) . '</a>';
 	}
 	
 	/**

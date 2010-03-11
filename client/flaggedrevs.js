@@ -5,7 +5,9 @@
 var FlaggedRevs = {
 	'messages': {
 		'revreviewDiffToggleShow': '(show)',
-		'revreviewDiffToggleHide': '(hide)'
+		'revreviewDiffToggleHide': '(hide)',
+		'revreviewToggleShow'    : '(+)',
+		'revreviewToggleHide'    : '(-)'
 	},
 	/* Hide rating/diff clutter */
 	'enableShowhide': function() {
@@ -39,10 +41,14 @@ var FlaggedRevs = {
 	'toggleRevRatings': function() {
 		var ratings = document.getElementById('mw-fr-revisionratings');
 		if( !ratings ) return;
+		var toggle = document.getElementById('mw-fr-revisiontoggle');
+		if( !toggle ) return;
 		if( ratings.style.display == 'none' ) {
 			ratings.style.display = 'inline';
+			toggle.innerHTML = this.messages.revreviewToggleHide;
 		} else {
 			ratings.style.display = 'none';
+			toggle.innerHTML = this.messages.revreviewToggleShow;
 		}
 	},
 	
@@ -51,16 +57,13 @@ var FlaggedRevs = {
 		var diff = document.getElementById('mw-fr-stablediff');
 		if( !diff ) return;
 		var toggle = document.getElementById('mw-fr-difftoggle');
+		if( !toggle ) return;
 		if( diff.style.display == 'none' ) {
 			diff.style.display = 'inline';
-			if( toggle ) {
-				toggle.innerHTML = this.messages.revreviewDiffToggleHide;
-			}
+			toggle.innerHTML = this.messages.revreviewDiffToggleHide;
 		} else {
 			diff.style.display = 'none';
-			if( toggle ) {
-				toggle.innerHTML = this.messages.revreviewDiffToggleShow;
-			}
+			toggle.innerHTML = this.messages.revreviewDiffToggleShow;
 		}
 	},
 	
@@ -69,11 +72,10 @@ var FlaggedRevs = {
 		var log = document.getElementById('mw-fr-logexcerpt');
 		if( !log ) return;
 		var toggle = document.getElementById('mw-fr-logtoggle');
+		if( !toggle ) return;
 		if( log.style.display == 'none' ) {
 			log.style.display = 'inline';
-			if( toggle ) {
-				toggle.innerHTML = '';
-			}
+			toggle.innerHTML = '';
 		}
 	}
 };

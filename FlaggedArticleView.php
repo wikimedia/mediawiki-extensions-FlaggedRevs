@@ -851,10 +851,12 @@ class FlaggedArticleView {
 		# Only for pages manually made to be stable...
 		if ( $this->article->isPageLocked() ) {
 			$s = wfMsgExt( 'revreview-locked', 'parseinline' );
+			$s .= ' ' . FlaggedRevsXML::logToggle('revreview-log-details-show');
 			$s .= FlaggedRevsXML::stabilityLogExcerpt( $this->article );
 		# ...or unstable
 		} elseif ( $this->article->isPageUnlocked() ) {
 			$s = wfMsgExt( 'revreview-unlocked', 'parseinline' );
+			$s .= ' ' . FlaggedRevsXML::logToggle('revreview-log-details-show');
 			$s .= FlaggedRevsXML::stabilityLogExcerpt( $this->article );
 		}
 		return $s;
@@ -1615,14 +1617,14 @@ class FlaggedArticleView {
 			if ( count( FlaggedRevs::getDimensions() ) > 1 )
 				$form .= "<br />"; // Don't put too much on one line
 			$form .= "<span id='mw-fr-commentbox' style='clear:both'>" .
-				Xml::inputLabel( wfMsg( 'revreview-log' ), 'wpReason', 'wpReason', 40, '',
+				Xml::inputLabel( wfMsg( 'revreview-log' ), 'wpReason', 'wpReason', 35, '',
 					array( 'class' => 'fr-comment-box' ) ) . "&nbsp;&nbsp;&nbsp;</span>";
 		}
 		# Add the submit buttons
 		$form .= FlaggedRevsXML::ratingSubmitButtons( $frev, (bool)$toggle, $allowRereview );
 		# Show stability log if there is anything interesting...
 		if( $this->article->isPageLocked() ) {
-			$form .= ' ' . FlaggedRevsXML::logToggle();
+			$form .= ' ' . FlaggedRevsXML::logToggle('revreview-log-toggle-show');
 		}
 		$form .= Xml::closeElement( 'span' );
 		# ..add the actual stability log body here

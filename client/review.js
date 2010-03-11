@@ -202,11 +202,13 @@ wgAjaxReview.processResult = function(request) {
 		msg = msg.substr(5); // remove <t#x>
 	}
 	var tier = regm ? regm[1] : 0; // review tier
+	/*
 	// Output any response message
 	if( msg.length ) {
 		jsMsg( msg, 'review' ); // success/failure notice
 		window.scroll(0,0); // scroll up to notice
 	}
+	*/
 	var rsubmit = document.getElementById("mw-fr-submitreview");
 	var usubmit = document.getElementById("mw-fr-submitunreview");
 	var legend = document.getElementById("mw-fr-reviewformlegend");
@@ -223,12 +225,20 @@ wgAjaxReview.processResult = function(request) {
 				if( rsubmit.value == wgAjaxReview.sendingMsg ) {
 					// For template review case go from re-review to review message
 					legend.innerHTML = '<strong>'+wgAjaxReview.flagLegMsg+'</strong>';
-					rsubmit.value = wgAjaxReview.flagMsg; // back to normal
-					usubmit.disabled = ''; // unlock unflag button
+					rsubmit.value = wgAjaxReview.flaggedMsg; // done!
+					rsubmit.style.fontWeight = 'bold';
+					// Unlock and reset *unflag* button
+					usubmit.value = wgAjaxReview.unflagMsg;
+					usubmit.removeAttribute( 'style' ); // back to normal
+					usubmit.disabled = '';
 				// Revision was unflagged
 				} else if( usubmit.value == wgAjaxReview.sendingMsg ) {
-					usubmit.value = wgAjaxReview.unflagMsg; // back to normal
-					rsubmit.disabled = ''; // unlock flag button
+					usubmit.value = wgAjaxReview.unflaggedMsg; // done!
+					usubmit.style.fontWeight = 'bold';
+					// Unlock and reset *flag* button
+					rsubmit.value = wgAjaxReview.flagMsg;
+					rsubmit.removeAttribute( 'style' ); // back to normal
+					rsubmit.disabled = '';
 				}
 			} else {
 				rsubmit.value = wgAjaxReview.sendMsg; // back to normal

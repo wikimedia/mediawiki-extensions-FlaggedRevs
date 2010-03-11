@@ -67,7 +67,9 @@ class FlaggedRevsHooks {
 		# Set basic messages
 		$msgs = (object) array(
 			'revreviewDiffToggleShow' => wfMsgHtml( 'revreview-diff-toggle-show' ),
-			'revreviewDiffToggleHide' => wfMsgHtml( 'revreview-diff-toggle-hide' )
+			'revreviewDiffToggleHide' => wfMsgHtml( 'revreview-diff-toggle-hide' ),
+			'revreviewToggleShow'	  => wfMsgHtml( 'revreview-toggle-show'),
+			'revreviewToggleHide'     => wfMsgHtml( 'revreview-toggle-hide')
 		);
 		$head .= "\n<script type=\"{$wgJsMimeType}\">" .
 			"FlaggedRevs.messages = " . Xml::encodeJsVar( $msgs ) . ";</script>\n";
@@ -97,6 +99,8 @@ class FlaggedRevsHooks {
 				'unflagMsg'		 => wfMsgHtml( 'revreview-submit-unreview' ),
 				'flagLegMsg'	 => wfMsgHtml( 'revreview-flag' ),
 				'sendingMsg'     => wfMsgHtml( 'revreview-submitting' ),
+				'flaggedMsg'	 => wfMsgHtml( 'revreview-submit-reviewed' ),
+				'unflaggedMsg'	 => wfMsgHtml( 'revreview-submit-unreviewed' ),
 				'actioncomplete' => wfMsgHtml( 'actioncomplete' ),
 				'actionfailed'	 => wfMsgHtml( 'actionfailed' ),
 				'draftRev'  	 => wfMsgHtml( 'revreview-hist-draft' ),
