@@ -241,7 +241,12 @@ wgAjaxReview.processResult = function(request) {
 					rsubmit.disabled = '';
 				}
 			} else {
-				rsubmit.value = wgAjaxReview.sendMsg; // back to normal
+				if( tier > 0 ) {
+					rsubmit.value = wgAjaxReview.flaggedMsg;
+				} else {
+					rsubmit.value = wgAjaxReview.unflaggedMsg;
+				}
+				rsubmit.style.fontWeight = 'bold';
 				rsubmit.disabled = ''; // unlock flag button
 			}
 		}
