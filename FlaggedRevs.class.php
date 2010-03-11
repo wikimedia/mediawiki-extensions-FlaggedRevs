@@ -541,11 +541,8 @@ class FlaggedRevs {
 		foreach ( FlaggedRevs::getDimensions() as $qal => $levels ) {
 			$level = isset( $flags[$qal] ) ? $flags[$qal] : 0;
 			$highest = count( $levels ) - 1; // highest valid level
-			# Levels may not apply for some pages
-			if ( $level > 0 && !RevisionReview::levelAvailable( $qal, $level, $config ) ) {
-				return false;
 			# Sanity check numeric range
-			} elseif ( $level < 0 || $level > $highest ) {
+			if ( $level < 0 || $level > $highest ) {
 				return false;
 			}
 		}
