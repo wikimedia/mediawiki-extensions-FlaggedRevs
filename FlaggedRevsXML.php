@@ -483,9 +483,6 @@ class FlaggedRevsXML {
 	*/
 	public static function pendingEditNotice( $flaggedArticle, $frev, $revsSince ) {
 		global $wgLang;
-		if( $revsSince < 1 ) {
-			return ''; // only for pending edits
-		}
 		$flags = $frev->getTags();
 		$time = $wgLang->date( $frev->getTimestamp(), true );
 		# Add message text for pending edits

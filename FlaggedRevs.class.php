@@ -917,15 +917,18 @@ class FlaggedRevs {
 		$key = wfMemcKey( 'flaggedrevs', 'unreviewedrevs', $article->getId() );
 		if ( !$forUpdate ) {
 			$val = $wgMemc->get( $key );
-			$count = is_integer( $val ) ? $val : null;
+			if( is_integer($val) ) $count = $val;
 		}
+		# Otherwise, fetch from DB as needed
 		if ( is_null( $count ) ) {
 			$db = $forUpdate ? wfGetDB( DB_MASTER ) : wfGetDB( DB_SLAVE );
 			$count = (int)$db->selectField( 'revision', 'COUNT(*)',
 				array( 'rev_page' => $article->getId(), "rev_id > " . intval( $revId ) ),
 				__METHOD__ );
-			# Save to cache
-			$wgMemc->set( $key, $count, $wgParserCacheExpireTime );
+			# Save to cache if there are such edits
+			if( $count ) {
+				$wgMemc->set( $key, $count, $wgParserCacheExpireTime );
+			}
 		}
 		return $count;
 	}
