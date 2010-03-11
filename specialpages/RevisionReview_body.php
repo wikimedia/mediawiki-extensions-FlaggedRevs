@@ -712,6 +712,12 @@ class RevisionReview extends UnlistedSpecialPage
 	 */
 	public static function userCan( $tag, $value, $config = null ) {
 		global $wgUser;
+		# Sanity check tag and value
+		$levels = FlaggedRevs::getTagLevels( $tag );
+		$highest = count( $levels ) - 1;
+		if( !$levels || $value < 0 || $value > $highest ) {
+			return false; // flag range is invalid
+		}
 		$restrictions = FlaggedRevs::getTagRestrictions();
 		# No restrictions -> full access
 		if ( !isset( $restrictions[$tag] ) ) {
@@ -753,8 +759,6 @@ class RevisionReview extends UnlistedSpecialPage
 				return false; // user cannot set proposed flag
 			} elseif ( isset( $oldflags[$qal] ) && !self::userCan( $qal, $oldflags[$qal] ) ) {
 				return false; // user cannot change old flag ($config is ignored here)
-			} elseif ( $level < 0 || $level > $highest ) {
-				return false; // flag range is invalid
 			}
 		}
 		return true;

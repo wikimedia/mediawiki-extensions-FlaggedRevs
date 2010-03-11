@@ -171,9 +171,27 @@ class FlaggedRevs {
 	 */
 	public static function autoReviewEdits() {
 		global $wgFlaggedRevsAutoReview;
-		return (int)$wgFlaggedRevsAutoReview;
+		return (bool)$wgFlaggedRevsAutoReview;
 	}
-	
+
+	/**
+	 * Get the maximum level that $tag can be autoreviewed to
+	 * @param string $tag
+	 * @returns int
+	 */
+	public static function maxAutoReviewLevel( $tag ) {
+		global $wgFlaggedRevsTagsAuto;
+		self::load();
+		if( !self::autoReviewEdits() ) {
+			return 0; // no auto-review allowed at all
+		}
+		if( isset($wgFlaggedRevsTagsAuto[$tag]) ) {
+			return (int)$wgFlaggedRevsTagsAuto[$tag];
+		} else {
+			return 1; // B/C (before $wgFlaggedRevsTagsAuto)
+		}
+	}
+
 	/**
 	 * Auto-review new pages with the minimal level?
 	 * @returns bool
@@ -484,71 +502,33 @@ class FlaggedRevs {
 	}
 
 	/**
-	 * Get minimum tags that are closest to the quality level
+	 * Get minimum tags that are closest to $oldFlags
 	 * given the site, page, and user rights limitations.
+	 * @param Array $oldFlags previous stable rev flags
+	 * @param Array $config
 	 * @return mixed array or null
 	 */
-	public static function getAutoReviewTags( $quality, $config = array() ) {
-		if ( !FlaggedRevs::autoReviewEdits() )
+	public static function getAutoReviewTags( $oldFlags, $config = array() ) {
+		if ( !FlaggedRevs::autoReviewEdits() ) {
 			return null; // shouldn't happen
-		# Find the maximum auto-review quality level
-		$qal = min( FlaggedRevs::autoReviewEdits() - 1, $quality );
-		# Pristine auto-review?
-		if ( $qal == FR_PRISTINE ) {
-			$flags = self::quickTags( FR_PRISTINE );
-			# If tags are available and user can set them, we are done...
-			if ( self::userCanAutoSetFlags( $flags, array(), $config ) ) {
-				return $flags;
-			}
-			$qal = FR_QUALITY; // try lower level
 		}
-		# Quality auto-review?
-		if ( $qal == FR_QUALITY ) {
-			$flags = self::quickTags( FR_QUALITY );
-			# If tags are available and user can set them, we are done...
-			if ( self::userCanAutoSetFlags( $flags, array(), $config ) ) {
-				return $flags;
+		$flags = array();
+		foreach( self::getDimensions() as $tag => $levels ) {
+			# Try to keep this tag val the same as the stable rev's
+			$val = isset($oldFlags[$tag]) ? $oldFlags[$tag] : 1;
+			$val = min( $val, self::maxAutoReviewLevel($tag) );
+			# Dial down the level to one the user has permission to set
+			while( !RevisionReview::userCan( $tag, $val ) ) {
+				$val--;
+				if( $val <= 0 ) {
+					return null; // all tags vals must be > 0
+				}
 			}
-			$qal = FR_SIGHTED; // try lower level
+			$flags[$tag] = $val;
 		}
-		# Sighted auto-review?
-		if ( $qal == FR_SIGHTED ) {
-			$flags = self::quickTags( FR_SIGHTED );
-			# If tags are available and user can set them, we are done...
-			if ( self::userCanAutoSetFlags( $flags, array(), $config ) ) {
-				return $flags;
-			}
-		}
-		return null;
+		return $flags;
 	}
-	
-	/**
-	 * Returns true if a user can auto-set $flags.
-	 * This checks if the user has the right to autoreview
-	 * to the given levels for each tag.
-	 * @param array $flags, suggested flags
-	 * @param array $oldflags, pre-existing flags
-	 * @param array $config, visibility settings
-	 * @returns bool
-	 */
-	public static function userCanAutoSetFlags( $flags, $oldflags = array(), $config = array() ) {
-		global $wgUser;
-		if ( !$wgUser->isAllowed( 'autoreview' ) ) {
-			return false;
-		}
-		# Check if all of the required site flags have a valid value
-		# that the user is allowed to set.
-		foreach ( FlaggedRevs::getDimensions() as $qal => $levels ) {
-			$level = isset( $flags[$qal] ) ? $flags[$qal] : 0;
-			$highest = count( $levels ) - 1; // highest valid level
-			# Sanity check numeric range
-			if ( $level < 0 || $level > $highest ) {
-				return false;
-			}
-		}
-		return true;
-	}
-	
+
 	# ################ Parsing functions #################
 
 	/**
@@ -1487,14 +1467,15 @@ class FlaggedRevs {
 		# Set the auto-review tags from the prior stable version.
 		# Normally, this should already be done and given here...
 		if ( !is_array( $flags ) ) {
-			if ( $oldSv ) { // use the last stable version if $flags not given
+			if ( $oldSv ) {
+				# Use the last stable version if $flags not given
 				if( $user->isAllowed( 'bot' ) ) {
 					$flags = $oldSv->getTags(); // no change for bot edits
 				} else {
-					$flags = self::getAutoReviewTags( $oldSv->getQuality() /* available */ );
+					$flags = self::getAutoReviewTags( $oldSv->getTags() ); // account for perms
 				}
-			} else { // new page? use minimal level
-				$flags = self::getAutoReviewTags( FR_SIGHTED );
+			} else { // new page?
+				$flags = self::quickTags( FR_SIGHTED ); // use minimal level
 			}
 			if ( !is_array( $flags ) ) {
 				wfProfileOut( __METHOD__ );

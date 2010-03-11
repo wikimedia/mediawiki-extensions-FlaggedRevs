@@ -107,29 +107,35 @@ $wgFlaggedRevsExceptions = array( 'user' );
 # Can users make comments that will show up below flagged revisions?
 $wgFlaggedRevsComments = false;
 # Allow auto-review edits directly to the stable version by reviewers?
-# 1 to allow auto-sighting; 2 for auto-quality; 3 for auto-pristine
-$wgFlaggedRevsAutoReview = 1;
+$wgFlaggedRevsAutoReview = true;
 # Auto-review new pages with the minimal level?
 $wgFlaggedRevsAutoReviewNew = true;
 
-# When setting up new dimensions or levels, you will need to add some
-# MediaWiki messages for the UI to show properly; any sysop can do this.
 # Define the tags we can use to rate an article, number of levels,
 # and set the minimum level to have it become a "quality" or "pristine" version.
+# NOTE: When setting up new dimensions or levels, you will need to add some
+# 		MediaWiki messages for the UI to show properly; any sysop can do this.
 $wgFlaggedRevTags = array(
 	'accuracy' => array( 'levels' => 3, 'quality' => 2, 'pristine' => 4 ),
 	'depth'    => array( 'levels' => 3, 'quality' => 1, 'pristine' => 4 ),
 	'style'    => array( 'levels' => 3, 'quality' => 1, 'pristine' => 4 ),
 );
-# Who can set what flags to what level? (use -1 or 0 for not at all)
-# This maps rights to the highest reviewable level for each tag.
-# Users cannot lower tags from a level they can't set
-# Users with 'validate' can do anything regardless
+
+# For each tag, define the highest tag level that is unlocked by
+# having certain rights. For example, having 'review' rights may
+# allow for "depth" to be rated up to second level.
+# NOTE: Users cannot lower tags from a level they can't set.
+# NOTE: Users with 'validate' can do anything regardless.
 # This is mainly for custom, less experienced, groups
 $wgFlagRestrictions = array(
 	'accuracy' => array( 'review' => 1 ),
 	'depth'	   => array( 'review' => 2 ),
 	'style'	   => array( 'review' => 3 ),
+);
+# For each tag, what is the highest level that it can be auto-reviewed to?
+# $wgFlaggedRevsAutoReview must be enabled for this to apply.
+$wgFlaggedRevsTagsAuto = array(
+	'accuracy' => 1, 'depth' => 1, 'style' => 1
 );
 
 # At what level of review do patrol marks go away?
@@ -191,6 +197,7 @@ $wgFlaggedRevsAutopromote = array(
 	'days'	              => 60, # days since registration
 	'edits'	              => 250, # total edit count
 	'excludeDeleted'      => true, # exclude deleted edits from 'edits' count above?
+	// Require 'benchmark' edits 'spacing' days apart from each other
 	'spacing'	          => 3, # spacing of edit intervals
 	'benchmarks'          => 15, # how many edit intervals are needed?
 	'recentContentEdits'  => 0, # $wgContentNamespaces edits in recent changes
