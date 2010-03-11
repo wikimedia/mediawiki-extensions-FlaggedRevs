@@ -857,6 +857,8 @@ class FlaggedRevsHooks {
 	* edit was made from is the stable version, or the edit is a reversion
 	* to the stable version, then try to automatically review it.
 	* Also automatically review if the "review this revision" box is checked.
+	*
+	* Note: RC items not inserted yet, RecentChange_save hook does rc_patrolled bit...
 	*/
 	public static function maybeMakeEditReviewed(
 		$article, $rev, $baseRevId = false, $user = null
@@ -874,21 +876,16 @@ class FlaggedRevsHooks {
 		$title->resetArticleID( $rev->getPage() ); // Avoid extra DB hit and lag issues
 		# Get what was just the current revision ID
 		$prevRevId = $rev->getParentId();
-		$prevTimestamp = $frev = $flags = null;
+		$frev = $flags = null;
 		# Get edit timestamp. Existance already validated by EditPage.php.
 		$editTimestamp = $wgRequest->getVal( 'wpEdittime' );
 		# Is the page manually checked off to be reviewed?
-		if ( $wgRequest->getCheck( 'wpReviewEdit' ) && $user->isAllowed( 'review' ) ) {
-			# Check wpEdittime against the previous edit for verification
-			if ( $prevRevId ) {
-				$prevTimestamp = Revision::getTimestampFromId( $title, $prevRevId );
-			}
-			# Review this revision of the page unless edit was auto-merged in between...
-			if ( !$editTimestamp || !$prevTimestamp || $prevTimestamp == $editTimestamp ) {
-				# Note: articlesavecomplete hook does rc_patrolled bit
-				$ok = FlaggedRevs::autoReviewEdit(
-					$article, $user, $rev->getText(), $rev, $flags, false );
-				if ( $ok ) return true; // done!
+		if ( $editTimestamp
+			&& $wgRequest->getCheck( 'wpReviewEdit' )
+			&& $user->isAllowed( 'review' ) )
+		{
+			if( self::editCheckReview( $article, $rev, $user, $editTimestamp ) ) {
+				return true; // reviewed...done!
 			}
 		}
 		# All cases below require auto-review of edits to be enabled
@@ -899,9 +896,7 @@ class FlaggedRevsHooks {
 		$isNullEdit = (bool)$baseRevId;
 		# Get the revision ID the incoming one was based off...
 		if ( !$baseRevId && $prevRevId ) {
-			if ( is_null( $prevTimestamp ) ) { // may already be set
-				$prevTimestamp = Revision::getTimestampFromId( $title, $prevRevId );
-			}
+			$prevTimestamp = Revision::getTimestampFromId( $title, $prevRevId );
 			# The user just made an edit. The one before that should have
 			# been the current version. If not reflected in wpEdittime, an
 			# edit may have been auto-merged in between, in that case, discard
@@ -916,9 +911,10 @@ class FlaggedRevsHooks {
 			}
 		}
 		# Self-reversions to the stable version by anyone can be auto-reviewed...
-		$srev = FlaggedRevision::newFromStable( $title, FR_MASTER );
+		$srev = $fa->getStableRev( FR_MASTER );
 		if ( $srev && self::isSelfRevertToStable( $rev, $srev, $baseRevId, $user ) ) {
 			$flags = $srev->getTags(); // use old tags
+			# Review this revision of the page...
 			FlaggedRevs::autoReviewEdit( $article, $user, $rev->getText(), $rev, $flags );
 			return true; // done!
 		}
@@ -941,14 +937,42 @@ class FlaggedRevsHooks {
 		// Is this an edit directly to the stable version? Is it a new page?
 		if ( $isAllowed && ( $reviewableNewPage || !is_null( $frev ) ) ) {
 			if ( $isNullEdit && $frev ) {
-				$flags = $frev->getTags(); // Null edits always keep previous tags
+				$flags = $frev->getTags(); // Dummy edits always keep previous tags
 			}
-			# Review this revision of the page. Let articlesavecomplete hook do rc_patrolled bit...
+			# Review this revision of the page...
 			FlaggedRevs::autoReviewEdit( $article, $user, $rev->getText(), $rev, $flags );
 		}
 		return true;
 	}
-	
+
+	// Review $rev if $editTimestamp matches the previous revision's timestamp.
+	// Otherwise, review the revision that has $editTimestamp as its timestamp value.
+	protected static function editCheckReview( $article, $rev, $user, $editTimestamp ) {
+		$prevRevId = $rev->getParentId();
+		$prevTimestamp = $flags = null;
+		$title = $article->getTitle(); // convenience
+		# Check wpEdittime against the former current rev for verification
+		if ( $prevRevId ) {
+			$prevTimestamp = Revision::getTimestampFromId( $title, $prevRevId );
+		}
+		# Is $rev is an edit to an existing page?
+		if ( $prevTimestamp ) {
+			# Check wpEdittime against the former current revision's time.
+			# If an edit was auto-merged in between, review only up to what
+			# was the current rev when this user started editing the page.
+			if ( $editTimestamp != $prevTimestamp ) {
+				$dbw = wfGetDB( DB_MASTER );
+				$rev = Revision::loadFromTimestamp( $dbw, $title, $editTimestamp );
+				if ( !$rev ) {
+					return false; // deleted?
+				}
+			}
+		}
+		# Review this revision of the page...
+		return FlaggedRevs::autoReviewEdit(
+			$article, $user, $rev->getText(), $rev, $flags, false );
+	}
+
 	/**
 	* Check if a user reverted himself to the stable version
 	*/
@@ -986,42 +1010,63 @@ class FlaggedRevsHooks {
 	
 	/**
 	* When an user makes a null-edit we sometimes want to review it...
+	* (a) Null undo or rollback
+	* (b) Null edit with review box checked
 	*/
 	public static function maybeNullEditReview(
 		$article, $user, $text, $summary, $m, $a, $b, $flags, $rev, &$status, $baseId
 	) {
 		global $wgRequest;
-		# Must be in reviewable namespace
-		$title = $article->getTitle();
 		# Revision must *be* null (null edit). We also need the user who made the edit.
-		if ( !$user || $rev !== null || !FlaggedRevs::inReviewNamespace( $title ) ) {
+		if ( !$user || $rev !== null ) {
 			return true;
 		}
+		$fa = FlaggedArticle::getArticleInstance( $article );
+		if ( !$fa->isReviewable( FR_MASTER ) ) {
+			return true; // page is not reviewable
+		}
+		$title = $article->getTitle(); // convenience
 		# Get the current revision ID
 		$rev = Revision::newFromTitle( $title );
+		if( !$rev ) {
+			return true; // wtf?
+		}
 		$flags = null;
 		# Is this a rollback/undo that didn't change anything?
-		if ( $rev && $baseId ) {
+		if ( $baseId > 0 ) {
 			$frev = FlaggedRevision::newFromTitle( $title, $baseId );
 			# Was the edit that we tried to revert to reviewed?
 			if ( $frev ) {
-				FlaggedRevs::autoReviewEdit( $article, $user, $rev->getText(), $rev, $flags );
-				FlaggedRevs::markRevisionPatrolled( $rev ); // Make sure it is now marked patrolled...
+				# Review this revision of the page...
+				$ok = FlaggedRevs::autoReviewEdit( $article, $user, $rev->getText(), $rev, $flags );
+				if( $ok ) {
+					FlaggedRevs::markRevisionPatrolled( $rev ); // reviewed -> patrolled
+					return true;
+				}
 			}
 		}
 		# Get edit timestamp, it must exist.
 		$editTimestamp = $wgRequest->getVal( 'wpEdittime' );
 		# Is the page checked off to be reviewed?
-		if ( $rev && $editTimestamp && $wgRequest->getCheck( 'wpReviewEdit' )
+		if ( $editTimestamp
+			&& $wgRequest->getCheck( 'wpReviewEdit' )
 			&& $user->isAllowed( 'review' ) )
 		{
-			# Review this revision of the page. Let articlesavecomplete hook do rc_patrolled bit.
-			# Don't do so if an edit was auto-merged in between though...
-			if ( $rev->getTimestamp() == $editTimestamp ) {
-				FlaggedRevs::autoReviewEdit( $article, $user, $rev->getText(),
-					$rev, $flags, false );
-				FlaggedRevs::markRevisionPatrolled( $rev ); // Make sure it is now marked patrolled...
-				return true; // done!
+			# Check wpEdittime against current revision's time.
+			# If an edit was auto-merged in between, review only up to what
+			# was the current rev when this user started editing the page.
+			if ( $rev->getTimestamp() != $editTimestamp ) {
+				$dbw = wfGetDB( DB_MASTER );
+				$rev = Revision::loadFromTimestamp( $dbw, $title, $editTimestamp );
+				if( !$rev ) {
+					return true; // deleted?
+				}
+			}
+			# Review this revision of the page...
+			$ok = FlaggedRevs::autoReviewEdit(
+				$article, $user, $rev->getText(), $rev, $flags, false );
+			if ( $ok ) {
+				FlaggedRevs::markRevisionPatrolled( $rev ); // reviewed -> patrolled
 			}
 		}
 		return true;
@@ -1620,7 +1665,8 @@ class FlaggedRevsHooks {
 				return true;
 			}
 			$fa = FlaggedArticle::getTitleInstance( $title );
-			if ( $srev = $fa->getStableRev() ) {
+			$srev = $fa->getStableRev();
+			if ( $srev ) {
 				$view = FlaggedArticleView::singleton();
 				# If synced, nothing special here...
 				if ( $srev->getRevId() != $article->getLatest() && $view->pageOverride() ) {

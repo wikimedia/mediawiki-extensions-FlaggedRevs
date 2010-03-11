@@ -734,7 +734,7 @@ class FlaggedArticleView {
 		}
 		# Add a notice if there are pending edits...
 		$frev = $this->article->getStableRev();
-		if ( $frev && $frev->getRevId() < $this->article->getLatest() ) {
+		if ( $frev && $frev->getRevId() != $this->article->getLatest() ) {
 			$revsSince = FlaggedRevs::getRevCountSince( $this->article, $frev->getRevId() );
 			$tag = "<div id='mw-fr-revisiontag-edit' class='flaggedrevs_notice plainlinks'>" .
 				FlaggedRevsXML::lockStatusIcon( $this->article ) . # flag protection icon as needed
@@ -866,7 +866,7 @@ class FlaggedArticleView {
 			return true; // nothing to do
 		}
 		$frev = $this->article->getStableRev();
-		if( $frev ) {
+		if( $frev && $frev->getRevId() != $this->article->getLatest() ) {
 			$revsSince = FlaggedRevs::getRevCountSince( $this->article, $frev->getRevId() );
 			if( $revsSince ) {
 				$s .= "<div class='flaggedrevs_editnotice plainlinks'>" .

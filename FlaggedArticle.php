@@ -91,25 +91,21 @@ class FlaggedArticle extends Article {
 	/**
 	 * Get latest quality rev, if not, the latest reviewed one
 	 * @param int $flags
-	 * @return Row
+	 * @return mixed (FlaggedRevision/false)
 	 */
 	public function getStableRev( $flags = 0 ) {
-		if ( $this->stableRev === false ) {
-			return null; // We already looked and found nothing...
-		}
 		# Cached results available?
-		if ( !is_null( $this->stableRev ) ) {
+		if ( !($flags & FR_MASTER) && $this->stableRev !== null ) {
 			return $this->stableRev;
 		}
 		# Do we have one?
 		$srev = FlaggedRevision::newFromStable( $this->getTitle(), $flags );
 		if ( $srev ) {
 			$this->stableRev = $srev;
-			return $srev;
 		} else {
 			$this->stableRev = false;
-			return null;
 		}
+        return $this->stableRev;
 	}
 
 	/**
@@ -119,7 +115,7 @@ class FlaggedArticle extends Article {
 	 */
 	public function getVisibilitySettings( $flags = 0 ) {
 		# Cached results available?
-		if ( !is_null( $this->pageConfig ) ) {
+		if ( !($flags & FR_MASTER) && $this->pageConfig !== null ) {
 			return $this->pageConfig;
 		}
 		# Get the content page, skip talk
