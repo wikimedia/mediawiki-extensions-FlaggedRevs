@@ -94,8 +94,11 @@ $wgFlaggedRevsWhitelist = array();
 $wgFlaggedRevsOverride = true;
 # Are pages only reviewable if the stable shows by default?
 $wgFlaggedRevsReviewForDefault = false;
-# Do quality revisions show instead of sighted if present by default?
-# Set to 2 to make "pristine" versions override quality revisions.
+# Precedence order for stable version selection.
+# The stable version will be the highest ranked version in the page.
+# FR_PRISTINE : "pristine" > "quality" > "sighted"
+# FR_QUALITY : "pristine" = "quality" > "sighted"
+# FR_SIGHTED : "pristine" = "quality" = "sighted"
 $wgFlaggedRevsPrecedence = FR_QUALITY;
 # Revision tagging can slow development...
 # For example, the main user base may become complacent, perhaps treat flagged
