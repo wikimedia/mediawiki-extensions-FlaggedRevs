@@ -139,7 +139,7 @@ $messages['bg'] = array(
  * @author Y-M D
  */
 $messages['br'] = array(
-	'stablepages' => 'Pajennoù stabil',
+	'stablepages' => "Pajennoù oc'h implijout kadarnadur ar c'hemmoù",
 	'stablepages-stable' => 'stumm embannet',
 	'stablepages-text' => "A-is ez eus ur roll pajennoù kefluniet gant an dorn evit na vefe diskouezet d'al lennerien nemet ar stumm embannet da bajenn danvez enni, dre ziouer.",
 	'stablepages-none' => "N'eus pajenn ebet er roll-mañ",
@@ -662,10 +662,11 @@ $messages['mt'] = array(
 );
 
 /** Dutch (Nederlands)
+ * @author McDutchie
  * @author Siebrand
  */
 $messages['nl'] = array(
-	'stablepages' => "Gepubliceerde pagina's",
+	'stablepages' => "Pagina's onderhevig aan goedkeuring van bewerkingen",
 	'stablepages-stable' => 'gepubliceerde versie',
 	'stablepages-text' => "Hier worden pagina's weergegeven waarvoor handmatig is ingesteld dat de gepubliceerde versies standaard wordt weergegeven voor lezers.",
 	'stablepages-none' => "Er zijn geen pagina's die aan de criteria voldoen",
@@ -837,7 +838,7 @@ $messages['ru'] = array(
  * @author HalanTul
  */
 $messages['sah'] = array(
-	'stablepages' => 'Бигэргэтиллибит сирэйдэр',
+	'stablepages' => 'Бигэргэтиллии туһаныллар сирэйдэрэ',
 	'stablepages-stable' => 'бэчээттэммит барыл',
 	'stablepages-none' => 'Бу тиһиккэ сирэйдэрэ суох',
 	'stablepages-config' => 'Туруоруута',

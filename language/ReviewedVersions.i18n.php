@@ -728,11 +728,12 @@ $messages['nds'] = array(
 );
 
 /** Dutch (Nederlands)
+ * @author McDutchie
  * @author SPQRobin
  * @author Siebrand
  */
 $messages['nl'] = array(
-	'reviewedversions' => 'Gecontroleerde versies bekijken',
+	'reviewedversions' => 'Gecontroleerde versies',
 	'reviewedversions-leg1' => 'Lijst van gecontroleerde versies voor een pagina',
 	'reviewedversions-page' => 'Paginanaam:',
 	'reviewedversions-none' => '"[[:$1]]" heeft geen gecontroleerde versies',
