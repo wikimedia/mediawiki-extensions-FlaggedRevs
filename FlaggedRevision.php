@@ -153,7 +153,7 @@ class FlaggedRevision {
 			$row = null;
 			# Get visiblity settings...
             if ( empty( $config ) ) {
-                $config = FlaggedRevs::getPageVisibilitySettings( $title, true );
+                $config = FlaggedRevs::getPageVisibilitySettings( $title, $flags );
             }
 			if ( !$config['override'] && FlaggedRevs::forDefaultVersionOnly() ) {
 				return $row; // page is not reviewable; no stable version

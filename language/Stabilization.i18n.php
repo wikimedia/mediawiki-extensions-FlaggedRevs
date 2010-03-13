@@ -46,7 +46,7 @@ No configuration is possible.',
 	'stabilize_expiry_invalid' => 'Invalid expiration date.',
 	'stabilize_expiry_old' => 'This expiration time has already passed.',
 	'stabilize-expiring' => 'expires $1 (UTC)',
-	'stabilization-review' => 'Review the current version',
+	'stabilization-review' => 'Mark the current revision checked',
 );
 
 /** Message documentation (Message documentation)

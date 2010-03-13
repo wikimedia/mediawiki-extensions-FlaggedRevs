@@ -806,7 +806,7 @@ class FlaggedRevsHooks {
 		# Enforce autoreview/review restrictions
 		} else if( $action === 'autoreview' || $action === 'review' ) {
 			# Get autoreview restriction settings...
-			$config = FlaggedRevs::getPageVisibilitySettings( $title, true );
+			$config = FlaggedRevs::getPageVisibilitySettings( $title, FR_MASTER );
 			# Convert Sysop -> protect
 			$right = ( $config['autoreview'] === 'sysop' ) ?
 				'protect' : $config['autoreview'];
@@ -2060,7 +2060,7 @@ class FlaggedRevsHooks {
 		$isAllowed = $wgUser->isAllowed( 'stablesettings' );
 		$disabledAttrib = !$isAllowed ? array( 'disabled' => 'disabled' ) : array();
 		# Get the current config/expiry
-		$config = FlaggedRevs::getPageVisibilitySettings( $article->getTitle(), true );
+		$config = FlaggedRevs::getPageVisibilitySettings( $article->getTitle(), FR_MASTER );
 		$oldExpiry = $config['expiry'] !== 'infinity' ?
 			wfTimestamp( TS_RFC2822, $config['expiry'] ) : 'infinite';
 		# Load request params...
