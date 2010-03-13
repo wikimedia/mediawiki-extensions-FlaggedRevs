@@ -80,15 +80,13 @@ class FlaggedRevs {
 		$wgFlaggedRevsProtectLevels = (array)$wgFlaggedRevsProtectLevels;
 		foreach ( $wgFlaggedRevsProtectLevels as $level => $config ) {
 			# Sanity check that the config is complete
-			if ( !isset( $config['select'] ) || !isset( $config['override'] )
-				|| !isset( $config['autoreview'] )
-			) {
+			if ( !isset( $config['select'] ) || !isset( $config['autoreview'] ) ) {
 				throw new MWException( 'FlaggedRevs given incomplete $wgFlaggedRevsProtectLevels value!' );
 			# Disallow reserved level names
 			} else if ( $level == 'invalid' || $level == 'none' ) {
 				throw new MWException( 'FlaggedRevs given reserved $wgFlaggedRevsProtectLevels key!' );
 			}
-			$config['override'] = intval( $config['override'] ); // Type cleanup
+			$config['override'] = 1; // stable is default
 			self::$protectionLevels[$level] = $config;
 		}
 		global $wgFlaggedRevsRestrictionLevels;

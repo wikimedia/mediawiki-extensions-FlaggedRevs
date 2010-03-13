@@ -145,16 +145,19 @@ $wgFlaggedRevsTagsAuto = array(
 # 0 => sighted; 1 => quality; 2 => pristine
 $wgFlaggedRevsPatrolLevel = 0;
 
-# Stability levels, defined below, that appear in protection form
+# Protection levels, defined below, that appear in protection form.
+# The stable version is the default for each level. A "none" level
+# will appear in the forms as well, to restore the default settings.
 $wgFlaggedRevsProtectLevels = array();
 /* (example usage)
 $wgFlaggedRevsProtectLevels = array(
-	'semi-review' => array('select' => FLAGGED_VIS_LATEST, 'override' => true, 'autoreview' => ''),
-	'intm-review' => array('select' => FLAGGED_VIS_LATEST, 'override' => true, 'autoreview' => 'review'),
+	'semi-review' => array('select' => FLAGGED_VIS_LATEST, 'autoreview' => ''),
+	'intm-review' => array('select' => FLAGGED_VIS_LATEST, 'autoreview' => 'review'),
 );
 */
 
 # Restriction levels for auto-review right at Stabilization page
+# No effect if $wgFlaggedRevsProtectLevels is used.
 $wgFlaggedRevsRestrictionLevels = array( '', 'sysop' );
 
 # Please set these as something different. Any text will do, though it probably
