@@ -214,6 +214,7 @@ Please check the URL you used to access this page.',
 	'revreview-typefilter'         => 'Type:',
 	'revreview-levelfilter'        => 'Level:',
 
+	'revreview-lev-all'            => 'any',
 	'revreview-lev-basic'          => 'checked',
 	'revreview-lev-quality'        => 'quality',
 	'revreview-lev-pristine'       => 'pristine',

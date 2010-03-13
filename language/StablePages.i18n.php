@@ -9,13 +9,12 @@ $messages = array();
 
 $messages['en'] = array(
 	'stablepages'               => 'Pages using edit approval',
-	'stablepages-stable'        => 'published version',
 	'stablepages-text'          => 'Below is a list of pages manually configured to show the published version as the default page content for readers.',
 	'stablepages-none'          => 'There are no pages in this list',
 	'stablepages-config'        => 'Configuration',
-	'stablepages-prec-none'     => 'no precedence',
-	'stablepages-prec-quality'  => 'quality precedence',
-	'stablepages-prec-pristine' => 'pristine precedence',
+	'stablepages-prec-none'     => 'latest checked',
+	'stablepages-prec-quality'  => 'latest quality',
+	'stablepages-prec-pristine' => 'latest pristine',
 	'stablepages-precedence'    => 'Precedence:',
 );
 

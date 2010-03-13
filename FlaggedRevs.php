@@ -142,8 +142,8 @@ $wgFlaggedRevsTagsAuto = array(
 );
 
 # At what level of review do patrol marks go away?
-# 0 => sighted; 1 => quality; 2 => pristine
-$wgFlaggedRevsPatrolLevel = 0;
+# (FR_SIGHTED,FR_QUALITY,FR_PRISTINE)
+$wgFlaggedRevsPatrolLevel = FR_SIGHTED;
 
 # Protection levels, defined below, that appear in protection form.
 # The stable version is the default for each level. A "none" level

@@ -71,20 +71,24 @@ class FlaggedRevsXML {
 
 	/**
 	 * Get a radio options of available precendents
-	 * @param int $selected, selected level
+	 * @param int $selected selected level, '' for "all"
 	 * @returns string
 	 */
 	public static function getPrecedenceMenu( $selected = null ) {
+		if( is_null($selected) ) {
+			$selected = ''; // "all"
+		}
 		$s = Xml::openElement( 'select',
 			array( 'name' => 'precedence', 'id' => 'wpPrecedence' ) );
+		$s .= Xml::option( wfMsg( 'revreview-lev-all' ), '', $selected == '' );
 		$s .= Xml::option( wfMsg( 'revreview-lev-basic' ), FLAGGED_VIS_LATEST,
-			$selected == FLAGGED_VIS_LATEST );
+			$selected === FLAGGED_VIS_LATEST );
 		if ( FlaggedRevs::qualityVersions() )
 			$s .= Xml::option( wfMsg( 'revreview-lev-quality' ), FLAGGED_VIS_QUALITY,
-				$selected == FLAGGED_VIS_QUALITY );
+				$selected === FLAGGED_VIS_QUALITY );
 		if ( FlaggedRevs::pristineVersions() )
 			$s .= Xml::option( wfMsg( 'revreview-lev-pristine' ), FLAGGED_VIS_PRISTINE,
-				$selected == FLAGGED_VIS_PRISTINE );
+				$selected === FLAGGED_VIS_PRISTINE );
 		$s .= Xml::closeElement( 'select' ) . "\n";
 		return $s;
 	}
