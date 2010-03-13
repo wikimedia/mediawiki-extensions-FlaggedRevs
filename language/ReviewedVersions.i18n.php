@@ -386,7 +386,7 @@ $messages['fy'] = array(
  * @author Xosé
  */
 $messages['gl'] = array(
-	'reviewedversions' => 'Ver as versións revisadas',
+	'reviewedversions' => 'Versións revisadas',
 	'reviewedversions-leg1' => 'Listar as revisións revisadas dunha páxina',
 	'reviewedversions-page' => 'Nome da páxina:',
 	'reviewedversions-none' => '"[[:$1]]" non ten revisións examinadas.',
@@ -1060,7 +1060,7 @@ $messages['tl'] = array(
  * @author Karduelis
  */
 $messages['tr'] = array(
-	'reviewedversions' => 'Kararlı sürümleri görüntüle',
+	'reviewedversions' => 'Gözden geçirilmiş sürümler',
 	'reviewedversions-leg1' => 'Bir sayfa için gözden geçirilmiş revizyonları listele',
 	'reviewedversions-page' => 'Sayfa adı:',
 	'reviewedversions-none' => '"[[:$1]]" hiç gözden geçirilmiş revizyona sahip değil.',

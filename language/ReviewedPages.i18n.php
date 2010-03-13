@@ -405,7 +405,7 @@ Dáse unha ligazón cara á última revisión dese nivel.",
 	'reviewedpages-lev-0' => 'Revisado',
 	'reviewedpages-lev-1' => 'Calidade',
 	'reviewedpages-lev-2' => 'Destacado',
-	'reviewedpages-all' => 'Versións revisadas',
+	'reviewedpages-all' => 'versións revisadas',
 	'reviewedpages-best' => 'mellor revisión',
 );
 
@@ -418,7 +418,7 @@ $messages['grc'] = array(
 	'reviewedpages-lev-1' => 'ποιοτικὴ ἔκδοσις',
 	'reviewedpages-lev-2' => 'Ἐξαίρετος',
 	'reviewedpages-all' => 'ἀναθεωρημέναι ἐκδόσεις',
-	'reviewedpages-best' => 'πρωτίστη ἀναθεώρησις',
+	'reviewedpages-best' => 'βελτίστη ἀναθεώρησις',
 );
 
 /** Swiss German (Alemannisch)
@@ -1169,14 +1169,15 @@ $messages['tl'] = array(
  */
 $messages['tr'] = array(
 	'reviewedpages' => 'Gözden geçirilmiş sayfalar',
-	'reviewedpages-leg' => 'Sayfaları en yüksek inceleme seviyesine göre listele',
-	'reviewedpages-list' => 'Bu sayfa belirlenen seviyede (en yüksek) gözden geçirilmiş sayfaları listeler.',
+	'reviewedpages-leg' => 'Gözden geçirilen sayfaları listele',
+	'reviewedpages-list' => "Bu liste, (bir revizyonunun) ''en yüksek kazanılmış'' gözden geçirme seviyesi, belirtilen seviye olan [[{{MediaWiki:Validationpage}}|gözden geçirilmiş]] sayfaları içerir.
+O seviyedeki en son revizyona bağlantı verilmiştir.",
 	'reviewedpages-none' => 'Bu listede hiç sayfa yok',
 	'reviewedpages-lev-0' => 'Gözlenmiş',
 	'reviewedpages-lev-1' => 'Kalite',
 	'reviewedpages-lev-2' => 'Özellikli',
 	'reviewedpages-all' => 'gözden geçirilmiş sürümler',
-	'reviewedpages-best' => 'birincil revizyon',
+	'reviewedpages-best' => 'en iyi revizyon',
 );
 
 /** Ukrainian (Українська)

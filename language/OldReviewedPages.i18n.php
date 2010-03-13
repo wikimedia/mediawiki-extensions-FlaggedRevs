@@ -1496,7 +1496,7 @@ $messages['tl'] = array(
  * @author Runningfridgesrule
  */
 $messages['tr'] = array(
-	'oldreviewedpages' => 'Eski gözden geçirilmiş sayfalar',
+	'oldreviewedpages' => 'Bekleyen değişiklik içeren sayfalar',
 	'oldreviewedpages-legend' => 'Gözden geçirilme bekleyen revizyonu olan gözden geçirilmiş sayfaları listele',
 	'oldreviewedpages-list' => 'Bu sayfa, bekleyen değişikliğe sahip gözden geçirilmiş {{PLURAL:$1|bir sayfayı|sayfaları}} listeler.',
 	'oldreviewedpages-none' => 'Şimdilik bu kriterlere uyan sayfa yoktur',

@@ -590,7 +590,7 @@ $messages['tk'] = array(
  * @author Joseph
  */
 $messages['tr'] = array(
-	'problemchanges' => 'Etiketli değişiklikleri gözden geçir',
+	'problemchanges' => 'bekleyen değişiklik olarak etiketlenmiş',
 	'problemchanges-legend' => 'Etiketli değişiklikleri gözden geçirme bekleyen sayfaları listele',
 	'problemchanges-none' => 'Şu anda hiçbir sayfa bu kriterleri karşılamıyor',
 	'problemchanges-category' => 'Kategori:',

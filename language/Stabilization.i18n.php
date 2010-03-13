@@ -1562,7 +1562,7 @@ Nulle configuration es possibile.',
 	'stabilize_expiry_invalid' => 'Data de expiration invalide.',
 	'stabilize_expiry_old' => 'Iste tempore de expiration ha ja passate.',
 	'stabilize-expiring' => 'expira le $1 (UTC)',
-	'stabilization-review' => 'Revider le version actual',
+	'stabilization-review' => 'Marcar le version actual como verificate',
 );
 
 /** Indonesian (Bahasa Indonesia)
@@ -2562,7 +2562,7 @@ Ambelessì a-i son le regolassion corente për [[:$1|$1]]:",
 	'stabilize_expiry_invalid' => 'Data fin pa bon-a.',
 	'stabilize_expiry_old' => "Sta data fin-sì a l'é già passà",
 	'stabilize-expiring' => 'A finiss $1 (UTC)',
-	'stabilization-review' => 'Revision-a la vërsion corenta',
+	'stabilization-review' => 'Marca la vërsion corenta com controlà',
 );
 
 /** Pashto (پښتو)
@@ -3404,7 +3404,7 @@ $messages['uk'] = array(
 	'stabilize_expiry_invalid' => 'Помилкова дата закінчення.',
 	'stabilize_expiry_old' => 'Зазначений час закінчення пройшов.',
 	'stabilize-expiring' => 'закінчується о $1 (UTC)',
-	'stabilization-review' => 'Перевірка поточної версії',
+	'stabilization-review' => 'Позначити поточну версію перевіреною',
 );
 
 /** Vèneto (Vèneto)

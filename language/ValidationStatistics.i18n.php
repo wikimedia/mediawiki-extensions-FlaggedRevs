@@ -1798,7 +1798,7 @@ Ang matatatag na mga bersyon ay mga rebisyon ng mga pahinang nasuri ng kahit na 
  * @author Joseph
  */
 $messages['tr'] = array(
-	'validationstatistics' => 'Doğrulama istatistikleri',
+	'validationstatistics' => 'Sayfa gözden geçirme istatistikleri',
 	'validationstatistics-users' => "'''{{SITENAME}}''' sitesinde şuanda [[{{MediaWiki:Validationpage}}|Editör]] yetkisine sahip '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|kullanıcı|kullanıcı}} bulunmaktadır.
 
 Editörler, sayfalara kontrol revizyonu atayabilen belirli kullanıcılardır.",
