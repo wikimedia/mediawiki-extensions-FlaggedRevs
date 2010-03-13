@@ -1171,30 +1171,31 @@ class FlaggedRevs {
 			__METHOD__
 		);
 		if ( $row ) {
-			$now = wfTimestampNow();
 			# This code should be refactored, now that it's being used more generally.
 			$expiry = Block::decodeExpiry( $row->fpc_expiry );
 			# Only apply the settings if they haven't expired
-			if ( !$expiry || $expiry < $now ) {
+			if ( !$expiry || $expiry < wfTimestampNow() ) {
 				$row = null; // expired
 				self::purgeExpiredConfigurations();
 				self::titleLinksUpdate( $title ); // re-find stable version
 				$title->invalidateCache(); // purge squid/memcached
 			}
 		}
-		# Return the default config if this page doesn't have its own
-		if ( !$row ) {
+		// Is there a non-expired row?
+		if ( $row ) {
+			$config = array(
+				'select' 	 => intval( $row->fpc_select ),
+				'override'   => $row->fpc_override,
+				'autoreview' => $row->fpc_level,
+				'expiry'	 => Block::decodeExpiry( $row->fpc_expiry )
+			);
+			# If there are protection levels defined check if this is valid
+			if ( self::useProtectionLevels() && self::getProtectionLevel( $config ) == 'invalid' ) {
+				return self::getDefaultVisibilitySettings(); // revert to none
+			}
+		} else {
+			# Return the default config if this page doesn't have its own
 			return self::getDefaultVisibilitySettings();
-		}
-		$config = array(
-			'select' 	 => intval( $row->fpc_select ),
-			'override'   => $row->fpc_override,
-			'autoreview' => $row->fpc_level,
-			'expiry'	 => wfTimestamp( TS_MW, $row->fpc_expiry )
-		);
-		# If there are protection levels defined check if this is valid
-		if ( self::useProtectionLevels() && self::getProtectionLevel( $config ) == 'invalid' ) {
-			return self::getDefaultVisibilitySettings(); // revert to none
 		}
 		return $config;
 	}
