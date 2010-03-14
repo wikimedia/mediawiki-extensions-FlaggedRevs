@@ -496,7 +496,7 @@ Setu an arventennoù red eus [[:$1|$1]] :",
 	'stabilization-leg' => 'Kadarnaat arventennoù ar stumm embannet',
 	'stabilization-select' => 'kentwir diuzadur ar stumm embannet',
 	'stabilization-def1' => "Ar stumm embannet ; ma n'eus hini ebet, lakaat ar stumm red pe ar brouilhed",
-	'stabilization-def2' => 'Ar stumm red pe ar brouilh',
+	'stabilization-def2' => 'Ar stumm red pe ar brouilhed',
 	'stabilization-restrict' => 'Strishadurioù adweladennoù emgefre',
 	'stabilization-restrict-none' => 'Strishadurioù ouzhpenn ebet',
 	'stabilization-submit' => 'Kadarnaat',
@@ -518,7 +518,7 @@ N\'haller ket kefluniañ netra.',
 	'stabilize_expiry_invalid' => 'Direizh eo an deiziad termen.',
 	'stabilize_expiry_old' => 'Tremenet eo dija an amzer termen-se.',
 	'stabilize-expiring' => "Termenet d'an $1 (UTC)",
-	'stabilization-review' => 'Adwelet ar stumm red',
+	'stabilization-review' => 'Merkañ ar stumm red evel adwelet.',
 );
 
 /** Bosnian (Bosanski)
@@ -1075,6 +1075,7 @@ Tässä ovat nykyiset asetukset tunnukselle [[:$1|$1]]:',
  * @author Grondin
  * @author IAlex
  * @author Juanpabl
+ * @author Peter17
  * @author PieRRoMaN
  * @author Purodha
  * @author Sherbrooke
@@ -1116,7 +1117,7 @@ Voici les paramètres actuels de [[:$1|$1]] :",
 	'stabilize_expiry_invalid' => "Date d'expiration invalide.",
 	'stabilize_expiry_old' => "Cette durée d'expiration est déjà écoulée.",
 	'stabilize-expiring' => 'Expire le $1 (UTC)',
-	'stabilization-review' => 'Revoir la version courante',
+	'stabilization-review' => 'Marquer la version actuelle comme vérifiée',
 );
 
 /** Franco-Provençal (Arpetan)
@@ -1996,7 +1997,7 @@ Et ass keng Konfiguratioun méiglech.',
 	'stabilize_expiry_invalid' => 'Net valabele Schlussdatum',
 	'stabilize_expiry_old' => 'Den Oflafdatum ass schonn eriwwer.',
 	'stabilize-expiring' => 'bis $1 (UTC)',
-	'stabilization-review' => 'Déi aktuell Versioun nokucken',
+	'stabilization-review' => 'Déi aktuell Versioun als nogekuckt markéieren',
 );
 
 /** Limburgish (Limburgs)
@@ -2096,7 +2097,7 @@ $messages['mk'] = array(
 	'stabilize_expiry_invalid' => 'Погрешен датум на важност.',
 	'stabilize_expiry_old' => 'Времето на важност веќе е поминато.',
 	'stabilize-expiring' => 'истекува $1 (UTC)',
-	'stabilization-review' => 'Провери ја моменталната верзија',
+	'stabilization-review' => 'Обележи ја тековната верзија како проверена',
 );
 
 /** Malayalam (മലയാളം)
@@ -2134,7 +2135,7 @@ $messages['ml'] = array(
 	'stabilize_expiry_invalid' => 'അസാധുവായ കാലാവധി തീയതി.',
 	'stabilize_expiry_old' => 'ഈ കാലാവധി സമയം കഴിഞ്ഞു പോയി.',
 	'stabilize-expiring' => 'കാലാവധി തീരുന്നത് - $1 (UTC)',
-	'stabilization-review' => 'ഇപ്പോഴുള്ള പതിപ്പ് സംശോധനം ചെയ്യുക',
+	'stabilization-review' => 'ഇപ്പോഴുള്ള പതിപ്പ് പരിശോധിച്ചതായി അടയാളപ്പെടുത്തുക',
 );
 
 /** Marathi (मराठी)
@@ -2301,7 +2302,7 @@ Instellen is niet mogelijk.',
 	'stabilize_expiry_invalid' => 'Ongeldige vervaldatum.',
 	'stabilize_expiry_old' => 'Deze vervaldatum is al verstreken.',
 	'stabilize-expiring' => 'vervalt $1 (UTC)',
-	'stabilization-review' => 'Huidige versie controleren',
+	'stabilization-review' => 'Huidige versie als gecontroleerd markeren',
 );
 
 /** Norwegian Nynorsk (‪Norsk (nynorsk)‬)

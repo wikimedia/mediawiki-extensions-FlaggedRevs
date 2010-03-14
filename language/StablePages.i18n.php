@@ -42,12 +42,13 @@ $messages['qqq'] = array(
  * @author Naudefj
  */
 $messages['af'] = array(
-	'stablepages' => 'Stabiele bladsye',
+	'stablepages' => 'Bladsye onderhewig aan goedkeuring van bywerkings',
+	'stablepages-text' => "Hier is 'n lys van bladsye wat handmatig gestel is om die gepubliseerde weergawe as standaard inhoud vir lesers te wys.",
 	'stablepages-none' => 'Daar is geen bladsye in hierdie lys nie',
 	'stablepages-config' => 'Voorkeure',
-	'stablepages-prec-none' => 'geen voorrang',
-	'stablepages-prec-quality' => 'voorrang kwaliteit',
-	'stablepages-prec-pristine' => 'voorrang ongerep',
+	'stablepages-prec-none' => 'laaste gekontroleerde',
+	'stablepages-prec-quality' => 'laaste kwaliteitsweergawe',
+	'stablepages-prec-pristine' => 'laaste ongerepte weergawe',
 	'stablepages-precedence' => 'Volgorde:',
 );
 
@@ -138,9 +139,9 @@ $messages['br'] = array(
 	'stablepages-text' => "A-is ez eus ur roll pajennoù kefluniet gant an dorn evit na vefe diskouezet d'al lennerien nemet ar stumm embannet da bajenn danvez enni, dre ziouer.",
 	'stablepages-none' => "N'eus pajenn ebet er roll-mañ",
 	'stablepages-config' => 'Kefluniañ',
-	'stablepages-prec-none' => 'Tamm dibab gwellañ ebet',
-	'stablepages-prec-quality' => "Dibaboù gwellañ evit ar c'halite",
-	'stablepages-prec-pristine' => "Dibab gwellañ gwerc'h",
+	'stablepages-prec-none' => 'gwiriekadenn ziwezhañ',
+	'stablepages-prec-quality' => 'kalite ziwezhañ',
+	'stablepages-prec-pristine' => "kentwir gwerc'h ziwezhañ",
 	'stablepages-precedence' => 'Dibab gwellañ :',
 );
 
@@ -321,9 +322,9 @@ $messages['fr'] = array(
 	'stablepages-text' => 'Ci-dessous figure une liste de pages manuellement configurées pour ne montrer que la version publiée comme contenu par défaut pour les lecteurs.',
 	'stablepages-none' => 'Il n’existe aucune page dans cette liste',
 	'stablepages-config' => 'Configuration',
-	'stablepages-prec-none' => 'aucune priorité',
-	'stablepages-prec-quality' => 'préférence pour la qualité',
-	'stablepages-prec-pristine' => 'priorité vierge',
+	'stablepages-prec-none' => 'dernière vérification',
+	'stablepages-prec-quality' => 'dernière qualité',
+	'stablepages-prec-pristine' => 'dernière priorité vierge',
 	'stablepages-precedence' => 'Préférence :',
 );
 
@@ -559,9 +560,9 @@ $messages['lb'] = array(
 	'stablepages-text' => 'Hei ass eng Lëscht vu Säiten déi manuell konfiguréiert goufen fir déi publizéiert Versioun als Standard Säiteninhalt fir Lieser ze weisen.',
 	'stablepages-none' => 'Dës Lëscht ass eidel',
 	'stablepages-config' => 'Konfiguratioun',
-	'stablepages-prec-none' => 'Keng Prioritéit',
+	'stablepages-prec-none' => 'am leschten nogekuckt',
 	'stablepages-prec-quality' => 'leschte Qualitéit',
-	'stablepages-prec-pristine' => 'Keng Prioritéit',
+	'stablepages-prec-pristine' => 'leschte Prioritéit',
 	'stablepages-precedence' => 'Prioritéit:',
 );
 
@@ -574,9 +575,9 @@ $messages['mk'] = array(
 	'stablepages-text' => 'Подолу е наведена листа на страници рачно конфигурирани да ја прикажуваат објавената верзија по основно за читателите.',
 	'stablepages-none' => 'Нема страници во оваа листа',
 	'stablepages-config' => 'Конфигурација',
-	'stablepages-prec-none' => 'без предност',
-	'stablepages-prec-quality' => 'предност на квалитет',
-	'stablepages-prec-pristine' => 'предност на неизменетост',
+	'stablepages-prec-none' => 'последна проверена',
+	'stablepages-prec-quality' => 'последна квалитетна',
+	'stablepages-prec-pristine' => 'последна неизменета',
 	'stablepages-precedence' => 'Предност:',
 );
 
@@ -589,8 +590,8 @@ $messages['ml'] = array(
 	'stablepages-text' => 'പ്രസിദ്ധീകരിച്ച പതിപ്പ് ഒരു താളിന്റെ സ്വതവെയുള്ള ഉള്ളടക്കമായി വായനക്കാരെ കാണിക്കുവാന്‍ സ്വതവേയല്ലാതെ ക്രമീകരണം ചെയ്യപ്പെട്ട താളുകള്‍ ആണ്‌ താഴെയുള്ള പട്ടികയില്‍.',
 	'stablepages-none' => 'ഈ പട്ടികയില്‍ താളുകള്‍ ഒന്നും ഇല്ല',
 	'stablepages-config' => 'ക്രമീകരണം',
-	'stablepages-prec-none' => 'യാതൊരു മുൻഗണനയുമില്ലാതെ',
-	'stablepages-prec-quality' => 'ഗുണമേന്മയ്ക്ക് മുൻഗണന',
+	'stablepages-prec-none' => 'അവസാനം പരിശോധിക്കപ്പെട്ടവ',
+	'stablepages-prec-quality' => 'അവസാന ഗുണമേന്മ',
 	'stablepages-precedence' => 'മുൻഗണന:',
 );
 
@@ -639,9 +640,9 @@ $messages['nl'] = array(
 	'stablepages-text' => "Hier worden pagina's weergegeven waarvoor handmatig is ingesteld dat de gepubliceerde versies standaard wordt weergegeven voor lezers.",
 	'stablepages-none' => "Er zijn geen pagina's die aan de criteria voldoen",
 	'stablepages-config' => 'Instellingen',
-	'stablepages-prec-none' => 'geen voorrang',
-	'stablepages-prec-quality' => 'voorrang kwaliteit',
-	'stablepages-prec-pristine' => 'voorrang ongerept',
+	'stablepages-prec-none' => 'laatst gecontroleerde',
+	'stablepages-prec-quality' => 'laatste kwaliteitsversie',
+	'stablepages-prec-pristine' => 'laatste ongerepte versie',
 	'stablepages-precedence' => 'Volgorde:',
 );
 
