@@ -69,7 +69,7 @@ class StablePages extends SpecialPage
 		$link = $this->skin->makeKnownLinkObj( $title, $title->getPrefixedText() );
 
 		$stitle = SpecialPage::getTitleFor( 'Stabilization' );
-		if ( count( FlaggedRevs::getProtectionLevels() ) ) {
+		if ( FlaggedRevs::useProtectionLevels() ) {
 			$config = $this->skin->makeKnownLinkObj( $title, wfMsgHtml( 'stablepages-config' ),
 				'action=protect' );
 		} else {
