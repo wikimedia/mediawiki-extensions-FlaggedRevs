@@ -938,8 +938,9 @@ class FlaggedArticleView {
 	public function addVisibilityLink( &$data ) {
 		global $wgUser, $wgRequest, $wgOut;
 		$this->load();
-		if ( FlaggedRevs::getProtectionLevels() )
+		if ( FlaggedRevs::useProtectionLevels() ) {
 			return true; // simple custom levels set for action=protect
+		}
 		# Check only if the title is reviewable
 		if ( !FlaggedRevs::inReviewNamespace( $this->article->getTitle() ) ) {
 			return true;
@@ -973,7 +974,7 @@ class FlaggedArticleView {
 	public function setActionTabs( $skin, &$actions ) {
 		global $wgUser;
 		$this->load();
-		if ( FlaggedRevs::getProtectionLevels() ) {
+		if ( FlaggedRevs::useProtectionLevels() ) {
 			return true; // simple custom levels set for action=protect
 		}
 		$title = $this->article->getTitle()->getSubjectPage();
@@ -987,10 +988,10 @@ class FlaggedArticleView {
 			!isset( $actions['protect'] ) &&
 			!isset( $actions['unprotect'] ) &&
 			$wgUser->isAllowed( 'stablesettings' ) &&
-			$title->exists()
-		) {
+			$title->exists() )
+		{
 			$stableTitle = SpecialPage::getTitleFor( 'Stabilization' );
-			// Add a tab
+			// Add the tab
 			$actions['default'] = array(
 				'class' => false,
 				'text' => wfMsg( 'stabilization-tab' ),
