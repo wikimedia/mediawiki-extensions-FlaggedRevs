@@ -113,9 +113,9 @@ $messages['be-tarask'] = array(
 	'stablepages-text' => 'Ніжэй пададзены сьпіс старонак, якія ўручную настроеныя для паказу апублікаванай вэрсіі па змоўчваньні для чытачоў.',
 	'stablepages-none' => 'У гэтым сьпісе няма старонак',
 	'stablepages-config' => 'Канфігурацыя',
-	'stablepages-prec-none' => 'няма першаснасьці',
-	'stablepages-prec-quality' => 'першаснасьць якасьці',
-	'stablepages-prec-pristine' => 'першаснасьць першапачатковасьці',
+	'stablepages-prec-none' => 'апошняя правераная',
+	'stablepages-prec-quality' => 'апошняя якасная',
+	'stablepages-prec-pristine' => 'апошняя першапачатковая',
 	'stablepages-precedence' => 'Першаснасьць:',
 );
 
@@ -375,9 +375,9 @@ $messages['gsw'] = array(
 	'stablepages-text' => 'Do isch e Lischt vu däne Syte, wu eso vu Hand konfiguriert wore sin, ass byyn ene di vereffetligt Version as Standardinhalt aazeigt wird.',
 	'stablepages-none' => 'Die Lischt isch läär.',
 	'stablepages-config' => 'Konfiguration',
-	'stablepages-prec-none' => 'kei Rangfolg',
-	'stablepages-prec-quality' => 'Qualitätsrangfolg',
-	'stablepages-prec-pristine' => 'reini Rangfolg',
+	'stablepages-prec-none' => 'di letscht aagluegt',
+	'stablepages-prec-quality' => 'letschti Qualitet',
+	'stablepages-prec-pristine' => 'letschti suferi Version',
 	'stablepages-precedence' => 'Rangfolg:',
 );
 
@@ -432,9 +432,9 @@ $messages['hsb'] = array(
 	'stablepages-text' => 'Deleka je lisćina stronow, kotrež buchu manuelnje konfigurowane, zo bychu wozjewjenu wersiju jako standardny wobsah strony za čitarjow pokazali.',
 	'stablepages-none' => 'W tutej lisćinje strony njejsu.',
 	'stablepages-config' => 'Konfiguracija',
-	'stablepages-prec-none' => 'žana prěnjosć',
-	'stablepages-prec-quality' => 'kwalitna prěnjosć',
-	'stablepages-prec-pristine' => 'prěnjotna prěnjosć',
+	'stablepages-prec-none' => 'najnowša skontrolowana',
+	'stablepages-prec-quality' => 'najnowša kwalitna',
+	'stablepages-prec-pristine' => 'najnowša prěnjotna',
 	'stablepages-precedence' => 'Prěnjosć:',
 );
 
@@ -669,9 +669,9 @@ $messages['no'] = array(
 	'stablepages-text' => 'Nedenfor er en liste over sider manuelt innstilt til å vise den publiserte versjonen som standard sideinnhold for lesere.',
 	'stablepages-none' => 'Det er ingen sider i denne listen',
 	'stablepages-config' => 'Konfigurering',
-	'stablepages-prec-none' => 'ingen prioritering',
-	'stablepages-prec-quality' => 'Kvalitetsprioritering',
-	'stablepages-prec-pristine' => 'prioritering av urørte',
+	'stablepages-prec-none' => 'siste kontrollerte',
+	'stablepages-prec-quality' => 'siste kvalitet',
+	'stablepages-prec-pristine' => 'siste urørt',
 	'stablepages-precedence' => 'Prioritering:',
 );
 

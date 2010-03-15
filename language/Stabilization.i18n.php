@@ -425,7 +425,7 @@ $messages['be-tarask'] = array(
 	'stabilize_expiry_invalid' => 'Няслушны тэрмін.',
 	'stabilize_expiry_old' => 'Час сканчэньня ўжо прайшоў.',
 	'stabilize-expiring' => 'канчаецца $1 (UTC)',
-	'stabilization-review' => 'Праверыць цяперашнюю вэрсію',
+	'stabilization-review' => 'Пазначыць цяперашнюю вэрсію як правераную',
 );
 
 /** Bulgarian (Български)
@@ -1290,7 +1290,7 @@ Di aktuällen Yystellige fir „[[:$1|$1]]“ sin:',
 	'stabilize_expiry_invalid' => 'Nid giltigs Ablaufdatum.',
 	'stabilize_expiry_old' => 'S Ablaufdatum isch iberschritte wore.',
 	'stabilize-expiring' => 'erlischt $1 (UTC)',
-	'stabilization-review' => 'Di aktuäll Version priefe',
+	'stabilization-review' => 'Di aktuäll Version as aagluegt markiere',
 );
 
 /** Hawaiian (Hawai`i)
@@ -1471,7 +1471,7 @@ Aktualne nastajenja za „[[:$1|$1]]“ su:',
 	'stabilize_expiry_invalid' => 'Njepłaćiwy datum spadnjenja.',
 	'stabilize_expiry_old' => 'Tutón čas spadnjenja je hižo zańdźeny.',
 	'stabilize-expiring' => 'spadnje $1 hodź. (UTC)',
-	'stabilization-review' => 'Aktualnu wersiju přepruwować',
+	'stabilization-review' => 'Aktualnu wersiju jako skontrolowanu markěrować',
 );
 
 /** Hungarian (Magyar)
@@ -2394,7 +2394,7 @@ Her er de nåværende innstillingene for [[:$1|$1]]:',
 	'stabilize_expiry_invalid' => 'Ugyldig varighet.',
 	'stabilize_expiry_old' => 'Varigheten har allerede utløpt.',
 	'stabilize-expiring' => 'utgår $1 (UTC)',
-	'stabilization-review' => 'Vurder den nåværende versjonen',
+	'stabilization-review' => 'Merk den nåværende revisjonen som kontrollert',
 );
 
 /** Novial (Novial)
