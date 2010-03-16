@@ -183,15 +183,6 @@ class FlaggedRevs {
 		global $wgFlaggedRevsAutoReviewNew;
 		return (bool)$wgFlaggedRevsAutoReviewNew;
 	}
-
-	/**
-	 * Should pages have stable/draft tabs when not synced?
-	 * @returns bool
-	 */
-	public static function versionTabsShown() {
-		global $wgFlaggedRevTabs;
-		return (bool)$wgFlaggedRevTabs;
-	}
 	
 	/**
 	 * Should this user see stable versions by default?

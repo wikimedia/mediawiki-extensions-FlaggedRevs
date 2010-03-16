@@ -77,9 +77,6 @@ $wgExtensionCredits['specialpage'][] = array(
 # This will only distinguish "sigted", "quality", and unreviewed
 # A small icon will show in the upper right hand corner
 $wgSimpleFlaggedRevsUI = true;
-# Add stable/draft revision tabs. May be redundant due to the tags.
-# If you have an open wiki, with the simple UI, you may want to enable these.
-$wgFlaggedRevTabs = true;
 # For visitors, only show tags/icons for unreviewed/outdated pages
 $wgFlaggedRevsLowProfile = true;
 

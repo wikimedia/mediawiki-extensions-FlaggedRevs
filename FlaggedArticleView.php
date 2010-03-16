@@ -585,7 +585,7 @@ class FlaggedArticleView {
 		if ( FlaggedRevs::forDefaultVersionOnly() ) {
 			// If there is only on quality level and we have tabs to know
 			// which version we are looking at, then just use the lock icon...
-			return ( !FlaggedRevs::versionTabsShown() || FlaggedRevs::qualityVersions() );
+			return FlaggedRevs::qualityVersions();
 		}
 		return true;
 	}
@@ -1035,7 +1035,7 @@ class FlaggedArticleView {
 				$views['viewsource']['text'] = wfMsg( 'revreview-source' );
 			}
 	   	}
-	 	if ( !FlaggedRevs::versionTabsShown() || $synced ) {
+	 	if ( $synced ) {
 	 		// Exit, since either the draft tab should not be shown
 	 		// or the page is already the most current revision
 	   		return true;
