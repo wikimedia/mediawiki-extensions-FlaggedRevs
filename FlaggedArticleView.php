@@ -144,7 +144,7 @@ class FlaggedArticleView {
 		$revID = $this->article->getOldIDFromRequest();
 		$frev = FlaggedRevision::newFromTitle( $this->article->getTitle(), $revID );
 		# Give a notice if this rev ID corresponds to a reviewed version...
-		if ( !is_null( $frev ) ) {
+		if ( $frev ) {
 			$time = $wgLang->date( $frev->getTimestamp(), true );
 			$flags = $frev->getTags();
 			$quality = FlaggedRevs::isQuality( $flags );
@@ -231,7 +231,7 @@ class FlaggedArticleView {
 		// Is the page config altered?
 		$prot = FlaggedRevsXML::lockStatusIcon( $this->article );
 		// Is there no stable version?
-		if ( is_null( $frev ) ) {
+		if ( !$frev ) {
 			# Add "no reviewed version" tag, but not for printable output
 			$this->showUnreviewedPage( $tag, $prot );
 			return true;
@@ -680,7 +680,7 @@ class FlaggedArticleView {
 		} elseif ( $this->pageOverride() ) {
 			$frev = $this->article->getStableRev();
 		}
-		if ( !is_null( $frev ) ) {
+		if ( $frev ) {
 			$time = $frev->getFileTimestamp();
 			// B/C, may be stored in associated image version metadata table
 			if ( !$time ) {

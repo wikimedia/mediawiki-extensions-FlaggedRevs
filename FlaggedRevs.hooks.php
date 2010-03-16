@@ -939,7 +939,7 @@ class FlaggedRevsHooks {
 				: FlaggedRevision::newFromTitle( $title, $baseRevId, FR_MASTER );
 		}
 		// Is this an edit directly to the stable version? Is it a new page?
-		if ( $isAllowed && ( $reviewableNewPage || !is_null( $frev ) ) ) {
+		if ( $isAllowed && ( $reviewableNewPage || $frev ) ) {
 			if ( $isNullEdit && $frev ) {
 				$flags = $frev->getTags(); // Dummy edits always keep previous tags
 			}
