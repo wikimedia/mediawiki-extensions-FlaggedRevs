@@ -305,10 +305,11 @@ $messages['et'] = array(
 );
 
 /** Basque (Euskara)
+ * @author An13sa
  * @author Kobazulo
  */
 $messages['eu'] = array(
-	'reviewedversions' => 'Bertsio egonkorrak ikusi',
+	'reviewedversions' => 'Berrikusitako bertsioak',
 	'reviewedversions-page' => 'Orrialdearen izenburua:',
 );
 
@@ -547,6 +548,13 @@ $messages['ja'] = array(
 $messages['jut'] = array(
 	'reviewedversions' => 'Stabiil versje',
 	'reviewedversions-page' => 'Pægenavn:',
+);
+
+/** Georgian (ქართული)
+ * @author BRUTE
+ */
+$messages['ka'] = array(
+	'reviewedversions-page' => 'გვერდის სახელი:',
 );
 
 /** Kazakh (Arabic script) (‫قازاقشا (تٴوتە)‬) */

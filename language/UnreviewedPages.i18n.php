@@ -850,6 +850,7 @@ $messages['jv'] = array(
 $messages['ka'] = array(
 	'unreviewed-category' => 'კატეგორია:',
 	'unreviewed-diff' => 'შემოწმება',
+	'unreviewed-none' => 'ჯერჯერობით არ არის გვერდი, რომელიც შეესაბამება ამ კრიტერიუმებს',
 	'unreviewed-hours' => '($1 {{PLURAL:$1|საათი|საათი}})',
 	'unreviewed-days' => '($1 {{PLURAL:$1|დღე|დღე}})',
 	'unreviewed-recent' => '(1 საათზე ნაკლები)',

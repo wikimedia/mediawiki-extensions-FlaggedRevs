@@ -529,7 +529,7 @@ $messages['et'] = array(
  * @author Kobazulo
  */
 $messages['eu'] = array(
-	'validationstatistics' => 'Balioztatzeko estatistikak',
+	'validationstatistics' => 'Orrialde berrikuspen estatistikak',
 	'validationstatistics-ns' => 'Izen-tartea',
 	'validationstatistics-total' => 'Orrialdeak',
 	'validationstatistics-old' => 'Deseguneratua',
@@ -1033,6 +1033,10 @@ Editor lan Pamriksa iku panganggo mapan sing bisa mriksa langsung owah-owahan ka
  * @author BRUTE
  */
 $messages['ka'] = array(
+	'validationstatistics-users' => "'''{{SITENAME}}-ს''' ამჟამად ჰყავს '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|მომხმარებელი|მომხმარებელი}} [[{{MediaWiki:Validationpage}}|რედაქტორის]] უფლებებით.
+
+რედაქტორები არისნ მომხმარებლები, რომელთაც შეუძლიათ სტატიის ცვლილებების შემოწმება.",
+	'validationstatistics-ns' => 'სახელთა სივრცე',
 	'validationstatistics-total' => 'გვერდები',
 	'validationstatistics-user' => 'მომხმარებელი',
 );

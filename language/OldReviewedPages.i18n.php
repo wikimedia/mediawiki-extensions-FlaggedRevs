@@ -528,7 +528,7 @@ $messages['fa'] = array(
  * @author ZeiP
  */
 $messages['fi'] = array(
-	'oldreviewedpages' => 'Vanhentuneet tarkastetut sivut',
+	'oldreviewedpages' => 'Sivut, joihin odottaa muutoksia',
 	'oldreviewedpages-legend' => 'Luettelo tarkastetuista sivuista, joista on tarkastamattomia versioita.',
 	'oldreviewedpages-list' => 'Tämä sivu listaa {{PLURAL:$1|tarkistetun sivun|tarkistetut sivut}}, joilla on odottavia muokkauksia.',
 	'oldreviewedpages-none' => 'Ehdot täyttäviä sivuja ei ole',
@@ -869,6 +869,13 @@ $messages['ja'] = array(
 	'oldreviewedpages-unwatched' => '(未ウォッチ)',
 	'oldreviewedpages-watched' => '($1人の活動中の{{PLURAL:$1|利用者}}がウォッチ)',
 	'oldreviewedpages-viewing' => '(査読中)',
+);
+
+/** Georgian (ქართული)
+ * @author BRUTE
+ */
+$messages['ka'] = array(
+	'oldreviewedpages-none' => 'ამ დროისათვის არ არსებობს სტატიები ასეთი კრიტერიუმებით',
 );
 
 /** Khmer (ភាសាខ្មែរ)

@@ -1225,7 +1225,7 @@ Velaquí está a configuración actual de "[[:$1|$1]]":',
 	'stabilize_expiry_invalid' => 'Data non válida de caducidade.',
 	'stabilize_expiry_old' => 'O tempo de caducidade xa pasou.',
 	'stabilize-expiring' => 'caduca o $2 ás $3 (UTC)',
-	'stabilization-review' => 'Revisar a versión actual',
+	'stabilization-review' => 'Marcar a revisión actual como comprobada',
 );
 
 /** Ancient Greek (Ἀρχαία ἑλληνικὴ)
@@ -1775,8 +1775,10 @@ $messages['ka'] = array(
 კონფიგურაცია შეუძლებელია.',
 	'stabilization-comment' => 'მიზეზი:',
 	'stabilization-otherreason' => 'სხვა მიზეზი:',
+	'stabilization-expiry' => 'ვადა:',
 	'stabilization-othertime' => 'სხვა დრო:',
 	'stabilization-def-short-0' => 'მიმდინარე',
+	'stabilize-expiring' => 'ვადა გასდის: $1 (UTC)',
 );
 
 /** Kazakh (Arabic script) (‫قازاقشا (تٴوتە)‬) */
@@ -2799,7 +2801,7 @@ $messages['ru'] = array(
 	'stabilize_expiry_invalid' => 'Ошибочная дата истечения.',
 	'stabilize_expiry_old' => 'Указанное время окончания действия уже прошло.',
 	'stabilize-expiring' => 'истекает $1 (UTC)',
-	'stabilization-review' => 'Досмотр текущей версии',
+	'stabilization-review' => 'Отметить текущую версию как проверенную',
 );
 
 /** Yakut (Саха тыла)
@@ -3350,7 +3352,7 @@ Yapılandırma mümkün değil.',
 	'stabilize_expiry_invalid' => 'Geçersiz sona erme tarihi.',
 	'stabilize_expiry_old' => 'Sona erme tarihi zaten geçmiş.',
 	'stabilize-expiring' => '$1 (UTC) tarihinde sona eriyor',
-	'stabilization-review' => 'Geçerli sürümü gözden geçir',
+	'stabilization-review' => 'Geçerli sürümü kontrol edilmiş olarak işaretle',
 );
 
 /** Tatar (Cyrillic) (Татарча/Tatarça (Cyrillic))

@@ -401,6 +401,13 @@ $messages['jv'] = array(
 	'unstablepages-config' => 'Konfigurasi',
 );
 
+/** Georgian (ქართული)
+ * @author BRUTE
+ */
+$messages['ka'] = array(
+	'unstablepages-config' => 'კონფიგურაცია',
+);
+
 /** Khmer (ភាសាខ្មែរ)
  * @author Thearith
  */

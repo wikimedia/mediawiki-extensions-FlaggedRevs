@@ -279,8 +279,7 @@ $messages['es'] = array(
  * @author Kobazulo
  */
 $messages['eu'] = array(
-	'stablepages' => 'Orrialde egonkorrak',
-	'stablepages-stable' => 'argitaratutako bertsioa',
+	'stablepages' => 'Editatzeko baimena erabiltzen duten orrialdeak',
 	'stablepages-config' => 'Konfigurazioa',
 	'stablepages-precedence' => 'Jatorria:',
 );
@@ -304,8 +303,8 @@ $messages['fi'] = array(
 	'stablepages' => 'Vakaat sivut',
 	'stablepages-none' => 'Tällä listalla ei ole sivuja.',
 	'stablepages-config' => 'Asetukset',
-	'stablepages-prec-none' => 'ei järjestystä',
-	'stablepages-prec-quality' => 'laatujärjestys',
+	'stablepages-prec-none' => 'viimeisin tarkastettu',
+	'stablepages-prec-quality' => 'viimeisin laadukas',
 	'stablepages-precedence' => 'Järjestys:',
 );
 
@@ -350,9 +349,9 @@ $messages['gl'] = array(
 	'stablepages-text' => 'A continuación está a lista das páxinas configuradas manualmente para amosar a versión publicada como o contido da páxina por defecto para os lectores.',
 	'stablepages-none' => 'Non hai páxinas nesta lista',
 	'stablepages-config' => 'Configuración',
-	'stablepages-prec-none' => 'sen prioridade',
-	'stablepages-prec-quality' => 'calidade prioritaria',
-	'stablepages-prec-pristine' => 'prioridade antiga',
+	'stablepages-prec-none' => 'última comprobación',
+	'stablepages-prec-quality' => 'última calidade',
+	'stablepages-prec-pristine' => 'última prioridade antiga',
 	'stablepages-precedence' => 'Prioridade:',
 );
 
@@ -516,6 +515,7 @@ $messages['ja'] = array(
  */
 $messages['ka'] = array(
 	'stablepages-config' => 'კონფიგურაცია',
+	'stablepages-precedence' => 'პრიორიტეტი:',
 );
 
 /** Khmer (ភាសាខ្មែរ)
@@ -787,9 +787,9 @@ $messages['ru'] = array(
 	'stablepages-text' => 'Ниже показан список страниц, вручную настроенных на показ опубликованной версии по умолчанию для читателей.',
 	'stablepages-none' => 'В данном списке отсутствуют страницы',
 	'stablepages-config' => 'настройка',
-	'stablepages-prec-none' => 'без приоритета',
-	'stablepages-prec-quality' => 'приоритет качества',
-	'stablepages-prec-pristine' => 'приоритет изначальности',
+	'stablepages-prec-none' => 'последняя проверенная',
+	'stablepages-prec-quality' => 'последняя качественная',
+	'stablepages-prec-pristine' => 'последняя чистая версия',
 	'stablepages-precedence' => 'Приоритет:',
 );
 
@@ -904,9 +904,9 @@ $messages['tr'] = array(
 	'stablepages-text' => 'Aşağıdaki liste, okuyuculara geçerli sayfa içeriği olarak yayımlanmış sürümü gösterecek şekilde elle yapılandırılmış sayfaların listesidir.',
 	'stablepages-none' => 'Bu listede hiç sayfa yok',
 	'stablepages-config' => 'Yapılandırma',
-	'stablepages-prec-none' => 'öncelik yok',
-	'stablepages-prec-quality' => 'kalite önceliği',
-	'stablepages-prec-pristine' => 'asıl öncelik',
+	'stablepages-prec-none' => 'en son kontrol edilen',
+	'stablepages-prec-quality' => 'en son kaliteli',
+	'stablepages-prec-pristine' => 'en son öncelikli',
 	'stablepages-precedence' => 'Öncelik:',
 );
 
