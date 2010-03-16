@@ -7,15 +7,14 @@ class FlaggedRevsHooks {
 	 */
 	public static function defineSpecialPages( &$list ) {
 		global $wgSpecialPages, $wgUseTagFilter;
-		global $wgFlaggedRevsNamespaces, $wgFlaggedRevsOverride, $wgFlaggedRevsProtectLevels;
 		// Show special pages only if FlaggedRevs is enabled on some namespaces
-		if ( empty( $wgFlaggedRevsNamespaces ) ) {
+		if ( !FlaggedRevs::getReviewNamespaces() ) {
 			return true;
 		}
 		$list['RevisionReview'] = $wgSpecialPages['RevisionReview'] = 'RevisionReview';
 		$list['ReviewedVersions'] = $wgSpecialPages['ReviewedVersions'] = 'ReviewedVersions';
 		// Protect levels define allowed stability settings
-		if ( empty( $wgFlaggedRevsProtectLevels ) ) {
+		if ( !FlaggedRevs::useProtectionLevels() ) {
 			$list['Stabilization'] = $wgSpecialPages['Stabilization'] = 'Stabilization';
 		}
 		$list['UnreviewedPages'] = $wgSpecialPages['UnreviewedPages'] = 'UnreviewedPages';
@@ -29,7 +28,7 @@ class FlaggedRevsHooks {
 		}
 		$list['QualityOversight'] = $wgSpecialPages['QualityOversight'] = 'QualityOversight';
 		$list['ValidationStatistics'] = $wgSpecialPages['ValidationStatistics'] = 'ValidationStatistics';
-		if ( !$wgFlaggedRevsOverride ) {
+		if ( !FlaggedRevs::isStableShownByDefault() ) {
 			$list['StablePages'] = $wgSpecialPages['StablePages'] = 'StablePages';
 		} else {
 			$list['UnstablePages'] = $wgSpecialPages['UnstablePages'] = 'UnstablePages';
@@ -2058,17 +2057,17 @@ class FlaggedRevsHooks {
 		}
 		# Can the user actually do anything?
 		$isAllowed = $wgUser->isAllowed( 'stablesettings' );
-		$disabledAttrib = !$isAllowed ? array( 'disabled' => 'disabled' ) : array();
+		$disabledAttrib = !$isAllowed ?
+			array( 'disabled' => 'disabled' ) : array();
 		# Get the current config/expiry
 		$config = FlaggedRevs::getPageVisibilitySettings( $article->getTitle(), FR_MASTER );
+		# Convert expiry to a display form (GMT)
 		$oldExpiry = $config['expiry'] !== 'infinity' ?
 			wfTimestamp( TS_RFC2822, $config['expiry'] ) : 'infinite';
-		# Load request params...
+		# Load requested restriction level, default to current level...
 		$selected = $wgRequest->getVal( 'wpStabilityConfig',
 			FlaggedRevs::getProtectionLevel( $config ) );
-		if ( $selected == 'invalid' ) {
-			throw new MWException( 'This page has an undefined stability configuration!' );
-		}
+		# Load the requested expiry time
 		$expiry = $wgRequest->getText( 'mwStabilize-expiry' );
 		# Add some script for expiry dropdowns
 		$wgOut->addScript(
@@ -2088,29 +2087,28 @@ class FlaggedRevsHooks {
 		$output .= Xml::openElement( 'fieldset' );
 		$output .= Xml::element( 'legend', null, wfMsg( 'flaggedrevs-protect-legend' ) );
 		# Add a "no restrictions" level
-		$effectiveLevels = array( "none" => null );
-		$effectiveLevels += FlaggedRevs::getProtectionLevels();
-		
+		$effectiveLevels = FlaggedRevs::getRestrictionLevels();
+		array_unshift( $effectiveLevels, "none" );
+		# Show all restriction levels in a select...
 		$attribs = array(
 			'id' => 'mwStabilityConfig',
 			'name' => 'mwStabilityConfig',
 			'size' => count( $effectiveLevels ),
 		) + $disabledAttrib;
 		$output .= Xml::openElement( 'select', $attribs );
-		# Show all restriction levels in a select...
-		foreach ( $effectiveLevels as $level => $x ) {
-			if ( $level == 'none' ) {
+		foreach ( $effectiveLevels as $limit ) {
+			if ( $limit == 'none' ) {
 				$label = FlaggedRevs::stableOnlyIfConfigured()
 					? wfMsg( 'flaggedrevs-protect-none' )
 					: wfMsg( 'flaggedrevs-protect-basic' );
 			} else {
-				$label = wfMsg( 'flaggedrevs-protect-' . $level );
+				$label = wfMsg( 'flaggedrevs-protect-' . $limit );
 			}
 			// Default to the key itself if no UI message
-			if ( wfEmptyMsg( 'flaggedrevs-protect-' . $level, $label ) ) {
-				$label = 'flaggedrevs-protect-' . $level;
+			if ( wfEmptyMsg( 'flaggedrevs-protect-' . $limit, $label ) ) {
+				$label = 'flaggedrevs-protect-' . $limit;
 			}
-			$output .= Xml::option( $label, $level, $level == $selected );
+			$output .= Xml::option( $label, $limit, $limit == $selected );
 		}
 		$output .= Xml::closeElement( 'select' );
 		# Get expiry dropdown
@@ -2198,14 +2196,14 @@ class FlaggedRevsHooks {
 	// Update stability config from request
 	public static function onProtectionSave( $article, &$errorMsg ) {
 		global $wgUser, $wgRequest;
-		$levels = FlaggedRevs::getProtectionLevels();
-		if ( empty( $levels ) || !$article->exists() )
+		if ( !FlaggedRevs::useProtectionLevels() || !$article->exists() ) {
 			return true; // simple custom levels set for action=protect
-		if ( wfReadOnly() || !$wgUser->isAllowed( 'stablesettings' ) ) {
-			return true; // user cannot change anything
 		}
 		if ( !FlaggedRevs::inReviewNamespace( $article->getTitle() ) ) {
 			return true; // not a reviewable page
+		}
+		if ( wfReadOnly() || !$wgUser->isAllowed( 'stablesettings' ) ) {
+			return true; // user cannot change anything
 		}
 		$form = new Stabilization();
 		$form->target = $article->getTitle(); # Our target page
@@ -2215,17 +2213,17 @@ class FlaggedRevsHooks {
 		$form->expiry = $wgRequest->getText( 'mwStabilize-expiry' ); # Expiry
 		$form->expirySelection = $wgRequest->getVal( 'wpExpirySelection' ); # Expiry dropdown
 		# Fill in config from the protection level...
+		$levels = FlaggedRevs::getRestrictionLevels();
 		$selected = $wgRequest->getVal( 'mwStabilityConfig' );
+		$form->select = FlaggedRevs::getPrecedence(); // default
 		if ( $selected == "none" ) {
-			$form->select = FlaggedRevs::getPrecedence(); // default
 			$form->override = (int)FlaggedRevs::isStableShownByDefault(); // default
 			$form->autoreview = ''; // default
 			$form->reviewThis = false;
-		} else if ( isset( $levels[$selected] ) ) {
-			$form->select = $levels[$selected]['select'];
-			$form->override = $levels[$selected]['override'];
-			$form->autoreview = $levels[$selected]['autoreview'];
-			$form->reviewThis = true; // auto-review; protection-like
+		} else if ( in_array( $selected, $levels ) ) {
+			$form->override = 1; // stable page
+			$form->autoreview = $selected; // autoreview restriction
+			$form->reviewThis = true; // auto-review page; protection-like
 		} else {
 			return false; // bad level
 		}

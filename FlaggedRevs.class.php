@@ -18,7 +18,6 @@ class FlaggedRevs {
 	protected static $patrolNamespaces = array();
 	# Restriction levels/config
 	protected static $restrictionLevels = array();
-	protected static $protectionLevels = array();
 	# Temporary process cache variable
 	protected static $includeVersionCache = array();
 	
@@ -26,7 +25,10 @@ class FlaggedRevs {
 
 	public static function load() {
 		global $wgFlaggedRevTags;
-		if ( self::$loaded ) return true;
+		if ( self::$loaded ) {
+			return true;
+		}
+		self::$loaded = true;
 		# Assume true, then set to false if needed
 		if ( !empty( $wgFlaggedRevTags ) ) {
 			self::$qualityVersions = true;
@@ -76,25 +78,10 @@ class FlaggedRevs {
 			self::$minPL[$tag] = max( $minPL, 1 );
 			self::$minSL[$tag] = 1;
 		}
-		global $wgFlaggedRevsProtectLevels;
-		$wgFlaggedRevsProtectLevels = (array)$wgFlaggedRevsProtectLevels;
-		foreach ( $wgFlaggedRevsProtectLevels as $level => $config ) {
-			# Sanity check that the config is complete
-			if ( !isset( $config['select'] ) || !isset( $config['autoreview'] ) ) {
-				throw new MWException( 'FlaggedRevs given incomplete $wgFlaggedRevsProtectLevels value!' );
-			# Disallow reserved level names
-			} else if ( $level == 'invalid' || $level == 'none' ) {
-				throw new MWException( 'FlaggedRevs given reserved $wgFlaggedRevsProtectLevels key!' );
-			}
-			$config['override'] = 1; // stable is default
-			self::$protectionLevels[$level] = $config;
-		}
 		global $wgFlaggedRevsRestrictionLevels;
-		# Make sure that there is a "none" level
+		# Make sure that the levels are unique
 		self::$restrictionLevels = array_unique( $wgFlaggedRevsRestrictionLevels );
-		if ( !in_array( '', self::$restrictionLevels ) ) {
-			self::$restrictionLevels = array( '' ) + self::$restrictionLevels;
-		}
+		self::$restrictionLevels = array_filter( self::$restrictionLevels, 'strlen' );
 		# Make sure no talk namespaces are in review namespace
 		global $wgFlaggedRevsNamespaces, $wgFlaggedRevsPatrolNamespaces;
 		foreach ( $wgFlaggedRevsNamespaces as $ns ) {
@@ -107,8 +94,6 @@ class FlaggedRevs {
 		self::$reviewNamespaces = $wgFlaggedRevsNamespaces;
 		# Note: reviewable *pages* override patrollable ones
 		self::$patrolNamespaces = $wgFlaggedRevsPatrolNamespaces;
-		
-		self::$loaded = true;
 	}
 	
 	# ################ Basic accessors #################
@@ -268,43 +253,37 @@ class FlaggedRevs {
 		global $wgFlaggedRevsLowProfile;
 		return $wgFlaggedRevsLowProfile;
 	}
-	
-	/**
-	 * Get the site defined protection levels for review
-	 * @returns array (associative)
-	 */
-	public static function getProtectionLevels() {
-		self::load(); // validates levels
-		return self::$protectionLevels;
-	}
 
 	/**
 	 * Are there site defined protection levels for review
 	 * @returns bool
 	 */
 	public static function useProtectionLevels() {
-		return ( count( self::getProtectionLevels() ) > 0 );
+		global $wgFlaggedRevsProtection;
+		return $wgFlaggedRevsProtection && self::getRestrictionLevels();
 	}
-	
+
 	/**
 	 * Find what protection level a config is in
 	 * @param array $config
-	 * @returns mixed (array/string)
+	 * @returns string
 	 */
 	public static function getProtectionLevel( $config ) {
-		$validLevels = self::getProtectionLevels();
-		$defaultConfig = self::getDefaultVisibilitySettings();
-		# Remove expiry for quick comparisons
-		unset( $defaultConfig['expiry'] );
-		unset( $config['expiry'] );
-		# Check if the page is not protected at all
-		if ( $config == $defaultConfig ) {
-			return "none";
+		if( !self::useProtectionLevels() ) {
+			throw new MWException('getProtectionLevel() called with $wgFlaggedRevsProtection off');
 		}
-		# Otherwise, find the protection level
-		foreach ( $validLevels as $level => $settings ) {
-			if ( $config == $settings ) {
-				return $level;
+		$defaultConfig = self::getDefaultVisibilitySettings();
+		# Check if the page is not protected at all...
+		if ( $config['override'] == $defaultConfig['override']
+			&& $config['autoreview'] == $defaultConfig['autoreview'] )
+		{
+			return "none"; // not protected
+		}
+		# All protection levels have 'override' on
+		if( $config['override'] ) {
+			# The levels are defined by the 'autoreview' settings
+			if( in_array( $config['autoreview'], self::getRestrictionLevels() ) ) {
+				return $config['autoreview'];
 			}
 		}
 		return "invalid";
@@ -1157,10 +1136,10 @@ class FlaggedRevs {
 	# ################ Page configuration functions #################
 
 	/**
-	 * Get visibility restrictions on page
+	 * Get visibility settings/restrictions for a page
 	 * @param Title $title, page title
 	 * @param int $flags, FR_MASTER
-	 * @returns Array (select,override)
+	 * @returns Array (associative) (select,override,autoreview,expiry)
 	 */
 	public static function getPageVisibilitySettings( $title, $flags = 0 ) {
 		$db = ($flags & FR_MASTER) ?
@@ -1183,19 +1162,22 @@ class FlaggedRevs {
 		}
 		// Is there a non-expired row?
 		if ( $row ) {
+			$precedence = self::useProtectionLevels()
+				? self::getPrecedence() // site default; ignore fpc_select
+				: $row->fpc_select;
 			$config = array(
-				'select' 	 => intval( $row->fpc_select ),
-				'override'   => $row->fpc_override,
+				'select' 	 => intval( $precedence ),
+				'override'   => $row->fpc_override ? 1 : 0,
 				'autoreview' => $row->fpc_level,
-				'expiry'	 => Block::decodeExpiry( $row->fpc_expiry )
+				'expiry'	 => Block::decodeExpiry( $row->fpc_expiry ) // TS_MW
 			);
-			# If there are protection levels defined check if this is valid
+			# If there are protection levels defined check if this is valid...
 			if ( self::useProtectionLevels() && self::getProtectionLevel( $config ) == 'invalid' ) {
-				return self::getDefaultVisibilitySettings(); // revert to none
+				$config = self::getDefaultVisibilitySettings(); // revert to default (none)
 			}
 		} else {
 			# Return the default config if this page doesn't have its own
-			return self::getDefaultVisibilitySettings();
+			$config = self::getDefaultVisibilitySettings();
 		}
 		return $config;
 	}
@@ -1217,7 +1199,7 @@ class FlaggedRevs {
 			'expiry'     => 'infinity'
 		);
 	}
-	
+
 	/**
 	 * Purge expired restrictions from the flaggedpage_config table.
 	 * The stable version of pages may change and invalidation may be required.

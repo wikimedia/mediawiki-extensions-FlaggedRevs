@@ -145,20 +145,16 @@ $wgFlaggedRevsTagsAuto = array(
 # (FR_SIGHTED,FR_QUALITY,FR_PRISTINE)
 $wgFlaggedRevsPatrolLevel = FR_SIGHTED;
 
-# Protection levels, defined below, that appear in protection form.
-# The stable version is the default for each level. A "none" level
-# will appear in the forms as well, to restore the default settings.
-$wgFlaggedRevsProtectLevels = array();
-/* (example usage)
-$wgFlaggedRevsProtectLevels = array(
-	'semi-review' => array('select' => FLAGGED_VIS_LATEST, 'autoreview' => ''),
-	'intm-review' => array('select' => FLAGGED_VIS_LATEST, 'autoreview' => 'review'),
-);
-*/
-
-# Restriction levels for auto-review right at Stabilization page
-# No effect if $wgFlaggedRevsProtectLevels is used.
+# Restriction levels for 'autoreview'/'review' rights.
+# When a level is selected for a page, an edit made by a user
+# requires approval unless that user has the specified permission.
+# Levels are set at the Stabilization special page.
 $wgFlaggedRevsRestrictionLevels = array( '', 'sysop' );
+# Set this to disable Stabilization and show the above restriction levels
+# on the protection form of pages. Each level has the stable version shown by default.
+# A "none" level will appear in the forms as well, to restore the default settings.
+# NOTE: The stable version precedence cannot be configured per page with this.
+$wgFlaggedRevsProtection = false;
 
 # Please set these as something different. Any text will do, though it probably
 # shouldn't be very short (less secure) or very long (waste of resources).

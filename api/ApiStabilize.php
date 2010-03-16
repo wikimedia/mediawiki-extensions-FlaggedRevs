@@ -62,20 +62,19 @@ class ApiStabilize extends ApiBase {
 		$form->reasonSelection = 'other'; # Reason dropdown
 		$form->expiry = $params['expiry']; # Expiry
 		$form->expirySelection = 'other'; # Expiry dropdown
-		
-		$levels = FlaggedRevs::getProtectionLevels();
+
 		// Check if protection levels are enabled
-		if( !empty($levels) ) {
+		if( FlaggedRevs::useProtectionLevels() ) {
+			$levels = FlaggedRevs::getRestrictionLevels();
 			# Fill in config from the protection level...
 			$selected = $params['protectlevel'];
+			$form->select = FlaggedRevs::getPrecedence(); // default
 			if( $selected == "none" ) {
-				$form->select = FlaggedRevs::getPrecedence(); // default
 				$form->override = (int)FlaggedRevs::isStableShownByDefault(); // default
 				$form->autoreview = ''; // default
-			} else if( isset($levels[$selected]) ) {
-				$form->select = $levels[$selected]['select'];
-				$form->override = $levels[$selected]['override'];
-				$form->autoreview = $levels[$selected]['autoreview'];
+			} else if( in_array( $selected, $levels ) ) {
+				$form->override = 1; // stable page
+				$form->autoreview = $selected; // autoreview restriction
 			} else {
 				$this->dieUsage( "Invalid protection level given.", 'badprotectlevel' );
 			}
@@ -87,10 +86,10 @@ class ApiStabilize extends ApiBase {
 			} else {
 				$form->override = $this->defaultFromKey( $params['default'] );
 			}
-			if( $params['autoreview'] != 'none' ) {
-				$form->autoreview = $params['autoreview'];
-			} else {
+			if( $params['autoreview'] == 'none' ) {
 				$form->autoreview = ''; // 'none' -> ''
+			} else {
+				$form->autoreview = $params['autoreview'];
 			}
 		}
 		$form->wasPosted = true; // already validated
@@ -105,7 +104,7 @@ class ApiStabilize extends ApiBase {
 		# Output success line with the title and config parameters
 		$res = array();
 		$res['title'] = $title->getPrefixedText();
-		if( FlaggedRevs::getProtectionLevels() ) {
+		if( count($levels) ) {
 			$res['protectlevel'] = $params['protectlevel'];
 		} else {
 			$res['default'] = $params['default'];
@@ -159,19 +158,17 @@ class ApiStabilize extends ApiBase {
  	}
 
 	public function getAllowedParams() {
+		// Replace '' with more readable 'none' in autoreview restiction levels
+		$autoreviewLevels = FlaggedRevs::getRestrictionLevels();
+		$autoreviewLevels[] = 'none';
 		if( FlaggedRevs::useProtectionLevels() ) {
-			$validLevels = array_keys( FlaggedRevs::getProtectionLevels() );
-			$validLevels[] = 'none';
 			$pars = array(
 				'protectlevel' => array(
-					ApiBase :: PARAM_TYPE => $validLevels,
+					ApiBase :: PARAM_TYPE => $autoreviewLevels,
 					ApiBase :: PARAM_DFLT => 'none',
 				)
 			);
 		} else {
-			// Replace '' with more readable 'none' in autoreview restiction levels
-			$autoreviewLevels = array_filter( FlaggedRevs::getRestrictionLevels() );
-			$autoreviewLevels[] = 'none';
 			$pars = array(
 				'default'     => array(
 					ApiBase :: PARAM_TYPE => array( 'latest', 'stable' ),
