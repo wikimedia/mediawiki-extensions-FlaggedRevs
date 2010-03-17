@@ -2754,7 +2754,7 @@ Non ge stonne le configurazione.',
 	'stabilize_expiry_invalid' => 'Date de scadenze errete.',
 	'stabilize_expiry_old' => 'Sta date de scadenze ha già passete.',
 	'stabilize-expiring' => "scade 'u $1 (UTC)",
-	'stabilization-review' => "Revide 'a versiona corrende",
+	'stabilization-review' => "Signe 'a revisiona corrende cumme verificate",
 );
 
 /** Russian (Русский)

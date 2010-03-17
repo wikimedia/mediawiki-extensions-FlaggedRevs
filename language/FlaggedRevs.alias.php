@@ -297,7 +297,7 @@ $aliases['ja'] = array(
 	'ValidationStatistics' => array( '判定統計' ),
 );
 
-/** Ripoarisch (Ripoarisch) */
+/** Colognian (Ripoarisch) */
 $aliases['ksh'] = array(
 	'OldReviewedPages' => array( 'SiggeMetUnjesichVersione' ),
 	'ReviewedPages' => array( 'JesichSigge' ),

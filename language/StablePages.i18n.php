@@ -772,9 +772,9 @@ $messages['roa-tara'] = array(
 	'stablepages-text' => "Sotte ste 'na liste de pàggene ca onne state configurete manualmende pe fa vedè 'a versiona pubblecate cumme pàgene cu 'u condenute iniziale pe le visitature.",
 	'stablepages-none' => "Non ge stonne pàggene jndr'à sta liste",
 	'stablepages-config' => 'Configurazione',
-	'stablepages-prec-none' => 'nisciuna in precedenze',
-	'stablepages-prec-quality' => "qualitate d'a precedende",
-	'stablepages-prec-pristine' => "ripristine d'a precedende",
+	'stablepages-prec-none' => 'urtema verificate',
+	'stablepages-prec-quality' => 'urteme de qualità',
+	'stablepages-prec-pristine' => 'urteme repristinate',
 	'stablepages-precedence' => 'Precedenze:',
 );
 
