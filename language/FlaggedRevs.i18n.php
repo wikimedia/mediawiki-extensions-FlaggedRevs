@@ -2307,6 +2307,7 @@ Spisak stabiliziranih stranica se može naći na [[Special:StablePages|spisku st
  * @author Solde
  * @author Ssola
  * @author Toniher
+ * @author Vriullop
  */
 $messages['ca'] = array(
 	'editor' => 'Editor',
@@ -2339,7 +2340,7 @@ $messages['ca'] = array(
 	'revreview-depth-1' => 'Bàsic',
 	'revreview-depth-2' => 'Moderat',
 	'revreview-depth-3' => 'Alt',
-	'revreview-edit' => "edita l'actual",
+	'revreview-edit' => 'Modifica',
 	'revreview-flag' => 'Revisa aquesta revisió',
 	'revreview-log' => 'Comentari:',
 	'revreview-newest-basic' => "L'[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} última versió revisada] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} vegeu-les totes]) va ser [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovada] a <i>$2</i>. Hi ha [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|canvi|canvis}}] que {{PLURAL:$3|necessita|necessiten}} revisió.",
@@ -2377,6 +2378,7 @@ Reviseu l'URL que heu emprat per a accedir-hi.",
 	'right-movestable' => 'Moure pàgines estables',
 	'right-review' => 'Marqueu les revisions com a vistes',
 	'right-stablesettings' => 'Configureu com es selecciona i mostra la versió estable',
+	'right-unreviewedpages' => 'Veure la [[Special:UnreviewedPages|llista de pàgines no revisades]]',
 	'rights-editor-revoke' => "tret el nivell d'editor a [[$1]]",
 	'stable-logpage' => "Registre d'estabilitat",
 	'revreview-filter-all' => 'Tot',
@@ -2818,6 +2820,7 @@ Siehe auch die [[Special:StablePages|Liste markierter Versionen]].',
 	'revreview-statusfilter' => 'Statusänderung:',
 	'revreview-typefilter' => 'Typ:',
 	'revreview-levelfilter' => 'Level:',
+	'revreview-lev-all' => 'alle',
 	'revreview-lev-basic' => 'markiert',
 	'revreview-lev-quality' => 'geprüft',
 	'revreview-lev-pristine' => 'ursprünglich',
@@ -3643,6 +3646,7 @@ $messages['es'] = array(
 	'revreview-diff-toggle-hide' => '(esconder cambios)',
 	'revreview-diff-toggle-title' => 'Cambiar muestra de cambios entre borrador y la versión publicada',
 	'revreview-log-toggle-show' => '(mostrar registro de estabilidad)',
+	'revreview-log-details-show' => '(mostrar detalles)',
 	'review-diff2stable' => 'Ver los cambios pendientes de la versión publicada',
 	'review-logentry-app' => 'Revisado una versión de [[$1]]',
 	'review-logentry-dis' => 'desaprobada una versión de [[$1]]',

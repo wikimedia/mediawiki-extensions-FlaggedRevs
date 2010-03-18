@@ -726,13 +726,13 @@ $messages['pms'] = array(
  * @author Waldir
  */
 $messages['pt'] = array(
-	'stablepages' => 'Páginas estáveis',
+	'stablepages' => 'Páginas que usam aprovação de edições',
 	'stablepages-text' => 'Segue-se uma lista das páginas configuradas manualmente para apresentarem, por omissão, a todos os leitores, a versão publicada.',
 	'stablepages-none' => 'Não há páginas nesta lista',
 	'stablepages-config' => 'Configuração',
-	'stablepages-prec-none' => 'sem precedência',
-	'stablepages-prec-quality' => 'precedência de qualidade',
-	'stablepages-prec-pristine' => 'precedência intocada',
+	'stablepages-prec-none' => 'mais recente verificada',
+	'stablepages-prec-quality' => 'mais recente de qualidade',
+	'stablepages-prec-pristine' => 'mais recente intocada',
 	'stablepages-precedence' => 'Precedência:',
 );
 

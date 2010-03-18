@@ -134,7 +134,7 @@ $messages['diq'] = array(
  * @author Michawiki
  */
 $messages['dsb'] = array(
-	'problemchanges' => 'Markěrowane změny pśeglědaś',
+	'problemchanges' => 'Markěrowane njedocynjone změny',
 	'problemchanges-legend' => 'Lisćina bokow z markěrowanymi změnami, kótarež hyšći njejsu pśeglědane',
 	'problemchanges-none' => 'Tuchylu žedne boki njewótpowěduju toś tym kriterijam',
 	'problemchanges-category' => 'Kategorija:',

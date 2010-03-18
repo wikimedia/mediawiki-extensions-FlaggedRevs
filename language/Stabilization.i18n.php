@@ -2565,7 +2565,7 @@ Ambelessì a-i son le regolassion corente për [[:$1|$1]]:",
 	'stabilize_expiry_invalid' => 'Data fin pa bon-a.',
 	'stabilize_expiry_old' => "Sta data fin-sì a l'é già passà",
 	'stabilize-expiring' => 'A finiss $1 (UTC)',
-	'stabilization-review' => 'Marca la vërsion corenta com controlà',
+	'stabilization-review' => 'Marché la version corenta com controlà',
 );
 
 /** Pashto (پښتو)
@@ -2591,9 +2591,9 @@ $messages['ps'] = array(
 $messages['pt'] = array(
 	'stabilization-tab' => 'cgq',
 	'stabilization' => 'Configurações da Garantia de Qualidade',
-	'stabilization-text' => "'''Altere as configurações abaixo para ajustar a forma como a versão estável de [[:\$1|\$1]] é seleccionada e apresentada.'''
+	'stabilization-text' => "'''Altere as configurações abaixo para ajustar a forma como a versão publicada de [[:\$1|\$1]] é seleccionada e apresentada.'''
 
-Quanto alterar a configuração da ''selecção da versão estável'' para que sejam usadas como padrão as revisões \"qualidade\" ou \"intocada\",
+Quanto alterar a configuração de ''selecção da versão publicada'' para que sejam usadas por omissão as revisões \"qualidade\" ou \"intocada\",
 verifique que essas revisões realmente existem na página, caso contrário a alteração terá pouco efeito.",
 	'stabilization-perm' => 'Sua conta não possui permissão para alterar as configurações de edições estáveis.
 Seguem-se as configurações para [[:$1|$1]]:',

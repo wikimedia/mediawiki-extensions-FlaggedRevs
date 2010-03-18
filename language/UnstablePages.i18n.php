@@ -159,7 +159,7 @@ $messages['diq'] = array(
  */
 $messages['dsb'] = array(
 	'unstablepages' => 'Njestabilne boki',
-	'unstablepages-stable' => 'stabilna wersija',
+	'unstablepages-stable' => 'wózjawjona wersija',
 	'unstablepages-text' => 'Slědujo lisćina bokow, kótarež su se manuelnje konfigurěrowali, aby pokazali nacerjeńsku wersiju ako standardne wopśimjeśe za wobglědowarjow.',
 	'unstablepages-none' => 'Toś ta lisćina njewopśimujo boki',
 	'unstablepages-config' => 'Konfiguracija',

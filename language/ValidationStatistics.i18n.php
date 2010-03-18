@@ -1459,7 +1459,7 @@ $messages['ps'] = array(
  * @author Waldir
  */
 $messages['pt'] = array(
-	'validationstatistics' => 'Estatísticas de validações',
+	'validationstatistics' => 'Estatísticas de revisão de páginas',
 	'validationstatistics-users' => "A '''{{SITENAME}}''' tem, neste momento, '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|utilizador|utilizadores}} com permissões de [[{{MediaWiki:Validationpage}}|Editor]].
 
 Editores são utilizadores que podem verificar as revisões de páginas.",

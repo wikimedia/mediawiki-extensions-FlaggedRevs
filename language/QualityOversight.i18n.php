@@ -136,7 +136,7 @@ $messages['diq'] = array(
  * @author Michawiki
  */
 $messages['dsb'] = array(
-	'qualityoversight' => 'Kontrola kwality',
+	'qualityoversight' => 'Rozšyrjony pśeglědowański protokol',
 	'qualityoversight-list' => 'Toś ten bok nalistujo aktualne pśizwólenja a póroki za wersije',
 	'qualityoversight-legend' => 'W aktualnych protokolach kontrolow pytaś',
 );
