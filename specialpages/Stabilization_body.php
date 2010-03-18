@@ -132,10 +132,14 @@ class Stabilization extends UnlistedSpecialPage
 			if ( $this->override !== 0 && $this->override !== 1 ) {
 				return false;
 			}
-			// Validate precedence setting
-			$allowed = array( FLAGGED_VIS_QUALITY, FLAGGED_VIS_LATEST, FLAGGED_VIS_PRISTINE );
-			if ( $this->select && !in_array( $this->select, $allowed ) ) {
-				return false; // invalid value
+			// Protection levels used: ignore fpc_select
+			if( FlaggedRevs::useProtectionLevels() ) {
+				$this->select = FlaggedRevs::getPrecedence(); // default
+			// Otherwise: validate precedence setting
+			} else {
+				if ( !FlaggedRevs::isValidPrecedence( $this->select ) ) {
+					return false; // invalid value
+				}
 			}
 			// Check autoreview setting
 			if ( !self::userCanSetAutoreviewLevel( $this->autoreview ) ) {
@@ -511,6 +515,10 @@ class Stabilization extends UnlistedSpecialPage
 			$changed = ( $dbw->affectedRows() != 0 ); // did this do anything?
 		# Otherwise, add/replace row if we are not just setting it to the site default
 		} elseif ( !$reset ) {
+			$dbExpiry = Block::encodeExpiry( $this->expiry, $dbw );
+			$precedence = FlaggedRevs::useProtectionLevels()
+				? -1 // site default; fpc_select "don't care"
+				: $this->select;
 			# Get current config...
 			$oldRow = $dbw->selectRow( 'flaggedpage_config',
 				array( 'fpc_select', 'fpc_override', 'fpc_level', 'fpc_expiry' ),
@@ -518,17 +526,16 @@ class Stabilization extends UnlistedSpecialPage
 				__METHOD__,
 				'FOR UPDATE'
 			);
-			$dbExpiry = Block::encodeExpiry( $this->expiry, $dbw );
 			# Check if this is not the same config as the existing row (if any)
 			$changed = self::configIsDifferent( $oldRow,
-				$this->select, $this->override, $this->autoreview, $dbExpiry );
+				$precedence, $this->override, $this->autoreview, $dbExpiry );
 			# If the new config is different, replace the old row...
 			if ( $changed ) {
 				$dbw->replace( 'flaggedpage_config',
 					array( 'PRIMARY' ),
 					array(
 						'fpc_page_id'  => $this->page->getArticleID(),
-						'fpc_select'   => intval( $this->select ),
+						'fpc_select'   => intval( $precedence ),
 						'fpc_override' => intval( $this->override ),
 						'fpc_level'    => $this->autoreview,
 						'fpc_expiry'   => $dbExpiry

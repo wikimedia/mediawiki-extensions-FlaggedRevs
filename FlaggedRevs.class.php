@@ -1153,13 +1153,18 @@ class FlaggedRevs {
 		}
 		// Is there a non-expired row?
 		if ( $row ) {
-			$precedence = self::useProtectionLevels()
-				? self::getPrecedence() // site default; ignore fpc_select
-				: $row->fpc_select;
+			$precedence = intval( $row->fpc_select );
+			if( self::useProtectionLevels() || !self::isValidPrecedence( $precedence ) ) {
+				$precedence = self::getPrecedence(); // site default; ignore fpc_select
+			}
+			$level = $row->fpc_level;
+			if( !self::isValidRestriction( $row->fpc_level ) ) {
+				$level = ''; // site default; ignore fpc_level
+			}
 			$config = array(
-				'select' 	 => intval( $precedence ),
+				'select' 	 => $precedence,
 				'override'   => $row->fpc_override ? 1 : 0,
-				'autoreview' => $row->fpc_level,
+				'autoreview' => $level,
 				'expiry'	 => Block::decodeExpiry( $row->fpc_expiry ) // TS_MW
 			);
 			# If there are protection levels defined check if this is valid...
@@ -1189,6 +1194,26 @@ class FlaggedRevs {
 			'autoreview' => '',
 			'expiry'     => 'infinity'
 		);
+	}
+
+	/**
+	 * Check if an fpc_select value is valid
+	 * @param int $select
+	 */
+	public static function isValidPrecedence( $select ) {
+		$allowed = array( FLAGGED_VIS_QUALITY, FLAGGED_VIS_LATEST, FLAGGED_VIS_PRISTINE );
+		return in_array( $select, $allowed, true );
+	}
+
+	/**
+	 * Check if an fpc_level value is valid
+	 * @param string $right
+	 */
+	public static function isValidRestriction( $right ) {
+		if ( $right == '' ) {
+			return true; // no restrictions (none)
+		}
+		return in_array( $right, FlaggedRevs::getRestrictionLevels(), true );
 	}
 
 	/**

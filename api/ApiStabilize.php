@@ -68,7 +68,6 @@ class ApiStabilize extends ApiBase {
 			$levels = FlaggedRevs::getRestrictionLevels();
 			# Fill in config from the protection level...
 			$selected = $params['protectlevel'];
-			$form->select = FlaggedRevs::getPrecedence(); // default
 			if( $selected == "none" ) {
 				$form->override = (int)FlaggedRevs::isStableShownByDefault(); // default
 				$form->autoreview = ''; // default
@@ -78,6 +77,7 @@ class ApiStabilize extends ApiBase {
 			} else {
 				$this->dieUsage( "Invalid protection level given.", 'badprotectlevel' );
 			}
+			$form->select = null; // site default
 		} else {
 			// Fill in config fields from URL params
 			$form->select = $this->precendenceFromKey( $params['precedence'] );

@@ -2215,7 +2215,6 @@ class FlaggedRevsHooks {
 		# Fill in config from the protection level...
 		$levels = FlaggedRevs::getRestrictionLevels();
 		$selected = $wgRequest->getVal( 'mwStabilityConfig' );
-		$form->select = FlaggedRevs::getPrecedence(); // default
 		if ( $selected == "none" ) {
 			$form->override = (int)FlaggedRevs::isStableShownByDefault(); // default
 			$form->autoreview = ''; // default
@@ -2227,6 +2226,7 @@ class FlaggedRevsHooks {
 		} else {
 			return false; // bad level
 		}
+		$form->select = null; // site default
 		$form->wasPosted = $wgRequest->wasPosted();
 		if ( $form->handleParams() ) {
 			$status = $form->submit();
