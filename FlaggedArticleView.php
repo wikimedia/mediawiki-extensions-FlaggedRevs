@@ -774,13 +774,13 @@ class FlaggedArticleView {
 				$items[] = wfMsgExt( 'revreview-editnotice', array( 'parseinline' ) );
 			}
 			# Add a notice if there are pending edits...
-			if ( $frev->getRevId() != $revId ) {
+			if ( $frev->getRevId() != $latestId ) {
 				$revsSince = FlaggedRevs::getRevCountSince( $this->article, $frev->getRevId() );
 				$items[] = FlaggedRevsXML::pendingEditNotice( $this->article, $frev, $revsSince );
 			}
 			# Show diff to stable, to make things less confusing...
 			# This can be disabled via user preferences
-			if ( $frev->getRevId() < $revId // changes were made
+			if ( $frev->getRevId() < $latestId // changes were made
 				&& $this->isDiffShownOnEdit() // stable default and user cannot review
 				&& $wgUser->getBoolOption( 'flaggedrevseditdiffs' ) // not disable via prefs
 			) {
