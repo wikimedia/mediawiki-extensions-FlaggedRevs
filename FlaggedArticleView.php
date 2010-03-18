@@ -456,7 +456,7 @@ class FlaggedArticleView {
 					$msg = $quality
 						? 'revreview-quick-quality-old'
 						: 'revreview-quick-basic-old';
-					$msgHTML = wfMsgExt( $msg, array( 'parseinline' ), $frev->getRevId(), $time );
+					$msgHTML = wfMsgExt( $msg, array( 'parseinline' ), $frev->getRevId(), $revsSince );
 				}
 				$msgHTML = $prot . $icon . $msgHTML;
 				$tag = FlaggedRevsXML::prettyRatingBox( $frev, $msgHTML,
