@@ -68,26 +68,28 @@ class StablePages extends SpecialPage
 		$title = Title::makeTitle( $row->page_namespace, $row->page_title );
 		$link = $this->skin->makeKnownLinkObj( $title, $title->getPrefixedText() );
 
-		$stitle = SpecialPage::getTitleFor( 'Stabilization' );
 		if ( FlaggedRevs::useProtectionLevels() ) {
-			$config = $this->skin->makeKnownLinkObj( $title, wfMsgHtml( 'stablepages-config' ),
-				'action=protect' );
+			$config = $this->skin->makeKnownLinkObj( $title,
+				wfMsgHtml( 'stablepages-config' ), 'action=protect' );
 		} else {
-			$config = $this->skin->makeKnownLinkObj( $stitle, wfMsgHtml( 'stablepages-config' ),
+			$config = $this->skin->makeKnownLinkObj(
+				SpecialPage::getTitleFor( 'Stabilization' ),
+				wfMsgHtml( 'stablepages-config' ),
 				'page=' . $title->getPrefixedUrl() );
 		}
 
 		$type = '';
 		// Show precedence if there are several possible levels
 		if ( FlaggedRevs::qualityVersions() ) {
-			if ( intval( $row->fpc_select ) === FLAGGED_VIS_PRISTINE ) {
+			$select = intval( $row->fpc_select );
+			if ( $select === FLAGGED_VIS_PRISTINE ) {
 				$type = wfMsgHtml( 'stablepages-prec-pristine' );
-			} elseif ( intval( $row->fpc_select ) === FLAGGED_VIS_QUALITY ) {
+			} elseif ( $select === FLAGGED_VIS_QUALITY ) {
 				$type = wfMsgHtml( 'stablepages-prec-quality' );
-			} else {
+			} elseif( $select === FLAGGED_VIS_LATEST ) {
 				$type = wfMsgHtml( 'stablepages-prec-none' );
 			}
-			$type = "(<b>{$type}</b>)";
+			if( $type ) $type = "(<b>{$type}</b>)";
 		}
 
 		$restr = '';
