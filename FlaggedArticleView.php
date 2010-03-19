@@ -347,8 +347,12 @@ class FlaggedArticleView {
 		if ( !$synced && $wgRequest->getVal( 'shownotice' ) && !$wgUser->isAllowed( 'review' ) ) {
 			$revsSince = FlaggedRevs::getRevCountSince( $this->article, $srev->getRevId() );
 			$tooltip = wfMsgHtml( 'revreview-draft-title' );
-			$pending = $prot . FlaggedRevsXML::draftStatusIcon() .
-				wfMsgExt( 'revreview-edited', array( 'parseinline' ), $srev->getRevId(), $revsSince );
+			$pending = $prot;
+			if( self::showRatingIcon() ) {
+				$pending .= FlaggedRevsXML::draftStatusIcon();
+			}
+			$pending .= wfMsgExt( 'revreview-edited',
+				array( 'parseinline' ), $srev->getRevId(), $revsSince );
 			$anchor = $wgRequest->getVal( 'fromsection' );
 			if( $anchor != null ) {
 				$section = str_replace( '_', ' ', $anchor ); // prettify
