@@ -12,14 +12,14 @@ $messages['en'] = array(
 	'stabilization' => 'Page stabilization',
 	'stabilization-text' => '\'\'\'Change the settings below to adjust how the published version of [[:$1|$1]] is selected and displayed.\'\'\'
 
-Note: changing the \'\'published version selection\'\' configuration to use "quality" or "pristine" versions will have no effect if there are no such versions.',
+\'\'\'Note:\'\'\' changing the \'\'published version selection\'\' to prefer "quality" or "pristine" versions will have no effect if there are no such versions. Also, note that a "quality" version is also considered a "checked" version and so on.',
 	'stabilization-perm' => 'Your account does not have permission to change the published version configuration.
 Here are the current settings for [[:$1|$1]]:',
 	'stabilization-page' => 'Page name:',
 	'stabilization-leg' => 'Confirm published version settings',
 	'stabilization-select' => 'Published version selection precedence',
 	'stabilization-select1' => 'Latest quality revision; then latest sighted one',
-	'stabilization-select2' => 'Latest reviewed revision (regardless of validation level)',
+	'stabilization-select2' => 'Latest checked revision',
 	'stabilization-select3' => 'Latest pristine revision; then latest quality one; then latest sighted one',
 	'stabilization-def' => 'Revision displayed on default page view',
 	'stabilization-def1' => 'The published revision; if not present, then the current/draft one',
