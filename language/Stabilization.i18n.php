@@ -12,8 +12,7 @@ $messages['en'] = array(
 	'stabilization' => 'Page stabilization',
 	'stabilization-text' => '\'\'\'Change the settings below to adjust how the published version of [[:$1|$1]] is selected and displayed.\'\'\'
 
-When changing the \'\'published version selection\'\' configuration to use "quality" or "pristine" revisions by default,
-be sure to check if there actually are such revisions in the page, otherwise the change will have little effect.',
+Note: changing the \'\'published version selection\'\' configuration to use "quality" or "pristine" versions will have no effect if there are no such versions.',
 	'stabilization-perm' => 'Your account does not have permission to change the published version configuration.
 Here are the current settings for [[:$1|$1]]:',
 	'stabilization-page' => 'Page name:',
@@ -25,7 +24,7 @@ Here are the current settings for [[:$1|$1]]:',
 	'stabilization-def' => 'Revision displayed on default page view',
 	'stabilization-def1' => 'The published revision; if not present, then the current/draft one',
 	'stabilization-def2' => 'The current/draft revision',
-	'stabilization-restrict' => 'Auto-review restrictions',
+	'stabilization-restrict' => 'Review/auto-review restrictions',
 	'stabilization-restrict-none' => 'No extra restrictions',
 	'stabilization-submit' => 'Confirm',
 	'stabilization-notexists' => 'There is no page called "[[:$1|$1]]".
