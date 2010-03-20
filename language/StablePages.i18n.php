@@ -498,10 +498,11 @@ $messages['it'] = array(
 /** Japanese (日本語)
  * @author Aotake
  * @author Fryed-peach
+ * @author Whym
  */
 $messages['ja'] = array(
 	'stablepages' => '固定ページ',
-	'stablepages-text' => '以下は固定版を既定で閲覧者に表示するよう手動で設定されたページの一覧です。',
+	'stablepages-text' => '下記に示したページは、公開版が未設定状態で閲覧者に提示される版となるように手動で設定されています。',
 	'stablepages-none' => '表示すべきページはありません',
 	'stablepages-config' => '設定',
 	'stablepages-prec-none' => '優先なし',
@@ -916,7 +917,7 @@ $messages['tr'] = array(
  */
 $messages['uk'] = array(
 	'stablepages' => 'Сторінки, що використовують затвердження редагувань',
-	'stablepages-text' => 'Нижче поданий список сторінок, які вручну налаштовані на показ опублікованої версії за замовчуванням для читачів.',
+	'stablepages-text' => 'Нижче поданий список сторінок, які вручну налаштовані на показ опублікованої версії за умовчанням для читачів.',
 	'stablepages-none' => 'У цьому списку нема сторінок',
 	'stablepages-config' => 'Налаштування',
 	'stablepages-prec-none' => 'остання перевірена версія',

@@ -327,14 +327,14 @@ $messages['cu'] = array(
 /** German (Deutsch)
  * @author ChrisiPK
  * @author Melancholie
+ * @author The Evil IP address
  * @author Umherirrender
  */
 $messages['de'] = array(
 	'validationstatistics' => 'Markierungsstatistik',
-	'validationstatistics-users' => "'''{{SITENAME}}''' hat '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|Benutzer|Benutzer}} mit [[{{MediaWiki:Validationpage}}|Sichterrecht]]
-und '''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$2|Benutzer|Benutzer}} mit [[{{MediaWiki:Validationpage}}|Prüferrecht]].
+	'validationstatistics-users' => "'''{{SITENAME}}''' hat momentan '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|Benutzer|Benutzer}} mit [[{{MediaWiki:Validationpage}}|Sichterrecht]].
 
-Sichter und Prüfer sind anerkannte Benutzer, die Versionen einer Seite überprüfen können.",
+Sichter sind anerkannte Benutzer, die Versionen einer Seite überprüfen können.",
 	'validationstatistics-time' => "''Die folgenden Daten wurden zuletzt am $5 um $6 Uhr aktualisiert.''
 
 Die durchschnittliche Wartezeit für Bearbeitungen, die von nicht angemeldeten Benutzern stammen, beträgt '''$1'''; der Median beträgt '''$3'''.

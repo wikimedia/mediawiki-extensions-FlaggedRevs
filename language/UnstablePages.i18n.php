@@ -382,10 +382,11 @@ $messages['it'] = array(
 /** Japanese (日本語)
  * @author Aotake
  * @author Fryed-peach
+ * @author Whym
  */
 $messages['ja'] = array(
 	'unstablepages' => '固定されていないページ',
-	'unstablepages-stable' => '固定版',
+	'unstablepages-stable' => '公開版',
 	'unstablepages-text' => '以下では候補版を既定で閲覧者に表示するよう手動で設定されたページを一覧します。',
 	'unstablepages-none' => '表示すべきページはありません',
 	'unstablepages-config' => '設定',

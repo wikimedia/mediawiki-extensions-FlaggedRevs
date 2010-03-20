@@ -1141,7 +1141,7 @@ $messages['no'] = array(
  * @author Cedric31
  */
 $messages['oc'] = array(
-	'oldreviewedpages' => 'Paginas revistas fòra data',
+	'oldreviewedpages' => "Paginas qu'an de modificacions en espèra",
 	'oldreviewedpages-legend' => 'Listas de paginas revistas amb de versions pas visadas.',
 	'oldreviewedpages-list' => 'Aquesta pagina lista {{PLURAL:$1|una pagina ja revista que compòrta|de paginas ja revistas que compòrtan}} de modificacions novèlas.',
 	'oldreviewedpages-none' => 'Existís actualament pas cap de pagina respectant aquestes critèris',
