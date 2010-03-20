@@ -80,6 +80,8 @@ class ValidationStatistics extends IncludableSpecialPage
 		foreach ( $namespaces as $namespace ) {
 			$row = $this->db->selectRow( 'flaggedrevs_stats', '*',
 				array( 'namespace' => $namespace ) );
+			if( !$row ) continue; // NS added to config recently?
+
 			$NsText = $wgContLang->getFormattedNsText( $row->namespace );
 			$NsText = $NsText ? $NsText : wfMsgHTML( 'blanknamespace' );
 
