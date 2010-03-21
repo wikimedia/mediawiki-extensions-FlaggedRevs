@@ -175,7 +175,10 @@ $messages['bn'] = array(
 $messages['br'] = array(
 	'reviewedpages' => 'Pajennoù adwelet',
 	'reviewedpages-leg' => 'Rollañ ar pajennoù hag a zo bet adlennet',
-	'reviewedpages-list' => "Rollet eo war ar bajenn-mañ ar pajennoù bet adwelet (d'ar muiañ) d'al live spisaet.",
+	'reviewedpages-list' => "Rollet eo war ar bajenn-mañ ar pajennoù bet adwelet (d'ar muiañ) d'al live spisaet.
+
+Er roll-mañ ez eus pajennoù [[{{MediaWiki:Validationpage}}|adlennet]] enno unan anezho hag en deus tizhet al live ''uhelañ'' a adlenn resisaet.
+Al liamm kinniget a ya war-zu ar stumm ziwezhañ eus al live-se.",
 	'reviewedpages-none' => "N'eus pajenn ebet er roll",
 	'reviewedpages-lev-1' => 'Perzhded',
 	'reviewedpages-lev-2' => 'Lakaet war wel',
@@ -348,7 +351,7 @@ $messages['fa'] = array(
  */
 $messages['fi'] = array(
 	'reviewedpages' => 'Arvioidut sivut',
-	'reviewedpages-leg' => 'Listaa sivut korkeimman arviointitason mukaan',
+	'reviewedpages-leg' => 'Lista sivuista, jotka on arvioitu',
 	'reviewedpages-list' => 'Tämä sivu listaa sivut, jotka on arvioitu (korkeimmalle) annetulla tasolla.',
 	'reviewedpages-none' => 'Tällä listalla ei ole sivuja.',
 	'reviewedpages-lev-0' => '{{int:revreview-lev-basic}}',

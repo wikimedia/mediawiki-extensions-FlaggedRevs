@@ -338,7 +338,7 @@ $messages['fa'] = array(
  * @author Nike
  */
 $messages['fi'] = array(
-	'reviewedversions' => 'Näytä vakaat versiot',
+	'reviewedversions' => 'Tarkastetut versiot',
 	'reviewedversions-leg1' => 'Näytä sivun tarkastetut versiot',
 	'reviewedversions-page' => 'Sivun nimi',
 	'reviewedversions-none' => 'Sivusta ”[[:$1]]” ei ole tarkastettuja versioita.',

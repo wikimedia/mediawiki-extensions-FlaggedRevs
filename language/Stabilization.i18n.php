@@ -495,9 +495,10 @@ Setu an arventennoù red eus [[:$1|$1]] :",
 	'stabilization-page' => 'Anv ar bajenn :',
 	'stabilization-leg' => 'Kadarnaat arventennoù ar stumm embannet',
 	'stabilization-select' => 'kentwir diuzadur ar stumm embannet',
+	'stabilization-select2' => 'An adweladenn ziwezhañ bet gwiriet',
 	'stabilization-def1' => "Ar stumm embannet ; ma n'eus hini ebet, lakaat ar stumm red pe ar brouilhed",
 	'stabilization-def2' => 'Ar stumm red pe ar brouilhed',
-	'stabilization-restrict' => 'Strishadurioù adweladennoù emgefre',
+	'stabilization-restrict' => 'Strishadurioù adlenn/adlenn emgefre',
 	'stabilization-restrict-none' => 'Strishadurioù ouzhpenn ebet',
 	'stabilization-submit' => 'Kadarnaat',
 	'stabilization-notexists' => 'N\'eus pajenn ebet anvet "[[:$1|$1]]".
@@ -1045,7 +1046,7 @@ Tässä ovat nykyiset asetukset tunnukselle [[:$1|$1]]:',
 	'stabilization-leg' => 'Vahvista julkaistujen versioiden asetukset',
 	'stabilization-select' => 'Julkaistun version valintajärjestys',
 	'stabilization-select1' => 'Uusin laadukas versio; sitten uusin silmäilty',
-	'stabilization-select2' => 'Uusin arvioitu versio (riippumatta tarkistustasosta)',
+	'stabilization-select2' => 'Viimeisin tarkastettu versio',
 	'stabilization-def' => 'Versio, joka näytetään oletusarvoisesti',
 	'stabilization-def1' => 'Julkaistu versio; jos sellaista ei ole, ajantasainen- tai luonnosversio',
 	'stabilization-def2' => 'Luonnos- tai nykyinen versio',
@@ -1258,20 +1259,21 @@ $messages['gsw'] = array(
 	'stabilization' => 'Sytekonfiguration',
 	'stabilization-text' => "'''Tue d Yystellige ändere fir zum feschtzlege, wie di vereffetligt Version vu „[[:\$1|\$1]]“ usgwehlt un aazeigt soll wäre.'''
 
-Wänn d Konfigieration vu dr ''Uuswahl vu dr vereffetligte Versione'' gändertet wird go \"priefti\" oder \"reini\" 
-Versione as Standard z neh, stell sicher, ass es aktuäll sonigi Versione git, sunscht het s keini großi Uuswirkig.",
+'''Gib Acht:''' D Konfiguration vu dr ''Uuswahl vu dr vereffetligte Versione'' ändere go \"priefti\" oder \"reini\" Versione as Standard z neh, het kei Effäkt, wänn s keini sonige Versione het. Bitte gib druf Acht, ass e \"priefti\" Version au ne \"aagluegti\" Version isch.
+ sicher, ass es aktuäll sonigi Versione git, sunscht het s keini großi Uuswirkig.
+ sicher, ass es aktuäll sonigi Versione git, sunscht het s keini großi Uuswirkig.",
 	'stabilization-perm' => 'Du hesch nid d Berächtigung, zum die Yystellige vu dr vereffetligte Version z ändere.
 Di aktuällen Yystellige fir „[[:$1|$1]]“ sin:',
 	'stabilization-page' => 'Sytename:',
 	'stabilization-leg' => 'Yystellige vu dr vereffetligte Version fir e Syte',
 	'stabilization-select' => 'Dr Vorrang fir vereffetligti Versione feschtlege',
 	'stabilization-select1' => 'Di letscht prieft Version; wänn s keini het, no di letscht gsichtet Version',
-	'stabilization-select2' => 'Di letscht Version, wu vum Fäldhieter gsäh isch, uuabhängig vu dr Validierugsebeni',
+	'stabilization-select2' => 'Di letscht Version, wu vum Fäldhieter gsäh ischuuabhängig vu dr Validierugsebeni',
 	'stabilization-select3' => 'Di letscht urspringlig Version; wänn s keini het, derno di letscht Version, wu vum Fäldhieter gsäh oder prieft isch',
 	'stabilization-def' => 'Version, wu in dr normale Syteaasicht aazeigt wird',
 	'stabilization-def1' => 'Di vereffetligt Version; wänn s keini het, derno di aktuäll Version/d Entwurfsversion',
 	'stabilization-def2' => 'Di aktuäll Version',
-	'stabilization-restrict' => 'Auto-Review-Yyschränkige',
+	'stabilization-restrict' => 'Priefig/Automatischi Priefig-Yyschränkige',
 	'stabilization-restrict-none' => 'Keini extra Yyschränkige',
 	'stabilization-submit' => 'Bstätige',
 	'stabilization-notexists' => 'Es git kei Syte „[[:$1|$1]]“. Kei Yystellige megli.',
@@ -1440,19 +1442,19 @@ $messages['hsb'] = array(
 	'stabilization' => 'Stabilizacija strony',
 	'stabilization-text' => "'''Změń slědowace nastajenja, zo by postajił, kak so wozjewjena wersija wot [[:\$1|\$1]] wuběra a zwobraznja.'''
 
-Hdyž konfiguraciju ''wuběra wozjewjeneje wersije'' změniš, zo by \"kwalitnu\" abo \"prěnjotnu\" wersiju po standardźe wužiwał, skontroluj, hač su woprawdźe tajke wersije na stronje, hewak změna změje mało wuskutka.",
+'''Kedźbu:''' změnjenje ''wuběra wozjewjeneje wersije'', zo by so \"kwalitna\" abo \"prěnjotna\" wersija preferowała, njebudźe so wuskutkować, jeli tajke wersije njejsu. Wobkedźbujće tež, zo maja \"kwalitnu\" wersiju za \"skontrolowanu\" wersiju atd.",
 	'stabilization-perm' => 'Twoje wužiwarske konto nima trěbne prawo, zo by nastajenja wozjewjeneje wersije změniło.
 Aktualne nastajenja za „[[:$1|$1]]“ su:',
 	'stabilization-page' => 'Mjeno strony:',
 	'stabilization-leg' => 'Nastajenja za wozjewjenu wersiju potwjerdźić',
 	'stabilization-select' => 'Porjad wuběra wozjewjeneje wersije',
 	'stabilization-select1' => 'Poslednja pruwowana wersija; jeli žana njeje, potom poslednja přehladana wersija',
-	'stabilization-select2' => 'Poslednja přepruwowana wersija, njedźiwajo na runinu přepruwowanja',
+	'stabilization-select2' => 'Najnowša skontrolowana wersija',
 	'stabilization-select3' => 'Poslednja prěnjotna wersija; jeli njeeksistuje, da poslednja přepruwowana abo přehladana wersiaj',
 	'stabilization-def' => 'Wersija zwobraznjena w normalnym napohledźe strony',
 	'stabilization-def1' => 'Wozjewjena wersija; jeli žana njeeksistuje, da aktualna wersija abo naćisk',
 	'stabilization-def2' => 'Aktualna wersija/naćisk',
-	'stabilization-restrict' => 'Wobmjezowanja awtomatiskeho přepruwowanja',
+	'stabilization-restrict' => 'Wobmjezowanja přepruwowanjow/awtomatiskich přepruwowanjow',
 	'stabilization-restrict-none' => 'Žane přidatne wobmjezowanja',
 	'stabilization-submit' => 'Potwjerdźić',
 	'stabilization-notexists' => 'Njeje strona „[[:$1|$1]]“. Žana konfiguracija móžno.',
@@ -1965,21 +1967,21 @@ $messages['la'] = array(
 $messages['lb'] = array(
 	'stabilization-tab' => 'Astellung',
 	'stabilization' => 'Stabilisatioun vun der Säit',
-	'stabilization-text' => "'''Ännert d'Astellungen ënnendrënner fir anzestellen wéi déi publizéiert Versioun vu(n)  [[:\$1|\$1]] erausgesicht an ugewise gëtt.'''
+	'stabilization-text' => "'''Ännert d'Astellungen ënnendrënner fir anzestellen wéi déi publizéiert Versioun vu(n) [[:\$1|\$1]] erausgesicht an ugewise gëtt.'''
 
-Wann Dir d'Astellung fir ''d'Eraussiche vun der stabiler Versioun'' esou astellt datt Versioune \"Qualitéit'' oder ''Intakt'' als Standard ugewise ginn, da vergewëssert Iech dat et wierklech esou Versioune gëtt fir déi Säit, soss huet d'Ännerung wéineg Effekt.",
+'''Opgepasst:''' Wann Dir d'Astellung fir ''d'Eraussiche vun der stabiler Versioun'' esou astellt datt Versioune \"Qualitéit'' oder ''Intakt'' als Standard ugewise ginn, da vergewëssert Iech dat et wierklech esou Versioune gëtt fir déi Säit, soss huet d'Ännerung wéineg Effekt. Dent och drun datt eng ''Qualitéits''-Versioun och also nogekuckte Versioun gëllt a sou weider.",
 	'stabilization-perm' => "Äre Benotzerkont huet net d'Recht fir d'Astellung vun der publizéierter Versioun z'änneren.
 Hei sinn déi aktuell Astellunge fir [[:$1|$1]]:",
 	'stabilization-page' => 'Säitennumm:',
 	'stabilization-leg' => "Confirméiert d'publizéiert-Versiouns-Astellungen",
 	'stabilization-select' => 'Prioritéit vun der Auswiel vun der publizéierter Versioun',
 	'stabilization-select1' => 'Déi lescht Qualitéitsversioun; wann net, dann déi lescht gepréifte Versioun',
-	'stabilization-select2' => 'Déi lescht iwwerkuckte Versioun, ouni de Niveua vun der Validatioun a Betracht ze zéien',
+	'stabilization-select2' => 'Déi lescht nogekuckte Versioun',
 	'stabilization-select3' => 'Déi lescht intakt Versioun; duerno déi lescht Qualitéitsversioun; duerno déi lescht nogekuckte Versioun',
 	'stabilization-def' => 'Versioun déi als Standard beim Weise vun der Säit gewise gëtt',
 	'stabilization-def1' => 'Déi publizéiert Versioun; oder wann et keng gëtt, déi aktuell/Virbereedung',
 	'stabilization-def2' => 'Déi aktuell Versioun',
-	'stabilization-restrict' => 'Limitatioune vumautomatesche Nokucken',
+	'stabilization-restrict' => 'Limitatioune vum Nokucken/automatesche Nokucken',
 	'stabilization-restrict-none' => 'Keng speziell Restriktiounen',
 	'stabilization-submit' => 'Confirméieren',
 	'stabilization-notexists' => 'D\'Säit "[[:$1|$1]]" gëtt et net.
@@ -2064,22 +2066,21 @@ $messages['mhr'] = array(
 $messages['mk'] = array(
 	'stabilization-tab' => 'конфиг.',
 	'stabilization' => 'Стабилизација на страница',
-	'stabilization-text' => "'''Променете ги нагодувањата подолу за да наместите како објавената верзија на [[:$1|$1]] ќе биде избрана и прикажана.'''
+	'stabilization-text' => "'''Изменете ги поставките подолу за да прилагодите како се одбира и прикажува објавената верзија на [[:$1|$1]].'''
 
-Кога ја менувате конфигурацијата на ''изборот на објавена верзија'' за да користи верзии „квалитетна“ или „неменувана“ по основно,
-запаметете дека морате да проверите дали всушност постојат такви ревизии на страницата - во спротивно промената нема да има ефект.",
+'''Напомена:''' ако го смените параметарот за ''избор на објавена верзија'' во „квалитетна“ или „неменувана“, ова нема да има ефект ако не постојат такви верзии. Имајте на ум дека „квалитетните“ верзии се сметаат за „проверени“ верзии и така натаму.",
 	'stabilization-perm' => 'Вашата сметка нема дозвола за промена на конфигурацијата на објавената верзија.
 Еве ги моменталните нагодувања за [[:$1|$1]]:',
 	'stabilization-page' => 'Име на страница:',
 	'stabilization-leg' => 'Потврди нагодувања за објавена верзија',
 	'stabilization-select' => 'Редослед на избор на објавена верзија',
 	'stabilization-select1' => 'Последната квалитетна верзија; ако не постои, тогаш последната прегледана',
-	'stabilization-select2' => 'Последната прегледана верзија (без оглед на нивото на потврдување)',
+	'stabilization-select2' => 'Последна проверена ревизија',
 	'stabilization-select3' => 'Последната неменувана верзија; ако не постои, тогаш последната квалитетна или прегледана.',
 	'stabilization-def' => 'Верзија прикажана по основно при преглед на страница',
 	'stabilization-def1' => 'Објавената ревизија; ако не постои, тогаш моменталната/работната',
 	'stabilization-def2' => 'Моментална/работната верзија',
-	'stabilization-restrict' => 'Ограничувања на автопрегледувањето',
+	'stabilization-restrict' => 'Ограничувања на прегледување/автопрегледување',
 	'stabilization-restrict-none' => 'Нема дополнителни ограничувања',
 	'stabilization-submit' => 'Потврди',
 	'stabilization-notexists' => 'Нема страница насловена како "[[:$1|$1]]".
@@ -2115,12 +2116,12 @@ $messages['ml'] = array(
 	'stabilization-leg' => 'പ്രസിദ്ധീകരിക്കപ്പെട്ട പതിപ്പിന്റെ ക്രമീകരണങ്ങള്‍ സ്ഥിരീകരിക്കുക',
 	'stabilization-select' => 'പ്രസിദ്ധീകരിച്ച പതിപ്പിന്റെ തിരഞ്ഞെടുക്കല്‍ മുൻഗണന',
 	'stabilization-select1' => 'ഒടുവിലത്തെ ഗുണനിലവാരമുള്ള നാൾപ്പതിപ്പ്, പിന്നീട് ഒടുവിൽ ദർശിച്ച പതിപ്പ്',
-	'stabilization-select2' => 'അവസാനമായി സം‌ശോധനം നടത്തിയ നാൾപ്പതിപ്പ് (മൂല്യനിർണ്ണയ തലം കണക്കിലെടുക്കുന്നില്ല)',
+	'stabilization-select2' => 'അവസാനം പരിശോധിക്കപ്പെട്ട നാൾപ്പതിപ്പ്',
 	'stabilization-def' => 'താളിന്റെ സ്വതവേയുള്ള നിലയില്‍ പ്രദര്‍ശിപ്പിക്കുന്ന പതിപ്പ്',
 	'stabilization-def1' => 'പ്രസിദ്ധീകരിക്കപ്പെട്ട പതിപ്പ്;
 അതില്ലെങ്കില്‍ നിലവിലുള്ള/കരട് പതിപ്പ്',
 	'stabilization-def2' => 'നിലവിലുള്ള/കരട് പതിപ്പ്',
-	'stabilization-restrict' => 'പരിമിതപ്പെടുത്തലുകൾ സ്വയം പരിശോധന ചെയ്യുക',
+	'stabilization-restrict' => 'സംശോധന/സ്വയം-സംശോധന പരിമിതപ്പെടുത്തലുകൾ',
 	'stabilization-restrict-none' => 'കൂടുതൽ പരിമിതപ്പെടുത്തലുകളില്ല',
 	'stabilization-submit' => 'സ്ഥിരീകരിക്കുക',
 	'stabilization-notexists' => '"[[:$1|$1]]". എന്ന ഒരു താള്‍ നിലവിലില്ല. ക്രമീകരണങ്ങള്‍ നടത്തുന്നതിനു സാദ്ധ്യമല്ല.',
