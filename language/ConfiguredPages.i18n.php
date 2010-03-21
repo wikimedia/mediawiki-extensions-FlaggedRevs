@@ -21,3 +21,4 @@ Some settings might change which version is displayed to readers or further rest
 	'configuredpages-def-draft'     => 'latest version',
 	'configuredpages-def-stable'    => 'published version',
 );
+
