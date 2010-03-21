@@ -910,29 +910,27 @@ class FlaggedArticleView {
 
 	 /**
 	 * Add review form to pages when necessary
+	 * on a regular page view (action=view)
 	 */
 	public function addReviewForm( &$data ) {
 		global $wgRequest, $wgUser, $wgOut;
 		$this->load();
-		# User must have review rights and page must be reviewable
-		if ( !$wgUser->isAllowed( 'review' ) || !$this->article->exists()
-			|| !$this->article->isReviewable() )
-		{
+		# User must have review rights
+		if ( !$wgUser->isAllowed( 'review' ) ) {
 			return true;
 		}
-		# Avoid multi-page diffs that are useless and misbehave (bug 19327)
-		if ( $this->isMultiPageDiff ) {
+		# Page must exist and be reviewable
+		if ( !$this->article->exists() || !$this->article->isReviewable() ) {
 			return true;
 		}
 		# Check action and if page is protected
 		$action = $wgRequest->getVal( 'action', 'view' );
-		# Must be view/diff action...
-		if ( !self::isViewAction( $action ) ) {
+		# Must be view action...diffs handled elsewhere
+		if ( !self::isViewAction( $action ) || $wgRequest->getVal('diff') ) {
 			return true;
 		}
-		# Place the form at the top or bottom as most convenient
-		$onTop = $wgRequest->getVal( 'diff' ) || $this->isDiffFromStable;
-		$this->addQuickReview( $data, $onTop, false );
+		# Place the form at the bottom of the page
+		$data .= $this->buildQuickReview();
 		return true;
 	}
 
@@ -1121,10 +1119,14 @@ class FlaggedArticleView {
 	}
 
 	/**
-	* When comparing the stable revision to the current after editing a page, show
-	* a tag with some explaination for the diff.
+	* When viewing a diff:
+	* (a) Add the review form to the top of the page
+	* (b) Mark off which versions are checked or not
+	* (c) When comparing the stable revision to the current after editing a page:
+	* 	(i)  Show a tag with some explanation for the diff
+	*	(ii) List any template/file changes pending review
 	*/
-	public function addDiffNoticeAndIncludes( $diff, $oldRev, $newRev ) {
+	public function addToDiffView( $diff, $oldRev, $newRev ) {
 		global $wgRequest, $wgUser, $wgOut, $wgMemc;
 		$this->load();
 		# Exempt printer-friendly output
@@ -1135,141 +1137,181 @@ class FlaggedArticleView {
 		if ( $this->isMultiPageDiff ) {
 			return true;
 		}
-		# Page must be reviewable. UI may be limited to unobtrusive patrolling system.
+		# Page must be reviewable. Sanity check $oldRev.
 		if ( !$this->article->isReviewable() ) {
 			return true;
 		}
+		$frev = $this->article->getStableRev();
+		# Add link to diff-to-stable as needed
+		$form = $this->diffToStableLink( $frev );
 		# Check if this might be the diff to stable. If so, enhance it.
-		if ( $newRev->isCurrent() && $oldRev ) {
-			$article = new Article( $newRev->getTitle() );
-			$frev = $this->article->getStableRev();
-			if ( $frev && $frev->getRevId() == $oldRev->getID() ) {
-				global $wgParserCacheExpireTime;
-				# Check the page sync value cache...
-				$key = wfMemcKey( 'flaggedrevs', 'includesSynced', $article->getId() );
-				$value = FlaggedRevs::getMemcValue( $wgMemc->get( $key ), $article );
-				$synced = ( $value === "true" ) ? true : false; // default as false to trigger query
+		if ( $this->isDiffFromStable && $oldRev && $newRev ) {
+			global $wgParserCacheExpireTime;
+			# Check the page sync value cache...
+			$key = wfMemcKey( 'flaggedrevs', 'includesSynced', $this->article->getId() );
+			$value = FlaggedRevs::getMemcValue( $wgMemc->get( $key ), $this->article );
+			# Default sync val as false to trigger query
+			$synced = ( $value === "true" ) ? true : false;
 
-				$changeList = array();
+			$changeList = array();
 
-				# Try the cache. Uses format <page ID>-<UNIX timestamp>.
-				$key = wfMemcKey( 'stableDiffs', 'templates', $article->getId() );
-				$tmpChanges = FlaggedRevs::getMemcValue( $wgMemc->get( $key ), $article );
-				if ( empty( $tmpChanges ) && !$synced ) {
-					$tmpChanges = false; // don't use cache, it's not consistent
-				}
+			# Try the cache. Uses format <page ID>-<UNIX timestamp>.
+			$key = wfMemcKey( 'stableDiffs', 'templates', $this->article->getId() );
+			$tmpChanges = FlaggedRevs::getMemcValue( $wgMemc->get( $key ), $this->article );
+			if ( empty( $tmpChanges ) && !$synced ) {
+				$tmpChanges = false; // don't use cache, it's not consistent
+			}
+			# Make a list of each changed template...
+			if ( $tmpChanges === false ) {
+				$tmpChanges = $this->fetchTemplateChanges( $frev );
+				$wgMemc->set( $key, FlaggedRevs::makeMemcObj( $tmpChanges ),
+					$wgParserCacheExpireTime );
+			}
+			# Add change set to list
+			$changeList += $tmpChanges;
 
-				# Make a list of each changed template...
-				if ( $tmpChanges === false ) {
-					$tmpChanges = $this->fetchTemplateChanges( $frev );
-					$wgMemc->set( $key, FlaggedRevs::makeMemcObj( $tmpChanges ),
-						$wgParserCacheExpireTime );
-				}
-				# Add set to list
-				if ( $tmpChanges )
-					$changeList += $tmpChanges;
+			# Try the cache. Uses format <page ID>-<UNIX timestamp>.
+			$key = wfMemcKey( 'stableDiffs', 'images', $this->article->getId() );
+			$imgChanges = FlaggedRevs::getMemcValue( $wgMemc->get( $key ), $this->article );
+			if ( empty( $imgChanges ) && !$synced ) {
+				$imgChanges = false; // don't use cache, it's not consistent
+			}
+			// Get list of each changed image...
+			if ( $imgChanges === false ) {
+				$imgChanges = $this->fetchFileChanges( $frev );
+				$wgMemc->set( $key, FlaggedRevs::makeMemcObj( $imgChanges ),
+					$wgParserCacheExpireTime );
+			}
+			# Add change set to list
+			$changeList += $imgChanges;
 
-				# Try the cache. Uses format <page ID>-<UNIX timestamp>.
-				$key = wfMemcKey( 'stableDiffs', 'images', $article->getId() );
-				$imgChanges = FlaggedRevs::getMemcValue( $wgMemc->get( $key ), $article );
-				if ( empty( $imgChanges ) && !$synced ) {
-					$imgChanges = false; // don't use cache, it's not consistent
-				}
+			# Some important information...
+			$notice = '';
+			if ( count( $changeList ) > 0 ) {
+				$notice = '<br />' . wfMsgExt( 'revreview-update-use', array( 'parseinline' ) );
+			} elseif ( !$synced ) {
+				$diff->mTitle->invalidateCache(); // bad cache, said they were not synced
+			}
 
-				// Get list of each changed image...
-				if ( $imgChanges === false ) {
-					$imgChanges = $this->fetchFileChanges( $frev );
-					$wgMemc->set( $key, FlaggedRevs::makeMemcObj( $imgChanges ),
-						$wgParserCacheExpireTime );
-				}
-				if ( $imgChanges )
-					$changeList += $imgChanges;
-
-				# Some important information...
-				$notice = '';
-				if ( count( $changeList ) > 0 ) {
-					$notice = '<br />' . wfMsgExt( 'revreview-update-use', array( 'parseinline' ) );
-				} elseif ( !$synced ) {
-					$diff->mTitle->invalidateCache(); // bad cache, said they were not synced
-				}
-
-				# If the user is allowed to review, prompt them!
-				# Only those if there is something to actually review.
-				if ( count( $changeList ) || $newRev->getId() > $oldRev->getId() ) {
-					$css = 'flaggedrevs_diffnotice plainlinks';
-					if ( empty( $changeList ) && $wgUser->isAllowed( 'review' ) ) {
-						$wgOut->addHTML( "<div id='mw-fr-difftostable' class='$css'>" .
-							wfMsgExt( 'revreview-update-none', array( 'parseinline' ) ) .
-								$notice . '</div>' );
-					} elseif ( !empty( $changeList ) && $wgUser->isAllowed( 'review' ) ) {
-						$changeList = implode( ', ', $changeList );
-						$wgOut->addHTML( "<div id='mw-fr-difftostable' class='$css'>" .
-							wfMsgExt( 'revreview-update', array( 'parseinline' ) ) .
-								'&nbsp;' . $changeList . $notice . '</div>' );
-					} elseif ( !empty( $changeList ) ) {
-						$changeList = implode( ', ', $changeList );
-						$wgOut->addHTML( "<div id='mw-fr-difftostable' class='$css'>" .
-							wfMsgExt( 'revreview-update-includes', array( 'parseinline' ) ) .
-								'&nbsp;' . $changeList . $notice . '</div>' );
-					}
-				}
-
-				# Set a key to note that someone is viewing this
-				if ( $wgUser->isAllowed( 'review' ) ) {
-					$key = wfMemcKey( 'stableDiffs', 'underReview',
-						$oldRev->getID(), $newRev->getID() );
-					$wgMemc->set( $key, '1', 10 * 60 ); // 10 min
+			# If the user is allowed to review, prompt them!
+			# Only those if there is something to actually review.
+			if ( count( $changeList ) || $newRev->getId() > $oldRev->getId() ) {
+				$css = 'flaggedrevs_diffnotice plainlinks';
+				if ( empty( $changeList ) && $wgUser->isAllowed( 'review' ) ) {
+					$form .= "<div id='mw-fr-difftostable' class='$css'>" .
+						wfMsgExt( 'revreview-update-none', array( 'parseinline' ) ) .
+						$notice . '</div>';
+				} elseif ( !empty( $changeList ) && $wgUser->isAllowed( 'review' ) ) {
+					$changeList = implode( ', ', $changeList );
+					$form .= "<div id='mw-fr-difftostable' class='$css'>" .
+						wfMsgExt( 'revreview-update', array( 'parseinline' ) ) .
+						'&nbsp;' . $changeList . $notice . '</div>';
+				} elseif ( !empty( $changeList ) ) {
+					$changeList = implode( ', ', $changeList );
+					$form .= "<div id='mw-fr-difftostable' class='$css'>" .
+						wfMsgExt( 'revreview-update-includes', array( 'parseinline' ) ) .
+						'&nbsp;' . $changeList . $notice . '</div>';
 				}
 			}
+
+			# Set a key to note that someone is viewing this
+			if ( $wgUser->isAllowed( 'review' ) ) {
+				$this->markDiffUnderReview( $oldRev, $newRev );
+			}
 		}
-		$newRevQ = FlaggedRevs::getRevQuality( $newRev->getPage(), $newRev->getId() );
-		$oldRevQ = $oldRev
-			? FlaggedRevs::getRevQuality( $newRev->getPage(), $oldRev->getId() )
-			: false;
-		# Diff between two revisions
+
+		# Add diff review form
+		if ( $wgUser->isAllowed( 'review' ) ) {
+			$form .= $this->buildQuickReview();
+		}
+
+		# Show review status of the diff revision(s). Uses a <table>.
+		$form .= $this->diffReviewMarkers( $oldRev, $newRev );
+
+		$wgOut->addHtml( $form );
+
+		return true;
+	}
+
+	/**
+	* Add a link to diff-to-stable for reviewable pages
+	*/
+	protected function diffToStableLink( $frev ) {
+		global $wgUser, $wgOut;
+		$this->load();
+		$review = '';
+		# Make a link to the diff-to-stable if this is not already that diff
+		if ( $frev && !$this->isDiffFromStable ) {
+			$review = $wgUser->getSkin()->makeKnownLinkObj(
+				$this->article->getTitle(),
+				wfMsgHtml( 'review-diff2stable' ),
+				'oldid='.$frev->getRevId().'&diff=cur&diffonly=0'
+			);
+			$review = "<div class='fr-diff-to-stable' align='center'>($review)</div>";
+		}
+		return $review;
+	}
+
+	// add [checked version] and such to left and right side of diff
+	protected function diffReviewMarkers( $oldRev, $newRev ) {
+		$form = '';
+		$oldRevQ = $newRevQ = false;
 		if ( $oldRev ) {
-			$wgOut->addHTML( "<table class='fr-diff-ratings'><tr>" );
+			$oldRevQ = FlaggedRevs::getRevQuality( $oldRev->getPage(), $oldRev->getId() );
+		}
+		if ( $newRev ) {
+			$newRevQ = FlaggedRevs::getRevQuality( $newRev->getPage(), $newRev->getId() );
+		}
+		# Diff between two revisions
+		if ( $oldRev && $newRev ) {
+			$form .= "<table class='fr-diff-ratings'><tr>";
 
 			$class = FlaggedRevsXML::getQualityColor( $oldRevQ );
 			if ( $oldRevQ !== false ) {
-				$msg = $oldRevQ ? 'revreview-hist-quality' : 'revreview-hist-basic';
+				$msg = $oldRevQ
+					? 'revreview-hist-quality'
+					: 'revreview-hist-basic';
 			} else {
 				$msg = 'revreview-hist-draft';
 			}
-			$wgOut->addHTML( "<td width='50%' align='center'>" );
-			$wgOut->addHTML( "<span id='mw-fr-diff-ltier' class='$class'>[" .
-				wfMsgHtml( $msg ) . "]</span>" );
+			$form .= "<td width='50%' align='center'>";
+			$form .= "<span id='mw-fr-diff-ltier' class='$class'>[" .
+				wfMsgHtml( $msg ) . "]</span>";
 
 			$class = FlaggedRevsXML::getQualityColor( $newRevQ );
 			if ( $newRevQ !== false ) {
-				$msg = $newRevQ ? 'revreview-hist-quality' : 'revreview-hist-basic';
+				$msg = $newRevQ
+					? 'revreview-hist-quality'
+					: 'revreview-hist-basic';
 			} else {
 				$msg = 'revreview-hist-draft';
 			}
-			$wgOut->addHTML( "</td><td width='50%' align='center'>" );
-			$wgOut->addHTML( "<span id='mw-fr-diff-rtier' class='$class'>[" .
-				wfMsgHtml( $msg ) . "]</span>" );
+			$form .= "</td><td width='50%' align='center'>";
+			$form .= "<span id='mw-fr-diff-rtier' class='$class'>[" .
+				wfMsgHtml( $msg ) . "]</span>";
 
-			$wgOut->addHTML( '</td></tr></table>' );
+			$form .= '</td></tr></table>';
 		# New page "diffs" - just one rev
-		} else {
+		} elseif ( $newRev ) {
 			if ( $newRevQ !== false ) {
-				$msg = $newRevQ ? 'revreview-hist-quality' : 'revreview-hist-basic';
+				$msg = $newRevQ
+					? 'revreview-hist-quality'
+					: 'revreview-hist-basic';
 			} else {
 				$msg = 'revreview-hist-draft';
 			}
 			$class = FlaggedRevsXML::getQualityColor( $newRevQ );
-			$wgOut->addHTML(
+			$form .= 
 				"<table class='fr-diff-ratings'>" .
-				"<tr><td><span id='mw-fr-diff-rtier' class='$class' align='center'>" .
+				"<tr><td align='center'><span id='mw-fr-diff-rtier' class='$class'>" .
 				'[' . wfMsgHtml( $msg ) . ']' .
-				'</span></td></tr></table>'
-			);
+				'</span></td></tr></table>';
 		}
-		return true;
+		return $form;
 	}
-	
+
 	// Fetch template changes for a reviewed revision since review
+	// @returns array
 	protected function fetchTemplateChanges( $frev ) {
 		global $wgUser;
 		$skin = $wgUser->getSkin();
@@ -1303,6 +1345,7 @@ class FlaggedArticleView {
 	}
 	
 	// Fetch file changes for a reviewed revision since review
+	// @returns array
 	protected function fetchFileChanges( $frev ) {
 		global $wgUser;
 		$skin = $wgUser->getSkin();
@@ -1321,7 +1364,7 @@ class FlaggedArticleView {
 				'flaggedpages' => array( 'LEFT JOIN', 'fp_page_id = page_id' ),
 				'flaggedrevs' => array( 'LEFT JOIN',
 				'fr_page_id = fp_page_id AND fr_rev_id = fp_stable' ) )
-			);
+		);
 		$imgChanges = array();
 		while ( $row = $dbr->fetchObject( $ret ) ) {
 			$title = Title::makeTitleSafe( NS_FILE, $row->fi_name );
@@ -1335,6 +1378,12 @@ class FlaggedArticleView {
 			}
 		}
 		return $imgChanges;
+	}
+
+	protected function markDiffUnderReview( $oldRev, $newRev ) {
+		global $wgMemc;
+		$key = wfMemcKey( 'stableDiffs', 'underReview', $oldRev->getID(), $newRev->getID() );
+		$wgMemc->set( $key, '1', 10 * 60 ); // 10 min
 	}
 
 	/**
@@ -1353,34 +1402,6 @@ class FlaggedArticleView {
 				if ( $frev && $frev->getRevId() == $oldRev->getId() && $newRev->isCurrent() ) {
 					$this->isDiffFromStable = true;
 				}
-			}
-		}
-		return true;
-	}
-
-	/**
-	* Add a link to diff-to-stable for reviewable pages
-	*/
-	public function addDiffLink( $diff, $oldRev, $newRev ) {
-		global $wgUser, $wgOut;
-		$this->load();
-		// Both revs must exists and the page must be reviewable
-		if ( !$newRev || !$oldRev || !$this->article->isReviewable() ) {
-			return true; // nothing to do
-		}
-		// Is there a stable version?
-		$frev = $this->article->getStableRev();
-		# Give a link to the diff-to-stable if needed
-		if ( $frev && !$this->isDiffFromStable ) {
-			$article = new Article( $newRev->getTitle() );
-			# Is the stable revision using the same revision as the current?
-			if ( $article->getLatest() != $frev->getRevId() ) {
-				$patrol = $wgUser->getSkin()->makeKnownLinkObj(
-					$newRev->getTitle(),
-					wfMsgHtml( 'review-diff2stable' ),
-					"oldid={$frev->getRevId()}&diff=cur&diffonly=0"
-				);
-				$wgOut->addHTML( "<div class='fr-diff-to-stable' align='center'>($patrol)</div>" );
 			}
 		}
 		return true;
@@ -1478,12 +1499,10 @@ class FlaggedArticleView {
 	}
 
 	 /**
-	 * Adds a brief review form to a page.
-	 * @param string $data
-	 * @param bool $top, should this form always go on top?
-	 * @param bool $hide
+	 * Generates a brief review form for a page.
+	 * @return mixed (string/false)
 	 */
-	public function addQuickReview( &$data, $top = false, $hide = false ) {
+	public function buildQuickReview() {
 		global $wgOut, $wgUser, $wgRequest;
 		$this->load();
 		if ( $wgOut->isPrintable() ) {
@@ -1544,9 +1563,6 @@ class FlaggedArticleView {
 		$reviewTitle = SpecialPage::getTitleFor( 'RevisionReview' );
 		$action = $reviewTitle->getLocalUrl( 'action=submit' );
 		$params = array( 'method' => 'post', 'action' => $action, 'id' => 'mw-fr-reviewform' );
-		if ( $hide ) {
-			$params['class'] = 'fr-hiddenform';
-		}
 		$form = Xml::openElement( 'form', $params );
 		$form .= Xml::openElement( 'fieldset',
 			array( 'class' => 'flaggedrevs_reviewform noprint' ) );
@@ -1658,13 +1674,7 @@ class FlaggedArticleView {
 
 		$form .= Xml::closeElement( 'fieldset' );
 		$form .= Xml::closeElement( 'form' );
-		# Place form at the correct position specified by $top
-		if ( $top ) {
-			$wgOut->prependHTML( $form );
-		} else {
-			$data .= $form;
-		}
-		return true;
+		return $form;
 	}
 
 	/**

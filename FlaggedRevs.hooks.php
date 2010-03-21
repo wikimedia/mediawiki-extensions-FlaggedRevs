@@ -1816,7 +1816,9 @@ class FlaggedRevsHooks {
 		if ( !isset( $row->fr_quality ) ) {
 			if ( $revId > $history->fr_stableRevId ) {
 				$class = 'flaggedrevs-unreviewed';
-				$link = '<strong>' . wfMsgHtml( 'revreview-hist-pending' ) . '</strong>';
+				$link = wfMsgExt( 'revreview-hist-pending', 'parseinline',
+					$title->getPrefixedText(), $history->fr_stableRevId, $revId );
+				$link = '<span class="plainlinks">' . $link . '</span>';
 				$history->fr_pendingRevs = true; // pending rev shown above stable
 			}
 		// Reviewed revision: highlight and add link
@@ -1943,8 +1945,7 @@ class FlaggedRevsHooks {
 		self::injectStyleAndJS();
 		$view = FlaggedArticleView::singleton();
 		$view->setViewFlags( $diff, $oldRev, $newRev );
-		$view->addDiffLink( $diff, $oldRev, $newRev );
-		$view->addDiffNoticeAndIncludes( $diff, $oldRev, $newRev );
+		$view->addToDiffView( $diff, $oldRev, $newRev );
 		return true;
 	}
 
