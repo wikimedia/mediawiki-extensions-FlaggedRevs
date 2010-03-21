@@ -197,20 +197,32 @@ Please check the URL you used to access this page.',
 	
 	'revreview-filter-all'         => 'all',
 	'revreview-filter-stable'      => 'published',
+	
+	'revreview-statusfilter'       => 'Status change:',
 	'revreview-filter-approved'    => 'Approved',
 	'revreview-filter-reapproved'  => 'Re-approved',
 	'revreview-filter-unapproved'  => 'Unapproved',
+	
+	'revreview-typefilter'         => 'Type:',
 	'revreview-filter-auto'        => 'Automatic',
 	'revreview-filter-manual'      => 'Manual',
-	'revreview-statusfilter'       => 'Status change:',
-	'revreview-typefilter'         => 'Type:',
-	'revreview-levelfilter'        => 'Level:',
 
+	'revreview-levelfilter'        => 'Level:',
+	'revreview-precedencefilter'   => 'Precedence:',
 	'revreview-lev-all'            => 'any',
 	'revreview-lev-basic'          => 'checked',
 	'revreview-lev-quality'        => 'quality',
 	'revreview-lev-pristine'       => 'pristine',
-	
+
+	'revreview-defaultfilter'      => 'Default version:',
+	'revreview-def-all'            => 'any',
+	'revreview-def-draft'          => 'latest',
+	'revreview-def-stable'         => 'published',
+
+	'revreview-restrictfilter'     => 'Restriction level:',
+	'revreview-restriction-any'    => 'any',
+	'revreview-restriction-none'   => 'none',
+
 	'revreview-reviewlink'         => 'review',
 	
 	'tooltip-ca-current'           => 'View this page with pending changes',

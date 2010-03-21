@@ -9,13 +9,9 @@ $messages = array();
 
 $messages['en'] = array(
 	'stablepages'               => 'Pages using edit approval',
-	'stablepages-text'          => 'Below is a list of pages manually configured to show the published version as the default page content for readers.',
-	'stablepages-none'          => 'There are no pages in this list',
+	'stablepages-text'          => 'Below is a list of pages that are restricted so that only certain users can make edits that don\'t require review. Such edits are not published until an authorized user reviews them.',
+	'stablepages-none'          => 'There are no pages in this list.',
 	'stablepages-config'        => 'Configuration',
-	'stablepages-prec-none'     => 'latest checked',
-	'stablepages-prec-quality'  => 'latest quality',
-	'stablepages-prec-pristine' => 'latest pristine',
-	'stablepages-precedence'    => 'Precedence:',
 );
 
 /** Message documentation (Message documentation)

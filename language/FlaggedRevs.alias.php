@@ -18,9 +18,9 @@ $aliases['en'] = array(
 	'RevisionReview' => array( 'RevisionReview' ),
 	'Stabilization' => array( 'Stabilization', 'Stabilisation' ),
 	'StablePages' => array( 'StablePages' ),
+    'ConfiguredPages' => array( 'ConfiguredPages' ),
 	'ReviewedVersions' => array( 'ReviewedVersions', 'StableVersions' /*old name*/ ),
 	'UnreviewedPages' => array( 'UnreviewedPages' ),
-	'UnstablePages' => array( 'UnstablePages' ),
 	'ValidationStatistics' => array( 'ValidationStatistics' ),
 );
 
@@ -44,7 +44,6 @@ $aliases['ar'] = array(
 	'StablePages' => array( 'صفحات_مستقرة' ),
 	'ReviewedVersions' => array( 'نسخ_مراجعة', 'نسخ_مستقرة' ),
 	'UnreviewedPages' => array( 'صفحات_غير_مراجعة' ),
-	'UnstablePages' => array( 'صفحات_غير_مستقرة' ),
 	'ValidationStatistics' => array( 'إحصاءات_التحقق' ),
 );
 
@@ -59,7 +58,6 @@ $aliases['arz'] = array(
 	'StablePages' => array( 'صفحات_مستقرة' ),
 	'ReviewedVersions' => array( 'نسخ_مراجعة', 'نسخ_مستقرة' ),
 	'UnreviewedPages' => array( 'صفحات_مش_مراجعة' ),
-	'UnstablePages' => array( 'صفحات_مش_مستقرة' ),
 	'ValidationStatistics' => array( 'إحصاءات_التحقق' ),
 );
 
@@ -86,7 +84,6 @@ $aliases['bs'] = array(
 	'Stabilization' => array( 'Stabilizacija' ),
 	'StablePages' => array( 'StabilneStranice' ),
 	'UnreviewedPages' => array( 'NeprovjereneStranice' ),
-	'UnstablePages' => array( 'NestabilneStranice' ),
 	'ValidationStatistics' => array( 'StatistikeValidacije' ),
 );
 
@@ -99,7 +96,6 @@ $aliases['de'] = array(
 	'Stabilization' => array( 'Seitenkonfiguration', 'Stabilisierung' ),
 	'StablePages' => array( 'Konfigurierte Seiten' ),
 	'UnreviewedPages' => array( 'Ungesichtete Seiten' ),
-	'UnstablePages' => array( 'Unstabile Seiten' ),
 	'ValidationStatistics' => array( 'Markierungsstatistik' ),
 );
 
@@ -112,7 +108,6 @@ $aliases['dsb'] = array(
 	'Stabilization' => array( 'Stabilizacija' ),
 	'StablePages' => array( 'Stabilne boki' ),
 	'UnreviewedPages' => array( 'Njepśeglědane boki' ),
-	'UnstablePages' => array( 'Njestabilne boki' ),
 	'ValidationStatistics' => array( 'Statistika pśeglědanjow' ),
 );
 
@@ -141,7 +136,6 @@ $aliases['fa'] = array(
 	'StablePages' => array( 'صفحه‌های_پایدار' ),
 	'ReviewedVersions' => array( 'نسخه‌های_پایدار' ),
 	'UnreviewedPages' => array( 'صفحه‌های‌بازبینی‌نشده' ),
-	'UnstablePages' => array( 'صفحه‌های_ناپایدار' ),
 	'ValidationStatistics' => array( 'آمار_تاییدها' ),
 );
 
@@ -151,7 +145,6 @@ $aliases['fi'] = array(
 	'Stabilization' => array( 'Vakaaksi versioksi' ),
 	'StablePages' => array( 'Vakaat sivut' ),
 	'UnreviewedPages' => array( 'Arvioimattomat sivut' ),
-	'UnstablePages' => array( 'Epävakaat sivut' ),
 );
 
 /** French (Français) */
@@ -162,7 +155,6 @@ $aliases['fr'] = array(
 	'RevisionReview' => array( 'Relecture des révisions' ),
 	'StablePages' => array( 'Pages stables' ),
 	'UnreviewedPages' => array( 'Pages non relues' ),
-	'UnstablePages' => array( 'Pages instables' ),
 	'ValidationStatistics' => array( 'Statistiques de validation' ),
 );
 
@@ -175,7 +167,6 @@ $aliases['frp'] = array(
 	'Stabilization' => array( 'Stabilisacion' ),
 	'StablePages' => array( 'Pâges stâbles', 'PâgesStâbles' ),
 	'UnreviewedPages' => array( 'Pâges pas revues', 'PâgesPasRevues' ),
-	'UnstablePages' => array( 'Pâges enstâbles', 'PâgesEnstâbles' ),
 	'ValidationStatistics' => array( 'Statistiques de validacion', 'StatistiquesDeValidacion' ),
 );
 
@@ -188,7 +179,6 @@ $aliases['gl'] = array(
 	'Stabilization' => array( 'Estabilización' ),
 	'StablePages' => array( 'Páxinas estábeis' ),
 	'UnreviewedPages' => array( 'Páxinas non revisadas' ),
-	'UnstablePages' => array( 'Páxinas non estables' ),
 	'ValidationStatistics' => array( 'Estatísticas de validación' ),
 );
 
@@ -201,7 +191,6 @@ $aliases['gsw'] = array(
 	'Stabilization' => array( 'Sytekonfiguration' ),
 	'StablePages' => array( 'Konfigurierti Syte' ),
 	'UnreviewedPages' => array( 'Syte wu nit gsichtet sin' ),
-	'UnstablePages' => array( 'Syte wu nit konfiguriert sin' ),
 	'ValidationStatistics' => array( 'Markierigsstatischtik' ),
 );
 
@@ -238,7 +227,6 @@ $aliases['hsb'] = array(
 	'Stabilization' => array( 'Stabilizacija' ),
 	'StablePages' => array( 'Stabilne strony' ),
 	'UnreviewedPages' => array( 'Njepřehladane strony' ),
-	'UnstablePages' => array( 'Njestabilne strony' ),
 	'ValidationStatistics' => array( 'Statistika přehladanjow' ),
 );
 
@@ -251,7 +239,6 @@ $aliases['hu'] = array(
 	'Stabilization' => array( 'Lap rögzítése' ),
 	'StablePages' => array( 'Rögzített lapok' ),
 	'UnreviewedPages' => array( 'Ellenőrizetlen lapok' ),
-	'UnstablePages' => array( 'Nem rögzített lapok', 'Rögzítetlen lapok' ),
 	'ValidationStatistics' => array( 'Ellenőrzési statisztika' ),
 );
 
@@ -265,7 +252,6 @@ $aliases['ia'] = array(
 	'StablePages' => array( 'Paginas publicate', 'Paginas stabile' ),
 	'ReviewedVersions' => array( 'Versiones revidite', 'Versiones stabile' ),
 	'UnreviewedPages' => array( 'Paginas non revidite' ),
-	'UnstablePages' => array( 'Paginas non stabile' ),
 	'ValidationStatistics' => array( 'Statisticas de validation' ),
 );
 
@@ -279,7 +265,6 @@ $aliases['id'] = array(
 	'Stabilization' => array( 'Stabilisasi' ),
 	'StablePages' => array( 'Halaman stabil', 'HalamanStabil' ),
 	'UnreviewedPages' => array( 'Halaman yang belum ditinjau', 'HalamanBelumDitinjau' ),
-	'UnstablePages' => array( 'Halaman tak stabil', 'HalamanTakStabil' ),
 	'ValidationStatistics' => array( 'Statistik validasi', 'StatistikValidasi' ),
 );
 
@@ -293,7 +278,6 @@ $aliases['ja'] = array(
 	'Stabilization' => array( '固定', '採択', 'ページの採択' ),
 	'StablePages' => array( '固定ページ', '安定ページ', '採用ページ' ),
 	'UnreviewedPages' => array( '未査読ページ', '査読待ちページ' ),
-	'UnstablePages' => array( '未固定ページ', '非安定ページ' ),
 	'ValidationStatistics' => array( '判定統計' ),
 );
 
@@ -314,7 +298,6 @@ $aliases['lb'] = array(
 	'StablePages' => array( 'Stabil Säiten' ),
 	'ReviewedVersions' => array( 'Stabil Versiounen' ),
 	'UnreviewedPages' => array( 'Net iwwerpréifte Säiten' ),
-	'UnstablePages' => array( 'Net stabil Säiten' ),
 	'ValidationStatistics' => array( 'Statistik vun den iwwerpréifte Säiten' ),
 );
 
@@ -329,7 +312,6 @@ $aliases['mk'] = array(
 	'StablePages' => array( 'СтабилниСтраници' ),
 	'ReviewedVersions' => array( 'ПрегледаниВерзии', 'СтабилниВерзии' ),
 	'UnreviewedPages' => array( 'НепрегледаниСтраници' ),
-	'UnstablePages' => array( 'НестабилниСтраници' ),
 	'ValidationStatistics' => array( 'ВалидацискиСтатистики' ),
 );
 
@@ -344,7 +326,6 @@ $aliases['ml'] = array(
 	'StablePages' => array( 'സ്ഥിരതാളുകള്‍' ),
 	'ReviewedVersions' => array( 'സംശോധിതപതിപ്പുകൾ', 'സ്ഥിരതയുള്ള പതിപ്പുകൾ' ),
 	'UnreviewedPages' => array( 'സംശോധനംചെയ്യാത്തതാളുകൾ' ),
-	'UnstablePages' => array( 'അസ്ഥിരതാളുകള്‍' ),
 	'ValidationStatistics' => array( 'മൂല്യനിർണ്ണയസ്ഥിതിവിവരം' ),
 );
 
@@ -357,7 +338,6 @@ $aliases['mr'] = array(
 	'Stabilization' => array( 'स्थिरीकरण' ),
 	'StablePages' => array( 'स्थिरपाने' ),
 	'UnreviewedPages' => array( 'नतपासलेलीपाने' ),
-	'UnstablePages' => array( 'अस्थीरपाने' ),
 );
 
 /** Malay (Bahasa Melayu) */
@@ -379,7 +359,6 @@ $aliases['nds-nl'] = array(
 	'Stabilization' => array( 'Stabilisasie' ),
 	'StablePages' => array( "Stebiele_pagina's" ),
 	'UnreviewedPages' => array( "Pagina's_zonder_eindredactie" ),
-	'UnstablePages' => array( "Instebiele_pagina's" ),
 	'ValidationStatistics' => array( 'Eindredactiestaotestieken' ),
 );
 
@@ -394,7 +373,6 @@ $aliases['nl'] = array(
 	'StablePages' => array( 'StabielePaginas', "StabielePagina's" ),
 	'ReviewedVersions' => array( 'GecontroleerdeVersies', 'StabieleVersies' ),
 	'UnreviewedPages' => array( 'PaginasZonderEindredactie', "Pagina'sZonderEindredactie" ),
-	'UnstablePages' => array( 'InstabielePaginas', "InstabielePagina's" ),
 	'ValidationStatistics' => array( 'Eindredactiestatistieken', 'StatistiekenEindredactie' ),
 );
 
@@ -407,7 +385,6 @@ $aliases['nn'] = array(
 	'Stabilization' => array( 'Stabilisering' ),
 	'StablePages' => array( 'Stabile sider' ),
 	'UnreviewedPages' => array( 'Ikkje-vurderte sider' ),
-	'UnstablePages' => array( 'Ustabile sider' ),
 	'ValidationStatistics' => array( 'Valideringsstatistikk' ),
 );
 
@@ -422,7 +399,6 @@ $aliases['no'] = array(
 	'StablePages' => array( 'Stabile sider' ),
 	'ReviewedVersions' => array( 'Gjennomgåtte sider' ),
 	'UnreviewedPages' => array( 'Ikke-gjennomgåtte sider' ),
-	'UnstablePages' => array( 'Ustabile sider' ),
 	'ValidationStatistics' => array( 'Valideringsstatistikk' ),
 );
 
@@ -434,7 +410,6 @@ $aliases['oc'] = array(
 	'RevisionReview' => array( 'Relectura de las revisions' ),
 	'StablePages' => array( 'Paginas establas', 'PaginasEstablas' ),
 	'UnreviewedPages' => array( 'Paginas pas relegidas', 'PaginasPasRelegidas' ),
-	'UnstablePages' => array( 'Paginas instablas', 'PaginasInstablas', 'PaginasPas Relegidas' ),
 );
 
 /** Polish (Polski) */
@@ -447,7 +422,6 @@ $aliases['pl'] = array(
 	'Stabilization' => array( 'Konfiguracja strony' ),
 	'StablePages' => array( 'Strony stabilizowane', 'Strony z domyślnie pokazywaną wersją oznaczoną' ),
 	'UnreviewedPages' => array( 'Nieprzejrzane strony' ),
-	'UnstablePages' => array( 'Strony destabilizowane', 'Strony z domyślnie pokazywaną wersją bieżącą' ),
 	'ValidationStatistics' => array( 'Statystyki oznaczania' ),
 );
 
@@ -461,7 +435,6 @@ $aliases['pt'] = array(
 	'StablePages' => array( 'Páginas estáveis' ),
 	'ReviewedVersions' => array( 'Versões revistas' ),
 	'UnreviewedPages' => array( 'Páginas a analisar' ),
-	'UnstablePages' => array( 'Páginas instáveis' ),
 	'ValidationStatistics' => array( 'Estatísticas de validação' ),
 );
 
@@ -474,7 +447,6 @@ $aliases['pt-br'] = array(
 	'Stabilization' => array( 'Estabilização' ),
 	'StablePages' => array( 'Páginas_estáveis' ),
 	'UnreviewedPages' => array( 'Páginas_a_analisar' ),
-	'UnstablePages' => array( 'Páginas instáveis' ),
 	'ValidationStatistics' => array( 'Estatísticas de validação' ),
 );
 
@@ -487,7 +459,6 @@ $aliases['sa'] = array(
 	'Stabilization' => array( 'स्वास्थ्य' ),
 	'StablePages' => array( 'स्वस्थपृष्ठ' ),
 	'UnreviewedPages' => array( 'असमसमीक्षीतपृष्ठ:' ),
-	'UnstablePages' => array( 'अस्थीरपृष्ठ' ),
 	'ValidationStatistics' => array( 'उपयोगितासिद्धीसांख्यिकी' ),
 );
 
@@ -501,7 +472,6 @@ $aliases['sk'] = array(
 	'Stabilization' => array( 'Stabilizácia' ),
 	'StablePages' => array( 'StabilnéStránky' ),
 	'UnreviewedPages' => array( 'NeskontrolovanéStránky' ),
-	'UnstablePages' => array( 'NestabilnéStránky' ),
 	'ValidationStatistics' => array( 'ŠtatistikaOverovania' ),
 );
 
@@ -509,7 +479,6 @@ $aliases['sk'] = array(
 $aliases['sq'] = array(
 	'Stabilization' => array( 'Stabilizim' ),
 	'StablePages' => array( 'FaqetStabile' ),
-	'UnstablePages' => array( 'FaqetJoStabile' ),
 );
 
 /** Serbian Cyrillic ekavian (Српски (ћирилица)) */
@@ -530,7 +499,6 @@ $aliases['sv'] = array(
 	'Stabilization' => array( 'Stabilisering' ),
 	'StablePages' => array( 'Stabila sidor' ),
 	'UnreviewedPages' => array( 'Ogranskade sidor' ),
-	'UnstablePages' => array( 'Ostabila sidor' ),
 	'ValidationStatistics' => array( 'Valideringsstatistik' ),
 );
 
@@ -541,7 +509,6 @@ $aliases['sw'] = array(
 	'Stabilization' => array( 'Uimalishaji' ),
 	'StablePages' => array( 'KurasaImara' ),
 	'UnreviewedPages' => array( 'KurasaZisizoonyeshwa' ),
-	'UnstablePages' => array( 'KurasaZisizomadhubuti' ),
 	'ValidationStatistics' => array( 'TakwimuIliyosahihi' ),
 );
 
@@ -554,7 +521,6 @@ $aliases['tl'] = array(
 	'Stabilization' => array( 'Pagpapatatag', 'pagpapatibay' ),
 	'StablePages' => array( 'Matatag na mga pahina' ),
 	'UnreviewedPages' => array( 'Mga pahina hindi pa nasusuri' ),
-	'UnstablePages' => array( 'Hindi matatag na mga pahina' ),
 	'ValidationStatistics' => array( 'Mga estadistika ng pagtitiyak' ),
 );
 
@@ -569,7 +535,6 @@ $aliases['tr'] = array(
 	'StablePages' => array( 'StabilSayfalar', 'İstikrarlıSayfalar' ),
 	'ReviewedVersions' => array( 'İncelenmişSürümler', 'StabilSürümler' ),
 	'UnreviewedPages' => array( 'İncelenmemişSayfalar' ),
-	'UnstablePages' => array( 'StabilOlmayanSayfalar', 'İstikrarsızSayfalar' ),
 	'ValidationStatistics' => array( 'Doğrulamaİstatistikleri' ),
 );
 
@@ -580,7 +545,6 @@ $aliases['vec'] = array(
 	'ReviewedPages' => array( 'PagineRiesaminà' ),
 	'StablePages' => array( 'PagineStabili' ),
 	'UnreviewedPages' => array( 'PagineNonRiesaminà' ),
-	'UnstablePages' => array( 'PagineMiaStabili' ),
 	'ValidationStatistics' => array( 'StatìstegheDeValidassion' ),
 );
 

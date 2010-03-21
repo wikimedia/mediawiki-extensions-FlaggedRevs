@@ -69,14 +69,13 @@ class ApiStabilize extends ApiBase {
 			# Fill in config from the protection level...
 			$selected = $params['protectlevel'];
 			if( $selected == "none" ) {
-				$form->override = (int)FlaggedRevs::isStableShownByDefault(); // default
 				$form->autoreview = ''; // default
 			} else if( in_array( $selected, $levels ) ) {
-				$form->override = 1; // stable page
 				$form->autoreview = $selected; // autoreview restriction
 			} else {
 				$this->dieUsage( "Invalid protection level given.", 'badprotectlevel' );
 			}
+			$form->override = null; // implied by autoreview level
 			$form->select = null; // site default
 		} else {
 			// Fill in config fields from URL params

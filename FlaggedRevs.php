@@ -361,14 +361,14 @@ $wgSpecialPageGroups['ProblemChanges'] = 'quality';
 $wgAutoloadClasses['ReviewedPages'] = $dir . 'specialpages/ReviewedPages_body.php';
 $wgExtensionMessagesFiles['ReviewedPages'] = $langDir . 'ReviewedPages.i18n.php';
 $wgSpecialPageGroups['ReviewedPages'] = 'quality';
-# Load stable pages list
+# Load stable pages list (for protection config)
 $wgAutoloadClasses['StablePages'] = $dir . 'specialpages/StablePages_body.php';
 $wgExtensionMessagesFiles['StablePages'] = $langDir . 'StablePages.i18n.php';
 $wgSpecialPageGroups['StablePages'] = 'quality';
-# Load unstable pages list
-$wgAutoloadClasses['UnstablePages'] = $dir . 'specialpages/UnstablePages_body.php';
-$wgExtensionMessagesFiles['UnstablePages'] = $langDir . 'UnstablePages.i18n.php';
-$wgSpecialPageGroups['UnstablePages'] = 'quality';
+# Load configured pages list (non-protection config)
+$wgAutoloadClasses['ConfiguredPages'] = $dir . 'specialpages/ConfiguredPages_body.php';
+$wgExtensionMessagesFiles['ConfiguredPages'] = $langDir . 'ConfiguredPages.i18n.php';
+$wgSpecialPageGroups['ConfiguredPages'] = 'quality';
 # To oversee quality revisions
 $wgAutoloadClasses['QualityOversight'] = $dir . 'specialpages/QualityOversight_body.php';
 $wgExtensionMessagesFiles['QualityOversight'] = $langDir . 'QualityOversight.i18n.php';

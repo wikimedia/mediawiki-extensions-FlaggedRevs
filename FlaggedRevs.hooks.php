@@ -13,10 +13,6 @@ class FlaggedRevsHooks {
 		}
 		$list['RevisionReview'] = $wgSpecialPages['RevisionReview'] = 'RevisionReview';
 		$list['ReviewedVersions'] = $wgSpecialPages['ReviewedVersions'] = 'ReviewedVersions';
-		// Protect levels define allowed stability settings
-		if ( !FlaggedRevs::useProtectionLevels() ) {
-			$list['Stabilization'] = $wgSpecialPages['Stabilization'] = 'Stabilization';
-		}
 		$list['UnreviewedPages'] = $wgSpecialPages['UnreviewedPages'] = 'UnreviewedPages';
 		$list['OldReviewedPages'] = $wgSpecialPages['OldReviewedPages'] = 'OldReviewedPages';
 		// Show tag filtered pending edit page if there are tags
@@ -28,10 +24,12 @@ class FlaggedRevsHooks {
 		}
 		$list['QualityOversight'] = $wgSpecialPages['QualityOversight'] = 'QualityOversight';
 		$list['ValidationStatistics'] = $wgSpecialPages['ValidationStatistics'] = 'ValidationStatistics';
-		if ( !FlaggedRevs::isStableShownByDefault() ) {
+		// Protect levels define allowed stability settings
+		if ( FlaggedRevs::useProtectionLevels() ) {
 			$list['StablePages'] = $wgSpecialPages['StablePages'] = 'StablePages';
 		} else {
-			$list['UnstablePages'] = $wgSpecialPages['UnstablePages'] = 'UnstablePages';
+			$list['ConfiguredPages'] = $wgSpecialPages['ConfiguredPages'] = 'ConfiguredPages';
+			$list['Stabilization'] = $wgSpecialPages['Stabilization'] = 'Stabilization';
 		}
 		return true;
 	}
@@ -2192,7 +2190,7 @@ class FlaggedRevsHooks {
 		LogEventsList::showLogExtract( $out, 'stable', $article->getTitle()->getPrefixedText() );
 		return true;
 	}
-	
+
 	// Update stability config from request
 	public static function onProtectionSave( $article, &$errorMsg ) {
 		global $wgUser, $wgRequest;
@@ -2213,19 +2211,17 @@ class FlaggedRevsHooks {
 		$form->expiry = $wgRequest->getText( 'mwStabilize-expiry' ); # Expiry
 		$form->expirySelection = $wgRequest->getVal( 'wpExpirySelection' ); # Expiry dropdown
 		# Fill in config from the protection level...
-		$levels = FlaggedRevs::getRestrictionLevels();
-		$selected = $wgRequest->getVal( 'mwStabilityConfig' );
-		if ( $selected == "none" ) {
-			$form->override = (int)FlaggedRevs::isStableShownByDefault(); // default
+		$permission = $wgRequest->getVal( 'mwStabilityConfig' );
+		if ( $permission == "none" ) {
 			$form->autoreview = ''; // default
 			$form->reviewThis = false;
-		} else if ( in_array( $selected, $levels ) ) {
-			$form->override = 1; // stable page
-			$form->autoreview = $selected; // autoreview restriction
+		} else if ( in_array( $permission, FlaggedRevs::getRestrictionLevels() ) ) {
+			$form->autoreview = $permission; // autoreview restriction
 			$form->reviewThis = true; // auto-review page; protection-like
 		} else {
-			return false; // bad level
+			return false; // bad level, don't save!
 		}
+		$form->override = null; // implied by autoreview level
 		$form->select = null; // site default
 		$form->wasPosted = $wgRequest->wasPosted();
 		if ( $form->handleParams() ) {

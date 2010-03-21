@@ -4,11 +4,11 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 	exit( 1 );
 }
 
-// Assumes $wgFlaggedRevsProtection is on
-class StablePages extends SpecialPage
+// Assumes $wgFlaggedRevsProtection is off
+class ConfiguredPages extends SpecialPage
 {
 	public function __construct() {
-        parent::__construct( 'StablePages' );
+        parent::__construct( 'ConfiguredPages' );
     }
 
 	public function execute( $par ) {
@@ -18,6 +18,8 @@ class StablePages extends SpecialPage
 		$this->skin = $wgUser->getSkin();
 
 		$this->namespace = $wgRequest->getIntOrNull( 'namespace' );
+		$this->override = $wgRequest->getIntOrNull( 'stable' );
+		$this->precedence = $wgRequest->getIntOrNull( 'precedence' );
 		$this->autoreview = $wgRequest->getVal( 'restriction', '' );
 
 		$this->showForm();
@@ -26,23 +28,29 @@ class StablePages extends SpecialPage
 
 	protected function showForm() {
 		global $wgOut, $wgScript;
-		$wgOut->addHTML( wfMsgExt( 'stablepages-text', array( 'parseinline' ) ) );
+		$wgOut->addHTML( wfMsgExt( 'configuredpages-text', array( 'parseinline' ) ) );
 		$fields = array();
 		# Namespace selector
 		if ( count( FlaggedRevs::getReviewNamespaces() ) > 1 ) {
 			$fields[] = FlaggedRevsXML::getNamespaceMenu( $this->namespace, '' );
 		}
+		# Default version selector
+		$fields[] = FlaggedRevsXML::getDefaultFilterMenu( $this->override );
 		# Restriction level selector
 		if( FlaggedRevs::getRestrictionLevels() ) {
 			$fields[] = FlaggedRevsXML::getRestrictionFilterMenu( $this->autoreview );
 		}
+		# Stable version selection precedence
+		if ( FlaggedRevs::qualityVersions() ) {
+			$fields[] = FlaggedRevsXML::getPrecedenceFilterMenu( $this->precedence );
+		}
 		if ( count( $fields ) ) {
 			$form = Xml::openElement( 'form',
-				array( 'name' => 'stablepages', 'action' => $wgScript, 'method' => 'get' ) );
+				array( 'name' => 'configuredpages', 'action' => $wgScript, 'method' => 'get' ) );
 			$form .= Xml::hidden( 'title', $this->getTitle()->getPrefixedDBKey() );
-			$form .= "<fieldset><legend>" . wfMsg( 'stablepages' ) . "</legend>\n";
-			$form .= implode( '&nbsp;', $fields ) . '&nbsp';
-			$form .= " " . Xml::submitButton( wfMsg( 'go' ) );
+			$form .= "<fieldset><legend>" . wfMsg( 'configuredpages' ) . "</legend>\n";
+			$form .= implode( '&nbsp;', $fields ) . '<br/>';
+			$form .= Xml::submitButton( wfMsg( 'go' ) );
 			$form .= "</fieldset>\n";
 			$form .= Xml::closeElement( 'form' );
 			$wgOut->addHTML( $form );
@@ -53,7 +61,8 @@ class StablePages extends SpecialPage
 		global $wgOut;
 		# Take this opportunity to purge out expired configurations
 		FlaggedRevs::purgeExpiredConfigurations();
-		$pager = new StablePagesPager( $this, array(), $this->namespace, $this->autoreview );
+		$pager = new ConfiguredPagesPager( $this, array(),
+			$this->namespace, $this->override, $this->precedence, $this->autoreview );
 		if ( $pager->getNumRows() ) {
 			$wgOut->addHTML( $pager->getNavigationBar() );
 			$wgOut->addHTML( $pager->getBody() );
@@ -69,8 +78,30 @@ class StablePages extends SpecialPage
 		# Link to page
 		$link = $this->skin->makeKnownLinkObj( $title, $title->getPrefixedText() );
 		# Link to page configuration
-		$config = $this->skin->makeKnownLinkObj( $title,
-			wfMsgHtml( 'stablepages-config' ), 'action=protect' );
+		$config = $this->skin->makeKnownLinkObj(
+			SpecialPage::getTitleFor( 'Stabilization' ),
+			wfMsgHtml( 'configuredpages-config' ),
+			'page=' . $title->getPrefixedUrl()
+		);
+		# Show which version is the default (stable or draft)
+		if( intval( $row->fpc_override ) ) {
+			$default = wfMsgHtml( 'configuredpages-def-stable' );
+		} else {
+			$default = wfMsgHtml( 'configuredpages-def-draft' );
+		}
+		// Show precedence if there are several possible levels
+		$type = '';
+		if ( FlaggedRevs::qualityVersions() ) {
+			$select = intval( $row->fpc_select );
+			if ( $select === FLAGGED_VIS_PRISTINE ) {
+				$type = wfMsgHtml( 'configuredpages-prec-pristine' );
+			} elseif ( $select === FLAGGED_VIS_QUALITY ) {
+				$type = wfMsgHtml( 'configuredpages-prec-quality' );
+			} elseif( $select === FLAGGED_VIS_LATEST ) {
+				$type = wfMsgHtml( 'configuredpages-prec-none' );
+			}
+			if( $type ) $type = "({$type})";
+		}
 		# Autoreview/review restriction level
 		$restr = '';
 		if( $row->fpc_level != '' ) {
@@ -88,19 +119,23 @@ class StablePages extends SpecialPage
 		} else {
 			$expiry_description = "";
 		}
-		return "<li>{$link} ({$config}) {$restr}<i>{$expiry_description}</i></li>";
+		return "<li>{$link} ({$config}) <b>[$default]</b> {$type} {$restr}<i>{$expiry_description}</i></li>";
 	}
 }
 
 /**
  * Query to list out stable versions for a page
  */
-class StablePagesPager extends AlphabeticPager {
-	public $mForm, $mConds, $namespace, $override;
+class ConfiguredPagesPager extends AlphabeticPager {
+	public $mForm, $mConds, $namespace, $override, $precedence, $autoreview;
 
 	// @param int $namespace (null for "all")
+	// @param int $override (null for "either")
+	// @param int $precedence (null for "all")
 	// @param string $autoreview ('' for "all", 'none' for no restriction)
-	function __construct( $form, $conds = array(), $namespace, $autoreview ) {
+	function __construct(
+		$form, $conds = array(), $namespace, $override, $precedence, $autoreview
+	) {
 		$this->mForm = $form;
 		$this->mConds = $conds;
 		# Must be content pages...
@@ -113,6 +148,14 @@ class StablePagesPager extends AlphabeticPager {
 			$namespace = $validNS; // "all"
 		}
 		$this->namespace = $namespace;
+		if ( !is_integer( $override ) ) {
+			$override = null; // "all"
+		}
+		$this->override = $override;
+		if ( !is_integer( $precedence ) ) {
+			$precedence = null; // "all"
+		}
+		$this->precedence = $precedence;
 		if ( $autoreview === 'none' ) {
 			$autoreview = ''; // 'none' => ''
 		} elseif ( $autoreview === '' ) {
@@ -129,7 +172,12 @@ class StablePagesPager extends AlphabeticPager {
 	function getQueryInfo() {
 		$conds = $this->mConds;
 		$conds[] = 'page_id = fpc_page_id';
-		$conds['fpc_override'] = 1;
+		if ( $this->override !== null ) {
+			$conds['fpc_override'] = $this->override;
+		}
+		if ( $this->precedence !== null ) {
+			$conds['fpc_select'] = $this->precedence;
+		}
 		if( $this->autoreview !== null ) {
 			$conds['fpc_level'] = $this->autoreview;
 		}

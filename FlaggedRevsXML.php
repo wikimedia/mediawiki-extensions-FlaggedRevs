@@ -46,7 +46,7 @@ class FlaggedRevsXML {
 	}
 
 	/**
-	 * Get a selector of review levels
+	 * Get a selector of review levels. Used for filters.
 	 * @param int $selected, selected level
 	 * @param string $all, all selector msg?
 	 * @param int $max max level?
@@ -55,7 +55,7 @@ class FlaggedRevsXML {
 	public static function getLevelMenu(
 		$selected = null, $all = 'revreview-filter-all', $max = 2
 	) {
-		$s = "<label for='wpLevel'>" . wfMsgHtml( 'revreview-levelfilter' ) . "</label>&nbsp;";
+		$s = "<label for='wpLevel'>" . wfMsgHtml( 'revreview-levelfilter' ) . "</label>\n";
 		$s .= Xml::openElement( 'select', array( 'name' => 'level', 'id' => 'wpLevel' ) );
 		if ( $all !== false )
 			$s .= Xml::option( wfMsg( $all ), - 1, $selected === - 1 );
@@ -70,36 +70,88 @@ class FlaggedRevsXML {
 	}
 
 	/**
-	 * Get a radio options of available precendents
-	 * @param int $selected selected level, '' for "all"
+	 * Get a <select> of options of available precendents. Used for filters.
+	 * @param int $selected selected level, null for "all"
 	 * @returns string
 	 */
-	public static function getPrecedenceMenu( $selected = null ) {
-		if( is_null($selected) ) {
+	public static function getPrecedenceFilterMenu( $selected = null ) {
+		if ( is_null( $selected ) ) {
 			$selected = ''; // "all"
 		}
-		$s = Xml::openElement( 'select',
+		$s = Xml::label( wfMsg( 'revreview-precedencefilter' ), 'wpPrecedence' ) . "\n";
+		$s .= Xml::openElement( 'select',
 			array( 'name' => 'precedence', 'id' => 'wpPrecedence' ) );
-		$s .= Xml::option( wfMsg( 'revreview-lev-all' ), '', $selected == '' );
+		$s .= Xml::option( wfMsg( 'revreview-lev-all' ), '', $selected === '' );
 		$s .= Xml::option( wfMsg( 'revreview-lev-basic' ), FLAGGED_VIS_LATEST,
 			$selected === FLAGGED_VIS_LATEST );
-		if ( FlaggedRevs::qualityVersions() )
+		if ( FlaggedRevs::qualityVersions() ) {
 			$s .= Xml::option( wfMsg( 'revreview-lev-quality' ), FLAGGED_VIS_QUALITY,
 				$selected === FLAGGED_VIS_QUALITY );
-		if ( FlaggedRevs::pristineVersions() )
+		}
+		if ( FlaggedRevs::pristineVersions() ) {
 			$s .= Xml::option( wfMsg( 'revreview-lev-pristine' ), FLAGGED_VIS_PRISTINE,
 				$selected === FLAGGED_VIS_PRISTINE );
+		}
 		$s .= Xml::closeElement( 'select' ) . "\n";
 		return $s;
 	}
 
 	/**
-	 * Get a selector of "approved"/"unapproved"
+	 * Get a <select> of default page version (stable or draft). Used for filters.
+	 * @param int $selected (0=draft, 1=stable, null=either )
+	 * @returns string
+	 */
+	public static function getDefaultFilterMenu( $selected = null ) {
+		if ( is_null( $selected ) ) {
+			$selected = ''; // "all"
+		}
+		$s = Xml::label( wfMsg( 'revreview-defaultfilter' ), 'wpStable' ) . "\n";
+		$s .= Xml::openElement( 'select',
+			array( 'name' => 'stable', 'id' => 'wpStable' ) );
+		$s .= Xml::option( wfMsg( 'revreview-def-all' ), '', $selected == '' );
+		$s .= Xml::option( wfMsg( 'revreview-def-stable' ), 1, $selected === 1 );
+		$s .= Xml::option( wfMsg( 'revreview-def-draft' ), 0, $selected === 0 );
+		$s .= Xml::closeElement( 'select' ) . "\n";
+		return $s;
+	}
+
+	/**
+	 * Get a <select> of options of 'autoreview' restriction levels. Used for filters.
+	 * @param string $selected ('' for "any", 'none' for none)
+	 * @returns string
+	 */
+	public static function getRestrictionFilterMenu( $selected = '' ) {
+		if ( is_null( $selected ) ) {
+			$selected = ''; // "all"
+		}
+		$s = Xml::label( wfMsg( 'revreview-restrictfilter' ), 'wpRestriction' ) . "\n";
+		$s .= Xml::openElement( 'select',
+			array( 'name' => 'restriction', 'id' => 'wpRestriction' ) );
+		$s .= Xml::option( wfMsg( 'revreview-restriction-any' ), '', $selected == '' );
+		if ( !FlaggedRevs::useProtectionLevels() ) {
+			# All "protected" pages have a protection level, not "none"
+			$s .= Xml::option( wfMsg( 'revreview-restriction-none' ),
+				'none', $selected == 'none' );
+		}
+		foreach( FlaggedRevs::getRestrictionLevels() as $perm ) {
+			$key = "revreview-restriction-{$perm}";
+			$msg = wfMsg( $key );
+			if ( wfEmptyMsg( $key, $msg ) ) {
+				$msg = $perm; // fallback to user right key
+			}
+			$s .= Xml::option( $msg, $perm, $selected == $perm );
+		}
+		$s .= Xml::closeElement( 'select' ) . "\n";
+		return $s;
+	}
+
+	/**
+	 * Get a selector of "approved"/"unapproved". Used for filters.
 	 * @param int $selected, selected level
 	 * @returns string
 	 */
 	public static function getStatusFilterMenu( $selected = null ) {
-		$s = "<label for='wpStatus'>" . wfMsgHtml( 'revreview-statusfilter' ) . "</label>&nbsp;";
+		$s = "<label for='wpStatus'>" . wfMsgHtml( 'revreview-statusfilter' ) . "</label>\n";
 		$s .= Xml::openElement( 'select', array( 'name' => 'status', 'id' => 'wpStatus' ) );
 		$s .= Xml::option( wfMsg( "revreview-filter-all" ), - 1, $selected === - 1 );
 		$s .= Xml::option( wfMsg( "revreview-filter-approved" ), 1, $selected === 1 );
@@ -110,12 +162,12 @@ class FlaggedRevsXML {
 	}
 
 	/**
-	 * Get a selector of "auto"/"manual"
+	 * Get a selector of "auto"/"manual". Used for filters.
 	 * @param int $selected, selected level
 	 * @returns string
 	 */
 	public static function getAutoFilterMenu( $selected = null ) {
-		$s = "<label for='wpApproved'>" . wfMsgHtml( 'revreview-typefilter' ) . "</label>&nbsp;";
+		$s = "<label for='wpApproved'>" . wfMsgHtml( 'revreview-typefilter' ) . "</label>\n";
 		$s .= Xml::openElement( 'select', array( 'name' => 'automatic', 'id' => 'wpApproved' ) );
 		$s .= Xml::option( wfMsg( "revreview-filter-all" ), - 1, $selected === - 1 );
 		$s .= Xml::option( wfMsg( "revreview-filter-manual" ), 0, $selected === 0 );

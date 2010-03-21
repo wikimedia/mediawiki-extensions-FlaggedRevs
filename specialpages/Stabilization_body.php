@@ -128,17 +128,22 @@ class Stabilization extends UnlistedSpecialPage
 				$comment = $this->reason; // just use custom reason
 			}
 			$this->reason = $comment;
-			// Make sure default version settings is 0 or 1
-			if ( $this->override !== 0 && $this->override !== 1 ) {
-				return false;
-			}
-			// Protection levels used: ignore fpc_select
+			// Protection level case...
 			if( FlaggedRevs::useProtectionLevels() ) {
-				$this->select = FlaggedRevs::getPrecedence(); // default
-			// Otherwise: validate precedence setting
+				# Autoreview restriction => use stable
+				# No autoreview restriction => site default
+				$this->override = ($this->autoreview != '')
+					? 1 // edits require review before being published
+					: (int)FlaggedRevs::isStableShownByDefault();
+				# Leave the selection precedence alone
+				$this->select = FlaggedRevs::getPrecedence();
+			// General case...
 			} else {
+				if ( $this->override !== 0 && $this->override !== 1 ) {
+					return false; // default version settings is 0 or 1
+				}
 				if ( !FlaggedRevs::isValidPrecedence( $this->select ) ) {
-					return false; // invalid value
+					return false; // invalid precedence value
 				}
 			}
 			// Check autoreview setting
@@ -269,9 +274,9 @@ class Stabilization extends UnlistedSpecialPage
 			Xml::radioLabel( wfMsg( 'stabilization-select2' ), 'wpStableconfig-select',
 				FLAGGED_VIS_LATEST, 'stable-select2', FLAGGED_VIS_LATEST == $this->select,
 				$this->disabledAttrib ) . '<br />' . "\n" .
-			Xml::closeElement( 'fieldset' ) .
-			
-			Xml::fieldset( wfMsg( 'stabilization-restrict' ), false ) .
+			Xml::closeElement( 'fieldset' );
+		# Add autoreview restriction select
+		$form .= Xml::fieldset( wfMsg( 'stabilization-restrict' ), false ) .
 			$this->buildSelector( $this->autoreview ) .
 			Xml::closeElement( 'fieldset' ) .
 
@@ -551,8 +556,7 @@ class Stabilization extends UnlistedSpecialPage
 	protected function configIsReset( $select, $override, $autoreview ) {
 		# For protection config, just ignore the fpc_select column
 		if( FlaggedRevs::useProtectionLevels() ) {
-			return ( $override == FlaggedRevs::isStableShownByDefault()
-				&& $autoreview == '' );
+			return ( $autoreview == '' );
 		} else {
 			return ( $select == FlaggedRevs::getPrecedence()
 				&& $override == FlaggedRevs::isStableShownByDefault()
