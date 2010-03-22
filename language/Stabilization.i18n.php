@@ -392,7 +392,7 @@ $messages['be-tarask'] = array(
 	'stabilization' => 'Стабілізацыя старонкі',
 	'stabilization-text' => "'''Зьмяніце ўстаноўкі ніжэй, якім чынам павінна выбірацца і паказвацца апублікаваная вэрсія старонкі [[:$1|$1]].'''
 
-Калі будзеце зьмяняць устаноўкі ''выбару апублікаванай вэрсіі'' для выкарыстаньня па змоўчваньні «якаснай» альбо «першапачатковай» вэрсіі, упэўніцеся што старонка мае такія вэрсіі, у адваротным выпадку зьмены не прынясуць значнага эфэкту.",
+'''Заўвага:''' Калі будзеце зьмяняць устаноўкі ''выбару апублікаванай вэрсіі'' для выкарыстаньня па змоўчваньні «якаснай» альбо «першапачатковай» вэрсіі, упэўніцеся што старонка мае такія вэрсіі, у адваротным выпадку зьмены не прынясуць значнага эфэкту. Таксама заўважце, што «правераныя» вэрсіі лічацца «якаснымі» аўтаматычна.",
 	'stabilization-perm' => 'Ваш рахунак ня мае правоў для зьмены канфігурацыі апублікаванай вэрсіі.
 Тут пададзеныя цяперашнія ўстаноўкі для [[:$1|$1]]:',
 	'stabilization-page' => 'Назва старонкі:',
@@ -1192,17 +1192,16 @@ $messages['ga'] = array(
 $messages['gl'] = array(
 	'stabilization-tab' => '(qa)',
 	'stabilization' => 'Estabilización da páxina',
-	'stabilization-text' => "'''Mude a configuración a continuación para axustar a forma na que a versión publicada de \"[[:\$1|\$1]]\" é seleccionada e mostrada.'''
+	'stabilization-text' => "'''Mude a configuración a continuación para axustar a forma na que a versión publicada de \"[[:\$1|\$1]]\" se selecciona e mostra.'''
 
-Ao cambiar a configuración da ''selección da versión publicada'' para usar as revisións de \"calidade\" ou unha \"previa\" por defecto,
-asegúrese de comprobar se en realidade existen tales revisións na páxina, pola contra o cambio afectará lixeiramente.",
+'''Nota:''' o cambio de ''selección da versión publicada'' para usar as revisións de \"calidade\" ou \"previas\" non terá ningún efecto se non existen as devanditas versións. Teña en conta, ademais, que unha versión de \"calidade\" considérase tamén como \"comprobada\".",
 	'stabilization-perm' => 'A súa conta non ten os permisos necesarios para mudar a configuración da versión publicada.
 Velaquí está a configuración actual de "[[:$1|$1]]":',
 	'stabilization-page' => 'Nome da páxina:',
 	'stabilization-leg' => 'Confirmar as configuración da versión publicada',
 	'stabilization-select' => 'Prioridade de selección da versión publicada',
 	'stabilization-select1' => 'A última revisión de calidade; se non existe, entón a última revisada',
-	'stabilization-select2' => 'A última revisión revisada, malia o nivel de validación',
+	'stabilization-select2' => 'Última revisión comprobada',
 	'stabilization-select3' => 'A última revisión previa; se non existe, entón a última de calidade ou revisada',
 	'stabilization-def' => 'Revisión que aparece por defecto na vista da páxina',
 	'stabilization-def1' => 'A revisión publicada; se non existe, entón a actual ou o borrador',
@@ -2130,7 +2129,7 @@ $messages['ml'] = array(
 	'stabilization-otherreason' => 'മറ്റു കാരണം:',
 	'stabilization-expiry' => 'കാലാവധി:',
 	'stabilization-othertime' => 'മറ്റ് കാലയളവ്:',
-	'stabilization-sel-short' => 'മുന്‍‌നടപ്പ്',
+	'stabilization-sel-short' => 'മുൻഗണന',
 	'stabilization-sel-short-0' => 'ഉന്നത നിലവാരം',
 	'stabilization-sel-short-1' => 'ഒന്നുമില്ല',
 	'stabilization-def-short' => 'സ്വതവെ',
@@ -2367,20 +2366,19 @@ $messages['no'] = array(
 	'stabilization' => 'Sidestabilisering',
 	'stabilization-text' => "'''Endre innstillingene nedenfor for å bestemme hvordan den publiserte versjonen av [[:$1|$1]] skal velges og vises.'''
 
-Når innstillingene for ''valg av publisert versjon'' endres til å bruke «kvalitets»- eller «urørt»-revisjon som standard,
-kontrollér at det faktisk finnes slike revisjoner av siden, ellers vil endringen ha liten effekt.",
+'''Merk:''' å endre ''valg av publisert versjon'' til å foretrekke «kvalitets»- eller «urørt»-versjoner vil ikke ha noen effekt om slike ikke finnes. Merk også at en «kvalitets»-versjon anses som en «kontrollert» versjon og så videre.",
 	'stabilization-perm' => 'Din brukerkonto har ikke tillatelse til å endre innstillinger for publiserte versjoner.
 Her er de nåværende innstillingene for [[:$1|$1]]:',
 	'stabilization-page' => 'Sidenavn:',
 	'stabilization-leg' => 'Bekreft innstillinger for publiserte versjoner',
 	'stabilization-select' => 'Valg av publisert versjon har forrang',
 	'stabilization-select1' => 'Den siste kvalitetsrevisjonen hvis den finnes, ellers den siste synede versjonen',
-	'stabilization-select2' => 'Den siste vurderte versjonen, uansett kvalitetsnivå',
+	'stabilization-select2' => 'Siste kontrollerte revisjon',
 	'stabilization-select3' => 'Den siste urørte versjonen av denne siden; om det ikke finnes, det siste kvalitetsversjonen eller den siste sjekkede versjonen',
 	'stabilization-def' => 'Sideversjonen som skal brukes som standardvisning',
 	'stabilization-def1' => 'Den publiserte revisjonen; om den ikke finnes, utkast eller siste revisjon',
 	'stabilization-def2' => 'Utkast eller siste versjon',
-	'stabilization-restrict' => 'Begrensninger av auto-vurdering',
+	'stabilization-restrict' => 'Begrensninger av revidering/auto-revidering',
 	'stabilization-restrict-none' => 'Ingen ekstra begrensinger',
 	'stabilization-submit' => 'Bekreft',
 	'stabilization-notexists' => 'Det er ingen side med tittelen «[[:$1|$1]]». Ingen innstillinger kan gjøres.',
@@ -2534,9 +2532,9 @@ Nie jest możliwa jej konfiguracja.',
 $messages['pms'] = array(
 	'stabilization-tab' => '(c.q.)',
 	'stabilization' => 'Stabilisassion dla pàgina',
-	'stabilization-text' => "'''Cangé le regolassion ambelessì sota për rangé coma la version publicà ëd [[:\$1|\$1]] a deva esse sërnùa e smonùa.'''
+	'stabilization-text' => "'''Cangé le regolassion ambelessì sota për rangé coma la version publicà ëd [[:\$1|\$1]] a deva esse sernùa e smonùa.'''
 
-'''Nòta:''' an cangiand la ''selession ëd version publicà'' për avèj pi car le revision ëd \"qualità\" o \"inissial\", a l'avrà pa efet se a-i son pa cole version. Edcò, nòta che na version ëd \"qualità\" a l'é ëdcò considrà na version \"controlaà\" e via parèj.",
+'''Nòta:''' an cangiand la ''selession ëd version publicà'' për avèj pi car le revision ëd \"qualità\" o \"inissiaj\", a l'avrà pa efet se a-i son pa cole version. Ch'a nòta ëdcò che na version ëd \"qualità\" a l'é ëdcò considerà na version \"controlà\" e via fòrt.",
 	'stabilization-perm' => "Sò cont a l'ha pa ij përmess për cangé la configurassion ëd la version publicà. 
 Ambelessì a-i son le regolassion corente për [[:$1|$1]]:",
 	'stabilization-page' => 'Nòm dla pàgina:',
@@ -2548,7 +2546,7 @@ Ambelessì a-i son le regolassion corente për [[:$1|$1]]:",
 	'stabilization-def' => 'Revision da smon-e coma pàgina sòlita për la vos',
 	'stabilization-def1' => "La version publicà; s'a-i é pa, antlora cola corenta/sbòss",
 	'stabilization-def2' => 'La revision/sbòss corent',
-	'stabilization-restrict' => 'Restrission ëd revision/auto-revision',
+	'stabilization-restrict' => 'Restrission ëd revision/àuto-revision',
 	'stabilization-restrict-none' => 'Pa gnun-e restrission extra',
 	'stabilization-submit' => 'Confermé',
 	'stabilization-notexists' => 'A-i é pa gnun-a pàgina ch\'as ciama "[[:$1|$1]]". As peul nen regolé lòn ch\'a-i é nen.',

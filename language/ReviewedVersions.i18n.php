@@ -476,7 +476,7 @@ $messages['hsb'] = array(
  * @author Samat
  */
 $messages['hu'] = array(
-	'reviewedversions' => 'Stabil változatok megjelenítése',
+	'reviewedversions' => 'Ellenőrzött változatok',
 	'reviewedversions-leg1' => 'Oldal ellenőrzött változatainak listája',
 	'reviewedversions-page' => 'A lap címe:',
 	'reviewedversions-none' => 'A(z) „[[:$1]]” lapnak nincsenek ellenőrzött változatai.',

@@ -743,7 +743,7 @@ $messages['hsb'] = array(
  * @author Gondnok
  */
 $messages['hu'] = array(
-	'oldreviewedpages' => 'Elavult ellenőrzött lapok',
+	'oldreviewedpages' => 'Ellenőrizetlen szerkesztésekkel rendelkező lapok',
 	'oldreviewedpages-legend' => 'Ellenőrizetlen változatokkal rendelkező ellenőrzött lapok listája',
 	'oldreviewedpages-list' => 'Az alábbi lista az ellenőrizetlen szerkesztésekkel rendelkező {{PLURAL:$1|lapot|lapokat}} tartalmazza',
 	'oldreviewedpages-none' => 'Jelenleg nincs a feltételeknek megfelelő lap.',

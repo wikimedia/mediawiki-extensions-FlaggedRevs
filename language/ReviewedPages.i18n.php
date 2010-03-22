@@ -372,7 +372,7 @@ $messages['fr'] = array(
 	'reviewedpages-leg' => 'Lister les pages qui ont été relues',
 	'reviewedpages-list' => "Cette liste contient les pages [[{{MediaWiki:Validationpage}}|relues]] dont une des versions a atteint ''le plus haut'' niveau de relecture spécifié.
 Le lien donné pointe vers la dernière version de ce niveau.",
-	'reviewedpages-none' => 'Cette liste est vide',
+	'reviewedpages-none' => 'Il n’y a aucune page dans cette liste.',
 	'reviewedpages-lev-0' => 'Visualisée',
 	'reviewedpages-lev-1' => 'De qualité',
 	'reviewedpages-lev-2' => 'Distinguée',
@@ -514,7 +514,7 @@ Wotkaz k najnowšej wersiji teje runiny je podaty.",
  */
 $messages['hu'] = array(
 	'reviewedpages' => 'Ellenőrzött lapok',
-	'reviewedpages-leg' => 'Lapok listázása a legmagasabb értékelési szintjük alapján',
+	'reviewedpages-leg' => 'Ellenőrzött lapok listázása',
 	'reviewedpages-list' => 'Az alábbi lapok legmagasabb értékelési szintje a megadott szint.',
 	'reviewedpages-none' => 'Nem található egyetlen lap sem a listában.',
 	'reviewedpages-lev-0' => '{{int:revreview-lev-basic}}',

@@ -280,7 +280,7 @@ $messages['hsb'] = array(
  * @author Tgr
  */
 $messages['hu'] = array(
-	'problemchanges' => 'Felcímkézett változtatások ellenőrzése',
+	'problemchanges' => 'Felcímkézett ellenőrizetlen szerkesztések',
 	'problemchanges-legend' => 'Ellenőrizetlen felcímkézett változtatásokat tartalmazó lapok listája',
 	'problemchanges-none' => 'Jelenleg nincs a a feltételeknek megfelelő lap',
 	'problemchanges-category' => 'Kategória:',

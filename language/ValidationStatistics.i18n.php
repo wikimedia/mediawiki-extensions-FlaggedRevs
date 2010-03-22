@@ -340,9 +340,8 @@ Sichter sind anerkannte Benutzer, die Versionen einer Seite überprüfen können
 Die durchschnittliche Wartezeit für Bearbeitungen, die von nicht angemeldeten Benutzern stammen, beträgt '''$1'''; der Median beträgt '''$3'''.
 $4
 Der durchschnittliche Rückstand auf [[Special:OldReviewedPages|veraltete Seiten]] beträgt '''$2'''.
-''Veraltete'' Seiten sind Seiten mit Bearbeitungen, die neuer als die [[{{MediaWiki:Validationpage}}|markierte Version]] sind.
-Wenn die markierte Version auch die letzte Version ist, ist die Seite ''synchronisiert''.
-Die stabile Version einer Seite ist die neueste Version, die durch einen Sichter bestätigt wurde und als Standard allen Lesern angezeigt wird.",
+Diese Seiten werden als ''veraltet'' angesehen. Seiten werden als ''synchronisiert'' angesehen, wenn keine Bearbeitungen mehr auf eine Kontrolle warten.
+Die veröffentlichte Version einer Seite ist die neueste Version, die durch einen Sichter bestätigt wurde und als Standard allen Lesern angezeigt wird.",
 	'validationstatistics-table' => "Statistiken für jeden Namensraum, ''ausgenommen'' sind Weiterleitungen.",
 	'validationstatistics-ns' => 'Namensraum',
 	'validationstatistics-total' => 'Seiten gesamt',
