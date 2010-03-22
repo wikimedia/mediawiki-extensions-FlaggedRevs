@@ -271,7 +271,8 @@ class FlaggedRevsXML {
 		if ( $synced && ( $type == 'stable' || $type == 'draft' ) ) {
 			$msg = $quality ?
 				'revreview-quality-same' : 'revreview-basic-same';
-			$html = wfMsgExt( $msg, array( 'parseinline' ), $frev->getRevId(), $time, $revsSince );
+			$html = wfMsgExt( $msg, array( 'parseinline' ),
+				$frev->getRevId(), $time, $revsSince );
 		} elseif ( $type == 'oldstable' ) {
 			$msg = $quality ?
 				'revreview-quality-old' : 'revreview-basic-old';
@@ -287,38 +288,42 @@ class FlaggedRevsXML {
 			# For searching: uses messages 'revreview-quality-i', 'revreview-basic-i',
 			# 'revreview-newest-quality-i', 'revreview-newest-basic-i'
 			$msg .= ( $revsSince == 0 ) ? '-i' : '';
-			$html = wfMsgExt( $msg, array( 'parseinline' ), $frev->getRevId(), $time, $revsSince );
+			$html = wfMsgExt( $msg, array( 'parseinline' ),
+				$frev->getRevId(), $time, $revsSince );
 		}
 		# Make fancy box...
-		$box = "<table style='background: none; border-spacing: 0px;'>";
-		$box .= "<tr style='white-space:nowrap;'><td>$shtml</td>";
-		$box .= "<td style='text-align:right;'>" . self::ratingToggle() . "</td></tr>\n";
-		$box .= "<tr><td id='mw-fr-revisionratings'>$html<br />";
+		$box = "<table style=\"background: none; border-spacing: 0px;\">\n";
+		$box .= '<tr style="white-space:nowrap;">';
+		$box .= '<td align="right">' . $shtml . '&nbsp;' . self::ratingToggle() . '</td>';
+		$box .= "</tr>\n<tr>";
+		$box .= '<td id="mw-fr-revisionratings" align="left">';
+		$box .= $html; // details text
 		# Add any rating tags as needed...
 		if( $flags && !FlaggedRevs::binaryFlagging() ) {
 			# Don't show the ratings on draft views
 			if ( $type == 'stable' || $type == 'oldstable' ) {
-				$box .= self::addTagRatings( $flags, true, $color );
+				$box .= '<p>' . self::addTagRatings( $flags, true, $color ) . '</p>';
 			}
 		}
-		$box .= "</td><td></td></tr></table>";
+		$box .= "</td></tr>\n</table>\n";
         return $box;
 	}
 
 	/**
+	 * Generates (+/-) JS toggle HTML (monospace to keep things in place)
 	 * @returns string
-	 * Generates (+/-) JS toggle HTML
 	 */
 	public static function ratingToggle() {
-		return '<a id="mw-fr-revisiontoggle" class="flaggedrevs_toggle" style="display:none;"' .
+		return '<strong><a id="mw-fr-revisiontoggle" class="flaggedrevs_toggle"' .
+			' style="display:none; font-family: monospace;"' .
 			' onclick="FlaggedRevs.toggleRevRatings()" title="' .
 			wfMsgHtml( 'revreview-toggle-title' ) . '" >' .
-			wfMsgHtml( 'revreview-toggle-show' ) . '</a>';
+			wfMsgHtml( 'revreview-toggle-show' ) . '</a></strong>';
 	}
 
 	/**
+	 * Generates (show/hide) JS toggle HTML
 	 * @returns string
-	 * Generates (+/-) JS toggle HTML
 	 */
 	public static function diffToggle() {
 		return '<a id="mw-fr-difftoggle" class="flaggedrevs_toggle" style="display:none;"' .
@@ -328,8 +333,8 @@ class FlaggedRevsXML {
 	}
 
 	/**
+	 * Generates (show/hide) JS toggle HTML
 	 * @returns string
-	 * Generates (+/-) JS toggle HTML
 	 */
 	public static function logToggle( $msg ) {
 		return '<a id="mw-fr-logtoggle" class="flaggedrevs_toggle" style="display:none;"' .
@@ -499,8 +504,10 @@ class FlaggedRevsXML {
 	* @returns string
 	*/
 	public static function draftStatusIcon() {
-		return '<span class="fr-icon-current" title="'.
-			wfMsgHtml( 'revreview-draft-title' ).'"></span>';
+		$encPath = htmlspecialchars( FlaggedRevs::styleUrlPath() . '/img' );
+		$encTitle = wfMsgHtml( 'revreview-draft-title' );
+		return "<img class=\"flaggedrevs-icon\" src=\"$encPath/1.png\"" .
+			" width=\"16px\" alt=\"$encTitle\" title=\"$encTitle\"></img>";
 	}
 	
 	/*
@@ -509,13 +516,13 @@ class FlaggedRevsXML {
 	* @returns string
 	*/
 	public static function stableStatusIcon( $isQuality ) {
-		$class = $isQuality
-			? 'fr-icon-quality'
-			: 'fr-icon-stable';
-		$tooltip = $isQuality
-			? 'revreview-quality-title'
-			: 'revreview-basic-title';
-		return '<span class="'.$class.'" title="'. wfMsgHtml( $tooltip ).'"></span>';
+		$encPath = htmlspecialchars( FlaggedRevs::styleUrlPath() . '/img' );
+		$file = $isQuality ? '3.png' : '2.png';
+		$encTitle = $isQuality
+			? wfMsgHtml( 'revreview-quality-title' )
+			: wfMsgHtml( 'revreview-basic-title' );
+		return "<img class=\"flaggedrevs-icon\" src=\"$encPath/$file\"" .
+			" width=\"16px\" alt=\"$encTitle\" title=\"$encTitle\"></img>";
 	}
 
 	/*
@@ -524,12 +531,15 @@ class FlaggedRevsXML {
 	* @returns string
 	*/
 	public static function lockStatusIcon( $flaggedArticle ) {
+		$encPath = htmlspecialchars( FlaggedRevs::styleUrlPath() . '/img' );
 		if ( $flaggedArticle->isPageLocked() ) {
-			return "<span class='fr-icon-locked' title=\"" .
-				wfMsgHtml( 'revreview-locked-title' ) . "\"></span>";
+			$encTitle = wfMsgHtml( 'revreview-locked-title' );
+			return "<img class=\"flaggedrevs-icon\" src=\"$encPath/lock-closed.png\"" .
+				" width=\"16px\" alt=\"$encTitle\" title=\"$encTitle\"></img>";
 		} elseif ( $flaggedArticle->isPageUnlocked() ) {
-			return "<span class='fr-icon-unlocked' title=\"" .
-				wfMsgHtml( 'revreview-unlocked-title' ) . "\"></span>";
+			$encTitle = wfMsgHtml( 'revreview-unlocked-title' );
+			return "<img class=\"flaggedrevs-icon\" src=\"$encPath/lock-open.png\"" .
+				" width=\"16px\" alt=\"$encTitle\" title=\"$encTitle\"></img>";
 		}
 	}
 

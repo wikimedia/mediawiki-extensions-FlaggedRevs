@@ -174,41 +174,16 @@ div.flaggedrevs_short {
 a.flaggedrevs_toggle {
 	color: blue;
 	white-space: nowrap;
-	cursor:pointer;
+	cursor: pointer;
 }
 
 li.fr-hist-stable-margin {
 	margin-top: 2em;
 }
 
-.fr-icon-current,
-.fr-icon-stable,
-.fr-icon-quality,
-.fr-icon-locked,
-.fr-icon-unlocked {
-	padding: 0px;
-	margin: 0em .2em 0em 0em;
-	width: 16px;
-	height: 16px;
-	float: left;
-	background-repeat: no-repeat;
-	background-position: center center;
-}
-.fr-icon-current {
-	background-image: url(img/1.png);
-}
-.fr-icon-stable {
-	background-image: url(img/2.png);
-}
-.fr-icon-quality {
-	background-image: url(img/3.png);
-}
-.fr-icon-locked {
-	background-image: url(img/lock-closed.png);
-}
-.fr-icon-unlocked {
-	width: 23px;
-	background-image: url(img/lock-open.png);
+img.flaggedrevs-icon {
+	margin-right: .2em;
+	margin-left: .2em;
 }
 
 .fr-diff-ratings {

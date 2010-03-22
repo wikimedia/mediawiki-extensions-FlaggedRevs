@@ -411,6 +411,15 @@ class FlaggedRevs {
 	}
 	
 	/**
+	 * Get the URL path to /client
+	 * @return string
+	 */
+	public static function styleUrlPath() {
+		global $wgFlaggedRevsStylePath, $wgScriptPath;
+		return str_replace( '$wgScriptPath', $wgScriptPath, $wgFlaggedRevsStylePath );
+	}
+
+	/**
 	 * Get global revision status precedence setting
 	 * or a specific one if given a tag tier (e.g. FR_QUALITY).
 	 * Returns one of FLAGGED_VIS_PRISTINE, FLAGGED_VIS_QUALITY, FLAGGED_VIS_LATEST.

@@ -47,8 +47,8 @@ class FlaggedRevsHooks {
 		if ( !$fa || !$fa->isReviewable() ) {
 			return true;
 		}
-		global $wgScriptPath, $wgJsMimeType, $wgFlaggedRevsStylePath, $wgFlaggedRevStyleVersion;
-		$stylePath = str_replace( '$wgScriptPath', $wgScriptPath, $wgFlaggedRevsStylePath );
+		global $wgJsMimeType, $wgFlaggedRevStyleVersion;
+		$stylePath = FlaggedRevs::styleUrlPath();
 		# Get JS/CSS file locations
 		$encCssFile = htmlspecialchars( "$stylePath/flaggedrevs.css?$wgFlaggedRevStyleVersion" );
 		$encJsFile = htmlspecialchars( "$stylePath/flaggedrevs.js?$wgFlaggedRevStyleVersion" );
