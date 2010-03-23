@@ -191,11 +191,11 @@ Al liamm kinniget a ya war-zu ar stumm ziwezhañ eus al live-se.",
  */
 $messages['bs'] = array(
 	'reviewedpages' => 'Provjerene stranice',
-	'reviewedpages-leg' => 'Spisak stranica po najvišem nivou pregleda',
-	'reviewedpages-list' => 'Ova stranica prikazuje stranice koje su provjerene (najviše) do određenog nivoa.',
+	'reviewedpages-leg' => 'Spisak stranica koje su pregledane',
+	'reviewedpages-list' => "Ovaj spisak sadrži [[{{MediaWiki:Validationpage}}|pregledane]] stranice čiji ''najveći dostignuti'' nivo pregleda (revizije) je ujedno traženi nivo. Dati link na posljednju reviziju tog nivoa.",
 	'reviewedpages-none' => 'Nema stranica na ovom spisku',
 	'reviewedpages-all' => 'pregledane verzije',
-	'reviewedpages-best' => 'najkvalitetnija revizija',
+	'reviewedpages-best' => 'najbolja revizija',
 );
 
 /** Catalan (Català)
@@ -255,8 +255,9 @@ $messages['diq'] = array(
  */
 $messages['dsb'] = array(
 	'reviewedpages' => 'Pśeglědane boki',
-	'reviewedpages-leg' => 'Boki pó nejwušej pśespytowańskej rowninje nalicyś',
-	'reviewedpages-list' => 'Toś ten bok nalistujo boki, kótarež su se pśeglědali (w nejwušem paźe) na pódanej rowninje.',
+	'reviewedpages-leg' => 'Pśeglědane boki nalicyś',
+	'reviewedpages-list' => "Toś ta lisćina wopśimujo [[{{MediaWiki:Validationpage}}|pśeglědane]] boki, kótarychž ''nejwuša dojśpjona'' pśeglědowańska rownina (wersije) jo pódana rownina.
+Wótkaz k nejnowšej wersiji teje rowniny jo pódany.",
 	'reviewedpages-none' => 'Toś ta lisćina njewopśimujo boki.',
 	'reviewedpages-lev-0' => 'Pśeglědany',
 	'reviewedpages-lev-1' => 'Kwalita',
@@ -515,13 +516,15 @@ Wotkaz k najnowšej wersiji teje runiny je podaty.",
 $messages['hu'] = array(
 	'reviewedpages' => 'Ellenőrzött lapok',
 	'reviewedpages-leg' => 'Ellenőrzött lapok listázása',
-	'reviewedpages-list' => 'Az alábbi lapok legmagasabb értékelési szintje a megadott szint.',
+	'reviewedpages-list' => "A lista azokat az [[{{MediaWiki:Validationpage}}|ellenőrzött]] lapokat tartalmazza, amelyek ''legmagasabb'' ellenőrzési szintje egy változatnál a megadott szint.
+
+A hivatkozások az illető értékelési szint legutolsó változatára mutatnak.",
 	'reviewedpages-none' => 'Nem található egyetlen lap sem a listában.',
 	'reviewedpages-lev-0' => '{{int:revreview-lev-basic}}',
 	'reviewedpages-lev-1' => '{{int:revreview-lev-quality}}',
 	'reviewedpages-lev-2' => '{{int:revreview-lev-pristine}}',
 	'reviewedpages-all' => 'ellenőrzött változatok',
-	'reviewedpages-best' => 'kiemelkedő változat',
+	'reviewedpages-best' => 'legjobb változat',
 );
 
 /** Interlingua (Interlingua)
@@ -908,15 +911,16 @@ $messages['ps'] = array(
  * @author Waldir
  */
 $messages['pt'] = array(
-	'reviewedpages' => 'Páginas analisadas',
-	'reviewedpages-leg' => 'Listar páginas por nível de revisão mais alto',
-	'reviewedpages-list' => 'Esta página lista as páginas que foram analisadas no nível especificado',
+	'reviewedpages' => 'Páginas revistas',
+	'reviewedpages-leg' => 'Listar as páginas revistas',
+	'reviewedpages-list' => 'Esta lista contém páginas [[{{MediaWiki:Validationpage}}|revistas]] cuja classificação mais elevada na revisão é o nível especificado.
+	Existe um link para a última edição com o mesmo nível.',
 	'reviewedpages-none' => 'Não há páginas nesta lista',
 	'reviewedpages-lev-0' => 'Objetiva',
 	'reviewedpages-lev-1' => 'Qualidade',
 	'reviewedpages-lev-2' => 'Exemplar',
-	'reviewedpages-all' => 'edições analisadas',
-	'reviewedpages-best' => 'edição principal',
+	'reviewedpages-all' => 'versões revistas',
+	'reviewedpages-best' => 'melhor edição',
 );
 
 /** Brazilian Portuguese (Português do Brasil)

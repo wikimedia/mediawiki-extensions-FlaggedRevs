@@ -22,6 +22,21 @@ Some settings might change which version is displayed to readers or further rest
 	'configuredpages-def-stable'    => 'published version',
 );
 
+/** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))
+ * @author Wizardist
+ */
+$messages['be-tarask'] = array(
+	'configuredpages' => 'Старонкі з наладкамі праверкі',
+	'configuredpages-none' => 'У гэтым сьпісе няма старонак.',
+	'configuredpages-config' => 'Канфігурацыя',
+	'configuredpages-precedence' => 'Першаснасьць:',
+	'configuredpages-prec-none' => 'апошняя правераная',
+	'configuredpages-prec-quality' => 'апошняя якасная',
+	'configuredpages-prec-pristine' => 'апошняя першапачатковая',
+	'configuredpages-def-draft' => 'апошняя вэрсія',
+	'configuredpages-def-stable' => 'апублікаваная вэрсія',
+);
+
 /** Breton (Brezhoneg)
  * @author Y-M D
  */
@@ -33,6 +48,24 @@ $messages['br'] = array(
 	'configuredpages-prec-pristine' => "kentwir gwerc'h ziwezhañ",
 	'configuredpages-def-draft' => 'stumm diwezhañ',
 	'configuredpages-def-stable' => 'stumm embannet',
+);
+
+/** Lower Sorbian (Dolnoserbski)
+ * @author Michawiki
+ */
+$messages['dsb'] = array(
+	'configuredpages' => 'Boki z pśeglědowańskimi konfiguracijami',
+	'configuredpages-text' => 'Dołojce jo lisćina bokow, konfigurěrowanych, aby su druge pśizwóleńske nastajenja ako standardne sedło ma. 
+
+Někotare nastajenja by mógli se změniś, kótara wersija zwobraznja se cytarjam abo dalej wobgranicowaś, chto nógu změny cyniś, kótarež njepominaju se pśeglědanje.',
+	'configuredpages-none' => 'W toś tom lisćinje žedne boki njejsu.',
+	'configuredpages-config' => 'Konfiguracija',
+	'configuredpages-precedence' => 'Prědnosć:',
+	'configuredpages-prec-none' => 'žedna prědnosć',
+	'configuredpages-prec-quality' => 'kwalitna prědnosć',
+	'configuredpages-prec-pristine' => 'spócetna prědnosć',
+	'configuredpages-def-draft' => 'nejnowša wersija',
+	'configuredpages-def-stable' => 'wózjawjona wersija',
 );
 
 /** French (Français)
@@ -51,6 +84,24 @@ Certains paramètres peuvent faire apparaître une version différente pour les 
 	'configuredpages-prec-pristine' => 'dernière priorité vierge',
 	'configuredpages-def-draft' => 'dernière version',
 	'configuredpages-def-stable' => 'version publiée',
+);
+
+/** Galician (Galego)
+ * @author Toliño
+ */
+$messages['gl'] = array(
+	'configuredpages' => 'Páxinas con configuracións de revisión',
+	'configuredpages-text' => 'A continuación está a lista coas páxinas configuradas para ter opcións de aprobación diferentes ás opcións por defecto do sitio.
+
+Algunhas configuracións poden facer aparecer unha versión diferente para os lectores ou restrinxir a lista de colaboradores que poden realizar edicións sen necesidade de revisión.',
+	'configuredpages-none' => 'Non hai páxinas nesta lista.',
+	'configuredpages-config' => 'Configuración',
+	'configuredpages-precedence' => 'Prioridade:',
+	'configuredpages-prec-none' => 'última comprobación',
+	'configuredpages-prec-quality' => 'última calidade',
+	'configuredpages-prec-pristine' => 'última prioridade antiga',
+	'configuredpages-def-draft' => 'última versión',
+	'configuredpages-def-stable' => 'versión publicada',
 );
 
 /** Swiss German (Alemannisch)
@@ -210,6 +261,24 @@ Chèiche ampostassion a peulo cangé che version a l'é smonùa ai letor o rëst
 	'configuredpages-prec-pristine' => 'ùltima pa contaminà',
 	'configuredpages-def-draft' => 'ùltima version',
 	'configuredpages-def-stable' => 'version publicà',
+);
+
+/** Portuguese (Português)
+ * @author Hamilton Abreu
+ */
+$messages['pt'] = array(
+	'configuredpages' => 'Páginas com configuração de revisão',
+	'configuredpages-text' => 'Segue-se uma lista de páginas configuradas com parâmetros de aprovação diferentes dos normais do site.
+
+Alguns parâmetros podem alterar a versão que é apresentada aos utilizadores, ou aumentar a restrição de quem pode fazer edições que não requerem revisão.',
+	'configuredpages-none' => 'Não existem páginas nesta lista.',
+	'configuredpages-config' => 'Configuração',
+	'configuredpages-precedence' => 'Precedência:',
+	'configuredpages-prec-none' => 'mais recente verificada',
+	'configuredpages-prec-quality' => 'mais recente de qualidade',
+	'configuredpages-prec-pristine' => 'mais recente impecável',
+	'configuredpages-def-draft' => 'última versão',
+	'configuredpages-def-stable' => 'versão publicada',
 );
 
 /** Russian (Русский)

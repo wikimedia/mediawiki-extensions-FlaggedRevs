@@ -1271,16 +1271,15 @@ $messages['ps'] = array(
  * @author Malafaya
  */
 $messages['pt'] = array(
-	'right-unreviewedpages' => 'Ver [[Special:UnreviewedPages|lista de páginas não verificadas]]',
-	'unreviewedpages' => 'Páginas a analisar',
-	'unreviewed-legend' => 'Lista páginas de conteúdo a serem analisadas',
+	'unreviewedpages' => 'Páginas não revistas',
+	'unreviewed-legend' => 'Listar páginas de conteúdo não revistas',
 	'unreviewed-category' => 'Categoria:',
 	'unreviewed-diff' => 'rever',
 	'unreviewed-unwatched' => '(não vigiada)',
-	'unreviewed-watched' => '($1 {{PLURAL:$1|utilizador ativo|utilizadores ativos}} a vigiar)',
-	'unreviewed-list' => 'Esta página lista as páginas de conteúdo que ainda não foram revistas até o nível escolhido.',
-	'unreviewed-none' => 'No momento não há páginas que se enquadrem nestes critérios',
-	'unreviewed-viewing' => '(sob análise)',
+	'unreviewed-watched' => '($1 {{PLURAL:$1|utilizador activo|utilizadores activos}} a vigiar)',
+	'unreviewed-list' => 'Esta página lista as páginas de conteúdo que não foram revistas até ao nível escolhido.',
+	'unreviewed-none' => 'De momento, não há páginas que se enquadrem nestes critérios',
+	'unreviewed-viewing' => '(em revisão)',
 	'unreviewed-hours' => '($1 {{PLURAL:$1|hora|horas}})',
 	'unreviewed-days' => '($1 {{PLURAL:$1|dia|dias}})',
 	'unreviewed-recent' => '(menos de uma hora)',

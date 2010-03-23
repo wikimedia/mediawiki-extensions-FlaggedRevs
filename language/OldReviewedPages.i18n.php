@@ -280,7 +280,7 @@ $messages['br'] = array(
  * @author CERminator
  */
 $messages['bs'] = array(
-	'oldreviewedpages' => 'Zastarijele pregledane stranice',
+	'oldreviewedpages' => 'Stranice sa izmjenama na čekanju',
 	'oldreviewedpages-legend' => 'Spisak pregledanih stranica sa revizijama koje čekaju na provjeru',
 	'oldreviewedpages-list' => 'Ova stranica prikazuje {{PLURAL:$1|pregledanu stranicu koja ima|pregledane stranice koje imaju}} izmjene na čekanju.',
 	'oldreviewedpages-none' => 'Trenutno nema stranica koje zadovoljavaju ove kriterije',
@@ -389,7 +389,7 @@ $messages['diq'] = array(
  * @author Michawiki
  */
 $messages['dsb'] = array(
-	'oldreviewedpages' => 'Zestarjone pśeglědane boki',
+	'oldreviewedpages' => 'Boki z njepśeglědanymi změnami',
 	'oldreviewedpages-legend' => 'Lisćina pśeglědanych bokow z njepśeglědanymi wersijami',
 	'oldreviewedpages-list' => 'Toś ten bok nalistujo {{PLURAL:$1|pśeglědany bok, kótaryž ma|pśeglědanej boka, kótarejž matej|pśeglědane boki, kótarež maju|pśeglědane boki, kótarež maju}} hyšći njepśeglědane změny.',
 	'oldreviewedpages-none' => 'Tuchylu njejsu boki, kótarež wótpówěduju toś tym kriterijam',
@@ -397,7 +397,7 @@ $messages['dsb'] = array(
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|źeń|dnja|dny|dnjow}})',
 	'oldreviewedpages-recent' => '(mjenjej ako 1 góźina)',
 	'oldreviewed-category' => 'Kategorija:',
-	'oldreviewed-watched' => 'W mójej wobglědowańce',
+	'oldreviewed-watched' => 'Boki mjazy wobglědowańkami',
 	'oldreviewed-stable' => 'Stabilizěrowany',
 	'oldreviewed-diff' => 'pśeglědaś',
 	'oldreviewed-size' => 'Maksimalna změna w bytach:',
@@ -1225,25 +1225,26 @@ $messages['ps'] = array(
 /** Portuguese (Português)
  * @author 555
  * @author Capmo
+ * @author Hamilton Abreu
  * @author Malafaya
  * @author Waldir
  */
 $messages['pt'] = array(
-	'oldreviewedpages' => 'Versões antigas de páginas analisadas',
-	'oldreviewedpages-legend' => 'Lista páginas analisadas que possuem edições que não foram verificadas',
-	'oldreviewedpages-list' => 'Esta página lista {{PLURAL:$1|uma página analisada que possui|as páginas analisadas que possuem}} edições pendentes.',
-	'oldreviewedpages-none' => 'Actualmente não existem páginas que satisfaçam estes critérios',
+	'oldreviewedpages' => 'Páginas com alterações pendentes',
+	'oldreviewedpages-legend' => 'Listar páginas revistas com edições pendentes',
+	'oldreviewedpages-list' => 'Esta página lista {{PLURAL:$1|uma página revista que tem|as páginas revistas que têm}} edições pendentes.',
+	'oldreviewedpages-none' => 'De momento, não há páginas que satisfaçam estes critérios',
 	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|hora|horas}})',
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|dia|dias}})',
 	'oldreviewedpages-recent' => '(menos de 1 hora)',
 	'oldreviewed-category' => 'Categoria:',
-	'oldreviewed-watched' => 'Na minha lista de vigiados',
-	'oldreviewed-stable' => 'Estabilizada',
-	'oldreviewed-diff' => 'analisar',
-	'oldreviewed-size' => 'Tamanho máximo da alteração (em bytes):',
-	'oldreviewedpages-unwatched' => '(não-vigiada)',
-	'oldreviewedpages-watched' => '($1 {{PLURAL:$1|utilizador ativo|utilizadores ativos}} a vigiar)',
-	'oldreviewedpages-viewing' => '(sob análise)',
+	'oldreviewed-watched' => 'Páginas na minha lista de páginas vigiadas',
+	'oldreviewed-stable' => 'Páginas estabilizadas',
+	'oldreviewed-diff' => 'rever',
+	'oldreviewed-size' => 'Alteração máx. (bytes):',
+	'oldreviewedpages-unwatched' => '(não vigiada)',
+	'oldreviewedpages-watched' => '($1 {{PLURAL:$1|utilizador activo|utilizadores activos}} a vigiar)',
+	'oldreviewedpages-viewing' => '(em revisão)',
 );
 
 /** Brazilian Portuguese (Português do Brasil)

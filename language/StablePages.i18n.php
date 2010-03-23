@@ -123,8 +123,8 @@ $messages['br'] = array(
  * @author CERminator
  */
 $messages['bs'] = array(
-	'stablepages' => 'Stabilne stranice',
-	'stablepages-text' => 'Ispod je spisak stranica koje su ručno postavljene da prikazuju objavljenu verziju kao pretpostavljenu stranicu sadržaja za čitaoce.',
+	'stablepages' => 'Stranice koristeći odobravanje izmjena',
+	'stablepages-text' => 'Ispod je spisak stranica koje su zaštićene tako da samo određeni korisnici mogu ih mijenjati a te izmjene ne zahtjevaju provjeru. Takve izmjene nisu objavljene dok ih ne provjeri autorizovani korisnik.',
 	'stablepages-none' => 'Nema stranica na ovom spisku',
 	'stablepages-config' => 'Podešavanje',
 );
@@ -178,8 +178,8 @@ $messages['diq'] = array(
  * @author Michawiki
  */
 $messages['dsb'] = array(
-	'stablepages' => 'Stabilne boki',
-	'stablepages-text' => 'Slědujo lisćina bokow, kótarež su so manuelnje konfigurěrowali, aby pokazali stabilnu wersiju ako standardne wopśimjeśe za wobglědowarjow.',
+	'stablepages' => 'Boki, kótarež wužywaju pśizwólenje změnow',
+	'stablepages-text' => 'Slědujo lisćina bokow, kótarež su wobgranicowane, tak až wěste wužywarje mógu změny cyniś, kótarež njepominaju se pśeglědanje. Take změny su se wózjawili, až awtorizěrowany wužywaŕ je njepśeglědujo.',
 	'stablepages-none' => 'Toś ta lisćina njewopśimujo boki',
 	'stablepages-config' => 'Konfiguracija',
 );
@@ -355,8 +355,8 @@ $messages['hsb'] = array(
  * @author Samat
  */
 $messages['hu'] = array(
-	'stablepages' => 'Stabil lapok',
-	'stablepages-text' => 'Ez a lista azokat a lapokat tartalmazza, amelyeknél külön be lett állítva, hogy az olvasók számára mindig a közzétett változat jelenjen meg.',
+	'stablepages' => 'Szerkesztési jóváhagyást alkalmazó lapok',
+	'stablepages-text' => 'Ez a lista azokat a korlátozott lapokat tartalmazza, amelyeknél csak meghatározott felhasználók szerkeszthetnek ellenőrzés nélkül. Az ilyen szerkesztések nincsenek közzétéve, amíg egy járőr nem ellenőrzi őket.',
 	'stablepages-none' => 'Nem található egyetlen lap sem a listában',
 	'stablepages-config' => 'beállítás',
 );
@@ -577,8 +577,8 @@ $messages['pms'] = array(
  */
 $messages['pt'] = array(
 	'stablepages' => 'Páginas que usam aprovação de edições',
-	'stablepages-text' => 'Segue-se uma lista das páginas configuradas manualmente para apresentarem, por omissão, a todos os leitores, a versão publicada.',
-	'stablepages-none' => 'Não há páginas nesta lista',
+	'stablepages-text' => 'Segue-se uma lista de páginas restringidas, cujas edições só são publicadas após revisão por um utilizador autorizado. Só certos utilizadores podem editá-las sem ser sujeitos a revisão.',
+	'stablepages-none' => 'Não há páginas nesta lista.',
 	'stablepages-config' => 'Configuração',
 );
 

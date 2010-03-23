@@ -238,7 +238,7 @@ Stumm embannet ur bajenn eo an adweladenn diwezhañ zo bet aprouet da vezañ dis
  * @author CERminator
  */
 $messages['bs'] = array(
-	'validationstatistics' => 'Statistike provjera',
+	'validationstatistics' => 'Statistike provjera stranice',
 	'validationstatistics-users' => "'''{{SITENAME}}''' trenutno ima '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|korisnika|korisnika}} sa pravima [[{{MediaWiki:Validationpage}}|urednika]].
 
 Urednici su potvrđeni korisnici koji mogu izvršavati provjere revizija stranice.",
@@ -1458,27 +1458,27 @@ $messages['ps'] = array(
  * @author Waldir
  */
 $messages['pt'] = array(
-	'validationstatistics' => 'Estatísticas de revisão de páginas',
+	'validationstatistics' => 'Estatísticas da revisão de páginas',
 	'validationstatistics-users' => "A '''{{SITENAME}}''' tem, neste momento, '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|utilizador|utilizadores}} com permissões de [[{{MediaWiki:Validationpage}}|Editor]].
 
-Editores são utilizadores que podem verificar as revisões de páginas.",
+Editores são utilizadores que podem rever as edições de páginas.",
 	'validationstatistics-time' => "''Os seguintes dados foram actualizados pela última vez a $5 às $6.''
 
 As edições verificadas por utilizadores estabelecidos são consideradas revistas.
 
-O tempo médio de espera para revisão das edições de ''utilizadores não autenticados'' é '''$1'''; a mediana é '''$3'''.
+O tempo médio de espera para revisão das edições de ''utilizadores não autenticados'' é '''$1'''; a mediana é '''$3'''. 
 $4
 O atraso médio para [[Special:OldReviewedPages|páginas com edições à espera de revisão]] é '''$2'''.
-Estas páginas são consideradas ''desactualizadas''. As páginas são consideradas ''sincronizadas'' se não tiverem revisões em espera.
-A versão publicada de uma página é a revisão mais recente que tenha sido aprovada para ser apresentada por omissão a todos os leitores.",
+Estas páginas são consideradas ''desactualizadas''. As páginas são consideradas ''sincronizadas'' se não tiverem edições em espera.
+A versão publicada de uma página é a edição mais recente que tenha sido aprovada para ser apresentada por omissão a todos os leitores.",
 	'validationstatistics-table' => "São apresentadas abaixo estatísticas para cada espaço nominal, '''excluindo''' páginas de redireccionamento.",
 	'validationstatistics-ns' => 'Espaço nominal',
 	'validationstatistics-total' => 'Páginas',
-	'validationstatistics-stable' => 'Analisadas',
-	'validationstatistics-latest' => 'Sincronizada',
-	'validationstatistics-synced' => 'Sincronizadas/Analisadas',
+	'validationstatistics-stable' => 'Revistas',
+	'validationstatistics-latest' => 'Sincronizadas',
+	'validationstatistics-synced' => 'Sincronizadas/Revistas',
 	'validationstatistics-old' => 'Desactualizadas',
-	'validationstatistics-utable' => 'Abaixo está a lista dos 5 revisores mais ativos na última hora.',
+	'validationstatistics-utable' => 'Abaixo está a lista dos 5 revisores mais activos na última hora.',
 	'validationstatistics-user' => 'Utilizador',
 	'validationstatistics-reviews' => 'Revisões',
 );

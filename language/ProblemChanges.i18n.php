@@ -82,7 +82,7 @@ $messages['br'] = array(
  * @author CERminator
  */
 $messages['bs'] = array(
-	'problemchanges' => 'Pregled označenih promjena',
+	'problemchanges' => 'Označene promjene na čekanju',
 	'problemchanges-legend' => 'Spisak stranica sa označenim izmjenama koje čekaju pregled',
 	'problemchanges-none' => 'Trenutno nema stranica koje zadovoljavaju ove kriterije',
 	'problemchanges-category' => 'Kategorija:',
@@ -485,9 +485,9 @@ $messages['ps'] = array(
  * @author Malafaya
  */
 $messages['pt'] = array(
-	'problemchanges' => 'Mudanças nas marcações de revisão',
-	'problemchanges-legend' => 'Listar páginas com edições marcadas pendendo revisão',
-	'problemchanges-none' => 'No momento não há páginas que satisfaçam estes critérios',
+	'problemchanges' => 'Alterações pendentes que foram assinaladas',
+	'problemchanges-legend' => 'Listar páginas com edições marcadas a aguardar revisão',
+	'problemchanges-none' => 'De momento, não há páginas que satisfaçam estes critérios',
 	'problemchanges-category' => 'Categoria:',
 );
 

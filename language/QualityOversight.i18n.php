@@ -439,8 +439,8 @@ $messages['pms'] = array(
  */
 $messages['pt'] = array(
 	'qualityoversight' => 'Registo avançado de revisões',
-	'qualityoversight-list' => 'Esta página lista as mais recentes aprovações e despromoções de revisões.',
-	'qualityoversight-legend' => 'Pesquisar nos registos de análises recentes',
+	'qualityoversight-list' => 'Esta página lista as mais recentes aprovações e desaprovações de edições.',
+	'qualityoversight-legend' => 'Pesquisar registos das revisões recentes',
 );
 
 /** Brazilian Portuguese (Português do Brasil)

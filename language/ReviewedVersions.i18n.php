@@ -175,7 +175,7 @@ $messages['br'] = array(
  * @author CERminator
  */
 $messages['bs'] = array(
-	'reviewedversions' => 'Pogledaj pregledane verzije',
+	'reviewedversions' => 'Pregledane verzije',
 	'reviewedversions-leg1' => 'Spisak pregledanih revizija stranice',
 	'reviewedversions-page' => 'Naslov stranice:',
 	'reviewedversions-none' => '"[[:$1]]" nema pregledanih revizija.',
@@ -247,7 +247,7 @@ $messages['diq'] = array(
  * @author Michawiki
  */
 $messages['dsb'] = array(
-	'reviewedversions' => 'Stabilne wersije se woglědaś',
+	'reviewedversions' => 'Pśeglědane wersiej',
 	'reviewedversions-leg1' => 'Lisćina pśeglědanych wersijow za bok',
 	'reviewedversions-page' => 'Mě boka:',
 	'reviewedversions-none' => '"[[:$1]]" njama pśeglědane wersije.',
@@ -838,15 +838,16 @@ $messages['ps'] = array(
 
 /** Portuguese (Português)
  * @author 555
+ * @author Hamilton Abreu
  * @author Waldir
  */
 $messages['pt'] = array(
-	'reviewedversions' => 'Ver edições estáveis',
+	'reviewedversions' => 'Edições revistas',
 	'reviewedversions-leg1' => 'Listar as edições revistas de uma página',
-	'reviewedversions-page' => 'Título da página:',
-	'reviewedversions-none' => '[[:$1]] não possui edições analisadas.',
-	'reviewedversions-list' => 'A seguir, {{PLURAL:$2|A única edição|uma lista das edições}} de "[[:$1]]" que {{PLURAL:$2|foi analisada|foram analisadas}}:',
-	'reviewedversions-review' => 'Analisada às <i>$1</i> por $2',
+	'reviewedversions-page' => 'Nome da página:',
+	'reviewedversions-none' => '[[:$1]] não tem edições revistas.',
+	'reviewedversions-list' => 'Encontra abaixo {{PLURAL:$2|a única edição|uma lista das edições}} da página [[:$1]], que {{PLURAL:$2|foi revista|foram revistas}}:',
+	'reviewedversions-review' => 'Revista em <i>$1</i> por $2',
 );
 
 /** Brazilian Portuguese (Português do Brasil)
