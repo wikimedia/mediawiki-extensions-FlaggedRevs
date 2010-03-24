@@ -170,10 +170,8 @@ There are [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} template/f
 To deprecate a revision, set all fields to "unapproved".
 
 Please hit the "back" button in your browser and try again.',
-	'revreview-update'             => 'Please [[{{MediaWiki:Validationpage}}|review]] any changes \'\'(shown below)\'\' made since the published version was [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approved].<br />
-\'\'\'Some templates/files were updated:\'\'\'',
+	'revreview-update'             => 'Please [[{{MediaWiki:Validationpage}}|review]] any pending changes \'\'(shown below)\'\' made to the published version.',
 	'revreview-update-includes'    => '\'\'\'Some templates/files were updated:\'\'\'',
-	'revreview-update-none'        => 'Please [[{{MediaWiki:Validationpage}}|review]] any changes \'\'(shown below)\'\' made since the published version was [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approved].',
 	'revreview-update-use'         => '\'\'\'NOTE:\'\'\' The published version of each of these templates/files is used in the published version of this page.',
 	'revreview-visibility'         => '\'\'\'This page has an updated [[{{MediaWiki:Validationpage}}|published version]]; page stability settings can be [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} configured].\'\'\'',
 	'revreview-visibility2'        => '\'\'\'This page has an outdated [[{{MediaWiki:Validationpage}}|published version]]; page stability settings can be [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} configured].\'\'\'',
