@@ -73,15 +73,11 @@ class FlaggedRevision {
      * Note: will return NULL if the revision is deleted.
 	 * @param Title $title
 	 * @param int $revId
-	 * @param int $flags
+	 * @param int $flags FR_MASTER
 	 * @returns mixed FlaggedRevision (null on failure)
 	 */
 	public static function newFromTitle( Title $title, $revId, $flags = 0 ) {
 		$columns = self::selectFields();
-		# If we want the text, then get the text flags too
-		if ( $flags & FR_TEXT ) {
-			$columns += self::selectTextFields();
-		}
 		$options = array();
 		# User master/slave as appropriate
 		if ( $flags & FR_FOR_UPDATE || $flags & FR_MASTER ) {
@@ -119,16 +115,12 @@ class FlaggedRevision {
 	/**
      * Get a FlaggedRevision of the stable version of a title.
 	 * @param Title $title, page title
-	 * @param int $flags
+	 * @param int $flags FR_MASTER
      * @param array $config, optional page config (use to skip queries)
 	 * @returns mixed FlaggedRevision (null on failure)
 	 */
 	public static function newFromStable( Title $title, $flags = 0, $config = array() ) {
 		$columns = self::selectFields();
-		# If we want the text, then get the text flags too
-		if ( $flags & FR_TEXT ) {
-			$columns += self::selectTextFields();
-		}
 		$options = array();
 		# Short-circuit query
 		$pageId = $title->getArticleID( $flags & FR_FOR_UPDATE ? GAID_FOR_UPDATE : 0 );
@@ -268,16 +260,11 @@ class FlaggedRevision {
 	 * @returns Array basic select fields (not including text/text flags)
 	 */
 	public static function selectFields() {
-		return array( 'fr_rev_id', 'fr_page_id', 'fr_user', 'fr_timestamp',
-            'fr_comment', 'fr_quality', 'fr_tags', 'fr_img_name', 'fr_img_sha1',
-            'fr_img_timestamp' );
-	}
-	
-	/**
-	 * @returns Array text select fields (text/text flags)
-	 */
-	public static function selectTextFields() {
-		return array( 'fr_flags' );
+		return array(
+			'fr_rev_id', 'fr_page_id', 'fr_user', 'fr_timestamp',
+            'fr_comment', 'fr_quality', 'fr_tags', 'fr_img_name',
+			'fr_img_sha1', 'fr_img_timestamp', 'fr_flags'
+		);
 	}
 
 	/**
