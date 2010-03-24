@@ -195,20 +195,19 @@ wgAjaxReview.processResult = function(request) {
 	if( wgAjaxReview.timeoutID ) {
 		window.clearTimeout(wgAjaxReview.timeoutID);
 	}
+	var tier = 0; // review tier
 	var response = request.responseText;
 	var msg = response.substr(6); // remove <err#> or <suc#>
-	var regm = msg.match(/^<t#(\d)>/);
-	if( regm ) {
+	var tierMatch = msg.match(/^<t#(\d)>/);
+	if( tierMatch ) {
+		tier = tierMatch[1];
 		msg = msg.substr(5); // remove <t#x>
 	}
-	var tier = regm ? regm[1] : 0; // review tier
-	/*
-	// Output any response message
-	if( msg.length ) {
+	// Output any error response message
+	if( response.indexOf('<err#>') == 0 ) {
 		jsMsg( msg, 'review' ); // success/failure notice
 		window.scroll(0,0); // scroll up to notice
 	}
-	*/
 	var rsubmit = document.getElementById("mw-fr-submitreview");
 	var usubmit = document.getElementById("mw-fr-submitunreview");
 	var legend = document.getElementById("mw-fr-reviewformlegend");
