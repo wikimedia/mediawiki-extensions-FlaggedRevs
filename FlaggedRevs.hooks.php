@@ -1712,7 +1712,9 @@ class FlaggedRevsHooks {
 	
 	public static function onSkinAfterContent( &$data ) {
 		global $wgOut;
-		if ( $wgOut->isArticleRelated() && FlaggedArticleView::globalArticleInstance() != null ) {
+		if ( $wgOut->isArticleRelated()
+			&& FlaggedArticleView::globalArticleInstance() != null )
+		{
 			$view = FlaggedArticleView::singleton();
 			$view->addReviewNotes( $data );
 			$view->addReviewForm( $data );

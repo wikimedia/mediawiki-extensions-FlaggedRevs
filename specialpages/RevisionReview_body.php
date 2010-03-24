@@ -278,7 +278,9 @@ class RevisionReview extends UnlistedSpecialPage
 		if ( !$form->oldid || is_null( $form->page ) ) {
 			return '<err#>' . wfMsgExt( 'revreview-failed', 'parseinline' );
 		}
-		if ( $form->unapprovedTags && $form->unapprovedTags < count( FlaggedRevs::getDimensions() ) ) {
+		if ( $form->unapprovedTags
+			&& $form->unapprovedTags < count( FlaggedRevs::getDimensions() ) )
+		{
 			return '<err#>' . wfMsgExt( 'revreview-failed', 'parseinline' );
 		}
 		// Doesn't match up?
@@ -497,8 +499,7 @@ class RevisionReview extends UnlistedSpecialPage
 		
 		# Is this rev already flagged?
 		$flaggedOutput = false;
-		$oldfrev = FlaggedRevision::newFromTitle( $this->page, $rev->getId(),
-			FR_TEXT | FR_MASTER );
+		$oldfrev = FlaggedRevision::newFromTitle( $this->page, $rev->getId(), FR_MASTER );
 		if ( $oldfrev ) {
 			$flaggedOutput = FlaggedRevs::parseStableText( $article,
 				$oldfrev->getRevText(), $oldfrev->getRevId() );

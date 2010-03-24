@@ -133,7 +133,6 @@ class FlaggedArticleView {
 		return true;
 	}
 
-
 	 /**
 	 * Add a stable link when viewing old versions of an article that
 	 * have been reviewed. (e.g. for &oldid=x urls)
@@ -897,18 +896,26 @@ class FlaggedArticleView {
 		if ( !$wgUser->isAllowed( 'review' ) ) {
 			return true;
 		}
+		$links = array();
 		$category = $this->article->getTitle()->getText();
-
-		$unreviewed = SpecialPage::getTitleFor( 'UnreviewedPages' );
-		$unreviewedLink = $wgUser->getSkin()->makeKnownLinkObj( $unreviewed,
-			wfMsgHtml( 'unreviewedpages' ), 'category=' . urlencode( $category ) );
-
-		$oldreviewed = SpecialPage::getTitleFor( 'OldReviewedPages' );
-		$oldreviewedLink = $wgUser->getSkin()->makeKnownLinkObj( $oldreviewed,
-			wfMsgHtml( 'oldreviewedpages' ), 'category=' . urlencode( $category ) );
+		# Add link to list of unreviewed pages in this category
+		if( !FlaggedRevs::stableOnlyIfConfigured() ) {
+			$links[] = $wgUser->getSkin()->makeKnownLinkObj(
+				SpecialPage::getTitleFor( 'UnreviewedPages' ),
+				wfMsgHtml( 'unreviewedpages' ),
+				'category=' . urlencode( $category )
+			);
+		}
+		# Add link to list of pages in this category with pending edits
+		$links[] = $wgUser->getSkin()->makeKnownLinkObj(
+			SpecialPage::getTitleFor( 'OldReviewedPages' ),
+			wfMsgHtml( 'oldreviewedpages' ),
+			'category=' . urlencode( $category )
+		);
+		$quickLinks = implode( ' / ', $links );
 
 		$wgOut->appendSubtitle(
-			"<span id='mw-fr-category-oldreviewed'>$unreviewedLink / $oldreviewedLink</span>"
+			"<span id='mw-fr-category-oldreviewed'>$quickLinks</span>"
 		);
 		return true;
 	}
