@@ -156,7 +156,7 @@ $messages['el'] = array(
  * @author Yekrats
  */
 $messages['eo'] = array(
-	'problemchanges' => 'Kontroli markitajn ŝanĝojn',
+	'problemchanges' => 'Markis kontrolendajn ŝanĝojn',
 	'problemchanges-legend' => 'Listigi paĝojn kun markitaj kaj kontrolendaj redaktoj',
 	'problemchanges-none' => 'Estas nune neniuj paĝoj kongruante ĉi tiun kriterion',
 	'problemchanges-category' => 'Kategorio:',

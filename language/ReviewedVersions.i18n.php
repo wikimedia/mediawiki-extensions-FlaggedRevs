@@ -273,7 +273,7 @@ $messages['el'] = array(
  * @author Yekrats
  */
 $messages['eo'] = array(
-	'reviewedversions' => 'Rigardi stabilajn versiojn',
+	'reviewedversions' => 'Kontrolitaj versioj',
 	'reviewedversions-leg1' => 'Listigi kontrolitajn versiojn por paĝo',
 	'reviewedversions-page' => 'Nomo de paĝo:',
 	'reviewedversions-none' => '"[[:$1]]" havas neniujn kontrolitajn revizojn.',

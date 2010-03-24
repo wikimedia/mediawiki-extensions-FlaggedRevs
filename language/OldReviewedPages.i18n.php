@@ -433,7 +433,7 @@ $messages['el'] = array(
  * @author Yekrats
  */
 $messages['eo'] = array(
-	'oldreviewedpages' => 'Malfreŝe kontrolitaj paĝoj',
+	'oldreviewedpages' => 'Paĝoj kun kontrolendaj ŝanĝoj',
 	'oldreviewedpages-legend' => 'Listigi reviziitajn paĝojn kun nereviziitaj versioj',
 	'oldreviewedpages-list' => 'Ĉi tiu paĝo montras {{PLURAL:$1|reviziitan paĝon|reviziitajn paĝojn}} kiuj havas nereviziitajn redaktojn.',
 	'oldreviewedpages-none' => 'Nune neniuj paĝoj laŭ tiu kriterio.',

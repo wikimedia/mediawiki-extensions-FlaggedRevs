@@ -23,10 +23,14 @@ Some settings might change which version is displayed to readers or further rest
 );
 
 /** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))
+ * @author EugeneZelenko
  * @author Wizardist
  */
 $messages['be-tarask'] = array(
-	'configuredpages' => 'Старонкі з наладкамі праверкі',
+	'configuredpages' => 'Старонкі з устаноўкамі рэцэнзаваньня',
+	'configuredpages-text' => 'Ніжэй пададзены сьпіс старонак, якія маюць устаноўкі зацьверджаньня, якія адрозьніваюцца ад установак сайта па змоўчваньні.
+
+Некаторыя ўстаноўкі могуць зьмяняць вэрсію, якая паказваецца чытачам ці абмяжоўваць кола ўдзельнікаў, рэдагаваньні якіх не патрабуюць рэцэнзаваньня.',
 	'configuredpages-none' => 'У гэтым сьпісе няма старонак.',
 	'configuredpages-config' => 'Канфігурацыя',
 	'configuredpages-precedence' => 'Першаснасьць:',
@@ -43,6 +47,7 @@ $messages['be-tarask'] = array(
 $messages['br'] = array(
 	'configuredpages-none' => "N'eus pajenn ebet er roll-mañ.",
 	'configuredpages-config' => 'Kefluniadur',
+	'configuredpages-precedence' => 'Kentwir :',
 	'configuredpages-prec-none' => 'gwiriekadenn ziwezhañ',
 	'configuredpages-prec-quality' => 'kalite ziwezhañ',
 	'configuredpages-prec-pristine' => "kentwir gwerc'h ziwezhañ",
@@ -66,6 +71,18 @@ Někotare nastajenja by mógli se změniś, kótara wersija zwobraznja se cytarj
 	'configuredpages-prec-pristine' => 'spócetna prědnosć',
 	'configuredpages-def-draft' => 'nejnowša wersija',
 	'configuredpages-def-stable' => 'wózjawjona wersija',
+);
+
+/** Esperanto (Esperanto)
+ * @author Yekrats
+ */
+$messages['eo'] = array(
+	'configuredpages-config' => 'Konfiguro',
+	'configuredpages-prec-none' => 'neniu prioritato',
+	'configuredpages-prec-quality' => 'bonkvalita prioritato',
+	'configuredpages-prec-pristine' => 'perfekta prioritato',
+	'configuredpages-def-draft' => 'lasta versio',
+	'configuredpages-def-stable' => 'publikigita versio',
 );
 
 /** French (Français)
@@ -138,6 +155,20 @@ Někotre nastajenja móhli změnić, kotra wersija so zwobraznja abo dale wobmje
 	'configuredpages-prec-pristine' => 'najnowša prěnjotna',
 	'configuredpages-def-draft' => 'najnowša wersija',
 	'configuredpages-def-stable' => 'wozjewjena wersija',
+);
+
+/** Hungarian (Magyar)
+ * @author Glanthor Reviol
+ */
+$messages['hu'] = array(
+	'configuredpages-none' => 'Nem található egyetlen lap sem a listában.',
+	'configuredpages-config' => 'Beállítás',
+	'configuredpages-precedence' => 'Elsőbbség:',
+	'configuredpages-prec-none' => 'nincs precedencia',
+	'configuredpages-prec-quality' => '„minőségi” szint szerinti rendezés',
+	'configuredpages-prec-pristine' => '„kiemelkedő” szint szerinti rendezés',
+	'configuredpages-def-draft' => 'legutolsó változat',
+	'configuredpages-def-stable' => 'közzétett változat',
 );
 
 /** Interlingua (Interlingua)
@@ -297,5 +328,20 @@ $messages['ru'] = array(
 	'configuredpages-prec-pristine' => 'последняя чистая версия',
 	'configuredpages-def-draft' => 'последняя версия',
 	'configuredpages-def-stable' => 'опубликованная версия',
+);
+
+/** Ukrainian (Українська)
+ * @author Prima klasy4na
+ */
+$messages['uk'] = array(
+	'configuredpages' => 'Сторінки з налаштуваннями рецензування',
+	'configuredpages-none' => 'У цьому списку немає сторінок.',
+	'configuredpages-config' => 'Налаштування',
+	'configuredpages-precedence' => 'Пріоритет:',
+	'configuredpages-prec-none' => 'остання перевірена версія',
+	'configuredpages-prec-quality' => 'остання якісна версія',
+	'configuredpages-prec-pristine' => 'остання чиста версія',
+	'configuredpages-def-draft' => 'остання версія',
+	'configuredpages-def-stable' => 'опублікована версія',
 );
 

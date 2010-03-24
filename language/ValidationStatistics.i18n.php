@@ -449,7 +449,7 @@ $4
  * @author Yekrats
  */
 $messages['eo'] = array(
-	'validationstatistics' => 'Validigadaj statistikoj',
+	'validationstatistics' => 'Statistikoj pri paĝkontrolado',
 	'validationstatistics-users' => "'''{{SITENAME}}''' nun havas '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|uzanton|uzantojn}} kun
 [[{{MediaWiki:Validationpage}}|Redaktanto]]-rajtoj
 kaj '''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$2|uzanton|uzantojn}} kun [[{{MediaWiki:Validationpage}}|Kontrolanto]]-rajtoj.
@@ -462,9 +462,8 @@ Redaktoj kontrolitaj de longdaŭraj uzantoj estas konsiderataj esti kontrolitaj.
 La averaĝa atendotempo por kontrolendaj redaktoj de ''nesalutita uzantoj'' estas '''$1'''; la mediano estas '''$3'''.
 $4
 La averaĝa atendotempo por [[Special:OldReviewedPages|paĝoj kun nekontrolitaj redaktoj farontaj]] estas '''$2'''.
-Ĉi tiuj paĝoj estas konsiderataj kiel ''malfreŝaj''. Ankaŭ, paĝoj estas konsiderata ''sinkrona'' se la 
-[[{{MediaWiki:Validationpage}}|stabila revizio]] ankaŭ estas la nuna neta versio.
-Stabila revizio de paĝo estas la plej nova revizio aprobita por montri al ĉiuj legantoj.",
+Ĉi tiuj paĝoj estas konsiderataj kiel ''malfreŝaj''. Ankaŭ, paĝoj estas konsiderata ''sinkrona'' se neniuj redaktoj atendas kontrolon.
+Publikigita revizio de paĝo estas la plej nova revizio aprobita por montri al ĉiuj legantoj.",
 	'validationstatistics-table' => "Statistikoj por ĉiu nomspaco estas jene montritaj, ''krom'' alidirektiloj.",
 	'validationstatistics-ns' => 'Nomspaco',
 	'validationstatistics-total' => 'Paĝoj',

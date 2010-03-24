@@ -845,17 +845,16 @@ $messages['el'] = array(
 $messages['eo'] = array(
 	'stabilization-tab' => 'kontroli',
 	'stabilization' => 'Paĝa stabiligado',
-	'stabilization-text' => "'''Ŝanĝu la subajn preferojn por modifi kiel la stabila versio de [[:\$1|\$1]] estas elektita kaj montrita.'''
+	'stabilization-text' => "'''Ŝanĝu la jenajn agordojn por modifi kiel la publikigita versio de [[:\$1|\$1]] estas elektita kaj montrita.'''
 
-Kiam ŝanĝante la konfiguro ''elekto de stabila versio'' por uzi \"bonkvalita\" aŭ \"netega\" revizioj defaŭlte,
-certigu kontroli se ja estas tiaj revizioj en la paĝo, aŭ la ŝanĝo efikos preskaŭ neniom.",
+Notu: ŝanĝante la konfiguro ''elekto de stabila versio'' por preferi \"bonkvalita\" aŭ \"netega\" revizioj defaŭlte ne efikos se ne ekzistas tiaj versioj. Ankaŭ, notu ke '''bonkvalita''' versio estas ankaŭ konsiderata kiel '''kontrolita''' versio, ktp.",
 	'stabilization-perm' => 'Via konto ne rajtas ŝanĝi la konfiguron de stabila versio.
 Jen la nunaj preferoj por [[:$1|$1]]:',
 	'stabilization-page' => 'Paĝnomo:',
-	'stabilization-leg' => 'Konfirmi konfiguron de stabila versio',
+	'stabilization-leg' => 'Konfirmi agordojn de publikigitaj versioj',
 	'stabilization-select' => 'Elektita prioritato de publikigita versio',
 	'stabilization-select1' => 'La lasta bonkvalita versio; se ĝi ne ekzistas, tiel la lasta reviziita versio.',
-	'stabilization-select2' => 'La lasta kontrolita revizio, malgraŭ valideca nivelo',
+	'stabilization-select2' => 'Plej lasta kontrolita revizio',
 	'stabilization-select3' => 'La lasta netega versio; se ne estanta, la lasta bonkvalita aŭ reviziita versio.',
 	'stabilization-def' => 'Versio montrita en defaŭlta paĝa vido',
 	'stabilization-def1' => 'La stabila versio;
@@ -882,7 +881,7 @@ Neniu konfiguro eblas.',
 	'stabilize_expiry_invalid' => 'Nevalida findato.',
 	'stabilize_expiry_old' => 'Ĉi tiu findato jam estas pasita.',
 	'stabilize-expiring' => 'findato $1 (UTC)',
-	'stabilization-review' => 'Kontroli la nunan version',
+	'stabilization-review' => 'Marki la nunan revizion kiel kontrolitan',
 );
 
 /** Spanish (Español)

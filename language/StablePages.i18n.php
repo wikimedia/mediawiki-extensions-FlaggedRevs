@@ -93,7 +93,7 @@ $messages['bcc'] = array(
 $messages['be-tarask'] = array(
 	'stablepages' => 'Старонкі, якія выкарыстоўваюць зацьверджаньні рэдагаваньняў',
 	'stablepages-text' => 'Ніжэй пададзены сьпіс старонак, якія могуць рэдагаваць толькі вызначаныя ўдзельнікі без неабходнага рэцэнзаваньня. Такія рэдагаваньні ня будуць публікавацца, пакуль аўтарызаваны ўдзельнік іх не прарэцэнзуе.',
-	'stablepages-none' => 'У гэтым сьпісе няма старонак',
+	'stablepages-none' => 'У гэтым сьпісе няма старонак.',
 	'stablepages-config' => 'Канфігурацыя',
 );
 
@@ -199,8 +199,9 @@ $messages['el'] = array(
  * @author Yekrats
  */
 $messages['eo'] = array(
-	'stablepages' => 'Stabilaj paĝoj',
-	'stablepages-text' => 'Jen listo de paĝoj permane konfiguritaj montri la stabilan version kiel la defaŭltan paĝon por rigardantoj.',
+	'stablepages' => 'Paĝoj uzantaj redaktan aprobadon',
+	'stablepages-text' => 'Jen listo de paĝoj kiuj estas limigitaj tiel nur specifaj uzantoj povas fari redaktojn kiuj ne bezonas kontroladon.
+Ĉi tiaj redaktoj ne estas publikigita ĝis aŭtorita uzanto kontrolas tiujn.',
 	'stablepages-none' => 'Neniuj paĝoj estas en ĉi tiu listo',
 	'stablepages-config' => 'Konfiguro',
 );
@@ -729,7 +730,7 @@ $messages['tr'] = array(
 $messages['uk'] = array(
 	'stablepages' => 'Сторінки, що використовують затвердження редагувань',
 	'stablepages-text' => 'Нижче поданий список сторінок, які вручну налаштовані на показ опублікованої версії за умовчанням для читачів.',
-	'stablepages-none' => 'У цьому списку нема сторінок',
+	'stablepages-none' => 'У цьому списку немає сторінок.',
 	'stablepages-config' => 'Налаштування',
 );
 

@@ -287,14 +287,14 @@ $messages['el'] = array(
  */
 $messages['eo'] = array(
 	'reviewedpages' => 'Kontrolitaj paĝoj',
-	'reviewedpages-leg' => 'Montri paĝojn laŭ plej alta kontrolnivelo',
+	'reviewedpages-leg' => 'Listigi paĝojn kontrolitajn',
 	'reviewedpages-list' => 'Ĉi tiu paĝo montras paĝojn kontrolitajn (maksimume) al la petita nivelo.',
 	'reviewedpages-none' => 'Neniuj paĝoj estas en ĉi tiu listo',
 	'reviewedpages-lev-0' => 'Reviziita',
 	'reviewedpages-lev-1' => 'Kvalito',
 	'reviewedpages-lev-2' => 'Elstara',
 	'reviewedpages-all' => 'reviziitaj versioj',
-	'reviewedpages-best' => 'ĉefa versio',
+	'reviewedpages-best' => 'plej bona revizio',
 );
 
 /** Spanish (Español)
@@ -803,7 +803,7 @@ $messages['nl'] = array(
 	'reviewedpages-leg' => "Lijst met pagina's die gecontroleerd zijn",
 	'reviewedpages-list' => "De volgende pagina's zijn [[{{MediaWiki:Validationpage}}|gecontroleerd]] tot het '''hoogst aangegeven''' niveau (van een versie).
 Er wordt een verwijzing gegeven naar de laatste versie voor dat niveau.",
-	'reviewedpages-none' => 'Geen resultaten',
+	'reviewedpages-none' => "Er staan geen pagina's in deze lijst.",
 	'reviewedpages-lev-0' => 'Gecontroleerd',
 	'reviewedpages-lev-1' => 'Kwaliteit',
 	'reviewedpages-lev-2' => 'Uitgelicht',
