@@ -201,10 +201,12 @@ class OldReviewedPages extends SpecialPage
 	
 	public function formatRow( $row ) {
 		global $wgLang, $wgUser, $wgMemc;
+		$css = $quality = $underReview = '';
 
 		$title = Title::newFromRow( $row );
 		$link = $this->skin->makeKnownLinkObj( $title );
-		$css = $stxt = $review = $quality = $underReview = '';
+		$hist = $this->skin->makeKnownLinkObj( $title, wfMsgHtml( 'hist' ),
+			'action=history&reviewing=1' );
 		$stxt = ChangesList::showCharacterDifference( $row->rev_len, $row->page_len );
 		$review = $this->skin->makeKnownLinkObj( $title,
 			wfMsg( 'oldreviewed-diff' ),
@@ -256,7 +258,7 @@ class OldReviewedPages extends SpecialPage
 				wfMsgHtml( 'oldreviewedpages-viewing' ) . '</b>';
 		}
 
-		return( "<li{$css}>{$link} {$stxt} ({$review}) <i>{$age}</i>" .
+		return( "<li{$css}>{$link} ({$hist}) {$stxt} ({$review}) <i>{$age}</i>" .
 			"{$quality}{$watching}{$underReview}</li>" );
 	}
 	
