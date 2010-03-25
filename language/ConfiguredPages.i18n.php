@@ -161,6 +161,10 @@ Někotre nastajenja móhli změnić, kotra wersija so zwobraznja abo dale wobmje
  * @author Glanthor Reviol
  */
 $messages['hu'] = array(
+	'configuredpages' => 'Ellenőrzési beállításokkal rendelkező lapok',
+	'configuredpages-text' => 'Alább azok a lapok láthatóak, amelyek az alapértelmezettől eltérő jóváhagyási beállítással rendelkeznek.
+
+Néhány beállítás megváltoztathatja, az olvasók melyik változatot látják, vagy tovább szűkítheti, kik szerkeszthetnek ellenőrzés nélkül.',
 	'configuredpages-none' => 'Nem található egyetlen lap sem a listában.',
 	'configuredpages-config' => 'Beállítás',
 	'configuredpages-precedence' => 'Elsőbbség:',

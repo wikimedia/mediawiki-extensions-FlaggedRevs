@@ -288,7 +288,8 @@ $messages['el'] = array(
 $messages['eo'] = array(
 	'reviewedpages' => 'Kontrolitaj paĝoj',
 	'reviewedpages-leg' => 'Listigi paĝojn kontrolitajn',
-	'reviewedpages-list' => 'Ĉi tiu paĝo montras paĝojn kontrolitajn (maksimume) al la petita nivelo.',
+	'reviewedpages-list' => "Ĉi tiu listigas [[{{MediaWiki:Validationpage}}|kontrolitajn]] paĝojn kies ''plej alta'' kontrolnivelo (de revizio) estas la specifigita nivelo.
+Ligilo estas farata al la lasta revizio de tiu nivelo.",
 	'reviewedpages-none' => 'Neniuj paĝoj estas en ĉi tiu listo',
 	'reviewedpages-lev-0' => 'Reviziita',
 	'reviewedpages-lev-1' => 'Kvalito',

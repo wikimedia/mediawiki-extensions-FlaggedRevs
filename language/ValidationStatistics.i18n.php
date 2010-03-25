@@ -450,11 +450,9 @@ $4
  */
 $messages['eo'] = array(
 	'validationstatistics' => 'Statistikoj pri paĝkontrolado',
-	'validationstatistics-users' => "'''{{SITENAME}}''' nun havas '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|uzanton|uzantojn}} kun
-[[{{MediaWiki:Validationpage}}|Redaktanto]]-rajtoj
-kaj '''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$2|uzanton|uzantojn}} kun [[{{MediaWiki:Validationpage}}|Kontrolanto]]-rajtoj.
+	'validationstatistics-users' => "'''{{SITENAME}}''' nun havas '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|uzanton|uzantojn}} kun rajto [[{{MediaWiki:Validationpage}}|Redaktanto]].
 
-Redaktantoj kaj Kontrolantoj estas establitaj uzantoj kiuj povas kontroli ŝanĝojn al paĝojn.",
+Redaktantoj estas daŭraj uzantoj kiuj povas iufoje kontroli paĝojn.",
 	'validationstatistics-time' => "''La jenaj datenoj estis laste ĝisdatitaj je $5, $6.''
 
 Redaktoj kontrolitaj de longdaŭraj uzantoj estas konsiderataj esti kontrolitaj.

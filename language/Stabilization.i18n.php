@@ -857,10 +857,9 @@ Jen la nunaj preferoj por [[:$1|$1]]:',
 	'stabilization-select2' => 'Plej lasta kontrolita revizio',
 	'stabilization-select3' => 'La lasta netega versio; se ne estanta, la lasta bonkvalita aŭ reviziita versio.',
 	'stabilization-def' => 'Versio montrita en defaŭlta paĝa vido',
-	'stabilization-def1' => 'La stabila versio;
-se ĝi ne ekzistas, la nuna aŭ malneta versio',
+	'stabilization-def1' => 'La publikigita versio; se ĝi ne ekzistas, la nuna aŭ malneta versio',
 	'stabilization-def2' => 'La nuna/malneta revizio',
-	'stabilization-restrict' => 'Limigoj de aŭtomata kontrolado',
+	'stabilization-restrict' => 'Limigoj pri kontrolado aŭ aŭtomata kontrolado',
 	'stabilization-restrict-none' => 'Neniuj pliaj limigoj',
 	'stabilization-submit' => 'Konfirmi',
 	'stabilization-notexists' => 'Neniu paĝo estas nomata "[[:$1|$1]]".
