@@ -205,8 +205,8 @@ class OldReviewedPages extends SpecialPage
 
 		$title = Title::newFromRow( $row );
 		$link = $this->skin->makeKnownLinkObj( $title );
-		$hist = $this->skin->makeKnownLinkObj( $title, wfMsgHtml( 'hist' ),
-			'action=history&reviewing=1' );
+		$hist = $this->skin->makeKnownLinkObj( $title,
+			wfMsgHtml( 'hist' ), 'action=history' );
 		$stxt = ChangesList::showCharacterDifference( $row->rev_len, $row->page_len );
 		$review = $this->skin->makeKnownLinkObj( $title,
 			wfMsg( 'oldreviewed-diff' ),

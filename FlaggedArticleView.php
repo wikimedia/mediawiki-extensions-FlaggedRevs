@@ -1223,7 +1223,14 @@ class FlaggedArticleView {
 			# Only those if there is something to actually review.
 			if ( $newRev->getId() > $oldRev->getId() ) {
 				# "Please review" notice...
-				$changeDiv = wfMsgExt( 'revreview-update', 'parse' );
+				$msg = 'revreview-update';
+				if( $wgRequest->getInt( 'shownotice' )
+					&& $newRev->isCurrent()
+					&& $newRev->getRawUserText() == $wgUser->getName() )
+				{
+					$msg = 'revreview-update-edited'; // Reviewer just edited
+				}
+				$changeDiv = wfMsgExt( $msg, 'parse' );
 				if ( count( $changeList ) ) {
 					# Add include change list...
 					$changeDiv .= '<p>' .
@@ -1451,7 +1458,7 @@ class FlaggedArticleView {
 		if ( $frev->userCanSetFlags() ) {
 			$extraQuery .= $extraQuery ? '&' : '';
 			// Override diffonly setting to make sure the content is shown
-			$extraQuery .= 'oldid='.intval($frev->getRevId()).'&diff=cur&diffonly=0';
+			$extraQuery .= 'oldid='.$frev->getRevId().'&diff=cur&diffonly=0&shownotice=1';
 		// ...otherwise, go to the current revision after completing an edit.
 		// This allows for users to immediately see their changes.
 		} else {

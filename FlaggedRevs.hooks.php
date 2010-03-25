@@ -157,6 +157,7 @@ class FlaggedRevsHooks {
 		return true;
 	}
 
+	// Mark when an unreviewed page is being reviewed
 	public static function maybeMarkUnderReview( $article, $user, $request ) {
 		if( !$user->isAllowed( 'review' ) ) {
 			return true; // user cannot review

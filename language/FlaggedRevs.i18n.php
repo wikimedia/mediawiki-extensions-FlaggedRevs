@@ -55,7 +55,7 @@ $messages['en'] = array(
 	'revreview-diff-toggle-title'  => 'Toggle display of pending changes to the published version',
 	'revreview-log-toggle-show'    => '(show stability log)',
 	'revreview-log-details-show'   => '(show details)',
-	'review-diff2stable'           => 'View pending changes to published version',
+	'review-diff2stable'           => 'View all pending changes',
 	'review-logentry-app'          => 'reviewed a version of [[$1]]',
 	'review-logentry-dis'          => 'deprecated a version of [[$1]]',
 	'review-logentry-id'           => 'revision: $2',
@@ -171,6 +171,9 @@ To deprecate a revision, set all fields to "unapproved".
 
 Please hit the "back" button in your browser and try again.',
 	'revreview-update'             => 'Please [[{{MediaWiki:Validationpage}}|review]] any pending changes \'\'(shown below)\'\' made to the published version.',
+	'revreview-update-edited'      => 'When you edited this page, some \'\'other\'\' edits were already pending review.
+	
+To publish your changes, please [[{{MediaWiki:Validationpage}}|review]] \'\'all\'\' the pending changes \'\'(shown below)\'\'.',
 	'revreview-update-includes'    => '\'\'\'Some templates/files were updated:\'\'\'',
 	'revreview-update-use'         => '\'\'\'NOTE:\'\'\' The published version of each of these templates/files is used in the published version of this page.',
 	'revreview-visibility'         => '\'\'\'This page has an updated [[{{MediaWiki:Validationpage}}|published version]]; page stability settings can be [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} configured].\'\'\'',
