@@ -848,8 +848,8 @@ $messages['eo'] = array(
 	'stabilization-text' => "'''Ŝanĝu la jenajn agordojn por modifi kiel la publikigita versio de [[:\$1|\$1]] estas elektita kaj montrita.'''
 
 Notu: ŝanĝante la konfiguro ''elekto de stabila versio'' por preferi \"bonkvalita\" aŭ \"netega\" revizioj defaŭlte ne efikos se ne ekzistas tiaj versioj. Ankaŭ, notu ke '''bonkvalita''' versio estas ankaŭ konsiderata kiel '''kontrolita''' versio, ktp.",
-	'stabilization-perm' => 'Via konto ne rajtas ŝanĝi la konfiguron de stabila versio.
-Jen la nunaj preferoj por [[:$1|$1]]:',
+	'stabilization-perm' => 'Via konto ne rajtas ŝanĝi la konfiguron de publikigita versio.
+Jen la nunaj agordoj por [[:$1|$1]]:',
 	'stabilization-page' => 'Paĝnomo:',
 	'stabilization-leg' => 'Konfirmi agordojn de publikigitaj versioj',
 	'stabilization-select' => 'Elektita prioritato de publikigita versio',

@@ -77,7 +77,9 @@ Někotare nastajenja by mógli se změniś, kótara wersija zwobraznja se cytarj
  * @author Yekrats
  */
 $messages['eo'] = array(
+	'configuredpages' => 'Paĝoj kun kontrolaj konfiguradoj',
 	'configuredpages-config' => 'Konfiguro',
+	'configuredpages-precedence' => 'Prioritateco:',
 	'configuredpages-prec-none' => 'neniu prioritato',
 	'configuredpages-prec-quality' => 'bonkvalita prioritato',
 	'configuredpages-prec-pristine' => 'perfekta prioritato',
@@ -332,6 +334,18 @@ $messages['ru'] = array(
 	'configuredpages-prec-pristine' => 'последняя чистая версия',
 	'configuredpages-def-draft' => 'последняя версия',
 	'configuredpages-def-stable' => 'опубликованная версия',
+);
+
+/** Swedish (Svenska)
+ * @author Ainali
+ */
+$messages['sv'] = array(
+	'configuredpages-none' => 'Det finns inga sidor i den här listan.',
+	'configuredpages-config' => 'Konfiguration',
+	'configuredpages-prec-none' => 'ingen rangordning',
+	'configuredpages-prec-quality' => 'kvalitetsordning',
+	'configuredpages-prec-pristine' => 'företräde för orörda',
+	'configuredpages-def-draft' => 'senaste versionen',
 );
 
 /** Ukrainian (Українська)

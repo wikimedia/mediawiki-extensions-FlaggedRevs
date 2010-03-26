@@ -389,7 +389,7 @@ Kararlı sürümler, sayfaların en az bir belirli kullanıcı tarafından kontr
  * @author Michawiki
  */
 $messages['dsb'] = array(
-	'validationstatistics' => 'Pógódnośeńska statistika',
+	'validationstatistics' => 'Statistika pśeglědowanja bokow',
 	'validationstatistics-users' => "'''{{SITENAME}}''' ma tuchylu '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|wužywarja|wužywarjowu|wužywarjow|wužywarjow}} z [[{{MediaWiki:Validationpage}}|pšawami wobźěłowarja]]
 a '''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$2|wužywarja|wužywarjowu|wužywarjow|wužywarjow}} z [[{{MediaWiki:Validationpage}}|pšawami pśeglědowarja]].
 

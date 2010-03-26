@@ -115,7 +115,7 @@ $messages['bg'] = array(
 $messages['br'] = array(
 	'stablepages' => "Pajennoù oc'h implijout kadarnadur ar c'hemmoù",
 	'stablepages-text' => "A-is ez eus ur roll pajennoù kefluniet gant an dorn evit na vefe diskouezet d'al lennerien nemet ar stumm embannet da bajenn danvez enni, dre ziouer.",
-	'stablepages-none' => "N'eus pajenn ebet er roll-mañ",
+	'stablepages-none' => "N'eus pajenn ebet er roll-mañ.",
 	'stablepages-config' => 'Kefluniañ',
 );
 
