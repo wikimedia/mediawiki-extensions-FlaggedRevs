@@ -3315,19 +3315,19 @@ $messages['tr'] = array(
 	'stabilization' => 'Sayfa kararlılaştırılması',
 	'stabilization-text' => "'''[[:\$1|\$1]] için yayımlanmış sürümün nasıl seçilip görüntüleneceğini ayarlamak için ayarları değiştirin.'''
 
-Varsayılan olarak \"kalite\" ya da \"asıl\" revizyonlarını kullanmak için ''yayımlanmış sürüm seçimi'' yapılandırmasını değiştirirken, sayfada böyle revizyonların olduğunu kontrol ettiğinize emin olun, aksi halde değişikliğin etkisi küçük olacaktır.",
+'''Not:''' ''yayımlanmış sürüm seçimi'' \"kalite\" ya da \"asıl\" sürüm olarak değiştirmek, böyle bir sürüm yoksa etkisiz olacaktır. Ayrıca, unutmayın ki bir \"kaliteli\" sürüm aynı zamanda \"kontrol edilmiş\" sürüm sayılır, vesaire.",
 	'stabilization-perm' => 'Hesabınızın yayımlanmış sürüm yapılandırmasını değiştirmeye izni yok.
 [[:$1|$1]] için şuanki ayarlar:',
 	'stabilization-page' => 'Sayfa adı:',
 	'stabilization-leg' => 'Yayımlanmış sürüm ayarlarını onayla',
 	'stabilization-select' => 'Yayımlanmış sürüm seçim önceliği',
 	'stabilization-select1' => 'En son kaliteli revizyon; eğer yoksa, en son gözlenmiş olan',
-	'stabilization-select2' => 'En son gözden geçirilmiş revizyon, doğrulama seviyesine bakmaksızın',
+	'stabilization-select2' => 'En son kontrol edilen revizyon',
 	'stabilization-select3' => 'En son bozulmamış revizyon; eğer yoksa, en son kaliteli ya da gözlenmiş olan',
 	'stabilization-def' => 'Varsayılan sayfa görünümünde gösterilen revizyon',
 	'stabilization-def1' => 'Yayımlanmış revizyon; eğer yoksa, halihazırda bulunan/karalama',
 	'stabilization-def2' => 'Şu anki revizyon/karalama',
-	'stabilization-restrict' => 'Oto-inceleme kısıtlamaları',
+	'stabilization-restrict' => 'İnceleme/oto-inceleme kısıtlamaları',
 	'stabilization-restrict-none' => 'Başka ilave kısıtlama yok',
 	'stabilization-submit' => 'Tespit et',
 	'stabilization-notexists' => '"[[:$1|$1]]" adında bir sayfa yok.
@@ -3381,7 +3381,7 @@ $messages['uk'] = array(
 	'stabilization-def' => 'Версія, що показується за умовчанням',
 	'stabilization-def1' => 'Опублікована версія; якщо такої нема, то поточна/чорнова',
 	'stabilization-def2' => 'Поточна/чорнова версія',
-	'stabilization-restrict' => 'Обмеження рецензування/авто-рецензування',
+	'stabilization-restrict' => 'Обмеження рецензування/авторецензування',
 	'stabilization-restrict-none' => 'Без додаткових обмежень',
 	'stabilization-submit' => 'Підтвердити',
 	'stabilization-notexists' => 'Відсутня сторінка з назвою «[[:$1|$1]]».

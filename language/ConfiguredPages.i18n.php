@@ -78,6 +78,7 @@ Někotare nastajenja by mógli se změniś, kótara wersija zwobraznja se cytarj
  */
 $messages['eo'] = array(
 	'configuredpages' => 'Paĝoj kun kontrolaj konfiguradoj',
+	'configuredpages-none' => 'Estas neniuj paĝoj en ĉi tiu listo.',
 	'configuredpages-config' => 'Konfiguro',
 	'configuredpages-precedence' => 'Prioritateco:',
 	'configuredpages-prec-none' => 'neniu prioritato',
@@ -85,6 +86,23 @@ $messages['eo'] = array(
 	'configuredpages-prec-pristine' => 'perfekta prioritato',
 	'configuredpages-def-draft' => 'lasta versio',
 	'configuredpages-def-stable' => 'publikigita versio',
+);
+
+/** Spanish (Español)
+ * @author Dferg
+ */
+$messages['es'] = array(
+	'configuredpages' => 'Páginas con configuraciones de revisión',
+	'configuredpages-text' => 'Debajo se encuentra una lista de páginas que han sido configuradas para tener distintos niveles de aprobación de aquel que ofrede el sitio por defecto.
+
+Algunos ajustes puede que cambien qué versión es mostrada a los lectores o puede restringir quiénes pueden realizar ediciones que no necesitan revisión posterior.',
+	'configuredpages-none' => 'No hay páginas en esta lista.',
+	'configuredpages-config' => 'Configuración',
+	'configuredpages-prec-none' => 'Sin precedencia',
+	'configuredpages-prec-quality' => 'precedencia de calidad',
+	'configuredpages-prec-pristine' => 'precedencia prístina',
+	'configuredpages-def-draft' => 'última versión',
+	'configuredpages-def-stable' => 'versión publicada',
 );
 
 /** French (Français)
@@ -193,6 +211,17 @@ Alcun configurationes pote cambiar le version que es monstrate al lectores o lim
 	'configuredpages-prec-pristine' => 'ultime pristine',
 	'configuredpages-def-draft' => 'ultime version',
 	'configuredpages-def-stable' => 'version publicate',
+);
+
+/** Japanese (日本語)
+ * @author Whym
+ */
+$messages['ja'] = array(
+	'configuredpages-prec-none' => '優先なし',
+	'configuredpages-prec-quality' => '{{int:revreview-lev-quality}}優先',
+	'configuredpages-prec-pristine' => '{{int:revreview-lev-pristine}}優先',
+	'configuredpages-def-draft' => '最新版',
+	'configuredpages-def-stable' => '公開版',
 );
 
 /** Luxembourgish (Lëtzebuergesch)
@@ -346,6 +375,24 @@ $messages['sv'] = array(
 	'configuredpages-prec-quality' => 'kvalitetsordning',
 	'configuredpages-prec-pristine' => 'företräde för orörda',
 	'configuredpages-def-draft' => 'senaste versionen',
+);
+
+/** Turkish (Türkçe)
+ * @author Joseph
+ */
+$messages['tr'] = array(
+	'configuredpages' => 'İnceleme yapılandırması olan sayfalar',
+	'configuredpages-text' => 'Aşağıdaki, site varsayılanından farklı onay ayarına sahip olarak yapılandırılmış sayfaların bir listesidir.
+
+Bazı ayarlar, okuyuculara hangi sürümün görüntüleneceğini değiştirebilir ya da inceleme gerektirmeyen değişiklikleri kimin yapabileceğini ayrıca kısıtlayabilir.',
+	'configuredpages-none' => 'Bu listede hiç sayfa yok.',
+	'configuredpages-config' => 'Yapılandırma',
+	'configuredpages-precedence' => 'Öncelik:',
+	'configuredpages-prec-none' => 'en son kontrol edilen',
+	'configuredpages-prec-quality' => 'en son kaliteli',
+	'configuredpages-prec-pristine' => 'en son öncelikli',
+	'configuredpages-def-draft' => 'son sürüm',
+	'configuredpages-def-stable' => 'yayınlanan sürüm',
 );
 
 /** Ukrainian (Українська)

@@ -717,8 +717,8 @@ $messages['tl'] = array(
  * @author Joseph
  */
 $messages['tr'] = array(
-	'stablepages' => 'Kararlı sayfalar',
-	'stablepages-text' => 'Aşağıdaki liste, okuyuculara geçerli sayfa içeriği olarak yayımlanmış sürümü gösterecek şekilde elle yapılandırılmış sayfaların listesidir.',
+	'stablepages' => 'Değişiklik onayı kullanan sayfalar',
+	'stablepages-text' => 'Aşağıdaki liste, sadece belirli kullanıcıların gözden geçirme gerektirmeyen değişiklikler yapabileceği kısıtlı sayfaların bir listesidir. Böyle değişiklikler yetkili bir kullanıcı gözden geçirmeden yayınlanmaz.',
 	'stablepages-none' => 'Bu listede hiç sayfa yok',
 	'stablepages-config' => 'Yapılandırma',
 );

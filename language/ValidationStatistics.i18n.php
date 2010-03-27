@@ -390,19 +390,18 @@ Kararlı sürümler, sayfaların en az bir belirli kullanıcı tarafından kontr
  */
 $messages['dsb'] = array(
 	'validationstatistics' => 'Statistika pśeglědowanja bokow',
-	'validationstatistics-users' => "'''{{SITENAME}}''' ma tuchylu '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|wužywarja|wužywarjowu|wužywarjow|wužywarjow}} z [[{{MediaWiki:Validationpage}}|pšawami wobźěłowarja]]
-a '''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$2|wužywarja|wužywarjowu|wužywarjow|wužywarjow}} z [[{{MediaWiki:Validationpage}}|pšawami pśeglědowarja]].
+	'validationstatistics-users' => "'''{{SITENAME}}''' ma tuchylu '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|wužywarja|wužywarjowu|wužywarjow|wužywarjow}} z [[{{MediaWiki:Validationpage}}|pšawami wobźěłowarja]].
 
-Wobźěłowarje a pséglědowarje su etablěrowane wužiwarje, kótarež mógu wersije bokow pśeglědaś.",
+Wobźěłowarje su etablěrowane wužiwarje, kótarež mógu wersije bokow pśeglědaś.",
 	'validationstatistics-time' => "''Slědujuce daty su se $5 $6 slědny raz zaktualizěrowali.''
 
 Změny, kótarež su se pśekontrolowali wót etablěrowanych wužywarjow naglědaju se ako pśeglědane.
 
-Pśerězne cakanje za změny wót ''wužywarjow, kótarež njejsu pśizjawjone'', kótarež dej se pśeglědaś, jo '''$1'''; mediana gódnota jo '''$3'''.
+Pśerězne cakanje za změny wót ''njep´sizjawjonych wužywarjow'', kótarež dej se pśeglědaś, jo '''$1'''; mediana gódnota jo '''$3'''.
 $4
 Pśerězne wokomuźenje za [[Special:OldReviewedPages|boki z njepśeglědanymi změnami]] jo '''$2'''.
-Toś te boki maju se za ''zestarjone''. Teke boki maju se za ''synchronizěrowane'', jolic [[{{MediaWiki:Validationpage}}|stabilna wersija]] jo teke aktualna nacerjeńska wersija.
-Stabilna wersija boka jo nejnowša wersija, kótaraž jo se wobkšuśiła ako wersija, kótaraž se pó standarźe wšym cytarjam pokazujo.",
+Toś te boki maju se za ''zestarjone''. Teke boki maju se za ''synchronizěrowane'', jolic zm2ny njejsu, kótarež cakaju na pséglědanje.
+Wózjawjona wersija boka jo nejnowša wersija, kótaraž jo se pśizwóliła, aby se pokazała wšyknym cytarjam.",
 	'validationstatistics-table' => "Slěduju statistiki za kuždy mjenjowy rum, ''bźez'' dalejpósrědnjenjow.",
 	'validationstatistics-ns' => 'Mjenjowy rum',
 	'validationstatistics-total' => 'Boki',
