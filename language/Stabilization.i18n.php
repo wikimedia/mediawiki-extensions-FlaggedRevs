@@ -496,7 +496,7 @@ Setu an arventennoù red eus [[:$1|$1]] :",
 	'stabilization-leg' => 'Kadarnaat arventennoù ar stumm embannet',
 	'stabilization-select' => 'kentwir diuzadur ar stumm embannet',
 	'stabilization-select2' => 'An adweladenn ziwezhañ bet gwiriet',
-	'stabilization-def1' => "Ar stumm embannet ; ma n'eus hini ebet, lakaat ar stumm red pe ar brouilhed",
+	'stabilization-def1' => 'Ar stumm embannet ma vez; a-hend-all lakaat ar stumm red pe ar brouilhed',
 	'stabilization-def2' => 'Ar stumm red pe ar brouilhed',
 	'stabilization-restrict' => 'Strishadurioù adlenn/adlenn emgefre',
 	'stabilization-restrict-none' => 'Strishadurioù ouzhpenn ebet',
@@ -885,9 +885,11 @@ Neniu konfiguro eblas.',
 
 /** Spanish (Español)
  * @author Crazymadlover
+ * @author Dferg
  * @author Drini
  * @author Imre
  * @author Kobazulo
+ * @author Peter17
  * @author Sanbec
  * @author Translationista
  */
@@ -904,12 +906,12 @@ La configuración actual es [[:$1|$1]]:',
 	'stabilization-leg' => 'Confirmar la configuración de la versión publicada',
 	'stabilization-select' => 'Precedencia de selección de versión publicada',
 	'stabilization-select1' => 'La última revisión de calidad; si no está presente, entonces la última observada',
-	'stabilization-select2' => 'La última versión verificada, a pesar del nivel de validación',
+	'stabilization-select2' => 'Última versión verificada',
 	'stabilization-select3' => 'La última revisión prístina; si no está presente, entonces la última de calidad u observada',
 	'stabilization-def' => 'Revisión mostrada en la vista de página por defecto',
 	'stabilization-def1' => 'La revisión publicada; si no está presente, entonces la actual/borrador',
 	'stabilization-def2' => 'La revisión actual/borrador',
-	'stabilization-restrict' => 'Restricciones de autorevisión',
+	'stabilization-restrict' => 'Restricciones de revisión/autorevisión',
 	'stabilization-restrict-none' => 'Sin restricciones extra',
 	'stabilization-submit' => 'Confirmar',
 	'stabilization-notexists' => 'No hay una página llamada "[[:$1|$1]]".
@@ -930,7 +932,7 @@ La configuración no es posible.',
 	'stabilize_expiry_invalid' => 'La fecha de caducidad no es válida.',
 	'stabilize_expiry_old' => 'Este tiempo de expiración ya ha pasado',
 	'stabilize-expiring' => 'caduca el $1 (UTC)',
-	'stabilization-review' => 'Revisar la versión actual',
+	'stabilization-review' => 'Marcar la versión actual verificada',
 );
 
 /** Estonian (Eesti)

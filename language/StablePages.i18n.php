@@ -208,11 +208,12 @@ $messages['eo'] = array(
 
 /** Spanish (Español)
  * @author Crazymadlover
+ * @author Dferg
  * @author Translationista
  */
 $messages['es'] = array(
-	'stablepages' => 'Páginas estables',
-	'stablepages-text' => 'Debajo hay una lista de páginas configuradas  manualmente para mostrar a los lectores la versión publicada como la página de contenido predeterminada.',
+	'stablepages' => 'Páginas usando aprobación para la edición',
+	'stablepages-text' => 'Debajo se muestra una lista de páginas que están restringidas de modo que sólo determinados usuarios pueden realizar ediciones que no necesitan revisión posterior. Dichas ediciones no son publicadas hasta que un usuario revisor autorizado las revise.',
 	'stablepages-none' => 'No hay páginas en esta lista',
 	'stablepages-config' => 'Configuración',
 );

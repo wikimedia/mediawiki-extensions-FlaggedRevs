@@ -90,6 +90,7 @@ $messages['eo'] = array(
 
 /** Spanish (Español)
  * @author Dferg
+ * @author Peter17
  */
 $messages['es'] = array(
 	'configuredpages' => 'Páginas con configuraciones de revisión',
@@ -98,6 +99,7 @@ $messages['es'] = array(
 Algunos ajustes puede que cambien qué versión es mostrada a los lectores o puede restringir quiénes pueden realizar ediciones que no necesitan revisión posterior.',
 	'configuredpages-none' => 'No hay páginas en esta lista.',
 	'configuredpages-config' => 'Configuración',
+	'configuredpages-precedence' => 'Precedencia:',
 	'configuredpages-prec-none' => 'Sin precedencia',
 	'configuredpages-prec-quality' => 'precedencia de calidad',
 	'configuredpages-prec-pristine' => 'precedencia prístina',

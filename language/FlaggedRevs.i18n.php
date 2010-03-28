@@ -827,6 +827,7 @@ $messages['ar'] = array(
 	'revreview-diff-toggle-show' => '(أظهر التغييرات)',
 	'revreview-diff-toggle-hide' => '(أخفِ التغييرات)',
 	'revreview-log-toggle-show' => '(أظهر سجل الاستقرار)',
+	'revreview-log-details-show' => '(اعرض التفاصيل)',
 	'review-diff2stable' => 'عرض التغييرات قيد الانتظار للنسخة المنشورة',
 	'review-logentry-app' => 'راجع نسخة من [[$1]]',
 	'review-logentry-dis' => 'أزال نسخة من [[$1]]',
@@ -916,7 +917,7 @@ $messages['ar'] = array(
 	'revreview-quick-see-quality' => "'''[[{{MediaWiki:Validationpage}}|مسودة]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} نسخة منشورة]]
 [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} قارن]]",
 	'revreview-selected' => "المراجعة المختارة ل'''$1:'''",
-	'revreview-source' => 'مصدر المسودة',
+	'revreview-source' => 'اعرض المصدر',
 	'revreview-stable' => 'صفحة منشورة',
 	'revreview-basic-title' => 'هذه نسخة متحقق منها من هذه الصفحة',
 	'revreview-stable1' => 'ربما ترغب في رؤية [{{fullurl:$1|stableid=$2}} هذه النسخة المعلمة] لترى ما إذا كانت [{{fullurl:$1|stable=1}} النسخة المنشورة] لهذه الصفحة.',
@@ -1935,7 +1936,7 @@ $messages['br'] = array(
 	'revreview-log-details-show' => '(diskouez dre ar munud)',
 	'review-diff2stable' => "Gwelet ar c'hemmoù a vezer oc'h ober da geñver ar stummoù embannet.",
 	'review-logentry-app' => 'en deus adwelet ur stumm eus [[$1]]',
-	'review-logentry-dis' => "en deus dic'hizet ur stumm eus [[$1]]",
+	'review-logentry-dis' => 'en deus dizaprouet ur stumm eus [[$1]]',
 	'review-logentry-id' => 'adweladenn : $2',
 	'review-logentry-diff' => 'kemmoù bet adlennet',
 	'review-logentry-diff2' => 'kemmoù dispredet',
@@ -2078,7 +2079,7 @@ Bez ez eus [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} kemmoù p
 	'tooltip-ca-stable' => 'Gwelet stumm embannet ar bajenn-mañ',
 	'tooltip-ca-default' => 'Arventennoù Kontrolliñ ar Berzhded',
 	'flaggedrevs-protect-legend' => "Embann ar c'hemmoù",
-	'flaggedrevs-protect-none' => 'Aotreañ an holl implijerien',
+	'flaggedrevs-protect-none' => 'Aotren an holl implijerien',
 	'flaggedrevs-protect-basic' => 'Arventennoù dre ziouer',
 	'revreview-locked-title' => "Ret eo d'an aozadennoù bezañ adwelet a-raok bezañ embannet war ar bajenn-mañ.",
 	'revreview-unlocked-title' => "Ne rank ket bezañ adlennet ar c'hemmoù a-raok bezañ embannet er bajenn-mañ !",
@@ -3084,14 +3085,14 @@ $messages['dsb'] = array(
 	'flaggedrevs-watched-pending' => "Su tuchylu [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} njecynjone změny] pśeglědanych bokow na twójej wobglědowańce. '''Pšosym źiwaj na to!'''",
 	'flaggedrevs-desc' => 'Dawa wobźěłarjam a pśeglědowarjam móžnosć wersije pśeglědaś a boki stabilizěrowaś',
 	'flaggedrevs-pref-UI' => 'Zakładny wužywarski pówjerch:',
-	'flaggedrevs-pref-UI-0' => 'Detailěrowany wužywański pówjerch za stabilne wersije wužywaś',
+	'flaggedrevs-pref-UI-0' => 'Detailěrowane kašćiki wužywaś, aby se status pśizwólenja boka pokazał',
 	'flaggedrevs-pref-UI-1' => 'Małe wobrazki a minimalny tekst wužywaś, aby se pokazał status pśizwólenja bokow',
 	'prefs-flaggedrevs' => 'Stabilnosć',
 	'prefs-flaggedrevs-ui' => 'Markěrowane wersije',
-	'flaggedrevs-prefs-stable' => 'Stabilnu wersiju wopśimjeśowych bokow pśecej ako standard pokazaś (jolic eksistěrujo)',
+	'flaggedrevs-prefs-stable' => 'Wózjawjonu wersiju wopśimjeśowych bokow pśecej ako standard pokazaś (jolic eksistěrujo)',
 	'flaggedrevs-prefs-watch' => 'Boki, kótarež pśeglědujom, wobglědowańkam pśidaś',
-	'flaggedrevs-prefs-editdiffs' => 'Pśi wobźěłowanju bokow rozdźěl k stabilnej wersiji pokazaś',
-	'flaggedrevs-prefs-viewdiffs' => 'Rozdźěl k stabilnej wersiji pokazaś, gaž se bokowe nacerjenja woglěduju',
+	'flaggedrevs-prefs-editdiffs' => 'Pśi wobźěłowanju bokow rozdźěl njepséglědanych změnow pokazaś',
+	'flaggedrevs-prefs-viewdiffs' => 'Pśi woglědowanju nejnowšeje wersije boka rozdźěl njepśeglědanych změnow pokazaś',
 	'group-editor' => 'Editory',
 	'group-editor-member' => 'editor',
 	'group-reviewer' => 'Pśespytowarje',
@@ -3112,7 +3113,7 @@ $messages['dsb'] = array(
 	'review-edit-diff' => "'''POWĚŹEŃKA: Někotare njedocynjone změny wózjawjoneje wersije zapśěguju se dołojce do wobźěłowańskego formulara.'''",
 	'revreview-diff-toggle-show' => '(změny pokazaś)',
 	'revreview-diff-toggle-hide' => '(změny schowaś)',
-	'revreview-diff-toggle-title' => 'Zwobraznjenje změnow mjazy nacerjenim a wózjawjoneju wersiju pśešaltowaś',
+	'revreview-diff-toggle-title' => 'Zwobraznjenje njepśeglědanych změnow na wózjawjonej wersiji pśešaltowaś',
 	'revreview-log-toggle-show' => '(protokol stabilnosći pokazaś)',
 	'revreview-log-details-show' => '(drobnostki pokazaś)',
 	'review-diff2stable' => 'Wšykne njepśeglědane změny se woglědaś',
@@ -3140,8 +3141,8 @@ Glědaj [[Special:ReviewedPages|lisćinu pśeglědanych bokow]] za lisćinu pśi
 [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Nacerjenje] wopśimujo [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} změny pśedłogow/datajow], kótarež cakaju na pśeglědanje.',
 	'revreview-basic-old' => 'To jo [[{{MediaWiki:Validationpage}}|pśeglědana]] wersija ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} wšykne]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} schwalona] <i>$2</i>.
 Jo móžno, až nowe [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} změny] su se pśewjadli.',
-	'revreview-basic-same' => 'To jo aktualna [[{{MediaWiki:Validationpage}}|pśeglědana]] wersija ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} wšykne]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} schwalona] <i>$2</i>.',
-	'revreview-basic-source' => '[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} Pśeglědana wersija] toś togo boka, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} schwalona] <i>$2</i>, bazěrujo na toś tej wersiji.',
+	'revreview-basic-same' => 'To jo [[{{MediaWiki:Validationpage}}|wózjawjona]] wersija [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} pśekontrolěrowana] <i>$2</i>.',
+	'revreview-basic-source' => '[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} Pśekontrolěrowana wersija] toś togo boka, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} schwalona] <i>$2</i>, bazěrujo na toś tej wersiji.',
 	'revreview-failed' => "'''Njejo móžno toś tu wersiju pśeglědaś.''' Pósłanje jo njedopołne abo na druge wašnje njepłaśiwe.",
 	'revreview-changed' => "'''Pominana akcija njejo se dała na toś tej wersijej [[:$1|$1]] pśewjasć.'''
 
@@ -3178,7 +3179,7 @@ Glědaj [[Special:Unreviewedpages|lisćinu njepśeglědanych bokow]].',
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|změna|změnje|změny|změnow}}] {{PLURAL:$3|trjeba|trjebatej|trjebaju|trjeba}} pśeglědanje.',
 	'revreview-newest-quality-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Aktualna kwalitna wersija] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} wšykne]) jo se [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} schwaliła] <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Změny pśedłogow/datajow] trjebaju pśeglědanje.',
-	'revreview-noflagged' => "Njejsu žedne pśeglědane wersije toś togo boka, jo móžno, až '''nje'''jo se za kwalitu [[{{MediaWiki:Validationpage}}|pśekontrolěrował]].",
+	'revreview-noflagged' => "Njejsu žedne [[{{MediaWiki:Validationpage}}|pśeglědane]] wersije toś togo boka, jo móžno, až '''nje'''jo se za kwalitu [[{{MediaWiki:Validationpage}}|pśekontrolěrował]].",
 	'revreview-note' => '[[User:$1|$1]] jo slědujuce pśipomnjeśa cynił, gaž jo [[{{MediaWiki:Validationpage}}|pśeglědował]] toś tu wersiju:',
 	'revreview-notes' => 'Pśispomneśa abo pśipiski, kótarež maju se zwobrazniś:',
 	'revreview-oldrating' => 'Doněntejšne pógódnośenje:',
@@ -3221,18 +3222,21 @@ Jo móžno, až nowe [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}}
 	'revreview-submit-unreviewed' => 'Gótowo. Njeskontrolěrowany!',
 	'revreview-successful' => "'''Wersija nastawka [[:$1|$1]] jo se wuspěšnje markěrowała. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} stabilne wersije se woglědaś])'''",
 	'revreview-successful2' => "'''Markěrowanje [[:$1|$1]] jo se wuspěšnje wótpórało.'''",
-	'revreview-text' => "''[[{{MediaWiki:Validationpage}}|Stabilne wersije]] su skerjej standardne bokowe wopśimjeśe za pśeglědowarjow ako nejnowša wersija.''",
+	'revreview-text' => "''[[{{MediaWiki:Validationpage}}|Pśeglědane wersije]] su pśekontrolěrowane wersije bokow, kótarež se wužywaju, aby póstajili wózjawjonu wersiju.''",
 	'revreview-toggle-title' => 'drobnostki pokazaś/schowaś',
 	'revreview-toolow' => '\'\'\'Musyš nanejmjenjej kuždy ze slědujucych atributow wušej ako "njeschwalony" pógódnośiś, aby wersija płaśeła ako pśeglědana.\'\'\'
 Aby wótgódnośił wersiju, staj wšykne póla na "njeschwalony".
 
 Pšosym klikni na tłocašk "Slědk" w swójom wobglědowaku a wopytaj hyšći raz.',
 	'revreview-update' => "Pšosym [[{{MediaWiki:Validationpage}}|pśeglědaj]] ''(slědujuce)'' njepśeglědane změny, kótarež su se na wózjawjonej wersiji pśewjedli.",
+	'revreview-update-edited' => "Gaž sy toś ten bok změnił, su ''druge'' změny južo na pśeglědanje cakali.
+
+Aby swóje změny wózjawił, [[{{MediaWiki:Validationpage}}|pséglědaj]] pšosym ''wšykne'' njepśeglědane změny ''(glědaj dołojce)''.",
 	'revreview-update-includes' => "'''Někotare pśedłogi/dataje su se zaktualizěrowali:'''",
 	'revreview-update-use' => "'''GLĚDAJ:''' Wózjawjona wersija kuždeje z toś tych pśedłogow/datajow wužywa se we wózjawjonej wersiji toś togo boka.",
-	'revreview-visibility' => "'''Toś ten bok ma zaktualizěrowanu [[{{MediaWiki:Validationpage}}|stabilnu wersiju]]; nastajenja wó stabilnosći boka daju se [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} konfigurěrowaś].'''",
-	'revreview-visibility2' => "'''Toś ten bok ama zestarjonu [[{{MediaWiki:Validationpage}}|stabilnu wersiju]]; nastajenja wó stabilnosći boka daju se [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} konfigurěrowaś].'''",
-	'revreview-visibility3' => "'''Toś ten bok njama [[{{MediaWiki:Validationpage}}|stabilnu wersiju]]; nastajenja stabilnosći boka daju se [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} konfigurěrowaś].'''",
+	'revreview-visibility' => "'''Toś ten bok ma zaktualizěrowanu [[{{MediaWiki:Validationpage}}|wózjawjonu wersiju]]; nastajenja wó stabilnosći boka daju se [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} konfigurěrowaś].'''",
+	'revreview-visibility2' => "'''Toś ten bok ma zestarjonu [[{{MediaWiki:Validationpage}}|wózjawjonu wersiju]]; nastajenja wó stabilnosći boka daju se [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} konfigurěrowaś].'''",
+	'revreview-visibility3' => "'''Toś ten bok njama [[{{MediaWiki:Validationpage}}|wózjawjona wersiju]]; nastajenja stabilnosći boka daju se [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} konfigurěrowaś].'''",
 	'revreview-revnotfound' => 'Njejo móžno było, wersiju togo boka namakaś, za kótaremž sy pytał. Pšosym kontrolěruj zapódanu URL.',
 	'right-autoreview' => 'Wersije awtomatiski ako pśeglědane markěrowaś',
 	'right-movestable' => 'Wózjawjone boki pśesunuś',
@@ -3469,7 +3473,7 @@ Rigardu la [[Special:ReviewedPages|liston de kontrolitaj paĝoj]] por listo de a
 La [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} malneto] enhavasas [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|kontrolendan ŝanĝon|kontrolendajn ŝanĝojn}}].',
 	'revreview-basic-i' => 'Jen la [[{{MediaWiki:Validationpage}}|publikigita versio]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} kontrolita] je <i>$2</i>.
 Ekzistas [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} kontrolendaj ŝanĝoj de ŝablonoj/dosieroj].',
-	'revreview-basic-old' => 'Jen [[{{MediaWiki:Validationpage}}|reviziita]] versio ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} montri ĉiujn]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprobita] je <i>$2</i>.
+	'revreview-basic-old' => 'Jen [[{{MediaWiki:Validationpage}}|kontrolita]] versio ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} montri ĉiujn]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprobita] je <i>$2</i>.
 Novaj [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} ŝanĝoj] eble estis faritaj.',
 	'revreview-basic-same' => 'Jen la [[{{MediaWiki:Validationpage}}|publikigita versio]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} kontrolita] je <i>$2</i>.',
 	'revreview-basic-source' => '[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} Kontrolita versio] de ĉi tiu paĝo, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprobita] je <i>$2</i>, estis bazita de ĉi tiu revizio.',
@@ -3490,8 +3494,7 @@ Refreŝigo de la paĝo kaj rekontrolo povas solvi ĉi tiun problemon.",
 	'revreview-edit' => 'Redakti',
 	'revreview-editnotice' => "'''Viaj ŝanĝoj estos [[{{MediaWiki:Validationpage}}|publikigita]] post aŭtoritata uzanto [[{{MediaWiki:Validationpage}}|kontrolis]] ilin.'''",
 	'revreview-check-flag' => 'Publikigi nune kontrolendajn redaktojn',
-	'revreview-edited' => "'''Ŝanĝoj estos [[{{MediaWiki:Validationpage}}|publikigita]] post kiam aŭtorita uzanto 
-[[{{MediaWiki:Validationpage}}|kontrolis]] ilin.'''
+	'revreview-edited' => "'''Ŝanĝoj estos [[{{MediaWiki:Validationpage}}|publikigitaj]] post kiam aŭtorita uzanto [[{{MediaWiki:Validationpage}}|kontrolas]] ilin.'''
 
 Jen estas [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 {{PLURAL:$2|kontrolenda ŝanĝo|kontrolendaj ŝanĝoj}}.",
 	'revreview-edited-section' => 'Reiri al paĝa sekcio nomata "[[#$1|$2]]".',
@@ -8137,10 +8140,10 @@ Kuckt d'[[Special:ReviewedPages|Lëscht vun den nogekuckte Säite]] fir eng Lës
 	'revreview-accuracy-4' => 'Exzellent',
 	'revreview-approved' => 'Fräiginn',
 	'revreview-auto' => '(automatesch)',
-	'revreview-basic' => "Dëst ass déi [[{{MediaWiki:Validationpage}}|Publizéiert Versioun]],  [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} nogekuckt] den <i>$2</i>.
-D'[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Virbereedung] huet [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|Ännerung|Ännerungen}}] déi dorop warden nogekuckt ze ginn.",
-	'revreview-basic-i' => "Dëst ass déi[[{{MediaWiki:Validationpage}}|publizéiert Versioun]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} fräiginn] den <i>$2</i>.
-D'[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Virbereedung] huet [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Ännerunge vun der Schabloun respektiv dem Fichier] déi nach dorop warde fir nogekuckt ze ginn.",
+	'revreview-basic' => 'Dëst ass déi [[{{MediaWiki:Validationpage}}|Publizéiert Versioun]],  [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} nogekuckt] den <i>$2</i>.
+Et gëtt [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|Ännerung|Ännerungen}}] déi dorop waarden nogekuckt ze ginn.',
+	'revreview-basic-i' => 'Dëst ass déi[[{{MediaWiki:Validationpage}}|publizéiert Versioun]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} nogekuckt] den <i>$2</i>.
+Et gëtt nach [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Ännerunge vun der Schabloun respektiv dem Fichier] déi dorop waarde fir nogekuckt ze ginn.',
 	'revreview-basic-old' => 'Dëst ass eng [[{{MediaWiki:Validationpage}}|nogekuckte]] Versioun ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} ganz Lëscht]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} fräiginn] den <i>$2</i>.
 Nei [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Ännerunge] kënnen an der Tëschenzäit gemaach gi sinn.',
 	'revreview-basic-same' => 'Dëst ass déi [[{{MediaWiki:Validationpage}}|publizéiert Versioun]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} nogekuckt] den <i>$2</i>.',
@@ -8174,32 +8177,32 @@ Et gëtt [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 {{PLURAL
 	'revreview-main' => "Dir musst eng prezis Versioun vun enger Inhaltssäit eraussichen fir se nokucken ze kënnen.
 
 Kuckt d'[[Special:Unreviewedpages|Lëscht vun den net nogekuckte Sàiten]].",
-	'revreview-newest-basic' => 'Déi [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} publizéiert Versioun] gouf den <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} nogekuckt]. An der Virbereedung 
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} gëtt et {{PLURAL:$3|virgeschloen Ännerung|$3 virgeschloen  Ännerunge}}].',
+	'revreview-newest-basic' => 'Déi [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} publizéiert Versioun] gouf den <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} nogekuckt]. Et gëtt 
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} {{PLURAL:$3|Ännerung|$3 Ännerunge}} am Suspens] déi drop waarden nogekuckt ze ginn.',
 	'revreview-newest-basic-i' => 'Déi [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} publizéiert Versioun] gouf den <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} nogekuckt].
 Et gëtt [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Schabloun/Fichier-Ännerungen] déi nach mussen nogekuckt ginn.',
-	'revreview-newest-quality' => 'Déi [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} publizéiert Versioun] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} ganz Lëscht]) gouf de(n) <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} fräiginn].
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|Ännerung|Ännerunge}}] {{PLURAL:$3|waard|waarden}} drop fir nogekuckt ze ginn.',
-	'revreview-newest-quality-i' => "Déi [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} publizéiert Versioun] gouf den <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} fräiginn]. D'Virbereedung huet [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Schablounen/Fichier Ännerungen] déi dorop waarde fir nogekuckt ze ginn.",
-	'revreview-pending-basic' => "Déi [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} publizéiert Versioun] gouf den <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} nogekuckt]. D'[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Virbereedung] huet
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|Ännerung|Ännerungen}} déi drop waarden nogekuckt ze ginn].",
-	'revreview-pending-quality' => "Déi [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} publizéiert Versioun] gouf den <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} nogekuckt]. D'[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Virbereedung] huet
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|Ännerung|Ännerungen}}] déi dorop warden nogekuckt ze ginn.",
-	'revreview-pending-nosection' => "Versicht d'[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Virbereedung] ze kucken, an däer $2 [{{PLURAL:$2|Ännerung|Ännerungen}} {{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}}] dra sinn déi dorop waarde fir nogekuckt ze ginn, fir ze kucken ob den Abschnitt geréckelt oder geläscht gouf.",
+	'revreview-newest-quality' => 'Déi [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} publizéiert Versioun] gouf den <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} fräiginn].
+Et gëtt [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|Ännerung|Ännerungen}} am Suspens] déi drop {{PLURAL:$3|waard|waarden}} fir nogekuckt ze ginn.',
+	'revreview-newest-quality-i' => 'Déi [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} publizéiert Versioun] gouf den <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} fräiginn]. Et gëtt [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Schablounen/Fichier Ännerungen] déi dorop waarde fir nogekuckt ze ginn.',
+	'revreview-pending-basic' => 'Déi [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} publizéiert Versioun] gouf den <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} nogekuckt]. Et gëtt
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|Ännerung|Ännerungen}}] déi drop waarden nogekuckt ze ginn.',
+	'revreview-pending-quality' => 'Déi [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} publizéiert Versioun] gouf den <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} fräiginn]. Et gëtt 
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|Ännerung|Ännerungen}} am Suspens] déi dorop waarden nogekuckt ze ginn.',
+	'revreview-pending-nosection' => 'Versicht déi [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} lescht Versioun] ze kucken, an där $2 [{{PLURAL:$2|Ännerung|Ännerungen}} am Suspens {{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}}] dra sinn, fir ze kucken ob den Abschnitt geréckelt oder geläscht gouf.',
 	'revreview-noflagged' => "Et gëtt keng [[{{MediaWiki:Validationpage}}|nogekuckte Versioune]] vun dëser Säit, et kann also sinn datt se '''net''' op hir Qualitéit [[{{MediaWiki:Validationpage}}|nogekuckt]] gouf.",
 	'revreview-note' => '[[User:$1|$1]] huet dës Notize gemaach, wéi dës Versioun [[{{MediaWiki:Validationpage}}|nogekuckt gouf]]:',
 	'revreview-notes' => 'Bemierkungen oder Notizen fir unzeweisen:',
 	'revreview-oldrating' => 'Bewäertung bis elo:',
 	'revreview-quality' => "Dëst ass d'[[{{MediaWiki:Validationpage}}|publizéiert Versioun]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} nogekuckt] den <i>$2</i>.
-D'[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Virbereedung] huet [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|Ännerung|Ännerungen}}] déi dorop {{PLURAL:$3|waard|waarde}} fir nogekuckt ze ginn.",
-	'revreview-quality-i' => "Dëst ass déi [[{{MediaWiki:Validationpage}}|publizéiert Versioun]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} fräiginn] den <i>$2</i>.
-D'[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Virbereedung] huet [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Ännerunge vum Modell oder de Fichieren], déi drop waarde fir nogekuckt ze ginn.",
+Et gëtt [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|Ännerung|Ännerungen}}] déi dorop {{PLURAL:$3|waard|waarde}} fir nogekuckt ze ginn.",
+	'revreview-quality-i' => 'Dëst ass déi [[{{MediaWiki:Validationpage}}|publizéiert Versioun]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} fräiginn] den <i>$2</i>.
+Et gëtt [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Ännerunge vum Modell oder de Fichieren], déi drop waarde fir nogekuckt ze ginn.',
 	'revreview-quality-old' => "Dëst ass eng [[{{MediaWiki:Validationpage}}|Qualitéitsversioun]] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} kuckt d'Lëscht]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} nogekuckt] den <i>$2</i>.
 Nei [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Ännerunge] kënne gemaach gi sinn.",
 	'revreview-quality-same' => 'Dëst ass déi [[{{MediaWiki:Validationpage}}|publizéiert Versioun]] , [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} fräiginn] den <i>$2</i>.',
 	'revreview-quality-source' => 'Eng [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} Qualitéitsversioun] vun dëser Säit, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} fräiginn] de(n) <i>$2</i>, huet op dëser Versioun baséiert.',
 	'revreview-quality-title' => 'Dëst ass eng Qualitéitsversioun vun dëser Säit',
-	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|Nogekuckte Säit]]''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} d'Ännerungen am Suspens nokucken]]",
+	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|Nogekuckt]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Ännerungen am Suspens nokucken]]",
 	'revreview-quick-basic-old' => "'''[[{{MediaWiki:Validationpage}}|Nogekuckt]]'''",
 	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|Nogekuckt]]'''",
 	'revreview-quick-invalid' => "'''Ongëlteg Versiounsnummer'''",
@@ -8235,8 +8238,7 @@ Nei [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Ännerunge] kën
 Fir eng Versioun ze refuséieren setzt all Felder op \"net nogekuckt\".
 
 Klickt w.e.g op den ''Zréck''-Knäppche vun Ärem Browser a versicht et nach eng Kéier.",
-	'revreview-update' => "[[{{MediaWiki:Validationpage}}|Kuckt]] w.e.g. all Ännerungen no ''(déi ënnendrënner gewise sinn)'' déi zënter, déi publizéiert Versioun  [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} fräigeschalt gouf], gemaach goufen.<br />
-'''E puer Schablounen/Fichiere goufen aktualiséiert:'''",
+	'revreview-update' => "[[{{MediaWiki:Validationpage}}|Kuckt]] w.e.g. all Ännerungen no ''(déi ënnendrënner gewise sinn)'' déi no der publizéiert Versioun gemaach goufen.",
 	'revreview-update-edited' => "Wéi Dir dës Säit geännert hutt ware schon ''aner'' Ännerungen do déi nach net nogekuckt waren.
 
 Fir Är Ännerungen ze publizéieren, [[{{MediaWiki:Validationpage}}|kuckt w.e.g]] ''all'' Ännerungen déi dro waarde fir nogekuckt ze ginn no ''(Kuckt hei  ënnendrënner)''.",
@@ -10771,9 +10773,9 @@ Para desaprovar uma edição, classifique todos os atributos como \"rejeitada\".
 
 Clique o botão \"voltar\" do seu ''browser'' e tente novamente.",
 	'revreview-update' => "Por favor, [[{{MediaWiki:Validationpage}}|reveja]] quaisquer alterações pendentes ''(mostradas abaixo)'' feitas à versão publicada.",
-	'revreview-update-edited' => "Quando você editou esta página, alguma ''outra'' edição já estava com revisão pendente.
+	'revreview-update-edited' => "Quando editou esta página, já existiam ''outras'' edições a aguardar revisão.
 
-Para publicar suas alterações, por favor [[{{MediaWiki:Validationpage}}|revise]] ''todas'' as alterações pendentes ''(apresentadas abaixo)''.",
+Para publicar as suas alterações, faça a [[{{MediaWiki:Validationpage}}|revisão]] de ''todas'' as alterações pendentes ''(apresentadas abaixo)''.",
 	'revreview-update-includes' => "'''Alguns ficheiros ou predefinições foram actualizados:'''",
 	'revreview-update-use' => "'''NOTA:''' A versão publicada de cada um destes ficheiros ou predefinições é usada na versão publicada desta página.",
 	'revreview-visibility' => "'''Esta página tem uma [[{{MediaWiki:Validationpage}}|versão publicada]] actualizada; os parâmetros de estabilidade da página podem ser [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} configurados].'''",
@@ -11859,8 +11861,11 @@ Môžete si pozrieť [[Special:StablePages|Zoznam stabilných stránok]].',
 	'validationpage' => '{{ns:help}}:Overovanie stránok',
 );
 
-/** Slovenian (Slovenščina) */
+/** Slovenian (Slovenščina)
+ * @author Dbc334
+ */
 $messages['sl'] = array(
+	'editor' => 'Urednik',
 	'revreview-revnotfound' => 'Redakcije strani, ki ste jo poskušali pridobiti, ni mogoče najti. Prosimo, preverite spletni naslov, ki ste ga uporabili za dostop do strani.',
 );
 

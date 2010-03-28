@@ -475,11 +475,12 @@ Publikigita revizio de paĝo estas la plej nova revizio aprobita por montri al �
 
 /** Spanish (Español)
  * @author Crazymadlover
+ * @author Dferg
  * @author Imre
  * @author Translationista
  */
 $messages['es'] = array(
-	'validationstatistics' => 'Estadísticas de validación',
+	'validationstatistics' => 'Estadísticas de revisión de páginas',
 	'validationstatistics-users' => "En '''{{SITENAME}}''' actualmente hay '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|usuario|usuarios}} con derechos de [[{{MediaWiki:Validationpage}}|Editor]].
 Los editores son usuarios establecidos que pueden verificar las revisiones de las páginas.",
 	'validationstatistics-time' => "''Los siguientes datos fueron actualizados por última vez en $5 en $6.''
@@ -1045,6 +1046,13 @@ $messages['km'] = array(
 	'validationstatistics-ns' => 'ប្រភេទ',
 	'validationstatistics-total' => 'ទំព័រ',
 	'validationstatistics-old' => 'ហួសសម័យ',
+);
+
+/** Kannada (ಕನ್ನಡ)
+ * @author Nayvik
+ */
+$messages['kn'] = array(
+	'validationstatistics-total' => 'ಪುಟಗಳು',
 );
 
 /** Korean (한국어)
