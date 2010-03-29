@@ -889,6 +889,7 @@ Neniu konfiguro eblas.',
  * @author Drini
  * @author Imre
  * @author Kobazulo
+ * @author Manuelt15
  * @author Peter17
  * @author Sanbec
  * @author Translationista
@@ -896,10 +897,9 @@ Neniu konfiguro eblas.',
 $messages['es'] = array(
 	'stabilization-tab' => 'vetar',
 	'stabilization' => 'Estabilización de página',
-	'stabilization-text' => "'''Cambiar las configuraciones de abajo para ajustar como la versión estable de [[:\$1|\$1]] es seleccionada y mostrada.'''
+	'stabilization-text' => "'''Cambiar las configuraciones de abajo para ajustar cómo la versión estable de [[:\$1|\$1]] es seleccionada y mostrada.'''
 
-Cuando cambie la configuración de ''selección de versión publicada'' para usar revisiones de \"calidad\" o \"prístina\" predeterminadamente,
-asegúrese de verificar si hay realmente tales revisiones en la página; de lo contrario, surtirá poco efecto.",
+'''Nota:''' Al cambiar la ''selección de versión publicada'' para usar revisiones de \"calidad\" o \"prístina\" esto no tendrá efecto si no existe tal versión. Además, nota que una versión de \"calidad\" es también considerada una versión \"revisada\" y viceversa.",
 	'stabilization-perm' => 'Su cuenta no tiene permiso para cambiar la configuración de la versión publicada.
 La configuración actual es [[:$1|$1]]:',
 	'stabilization-page' => 'Nombre de la página:',

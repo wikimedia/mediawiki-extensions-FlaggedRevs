@@ -398,10 +398,14 @@ Bazı ayarlar, okuyuculara hangi sürümün görüntüleneceğini değiştirebil
 );
 
 /** Ukrainian (Українська)
+ * @author AS
  * @author Prima klasy4na
  */
 $messages['uk'] = array(
 	'configuredpages' => 'Сторінки з налаштуваннями рецензування',
+	'configuredpages-text' => 'Далі наведено список сторінок, які мають відмінні від звичайних налаштування перевірки.
+
+Деякі параметри можуть міняти, яку версію показувати читачам або хто може вносити зміни, які не потребують перевірки.',
 	'configuredpages-none' => 'У цьому списку немає сторінок.',
 	'configuredpages-config' => 'Налаштування',
 	'configuredpages-precedence' => 'Пріоритет:',
