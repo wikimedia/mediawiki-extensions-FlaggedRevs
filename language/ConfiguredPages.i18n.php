@@ -78,6 +78,9 @@ Někotare nastajenja by mógli se změniś, kótara wersija zwobraznja se cytarj
  */
 $messages['eo'] = array(
 	'configuredpages' => 'Paĝoj kun kontrolaj konfiguradoj',
+	'configuredpages-text' => 'Jen listo de paĝoj konfiguritaj enhavi malsamajn aprobado-agordojn ol la defaŭlto de la retejo.
+
+Kelkaj agordoj eble ŝanĝos kiun version estos montrita al legantoj aŭ plu limigos kiu povas fari redaktojn nedevante kontroladon.',
 	'configuredpages-none' => 'Estas neniuj paĝoj en ĉi tiu listo.',
 	'configuredpages-config' => 'Konfiguro',
 	'configuredpages-precedence' => 'Prioritateco:',
@@ -184,15 +187,15 @@ Někotre nastajenja móhli změnić, kotra wersija so zwobraznja abo dale wobmje
  */
 $messages['hu'] = array(
 	'configuredpages' => 'Ellenőrzési beállításokkal rendelkező lapok',
-	'configuredpages-text' => 'Alább azok a lapok láthatóak, amelyek az alapértelmezettől eltérő jóváhagyási beállítással rendelkeznek.
+	'configuredpages-text' => 'Alább azok a lapok láthatóak, amelyek az alapértelmezettől eltérő ellenőrzési beállítással rendelkeznek.
 
 Néhány beállítás megváltoztathatja, az olvasók melyik változatot látják, vagy tovább szűkítheti, kik szerkeszthetnek ellenőrzés nélkül.',
 	'configuredpages-none' => 'Nem található egyetlen lap sem a listában.',
 	'configuredpages-config' => 'Beállítás',
 	'configuredpages-precedence' => 'Elsőbbség:',
-	'configuredpages-prec-none' => 'nincs precedencia',
-	'configuredpages-prec-quality' => '„minőségi” szint szerinti rendezés',
-	'configuredpages-prec-pristine' => '„kiemelkedő” szint szerinti rendezés',
+	'configuredpages-prec-none' => 'utolsó ellenőrzött',
+	'configuredpages-prec-quality' => 'utolsó minőségi',
+	'configuredpages-prec-pristine' => 'utolsó kiemelkedő',
 	'configuredpages-def-draft' => 'legutolsó változat',
 	'configuredpages-def-stable' => 'közzétett változat',
 );
@@ -231,6 +234,9 @@ $messages['ja'] = array(
  */
 $messages['lb'] = array(
 	'configuredpages' => 'Säite mat Nokuck-Konfiguratioun',
+	'configuredpages-text' => 'Hei ënnendrënner ass eng Lëscht mat Säiten déi aner Zoustëmmungsparameter hunn wéi dat Standard op dësem Site ass.
+
+Verschidden Astellungen kënne beaflosse wat fir eng Versioun de Lieser gewise gëtt oder esouguer limitéiere wien Ännerunge maache kann déi net mussen nogekuckt ginn.',
 	'configuredpages-none' => 'Et gëtt keng Säiten op dëser Lëscht.',
 	'configuredpages-config' => 'Konfiguratioun',
 	'configuredpages-precedence' => 'Prioritéit:',

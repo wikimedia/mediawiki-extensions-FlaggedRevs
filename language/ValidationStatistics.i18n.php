@@ -87,9 +87,10 @@ $messages['am'] = array(
 
 /** Arabic (العربية)
  * @author Meno25
+ * @author OsamaK
  */
 $messages['ar'] = array(
-	'validationstatistics' => 'إحصاءات التحقق',
+	'validationstatistics' => 'إحصاءات مراجعة الصفحة',
 	'validationstatistics-users' => "'''{{SITENAME}}''' بها حاليا '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|مستخدم|مستخدمون}} بصلاحية [[{{MediaWiki:Validationpage}}|محرر]].
 
 المحررون هم مستخدمون موثوقون يمكنهم التحقق من المراجعات للصفحات.",
