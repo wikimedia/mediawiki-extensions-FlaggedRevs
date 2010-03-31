@@ -873,8 +873,9 @@ $messages['oc'] = array(
  */
 $messages['pl'] = array(
 	'reviewedpages' => 'Przejrzane strony',
-	'reviewedpages-leg' => 'Lista stron posortowana według jakości',
-	'reviewedpages-list' => 'Poniższa strona zawiera {{PLURAL:$1|artykuł, który został oznaczony|listę artykułów, które zostały oznaczone (w większości)}} uzyskując określony status.',
+	'reviewedpages-leg' => 'Lista przejrzanych stron',
+	'reviewedpages-list' => "Lista zawiera [[{{MediaWiki:Validationpage}}|przejrzane]] strony, których '''najwyższy poziom''' w przeglądaniu (wersji) jest wybranym poziomem.
+Podany link prowadzi do ostatniej wersji na tym poziomie.",
 	'reviewedpages-none' => 'Brak stron na tej liście',
 	'reviewedpages-lev-0' => 'Przejrzane',
 	'reviewedpages-lev-1' => 'Zweryfikowane',

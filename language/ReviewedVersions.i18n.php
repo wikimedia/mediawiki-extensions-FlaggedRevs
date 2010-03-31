@@ -807,7 +807,7 @@ $messages['pdc'] = array(
  * @author Sp5uhe
  */
 $messages['pl'] = array(
-	'reviewedversions' => 'Pokaż wersje oznaczone',
+	'reviewedversions' => 'Wersje oznaczone',
 	'reviewedversions-leg1' => 'Pokaż oznaczone wersje strony',
 	'reviewedversions-page' => 'Nazwa strony:',
 	'reviewedversions-none' => '„[[:$1]]” nie posiada wersji oznaczonych.',

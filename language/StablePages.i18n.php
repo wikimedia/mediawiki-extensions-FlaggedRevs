@@ -555,8 +555,8 @@ $messages['oc'] = array(
  * @author ToSter
  */
 $messages['pl'] = array(
-	'stablepages' => 'Strony z domyślnie pokazywaną wersją oznaczoną',
-	'stablepages-text' => 'Poniżej znajduje się lista stron skonfigurowanych tak, by domyślnie czytelnikom prezentowana była wersja oznaczona.',
+	'stablepages' => 'Strony wykorzystujące oznaczanie zmian',
+	'stablepages-text' => 'Poniżej znajduje się lista stron, które skonfigurowano tak, że tylko niektórzy użytkownicy mogą je edytować. Zmiany nie zostaną opublikowane do momentu oznaczenia ich przez uprawnionego użytkownika.',
 	'stablepages-none' => 'Brak stron na tej liście',
 	'stablepages-config' => 'Konfiguracja',
 );

@@ -1175,7 +1175,7 @@ $messages['pdc'] = array(
  * @author Sp5uhe
  */
 $messages['pl'] = array(
-	'oldreviewedpages' => 'Zdezaktualizowane przejrzane strony',
+	'oldreviewedpages' => 'Strony oczekujące na przejrzenie',
 	'oldreviewedpages-legend' => 'Lista przejrzanych stron z wersjami oczekującymi na przejrzenie',
 	'oldreviewedpages-list' => 'Poniżej znajduje się {{PLURAL:$1|przejrzana strona, która oczekuje na sprawdzenie nowej edycji|lista przejrzanych stron, które oczekują na sprawdzenie nowych edycji}}.',
 	'oldreviewedpages-none' => 'Obecnie nie ma stron spełniających podane kryteria',
@@ -1183,7 +1183,7 @@ $messages['pl'] = array(
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|dzień|dni}})',
 	'oldreviewedpages-recent' => '(mniej niż 1 godzina)',
 	'oldreviewed-category' => 'Kategoria',
-	'oldreviewed-watched' => 'Z mojej listy obserwowanych',
+	'oldreviewed-watched' => 'Strony z mojej listy obserwowanych',
 	'oldreviewed-stable' => 'Oznaczona',
 	'oldreviewed-diff' => 'przejrzyj',
 	'oldreviewed-size' => 'Maksymalna liczba dodanych lub usuniętych bajtów',

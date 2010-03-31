@@ -417,9 +417,10 @@ $messages['oc'] = array(
 
 /** Polish (Polski)
  * @author Leinad
+ * @author Sp5uhe
  */
 $messages['pl'] = array(
-	'qualityoversight' => 'Rejestr oznaczania wersji',
+	'qualityoversight' => 'Rozbudowany rejestr oznaczania',
 	'qualityoversight-list' => 'Poniżej znajduje się lista ostatnio oznaczonych i wycofanych oznaczeń wersji.',
 	'qualityoversight-legend' => 'Szukaj w rejestrze oznaczania wersji',
 );

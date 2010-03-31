@@ -21,6 +21,13 @@ $messages['qqq'] = array(
 	'problemchanges-category' => '{{Identical|Category}}',
 );
 
+/** русиньскый язык (русиньскый язык)
+ * @author Gazeb
+ */
+$messages['rue'] = array(
+	'problemchanges-category' => 'Катеґорія:',
+);
+
 /** Afrikaans (Afrikaans)
  * @author Naudefj
  */
@@ -455,7 +462,7 @@ $messages['pdc'] = array(
  * @author Sp5uhe
  */
 $messages['pl'] = array(
-	'problemchanges' => 'Przeglądanie wątpliwych zmian',
+	'problemchanges' => 'Zaznaczone oczekujące zmiany',
 	'problemchanges-legend' => 'Lista stron z oznakowanymi wersjami oczekującymi na przejrzenie',
 	'problemchanges-none' => 'Obecnie nie ma stron spełniających podane kryteria',
 	'problemchanges-category' => 'Kategoria',

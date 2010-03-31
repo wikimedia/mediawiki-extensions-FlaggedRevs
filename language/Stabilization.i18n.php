@@ -2487,21 +2487,21 @@ $messages['pdc'] = array(
 $messages['pl'] = array(
 	'stabilization-tab' => 'Widoczne wersje strony',
 	'stabilization' => 'Widoczna wersja strony',
-	'stabilization-text' => "'''Ustaw poniżej, w jaki sposób ma być wybierana i wyświetlana oznaczona wersja strony [[:$1|$1]].'''
+	'stabilization-text' => "'''Ustaw poniżej, w jaki sposób ma być wybierana i wyświetlana opublikowana wersja strony [[:$1|$1]].'''
 
-Po zmianie sposobu ''wyboru wersji oznaczonej'', aby korzystała domyślnie z wersji „zweryfikowanej” lub „nienaruszonej” należy się upewnić, że strona posiada tego typu wersje, w przeciwnym wypadku zmiana przyniesie niewielki skutek.",
-	'stabilization-perm' => 'Nie masz wystarczających uprawnień, by zmienić konfigurację wersji oznaczonych.
+'''Uwaga''' Po zmianie sposobu ''wyboru wersji opublikowanej'', aby preferowała domyślnie wersję „zweryfikowaną” lub „sprzed zmian” należy się upewnić, że strona posiada tego typu wersje, w przeciwnym wypadku zmiana nie da żadnego efektu. Zauważ, że wersja „zweryfikowana” jest również uznawana za „oznaczoną” itd.",
+	'stabilization-perm' => 'Nie masz wystarczających uprawnień, aby zmienić konfigurację wersji opublikowanej.
 Aktualne ustawienia dla strony [[:$1|$1]]:',
 	'stabilization-page' => 'Nazwa strony:',
 	'stabilization-leg' => 'Zatwierdź konfigurację wersji opublikowanej',
 	'stabilization-select' => 'Pierwszeństwo wyboru wersji opublikowanej',
 	'stabilization-select1' => 'Ostatnia wersja zweryfikowana, a jeśli nie istnieje, to ostatnia wersja przejrzana',
-	'stabilization-select2' => 'Ostatnia wersja oznaczona, niezależnie od poziomu oznaczenia',
+	'stabilization-select2' => 'Ostatnia wersja oznaczona',
 	'stabilization-select3' => 'Ostatnia nienaruszona wersja, a jeśli nie istnieje, to ostatnia wersja zweryfikowana lub przejrzana',
 	'stabilization-def' => 'Wersja strony wyświetlana domyślnie',
-	'stabilization-def1' => 'Wersja oznaczona, a jeśli nie istnieje, to wersja bieżąca lub robocza',
+	'stabilization-def1' => 'Wersja opublikowana, a jeśli nie istnieje, to wersja bieżąca lub robocza',
 	'stabilization-def2' => 'Wersja bieżąca lub robocza',
-	'stabilization-restrict' => 'Ograniczenia automatycznego przeglądania',
+	'stabilization-restrict' => 'Ograniczenia ręcznego i automatycznego przeglądania',
 	'stabilization-restrict-none' => 'Brak dodatkowych ograniczeń',
 	'stabilization-submit' => 'Potwierdź',
 	'stabilization-notexists' => 'Brak strony zatytułowanej „[[:$1|$1]]”. Nie jest możliwa jej konfiguracja.',
@@ -2517,7 +2517,7 @@ Nie jest możliwa jej konfiguracja.',
 	'stabilization-sel-short-2' => 'Nienaruszona',
 	'stabilization-def-short' => 'Domyślna',
 	'stabilization-def-short-0' => 'Bieżąca',
-	'stabilization-def-short-1' => 'Oznaczona',
+	'stabilization-def-short-1' => 'Opublikowana',
 	'stabilize_expiry_invalid' => 'Nieprawidłowa data wygaśnięcia.',
 	'stabilize_expiry_old' => 'Czas wygaśnięcia już upłynął.',
 	'stabilize-expiring' => 'wygasa $1 (UTC)',

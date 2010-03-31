@@ -318,6 +318,21 @@ Enkelte innstillinger kan endre hvilken versjon som vises til lesere eller ytter
 	'configuredpages-def-stable' => 'publisert versjon',
 );
 
+/** Polish (Polski)
+ * @author Sp5uhe
+ */
+$messages['pl'] = array(
+	'configuredpages' => 'Strony ze skonfigurowanym oznaczaniem',
+	'configuredpages-none' => 'Brak stron na tej liście.',
+	'configuredpages-config' => 'Konfiguracja',
+	'configuredpages-precedence' => 'Kolejność',
+	'configuredpages-prec-none' => 'brak pierwszeństwa',
+	'configuredpages-prec-quality' => 'pierwszeństwo dla zweryfikowanej',
+	'configuredpages-prec-pristine' => 'pierwszeństwo dla nienaruszonej',
+	'configuredpages-def-draft' => 'najnowsza wersja',
+	'configuredpages-def-stable' => 'wersja opublikowana',
+);
+
 /** Piedmontese (Piemontèis)
  * @author Borichèt
  * @author Dragonòt
