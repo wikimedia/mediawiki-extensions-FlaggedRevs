@@ -2074,13 +2074,11 @@ class FlaggedRevsHooks {
 		# Add some script for expiry dropdowns
 		$wgOut->addScript(
 			"<script type=\"text/javascript\">
-				function updateStabilizationDropdowns() {
-					val = document.getElementById('mwExpirySelection').value;
-					if( val == 'existing' )
-						document.getElementById('mwStabilize-expiry').value = " .
-						Xml::encodeJsVar( $oldExpiry ) . ";
-					else if( val != 'othertime' )
-						document.getElementById('mwStabilize-expiry').value = val;
+				function onFRChangeExpiryDropdown() {
+					document.getElementById('mwStabilize-expiry').value = '';
+				}
+				function onFRChangeExpiryField() {
+					document.getElementById('mwExpirySelection').value = 'othertime';
 				}
 			</script>"
 		);
@@ -2156,7 +2154,7 @@ class FlaggedRevsHooks {
 							array(
 								'id' => 'mwExpirySelection',
 								'name' => 'wpExpirySelection',
-								'onchange' => 'updateStabilizationDropdowns()',
+								'onchange' => 'onFRChangeExpiryDropdown()',
 							) + $disabledAttrib,
 							$expiryFormOptions ) .
 					"</td>
@@ -2164,15 +2162,14 @@ class FlaggedRevsHooks {
 		}
 		# Add custom expiry field to form
 		$attribs = array( 'id' => "mwStabilize-expiry",
-			'onkeyup' => 'updateStabilizationDropdowns()' ) + $disabledAttrib;
+			'onkeyup' => 'onFRChangeExpiryField()' ) + $disabledAttrib;
 		$output .= "
 			<tr>
 				<td class='mw-label'>" .
 					Xml::label( wfMsg( 'stabilization-othertime' ), 'mwStabilize-expiry' ) .
 				'</td>
 				<td class="mw-input">' .
-					Xml::input( "mwStabilize-expiry", 50,
-						$expiry ? $expiry : $oldExpiry, $attribs ) .
+					Xml::input( "mwStabilize-expiry", 50, $expiry, $attribs ) .
 				'</td>
 			</tr>';
 		$output .= "</table>"; // expiry table end
