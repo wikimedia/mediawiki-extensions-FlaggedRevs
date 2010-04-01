@@ -2051,49 +2051,43 @@ class FlaggedRevsHooks {
 	// Add selector of review "protection" options
 	// Code stolen from Stabilization (which was stolen from ProtectionForm)
 	public static function onProtectionForm( $article, &$output ) {
-		global $wgUser, $wgRequest, $wgOut, $wgLang;
+		global $wgUser, $wgRequest, $wgLang;
 		if ( !FlaggedRevs::useProtectionLevels() || !$article->exists() ) {
 			return true; // nothing to do
-		} else if ( !FlaggedRevs::inReviewNamespace( $article->getTitle() ) ) {
+		} elseif ( !FlaggedRevs::inReviewNamespace( $article->getTitle() ) ) {
 			return true; // not a reviewable page
 		}
 		# Can the user actually do anything?
 		$isAllowed = $wgUser->isAllowed( 'stablesettings' );
 		$disabledAttrib = !$isAllowed ?
 			array( 'disabled' => 'disabled' ) : array();
+		
 		# Get the current config/expiry
 		$config = FlaggedRevs::getPageVisibilitySettings( $article->getTitle(), FR_MASTER );
-		# Convert expiry to a display form (GMT)
-		$oldExpiry = $config['expiry'] !== 'infinity' ?
-			wfTimestamp( TS_RFC2822, $config['expiry'] ) : 'infinite';
+		$oldExpirySelect = ( $config['expiry'] == 'infinity' ) ? 'infinite' : 'existing';
+		
 		# Load requested restriction level, default to current level...
-		$selected = $wgRequest->getVal( 'wpStabilityConfig',
+		$restriction = $wgRequest->getVal( 'mwStabilityConfig',
 			FlaggedRevs::getProtectionLevel( $config ) );
-		# Load the requested expiry time
-		$expiry = $wgRequest->getText( 'mwStabilize-expiry' );
-		# Add some script for expiry dropdowns
-		$wgOut->addScript(
-			"<script type=\"text/javascript\">
-				function onFRChangeExpiryDropdown() {
-					document.getElementById('mwStabilize-expiry').value = '';
-				}
-				function onFRChangeExpiryField() {
-					document.getElementById('mwExpirySelection').value = 'othertime';
-				}
-			</script>"
-		);
-		# Add an extra row to the protection fieldset tables
+		# Load the requested expiry time (dropdown)
+		$expirySelect = $wgRequest->getVal( 'mwStabilizeExpirySelection', $oldExpirySelect );
+		# Load the requested expiry time (field)
+		$expiryOther = $wgRequest->getVal( 'mwStabilizeExpiryOther', '' );
+		if ( $expiryOther != '' ) $expirySelect = 'othertime'; // mutual exclusion
+		
+		# Add an extra row to the protection fieldset tables.
+		# Includes restriction dropdown and expiry dropdown & field.
 		$output .= "<tr><td>";
 		$output .= Xml::openElement( 'fieldset' );
 		$output .= Xml::element( 'legend', null, wfMsg( 'flaggedrevs-protect-legend' ) );
 		# Add a "no restrictions" level
 		$effectiveLevels = FlaggedRevs::getRestrictionLevels();
 		array_unshift( $effectiveLevels, "none" );
-		# Show all restriction levels in a select...
+		# Show all restriction levels in a <select>...
 		$attribs = array(
-			'id' => 'mwStabilityConfig',
-			'name' => 'mwStabilityConfig',
-			'size' => count( $effectiveLevels ),
+			'id' 	=> 'mwStabilityConfig',
+			'name'  => 'mwStabilityConfig',
+			'size'  => count( $effectiveLevels ),
 		) + $disabledAttrib;
 		$output .= Xml::openElement( 'select', $attribs );
 		foreach ( $effectiveLevels as $limit ) {
@@ -2108,15 +2102,15 @@ class FlaggedRevsHooks {
 			if ( wfEmptyMsg( 'flaggedrevs-protect-' . $limit, $label ) ) {
 				$label = 'flaggedrevs-protect-' . $limit;
 			}
-			$output .= Xml::option( $label, $limit, $limit == $selected );
+			$output .= Xml::option( $label, $limit, $limit == $restriction );
 		}
 		$output .= Xml::closeElement( 'select' );
-		# Get expiry dropdown
+		# Get expiry dropdown <select>...
 		$scExpiryOptions = wfMsgForContent( 'protect-expiry-options' );
 		$showProtectOptions = ( $scExpiryOptions !== '-' && $isAllowed );
 		# Add the current expiry as an option
 		$expiryFormOptions = '';
-		if ( $config['expiry'] && $config['expiry'] != 'infinity' ) {
+		if ( $config['expiry'] != 'infinity' ) {
 			$timestamp = $wgLang->timeanddate( $config['expiry'] );
 			$d = $wgLang->date( $config['expiry'] );
 			$t = $wgLang->time( $config['expiry'] );
@@ -2124,11 +2118,11 @@ class FlaggedRevsHooks {
 				Xml::option(
 					wfMsg( 'protect-existing-expiry', $timestamp, $d, $t ),
 					'existing',
-					$config['expiry'] == 'existing'
+					$expirySelect == 'existing'
 				) . "\n";
 		}
-		$expiryFormOptions .= Xml::option( wfMsg( 'protect-othertime-op' ), "othertime" ) . "\n";
-		# Add custom levels (from MediaWiki message)
+		$expiryFormOptions .= Xml::option( wfMsg( 'protect-othertime-op' ), 'othertime' ) . "\n";
+		# Add custom dropdown levels (from MediaWiki message)
 		foreach ( explode( ',', $scExpiryOptions ) as $option ) {
 			if ( strpos( $option, ":" ) === false ) {
 				$show = $value = $option;
@@ -2137,9 +2131,9 @@ class FlaggedRevsHooks {
 			}
 			$show = htmlspecialchars( $show );
 			$value = htmlspecialchars( $value );
-			$expiryFormOptions .= Xml::option( $show, $value, $config['expiry'] === $value )."\n";
+			$expiryFormOptions .= Xml::option( $show, $value, $expirySelect == $value )."\n";
 		}
-		# Add expiry dropdown to form
+		# Actually add expiry dropdown to form
 		$scExpiryOptions = wfMsgForContent( 'protect-expiry-options' );
 		$showProtectOptions = ( $scExpiryOptions !== '-' && $isAllowed );
 		$output .= "<table>"; // expiry table start
@@ -2147,38 +2141,55 @@ class FlaggedRevsHooks {
 			$output .= "
 				<tr>
 					<td class='mw-label'>" .
-						Xml::label( wfMsg( 'stabilization-expiry' ), 'mwExpirySelection' ) .
+						Xml::label( wfMsg( 'stabilization-expiry' ), 'mwStabilizeExpirySelection' ) .
 					"</td>
 					<td class='mw-input'>" .
 						Xml::tags( 'select',
 							array(
-								'id' => 'mwExpirySelection',
-								'name' => 'wpExpirySelection',
-								'onchange' => 'onFRChangeExpiryDropdown()',
+								'id' 		=> 'mwStabilizeExpirySelection',
+								'name' 		=> 'mwStabilizeExpirySelection',
+								'onchange'  => 'onFRChangeExpiryDropdown()',
 							) + $disabledAttrib,
 							$expiryFormOptions ) .
 					"</td>
 				</tr>";
 		}
 		# Add custom expiry field to form
-		$attribs = array( 'id' => "mwStabilize-expiry",
+		$attribs = array( 'id' => 'mwStabilizeExpiryOther',
 			'onkeyup' => 'onFRChangeExpiryField()' ) + $disabledAttrib;
 		$output .= "
 			<tr>
 				<td class='mw-label'>" .
-					Xml::label( wfMsg( 'stabilization-othertime' ), 'mwStabilize-expiry' ) .
+					Xml::label( wfMsg( 'stabilization-othertime' ), 'mwStabilizeExpiryOther' ) .
 				'</td>
 				<td class="mw-input">' .
-					Xml::input( "mwStabilize-expiry", 50, $expiry, $attribs ) .
+					Xml::input( 'mwStabilizeExpiryOther', 50, $expiryOther, $attribs ) .
 				'</td>
 			</tr>';
 		$output .= "</table>"; // expiry table end
 		# Close field set and table row
 		$output .= Xml::closeElement( 'fieldset' );
 		$output .= "</td></tr>";
+		
+		# Add some script for expiry dropdowns
+		self::addProtectionJS();
 		return true;
 	}
-	
+
+	private static function addProtectionJS() {
+		global $wgOut;
+		$wgOut->addScript(
+			"<script type=\"text/javascript\">
+				function onFRChangeExpiryDropdown() {
+					document.getElementById('mwStabilizeExpiryOther').value = '';
+				}
+				function onFRChangeExpiryField() {
+					document.getElementById('mwStabilizeExpirySelection').value = 'othertime';
+				}
+			</script>"
+		);
+	}
+
 	// Add stability log extract to protection form
 	public static function insertStabilityLog( $article, $out ) {
 		if ( !FlaggedRevs::useProtectionLevels() || !$article->exists() ) {
@@ -2209,8 +2220,8 @@ class FlaggedRevsHooks {
 		$form->watchThis = null; # protection form already has a watch check
 		$form->reason = $wgRequest->getText( 'mwProtect-reason' ); # Reason
 		$form->reasonSelection = $wgRequest->getVal( 'wpProtectReasonSelection' ); # Reason dropdown
-		$form->expiry = $wgRequest->getText( 'mwStabilize-expiry' ); # Expiry
-		$form->expirySelection = $wgRequest->getVal( 'wpExpirySelection' ); # Expiry dropdown
+		$form->expiry = $wgRequest->getVal( 'mwStabilizeExpiryOther' ); # Expiry
+		$form->expirySelection = $wgRequest->getVal( 'mwStabilizeExpirySelection' ); # Expiry dropdown
 		# Fill in config from the protection level...
 		$permission = $wgRequest->getVal( 'mwStabilityConfig' );
 		if ( $permission == "none" ) {
