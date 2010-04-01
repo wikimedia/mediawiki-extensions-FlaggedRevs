@@ -336,13 +336,24 @@ class FlaggedRevsXML {
 	 * Generates (show/hide) JS toggle HTML
 	 * @returns string
 	 */
-	public static function logToggle( $msg ) {
+	public static function logToggle() {
 		return '<a id="mw-fr-logtoggle" class="flaggedrevs_toggle" style="display:none;"' .
 			' onclick="FlaggedRevs.toggleLog()" title="' .
-			wfMsgHtml( $msg ) . '" >' .
-			wfMsgHtml( $msg ) . '</a>';
+			wfMsgHtml( 'revreview-log-toggle-show' ) . '" >' .
+			wfMsgHtml( 'revreview-log-toggle-show' ) . '</a>';
 	}
-	
+
+	/**
+	 * Generates (show/hide) JS toggle HTML
+	 * @returns string
+	 */
+	public static function logDetailsToggle() {
+		return '<a id="mw-fr-logtoggle" class="flaggedrevs_toggle" style="display:none;"' .
+			' onclick="FlaggedRevs.toggleLogDetails()" title="' .
+			wfMsgHtml( 'revreview-log-details-show' ) . '" >' .
+			wfMsgHtml( 'revreview-log-details-show' ) . '</a>';
+	}
+
 	/**
 	 * @param array $flags, selected flags
 	 * @param array $config, page config

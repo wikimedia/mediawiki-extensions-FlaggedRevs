@@ -859,12 +859,12 @@ class FlaggedArticleView {
 		# Only for pages manually made to be stable...
 		if ( $this->article->isPageLocked() ) {
 			$s = wfMsgExt( 'revreview-locked', 'parseinline' );
-			$s .= ' ' . FlaggedRevsXML::logToggle('revreview-log-details-show');
+			$s .= ' ' . FlaggedRevsXML::logDetailsToggle();
 			$s .= FlaggedRevsXML::stabilityLogExcerpt( $this->article );
 		# ...or unstable
 		} elseif ( $this->article->isPageUnlocked() ) {
 			$s = wfMsgExt( 'revreview-unlocked', 'parseinline' );
-			$s .= ' ' . FlaggedRevsXML::logToggle('revreview-log-details-show');
+			$s .= ' ' . FlaggedRevsXML::logDetailsToggle();
 			$s .= FlaggedRevsXML::stabilityLogExcerpt( $this->article );
 		}
 		return $s;

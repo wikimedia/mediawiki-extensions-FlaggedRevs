@@ -63,10 +63,14 @@ class FlaggedRevsHooks {
 		}
 		# Set basic messages
 		$msgs = (object) array(
-			'revreviewDiffToggleShow' => wfMsgHtml( 'revreview-diff-toggle-show' ),
-			'revreviewDiffToggleHide' => wfMsgHtml( 'revreview-diff-toggle-hide' ),
-			'revreviewToggleShow'	  => wfMsgHtml( 'revreview-toggle-show'),
-			'revreviewToggleHide'     => wfMsgHtml( 'revreview-toggle-hide')
+			'diffToggleShow' => wfMsgHtml( 'revreview-diff-toggle-show' ),
+			'diffToggleHide' => wfMsgHtml( 'revreview-diff-toggle-hide' ),
+			'logToggleShow'	 => wfMsgHtml( 'revreview-log-toggle-show'),
+			'logToggleHide'  => wfMsgHtml( 'revreview-log-toggle-hide'),
+			'logDetailsShow' => wfMsgHtml( 'revreview-log-details-show'),
+			'logDetailsHide' => wfMsgHtml( 'revreview-log-details-hide'),
+			'toggleShow'	 => wfMsgHtml( 'revreview-toggle-show'),
+			'toggleHide'     => wfMsgHtml( 'revreview-toggle-hide')
 		);
 		$head .= "\n<script type=\"{$wgJsMimeType}\">" .
 			"FlaggedRevs.messages = " . Xml::encodeJsVar( $msgs ) . ";</script>\n";

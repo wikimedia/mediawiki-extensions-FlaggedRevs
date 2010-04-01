@@ -4,10 +4,14 @@
 
 var FlaggedRevs = {
 	'messages': {
-		'revreviewDiffToggleShow': '(show)',
-		'revreviewDiffToggleHide': '(hide)',
-		'revreviewToggleShow'    : '(+)',
-		'revreviewToggleHide'    : '(-)'
+		'diffToggleShow'	: '(show changes)',
+		'diffToggleHide'	: '(hide changes)',
+		'logToggleShow'		: '(show log)',
+		'logToggleHide'		: '(hide log)',
+		'logDetailsShow'	: '(show details)',
+		'logDetailsHide'	: '(hide details)',
+		'toggleShow'    	: '(+)',
+		'toggleHide'    	: '(-)'
 	},
 	/* Hide rating/diff clutter */
 	'enableShowhide': function() {
@@ -45,10 +49,10 @@ var FlaggedRevs = {
 		if( !toggle ) return;
 		if( ratings.style.display == 'none' ) {
 			ratings.style.display = 'inline';
-			toggle.innerHTML = this.messages.revreviewToggleHide;
+			toggle.innerHTML = this.messages.toggleHide;
 		} else {
 			ratings.style.display = 'none';
-			toggle.innerHTML = this.messages.revreviewToggleShow;
+			toggle.innerHTML = this.messages.toggleShow;
 		}
 	},
 	
@@ -60,10 +64,10 @@ var FlaggedRevs = {
 		if( !toggle ) return;
 		if( diff.style.display == 'none' ) {
 			diff.style.display = 'inline';
-			toggle.innerHTML = this.messages.revreviewDiffToggleHide;
+			toggle.innerHTML = this.messages.diffToggleHide;
 		} else {
 			diff.style.display = 'none';
-			toggle.innerHTML = this.messages.revreviewDiffToggleShow;
+			toggle.innerHTML = this.messages.diffToggleShow;
 		}
 	},
 	
@@ -75,7 +79,25 @@ var FlaggedRevs = {
 		if( !toggle ) return;
 		if( log.style.display == 'none' ) {
 			log.style.display = 'inline';
-			toggle.innerHTML = '';
+			toggle.innerHTML = this.messages.logToggleHide;
+		} else {
+			log.style.display = 'none';
+			toggle.innerHTML = this.messages.logToggleShow;
+		}
+	},
+	
+	/* Toggles log excerpts */
+	'toggleLogDetails': function() {
+		var log = document.getElementById('mw-fr-logexcerpt');
+		if( !log ) return;
+		var toggle = document.getElementById('mw-fr-logtoggle');
+		if( !toggle ) return;
+		if( log.style.display == 'none' ) {
+			log.style.display = 'inline';
+			toggle.innerHTML = this.messages.logDetailsHide;
+		} else {
+			log.style.display = 'none';
+			toggle.innerHTML = this.messages.logDetailsShow;
 		}
 	}
 };
