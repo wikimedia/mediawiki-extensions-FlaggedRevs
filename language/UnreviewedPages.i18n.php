@@ -1349,7 +1349,6 @@ $messages['roa-tara'] = array(
  * @author Александр Сигачёв
  */
 $messages['ru'] = array(
-	'right-unreviewedpages' => 'просмотр [[Special:UnreviewedPages|списка непроверенных страниц]]',
 	'unreviewedpages' => 'Непроверенные страницы',
 	'unreviewed-legend' => 'Список непроверенных статей',
 	'unreviewed-category' => 'Категория:',
@@ -1358,7 +1357,7 @@ $messages['ru'] = array(
 	'unreviewed-watched' => '({{PLURAL:$1|следит $1 активный участник|следят $1 активных участника|следят $1 активных участников}})',
 	'unreviewed-list' => 'На этой странице перечислены статьи, которые не были оценены на указанный уровень.',
 	'unreviewed-none' => 'В настоящий момент нет страниц, удовлетворяющих указанным условиям',
-	'unreviewed-viewing' => '(проверяются)',
+	'unreviewed-viewing' => '(проверяется)',
 	'unreviewed-hours' => '($1 {{PLURAL:$1|час|часа|часов}})',
 	'unreviewed-days' => '($1 {{PLURAL:$1|день|дня|дней}})',
 	'unreviewed-recent' => '(менее, чем 1 час)',

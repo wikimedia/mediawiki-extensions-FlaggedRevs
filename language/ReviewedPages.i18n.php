@@ -304,14 +304,15 @@ Ligilo estas farata al la lasta revizio de tiu nivelo.",
  */
 $messages['es'] = array(
 	'reviewedpages' => 'Páginas revisadas',
-	'reviewedpages-leg' => 'Listar páginas por nivel más alto de revisión',
-	'reviewedpages-list' => 'Esta página lista páginas que han sido revisadas (al más alto) al nivel especificado.',
+	'reviewedpages-leg' => 'Listar páginas que han sido revisadas',
+	'reviewedpages-list' => "Esta lista contiene páginas [[{{MediaWiki:Validationpage}}|revisadas]] cuyo nivel de revisión''más altamente alcanzado''  (de una revisión) es el nivel especificado.
+Se da un enlace a la última revisión de este nivel.",
 	'reviewedpages-none' => 'No hay páginas en esta lista',
 	'reviewedpages-lev-0' => '{{int:revreview-lev-basic}}',
 	'reviewedpages-lev-1' => '{{int:revreview-lev-quality}}',
 	'reviewedpages-lev-2' => '{{int:revreview-lev-pristine}}',
 	'reviewedpages-all' => 'versiones revisadas',
-	'reviewedpages-best' => 'revisión de primera',
+	'reviewedpages-best' => 'Mejor revisión',
 );
 
 /** Estonian (Eesti)
@@ -983,7 +984,7 @@ $messages['ru'] = array(
 	'reviewedpages-none' => 'В данном списке отсутствуют страницы',
 	'reviewedpages-lev-0' => 'Досмотренная',
 	'reviewedpages-lev-1' => 'Выверенная',
-	'reviewedpages-lev-2' => 'Избранная',
+	'reviewedpages-lev-2' => '{{int:revreview-lev-pristine}}',
 	'reviewedpages-all' => 'проверенные версии',
 	'reviewedpages-best' => 'наилучшая версия',
 );

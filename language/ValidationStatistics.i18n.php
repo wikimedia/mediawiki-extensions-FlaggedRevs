@@ -986,17 +986,17 @@ La versione stabile di una pagina è la revisione più recente fra quelle che so
  * @author Hosiryuhosi
  */
 $messages['ja'] = array(
-	'validationstatistics' => '判定統計',
-	'validationstatistics-users' => "'''{{SITENAME}}''' には現在、[[{{MediaWiki:Validationpage}}|編集者]]権限をもつ利用者が '''[[Special:ListUsers/editor|$1]]'''{{PLURAL:$1|人}}、[[{{MediaWiki:Validationpage}}|査読者]]権限をもつ利用者が '''[[Special:ListUsers/reviewer|$2]]'''{{PLURAL:$2|人}}います。
+	'validationstatistics' => 'ページのレビュー統計',
+	'validationstatistics-users' => "'''{{SITENAME}}''' には現在、[[{{MediaWiki:Validationpage}}|編集者]]権限をもつ利用者が '''[[Special:ListUsers/editor|$1]]'''{{PLURAL:$1|人}}います。
 
-編集者と査読者はページの各版に対して抜き取り検査を行うことを認められた利用者です。",
+編集者とはページの各版に対して抜き取り検査を行うことを認められた利用者です。",
 	'validationstatistics-time' => "''以下の情報は$5 $6に最終更新されました。''
 
 信頼されている利用者によって検査された編集は「査読済」とされます。
 
 未登録利用者による編集の平均査読待ち時間は '''$1'''、中央値は '''$3'''です。
 $4
-[[Special:OldReviewedPages|未査読の編集が保留となっているページ]]の平均遅延時間は '''$2'''です。このようなページは「最新版未査読」とされています。[[{{MediaWiki:Validationpage}}|固定版]]がまた最新版である場合、そのページは「最新版査読済」となります。ページの固定版とは、全読者に対して既定で表示することが承認された、最も新しい版のことです。",
+[[Special:OldReviewedPages|未査読の編集が保留となっているページ]]の平均遅延時間は '''$2'''です。このようなページは「古い版」とされています。保留中の編集がないページは「同期済み」とされています。ページの公開版は、全読者に対して既定で表示することが承認された、最も新しい版です。",
 	'validationstatistics-table' => '名前空間別の統計を以下に表示します。リダイレクトページは除いています。',
 	'validationstatistics-ns' => '名前空間',
 	'validationstatistics-total' => 'ページ数',
@@ -1600,7 +1600,7 @@ $4
 	'validationstatistics-old' => 'Устаревшие',
 	'validationstatistics-utable' => 'Ниже приведен список из 5 наиболее активных выверяющих за последний час.',
 	'validationstatistics-user' => 'Участник',
-	'validationstatistics-reviews' => 'Проверок',
+	'validationstatistics-reviews' => 'Проверки',
 );
 
 /** Yakut (Саха тыла)

@@ -456,7 +456,7 @@ $messages['eo'] = array(
  * @author Translationista
  */
 $messages['es'] = array(
-	'oldreviewedpages' => 'Páginas revisadas desactualizadas',
+	'oldreviewedpages' => 'Páginas con cambios pendientes',
 	'oldreviewedpages-legend' => 'Lista de páginas revisadas con revisiones pendientes de verificación',
 	'oldreviewedpages-list' => 'Esta página lista {{PLURAL:$1|yna páguna revisada|páginas revisadas}} que tienen ediciones pendientes',
 	'oldreviewedpages-none' => 'No hay actualmente páginas que cumplan estos criterios',

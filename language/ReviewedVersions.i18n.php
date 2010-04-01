@@ -286,7 +286,7 @@ $messages['eo'] = array(
  * @author Imre
  */
 $messages['es'] = array(
-	'reviewedversions' => 'Ver versiones estables',
+	'reviewedversions' => 'Versiones revisadas',
 	'reviewedversions-leg1' => 'lista de revisiones verificadas para una página',
 	'reviewedversions-page' => 'Nombre de la página:',
 	'reviewedversions-none' => '"[[:$1]]" no tiene revisiones verificadas.',

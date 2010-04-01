@@ -173,7 +173,7 @@ $messages['eo'] = array(
  * @author Crazymadlover
  */
 $messages['es'] = array(
-	'problemchanges' => 'Revisar cambios etiquetados',
+	'problemchanges' => 'Cambios pendientes etiquetados',
 	'problemchanges-legend' => 'Listar páginas con ediciones etiquetadas pendientes de revisión',
 	'problemchanges-none' => 'No hay actualmente páginas que cumplan estos criterios',
 	'problemchanges-category' => 'Categoría:',
@@ -462,7 +462,7 @@ $messages['pdc'] = array(
  * @author Sp5uhe
  */
 $messages['pl'] = array(
-	'problemchanges' => 'Zaznaczone oczekujące zmiany',
+	'problemchanges' => 'Przeglądanie wątpliwych zmian',
 	'problemchanges-legend' => 'Lista stron z oznakowanymi wersjami oczekującymi na przejrzenie',
 	'problemchanges-none' => 'Obecnie nie ma stron spełniających podane kryteria',
 	'problemchanges-category' => 'Kategoria',

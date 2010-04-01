@@ -420,7 +420,7 @@ $messages['oc'] = array(
  * @author Sp5uhe
  */
 $messages['pl'] = array(
-	'qualityoversight' => 'Rozbudowany rejestr oznaczania',
+	'qualityoversight' => 'Szczegółowy rejestr oznaczania',
 	'qualityoversight-list' => 'Poniżej znajduje się lista ostatnio oznaczonych i wycofanych oznaczeń wersji.',
 	'qualityoversight-legend' => 'Szukaj w rejestrze oznaczania wersji',
 );
