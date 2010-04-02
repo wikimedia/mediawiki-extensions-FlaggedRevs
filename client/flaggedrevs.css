@@ -51,6 +51,11 @@ div.flaggedrevs_preview {
 	color: #8b0000;
 }
 
+span.flaggedrevs_important {
+	font-size: 115%;
+	font-weight: bold;
+}
+
 div.flaggedrevs_notes {
 	border: 1px solid #aaa;
 	background-color: #f9f9f9;
