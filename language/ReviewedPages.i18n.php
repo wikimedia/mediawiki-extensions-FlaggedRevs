@@ -595,8 +595,8 @@ $messages['it'] = array(
  */
 $messages['ja'] = array(
 	'reviewedpages' => '査読済みページ',
-	'reviewedpages-leg' => '査読でもっとも高い評価を受けたページを一覧する',
-	'reviewedpages-list' => 'このページは査読結果が(最高で)指定した水準にあるページを一覧しています。',
+	'reviewedpages-leg' => '査読済みのページを一覧する',
+	'reviewedpages-list' => 'このページは[[{{MediaWiki:Validationpage}}|査読]]結果の最高値が指定した水準にあるページを一覧しています。水準に達している中で最新の版にリンクしています。',
 	'reviewedpages-none' => '表示すべきページはありません',
 	'reviewedpages-lev-0' => '{{int:revreview-lev-basic}}',
 	'reviewedpages-lev-1' => '{{int:revreview-lev-quality}}',

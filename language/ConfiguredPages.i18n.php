@@ -45,6 +45,7 @@ $messages['be-tarask'] = array(
  * @author Y-M D
  */
 $messages['br'] = array(
+	'configuredpages' => 'Pajennoù gant an arventennoù adlenn',
 	'configuredpages-none' => "N'eus pajenn ebet er roll-mañ.",
 	'configuredpages-config' => 'Kefluniadur',
 	'configuredpages-precedence' => 'Kentwir :',
@@ -219,9 +220,11 @@ Alcun configurationes pote cambiar le version que es monstrate al lectores o lim
 );
 
 /** Japanese (日本語)
+ * @author Naohiro19
  * @author Whym
  */
 $messages['ja'] = array(
+	'configuredpages-none' => 'この一覧にはページがありません。',
 	'configuredpages-prec-none' => '優先なし',
 	'configuredpages-prec-quality' => '{{int:revreview-lev-quality}}優先',
 	'configuredpages-prec-pristine' => '{{int:revreview-lev-pristine}}優先',
@@ -323,6 +326,9 @@ Enkelte innstillinger kan endre hvilken versjon som vises til lesere eller ytter
  */
 $messages['pl'] = array(
 	'configuredpages' => 'Strony ze skonfigurowanym oznaczaniem',
+	'configuredpages-text' => 'Poniżej znajduje się lista stron, których ustawienia zatwierdzania są inne niż domyślne.
+
+Niektóre ustawienia można zmieniać jak wersja widoczna dla czytelników czy dodatkowe ograniczenie osób, których edycje nie wymagają sprawdzania.',
 	'configuredpages-none' => 'Brak stron na tej liście.',
 	'configuredpages-config' => 'Konfiguracja',
 	'configuredpages-precedence' => 'Kolejność',

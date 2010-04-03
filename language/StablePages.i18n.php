@@ -357,7 +357,7 @@ $messages['hsb'] = array(
  * @author Samat
  */
 $messages['hu'] = array(
-	'stablepages' => 'Szerkesztési jóváhagyást alkalmazó lapok',
+	'stablepages' => 'Szerkesztések ellenőrzését megkövetelő',
 	'stablepages-text' => 'Ez a lista azokat a korlátozott lapokat tartalmazza, amelyeknél csak meghatározott felhasználók szerkeszthetnek ellenőrzés nélkül. Az ilyen szerkesztések nincsenek közzétéve, amíg egy járőr nem ellenőrzi őket.',
 	'stablepages-none' => 'Nem található egyetlen lap sem a listában',
 	'stablepages-config' => 'beállítás',
@@ -401,8 +401,8 @@ $messages['it'] = array(
  * @author Whym
  */
 $messages['ja'] = array(
-	'stablepages' => '固定ページ',
-	'stablepages-text' => '下記に示したページは、公開版が未設定状態で閲覧者に提示される版となるように手動で設定されています。',
+	'stablepages' => '編集承認を使用しているページ',
+	'stablepages-text' => '下記に示したページは、査読なしに編集を公開できる利用者が限定されています。編集は認証された利用者が査読するまで公開されません。',
 	'stablepages-none' => '表示すべきページはありません',
 	'stablepages-config' => '設定',
 );

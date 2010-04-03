@@ -708,14 +708,13 @@ $messages['hsb'] = array(
  * @author Samat
  */
 $messages['hu'] = array(
-	'right-unreviewedpages' => '[[Special:UnreviewedPages|Ellenőrizetlen lapok listájának]] megtekintése',
 	'unreviewedpages' => 'Ellenőrizetlen lapok',
-	'unreviewed-legend' => 'Nem ellenőrzött tartalmú lapok listája',
+	'unreviewed-legend' => 'Nem ellenőrzött lapok listája',
 	'unreviewed-category' => 'Kategória:',
 	'unreviewed-diff' => 'ellenőrzés',
 	'unreviewed-unwatched' => '(nem figyelt)',
 	'unreviewed-watched' => '({{PLURAL:$1|egy|$1}} aktív szerkesztő figyeli)',
-	'unreviewed-list' => 'Ez az oldal azokat a lapokat tartalmazza, amelyek még nem lettek ellenőrizve egy megadott ellenőrzöttségi szintre.',
+	'unreviewed-list' => 'Azon lapok, amelyek még nem lettek ellenőrizve a megadott szinten.',
 	'unreviewed-none' => 'Jelenleg nincs ezeknek a feltételeknek megfelelő oldal.',
 	'unreviewed-viewing' => '(ellenőrzés alatt)',
 	'unreviewed-hours' => '({{PLURAL:$1|egy|$1}} óra)',

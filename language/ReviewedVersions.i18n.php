@@ -534,7 +534,7 @@ $messages['it'] = array(
  * @author JtFuruhata
  */
 $messages['ja'] = array(
-	'reviewedversions' => '査読済みの版を表示',
+	'reviewedversions' => '査読済みの版',
 	'reviewedversions-leg1' => 'ページの査読済み版を一覧表示する',
 	'reviewedversions-page' => 'ページ名:',
 	'reviewedversions-none' => '「[[:$1]]」には査読済みの版がありません。',

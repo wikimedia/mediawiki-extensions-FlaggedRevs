@@ -21,13 +21,6 @@ $messages['qqq'] = array(
 	'problemchanges-category' => '{{Identical|Category}}',
 );
 
-/** русиньскый язык (русиньскый язык)
- * @author Gazeb
- */
-$messages['rue'] = array(
-	'problemchanges-category' => 'Катеґорія:',
-);
-
 /** Afrikaans (Afrikaans)
  * @author Naudefj
  */
@@ -289,7 +282,7 @@ $messages['hsb'] = array(
 $messages['hu'] = array(
 	'problemchanges' => 'Felcímkézett ellenőrizetlen szerkesztések',
 	'problemchanges-legend' => 'Ellenőrizetlen felcímkézett változtatásokat tartalmazó lapok listája',
-	'problemchanges-none' => 'Jelenleg nincs a a feltételeknek megfelelő lap',
+	'problemchanges-none' => 'Jelenleg nincs a feltételeknek megfelelő lap',
 	'problemchanges-category' => 'Kategória:',
 );
 
@@ -536,6 +529,13 @@ $messages['ru'] = array(
 	'problemchanges-legend' => 'Список cтраниц с отмеченными правками, ожидающими проверки',
 	'problemchanges-none' => 'В настоящее время нет отвечающих этим условиям страниц',
 	'problemchanges-category' => 'Категория:',
+);
+
+/** русиньскый язык (русиньскый язык)
+ * @author Gazeb
+ */
+$messages['rue'] = array(
+	'problemchanges-category' => 'Катеґорія:',
 );
 
 /** Yakut (Саха тыла)

@@ -856,15 +856,15 @@ $messages['hu'] = array(
 	'validationstatistics-users' => "A(z) '''{{SITENAME}}''' wikinek jelenleg '''[[Special:ListUsers/editor|$1]]''' [[{{MediaWiki:Validationpage}}|járőrjoggal]]  rendelkező szerkesztője van.
 
 A járőrök olyan tapasztalt szerkesztők, akik ellenőrizhetik a lapok változatait.",
-	'validationstatistics-time' => "''Az alábbi adatok utolsó frissítése: $5 $6''
+	'validationstatistics-time' => "''Az alábbi adatok utolsó frissítése: $5 $6.''
 
-Azok a szerkesztések, amelyeket tapasztalt szerkesztők átnéztek, ellenőrzöttnek tekinthetőek.
+Ellenőrzöttnek tekintettek azok a szerkesztések, amelyeket tapasztalt felhasználók átnéztek.
 
-Az átlagos várakozási idő ''nem bejelentkezett szerkesztők'' szerkesztéseinek ellenőrzésére '''$1''', a medián '''$3'''.
+Az átlagos várakozási idő ''nem bejelentkezett felhasználók'' szerkesztéseinek ellenőrzésére '''$1''', a medián '''$3'''.
 $4
-Az átlagos átfutási idő [[Special:OldReviewedPages|megtekintésre váró szerkesztésekkel rendelkező lapoknál]] '''$2'''.
+Az átlagos átfutási idő [[Special:OldReviewedPages|ellenőrzésre váró szerkesztésekkel rendelkező lapoknál]] '''$2'''.
 Ezek a lapok ''elavultnak'' tekintendőek. Hasonlóképpen, a lapok ''szinkronizáltnak'' tekintendőek, ha nincsenek ellenőrzésre váró szerkesztések.
-A lap publikált változata a legújabb elfogadott változat, amit alapértelmezetten látnak az olvasók.",
+A lap közzétett változata a legújabb jelölt változat, amit alapértelmezetten látnak az olvasók.",
 	'validationstatistics-table' => "Ezen az oldalon a névterekre bontott statisztika látható, az átirányítások ''nélkül''.",
 	'validationstatistics-ns' => 'Névtér',
 	'validationstatistics-total' => 'Lapok',
@@ -872,8 +872,8 @@ A lap publikált változata a legújabb elfogadott változat, amit alapértelmez
 	'validationstatistics-latest' => 'Szinkronizálva',
 	'validationstatistics-synced' => 'Szinkronizálva/ellenőrizve',
 	'validationstatistics-old' => 'Elavult',
-	'validationstatistics-utable' => 'Az alábbi lista az elmúlt óra öt legtöbbet ellenőrző szerkesztőjét mutatja.',
-	'validationstatistics-user' => 'Szerkesztő',
+	'validationstatistics-utable' => 'Az alábbi lista az elmúlt óra öt legtöbbet ellenőrző felhasználóját mutatja.',
+	'validationstatistics-user' => 'Felhasználó',
 	'validationstatistics-reviews' => 'Ellenőrzések',
 );
 

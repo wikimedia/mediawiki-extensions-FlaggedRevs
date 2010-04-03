@@ -274,7 +274,7 @@ $messages['hsb'] = array(
  */
 $messages['hu'] = array(
 	'qualityoversight' => 'Haladó ellenőrzési napló',
-	'qualityoversight-list' => 'Ez a lap a legutóbb végzett értékeléseket listázza.',
+	'qualityoversight-list' => 'A lapváltozatok legutóbb végzett ellenőrzöttnek jelöléseit és ellenőrzöttnek jelölések megvonásait listázza.',
 	'qualityoversight-legend' => 'Keresés a legutóbbi ellenőrzések naplójában',
 );
 
