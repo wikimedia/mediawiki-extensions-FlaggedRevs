@@ -775,7 +775,6 @@ class FlaggedArticleView {
 			# Find out revision id of base version
 			$latestId = $this->article->getLatest();
 			$revId = $editPage->oldid ? $editPage->oldid : $latestId;
-			$isOld = ( $revId != $latestId ); // not the current rev?
 			# Let new users know about review procedure a tag.
 			# If the log excerpt was shown this is redundant.
 			if ( !$log && !$wgUser->getId() && $this->article->isStableShownByDefault() ) {
@@ -791,14 +790,10 @@ class FlaggedArticleView {
 			if ( $frev->getRevId() < $latestId // changes were made
 				&& $this->isDiffShownOnEdit() // stable default and user cannot review
 				&& $wgUser->getBoolOption( 'flaggedrevseditdiffs' ) // not disable via prefs
+				&& $revId == $latestId // only for current rev
+				&& $editPage->section != "new" // not for new sections
+				&& !in_array( $editPage->formtype, array( 'diff', 'preview' ) ) // not preview/"show changes"
 			) {
-				# Don't show for old revisions, diff, preview, or undo
-				if ( $isOld || $editPage->section === "new"
-					|| in_array( $editPage->formtype, array( 'diff', 'preview' ) ) )
-				{
-					return true; // nothing to show here
-				}
-				
 				# Conditions are met to show diff...
 				$leftNote = $quality
 					? 'revreview-hist-quality'

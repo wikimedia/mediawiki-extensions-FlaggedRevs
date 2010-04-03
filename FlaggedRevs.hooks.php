@@ -1822,7 +1822,7 @@ class FlaggedRevsHooks {
 		$link = $class = '';
 		if ( !isset( $row->fr_quality ) ) {
 			if ( $revId > $history->fr_stableRevId ) {
-				$class = 'flaggedrevs-unreviewed';
+				$class = 'flaggedrevs-pending';
 				$link = wfMsgExt( 'revreview-hist-pending', 'parseinline',
 					$title->getPrefixedText(), $history->fr_stableRevId, $revId );
 				$link = '<span class="plainlinks">' . $link . '</span>';
@@ -1910,9 +1910,9 @@ class FlaggedRevsHooks {
 			$ret = '<span class="' . FlaggedRevsXML::getQualityColor( $row->fr_quality ) .
 				'">' . $ret . '</span>';
 		} elseif ( isset( $row->fp_stable ) && $row->rev_id > $row->fp_stable ) {
-			$ret = '<span class="flaggedrevs-unreviewed">' . $ret . '</span>';
+			$ret = '<span class="flaggedrevs-pending">' . $ret . '</span>';
 		} elseif ( !isset( $row->fp_stable ) ) {
-			$ret = '<span class="flaggedrevs-unreviewed2">' . $ret . '</span>';
+			$ret = '<span class="flaggedrevs-unreviewed">' . $ret . '</span>';
 		}
 		return true;
 	}

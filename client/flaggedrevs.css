@@ -168,11 +168,10 @@ div.flaggedrevs_short {
 	background-color: #fffff0;
 }
 
-.flaggedrevs-unreviewed {
+.flaggedrevs-pending {
 	background-color: #ffeeaa;
 }
-
-.flaggedrevs-unreviewed2 {
+.flaggedrevs-unreviewed {
 	background-color: #faebd7;
 }
 
@@ -240,6 +239,10 @@ img.flaggedrevs-icon {
 
 .fr-under-review {
 	background-color: yellow;
+}
+
+.mw-fr-reviewlink {
+	font-weight: bold;
 }
 
 /* Review form */
