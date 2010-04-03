@@ -326,10 +326,11 @@ class FlaggedRevsXML {
 	 * @returns string
 	 */
 	public static function diffToggle() {
-		return '(<a id="mw-fr-difftoggle" class="flaggedrevs_toggle" style="display:none;"' .
+		$toggle = '<a id="mw-fr-difftoggle" class="flaggedrevs_toggle" style="display:none;"' .
 			' onclick="FlaggedRevs.toggleDiff()" title="' .
 			wfMsgHtml( 'revreview-diff-toggle-title' ) . '" >' .
-			wfMsgHtml( 'revreview-diff-toggle-show' ) . '</a>)';
+			wfMsgHtml( 'revreview-diff-toggle-show' ) . '</a>';
+		return wfMsgHtml( 'parentheses', $toggle );
 	}
 
 	/**
@@ -337,10 +338,11 @@ class FlaggedRevsXML {
 	 * @returns string
 	 */
 	public static function logToggle() {
-		return '(<a id="mw-fr-logtoggle" class="flaggedrevs_toggle" style="display:none;"' .
+		$toggle = '<a id="mw-fr-logtoggle" class="flaggedrevs_toggle" style="display:none;"' .
 			' onclick="FlaggedRevs.toggleLog()" title="' .
 			wfMsgHtml( 'revreview-log-toggle-show' ) . '" >' .
-			wfMsgHtml( 'revreview-log-toggle-show' ) . '</a>)';
+			wfMsgHtml( 'revreview-log-toggle-show' ) . '</a>';
+		return wfMsgHtml( 'parentheses', $toggle );
 	}
 
 	/**
@@ -348,10 +350,11 @@ class FlaggedRevsXML {
 	 * @returns string
 	 */
 	public static function logDetailsToggle() {
-		return '(<a id="mw-fr-logtoggle" class="flaggedrevs_toggle" style="display:none;"' .
+		$toggle = '<a id="mw-fr-logtoggle" class="flaggedrevs_toggle" style="display:none;"' .
 			' onclick="FlaggedRevs.toggleLogDetails()" title="' .
 			wfMsgHtml( 'revreview-log-details-show' ) . '" >' .
-			wfMsgHtml( 'revreview-log-details-show' ) . '</a>)';
+			wfMsgHtml( 'revreview-log-details-show' ) . '</a>';
+		return wfMsgHtml( 'parentheses', $toggle );
 	}
 
 	/**

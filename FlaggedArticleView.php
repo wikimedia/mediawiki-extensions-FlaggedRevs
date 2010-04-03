@@ -1266,7 +1266,8 @@ class FlaggedArticleView {
 				wfMsgHtml( 'review-diff2stable' ),
 				'oldid='.$frev->getRevId().'&diff=cur&diffonly=0'
 			);
-			$review = "<div class='fr-diff-to-stable' align='center'>($review)</div>";
+			$review = wfMsgHtml( 'parentheses', $review );
+			$review = "<div class='fr-diff-to-stable' align='center'>$review</div>";
 		}
 		return $review;
 	}
