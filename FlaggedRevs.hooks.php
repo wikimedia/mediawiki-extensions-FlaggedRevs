@@ -1610,7 +1610,7 @@ class FlaggedRevsHooks {
 			return true; // nothing to do
 		// Stability log
 		} else if ( $type == 'stable' ) {
-			$rv .= FlaggedRevsLogs::stabilityLogLinks( $title, $ts );
+			$rv .= FlaggedRevsLogs::stabilityLogLinks( $title, $ts, $params );
 		// Review log
 		} else if ( $type == 'review' && FlaggedRevsLogs::isReviewAction( $action ) ) {
 			$rv .= FlaggedRevsLogs::reviewLogLinks( $action, $title, $params );

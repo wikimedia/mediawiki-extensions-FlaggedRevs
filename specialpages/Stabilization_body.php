@@ -454,20 +454,33 @@ class Stabilization extends UnlistedSpecialPage
 				FlaggedRevs::clearTrackingRows( $article->getId() );
 			}
 			# Insert stability log entry...
-			$reason = $this->getLogReason( $reset );
 			$log = new LogPage( 'stable' );
 			if ( $reset ) {
-				$log->addEntry( 'reset', $this->page, $reason );
+				$log->addEntry( 'reset', $this->page, $this->reason );
 				$type = "stable-logentry-reset";
 			} else {
-				$log->addEntry( 'config', $this->page, $reason );
+				$params = array(
+					'override'   => $this->override,
+					'autoreview' => $this->autoreview,
+					'expiry'     => $this->expiry // TS_MW/infinity
+				);
+				// Precedence unchanged by protection (stabilityLogLinks checks this)
+				if( !FlaggedRevs::useProtectionLevels() ) {
+					$params['precedence'] = $this->select;
+				}
+				$log->addEntry( 'config', $this->page, $this->reason,
+					FlaggedRevsLogs::collapseParams( $params ) );
 				$type = "stable-logentry-config";
 			}
-			# Build null-edit comment...
+			# Build null-edit comment...<action: reason [settings] (expiry)>
 			$comment = $wgContLang->ucfirst(
-				wfMsgForContent( $type, $this->page->getPrefixedText() ) );
-			if ( $reason != '' ) {
-				$comment .= wfMsgForContent( 'colon-separator' ) . $reason;
+				wfMsgForContent( $type, $this->page->getPrefixedText() ) ); // action
+			if ( $this->reason != '' ) {
+				$comment .= wfMsgForContent( 'colon-separator' ) . $this->reason; // add reason
+			}
+			$settings = FlaggedRevsLogs::stabilitySettings( $params, true /*content*/ );
+			if ( $settings != '' ) {
+				$comment .= " {$settings}"; // add settings
 			}
 			# Insert a null revision...
 			$dbw = wfGetDB( DB_MASTER );
@@ -582,42 +595,5 @@ class Stabilization extends UnlistedSpecialPage
 				|| $oldRow->fpc_expiry != $dbExpiry // ...expiry changed
 			);
 		}
-	}
-
-	// @FIXME: do this better
-	protected function getLogReason( $reset ) {
-		global $wgContLang;
-		$set = array();
-		// Precedence (ignored for protection-based configs)
-		if ( !FlaggedRevs::useProtectionLevels() && FlaggedRevs::qualityVersions() ) {
-			$set[] = wfMsgForContent( 'stabilization-sel-short' ) .
-				wfMsgForContent( 'colon-separator' ) .
-				wfMsgForContent( "stabilization-sel-short-{$this->select}" );
-		}
-		// Default version shown on page view
-		$set[] = wfMsgForContent( 'stabilization-def-short' ) .
-			wfMsgForContent( 'colon-separator' ) .
-			wfMsgForContent( "stabilization-def-short-{$this->override}" );
-		if ( strlen( $this->autoreview ) ) {
-			$set[] = "autoreview={$this->autoreview}";
-		}
-		$settings = '[' . $wgContLang->commaList( $set ) . ']';
-		# Append comment with settings (other than for resets)
-		$reason = $this->reason;
-		if ( !$reset ) {
-			$reason = ( $reason != '' )
-				? "{$reason} {$settings}"
-				: $settings;
-			$dbw = wfGetDB( DB_MASTER );
-			# $this->expiry is a MW timestamp or 'infinity'
-			if ( $this->expiry != Block::infinity() ) {
-				$expiry_description = wfMsgForContent( 'stabilize-expiring',
-					$wgContLang->timeanddate( $this->expiry, false, false ) ,
-					$wgContLang->date( $this->expiry, false, false ) ,
-					$wgContLang->time( $this->expiry, false, false ) );
-				$reason .= " ($expiry_description)";
-			}
-		}
-		return $reason;
 	}
 }

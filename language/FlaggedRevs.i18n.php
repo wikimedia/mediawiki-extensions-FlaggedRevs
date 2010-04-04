@@ -194,6 +194,7 @@ Please check the URL you used to access this page.',
 	'specialpages-group-quality'   => 'Quality assurance',
 	'stable-logentry-config'       => 'configured publication settings for [[$1]]',
 	'stable-logentry-reset'        => 'reset publication settings for [[$1]]',
+	'stable-log-restriction'       => 'Publish: require "$1" permission',
 	'stable-logpage'               => 'Stability log',
 	'stable-logpagetext'           => 'This is a log of changes to the [[{{MediaWiki:Validationpage}}|published version]] configuration of content pages.
 	The list of pages that require edit approval can be found at the [[Special:StablePages|stable pages list]].',
