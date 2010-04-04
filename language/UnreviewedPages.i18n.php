@@ -1400,6 +1400,21 @@ $messages['sk'] = array(
 	'unreviewed-recent' => '(menej ako 1 hodina)',
 );
 
+/** Slovenian (Slovenščina)
+ * @author Dbc334
+ */
+$messages['sl'] = array(
+	'unreviewedpages' => 'Nepregledane strani',
+	'unreviewed-category' => 'Kategorija:',
+	'unreviewed-diff' => 'preglej',
+	'unreviewed-unwatched' => '(nespremljano)',
+	'unreviewed-none' => 'Trenutno ni nobene strani, ki bi ustrezala izbranim merilom',
+	'unreviewed-viewing' => '(v pregledu)',
+	'unreviewed-hours' => '($1 {{PLURAL:$1|ura|uri|ure|ur}})',
+	'unreviewed-days' => '($1 {{PLURAL:$1|dan|dneva|dnevi|dni}})',
+	'unreviewed-recent' => '(manj kot 1 ura)',
+);
+
 /** Albanian (Shqip)
  * @author Puntori
  */

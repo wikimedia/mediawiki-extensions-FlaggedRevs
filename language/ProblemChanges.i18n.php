@@ -555,6 +555,13 @@ $messages['sk'] = array(
 	'problemchanges-category' => 'Kategória:',
 );
 
+/** Slovenian (Slovenščina)
+ * @author Dbc334
+ */
+$messages['sl'] = array(
+	'problemchanges-category' => 'Kategorija:',
+);
+
 /** Sundanese (Basa Sunda)
  * @author Irwangatot
  */

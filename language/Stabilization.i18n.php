@@ -2884,6 +2884,21 @@ Pri zmene nastavenia ''výber stabilnej verzie'' aby sa používala štandardne 
 	'stabilization-review' => 'Skontrolovať aktuálnu verziu',
 );
 
+/** Slovenian (Slovenščina)
+ * @author Dbc334
+ */
+$messages['sl'] = array(
+	'stabilization-page' => 'Naslov strani:',
+	'stabilization-submit' => 'Potrdi',
+	'stabilization-comment' => 'Razlog:',
+	'stabilization-otherreason' => 'Drug razlog:',
+	'stabilization-expiry' => 'Poteče:',
+	'stabilization-othertime' => 'Drugačen čas:',
+	'stabilization-sel-short' => 'Prednost',
+	'stabilize-expiring' => 'poteče $1 (UTC)',
+	'stabilization-review' => 'Označi trenutno redakcijo kot pregledano',
+);
+
 /** Albanian (Shqip)
  * @author Puntori
  */

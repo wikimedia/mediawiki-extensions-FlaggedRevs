@@ -488,6 +488,14 @@ $messages['sk'] = array(
 	'qualityoversight-legend' => 'Hľadať v posledných záznamoch kontrol',
 );
 
+/** Slovenian (Slovenščina)
+ * @author Dbc334
+ */
+$messages['sl'] = array(
+	'qualityoversight' => 'Dnevnik naprednih pregledov',
+	'qualityoversight-legend' => 'Iskanje nedavnih dnevnikov pregledov',
+);
+
 /** Serbian Cyrillic ekavian (Српски (ћирилица))
  * @author Millosh
  */

@@ -1645,6 +1645,22 @@ Stabilná verzia je revízia stránky, ktorú skontroloval aspoň jeden zo zaved
 	'validationstatistics-reviews' => 'Kontroly',
 );
 
+/** Slovenian (Slovenščina)
+ * @author Dbc334
+ */
+$messages['sl'] = array(
+	'validationstatistics' => 'Statistika pregledov strani',
+	'validationstatistics-ns' => 'Imenski prostor',
+	'validationstatistics-total' => 'Strani',
+	'validationstatistics-stable' => 'Pregledano',
+	'validationstatistics-latest' => 'Usklajeno',
+	'validationstatistics-synced' => 'Usklajeno/Pregledano',
+	'validationstatistics-old' => 'Zastarelo',
+	'validationstatistics-utable' => 'Spodaj se nahaja seznam 5 najbolj aktivnih pregledovalcev v zadnji uri.',
+	'validationstatistics-user' => 'Uporabnik',
+	'validationstatistics-reviews' => 'Pregledi',
+);
+
 /** Albanian (Shqip)
  * @author Puntori
  */

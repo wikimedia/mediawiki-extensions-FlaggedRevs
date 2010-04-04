@@ -922,6 +922,16 @@ $messages['sk'] = array(
 	'reviewedversions-review' => 'Skontroloval <i>$1</i> $2',
 );
 
+/** Slovenian (Slovenščina)
+ * @author Dbc334
+ */
+$messages['sl'] = array(
+	'reviewedversions' => 'Pregledane različice',
+	'reviewedversions-page' => 'Naslov strani:',
+	'reviewedversions-none' => '»[[:$1]]« nima pregledanih redakcij.',
+	'reviewedversions-review' => 'Pregledano <i>$1</i> s strani $2',
+);
+
 /** Serbian Cyrillic ekavian (Српски (ћирилица))
  * @author Millosh
  * @author Sasa Stefanovic

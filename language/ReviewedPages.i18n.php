@@ -1019,6 +1019,14 @@ $messages['sk'] = array(
 	'reviewedpages-best' => 'primárna revízia',
 );
 
+/** Slovenian (Slovenščina)
+ * @author Dbc334
+ */
+$messages['sl'] = array(
+	'reviewedpages' => 'Pregledane strani',
+	'reviewedpages-leg' => 'Navede strani, ki so bile pregledane',
+);
+
 /** Albanian (Shqip)
  * @author Puntori
  */

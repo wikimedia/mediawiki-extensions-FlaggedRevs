@@ -652,6 +652,13 @@ $messages['sk'] = array(
 	'stablepages-config' => 'Nastavenie',
 );
 
+/** Slovenian (Slovenščina)
+ * @author Dbc334
+ */
+$messages['sl'] = array(
+	'stablepages-none' => 'Na tem seznamu ni strani.',
+);
+
 /** Serbian Cyrillic ekavian (Српски (ћирилица))
  * @author Millosh
  */

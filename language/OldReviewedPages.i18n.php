@@ -1374,6 +1374,23 @@ $messages['sk'] = array(
 	'oldreviewedpages-viewing' => '(kontroluje sa)',
 );
 
+/** Slovenian (Slovenščina)
+ * @author Dbc334
+ */
+$messages['sl'] = array(
+	'oldreviewedpages-legend' => 'Seznam pregledanih strani z urejanji na čakanju',
+	'oldreviewedpages-none' => 'Trenutno ni nobene strani, ki bi ustrezala izbranim merilom',
+	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|ura|uri|ure|ur}})',
+	'oldreviewedpages-days' => '($1 {{PLURAL:$1|dan|dneva|dnevi|dni}})',
+	'oldreviewedpages-recent' => '(manj kot 1 ura)',
+	'oldreviewed-category' => 'Kategorija:',
+	'oldreviewed-watched' => 'Strani na mojem spisku nadzorov',
+	'oldreviewed-diff' => 'preglej',
+	'oldreviewed-size' => 'Največja sprememba (bajtov):',
+	'oldreviewedpages-unwatched' => '(nespremljano)',
+	'oldreviewedpages-viewing' => '(v pregledu)',
+);
+
 /** Serbian Cyrillic ekavian (Српски (ћирилица))
  * @author Millosh
  */
