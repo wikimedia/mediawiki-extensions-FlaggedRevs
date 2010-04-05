@@ -493,6 +493,7 @@ $messages['sk'] = array(
  */
 $messages['sl'] = array(
 	'qualityoversight' => 'Dnevnik naprednih pregledov',
+	'qualityoversight-list' => 'Ta stran navaja najnovejše odobritve in zavrnitve redakcij.',
 	'qualityoversight-legend' => 'Iskanje nedavnih dnevnikov pregledov',
 );
 

@@ -42,10 +42,14 @@ $messages['be-tarask'] = array(
 );
 
 /** Breton (Brezhoneg)
+ * @author Fulup
  * @author Y-M D
  */
 $messages['br'] = array(
 	'configuredpages' => 'Pajennoù gant an arventennoù adlenn',
+	'configuredpages-text' => "Dindan ez eus ur roll pajennoù dezho arventennoù aprouiñ disheñvel diouzh arvezntennoù dre ziouer al lec'hienn-mañ.
+
+Arventennoù zo a c'hall lakaat da cheñch ar stumm diskwelet d'al lennerien pe strishaat roll ar re a c'hall degas kemmoù n'emaint ket da vezañ gwiriet dre ret.",
 	'configuredpages-none' => "N'eus pajenn ebet er roll-mañ.",
 	'configuredpages-config' => 'Kefluniadur',
 	'configuredpages-precedence' => 'Kentwir :',

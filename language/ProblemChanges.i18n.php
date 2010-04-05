@@ -73,7 +73,7 @@ $messages['bg'] = array(
  */
 $messages['br'] = array(
 	'problemchanges' => "Kemmoù balizennet o c'hortoz",
-	'problemchanges-legend' => "Rollañ ar pajennoù adwelet gant kemmoù balizennet a c'hortoz bezañ adlennet",
+	'problemchanges-legend' => 'Rollañ ar pajennoù warno kemmoù balizennet da vezañ adlennet',
 	'problemchanges-none' => "N'eus pajenn ebet diouzh an dezverkoù-mañ evit poent",
 	'problemchanges-category' => 'Rummad :',
 );

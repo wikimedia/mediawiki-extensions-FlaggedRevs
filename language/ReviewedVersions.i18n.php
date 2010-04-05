@@ -927,8 +927,10 @@ $messages['sk'] = array(
  */
 $messages['sl'] = array(
 	'reviewedversions' => 'Pregledane različice',
+	'reviewedversions-leg1' => 'Navedi pregledane redakcije za stran',
 	'reviewedversions-page' => 'Naslov strani:',
 	'reviewedversions-none' => '»[[:$1]]« nima pregledanih redakcij.',
+	'reviewedversions-list' => 'Sledi seznam {{PLURAL:$2|redakcije|redakcij}} strani [[:$1]], ki {{PLURAL:$2|je bila pregledana|sta bili pregledani|so bile pregledane}}:',
 	'reviewedversions-review' => 'Pregledano <i>$1</i> s strani $2',
 );
 
