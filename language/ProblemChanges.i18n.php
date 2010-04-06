@@ -324,11 +324,12 @@ $messages['it'] = array(
 );
 
 /** Japanese (日本語)
+ * @author Aotake
  * @author Fryed-peach
  * @author Hosiryuhosi
  */
 $messages['ja'] = array(
-	'problemchanges' => 'タグ付き編集を査読する',
+	'problemchanges' => 'タグ付けされた保留中の編集',
 	'problemchanges-legend' => '査読待ちのタグ付き編集のあるページの一覧',
 	'problemchanges-none' => '現時点でこれらの基準に合致するページはありません',
 	'problemchanges-category' => 'カテゴリ:',

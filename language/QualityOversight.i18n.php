@@ -307,11 +307,12 @@ $messages['it'] = array(
 );
 
 /** Japanese (日本語)
+ * @author Aotake
  * @author Fryed-peach
  * @author Hosiryuhosi
  */
 $messages['ja'] = array(
-	'qualityoversight' => '品質監督',
+	'qualityoversight' => '詳細な査読記録',
 	'qualityoversight-list' => 'このページでは最近の特定版承認および棄却を一覧しています。',
 	'qualityoversight-legend' => '最近の査読記録を検索',
 );

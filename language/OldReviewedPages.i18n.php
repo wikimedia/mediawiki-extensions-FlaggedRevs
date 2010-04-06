@@ -854,7 +854,7 @@ $messages['it'] = array(
  * @author Hosiryuhosi
  */
 $messages['ja'] = array(
-	'oldreviewedpages' => '古くなった査読済みページ',
+	'oldreviewedpages' => '編集が保留されているページ',
 	'oldreviewedpages-legend' => '査読待ちの版のある査読済みページを一覧',
 	'oldreviewedpages-list' => 'このページは以前の査読以降に査読待ちの編集がなされた{{PLURAL:$1|ページ}}を一覧します。',
 	'oldreviewedpages-none' => '現在、この基準に合うページはありません',
@@ -862,7 +862,7 @@ $messages['ja'] = array(
 	'oldreviewedpages-days' => '($1{{PLURAL:$1|日}})',
 	'oldreviewedpages-recent' => '(1時間未満)',
 	'oldreviewed-category' => 'カテゴリ:',
-	'oldreviewed-watched' => '自分のウォッチリストに含まれるもの',
+	'oldreviewed-watched' => '自分のウォッチリストに含まれるページ',
 	'oldreviewed-stable' => '固定済み',
 	'oldreviewed-diff' => '査読',
 	'oldreviewed-size' => '変更量の上限 (バイト):',

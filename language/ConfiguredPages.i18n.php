@@ -169,6 +169,16 @@ E Deil Yystellige chenne sich villicht unterscheide, je nochdäm weli Version em
 	'configuredpages-def-stable' => 'vereffentligti Version',
 );
 
+/** Croatian (Hrvatski)
+ * @author Ex13
+ */
+$messages['hr'] = array(
+	'configuredpages-config' => 'Konfiguracija',
+	'configuredpages-prec-none' => 'bez prvenstva',
+	'configuredpages-prec-quality' => 'prvenstvo kvalitete',
+	'configuredpages-prec-pristine' => 'zastarjelo prvenstvo',
+);
+
 /** Upper Sorbian (Hornjoserbsce)
  * @author Michawiki
  */
