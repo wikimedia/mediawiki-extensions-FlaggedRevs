@@ -63,17 +63,21 @@ class FlaggedArticleView {
 		$this->load();
 		# This only applies to viewing content pages
 		$action = $wgRequest->getVal( 'action', 'view' );
-		if ( !self::isViewAction( $action ) || !$this->article->isReviewable() )
+		if ( !self::isViewAction( $action ) || !$this->article->isReviewable() ) {
 			return false;
+		}
 		# Does not apply to diffs/old revision...
-		if ( $wgRequest->getVal( 'oldid' ) || $wgRequest->getVal( 'diff' ) )
+		if ( $wgRequest->getVal( 'oldid' ) || $wgRequest->getVal( 'diff' ) ) {
 			return false;
+		}
 		# Explicit requests  for a certain stable version handled elsewhere...
-		if ( $wgRequest->getVal( 'stableid' ) )
+		if ( $wgRequest->getVal( 'stableid' ) ) {
 			return false;
+		}
 		# Check user preferences
-		if ( $wgUser->getOption( 'flaggedrevsstable' ) )
+		if ( $wgUser->getOption( 'flaggedrevsstable' ) ) {
 			return !( $wgRequest->getIntOrNull( 'stable' ) === 0 );
+		}
 		# Get page configuration
 		$config = $this->article->getVisibilitySettings();
 		# Does the stable version override the current one?

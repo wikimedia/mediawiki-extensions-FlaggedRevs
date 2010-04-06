@@ -228,6 +228,7 @@ Please check the URL you used to access this page.',
 	'revreview-restriction-none'   => 'none',
 
 	'revreview-reviewlink'         => 'review',
+	'revreview-reviewlink-title'   => 'View diff of all pending changes',
 	
 	'tooltip-ca-current'           => 'View this page with pending changes',
 	'tooltip-ca-stable'            => 'View the published version of this page',

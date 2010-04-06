@@ -1920,13 +1920,20 @@ class FlaggedRevsHooks {
 	public static function addToChangeListLine(
 		&$list, &$articlelink, &$s, &$rc, $unpatrolled, $watched
 	) {
-		if ( empty( $rc->mAttribs['fpp_rev_id'] ) )
+		if ( empty( $rc->mAttribs['fpp_rev_id'] ) ) {
 			return true; // page is not listed in pending edit table
-		if ( !FlaggedRevs::inReviewNamespace( $rc->getTitle() ) )
+		}
+		if ( !FlaggedRevs::inReviewNamespace( $rc->getTitle() ) ) {
 			return true; // confirm that page is in reviewable namespace
-		$rlink = $list->skin->makeKnownLinkObj( $rc->getTitle(), wfMsg( 'revreview-reviewlink' ),
-			'oldid=' . intval( $rc->mAttribs['fpp_rev_id'] ) . '&diff=cur' );
-		$articlelink .= " <span class='mw-fr-reviewlink'>($rlink)</span>";
+		}
+		$rlink = $list->skin->link(
+			$rc->getTitle(),
+			wfMsgHtml( 'revreview-reviewlink' ),
+			array( 'title' => wfMsg( 'revreview-reviewlink-title' ) ),
+			array( 'oldid' => $rc->mAttribs['fpp_rev_id'], 'diff' => 'cur' )
+		);
+		$rlink = wfMsgHtml( 'parentheses', $rlink );
+		$articlelink .= " <span class=\"mw-fr-reviewlink\">$rlink</span>";
 		return true;
 	}
 	
