@@ -1091,7 +1091,7 @@ class FlaggedRevsHooks {
 		if ( $fa->isReviewable( FR_MASTER ) ) {
 			$revId = $rc->mAttribs['rc_this_oldid'];
 			$quality = FlaggedRevs::getRevQuality( $rc->mAttribs['rc_cur_id'], $revId, FR_MASTER );
-			if ( $quality !== false && $quality >= FlaggedRevs::getPatrolLevel() ) {
+			if ( $quality !== false && $quality >= FR_SIGHTED ) {
 				RevisionReview::updateRecentChanges( $rc->getTitle(), $revId );
 				$rc->mAttribs['rc_patrolled'] = 1; // make sure irc/email notifs know status
 			}
@@ -1786,7 +1786,7 @@ class FlaggedRevsHooks {
 		if ( $wgUser->isAllowed( 'review' ) ) {
 			$tables[] = 'flaggedpage_pending';
 			$join_conds['flaggedpage_pending'] = array( 'LEFT JOIN',
-				'fpp_page_id = rc_cur_id AND fpp_quality = ' . FlaggedRevs::getPatrolLevel() );
+				'fpp_page_id = rc_cur_id AND fpp_quality = ' . FR_SIGHTED );
 		}
 		return true;
 	}
@@ -1797,7 +1797,7 @@ class FlaggedRevsHooks {
 			$fields[] = 'fpp_rev_id';
 			$tables[] = 'flaggedpage_pending';
 			$join_conds['flaggedpage_pending'] = array( 'LEFT JOIN',
-				'fpp_page_id = rc_cur_id AND fpp_quality = ' . FlaggedRevs::getPatrolLevel() );
+				'fpp_page_id = rc_cur_id AND fpp_quality = ' . FR_SIGHTED );
 		}
 		return true;
 	}

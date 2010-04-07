@@ -448,15 +448,6 @@ class FlaggedRevs {
 	}
 	
 	/**
-	 * Get minimum tier for a revision to count as patrolled
-	 * @return int
-	 */
-	public static function getPatrolLevel() {
-		global $wgFlaggedRevsPatrolLevel;
-		return (int)$wgFlaggedRevsPatrolLevel;
-	}
-	
-	/**
 	 * Get minimum level tags for a tier
 	 * @return array
 	 */

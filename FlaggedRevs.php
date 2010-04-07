@@ -138,10 +138,6 @@ $wgFlaggedRevsTagsAuto = array(
 	'accuracy' => 1, 'depth' => 1, 'style' => 1
 );
 
-# At what level of review do patrol marks go away?
-# (FR_SIGHTED,FR_QUALITY,FR_PRISTINE)
-$wgFlaggedRevsPatrolLevel = FR_SIGHTED;
-
 # Restriction levels for 'autoreview'/'review' rights.
 # When a level is selected for a page, an edit made by a user
 # requires approval unless that user has the specified permission.
