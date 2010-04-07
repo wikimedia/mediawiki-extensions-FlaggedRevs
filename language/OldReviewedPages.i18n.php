@@ -996,19 +996,19 @@ $messages['mk'] = array(
  */
 $messages['ml'] = array(
 	'oldreviewedpages' => 'സംശോധനം ചെയ്യൽ അവശേഷിക്കുന്ന താളുകൾ',
-	'oldreviewedpages-legend' => 'സംശോധനം ചെയ്ത താളുകളൂടെ പട്ടികയോടൊപ്പം സം‌ശോധനം ചെയ്തിട്ടില്ലാത്ത പതിപ്പുകള്‍ പ്രദര്‍ശിപ്പിക്കുക',
+	'oldreviewedpages-legend' => 'സംശോധനം ചെയ്ത താളുകളൂടെ പട്ടികയോടൊപ്പം സം‌ശോധനം ചെയ്തിട്ടില്ലാത്ത പതിപ്പുകൾ പ്രദർശിപ്പിക്കുക',
 	'oldreviewedpages-list' => 'ഈ താളിൽ പരിശോധിക്കേണ്ട തിരുത്തലുകളവശേഷിക്കുന്ന {{PLURAL:$1|സംശോധനം ചെയ്ത താൾ|സംശോധനം ചെയ്ത താളുകൾ}} നൽകിയിരിക്കുന്നു.',
 	'oldreviewedpages-none' => 'ഈ മാനദണ്ഡം പാലിക്കുന്ന താളുകളൊന്നും നിലവിലില്ല',
-	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|മണിക്കൂര്‍|മണിക്കൂറുകള്‍}})',
-	'oldreviewedpages-days' => '($1 {{PLURAL:$1|ദിവസം|ദിവസങ്ങള്‍}})',
-	'oldreviewedpages-recent' => '(1 മണിക്കൂറില്‍ താഴെ)',
+	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|മണിക്കൂർ|മണിക്കൂറുകൾ}})',
+	'oldreviewedpages-days' => '({{PLURAL:$1|ഒരു ദിവസം|$1 ദിവസങ്ങൾ}})',
+	'oldreviewedpages-recent' => '(1 മണിക്കൂറിൽ താഴെ)',
 	'oldreviewed-category' => 'വർഗ്ഗം:',
 	'oldreviewed-watched' => 'ഞാൻ ശ്രദ്ധിക്കുന്ന താളുകൾ',
 	'oldreviewed-stable' => 'സ്ഥിരതയുള്ളതാക്കിയിരിക്കുന്നു',
 	'oldreviewed-diff' => 'സംശോധനം',
 	'oldreviewed-size' => 'പരമാവധി മാറ്റങ്ങൾ (ബൈറ്റുകൾ):',
 	'oldreviewedpages-unwatched' => '(ശ്രദ്ധിക്കുന്നില്ല)',
-	'oldreviewedpages-watched' => '($1 സജീവ {{PLURAL:$1|ഉപയോക്താവ്|ഉപയോക്താക്കള്‍}} ശ്രദ്ധിക്കുന്നു)',
+	'oldreviewedpages-watched' => '($1 സജീവ {{PLURAL:$1|ഉപയോക്താവ്|ഉപയോക്താക്കൾ}} ശ്രദ്ധിക്കുന്നു)',
 	'oldreviewedpages-viewing' => '(സംശോധനം ചെയ്യുന്നു)',
 );
 

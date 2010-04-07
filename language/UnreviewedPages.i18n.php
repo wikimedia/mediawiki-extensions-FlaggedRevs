@@ -1033,13 +1033,12 @@ $messages['mk'] = array(
  * @author Shijualex
  */
 $messages['ml'] = array(
-	'right-unreviewedpages' => '[[Special:UnreviewedPages|സം‌ശോധനം ചെയ്തിട്ടില്ലാത്ത താളുകളുടെ പട്ടിക]] കാണുക',
-	'unreviewedpages' => 'സംശോധനം ചെയ്യാത്ത താളുകള്‍',
-	'unreviewed-legend' => 'ഉള്ളടക്കം സം‌ശോധനം ചെയ്തിട്ടില്ലാത്ത താളുകളുടെ പട്ടിക പ്രദര്‍ശിപ്പിക്കുക',
-	'unreviewed-category' => 'വര്‍ഗ്ഗം:',
+	'unreviewedpages' => 'സംശോധനം ചെയ്യാത്ത താളുകൾ',
+	'unreviewed-legend' => 'ഉള്ളടക്കം സം‌ശോധനം ചെയ്തിട്ടില്ലാത്ത താളുകളുടെ പട്ടിക പ്രദർശിപ്പിക്കുക',
+	'unreviewed-category' => 'വർഗ്ഗം:',
 	'unreviewed-diff' => 'പരിശോധന',
 	'unreviewed-unwatched' => '(ശ്രദ്ധിക്കാത്തവ)',
-	'unreviewed-watched' => '({{PLURAL:$1|ഒരു സജീവ ഉപയോക്താവ്|$1 സജീവ ഉപയോക്താക്കള്‍}} ശ്രദ്ധിക്കുന്നുണ്ട്)',
+	'unreviewed-watched' => '({{PLURAL:$1|ഒരു സജീവ ഉപയോക്താവ്|$1 സജീവ ഉപയോക്താക്കൾ}} ശ്രദ്ധിക്കുന്നുണ്ട്)',
 	'unreviewed-list' => 'പ്രത്യേക തലം വരെ സംശോധനം ചെയ്യാത്ത ഉള്ളടക്ക താളുകളുടെ പട്ടികയാണ് ഈ താളിൽ ഉള്ളത്.',
 	'unreviewed-none' => 'ഈ മാനദണ്ഡം പാലിക്കുന്ന താളുകളൊന്നും നിലവിലില്ല',
 	'unreviewed-viewing' => '(സംശോധനം ചെയ്യപ്പെടുന്നു)',
