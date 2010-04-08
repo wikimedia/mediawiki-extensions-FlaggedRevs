@@ -458,6 +458,7 @@ class Stabilization extends UnlistedSpecialPage
 			if ( $reset ) {
 				$log->addEntry( 'reset', $this->page, $this->reason );
 				$type = "stable-logentry-reset";
+				$settings = ''; // no level, expiry info
 			} else {
 				$params = array(
 					'override'   => $this->override,
@@ -471,6 +472,7 @@ class Stabilization extends UnlistedSpecialPage
 				$log->addEntry( 'config', $this->page, $this->reason,
 					FlaggedRevsLogs::collapseParams( $params ) );
 				$type = "stable-logentry-config";
+				$settings = FlaggedRevsLogs::stabilitySettings( $params, true /*content*/ );
 			}
 			# Build null-edit comment...<action: reason [settings] (expiry)>
 			$comment = $wgContLang->ucfirst(
@@ -478,7 +480,6 @@ class Stabilization extends UnlistedSpecialPage
 			if ( $this->reason != '' ) {
 				$comment .= wfMsgForContent( 'colon-separator' ) . $this->reason; // add reason
 			}
-			$settings = FlaggedRevsLogs::stabilitySettings( $params, true /*content*/ );
 			if ( $settings != '' ) {
 				$comment .= " {$settings}"; // add settings
 			}
