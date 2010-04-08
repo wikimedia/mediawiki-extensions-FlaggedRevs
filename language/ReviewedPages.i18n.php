@@ -200,9 +200,11 @@ $messages['bs'] = array(
 
 /** Catalan (Català)
  * @author Jordi Roqué
+ * @author Paucabot
  */
 $messages['ca'] = array(
 	'reviewedpages-none' => 'No hi ha pàgines a la llista',
+	'reviewedpages-best' => 'millor revisió',
 );
 
 /** Czech (Česky)

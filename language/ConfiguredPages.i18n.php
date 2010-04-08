@@ -60,6 +60,16 @@ Arventennoù zo a c'hall lakaat da cheñch ar stumm diskwelet d'al lennerien pe 
 	'configuredpages-def-stable' => 'stumm embannet',
 );
 
+/** Catalan (Català)
+ * @author Paucabot
+ */
+$messages['ca'] = array(
+	'configuredpages-config' => 'Configuració',
+	'configuredpages-precedence' => 'Precedència:',
+	'configuredpages-def-draft' => 'última versió',
+	'configuredpages-def-stable' => 'versió publicada',
+);
+
 /** Lower Sorbian (Dolnoserbski)
  * @author Michawiki
  */
