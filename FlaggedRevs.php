@@ -534,16 +534,17 @@ function efSetFlaggedRevsConditionalHooks() {
 ######## END HOOK TRIGGERED FUNCTIONS  #########
 
 function efLoadFlaggedRevs() {
-	global $wgUseRCPatrol, $wgFlaggedRevsNamespaces, $wgFlaggedRevsVisible;
+	global $wgUseRCPatrol, $wgFlaggedRevsNamespaces;
 	# If patrolling is already on, then we know that it 
 	# was intended to have all namespaces patrollable.
 	if ( $wgUseRCPatrol ) {
 		global $wgFlaggedRevsPatrolNamespaces, $wgCanonicalNamespaceNames;
 		$wgFlaggedRevsPatrolNamespaces = array_keys( $wgCanonicalNamespaceNames );
 	}
-	# Use RC Patrolling to check for vandalism
-	# When revisions are flagged, they count as patrolled
-	if ( !empty( $wgFlaggedRevsNamespaces ) ) {
+	# Check if FlaggedRevs is enabled by default for pages...
+	if ( $wgFlaggedRevsNamespaces && !FlaggedRevs::stableOnlyIfConfigured() ) {
+		# Use RC Patrolling to check for vandalism.
+		# Edits to reviewable pages must be flagged to be patrolled.
 		$wgUseRCPatrol = true;
 	}
 	# Load hooks that aren't always set
