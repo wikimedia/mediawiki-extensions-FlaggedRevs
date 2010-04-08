@@ -227,7 +227,7 @@ Please check the URL you used to access this page.',
 	'revreview-restriction-any'    => 'any',
 	'revreview-restriction-none'   => 'none',
 
-	'revreview-reviewlink'         => 'review',
+	'revreview-reviewlink'         => 'pending edits',
 	'revreview-reviewlink-title'   => 'View diff of all pending changes',
 	
 	'tooltip-ca-current'           => 'View this page with pending changes',
