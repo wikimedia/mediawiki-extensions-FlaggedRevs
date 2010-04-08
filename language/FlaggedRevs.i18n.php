@@ -173,7 +173,7 @@ To deprecate a revision, set all fields to "unapproved".
 
 Please hit the "back" button in your browser and try again.',
 	'revreview-update'             => 'Please [[{{MediaWiki:Validationpage}}|review]] any pending changes \'\'(shown below)\'\' made to the published version.',
-	'revreview-update-edited'      => '<span class="flaggedrevs_important">Your changes have not yet been [[{{MediaWiki:Validationpage}}|published]].</span>
+	'revreview-update-edited'      => '<span class="flaggedrevs_important">Your changes have not yet been published.</span>
 
 There are previous edits pending review. To publish your changes, please review all the changes shown below.',
 	'revreview-update-includes'    => '\'\'\'Some templates/files were updated:\'\'\'',
