@@ -243,12 +243,25 @@ Alcun configurationes pote cambiar le version que es monstrate al lectores o lim
 	'configuredpages-def-stable' => 'version publicate',
 );
 
+/** Italian (Italiano) */
+$messages['it'] = array(
+	'configuredpages-config' => 'Configurazione',
+	'configuredpages-prec-none' => 'nessuna precendenza',
+);
+
 /** Japanese (日本語)
+ * @author Aotake
  * @author Naohiro19
  * @author Whym
  */
 $messages['ja'] = array(
+	'configuredpages' => '査読設定のあるページ',
+	'configuredpages-text' => '以下は、サイトの既定とは異なる承認設定がされているページの一覧です。
+
+設定の中には、読者に表示される版を変えたり、査読なしに変更を加えることのできる利用者をより厳しく制限したりするものが含まれる可能性があります。',
 	'configuredpages-none' => 'この一覧にはページがありません。',
+	'configuredpages-config' => '設定',
+	'configuredpages-precedence' => '優先順位:',
 	'configuredpages-prec-none' => '優先なし',
 	'configuredpages-prec-quality' => '{{int:revreview-lev-quality}}優先',
 	'configuredpages-prec-pristine' => '{{int:revreview-lev-pristine}}優先',

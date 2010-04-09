@@ -573,6 +573,7 @@ $messages['is'] = array(
 );
 
 /** Italian (Italiano)
+ * @author Beta16
  * @author Darth Kule
  * @author Gianfranco
  * @author Pietrodn
