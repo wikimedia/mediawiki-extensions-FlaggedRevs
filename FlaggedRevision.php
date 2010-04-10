@@ -217,7 +217,7 @@ class FlaggedRevision {
 	* @param bool $auto autopatrolled
 	* @return bool success
 	*/
-	public function insertOn( $tmpRows, $fileRows, $auto = false ) {
+	public function insertOn( array $tmpRows, array $fileRows, $auto = false ) {
 		$textFlags = 'dynamic';
 		if ( $auto ) $textFlags .= ',auto';
 		$this->mFlags = explode( ',', $textFlags );
@@ -257,7 +257,7 @@ class FlaggedRevision {
 	}
 	
 	/**
-	 * @returns Array basic select fields (not including text/text flags)
+	 * @returns array basic select fields (not including text/text flags)
 	 */
 	public static function selectFields() {
 		return array(
@@ -346,7 +346,7 @@ class FlaggedRevision {
 	}
 
 	/**
-	 * @returns Array tag metadata
+	 * @returns array tag metadata
 	 */
 	public function getTags() {
 		return $this->mTags;
@@ -385,22 +385,22 @@ class FlaggedRevision {
 
 	/**
 	 * Set template versions array
-	 * @param Array template versions (ns -> dbKey -> rev id)
+	 * @param array template versions (ns -> dbKey -> rev id)
 	 */
-	public function setTemplateVersions( $templateVersions ) {
+	public function setTemplateVersions( array $templateVersions ) {
 		$this->mTemplates = $templateVersions;
 	}
 	
 	/**
 	 * Set file versions array
-	 * @param Array file versions (dbKey -> sha1)
+	 * @param array file versions (dbKey -> sha1)
 	 */
-	public function setFileVersions( $fileVersions ) {
+	public function setFileVersions( array $fileVersions ) {
 		$this->mFiles = $fileVersions;
 	}
 
 	/**
-	 * @returns Array template versions (ns -> dbKey -> rev id)
+	 * @returns array template versions (ns -> dbKey -> rev id)
 	 */
 	public function getTemplateVersions() {
 		if ( $this->mTemplates == null ) {
@@ -421,7 +421,7 @@ class FlaggedRevision {
 	}
 	
 	/**
-	 * @returns Array file versions (dbKey -> sha1)
+	 * @returns array file versions (dbKey -> sha1)
 	 */
 	public function getFileVersions() {
 		if ( $this->mFiles == null ) {
@@ -480,10 +480,10 @@ class FlaggedRevision {
 
 	/**
 	 * Get flags for a revision
-	 * @param Array $tags
+	 * @param array $tags
 	 * @return string
 	*/
-	public static function flattenRevisionTags( $tags ) {
+	public static function flattenRevisionTags( array $tags ) {
 		$flags = '';
 		foreach ( $tags as $tag => $value ) {
 			# Add only currently recognized ones
