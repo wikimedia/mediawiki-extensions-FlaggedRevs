@@ -184,13 +184,14 @@ $messages['bs'] = array(
 );
 
 /** Catalan (Català)
+ * @author Paucabot
  * @author SMP
  * @author Solde
  * @author Ssola
  * @author Toniher
  */
 $messages['ca'] = array(
-	'reviewedversions' => 'Vegeu les versions estables',
+	'reviewedversions' => 'Versions estables',
 	'reviewedversions-leg1' => "Llista d'edicions revisades per una pàgina",
 	'reviewedversions-page' => 'Nom de la pàgina:',
 	'reviewedversions-none' => '«[[:$1]]» no té edicions revisades.',
