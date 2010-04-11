@@ -613,7 +613,7 @@ $messages['ro'] = array(
  */
 $messages['roa-tara'] = array(
 	'stablepages' => "Pàggene ca ausane 'nu cangiamende approvate",
-	'stablepages-text' => "Sotte ste 'na liste de pàggene ca onne state configurete manualmende pe fa vedè 'a versiona pubblecate cumme pàgene cu 'u condenute iniziale pe le visitature.",
+	'stablepages-text' => "Sotte ste 'na liste de pàggene ca onne state ristrette accussì ca sulamende certe utinde ponne fà cangiaminde ca non ge richiedene 'na revisione. Certe cangiaminde non ge ponne essere pubblecate fine ca 'n'utende autorizzate non ge le rivede.",
 	'stablepages-none' => "Non ge stonne pàggene jndr'à sta liste",
 	'stablepages-config' => 'Configurazione',
 );

@@ -1769,17 +1769,28 @@ $messages['jv'] = array(
 
 /** Georgian (ქართული)
  * @author BRUTE
+ * @author გიორგიმელა
  */
 $messages['ka'] = array(
 	'stabilization-page' => 'გვერდის სახელი:',
+	'stabilization-restrict-none' => 'არც-ერთი დამატებითი აკრძალვა',
 	'stabilization-submit' => 'დამოწმება',
 	'stabilization-notexists' => 'არ არსებობს გვერდი სახელით "[[:$1|$1]]".
 კონფიგურაცია შეუძლებელია.',
+	'stabilization-notcontent' => 'გვერდი «[[:$1|$1]]» ვერ შემოწმდება. კონფიგურაცია შეუძლებელია.',
 	'stabilization-comment' => 'მიზეზი:',
 	'stabilization-otherreason' => 'სხვა მიზეზი:',
 	'stabilization-expiry' => 'ვადა:',
 	'stabilization-othertime' => 'სხვა დრო:',
+	'stabilization-sel-short' => 'პრიორიტეტი:',
+	'stabilization-sel-short-0' => 'რეცენზირებული',
+	'stabilization-sel-short-1' => 'არაფერი',
+	'stabilization-sel-short-2' => 'შესანიშნავი',
+	'stabilization-def-short' => 'თავდაპირველი',
 	'stabilization-def-short-0' => 'მიმდინარე',
+	'stabilization-def-short-1' => 'გამოქვეყნებული',
+	'stabilize_expiry_invalid' => 'ვადის გასვლის არასწორი თარიღი.',
+	'stabilize_expiry_old' => 'მოქმედების ვადა გავიდა.',
 	'stabilize-expiring' => 'ვადა გასდის: $1 (UTC)',
 );
 
@@ -2508,8 +2519,8 @@ Aktualne ustawienia dla strony [[:$1|$1]]:',
 	'stabilization-notcontent' => 'Strona „[[:$1|$1]]” nie może być oznaczona.
 Nie jest możliwa jej konfiguracja.',
 	'stabilization-comment' => 'Powód',
-	'stabilization-otherreason' => 'Inna przyczyna',
-	'stabilization-expiry' => 'Czas wygaśnięcia',
+	'stabilization-otherreason' => 'Inny powód:',
+	'stabilization-expiry' => 'Czas wygaśnięcia:',
 	'stabilization-othertime' => 'Inny okres',
 	'stabilization-sel-short' => 'Kolejność',
 	'stabilization-sel-short-0' => 'Zweryfikowana',
