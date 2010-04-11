@@ -11,6 +11,8 @@ class FlaggedArticle extends Article {
 
 	/**
 	 * Get a FlaggedArticle for a given title
+	 * @param Title
+	 * @returns FlaggedArticle
 	 */
 	public static function getTitleInstance( Title $title ) {
 		// Check if there is already an instance on this title
@@ -22,6 +24,8 @@ class FlaggedArticle extends Article {
 
 	/**
 	 * Get a FlaggedArticle for a given article
+	 * @param Article
+	 * @returns FlaggedArticle
 	 */
 	public static function getArticleInstance( Article $article ) {
 		return self::getTitleInstance( $article->mTitle );
@@ -77,7 +81,7 @@ class FlaggedArticle extends Article {
 	}
 	
 	/**
-	* Is this page in patrolable?
+	* Is this page in patrollable?
     * @param int $flags, FR_MASTER
 	* @return bool
 	*/
@@ -111,7 +115,7 @@ class FlaggedArticle extends Article {
 	/**
 	 * Get visiblity restrictions on page
 	 * @param int $flags, FR_MASTER
-	 * @returns Array (select,override)
+	 * @returns array (select,override)
 	 */
 	public function getVisibilitySettings( $flags = 0 ) {
 		# Cached results available?
