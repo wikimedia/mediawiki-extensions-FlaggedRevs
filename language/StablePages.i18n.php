@@ -629,6 +629,13 @@ $messages['ru'] = array(
 	'stablepages-config' => 'настройка',
 );
 
+/** Rusyn (русиньскый язык)
+ * @author Gazeb
+ */
+$messages['rue'] = array(
+	'stablepages-config' => 'Конфіґурація',
+);
+
 /** Yakut (Саха тыла)
  * @author HalanTul
  */

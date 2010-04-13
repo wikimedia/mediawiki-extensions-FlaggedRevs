@@ -2813,6 +2813,23 @@ $messages['ru'] = array(
 	'stabilization-review' => 'Отметить текущую версию как проверенную',
 );
 
+/** Rusyn (русиньскый язык)
+ * @author Gazeb
+ */
+$messages['rue'] = array(
+	'stabilization-page' => 'Назва сторінкы:',
+	'stabilization-comment' => 'Причіна:',
+	'stabilization-otherreason' => 'Інша причіна:',
+	'stabilization-expiry' => 'Кінчіть:',
+	'stabilization-othertime' => 'Іншый час:',
+	'stabilization-sel-short-0' => 'Квалітна',
+	'stabilization-sel-short-1' => 'Жадна',
+	'stabilization-def-short' => 'Імпліцітне',
+	'stabilization-def-short-0' => 'Актуална',
+	'stabilization-def-short-1' => 'Публікована',
+	'stabilize-expiring' => 'кінчіть $1 (UTC)',
+);
+
 /** Yakut (Саха тыла)
  * @author HalanTul
  */

@@ -66,7 +66,7 @@ $messages['an'] = array(
  * @author OsamaK
  */
 $messages['ar'] = array(
-	'reviewedversions' => 'عرض النسخ المستقرة',
+	'reviewedversions' => 'النسخ المُراجعة',
 	'reviewedversions-leg1' => 'عرض المراجعات المراجعة لصفحة',
 	'reviewedversions-page' => 'اسم الصفحة:',
 	'reviewedversions-none' => '"[[:$1]]" لا يوجد بها مراجعات مراجعة.',
@@ -897,6 +897,13 @@ $messages['ru'] = array(
 	'reviewedversions-none' => '«[[:$1]]» не имеет проверенных версий.',
 	'reviewedversions-list' => '{{PLURAL:$2|Была проверена следующая версия|Были проверены следующие версии}} страницы «[[:$1]]»:',
 	'reviewedversions-review' => 'Проверена <i>$1</i> участником $2',
+);
+
+/** Rusyn (русиньскый язык)
+ * @author Gazeb
+ */
+$messages['rue'] = array(
+	'reviewedversions-page' => 'Назва сторінкы:',
 );
 
 /** Yakut (Саха тыла)

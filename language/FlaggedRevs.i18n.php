@@ -11647,6 +11647,25 @@ $messages['ru'] = array(
 	'validationpage' => '{{ns:help}}:Проверка страниц',
 );
 
+/** Rusyn (русиньскый язык)
+ * @author Gazeb
+ */
+$messages['rue'] = array(
+	'group-editor' => 'Едіторы',
+	'group-editor-member' => 'едітор',
+	'group-reviewer' => 'Рецензенты',
+	'group-reviewer-member' => 'рецензент',
+	'grouppage-editor' => '{{ns:project}}:Едітор',
+	'grouppage-reviewer' => '{{ns:project}}:Рецензент',
+	'group-autoreview' => 'Авторедакторы',
+	'group-autoreview-member' => 'авторедактор',
+	'revreview-depth-1' => 'Базова',
+	'revreview-depth-2' => 'Середня',
+	'revreview-depth-3' => 'Высока',
+	'revreview-edit' => 'Едітовати',
+	'revreview-log' => 'Коментарь:',
+);
+
 /** Yakut (Саха тыла)
  * @author HalanTul
  * @author Meno25
