@@ -580,7 +580,7 @@ $messages['is'] = array(
  */
 $messages['it'] = array(
 	'reviewedpages' => 'Pagine revisionate',
-	'reviewedpages-leg' => 'Elenca le pagine per livello (decrescente)',
+	'reviewedpages-leg' => 'Elenca le pagine revisionate',
 	'reviewedpages-list' => 'Di seguito sono elencate le pagine che sono state revisionate (al massimo) al livello specificato.',
 	'reviewedpages-none' => 'Non ci sono pagine in questo elenco',
 	'reviewedpages-lev-0' => 'Visionata',

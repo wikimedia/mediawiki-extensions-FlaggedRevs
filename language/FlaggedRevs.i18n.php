@@ -6646,6 +6646,7 @@ Le paginas stabilisate se detalia in le [[Special:StablePages|lista de paginas s
  * @author Farras
  * @author Irwangatot
  * @author IvanLanin
+ * @author Iwan Novirion
  * @author Rex
  */
 $messages['id'] = array(
@@ -6760,10 +6761,10 @@ Mungkin telah ada [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} pe
 	'revreview-quick-see-quality' => "'''[[{{MediaWiki:Validationpage}}|Draf]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} versi stabil]]
 [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} bandingkan]]",
 	'revreview-selected' => "Revisi terpilih dari '''$1:'''",
-	'revreview-source' => 'sumber draf',
-	'revreview-stable' => 'Halaman stabil',
-	'revreview-basic-title' => 'Halaman terperiksa',
-	'revreview-stable1' => 'Anda mungkin ingin menampilkan [{{fullurl:$1|stableid=$2}} versi yang ditandai ini] untuk melihat apakah sudah ada [{{fullurl:$1|stable=1}} versi stabil] dari halaman ini.',
+	'revreview-source' => 'Lihat sumber',
+	'revreview-stable' => 'Halaman yang ditampilkan',
+	'revreview-basic-title' => 'Ini adalah versi yang telah diperiksa dari halaman ini',
+	'revreview-stable1' => 'Anda mungkin ingin melihat [{{fullurl:$1|stableid=$2}} versi yang ditandai ini] untuk melihat apakah sudah ada [{{fullurl:$1|stable=1}} versi stabil] dari halaman ini.',
 	'revreview-stable2' => 'Anda mungkin ingin melihat [{{fullurl:$1|stable=1}} versi stabil] halaman ini (bila ada).',
 	'revreview-style' => 'Keterbacaan',
 	'revreview-style-0' => 'Tak disetujui',
@@ -7969,6 +7970,8 @@ $messages['ko'] = array(
 	'revreview-filter-manual' => '수동',
 	'revreview-levelfilter' => '단계:',
 	'revreview-reviewlink' => '검토',
+	'flaggedrevs-protect-none' => '모든 사용자에게 허용',
+	'flaggedrevs-protect-basic' => '기본 설정',
 	'revreview-unlocked-title' => '이 문서에 보여지기 전에 편집은 검토를 필요로 하지 않습니다!',
 	'revreview-unlocked' => '이 문서에 보여지기 전에 편집은 [[{{MediaWiki:Validationpage}}|검토]]를 필요로 하지 않습니다!',
 	'log-show-hide-review' => '문서 검토 기록 $1',
@@ -12816,6 +12819,7 @@ $messages['te'] = array(
 	'revreview-filter-auto' => 'ఆటోమాటిక్',
 	'revreview-filter-manual' => 'మాన్యువల్',
 	'revreview-levelfilter' => 'స్థాయి:',
+	'revreview-lev-all' => 'ఏదైనా',
 	'revreview-lev-basic' => 'కనబడినది',
 	'revreview-lev-quality' => 'నాణ్యత',
 	'revreview-reviewlink' => 'రివ్యూ',

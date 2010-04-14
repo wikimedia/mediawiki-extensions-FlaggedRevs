@@ -385,12 +385,13 @@ $messages['id'] = array(
 );
 
 /** Italian (Italiano)
+ * @author Beta16
  * @author Darth Kule
  * @author Pietrodn
  */
 $messages['it'] = array(
-	'stablepages' => 'Pagine stabili',
-	'stablepages-text' => 'Di seguito sono elencate le pagine configurate manualmente in modo tale da mostrare per default le versioni stabili ai visitatori.',
+	'stablepages' => "Pagine che utilizzano l'approvazione delle modifiche",
+	'stablepages-text' => 'Di seguito sono elencate le pagine configurate in modo tale che solo determinati utenti possono fare modifiche che non necessitano di revisione. Le altre modifiche non sono pubblicate fino a quando un utente autorizzato non le revisioni.',
 	'stablepages-none' => 'Non ci sono pagine in questo elenco',
 	'stablepages-config' => 'Configurazione',
 );

@@ -297,11 +297,12 @@ $messages['id'] = array(
 );
 
 /** Italian (Italiano)
+ * @author Beta16
  * @author Darth Kule
  * @author Pietrodn
  */
 $messages['it'] = array(
-	'qualityoversight' => 'Supervisione della qualità',
+	'qualityoversight' => 'Registro avanzato delle revisioni',
 	'qualityoversight-list' => 'Questa pagina elenca le più recenti approvazioni e deprezzamenti delle revisioni.',
 	'qualityoversight-legend' => 'Cerca i log delle revisioni recenti',
 );

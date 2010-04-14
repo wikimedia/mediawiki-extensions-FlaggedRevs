@@ -832,6 +832,7 @@ $messages['is'] = array(
 );
 
 /** Italian (Italiano)
+ * @author Beta16
  * @author Darth Kule
  * @author Melos
  * @author Pietrodn
@@ -845,7 +846,7 @@ $messages['it'] = array(
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|giorno|giorni}})',
 	'oldreviewedpages-recent' => "(meno di un'ora)",
 	'oldreviewed-category' => 'Categoria:',
-	'oldreviewed-watched' => 'Sulla mia watchlist',
+	'oldreviewed-watched' => 'Pagine nei miei osservati speciali',
 	'oldreviewed-stable' => 'Stabile',
 	'oldreviewed-diff' => 'revisiona',
 	'oldreviewed-size' => 'Cambiamento massimo (byte):',

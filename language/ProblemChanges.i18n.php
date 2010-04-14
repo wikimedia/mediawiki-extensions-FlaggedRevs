@@ -315,10 +315,12 @@ $messages['io'] = array(
 );
 
 /** Italian (Italiano)
+ * @author Beta16
  * @author Melos
  */
 $messages['it'] = array(
 	'problemchanges' => 'Revisiona le modifiche che hanno etichette',
+	'problemchanges-legend' => 'Elenco delle pagine con modifiche etichettate in attesa di revisione',
 	'problemchanges-none' => 'Al momento non ci sono pagine che soddisfino tale criterio.',
 	'problemchanges-category' => 'Categoria:',
 );

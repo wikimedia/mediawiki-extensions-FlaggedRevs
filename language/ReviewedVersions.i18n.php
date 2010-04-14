@@ -518,10 +518,11 @@ $messages['is'] = array(
 );
 
 /** Italian (Italiano)
+ * @author Beta16
  * @author Darth Kule
  */
 $messages['it'] = array(
-	'reviewedversions' => 'Visualizza versioni stabili',
+	'reviewedversions' => 'Versioni revisionate',
 	'reviewedversions-leg1' => 'Elenco delle versioni revisionate per una pagina',
 	'reviewedversions-page' => 'Nome della pagina:',
 	'reviewedversions-none' => '"[[:$1]]" non ha versioni revisionate.',

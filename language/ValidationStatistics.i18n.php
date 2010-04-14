@@ -952,6 +952,7 @@ $messages['is'] = array(
 );
 
 /** Italian (Italiano)
+ * @author Beta16
  * @author Darth Kule
  * @author Gianfranco
  * @author Melos
@@ -976,7 +977,9 @@ La versione stabile di una pagina è la revisione più recente fra quelle che so
 	'validationstatistics-latest' => 'Sincronizzate',
 	'validationstatistics-synced' => 'Sincronizzate/Revisionate',
 	'validationstatistics-old' => 'Non aggiornate',
+	'validationstatistics-utable' => "Di seguito è riportato l'elenco dei primi 5 revisori nell'ultima ora.",
 	'validationstatistics-user' => 'Utente',
+	'validationstatistics-reviews' => 'Revisioni',
 );
 
 /** Japanese (日本語)
