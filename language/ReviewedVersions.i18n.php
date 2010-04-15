@@ -498,10 +498,11 @@ $messages['ia'] = array(
 );
 
 /** Indonesian (Bahasa Indonesia)
+ * @author Iwan Novirion
  * @author Rex
  */
 $messages['id'] = array(
-	'reviewedversions' => 'Tampilkan versi stabil',
+	'reviewedversions' => 'Versi yang telah ditinjau',
 	'reviewedversions-leg1' => 'Menampilkan revisi tertinjau dari suatu halaman',
 	'reviewedversions-page' => 'Nama halaman:',
 	'reviewedversions-none' => '"[[:$1]]" tidak memiliki revisi tertinjau.',

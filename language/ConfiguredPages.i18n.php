@@ -70,6 +70,14 @@ $messages['ca'] = array(
 	'configuredpages-def-stable' => 'versió publicada',
 );
 
+/** German (Deutsch) */
+$messages['de'] = array(
+	'configuredpages-config' => 'Konfiguration',
+	'configuredpages-prec-none' => 'zuletzt überprüft',
+	'configuredpages-prec-quality' => 'Qualitätsrangordnung',
+	'configuredpages-prec-pristine' => 'ursprüngliche Rangordnung',
+);
+
 /** Lower Sorbian (Dolnoserbski)
  * @author Michawiki
  */
@@ -81,9 +89,9 @@ Někotare nastajenja by mógli se změniś, kótara wersija zwobraznja se cytarj
 	'configuredpages-none' => 'W toś tom lisćinje žedne boki njejsu.',
 	'configuredpages-config' => 'Konfiguracija',
 	'configuredpages-precedence' => 'Prědnosć:',
-	'configuredpages-prec-none' => 'žedna prědnosć',
-	'configuredpages-prec-quality' => 'kwalitna prědnosć',
-	'configuredpages-prec-pristine' => 'spócetna prědnosć',
+	'configuredpages-prec-none' => 'nejnowše pśekontrolěrowane',
+	'configuredpages-prec-quality' => 'nejnowša kwalita',
+	'configuredpages-prec-pristine' => 'nejnowše spócetne',
 	'configuredpages-def-draft' => 'nejnowša wersija',
 	'configuredpages-def-stable' => 'wózjawjona wersija',
 );

@@ -908,23 +908,23 @@ Le version publicate de un pagina es le version le plus nove que ha essite appro
 /** Indonesian (Bahasa Indonesia)
  * @author Bennylin
  * @author Irwangatot
+ * @author Iwan Novirion
  * @author Rex
  */
 $messages['id'] = array(
-	'validationstatistics' => 'Statistik validasi',
-	'validationstatistics-users' => "'''{{SITENAME}}''' saat ini memiliki '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|pengguna|pengguna}} dengan hak akses [[{{MediaWiki:Validationpage}}|Editor]] dan
-'''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$2|pengguna|pengguna}} dengan hak akses [[{{MediaWiki:Validationpage}}|Peninjau]].
+	'validationstatistics' => 'Statistik tinjauan halaman',
+	'validationstatistics-users' => "'''{{SITENAME}}''' saat ini memiliki '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|pengguna|pengguna}} dengan hak akses [[{{MediaWiki:Validationpage}}|Penerjemah]].
 
-Editor dan Peninjau adalah para pengguna terpercaya yang dapat melakukan pemeriksaan revisi di setiap halaman.",
+Penerjemah adalah para pengguna tetap yang dapat melakukan pemeriksaan perbaikan di setiap halaman.",
 	'validationstatistics-time' => "''Data berikut ini diperbaharui pada $5 saat $6.'' 
 
-Suntingan yang telah diperiksa oleh pengguna terpercaya dianggap telah ditinjau. 
+Suntingan yang telah diperiksa oleh pengguna tetap dianggap telah ditinjau. 
 
-Rata-rata menunggu suntingan oleh ''pengguna yang belum masuk log'' untuk ditinjau adalah '' '$1'''; paling banyak adalah '''$3'''. 
+Jumlah rata-rata menunggu suntingan oleh ''pengguna yang belum masuk log'' untuk ditinjau adalah '''$1'''; paling banyak '''$3'''. 
 $4 
-Lag rata-rata untuk [[Special:OldReviewedPages|halaman dengan suntingan penundaan pemeriksaan]] adalah '''$2'''. 
-Halaman ini dianggap ''belum diperbaharui''. Demikian juga, halaman akan dianggap telah ''disinkronkan'' jika  [[{{MediaWiki:Validationpage}}|versi stabil]] merupakan versi rancangan saat ini. 
-Versi stabil suatu halaman adalah revisi terbaru yang telah disetujui untuk ditunjukkan secara default kepada semua pembaca.",
+Lag rata-rata untuk [[Special:OldReviewedPages|halaman dengan suntingan tertunda belum ditinjau]] adalah '''$2'''. 
+Halaman ini dianggap ''belum diperbaharui''. Demikian juga, halaman akan dianggap telah ''disinkronkan'' jika  tidak ada suntingan tertunda belum ditinjau. 
+Versi publikasi suatu halaman adalah perbaikan terbaru yang telah disetujui untuk ditunjukkan secara baku kepada semua pembaca.",
 	'validationstatistics-table' => "Statistik untuk setiap ruang nama ditampilkan di bawah ini, ''kecuali'' halaman pengalihan.",
 	'validationstatistics-ns' => 'Ruang nama',
 	'validationstatistics-total' => 'Halaman',

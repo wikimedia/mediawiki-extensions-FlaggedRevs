@@ -288,10 +288,11 @@ $messages['ia'] = array(
 );
 
 /** Indonesian (Bahasa Indonesia)
+ * @author Iwan Novirion
  * @author Rex
  */
 $messages['id'] = array(
-	'qualityoversight' => 'Pemeriksaan kelayakan',
+	'qualityoversight' => 'Catatan peninjauan lebih lanjut',
 	'qualityoversight-list' => 'Berikut adalah daftar persetujuan dan penurunan tingkat kualitas revisi-revisi.',
 	'qualityoversight-legend' => 'Cari log peninjauan terkini',
 );

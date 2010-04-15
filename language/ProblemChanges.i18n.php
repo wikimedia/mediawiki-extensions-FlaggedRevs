@@ -299,9 +299,10 @@ $messages['ia'] = array(
 /** Indonesian (Bahasa Indonesia)
  * @author Bennylin
  * @author IvanLanin
+ * @author Iwan Novirion
  */
 $messages['id'] = array(
-	'problemchanges' => 'Periksa perubahan yang diberi tag',
+	'problemchanges' => 'Pemberian label penundaan perubahan',
 	'problemchanges-legend' => 'Daftarkan halaman dengan suntingan bertag menunggu tinjauan',
 	'problemchanges-none' => 'Saat ini tidak ada halaman yang memenuhi kriteria tersebut',
 	'problemchanges-category' => 'Kategori:',

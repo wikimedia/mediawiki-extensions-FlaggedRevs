@@ -791,10 +791,11 @@ $messages['ia'] = array(
 
 /** Indonesian (Bahasa Indonesia)
  * @author Bennylin
+ * @author Iwan Novirion
  * @author Rex
  */
 $messages['id'] = array(
-	'oldreviewedpages' => 'Halaman tertinjau telah usang',
+	'oldreviewedpages' => 'Halaman dengan penundaan perubahan',
 	'oldreviewedpages-legend' => 'Daftar halaman tertinjau yang memiliki revisi yang belum ditinjau',
 	'oldreviewedpages-list' => 'Di bawah ini adalah daftar {{PLURAL:$1||}}halaman tertinjau yang memiliki suntingan yang ditangguhkan.',
 	'oldreviewedpages-none' => 'Tidak ada halaman yang sesuai dengan kriteria ini',
@@ -802,7 +803,7 @@ $messages['id'] = array(
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|hari|hari}})',
 	'oldreviewedpages-recent' => '(kurang dari 1 jam)',
 	'oldreviewed-category' => 'Kategori:',
-	'oldreviewed-watched' => 'Ada di daftar pantauan saya',
+	'oldreviewed-watched' => 'Halaman pada daftar pantauan saya',
 	'oldreviewed-stable' => 'Distabilkan',
 	'oldreviewed-diff' => 'meninjau',
 	'oldreviewed-size' => 'Perubahan maks. (byte):',

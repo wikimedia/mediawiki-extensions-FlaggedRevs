@@ -549,18 +549,20 @@ $messages['ia'] = array(
 /** Indonesian (Bahasa Indonesia)
  * @author Bennylin
  * @author IvanLanin
+ * @author Iwan Novirion
  * @author Rex
  */
 $messages['id'] = array(
 	'reviewedpages' => 'Halaman tertinjau',
-	'reviewedpages-leg' => 'Daftar halaman menurut tingkat tinjauan tertinggi',
-	'reviewedpages-list' => 'Halaman berikut berisi daftar halaman yang telah ditinjau hingga tingkat tertentu',
+	'reviewedpages-leg' => 'Daftar halaman yang telah ditinjau',
+	'reviewedpages-list' => "Daftar ini berisi [[{{MediaWiki:Validationpage}}|peninjauan]] halaman yang telah ''mencapai tingkat tertinggi'' level peninjauan (dari perbaikan) pada level tertentu.
+Sebuah pranala diberikan pada perbaikan terakhir level tersebut.",
 	'reviewedpages-none' => 'Tidak ada halaman di dalam daftar ini',
 	'reviewedpages-lev-0' => 'Terperiksa',
 	'reviewedpages-lev-1' => 'Layak',
 	'reviewedpages-lev-2' => '{{int:revreview-lev-pristine}}',
 	'reviewedpages-all' => 'versi tertinjau',
-	'reviewedpages-best' => 'revisi berperingkat tertinggi terakhir',
+	'reviewedpages-best' => 'Perbaikan terbaik',
 );
 
 /** Icelandic (Íslenska)
