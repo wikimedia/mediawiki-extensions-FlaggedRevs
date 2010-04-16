@@ -1784,9 +1784,8 @@ class FlaggedRevsHooks {
 	public static function addToRCQuery( &$conds, &$tables, &$join_conds, $opts ) {
 		global $wgUser;
 		if ( $wgUser->isAllowed( 'review' ) ) {
-			$tables[] = 'flaggedpage_pending';
-			$join_conds['flaggedpage_pending'] = array( 'LEFT JOIN',
-				'fpp_page_id = rc_cur_id AND fpp_quality = ' . FR_SIGHTED );
+			$tables[] = 'flaggedpages';
+			$join_conds['flaggedpages'] = array( 'LEFT JOIN', 'fp_page_id = rc_cur_id' );
 		}
 		return true;
 	}
@@ -1794,10 +1793,9 @@ class FlaggedRevsHooks {
 	public static function addToWatchlistQuery( &$conds, &$tables, &$join_conds, &$fields ) {
 		global $wgUser;
 		if ( $wgUser->isAllowed( 'review' ) ) {
-			$fields[] = 'fpp_rev_id';
-			$tables[] = 'flaggedpage_pending';
-			$join_conds['flaggedpage_pending'] = array( 'LEFT JOIN',
-				'fpp_page_id = rc_cur_id AND fpp_quality = ' . FR_SIGHTED );
+			$fields[] = 'fp_stable';
+			$tables[] = 'flaggedpages';
+			$join_conds['flaggedpages'] = array( 'LEFT JOIN', 'fp_page_id = rc_cur_id' );
 		}
 		return true;
 	}
@@ -1920,20 +1918,33 @@ class FlaggedRevsHooks {
 	public static function addToChangeListLine(
 		&$list, &$articlelink, &$s, &$rc, $unpatrolled, $watched
 	) {
-		if ( empty( $rc->mAttribs['fpp_rev_id'] ) ) {
-			return true; // page is not listed in pending edit table
-		}
-		if ( !FlaggedRevs::inReviewNamespace( $rc->getTitle() ) ) {
+		$title = $rc->getTitle(); // convenience
+		if ( !FlaggedRevs::inReviewNamespace( $title )
+			|| empty( $rc->mAttribs['rc_this_oldid'] ) )
+		{
 			return true; // confirm that page is in reviewable namespace
 		}
-		$rlink = $list->skin->link(
-			$rc->getTitle(),
-			wfMsgHtml( 'revreview-reviewlink' ),
-			array( 'title' => wfMsg( 'revreview-reviewlink-title' ) ),
-			array( 'oldid' => $rc->mAttribs['fpp_rev_id'], 'diff' => 'cur' )
-		);
-		$rlink = wfMsgHtml( 'parentheses', $rlink );
-		$articlelink .= " <span class=\"mw-fr-reviewlink\">$rlink</span>";
+		$rlink = '';
+		// page is not reviewed
+		if ( empty( $rc->mAttribs['fp_stable'] ) ) {
+			// Is this a config were pages start off reviewable?
+			if ( !FlaggedRevs::stableOnlyIfConfigured() ) {
+				$rlink = wfMsgHtml( 'revreview-unreviewedpage' );
+				$css = 'flaggedrevs-unreviewed';
+			}
+		// page is reviewed and has pending edits
+		} elseif ( $rc->mAttribs['fp_stable'] < $rc->mAttribs['rc_this_oldid'] ) {
+			$rlink = $list->skin->link(
+				$title,
+				wfMsgHtml( 'revreview-reviewlink' ),
+				array( 'title' => wfMsg( 'revreview-reviewlink-title' ) ),
+				array( 'oldid' => $rc->mAttribs['fp_stable'], 'diff' => 'cur' )
+			);
+			$css = 'flaggedrevs-pending';
+		}
+		if ( $rlink != '' ) {
+			$articlelink .= " <span class=\"mw-fr-reviewlink $css\">[$rlink]</span>";
+		}
 		return true;
 	}
 	
