@@ -598,10 +598,11 @@ $messages['km'] = array(
 );
 
 /** Korean (한국어)
+ * @author Devunt
  * @author Kwj2772
  */
 $messages['ko'] = array(
-	'reviewedversions' => '안정 버전 보기',
+	'reviewedversions' => '검토된 버전',
 	'reviewedversions-page' => '문서 이름:',
 	'reviewedversions-none' => '"[[:$1]]"의 검토된 판이 없습니다.',
 	'reviewedversions-list' => '다음은 [[:$1]] 문서의 검토된 {{PLURAL:$2|편집}}의 목록입니다:',

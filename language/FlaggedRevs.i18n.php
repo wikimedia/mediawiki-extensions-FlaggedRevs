@@ -1684,6 +1684,7 @@ $messages['be-tarask'] = array(
 	'revreview-restriction-none' => 'няма',
 	'revreview-reviewlink' => 'рэдагаваньні чакаючыя рэцэнзаваньня',
 	'revreview-reviewlink-title' => 'Паказаць адрозьненьні усіх нерэцэнзаваных зьменаў',
+	'revreview-unreviewedpage' => 'неправераная старонка',
 	'tooltip-ca-current' => 'Паказаць гэтую старонку з нерэцэнзаванымі зьменамі',
 	'tooltip-ca-stable' => 'Паказаць апублікаваную вэрсію гэтай старонкі',
 	'tooltip-ca-default' => 'Устаноўкі падтрымкі якасьці',
@@ -3296,6 +3297,7 @@ Lisćina stabilizěrowanych bokow dajo se w [[Special:StablePages|lisćinje stab
 	'revreview-restriction-none' => 'žedna',
 	'revreview-reviewlink' => 'njepśeglědane změny',
 	'revreview-reviewlink-title' => 'Rozdźěl wšych njepśeglědanych změnow pokazaś',
+	'revreview-unreviewedpage' => 'njepśekontrolěrowany bok',
 	'tooltip-ca-current' => 'Toś ten bok z njepśeglědanymi změnami pokazaś',
 	'tooltip-ca-stable' => 'Wózjawjonu wersiju toś togo boka se woglědaś',
 	'tooltip-ca-default' => 'Nastajenja zawěsćenja kwality',
@@ -3638,6 +3640,7 @@ Listo de stabiligitaj paĝoj estas trovebla ĉe la [[Special:StablePages|Listo d
 	'revreview-restriction-none' => 'neniom',
 	'revreview-reviewlink' => 'kontrolendaj redaktoj',
 	'revreview-reviewlink-title' => 'Vidi diferencon de ĉiuj kontrolendaj ŝanĝoj',
+	'revreview-unreviewedpage' => 'nekontrolita paĝo',
 	'tooltip-ca-current' => 'Vidi ĉi tiu paĝo kun kontrolendaj ŝanĝoj',
 	'tooltip-ca-stable' => 'Vidi la publikigitan version de ĉi paĝo',
 	'tooltip-ca-default' => 'Konfiguro de kvalitkontrolo',
@@ -5040,6 +5043,7 @@ Pódese atopar unha lista das páxinas estabilizadas na [[Special:StablePages|li
 	'revreview-restriction-none' => 'ningunha',
 	'revreview-reviewlink' => 'edicións pendentes',
 	'revreview-reviewlink-title' => 'Ollar as diferenzas de todos os cambios pendentes',
+	'revreview-unreviewedpage' => 'páxina non comprobada',
 	'tooltip-ca-current' => 'Ollar esta páxina cos cambios pendentes',
 	'tooltip-ca-stable' => 'Ver a versión publicada desta páxina',
 	'tooltip-ca-default' => 'Configuración da garantía de calidade',
@@ -6160,6 +6164,7 @@ Lisćinu stabilizowanych stronow namakaš w [[Special:StablePages|lisćinje stab
 	'revreview-restriction-none' => 'žana',
 	'revreview-reviewlink' => 'njepřepruwowane změny',
 	'revreview-reviewlink-title' => 'Rozdźěl wšěch njepřepruwowanych změnow pokazać',
+	'revreview-unreviewedpage' => 'njeskontrolowana strona',
 	'tooltip-ca-current' => 'Tutu stronu z njepřepruwowanymi změnami zwobraznić',
 	'tooltip-ca-stable' => 'Wozjewjenu wersiju tuteje strony wobhladać',
 	'tooltip-ca-default' => 'Nastajenja kwalitneho zawěsćenja',
@@ -6625,6 +6630,7 @@ Le paginas stabilisate se detalia in le [[Special:StablePages|lista de paginas s
 	'revreview-restriction-none' => 'nulle',
 	'revreview-reviewlink' => 'modificationes pendente',
 	'revreview-reviewlink-title' => 'Vider comparation de tote le modificationes pendente',
+	'revreview-unreviewedpage' => 'pagina non verificate',
 	'tooltip-ca-current' => 'Vider iste pagina con le modificationes pendente',
 	'tooltip-ca-stable' => 'Vider le version publicate de iste pagina',
 	'tooltip-ca-default' => 'Configurationes pro assecurantia de qualitate',
@@ -9657,6 +9663,7 @@ Zie ook de [[Special:StablePages|lijst met pagina's met een gepubliceerde versie
 	'revreview-restriction-none' => 'geen',
 	'revreview-reviewlink' => 'te controleren bewerkingen',
 	'revreview-reviewlink-title' => 'Alle ongecontroleerde verschillen bekijken',
+	'revreview-unreviewedpage' => 'ongecontroleerde pagina',
 	'tooltip-ca-current' => 'Ongecontroleerde wijzigingen voor deze pagina bekijken',
 	'tooltip-ca-stable' => 'Gepubliceerde versie van deze pagina bekijken',
 	'tooltip-ca-default' => 'Instellingen kwaliteitsbewaking',
@@ -10991,6 +10998,7 @@ Verifique a URL que usou para aceder a esta página.',
 	'revreview-restriction-none' => 'nenhuma',
 	'revreview-reviewlink' => 'edições pendentes',
 	'revreview-reviewlink-title' => 'Ver diferenças de todas as alterações pendentes',
+	'revreview-unreviewedpage' => 'página não verificada',
 	'tooltip-ca-current' => 'Ver esta página com alterações pendentes',
 	'tooltip-ca-stable' => 'Ver a versão publicada desta página',
 	'tooltip-ca-default' => 'Parâmetros da garantia de qualidade',
@@ -13430,6 +13438,7 @@ Matatagpuan ang isang talaan ng napatatag na mga pahina mula sa [[Special:Stable
 /** Turkish (Türkçe)
  * @author Erkan Yilmaz
  * @author Hanberke
+ * @author Homonihilis
  * @author Joseph
  * @author Karduelis
  * @author Mach
@@ -13476,6 +13485,7 @@ $messages['tr'] = array(
 	'revreview-diff-toggle-title' => 'Taslak ve yayınlanmış sürümler arasındaki değişikliklerin görüntülenmesini değiştir',
 	'revreview-log-toggle-show' => '(kararlılık günlüğünü göster)',
 	'revreview-log-details-show' => '(ayrıntıları göster)',
+	'revreview-log-details-hide' => 'detayları gizle',
 	'review-diff2stable' => 'Yayımlanmış sürüme bekleyen değişiklikleri göster',
 	'review-logentry-app' => '[[$1]] sayfasının bir sürümü incelendi',
 	'review-logentry-dis' => '[[$1]] sayfasının bir sürümü onaylanmadı',
@@ -13641,6 +13651,7 @@ Kararlı sayfaları, [[Special:StablePages|kararlı sayfa listesinde]] bulabilir
 	'revreview-restriction-any' => 'herhangi',
 	'revreview-restriction-none' => 'hiçbiri',
 	'revreview-reviewlink' => 'gözden geçir',
+	'revreview-unreviewedpage' => 'denetlenmemiş sayfa',
 	'tooltip-ca-current' => 'Bu sayfayı bekleyen değişikliklerle gör',
 	'tooltip-ca-stable' => 'Bu sayfanın yayımlanmış sürümünü gör',
 	'tooltip-ca-default' => 'Kalite güvencesi ayarları',

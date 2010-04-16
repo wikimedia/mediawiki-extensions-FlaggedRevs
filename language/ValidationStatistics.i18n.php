@@ -1059,15 +1059,16 @@ $messages['kn'] = array(
 );
 
 /** Korean (한국어)
+ * @author Devunt
  * @author Klutzy
  * @author Kwj2772
  * @author Yknok29
  */
 $messages['ko'] = array(
-	'validationstatistics' => '검토 통계',
-	'validationstatistics-users' => "'''{{SITENAME}}'''에는 [[Special:ListUsers/editor|$1]]명의 [[{{MediaWiki:Validationpage}}|편집자]] 권한을 가진 사용자와 [[Special:ListUsers/reviewer|$2]]명의 [[{{MediaWiki:Validationpage}}|평론가]] 권한을 가진 사용자가 있습니다.
+	'validationstatistics' => '페이지의 검토 통계',
+	'validationstatistics-users' => "'''{{SITENAME}}'''에는 [[Special:ListUsers/editor|$1]]명의 [[{{MediaWiki:Validationpage}}|편집자]] 권한을 가진 사용자가 있습니다.
 
-편집자와 평론자가 문서를 검토할 수 있습니다.",
+편집자가 문서를 검토할 수 있습니다.",
 	'validationstatistics-time' => "'''다음의 수치는 $5 $6에 마지막으로 업데이트되었습니다.'''
 
 숙련된 사용자가 확인한 편집을 검토된 편집으로 간주합니다.
