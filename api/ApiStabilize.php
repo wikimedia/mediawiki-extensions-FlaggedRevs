@@ -31,26 +31,26 @@ class ApiStabilize extends ApiBase {
 		global $wgUser, $wgContLang;
 		$params = $this->extractRequestParams();
 
-		if( !isset($params['title']) )
-			$this->dieUsageMsg( array('missingparam', 'title') );
-		if( !isset($params['token']) )
-			$this->dieUsageMsg( array('missingparam', 'token') );
+		if ( !isset( $params['title'] ) )
+			$this->dieUsageMsg( array( 'missingparam', 'title' ) );
+		if ( !isset( $params['token'] ) )
+			$this->dieUsageMsg( array( 'missingparam', 'token' ) );
 
 		$title = Title::newFromText( $params['title'] );
-		if( $title == null ) {
+		if ( $title == null ) {
 			$this->dieUsage( "Invalid title given.", "invalidtitle" );
 		}
-		if( !FlaggedRevs::inReviewNamespace($title) ) {
+		if ( !FlaggedRevs::inReviewNamespace( $title ) ) {
 			$this->dieUsage( "Title given does not correspond to a reviewable page.", "invalidtitle" );
 		}
-		$errors = $title->getUserPermissionsErrors('stablesettings', $wgUser);
-		if( $errors ) {
+		$errors = $title->getUserPermissionsErrors( 'stablesettings', $wgUser );
+		if ( $errors ) {
 			// We don't care about multiple errors, just report one of them
-			$this->dieUsageMsg(reset($errors));
+			$this->dieUsageMsg( reset( $errors ) );
 		}
 		
 		$article = new Article( $title );
-		if( !$article->exists() ) {
+		if ( !$article->exists() ) {
 			$this->dieUsage( "Target page does not exist.", "invalidtitle" );
 		}
 
@@ -64,13 +64,13 @@ class ApiStabilize extends ApiBase {
 		$form->expirySelection = 'other'; # Expiry dropdown
 
 		// Check if protection levels are enabled
-		if( FlaggedRevs::useProtectionLevels() ) {
+		if ( FlaggedRevs::useProtectionLevels() ) {
 			$levels = FlaggedRevs::getRestrictionLevels();
 			# Fill in config from the protection level...
 			$selected = $params['protectlevel'];
-			if( $selected == "none" ) {
+			if ( $selected == "none" ) {
 				$form->autoreview = ''; // default
-			} else if( in_array( $selected, $levels ) ) {
+			} else if ( in_array( $selected, $levels ) ) {
 				$form->autoreview = $selected; // autoreview restriction
 			} else {
 				$this->dieUsage( "Invalid protection level given.", 'badprotectlevel' );
@@ -80,22 +80,22 @@ class ApiStabilize extends ApiBase {
 		} else {
 			// Fill in config fields from URL params
 			$form->select = $this->precendenceFromKey( $params['precedence'] );
-			if( $params['default'] === null ) {
-				$this->dieUsageMsg( array('missingparam', 'default') );
+			if ( $params['default'] === null ) {
+				$this->dieUsageMsg( array( 'missingparam', 'default' ) );
 			} else {
 				$form->override = $this->defaultFromKey( $params['default'] );
 			}
-			if( $params['autoreview'] == 'none' ) {
+			if ( $params['autoreview'] == 'none' ) {
 				$form->autoreview = ''; // 'none' -> ''
 			} else {
 				$form->autoreview = $params['autoreview'];
 			}
 		}
 		$form->wasPosted = true; // already validated
-		if( $form->handleParams() ) {
+		if ( $form->handleParams() ) {
 			$status = $form->submit(); // true/error message key
-			if( $status !== true ) {
-				$this->dieUsage( wfMsg($status) );
+			if ( $status !== true ) {
+				$this->dieUsage( wfMsg( $status ) );
 			}
 		} else {
 			$this->dieUsage( "Invalid config parameters given. The precendence level may beyond your rights.", 'invalidconfig' );
@@ -103,7 +103,7 @@ class ApiStabilize extends ApiBase {
 		# Output success line with the title and config parameters
 		$res = array();
 		$res['title'] = $title->getPrefixedText();
-		if( count($levels) ) {
+		if ( count( $levels ) ) {
 			$res['protectlevel'] = $params['protectlevel'];
 		} else {
 			$res['default'] = $params['default'];
@@ -111,13 +111,13 @@ class ApiStabilize extends ApiBase {
 			$res['autoreview'] = $params['autoreview'];
 		}
 		$res['expiry'] = $form->expiry;
-		$this->getResult()->addValue(null, $this->getModuleName(), $res);
+		$this->getResult()->addValue( null, $this->getModuleName(), $res );
 	}
 	
 	protected function defaultFromKey( $key ) {
-		if( $key == 'stable' ) {
+		if ( $key == 'stable' ) {
 			return 1;
-		} else if( $key == 'latest' ) {
+		} else if ( $key == 'latest' ) {
 			return 0;
 		}
 		// bad key?
@@ -125,11 +125,11 @@ class ApiStabilize extends ApiBase {
 	}
 	
 	protected function precendenceFromKey( $key ) {
-		if( $key == 'pristine' ) {
+		if ( $key == 'pristine' ) {
 			return FLAGGED_VIS_PRISTINE;
-		} else if( $key == 'quality' ) {
+		} else if ( $key == 'quality' ) {
 			return FLAGGED_VIS_QUALITY;
-		} else if( $key == 'latest' ) {
+		} else if ( $key == 'latest' ) {
 			return FLAGGED_VIS_LATEST;
 		}
 		// bad key?
@@ -137,11 +137,11 @@ class ApiStabilize extends ApiBase {
 	}
 	
 	protected function keyFromPrecendence( $precedence ) {
-		if( $precedence == FLAGGED_VIS_PRISTINE ) {
+		if ( $precedence == FLAGGED_VIS_PRISTINE ) {
 			return 'pristine';
-		} else if( $precedence == FLAGGED_VIS_QUALITY ) {
+		} else if ( $precedence == FLAGGED_VIS_QUALITY ) {
 			return 'quality';
-		} else if( $precedence == FLAGGED_VIS_LATEST ) {
+		} else if ( $precedence == FLAGGED_VIS_LATEST ) {
 			return 'lastest';
 		}
 		// bad key?
@@ -152,7 +152,7 @@ class ApiStabilize extends ApiBase {
 		return true;
 	}
 	
-	public function isWriteMode() { 
+	public function isWriteMode() {
  		return true;
  	}
 
@@ -160,7 +160,7 @@ class ApiStabilize extends ApiBase {
 		// Replace '' with more readable 'none' in autoreview restiction levels
 		$autoreviewLevels = FlaggedRevs::getRestrictionLevels();
 		$autoreviewLevels[] = 'none';
-		if( FlaggedRevs::useProtectionLevels() ) {
+		if ( FlaggedRevs::useProtectionLevels() ) {
 			$pars = array(
 				'protectlevel' => array(
 					ApiBase :: PARAM_TYPE => $autoreviewLevels,
@@ -195,7 +195,7 @@ class ApiStabilize extends ApiBase {
 	}
 
 	public function getParamDescription() {
-		if( FlaggedRevs::useProtectionLevels() ) {
+		if ( FlaggedRevs::useProtectionLevels() ) {
 			$desc = array(
 				'protectlevel' => 'The review protection level',
 			);
@@ -223,9 +223,9 @@ class ApiStabilize extends ApiBase {
 	
 	public function getPossibleErrors() {
 		return array_merge( parent::getPossibleErrors(), array(
-			array('missingparam', 'title'),
-			array('missingparam', 'token'),
-			array('missingparam', 'default'),
+			array( 'missingparam', 'title' ),
+			array( 'missingparam', 'token' ),
+			array( 'missingparam', 'default' ),
 			array( 'code' => 'invalidtitle', 'info' => 'Invalid title given.' ),
 			array( 'code' => 'invalidtitle', 'info' => 'Target page does not exist.' ),
 			array( 'code' => 'invalidtitle', 'info' => 'Title given does not correspond to a reviewable page.' ),
@@ -239,7 +239,7 @@ class ApiStabilize extends ApiBase {
 	}
 
 	protected function getExamples() {
-		if( FlaggedRevs::useProtectionLevels() )
+		if ( FlaggedRevs::useProtectionLevels() )
 			return 'api.php?action=stabilize&title=Test&protectlevel=none&reason=Test&token=123ABC';
 		else
 			return 'api.php?action=stabilize&title=Test&default=stable&reason=Test&token=123ABC';

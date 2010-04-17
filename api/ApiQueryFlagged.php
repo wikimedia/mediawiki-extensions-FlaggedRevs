@@ -35,7 +35,7 @@ class ApiQueryFlagged extends ApiQueryBase {
 		if ( !$pageids )
 			return true;
 		
-		//Construct SQL Query
+		// Construct SQL Query
 		$this->addTables( 'flaggedpages' );
 		$this->addFields( array(
 			'fp_page_id', 'fp_stable', 'fp_quality', 'fp_pending_since'
@@ -70,7 +70,7 @@ class ApiQueryFlagged extends ApiQueryBase {
 			'* stable_revid      : The revision id of the latest stable revision',
 			'* level, level_text : The highest flagging level of the page',
 			'* pending_since     : If there are any current unreviewed revisions'
-			.' for that page, holds the timestamp of the first of them'
+			. ' for that page, holds the timestamp of the first of them'
 		);
 	}
 
@@ -82,6 +82,6 @@ class ApiQueryFlagged extends ApiQueryBase {
 	}
 	
 	public function getVersion() {
-		return __CLASS__.': $Id$';
+		return __CLASS__ . ': $Id$';
 	}
 }

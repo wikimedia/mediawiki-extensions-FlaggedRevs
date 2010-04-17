@@ -398,7 +398,7 @@ $wgAPIModules['review'] = 'ApiReview';
 $wgAutoloadClasses['ApiStabilize'] = $dir . 'api/ApiStabilize.php';
 $wgAPIModules['stabilize'] = 'ApiStabilize';
 
-######## HOOK TRIGGERED FUNCTIONS  #########
+# ####### HOOK TRIGGERED FUNCTIONS  #########
 
 # ######## User interface #########
 # Override current revision, add patrol links, set cache...
@@ -531,7 +531,7 @@ function efSetFlaggedRevsConditionalHooks() {
 	}
 }
 
-######## END HOOK TRIGGERED FUNCTIONS  #########
+# ####### END HOOK TRIGGERED FUNCTIONS  #########
 
 function efLoadFlaggedRevs() {
 	global $wgUseRCPatrol, $wgFlaggedRevsNamespaces;

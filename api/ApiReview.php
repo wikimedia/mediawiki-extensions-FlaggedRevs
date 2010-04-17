@@ -37,58 +37,58 @@ class ApiReview extends ApiBase {
 		$params = $this->extractRequestParams();
 
 		// Check permissions
-		if( !$wgUser->isAllowed( 'review' ) )
+		if ( !$wgUser->isAllowed( 'review' ) )
 			$this->dieUsageMsg( array( 'badaccess-group0' ) );
-		if( $wgUser->isBlocked() )
+		if ( $wgUser->isBlocked() )
 			$this->dieUsageMsg( array( 'blockedtext' ) );
 
 		// Construct submit form
 		$form = new RevisionReview();
 		$revid = intval( $params['revid'] );
 		$rev = Revision::newFromId( $revid );
-		if( !$rev )
+		if ( !$rev )
 			$this->dieUsage( "Cannot find a revision with the specified ID.", 'notarget' );
 		$form->oldid = $revid;
 		$title = $rev->getTitle();
 		$form->page = $title;
-		if( !FlaggedRevs::inReviewNamespace( $title ) )
+		if ( !FlaggedRevs::inReviewNamespace( $title ) )
 			$this->dieUsage( "Provided revision or page can not be reviewed.", 'notreviewable' );
 
-		if( isset( $params['unapprove'] ) ) 
+		if ( isset( $params['unapprove'] ) )
 			$form->approve = !$params['unapprove'];
-		if( isset( $params['comment'] ) )
+		if ( isset( $params['comment'] ) )
 			$form->comment = $params['comment'];
-		if( isset( $params['notes'] ) )
+		if ( isset( $params['notes'] ) )
 			$form->notes = $wgUser->isAllowed( 'validate' ) ? $params['notes'] : '';
 
 		// The flagging parameters have the form 'flag_$name'.
 		// Extract them and put the values into $form->dims
 		$flags = FlaggedRevs::getDimensions();
-		foreach( $flags as $name => $levels ) {
-			if( !( $form->dims[$name] = intval( $params['flag_' . $name] ) ) )
+		foreach ( $flags as $name => $levels ) {
+			if ( !( $form->dims[$name] = intval( $params['flag_' . $name] ) ) )
 				$form->unapprovedTags++;
 		}
 
 		// Check if this is a valid approval/unapproval of the revision
-		if( $form->unapprovedTags && $form->unapprovedTags < count( $flags ) )
+		if ( $form->unapprovedTags && $form->unapprovedTags < count( $flags ) )
 			$this->dieUsage( "Either all or none of the flags have to be set to zero.", 'mixedapproval' );
 
 		// Check if user is even allowed to set the flags
 		$form->oflags = FlaggedRevs::getRevisionTags( $title, $form->oldid );
 		$fa = FlaggedArticle::getTitleInstance( $form->page );
 		$form->config = $fa->getVisibilitySettings();
-		if( !$title->quickUserCan('edit') || !RevisionReview::userCanSetFlags($form->dims,$form->oflags,$form->config) )
+		if ( !$title->quickUserCan( 'edit' ) || !RevisionReview::userCanSetFlags( $form->dims, $form->oflags, $form->config ) )
 			$this->dieUsage( "You don't have the necessary rights to set the specified flags.", 'permissiondenied' );
 
-		if( $form->isApproval() ) {
+		if ( $form->isApproval() ) {
 			// Now get the template and image parameters needed
 			// If it is the current revision, try the parser cache first
 			$article = new Article( $title, $revid );
-			if( $rev->isCurrent() ) {
+			if ( $rev->isCurrent() ) {
 				$parserCache = ParserCache::singleton();
 				$parserOutput = $parserCache->get( $article, $wgUser );
 			}
-			if( empty( $parserOutput ) ) {
+			if ( empty( $parserOutput ) ) {
 				// Miss, we have to reparse the page
 				global $wgParser;
 				$text = $article->getContent();
@@ -102,11 +102,11 @@ class ApiReview extends ApiBase {
 		
 		// Do the actual review
 		list( $approved, $status ) = $form->submit();
-		if( $status === true ) {
+		if ( $status === true ) {
 			$this->getResult()->addValue( null, $this->getModuleName(), array( 'result' => 'Success' ) );
-		} elseif( $approved && is_array( $status ) ) {
+		} elseif ( $approved && is_array( $status ) ) {
 			$this->dieUsage( "A sync failure has occured while reviewing. Please try again.", 'syncfailure' );
-		} elseif( $approved ) {
+		} elseif ( $approved ) {
 			$this->dieUsage( "Cannot find a revision with the specified ID.", 'notarget' );
 		} else {
 			$this->dieUsageMsg( array( 'unknownerror' ) );
@@ -117,8 +117,8 @@ class ApiReview extends ApiBase {
 		return true;
 	}
 	
-	public function isWriteMode() { 
- 		return true; 
+	public function isWriteMode() {
+ 		return true;
  	}
 
 	public function getAllowedParams() {
@@ -127,12 +127,12 @@ class ApiReview extends ApiBase {
 			'token' => null,
 			'comment' => null,
 		);
-		if( FlaggedRevs::allowComments() )
+		if ( FlaggedRevs::allowComments() )
 			$pars['notes'] = null;
-		if( FlaggedRevs::dimensionsEmpty() ) {
+		if ( FlaggedRevs::dimensionsEmpty() ) {
 			$pars['unapprove'] = false;
 		} else {
-			foreach( FlaggedRevs::getDimensions() as $flagname => $levels ) {
+			foreach ( FlaggedRevs::getDimensions() as $flagname => $levels ) {
 				$pars['flag_' . $flagname] = array(
 					ApiBase::PARAM_DFLT => 1, // default
 					ApiBase::PARAM_TYPE => array_keys( $levels ) // array of allowed values
@@ -147,13 +147,13 @@ class ApiReview extends ApiBase {
 			'revid' => 'The revision ID for which to set the flags',
 			'token' => 'An edit token retrieved through prop=info',
 			'comment' => 'Comment for the review (optional)',
-			//Only if FlaggedRevs::allowComments() is true:
+			// Only if FlaggedRevs::allowComments() is true:
 			'notes' => "Additional notes for the review. The ``validate'' right is needed to set this parameter.",
-			//Will only show if FlaggedRevs::dimensionsEmpty() is true:
+			// Will only show if FlaggedRevs::dimensionsEmpty() is true:
 			'unapprove' => "If set, revision will be unapproved"
 		);
-		foreach( FlaggedRevs::getDimensions() as $flagname => $levels )
-			$desc['flag_' . $flagname] = "Set the flag ''{$flagname}'' to the specified value";		
+		foreach ( FlaggedRevs::getDimensions() as $flagname => $levels )
+			$desc['flag_' . $flagname] = "Set the flag ''{$flagname}'' to the specified value";
 		return $desc;
 	}
 

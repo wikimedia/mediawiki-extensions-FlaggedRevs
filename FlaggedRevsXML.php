@@ -133,7 +133,7 @@ class FlaggedRevsXML {
 			$s .= Xml::option( wfMsg( 'revreview-restriction-none' ),
 				'none', $selected == 'none' );
 		}
-		foreach( FlaggedRevs::getRestrictionLevels() as $perm ) {
+		foreach ( FlaggedRevs::getRestrictionLevels() as $perm ) {
 			$key = "revreview-restriction-{$perm}";
 			$msg = wfMsg( $key );
 			if ( wfEmptyMsg( $key, $msg ) ) {
@@ -299,7 +299,7 @@ class FlaggedRevsXML {
 		$box .= '<td id="mw-fr-revisionratings" align="left">';
 		$box .= $html; // details text
 		# Add any rating tags as needed...
-		if( $flags && !FlaggedRevs::binaryFlagging() ) {
+		if ( $flags && !FlaggedRevs::binaryFlagging() ) {
 			# Don't show the ratings on draft views
 			if ( $type == 'stable' || $type == 'oldstable' ) {
 				$box .= '<p>' . self::addTagRatings( $flags, true, $color ) . '</p>';
@@ -490,7 +490,7 @@ class FlaggedRevsXML {
 					'accesskey' => wfMsg( 'revreview-ak-review' ),
 					'title' 	=> wfMsg( 'revreview-tt-flag' ) . ' [' .
 						wfMsg( 'revreview-ak-review' ) . ']'
-				) + ( ( $disabled || ($frev && !$rereview) ) ? $disAttrib : array() )
+				) + ( ( $disabled || ( $frev && !$rereview ) ) ? $disAttrib : array() )
 			);
 			$s .= ' ';
 			$s .= Xml::submitButton( wfMsg( 'revreview-submit-unreview' ),
@@ -635,7 +635,7 @@ class FlaggedRevsXML {
 			}
 			$reviewNotes = $srev->getComment();
 			# Re-review button is need for template/file only review case
-			$allowRereview = ($srev->getRevId() == $id)
+			$allowRereview = ( $srev->getRevId() == $id )
 				&& !FlaggedRevs::stableVersionIsSynced( $srev, $article );
 		} else {
 			$flags = $oldFlags;
@@ -695,9 +695,9 @@ class FlaggedRevsXML {
 		# Get versions of templates/files used
 		$imageParams = $templateParams = $fileVersion = '';
 		if ( $getPOut ) {
-			$pOutput = false; 
+			$pOutput = false;
 			# Current version: try parser cache
-			if( $rev->isCurrent() ) {
+			if ( $rev->isCurrent() ) {
 				$parserCache = ParserCache::singleton();
 				$pOutput = $parserCache->get( $article, $wgUser );
 			}
@@ -731,12 +731,12 @@ class FlaggedRevsXML {
 		# Add the submit buttons
 		$form .= FlaggedRevsXML::ratingSubmitButtons( $frev, (bool)$toggle, $allowRereview );
 		# Show stability log if there is anything interesting...
-		if( $article->isPageLocked() ) {
-			$form .= ' ' . FlaggedRevsXML::logToggle('revreview-log-toggle-show');
+		if ( $article->isPageLocked() ) {
+			$form .= ' ' . FlaggedRevsXML::logToggle( 'revreview-log-toggle-show' );
 		}
 		$form .= Xml::closeElement( 'span' );
 		# ..add the actual stability log body here
-	    if( $article->isPageLocked() ) {
+	    if ( $article->isPageLocked() ) {
 			$form .= FlaggedRevsXML::stabilityLogExcerpt( $article );
 		}
 		$form .= Xml::closeElement( 'div' ) . "\n";

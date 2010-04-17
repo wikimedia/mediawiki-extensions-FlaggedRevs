@@ -165,10 +165,10 @@ class FlaggedRevs {
 	public static function maxAutoReviewLevel( $tag ) {
 		global $wgFlaggedRevsTagsAuto;
 		self::load();
-		if( !self::autoReviewEdits() ) {
+		if ( !self::autoReviewEdits() ) {
 			return 0; // no auto-review allowed at all
 		}
-		if( isset($wgFlaggedRevsTagsAuto[$tag]) ) {
+		if ( isset( $wgFlaggedRevsTagsAuto[$tag] ) ) {
 			return (int)$wgFlaggedRevsTagsAuto[$tag];
 		} else {
 			return 1; // B/C (before $wgFlaggedRevsTagsAuto)
@@ -260,8 +260,8 @@ class FlaggedRevs {
 	 * @returns string
 	 */
 	public static function getProtectionLevel( array $config ) {
-		if( !self::useProtectionLevels() ) {
-			throw new MWException('getProtectionLevel() called with $wgFlaggedRevsProtection off');
+		if ( !self::useProtectionLevels() ) {
+			throw new MWException( 'getProtectionLevel() called with $wgFlaggedRevsProtection off' );
 		}
 		$defaultConfig = self::getDefaultVisibilitySettings();
 		# Check if the page is not protected at all...
@@ -271,9 +271,9 @@ class FlaggedRevs {
 			return "none"; // not protected
 		}
 		# All protection levels have 'override' on
-		if( $config['override'] ) {
+		if ( $config['override'] ) {
 			# The levels are defined by the 'autoreview' settings
-			if( in_array( $config['autoreview'], self::getRestrictionLevels() ) ) {
+			if ( in_array( $config['autoreview'], self::getRestrictionLevels() ) ) {
 				return $config['autoreview'];
 			}
 		}
@@ -481,14 +481,14 @@ class FlaggedRevs {
 			return null; // shouldn't happen
 		}
 		$flags = array();
-		foreach( self::getDimensions() as $tag => $levels ) {
+		foreach ( self::getDimensions() as $tag => $levels ) {
 			# Try to keep this tag val the same as the stable rev's
-			$val = isset($oldFlags[$tag]) ? $oldFlags[$tag] : 1;
-			$val = min( $val, self::maxAutoReviewLevel($tag) );
+			$val = isset( $oldFlags[$tag] ) ? $oldFlags[$tag] : 1;
+			$val = min( $val, self::maxAutoReviewLevel( $tag ) );
 			# Dial down the level to one the user has permission to set
-			while( !RevisionReview::userCan( $tag, $val ) ) {
+			while ( !RevisionReview::userCan( $tag, $val ) ) {
 				$val--;
-				if( $val <= 0 ) {
+				if ( $val <= 0 ) {
 					return null; // all tags vals must be > 0
 				}
 			}
@@ -867,7 +867,7 @@ class FlaggedRevs {
 		$key = wfMemcKey( 'flaggedrevs', 'unreviewedrevs', $article->getId() );
 		if ( !$forUpdate ) {
 			$val = $wgMemc->get( $key );
-			if( is_integer($val) ) $count = $val;
+			if ( is_integer( $val ) ) $count = $val;
 		}
 		# Otherwise, fetch from DB as needed
 		if ( is_null( $count ) ) {
@@ -876,7 +876,7 @@ class FlaggedRevs {
 				array( 'rev_page' => $article->getId(), "rev_id > " . intval( $revId ) ),
 				__METHOD__ );
 			# Save to cache if there are such edits
-			if( $count ) {
+			if ( $count ) {
 				$wgMemc->set( $key, $count, $wgParserCacheExpireTime );
 			}
 		}
@@ -1138,7 +1138,7 @@ class FlaggedRevs {
 	 * @returns array (associative) (select,override,autoreview,expiry)
 	 */
 	public static function getPageVisibilitySettings( Title $title, $flags = 0 ) {
-		$db = ($flags & FR_MASTER) ?
+		$db = ( $flags & FR_MASTER ) ?
 			wfGetDB( DB_MASTER ) : wfGetDB( DB_SLAVE );
 		$row = $db->selectRow( 'flaggedpage_config',
 			array( 'fpc_select', 'fpc_override', 'fpc_level', 'fpc_expiry' ),
@@ -1159,11 +1159,11 @@ class FlaggedRevs {
 		// Is there a non-expired row?
 		if ( $row ) {
 			$precedence = intval( $row->fpc_select );
-			if( self::useProtectionLevels() || !self::isValidPrecedence( $precedence ) ) {
+			if ( self::useProtectionLevels() || !self::isValidPrecedence( $precedence ) ) {
 				$precedence = self::getPrecedence(); // site default; ignore fpc_select
 			}
 			$level = $row->fpc_level;
-			if( !self::isValidRestriction( $row->fpc_level ) ) {
+			if ( !self::isValidRestriction( $row->fpc_level ) ) {
 				$level = ''; // site default; ignore fpc_level
 			}
 			$config = array(
@@ -1265,7 +1265,7 @@ class FlaggedRevs {
 			self::clearTrackingRows( $pagesClearTracking );
 		}
 		// Find and track the new stable version where needed
-		foreach( $pagesRetrack as $pageId ) {
+		foreach ( $pagesRetrack as $pageId ) {
 			$title = Title::newFromId( $pageId, GAID_FOR_UPDATE );
 			// Determine the new stable version and update the tracking tables...
 			$srev = FlaggedRevision::newFromStable( $title, FR_MASTER, $config );
@@ -1479,7 +1479,7 @@ class FlaggedRevs {
 		if ( !is_array( $flags ) ) {
 			if ( $oldSv ) {
 				# Use the last stable version if $flags not given
-				if( $user->isAllowed( 'bot' ) ) {
+				if ( $user->isAllowed( 'bot' ) ) {
 					$flags = $oldSv->getTags(); // no change for bot edits
 				} else {
 					$flags = self::getAutoReviewTags( $oldSv->getTags() ); // account for perms

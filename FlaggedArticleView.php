@@ -355,13 +355,13 @@ class FlaggedArticleView {
 			$revsSince = FlaggedRevs::getRevCountSince( $this->article, $srev->getRevId() );
 			$tooltip = wfMsgHtml( 'revreview-draft-title' );
 			$pending = $prot;
-			if( self::showRatingIcon() ) {
+			if ( self::showRatingIcon() ) {
 				$pending .= FlaggedRevsXML::draftStatusIcon();
 			}
 			$pending .= wfMsgExt( 'revreview-edited',
 				array( 'parseinline' ), $srev->getRevId(), $revsSince );
 			$anchor = $wgRequest->getVal( 'fromsection' );
-			if( $anchor != null ) {
+			if ( $anchor != null ) {
 				$section = str_replace( '_', ' ', $anchor ); // prettify
 				$pending .= wfMsgExt( 'revreview-edited-section', 'parse', $anchor, $section );
 			}
@@ -871,13 +871,13 @@ class FlaggedArticleView {
 	
 	public function addToNoSuchSection( $editPage, &$s ) {
 		$this->load();
-		if( !$this->article->isReviewable() ) {
+		if ( !$this->article->isReviewable() ) {
 			return true; // nothing to do
 		}
 		$frev = $this->article->getStableRev();
-		if( $frev && $frev->getRevId() != $this->article->getLatest() ) {
+		if ( $frev && $frev->getRevId() != $this->article->getLatest() ) {
 			$revsSince = FlaggedRevs::getRevCountSince( $this->article, $frev->getRevId() );
-			if( $revsSince ) {
+			if ( $revsSince ) {
 				$s .= "<div class='flaggedrevs_editnotice plainlinks'>" .
 					wfMsgExt( 'revreview-pending-nosection', array( 'parseinline' ),
 						$frev->getRevId(), $revsSince ) . "</div>";
@@ -898,7 +898,7 @@ class FlaggedArticleView {
 		$links = array();
 		$category = $this->article->getTitle()->getText();
 		# Add link to list of unreviewed pages in this category
-		if( !FlaggedRevs::stableOnlyIfConfigured() ) {
+		if ( !FlaggedRevs::stableOnlyIfConfigured() ) {
 			$links[] = $wgUser->getSkin()->makeKnownLinkObj(
 				SpecialPage::getTitleFor( 'UnreviewedPages' ),
 				wfMsgHtml( 'unreviewedpages' ),
@@ -947,7 +947,7 @@ class FlaggedArticleView {
 		$rev = false;
 		if ( $this->reviewFormRev ) {
 			$rev = $this->reviewFormRev; // $newRev for diffs stored here
-		} elseif( $wgOut->getRevisionId() ) {
+		} elseif ( $wgOut->getRevisionId() ) {
 			$rev = Revision::newFromId( $wgOut->getRevisionId() );
 		}
 		# Build the review form as needed
@@ -1080,7 +1080,7 @@ class FlaggedArticleView {
 			}
 	   	}
 		# Add "pending changes" tab if the page is not synced
-		if( !$synced ) {
+		if ( !$synced ) {
 			$this->addDraftTab( $fa, $views, $srev, $action );
 		}
 		return true;
@@ -1107,7 +1107,7 @@ class FlaggedArticleView {
 			$tabs['read']['class'] = 'selected';
 		} elseif ( self::isViewAction( $action ) ) {
 			// Are we looking at a draft/current revision?
-			if( $wgOut->getRevisionId() > $srev->getRevId() ) {
+			if ( $wgOut->getRevisionId() > $srev->getRevId() ) {
 				$tabs['draft']['class'] = 'selected';
 			// Otherwise, fallback to regular tab behavior
 			} else {
@@ -1123,7 +1123,7 @@ class FlaggedArticleView {
 				$first = false;
 				// 'view' tab? In this case, the "page"/"discussion" tabs are not
 				// part of $views. Also, both the page/talk page have a 'view' tab.
-				if( $tabAction == 'view' ) {
+				if ( $tabAction == 'view' ) {
 					// 'view' for content page; make it go to the stable version
 					$newViews[$tabAction]['text'] = $data['text']; // keep tab name
 					$newViews[$tabAction]['href'] = $tabs['read']['href'];
@@ -1137,7 +1137,7 @@ class FlaggedArticleView {
 			// All other tabs...
 			} else {
 				// Add 'draft' tab to content page to the left of 'edit'...
-				if( $tabAction == 'edit' || $tabAction == 'viewsource' ) {
+				if ( $tabAction == 'edit' || $tabAction == 'viewsource' ) {
 					$newViews['current'] = $tabs['draft'];
 				}
 				$newViews[$tabAction] = $data;
@@ -1200,7 +1200,7 @@ class FlaggedArticleView {
 			$synced = ( $value === "true" ) ? true : false;
 
 			$changeList = array();
-			if( !$synced ) {
+			if ( !$synced ) {
 				# Add a list of links to each changed template...
 				$changeList += $this->fetchTemplateChanges( $frev );
 				# Add a list of links to each changed file...
@@ -1211,7 +1211,7 @@ class FlaggedArticleView {
 			$notice = '';
 			if ( count( $changeList ) > 0 ) {
 				# We use the stable version of includes, unless set otherwise
-				if( FlaggedRevs::inclusionSetting() != FR_INCLUDES_CURRENT ) {
+				if ( FlaggedRevs::inclusionSetting() != FR_INCLUDES_CURRENT ) {
 					$notice = wfMsgExt( 'revreview-update-use', 'parse' );
 				}
 			} elseif ( !$synced ) {
@@ -1223,7 +1223,7 @@ class FlaggedArticleView {
 			if ( $newRev->getId() > $oldRev->getId() ) {
 				# "Please review" notice...
 				$msg = 'revreview-update';
-				if( $wgRequest->getInt( 'shownotice' )
+				if ( $wgRequest->getInt( 'shownotice' )
 					&& $newRev->isCurrent()
 					&& $newRev->getRawUserText() == $wgUser->getName() )
 				{
@@ -1268,7 +1268,7 @@ class FlaggedArticleView {
 			$review = $wgUser->getSkin()->makeKnownLinkObj(
 				$this->article->getTitle(),
 				wfMsgHtml( 'review-diff2stable' ),
-				'oldid='.$frev->getRevId().'&diff=cur&diffonly=0'
+				'oldid=' . $frev->getRevId() . '&diff=cur&diffonly=0'
 			);
 			$review = wfMsgHtml( 'parentheses', $review );
 			$review = "<div class='fr-diff-to-stable' align='center'>$review</div>";
@@ -1325,7 +1325,7 @@ class FlaggedArticleView {
 				$msg = 'revreview-hist-draft';
 			}
 			$class = FlaggedRevsXML::getQualityColor( $newRevQ );
-			$form .= 
+			$form .=
 				"<table class='fr-diff-ratings'>" .
 				"<tr><td align='center'><span id='mw-fr-diff-rtier' class='$class'>" .
 				'[' . wfMsgHtml( $msg ) . ']' .
@@ -1458,7 +1458,7 @@ class FlaggedArticleView {
 		if ( $frev->userCanSetFlags() ) {
 			$extraQuery .= $extraQuery ? '&' : '';
 			// Override diffonly setting to make sure the content is shown
-			$extraQuery .= 'oldid='.$frev->getRevId().'&diff=cur&diffonly=0&shownotice=1';
+			$extraQuery .= 'oldid=' . $frev->getRevId() . '&diff=cur&diffonly=0&shownotice=1';
 		// ...otherwise, go to the current revision after completing an edit.
 		// This allows for users to immediately see their changes.
 		} else {
@@ -1467,7 +1467,7 @@ class FlaggedArticleView {
 			// Show a notice at the top of the page for non-reviewers...
 			if ( !$wgUser->isAllowed( 'review' ) && $this->article->isStableShownByDefault() ) {
 				$extraQuery .= '&shownotice=1';
-				if( $sectionAnchor ) {
+				if ( $sectionAnchor ) {
 					// Pass a section parameter in the URL as needed to add a link to
 					// the "your changes are pending" box on the top of the page...
 					$section = str_replace(

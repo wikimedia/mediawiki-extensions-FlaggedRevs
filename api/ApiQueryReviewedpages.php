@@ -46,11 +46,11 @@ class ApiQueryReviewedpages extends ApiQueryGeneratorBase {
 		// Construct SQL Query
 		$this->addTables( array( 'page', 'flaggedpages' ) );
 		$this->addWhereFld( 'page_namespace', $params['namespace'] );
-		if( $params['filterredir'] == 'redirects' )
+		if ( $params['filterredir'] == 'redirects' )
 			$this->addWhereFld( 'page_is_redirect', 1 );
-		if( $params['filterredir'] == 'nonredirects' )
+		if ( $params['filterredir'] == 'nonredirects' )
 			$this->addWhereFld( 'page_is_redirect', 0 );
-		if( $params['filterlevel'] !== null )
+		if ( $params['filterlevel'] !== null )
 			$this->addWhereFld( 'fp_quality', $params['filterlevel'] );
 		$this->addWhereRange(
 			'fp_page_id',
@@ -81,7 +81,7 @@ class ApiQueryReviewedpages extends ApiQueryGeneratorBase {
 		}
 
 		$limit = $params['limit'];
-		$this->addOption( 'LIMIT', $limit+1 );
+		$this->addOption( 'LIMIT', $limit + 1 );
 		$res = $this->select( __METHOD__ );
 
 		$data = array ();
@@ -177,7 +177,7 @@ class ApiQueryReviewedpages extends ApiQueryGeneratorBase {
 				'In which direction to list.',
 				'*newer: list the newest pages first',
 				'*older: list the oldest pages first'
-			)				
+			)
 		);
 	}
 
@@ -198,6 +198,6 @@ class ApiQueryReviewedpages extends ApiQueryGeneratorBase {
 	}
 	
 	public function getVersion() {
-		return __CLASS__.': $Id$';
+		return __CLASS__ . ': $Id$';
 	}
 }

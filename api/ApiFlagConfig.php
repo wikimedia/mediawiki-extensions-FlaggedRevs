@@ -31,7 +31,7 @@ class ApiFlagConfig extends ApiBase {
 	public function execute() {
 		global $wgFlaggedRevTags;
 		$data = array();
-		foreach( $wgFlaggedRevTags as $tag => $params ) {
+		foreach ( $wgFlaggedRevTags as $tag => $params ) {
 			$tagInfo = array();
 			$tagInfo['name'] = $tag;
 			$tagInfo['levels'] = $params['levels'];
@@ -48,8 +48,8 @@ class ApiFlagConfig extends ApiBase {
 		return false;
 	}
 	
-	public function isWriteMode() { 
- 		return false; 
+	public function isWriteMode() {
+ 		return false;
  	}
 
 	public function getAllowedParams() {
@@ -78,6 +78,6 @@ class ApiFlagConfig extends ApiBase {
 	}
 	
 	public function getVersion() {
-		return __CLASS__.': $Id$';
+		return __CLASS__ . ': $Id$';
 	}
 }

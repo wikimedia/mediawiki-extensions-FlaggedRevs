@@ -46,9 +46,9 @@ class ApiQueryUnreviewedpages extends ApiQueryGeneratorBase {
 		// Construct SQL Query
 		$this->addTables( array( 'page', 'flaggedpages' ) );
 		$this->addWhereFld( 'page_namespace', $params['namespace'] );
-		if( $params['filterredir'] == 'redirects' )
+		if ( $params['filterredir'] == 'redirects' )
 			$this->addWhereFld( 'page_is_redirect', 1 );
-		if( $params['filterredir'] == 'nonredirects' )
+		if ( $params['filterredir'] == 'nonredirects' )
 			$this->addWhereFld( 'page_is_redirect', 0 );
 		$this->addWhereRange(
 			'page_title',
@@ -57,10 +57,10 @@ class ApiQueryUnreviewedpages extends ApiQueryGeneratorBase {
 			$params['end']
 		);
 		$this->addJoinConds(
-			array('flaggedpages' => array ('LEFT JOIN','fp_page_id=page_id') )
+			array( 'flaggedpages' => array ( 'LEFT JOIN', 'fp_page_id=page_id' ) )
 		);
 		$this->addWhere( 'fp_page_id IS NULL OR
-			fp_quality < '.intval($params['filterlevel']) );
+			fp_quality < ' . intval( $params['filterlevel'] ) );
 		$this->addOption(
 			'USE INDEX',
 			array( 'page' => 'name_title', 'flaggedpages' => 'PRIMARY' )
@@ -79,7 +79,7 @@ class ApiQueryUnreviewedpages extends ApiQueryGeneratorBase {
 		}
 
 		$limit = $params['limit'];
-		$this->addOption( 'LIMIT', $limit+1 );
+		$this->addOption( 'LIMIT', $limit + 1 );
 		$res = $this->select( __METHOD__ );
 
 		$data = array ();
@@ -160,7 +160,7 @@ class ApiQueryUnreviewedpages extends ApiQueryGeneratorBase {
 			'namespace' => 'The namespaces to enumerate.',
 			'filterredir' => 'How to filter for redirects',
 			'filterlevel' => 'How to filter by quality (0=sighted,1=quality)',
-			'limit' => 'How many total pages to return.',			
+			'limit' => 'How many total pages to return.',
 		);
 	}
 
@@ -181,6 +181,6 @@ class ApiQueryUnreviewedpages extends ApiQueryGeneratorBase {
 	}
 	
 	public function getVersion() {
-		return __CLASS__.': $Id$';
+		return __CLASS__ . ': $Id$';
 	}
 }

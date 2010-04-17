@@ -48,25 +48,25 @@ class ApiQueryOldreviewedpages extends ApiQueryGeneratorBase {
 		$this->addTables( array( 'page', 'flaggedpages', 'revision' ) );
 		$this->addWhereFld( 'page_namespace', $params['namespace'] );
 		$useIndex = array( 'flaggedpages' => 'fp_pending_since' );
-		if( $params['filterredir'] == 'redirects' )
+		if ( $params['filterredir'] == 'redirects' )
 			$this->addWhereFld( 'page_is_redirect', 1 );
-		if( $params['filterredir'] == 'nonredirects' )
+		if ( $params['filterredir'] == 'nonredirects' )
 			$this->addWhereFld( 'page_is_redirect', 0 );
-		if( $params['maxsize'] !== null )
+		if ( $params['maxsize'] !== null )
 			# Get absolute difference for comparison. ABS(x-y)
 			# is broken due to mysql unsigned int design.
-			$this->addWhere( 'GREATEST(page_len,rev_len)-LEAST(page_len,rev_len) <= '.
-				intval($params['maxsize']) );
-		if( $params['filterwatched'] == 'watched' ) {
-			if( !($uid = $wgUser->getId()) ) {
-				$this->dieUsage('You must be logged-in to have a watchlist', 'notloggedin');
+			$this->addWhere( 'GREATEST(page_len,rev_len)-LEAST(page_len,rev_len) <= ' .
+				intval( $params['maxsize'] ) );
+		if ( $params['filterwatched'] == 'watched' ) {
+			if ( !( $uid = $wgUser->getId() ) ) {
+				$this->dieUsage( 'You must be logged-in to have a watchlist', 'notloggedin' );
 			}
 			$this->addTables( 'watchlist' );
 			$this->addWhereFld( 'wl_user', $uid );
 			$this->addWhere( 'page_namespace = wl_namespace' );
 			$this->addWhere( 'page_title = wl_title' );
 		}
-		if( $params['category'] != '' ) {
+		if ( $params['category'] != '' ) {
 			$this->addTables( 'categorylinks' );
 			$this->addWhere( 'cl_from = fp_page_id' );
 			$this->addWhereFld( 'cl_to', $params['category'] );
@@ -103,7 +103,7 @@ class ApiQueryOldreviewedpages extends ApiQueryGeneratorBase {
 		}
 
 		$limit = $params['limit'];
-		$this->addOption( 'LIMIT', $limit+1 );
+		$this->addOption( 'LIMIT', $limit + 1 );
 		$res = $this->select( __METHOD__ );
 
 		$data = array ();
@@ -205,7 +205,7 @@ class ApiQueryOldreviewedpages extends ApiQueryGeneratorBase {
 				'In which direction to list.',
 				'*newer: list the longest waiting pages first',
 				'*older: list the newest items first'
-			)				
+			)
 		);
 	}
 
@@ -232,6 +232,6 @@ class ApiQueryOldreviewedpages extends ApiQueryGeneratorBase {
 	}
 	
 	public function getVersion() {
-		return __CLASS__.': $Id$';
+		return __CLASS__ . ': $Id$';
 	}
 }

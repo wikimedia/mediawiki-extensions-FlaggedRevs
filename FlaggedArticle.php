@@ -99,7 +99,7 @@ class FlaggedArticle extends Article {
 	 */
 	public function getStableRev( $flags = 0 ) {
 		# Cached results available?
-		if ( !($flags & FR_MASTER) && $this->stableRev !== null ) {
+		if ( !( $flags & FR_MASTER ) && $this->stableRev !== null ) {
 			return $this->stableRev;
 		}
 		# Do we have one?
@@ -119,7 +119,7 @@ class FlaggedArticle extends Article {
 	 */
 	public function getVisibilitySettings( $flags = 0 ) {
 		# Cached results available?
-		if ( !($flags & FR_MASTER) && $this->pageConfig !== null ) {
+		if ( !( $flags & FR_MASTER ) && $this->pageConfig !== null ) {
 			return $this->pageConfig;
 		}
 		# Get the content page, skip talk
