@@ -1483,26 +1483,38 @@ class FlaggedArticleView {
 	}
 
 	/**
-	* Add a hidden revision ID field to edit form.
-	* Needed for autoreview so it can select the flags from said revision.
+	* (a) Add a hidden field that has the rev ID the text is based off.
+	* (b) If an edit was undone, add a hidden field that has the rev ID of that edit.
+	* Needed for autoreview and user stats (for autopromote).
+	* Note: baseRevId trusted for Reviewers - text checked for others.
 	*/
-	public function addRevisionIDField( $editPage, $out ) {
+	public function addRevisionIDField( EditPage $editPage, OutputPage $out ) {
 		global $wgRequest;
 		$this->load();
 		$article = $editPage->getArticle(); // convenience
 		$latestId = $article->getLatest(); // current rev
-		# Find the ID of the revision being edited
-		$revId = $article->getOldID();
-		if( !$revId ) { // zero oldid => current revision
-			$revId = $latestId;
-		}
-		# If undoing a few consecutive top edits, we can treat this
-		# like a revert to a base revision...find its ID...
 		$undo = $wgRequest->getIntOrNull( 'undo' );
-		if ( $undo === $latestId ) {
-			# We are undoing all edits *after* some rev...get that rev's ID
+		# Undoing consecutive top edits...
+		if ( $undo && $undo === $latestId ) {
+			# Treat this like a revert to a base revision.
+			# We are undoing all edits *after* some rev ID (undoafter).
+			# If undoafter is not given, then it is the previous rev ID.
 			$revId = $wgRequest->getInt( 'undoafter',
 				$article->getTitle()->getPreviousRevisionID( $latestId, GAID_FOR_UPDATE ) );
+		# Undoing other edits...
+		} elseif ( $undo ) {
+			$revId = $latestId; // current rev is the base rev
+		# Other edits...
+		} else {
+			# If we are editing via oldid=X, then use that rev ID.
+			# Otherwise, check if the client specified the ID (bug 23098).
+			$revId = $article->getOldID()
+				? $article->getOldID()
+				: $wgRequest->getInt( 'baseRevId' ); // e.g. "show changes"/"preview"
+		}
+		# Zero oldid => current revision
+		if ( !$revId ) {
+			$revId = $latestId;
 		}
 		$out->addHTML( "\n" . Xml::hidden( 'baseRevId', $revId ) );
 		$out->addHTML( "\n" . Xml::hidden( 'undidRev',
