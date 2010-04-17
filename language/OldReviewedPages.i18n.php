@@ -351,6 +351,7 @@ $messages['cu'] = array(
  * @author Melancholie
  * @author Michawiki
  * @author Raimond Spekking
+ * @author The Evil IP address
  * @author Umherirrender
  */
 $messages['de'] = array(
@@ -362,7 +363,7 @@ $messages['de'] = array(
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|Tag|Tage}})',
 	'oldreviewedpages-recent' => '(weniger als 1 Stunde)',
 	'oldreviewed-category' => 'Kategorie:',
-	'oldreviewed-watched' => 'Auf meiner Beobachtungsliste',
+	'oldreviewed-watched' => 'Seiten auf meiner Beobachtungsliste',
 	'oldreviewed-stable' => 'Stabile Version',
 	'oldreviewed-diff' => 'sichten',
 	'oldreviewed-size' => 'Maximale Änderungsgröße in Byte:',
