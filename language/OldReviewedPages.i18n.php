@@ -835,12 +835,13 @@ $messages['is'] = array(
 
 /** Italian (Italiano)
  * @author Beta16
+ * @author Civvì
  * @author Darth Kule
  * @author Melos
  * @author Pietrodn
  */
 $messages['it'] = array(
-	'oldreviewedpages' => 'Pagine non revisionate di recente',
+	'oldreviewedpages' => 'Pagine con modifiche non revisionate',
 	'oldreviewedpages-legend' => 'Elenco delle pagine revisionate ma con versioni non revisionate',
 	'oldreviewedpages-list' => 'Di seguito {{PLURAL:$1|è elencata una pagina revisionata ma che ha|sono elencate pagine revisionate ma che hanno}} delle modifiche ancora da revisionare.',
 	'oldreviewedpages-none' => 'Al momento non ci sono pagine che soddisfino i criteri di ricerca.',

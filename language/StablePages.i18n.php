@@ -580,7 +580,7 @@ $messages['pms'] = array(
  * @author Waldir
  */
 $messages['pt'] = array(
-	'stablepages' => 'Páginas que usam aprovação de edições',
+	'stablepages' => 'Páginas sujeitas à aprovação de edições',
 	'stablepages-text' => 'Segue-se uma lista de páginas restringidas, cujas edições só são publicadas após revisão por um utilizador autorizado. Só certos utilizadores podem editá-las sem ser sujeitos a revisão.',
 	'stablepages-none' => 'Não há páginas nesta lista.',
 	'stablepages-config' => 'Configuração',

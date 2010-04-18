@@ -655,7 +655,7 @@ $messages['ga'] = array(
  * @author Toliño
  */
 $messages['gl'] = array(
-	'validationstatistics' => 'Estatísticas de revisión da páxina',
+	'validationstatistics' => 'Estatísticas de revisión das páxinas',
 	'validationstatistics-users' => "Actualmente, '''{{SITENAME}}''' ten '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|usuario|usuarios}} con
 dereitos de [[{{MediaWiki:Validationpage}}|editor]].
 
@@ -1325,7 +1325,7 @@ $messages['no'] = array(
 	'validationstatistics' => 'Siderevideringsstatistikk',
 	'validationstatistics-users' => "'''{{SITENAME}}''' har på nåværende tidspunkt '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|bruker|brukere}} med [[{{MediaWiki:Validationpage}}|skribentrettigheter]].
 
-Skribenter er etablerte brukere som kan punktsjekke revisjoner på siden.",
+Skribenter er etablerte brukere som kan punktsjekke siderevisjoner.",
 	'validationstatistics-time' => "''Følgende data ble sist oppdatert $5, kl $6.''
 
 Endringer som har blitt sjekket av etablerte brukere blir ansett som godkjent.

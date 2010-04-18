@@ -407,7 +407,7 @@ $messages['frp'] = array(
 $messages['gl'] = array(
 	'reviewedpages' => 'Páxinas revisadas',
 	'reviewedpages-leg' => 'Listar as páxinas que foron revisadas',
-	'reviewedpages-list' => "Estas listas conteñen as páxinas [[{{MediaWiki:Validationpage}}|revisadas]] cuxo nivel de revisión ''maior alcanzado'' (dunha revisión) é o nivel especificado.
+	'reviewedpages-list' => "Estas listas conteñen as páxinas [[{{MediaWiki:Validationpage}}|revisadas]] cuxo nivel de revisión ''máis alto'' (dunha revisión) é o nivel especificado.
 Dáse unha ligazón cara á última revisión dese nivel.",
 	'reviewedpages-none' => 'Non hai páxinas nesta lista',
 	'reviewedpages-lev-0' => 'Revisado',
