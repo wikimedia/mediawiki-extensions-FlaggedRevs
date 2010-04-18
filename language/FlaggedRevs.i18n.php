@@ -19,19 +19,19 @@ $messages['en'] = array(
 	'action-review'                => 'review revisions',
 	'editor'                       => 'Editor',
 	'flaggedrevs'                  => 'Flagged Revisions',
-	'flaggedrevs-backlog'          => 'There is currently a backlog of [[Special:OldReviewedPages|pending edits]] to reviewed pages. \'\'\'Your attention is needed!\'\'\'',
-	'flaggedrevs-watched-pending'  => 'There are currently [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} pending edits] to reviewed pages on your watchlist. \'\'\'Your attention is needed!\'\'\'',
+	'flaggedrevs-backlog'          => 'There is currently a backlog of [[Special:OldReviewedPages|pending changes]] to reviewed pages. \'\'\'Your attention is needed!\'\'\'',
+	'flaggedrevs-watched-pending'  => 'There are currently [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} pending changes] to reviewed pages on your watchlist. \'\'\'Your attention is needed!\'\'\'',
 	'flaggedrevs-desc'             => 'Gives Editors and Reviewers the ability to review revisions and stabilize pages',
 	'flaggedrevs-pref-UI'          => 'Basic interface:',
 	'flaggedrevs-pref-UI-0'        => 'Use detailed boxes to show approval status of pages',
 	'flaggedrevs-pref-UI-1'        => 'Use small icons and minimal text to show approval status of pages',
 	'flaggedrevs-stable-categories' => '', # A asterix separated list of categories that must be reviewed; do not translate or duplicate this message to other languages
-	'prefs-flaggedrevs'            => 'Stability',
-	'prefs-flaggedrevs-ui'         => 'Flagged revisions',
+	'prefs-flaggedrevs'            => 'Edit approval',
+	'prefs-flaggedrevs-ui'         => 'Edit approval',
 	'flaggedrevs-prefs-stable'     => 'Always show the published version of content pages by default (if there is one)',
 	'flaggedrevs-prefs-watch'      => 'Add pages I review to my watchlist',
 	'flaggedrevs-prefs-editdiffs'  => 'Show the pending changes diff when editing pages',
-	'flaggedrevs-prefs-viewdiffs'  => 'Show the pending changes diff when viewing the latest page revision',
+	'flaggedrevs-prefs-viewdiffs'  => 'Show the pending changes diff when viewing the latest pending revision',
 	'group-editor'                 => 'Editors',
 	'group-editor-member'          => 'editor',
 	'group-reviewer'               => 'Reviewers',
@@ -49,7 +49,7 @@ $messages['en'] = array(
 	'revreview-hist-basic-auto'    => '[{{fullurl:$1|stableid=$2}} automatically checked]',
 	'revreview-hist-quality-auto'  => '[{{fullurl:$1|stableid=$2}} automatically approved]',
 	'revreview-hist-pending'       => '\'\'\'[[{{fullurl:$1|oldid=$2&diff=$3}} pending review]]\'\'\'',
-	'review-edit-diff'             => '\'\'\'NOTICE: Some pending changes to the published version are incorporated into the edit form below.\'\'\'', 
+	'review-edit-diff'             => '\'\'\'NOTICE: Some pending changes to the published version are incorporated into the edit form below.\'\'\'',
 	'revreview-diff-toggle-show'   => 'show changes',
 	'revreview-diff-toggle-hide'   => 'hide changes',
 	'revreview-diff-toggle-title'  => 'Toggle display of pending changes to the published version',
@@ -64,8 +64,7 @@ $messages['en'] = array(
 	'review-logentry-diff'         => 'changes reviewed',
 	'review-logentry-diff2'        => 'changes deprecated',
 	'review-logpage'               => 'Review log',
-	'review-logpagetext'           => 'This is a log of changes to revisions\' [[{{MediaWiki:Validationpage}}|approval]] status for content pages.
-	See the [[Special:ReviewedPages|reviewed pages list]] for a list of approved pages.',
+	'review-logpagetext'           => 'This is a log of changes to revisions\' [[{{MediaWiki:Validationpage}}|approval]] status for content pages.',
 	'reviewer'                     => 'Reviewer',
 	'revisionreview'               => 'Review revisions',
 	'revreview-accuracy'           => 'Accuracy',
@@ -84,7 +83,7 @@ There are [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} template/f
 	New [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} changes] may have been made.',
 	'revreview-basic-same'         => 'This is the [[{{MediaWiki:Validationpage}}|published version]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} checked] on <i>$2</i>.',
 	'revreview-basic-source'       => 'A [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} checked version] of this page, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>, was based off this revision.',
-	'revreview-failed'             => "'''Unable to review this revision.''' The submission is incomplete or otherwise invalid.",
+	'revreview-failed'             => "'''Unable to review this revision.''' The submission was incomplete or otherwise invalid.",
 	'revreview-changed'            => '\'\'\'The requested action could not be performed on this revision of [[:$1|$1]].\'\'\'
 
 A template or file may have been requested when no specific version was specified.
@@ -99,9 +98,9 @@ Refreshing the page and rereviewing can solve this problem.',
 	'revreview-depth-4'            => 'Featured',
 	'revreview-draft-title'        => 'Pending changes are displayed on this page',
 	'revreview-edit'               => 'Edit',
-	'revreview-editnotice'         => '\'\'\'Your changes will be [[{{MediaWiki:Validationpage}}|published]] once an authorised user [[{{MediaWiki:Validationpage}}|reviews]] them.\'\'\'',
-	'revreview-check-flag'         => 'Publish currently pending edits',
-	'revreview-edited'             => '\'\'\'Changes will be [[{{MediaWiki:Validationpage}}|published]] once an authorised user [[{{MediaWiki:Validationpage}}|reviews]] them.\'\'\'
+	'revreview-editnotice'         => '\'\'\'Your changes will be published once an authorized user reviews them. ([[{{MediaWiki:Validationpage}}|?]])\'\'\'',
+	'revreview-check-flag'         => 'Publish currently pending changes',
+	'revreview-edited'             => '\'\'\'Changes will be published once an authorized user reviews them. ([[{{MediaWiki:Validationpage}}|?]])\'\'\'
 
 There {{PLURAL:$2|is|are}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 pending {{PLURAL:$2|change|changes}}] \'\'(shown below)\'\' awaiting review.',
 	'revreview-edited-section'     => 'Return to page section named "[[#$1|$2]]".',
@@ -157,8 +156,8 @@ There are [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} template/f
 	'revreview-style-3'            => 'Concise',
 	'revreview-style-4'            => 'Featured',
 	'revreview-submit'             => 'Submit',
-	'revreview-submit-review'      => 'Mark checked',
-	'revreview-submit-unreview'    => 'Mark unchecked',
+	'revreview-submit-review'      => 'Approve',
+	'revreview-submit-unreview'    => 'De-approve',
 	'revreview-submitting'         => 'Submitting...',
 	'revreview-submit-reviewed'    => 'Done. Checked!',
 	'revreview-submit-unreviewed'  => 'Done. Unchecked!',
@@ -168,8 +167,8 @@ There are [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} template/f
 	'revreview-toggle-show'        => '(+)',
 	'revreview-toggle-hide'        => '(-)',
 	'revreview-toggle-title'       => 'show/hide details',
-	'revreview-toolow'             => '\'\'\'You must rate each of the below attributes higher than "unapproved" in order for a revision to be considered reviewed.\'\'\'
-To deprecate a revision, set all fields to "unapproved".
+	'revreview-toolow'             => '\'\'\'You must rate each of the attributes higher than "unapproved" in order for a revision to be considered reviewed.\'\'\'
+To remove the review status of a revision, set all fields to "unapproved".
 
 Please hit the "back" button in your browser and try again.',
 	'revreview-update'             => 'Please [[{{MediaWiki:Validationpage}}|review]] any pending changes \'\'(shown below)\'\' made to the published version.',
@@ -191,21 +190,20 @@ Please check the URL you used to access this page.',
 	'right-unreviewedpages'        => 'View the [[Special:UnreviewedPages|list of unreviewed pages]]',
 	'rights-editor-autosum'        => 'autopromoted',
 	'rights-editor-revoke'         => 'removed editor status from [[$1]]', # B/C
-	'specialpages-group-quality'   => 'Quality assurance',
+	'specialpages-group-quality'   => 'Edit approval',
 	'stable-logentry-config'       => 'configured publication settings for [[$1]]',
 	'stable-logentry-reset'        => 'reset publication settings for [[$1]]',
 	'stable-log-restriction'       => 'Publish: require "$1" permission',
 	'stable-logpage'               => 'Stability log',
-	'stable-logpagetext'           => 'This is a log of changes to the [[{{MediaWiki:Validationpage}}|published version]] configuration of content pages.
-	The list of pages that require edit approval can be found at the [[Special:StablePages|stable pages list]].',
+	'stable-logpagetext'           => 'This is a log of changes to the [[{{MediaWiki:Validationpage}}|published version]] configuration of content pages.',
 	
 	'revreview-filter-all'         => 'all',
 	'revreview-filter-stable'      => 'published',
 	
-	'revreview-statusfilter'       => 'Status change:',
+	'revreview-statusfilter'       => 'Approval action:',
 	'revreview-filter-approved'    => 'Approved',
 	'revreview-filter-reapproved'  => 'Re-approved',
-	'revreview-filter-unapproved'  => 'Unapproved',
+	'revreview-filter-unapproved'  => 'De-approved',
 	
 	'revreview-typefilter'         => 'Type:',
 	'revreview-filter-auto'        => 'Automatic',
