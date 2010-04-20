@@ -327,6 +327,7 @@ $messages['cu'] = array(
 
 /** German (Deutsch)
  * @author ChrisiPK
+ * @author Kghbln
  * @author Melancholie
  * @author The Evil IP address
  * @author Umherirrender
