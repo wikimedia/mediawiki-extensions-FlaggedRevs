@@ -277,6 +277,13 @@ $messages['ja'] = array(
 	'configuredpages-def-stable' => '公開版',
 );
 
+/** Georgian (ქართული)
+ * @author BRUTE
+ */
+$messages['ka'] = array(
+	'configuredpages-def-draft' => 'უკანასკნელი ვერსია',
+);
+
 /** Luxembourgish (Lëtzebuergesch)
  * @author Robby
  */

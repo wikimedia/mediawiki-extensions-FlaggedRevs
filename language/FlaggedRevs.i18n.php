@@ -1463,6 +1463,7 @@ $messages['be'] = array(
  * @author EugeneZelenko
  * @author Jim-by
  * @author Red Winged Duck
+ * @author Wizardist
  */
 $messages['be-tarask'] = array(
 	'action-review' => 'праверыць вэрсіі',
@@ -1548,9 +1549,9 @@ $messages['be-tarask'] = array(
 	'revreview-edit' => 'Рэдагаваць',
 	'revreview-editnotice' => "'''Вашыя рэдагаваньні будуць апублікаваныя пасьля таго, як іх прарэцэнзуе аўтарызаваны удзельнік.([[{{MediaWiki:Validationpage}}|?]])'''",
 	'revreview-check-flag' => 'Апублікаваць цяперашнія рэдагаваньні, якія чакаюць праверкі',
-	'revreview-edited' => "'''Рэдагаваньні будуць апублікаваныя пасьля таго, як іх прарэцэнзуе аўтарызаваны удзельнік.([[{{MediaWiki:Validationpage}}|?]])'''
+	'revreview-edited' => "'''Рэдагаваньні будуць апублікаваныя пасьля таго, як іх прарэцэнзуе ўпаўнаважаны ўдзельнік.([[{{MediaWiki:Validationpage}}|?]])'''
 
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 {{PLURAL:$2|зьмена|зьмены|зьмены}}] {{PLURAL:$2|''(паказаная ніжэй)'' чакае|''(паказаныя ніжэй)'' чакаюць|''(паказаныя ніжэй)'' чакаюць}}] рэцэнзаваньня.",
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 {{PLURAL:$2|зьмена|зьмены|зьмены}}] {{PLURAL:$2|''(паказаная ніжэй)'' чакае|''(паказаныя ніжэй)'' чакаюць|''(паказаныя ніжэй)'' чакаюць}} рэцэнзаваньня.",
 	'revreview-edited-section' => 'Вярнуцца да сэкцыі з назвай «[[#$1|$2]]».',
 	'revreview-flag' => 'Праверыць гэту вэрсію',
 	'revreview-reflag' => 'Пераправерыць гэтую вэрсію',
