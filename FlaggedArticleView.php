@@ -278,9 +278,9 @@ class FlaggedArticleView {
 		# Wrap tag contents in a div
 		if ( $tag != '' ) {
 			$rtl = $wgContLang->isRTL() ? " rtl" : ""; // RTL langauges
-			$tag = "<div id='mw-fr-revisiontag' class='{$tagClass}{$rtl} plainlinks noprint'>" .
-				"$tag</div>";
-			$this->reviewNotice .= $tag;
+			$css = "{$tagClass}{$rtl} plainlinks noprint";
+			$notice = "<div id=\"mw-fr-revisiontag\" class=\"$css\">$tag</div>\n";
+			$this->reviewNotice .= $notice;
 		}
 		return true;
 	}
