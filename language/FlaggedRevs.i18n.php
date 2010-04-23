@@ -1969,7 +1969,7 @@ $messages['br'] = array(
 	'revreview-depth-4' => 'Heverk',
 	'revreview-draft-title' => "Ar c'hemmoù o c'hortoz a zo diskouezet er bajenn-mañ",
 	'revreview-edit' => 'Kemmañ',
-	'revreview-editnotice' => "'''[[{{MediaWiki:Validationpage}}|Embannet]] e vo ho kemmoù pe 'vo bet [[{{MediaWiki:Validationpage}}|adlennet]] gant un implijer en deus ar gwirioù a zere.'''",
+	'revreview-editnotice' => "'''Ho kemmoù a vo embannet pa 'vo bet adlennet gant un implijer en deus ar gwirioù a zere.'''",
 	'revreview-check-flag' => "Embann ar c'hemmoù o c'hortoz er mare-mañ",
 	'revreview-edited' => "'''[[{{MediaWiki:Validationpage}}|Embannet]] e vo ar c'hemmoù ur wezh bet [[{{MediaWiki:Validationpage}}|adlennet]] gant un implijer aotreet.'''
 
@@ -2054,6 +2054,7 @@ Bez ez eus [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} kemmoù p
 	'stable-logentry-reset' => 'en deus adderaouekaet an arventennoù embann eus [[$1]]',
 	'stable-log-restriction' => 'Embann : ezhomm \'zo an aotre "$1"',
 	'stable-logpage' => 'Marilh ar stummoù stabil',
+	'stable-logpagetext' => "Setu marilh ar c'hemmoù evit kefluniadur [[{{MediaWiki:Validationpage}}|stummoù embannet]] ar pajennoù.",
 	'revreview-filter-all' => 'pep tra',
 	'revreview-filter-stable' => 'Embannet',
 	'revreview-statusfilter' => 'Obererezh aprouiñ :',
