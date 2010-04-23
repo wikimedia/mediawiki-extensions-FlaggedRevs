@@ -292,11 +292,10 @@ class FlaggedRevsXML {
 				$frev->getRevId(), $time, $revsSince );
 		}
 		# Make fancy box...
-		$box = "<table style=\"background: none; border-spacing: 0px;\">\n";
-		$box .= '<tr style="white-space:nowrap;">';
-		$box .= '<td align="right">' . $shtml . '&nbsp;' . self::ratingToggle() . '</td>';
-		$box .= "</tr>\n<tr>";
-		$box .= '<td id="mw-fr-revisionratings" align="left">';
+		$box = '<div class="flaggedrevs_short_basic">' . $shtml .
+			'&nbsp;' . self::ratingToggle() . "</div>\n";
+		$box .= '<div style="position: relative;">'; // for rel-absolute child div
+		$box .= '<div id="mw-fr-revisionratings" class="flaggedrevs_short_details">';
 		$box .= $html; // details text
 		# Add any rating tags as needed...
 		if ( $flags && !FlaggedRevs::binaryFlagging() ) {
@@ -305,7 +304,7 @@ class FlaggedRevsXML {
 				$box .= '<p>' . self::addTagRatings( $flags, true, $color ) . '</p>';
 			}
 		}
-		$box .= "</td></tr>\n</table>\n";
+		$box .= "</div></div>\n";
         return $box;
 	}
 
