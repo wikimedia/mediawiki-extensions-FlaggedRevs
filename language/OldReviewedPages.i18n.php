@@ -923,6 +923,7 @@ $messages['ko'] = array(
 	'oldreviewedpages-days' => '($1일 전)',
 	'oldreviewedpages-recent' => '(1시간 미만)',
 	'oldreviewed-category' => '분류:',
+	'oldreviewed-watched' => '내가 주시하고 있는 문서',
 	'oldreviewedpages-unwatched' => '(주시되지 않음)',
 	'oldreviewedpages-watched' => '($1명의 활동적인 {{PLURAL:$1|사용자가|사용자들이}} 주시중)',
 	'oldreviewedpages-viewing' => '(확인 중)',

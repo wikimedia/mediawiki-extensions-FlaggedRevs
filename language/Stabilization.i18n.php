@@ -1913,13 +1913,17 @@ $messages['ko'] = array(
 	'stabilization-submit' => '확인',
 	'stabilization-notexists' => '"[[:$1|$1]]" 문서가 존재하지 않습니다.
 설정이 불가능합니다.',
+	'stabilization-notcontent' => '"[[:$1|$1]]" 문서는 검토할 수 없습니다.
+설정이 불가능합니다.',
 	'stabilization-comment' => '이유:',
 	'stabilization-otherreason' => '다른 이유:',
 	'stabilization-expiry' => '기한:',
+	'stabilization-othertime' => '다른 시간:',
 	'stabilization-def-short' => '기본 설정',
 	'stabilize_expiry_invalid' => '기한을 잘못 입력하였습니다.',
 	'stabilize_expiry_old' => '기한을 과거로 입력하였습니다.',
 	'stabilize-expiring' => '$1 (UTC)에 만료',
+	'stabilization-review' => '현재 판을 확인한 것으로 표시',
 );
 
 /** Colognian (Ripoarisch)

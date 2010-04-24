@@ -432,7 +432,7 @@ $messages['km'] = array(
  */
 $messages['ko'] = array(
 	'stablepages' => '편집 가능한 문서들',
-	'stablepages-text' => '다음은 독자들에게 보여 줄 안정 버전으로서의 기본 문서 내용을 어떻게 보여 줄 것인지 수동으로 설정된 문서의 목록입니다.',
+	'stablepages-text' => '다음은 문서에 제한이 걸려 있어 특정 사용자만 검토를 거치지 않고 편집을 할 수 있는 문서의 목록입니다. 편집한 내용은 권한이 있는 사용자가 검토하기 전까지는 공개되지 않습니다.',
 	'stablepages-none' => '이 목록에 문서가 없습니다.',
 	'stablepages-config' => '설정',
 );

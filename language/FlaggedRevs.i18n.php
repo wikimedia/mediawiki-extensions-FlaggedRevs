@@ -6613,6 +6613,7 @@ Verifica le adresse URL que tu ha usate pro acceder a iste pagina.',
  * @author Irwangatot
  * @author IvanLanin
  * @author Iwan Novirion
+ * @author Kenrick95
  * @author Rex
  */
 $messages['id'] = array(
@@ -6646,6 +6647,8 @@ $messages['id'] = array(
 	'revreview-hist-quality-user' => '[{{fullurl:$1|stableid=$2}} divalidasi] oleh [[User:$3|$3]]',
 	'revreview-hist-basic-user' => '[{{fullurl:$1|stableid=$2}} diperiksa] oleh [[User:$3|$3]]',
 	'revreview-hist-basic-auto' => '[{{fullurl:$1|stableid=$2}} otomatis terperiksa]',
+	'revreview-diff-toggle-show' => 'tampilkan perubahan',
+	'revreview-diff-toggle-hide' => 'sembunyikan perubahan',
 	'review-diff2stable' => 'Lihat perubahan antara revisi stabil dan terkini',
 	'review-logentry-app' => 'versi tertinjau dari [[$1]]',
 	'review-logentry-dis' => 'versi lama dari [[$1]]',
@@ -7334,7 +7337,7 @@ $messages['ka'] = array(
 	'review-logentry-diff' => 'შემოწმებული ცვლილებები',
 	'review-logentry-diff2' => 'მოძველებული ცვლილებები',
 	'review-logpage' => 'შემოწმების ჟურნალი',
-	'review-logpagetext' => 'ეს არისგ ვერდის  [[{{MediaWiki:Validationpage}}|შემოწმებული]] ვერსიების ჟურნალი.',
+	'review-logpagetext' => 'ეს არის გვერდის  [[{{MediaWiki:Validationpage}}|შემოწმებული ვერსიების]]  ჟურნალი.',
 	'reviewer' => 'რეცენზისტი',
 	'revisionreview' => 'ვერსიების შემოწმება',
 	'revreview-accuracy' => 'სიზუსტე',
@@ -7860,7 +7863,9 @@ $messages['kn'] = array(
  * @author Yknok29
  */
 $messages['ko'] = array(
+	'action-review' => '편집을 검토할',
 	'editor' => '편집자',
+	'flaggedrevs-pref-UI' => '기본 인터페이스:',
 	'flaggedrevs-prefs-watch' => '내가 검토한 문서를 주시문서 목록에 추가',
 	'group-editor' => '편집자',
 	'group-editor-member' => '편집자',
@@ -7879,8 +7884,12 @@ $messages['ko'] = array(
 	'reviewer' => '평론가',
 	'revisionreview' => '편집들을 검토하기',
 	'revreview-accuracy' => '정확성',
+	'revreview-accuracy-0' => '미승인',
+	'revreview-accuracy-1' => '확인함',
 	'revreview-accuracy-2' => '정확함',
 	'revreview-accuracy-3' => '출처가 잘 제시됨',
+	'revreview-accuracy-4' => '알참',
+	'revreview-approved' => '승인함',
 	'revreview-auto' => '(자동)',
 	'revreview-failed' => '검토 실패!',
 	'revreview-current' => '초안',
@@ -7891,6 +7900,7 @@ $messages['ko'] = array(
 	'revreview-depth-4' => '알참',
 	'revreview-draft-title' => '초안 문서',
 	'revreview-edit' => '편집',
+	'revreview-edited-section' => '"[[#$1|$2]]" 단락으로 돌아가기',
 	'revreview-flag' => '이 판을 검토하기',
 	'revreview-log' => '의견:',
 	'revreview-newest-basic' => '이 문서는 <i>$2</i>에 마지막으로 [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 검토]되었습니다. ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} 검토된 모든 편집의 목록])
@@ -7904,12 +7914,15 @@ $messages['ko'] = array(
 	'revreview-quick-see-quality' => "'''[[{{MediaWiki:Validationpage}}|초안]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 문서 보기]]
 [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} 비교]]",
 	'revreview-selected' => "'''$1:'''의 선택된 판",
+	'revreview-source' => '내용 보기',
 	'revreview-stable' => '안정 문서',
 	'revreview-style' => '가독성',
 	'revreview-style-2' => '좋음',
 	'revreview-style-3' => '명확함',
 	'revreview-submit' => '보내기',
 	'revreview-submitting' => '보내는 중...',
+	'revreview-submit-reviewed' => '완료. 확인하였습니다!',
+	'revreview-submit-unreviewed' => '완료. 확인 취소하였습니다!',
 	'revreview-successful' => "'''[[:$1|$1]] 문서의 편집이 성공적으로 검토되었습니다. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} 안정 버전 보기])'''",
 	'revreview-toggle-title' => '자세한 내용 보기/숨기기',
 	'revreview-update-includes' => "'''일부 틀이나 파일이 수정되었습니다:'''",
@@ -7918,6 +7931,7 @@ $messages['ko'] = array(
 	'right-movestable' => '안정 문서를 옮기기',
 	'right-review' => '다른 사람의 편집을 검토',
 	'right-stablesettings' => '어떻게 안정 버전이 선택되어 보여질 것인지 설정',
+	'right-validate' => '특정 판을 "양질"로 표시하기',
 	'right-unreviewedpages' => '[[Special:UnreviewedPages|검토되지 않은 문서의 목록]]을 보기',
 	'rights-editor-autosum' => '자동으로 권한이 부여됨',
 	'rights-editor-revoke' => '[[$1]]의 편집자 권한을 해제함',
@@ -7926,7 +7940,7 @@ $messages['ko'] = array(
 	'revreview-filter-all' => '모두',
 	'revreview-statusfilter' => '상태 변화:',
 	'revreview-filter-approved' => '승인됨',
-	'revreview-filter-unapproved' => '재승인됨',
+	'revreview-filter-unapproved' => '승인 취소됨',
 	'revreview-typefilter' => '유형:',
 	'revreview-filter-auto' => '자동',
 	'revreview-filter-manual' => '수동',
@@ -7935,10 +7949,12 @@ $messages['ko'] = array(
 	'revreview-reviewlink' => '검토',
 	'flaggedrevs-protect-none' => '모든 사용자에게 허용',
 	'flaggedrevs-protect-basic' => '기본 설정',
+	'revreview-locked-title' => '편집이 이 문서에 공개되기 전에 반드시 검토를 거쳐야 합니다.',
 	'revreview-unlocked-title' => '이 문서에 보여지기 전에 편집은 검토를 필요로 하지 않습니다!',
 	'revreview-unlocked' => '이 문서에 보여지기 전에 편집은 [[{{MediaWiki:Validationpage}}|검토]]를 필요로 하지 않습니다!',
 	'log-show-hide-review' => '문서 검토 기록 $1',
 	'revreview-tt-review' => '이 문서를 검토',
+	'revreview-tt-unflag' => '이 판에 대한 검토 취소하기',
 );
 
 /** Colognian (Ripoarisch)

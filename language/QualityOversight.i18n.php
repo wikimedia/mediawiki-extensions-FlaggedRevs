@@ -326,6 +326,15 @@ $messages['km'] = array(
 	'qualityoversight-legend' => 'ស្វែងរក​បញ្ជី​ត្រួតពិនិត្យ​ថ្មីៗ',
 );
 
+/** Korean (한국어)
+ * @author Kwj2772
+ */
+$messages['ko'] = array(
+	'qualityoversight' => '고급 검토 기록',
+	'qualityoversight-list' => '이 문서는 최근의 문서 편집 승인과 거부에 관한 내역입니다.',
+	'qualityoversight-legend' => '최근 검토 기록 찾기',
+);
+
 /** Ripoarisch (Ripoarisch)
  * @author Purodha
  */

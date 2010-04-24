@@ -251,6 +251,17 @@ Alcun configurationes pote cambiar le version que es monstrate al lectores o lim
 	'configuredpages-def-stable' => 'version publicate',
 );
 
+/** Indonesian (Bahasa Indonesia)
+ * @author Kenrick95
+ */
+$messages['id'] = array(
+	'configuredpages-config' => 'Pengaturan',
+	'configuredpages-prec-none' => 'tidak ada preseden',
+	'configuredpages-prec-quality' => 'preseden berkualitas',
+	'configuredpages-prec-pristine' => 'preseden murni',
+	'configuredpages-def-draft' => 'versi terbaru',
+);
+
 /** Italian (Italiano) */
 $messages['it'] = array(
 	'configuredpages-config' => 'Configurazione',
@@ -282,6 +293,22 @@ $messages['ja'] = array(
  */
 $messages['ka'] = array(
 	'configuredpages-def-draft' => 'უკანასკნელი ვერსია',
+);
+
+/** Korean (한국어)
+ * @author Kwj2772
+ */
+$messages['ko'] = array(
+	'configuredpages' => '검토 설정이 되어 있는 문서',
+	'configuredpages-text' => '다음은 기본값과 다른 검토 설정이 되어 있는 문서의 목록입니다.
+
+어떤 설정은 독자에게 보여지는 판을 바꾸거나 검토 없이 편집할 수 있는 사용자를 제한할 수 있습니다.',
+	'configuredpages-none' => '이 목옥에 문서가 없습니다.',
+	'configuredpages-config' => '설정',
+	'configuredpages-precedence' => '우선 순위:',
+	'configuredpages-prec-none' => '최근 검토된 판',
+	'configuredpages-def-draft' => '최신 버전',
+	'configuredpages-def-stable' => '공개된 버전',
 );
 
 /** Luxembourgish (Lëtzebuergesch)

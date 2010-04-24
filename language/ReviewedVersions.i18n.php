@@ -603,6 +603,7 @@ $messages['km'] = array(
  */
 $messages['ko'] = array(
 	'reviewedversions' => '검토된 버전',
+	'reviewedversions-leg1' => '문서의 검토된 판의 목록',
 	'reviewedversions-page' => '문서 이름:',
 	'reviewedversions-none' => '"[[:$1]]"의 검토된 판이 없습니다.',
 	'reviewedversions-list' => '다음은 [[:$1]] 문서의 검토된 {{PLURAL:$2|편집}}의 목록입니다:',
