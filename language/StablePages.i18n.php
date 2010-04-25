@@ -21,16 +21,11 @@ $messages['en'] = array(
  */
 $messages['qqq'] = array(
 	'stablepages' => '{{Flagged Revs}}',
-	'stablepages-stable' => '{{Flagged Revs}}',
 	'stablepages-text' => '{{Flagged Revs}}',
 	'stablepages-none' => '{{Flagged Revs}}
 {{Identical|There are no pages in this list}}',
 	'stablepages-config' => '{{Flagged Revs}}
 {{Identical|Configuration}}',
-	'stablepages-prec-none' => '{{Flagged Revs}}',
-	'stablepages-prec-quality' => '{{Flagged Revs}}',
-	'stablepages-prec-pristine' => '{{Flagged Revs}}',
-	'stablepages-precedence' => '{{Flagged Revs}}',
 );
 
 /** Afrikaans (Afrikaans)
@@ -102,7 +97,6 @@ $messages['be-tarask'] = array(
  */
 $messages['bg'] = array(
 	'stablepages' => 'Устойчиви страници',
-	'stablepages-stable' => 'устойчива версия',
 	'stablepages-none' => 'Списъкът не съдържа страници',
 	'stablepages-config' => 'Конфигурация',
 );
@@ -136,7 +130,6 @@ $messages['bs'] = array(
  */
 $messages['ca'] = array(
 	'stablepages' => 'Pàgines estables',
-	'stablepages-stable' => 'versió publicada',
 	'stablepages-none' => 'No hi ha pàgines a la llista',
 	'stablepages-config' => 'Configuració',
 );
@@ -225,7 +218,6 @@ $messages['es'] = array(
 $messages['eu'] = array(
 	'stablepages' => 'Editatzeko baimena erabiltzen duten orrialdeak',
 	'stablepages-config' => 'Konfigurazioa',
-	'stablepages-precedence' => 'Jatorria:',
 );
 
 /** Persian (فارسی) */
@@ -246,9 +238,6 @@ $messages['fi'] = array(
 	'stablepages' => 'Vakaat sivut',
 	'stablepages-none' => 'Tällä listalla ei ole sivuja.',
 	'stablepages-config' => 'Asetukset',
-	'stablepages-prec-none' => 'viimeisin tarkastettu',
-	'stablepages-prec-quality' => 'viimeisin laadukas',
-	'stablepages-precedence' => 'Järjestys:',
 );
 
 /** French (Français)
@@ -292,9 +281,7 @@ $messages['gl'] = array(
  */
 $messages['grc'] = array(
 	'stablepages' => 'Σταθεραὶ δέλτοι',
-	'stablepages-stable' => 'σταθερὰ ἔκδοσις',
 	'stablepages-config' => 'Διαμόρφωσις',
-	'stablepages-precedence' => 'Προτεραιότης:',
 );
 
 /** Swiss German (Alemannisch)
@@ -414,7 +401,6 @@ $messages['ja'] = array(
  */
 $messages['ka'] = array(
 	'stablepages-config' => 'კონფიგურაცია',
-	'stablepages-precedence' => 'პრიორიტეტი:',
 );
 
 /** Khmer (ភាសាខ្មែរ)
@@ -546,7 +532,7 @@ $messages['no'] = array(
  * @author Cedric31
  */
 $messages['oc'] = array(
-	'stablepages' => 'Paginas establas',
+	'stablepages' => "Paginas qu'utilizan la validacion de las modificacions",
 	'stablepages-text' => 'Aquí, çaijós, una lista de las paginas configuradas manualament per far pas veire que la version publicada coma contengut per defaut pels lectors.',
 	'stablepages-none' => 'Existís pas cap de pagina dins aquesta lista',
 	'stablepages-config' => 'Configuracion',
@@ -606,9 +592,6 @@ $messages['ro'] = array(
 	'stablepages' => 'Pagini stabile',
 	'stablepages-none' => 'Nu există pagini în această listă',
 	'stablepages-config' => 'Configuraţie',
-	'stablepages-prec-none' => 'nicio prioritate',
-	'stablepages-prec-quality' => 'preferinţă pentru calitate',
-	'stablepages-precedence' => 'Precedenţă',
 );
 
 /** Tarandíne (Tarandíne)
@@ -646,10 +629,6 @@ $messages['sah'] = array(
 	'stablepages' => 'Бигэргэтиллии туһаныллар сирэйдэрэ',
 	'stablepages-none' => 'Бу тиһиккэ сирэйдэрэ суох',
 	'stablepages-config' => 'Туруоруута',
-	'stablepages-prec-none' => 'баһыйара (приоритета) суох',
-	'stablepages-prec-quality' => 'хаачыстыбата баһыйыылаах',
-	'stablepages-prec-pristine' => 'эрдэтээҥҥитэ баһыйыылаах',
-	'stablepages-precedence' => 'Баһыйыыта:',
 );
 
 /** Slovak (Slovenčina)
@@ -706,7 +685,6 @@ $messages['sv'] = array(
  */
 $messages['te'] = array(
 	'stablepages' => 'స్థిరమైన పేజీలు',
-	'stablepages-stable' => 'ప్రచురిత కూర్పు',
 	'stablepages-none' => 'ఈ జాబితాలో పేజీలేవీ లేవు',
 	'stablepages-config' => 'స్వరూపణం',
 );

@@ -251,7 +251,6 @@ $messages['hi'] = array(
 
 /** Croatian (Hrvatski)
  * @author Ex13
- * @author Suradnik13
  */
 $messages['hr'] = array(
 	'qualityoversight' => 'Nadzor kvalitete',
@@ -335,7 +334,7 @@ $messages['ko'] = array(
 	'qualityoversight-legend' => '최근 검토 기록 찾기',
 );
 
-/** Ripoarisch (Ripoarisch)
+/** Colognian (Ripoarisch)
  * @author Purodha
  */
 $messages['ksh'] = array(
@@ -608,7 +607,7 @@ $messages['vi'] = array(
 	'qualityoversight-legend' => 'Tìm kiếm trong các nhật trình duyệt gần đây',
 );
 
-/** Yue (粵語)
+/** Cantonese (粵語)
  * @author Shinjiman
  */
 $messages['yue'] = array(

@@ -840,6 +840,13 @@ $messages['el'] = array(
 	'stabilization-review' => 'Επιθεωρήστε τη τρέχουσα έκδοση',
 );
 
+/** British English (British English)
+ * @author Reedy
+ */
+$messages['en-gb'] = array(
+	'stabilization' => 'Page stabilisation',
+);
+
 /** Esperanto (Esperanto)
  * @author Yekrats
  */

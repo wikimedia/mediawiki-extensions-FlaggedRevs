@@ -261,6 +261,7 @@ Please check the URL you used to access this page.',
  * @author EugeneZelenko
  * @author Fryed-peach
  * @author Huji
+ * @author IAlex
  * @author Jon Harald Søby
  * @author Liangent
  * @author McDutchie
@@ -321,11 +322,19 @@ This appears in [[Special:Preferences]]:
 	'revreview-hist-draft' => '{{Flagged Revs}}',
 	'revreview-hist-quality' => '{{Flagged Revs-small}}
 The accuracy "quality", as displayed on the page history after a revision with this setting.',
-	'revreview-hist-quality-user' => '{{Flagged Revs}}',
 	'revreview-hist-basic' => '{{Flagged Revs-small}}
 The accuracy "sighted", as displayed on the page history after a revision with this setting.',
+	'revreview-hist-quality-user' => '{{Flagged Revs}}',
 	'revreview-hist-basic-user' => '{{Flagged Revs}}',
 	'revreview-hist-basic-auto' => '{{Flagged Revs}}',
+	'revreview-hist-quality-auto' => '{{Flagged Revs}}',
+	'revreview-hist-pending' => '{{Flagged Revs}}',
+	'review-edit-diff' => '{{Flagged Revs}}',
+	'revreview-diff-toggle-show' => '{{Flagged Revs}}',
+	'revreview-diff-toggle-hide' => '{{Flagged Revs}}',
+	'revreview-diff-toggle-title' => '{{Flagged Revs}}',
+	'revreview-log-toggle-show' => '{{Flagged Revs}}',
+	'revreview-log-details-show' => '{{Flagged Revs}}',
 	'review-diff2stable' => '{{Flagged Revs}}',
 	'review-logentry-app' => '{{Flagged Revs}}
 Parameters:
@@ -335,6 +344,7 @@ Parameters:
 * $1 is a page title',
 	'review-logentry-id' => '{{Flagged Revs}}',
 	'review-logentry-diff' => '{{Flagged Revs}}',
+	'review-logentry-diff2' => '{{Flagged Revs}}',
 	'review-logpage' => '{{Flagged Revs}}',
 	'review-logpagetext' => '{{Flagged Revs}}
 {{Identical|Content page}}',
@@ -367,8 +377,7 @@ Displayed on the top of a page when you are viewing an old sighted version.
 * Parameter $2 is the date of the approval',
 	'revreview-failed' => '{{Flagged Revs}}',
 	'revreview-changed' => '{{Flagged Revs}}',
-	'revreview-current' => '{{Flagged Revs}}
-{{Identical|Draft}}',
+	'revreview-current' => '{{Flagged Revs}}',
 	'revreview-depth' => '{{Flagged Revs}}',
 	'revreview-depth-0' => '{{Flagged Revs}}',
 	'revreview-depth-1' => '{{Flagged Revs}}',
@@ -382,12 +391,15 @@ Users who see the stable version and not the draft version as page, have this me
 {{Identical|Edit}}',
 	'revreview-editnotice' => '{{Flagged Revs}}
 {{Identical|Authorised user}}',
+	'revreview-check-flag' => '{{Flagged Revs}}',
 	'revreview-edited' => '{{Flagged Revs-small}}
 If an anonymous user edits a stable page, after saving the page he sees the draft version (<tt>stable=0</tt> in page title) he has made.
 
 {{Identical|Authorised user}}',
+	'revreview-edited-section' => '{{Flagged Revs}}',
 	'revreview-flag' => '{{Flagged Revs-small}}
 * Title of the review box shown below a page (when you have the permission to review pages).',
+	'revreview-reflag' => '{{Flagged Revs}}',
 	'revreview-invalid' => '{{Flagged Revs}}',
 	'revreview-legend' => '{{Flagged Revs}}',
 	'revreview-log' => '{{Flagged Revs}}
@@ -402,6 +414,9 @@ Example: [http://de.wikipedia.org/w/index.php?title=Deutsche_Sprache&stable=0 de
 * Note, the example seems not to work, currently.',
 	'revreview-newest-quality' => '{{Flagged Revs}}',
 	'revreview-newest-quality-i' => '{{Flagged Revs}}',
+	'revreview-pending-basic' => '{{Flagged Revs}}',
+	'revreview-pending-quality' => '{{Flagged Revs}}',
+	'revreview-pending-nosection' => '{{Flagged Revs}}',
 	'revreview-noflagged' => '{{Flagged Revs-small}}
 Shown above a page, when there are no reviewed revisions of that page.',
 	'revreview-note' => '{{Flagged Revs-small}}
@@ -419,27 +434,23 @@ Displayed on the top of a page when you are viewing an old quality version.
 * Example: [http://de.wikipedia.org/w/index.php?title=Deutsche_Sprache&oldid=46894374 de.wikipedia] (this is a sighted version, but it's the same for a quality version).
 * Parameter $2 is the date of the approval",
 	'revreview-quality-title' => '{{Flagged Revs}}',
-	'revreview-quick-basic' => '{{Flagged Revs}}
-{{Identical|Sighted article view draft}}',
-	'revreview-quick-basic-old' => '{{Flagged Revs}}
-{{Identical|Sighted article view draft}}',
+	'revreview-quick-basic' => '{{Flagged Revs}}',
+	'revreview-quick-basic-old' => '{{Flagged Revs}}',
 	'revreview-quick-basic-same' => '{{Flagged Revs}}',
 	'revreview-quick-invalid' => '{{Flagged Revs}}',
 	'revreview-quick-none' => '{{Flagged Revs-small}}
 Shown in the "flagged revs box" on the content page when there isn\'t any sighted or quality revision yet.',
 	'revreview-quick-quality' => '{{Flagged Revs-small}}
-Used in the "flagged revs box" when viewing a quality version, while there are new changes (in a draft version) to be reviewed.
-
-{{Identical|Quality article view draft}}',
-	'revreview-quick-quality-old' => '{{Flagged Revs}}
-{{Identical|Quality article view draft}}',
+Used in the "flagged revs box" when viewing a quality version, while there are new changes (in a draft version) to be reviewed.',
+	'revreview-quick-quality-old' => '{{Flagged Revs}}',
 	'revreview-quick-quality-same' => '{{Flagged Revs}}',
 	'revreview-quick-see-basic' => '{{Flagged Revs}}
 {{Identical|Draft view article compare}}',
 	'revreview-quick-see-quality' => '{{Flagged Revs}}
 {{Identical|Draft view article compare}}',
 	'revreview-selected' => '{{Flagged Revs}}',
-	'revreview-source' => '{{Flagged Revs}}',
+	'revreview-source' => '{{Flagged Revs}}
+{{Identical|View source}}',
 	'revreview-stable' => '{{Flagged Revs}}
 {{Identical|Stable}}',
 	'revreview-basic-title' => '{{Flagged Revs}}',
@@ -456,23 +467,29 @@ Used in the "flagged revs box" when viewing a quality version, while there are n
 The text on the submit button in the form used to review pages.
 
 {{Identical|Submit}}',
+	'revreview-submit-review' => '{{Flagged Revs}}',
+	'revreview-submit-unreview' => '{{Flagged Revs}}',
 	'revreview-submitting' => '{{flaggedrevs}}
 {{identical|submitting}}',
+	'revreview-submit-reviewed' => '{{Flagged Revs}}',
+	'revreview-submit-unreviewed' => '{{Flagged Revs}}',
 	'revreview-successful' => '{{Flagged Revs-small}}
 Shown when a reviewer/editor has marked a revision as stable/sighted/... See also {{msg|revreview-successful2|pl=yes}}.',
 	'revreview-successful2' => '{{Flagged Revs-small}}
 Shown when a reviewer/editor has marked a stable/sighted/... revision as unstable/unsighted/... After that, it can normally be reviewed again. See also {{msg|revreview-successful|pl=yes}}.',
 	'revreview-text' => "{{Flagged Revs-small}}
 Displayed in the review box for the reviewers' information.",
+	'revreview-toggle-show' => '{{Optional}}
+{{FlaggedRevs}}',
+	'revreview-toggle-hide' => '{{Optional}}
+{{FlaggedRevs}}',
 	'revreview-toggle-title' => '{{Flagged Revs-small}}
 Tooltip shown when hovering over <span style="color:blue;">(-/+)</span>.',
 	'revreview-toolow' => '{{Flagged Revs-small}}
 A kind of error shown when trying to review a revision with all settings on "unapproved".',
 	'revreview-update' => '{{Flagged Revs}}',
 	'revreview-update-includes' => '{{Flagged Revs}}',
-	'revreview-update-none' => '{{Flagged Revs}}',
 	'revreview-update-use' => '{{Flagged Revs}}',
-	'revreview-diffonly' => '{{Flagged Revs}}',
 	'revreview-visibility' => '{{Flagged Revs-small}}
 Appears above the protection form when the current version of the page is the stable version; otherwise {{msg-mw|revreview-visibility2}} or {{msg-mw|revreview-visibility3}} is shown.',
 	'revreview-visibility2' => '{{Flagged Revs-small}}
@@ -495,6 +512,9 @@ Appears on top of the protection form when the page has no stable version at all
 	'right-validate' => '{{Flagged Revs}}
 
 {{doc-right}}',
+	'right-unreviewedpages' => '{{Flagged Revs}}
+
+{{doc-right}}',
 	'rights-editor-autosum' => '{{Flagged Revs}}',
 	'rights-editor-revoke' => '{{Flagged Revs}}',
 	'specialpages-group-quality' => '{{Flagged Revs-small}}
@@ -507,16 +527,18 @@ A group in [[Special:SpecialPages]] for all special pages of the Flagged Revs ex
 	'revreview-filter-all' => '{{Flagged Revs}}
 {{Identical|All}}',
 	'revreview-filter-stable' => '{{Flagged Revs}}',
+	'revreview-statusfilter' => '{{Flagged Revs}}',
 	'revreview-filter-approved' => '{{Flagged Revs}}',
 	'revreview-filter-reapproved' => '{{Flagged Revs}}',
 	'revreview-filter-unapproved' => '{{Flagged Revs}}',
-	'revreview-filter-auto' => '{{Flagged Revs}}',
-	'revreview-filter-manual' => '{{Flagged Revs}}',
-	'revreview-statusfilter' => '{{Flagged Revs}}',
 	'revreview-typefilter' => '{{Flagged Revs}}
 
 {{Identical|Type}}',
+	'revreview-filter-auto' => '{{Flagged Revs}}',
+	'revreview-filter-manual' => '{{Flagged Revs}}',
 	'revreview-levelfilter' => '{{Flagged Revs}}',
+	'revreview-precedencefilter' => '{{Flagged Revs}}',
+	'revreview-lev-all' => '{{Flagged Revs}}',
 	'revreview-lev-basic' => '{{Flagged Revs}}',
 	'revreview-lev-quality' => '{{Flagged Revs}}',
 	'revreview-lev-pristine' => '{{Flagged Revs}}',
@@ -536,6 +558,8 @@ A group in [[Special:SpecialPages]] for all special pages of the Flagged Revs ex
 	'log-show-hide-review' => '{{Flagged Revs}}
 * $1 is one of {{msg|show}} or {{msg|hide}}',
 	'revreview-tt-review' => '{{Flagged Revs}}',
+	'revreview-tt-flag' => '{{Flagged Revs}}',
+	'revreview-tt-unflag' => '{{Flagged Revs}}',
 	'validationpage' => "{{Flagged Revs-small}}
 Link to the general help page. Do ''not'' translate the <tt><nowiki>{{ns:help}}:</nowiki></tt> part, including the colon.",
 );
@@ -2864,8 +2888,6 @@ Siehe die [[Special:Unreviewedpages|Liste unmarkierter Versionen]].',
 	'revreview-toolow' => 'Sie müssen für jedes der untenstehenden Attribute einen Wert höher als „{{int:revreview-accuracy-0}}“ einstellen, damit eine Version als gesichtet gilt. Um eine Version zu verwerfen, müssen alle Attribute auf „{{int:revreview-accuracy-0}}“ stehen.',
 	'revreview-update' => "Bitte [[{{MediaWiki:Validationpage}}|sichten Sie]] die Änderungen ''(siehe unten)'', die seit der [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} letzten gesichteten Version] vorgenommen wurden.<br />
 '''Die folgenden Vorlagen und Dateien wurden verändert:'''",
-	'revreview-update-none' => "Bitte [[{{MediaWiki:Validationpage}}|sichten Sie]] die Änderungen ''(siehe unten)'', die seit der [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} letzten gesichteten Version] vorgenommen wurden.",
-	'revreview-diffonly' => "''Um diese Seite zu sichten, klicken Sie bitte auf den Link „Aktuelle Version“ und verwenden die Sichtungsbox dort.''",
 	'revreview-revnotfound' => 'Die Version dieser Seite, nach der Sie suchen, konnte nicht gefunden werden. Bitte überprüfen Sie die URL dieser Seite.',
 );
 
@@ -3408,6 +3430,11 @@ $messages['el'] = array(
 	'log-show-hide-review' => '$1 αρχείο επιθεωρήσεων',
 	'revreview-tt-review' => 'Επιθεώρηση αυτής της σελίδας',
 	'validationpage' => '{{ns:help}}:Επικύρωση σελίδας',
+);
+
+/** British English (British English) */
+$messages['en-gb'] = array(
+	'flaggedrevs-desc' => 'Gives editors and reviewers the ability to validate revisions and stabilise pages',
 );
 
 /** Esperanto (Esperanto)
@@ -8148,7 +8175,7 @@ fottjeschmesse hät?',
 	'validationpage' => '{{ns:help}}:Nohjeloorte, jeprööfte un beschtätijunge Versione vun Sigge',
 );
 
-/** Cornish (Kernowek)
+/** Cornish (Kernewek)
  * @author Kw-Moon
  */
 $messages['kw'] = array(
@@ -9355,6 +9382,7 @@ Sila tekan butang "back" pada pelayar anda dan cuba sekali lagi.',
  */
 $messages['mt'] = array(
 	'revreview-revnotfound' => "Ir-reviżjoni l-antika tal-paġna li staqsejt dwar ma setgħatx tiġi minsuba. Jekk jogħġbok verifika l-URL li użajt sabiex tidħol f'din il-paġna.",
+	'revreview-precedencefilter' => 'Preċedenza:',
 );
 
 /** Erzya (Эрзянь)

@@ -16,9 +16,14 @@ $messages['en'] = array(
 
 /** Message documentation (Message documentation)
  * @author EugeneZelenko
+ * @author IAlex
  */
 $messages['qqq'] = array(
-	'problemchanges-category' => '{{Identical|Category}}',
+	'problemchanges' => '{{Flagged Revs}}',
+	'problemchanges-legend' => '{{Flagged Revs}}',
+	'problemchanges-none' => '{{Flagged Revs}}',
+	'problemchanges-category' => '{{Flagged Revs}}
+{{Identical|Category}}',
 );
 
 /** Afrikaans (Afrikaans)
@@ -368,7 +373,7 @@ $messages['ko'] = array(
 	'problemchanges-category' => '분류:',
 );
 
-/** Ripoarisch (Ripoarisch)
+/** Colognian (Ripoarisch)
  * @author Purodha
  */
 $messages['ksh'] = array(
@@ -536,7 +541,7 @@ $messages['ru'] = array(
 	'problemchanges-category' => 'Категория:',
 );
 
-/** русиньскый язык (русиньскый язык)
+/** Rusyn (русиньскый язык)
  * @author Gazeb
  */
 $messages['rue'] = array(

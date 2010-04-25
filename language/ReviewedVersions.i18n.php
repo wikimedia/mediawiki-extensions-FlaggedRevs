@@ -610,7 +610,7 @@ $messages['ko'] = array(
 	'reviewedversions-review' => '<i>$1</i>에 $2에게 검토됨',
 );
 
-/** Ripoarisch (Ripoarisch)
+/** Colognian (Ripoarisch)
  * @author Purodha
  */
 $messages['ksh'] = array(
@@ -1171,7 +1171,7 @@ $messages['yi'] = array(
 	'reviewedversions-page' => 'בלאט נאמען:',
 );
 
-/** Yue (粵語) */
+/** Cantonese (粵語) */
 $messages['yue'] = array(
 	'reviewedversions' => '穩定版',
 	'reviewedversions-leg1' => '列示一版複審過嘅修訂',

@@ -681,7 +681,7 @@ $messages['ko'] = array(
 	'reviewedpages-all' => '검토된 버전',
 );
 
-/** Ripoarisch (Ripoarisch)
+/** Colognian (Ripoarisch)
  * @author Purodha
  */
 $messages['ksh'] = array(
@@ -1276,7 +1276,7 @@ $messages['vo'] = array(
 	'reviewedpages-all' => 'fomams pekrütöl',
 );
 
-/** Yue (粵語)
+/** Cantonese (粵語)
  * @author Shinjiman
  */
 $messages['yue'] = array(

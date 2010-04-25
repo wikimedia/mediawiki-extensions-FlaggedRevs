@@ -437,6 +437,13 @@ $messages['el'] = array(
 	'oldreviewedpages-viewing' => '(υπό επιθεώρηση)',
 );
 
+/** British English (British English)
+ * @author Reedy
+ */
+$messages['en-gb'] = array(
+	'oldreviewed-stable' => 'Stabilised pages',
+);
+
 /** Esperanto (Esperanto)
  * @author Yekrats
  */
@@ -929,7 +936,7 @@ $messages['ko'] = array(
 	'oldreviewedpages-viewing' => '(확인 중)',
 );
 
-/** Ripoarisch (Ripoarisch)
+/** Colognian (Ripoarisch)
  * @author Purodha
  */
 $messages['ksh'] = array(
@@ -950,7 +957,7 @@ $messages['ksh'] = array(
 	'oldreviewedpages-viewing' => '(weed nohjekik)',
 );
 
-/** Cornish (Kernowek)
+/** Cornish (Kernewek)
  * @author Kernoweger
  * @author Kw-Moon
  */
@@ -1646,7 +1653,7 @@ $messages['vo'] = array(
 	'oldreviewed-category' => 'Klad:',
 );
 
-/** Yue (粵語)
+/** Cantonese (粵語)
  * @author Shinjiman
  */
 $messages['yue'] = array(

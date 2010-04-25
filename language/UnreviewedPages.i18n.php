@@ -31,9 +31,6 @@ $messages['en'] = array(
  * @author Umherirrender
  */
 $messages['qqq'] = array(
-	'right-unreviewedpages' => '{{Flagged Revs}}
-
-{{doc-right}}',
 	'unreviewedpages' => '{{Flagged Revs}}',
 	'unreviewed-legend' => '{{Flagged Revs}}
 {{Identical|Content page}}',
@@ -79,7 +76,6 @@ $messages['am'] = array(
  * @author Juanpabl
  */
 $messages['an'] = array(
-	'right-unreviewedpages' => 'Amostrar a lista de pachinas sin rebisar',
 	'unreviewedpages' => 'Pachinas no rebisatas',
 	'unreviewed-legend' => 'Lista de pachinas de conteniu no rebisatas',
 	'unreviewed-category' => 'Categoría:',
@@ -95,7 +91,6 @@ $messages['an'] = array(
  * @author OsamaK
  */
 $messages['ar'] = array(
-	'right-unreviewedpages' => 'رؤية [[Special:UnreviewedPages|قائمة الصفحات غير المراجعة]]',
 	'unreviewedpages' => 'صفحات غير مراجعة',
 	'unreviewed-legend' => 'عرض صفحات المحتوى غير المراجعة',
 	'unreviewed-category' => 'التصنيف:',
@@ -115,7 +110,6 @@ $messages['ar'] = array(
  * @author Ramsis II
  */
 $messages['arz'] = array(
-	'right-unreviewedpages' => 'رؤيه [[Special:UnreviewedPages|قائمه الصفحات غير المراجعة]]',
 	'unreviewedpages' => 'صفحات غير مراجعة',
 	'unreviewed-legend' => 'عرض صفحات المحتوى غير المراجعة',
 	'unreviewed-category' => 'التصنيف:',
@@ -144,7 +138,6 @@ $messages['ast'] = array(
  * @author Mostafadaneshvar
  */
 $messages['bcc'] = array(
-	'right-unreviewedpages' => 'به گند لیست صفحات بی بازبینی',
 	'unreviewedpages' => 'صفحات بی بازبینی',
 	'unreviewed-legend' => 'لیست کن صفحات محتوا بی بازبینی',
 	'unreviewed-category' => 'دسته:',
@@ -169,7 +162,6 @@ $messages['bcl'] = array(
  * @author Red Winged Duck
  */
 $messages['be-tarask'] = array(
-	'right-unreviewedpages' => 'Прагляд [[Special:UnreviewedPages|сьпісу неправераных старонак]]',
 	'unreviewedpages' => 'Неправераныя старонкі',
 	'unreviewed-legend' => 'Сьпіс неправераных старонак',
 	'unreviewed-category' => 'Катэгорыя:',
@@ -213,7 +205,6 @@ $messages['bn'] = array(
  * @author Fulup
  */
 $messages['br'] = array(
-	'right-unreviewedpages' => "Sellet ouzh [[Special:UnreviewedPages|roll ar pajennoù n'int ket bet adwelet]]",
 	'unreviewedpages' => "Pajennoù n'int ket bet adwelet",
 	'unreviewed-legend' => "Rollañ a ra ar pajennoù n'int ket bet adwelet",
 	'unreviewed-category' => 'Rummad :',
@@ -232,7 +223,6 @@ $messages['br'] = array(
  * @author CERminator
  */
 $messages['bs'] = array(
-	'right-unreviewedpages' => 'Pregled [[Special:UnreviewedPages|spiska neprovjerenih stranica]]',
 	'unreviewedpages' => 'Neprovjerene stranice',
 	'unreviewed-legend' => 'Spisak nepregledanih stranica sadržaja',
 	'unreviewed-category' => 'Kategorija:',
@@ -276,7 +266,6 @@ $messages['ca'] = array(
  * @author Mormegil
  */
 $messages['cs'] = array(
-	'right-unreviewedpages' => 'Zobrazit [[Special:UnreviewedPages|seznam neposouzených stránek]]',
 	'unreviewedpages' => 'Neposouzené stránky',
 	'unreviewed-legend' => 'Seznam neposouzených obsahových stránek',
 	'unreviewed-category' => 'Kategorie:',
@@ -310,7 +299,6 @@ $messages['da'] = array(
  * @author Umherirrender
  */
 $messages['de'] = array(
-	'right-unreviewedpages' => '[[Special:UnreviewedPages|Liste der ungesichteten Seiten]] ansehen',
 	'unreviewedpages' => 'Ungesichtete Seiten',
 	'unreviewed-legend' => 'Liste ungesichteter Seiten',
 	'unreviewed-category' => 'Kategorie:',
@@ -330,7 +318,6 @@ $messages['de'] = array(
  * @author Xoser
  */
 $messages['diq'] = array(
-	'right-unreviewedpages' => '[[Special:UnreviewedPages|listeyê ripelî ke kontrol nibiyê]] bivine',
 	'unreviewedpages' => 'Ripelî ke kontrol nibiyê',
 	'unreviewed-legend' => 'Listeyê tedeesteyî ke kontrol nibe',
 	'unreviewed-category' => 'Kategorî:',
@@ -349,7 +336,6 @@ $messages['diq'] = array(
  * @author Michawiki
  */
 $messages['dsb'] = array(
-	'right-unreviewedpages' => '[[Special:UnreviewedPages|Lisćinu njepśeglědanych bokow]] se woglědaś',
 	'unreviewedpages' => 'Njepśeglědane boki',
 	'unreviewed-legend' => 'Lisćina njepśeglědanych wopśimjeśowych bokow',
 	'unreviewed-category' => 'Kategorija:',
@@ -371,7 +357,6 @@ $messages['dsb'] = array(
  * @author Omnipaedista
  */
 $messages['el'] = array(
-	'right-unreviewedpages' => 'Δείτε τον [[Special:UnreviewedPages|κατάλογο των σελίδων χωρίς κριτική]]',
 	'unreviewedpages' => 'Σελίδες χωρίς κριτική',
 	'unreviewed-legend' => 'Απαρίθμηση σελίδων περιεχομένου χωρίς κριτική',
 	'unreviewed-category' => 'Κατηγορία:',
@@ -390,7 +375,6 @@ $messages['el'] = array(
  * @author Yekrats
  */
 $messages['eo'] = array(
-	'right-unreviewedpages' => 'Vidi [[Special:UnreviewedPages|liston de nereviziitaj paĝoj]]',
 	'unreviewedpages' => 'Nereviziitaj paĝoj',
 	'unreviewed-legend' => 'Listigi nereviziitajn enhavajn paĝojn',
 	'unreviewed-category' => 'Kategorio:',
@@ -412,7 +396,6 @@ $messages['eo'] = array(
  * @author Sanbec
  */
 $messages['es'] = array(
-	'right-unreviewedpages' => 'Mostrar [[Special:UnreviewedPages|la lista de páginas sin revisar]]',
 	'unreviewedpages' => 'Páginas no revisadas',
 	'unreviewed-legend' => 'Lista de páginas de contenido no revisadas',
 	'unreviewed-category' => 'Categoría:',
@@ -432,7 +415,6 @@ $messages['es'] = array(
  * @author Pikne
  */
 $messages['et'] = array(
-	'right-unreviewedpages' => 'Vaadata [[Special:UnreviewedPages|ülevaatamata lehekülgede loendit]]',
 	'unreviewedpages' => 'Ülevaatamata leheküljed',
 	'unreviewed-legend' => 'Ülevaatamata sisulehekülgede loend',
 	'unreviewed-category' => 'Kategooria:',
@@ -468,7 +450,6 @@ $messages['ext'] = array(
  * @author Mardetanha
  */
 $messages['fa'] = array(
-	'right-unreviewedpages' => 'مشاهدهٔ فهرست صفحه‌های بازبینی نشده',
 	'unreviewedpages' => 'صفحه‌های بررسی نشده',
 	'unreviewed-legend' => 'فهرست صفحه‌های بازبینی نشده',
 	'unreviewed-category' => 'رده:',
@@ -492,7 +473,6 @@ $messages['fa'] = array(
  * @author ZeiP
  */
 $messages['fi'] = array(
-	'right-unreviewedpages' => 'Nähdä [[Special:UnreviewedPages|luettelo arvioimattomista sivuista]]',
 	'unreviewedpages' => 'Arvioimattomat sivut',
 	'unreviewed-legend' => 'Luettelo tarkistamattomista sisältösivuista',
 	'unreviewed-category' => 'Luokka',
@@ -515,7 +495,6 @@ $messages['fi'] = array(
  * @author Verdy p
  */
 $messages['fr'] = array(
-	'right-unreviewedpages' => 'Voir [[Special:UnreviewedPages|la liste des pages non révisées]]',
 	'unreviewedpages' => 'Pages non revues',
 	'unreviewed-legend' => 'Liste des pages de contenu non révisées',
 	'unreviewed-category' => 'Catégorie :',
@@ -534,7 +513,6 @@ $messages['fr'] = array(
  * @author ChrisPtDe
  */
 $messages['frp'] = array(
-	'right-unreviewedpages' => 'Vêre la [[Special:UnreviewedPages|lista de les pâges pas revues]].',
 	'unreviewedpages' => 'Pâges pas revues',
 	'unreviewed-legend' => 'Lista de les pâges de contegnu pas revues',
 	'unreviewed-category' => 'Catègorie :',
@@ -568,7 +546,6 @@ $messages['ga'] = array(
  * @author Toliño
  */
 $messages['gl'] = array(
-	'right-unreviewedpages' => 'Ver a [[Special:UnreviewedPages|lista das páxinas non revisadas]]',
 	'unreviewedpages' => 'Páxinas sen revisar',
 	'unreviewed-legend' => 'Listar as páxinas con contido sen revisar',
 	'unreviewed-category' => 'Categoría:',
@@ -600,7 +577,6 @@ $messages['grc'] = array(
  * @author Als-Holder
  */
 $messages['gsw'] = array(
-	'right-unreviewedpages' => 'D [[Special:UnreviewedPages|Lischt vu Syte, wu nonig gsichtet sin]] aaluege',
 	'unreviewedpages' => 'Syte, wu nonig vum Fäldhieter gsäh sin',
 	'unreviewed-legend' => 'Lischt vu Syte, wu nonig vum Fäldhieter gsäh sin',
 	'unreviewed-category' => 'Kategori:',
@@ -628,7 +604,6 @@ $messages['haw'] = array(
  * @author YaronSh
  */
 $messages['he'] = array(
-	'right-unreviewedpages' => 'צפייה ב[[Special:UnreviewedPages|רשימת הדפים שלא נבדקו]]',
 	'unreviewedpages' => 'דפים שלא נבדקו',
 	'unreviewed-legend' => 'רשימת דפי התוכן שלא נבדקו',
 	'unreviewed-category' => 'קטגוריה:',
@@ -647,7 +622,6 @@ $messages['he'] = array(
  * @author Kaustubh
  */
 $messages['hi'] = array(
-	'right-unreviewedpages' => 'न देखें हुए पन्नोंकी सूची देखें',
 	'unreviewedpages' => 'परिक्षण ना हुए पन्ने',
 	'unreviewed-legend' => 'न देखें हुए लेखोंकी सूची बनायें',
 	'unreviewed-category' => 'श्रेणी:',
@@ -664,7 +638,6 @@ $messages['hi'] = array(
  * @author SpeedyGonsales
  */
 $messages['hr'] = array(
-	'right-unreviewedpages' => 'Pregled [[Special:UnreviewedPages|popisa neocijenjenih stranica]]',
 	'unreviewedpages' => 'Neocijenjene stranice',
 	'unreviewed-legend' => 'Popis neocijenjenih sadržaja stranica',
 	'unreviewed-category' => 'Kategorija:',
@@ -684,7 +657,6 @@ $messages['hr'] = array(
  * @author Michawiki
  */
 $messages['hsb'] = array(
-	'right-unreviewedpages' => '[[Special:UnreviewedPages|Lisćinu njepřehladanych stronow]] wobhladać',
 	'unreviewedpages' => 'Njepruwowane nastawki',
 	'unreviewed-legend' => 'Lisćina njepřehladanych wobsahowych stronow',
 	'unreviewed-category' => 'Kategorija:',
@@ -727,7 +699,6 @@ $messages['hu'] = array(
  * @author McDutchie
  */
 $messages['ia'] = array(
-	'right-unreviewedpages' => 'Vider le [[Special:UnreviewedPages|lista de paginas non revidite]]',
 	'unreviewedpages' => 'Paginas non revidite',
 	'unreviewed-legend' => 'Lista de paginas de contento non revidite',
 	'unreviewed-category' => 'Categoria:',
@@ -747,7 +718,6 @@ $messages['ia'] = array(
  * @author Rex
  */
 $messages['id'] = array(
-	'right-unreviewedpages' => 'Tampilkan [[Special:UnreviewedPages|daftar halaman yang belum ditinjau]]',
 	'unreviewedpages' => 'Halaman yang belum ditinjau',
 	'unreviewed-legend' => 'Daftar halaman isi yang belum ditinjau',
 	'unreviewed-category' => 'Kategori:',
@@ -776,7 +746,6 @@ $messages['io'] = array(
  * @author Spacebirdy
  */
 $messages['is'] = array(
-	'right-unreviewedpages' => 'Skoða [[Special:UnreviewedPages|lista yfir óendurskoðaðar síður]]',
 	'unreviewedpages' => 'Óendurskoðaðar síður',
 	'unreviewed-category' => 'Flokkur:',
 	'unreviewed-diff' => 'endurskoða',
@@ -791,7 +760,6 @@ $messages['is'] = array(
  * @author Pietrodn
  */
 $messages['it'] = array(
-	'right-unreviewedpages' => "Visualizza [[Special:UnreviewedPages|l'elenco delle pagine non revisionate]]",
 	'unreviewedpages' => 'Pagine non revisionate',
 	'unreviewed-legend' => 'Elenco delle pagine non revisionate',
 	'unreviewed-category' => 'Categoria:',
@@ -813,7 +781,6 @@ $messages['it'] = array(
  * @author JtFuruhata
  */
 $messages['ja'] = array(
-	'right-unreviewedpages' => '[[Special:UnreviewedPages|未査読ページの一覧]]を表示する',
 	'unreviewedpages' => '未査読ページ',
 	'unreviewed-legend' => '未査読記事を一覧',
 	'unreviewed-category' => 'カテゴリ:',
@@ -903,7 +870,6 @@ $messages['kn'] = array(
  * @author Kwj2772
  */
 $messages['ko'] = array(
-	'right-unreviewedpages' => '[[Special:UnreviewedPages|검토되지 않은 문서의 목록]]을 보기',
 	'unreviewedpages' => '검토되지 않은 문서',
 	'unreviewed-legend' => '검토되지 않은 문서 목록',
 	'unreviewed-category' => '분류:',
@@ -925,11 +891,10 @@ $messages['krj'] = array(
 	'unreviewed-category' => 'Kategorya:',
 );
 
-/** Ripoarisch (Ripoarisch)
+/** Colognian (Ripoarisch)
  * @author Purodha
  */
 $messages['ksh'] = array(
-	'right-unreviewedpages' => 'De [[Special:UnreviewedPages|Leß met de nit aanjekikte Sigge]] aanloore',
 	'unreviewedpages' => 'De noch nit aanjekikte Sigge',
 	'unreviewed-legend' => 'Leß met de noch nit aanjekikte Sigge em Houp-Appachtemang',
 	'unreviewed-category' => 'Saachjrupp:',
@@ -944,7 +909,7 @@ $messages['ksh'] = array(
 	'unreviewed-recent' => '(winnijer wie en Shtund)',
 );
 
-/** Cornish (Kernowek)
+/** Cornish (Kernewek)
  * @author Kernoweger
  * @author Kw-Moon
  */
@@ -966,7 +931,6 @@ $messages['la'] = array(
  * @author Robby
  */
 $messages['lb'] = array(
-	'right-unreviewedpages' => '[[Special:UnreviewedPages|Lëscht vun den net iwwerkuckte Säite]] weisen',
 	'unreviewedpages' => 'Säit déi net nogekuckt ass',
 	'unreviewed-legend' => 'Lëscht vun den net nogekuckte Säiten',
 	'unreviewed-category' => 'Kategorie:',
@@ -1011,7 +975,6 @@ $messages['lzh'] = array(
  * @author Brest
  */
 $messages['mk'] = array(
-	'right-unreviewedpages' => 'Погледни [[Special:UnreviewedPages|листа на непрегледани статии]]',
 	'unreviewedpages' => 'Непрегледани страници',
 	'unreviewed-legend' => 'Листа на непрегледани статии',
 	'unreviewed-category' => 'Категорија:',
@@ -1052,7 +1015,6 @@ $messages['ml'] = array(
  * @author Mahitgar
  */
 $messages['mr'] = array(
-	'right-unreviewedpages' => 'न तपासलेल्या पानांची यादी पहा',
 	'unreviewedpages' => 'न तपासलेली पाने',
 	'unreviewed-legend' => 'न तपासलेल्या लेखांची यादी तयार करा',
 	'unreviewed-category' => 'वर्ग:',
@@ -1068,7 +1030,6 @@ $messages['mr'] = array(
  * @author Kurniasan
  */
 $messages['ms'] = array(
-	'right-unreviewedpages' => 'Lihat senarai laman yang belum diperiksa',
 	'unreviewedpages' => 'Halaman belum diperiksa',
 	'unreviewed-legend' => 'Senarai laman kandungan yang belum diperiksa',
 	'unreviewed-category' => 'Kategori:',
@@ -1110,7 +1071,6 @@ $messages['nds'] = array(
  * @author Siebrand
  */
 $messages['nl'] = array(
-	'right-unreviewedpages' => "[[Special:UnreviewedPages|Lijst van ongecontroleerde pagina's]] bekijken",
 	'unreviewedpages' => "Ongecontroleerde pagina's",
 	'unreviewed-legend' => "Lijst met ongecontroleerde pagina's",
 	'unreviewed-category' => 'Categorie:',
@@ -1130,7 +1090,6 @@ $messages['nl'] = array(
  * @author Jon Harald Søby
  */
 $messages['nn'] = array(
-	'right-unreviewedpages' => 'Sjå [[Special:UnreviewedPages|lista over sider som ikkje er vurderte]]',
 	'unreviewedpages' => 'Sider som ikkje er vortne vurderte',
 	'unreviewed-legend' => 'List opp innhaldssider som ikkje er vurderte',
 	'unreviewed-category' => 'Kategori:',
@@ -1149,7 +1108,6 @@ $messages['nn'] = array(
  * @author Simny
  */
 $messages['no'] = array(
-	'right-unreviewedpages' => 'Vise [[Special:UnreviewedPages|liste over uanmeldte sider]]',
 	'unreviewedpages' => 'Uanmeldte sider',
 	'unreviewed-legend' => 'List uanmeldte innholdssider',
 	'unreviewed-category' => 'Kategori:',
@@ -1176,7 +1134,6 @@ $messages['nso'] = array(
  * @author Cedric31
  */
 $messages['oc'] = array(
-	'right-unreviewedpages' => 'Veire [[Special:UnreviewedPages|la lista de las paginas pas revistas]]',
 	'unreviewedpages' => 'Listar las paginas pas revisadas',
 	'unreviewed-legend' => 'Lista dels contenguts de las paginas pas visats',
 	'unreviewed-category' => 'Categoria :',
@@ -1216,7 +1173,6 @@ $messages['pdc'] = array(
  * @author ToSter
  */
 $messages['pl'] = array(
-	'right-unreviewedpages' => 'Dostęp do [[Special:UnreviewedPages|listy nieprzejrzanych stron]]',
 	'unreviewedpages' => 'Nieprzejrzane strony',
 	'unreviewed-legend' => 'Lista nieprzejrzanych stron',
 	'unreviewed-category' => 'Kategoria',
@@ -1236,7 +1192,6 @@ $messages['pl'] = array(
  * @author Dragonòt
  */
 $messages['pms'] = array(
-	'right-unreviewedpages' => 'Varda [[Special:UnreviewedPages|lista dle pàgine pa revisionà]]',
 	'unreviewedpages' => 'Pàgine dësrevisionà',
 	'unreviewed-legend' => "Lista le pàgine 'd contnù pa revisionà",
 	'unreviewed-category' => 'Categorìa:',
@@ -1287,7 +1242,6 @@ $messages['pt'] = array(
  * @author Eduardo.mps
  */
 $messages['pt-br'] = array(
-	'right-unreviewedpages' => 'Ver [[Special:UnreviewedPages|lista de páginas não analisadas]]',
 	'unreviewedpages' => 'Páginas não analisadas',
 	'unreviewed-legend' => 'Lista páginas de conteúdo a serem analisadas',
 	'unreviewed-category' => 'Categoria:',
@@ -1322,7 +1276,6 @@ $messages['ro'] = array(
  * @author Joetaras
  */
 $messages['roa-tara'] = array(
-	'right-unreviewedpages' => "Vide [[Special:UnreviewedPages|a liste de le pàggene ca non g'onne state rivisitete]]",
 	'unreviewedpages' => 'Pàggene senza revisione',
 	'unreviewed-legend' => 'Liste de le pàggene cu le condenute senza rivisitaziune',
 	'unreviewed-category' => 'Categorije:',
@@ -1365,7 +1318,6 @@ $messages['ru'] = array(
  * @author HalanTul
  */
 $messages['sah'] = array(
-	'right-unreviewedpages' => '[[Special:UnreviewedPages|Көрүллүбэтэх сирэйдэр тиһиктэрин]] көрүү',
 	'unreviewedpages' => 'Ырытыллыбатах сирэйдэр',
 	'unreviewed-legend' => 'Бэрэбиэркэлэммэтэх сирэйдэр тиһиктэрэ',
 	'unreviewed-category' => 'Категория:',
@@ -1384,7 +1336,6 @@ $messages['sah'] = array(
  * @author Helix84
  */
 $messages['sk'] = array(
-	'right-unreviewedpages' => 'Zobraziť [[Special:UnreviewedPages|zoznam neskontrolovaných stránok]]',
 	'unreviewedpages' => 'Neskontrolované stránky',
 	'unreviewed-legend' => 'Zoznam neskontrolovaných stránok s obsahom',
 	'unreviewed-category' => 'Kategória:',
@@ -1427,7 +1378,6 @@ $messages['sq'] = array(
  * @author Михајло Анђелковић
  */
 $messages['sr-ec'] = array(
-	'right-unreviewedpages' => 'Види [[Special:UnreviewedPages|списак непрегледаних страна]]',
 	'unreviewedpages' => 'Непрегледане стране.',
 	'unreviewed-legend' => 'Списак непрегледаних садржајних страна.',
 	'unreviewed-category' => 'Категорија:',
@@ -1443,7 +1393,6 @@ $messages['sr-ec'] = array(
  * @author Michaello
  */
 $messages['sr-el'] = array(
-	'right-unreviewedpages' => 'Vidi [[Special:UnreviewedPages|spisak nepregledanih strana]]',
 	'unreviewedpages' => 'Nepregledane strane.',
 	'unreviewed-legend' => 'Spisak nepregledanih sadržajnih strana.',
 	'unreviewed-category' => 'Kategorija:',
@@ -1484,7 +1433,6 @@ $messages['su'] = array(
  * @author Rotsee
  */
 $messages['sv'] = array(
-	'right-unreviewedpages' => 'Visa [[Special:UnreviewedPages|lista över ogranskade sidor]]',
 	'unreviewedpages' => 'Ogranskade sidor',
 	'unreviewed-legend' => 'Lista ogranskade innehållssidor',
 	'unreviewed-category' => 'Kategori:',
@@ -1505,7 +1453,6 @@ $messages['sv'] = array(
  * @author వైజాసత్య
  */
 $messages['te'] = array(
-	'right-unreviewedpages' => '[[Special:UnreviewedPages|సమీక్షించని పేజీల జాబితా]]ని చూడండి',
 	'unreviewedpages' => 'సమీక్షించని పేజీలు',
 	'unreviewed-legend' => 'సమీక్షించని పాఠ్య పేజీల జాబితా',
 	'unreviewed-category' => 'వర్గం:',
@@ -1549,7 +1496,6 @@ $messages['tg-latn'] = array(
  * @author Hanberke
  */
 $messages['tk'] = array(
-	'right-unreviewedpages' => '[[Special:UnreviewedPages|Gözden geçirilmedik sahypalaryň sanawyny]] görkez',
 	'unreviewedpages' => 'Gözden geçirilmedik sahypalar',
 	'unreviewed-legend' => 'Gözden geçirilmedik mazmunly sahypalary sanawla',
 	'unreviewed-category' => 'Kategoriýa:',
@@ -1568,7 +1514,6 @@ $messages['tk'] = array(
  * @author AnakngAraw
  */
 $messages['tl'] = array(
-	'right-unreviewedpages' => 'Tingnan ang [[Special:UnreviewedPages|talaan ng hindi pa nasusuring mga pahina]]',
 	'unreviewedpages' => 'Hindi pa nasusuring mga pahina',
 	'unreviewed-legend' => 'Itala ang hindi pa nasusuring mga pahina ng nilalaman',
 	'unreviewed-category' => 'Kaurian:',
@@ -1586,7 +1531,6 @@ $messages['tl'] = array(
  * @author Runningfridgesrule
  */
 $messages['tr'] = array(
-	'right-unreviewedpages' => '[[Special:UnreviewedPages|Gözden geçirilmemiş sayfalar listesini]] görüntüle',
 	'unreviewedpages' => 'Gözden geçirilmemiş sayfalar',
 	'unreviewed-legend' => 'Gözden geçirilmemiş içerik sayfalarını listele',
 	'unreviewed-category' => 'Kategori:',
@@ -1606,7 +1550,6 @@ $messages['tr'] = array(
  * @author Prima klasy4na
  */
 $messages['uk'] = array(
-	'right-unreviewedpages' => 'Перегляд списку [[Special:UnreviewedPages|непереглянутих сторінок]]',
 	'unreviewedpages' => 'Неперевірені сторінки',
 	'unreviewed-legend' => 'Список неперевірених статей',
 	'unreviewed-category' => 'Категорія:',
@@ -1625,7 +1568,6 @@ $messages['uk'] = array(
  * @author Candalua
  */
 $messages['vec'] = array(
-	'right-unreviewedpages' => 'Varda na [[Special:UnreviewedPages|lista de pagine non ricontrolà]]',
 	'unreviewedpages' => 'Pagine non riesaminà',
 	'unreviewed-legend' => 'Elenca le pagine non riesaminà',
 	'unreviewed-category' => 'Categoria:',
@@ -1644,7 +1586,6 @@ $messages['vec'] = array(
  * @author Игорь Бродский
  */
 $messages['vep'] = array(
-	'right-unreviewedpages' => 'Lugeda [[Special:UnreviewedPages|kodvmatomiden lehtpoliden nimikirjutez]]',
 	'unreviewedpages' => 'Lehtpoled, kudambad ei olgoi kodvdud',
 	'unreviewed-legend' => 'Niiden lehtpoliden nimikirjutez, kudambad ei olgoi kodvdud ende',
 	'unreviewed-category' => 'Kategorii:',
@@ -1664,7 +1605,6 @@ $messages['vep'] = array(
  * @author Vinhtantran
  */
 $messages['vi'] = array(
-	'right-unreviewedpages' => 'Xem [[Special:UnreviewedPages|danh sách các trang chưa duyệt]]',
 	'unreviewedpages' => 'Các trang chưa được duyệt',
 	'unreviewed-legend' => 'Liệt kê các trang có nội dung chưa được duyệt',
 	'unreviewed-category' => 'Thể loại:',
@@ -1697,9 +1637,8 @@ $messages['yi'] = array(
 	'unreviewed-category' => 'קאטעגאריע:',
 );
 
-/** Yue (粵語) */
+/** Cantonese (粵語) */
 $messages['yue'] = array(
-	'right-unreviewedpages' => '去睇未複審版嘅表',
 	'unreviewedpages' => '未複審嘅版',
 	'unreviewed-legend' => '列示未複審嘅內容頁',
 	'unreviewed-category' => '分類:',
@@ -1715,7 +1654,6 @@ $messages['yue'] = array(
  * @author Gaoxuewei
  */
 $messages['zh-hans'] = array(
-	'right-unreviewedpages' => '查看[[Special:UnreviewedPages|未复审页面列表]]',
 	'unreviewedpages' => '未复审页面',
 	'unreviewed-legend' => '未复审内容页面列表',
 	'unreviewed-category' => '分类：',
@@ -1734,7 +1672,6 @@ $messages['zh-hans'] = array(
  * @author Gaoxuewei
  */
 $messages['zh-hant'] = array(
-	'right-unreviewedpages' => '查看[[Special:UnreviewedPages|未復審頁面列表]]',
 	'unreviewedpages' => '未複審頁面',
 	'unreviewed-legend' => '未復審內容頁面列表',
 	'unreviewed-category' => '分類：',
