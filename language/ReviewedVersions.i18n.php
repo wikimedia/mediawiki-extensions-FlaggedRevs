@@ -791,7 +791,7 @@ $messages['nso'] = array(
  * @author Cedric31
  */
 $messages['oc'] = array(
-	'reviewedversions' => 'Visionar las versions establas',
+	'reviewedversions' => 'Versions repassadas',
 	'reviewedversions-leg1' => "Darrièras revisions revistas d'una pagina",
 	'reviewedversions-page' => 'Nom de la pagina :',
 	'reviewedversions-none' => 'La lista que seguís conten de versions de « [[:$1]] » que son estadas revisadas :',

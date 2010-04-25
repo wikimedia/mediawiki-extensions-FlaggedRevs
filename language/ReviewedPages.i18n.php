@@ -174,7 +174,7 @@ $messages['bn'] = array(
  */
 $messages['br'] = array(
 	'reviewedpages' => 'Pajennoù adwelet',
-	'reviewedpages-leg' => 'Rollañ ar pajennoù hag a zo bet adlennet',
+	'reviewedpages-leg' => 'Rollañ ar pajennoù bet adlennet',
 	'reviewedpages-list' => "Rollet eo war ar bajenn-mañ ar pajennoù bet adwelet (d'ar muiañ) d'al live spisaet.
 
 Er roll-mañ ez eus pajennoù [[{{MediaWiki:Validationpage}}|adlennet]] enno unan anezho hag en deus tizhet al live ''uhelañ'' a adlenn resisaet.

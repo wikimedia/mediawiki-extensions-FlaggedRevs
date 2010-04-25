@@ -1953,13 +1953,13 @@ $messages['br'] = array(
 	'revreview-accuracy-4' => 'Heverk',
 	'revreview-approved' => 'Asantet',
 	'revreview-auto' => '(emgefre)',
-	'revreview-basic' => "Setu ar [[{{MediaWiki:Validationpage}}|stumm embannet]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprouet] d'an <i>$2</i>. Bez ez eus [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|c'hemm|kemm}}] o c'hortoz bezañ adlennet.",
+	'revreview-basic' => "Hemañ eo ar [[{{MediaWiki:Validationpage}}|stumm embannet]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprouet] d'an <i>$2</i>. Bez' ez eus [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|c'hemm|kemm}}] o c'hortoz bezañ adlennet.",
 	'revreview-basic-i' => "Ar [[{{MediaWiki:Validationpage}}|stumm embannet]] eo, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} gwiriet] d'an <i>$2</i>. Bez ez eus [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} kemmoù patromoù//restroù] o c'hortoz bezañ adlennet.",
 	'revreview-basic-old' => "Hemañ zo ur stumm bet [[{{MediaWiki:Validationpage}}|gwiriet]] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} gwelet an holl]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprouet] d'an <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Kemmoù] nevez a c'hell bezañ bet graet.",
 	'revreview-basic-same' => "Ar [[{{MediaWiki:Validationpage}}|stumm embannet]] eo, bet [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} gwiriet] d'an <i>$2</i>.",
 	'revreview-basic-source' => "Ur [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} stumm gwiriet] eus ar bajenn-mañ, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprouet] d'an <i>$2</i>, a zo diazezet war ar stumm-mañ.",
-	'revreview-failed' => "'''N'eus ket bet tu adlenn.''' N'eo ket klok ar sujidigezh pe n'eo ket mat.",
+	'revreview-failed' => "'''N'eus ket bet tu da adlenn ar stumm-mañ.''' N'eo ket klok ar c'hinnig pe n'eo ket mat.",
 	'revreview-current' => "Kemmoù o c'hortoz",
 	'revreview-depth' => 'Donder',
 	'revreview-depth-0' => 'Ket aprouet',
@@ -8594,9 +8594,9 @@ $messages['mk'] = array(
 	'group-editor' => 'Уредувачи',
 	'group-editor-member' => 'уредувач',
 	'group-reviewer' => 'Проверувачи',
-	'group-reviewer-member' => 'проверувач',
+	'group-reviewer-member' => 'оценувач',
 	'grouppage-editor' => '{{ns:project}}:Уредувач',
-	'grouppage-reviewer' => '{{ns:project}}:Проверувач',
+	'grouppage-reviewer' => '{{ns:project}}:Оценувач',
 	'group-autoreview' => 'Автопрегледувачи',
 	'group-autoreview-member' => 'автопрегледувач',
 	'grouppage-autoreview' => '{{ns:project}}:Автопрегледувач',
@@ -8624,7 +8624,7 @@ $messages['mk'] = array(
 	'review-logentry-diff2' => 'застарени промени',
 	'review-logpage' => 'Дневник на прегледување',
 	'review-logpagetext' => 'Ова е дневник на промени во статусот на [[{{MediaWiki:Validationpage}}|потврдувањето]] на верзиите на страниците.',
-	'reviewer' => 'Проверувач',
+	'reviewer' => 'Оценувач',
 	'revisionreview' => 'Провери верзии',
 	'revreview-accuracy' => 'Точност',
 	'revreview-accuracy-0' => 'Неодобрена',
@@ -8663,32 +8663,32 @@ $messages['mk'] = array(
 
 Има [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 {{PLURAL:$2|промена|промени}}] ''({{PLURAL:$2|прикажана подолу|прикажани подолу}})'' во исчекување на проверка.",
 	'revreview-edited-section' => 'Назад на заглавието со име „[[#$1|$2]]“.',
-	'revreview-flag' => 'Провери ја оваа верзија',
-	'revreview-reflag' => 'Препровери ја оваа верзија',
-	'revreview-invalid' => "'''Погрешна цел:''' нема [[{{MediaWiki:Validationpage}}|проверени]] верзии кои соодветствуваат на наведениот ид. бр.",
-	'revreview-legend' => 'Оцени ја содржината на верзијата',
+	'revreview-flag' => 'Оцени ја оваа ревизија',
+	'revreview-reflag' => 'Преоценија оваа верзија',
+	'revreview-invalid' => "'''Погрешна цел:''' нема [[{{MediaWiki:Validationpage}}|проверени]] ревизии кои соодветствуваат на наведениот ид. бр.",
+	'revreview-legend' => 'Оцени ја содржината на ревизијата',
 	'revreview-log' => 'Забелешка:',
-	'revreview-main' => 'Мора да изберете конкретна верзија на страницата за проверување.
+	'revreview-main' => 'Мора да изберете конкретна ревизија на страницата за оценување.
 
-Погледајте ја [[Special:Unreviewedpages|листата на непрегледани страници]].',
-	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Објавената верзија] е [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} проверена] на <i>$2</i>. Има [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|промена|промени}}] во исчекување на проверка.',
-	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Објавената верзија] е [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} проверена] на <i>$2</i>. Има [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} промени на шаблони/податотеки] во исчекување на проверка.',
-	'revreview-newest-quality' => ' [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Објавената верзија] е [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} одобрена] на <i>$2</i>. 
-Има [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|промена|промени}}] во исчекување на преглед.',
-	'revreview-newest-quality-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Објавената верзија] е [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} одобрена] на <i>$2</i>. Има [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} промени во шаблони/податотеки] во исчекување на проверка.',
-	'revreview-pending-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Објавената верзија] е [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} проверена] на <i>$2</i>. Има [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|промена|промени}}] во исчекување на проверка.',
-	'revreview-pending-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Објавената верзија] е [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} одобрена] на <i>$2</i>.
+Погледајте ја [[Special:Unreviewedpages|листата на неоценети страници]].',
+	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Објавената верзија] била [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} проверена] на <i>$2</i>. Има [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|промена|промени}}] во исчекување на оценка.',
+	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Објавената верзија] била [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} проверена] на <i>$2</i>. Има [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} промени на шаблони/податотеки] кои чекаат за оценка.',
+	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Објавената верзија] била [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} одобрена] на <i>$2</i>. 
+Има [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|промена |промени}}] во исчекување на преглед.',
+	'revreview-newest-quality-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Објавената верзија] била [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} одобрена] на <i>$2</i>. Има [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} промени на шаблонот/податотеката] во исчекување на проверка.',
+	'revreview-pending-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Објавената верзија] била [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} проверена] на <i>$2</i>. Има [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|промена|промени}}] во исчекување на проверка.',
+	'revreview-pending-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Објавената верзија] била [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} одобрена] на <i>$2</i>.
 {{PLURAL:$3|Има|Има}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|промена|промени}}] во исчекување на проверка.',
-	'revreview-pending-nosection' => 'Погледајте ја [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} најновата верзија], која содржи
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 {{PLURAL:$2|промена|промени}}] во исчекување, за да видите дали заглавието е преместено или избришано.',
+	'revreview-pending-nosection' => 'Погледнете ја [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} последната ревизија], која содржи
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 {{PLURAL:$2|промена|промени}}] во исчекување, за да видите дали заглавието било преместено или избришано.',
 	'revreview-noflagged' => "Нема [[{{MediaWiki:Validationpage}}|проверени]] ревизии на оваа страница, што значи дека таа може да '''не''' била [[{{MediaWiki:Validationpage}}|проверена]] за квалитет.",
-	'revreview-note' => '[[User:$1|$1]] ги направи следниве забелешки [[{{MediaWiki:Validationpage}}|проверувајќи]] ја оваа верзија:',
+	'revreview-note' => '[[User:$1|$1]] ги направи следниве забелешки [[{{MediaWiki:Validationpage}}|проверувајќи]] ја оваа ревизија:',
 	'revreview-notes' => 'Набљудувања или белешки за прикажување:',
 	'revreview-oldrating' => 'Оценето со:',
 	'revreview-quality' => 'Ова е [[{{MediaWiki:Validationpage}}|објавената верзија]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} одобрена] на <i>$2</i>.
 Има [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|промена|промени}}] во исчекување на проверка.',
 	'revreview-quality-i' => 'Ова е [[{{MediaWiki:Validationpage}}|објавената верзија]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} одобрена] на <i>$2</i>.
-Има [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} шаблони/податотеки] што чекаат на проверка.',
+Има [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} промени на шаблони/податотеки] што чекаат за проверка.',
 	'revreview-quality-old' => 'Ова е [[{{MediaWiki:Validationpage}}|квалитетна]]  ревизија ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} листа на сите]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} одобрена] на <i>$2</i>.
 Може да се направени нови [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} промени].',
 	'revreview-quality-same' => 'Ова е [[{{MediaWiki:Validationpage}}|објавената верзија]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} одобрена] на <i>$2</i>.',

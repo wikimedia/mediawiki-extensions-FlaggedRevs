@@ -1352,7 +1352,7 @@ Den publiserte versjonen av en side er den nyeste revisjonen som har blitt godkj
  * @author Cedric31
  */
 $messages['oc'] = array(
-	'validationstatistics' => 'Estatisticas de validacion',
+	'validationstatistics' => 'Estatisticas de relectura de las paginas',
 	'validationstatistics-users' => "'''{{SITENAME}}''' dispausa actualament de '''[[Special:ListUsers/editor|$1]]''' utilizaire{{PLURAL:$1||s}} amb los dreches de [[{{MediaWiki:Validationpage}}|contributor]].
 
 Los contributors e relectors son d'utilizaires establits que pòdon verificar las revisions de las paginas.",

@@ -364,6 +364,7 @@ $messages['kn'] = array(
  * @author Kwj2772
  */
 $messages['ko'] = array(
+	'problemchanges-none' => '이 조건에 맞는 문서가 없습니다.',
 	'problemchanges-category' => '분류:',
 );
 
@@ -441,7 +442,7 @@ $messages['no'] = array(
  * @author Cedric31
  */
 $messages['oc'] = array(
-	'problemchanges' => 'Tornar legir las modificacions balisadas',
+	'problemchanges' => 'Modificacions balisadas en espèra',
 	'problemchanges-legend' => 'Listar las paginas amb de modificacions balisadas en espèra de relectura',
 	'problemchanges-none' => 'Pel moment, i a pas cap de pagina que satisfasca aqueles critèris',
 	'problemchanges-category' => 'Categoria :',
