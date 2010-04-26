@@ -733,15 +733,15 @@ $messages['li'] = array(
  * @author Brest
  */
 $messages['mk'] = array(
-	'reviewedpages' => 'Проверени страници',
+	'reviewedpages' => 'Оценети страници',
 	'reviewedpages-leg' => 'Листа на оценети страници',
-	'reviewedpages-list' => "Овие листи содржат [[{{MediaWiki:Validationpage}}|проверени]] страници чие назначено ниво е ''највисоко'' оценето ниво (на ревизија).
+	'reviewedpages-list' => "Овие листи содржат [[{{MediaWiki:Validationpage}}|оценети]] страници чие назначено ниво е ''највисоко'' оценето ниво (на ревизија).
 Наведена е врска кон најновата ревизија на тоа ниво.",
 	'reviewedpages-none' => 'Нема страници во оваа листа',
-	'reviewedpages-lev-0' => 'Прегледани',
+	'reviewedpages-lev-0' => '{{int:revreview-lev-basic}}',
 	'reviewedpages-lev-1' => 'Квалитетни',
 	'reviewedpages-lev-2' => 'Одлични',
-	'reviewedpages-all' => 'проверени верзии',
+	'reviewedpages-all' => 'оценети верзии',
 	'reviewedpages-best' => 'најдобра ревизија',
 );
 

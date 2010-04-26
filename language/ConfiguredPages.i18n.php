@@ -193,6 +193,20 @@ Algunos ajustes puede que cambien qué versión es mostrada a los lectores o pue
 	'configuredpages-def-stable' => 'versión publicada',
 );
 
+/** Basque (Euskara)
+ * @author Joxemai
+ */
+$messages['eu'] = array(
+	'configuredpages' => 'Berrikuspenerako zehaztapenak dituzten orriak',
+	'configuredpages-none' => 'Ez dago orririk zerranda honetan.',
+	'configuredpages-config' => 'Konfigurazioa',
+	'configuredpages-precedence' => 'Jatorria:',
+	'configuredpages-prec-none' => 'egiaztaturiko azkena',
+	'configuredpages-prec-quality' => 'azken kualitatea',
+	'configuredpages-def-draft' => 'azken bertsioa',
+	'configuredpages-def-stable' => 'argitaraturiko bertsioa',
+);
+
 /** Finnish (Suomi) */
 $messages['fi'] = array(
 	'configuredpages-prec-none' => 'viimeisin tarkastettu',
@@ -370,9 +384,11 @@ $messages['ja'] = array(
 
 /** Georgian (ქართული)
  * @author BRUTE
+ * @author გიორგიმელა
  */
 $messages['ka'] = array(
 	'configuredpages-def-draft' => 'უკანასკნელი ვერსია',
+	'configuredpages-def-stable' => 'გამოქვეყნებული ვერსია',
 );
 
 /** Korean (한국어)

@@ -395,10 +395,11 @@ $messages['lb'] = array(
 
 /** Macedonian (Македонски)
  * @author Bjankuloski06
+ * @author Brest
  */
 $messages['mk'] = array(
 	'problemchanges' => 'Означени промени во исчекување',
-	'problemchanges-legend' => 'Листа на прегледани промени со означени уредувања во исчекување на проверка',
+	'problemchanges-legend' => 'Листа на страници со означени уредувања во исчекување на оценка',
 	'problemchanges-none' => 'Моментално нема страници кои ги задоволуваат овие критериуми',
 	'problemchanges-category' => 'Категорија:',
 );

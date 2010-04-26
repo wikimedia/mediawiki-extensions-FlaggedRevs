@@ -507,11 +507,16 @@ $messages['et'] = array(
 );
 
 /** Basque (Euskara)
+ * @author Joxemai
  * @author Kobazulo
  */
 $messages['eu'] = array(
 	'oldreviewedpages-recent' => '(ordu bat baino gutxiago)',
 	'oldreviewed-category' => 'Kategoria:',
+	'oldreviewed-stable' => 'Orrialde egonkorrak',
+	'oldreviewed-diff' => 'Aurreikusi',
+	'oldreviewed-size' => 'Aldaketa maximoa (bytetan):',
+	'oldreviewedpages-viewing' => '(berrikuspen prozesuan)',
 );
 
 /** Persian (فارسی)
@@ -993,16 +998,16 @@ $messages['lb'] = array(
  */
 $messages['mk'] = array(
 	'oldreviewedpages' => 'Страници со промени во исчекување',
-	'oldreviewedpages-legend' => 'Листа на проверени страници со верзии во исчекување за проверка',
-	'oldreviewedpages-list' => 'Оваа страница наведува {{PLURAL:$1|прегледана страница|прегледани страници}} со уредувања во исчекување на проверка.',
+	'oldreviewedpages-legend' => 'Листа на оценети страници со уредувања во исчекување за проверка',
+	'oldreviewedpages-list' => 'Оваа страница наведува {{PLURAL:$1|оценета страница|оценети страници}} со уредувања во исчекување на проверка.',
 	'oldreviewedpages-none' => 'Моментално нема страници кои ги задоволуваат овие критериуми',
 	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|час|часа}})',
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|ден|дена}})',
 	'oldreviewedpages-recent' => '(помалку од 1 час)',
 	'oldreviewed-category' => 'Категорија:',
 	'oldreviewed-watched' => 'Страници во мојата листа на набљудувања',
-	'oldreviewed-stable' => 'Стабилизирани',
-	'oldreviewed-diff' => 'преглед',
+	'oldreviewed-stable' => 'Стабилизирани страници',
+	'oldreviewed-diff' => 'оцени',
 	'oldreviewed-size' => 'Макс. промена (во бајти):',
 	'oldreviewedpages-unwatched' => '(ненабљудувана)',
 	'oldreviewedpages-watched' => '($1 {{PLURAL:$1|активен корисник набљудува|активни корисници набљудуваат}})',
