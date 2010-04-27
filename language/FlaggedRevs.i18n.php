@@ -1993,7 +1993,7 @@ $messages['br'] = array(
 	'revreview-depth-4' => 'Heverk',
 	'revreview-draft-title' => "Ar c'hemmoù o c'hortoz a zo diskouezet er bajenn-mañ",
 	'revreview-edit' => 'Kemmañ',
-	'revreview-editnotice' => "'''Ho kemmoù a vo embannet pa 'vo bet adlennet gant un implijer en deus ar gwirioù a zere.'''",
+	'revreview-editnotice' => "'''Ho kemmoù a vo embannet pa 'vo bet adlennet gant un implijer en deus ar gwirioù a zere. ([[{{MediaWiki:Validationpage}}|?]])'''",
 	'revreview-check-flag' => "Embann ar c'hemmoù o c'hortoz er mare-mañ",
 	'revreview-edited' => "'''[[{{MediaWiki:Validationpage}}|Embannet]] e vo ar c'hemmoù ur wezh bet [[{{MediaWiki:Validationpage}}|adlennet]] gant un implijer aotreet.'''
 
@@ -6815,6 +6815,7 @@ Mungkin telah ada [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} pe
 	'revreview-lev-basic' => 'terperiksa',
 	'revreview-lev-quality' => 'kualitas',
 	'revreview-lev-pristine' => 'asli',
+	'revreview-def-draft' => 'terbaru',
 	'revreview-reviewlink' => 'meninjau',
 	'tooltip-ca-current' => 'Lihat draf terkini halaman ini',
 	'tooltip-ca-stable' => 'Lihat versi stabil halaman ini',
@@ -7883,9 +7884,11 @@ $messages['km'] = array(
 );
 
 /** Kannada (ಕನ್ನಡ)
+ * @author Nayvik
  * @author Shushruth
  */
 $messages['kn'] = array(
+	'revreview-edit' => 'ಸಂಪಾದಿಸಿ',
 	'revreview-revnotfound' => 'ನೀವು ಕೋರಿದ ಪುಟದ ಹಳೆ ಆವೃತ್ತಿ ಸಿಗಲಿಲ್ಲ. ದಯವಿಟ್ಟು ಈ ಪುಟವನ್ನು ತಲುಪಲು ಉಪಯೋಗಿಸಿದ URL ಅನ್ನು ಒಮ್ಮೆ ಪರೀಕ್ಷಿಸಿ.',
 );
 
@@ -8756,41 +8759,41 @@ $messages['mk'] = array(
 	'revreview-submitting' => 'Поднесувам ...',
 	'revreview-submit-reviewed' => 'Готово. Проверено!',
 	'revreview-submit-unreviewed' => 'Готово. Отпроверено!',
-	'revreview-successful' => "'''Успешно отстранета ознака од верзијата на [[:$1|$1]]. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} преглед на стабилни верзии])'''",
-	'revreview-successful2' => "'''Успешно отстранета ознака од верзијата на [[:$1|$1]].'''",
-	'revreview-text' => "''[[{{MediaWiki:Validationpage}}|Прегледани верзии]] се проверени верзии на страници според кои се определува објавената верзија.''",
+	'revreview-successful' => "'''Ревизијата на [[:$1|$1]] успешно означена. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} преглед на оценети верзии])'''",
+	'revreview-successful2' => "'''За ревизијата на [[:$1|$1]] успешно е острането означувањето.'''",
+	'revreview-text' => "''[[{{MediaWiki:Validationpage}}|Оценети верзии]] се проверени верзии на страници според кои се определува објавената верзија.''",
 	'revreview-toggle-title' => 'прикажи/сокриј детали',
-	'revreview-toolow' => "'''Долунаведените атрибути мора да ги оцените со нешто повисоко од „неодобрена“ за ревизијата да се смета за проверена.'''
+	'revreview-toolow' => "'''Долунаведените атрибути мора да ги оцените со нешто повисоко од „неодобрена“ за ревизијата да се смета за оценета.'''
 За да го отстраните статусот на ревизијата, поставете ги сите полиња како „неодобрено“.
 
 Притиснете на копчето „назад“ во вашиот прелистувач и обидете се повторно.",
-	'revreview-update' => "Ве молиме [[{{MediaWiki:Validationpage}}|прегледајте]] ги евентуалните промени на објавената верзија во исчекување ''(прикажани подолу)''.",
+	'revreview-update' => "Ве молиме [[{{MediaWiki:Validationpage}}|оценете]] ги промените ''(прикажани подолу)'' направени на објавената верзија.",
 	'revreview-update-edited' => '<span class="flaggedrevs_important">Вашите промени сè уште не се објавени.</span>
 
-Постојат претходни уредувања кои чекаат на преглед. За да ги објавите вашите промени, најпрвин прегледајте ги сите долуприкажани промени.',
+Постојат претходни уредувања кои чекаат на оценка. За да ги објавите вашите промени, најпрвин оценете ги сите долуприкажани промени.',
 	'revreview-update-includes' => "'''Некои шаблони/податотеки беа обновени:'''",
 	'revreview-update-use' => "'''НАПОМЕНА:''' Објавената верзија на секој од овие шаблони/податотеки се користи во објавената верзија на оваа страница.",
-	'revreview-visibility' => "'''Оваа страница има подновена [[{{MediaWiki:Validationpage}}|објавена верзија]]; стабилноста на страницата може да се [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} прилагоди].'''",
-	'revreview-visibility2' => "'''Оваа страница има застарена [[{{MediaWiki:Validationpage}}|објавена верзија]]; стабилноста на страницата може да се [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} прилагоди].'''",
-	'revreview-visibility3' => "'''Оваа страница нема [[{{MediaWiki:Validationpage}}|објавена верзија]]; стабилноста на страницата може да се [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} прилагоди].'''",
+	'revreview-visibility' => "'''Оваа страница има понова [[{{MediaWiki:Validationpage}}|објавена верзија]]; нагодувањата на стабилноста на страницата може да се [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} прилагодат].'''",
+	'revreview-visibility2' => "'''Оваа страница има застарена [[{{MediaWiki:Validationpage}}|објавена верзија]]; наодувањата на стабилноста на страницата може да се [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} прилагодат].'''",
+	'revreview-visibility3' => "'''Оваа страница нема [[{{MediaWiki:Validationpage}}|објавена верзија]]; нагодувањата за стабилностата на страницата може да се [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} прилагодат].'''",
 	'revreview-revnotfound' => 'Старата верзија на оваа страница не може да се пронајде.
 Проверете ја URL адресата што ја користевте за пристап до оваа страница.',
 	'right-autoreview' => 'Автоматско означување на ревизии како проверени',
 	'right-movestable' => 'Преместување на објавени страници',
 	'right-review' => 'Означување на ревизии како „проверени“',
-	'right-stablesettings' => 'Нагодување на изборот и приказот на објавената верзија',
+	'right-stablesettings' => 'Нагодување како објавената верзија ќе се избира и прикажува',
 	'right-validate' => 'Означи ревизии како „квалитетни“',
-	'right-unreviewedpages' => 'Погледни [[Special:UnreviewedPages|листа на непрегледани статии]]',
+	'right-unreviewedpages' => 'Погледни [[Special:UnreviewedPages|листа на неоценети статии]]',
 	'rights-editor-autosum' => 'автопромовиран',
-	'rights-editor-revoke' => 'му го одзема статусот на уредник на [[$1]]',
+	'rights-editor-revoke' => 'одземен уреднички статус на [[$1]]',
 	'specialpages-group-quality' => 'Одобрување на уредувања',
 	'stable-logentry-config' => 'постави нагодувања за објава на [[$1]]',
 	'stable-logentry-reset' => 'врати основни нагодувања за објава на [[$1]]',
-	'stable-log-restriction' => 'Објавување: потребна дозвола „$1“',
-	'stable-logpage' => 'Дневник на стабилни страници',
+	'stable-log-restriction' => 'Објави: потребна „$1“ дозвола',
+	'stable-logpage' => 'Дневник на стабилни верзии',
 	'stable-logpagetext' => 'Ова е дневник на промени на поставките на [[{{MediaWiki:Validationpage}}|објавената верзија]] на страниците.',
-	'revreview-filter-all' => 'Сите',
-	'revreview-filter-stable' => 'Објавена',
+	'revreview-filter-all' => 'сите',
+	'revreview-filter-stable' => 'објавена',
 	'revreview-statusfilter' => 'Одобрително дејство:',
 	'revreview-filter-approved' => 'Одобрени',
 	'revreview-filter-reapproved' => 'Ре-одобрени',
@@ -8802,13 +8805,13 @@ $messages['mk'] = array(
 	'revreview-precedencefilter' => 'Предност:',
 	'revreview-lev-all' => 'било која',
 	'revreview-lev-basic' => 'проверена',
-	'revreview-lev-quality' => 'квалитетна',
+	'revreview-lev-quality' => 'квалитетно',
 	'revreview-lev-pristine' => 'првобитна',
 	'revreview-defaultfilter' => 'Основна верзија:',
 	'revreview-def-all' => 'било која',
 	'revreview-def-draft' => 'најнова',
 	'revreview-def-stable' => 'објавена',
-	'revreview-restrictfilter' => 'Степен на заштита:',
+	'revreview-restrictfilter' => 'Степен на ограничување:',
 	'revreview-restriction-any' => 'било кој',
 	'revreview-restriction-none' => 'никаква',
 	'revreview-reviewlink' => 'уредувања во исчекување',
@@ -8819,15 +8822,15 @@ $messages['mk'] = array(
 	'tooltip-ca-default' => 'Прилагодувања за контрола на квалитет',
 	'flaggedrevs-protect-legend' => 'Објави ги уредувањата',
 	'flaggedrevs-protect-none' => 'Дозволи на сите корисници',
-	'flaggedrevs-protect-basic' => 'Прилагодувања по основно',
+	'flaggedrevs-protect-basic' => 'Основни нагодувања',
 	'revreview-locked-title' => 'Уредувањата мора да се проверат пред да се прикажат на оваа страница.',
 	'revreview-unlocked-title' => 'Уредувањата не бараат проверка пред да се прикажат на оваа страница.',
 	'revreview-locked' => 'Уредувањата мора да се [[{{MediaWiki:Validationpage}}|проверат]] пред да се прикажат на оваа страница.',
 	'revreview-unlocked' => 'Уредувањата не бараат [[{{MediaWiki:Validationpage}}|проверка]] пред да се прикажат на оваа страница.',
-	'log-show-hide-review' => '$1 дневник на проверки',
+	'log-show-hide-review' => '$1 дневник на оценувања',
 	'revreview-tt-review' => 'Примени го овој статус на оваа ревизија',
-	'revreview-tt-flag' => 'Одобрување на верзијава означувајќи ја како проверена',
-	'revreview-tt-unflag' => 'Отстранување на одобрувањето на верзијава означувајќи ја како непроверена',
+	'revreview-tt-flag' => 'Одобри ја оваа верзија означувајќи ја како проверена',
+	'revreview-tt-unflag' => 'Отстрани одобрување на оваа верзија означувајќи ја како непроверена',
 	'validationpage' => '{{ns:help}}:Проверка на страница',
 );
 
