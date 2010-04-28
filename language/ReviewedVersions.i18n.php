@@ -220,6 +220,7 @@ $messages['cu'] = array(
 );
 
 /** German (Deutsch)
+ * @author Giftpflanze
  * @author Imre
  * @author Umherirrender
  */

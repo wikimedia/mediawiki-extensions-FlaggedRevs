@@ -224,12 +224,13 @@ $messages['cs'] = array(
 );
 
 /** German (Deutsch)
+ * @author Giftpflanze
  * @author Imre
  * @author Umherirrender
  */
 $messages['de'] = array(
 	'reviewedpages' => 'Liste der gesichteten Seiten',
-	'reviewedpages-leg' => 'Seiten nach Prüfungsstufe auflisten',
+	'reviewedpages-leg' => 'Markierte Seiten auflisten',
 	'reviewedpages-list' => 'Diese Spezialseite zeigt Seiten, die bisher mit dem angegebenem Level als höchstes markiert wurden.',
 	'reviewedpages-none' => 'Die Liste ist leer.',
 	'reviewedpages-lev-0' => 'Gesichtet',

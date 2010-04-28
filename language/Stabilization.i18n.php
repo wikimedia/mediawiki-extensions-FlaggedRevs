@@ -651,6 +651,7 @@ $messages['da'] = array(
 
 /** German (Deutsch)
  * @author Als-Holder
+ * @author Giftpflanze
  * @author Metalhead64
  * @author Purodha
  * @author Umherirrender
@@ -665,9 +666,9 @@ Bei einer Änderung der Konfiguration der standardmäßig angezeigten Version au
 Die aktuellen Einstellungen für „[[:$1|$1]]“ sind:',
 	'stabilization-page' => 'Seitenname:',
 	'stabilization-leg' => 'Einstellungen der markierten Version für eine Seite',
-	'stabilization-select' => 'Vorzugsweise stabile Versionen auswählen',
+	'stabilization-select' => 'Vorzugsweise letzte stabile Version auswählen',
 	'stabilization-select1' => 'Die letzte geprüfte Version; wenn keine vorhanden ist, dann die letzte gesichtete Version',
-	'stabilization-select2' => 'Die letzte markierte Version, unabhängig vom Markierungslevel',
+	'stabilization-select2' => 'letzte markierte Version',
 	'stabilization-select3' => 'Die letzte ursprüngliche Version; wenn keine vorhanden ist, dann die letzte gesichtete oder geprüfte Version',
 	'stabilization-def' => 'Angezeigte Version in der normalen Seitenansicht',
 	'stabilization-def1' => 'Die markierte Version; wenn keine vorhanden ist, dann die aktuelle Version/der Entwurf',
@@ -687,11 +688,11 @@ Die aktuellen Einstellungen für „[[:$1|$1]]“ sind:',
 	'stabilization-sel-short-2' => 'ursprünglich',
 	'stabilization-def-short' => 'Standard',
 	'stabilization-def-short-0' => 'Aktuell',
-	'stabilization-def-short-1' => 'Markiert',
+	'stabilization-def-short-1' => 'stabile Version',
 	'stabilize_expiry_invalid' => 'Ungültiges Ablaufdatum.',
 	'stabilize_expiry_old' => 'Das Ablaufdatum wurde überschritten.',
 	'stabilize-expiring' => 'erlischt am $2, $3 Uhr (UTC)',
-	'stabilization-review' => 'Überprüfe die aktuelle Version',
+	'stabilization-review' => 'Markiere die aktuelle Version',
 );
 
 /** German (formal address) (Deutsch (Sie-Form))
