@@ -1105,7 +1105,7 @@ $4
  * @author Къарачайлы
  */
 $messages['krc'] = array(
-	'validationstatistics' => 'Сынауну статистикасы',
+	'validationstatistics' => 'Бетлени сынауну статистикасы',
 	'validationstatistics-users' => "{{SITENAME}}''' проектде бусагъатда [[{{MediaWiki:Validationpage}}|Редактор]] хакълагъа ие '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|къошулуучу|къошулуучу}} барды.
 
 «Редакторла» —  бетлени белгили версияларын сайлама сынау бардырыргъа эркин къошулуучуладыла.",
