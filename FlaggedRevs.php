@@ -301,7 +301,7 @@ $wgAvailableRights[] = 'movestable';
 $wgAvailableRights[] = 'stablesettings';
 
 # Bump this number every time you change flaggedrevs.css/flaggedrevs.js
-$wgFlaggedRevStyleVersion = 69;
+$wgFlaggedRevStyleVersion = 70;
 
 $wgExtensionFunctions[] = 'efLoadFlaggedRevs';
 
@@ -541,6 +541,7 @@ function efLoadFlaggedRevs() {
 		global $wgFlaggedRevsPatrolNamespaces, $wgCanonicalNamespaceNames;
 		$wgFlaggedRevsPatrolNamespaces = array_keys( $wgCanonicalNamespaceNames );
 	}
+	/* TODO: decouple from rc patrol */
 	# Check if FlaggedRevs is enabled by default for pages...
 	if ( $wgFlaggedRevsNamespaces && !FlaggedRevs::stableOnlyIfConfigured() ) {
 		# Use RC Patrolling to check for vandalism.

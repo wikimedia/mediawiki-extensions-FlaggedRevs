@@ -48,7 +48,7 @@ var FlaggedRevs = {
 		var toggle = document.getElementById('mw-fr-revisiontoggle');
 		if( !toggle ) return;
 		if( ratings.style.display == 'none' ) {
-			ratings.style.display = 'inline';
+			ratings.style.display = 'block';
 			toggle.innerHTML = this.messages.toggleHide;
 		} else {
 			ratings.style.display = 'none';
@@ -63,7 +63,7 @@ var FlaggedRevs = {
 		var toggle = document.getElementById('mw-fr-difftoggle');
 		if( !toggle ) return;
 		if( diff.style.display == 'none' ) {
-			diff.style.display = 'inline';
+			diff.style.display = 'block';
 			toggle.innerHTML = this.messages.diffToggleHide;
 		} else {
 			diff.style.display = 'none';
@@ -78,7 +78,7 @@ var FlaggedRevs = {
 		var toggle = document.getElementById('mw-fr-logtoggle');
 		if( !toggle ) return;
 		if( log.style.display == 'none' ) {
-			log.style.display = 'inline';
+			log.style.display = 'block';
 			toggle.innerHTML = this.messages.logToggleHide;
 		} else {
 			log.style.display = 'none';
@@ -93,7 +93,7 @@ var FlaggedRevs = {
 		var toggle = document.getElementById('mw-fr-logtoggle');
 		if( !toggle ) return;
 		if( log.style.display == 'none' ) {
-			log.style.display = 'inline';
+			log.style.display = 'block';
 			toggle.innerHTML = this.messages.logDetailsHide;
 		} else {
 			log.style.display = 'none';
