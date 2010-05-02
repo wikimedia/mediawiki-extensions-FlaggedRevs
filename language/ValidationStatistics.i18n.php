@@ -85,6 +85,13 @@ $messages['am'] = array(
 	'validationstatistics-ns' => 'ክፍለ-ዊኪ',
 );
 
+/** Aragonese (Aragonés)
+ * @author Juanpabl
+ */
+$messages['an'] = array(
+	'validationstatistics-ns' => 'Espacio de nombres',
+);
+
 /** Arabic (العربية)
  * @author Meno25
  * @author OsamaK
