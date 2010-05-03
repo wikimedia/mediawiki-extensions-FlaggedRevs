@@ -10315,6 +10315,7 @@ $messages['pdc'] = array(
  * @author Jwitos
  * @author Leinad
  * @author Maikking
+ * @author Marcin Łukasz Kiejzik
  * @author McMonster
  * @author Pimke
  * @author Soeb
@@ -10332,8 +10333,8 @@ $messages['pl'] = array(
 	'flaggedrevs-pref-UI' => 'Podstawowy interfejs',
 	'flaggedrevs-pref-UI-0' => 'Do prezentacji statusu przeglądania używaj szczegółowego opisu w ramkach',
 	'flaggedrevs-pref-UI-1' => 'Do prezentacji statusu przeglądania użyj małych ikon oraz skrótowego opisu',
-	'prefs-flaggedrevs' => 'Wersje oznaczone',
-	'prefs-flaggedrevs-ui' => 'Wersje oznaczone',
+	'prefs-flaggedrevs' => 'Edytuj zatwierdzenie',
+	'prefs-flaggedrevs-ui' => 'Edytuj zatwierdzenie',
 	'flaggedrevs-prefs-stable' => 'Domyślnie zawsze pokazuj wersję opublikowaną stron (jeśli taka istnieje)',
 	'flaggedrevs-prefs-watch' => 'Dodaj do obserwowanych strony oznaczane przeze mnie jako przejrzane',
 	'flaggedrevs-prefs-editdiffs' => 'Podczas edytowania pokazuj zmiany oczekujące na przejrzenie',
