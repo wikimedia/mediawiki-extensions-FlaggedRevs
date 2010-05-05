@@ -639,7 +639,7 @@ class FlaggedArticleView {
 			return false; // deleted revision or something?
 		# Build diff at the top of the page
 		if ( strcmp( $oText, $nText ) !== 0 ) {
-			$diffEngine = new DifferenceEngine();
+			$diffEngine = new DifferenceEngine( $this->article->getTitle() );
 			$diffEngine->showDiffStyle();
 			$n = $this->article->getTitle()->countRevisionsBetween( $srev->getRevId(), $latest );
 			if ( $n ) {
@@ -816,7 +816,7 @@ class FlaggedArticleView {
 					$text = $this->article->getSection( $text, $section );
 				}
 				if ( $text !== false && strcmp( $text, $editPage->textbox1 ) !== 0 ) {
-					$diffEngine = new DifferenceEngine();
+					$diffEngine = new DifferenceEngine( $this->article->getTitle() );
 					$diffEngine->showDiffStyle();
 					$diffHtml =
 						wfMsgExt( 'review-edit-diff', 'parseinline' ) . ' ' .
