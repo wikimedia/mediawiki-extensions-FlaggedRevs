@@ -274,8 +274,11 @@ E Deil Yystellige chenne sich villicht unterscheide, je nochdäm weli Version em
 	'configuredpages-def-stable' => 'vereffentligti Version',
 );
 
-/** Hebrew (עברית) */
+/** Hebrew (עברית)
+ * @author Amire80
+ */
 $messages['he'] = array(
+	'configuredpages-none' => 'אין דפים ברשימה זו.',
 	'configuredpages-prec-none' => 'ללא עדיפות',
 	'configuredpages-prec-quality' => 'עדיפות לגרסאות איכותיות',
 	'configuredpages-prec-pristine' => 'עדיפות לגרסאות מושלמות',
