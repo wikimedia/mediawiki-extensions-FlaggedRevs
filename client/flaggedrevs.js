@@ -47,12 +47,24 @@ var FlaggedRevs = {
 		if( !ratings ) return;
 		var toggle = document.getElementById('mw-fr-revisiontoggle');
 		if( !toggle ) return;
+		// Collapsed -> expand
 		if( ratings.style.display == 'none' ) {
 			ratings.style.display = 'block';
-			toggle.innerHTML = this.messages.toggleHide;
+			if( toggle.tagName == 'IMG' ) { // arrow
+				toggle.alt = this.messages.toggleHide; // fallback text
+				toggle.src = toggle.src.replace( 'arrow-up.png', 'arrow-down.png' );
+			} else { // text
+				toggle.innerHTML = this.messages.toggleHide;
+			}
+		// Expanded -> collapse
 		} else {
 			ratings.style.display = 'none';
-			toggle.innerHTML = this.messages.toggleShow;
+			if( toggle.tagName == 'IMG' ) { // arrow
+				toggle.alt = this.messages.toggleShow; // fallback text
+				toggle.src = toggle.src.replace( 'arrow-down.png', 'arrow-up.png' );
+			} else { // text
+				toggle.innerHTML = this.messages.toggleShow;
+			}
 		}
 	},
 	

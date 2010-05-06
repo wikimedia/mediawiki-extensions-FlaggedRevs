@@ -293,7 +293,7 @@ class FlaggedRevsXML {
 		}
 		# Make fancy box...
 		$box = '<div class="flaggedrevs_short_basic">' . $shtml .
-			'&nbsp;' . self::ratingToggle() . "</div>\n";
+			'&nbsp;' . self::ratingArrow() . "</div>\n";
 		$box .= '<div style="position: relative;">'; // for rel-absolute child div
 		$box .= '<div id="mw-fr-revisionratings" class="flaggedrevs_short_details">';
 		$box .= $html; // details text
@@ -309,15 +309,27 @@ class FlaggedRevsXML {
 	}
 
 	/**
+	 * Generates JS toggle arrow icon
+	 * @returns string
+	 */
+	public static function ratingArrow() {
+		$encPath = htmlspecialchars( FlaggedRevs::styleUrlPath() . '/img' );
+		return "<img id=\"mw-fr-revisiontoggle\" class=\"fr-toggle-arrow\"" .
+			" src=\"{$encPath}/arrow-up.png\" style=\"display:none;\" " .
+			" onclick=\"FlaggedRevs.toggleRevRatings()\" title=\"" .
+			wfMsgHtml( 'revreview-toggle-title' ) . "\" alt=\"" .
+			wfMsgHtml( 'revreview-toggle-show' ) . "\" />";
+	}
+
+	/**
 	 * Generates (+/-) JS toggle HTML (monospace to keep things in place)
 	 * @returns string
 	 */
 	public static function ratingToggle() {
-		return '<strong><a id="mw-fr-revisiontoggle" class="flaggedrevs_toggle"' .
-			' style="display:none; font-family: monospace;"' .
-			' onclick="FlaggedRevs.toggleRevRatings()" title="' .
+		return '<a id="mw-fr-revisiontoggle" class="fr-toggle-symbol"' .
+			' style="display:none;" onclick="FlaggedRevs.toggleRevRatings()" title="' .
 			wfMsgHtml( 'revreview-toggle-title' ) . '" >' .
-			wfMsgHtml( 'revreview-toggle-show' ) . '</a></strong>';
+			wfMsgHtml( 'revreview-toggle-show' ) . '</a>';
 	}
 
 	/**
@@ -325,7 +337,7 @@ class FlaggedRevsXML {
 	 * @returns string
 	 */
 	public static function diffToggle() {
-		$toggle = '<a id="mw-fr-difftoggle" class="flaggedrevs_toggle" style="display:none;"' .
+		$toggle = '<a id="mw-fr-difftoggle" class="fr-toggle-text" style="display:none;"' .
 			' onclick="FlaggedRevs.toggleDiff()" title="' .
 			wfMsgHtml( 'revreview-diff-toggle-title' ) . '" >' .
 			wfMsgHtml( 'revreview-diff-toggle-show' ) . '</a>';
@@ -337,7 +349,7 @@ class FlaggedRevsXML {
 	 * @returns string
 	 */
 	public static function logToggle() {
-		$toggle = '<a id="mw-fr-logtoggle" class="flaggedrevs_toggle" style="display:none;"' .
+		$toggle = '<a id="mw-fr-logtoggle" class="fr-toggle-text" style="display:none;"' .
 			' onclick="FlaggedRevs.toggleLog()" title="' .
 			wfMsgHtml( 'revreview-log-toggle-show' ) . '" >' .
 			wfMsgHtml( 'revreview-log-toggle-show' ) . '</a>';
@@ -349,7 +361,7 @@ class FlaggedRevsXML {
 	 * @returns string
 	 */
 	public static function logDetailsToggle() {
-		$toggle = '<a id="mw-fr-logtoggle" class="flaggedrevs_toggle" style="display:none;"' .
+		$toggle = '<a id="mw-fr-logtoggle" class="fr-toggle-text" style="display:none;"' .
 			' onclick="FlaggedRevs.toggleLogDetails()" title="' .
 			wfMsgHtml( 'revreview-log-details-show' ) . '" >' .
 			wfMsgHtml( 'revreview-log-details-show' ) . '</a>';
@@ -520,7 +532,7 @@ class FlaggedRevsXML {
 		$encPath = htmlspecialchars( FlaggedRevs::styleUrlPath() . '/img' );
 		$encTitle = wfMsgHtml( 'revreview-draft-title' );
 		return "<img class=\"flaggedrevs-icon\" src=\"$encPath/1.png\"" .
-			" width=\"16px\" alt=\"$encTitle\" title=\"$encTitle\"></img>";
+			" width=\"16px\" alt=\"$encTitle\" title=\"$encTitle\" />";
 	}
 	
 	/*
@@ -535,7 +547,7 @@ class FlaggedRevsXML {
 			? wfMsgHtml( 'revreview-quality-title' )
 			: wfMsgHtml( 'revreview-basic-title' );
 		return "<img class=\"flaggedrevs-icon\" src=\"$encPath/$file\"" .
-			" width=\"16px\" alt=\"$encTitle\" title=\"$encTitle\"></img>";
+			" width=\"16px\" alt=\"$encTitle\" title=\"$encTitle\" />";
 	}
 
 	/*
@@ -548,11 +560,11 @@ class FlaggedRevsXML {
 		if ( $flaggedArticle->isPageLocked() ) {
 			$encTitle = wfMsgHtml( 'revreview-locked-title' );
 			return "<img class=\"flaggedrevs-icon\" src=\"$encPath/lock-closed.png\"" .
-				" width=\"16px\" alt=\"$encTitle\" title=\"$encTitle\"></img>";
+				" width=\"16px\" alt=\"$encTitle\" title=\"$encTitle\" />";
 		} elseif ( $flaggedArticle->isPageUnlocked() ) {
 			$encTitle = wfMsgHtml( 'revreview-unlocked-title' );
 			return "<img class=\"flaggedrevs-icon\" src=\"$encPath/lock-open.png\"" .
-				" width=\"16px\" alt=\"$encTitle\" title=\"$encTitle\"></img>";
+				" width=\"16px\" alt=\"$encTitle\" title=\"$encTitle\" />";
 		}
 	}
 

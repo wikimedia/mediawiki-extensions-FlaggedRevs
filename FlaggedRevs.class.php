@@ -1454,9 +1454,10 @@ class FlaggedRevs {
 	# ################ Auto-review function #################
 
 	/**
-	* Automatically review an edit and add a log entry in the review log.
-	* LinksUpdate was already called via edit operations, so the page
-	* fields will be up to date. This updates the stable version.
+	* Automatically review an revision and add a log entry in the review log.
+	*
+	* This is called during edit operations after the new revision is added
+	* and the page tables updated, but before LinksUpdate is called.
 	*
 	* $auto is here for revisions checked off to be reviewed. Auto-review
 	* triggers on edit, but we don't want it to count as just automatic.

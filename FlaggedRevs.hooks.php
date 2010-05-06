@@ -2081,8 +2081,8 @@ class FlaggedRevsHooks {
 		}
 		# Can the user actually do anything?
 		$isAllowed = $wgUser->isAllowed( 'stablesettings' );
-		$disabledAttrib = !$isAllowed ?
-			array( 'disabled' => 'disabled' ) : array();
+		$disabledAttrib = $isAllowed ?
+			array() : array( 'disabled' => 'disabled' );
 		
 		# Get the current config/expiry
 		$config = FlaggedRevs::getPageVisibilitySettings( $article->getTitle(), FR_MASTER );
@@ -2194,22 +2194,8 @@ class FlaggedRevsHooks {
 		$output .= "</td></tr>";
 		
 		# Add some script for expiry dropdowns
-		self::addProtectionJS();
+		Stabilization::addProtectionJS();
 		return true;
-	}
-
-	private static function addProtectionJS() {
-		global $wgOut;
-		$wgOut->addScript(
-			"<script type=\"text/javascript\">
-				function onFRChangeExpiryDropdown() {
-					document.getElementById('mwStabilizeExpiryOther').value = '';
-				}
-				function onFRChangeExpiryField() {
-					document.getElementById('mwStabilizeExpirySelection').value = 'othertime';
-				}
-			</script>"
-		);
 	}
 
 	// Add stability log extract to protection form
@@ -2248,13 +2234,12 @@ class FlaggedRevsHooks {
 		$permission = $wgRequest->getVal( 'mwStabilityConfig' );
 		if ( $permission == "none" ) {
 			$form->autoreview = ''; // default
-			$form->reviewThis = false;
 		} else if ( in_array( $permission, FlaggedRevs::getRestrictionLevels() ) ) {
 			$form->autoreview = $permission; // autoreview restriction
-			$form->reviewThis = true; // auto-review page; protection-like
 		} else {
 			return false; // bad level, don't save!
 		}
+		$form->reviewThis = null; // autoreview if not currently protected state
 		$form->override = null; // implied by autoreview level
 		$form->select = null; // site default
 		$form->wasPosted = $wgRequest->wasPosted();

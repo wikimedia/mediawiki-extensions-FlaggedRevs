@@ -20,24 +20,27 @@ class Stabilization extends UnlistedSpecialPage
 		# Let anyone view, but not submit...
 		if ( $wgRequest->wasPosted() ) {
 			if ( $wgUser->isBlocked( !$confirm ) ) {
-				return $wgOut->blockedPage();
+				$wgOut->blockedPage();
+				return;
 			} elseif ( !$this->isAllowed ) {
-				return $wgOut->permissionRequired( 'stablesettings' );
+				$wgOut->permissionRequired( 'stablesettings' );
+				return;
 			} elseif ( wfReadOnly() ) {
-				return $wgOut->readOnlyPage();
+				$wgOut->readOnlyPage();
+				return;
 			}
 		}
 		# Set page title
 		$this->setHeaders();
-		
+
 		$this->skin = $wgUser->getSkin();
 		# Our target page
-		$this->target = $wgRequest->getText( 'page', $par );
+		$this->target = $wgRequest->getVal( 'page', $par );
 		# Watch checkbox
 		$this->watchThis = (bool)$wgRequest->getCheck( 'wpWatchthis' );
 		# Reason
 		$this->reason = $wgRequest->getText( 'wpReason' );
-		$this->reasonSelection = $wgRequest->getText( 'wpReasonSelection' );
+		$this->reasonSelection = $wgRequest->getVal( 'wpReasonSelection' );
 		# Expiry
 		$this->expiry = $wgRequest->getText( 'mwStabilize-expiry' );
 		$this->expirySelection = $wgRequest->getVal( 'wpExpirySelection' );
@@ -55,24 +58,25 @@ class Stabilization extends UnlistedSpecialPage
 
 		# We need a page...
 		if ( is_null( $this->page ) ) {
-			return $wgOut->showErrorPage( 'notargettitle', 'notargettext' );
+			$wgOut->showErrorPage( 'notargettitle', 'notargettext' );
+			return;
 		} elseif ( !$this->page->exists() ) {
-			return $wgOut->addHTML( wfMsgExt( 'stabilization-notexists', array( 'parseinline' ),
-				$this->page->getPrefixedText() ) );
+			$wgOut->addWikiText(
+				wfMsg( 'stabilization-notexists', $this->page->getPrefixedText() ) );
+			return;
 		} elseif ( !FlaggedRevs::inReviewNamespace( $this->page ) ) {
-			return $wgOut->addHTML( wfMsgExt( 'stabilization-notcontent', array( 'parseinline' ),
-				$this->page->getPrefixedText() ) );
+			$wgOut->addWikiText(
+				wfMsg( 'stabilization-notcontent', $this->page->getPrefixedText() ) );
+			return;
 		}
-
 		# Users who cannot edit or review the page cannot set this
-		if ( $this->isAllowed && !( $this->page->userCan( 'edit' )
-			&& $this->page->userCan( 'review' ) ) )
-		{
+		if ( !$this->page->userCan( 'edit' ) || !$this->page->userCan( 'review' ) ) {
 			$this->isAllowed = false;
 		}
+
 		# Disable some elements as needed
-		$this->disabledAttrib = !$this->isAllowed ?
-			array( 'disabled' => 'disabled' ) : array();
+		$this->disabledAttrib = $this->isAllowed ?
+			array() : array( 'disabled' => 'disabled' );
 		# Show form or submit...
 		if ( $this->isAllowed && $isValid && $confirm ) {
 			$status = $this->submit();
@@ -85,58 +89,49 @@ class Stabilization extends UnlistedSpecialPage
 			$this->showSettings();
 		}
 	}
-	
+
 	/**
-	* Fetch and check parameters. Items may not all be set if false is returned.
+	* Verify and clean up parameters and preload data from DB.
+	* Note: if false is returned items may not all be set.
 	* @return bool success
 	*/
 	public function handleParams() {
-		# Our target page
 		$this->page = Title::newFromURL( $this->target );
-		# We need a page...
 		if ( is_null( $this->page ) ) {
-			return false; // can't continue
+			return false; // page title is invalid
 		}
-		# Get old config
+		# Get the current page config and GMT expiry
 		$this->config = FlaggedRevs::getPageVisibilitySettings( $this->page, FR_MASTER );
-		# Make user readable date for GET requests
-		$this->oldExpiry = $this->config['expiry'] !== 'infinity' ?
-			wfTimestamp( TS_RFC2822, $this->config['expiry'] ) : 'infinite';
-		# If not posted, then fill in existing values/defaults
+		$this->oldExpiry = $this->config['expiry'] === 'infinity'
+			? 'infinite'
+			: wfTimestamp( TS_RFC2822, $this->config['expiry'] );
+		# Handle views (GET)
 		if ( !$this->wasPosted ) {
-			# Get visiblity settings...
-			$this->select = $this->config['select'];
-			$this->override = $this->config['override'];
-			# Get autoreview restrictions...
-			$this->autoreview = $this->config['autoreview'];
-		# Handle submission data
+			# Fill in existing settings
+			$this->preloadSettings( $this->config );
+		# Handle submission data (POST)
 		} else {
-			// Custom expiry takes precedence
-			$this->expiry = strlen( $this->expiry ) ?
-				$this->expiry : $this->expirySelection;
-			if ( $this->expiry == 'existing' ) {
-				$this->expiry = $this->oldExpiry;
-			}
-			// Custom reason takes precedence
-			if ( $this->reasonSelection != 'other' ) {
-				$comment = $this->reasonSelection; // start with dropdown reason
-				if ( $this->reason != '' ) {
-					// Append custom reason
-					$comment .= wfMsgForContent( 'colon-separator' ) . $this->reason;
-				}
-			} else {
-				$comment = $this->reason; // just use custom reason
-			}
-			$this->reason = $comment;
+			$this->loadReason();
+			$this->loadExpiry();
 			// Protection level case...
-			if( FlaggedRevs::useProtectionLevels() ) {
+			if ( FlaggedRevs::useProtectionLevels() ) {
 				# Autoreview restriction => use stable
 				# No autoreview restriction => site default
-				$this->override = ($this->autoreview != '')
+				$this->override = ( $this->autoreview != '' )
 					? 1 // edits require review before being published
 					: (int)FlaggedRevs::isStableShownByDefault();
-				# Leave the selection precedence alone
+				# Leave the selection precedence to the site default
 				$this->select = FlaggedRevs::getPrecedence();
+				# Autoreview only when protecting currently unprotected pages
+				$this->reviewThis = ( FlaggedRevs::getProtectionLevel( $this->config ) == 'none' );
+				# Check that settings are a valid protection level...
+				$newConfig = array(
+					'override'   => $this->override,
+					'autoreview' => $this->autoreview
+				);
+				if ( FlaggedRevs::getProtectionLevel( $newConfig ) == 'invalid' ) {
+					return false; // this is not a valid configuration
+				}
 			// General case...
 			} else {
 				if ( $this->override !== 0 && $this->override !== 1 ) {
@@ -145,24 +140,45 @@ class Stabilization extends UnlistedSpecialPage
 				if ( !FlaggedRevs::isValidPrecedence( $this->select ) ) {
 					return false; // invalid precedence value
 				}
-			}
-			// Check autoreview setting
-			if ( !self::userCanSetAutoreviewLevel( $this->autoreview ) ) {
-				return false; // invalid value
-			}
-		}
-		# If we use protection levels, check that settings match one...
-		if ( FlaggedRevs::useProtectionLevels() ) {
-			$config = array(
-				'select' 	 => $this->select,
-				'override'   => $this->override,
-				'autoreview' => $this->autoreview
-			);
-			if ( FlaggedRevs::getProtectionLevel( $config ) == 'invalid' ) {
-				return false; // this is not a valid configuration
+				// Check autoreview restriction setting
+				if ( !self::userCanSetAutoreviewLevel( $this->autoreview ) ) {
+					return false; // invalid value
+				}
 			}
 		}
 		return true;
+	}
+
+	private function preloadSettings( $config ) {
+		# Get visiblity settings...
+		$this->select = $config['select'];
+		$this->override = $config['override'];
+		# Get autoreview restrictions...
+		$this->autoreview = $config['autoreview'];
+	}
+
+	private function loadExpiry() {
+		// Custom expiry takes precedence
+		if ( $this->expiry == '' ) {
+			$this->expiry = $this->expirySelection;
+			if ( $this->expiry == 'existing' ) {
+				$this->expiry = $this->oldExpiry;
+			}
+		}
+	}
+
+	private function loadReason() {
+		// Custom reason takes precedence
+		if ( $this->reasonSelection != 'other' ) {
+			$comment = $this->reasonSelection; // start with dropdown reason
+			if ( $this->reason != '' ) {
+				// Append custom reason
+				$comment .= wfMsgForContent( 'colon-separator' ) . $this->reason;
+			}
+		} else {
+			$comment = $this->reason; // just use custom reason
+		}
+		$this->reason = $comment;
 	}
 
 	/**
@@ -205,19 +221,6 @@ class Stabilization extends UnlistedSpecialPage
 			$form = wfMsgExt( 'stabilization-text', array( 'parse' ),
 				$this->page->getPrefixedText() );
 		}
-		# Add some script for expiry dropdowns
-		$wgOut->addScript(
-			"<script type=\"text/javascript\">
-				function updateStabilizationDropdowns() {
-					val = document.getElementById('mwExpirySelection').value;
-					if( val == 'existing' )
-						document.getElementById('mwStabilize-expiry').value = " .
-						Xml::encodeJsVar( $this->oldExpiry ) . ";
-					else if( val != 'othertime' )
-						document.getElementById('mwStabilize-expiry').value = val;
-				}
-			</script>"
-		);
 		# Borrow some protection messages for dropdowns
 		$reasonDropDown = Xml::listDropDown( 'wpReasonSelection',
 			wfMsgForContent( 'protect-dropdown' ),
@@ -287,26 +290,26 @@ class Stabilization extends UnlistedSpecialPage
 			$form .= "
 				<tr>
 					<td class='mw-label'>" .
-						Xml::label( wfMsg( 'stabilization-expiry' ), 'mwExpirySelection' ) .
+						Xml::label( wfMsg( 'stabilization-expiry' ), 'mwStabilizeExpirySelection' ) .
 					"</td>
 					<td class='mw-input'>" .
 						Xml::tags( 'select',
 							array(
-								'id' => 'mwExpirySelection',
-								'name' => 'wpExpirySelection',
-								'onchange' => 'updateStabilizationDropdowns()',
+								'id' 		=> 'mwStabilizeExpirySelection',
+								'name' 		=> 'wpExpirySelection',
+								'onchange'  => 'onFRChangeExpiryDropdown()',
 							) + $this->disabledAttrib,
 							$expiryFormOptions ) .
 					"</td>
 				</tr>";
 		}
 		# Add custom expiry field
-		$attribs = array( 'id' => "mwStabilize-expiry",
-			'onkeyup' => 'updateStabilizationDropdowns()' ) + $this->disabledAttrib;
+		$attribs = array( 'id' => "mwStabilizeExpiryOther",
+			'onkeyup' => 'onFRChangeExpiryField()' ) + $this->disabledAttrib;
 		$form .= "
 			<tr>
 				<td class='mw-label'>" .
-					Xml::label( wfMsg( 'stabilization-othertime' ), 'mwStabilize-expiry' ) .
+					Xml::label( wfMsg( 'stabilization-othertime' ), 'mwStabilizeExpiryOther' ) .
 				'</td>
 				<td class="mw-input">' .
 					Xml::input( "mwStabilize-expiry", 50,
@@ -369,8 +372,25 @@ class Stabilization extends UnlistedSpecialPage
 		$wgOut->addHTML( Xml::element( 'h2', null,
 			htmlspecialchars( LogPage::logName( 'stable' ) ) ) );
 		LogEventsList::showLogExtract( $wgOut, 'stable', $this->page->getPrefixedText() );
+
+		# Add some script for expiry dropdowns
+		self::addProtectionJS();
 	}
-	
+
+	public static function addProtectionJS() {
+		global $wgOut;
+		$wgOut->addScript(
+			"<script type=\"text/javascript\">
+				function onFRChangeExpiryDropdown() {
+					document.getElementById('mwStabilizeExpiryOther').value = '';
+				}
+				function onFRChangeExpiryField() {
+					document.getElementById('mwStabilizeExpirySelection').value = 'othertime';
+				}
+			</script>"
+		);
+	}
+
 	protected function buildSelector( $selected ) {
 		global $wgUser;
 		$allowedLevels = array();

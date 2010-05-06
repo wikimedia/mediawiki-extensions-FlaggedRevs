@@ -186,9 +186,21 @@ div.flaggedrevs_short_details {
 	background-color: #faebd7;
 }
 
-a.flaggedrevs_toggle {
+a.fr-toggle-symbol {
 	color: blue;
 	white-space: nowrap;
+	font-family: monospace;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+a.fr-toggle-text {
+	color: blue;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+img.fr-toggle-arrow {
 	cursor: pointer;
 }
 
