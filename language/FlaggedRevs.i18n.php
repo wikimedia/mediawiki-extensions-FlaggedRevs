@@ -10863,9 +10863,9 @@ Existem [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} alterações
 	'revreview-basic-same' => 'Esta é a [[{{MediaWiki:Validationpage}}|versão publicada]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} verificada] a <i>$2</i>.',
 	'revreview-basic-source' => 'Uma [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} versão verificada] desta página, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovada] a <i>$2</i>, foi baseada nesta edição.',
 	'revreview-failed' => "'''Não foi possível rever esta edição.''' A revisão ficou incompleta ou algo a torna inválida.",
-	'revreview-changed' => "'''Não foi possível executar a acção seleccionada nesta edição de [[:$1|$1]].'''
+	'revreview-changed' => "'''Não foi possível executar a operação seleccionada nesta edição de [[:$1|$1]].'''
 
-Uma predefinição ou ficheiro podem ter sido requisitados sem especificar uma edição concreta.
+Uma predefinição ou ficheiro podem ter sido solicitados sem especificar uma edição concreta.
 Isto pode ocorrer se uma predefinição dinâmica transclui um outro ficheiro ou predefinição, dependendo de uma variável que se alterou enquanto revia a página.
 Recarregar a página e refazer a revisão pode solucionar este problema.",
 	'revreview-current' => 'Alterações pendentes',
@@ -10957,7 +10957,7 @@ Edições anteriores aguardam revisão. Para publicar as suas alterações, reve
 	'revreview-visibility' => "'''Esta página tem uma [[{{MediaWiki:Validationpage}}|versão publicada]] actualizada; os parâmetros de estabilidade da página podem ser [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} configurados].'''",
 	'revreview-visibility2' => "'''Esta página tem uma [[{{MediaWiki:Validationpage}}|versão publicada]] desactualizada; os parâmetros de estabilidade da página podem ser [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} configurados].'''",
 	'revreview-visibility3' => "'''Esta página não tem uma [[{{MediaWiki:Validationpage}}|versão publicada]]; os parâmetros de estabilidade da página podem ser [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} configurados].'''",
-	'revreview-revnotfound' => 'A versão antiga desta página, que requisitou, não foi encontrada.
+	'revreview-revnotfound' => 'Não foi encontrada a versão antiga desta página, que solicitou.
 Verifique a URL que usou para aceder a esta página.',
 	'right-autoreview' => 'Ter as edições próprias marcadas como "verificadas"',
 	'right-movestable' => 'Mover páginas publicadas',

@@ -646,6 +646,15 @@ $messages['sv'] = array(
 	'configuredpages-def-draft' => 'senaste versionen',
 );
 
+/** Telugu (తెలుగు)
+ * @author Veeven
+ */
+$messages['te'] = array(
+	'configuredpages-none' => 'ఈ జాబితాలో పుటలు లేవు.',
+	'configuredpages-config' => 'స్వరూపణం',
+	'configuredpages-def-stable' => 'ప్రచురిత కూర్పు',
+);
+
 /** Turkmen (Türkmençe) */
 $messages['tk'] = array(
 	'configuredpages-prec-none' => 'öňürtilik ýok',
