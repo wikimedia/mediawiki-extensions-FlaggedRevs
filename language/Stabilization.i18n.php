@@ -654,6 +654,7 @@ $messages['da'] = array(
  * @author Giftpflanze
  * @author Metalhead64
  * @author Purodha
+ * @author Steef389
  * @author Umherirrender
  */
 $messages['de'] = array(

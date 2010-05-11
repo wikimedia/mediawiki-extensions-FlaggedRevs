@@ -149,11 +149,16 @@ Někotare nastajenja by mógli se změniś, kótara wersija zwobraznja se cytarj
 	'configuredpages-def-stable' => 'wózjawjona wersija',
 );
 
-/** Greek (Ελληνικά) */
+/** Greek (Ελληνικά)
+ * @author Crazymadlover
+ */
 $messages['el'] = array(
+	'configuredpages-config' => 'Διαμόρφωση',
+	'configuredpages-precedence' => 'Προνομίων:',
 	'configuredpages-prec-none' => 'χωρίς προτεραιότητα',
 	'configuredpages-prec-quality' => 'προτεραιότητα ποιότητας',
 	'configuredpages-prec-pristine' => 'προτεραιότητα μη αλλοίωσης',
+	'configuredpages-def-draft' => 'τελευταία έκδοση',
 );
 
 /** Esperanto (Esperanto)
@@ -520,11 +525,17 @@ Enkelte innstillinger kan endre hvilken versjon som vises til lesere eller ytter
 	'configuredpages-def-stable' => 'publisert versjon',
 );
 
-/** Occitan (Occitan) */
+/** Occitan (Occitan)
+ * @author Cedric31
+ */
 $messages['oc'] = array(
+	'configuredpages-config' => 'Configuracion',
+	'configuredpages-precedence' => 'Prioritat :',
 	'configuredpages-prec-none' => 'pas cap de prioritat',
 	'configuredpages-prec-quality' => 'preferéncia per la qualitat',
 	'configuredpages-prec-pristine' => 'prioritat vèrja',
+	'configuredpages-def-draft' => 'darrièra version',
+	'configuredpages-def-stable' => 'version publicada',
 );
 
 /** Polish (Polski)
@@ -636,6 +647,7 @@ $messages['sk'] = array(
 
 /** Swedish (Svenska)
  * @author Ainali
+ * @author Dafer45
  */
 $messages['sv'] = array(
 	'configuredpages-none' => 'Det finns inga sidor i den här listan.',
@@ -644,6 +656,7 @@ $messages['sv'] = array(
 	'configuredpages-prec-quality' => 'kvalitetsordning',
 	'configuredpages-prec-pristine' => 'företräde för orörda',
 	'configuredpages-def-draft' => 'senaste versionen',
+	'configuredpages-def-stable' => 'Publicerad version',
 );
 
 /** Telugu (తెలుగు)
