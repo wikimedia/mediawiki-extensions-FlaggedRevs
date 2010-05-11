@@ -2101,7 +2101,8 @@ class FlaggedRevsHooks {
 		# Includes restriction dropdown and expiry dropdown & field.
 		$output .= "<tr><td>";
 		$output .= Xml::openElement( 'fieldset' );
-		$output .= Xml::element( 'legend', null, wfMsg( 'flaggedrevs-protect-legend' ) );
+		$legendMsg = wfMsgExt( 'flaggedrevs-protect-legend', 'parseinline' );
+		$output .= "<legend>{$legendMsg}</legend>";
 		# Add a "no restrictions" level
 		$effectiveLevels = FlaggedRevs::getRestrictionLevels();
 		array_unshift( $effectiveLevels, "none" );

@@ -233,7 +233,7 @@ Please check the URL you used to access this page.',
 	'tooltip-ca-stable'            => 'View the published version of this page',
 	'tooltip-ca-default'           => 'Quality assurance settings',
 
-	'flaggedrevs-protect-legend'   => 'Publish edits',
+	'flaggedrevs-protect-legend'   => 'Publish edits ([[{{MediaWiki:Validationpage}}|?]])',
 	'flaggedrevs-protect-none'     => 'Allow all users',
 	'flaggedrevs-protect-basic'    => 'Default settings',
 	
