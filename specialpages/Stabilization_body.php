@@ -93,6 +93,7 @@ class Stabilization extends UnlistedSpecialPage
 	/**
 	* Verify and clean up parameters and preload data from DB.
 	* Note: if false is returned items may not all be set.
+	* TODO: return error keywords?
 	* @return bool success
 	*/
 	public function handleParams() {
