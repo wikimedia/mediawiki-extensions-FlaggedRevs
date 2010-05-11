@@ -295,7 +295,14 @@ class FlaggedRevsXML {
 		$box = '<div class="flaggedrevs_short_basic">' . $shtml .
 			'&nbsp;' . self::ratingArrow() . "</div>\n";
 		$box .= '<div style="position: relative;">'; // for rel-absolute child div
-		$box .= '<div id="mw-fr-revisionratings" class="flaggedrevs_short_details">';
+		$box .= Html::openElement( 'div',
+			array(
+				'id' 			=> 'mw-fr-revisionratings',
+				'class'			=> 'flaggedrevs_short_details',
+				'onMouseOver' 	=> 'FlaggedRevs.showBoxDetails()',
+				'onMouseOut' 	=> 'FlaggedRevs.hideBoxDetails()'
+			)
+		);
 		$box .= $html; // details text
 		# Add any rating tags as needed...
 		if ( $flags && !FlaggedRevs::binaryFlagging() ) {
@@ -304,7 +311,8 @@ class FlaggedRevsXML {
 				$box .= '<p>' . self::addTagRatings( $flags, true, $color ) . '</p>';
 			}
 		}
-		$box .= "</div></div>\n";
+		$box .= Html::closeElement( 'div' );
+		$box .= "</div>\n";
         return $box;
 	}
 
@@ -314,11 +322,13 @@ class FlaggedRevsXML {
 	 */
 	public static function ratingArrow() {
 		$encPath = htmlspecialchars( FlaggedRevs::styleUrlPath() . '/img' );
-		return "<img id=\"mw-fr-revisiontoggle\" class=\"fr-toggle-arrow\"" .
-			" src=\"{$encPath}/arrow-up.png\" style=\"display:none;\" " .
-			" onclick=\"FlaggedRevs.toggleRevRatings()\" title=\"" .
-			wfMsgHtml( 'revreview-toggle-title' ) . "\" alt=\"" .
-			wfMsgHtml( 'revreview-toggle-show' ) . "\" />";
+		$img = '<img id="mw-fr-revisiontoggle" class="fr-toggle-arrow"';
+		$img .= " src=\"{$encPath}/arrow-down.png\" style=\"display:none;\"";
+		$img .= ' onMouseOver="FlaggedRevs.showBoxDetails()"';
+		$img .= ' onMouseOut="FlaggedRevs.hideBoxDetails()"';
+		$img .= ' title="' . wfMsgHtml( 'revreview-toggle-title' ) . '"';
+		$img .= ' alt="' . wfMsgHtml( 'revreview-toggle-show' ) . '" />';
+		return $img;
 	}
 
 	/**
@@ -327,7 +337,7 @@ class FlaggedRevsXML {
 	 */
 	public static function ratingToggle() {
 		return '<a id="mw-fr-revisiontoggle" class="fr-toggle-symbol"' .
-			' style="display:none;" onclick="FlaggedRevs.toggleRevRatings()" title="' .
+			' style="display:none;" onclick="FlaggedRevs.toggleBoxDetails()" title="' .
 			wfMsgHtml( 'revreview-toggle-title' ) . '" >' .
 			wfMsgHtml( 'revreview-toggle-show' ) . '</a>';
 	}

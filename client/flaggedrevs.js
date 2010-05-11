@@ -15,6 +15,7 @@ var FlaggedRevs = {
 	},
 	/* Hide rating/diff clutter */
 	'enableShowhide': function() {
+		// Rating detail box
 		var toggle = document.getElementById('mw-fr-revisiontoggle');
 		if( toggle ) {
 			toggle.style.display = 'inline';
@@ -23,6 +24,7 @@ var FlaggedRevs = {
 				ratings.style.display = 'none';
 			}
 		}
+		// Diff detail box
 		toggle = document.getElementById('mw-fr-difftoggle');
 		if( toggle ) {
 			toggle.style.display = 'inline';
@@ -31,6 +33,7 @@ var FlaggedRevs = {
 				diff.style.display = 'none';
 			}
 		}
+		// Log detail box
 		toggle = document.getElementById('mw-fr-logtoggle');
 		if( toggle ) {
 			toggle.style.display = 'inline';
@@ -41,30 +44,36 @@ var FlaggedRevs = {
 		}
 	},
 	
-	/* Toggles ratings */
-	'toggleRevRatings': function() {
+	/* Expands ratings */
+	'showBoxDetails': function() {
 		var ratings = document.getElementById('mw-fr-revisionratings');
 		if( !ratings ) return;
 		var toggle = document.getElementById('mw-fr-revisiontoggle');
 		if( !toggle ) return;
+		ratings.style.display = 'block';
+		toggle.innerHTML = this.messages.toggleHide;
+	},
+	
+	/* Collapses ratings */
+	'hideBoxDetails': function() {
+		var ratings = document.getElementById('mw-fr-revisionratings');
+		if( !ratings ) return;
+		var toggle = document.getElementById('mw-fr-revisiontoggle');
+		if( !toggle ) return;
+		ratings.style.display = 'none';
+		toggle.innerHTML = this.messages.toggleShow;
+	},
+	
+	/* Toggles ratings */
+	'toggleBoxDetails': function() {
+		var ratings = document.getElementById('mw-fr-revisionratings');
+		if( !ratings ) return;
 		// Collapsed -> expand
 		if( ratings.style.display == 'none' ) {
-			ratings.style.display = 'block';
-			if( toggle.tagName == 'IMG' ) { // arrow
-				toggle.alt = this.messages.toggleHide; // fallback text
-				toggle.src = toggle.src.replace( 'arrow-up.png', 'arrow-down.png' );
-			} else { // text
-				toggle.innerHTML = this.messages.toggleHide;
-			}
+			this.showBoxDetails();
 		// Expanded -> collapse
 		} else {
-			ratings.style.display = 'none';
-			if( toggle.tagName == 'IMG' ) { // arrow
-				toggle.alt = this.messages.toggleShow; // fallback text
-				toggle.src = toggle.src.replace( 'arrow-down.png', 'arrow-up.png' );
-			} else { // text
-				toggle.innerHTML = this.messages.toggleShow;
-			}
+			this.hideBoxDetails();
 		}
 	},
 	
