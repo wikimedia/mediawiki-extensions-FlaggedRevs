@@ -749,15 +749,19 @@ class FlaggedRevs {
 		ParserOutput $currentOutput = null
 	) {
 		global $wgMemc, $wgEnableParserCache, $wgUser;
-		# Must be the same revision as the current
+		# Stable text revision must be the same as the current
 		if ( $srev->getRevId() < $article->getTitle()->getLatestRevID() ) {
 			return false;
 		}
-		# Must have same file
+		# Stable file revision must be the same as the current
 		if ( $article instanceof ImagePage && $article->getFile() ) {
 			if ( $srev->getFileTimestamp() < $article->getFile()->getTimestamp() ) {
 				return false;
 			}
+		}
+		# If using the current version of includes, there is nothing else to check.
+		if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_CURRENT ) {
+			return true;
 		}
 		# Try the cache...
 		$key = wfMemcKey( 'flaggedrevs', 'includesSynced', $article->getId() );
