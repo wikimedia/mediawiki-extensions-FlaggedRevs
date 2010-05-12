@@ -59,8 +59,6 @@ class ConfiguredPages extends SpecialPage
 
 	protected function showPageList() {
 		global $wgOut;
-		# Take this opportunity to purge out expired configurations
-		FlaggedRevs::purgeExpiredConfigurations();
 		$pager = new ConfiguredPagesPager( $this, array(),
 			$this->namespace, $this->override, $this->precedence, $this->autoreview );
 		if ( $pager->getNumRows() ) {
@@ -70,6 +68,8 @@ class ConfiguredPages extends SpecialPage
 		} else {
 			$wgOut->addHTML( wfMsgExt( 'configuredpages-none', array( 'parse' ) ) );
 		}
+		# Take this opportunity to purge out expired configurations
+		FlaggedRevs::purgeExpiredConfigurations();
 	}
 
 	public function formatRow( $row ) {
@@ -178,13 +178,17 @@ class ConfiguredPagesPager extends AlphabeticPager {
 		if ( $this->precedence !== null ) {
 			$conds['fpc_select'] = $this->precedence;
 		}
-		if( $this->autoreview !== null ) {
+		if ( $this->autoreview !== null ) {
 			$conds['fpc_level'] = $this->autoreview;
 		}
 		$conds['page_namespace'] = $this->namespace;
+		# Be sure not to include expired items
+		$encCutoff = $this->mDb->addQuotes( $this->mDb->timestamp() );
+		$conds[] = "fpc_expiry > {$encCutoff}";
 		return array(
 			'tables' => array( 'flaggedpage_config', 'page' ),
-			'fields' => 'page_namespace,page_title,fpc_override,fpc_expiry,fpc_page_id,fpc_select,fpc_level',
+			'fields' => array( 'page_namespace', 'page_title', 'fpc_override',
+				'fpc_expiry', 'fpc_page_id', 'fpc_select', 'fpc_level' ),
 			'conds'  => $conds,
 			'options' => array()
 		);
