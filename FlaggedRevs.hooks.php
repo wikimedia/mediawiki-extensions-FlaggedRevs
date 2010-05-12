@@ -1782,11 +1782,8 @@ class FlaggedRevsHooks {
 	}
 	
 	public static function addToRCQuery( &$conds, &$tables, &$join_conds, $opts ) {
-		global $wgUser;
-		if ( $wgUser->isAllowed( 'review' ) ) {
-			$tables[] = 'flaggedpages';
-			$join_conds['flaggedpages'] = array( 'LEFT JOIN', 'fp_page_id = rc_cur_id' );
-		}
+		$tables[] = 'flaggedpages';
+		$join_conds['flaggedpages'] = array( 'LEFT JOIN', 'fp_page_id = rc_cur_id' );
 		return true;
 	}
 	
