@@ -470,7 +470,7 @@ class FlaggedRevsXML {
 		# Build up all levels available to user
 		foreach ( FlaggedRevs::getDimensions() as $tag => $levels ) {
 			if ( isset( $selected[$tag] ) &&
-				!RevisionReview::userCan( $tag, $selected[$tag], $config ) )
+				!FlaggedRevs::userCanSetTag( $tag, $selected[$tag], $config ) )
 			{
 				return array( false, false ); // form will have to be disabled
 			}
@@ -478,7 +478,7 @@ class FlaggedRevsXML {
 			$minLevels[$tag] = false; // first non-zero level number
 			foreach ( $levels as $i => $msg ) {
 				# Some levels may be restricted or not applicable...
-				if ( !RevisionReview::userCan( $tag, $i, $config ) ) {
+				if ( !FlaggedRevs::userCanSetTag( $tag, $i, $config ) ) {
 					continue; // skip this level
 				} else if ( $i > 0 && !$minLevels[$tag] ) {
 					$minLevels[$tag] = $i; // first non-zero level number
@@ -651,7 +651,7 @@ class FlaggedRevsXML {
 			$flags = $srev->getTags();
 			# Check if user is allowed to renew the stable version.
 			# If not, then get the flags for the new revision itself.
-			if ( !RevisionReview::userCanSetFlags( $oldFlags ) ) {
+			if ( !FlaggedRevs::userCanSetFlags( $oldFlags ) ) {
 				$flags = $oldFlags;
 			}
 			$reviewNotes = $srev->getComment();
@@ -686,7 +686,7 @@ class FlaggedRevsXML {
 
 		# Disable form for unprivileged users
 		$uneditable = !$article->getTitle()->quickUserCan( 'edit' );
-		$disabled = !RevisionReview::userCanSetFlags( $flags ) || $uneditable;
+		$disabled = !FlaggedRevs::userCanSetFlags( $flags ) || $uneditable;
 		if ( $disabled ) {
 			$form .= Xml::openElement( 'div', array( 'class' => 'fr-rating-controls-disabled',
 				'id' => 'fr-rating-controls-disabled' ) );

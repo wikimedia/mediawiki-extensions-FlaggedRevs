@@ -380,7 +380,7 @@ class FlaggedRevision {
 	 * @returns bool
 	 */
 	public function userCanSetFlags() {
-		return RevisionReview::userCanSetFlags( $this->mTags );
+		return FlaggedRevs::userCanSetFlags( $this->mTags );
 	}
 
 	/**

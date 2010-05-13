@@ -132,7 +132,7 @@ class RevisionReview extends UnlistedSpecialPage
 		$fa = FlaggedArticle::getTitleInstance( $this->page );
 		$this->config = $fa->getVisibilitySettings();
 		# Check permissions and validate
-		if ( !self::userCanSetFlags( $this->dims, $this->oflags, $this->config ) ) {
+		if ( !FlaggedRevs::userCanSetFlags( $this->dims, $this->oflags, $this->config ) ) {
 			$wgOut->permissionRequired( 'badaccess-group0' );
 			return;
 		}
@@ -294,7 +294,7 @@ class RevisionReview extends UnlistedSpecialPage
 		# Get the revision's current flags, if any
 		$form->oflags = FlaggedRevs::getRevisionTags( $form->page, $form->oldid );
 		# Check tag permissions
-		if ( !self::userCanSetFlags( $form->dims, $form->oflags, $form->config ) ) {
+		if ( !FlaggedRevs::userCanSetFlags( $form->dims, $form->oflags, $form->config ) ) {
 			return '<err#>' . wfMsgExt( 'revreview-failed', 'parseinline' );
 		}
 		list( $approved, $status ) = $form->submit();
@@ -335,7 +335,7 @@ class RevisionReview extends UnlistedSpecialPage
 		}
 		# Double-check permissions
 		if ( !$this->page->quickUserCan( 'edit' )
-			|| !self::userCanSetFlags( $this->dims, $this->oflags, $this->config ) )
+			|| !FlaggedRevs::userCanSetFlags( $this->dims, $this->oflags, $this->config ) )
 		{
 			return array( $approved, false );
 		}
@@ -704,67 +704,6 @@ class RevisionReview extends UnlistedSpecialPage
 		return $p;
 	}
 
-	/**
-	 * Returns true if a user can set $tag to $value.
-	 * @param string $tag
-	 * @param int $value
-	 * @param array $config (optional page config)
-	 * @returns bool
-	 */
-	public static function userCan( $tag, $value, $config = null ) {
-		global $wgUser;
-		# Sanity check tag and value
-		$levels = FlaggedRevs::getTagLevels( $tag );
-		$highest = count( $levels ) - 1;
-		if( !$levels || $value < 0 || $value > $highest ) {
-			return false; // flag range is invalid
-		}
-		$restrictions = FlaggedRevs::getTagRestrictions();
-		# No restrictions -> full access
-		if ( !isset( $restrictions[$tag] ) ) {
-			return true;
-		}
-		# Validators always have full access
-		if ( $wgUser->isAllowed( 'validate' ) ) {
-			return true;
-		}
-		# Check if this user has any right that lets him/her set
-		# up to this particular value
-		foreach ( $restrictions[$tag] as $right => $level ) {
-			if ( $value <= $level && $level > 0 && $wgUser->isAllowed( $right ) ) {
-				return true;
-			}
-		}
-		return false;
-	}
-	
-	/**
-	 * Returns true if a user can set $flags.
-	 * This checks if the user has the right to review
-	 * to the given levels for each tag.
-	 * @param array $flags, suggested flags
-	 * @param array $oldflags, pre-existing flags
-	 * @param array $config, visibility settings
-	 * @returns bool
-	 */
-	public static function userCanSetFlags( $flags, $oldflags = array(), $config = null ) {
-		global $wgUser;
-		if ( !$wgUser->isAllowed( 'review' ) )
-			return false; // User is not able to review pages
-		# Check if all of the required site flags have a valid value
-		# that the user is allowed to set.
-		foreach ( FlaggedRevs::getDimensions() as $qal => $levels ) {
-			$level = isset( $flags[$qal] ) ? $flags[$qal] : 0;
-			$highest = count( $levels ) - 1; // highest valid level
-			if ( !self::userCan( $qal, $level, $config ) ) {
-				return false; // user cannot set proposed flag
-			} elseif ( isset( $oldflags[$qal] ) && !self::userCan( $qal, $oldflags[$qal] ) ) {
-				return false; // user cannot change old flag ($config is ignored here)
-			}
-		}
-		return true;
-	}
-	
 	public static function updateRecentChanges( $title, $revId, $rcId = false, $patrol = true ) {
 		wfProfileIn( __METHOD__ );
 		$revId = intval( $revId );

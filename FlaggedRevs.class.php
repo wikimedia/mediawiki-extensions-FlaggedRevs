@@ -477,7 +477,7 @@ class FlaggedRevs {
 	 * @return mixed array or null
 	 */
 	public static function getAutoReviewTags( $oldFlags, array $config = array() ) {
-		if ( !FlaggedRevs::autoReviewEdits() ) {
+		if ( !self::autoReviewEdits() ) {
 			return null; // shouldn't happen
 		}
 		$flags = array();
@@ -486,7 +486,7 @@ class FlaggedRevs {
 			$val = isset( $oldFlags[$tag] ) ? $oldFlags[$tag] : 1;
 			$val = min( $val, self::maxAutoReviewLevel( $tag ) );
 			# Dial down the level to one the user has permission to set
-			while ( !RevisionReview::userCan( $tag, $val ) ) {
+			while ( !self::userCanSetTag( $tag, $val ) ) {
 				$val--;
 				if ( $val <= 0 ) {
 					return null; // all tags vals must be > 0
@@ -495,6 +495,69 @@ class FlaggedRevs {
 			$flags[$tag] = $val;
 		}
 		return $flags;
+	}
+
+	/**
+	 * Returns true if a user can set $tag to $value.
+	 * @param string $tag
+	 * @param int $value
+	 * @param array $config (optional page config)
+	 * @returns bool
+	 */
+	public static function userCanSetTag( $tag, $value, $config = null ) {
+		global $wgUser;
+		# Sanity check tag and value
+		$levels = self::getTagLevels( $tag );
+		$highest = count( $levels ) - 1;
+		if( !$levels || $value < 0 || $value > $highest ) {
+			return false; // flag range is invalid
+		}
+		$restrictions = self::getTagRestrictions();
+		# No restrictions -> full access
+		if ( !isset( $restrictions[$tag] ) ) {
+			return true;
+		}
+		# Validators always have full access
+		if ( $wgUser->isAllowed( 'validate' ) ) {
+			return true;
+		}
+		# Check if this user has any right that lets him/her set
+		# up to this particular value
+		foreach ( $restrictions[$tag] as $right => $level ) {
+			if ( $value <= $level && $level > 0 && $wgUser->isAllowed( $right ) ) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	/**
+	 * Returns true if a user can set $flags.
+	 * This checks if the user has the right to review
+	 * to the given levels for each tag.
+	 * @param array $flags, suggested flags
+	 * @param array $oldflags, pre-existing flags
+	 * @param array $config, visibility settings
+	 * @returns bool
+	 */
+	public static function userCanSetFlags( $flags, $oldflags = array(), $config = null ) {
+		global $wgUser;
+		if ( !$wgUser->isAllowed( 'review' ) )
+			return false; // User is not able to review pages
+		# Check if all of the required site flags have a valid value
+		# that the user is allowed to set.
+		foreach ( self::getDimensions() as $qal => $levels ) {
+			$level = isset( $flags[$qal] ) ? $flags[$qal] : 0;
+			$highest = count( $levels ) - 1; // highest valid level
+			if ( !self::userCanSetTag( $qal, $level, $config ) ) {
+				return false; // user cannot set proposed flag
+			} elseif ( isset( $oldflags[$qal] )
+				&& !self::userCanSetTag( $qal, $oldflags[$qal] ) )
+			{
+				return false; // user cannot change old flag ($config is ignored here)
+			}
+		}
+		return true;
 	}
 
 	# ################ Parsing functions #################
@@ -510,7 +573,7 @@ class FlaggedRevs {
 		global $wgParser;
 		# Make our hooks trigger (force unstub so setting doesn't get lost)
 		$wgParser->firstCallInit();
-		$wgParser->fr_isStable = ( FlaggedRevs::inclusionSetting() != FR_INCLUDES_CURRENT );
+		$wgParser->fr_isStable = ( self::inclusionSetting() != FR_INCLUDES_CURRENT );
 		# Parse with default options
 		$options = self::makeParserOptions();
 		$outputText = $wgParser->preprocess( $text, $title, $options, $id );
@@ -535,7 +598,7 @@ class FlaggedRevs {
 		$title = $article->getTitle(); // avoid pass-by-reference error
 		# Make our hooks trigger (force unstub so setting doesn't get lost)
 		$wgParser->firstCallInit();
-		$wgParser->fr_isStable = ( FlaggedRevs::inclusionSetting() != FR_INCLUDES_CURRENT );
+		$wgParser->fr_isStable = ( self::inclusionSetting() != FR_INCLUDES_CURRENT );
 		# Don't show section-edit links, they can be old and misleading
 		$options = self::makeParserOptions();
 		# Parse the new body, wikitext -> html
@@ -760,7 +823,7 @@ class FlaggedRevs {
 			}
 		}
 		# If using the current version of includes, there is nothing else to check.
-		if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_CURRENT ) {
+		if ( self::inclusionSetting() == FR_INCLUDES_CURRENT ) {
 			return true;
 		}
 		# Try the cache...
@@ -1238,7 +1301,7 @@ class FlaggedRevs {
 		if ( $right == '' ) {
 			return true; // no restrictions (none)
 		}
-		return in_array( $right, FlaggedRevs::getRestrictionLevels(), true );
+		return in_array( $right, self::getRestrictionLevels(), true );
 	}
 
 	/**
@@ -1261,7 +1324,7 @@ class FlaggedRevs {
 			// If FlaggedRevs got "turned off" for this page (due to not
 			// having the stable version as the default), then clear it
 			// from the tracking tables...
-			if ( !$config['override'] && FlaggedRevs::forDefaultVersionOnly() ) {
+			if ( !$config['override'] && self::forDefaultVersionOnly() ) {
 				$pagesClearTracking[] = $row->fpc_page_id; // no stable version
 			// Check if the new (default) config has a different way
 			// of selecting the stable version of this page...
@@ -1590,7 +1653,7 @@ class FlaggedRevs {
 			# We can set the sync cache key already.
 			global $wgParserCacheExpireTime;
 			$key = wfMemcKey( 'flaggedrevs', 'includesSynced', $article->getId() );
-			$data = FlaggedRevs::makeMemcObj( "true" );
+			$data = self::makeMemcObj( "true" );
 			$wgMemc->set( $key, $data, $wgParserCacheExpireTime );
 		} else if ( $sv ) {
 			# Update tracking table
