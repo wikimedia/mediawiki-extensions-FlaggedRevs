@@ -295,7 +295,7 @@ class FlaggedRevsXML {
 		$box = '<div class="flaggedrevs_short_basic">' . $shtml .
 			'&nbsp;' . self::ratingArrow() . "</div>\n";
 		$box .= '<div style="position: relative;">'; // for rel-absolute child div
-		$box .= Html::openElement( 'div',
+		$box .= Xml::openElement( 'div',
 			array(
 				'id' 			=> 'mw-fr-revisionratings',
 				'class'			=> 'flaggedrevs_short_details',
@@ -311,7 +311,7 @@ class FlaggedRevsXML {
 				$box .= '<p>' . self::addTagRatings( $flags, true, $color ) . '</p>';
 			}
 		}
-		$box .= Html::closeElement( 'div' );
+		$box .= Xml::closeElement( 'div' );
 		$box .= "</div>\n";
         return $box;
 	}
