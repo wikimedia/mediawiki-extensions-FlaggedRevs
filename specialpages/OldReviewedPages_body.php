@@ -262,24 +262,6 @@ class OldReviewedPages extends SpecialPage
 			"{$quality}{$watching}{$underReview}</li>" );
 	}
 	
-	/**
-	 * Get the timestamp of the next revision
-	 *
-	 * @param integer $revision  Revision ID. Get the revision that was after this one.
-	 * @param integer $page, page ID
-	 */
-	protected function getNextRevisionTimestamp( $revision, $page ) {
-		$dbr = wfGetDB( DB_SLAVE );
-		return $dbr->selectField( 'revision', 'rev_timestamp',
-			array(
-				'rev_page' => $page,
-				'rev_id > ' . intval( $revision )
-			),
-			__METHOD__,
-			array( 'ORDER BY' => 'rev_id' )
-		);
-	}
-	
 	protected static function getLineClass( $hours, $uw ) {
 		if ( $uw == 0 )
 			return 'fr-unreviewed-unwatched';
