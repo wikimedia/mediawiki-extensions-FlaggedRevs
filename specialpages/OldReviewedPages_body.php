@@ -213,8 +213,9 @@ class OldReviewedPages extends SpecialPage
 			'diff=cur&oldid='.intval($row->stable).'&diffonly=0' );
 		# Show quality level if there are several
 		if ( FlaggedRevs::qualityVersions() ) {
-			$quality = $row->quality ?
-				wfMsgHtml( 'revreview-lev-quality' ) : wfMsgHtml( 'revreview-lev-basic' );
+			$quality = $row->quality
+				? wfMsgHtml( 'revreview-lev-quality' )
+				: wfMsgHtml( 'revreview-lev-basic' );
 			$quality = " <b>[{$quality}]</b>";
 		}
 		# Is anybody watching?

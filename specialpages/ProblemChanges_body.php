@@ -173,18 +173,25 @@ class ProblemChanges extends SpecialPage
 	
 	public function formatRow( $row ) {
 		global $wgLang, $wgUser, $wgMemc;
-
-		$css = $stxt = $quality = $underReview = '';
-		$title = Title::makeTitle( $row->page_namespace, $row->page_title );
+		$css = $quality = $tags = $underReview = '';
+		
+		$title = Title::newFromRow( $row );
 		$link = $this->skin->makeKnownLinkObj( $title );
 		$review = $this->skin->makeKnownLinkObj( $title,
 			wfMsg( 'oldreviewed-diff' ),
-			'diff=cur&oldid='.intval($row->stable).'&diffonly=0' );
+			'diff=cur&oldid=' . intval($row->stable) . '&diffonly=0' );
 		# Show quality level if there are several
 		if ( FlaggedRevs::qualityVersions() ) {
-			$quality = $row->quality ?
-				wfMsgHtml( 'revreview-lev-quality' ) : wfMsgHtml( 'revreview-lev-basic' );
+			$quality = $row->quality
+				? wfMsgHtml( 'revreview-lev-quality' )
+				: wfMsgHtml( 'revreview-lev-basic' );
 			$quality = " <b>[{$quality}]</b>";
+		}
+		# What are the tags?
+		$dbTags = self::getRevisionTags( $title->getArticleID(), $row->stable );
+		if ( $dbTags ) {
+			$tags = htmlspecialchars( implode( ', ', $dbTags ) );
+			$tags = ' <b>' . wfMsgHtml( 'parentheses', $tags ) . '</b>';
 		}
 		# Is anybody watching?
 		if ( !$this->including() && $wgUser->isAllowed( 'unreviewedpages' ) ) {
@@ -222,32 +229,34 @@ class ProblemChanges extends SpecialPage
 		}
 		$key = wfMemcKey( 'stableDiffs', 'underReview', $row->stable, $row->page_latest );
 		# Show if a user is looking at this page
-		if ( ( $val = $wgMemc->get( $key ) ) ) {
-			$underReview = " <b class='fr-under-review'>" .
-				wfMsgHtml( 'oldreviewedpages-viewing' ) . '</b>';
+		if ( $wgMemc->get( $key ) ) {
+			$underReview = ' <span class="fr-under-review">' .
+				wfMsgHtml( 'oldreviewedpages-viewing' ) . '</span>';
 		}
 
-		return( "<li{$css}>{$link} {$stxt} ({$review}) <i>{$age}</i>" .
-			"{$quality}{$watching}{$underReview}</li>" );
+		return( "<li{$css}>{$link} ({$review}) <i>{$age}</i>" .
+			"{$quality}{$tags}{$watching}{$underReview}</li>" );
 	}
 	
 	/**
-	 * Get the timestamp of the next revision
-	 *
-	 * @param integer $revision  Revision ID. Get the revision that was after this one.
-	 * @param integer $page, page ID
+	 * Get the tags of the revisions of a page after a certain rev
+	 * @param integer $pageId, page ID
+	 * @param integer $revId, rev ID
 	 */
-	protected function getNextRevisionTimestamp( $revision, $page ) {
+	protected static function getRevisionTags( $pageId, $revId ) {
+		$tags = array();
 		$dbr = wfGetDB( DB_SLAVE );
-		
-		return $dbr->selectField( 'revision', 'rev_timestamp',
-			array(
-				'rev_page' => $page,
-				'rev_id > ' . intval( $revision )
-			),
-			__METHOD__,
-			array( 'ORDER BY' => 'rev_id' )
+		$res = $dbr->select(
+			array( 'revision', 'change_tag' ),
+			'DISTINCT(ct_tag)', // unique tags
+			array( 'rev_page' => $pageId, 'rev_id > ' . intval($revId),
+				'rev_id = ct_rev_id' ),
+			__METHOD__
 		);
+		foreach( $res as $row ) {
+			$tags[] = $row->ct_tag;
+		}
+		return $tags;
 	}
 	
 	protected static function getLineClass( $hours, $uw ) {
@@ -293,7 +302,8 @@ class ProblemChangesPager extends AlphabeticPager {
 		$conds = $this->mConds;
 		$tables = array( 'revision', 'change_tag', 'page' );
 		$fields = array( 'page_namespace' , 'page_title', 'page_latest' );
-		$ctIndex = $wgOldChangeTagsIndex ? 'ct_rev_id' : 'change_tag_rev_tag';
+		$ctIndex = $wgOldChangeTagsIndex ?
+			'ct_rev_id' : 'change_tag_rev_tag';
 		# Show outdated "stable" pages
 		if ( $this->level < 0 ) {
 			$fields[] = 'fp_stable AS stable';
@@ -308,7 +318,8 @@ class ProblemChangesPager extends AlphabeticPager {
 				$conds['ct_tag'] = $this->tag;
 			}
 			$conds[] = 'page_id = fp_page_id';
-			$useIndex = array( 'flaggedpages' => 'fp_pending_since', 'change_tag' => $ctIndex );
+			$useIndex = array(
+				'flaggedpages' => 'fp_pending_since', 'change_tag' => $ctIndex );
 			# Filter by category
 			if ( $this->category != '' ) {
 				array_unshift( $tables, 'categorylinks' ); // order matters
@@ -331,8 +342,8 @@ class ProblemChangesPager extends AlphabeticPager {
 			$conds[] = 'rev_id > fpp_rev_id';
 			$conds[] = 'rev_id = ct_rev_id';
 			$conds['ct_tag'] = $this->tag;
-			$useIndex = array( 'flaggedpage_pending' => 'fpp_quality_pending',
-				'change_tag' => $ctIndex );
+			$useIndex = array(
+				'flaggedpage_pending' => 'fpp_quality_pending', 'change_tag' => $ctIndex );
 			# Filter by review level
 			$conds['fpp_quality'] = $this->level;
 			# Filter by category
