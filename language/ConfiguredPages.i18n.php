@@ -638,8 +638,11 @@ $messages['sah'] = array(
 	'configuredpages-prec-pristine' => 'эрдэтээҥҥитэ баһыйыылаах',
 );
 
-/** Slovak (Slovenčina) */
+/** Slovak (Slovenčina)
+ * @author Helix84
+ */
 $messages['sk'] = array(
+	'configuredpages' => 'Stránky s nastavením kontroly',
 	'configuredpages-prec-none' => 'bez precedencie',
 	'configuredpages-prec-quality' => 'precedencia podľa kvality',
 	'configuredpages-prec-pristine' => 'čistá precedencia',

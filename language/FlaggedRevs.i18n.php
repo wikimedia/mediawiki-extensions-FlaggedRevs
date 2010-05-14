@@ -12688,6 +12688,7 @@ Nya [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} ändringar] kan 
 	'tooltip-ca-current' => 'Visa det senaste utkastet för denna sida',
 	'tooltip-ca-stable' => 'Visa den publicerade versionen av denna sida',
 	'tooltip-ca-default' => 'Inställningar för kvalitetssäkring',
+	'flaggedrevs-protect-none' => 'Tillåt alla användare',
 	'flaggedrevs-protect-basic' => 'Standardinställning',
 	'revreview-locked-title' => 'Redigeringar måste granskas innan de visas på den här sidan!',
 	'revreview-unlocked-title' => 'Redigeringar behöver inte granskas innan de visas på den här sidan!',
