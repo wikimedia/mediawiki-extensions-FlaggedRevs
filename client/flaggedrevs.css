@@ -121,7 +121,7 @@ div.flaggedrevs_short_details {
 	background-color: #f9f9f9;
 	padding: 4px;
 	position: absolute;
-	top: 0;
+	top: -1px;
 	right: 0;
 	width: 25em;
 }
