@@ -159,10 +159,10 @@ class FlaggedArticleView {
 			$tag = wfMsgExt( $msg, array( 'parseinline' ), $frev->getRevId(), $time );
 			# Hide clutter
 			if ( !FlaggedRevs::useSimpleUI() && !empty( $flags ) ) {
-				$tag .= " " . FlaggedRevsXML::ratingToggle() .
-					"<span id='mw-fr-revisionratings' style='display:block;'><br />" .
+				$tag .= FlaggedRevsXML::ratingToggle() .
+					"<div id='mw-fr-revisiondetails' style='display:block;'>" .
 					wfMsgHtml( 'revreview-oldrating' ) .
-					FlaggedRevsXML::addTagRatings( $flags ) . '</span>';
+					FlaggedRevsXML::addTagRatings( $flags ) . '</div>';
 			}
 			$css = 'flaggedrevs_notice plainlinks noprint';
 			$tag = "<div id='mw-fr-revisiontag-old' class='$css'>$tag</div>";
@@ -487,14 +487,14 @@ class FlaggedArticleView {
 				$msg = $quality
 					? 'revreview-quality-old'
 					: 'revreview-basic-old';
-				$tag = $prot . $icon .
-					wfMsgExt( $msg, array( 'parseinline' ), $frev->getRevId(), $time );
+				$tag = $prot . $icon;
+				$tag .= wfMsgExt( $msg, 'parseinline', $frev->getRevId(), $time );
 				# Hide clutter
 				if ( !empty( $flags ) ) {
-					$tag .= " " . FlaggedRevsXML::ratingToggle();
-					$tag .= "<span id='mw-fr-revisionratings' style='display:block;'><br />" .
+					$tag .= FlaggedRevsXML::ratingToggle();
+					$tag .= "<div id='mw-fr-revisiondetails' style='display:block;'>" .
 						wfMsgHtml( 'revreview-oldrating' ) .
-						FlaggedRevsXML::addTagRatings( $flags ) . '</span>';
+						FlaggedRevsXML::addTagRatings( $flags ) . '</div>';
 				}
 			}
 		}
@@ -574,12 +574,12 @@ class FlaggedArticleView {
 					# uses messages 'revreview-quality-i', 'revreview-basic-i'
 					$msg .= '-i';
 				}
-				$tag = $prot . $icon .
-					wfMsgExt( $msg, array( 'parseinline' ), $srev->getRevId(), $time, $revsSince );
+				$tag = $prot . $icon;
+				$tag .= wfMsgExt( $msg, 'parseinline', $srev->getRevId(), $time, $revsSince );
 				if ( !empty( $flags ) ) {
-					$tag .= " " . FlaggedRevsXML::ratingToggle();
-					$tag .= "<span id='mw-fr-revisionratings' style='display:block;'><br />" .
-						FlaggedRevsXML::addTagRatings( $flags ) . '</span>';
+					$tag .= FlaggedRevsXML::ratingToggle();
+					$tag .= "<div id='mw-fr-revisiondetails' style='display:block;'>" .
+						FlaggedRevsXML::addTagRatings( $flags ) . '</div>';
 				}
 			}
 		}

@@ -192,6 +192,7 @@ a.fr-toggle-symbol {
 	font-family: monospace;
 	font-weight: bold;
 	cursor: pointer;
+	margin: 0 .3em 0 .3em;
 }
 
 a.fr-toggle-text {

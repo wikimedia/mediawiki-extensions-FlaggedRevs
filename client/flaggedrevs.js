@@ -19,7 +19,7 @@ var FlaggedRevs = {
 		var toggle = document.getElementById('mw-fr-revisiontoggle');
 		if( toggle ) {
 			toggle.style.display = 'inline';
-			var ratings = document.getElementById('mw-fr-revisionratings');
+			var ratings = document.getElementById('mw-fr-revisiondetails');
 			if( ratings ) {
 				ratings.style.display = 'none';
 			}
@@ -46,7 +46,7 @@ var FlaggedRevs = {
 	
 	/* Expands flag info box details */
 	'showBoxDetails': function() {
-		var ratings = document.getElementById('mw-fr-revisionratings');
+		var ratings = document.getElementById('mw-fr-revisiondetails');
 		if( !ratings ) return;
 		var toggle = document.getElementById('mw-fr-revisiontoggle');
 		if( !toggle ) return;
@@ -56,7 +56,7 @@ var FlaggedRevs = {
 	
 	/* Collapses flag info box details */
 	'hideBoxDetails': function( event ) {
-		var ratings = document.getElementById('mw-fr-revisionratings');
+		var ratings = document.getElementById('mw-fr-revisiondetails');
 		if( !ratings ) return;
 		var toggle = document.getElementById('mw-fr-revisiontoggle');
 		if( !toggle ) return;
@@ -66,7 +66,7 @@ var FlaggedRevs = {
 	
 	/* Toggles flag info box details */
 	'toggleBoxDetails': function() {
-		var ratings = document.getElementById('mw-fr-revisionratings');
+		var ratings = document.getElementById('mw-fr-revisiondetails');
 		if( !ratings ) return;
 		// Collapsed -> expand
 		if( ratings.style.display == 'none' ) {

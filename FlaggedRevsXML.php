@@ -298,8 +298,8 @@ class FlaggedRevsXML {
 		$box .= '<div style="position:relative;">'; // for rel-absolute child div
 		$box .= Xml::openElement( 'div',
 			array(
-				'id' 			=> 'mw-fr-revisionratings',
-				'class'			=> 'flaggedrevs_short_details',
+				'id' 	=> 'mw-fr-revisiondetails',
+				'class' => 'flaggedrevs_short_details',
 			)
 		);
 		$box .= $html; // details text
