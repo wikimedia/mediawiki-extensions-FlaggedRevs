@@ -142,7 +142,7 @@ class Stabilization extends UnlistedSpecialPage
 					return false; // invalid precedence value
 				}
 				// Check autoreview restriction setting
-				if ( !self::userCanSetAutoreviewLevel( $this->autoreview ) ) {
+				if ( !FlaggedRevs::userCanSetAutoreviewLevel( $this->autoreview ) ) {
 					return false; // invalid value
 				}
 			}
@@ -180,31 +180,6 @@ class Stabilization extends UnlistedSpecialPage
 			$comment = $this->reason; // just use custom reason
 		}
 		$this->reason = $comment;
-	}
-
-	/**
-	* Check if a user can set the autoreview restiction level to $right
-	* @param string $right the level
-	* @returns bool
-	*/
-	public static function userCanSetAutoreviewLevel( $right ) {
-		global $wgUser;
-		if ( $right == '' ) {
-			return true; // no restrictions (none)
-		}
-		if ( !in_array( $right, FlaggedRevs::getRestrictionLevels() ) ) {
-			return false; // invalid restriction level
-		}
-		# Don't let them choose levels above their own rights
-		if ( $right == 'sysop' ) {
-			// special case, rewrite sysop to protect and editprotected
-			if ( !$wgUser->isAllowed( 'protect' ) && !$wgUser->isAllowed( 'editprotected' ) ) {
-				return false;
-			}
-		} else if ( !$wgUser->isAllowed( $right ) ) {
-			return false;
-		}
-		return true;
 	}
 
 	protected function showSettings( $err = null ) {
@@ -400,7 +375,7 @@ class Stabilization extends UnlistedSpecialPage
 		foreach ( $levels as $key ) {
 			# Don't let them choose levels they can't set, 
 			# but *show* them all when the form is disabled.
-			if ( $this->isAllowed && !self::userCanSetAutoreviewLevel( $key ) ) {
+			if ( $this->isAllowed && !FlaggedRevs::userCanSetAutoreviewLevel( $key ) ) {
 				continue;
 			}
 			$allowedLevels[] = $key;

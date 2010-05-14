@@ -96,7 +96,7 @@ class FlaggedRevs {
 		self::$patrolNamespaces = $wgFlaggedRevsPatrolNamespaces;
 	}
 	
-	# ################ Basic accessors #################
+	# ################ Basic config accessors #################
 
 	/**
 	 * Is there only one tag and it has only one level?
@@ -255,32 +255,6 @@ class FlaggedRevs {
 	}
 
 	/**
-	 * Find what protection level a config is in
-	 * @param array $config
-	 * @returns string
-	 */
-	public static function getProtectionLevel( array $config ) {
-		if ( !self::useProtectionLevels() ) {
-			throw new MWException( 'getProtectionLevel() called with $wgFlaggedRevsProtection off' );
-		}
-		$defaultConfig = self::getDefaultVisibilitySettings();
-		# Check if the page is not protected at all...
-		if ( $config['override'] == $defaultConfig['override']
-			&& $config['autoreview'] == $defaultConfig['autoreview'] )
-		{
-			return "none"; // not protected
-		}
-		# All protection levels have 'override' on
-		if ( $config['override'] ) {
-			# The levels are defined by the 'autoreview' settings
-			if ( in_array( $config['autoreview'], self::getRestrictionLevels() ) ) {
-				return $config['autoreview'];
-			}
-		}
-		return "invalid";
-	}
-
-	/**
 	 * Get the autoreview restriction levels available
 	 * @returns array
 	 */
@@ -419,84 +393,8 @@ class FlaggedRevs {
 		return str_replace( '$wgScriptPath', $wgScriptPath, $wgFlaggedRevsStylePath );
 	}
 
-	/**
-	 * Get global revision status precedence setting
-	 * or a specific one if given a tag tier (e.g. FR_QUALITY).
-	 * Returns one of FLAGGED_VIS_PRISTINE, FLAGGED_VIS_QUALITY, FLAGGED_VIS_LATEST.
-	 *
-	 * @param int config tier, optional (FR_PRISTINE,FR_QUALITY,FR_SIGHTED)
-	 * @return int
-	 */
-	public static function getPrecedence( $configTier = null ) {
-		global $wgFlaggedRevsPrecedence;
-		if ( is_null( $configTier ) ) {
-			$configTier = (int)$wgFlaggedRevsPrecedence;
-		}
-		switch( $configTier )
-		{
-			case FR_PRISTINE:
-				$select = FLAGGED_VIS_PRISTINE;
-				break;
-			case FR_QUALITY:
-				$select = FLAGGED_VIS_QUALITY;
-				break;
-			default:
-				$select = FLAGGED_VIS_LATEST;
-				break;
-		}
-		return $select;
-	}
+	# ################ Permission functions #################	
 	
-	/**
-	 * Get minimum level tags for a tier
-	 * @return array
-	 */
-	public static function quickTags( $tier ) {
-		self::load();
-		switch( $tier ) // select reference levels
-		{
-			case FR_PRISTINE:
-				$minLevels = self::$minPL;
-			case FR_QUALITY:
-				$minLevels = self::$minQL;
-			default:
-				$minLevels = self::$minSL;
-		}
-		$flags = array();
-		foreach ( self::getDimensions() as $tag => $x ) {
-			$flags[$tag] = $minLevels[$tag];
-		}
-		return $flags;
-	}
-
-	/**
-	 * Get minimum tags that are closest to $oldFlags
-	 * given the site, page, and user rights limitations.
-	 * @param array $oldFlags previous stable rev flags
-	 * @param array $config
-	 * @return mixed array or null
-	 */
-	public static function getAutoReviewTags( $oldFlags, array $config = array() ) {
-		if ( !self::autoReviewEdits() ) {
-			return null; // shouldn't happen
-		}
-		$flags = array();
-		foreach ( self::getDimensions() as $tag => $levels ) {
-			# Try to keep this tag val the same as the stable rev's
-			$val = isset( $oldFlags[$tag] ) ? $oldFlags[$tag] : 1;
-			$val = min( $val, self::maxAutoReviewLevel( $tag ) );
-			# Dial down the level to one the user has permission to set
-			while ( !self::userCanSetTag( $tag, $val ) ) {
-				$val--;
-				if ( $val <= 0 ) {
-					return null; // all tags vals must be > 0
-				}
-			}
-			$flags[$tag] = $val;
-		}
-		return $flags;
-	}
-
 	/**
 	 * Returns true if a user can set $tag to $value.
 	 * @param string $tag
@@ -556,6 +454,31 @@ class FlaggedRevs {
 			{
 				return false; // user cannot change old flag ($config is ignored here)
 			}
+		}
+		return true;
+	}
+
+	/**
+	* Check if a user can set the autoreview restiction level to $right
+	* @param string $right the level
+	* @returns bool
+	*/
+	public static function userCanSetAutoreviewLevel( $right ) {
+		global $wgUser;
+		if ( $right == '' ) {
+			return true; // no restrictions (none)
+		}
+		if ( !in_array( $right, FlaggedRevs::getRestrictionLevels() ) ) {
+			return false; // invalid restriction level
+		}
+		# Don't let them choose levels above their own rights
+		if ( $right == 'sysop' ) {
+			// special case, rewrite sysop to protect and editprotected
+			if ( !$wgUser->isAllowed( 'protect' ) && !$wgUser->isAllowed( 'editprotected' ) ) {
+				return false;
+			}
+		} else if ( !$wgUser->isAllowed( $right ) ) {
+			return false;
 		}
 		return true;
 	}
@@ -1284,6 +1207,33 @@ class FlaggedRevs {
 		);
 	}
 
+	
+	/**
+	 * Find what protection level a config is in
+	 * @param array $config
+	 * @returns string
+	 */
+	public static function getProtectionLevel( array $config ) {
+		if ( !self::useProtectionLevels() ) {
+			throw new MWException( 'getProtectionLevel() called with $wgFlaggedRevsProtection off' );
+		}
+		$defaultConfig = self::getDefaultVisibilitySettings();
+		# Check if the page is not protected at all...
+		if ( $config['override'] == $defaultConfig['override']
+			&& $config['autoreview'] == $defaultConfig['autoreview'] )
+		{
+			return "none"; // not protected
+		}
+		# All protection levels have 'override' on
+		if ( $config['override'] ) {
+			# The levels are defined by the 'autoreview' settings
+			if ( in_array( $config['autoreview'], self::getRestrictionLevels() ) ) {
+				return $config['autoreview'];
+			}
+		}
+		return "invalid";
+	}
+
 	/**
 	 * Check if an fpc_select value is valid
 	 * @param int $select
@@ -1411,6 +1361,84 @@ class FlaggedRevs {
 		else
 			return - 1;
 	}
+
+	/**
+	 * Get global revision status precedence setting
+	 * or a specific one if given a tag tier (e.g. FR_QUALITY).
+	 * Returns one of FLAGGED_VIS_PRISTINE, FLAGGED_VIS_QUALITY, FLAGGED_VIS_LATEST.
+	 *
+	 * @param int config tier, optional (FR_PRISTINE,FR_QUALITY,FR_SIGHTED)
+	 * @return int
+	 */
+	public static function getPrecedence( $configTier = null ) {
+		global $wgFlaggedRevsPrecedence;
+		if ( is_null( $configTier ) ) {
+			$configTier = (int)$wgFlaggedRevsPrecedence;
+		}
+		switch( $configTier )
+		{
+			case FR_PRISTINE:
+				$select = FLAGGED_VIS_PRISTINE;
+				break;
+			case FR_QUALITY:
+				$select = FLAGGED_VIS_QUALITY;
+				break;
+			default:
+				$select = FLAGGED_VIS_LATEST;
+				break;
+		}
+		return $select;
+	}
+	
+	/**
+	 * Get minimum level tags for a tier
+	 * @return array
+	 */
+	public static function quickTags( $tier ) {
+		self::load();
+		switch( $tier ) // select reference levels
+		{
+			case FR_PRISTINE:
+				$minLevels = self::$minPL;
+			case FR_QUALITY:
+				$minLevels = self::$minQL;
+			default:
+				$minLevels = self::$minSL;
+		}
+		$flags = array();
+		foreach ( self::getDimensions() as $tag => $x ) {
+			$flags[$tag] = $minLevels[$tag];
+		}
+		return $flags;
+	}
+
+	/**
+	 * Get minimum tags that are closest to $oldFlags
+	 * given the site, page, and user rights limitations.
+	 * @param array $oldFlags previous stable rev flags
+	 * @param array $config
+	 * @return mixed array or null
+	 */
+	public static function getAutoReviewTags( $oldFlags, array $config = array() ) {
+		if ( !self::autoReviewEdits() ) {
+			return null; // shouldn't happen
+		}
+		$flags = array();
+		foreach ( self::getDimensions() as $tag => $levels ) {
+			# Try to keep this tag val the same as the stable rev's
+			$val = isset( $oldFlags[$tag] ) ? $oldFlags[$tag] : 1;
+			$val = min( $val, self::maxAutoReviewLevel( $tag ) );
+			# Dial down the level to one the user has permission to set
+			while ( !self::userCanSetTag( $tag, $val ) ) {
+				$val--;
+				if ( $val <= 0 ) {
+					return null; // all tags vals must be > 0
+				}
+			}
+			$flags[$tag] = $val;
+		}
+		return $flags;
+	}	
 
 	/**
 	* Get the list of reviewable namespaces
