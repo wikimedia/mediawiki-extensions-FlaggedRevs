@@ -292,15 +292,14 @@ class FlaggedRevsXML {
 				$frev->getRevId(), $time, $revsSince );
 		}
 		# Make fancy box...
-		$box = '<div class="flaggedrevs_short_basic">' . $shtml .
-			'&nbsp;' . self::ratingArrow() . "</div>\n";
-		$box .= '<div style="position: relative;">'; // for rel-absolute child div
+		$box = '<div class="flaggedrevs_short_basic">';
+		$box .= $shtml . self::ratingArrow();
+		$box .= "</div>\n";
+		$box .= '<div style="position:relative;">'; // for rel-absolute child div
 		$box .= Xml::openElement( 'div',
 			array(
 				'id' 			=> 'mw-fr-revisionratings',
 				'class'			=> 'flaggedrevs_short_details',
-				'onMouseOver' 	=> 'FlaggedRevs.showBoxDetails()',
-				'onMouseOut' 	=> 'FlaggedRevs.hideBoxDetails()'
 			)
 		);
 		$box .= $html; // details text
@@ -311,7 +310,7 @@ class FlaggedRevsXML {
 				$box .= '<p>' . self::addTagRatings( $flags, true, $color ) . '</p>';
 			}
 		}
-		$box .= Xml::closeElement( 'div' );
+		$box .= Xml::closeElement( 'div' ) . "\n";
 		$box .= "</div>\n";
         return $box;
 	}
@@ -325,7 +324,6 @@ class FlaggedRevsXML {
 		$img = '<img id="mw-fr-revisiontoggle" class="fr-toggle-arrow"';
 		$img .= " src=\"{$encPath}/arrow-down.png\" style=\"display:none;\"";
 		$img .= ' onMouseOver="FlaggedRevs.showBoxDetails()"';
-		$img .= ' onMouseOut="FlaggedRevs.hideBoxDetails()"';
 		$img .= ' title="' . wfMsgHtml( 'revreview-toggle-title' ) . '"';
 		$img .= ' alt="' . wfMsgHtml( 'revreview-toggle-show' ) . '" />';
 		return $img;

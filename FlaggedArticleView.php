@@ -269,17 +269,26 @@ class FlaggedArticleView {
 		} else {
 	   		$this->showDraftVersion( $srev, $tag, $prot );
 		}
+		$encJS = ''; // JS events to use
 		# Some checks for which tag CSS to use
-		if ( FlaggedRevs::useSimpleUI() ) $tagClass = 'flaggedrevs_short';
-		elseif ( $simpleTag ) $tagClass = 'flaggedrevs_notice';
-		elseif ( $pristine ) $tagClass = 'flaggedrevs_pristine';
-		elseif ( $quality ) $tagClass = 'flaggedrevs_quality';
-		else $tagClass = 'flaggedrevs_basic';
+		if ( FlaggedRevs::useSimpleUI() ) {
+			$tagClass = 'flaggedrevs_short';
+			# Collapse the box details on mouseOut
+			$encJS .= ' onMouseOut="FlaggedRevs.onBoxMouseOut(event)"';
+		} elseif ( $simpleTag ) {
+			$tagClass = 'flaggedrevs_notice';
+		} elseif ( $pristine ) {
+			$tagClass = 'flaggedrevs_pristine';
+		} elseif ( $quality ) {
+			$tagClass = 'flaggedrevs_quality';
+		} else {
+			$tagClass = 'flaggedrevs_basic';
+		}
 		# Wrap tag contents in a div
 		if ( $tag != '' ) {
 			$rtl = $wgContLang->isRTL() ? " rtl" : ""; // RTL langauges
 			$css = "{$tagClass}{$rtl} plainlinks noprint";
-			$notice = "<div id=\"mw-fr-revisiontag\" class=\"$css\">$tag</div>\n";
+			$notice = "<div id=\"mw-fr-revisiontag\" class=\"{$css}\"{$encJS}>{$tag}</div>\n";
 			$this->reviewNotice .= $notice;
 		}
 		return true;
