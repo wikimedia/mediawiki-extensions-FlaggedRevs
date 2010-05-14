@@ -121,8 +121,8 @@ class FlaggedRevsHooks {
 		if ( empty( $wgTitle ) || $wgTitle->getNamespace() !== NS_SPECIAL ) {
 			return true;
 		}
-		$spPages = array( 'UnreviewedPages', 'OldReviewedPages', 'Watchlist',
-			'Recentchanges', 'Contributions' );
+		$spPages = array( 'UnreviewedPages', 'OldReviewedPages', 'ProblemChanges',
+			'Watchlist', 'Recentchanges', 'Contributions' );
 		foreach ( $spPages as $n => $key ) {
 			if ( $wgTitle->isSpecial( $key ) ) {
 				global $wgScriptPath, $wgFlaggedRevsStylePath, $wgFlaggedRevStyleVersion;

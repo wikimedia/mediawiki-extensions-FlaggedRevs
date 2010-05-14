@@ -260,8 +260,9 @@ img.flaggedrevs-icon {
 	background-color: #faebd7;
 }
 
-.fr-under-review {
+span.fr-under-review {
 	background-color: yellow;
+	font-weight: bold;
 }
 
 .mw-fr-reviewlink {

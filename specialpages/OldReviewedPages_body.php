@@ -253,9 +253,9 @@ class OldReviewedPages extends SpecialPage
 		}
 		$key = wfMemcKey( 'stableDiffs', 'underReview', $row->stable, $row->page_latest );
 		# Show if a user is looking at this page
-		if ( ( $val = $wgMemc->get( $key ) ) ) {
-			$underReview = " <b class='fr-under-review'>" .
-				wfMsgHtml( 'oldreviewedpages-viewing' ) . '</b>';
+		if ( $wgMemc->get( $key ) ) {
+			$underReview = ' <span class="fr-under-review">' .
+				wfMsgHtml( 'oldreviewedpages-viewing' ) . '</span>';
 		}
 
 		return( "<li{$css}>{$link} ({$hist}) {$stxt} ({$review}) <i>{$age}</i>" .
