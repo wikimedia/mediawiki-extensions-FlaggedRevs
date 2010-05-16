@@ -1,5 +1,7 @@
 <?php
-
+/**
+ * Class containing hooked functions for a FlaggedRevs environment
+ */
 class FlaggedRevsHooks {
 	/* 
 	 * Register FlaggedRevs special pages as needed. 
@@ -78,7 +80,7 @@ class FlaggedRevsHooks {
 
 		return true;
 	}
-	
+
 	public static function injectGlobalJSVars( &$globalVars ) {
 		global $wgUser;
 		$fa = FlaggedArticleView::globalArticleInstance();
@@ -112,7 +114,7 @@ class FlaggedRevsHooks {
 		}
 		return true;
 	}
-	
+
 	/**
 	* Add FlaggedRevs css for relevant special pages.
 	*/
@@ -136,7 +138,7 @@ class FlaggedRevsHooks {
 		}
 		return true;
 	}
-	
+
 	/*
 	* Add tag notice, CSS/JS, and set robots policy
 	*/
@@ -225,7 +227,7 @@ class FlaggedRevsHooks {
 
 		return true;
 	}
-	
+
 	/**
 	* Update flaggedrevs tracking tables
 	*/
@@ -233,7 +235,7 @@ class FlaggedRevsHooks {
 		FlaggedRevs::clearTrackingRows( $id );
 		return true;
 	}
-	
+
 	/**
 	* Update stable version selection
 	*/
@@ -241,7 +243,7 @@ class FlaggedRevsHooks {
 		FlaggedRevs::titleLinksUpdate( $title );
 		return true;
 	}
-	
+
 	/**
 	* Update pending revision table
 	* Autoreview pages moved into content NS
@@ -388,7 +390,7 @@ class FlaggedRevsHooks {
 		}
 		$links[$ns][$dbKey] = 1;
 	}
-	
+
 	protected static function getExistingLinks( $pageId ) {
 		$dbr = wfGetDB( DB_SLAVE );
 		$res = $dbr->select( 'flaggedrevs_tracking',
@@ -404,13 +406,13 @@ class FlaggedRevsHooks {
 		}
 		return $arr;
 	}
-	
+
 	protected static function makeWhereFrom2d( &$arr ) {
 		$lb = new LinkBatch();
 		$lb->setArray( $arr );
 		return $lb->constructSet( 'ftr', wfGetDB( DB_SLAVE ) );
 	}
-	
+
 	protected static function getLinkInsertions( $existing, $new, $pageId ) {
 		$arr = array();
 		foreach ( $new as $ns => $dbkeys ) {
@@ -426,7 +428,7 @@ class FlaggedRevsHooks {
 		}
 		return $arr;
 	}
-	
+
 	protected static function getLinkDeletions( $existing, $new ) {
 		$del = array();
 		foreach ( $existing as $ns => $dbkeys ) {
@@ -438,7 +440,7 @@ class FlaggedRevsHooks {
 		}
 		return $del;
 	}
-	
+
 	/*
 	* Update pages where only the stable version links to a page
 	* that was just changed in some way.
@@ -448,7 +450,7 @@ class FlaggedRevsHooks {
 		$update->doUpdate();
 		return true;
 	}
-	
+
 	/**
 	* Add special fields to parser.
 	*/
@@ -706,7 +708,7 @@ class FlaggedRevsHooks {
 		}
 		return true;
 	}
-	
+
 	/**
 	* Insert image timestamps/SHA-1 keys into parser output
 	*/
@@ -820,7 +822,7 @@ class FlaggedRevsHooks {
 		}
 		return true;
 	}
-	
+
     /**
     * Allow users to view reviewed pages
     */
@@ -857,7 +859,7 @@ class FlaggedRevsHooks {
         }
         return true;
     }
-	
+
 	/**
 	* When an edit is made by a reviewer, if the base revision the
 	* edit was made from is the stable version, or the edit is a reversion
@@ -1013,7 +1015,7 @@ class FlaggedRevsHooks {
 		# Confirm the text because we can't trust this user.
 		return ( $rev->getText() == $srev->getRevText() );
 	}
-	
+
 	/**
 	* When an user makes a null-edit we sometimes want to review it...
 	* (a) Null undo or rollback
@@ -1128,7 +1130,7 @@ class FlaggedRevsHooks {
 		}
 		return true;
 	}
-	
+
 	public static function incrementRollbacks( $this, $user, $target, $current ) {
 		# Mark when a user reverts another user, but not self-reverts
 		if ( $current->getRawUser() && $user->getId() != $current->getRawUser() ) {
@@ -1139,7 +1141,7 @@ class FlaggedRevsHooks {
 		}
 		return true;
 	}
-	
+
 	public static function incrementReverts( $article, $rev, $baseRevId = false, $user = null ) {
 		global $wgRequest;
 		# Was this an edit by an auto-sighter that undid another edit?
@@ -1156,7 +1158,7 @@ class FlaggedRevsHooks {
 		}
 		return true;
 	}
-	
+
 	protected static function editSpacingCheck( $spacing, $points, $user ) {
 		# Convert days to seconds...
 		$spacing = $spacing * 24 * 3600;
@@ -1183,7 +1185,7 @@ class FlaggedRevsHooks {
 		}
 		return ( $benchmarks >= $needed );
 	}
-	
+
 	/**
 	* Checks if $user was previously blocked
 	*/
@@ -1199,7 +1201,7 @@ class FlaggedRevsHooks {
 			array( 'USE INDEX' => 'page_time' )
 		);
 	}
-	
+
 	/**
 	* Check for 'autoreview' permission. This lets people who opt-out as
 	* Editors still have their own edits automatically reviewed. Bot
@@ -1535,7 +1537,7 @@ class FlaggedRevsHooks {
 
 		return true;
 	}
-	
+
    	/**
 	* Record demotion so that auto-promote will be disabled
 	*/
@@ -1555,7 +1557,7 @@ class FlaggedRevsHooks {
 		}
 		return true;
 	}
-	
+
 	/** Add user preferences */
 	public static function onGetPreferences( $user, &$preferences ) {
 		// Box or bar UI
@@ -1602,7 +1604,7 @@ class FlaggedRevsHooks {
 		}
 		return true;
 	}
-	
+
 	public static function logLineLinks(
 		$type, $action, $title = null, $params, &$comment, &$rv, $ts
 	) {
@@ -1651,7 +1653,7 @@ class FlaggedRevsHooks {
 		$view->setPageContent( $outputDone, $pcache );
 		return true;
 	}
-	
+
 	public static function overrideRedirect(
 		&$title, $request, &$ignoreRedirect, &$target, &$article
 	) {
@@ -1690,31 +1692,31 @@ class FlaggedRevsHooks {
 		}
 		return true;
 	}
-	
+
 	public static function addToEditView( &$editPage ) {
 		$view = FlaggedArticleView::singleton();
 		$view->addToEditView( $editPage );
 		return true;
 	}
-	
+
 	public static function onNoSuchSection( &$editPage, &$s ) {
 		$view = FlaggedArticleView::singleton();
 		$view->addToNoSuchSection( $editPage, $s );
 		return true;
 	}
-	
+
 	public static function addToHistView( &$article ) {
 		$view = FlaggedArticleView::singleton();
 		$view->addToHistView();
 		return true;
 	}
-	
+
 	public static function onCategoryPageView( &$category ) {
 		$view = FlaggedArticleView::singleton();
 		$view->addToCategoryView();
 		return true;
 	}
-	
+
 	public static function onSkinAfterContent( &$data ) {
 		global $wgOut;
 		if ( $wgOut->isArticleRelated()
@@ -1727,7 +1729,7 @@ class FlaggedRevsHooks {
 		}
 		return true;
 	}
-	
+
 	public static function addToHistQuery( $pager, &$queryInfo ) {
 		$flaggedArticle = FlaggedArticle::getArticleInstance( $pager->getArticle() );
 		# Non-content pages cannot be validated. Stable version must exist.
@@ -1748,7 +1750,7 @@ class FlaggedRevsHooks {
 		}
 		return true;
 	}
-	
+
 	public static function addToFileHistQuery(
 		$file, &$tables, &$fields, &$conds, &$opts, &$join_conds
 	) {
@@ -1767,7 +1769,7 @@ class FlaggedRevsHooks {
 		}
 		return true;
 	}
-	
+
 	public static function addToContribsQuery( $pager, &$queryInfo ) {
 		# Highlight flaggedrevs
 		$queryInfo['tables'][] = 'flaggedrevs';
@@ -1780,13 +1782,13 @@ class FlaggedRevsHooks {
 		$queryInfo['join_conds']['flaggedpages'] = array( 'LEFT JOIN', "fp_page_id = rev_page" );
 		return true;
 	}
-	
+
 	public static function addToRCQuery( &$conds, &$tables, &$join_conds, $opts ) {
 		$tables[] = 'flaggedpages';
 		$join_conds['flaggedpages'] = array( 'LEFT JOIN', 'fp_page_id = rc_cur_id' );
 		return true;
 	}
-	
+
 	public static function addToWatchlistQuery( &$conds, &$tables, &$join_conds, &$fields ) {
 		global $wgUser;
 		if ( $wgUser->isAllowed( 'review' ) ) {
@@ -1796,7 +1798,7 @@ class FlaggedRevsHooks {
 		}
 		return true;
 	}
-	
+
 	public static function addToHistLine( $history, $row, &$s, &$liClasses ) {
 		$fa = FlaggedArticle::getArticleInstance( $history->getArticle() );
 		if ( !$fa->isReviewable() ) {
@@ -1838,8 +1840,7 @@ class FlaggedRevsHooks {
 		if ( $link ) $s .= " <small>$link</small>";
 		return true;
 	}
-	
-	
+
 	/**
 	 * Make stable version link and return the css
 	 * @param Title $title
@@ -1873,7 +1874,7 @@ class FlaggedRevsHooks {
 		$link = "<span class='$css plainlinks'>[$link]</span>";
 		return array( $link, $liCss );
 	}
-	
+
 	public static function addToFileHistLine( $hist, $file, &$s, &$rowClass ) {
 		if ( !$file->isVisible() ) {
 			return true; // Don't bother showing notice for deleted revs
@@ -1896,7 +1897,7 @@ class FlaggedRevsHooks {
 		}
 		return true;
 	}
-	
+
 	public static function addToContribsLine( $contribs, &$ret, $row ) {
 		$namespaces = FlaggedRevs::getReviewNamespaces();
 		if ( !in_array( $row->page_namespace, $namespaces ) ) {
@@ -1911,7 +1912,7 @@ class FlaggedRevsHooks {
 		}
 		return true;
 	}
-	
+
 	public static function addToChangeListLine(
 		&$list, &$articlelink, &$s, &$rc, $unpatrolled, $watched
 	) {
@@ -1944,13 +1945,13 @@ class FlaggedRevsHooks {
 		}
 		return true;
 	}
-	
+
 	public static function injectPostEditURLParams( $article, &$sectionAnchor, &$extraQuery ) {
 		$view = FlaggedArticleView::singleton();
 		$view->injectPostEditURLParams( $sectionAnchor, $extraQuery );
 		return true;
 	}
-	
+
 	// diff=review param (bug 16923)
 	public static function checkDiffUrl( $titleObj, &$mOldid, &$mNewid, $old, $new ) {
 		if ( $new === 'review' && isset( $titleObj ) ) {
@@ -1976,7 +1977,7 @@ class FlaggedRevsHooks {
 		$view->addRevisionIDField( $editPage, $out );
 		return true;
 	}
-	
+
 	public static function addReviewCheck( $editPage, &$checkboxes, &$tabindex ) {
 		global $wgUser, $wgRequest;
 		if ( !$wgUser->isAllowed( 'review' ) ) {
@@ -2001,7 +2002,7 @@ class FlaggedRevsHooks {
 		}
 		return true;
 	}
-	
+
 	public static function addBacklogNotice( &$notice ) {
 		global $wgUser, $wgTitle;
 		$namespaces = FlaggedRevs::getReviewNamespaces();
@@ -2054,7 +2055,7 @@ class FlaggedRevsHooks {
 		}
 		return true;
 	}
-	
+
 	public static function stableDumpQuery( &$tables, &$opts, &$join ) {
 		$namespaces = FlaggedRevs::getReviewNamespaces();
 		$tables = array( 'flaggedpages', 'page', 'revision' );
@@ -2066,7 +2067,7 @@ class FlaggedRevsHooks {
 		$join['revision'] = array( 'INNER JOIN', 'rev_page = fp_page_id AND rev_id = fp_stable' );
 		return false; // final
 	}
-	
+
 	// Add selector of review "protection" options
 	// Code stolen from Stabilization (which was stolen from ProtectionForm)
 	public static function onProtectionForm( $article, &$output ) {
@@ -2261,7 +2262,7 @@ class FlaggedRevsHooks {
 		$tables[] = 'flaggedrevs_tracking';
 		return true;
 	}
-	
+
 	public static function addSchemaUpdates() {
 		global $wgDBtype, $wgExtNewFields, $wgExtPGNewFields, $wgExtNewIndexes, $wgExtNewTables;
 		$base = dirname( __FILE__ );
