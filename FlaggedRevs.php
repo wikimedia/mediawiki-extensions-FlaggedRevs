@@ -334,6 +334,10 @@ $wgAutoloadClasses['FlaggedRevision'] = $dir . 'FlaggedRevision.php';
 
 # Load review UI
 $wgAutoloadClasses['RevisionReview'] = $dir . 'specialpages/RevisionReview_body.php';
+# Load protection/stability UI
+$wgAutoloadClasses['FlaggedRevsConfigForm'] = $dir . 'forms/FlaggedRevsConfigForm.php';
+$wgAutoloadClasses['PageStabilityForm'] = $dir . 'forms/FlaggedRevsConfigForm.php';
+$wgAutoloadClasses['PageStabilityProtectForm'] = $dir . 'forms/FlaggedRevsConfigForm.php';
 
 # Load reviewed versions UI
 $wgAutoloadClasses['ReviewedVersions'] = $dir . 'specialpages/ReviewedVersions_body.php';

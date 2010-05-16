@@ -1,4 +1,8 @@
 <?php
+if ( !defined( 'MEDIAWIKI' ) ) {
+	echo "FlaggedRevs extension\n";
+	exit( 1 );
+}
 /**
  * Class containing hooked functions for a FlaggedRevs environment
  */
@@ -2191,9 +2195,9 @@ class FlaggedRevsHooks {
 		# Close field set and table row
 		$output .= Xml::closeElement( 'fieldset' );
 		$output .= "</td></tr>";
-		
-		# Add some script for expiry dropdowns
-		Stabilization::addProtectionJS();
+
+		# Add some javascript for expiry dropdowns
+		PageStabilityProtectForm::addProtectionJS();
 		return true;
 	}
 
@@ -2215,38 +2219,33 @@ class FlaggedRevsHooks {
 		global $wgUser, $wgRequest;
 		if ( !FlaggedRevs::useProtectionLevels() || !$article->exists() ) {
 			return true; // simple custom levels set for action=protect
-		}
-		if ( !FlaggedRevs::inReviewNamespace( $article->getTitle() ) ) {
+		} elseif ( !FlaggedRevs::inReviewNamespace( $article->getTitle() ) ) {
 			return true; // not a reviewable page
-		}
-		if ( wfReadOnly() || !$wgUser->isAllowed( 'stablesettings' ) ) {
+		} elseif ( wfReadOnly() || !$wgUser->isAllowed( 'stablesettings' ) ) {
 			return true; // user cannot change anything
 		}
-		$form = new Stabilization();
-		$form->target = $article->getTitle(); # Our target page
-		$form->watchThis = null; # protection form already has a watch check
-		$form->reason = $wgRequest->getText( 'mwProtect-reason' ); # Reason
-		$form->reasonSelection = $wgRequest->getVal( 'wpProtectReasonSelection' ); # Reason dropdown
-		$form->expiry = $wgRequest->getVal( 'mwStabilizeExpiryOther' ); # Expiry
-		$form->expirySelection = $wgRequest->getVal( 'mwStabilizeExpirySelection' ); # Expiry dropdown
+		$form = new PageStabilityProtectForm();
+		$form->setTarget( $article->getTitle() ); // target page
+		$form->setWatchThis( null ); // protection form already has a watch check
+		$form->setReason( $wgRequest->getText( 'mwProtect-reason' ) ); // manual
+		$form->setReasonSelection( $wgRequest->getVal( 'wpProtectReasonSelection' ) ); // dropdown
+		$form->setExpiry( $wgRequest->getVal( 'mwStabilizeExpiryOther' ) ); // manual
+		$form->setExpirySelection( $wgRequest->getVal( 'mwStabilizeExpirySelection' ) ); // dropdown
 		# Fill in config from the protection level...
 		$permission = $wgRequest->getVal( 'mwStabilityConfig' );
 		if ( $permission == "none" ) {
-			$form->autoreview = ''; // default
-		} else if ( in_array( $permission, FlaggedRevs::getRestrictionLevels() ) ) {
-			$form->autoreview = $permission; // autoreview restriction
-		} else {
-			return false; // bad level, don't save!
+			$permission = ''; // 'none' => ''
 		}
-		$form->reviewThis = null; // autoreview if not currently protected state
-		$form->override = null; // implied by autoreview level
-		$form->select = null; // site default
-		$form->wasPosted = $wgRequest->wasPosted();
-		if ( $form->handleParams() ) {
+		$form->setAutoreview( $permission ); // autoreview restriction
+		$form->setWasPosted( $wgRequest->wasPosted() ); // double-check
+		$status = $form->handleParams();
+		if ( $status === true ) {
 			$status = $form->submit();
 			if ( $status !== true ) {
 				$errorMsg = wfMsg( $status ); // some error message
 			}
+		} else {
+			$errorMsg = wfMsg( $status ); // some error message
 		}
 		return true;
 	}

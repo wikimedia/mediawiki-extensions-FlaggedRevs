@@ -31,86 +31,72 @@ class ApiStabilize extends ApiBase {
 		global $wgUser, $wgContLang;
 		$params = $this->extractRequestParams();
 
-		if ( !isset( $params['title'] ) )
+		if ( !isset( $params['title'] ) ) {
 			$this->dieUsageMsg( array( 'missingparam', 'title' ) );
-		if ( !isset( $params['token'] ) )
+		} elseif ( !isset( $params['token'] ) ) {
 			$this->dieUsageMsg( array( 'missingparam', 'token' ) );
+		}
 
 		$title = Title::newFromText( $params['title'] );
 		if ( $title == null ) {
 			$this->dieUsage( "Invalid title given.", "invalidtitle" );
-		}
-		if ( !FlaggedRevs::inReviewNamespace( $title ) ) {
-			$this->dieUsage( "Title given does not correspond to a reviewable page.", "invalidtitle" );
 		}
 		$errors = $title->getUserPermissionsErrors( 'stablesettings', $wgUser );
 		if ( $errors ) {
 			// We don't care about multiple errors, just report one of them
 			$this->dieUsageMsg( reset( $errors ) );
 		}
-		
-		$article = new Article( $title );
-		if ( !$article->exists() ) {
-			$this->dieUsage( "Target page does not exist.", "invalidtitle" );
-		}
+		// TODO: factory function?
+		$form = FlaggedRevs::useProtectionLevels()
+			? new PageStabilityProtectForm()
+			: new PageStabilityForm();
 
-		$form = new Stabilization();
-		$form->target = $title; # Our target page
-		$form->watchThis = $params['watch']; # Watch this page
-		$form->reviewThis = $params['review']; # Auto-review option
-		$form->reason = $params['reason']; # Reason
-		$form->reasonSelection = 'other'; # Reason dropdown
-		$form->expiry = $params['expiry']; # Expiry
-		$form->expirySelection = 'other'; # Expiry dropdown
-
-		// Check if protection levels are enabled
+		$form->setTarget( $title ); # Our target page
+		$form->setWatchThis( $params['watch'] ); # Watch this page
+		$form->setReason( $params['reason'] ); # Reason
+		$form->setReasonSelection( 'other' ); # Reason dropdown
+		$form->setExpiry( $params['expiry'] ); # Expiry
+		$form->setExpirySelection( 'other' ); # Expiry dropdown
 		if ( FlaggedRevs::useProtectionLevels() ) {
-			$levels = FlaggedRevs::getRestrictionLevels();
-			# Fill in config from the protection level...
-			$selected = $params['protectlevel'];
-			if ( $selected == "none" ) {
-				$form->autoreview = ''; // default
-			} else if ( in_array( $selected, $levels ) ) {
-				$form->autoreview = $selected; // autoreview restriction
-			} else {
-				$this->dieUsage( "Invalid protection level given.", 'badprotectlevel' );
-			}
-			$form->override = null; // implied by autoreview level
-			$form->select = null; // site default
+			$restriction = $params['protectlevel'];
 		} else {
+			$restriction = $params['autoreview'];
 			// Fill in config fields from URL params
-			$form->select = $this->precendenceFromKey( $params['precedence'] );
+			$form->setPrecedence( $this->precendenceFromKey( $params['precedence'] ) );
 			if ( $params['default'] === null ) {
+				// Default version setting not optional
 				$this->dieUsageMsg( array( 'missingparam', 'default' ) );
 			} else {
-				$form->override = $this->defaultFromKey( $params['default'] );
+				$form->setOverride( $this->defaultFromKey( $params['default'] ) );
 			}
-			if ( $params['autoreview'] == 'none' ) {
-				$form->autoreview = ''; // 'none' -> ''
-			} else {
-				$form->autoreview = $params['autoreview'];
-			}
+			$form->setReviewThis( $params['review'] ); # Auto-review option
 		}
-		$form->wasPosted = true; // already validated
-		if ( $form->handleParams() ) {
+		if ( $restriction == 'none' ) {
+			$restriction = ''; // 'none' => ''
+		}
+		$form->setAutoreview( $restriction ); # Autoreview restriction
+		$form->setWasPosted( true ); // already validated
+
+		$status = $form->handleParams();
+		if ( $status === true ) {
 			$status = $form->submit(); // true/error message key
 			if ( $status !== true ) {
 				$this->dieUsage( wfMsg( $status ) );
 			}
 		} else {
-			$this->dieUsage( "Invalid config parameters given. The precendence level may beyond your rights.", 'invalidconfig' );
+			$this->dieUsage( wfMsg( $status ), $status );
 		}
 		# Output success line with the title and config parameters
 		$res = array();
 		$res['title'] = $title->getPrefixedText();
-		if ( count( $levels ) ) {
+		if ( FlaggedRevs::useProtectionLevels() ) {
 			$res['protectlevel'] = $params['protectlevel'];
 		} else {
 			$res['default'] = $params['default'];
 			$res['precedence'] = $params['precedence'];
 			$res['autoreview'] = $params['autoreview'];
 		}
-		$res['expiry'] = $form->expiry;
+		$res['expiry'] = $form->getExpiry();
 		$this->getResult()->addValue( null, $this->getModuleName(), $res );
 	}
 	

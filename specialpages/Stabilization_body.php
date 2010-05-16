@@ -4,8 +4,11 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 	exit( 1 );
 }
 
+// Assumes $wgFlaggedRevsProtection is off
 class Stabilization extends UnlistedSpecialPage
 {
+	protected $form = null;
+
 	public function __construct() {
 		parent::__construct( 'Stabilization', 'stablesettings' );
     }
@@ -13,16 +16,15 @@ class Stabilization extends UnlistedSpecialPage
 	public function execute( $par ) {
 		global $wgRequest, $wgUser, $wgOut;
 		# Check user token
-		$confirm = $wgRequest->wasPosted() &&
-			$wgUser->matchEditToken( $wgRequest->getVal( 'wpEditToken' ) );
-		# Allow unprivileged users to at least view the settings
-		$this->isAllowed = $wgUser->isAllowed( 'stablesettings' );
+		$confirmed = false;
 		# Let anyone view, but not submit...
 		if ( $wgRequest->wasPosted() ) {
-			if ( $wgUser->isBlocked( !$confirm ) ) {
+			# Check user token
+			$confirmed = $wgUser->matchEditToken( $wgRequest->getVal( 'wpEditToken' ) );
+			if ( $wgUser->isBlocked( !$confirmed ) ) {
 				$wgOut->blockedPage();
 				return;
-			} elseif ( !$this->isAllowed ) {
+			} elseif ( !$wgUser->isAllowed( 'stablesettings' ) ) {
 				$wgOut->permissionRequired( 'stablesettings' );
 				return;
 			} elseif ( wfReadOnly() ) {
@@ -32,191 +34,98 @@ class Stabilization extends UnlistedSpecialPage
 		}
 		# Set page title
 		$this->setHeaders();
+		$this->sk = $wgUser->getSkin();
 
-		$this->skin = $wgUser->getSkin();
+		$this->form = new PageStabilityForm();
+		$form = $this->form; // convenience
 		# Our target page
-		$this->target = $wgRequest->getVal( 'page', $par );
+		$form->setTarget( $wgRequest->getVal( 'page', $par ) );
 		# Watch checkbox
-		$this->watchThis = (bool)$wgRequest->getCheck( 'wpWatchthis' );
+		$form->setWatchThis( (bool)$wgRequest->getCheck( 'wpWatchthis' ) );
 		# Reason
-		$this->reason = $wgRequest->getText( 'wpReason' );
-		$this->reasonSelection = $wgRequest->getVal( 'wpReasonSelection' );
+		$form->setReason( $wgRequest->getText( 'wpReason' ) );
+		$form->setReasonSelection( $wgRequest->getVal( 'wpReasonSelection' ) );
 		# Expiry
-		$this->expiry = $wgRequest->getText( 'mwStabilize-expiry' );
-		$this->expirySelection = $wgRequest->getVal( 'wpExpirySelection' );
+		$form->setExpiry( $wgRequest->getText( 'mwStabilize-expiry' ) );
+		$form->setExpirySelection( $wgRequest->getVal( 'wpExpirySelection' ) );
 		# Precedence
-		$this->select = $wgRequest->getInt( 'wpStableconfig-select' );
-		$this->override = (int)$wgRequest->getBool( 'wpStableconfig-override' );
+		$form->setPrecedence( $wgRequest->getInt( 'wpStableconfig-select' ) );
+		$form->setOverride( (int)$wgRequest->getBool( 'wpStableconfig-override' ) );
 		# Get autoreview restrictions...
-		$this->autoreview = $wgRequest->getVal( 'mwProtect-level-autoreview' );
+		$form->setAutoreview( $wgRequest->getVal( 'mwProtect-level-autoreview' ) );
 		# Get auto-review option...
-		$this->reviewThis = $wgRequest->getBool( 'wpReviewthis', true );
-		$this->wasPosted = $wgRequest->wasPosted();
+		$form->setReviewThis( $wgRequest->getBool( 'wpReviewthis', true ) );
+		$form->setWasPosted( $wgRequest->wasPosted() );
 
 		# Fill in & validate some parameters
-		$isValid = $this->handleParams();
+		$status = $form->handleParams();
+		$title = $form->getPage(); // convenience
 
-		# We need a page...
-		if ( is_null( $this->page ) ) {
+		# We need a valid, existing, page...
+		if ( $status === 'stabilize_page_invalid' ) {
 			$wgOut->showErrorPage( 'notargettitle', 'notargettext' );
 			return;
-		} elseif ( !$this->page->exists() ) {
+		} elseif ( $status === 'stabilize_page_notexists' ) {
 			$wgOut->addWikiText(
-				wfMsg( 'stabilization-notexists', $this->page->getPrefixedText() ) );
+				wfMsg( 'stabilization-notexists', $title->getPrefixedText() ) );
 			return;
-		} elseif ( !FlaggedRevs::inReviewNamespace( $this->page ) ) {
+		} elseif ( $status === 'stabilize_page_unreviewable' ) {
 			$wgOut->addWikiText(
-				wfMsg( 'stabilization-notcontent', $this->page->getPrefixedText() ) );
+				wfMsg( 'stabilization-notcontent', $title->getPrefixedText() ) );
 			return;
-		}
-		# Users who cannot edit or review the page cannot set this
-		if ( !$this->page->userCan( 'edit' ) || !$this->page->userCan( 'review' ) ) {
-			$this->isAllowed = false;
 		}
 
-		# Disable some elements as needed
-		$this->disabledAttrib = $this->isAllowed ?
-			array() : array( 'disabled' => 'disabled' );
 		# Show form or submit...
-		if ( $this->isAllowed && $isValid && $confirm ) {
-			$status = $this->submit();
+		if ( $form->isAllowed() && $status === true && $confirmed ) {
+			$status = $form->submit();
 			if ( $status === true ) {
-				$wgOut->redirect( $this->page->getFullUrl() );
+				$wgOut->redirect( $title->getFullUrl() );
 			} else {
-				$this->showSettings( wfMsg( $status ) );
+				$this->showForm( wfMsg( $status ) );
 			}
 		} else {
-			$this->showSettings();
+			$this->showForm();
 		}
 	}
 
-	/**
-	* Verify and clean up parameters and preload data from DB.
-	* Note: if false is returned items may not all be set.
-	* TODO: return error keywords?
-	* @return bool success
-	*/
-	public function handleParams() {
-		$this->page = Title::newFromURL( $this->target );
-		if ( is_null( $this->page ) ) {
-			return false; // page title is invalid
-		}
-		# Get the current page config and GMT expiry
-		$this->config = FlaggedRevs::getPageVisibilitySettings( $this->page, FR_MASTER );
-		$this->oldExpiry = $this->config['expiry'] === 'infinity'
-			? 'infinite'
-			: wfTimestamp( TS_RFC2822, $this->config['expiry'] );
-		# Handle views (GET)
-		if ( !$this->wasPosted ) {
-			# Fill in existing settings
-			$this->preloadSettings( $this->config );
-		# Handle submission data (POST)
-		} else {
-			$this->loadReason();
-			$this->loadExpiry();
-			// Protection level case...
-			if ( FlaggedRevs::useProtectionLevels() ) {
-				# Autoreview restriction => use stable
-				# No autoreview restriction => site default
-				$this->override = ( $this->autoreview != '' )
-					? 1 // edits require review before being published
-					: (int)FlaggedRevs::isStableShownByDefault();
-				# Leave the selection precedence to the site default
-				$this->select = FlaggedRevs::getPrecedence();
-				# Autoreview only when protecting currently unprotected pages
-				$this->reviewThis = ( FlaggedRevs::getProtectionLevel( $this->config ) == 'none' );
-				# Check that settings are a valid protection level...
-				$newConfig = array(
-					'override'   => $this->override,
-					'autoreview' => $this->autoreview
-				);
-				if ( FlaggedRevs::getProtectionLevel( $newConfig ) == 'invalid' ) {
-					return false; // this is not a valid configuration
-				}
-			// General case...
-			} else {
-				if ( $this->override !== 0 && $this->override !== 1 ) {
-					return false; // default version settings is 0 or 1
-				}
-				if ( !FlaggedRevs::isValidPrecedence( $this->select ) ) {
-					return false; // invalid precedence value
-				}
-				// Check autoreview restriction setting
-				if ( !FlaggedRevs::userCanSetAutoreviewLevel( $this->autoreview ) ) {
-					return false; // invalid value
-				}
-			}
-		}
-		return true;
-	}
-
-	private function preloadSettings( $config ) {
-		# Get visiblity settings...
-		$this->select = $config['select'];
-		$this->override = $config['override'];
-		# Get autoreview restrictions...
-		$this->autoreview = $config['autoreview'];
-	}
-
-	private function loadExpiry() {
-		// Custom expiry takes precedence
-		if ( $this->expiry == '' ) {
-			$this->expiry = $this->expirySelection;
-			if ( $this->expiry == 'existing' ) {
-				$this->expiry = $this->oldExpiry;
-			}
-		}
-	}
-
-	private function loadReason() {
-		// Custom reason takes precedence
-		if ( $this->reasonSelection != 'other' ) {
-			$comment = $this->reasonSelection; // start with dropdown reason
-			if ( $this->reason != '' ) {
-				// Append custom reason
-				$comment .= wfMsgForContent( 'colon-separator' ) . $this->reason;
-			}
-		} else {
-			$comment = $this->reason; // just use custom reason
-		}
-		$this->reason = $comment;
-	}
-
-	protected function showSettings( $err = null ) {
+	public function showForm( $err = null ) {
 		global $wgOut, $wgLang, $wgUser;
+		$form = $this->form; // convenience
+		$title = $this->form->getPage();
+		$oldConfig = $form->getOldConfig();
+
+		$s = ''; // form HTML string
 		# Add any error messages
 		if ( "" != $err ) {
 			$wgOut->setSubtitle( wfMsgHtml( 'formerror' ) );
 			$wgOut->addHTML( "<p class='error'>{$err}</p>\n" );
 		}
 		# Add header text
-		if ( !$this->isAllowed ) {
-			$form = wfMsgExt( 'stabilization-perm', array( 'parse' ),
-				$this->page->getPrefixedText() );
+		if ( !$form->isAllowed() ) {
+			$s .= wfMsgExt( 'stabilization-perm', 'parse', $title->getPrefixedText() );
 		} else {
-			$form = wfMsgExt( 'stabilization-text', array( 'parse' ),
-				$this->page->getPrefixedText() );
+			$s .= wfMsgExt( 'stabilization-text', 'parse', $title->getPrefixedText() );
 		}
 		# Borrow some protection messages for dropdowns
 		$reasonDropDown = Xml::listDropDown( 'wpReasonSelection',
 			wfMsgForContent( 'protect-dropdown' ),
 			wfMsgForContent( 'protect-otherreason-op' ),
-			$this->reasonSelection,
+			$form->getReasonSelection(),
 			'mwStabilize-reason', 4
 		);
 		$scExpiryOptions = wfMsgForContent( 'protect-expiry-options' );
-		$showProtectOptions = ( $scExpiryOptions !== '-' && $this->isAllowed );
+		$showProtectOptions = ( $scExpiryOptions !== '-' && $form->isAllowed() );
 		# Add the current expiry as an option
 		$expiryFormOptions = '';
-		if ( $this->config['expiry'] && $this->config['expiry'] != 'infinity' ) {
-			$timestamp = $wgLang->timeanddate( $this->config['expiry'] );
-			$d = $wgLang->date( $this->config['expiry'] );
-			$t = $wgLang->time( $this->config['expiry'] );
+		if ( $oldConfig['expiry'] && $oldConfig['expiry'] != 'infinity' ) {
+			$timestamp = $wgLang->timeanddate( $oldConfig['expiry'] );
+			$d = $wgLang->date( $oldConfig['expiry'] );
+			$t = $wgLang->time( $oldConfig['expiry'] );
 			$expiryFormOptions .=
 				Xml::option(
 					wfMsg( 'protect-existing-expiry', $timestamp, $d, $t ),
 					'existing',
-					$this->config['expiry'] == 'existing'
+					$oldConfig['expiry'] == 'existing'
 				) . "\n";
 		}
 		$expiryFormOptions .= Xml::option( wfMsg( 'protect-othertime-op' ), "othertime" ) . "\n";
@@ -229,41 +138,46 @@ class Stabilization extends UnlistedSpecialPage
 			}
 			$show = htmlspecialchars( $show );
 			$value = htmlspecialchars( $value );
-			$expiryFormOptions .= Xml::option( $show, $value,
-				$this->config['expiry'] === $value ) . "\n";
+			$expiryFormOptions .= Xml::option( $show, $value, $oldConfig['expiry'] === $value );
+			$expiryFormOptions .= "\n";
 		}
 		# Add stable version override and selection options
 		$special = SpecialPage::getTitleFor( 'Stabilization' );
-		$form .= Xml::openElement( 'form', array( 'name' => 'stabilization',
-			'action' => $special->getLocalUrl(), 'method' => 'post' ) ) .
+		$s .= Xml::openElement( 'form', array( 'name' => 'stabilization',
+				'action' => $special->getLocalUrl(), 'method' => 'post' ) );
+		$s .=
 			Xml::fieldset( wfMsg( 'stabilization-def' ), false ) . "\n" .
 			Xml::radioLabel( wfMsg( 'stabilization-def1' ), 'wpStableconfig-override', 1,
-				'default-stable', 1 == $this->override, $this->disabledAttrib ) . '<br />' . "\n" .
+				'default-stable', 1 == $form->getOverride(), $this->disabledAttr() ) .
+				'<br />' . "\n" .
 			Xml::radioLabel( wfMsg( 'stabilization-def2' ), 'wpStableconfig-override', 0,
-				'default-current', 0 == $this->override, $this->disabledAttrib ) . "\n" .
+				'default-current', 0 == $form->getOverride(), $this->disabledAttr() ) . "\n" .
 			Xml::closeElement( 'fieldset' ) .
 
 			Xml::fieldset( wfMsg( 'stabilization-select' ), false ) .
 			Xml::radioLabel( wfMsg( 'stabilization-select3' ), 'wpStableconfig-select',
-				FLAGGED_VIS_PRISTINE, 'stable-select3', FLAGGED_VIS_PRISTINE == $this->select,
-				$this->disabledAttrib ) . '<br />' . "\n" .
+				FLAGGED_VIS_PRISTINE, 'stable-select3',
+				FLAGGED_VIS_PRISTINE == $form->getPrecedence(),
+				$this->disabledAttr() ) . '<br />' . "\n" .
 			Xml::radioLabel( wfMsg( 'stabilization-select1' ), 'wpStableconfig-select',
-				FLAGGED_VIS_QUALITY, 'stable-select1', FLAGGED_VIS_QUALITY == $this->select,
-				$this->disabledAttrib ) . '<br />' . "\n" .
+				FLAGGED_VIS_QUALITY, 'stable-select1',
+				FLAGGED_VIS_QUALITY == $form->getPrecedence(),
+				$this->disabledAttr() ) . '<br />' . "\n" .
 			Xml::radioLabel( wfMsg( 'stabilization-select2' ), 'wpStableconfig-select',
-				FLAGGED_VIS_LATEST, 'stable-select2', FLAGGED_VIS_LATEST == $this->select,
-				$this->disabledAttrib ) . '<br />' . "\n" .
+				FLAGGED_VIS_LATEST, 'stable-select2',
+				FLAGGED_VIS_LATEST == $form->getPrecedence(),
+				$this->disabledAttr() ) . '<br />' . "\n" .
 			Xml::closeElement( 'fieldset' );
 		# Add autoreview restriction select
-		$form .= Xml::fieldset( wfMsg( 'stabilization-restrict' ), false ) .
-			$this->buildSelector( $this->autoreview ) .
+		$s .= Xml::fieldset( wfMsg( 'stabilization-restrict' ), false ) .
+			$this->buildSelector( $form->getAutoreview() ) .
 			Xml::closeElement( 'fieldset' ) .
 
 			Xml::fieldset( wfMsg( 'stabilization-leg' ), false ) .
 			Xml::openElement( 'table' );
 		# Add expiry dropdown
-		if ( $showProtectOptions && $this->isAllowed ) {
-			$form .= "
+		if ( $showProtectOptions && $form->isAllowed() ) {
+			$s .= "
 				<tr>
 					<td class='mw-label'>" .
 						Xml::label( wfMsg( 'stabilization-expiry' ), 'mwStabilizeExpirySelection' ) .
@@ -274,34 +188,35 @@ class Stabilization extends UnlistedSpecialPage
 								'id' 		=> 'mwStabilizeExpirySelection',
 								'name' 		=> 'wpExpirySelection',
 								'onchange'  => 'onFRChangeExpiryDropdown()',
-							) + $this->disabledAttrib,
+							) + $this->disabledAttr(),
 							$expiryFormOptions ) .
 					"</td>
 				</tr>";
 		}
 		# Add custom expiry field
 		$attribs = array( 'id' => "mwStabilizeExpiryOther",
-			'onkeyup' => 'onFRChangeExpiryField()' ) + $this->disabledAttrib;
-		$form .= "
+			'onkeyup' => 'onFRChangeExpiryField()' ) + $this->disabledAttr();
+		$formExpiry = $form->getExpiry() ?
+			$form->getExpiry() : $form->getOldExpiryGMT();
+		$s .= "
 			<tr>
 				<td class='mw-label'>" .
 					Xml::label( wfMsg( 'stabilization-othertime' ), 'mwStabilizeExpiryOther' ) .
 				'</td>
 				<td class="mw-input">' .
-					Xml::input( "mwStabilize-expiry", 50,
-						$this->expiry ? $this->expiry : $this->oldExpiry, $attribs ) .
+					Xml::input( "mwStabilize-expiry", 50, $formExpiry, $attribs ) .
 				'</td>
 			</tr>';
 		# Add comment input and submit button
-		if ( $this->isAllowed ) {
+		if ( $form->isAllowed() ) {
 			$watchLabel = wfMsgExt( 'watchthis', array( 'parseinline' ) );
 			$watchAttribs = array( 'accesskey' => wfMsg( 'accesskey-watch' ),
 				'id' => 'wpWatchthis' );
 			$watchChecked = ( $wgUser->getOption( 'watchdefault' )
-				|| $this->page->userIsWatching() );
+				|| $title->userIsWatching() );
 			$reviewLabel = wfMsgExt( 'stabilization-review', array( 'parseinline' ) );
 
-			$form .= ' <tr>
+			$s .= ' <tr>
 					<td class="mw-label">' .
 						xml::label( wfMsg( 'stabilization-comment' ), 'wpReasonSelection' ) .
 					'</td>
@@ -314,18 +229,18 @@ class Stabilization extends UnlistedSpecialPage
 						Xml::label( wfMsg( 'stabilization-otherreason' ), 'wpReason' ) .
 					'</td>
 					<td class="mw-input">' .
-						Xml::input( 'wpReason', 70, $this->reason, array( 'id' => 'wpReason' ) ) .
+						Xml::input( 'wpReason', 70, $form->getReason(), array( 'id' => 'wpReason' ) ) .
 					'</td>
 				</tr>
 				<tr>
 					<td></td>
 					<td class="mw-input">' .
-						Xml::check( 'wpReviewthis', $this->reviewThis,
+						Xml::check( 'wpReviewthis', $form->getReviewThis(),
 							array( 'id' => 'wpReviewthis' ) ) .
 						"<label for='wpReviewthis'>{$reviewLabel}</label>" .
 						'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' .
 						Xml::check( 'wpWatchthis', $watchChecked, $watchAttribs ) .
-						"<label for='wpWatchthis'" . $this->skin->tooltipAndAccesskey( 'watch' ) .
+						"<label for='wpWatchthis'" . $this->sk->tooltipAndAccesskey( 'watch' ) .
 							">{$watchLabel}</label>" .
 					'</td>
 				</tr>
@@ -336,46 +251,33 @@ class Stabilization extends UnlistedSpecialPage
 					'</td>
 				</tr>' . Xml::closeElement( 'table' ) .
 				Xml::hidden( 'title', $this->getTitle()->getPrefixedDBKey() ) .
-				Xml::hidden( 'page', $this->page->getPrefixedText() ) .
+				Xml::hidden( 'page', $title->getPrefixedText() ) .
 				Xml::hidden( 'wpEditToken', $wgUser->editToken() );
 		} else {
-			$form .= Xml::closeElement( 'table' );
+			$s .= Xml::closeElement( 'table' );
 		}
-		$form .= Xml::closeElement( 'fieldset' ) . Xml::closeElement( 'form' );
+		$s .= Xml::closeElement( 'fieldset' ) . Xml::closeElement( 'form' );
 
-		$wgOut->addHTML( $form );
+		$wgOut->addHTML( $s );
 
 		$wgOut->addHTML( Xml::element( 'h2', null,
 			htmlspecialchars( LogPage::logName( 'stable' ) ) ) );
-		LogEventsList::showLogExtract( $wgOut, 'stable', $this->page->getPrefixedText() );
+		LogEventsList::showLogExtract( $wgOut, 'stable', $title->getPrefixedText() );
 
-		# Add some script for expiry dropdowns
-		self::addProtectionJS();
-	}
-
-	public static function addProtectionJS() {
-		global $wgOut;
-		$wgOut->addScript(
-			"<script type=\"text/javascript\">
-				function onFRChangeExpiryDropdown() {
-					document.getElementById('mwStabilizeExpiryOther').value = '';
-				}
-				function onFRChangeExpiryField() {
-					document.getElementById('mwStabilizeExpirySelection').value = 'othertime';
-				}
-			</script>"
-		);
+		# Add some javascript for expiry dropdowns
+		PageStabilityForm::addProtectionJS();
 	}
 
 	protected function buildSelector( $selected ) {
-		global $wgUser;
 		$allowedLevels = array();
 		$levels = FlaggedRevs::getRestrictionLevels();
 		array_unshift( $levels, '' ); // Add a "none" level
 		foreach ( $levels as $key ) {
 			# Don't let them choose levels they can't set, 
 			# but *show* them all when the form is disabled.
-			if ( $this->isAllowed && !FlaggedRevs::userCanSetAutoreviewLevel( $key ) ) {
+			if ( $this->form->isAllowed()
+				&& !FlaggedRevs::userCanSetAutoreviewLevel( $key ) )
+			{
 				continue;
 			}
 			$allowedLevels[] = $key;
@@ -385,7 +287,7 @@ class Stabilization extends UnlistedSpecialPage
 			'id' => $id,
 			'name' => $id,
 			'size' => count( $allowedLevels ),
-		) + $this->disabledAttrib;
+		) + $this->disabledAttr();
 
 		$out = Xml::openElement( 'select', $attribs );
 		foreach ( $allowedLevels as $key ) {
@@ -414,183 +316,10 @@ class Stabilization extends UnlistedSpecialPage
 		}
 	}
 
-	public function submit() {
-		global $wgUser, $wgContLang;
-		# Take this opportunity to purge out expired configurations
-		FlaggedRevs::purgeExpiredConfigurations();
-		# Are we are going back to site defaults?
-		$reset = self::configIsReset( $this->select, $this->override, $this->autoreview );
-		# Parse and cleanup the expiry time given...
-		if ( $reset || $this->expiry == 'infinite' || $this->expiry == 'indefinite' ) {
-			$this->expiry = Block::infinity(); // normalize to 'infinity'
-		} else {
-			# Convert GNU-style date, on error returns -1 for PHP <5.1 and false for PHP >=5.1
-			$this->expiry = strtotime( $this->expiry );
-			if ( $this->expiry < 0 || $this->expiry === false ) {
-				return 'stabilize_expiry_invalid';
-			}
-			# Convert date to MW timestamp format
-			$this->expiry = wfTimestamp( TS_MW, $this->expiry );
-			if ( $this->expiry < wfTimestampNow() ) {
-				return 'stabilize_expiry_old';
-			}
-		}
-		# Update the DB row with the new config...
-		$changed = $this->updateConfigRow( $reset );
-		# Log if this actually changed anything...
-		if ( $changed ) {
-			$article = new Article( $this->page );
-			$latest = $this->page->getLatestRevID( GAID_FOR_UPDATE );
-			# Config may have changed to allow stable versions.
-			# Refresh tracking to account for any hidden reviewed versions...
-			$frev = FlaggedRevision::newFromStable( $this->page, FR_MASTER );
-			if ( $frev ) {
-				FlaggedRevs::updateStableVersion( $article, $frev->getRevision(), $latest );
-			} else {
-				FlaggedRevs::clearTrackingRows( $article->getId() );
-			}
-			# Insert stability log entry...
-			$log = new LogPage( 'stable' );
-			if ( $reset ) {
-				$log->addEntry( 'reset', $this->page, $this->reason );
-				$type = "stable-logentry-reset";
-				$settings = ''; // no level, expiry info
-			} else {
-				$params = array(
-					'override'   => $this->override,
-					'autoreview' => $this->autoreview,
-					'expiry'     => $this->expiry // TS_MW/infinity
-				);
-				// Precedence unchanged by protection (stabilityLogLinks checks this)
-				if( !FlaggedRevs::useProtectionLevels() ) {
-					$params['precedence'] = $this->select;
-				}
-				$log->addEntry( 'config', $this->page, $this->reason,
-					FlaggedRevsLogs::collapseParams( $params ) );
-				$type = "stable-logentry-config";
-				$settings = FlaggedRevsLogs::stabilitySettings( $params, true /*content*/ );
-			}
-			# Build null-edit comment...<action: reason [settings] (expiry)>
-			$comment = $wgContLang->ucfirst(
-				wfMsgForContent( $type, $this->page->getPrefixedText() ) ); // action
-			if ( $this->reason != '' ) {
-				$comment .= wfMsgForContent( 'colon-separator' ) . $this->reason; // add reason
-			}
-			if ( $settings != '' ) {
-				$comment .= " {$settings}"; // add settings
-			}
-			# Insert a null revision...
-			$dbw = wfGetDB( DB_MASTER );
-			$nullRev = Revision::newNullRevision( $dbw, $article->getId(), $comment, true );
-			$nullRevId = $nullRev->insertOn( $dbw );
-			# Update page record and touch page
-			$article->updateRevisionOn( $dbw, $nullRev, $latest );
-			wfRunHooks( 'NewRevisionFromEditComplete',
-				array( $article, $nullRev, $latest ) );
-
-			# Null edit may have been autoreviewed already
-			$frev = FlaggedRevision::newFromTitle( $this->page, $nullRevId, FR_MASTER );
-			# We may need to invalidate the page links after changing the stable version.
-			# Only do so if not already done, such as by an auto-review of the null edit.
-			$invalidate = !$frev;
-			# Check if this null edit is to be reviewed...
-			if ( !$frev && $this->reviewThis ) {
-				$flags = null;
-				# Review this revision of the page...
-				$ok = FlaggedRevs::autoReviewEdit(
-					$article, $wgUser, $nullRev->getText(), $nullRev, $flags, true );
-				if( $ok ) {
-					FlaggedRevs::markRevisionPatrolled( $nullRev ); // reviewed -> patrolled
-					$invalidate = false; // links invalidated (with auto-reviewed)
-				}
-			}
-			# Update the links tables as the stable version may now be the default page...
-			if ( $invalidate ) {
-				FlaggedRevs::titleLinksUpdate( $this->page );
-			}
-		}
-		# Apply watchlist checkbox value (may be NULL)
-		if ( $this->watchThis === true ) {
-			$wgUser->addWatch( $this->page );
-		} else if ( $this->watchThis === false ) {
-			$wgUser->removeWatch( $this->page );
-		}
-		return true;
-	}
-
-	protected function updateConfigRow( $reset ) {
-		$changed = false;
-		$dbw = wfGetDB( DB_MASTER );
-		# If setting to site default values and there is a row then erase it
-		if ( $reset ) {
-			$dbw->delete( 'flaggedpage_config',
-				array( 'fpc_page_id' => $this->page->getArticleID() ),
-				__METHOD__
-			);
-			$changed = ( $dbw->affectedRows() != 0 ); // did this do anything?
-		# Otherwise, add/replace row if we are not just setting it to the site default
-		} elseif ( !$reset ) {
-			$dbExpiry = Block::encodeExpiry( $this->expiry, $dbw );
-			$precedence = FlaggedRevs::useProtectionLevels()
-				? -1 // site default; fpc_select "don't care"
-				: $this->select;
-			# Get current config...
-			$oldRow = $dbw->selectRow( 'flaggedpage_config',
-				array( 'fpc_select', 'fpc_override', 'fpc_level', 'fpc_expiry' ),
-				array( 'fpc_page_id' => $this->page->getArticleID() ),
-				__METHOD__,
-				'FOR UPDATE'
-			);
-			# Check if this is not the same config as the existing row (if any)
-			$changed = self::configIsDifferent( $oldRow,
-				$precedence, $this->override, $this->autoreview, $dbExpiry );
-			# If the new config is different, replace the old row...
-			if ( $changed ) {
-				$dbw->replace( 'flaggedpage_config',
-					array( 'PRIMARY' ),
-					array(
-						'fpc_page_id'  => $this->page->getArticleID(),
-						'fpc_select'   => intval( $precedence ),
-						'fpc_override' => intval( $this->override ),
-						'fpc_level'    => $this->autoreview,
-						'fpc_expiry'   => $dbExpiry
-					),
-					__METHOD__
-				);
-			}
-		}
-		return $changed;
-	}
-
-	// Checks if new config is the same as the site default
-	protected function configIsReset( $select, $override, $autoreview ) {
-		# For protection config, just ignore the fpc_select column
-		if( FlaggedRevs::useProtectionLevels() ) {
-			return ( $autoreview == '' );
-		} else {
-			return ( $select == FlaggedRevs::getPrecedence()
-				&& $override == FlaggedRevs::isStableShownByDefault()
-				&& $autoreview == '' );
-		}
-	}
-
-	// Checks if new config is different than the existing row
-	protected function configIsDifferent( $oldRow, $select, $override, $autoreview, $dbExpiry ) {
-		if( !$oldRow ) {
-			return true; // no previous config
-		}
-		# For protection config, just ignore the fpc_select column
-		if( FlaggedRevs::useProtectionLevels() ) {
-			return ( $oldRow->fpc_override != $override // ...override changed, or...
-				|| $oldRow->fpc_level != $autoreview // ...autoreview level changed, or...
-				|| $oldRow->fpc_expiry != $dbExpiry // ...expiry changed
-			);
-		} else {
-			return ( $oldRow->fpc_select != $select // ...precedence changed, or...
-				|| $oldRow->fpc_override != $override // ...override changed, or...
-				|| $oldRow->fpc_level != $autoreview // ...autoreview level changed, or...
-				|| $oldRow->fpc_expiry != $dbExpiry // ...expiry changed
-			);
-		}
+	// If the this form is disabled, then return the "disabled" attr array
+	protected function disabledAttr() {
+		return $this->form->isAllowed()
+			? array()
+			: array( 'disabled' => 'disabled' );
 	}
 }
