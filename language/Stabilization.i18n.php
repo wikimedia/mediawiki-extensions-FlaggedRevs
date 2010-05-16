@@ -3723,13 +3723,16 @@ $messages['zh-hans'] = array(
 /** Traditional Chinese (‪中文(繁體)‬)
  * @author Alexsh
  * @author Gaoxuewei
+ * @author Horacewai2
  * @author Liangent
  * @author Shinjiman
  */
 $messages['zh-hant'] = array(
 	'stabilization-tab' => '調查',
 	'stabilization' => '穩定頁面',
-	'stabilization-text' => "'''更改以下的設定去調節所選擇的[[:$1|$1]]之穩定版本如何顯示。'''",
+	'stabilization-text' => "'''更改以下的設定去調節所選擇的[[:$1|$1]]之穩定版本如何顯示。'''
+
+注意：如果那麼沒有這樣的版本，更改出版版本設定去選擇「已審核」或是「原始」版本是不會影響的。而且，有質數的版本是已被檢查的。",
 	'stabilization-perm' => '您的賬戶並沒有權限去更改穩定版本設定。
 這是[[:$1|$1]]當前的設定：',
 	'stabilization-page' => '頁面名稱:',
@@ -3739,7 +3742,7 @@ $messages['zh-hant'] = array(
 	'stabilization-select2' => '最近複審過的修訂',
 	'stabilization-select3' => '最近原始的修訂；如果未有，則是最近有質素或視察過的',
 	'stabilization-def' => '在預設頁視的修訂顯示',
-	'stabilization-def1' => '穩定修訂；如果未有，則是現時的',
+	'stabilization-def1' => '穩定修訂；如果未有，則是現時或草稿',
 	'stabilization-def2' => '現時的修訂',
 	'stabilization-restrict' => '自動審核限制',
 	'stabilization-restrict-none' => '無其他限制',

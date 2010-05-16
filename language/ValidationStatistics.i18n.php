@@ -2033,12 +2033,13 @@ $4
 
 /** Traditional Chinese (‪中文(繁體)‬)
  * @author Gaoxuewei
+ * @author Horacewai2
  * @author Mark85296341
  * @author Tomchiukc
  */
 $messages['zh-hant'] = array(
-	'validationstatistics' => '判定統計',
-	'validationstatistics-users' => "'''{{SITENAME}}'''現時有'''[[Special:ListUsers/editor|$1]]'''個用戶具有[[{{MediaWiki:Validationpage}}|編輯]]的權限，而'''[[Special:ListUsers/reviewer|$2]]'''個用戶有[[{{MediaWiki:Validationpage}}|審定]]的權限。
+	'validationstatistics' => '審核統計',
+	'validationstatistics-users' => "'''{{SITENAME}}'''現時有'''[[Special:ListUsers/editor|$1]]'''{{PLURAL:$1|個|個}}用戶具有[[{{MediaWiki:Validationpage}}|編輯]]的權限。
 
 編輯及審定皆為已確認的用戶，並可以檢查各頁面的修定。",
 	'validationstatistics-time' => "''下列資訊於 $5 $6 進行了最後更新。 ''
@@ -2048,7 +2049,7 @@ $messages['zh-hant'] = array(
 ''未登錄用戶''的編輯平均等待審核時間為'''$1'''；中值時間為'''$3'''。
 $4
 [[Special:OldReviewedPages|未審核的頁面編輯等待]]平均滯後時間為'''$2'''。
-這些頁面被認為''過期''了。同樣的，如果[[{{MediaWiki:Validationpage}}|完美版本]]是目前的待定版本，這些頁面就被認為''已同步''。
+這些頁面被認為''過期''了。同樣的，如果完美版本是目前的待定版本，這些頁面就被認為''已同步''。
 頁面的完美版本是被讀者普遍接受的最新版本。",
 	'validationstatistics-table' => "各名稱空間的統計資訊顯示如下，''不包含''轉向頁。",
 	'validationstatistics-ns' => '名稱空間',
