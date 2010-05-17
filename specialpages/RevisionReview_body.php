@@ -57,7 +57,7 @@ class RevisionReview extends UnlistedSpecialPage
 		# Param for sites with binary flagging
 		$this->approve = $wgRequest->getCheck( 'wpApprove' );
 		$this->unapprove = $wgRequest->getCheck( 'wpUnapprove' );
-		# Patrol the edit if requested...
+		# Review the edit if requested...
 		$this->markReviewed();
 	}
 	

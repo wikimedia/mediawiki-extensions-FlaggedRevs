@@ -130,7 +130,7 @@ abstract class FlaggedRevsConfigForm
 			$ok = $this->handlePostedParams();
 		}
 		if ( $ok === true && $this->wasPosted ) {
-			$this->submitLock = 0;
+			$this->submitLock = 0; // allow calling of submit()
 		}
 		return $ok;
 	}
@@ -163,7 +163,7 @@ abstract class FlaggedRevsConfigForm
 	}
 
 	/*
-	* Gets the current config expiry in GTM (or 'infinite')
+	* Gets the current config expiry in GMT (or 'infinite')
 	* @return string
 	*/
 	public function getOldExpiryGMT() {
@@ -598,7 +598,7 @@ class PageStabilityProtectForm extends FlaggedRevsConfigForm {
 
 	// Checks if new config is different than the existing row
 	protected function configIsDifferent( $oldRow, $override, $autoreview, $dbExpiry ) {
-		if( !$oldRow ) {
+		if ( !$oldRow ) {
 			return true; // no previous config
 		}
 		# For protection config, just ignore the fpc_select column

@@ -2076,7 +2076,7 @@ class FlaggedRevsHooks {
 	// Code stolen from Stabilization (which was stolen from ProtectionForm)
 	public static function onProtectionForm( $article, &$output ) {
 		global $wgUser, $wgRequest, $wgLang;
-		if ( !FlaggedRevs::useProtectionLevels() || !$article->exists() ) {
+		if ( !$article->exists() ) {
 			return true; // nothing to do
 		} elseif ( !FlaggedRevs::inReviewNamespace( $article->getTitle() ) ) {
 			return true; // not a reviewable page
@@ -2091,7 +2091,7 @@ class FlaggedRevsHooks {
 		$oldExpirySelect = ( $config['expiry'] == 'infinity' ) ? 'infinite' : 'existing';
 		
 		# Load requested restriction level, default to current level...
-		$restriction = $wgRequest->getVal( 'mwStabilityConfig',
+		$restriction = $wgRequest->getVal( 'mwStabilityLevel',
 			FlaggedRevs::getProtectionLevel( $config ) );
 		# Load the requested expiry time (dropdown)
 		$expirySelect = $wgRequest->getVal( 'mwStabilizeExpirySelection', $oldExpirySelect );
@@ -2110,8 +2110,8 @@ class FlaggedRevsHooks {
 		array_unshift( $effectiveLevels, "none" );
 		# Show all restriction levels in a <select>...
 		$attribs = array(
-			'id' 	=> 'mwStabilityConfig',
-			'name'  => 'mwStabilityConfig',
+			'id' 	=> 'mwStabilityLevel',
+			'name'  => 'mwStabilityLevel',
 			'size'  => count( $effectiveLevels ),
 		) + $disabledAttrib;
 		$output .= Xml::openElement( 'select', $attribs );
@@ -2203,7 +2203,7 @@ class FlaggedRevsHooks {
 
 	// Add stability log extract to protection form
 	public static function insertStabilityLog( $article, $out ) {
-		if ( !FlaggedRevs::useProtectionLevels() || !$article->exists() ) {
+		if ( !$article->exists() ) {
 			return true; // nothing to do
 		} else if ( !FlaggedRevs::inReviewNamespace( $article->getTitle() ) ) {
 			return true; // not a reviewable page
@@ -2217,7 +2217,7 @@ class FlaggedRevsHooks {
 	// Update stability config from request
 	public static function onProtectionSave( $article, &$errorMsg ) {
 		global $wgUser, $wgRequest;
-		if ( !FlaggedRevs::useProtectionLevels() || !$article->exists() ) {
+		if ( !$article->exists() ) {
 			return true; // simple custom levels set for action=protect
 		} elseif ( !FlaggedRevs::inReviewNamespace( $article->getTitle() ) ) {
 			return true; // not a reviewable page
@@ -2226,17 +2226,16 @@ class FlaggedRevsHooks {
 		}
 		$form = new PageStabilityProtectForm();
 		$form->setTarget( $article->getTitle() ); // target page
+		$permission = $wgRequest->getVal( 'mwStabilityLevel' );
+		if ( $permission == "none" ) {
+			$permission = ''; // 'none' => ''
+		}
+		$form->setAutoreview( $permission ); // protection level (autoreview restriction)
 		$form->setWatchThis( null ); // protection form already has a watch check
 		$form->setReason( $wgRequest->getText( 'mwProtect-reason' ) ); // manual
 		$form->setReasonSelection( $wgRequest->getVal( 'wpProtectReasonSelection' ) ); // dropdown
 		$form->setExpiry( $wgRequest->getVal( 'mwStabilizeExpiryOther' ) ); // manual
 		$form->setExpirySelection( $wgRequest->getVal( 'mwStabilizeExpirySelection' ) ); // dropdown
-		# Fill in config from the protection level...
-		$permission = $wgRequest->getVal( 'mwStabilityConfig' );
-		if ( $permission == "none" ) {
-			$permission = ''; // 'none' => ''
-		}
-		$form->setAutoreview( $permission ); // autoreview restriction
 		$form->setWasPosted( $wgRequest->wasPosted() ); // double-check
 		$status = $form->handleParams();
 		if ( $status === true ) {

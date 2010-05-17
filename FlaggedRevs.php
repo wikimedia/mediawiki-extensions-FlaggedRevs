@@ -421,9 +421,6 @@ $wgHooks['EditPageNoSuchSection'][] = 'FlaggedRevsHooks::onNoSuchSection';
 $wgHooks['PageHistoryBeforeList'][] = 'FlaggedRevsHooks::addToHistView';
 # Add review form and visiblity settings link
 $wgHooks['SkinAfterContent'][] = 'FlaggedRevsHooks::onSkinAfterContent';
-# Add protection form field
-$wgHooks['ProtectionForm::buildForm'][] = 'FlaggedRevsHooks::onProtectionForm';
-$wgHooks['ProtectionForm::showLogExtract'][] = 'FlaggedRevsHooks::insertStabilityLog';
 # Mark items in page history
 $wgHooks['PageHistoryPager::getQueryInfo'][] = 'FlaggedRevsHooks::addToHistQuery';
 $wgHooks['PageHistoryLineEnding'][] = 'FlaggedRevsHooks::addToHistLine';
@@ -485,8 +482,6 @@ $wgHooks['UserRights'][] = 'FlaggedRevsHooks::recordDemote';
 # User edit tallies
 $wgHooks['ArticleRollbackComplete'][] = 'FlaggedRevsHooks::incrementRollbacks';
 $wgHooks['NewRevisionFromEditComplete'][] = 'FlaggedRevsHooks::incrementReverts';
-# Save stability settings
-$wgHooks['ProtectionForm::save'][] = 'FlaggedRevsHooks::onProtectionSave';
 # Extra cache updates for stable versions
 $wgHooks['HTMLCacheUpdate::doUpdate'][] = 'FlaggedRevsHooks::doCacheUpdate';
 # Updates stable version tracking data
@@ -532,6 +527,13 @@ function efSetFlaggedRevsConditionalHooks() {
 	# Visibility - experimental
 	if ( !empty( $wgFlaggedRevsVisible ) ) {
 		$wgHooks['getUserPermissionsErrors'][] = 'FlaggedRevsHooks::userCanView';
+	}
+	if ( FlaggedRevs::useProtectionLevels() ) {
+		# Add protection form field
+		$wgHooks['ProtectionForm::buildForm'][] = 'FlaggedRevsHooks::onProtectionForm';
+		$wgHooks['ProtectionForm::showLogExtract'][] = 'FlaggedRevsHooks::insertStabilityLog';
+		# Save stability settings
+		$wgHooks['ProtectionForm::save'][] = 'FlaggedRevsHooks::onProtectionSave';
 	}
 }
 
