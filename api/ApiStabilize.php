@@ -76,16 +76,13 @@ class ApiStabilize extends ApiBase {
 		}
 		$form->setAutoreview( $restriction ); # Autoreview restriction
 		$form->setWasPosted( true ); // already validated
-
-		$status = $form->handleParams();
-		if ( $status === true ) {
-			$status = $form->submit(); // true/error message key
-			if ( $status !== true ) {
-				$this->dieUsage( wfMsg( $status ) );
-			}
-		} else {
-			$this->dieUsage( wfMsg( $status ), $status );
+		$form->ready();
+		
+		$status = $form->submit(); // true/error message key
+		if ( $status !== true ) {
+			$this->dieUsage( wfMsg( $status ) );
 		}
+		
 		# Output success line with the title and config parameters
 		$res = array();
 		$res['title'] = $title->getPrefixedText();

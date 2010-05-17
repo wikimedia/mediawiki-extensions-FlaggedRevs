@@ -6,7 +6,9 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 /**
  * Class containing stability settings form business logic
  *
- * Note: handleParams() must be called after the user parameters are set
+ * Usage: (a) set ALL form params before doing anything else
+ *		  (b) call ready() when all params are set
+ *		  (c) check isAllowed() before calling submit() as needed
  */
 abstract class FlaggedRevsConfigForm
 {
@@ -20,14 +22,12 @@ abstract class FlaggedRevsConfigForm
 	protected $expirySelection = ''; # Expiry dropdown key
 	protected $override = -1; # Default version
 	protected $autoreview = ''; # Autoreview restrictions...
-	protected $wasPosted = false; # POST request?
 
 	protected $page = false; # Target page obj (of $target)
 	protected $oldConfig = array(); # Old page config
 	protected $oldExpiry = ''; # Old page config expiry (GMT)
-	protected $isAllowed = null; # $wgUser can submit?
 
-	protected $submitLock = 1; # Disallow bad submissions
+	protected $inputLock = 0; # Disallow bad submissions
 
 	public function getTarget() {
 		return $this->target;
@@ -35,6 +35,7 @@ abstract class FlaggedRevsConfigForm
 
 	public function setTarget( $value ) {
 		$this->trySet( $this->target, $value );
+		$this->page = Title::newFromURL( $this->target );
 	}
 
 	public function getWatchThis() {
@@ -85,70 +86,102 @@ abstract class FlaggedRevsConfigForm
 		$this->trySet( $this->autoreview, $value );
 	}
 
-	public function setWasPosted( $value ) {
-		$this->trySet( $this->wasPosted, $value );
-	}
-
 	/**
 	* Set a member field to a value if the fields are unlocked
 	*/
 	protected function trySet( &$field, $value ) {
-		if ( $this->submitLock ) {
-			$field = $value; // submission locked => still allowing input
+		if ( $this->inputLock ) {
+			throw new MWException( "FlaggedRevsConfigForm fields cannot be set anymore.\n");
 		} else {
-			throw new MWException( "FlaggedRevsConfigForm fields cannot be set after validation.\n");
-		}
+			$field = $value; // submission locked => still allowing input
+		} 
 	}
 
 	/**
-	* Verify and clean up parameters and preload data from DB.
-	* Locks the member fields from being set.
-	*
-	* Note: some items may not all be set on failure.
+	* Signal that inputs are starting
+	*/
+	public function start() {
+		$this->inputLock = 0;
+	}
+
+	/**
+	* Signal that inputs are done and load old config
+	* @return mixed (true on success, error string on target failure)
+	*/
+	public function ready() {
+		$this->inputLock = 1;
+		$status = $this->checkTarget();
+		if ( $status !== true ) {
+			return $status; // bad target
+		}
+		$this->loadOldConfig(); // current settings from DB
+		return $status;
+	}
+
+	/*
+	* Preload existing page settings (e.g. from GET request).
 	* @return mixed (true on success, error string on failure)
 	*/
-	public function handleParams() {
+	public function preloadSettings() {
+		if ( !$this->inputLock ) {
+			throw new MWException( "FlaggedRevsConfigForm input fields not set yet.\n");
+		}
+		$status = $this->checkTarget();
+		if ( $status !== true ) {
+			return $status; // bad target
+		}
+		return $this->reallyPreloadSettings(); // load the params...
+	}
+
+	/*
+	* @return mixed (true on success, error string on failure)
+	*/	
+	protected function reallyPreloadSettings() {
+		return true;
+	}
+
+	/*
+	* Verify and clean up parameters (e.g. from POST request).
+	* @return mixed (true on success, error string on failure)
+	*/
+	protected function checkSettings() {
+		$status = $this->checkTarget();
+		if ( $status !== true ) {
+			return $status; // bad target
+		}
+		$status = $this->reallyCheckSettings(); // check other params...
+		return $status;
+	}
+
+	/*
+	* @return mixed (true on success, error string on failure)
+	*/
+	protected function reallyCheckSettings() {
+		return true;
+	}
+
+	/*
+	* Check that the target page is valid
+	* @return mixed (true on success, error string on failure)
+	*/
+	protected function checkTarget() {
 		$this->page = Title::newFromURL( $this->target );
 		if ( is_null( $this->page ) ) {
-			return 'stabilize_page_invalid'; // page title is invalid
+			return 'stabilize_page_invalid';
 		} elseif ( !$this->page->exists() ) {
-			return 'stabilize_page_notexists'; // page must exist
+			return 'stabilize_page_notexists';
 		} elseif ( !FlaggedRevs::inReviewNamespace( $this->page ) ) {
 			return 'stabilize_page_unreviewable';
 		}
+		return true;
+	}
+
+	protected function loadOldConfig() {
 		# Get the current page config and GMT expiry
 		$this->oldConfig = FlaggedRevs::getPageVisibilitySettings( $this->page, FR_MASTER );
 		$this->oldExpiry = $this->oldConfig['expiry'] === 'infinity'
 			? 'infinite'
 			: wfTimestamp( TS_RFC2822, $this->oldConfig['expiry'] );
-		# Handle views (GET)
-		if ( !$this->wasPosted ) {
-			# Fill in existing settings
-			$ok = $this->preloadSettings();
-		# Handle submission data (POST)
-		} else {
-			$ok = $this->handlePostedParams();
-		}
-		if ( $ok === true && $this->wasPosted ) {
-			$this->submitLock = 0; // allow calling of submit()
-		}
-		return $ok;
-	}
-
-	/*
-	* Preload existing page settings
-	* @return mixed (true on success, error string on failure)
-	*/
-	protected function preloadSettings() {
-		return true;
-	}
-
-	/*
-	* Verify and clean up parameters from POST request.
-	* @return mixed (true on success, error string on failure)
-	*/
-	protected function handlePostedParams() {
-		return true;
 	}
 
 	/*
@@ -156,19 +189,19 @@ abstract class FlaggedRevsConfigForm
 	* @return mixed (Title or null)
 	*/
 	public function getPage() {
-		if ( $this->page === false ) {
-			$this->handleParams(); // handleParams() not called first
+		if ( !$this->inputLock ) {
+			throw new MWException( "FlaggedRevsConfigForm input fields not set yet.\n");
 		}
 		return $this->page;
-	}
+	}	
 
 	/*
 	* Gets the current config expiry in GMT (or 'infinite')
 	* @return string
 	*/
 	public function getOldExpiryGMT() {
-		if ( $this->page === false ) {
-			$this->handleParams(); // handleParams() not called first
+		if ( !$this->inputLock ) {
+			throw new MWException( "FlaggedRevsConfigForm input fields not set yet.\n");
 		}
 		return $this->oldExpiry;
 	}
@@ -176,34 +209,32 @@ abstract class FlaggedRevsConfigForm
 	/*
 	* Can the user change the settings for this page?
 	* Note: if the current autoreview restriction is too high for this user
-	*		then this will return false. Use for form selectors.
+	*		then this will return false. Useful for form selectors.
 	* @return bool
 	*/
 	public function isAllowed() {
-		if ( $this->page === false ) {
-			$this->handleParams(); // handleParams() not called first
-		}
-		if ( $this->isAllowed === null ) {
-			# Users who cannot edit or review the page cannot set this
-			$this->isAllowed = ( $this->page
-				&& $this->page->userCan( 'stablesettings' )
-				&& $this->page->userCan( 'edit' )
-				&& $this->page->userCan( 'review' )
-			);
-		}
-		return $this->isAllowed;
+		# Users who cannot edit or review the page cannot set this
+		return ( $this->page
+			&& $this->page->userCan( 'stablesettings' )
+			&& $this->page->userCan( 'edit' )
+			&& $this->page->userCan( 'review' )
+		);
 	}
 
 	/**
-	* Verify and clean up parameters and preload data from DB.
-	* Note: some items may not all be set on failure.
+	* Submit the form parameters for the page config to the DB.
+	* Note: caller is responsible for permission checks.
+	* 
 	* @return mixed (true on success, error string on failure)
 	*/
 	public function submit() {
 		global $wgUser;
-		if ( $this->submitLock ) {
-			throw new MWException( "FlaggedRevsConfigForm::submit() called either " .
-				"without calling handleParams() or called in spite of its failure.\n" );
+		if ( !$this->inputLock ) {
+			throw new MWException( "FlaggedRevsConfigForm input fields not set yet.\n");
+		}
+		$status = $this->checkSettings();
+		if ( $status !== true ) {
+			return $status; // cannot submit - broken params
 		}
 		# Are we are going back to site defaults?
 		$reset = $this->newConfigIsReset();
@@ -408,7 +439,17 @@ class PageStabilityForm extends FlaggedRevsConfigForm {
 		$this->trySet( $this->override, $value );
 	}
 
-	public function handlePostedParams() {
+	protected function reallyPreloadSettings() {
+		$this->select = $this->oldConfig['select'];
+		$this->override = $this->oldConfig['override'];
+		$this->autoreview = $this->oldConfig['autoreview'];
+		$this->expiry = $this->oldExpiry;
+		$this->expirySelection = 'existing';
+		$this->watchThis = $this->page->userIsWatching();
+		return true;
+	}
+
+	protected function reallyCheckSettings() {
 		$this->loadReason();
 		$this->loadExpiry();
 		$this->override = $this->override ? 1 : 0; // default version settings is 0 or 1
@@ -433,19 +474,10 @@ class PageStabilityForm extends FlaggedRevsConfigForm {
 
 	// Return current config array
 	public function getOldConfig() {
-		if ( $this->page === false ) {
-			$this->handleParams(); // handleParams() not called first
+		if ( !$this->inputLock ) {
+			throw new MWException( "FlaggedRevsConfigForm input fields not set yet.\n");
 		}
 		return $this->oldConfig;
-	}
-
-	protected function preloadSettings() {
-		# Get visiblity settings...
-		$this->select = $this->oldConfig['select'];
-		$this->override = $this->oldConfig['override'];
-		# Get autoreview restrictions...
-		$this->autoreview = $this->oldConfig['autoreview'];
-		return true;
 	}
 
 	// returns whether row changed
@@ -511,7 +543,15 @@ class PageStabilityForm extends FlaggedRevsConfigForm {
 
 // Assumes $wgFlaggedRevsProtection is on
 class PageStabilityProtectForm extends FlaggedRevsConfigForm {
-	public function handlePostedParams() {
+	protected function reallyPreloadSettings() {
+		$this->autoreview = $this->oldConfig['autoreview']; // protect level
+		$this->expiry = $this->oldExpiry;
+		$this->expirySelection = 'existing';
+		$this->watchThis = $this->page->userIsWatching();
+		return true;
+	}
+
+	protected function reallyCheckSettings() {
 		$this->loadReason();
 		$this->loadExpiry();
 		# Autoreview only when protecting currently unprotected pages
@@ -543,11 +583,6 @@ class PageStabilityProtectForm extends FlaggedRevsConfigForm {
 			'autoreview' => $this->autoreview,
 			'expiry'     => $this->expiry // TS_MW/infinity
 		);
-	}
-
-	protected function preloadSettings() {
-		# Get autoreview restrictions...
-		$this->autoreview = $this->oldConfig['autoreview'];
 	}
 
 	protected function updateConfigRow( $reset ) {

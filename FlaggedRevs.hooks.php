@@ -2236,15 +2236,12 @@ class FlaggedRevsHooks {
 		$form->setReasonSelection( $wgRequest->getVal( 'wpProtectReasonSelection' ) ); // dropdown
 		$form->setExpiry( $wgRequest->getVal( 'mwStabilizeExpiryOther' ) ); // manual
 		$form->setExpirySelection( $wgRequest->getVal( 'mwStabilizeExpirySelection' ) ); // dropdown
-		$form->setWasPosted( $wgRequest->wasPosted() ); // double-check
-		$status = $form->handleParams();
-		if ( $status === true ) {
+		$form->ready(); // params all set
+		if ( $wgRequest->wasPosted() && $form->isAllowed() ) {
 			$status = $form->submit();
 			if ( $status !== true ) {
 				$errorMsg = wfMsg( $status ); // some error message
 			}
-		} else {
-			$errorMsg = wfMsg( $status ); // some error message
 		}
 		return true;
 	}

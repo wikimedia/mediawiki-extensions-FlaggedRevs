@@ -38,10 +38,12 @@ class Stabilization extends UnlistedSpecialPage
 
 		$this->form = new PageStabilityForm();
 		$form = $this->form; // convenience
-		# Our target page
+		# Target page
 		$form->setTarget( $wgRequest->getVal( 'page', $par ) );
 		# Watch checkbox
 		$form->setWatchThis( (bool)$wgRequest->getCheck( 'wpWatchthis' ) );
+		# Get auto-review option...
+		$form->setReviewThis( $wgRequest->getBool( 'wpReviewthis', true ) );
 		# Reason
 		$form->setReason( $wgRequest->getText( 'wpReason' ) );
 		$form->setReasonSelection( $wgRequest->getVal( 'wpReasonSelection' ) );
@@ -53,19 +55,14 @@ class Stabilization extends UnlistedSpecialPage
 		$form->setOverride( (int)$wgRequest->getBool( 'wpStableconfig-override' ) );
 		# Get autoreview restrictions...
 		$form->setAutoreview( $wgRequest->getVal( 'mwProtect-level-autoreview' ) );
-		# Get auto-review option...
-		$form->setReviewThis( $wgRequest->getBool( 'wpReviewthis', true ) );
-		$form->setWasPosted( $wgRequest->wasPosted() );
 
-		# Fill in & validate some parameters
-		$status = $form->handleParams();
-		$title = $form->getPage(); // convenience
-
-		# We need a valid, existing, page...
+		$status = $form->ready(); // params all set
 		if ( $status === 'stabilize_page_invalid' ) {
 			$wgOut->showErrorPage( 'notargettitle', 'notargettext' );
 			return;
-		} elseif ( $status === 'stabilize_page_notexists' ) {
+		}
+		$title = $form->getPage(); // convenience
+		if ( $status === 'stabilize_page_notexists' ) {
 			$wgOut->addWikiText(
 				wfMsg( 'stabilization-notexists', $title->getPrefixedText() ) );
 			return;
@@ -74,16 +71,17 @@ class Stabilization extends UnlistedSpecialPage
 				wfMsg( 'stabilization-notcontent', $title->getPrefixedText() ) );
 			return;
 		}
-
-		# Show form or submit...
-		if ( $form->isAllowed() && $status === true && $confirmed ) {
+		# Form POST request...
+		if ( $confirmed && $form->isAllowed() ) {
 			$status = $form->submit();
 			if ( $status === true ) {
 				$wgOut->redirect( $title->getFullUrl() );
 			} else {
 				$this->showForm( wfMsg( $status ) );
 			}
+		# Form GET request...
 		} else {
+			$form->preloadSettings();
 			$this->showForm();
 		}
 	}
