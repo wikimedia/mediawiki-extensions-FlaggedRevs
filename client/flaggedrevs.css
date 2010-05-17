@@ -119,7 +119,7 @@ div.flaggedrevs_short_basic {
 div.flaggedrevs_short_details {
 	border: 1px solid #aaa;
 	background-color: #f9f9f9;
-	padding: 4px;
+	padding: 5px;
 	position: absolute;
 	top: -1px;
 	right: 0;
