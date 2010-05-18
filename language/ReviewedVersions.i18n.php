@@ -994,12 +994,13 @@ $messages['su'] = array(
 );
 
 /** Swedish (Svenska)
+ * @author Dafer45
  * @author Lejonel
  * @author M.M.S.
  * @author Najami
  */
 $messages['sv'] = array(
-	'reviewedversions' => 'Visa stabila versioner',
+	'reviewedversions' => 'Granskade versioner',
 	'reviewedversions-leg1' => 'Lista granskade versioner av en sida',
 	'reviewedversions-page' => 'Sidnamn:',
 	'reviewedversions-none' => '"[[:$1]]" har inga granskade versioner.',
@@ -1196,14 +1197,15 @@ $messages['zh-hans'] = array(
 );
 
 /** Traditional Chinese (‪中文(繁體)‬)
+ * @author Horacewai2
  * @author Liangent
  */
 $messages['zh-hant'] = array(
-	'reviewedversions' => '穩定版',
+	'reviewedversions' => '穩定版本',
 	'reviewedversions-leg1' => '列示一版已複審的修訂',
 	'reviewedversions-page' => '頁面名',
 	'reviewedversions-none' => '[[:$1]]沒有已複審過的修訂。',
-	'reviewedversions-list' => '以下是[[:$1]]已複審的修訂列表：',
+	'reviewedversions-list' => '以下是[[:$1]]的{{PLURAL:$2|此唯一|此}}版本{{PLURAL:$2|已|已}}複審的修訂列表：',
 	'reviewedversions-review' => '由$2於<i>$1</i>進行了複審',
 );
 

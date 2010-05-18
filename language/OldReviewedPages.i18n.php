@@ -1702,6 +1702,7 @@ $messages['zh-hans'] = array(
 
 /** Traditional Chinese (‪中文(繁體)‬)
  * @author Gzdavidwong
+ * @author Horacewai2
  * @author Liangent
  * @author Shinjiman
  * @author Wrightbus
@@ -1709,13 +1710,13 @@ $messages['zh-hans'] = array(
 $messages['zh-hant'] = array(
 	'oldreviewedpages' => '已過時複審過的頁面',
 	'oldreviewedpages-legend' => '列示有未複審修訂之複審過的頁面',
-	'oldreviewedpages-list' => '這個頁面列示出有正等候編輯之評論頁面。',
+	'oldreviewedpages-list' => '這個頁面列示出{{PLURAL:$1|一個|一些}}正等候編輯之評論頁面。',
 	'oldreviewedpages-none' => '這裏現時沒有頁面係合乎這些條件',
 	'oldreviewedpages-hours' => '（$1小時）',
 	'oldreviewedpages-days' => '（$1日）',
 	'oldreviewedpages-recent' => '（少於1小時）',
 	'oldreviewed-category' => '分類:',
-	'oldreviewed-watched' => '在我的監視列表上',
+	'oldreviewed-watched' => '在我的監視列表上的頁面',
 	'oldreviewed-stable' => '穩定的',
 	'oldreviewed-diff' => '複審',
 	'oldreviewed-size' => '最大變動（位元組）：',

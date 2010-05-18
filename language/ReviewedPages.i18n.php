@@ -1098,6 +1098,7 @@ $messages['su'] = array(
 
 /** Swedish (Svenska)
  * @author Boivie
+ * @author Dafer45
  * @author Lejonel
  * @author M.M.S.
  * @author McDutchie
@@ -1106,7 +1107,7 @@ $messages['su'] = array(
  */
 $messages['sv'] = array(
 	'reviewedpages' => 'Granskade sidor',
-	'reviewedpages-leg' => 'Lista sidor efter högsta granskningsnivå',
+	'reviewedpages-leg' => 'Lista sidor som har blivit granskade',
 	'reviewedpages-list' => 'Följande {{PLURAL:$1|sida|sidor}} har granskats till (högst) den angivna nivån.',
 	'reviewedpages-none' => 'Den här listan innehåller inga sidor',
 	'reviewedpages-lev-0' => '{{int:revreview-lev-basic}}',
@@ -1308,12 +1309,13 @@ $messages['zh-hans'] = array(
 );
 
 /** Traditional Chinese (‪中文(繁體)‬)
+ * @author Horacewai2
  * @author Shinjiman
  */
 $messages['zh-hant'] = array(
 	'reviewedpages' => '複審過的頁面',
 	'reviewedpages-leg' => '列示複審過到指定級數之頁面',
-	'reviewedpages-list' => '以下的頁面已經複審到一個指定的級數',
+	'reviewedpages-list' => '以下的頁面[[{{MediaWiki:Validationpage}}|已經複審]]到一個指定的級數',
 	'reviewedpages-none' => '沒有頁面在這個清單中',
 	'reviewedpages-lev-0' => '視察過',
 	'reviewedpages-lev-1' => '質素',

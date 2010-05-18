@@ -1719,12 +1719,13 @@ $messages['sr-el'] = array(
 
 /** Swedish (Svenska)
  * @author Boivie
+ * @author Dafer45
  * @author M.M.S.
  * @author Rotsee
  * @author Skalman
  */
 $messages['sv'] = array(
-	'validationstatistics' => 'Valideringsstatistik',
+	'validationstatistics' => 'Statistik över sidgranskning',
 	'validationstatistics-users' => "'''{{SITENAME}}''' har just nu '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|användare|användare}} med [[{{MediaWiki:Validationpage}}|skribenträttigheter]].
 
 Skribenter är etablerade användare som kan granska sidversioner.",

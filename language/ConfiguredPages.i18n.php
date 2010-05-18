@@ -736,11 +736,17 @@ $messages['vep'] = array(
 	'configuredpages-prec-pristine' => 'koskmatomuden tobmuz',
 );
 
-/** Vietnamese (Tiếng Việt) */
+/** Vietnamese (Tiếng Việt)
+ * @author Minh Nguyen
+ */
 $messages['vi'] = array(
+	'configuredpages-none' => 'Danh sách không có trang nào.',
+	'configuredpages-config' => 'Thiết lập',
 	'configuredpages-prec-none' => 'không có bản trước',
 	'configuredpages-prec-quality' => 'bản chất lượng trước',
 	'configuredpages-prec-pristine' => 'bản trong sạch trước',
+	'configuredpages-def-draft' => 'phiên bản mới nhất',
+	'configuredpages-def-stable' => 'phiên bản xuất bản',
 );
 
 /** Simplified Chinese (‪中文(简体)‬) */
@@ -750,10 +756,21 @@ $messages['zh-hans'] = array(
 	'configuredpages-prec-pristine' => '原始优先级',
 );
 
-/** Traditional Chinese (‪中文(繁體)‬) */
+/** Traditional Chinese (‪中文(繁體)‬)
+ * @author Horacewai2
+ */
 $messages['zh-hant'] = array(
+	'configuredpages' => '頁面已有複審設定',
+	'configuredpages-text' => '下面是已有和站點預設設定不同的審核設定。
+
+部份設定的更改是向讀者展示的。',
+	'configuredpages-none' => '沒有頁面在這個清單中',
+	'configuredpages-config' => '設定',
+	'configuredpages-precedence' => '優先級：',
 	'configuredpages-prec-none' => '沒有優先級',
 	'configuredpages-prec-quality' => '質量優先級',
 	'configuredpages-prec-pristine' => '原始優先級',
+	'configuredpages-def-draft' => '最新版本',
+	'configuredpages-def-stable' => '已出版的內容',
 );
 
