@@ -9,7 +9,7 @@ if ( !defined( 'MEDIAWIKI' ) ) {
  *
  * Usage: (a) set ALL form params before doing anything else
  *		  (b) call ready() when all params are set
- *		  (c) check isAllowed() before calling submit() as needed
+ *		  (c) call preloadSettings() or submit() as needed
  */
 abstract class PageStabilityForm
 {
@@ -26,8 +26,14 @@ abstract class PageStabilityForm
 
 	protected $oldConfig = array(); # Old page config
 	protected $oldExpiry = ''; # Old page config expiry (GMT)
-
 	protected $inputLock = 0; # Disallow bad submissions
+
+	protected $skin = null;
+
+	public function __construct() {
+		global $wgUser;
+		$this->skin = $wgUser->getSkin();
+	}
 
 	public function getPage() {
 		return $this->page;
@@ -210,7 +216,6 @@ abstract class PageStabilityForm
 
 	/**
 	* Submit the form parameters for the page config to the DB.
-	* Note: caller is responsible for basic permission checks.
 	* 
 	* @return mixed (true on success, error string on failure)
 	*/
@@ -222,6 +227,10 @@ abstract class PageStabilityForm
 		$status = $this->checkSettings();
 		if ( $status !== true ) {
 			return $status; // cannot submit - broken params
+		}
+		# Double-check permissions
+		if ( !$this->isAllowed() ) {
+			return 'stablize_denied';
 		}
 		# Are we are going back to site defaults?
 		$reset = $this->newConfigIsReset();
@@ -444,8 +453,11 @@ class PageStabilityGeneralForm extends PageStabilityForm {
 			return 'stabilize_invalid_precedence'; // invalid precedence value
 		}
 		// Check autoreview restriction setting
-		if ( !FlaggedRevs::userCanSetAutoreviewLevel( $this->autoreview ) ) {
+		if ( !in_array( $this->autoreview, FlaggedRevs::getRestrictionLevels() ) ) {
 			return 'stabilize_invalid_autoreview'; // invalid value
+		}
+		if ( !FlaggedRevs::userCanSetAutoreviewLevel( $this->autoreview ) ) {
+			return 'stabilize_denied'; // invalid value
 		}
 		return true;
 	}
@@ -543,10 +555,6 @@ class PageStabilityProtectForm extends PageStabilityForm {
 		$this->loadExpiry();
 		# Autoreview only when protecting currently unprotected pages
 		$this->reviewThis = ( FlaggedRevs::getProtectionLevel( $this->oldConfig ) == 'none' );
-		# Check autoreview restriction setting
-		if ( !FlaggedRevs::userCanSetAutoreviewLevel( $this->autoreview ) ) {
-			return 'stabilize_invalid_level'; // invalid value
-		}
 		# Autoreview restriction => use stable
 		# No autoreview restriction => site default
 		$this->override = ( $this->autoreview != '' )
@@ -559,6 +567,10 @@ class PageStabilityProtectForm extends PageStabilityForm {
 		);
 		if ( FlaggedRevs::getProtectionLevel( $newConfig ) == 'invalid' ) {
 			return 'stabilize_invalid_level'; // double-check configuration
+		}
+		# Check autoreview restriction setting
+		if ( !FlaggedRevs::userCanSetAutoreviewLevel( $this->autoreview ) ) {
+			return 'stabilize_denied'; // invalid value
 		}
 		return true;
 	}

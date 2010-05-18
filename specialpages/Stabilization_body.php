@@ -8,9 +8,12 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 class Stabilization extends UnlistedSpecialPage
 {
 	protected $form = null;
+	protected $skin;
 
 	public function __construct() {
+		global $wgUser;
 		parent::__construct( 'Stabilization', 'stablesettings' );
+		$this->skin = $wgUser->getSkin();
     }
 
 	public function execute( $par ) {
@@ -34,7 +37,6 @@ class Stabilization extends UnlistedSpecialPage
 		}
 		# Set page title
 		$this->setHeaders();
-		$this->sk = $wgUser->getSkin();
 		
 		$this->form = new PageStabilityGeneralForm();
 		$form = $this->form; // convenience
@@ -238,7 +240,7 @@ class Stabilization extends UnlistedSpecialPage
 						"<label for='wpReviewthis'>{$reviewLabel}</label>" .
 						'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' .
 						Xml::check( 'wpWatchthis', $watchChecked, $watchAttribs ) .
-						"<label for='wpWatchthis'" . $this->sk->tooltipAndAccesskey( 'watch' ) .
+						"<label for='wpWatchthis'" . $this->skin->tooltipAndAccesskey( 'watch' ) .
 							">{$watchLabel}</label>" .
 					'</td>
 				</tr>
