@@ -10,7 +10,7 @@ if ( !defined( 'MEDIAWIKI' ) ) {
  *		  (b) call ready() when all params are set
  *		  (c) check isAllowed() before calling submit() as needed
  */
-abstract class FlaggedRevsConfigForm
+abstract class PageStabilityForm
 {
 	/* Form parameters which can be user given */
 	protected $target = null; # Target page text
@@ -91,7 +91,7 @@ abstract class FlaggedRevsConfigForm
 	*/
 	protected function trySet( &$field, $value ) {
 		if ( $this->inputLock ) {
-			throw new MWException( "FlaggedRevsConfigForm fields cannot be set anymore.\n");
+			throw new MWException( __CLASS__ . " fields cannot be set anymore.\n");
 		} else {
 			$field = $value; // submission locked => still allowing input
 		} 
@@ -124,7 +124,7 @@ abstract class FlaggedRevsConfigForm
 	*/
 	public function preloadSettings() {
 		if ( !$this->inputLock ) {
-			throw new MWException( "FlaggedRevsConfigForm input fields not set yet.\n");
+			throw new MWException( __CLASS__ . " input fields not set yet.\n");
 		}
 		$status = $this->checkTarget();
 		if ( $status !== true ) {
@@ -190,7 +190,7 @@ abstract class FlaggedRevsConfigForm
 	*/
 	public function getPage() {
 		if ( !$this->inputLock ) {
-			throw new MWException( "FlaggedRevsConfigForm input fields not set yet.\n");
+			throw new MWException( __CLASS__ . " input fields not set yet.\n");
 		}
 		return $this->page;
 	}	
@@ -201,7 +201,7 @@ abstract class FlaggedRevsConfigForm
 	*/
 	public function getOldExpiryGMT() {
 		if ( !$this->inputLock ) {
-			throw new MWException( "FlaggedRevsConfigForm input fields not set yet.\n");
+			throw new MWException( __CLASS__ . " input fields not set yet.\n");
 		}
 		return $this->oldExpiry;
 	}
@@ -230,7 +230,7 @@ abstract class FlaggedRevsConfigForm
 	public function submit() {
 		global $wgUser;
 		if ( !$this->inputLock ) {
-			throw new MWException( "FlaggedRevsConfigForm input fields not set yet.\n");
+			throw new MWException( __CLASS__ . " input fields not set yet.\n");
 		}
 		$status = $this->checkSettings();
 		if ( $status !== true ) {
@@ -411,7 +411,7 @@ abstract class FlaggedRevsConfigForm
 }
 
 // Assumes $wgFlaggedRevsProtection is off
-class PageStabilityForm extends FlaggedRevsConfigForm {
+class PageStabilityGeneralForm extends PageStabilityForm {
 	/* Form parameters which can be user given */
 	public $select = -1; # Precedence
 
@@ -475,7 +475,7 @@ class PageStabilityForm extends FlaggedRevsConfigForm {
 	// Return current config array
 	public function getOldConfig() {
 		if ( !$this->inputLock ) {
-			throw new MWException( "FlaggedRevsConfigForm input fields not set yet.\n");
+			throw new MWException( __CLASS__ . " input fields not set yet.\n");
 		}
 		return $this->oldConfig;
 	}
@@ -542,7 +542,7 @@ class PageStabilityForm extends FlaggedRevsConfigForm {
 }
 
 // Assumes $wgFlaggedRevsProtection is on
-class PageStabilityProtectForm extends FlaggedRevsConfigForm {
+class PageStabilityProtectForm extends PageStabilityForm {
 	protected function reallyPreloadSettings() {
 		$this->autoreview = $this->oldConfig['autoreview']; // protect level
 		$this->expiry = $this->oldExpiry;

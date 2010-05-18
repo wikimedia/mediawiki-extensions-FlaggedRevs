@@ -36,7 +36,7 @@ class Stabilization extends UnlistedSpecialPage
 		$this->setHeaders();
 		$this->sk = $wgUser->getSkin();
 
-		$this->form = new PageStabilityForm();
+		$this->form = new PageStabilityGeneralForm();
 		$form = $this->form; // convenience
 		# Target page
 		$form->setTarget( $wgRequest->getVal( 'page', $par ) );

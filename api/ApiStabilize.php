@@ -49,7 +49,7 @@ class ApiStabilize extends ApiBase {
 		// TODO: factory function?
 		$form = FlaggedRevs::useProtectionLevels()
 			? new PageStabilityProtectForm()
-			: new PageStabilityForm();
+			: new PageStabilityGeneralForm();
 
 		$form->setTarget( $title ); # Our target page
 		$form->setWatchThis( $params['watch'] ); # Watch this page
