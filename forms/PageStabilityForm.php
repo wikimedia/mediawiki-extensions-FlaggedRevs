@@ -1,4 +1,5 @@
 <?php
+# (c) Aaron Schulz 2010 GPL
 if ( !defined( 'MEDIAWIKI' ) ) {
 	echo "FlaggedRevs extension\n";
 	exit( 1 );
@@ -209,7 +210,7 @@ abstract class PageStabilityForm
 
 	/**
 	* Submit the form parameters for the page config to the DB.
-	* Note: caller is responsible for permission checks.
+	* Note: caller is responsible for basic permission checks.
 	* 
 	* @return mixed (true on success, error string on failure)
 	*/

@@ -128,10 +128,8 @@ class RevisionReview extends UnlistedSpecialPage
 				}
 			}
 		}
-		$fa = FlaggedArticle::getTitleInstance( $this->page );
-		$this->config = $fa->getVisibilitySettings();
 		# Check permissions and validate
-		if ( !FlaggedRevs::userCanSetFlags( $this->dims, $this->oflags, $this->config ) ) {
+		if ( !FlaggedRevs::userCanSetFlags( $this->dims, $this->oflags ) ) {
 			$wgOut->permissionRequired( 'badaccess-group0' );
 			return;
 		}
@@ -288,12 +286,10 @@ class RevisionReview extends UnlistedSpecialPage
 		if ( $form->validatedParams !== $k ) {
 			return '<err#>' . wfMsgExt( 'revreview-failed', 'parseinline' );
 		}
-		$fa = FlaggedArticle::getTitleInstance( $form->page );
-		$form->config = $fa->getVisibilitySettings();
 		# Get the revision's current flags, if any
 		$form->oflags = FlaggedRevs::getRevisionTags( $form->page, $form->oldid );
 		# Check tag permissions
-		if ( !FlaggedRevs::userCanSetFlags( $form->dims, $form->oflags, $form->config ) ) {
+		if ( !FlaggedRevs::userCanSetFlags( $form->dims, $form->oflags ) ) {
 			return '<err#>' . wfMsgExt( 'revreview-failed', 'parseinline' );
 		}
 		list( $approved, $status ) = $form->submit();
@@ -334,7 +330,7 @@ class RevisionReview extends UnlistedSpecialPage
 		}
 		# Double-check permissions
 		if ( !$this->page->quickUserCan( 'edit' )
-			|| !FlaggedRevs::userCanSetFlags( $this->dims, $this->oflags, $this->config ) )
+			|| !FlaggedRevs::userCanSetFlags( $this->dims, $this->oflags ) )
 		{
 			return array( $approved, false );
 		}

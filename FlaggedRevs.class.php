@@ -399,10 +399,9 @@ class FlaggedRevs {
 	 * Returns true if a user can set $tag to $value.
 	 * @param string $tag
 	 * @param int $value
-	 * @param array $config (optional page config)
 	 * @returns bool
 	 */
-	public static function userCanSetTag( $tag, $value, $config = null ) {
+	public static function userCanSetTag( $tag, $value ) {
 		global $wgUser;
 		# Sanity check tag and value
 		$levels = self::getTagLevels( $tag );
@@ -435,10 +434,9 @@ class FlaggedRevs {
 	 * to the given levels for each tag.
 	 * @param array $flags, suggested flags
 	 * @param array $oldflags, pre-existing flags
-	 * @param array $config, visibility settings
 	 * @returns bool
 	 */
-	public static function userCanSetFlags( $flags, $oldflags = array(), $config = null ) {
+	public static function userCanSetFlags( $flags, $oldflags = array() ) {
 		global $wgUser;
 		if ( !$wgUser->isAllowed( 'review' ) )
 			return false; // User is not able to review pages
@@ -447,12 +445,12 @@ class FlaggedRevs {
 		foreach ( self::getDimensions() as $qal => $levels ) {
 			$level = isset( $flags[$qal] ) ? $flags[$qal] : 0;
 			$highest = count( $levels ) - 1; // highest valid level
-			if ( !self::userCanSetTag( $qal, $level, $config ) ) {
+			if ( !self::userCanSetTag( $qal, $level ) ) {
 				return false; // user cannot set proposed flag
 			} elseif ( isset( $oldflags[$qal] )
 				&& !self::userCanSetTag( $qal, $oldflags[$qal] ) )
 			{
-				return false; // user cannot change old flag ($config is ignored here)
+				return false; // user cannot change old flag
 			}
 		}
 		return true;

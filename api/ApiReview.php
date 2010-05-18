@@ -75,11 +75,9 @@ class ApiReview extends ApiBase {
 
 		// Check if user is even allowed to set the flags
 		$form->oflags = FlaggedRevs::getRevisionTags( $title, $form->oldid );
-		$fa = FlaggedArticle::getTitleInstance( $form->page );
-		$form->config = $fa->getVisibilitySettings();
 
 		if ( !$title->quickUserCan( 'edit' )
-			|| !FlaggedRevs::userCanSetFlags( $form->dims, $form->oflags, $form->config ) )
+			|| !FlaggedRevs::userCanSetFlags( $form->dims, $form->oflags ) )
 		{
 			$this->dieUsage( "You don't have the necessary rights to set the specified flags.", 'permissiondenied' );
 		}

@@ -378,16 +378,15 @@ class FlaggedRevsXML {
 
 	/**
 	 * @param array $flags, selected flags
-	 * @param array $config, page config
 	 * @param bool $disabled, form disabled
 	 * @param bool $reviewed, rev already reviewed
 	 * @returns string
 	 * Generates a main tag inputs (checkboxes/radios/selects) for review form
 	 */
-	public static function ratingInputs( $flags, $config, $disabled, $reviewed ) {
+	public static function ratingInputs( $flags, $disabled, $reviewed ) {
 		$form = '';
 		# Get all available tags for this page/user
-		list( $labels, $minLevels ) = self::ratingFormTags( $flags, $config );
+		list( $labels, $minLevels ) = self::ratingFormTags( $flags );
 		if ( $labels === false ) {
 			$disabled = true; // a tag is unsettable
 		}
@@ -462,13 +461,13 @@ class FlaggedRevsXML {
 		return $form;
 	}
 	
-	protected static function ratingFormTags( $selected, $config ) {
+	protected static function ratingFormTags( $selected ) {
 		$labels = array();
 		$minLevels = array();
 		# Build up all levels available to user
 		foreach ( FlaggedRevs::getDimensions() as $tag => $levels ) {
 			if ( isset( $selected[$tag] ) &&
-				!FlaggedRevs::userCanSetTag( $tag, $selected[$tag], $config ) )
+				!FlaggedRevs::userCanSetTag( $tag, $selected[$tag] ) )
 			{
 				return array( false, false ); // form will have to be disabled
 			}
@@ -476,7 +475,7 @@ class FlaggedRevsXML {
 			$minLevels[$tag] = false; // first non-zero level number
 			foreach ( $levels as $i => $msg ) {
 				# Some levels may be restricted or not applicable...
-				if ( !FlaggedRevs::userCanSetTag( $tag, $i, $config ) ) {
+				if ( !FlaggedRevs::userCanSetTag( $tag, $i ) ) {
 					continue; // skip this level
 				} else if ( $i > 0 && !$minLevels[$tag] ) {
 					$minLevels[$tag] = $i; // first non-zero level number
@@ -634,7 +633,6 @@ class FlaggedRevsXML {
 		# Do we need to get inclusion IDs from parser output?
 		$getPOut = ( $templateIDs && $imageSHA1Keys );
 
-		$config = $article->getVisibilitySettings();
 		# Variable for sites with no flags, otherwise discarded
 		$approve = $wgRequest->getBool( 'wpApprove' );
 		# See if the version being displayed is flagged...
@@ -697,7 +695,7 @@ class FlaggedRevsXML {
 
 		# Add main checkboxes/selects
 		$form .= Xml::openElement( 'span', array( 'id' => 'mw-fr-ratingselects' ) );
-		$form .= FlaggedRevsXML::ratingInputs( $flags, $config, $disabled, (bool)$frev );
+		$form .= FlaggedRevsXML::ratingInputs( $flags, $disabled, (bool)$frev );
 		$form .= Xml::closeElement( 'span' );
 		# Add review notes input
 		if ( FlaggedRevs::allowComments() && $wgUser->isAllowed( 'validate' ) ) {
