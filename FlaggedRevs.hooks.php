@@ -2225,7 +2225,7 @@ class FlaggedRevsHooks {
 			return true; // user cannot change anything
 		}
 		$form = new PageStabilityProtectForm();
-		$form->setTarget( $article->getTitle() ); // target page
+		$form->setPage( $article->getTitle() ); // target page
 		$permission = $wgRequest->getVal( 'mwStabilityLevel' );
 		if ( $permission == "none" ) {
 			$permission = ''; // 'none' => ''

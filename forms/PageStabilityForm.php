@@ -13,7 +13,7 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 abstract class PageStabilityForm
 {
 	/* Form parameters which can be user given */
-	protected $target = null; # Target page text
+	protected $page = false; # Target page obj
 	protected $watchThis = null; # Watch checkbox
 	protected $reviewThis = null; # Auto-review option...
 	protected $reason = ''; # Custom/extra reason
@@ -23,19 +23,17 @@ abstract class PageStabilityForm
 	protected $override = -1; # Default version
 	protected $autoreview = ''; # Autoreview restrictions...
 
-	protected $page = false; # Target page obj (of $target)
 	protected $oldConfig = array(); # Old page config
 	protected $oldExpiry = ''; # Old page config expiry (GMT)
 
 	protected $inputLock = 0; # Disallow bad submissions
 
-	public function getTarget() {
-		return $this->target;
+	public function getPage() {
+		return $this->page;
 	}
 
-	public function setTarget( $value ) {
-		$this->trySet( $this->target, $value );
-		$this->page = Title::newFromURL( $this->target );
+	public function setPage( Title $value ) {
+		$this->trySet( $this->page, $value );
 	}
 
 	public function getWatchThis() {
@@ -165,7 +163,6 @@ abstract class PageStabilityForm
 	* @return mixed (true on success, error string on failure)
 	*/
 	protected function checkTarget() {
-		$this->page = Title::newFromURL( $this->target );
 		if ( is_null( $this->page ) ) {
 			return 'stabilize_page_invalid';
 		} elseif ( !$this->page->exists() ) {
@@ -183,17 +180,6 @@ abstract class PageStabilityForm
 			? 'infinite'
 			: wfTimestamp( TS_RFC2822, $this->oldConfig['expiry'] );
 	}
-
-	/*
-	* Gets the target page Obj
-	* @return mixed (Title or null)
-	*/
-	public function getPage() {
-		if ( !$this->inputLock ) {
-			throw new MWException( __CLASS__ . " input fields not set yet.\n");
-		}
-		return $this->page;
-	}	
 
 	/*
 	* Gets the current config expiry in GMT (or 'infinite')

@@ -51,7 +51,7 @@ class ApiStabilize extends ApiBase {
 			? new PageStabilityProtectForm()
 			: new PageStabilityGeneralForm();
 
-		$form->setTarget( $title ); # Our target page
+		$form->setPage( $title ); # Our target page
 		$form->setWatchThis( $params['watch'] ); # Watch this page
 		$form->setReason( $params['reason'] ); # Reason
 		$form->setReasonSelection( 'other' ); # Reason dropdown
@@ -75,7 +75,6 @@ class ApiStabilize extends ApiBase {
 			$restriction = ''; // 'none' => ''
 		}
 		$form->setAutoreview( $restriction ); # Autoreview restriction
-		$form->setWasPosted( true ); // already validated
 		$form->ready();
 		
 		$status = $form->submit(); // true/error message key

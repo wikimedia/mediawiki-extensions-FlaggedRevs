@@ -35,11 +35,16 @@ class Stabilization extends UnlistedSpecialPage
 		# Set page title
 		$this->setHeaders();
 		$this->sk = $wgUser->getSkin();
-
+		
 		$this->form = new PageStabilityGeneralForm();
 		$form = $this->form; // convenience
 		# Target page
-		$form->setTarget( $wgRequest->getVal( 'page', $par ) );
+		$title = Title::newFromURL( $wgRequest->getVal( 'page', $par ) );
+		if ( !$title ) {
+			$wgOut->showErrorPage( 'notargettitle', 'notargettext' );
+			return;
+		}
+		$form->setPage( $title );
 		# Watch checkbox
 		$form->setWatchThis( (bool)$wgRequest->getCheck( 'wpWatchthis' ) );
 		# Get auto-review option...
@@ -57,11 +62,6 @@ class Stabilization extends UnlistedSpecialPage
 		$form->setAutoreview( $wgRequest->getVal( 'mwProtect-level-autoreview' ) );
 
 		$status = $form->ready(); // params all set
-		if ( $status === 'stabilize_page_invalid' ) {
-			$wgOut->showErrorPage( 'notargettitle', 'notargettext' );
-			return;
-		}
-		$title = $form->getPage(); // convenience
 		if ( $status === 'stabilize_page_notexists' ) {
 			$wgOut->addWikiText(
 				wfMsg( 'stabilization-notexists', $title->getPrefixedText() ) );
