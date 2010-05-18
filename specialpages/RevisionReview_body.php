@@ -9,7 +9,6 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 class RevisionReview extends UnlistedSpecialPage
 {
 	// Initialize vars in case of broken AJAX input
-	var $patrolonly = false;
 	var $page = null;
 	var $rcid = 0;
 	var $approve = false;
