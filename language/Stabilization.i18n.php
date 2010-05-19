@@ -51,6 +51,7 @@ No configuration is possible.',
 	'stabilize_expiry_invalid'     => 'Invalid expiration date.',
 	'stabilize_expiry_old'         => 'This expiration time has already passed.',
     'stabilize_denied'             => 'Permission denied.',
+    'stabilize_protect_quota'      => 'The maximum number of currently flag-protected pages has already been reached.', # do not translate
 	'stabilize-expiring'           => 'expires $1 (UTC)',
 	'stabilization-review'         => 'Mark the current revision checked',
 );
