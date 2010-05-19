@@ -310,7 +310,10 @@ abstract class PageStabilityForm
 			$settings = ''; // no level, expiry info
 		} else {
 			$params = $this->getLogParams();
-			$log->addEntry( 'config', $this->page, $this->reason,
+			$action = ( $this->oldConfig === FlaggedRevs::getDefaultVisibilitySettings() )
+				? 'config' // set a custom configuration
+				: 'modify'; // modified an existing custom configuration
+			$log->addEntry( $action, $this->page, $this->reason,
 				FlaggedRevsLogs::collapseParams( $params ) );
 			$type = "stable-logentry-config";
 			// Settings message in text form (e.g. [x=a,y=b,z])

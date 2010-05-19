@@ -589,8 +589,9 @@ $wgLogActions['review/unapprove2'] = 'review-logentry-dis'; // was quality
 $wgLogTypes[] = 'stable';
 $wgLogNames['stable'] = 'stable-logpage';
 $wgLogHeaders['stable'] = 'stable-logpagetext';
-$wgLogActions['stable/config'] = 'stable-logentry-config';
-$wgLogActions['stable/reset'] = 'stable-logentry-reset';
+$wgLogActionsHandlers['stable/config'] = 'FlaggedRevsLogs::stabilityLogText'; // customize
+$wgLogActionsHandlers['stable/modify'] = 'FlaggedRevsLogs::stabilityLogText'; // re-customize
+$wgLogActionsHandlers['stable/reset'] = 'FlaggedRevsLogs::stabilityLogText'; // reset
 
 # AJAX functions
 $wgAjaxExportList[] = 'RevisionReview::AjaxReview';

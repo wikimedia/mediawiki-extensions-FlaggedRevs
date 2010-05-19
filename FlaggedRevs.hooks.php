@@ -1610,15 +1610,16 @@ class FlaggedRevsHooks {
 	}
 
 	public static function logLineLinks(
-		$type, $action, $title = null, $params, &$comment, &$rv, $ts
+		$type, $action, $title, $params, &$comment, &$rv, $ts
 	) {
 		if ( !$title ) {
-			return true; // nothing to do
+			return true; // sanity check
+		}
 		// Stability log
-		} else if ( $type == 'stable' ) {
+		if ( $type == 'stable' && FlaggedRevsLogs::isStabilityAction( $action ) ) {
 			$rv .= FlaggedRevsLogs::stabilityLogLinks( $title, $ts, $params );
 		// Review log
-		} else if ( $type == 'review' && FlaggedRevsLogs::isReviewAction( $action ) ) {
+		} elseif ( $type == 'review' && FlaggedRevsLogs::isReviewAction( $action ) ) {
 			$rv .= FlaggedRevsLogs::reviewLogLinks( $action, $title, $params );
 		}
 		return true;

@@ -3,10 +3,18 @@
 class FlaggedRevsLogs {
 	/**
 	* $action is a valid review log action
-	* @returns bool $action is a valid review log action
+	* @returns bool
 	*/
 	public static function isReviewAction( $action ) {
 		return preg_match( '/^(approve2?(-i|-a|-ia)?|unapprove2?)$/', $action );
+	}
+
+	/**
+	* $action is a valid stability log action
+	* @returns bool
+	*/
+	public static function isStabilityAction( $action ) {
+		return preg_match( '/^(config|modify|reset)$/', $action );
 	}
 
 	/**
@@ -17,9 +25,33 @@ class FlaggedRevsLogs {
 		return ( $action == 'unapprove' || $action == 'unapprove2' );
 	}
 
+	/**	
+	* Add setting change description to log line
+	* @returns string
+	*/
+	public static function stabilityLogText(
+		$type, $action, $title = null, $skin = null, $params = array()
+	) {
+		if ( !$title ) {
+			return ''; // sanity check
+		}
+		$text = '';
+		if ( $skin ) {
+			$titleLink = $skin->link( $title, $title->getPrefixedText() );
+			$text = wfMsgHtml( "stable-logentry-{$action}", $titleLink );
+		} else { // for content (e.g. IRC...)
+			$text = wfMsgExt( "stable-logentry-{$action}",
+				array( 'parsemag', 'escape', 'replaceafter', 'content' ),
+				$title->getPrefixedText() );
+		}
+		$pars = self::expandParams( $params ); // list -> assoc array
+		$details = self::stabilitySettings( $pars, !$skin ); // list of setting values
+		$text .= " $details";
+		return $text;
+	}
+
 	/**
-	* (a) Add setting change description
-	* (b) Add history page link
+	* Add history page link to log line
 	*
 	* @param Title $title
 	* @param string $timestamp
@@ -28,8 +60,6 @@ class FlaggedRevsLogs {
 	*/
 	public static function stabilityLogLinks( $title, $timestamp, $params ) {
 		global $wgUser;
-		$pars = self::expandParams( $params ); // list -> assoc array
-		$settings = self::stabilitySettings( $pars, false ); // list of setting values
 		# Add history link showing edits right before the config change
 		$hist = $wgUser->getSkin()->link(
 			$title,
@@ -38,7 +68,7 @@ class FlaggedRevsLogs {
 			array( 'action' => 'history', 'offset' => $timestamp )
 		);
 		$hist = wfMsgHtml( 'parentheses', $hist );
-		return "$settings $hist";
+		return $hist;
 	}
 
 	/**
