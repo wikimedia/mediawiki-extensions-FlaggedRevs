@@ -379,6 +379,7 @@ $wgSpecialPageGroups['QualityOversight'] = 'quality';
 $wgAutoloadClasses['ValidationStatistics'] = $dir . 'specialpages/ValidationStatistics_body.php';
 $wgExtensionMessagesFiles['ValidationStatistics'] = $langDir . 'ValidationStatistics.i18n.php';
 $wgSpecialPageGroups['ValidationStatistics'] = 'quality';
+
 # API Modules
 $wgAutoloadClasses['FlaggedRevsApiHooks'] = $dir . 'api/FlaggedRevsApi.hooks.php';
 # OldReviewedPages for API
@@ -386,10 +387,8 @@ $wgAutoloadClasses['ApiQueryOldreviewedpages'] = $dir . 'api/ApiQueryOldreviewed
 $wgAPIListModules['oldreviewedpages'] = 'ApiQueryOldreviewedpages';
 # UnreviewedPages for API
 $wgAutoloadClasses['ApiQueryUnreviewedpages'] = $dir . 'api/ApiQueryUnreviewedpages.php';
-$wgAPIListModules['unreviewedpages'] = 'ApiQueryUnreviewedpages';
 # ReviewedPages for API
 $wgAutoloadClasses['ApiQueryReviewedpages'] = $dir . 'api/ApiQueryReviewedpages.php';
-$wgAPIListModules['reviewedpages'] = 'ApiQueryReviewedpages';
 # Flag metadata for pages for API
 $wgAutoloadClasses['ApiQueryFlagged'] = $dir . 'api/ApiQueryFlagged.php';
 $wgAPIPropModules['flagged'] = 'ApiQueryFlagged';
@@ -561,6 +560,12 @@ function efLoadFlaggedRevs() {
 	# Don't show autoreview group everywhere
 	global $wgImplicitGroups;
 	$wgImplicitGroups[] = 'autoreview';
+	# Conditional API modules
+	global $wgAPIListModules;
+	if ( !FlaggedRevs::stableOnlyIfConfigured() ) {
+		$wgAPIListModules['reviewedpages'] = 'ApiQueryReviewedpages';
+		$wgAPIListModules['unreviewedpages'] = 'ApiQueryUnreviewedpages';
+	}
 }
 
 # Add review log
