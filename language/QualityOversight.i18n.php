@@ -114,11 +114,12 @@ $messages['cs'] = array(
 );
 
 /** German (Deutsch)
+ * @author Kghbln
  * @author Raimond Spekking
  * @author Umherirrender
  */
 $messages['de'] = array(
-	'qualityoversight' => 'Übersicht über markierte Versionen',
+	'qualityoversight' => 'Erweitertes Versionsmarkierungs-Logbuch',
 	'qualityoversight-list' => 'Diese Seite zeigt die aktuellen Freigaben sowie den Widerruf markierter Versionen.',
 	'qualityoversight-legend' => 'Suche in Versionsmarkierungen',
 );
@@ -468,8 +469,8 @@ $messages['pt-br'] = array(
  * @author Mihai
  */
 $messages['ro'] = array(
-	'qualityoversight-list' => 'Această pagină afişează cele mai recente aprobări şi deprecieri ale reviziilor.',
-	'qualityoversight-legend' => 'Căutaţi jurnalele recente ale revizuirilor',
+	'qualityoversight-list' => 'Această pagină afișează cele mai recente aprobări și deprecieri ale reviziilor.',
+	'qualityoversight-legend' => 'Căutați jurnalele recente ale revizuirilor',
 );
 
 /** Tarandíne (Tarandíne)

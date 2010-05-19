@@ -437,6 +437,7 @@ $messages['be-tarask'] = array(
 	'stabilize_invalid_level' => 'Няслушны ўзровень абароны.',
 	'stabilize_expiry_invalid' => 'Няслушны тэрмін.',
 	'stabilize_expiry_old' => 'Час сканчэньня ўжо прайшоў.',
+	'stabilize_denied' => 'Доступ забаронены.',
 	'stabilize-expiring' => 'канчаецца $1 (UTC)',
 	'stabilization-review' => 'Пазначыць цяперашнюю вэрсію як правераную',
 );
@@ -665,6 +666,7 @@ $messages['da'] = array(
 /** German (Deutsch)
  * @author Als-Holder
  * @author Giftpflanze
+ * @author Kghbln
  * @author Metalhead64
  * @author Purodha
  * @author Steef389
@@ -673,21 +675,21 @@ $messages['da'] = array(
 $messages['de'] = array(
 	'stabilization-tab' => 'Konfig.',
 	'stabilization' => 'Seitenkonfiguration',
-	'stabilization-text' => "'''Ändere die Einstellungen um festzulegen, wie die markierte Version von „[[:$1|$1]]“ ausgewählt und angezeigt werden soll.'''
+	'stabilization-text' => "'''Ändere die folgenden Einstellungen, um festzulegen, wie die zu veröffentlichende Version von „[[:$1|$1]]“ ausgewählt und angezeigt werden soll.'''
 
-Bei einer Änderung der Konfiguration der standardmäßig angezeigten Version auf „geprüft“ oder „ursprünglich“, sollte darauf geachtet werden, dass die Seite eine solche Version enthält, andernfalls hat die Änderung keine große Auswirkung.",
+'''Hinweis:''' Die Änderung der Konfiguration hinsichtlich der standardmäßig anzuzeigenden Version, auf „geprüft“ oder „neueste markierte“, hat keinerlei Auswirkungen, sofern derartige Versionen nicht vorhanden sind. Bedenke, dass in diesem Zusammenhang eine „markierte“ Version als „geprüfte“ Version angesehen wird.",
 	'stabilization-perm' => 'Du hast nicht die erforderliche Berechtigung, um die Einstellungen der markierten Version zu ändern.
 Die aktuellen Einstellungen für „[[:$1|$1]]“ sind:',
 	'stabilization-page' => 'Seitenname:',
-	'stabilization-leg' => 'Einstellungen der markierten Version für eine Seite',
+	'stabilization-leg' => 'Bestätige die Einstellungen bezüglich der zu veröffentlichenden Version',
 	'stabilization-select' => 'Vorzugsweise letzte stabile Version auswählen',
 	'stabilization-select1' => 'Die letzte geprüfte Version; wenn keine vorhanden ist, dann die letzte gesichtete Version',
 	'stabilization-select2' => 'letzte markierte Version',
 	'stabilization-select3' => 'Die letzte ursprüngliche Version; wenn keine vorhanden ist, dann die letzte gesichtete oder geprüfte Version',
 	'stabilization-def' => 'Angezeigte Version in der normalen Seitenansicht',
-	'stabilization-def1' => 'Die markierte Version; wenn keine vorhanden ist, dann die aktuelle Version/der Entwurf',
+	'stabilization-def1' => 'Die veröffentlichte Version. Sofern keine vorhanden ist, die aktuelle Version/der aktuelle Entwurf',
 	'stabilization-def2' => 'Die aktuelle Version/der Entwurf',
-	'stabilization-restrict' => 'Einschränkung der automatischen Markierung',
+	'stabilization-restrict' => 'Einschränkungen bezüglich des Markierens/des automatischen Markierens',
 	'stabilization-restrict-none' => 'Keine zusätzlichen Einschränkungen',
 	'stabilization-submit' => 'Bestätigen',
 	'stabilization-notexists' => 'Es gibt keine Seite „[[:$1|$1]]“. Keine Einstellungen möglich.',
@@ -703,8 +705,15 @@ Die aktuellen Einstellungen für „[[:$1|$1]]“ sind:',
 	'stabilization-def-short' => 'Standard',
 	'stabilization-def-short-0' => 'Aktuell',
 	'stabilization-def-short-1' => 'stabile Version',
+	'stabilize_page_invalid' => 'Der gewählte Seitentitel ist ungültig.',
+	'stabilize_page_notexists' => 'Die gewählte Seite existiert nicht.',
+	'stabilize_page_unreviewable' => 'Die gewählte Seite befindet sich nicht in einem Namensraum, in dem Markierungen gesetzt werden können.',
+	'stabilize_invalid_precedence' => 'Ungültige Versionspriorität.',
+	'stabilize_invalid_autoreview' => 'Ungültige Einschränkung bezüglich automatischer Markierungen.',
+	'stabilize_invalid_level' => 'Ungültige Seitenschutzart',
 	'stabilize_expiry_invalid' => 'Ungültiges Ablaufdatum.',
 	'stabilize_expiry_old' => 'Das Ablaufdatum wurde überschritten.',
+	'stabilize_denied' => 'Zugriff verweigert.',
 	'stabilize-expiring' => 'erlischt am $2, $3 Uhr (UTC)',
 	'stabilization-review' => 'Markiere die aktuelle Version',
 );
@@ -1267,6 +1276,7 @@ Velaquí está a configuración actual de "[[:$1|$1]]":',
 	'stabilize_invalid_level' => 'Nivel de protección incorrecto.',
 	'stabilize_expiry_invalid' => 'Data de caducidade non válida.',
 	'stabilize_expiry_old' => 'O tempo de caducidade xa pasou.',
+	'stabilize_denied' => 'Permisos rexeitados.',
 	'stabilize-expiring' => 'caduca o $2 ás $3 (UTC)',
 	'stabilization-review' => 'Marcar a revisión actual como comprobada',
 );
@@ -1520,6 +1530,7 @@ Aktualne nastajenja za „[[:$1|$1]]“ su:',
 	'stabilize_invalid_level' => 'Njepłaćiwy škitny schodźenk.',
 	'stabilize_expiry_invalid' => 'Njepłaćiwy datum spadnjenja.',
 	'stabilize_expiry_old' => 'Tutón čas spadnjenja je hižo zańdźeny.',
+	'stabilize_denied' => 'Prawo zapowědźene.',
 	'stabilize-expiring' => 'spadnje $1 hodź. (UTC)',
 	'stabilization-review' => 'Aktualnu wersiju jako skontrolowanu markěrować',
 );
@@ -1783,9 +1794,13 @@ $messages['ja'] = array(
 	'stabilization-def-short-1' => '公開済み',
 	'stabilize_page_invalid' => '指定したページ名が無効です。',
 	'stabilize_page_notexists' => '指定したページ名が存在しません。',
+	'stabilize_page_unreviewable' => '指定したページは査読可能な名前空間にありません。',
+	'stabilize_invalid_precedence' => '無効なバージョン優先度。',
+	'stabilize_invalid_autoreview' => '無効な自動査読の制限。',
 	'stabilize_invalid_level' => '不正な保護レベル。',
 	'stabilize_expiry_invalid' => '有効期限に不正な日時が設定されました。',
 	'stabilize_expiry_old' => '有効期限に指定された日時を過ぎています。',
+	'stabilize_denied' => '許可されていません。',
 	'stabilize-expiring' => '有効期限: $1 (UTC)',
 	'stabilization-review' => '現在の版を査読済みとする',
 );
@@ -2786,16 +2801,16 @@ Não é possível configurá-la.',
  */
 $messages['ro'] = array(
 	'stabilization-tab' => 'config.',
-	'stabilization-perm' => 'Contul tău nu are permisiunea de a schimba versiunea stabilă a configuraţiei.
-Iată configuraţia curentă pentru [[:$1|$1]]:',
+	'stabilization-perm' => 'Contul tău nu are permisiunea de a schimba versiunea stabilă a configurației.
+Iată configurația curentă pentru [[:$1|$1]]:',
 	'stabilization-page' => 'Numele paginii:',
-	'stabilization-leg' => 'Confirmaţi setările versiunii stabile',
-	'stabilization-select' => 'Precedenta selecţie a versiunii stabile',
-	'stabilization-def' => 'Revizie afişată pe vizualizarea paginii implicite',
+	'stabilization-leg' => 'Confirmați setările versiunii stabile',
+	'stabilization-select' => 'Precedenta selecție a versiunii stabile',
+	'stabilization-def' => 'Revizie afișată pe vizualizarea paginii implicite',
 	'stabilization-def1' => 'Revizia stabilă; dacă nu există, atunci cea curentă',
 	'stabilization-def2' => 'Revizia curentă',
-	'stabilization-restrict' => 'Restricţii pentru revizualizarea automată',
-	'stabilization-restrict-none' => 'Nicio restricţie suplimentară',
+	'stabilization-restrict' => 'Restricții pentru revizualizarea automată',
+	'stabilization-restrict-none' => 'Nicio restricție suplimentară',
 	'stabilization-submit' => 'Confirmă',
 	'stabilization-comment' => 'Motiv:',
 	'stabilization-otherreason' => 'Alt motiv',
@@ -2811,7 +2826,7 @@ Iată configuraţia curentă pentru [[:$1|$1]]:',
 	'stabilize_expiry_invalid' => 'Data expirării incorectă.',
 	'stabilize_expiry_old' => 'Această dată de expirare a trecut deja.',
 	'stabilize-expiring' => 'expiră $1 (UTC)',
-	'stabilization-review' => 'Revizuieşte versiunea curentă',
+	'stabilization-review' => 'Revizuiește versiunea curentă',
 );
 
 /** Tarandíne (Tarandíne)
@@ -2907,6 +2922,7 @@ $messages['ru'] = array(
 	'stabilize_invalid_level' => 'Ошибочный уровень защиты.',
 	'stabilize_expiry_invalid' => 'Ошибочная дата истечения.',
 	'stabilize_expiry_old' => 'Указанное время окончания действия уже прошло.',
+	'stabilize_denied' => 'Доступ запрещён.',
 	'stabilize-expiring' => 'истекает $1 (UTC)',
 	'stabilization-review' => 'Отметить текущую версию как проверенную',
 );

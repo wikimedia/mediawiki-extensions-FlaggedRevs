@@ -226,13 +226,15 @@ $messages['cs'] = array(
 /** German (Deutsch)
  * @author Giftpflanze
  * @author Imre
+ * @author Kghbln
  * @author Umherirrender
  */
 $messages['de'] = array(
-	'reviewedpages' => 'Liste der gesichteten Seiten',
+	'reviewedpages' => 'Liste der markierten Seiten',
 	'reviewedpages-leg' => 'Markierte Seiten auflisten',
-	'reviewedpages-list' => 'Diese Spezialseite zeigt Seiten, die bisher mit dem angegebenem Level als höchstes markiert wurden.',
-	'reviewedpages-none' => 'Die Liste ist leer.',
+	'reviewedpages-list' => 'Diese Listen enthalten [[{{MediaWiki:Validationpage}}|markierte]] Seiten, deren höchster Qualitätsstatus (einer Version) dem angegebenen Status entspricht.
+Der Link zu neuesten Version dieses Status ist angegeben.',
+	'reviewedpages-none' => 'Diese Liste enthält keine Seiten.',
 	'reviewedpages-lev-0' => 'Gesichtet',
 	'reviewedpages-lev-1' => 'Geprüft',
 	'reviewedpages-lev-2' => 'Exzellent',
@@ -955,7 +957,7 @@ $messages['pt-br'] = array(
  */
 $messages['ro'] = array(
 	'reviewedpages' => 'Pagini revizuite',
-	'reviewedpages-list' => 'Această pagină afişează paginile care au fost revizuite (la cel mai mare nivel) la nivelul specificat.',
+	'reviewedpages-list' => 'Această pagină afișează paginile care au fost revizuite (la cel mai mare nivel) la nivelul specificat.',
 	'reviewedpages-none' => 'Nu există pagini în această listă',
 	'reviewedpages-lev-1' => 'Calitate',
 	'reviewedpages-all' => 'versiuni revizuite',

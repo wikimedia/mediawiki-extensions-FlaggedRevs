@@ -116,12 +116,22 @@ $messages['cs'] = array(
 	'configuredpages-prec-pristine' => 'čistá přednost',
 );
 
-/** German (Deutsch) */
+/** German (Deutsch)
+ * @author Kghbln
+ */
 $messages['de'] = array(
+	'configuredpages' => 'Seiten die hinsichtlich der Versionsmarkierung konfiguriert wurden',
+	'configuredpages-text' => 'Es folgt eine Liste der Seiten, deren Konfiguration zur Versionsmarkierung vom Standard der Website abweicht.
+
+Einige Einstellungen können eine Abweichung hinsichtlich der Version bewirken, die dem Leser angezeigt wird. Sie können auch den Kreis derjenigen weiter einschränken, deren Bearbeitungen keine weitere Durchsicht erfordert.',
+	'configuredpages-none' => 'Diese Liste enthält keine Seiten.',
 	'configuredpages-config' => 'Konfiguration',
+	'configuredpages-precedence' => 'Priorität:',
 	'configuredpages-prec-none' => 'zuletzt überprüft',
-	'configuredpages-prec-quality' => 'Qualitätsrangordnung',
-	'configuredpages-prec-pristine' => 'ursprüngliche Rangordnung',
+	'configuredpages-prec-quality' => 'aktueller Qualitätsstatus',
+	'configuredpages-prec-pristine' => 'neueste markierte Version',
+	'configuredpages-def-draft' => 'neueste Version',
+	'configuredpages-def-stable' => 'veröffentlichte Version',
 );
 
 /** Zazaki (Zazaki) */
@@ -603,7 +613,7 @@ $messages['pt-br'] = array(
 /** Romanian (Română) */
 $messages['ro'] = array(
 	'configuredpages-prec-none' => 'nicio prioritate',
-	'configuredpages-prec-quality' => 'preferinţă pentru calitate',
+	'configuredpages-prec-quality' => 'preferință pentru calitate',
 );
 
 /** Tarandíne (Tarandíne) */

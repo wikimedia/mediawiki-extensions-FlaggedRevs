@@ -146,14 +146,15 @@ $messages['cs'] = array(
 );
 
 /** German (Deutsch)
+ * @author Kghbln
  * @author MF-Warburg
  * @author Purodha
  * @author Umherirrender
  */
 $messages['de'] = array(
-	'stablepages' => 'Konfigurierte Seiten',
-	'stablepages-text' => 'Es folgt eine Liste der Seiten, die individuell konfiguriert wurden, damit diese die markierte Version als Standardinhalt für Leser anzeigen.',
-	'stablepages-none' => 'Diese Liste ist leer.',
+	'stablepages' => 'Seiten die nur mit Bearbeitungsfreigabe bearbeitet werden können',
+	'stablepages-text' => 'Es folgt eine Liste der Seiten, die nur von Benutzern bearbeitet werden können, deren Bearbeitungen keine weitere Durchsicht erfordert. Derartige Bearbeitungen werden nicht veröffentlicht bis ein entsprechend berechtigter Benutzer sie markiert.',
+	'stablepages-none' => 'Diese Liste enthält keine Seiten.',
 	'stablepages-config' => 'Konfiguration',
 );
 
@@ -591,7 +592,7 @@ $messages['pt-br'] = array(
 $messages['ro'] = array(
 	'stablepages' => 'Pagini stabile',
 	'stablepages-none' => 'Nu există pagini în această listă',
-	'stablepages-config' => 'Configuraţie',
+	'stablepages-config' => 'Configurație',
 );
 
 /** Tarandíne (Tarandíne)

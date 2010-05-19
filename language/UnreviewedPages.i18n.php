@@ -1263,14 +1263,14 @@ $messages['pt-br'] = array(
  */
 $messages['ro'] = array(
 	'unreviewedpages' => 'Pagini nerevizuite',
-	'unreviewed-legend' => 'Afişează pagini cu conţinut nerevizuit',
+	'unreviewed-legend' => 'Afișează pagini cu conținut nerevizuit',
 	'unreviewed-category' => 'Categorie:',
 	'unreviewed-diff' => 'recenzie',
 	'unreviewed-unwatched' => '(neurmărit)',
-	'unreviewed-watched' => '($1 {{PLURAL:$1|utilizator activ  care urmăreşte|utilizatori activi care urmăresc}})',
+	'unreviewed-watched' => '($1 {{PLURAL:$1|utilizator activ  care urmărește|utilizatori activi care urmăresc}})',
 	'unreviewed-hours' => '($1 {{PLURAL:$1|oră|ore}})',
 	'unreviewed-days' => '($1 {{PLURAL:$1|zi|zile}})',
-	'unreviewed-recent' => '(mai puţin de 1 oră)',
+	'unreviewed-recent' => '(mai puțin de 1 oră)',
 );
 
 /** Tarandíne (Tarandíne)

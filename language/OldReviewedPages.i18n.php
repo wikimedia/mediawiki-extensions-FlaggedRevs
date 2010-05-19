@@ -348,6 +348,7 @@ $messages['cu'] = array(
 );
 
 /** German (Deutsch)
+ * @author Kghbln
  * @author Melancholie
  * @author Michawiki
  * @author Raimond Spekking
@@ -355,7 +356,7 @@ $messages['cu'] = array(
  * @author Umherirrender
  */
 $messages['de'] = array(
-	'oldreviewedpages' => 'Alte, gesichtete Seiten',
+	'oldreviewedpages' => 'Seiten mit unmarkierten Änderungen',
 	'oldreviewedpages-legend' => 'Liste gesichteter Seiten mit ungesichteten Versionen',
 	'oldreviewedpages-list' => 'Diese Spezialseite zeigt {{PLURAL:$1|eine gesichtete Seite|gesichtete Seiten}}, die noch ungesichtete Bearbeitungen {{PLURAL:$1|hat|haben}}.',
 	'oldreviewedpages-none' => 'Gegenwärtig gibt es keine Seiten, auf die diese Kriterien zutreffen.',
@@ -1300,19 +1301,19 @@ $messages['pt-br'] = array(
  */
 $messages['ro'] = array(
 	'oldreviewedpages' => 'Pagini revizuite expirate',
-	'oldreviewedpages-legend' => 'Lista de pagini revizuite, cu revizuiri în aşteptarea revizuirii',
-	'oldreviewedpages-list' => 'Această pagină afişează {{PLURAL:$1|o pagină revizuită care are|paginile revizuite care au}} modificări în aşteptare.',
+	'oldreviewedpages-legend' => 'Lista de pagini revizuite, cu revizuiri în așteptarea revizuirii',
+	'oldreviewedpages-list' => 'Această pagină afișează {{PLURAL:$1|o pagină revizuită care are|paginile revizuite care au}} modificări în așteptare.',
 	'oldreviewedpages-none' => 'Momentan nu există pagini care satisfac aceste criterii',
 	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|oră|ore}})',
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|zi|zile}})',
-	'oldreviewedpages-recent' => '(mai puţin de 1 oră)',
+	'oldreviewedpages-recent' => '(mai puțin de 1 oră)',
 	'oldreviewed-category' => 'Categorie:',
 	'oldreviewed-watched' => 'În lista mea de urmărire',
 	'oldreviewed-stable' => 'Stabilit',
 	'oldreviewed-diff' => 'revizuire',
-	'oldreviewed-size' => 'Schimbare maximă (baiţi):',
+	'oldreviewed-size' => 'Schimbare maximă (baiți):',
 	'oldreviewedpages-unwatched' => '(neurmărite)',
-	'oldreviewedpages-watched' => '($1 {{PLURAL:$1|utilizator activ care urmăreşte|utilizatori activi care urmăresc}})',
+	'oldreviewedpages-watched' => '($1 {{PLURAL:$1|utilizator activ care urmărește|utilizatori activi care urmăresc}})',
 	'oldreviewedpages-viewing' => '(în curs de revizuire)',
 );
 

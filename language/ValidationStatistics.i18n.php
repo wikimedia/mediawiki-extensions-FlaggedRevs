@@ -1551,10 +1551,10 @@ A versão estável de uma página é a revisão mais recente que foi aprovada pa
  */
 $messages['ro'] = array(
 	'validationstatistics-users' => "'''{{SITENAME}}''' are în prezent '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|utilizator|utilizatori}} cu drepturi de [[{{MediaWiki:Validationpage}}|editare]]
-şi '''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$2|utilizator|utilizatori}} cu drepturi de [[{{MediaWiki:Validationpage}}|recenzie]].
+și '''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$2|utilizator|utilizatori}} cu drepturi de [[{{MediaWiki:Validationpage}}|recenzie]].
 
-Editorii şi recenzorii sunt utilizatori stabiliţi care pot verifica modificările din pagini.",
-	'validationstatistics-ns' => 'Spaţiu de nume',
+Editorii și recenzorii sunt utilizatori stabiliți care pot verifica modificările din pagini.",
+	'validationstatistics-ns' => 'Spațiu de nume',
 	'validationstatistics-total' => 'Pagini',
 	'validationstatistics-stable' => 'Revizualizată',
 	'validationstatistics-latest' => 'Sincronizată',

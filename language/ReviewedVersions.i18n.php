@@ -873,8 +873,8 @@ $messages['pt-br'] = array(
  * @author Mihai
  */
 $messages['ro'] = array(
-	'reviewedversions' => 'Vizualizaţi versiunile stabile',
-	'reviewedversions-leg1' => 'Afişează reviziile revizuite pentru o pagină',
+	'reviewedversions' => 'Vizualizați versiunile stabile',
+	'reviewedversions-leg1' => 'Afișează reviziile revizuite pentru o pagină',
 	'reviewedversions-page' => 'Numele paginii:',
 	'reviewedversions-none' => '"[[:$1]]" nu are revizii revizuite.',
 );
