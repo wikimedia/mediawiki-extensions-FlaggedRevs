@@ -27,8 +27,6 @@ function prune_flaggedrevs( $start = null, $prune = false ) {
 	
 	$newerRevs = 50;
 	$cutoff = $db->timestamp( time() - 30*24*3600 );
-	// DEV
-	$newerRevs = 1;
 	$cutoff = $db->timestamp( time() - 3600 );
 	while( $blockEnd <= $end ) {
 		echo "...doing fp_page_id from $blockStart to $blockEnd\n";
