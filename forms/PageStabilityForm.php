@@ -6,7 +6,7 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 }
 /**
  * Class containing stability settings form business logic
- *
+ * Note: edit tokens are the responsibility of caller
  * Usage: (a) set ALL form params before doing anything else
  *		  (b) call ready() when all params are set
  *		  (c) call preloadSettings() or submit() as needed
@@ -98,7 +98,7 @@ abstract class PageStabilityForm
 		if ( $this->inputLock ) {
 			throw new MWException( __CLASS__ . " fields cannot be set anymore.\n");
 		} else {
-			$field = $value; // submission locked => still allowing input
+			$field = $value; // still allowing input
 		} 
 	}
 
@@ -453,7 +453,9 @@ class PageStabilityGeneralForm extends PageStabilityForm {
 			return 'stabilize_invalid_precedence'; // invalid precedence value
 		}
 		// Check autoreview restriction setting
-		if ( !in_array( $this->autoreview, FlaggedRevs::getRestrictionLevels() ) ) {
+		if ( $this->autoreview != '' // restriction other than 'none'
+			&& !in_array( $this->autoreview, FlaggedRevs::getRestrictionLevels() ) )
+		{
 			return 'stabilize_invalid_autoreview'; // invalid value
 		}
 		if ( !FlaggedRevs::userCanSetAutoreviewLevel( $this->autoreview ) ) {

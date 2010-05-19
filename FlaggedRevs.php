@@ -332,13 +332,15 @@ $wgAutoloadClasses['FlaggedArticle'] = $dir . 'FlaggedArticle.php';
 # Load FlaggedRevision object class
 $wgAutoloadClasses['FlaggedRevision'] = $dir . 'FlaggedRevision.php';
 
-# Load review UI
-$wgAutoloadClasses['RevisionReview'] = $dir . 'specialpages/RevisionReview_body.php';
-# Load protection/stability UI
+# Load review form
+$wgAutoloadClasses['RevisionReviewForm'] = $dir . 'forms/RevisionReviewForm.php';
+# Load protection/stability form
 $wgAutoloadClasses['PageStabilityForm'] = $dir . 'forms/PageStabilityForm.php';
 $wgAutoloadClasses['PageStabilityGeneralForm'] = $dir . 'forms/PageStabilityForm.php';
 $wgAutoloadClasses['PageStabilityProtectForm'] = $dir . 'forms/PageStabilityForm.php';
 
+# Load revision review UI
+$wgAutoloadClasses['RevisionReview'] = $dir . 'specialpages/RevisionReview_body.php';
 # Load reviewed versions UI
 $wgAutoloadClasses['ReviewedVersions'] = $dir . 'specialpages/ReviewedVersions_body.php';
 $wgExtensionMessagesFiles['ReviewedVersions'] = $langDir . 'ReviewedVersions.i18n.php';

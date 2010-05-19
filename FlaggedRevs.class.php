@@ -1218,7 +1218,7 @@ class FlaggedRevs {
 		$defaultConfig = self::getDefaultVisibilitySettings();
 		# Check if the page is not protected at all...
 		if ( $config['override'] == $defaultConfig['override']
-			&& $config['autoreview'] == $defaultConfig['autoreview'] )
+			&& $config['autoreview'] == '' )
 		{
 			return "none"; // not protected
 		}

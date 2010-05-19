@@ -91,6 +91,17 @@ There are [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} template/f
 A template or file may have been requested when no specific version was specified.
 This can happen if a dynamic template transcludes another file or template depending on a variable that changed since you started reviewing this page.
 Refreshing the page and rereviewing can solve this problem.',
+
+	'review_page_invalid'      => 'The target page title is invalid.',
+	'review_page_notexists'    => 'The target page does not exist.',
+	'review_page_unreviewable' => 'The target page is not reviewable.',
+	'review_no_oldid'          => 'No revision ID specified.',
+	'review_bad_oldid'         => 'There is no such target revision.',
+	'review_too_low'           => 'Revision cannot be reviewed with some fields left unapproved.',
+	'review_bad_key'           => 'Invalid inclusion parameter key.',
+	'review_denied'            => 'Permission denied.',
+	'review_param_missing'     => 'A parameter is missing or invalid.',
+
 	'revreview-current'            => 'Pending changes',
 	'revreview-depth'              => 'Depth',
 	'revreview-depth-0'            => 'Unapproved',
@@ -170,6 +181,7 @@ There are [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} template/f
 	'revreview-toggle-hide'        => '(-)',
 	'revreview-toggle-title'       => 'show/hide details',
 	'revreview-toolow'             => '\'\'\'You must rate each of the attributes higher than "unapproved" in order for a revision to be considered reviewed.\'\'\'
+
 To remove the review status of a revision, set all fields to "unapproved".
 
 Please hit the "back" button in your browser and try again.',

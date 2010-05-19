@@ -771,7 +771,7 @@ class FlaggedRevsXML {
 		# Pass this in if given; useful for new page patrol
 		$form .= Xml::hidden( 'rcid', $wgRequest->getVal( 'rcid' ) ) . "\n";
 		# Special token to discourage fiddling...
-		$checkCode = RevisionReview::validationKey(
+		$checkCode = RevisionReviewForm::validationKey(
 			$templateParams, $imageParams, $fileVersion, $id
 		);
 		$form .= Xml::hidden( 'validatedParams', $checkCode ) . "\n";
