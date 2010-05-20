@@ -65,6 +65,16 @@ $messages['af'] = array(
 	'unreviewed-recent' => '(minder as 1 uur)',
 );
 
+/** Gheg Albanian (Gegë)
+ * @author Mdupont
+ */
+$messages['aln'] = array(
+	'unreviewed-viewing' => '(Në shqyrtim)',
+	'unreviewed-hours' => '($1 {{PLURAL:$1|orë|orë}})',
+	'unreviewed-days' => '($1 {{PLURAL:$1|ditë|ditët}})',
+	'unreviewed-recent' => '(Më pak se 1 orë)',
+);
+
 /** Amharic (አማርኛ)
  * @author Codex Sinaiticus
  */

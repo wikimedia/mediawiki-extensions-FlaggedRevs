@@ -49,6 +49,15 @@ $messages['af'] = array(
 	'reviewedversions-page' => 'Bladsynaam:',
 );
 
+/** Gheg Albanian (Gegë)
+ * @author Mdupont
+ */
+$messages['aln'] = array(
+	'reviewedversions' => 'versionet shqyrtoi',
+	'reviewedversions-leg1' => 'Lista shqyrtoi shqyrtime për një faqe të',
+	'reviewedversions-page' => 'Emri i faqes:',
+);
+
 /** Aragonese (Aragonés)
  * @author Juanpabl
  */

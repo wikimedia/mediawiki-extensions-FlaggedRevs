@@ -39,6 +39,16 @@ $messages['af'] = array(
 	'stablepages-config' => 'Voorkeure',
 );
 
+/** Gheg Albanian (Gegë)
+ * @author Mdupont
+ */
+$messages['aln'] = array(
+	'stablepages' => 'Faqet e përdorur redakto miratim',
+	'stablepages-text' => 'Më poshtë është një listë e faqeve të cilat janë të kufizuara në mënyrë që përdoruesit të caktuara mund të bëjë vetëm redaktimet e që nuk kërkojnë shqyrtim. Redaktimet e tillë nuk janë botuar deri në një përdorues të autorizuar kritikat e tyre.',
+	'stablepages-none' => 'Nuk ka faqe në këtë listë.',
+	'stablepages-config' => 'Konfiguracion',
+);
+
 /** Aragonese (Aragonés)
  * @author Juanpabl
  */

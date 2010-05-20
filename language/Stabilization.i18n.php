@@ -164,6 +164,53 @@ Geen konfigurasie is moontlik nie.',
 	'stabilize-expiring' => 'verval $1 (UTC)',
 );
 
+/** Gheg Albanian (Gegë)
+ * @author Mdupont
+ */
+$messages['aln'] = array(
+	'stabilization-tab' => 'veteriner',
+	'stabilization' => 'stabilizimin e faqes',
+	'stabilization-text' => "''' Ndryshimi parametrat e mëposhtëm për të rregulluar si versionin e publikuar i [[:\$1|\$1]] është zgjedhur dhe të shfaqet. '''
+
+'''Shënim:''' ndryshim ''botuar versionin e përzgjedhjes'' të preferojnë \"cilësisë\" apo \"i pacenuar\" versione do të ketë efekt në qoftë se nuk ka versione të tilla. Gjithashtu, theksohet se një \"cilësi\" version është konsideruar gjithashtu një \"kontrolluar\" versionin e kështu me radhë.",
+	'stabilization-perm' => 'Llogaria juaj nuk ka leje për të ndryshuar konfigurimin versionin e botuar. Këtu janë parametrat aktual për [[:$1|$1]]:',
+	'stabilization-page' => 'Emri i faqes:',
+	'stabilization-leg' => 'Paneli i Konfirmo publikuar versionin',
+	'stabilization-select' => 'Publikuar zgjedhjen version përparësi',
+	'stabilization-select1' => 'rishikimin e fundit të cilësisë; pastaj e fundit të kthjellët',
+	'stabilization-select2' => 'version i fundit i zgjedhur',
+	'stabilization-select3' => 'version i fundit i pacenuar; pastaj të fundit një cilësi, atëherë e fundit të kthjellët',
+	'stabilization-def' => 'Revision shfaqet në faqe të parë default',
+	'stabilization-def1' => 'Versioni i publikuar, e nëse nuk është i pranishëm, atëherë / draftin aktual',
+	'stabilization-def2' => 'Aktuale / rishikim projekt',
+	'stabilization-restrict' => 'Rishikimi / auto-përmbledhje kufizime',
+	'stabilization-restrict-none' => 'Nuk ka kufizime shtesë',
+	'stabilization-submit' => 'Konfirmoj',
+	'stabilization-notexists' => 'Nuk ka asnjë faqe quhet "[[:$1|$1]] ". Nuk konfigurimit është e mundur.',
+	'stabilization-notcontent' => 'Faqja "[[:$1|$1]] "nuk mund të rishikohet. Nr konfigurimit është e mundur.',
+	'stabilization-comment' => 'Arsyeja:',
+	'stabilization-otherreason' => 'arsye të tjera:',
+	'stabilization-expiry' => 'Skadon:',
+	'stabilization-othertime' => 'kohë të tjera:',
+	'stabilization-sel-short' => 'Përparësi',
+	'stabilization-sel-short-0' => 'Cilësi',
+	'stabilization-sel-short-1' => 'Asnjë',
+	'stabilization-sel-short-2' => 'I pacenuar',
+	'stabilization-def-short' => 'Default',
+	'stabilization-def-short-0' => 'Aktual',
+	'stabilization-def-short-1' => 'Publikuar',
+	'stabilize_page_invalid' => 'Faqja e objektivit titull është i pavlefshëm.',
+	'stabilize_page_notexists' => 'Faqja objektiv nuk ekziston.',
+	'stabilize_page_unreviewable' => 'Faqja objektivi nuk është në hapësirën rishikueshme.',
+	'stabilize_invalid_precedence' => 'përparësi e pavlefshme version.',
+	'stabilize_invalid_autoreview' => 'kufizimin e pavlefshme autoreview',
+	'stabilize_invalid_level' => 'nivelin e pavlefshme mbrojtje.',
+	'stabilize_expiry_invalid' => 'data e skadimit pavlefshme.',
+	'stabilize_expiry_old' => 'Kjo kohë ka kaluar skadimit tashmë.',
+	'stabilize-expiring' => 'kalon $1 (UTC)',
+	'stabilization-review' => 'Mark versionin e fundit kontrolluar',
+);
+
 /** Amharic (አማርኛ)
  * @author Codex Sinaiticus
  */

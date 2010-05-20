@@ -659,6 +659,62 @@ $messages['af'] = array(
 	'validationpage' => '{{ns:help}}:Bladsyredaksie',
 );
 
+/** Gheg Albanian (Gegë)
+ * @author Mdupont
+ */
+$messages['aln'] = array(
+	'revreview-style-2' => 'Mirë',
+	'revreview-style-3' => 'Konciz',
+	'revreview-style-4' => 'Me tipare',
+	'revreview-submit' => 'Submit',
+	'revreview-submit-review' => 'Miratoj',
+	'revreview-submit-unreview' => 'De-miratojë',
+	'revreview-submitting' => 'Dorëzimi ...',
+	'revreview-submit-reviewed' => 'Done. Aprovuar!',
+	'revreview-submit-unreviewed' => 'Done. De-aprovuar!',
+	'revreview-successful' => "'''Rishikimi i [[:$1|$1]] flamur me sukses. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} parë shqyrtuar versionet ])'''",
+	'revreview-successful2' => "'''Rishikimi i [[:$1|$1]] paflamur me sukses.'''",
+	'revreview-text' => "''[[{{MediaWiki:Validationpage}}|versionet e shqyrtoi]] kontrollohen versionet e faqeve të përdorura për të përcaktuar versionin e botuar.''",
+	'revreview-toggle-title' => 'shfaqje / fshih detajet',
+	'revreview-toolow' => '\'\'\'Ju duhet të kursit të secilit prej atributeve më të larta se "paaprovuar" në mënyrë që për një rishikim të merren parasysh rishikohet.\'\'\' Për të hequr statusin shqyrtimin e rishikimit, i vendosur të gjitha fushat për të "paaprovuar". Ju lutem goditi "mbrapa "butonin e shfletuesit tuaj dhe provoni përsëri.',
+	'revreview-update' => "Ju lutem [[{{MediaWiki:Validationpage}}|rishikim]] ndonjë ndryshim në pritje''(treguar më poshtë),''e bëra në versionin e botuar.",
+	'revreview-update-edited' => '<span class="flaggedrevs_important">Ndryshimet juaja ende nuk janë botuar.</span> Ka redaktimet e mëparshme në pritje të shqyrtimit. Për të publikojë ndryshimet tuaj, ju lutemi shqyrtimin e të gjitha ndryshimet e treguar më poshtë.',
+	'revreview-update-includes' => "'''Disa templates / Fotografi të ishin më të azhornuara:'''",
+	'revreview-update-use' => "'''Shënim:''' Versioni i publikuar të secilit prej këtyre templates / fotografi është përdorur në versionin e publikuar të kësaj faqeje.",
+	'revreview-visibility' => "'''Kjo faqe është e azhurnuar [[{{MediaWiki:Validationpage}}|publikuar versionin]]; settings faqe e stabilitetit mund të [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} konfiguruar ].'''",
+	'revreview-visibility2' => "'''Kjo faqe ka një vjetëruar [[{{MediaWiki:Validationpage}}|publikuar versionin]]; settings faqe e stabilitetit mund të [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} konfiguruar ].'''",
+	'revreview-visibility3' => "'''Kjo faqe nuk ka një [[{{MediaWiki:Validationpage}}|publikuar versionin]]; settings faqe e stabilitetit mund të [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} konfiguruar ].'''",
+	'revreview-revnotfound' => 'Versioni i vjetër i faqes së kërkuar nuk mund të gjendet. Ju lutem kontrolloni URL-in që përdorët për të hyrë në këtë faqe.',
+	'right-autoreview' => 'A e vet redaktimet e shënuar automatikisht si "i zgjedhur"',
+	'right-movestable' => 'Leviz faqe botuar',
+	'right-review' => 'Mark shqyrtime si "i zgjedhur"',
+	'right-stablesettings' => 'Konfiguro si versioni i publikuar është e zgjedhur dhe të shfaqet',
+	'right-validate' => 'Mark shqyrtime si "cilësi"',
+	'right-unreviewedpages' => 'Shikoni [[Special:UnreviewedPages|Lista e faqeve unreviewed]]',
+	'rights-editor-autosum' => 'autopromoted',
+	'rights-editor-revoke' => 'hequr statusin e redaktor nga [[$1]]',
+	'specialpages-group-quality' => 'miratim Edit',
+	'stable-logentry-config' => 'Paneli i konfiguruar publikim për $1',
+	'stable-logentry-reset' => 'settings reset publikim për $1',
+	'stable-log-restriction' => 'Publikimi: kërkojnë "$1" leje',
+	'stable-logpage' => 'Regjistri i Stabilitetit',
+	'stable-logpagetext' => 'Ky është një regjistër për ndryshimet në [[{{MediaWiki:Validationpage}}|publikuar versionin] konfigurimin] i faqeve të përmbajtjes.',
+	'revreview-filter-all' => 'të gjithë',
+	'revreview-filter-stable' => 'botuar',
+	'revreview-statusfilter' => 'veprim Aprovimi:',
+	'revreview-filter-approved' => 'Aprovuar',
+	'revreview-filter-reapproved' => 'Ri-miratuar',
+	'revreview-filter-unapproved' => 'De-miratuar',
+	'revreview-typefilter' => 'Tipi:',
+	'revreview-filter-auto' => 'Automatik',
+	'revreview-filter-manual' => 'Dore',
+	'revreview-levelfilter' => 'Niveli:',
+	'revreview-precedencefilter' => 'Përparësi:',
+	'revreview-lev-all' => 'ndonjë',
+	'revreview-lev-basic' => 'kontrolluar',
+	'revreview-lev-quality' => 'cilësi',
+);
+
 /** Amharic (አማርኛ)
  * @author Codex Sinaiticus
  */
@@ -4999,7 +5055,7 @@ Actualizar a páxina e volvela revisar pode resolver o problema.",
 	'revreview-edited' => "'''Os cambios publicaranse unha vez que un usuario autorizado os revise. ([[{{MediaWiki:Validationpage}}|?]])'''
 
 Hai [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 {{PLURAL:$2|cambio|cambios}}], {{PLURAL:$2|mostrado|mostrados}} a continuación, agardando por unha revisión.",
-	'revreview-edited-section' => 'Voltar á sección da páxina chamada "[[#$1|$2]]".',
+	'revreview-edited-section' => 'Volver á sección da páxina chamada "[[#$1|$2]]".',
 	'revreview-flag' => 'Revisar esta revisión',
 	'revreview-reflag' => 'Volver revisar esta revisión',
 	'revreview-invalid' => "'''Obxectivo inválido:''' ningunha revisión [[{{MediaWiki:Validationpage}}|revisada]] se corresponde co ID dado.",
@@ -5063,7 +5119,7 @@ Fixéronse novos [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} cam
 	'revreview-toolow' => '\'\'\'Debe, polo menos, valorar cada un dos atributos cunha puntuación maior a "sen aprobar" para que unha revisión sexa considerada como revisada.\'\'\'
 Para retirar o estado de aprobación dunha revisión, encha todos os campos con "sen aprobar".
 
-Por favor, prema sobre o botón "Voltar" do seu navegador e inténteo de novo.',
+Por favor, prema sobre o botón "Volver" do seu navegador e inténteo de novo.',
 	'revreview-update' => "Por favor, [[{{MediaWiki:Validationpage}}|revise]] os cambios pendentes ''(amósanse embaixo)'' feitos á versión publicada.",
 	'revreview-update-edited' => '<span class="flaggedrevs_important">Aínda non se publicaron os seus cambios.</span>
 
