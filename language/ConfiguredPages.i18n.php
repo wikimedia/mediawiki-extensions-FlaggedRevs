@@ -405,6 +405,8 @@ $messages['ja'] = array(
  * @author გიორგიმელა
  */
 $messages['ka'] = array(
+	'configuredpages-config' => 'კონფიგურაცია',
+	'configuredpages-precedence' => 'პრიორიტეტი:',
 	'configuredpages-def-draft' => 'უკანასკნელი ვერსია',
 	'configuredpages-def-stable' => 'გამოქვეყნებული ვერსია',
 );

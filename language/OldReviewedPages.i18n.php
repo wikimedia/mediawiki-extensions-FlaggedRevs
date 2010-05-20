@@ -900,6 +900,7 @@ $messages['ja'] = array(
  */
 $messages['ka'] = array(
 	'oldreviewedpages-none' => 'ამ დროისათვის არ არსებობს სტატიები ასეთი კრიტერიუმებით',
+	'oldreviewed-category' => 'კატეგორია:',
 );
 
 /** Khmer (ភាសាខ្មែរ)
@@ -1376,6 +1377,13 @@ $messages['sah'] = array(
 	'oldreviewedpages-unwatched' => '(кэтээбэттэр)',
 	'oldreviewedpages-watched' => '($1 {{PLURAL:$1|соҕотох көхтөөх|көхтөөх}} кыттааччы кэтиир)',
 	'oldreviewedpages-viewing' => '(тургутулла тураллар)',
+);
+
+/** Sardinian (Sardu)
+ * @author Andria
+ */
+$messages['sc'] = array(
+	'oldreviewed-category' => 'Categoria:',
 );
 
 /** Slovak (Slovenčina)

@@ -557,6 +557,13 @@ $messages['sah'] = array(
 	'problemchanges-category' => 'Категория:',
 );
 
+/** Sardinian (Sardu)
+ * @author Andria
+ */
+$messages['sc'] = array(
+	'problemchanges-category' => 'Categoria:',
+);
+
 /** Slovak (Slovenčina)
  * @author Helix84
  */

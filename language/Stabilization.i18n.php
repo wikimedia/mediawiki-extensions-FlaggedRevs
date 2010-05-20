@@ -914,6 +914,7 @@ Neniu konfiguro eblas.',
 	'stabilize_page_notexists' => 'La cela paĝo ne ekzistas.',
 	'stabilize_expiry_invalid' => 'Malvalida findato.',
 	'stabilize_expiry_old' => 'Ĉi tiu findato jam estas pasita.',
+	'stabilize_denied' => 'Malpermesita.',
 	'stabilize-expiring' => 'findato $1 (UTC)',
 	'stabilization-review' => 'Marki la nunan revizion kiel kontrolitan',
 );
@@ -972,6 +973,7 @@ La configuración no es posible.',
 	'stabilize_invalid_level' => 'Nivel de protección inválido.',
 	'stabilize_expiry_invalid' => 'La fecha de caducidad no es válida.',
 	'stabilize_expiry_old' => 'Este tiempo de expiración ya ha pasado',
+	'stabilize_denied' => 'Permiso denegado.',
 	'stabilize-expiring' => 'caduca el $1 (UTC)',
 	'stabilization-review' => 'Marcar la versión actual verificada',
 );
@@ -2195,6 +2197,7 @@ $messages['mk'] = array(
 	'stabilize_invalid_level' => 'Неважечко ниво на заштита.',
 	'stabilize_expiry_invalid' => 'Погрешен датум на важност.',
 	'stabilize_expiry_old' => 'Времето на важност веќе е поминато.',
+	'stabilize_denied' => 'Пристапот е забранет.',
 	'stabilize-expiring' => 'истекува $1 (UTC)',
 	'stabilization-review' => 'Обележи ја тековната верзија како проверена',
 );
@@ -2744,6 +2747,7 @@ Não é possível configurá-la.',
 	'stabilize_invalid_level' => 'Nível de protecção é inválido.',
 	'stabilize_expiry_invalid' => 'Data de expiração inválida.',
 	'stabilize_expiry_old' => 'Esta data de expiração já passou.',
+	'stabilize_denied' => 'Permissão negada.',
 	'stabilize-expiring' => 'expira às $1 (UTC)',
 	'stabilization-review' => 'Marcar a edição actual como verificada',
 );
@@ -2984,6 +2988,15 @@ $messages['sah'] = array(
 	'stabilize_expiry_old' => 'Болдьох этиллибит кэмэ номнуо ааспыт.',
 	'stabilize-expiring' => 'Болдьоҕо бүтэр: $1 (UTC)',
 	'stabilization-review' => 'Билиҥни барылын көрүү',
+);
+
+/** Sardinian (Sardu)
+ * @author Andria
+ */
+$messages['sc'] = array(
+	'stabilization-comment' => 'Motivu:',
+	'stabilization-otherreason' => 'Àteru motivu:',
+	'stabilization-sel-short-1' => 'Nudda',
 );
 
 /** Slovak (Slovenčina)

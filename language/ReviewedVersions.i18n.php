@@ -1020,7 +1020,7 @@ $messages['ta'] = array(
  * @author Veeven
  */
 $messages['te'] = array(
-	'reviewedversions' => 'సుస్థిర కూర్పులను చూడండి',
+	'reviewedversions' => 'సమీక్షిత కూర్పులు',
 	'reviewedversions-leg1' => 'పేజీ యొక్క సమీక్షిత కూర్పులను చూపించు',
 	'reviewedversions-page' => 'పేజీ పేరు:',
 	'reviewedversions-none' => '"[[:$1]]"కి సమీక్షిత కూర్పులేమీ లేవు.',

@@ -1333,6 +1333,13 @@ $messages['sah'] = array(
 	'unreviewed-recent' => '(1 чаастан кылгас)',
 );
 
+/** Sardinian (Sardu)
+ * @author Andria
+ */
+$messages['sc'] = array(
+	'unreviewed-category' => 'Categoria:',
+);
+
 /** Slovak (Slovenčina)
  * @author Helix84
  */

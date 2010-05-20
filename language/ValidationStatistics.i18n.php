@@ -1646,6 +1646,14 @@ $messages['sah'] = array(
 	'validationstatistics-reviews' => 'Бэрэбиэркэ',
 );
 
+/** Sardinian (Sardu)
+ * @author Andria
+ */
+$messages['sc'] = array(
+	'validationstatistics-total' => 'Pàginas',
+	'validationstatistics-user' => 'Usuàriu',
+);
+
 /** Slovak (Slovenčina)
  * @author Helix84
  */
