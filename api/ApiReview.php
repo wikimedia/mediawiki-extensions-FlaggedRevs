@@ -87,6 +87,9 @@ class ApiReview extends ApiBase {
 			$form->setTemplateParams( $templateParams );
 			$form->setFileParams( $imageParams );
 			$form->setFileVersion( $fileVersion );
+			$key = RevisionReviewForm::validationKey(
+				$templateParams, $imageParams, $fileVersion, $revid );
+			$form->setValidatedParams( $key ); # always OK
 		}
 
 		$status = $form->ready(); // all params set
