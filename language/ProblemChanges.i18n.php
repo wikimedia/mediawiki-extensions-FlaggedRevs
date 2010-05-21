@@ -367,9 +367,12 @@ $messages['kn'] = array(
 );
 
 /** Korean (한국어)
+ * @author Devunt
  * @author Kwj2772
  */
 $messages['ko'] = array(
+	'problemchanges' => '표시된 보류중인 변경 내용',
+	'problemchanges-legend' => '검토해야할 편집들이 표시된 리스트',
 	'problemchanges-none' => '이 조건에 맞는 문서가 없습니다.',
 	'problemchanges-category' => '분류:',
 );

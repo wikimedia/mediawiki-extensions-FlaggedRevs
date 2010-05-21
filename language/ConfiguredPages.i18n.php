@@ -419,10 +419,12 @@ $messages['ko'] = array(
 	'configuredpages-text' => '다음은 기본값과 다른 검토 설정이 되어 있는 문서의 목록입니다.
 
 어떤 설정은 독자에게 보여지는 판을 바꾸거나 검토 없이 편집할 수 있는 사용자를 제한할 수 있습니다.',
-	'configuredpages-none' => '이 목옥에 문서가 없습니다.',
+	'configuredpages-none' => '이 목록에 문서가 없습니다.',
 	'configuredpages-config' => '설정',
 	'configuredpages-precedence' => '우선 순위:',
 	'configuredpages-prec-none' => '최근 검토된 판',
+	'configuredpages-prec-quality' => '최근의 양질 문서',
+	'configuredpages-prec-pristine' => '최근의 깨끗한 문서',
 	'configuredpages-def-draft' => '최신 버전',
 	'configuredpages-def-stable' => '공개된 버전',
 );
@@ -648,6 +650,13 @@ $messages['sah'] = array(
 	'configuredpages-prec-none' => 'баһыйара (приоритета) суох',
 	'configuredpages-prec-quality' => 'хаачыстыбата баһыйыылаах',
 	'configuredpages-prec-pristine' => 'эрдэтээҥҥитэ баһыйыылаах',
+);
+
+/** Sardinian (Sardu)
+ * @author Andria
+ */
+$messages['sc'] = array(
+	'configuredpages-config' => 'Configuratzione',
 );
 
 /** Slovak (Slovenčina)

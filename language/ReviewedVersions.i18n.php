@@ -932,6 +932,13 @@ $messages['sah'] = array(
 	'reviewedversions-review' => '$2 кыттааччы ырыппыт <i>$1</i>',
 );
 
+/** Sardinian (Sardu)
+ * @author Andria
+ */
+$messages['sc'] = array(
+	'reviewedversions-page' => 'Nùmene pàgina:',
+);
+
 /** Slovak (Slovenčina)
  * @author Helix84
  */

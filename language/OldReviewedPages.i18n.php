@@ -928,16 +928,19 @@ $messages['kn'] = array(
 );
 
 /** Korean (한국어)
+ * @author Devunt
  * @author Kwj2772
  */
 $messages['ko'] = array(
-	'oldreviewedpages' => '오래 전에 검토된 문서',
+	'oldreviewedpages' => '보류중인 편을 가지고 있는 문서',
 	'oldreviewedpages-none' => '조건에 맞는 문서가 없습니다.',
 	'oldreviewedpages-hours' => '($1시간 전)',
 	'oldreviewedpages-days' => '($1일 전)',
 	'oldreviewedpages-recent' => '(1시간 미만)',
 	'oldreviewed-category' => '분류:',
 	'oldreviewed-watched' => '내가 주시하고 있는 문서',
+	'oldreviewed-diff' => '검토',
+	'oldreviewed-size' => '최대 변화량 (바이트):',
 	'oldreviewedpages-unwatched' => '(주시되지 않음)',
 	'oldreviewedpages-watched' => '($1명의 활동적인 {{PLURAL:$1|사용자가|사용자들이}} 주시중)',
 	'oldreviewedpages-viewing' => '(확인 중)',
@@ -1383,6 +1386,9 @@ $messages['sah'] = array(
  * @author Andria
  */
 $messages['sc'] = array(
+	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|ora|oras}})',
+	'oldreviewedpages-days' => '($1 {{PLURAL:$1|die|dies}})',
+	'oldreviewedpages-recent' => '(nemmancu 1 ora)',
 	'oldreviewed-category' => 'Categoria:',
 );
 
@@ -1482,7 +1488,8 @@ $messages['sv'] = array(
  * @author వైజాసత్య
  */
 $messages['te'] = array(
-	'oldreviewedpages' => 'కాలంచెల్లిన పనఃసమీక్షించిన పేజీలు',
+	'oldreviewedpages' => 'మార్పులతో వేచియున్న పుటలు',
+	'oldreviewedpages-legend' => 'వేచియున్న మార్పులతో కూడిన పుటలను చూపించు',
 	'oldreviewedpages-list' => 'వేచియున్న మార్పులు కలిగిన {{PLURAL:$1|ఒక సమీక్షిత పేజీని|సమీక్షిత పేజీలను}} ఈ పేజీ చూపిస్తుంది.',
 	'oldreviewedpages-none' => 'ఈ నియమాలకు సరిపోలుతున్న పేజీలు ఏమీ ప్రస్తుతం లేవు',
 	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|గంట|గంటలు}})',

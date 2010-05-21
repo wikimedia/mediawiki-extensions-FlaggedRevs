@@ -1104,7 +1104,13 @@ $4
 	'validationstatistics-table' => "넘겨주기 문서를 '''제외한''' 문서의 검토 통계가 이름공간별로 보여지고 있습니다.",
 	'validationstatistics-ns' => '이름공간',
 	'validationstatistics-total' => '문서 수',
+	'validationstatistics-stable' => '검토됨',
+	'validationstatistics-latest' => '동기화됨',
+	'validationstatistics-synced' => '동기화됨/검토됨',
+	'validationstatistics-old' => '업데이트 필요함',
+	'validationstatistics-utable' => '아래는 지난 1시간 동안의 최고 검토자 5명의 목록입니다',
 	'validationstatistics-user' => '사용자',
+	'validationstatistics-reviews' => '검토',
 );
 
 /** Karachay-Balkar (Къарачай-Малкъар)
@@ -1650,6 +1656,7 @@ $messages['sah'] = array(
  * @author Andria
  */
 $messages['sc'] = array(
+	'validationstatistics-ns' => 'Nùmene-logu',
 	'validationstatistics-total' => 'Pàginas',
 	'validationstatistics-user' => 'Usuàriu',
 );

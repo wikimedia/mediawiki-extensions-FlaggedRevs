@@ -677,11 +677,15 @@ $messages['km'] = array(
 );
 
 /** Korean (한국어)
+ * @author Devunt
  * @author Kwj2772
  */
 $messages['ko'] = array(
 	'reviewedpages' => '검토된 문서',
+	'reviewedpages-leg' => '검토된 문서들의 목록',
+	'reviewedpages-none' => '이 목록에 문서가 없습니다.',
 	'reviewedpages-all' => '검토된 버전',
+	'reviewedpages-best' => '최고 판',
 );
 
 /** Colognian (Ripoarisch)

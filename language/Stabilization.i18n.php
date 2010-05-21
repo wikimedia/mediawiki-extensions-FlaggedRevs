@@ -1679,6 +1679,7 @@ Nulle configuration es possibile.',
 	'stabilize_invalid_level' => 'Nivello de protection invalide.',
 	'stabilize_expiry_invalid' => 'Data de expiration invalide.',
 	'stabilize_expiry_old' => 'Iste tempore de expiration ha ja passate.',
+	'stabilize_denied' => 'Permission refusate.',
 	'stabilize-expiring' => 'expira le $1 (UTC)',
 	'stabilization-review' => 'Marcar le version actual como verificate',
 );
@@ -1733,6 +1734,7 @@ Konfigurasi tak dapat diterapkan.',
  * @author Ukabia
  */
 $messages['ig'] = array(
+	'stabilization-comment' => 'Mgbaghaputa:',
 	'stabilization-sel-short-1' => 'O digị',
 );
 
@@ -2028,11 +2030,26 @@ $messages['kn'] = array(
 );
 
 /** Korean (한국어)
+ * @author Devunt
  * @author Kwj2772
  */
 $messages['ko'] = array(
+	'stabilization-tab' => '검토',
+	'stabilization' => '문서 안정화',
 	'stabilization-text' => "'''[[:$1]] 문서의 어떤 버전이 선택되어 안정 버전으로 보이게 할 것인지에 대한 설정을 바꾸시려면 아래 양식을 이용해주세요.'''",
+	'stabilization-perm' => '당신의 계정은 게시 설정 변경을 할 수 있는 권한이 없습니다.
+[[:$1|$1]]에 현재 설정이 있습니다',
 	'stabilization-page' => '문서 이름:',
+	'stabilization-leg' => '게시 설정 확인',
+	'stabilization-select' => '게시 버전 선택 우선순위',
+	'stabilization-select1' => '최근 품질 판; 마지막 확인된 판',
+	'stabilization-select2' => '마지막 확인된 판',
+	'stabilization-select3' => '마지막 원본 판; 마지막 풀질 판, 마지막 확인된 판',
+	'stabilization-def' => '기본 문서 보기에서 판 표시',
+	'stabilization-def1' => '게시 판; 현재 판이 아니라면, 현재/임시 판',
+	'stabilization-def2' => '현재/임시 판',
+	'stabilization-restrict' => '검토/자동 검토 제한',
+	'stabilization-restrict-none' => '추가 제한 없음',
 	'stabilization-submit' => '확인',
 	'stabilization-notexists' => '"[[:$1|$1]]" 문서가 존재하지 않습니다.
 설정이 불가능합니다.',
@@ -2042,9 +2059,22 @@ $messages['ko'] = array(
 	'stabilization-otherreason' => '다른 이유:',
 	'stabilization-expiry' => '기한:',
 	'stabilization-othertime' => '다른 시간:',
+	'stabilization-sel-short' => '우선 순위',
+	'stabilization-sel-short-0' => '품질',
+	'stabilization-sel-short-1' => '없음',
+	'stabilization-sel-short-2' => '원본',
 	'stabilization-def-short' => '기본 설정',
+	'stabilization-def-short-0' => '현재',
+	'stabilization-def-short-1' => '게시',
+	'stabilize_page_invalid' => '문서 이름이 잘못되었습니다.',
+	'stabilize_page_notexists' => '문서가 존재하지 않습니다.',
+	'stabilize_page_unreviewable' => '문서가 검토 가능한 이름공간에 존재하지 않습니다',
+	'stabilize_invalid_precedence' => '잘못된 우선순위.',
+	'stabilize_invalid_autoreview' => '잘못된 자동 검토 제한',
+	'stabilize_invalid_level' => '잘못된 보호 수준.',
 	'stabilize_expiry_invalid' => '기한을 잘못 입력하였습니다.',
 	'stabilize_expiry_old' => '기한을 과거로 입력하였습니다.',
+	'stabilize_denied' => '권한 없음',
 	'stabilize-expiring' => '$1 (UTC)에 만료',
 	'stabilization-review' => '현재 판을 확인한 것으로 표시',
 );
@@ -2462,6 +2492,7 @@ Instellen is niet mogelijk.',
 	'stabilize_invalid_level' => 'Ongeldig beschermingsniveau.',
 	'stabilize_expiry_invalid' => 'Ongeldige vervaldatum.',
 	'stabilize_expiry_old' => 'Deze vervaldatum is al verstreken.',
+	'stabilize_denied' => 'Geen toegang.',
 	'stabilize-expiring' => 'vervalt $1 (UTC)',
 	'stabilization-review' => 'Huidige versie als gecontroleerd markeren',
 );
@@ -3041,8 +3072,11 @@ $messages['sah'] = array(
  * @author Andria
  */
 $messages['sc'] = array(
+	'stabilization-page' => 'Nùmene pàgina:',
+	'stabilization-submit' => 'Cunfirma',
 	'stabilization-comment' => 'Motivu:',
 	'stabilization-otherreason' => 'Àteru motivu:',
+	'stabilization-sel-short-0' => 'Calidade',
 	'stabilization-sel-short-1' => 'Nudda',
 );
 
@@ -3941,6 +3975,7 @@ $messages['zh-hant'] = array(
 	'stabilize_invalid_level' => '無效的保護水平。',
 	'stabilize_expiry_invalid' => '無效的到期日。',
 	'stabilize_expiry_old' => '到期日已過。',
+	'stabilize_denied' => '權限錯誤',
 	'stabilize-expiring' => '於 $1 （UTC） 到期',
 	'stabilization-review' => '將此當前版本標記為已查閱',
 );
