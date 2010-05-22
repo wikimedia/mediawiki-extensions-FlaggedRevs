@@ -50,7 +50,7 @@ class RevisionReviewForm
 	}
 
 	public function getRCId() {
-		return $this->page;
+		return $this->rcid;
 	}
 
 	public function setRCId( $value ) {
@@ -645,7 +645,330 @@ class RevisionReviewForm
 		wfProfileOut( __METHOD__ );
 	}
 	
-	########## Common form elements ##########
+	########## Common form & elements ##########
+
+	 /**
+	 * Generates a brief review form for a page.
+	 * @param FlaggedArticle $article
+	 * @param Revision $rev
+	 * @param array $templateIDs
+	 * @param array $imageSHA1Keys
+	 * @param bool $stableDiff this is a diff-to-stable 
+	 * @return mixed (string/false)
+	 */
+	public static function buildQuickReview(
+		$article, $rev, $templateIDs, $imageSHA1Keys, $stableDiff = false
+	) {
+		global $wgUser, $wgRequest;
+		# The revision must be valid and public
+		if ( !$rev || $rev->isDeleted( Revision::DELETED_TEXT ) ) {
+			return false;
+		}
+		$id = $rev->getId();
+		$skin = $wgUser->getSkin();
+		# Do we need to get inclusion IDs from parser output?
+		$getPOut = ( $templateIDs && $imageSHA1Keys );
+
+		# See if the version being displayed is flagged...
+		$frev = FlaggedRevision::newFromTitle( $article->getTitle(), $id );
+		$oldFlags = $frev
+			? $frev->getTags() // existing tags
+			: FlaggedRevision::expandRevisionTags( '' ); // unset tags
+		# If we are reviewing updates to a page, start off with the stable revision's
+		# flags. Otherwise, we just fill them in with the selected revision's flags.
+		if ( $stableDiff ) {
+			$srev = $article->getStableRev();
+			$flags = $srev->getTags();
+			# Check if user is allowed to renew the stable version.
+			# If not, then get the flags for the new revision itself.
+			if ( !FlaggedRevs::userCanSetFlags( $oldFlags ) ) {
+				$flags = $oldFlags;
+			}
+			$reviewNotes = $srev->getComment();
+			# Re-review button is need for template/file only review case
+			$allowRereview = ( $srev->getRevId() == $id )
+				&& !FlaggedRevs::stableVersionIsSynced( $srev, $article );
+		} else {
+			$flags = $oldFlags;
+			// Get existing notes to pre-fill field
+			$reviewNotes = $frev ? $frev->getComment() : "";
+			$allowRereview = false; // re-review button
+		}
+
+		# Begin form...
+		$reviewTitle = SpecialPage::getTitleFor( 'RevisionReview' );
+		$action = $reviewTitle->getLocalUrl( 'action=submit' );
+		$params = array( 'method' => 'post', 'action' => $action, 'id' => 'mw-fr-reviewform' );
+		$form = Xml::openElement( 'form', $params );
+		$form .= Xml::openElement( 'fieldset',
+			array( 'class' => 'flaggedrevs_reviewform noprint' ) );
+		# Add appropriate legend text
+		$legendMsg = ( FlaggedRevs::binaryFlagging() && $allowRereview )
+			? 'revreview-reflag'
+			: 'revreview-flag';
+		$form .= Xml::openElement( 'legend', array( 'id' => 'mw-fr-reviewformlegend' ) );
+		$form .= "<strong>" . wfMsgHtml( $legendMsg ) . "</strong>";
+		$form .= Xml::closeElement( 'legend' ) . "\n";
+		# Show explanatory text
+		if ( !FlaggedRevs::lowProfileUI() ) {
+			$form .= wfMsgExt( 'revreview-text', array( 'parse' ) );
+		}
+
+		# Disable form for unprivileged users
+		$uneditable = !$article->getTitle()->quickUserCan( 'edit' );
+		$disabled = !FlaggedRevs::userCanSetFlags( $flags ) || $uneditable;
+		if ( $disabled ) {
+			$form .= Xml::openElement( 'div', array( 'class' => 'fr-rating-controls-disabled',
+				'id' => 'fr-rating-controls-disabled' ) );
+			$toggle = array( 'disabled' => "disabled" );
+		} else {
+			$form .= Xml::openElement( 'div', array( 'class' => 'fr-rating-controls',
+				'id' => 'fr-rating-controls' ) );
+			$toggle = array();
+		}
+
+		# Add main checkboxes/selects
+		$form .= Xml::openElement( 'span', array( 'id' => 'mw-fr-ratingselects' ) );
+		$form .= self::ratingInputs( $flags, $disabled, (bool)$frev );
+		$form .= Xml::closeElement( 'span' );
+		# Add review notes input
+		if ( FlaggedRevs::allowComments() && $wgUser->isAllowed( 'validate' ) ) {
+			$form .= "<div id='mw-fr-notebox'>\n";
+			$form .= "<p>" . wfMsgHtml( 'revreview-notes' ) . "</p>\n";
+			$form .= Xml::openElement( 'textarea',
+				array( 'name' => 'wpNotes', 'id' => 'wpNotes',
+					'class' => 'fr-notes-box', 'rows' => '2', 'cols' => '80' ) ) .
+				htmlspecialchars( $reviewNotes ) .
+				Xml::closeElement( 'textarea' ) . "\n";
+			$form .= "</div>\n";
+		}
+
+		# Get versions of templates/files used
+		$imageParams = $templateParams = $fileVersion = '';
+		if ( $getPOut ) {
+			$pOutput = false;
+			# Current version: try parser cache
+			if ( $rev->isCurrent() ) {
+				$parserCache = ParserCache::singleton();
+				$pOutput = $parserCache->get( $article, $wgUser );
+			}
+			# Otherwise (or on cache miss), parse the rev text...
+			if ( $pOutput == false ) {
+				global $wgParser, $wgEnableParserCache;
+				$text = $rev->getText();
+				$title = $article->getTitle();
+				$options = FlaggedRevs::makeParserOptions();
+				$pOutput = $wgParser->parse( $text, $title, $options );
+				# Might as well save the cache while we're at it
+				if ( $rev->isCurrent() && $wgEnableParserCache ) {
+					$parserCache->save( $pOutput, $article, $wgUser );
+				}
+			}
+			$templateIDs = $pOutput->mTemplateIds;
+			$imageSHA1Keys = $pOutput->fr_ImageSHA1Keys;
+		}
+		list( $templateParams, $imageParams, $fileVersion ) =
+			FlaggedRevs::getIncludeParams( $article, $templateIDs, $imageSHA1Keys );
+
+		$form .= Xml::openElement( 'span', array( 'style' => 'white-space: nowrap;' ) );
+		# Hide comment input if needed
+		if ( !$disabled ) {
+			if ( count( FlaggedRevs::getDimensions() ) > 1 )
+				$form .= "<br />"; // Don't put too much on one line
+			$form .= "<span id='mw-fr-commentbox' style='clear:both'>" .
+				Xml::inputLabel( wfMsg( 'revreview-log' ), 'wpReason', 'wpReason', 35, '',
+					array( 'class' => 'fr-comment-box' ) ) . "&nbsp;&nbsp;&nbsp;</span>";
+		}
+		# Add the submit buttons
+		$form .= self::submitButtons( $frev, (bool)$toggle, $allowRereview );
+		# Show stability log if there is anything interesting...
+		if ( $article->isPageLocked() ) {
+			$form .= ' ' . FlaggedRevsXML::logToggle( 'revreview-log-toggle-show' );
+		}
+		$form .= Xml::closeElement( 'span' );
+		# ..add the actual stability log body here
+	    if ( $article->isPageLocked() ) {
+			$form .= FlaggedRevsXML::stabilityLogExcerpt( $article );
+		}
+		$form .= Xml::closeElement( 'div' ) . "\n";
+
+		# Hidden params
+		$form .= Xml::hidden( 'title', $reviewTitle->getPrefixedText() ) . "\n";
+		$form .= Xml::hidden( 'target', $article->getTitle()->getPrefixedDBKey() ) . "\n";
+		$form .= Xml::hidden( 'oldid', $id ) . "\n";
+		$form .= Xml::hidden( 'action', 'submit' ) . "\n";
+		$form .= Xml::hidden( 'wpEditToken', $wgUser->editToken() ) . "\n";
+		# Add review parameters
+		$form .= Xml::hidden( 'templateParams', $templateParams ) . "\n";
+		$form .= Xml::hidden( 'imageParams', $imageParams ) . "\n";
+		$form .= Xml::hidden( 'fileVersion', $fileVersion ) . "\n";
+		# Pass this in if given; useful for new page patrol
+		$form .= Xml::hidden( 'rcid', $wgRequest->getVal( 'rcid' ) ) . "\n";
+		# Special token to discourage fiddling...
+		$checkCode = self::validationKey(
+			$templateParams, $imageParams, $fileVersion, $id
+		);
+		$form .= Xml::hidden( 'validatedParams', $checkCode ) . "\n";
+
+		$form .= Xml::closeElement( 'fieldset' );
+		$form .= Xml::closeElement( 'form' );
+		return $form;
+	}
+
+	/**
+	 * @param array $flags, selected flags
+	 * @param bool $disabled, form disabled
+	 * @param bool $reviewed, rev already reviewed
+	 * @returns string
+	 * Generates a main tag inputs (checkboxes/radios/selects) for review form
+	 */
+	private static function ratingInputs( $flags, $disabled, $reviewed ) {
+		$form = '';
+		# Get all available tags for this page/user
+		list( $labels, $minLevels ) = self::ratingFormTags( $flags );
+		if ( $labels === false ) {
+			$disabled = true; // a tag is unsettable
+		}
+		$dimensions = FlaggedRevs::getDimensions();
+		$tags = array_keys( $dimensions );
+		# If there are no tags, make one checkbox to approve/unapprove
+		if ( FlaggedRevs::binaryFlagging() ) {
+			return '';
+		}
+		$items = array();
+		# Build rating form...
+		if ( $disabled ) {
+			// Display the value for each tag as text
+			foreach ( $dimensions as $quality => $levels ) {
+				$selected = isset( $flags[$quality] ) ? $flags[$quality] : 0;
+				$items[] = "<b>" . FlaggedRevs::getTagMsg( $quality ) . ":</b> " .
+					FlaggedRevs::getTagValueMsg( $quality, $selected );
+			}
+		} else {
+			$size = count( $labels, 1 ) - count( $labels );
+			foreach ( $labels as $quality => $levels ) {
+				$item = '';
+				$numLevels = count( $levels );
+				$minLevel = $minLevels[$quality];
+				# Determine the level selected by default
+				if ( !empty( $flags[$quality] ) && isset( $levels[$flags[$quality]] ) ) {
+					$selected = $flags[$quality]; // valid non-zero value
+				} else {
+					$selected = $minLevel;
+				}
+				# Show label as needed
+				if ( !FlaggedRevs::binaryFlagging() ) {
+					$item .= "<b>" . Xml::tags( 'label', array( 'for' => "wp$quality" ),
+						FlaggedRevs::getTagMsg( $quality ) ) . ":</b>\n";
+				}
+				# If the sum of qualities of all flags is above 6, use drop down boxes.
+				# 6 is an arbitrary value choosen according to screen space and usability.
+				if ( $size > 6 ) {
+					$attribs = array( 'name' => "wp$quality", 'id' => "wp$quality",
+						'onchange' => "FlaggedRevs.updateRatingForm()" );
+					$item .= Xml::openElement( 'select', $attribs );
+					foreach ( $levels as $i => $name ) {
+						$optionClass = array( 'class' => "fr-rating-option-$i" );
+						$item .= Xml::option( FlaggedRevs::getTagMsg( $name ), $i,
+							( $i == $selected ), $optionClass ) . "\n";
+					}
+					$item .= Xml::closeElement( 'select' ) . "\n";
+				# If there are more than two levels, current user gets radio buttons
+				} elseif ( $numLevels > 2 ) {
+					foreach ( $levels as $i => $name ) {
+						$attribs = array( 'class' => "fr-rating-option-$i",
+							'onchange' => "FlaggedRevs.updateRatingForm()" );
+						$item .= Xml::radioLabel( FlaggedRevs::getTagMsg( $name ), "wp$quality",
+							$i,	"wp$quality" . $i, ( $i == $selected ), $attribs ) . "\n";
+					}
+				# Otherwise make checkboxes (two levels available for current user)
+				} else if ( $numLevels == 2 ) {
+					$i = $minLevel;
+					$attribs = array( 'class' => "fr-rating-option-$i",
+						'onchange' => "FlaggedRevs.updateRatingForm()" );
+					$attribs = $attribs + array( 'value' => $i );
+					$item .= Xml::checkLabel( wfMsg( 'revreview-' . $levels[$i] ),
+						"wp$quality", "wp$quality", ( $selected == $i ), $attribs ) . "\n";
+				}
+				$items[] = $item;
+			}
+		}
+		# Wrap visible controls in a span
+		$form = Xml::openElement( 'span', array( 'class' => 'fr-rating-options' ) ) . "\n";
+		$form .= implode( '&nbsp;&nbsp;&nbsp;', $items );
+		$form .= Xml::closeElement( 'span' ) . "\n";
+		return $form;
+	}
+
+	private static function ratingFormTags( $selected ) {
+		$labels = array();
+		$minLevels = array();
+		# Build up all levels available to user
+		foreach ( FlaggedRevs::getDimensions() as $tag => $levels ) {
+			if ( isset( $selected[$tag] ) &&
+				!FlaggedRevs::userCanSetTag( $tag, $selected[$tag] ) )
+			{
+				return array( false, false ); // form will have to be disabled
+			}
+			$labels[$tag] = array(); // applicable tag levels
+			$minLevels[$tag] = false; // first non-zero level number
+			foreach ( $levels as $i => $msg ) {
+				# Some levels may be restricted or not applicable...
+				if ( !FlaggedRevs::userCanSetTag( $tag, $i ) ) {
+					continue; // skip this level
+				} else if ( $i > 0 && !$minLevels[$tag] ) {
+					$minLevels[$tag] = $i; // first non-zero level number
+				}
+				$labels[$tag][$i] = $msg; // set label
+			}
+			if ( !$minLevels[$tag] ) {
+				return array( false, false ); // form will have to be disabled
+			}
+		}
+		return array( $labels, $minLevels );
+	}
+
+	/**
+	 * @param FlaggedRevision $frev, the flagged revision, if any
+	 * @param bool $disabled, is the form disabled?
+	 * @param bool $rereview, force the review button to be usable?
+	 * @returns string
+	 * Generates one or two button submit for the review form
+	 */
+	private static function submitButtons( $frev, $disabled, $rereview = false ) {
+		$disAttrib = array( 'disabled' => 'disabled' );
+		# Add the submit button
+		if ( FlaggedRevs::binaryFlagging() ) {
+			# We may want to re-review to change the notes ($wgFlaggedRevsComments)
+			$s = Xml::submitButton( wfMsg( 'revreview-submit-review' ),
+				array(
+					'name'  	=> 'wpApprove',
+					'id' 		=> 'mw-fr-submitreview',
+					'accesskey' => wfMsg( 'revreview-ak-review' ),
+					'title' 	=> wfMsg( 'revreview-tt-flag' ) . ' [' .
+						wfMsg( 'revreview-ak-review' ) . ']'
+				) + ( ( $disabled || ( $frev && !$rereview ) ) ? $disAttrib : array() )
+			);
+			$s .= ' ';
+			$s .= Xml::submitButton( wfMsg( 'revreview-submit-unreview' ),
+				array(
+					'name'  => 'wpUnapprove',
+					'id' 	=> 'mw-fr-submitunreview',
+					'title' => wfMsg( 'revreview-tt-unflag' )
+				) + ( ( $disabled || !$frev ) ? $disAttrib : array() )
+			);
+		} else {
+			$s = Xml::submitButton( wfMsg( 'revreview-submit' ),
+				array(
+					'id' 		=> 'mw-fr-submitreview',
+					'accesskey' => wfMsg( 'revreview-ak-review' ),
+					'title' 	=> wfMsg( 'revreview-tt-review' ) . ' [' .
+						wfMsg( 'revreview-ak-review' ) . ']'
+				) + ( $disabled ? $disAttrib : array() )
+			);
+		}
+		return $s;
+	}
 
 	public function approvalSuccessHTML( $showlinks = false ) {
 		global $wgUser;
