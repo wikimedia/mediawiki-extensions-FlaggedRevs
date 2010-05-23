@@ -1100,7 +1100,7 @@ class FlaggedArticleView {
 		global $wgRequest, $wgOut;
 	 	$tabs = array(
 	 		'read' => array( // view stable
-				'text'  => wfMsg( 'revreview-stable' ), // unused
+				'text'  => '', // unused
 				'href'  => $fa->getTitle()->getLocalUrl( 'stable=1' ),
 	 			'class' => ''
 	 		),

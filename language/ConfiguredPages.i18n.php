@@ -19,7 +19,7 @@ Some settings might change which version is displayed to readers or further rest
 	'configuredpages-prec-quality'  => 'latest quality',
 	'configuredpages-prec-pristine' => 'latest pristine',
 	'configuredpages-def-draft'     => 'latest version',
-	'configuredpages-def-stable'    => 'published version',
+	'configuredpages-def-stable'    => 'accepted version',
 );
 
 /** Message documentation (Message documentation)

@@ -9,7 +9,8 @@ $messages = array();
 
 $messages['en'] = array(
 	'stablepages'               => 'Pages using edit approval',
-	'stablepages-text'          => 'Below is a list of pages that are restricted so that only certain users can make edits that don\'t require review. Such edits are not published until an authorized user reviews them.',
+	'stablepages-text'          => 'Below is a list of pages that are restricted so that only certain users can make edits that don\'t require review.
+Such edits are not accepted until an authorized user reviews them.',
 	'stablepages-none'          => 'There are no pages in this list.',
 	'stablepages-config'        => 'Configuration',
 );
