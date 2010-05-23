@@ -422,8 +422,8 @@ $messages['ko'] = array(
 	'configuredpages-none' => '이 목록에 문서가 없습니다.',
 	'configuredpages-config' => '설정',
 	'configuredpages-precedence' => '우선 순위:',
-	'configuredpages-prec-none' => '최근 검토된 판',
-	'configuredpages-prec-quality' => '최근의 양질 문서',
+	'configuredpages-prec-none' => '최근 검토된 문서',
+	'configuredpages-prec-quality' => '최근의 고품질 문서',
 	'configuredpages-prec-pristine' => '최근의 깨끗한 문서',
 	'configuredpages-def-draft' => '최신 버전',
 	'configuredpages-def-stable' => '공개된 버전',
@@ -759,10 +759,12 @@ $messages['vep'] = array(
 
 /** Vietnamese (Tiếng Việt)
  * @author Minh Nguyen
+ * @author Trần Nguyễn Minh Huy
  */
 $messages['vi'] = array(
 	'configuredpages-none' => 'Danh sách không có trang nào.',
 	'configuredpages-config' => 'Thiết lập',
+	'configuredpages-precedence' => 'Bản trước:',
 	'configuredpages-prec-none' => 'không có bản trước',
 	'configuredpages-prec-quality' => 'bản chất lượng trước',
 	'configuredpages-prec-pristine' => 'bản trong sạch trước',

@@ -683,6 +683,8 @@ $messages['km'] = array(
 $messages['ko'] = array(
 	'reviewedpages' => '검토된 문서',
 	'reviewedpages-leg' => '검토된 문서들의 목록',
+	'reviewedpages-list' => "이 목록은 특정 판에 대하여 등급이 가장 ''높은 수준''으로 평가된 것이 주어진 등급에 해당하는 [[{{MediaWiki:Validationpage}}|검토]]된 문서를 포함하고 있습니다.
+해당 수준에서 가장 최근의 편집에 대한 링크가 주어져 있습니다.",
 	'reviewedpages-none' => '이 목록에 문서가 없습니다.',
 	'reviewedpages-all' => '검토된 버전',
 	'reviewedpages-best' => '최고 판',
@@ -1183,14 +1185,15 @@ $messages['tk'] = array(
  */
 $messages['tl'] = array(
 	'reviewedpages' => 'Nasuring mga pahina',
-	'reviewedpages-leg' => 'Nagtatala ng mga pahina ayon sa pinakamataas na antas',
-	'reviewedpages-list' => 'Nasuri na ang sumusunod na mga pahina magpahanggang sa tinukoy na antas',
+	'reviewedpages-leg' => 'Itala ang mga pahinang nasuri na',
+	'reviewedpages-list' => "Naglalaman ang kawing na ito ng [[{{MediaWiki:Validationpage}}|nasuring]]  mga pahina na ang ''pinakamataas na naabot'' na antas ng pagsusuri (ng isang rebisyon) ay ang antas na tinukoy.  
+Ibinigay ang isang kawing papunta sa pinahakuling pagbabago ng ganyang antas.",
 	'reviewedpages-none' => 'Walang mga pahina sa loob ng talaang ito',
 	'reviewedpages-lev-0' => 'Namataan na',
 	'reviewedpages-lev-1' => 'Kaantasan ng uri (kalidad)',
 	'reviewedpages-lev-2' => 'Naitampok (itinangi)',
 	'reviewedpages-all' => 'mga bersyong nasuri na',
-	'reviewedpages-best' => 'nangungunang pagbabago',
+	'reviewedpages-best' => 'pinakamainam na pagbabago',
 );
 
 /** Turkish (Türkçe)

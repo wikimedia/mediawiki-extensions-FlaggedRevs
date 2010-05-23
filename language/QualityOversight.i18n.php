@@ -557,7 +557,7 @@ $messages['tk'] = array(
  * @author AnakngAraw
  */
 $messages['tl'] = array(
-	'qualityoversight' => 'Pagiingat na pangkaantasan ng uri (kalidad)',
+	'qualityoversight' => 'Masulong na talaan ng pagsusuri',
 	'qualityoversight-list' => 'Nagtatala ang pahinang ito ng pinakakamakailan lamang na mga pagpayag at pagbaba ng halaga/katururan ng mga pagbabago.',
 	'qualityoversight-legend' => 'Maghanap sa mga talaan ng mga kamakailang pagsusuri',
 );

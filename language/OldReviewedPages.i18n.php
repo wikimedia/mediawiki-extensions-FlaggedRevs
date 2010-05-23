@@ -933,12 +933,15 @@ $messages['kn'] = array(
  */
 $messages['ko'] = array(
 	'oldreviewedpages' => '보류중인 편을 가지고 있는 문서',
+	'oldreviewedpages-legend' => '검토 대기 중인 편집이 있는 검토된 문서의 목록',
+	'oldreviewedpages-list' => '이 페이지에서는 검토 대기 중인 {{PLURAL:$1|편집}}이 있는 검토된 문서를 나열하고 있습니다.',
 	'oldreviewedpages-none' => '조건에 맞는 문서가 없습니다.',
 	'oldreviewedpages-hours' => '($1시간 전)',
 	'oldreviewedpages-days' => '($1일 전)',
 	'oldreviewedpages-recent' => '(1시간 미만)',
 	'oldreviewed-category' => '분류:',
 	'oldreviewed-watched' => '내가 주시하고 있는 문서',
+	'oldreviewed-stable' => '검토 설정이 된 문서',
 	'oldreviewed-diff' => '검토',
 	'oldreviewed-size' => '최대 변화량 (바이트):',
 	'oldreviewedpages-unwatched' => '(주시되지 않음)',
@@ -1537,7 +1540,7 @@ $messages['tk'] = array(
  * @author AnakngAraw
  */
 $messages['tl'] = array(
-	'oldreviewedpages' => 'Wala na sa panahong nasuring mga pahina',
+	'oldreviewedpages' => 'Mga pahinang may nakaabang na mga pagbabago',
 	'oldreviewedpages-legend' => 'Nagtatala ng mga pahinang nasuri na ngunit may mga pagbabagong naghihintay na lamang na masuri pang muli',
 	'oldreviewedpages-list' => 'Itinatala ng pahinang ito ang mga nasuring nang mga pahina na mayroong naghihintay na mga pagbabago.',
 	'oldreviewedpages-none' => 'Sa kasalukuyan, walang mga pahinang umaabot sa ganitong mga kaurian',

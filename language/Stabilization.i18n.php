@@ -241,7 +241,7 @@ $messages['an'] = array(
 No ye posible confegurar-la.',
 	'stabilization-notcontent' => 'A pachina "[[:$1|$1]]" no se puede rebisar.
 No ye posible confegurar-la.',
-	'stabilization-comment' => 'Comentario:',
+	'stabilization-comment' => 'Razón:',
 	'stabilization-otherreason' => 'Atra razón:',
 	'stabilization-expiry' => 'Zircunduze:',
 	'stabilization-sel-short' => 'Prezendenzia',
@@ -551,7 +551,11 @@ $messages['bn'] = array(
  * @author Y-M D
  */
 $messages['br'] = array(
+	'stabilization-tab' => 'argas',
 	'stabilization' => 'Stabiladur ar bajenn',
+	'stabilization-text' => "'''Cheñch ar c'hefluniadur dindan da spisaat an doare ma vez diuzet ha diskwelet stumm embannet [[:\$1|\$1]].'''
+
+'''Notenn :''' pa vez cheñchet ''diuzadenn ar stumm embannet'' da gavout gwell stummoù \"perzhded\" pe \"deraouiñ\" ne vez tamm efed ebet ma n'eus ket eus ar stummoù-se. Notit ivez ervat e seller ouzh ur stumm \"perzhded\" evel ouzh stumm \"gwiriet\" ha kement zo.",
 	'stabilization-perm' => "N'eo ket aotreet ho kont da gemmañ arventennoù ar stumm embannet.
 Setu an arventennoù red eus [[:$1|$1]] :",
 	'stabilization-page' => 'Anv ar bajenn :',
@@ -559,6 +563,8 @@ Setu an arventennoù red eus [[:$1|$1]] :",
 	'stabilization-select' => 'kentwir diuzadur ar stumm embannet',
 	'stabilization-select1' => 'An adweladenn ziwezhañ a galite, mod all ar stumm bet gwelet da ziwezhañ',
 	'stabilization-select2' => 'An adweladenn ziwezhañ bet gwiriet',
+	'stabilization-select3' => "Stumm klok diwezhañ; ma n'ues ket, neuze an hini mat diwezhañ pe adlennet da ziwezhañ",
+	'stabilization-def' => 'Stumm diskwelet er mod diskwel dre ziouer',
 	'stabilization-def1' => 'Ar stumm embannet ma vez; a-hend-all lakaat ar stumm red pe ar brouilhed',
 	'stabilization-def2' => 'Ar stumm red pe ar brouilhed',
 	'stabilization-restrict' => 'Strishadurioù adlenn/adlenn emgefre',
@@ -579,8 +585,15 @@ N\'haller ket kefluniañ netra.',
 	'stabilization-def-short' => 'Dre ziouer',
 	'stabilization-def-short-0' => 'Red',
 	'stabilization-def-short-1' => 'Embannet',
+	'stabilize_page_invalid' => 'Fall eo titl ar bajenn buket.',
+	'stabilize_page_notexists' => "N'eus ket eus ar bajenn buket.",
+	'stabilize_page_unreviewable' => "N'emañ ket ar bajenn buket en un esaouenn anv a c'haller adwelet",
+	'stabilize_invalid_precedence' => 'Urzh ar stumm direizh',
+	'stabilize_invalid_autoreview' => 'Strishadur adlenn emgefre direizh',
+	'stabilize_invalid_level' => 'Live gwareziñ direizh.',
 	'stabilize_expiry_invalid' => 'Direizh eo an deiziad termen.',
 	'stabilize_expiry_old' => 'Tremenet eo dija an amzer termen-se.',
+	'stabilize_denied' => "Aotre nac'het.",
 	'stabilize-expiring' => "Termenet d'an $1 (UTC)",
 	'stabilization-review' => 'Merkañ ar stumm red evel adwelet.',
 );
@@ -1213,6 +1226,7 @@ Voici les paramètres actuels de [[:$1|$1]] :",
 	'stabilize_invalid_level' => 'Niveau de protection invalide.',
 	'stabilize_expiry_invalid' => "Date d'expiration invalide.",
 	'stabilize_expiry_old' => "Cette durée d'expiration est déjà écoulée.",
+	'stabilize_denied' => 'Permission refusée.',
 	'stabilize-expiring' => 'Expire le $1 (UTC)',
 	'stabilization-review' => 'Marquer la version actuelle comme vérifiée',
 );
@@ -1918,6 +1932,7 @@ $messages['ka'] = array(
 	'stabilize_expiry_invalid' => 'ვადის გასვლის არასწორი თარიღი.',
 	'stabilize_expiry_old' => 'მოქმედების ვადა გავიდა.',
 	'stabilize-expiring' => 'ვადა გასდის: $1 (UTC)',
+	'stabilization-review' => 'მონიშნეთ ამჟამინდელი ცვლილება შემოწმებულად',
 );
 
 /** Kazakh (Arabic script) (‫قازاقشا (تٴوتە)‬) */
@@ -2035,8 +2050,10 @@ $messages['kn'] = array(
  */
 $messages['ko'] = array(
 	'stabilization-tab' => '검토',
-	'stabilization' => '문서 안정화',
-	'stabilization-text' => "'''[[:$1]] 문서의 어떤 버전이 선택되어 안정 버전으로 보이게 할 것인지에 대한 설정을 바꾸시려면 아래 양식을 이용해주세요.'''",
+	'stabilization' => '문서 배포 설정',
+	'stabilization-text' => "'''[[:\$1|\$1]] 문서의 배포판을 어떻게 선택되어 보여질 지에 대한 설정을 아래 양식을 통해 바꿀 수 있습니다.'''
+
+'''참고:''' ''배포판 선택''을 \"고품질판\"이나 \"깨끗한 판\"으로 바꾸는 것은 그런 판이 없다면 아무런 효과가 없습니다. 그리고 \"고품질판\"이나 \"깨끗한 판\" 역시 \"검토된 판\"으로 간주됩니다.",
 	'stabilization-perm' => '당신의 계정은 게시 설정 변경을 할 수 있는 권한이 없습니다.
 [[:$1|$1]]에 현재 설정이 있습니다',
 	'stabilization-page' => '문서 이름:',
@@ -2167,8 +2184,11 @@ Et ass keng Konfiguratioun méiglech.',
 	'stabilization-def-short' => 'Standard',
 	'stabilization-def-short-0' => 'Aktuell',
 	'stabilization-def-short-1' => 'Publizéiert',
+	'stabilize_page_invalid' => 'Den Titel vun der Zilsäit ass net valabel.',
+	'stabilize_page_notexists' => "D'Zilsäit gëtt et net",
 	'stabilize_expiry_invalid' => 'Net valabele Schlussdatum',
 	'stabilize_expiry_old' => 'Den Oflafdatum ass schonn eriwwer.',
+	'stabilize_denied' => 'Erlaabnes refuséiert',
 	'stabilize-expiring' => 'bis $1 (UTC)',
 	'stabilization-review' => 'Déi aktuell Versioun als nogekuckt markéieren',
 );
@@ -3539,7 +3559,7 @@ Narito ang pangkasalukuyang mga katakdaan para sa [[:$1|$1]]:',
 	'stabilization-def' => 'Ang pagbabagong ipinakita sa natatanaw na likas na nakatakdang pahina',
 	'stabilization-def1' => 'Ang matatag na pagbabago, kung, ang pangkasalukuyang isa na lamang',
 	'stabilization-def2' => 'Ang pangkasalukuyang pagbabago',
-	'stabilization-restrict' => 'Mga hangganan ng kusang pagsusuri',
+	'stabilization-restrict' => 'Mga hangganan ng pagsusuri/kusang pagsusuri',
 	'stabilization-restrict-none' => 'Walang karagdagang mga hangganan',
 	'stabilization-submit' => 'Tiyakin',
 	'stabilization-notexists' => 'Walang pahinang tinatawag na "[[:$1|$1]]".
@@ -3547,16 +3567,16 @@ Walang maaaring maging pagkakaayos (konpigurasyon).',
 	'stabilization-notcontent' => 'Hindi masusuri ang "[[:$1|$1]]".
 Walang maaaring maging pagkakaayos (konpigurasyon).',
 	'stabilization-comment' => 'Dahilan:',
-	'stabilization-otherreason' => 'Ibang dahilan',
+	'stabilization-otherreason' => 'Ibang dahilan:',
 	'stabilization-expiry' => 'Magtatapos sa:',
-	'stabilization-othertime' => 'Ibang oras',
+	'stabilization-othertime' => 'Ibang oras:',
 	'stabilization-sel-short' => 'Pagkakauna-una (pagkakasunud-sunod)',
 	'stabilization-sel-short-0' => 'Kaantasan ng uri (kalidad)',
 	'stabilization-sel-short-1' => 'Wala',
 	'stabilization-sel-short-2' => 'Dalisay (malinis)',
 	'stabilization-def-short' => 'Likas na nakatakda',
 	'stabilization-def-short-0' => 'Pangkasalukuyan',
-	'stabilization-def-short-1' => 'Matatag',
+	'stabilization-def-short-1' => 'Nalathala na',
 	'stabilize_expiry_invalid' => 'Hindi tanggap na petsa ng pagtatapos.',
 	'stabilize_expiry_old' => 'Lagpas na ang oras/panahon ng pagtatapos na ito.',
 	'stabilize-expiring' => 'magtatapos sa $1 (UTC)',
@@ -3761,6 +3781,7 @@ Ei voi järgeta.',
 
 /** Vietnamese (Tiếng Việt)
  * @author Minh Nguyen
+ * @author Trần Nguyễn Minh Huy
  * @author Vinhtantran
  */
 $messages['vi'] = array(
@@ -3800,8 +3821,12 @@ Không thể cấu hình.',
 	'stabilization-def-short' => 'Mặc định',
 	'stabilization-def-short-0' => 'Hiện hành',
 	'stabilization-def-short-1' => 'Ổn định',
+	'stabilize_page_invalid' => 'Tên trang đích không hợp lệ',
+	'stabilize_page_notexists' => 'Trang đích không tồn tại',
+	'stabilize_invalid_level' => 'Mức độ bảo vệ không hợp lệ.',
 	'stabilize_expiry_invalid' => 'Thời hạn không hợp lệ.',
 	'stabilize_expiry_old' => 'Thời hạn đã qua.',
+	'stabilize_denied' => 'Không cho phép.',
 	'stabilize-expiring' => 'hết hạn vào $1 (UTC)',
 	'stabilization-review' => 'Duyệt phiên bản hiện hành',
 );

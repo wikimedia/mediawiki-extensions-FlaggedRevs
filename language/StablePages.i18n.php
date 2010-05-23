@@ -429,7 +429,7 @@ $messages['km'] = array(
  * @author Kwj2772
  */
 $messages['ko'] = array(
-	'stablepages' => '편집 가능한 문서들',
+	'stablepages' => '편집 승인을 거치는 문서 목록',
 	'stablepages-text' => '다음은 문서에 제한이 걸려 있어 특정 사용자만 검토를 거치지 않고 편집을 할 수 있는 문서의 목록입니다. 편집한 내용은 권한이 있는 사용자가 검토하기 전까지는 공개되지 않습니다.',
 	'stablepages-none' => '이 목록에 문서가 없습니다.',
 	'stablepages-config' => '설정',
