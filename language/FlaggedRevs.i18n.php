@@ -208,7 +208,7 @@ Please check the URL you used to access this page.',
 	'stable-logentry-config'       => 'set acceptance settings for $1',
 	'stable-logentry-modify'       => 'changed acceptance settings for $1',
 	'stable-logentry-reset'        => 'reset acceptance settings for $1',
-	'stable-log-restriction'       => 'Auto-accept: require "$1" permission',
+	'stable-log-restriction'       => 'Auto-accept: requires "$1" permission',
 	'stable-logpage'               => 'Stability log',
 	'stable-logpagetext'           => 'This is a log of changes to the [[{{MediaWiki:Validationpage}}|accepted version]] configuration of content pages.',
 	
