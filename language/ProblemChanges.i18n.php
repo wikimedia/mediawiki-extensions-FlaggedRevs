@@ -622,6 +622,16 @@ $messages['tk'] = array(
 	'problemchanges-category' => 'Kategoriýa:',
 );
 
+/** Tagalog (Tagalog)
+ * @author AnakngAraw
+ */
+$messages['tl'] = array(
+	'problemchanges' => 'Tinatakang mga pagbabagong naghihintay',
+	'problemchanges-legend' => 'Itala ang mga pahinang may tinatakang mga pagbabago na naghihintay ng pagsusuri',
+	'problemchanges-none' => 'Kasalukuyang walang mga pahinang ummabot sa ganitong mga kategorya',
+	'problemchanges-category' => 'Kaurian:',
+);
+
 /** Turkish (Türkçe)
  * @author Joseph
  */

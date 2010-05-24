@@ -305,6 +305,7 @@ $messages['da'] = array(
 );
 
 /** German (Deutsch)
+ * @author Kghbln
  * @author Raimond Spekking
  * @author Umherirrender
  */
@@ -315,7 +316,7 @@ $messages['de'] = array(
 	'unreviewed-diff' => 'sichten',
 	'unreviewed-unwatched' => '(unbeobachtet)',
 	'unreviewed-watched' => '(von $1 {{PLURAL:$1|aktivem Benutzer|aktiven Benutzern}} beobachtet)',
-	'unreviewed-list' => 'Diese Spezialseite zeigt Seiten, die bisher noch nicht mit dem angegebenem Level markiert wurden.',
+	'unreviewed-list' => 'Diese Spezialseite zeigt Seiten, die bisher noch nicht in der angegebenen Stufe markiert wurden.',
 	'unreviewed-none' => 'Es gibt keine Seiten, die den eingegebenen Kriterien entsprechen.',
 	'unreviewed-viewing' => '(wird überprüft)',
 	'unreviewed-hours' => '($1 {{PLURAL:$1|Stunde|Stunden}})',

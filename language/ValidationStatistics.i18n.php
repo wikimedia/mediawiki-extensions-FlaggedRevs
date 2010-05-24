@@ -1058,8 +1058,10 @@ $messages['ka'] = array(
 	'validationstatistics-users' => "'''{{SITENAME}}-ს''' ამჟამად ჰყავს '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|მომხმარებელი|მომხმარებელი}} [[{{MediaWiki:Validationpage}}|რედაქტორის]] უფლებებით.
 
 რედაქტორები არისნ მომხმარებლები, რომელთაც შეუძლიათ სტატიის ცვლილებების შემოწმება.",
+	'validationstatistics-table' => "სტატისტიკა თითოეული სახელთა სივრცისათვის ნაჩვენებია ქვემოთ, ''გარდა'' გადამისამართების გვერდებისა.",
 	'validationstatistics-ns' => 'სახელთა სივრცე',
 	'validationstatistics-total' => 'გვერდები',
+	'validationstatistics-stable' => 'შემოწმებულია',
 	'validationstatistics-user' => 'მომხმარებელი',
 );
 
