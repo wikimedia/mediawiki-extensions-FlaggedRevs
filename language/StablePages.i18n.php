@@ -120,7 +120,8 @@ $messages['bg'] = array(
  */
 $messages['br'] = array(
 	'stablepages' => "Pajennoù oc'h implijout kadarnadur ar c'hemmoù",
-	'stablepages-text' => "A-is ez eus ur roll pajennoù strishaet o implij a c'hall bezañ kemmet gant implijerien zo hepken hep na vije ezhomm d'o adlenn. Ne vo embannet ar c'hemmoù-se nemet pa vint bet adlennet gant un aozer aotreet evit se.",
+	'stablepages-text' => "A-is ez eus ur roll pajennoù strishaet o implij a c'hall bezañ kemmet, gant implijerien zo hepken, hep na vije ezhomm d'o adlenn. 
+Ne vo degemeret ar c'hemmoù-se nemet pa vint bet adlennet gant un aozer aotreet evit se.",
 	'stablepages-none' => "N'eus pajenn ebet er roll-mañ.",
 	'stablepages-config' => 'Kefluniañ',
 );
@@ -186,7 +187,7 @@ $messages['diq'] = array(
  */
 $messages['dsb'] = array(
 	'stablepages' => 'Boki, kótarež wužywaju pśizwólenje změnow',
-	'stablepages-text' => 'Slědujo lisćina bokow, kótarež su wobgranicowane, tak až wěste wužywarje mógu změny cyniś, kótarež njepominaju se pśeglědanje. Take změny su se wózjawili, až awtorizěrowany wužywaŕ je njepśeglědujo.',
+	'stablepages-text' => 'Slědujo lisćina bokow, kótarež su wobgranicowane, tak až wěste wužywarje mógu změny cyniś, kótarež njepominaju se pśeglědanje. Take změny se njeakceptěruju, až awtorizěrowany wužywaŕ je njepśeglědujo.',
 	'stablepages-none' => 'Toś ta lisćina njewopśimujo boki',
 	'stablepages-config' => 'Konfiguracija',
 );
@@ -220,7 +221,7 @@ $messages['eo'] = array(
  */
 $messages['es'] = array(
 	'stablepages' => 'Páginas usando aprobación para la edición',
-	'stablepages-text' => 'Debajo se muestra una lista de páginas que están restringidas de modo que sólo determinados usuarios pueden realizar ediciones que no necesitan revisión posterior. Dichas ediciones no son publicadas hasta que un usuario revisor autorizado las revise.',
+	'stablepages-text' => '!Debajo se muestra una lista de páginas que están restringidas de modo que sólo determinados usuarios pueden realizar ediciones que no necesitan revisión posterior. Dichas ediciones no son aceptadas hasta que un usuario revisor autorizado las revise.',
 	'stablepages-none' => 'No hay páginas en esta lista',
 	'stablepages-config' => 'Configuración',
 );
