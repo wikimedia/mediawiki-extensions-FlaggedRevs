@@ -1098,7 +1098,7 @@ class FlaggedRevsHooks {
 			$revId = $rc->mAttribs['rc_this_oldid'];
 			$quality = FlaggedRevs::getRevQuality( $rc->mAttribs['rc_cur_id'], $revId, FR_MASTER );
 			if ( $quality !== false && $quality >= FR_SIGHTED ) {
-				RevisionReview::updateRecentChanges( $rc->getTitle(), $revId );
+				RevisionReviewForm::updateRecentChanges( $rc->getTitle(), $revId );
 				$rc->mAttribs['rc_patrolled'] = 1; // make sure irc/email notifs know status
 			}
 			return true;
