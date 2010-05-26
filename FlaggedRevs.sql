@@ -46,7 +46,7 @@ CREATE TABLE IF NOT EXISTS /*_*/flaggedrevs (
   -- Foreign key to revision.rev_id
   fr_rev_id integer unsigned NOT NULL,
   -- Foreign key to user.user_id
-  fr_user int(5) NOT NULL,
+  fr_user integer unsigned NOT NULL,
   fr_timestamp char(14) NOT NULL,
   fr_comment mediumblob NOT NULL,
   -- Store the precedence level
