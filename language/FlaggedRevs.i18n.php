@@ -205,6 +205,7 @@ Please check the URL you used to access this page.',
 	'rights-editor-revoke'         => 'removed editor status from [[$1]]', # B/C
 	'specialpages-group-quality'   => 'Flagged protection',
 	'stable-logentry-config'       => 'configured Pending Revision settings for [[$1]]',
+	'stable-logentry-modify'       => 'changed acceptance settings for $1',
 	'stable-logentry-reset'        => 'reset Pending Revision settings for [[$1]]',
 	'stable-log-restriction'       => 'Accept: require "$1" permission',
 	'stable-logpage'               => 'Flagged protection log',
