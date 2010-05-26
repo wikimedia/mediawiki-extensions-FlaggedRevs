@@ -14,21 +14,19 @@ $messages['en'] = array(
 Editors are established users that can spot-check revisions to pages.',
 	'validationstatistics-time'   => '\'\'The following data was last updated on $5 at $6.\'\'
 
-Revisions that have been reviewed and accepted by established users are marked as "accepted".
+Edits that have been checked by established users are considered to be reviewed.
 
-\'\'Non-reviewer accounts\'\' are accounts that do not yet have the ability to review and accept new revisions.  This currently is comprised of anonymous users and users with new accounts.
-
-The average wait for revisions by \'\'non-reviewer accounts\'\' to be reviewed is \'\'\'$1\'\'\'; the median is \'\'\'$3\'\'\'. 
+The average wait for edits by \'\'users that have not logged in\'\' to be reviewed is \'\'\'$1\'\'\'; the median is \'\'\'$3\'\'\'. 
 $4
-The average wait for [[Special:OldReviewedPages|pages with pending revisions]] is \'\'\'$2\'\'\'.
-These pages are considered \'\'outdated\'\'. Likewise, pages are considered \'\'fully reviewed\'\' if there are no pending revisions.
-The latest accepted version of a page is the newest revision that has been reviewed and accepted by established users.  This page will show by default to all readers.',
+The average lag for [[Special:OldReviewedPages|pages with unreviewed edits pending]] is \'\'\'$2\'\'\'.
+These pages are considered \'\'outdated\'\'. Likewise, pages are considered \'\'synchronized\'\' if there are no edits pending review.
+The accepted version of a page is the newest revision that has been approved to show by default to all readers.',
 	'validationstatistics-table'  => "Statistics for each namespace are shown below, ''excluding'' redirect pages.",
 	'validationstatistics-ns'     => 'Namespace',
 	'validationstatistics-total'  => 'Pages',
-	'validationstatistics-stable' => 'Under flagged protection (pct of all articles)',
-	'validationstatistics-latest' => 'Fully reviewed',
-	'validationstatistics-synced' => 'Fully reviewed of all flagged protection',
+	'validationstatistics-stable' => 'Reviewed',
+	'validationstatistics-latest' => 'Synced',
+	'validationstatistics-synced' => 'Synced/Reviewed',
 	'validationstatistics-old'    => 'Outdated',
 	'validationstatistics-utable' => 'Below is the list of top 5 reviewers in the last hour.',
 	'validationstatistics-user'   => 'User',
@@ -461,13 +459,13 @@ $4
 $messages['en-gb'] = array(
 	'validationstatistics-time' => "''The following data was last updated on $5 at $6.''
 
-Edits that have been reviewed and accepted by established users are marked as \"accepted\".
+Edits that have been checked by established users are considered to be reviewed.
 
 The average wait for edits by ''users that have not logged in'' to be reviewed is '''$1'''; the median is '''$3'''.  
 $4
 The average lag for [[Special:OldReviewedPages|pages with unreviewed edits pending]] is '''$2'''.
 These pages are considered ''outdated''. Likewise, pages are considered ''synchronised'' if there are no edits pending review.
-The latest accepted version of a page is the newest revision that has been reviewed and accepted by established users.  This page will show by default to all readers.",
+The accepted version of a page is the newest revision that has been approved to show by default to all readers.",
 );
 
 /** Esperanto (Esperanto)
