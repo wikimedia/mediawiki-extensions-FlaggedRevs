@@ -870,8 +870,15 @@ $messages['dsb'] = array(
 	'stabilization-def-short' => 'Standard',
 	'stabilization-def-short-0' => 'Aktualny',
 	'stabilization-def-short-1' => 'Wózjawjony',
+	'stabilize_page_invalid' => 'Titel celowego boka jo njepłaśiwy.',
+	'stabilize_page_notexists' => 'Celowy bok njeeksistěrujo.',
+	'stabilize_page_unreviewable' => 'Celowy bok njejo w pśeglědujobnem mjenjowem rumje.',
+	'stabilize_invalid_precedence' => 'Njepłaśiwa wersijowa priorita.',
+	'stabilize_invalid_autoreview' => 'Njepłaśiwe wobgranicowanje awtomatiskich pśeglědanjow.',
+	'stabilize_invalid_level' => 'Njepłaśiwy šćitowy schojźeńk.',
 	'stabilize_expiry_invalid' => 'Njpłaśiwy datum pśepadnjenja.',
 	'stabilize_expiry_old' => 'Toś ten cas pśepadnjenja jo se južo minuł.',
+	'stabilize_denied' => 'Pšawo wótpokazane.',
 	'stabilize-expiring' => 'pśepadnjo $1 (UTC)',
 	'stabilization-review' => 'Aktualnu wersiju ako pśekontrolěrowanu markěrowaś',
 );
@@ -1708,6 +1715,7 @@ Nulle configuration es possibile.',
 /** Indonesian (Bahasa Indonesia)
  * @author Bennylin
  * @author Irwangatot
+ * @author Kenrick95
  * @author Rex
  */
 $messages['id'] = array(
@@ -1747,6 +1755,7 @@ Konfigurasi tak dapat diterapkan.',
 	'stabilization-def-short-1' => 'Stabil',
 	'stabilize_expiry_invalid' => 'Tanggal kadaluwarsa tak valid.',
 	'stabilize_expiry_old' => 'Tanggal kadaluwarsa telah terlewati.',
+	'stabilize_denied' => 'Hak ases ditolak',
 	'stabilize-expiring' => 'kadaluwarsa $1 (UTC)',
 	'stabilization-review' => 'Tinjau versi sekarang',
 );

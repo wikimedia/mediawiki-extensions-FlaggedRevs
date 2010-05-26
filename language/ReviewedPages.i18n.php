@@ -872,14 +872,14 @@ $messages['nso'] = array(
  */
 $messages['oc'] = array(
 	'reviewedpages' => 'Pagina passadas en revista',
-	'reviewedpages-leg' => 'Lista de las paginas per nivèl de relectura mai naut',
+	'reviewedpages-leg' => 'Far la lista de las paginas que son estadas relegidas',
 	'reviewedpages-list' => 'Aquesta pagina fa la lista de las paginas en revista (al mai) al nivèl especificat.',
 	'reviewedpages-none' => 'Aquesta lista es voida',
 	'reviewedpages-lev-0' => 'Visualizat',
 	'reviewedpages-lev-1' => 'De qualitat',
 	'reviewedpages-lev-2' => 'Mes en abans',
 	'reviewedpages-all' => 'versions passadas en revista',
-	'reviewedpages-best' => 'Revision principala',
+	'reviewedpages-best' => 'Melhor revision',
 );
 
 /** Polish (Polski)
