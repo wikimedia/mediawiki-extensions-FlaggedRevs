@@ -134,7 +134,7 @@ class FRCacheUpdate {
 }
 
 /**
- * @todo document (e.g. one-sentence top-level class description).
+ * Job class for handling deferred FRCacheUpdates
  * @ingroup JobQueue
  */
 class FRCacheUpdateJob extends Job {
