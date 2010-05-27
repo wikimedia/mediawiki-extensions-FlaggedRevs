@@ -2082,8 +2082,10 @@ class FlaggedRevsHooks {
 		} elseif ( !FlaggedRevs::inReviewNamespace( $article->getTitle() ) ) {
 			return true; // not a reviewable page
 		}
+		$form = new PageStabilityProtectForm();
+		$form->setPage( $article->getTitle() );
 		# Can the user actually do anything?
-		$isAllowed = $wgUser->isAllowed( 'stablesettings' );
+		$isAllowed = $form->isAllowed();
 		$disabledAttrib = $isAllowed ?
 			array() : array( 'disabled' => 'disabled' );
 		
