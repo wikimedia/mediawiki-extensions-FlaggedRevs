@@ -542,7 +542,8 @@ $messages['nn'] = array(
  */
 $messages['no'] = array(
 	'stablepages' => 'Sider som bruker redigeringsgodkjenning',
-	'stablepages-text' => 'Nedenfor er en liste over sider som er begrenset slik at bare enkelte brukere kan redigere uten krav om revidering. Slike bidrag blir ikke publisert før en autorisert bruker reviderer dem.',
+	'stablepages-text' => 'Nedenfor er en liste over sider som er begrenset slik at bare enkelte brukere kan redigere uten krav om revidering.
+Slike bidrag blir ikke akseptert før en autorisert bruker reviderer dem.',
 	'stablepages-none' => 'Det er ingen sider i denne listen',
 	'stablepages-config' => 'Konfigurering',
 );

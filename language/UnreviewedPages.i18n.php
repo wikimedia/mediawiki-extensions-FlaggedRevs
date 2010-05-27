@@ -1543,9 +1543,12 @@ $messages['tl'] = array(
 	'unreviewed-diff' => 'suriing muli',
 	'unreviewed-unwatched' => '(hindi binabantayan)',
 	'unreviewed-watched' => '($1 {{PLURAL:$1|tagagamit|mga tagagamit}} na nagmamasid)',
-	'unreviewed-list' => 'Nakatala sa pahinang ito ang mga pahina ng nilalaman na hindi pa nasusuring muli.',
+	'unreviewed-list' => 'Nakatala sa pahinang ito ang mga pahina ng nilalaman na hindi pa nasusuring muli para sa tinukoy na antas.',
 	'unreviewed-none' => 'Sa ngayon, wala pang mga pahinang nakakaabot sa ganitong mga kaurian (kategorya).',
 	'unreviewed-viewing' => '(nasa ilalim ng pagsusuri)',
+	'unreviewed-hours' => '($1 {{PLURAL:$1|oras|mga oras}})',
+	'unreviewed-days' => '($1 {{PLURAL:$1|araw|mga araw}})',
+	'unreviewed-recent' => '(mas mababa kaysa 1 oras)',
 );
 
 /** Turkish (Türkçe)
