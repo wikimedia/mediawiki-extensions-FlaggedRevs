@@ -510,12 +510,13 @@ $messages['sl'] = array(
 );
 
 /** Serbian Cyrillic ekavian (Српски (ћирилица))
+ * @author Charmed94
  * @author Millosh
  */
 $messages['sr-ec'] = array(
-	'qualityoversight' => 'Надгледање квалитета',
-	'qualityoversight-list' => 'На овој страни се налази списак скоро одобрених и потиснутих верзија.',
-	'qualityoversight-legend' => 'Претрага лога скорих прегледа.',
+	'qualityoversight' => 'Напредни преглед извештаја',
+	'qualityoversight-list' => 'На овој страни се налази списак недавно одобрених и потиснутих ревизија.',
+	'qualityoversight-legend' => 'Претрага извештаја недавних прегледа',
 );
 
 /** Serbian Latin ekavian (Srpski (latinica))

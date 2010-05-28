@@ -1843,16 +1843,19 @@ Durnukly wersiýalar sahypalaryň iň bolmanda bir sany kesgitli ulanyjy tarapyn
  * @author AnakngAraw
  */
 $messages['tl'] = array(
-	'validationstatistics' => 'Mga estadistika ng pagpapatunay (balidasyon)',
-	'validationstatistics-users' => "Ang '''{{SITENAME}}''' ay  pangkasalukuyang may '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|tagagamit|mga tagagamit}} na may karapatan bilang [[{{MediaWiki:Validationpage}}|Patnugot]] 
-at '''$2''' {{PLURAL:$2|tagagamit|mga tagagamit}} na may karapatan bilang [[{{MediaWiki:Validationpage}}|Tagapagsuri]].",
-	'validationstatistics-time' => "''Ang sumusunod na dato ay nakatago at maaaring wala na sa panahon.''
+	'validationstatistics' => 'Estadistika ng pagsusuri ng pahina',
+	'validationstatistics-users' => "Ang '''{{SITENAME}}''' ay  pangkasalukuyang may '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|tagagamit|mga tagagamit}} na may karapatan bilang [[{{MediaWiki:Validationpage}}|Patnugot]] .
 
-Ang karaniwang panahon ng paghihintay para sa mga pagbabago ng ''mga tagagamit na hindi lumalagdang papasok'' na susuriin pa ay '''$1'''; ang panggitnaan ay '''$3'''. 
+Ang mga patnugot ay mga matatagal nang mga tagagamit na makakasipat ng mga pagbabago sa mga pahina.",
+	'validationstatistics-time' => "''Ang sumusunod na dato ay huling naisapanahon noong $5 at $6.''
+
+Ang mga pagbabagong nasuri na ng matatagal nang mga tagagamit ay itinuturing nang nasuri.
+
+Ang karaniwang paghihintay para sa mga pagbabagong gawa ng ''mga tagagamit na hindi lumagdang papasok'' na susuriin ay '''$1'''; ang midyan ay '''$3'''. 
 $4
-Ang karaniwang panahon ng pagkakaiwan para sa [[Special:OldReviewedPages|mga pahinang may nakabinbing pagsusuri ng mga pagbabago]] ay '''$2'''.
-Ang mga pahinang ito itinuturing na ''wala na sa panahon''. Gayun din, ang mga pahina ay itinuturing na ''naisabay na'' kapag ang [[{{MediaWiki:Validationpage}}|matatag na bersyon]] ay siya ring pangkasalukuyang balangkas na bersyon.
-Ang matatatag na mga bersyon ay mga rebisyon ng mga pahinang nasuri ng kahit na isang kinikilalang tagagamit.",
+Ang karaniwang pagkahuli para sa [[Special:OldReviewedPages|mga pahinang may naghihintay na pagsusuri ng mga pagbabago]] ay '''$2'''.
+Itinuturing ang mga pahinang ito na ''wala na sa panahon''.  Gayundin, itinuturing na ''nakasabay na'' kung walang mga pagbabagong naghihintay ng pagsusuri.
+Ang tinanggap na bersyon ng isang pahina ay ang pinakabagong pagbabagong pinayagang maipakita sa lahat ng mga mambabasa ayon sa likas na pagkakatakda.",
 	'validationstatistics-table' => "Ipinapakita sa ibaba ang mga estadistika para sa bawat espasyo ng pangalan, ''hindi kasama'' ang mga pahinang tumuturo papunta sa ibang pahina.",
 	'validationstatistics-ns' => 'Espasyo ng pangalan',
 	'validationstatistics-total' => 'Mga pahina',
@@ -1860,6 +1863,9 @@ Ang matatatag na mga bersyon ay mga rebisyon ng mga pahinang nasuri ng kahit na 
 	'validationstatistics-latest' => 'Napagsabay na',
 	'validationstatistics-synced' => 'Pinagsabay-sabay/Nasuri nang muli',
 	'validationstatistics-old' => 'Wala na sa panahon (luma)',
+	'validationstatistics-utable' => 'Nasa ibaba ang talaan ng limang pinakamataas na manunuri sa loob ng huling oras.',
+	'validationstatistics-user' => 'Tagagamit',
+	'validationstatistics-reviews' => 'Mga pagsusuri',
 );
 
 /** Turkish (Türkçe)

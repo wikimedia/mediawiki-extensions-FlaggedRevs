@@ -699,11 +699,22 @@ $messages['tk'] = array(
 	'configuredpages-prec-pristine' => 'başky öňürtilik',
 );
 
-/** Tagalog (Tagalog) */
+/** Tagalog (Tagalog)
+ * @author AnakngAraw
+ */
 $messages['tl'] = array(
+	'configuredpages' => 'Mga pahinang may kaayusan ng pagsusuri',
+	'configuredpages-text' => "Nasa ibaba ang isang talaan ng mga pahinan inayos upang magkaroon ng iba't ibang mga pagtatakda ng pagpayag kaysa sa katakdaan ng sityo.
+
+May ilang mga pagtatakdang maaaring magbago na ang bersyon ay ipinapakita sa mga mambabasa o magbabawal pa lalo kung sino ang makapamamatnugot na hindi nangangailangan ng pagsusuri.",
+	'configuredpages-none' => 'Walang mga pahina sa loob ng talaang ito.',
+	'configuredpages-config' => 'Pagkakaayos',
+	'configuredpages-precedence' => 'Pagkakauna-una:',
 	'configuredpages-prec-none' => 'walang pagkakauna',
 	'configuredpages-prec-quality' => 'pagkauna ng kataasan ng uri',
 	'configuredpages-prec-pristine' => 'Pagkakaunang nasa orihinal na kalagayan',
+	'configuredpages-def-draft' => 'pinakabagong bersyon',
+	'configuredpages-def-stable' => 'tinanggap na bersyon',
 );
 
 /** Turkish (Türkçe)

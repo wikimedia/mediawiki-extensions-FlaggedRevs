@@ -584,6 +584,16 @@ $messages['sl'] = array(
 	'problemchanges-category' => 'Kategorija:',
 );
 
+/** Serbian Cyrillic ekavian (Српски (ћирилица))
+ * @author Charmed94
+ */
+$messages['sr-ec'] = array(
+	'problemchanges' => 'Означене измене на чекању',
+	'problemchanges-legend' => 'Прелистај странице на чекању с означеним изменама за преглед',
+	'problemchanges-none' => 'Тренутно нема страница које испуњавају овај критеријум',
+	'problemchanges-category' => 'Категорија:',
+);
+
 /** Sundanese (Basa Sunda)
  * @author Irwangatot
  */

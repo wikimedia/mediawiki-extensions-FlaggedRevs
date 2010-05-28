@@ -903,6 +903,7 @@ $messages['ka'] = array(
 	'oldreviewedpages-recent' => '(1 საათზე ნაკლები)',
 	'oldreviewed-category' => 'კატეგორია:',
 	'oldreviewed-watched' => 'ჩემი კონტროლის სიის გვერდები',
+	'oldreviewed-diff' => 'შემოწმება',
 );
 
 /** Khmer (ភាសាខ្មែរ)
