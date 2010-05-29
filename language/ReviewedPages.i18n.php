@@ -743,10 +743,10 @@ $messages['li'] = array(
  */
 $messages['mk'] = array(
 	'reviewedpages' => 'Оценети страници',
-	'reviewedpages-leg' => 'Листа на оценети страници',
-	'reviewedpages-list' => "Овие листи содржат [[{{MediaWiki:Validationpage}}|оценети]] страници чие назначено ниво е ''највисоко'' оценето ниво (на ревизија).
+	'reviewedpages-leg' => 'Список на проверени страници',
+	'reviewedpages-list' => "Овие списоци содржат [[{{MediaWiki:Validationpage}}|проверени]] страници чие назначено ниво е ''највисоко'' оценето ниво (на ревизија).
 Наведена е врска кон најновата ревизија на тоа ниво.",
-	'reviewedpages-none' => 'Нема страници во оваа листа',
+	'reviewedpages-none' => 'Нема страници на овој список.',
 	'reviewedpages-lev-0' => '{{int:revreview-lev-basic}}',
 	'reviewedpages-lev-1' => 'Квалитетни',
 	'reviewedpages-lev-2' => 'Одлични',
@@ -1049,20 +1049,22 @@ $messages['sq'] = array(
 );
 
 /** Serbian Cyrillic ekavian (Српски (ћирилица))
+ * @author Charmed94
  * @author Millosh
  * @author Sasa Stefanovic
  * @author Михајло Анђелковић
  */
 $messages['sr-ec'] = array(
 	'reviewedpages' => 'Прегледане странице',
-	'reviewedpages-leg' => 'Списак страна, сортиран од највишег нивоа',
-	'reviewedpages-list' => 'Ово је списак најкоментарисанијих страна.',
+	'reviewedpages-leg' => 'Сврстај стране које су прегледане',
+	'reviewedpages-list' => "Ови спискови садрже [[{{MediaWiki:Validationpage}}|прегледане]] странице чији ''највиши достигнут'' ниво прегледа (ревизије) је одређени ниво.
+Веза је дата најновијој ревизији тог нивоа.]",
 	'reviewedpages-none' => 'Нема страна у овом списку.',
 	'reviewedpages-lev-0' => 'Прегледано',
 	'reviewedpages-lev-1' => 'Квалитет',
 	'reviewedpages-lev-2' => 'Изабрани',
-	'reviewedpages-all' => 'прегледане верзије',
-	'reviewedpages-best' => 'најбоља верзија',
+	'reviewedpages-all' => 'прегледана издања',
+	'reviewedpages-best' => 'најбоља ревизија',
 );
 
 /** Serbian Latin ekavian (Srpski (latinica))

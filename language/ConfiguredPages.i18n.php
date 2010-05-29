@@ -161,10 +161,11 @@ Někotare nastajenja by mógli se změniś, kótara wersija zwobraznja se cytarj
 
 /** Greek (Ελληνικά)
  * @author Crazymadlover
+ * @author Omnipaedista
  */
 $messages['el'] = array(
 	'configuredpages-config' => 'Διαμόρφωση',
-	'configuredpages-precedence' => 'Προνομίων:',
+	'configuredpages-precedence' => 'Προτεραιότητα:',
 	'configuredpages-prec-none' => 'χωρίς προτεραιότητα',
 	'configuredpages-prec-quality' => 'προτεραιότητα ποιότητας',
 	'configuredpages-prec-pristine' => 'προτεραιότητα μη αλλοίωσης',
@@ -459,10 +460,10 @@ Verschidden Astellungen kënne beaflosse wat fir eng Versioun de Lieser gewise g
  */
 $messages['mk'] = array(
 	'configuredpages' => 'Страници со прилагодувања за преглед',
-	'configuredpages-text' => 'Подолу е наведена листа на страници што се прилагодени со поинакви поставки за одобрување од основните на веб-страницата.
+	'configuredpages-text' => 'Подолу е наведен списокот на страници што се прилагодени со поинакви поставки за одобрување од основните на веб-страницата.
 
 Некои поставки може да ја променат верзијата што ќе им се прикажува на корисниците, или уште повеќе да ограничи кој сè може да врши уредувања без да треба тие да се прегледуваат.',
-	'configuredpages-none' => 'Нема страници на оваа листа.',
+	'configuredpages-none' => 'Нема страници на овој список.',
 	'configuredpages-config' => 'Прилагодување',
 	'configuredpages-precedence' => 'Предност:',
 	'configuredpages-prec-none' => 'последна проверена',

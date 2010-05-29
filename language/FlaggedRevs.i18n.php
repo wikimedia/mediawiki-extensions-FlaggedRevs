@@ -8959,7 +8959,7 @@ $messages['mk'] = array(
 	'editor' => 'Уредувач',
 	'flaggedrevs' => 'Означени ревизии',
 	'flaggedrevs-backlog' => "Постои дневник на [[Special:OldReviewedPages|уредувањата во исчекување]] за оценетите страници. '''Ваше внимание е потребно!'''",
-	'flaggedrevs-watched-pending' => "На вашата листа на набљудувања моментално има [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} уредувања во исчекување] да бидат оценети. '''Се бара вашето внимание!'''",
+	'flaggedrevs-watched-pending' => "На вашиот список на набљудувања моментално има [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} уредувања во исчекување] да бидат прегледани. '''Се бара вашето внимание!'''",
 	'flaggedrevs-desc' => 'Им овозможува на уредниците и проверувачите да ги оценат ревизиите и да ги стабилизираат страниците',
 	'flaggedrevs-pref-UI' => 'Основен интерфејс:',
 	'flaggedrevs-pref-UI-0' => 'Користи подробни кутии за приказ на одобрителниот статус на страниците',
@@ -8967,7 +8967,7 @@ $messages['mk'] = array(
 	'prefs-flaggedrevs' => 'Одобрување на уредувања',
 	'prefs-flaggedrevs-ui' => 'Одобрување на уредувања',
 	'flaggedrevs-prefs-stable' => 'Секогаш прикажувај ја објавената верзија на страниците по основно (ако има таква)',
-	'flaggedrevs-prefs-watch' => 'Додај страници кои ги оценувам во мојата листа на набљудувања',
+	'flaggedrevs-prefs-watch' => 'Додавај ги страниците што ги проверувам во списокот на набљудувања',
 	'flaggedrevs-prefs-editdiffs' => 'Прикажи ги разликите со верзијата во исчекување при уредување на страници',
 	'flaggedrevs-prefs-viewdiffs' => 'Прикажи ги разликите во промените при приказ на најновата ревизија во исчекување',
 	'group-editor' => 'Уредувачи',
@@ -9018,7 +9018,7 @@ $messages['mk'] = array(
 Има [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|промена|промени}}] во исчекување на проверка.',
 	'revreview-basic-i' => 'Ова е [[{{MediaWiki:Validationpage}}|објавената верзија]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} проверена] на <i>$2</i>.
 Има [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} промени на шаблони/податотеки] во исчекување на преглед.',
-	'revreview-basic-old' => 'Ова е [[{{MediaWiki:Validationpage}}|проверена]] верзија ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} листа на сите]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} одобрена] на <i>$2</i>.
+	'revreview-basic-old' => 'Ова е [[{{MediaWiki:Validationpage}}|проверена]] верзија ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} список на сите]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} одобрена] на <i>$2</i>.
 Можеби се направени нови [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} промени].',
 	'revreview-basic-same' => 'Ова е [[{{MediaWiki:Validationpage}}|објавената верзија]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} проверена] на <i>$2</i>.',
 	'revreview-basic-source' => '[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} Проверена верзија] на оваа страница, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} одобрена] на <i>$2</i>, беше заснована на оваа ревизија.',
@@ -9057,9 +9057,9 @@ $messages['mk'] = array(
 	'revreview-invalid' => "'''Погрешна цел:''' нема [[{{MediaWiki:Validationpage}}|оценети]] ревизии кои соодветствуваат на наведениот ид. бр.",
 	'revreview-legend' => 'Оцени ја содржината на ревизијата',
 	'revreview-log' => 'Забелешка:',
-	'revreview-main' => 'Мора да изберете конкретна ревизија на страницата за оценување.
+	'revreview-main' => 'Мора да изберете конкретна ревизија на страницата за проверка.
 
-Погледајте ја [[Special:Unreviewedpages|листата на неоценети страници]].',
+Погледајте го [[Special:Unreviewedpages|списокот на неоценети страници]].',
 	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Објавената верзија] била [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} проверена] на <i>$2</i>. Има [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|промена|промени}}] во исчекување на оценка.',
 	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Објавената верзија] била [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} проверена] на <i>$2</i>. Има [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} промени на шаблони/податотеки] кои чекаат за оценка.',
 	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Објавената верзија] била [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} одобрена] на <i>$2</i>. 
@@ -9078,7 +9078,7 @@ $messages['mk'] = array(
 Има [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|промена|промени}}] во исчекување на проверка.',
 	'revreview-quality-i' => 'Ова е [[{{MediaWiki:Validationpage}}|објавената верзија]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} одобрена] на <i>$2</i>.
 Има [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} промени на шаблони/податотеки] што чекаат за проверка.',
-	'revreview-quality-old' => 'Ова е [[{{MediaWiki:Validationpage}}|квалитетна]]  ревизија ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} листа на сите]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} одобрена] на <i>$2</i>.
+	'revreview-quality-old' => 'Ова е [[{{MediaWiki:Validationpage}}|квалитетна]] ревизија ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} список на сите]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} одобрена] на <i>$2</i>.
 Може да се направени нови [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} промени].',
 	'revreview-quality-same' => 'Ова е [[{{MediaWiki:Validationpage}}|објавената верзија]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} одобрена] на <i>$2</i>.',
 	'revreview-quality-source' => '[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} Квалитетна верзија] на оваа страница, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} одобрена] на <i>$2</i>, беше заснована на оваа верзија.',
@@ -9136,7 +9136,7 @@ $messages['mk'] = array(
 	'right-review' => 'Означување на ревизии како „проверени“',
 	'right-stablesettings' => 'Нагодување како објавената верзија ќе се избира и прикажува',
 	'right-validate' => 'Означи ревизии како „квалитетни“',
-	'right-unreviewedpages' => 'Погледни [[Special:UnreviewedPages|листа на неоценети статии]]',
+	'right-unreviewedpages' => 'Погледајте го [[Special:UnreviewedPages|списокот на неоценети статии]]',
 	'rights-editor-autosum' => 'автопромовиран',
 	'rights-editor-revoke' => 'одземен уреднички статус на [[$1]]',
 	'specialpages-group-quality' => 'Одобрување на уредувања',
@@ -9245,7 +9245,7 @@ $messages['ml'] = array(
 	'reviewer' => 'സംശോധകൻ',
 	'revisionreview' => 'പതിപ്പുകൾ സംശോധനം ചെയ്യുക',
 	'revreview-accuracy' => 'സൂക്ഷമത',
-	'revreview-accuracy-0' => 'സ്ഥിരീകരിച്ചിട്ടില്ല',
+	'revreview-accuracy-0' => 'അപര്യാപ്തം',
 	'revreview-accuracy-1' => 'സൈറ്റഡ്',
 	'revreview-accuracy-2' => 'സൂക്ഷ്മം',
 	'revreview-accuracy-3' => 'നന്നായി അവലംബം ചേർക്കപ്പെട്ടത്',
@@ -9262,9 +9262,16 @@ $messages['ml'] = array(
 
 പ്രത്യേകിച്ചൊരു പതിപ്പ് വ്യക്തമാക്കാതെ ഒരു ഫലകമോ പ്രമാണമോ ആയിരിക്കണം ആവശ്യപ്പെട്ടത്.
 താങ്കൾ ഈ താളിൽ സംശോധനം ചെയ്യാൻ തുടങ്ങിയ ശേഷം, ഒരു ഫലകം തത്സമയമായി മറ്റൊരു പ്രമാണമോ ഫലകമോ ഒരു ചരത്തെ അടിസ്ഥാനമാക്കി മാറ്റിയതിനാലും ഇങ്ങനെ സംഭവിക്കാം. താൾ റിഫ്രഷ് ചെയ്ത് പുനഃസംശോധനം ചെയ്താൽ ഈ പ്രശ്നം പരിഹരിക്കാം.",
+	'review_page_invalid' => 'താളിനു ലക്ഷ്യമിട്ട പേര് അസാധുവാണ്.',
+	'review_page_notexists' => 'ലക്ഷ്യമിട്ട താൾ നിലവിലില്ല.',
+	'review_page_unreviewable' => 'ലക്ഷ്യമിട്ട താൾ സംശോധനം ചെയ്യാനാവില്ല.',
+	'review_bad_oldid' => 'ലക്ഷ്യം വെച്ച നാൾപ്പതിപ്പ് നിലവിലില്ല.',
+	'review_bad_key' => 'ഉൾപ്പെടുത്താനുള്ള ചരം അസാധുവാണ്.',
+	'review_denied' => 'അനുമതി നിഷേധിച്ചിരിക്കുന്നു.',
+	'review_param_missing' => 'ചരം ലഭ്യമല്ല അല്ലെങ്കിൽ അസാധുവാണ്.',
 	'revreview-current' => 'അവശേഷിക്കുന്ന മാറ്റങ്ങൾ',
 	'revreview-depth' => 'ആഴം',
-	'revreview-depth-0' => 'അംഗീകരിച്ചിട്ടില്ലാത്തത്',
+	'revreview-depth-0' => 'അപര്യാപ്തം',
 	'revreview-depth-1' => 'അടിസ്ഥാനപരമായത്',
 	'revreview-depth-2' => 'ഒരു വിധം നിലവാരമുള്ളത്',
 	'revreview-depth-3' => 'ഉന്നത നിലവാരമുള്ളത്',
@@ -9322,7 +9329,7 @@ $messages['ml'] = array(
 	'revreview-stable1' => '[{{fullurl:$1|stableid=$2}} പതാക ചേർത്ത ഈ പതിപ്പ്] ആയിരിക്കാം താങ്കൾക്ക് കാണേണ്ടത് ഒപ്പം അത് ഇപ്പോൾ [{{fullurl:$1|stable=1}} പ്രസിദ്ധീകരിക്കപ്പെട്ട പതിപ്പ്] ആയോ എന്നും കാണുക.',
 	'revreview-stable2' => 'ഈ താളിന്റെ [{{fullurl:$1|stable=1}} പ്രസിദ്ധീകരിക്കപ്പെട്ട പതിപ്പ്] താങ്കൾക്ക് കാണാവുന്നതാണ്.',
 	'revreview-style' => 'വായനാസുഖം',
-	'revreview-style-0' => 'അംഗീകരിച്ചിട്ടില്ലാത്തത്',
+	'revreview-style-0' => 'അപര്യാപ്തം',
 	'revreview-style-1' => 'സ്വീകാര്യമായത്',
 	'revreview-style-2' => 'കൊള്ളാവുന്നത്',
 	'revreview-style-3' => 'സംക്ഷിപ്തമായത്',
@@ -10277,7 +10284,7 @@ $messages['no'] = array(
 	'reviewer' => 'Anmelder',
 	'revisionreview' => 'Anmeld sideversjoner',
 	'revreview-accuracy' => 'Nøyaktighet',
-	'revreview-accuracy-0' => 'Ikke godkjent',
+	'revreview-accuracy-0' => 'Utilstrekkelig',
 	'revreview-accuracy-1' => 'Sjekket',
 	'revreview-accuracy-2' => 'Nøyaktig',
 	'revreview-accuracy-3' => 'Godt kildebelagt',

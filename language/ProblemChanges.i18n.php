@@ -403,7 +403,7 @@ $messages['lb'] = array(
  */
 $messages['mk'] = array(
 	'problemchanges' => 'Означени промени во исчекување',
-	'problemchanges-legend' => 'Листа на страници со означени уредувања во исчекување на оценка',
+	'problemchanges-legend' => 'Список на страници со означени уредувања во исчекување на проверка',
 	'problemchanges-none' => 'Моментално нема страници кои ги задоволуваат овие критериуми',
 	'problemchanges-category' => 'Категорија:',
 );

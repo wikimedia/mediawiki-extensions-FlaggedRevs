@@ -1222,7 +1222,7 @@ $4
 	'validationstatistics-latest' => 'Синхронизирано',
 	'validationstatistics-synced' => 'Синхронизирани/Оценети',
 	'validationstatistics-old' => 'Застарени',
-	'validationstatistics-utable' => 'Еве листа на 5 најактивни оценувачи во последниов час.',
+	'validationstatistics-utable' => 'Еве список на 5 најактивни прегледувачи во последниов час.',
 	'validationstatistics-user' => 'Корисник',
 	'validationstatistics-reviews' => 'Оцени',
 );

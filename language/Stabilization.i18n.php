@@ -1615,6 +1615,7 @@ Aktualne nastajenja za „[[:$1|$1]]“ su:',
 
 /** Hungarian (Magyar)
  * @author Dani
+ * @author Enbéká
  * @author Glanthor Reviol
  * @author Gondnok
  * @author KossuthRad
@@ -1655,6 +1656,8 @@ Nem lehet a beállításokat módosítani.',
 	'stabilization-def-short' => 'alapértelmezett',
 	'stabilization-def-short-0' => 'jelenlegi',
 	'stabilization-def-short-1' => 'közzétett',
+	'stabilize_page_invalid' => 'A céloldal címe érvénytelen.',
+	'stabilize_page_notexists' => 'A céloldal nem létezik.',
 	'stabilize_expiry_invalid' => 'Hibás lejárati idő.',
 	'stabilize_expiry_old' => 'A megadott lejárati idő már elmúlt.',
 	'stabilize-expiring' => 'lejár $1-kor (UTC szerint)',
@@ -2203,6 +2206,9 @@ Et ass keng Konfiguratioun méiglech.',
 	'stabilize_page_invalid' => 'Den Titel vun der Zilsäit ass net valabel.',
 	'stabilize_page_notexists' => "D'Zilsäit gëtt et net",
 	'stabilize_page_unreviewable' => "D'Zilsäit ass net an engem Nummraum wou Säite kënnen nogekuckt ginn.",
+	'stabilize_invalid_precedence' => 'Net valabel Versiounsprioritéit.',
+	'stabilize_invalid_autoreview' => 'Net valabel Limitatioun beim automateschen Nokucken.',
+	'stabilize_invalid_level' => 'Ne valabelen Niveau vun der Spär.',
 	'stabilize_expiry_invalid' => 'Net valabele Schlussdatum',
 	'stabilize_expiry_old' => 'Den Oflafdatum ass schonn eriwwer.',
 	'stabilize_denied' => 'Erlaabnes refuséiert',
@@ -2355,6 +2361,7 @@ $messages['ml'] = array(
 	'stabilize_invalid_level' => 'അസാധുവായ സംരക്ഷണ മാനം.',
 	'stabilize_expiry_invalid' => 'അസാധുവായ കാലാവധി തീയതി.',
 	'stabilize_expiry_old' => 'ഈ കാലാവധി സമയം കഴിഞ്ഞു പോയി.',
+	'stabilize_denied' => 'അനുമതി നിഷേധിച്ചിരിക്കുന്നു.',
 	'stabilize-expiring' => 'കാലാവധി തീരുന്നത് - $1 (UTC)',
 	'stabilization-review' => 'ഇപ്പോഴുള്ള പതിപ്പ് പരിശോധിച്ചതായി അടയാളപ്പെടുത്തുക',
 );
@@ -2584,6 +2591,7 @@ Ingen innstillingar kan verta gjorde.',
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
  * @author H92
  * @author Jon Harald Søby
+ * @author Laaknor
  * @author Nghtwlkr
  */
 $messages['no'] = array(
@@ -2627,6 +2635,7 @@ Her er de nåværende innstillingene for [[:$1|$1]]:',
 	'stabilize_invalid_level' => 'Ugyldig beskyttelsesnivå.',
 	'stabilize_expiry_invalid' => 'Ugyldig varighet.',
 	'stabilize_expiry_old' => 'Varigheten har allerede utløpt.',
+	'stabilize_denied' => 'Tilgang nektet.',
 	'stabilize-expiring' => 'utgår $1 (UTC)',
 	'stabilization-review' => 'Merk den nåværende revisjonen som kontrollert',
 );
@@ -3562,20 +3571,20 @@ Konfigurirlemek mümkin däl.',
 $messages['tl'] = array(
 	'stabilization-tab' => 'suriing mabuti (masinsinan)',
 	'stabilization' => 'Pagpapatatag ng pahina',
-	'stabilization-text' => "'''Baguhin ang mga pagtatakda sa ibaba upang mabago ang kung paano napili at napalitaw (naipakita) ang matatag na bersyon ng [[:\$1|\$1]].'''
+	'stabilization-text' => "'''Baguhin ang mga pagtatakdang nasa ibaba upang mabago ang kung paano napili at napalitaw ang tanggap na bersyon ng [[:\$1|\$1]].'''
 
-Kapag binabago ang pagkakaayos ng ''pilian ng matatag na bersyon'' para magamit ang mga pagbabago sa \"antas ng uri\" o \"dalisay\" sa pamamamagitan ng likas na pagtatakda, tiyaking susuriin kung talagang mayroong ganyang mga rebisyon sa loob ng pahina, dahil bahagya lamang ang magiging epekto ng pagbabago kung wala.",
-	'stabilization-perm' => 'Walang kapahintulutan ang kuwenta/akawnt mo upang baguhin ang pagkakaayos ng matatag na bersyon.
+'''Paunawa''': kapag binabago ang pagkakaayos ng ''pilian ng tanggap na bersyon'' para naisin ang bersyong \"mataas ang uri\" o \"dalisay\" walang epekto kapag walang ganyang mga bersyon.  Gayundin, tandaan na ang isang bersyong \"mataas ang uri\" ay itinuturing din na bersyong \"nasuri\" at iba pa.",
+	'stabilization-perm' => 'Walang pahintulon ang akawnt mo na magbago ng ayos ng tanggap na bersyon.
 Narito ang pangkasalukuyang mga katakdaan para sa [[:$1|$1]]:',
 	'stabilization-page' => 'Pangalan ng pahina:',
-	'stabilization-leg' => 'Tiyakin ang mga pagtatakda para sa matatag na bersyon',
-	'stabilization-select' => 'Pagpipilian para sa matatag na bersyon',
+	'stabilization-leg' => 'Tiyakin ang mga pagtatakda para sa tanggap na bersyon',
+	'stabilization-select' => 'Tanggap na pagpipilian ng pagkakasunud-sunod ng bersyon',
 	'stabilization-select1' => 'Ang pinakahuling pagbabagong may mataas na uri; kung wala, ang pinakahuling namataang isa na lamang',
-	'stabilization-select2' => 'Ang pinakahuling nasuring pagbabago, kahit na anupaman ang antas ng pagpapatunay',
+	'stabilization-select2' => 'Pinakahuling pagbabagong nasuri na',
 	'stabilization-select3' => 'Ang pinakahuling dalisay (malinis) na pagbabago; kung wala, ang huling may pinakamataas na uri o namataang isa na lamang',
 	'stabilization-def' => 'Ang pagbabagong ipinakita sa natatanaw na likas na nakatakdang pahina',
-	'stabilization-def1' => 'Ang matatag na pagbabago, kung, ang pangkasalukuyang isa na lamang',
-	'stabilization-def2' => 'Ang pangkasalukuyang pagbabago',
+	'stabilization-def1' => 'Ang tanggap na pagbabago; kapag wala, ang pangkasalukuyan/balangkas na lamang',
+	'stabilization-def2' => 'Ang pangkasalukuyan/binalangkas na pagbabago',
 	'stabilization-restrict' => 'Mga hangganan ng pagsusuri/kusang pagsusuri',
 	'stabilization-restrict-none' => 'Walang karagdagang mga hangganan',
 	'stabilization-submit' => 'Tiyakin',
@@ -3594,9 +3603,17 @@ Walang maaaring maging pagkakaayos (konpigurasyon).',
 	'stabilization-def-short' => 'Likas na nakatakda',
 	'stabilization-def-short-0' => 'Pangkasalukuyan',
 	'stabilization-def-short-1' => 'Nalathala na',
+	'stabilize_page_invalid' => 'Hindi tanggap ang puntiryang pahina ng pamagat.',
+	'stabilize_page_notexists' => 'Hindi umiiral ang puntiryang pahina.',
+	'stabilize_page_unreviewable' => 'Wala ang pinupukol na pahina sa loob masusuring pangalan ng puwang.',
+	'stabilize_invalid_precedence' => 'Hindi tanggap na pagkakasunud-sunod ng bersyon.',
+	'stabilize_invalid_autoreview' => 'Hindi tanggap na pagbabawal ng kusang pagsuri.',
+	'stabilize_invalid_level' => 'Hindi tanggap na antas ng panananggalang.',
 	'stabilize_expiry_invalid' => 'Hindi tanggap na petsa ng pagtatapos.',
 	'stabilize_expiry_old' => 'Lagpas na ang oras/panahon ng pagtatapos na ito.',
+	'stabilize_denied' => 'Ipinagkait ang pahintulot.',
 	'stabilize-expiring' => 'magtatapos sa $1 (UTC)',
+	'stabilization-review' => 'Markahan ang kasalukuyang rebisyon bilang nasuri na',
 );
 
 /** Turkish (Türkçe)

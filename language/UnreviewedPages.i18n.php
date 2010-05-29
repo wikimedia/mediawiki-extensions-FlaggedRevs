@@ -987,7 +987,7 @@ $messages['lzh'] = array(
  */
 $messages['mk'] = array(
 	'unreviewedpages' => 'Непрегледани страници',
-	'unreviewed-legend' => 'Листа на непрегледани статии',
+	'unreviewed-legend' => 'Список на непрегледани статии',
 	'unreviewed-category' => 'Категорија:',
 	'unreviewed-diff' => 'преглед',
 	'unreviewed-unwatched' => '(ненабљудувана)',

@@ -684,10 +684,10 @@ $messages['mhr'] = array(
  */
 $messages['mk'] = array(
 	'reviewedversions' => 'Проверени верзии',
-	'reviewedversions-leg1' => 'Листа на прегледани ревизии за страница',
+	'reviewedversions-leg1' => 'Список на прегледани ревизии за страница',
 	'reviewedversions-page' => 'Наслов на страница:',
 	'reviewedversions-none' => '"[[:$1]]" нема прегледани ревизии.',
-	'reviewedversions-list' => 'Ова е листа на {{PLURAL:$2|единствената ревизија|ревизиите}} на [[:$1]] {{PLURAL:$2|која е прегледана|кои се прегледани}}:',
+	'reviewedversions-list' => 'Ова е список на {{PLURAL:$2|единствената ревизија|ревизиите}} на [[:$1]] {{PLURAL:$2|која е прегледана|кои се прегледани}}:',
 	'reviewedversions-review' => 'Прегледано на <i>$1</i> од страна на $2',
 );
 
@@ -964,17 +964,18 @@ $messages['sl'] = array(
 );
 
 /** Serbian Cyrillic ekavian (Српски (ћирилица))
+ * @author Charmed94
  * @author Millosh
  * @author Sasa Stefanovic
  * @author Михајло Анђелковић
  */
 $messages['sr-ec'] = array(
-	'reviewedversions' => 'Погледај стабилне верзије',
-	'reviewedversions-leg1' => 'Списак прегледаних верзија за страну.',
-	'reviewedversions-page' => 'Име странице:',
-	'reviewedversions-none' => '"[[:$1]]" нема прегледаних верзија.',
+	'reviewedversions' => 'Прегледана издања',
+	'reviewedversions-leg1' => 'Списак прегледаних ревизија за страну',
+	'reviewedversions-page' => 'Назив странице:',
+	'reviewedversions-none' => '"[[:$1]]" нема прегледаних ревизија.',
 	'reviewedversions-list' => 'Следи списак {{PLURAL:$2|једине ревизије|ревизија}} из [[:$1]], {{PLURAL:$2|која је прегледана|које су прегледане}}:',
-	'reviewedversions-review' => 'Прегледано на <i>$1</i> од стране сарадника $2.',
+	'reviewedversions-review' => 'Прегледано на <i>$1</i> од стране $2',
 );
 
 /** Serbian Latin ekavian (Srpski (latinica))

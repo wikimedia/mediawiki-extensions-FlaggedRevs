@@ -1009,14 +1009,14 @@ $messages['lb'] = array(
  */
 $messages['mk'] = array(
 	'oldreviewedpages' => 'Страници со промени во исчекување',
-	'oldreviewedpages-legend' => 'Листа на оценети страници со уредувања во исчекување за проверка',
+	'oldreviewedpages-legend' => 'Список на оценети страници со уредувања во исчекување за проверка',
 	'oldreviewedpages-list' => 'Оваа страница наведува {{PLURAL:$1|оценета страница|оценети страници}} со уредувања во исчекување на проверка.',
 	'oldreviewedpages-none' => 'Моментално нема страници кои ги задоволуваат овие критериуми',
 	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|час|часа}})',
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|ден|дена}})',
 	'oldreviewedpages-recent' => '(помалку од 1 час)',
 	'oldreviewed-category' => 'Категорија:',
-	'oldreviewed-watched' => 'Страници во мојата листа на набљудувања',
+	'oldreviewed-watched' => 'Страници во мојот список на набљудувања',
 	'oldreviewed-stable' => 'Стабилизирани страници',
 	'oldreviewed-diff' => 'оцени',
 	'oldreviewed-size' => 'Макс. промена (во бајти):',
