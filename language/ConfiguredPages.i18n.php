@@ -408,6 +408,7 @@ $messages['ja'] = array(
 $messages['ka'] = array(
 	'configuredpages-config' => 'კონფიგურაცია',
 	'configuredpages-precedence' => 'პრიორიტეტი:',
+	'configuredpages-prec-none' => 'უკანასკნელად შემოწმებული',
 	'configuredpages-def-draft' => 'უკანასკნელი ვერსია',
 	'configuredpages-def-stable' => 'გამოქვეყნებული ვერსია',
 );

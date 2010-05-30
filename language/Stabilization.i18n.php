@@ -2815,6 +2815,7 @@ $messages['ps'] = array(
 	'stabilization-page' => 'د مخ نوم:',
 	'stabilization-comment' => 'سبب:',
 	'stabilization-otherreason' => 'بل سبب:',
+	'stabilization-expiry' => 'د پای نېټه:',
 	'stabilization-othertime' => 'بل وخت:',
 	'stabilization-sel-short-1' => 'هېڅ',
 	'stabilization-def-short' => 'تلواليز',
