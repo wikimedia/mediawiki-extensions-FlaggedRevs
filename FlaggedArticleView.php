@@ -1246,7 +1246,7 @@ class FlaggedArticleView {
 					# Add include change list...
 					$changeDiv .= '<p>' .
 						wfMsgExt( 'revreview-update-includes', 'parseinline' ) .
-						'&nbsp;' . implode( ', ', $changeList ) . '</p>';
+						'&#160;' . implode( ', ', $changeList ) . '</p>';
 					# Add include usage notice...
 					$changeDiv .= $notice;
 				}

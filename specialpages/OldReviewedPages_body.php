@@ -80,7 +80,7 @@ class OldReviewedPages extends SpecialPage
 				);
 			if ( $form ) $form .= '<br />';
 			$form .=
-				Xml::label( wfMsg( "oldreviewed-category" ), 'wpCategory' ) . '&nbsp;' .
+				Xml::label( wfMsg( "oldreviewed-category" ), 'wpCategory' ) . '&#160;' .
 				Xml::input( 'category', 30, $this->category,
 					array( 'id' => 'wpCategory' ) ) . ' ' .
 				( $wgUser->getId() ?

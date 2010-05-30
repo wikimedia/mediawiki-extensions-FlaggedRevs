@@ -49,7 +49,7 @@ class ConfiguredPages extends SpecialPage
 				array( 'name' => 'configuredpages', 'action' => $wgScript, 'method' => 'get' ) );
 			$form .= Xml::hidden( 'title', $this->getTitle()->getPrefixedDBKey() );
 			$form .= "<fieldset><legend>" . wfMsg( 'configuredpages' ) . "</legend>\n";
-			$form .= implode( '&nbsp;', $fields ) . '<br/>';
+			$form .= implode( '&#160;', $fields ) . '<br/>';
 			$form .= Xml::submitButton( wfMsg( 'go' ) );
 			$form .= "</fieldset>\n";
 			$form .= Xml::closeElement( 'form' );

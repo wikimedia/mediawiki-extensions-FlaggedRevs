@@ -777,7 +777,7 @@ class RevisionReviewForm
 				$form .= "<br />"; // Don't put too much on one line
 			$form .= "<span id='mw-fr-commentbox' style='clear:both'>" .
 				Xml::inputLabel( wfMsg( 'revreview-log' ), 'wpReason', 'wpReason', 35, '',
-					array( 'class' => 'fr-comment-box' ) ) . "&nbsp;&nbsp;&nbsp;</span>";
+					array( 'class' => 'fr-comment-box' ) ) . "&#160;&#160;&#160;</span>";
 		}
 		# Add the submit buttons
 		$form .= self::submitButtons( $frev, (bool)$toggle, $allowRereview );
@@ -895,7 +895,7 @@ class RevisionReviewForm
 		}
 		# Wrap visible controls in a span
 		$form = Xml::openElement( 'span', array( 'class' => 'fr-rating-options' ) ) . "\n";
-		$form .= implode( '&nbsp;&nbsp;&nbsp;', $items );
+		$form .= implode( '&#160;&#160;&#160;', $items );
 		$form .= Xml::closeElement( 'span' ) . "\n";
 		return $form;
 	}

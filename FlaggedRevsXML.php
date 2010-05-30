@@ -228,9 +228,9 @@ class FlaggedRevsXML {
 					"</td><td class='fr-value$levelmarker' valign='middle'>" .
 					$encValueText . "</td></tr>\n";
             } else {
-				$tag .= "&nbsp;<span class='fr-marker-$levelmarker'><strong>" .
+				$tag .= "&#160;<span class='fr-marker-$levelmarker'><strong>" .
 					wfMsgHtml( "revreview-$quality" ) .
-					"</strong>: <span class='fr-text-value'>$encValueText&nbsp;</span>&nbsp;" .
+					"</strong>: <span class='fr-text-value'>$encValueText&#160;</span>&#160;" .
 					"</span>\n";
 			}
 		}
