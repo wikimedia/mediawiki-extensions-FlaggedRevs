@@ -416,6 +416,11 @@ $wgHooks['SkinTemplateTabs'][] = 'FlaggedRevsHooks::setActionTabs'; // Most skin
 $wgHooks['SkinTemplateNavigation'][] = 'FlaggedRevsHooks::setNavigation'; // Vector
 # Add notice tags to edit view
 $wgHooks['EditPage::showEditForm:initial'][] = 'FlaggedRevsHooks::addToEditView';
+# Tweak submit button name/title
+$wgHooks['EditPageBeforeEditButtons'][] = 'FlaggedRevsHooks::onBeforeEditButtons';
+# Autoreview information from form
+$wgHooks['EditPageBeforeEditChecks'][] = 'FlaggedRevsHooks::addReviewCheck';
+$wgHooks['EditPage::showEditForm:fields'][] = 'FlaggedRevsHooks::addRevisionIDField';
 # Add draft link to section edit error
 $wgHooks['EditPageNoSuchSection'][] = 'FlaggedRevsHooks::onNoSuchSection';
 # Add notice tags to history
@@ -437,9 +442,6 @@ $wgHooks['ArticleUpdateBeforeRedirect'][] = 'FlaggedRevsHooks::injectPostEditURL
 $wgHooks['DiffViewHeader'][] = 'FlaggedRevsHooks::onDiffViewHeader';
 # Add diff=review url param alias
 $wgHooks['NewDifferenceEngine'][] = 'FlaggedRevsHooks::checkDiffUrl';
-# Autoreview stuff
-$wgHooks['EditPage::showEditForm:fields'][] = 'FlaggedRevsHooks::addRevisionIDField';
-$wgHooks['EditPageBeforeEditChecks'][] = 'FlaggedRevsHooks::addReviewCheck';
 # Local user account preference
 $wgHooks['GetPreferences'][] = 'FlaggedRevsHooks::onGetPreferences';
 # Show unreviewed pages links

@@ -67,8 +67,8 @@ class FlaggedRevsHooks {
 			$encJsFile = htmlspecialchars( "$stylePath/review.js?$wgFlaggedRevStyleVersion" );
 			$head .= "\n<script type=\"{$wgJsMimeType}\" src=\"{$encJsFile}\"></script>";
 		}
-		# Set basic messages
-		$msgs = (object) array(
+		# Set basic messages for all users...
+		$msgs = array(
 			'diffToggleShow' => wfMsgHtml( 'revreview-diff-toggle-show' ),
 			'diffToggleHide' => wfMsgHtml( 'revreview-diff-toggle-hide' ),
 			'logToggleShow'	 => wfMsgHtml( 'revreview-log-toggle-show' ),
@@ -78,8 +78,16 @@ class FlaggedRevsHooks {
 			'toggleShow'	 => wfMsgHtml( 'revreview-toggle-show' ),
 			'toggleHide'     => wfMsgHtml( 'revreview-toggle-hide' )
 		);
+		# Extra reviewer messages...
+		if ( $wgUser->isAllowed( 'review' ) ) {
+			$msgs['saveArticle'] = wfMsgHtml( 'savearticle' );
+			$msgs['tooltipSave'] = wfMsgHtml( 'tooltip-save' ).' ['.wfMsgHtml( 'accesskey-save' ).']';
+			$msgs['submitArticle'] = wfMsg( 'revreview-submitedit' );
+			$msgs['tooltipSubmit'] = wfMsg( 'revreview-submitedit-title' ) .
+				' ['. wfMsg( 'accesskey-save' ) . ']';
+		}
 		$head .= "\n<script type=\"{$wgJsMimeType}\">" .
-			"FlaggedRevs.messages = " . Xml::encodeJsVar( $msgs ) . ";</script>\n";
+			"FlaggedRevs.messages = " . Xml::encodeJsVar( (object)$msgs ) . ";</script>\n";
 		$wgOut->addHeadItem( 'FlaggedRevs', $head );
 
 		return true;
@@ -814,7 +822,8 @@ class FlaggedRevsHooks {
 		# Enforce autoreview/review restrictions
 		} else if ( $action === 'autoreview' || $action === 'review' ) {
 			# Get autoreview restriction settings...
-			$config = FlaggedRevs::getPageVisibilitySettings( $title, FR_MASTER );
+			$fa = FlaggedArticle::getTitleInstance( $title );
+			$config = $fa->getVisibilitySettings();
 			# Convert Sysop -> protect
 			$right = ( $config['autoreview'] === 'sysop' ) ?
 				'protect' : $config['autoreview'];
@@ -1704,6 +1713,12 @@ class FlaggedRevsHooks {
 		return true;
 	}
 
+	public static function onBeforeEditButtons( &$editPage, &$buttons ) {
+		$view = FlaggedArticleView::singleton();
+		$view->changeSaveButton( $editPage, $buttons );
+		return true;
+	}
+
 	public static function onNoSuchSection( &$editPage, &$s ) {
 		$view = FlaggedArticleView::singleton();
 		$view->addToNoSuchSection( $editPage, $s );
@@ -1983,6 +1998,8 @@ class FlaggedRevsHooks {
 		return true;
 	}
 
+	// TODO: move to articleview class?
+	// FIXME: add title attrib
 	public static function addReviewCheck( $editPage, &$checkboxes, &$tabindex ) {
 		global $wgUser, $wgRequest;
 		if ( !$wgUser->isAllowed( 'review' ) ) {
@@ -1998,7 +2015,7 @@ class FlaggedRevsHooks {
 			# the user decide if he/she wants it reviewed on the spot. One might
 			# do this if he/she just saw the diff-to-stable and *then* decided to edit.
 			if ( !$srev || $srev->getRevId() != $editPage->getArticle()->getLatest() ) {
-				$reviewLabel = wfMsgExt( 'revreview-check-flag', array( 'parseinline' ) );
+				$reviewLabel = wfMsgExt( 'revreview-check-flag', 'parseinline' );
 				$attribs = array( 'tabindex' => ++$tabindex, 'id' => 'wpReviewEdit' );
 				$checkboxes['reviewed'] = Xml::check( 'wpReviewEdit',
 					$wgRequest->getCheck( 'wpReviewEdit' ), $attribs ) .

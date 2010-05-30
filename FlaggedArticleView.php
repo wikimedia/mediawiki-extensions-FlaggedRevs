@@ -100,8 +100,11 @@ class FlaggedArticleView {
 	 */
 	public function isStableShownByDefaultUser() {
 		$this->load();
-		$config = $this->article->getVisibilitySettings(); // page configuration
-		return ( $config['override'] && !FlaggedRevs::ignoreDefaultVersion() );
+		if ( $this->article->isReviewable() ) {
+			$config = $this->article->getVisibilitySettings(); // page configuration
+			return ( $config['override'] && !FlaggedRevs::ignoreDefaultVersion() );
+		}
+		return false; // no stable
 	}
 	
 	 /**
@@ -1486,6 +1489,36 @@ class FlaggedArticleView {
 					$extraQuery .= '&fromsection=' . $section;
 					$sectionAnchor = ''; // go to the top of the page to see notice
 				}
+			}
+		}
+		return true;
+	}
+
+	/**
+	* If submitting the edit will leave it pending, then change the button text
+	* Note: interacts with 'review pending changes' checkbox
+	* @TODO: would be nice if hook passed in button attribs, not XML
+	*/
+	public function changeSaveButton( EditPage $editPage, array &$buttons ) {
+		if ( !$this->article->editsRequireReview() ) {
+			return true; // edit will go live immediatly
+		} elseif ( !$this->article->editsArePending()
+			&& $this->article->getTitle()->userCan( 'autoreview' ) )
+		{
+			return true; // edit will be autoreviewed anyway
+		}
+		if ( extension_loaded( 'domxml' ) ) {
+			wfDebug( "Warning: you have the obsolete domxml extension for PHP. Please remove it!\n" );
+			return true; # PECL extension conflicts with the core DOM extension (see bug 13770)
+		} elseif ( isset( $buttons['save'] ) && extension_loaded( 'dom' ) ) {
+			$dom = new DOMDocument();
+			$result = $dom->loadXML( $buttons['save'] ); // load button XML from hook
+			foreach ( $dom->getElementsByTagName( 'input' ) as $input ) { // one <input>
+				$input->setAttribute( 'value', wfMsg( 'revreview-submitedit' ) );
+				$input->setAttribute( 'title', // keep accesskey
+					wfMsg( 'revreview-submitedit-title' ).' ['.wfMsg( 'accesskey-save' ).']' );
+				# Change submit button text & title
+				$buttons['save'] = $dom->saveXML( $dom->documentElement );
 			}
 		}
 		return true;

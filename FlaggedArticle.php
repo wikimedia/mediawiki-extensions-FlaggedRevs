@@ -5,7 +5,7 @@
  * FlaggedArticle::getTitleInstance() is preferred over constructor calls
  */
 class FlaggedArticle extends Article {
-	# Process cache variables
+	/* Process cache variables */
 	protected $stableRev = null;
 	protected $pageConfig = null;
 
@@ -40,6 +40,39 @@ class FlaggedArticle extends Article {
 		# Get page configuration
 		$config = $this->getVisibilitySettings( $flags );
 		return (bool)$config['override'];
+	}
+
+	/**
+	 * Do edits have to be reviewed before being shown by default?
+     * @param int $flags, FR_MASTER
+	 * @returns bool
+	 */
+	public function editsRequireReview( $flags = 0 ) {
+		return (
+			$this->isReviewable( $flags ) && // reviewable page
+			$this->isStableShownByDefault( $flags ) && // and stable versions override
+			$this->getStableRev( $flags ) // and there is a stable version
+		);
+	}
+
+	/**
+	 * Are edits to this page currently pending?
+     * @param int $flags, FR_MASTER
+	 * @returns bool
+	 */
+	public function editsArePending( $flags = 0 ) {
+		if ( $this->isReviewable() ) {
+			$srev = $this->getStableRev( $flags );
+			if ( $srev ) {
+				if ( $flags & FR_MASTER ) {
+					$latest = $this->getTitle()->getLatestRevID( GAID_FOR_UPDATE );
+				} else {
+					$latest = $this->getLatest();
+				}
+				return ( $srev->getRevId() != $latest ); // edits need review
+			}
+		}
+		return false; // all edits go live
 	}
 
 	/**
@@ -122,9 +155,7 @@ class FlaggedArticle extends Article {
 		if ( !( $flags & FR_MASTER ) && $this->pageConfig !== null ) {
 			return $this->pageConfig;
 		}
-		# Get the content page, skip talk
-		$title = $this->getTitle()->getSubjectPage();
-		$config = FlaggedRevs::getPageVisibilitySettings( $title, $flags );
+		$config = FlaggedRevs::getPageVisibilitySettings( $this->getTitle(), $flags );
 		$this->pageConfig = $config;
 		return $config;
 	}

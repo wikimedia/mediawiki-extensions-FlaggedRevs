@@ -151,3 +151,28 @@ var FlaggedRevs = {
 };
 
 addOnloadHook(FlaggedRevs.enableShowhide);
+
+FlaggedRevs.setCheckTrigger = function() {
+	var checkbox = document.getElementById("wpReviewEdit");
+	if( checkbox ) {
+		checkbox.onclick = FlaggedRevs.updateSaveButton;
+	}
+}
+
+hookEvent("load", FlaggedRevs.setCheckTrigger);
+
+FlaggedRevs.updateSaveButton = function() {
+	var checkbox = document.getElementById("wpReviewEdit");
+	var save = document.getElementById("wpSave");
+	if( checkbox && save ) {
+		// Review pending changes
+		if ( checkbox.checked ) {
+			save.value = FlaggedRevs.messages.saveArticle;
+			save.title = FlaggedRevs.messages.tooltipSave;
+		// Submit for review
+		} else {
+			save.value = FlaggedRevs.messages.submitArticle;
+			save.title = FlaggedRevs.messages.tooltipSubmit;
+		}
+	}
+}
