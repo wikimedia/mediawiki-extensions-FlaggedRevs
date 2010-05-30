@@ -1525,6 +1525,40 @@ class FlaggedArticleView {
 	}
 
 	/**
+	* Add a "review pending changes" checkbox to the edit form
+	* if there are currently any revisions pending. (bug 16713)
+	*/
+	public function addReviewCheck( $editPage, &$checkboxes, &$tabindex ) {
+		global $wgUser, $wgRequest;
+		if ( !$wgUser->isAllowed( 'review' ) ) {
+			return true;
+		} elseif ( FlaggedRevs::autoReviewNewPages() && !$this->article->exists() ) {
+			return true; // not needed
+		}
+		if ( $this->article->isReviewable() ) {
+			$srev = $this->article->getStableRev();
+			# For pages with either no stable version, or an outdated one, let
+			# the user decide if he/she wants it reviewed on the spot. One might
+			# do this if he/she just saw the diff-to-stable and *then* decided to edit.
+			if ( !$srev || $srev->getRevId() != $this->article->getLatest() ) {
+				$checkbox = Xml::check(
+					'wpReviewEdit',
+					$wgRequest->getCheck( 'wpReviewEdit' ),
+					array( 'tabindex' => ++$tabindex, 'id' => 'wpReviewEdit' )
+				);
+				$attribs = array(
+					'for'   => 'wpReviewEdit',
+					'title' => wfMsg( 'revreview-check-flag-title' )
+				);
+				$label = Xml::element( 'label', $attribs,
+					wfMsgExt( 'revreview-check-flag', 'parseinline' ) );
+				$checkboxes['reviewed'] = $checkbox . '&nbsp;' . $label;
+			}
+		}
+		return true;
+	}
+	
+	/**
 	* (a) Add a hidden field that has the rev ID the text is based off.
 	* (b) If an edit was undone, add a hidden field that has the rev ID of that edit.
 	* Needed for autoreview and user stats (for autopromote).

@@ -301,7 +301,7 @@ $wgAvailableRights[] = 'movestable';
 $wgAvailableRights[] = 'stablesettings';
 
 # Bump this number every time you change flaggedrevs.css/flaggedrevs.js
-$wgFlaggedRevStyleVersion = 73;
+$wgFlaggedRevStyleVersion = 74;
 
 $wgExtensionFunctions[] = 'efLoadFlaggedRevs';
 
@@ -408,7 +408,7 @@ $wgAPIModules['stabilize'] = 'ApiStabilize';
 # ######## User interface #########
 # Override current revision, add patrol links, set cache...
 $wgHooks['ArticleViewHeader'][] = 'FlaggedRevsHooks::onArticleViewHeader';
-$wgHooks['ImagePageFindFile'][] = 'FlaggedRevsHooks::imagePageFindFile';
+$wgHooks['ImagePageFindFile'][] = 'FlaggedRevsHooks::onImagePageFindFile';
 # Override redirect behavior...
 $wgHooks['InitializeArticleMaybeRedirect'][] = 'FlaggedRevsHooks::overrideRedirect';
 # Set page view tabs

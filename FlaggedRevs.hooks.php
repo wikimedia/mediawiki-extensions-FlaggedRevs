@@ -1634,7 +1634,7 @@ class FlaggedRevsHooks {
 		return true;
 	}
 
-	public static function imagePageFindFile( $imagePage, &$normalFile, &$displayFile ) {
+	public static function onImagePageFindFile( $imagePage, &$normalFile, &$displayFile ) {
 		$view = FlaggedArticleView::singleton();
 		$view->imagePageFindFile( $normalFile, $displayFile );
 		return true;
@@ -1998,30 +1998,9 @@ class FlaggedRevsHooks {
 		return true;
 	}
 
-	// TODO: move to articleview class?
-	// FIXME: add title attrib
 	public static function addReviewCheck( $editPage, &$checkboxes, &$tabindex ) {
-		global $wgUser, $wgRequest;
-		if ( !$wgUser->isAllowed( 'review' ) ) {
-			return true;
-		}
-		if ( FlaggedRevs::autoReviewNewPages() && !$editPage->getArticle()->getId() ) {
-			return true; // not needed
-		}
-		$fa = FlaggedArticleView::globalArticleInstance();
-		if ( $fa->isReviewable() ) {
-			$srev = $fa->getStableRev();
-			# For pages with either no stable version, or an outdated one, let
-			# the user decide if he/she wants it reviewed on the spot. One might
-			# do this if he/she just saw the diff-to-stable and *then* decided to edit.
-			if ( !$srev || $srev->getRevId() != $editPage->getArticle()->getLatest() ) {
-				$reviewLabel = wfMsgExt( 'revreview-check-flag', 'parseinline' );
-				$attribs = array( 'tabindex' => ++$tabindex, 'id' => 'wpReviewEdit' );
-				$checkboxes['reviewed'] = Xml::check( 'wpReviewEdit',
-					$wgRequest->getCheck( 'wpReviewEdit' ), $attribs ) .
-					'&nbsp;' . Xml::label( $reviewLabel, 'wpReviewEdit' );
-			}
-		}
+		$view = FlaggedArticleView::singleton();
+		$view->addReviewCheck( $editPage, $checkboxes, $tabindex );
 		return true;
 	}
 
