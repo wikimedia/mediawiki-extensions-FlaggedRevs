@@ -126,7 +126,7 @@ class FlaggedArticle extends Article {
 	}
 
 	/**
-	 * Get latest quality rev, if not, the latest reviewed one
+	 * Get the stable revision
 	 * @param int $flags
 	 * @return mixed (FlaggedRevision/false)
 	 */
@@ -143,6 +143,16 @@ class FlaggedArticle extends Article {
 			$this->stableRev = false;
 		}
         return $this->stableRev;
+	}
+
+	/**
+	 * Get the stable revision ID
+	 * @param int $flags
+	 * @return int
+	 */
+	public function getStable( $flags = 0 ) {
+		$srev = $this->getStableRev( $flags );
+		return $srev ? $srev->getRevId() : 0;
 	}
 
 	/**

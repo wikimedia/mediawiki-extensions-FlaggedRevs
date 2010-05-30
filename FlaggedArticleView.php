@@ -363,7 +363,11 @@ class FlaggedArticleView {
 		# If they are synced, do special styling
 		$simpleTag = !$synced;
 		# Give notice to newer users if an unreviewed edit was completed...
-		if ( !$synced && $wgRequest->getVal( 'shownotice' ) && !$wgUser->isAllowed( 'review' ) ) {
+		if ( $wgRequest->getVal( 'shownotice' )
+			&& $this->article->getUserText() == $wgUser->getName() // FIXME: rawUserText?
+			&& $srev->getRevId() != $this->article->getLatest()
+			&& !$wgUser->isAllowed( 'review' ) )
+		{
 			$revsSince = FlaggedRevs::getRevCountSince( $this->article, $srev->getRevId() );
 			$tooltip = wfMsgHtml( 'revreview-draft-title' );
 			$pending = $prot;
@@ -615,6 +619,7 @@ class FlaggedArticleView {
 	}
 
 	/**
+	* Add diff-to-stable to top of page views as needed
 	* @param FlaggedRevision $srev, stable version
 	* @param bool $quality, revision is quality
 	* @returns bool, diff added to output
@@ -1227,32 +1232,39 @@ class FlaggedArticleView {
 					$notice = wfMsgExt( 'revreview-update-use', 'parse' );
 				}
 			} elseif ( !$synced ) {
-				$diff->mTitle->invalidateCache(); // bad cache, said they were not synced
+				# Bad cache said they were not synced
+				$this->article->getTitle()->invalidateCache();
 			}
 
 			# If the user is allowed to review, prompt them!
 			# Only those if there is something to actually review.
-			if ( $newRev->getId() > $oldRev->getId() ) {
-				# "Please review" notice...
-				$msg = 'revreview-update';
-				if ( $wgRequest->getInt( 'shownotice' )
-					&& $newRev->isCurrent()
-					&& $newRev->getRawUserText() == $wgUser->getName() )
-				{
-					$msg = 'revreview-update-edited'; // Reviewer just edited
+			if ( $wgRequest->getInt( 'shownotice' )
+				&& $newRev->isCurrent()
+				&& $newRev->getRawUserText() == $wgUser->getName() )
+			{
+				// Reviewer just edited...
+				$title = $this->article->getTitle(); // convenience
+				// TODO: make diff class cache
+				$n = $title->countRevisionsBetween( $oldRev->getId(), $newRev->getId() );
+				if ( $n ) {
+					$msg = 'revreview-update-edited-prev'; // previous pending edits
+				} else {
+					$msg = 'revreview-update-edited'; // just couldn't autoreview
 				}
-				$changeDiv = wfMsgExt( $msg, 'parse' );
-				if ( count( $changeList ) ) {
-					# Add include change list...
-					$changeDiv .= '<p>' .
-						wfMsgExt( 'revreview-update-includes', 'parseinline' ) .
-						'&#160;' . implode( ', ', $changeList ) . '</p>';
-					# Add include usage notice...
-					$changeDiv .= $notice;
-				}
-				$css = 'flaggedrevs_diffnotice plainlinks';
-				$form .= "<div id='mw-fr-difftostable' class='$css'>$changeDiv</div>\n";
+			} else {
+				$msg = 'revreview-update'; // generic "Please review" notice...
 			}
+			$changeDiv = wfMsgExt( $msg, 'parse' );
+			if ( count( $changeList ) ) {
+				# Add include change list...
+				$changeDiv .= '<p>' .
+					wfMsgExt( 'revreview-update-includes', 'parseinline' ) .
+					'&#160;' . implode( ', ', $changeList ) . '</p>';
+				# Add include usage notice...
+				$changeDiv .= $notice;
+			}
+			$css = 'flaggedrevs_diffnotice plainlinks';
+			$form .= "<div id='mw-fr-difftostable' class='$css'>$changeDiv</div>\n";
 
 			# Set a key to note that someone is viewing this
 			$this->markDiffUnderReview( $oldRev, $newRev );
@@ -1434,9 +1446,12 @@ class FlaggedArticleView {
 				$this->isMultiPageDiff = true;
 			// Is there a stable version?
 			} elseif ( $this->article->isReviewable() ) {
-				$srev = $this->article->getStableRev();
+				$srevId = $this->article->getStable();
 				// Is this a diff of a draft rev against the stable rev?
-				if ( $srev && $oldRev->getId() == $srev->getRevId() ) {
+				if ( $srevId
+					&& $oldRev->getId() == $srevId
+					&& $newRev->getTimestamp() >= $oldRev->getTimestamp() )
+				{
 					$this->isDiffFromStable = true;
 				}
 			}
@@ -1500,12 +1515,17 @@ class FlaggedArticleView {
 	* @TODO: would be nice if hook passed in button attribs, not XML
 	*/
 	public function changeSaveButton( EditPage $editPage, array &$buttons ) {
+		$title = $this->article->getTitle(); // convenience
 		if ( !$this->article->editsRequireReview() ) {
 			return true; // edit will go live immediatly
-		} elseif ( !$this->article->editsArePending()
-			&& $this->article->getTitle()->userCan( 'autoreview' ) )
-		{
-			return true; // edit will be autoreviewed anyway
+		} elseif ( $title->userCan( 'autoreview' ) ) {
+			if ( FlaggedRevs::autoReviewNewPages() && !$this->article->exists() ) {
+				return true; // edit will be autoreviewed anyway
+			}
+			$frev = FlaggedRevision::newFromTitle( $title, self::getBaseRevId( $editPage ) );
+			if ( $frev ) {
+				return true; // edit will be autoreviewed anyway
+			}
 		}
 		if ( extension_loaded( 'domxml' ) ) {
 			wfDebug( "Warning: you have the obsolete domxml extension for PHP. Please remove it!\n" );
@@ -1530,17 +1550,19 @@ class FlaggedArticleView {
 	*/
 	public function addReviewCheck( $editPage, &$checkboxes, &$tabindex ) {
 		global $wgUser, $wgRequest;
-		if ( !$wgUser->isAllowed( 'review' ) ) {
+		if ( !$this->article->isReviewable() || !$wgUser->isAllowed( 'review' ) ) {
 			return true;
 		} elseif ( FlaggedRevs::autoReviewNewPages() && !$this->article->exists() ) {
 			return true; // not needed
 		}
-		if ( $this->article->isReviewable() ) {
+		$oldid = $wgRequest->getInt( 'oldid', $this->article->getLatest() );
+		if ( $oldid == $this->article->getLatest() ) {
 			$srev = $this->article->getStableRev();
 			# For pages with either no stable version, or an outdated one, let
 			# the user decide if he/she wants it reviewed on the spot. One might
 			# do this if he/she just saw the diff-to-stable and *then* decided to edit.
-			if ( !$srev || $srev->getRevId() != $this->article->getLatest() ) {
+			# Note: check not shown when editing old revisions, which is confusing.
+			if ( !$srev || $this->article->editsArePending() ) {
 				$checkbox = Xml::check(
 					'wpReviewEdit',
 					$wgRequest->getCheck( 'wpReviewEdit' ),
@@ -1565,38 +1587,51 @@ class FlaggedArticleView {
 	* Note: baseRevId trusted for Reviewers - text checked for others.
 	*/
 	public function addRevisionIDField( EditPage $editPage, OutputPage $out ) {
-		global $wgRequest;
 		$this->load();
-		$article = $editPage->getArticle(); // convenience
-		$latestId = $article->getLatest(); // current rev
-		$undo = $wgRequest->getIntOrNull( 'undo' );
-		# Undoing consecutive top edits...
-		if ( $undo && $undo === $latestId ) {
-			# Treat this like a revert to a base revision.
-			# We are undoing all edits *after* some rev ID (undoafter).
-			# If undoafter is not given, then it is the previous rev ID.
-			$revId = $wgRequest->getInt( 'undoafter',
-				$article->getTitle()->getPreviousRevisionID( $latestId, GAID_FOR_UPDATE ) );
-		# Undoing other edits...
-		} elseif ( $undo ) {
-			$revId = $latestId; // current rev is the base rev
-		# Other edits...
-		} else {
-			# If we are editing via oldid=X, then use that rev ID.
-			# Otherwise, check if the client specified the ID (bug 23098).
-			$revId = $article->getOldID()
-				? $article->getOldID()
-				: $wgRequest->getInt( 'baseRevId' ); // e.g. "show changes"/"preview"
-		}
-		# Zero oldid => current revision
-		if ( !$revId ) {
-			$revId = $latestId;
-		}
+		$revId = self::getBaseRevId( $editPage );
 		$out->addHTML( "\n" . Xml::hidden( 'baseRevId', $revId ) );
 		$out->addHTML( "\n" . Xml::hidden( 'undidRev',
 			empty( $editPage->undidRev ) ? 0 : $editPage->undidRev )
 		);
 		return true;
+	}
+
+	/**
+	* Guess the rev ID the text of this form is based off
+	* Note: baseRevId trusted for Reviewers - text checked for others.
+	* @return int
+	*/
+	protected static function getBaseRevId( EditPage $editPage ) {
+		global $wgRequest;
+		if ( !isset( $editPage->fr_baseRevId ) ) {
+			$article = $editPage->getArticle(); // convenience
+			$latestId = $article->getLatest(); // current rev
+			$undo = $wgRequest->getIntOrNull( 'undo' );
+			# Undoing consecutive top edits...
+			if ( $undo && $undo === $latestId ) {
+				# Treat this like a revert to a base revision.
+				# We are undoing all edits *after* some rev ID (undoafter).
+				# If undoafter is not given, then it is the previous rev ID.
+				$revId = $wgRequest->getInt( 'undoafter',
+					$article->getTitle()->getPreviousRevisionID( $latestId, GAID_FOR_UPDATE ) );
+			# Undoing other edits...
+			} elseif ( $undo ) {
+				$revId = $latestId; // current rev is the base rev
+			# Other edits...
+			} else {
+				# If we are editing via oldid=X, then use that rev ID.
+				# Otherwise, check if the client specified the ID (bug 23098).
+				$revId = $article->getOldID()
+					? $article->getOldID()
+					: $wgRequest->getInt( 'baseRevId' ); // e.g. "show changes"/"preview"
+			}
+			# Zero oldid => current revision
+			if ( !$revId ) {
+				$revId = $latestId;
+			}
+			$editPage->fr_baseRevId = $revId;
+		}
+		return $editPage->fr_baseRevId;
 	}
 
 	 /**

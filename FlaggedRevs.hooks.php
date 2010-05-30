@@ -874,10 +874,11 @@ class FlaggedRevsHooks {
     }
 
 	/**
-	* When an edit is made by a reviewer, if the base revision the
-	* edit was made from is the stable version, or the edit is a reversion
-	* to the stable version, then try to automatically review it.
-	* Also automatically review if the "review this revision" box is checked.
+	* When an edit is made by a user, review it if either:
+	* (a) The user can 'autoreview' and the edit's base revision is a checked
+	* (b) The edit is a self-revert to the stable version (by anyone)
+	* (c) The user can 'autoreview' new pages and this edit is a new page
+	* (d) The user can 'review' and the "review pending edits" checkbox was checked
 	*
 	* Note: RC items not inserted yet, RecentChange_save hook does rc_patrolled bit...
 	*/
