@@ -7,12 +7,13 @@
 class FlaggedArticle extends Article {
 	/* Process cache variables */
 	protected $stableRev = null;
+	protected $pendingRevs = null;
 	protected $pageConfig = null;
 
 	/**
 	 * Get a FlaggedArticle for a given title
 	 * @param Title
-	 * @returns FlaggedArticle
+	 * @return FlaggedArticle
 	 */
 	public static function getTitleInstance( Title $title ) {
 		// Check if there is already an instance on this title
@@ -25,16 +26,26 @@ class FlaggedArticle extends Article {
 	/**
 	 * Get a FlaggedArticle for a given article
 	 * @param Article
-	 * @returns FlaggedArticle
+	 * @return FlaggedArticle
 	 */
 	public static function getArticleInstance( Article $article ) {
 		return self::getTitleInstance( $article->mTitle );
 	}
 
+	/**
+	 * Clear object process cache values
+	 * @return void
+	 */
+	public static function clear() {
+		$this->stableRev = null;
+		$this->pendingRevs = null;
+		$this->pageConfig = null;
+	}
+
 	 /**
 	 * Is the stable version shown by default for this page?
      * @param int $flags, FR_MASTER
-	 * @returns bool
+	 * @return bool
 	 */
 	public function isStableShownByDefault( $flags = 0 ) {
 		# Get page configuration
@@ -45,7 +56,7 @@ class FlaggedArticle extends Article {
 	/**
 	 * Do edits have to be reviewed before being shown by default?
      * @param int $flags, FR_MASTER
-	 * @returns bool
+	 * @return bool
 	 */
 	public function editsRequireReview( $flags = 0 ) {
 		return (
@@ -58,9 +69,9 @@ class FlaggedArticle extends Article {
 	/**
 	 * Are edits to this page currently pending?
      * @param int $flags, FR_MASTER
-	 * @returns bool
+	 * @return bool
 	 */
-	public function editsArePending( $flags = 0 ) {
+	public function revsArePending( $flags = 0 ) {
 		if ( $this->isReviewable() ) {
 			$srev = $this->getStableRev( $flags );
 			if ( $srev ) {
@@ -76,8 +87,52 @@ class FlaggedArticle extends Article {
 	}
 
 	/**
+	 * Get number of revs since the stable revision
+	 * Note: slower than revsArePending()
+	 * @param int $flags FR_MASTER
+	 * @return int
+	 */
+	public function getPendingRevCount( $flags = 0 ) {
+		global $wgMemc, $wgParserCacheExpireTime;
+		# Cached results available?
+		if ( !( $flags & FR_MASTER ) && $this->pendingRevs !== null ) {
+			return $this->pendingRevs;
+		}
+		$count = null;
+		$sRevId = $this->getStable( $flags );
+		# Try the cache...
+		$key = wfMemcKey( 'flaggedrevs', 'countPending', $this->getId() );
+		if ( !( $flags & FR_MASTER ) ) {
+			$tuple = FlaggedRevs::getMemcValue( $wgMemc->get( $key ), $this );
+			# Items is cached and newer that page_touched...
+			if ( $tuple !== false ) {
+				# Confirm that cache value was made against the same stable rev Id.
+				# This avoids lengthy cache pollution if $sRevId is outdated.
+				list( $cRevId, $cPending ) = explode( '-', $tuple, 2 );
+				if ( $cRevId == $sRevId ) {
+					$count = (int)$cPending;
+				}
+			}
+		}
+		# Otherwise, fetch result from DB as needed...
+		if ( is_null( $count ) ) {
+			$db = ( $flags & FR_MASTER )
+				? wfGetDB( DB_MASTER )
+				: wfGetDB( DB_SLAVE );
+			$count = $db->selectField( 'revision', 'COUNT(*)',
+				array( 'rev_page' => $this->getId(), 'rev_id > ' . (int)$sRevId ),
+				__METHOD__ );
+			# Save result to cache...
+			$data = FlaggedRevs::makeMemcObj( "{$sRevId}-{$count}" );
+			$wgMemc->set( $key, $data, $wgParserCacheExpireTime );
+		}
+		$this->pendingRevs = $count;
+		return $this->pendingRevs;
+	}
+
+	/**
 	 * Is this page less open than the site defaults?
-	 * @returns bool
+	 * @return bool
 	 */
 	public function isPageLocked() {
 		return ( !FlaggedRevs::isStableShownByDefault() && $this->isStableShownByDefault() );
@@ -85,7 +140,7 @@ class FlaggedArticle extends Article {
 
 	/**
 	 * Is this page more open than the site defaults?
-	 * @returns bool
+	 * @return bool
 	 */
 	public function isPageUnlocked() {
 		return ( FlaggedRevs::isStableShownByDefault() && !$this->isStableShownByDefault() );
@@ -93,7 +148,7 @@ class FlaggedArticle extends Article {
 
 	/**
 	 * Should tags only be shown for unreviewed content for this user?
-	 * @returns bool
+	 * @return bool
 	 */
 	public function lowProfileUI() {
 		return FlaggedRevs::lowProfileUI() &&
@@ -103,7 +158,7 @@ class FlaggedArticle extends Article {
 	 /**
 	 * Is this article reviewable?
      * @param int $flags, FR_MASTER
-     * @returns bool
+     * @return bool
 	 */
 	public function isReviewable( $flags = 0 ) {
 		if ( !FlaggedRevs::inReviewNamespace( $this->getTitle() ) ) {
@@ -112,7 +167,7 @@ class FlaggedArticle extends Article {
         return !( FlaggedRevs::forDefaultVersionOnly()
             && !$this->isStableShownByDefault( $flags ) );
 	}
-	
+
 	/**
 	* Is this page in patrollable?
     * @param int $flags, FR_MASTER
@@ -158,7 +213,7 @@ class FlaggedArticle extends Article {
 	/**
 	 * Get visiblity restrictions on page
 	 * @param int $flags, FR_MASTER
-	 * @returns array (select,override)
+	 * @return array (select,override)
 	 */
 	public function getVisibilitySettings( $flags = 0 ) {
 		# Cached results available?

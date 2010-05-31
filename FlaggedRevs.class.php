@@ -840,47 +840,7 @@ class FlaggedRevs {
 		}
 		return false;
 	}
-	
-	/**
-	 * Get number of revs since the stable revision
-	 * @param Article $article
-	 * @param int $sRevId, the *stable* rev ID
-	 * @param int $flags FR_MASTER
-	 * @returns int
-	 */
-	public static function getRevCountSince( Article $article, $sRevId, $flags = 0 ) {
-		global $wgMemc, $wgParserCacheExpireTime;
-		$count = null;
-		# Try the cache...
-		$key = wfMemcKey( 'flaggedrevs', 'countPending', $article->getId() );
-		if ( !( $flags & FR_MASTER ) ) {
-			$tuple = self::getMemcValue( $wgMemc->get( $key ), $article );
-			# Items is cached and newer that page_touched...
-			if ( $tuple !== false ) {
-				# Confirm that cache value was made against the same stable rev Id.
-				# This avoids lengthy cache pollution if $sRevId is outdated.
-				list( $cRevId, $cPending ) = explode( '-', $tuple, 2 );
-				if ( $cRevId == $sRevId ) {
-					$count = (int)$cPending;
-				}
-			}
-		}
-		# Otherwise, fetch result from DB as needed...
-		if ( is_null( $count ) ) {
-			$db = ( $flags & FR_MASTER )
-				? wfGetDB( DB_MASTER )
-				: wfGetDB( DB_SLAVE );
-			$count = $db->selectField( 'revision',
-				'COUNT(*)',
-				array( 'rev_page' => $article->getId(), 'rev_id > ' . (int)$sRevId ),
-				__METHOD__ );
-			# Save result to cache...
-			$data = self::makeMemcObj( "{$sRevId}-{$count}" );
-			$wgMemc->set( $key, $data, $wgParserCacheExpireTime );
-		}
-		return $count;
-	}
-	
+
  	/**
 	* @param Article $article
 	* @param Revision $rev, the new stable version
@@ -888,11 +848,13 @@ class FlaggedRevs {
 	* Updates the tracking tables and pending edit count cache. Called on edit.
 	*/
 	public static function updateStableVersion( Article $article, Revision $rev, $latest = null ) {
-		if ( !$article->getId() )
+		if ( !$article->getId() ) {
 			return true; // no bogus entries
+		}
 		# Get the latest revision ID if not set
-		if ( !$latest )
+		if ( !$latest ) {
 			$latest = $article->getTitle()->getLatestRevID( GAID_FOR_UPDATE );
+		}
 		# Get the highest quality revision (not necessarily this one)
 		$dbw = wfGetDB( DB_MASTER );
 		$maxQuality = $dbw->selectField( array( 'flaggedrevs', 'revision' ),
@@ -932,8 +894,6 @@ class FlaggedRevs {
 			),
 			__METHOD__
 		);
-		# Reset cache of # of unreviewed revs
-		self::getRevCountSince( $article, $revId, FR_MASTER );
 		# Alter pending edit tracking table
 		self::updatePendingList( $article, $latest );
 		return true;
@@ -1357,7 +1317,7 @@ class FlaggedRevs {
 		elseif ( self::isSighted( $flags ) )
 			return FR_SIGHTED; // 0
 		else
-			return - 1;
+			return -1;
 	}
 
 	/**

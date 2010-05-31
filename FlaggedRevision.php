@@ -26,6 +26,7 @@ class FlaggedRevision {
 
 	/**
 	 * @param mixed $row (DB row or array)
+     * @return void
 	 */
 	public function __construct( $row ) {
 		if ( is_object( $row ) ) {
@@ -74,9 +75,12 @@ class FlaggedRevision {
 	 * @param Title $title
 	 * @param int $revId
 	 * @param int $flags FR_MASTER
-	 * @returns mixed FlaggedRevision (null on failure)
+	 * @return mixed FlaggedRevision (null on failure)
 	 */
 	public static function newFromTitle( Title $title, $revId, $flags = 0 ) {
+        if ( !FlaggedRevs::inReviewNamespace( $title ) ) {
+            return null; // short-circuit
+        }
 		$columns = self::selectFields();
 		$options = array();
 		# User master/slave as appropriate
@@ -117,10 +121,13 @@ class FlaggedRevision {
 	 * @param Title $title, page title
 	 * @param int $flags FR_MASTER
      * @param array $config, optional page config (use to skip queries)
-	 * @returns mixed FlaggedRevision (null on failure)
+	 * @return mixed FlaggedRevision (null on failure)
 	 */
 	public static function newFromStable( Title $title, $flags = 0, $config = array() ) {
-		$columns = self::selectFields();
+		if ( !FlaggedRevs::inReviewNamespace( $title ) ) {
+            return null; // short-circuit
+        }
+        $columns = self::selectFields();
 		$options = array();
 		# Short-circuit query
 		$pageId = $title->getArticleID( $flags & FR_FOR_UPDATE ? GAID_FOR_UPDATE : 0 );
@@ -257,7 +264,7 @@ class FlaggedRevision {
 	}
 	
 	/**
-	 * @returns array basic select fields (not including text/text flags)
+	 * @return Array basic select fields (not including text/text flags)
 	 */
 	public static function selectFields() {
 		return array(
@@ -268,14 +275,14 @@ class FlaggedRevision {
 	}
 
 	/**
-	 * @returns Integer revision ID
+	 * @return integer revision ID
 	 */
 	public function getRevId() {
 		return $this->mRevId;
 	}
 	
 	/**
-	 * @returns Title title
+	 * @return Title title
 	 */
 	public function getTitle() {
 		if ( is_null( $this->mTitle ) ) {
@@ -285,7 +292,7 @@ class FlaggedRevision {
 	}
 
 	/**
-	 * @returns Integer page ID
+	 * @return integer page ID
 	 */
 	public function getPage() {
 		return $this->mPageId;
@@ -293,7 +300,7 @@ class FlaggedRevision {
 
 	/**
 	 * Get timestamp of review
-	 * @returns String revision timestamp in MW format
+	 * @return string revision timestamp in MW format
 	 */
 	public function getTimestamp() {
 		return wfTimestamp( TS_MW, $this->mTimestamp );
@@ -301,7 +308,7 @@ class FlaggedRevision {
 	
 	/**
 	 * Get the corresponding revision
-	 * @returns Revision
+	 * @return Revision
 	 */
 	public function getRevision() {
 		if ( is_null( $this->mRevision ) ) {
@@ -315,7 +322,7 @@ class FlaggedRevision {
 	
 	/**
 	 * Get timestamp of the corresponding revision
-	 * @returns String revision timestamp in MW format
+	 * @return string revision timestamp in MW format
 	 */
 	public function getRevTimestamp() {
 		# Get corresponding revision
@@ -325,35 +332,35 @@ class FlaggedRevision {
 	}
 
 	/**
-	 * @returns String review comment
+	 * @return string review comment
 	 */
 	public function getComment() {
 		return $this->mComment;
 	}
 	
 	/**
-	 * @returns Integer the user ID of the reviewer
+	 * @return integer the user ID of the reviewer
 	 */
 	public function getUser() {
 		return $this->mUser;
 	}
 
 	/**
-	 * @returns Integer revision timestamp in MW format
+	 * @return integer revision timestamp in MW format
 	 */
 	public function getQuality() {
 		return $this->mQuality;
 	}
 
 	/**
-	 * @returns array tag metadata
+	 * @return Array tag metadata
 	 */
 	public function getTags() {
 		return $this->mTags;
 	}
 	
 	/**
-	 * @returns string, filename accosciated with this revision.
+	 * @return string, filename accosciated with this revision.
 	 * This returns NULL for non-image page revisions.
 	 */
 	public function getFileName() {
@@ -361,7 +368,7 @@ class FlaggedRevision {
 	}
 	
 	/**
-	 * @returns string, sha1 key accosciated with this revision.
+	 * @return string, sha1 key accosciated with this revision.
 	 * This returns NULL for non-image page revisions.
 	 */
 	public function getFileSha1() {
@@ -369,7 +376,7 @@ class FlaggedRevision {
 	}
 	
 	/**
-	 * @returns string, timestamp accosciated with this revision.
+	 * @return string, timestamp accosciated with this revision.
 	 * This returns NULL for non-image page revisions.
 	 */
 	public function getFileTimestamp() {
@@ -377,7 +384,7 @@ class FlaggedRevision {
 	}
 	
 	/**
-	 * @returns bool
+	 * @return bool
 	 */
 	public function userCanSetFlags() {
 		return FlaggedRevs::userCanSetFlags( $this->mTags );
@@ -386,6 +393,7 @@ class FlaggedRevision {
 	/**
 	 * Set template versions array
 	 * @param array template versions (ns -> dbKey -> rev id)
+     * @return void
 	 */
 	public function setTemplateVersions( array $templateVersions ) {
 		$this->mTemplates = $templateVersions;
@@ -394,13 +402,14 @@ class FlaggedRevision {
 	/**
 	 * Set file versions array
 	 * @param array file versions (dbKey -> sha1)
+     * @return void
 	 */
 	public function setFileVersions( array $fileVersions ) {
 		$this->mFiles = $fileVersions;
 	}
 
 	/**
-	 * @returns array template versions (ns -> dbKey -> rev id)
+	 * @return Array template versions (ns -> dbKey -> rev id)
 	 */
 	public function getTemplateVersions() {
 		if ( $this->mTemplates == null ) {
@@ -421,7 +430,7 @@ class FlaggedRevision {
 	}
 	
 	/**
-	 * @returns array file versions (dbKey -> sha1)
+	 * @return Array file versions (dbKey -> sha1)
 	 */
 	public function getFileVersions() {
 		if ( $this->mFiles == null ) {
@@ -440,7 +449,7 @@ class FlaggedRevision {
 	
 	/**
 	 * Get text of the corresponding revision
-	 * @returns mixed (string/false) revision timestamp in MW format
+	 * @return mixed (string/false) revision timestamp in MW format
 	 */
 	public function getRevText() {
 		# Get corresponding revision
