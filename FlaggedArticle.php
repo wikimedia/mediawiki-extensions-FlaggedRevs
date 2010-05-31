@@ -36,10 +36,11 @@ class FlaggedArticle extends Article {
 	 * Clear object process cache values
 	 * @return void
 	 */
-	public static function clear() {
+	public function clear() {
 		$this->stableRev = null;
 		$this->pendingRevs = null;
 		$this->pageConfig = null;
+		parent::clear();
 	}
 
 	 /**
