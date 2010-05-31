@@ -1589,7 +1589,7 @@ $messages['be-tarask'] = array(
 	'revreview-hist-basic-auto' => '[{{fullurl:$1|stableid=$2}} правераная аўтаматычна]',
 	'revreview-hist-quality-auto' => '[{{fullurl:$1|stableid=$2}} зацьверджаная аўтаматычна]',
 	'revreview-hist-pending' => "'''[[{{fullurl:$1|oldid=$2&diff=$3}} чакае праверкі]]'''",
-	'review-edit-diff' => "'''ЗАЎВАГА: Некаторыя чакаючыя праверкі зьмены адносяцца да вобласьці старонкі, якую Вы рэдагуеце.'''",
+	'review-edit-diff' => "'''ЗАЎВАГА: Некаторыя зьмены, якія чакаюць рэцэнзіі, адносяцца да вобласьці старонкі, якую Вы рэдагуеце.'''",
 	'revreview-diff-toggle-show' => 'паказаць зьмены',
 	'revreview-diff-toggle-hide' => 'схаваць зьмены',
 	'revreview-diff-toggle-title' => 'Пераключэньне паказу неравераных зьменаў апублікаванай вэрсіяй',
@@ -1650,8 +1650,8 @@ $messages['be-tarask'] = array(
 	'revreview-edit' => 'Рэдагаваць',
 	'revreview-editnotice' => "'''Вашыя рэдагаваньні будуць апублікаваныя пасьля таго, як іх прарэцэнзуе аўтарызаваны удзельнік.([[{{MediaWiki:Validationpage}}|?]])'''",
 	'revreview-check-flag' => 'Апублікаваць цяперашнія рэдагаваньні, якія чакаюць праверкі',
-	'revreview-check-flag-title' => 'Прыняць усе цяперашнія зьмены, якія чакаюць праверкі разам з Вашым рэдагаваньнем.
-Выкарыстоўвайце толькі калі Вы ўжо праглядзелі зьмены чакаючыя праверкі.',
+	'revreview-check-flag-title' => 'Прыняць усе цяперашнія зьмены, якія чакаюць рэцэнзіі разам з Вашым рэдагаваньнем.
+Выкарыстоўвайце толькі калі Вы ўжо праглядзелі зьмены, якія чакаюць праверкі.',
 	'revreview-submitedit' => 'Прыняць зьмены',
 	'revreview-submitedit-title' => 'Прапанаваць Вашыя зьмены для рэцэнзаваньня',
 	'revreview-edited' => "'''Рэдагаваньні будуць апублікаваныя пасьля таго, як іх прарэцэнзуе ўпаўнаважаны ўдзельнік.([[{{MediaWiki:Validationpage}}|?]])'''
@@ -3944,7 +3944,10 @@ Refrescar la página y volviendo a revisar puede solucionar este problema.",
 	'revreview-edit' => 'Editar',
 	'revreview-editnotice' => "'''Tus cambios serán publicados una vez que un usuario autorizado los revise. ([[{{MediaWiki:Validationpage}}|?]])'''",
 	'revreview-check-flag' => 'Publicar cambios actualmente pendientes',
+	'revreview-check-flag-title' => 'Aceptar todos los cambios actualmente pendientesjunto con tu propia edición.
+Solamente usar esto si ya has visto por completo las diferencias de los cambios pendientes.',
 	'revreview-submitedit' => 'Guardar cambios',
+	'revreview-submitedit-title' => 'Enviar tus cambios para revisión',
 	'revreview-edited' => "'''Los cambios serán publicados una vez que un usuario autorizado los revise. ([[{{MediaWiki:Validationpage}}|?]])'''
 
 {{PLURAL:$2|Hay|Hay}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 {{PLURAL:$2|cambio|cambios}}] pendientes ''(mostrados abajo)'' esperando revisión.",
@@ -4015,6 +4018,10 @@ Para remover el status de una revisión, marque ''todos'' los campos como \"inad
 Por favor presiona el botón ''atrás'' en tu navegador e intenta de nuevo.",
 	'revreview-update' => "'''Por favor,[[{{MediaWiki:Validationpage}}|revisa]] los cambios pendientes ''(que se muestran a continuación)'' hechos en la versión aceptada.'''
 Primero tendrás que hacer un seguimiento de las ediciones, o \"deshacerlas\".",
+	'revreview-update-edited' => '<span class="flaggedrevs_important">Tus cambios aún no han sido aceptados.</span>
+
+Por favor revisar todos los cambios mostrados abajo para que tu ediciones sean aceptadas.
+Primero será necesario que hagas un seguimiento a las ediciones o las "deshagas".',
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Tus cambios no han sido aceptados aún. Hay ediciones previas pendientes de ser revisadas.</span>
 
 Por favor, revisa todos los cambios mostrados a continuación para que se acepten tus ediciones.
