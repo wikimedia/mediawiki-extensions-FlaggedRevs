@@ -3407,10 +3407,21 @@ $messages['szl'] = array(
 );
 
 /** Tamil (தமிழ்)
+ * @author Kanags
  * @author Ulmo
  */
 $messages['ta'] = array(
 	'stabilization-page' => 'பக்கப் பெயர்:',
+	'stabilization-submit' => 'உறுதிப்படுத்து',
+	'stabilization-comment' => 'காரணம்:',
+	'stabilization-otherreason' => 'வேறு காரணம்:',
+	'stabilization-expiry' => 'முடிவு நாள்:',
+	'stabilization-othertime' => 'வேறு நேரம்:',
+	'stabilization-sel-short' => 'முன்னுதாரணம்',
+	'stabilization-sel-short-0' => 'தரம்',
+	'stabilization-sel-short-1' => 'எதுவுமில்லை',
+	'stabilization-def-short-0' => 'நடப்பு',
+	'stabilization-def-short-1' => 'ஏற்றுக்கொள்ளப்பட்டது',
 );
 
 /** Telugu (తెలుగు)

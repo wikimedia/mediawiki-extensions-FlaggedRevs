@@ -1470,6 +1470,21 @@ $messages['sv'] = array(
 	'unreviewed-recent' => '(mindre än en timme)',
 );
 
+/** Tamil (தமிழ்)
+ * @author Kanags
+ */
+$messages['ta'] = array(
+	'unreviewedpages' => 'பார்வையிடப்படாத பக்கங்கள்',
+	'unreviewed-legend' => 'மீள்பார்வையிடப்படாத பகுதிகளைக் கொண்ட பக்கங்கள்',
+	'unreviewed-category' => 'பகுப்பு:',
+	'unreviewed-diff' => 'முன்தோற்றம்',
+	'unreviewed-watched' => '($1 {{PLURAL:$1|பயனர்|பயனர்கள்}} பார்வையிடுகிறார்கள்)',
+	'unreviewed-viewing' => '(மீள் பார்வைக்காக)',
+	'unreviewed-hours' => '($1 {{PLURAL:$1|மணித்தியாலம்|மணித்தியாலங்கள்}})',
+	'unreviewed-days' => '($1 {{PLURAL:$1|நாள்|நாட்கள்}})',
+	'unreviewed-recent' => '(1 மணித்தியாலத்துக்குள்)',
+);
+
 /** Telugu (తెలుగు)
  * @author Kiranmayee
  * @author Veeven

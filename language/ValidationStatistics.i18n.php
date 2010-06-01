@@ -1770,11 +1770,14 @@ En sidas publicerade version är den nyaste version som har blivit godkänd för
 );
 
 /** Tamil (தமிழ்)
+ * @author Kanags
  * @author Ulmo
  */
 $messages['ta'] = array(
 	'validationstatistics-ns' => 'பெயர்வெளி',
 	'validationstatistics-total' => 'பக்கங்கள்',
+	'validationstatistics-stable' => 'மீள்பார்வையிடப்பட்டது',
+	'validationstatistics-user' => 'பயனர்',
 );
 
 /** Telugu (తెలుగు)

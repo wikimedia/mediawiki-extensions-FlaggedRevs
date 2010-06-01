@@ -702,6 +702,14 @@ $messages['sv'] = array(
 	'stablepages-config' => 'Konfigurering',
 );
 
+/** Tamil (தமிழ்)
+ * @author Kanags
+ */
+$messages['ta'] = array(
+	'stablepages-none' => 'இப்பட்டியலில் எந்தப் பக்கங்களும் இல்லை.',
+	'stablepages-config' => 'வடிவமைப்பு',
+);
+
 /** Telugu (తెలుగు)
  * @author Veeven
  * @author వైజాసత్య
