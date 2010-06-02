@@ -35,9 +35,13 @@ $messages['qqq'] = array(
 
 /** Afrikaans (Afrikaans) */
 $messages['af'] = array(
+	'configuredpages-none' => 'Daar is geen bladsye in hierdie lys nie.',
+	'configuredpages-config' => 'Voorkeure',
+	'configuredpages-precedence' => 'Volgorde:',
 	'configuredpages-prec-none' => 'laaste gekontroleerde',
 	'configuredpages-prec-quality' => 'laaste kwaliteitsweergawe',
 	'configuredpages-prec-pristine' => 'laaste ongerepte weergawe',
+	'configuredpages-def-draft' => 'nuutste weergawe',
 );
 
 /** Arabic (العربية) */
@@ -683,6 +687,15 @@ $messages['sv'] = array(
 	'configuredpages-prec-pristine' => 'företräde för orörda',
 	'configuredpages-def-draft' => 'senaste versionen',
 	'configuredpages-def-stable' => 'Publicerad version',
+);
+
+/** Tamil (தமிழ்)
+ * @author Mahir78
+ */
+$messages['ta'] = array(
+	'configuredpages-prec-quality' => 'தற்போதையத் தரம்',
+	'configuredpages-def-draft' => 'தற்போதைய பதிப்பு',
+	'configuredpages-def-stable' => 'ஏற்றுக்கொள்ளப்பட்ட பதிப்பு',
 );
 
 /** Telugu (తెలుగు)

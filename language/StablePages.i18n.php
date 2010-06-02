@@ -36,7 +36,7 @@ $messages['qqq'] = array(
 $messages['af'] = array(
 	'stablepages' => 'Bladsye onderhewig aan goedkeuring van bywerkings',
 	'stablepages-text' => "Hier is 'n lys van bladsye wat handmatig gestel is om die gepubliseerde weergawe as standaard inhoud vir lesers te wys.",
-	'stablepages-none' => 'Daar is geen bladsye in hierdie lys nie',
+	'stablepages-none' => 'Daar is geen bladsye in hierdie lys nie.',
 	'stablepages-config' => 'Voorkeure',
 );
 

@@ -1777,6 +1777,7 @@ $messages['ta'] = array(
 	'validationstatistics-ns' => 'பெயர்வெளி',
 	'validationstatistics-total' => 'பக்கங்கள்',
 	'validationstatistics-stable' => 'மீள்பார்வையிடப்பட்டது',
+	'validationstatistics-old' => 'காலாவதியானது',
 	'validationstatistics-user' => 'பயனர்',
 );
 

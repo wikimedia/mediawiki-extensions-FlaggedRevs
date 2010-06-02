@@ -638,6 +638,7 @@ $messages['af'] = array(
 	'revreview-style-4' => 'Uitgelig',
 	'revreview-submit' => 'Dien in',
 	'revreview-submitting' => 'Besig om in te stuur...',
+	'revreview-submit-review' => 'Aanvaar',
 	'revreview-toggle-title' => 'wys/versteek details',
 	'revreview-update-includes' => "'''Sommige sjablone/lêers is bygewerk:'''",
 	'revreview-revnotfound' => 'Die ou weergawe wat jy aangevra het kon nie gevind word nie. Gaan asseblief die URL na wat jy gebruik het.',
@@ -654,8 +655,14 @@ $messages['af'] = array(
 	'revreview-filter-manual' => 'Handmatig',
 	'revreview-levelfilter' => 'Vlak:',
 	'revreview-precedencefilter' => 'Volgorde:',
+	'revreview-lev-all' => 'enige',
 	'revreview-lev-quality' => 'kwaliteit',
 	'revreview-lev-pristine' => 'onaangeroerd',
+	'revreview-def-all' => 'enige',
+	'revreview-def-draft' => 'nuutste',
+	'revreview-restrictfilter' => 'Beperkingsvlak:',
+	'revreview-restriction-any' => 'enige',
+	'revreview-restriction-none' => 'geen',
 	'tooltip-ca-default' => 'Instellings vir kwaliteitsbeheer',
 	'flaggedrevs-protect-legend' => 'Publiseer wysigings',
 	'flaggedrevs-protect-none' => 'Alle gebruikers toelaat',
@@ -3353,6 +3360,10 @@ Nowozacytanje boka a nowopśeglědowanje móžo toś ten problem rozwězaś.",
 	'revreview-edit' => 'Wobźěłaś',
 	'revreview-editnotice' => "'''Twóje změny budu se wózjawjaś, gaž awtorizěrowany wužywaŕ je pśeglědujo.  ([[{{MediaWiki:Validationpage}}|?]]).'''",
 	'revreview-check-flag' => 'Tuchylu njepśeglědane změny wózjawiś',
+	'revreview-check-flag-title' => 'Wšykne tuchylu njepśeglědane změny gromaźe ze swójsku změnu akceptěrowaś.
+Wužywaj to jano, jolic sy južo wšykne njepśeglědane změny wiźeł.',
+	'revreview-submitedit' => 'Změny wótpósłaś',
+	'revreview-submitedit-title' => 'Twóje změny za pśeglědanje wótpósłaś',
 	'revreview-edited' => "'''Změny budu se wózjawjaś, gaž awtorizěrowany wužywaŕ je pśeglědujo.([[{{MediaWiki:Validationpage}}|?]]).'''
 
 {{PLURAL:$2|Jo|Stej|Su|Jo}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 {{PLURAL:$2|njepśeglědna změna|njepśeglědanej změnje|njepśeglědane změny|njepśeglědanych změnow}}], {{PLURAL:$2|kótaraž caka|kótarejž cakatej|kótarež cakaju|kótarež cakaju}} na pśeglědanje.",
@@ -3426,6 +3437,10 @@ Aby pśeglědowański status wersije wótpórał, staj '''wšykne''' póla na \"
 Pšosym klikni na tłocašk \"Slědk\" w swójom wobglědowaku a wopytaj hyšći raz.",
 	'revreview-update' => "'''Pšosym [[{{MediaWiki:Validationpage}}|pśeglědaj]] ''(slědujuce)'' njepśeglědane změny, kótarež su se na akceptěrowanej wersiji pśewjedli.'''
 Musyš nejpjerwjeje změny dalej wobźěłaś abo \"slědk wześ\".",
+	'revreview-update-edited' => '<span class="flaggedrevs_important">Twóje změny hyšći njejsu akceptěrowane.</span>
+
+Pšosym pśeglědajwšykne slědujuce změny, aby se twóje změny akceptěrowali.
+Móžo byś, až musyš nejpjerwjej změny dalej wobźěłaś abo "anulěrowaś".',
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Twóje změny hyšći njejsu akceptěrowane. Su hyšći njepśeglědane změny.</span>
 
 Pšosym pśeglědaj wšykne slědujuce změny, aby je akoakceptěrowane markěrował.
@@ -13246,11 +13261,29 @@ $messages['szl'] = array(
 
 /** Tamil (தமிழ்)
  * @author Kanags
+ * @author Mahir78
  * @author Trengarasu
  */
 $messages['ta'] = array(
 	'action-review' => 'திருத்தங்களைப் பார்வையிடுக',
 	'editor' => 'பதிப்பாளர்',
+	'flaggedrevs-backlog' => "There is currently a backlog of [[Special:OldReviewedPages|pending changes]] to reviewed pages. '''உங்களது கவனம் தேவை!'''",
+	'flaggedrevs-watched-pending' => "There are currently [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} pending changes] to reviewed pages on your watchlist. '''உங்களது கவனம் தேவை!'''",
+	'flaggedrevs-pref-UI' => 'அடிப்படை இடைமுகப்பு:',
+	'prefs-flaggedrevs' => 'மதிப்பீடை தொகு',
+	'prefs-flaggedrevs-ui' => 'மதிப்பீடை தொகு',
+	'group-editor' => 'பதிப்பாசிரியர்கள்',
+	'group-editor-member' => 'பதிப்பாசிரியர்',
+	'group-reviewer' => 'மதிப்பீட்டாளர்கள்',
+	'group-reviewer-member' => 'மதிப்பீட்டாளர்',
+	'grouppage-editor' => '{{ns:project}}:பதிப்பாசிரியர்',
+	'grouppage-reviewer' => '{{ns:project}}:மதிப்பீட்டாளர்',
+	'group-autoreview' => 'தானியக்கமாக சோதிக்கப்பட்ட பயனர்கள்',
+	'group-autoreview-member' => 'தானியக்கமாக சோதிக்கப்பட்ட பயனர்கள்',
+	'grouppage-autoreview' => '{{ns:project}}:தானியக்கமாக சோதிக்கப்பட்ட பயனர்கள்',
+	'revreview-hist-draft' => 'மறுநோக்கு சோதிக்கப்படவில்லை',
+	'revreview-hist-quality' => 'தரமான மேலாய்வு',
+	'revreview-hist-basic' => 'சோதிக்கப்பட்ட மேலாய்வு',
 	'revreview-revnotfound' => 'இப் பக்கத்துக்குரிய, நீங்கள் கோரிய பழைய திருத்தம் காணப்படவில்லை. இந்தப் பக்கத்தை அணுகுவதற்கு நீங்கள் பயன்படுத்திய இணைய முகவரியை அருள் கூர்ந்து சரி பார்க்கவும்.',
 );
 
