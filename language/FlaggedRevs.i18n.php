@@ -112,8 +112,7 @@ Refreshing the page and rereviewing can solve this problem.',
 	'revreview-edit'               => 'Edit',
 	'revreview-editnotice'         => '\'\'\'Your changes will be accepted once an authorized user reviews them. ([[{{MediaWiki:Validationpage}}|help]])\'\'\'',
 	'revreview-check-flag'         => 'Accept the pending changes',
-	'revreview-check-flag-title'   => 'Accept all the currently pending changes along with your own edit.
-	Only use this if you have already seen the entire pending changes diff.',
+	'revreview-check-flag-title'   => 'Accept all the currently pending changes along with your own edit. Only use this if you have already seen the entire pending changes diff.',
 	'revreview-submitedit'         => 'Submit changes',
 	'revreview-submitedit-title'   => 'Submit your changes for review',
 	'revreview-edited'             => '\'\'\'Your changes will be accepted once an authorized user reviews them. ([[{{MediaWiki:Validationpage}}|help]])\'\'\'
