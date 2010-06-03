@@ -1472,7 +1472,7 @@ $messages['sr-el'] = array(
  * @author Rotsee
  */
 $messages['sv'] = array(
-	'oldreviewedpages' => 'Föråldrade granskade sidor',
+	'oldreviewedpages' => 'Sidor med väntande ändringar',
 	'oldreviewedpages-legend' => 'Visa granskade sidor med ogranskade sidversioner',
 	'oldreviewedpages-list' => 'Den här sidan visar {{PLURAL:$1|en granskad sida|granskade sidor}} med väntande redigeringar.',
 	'oldreviewedpages-none' => 'Det finns just nu inga sidor som matchar dessa kriterier',

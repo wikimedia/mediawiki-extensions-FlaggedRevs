@@ -1118,7 +1118,8 @@ $messages['su'] = array(
 $messages['sv'] = array(
 	'reviewedpages' => 'Granskade sidor',
 	'reviewedpages-leg' => 'Lista sidor som har blivit granskade',
-	'reviewedpages-list' => 'Följande {{PLURAL:$1|sida|sidor}} har granskats till (högst) den angivna nivån.',
+	'reviewedpages-list' => "Denna förteckning innehåller [[{{MediaWiki:Validationpage}}|granskade]] sidor vars ''högsta uppnådda'' granskningsnivå (för en version) är den angivna nivån.
+En länk ges till den senaste versionen av denna nivå.",
 	'reviewedpages-none' => 'Den här listan innehåller inga sidor',
 	'reviewedpages-lev-0' => '{{int:revreview-lev-basic}}',
 	'reviewedpages-lev-1' => '{{int:revreview-lev-quality}}',

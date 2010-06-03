@@ -3227,8 +3227,8 @@ Bir revizyonu aşındırmak için, tüm alanları "onaylanmamış" seçin.',
 	'rights-editor-autosum' => 'otomatik terfi biyo',
 	'rights-editor-revoke' => 'qey [[$1]] statuyê editori tepiya geriya',
 	'specialpages-group-quality' => 'Garantiyê kaliteyî',
-	'stable-logentry-config' => 'qey $1 versiyonê istiqrariye eyar bı',
-	'stable-logentry-reset' => 'qey $1 versiyonê istiqrariye sıfır ker',
+	'stable-logentry-config' => 'seba $1 eyaranê qebuli rone',
+	'stable-logentry-reset' => 'seba $1 eyaranê qebuli ancia rone',
 	'stable-logpage' => 'Logê stabiliyî',
 	'stable-logpagetext' => 'Eno yew cıkewtışê vurnayışanê [[{{MediaWiki:Validationpage}}|verziyonê çapi]]ê awankerdışê pelanê zerrekio.',
 	'revreview-filter-all' => 'pêroyi',
@@ -3682,7 +3682,7 @@ $messages['eo'] = array(
 	'reviewer' => 'Kontrolanto',
 	'revisionreview' => 'Kontroli versiojn',
 	'revreview-accuracy' => 'Stato',
-	'revreview-accuracy-0' => 'Malkonsentita',
+	'revreview-accuracy-0' => 'Malsufiĉa',
 	'revreview-accuracy-1' => 'Reviziita',
 	'revreview-accuracy-2' => 'Fidela',
 	'revreview-accuracy-3' => 'Dokumentita',
@@ -3702,11 +3702,12 @@ Novaj [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} ŝanĝoj] eble
 Ŝablono aŭ bildo verŝajne estis petita kiam nenia aparta versio estis petita.
 Ĉi tiel povas okzi se malstatika ŝablono transinkluzivas alian dosieron aŭ ŝablonon depende de variablo kiu ŝanĝis ekde vi ekkontrolis ĉi tiun paĝon.
 Refreŝigo de la paĝo kaj rekontrolo povas solvi ĉi tiun problemon.",
+	'review_page_invalid' => 'La cela paĝtitolo estas malvalida.',
 	'review_denied' => 'Malpermesita.',
 	'review_param_missing' => 'Parametro mankas aŭ estas malvalida.',
 	'revreview-current' => 'Kontrolendaj ŝanĝoj',
 	'revreview-depth' => 'Profundeco',
-	'revreview-depth-0' => 'Malaprobita',
+	'revreview-depth-0' => 'Malsufiĉa',
 	'revreview-depth-1' => 'Baza',
 	'revreview-depth-2' => 'Modere',
 	'revreview-depth-3' => 'Grande',
@@ -3715,6 +3716,7 @@ Refreŝigo de la paĝo kaj rekontrolo povas solvi ĉi tiun problemon.",
 	'revreview-edit' => 'Redakti',
 	'revreview-editnotice' => "'''Viaj ŝanĝoj estos publikigita kiam aŭtoritata uzanto kontrolis ili. ([[{{MediaWiki:Validationpage}}|?]])'''",
 	'revreview-check-flag' => 'Publikigi nune kontrolendajn ŝanĝojn',
+	'revreview-submitedit' => 'Sendi ŝanĝojn',
 	'revreview-edited' => "'''Ŝanĝoj estos publikigitaj post kiam aŭtorita uzanto kontrolas ilin. ([[{{MediaWiki:Validationpage}}|?]])'''
 
 Jen estas [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 {{PLURAL:$2|kontrolenda ŝanĝo|kontrolendaj ŝanĝoj}}].",
@@ -3764,7 +3766,7 @@ Novaj [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} ŝanĝoj] eble
 	'revreview-stable1' => 'Eble vi volas rigardi [{{fullurl:$1|stableid=$2}} la ĵus markitan version] por vidi, ĉu ĝi nun estas la [{{fullurl:$1|stable=1}} publikigita versio] de ĉi tiu paĝo.',
 	'revreview-stable2' => 'Eble vi volas rigardi la [{{fullurl:$1|stable=1}} publikigitan version] de ĉi tiu paĝo.',
 	'revreview-style' => 'Legebleco',
-	'revreview-style-0' => 'Malaprobita',
+	'revreview-style-0' => 'Malsufiĉa',
 	'revreview-style-1' => 'Akceptinda',
 	'revreview-style-2' => 'Bona',
 	'revreview-style-3' => 'Konciza',
@@ -3783,7 +3785,8 @@ Novaj [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} ŝanĝoj] eble
 Malvalidigi revizion, faru ĉiujn kampojn kiel "malaprobitaj".
 
 Bonvolu klaki la "reiri" butonon en via retumilo kaj reprovu.',
-	'revreview-update' => "Bonvolu [[{{MediaWiki:Validationpage}}|kontroli]] iujn kontrolendajn ŝanĝojn ''(montritajn suben)'' faritajn al la publikigita versio:'''",
+	'revreview-update' => "Bonvolu [[{{MediaWiki:Validationpage}}|kontroli]] iujn kontrolendajn ŝanĝojn ''(montritajn suben)'' faritajn al la akceptita versio:'''
+Eble vi unue kontrolu aŭ malfaru redaktojn.",
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Viaj ŝanĝoj ankoraŭ publikigitaj.</span>
 
 Estas antaŭaj kontrolendaj redaktoj. Publikigi viajn ŝanĝojn, bonvolu kontroli ĉiujn jenajn ŝanĝojn.',
@@ -3805,7 +3808,7 @@ Bonvolu kontroli la retadreson (URL) kiun vi uzis por atingi la paĝon.\\b',
 	'specialpages-group-quality' => 'Redakta aprobado',
 	'stable-logentry-config' => 'konfiguris agordojn pri publikigado por $1',
 	'stable-logentry-reset' => 'restarigi publikigadajn agordojn por $1',
-	'stable-log-restriction' => 'Publikigi: nepras rajton "$1"',
+	'stable-log-restriction' => 'Aŭtomata akceptado: nepras rajton "$1"',
 	'stable-logpage' => 'Protokolo pri stabilaj versioj',
 	'stable-logpagetext' => 'Jen protokolo de ŝanĝoj al la konfiguro de [[{{MediaWiki:Validationpage}}|stabila versio]] de enhavaj paĝoj.',
 	'revreview-filter-all' => 'Ĉio',
@@ -3836,7 +3839,7 @@ Bonvolu kontroli la retadreson (URL) kiun vi uzis por atingi la paĝon.\\b',
 	'tooltip-ca-current' => 'Vidi ĉi tiu paĝo kun kontrolendaj ŝanĝoj',
 	'tooltip-ca-stable' => 'Vidi la publikigitan version de ĉi paĝo',
 	'tooltip-ca-default' => 'Konfiguro de kvalitkontrolo',
-	'flaggedrevs-protect-legend' => 'Publikigi redaktojn ([[{{MediaWiki:Validationpage}}|?]])',
+	'flaggedrevs-protect-legend' => 'Aŭtomata akceptado de redaktoj ([[{{MediaWiki:Validationpage}}|helpo]])',
 	'flaggedrevs-protect-none' => 'Permesi por ĉiuj uzantoj',
 	'flaggedrevs-protect-basic' => 'Defaŭltaj agordoj',
 	'revreview-locked-title' => 'Redaktoj devas esti kontrolitaj antaŭ montro de ĉi tiu paĝo!',
@@ -4305,8 +4308,9 @@ $messages['fa'] = array(
 	'revreview-basic-source' => 'یک [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} نسخهٔ بررسی شده] از این صفحه، [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} تایید شده] در <i>$2</i>، بر مبنای این نسخه ایجاد شده‌است.',
 	'revreview-changed' => "'''عمل درخواست شده را نمی‌توان روی این نسخه از [[:$1|$1]] انجام داد.'''
 
-یک تصویر یا الگو درخواست شده بدون ان که نسخه خاصی تعیین شده باشد. این اتفاق می‌تواند زمانی رخ دهد که یک الگوی پویا یک الگو یا تصویر دیگر را شامل شود که به متغیری بستگی دارد که از زمانی که شما صفحه را تغییر داده‌اید تغییر کرده‌است.
-بارگذاری دوباره صحفه و بررسی دوباره می‌تواند مشکل را برطرف کند.",
+یک تصویر یا الگو درخواست شده بدون آن که نسخه خاصی تعیین شده باشد.
+این اتفاق می‌تواند زمانی رخ دهد که یک الگوی پویا یک الگو یا تصویر دیگر را شامل شود که به متغیری بستگی دارد که از زمانی که شما صفحه را تغییر داده‌اید تغییر کرده‌است.
+بارگذاری دوباره صفحه و بررسی دوباره می‌تواند مشکل را برطرف کند.",
 	'revreview-current' => 'پیش‌نویس',
 	'revreview-depth' => 'عمق',
 	'revreview-depth-0' => 'تائیدنشده',
@@ -4321,7 +4325,7 @@ $messages['fa'] = array(
 	'revreview-flag' => 'بررسی این نسخه',
 	'revreview-invalid' => "'''هدف غیر مجاز:''' نسخهٔ [[{{MediaWiki:Validationpage}}|بازبینی شده‌ای]] با این شناسه وجود ندارد.",
 	'revreview-legend' => 'نمره دادن به محتوای بررسی شده',
-	'revreview-log' => 'توضیح سیاهه:',
+	'revreview-log' => 'توضیح:',
 	'revreview-main' => 'شما باید یک نسخه خاص از یک صفحه را برگزینید تا بررسی کنید.
 
 [[Special:Unreviewedpages|فهرست صفحه‌های بررسی نشده]] را ببینید.',
@@ -4398,8 +4402,8 @@ $messages['fa'] = array(
 	'rights-editor-autosum' => 'ترفیع خودکار',
 	'rights-editor-revoke' => 'وضعیت مرورگر را از [[$1]] گرفت',
 	'specialpages-group-quality' => 'تضمین کیفیت',
-	'stable-logentry-config' => 'نسخه پایدار $1 را تنظیم کرد',
-	'stable-logentry-reset' => 'بازنشاندن نسخه پایدار $1',
+	'stable-logentry-config' => 'تنظیمات پذیرش $1 را تنظیم کرد',
+	'stable-logentry-reset' => 'تنظیمات پذیرش $1 را از نو کرد',
 	'stable-logpage' => 'سیاهه نسخه پایدار',
 	'stable-logpagetext' => 'این سیاهه‌ای از تنظیمات [[{{MediaWiki:Validationpage}}|نسخه پایدار]] صفحه‌ها است.',
 	'revreview-filter-all' => 'همه',
@@ -7170,6 +7174,7 @@ $messages['is'] = array(
  * @author Darth Kule
  * @author Gianfranco
  * @author Melos
+ * @author Nemo bis
  * @author Pietrodn
  */
 $messages['it'] = array(
@@ -7202,7 +7207,7 @@ $messages['it'] = array(
 	'revreview-diff-toggle-hide' => 'nascondi le modifiche',
 	'revreview-log-details-show' => 'mostra dettagli',
 	'revreview-log-details-hide' => 'nascondi dettagli',
-	'review-diff2stable' => 'Visualizza i cambiamenti fra la versione stabile e la corrente',
+	'review-diff2stable' => "Visualizza i cambiamenti fra la versione stabile e l'ultima",
 	'review-logentry-app' => 'ha revisionato r$2 di [[$1]]',
 	'review-logentry-id' => 'revisione: $2',
 	'review-logentry-diff' => 'differenze dalla versione stabile',
@@ -13069,10 +13074,10 @@ $messages['sv'] = array(
 	'flaggedrevs' => 'Flaggade sidversioner',
 	'flaggedrevs-backlog' => "Det finns för närvarande en backlogg på [[Special:OldReviewedPages|väntande redigeringar]] till granskade sidor. '''Din uppmärksamhet behövs!'''",
 	'flaggedrevs-watched-pending' => "Det finns för närvarande [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} väntande redigeringar] till de granskade sidorna på den bevakningslista. '''Din uppmärksamhet behövs!'''",
-	'flaggedrevs-desc' => 'Ger redaktörer och granskare möjligheten att validera sidversioner och stablilsera sidor',
-	'flaggedrevs-pref-UI' => 'Gränssnitt för stabil version:',
+	'flaggedrevs-desc' => 'Ger Skribenter och Granskare möjligheten att granska sidversioner och stablilsera sidor',
+	'flaggedrevs-pref-UI' => 'Grundläggande gränssnitt:',
 	'flaggedrevs-pref-UI-0' => 'Använd ett detaljerat gränssnitt för stabila versioner',
-	'flaggedrevs-pref-UI-1' => 'Använd ett enkelt gränssnitt för stabila versioner',
+	'flaggedrevs-pref-UI-1' => 'Använd små ikoner och minimal text för att visa sidors granskningsstatus',
 	'prefs-flaggedrevs' => 'Stabilitet',
 	'flaggedrevs-prefs-stable' => 'Visa alltid den stabila versionen av sidor (om en sådan finns)',
 	'flaggedrevs-prefs-watch' => 'Lägg till sidor jag granskar i min bevakningslista',

@@ -677,11 +677,17 @@ $messages['sk'] = array(
 
 /** Swedish (Svenska)
  * @author Ainali
+ * @author Boivie
  * @author Dafer45
  */
 $messages['sv'] = array(
+	'configuredpages' => 'Sidor med granskningsinställningar',
+	'configuredpages-text' => 'Nedan är en lista över sidor konfigurerade för att ha olika godkännandeinställningar än platsens standard.
+
+Vissa inställningar kan ändra vilken version som visas för läsarna eller ytterligare begränsa vem som kan göra ändringar som inte kräver granskning.',
 	'configuredpages-none' => 'Det finns inga sidor i den här listan.',
 	'configuredpages-config' => 'Konfiguration',
+	'configuredpages-precedence' => 'Rangordning:',
 	'configuredpages-prec-none' => 'ingen rangordning',
 	'configuredpages-prec-quality' => 'kvalitetsordning',
 	'configuredpages-prec-pristine' => 'företräde för orörda',

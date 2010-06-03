@@ -696,8 +696,8 @@ $messages['sr-el'] = array(
  * @author M.M.S.
  */
 $messages['sv'] = array(
-	'stablepages' => 'Stabila sidor',
-	'stablepages-text' => 'Nedan visas en lista över sidor som manuellt ställts in att visa den publicerade versionen som standardinnehåll för läsare.',
+	'stablepages' => 'Sidor som använder redigeringsgodkännande',
+	'stablepages-text' => 'Nedan är en lista över sidor som begränsas så att endast vissa användare kan göra ändringar som inte kräver översyn. Sådana ändringar accepteras inte förrän en behörig användare granskar dem.',
 	'stablepages-none' => 'Det finns inga sidor i denna lista',
 	'stablepages-config' => 'Konfigurering',
 );
