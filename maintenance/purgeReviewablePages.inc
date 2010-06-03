@@ -5,11 +5,13 @@ function purge_reviewable_pages( $db ) {
 	echo "Purging squid cache for all reviewable pages...\n";
 	if ( !$wgUseSquid || !$wgUseFileCache ) {
 		echo "Squid/file cache not enabled...nothing to purge.\n";
+	} elseif ( empty( $wgFlaggedRevsNamespaces ) ) {
+		echo "There are no reviewable namespaces...nothing to purge.\n";
 	}
 	$BATCH_SIZE = 500;
 	$start = $db->selectField( 'page', 'MIN(page_id)', false, __FUNCTION__ );
 	$end = $db->selectField( 'page', 'MAX(page_id)', false, __FUNCTION__ );
-	if ( is_null( $start ) || is_null( $end ) ){
+	if ( is_null( $start ) || is_null( $end ) ) {
 		echo "...page table seems to be empty.\n";
 		return;
 	}
