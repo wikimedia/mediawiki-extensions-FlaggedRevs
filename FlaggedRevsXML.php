@@ -414,11 +414,11 @@ class FlaggedRevsXML {
 		$encPath = htmlspecialchars( FlaggedRevs::styleUrlPath() . '/img' );
 		if ( $flaggedArticle->isPageLocked() ) {
 			$encTitle = wfMsgHtml( 'revreview-locked-title' );
-			return "<img class=\"flaggedrevs-icon\" src=\"$encPath/lock-closed.png\"" .
+			return "<img class=\"flaggedrevs-icon\" src=\"$encPath/checkmark-orange.png\"" .
 				" width=\"16px\" alt=\"$encTitle\" title=\"$encTitle\" />";
 		} elseif ( $flaggedArticle->isPageUnlocked() ) {
 			$encTitle = wfMsgHtml( 'revreview-unlocked-title' );
-			return "<img class=\"flaggedrevs-icon\" src=\"$encPath/lock-open.png\"" .
+			return "<img class=\"flaggedrevs-icon\" src=\"$encPath/checkmark-green.png\"" .
 				" width=\"16px\" alt=\"$encTitle\" title=\"$encTitle\" />";
 		}
 	}
