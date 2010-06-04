@@ -13,7 +13,9 @@ div.flaggedrevs_notice {
 	text-align: center;
 	clear: both;
 }
-
+div.flaggedrevs_short_basic img {
+	vertical-align: text-bottom;
+}
 div.flaggedrevs_basic {
 	background-color: #f0f8ff;
 }
@@ -98,14 +100,16 @@ div.flaggedrevs_notes {
 
 /* Short User Interface */
 div.flaggedrevs_short {
-	border: 0px;
-	background-color: #f9f9f9;
+	border: 1px solid #ccc;
+	background-color: #ffffff;
 	font-size: 95%;
 	font-weight: normal;
 	margin: 0 0 0 1em;
-	padding: 1px;
+	line-height: 16px;
+	padding: 2px;
 	float: right;
 }
+
 .rtl div.flaggedrevs_short {
 	float: left;
 	margin: 0 1em 0 0;
@@ -113,16 +117,15 @@ div.flaggedrevs_short {
 
 div.flaggedrevs_short_basic {
 	white-space: nowrap;
-	line-height: 16px;
 }
 
 div.flaggedrevs_short_details {
 	border: 1px solid #aaa;
-	background-color: #f9f9f9;
+	background-color: #ffffff;
 	padding: 5px;
 	position: absolute;
-	top: -1px;
-	right: 0;
+	top: 0;
+	right: -3px;
 	width: 25em;
 }
 
