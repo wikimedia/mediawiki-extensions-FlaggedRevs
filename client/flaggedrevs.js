@@ -112,10 +112,10 @@ var FlaggedRevs = {
 		if( !toggle ) return;
 		if( diff.style.display == 'none' ) {
 			diff.style.display = 'block';
-			toggle.innerHTML = this.messages.diffToggleHide;
+			toggle.getElementsByTagName('a')[0].innerHTML = this.messages.diffToggleHide;
 		} else {
 			diff.style.display = 'none';
-			toggle.innerHTML = this.messages.diffToggleShow;
+			toggle.getElementsByTagName('a')[0].innerHTML = this.messages.diffToggleShow;
 		}
 	},
 	
@@ -127,10 +127,10 @@ var FlaggedRevs = {
 		if( !toggle ) return;
 		if( log.style.display == 'none' ) {
 			log.style.display = 'block';
-			toggle.innerHTML = this.messages.logToggleHide;
+			toggle.getElementsByTagName('a')[0].innerHTML = this.messages.logToggleHide;
 		} else {
 			log.style.display = 'none';
-			toggle.innerHTML = this.messages.logToggleShow;
+			toggle.getElementsByTagName('a')[0].innerHTML = this.messages.logToggleShow;
 		}
 	},
 	
@@ -142,15 +142,13 @@ var FlaggedRevs = {
 		if( !toggle ) return;
 		if( log.style.display == 'none' ) {
 			log.style.display = 'block';
-			toggle.innerHTML = this.messages.logDetailsHide;
+			toggle.getElementsByTagName('a')[0].innerHTML = this.messages.logDetailsHide;
 		} else {
 			log.style.display = 'none';
-			toggle.innerHTML = this.messages.logDetailsShow;
+			toggle.getElementsByTagName('a')[0].innerHTML = this.messages.logDetailsShow;
 		}
 	}
 };
-
-addOnloadHook(FlaggedRevs.enableShowhide);
 
 FlaggedRevs.setCheckTrigger = function() {
 	var checkbox = document.getElementById("wpReviewEdit");
@@ -158,8 +156,6 @@ FlaggedRevs.setCheckTrigger = function() {
 		checkbox.onclick = FlaggedRevs.updateSaveButton;
 	}
 }
-
-hookEvent("load", FlaggedRevs.setCheckTrigger);
 
 FlaggedRevs.updateSaveButton = function() {
 	var checkbox = document.getElementById("wpReviewEdit");
@@ -176,3 +172,10 @@ FlaggedRevs.updateSaveButton = function() {
 		}
 	}
 }
+
+FlaggedRevs.setJSTriggers = function() {
+	FlaggedRevs.enableShowhide();
+	FlaggedRevs.setCheckTrigger();
+}
+
+hookEvent("load", FlaggedRevs.setJSTriggers);
