@@ -558,6 +558,12 @@ function efLoadFlaggedRevs() {
 		# Edits to reviewable pages must be flagged to be patrolled.
 		$wgUseRCPatrol = true;
 	}
+	# Defaults for user preferences
+	global $wgDefaultUserOptions, $wgSimpleFlaggedRevsUI;
+	$wgDefaultUserOptions['flaggedrevssimpleui'] = (int)$wgSimpleFlaggedRevsUI;
+	$wgDefaultUserOptions['flaggedrevsstable'] = false;
+	$wgDefaultUserOptions['flaggedrevseditdiffs'] = true;
+	$wgDefaultUserOptions['flaggedrevsviewdiffs'] = false;
 	# Load hooks that aren't always set
 	efSetFlaggedRevsConditionalHooks();
 	# Don't show autoreview group everywhere
@@ -598,12 +604,6 @@ $wgLogActionsHandlers['stable/reset'] = 'FlaggedRevsLogs::stabilityLogText'; // 
 
 # AJAX functions
 $wgAjaxExportList[] = 'RevisionReview::AjaxReview';
-
-// Defaults for prefs
-$wgDefaultUserOptions['flaggedrevssimpleui'] = (int)$wgSimpleFlaggedRevsUI;
-$wgDefaultUserOptions['flaggedrevsstable'] = false;
-$wgDefaultUserOptions['flaggedrevseditdiffs'] = true;
-$wgDefaultUserOptions['flaggedrevsviewdiffs'] = false;
 
 # Cache update
 $wgSpecialPageCacheUpdates[] = 'efFlaggedRevsUnreviewedPagesUpdate';
