@@ -695,6 +695,15 @@ class RevisionReviewForm
 			$allowRereview = false; // re-review button
 		}
 
+		# Disable form for unprivileged users
+		$disabled = array();
+		if ( !$article->getTitle()->quickUserCan( 'review' ) ||
+			!$article->getTitle()->quickUserCan( 'edit' ) ||
+			!FlaggedRevs::userCanSetFlags( $flags ) )
+		{
+			$disabled = array( 'disabled' => 'disabled' );
+		}
+
 		# Begin form...
 		$reviewTitle = SpecialPage::getTitleFor( 'RevisionReview' );
 		$action = $reviewTitle->getLocalUrl( 'action=submit' );
@@ -714,30 +723,25 @@ class RevisionReviewForm
 			$form .= wfMsgExt( 'revreview-text', array( 'parse' ) );
 		}
 
-		# Disable form for unprivileged users
-		$uneditable = !$article->getTitle()->quickUserCan( 'edit' );
-		$disabled = !FlaggedRevs::userCanSetFlags( $flags ) || $uneditable;
 		if ( $disabled ) {
 			$form .= Xml::openElement( 'div', array( 'class' => 'fr-rating-controls-disabled',
 				'id' => 'fr-rating-controls-disabled' ) );
-			$toggle = array( 'disabled' => "disabled" );
 		} else {
 			$form .= Xml::openElement( 'div', array( 'class' => 'fr-rating-controls',
 				'id' => 'fr-rating-controls' ) );
-			$toggle = array();
 		}
 
 		# Add main checkboxes/selects
 		$form .= Xml::openElement( 'span', array( 'id' => 'mw-fr-ratingselects' ) );
-		$form .= self::ratingInputs( $flags, $disabled, (bool)$frev );
+		$form .= self::ratingInputs( $flags, (bool)$disabled, (bool)$frev );
 		$form .= Xml::closeElement( 'span' );
 		# Add review notes input
 		if ( FlaggedRevs::allowComments() && $wgUser->isAllowed( 'validate' ) ) {
 			$form .= "<div id='mw-fr-notebox'>\n";
 			$form .= "<p>" . wfMsgHtml( 'revreview-notes' ) . "</p>\n";
-			$form .= Xml::openElement( 'textarea',
-				array( 'name' => 'wpNotes', 'id' => 'wpNotes',
-					'class' => 'fr-notes-box', 'rows' => '2', 'cols' => '80' ) ) .
+			$params = array( 'name' => 'wpNotes', 'id' => 'wpNotes',
+				'class' => 'fr-notes-box', 'rows' => '2', 'cols' => '80' ) + $disabled;
+			$form .= Xml::openElement( 'textarea', $params ) .
 				htmlspecialchars( $reviewNotes ) .
 				Xml::closeElement( 'textarea' ) . "\n";
 			$form .= "</div>\n";
@@ -780,7 +784,7 @@ class RevisionReviewForm
 					array( 'class' => 'fr-comment-box' ) ) . "&#160;&#160;&#160;</span>";
 		}
 		# Add the submit buttons
-		$form .= self::submitButtons( $frev, (bool)$toggle, $allowRereview );
+		$form .= self::submitButtons( $frev, (bool)$disabled, $allowRereview );
 		# Show stability log if there is anything interesting...
 		if ( $article->isPageLocked() ) {
 			$form .= ' ' . FlaggedRevsXML::logToggle( 'revreview-log-toggle-show' );
