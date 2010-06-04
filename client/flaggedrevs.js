@@ -47,33 +47,33 @@ var FlaggedRevs = {
 	/* Expands flag info box details */
 	'showBoxDetails': function() {
 		var ratings = document.getElementById('mw-fr-revisiondetails');
-		if( !ratings ) return;
-		var toggle = document.getElementById('mw-fr-revisiontoggle');
-		if( !toggle ) return;
-		ratings.style.display = 'block';
-		toggle.innerHTML = this.messages.toggleHide;
+		if( ratings ) {
+			ratings.style.display = 'block';
+		}
 	},
 	
 	/* Collapses flag info box details */
 	'hideBoxDetails': function( event ) {
 		var ratings = document.getElementById('mw-fr-revisiondetails');
-		if( !ratings ) return;
-		var toggle = document.getElementById('mw-fr-revisiontoggle');
-		if( !toggle ) return;
-		ratings.style.display = 'none';
-		toggle.innerHTML = this.messages.toggleShow;
+		if( ratings ) {
+			ratings.style.display = 'none';
+		}
 	},
 	
-	/* Toggles flag info box details */
+	/* Toggles flag info box details for (+/-) control */
 	'toggleBoxDetails': function() {
+		var toggle = document.getElementById('mw-fr-revisiontoggle');
+		if( !toggle ) return;
 		var ratings = document.getElementById('mw-fr-revisiondetails');
 		if( !ratings ) return;
 		// Collapsed -> expand
 		if( ratings.style.display == 'none' ) {
 			this.showBoxDetails();
+			toggle.innerHTML = this.messages.toggleHide;
 		// Expanded -> collapse
 		} else {
 			this.hideBoxDetails();
+			toggle.innerHTML = this.messages.toggleShow;
 		}
 	},
 	
@@ -87,10 +87,10 @@ var FlaggedRevs = {
 	/* Checks is mouseOut event is for a child of parentId */
 	'isMouseOutBubble': function( event, parentId ) {
 		var toNode = null;
-		if( event.relatedTarget === undefined ) {
-            toNode = event.toElement; // IE
-        } else {
+		if( event.relatedTarget != undefined ) {
             toNode = event.relatedTarget; // FF/Opera/Safari
+        } else {
+            toNode = event.toElement; // IE
         }
 		if( toNode ) {
 			var nextParent = toNode.parentNode;
