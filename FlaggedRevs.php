@@ -187,14 +187,9 @@ $wgGroupPermissions['sysop']['movestable'] = true;
 # namespaces autopatrolled.
 $wgGroupPermissions['autoconfirmed']['autopatrol'] = true;
 
-# Implicit autoreview group
-$wgGroupPermissions['autoreview']['autoreview'] = true;
-# Don't show the 'autoreview' group everywhere
-$wgImplicitGroups[] = 'autoreview';
-
 # Define when users get automatically promoted to Editors. Set as false to disable.
 # 'spacing' and 'benchmarks' require edits to be spread out. Users must have X (benchmark)
-# edits Y (spacing) days apart. Set to false to disable.
+# edits Y (spacing) days apart.
 $wgFlaggedRevsAutopromote = array(
 	'days'	              => 60, # days since registration
 	'edits'	              => 250, # total edit count
@@ -214,10 +209,9 @@ $wgFlaggedRevsAutopromote = array(
 	'maxRevertedEdits'    => 5, # Max edits the user could have had rolled back?
 );
 
-# Define when users get to have their own edits auto-reviewed.
+# Define when users get to have their own edits auto-reviewed. Set to false to disable.
 # This can be used for newer, semi-trusted users to improve workflow.
 # It is done by granting some users the implicit 'autoreview' group.
-# Set to false to disable.
 $wgFlaggedRevsAutoconfirm = false;
 /* (example usage)
 $wgFlaggedRevsAutoconfirm = array(
@@ -553,6 +547,9 @@ function efSetFlaggedRevsConditionalHooks() {
 		# Save stability settings
 		$wgHooks['ProtectionForm::save'][] = 'FlaggedRevsHooks::onProtectionSave';
 	}
+	# Give bots the 'autoreview' right (here so it triggers after CentralAuth)
+	# @TODO: better way to ensure hook order
+	$wgHooks['UserGetRights'][] = 'FlaggedRevsHooks::onUserGetRights';
 }
 
 # ####### END HOOK TRIGGERED FUNCTIONS  #########
@@ -591,7 +588,7 @@ function efSetFlaggedRevsConditionalAPIModules() {
 }
 
 function efSetFlaggedRevsConditionalRights() {
-	global $wgGroupPermissions;
+	global $wgGroupPermissions, $wgImplicitGroups, $wgFlaggedRevsAutoconfirm;
 	if ( FlaggedRevs::stableOnlyIfConfigured() ) {
 		// Removes sp:ListGroupRights cruft
 		if ( isset( $wgGroupPermissions['editor'] ) ) {
@@ -600,6 +597,12 @@ function efSetFlaggedRevsConditionalRights() {
 		if ( isset( $wgGroupPermissions['reviewer'] ) ) {
 			unset( $wgGroupPermissions['reviewer']['unreviewedpages'] );
 		}
+	}
+	if ( !empty( $wgFlaggedRevsAutoconfirm ) ) {
+		# Implicit autoreview group
+		$wgGroupPermissions['autoreview']['autoreview'] = true;
+		# Don't show the 'autoreview' group everywhere
+		$wgImplicitGroups[] = 'autoreview';
 	}
 }
 

@@ -176,16 +176,17 @@ class FlaggedRevsHooks {
 	}
 
 	// Mark when an unreviewed page is being reviewed
-	public static function maybeMarkUnderReview( $article, $user, $request ) {
-		if ( !$user->isAllowed( 'review' ) ) {
-			return true; // user cannot review
-		}
+	public static function maybeMarkUnderReview(
+		Article $article, User $user, WebRequest $request
+	) {
+		global $wgMemc;
 		# Set a key to note when someone is reviewing this.
 		# NOTE: diff-to-stable views already handled elsewhere.
 		if ( $request->getInt( 'reviewing' ) || $request->getInt( 'rcid' ) ) {
-			global $wgMemc;
-			$key = wfMemcKey( 'unreviewedPages', 'underReview', $article->getId() );
-			$wgMemc->set( $key, '1', 20 * 60 ); // 20 min
+			if ( $article->getTitle()->userCan( 'review' ) ) {
+				$key = wfMemcKey( 'unreviewedPages', 'underReview', $article->getId() );
+				$wgMemc->set( $key, '1', 20 * 60 ); // 20 min
+			}
 		}
 		return true;
 	}
@@ -260,13 +261,16 @@ class FlaggedRevsHooks {
 	* Update pending revision table
 	* Autoreview pages moved into content NS
 	*/
-	public static function onTitleMoveComplete( &$otitle, &$ntitle, $user, $pageId ) {
+	public static function onTitleMoveComplete(
+		Title $otitle, Title $ntitle, User $user, $pageId
+	) {
 		$fa = FlaggedArticle::getTitleInstance( $ntitle );
 		// Re-validate NS/config (new title may not be reviewable)
 		if ( $fa->isReviewable( FR_MASTER ) ) {
 			// Moved from non-reviewable to reviewable NS?
-			if ( FlaggedRevs::autoReviewNewPages() && $user->isAllowed( 'autoreview' )
-				&& !FlaggedRevs::inReviewNamespace( $otitle ) )
+			if ( !FlaggedRevs::inReviewNamespace( $otitle )
+				&& FlaggedRevs::autoReviewNewPages()
+				&& $ntitle->userCan( 'autoreview' ) )
 			{
 				$rev = Revision::newFromTitle( $ntitle );
 				// Treat this kind of like a new page...
@@ -883,7 +887,7 @@ class FlaggedRevsHooks {
 	* Note: RC items not inserted yet, RecentChange_save hook does rc_patrolled bit...
 	*/
 	public static function maybeMakeEditReviewed(
-		$article, $rev, $baseRevId = false, $user = null
+		Article $article, $rev, $baseRevId = false, $user = null
 	) {
 		global $wgRequest;
 		# Edit must be non-null, and to a reviewable page
@@ -894,7 +898,7 @@ class FlaggedRevsHooks {
 		if ( !$user ) {
 			$user = User::newFromId( $rev->getUser() );
 		}
-		$title = $article->getTitle();
+		$title = $article->getTitle(); // convenience
 		$title->resetArticleID( $rev->getPage() ); // Avoid extra DB hit and lag issues
 		# Get what was just the current revision ID
 		$prevRevId = $rev->getParentId();
@@ -904,7 +908,7 @@ class FlaggedRevsHooks {
 		# Is the page manually checked off to be reviewed?
 		if ( $editTimestamp
 			&& $wgRequest->getCheck( 'wpReviewEdit' )
-			&& $user->isAllowed( 'review' ) )
+			&& $title->userCan( 'review' ) )
 		{
 			if ( self::editCheckReview( $article, $rev, $user, $editTimestamp ) ) {
 				return true; // reviewed...done!
@@ -1072,7 +1076,7 @@ class FlaggedRevsHooks {
 		# Is the page checked off to be reviewed?
 		if ( $editTimestamp
 			&& $wgRequest->getCheck( 'wpReviewEdit' )
-			&& $user->isAllowed( 'review' ) )
+			&& $title->userCan( 'review' ) )
 		{
 			# Check wpEdittime against current revision's time.
 			# If an edit was auto-merged in between, review only up to what
@@ -1217,38 +1221,45 @@ class FlaggedRevsHooks {
 	}
 
 	/**
-	* (a) Grant implicit 'autoreview' group for users meeting $wgFlaggedRevsAutoconfirm
-	* 	  requirements that don't already have the 'autoreview' right. This lets people
-	*	  who opt-out as Editors still have their own edits automatically reviewed.
-	* (b) Grant implicit 'autoreview' group for user with the 'bot' right that don't
-	*	  already have the 'autoreview' right.
+	* Grant 'autoreview' rights to users with the 'bot' right
+	*/
+	public static function onUserGetRights( User $user, array &$rights ) {
+		# Make sure bots always have the 'autoreview' right
+		if ( in_array( 'bot', $rights ) && !in_array( 'autoreview', $rights ) ) {
+			$rights[] = 'autoreview';
+		}
+		return true;
+	}
+
+	/**
+	* Grant implicit 'autoreview' group to users meeting the
+	* $wgFlaggedRevsAutoconfirm requirements. This lets people who
+	* opt-out as Editors still have their own edits automatically reviewed.
+	*
 	* Note: some unobtrusive caching is used to avoid DB hits.
 	*/
-	public static function checkAutoPromote( $user, &$promote ) {
+	public static function checkAutoPromote( User $user, array &$promote ) {
 		global $wgFlaggedRevsAutoconfirm, $wgMemc;
-		# Make sure bots always have autoreview
-		if ( $user->isAllowed( 'bot' ) ) {
-			$promote[] = 'autoreview'; // add the group
-			return true;
-		}
 		# Check if $wgFlaggedRevsAutoconfirm is actually enabled
 		# and that this is a logged-in user that doesn't already
 		# have the 'autoreview' permission
-		if ( !$user->getId() || $user->isAllowed( 'autoreview' )
-			|| empty( $wgFlaggedRevsAutoconfirm ) )
-		{
+		if ( !$user->getId() || empty( $wgFlaggedRevsAutoconfirm ) ) {
 			return true;
 		}
 		# Check if results are cached to avoid DB queries.
 		# Checked basic, already available, promotion heuristics first...
 		$APSkipKey = wfMemcKey( 'flaggedrevs', 'autoreview-skip', $user->getId() );
 		$value = $wgMemc->get( $APSkipKey );
-		if ( $value === 'true' ) return true;
+		if ( $value === 'true' ) {
+			return true;
+		}
 		# Check $wgFlaggedRevsAutoconfirm settings...
 		$now = time();
 		$userCreation = wfTimestampOrNull( TS_UNIX, $user->getRegistration() );
 		# User registration was not always tracked in DB...use null for such cases
-		$userage = $userCreation ? floor( ( $now - $userCreation ) / 86400 ) : null;
+		$userage = $userCreation
+			? floor( ( $now - $userCreation ) / 86400 )
+			: null;
 		$p = FlaggedRevs::getUserParams( $user->getId() );
 		# Check if user edited enough content pages
 		$totalCheckedEditsNeeded = false;
