@@ -667,7 +667,7 @@ class RevisionReviewForm
 		$id = $rev->getId();
 		$skin = $wgUser->getSkin();
 		# Do we need to get inclusion IDs from parser output?
-		$getPOut = ( $templateIDs && $imageSHA1Keys );
+		$getPOut = !( $templateIDs && $imageSHA1Keys );
 
 		# See if the version being displayed is flagged...
 		$frev = FlaggedRevision::newFromTitle( $article->getTitle(), $id );
