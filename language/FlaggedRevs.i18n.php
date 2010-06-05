@@ -251,7 +251,7 @@ Please check the URL you used to access this page.',
 	'revreview-reviewlink-title'   => 'View diff of all pending changes',
 	'revreview-unreviewedpage'     => 'unchecked page',
 	
-	'tooltip-ca-current'           => 'View this page with pending changes',
+	'tooltip-ca-current'           => 'View this page with the pending changes',
 	'tooltip-ca-stable'            => 'View the accepted version of this page',
 	'tooltip-ca-default'           => 'Quality assurance settings',
 

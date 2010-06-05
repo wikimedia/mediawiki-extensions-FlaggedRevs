@@ -1217,9 +1217,12 @@ class FlaggedRevsHooks {
 	}
 
 	/**
-	* Check for 'autoreview' permission. This lets people who opt-out as
-	* Editors still have their own edits automatically reviewed. Bot
-	* accounts are also handled here to make sure that can autoreview.
+	* (a) Grant implicit 'autoreview' group for users meeting $wgFlaggedRevsAutoconfirm
+	* 	  requirements that don't already have the 'autoreview' right. This lets people
+	*	  who opt-out as Editors still have their own edits automatically reviewed.
+	* (b) Grant implicit 'autoreview' group for user with the 'bot' right that don't
+	*	  already have the 'autoreview' right.
+	* Note: some unobtrusive caching is used to avoid DB hits.
 	*/
 	public static function checkAutoPromote( $user, &$promote ) {
 		global $wgFlaggedRevsAutoconfirm, $wgMemc;
