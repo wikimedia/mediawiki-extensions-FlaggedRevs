@@ -1439,16 +1439,22 @@ $messages['sl'] = array(
 
 /** Serbian Cyrillic ekavian (Српски (ћирилица))
  * @author Millosh
+ * @author Михајло Анђелковић
  */
 $messages['sr-ec'] = array(
-	'oldreviewedpages' => 'Застареле прегледане стране',
+	'oldreviewedpages' => 'Стране са променама за преглед',
 	'oldreviewedpages-legend' => 'Списак прегледаних страна са непрегледаним верзијама.',
-	'oldreviewedpages-list' => 'На овој страни се налази списак страна са изменама на чекању.',
+	'oldreviewedpages-list' => 'Ово је {{PLURAL:$1|прегледана страна|списак прегледаних страна}} са изменама за преглед.',
 	'oldreviewedpages-none' => 'Тренутно нема страна које задовољавају ове критерије,',
+	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|сат|сати}})',
+	'oldreviewedpages-days' => '($1 {{PLURAL:$1|дан|дана}})',
 	'oldreviewedpages-recent' => '(мање од једног часа)',
 	'oldreviewed-category' => 'Категорија:',
+	'oldreviewed-watched' => 'Стране на мојем списку надгледања',
+	'oldreviewed-stable' => 'Стабилизоване стране',
 	'oldreviewed-diff' => 'преглед',
 	'oldreviewedpages-unwatched' => '(ненадгледано)',
+	'oldreviewedpages-viewing' => '(под прегледом)',
 );
 
 /** Serbian Latin ekavian (Srpski (latinica))

@@ -1526,13 +1526,13 @@ A versão publicada de uma página é a edição mais recente que tenha sido apr
 
 /** Brazilian Portuguese (Português do Brasil)
  * @author Eduardo.mps
+ * @author Giro720
  */
 $messages['pt-br'] = array(
-	'validationstatistics' => 'Estatísticas de validações',
-	'validationstatistics-users' => "'''{{SITENAME}}''' possui, no momento, '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|utilizador|utilizadores}} com privilégios de [[{{MediaWiki:Validationpage}}|Editor]]  
-e '''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$2|utilizador|utilizadores}} com privilégios de [[{{MediaWiki:Validationpage}}|Crítico]].
+	'validationstatistics' => 'Estatísticas da revisão de páginas',
+	'validationstatistics-users' => "'''{{SITENAME}}''' possui, no momento, '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|utilizador|utilizadores}} com privilégios de [[{{MediaWiki:Validationpage}}|Editor]] .
 
-Editores e Críticos são utilizadores estabelecidos que podem verificar detalhadamente revisões de páginas.",
+Editores são utilizadores estabelecidos que podem verificar detalhadamente revisões de páginas.",
 	'validationstatistics-time' => "''Os seguintes dados estão em cache e podem não estar atualizados.''
 
 Edições que foram verificadas por utilizadores estabelecidos são consideradas como revistas.

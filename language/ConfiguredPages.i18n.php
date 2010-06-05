@@ -675,6 +675,13 @@ $messages['sk'] = array(
 	'configuredpages-prec-pristine' => 'čistá precedencia',
 );
 
+/** Serbian Cyrillic ekavian (Српски (ћирилица))
+ * @author Михајло Анђелковић
+ */
+$messages['sr-ec'] = array(
+	'configuredpages-config' => 'Поставке',
+);
+
 /** Swedish (Svenska)
  * @author Ainali
  * @author Boivie
