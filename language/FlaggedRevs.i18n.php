@@ -19,7 +19,6 @@ $messages['en'] = array(
 	'action-review'                => 'review revisions',
 	'editor'                       => 'Editor',
 	'flaggedrevs'                  => 'Flagged Revisions',
-	'flaggedrevs-backlog'          => 'There is currently a backlog of [[Special:OldReviewedPages|pending changes]] to reviewed pages. \'\'\'Your attention is needed!\'\'\'',
 	'flaggedrevs-watched-pending'  => 'There are currently [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} pending changes] to reviewed pages on your watchlist. \'\'\'Your attention is needed!\'\'\'',
 	'flaggedrevs-desc'             => 'Gives Editors and Reviewers the ability to review revisions and stabilize pages',
 	'flaggedrevs-pref-UI'          => 'Basic interface:',

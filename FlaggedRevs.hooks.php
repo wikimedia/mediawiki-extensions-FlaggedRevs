@@ -2024,19 +2024,18 @@ class FlaggedRevsHooks {
 		$namespaces = FlaggedRevs::getReviewNamespaces();
 		if ( !count( $namespaces ) ) {
 			return true; // nothing to have a backlog on
-		}
-		if ( empty( $wgTitle ) || $wgTitle->getNamespace() !== NS_SPECIAL ) {
+		} elseif ( empty( $wgTitle ) || $wgTitle->getNamespace() !== NS_SPECIAL ) {
 			return true; // nothing to do here
-		}
-		if ( !$wgUser->isAllowed( 'review' ) )
+		} elseif ( !$wgUser->isAllowed( 'review' ) ) {
 			return true; // not relevant to user
-
+		}
 		$watchlist = SpecialPage::getTitleFor( 'Watchlist' );
 		$recentchanges = SpecialPage::getTitleFor( 'Recentchanges' );
 		if ( $wgTitle->equals( $watchlist ) || $wgTitle->equals( $recentchanges ) ) {
 			$dbr = wfGetDB( DB_SLAVE );
 			$watchedOutdated = $dbr->selectField(
-				array( 'watchlist', 'page', 'flaggedpages' ), '1',
+				array( 'watchlist', 'page', 'flaggedpages' ),
+				'1', // existence
 				array( 'wl_user' => $wgUser->getId(), // this user
 					'wl_namespace' => $namespaces, // reviewable
 					'wl_namespace = page_namespace',
@@ -2047,26 +2046,9 @@ class FlaggedRevsHooks {
 			);
 			# Give a notice if pages on the wachlist are outdated
 			if ( $watchedOutdated ) {
-				$notice .= "<div id='mw-fr-oldreviewed-notice' class='plainlinks fr-watchlist-old-notice'>" .
-					wfMsgExt( 'flaggedrevs-watched-pending', array( 'parseinline' ) ) . "</div>";
-			# Otherwise, give a notice if there is a large backlog in general
-			} else {
-				$pages = $dbr->estimateRowCount( 'page', '*',
-					array( 'page_namespace' => $namespaces ), __METHOD__ );
-				# For small wikis, just get the real numbers to avoid some bogus messages
-				if ( $pages < 50 ) {
-					$pages = $dbr->selectField( 'page', 'COUNT(*)',
-						array( 'page_namespace' => $namespaces ), __METHOD__ );
-					$unreviewed = $dbr->selectField( 'flaggedpages', 'COUNT(*)',
-						'fp_pending_since IS NOT NULL', __METHOD__ );
-				} else {
-					$unreviewed = $dbr->estimateRowCount( 'flaggedpages', '*',
-						'fp_pending_since IS NOT NULL', __METHOD__ );
-				}
-				if ( $unreviewed > .02 * $pages ) {
-					$notice .= "<div id='mw-fr-oldreviewed-notice' class='plainlinks fr-backlognotice'>" .
-						wfMsgExt( 'flaggedrevs-backlog', array( 'parseinline' ) ) . "</div>";
-				}
+				$css = 'plainlinks fr-watchlist-pending-notice';
+				$notice .= "<div id='mw-fr-watchlist-pending-notice' class='$css'>" .
+					wfMsgExt( 'flaggedrevs-watched-pending', 'parseinline' ) . "</div>";
 			}
 		}
 		return true;

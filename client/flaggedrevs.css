@@ -235,14 +235,8 @@ img.flaggedrevs-icon {
 	font-weight: bold;
 }
 
-/* Site notices */
-.fr-backlognotice {
-	padding: 3px;
-	margin: 5px;
-	border: 1px solid #990000;
-	background-color: #f5ecec;
-}
-.fr-watchlist-old-notice {
+/* RC pending changes notice */
+.fr-watchlist-pending-notice {
 	padding: 3px;
 	margin: 5px;
 	border: 1px solid #990000;
