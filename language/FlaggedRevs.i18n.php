@@ -2,9 +2,10 @@
 /**
  * Internationalisation file for extension FlaggedRevs (group FlaggedRevs).
  *
+ * @file
  * @comment NOTE: SOME LINKS HAVE '[' and ']' around them. These are NOT typos.
  * @comment PLEASE DO NOT RANDOMLY REMOVE THEM FOR THE THIRD TIME, kthx. -aaron
- * @addtogroup Extensions
+ * @ingroup Extensions
  */
 
 $messages = array();

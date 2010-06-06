@@ -2,7 +2,8 @@
 /**
  * Internationalisation file for FlaggedRevs extension, section StablePages
  *
- * @addtogroup Extensions
+ * @file
+ * @ingroup Extensions
  */
 
 $messages = array();

@@ -2,7 +2,8 @@
 /**
  * Internationalisation file for FlaggedRevs extension, section UnreviewedPages
  *
- * @addtogroup Extensions
+ * @file
+ * @ingroup Extensions
  */
 
 $messages = array();

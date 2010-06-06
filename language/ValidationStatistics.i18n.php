@@ -2,7 +2,8 @@
 /**
  * Internationalisation file for FlaggedRevs extension, section ValidationStatistics
  *
- * @addtogroup Extensions
+ * @file
+ * @ingroup Extensions
  */
 
 $messages = array();

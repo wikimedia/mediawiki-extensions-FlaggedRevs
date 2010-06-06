@@ -2,7 +2,8 @@
 /**
  * Aliases for special pages for extension FlaggedRevs
  *
- * @addtogroup Extensions
+ * @file
+ * @ingroup Extensions
  */
 
 $aliases = array();
