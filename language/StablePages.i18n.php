@@ -415,8 +415,10 @@ $messages['ja'] = array(
 
 /** Georgian (ქართული)
  * @author BRUTE
+ * @author ITshnik
  */
 $messages['ka'] = array(
+	'stablepages-none' => 'ამ სიაში გვერდები არ არის',
 	'stablepages-config' => 'კონფიგურაცია',
 );
 

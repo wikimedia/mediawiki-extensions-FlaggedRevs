@@ -669,6 +669,11 @@ No és possible fer cap configuració.',
 	'stabilize-expiring' => 'expira $1 (UTC)',
 );
 
+/** Chechen (Нохчийн) */
+$messages['ce'] = array(
+	'stabilization-comment' => 'Бахьан:',
+);
+
 /** Czech (Česky)
  * @author Danny B.
  * @author Li-sung

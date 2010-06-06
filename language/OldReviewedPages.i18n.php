@@ -898,6 +898,7 @@ $messages['ja'] = array(
 
 /** Georgian (ქართული)
  * @author BRUTE
+ * @author ITshnik
  */
 $messages['ka'] = array(
 	'oldreviewedpages-none' => 'ამ დროისათვის არ არსებობს სტატიები ასეთი კრიტერიუმებით',
@@ -905,6 +906,7 @@ $messages['ka'] = array(
 	'oldreviewedpages-recent' => '(1 საათზე ნაკლები)',
 	'oldreviewed-category' => 'კატეგორია:',
 	'oldreviewed-watched' => 'ჩემი კონტროლის სიის გვერდები',
+	'oldreviewed-stable' => 'სტაბილური გვერდები',
 	'oldreviewed-diff' => 'შემოწმება',
 );
 

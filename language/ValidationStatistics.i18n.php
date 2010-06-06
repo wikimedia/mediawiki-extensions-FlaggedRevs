@@ -1056,6 +1056,7 @@ Editor lan Pamriksa iku panganggo mapan sing bisa mriksa langsung owah-owahan ka
 
 /** Georgian (ქართული)
  * @author BRUTE
+ * @author ITshnik
  */
 $messages['ka'] = array(
 	'validationstatistics-users' => "'''{{SITENAME}}-ს''' ამჟამად ჰყავს '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|მომხმარებელი|მომხმარებელი}} [[{{MediaWiki:Validationpage}}|რედაქტორის]] უფლებებით.
@@ -1065,7 +1066,10 @@ $messages['ka'] = array(
 	'validationstatistics-ns' => 'სახელთა სივრცე',
 	'validationstatistics-total' => 'გვერდები',
 	'validationstatistics-stable' => 'შემოწმებულია',
+	'validationstatistics-old' => 'მოძველებული',
+	'validationstatistics-utable' => 'ქვემოთ მოყვანილია ბოლო საათის განმავლობაში ტოპ 5 მიმომხილველის  ჩამონათვალი.',
 	'validationstatistics-user' => 'მომხმარებელი',
+	'validationstatistics-reviews' => 'მიმოხილვები',
 );
 
 /** Khmer (ភាសាខ្មែរ)

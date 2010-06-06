@@ -629,6 +629,13 @@ $messages['jut'] = array(
 	'reviewedpages-best' => 'erste versje',
 );
 
+/** Georgian (ქართული)
+ * @author ITshnik
+ */
+$messages['ka'] = array(
+	'reviewedpages-none' => 'ამ სიაში გვერდები არ არის',
+);
+
 /** Kazakh (Arabic script) (‫قازاقشا (تٴوتە)‬) */
 $messages['kk-arab'] = array(
 	'reviewedpages' => 'سىن بەرىلگەن بەتتەر',
