@@ -1557,12 +1557,13 @@ class FlaggedArticleView {
 	*/
 	public function addReviewCheck( EditPage $editPage, array &$checkboxes, &$tabindex ) {
 		global $wgUser, $wgRequest;
-		if ( !$this->article->isReviewable() || !$wgUser->isAllowed( 'review' ) ) {
-			return true;
-		} elseif ( FlaggedRevs::autoReviewNewPages() && !$this->article->exists() ) {
+		if ( !$wgUser->isAllowed( 'review' )
+			|| !$this->article->isReviewable()
+			|| !$this->article->revsArePending() )
+		{
 			return true; // not needed
 		}
-		$oldid = $wgRequest->getInt( 'oldid', $this->article->getLatest() );
+		$oldid = $wgRequest->getInt( 'baseRevId', $this->article->getLatest() );
 		if ( $oldid == $this->article->getLatest() ) {
 			$srev = $this->article->getStableRev();
 			# For pages with either no stable version, or an outdated one, let
