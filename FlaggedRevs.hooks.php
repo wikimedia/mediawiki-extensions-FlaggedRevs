@@ -177,7 +177,7 @@ class FlaggedRevsHooks {
 
 	// Mark when an unreviewed page is being reviewed
 	public static function maybeMarkUnderReview(
-		Article $article, User $user, WebRequest $request
+		Article $article, $user, WebRequest $request
 	) {
 		global $wgMemc;
 		# Set a key to note when someone is reviewing this.
