@@ -255,6 +255,17 @@ class FlaggedRevs {
 	}
 
 	/**
+	 * Get the appropriate PageStabilityForm depending on whether protection
+	 * levels are being used
+	 * @return PageStabilityForm
+	 */
+	public static function getPageStabilityForm() {
+		return FlaggedRevs::useProtectionLevels() ?
+			new PageStabilityProtectForm() :
+			new PageStabilityGeneralForm();
+	}
+
+	/**
 	 * Get the autoreview restriction levels available
 	 * @returns array
 	 */

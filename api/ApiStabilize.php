@@ -46,10 +46,8 @@ class ApiStabilize extends ApiBase {
 			// We don't care about multiple errors, just report one of them
 			$this->dieUsageMsg( reset( $errors ) );
 		}
-		// TODO: factory function?
-		$form = FlaggedRevs::useProtectionLevels()
-			? new PageStabilityProtectForm()
-			: new PageStabilityGeneralForm();
+
+		$form = FlaggedRevs::getPageStabilityForm();
 
 		$form->setPage( $title ); # Our target page
 		$form->setWatchThis( $params['watch'] ); # Watch this page
