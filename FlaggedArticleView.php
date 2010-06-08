@@ -545,6 +545,8 @@ class FlaggedArticleView {
 					$this->article, $text, $srev->getRevId() );
 				# Update the stable version cache
 				FlaggedRevs::updatePageCache( $this->article, $wgUser, $parserOut );
+			} else {
+				$parserOut = null;
 			}
 	   	}
 		$synced = FlaggedRevs::stableVersionIsSynced( $srev, $this->article, $parserOut, null );
@@ -597,6 +599,7 @@ class FlaggedArticleView {
 		if ( $redirHtml != '' ) {
 			$wgOut->addHtml( $redirHtml );
 		} else {
+			// $parserOut will not be null here
 			$wgOut->addParserOutput( $parserOut );
 		}
 	}
@@ -1444,8 +1447,9 @@ class FlaggedArticleView {
 
 	/**
 	* Set $this->isDiffFromStable and $this->isMultiPageDiff fields
+	* Note: $oldRev could be false
 	*/
-	public function setViewFlags( $diff, Revision $oldRev, Revision $newRev ) {
+	public function setViewFlags( $diff, $oldRev, $newRev ) {
 		$this->load();
 		if ( $newRev && $oldRev ) {
 			// Is this a diff between two pages?

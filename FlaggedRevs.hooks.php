@@ -1684,8 +1684,9 @@ class FlaggedRevsHooks {
 	}
 
 	public static function overrideRedirect(
-		&$title, $request, &$ignoreRedirect, &$target, &$article
+		Title &$title, WebRequest $request, &$ignoreRedirect, &$target, Article &$article
 	) {
+		global $wgMemc, $wgParserCacheExpireTime;
 		# Get an instance on the title ($wgTitle)
 		if ( !FlaggedRevs::inReviewNamespace( $title ) ) {
 			return true;
@@ -1693,12 +1694,11 @@ class FlaggedRevsHooks {
 		if ( $request->getVal( 'stableid' ) ) {
 			$ignoreRedirect = true;
 		} else {
-			global $wgMemc, $wgParserCacheExpireTime;
 			# Try the cache...
 			$key = wfMemcKey( 'flaggedrevs', 'overrideRedirect', $title->getArticleId() );
-			$data = $wgMemc->get( $key );
-			if ( is_object( $data ) && $data->time >= $article->getTouched() ) {
-				list( $ignoreRedirect, $target ) = $data->value;
+			$tuple = FlaggedRevs::getMemcValue( $wgMemc->get( $key ), $article );
+			if ( is_array( $tuple ) ) {
+				list( $ignoreRedirect, $target ) = $tuple;
 				return true;
 			}
 			$fa = FlaggedArticle::getTitleInstance( $title );
