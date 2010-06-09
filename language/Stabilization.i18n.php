@@ -224,37 +224,39 @@ $messages['am'] = array(
  * @author Juanpabl
  */
 $messages['an'] = array(
-	'stabilization-tab' => '(compreb)',
-	'stabilization' => "Estabilizazión d'a pachina",
-	'stabilization-text' => "'''Si quiere achustar cómo se triga y amuestra a bersión estable de [[:$1|$1]] cambee a confegurazión más tabaixo.'''",
-	'stabilization-perm' => "A suya cuenta no tiene premisos ta cambiar a confegurazión d'a bersión estable. Os achustes autuals ta [[:$1|$1]] s'amuestran aquí:",
+	'stabilization-tab' => '(vet)',
+	'stabilization' => "Estabilización d'a pachina",
+	'stabilization-text' => "'''Cambeye a confeguración d'abaixo si quier achustar a forma de trigar y amostrar a versión acceptada de [[:\$1|\$1]].'''
+
+'''Nota:''' cambiando a ''selección d'a versión acceptada'' t'as versions \"de qualidat\" u \"zancera\" no tengrá garra efecto si no existeixen ixas versions. Pare cuenta tamién que a versión \"de qualidat\" se considera una versión \"comprobada\".",
+	'stabilization-perm' => "A suya cuenta no tiene premisos ta cambiar a confeguración d'a versión acceptada. Os achustes actuals ta [[:$1|$1]] s'amuestran aquí:",
 	'stabilization-page' => "Nombre d'a pachina:",
-	'stabilization-leg' => "Confirmar a confegurazión d'a bersión estable",
-	'stabilization-select' => "Triga d'a bersión estable",
-	'stabilization-select1' => "A zaguera bersión de calidat; si no bi'n ha, alabez a zaguera bersión superbisata",
-	'stabilization-select2' => 'A zaguera bersión rebisata',
-	'stabilization-select3' => "A zaguera bersión zanzera; si bi'n ha, alabez a zaguera bersión de calidat u rebisata.",
-	'stabilization-def' => "A rebisión s'amuestra en a pachina de bisualizazión por defeuto",
-	'stabilization-def1' => "A bersión estable; si no bi'n ha, alabez a bersión autual",
-	'stabilization-def2' => 'A bersión autual',
+	'stabilization-leg' => "Confirmar a confeguración d'a versión acceptada",
+	'stabilization-select' => "Precedencia d'a triga d'a versión acceptada",
+	'stabilization-select1' => "A zaguera versión de qualidat; si no bi'n ha, alavez a zaguera versión supervisata",
+	'stabilization-select2' => 'A zaguera versión verificada',
+	'stabilization-select3' => "A zaguera versión zancera; si bi'n ha, alavez a zaguera versión de qualidat u revisata.",
+	'stabilization-def' => "A revisión s'amuestra en a pachina de visualización por defecto",
+	'stabilization-def1' => "A versión acceptata; si no bi'n ha, alavez a versión actual/borrador",
+	'stabilization-def2' => 'A versión actual/borrador',
 	'stabilization-submit' => 'Confirmar',
 	'stabilization-notexists' => 'No bi ha garra pachina tetulata "[[:$1|$1]]". 
 No ye posible confegurar-la.',
-	'stabilization-notcontent' => 'A pachina "[[:$1|$1]]" no se puede rebisar.
+	'stabilization-notcontent' => 'A pachina "[[:$1|$1]]" no se puede revisar.
 No ye posible confegurar-la.',
 	'stabilization-comment' => 'Razón:',
 	'stabilization-otherreason' => 'Atra razón:',
-	'stabilization-expiry' => 'Zircunduze:',
-	'stabilization-sel-short' => 'Prezendenzia',
+	'stabilization-expiry' => 'Circunduce:',
+	'stabilization-sel-short' => 'Precedencia',
 	'stabilization-sel-short-0' => 'Calidat',
 	'stabilization-sel-short-1' => 'Garra',
-	'stabilization-sel-short-2' => 'Zanzera',
-	'stabilization-def-short' => 'Por defeuto',
-	'stabilization-def-short-0' => 'Autual',
-	'stabilization-def-short-1' => 'Estable',
-	'stabilize_expiry_invalid' => 'A calendata de zircunduzión no ye conforme.',
-	'stabilize_expiry_old' => 'Ista calendata de zircunduzión ya ye pasata.',
-	'stabilize-expiring' => 'zircunduze o $1 (UTC)',
+	'stabilization-sel-short-2' => 'Zancera',
+	'stabilization-def-short' => 'Por defecto',
+	'stabilization-def-short-0' => 'Actual',
+	'stabilization-def-short-1' => 'Acceptada',
+	'stabilize_expiry_invalid' => 'A calendata de circunducción no ye conforme.',
+	'stabilize_expiry_old' => 'Ista calendata de circunducción ya ye pasata.',
+	'stabilize-expiring' => 'circunduce o $1 (UTC)',
 );
 
 /** Arabic (العربية)

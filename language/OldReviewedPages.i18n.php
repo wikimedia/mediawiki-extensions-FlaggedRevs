@@ -110,17 +110,17 @@ $messages['am'] = array(
  * @author Juanpabl
  */
 $messages['an'] = array(
-	'oldreviewedpages' => 'Pachinas rebisatas zircunduzitas',
-	'oldreviewedpages-legend' => 'Lista de pachinas rebisatas con edizions sin rebisar',
-	'oldreviewedpages-list' => 'Ista pachina amuestra as pachinas rebisatas que tienen edizions pendients de rebisar.',
-	'oldreviewedpages-none' => 'No bi ha agora garra pachina que cumpla ixas condizions',
+	'oldreviewedpages' => 'Pachinas con cambios pendients',
+	'oldreviewedpages-legend' => 'Lista de pachinas revisatas con edicions sin revisar',
+	'oldreviewedpages-list' => 'Ista pachina amuestra {{PLURAL:$1|una pachina revisata|pachinas revisatas}} que tienen edicions pendients.',
+	'oldreviewedpages-none' => 'No bi ha agora garra pachina que cumpla ixas condicions',
 	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|ora|oras}})',
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|día|días}})',
-	'oldreviewedpages-recent' => "(menos d'una ora)",
+	'oldreviewedpages-recent' => "(menos d'una hora)",
 	'oldreviewed-category' => 'Categoría:',
-	'oldreviewed-diff' => 'rebisión',
+	'oldreviewed-diff' => 'revisión',
 	'oldreviewedpages-unwatched' => '(no cosirata)',
-	'oldreviewedpages-watched' => '($1 {{PLURAL:$1|usuario|usuarios}} cosirando)',
+	'oldreviewedpages-watched' => '($1 {{PLURAL:$1|usuario|usuarios}} activos cosirando)',
 );
 
 /** Arabic (العربية)

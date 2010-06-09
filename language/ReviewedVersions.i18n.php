@@ -63,12 +63,12 @@ $messages['aln'] = array(
  * @author Juanpabl
  */
 $messages['an'] = array(
-	'reviewedversions' => 'Amostrar bersions estables',
-	'reviewedversions-leg1' => "Amostrar a lista de bersions rebisatas d'una pachina",
+	'reviewedversions' => 'versions revisatas',
+	'reviewedversions-leg1' => "Amostrar a lista de versions revisatas d'una pachina",
 	'reviewedversions-page' => "Nombre d'a pachina:",
-	'reviewedversions-none' => '"[[:$1]]" no tiene bersions rebisatas.',
-	'reviewedversions-list' => "A siguient ye una lista de bersions de [[:$1]] que s'han rebisato:",
-	'reviewedversions-review' => 'Rebisata por $2 o <i>$1</i>',
+	'reviewedversions-none' => '"[[:$1]]" no tiene versions revisatas.',
+	'reviewedversions-list' => "A siguient ye una lista de versions de [[:$1]] que s'han revisato:",
+	'reviewedversions-review' => 'Revisata por $2 o <i>$1</i>',
 );
 
 /** Arabic (العربية)

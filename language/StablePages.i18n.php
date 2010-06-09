@@ -55,10 +55,10 @@ $messages['aln'] = array(
  * @author Juanpabl
  */
 $messages['an'] = array(
-	'stablepages' => 'Pachinas estables',
-	'stablepages-text' => "En o cobaixo s'amuestran as pachinas que s'han confeguratas manualment t'amostrar a bersión estable como o conteniu d'a pachina por defeuto ta os bisualizadors.",
+	'stablepages' => "Pachinas que emplegan l'aprobación d'as modificacions",
+	'stablepages-text' => "En o cobaixo s'amuestra una lista de pachinas que s'han restrichito ta que nomás bells usuarios puedan fer-ie edicions que no requieran revisions. Ditas edicions no s'acceptan dica que un usuario autorizado las revisa.",
 	'stablepages-none' => 'No bi ha garra pachina en ista lista',
-	'stablepages-config' => 'Confegurazión',
+	'stablepages-config' => 'Confeguración',
 );
 
 /** Arabic (العربية)

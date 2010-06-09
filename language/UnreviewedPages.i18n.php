@@ -87,14 +87,14 @@ $messages['am'] = array(
  * @author Juanpabl
  */
 $messages['an'] = array(
-	'unreviewedpages' => 'Pachinas no rebisatas',
-	'unreviewed-legend' => 'Lista de pachinas de conteniu no rebisatas',
+	'unreviewedpages' => 'Pachinas no revisatas',
+	'unreviewed-legend' => 'Lista de pachinas de conteniu no revisatas',
 	'unreviewed-category' => 'Categoría:',
-	'unreviewed-diff' => 'rebisar',
+	'unreviewed-diff' => 'revisar',
 	'unreviewed-unwatched' => '(no cosirata)',
-	'unreviewed-watched' => '($1 {{PLURAL:$1|usuario|usuarios}} cosirando)',
-	'unreviewed-list' => "Ista pachina amuestra os articlos que no s'han rebisato.",
-	'unreviewed-none' => 'No bi ha autualment garra pachina que cumpla ixos criterios',
+	'unreviewed-watched' => '($1 {{PLURAL:$1|usuario|usuarios}} activos cosirando)',
+	'unreviewed-list' => "Ista pachina amuestra os articlos que no s'han revisato dica o livel especificato.",
+	'unreviewed-none' => 'No bi ha actualment garra pachina que cumpla ixos criterios',
 );
 
 /** Arabic (العربية)

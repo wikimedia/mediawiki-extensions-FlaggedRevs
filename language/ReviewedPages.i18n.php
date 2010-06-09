@@ -58,15 +58,17 @@ $messages['af'] = array(
  * @author Juanpabl
  */
 $messages['an'] = array(
-	'reviewedpages' => 'Pachinas rebisatas',
-	'reviewedpages-leg' => 'Amostrar pachinas rebisatas dica un libel determinato',
-	'reviewedpages-list' => "As siguients pachinas s'han rebisato dica o libel espezificato",
+	'reviewedpages' => 'Pachinas revisatas',
+	'reviewedpages-leg' => "Lista de pachinas que s'han revisato",
+	'reviewedpages-list' => "As siguients pachinas s'han revisato dica o libel especificato
+Ista lista contiene pachinas [[{{MediaWiki:Validationpage}}|revisadas]] que o suyo livel de revisión ''más alto''  (de una revisión) ye o livel especificato. 
+Se da un vinclo t'a zaguera versión d'iste livel.",
 	'reviewedpages-none' => 'No bi ha garra pachina en ista lista',
-	'reviewedpages-lev-0' => 'Superbisato',
-	'reviewedpages-lev-1' => 'Calidat',
-	'reviewedpages-lev-2' => 'Destacato',
-	'reviewedpages-all' => 'bersions rebisatas',
-	'reviewedpages-best' => 'Rebisión prenzipal',
+	'reviewedpages-lev-0' => 'Supervisato',
+	'reviewedpages-lev-1' => 'Qualidat',
+	'reviewedpages-lev-2' => '{{int:revreview-lev-pristine}}',
+	'reviewedpages-all' => 'versions revisatas',
+	'reviewedpages-best' => 'millor versión',
 );
 
 /** Arabic (العربية)

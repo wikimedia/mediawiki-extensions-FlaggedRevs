@@ -213,6 +213,14 @@ $messages['bg'] = array(
 	'validationstatistics-user' => 'Потребител',
 );
 
+/** Bengali (বাংলা)
+ * @author Bellayet
+ */
+$messages['bn'] = array(
+	'validationstatistics-total' => 'পাতা',
+	'validationstatistics-user' => 'ব্যবহারকারী',
+);
+
 /** Breton (Brezhoneg)
  * @author Fulup
  * @author Y-M D
@@ -350,16 +358,17 @@ Sichter sind anerkannte Benutzer, die Versionen einer Seite überprüfen können
 Die durchschnittliche Wartezeit für Bearbeitungen, die von nicht angemeldeten Benutzern stammen, beträgt '''$1'''; der Median beträgt '''$3'''.
 $4
 Der durchschnittliche Rückstand auf [[Special:OldReviewedPages|veraltete Seiten]] beträgt '''$2'''.
-Diese Seiten werden als ''veraltet'' angesehen. Seiten werden als ''synchronisiert'' angesehen, wenn keine Bearbeitungen mehr auf eine Kontrolle warten.
+Veraltete Seiten sind Seiten mit Bearbeitungen, die neuer als die markierte Version sind.
+Seiten werden als ''synchronisiert'' angesehen, wenn keine Bearbeitungen mehr auf eine Kontrolle warten.
 Die veröffentlichte Version einer Seite ist die neueste Version, die durch einen Sichter bestätigt wurde und als Standard allen Lesern angezeigt wird.",
-	'validationstatistics-table' => "Statistiken für jeden Namensraum, ''ausgenommen'' sind Weiterleitungen.",
+	'validationstatistics-table' => 'Das sind Statistiken für jeden Namensraum, ausgenommen Weiterleitungen.',
 	'validationstatistics-ns' => 'Namensraum',
 	'validationstatistics-total' => 'Seiten gesamt',
 	'validationstatistics-stable' => 'Mindestens eine Version gesichtet',
 	'validationstatistics-latest' => 'Anzahl Seiten, die in der aktuellen Version gesichtet sind',
 	'validationstatistics-synced' => 'Prozentsatz an Seiten, die in der aktuellen Version gesichtet sind',
 	'validationstatistics-old' => 'Seiten mit ungesichteten Versionen',
-	'validationstatistics-utable' => 'Nachfolgend die Liste der 5 Benutzer, die in der letzten Stunde die meisten Markierungen gesetzt haben.',
+	'validationstatistics-utable' => 'Nachfolgend die Liste der fünf Benutzer, die in der letzten Stunde die meisten Markierungen gesetzt haben.',
 	'validationstatistics-user' => 'Benutzer',
 	'validationstatistics-reviews' => 'Markierungen',
 );

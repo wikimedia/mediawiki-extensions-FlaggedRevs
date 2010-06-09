@@ -73,6 +73,13 @@ $messages['bg'] = array(
 	'problemchanges-category' => 'Категория:',
 );
 
+/** Bengali (বাংলা)
+ * @author Bellayet
+ */
+$messages['bn'] = array(
+	'problemchanges-category' => 'বিষয়শ্রেণী:',
+);
+
 /** Breton (Brezhoneg)
  * @author Fulup
  * @author Y-M D

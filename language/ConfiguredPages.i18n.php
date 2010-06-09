@@ -78,6 +78,13 @@ $messages['be-tarask'] = array(
 	'configuredpages-def-stable' => 'апублікаваная вэрсія',
 );
 
+/** Bengali (বাংলা)
+ * @author Bellayet
+ */
+$messages['bn'] = array(
+	'configuredpages-def-draft' => 'সাম্প্রতিকতম সংস্করণ',
+);
+
 /** Breton (Brezhoneg)
  * @author Fulup
  * @author Y-M D

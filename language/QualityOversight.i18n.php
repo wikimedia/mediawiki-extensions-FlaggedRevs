@@ -27,9 +27,9 @@ $messages['qqq'] = array(
  * @author Juanpabl
  */
 $messages['an'] = array(
-	'qualityoversight' => 'Superbisión de calidat',
-	'qualityoversight-list' => "Ista pachina amuestra as zagueras aprebazions y depreziazions d'as rebisions.",
-	'qualityoversight-legend' => "Mirar en os rechistros d'as zagueras rebisions",
+	'qualityoversight' => 'Rechistro de versions avanzato',
+	'qualityoversight-list' => "Ista pachina amuestra as zagueras aprebacions y depreciacions d'as revisions.",
+	'qualityoversight-legend' => "Mirar en os rechistros d'as zagueras revisions",
 );
 
 /** Arabic (العربية)
