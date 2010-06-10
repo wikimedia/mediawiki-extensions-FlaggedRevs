@@ -602,6 +602,14 @@ $messages['sr-ec'] = array(
 	'problemchanges-category' => 'Категорија:',
 );
 
+/** Serbian Latin ekavian (Srpski (latinica)) */
+$messages['sr-el'] = array(
+	'problemchanges' => 'Označene izmene na čekanju',
+	'problemchanges-legend' => 'Prelistaj stranice na čekanju s označenim izmenama za pregled',
+	'problemchanges-none' => 'Trenutno nema stranica koje ispunjavaju ovaj kriterijum',
+	'problemchanges-category' => 'Kategorija:',
+);
+
 /** Sundanese (Basa Sunda)
  * @author Irwangatot
  */
@@ -707,6 +715,8 @@ $messages['vi'] = array(
  * @author Jimmy xu wrk
  */
 $messages['zh-hans'] = array(
+	'problemchanges' => '标记审核',
+	'problemchanges-legend' => '列出页面正等待审核',
 	'problemchanges-none' => '目前没有页面符合这些条件',
 	'problemchanges-category' => '分类:',
 );

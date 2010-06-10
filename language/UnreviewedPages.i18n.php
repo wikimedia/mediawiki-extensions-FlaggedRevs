@@ -1426,9 +1426,12 @@ $messages['sr-el'] = array(
 	'unreviewed-diff' => 'pregled',
 	'unreviewed-unwatched' => '(nenadzirano)',
 	'unreviewed-watched' => '($1 {{PLURAL:$1|aktivan korisnik nadgleda|akhivnih korisnika nadgledaju}})',
-	'unreviewed-list' => 'Ovo je spisak strana koje još nisu pregledane.',
+	'unreviewed-list' => 'Ovo je spisak strana sadržaja koje još nisu pregledane do navedenog nivoa.',
 	'unreviewed-none' => 'Ne postoji nijedna strana koja se poklapa sa ovim kriterijima.',
 	'unreviewed-viewing' => '(pod pregledom)',
+	'unreviewed-hours' => '($1 {{PLURAL:$1|sat|sati}})',
+	'unreviewed-days' => '($1 {{PLURAL:$1|dan|dana}})',
+	'unreviewed-recent' => '(manje od sata)',
 );
 
 /** Seeltersk (Seeltersk)

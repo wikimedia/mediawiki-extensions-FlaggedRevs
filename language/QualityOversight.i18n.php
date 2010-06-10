@@ -524,7 +524,7 @@ $messages['sr-ec'] = array(
  * @author Michaello
  */
 $messages['sr-el'] = array(
-	'qualityoversight' => 'Nadgledanje kvaliteta',
+	'qualityoversight' => 'Napredni pregled izveštaja',
 	'qualityoversight-list' => 'Na ovoj strani se nalazi spisak skoro odobrenih i potisnutih verzija.',
 	'qualityoversight-legend' => 'Pretraga loga skorih pregleda.',
 );
@@ -623,7 +623,7 @@ $messages['yue'] = array(
  * @author Shinjiman
  */
 $messages['zh-hans'] = array(
-	'qualityoversight' => '品质管理',
+	'qualityoversight' => '品质管理日志',
 	'qualityoversight-list' => '这个页面列示出最近核准修订以及最近品质修订之折旧。',
 	'qualityoversight-legend' => '搜索最近审核记录',
 );

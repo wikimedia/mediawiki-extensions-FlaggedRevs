@@ -1083,14 +1083,15 @@ $messages['sr-ec'] = array(
  */
 $messages['sr-el'] = array(
 	'reviewedpages' => 'Pregledane stranice',
-	'reviewedpages-leg' => 'Spisak strana, sortiran od najvišeg nivoa',
-	'reviewedpages-list' => 'Ovo je spisak najkomentarisanijih strana.',
+	'reviewedpages-leg' => 'Svrstaj strane koje su pregledane',
+	'reviewedpages-list' => "Ovi spiskovi sadrže [[{{MediaWiki:Validationpage}}|pregledane]] stranice čiji ''najviši dostignut'' nivo pregleda (revizije) je određeni nivo.
+Veza je data najnovijoj reviziji tog nivoa.",
 	'reviewedpages-none' => 'Nema strana u ovom spisku.',
 	'reviewedpages-lev-0' => 'Pregledano',
 	'reviewedpages-lev-1' => 'Kvalitet',
 	'reviewedpages-lev-2' => 'Izabrani',
 	'reviewedpages-all' => 'pregledane verzije',
-	'reviewedpages-best' => 'najbolja verzija',
+	'reviewedpages-best' => 'najbolja revizija',
 );
 
 /** Seeltersk (Seeltersk)
@@ -1321,7 +1322,7 @@ $messages['yue'] = array(
 $messages['zh-hans'] = array(
 	'reviewedpages' => '复审过的页面',
 	'reviewedpages-leg' => '列示复审过到指定级数之页面',
-	'reviewedpages-list' => '以下的页面已经复审到一个指定的级数',
+	'reviewedpages-list' => '以下的页面[[{{MediaWiki:Validationpage}}|已经复审]]到一个指定的级数',
 	'reviewedpages-none' => '没有页面在这个列表中',
 	'reviewedpages-lev-0' => '视察过',
 	'reviewedpages-lev-1' => '质素',

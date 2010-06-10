@@ -983,7 +983,7 @@ $messages['sr-ec'] = array(
  * @author Michaello
  */
 $messages['sr-el'] = array(
-	'reviewedversions' => 'Pogledaj stabilne verzije',
+	'reviewedversions' => 'Pregledana izdanja',
 	'reviewedversions-leg1' => 'Spisak pregledanih verzija za stranu.',
 	'reviewedversions-page' => 'Ime stranice:',
 	'reviewedversions-none' => '"[[:$1]]" nema pregledanih verzija.',
@@ -1206,7 +1206,7 @@ $messages['yue'] = array(
  * @author Liangent
  */
 $messages['zh-hans'] = array(
-	'reviewedversions' => '稳定版',
+	'reviewedversions' => '稳定版本',
 	'reviewedversions-leg1' => '列示一版已复审的修订',
 	'reviewedversions-page' => '页面名',
 	'reviewedversions-none' => '[[:$1]]没有已复审过的修订。',

@@ -1464,13 +1464,19 @@ $messages['sr-ec'] = array(
  * @author Michaello
  */
 $messages['sr-el'] = array(
-	'oldreviewedpages' => 'Zastarele pregledane strane',
+	'oldreviewedpages' => 'Strane sa promenama za pregled',
 	'oldreviewedpages-legend' => 'Spisak pregledanih strana sa nepregledanim verzijama.',
+	'oldreviewedpages-list' => 'Ovo je {{PLURAL:$1|pregledana strana|spisak pregledanih strana}} sa izmenama za pregled.',
 	'oldreviewedpages-none' => 'Trenutno nema strana koje zadovoljavaju ove kriterije,',
+	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|sat|sati}})',
+	'oldreviewedpages-days' => '($1 {{PLURAL:$1|dan|dana}})',
 	'oldreviewedpages-recent' => '(manje od jednog časa)',
 	'oldreviewed-category' => 'Kategorija:',
+	'oldreviewed-watched' => 'Strane na mojem spisku nadgledanja',
+	'oldreviewed-stable' => 'Stabilizovane strane',
 	'oldreviewed-diff' => 'pregled',
 	'oldreviewedpages-unwatched' => '(nenadgledano)',
+	'oldreviewedpages-viewing' => '(pod pregledom)',
 );
 
 /** Swedish (Svenska)
@@ -1717,13 +1723,13 @@ $messages['yue'] = array(
 $messages['zh-hans'] = array(
 	'oldreviewedpages' => '已过时复审过的页面',
 	'oldreviewedpages-legend' => '列示有未复审修订之复审过的页面',
-	'oldreviewedpages-list' => '这个页面列示出有正等候编辑之评论页面。',
+	'oldreviewedpages-list' => '这个页面列示出{{PLURAL:$1|一个|一些}}正等候编辑之评论页面。',
 	'oldreviewedpages-none' => '这里现时没有页面系合乎这些条件',
 	'oldreviewedpages-hours' => '（$1小时）',
 	'oldreviewedpages-days' => '（$1日）',
 	'oldreviewedpages-recent' => '（少于1小时）',
 	'oldreviewed-category' => '分类:',
-	'oldreviewed-watched' => '在我的监视列表上',
+	'oldreviewed-watched' => '在我的监视列表上的页面',
 	'oldreviewed-stable' => '稳定的',
 	'oldreviewed-diff' => '复审',
 	'oldreviewed-size' => '最大变更（字节）：',

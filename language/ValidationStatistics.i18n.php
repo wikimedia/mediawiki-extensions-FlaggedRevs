@@ -2051,17 +2051,17 @@ $messages['yi'] = array(
  */
 $messages['zh-hans'] = array(
 	'validationstatistics' => '审核统计',
-	'validationstatistics-users' => "'''{{SITENAME}}'''现在有'''[[Special:ListUsers/editor|$1]]'''个用户拥有[[{{MediaWiki:Validationpage}}|编辑]]权限，'''[[Special:ListUsers/reviewer|$2]]'''个用户拥有[[{{MediaWiki:Validationpage}}|审核]]权限。
+	'validationstatistics-users' => "'''{{SITENAME}}'''现时有'''[[Special:ListUsers/editor|$1]]'''{{PLURAL:$1|个|个}}用户具有[[{{MediaWiki:Validationpage}}|编辑]]的权限。
 
-编辑和审核均为已确认的用户，他们可以检查各页面的修订情况。",
-	'validationstatistics-time' => "''下列信息于 $5 $6 进行了最后更新。''
+编辑及审定皆为已确认的用户，并可以检查各页面的修定。",
+	'validationstatistics-time' => "''下列资讯于 $5 $6 进行了最后更新。 ''
 
 已确认用户核对过的编辑需要进行复审。
 
 ''未登录用户''的编辑平均等待审核时间为'''$1'''；中值时间为'''$3'''。
 $4
 [[Special:OldReviewedPages|未审核的页面编辑等待]]平均滞后时间为'''$2'''。
-这些页面被认为''过期''了。同样的，如果[[{{MediaWiki:Validationpage}}|完美版本]]是目前的待定版本，这些页面就被认为''已同步''。
+这些页面被认为''过期''了。同样的，如果完美版本是目前的待定版本，这些页面就被认为''已同步''。
 页面的完美版本是被读者普遍接受的最新版本。",
 	'validationstatistics-table' => "各名称空间的统计信息显示如下，''不包含''转向页。",
 	'validationstatistics-ns' => '名字空间',

@@ -690,6 +690,11 @@ $messages['sr-ec'] = array(
 	'configuredpages-config' => 'Поставке',
 );
 
+/** Serbian Latin ekavian (Srpski (latinica)) */
+$messages['sr-el'] = array(
+	'configuredpages-config' => 'Postavke',
+);
+
 /** Swedish (Svenska)
  * @author Ainali
  * @author Boivie
@@ -821,9 +826,18 @@ $messages['vi'] = array(
 
 /** Simplified Chinese (‪中文(简体)‬) */
 $messages['zh-hans'] = array(
+	'configuredpages' => '页面已有复审设定',
+	'configuredpages-text' => '下面是已有和站点预设设定不同的审核设定。
+
+部份设定的更改是向读者展示的。',
+	'configuredpages-none' => '没有页面在这个清单中',
+	'configuredpages-config' => '设定',
+	'configuredpages-precedence' => '优先级：',
 	'configuredpages-prec-none' => '没有优先级',
 	'configuredpages-prec-quality' => '质量优先级',
 	'configuredpages-prec-pristine' => '原始优先级',
+	'configuredpages-def-draft' => '最新版本',
+	'configuredpages-def-stable' => '已出版的内容',
 );
 
 /** Traditional Chinese (‪中文(繁體)‬)

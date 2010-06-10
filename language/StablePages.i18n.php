@@ -689,8 +689,9 @@ $messages['sr-ec'] = array(
  * @author Michaello
  */
 $messages['sr-el'] = array(
-	'stablepages' => 'Stabilne strane',
-	'stablepages-text' => 'Ispod se nalazi spisak strana ručno podešenih za prikaz stabilne verzije kao podrazumevane strane za čitače sadržaja.',
+	'stablepages' => 'Stranice koje koriste potvrdu izmena',
+	'stablepages-text' => 'Ispod se nalazi spisak strana koje su ograničene tako da samo određeni korisnici mogu da ih urede.
+Takve izmene nisu prihvaćene dok ih ovlašćeni korisnik ne pregleda.',
 	'stablepages-none' => 'Ne postoje strane u spisku.',
 	'stablepages-config' => 'Podešavanje',
 );
@@ -812,8 +813,9 @@ $messages['yue'] = array(
  * @author Shinjiman
  */
 $messages['zh-hans'] = array(
-	'stablepages' => '稳定页面',
-	'stablepages-text' => '以下的页面列示出一些页面是手动地设置去显示稳定版作为观看者做预设页面版内容。',
+	'stablepages' => '页面已经通过审核',
+	'stablepages-text' => '以下的页面列示出一些页面是手动地设定去显示稳定版作为观看者做预设页面版内容，
+只有指定用户的编辑才不需要通过审核。',
 	'stablepages-none' => '没有页面在这个列表中',
 	'stablepages-config' => '设置',
 );
@@ -825,7 +827,8 @@ $messages['zh-hans'] = array(
  */
 $messages['zh-hant'] = array(
 	'stablepages' => '頁面已經通過審核',
-	'stablepages-text' => '以下的頁面列示出一些頁面是手動地設定去顯示穩定版作為觀看者做預設頁面版內容，只有指定用戶的編輯才不需要通過審核。',
+	'stablepages-text' => '以下的頁面列示出一些頁面是手動地設定去顯示穩定版作為觀看者做預設頁面版內容，
+只有指定用戶的編輯才不需要通過審核。',
 	'stablepages-none' => '沒有頁面在這個清單中',
 	'stablepages-config' => '設定',
 );
