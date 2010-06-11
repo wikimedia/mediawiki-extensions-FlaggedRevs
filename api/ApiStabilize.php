@@ -246,7 +246,6 @@ class ApiStabilizeProtect extends ApiStabilize {
 			),
 			'expiry' 	   => 'infinite',
 			'reason' 	   => '',
-			'review' 	   => false,
 			'watch'  	   => null,
 			'token'  	   => null,
 			'title'  	   => null,
@@ -259,7 +258,6 @@ class ApiStabilizeProtect extends ApiStabilize {
 			'expiry' 		=> 'Review-protection expiry',
 			'title' 		=> 'Title of page to be review-protected',
 			'reason' 		=> 'Reason',
-			'review'        => 'Review this page',
 			'watch'         => 'Watch this page',
 			'token' 		=> 'An edit token retrieved through prop=info',
 		);
