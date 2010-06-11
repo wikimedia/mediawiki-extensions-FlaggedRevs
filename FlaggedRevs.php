@@ -403,7 +403,8 @@ $wgAutoloadClasses['ApiReview'] = $dir . 'api/ApiReview.php';
 $wgAPIModules['review'] = 'ApiReview';
 # Stability config module for API
 $wgAutoloadClasses['ApiStabilize'] = $dir . 'api/ApiStabilize.php';
-$wgAPIModules['stabilize'] = 'ApiStabilize';
+$wgAutoloadClasses['ApiStabilizeGeneral'] = $dir . 'api/ApiStabilize.php';
+$wgAutoloadClasses['ApiStabilizeProtect'] = $dir . 'api/ApiStabilize.php';
 
 # New user preferences
 $wgDefaultUserOptions['flaggedrevssimpleui'] = (int)$wgSimpleFlaggedRevsUI;
@@ -580,8 +581,11 @@ function efLoadFlaggedRevs() {
 }
 
 function efSetFlaggedRevsConditionalAPIModules() {
-	global $wgAPIListModules;
-	if ( !FlaggedRevs::stableOnlyIfConfigured() ) {
+	global $wgAPIModules, $wgAPIListModules;
+	if ( FlaggedRevs::stableOnlyIfConfigured() ) {
+		$wgAPIModules['stabilize'] = 'ApiStabilizeProtect';
+	} else {
+		$wgAPIModules['stabilize'] = 'ApiStabilizeGeneral';
 		$wgAPIListModules['reviewedpages'] = 'ApiQueryReviewedpages';
 		$wgAPIListModules['unreviewedpages'] = 'ApiQueryUnreviewedpages';
 	}
