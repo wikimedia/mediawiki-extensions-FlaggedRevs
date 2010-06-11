@@ -11,19 +11,19 @@ $messages = array();
 $messages['en'] = array(
 	'stabilization-tab' => 'vet',
 	'stabilization' => 'Page stabilization',
-	'stabilization-text' => '\'\'\'Change the settings below to adjust how the accepted version of [[:$1|$1]] is selected and displayed.\'\'\'
+	'stabilization-text' => '\'\'\'Change the settings below to adjust how the stable version of [[:$1|$1]] is selected and displayed.\'\'\'
 
-\'\'\'Note:\'\'\' changing the \'\'accepted version selection\'\' to prefer "quality" or "pristine" versions will have no effect if there are no such versions. Also, note that a "quality" version is also considered a "checked" version and so on.',
-	'stabilization-perm' => 'Your account does not have permission to change the accepted version configuration.
+\'\'\'Note:\'\'\' changing the \'\'stable version selection\'\' to prefer "quality" or "pristine" versions will have no effect if there are no such versions. Also, note that a "quality" version is also considered a "checked" version and so on.',
+	'stabilization-perm' => 'Your account does not have permission to change the stable version configuration.
 Here are the current settings for [[:$1|$1]]:',
 	'stabilization-page' => 'Page name:',
-	'stabilization-leg' => 'Confirm accepted version settings',
-	'stabilization-select' => 'Accepted version selection precedence',
-	'stabilization-select1' => 'Latest quality revision; then latest sighted one',
-	'stabilization-select2' => 'Latest checked revision',
-	'stabilization-select3' => 'Latest pristine revision; then latest quality one; then latest sighted one',
+	'stabilization-leg' => 'Confirm stable version settings',
+	'stabilization-select' => 'Stable version selection precedence',
+	'stabilization-select1' => 'Latest quality version; then latest sighted one',
+	'stabilization-select2' => 'Latest checked version',
+	'stabilization-select3' => 'Latest pristine version; then latest quality one; then latest sighted one',
 	'stabilization-def' => 'Revision displayed on default page view',
-	'stabilization-def1' => 'The accepted revision; if not present, then the current/draft one',
+	'stabilization-def1' => 'The stable version; if not present, then the latest revision',
 	'stabilization-def2' => 'The current/draft revision',
 	'stabilization-restrict' => 'Review/auto-review restrictions',
 	'stabilization-restrict-none' => 'No extra restrictions',
@@ -42,7 +42,7 @@ No configuration is possible.',
 	'stabilization-sel-short-2' => 'Pristine',
 	'stabilization-def-short' => 'Default',
 	'stabilization-def-short-0' => 'Current',
-	'stabilization-def-short-1' => 'Accepted',
+	'stabilization-def-short-1' => 'Stable',
     'stabilize_page_invalid'       => 'The target page title is invalid.',
     'stabilize_page_notexists'     => 'The target page does not exist.',
     'stabilize_page_unreviewable'  => 'The target page is not in reviewable namespace.',
