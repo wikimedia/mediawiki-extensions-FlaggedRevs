@@ -868,9 +868,10 @@ $messages['pt'] = array(
 
 /** Brazilian Portuguese (Português do Brasil)
  * @author Eduardo.mps
+ * @author Giro720
  */
 $messages['pt-br'] = array(
-	'reviewedversions' => 'Ver edições estáveis',
+	'reviewedversions' => 'Versões revisadas',
 	'reviewedversions-leg1' => 'Listar as edições analisadas de uma página',
 	'reviewedversions-page' => 'Título da página:',
 	'reviewedversions-none' => '[[:$1]] não possui edições analisadas.',

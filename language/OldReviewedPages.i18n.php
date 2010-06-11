@@ -95,8 +95,11 @@ $messages['af'] = array(
 	'oldreviewedpages-recent' => '(minder as een uur)',
 	'oldreviewed-category' => 'Kategorie:',
 	'oldreviewed-watched' => 'Bladsye op my dophoulys',
-	'oldreviewed-stable' => 'Stabiele weergawe',
+	'oldreviewed-stable' => 'Stabiele weergawe is standaard',
+	'oldreviewed-diff' => 'kontroleer',
+	'oldreviewedpages-unwatched' => '(op geen dophoulys nie)',
 	'oldreviewedpages-watched' => '($1 aktiewe {{PLURAL:$1|gebruiker het|gebruikers het}} hierdie bladsy op {{PLURAL:$1|sy|hul}} dophoulys)',
+	'oldreviewedpages-viewing' => '(word gekontroleer)',
 );
 
 /** Amharic (አማርኛ)
@@ -366,7 +369,7 @@ $messages['de'] = array(
 	'oldreviewedpages-recent' => '(weniger als 1 Stunde)',
 	'oldreviewed-category' => 'Kategorie:',
 	'oldreviewed-watched' => 'Seiten auf meiner Beobachtungsliste',
-	'oldreviewed-stable' => 'Stabile Version',
+	'oldreviewed-stable' => 'Die stabile Version ist Standard.',
 	'oldreviewed-diff' => 'sichten',
 	'oldreviewed-size' => 'Maximale Änderungsgröße in Byte:',
 	'oldreviewedpages-unwatched' => '(unbeobachtet)',
@@ -408,7 +411,7 @@ $messages['dsb'] = array(
 	'oldreviewedpages-recent' => '(mjenjej ako 1 góźina)',
 	'oldreviewed-category' => 'Kategorija:',
 	'oldreviewed-watched' => 'Boki mjazy wobglědowańkami',
-	'oldreviewed-stable' => 'Stabilizěrowany',
+	'oldreviewed-stable' => 'Stabilna werisja jo standard',
 	'oldreviewed-diff' => 'pśeglědaś',
 	'oldreviewed-size' => 'Maksimalna změna w bytach:',
 	'oldreviewedpages-unwatched' => '(njewobglědowany)',
@@ -468,6 +471,7 @@ $messages['eo'] = array(
 );
 
 /** Spanish (Español)
+ * @author Bola
  * @author Crazymadlover
  * @author Sanbec
  * @author Translationista
@@ -482,7 +486,7 @@ $messages['es'] = array(
 	'oldreviewedpages-recent' => '(menos de 1 hora)',
 	'oldreviewed-category' => 'Categoría:',
 	'oldreviewed-watched' => 'Páginas en mi lista de seguimiento',
-	'oldreviewed-stable' => 'Estabilizado',
+	'oldreviewed-stable' => 'La versión estable se muestra por defecto',
 	'oldreviewed-diff' => 'Revisado',
 	'oldreviewed-size' => 'Cambio máximo (bytes):',
 	'oldreviewedpages-unwatched' => '(no vigilado)',
@@ -586,7 +590,7 @@ $messages['fr'] = array(
 	'oldreviewedpages-recent' => '(moins d’une heure)',
 	'oldreviewed-category' => 'Catégorie :',
 	'oldreviewed-watched' => 'Pages dans ma liste de suivi',
-	'oldreviewed-stable' => 'Stabilisé',
+	'oldreviewed-stable' => 'La version stable est par défaut',
 	'oldreviewed-diff' => 'relecture',
 	'oldreviewed-size' => 'Différence de taille maximale (en octets) :',
 	'oldreviewedpages-unwatched' => '(non suivie)',
@@ -637,7 +641,7 @@ $messages['gl'] = array(
 	'oldreviewedpages-recent' => '(menos de 1 hora)',
 	'oldreviewed-category' => 'Categoría:',
 	'oldreviewed-watched' => 'Páxinas na miña lista de vixilancia',
-	'oldreviewed-stable' => 'Páxinas estabilizadas',
+	'oldreviewed-stable' => 'A versión estable móstrase por defecto',
 	'oldreviewed-diff' => 'revisar',
 	'oldreviewed-size' => 'Tamaño máximo, en bytes, do cambio:',
 	'oldreviewedpages-unwatched' => '(sen vixiar)',
@@ -751,7 +755,7 @@ $messages['hsb'] = array(
 	'oldreviewedpages-recent' => '(mjenje hač 1 hodźina)',
 	'oldreviewed-category' => 'Kategorija:',
 	'oldreviewed-watched' => 'Strony w mojim wobkedźbowankach',
-	'oldreviewed-stable' => 'Stabilizowany',
+	'oldreviewed-stable' => 'Stabilna wersija je standard',
 	'oldreviewed-diff' => 'kontrolować',
 	'oldreviewed-size' => 'Maksimalna změna (w bajtach):',
 	'oldreviewedpages-unwatched' => '(njewobkedźbowany)',
@@ -796,7 +800,7 @@ $messages['ia'] = array(
 	'oldreviewedpages-recent' => '(minus de 1 hora)',
 	'oldreviewed-category' => 'Categoria:',
 	'oldreviewed-watched' => 'Paginas in mi observatorio',
-	'oldreviewed-stable' => 'Stabilisate',
+	'oldreviewed-stable' => 'Le version stabile es le option predeterminate',
 	'oldreviewed-diff' => 'revision',
 	'oldreviewed-size' => 'Cambio maxime (bytes):',
 	'oldreviewedpages-unwatched' => '(non observate)',
@@ -1021,7 +1025,7 @@ $messages['mk'] = array(
 	'oldreviewedpages-recent' => '(помалку од 1 час)',
 	'oldreviewed-category' => 'Категорија:',
 	'oldreviewed-watched' => 'Страници во мојот список на набљудувања',
-	'oldreviewed-stable' => 'Стабилизирани страници',
+	'oldreviewed-stable' => 'Основна е стабилната верзија',
 	'oldreviewed-diff' => 'оцени',
 	'oldreviewed-size' => 'Макс. промена (во бајти):',
 	'oldreviewedpages-unwatched' => '(ненабљудувана)',
@@ -1124,7 +1128,7 @@ $messages['nl'] = array(
 	'oldreviewedpages-recent' => '(minder dan een uur)',
 	'oldreviewed-category' => 'Categorie:',
 	'oldreviewed-watched' => "Pagina's op mijn volglijst",
-	'oldreviewed-stable' => 'Stabiele versie',
+	'oldreviewed-stable' => 'Stabiele versie is standaard',
 	'oldreviewed-diff' => 'controleren',
 	'oldreviewed-size' => 'Maximale wijziging in aantal bytes:',
 	'oldreviewedpages-unwatched' => '(niet op een volglijst)',
@@ -1288,9 +1292,10 @@ $messages['pt'] = array(
 
 /** Brazilian Portuguese (Português do Brasil)
  * @author Eduardo.mps
+ * @author Giro720
  */
 $messages['pt-br'] = array(
-	'oldreviewedpages' => 'Versões antigas de páginas analisadas',
+	'oldreviewedpages' => 'Páginas com alterações pendentes',
 	'oldreviewedpages-legend' => 'Lista páginas analisadas que possuem edições que não foram verificadas',
 	'oldreviewedpages-list' => 'Esta página lista {{PLURAL:$1|uma página analisada que possui|as páginas analisadas que possuem}} edições pendentes.',
 	'oldreviewedpages-none' => 'Atualmente não existem páginas que satisfaçam estes critérios',
@@ -1298,8 +1303,8 @@ $messages['pt-br'] = array(
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|dia|dias}})',
 	'oldreviewedpages-recent' => '(menos de 1 hora)',
 	'oldreviewed-category' => 'Categoria:',
-	'oldreviewed-watched' => 'Na minha lista de vigiados',
-	'oldreviewed-stable' => 'Estabilizada',
+	'oldreviewed-watched' => 'Páginas na minha lista de páginas vigiadas',
+	'oldreviewed-stable' => 'Versão publicada por padrão',
 	'oldreviewed-diff' => 'analisar',
 	'oldreviewed-size' => 'Tamanho máximo da alteração (em bytes):',
 	'oldreviewedpages-unwatched' => '(não-vigiada)',
@@ -1367,7 +1372,7 @@ $messages['ru'] = array(
 	'oldreviewedpages-recent' => '(менее 1 часа)',
 	'oldreviewed-category' => 'Категория:',
 	'oldreviewed-watched' => 'Страницы из моего списка наблюдения',
-	'oldreviewed-stable' => 'Стабилизированные',
+	'oldreviewed-stable' => 'Стабильная версия по умолчанию',
 	'oldreviewed-diff' => 'проверить',
 	'oldreviewed-size' => 'Наибольшее изменение в байтах:',
 	'oldreviewedpages-unwatched' => '(не следят)',
@@ -1496,7 +1501,7 @@ $messages['sv'] = array(
 	'oldreviewedpages-recent' => '(mindre än 1 timme)',
 	'oldreviewed-category' => 'Kategori:',
 	'oldreviewed-watched' => 'Sidor på min bevakningslista',
-	'oldreviewed-stable' => 'Stabiliserad',
+	'oldreviewed-stable' => 'Stabil version är förvald',
 	'oldreviewed-diff' => 'granska',
 	'oldreviewed-size' => 'Maximal storleksändring i byte:',
 	'oldreviewedpages-unwatched' => '(obevakad)',

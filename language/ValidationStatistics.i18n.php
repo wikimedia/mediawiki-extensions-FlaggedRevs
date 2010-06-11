@@ -187,8 +187,7 @@ $messages['be-tarask'] = array(
 Сярэдняя затрымка паміж рэдагаваньнем і рэцэнзаваньнем  для ''ананімных удзельнікаў'' складае '''$1''', а мэдыяна '''$3'''.
 $4
 Сярэдняя затрымка для [[Special:OldReviewedPages|старонак з не рэцэнзаванымі рэдагаваньнямі]] складае '''$2'''.
-Гэтыя старонкі лічацца ''састарэлымі''. У сваю чаргу, старонкі лічацца ''сынхранізаванымі'' калі  няма рэдагаваньняў, якія чакаюць праверкі.
-Апублікаваная вэрсія старонкі — вэрсія, якая была зацьверджаная для паказу па змоўчваньні ўсім чытачам.",
+Гэтыя старонкі лічацца ''састарэлымі''. У сваю чаргу, старонкі лічацца ''сынхранізаванымі'' калі  няма рэдагаваньняў, якія чакаюць праверкі.",
 	'validationstatistics-table' => "Статыстыка для кожнай прасторы назваў пададзеная ніжэй, за ''выключэньнем'' старонак-перанакіраваньняў.",
 	'validationstatistics-ns' => 'Прастора назваў',
 	'validationstatistics-total' => 'Старонак',
@@ -236,8 +235,7 @@ Sellet e vez ouzh ar c'hemmoù bet gwiriet gant implijerien oberiant evel ouzh k
 Amzer adlenn keitat ar c'hemmoù dre ''implijerien anluget'' da vezañ adwelet zo '''$1'''; '''$3''' eo an dalvoudenn greiz.
 $4
 An dale keitat evit ar [[Special:OldReviewedPages|pajennoù enno kemmoù da vezañ adlennet]] zo '''$2'''.
-Sellet a reer ouzh ar pajennoù-se evel ouzh pajennoù ''dispredet''. Heñveldra, sellet e vez ouzh ar pajennoù evel ouzh pajennoù ''sinkronelaet'' ma n'ez eus kemm ebet a rank bezañ adlennet.
-Stumm embannet ur bajenn eo an adweladenn diwezhañ zo bet aprouet da vezañ diskouezet dre ziouer d'an holl lennerien.",
+Sellet a reer ouzh ar pajennoù-se evel ouzh pajennoù ''dispredet''. Heñveldra, sellet e vez ouzh ar pajennoù evel ouzh pajennoù ''sinkronelaet'' ma n'ez eus kemm ebet a rank bezañ adlennet.",
 	'validationstatistics-table' => "A-is emañ diskouezet ar stadegoù evit pep esaouenn anv, ''nemet'' evit ar pajennoù adkas.",
 	'validationstatistics-ns' => 'Esaouenn anv',
 	'validationstatistics-total' => 'Pajennoù',
@@ -296,8 +294,7 @@ Es consideren revisades aquelles edicions que han estat validades per usuaris es
 La mitja d'espera de les edicions d'''usuaris no registrats'' per a ser revisades és de '''$1'''; la mitjana és de '''$3'''.
 $4
 El retard mig per a [[Special:OldReviewedPages|pàgines amb edicions no revisades pendents]] és '''$2'''.
-Aquestes pàgines es consideren ''obsoletes''. De la mateixa manera, es consideren com a ''sincronitzades'' quan no hi ha modificacions pendents de revisió.
-La versió publicada d'una pàgina és la revisió més recent que ha estat aprovada per a ser mostrada per defecte a tots els lectors.",
+Aquestes pàgines es consideren ''obsoletes''. De la mateixa manera, es consideren com a ''sincronitzades'' quan no hi ha modificacions pendents de revisió.",
 	'validationstatistics-ns' => "Nom d'espai",
 	'validationstatistics-total' => 'Pàgines',
 	'validationstatistics-stable' => "S'ha revisat",
@@ -319,8 +316,7 @@ Editace zkontrolované pověřenými uživateli jsou považovány za prověřen�
 Průměrná čekací doba pro prověření editací ''anonymních uživatelů'' je '''$1'''; medián je '''$3'''.
 $4
 Průměrná prodleva [[Special:OldReviewedPages|stránky s neprověřenými editacemi]] je '''$2'''.
-Tyto stránky jsou považovány za ''zastaralé''. Podobně, stránky, u kterých je [[{{MediaWiki:Validationpage}}|stabilní verze]] stejná jako aktuální návrh, jsou považovány za ''synchronizované''.
-Stabilní verze stránky je nejnovější revize, která byla schválena pro výchozí zobrazování všem uživatelům.",
+Tyto stránky jsou považovány za ''zastaralé''. Podobně, stránky, u kterých je [[{{MediaWiki:Validationpage}}|stabilní verze]] stejná jako aktuální návrh, jsou považovány za ''synchronizované''.",
 	'validationstatistics-table' => "Níže jsou zobrazeny statistiky pro každý jmenný prostor ''kromě'' přesměrování.",
 	'validationstatistics-ns' => 'Jmenný prostor',
 	'validationstatistics-total' => 'Stránky',
@@ -354,12 +350,13 @@ $messages['de'] = array(
 Sichter sind anerkannte Benutzer, die Versionen einer Seite überprüfen können.",
 	'validationstatistics-time' => "''Die folgenden Daten wurden zuletzt am $5 um $6 Uhr aktualisiert.''
 
+Von Benutzern mit entsprechender Berechtigung nachgesehene Bearbeitungen, werden als überprüft angesehen.
+
 Die durchschnittliche Wartezeit für Bearbeitungen, die von nicht angemeldeten Benutzern stammen, beträgt '''$1'''; der Median beträgt '''$3'''.
 $4
-Der durchschnittliche Rückstand auf [[Special:OldReviewedPages|veraltete Seiten]] beträgt '''$2'''.
+Der durchschnittliche Rückstand auf „[[Special:OldReviewedPages|Veraltete Seiten]]“ beträgt '''$2'''.
 Veraltete Seiten sind Seiten mit Bearbeitungen, die neuer als die markierte Version sind.
-Seiten werden als ''synchronisiert'' angesehen, wenn keine Bearbeitungen mehr auf eine Kontrolle warten.
-Die veröffentlichte Version einer Seite ist die neueste Version, die durch einen Sichter bestätigt wurde und als Standard allen Lesern angezeigt wird.",
+Seiten werden als ''synchronisiert'' angesehen, wenn keine Bearbeitungen mehr auf eine Überprüfung warten.",
 	'validationstatistics-table' => 'Das sind Statistiken für jeden Namensraum, ausgenommen Weiterleitungen.',
 	'validationstatistics-ns' => 'Namensraum',
 	'validationstatistics-total' => 'Seiten gesamt',
@@ -413,13 +410,12 @@ $messages['dsb'] = array(
 Wobźěłowarje su etablěrowane wužiwarje, kótarež mógu wersije bokow pśeglědaś.",
 	'validationstatistics-time' => "''Slědujuce daty su se $5 $6 slědny raz zaktualizěrowali.''
 
-Změny, kótarež su se pśekontrolowali wót etablěrowanych wužywarjow naglědaju se ako pśeglědane.
+Změny, kótarež su se pśekontrolowali wót nazgónitych wužywarjow naglědaju se ako pśeglědane.
 
-Pśerězne cakanje za změny wót ''njep´sizjawjonych wužywarjow'', kótarež dej se pśeglědaś, jo '''$1'''; mediana gódnota jo '''$3'''.
+Pśerězne cakanje za změny wót ''njepśizjawjonych wužywarjow'', kótarež dej se pśeglědaś, jo '''$1'''; mediana gódnota jo '''$3'''.
 $4
 Pśerězne wokomuźenje za [[Special:OldReviewedPages|boki z njepśeglědanymi změnami]] jo '''$2'''.
-Toś te boki maju se za ''zestarjone''. Teke boki maju se za ''synchronizěrowane'', jolic zm2ny njejsu, kótarež cakaju na pséglědanje.
-Wózjawjona wersija boka jo nejnowša wersija, kótaraž jo se pśizwóliła, aby se pokazała wšyknym cytarjam.",
+Toś te boki maju se za ''zestarjone''. Teke boki maju se za ''synchronizěrowane'', jolic změny njejsu, kótarež cakaju na pséglědanje.",
 	'validationstatistics-table' => "Slěduju statistiki za kuždy mjenjowy rum, ''bźez'' dalejpósrědnjenjow.",
 	'validationstatistics-ns' => 'Mjenjowy rum',
 	'validationstatistics-total' => 'Boki',
@@ -509,6 +505,7 @@ Publikigita revizio de paĝo estas la plej nova revizio aprobita por montri al �
 );
 
 /** Spanish (Español)
+ * @author Bola
  * @author Crazymadlover
  * @author Dferg
  * @author Imre
@@ -525,8 +522,7 @@ Las ediciones que han sido verificadas por usuarios establecidos son considerada
 La espera promedio para ediciones de ''usuarios que no han iniciado sesión'' a ser revisado es '''$1'''; La media es '''$3'''.  
 $4
 El intervalo promedio para [[Special:OldReviewedPages|páginas con ediciones sin revisar pendientes]] es '''$2'''.
-Estas páginas son consideradas ''desactualizadas''. De igual modo, las páginas se consideran ''sincronizadas'' si no hay ediciones a espera de ser revisadas.
-La versión publicada de una página es la revisión más nueva que ha sido aprobada para mostrar predeterminadamente a todos los lectores.",
+Estas páginas son consideradas ''desactualizadas''. De igual modo, las páginas se consideran ''sincronizadas'' si no hay ediciones a espera de ser revisadas.",
 	'validationstatistics-table' => "Estadísticas para cada nombre de sitio son mostradas debajo, ''excluyendo'' páginas de redireccionamiento.",
 	'validationstatistics-ns' => 'Espacio de nombres',
 	'validationstatistics-total' => 'Páginas',
@@ -634,8 +630,7 @@ Les modifications qui ont été vérifiées par des utilisateurs établis sont c
 Le temps moyen de relecture des modifications par ''des utilisateurs non connectés'' est '''$1''' ; la valeur médiane est '''$3'''.
 $4
 Le délai moyen pour les [[Special:OldReviewedPages|pages qui contiennent des modifications non relues en cours]] est '''$2'''.
-Ces pages sont considérées ''périmées''. De même, les pages sont déclarées ''synchronisées'' s'il n'y a aucune modification qui attend une relecture.
-La version publiée est la version de la page la plus récente qui a été vérifiée pour être affichée par défaut à tous les lecteurs.",
+Ces pages sont considérées ''périmées''. De même, les pages sont déclarées ''synchronisées'' s'il n'y a aucune modification qui attend une relecture.",
 	'validationstatistics-table' => "Les statistiques pour chaque espace de noms sont affichées ci-dessous, à ''l’exclusion'' des pages de redirection.",
 	'validationstatistics-ns' => 'Espace de noms',
 	'validationstatistics-total' => 'Pages',
@@ -694,15 +689,14 @@ $messages['gl'] = array(
 dereitos de [[{{MediaWiki:Validationpage}}|editor]].
 
 Os editores son usuarios autoconfirmados que poden comprobar revisións de páxinas.",
-	'validationstatistics-time' => "''Os seguintes datos foron actualizados o $5 ás $6.''
+	'validationstatistics-time' => "''Os seguintes datos actualizáronse o $5 ás $6.''
 
 As edicións que foron comprobadas polos usuarios autoconfirmados considéranse revisadas.
 
 A media de espera de revisión para as edicións feitas polos ''usuarios que non accederon ao sistema'' é de '''$1'''; o valor medio é de '''$3'''.  
 $4
 A media de atraso para as [[Special:OldReviewedPages|páxinas con edicións sen revisión]] é de '''$2'''.
-Estas páxinas son consideradas ''obsoletas''. Do mesmo xeito, as páxinas son consideradas ''sincronizadas'' se non hai edicións agardando unha revisión.
-A versión publicada dunha páxina é a revisión máis nova que foi aprobada para mostrarlla por defecto a todos os lectores.",
+Estas páxinas son consideradas ''obsoletas''. Do mesmo xeito, as páxinas son consideradas ''sincronizadas'' se non hai edicións agardando unha revisión.",
 	'validationstatistics-table' => "A continuación amósanse as estatísticas para cada espazo de nomes, ''excluíndo'' as páxinas de redirección.",
 	'validationstatistics-ns' => 'Espazo de nomes',
 	'validationstatistics-total' => 'Páxinas',
@@ -858,13 +852,10 @@ Wobdźěłowarjo su nazhonići wužiwarjo, kotřiž móžeja wersije stronow kon
 
 Změny, kotrež buchu wot nazhonitych wužiwarjow skontrolowane, maja so za přepruwowane.
 
-Přerězne čakanje za změny wot ''wužiwarjow, kotřiž njejsu přizjewjeni'', kotrež dyrbi so pruwować, je '''$1'''; srjedźna hódnota je '''$3'''.
-
+Přerězne čakanje za změny wot ''wužiwarjow, kotřiž njejsu přizjewjeni'', kotrež maja so pruwować, je '''$1'''; srjedźna hódnota je '''$3'''.
 $4
-
 Přerězne komdźenje za [[Special:OldReviewedPages|strony z njepřepruwowanymi změnami]] je '''$2'''.
-Tute strony maja so za ''zestarjene''. Tohorunja maja so strony za ''synchronizowane'', jeli njejsu změny, kotrež wužaduja sej přepruwowanje.
-Wozjewjena wersija strony je najnowša wersija, kotraž je so wobkrućena, zo by so po standardźe wšěm čitarjam pokazała.",
+Tute strony maja so za ''zestarjene''. Tohorunja maja so strony za ''synchronizowane'', jeli njejsu změny, kotrež wužaduja sej přepruwowanje.",
 	'validationstatistics-table' => "Slěduja statistiki za kóždy mjenowy rum ''bjez'' daleposrědkowanjow.",
 	'validationstatistics-ns' => 'Mjenowy rum',
 	'validationstatistics-total' => 'Strony',
@@ -925,8 +916,7 @@ Le modificationes que ha essite verificate per usatores establite es considerate
 Le periodo medie de attender revision pro le modificationes facite per ''usatores non identificate'' es '''$1'''; le mediana es '''$3'''.
 $4
 Le retardo medie pro le [[Special:OldReviewedPages|paginas con modificationes attendente revision]] es '''$2'''.
-Iste paginas es considerate ''obsolete''. Similarmente, le paginas es considerate ''synchronisate'' si il non ha modificationes attendente revision.
-Le version publicate de un pagina es le version le plus nove que ha essite approbate como le version a monstrar como standard a tote le lectores.",
+Iste paginas es considerate ''obsolete''. Similarmente, le paginas es considerate ''synchronisate'' si il non ha modificationes attendente revision.",
 	'validationstatistics-table' => "Le statisticas pro cata spatio de nomines es monstrate infra, ''excludente'' le paginas de redirection.",
 	'validationstatistics-ns' => 'Spatio de nomines',
 	'validationstatistics-total' => 'Paginas',
@@ -975,6 +965,8 @@ Versi publikasi suatu halaman adalah perbaikan terbaru yang telah disetujui untu
  * @author Malafaya
  */
 $messages['io'] = array(
+	'validationstatistics-ns' => 'Nomaro',
+	'validationstatistics-total' => 'Pagini',
 	'validationstatistics-user' => 'Uzanto',
 );
 
@@ -1221,15 +1213,14 @@ $messages['mk'] = array(
 	'validationstatistics-users' => "'''{{SITENAME}}''' моментално има '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|корисник|корисници}} со права на „[[{{MediaWiki:Validationpage}}|Уредник]]“.
 
 Уредниците се докажани корисници кои можат да прават моментални проверки на ревизии на страници.",
-	'validationstatistics-time' => "''Следниве податоци се ажурирани на $5 во $6.''
+	'validationstatistics-time' => "''Следниве податоци се подновени на $5 во $6 ч.''
 
-Уредувањата кои се проверени од утврдени корисници се сметаат за оценети.
+Уредувањата кои се проверени од утврдени корисници се сметаат за проверени.
 
-Просечното чекање за уредувања направени од ''ненајавени корисници'' коишто треба да се оценат изнесува '''$1'''; средната вредност е '''$3'''.  
+Просечното чекање за уредувањата направени од ''ненајавени корисници'' што треба да се проверат изнесува '''$1'''; средната вредност е '''$3'''.  
 $4
-Просечното задоцнување за [[Special:OldReviewedPages|страници со неоценети уредувања во исчекување]] изнесува '''$2'''.
-Овие страници се сметаат за ''застарени''. Наспроти тоа, страниците се сметаат за ''синхронизирани'' ако нема уредувања кои чекаат да бидат оценети.
-Објавената верзија на една страница е најновата ревизија која е одобрена за прикажување на сите читатели по основно.",
+Просечното задоцнување на [[Special:OldReviewedPages|страниците со неоценети уредувања во исчекување]] изнесува '''$2'''.
+Овие страници се сметаат за ''застарени''. Наспроти тоа, страниците се сметаат за ''усогласени'' ако нема уредувања кои чекаат на проверка.",
 	'validationstatistics-table' => "Подолу се прикажани статистики за секој именски простор, ''без'' страници за пренасочување.",
 	'validationstatistics-ns' => 'Именски простор',
 	'validationstatistics-total' => 'Страници',
@@ -1321,11 +1312,9 @@ Een bewerking is gecontroleerd als deze is gecontroleerd door een ervaren gebrui
 
 De gemiddelde wachttijd voor bewerkingen door ''gebruikers die niet aangemeld zijn'' is '''$1'''; de mediaan is '''$3'''.
 $4
-De gemiddelde achterstand voor [[Special:OldReviewedPages|verouderde pagina's]] is '''$2'''.
+De gemiddelde achterstand in de controle voor [[Special:OldReviewedPages|verouderde pagina's]] is '''$2'''.
 Deze pagina's worden beschouwd als ''verouderd''.
-Pagina's worden beschouwd als ''gesynchroniseerd'' als er geen te controleren bewerkingen voor zijn.
-Gepubliceerde versies zijn versies van pagina's die tenminste door een eindredacteur zijn goedgekeurd.
-De gepubliceerde versie van een pagina is de meeste recente versie waarvoor is aangegeven dat die standaard aan alle gebruikers aangeboden kan worden.",
+Pagina's worden beschouwd als ''gesynchroniseerd'' als er geen te controleren bewerkingen voor zijn.",
 	'validationstatistics-table' => "Hieronder staan statistieken voor iedere naamruimte, ''exclusief'' doorverwijzingen.",
 	'validationstatistics-ns' => 'Naamruimte',
 	'validationstatistics-total' => "Pagina's",
@@ -1523,8 +1512,7 @@ As edições verificadas por utilizadores estabelecidos são consideradas revist
 O tempo médio de espera para revisão das edições de ''utilizadores não autenticados'' é '''$1'''; a mediana é '''$3'''. 
 $4
 O atraso médio para [[Special:OldReviewedPages|páginas com edições à espera de revisão]] é '''$2'''.
-Estas páginas são consideradas ''desactualizadas''. As páginas são consideradas ''sincronizadas'' se não tiverem edições em espera.
-A versão publicada de uma página é a edição mais recente que tenha sido aprovada para ser apresentada por omissão a todos os leitores.",
+Estas páginas são consideradas ''desactualizadas''. Da mesma forma, as páginas são consideradas ''sincronizadas'' se não tiverem edições em espera.",
 	'validationstatistics-table' => "São apresentadas abaixo estatísticas para cada espaço nominal, '''excluindo''' páginas de redireccionamento.",
 	'validationstatistics-ns' => 'Espaço nominal',
 	'validationstatistics-total' => 'Páginas',
@@ -1546,15 +1534,14 @@ $messages['pt-br'] = array(
 	'validationstatistics-users' => "'''{{SITENAME}}''' possui, no momento, '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|utilizador|utilizadores}} com privilégios de [[{{MediaWiki:Validationpage}}|Editor]] .
 
 Editores são utilizadores estabelecidos que podem verificar detalhadamente revisões de páginas.",
-	'validationstatistics-time' => "''Os seguintes dados estão em cache e podem não estar atualizados.''
+	'validationstatistics-time' => "''Os seguintes dados foram atualizados pela última vez em $5 às $6.''
 
-Edições que foram verificadas por utilizadores estabelecidos são consideradas como revistas.
+As edições verificadas por utilizadores estabelecidos são consideradas revistas.
 
-O tempo médio de espera para edições feitas por ''utilizadores não autenticados'' serem revistas é '''$1'''; a mediana é '''$3'''.   
+O tempo médio de espera para revisão das edições de ''usuários não autenticados'' é '''$1'''; a mediana é '''$3'''. 
 $4
-O atraso médio para [[Special:OldReviewedPages|páginas com edições não revistas em espera]] é '''$2'''.
-Estas páginas são consideradas ''desatualizadas''. Igualmente, as páginas são consideradas ''sincronizadas'' se a [[{{MediaWiki:Validationpage}}|versão estável]] for também a versão rascunho atual.
-A versão estável de uma página é a revisão mais recente que foi aprovada para ser apresentada por padrão a todos os leitores.",
+O atraso médio para [[Special:OldReviewedPages|páginas com edições à espera de revisão]] é '''$2'''.
+Estas páginas são consideradas ''desatualizadas''. Da mesma forma, as páginas são consideradas ''sincronizadas'' se não tiverem edições em espera.",
 	'validationstatistics-table' => "As estatísticas de cada domínio são exibidas a seguir, '''excetuando-se''' as páginas de redirecionamento.",
 	'validationstatistics-ns' => 'Espaço nominal',
 	'validationstatistics-total' => 'Páginas',
@@ -1563,7 +1550,7 @@ A versão estável de uma página é a revisão mais recente que foi aprovada pa
 	'validationstatistics-synced' => 'Sincronizadas/Analisadas',
 	'validationstatistics-old' => 'Desatualizadas',
 	'validationstatistics-utable' => 'Abaixo está uma lista dos 5 maiores analisadores na última hora.',
-	'validationstatistics-user' => 'Utilizador',
+	'validationstatistics-user' => 'Usuário',
 	'validationstatistics-reviews' => 'Análises',
 );
 
@@ -1638,8 +1625,7 @@ $messages['ru'] = array(
 Среднее ожидание проверки правок ''непредставившихся участников'' равно '''$1'''; медиана равна '''$3'''.
 $4
 Средняя задержка для [[Special:OldReviewedPages|страниц с недосмотренными правками]] равна '''$2'''.
-Данные страницы считаются ''устаревшими''. В свою очередь, страницы считаются ''синхронизированными'', если не существует правок, ожидающих проверки.
-Опубликованные версии — это наиболее новые версии страниц, из тех, которые были подтверждены для показа по умолчанию всем читателям.",
+Данные страницы считаются ''устаревшими''. В свою очередь, страницы считаются ''синхронизированными'', если не существует правок, ожидающих проверки.",
 	'validationstatistics-table' => "Ниже представлена статистика по каждому пространству имён, ''исключая'' страницы перенаправлений.",
 	'validationstatistics-ns' => 'Пространство',
 	'validationstatistics-total' => 'Страниц',
@@ -1676,6 +1662,14 @@ $messages['sc'] = array(
 	'validationstatistics-ns' => 'Nùmene-logu',
 	'validationstatistics-total' => 'Pàginas',
 	'validationstatistics-user' => 'Usuàriu',
+);
+
+/** Sinhala (සිංහල)
+ * @author බිඟුවා
+ */
+$messages['si'] = array(
+	'validationstatistics-ns' => 'නාම අවකාශය',
+	'validationstatistics-total' => 'පිටු',
 );
 
 /** Slovak (Slovenčina)
@@ -1767,9 +1761,8 @@ Redigeringar som har kollats av etablerade användare anses vara granskade.
 
 Genomsnittlig väntan för redigeringar av ''oinloggade användare'' för granskning är '''$1'''; medianen är '''$3'''.
 $4
-Genomsnittlig lag för [[Special:OldReviewedPages|sidor med ogranskade ändringar]] är '''$2'''.
-Dessa sidor anses ''föråldrade''. Likaså anses sidor ''synkade'' om inga redigeringar väntar på granskning.
-En sidas publicerade version är den nyaste version som har blivit godkänd för att visas som default till alla läsare.",
+Genomsnittlig lag för [[Special:OldReviewedPages|sidor med ogranskade väntande ändringar]] är '''$2'''.
+Dessa sidor anses ''föråldrade''. Likaså anses sidor ''synkade'' om inga redigeringar väntar på granskning.",
 	'validationstatistics-table' => "Statistik för varje namnrymd visas nedan, ''förutom'' omdirigeringssidor.",
 	'validationstatistics-ns' => 'Namnrymd',
 	'validationstatistics-total' => 'Sidor',

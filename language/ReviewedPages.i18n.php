@@ -952,17 +952,19 @@ $messages['pt'] = array(
 
 /** Brazilian Portuguese (Português do Brasil)
  * @author Eduardo.mps
+ * @author Giro720
  */
 $messages['pt-br'] = array(
 	'reviewedpages' => 'Páginas analisadas',
-	'reviewedpages-leg' => 'Listar páginas por nível mais alto',
-	'reviewedpages-list' => '{{PLURAL:$1|A página a seguir foi analisada|As páginas a seguir foram analisadas}} no nível especificado',
+	'reviewedpages-leg' => 'Listar as páginas revisadas',
+	'reviewedpages-list' => 'Esta lista contém páginas [[{{MediaWiki:Validationpage}}|revisadas]] cuja classificação mais elevada na revisão é o nível especificado.
+Existe um link para a última edição com o mesmo nível.',
 	'reviewedpages-none' => 'Não há páginas nesta lista',
 	'reviewedpages-lev-0' => 'Objetiva',
 	'reviewedpages-lev-1' => 'Qualidade',
 	'reviewedpages-lev-2' => 'Exemplar',
 	'reviewedpages-all' => 'edições analisadas',
-	'reviewedpages-best' => 'edição principal',
+	'reviewedpages-best' => 'melhor revisão',
 );
 
 /** Romanian (Română)

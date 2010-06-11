@@ -621,11 +621,22 @@ Alguns parâmetros podem alterar a versão que é apresentada aos utilizadores, 
 	'configuredpages-def-stable' => 'versão publicada',
 );
 
-/** Brazilian Portuguese (Português do Brasil) */
+/** Brazilian Portuguese (Português do Brasil)
+ * @author Giro720
+ */
 $messages['pt-br'] = array(
+	'configuredpages' => 'Páginas com configuração de revisão',
+	'configuredpages-text' => 'Segue-se uma lista de páginas configuradas com parâmetros de aprovação diferentes do padrão do site.
+
+Alguns parâmetros podem alterar a versão que é apresentada aos usuários, ou aumentar a restrição de quem pode fazer edições que não requerem revisão.',
+	'configuredpages-none' => 'Não existem páginas nesta lista.',
+	'configuredpages-config' => 'Configuração',
+	'configuredpages-precedence' => 'Precedência:',
 	'configuredpages-prec-none' => 'sem precedência',
 	'configuredpages-prec-quality' => 'precedência de qualidade',
 	'configuredpages-prec-pristine' => 'precedência intocada',
+	'configuredpages-def-draft' => 'última versão',
+	'configuredpages-def-stable' => 'versão publicada',
 );
 
 /** Romanian (Română) */

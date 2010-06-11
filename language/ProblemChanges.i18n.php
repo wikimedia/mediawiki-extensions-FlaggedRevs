@@ -516,10 +516,11 @@ $messages['pt'] = array(
 
 /** Brazilian Portuguese (Português do Brasil)
  * @author Eduardo.mps
+ * @author Giro720
  */
 $messages['pt-br'] = array(
-	'problemchanges' => 'Analisar modificações etiquetadas',
-	'problemchanges-legend' => 'Lista páginas analisadas que possuem edições que não foram verificadas',
+	'problemchanges' => 'Alterações pendentes que foram assinaladas',
+	'problemchanges-legend' => 'Listar páginas com edições assinaladas aguardando revisão',
 	'problemchanges-none' => 'Atualmente não existem páginas que satisfaçam estes critérios',
 	'problemchanges-category' => 'Categoria:',
 );

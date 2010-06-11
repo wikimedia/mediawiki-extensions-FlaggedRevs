@@ -756,7 +756,7 @@ Die aktuellen Einstellungen für „[[:$1|$1]]“ sind:',
 	'stabilization-select2' => 'letzte markierte Version',
 	'stabilization-select3' => 'Die letzte ursprüngliche Version; wenn keine vorhanden ist, dann die letzte gesichtete oder geprüfte Version',
 	'stabilization-def' => 'Angezeigte Version in der normalen Seitenansicht',
-	'stabilization-def1' => 'Die veröffentlichte Version. Sofern keine vorhanden ist, die aktuelle Version/der aktuelle Entwurf',
+	'stabilization-def1' => 'Die stabile Version; sofern keine vorhanden ist, die aktuelle Version',
 	'stabilization-def2' => 'Die aktuelle Version/der Entwurf',
 	'stabilization-restrict' => 'Einschränkungen bezüglich des Markierens/des automatischen Markierens',
 	'stabilization-restrict-none' => 'Keine zusätzlichen Einschränkungen',
@@ -863,7 +863,7 @@ $messages['dsb'] = array(
 	'stabilization-select2' => 'Slědna pśekontrolěrowana wersija',
 	'stabilization-select3' => 'Slědna spócetna wersija; jolic žedna njejo, ga slědna kwalitna abo pśeglědana wersija',
 	'stabilization-def' => 'Zwobraznjona wersija w standardnem bocnem naglěźe',
-	'stabilization-def1' => 'Wózjawjona wersija; jolic žedna njejo, ga aktualna wersija/nacerjenje',
+	'stabilization-def1' => 'Stabilna wersija; jolic žedna njejo, ga nejnowša wersija',
 	'stabilization-def2' => 'Aktualna wersija/nacerjenje',
 	'stabilization-restrict' => 'Wobgranicowanja pśeglědanjow/awtomatiskich pséglědanjow',
 	'stabilization-restrict-none' => 'Žedne pśidatne wobgranicowanja',
@@ -1002,6 +1002,7 @@ Neniu konfiguro eblas.',
 );
 
 /** Spanish (Español)
+ * @author Bola
  * @author Crazymadlover
  * @author Dferg
  * @author Drini
@@ -1027,7 +1028,7 @@ La configuración actual es [[:$1|$1]]:',
 	'stabilization-select2' => 'Última versión verificada',
 	'stabilization-select3' => 'La última revisión prístina; si no está presente, entonces la última de calidad u observada',
 	'stabilization-def' => 'Revisión mostrada en la vista de página por defecto',
-	'stabilization-def1' => 'La revisión publicada; si no está presente, entonces la actual/borrador',
+	'stabilization-def1' => 'La versión estable; si no está presente, entonces la última revisión',
 	'stabilization-def2' => 'La revisión actual/borrador',
 	'stabilization-restrict' => 'Restricciones de revisión/autorevisión',
 	'stabilization-restrict-none' => 'Sin restricciones extra',
@@ -1222,7 +1223,7 @@ Voici les paramètres actuels de [[:$1|$1]] :",
 	'stabilization-select2' => 'Dernière version révisée',
 	'stabilization-select3' => 'La dernière version intacte ; en cas d’absence, la dernière de qualité ou relue.',
 	'stabilization-def' => "Version affichée lors de l'affichage par défaut de la page",
-	'stabilization-def1' => "La révision publiée ; s'il n'y en a pas, alors la courante ou le brouillon en cours",
+	'stabilization-def1' => "La version stable ; s'il n'y en a pas, alors la révision courante",
 	'stabilization-def2' => 'La révision courante ou le brouillon en cours',
 	'stabilization-restrict' => 'Restrictions de relecture (automatique)',
 	'stabilization-restrict-none' => 'Pas de restriction supplémentaire',
@@ -1336,7 +1337,7 @@ Velaquí está a configuración actual de "[[:$1|$1]]":',
 	'stabilization-select2' => 'Última revisión comprobada',
 	'stabilization-select3' => 'A última revisión previa; se non existe, entón a última de calidade ou revisada',
 	'stabilization-def' => 'Revisión que aparece por defecto na vista da páxina',
-	'stabilization-def1' => 'A revisión publicada; se non existe, entón a actual ou o borrador',
+	'stabilization-def1' => 'A versión estable; se non existe, entón a última revisión',
 	'stabilization-def2' => 'A revisión actual ou o borrador',
 	'stabilization-restrict' => 'Restricións de revisión/revisión automática',
 	'stabilization-restrict-none' => 'Sen restricións extra',
@@ -1597,7 +1598,7 @@ Aktualne nastajenja za „[[:$1|$1]]“ su:',
 	'stabilization-select2' => 'Najnowša skontrolowana wersija',
 	'stabilization-select3' => 'Poslednja prěnjotna wersija; jeli njeeksistuje, da poslednja přepruwowana abo přehladana wersiaj',
 	'stabilization-def' => 'Wersija zwobraznjena w normalnym napohledźe strony',
-	'stabilization-def1' => 'Wozjewjena wersija; jeli žana njeeksistuje, da aktualna wersija abo naćisk',
+	'stabilization-def1' => 'Stabilna wersija; jeli žana njeeksistuje, da najnowša wersija',
 	'stabilization-def2' => 'Aktualna wersija/naćisk',
 	'stabilization-restrict' => 'Wobmjezowanja přepruwowanjow/awtomatiskich přepruwowanjow',
 	'stabilization-restrict-none' => 'Žane přidatne wobmjezowanja',
@@ -1697,7 +1698,7 @@ Ecce le configurationes actual pro [[:$1|$1]]:',
 	'stabilization-select2' => 'Ultime version verificate',
 	'stabilization-select3' => 'Le ultime version pristine; si non presente, le ultime version de qualitate o mirate',
 	'stabilization-def' => 'Version monstrate in le visualisation predefinite del pagina',
-	'stabilization-def1' => 'Le version publicate; si non presente, le version actual/provisori',
+	'stabilization-def1' => 'Le version stabile; si non presente, le ultime version',
 	'stabilization-def2' => 'Le version actual/provisori',
 	'stabilization-restrict' => 'Restrictiones de revision/auto-revision',
 	'stabilization-restrict-none' => 'Nulle restriction extra',
@@ -1793,6 +1794,8 @@ $messages['io'] = array(
 	'stabilization-comment' => 'Motivo:',
 	'stabilization-otherreason' => 'Altra motivo:',
 	'stabilization-othertime' => 'Altra tempo:',
+	'stabilization-def-short-0' => 'Aktuala',
+	'stabilization-def-short-1' => 'Stabila',
 );
 
 /** Icelandic (Íslenska)
@@ -2304,7 +2307,7 @@ $messages['mk'] = array(
 	'stabilization-select2' => 'Последна проверена ревизија',
 	'stabilization-select3' => 'Последната неменувана верзија; ако не постои, тогаш последната квалитетна или прегледана.',
 	'stabilization-def' => 'Верзија прикажана по основно при преглед на страница',
-	'stabilization-def1' => 'Објавената ревизија; ако не постои, тогаш моменталната/работната',
+	'stabilization-def1' => 'Стабилната ревизија; ако не постои, тогаш најновата ревизија',
 	'stabilization-def2' => 'Моментална/работната верзија',
 	'stabilization-restrict' => 'Ограничувања на прегледување/автопрегледување',
 	'stabilization-restrict-none' => 'Нема дополнителни ограничувања',
@@ -2501,6 +2504,7 @@ $messages['nds'] = array(
 );
 
 /** Dutch (Nederlands)
+ * @author Annabel
  * @author SPQRobin
  * @author Siebrand
  */
@@ -2522,8 +2526,7 @@ als die er niet is, dan de laatste gecontroleerde versie',
 	'stabilization-select3' => 'De laatste ongerepte versie.
 Als deze niet beschikbaar is, dan de laatste kwaliteitsversie of gecontroleerde versie',
 	'stabilization-def' => 'Versie die standaard weergegeven wordt',
-	'stabilization-def1' => 'De gepubliceerde versie;
-als die er niet is, dan de huidige/werkversie',
+	'stabilization-def1' => 'De gepubliceerde versie; als die er niet is, dan de laatste revisie',
 	'stabilization-def2' => 'De huidige/werkversie',
 	'stabilization-restrict' => 'Beperkingen op (automatisch) gecontroleerd markeren',
 	'stabilization-restrict-none' => 'Geen additionele beperkingen',
@@ -2840,6 +2843,7 @@ $messages['ps'] = array(
 
 /** Portuguese (Português)
  * @author 555
+ * @author Giro720
  * @author Hamilton Abreu
  * @author Malafaya
  * @author Waldir
@@ -2859,7 +2863,7 @@ Os parâmetros actuais da página [[:$1|$1]] são:',
 	'stabilization-select2' => 'A última edição verificada',
 	'stabilization-select3' => 'A última edição impecável; depois, a última de qualidade; finalmente, a última vista',
 	'stabilization-def' => 'Edição apresentada por omissão',
-	'stabilization-def1' => 'A edição publicada; se inexistente, então a edição ou rascunho mais recente',
+	'stabilization-def1' => 'A edição publicada; se inexistente, então a revisão mais recente',
 	'stabilization-def2' => 'A edição ou rascunho actual',
 	'stabilization-restrict' => 'Restrições da revisão automática',
 	'stabilization-restrict-none' => 'Nenhuma restrição extra',
@@ -2894,28 +2898,28 @@ Não é possível configurá-la.',
 
 /** Brazilian Portuguese (Português do Brasil)
  * @author Eduardo.mps
+ * @author Giro720
  * @author Luckas Blade
  */
 $messages['pt-br'] = array(
 	'stabilization-tab' => 'cgq',
 	'stabilization' => 'Configurações da Garantia de Qualidade',
-	'stabilization-text' => "'''Altere a seguir as configurações de como a versão estável de [[:\$1|\$1]] é selecionada e exibida.'''
+	'stabilization-text' => "'''Altere os parâmetros abaixo para ajustar a forma como a versão publicada de [[:\$1|\$1]] é selecionada e apresentada.'''
 
-Ao mudar a configuração de ''seleção de versão estável'' para utilizar revisões \"confiáveis\" ou \"intocadas\" por padrão, tenha certeza de checar se de fato existem revisões assim na página, pois de outra maneira a mudança terá pouco efeito.",
-	'stabilization-perm' => 'Sua conta não possui permissão para alterar as configurações de edições estáveis.
-Seguem-se as configurações para [[:$1|$1]]:',
+'''Nota:''' Alterar a ''precedência na seleção da versão publicada'' para as versões \"qualidade\" ou \"impecável\" não surte efeito se essas versões não existirem. Note também que uma versão \"qualidade\" é também considerada uma versão verificada.",
+	'stabilization-perm' => 'A sua conta não tem permissão para alterar a configuração da versão publicada.
+Os parâmetros atuais da página [[:$1|$1]] são:',
 	'stabilization-page' => 'Nome da página:',
-	'stabilization-leg' => 'Confirmar a configuração da edição estável',
-	'stabilization-select' => 'Seleção da edição estável',
+	'stabilization-leg' => 'Confirmar os parâmetros da versão publicada',
+	'stabilization-select' => 'Precedência na seleção da versão publicada',
 	'stabilization-select1' => 'A última edição analisada como confiável;  
 se inexistente, a mais recentemente analisada',
-	'stabilization-select2' => 'A revisão mais recentemente analisada, independente do nível de validação',
+	'stabilization-select2' => 'Última edição verificada',
 	'stabilization-select3' => 'A última revisão intocada; se não estiver presente, então a última de qualidade ou analisada',
 	'stabilization-def' => 'Edição exibida na visualização padrão de página',
-	'stabilization-def1' => 'A edição estável;  
-se inexistente, exibir a edição atual',
-	'stabilization-def2' => 'A edição atual',
-	'stabilization-restrict' => 'Auto-analisar restrições',
+	'stabilization-def1' => 'A edição publicada; se inexistente, então a revisão mais recente',
+	'stabilization-def2' => 'A edição ou rascunho atual',
+	'stabilization-restrict' => 'Restrições da revisão automática',
 	'stabilization-restrict-none' => 'sem restrições extras',
 	'stabilization-submit' => 'Confirmar',
 	'stabilization-notexists' => 'A página "[[:$1|$1]]" não existe.
@@ -2925,18 +2929,25 @@ Não é possível configurá-la.',
 	'stabilization-comment' => 'Motivo:',
 	'stabilization-otherreason' => 'Outro motivo:',
 	'stabilization-expiry' => 'Expira em:',
-	'stabilization-othertime' => 'Outro tempo',
+	'stabilization-othertime' => 'Outra hora:',
 	'stabilization-sel-short' => 'Precedência',
 	'stabilization-sel-short-0' => 'Qualidade',
 	'stabilization-sel-short-1' => 'Nenhum',
 	'stabilization-sel-short-2' => 'Intocada',
 	'stabilization-def-short' => 'Padrão',
 	'stabilization-def-short-0' => 'Atual',
-	'stabilization-def-short-1' => 'Estável',
+	'stabilization-def-short-1' => 'Publicada',
+	'stabilize_page_invalid' => 'O título da página de destino é inválido.',
+	'stabilize_page_notexists' => 'A página de destino não existe.',
+	'stabilize_page_unreviewable' => 'A página de destino não está em um espaço nominal sujeito a revisão.',
+	'stabilize_invalid_precedence' => 'Precedência de versões inválida.',
+	'stabilize_invalid_autoreview' => 'Restrição de autorrevisão inválida.',
+	'stabilize_invalid_level' => 'Nível de proteção inválido.',
 	'stabilize_expiry_invalid' => 'Data de expiração inválida.',
 	'stabilize_expiry_old' => 'Este tempo de expiração já se encerrou.',
+	'stabilize_denied' => 'Permissão negada.',
 	'stabilize-expiring' => 'expira às $1 (UTC)',
-	'stabilization-review' => 'Analisar a versão atual',
+	'stabilization-review' => 'Marcar a revisão atual como verificada',
 );
 
 /** Romanian (Română)
@@ -3041,7 +3052,7 @@ $messages['ru'] = array(
 	'stabilization-select2' => 'Последняя проверенная версия',
 	'stabilization-select3' => 'Последняя нетронутая версия; если нет, то последняя выверенная или досмотренная',
 	'stabilization-def' => 'Версия, показываемая по умолчанию',
-	'stabilization-def1' => 'Опубликованная версия; если нет, то текущая (черновая)',
+	'stabilization-def1' => 'Стабильная версия; если такой нет, то последняя версия',
 	'stabilization-def2' => 'Текущая (черновая) версия',
 	'stabilization-restrict' => 'Ограничения проверки/самопроверки',
 	'stabilization-restrict-none' => 'Нет дополнительных ограничений',
@@ -3388,7 +3399,7 @@ Här visas de nuvarande inställningarna för [[:$1|$1]]:',
 	'stabilization-select2' => 'Senast kontrollerad version',
 	'stabilization-select3' => 'Den senaste orörda versionen; sedan senaste kvalitets-; sen senaste synade.',
 	'stabilization-def' => 'Sidversion som används som standard när sidan visas',
-	'stabilization-def1' => 'Den publicerade versionen; om den saknas, nuvarande/utkast-versionen',
+	'stabilization-def1' => 'Den stabila versionen; om sådan saknas, den senaste versionen',
 	'stabilization-def2' => 'Nuvarande/utkast-versionen',
 	'stabilization-restrict' => 'Begränsningar av granskning/automatgranskning',
 	'stabilization-restrict-none' => 'Inga extra begränsningar',
@@ -3719,6 +3730,7 @@ $messages['tt-cyrl'] = array(
  * @author Ahonc
  * @author NickK
  * @author Prima klasy4na
+ * @author Тест
  */
 $messages['uk'] = array(
 	'stabilization-tab' => '(кя)',
@@ -3735,7 +3747,7 @@ $messages['uk'] = array(
 	'stabilization-select2' => 'Остання перевірена версія',
 	'stabilization-select3' => 'Остання недоторкана версія, якщо такої немає, то остання якісна або переглянута',
 	'stabilization-def' => 'Версія, що показується за умовчанням',
-	'stabilization-def1' => 'Опублікована версія; якщо такої нема, то поточна/чорнова',
+	'stabilization-def1' => 'Стабільна версія; якщо такої нема, то остання версія',
 	'stabilization-def2' => 'Поточна/чорнова версія',
 	'stabilization-restrict' => 'Обмеження рецензування/авторецензування',
 	'stabilization-restrict-none' => 'Без додаткових обмежень',

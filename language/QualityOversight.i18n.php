@@ -459,9 +459,10 @@ $messages['pt'] = array(
 
 /** Brazilian Portuguese (Português do Brasil)
  * @author Eduardo.mps
+ * @author Giro720
  */
 $messages['pt-br'] = array(
-	'qualityoversight' => 'Observatório da qualidade',
+	'qualityoversight' => 'Registro avançado de revisões',
 	'qualityoversight-list' => 'Esta página lista aprovações e depreciações recentes de edições confiáveis.',
 	'qualityoversight-legend' => 'Pesquisar nos registros de análises recentes',
 );
