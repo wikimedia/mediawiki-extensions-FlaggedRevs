@@ -1207,7 +1207,7 @@ class FlaggedRevsHooks {
 	/**
 	* Checks if $user was previously blocked
 	*/
-	protected function previousBlockCheck( $user ) {
+	public static function previousBlockCheck( $user ) {
 		$dbr = wfGetDB( DB_SLAVE );
 		return (bool)$dbr->selectField( 'logging', '1',
 			array(
