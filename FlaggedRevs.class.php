@@ -140,6 +140,7 @@ class FlaggedRevs {
 	/**
 	 * Should this be using a simple icon-based UI?
 	 * Check the user's preferences first, using the site settings as the default.
+	 * @TODO: dependency inject the User?
 	 * @returns bool
 	 */
 	public static function useSimpleUI() {
@@ -212,6 +213,7 @@ class FlaggedRevs {
 	
 	/**
 	 * Should this user ignore the site and page default version settings?
+	 * @TODO: dependency inject the User?
 	 * @returns bool
 	 */
 	public static function ignoreDefaultVersion() {
@@ -411,6 +413,7 @@ class FlaggedRevs {
 	 * @param string $tag
 	 * @param int $value
 	 * @returns bool
+	 * @TODO: dependency inject the User?
 	 */
 	public static function userCanSetTag( $tag, $value ) {
 		global $wgUser;
@@ -446,6 +449,7 @@ class FlaggedRevs {
 	 * @param array $flags, suggested flags
 	 * @param array $oldflags, pre-existing flags
 	 * @returns bool
+	 * @TODO: dependency inject the User?
 	 */
 	public static function userCanSetFlags( $flags, $oldflags = array() ) {
 		global $wgUser;
@@ -472,6 +476,7 @@ class FlaggedRevs {
 	* Check if a user can set the autoreview restiction level to $right
 	* @param string $right the level
 	* @returns bool
+	* @TODO: dependency inject the User?
 	*/
 	public static function userCanSetAutoreviewLevel( $right ) {
 		global $wgUser;
