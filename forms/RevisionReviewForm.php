@@ -619,7 +619,9 @@ class RevisionReviewForm
 		return $p;
 	}
 
-	public static function updateRecentChanges( $title, $revId, $rcId = false, $patrol = true ) {
+	public static function updateRecentChanges(
+		Title $title, $revId, $rcId = false, $patrol = true
+	) {
 		wfProfileIn( __METHOD__ );
 		$revId = intval( $revId );
 		$dbw = wfGetDB( DB_MASTER );
