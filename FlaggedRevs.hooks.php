@@ -642,6 +642,7 @@ class FlaggedRevsHooks {
 	* Select the desired images based on the selected stable revision times/SHA-1s
 	*/
 	public static function galleryFindStableFileTime( $ig, Title $nt, &$time, &$query = false ) {
+		$parser = $ig->mParser; // convenience
 		# Trigger for stable version parsing only
 		if ( !( $parser instanceof Parser ) || empty( $parser->fr_isStable ) ) {
 			return true;
@@ -698,7 +699,7 @@ class FlaggedRevsHooks {
 			# If the DB found nothing...
 			if ( $time === false ) {
 				# May want to give an error, so track these...
-				$ig->mParser->mOutput->fr_includeErrors[] = $nt->getPrefixedDBKey();
+				$parser->mOutput->fr_includeErrors[] = $nt->getPrefixedDBKey();
 				if ( !$wgUseCurrentImages ) {
 					$time = "0"; // no image
 				} else {
@@ -710,8 +711,8 @@ class FlaggedRevsHooks {
 			}
 		}
 		# Add image metadata to parser output
-		$ig->mParser->mOutput->fr_ImageSHA1Keys[$nt->getDBkey()] = array();
-		$ig->mParser->mOutput->fr_ImageSHA1Keys[$nt->getDBkey()][$time] = $sha1;
+		$parser->mOutput->fr_ImageSHA1Keys[$nt->getDBkey()] = array();
+		$parser->mOutput->fr_ImageSHA1Keys[$nt->getDBkey()][$time] = $sha1;
 		# Check if this file is local or on a foreign repo...
 		if ( $isKnownLocal ) {
 			$isLocalFile = true; // no need to check
@@ -722,8 +723,8 @@ class FlaggedRevsHooks {
 			$isLocalFile = $file && $file->exists() && $file->isLocal();
 		}
 		# Bug 15748, be lax about commons image sync status
-		if ( $isLocalFile && $time > $ig->mParser->mOutput->fr_newestImageTime ) {
-			$ig->mParser->mOutput->fr_newestImageTime = $time;
+		if ( $isLocalFile && $time > $parser->mOutput->fr_newestImageTime ) {
+			$parser->mOutput->fr_newestImageTime = $time;
 		}
 		return true;
 	}
