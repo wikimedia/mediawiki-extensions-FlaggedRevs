@@ -20,10 +20,12 @@ Edits made by other users are not displayed to readers by default until an autho
  * @author EugeneZelenko
  * @author Jon Harald Søby
  * @author Purodha
+ * @author Umherirrender
  */
 $messages['qqq'] = array(
 	'stablepages' => '{{Flagged Revs}}',
-	'stablepages-text' => '{{Flagged Revs}}',
+	'stablepages-text' => '{{Flagged Revs}}
+This text is shown on [http://flaggedrevs.labs.wikimedia.org/wiki/Special:StablePages Special:StablePages].',
 	'stablepages-none' => '{{Flagged Revs}}
 {{Identical|There are no pages in this list}}',
 	'stablepages-config' => '{{Flagged Revs}}
@@ -167,8 +169,8 @@ $messages['cs'] = array(
  */
 $messages['de'] = array(
 	'stablepages' => 'Seiten die nur mit Bearbeitungsfreigabe bearbeitet werden können',
-	'stablepages-text' => 'Es folgt eine Liste von Seiten, auf denen nur bestimmte Benutzer Bearbeitungen durchführen können, die nicht überprüft werden müssen.
-Derartige Bearbeitungen werden nicht angenommen bis ein entsprechend berechtigter Benutzer sie überprüft.',
+	'stablepages-text' => 'Es folgt eine Liste von Seiten, die Einschränkungen haben, so das bestimmte Benutzer Bearbeitungen vornehmen können, die keine Überprüfung benötigen.
+Somit werden einige Bearbeitungen nicht angezeigt, bis ein entsprechend berechtigter Benutzer sie überprüft hat.',
 	'stablepages-none' => 'Diese Liste enthält keine Seiten.',
 	'stablepages-config' => 'Konfiguration',
 );
@@ -375,7 +377,7 @@ $messages['hu'] = array(
  */
 $messages['ia'] = array(
 	'stablepages' => 'Paginas subjecte al approbation de modificationes',
-	'stablepages-text' => 'Hic infra es un lista de paginas que es restringite de sorta que solmente certe usatores pote facer modificationes que non require revision. Tal modificationes non es monstrate al lectores usque un usator autorisate los habera revidite.',
+	'stablepages-text' => 'Hic infra es un lista de paginas al quales solmente certe usatores pote facer modificationes que non require revision. Modificationes facite per altere usatores non es initialmente monstrate al lectores usque un usator autorisate los habera revidite.',
 	'stablepages-none' => 'Il non ha paginas in iste lista',
 	'stablepages-config' => 'Configuration',
 );
@@ -461,7 +463,7 @@ $messages['ksh'] = array(
 $messages['lb'] = array(
 	'stablepages' => 'Säiten déi Zoustëmmung vun den Ännerunge benotzen',
 	'stablepages-text' => 'Hei ass eng Lëscht vu Säiten déi esou gespaart sinn datt nëmme gewësse Benotzer Ännerunge maache kënnen déi net brauche nogekuckt ze ginn.
-Esou Ännerungen ginn net akzeptéiert bis en autoriséierte Benotzer se nogekuckt huet.',
+Ännerunge vun anere Benotzer ginn de Lieser net gewise bis en autoriséierte Benotzer se nogekuckt huet.',
 	'stablepages-none' => 'Dës Lëscht ass eidel',
 	'stablepages-config' => 'Konfiguratioun',
 );
@@ -526,8 +528,8 @@ Dawn il-modifiki ma jiġux aċċettati sakemm utent awtorizzat jirrevedihom.",
  */
 $messages['nl'] = array(
 	'stablepages' => "Pagina's onderhevig aan goedkeuring van bewerkingen",
-	'stablepages-text' => "Hier worden pagina's weergegeven waarvoor is beperkt wie kan kan bewerken zonder dat controle noodzakelijk is.
-Dergelijke bewerkingen worden niet weergegeven voordat daartoe gerechtigde gebruikers ze gecontroleerd hebben.",
+	'stablepages-text' => "Hier worden pagina's weergegeven waar alleen bepaalde gebruikers kunnen bewerken zonder dat controle nodig is.
+Bewerkingen door andere gebruikers worden niet weergegeven totdat daartoe gerechtigde gebruikers ze gecontroleerd hebben.",
 	'stablepages-none' => "Er zijn geen pagina's die aan de criteria voldoen",
 	'stablepages-config' => 'Instellingen',
 );
@@ -595,7 +597,8 @@ $messages['pms'] = array(
  */
 $messages['pt'] = array(
 	'stablepages' => 'Páginas sujeitas à aprovação de edições',
-	'stablepages-text' => 'Segue-se uma lista de páginas restringidas, cujas edições só são aceites após revisão por um utilizador autorizado. Só certos utilizadores podem editá-las sem estar sujeitos a revisão.',
+	'stablepages-text' => 'Segue-se uma lista de páginas restringidas de forma a que que só certos utilizadores podem fazer edições que não necessitam de revisão.
+Essas edições não são apresentadas aos leitores até que um utilizador autorizado as tenha revisto.',
 	'stablepages-none' => 'Não há páginas nesta lista.',
 	'stablepages-config' => 'Configuração',
 );
@@ -634,12 +637,13 @@ $messages['roa-tara'] = array(
 
 /** Russian (Русский)
  * @author Claymore
+ * @author G0rn
  * @author Александр Сигачёв
  */
 $messages['ru'] = array(
 	'stablepages' => 'Страницы, использующие подтверждение правок',
-	'stablepages-text' => 'Ниже показан список страниц с наложенным ограничением, только определённые участники могут делать правки, не требующие проверки.
-Правки этих статей не будут показаны читателям, пока не будут проверены уполномоченными участниками.',
+	'stablepages-text' => 'Ниже показан список страниц на которых только определённые участники могут делать правки, не требующие проверки.
+Сделанные другими участниками правки этих статей по умолчанию не будут показаны читателям, пока не будут проверены уполномоченными участниками.',
 	'stablepages-none' => 'В данном списке отсутствуют страницы',
 	'stablepages-config' => 'настройка',
 );

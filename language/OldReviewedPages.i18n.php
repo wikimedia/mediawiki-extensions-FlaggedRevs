@@ -230,6 +230,7 @@ $messages['bcc'] = array(
 /** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))
  * @author EugeneZelenko
  * @author Jim-by
+ * @author Wizardist
  */
 $messages['be-tarask'] = array(
 	'oldreviewedpages' => 'Старонкі з нерэцэнзаванымі зьменамі',
@@ -241,7 +242,7 @@ $messages['be-tarask'] = array(
 	'oldreviewedpages-recent' => '(меней 1 гадзіны)',
 	'oldreviewed-category' => 'Катэгорыя:',
 	'oldreviewed-watched' => 'Старонкі з майго сьпісу назіраньня',
-	'oldreviewed-stable' => 'Стабілізаваныя',
+	'oldreviewed-stable' => 'Стабільная вэрсія па змоўчваньню',
 	'oldreviewed-diff' => 'праверыць',
 	'oldreviewed-size' => 'Найбольшыя зьмены (байтаў):',
 	'oldreviewedpages-unwatched' => '(не назіраецца)',
@@ -1003,7 +1004,7 @@ $messages['lb'] = array(
 	'oldreviewedpages-recent' => '(manner wéi 1 Stonn)',
 	'oldreviewed-category' => 'Kategorie:',
 	'oldreviewed-watched' => 'Säiten op menger Iwwerwaachungslëscht',
-	'oldreviewed-stable' => 'Stabiliséiert Säiten',
+	'oldreviewed-stable' => 'Stabil Versioun ass Standard',
 	'oldreviewed-diff' => 'iwwerkucken',
 	'oldreviewed-size' => 'Maximal Ännerung (Bytes):',
 	'oldreviewedpages-unwatched' => '(net iwwerwaacht)',
@@ -1047,7 +1048,7 @@ $messages['ml'] = array(
 	'oldreviewedpages-recent' => '(1 മണിക്കൂറിൽ താഴെ)',
 	'oldreviewed-category' => 'വർഗ്ഗം:',
 	'oldreviewed-watched' => 'ഞാൻ ശ്രദ്ധിക്കുന്ന താളുകൾ',
-	'oldreviewed-stable' => 'സ്ഥിരതയുള്ളതാക്കിയിരിക്കുന്നു',
+	'oldreviewed-stable' => 'സ്വതവേ സ്ഥിരതയുള്ള പതിപ്പ്',
 	'oldreviewed-diff' => 'സംശോധനം',
 	'oldreviewed-size' => 'പരമാവധി മാറ്റങ്ങൾ (ബൈറ്റുകൾ):',
 	'oldreviewedpages-unwatched' => '(ശ്രദ്ധിക്കുന്നില്ല)',
@@ -1282,7 +1283,7 @@ $messages['pt'] = array(
 	'oldreviewedpages-recent' => '(menos de 1 hora)',
 	'oldreviewed-category' => 'Categoria:',
 	'oldreviewed-watched' => 'Páginas na minha lista de páginas vigiadas',
-	'oldreviewed-stable' => 'Páginas estabilizadas',
+	'oldreviewed-stable' => 'Por omissão, mostrar a versão publicada',
 	'oldreviewed-diff' => 'rever',
 	'oldreviewed-size' => 'Alteração máx. (bytes):',
 	'oldreviewedpages-unwatched' => '(não vigiada)',
