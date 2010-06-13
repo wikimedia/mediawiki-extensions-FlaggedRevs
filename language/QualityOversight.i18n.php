@@ -129,7 +129,7 @@ $messages['de'] = array(
  * @author Xoser
  */
 $messages['diq'] = array(
-	'qualityoversight' => 'Oversightê kaliteyî',
+	'qualityoversight' => 'Loge kontrele kaliteyî',
 	'qualityoversight-list' => 'Ena pel de revizyonan u testiqanê penî ser yew liste esto.',
 	'qualityoversight-legend' => 'Loganê kontrol penî de bigêre',
 );

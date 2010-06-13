@@ -245,9 +245,10 @@ $messages['de'] = array(
 
 /** Zazaki (Zazaki)
  * @author Aspar
+ * @author Xoser
  */
 $messages['diq'] = array(
-	'reviewedversions' => 'versiyonan ramocın',
+	'reviewedversions' => 'Versiyonan ke kontrol biye',
 	'reviewedversions-leg1' => 'qey yew peli revizyonê kontrol biyayeyan liste bıker',
 	'reviewedversions-page' => 'nameyê peli:',
 	'reviewedversions-none' => '"[[:$1]]" wayirê revizyonê konrol biyayeyan niyo.',

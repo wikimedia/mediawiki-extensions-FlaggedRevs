@@ -374,9 +374,8 @@ Seiten werden als ''synchronisiert'' angesehen, wenn keine Bearbeitungen mehr au
  * @author Xoser
  */
 $messages['diq'] = array(
-	'validationstatistics' => 'Îstatîstîksê onay kerdişî',
-	'validationstatistics-users' => "'''{{SITENAME}}''' de nika '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|karber|karberan}} pê heqê [[{{MediaWiki:Validationpage}}|Editor]]î
-u '''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$2|karber|karberan}} pê heqê [[{{MediaWiki:Validationpage}}|Kontrol kerdoğ]]î estê.
+	'validationstatistics' => 'Pele istatîstîksê onay biyayisi',
+	'validationstatistics-users' => "'''{{SITENAME}}''' de nika '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|karber|karberan}} pê heqê [[{{MediaWiki:Validationpage}}|Editor]]î estê.
 
 Editorî u kontrol kerdoğî karberanê kihanyerê ke eşkenî pelan revize bike.",
 	'validationstatistics-time' => "''Aşağıdaki veri en son $5 $6 tarihinde güncellenmiştir.''
@@ -1180,11 +1179,12 @@ $messages['lb'] = array(
 Editeure si confirméiert Benotzer déi nogekuckte Versioune vu Säiten derbäisetze kënnen.",
 	'validationstatistics-time' => "''Dës Donnéeë goufe fir d'lescht den $5 ëm $6 Auer aktualiséiert.''
 
-Déi duerchschnettlech Waardezäit fir Ännerungen, déi vun net ugemellte Benotzer kommen, ass '''$1'''; de Median ass '''$3'''.
+Ännerungen déi vun etabléierte Benotzr nogekuckt goufen ginn als nogekuckt ugesinn.
+
+Déi duerchschnëttlech Waardezäit fir Ännerungen, déi vun ''net ugemellte Benotzer'' kommen, ass '''$1'''; de Median ass '''$3'''.
 $4
-Den duerchschnettleche Réckstand op [[Special:OldReviewedPages|vereelste Säiten]] ass '''$2'''.
-Dës Säite ginn als ''vereelst'' ugesinn. Säite ginn als ''synchroniséiert'' wann et keng Ännerunge gëtt déi drop waarde fir nogekuckt ze ginn.
-Déi publizéiert Versioun vun enger Säit ass déi neiste Versioun, déi confirméiert gouf an als Standard alle Lieser gewise gëtt.",
+Den duerchschnëttleche Réckstand op [[Special:OldReviewedPages|vereelste Säiten]] ass '''$2'''.
+Dës Säite ginn als ''vereelst'' ugesinn. Säite ginn als ''synchroniséiert'' ugesinn, wann et keng Ännerunge gëtt, déi drop waarde fir nogekuckt ze ginn.",
 	'validationstatistics-table' => 'Statistike fir jiddwer Nummraum sinn hei ënnendrënner, Viruleedungssäite sinn net berécksichtegt.',
 	'validationstatistics-ns' => 'Nummraum',
 	'validationstatistics-total' => 'Säiten',

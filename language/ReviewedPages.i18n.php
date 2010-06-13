@@ -42,12 +42,14 @@ Parameter $1 is the number of reviewed pages for use with PLURAL.',
 
 /** Afrikaans (Afrikaans)
  * @author Arnobarnard
+ * @author Deadelf
  * @author Naudefj
  */
 $messages['af'] = array(
 	'reviewedpages' => 'Gekontroleerde bladsye',
 	'reviewedpages-leg' => 'Lys met bladsye wat gekontrolleer is',
-	'reviewedpages-list' => 'Die volgende bladsye is (op sy hoogste) gekontroleer tot die aangegewe vlak.',
+	'reviewedpages-list' => "Hierdie lyste bevat [[{{MediaWiki:Validationpage}}|hersiende]] bladsye wat se ''hoogste'' wysigingsvlak (van 'n weergawe) op die gespesifiseerde vlak is.
+'n Skakel word voorsien na die mees onlangste wysiging op daardie vlak.",
 	'reviewedpages-none' => 'Daar is geen bladsye in hierdie lys nie.',
 	'reviewedpages-lev-2' => 'Uitgelig',
 	'reviewedpages-all' => 'gekontroleerde weergawes',
@@ -251,11 +253,12 @@ Der Link zu neuesten Version dieses Status ist angegeben.',
  */
 $messages['diq'] = array(
 	'reviewedpages' => 'Pelanê ke kontrol biyo',
-	'reviewedpages-leg' => 'Pelanê tewr zêdevêniyanan lista ke',
-	'reviewedpages-list' => 'Ena Pel de pelanê kontrol biyo (tewr berz) înan ra yew liste viraziyo.',
+	'reviewedpages-leg' => 'Pelanê ke kontrol biye inan lista bike',
+	'reviewedpages-list' => 'Ena liste de [[{{MediaWiki:Validationpage}}|pelanê kontrol biyo]] ke "standarde tewr berzi" (versiyonan ra)  înan ra seviye beliyo.
+Versiyone peniyane ena seviye re yew link dayeya.',
 	'reviewedpages-none' => 'Ena liste de pelan çini yo',
 	'reviewedpages-all' => 'versiyonan ke kontrol biyo',
-	'reviewedpages-best' => 'revizyonê primeyî',
+	'reviewedpages-best' => 'revizyonê tewr rindi',
 );
 
 /** Lower Sorbian (Dolnoserbski)

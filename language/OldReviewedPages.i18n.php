@@ -242,7 +242,7 @@ $messages['be-tarask'] = array(
 	'oldreviewedpages-recent' => '(меней 1 гадзіны)',
 	'oldreviewed-category' => 'Катэгорыя:',
 	'oldreviewed-watched' => 'Старонкі з майго сьпісу назіраньня',
-	'oldreviewed-stable' => 'Стабільная вэрсія па змоўчваньню',
+	'oldreviewed-stable' => 'Стабільная вэрсія па змоўчваньні',
 	'oldreviewed-diff' => 'праверыць',
 	'oldreviewed-size' => 'Найбольшыя зьмены (байтаў):',
 	'oldreviewedpages-unwatched' => '(не назіраецца)',
@@ -382,7 +382,7 @@ $messages['de'] = array(
  * @author Xoser
  */
 $messages['diq'] = array(
-	'oldreviewedpages' => 'Pelanê kontrol biyo ke outdate yo',
+	'oldreviewedpages' => 'Pelanê ho vurneyeni',
 	'oldreviewedpages-legend' => 'Vurnayîşanê etiket biyo înan liste bike',
 	'oldreviewedpages-list' => 'Ena pele {{PLURAL:$1|a reviewed page|reviewed pages}} liste keno.',
 	'oldreviewedpages-none' => 'Ser ena kriteri de pelan çini yo',
@@ -390,8 +390,8 @@ $messages['diq'] = array(
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|roc|rocan}})',
 	'oldreviewedpages-recent' => '(1 seet ra tay)',
 	'oldreviewed-category' => 'Kategorî:',
-	'oldreviewed-watched' => 'Listeyê seyr kerdişê mi de',
-	'oldreviewed-stable' => 'Stabilize biyo',
+	'oldreviewed-watched' => 'Listeyê seyr kerdişê mi de pelan',
+	'oldreviewed-stable' => 'Versiyono sebit eyare veriniyo',
 	'oldreviewed-diff' => 'kontrol',
 	'oldreviewed-size' => 'Vuranayişê tewr zaf (bitan):',
 	'oldreviewedpages-unwatched' => '(seyr nibeno)',
@@ -1610,6 +1610,7 @@ $messages['tr'] = array(
  * @author Ahonc
  * @author NickK
  * @author Prima klasy4na
+ * @author Тест
  */
 $messages['uk'] = array(
 	'oldreviewedpages' => 'Сторінки з нерецензованими змінами',
@@ -1621,7 +1622,7 @@ $messages['uk'] = array(
 	'oldreviewedpages-recent' => '(менше 1 години)',
 	'oldreviewed-category' => 'Категорія:',
 	'oldreviewed-watched' => 'Сторінки з мого списку спостереження',
-	'oldreviewed-stable' => 'Стабілізовані сторінки',
+	'oldreviewed-stable' => 'Стабільна версія за умовчанням',
 	'oldreviewed-diff' => 'перевірити',
 	'oldreviewed-size' => 'Максимальна зміна розміру в байтах:',
 	'oldreviewedpages-unwatched' => '(не спостерігають)',
