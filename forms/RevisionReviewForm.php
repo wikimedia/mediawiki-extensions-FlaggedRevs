@@ -323,7 +323,8 @@ class RevisionReviewForm
 	private function approveRevision( $rev ) {
 		global $wgUser, $wgMemc, $wgParser, $wgEnableParserCache;
 		wfProfileIn( __METHOD__ );
-		
+
+		$dbw = wfGetDB( DB_MASTER );		
 		$article = new Article( $this->page );
 
 		$quality = 0;
@@ -386,12 +387,16 @@ class RevisionReviewForm
 			if ( $timestamp > $lastImgTime )
 				$lastImgTime = $timestamp;
 
-			$imgset[] = array(
-				'fi_rev_id' 		=> $rev->getId(),
-				'fi_name' 			=> $img_title->getDBkey(),
-				'fi_img_timestamp'  => $timestamp,
-				'fi_img_sha1' 		=> $key
+			$fileIncludeData = array(
+				'fi_rev_id'		=> $rev->getId(),
+				'fi_name'		=> $img_title->getDBkey(),
+				'fi_img_sha1'	=> $key
 			);
+			if ( $time ) { // b/c for bad <char(14) NOT NULL default ''> def
+				$fileIncludeData['fi_img_timestamp'] = $dbw->timestamp( $timestamp );
+			}
+			$imgset[] = $fileIncludeData;
+
 			if ( !isset( $imgParams[$img_title->getDBkey()] ) ) {
 				$imgParams[$img_title->getDBkey()] = array();
 			}
@@ -445,19 +450,14 @@ class RevisionReviewForm
 		
 		# Is this a duplicate review?
 		if ( $oldfrev && $flaggedOutput ) {
-			$synced = true;
-			if ( $stableOutput->fr_newestImageTime != $flaggedOutput->fr_newestImageTime )
-				$synced = false;
-			elseif ( $stableOutput->fr_newestTemplateID != $flaggedOutput->fr_newestTemplateID )
-				$synced = false;
-			elseif ( $oldfrev->getTags() != $flags )
-				$synced = false;
-			elseif ( $oldfrev->getFileSha1() != @$fileData['sha1'] )
-				$synced = false;
-			elseif ( $oldfrev->getComment() != $this->notes )
-				$synced = false;
-			elseif ( $oldfrev->getQuality() != $quality )
-				$synced = false;
+			$fileSha1 = $fileData ?
+				$fileData['sha1'] : null; // stable upload version for file pages
+			$synced = (
+				$oldfrev->getTags() == $flags && // tags => quality
+				$oldfrev->getFileSha1() == $fileSha1 &&
+				$oldfrev->getComment() == $this->notes &&
+				FlaggedRevs::includesAreSynced( $stableOutput, $flaggedOutput )
+			);
 			# Don't review if the same
 			if ( $synced ) {
 				wfProfileOut( __METHOD__ );
@@ -465,7 +465,6 @@ class RevisionReviewForm
 			}
 		}
 
-		$dbw = wfGetDB( DB_MASTER );
 		# Our review entry
  		$flaggedRevision = new FlaggedRevision( array(
 			'fr_rev_id'        => $rev->getId(),
@@ -498,8 +497,10 @@ class RevisionReviewForm
 			|| !isset( $poutput->fr_newestTemplateID )
 			|| !isset( $poutput->fr_newestImageTime ) )
 		{
+			$source = $article->getContent();
 			$options = FlaggedRevs::makeParserOptions();
-			$poutput = $wgParser->parse( $article->getContent(), $article->mTitle, $options );
+			$poutput = $wgParser->parse( $source, $article->getTitle(), $options,
+				/*$lineStart*/true, /*$clearState*/true, $article->getLatest() );
 		}
 		# Prepare for a link tracking update
 		$u = new LinksUpdate( $this->page, $poutput );
@@ -659,7 +660,7 @@ class RevisionReviewForm
 	 * @return mixed (string/false)
 	 */
 	public static function buildQuickReview(
-		$article, $rev, $templateIDs, $imageSHA1Keys, $stableDiff = false
+		FlaggedArticle $article, $rev, $templateIDs, $imageSHA1Keys, $stableDiff = false
 	) {
 		global $wgUser, $wgRequest;
 		# The revision must be valid and public
@@ -688,8 +689,7 @@ class RevisionReviewForm
 			}
 			$reviewNotes = $srev->getComment();
 			# Re-review button is need for template/file only review case
-			$allowRereview = ( $srev->getRevId() == $id )
-				&& !FlaggedRevs::stableVersionIsSynced( $srev, $article );
+			$allowRereview = ( $srev->getRevId() == $id && !$article->stableVersionIsSynced() );
 		} else {
 			$flags = $oldFlags;
 			// Get existing notes to pre-fill field

@@ -397,7 +397,7 @@ class FlaggedRevsHooks {
 		}
 		return true;
 	}
-	
+
 	protected static function addLink( array &$links, $ns, $dbKey ) {
 		if ( !isset( $links[$ns] ) ) {
 			$links[$ns] = array();
@@ -593,9 +593,10 @@ class FlaggedRevsHooks {
 				array( 'fi_rev_id' => $parser->getRevisionId(), 'fi_name' => $title->getDBkey() ),
 				__METHOD__
 			);
+			$reviewedTS = trim( $row->fi_img_timestamp ); // remove garbage
 			# Only the one picked at review time exists OR it is the newest...use it!
-			if ( $row && ( $time === false || $row->fi_img_timestamp > $time ) ) {
-				$time = $row->fi_img_timestamp;
+			if ( $row && ( $time === false || $reviewedTS > $time ) ) {
+				$time = $reviewedTS;
 				$sha1 = $row->fi_img_sha1;
 				$isKnownLocal = false; // up in the air...possibly a commons image
 			}
@@ -685,9 +686,10 @@ class FlaggedRevsHooks {
 				array( 'fi_rev_id' => $ig->mRevisionId, 'fi_name' => $nt->getDBkey() ),
 				__METHOD__
 			);
+			$reviewedTS = trim( $row->fi_img_timestamp ); // remove garbage
 			# Only the one picked at review time exists OR it is the newest...use it!
-			if ( $row && ( $time === false || $row->fi_img_timestamp > $time ) ) {
-				$time = $row->fi_img_timestamp;
+			if ( $row && ( $time === false || $reviewedTS > $time ) ) {
+				$time = $reviewedTS;
 				$sha1 = $row->fi_img_sha1;
 				$isKnownLocal = false; // up in the air...possibly a commons image
 			}

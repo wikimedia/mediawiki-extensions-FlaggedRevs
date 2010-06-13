@@ -9,6 +9,7 @@ class FlaggedArticle extends Article {
 	protected $stableRev = null;
 	protected $pendingRevs = null;
 	protected $pageConfig = null;
+	protected $file = null;
 
 	/**
 	 * Get a FlaggedArticle for a given title
@@ -40,7 +41,24 @@ class FlaggedArticle extends Article {
 		$this->stableRev = null;
 		$this->pendingRevs = null;
 		$this->pageConfig = null;
+		$this->file = null;
 		parent::clear();
+	}
+
+	/**
+	 * Get the current file version of this file page
+	 * @TODO: kind of hacky
+	 * @return mixed (File/false)
+	 */
+	public function getFile() {
+		if ( $this->getTitle()->getNamespace() != NS_FILE ) {
+			return false; // not an file page
+		}
+		if ( is_null( $this->file ) ) {
+			$imagePage = new ImagePage( $this->getTitle() );
+			$this->file = $imagePage->getFile();
+		}
+		return $this->file;
 	}
 
 	 /**
@@ -129,6 +147,100 @@ class FlaggedArticle extends Article {
 		}
 		$this->pendingRevs = $count;
 		return $this->pendingRevs;
+	}
+
+	/**
+	* Check if the stable version is synced with the current revision.
+	* Note: This function can be pretty expensive...
+	* @param ParserOutput $stableOutput, will fetch if not given
+	* @param ParserOutput $currentOutput, will fetch if not given
+	* @return bool
+	*/
+	public function stableVersionIsSynced(
+		ParserOutput $stableOutput = null, ParserOutput $currentOutput = null
+	) {
+		global $wgUser, $wgMemc, $wgEnableParserCache, $wgParserCacheExpireTime;
+		$srev = $this->getStableRev();
+		if ( !$srev ) {
+			return true;
+		}
+		# Stable text revision must be the same as the current
+		if ( $this->revsArePending() ) {
+			return false;
+		# Stable file revision must be the same as the current
+		} elseif ( $this->getTitle()->getNamespace() == NS_FILE ) {
+			$file = $this->getFile(); // current upload version
+			if ( $file && $file->getTimestamp() > $srev->getFileTimestamp() ) {
+				return false;
+			}
+		}
+		# If using the current version of includes, there is nothing else to check.
+		if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_CURRENT ) {
+			return true; // short-circuit
+		}
+		# Try the cache...
+		$key = wfMemcKey( 'flaggedrevs', 'includesSynced', $this->getId() );
+		$value = FlaggedRevs::getMemcValue( $wgMemc->get( $key ), $this );
+		if ( $value === "true" ) {
+			return true;
+		} elseif ( $value === "false" ) {
+			return false;
+		}
+		# If parseroutputs not given, fetch them...
+		if ( is_null( $stableOutput ) || !isset( $stableOutput->fr_newestTemplateID ) ) {
+			# Get parsed stable version
+			$anon = new User(); // anon cache most likely to exist
+			$stableOutput = FlaggedRevs::getPageCache( $this, $anon );
+			if ( $stableOutput == false && $wgUser->getId() ) {
+				$stableOutput = FlaggedRevs::getPageCache( $this, $wgUser );
+			}
+			# Regenerate the parser output as needed...
+			if ( $stableOutput == false ) {
+				$text = $srev->getRevText();
+	   			$stableOutput = FlaggedRevs::parseStableText( $this, $text, $srev->getRevId() );
+	   			# Update the stable version cache
+				FlaggedRevs::updatePageCache( $this, $anon, $stableOutput );
+	   		}
+		}
+		if ( is_null( $currentOutput ) || !isset( $currentOutput->fr_newestTemplateID ) ) {
+			# Get parsed current version
+			$parserCache = ParserCache::singleton();
+			$currentOutput = false;
+			$anon = new User(); // anon cache most likely to exist
+			# If $text is set, then the stableOutput is new. In that case,
+			# the current must also be new to avoid sync goofs.
+			if ( !isset( $text ) ) {
+				$currentOutput = $parserCache->get( $this, $anon );
+				if ( $currentOutput == false && $wgUser->getId() ) {
+					$currentOutput = $parserCache->get( $this, $wgUser );
+				}
+			}
+			# Regenerate the parser output as needed...
+			if ( $currentOutput == false ) {
+				global $wgParser;
+				$source = $this->getContent();
+				$options = FlaggedRevs::makeParserOptions( $anon );
+				$currentOutput = $wgParser->parse( $source, $this->getTitle(),
+					$options, /*$lineStart*/true, /*$clearState*/true, $this->getLatest() );
+				# Might as well save the cache while we're at it
+				if ( $wgEnableParserCache ) {
+					$parserCache->save( $currentOutput, $this, $anon );
+				}
+			}
+		}
+		# Since the stable and current revisions have the same text and only outputs,
+		# the only other things to check for are template and file differences in the output.
+		# (a) Check if the current output has a newer template/file used
+		# (b) Check if the stable version has a file/template that was deleted
+		$synced = (
+			!$stableOutput->fr_includeErrors && // deleted since
+			FlaggedRevs::includesAreSynced( $stableOutput, $currentOutput )
+		);
+		# Save to cache. This will be updated whenever the page is touched.
+		$data = FlaggedRevs::makeMemcObj( $synced ? "true" : "false" );
+		$wgMemc->set( $key, $data, $wgParserCacheExpireTime );
+
+		return $synced;
 	}
 
 	/**

@@ -36,7 +36,7 @@ class FlaggedArticleView {
 			$this->loaded = true;
 			$this->article = self::globalArticleInstance();
 			if ( $this->article == null ) {
-				throw new MWException( 'FlaggedArticleViewer has no context article!' );
+				throw new MWException( 'FlaggedArticleView has no context article!' );
 			}
 		}
 	}
@@ -354,7 +354,7 @@ class FlaggedArticleView {
 		$quality = FlaggedRevs::isQuality( $flags );
 		$pristine = FlaggedRevs::isPristine( $flags );
 		# Get stable version sync status
-		$synced = FlaggedRevs::stableVersionIsSynced( $srev, $this->article );
+		$synced = $this->article->stableVersionIsSynced();
 		if ( $synced ) {
 			$this->setReviewNotes( $srev ); // Still the same
 		} else {
@@ -549,7 +549,7 @@ class FlaggedArticleView {
 				$parserOut = null;
 			}
 	   	}
-		$synced = FlaggedRevs::stableVersionIsSynced( $srev, $this->article, $parserOut, null );
+		$synced = $this->article->stableVersionIsSynced( $parserOut, null );
 		# Construct some tagging
 		if ( !$wgOut->isPrintable() && !( $this->article->lowProfileUI() && $synced ) ) {
 			$revsSince = $this->article->getPendingRevCount();
@@ -1093,7 +1093,7 @@ class FlaggedArticleView {
 	   	if ( !$srev ) {
 			return true; // No stable revision exists
 		}
-		$synced = FlaggedRevs::stableVersionIsSynced( $srev, $fa );
+		$synced = $this->article->stableVersionIsSynced();
 		$pendingEdits = !$synced && $fa->isStableShownByDefault();
 		// Set the edit tab names as needed...
 	   	if ( $pendingEdits ) {
@@ -1134,7 +1134,8 @@ class FlaggedArticleView {
 			$tabs['read']['class'] = 'selected';
 		} elseif ( self::isViewAction( $action ) ) {
 			// Are we looking at a draft/current revision?
-			if ( $wgOut->getRevisionId() > $srev->getRevId() ) {
+			// Note: there may *just* be template/file changes.
+			if ( $wgOut->getRevisionId() >= $srev->getRevId() ) {
 				$tabs['draft']['class'] = 'selected';
 			// Otherwise, fallback to regular tab behavior
 			} else {
@@ -1294,11 +1295,14 @@ class FlaggedArticleView {
 	* Add a link to diff-to-stable for reviewable pages
 	*/
 	protected function diffToStableLink( FlaggedRevision $frev, Revision $newRev ) {
-		global $wgUser, $wgOut;
+		global $wgUser;
 		$this->load();
 		$review = '';
-		# Make a link to the full diff-to-stable as needed
-		if ( !$this->isDiffFromStable || !$newRev->isCurrent() ) {
+		# Make a link to the full diff-to-stable if:
+		# (a) Actual revs are pending and (b) We are not viewing the stable diff
+		if ( $this->article->revsArePending() &&
+			!( $this->isDiffFromStable && $newRev->isCurrent() ) )
+		{
 			$review = $wgUser->getSkin()->makeKnownLinkObj(
 				$this->article->getTitle(),
 				wfMsgHtml( 'review-diff2stable' ),
@@ -1310,7 +1314,9 @@ class FlaggedArticleView {
 		return $review;
 	}
 
-	// add [checked version] and such to left and right side of diff
+	/**
+	* Add [checked version] and such to left and right side of diff
+	*/
 	protected function diffReviewMarkers( $oldRev, $newRev ) {
 		$form = '';
 		$oldRevQ = $newRevQ = false;
@@ -1374,41 +1380,44 @@ class FlaggedArticleView {
 		global $wgUser;
 		$skin = $wgUser->getSkin();
 		$dbr = wfGetDB( DB_SLAVE );
-		// Get templates where the current and stable are not the same revision
+		# Get templates where the current and stable are not the same revision
 		$ret = $dbr->select( array( 'flaggedtemplates', 'page', 'flaggedpages' ),
-			array( 'ft_namespace', 'ft_title', 'fp_stable',
-				'ft_tmp_rev_id', 'page_latest' ),
-			array( 'ft_rev_id' => $frev->getRevId(),
-				'page_namespace = ft_namespace',
-				'page_title = ft_title' ),
+			array( 'ft_namespace', 'ft_title', 'fp_stable', 'ft_tmp_rev_id', 'page_latest' ),
+			array( 'ft_rev_id' => $frev->getRevId() ),
 			__METHOD__,
 			array(), /* OPTIONS */
-			array( 'flaggedpages' => array( 'LEFT JOIN', 'fp_page_id = page_id' ) )
+			array(
+				'page' => array( 'LEFT JOIN',
+					'page_namespace = ft_namespace AND page_title = ft_title' ),
+				'flaggedpages' => array( 'LEFT JOIN', 'fp_page_id = page_id' ) )
 		);
 		$tmpChanges = array();
 		while ( $row = $dbr->fetchObject( $ret ) ) {
 			$title = Title::makeTitleSafe( $row->ft_namespace, $row->ft_title );
-			$revIdDraft = $row->page_latest;
-			// stable time -> time when reviewed (unless the other is newer)
-			$revIdStable = isset( $row->fp_stable ) && $row->fp_stable >= $row->ft_tmp_rev_id ?
-				$row->fp_stable : $row->ft_tmp_rev_id;
-			// compare to current
-			if ( $revIdDraft > $revIdStable ) {
-				$tmpChanges[] = $skin->makeKnownLinkObj( $title,
+			$revIdDraft = $row->page_latest; // may be NULL
+			# Stable time -> time when reviewed (unless the other is newer)
+			$revIdStable = $row->fp_stable && $row->fp_stable >= $row->ft_tmp_rev_id
+				? $row->fp_stable
+				: $row->ft_tmp_rev_id;
+			# Compare to current...
+			$deleted = ( !$revIdDraft && $revIdStable ); // later deleted
+			$updated = ( $revIdDraft && $revIdDraft > $revIdStable ); // updated/created
+			if ( $deleted || $updated ) {
+				$tmpChanges[] = $skin->makeLinkObj( $title,
 					$title->getPrefixedText(),
-					'diff=cur&oldid=' . intval( $revIdStable ) );
+					'diff=cur&oldid=' . (int)$revIdStable );
 			}
 		}
 		return $tmpChanges;
 	}
-	
+
 	// Fetch file changes for a reviewed revision since review
 	// @returns array
 	protected function fetchFileChanges( FlaggedRevision $frev ) {
 		global $wgUser;
 		$skin = $wgUser->getSkin();
 		$dbr = wfGetDB( DB_SLAVE );
-		// Get images where the current and stable are not the same revision
+		# Get images where the current and stable are not the same revision
 		$ret = $dbr->select(
 			array( 'flaggedimages', 'page', 'image', 'flaggedpages', 'flaggedrevs' ),
 			array( 'fi_name', 'fi_img_timestamp', 'fr_img_timestamp' ),
@@ -1426,13 +1435,18 @@ class FlaggedArticleView {
 		$imgChanges = array();
 		while ( $row = $dbr->fetchObject( $ret ) ) {
 			$title = Title::makeTitleSafe( NS_FILE, $row->fi_name );
-			// stable time -> time when reviewed (unless the other is newer)
-			$timestamp = isset( $row->fr_img_timestamp ) && $row->fr_img_timestamp >= $row->fi_img_timestamp ?
-				$row->fr_img_timestamp : $row->fi_img_timestamp;
-			// compare to current
+			$reviewedTS = trim( $row->fi_img_timestamp ); // may be ''/NULL
+			# Stable time -> time when reviewed (unless the other is newer)
+			$tsStable = $row->fr_img_timestamp && $row->fr_img_timestamp >= $reviewedTS
+				? $row->fr_img_timestamp
+				: $reviewedTS;
+			# Compare to current...
 			$file = wfFindFile( $title );
-			if ( $file && $file->getTimestamp() > $timestamp ) {
-				$imgChanges[] = $skin->makeKnownLinkObj( $title, $title->getPrefixedText() );
+			$deleted = ( !$file && $tsStable ); // later deleted
+			$updated = ( $file && $file->getTimestamp() > $tsStable ); // updated/created
+			if ( $deleted || $updated ) {
+				// @TODO: change when MW has file diffs
+				$imgChanges[] = $skin->makeLinkObj( $title, $title->getPrefixedText() );
 			}
 		}
 		return $imgChanges;

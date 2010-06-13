@@ -735,102 +735,31 @@ class FlaggedRevs {
 	# ################ Synchronization and link update functions #################
 
 	/**
-	* @param FlaggedRevision $srev, the stable revision
-	* @param Article $article
-	* @param ParserOutput $stableOutput, will fetch if not given
-	* @param ParserOutput $currentOutput, will fetch if not given
-	* @return bool
-	* See if a flagged revision is synced with the current.
-	* This function is pretty expensive...
-	*/
-	public static function stableVersionIsSynced(
-		FlaggedRevision $srev,
-		Article $article,
-		ParserOutput $stableOutput = null,
-		ParserOutput $currentOutput = null
+	 * Check if all includes in $stableOutput are the same as those in $currentOutput
+	 * @param ParserOutput $stableOutput
+	 * @param ParserOutput $currentOutput
+	 * @return bool
+	 */
+	public static function includesAreSynced(
+		ParserOutput $stableOutput, ParserOutput $currentOutput
 	) {
-		global $wgMemc, $wgEnableParserCache, $wgUser;
-		# Stable text revision must be the same as the current
-		if ( $srev->getRevId() < $article->getTitle()->getLatestRevID() ) {
-			return false;
-		}
-		# Stable file revision must be the same as the current
-		if ( $article instanceof ImagePage && $article->getFile() ) {
-			if ( $srev->getFileTimestamp() < $article->getFile()->getTimestamp() ) {
-				return false;
+		$sTmpls = $stableOutput->mTemplateIds;
+		$cTmpls = $currentOutput->mTemplateIds;
+		foreach ( $sTmpls as $name => $revId ) {
+			if ( isset( $cTmpls[$name] ) && $cTmpls[$name] != $revId ) {
+				return false; // updated/created
 			}
 		}
-		# If using the current version of includes, there is nothing else to check.
-		if ( self::inclusionSetting() == FR_INCLUDES_CURRENT ) {
-			return true;
-		}
-		# Try the cache...
-		$key = wfMemcKey( 'flaggedrevs', 'includesSynced', $article->getId() );
-		$value = self::getMemcValue( $wgMemc->get( $key ), $article );
-		if ( $value === "true" ) {
-			return true;
-		} elseif ( $value === "false" ) {
-			return false;
-		}
-		# If parseroutputs not given, fetch them...
-		if ( is_null( $stableOutput ) || !isset( $stableOutput->fr_newestTemplateID ) ) {
-			# Get parsed stable version
-			$anon = new User(); // anon cache most likely to exist
-			$stableOutput = self::getPageCache( $article, $anon );
-			if ( $stableOutput == false && $wgUser->getId() )
-				$stableOutput = self::getPageCache( $article, $wgUser );
-			# Regenerate the parser output as needed...
-			if ( $stableOutput == false ) {
-				$text = $srev->getRevText();
-	   			$stableOutput = self::parseStableText( $article, $text, $srev->getRevId() );
-	   			# Update the stable version cache
-				self::updatePageCache( $article, $anon, $stableOutput );
-	   		}
-		}
-		if ( is_null( $currentOutput ) || !isset( $currentOutput->fr_newestTemplateID ) ) {
-			# Get parsed current version
-			$parserCache = ParserCache::singleton();
-			$currentOutput = false;
-			$anon = new User(); // anon cache most likely to exist
-			# If $text is set, then the stableOutput is new. In that case,
-			# the current must also be new to avoid sync goofs.
-			if ( !isset( $text ) ) {
-				$currentOutput = $parserCache->get( $article, $anon );
-				if ( $currentOutput == false && $wgUser->getId() )
-					$currentOutput = $parserCache->get( $article, $wgUser );
-			}
-			# Regenerate the parser output as needed...
-			if ( $currentOutput == false ) {
-				global $wgParser;
-				$rev = Revision::newFromTitle( $article->getTitle() );
-				$text = $rev ? $rev->getText() : false;
-				$id = $rev ? $rev->getId() : null;
-				$title = $article->getTitle();
-				$options = self::makeParserOptions( $anon );
-				$currentOutput = $wgParser->parse( $text, $title, $options,
-					/*$lineStart*/true, /*$clearState*/true, $id );
-				# Might as well save the cache while we're at it
-				if ( $wgEnableParserCache )
-					$parserCache->save( $currentOutput, $article, $anon );
+		$sFiles = $stableOutput->fr_ImageSHA1Keys;
+		$cFiles = $currentOutput->fr_ImageSHA1Keys;
+		foreach ( $sFiles as $name => $timeKey ) {
+			foreach ( $timeKey as $sTs => $sSha1 ) {
+				if ( isset( $cFiles[$name] ) && !isset( $cFiles[$name][$sTs] ) ) {
+					return false; // updated/created
+				}
 			}
 		}
-		# Only current of revisions of inclusions can be reviewed. Since the stable and current revisions
-		# have the same text, the only thing that can make them different is updating a template or image.
-		# If this is the case, the current revision will have a newer template or image version used somewhere. 
-		if ( $currentOutput->fr_newestImageTime > $stableOutput->fr_newestImageTime ) {
-			$synced = false;
-		} elseif ( $currentOutput->fr_newestTemplateID > $stableOutput->fr_newestTemplateID ) {
-			$synced = false;
-		} else {
-			$synced = true;
-		}
-		# Save to cache. This will be updated whenever the page is re-parsed as well. This means
-		# that MW can check a light-weight key first.
-		global $wgParserCacheExpireTime;
-		$data = self::makeMemcObj( $synced ? "true" : "false" );
-		$wgMemc->set( $key, $data, $wgParserCacheExpireTime );
-
-		return $synced;
+		return true;
 	}
 
 	/**
@@ -1588,6 +1517,8 @@ class FlaggedRevs {
 		$editInfo = $article->prepareTextForEdit( $text ); // Parse the revision HTML output
 		$poutput = $editInfo->output;
 
+		$dbw = wfGetDB( DB_MASTER );		
+
 		# NS:title -> rev ID mapping
 		foreach ( $poutput->mTemplateIds as $namespace => $titleAndID ) {
 			foreach ( $titleAndID as $dbkey => $id ) {
@@ -1602,12 +1533,15 @@ class FlaggedRevs {
 		# Image -> timestamp mapping
 		foreach ( $poutput->fr_ImageSHA1Keys as $dbkey => $timeAndSHA1 ) {
 			foreach ( $timeAndSHA1 as $time => $sha1 ) {
-				$imgset[] = array(
+				$fileIncludeData = array(
 					'fi_rev_id' 		=> $rev->getId(),
 					'fi_name' 			=> $dbkey,
-					'fi_img_timestamp'  => $time,
 					'fi_img_sha1' 		=> $sha1
 				);
+				if ( $time ) { // b/c for bad <char(14) NOT NULL default ''> def
+					$fileIncludeData['fi_img_timestamp'] = $dbw->timestamp( $time );
+				}
+				$imgset[] = $fileIncludeData;
 			}
 		}
 
