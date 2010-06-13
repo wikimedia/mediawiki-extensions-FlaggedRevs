@@ -94,7 +94,7 @@ CREATE TABLE IF NOT EXISTS /*_*/flaggedimages (
   -- Name of included image
   fi_name varchar(255) binary NOT NULL default '',
   -- Timestamp of image used when reviewed
-  fi_img_timestamp char(14) NOT NULL default '',
+  fi_img_timestamp char(14) NULL,
   -- Statistically unique SHA-1 key
   fi_img_sha1 varbinary(32) NOT NULL default '',
   
