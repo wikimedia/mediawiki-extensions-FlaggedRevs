@@ -635,9 +635,11 @@ $messages['jut'] = array(
 );
 
 /** Georgian (ქართული)
+ * @author BRUTE
  * @author ITshnik
  */
 $messages['ka'] = array(
+	'reviewedpages' => 'შემოწმებული გვერდები',
 	'reviewedpages-none' => 'ამ სიაში გვერდები არ არის',
 );
 

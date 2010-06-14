@@ -587,7 +587,7 @@ Niektóre edycje nie zostaną opublikowane do momentu oznaczenia ich przez upraw
  */
 $messages['pms'] = array(
 	'stablepages' => "Pàgine ch'a deuvro l'aprovassion ëd le modìfiche",
-	'stablepages-text' => "Sota a-i é na lista ëd pàgine che a son arzervà an manera che mach serti utent a peulo fé 'd modìfiche che a l'han nen da manca ëd revision. Coste modìfiche a son pa publicà fin che n'utent autorisà a-j revision-a pa.",
+	'stablepages-text' => "Sota a-i é na lista ëd pàgine anté che mach serti utent a peulo fé 'd modìfiche che a l'han nen da manca ëd revision. Modìfiche fàite da d'àutri utent a son pa publicà për ij letor fin-a che n'utent autorisà a-j revision-a pa.",
 	'stablepages-none' => 'A-i é pa gnun-e pàgine an sta lista-sì',
 	'stablepages-config' => 'Configurassion',
 );
@@ -713,8 +713,8 @@ Takve izmene nisu prihvaćene dok ih ovlašćeni korisnik ne pregleda.',
  */
 $messages['sv'] = array(
 	'stablepages' => 'Sidor som använder redigeringsgodkännande',
-	'stablepages-text' => 'Nedan är en lista över sidor som begränsas så att endast vissa användare kan göra redigeringar som inte kräver granskning.
-Sådana ändringar visas inte för läsarna förrän en behörig användare granskar dem.',
+	'stablepages-text' => 'Nedan är en lista över sidor till vilka endast vissa användare kan göra redigeringar som inte kräver granskning.
+Ändringar gjorda av andra användare visas inte för läsarna förrän en behörig användare granskar dem.',
 	'stablepages-none' => 'Det finns inga sidor i denna lista',
 	'stablepages-config' => 'Konfigurering',
 );

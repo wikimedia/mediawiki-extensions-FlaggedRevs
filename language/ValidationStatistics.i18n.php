@@ -745,8 +745,7 @@ Bearbeitige, wu dur etablierti Benutzer aagluegt wore sin, sotte prieft wäre.
 Di durschnittlig Wartezyt fir Bearbeitige vu ''Benutzer, wu nit aagmäldet sin'', wu no aagluegt sotte wäre, isch '''$1'''; dr Mittelwärt isch '''$3'''.
 $4
 Dr durschnittlig Ruckstand uf [[Special:OldReviewedPages|Syte mit nit priefte hängige Änderige]] isch '''$2'''.
-Die Syte gälten as ''veraltet''. Ebeso gälte Syten as ''zytglych'', wänn s kei nit priefti hängigi Änderige het.
-Aagluegti Versione sin Versione vu Syte, wu vu zmindescht eim etablierte Benutzer aagluegt wore sin.",
+Die Syte gälten as ''veraltet''. Ebeso gälte Syten as ''zytglych'', wänn s kei nit priefti hängigi Änderige het.",
 	'validationstatistics-table' => "Statischtike fir jede Namensruum wäre do unter zeigt, dervu ''usgnuu'' sin Wyterleitige.",
 	'validationstatistics-ns' => 'Namensruum',
 	'validationstatistics-total' => 'Syte insgsamt',
@@ -1462,14 +1461,13 @@ $messages['pms'] = array(
 	'validationstatistics-users' => "'''{{SITENAME}}''' al moment a l'ha '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|utent|utent}} con drit d'[[{{MediaWiki:Validationpage}}|Editor]] 
 
 J'Editor a son utent sicur che a peulo controlé le revision a le pàgine.",
-	'validationstatistics-time' => "''Ij dat sota a son stàit modificà l'ùltima vira ël $5 a $6.''
+	'validationstatistics-time' => "↓ ''Ij dat sota a son stàit modificà l'ùltima vira ël $5 a $6.''
 
 Le modìfiche che a son ëstàite controlà da utent ëstàbij a son considerà revisionà.
 
 L'atèisa media ëd le modìfiche fàite da j'''utent nen rintrà ant ël sistema'' për esse revisionà a l'é '''$1'''; la mesan-a a l'é '''$3'''.
 $4
-Ël ritard medi për [[Special:OldReviewedPages|pàgine con modìfiche pa revisionà an cors]] a l'é '''$2'''. Ste pàgine a son considerà '''veje'''. Ant la midema manera, le pàgine a son considerà '''sincronisà''' s'a-i é gnun-a revision ëd modìfiche an cors.
-La version publicà dla pàgina a l'é la revision pì neuva che a l'é stàita aprovà da smon-e për stàndard a tùit ij visitador.",
+Ël ritard medi për [[Special:OldReviewedPages|pàgine con modìfiche pa revisionà an cors]] a l'é '''$2'''. Ste pàgine a son considerà '''veje'''. Ant la midema manera, le pàgine a son considerà '''sincronisà''' s'a-i é gnun-a revision ëd modìfiche an cors.",
 	'validationstatistics-table' => "Lë statìstiche për minca spassi nominal a son mostà sota, ''an gavand'' le pàgine ëd rediression.",
 	'validationstatistics-ns' => 'Spassi nominal',
 	'validationstatistics-total' => 'Pàgine',
