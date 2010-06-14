@@ -387,7 +387,7 @@ class FlaggedRevsXML {
 		$encPath = htmlspecialchars( FlaggedRevs::styleUrlPath() . '/img' );
 		$encTitle = wfMsgHtml( 'revreview-draft-title' );
 		return "<img class=\"flaggedrevs-icon\" src=\"$encPath/1.png\"" .
-			" width=\"16px\" alt=\"$encTitle\" title=\"$encTitle\" />";
+			" alt=\"$encTitle\" title=\"$encTitle\" />";
 	}
 	
 	/*
@@ -402,7 +402,7 @@ class FlaggedRevsXML {
 			? wfMsgHtml( 'revreview-quality-title' )
 			: wfMsgHtml( 'revreview-basic-title' );
 		return "<img class=\"flaggedrevs-icon\" src=\"$encPath/$file\"" .
-			" width=\"16px\" alt=\"$encTitle\" title=\"$encTitle\" />";
+			" alt=\"$encTitle\" title=\"$encTitle\" />";
 	}
 
 	/*
@@ -414,12 +414,12 @@ class FlaggedRevsXML {
 		$encPath = htmlspecialchars( FlaggedRevs::styleUrlPath() . '/img' );
 		if ( $flaggedArticle->isPageLocked() ) {
 			$encTitle = wfMsgHtml( 'revreview-locked-title' );
-			return "<img class=\"flaggedrevs-icon\" src=\"$encPath/checkmark-orange.png\"" .
-				" width=\"16px\" alt=\"$encTitle\" title=\"$encTitle\" />";
+			return "<img class=\"flaggedrevs-icon\" src=\"$encPath/doc-magnify.png\"" .
+				" alt=\"$encTitle\" title=\"$encTitle\" />";
 		} elseif ( $flaggedArticle->isPageUnlocked() ) {
 			$encTitle = wfMsgHtml( 'revreview-unlocked-title' );
-			return "<img class=\"flaggedrevs-icon\" src=\"$encPath/checkmark-green.png\"" .
-				" width=\"16px\" alt=\"$encTitle\" title=\"$encTitle\" />";
+			return "<img class=\"flaggedrevs-icon\" src=\"$encPath/doc-check.png\"" .
+				" alt=\"$encTitle\" title=\"$encTitle\" />";
 		}
 	}
 
