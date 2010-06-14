@@ -162,8 +162,6 @@ $wgFlaggedRevsStylePath = '$wgScriptPath/extensions/FlaggedRevs/client';
 $wgGroupPermissions['editor']['review']          = true;
 $wgGroupPermissions['editor']['autoreview']      = true;
 $wgGroupPermissions['editor']['autoconfirmed']   = true;
-$wgGroupPermissions['editor']['patrol']          = true;
-$wgGroupPermissions['editor']['autopatrol']      = true;
 $wgGroupPermissions['editor']['unreviewedpages'] = true;
 
 # Defines extra rights for advanced reviewer class
@@ -172,8 +170,6 @@ $wgGroupPermissions['reviewer']['validate']        = true;
 $wgGroupPermissions['reviewer']['review']          = true;
 $wgGroupPermissions['reviewer']['autoreview']      = true;
 $wgGroupPermissions['reviewer']['autoconfirmed']   = true;
-$wgGroupPermissions['reviewer']['patrol']          = true;
-$wgGroupPermissions['reviewer']['autopatrol']      = true;
 $wgGroupPermissions['reviewer']['unreviewedpages'] = true;
 
 # Sysops have their edits autoreviewed
