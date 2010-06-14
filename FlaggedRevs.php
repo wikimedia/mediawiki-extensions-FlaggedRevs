@@ -179,10 +179,6 @@ $wgGroupPermissions['sysop']['stablesettings'] = true;
 # Sysops can always move stable pages
 $wgGroupPermissions['sysop']['movestable'] = true;
 
-# Try to avoid flood by having autoconfirmed user edits to non-reviewable
-# namespaces autopatrolled.
-$wgGroupPermissions['autoconfirmed']['autopatrol'] = true;
-
 # Define when users get automatically promoted to Editors. Set as false to disable.
 # 'spacing' and 'benchmarks' require edits to be spread out. Users must have X (benchmark)
 # edits Y (spacing) days apart.

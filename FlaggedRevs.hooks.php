@@ -1109,7 +1109,11 @@ class FlaggedRevsHooks {
 	}
 
 	/**
-	* When an edit is made to a page that can't be reviewed, autopatrol if allowed.
+	* When an edit is made to a page:
+	* (a) If the page is reviewable, silently mark the edit patrolled if it was auto-reviewed
+	* (b) If the page can be patrolled, auto-patrol the edit patrolled as normal
+	* (c) If the page is new and $wgUseNPPatrol is on, auto-patrol the edit patrolled as normal
+	* (d) If the edit is neither reviewable nor patrolleable, silently mark it patrolled
 	*/
 	public static function autoMarkPatrolled( RecentChange &$rc ) {
 		global $wgUser;
