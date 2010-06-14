@@ -170,7 +170,7 @@ $messages['cs'] = array(
 $messages['de'] = array(
 	'stablepages' => 'Seiten die nur mit Bearbeitungsfreigabe bearbeitet werden können',
 	'stablepages-text' => 'Es folgt eine Liste von Seiten, die Einschränkungen haben, so das bestimmte Benutzer Bearbeitungen vornehmen können, die keine Überprüfung benötigen.
-Somit werden einige Bearbeitungen nicht angezeigt, bis ein entsprechend berechtigter Benutzer sie überprüft hat.',
+Bearbeitungen von anderen Bentzern werden standardmäßig solange nicht angezeigt, bis ein entsprechend berechtigter Benutzer sie überprüft hat.',
 	'stablepages-none' => 'Diese Liste enthält keine Seiten.',
 	'stablepages-config' => 'Konfiguration',
 );

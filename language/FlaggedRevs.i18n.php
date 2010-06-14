@@ -2886,7 +2886,7 @@ Mache dies nur, sofern du bereits alle bislang noch nicht überprüften Änderun
 	'revreview-submitedit-title' => 'Deine Änderungen zum Überprüfen übertragen',
 	'revreview-edited' => "'''Deine Änderungen werden veröffentlicht, sobald ein dazu berechtigter Benutzer sie überprüft hat. ([[{{MediaWiki:Validationpage}}|Hilfe]])'''
 
-Momentan {{PLURAL:$2|gibt|gibt}} es [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 ungeprüfte {{PLURAL:$2|Änderung|Änderungen}}]  ''(siehe unten)'', die noch überprüft werden müssen.",
+Momentan {{PLURAL:$2|gibt|gibt}} es [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 ungeprüfte {{PLURAL:$2|Änderung|Änderungen}}]  ''(siehe unten)'', die noch überprüft werden {{PLURAL:$2|muss|müssen}}.",
 	'revreview-edited-section' => 'Zurück zum Seitenabschnitt „[[#$1|$2]]“.',
 	'revreview-flag' => 'Markiere Version',
 	'revreview-reflag' => 'Diese Version erneut markieren',
@@ -2896,12 +2896,12 @@ Momentan {{PLURAL:$2|gibt|gibt}} es [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=c
 	'revreview-main' => 'Du musst eine Version zur Markierung auswählen.
 
 Siehe die [[Special:Unreviewedpages|Liste unmarkierter Versionen]].',
-	'revreview-newest-basic' => 'Die [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} überprüfte Version] wurde am <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} freigegeben]. Momentan {{PLURAL:$3|gibt|gibt}} es [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|Änderung|Änderungen}}] die noch überprüft werden müssen.',
+	'revreview-newest-basic' => 'Die [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} überprüfte Version] wurde am <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} freigegeben]. Momentan {{PLURAL:$3|gibt|gibt}} es [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|Änderung|Änderungen}}] die noch überprüft werden {{PLURAL:$3|muss|müssen}}.',
 	'revreview-newest-basic-i' => 'Die [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} überprüfte Version] wurde am <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} freigegeben]. Es sind noch [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Vorlagen- und Dateiänderungen] vorhanden, die überprüft werden müssen.',
-	'revreview-newest-quality' => 'Die [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} überprüfte Version] wurde am <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} freigegeben]. Momentan {{PLURAL:$3|gibt|gibt}} es [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|Änderung|Änderungen}}] die noch überprüft werden müssen.',
+	'revreview-newest-quality' => 'Die [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} überprüfte Version] wurde am <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} freigegeben]. Momentan {{PLURAL:$3|gibt|gibt}} es [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|Änderung|Änderungen}}] die noch überprüft werden {{PLURAL:$3|muss|müssen}}.',
 	'revreview-newest-quality-i' => 'Die [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} überprüfte Version] wurde am <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} freigegeben]. Es sind noch [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Vorlagen- und Dateiänderungen] vorhanden, die überprüft werden müssen.',
-	'revreview-pending-basic' => 'Die [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} überprüfte Version] wurde am <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} freigegeben]. Momentan {{PLURAL:$3|gibt|gibt}} es [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|Änderung|Änderungen}}] die noch überprüft werden müssen.',
-	'revreview-pending-quality' => 'Die [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} überprüfte Version] wurde am <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} freigegeben]. Momentan {{PLURAL:$3|gibt|gibt}} es [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|Änderung|Änderungen}}] die noch überprüft werden müssen.',
+	'revreview-pending-basic' => 'Die [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} überprüfte Version] wurde am <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} freigegeben]. Momentan {{PLURAL:$3|gibt|gibt}} es [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|Änderung|Änderungen}}] die noch überprüft werden {{PLURAL:$3|muss|müssen}}.',
+	'revreview-pending-quality' => 'Die [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} überprüfte Version] wurde am <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} freigegeben]. Momentan {{PLURAL:$3|gibt|gibt}} es [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|Änderung|Änderungen}}] die noch überprüft werden {{PLURAL:$3|muss|müssen}}.',
 	'revreview-pending-nosection' => 'Versuche die [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} neueste Version], die [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 zu überprüfende {{PLURAL:$2|Änderung|Änderungen}}] enthält, anzusehen, um festzustellen, ob der Abschnitt verschoben oder gelöscht wurde.',
 	'revreview-noflagged' => "Von dieser Seite gibt es keine [[{{MediaWiki:Validationpage}}|überprüften Versionen]]. Sie wurde möglicherweise noch '''nicht''' bezüglich deren Qualität überprüft.",
 	'revreview-note' => '[[User:$1|$1]] machte die folgende [[{{MediaWiki:Validationpage}}|Prüfnotiz]] zu dieser Version:',
@@ -3168,19 +3168,18 @@ bıewnê [[Special:Unreviewedpages|listeya pelê konrol nêbiyayeyan]].',
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} vurnayişê şablon/dosyayi] gani newe ra konrol bıbo.',
 	'revreview-pending-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Versiyonê sabiti] <i>$2</i> di [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} control biya]. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|vurnayis|vurnayisan}}] {{PLURAL:$3|esta|este}} ke gani kontrol biyo.',
 	'revreview-pending-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Versiyonê sabiti] <i>$2</i> de [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} qebul biya]. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|vurnayis|vurnayisan}}] {{PLURAL:$3|esta|este}} ke gani kontrol biyo.',
-	'revreview-noflagged' => 'No pel de revizyono ke çım ser nêçariyayi çino, no sebeb ra qey qalite belka [[{{MediaWiki:Validationpage}}|checked]] biyo.',
+	'revreview-noflagged' => 'No pel de revizyono ke [[{{MediaWiki:Validationpage}}|çım ser nêçariyayi]] çini yo, no sebeb ra qey qalite belka hewl niyo.',
 	'revreview-note' => '[[User:$1|$1]] no revizyon ser [[{{MediaWiki:Validationpage}}|çım çarna]] u no not verda:',
 	'revreview-notes' => 'tayê not u muşahedati ramociyeni:',
 	'revreview-oldrating' => 'derecekerdış:',
-	'revreview-quality' => 'Eno [[{{MediaWiki:Validationpage}}|versiyono istıqrarın]]o ke, roca <i>$2</i>ine de [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} tesdiq biyo].
-[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Vernuşte] de [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 teklifê {{PLURAL:$3|vurnayışio ke çımraviyarnayışi paweno, esto|vurnayışanê ke çımraviyarnayışi pawenê, estê}}].',
-	'revreview-quality-i' => 'Eno [[{{MediaWiki:Validationpage}}|versiyono istıqrarın]]o ke, roca <i>$2</i>ine de [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} tesdiq biyo].
-[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Vernuşte] de  [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} vurnayışê şabloniê/dosyaê] ke çımraviyarnayışi pawenê, estê.',
-	'revreview-quality-old' => 'no yew revizyono [[{{MediaWiki:Validationpage}}|qaliteyıno]] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} pêroyi liste ker]), <i>$2</i> tarix de [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} tesdiq biyo].
-Yeni [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} değişiklikler] yapılmış olabilir.',
-	'revreview-quality-same' => 'no revizyono [[{{MediaWiki:Validationpage}}|qaliteyıno]] tewr peyin o ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} pêroyi liste ker]), <i>$2</i> tarix de [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} tesdiq biyo].',
+	'revreview-quality' => 'No revizyon, revizyono [[{{MediaWiki:Validationpage}}|qaliteyıno]] tewr peyin o, <i>$2</i> tarix de [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} tesdiq biyo]. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|vurnayis|vurnayisan}}] {{PLURAL:$3|esta|este}} ke gani kontrol biya.',
+	'revreview-quality-i' => 'Eno [[{{MediaWiki:Validationpage}}|versiyono sebiti]] roca <i>$2</i>ine de [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} tesdiq biyo].
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} vurnayışê şabloniyê/dosyayê] ke çımraviyarnayışi pawenê, estê.',
+	'revreview-quality-old' => 'Eno versiyon [[{{MediaWiki:Validationpage}}|qaliteyıno]] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} pêroyi liste ker]), <i>$2</i> tarix de [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} tesdiq biyo].
+ [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Vurnayisano newe] belke biyo.',
+	'revreview-quality-same' => 'Eno revizyono [[{{MediaWiki:Validationpage}}|qaliteyıno]] tewr peyini <i>$2</i> tarix de [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} tesdiq biyo].',
 	'revreview-quality-source' => '[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} revizyonê qaliteyınê no peli], <i>$2</i> tarix de [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} tesdiq biyo], no revizyon qıstas geriyayo.',
-	'revreview-quality-title' => 'Ena yew pela qaliteya',
+	'revreview-quality-title' => 'Ena yew versiyone qaliteya pele ya',
 	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|Pela qontrolkerdiye]]''' ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} vurnayışanê vıneteyan bıvêne])",
 	'revreview-quick-basic-old' => "'''[[{{MediaWiki:Validationpage}}|Qontrol bi]]'''",
 	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|Qontrol bi]]'''",
