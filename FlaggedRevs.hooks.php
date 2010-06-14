@@ -260,7 +260,7 @@ class FlaggedRevsHooks {
 	* Autoreview pages moved into content NS
 	*/
 	public static function onTitleMoveComplete(
-		Title $otitle, Title $ntitle, User $user, $pageId
+		Title $otitle, Title $ntitle, $user, $pageId
 	) {
 		$fa = FlaggedArticle::getTitleInstance( $ntitle );
 		// Re-validate NS/config (new title may not be reviewable)
@@ -798,7 +798,7 @@ class FlaggedRevsHooks {
 	/**
 	* Check page move and patrol permissions for FlaggedRevs
 	*/
-	public static function onUserCan( Title $title, User $user, $action, &$result ) {
+	public static function onUserCan( Title $title, $user, $action, &$result ) {
 		if ( $result === false ) {
 			return true; // nothing to do
 		}
@@ -849,7 +849,7 @@ class FlaggedRevsHooks {
     /**
     * Allow users to view reviewed pages
     */
-    public static function userCanView( Title $title, User $user, $action, &$result ) {
+    public static function userCanView( Title $title, $user, $action, &$result ) {
         global $wgFlaggedRevsVisible, $wgFlaggedRevsTalkVisible, $wgTitle;
         # Assume $action may still not be set, in which case, treat it as 'view'...
 		# Return out if $result set to false by some other hooked call.
@@ -980,7 +980,7 @@ class FlaggedRevsHooks {
 	// Review $rev if $editTimestamp matches the previous revision's timestamp.
 	// Otherwise, review the revision that has $editTimestamp as its timestamp value.
 	protected static function editCheckReview(
-		Article $article, $rev, User $user, $editTimestamp
+		Article $article, $rev, $user, $editTimestamp
 	) {
 		$prevRevId = $rev->getParentId();
 		$prevTimestamp = $flags = null;
@@ -1011,7 +1011,7 @@ class FlaggedRevsHooks {
 	* Check if a user reverted himself to the stable version
 	*/
 	protected static function isSelfRevertToStable(
-		Revision $rev, $srev, $baseRevId, User $user
+		Revision $rev, $srev, $baseRevId, $user
 	) {
 		if ( !$srev || $baseRevId != $srev->getRevId() ) {
 			return false; // user reports they are not the same
@@ -1164,7 +1164,7 @@ class FlaggedRevsHooks {
 	}
 
 	public static function incrementRollbacks(
-		$article, User $user, $target, Revision $current
+		$article, $user, $target, Revision $current
 	) {
 		# Mark when a user reverts another user, but not self-reverts
 		if ( $current->getRawUser() && $user->getId() != $current->getRawUser() ) {
@@ -1200,7 +1200,7 @@ class FlaggedRevsHooks {
 		return true;
 	}
 
-	protected static function editSpacingCheck( $spacing, $points, User $user ) {
+	protected static function editSpacingCheck( $spacing, $points, $user ) {
 		# Convert days to seconds...
 		$spacing = $spacing * 24 * 3600;
 		# Check the oldest edit
@@ -1230,7 +1230,7 @@ class FlaggedRevsHooks {
 	/**
 	* Checks if $user was previously blocked
 	*/
-	public static function previousBlockCheck( User $user ) {
+	public static function previousBlockCheck( $user ) {
 		$dbr = wfGetDB( DB_SLAVE );
 		return (bool)$dbr->selectField( 'logging', '1',
 			array(
@@ -1246,7 +1246,7 @@ class FlaggedRevsHooks {
 	/**
 	* Grant 'autoreview' rights to users with the 'bot' right
 	*/
-	public static function onUserGetRights( User $user, array &$rights ) {
+	public static function onUserGetRights( $user, array &$rights ) {
 		# Make sure bots always have the 'autoreview' right
 		if ( in_array( 'bot', $rights ) && !in_array( 'autoreview', $rights ) ) {
 			$rights[] = 'autoreview';
@@ -1261,7 +1261,7 @@ class FlaggedRevsHooks {
 	*
 	* Note: some unobtrusive caching is used to avoid DB hits.
 	*/
-	public static function checkAutoPromote( User $user, array &$promote ) {
+	public static function checkAutoPromote( $user, array &$promote ) {
 		global $wgFlaggedRevsAutoconfirm, $wgMemc;
 		# Check if $wgFlaggedRevsAutoconfirm is actually enabled
 		# and that this is a logged-in user that doesn't already
@@ -1374,7 +1374,7 @@ class FlaggedRevsHooks {
 	* $wgFlaggedRevsAutopromote. This also handles user stats tallies.
 	*/
 	public static function maybeMakeEditor(
-		Article $article, User $user, $text, $summary, $m, $a, $b, &$f, $rev
+		Article $article, $user, $text, $summary, $m, $a, $b, &$f, $rev
 	) {
 		global $wgFlaggedRevsAutopromote, $wgFlaggedRevsAutoconfirm, $wgMemc;
 		# Ignore NULL edits or edits by anon users
@@ -1610,7 +1610,7 @@ class FlaggedRevsHooks {
 	}
 
 	/** Add user preferences */
-	public static function onGetPreferences( User $user, array &$preferences ) {
+	public static function onGetPreferences( $user, array &$preferences ) {
 		// Box or bar UI
 		$preferences['flaggedrevssimpleui'] =
 			array(

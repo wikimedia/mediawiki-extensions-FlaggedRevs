@@ -551,7 +551,7 @@ class FlaggedRevs {
 	* @param User $user (optional)
 	* @returns ParserOptions
 	*/
-	public static function makeParserOptions( User $user = null ) {
+	public static function makeParserOptions( $user = null ) {
 		global $wgUser;
 		$user = $user ? $user : $wgUser; // assume current
 		$options = ParserOptions::newFromUser( $user );
@@ -568,7 +568,7 @@ class FlaggedRevs {
 	* @return ParserOutput
 	* Get the page cache for the top stable revision of an article
 	*/
-	public static function getPageCache( Article $article, User $user ) {
+	public static function getPageCache( Article $article, $user ) {
 		global $parserMemc, $wgCacheEpoch;
 		wfProfileIn( __METHOD__ );
 		# Make sure it is valid
@@ -616,7 +616,7 @@ class FlaggedRevs {
 	/**
 	 * Like ParserCache::getKey() with stable-pcache instead of pcache
 	 */
-	public static function getCacheKey( $parserCache, Article $article, User $user ) {
+	public static function getCacheKey( $parserCache, Article $article, $user ) {
 		$key = $parserCache->getKey( $article, $user );
 		$key = str_replace( ':pcache:', ':stable-pcache:', $key );
 		return $key;
@@ -629,7 +629,7 @@ class FlaggedRevs {
 	* Updates the stable cache of a page with the given $parserOut
 	*/
 	public static function updatePageCache(
-		Article $article, User $user, ParserOutput $parserOut = null
+		Article $article, $user, ParserOutput $parserOut = null
 	) {
 		global $parserMemc, $wgParserCacheExpireTime, $wgEnableParserCache;
 		# Make sure it is valid and $wgEnableParserCache is enabled
@@ -1479,7 +1479,7 @@ class FlaggedRevs {
 	* If no appropriate tags can be found, then the review will abort.
 	*/
 	public static function autoReviewEdit(
-		Article $article, User $user, $text, Revision $rev, array $flags = null, $auto = true
+		Article $article, $user, $text, Revision $rev, array $flags = null, $auto = true
 	) {
 		wfProfileIn( __METHOD__ );
 		$title = $article->getTitle();
