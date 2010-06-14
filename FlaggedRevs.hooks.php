@@ -1176,16 +1176,23 @@ class FlaggedRevsHooks {
 		return true;
 	}
 
-	public static function incrementReverts( $article, $rev, $baseRevId = false, $user = null ) {
+	public static function incrementReverts(
+		Article $article, $rev, $baseRevId = false, $user = null
+	) {
 		global $wgRequest;
 		# Was this an edit by an auto-sighter that undid another edit?
 		$undid = $wgRequest->getInt( 'undidRev' );
 		if ( $rev && $undid && $user->isAllowed( 'autoreview' ) ) {
-			$badRev = Revision::newFromTitle( $rev->getTitle(), $undid );
+			// Note: $rev->getTitle() might be undefined (no rev id?)
+			$badRev = Revision::newFromTitle( $article->getTitle(), $undid );
 			# Don't count self-reverts
-			if ( $badRev && $badRev->getRawUser() && $badRev->getRawUser() != $rev->getRawUser() ) {
+			if ( $badRev && $badRev->getRawUser()
+				&& $badRev->getRawUser() != $rev->getRawUser() )
+			{
 				$p = FlaggedRevs::getUserParams( $badRev->getRawUser() );
-				$p['revertedEdits'] = isset( $p['revertedEdits'] ) ? $p['revertedEdits'] : 0;
+				if ( !isset( $p['revertedEdits'] ) ) {
+					$p['revertedEdits'] = 0;
+				}
 				$p['revertedEdits']++;
 				FlaggedRevs::saveUserParams( $badRev->getRawUser(), $p );
 			}
