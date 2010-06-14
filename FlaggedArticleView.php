@@ -512,7 +512,7 @@ class FlaggedArticleView {
 	   	if ( $redirHtml != '' ) {
 			$wgOut->addHtml( $redirHtml );
 		} else {
-			$wgOut->addParserOutput( $parserOut );
+			$this->addParserOutput( $parserOut );
 		}
 	}
 
@@ -600,7 +600,19 @@ class FlaggedArticleView {
 			$wgOut->addHtml( $redirHtml );
 		} else {
 			// $parserOut will not be null here
-			$wgOut->addParserOutput( $parserOut );
+			$this->addParserOutput( $parserOut );
+		}
+	}
+
+	// Add parser output and update title
+	// @TODO: refactor MW core to move this back
+	protected function addParserOutput( ParserOutput $parserOut ) {
+		global $wgOut;
+		$wgOut->addParserOutput( $parserOut );
+		# Adjust the title if it was set by displaytitle, -{T|}- or language conversion
+		$titleText = $parserOut->getTitleText();
+		if ( strval( $titleText ) !== '' ) {
+			$wgOut->setPageTitle( $titleText );
 		}
 	}
 
