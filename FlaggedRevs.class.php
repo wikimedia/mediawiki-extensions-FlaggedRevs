@@ -1536,11 +1536,10 @@ class FlaggedRevs {
 				$fileIncludeData = array(
 					'fi_rev_id' 		=> $rev->getId(),
 					'fi_name' 			=> $dbkey,
-					'fi_img_sha1' 		=> $sha1
+					'fi_img_sha1' 		=> $sha1,
+					// b/c: NULL becomes '' for old fi_img_timestamp def (non-strict)
+					'fi_img_timestamp'  => $time ? $dbw->timestamp( $time ) : null
 				);
-				if ( $time ) { // b/c for bad <char(14) NOT NULL default ''> def
-					$fileIncludeData['fi_img_timestamp'] = $dbw->timestamp( $time );
-				}
 				$imgset[] = $fileIncludeData;
 			}
 		}

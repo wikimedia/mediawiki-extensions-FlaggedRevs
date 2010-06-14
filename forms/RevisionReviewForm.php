@@ -388,13 +388,12 @@ class RevisionReviewForm
 				$lastImgTime = $timestamp;
 
 			$fileIncludeData = array(
-				'fi_rev_id'		=> $rev->getId(),
-				'fi_name'		=> $img_title->getDBkey(),
-				'fi_img_sha1'	=> $key
+				'fi_rev_id'			=> $rev->getId(),
+				'fi_name'			=> $img_title->getDBkey(),
+				'fi_img_sha1'		=> $key,
+				// b/c: NULL becomes '' for old fi_img_timestamp def (non-strict)
+				'fi_img_timestamp' 	=> $timestamp ? $dbw->timestamp( $timestamp ) : null
 			);
-			if ( $time ) { // b/c for bad <char(14) NOT NULL default ''> def
-				$fileIncludeData['fi_img_timestamp'] = $dbw->timestamp( $timestamp );
-			}
 			$imgset[] = $fileIncludeData;
 
 			if ( !isset( $imgParams[$img_title->getDBkey()] ) ) {
