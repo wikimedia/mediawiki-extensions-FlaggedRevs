@@ -474,7 +474,7 @@ class FlaggedRevision {
 			$revIdStable = max( $row->fp_stable, $row->ft_tmp_rev_id );
 			# Compare to current...
 			$deleted = ( !$revIdDraft && $revIdStable ); // later deleted
-			$updated = ( $revIdDraft && $revIdDraft != $revIdStable ); // updated/created
+			$updated = ( $revIdDraft && $revIdDraft > $revIdStable ); // updated/created
 			if ( $deleted || $updated ) {
 				$tmpChanges[] = array( $title, $revIdStable );
 			}
@@ -486,13 +486,14 @@ class FlaggedRevision {
 	 * Fetch pending file changes for this reviewed page version.
 	 * For each file, the version used is newest( stable rev, rev at time of review ).
 	 * Pending changes exist if the latest version of the file is newer than this.
+	 * @TODO: skip commons images, deliberately? (bug 15748).
 	 *
 	 * @return Array of (file title, MW file timestamp in reviewed version) tuples
 	 */
 	public function findPendingFileChanges() {
 		$dbr = wfGetDB( DB_SLAVE );
 		$ret = $dbr->select(
-			array( 'flaggedimages', 'page', 'image', 'flaggedpages', 'flaggedrevs' ),
+			array( 'flaggedimages', 'page', 'flaggedpages', 'flaggedrevs' ),
 			array( 'fi_name', 'fi_img_timestamp', 'fr_img_timestamp' ),
 			array( 'fi_rev_id' => $this->getRevId() ),
 				__METHOD__,
@@ -500,7 +501,6 @@ class FlaggedRevision {
 			array(
 				'page' => array( 'LEFT JOIN',
 					'page_namespace = ' . NS_FILE . ' AND page_title = fi_name' ),
-				'image' => array( 'LEFT JOIN', 'img_name = fi_name' ),
 				'flaggedpages' => array( 'LEFT JOIN', 'fp_page_id = page_id' ),
 				'flaggedrevs' => array( 'LEFT JOIN',
 				'fr_page_id = fp_page_id AND fr_rev_id = fp_stable' ) )
@@ -514,9 +514,9 @@ class FlaggedRevision {
 				? $row->fr_img_timestamp
 				: $reviewedTS;
 			# Compare to current...
-			$file = wfFindFile( $title );
+			$file = wfFindFile( $title ); // current file version
 			$deleted = ( !$file && $tsStable ); // later deleted
-			$updated = ( $file && $file->getTimestamp() != $tsStable ); // updated/created
+			$updated = ( $file && $file->getTimestamp() > $tsStable ); // updated/created
 			if ( $deleted || $updated ) {
 				$fileChanges[] = array( $title, $tsStable );
 			}
