@@ -1320,10 +1320,10 @@ class FlaggedRevs {
 	 * Get minimum tags that are closest to $oldFlags
 	 * given the site, page, and user rights limitations.
 	 * @param array $oldFlags previous stable rev flags
-	 * @param array $config
+	 * @TODO: dependency inject the User?
 	 * @return mixed array or null
 	 */
-	public static function getAutoReviewTags( $oldFlags, array $config = array() ) {
+	public static function getAutoReviewTags( array $oldFlags ) {
 		if ( !self::autoReviewEdits() ) {
 			return null; // shouldn't happen
 		}

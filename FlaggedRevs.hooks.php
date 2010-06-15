@@ -1004,7 +1004,7 @@ class FlaggedRevsHooks {
 		}
 		# Review this revision of the page...
 		return FlaggedRevs::autoReviewEdit(
-			$article, $user, $rev->getText(), $rev, $flags, false );
+			$article, $user, $rev->getText(), $rev, $flags, false  /* manual */ );
 	}
 
 	/**
