@@ -1821,7 +1821,18 @@ class FlaggedRevsHooks {
 			$tables[] = 'flaggedrevs';
 			$fields[] = 'MAX(fr_quality) AS fr_quality';
 			# Avoid duplicate rows due to multiple revs with the same sha-1 key
-			$opts['GROUP BY'] = 'oi_name,oi_timestamp';
+
+			# This is a stupid hack to get all the field names in our GROUP BY
+			# clause. Postgres yells at you for not including all of the selected
+			# columns, so grab the full list, unset the two we actually want to
+			# order by, then append the rest of them to our two. It would be
+			# REALLY nice if we handled this automagically in makeSelectOptions()
+			# or something *sigh*
+			$groupBy = OldLocalFile::selectFields();
+			unset( $groupBy[ array_search( 'oi_name', $groupBy ) ] );
+			unset( $groupBy[ array_search( 'oi_timestamp', $groupBy ) ] );
+			$opts['GROUP BY'] = 'oi_name,oi_timestamp,' . implode( ',', $groupBy );
+
 			$join_conds['flaggedrevs'] = array( 'LEFT JOIN',
 				'oi_sha1 = fr_img_sha1 AND oi_timestamp = fr_img_timestamp' );
 		}
