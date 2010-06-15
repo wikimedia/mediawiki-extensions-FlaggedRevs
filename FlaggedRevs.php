@@ -163,6 +163,7 @@ $wgGroupPermissions['editor']['review']          = true;
 $wgGroupPermissions['editor']['autoreview']      = true;
 $wgGroupPermissions['editor']['autoconfirmed']   = true;
 $wgGroupPermissions['editor']['unreviewedpages'] = true;
+$wgGroupPermissions['editor']['patrolmarks']     = true;
 
 # Defines extra rights for advanced reviewer class
 $wgGroupPermissions['reviewer']['validate']        = true;
@@ -171,6 +172,7 @@ $wgGroupPermissions['reviewer']['review']          = true;
 $wgGroupPermissions['reviewer']['autoreview']      = true;
 $wgGroupPermissions['reviewer']['autoconfirmed']   = true;
 $wgGroupPermissions['reviewer']['unreviewedpages'] = true;
+$wgGroupPermissions['reviewer']['patrolmarks']     = true;
 
 # Sysops have their edits autoreviewed
 $wgGroupPermissions['sysop']['autoreview'] = true;
@@ -289,7 +291,6 @@ $wgGroupPermissions['bot']['autoreview'] = true;
 $wgAvailableRights[] = 'review';
 $wgAvailableRights[] = 'validate'; # Let some users set higher settings
 $wgAvailableRights[] = 'autoreview';
-$wgAvailableRights[] = 'patrolmarks';
 $wgAvailableRights[] = 'unreviewedpages';
 $wgAvailableRights[] = 'movestable';
 $wgAvailableRights[] = 'stablesettings';
