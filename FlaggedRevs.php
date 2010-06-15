@@ -128,9 +128,9 @@ $wgFlaggedRevTags = array(
 # NOTE: Users with 'validate' can do anything regardless.
 # This is mainly for custom, less experienced, groups
 $wgFlagRestrictions = array(
-	'accuracy' => array( 'review' => 1 ),
-	'depth'	   => array( 'review' => 2 ),
-	'style'	   => array( 'review' => 3 ),
+	'accuracy' => array( 'review' => 1, 'autoreview' => 1 ),
+	'depth'	   => array( 'review' => 2, 'autoreview' => 2 ),
+	'style'	   => array( 'review' => 3, 'autoreview' => 3 ),
 );
 # For each tag, what is the highest level that it can be auto-reviewed to?
 # $wgFlaggedRevsAutoReview must be enabled for this to apply.
