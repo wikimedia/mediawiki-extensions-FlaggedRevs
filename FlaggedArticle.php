@@ -233,7 +233,6 @@ class FlaggedArticle extends Article {
 		# (a) Check if the current output has a newer template/file used
 		# (b) Check if the stable version has a file/template that was deleted
 		$synced = (
-			!$stableOutput->fr_includeErrors && // deleted since
 			FlaggedRevs::includesAreSynced( $stableOutput, $currentOutput )
 		);
 		# Save to cache. This will be updated whenever the page is touched.

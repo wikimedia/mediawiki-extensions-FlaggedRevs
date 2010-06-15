@@ -447,6 +447,83 @@ class FlaggedRevision {
 		return $this->mFiles;
 	}
 	
+	/*
+	 * Fetch pending template changes for this reviewed page version.
+	 * For each template, the version used is newest( stable rev, rev at time of review ).
+	 * Pending changes exist if the latest version of the template is newer than this.
+	 *
+	 * @return Array of (template title, rev ID in reviewed version) tuples
+	 */
+	public function findPendingTemplateChanges() {
+		$dbr = wfGetDB( DB_SLAVE );
+		$ret = $dbr->select( array( 'flaggedtemplates', 'page', 'flaggedpages' ),
+			array( 'ft_namespace', 'ft_title', 'fp_stable', 'ft_tmp_rev_id', 'page_latest' ),
+			array( 'ft_rev_id' => $this->getRevId() ),
+			__METHOD__,
+			array(), /* OPTIONS */
+			array(
+				'page' => array( 'LEFT JOIN',
+					'page_namespace = ft_namespace AND page_title = ft_title' ),
+				'flaggedpages' => array( 'LEFT JOIN', 'fp_page_id = page_id' ) )
+		);
+		$tmpChanges = array();
+		while ( $row = $dbr->fetchObject( $ret ) ) {
+			$title = Title::makeTitleSafe( $row->ft_namespace, $row->ft_title );
+			$revIdDraft = (int)$row->page_latest; // may be NULL
+			# Select newest of (stable rev, rev when reviewed) when parsing
+			$revIdStable = max( $row->fp_stable, $row->ft_tmp_rev_id );
+			# Compare to current...
+			$deleted = ( !$revIdDraft && $revIdStable ); // later deleted
+			$updated = ( $revIdDraft && $revIdDraft != $revIdStable ); // updated/created
+			if ( $deleted || $updated ) {
+				$tmpChanges[] = array( $title, $revIdStable );
+			}
+		}
+		return $tmpChanges;
+	}
+	
+	/*
+	 * Fetch pending file changes for this reviewed page version.
+	 * For each file, the version used is newest( stable rev, rev at time of review ).
+	 * Pending changes exist if the latest version of the file is newer than this.
+	 *
+	 * @return Array of (file title, MW file timestamp in reviewed version) tuples
+	 */
+	public function findPendingFileChanges() {
+		$dbr = wfGetDB( DB_SLAVE );
+		$ret = $dbr->select(
+			array( 'flaggedimages', 'page', 'image', 'flaggedpages', 'flaggedrevs' ),
+			array( 'fi_name', 'fi_img_timestamp', 'fr_img_timestamp' ),
+			array( 'fi_rev_id' => $this->getRevId() ),
+				__METHOD__,
+			array(), /* OPTIONS */
+			array(
+				'page' => array( 'LEFT JOIN',
+					'page_namespace = ' . NS_FILE . ' AND page_title = fi_name' ),
+				'image' => array( 'LEFT JOIN', 'img_name = fi_name' ),
+				'flaggedpages' => array( 'LEFT JOIN', 'fp_page_id = page_id' ),
+				'flaggedrevs' => array( 'LEFT JOIN',
+				'fr_page_id = fp_page_id AND fr_rev_id = fp_stable' ) )
+		);
+		$fileChanges = array();
+		while ( $row = $dbr->fetchObject( $ret ) ) {
+			$title = Title::makeTitleSafe( NS_FILE, $row->fi_name );
+			$reviewedTS = trim( $row->fi_img_timestamp ); // may be ''/NULL
+			# Select newest of (stable rev, rev when reviewed) when parsing
+			$tsStable = $row->fr_img_timestamp >= $reviewedTS
+				? $row->fr_img_timestamp
+				: $reviewedTS;
+			# Compare to current...
+			$file = wfFindFile( $title );
+			$deleted = ( !$file && $tsStable ); // later deleted
+			$updated = ( $file && $file->getTimestamp() != $tsStable ); // updated/created
+			if ( $deleted || $updated ) {
+				$fileChanges[] = array( $title, $tsStable );
+			}
+		}
+		return $fileChanges;
+	}
+	
 	/**
 	 * Get text of the corresponding revision
 	 * @return mixed (string/false) revision timestamp in MW format

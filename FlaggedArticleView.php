@@ -1242,9 +1242,9 @@ class FlaggedArticleView {
 			$changeList = array();
 			if ( !$synced ) {
 				# Add a list of links to each changed template...
-				$changeList += $this->fetchTemplateChanges( $frev );
+				$changeList = array_merge( $changeList, $this->fetchTemplateChanges( $frev ) );
 				# Add a list of links to each changed file...
-				$changeList += $this->fetchFileChanges( $frev );
+				$changeList = array_merge( $changeList, $this->fetchFileChanges( $frev ) );
 			}
 
 			# Some important information about include version selection...
@@ -1391,36 +1391,15 @@ class FlaggedArticleView {
 	protected function fetchTemplateChanges( FlaggedRevision $frev ) {
 		global $wgUser;
 		$skin = $wgUser->getSkin();
-		$dbr = wfGetDB( DB_SLAVE );
-		# Get templates where the current and stable are not the same revision
-		$ret = $dbr->select( array( 'flaggedtemplates', 'page', 'flaggedpages' ),
-			array( 'ft_namespace', 'ft_title', 'fp_stable', 'ft_tmp_rev_id', 'page_latest' ),
-			array( 'ft_rev_id' => $frev->getRevId() ),
-			__METHOD__,
-			array(), /* OPTIONS */
-			array(
-				'page' => array( 'LEFT JOIN',
-					'page_namespace = ft_namespace AND page_title = ft_title' ),
-				'flaggedpages' => array( 'LEFT JOIN', 'fp_page_id = page_id' ) )
-		);
-		$tmpChanges = array();
-		while ( $row = $dbr->fetchObject( $ret ) ) {
-			$title = Title::makeTitleSafe( $row->ft_namespace, $row->ft_title );
-			$revIdDraft = $row->page_latest; // may be NULL
-			# Stable time -> time when reviewed (unless the other is newer)
-			$revIdStable = $row->fp_stable && $row->fp_stable >= $row->ft_tmp_rev_id
-				? $row->fp_stable
-				: $row->ft_tmp_rev_id;
-			# Compare to current...
-			$deleted = ( !$revIdDraft && $revIdStable ); // later deleted
-			$updated = ( $revIdDraft && $revIdDraft > $revIdStable ); // updated/created
-			if ( $deleted || $updated ) {
-				$tmpChanges[] = $skin->makeLinkObj( $title,
-					$title->getPrefixedText(),
-					'diff=cur&oldid=' . (int)$revIdStable );
-			}
+		$diffLinks = array();
+		$changes = $frev->findPendingTemplateChanges();
+		foreach ( $changes as $tuple ) {
+			list( $title, $revIdStable ) = $tuple;
+			$diffLinks[] = $skin->makeLinkObj( $title,
+				$title->getPrefixedText(),
+				'diff=cur&oldid=' . (int)$revIdStable );
 		}
-		return $tmpChanges;
+		return $diffLinks;
 	}
 
 	// Fetch file changes for a reviewed revision since review
@@ -1428,40 +1407,14 @@ class FlaggedArticleView {
 	protected function fetchFileChanges( FlaggedRevision $frev ) {
 		global $wgUser;
 		$skin = $wgUser->getSkin();
-		$dbr = wfGetDB( DB_SLAVE );
-		# Get images where the current and stable are not the same revision
-		$ret = $dbr->select(
-			array( 'flaggedimages', 'page', 'image', 'flaggedpages', 'flaggedrevs' ),
-			array( 'fi_name', 'fi_img_timestamp', 'fr_img_timestamp' ),
-			array( 'fi_rev_id' => $frev->getRevId() ),
-				__METHOD__,
-			array(), /* OPTIONS */
-			array(
-				'page' => array( 'LEFT JOIN',
-					'page_namespace = ' . NS_FILE . ' AND page_title = fi_name' ),
-				'image' => array( 'LEFT JOIN', 'img_name = fi_name' ),
-				'flaggedpages' => array( 'LEFT JOIN', 'fp_page_id = page_id' ),
-				'flaggedrevs' => array( 'LEFT JOIN',
-				'fr_page_id = fp_page_id AND fr_rev_id = fp_stable' ) )
-		);
-		$imgChanges = array();
-		while ( $row = $dbr->fetchObject( $ret ) ) {
-			$title = Title::makeTitleSafe( NS_FILE, $row->fi_name );
-			$reviewedTS = trim( $row->fi_img_timestamp ); // may be ''/NULL
-			# Stable time -> time when reviewed (unless the other is newer)
-			$tsStable = $row->fr_img_timestamp && $row->fr_img_timestamp >= $reviewedTS
-				? $row->fr_img_timestamp
-				: $reviewedTS;
-			# Compare to current...
-			$file = wfFindFile( $title );
-			$deleted = ( !$file && $tsStable ); // later deleted
-			$updated = ( $file && $file->getTimestamp() > $tsStable ); // updated/created
-			if ( $deleted || $updated ) {
-				// @TODO: change when MW has file diffs
-				$imgChanges[] = $skin->makeLinkObj( $title, $title->getPrefixedText() );
-			}
+		$diffLinks = array();
+		$changes = $frev->findPendingFileChanges();
+		foreach ( $changes as $tuple ) {
+			list( $title, $revIdStable ) = $tuple;
+			// @TODO: change when MW has file diffs
+			$diffLinks[] = $skin->makeLinkObj( $title, $title->getPrefixedText() );
 		}
-		return $imgChanges;
+		return $diffLinks;
 	}
 
 	// Mark that someone is viewing a portion or all of the diff-to-stable
