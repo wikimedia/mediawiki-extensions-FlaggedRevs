@@ -68,7 +68,7 @@ class ApiReview extends ApiBase {
 		if ( $form->isApproval() ) {
 			// Now get the template and image parameters needed
 			// If it is the current revision, try the parser cache first
-			$article = new Article( $title, $revid );
+			$article = new FlaggedArticle( $title, $revid );
 			if ( $rev->isCurrent() ) {
 				$parserCache = ParserCache::singleton();
 				$parserOutput = $parserCache->get( $article, $wgUser );

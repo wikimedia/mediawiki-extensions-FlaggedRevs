@@ -891,6 +891,7 @@ class FlaggedRevsHooks {
 	* (d) The user can 'review' and the "review pending edits" checkbox was checked
 	*
 	* Note: RC items not inserted yet, RecentChange_save hook does rc_patrolled bit...
+	* Note: $article one of Article, ImagePage, Category page as appropriate.
 	*/
 	public static function maybeMakeEditReviewed(
 		Article $article, $rev, $baseRevId = false, $user = null

@@ -147,7 +147,7 @@ class FlaggedRevs {
 		global $wgUser, $wgSimpleFlaggedRevsUI;
 		return $wgUser->getOption( 'flaggedrevssimpleui', intval( $wgSimpleFlaggedRevsUI ) );
 	}
-		
+
 	/**
 	 * Allow auto-review edits directly to the stable version by reviewers?
 	 * (1 to allow auto-sighting; 2 for auto-quality; 3 for auto-pristine)
@@ -1621,13 +1621,13 @@ class FlaggedRevs {
 	
 	/**
 	 * Get template and image parameters from parser output
-	 * @param Article $article
+	 * @param FlaggedArticle $article
 	 * @param array $templateIDs (from ParserOutput/OutputPage->mTemplateIds)
 	 * @param array $imageSHA1Keys (from ParserOutput/OutputPage->fr_ImageSHA1Keys)
 	 * @returns array( templateParams, imageParams, fileVersion )
 	 */
 	public static function getIncludeParams(
-		Article $article, array $templateIDs, array $imageSHA1Keys
+		FlaggedArticle $article, array $templateIDs, array $imageSHA1Keys
 	) {
 		$templateParams = $imageParams = $fileVersion = '';
 		# NS -> title -> rev ID mapping
@@ -1644,9 +1644,11 @@ class FlaggedRevs {
 			}
 		}
 		# For image pages, note the displayed image version
-		if ( $article instanceof ImagePage ) {
-			$file = $article->getDisplayedFile();
-			$fileVersion = $file->getTimestamp() . "#" . $file->getSha1();
+		if ( $article->getTitle()->getNamespace() == NS_FILE ) {
+			$file = $article->getDisplayedFile(); // File obj
+			if ( $file ) {
+				$fileVersion = $file->getTimestamp() . "#" . $file->getSha1();
+			}
 		}
 		return array( $templateParams, $imageParams, $fileVersion );
 	}

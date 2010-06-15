@@ -9,7 +9,7 @@ class FlaggedArticle extends Article {
 	protected $stableRev = null;
 	protected $pendingRevs = null;
 	protected $pageConfig = null;
-	protected $file = null;
+	protected $imagePage = null; // for file pages
 
 	/**
 	 * Get a FlaggedArticle for a given title
@@ -52,13 +52,27 @@ class FlaggedArticle extends Article {
 	 */
 	public function getFile() {
 		if ( $this->getTitle()->getNamespace() != NS_FILE ) {
-			return false; // not an file page
+			return false; // not a file page
 		}
-		if ( is_null( $this->file ) ) {
-			$imagePage = new ImagePage( $this->getTitle() );
-			$this->file = $imagePage->getFile();
+		if ( is_null( $this->imagePage ) ) {
+			$this->imagePage = new ImagePage( $this->getTitle() );
 		}
-		return $this->file;
+		return $this->imagePage->getFile();
+	}
+
+	/**
+	 * Get the displayed file version of this file page
+	 * @TODO: kind of hacky
+	 * @return mixed (File/false)
+	 */
+	public function getDisplayedFile() {
+		if ( $this->getTitle()->getNamespace() != NS_FILE ) {
+			return false; // not a file page
+		}
+		if ( is_null( $this->imagePage ) ) {
+			$this->imagePage = new ImagePage( $this->getTitle() );
+		}
+		return $this->imagePage->getDisplayedFile();
 	}
 
 	 /**
