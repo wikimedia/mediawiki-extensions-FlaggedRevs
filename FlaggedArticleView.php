@@ -1535,15 +1535,16 @@ class FlaggedArticleView {
 	}
 
 	/**
-	* Add a "review pending changes" checkbox to the edit form
-	* if there are currently any revisions pending. (bug 16713)
+	* Add a "review pending changes" checkbox to the edit form if:
+	* (a) there are currently any revisions pending (bug 16713)
+	* (b) this is an unreviewed page (bug 23970)
 	*/
 	public function addReviewCheck( EditPage $editPage, array &$checkboxes, &$tabindex ) {
 		global $wgUser, $wgRequest;
-		if ( !$this->article->getTitle()->userCan( 'review' )
-			|| !$this->article->isReviewable()
-			|| !$this->article->revsArePending() )
-		{
+		if ( !$this->article->isReviewable()
+			|| !$this->article->getTitle()->userCan( 'review' )
+			|| ( $this->article->getStable() && !$this->article->revsArePending() )
+		) {
 			return true; // not needed
 		}
 		$oldid = $wgRequest->getInt( 'baseRevId', $this->article->getLatest() );
@@ -1557,12 +1558,17 @@ class FlaggedArticleView {
 				$wgRequest->getCheck( 'wpReviewEdit' ),
 				array( 'tabindex' => ++$tabindex, 'id' => 'wpReviewEdit' )
 			);
-			$attribs = array(
-				'for'   => 'wpReviewEdit',
-				'title' => wfMsg( 'revreview-check-flag-title' )
-			);
-			$label = Xml::element( 'label', $attribs,
-				wfMsgExt( 'revreview-check-flag', 'parseinline' ) );
+			$attribs = array( 'for' => 'wpReviewEdit' );
+			// For pending changes...
+			if ( $this->article->getStable() ) {
+				$attribs['title'] = wfMsg( 'revreview-check-flag-p-title' );
+				$labelMsg = wfMsgExt( 'revreview-check-flag-p', 'parseinline' );
+			// For unreviewed pages...
+			} else {
+				$attribs['title'] = wfMsg( 'revreview-check-flag-u-title' );
+				$labelMsg = wfMsgExt( 'revreview-check-flag-u', 'parseinline' );
+			}
+			$label = Xml::element( 'label', $attribs, $labelMsg );
 			$checkboxes['reviewed'] = $checkbox . '&nbsp;' . $label;
 		}
 		return true;
