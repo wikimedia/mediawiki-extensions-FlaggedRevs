@@ -409,6 +409,7 @@ class FlaggedRevision {
 	}
 
 	/**
+	 * Get original template versions at time of review
 	 * @return Array template versions (ns -> dbKey -> rev id)
 	 */
 	public function getTemplateVersions() {
@@ -430,6 +431,7 @@ class FlaggedRevision {
 	}
 	
 	/**
+	 * Get original template versions at time of review
 	 * @return Array file versions (dbKey -> sha1)
 	 */
 	public function getFileVersions() {
@@ -449,12 +451,18 @@ class FlaggedRevision {
 	
 	/*
 	 * Fetch pending template changes for this reviewed page version.
-	 * For each template, the version used is newest( stable rev, rev at time of review ).
+	 * For each template, the version used is:
+	 *    (a) (the latest rev) if FR_INCLUDES_CURRENT
+	 *    (b) newest( stable rev, rev at time of review ) if FR_INCLUDES_STABLE
+	 *    (c) ( rev at time of review ) if FR_INCLUDES_FREEZE
 	 * Pending changes exist if the latest version of the template is newer than this.
 	 *
 	 * @return Array of (template title, rev ID in reviewed version) tuples
 	 */
 	public function findPendingTemplateChanges() {
+		if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_CURRENT ) {
+			return array(); // short-circuit
+		}
 		$dbr = wfGetDB( DB_SLAVE );
 		$ret = $dbr->select( array( 'flaggedtemplates', 'page', 'flaggedpages' ),
 			array( 'ft_namespace', 'ft_title', 'fp_stable', 'ft_tmp_rev_id', 'page_latest' ),
@@ -470,8 +478,12 @@ class FlaggedRevision {
 		while ( $row = $dbr->fetchObject( $ret ) ) {
 			$title = Title::makeTitleSafe( $row->ft_namespace, $row->ft_title );
 			$revIdDraft = (int)$row->page_latest; // may be NULL
-			# Select newest of (stable rev, rev when reviewed) when parsing
-			$revIdStable = max( $row->fp_stable, $row->ft_tmp_rev_id );
+			if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_STABLE ) {
+				# Select newest of (stable rev, rev when reviewed) when parsing
+				$revIdStable = max( $row->fp_stable, $row->ft_tmp_rev_id );
+			} else {
+				$revIdStable = (int)$row->ft_tmp_rev_id;
+			}
 			# Compare to current...
 			$deleted = ( !$revIdDraft && $revIdStable ); // later deleted
 			$updated = ( $revIdDraft && $revIdDraft > $revIdStable ); // updated/created
@@ -484,13 +496,19 @@ class FlaggedRevision {
 	
 	/*
 	 * Fetch pending file changes for this reviewed page version.
-	 * For each file, the version used is newest( stable rev, rev at time of review ).
+	 * For each file, the version used is:
+	 *    (a) (the latest rev) if FR_INCLUDES_CURRENT
+	 *    (b) newest( stable rev, rev at time of review ) if FR_INCLUDES_STABLE
+	 *    (c) ( rev at time of review ) if FR_INCLUDES_FREEZE
 	 * Pending changes exist if the latest version of the file is newer than this.
 	 * @TODO: skip commons images, deliberately? (bug 15748).
 	 *
 	 * @return Array of (file title, MW file timestamp in reviewed version) tuples
 	 */
 	public function findPendingFileChanges() {
+		if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_CURRENT ) {
+			return array(); // short-circuit
+		}
 		$dbr = wfGetDB( DB_SLAVE );
 		$ret = $dbr->select(
 			array( 'flaggedimages', 'page', 'flaggedpages', 'flaggedrevs' ),
@@ -509,10 +527,14 @@ class FlaggedRevision {
 		while ( $row = $dbr->fetchObject( $ret ) ) {
 			$title = Title::makeTitleSafe( NS_FILE, $row->fi_name );
 			$reviewedTS = trim( $row->fi_img_timestamp ); // may be ''/NULL
-			# Select newest of (stable rev, rev when reviewed) when parsing
-			$tsStable = $row->fr_img_timestamp >= $reviewedTS
-				? $row->fr_img_timestamp
-				: $reviewedTS;
+			if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_STABLE ) {
+				# Select newest of (stable rev, rev when reviewed) when parsing
+				$tsStable = $row->fr_img_timestamp >= $reviewedTS
+					? $row->fr_img_timestamp
+					: $reviewedTS;
+			} else {
+				$tsStable = $reviewedTS;
+			}
 			# Compare to current...
 			$file = wfFindFile( $title ); // current file version
 			$deleted = ( !$file && $tsStable ); // later deleted

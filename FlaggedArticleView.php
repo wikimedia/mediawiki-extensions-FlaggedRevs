@@ -549,7 +549,7 @@ class FlaggedArticleView {
 				$parserOut = null;
 			}
 	   	}
-		$synced = $this->article->stableVersionIsSynced( $parserOut, null );
+		$synced = $this->article->stableVersionIsSynced();
 		# Construct some tagging
 		if ( !$wgOut->isPrintable() && !( $this->article->lowProfileUI() && $synced ) ) {
 			$revsSince = $this->article->getPendingRevCount();
@@ -1540,7 +1540,7 @@ class FlaggedArticleView {
 	*/
 	public function addReviewCheck( EditPage $editPage, array &$checkboxes, &$tabindex ) {
 		global $wgUser, $wgRequest;
-		if ( !$wgUser->isAllowed( 'review' )
+		if ( !$this->article->getTitle()->userCan( 'review' )
 			|| !$this->article->isReviewable()
 			|| !$this->article->revsArePending() )
 		{
@@ -1548,25 +1548,22 @@ class FlaggedArticleView {
 		}
 		$oldid = $wgRequest->getInt( 'baseRevId', $this->article->getLatest() );
 		if ( $oldid == $this->article->getLatest() ) {
-			$srev = $this->article->getStableRev();
 			# For pages with either no stable version, or an outdated one, let
 			# the user decide if he/she wants it reviewed on the spot. One might
 			# do this if he/she just saw the diff-to-stable and *then* decided to edit.
 			# Note: check not shown when editing old revisions, which is confusing.
-			if ( !$srev || $this->article->revsArePending() ) {
-				$checkbox = Xml::check(
-					'wpReviewEdit',
-					$wgRequest->getCheck( 'wpReviewEdit' ),
-					array( 'tabindex' => ++$tabindex, 'id' => 'wpReviewEdit' )
-				);
-				$attribs = array(
-					'for'   => 'wpReviewEdit',
-					'title' => wfMsg( 'revreview-check-flag-title' )
-				);
-				$label = Xml::element( 'label', $attribs,
-					wfMsgExt( 'revreview-check-flag', 'parseinline' ) );
-				$checkboxes['reviewed'] = $checkbox . '&nbsp;' . $label;
-			}
+			$checkbox = Xml::check(
+				'wpReviewEdit',
+				$wgRequest->getCheck( 'wpReviewEdit' ),
+				array( 'tabindex' => ++$tabindex, 'id' => 'wpReviewEdit' )
+			);
+			$attribs = array(
+				'for'   => 'wpReviewEdit',
+				'title' => wfMsg( 'revreview-check-flag-title' )
+			);
+			$label = Xml::element( 'label', $attribs,
+				wfMsgExt( 'revreview-check-flag', 'parseinline' ) );
+			$checkboxes['reviewed'] = $checkbox . '&nbsp;' . $label;
 		}
 		return true;
 	}

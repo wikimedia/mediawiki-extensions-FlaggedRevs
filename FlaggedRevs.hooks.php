@@ -1976,13 +1976,14 @@ class FlaggedRevsHooks {
 	public static function addToChangeListLine( &$list, &$articlelink, &$s, RecentChange &$rc ) {
 		$title = $rc->getTitle(); // convenience
 		if ( !FlaggedRevs::inReviewNamespace( $title )
-			|| empty( $rc->mAttribs['rc_this_oldid'] ) )
+			|| empty( $rc->mAttribs['rc_this_oldid'] )
+			|| !array_key_exists( 'fp_stable', $rc->mAttribs ) )
 		{
 			return true; // confirm that page is in reviewable namespace
 		}
 		$rlink = '';
 		// page is not reviewed
-		if ( empty( $rc->mAttribs['fp_stable'] ) ) {
+		if ( $rc->mAttribs['fp_stable'] == null ) {
 			// Is this a config were pages start off reviewable?
 			if ( !FlaggedRevs::stableOnlyIfConfigured() ) {
 				$rlink = wfMsgHtml( 'revreview-unreviewedpage' );
