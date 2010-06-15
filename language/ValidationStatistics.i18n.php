@@ -340,6 +340,7 @@ $messages['cu'] = array(
  * @author ChrisiPK
  * @author Kghbln
  * @author Melancholie
+ * @author Merlissimo
  * @author The Evil IP address
  * @author Umherirrender
  */
@@ -347,16 +348,16 @@ $messages['de'] = array(
 	'validationstatistics' => 'Markierungsstatistik',
 	'validationstatistics-users' => "'''{{SITENAME}}''' hat momentan '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|Benutzer|Benutzer}} mit [[{{MediaWiki:Validationpage}}|Sichterrecht]].
 
-Sichter sind anerkannte Benutzer, die Versionen einer Seite überprüfen können.",
+Sichter sind anerkannte Benutzer, die Versionen einer Seite markieren können.",
 	'validationstatistics-time' => "''Die folgenden Daten wurden zuletzt am $5 um $6 Uhr aktualisiert.''
 
-Von Benutzern mit entsprechender Berechtigung nachgesehene Bearbeitungen, werden als überprüft angesehen.
+Von Benutzern mit entsprechender Berechtigung nachgesehene Bearbeitungen, werden als markiert angesehen.
 
 Die durchschnittliche Wartezeit für Bearbeitungen, die von nicht angemeldeten Benutzern stammen, beträgt '''$1'''; der Median beträgt '''$3'''.
 $4
 Der durchschnittliche Rückstand auf „[[Special:OldReviewedPages|Veraltete Seiten]]“ beträgt '''$2'''.
 Veraltete Seiten sind Seiten mit Bearbeitungen, die neuer als die markierte Version sind.
-Seiten werden als ''synchronisiert'' angesehen, wenn keine Bearbeitungen mehr auf eine Überprüfung warten.",
+Seiten werden als ''synchronisiert'' angesehen, wenn keine Bearbeitungen mehr auf eine Markierung warten.",
 	'validationstatistics-table' => 'Das sind Statistiken für jeden Namensraum, ausgenommen Weiterleitungen.',
 	'validationstatistics-ns' => 'Namensraum',
 	'validationstatistics-total' => 'Seiten gesamt',
@@ -775,8 +776,7 @@ $messages['gu'] = array(
  */
 $messages['he'] = array(
 	'validationstatistics' => 'סטיסטיקת אישורים',
-	'validationstatistics-users' => "ב'''{{grammar:תחילית|{{SITENAME}}}}''' יש כרגע {{PLURAL:$1|משתמש '''[[Special:ListUsers/editor|אחד]]'''|'''[[Special:ListUsers/editor|$1]]''' משתמשים}} עם הרשאת [[{{MediaWiki:Validationpage}}|עורך]]
-ו{{PLURAL:$2|משתמש '''[[Special:ListUsers/reviewer|אחד]]'''|־'''[[Special:ListUsers/reviewer|$2]]''' משתמשים}} עם הרשאת [[{{MediaWiki:Validationpage}}|בודק דפים]].
+	'validationstatistics-users' => "ב'''{{SITENAME}}''' יש כרגע '''[[Special:ListUsers/משתמש|$1]]''' {{PLURAL:$1|משתמש|משתמשים}} עם הרשאת [[{{MediaWiki:Validationpage}}|עורך]].
 
 עורכים ובודקי דפים הם משתמשים ותיקים שיכולים לבצע בדיקה מהירה של גרסאות ושל דפים.",
 	'validationstatistics-time' => "'''המידע הבא עודכן לאחרונה ב־$6, $5.'''
@@ -1010,6 +1010,7 @@ La versione stabile di una pagina è la revisione più recente fra quelle che so
  * @author Aotake
  * @author Fryed-peach
  * @author Hosiryuhosi
+ * @author 青子守歌
  */
 $messages['ja'] = array(
 	'validationstatistics' => 'ページのレビュー統計',
@@ -1020,9 +1021,10 @@ $messages['ja'] = array(
 
 信頼されている利用者によって検査された編集は「査読済」とされます。
 
-未登録利用者による編集の平均査読待ち時間は '''$1'''、中央値は '''$3'''です。
+ログインしていない利用者による編集の査読待ち時間は、平均で'''$1'''で、中央値は '''$3'''です。
 $4
-[[Special:OldReviewedPages|未査読の編集が保留となっているページ]]の平均遅延時間は '''$2'''です。このようなページは「古い版」とされています。保留中の編集がないページは「同期済み」とされています。ページの公開版は、全読者に対して既定で表示することが承認された、最も新しい版です。",
+[[Special:OldReviewedPages|未査読の編集が保留となっているページ]]の平均遅延時間は '''$2'''です。
+このようなページは「古い版」とされています。同様に、保留中の編集がないページは「同期済み」とされています。",
 	'validationstatistics-table' => '名前空間別の統計を以下に表示します。リダイレクトページは除いています。',
 	'validationstatistics-ns' => '名前空間',
 	'validationstatistics-total' => 'ページ数',
@@ -1433,13 +1435,12 @@ $messages['pl'] = array(
 Redaktorzy są doświadczonymi użytkownikami, którzy mogą oznaczać dowolne wersje stron.",
 	'validationstatistics-time' => "''Ostatnia aktualizacja danych na tej stronie miała miejsce $5 o $6.''
 
-Edycje wykonane przez doświadczonych użytkowników są uznawane za przejrzane.
+Edycje, które zostały sprawdzone przez doświadczonych użytkowników są traktowane jako przejrzane.
 
 Średni czas oczekiwania na sprawdzenie edycji wykonanych przez ''niezalogowanych użytkowników'' wynosi '''$1''', a mediana '''$3'''.
 $4
 Średnie opóźnienie dla [[Special:OldReviewedPages|oczekujących na przejrzenie edycji]] wynosi '''$2'''.
-Strony z takimi edycjami uznawane są za ''zdezaktualizowane''. Za ''zsynchronizowane'' uznawane są strony, jeśli w historii nie mają wersji oczekujących na przejrzenie.
-Wersja opublikowana strony to najnowsza wersja, która została zaakceptowana jako domyślnie prezentowana wszystkim czytelnikom.",
+Strony z takimi edycjami uznawane są za ''zdezaktualizowane''. Za ''zsynchronizowane'' uznawane są strony, jeśli w historii nie mają wersji oczekujących na przejrzenie.",
 	'validationstatistics-table' => "Poniżej znajdują się statystyki dla każdej przestrzeni nazw, ''z wyłączeniem'' przekierowań.",
 	'validationstatistics-ns' => 'Przestrzeń nazw',
 	'validationstatistics-total' => 'Stron',

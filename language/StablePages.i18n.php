@@ -164,13 +164,14 @@ $messages['cs'] = array(
 /** German (Deutsch)
  * @author Kghbln
  * @author MF-Warburg
+ * @author Merlissimo
  * @author Purodha
  * @author Umherirrender
  */
 $messages['de'] = array(
-	'stablepages' => 'Seiten die nur mit Bearbeitungsfreigabe bearbeitet werden können',
-	'stablepages-text' => 'Es folgt eine Liste von Seiten, die Einschränkungen haben, so das bestimmte Benutzer Bearbeitungen vornehmen können, die keine Überprüfung benötigen.
-Bearbeitungen von anderen Bentzern werden standardmäßig solange nicht angezeigt, bis ein entsprechend berechtigter Benutzer sie überprüft hat.',
+	'stablepages' => 'Seiten die erst nach einer Markierung angezeigt werden',
+	'stablepages-text' => 'Es folgt eine Liste von Seiten, die Einschränkungen haben, so das nur Bearbeitungen bestimmter Benutzer sofort angezeigt werden.
+Bearbeitungen von anderen Bentzern werden standardmäßig solange nicht angezeigt, bis ein entsprechend berechtigter Benutzer sie markiert hat.',
 	'stablepages-none' => 'Diese Liste enthält keine Seiten.',
 	'stablepages-config' => 'Konfiguration',
 );
@@ -191,7 +192,7 @@ $messages['diq'] = array(
  */
 $messages['dsb'] = array(
 	'stablepages' => 'Boki, kótarež wužywaju pśizwólenje změnow',
-	'stablepages-text' => 'Slědujo lisćina bokow, kótarež su wobgranicowane, tak až wěste wužywarje mógu změny cyniś, kótarež njepominaju se pśeglědanje. Take změny se cytarjam njepokazuju, až awtorizěrowany wužywaŕ je njepśeglědujo.',
+	'stablepages-text' => 'Slědujo lisćina bokow, kótarež jano wěste wužywarje mógu změny pśewjasć, kótarež njetrjebaju pśeglědanje. Změny drugich wužywarjow se pó standarźe cytarjam njepokazuju, až awtorizěrowany wužywaŕ je njepśeglědujo.',
 	'stablepages-none' => 'Toś ta lisćina njewopśimujo boki',
 	'stablepages-config' => 'Konfiguracija',
 );
@@ -412,10 +413,12 @@ $messages['it'] = array(
  * @author Aotake
  * @author Fryed-peach
  * @author Whym
+ * @author 青子守歌
  */
 $messages['ja'] = array(
 	'stablepages' => '編集承認を使用しているページ',
-	'stablepages-text' => '下記に示したページは、査読なしに編集を公開できる利用者が限定されています。編集は認証された利用者が査読するまで公開されません。',
+	'stablepages-text' => '以下は、特定の利用者のみが、査読なしに編集することのできるページの一覧です。
+その他の利用者による編集は、承認された利用者が査読するまで、閲覧者には表示されません。',
 	'stablepages-none' => '表示すべきページはありません',
 	'stablepages-config' => '設定',
 );
@@ -488,7 +491,7 @@ $messages['mk'] = array(
  */
 $messages['ml'] = array(
 	'stablepages' => 'തിരുത്തൽ അംഗീകരണം ഉപയോഗിക്കുന്ന താളുകൾ',
-	'stablepages-text' => 'സംശോധനം ആവശ്യമില്ലാത്ത വിധം ചില പ്രത്യേക ഉപയോക്താക്കൾക്ക് മാത്രം തിരുത്തുവാൻ കഴിയുന്ന താളുകളുടെ പട്ടികയാണ് താഴെ നൽകിയിരിക്കുന്നത്. അത്തരത്തിലുള്ള തിരുത്തലുകൾ അംഗീകരിക്കപ്പെട്ട ഒരു ഉപയോക്താവ് സംശോധനം ചെയ്യുന്നതു വരെ സ്വീകരിക്കുന്നതല്ല.',
+	'stablepages-text' => 'സംശോധനം ആവശ്യമില്ലാത്ത വിധം ചില പ്രത്യേക ഉപയോക്താക്കൾക്ക് മാത്രം തിരുത്തുവാൻ കഴിയുന്ന താളുകളുടെ പട്ടികയാണ് താഴെ നൽകിയിരിക്കുന്നത്. മറ്റ് ഉപയോക്താക്കൾ ചെയ്യുന്ന തിരുത്തലുകൾ അംഗീകരിക്കപ്പെട്ട ഒരു ഉപയോക്താവ് സംശോധനം ചെയ്യുന്നതു വരെ എല്ലാവർക്കും കാണാനാവുന്നതല്ല.',
 	'stablepages-none' => 'ഈ പട്ടികയിൽ താളുകൾ ഒന്നും ഇല്ല',
 	'stablepages-config' => 'ക്രമീകരണം',
 );

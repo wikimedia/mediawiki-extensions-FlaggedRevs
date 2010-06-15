@@ -882,6 +882,7 @@ $messages['it'] = array(
  * @author Fievarsty
  * @author Fryed-peach
  * @author Hosiryuhosi
+ * @author 青子守歌
  */
 $messages['ja'] = array(
 	'oldreviewedpages' => '編集が保留されているページ',
@@ -893,7 +894,7 @@ $messages['ja'] = array(
 	'oldreviewedpages-recent' => '(1時間未満)',
 	'oldreviewed-category' => 'カテゴリ:',
 	'oldreviewed-watched' => '自分のウォッチリストに含まれるページ',
-	'oldreviewed-stable' => '固定済み',
+	'oldreviewed-stable' => '安定版が既定に設定されています',
 	'oldreviewed-diff' => '査読',
 	'oldreviewed-size' => '変更量の上限 (バイト):',
 	'oldreviewedpages-unwatched' => '(未ウォッチ)',

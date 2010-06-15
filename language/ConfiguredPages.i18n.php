@@ -45,11 +45,15 @@ $messages['af'] = array(
 	'configuredpages-def-draft' => 'nuutste weergawe',
 );
 
-/** Arabic (العربية) */
+/** Arabic (العربية)
+ * @author Mohamed Ouda
+ */
 $messages['ar'] = array(
 	'configuredpages-prec-none' => 'لا سابقة',
 	'configuredpages-prec-quality' => 'سابقة جودة',
 	'configuredpages-prec-pristine' => 'سابقة فائقة',
+	'configuredpages-def-draft' => 'أحدث نسخة',
+	'configuredpages-def-stable' => 'نسخة مستقرة',
 );
 
 /** Egyptian Spoken Arabic (مصرى) */
