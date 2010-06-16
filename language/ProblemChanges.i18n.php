@@ -124,11 +124,12 @@ $messages['cs'] = array(
  * @author Jens Liebenau
  * @author Kghbln
  * @author Khaledelmansoury
+ * @author Merlissimo
  * @author Umherirrender
  */
 $messages['de'] = array(
-	'problemchanges' => 'gekennzeichnete unmarkierte Änderungen',
-	'problemchanges-legend' => 'Liste der Seiten mit markierten Bearbeitungen, für die noch eine Nachprüfung notwendig ist',
+	'problemchanges' => 'Gekennzeichnete unmarkierte Änderungen',
+	'problemchanges-legend' => 'Liste der Seiten deren letzte Version noch nicht markiert wurde',
 	'problemchanges-none' => 'Es gibt zurzeit keine Seiten, die diese Kriterien erfüllen.',
 	'problemchanges-category' => 'Kategorie:',
 );

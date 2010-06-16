@@ -232,6 +232,7 @@ $messages['cu'] = array(
 /** German (Deutsch)
  * @author Giftpflanze
  * @author Imre
+ * @author Merlissimo
  * @author Umherirrender
  */
 $messages['de'] = array(
@@ -240,7 +241,7 @@ $messages['de'] = array(
 	'reviewedversions-page' => 'Seitenname:',
 	'reviewedversions-none' => '„[[:$1]]“ hat keine markierten Versionen.',
 	'reviewedversions-list' => 'Dies ist die Liste der {{PLURAL:$2|einzigen Version|Versionen}} von [[:$1]], die markiert {{PLURAL:$2|wurde|wurden}}:',
-	'reviewedversions-review' => 'Geprüft am <i>$1</i> durch $2',
+	'reviewedversions-review' => 'Markiert am <i>$1</i> durch $2',
 );
 
 /** Zazaki (Zazaki)

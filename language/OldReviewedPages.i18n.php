@@ -280,7 +280,7 @@ $messages['br'] = array(
 	'oldreviewedpages-recent' => "(1 eurvezh zo pe nebeutoc'h)",
 	'oldreviewed-category' => 'Rummad :',
 	'oldreviewed-watched' => 'Pajenn en ma roll evezhiañ',
-	'oldreviewed-stable' => 'Pajennoù stabilaet',
+	'oldreviewed-stable' => 'Ar stumm stabil a zo dre ziouer',
 	'oldreviewed-diff' => 'adlenn',
 	'oldreviewed-size' => 'Kemm brasañ (en oktedoù)',
 	'oldreviewedpages-unwatched' => '(anheuliet)',
@@ -514,15 +514,20 @@ $messages['et'] = array(
 );
 
 /** Basque (Euskara)
+ * @author An13sa
  * @author Joxemai
  * @author Kobazulo
  */
 $messages['eu'] = array(
+	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|ordu|ordu}})',
+	'oldreviewedpages-days' => '($1 {{PLURAL:$1|egun|egun}})',
 	'oldreviewedpages-recent' => '(ordu bat baino gutxiago)',
 	'oldreviewed-category' => 'Kategoria:',
-	'oldreviewed-stable' => 'Orrialde egonkorrak',
+	'oldreviewed-stable' => 'Bertsio egonkorra lehenetsitakoa da',
 	'oldreviewed-diff' => 'Aurreikusi',
 	'oldreviewed-size' => 'Aldaketa maximoa (bytetan):',
+	'oldreviewedpages-unwatched' => '(jarraitu gabe)',
+	'oldreviewedpages-watched' => '($1 {{PLURAL:$1|lankide|lankide}} aktibo jarraitzen)',
 	'oldreviewedpages-viewing' => '(berrikuspen prozesuan)',
 );
 

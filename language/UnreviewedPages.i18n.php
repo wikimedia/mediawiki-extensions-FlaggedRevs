@@ -307,6 +307,7 @@ $messages['da'] = array(
 
 /** German (Deutsch)
  * @author Kghbln
+ * @author Merlissimo
  * @author Raimond Spekking
  * @author Umherirrender
  */
@@ -319,7 +320,7 @@ $messages['de'] = array(
 	'unreviewed-watched' => '(von $1 {{PLURAL:$1|aktivem Benutzer|aktiven Benutzern}} beobachtet)',
 	'unreviewed-list' => 'Diese Spezialseite zeigt Seiten, die bisher noch nicht in der angegebenen Stufe markiert wurden.',
 	'unreviewed-none' => 'Es gibt keine Seiten, die den eingegebenen Kriterien entsprechen.',
-	'unreviewed-viewing' => '(wird überprüft)',
+	'unreviewed-viewing' => '(wird gesichtet)',
 	'unreviewed-hours' => '($1 {{PLURAL:$1|Stunde|Stunden}})',
 	'unreviewed-days' => '($1 {{PLURAL:$1|Tag|Tage}})',
 	'unreviewed-recent' => '(weniger als 1 Stunde)',

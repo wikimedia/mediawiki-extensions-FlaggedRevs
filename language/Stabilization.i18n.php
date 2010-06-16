@@ -569,7 +569,7 @@ Setu an arventennoù red eus [[:$1|$1]] :",
 	'stabilization-select2' => 'An adweladenn ziwezhañ bet gwiriet',
 	'stabilization-select3' => "Stumm klok diwezhañ; ma n'ues ket, neuze an hini mat diwezhañ pe adlennet da ziwezhañ",
 	'stabilization-def' => 'Stumm diskwelet er mod diskwel dre ziouer',
-	'stabilization-def1' => 'Ar stumm embannet ma vez; a-hend-all lakaat ar stumm red pe ar brouilhed',
+	'stabilization-def1' => 'Ar stumm stabil ma vez; a-hend-all lakaat an adweladenn ziwezhañ',
 	'stabilization-def2' => 'An adweladenn ziwezhañ',
 	'stabilization-restrict' => 'Strishadurioù adlenn/adlenn emgefre',
 	'stabilization-restrict-none' => 'Strishadurioù ouzhpenn ebet',
@@ -740,6 +740,7 @@ $messages['da'] = array(
  * @author Metalhead64
  * @author Purodha
  * @author Steef389
+ * @author The Evil IP address
  * @author Umherirrender
  */
 $messages['de'] = array(
@@ -784,7 +785,7 @@ Die aktuellen Einstellungen für „[[:$1|$1]]“ sind:',
 	'stabilize_expiry_invalid' => 'Ungültiges Ablaufdatum.',
 	'stabilize_expiry_old' => 'Das Ablaufdatum wurde überschritten.',
 	'stabilize_denied' => 'Zugriff verweigert.',
-	'stabilize-expiring' => 'erlischt am $2, $3 Uhr (UTC)',
+	'stabilize-expiring' => 'bis $2, $3 Uhr (UTC)',
 	'stabilization-review' => 'Markiere die aktuelle Version',
 );
 

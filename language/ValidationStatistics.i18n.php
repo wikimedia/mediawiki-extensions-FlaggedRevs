@@ -351,7 +351,7 @@ $messages['de'] = array(
 Sichter sind anerkannte Benutzer, die Versionen einer Seite markieren können.",
 	'validationstatistics-time' => "''Die folgenden Daten wurden zuletzt am $5 um $6 Uhr aktualisiert.''
 
-Von Benutzern mit entsprechender Berechtigung nachgesehene Bearbeitungen, werden als markiert angesehen.
+Von Benutzern mit entsprechender Berechtigung nachgesehene Bearbeitungen werden als markiert angesehen.
 
 Die durchschnittliche Wartezeit für Bearbeitungen, die von nicht angemeldeten Benutzern stammen, beträgt '''$1'''; der Median beträgt '''$3'''.
 $4

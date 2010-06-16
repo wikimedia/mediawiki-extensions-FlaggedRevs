@@ -134,6 +134,7 @@ $messages['cs'] = array(
 
 /** German (Deutsch)
  * @author Kghbln
+ * @author Merlissimo
  */
 $messages['de'] = array(
 	'configuredpages' => 'Seiten die hinsichtlich der Versionsmarkierung konfiguriert wurden',
@@ -143,11 +144,11 @@ Einige Einstellungen können eine Abweichung hinsichtlich der Version bewirken, 
 	'configuredpages-none' => 'Diese Liste enthält keine Seiten.',
 	'configuredpages-config' => 'Konfiguration',
 	'configuredpages-precedence' => 'Priorität:',
-	'configuredpages-prec-none' => 'zuletzt überprüft',
+	'configuredpages-prec-none' => 'zuletzt markiert',
 	'configuredpages-prec-quality' => 'aktueller Qualitätsstatus',
 	'configuredpages-prec-pristine' => 'neueste markierte Version',
 	'configuredpages-def-draft' => 'neueste Version',
-	'configuredpages-def-stable' => 'veröffentlichte Version',
+	'configuredpages-def-stable' => 'stabile Version',
 );
 
 /** Zazaki (Zazaki) */

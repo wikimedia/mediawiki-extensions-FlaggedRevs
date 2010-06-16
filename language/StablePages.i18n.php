@@ -102,7 +102,7 @@ $messages['bcc'] = array(
 $messages['be-tarask'] = array(
 	'stablepages' => 'Старонкі, якія выкарыстоўваюць зацьверджаньні рэдагаваньняў',
 	'stablepages-text' => 'Ніжэй пададзены сьпіс старонак, якія могуць рэдагаваць толькі вызначаныя ўдзельнікі без неабходнага рэцэнзаваньня. 
-Такія рэдагаваньні ня будуць публікавацца, пакуль аўтарызаваны ўдзельнік іх не прарэцэнзуе.',
+Рэдагаваньні зробленыя іншымі ўдзельнікамі, па змоўчваньні ня будуць паказвацца чытачам, пакуль аўтарызаваны ўдзельнік іх не прарэцэнзуе.',
 	'stablepages-none' => 'У гэтым сьпісе няма старонак.',
 	'stablepages-config' => 'Канфігурацыя',
 );
@@ -169,7 +169,7 @@ $messages['cs'] = array(
  * @author Umherirrender
  */
 $messages['de'] = array(
-	'stablepages' => 'Seiten die erst nach einer Markierung angezeigt werden',
+	'stablepages' => 'Seiten, die erst nach einer Markierung angezeigt werden',
 	'stablepages-text' => 'Es folgt eine Liste von Seiten, die Einschränkungen haben, so das nur Bearbeitungen bestimmter Benutzer sofort angezeigt werden.
 Bearbeitungen von anderen Bentzern werden standardmäßig solange nicht angezeigt, bis ein entsprechend berechtigter Benutzer sie markiert hat.',
 	'stablepages-none' => 'Diese Liste enthält keine Seiten.',
