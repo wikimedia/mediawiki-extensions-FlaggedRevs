@@ -451,11 +451,15 @@ class FlaggedRevision {
 	
 	/*
 	 * Fetch pending template changes for this reviewed page version.
-	 * For each template, the version used is:
-	 *    (a) (the latest rev) if FR_INCLUDES_CURRENT
+	 * For each template, the "version used" is:
+	 *    (a) (the latest rev) if FR_INCLUDES_CURRENT. Might be non-existing.
 	 *    (b) newest( stable rev, rev at time of review ) if FR_INCLUDES_STABLE
 	 *    (c) ( rev at time of review ) if FR_INCLUDES_FREEZE
-	 * Pending changes exist if the latest version of the template is newer than this.
+	 * Pending changes exist for a template iff the template is used in
+	 * the current rev of this page and one of the following holds:
+	 *	  (a) Current template is newer than the "version used" above (updated)
+	 *	  (b) Current template exists and the "version used" was non-existing (created)
+	 *    (c) Current template doesn't exist and the "version used" existed (deleted)
 	 *
 	 * @return Array of (template title, rev ID in reviewed version) tuples
 	 */
@@ -464,15 +468,20 @@ class FlaggedRevision {
 			return array(); // short-circuit
 		}
 		$dbr = wfGetDB( DB_SLAVE );
-		$ret = $dbr->select( array( 'flaggedtemplates', 'page', 'flaggedpages' ),
+		$ret = $dbr->select(
+			array( 'flaggedtemplates', 'templatelinks', 'page', 'flaggedpages' ),
 			array( 'ft_namespace', 'ft_title', 'fp_stable', 'ft_tmp_rev_id', 'page_latest' ),
-			array( 'ft_rev_id' => $this->getRevId() ),
+			array( 'ft_rev_id' => $this->getRevId() ), // template was in reviewed rev
 			__METHOD__,
 			array(), /* OPTIONS */
 			array(
-				'page' => array( 'LEFT JOIN',
+				'templatelinks' => array( 'INNER JOIN', // used in current rev
+					array( 'tl_from' => $this->getPage(),
+						'tl_namespace = ft_namespace AND tl_title = ft_title' ) ),
+				'page' 			=> array( 'LEFT JOIN',
 					'page_namespace = ft_namespace AND page_title = ft_title' ),
-				'flaggedpages' => array( 'LEFT JOIN', 'fp_page_id = page_id' ) )
+				'flaggedpages' 	=> array( 'LEFT JOIN', 'fp_page_id = page_id' )
+			)
 		);
 		$tmpChanges = array();
 		while ( $row = $dbr->fetchObject( $ret ) ) {
@@ -497,31 +506,37 @@ class FlaggedRevision {
 	/*
 	 * Fetch pending file changes for this reviewed page version.
 	 * For each file, the version used is:
-	 *    (a) (the latest rev) if FR_INCLUDES_CURRENT
+	 *    (a) (the latest rev) if FR_INCLUDES_CURRENT. Might be non-existing.
 	 *    (b) newest( stable rev, rev at time of review ) if FR_INCLUDES_STABLE
 	 *    (c) ( rev at time of review ) if FR_INCLUDES_FREEZE
-	 * Pending changes exist if the latest version of the file is newer than this.
-	 * @TODO: skip commons images, deliberately? (bug 15748).
+	 * Pending changes exist for a file iff the file is used in
+	 * the current rev of this page and one of the following holds:
+	 *	  (a) Current file is newer than the "version used" above (updated)
+	 *	  (b) Current file exists and the "version used" was non-existing (created)
+	 *    (c) Current file doesn't exist and the "version used" existed (deleted)
 	 *
+	 * @param string $noForeign Use 'noForeign' to skip Commons images (bug 15748)
 	 * @return Array of (file title, MW file timestamp in reviewed version) tuples
 	 */
-	public function findPendingFileChanges() {
+	public function findPendingFileChanges( $noForeign = false ) {
 		if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_CURRENT ) {
 			return array(); // short-circuit
 		}
 		$dbr = wfGetDB( DB_SLAVE );
 		$ret = $dbr->select(
-			array( 'flaggedimages', 'page', 'flaggedpages', 'flaggedrevs' ),
+			array( 'flaggedimages', 'imagelinks', 'page', 'flaggedpages', 'flaggedrevs' ),
 			array( 'fi_name', 'fi_img_timestamp', 'fr_img_timestamp' ),
-			array( 'fi_rev_id' => $this->getRevId() ),
+			array( 'fi_rev_id' => $this->getRevId() ), // template was in reviewed rev
 				__METHOD__,
 			array(), /* OPTIONS */
 			array(
-				'page' => array( 'LEFT JOIN',
+				'imagelinks' 	=> array( 'INNER JOIN', // used in current rev
+					array( 'il_from' => $this->getPage(), 'il_to = fi_name' ) ),
+				'page' 			=> array( 'LEFT JOIN',
 					'page_namespace = ' . NS_FILE . ' AND page_title = fi_name' ),
-				'flaggedpages' => array( 'LEFT JOIN', 'fp_page_id = page_id' ),
-				'flaggedrevs' => array( 'LEFT JOIN',
-				'fr_page_id = fp_page_id AND fr_rev_id = fp_stable' ) )
+				'flaggedpages' 	=> array( 'LEFT JOIN', 'fp_page_id = page_id' ),
+				'flaggedrevs' 	=> array( 'LEFT JOIN',
+					'fr_page_id = fp_page_id AND fr_rev_id = fp_stable' ) )
 		);
 		$fileChanges = array();
 		while ( $row = $dbr->fetchObject( $ret ) ) {
@@ -538,7 +553,11 @@ class FlaggedRevision {
 			# Compare to current...
 			$file = wfFindFile( $title ); // current file version
 			$deleted = ( !$file && $tsStable ); // later deleted
-			$updated = ( $file && $file->getTimestamp() > $tsStable ); // updated/created
+			if ( $file && ( $noForeign !== 'noForeign' || $file->isLocal() ) ) {
+				$updated = ( $file->getTimestamp() > $tsStable ); // updated/created
+			} else {
+				$updated = false;
+			}
 			if ( $deleted || $updated ) {
 				$fileChanges[] = array( $title, $tsStable );
 			}

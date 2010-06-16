@@ -200,7 +200,8 @@ class FlaggedArticle extends Article {
 		# the only other things to check for are template and file differences in the output.
 		# (a) Check if the current output has a newer template/file used
 		# (b) Check if the stable version has a file/template that was deleted
-		$synced = ( !$srev->findPendingTemplateChanges() && !$srev->findPendingFileChanges() );
+		$synced = ( !$srev->findPendingTemplateChanges()
+			&& !$srev->findPendingFileChanges( 'noForeign' ) );
 		# Save to cache. This will be updated whenever the page is touched.
 		$data = FlaggedRevs::makeMemcObj( $synced ? "true" : "false" );
 		$wgMemc->set( $key, $data, $wgParserCacheExpireTime );

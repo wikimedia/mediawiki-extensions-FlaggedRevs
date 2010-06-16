@@ -1407,7 +1407,7 @@ class FlaggedArticleView {
 		global $wgUser;
 		$skin = $wgUser->getSkin();
 		$diffLinks = array();
-		$changes = $frev->findPendingFileChanges();
+		$changes = $frev->findPendingFileChanges( 'noForeign' );
 		foreach ( $changes as $tuple ) {
 			list( $title, $revIdStable ) = $tuple;
 			// @TODO: change when MW has file diffs
