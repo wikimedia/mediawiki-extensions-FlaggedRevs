@@ -1236,11 +1236,10 @@ class FlaggedArticleView {
 			# Check the page sync value cache...
 			$key = wfMemcKey( 'flaggedrevs', 'includesSynced', $this->article->getId() );
 			$value = FlaggedRevs::getMemcValue( $wgMemc->get( $key ), $this->article );
-			# Default sync val as false to trigger query
-			$synced = ( $value === "true" ) ? true : false;
 
 			$changeList = array();
-			if ( !$synced ) {
+			# Trigger queries if sync cache value is not 'true'
+			if ( $value !== "true" ) {
 				# Add a list of links to each changed template...
 				$changeList = array_merge( $changeList, $this->fetchTemplateChanges( $frev ) );
 				# Add a list of links to each changed file...
@@ -1249,48 +1248,49 @@ class FlaggedArticleView {
 
 			# Some important information about include version selection...
 			$notice = '';
-			if ( count( $changeList ) > 0 ) {
-				# We use the stable version of includes, unless set otherwise
-				if ( FlaggedRevs::inclusionSetting() != FR_INCLUDES_CURRENT ) {
-					$notice = wfMsgExt( 'revreview-update-use', 'parse' );
-				}
-			} elseif ( !$synced ) {
-				# Bad cache said they were not synced
-				$this->article->getTitle()->invalidateCache();
-			}
-
-			# If the user is allowed to review, prompt them!
-			# Only those if there is something to actually review.
-			if ( $wgRequest->getInt( 'shownotice' )
-				&& $newRev->isCurrent()
-				&& $newRev->getRawUserText() == $wgUser->getName() )
-			{
-				// Reviewer just edited...
-				$title = $this->article->getTitle(); // convenience
-				// @TODO: make diff class cache this
-				$n = $title->countRevisionsBetween( $oldRev->getId(), $newRev->getId() );
-				if ( $n ) {
-					$msg = 'revreview-update-edited-prev'; // previous pending edits
-				} else {
-					$msg = 'revreview-update-edited'; // just couldn't autoreview
-				}
-			} else {
-				$msg = 'revreview-update'; // generic "Please review" notice...
-			}
-			$changeDiv = wfMsgExt( $msg, 'parse' );
 			if ( count( $changeList ) ) {
-				# Add include change list...
-				$changeDiv .= '<p>' .
-					wfMsgExt( 'revreview-update-includes', 'parseinline' ) .
-					'&#160;' . implode( ', ', $changeList ) . '</p>';
-				# Add include usage notice...
-				$changeDiv .= $notice;
+				$notice = wfMsgExt( 'revreview-update-use', 'parse' );
+			} elseif ( $value === "false" ) {
+				global $wgParserCacheExpireTime;
+				# Correct bad cache which said they were not synced
+				$data = FlaggedRevs::makeMemcObj( "true" );
+				$wgMemc->set( $key, $data, $wgParserCacheExpireTime );
 			}
-			$css = 'flaggedrevs_diffnotice plainlinks';
-			$form .= "<div id='mw-fr-difftostable' class='$css'>$changeDiv</div>\n";
-
-			# Set a key to note that someone is viewing this
-			$this->markDiffUnderReview( $oldRev, $newRev );
+			# If there are pending revs or templates/files changes,
+			# notify the user and prompt them to review them...
+			if ( $this->article->revsArePending() || count( $changeList ) ) {
+				// Reviewer just edited...
+				if ( $wgRequest->getInt( 'shownotice' )
+					&& $newRev->isCurrent()
+					&& $newRev->getRawUserText() == $wgUser->getName() )
+				{
+					$title = $this->article->getTitle(); // convenience
+					// @TODO: make diff class cache this
+					$n = $title->countRevisionsBetween( $oldRev->getId(), $newRev->getId() );
+					if ( $n ) {
+						$msg = 'revreview-update-edited-prev'; // previous pending edits
+					} else {
+						$msg = 'revreview-update-edited'; // just couldn't autoreview
+					}
+				// All other cases...
+				} else {
+					$msg = 'revreview-update'; // generic "Please review" notice...
+				}
+				$changeDiv = wfMsgExt( $msg, 'parse' );
+				if ( count( $changeList ) ) {
+					# Add include change list...
+					$changeDiv .= '<p>' .
+						wfMsgExt( 'revreview-update-includes', 'parseinline' ) .
+						'&#160;' . implode( ', ', $changeList ) . '</p>';
+					# Add include usage notice...
+					$changeDiv .= $notice;
+				}
+				$css = 'flaggedrevs_diffnotice plainlinks';
+				$form .= "<div id='mw-fr-difftostable' class='$css'>$changeDiv</div>\n";
+	
+				# Set a key to note that someone is viewing this
+				$this->markDiffUnderReview( $oldRev, $newRev );
+			}
 		}
 		# Add a link to diff from stable to current as needed
 		if ( $frev ) {
