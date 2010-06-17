@@ -296,7 +296,7 @@ $wgAvailableRights[] = 'movestable';
 $wgAvailableRights[] = 'stablesettings';
 
 # Bump this number every time you change flaggedrevs.css/flaggedrevs.js
-$wgFlaggedRevStyleVersion = 75;
+$wgFlaggedRevStyleVersion = 76;
 
 $wgExtensionFunctions[] = 'efLoadFlaggedRevs';
 
@@ -636,6 +636,7 @@ $wgLogActionsHandlers['stable/reset'] = 'FlaggedRevsLogs::stabilityLogText'; // 
 
 # AJAX functions
 $wgAjaxExportList[] = 'RevisionReview::AjaxReview';
+$wgAjaxExportList[] = 'FlaggedArticleView::AjaxBuildDiffHeaderItems';
 
 # Cache update
 $wgSpecialPageCacheUpdates[] = 'efFlaggedRevsUnreviewedPagesUpdate';

@@ -118,9 +118,6 @@ class FlaggedRevsHooks {
 				'unflaggedMsg'	 => wfMsgHtml( 'revreview-submit-unreviewed' ),
 				'actioncomplete' => wfMsgHtml( 'actioncomplete' ),
 				'actionfailed'	 => wfMsgHtml( 'actionfailed' ),
-				'draftRev'  	 => wfMsgHtml( 'revreview-hist-draft' ),
-				'sightedRev' 	 => wfMsgHtml( 'revreview-hist-basic' ),
-				'qualityRev' 	 => wfMsgHtml( 'revreview-hist-quality' ),
 			);
 			$globalVars['wgAjaxReview'] = $ajaxReview; // language for AJAX form
 		}
@@ -1796,7 +1793,7 @@ class FlaggedRevsHooks {
 		if ( !isset( $row->fr_quality ) ) {
 			if ( $revId > $history->fr_stableRevId ) {
 				$class = 'flaggedrevs-pending';
-				$link = wfMsgExt( 'revreview-hist-pending', 'parseinline',
+				$link = wfMsgExt( 'revreview-hist-pending-difflink', 'parseinline',
 					$title->getPrefixedText(), $history->fr_stableRevId, $revId );
 				$link = '<span class="plainlinks">' . $link . '</span>';
 				$history->fr_pendingRevs = true; // pending rev shown above stable

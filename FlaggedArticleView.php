@@ -656,15 +656,16 @@ class FlaggedArticleView {
 			return false; // not viewing the draft
 		}
 		# Conditions are met to show diff...
+		# Left side of diff...
 		$leftNote = $quality
 			? 'revreview-hist-quality'
 			: 'revreview-hist-basic';
-		$rClass = FlaggedRevsXML::getQualityColor( false );
 		$lClass = FlaggedRevsXML::getQualityColor( (int)$quality );
-		$rightNote = "<span id='mw-fr-diff-rtier' class='$rClass'>[" .
-			wfMsgHtml( 'revreview-hist-draft' ) . "]</span>";
-		$leftNote = "<span id='mw-fr-diff-ltier' class='$lClass'>[" .
-			wfMsgHtml( $leftNote ) . "]</span>";
+		$leftNote = "<span class='$lClass'>[" . wfMsgHtml( $leftNote ) . "]</span>";
+		# Right side of diff...
+		$rClass = FlaggedRevsXML::getQualityColor( false );
+		$rightNote = "<span class='$rClass'>[" .
+			wfMsgHtml( 'revreview-hist-pending' ) . "]</span>";
 		# Fetch the stable and draft revision text
 		$oText = $srev->getRevText();
 		if ( $oText === false ) {
@@ -826,8 +827,8 @@ class FlaggedArticleView {
 				$revsSince = $this->article->getPendingRevCount();
 				$items[] = FlaggedRevsXML::pendingEditNotice( $this->article, $frev, $revsSince );
 			}
-			# Show diff to stable, to make things less confusing...
-			# This can be disabled via user preferences
+			# Show diff to stable, to make things less confusing.
+			# This can be disabled via user preferences and other conditions...
 			if ( $frev->getRevId() < $latestId // changes were made
 				&& $this->isDiffShownOnEdit() // stable default and user cannot review
 				&& $wgUser->getBoolOption( 'flaggedrevseditdiffs' ) // not disable via prefs
@@ -835,16 +836,18 @@ class FlaggedArticleView {
 				&& $editPage->section != "new" // not for new sections
 				&& !in_array( $editPage->formtype, array( 'diff', 'preview' ) ) // not preview/"show changes"
 			) {
-				# Conditions are met to show diff...
+				# Left diff side...
 				$leftNote = $quality
 					? 'revreview-hist-quality'
 					: 'revreview-hist-basic';
-				$rClass = FlaggedRevsXML::getQualityColor( false );
 				$lClass = FlaggedRevsXML::getQualityColor( (int)$quality );
-				$rightNote = "<span id='mw-fr-diff-rtier' class='$rClass'>[" .
-					wfMsgHtml( 'revreview-hist-draft' ) . "]</span>";
-				$leftNote = "<span id='mw-fr-diff-ltier' class='$lClass'>[" .
+				$leftNote = "<span class='$lClass'>[" .
 					wfMsgHtml( $leftNote ) . "]</span>";
+				# Right diff side...
+				$rClass = FlaggedRevsXML::getQualityColor( false );
+				$rightNote = "<span class='$rClass'>[" .
+					wfMsgHtml( 'revreview-hist-pending' ) . "]</span>";
+				# Get the stable version source
 				$text = $frev->getRevText();
 				# Are we editing a section?
 				$section = ( $editPage->section == "" ) ?
@@ -1226,11 +1229,11 @@ class FlaggedArticleView {
 		if ( !$this->article->isReviewable() ) {
 			return true;
 		}
-		$form = '';
-		$frev = $this->article->getStableRev();
+		$srev = $this->article->getStableRev();
 		# Check if this might be a diff to stable (old rev is the stable rev).
-		# For reviewers, add a notice and list inclusion changes for this case.
-		if ( $this->isDiffFromStable && $wgUser->isAllowed( 'review' ) ) {
+		# If so, then (a) list template/file changes and (b) prompt Reviewers to review it.
+		if ( $this->isDiffFromStable ) {
+			$form = '';
 			$this->reviewFormRev = $newRev;
 			# Check the page sync value cache...
 			$key = wfMemcKey( 'flaggedrevs', 'includesSynced', $this->article->getId() );
@@ -1240,84 +1243,130 @@ class FlaggedArticleView {
 			# Trigger queries if sync cache value is not 'true'
 			if ( $value !== "true" ) {
 				# Add a list of links to each changed template...
-				$changeList = array_merge( $changeList, $this->fetchTemplateChanges( $frev ) );
+				$changeList = array_merge( $changeList, self::fetchTemplateChanges( $srev ) );
 				# Add a list of links to each changed file...
-				$changeList = array_merge( $changeList, $this->fetchFileChanges( $frev ) );
+				$changeList = array_merge( $changeList, self::fetchFileChanges( $srev ) );
 			}
 
 			# Some important information about include version selection...
-			$notice = '';
-			if ( count( $changeList ) ) {
-				$notice = wfMsgExt( 'revreview-update-use', 'parse' );
-			} elseif ( $value === "false" ) {
+			if ( !count( $changeList ) && $value === "false" ) {
 				global $wgParserCacheExpireTime;
 				# Correct bad cache which said they were not synced
 				$data = FlaggedRevs::makeMemcObj( "true" );
 				$wgMemc->set( $key, $data, $wgParserCacheExpireTime );
 			}
-			# If there are pending revs or templates/files changes,
-			# notify the user and prompt them to review them...
+			# If there are pending revs or templates/files changes, notify the user...
 			if ( $this->article->revsArePending() || count( $changeList ) ) {
-				// Reviewer just edited...
-				if ( $wgRequest->getInt( 'shownotice' )
-					&& $newRev->isCurrent()
-					&& $newRev->getRawUserText() == $wgUser->getName() )
-				{
-					$title = $this->article->getTitle(); // convenience
-					// @TODO: make diff class cache this
-					$n = $title->countRevisionsBetween( $oldRev->getId(), $newRev->getId() );
-					if ( $n ) {
-						$msg = 'revreview-update-edited-prev'; // previous pending edits
+				$changeDiv = '';
+				# If the user can review then prompt them to review them...
+				if ( $wgUser->isAllowed( 'review' ) ) {
+					# Set a key to note that someone is viewing this
+					$this->markDiffUnderReview( $oldRev, $newRev );
+					// Reviewer just edited...
+					if ( $wgRequest->getInt( 'shownotice' )
+						&& $newRev->isCurrent()
+						&& $newRev->getRawUserText() == $wgUser->getName() )
+					{
+						$title = $this->article->getTitle(); // convenience
+						// @TODO: make diff class cache this
+						$n = $title->countRevisionsBetween( $oldRev->getId(), $newRev->getId() );
+						if ( $n ) {
+							$msg = 'revreview-update-edited-prev'; // previous pending edits
+						} else {
+							$msg = 'revreview-update-edited'; // just couldn't autoreview
+						}
+					// All other cases...
 					} else {
-						$msg = 'revreview-update-edited'; // just couldn't autoreview
+						$msg = 'revreview-update'; // generic "please review" notice...
 					}
-				// All other cases...
-				} else {
-					$msg = 'revreview-update'; // generic "Please review" notice...
+					$changeDiv .= wfMsgExt( $msg, 'parse' );
 				}
-				$changeDiv = wfMsgExt( $msg, 'parse' );
+				# Add include change list...
 				if ( count( $changeList ) ) {
-					# Add include change list...
 					$changeDiv .= '<p>' .
 						wfMsgExt( 'revreview-update-includes', 'parseinline' ) .
 						'&#160;' . implode( ', ', $changeList ) . '</p>';
 					# Add include usage notice...
-					$changeDiv .= $notice;
+					if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_STABLE ) {
+						$changeDiv .= wfMsgExt( 'revreview-update-use', 'parse' );
+					}
 				}
-				$css = 'flaggedrevs_diffnotice plainlinks';
-				$form .= "<div id='mw-fr-difftostable' class='$css'>$changeDiv</div>\n";
-	
-				# Set a key to note that someone is viewing this
-				$this->markDiffUnderReview( $oldRev, $newRev );
+				if ( $changeDiv != '' ) {
+					$css = 'flaggedrevs_diffnotice plainlinks';
+					$form .= "<div id='mw-fr-difftostable' class='$css'>$changeDiv</div>\n";
+				}
+			}
+			if ( $wgUser->isAllowed( 'review' ) ) {
+				$this->diffNoticeBox = $form; // add as part of form
+			} else {
+				$wgOut->addHTML( $form );
 			}
 		}
-		# Add a link to diff from stable to current as needed
-		if ( $frev ) {
-			$wgOut->addHTML( $this->diffToStableLink( $frev, $newRev ) );
-		}
+		# Add a link to diff from stable to current as needed.
 		# Show review status of the diff revision(s). Uses a <table>.
-		$wgOut->addHTML( $this->diffReviewMarkers( $oldRev, $newRev ) );
-
-		$this->diffNoticeBox = $form;
+		$wgOut->addHTML(
+			'<div id="mw-fr-diff-headeritems">' .
+			self::diffLinkAndMarkers( $this->article, $oldRev, $newRev ) .
+			'</div>'
+		);
 		return true;
+	}
+
+	// get new diff header items for in-place AJAX page review
+	public static function AjaxBuildDiffHeaderItems() {
+		$args = func_get_args(); // <oldid, newid>
+		if ( count( $args ) >= 2 ) {
+			$oldid = (int)$args[0];
+			$newid = (int)$args[1];
+			$oldRev = Revision::newFromId( $oldid );
+			$newRev = Revision::newFromId( $newid );
+			if ( $newRev && $newRev->getTitle() ) {
+				$fa = FlaggedArticle::getTitleInstance( $newRev->getTitle() );
+				return self::diffLinkAndMarkers( $fa, $oldRev, $newRev );
+			}
+		}
+		return '';
+	}
+
+	/**
+	* (a) Add a link to diff from stable to current as needed
+	* (b) Show review status of the diff revision(s). Uses a <table>.
+	* Note: used by ajax function to rebuild diff page
+	*/
+	public static function diffLinkAndMarkers( FlaggedArticle $article, $oldRev, $newRev ) {
+		$s = '<form id="mw-fr-diff-dataform">';
+		$s .= Html::hidden( 'oldid', $oldRev ? $oldRev->getId() : 0 );
+		$s .= Html::hidden( 'newid', $newRev ? $newRev->getId() : 0 );
+		$s .= "</form>\n";
+		if ( $newRev ) { // sanity check
+			$s .= self::diffToStableLink( $article, $oldRev, $newRev );
+			$s .= self::diffReviewMarkers( $article, $oldRev, $newRev );
+		}
+		return $s;
 	}
 
 	/**
 	* Add a link to diff-to-stable for reviewable pages
 	*/
-	protected function diffToStableLink( FlaggedRevision $frev, Revision $newRev ) {
+	protected static function diffToStableLink(
+		FlaggedArticle $article, $oldRev, Revision $newRev
+	) {
 		global $wgUser;
-		$this->load();
+		$srev = $article->getStableRev();
+		if ( !$srev ) {
+			return ''; // nothing to do
+		}
 		$review = '';
+		# Is this already the full diff-to-stable?
+		$fullStableDiff = $newRev->isCurrent()
+			&& self::isDiffToStable( $srev, $oldRev, $newRev );
 		# Make a link to the full diff-to-stable if:
-		# (a) Actual revs are pending and (b) We are not viewing the stable diff
-		if ( $this->article->revsArePending() &&
-			!( $this->isDiffFromStable && $newRev->isCurrent() ) )
-		{
+		# (a) Actual revs are pending and (b) We are not viewing the full diff-to-stable
+		if ( $article->revsArePending() && !$fullStableDiff ) {
 			$review = $wgUser->getSkin()->makeKnownLinkObj(
-				$this->article->getTitle(),
+				$article->getTitle(),
 				wfMsgHtml( 'review-diff2stable' ),
-				'oldid=' . $frev->getRevId() . '&diff=cur&diffonly=0'
+				'oldid=' . $srev->getRevId() . '&diff=cur&diffonly=0'
 			);
 			$review = wfMsgHtml( 'parentheses', $review );
 			$review = "<div class='fr-diff-to-stable' align='center'>$review</div>";
@@ -1328,7 +1377,7 @@ class FlaggedArticleView {
 	/**
 	* Add [checked version] and such to left and right side of diff
 	*/
-	protected function diffReviewMarkers( $oldRev, $newRev ) {
+	protected static function diffReviewMarkers( FlaggedArticle $article, $oldRev, $newRev ) {
 		$form = '';
 		$oldRevQ = $newRevQ = false;
 		if ( $oldRev ) {
@@ -1337,57 +1386,52 @@ class FlaggedArticleView {
 		if ( $newRev ) {
 			$newRevQ = FlaggedRevs::getRevQuality( $newRev->getPage(), $newRev->getId() );
 		}
+		$srev = $article->getStableRev();
+		$stableId = $srev ? $srev->getRevId() : 0;
 		# Diff between two revisions
 		if ( $oldRev && $newRev ) {
+			list( $msg, $class ) = self::getDiffRevMsgAndClass( $oldRev, $stableId );
 			$form .= "<table class='fr-diff-ratings'><tr>";
-
-			$class = FlaggedRevsXML::getQualityColor( $oldRevQ );
-			if ( $oldRevQ !== false ) {
-				$msg = $oldRevQ
-					? 'revreview-hist-quality'
-					: 'revreview-hist-basic';
-			} else {
-				$msg = 'revreview-hist-draft';
-			}
 			$form .= "<td width='50%' align='center'>";
-			$form .= "<span id='mw-fr-diff-ltier' class='$class'>[" .
+			$form .= "<span class='$class'>[" .
 				wfMsgHtml( $msg ) . "]</span>";
 
-			$class = FlaggedRevsXML::getQualityColor( $newRevQ );
-			if ( $newRevQ !== false ) {
-				$msg = $newRevQ
-					? 'revreview-hist-quality'
-					: 'revreview-hist-basic';
-			} else {
-				$msg = 'revreview-hist-draft';
-			}
+			list( $msg, $class ) = self::getDiffRevMsgAndClass( $newRev, $stableId );
 			$form .= "</td><td width='50%' align='center'>";
-			$form .= "<span id='mw-fr-diff-rtier' class='$class'>[" .
+			$form .= "<span class='$class'>[" .
 				wfMsgHtml( $msg ) . "]</span>";
 
-			$form .= '</td></tr></table>';
+			$form .= "</td></tr></table>\n";
 		# New page "diffs" - just one rev
 		} elseif ( $newRev ) {
-			if ( $newRevQ !== false ) {
-				$msg = $newRevQ
-					? 'revreview-hist-quality'
-					: 'revreview-hist-basic';
-			} else {
-				$msg = 'revreview-hist-draft';
-			}
-			$class = FlaggedRevsXML::getQualityColor( $newRevQ );
-			$form .=
-				"<table class='fr-diff-ratings'>" .
-				"<tr><td align='center'><span id='mw-fr-diff-rtier' class='$class'>" .
-				'[' . wfMsgHtml( $msg ) . ']' .
-				'</span></td></tr></table>';
+			list( $msg, $class ) = self::getDiffRevMsgAndClass( $newRev, $stableId );
+			$form .= "<table class='fr-diff-ratings'>";
+			$form .= "<tr><td align='center'><span class='$class'>";
+			$form .= '[' . wfMsgHtml( $msg ) . ']';
+			$form .= "</span></td></tr></table>\n";
 		}
 		return $form;
 	}
 
+	protected static function getDiffRevMsgAndClass( Revision $rev, $stableId ) {
+		$msg = '';
+		$tier = FlaggedRevs::getRevQuality( $rev->getPage(), $rev->getId() );
+		if ( $tier !== false ) {
+			$msg = $tier
+				? 'revreview-hist-quality'
+				: 'revreview-hist-basic';
+		} else {
+			$msg = ( $stableId && $rev->getId() > $stableId )
+				? 'revreview-hist-pending'
+				: 'revreview-hist-draft';
+		}
+		$css = FlaggedRevsXML::getQualityColor( $tier );
+		return array( $msg, $css );
+	}
+
 	// Fetch template changes for a reviewed revision since review
 	// @returns array
-	protected function fetchTemplateChanges( FlaggedRevision $frev ) {
+	protected static function fetchTemplateChanges( FlaggedRevision $frev ) {
 		global $wgUser;
 		$skin = $wgUser->getSkin();
 		$diffLinks = array();
@@ -1403,7 +1447,7 @@ class FlaggedArticleView {
 
 	// Fetch file changes for a reviewed revision since review
 	// @returns array
-	protected function fetchFileChanges( FlaggedRevision $frev ) {
+	protected static function fetchFileChanges( FlaggedRevision $frev ) {
 		global $wgUser;
 		$skin = $wgUser->getSkin();
 		$diffLinks = array();
@@ -1435,17 +1479,23 @@ class FlaggedArticleView {
 				$this->isMultiPageDiff = true;
 			// Is there a stable version?
 			} elseif ( $this->article->isReviewable() ) {
-				$srevId = $this->article->getStable();
+				$srev = $this->article->getStableRev();
 				// Is this a diff of a draft rev against the stable rev?
-				if ( $srevId
-					&& $oldRev->getId() == $srevId
-					&& $newRev->getTimestamp() >= $oldRev->getTimestamp() )
-				{
+				if ( self::isDiffToStable( $srev, $oldRev, $newRev ) ) {
 					$this->isDiffFromStable = true;
 				}
 			}
 		}
 		return true;
+	}
+
+	// Is a diff from $oldRev to $newRev a diff-to-stable?
+	protected static function isDiffToStable( $srev, $oldRev, $newRev ) {
+		return ( $srev && $oldRev && $newRev
+			&& $oldRev->getPage() == $newRev->getPage() // no multipage diffs
+			&& $oldRev->getId() == $srev->getRevId()
+			&& $newRev->getTimestamp() >= $oldRev->getTimestamp()
+ 		);
 	}
 
 	/**

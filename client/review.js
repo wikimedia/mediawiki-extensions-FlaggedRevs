@@ -203,16 +203,32 @@ wgAjaxReview.processResult = function(request) {
 		tier = tierMatch[1];
 		msg = msg.substr(5); // remove <t#x>
 	}
-	// Output any error response message
+	var diffRevRatings = null;
+	// Errors: output any error response message
 	if( response.indexOf('<err#>') == 0 ) {
 		jsMsg( msg, 'review' ); // success/failure notice
 		window.scroll(0,0); // scroll up to notice
+	// OK: get new diff UI elements
+	} else {
+		var diffUIParams = document.getElementById("mw-fr-diff-dataform");
+		// Diffs: update the contents of the mw-fr-diff-headeritems div
+		if ( diffUIParams ) {
+			wgAjaxReview.inprogress = true;
+			var args = []; // <oldid, newid>
+			args.push( diffUIParams.getElementsByTagName('input')[0].value );
+			args.push( diffUIParams.getElementsByTagName('input')[1].value );
+			// Send!
+			var old = sajax_request_type;
+			sajax_request_type = "GET";
+			sajax_do_call( "FlaggedArticleView::AjaxBuildDiffHeaderItems",
+				args, wgAjaxReview.processDiffHeaderItemsResult );
+			sajax_request_type = old;
+		}
 	}
 	var rsubmit = document.getElementById("mw-fr-submitreview");
 	var usubmit = document.getElementById("mw-fr-submitunreview");
 	var legend = document.getElementById("mw-fr-reviewformlegend");
 	var diffNotice = document.getElementById("mw-fr-difftostable");
-	var diffRightTier = document.getElementById('mw-fr-diff-rtier');
 	var tagBox = document.getElementById('mw-fr-revisiontag');
 	// On success...
 	if( response.indexOf('<suc#>') == 0 ) {
@@ -253,17 +269,6 @@ wgAjaxReview.processResult = function(request) {
 		if( diffNotice ) diffNotice.style.display = 'none';
 		// Remove review tag from draft
 		if( tagBox ) tagBox.style.display = 'none';
-		// Set diff title messages
-		if( diffRightTier ) {
-			if( tier == 1 ) {
-				diffRightTier.innerHTML = '['+wgAjaxReview.sightedRev+']';
-			} else if( tier == 2 || tier == 3 ) {
-				diffRightTier.innerHTML = '['+wgAjaxReview.qualityRev+']';
-			} else {
-				diffRightTier.innerHTML = '['+wgAjaxReview.draftRev+']';
-			}
-			diffRightTier.className = 'flaggedrevs-color-'+tier;
-		}
 	// On failure...
 	} else {
 		document.title = wgAjaxReview.actionfailed;
@@ -281,6 +286,19 @@ wgAjaxReview.processResult = function(request) {
 	}
 	wgAjaxReview.unlockForm();
 };
+
+// update the contents of the mw-fr-diff-headeritems div
+wgAjaxReview.processDiffHeaderItemsResult = function(request) {
+	if( !wgAjaxReview.supported ) {
+		return;
+	}
+	wgAjaxReview.inprogress = false;
+	var response = request.responseText;
+	var diffHeaderItems = document.getElementById("mw-fr-diff-headeritems");
+	if( diffHeaderItems && response != '' ) {
+		diffHeaderItems.innerHTML = response;
+	}
+}
 
 wgAjaxReview.onLoad = function() {
 	var rsubmit = document.getElementById("mw-fr-submitreview");
