@@ -1986,6 +1986,7 @@ class FlaggedRevsHooks {
 	}
 
 	public static function addToChangeListLine( &$list, &$articlelink, &$s, RecentChange &$rc ) {
+		global $wgUser;
 		$title = $rc->getTitle(); // convenience
 		if ( !FlaggedRevs::inReviewNamespace( $title )
 			|| empty( $rc->mAttribs['rc_this_oldid'] )
@@ -1997,12 +1998,13 @@ class FlaggedRevsHooks {
 		// page is not reviewed
 		if ( $rc->mAttribs['fp_stable'] == null ) {
 			// Is this a config were pages start off reviewable?
-			if ( !FlaggedRevs::stableOnlyIfConfigured() ) {
+			// Hide notice from non-reviewers due to vandalism concerns (bug 24002).
+			if ( !FlaggedRevs::stableOnlyIfConfigured() && $wgUser->isAllowed( 'review' ) ) {
 				$rlink = wfMsgHtml( 'revreview-unreviewedpage' );
 				$css = 'flaggedrevs-unreviewed';
 			}
 		// page is reviewed and has pending edits
-		} elseif ( $rc->mAttribs['fp_stable'] < $rc->mAttribs['rc_this_oldid'] ) {
+		} elseif ( $rc->mAttribs['rc_this_oldid'] > $rc->mAttribs['fp_stable'] ) {
 			$rlink = $list->skin->link(
 				$title,
 				wfMsgHtml( 'revreview-reviewlink' ),
