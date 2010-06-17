@@ -68,9 +68,14 @@ class StablePages extends SpecialPage
 		$title = Title::makeTitle( $row->page_namespace, $row->page_title );
 		# Link to page
 		$link = $this->skin->makeKnownLinkObj( $title, $title->getPrefixedText() );
-		# Link to page configuration
-		$config = $this->skin->makeKnownLinkObj( $title,
+		# Helpful utility links
+		$utilLinks = array();
+		$utilLinks[] = $this->skin->makeKnownLinkObj( $title,
 			wfMsgHtml( 'stablepages-config' ), 'action=protect' );
+		$utilLinks[] = $this->skin->makeKnownLinkObj( $title,
+			wfMsgHtml( 'history' ), 'action=history' );
+		$utilLinks[] = $this->skin->makeKnownLinkObj( SpecialPage::getTitleFor( 'Log/stable' ),
+			wfMsgHtml( 'stable-logpage' ), 'page=' . $title->getPrefixedText() );
 		# Autoreview/review restriction level
 		$restr = '';
 		if( $row->fpc_level != '' ) {
@@ -88,7 +93,8 @@ class StablePages extends SpecialPage
 		} else {
 			$expiry_description = "";
 		}
-		return "<li>{$link} ({$config}) {$restr}<i>{$expiry_description}</i></li>";
+		$utilLinks = $wgLang->pipeList( $utilLinks );
+		return "<li>{$link} ({$utilLinks}) {$restr}<i>{$expiry_description}</i></li>";
 	}
 }
 
