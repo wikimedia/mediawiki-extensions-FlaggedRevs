@@ -129,7 +129,7 @@ $messages['cs'] = array(
  */
 $messages['de'] = array(
 	'problemchanges' => 'Gekennzeichnete unmarkierte Änderungen',
-	'problemchanges-legend' => 'Liste der Seiten deren letzte Version noch nicht markiert wurde',
+	'problemchanges-legend' => 'Liste der Seiten, deren letzte Version noch nicht markiert wurde',
 	'problemchanges-none' => 'Es gibt zurzeit keine Seiten, die diese Kriterien erfüllen.',
 	'problemchanges-category' => 'Kategorie:',
 );

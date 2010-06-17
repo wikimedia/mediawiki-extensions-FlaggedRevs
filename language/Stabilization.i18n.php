@@ -2755,8 +2755,8 @@ $messages['pl'] = array(
 	'stabilization-text' => "'''Ustaw poniżej, w jaki sposób ma być wybierana i wyświetlana opublikowana wersja strony [[:$1|$1]].'''
 
 '''Uwaga''' Po zmianie sposobu ''wyboru wersji opublikowanej'', aby preferowała domyślnie wersję „zweryfikowaną” lub „sprzed zmian” należy się upewnić, że strona posiada tego typu wersje, w przeciwnym wypadku zmiana nie da żadnego efektu. Zauważ, że wersja „zweryfikowana” jest również uznawana za „oznaczoną” itd.",
-	'stabilization-perm' => 'Nie masz wystarczających uprawnień, aby zmienić konfigurację wersji opublikowanej.
-Aktualne ustawienia dla strony [[:$1|$1]]:',
+	'stabilization-perm' => 'Nie masz wystarczających uprawnień, aby zmienić konfigurację wersji oznaczonych.
+Poniżej znajdują się aktualne ustawienia dla strony [[:$1|$1]].',
 	'stabilization-page' => 'Nazwa strony:',
 	'stabilization-leg' => 'Zatwierdź konfigurację wersji opublikowanej',
 	'stabilization-select' => 'Pierwszeństwo wyboru wersji opublikowanej',
@@ -2766,7 +2766,7 @@ Aktualne ustawienia dla strony [[:$1|$1]]:',
 	'stabilization-def' => 'Wersja strony wyświetlana domyślnie',
 	'stabilization-def1' => 'Wersja opublikowana, a jeśli nie istnieje, to wersja bieżąca lub robocza',
 	'stabilization-def2' => 'Wersja bieżąca lub robocza',
-	'stabilization-restrict' => 'Ograniczenia ręcznego i automatycznego przeglądania',
+	'stabilization-restrict' => 'Ograniczenia ręcznego i automatycznego oznaczania',
 	'stabilization-restrict-none' => 'Brak dodatkowych ograniczeń',
 	'stabilization-submit' => 'Potwierdź',
 	'stabilization-notexists' => 'Brak strony zatytułowanej „[[:$1|$1]]”. Nie jest możliwa jej konfiguracja.',
@@ -3775,8 +3775,11 @@ $messages['uk'] = array(
 	'stabilization-def-short' => 'Стандартно',
 	'stabilization-def-short-0' => 'Поточна',
 	'stabilization-def-short-1' => 'Опублікована',
+	'stabilize_page_invalid' => 'Неприпустима назва цільової сторінки.',
+	'stabilize_page_notexists' => 'Цільової сторінки не існує.',
 	'stabilize_expiry_invalid' => 'Помилкова дата закінчення.',
 	'stabilize_expiry_old' => 'Зазначений час закінчення пройшов.',
+	'stabilize_denied' => 'Доступ заборонено.',
 	'stabilize-expiring' => 'закінчується о $1 (UTC)',
 	'stabilization-review' => 'Позначити поточну версію перевіреною',
 );

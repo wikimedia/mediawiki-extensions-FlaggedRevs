@@ -263,8 +263,7 @@ Izmjene koje trebaju provjeriti potvrđeni korisnici smatraju se neprovjerenim.
 Prosječno čekanje na izmjenu od strane ''korisnika koji se nisu prijavili'' a izmjena čeka na pregled je '''$1'''; prosjek je '''$3'''.
 $4
 Prosječno kašnjenje za [[Special:OldReviewedPages|stranice sa nepregledanim izmjenama]] je '''$2'''.
-Ove stranice se smatraju ''zastarijelim''. Isto tako, stranice se smatraju ''sinhronizovanim'', ako je nema izmjena koje čekaju na provjeru.
-Objavljenja verzija je najnovija revizija stranice koja je provjerena i prikazuje se po prepostavljenom svim čitaocima.",
+Ove stranice se smatraju ''zastarijelim''. Isto tako, stranice se smatraju ''sinhronizovanim'', ako je nema izmjena koje čekaju na provjeru.",
 	'validationstatistics-table' => "Statistike za svaki imenski prostor su prikazane ispod, ''isključujući'' stranice preusmjeravanja.",
 	'validationstatistics-ns' => 'Imenski prostor',
 	'validationstatistics-total' => 'Stranice',
@@ -1535,7 +1534,7 @@ $messages['pt-br'] = array(
 Editores são utilizadores estabelecidos que podem verificar detalhadamente revisões de páginas.",
 	'validationstatistics-time' => "''Os seguintes dados foram atualizados pela última vez em $5 às $6.''
 
-As edições verificadas por utilizadores estabelecidos são consideradas revistas.
+As edições verificadas por utilizadores estabelecidos são consideradas revisadas.
 
 O tempo médio de espera para revisão das edições de ''usuários não autenticados'' é '''$1'''; a mediana é '''$3'''. 
 $4

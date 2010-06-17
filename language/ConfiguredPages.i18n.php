@@ -390,6 +390,7 @@ $messages['id'] = array(
 	'configuredpages-prec-quality' => 'preseden berkualitas',
 	'configuredpages-prec-pristine' => 'preseden murni',
 	'configuredpages-def-draft' => 'versi terbaru',
+	'configuredpages-def-stable' => 'versi stabil',
 );
 
 /** Italian (Italiano) */
@@ -478,7 +479,7 @@ Verschidden Astellungen kënne beaflosse wat fir eng Versioun de Lieser gewise g
  */
 $messages['mk'] = array(
 	'configuredpages' => 'Страници со прилагодувања за преглед',
-	'configuredpages-text' => 'Подолу е наведен списокот на страници што се прилагодени со поинакви поставки за одобрување од основните на веб-страницата.
+	'configuredpages-text' => 'Подолу е наведен списокот на страници што се прилагодени со поинакви поставки за одобрување од основните на мрежното место.
 
 Некои поставки може да ја променат верзијата што ќе им се прикажува на корисниците, или уште повеќе да ограничи кој сè може да врши уредувања без да треба тие да се прегледуваат.',
 	'configuredpages-none' => 'Нема страници на овој список.',
