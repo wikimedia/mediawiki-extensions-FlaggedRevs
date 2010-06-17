@@ -833,8 +833,8 @@ class FlaggedArticleView {
 				&& $this->isDiffShownOnEdit() // stable default and user cannot review
 				&& $wgUser->getBoolOption( 'flaggedrevseditdiffs' ) // not disable via prefs
 				&& $revId == $latestId // only for current rev
-				&& $editPage->section != "new" // not for new sections
-				&& !in_array( $editPage->formtype, array( 'diff', 'preview' ) ) // not preview/"show changes"
+				&& $editPage->section != 'new' // not for new sections
+				&& $editPage->formtype != 'diff' // not "show changes"
 			) {
 				# Left diff side...
 				$leftNote = $quality
