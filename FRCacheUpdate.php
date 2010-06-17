@@ -8,7 +8,7 @@ class FRCacheUpdate {
 	public $mTitle, $mTable;
     public $mRowsPerJob, $mRowsPerQuery;
 
-    public function __construct( $titleTo ) {
+    public function __construct( Title $titleTo ) {
         global $wgUpdateRowsPerJob, $wgUpdateRowsPerQuery;
         $this->mTitle = $titleTo;
         $this->mTable = 'flaggedrevs_tracking';
@@ -22,12 +22,14 @@ class FRCacheUpdate {
 			$wgFlaggedRevsCacheUpdates = array(); // temp var
 		}
 		$key = $this->mTitle->getPrefixedDBKey();
-		if ( isset( $wgFlaggedRevsCacheUpdates[$key] ) )
+		if ( isset( $wgFlaggedRevsCacheUpdates[$key] ) ) {
 			return; // No duplicates...
+		}
 		# Fetch the IDs
 		$dbr = wfGetDB( DB_SLAVE );
 		$res = $dbr->select( $this->mTable, $this->getFromField(),
 			$this->getToCondition(), __METHOD__ );
+		# Check if there is anything to do...
 		if ( $dbr->numRows( $res ) > 0 ) {
 			# Do it right now?
 			if ( $dbr->numRows( $res ) <= $this->mRowsPerJob ) {
@@ -86,7 +88,7 @@ class FRCacheUpdate {
 		return array( 'ftr_namespace' => $this->mTitle->getNamespace(),
 			'ftr_title' => $this->mTitle->getDBkey() );
 	}
-	
+
 	/**
      * Invalidate a set of IDs, right now
      */
@@ -164,7 +166,6 @@ class FRCacheUpdateJob extends Job {
 		if ( $this->end ) {
 			$conds[] = "$fromField <= {$this->end}";
 		}
-
 		# Run query to get page Ids
 		$dbr = wfGetDB( DB_SLAVE );
 		$res = $dbr->select( $this->table, $fromField, $conds, __METHOD__ );
