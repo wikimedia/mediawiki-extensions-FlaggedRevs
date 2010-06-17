@@ -561,14 +561,15 @@ class FlaggedRevs {
 		$options->setTidy( true );
 		return $options;
 	}
-	
+
 	/**
+	* Get the page cache for the stable version of an article
 	* @param Article $article
 	* @param User $user
-	* @return ParserOutput
-	* Get the page cache for the top stable revision of an article
+	* @param string $okStale set to 'okStale' to ignore expiration date
+	* @return mixed (ParserOutput/false)
 	*/
-	public static function getPageCache( Article $article, $user ) {
+	public static function getPageCache( Article $article, $user, $okStale = false ) {
 		global $parserMemc, $wgCacheEpoch;
 		wfProfileIn( __METHOD__ );
 		# Make sure it is valid
@@ -587,7 +588,7 @@ class FlaggedRevs {
 			$canCache = $article->checkTouched();
 			$cacheTime = $value->getCacheTime();
 			$touched = $article->mTouched;
-			if ( !$canCache || $value->expired( $touched ) ) {
+			if ( !$canCache || ( $value->expired( $touched ) && $okStale !== 'okStale' ) ) {
 				if ( !$canCache ) {
 					wfIncrStats( "pcache_miss_invalid" );
 					wfDebug( "Invalid cached redirect, touched $touched, epoch $wgCacheEpoch, cached $cacheTime\n" );
@@ -598,9 +599,6 @@ class FlaggedRevs {
 				$parserMemc->delete( $key );
 				$value = false;
 			} else {
-				if ( isset( $value->mTimestamp ) ) {
-					$article->mTimestamp = $value->mTimestamp;
-				}
 				wfIncrStats( "pcache_hit" );
 			}
 		} else {
@@ -608,7 +606,6 @@ class FlaggedRevs {
 			wfIncrStats( "pcache_miss_absent" );
 			$value = false;
 		}
-
 		wfProfileOut( __METHOD__ );
 		return $value;
 	}
@@ -793,7 +790,9 @@ class FlaggedRevs {
 	* @param mixed $latest, the latest rev ID (optional)
 	* Updates the tracking tables and pending edit count cache. Called on edit.
 	*/
-	public static function updateStableVersion( Article $article, Revision $rev, $latest = null ) {
+	public static function updateStableVersion(
+		Article $article, Revision $rev, $latest = null
+	) {
 		if ( !$article->getId() ) {
 			return true; // no bogus entries
 		}
@@ -1392,7 +1391,28 @@ class FlaggedRevs {
 			NS_FILE : $title->getNamespace(); // Treat NS_MEDIA as NS_FILE
 		return ( in_array( $ns, $namespaces ) );
 	}
-	
+
+   	/**
+	* Get a list of stable categories which go in categorylinks
+	* iff they're in the stable version of of the page (if there is one).
+	* Note: used for bug 20813
+	* @return array
+	*/
+	public static function getStableCategories() {
+		$reviewedCats = array();
+		$msg = wfMsgForContent( 'flaggedrevs-stable-categories' );
+		if ( !wfEmptyMsg( 'flaggedrevs-stable-categories', $msg ) ) {
+			$list = explode( "\n*", "\n$msg" );
+			foreach ( $list as $category ) {
+				$category = trim( $category );
+				if ( $category != '' ) {
+					$reviewedCats[] = $category;
+				}
+			}
+		}
+		return $reviewedCats;
+	}
+
    	/**
 	* Clear FlaggedRevs tracking tables for this page
 	* @param mixed $pageId (int or array)

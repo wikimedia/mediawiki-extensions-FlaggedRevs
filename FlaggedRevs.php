@@ -311,6 +311,7 @@ $wgAutoloadClasses['FlaggedRevsHooks'] = $dir . 'FlaggedRevs.hooks.php';
 $wgAutoloadClasses['FlaggedRevsLogs'] = $dir . 'FlaggedRevsLogs.php';
 $wgAutoloadClasses['FRCacheUpdate'] = $dir . 'FRCacheUpdate.php';
 $wgAutoloadClasses['FRCacheUpdateJob'] = $dir . 'FRCacheUpdate.php';
+$wgAutoloadClasses['FRLinksUpdate'] = $dir . 'FRLinksUpdate.php';
 
 # Special case cache invalidations
 $wgJobClasses['flaggedrevs_CacheUpdate'] = 'FRCacheUpdateJob';
@@ -490,7 +491,7 @@ $wgHooks['NewRevisionFromEditComplete'][] = 'FlaggedRevsHooks::incrementReverts'
 # Extra cache updates for stable versions
 $wgHooks['HTMLCacheUpdate::doUpdate'][] = 'FlaggedRevsHooks::doCacheUpdate';
 # Updates stable version tracking data
-$wgHooks['LinksUpdate'][] = 'FlaggedRevsHooks::extraLinksUpdate';
+$wgHooks['LinksUpdate'][] = 'FlaggedRevsHooks::onLinksUpdate';
 # Clear dead config rows
 $wgHooks['ArticleDeleteComplete'][] = 'FlaggedRevsHooks::onArticleDelete';
 $wgHooks['ArticleRevisionVisibilitySet'][] = 'FlaggedRevsHooks::onRevisionDelete';

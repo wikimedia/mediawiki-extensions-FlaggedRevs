@@ -282,177 +282,81 @@ class FlaggedRevsHooks {
 		return true;
 	}
 
-	/**
-	* Inject stable links on LinksUpdate
-	*/
-	public static function extraLinksUpdate( LinksUpdate $linksUpdate ) {
-		$dbw = wfGetDB( DB_MASTER );
-		$pageId = $linksUpdate->mTitle->getArticleId();
+	// @TODO: replace raw $linksUpdate field accesses
+	public static function onLinksUpdate( LinksUpdate $linksUpdate ) {
+		global $wgUser;
+		wfProfileIn( __METHOD__ );
+		$fa = FlaggedArticle::getTitleInstance( $linksUpdate->mTitle );
 		# Check if this page has a stable version...
+		$sv = null;
 		if ( isset( $u->fr_stableRev ) ) {
 			$sv = $u->fr_stableRev; // Try the process cache...
-		} else {
-			$fa = FlaggedArticle::getTitleInstance( $linksUpdate->mTitle );
-			if ( FlaggedRevs::inReviewNamespace( $linksUpdate->mTitle ) ) {
-				$sv = $fa->getStableRev( FR_MASTER ); // re-validate NS/config
-			} else {
-				$sv = null;
-			}
+		} elseif ( $fa->isReviewable( FR_MASTER ) ) {
+			$sv = $fa->getStableRev( FR_MASTER ); // re-validate NS/config
 		}
-		# Empty flagged revs data for this page if there is no stable version
-		if ( !$sv ) {
-			FlaggedRevs::clearTrackingRows( $pageId );
-			return true;
-		}
-		# Try the process cache...
-		$article = new Article( $linksUpdate->mTitle );
-		if ( isset( $linksUpdate->fr_stableParserOut ) ) {
-			$parserOut = $linksUpdate->fr_stableParserOut;
-		} else {
-			global $wgUser;
-			# Try stable version cache. This should be updated before this is called.
-			$anon = new User; // anon cache most likely to exist
-			$parserOut = FlaggedRevs::getPageCache( $article, $anon );
-			if ( $parserOut == false && $wgUser->getId() )
-				$parserOut = FlaggedRevs::getPageCache( $article, $wgUser );
-			if ( $parserOut == false ) {
-				$text = $sv->getRevText();
-				# Parse the text
-				$parserOut = FlaggedRevs::parseStableText( $article, $text, $sv->getRevId() );
-			}
-		}
-		# Update page fields
-		FlaggedRevs::updateStableVersion( $article, $sv->getRevision() );
-		# Get the list of categories that must be reviewed
-		$reviewedCats = array();
-		$msg = wfMsgForContent( 'flaggedrevs-stable-categories' );
-		if ( !wfEmptyMsg( 'flaggedrevs-stable-categories', $msg ) ) {
-			$list = explode( "\n*", "\n$msg" );
-			foreach ( $list as $category ) {
-				$category = trim( $category );
-				if ( $category != '' )
-					$reviewedCats[$category] = 1;
-			}
-		}
-		$links = array();
-		# Get any links that are only in the stable version...
-		foreach ( $parserOut->getLinks() as $ns => $titles ) {
-			foreach ( $titles as $title => $id ) {
-				if ( !isset( $linksUpdate->mLinks[$ns] )
-					|| !isset( $linksUpdate->mLinks[$ns][$title] ) )
-				{
-					self::addLink( $links, $ns, $title );
-				}
-			}
-		}
-		# Get any images that are only in the stable version...
-		foreach ( $parserOut->getImages() as $image => $n ) {
-			if ( !isset( $linksUpdate->mImages[$image] ) ) {
-				self::addLink( $links, NS_FILE, $image );
-			}
-		}
-		# Get any templates that are only in the stable version...
-		foreach ( $parserOut->getTemplates() as $ns => $titles ) {
-			foreach ( $titles as $title => $id ) {
-				if ( !isset( $linksUpdate->mTemplates[$ns] )
-					|| !isset( $linksUpdate->mTemplates[$ns][$title] ) )
-				{
-					self::addLink( $links, $ns, $title );
-				}
-			}
-		}
-		# Get any categories that are only in the stable version...
-		foreach ( $parserOut->getCategories() as $category => $sort ) {
-            if ( !isset( $linksUpdate->mCategories[$category] ) ) {
-				// Stable categories must remain until removed from the stable version
-				if ( isset( $reviewedCats[$category] ) ) {
-					$linksUpdate->mCategories[$category] = $sort;
+		if ( $sv ) {
+			$stableCats = FlaggedRevs::getStableCategories();
+			// Short-circuit things that need stable version output
+			if ( $stableCats || FlaggedRevs::inclusionSetting() != FR_INCLUDES_CURRENT ) {
+				# Get the parsed stable version...
+				if ( isset( $linksUpdate->fr_stableParserOut ) ) {
+					$stableOut = $linksUpdate->fr_stableParserOut; // process cache
 				} else {
-					self::addLink( $links, NS_CATEGORY, $category );
+					# Try stable version cache, which should be up-to-date now.
+					# Hack: use 'okStale' to ignore any previous invalidate() calls.
+					$anon = new User(); // anon cache most likely to exist
+					$stableOut = FlaggedRevs::getPageCache( $fa, $anon, 'okStale' );
+					if ( $stableOut == false && $wgUser->getId() ) {
+						$stableOut = FlaggedRevs::getPageCache( $fa, $wgUser, 'okStale' );
+					}
+					if ( $stableOut == false ) { // cache miss
+						$text = $sv->getRevText();
+						$stableOut = FlaggedRevs::parseStableText( $fa, $text, $sv->getRevId() );
+					}
 				}
+				# Tracking for certain categories depends only on the stable version
+				self::stabilizeCategories( $linksUpdate, $stableOut, $stableCats );
+				# Update flaggedrevs link tracking tables
+				$frLinksUpdate = new FRLinksUpdate( $linksUpdate, $stableOut );
+				$frLinksUpdate->doUpdate();
 			}
-        }
-		$stableCats = $parserOut->getCategories(); // from stable version
-		foreach ( $reviewedCats as $category ) {
-			// Stable categories cannot be added until added to the stable version
-			if ( isset( $linksUpdate->mCategories[$category] )
-				&& !isset( $stableCats[$category] ) )
-			{
-				unset( $linksUpdate->mCategories[$category] );
-			}
+			# Update flagged page related fields
+			FlaggedRevs::updateStableVersion( $fa, $sv->getRevision() );
+		} else {
+			# Empty flaggedrevs data for this page if there is no stable version
+			FlaggedRevs::clearTrackingRows( $fa->getId() );
 		}
-		# Get any link tracking changes
-		$existing = self::getExistingLinks( $pageId );
-		$insertions = self::getLinkInsertions( $existing, $links, $pageId );
-		$deletions = self::getLinkDeletions( $existing, $links );
-		# Delete removed links
-		if ( $clause = self::makeWhereFrom2d( $deletions ) ) {
-			$where = array( 'ftr_from' => $pageId );
-			$where[] = $clause;
-			$dbw->delete( 'flaggedrevs_tracking', $where, __METHOD__ );
+		# Refresh links for pages were only the stable version includes this page
+		if ( $linksUpdate->mRecursive ) {
+			FRLinksUpdate::queueRefreshLinksJobs( $fa->getTitle() );
 		}
-		# Add any new links
-		if ( count( $insertions ) ) {
-			$dbw->insert( 'flaggedrevs_tracking', $insertions, __METHOD__, 'IGNORE' );
-		}
+		wfProfileOut( __METHOD__ );
 		return true;
 	}
 
-	protected static function addLink( array &$links, $ns, $dbKey ) {
-		if ( !isset( $links[$ns] ) ) {
-			$links[$ns] = array();
-		}
-		$links[$ns][$dbKey] = 1;
-	}
-
-	protected static function getExistingLinks( $pageId ) {
-		$dbr = wfGetDB( DB_SLAVE );
-		$res = $dbr->select( 'flaggedrevs_tracking',
-			array( 'ftr_namespace', 'ftr_title' ),
-			array( 'ftr_from' => $pageId ),
-			__METHOD__ );
-		$arr = array();
-		while ( $row = $dbr->fetchObject( $res ) ) {
-			if ( !isset( $arr[$row->ftr_namespace] ) ) {
-				$arr[$row->ftr_namespace] = array();
-			}
-			$arr[$row->ftr_namespace][$row->ftr_title] = 1;
-		}
-		return $arr;
-	}
-
-	protected static function makeWhereFrom2d( &$arr ) {
-		$lb = new LinkBatch();
-		$lb->setArray( $arr );
-		return $lb->constructSet( 'ftr', wfGetDB( DB_SLAVE ) );
-	}
-
-	protected static function getLinkInsertions( $existing, $new, $pageId ) {
-		$arr = array();
-		foreach ( $new as $ns => $dbkeys ) {
-			$diffs = isset( $existing[$ns] ) ?
-				array_diff_key( $dbkeys, $existing[$ns] ) : $dbkeys;
-			foreach ( $diffs as $dbk => $id ) {
-				$arr[] = array(
-					'ftr_from'      => $pageId,
-					'ftr_namespace' => $ns,
-					'ftr_title'     => $dbk
-				);
+	/**
+	* Make "stable categories" appear in categorylinks for a page
+	* iff they are currently in the stable version of the page (if there is one)
+	* @TODO: replace raw $linksUpdate field accesses
+	*/
+	protected static function stabilizeCategories(
+		LinksUpdate $linksUpdate, ParserOutput $stableOut, array $stableCats
+	) {
+		$sCategories = $stableOut->getCategories(); // assoc array (name => sortkey)
+		foreach ( $stableCats as $category ) {
+			$category = str_replace( ' ', '_', $category ); // ' ' -> underscore
+			// Stable categories cannot be added until added to the stable version
+			if ( isset( $linksUpdate->mCategories[$category] ) // in current
+				&& !isset( $sCategories[$category] ) ) // not in stable
+			{
+				unset( $linksUpdate->mCategories[$category] );
+			// Stable categories must remain until removed from the stable version
+			} elseif ( !isset( $linksUpdate->mCategories[$category] ) // not in current
+				&& isset( $sCategories[$category] ) ) // in stable
+			{
+				$linksUpdate->mCategories[$category] = $sCategories[$category];
 			}
 		}
-		return $arr;
-	}
-
-	protected static function getLinkDeletions( $existing, $new ) {
-		$del = array();
-		foreach ( $existing as $ns => $dbkeys ) {
-			if ( isset( $new[$ns] ) ) {
-				$del[$ns] = array_diff_key( $existing[$ns], $new[$ns] );
-			} else {
-				$del[$ns] = $existing[$ns];
-			}
-		}
-		return $del;
 	}
 
 	/*
