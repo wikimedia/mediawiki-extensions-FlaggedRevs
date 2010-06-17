@@ -162,16 +162,17 @@ wgAjaxReview.ajaxCall = function() {
 
 wgAjaxReview.unlockForm = function() {
 	var form = document.getElementById("mw-fr-reviewform");
-	var submit = document.getElementById("mw-fr-submitreview");
 	var notes = document.getElementById("wpNotes");
 	var reason = document.getElementById("wpReason");
-	if( !form || !submit ) {
+	if( !form ) {
 		return false;
 	}
 	var inputs = form.getElementsByTagName("input");
 	for( var i=0; i < inputs.length; i++) {
 		if( inputs[i].type != 'submit' ) {
 			inputs[i].disabled = "";
+		} else {
+			inputs[i].blur(); // focus off element (bug 24013)
 		}
 	}
 	if( notes ) {
