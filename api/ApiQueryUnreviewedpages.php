@@ -41,6 +41,7 @@ class ApiQueryUnreviewedpages extends ApiQueryGeneratorBase {
 	}
 
 	private function run( $resultPageSet = null ) {
+		global $wgMemc;
 		$params = $this->extractRequestParams();
 
 		// Construct SQL Query
@@ -95,11 +96,13 @@ class ApiQueryUnreviewedpages extends ApiQueryGeneratorBase {
 
 			if ( is_null( $resultPageSet ) ) {
 				$title = Title::newFromRow( $row );
+				$key = wfMemcKey( 'unreviewedPages', 'underReview', $row->page_id );
 				$data[] = array(
-					'pageid' => intval( $row->page_id ),
-					'ns'     => intval( $title->getNamespace() ),
-					'title'  => $title->getPrefixedText(),
-					'revid'  => intval( $row->page_latest ),
+					'pageid' 		=> intval( $row->page_id ),
+					'ns'     		=> intval( $title->getNamespace() ),
+					'title'  		=> $title->getPrefixedText(),
+					'revid'  	  	=> intval( $row->page_latest ),
+					'under_review'  => (bool)$wgMemc->get( $key )
 				);
 			} else {
 				$resultPageSet->processDbRow( $row );

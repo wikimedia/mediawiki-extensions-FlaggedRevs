@@ -41,7 +41,7 @@ class ApiQueryOldreviewedpages extends ApiQueryGeneratorBase {
 	}
 
 	private function run( $resultPageSet = null ) {
-		global $wgUser;
+		global $wgUser, $wgMemc;
 		$params = $this->extractRequestParams();
 
 		// Construct SQL Query
@@ -122,6 +122,8 @@ class ApiQueryOldreviewedpages extends ApiQueryGeneratorBase {
 
 			if ( is_null( $resultPageSet ) ) {
 				$title = Title::newFromRow( $row );
+				$key = wfMemcKey( 'stableDiffs', 'underReview',
+					$row->fp_stable, $row->page_latest );
 				$data[] = array(
 					'pageid' => intval( $row->page_id ),
 					'ns' => intval( $title->getNamespace() ),
@@ -131,7 +133,8 @@ class ApiQueryOldreviewedpages extends ApiQueryGeneratorBase {
 					'pending_since' => wfTimestamp( TS_ISO_8601, $row->fp_pending_since ),
 					'flagged_level' => intval( $row->fp_quality ),
 					'flagged_level_text' => FlaggedRevs::getQualityLevelText( $row->fp_quality ),
-					'diff_size' => (int)$row->page_len - (int)$row->rev_len
+					'diff_size' => (int)$row->page_len - (int)$row->rev_len,
+					'under_review' => (bool)$wgMemc->get( $key )
 				);
 			} else {
 				$resultPageSet->processDbRow( $row );
