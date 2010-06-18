@@ -1563,17 +1563,8 @@ class FlaggedArticleView {
 	* @TODO: would be nice if hook passed in button attribs, not XML
 	*/
 	public function changeSaveButton( EditPage $editPage, array &$buttons ) {
-		$title = $this->article->getTitle(); // convenience
-		if ( !$this->article->editsRequireReview() ) {
-			return true; // edit will go live immediatly
-		} elseif ( $title->userCan( 'autoreview' ) ) {
-			if ( FlaggedRevs::autoReviewNewPages() && !$this->article->exists() ) {
-				return true; // edit will be autoreviewed anyway
-			}
-			$frev = FlaggedRevision::newFromTitle( $title, self::getBaseRevId( $editPage ) );
-			if ( $frev ) {
-				return true; // edit will be autoreviewed anyway
-			}
+		if ( !$this->editWillRequireReview( $editPage ) ) {
+			return true; // edit will go live or be reviewed on save
 		}
 		if ( extension_loaded( 'domxml' ) ) {
 			wfDebug( "Warning: you have the obsolete domxml extension for PHP. Please remove it!\n" );
@@ -1590,6 +1581,31 @@ class FlaggedArticleView {
 			}
 		}
 		return true;
+	}
+
+	/**
+	* If submitting this edit will leave it pending
+	* @param EditPage $editPage
+	* @return bool
+	*/
+	protected function editWillRequireReview( EditPage $editPage ) {
+		global $wgRequest;
+		$title = $this->article->getTitle(); // convenience
+		if ( !$this->article->editsRequireReview() ) {
+			return false; // edits go live immediatly
+		} elseif ( $wgRequest->getCheck( 'wpReviewEdit' ) && $title->userCan( 'review' ) ) {
+			return false; // edit will checked off to be reviewed
+		}
+		if ( $title->userCan( 'autoreview' ) ) {
+			if ( FlaggedRevs::autoReviewNewPages() && !$this->article->exists() ) {
+				return false; // edit will be autoreviewed anyway
+			}
+			$frev = FlaggedRevision::newFromTitle( $title, self::getBaseRevId( $editPage ) );
+			if ( $frev ) {
+				return false; // edit will be autoreviewed anyway
+			}
+		}
+		return true; // edit needs review
 	}
 
 	/**
