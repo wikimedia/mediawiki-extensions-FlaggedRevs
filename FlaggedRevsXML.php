@@ -345,7 +345,7 @@ class FlaggedRevsXML {
 	 * @returns string
 	 */
 	public static function diffToggle() {
-		$toggle = '<a class="fr-toggle-text" "' .
+		$toggle = '<a class="fr-toggle-text" ' .
 			' onclick="FlaggedRevs.toggleDiff()" title="' .
 			wfMsgHtml( 'revreview-diff-toggle-title' ) . '" >' .
 			wfMsgHtml( 'revreview-diff-toggle-show' ) . '</a>';
