@@ -41,7 +41,7 @@ class FlaggedArticle extends Article {
 		$this->stableRev = null;
 		$this->pendingRevs = null;
 		$this->pageConfig = null;
-		$this->file = null;
+		$this->imagePage = null;
 		parent::clear();
 	}
 
