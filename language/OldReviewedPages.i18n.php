@@ -301,7 +301,7 @@ $messages['bs'] = array(
 	'oldreviewedpages-recent' => '(manje od 1 sata)',
 	'oldreviewed-category' => 'Kategorija:',
 	'oldreviewed-watched' => 'Stranice na mom spisku praćenja',
-	'oldreviewed-stable' => 'Stabilizirano',
+	'oldreviewed-stable' => 'Stabilna verzija je pretpostavljena',
 	'oldreviewed-diff' => 'pregled',
 	'oldreviewed-size' => 'Najveća izmjena (bajta):',
 	'oldreviewedpages-unwatched' => '(nepregledano)',
@@ -816,6 +816,7 @@ $messages['ia'] = array(
 
 /** Indonesian (Bahasa Indonesia)
  * @author Bennylin
+ * @author IvanLanin
  * @author Iwan Novirion
  * @author Rex
  */
@@ -830,7 +831,7 @@ $messages['id'] = array(
 	'oldreviewed-category' => 'Kategori:',
 	'oldreviewed-watched' => 'Halaman pada daftar pantauan saya',
 	'oldreviewed-stable' => 'Distabilkan',
-	'oldreviewed-diff' => 'meninjau',
+	'oldreviewed-diff' => 'tinjau',
 	'oldreviewed-size' => 'Perubahan maks. (byte):',
 	'oldreviewedpages-unwatched' => '(tidak dipantau)',
 	'oldreviewedpages-watched' => '(dipantau $1 {{PLURAL:$1|pengguna|pengguna}} aktif)',
@@ -910,9 +911,11 @@ $messages['ja'] = array(
 /** Georgian (ქართული)
  * @author BRUTE
  * @author ITshnik
+ * @author გიორგიმელა
  */
 $messages['ka'] = array(
 	'oldreviewedpages-none' => 'ამ დროისათვის არ არსებობს სტატიები ასეთი კრიტერიუმებით',
+	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|საათი|საათი}})',
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|დღე|დღე}})',
 	'oldreviewedpages-recent' => '(1 საათზე ნაკლები)',
 	'oldreviewed-category' => 'კატეგორია:',
@@ -1683,7 +1686,7 @@ $messages['vep'] = array(
  * @author Vinhtantran
  */
 $messages['vi'] = array(
-	'oldreviewedpages' => 'Các trang đã duyệt lỗi thời',
+	'oldreviewedpages' => 'Các trang có thay đổi chưa duyệt',
 	'oldreviewedpages-legend' => 'Liệt kê các trang đã duyệt có các phiên bản chưa duyệt',
 	'oldreviewedpages-list' => 'Trang này liệt kê {{PLURAL:$1|một|những}} trang đã duyệt nhưng có các sửa đổi chờ duyệt.',
 	'oldreviewedpages-none' => 'Hiện không có trang này thỏa mãn tiêu chí này',
@@ -1692,7 +1695,7 @@ $messages['vi'] = array(
 	'oldreviewedpages-recent' => '(dưới 1 giờ)',
 	'oldreviewed-category' => 'Thể loại:',
 	'oldreviewed-watched' => 'Các trang trong danh sách theo dõi của tôi',
-	'oldreviewed-stable' => 'Đã ổn định',
+	'oldreviewed-stable' => 'Dùng phiên bản ổn định làm mặc định',
 	'oldreviewed-diff' => 'duyệt',
 	'oldreviewed-size' => 'Thay đổi lớn nhất (byte):',
 	'oldreviewedpages-unwatched' => '(chưa theo dõi)',

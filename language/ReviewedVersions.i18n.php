@@ -1166,7 +1166,7 @@ $messages['vep'] = array(
  * @author Vinhtantran
  */
 $messages['vi'] = array(
-	'reviewedversions' => 'Xem các phiên bản ổn định',
+	'reviewedversions' => 'Phiên bản đã duyệt',
 	'reviewedversions-leg1' => 'Liệt kê những bản đã được duyệt của một trang',
 	'reviewedversions-page' => 'Tên trang:',
 	'reviewedversions-none' => '"[[:$1]]" không có bản nào được duyệt.',

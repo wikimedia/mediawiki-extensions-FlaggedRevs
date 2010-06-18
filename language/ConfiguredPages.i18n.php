@@ -831,6 +831,10 @@ $messages['vep'] = array(
  * @author Trần Nguyễn Minh Huy
  */
 $messages['vi'] = array(
+	'configuredpages' => 'Các trang có cấu hình duyệt tùy biến',
+	'configuredpages-text' => 'Đây là danh sách các trang được cấu hình duyệt khác với mặc định của website.
+
+Một số tùy chọn có thể có ảnh hưởng đến phiên bản được trình bày cho độc giả hoặc hạn chế những người có thể sửa đổi không cần duyệt sau.',
 	'configuredpages-none' => 'Danh sách không có trang nào.',
 	'configuredpages-config' => 'Thiết lập',
 	'configuredpages-precedence' => 'Bản trước:',

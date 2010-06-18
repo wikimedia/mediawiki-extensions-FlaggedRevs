@@ -134,7 +134,8 @@ Ne vo degemeret ar c'hemmoù-se nemet pa vint bet adlennet gant un aozer aotreet
  */
 $messages['bs'] = array(
 	'stablepages' => 'Stranice koristeći odobravanje izmjena',
-	'stablepages-text' => 'Ispod je spisak stranica koje su zaštićene tako da samo određeni korisnici mogu ih mijenjati a te izmjene ne zahtjevaju provjeru. Takve izmjene nisu objavljene dok ih ne provjeri autorizovani korisnik.',
+	'stablepages-text' => 'Ispod je spisak stranica koje samo određeni korisnici mogu ih mijenjati a te izmjene ne zahtjevaju provjeru.
+Izmjene drugih korisnika nisu prikazane čitaocima po postavkama dok ih ne provjeri autorizovani korisnik.',
 	'stablepages-none' => 'Nema stranica na ovom spisku',
 	'stablepages-config' => 'Podešavanje',
 );
@@ -320,6 +321,7 @@ $messages['gsw'] = array(
 );
 
 /** Hebrew (עברית)
+ * @author DoviJ
  * @author Ori229
  * @author Rotemliss
  * @author StuB
@@ -327,7 +329,8 @@ $messages['gsw'] = array(
  */
 $messages['he'] = array(
 	'stablepages' => 'דפים יציבים',
-	'stablepages-text' => 'זוהי רשימת הדפים שהוגדרו ידנית להציג את הגרסה היציבה כגרסת ברירת המחדל שתוצג לקוראים.',
+	'stablepages-text' => 'זוהי רשימת הדפים שהוגדרו ידנית להציג את הגרסה היציבה כגרסת ברירת המחדל שתוצג לקוראים.
+עריכות שנעשו על ידי משתמשים אחרים אינם מוגצים לקוראים כברירת מחדל עד שמשתמש מורשה בודק אותם.',
 	'stablepages-none' => 'אין דפים ברשימה זו',
 	'stablepages-config' => 'תצורה',
 );
@@ -426,8 +429,12 @@ $messages['ja'] = array(
 /** Georgian (ქართული)
  * @author BRUTE
  * @author ITshnik
+ * @author გიორგიმელა
  */
 $messages['ka'] = array(
+	'stablepages' => 'რედაქტირებების დამადასტურებელო გვერდები',
+	'stablepages-text' => 'ქვემოთ წარმოდგებილია გვერდების სია, რომლებზეც მხოლოდ რამდენიმე მომხმარებელს შეუძლია შეუმოწმებელი რედაქტირებების განხორციელება. 
+სხვა მომხმარებლების მიერ განხორციელებული ცვლილებები არ იქნება ნაჩვენები მომხმარებლებისადმი სანამ ვინმე მათ არ შეამოწმებს.',
 	'stablepages-none' => 'ამ სიაში გვერდები არ არის',
 	'stablepages-config' => 'კონფიგურაცია',
 );

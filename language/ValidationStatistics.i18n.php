@@ -870,6 +870,7 @@ Tute strony maja so za ''zestarjene''. Tohorunja maja so strony za ''synchronizo
  * @author Dani
  * @author Dorgan
  * @author Glanthor Reviol
+ * @author Hunyadym
  * @author Samat
  */
 $messages['hu'] = array(
@@ -884,8 +885,7 @@ Ellenőrzöttnek tekintettek azok a szerkesztések, amelyeket tapasztalt felhasz
 Az átlagos várakozási idő ''nem bejelentkezett felhasználók'' szerkesztéseinek ellenőrzésére '''$1''', a medián '''$3'''.
 $4
 Az átlagos átfutási idő [[Special:OldReviewedPages|ellenőrzésre váró szerkesztésekkel rendelkező lapoknál]] '''$2'''.
-Ezek a lapok ''elavultnak'' tekintendőek. Hasonlóképpen, a lapok ''szinkronizáltnak'' tekintendőek, ha nincsenek ellenőrzésre váró szerkesztések.
-A lap közzétett változata a legújabb jelölt változat, amit alapértelmezetten látnak az olvasók.",
+Ezek a lapok ''elavultnak'' tekintendőek. Hasonlóképpen, a lapok ''szinkronizáltnak'' tekintendőek, ha nincsenek ellenőrzésre váró szerkesztések.",
 	'validationstatistics-table' => "Ezen az oldalon a névterekre bontott statisztika látható, az átirányítások ''nélkül''.",
 	'validationstatistics-ns' => 'Névtér',
 	'validationstatistics-total' => 'Lapok',
@@ -930,13 +930,14 @@ Iste paginas es considerate ''obsolete''. Similarmente, le paginas es considerat
  * @author Bennylin
  * @author Irwangatot
  * @author Iwan Novirion
+ * @author Kenrick95
  * @author Rex
  */
 $messages['id'] = array(
 	'validationstatistics' => 'Statistik tinjauan halaman',
-	'validationstatistics-users' => "'''{{SITENAME}}''' saat ini memiliki '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|pengguna|pengguna}} dengan hak akses [[{{MediaWiki:Validationpage}}|Penerjemah]].
+	'validationstatistics-users' => "'''{{SITENAME}}''' saat ini memiliki '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|pengguna|pengguna}} dengan hak akses [[{{MediaWiki:Validationpage}}|Penyunting]].
 
-Penerjemah adalah para pengguna tetap yang dapat melakukan pemeriksaan perbaikan di setiap halaman.",
+Penyunting adalah para pengguna tetap yang dapat melakukan pemeriksaan perbaikan di setiap halaman.",
 	'validationstatistics-time' => "''Data berikut ini diperbaharui pada $5 saat $6.'' 
 
 Suntingan yang telah diperiksa oleh pengguna tetap dianggap telah ditinjau. 
@@ -1056,19 +1057,32 @@ Editor lan Pamriksa iku panganggo mapan sing bisa mriksa langsung owah-owahan ka
 /** Georgian (ქართული)
  * @author BRUTE
  * @author ITshnik
+ * @author გიორგიმელა
  */
 $messages['ka'] = array(
-	'validationstatistics-users' => "'''{{SITENAME}}-ს''' ამჟამად ჰყავს '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|მომხმარებელი|მომხმარებელი}} [[{{MediaWiki:Validationpage}}|რედაქტორის]] უფლებებით.
+	'validationstatistics' => 'გვერდების შემოწმების სტატისტიკა',
+	'validationstatistics-users' => "პროექტ {{SITENAME}} ამ მომენტისთვის '''[[Special:ListUsers/editor|$1]]''' {{plural:$1|მომხმარებელს აქვს|მომხმარებლებს აქვთ}} [[{{MediaWiki:Validationpage}}|«შემმოწმებლის»]] სტატუსი.
 
-რედაქტორები არისნ მომხმარებლები, რომელთაც შეუძლიათ სტატიის ცვლილებების შემოწმება.",
-	'validationstatistics-table' => "სტატისტიკა თითოეული სახელთა სივრცისათვის ნაჩვენებია ქვემოთ, ''გარდა'' გადამისამართების გვერდებისა.",
+
+«შემმოწმებლები» — არიან მომხმარებლები, რომლებსაც შეუძლიათ სტატიის კონკრეტული ვერსიების შემოწმება.",
+	'validationstatistics-time' => "''ქვემოთ წარმოდგენილი ინფორმაცია იყო შემოწმებული $5 $6-ში.''
+
+გარკვეული მომხმარებლების მიერ მონიშნული რედაქტირებები ითვლება შემოწმებულად.
+
+ანონიმი მომხმარებლების რედაქტირებების შემოწმების საშუალო მოლოდინი ტოლია '''$1'''; მედიანა ტოლია '''$3'''.
+$4
+საშუალო გაჩერება  [[Special:OldReviewedPages|შეუმოწმებელი რედაქტირებების მქონე გვერდებისთვის]] ტოლია '''$2'''.
+ეს გვერდები ითვლება მძველებულად. ხოლო გვერდები, რომლებშიც ამგვარი ცვლილებები არ არის, ითვლება სინქრონიზებულად.",
+	'validationstatistics-table' => " ქვემოთ ნაჩვენებია სტატისტიკა თითოეული სახელთა სივრცისათვის, ''გარდა'' გადამისამართების გვერდებისა.",
 	'validationstatistics-ns' => 'სახელთა სივრცე',
 	'validationstatistics-total' => 'გვერდები',
-	'validationstatistics-stable' => 'შემოწმებულია',
+	'validationstatistics-stable' => 'შემოწმებული',
+	'validationstatistics-latest' => 'გადამოწმებული',
+	'validationstatistics-synced' => 'გადამოწმებულებისა და შემოწმებულების რაოდენობა',
 	'validationstatistics-old' => 'მოძველებული',
-	'validationstatistics-utable' => 'ქვემოთ მოყვანილია ბოლო საათის განმავლობაში ტოპ 5 მიმომხილველის  ჩამონათვალი.',
+	'validationstatistics-utable' => 'ქვემოთ მოყვანილია ბოლო საათის განმავლობაში ტოპ 5 გადამმოწმებლის  ჩამონათვალი.',
 	'validationstatistics-user' => 'მომხმარებელი',
-	'validationstatistics-reviews' => 'მიმოხილვები',
+	'validationstatistics-reviews' => 'გადამოწმებები',
 );
 
 /** Khmer (ភាសាខ្មែរ)
@@ -1993,19 +2007,18 @@ Ku stabiline versii om jäl'gmäine, ka se kucuse ''sinhroniziruidud''.
  * @author Vinhtantran
  */
 $messages['vi'] = array(
-	'validationstatistics' => 'Thống kê phê chuẩn',
+	'validationstatistics' => 'Thống kê duyệt trang',
 	'validationstatistics-users' => "Hiện nay, có '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|thành viên|thành viên}} tại '''{{SITENAME}}''' có quyền [[{{MediaWiki:Validationpage}}|Biên tập viên]].
 
 Biên tập viên là người dùng có kinh nghiệm có khả năng kiểm tra nhanh các thay đổi tại trang.",
-	'validationstatistics-time' => "'''Dữ liệu sau được lưu vào bộ đệm vào $5 lúc $6.'''
+	'validationstatistics-time' => "''Dữ liệu sau được lưu vào bộ đệm vào $5 lúc $6.''
 
 Sửa đổi được xem là đã được duyệt sau khi có thành viên có kinh nghiệm kiểm lại nó.
 
 Thời gian chờ duyệt trung bình cho sửa đổi của ''thành viên không đăng nhập'' là '''$1'''; trung vị là '''$3'''.
 $4
 Độ trễ trung bình đối với [[Special:OldReviewedPages|trang có sửa đổi chờ duyệt]] là '''$2'''.
-Những trang này được xem là ''lỗi thời''. Tương tự, những trang được xem là ''đã đồng bộ'' nếu không có sửa đổi nào đang chờ duyệt.
-Bản phát hành của một trang là phiên bản mới nhất của trang đã được chứng thực để hiển thị cho các độc giả theo mặc định.",
+Những trang này được xem là ''lỗi thời''. Tương tự, những trang được xem là ''đã đồng bộ'' nếu không có sửa đổi nào đang chờ duyệt.",
 	'validationstatistics-table' => "Đây có thống kê về các không gian tên, ''trừ'' các trang đổi hướng.",
 	'validationstatistics-ns' => 'Không gian tên',
 	'validationstatistics-total' => 'Số trang',

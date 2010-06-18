@@ -1288,8 +1288,9 @@ $messages['vep'] = array(
  */
 $messages['vi'] = array(
 	'reviewedpages' => 'Các trang đã duyệt',
-	'reviewedpages-leg' => 'Liệt kê các trang theo cấp độ cao nhất',
-	'reviewedpages-list' => '{{PLURAL:$1|Trang|Các trang}} sau đã được duyệt thành cấp độ chỉ định.',
+	'reviewedpages-leg' => 'Liệt kê các trang đã duyệt',
+	'reviewedpages-list' => "Đây là danh sách các trang [[{{MediaWiki:Validationpage}}|duyệt]] có phiên bản được duyệt thành cấp độ ''tối cao'' chỉ định.
+Cấp độ có liên kết đến phiên bản gần đây nhất.",
 	'reviewedpages-none' => 'Danh sách này không có trang nào',
 	'reviewedpages-lev-0' => 'Đã xem qua',
 	'reviewedpages-lev-1' => 'Chất lượng',

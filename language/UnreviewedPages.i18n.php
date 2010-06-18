@@ -728,13 +728,14 @@ $messages['ia'] = array(
 
 /** Indonesian (Bahasa Indonesia)
  * @author Bennylin
+ * @author IvanLanin
  * @author Rex
  */
 $messages['id'] = array(
 	'unreviewedpages' => 'Halaman yang belum ditinjau',
 	'unreviewed-legend' => 'Daftar halaman isi yang belum ditinjau',
 	'unreviewed-category' => 'Kategori:',
-	'unreviewed-diff' => 'meninjau',
+	'unreviewed-diff' => 'tinjau',
 	'unreviewed-unwatched' => '(tidak dipantau)',
 	'unreviewed-watched' => '(dipantau $1 {{PLURAL:$1|pengguna|pengguna}} aktif)',
 	'unreviewed-list' => 'Halaman berikut berisi daftar halaman yang belum ditinjau hingga tingkat tertentu.',
@@ -825,11 +826,18 @@ $messages['jv'] = array(
 
 /** Georgian (ქართული)
  * @author BRUTE
+ * @author გიორგიმელა
  */
 $messages['ka'] = array(
+	'unreviewedpages' => 'შეუმოწმებელი გვერდები',
+	'unreviewed-legend' => 'შეუმოწმებელი სტატიების სია',
 	'unreviewed-category' => 'კატეგორია:',
 	'unreviewed-diff' => 'შემოწმება',
-	'unreviewed-none' => 'ჯერჯერობით არ არის გვერდი, რომელიც შეესაბამება ამ კრიტერიუმებს',
+	'unreviewed-unwatched' => '(არავის კონტროლის სიაში არ არის)',
+	'unreviewed-watched' => '({{PLURAL:$1|აკონტროლებს $1 აქტიური მომხმარებელი|აკონტროლებენ $1 აქტიური მომხმარებლები}})',
+	'unreviewed-list' => 'ამ გვერდებზე მოყვანილია შეუფასებელი სტატიევბი.',
+	'unreviewed-none' => 'ამჟამად არ არის გვერდი, რომელიც შეესაბამება ამ კრიტერიუმებს',
+	'unreviewed-viewing' => '(მიმდინარეობს შემოწმება)',
 	'unreviewed-hours' => '($1 {{PLURAL:$1|საათი|საათი}})',
 	'unreviewed-days' => '($1 {{PLURAL:$1|დღე|დღე}})',
 	'unreviewed-recent' => '(1 საათზე ნაკლები)',

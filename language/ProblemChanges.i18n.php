@@ -706,7 +706,7 @@ $messages['vep'] = array(
  * @author Minh Nguyen
  */
 $messages['vi'] = array(
-	'problemchanges' => 'Duyệt các thay đổi được đánh dấu',
+	'problemchanges' => 'Các thay đổi chưa duyệt được đánh dấu',
 	'problemchanges-legend' => 'Liệt kê các trang có sửa đổi được đánh dấu mà cần được duyệt',
 	'problemchanges-none' => 'Hiện không có trang nào hợp tiêu chuẩn này.',
 	'problemchanges-category' => 'Thể loại:',

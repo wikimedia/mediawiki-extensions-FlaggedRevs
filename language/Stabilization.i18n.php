@@ -1639,6 +1639,7 @@ Aktualne nastajenja za „[[:$1|$1]]“ su:',
  * @author Enbéká
  * @author Glanthor Reviol
  * @author Gondnok
+ * @author Hunyadym
  * @author KossuthRad
  * @author Samat
  * @author Tgr
@@ -1683,6 +1684,7 @@ Nem lehet a beállításokat módosítani.',
 	'stabilize_invalid_level' => 'Érvénytelen védelmi szint.',
 	'stabilize_expiry_invalid' => 'Hibás lejárati idő.',
 	'stabilize_expiry_old' => 'A megadott lejárati idő már elmúlt.',
+	'stabilize_denied' => 'Engedély megtagadva.',
 	'stabilize-expiring' => 'lejár $1-kor (UTC szerint)',
 	'stabilization-review' => 'Aktuális változat ellenőrzöttnek jelölése',
 );
@@ -1779,6 +1781,7 @@ Konfigurasi tak dapat diterapkan.',
 	'stabilization-def-short' => 'Baku',
 	'stabilization-def-short-0' => 'Terkini',
 	'stabilization-def-short-1' => 'Stabil',
+	'stabilize_page_invalid' => 'Judul halaman tujuan tidak sah.',
 	'stabilize_expiry_invalid' => 'Tanggal kadaluwarsa tak valid.',
 	'stabilize_expiry_old' => 'Tanggal kadaluwarsa telah terlewati.',
 	'stabilize_denied' => 'Hak ases ditolak',
@@ -1956,6 +1959,8 @@ $messages['jv'] = array(
  * @author გიორგიმელა
  */
 $messages['ka'] = array(
+	'stabilization-tab' => 'vet',
+	'stabilization' => 'გვერდის სტაბილიზაცია',
 	'stabilization-page' => 'გვერდის სახელი:',
 	'stabilization-restrict-none' => 'არც-ერთი დამატებითი აკრძალვა',
 	'stabilization-submit' => 'დამოწმება',
@@ -3897,7 +3902,7 @@ nếu không có, sẽ là bản đã xem qua mới nhất',
 	'stabilization-select3' => 'Phiên bản cổ xưa mới nhất; nếu không có, thì bản chất lượng hoặc đã xem qua mới nhất',
 	'stabilization-def' => 'Bản được hiển thị mặc định',
 	'stabilization-def1' => 'Phiên bản công bố; nếu không có, sẽ là bản hiện hành/bản nháp',
-	'stabilization-def2' => 'Phiên bản hiện hành',
+	'stabilization-def2' => 'Phiên bản gần đây nhất',
 	'stabilization-restrict' => 'Hạn chế duyệt tự động',
 	'stabilization-restrict-none' => 'Không có hạn chế nào khác',
 	'stabilization-submit' => 'Xác nhận',
