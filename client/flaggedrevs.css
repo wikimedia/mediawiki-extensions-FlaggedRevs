@@ -29,12 +29,14 @@ div.flaggedrevs_notice {
 	background-color: #f9f9f9;
 }
 
-table.flaggedrevs_editnotice {
+table.flaggedrevs_editnotice,
+table.flaggedrevs_viewnotice {
 	padding: 3px;
 	border: 2px solid #aaa;
 	background-color: #f9f9f9;
 	text-align: left;
 	width: 100%;
+	clear: both;
 }
 
 div.flaggedrevs_diffnotice,

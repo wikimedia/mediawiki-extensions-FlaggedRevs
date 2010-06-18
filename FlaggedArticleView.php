@@ -655,6 +655,10 @@ class FlaggedArticleView {
 		if ( $oldid && $oldid != $latest ) {
 			return false; // not viewing the draft
 		}
+		$revsSince = $this->article->getPendingRevCount();
+		if ( !$revsSince ) {
+			return false; // no pending changes
+		}
 		# Conditions are met to show diff...
 		# Left side of diff...
 		$leftNote = $quality
@@ -679,35 +683,51 @@ class FlaggedArticleView {
 		if ( strcmp( $oText, $nText ) !== 0 ) {
 			$diffEngine = new DifferenceEngine( $this->article->getTitle() );
 			$diffEngine->showDiffStyle();
-			$n = $this->article->getTitle()->countRevisionsBetween( $srev->getRevId(), $latest );
-			if ( $n ) {
-				$multiNotice = "<tr><td colspan='4' align='center' class='diff-multi'>" .
-					wfMsgExt( 'diff-multi', array( 'parse' ), $n ) . "</td></tr>";
-			} else {
-				$multiNotice = '';
+			$diffBody = $diffEngine->generateDiffBody( $oText, $nText );
+			$n = $revsSince--; // this is the full diff-to-stable
+			$items = array();
+			$diffHtml =
+				FlaggedRevsXML::pendingEditNotice( $this->article, $srev, $revsSince ) .
+				' ' . FlaggedRevsXML::diffToggle() .
+				"<div id='mw-fr-stablediff'>" .
+				self::getFormattedDiff( $diffBody, $n, $leftNote, $rightNote ) .
+				"</div>\n";
+			$items[] = $diffHtml;
+			$html = "<table class='flaggedrevs_viewnotice plainlinks'>";
+			foreach ( $items as $item ) {
+				$html .= '<tr><td>' . $item . '</td></tr>';
 			}
-			$wgOut->addHTML(
-				"<div>" .
-				"<table border='0' width='98%' cellpadding='0' cellspacing='4' class='diff'>" .
+			$html .= '</table>';
+			$wgOut->addHtml( $html );
+			$this->isDiffFromStable = true; // alter default review form tags
+			return true;
+		}
+		return false;
+	}
+
+	// $n number of in-between revs
+	protected static function getFormattedDiff( $diffBody, $n, $leftStatus, $rightStatus ) {
+		if ( $n ) {
+			$multiNotice = "<tr><td colspan='4' align='center' class='diff-multi'>" .
+				wfMsgExt( 'diff-multi', array( 'parse' ), $n ) . "</td></tr>";
+		} else {
+			$multiNotice = '';
+		}
+		return
+			"<table border='0' width='98%' cellpadding='0' cellspacing='4' class='diff'>" .
 				"<col class='diff-marker' />" .
 				"<col class='diff-content' />" .
 				"<col class='diff-marker' />" .
 				"<col class='diff-content' />" .
 				"<tr>" .
 					"<td colspan='2' width='50%' align='center' class='diff-otitle'><b>" .
-						$leftNote . "</b></td>" .
+						$leftStatus . "</b></td>" .
 					"<td colspan='2' width='50%' align='center' class='diff-ntitle'><b>" .
-						$rightNote . "</b></td>" .
+						$rightStatus . "</b></td>" .
 				"</tr>" .
 				$multiNotice .
-				$diffEngine->generateDiffBody( $oText, $nText ) .
-				"</table>" .
-				"</div>\n"
-			);
-			$this->isDiffFromStable = true;
-			return true;
-		}
-		return false;
+				$diffBody .
+			"</table>";
 	}
 
 	/**
@@ -858,23 +878,12 @@ class FlaggedArticleView {
 				if ( $text !== false && strcmp( $text, $editPage->textbox1 ) !== 0 ) {
 					$diffEngine = new DifferenceEngine( $this->article->getTitle() );
 					$diffEngine->showDiffStyle();
+					$diffBody = $diffEngine->generateDiffBody( $text, $editPage->textbox1 );
 					$diffHtml =
 						wfMsgExt( 'review-edit-diff', 'parseinline' ) . ' ' .
 						FlaggedRevsXML::diffToggle() .
 						"<div id='mw-fr-stablediff'>" .
-						"<table border='0' width='98%' cellpadding='0' cellspacing='4' class='diff'>" .
-						"<col class='diff-marker' />" .
-						"<col class='diff-content' />" .
-						"<col class='diff-marker' />" .
-						"<col class='diff-content' />" .
-						"<tr>" .
-							"<td colspan='2' width='50%' align='center' class='diff-otitle'><b>" .
-								$leftNote . "</b></td>" .
-							"<td colspan='2' width='50%' align='center' class='diff-ntitle'><b>" .
-								$rightNote . "</b></td>" .
-						"</tr>" .
-						$diffEngine->generateDiffBody( $text, $editPage->textbox1 ) .
-						"</table>" .
+						self::getFormattedDiff( $diffBody, false, $leftNote, $rightNote ) .
 						"</div>\n";
 					$items[] = $diffHtml;
 				}
