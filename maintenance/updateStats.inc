@@ -143,9 +143,13 @@ function update_flaggedrevs_stats() {
 	$minTS = max($minTS,$installed);
 	# Get timestamp boundaries
 	$timeCondition = 'rev_timestamp BETWEEN '.$encMinTS.' AND '.$encMaxTS;
-	# Modulus (to spread out over range)
-	$mod = intval($rows/$size);
-	$mod = max($mod,1); # $mod >= 1
+	if ( FlaggedRevs::stableOnlyIfConfigured() ) {
+		$mod = 1; // can't estimate $mod based on all edits in the range
+	} else {
+		# Modulus (to spread out over range)
+		$mod = intval($rows/$size);
+		$mod = max($mod,1); # $mod >= 1
+	}
 	# For edits that started off pending, how long do they take to get reviewed?
 	# Get the *first* reviewed rev *after* each RC item and get the average difference.
 	# Only do this for revisions to pages that *were* already logged as reviewed.
