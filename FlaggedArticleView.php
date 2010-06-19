@@ -684,7 +684,7 @@ class FlaggedArticleView {
 			$diffEngine = new DifferenceEngine( $this->article->getTitle() );
 			$diffEngine->showDiffStyle();
 			$diffBody = $diffEngine->generateDiffBody( $oText, $nText );
-			$n = $revsSince--; // this is the full diff-to-stable
+			$n = $revsSince - 1; // this is the full diff-to-stable
 			$items = array();
 			$diffHtml =
 				FlaggedRevsXML::pendingEditNotice( $this->article, $srev, $revsSince ) .
