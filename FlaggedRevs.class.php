@@ -1482,6 +1482,48 @@ class FlaggedRevs {
 		return ( $dbw->affectedRows() > 0 );
 	}
 
+   	/**
+	* Update users params array for a user on edit
+	* @param &array $params
+	* @param Article $article the article just edited
+	* @param string $summary edit summary
+	* @returns bool anything changed
+	*/
+	public static function updateUserParams( array &$p, Article $article, $summary ) {
+		global $wgFlaggedRevsAutoconfirm, $wgFlaggedRevsAutopromote;
+		# Update any special counters for non-null revisions
+		$changed = false;
+		if ( $article->getTitle()->isContentPage() ) {
+			$pages = explode( ',', trim( $p['uniqueContentPages'] ) ); // page IDs
+			# Don't let this get bloated for no reason
+			$maxUniquePages = 50; // some flexibility
+			if ( is_array( $wgFlaggedRevsAutoconfirm ) &&
+				$wgFlaggedRevsAutoconfirm['uniqueContentPages'] > $maxUniquePages )
+			{
+				$maxUniquePages = $wgFlaggedRevsAutoconfirm['uniqueContentPages'];
+			}
+			if ( is_array( $wgFlaggedRevsAutopromote ) &&
+				$wgFlaggedRevsAutopromote['uniqueContentPages'] > $maxUniquePages )
+			{
+				$maxUniquePages = $wgFlaggedRevsAutopromote['uniqueContentPages'];
+			}
+			if ( count( $pages ) < $maxUniquePages // limit the size of this
+				&& !in_array( $article->getId(), $pages ) )
+			{
+				$pages[] = $article->getId();
+				// Clear out any formatting garbage
+				$p['uniqueContentPages'] = preg_replace( '/^,/', '', implode( ',', $pages ) );
+			}
+			$p['totalContentEdits'] += 1;
+			$changed = true;
+		}
+		if ( $summary != '' ) {
+			$p['editComments'] += 1;
+			$changed = true;
+		}
+		return $changed;
+	}
+
 	# ################ Auto-review function #################
 
 	/**

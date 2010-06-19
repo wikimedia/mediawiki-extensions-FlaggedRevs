@@ -1283,34 +1283,17 @@ class FlaggedRevsHooks {
 		if ( !$rev || !$user->getId() ) {
 			return true;
 		# No sense in running counters if nothing uses them
-		} elseif ( empty( $wgFlaggedRevsAutopromote ) && empty( $wgFlaggedRevsAutoconfirm ) ) {
+		} elseif ( !$wgFlaggedRevsAutopromote && !$wgFlaggedRevsAutoconfirm ) {
 			return true;
 		}
 		$p = FlaggedRevs::getUserParams( $user->getId() );
-		# Update any special counters for non-null revisions
-		$changed = false;
-		$pages = array();
-		if ( $article->getTitle()->isContentPage() ) {
-			$pages = explode( ',', trim( $p['uniqueContentPages'] ) ); // page IDs
-			# Don't let this get bloated for no reason
-			# (assumes $wgFlaggedRevsAutopromote is stricter than $wgFlaggedRevsAutoconfirm)
-			if ( count( $pages ) < $wgFlaggedRevsAutopromote['uniqueContentPages']
-				&& !in_array( $article->getId(), $pages ) )
-			{
-				$pages[] = $article->getId();
-				// Clear out any formatting garbage
-				$p['uniqueContentPages'] = preg_replace( '/^,/', '', implode( ',', $pages ) );
-			}
-			$p['totalContentEdits'] += 1;
-			$changed = true;
-		}
-		if ( $summary != '' ) {
-			$p['editComments'] += 1;
-			$changed = true;
-		}
+		$changed = FlaggedRevs::updateUserParams( $p, $article, $summary );
 		# Save any updates to user params
 		if ( $changed ) {
 			FlaggedRevs::saveUserParams( $user->getId(), $p );
+		}
+		if ( !is_array( $wgFlaggedRevsAutopromote ) ) {
+			return true; // nothing to do
 		}
 		# Grab current groups
 		$groups = $user->getGroups();
