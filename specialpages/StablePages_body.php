@@ -67,15 +67,18 @@ class StablePages extends SpecialPage
 		global $wgLang;
 		$title = Title::makeTitle( $row->page_namespace, $row->page_title );
 		# Link to page
-		$link = $this->skin->makeKnownLinkObj( $title, $title->getPrefixedText() );
+		$link = $this->skin->link( $title );
 		# Helpful utility links
 		$utilLinks = array();
-		$utilLinks[] = $this->skin->makeKnownLinkObj( $title,
-			wfMsgHtml( 'stablepages-config' ), 'action=protect' );
-		$utilLinks[] = $this->skin->makeKnownLinkObj( $title,
-			wfMsgHtml( 'history' ), 'action=history' );
-		$utilLinks[] = $this->skin->makeKnownLinkObj( SpecialPage::getTitleFor( 'Log/stable' ),
-			wfMsgHtml( 'stable-logpage' ), 'page=' . $title->getPrefixedText() );
+		$utilLinks[] = $this->skin->link( $title,
+			wfMsgHtml( 'stablepages-config' ),
+			array(), array( 'action' => 'protect' ) );
+		$utilLinks[] = $this->skin->link( $title,
+			wfMsgHtml( 'history' ),
+			array(), array( 'action' => 'history' ) );
+		$utilLinks[] = $this->skin->link( SpecialPage::getTitleFor( 'Log/stable' ),
+			wfMsgHtml( 'stable-logpage' ),
+			array(), array( 'page' => $title->getPrefixedText() ) );
 		# Autoreview/review restriction level
 		$restr = '';
 		if( $row->fpc_level != '' ) {
