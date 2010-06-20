@@ -1390,6 +1390,18 @@ $messages['ru'] = array(
 	'oldreviewedpages-viewing' => '(проверяются)',
 );
 
+/** Rusyn (русиньскый язык)
+ * @author Gazeb
+ */
+$messages['rue'] = array(
+	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|година|годины|годин}})',
+	'oldreviewedpages-days' => '($1 {{PLURAL:$1|день|днї|днів}})',
+	'oldreviewedpages-recent' => '(менше 1 годины)',
+	'oldreviewed-category' => 'Катеґорія:',
+	'oldreviewed-watched' => 'Сторінкы з мого списку слїдованых',
+	'oldreviewed-diff' => 'перевірити',
+);
+
 /** Yakut (Саха тыла)
  * @author HalanTul
  */

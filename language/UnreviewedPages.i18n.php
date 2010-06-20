@@ -1336,6 +1336,18 @@ $messages['ru'] = array(
 	'unreviewed-recent' => '(менее, чем 1 час)',
 );
 
+/** Rusyn (русиньскый язык)
+ * @author Gazeb
+ */
+$messages['rue'] = array(
+	'unreviewedpages' => 'Неперевірены сторінкы',
+	'unreviewed-legend' => 'Список неперевіреных статей',
+	'unreviewed-category' => 'Катеґорія:',
+	'unreviewed-diff' => 'перевірити',
+	'unreviewed-unwatched' => '(неслїдованы)',
+	'unreviewed-viewing' => '(контролює ся)',
+);
+
 /** Yakut (Саха тыла)
  * @author HalanTul
  */

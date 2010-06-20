@@ -1649,6 +1649,20 @@ $4
 	'validationstatistics-reviews' => 'Проверки',
 );
 
+/** Rusyn (русиньскый язык)
+ * @author Gazeb
+ */
+$messages['rue'] = array(
+	'validationstatistics-total' => 'Сторінкы',
+	'validationstatistics-stable' => 'Перевірены',
+	'validationstatistics-latest' => 'Сінхронізовано',
+	'validationstatistics-synced' => 'Сінхронізовано/перевірено',
+	'validationstatistics-old' => 'Застарілы',
+	'validationstatistics-utable' => 'Ниже є список 5 найвеце актівных редакторів за послїдню годину.',
+	'validationstatistics-user' => 'Хоснователь',
+	'validationstatistics-reviews' => 'Посуджіня',
+);
+
 /** Yakut (Саха тыла)
  * @author HalanTul
  */

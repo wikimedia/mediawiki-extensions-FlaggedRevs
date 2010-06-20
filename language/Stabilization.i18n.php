@@ -261,6 +261,7 @@ No ye posible confegurar-la.',
 
 /** Arabic (العربية)
  * @author Alnokta
+ * @author Ciphers
  * @author Meno25
  * @author OsamaK
  */
@@ -277,7 +278,7 @@ $messages['ar'] = array(
 	'stabilization-leg' => 'تأكيد إعدادات النسخة المنشورة',
 	'stabilization-select' => 'سابقة اختيار النسخة المنشورة',
 	'stabilization-select1' => 'آخر مراجعة جودة؛ لو غير موجودة، إذا آخر واحدة منظورة',
-	'stabilization-select2' => 'آخر مراجعة مراجعة (بعض النظر عن مستوى التحقيق)',
+	'stabilization-select2' => 'آخر نسخة مفحوصة',
 	'stabilization-select3' => 'آخر مراجعة فائقة؛ لو غير موجودة، إذا آخر مراجعة جودة أو منظورة',
 	'stabilization-def' => 'المراجعة المعروضة عند رؤية الصفحة افتراضيا',
 	'stabilization-def1' => 'المراجعة المنشورة؛ لو غير موجودة، إذا المراجعة الحالية/المسودة',
@@ -3042,6 +3043,7 @@ Non ge stonne le configurazione.',
 );
 
 /** Russian (Русский)
+ * @author AlexSm
  * @author Claymore
  * @author Drbug
  * @author Ferrer
@@ -3059,7 +3061,7 @@ $messages['ru'] = array(
 	'stabilization-perm' => 'Вашей учётной записи не достаточно полномочий, для изменения настройки опубликованных версий.
 Здесь приведены текущие настройки для [[:$1|$1]]:',
 	'stabilization-page' => 'Название страницы:',
-	'stabilization-leg' => 'Подтверждение настроек опубликованных версии',
+	'stabilization-leg' => 'Подтверждение настроек опубликованной версии',
 	'stabilization-select' => 'Порядок выбора опубликованной версии',
 	'stabilization-select1' => 'Самая свежая выверенная версия; если её нет, то самая свежая из досмотренных.',
 	'stabilization-select2' => 'Последняя проверенная версия',
