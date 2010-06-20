@@ -72,13 +72,13 @@ class StablePages extends SpecialPage
 		$utilLinks = array();
 		$utilLinks[] = $this->skin->link( $title,
 			wfMsgHtml( 'stablepages-config' ),
-			array(), array( 'action' => 'protect' ) );
+			array(), array( 'action' => 'protect' ), 'known' );
 		$utilLinks[] = $this->skin->link( $title,
 			wfMsgHtml( 'history' ),
-			array(), array( 'action' => 'history' ) );
+			array(), array( 'action' => 'history' ), 'known' );
 		$utilLinks[] = $this->skin->link( SpecialPage::getTitleFor( 'Log/stable' ),
 			wfMsgHtml( 'stable-logpage' ),
-			array(), array( 'page' => $title->getPrefixedText() ) );
+			array(), array( 'page' => $title->getPrefixedText() ), 'known' );
 		# Autoreview/review restriction level
 		$restr = '';
 		if( $row->fpc_level != '' ) {
