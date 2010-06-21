@@ -6657,16 +6657,16 @@ Lásd az [[Special:Unreviewedpages|ellenőrizetlen lapok listáját]].',
 	'revreview-quality-same' => 'Ez a [[{{MediaWiki:Validationpage}}|közzétett változat]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} minőséginek jelölve] ekkor: <i>$2</i>',
 	'revreview-quality-source' => 'A lap [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} minőségi változata] ([{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} minőséginek jelölve]: <i>$2</i>) ezen a változaton alapul.',
 	'revreview-quality-title' => 'Ez a lap egy minőségi változata',
-	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|Ellenőrzött lap]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} nem ellenőrzött változtatások átnézése]]",
+	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|Ellenőrzött lap]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} nem ellenőrzött változtatások]]",
 	'revreview-quick-basic-old' => "'''[[{{MediaWiki:Validationpage}}|Ellenőrzött lap]]'''",
 	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|Ellenőrzött lap]]'''",
 	'revreview-quick-invalid' => "'''A változat azonosítója érvénytelen'''",
 	'revreview-quick-none' => "'''[[{{MediaWiki:Validationpage}}|Ellenőrizetlen változat]]'''",
-	'revreview-quick-quality' => "'''[[{{MediaWiki:Validationpage}}|Minőségi lap]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} nem ellenőrzött változtatások átnézése]]",
+	'revreview-quick-quality' => "'''[[{{MediaWiki:Validationpage}}|Minőségi lap]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} nem ellenőrzött változtatások]]",
 	'revreview-quick-quality-old' => "'''[[{{MediaWiki:Validationpage}}|Minőségi változat]]'''",
 	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|Minőségi változat]]'''",
-	'revreview-quick-see-basic' => '[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} ellenőrzésre váró változtatások átnézése]]',
-	'revreview-quick-see-quality' => '[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} ellenőrzésre váró változtatások átnézése]]',
+	'revreview-quick-see-basic' => '[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} ellenőrzésre váró változtatások]]',
+	'revreview-quick-see-quality' => '[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} ellenőrzésre váró változtatások]]',
 	'revreview-selected' => "A(z) '''$1''' kiválasztott változata:",
 	'revreview-source' => 'A lap forrása',
 	'revreview-basic-title' => 'Ez a lap egy ellenőrzött változata',
@@ -11157,13 +11157,13 @@ Mogły zostać dokonane nowe [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diff
 By wycofać weryfikację, należy ustawić wszystkie pola na „nieakceptowalny“.',
 	'revreview-update' => "'''Proszę [[{{MediaWiki:Validationpage}}|przejrzeć]] zmiany ''(patrz niżej)'' dokonane od momentu ostatniego oznaczenia wersji.'''
 Najpierw prześledź dokonane zmiany, a następnie zaakceptuj je lub „anuluj zmiany”.",
-	'revreview-update-edited' => '<span class="flaggedrevs_important">Dokonane przez Ciebie zmiany nie mają jeszcze statusu wersji oznaczonej.</span>
+	'revreview-update-edited' => '<span class="flaggedrevs_important">Wykonane przez Ciebie zmiany nie mają jeszcze statusu wersji oznaczonej.</span>
 
-Proszę przejrzeć poniżej wszystkie zmiany, tak aby Twoja edycja mogła pojawić się jako wersja oznaczona.
+Przejrzyj wszystkie zmiany widoczne poniżej, tak aby Twoja edycja mogła pojawić się jako wersja oznaczona.
 Po prześledzeniu zmian, zaakceptuj je lub „anuluj zmiany”.',
-	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Dokonane przez Ciebie zmiany nie mają jeszcze statusu wersji oznaczonej, ponieważ poprzednie zmiany oczekiwały na przejrzenie.</span>
+	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Wykonane przez Ciebie zmiany nie mają jeszcze statusu wersji oznaczonej, ponieważ poprzednie zmiany oczekiwały na przejrzenie.</span>
 
-Proszę przejrzeć poniżej wszystkie zmiany, tak aby Twoja edycja mogła pojawić się jako wersja oznaczona.
+Przejrzyj wszystkie zmiany widoczne poniżej, tak aby Twoja edycja mogła pojawić się jako wersja oznaczona.
 Po prześledzeniu zmian, zaakceptuj je lub „anuluj zmiany”.',
 	'revreview-update-includes' => "'''Niektóre szablony lub pliki zostały uaktualnione:'''",
 	'revreview-update-use' => "'''UWAGA:''' Wersja oznaczona każdego z tych szablonów i plików jest używana w wersji oznaczonej tej strony.",
