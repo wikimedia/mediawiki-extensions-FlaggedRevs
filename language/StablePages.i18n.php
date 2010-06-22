@@ -58,7 +58,7 @@ $messages['aln'] = array(
  */
 $messages['an'] = array(
 	'stablepages' => "Pachinas que emplegan l'aprobación d'as modificacions",
-	'stablepages-text' => "En o cobaixo s'amuestra una lista de pachinas que s'han restrichito ta que nomás bells usuarios puedan fer-ie edicions que no requieran revisions. Ditas edicions no s'acceptan dica que un usuario autorizado las revisa.",
+	'stablepages-text' => "Contino s'amuestra una lista de pachinas que nomás bells usuarios pueden fer-ie edicions que no requieran revisions. As edicions feitas por atros usuarios no s'amuestras ta os lectors por defecto, dica un usuario autorizado las revise.",
 	'stablepages-none' => 'No bi ha garra pachina en ista lista',
 	'stablepages-config' => 'Confeguración',
 );
@@ -392,12 +392,13 @@ $messages['ia'] = array(
 
 /** Indonesian (Bahasa Indonesia)
  * @author Bennylin
+ * @author Irwangatot
  * @author Iwan Novirion
  * @author Rex
  */
 $messages['id'] = array(
 	'stablepages' => 'Halaman menggunakan suntingan persetujuan',
-	'stablepages-text' => 'Di bawah ini adalah daftar halaman yang dibatasi sehingga hanya pengguna tertentu dapat melakukan penyuntingan yang tidak membutuhkan peninjauan. Suntingan tersebut tidak akan dipublikasikan sampai seorang pengguna yang diberi kuasa meninjaunya.',
+	'stablepages-text' => 'Di bawah ini adalah daftar halaman yang dibatasi sehingga hanya pengguna tertentu dapat melakukan penyuntingan yang tidak membutuhkan peninjauan. Suntingan yang dilakukan pengguna lain tidak akan ditampilkan ke pembaca secara langsung sampai seorang pengguna yang diberi kuasa meninjaunya.',
 	'stablepages-none' => 'Tidak ada halaman di dalam daftar ini',
 	'stablepages-config' => 'Konfigurasi',
 );

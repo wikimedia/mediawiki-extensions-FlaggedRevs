@@ -237,8 +237,8 @@ $messages['an'] = array(
 	'stabilization-select2' => 'A zaguera versión verificada',
 	'stabilization-select3' => "A zaguera versión zancera; si bi'n ha, alavez a zaguera versión de qualidat u revisata.",
 	'stabilization-def' => "A revisión s'amuestra en a pachina de visualización por defecto",
-	'stabilization-def1' => "A versión acceptata; si no bi'n ha, alavez a versión actual/borrador",
-	'stabilization-def2' => 'A versión actual/borrador',
+	'stabilization-def1' => 'A versión estable; si no ye present, alavez a zaguera versión',
+	'stabilization-def2' => 'A zaguera versión',
 	'stabilization-submit' => 'Confirmar',
 	'stabilization-notexists' => 'No bi ha garra pachina tetulata "[[:$1|$1]]". 
 No ye posible confegurar-la.',
@@ -2965,6 +2965,7 @@ Não é possível configurá-la.',
 
 /** Romanian (Română)
  * @author KlaudiuMihaila
+ * @author Memo18
  * @author Mihai
  * @author Stelistcristi
  */
@@ -2975,6 +2976,7 @@ Iată configurația curentă pentru [[:$1|$1]]:',
 	'stabilization-page' => 'Numele paginii:',
 	'stabilization-leg' => 'Confirmați setările versiunii stabile',
 	'stabilization-select' => 'Precedenta selecție a versiunii stabile',
+	'stabilization-select2' => 'Ultima versiune verificată',
 	'stabilization-def' => 'Revizie afișată pe vizualizarea paginii implicite',
 	'stabilization-def1' => 'Revizia stabilă; dacă nu există, atunci cea curentă',
 	'stabilization-def2' => 'Revizia curentă',
@@ -2982,7 +2984,7 @@ Iată configurația curentă pentru [[:$1|$1]]:',
 	'stabilization-restrict-none' => 'Nicio restricție suplimentară',
 	'stabilization-submit' => 'Confirmă',
 	'stabilization-comment' => 'Motiv:',
-	'stabilization-otherreason' => 'Alt motiv',
+	'stabilization-otherreason' => 'Alt motiv:',
 	'stabilization-expiry' => 'Expiră:',
 	'stabilization-othertime' => 'Altă dată',
 	'stabilization-sel-short' => 'Prioritate',

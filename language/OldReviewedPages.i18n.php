@@ -816,6 +816,7 @@ $messages['ia'] = array(
 
 /** Indonesian (Bahasa Indonesia)
  * @author Bennylin
+ * @author Irwangatot
  * @author IvanLanin
  * @author Iwan Novirion
  * @author Rex
@@ -830,7 +831,7 @@ $messages['id'] = array(
 	'oldreviewedpages-recent' => '(kurang dari 1 jam)',
 	'oldreviewed-category' => 'Kategori:',
 	'oldreviewed-watched' => 'Halaman pada daftar pantauan saya',
-	'oldreviewed-stable' => 'Distabilkan',
+	'oldreviewed-stable' => 'Versi stabil adalah baku',
 	'oldreviewed-diff' => 'tinjau',
 	'oldreviewed-size' => 'Perubahan maks. (byte):',
 	'oldreviewedpages-unwatched' => '(tidak dipantau)',
