@@ -1218,7 +1218,7 @@ class FlaggedArticleView {
 	* When viewing a diff:
 	* (a) Add the review form to the top of the page
 	* (b) Mark off which versions are checked or not
-	* (c) When comparing the stable revision to the current after editing a page:
+	* (c) When comparing the stable revision to the current:
 	* 	(i)  Show a tag with some explanation for the diff
 	*	(ii) List any template/file changes pending review
 	*/
@@ -1228,41 +1228,37 @@ class FlaggedArticleView {
 		# Exempt printer-friendly output
 		if ( $wgOut->isPrintable() ) {
 			return true;
-		}
-		# Avoid multi-page diffs that are useless and misbehave (bug 19327).
-		# Also sanity check $newRev just in case.
-		if ( $this->isMultiPageDiff || !$newRev ) {
+		# Multi-page diffs are useless and misbehave (bug 19327). Sanity check $newRev.
+		} elseif ( $this->isMultiPageDiff || !$newRev ) {
 			return true;
-		}
-		# Page must be reviewable. Sanity check $oldRev.
-		if ( !$this->article->isReviewable() ) {
+		# Page must be reviewable.
+		} elseif ( !$this->article->isReviewable() ) {
 			return true;
 		}
 		$srev = $this->article->getStableRev();
-		# Check if this might be a diff to stable (old rev is the stable rev).
-		# If so, then (a) list template/file changes and (b) prompt Reviewers to review it.
-		if ( $this->isDiffFromStable ) {
+		# Check if this is a diff-to-stable. If so:
+		# (a) prompt reviewers to review the changes
+		# (b) list template/file changes if only includes are pending
+		if ( $srev
+			&& $this->isDiffFromStable
+			&& !$this->article->stableVersionIsSynced() ) // pending changes
+		{
 			$form = '';
 			$this->reviewFormRev = $newRev;
-			# Check the page sync value cache...
-			$key = wfMemcKey( 'flaggedrevs', 'includesSynced', $this->article->getId() );
-			$value = FlaggedRevs::getMemcValue( $wgMemc->get( $key ), $this->article );
-
 			$changeList = array();
-			# Trigger queries if sync cache value is not 'true'
-			if ( $value !== "true" ) {
+			# Page not synced only due to includes?
+			if ( !$this->article->revsArePending() ) {
 				# Add a list of links to each changed template...
-				$changeList = array_merge( $changeList, self::fetchTemplateChanges( $srev ) );
+				$changeList = self::fetchTemplateChanges( $srev );
 				# Add a list of links to each changed file...
 				$changeList = array_merge( $changeList, self::fetchFileChanges( $srev ) );
-			}
-
-			# Some important information about include version selection...
-			if ( !count( $changeList ) && $value === "false" ) {
-				global $wgParserCacheExpireTime;
-				# Correct bad cache which said they were not synced
-				$data = FlaggedRevs::makeMemcObj( "true" );
-				$wgMemc->set( $key, $data, $wgParserCacheExpireTime );
+				# Correct bad cache which said they were not synced...
+				if ( !count( $changeList ) ) {
+					global $wgParserCacheExpireTime;
+					$key = wfMemcKey( 'flaggedrevs', 'includesSynced', $this->article->getId() );
+					$data = FlaggedRevs::makeMemcObj( "true" );
+					$wgMemc->set( $key, $data, $wgParserCacheExpireTime );
+				}
 			}
 			# If there are pending revs or templates/files changes, notify the user...
 			if ( $this->article->revsArePending() || count( $changeList ) ) {
