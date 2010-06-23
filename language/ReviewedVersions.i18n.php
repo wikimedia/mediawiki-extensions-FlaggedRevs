@@ -434,6 +434,7 @@ $messages['gsw'] = array(
 );
 
 /** Hebrew (עברית)
+ * @author DoviJ
  * @author Rotemliss
  * @author דניאל ב.
  */

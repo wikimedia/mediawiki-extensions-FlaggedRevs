@@ -462,8 +462,9 @@ E Gleich isch aagee zue dr letschte Version uf däm Nivo.",
  */
 $messages['he'] = array(
 	'reviewedpages' => 'דפים שנבדקו',
-	'reviewedpages-leg' => 'רשימת הדפים שאושרו לפי הרמה הגבוהה ביותר',
-	'reviewedpages-list' => 'דף זה מציג את כל הדפים שאושרו (לכל היותר) עד לרמה שצוינה.',
+	'reviewedpages-leg' => 'רשימת הדפים שאושרו',
+	'reviewedpages-list' => "דף זה מציג את כל הדפים [[{{MediaWiki:Validationpage}}|המאושרים]] ש'''רמתם הגבוהה ביותר''' (לגירסה) היא הרמה שצוינה.
+יוצג קישור לגירסה האחרונה ברמה זו.",
 	'reviewedpages-none' => 'אין דפים ברשימה זו',
 	'reviewedpages-lev-0' => 'נצפה',
 	'reviewedpages-lev-1' => 'איכותי',

@@ -773,10 +773,11 @@ Ang ganitong mga pagbabago ay hindi tinatanggap hangga't hindi pa sila nasusuri 
 
 /** Turkish (Türkçe)
  * @author Joseph
+ * @author Manco Capac
  */
 $messages['tr'] = array(
 	'stablepages' => 'Değişiklik onayı kullanan sayfalar',
-	'stablepages-text' => 'Aşağıdaki liste, sadece belirli kullanıcıların gözden geçirme gerektirmeyen değişiklikler yapabileceği kısıtlı sayfaların bir listesidir. Böyle değişiklikler yetkili bir kullanıcı gözden geçirmeden yayınlanmaz.',
+	'stablepages-text' => 'Aşağıdaki liste, sadece belirli kullanıcıların gözden geçirme gerektirmeden değişiklik yapabilecekleri sayfaların bir listesidir. Diğer kullanıcılar tarafından yapılmış değişiklikler yetkilendirilmiş bir kullanıcı tarafından gözden geçirilip onaylanmadan gösterilmemektedir.',
 	'stablepages-none' => 'Bu listede hiç sayfa yok',
 	'stablepages-config' => 'Yapılandırma',
 );

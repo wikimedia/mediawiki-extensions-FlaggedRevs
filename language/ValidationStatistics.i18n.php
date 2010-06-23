@@ -1566,6 +1566,7 @@ Estas páginas são consideradas ''desatualizadas''. Da mesma forma, as páginas
 );
 
 /** Romanian (Română)
+ * @author Cin
  * @author Firilacroco
  * @author KlaudiuMihaila
  * @author Mihai
@@ -1580,9 +1581,9 @@ Editorii și recenzorii sunt utilizatori stabiliți care pot verifica modificăr
 	'validationstatistics-stable' => 'Revizualizată',
 	'validationstatistics-latest' => 'Sincronizată',
 	'validationstatistics-synced' => 'Sincronizată/Revizualizată',
-	'validationstatistics-old' => 'Veche',
+	'validationstatistics-old' => 'Învechită',
 	'validationstatistics-user' => 'Utilizator',
-	'validationstatistics-reviews' => 'Revizualizări',
+	'validationstatistics-reviews' => 'Recenzii',
 );
 
 /** Tarandíne (Tarandíne)
@@ -1907,13 +1908,14 @@ Ang tinanggap na bersyon ng isang pahina ay ang pinakabagong pagbabagong pinayag
 
 /** Turkish (Türkçe)
  * @author Joseph
+ * @author Manco Capac
  */
 $messages['tr'] = array(
 	'validationstatistics' => 'Sayfa gözden geçirme istatistikleri',
 	'validationstatistics-users' => "'''{{SITENAME}}''' sitesinde şuanda [[{{MediaWiki:Validationpage}}|Editör]] yetkisine sahip '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|kullanıcı|kullanıcı}} bulunmaktadır.
 
 Editörler, sayfalara kontrol revizyonu atayabilen belirli kullanıcılardır.",
-	'validationstatistics-time' => "''Aşağıdaki veri en son $5 $6 tarihinde güncellenmiştir.''
+	'validationstatistics-time' => "''Aşağıdaki veri en son $5  tarihinde saat $6 da güncellenmiştir.''
 
 Belirli kullanıcılar tarafından kontrol edilen değişiklikler, gözden geçirilmiş sayılırlar.
 

@@ -309,12 +309,16 @@ E Deil Yystellige chenne sich villicht unterscheide, je nochdäm weli Version em
 
 /** Hebrew (עברית)
  * @author Amire80
+ * @author DoviJ
  */
 $messages['he'] = array(
 	'configuredpages-none' => 'אין דפים ברשימה זו.',
+	'configuredpages-precedence' => 'סדר קדימה',
 	'configuredpages-prec-none' => 'ללא עדיפות',
 	'configuredpages-prec-quality' => 'עדיפות לגרסאות איכותיות',
 	'configuredpages-prec-pristine' => 'עדיפות לגרסאות מושלמות',
+	'configuredpages-def-draft' => 'הגירסה האחרונה',
+	'configuredpages-def-stable' => 'גירסה יציבה',
 );
 
 /** Croatian (Hrvatski)
@@ -645,10 +649,12 @@ Alguns parâmetros podem alterar a versão que é apresentada aos usuários, ou 
 	'configuredpages-def-stable' => 'versão publicada',
 );
 
-/** Romanian (Română) */
+/** Romanian (Română)
+ * @author Cin
+ */
 $messages['ro'] = array(
-	'configuredpages-prec-none' => 'nicio prioritate',
-	'configuredpages-prec-quality' => 'preferință pentru calitate',
+	'configuredpages-prec-none' => 'ultimele verificate',
+	'configuredpages-prec-quality' => 'ultima calitate',
 );
 
 /** Tarandíne (Tarandíne) */

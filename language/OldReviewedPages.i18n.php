@@ -693,7 +693,7 @@ $messages['gsw'] = array(
  * @author Rotemliss
  */
 $messages['he'] = array(
-	'oldreviewedpages' => 'דפים בדוקים ישנים',
+	'oldreviewedpages' => 'דפים עם שינויים ממתינים',
 	'oldreviewedpages-legend' => 'רשימת דפים בדוקים עם גרסאות שלא נבדקו',
 	'oldreviewedpages-list' => 'דף זה מציג {{PLURAL:$1|דף שנבדק, שיש לו|דפים שנבדקו, שיש להם}} עריכות הממתינות לבדיקה.',
 	'oldreviewedpages-none' => 'אין כרגע דפים שעונים על קריטריונים אלה',
@@ -701,8 +701,8 @@ $messages['he'] = array(
 	'oldreviewedpages-days' => '({{PLURAL:$1|יום|$1 ימים|יומיים}})',
 	'oldreviewedpages-recent' => 'פחות משעה',
 	'oldreviewed-category' => 'קטגוריה:',
-	'oldreviewed-watched' => 'ברשימת המעקב שלי',
-	'oldreviewed-stable' => 'יציב',
+	'oldreviewed-watched' => 'דפים ברשימת המעקב שלי',
+	'oldreviewed-stable' => 'הגירסה היציבה כברירת מחדל',
 	'oldreviewed-diff' => 'בדיקה',
 	'oldreviewed-size' => 'השינוי המירבי בגודל בבתים:',
 	'oldreviewedpages-unwatched' => '(לא במעקב)',
@@ -1324,6 +1324,7 @@ $messages['pt-br'] = array(
 );
 
 /** Romanian (Română)
+ * @author Cin
  * @author Firilacroco
  * @author KlaudiuMihaila
  * @author Mihai
@@ -1340,7 +1341,7 @@ $messages['ro'] = array(
 	'oldreviewed-category' => 'Categorie:',
 	'oldreviewed-watched' => 'În lista mea de urmărire',
 	'oldreviewed-stable' => 'Stabilit',
-	'oldreviewed-diff' => 'revizuire',
+	'oldreviewed-diff' => 'recenzie',
 	'oldreviewed-size' => 'Schimbare maximă (baiți):',
 	'oldreviewedpages-unwatched' => '(neurmărite)',
 	'oldreviewedpages-watched' => '($1 {{PLURAL:$1|utilizator activ care urmărește|utilizatori activi care urmăresc}})',
@@ -1608,6 +1609,7 @@ $messages['tl'] = array(
  * @author Erkan Yilmaz
  * @author Joseph
  * @author Karduelis
+ * @author Manco Capac
  * @author Runningfridgesrule
  */
 $messages['tr'] = array(
@@ -1620,7 +1622,7 @@ $messages['tr'] = array(
 	'oldreviewedpages-recent' => '(1 saatten daha az)',
 	'oldreviewed-category' => 'Kategori:',
 	'oldreviewed-watched' => 'İzleme listemdeki sayfalar',
-	'oldreviewed-stable' => 'Kararlılaştırıldı',
+	'oldreviewed-stable' => 'Kararlı sürümü varsayılandır',
 	'oldreviewed-diff' => 'gözden geçir',
 	'oldreviewed-size' => 'Azami değişiklik (bayt):',
 	'oldreviewedpages-unwatched' => '(izlenmiyor)',

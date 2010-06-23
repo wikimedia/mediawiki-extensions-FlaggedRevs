@@ -1465,20 +1465,19 @@ $messages['he'] = array(
 	'stabilization' => 'התייצבות הדף',
 	'stabilization-text' => "'''שנו את ההגדרות שלהלן כדי לשנות את אופני בחירתה והצגתה של הגרסה היציבה של [[:\$1|\$1]].'''
 
-בעת השינוי ההגדרות של '''בחירת גרסה יציבה''' כך שייעשה שימוש בגרסאות \"איכותיות\" או \"מושלמות\" כברירת מחדל,
-אנא ודאו שבאמת קיימות גרסאות כאלה בדף, אחרת לא תהיה לכך השפעה רבה.",
+'''הערה:''' לשינוי ההגדרות של '''בחירת גרסה יציבה''' כך שייעשה שימוש בגרסאות \"איכותיות\" או \"מושלמות\" כברירת מחדל, לא תהיה הפשעה אם לא קיימות גרסאות כאלו. נא לשים לב גם לכך שגירסה \"איכותית\" נחשבת גם לגירסה \"בדוקה וכו'.",
 	'stabilization-perm' => 'אין לכם הרשאה לשנות את תצורת הגרסה היציבה.
 להלן ההגדרות הנוכחיות עבור [[:$1|$1]]:',
 	'stabilization-page' => 'שם הדף:',
 	'stabilization-leg' => 'אנא אשרו את הגדרות הגרסה היציבה',
 	'stabilization-select' => 'סדר העדיפויות בבחירת גרסה יציבה',
 	'stabilization-select1' => 'הגרסה האיכותית האחרונה; אם לא קיימת, הגרסה הנצפית האחרונה',
-	'stabilization-select2' => 'הגרסה האחרונה שנבדקה, ללא קשר לרמת האימות',
+	'stabilization-select2' => 'הגרסה האחרונה שנבדקה',
 	'stabilization-select3' => 'הגרסה המושלמת האחרונה; אם לא קיימת, הגרסה האיכותית או הנצפית האחרונה',
 	'stabilization-def' => 'הגרסה המופיעה כברירת מחדל',
 	'stabilization-def1' => 'הגרסה היציבה; אם לא קיימת, הגרסה הנוכחית/טיוטה',
 	'stabilization-def2' => 'הגרסה הנוכחית/טיוטה',
-	'stabilization-restrict' => 'הגבלות על בדיקה אוטומטית',
+	'stabilization-restrict' => 'בקורת/בקורת אוטומטית להגבלות על בדיקה אוטומטית',
 	'stabilization-restrict-none' => 'אין הגבלות נוספות',
 	'stabilization-submit' => 'אישור',
 	'stabilization-notexists' => 'אין דף בשם "[[:$1|$1]]".
@@ -1496,10 +1495,17 @@ $messages['he'] = array(
 	'stabilization-def-short' => 'ברירת מחדל',
 	'stabilization-def-short-0' => 'נוכחי',
 	'stabilization-def-short-1' => 'יציב',
+	'stabilize_page_invalid' => 'כותרתו של הדף המיועד אינה תקינה',
+	'stabilize_page_notexists' => 'הדף המיועד אינו קיים',
+	'stabilize_page_unreviewable' => 'הדף המיועד אינו קיים במרחב-שם שיש בו גירסאות יציבות',
+	'stabilize_invalid_precedence' => 'ברירת גירסה לא-תקינה',
+	'stabilize_invalid_autoreview' => 'הגבלה לא-תקינה לבקורת אוטומטית',
+	'stabilize_invalid_level' => 'רמת הגנה בלתי-תקינה',
 	'stabilize_expiry_invalid' => 'תאריך הפקיעה אינו תקין.',
 	'stabilize_expiry_old' => 'תאריך הפקיעה כבר עבר.',
+	'stabilize_denied' => 'אין אישור',
 	'stabilize-expiring' => 'פקיעה: $1 (UTC)',
-	'stabilization-review' => 'בדיקת הגרסה הנוכחית',
+	'stabilization-review' => 'ציין את הגירסה הנוכחית כבדוקה',
 );
 
 /** Hindi (हिन्दी)
@@ -2964,6 +2970,7 @@ Não é possível configurá-la.',
 );
 
 /** Romanian (Română)
+ * @author Cin
  * @author KlaudiuMihaila
  * @author Memo18
  * @author Mihai
@@ -2979,14 +2986,14 @@ Iată configurația curentă pentru [[:$1|$1]]:',
 	'stabilization-select2' => 'Ultima versiune verificată',
 	'stabilization-def' => 'Revizie afișată pe vizualizarea paginii implicite',
 	'stabilization-def1' => 'Revizia stabilă; dacă nu există, atunci cea curentă',
-	'stabilization-def2' => 'Revizia curentă',
+	'stabilization-def2' => 'Ultima revizie',
 	'stabilization-restrict' => 'Restricții pentru revizualizarea automată',
 	'stabilization-restrict-none' => 'Nicio restricție suplimentară',
 	'stabilization-submit' => 'Confirmă',
 	'stabilization-comment' => 'Motiv:',
-	'stabilization-otherreason' => 'Alt motiv:',
+	'stabilization-otherreason' => 'Alte motive:',
 	'stabilization-expiry' => 'Expiră:',
-	'stabilization-othertime' => 'Altă dată',
+	'stabilization-othertime' => 'Alt timp:',
 	'stabilization-sel-short' => 'Prioritate',
 	'stabilization-sel-short-0' => 'Calitate',
 	'stabilization-sel-short-1' => 'Nimic',
@@ -3686,6 +3693,7 @@ Walang maaaring maging pagkakaayos (konpigurasyon).',
  * @author Erkan Yilmaz
  * @author Joseph
  * @author Karduelis
+ * @author Manco Capac
  * @author Srhat
  */
 $messages['tr'] = array(
@@ -3703,8 +3711,8 @@ $messages['tr'] = array(
 	'stabilization-select2' => 'En son kontrol edilen revizyon',
 	'stabilization-select3' => 'En son bozulmamış revizyon; eğer yoksa, en son kaliteli ya da gözlenmiş olan',
 	'stabilization-def' => 'Varsayılan sayfa görünümünde gösterilen revizyon',
-	'stabilization-def1' => 'Yayımlanmış revizyon; eğer yoksa, halihazırda bulunan/karalama',
-	'stabilization-def2' => 'Şu anki revizyon/karalama',
+	'stabilization-def1' => 'Kararlı sürümü; eğer yoksa, halihazırdaki son sürümü',
+	'stabilization-def2' => 'Son sürüm',
 	'stabilization-restrict' => 'İnceleme/oto-inceleme kısıtlamaları',
 	'stabilization-restrict-none' => 'Başka ilave kısıtlama yok',
 	'stabilization-submit' => 'Tespit et',
@@ -3731,6 +3739,7 @@ Yapılandırma mümkün değil.',
 	'stabilize_invalid_level' => 'Geçersiz koruma seviyesi.',
 	'stabilize_expiry_invalid' => 'Geçersiz sona erme tarihi.',
 	'stabilize_expiry_old' => 'Sona erme tarihi zaten geçmiş.',
+	'stabilize_denied' => 'İzin verilmedi.',
 	'stabilize-expiring' => '$1 (UTC) tarihinde sona eriyor',
 	'stabilization-review' => 'Geçerli sürümü kontrol edilmiş olarak işaretle',
 );

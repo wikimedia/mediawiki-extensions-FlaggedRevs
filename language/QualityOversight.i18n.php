@@ -235,10 +235,11 @@ $messages['gsw'] = array(
 );
 
 /** Hebrew (עברית)
+ * @author DoviJ
  * @author Rotemliss
  */
 $messages['he'] = array(
-	'qualityoversight' => 'בקרת איכות',
+	'qualityoversight' => 'יומן לבקרת איכות מתקדמת',
 	'qualityoversight-list' => 'בדף זה רשומים האישורים החדשים ביותר של גרסאות וכן הסימונים האחרונים של גרסאות כבעייתיות.',
 	'qualityoversight-legend' => 'חיפוש ביומני הבדיקה האחרונים',
 );
