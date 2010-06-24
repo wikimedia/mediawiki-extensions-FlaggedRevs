@@ -1610,45 +1610,76 @@ class FlaggedArticleView {
 	}
 
 	/**
-	* If submitting this edit will leave it pending
+	* If this edit will not go live on submit (accounting for wpReviewEdit)
 	* @param EditPage $editPage
 	* @return bool
 	*/
 	protected function editWillRequireReview( EditPage $editPage ) {
 		global $wgRequest;
 		$title = $this->article->getTitle(); // convenience
-		if ( !$this->article->editsRequireReview() ) {
-			return false; // edits go live immediatly
+		if ( !$this->editRequiresReview( $editPage ) ) {
+			return false; // edit will go live immediatly
 		} elseif ( $wgRequest->getCheck( 'wpReviewEdit' ) && $title->userCan( 'review' ) ) {
-			return false; // edit will checked off to be reviewed
-		}
-		if ( $title->userCan( 'autoreview' ) ) {
-			if ( FlaggedRevs::autoReviewNewPages() && !$this->article->exists() ) {
-				return false; // edit will be autoreviewed anyway
-			}
-			$frev = FlaggedRevision::newFromTitle( $title, self::getBaseRevId( $editPage ) );
-			if ( $frev ) {
-				return false; // edit will be autoreviewed anyway
-			}
+			return false; // edit checked off to be reviewed on save
 		}
 		return true; // edit needs review
 	}
 
 	/**
-	* Add a "review pending changes" checkbox to the edit form if:
+	* If this edit will not go live on submit unless wpReviewEdit is checked
+	* @param EditPage $editPage
+	* @return bool
+	*/
+	protected function editRequiresReview( EditPage $editPage ) {
+		$title = $this->article->getTitle(); // convenience
+		if ( !$this->article->editsRequireReview() ) {
+			return false; // edits go live immediatly
+		} elseif ( $this->editWillBeAutoreviewed( $editPage ) ) {
+			return false; // edit will be autoreviewed anyway
+		}
+		return true; // edit needs review
+	}
+
+	/**
+	* If this edit will be auto-reviewed on submit
+	* Note: checking wpReviewEdit does not count as auto-reviewed
+	* @param EditPage $editPage
+	* @return bool
+	*/
+	protected function editWillBeAutoreviewed( EditPage $editPage ) {
+		$title = $this->article->getTitle(); // convenience
+		if ( !$this->article->isReviewable() ) {
+			return false;
+		}
+		if ( $title->userCan( 'autoreview' ) ) {
+			if ( FlaggedRevs::autoReviewNewPages() && !$this->article->exists() ) {
+				return true; // edit will be autoreviewed
+			}
+			if ( !isset( $editPage->fr_baseFRev ) ) {
+				$baseRevId = self::getBaseRevId( $editPage );
+				$editPage->fr_baseFRev = FlaggedRevision::newFromTitle( $title, $baseRevId );
+			}
+			if ( $editPage->fr_baseFRev ) {
+				return true; // edit will be autoreviewed
+			}
+		}
+		return false; // edit won't be autoreviewed
+	}
+
+	/**
+	* Add a "review pending changes" checkbox to the edit form iff:
 	* (a) there are currently any revisions pending (bug 16713)
 	* (b) this is an unreviewed page (bug 23970)
 	*/
 	public function addReviewCheck( EditPage $editPage, array &$checkboxes, &$tabindex ) {
-		global $wgUser, $wgRequest;
-		if ( !$this->article->isReviewable()
-			|| !$this->article->getTitle()->userCan( 'review' )
-			|| ( $this->article->getStable() && !$this->article->revsArePending() )
-		) {
+		global $wgRequest;
+		$title = $this->article->getTitle(); // convenience
+		if ( !$this->article->isReviewable() || !$title->userCan( 'review' ) ) {
 			return true; // not needed
+		} elseif ( $this->editWillBeAutoreviewed( $editPage ) ) {
+			return true; // edit will be auto-reviewed
 		}
-		$oldid = $wgRequest->getInt( 'baseRevId', $this->article->getLatest() );
-		if ( $oldid == $this->article->getLatest() ) {
+		if ( self::getBaseRevId( $editPage ) == $this->article->getLatest() ) {
 			# For pages with either no stable version, or an outdated one, let
 			# the user decide if he/she wants it reviewed on the spot. One might
 			# do this if he/she just saw the diff-to-stable and *then* decided to edit.
@@ -1659,10 +1690,17 @@ class FlaggedArticleView {
 				array( 'tabindex' => ++$tabindex, 'id' => 'wpReviewEdit' )
 			);
 			$attribs = array( 'for' => 'wpReviewEdit' );
-			// For pending changes...
+			// For reviewed pages...
 			if ( $this->article->getStable() ) {
-				$attribs['title'] = wfMsg( 'revreview-check-flag-p-title' );
-				$labelMsg = wfMsgExt( 'revreview-check-flag-p', 'parseinline' );
+				// For pending changes...
+				if ( $this->article->revsArePending() ) {
+					$attribs['title'] = wfMsg( 'revreview-check-flag-p-title' );
+					$labelMsg = wfMsgExt( 'revreview-check-flag-p', 'parseinline' );
+				// For just the user's changes...
+				} else {
+					$attribs['title'] = wfMsg( 'revreview-check-flag-y-title' );
+					$labelMsg = wfMsgExt( 'revreview-check-flag-y', 'parseinline' );
+				}
 			// For unreviewed pages...
 			} else {
 				$attribs['title'] = wfMsg( 'revreview-check-flag-u-title' );
@@ -1673,7 +1711,7 @@ class FlaggedArticleView {
 		}
 		return true;
 	}
-	
+
 	/**
 	* (a) Add a hidden field that has the rev ID the text is based off.
 	* (b) If an edit was undone, add a hidden field that has the rev ID of that edit.
@@ -1692,7 +1730,7 @@ class FlaggedArticleView {
 
 	/**
 	* Guess the rev ID the text of this form is based off
-	* Note: baseRevId trusted for Reviewers - text checked for others.
+	* Note: baseRevId trusted for Reviewers - check text for others.
 	* @return int
 	*/
 	protected static function getBaseRevId( EditPage $editPage ) {

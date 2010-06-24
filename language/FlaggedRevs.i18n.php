@@ -116,6 +116,8 @@ Refreshing the page and rereviewing can solve this problem.',
 	'revreview-check-flag-p-title' => 'Accept all the currently pending changes along with your own edit. Only use this if you have already seen the entire pending changes diff.',
 	'revreview-check-flag-u'       => 'Accept this unreviewed page',
 	'revreview-check-flag-u-title' => 'Accept this version of the page. Only use this if you have already seen the entire page.',
+	'revreview-check-flag-y'       => 'Accept these changes',
+	'revreview-check-flag-y-title' => 'Accept all the changes that you have made in this edit.',
 	'revreview-submitedit'         => 'Submit changes',
 	'revreview-submitedit-title'   => 'Submit your changes for review',
 	'revreview-edited'             => '\'\'\'Your changes will be displayed to readers once an authorized user reviews them. ([[{{MediaWiki:Validationpage}}|help]])\'\'\'

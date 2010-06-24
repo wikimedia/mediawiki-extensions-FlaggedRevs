@@ -87,7 +87,7 @@ class FlaggedArticle extends Article {
 	}
 
 	/**
-	 * Do edits have to be reviewed before being shown by default?
+	 * Do edits have to be reviewed before being shown by default (going live)?
      * @param int $flags, FR_MASTER
 	 * @return bool
 	 */
