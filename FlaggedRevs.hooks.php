@@ -2000,7 +2000,7 @@ class FlaggedRevsHooks {
 		} elseif ( !FlaggedRevs::inReviewNamespace( $article->getTitle() ) ) {
 			return true; // not a reviewable page
 		}
-		$form = new PageStabilityProtectForm();
+		$form = new PageStabilityProtectForm( $wgUser );
 		$form->setPage( $article->getTitle() );
 		# Can the user actually do anything?
 		$isAllowed = $form->isAllowed();
@@ -2145,7 +2145,7 @@ class FlaggedRevsHooks {
 		} elseif ( wfReadOnly() || !$wgUser->isAllowed( 'stablesettings' ) ) {
 			return true; // user cannot change anything
 		}
-		$form = new PageStabilityProtectForm();
+		$form = new PageStabilityProtectForm( $wgUser );
 		$form->setPage( $article->getTitle() ); // target page
 		$permission = $wgRequest->getVal( 'mwStabilityLevel' );
 		if ( $permission == "none" ) {

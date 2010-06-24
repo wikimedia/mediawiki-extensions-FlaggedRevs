@@ -28,11 +28,12 @@ abstract class PageStabilityForm
 	protected $oldExpiry = ''; # Old page config expiry (GMT)
 	protected $inputLock = 0; # Disallow bad submissions
 
+	protected $user = null;
 	protected $skin = null;
 
-	public function __construct() {
-		global $wgUser;
-		$this->skin = $wgUser->getSkin();
+	public function __construct( $user ) {
+		$this->user = $user;
+		$this->skin = $user->getSkin();
 	}
 
 	public function getPage() {
@@ -220,7 +221,6 @@ abstract class PageStabilityForm
 	* @return mixed (true on success, error string on failure)
 	*/
 	public function submit() {
-		global $wgUser;
 		if ( !$this->inputLock ) {
 			throw new MWException( __CLASS__ . " input fields not set yet.\n");
 		}
@@ -266,7 +266,7 @@ abstract class PageStabilityForm
 				$article = new Article( $this->page );
 				# Review this revision of the page...
 				$ok = FlaggedRevs::autoReviewEdit(
-					$article, $wgUser, $nullRev->getText(), $nullRev, $flags, true );
+					$article, $this->user, $nullRev->getText(), $nullRev, $flags, true );
 				if( $ok ) {
 					FlaggedRevs::markRevisionPatrolled( $nullRev ); // reviewed -> patrolled
 					$invalidate = false; // links invalidated (with auto-reviewed)
@@ -360,12 +360,11 @@ abstract class PageStabilityForm
 	* (b) Unwatch if $watchThis is false
 	*/
 	protected function updateWatchlist() {
-		global $wgUser;
 		# Apply watchlist checkbox value (may be NULL)
 		if ( $this->watchThis === true ) {
-			$wgUser->addWatch( $this->page );
+			$this->user->addWatch( $this->page );
 		} elseif ( $this->watchThis === false ) {
-			$wgUser->removeWatch( $this->page );
+			$this->user->removeWatch( $this->page );
 		}
 	}
 
@@ -461,7 +460,7 @@ class PageStabilityGeneralForm extends PageStabilityForm {
 		{
 			return 'stabilize_invalid_autoreview'; // invalid value
 		}
-		if ( !FlaggedRevs::userCanSetAutoreviewLevel( $this->autoreview ) ) {
+		if ( !FlaggedRevs::userCanSetAutoreviewLevel( $this->user, $this->autoreview ) ) {
 			return 'stabilize_denied'; // invalid value
 		}
 		return true;
@@ -586,7 +585,7 @@ class PageStabilityProtectForm extends PageStabilityForm {
 			return 'stabilize_invalid_level'; // double-check configuration
 		}
 		# Check autoreview restriction setting
-		if ( !FlaggedRevs::userCanSetAutoreviewLevel( $this->autoreview ) ) {
+		if ( !FlaggedRevs::userCanSetAutoreviewLevel( $this->user, $this->autoreview ) ) {
 			return 'stabilize_denied'; // invalid value
 		}
 		return true;

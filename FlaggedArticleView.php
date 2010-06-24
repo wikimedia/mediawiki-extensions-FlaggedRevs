@@ -82,7 +82,7 @@ class FlaggedArticleView {
 		$config = $this->article->getVisibilitySettings();
 		# Does the stable version override the current one?
 		if ( $config['override'] ) {
-			if ( FlaggedRevs::ignoreDefaultVersion() ) {
+			if ( $this->showDraftByDefault() ) {
 				return ( $wgRequest->getIntOrNull( 'stable' ) === 1 );
 			}
 			# Viewer sees stable by default
@@ -90,6 +90,36 @@ class FlaggedArticleView {
 		# We are explicity requesting the stable version?
 		} elseif ( $wgRequest->getIntOrNull( 'stable' ) === 1 ) {
 			return true;
+		}
+		return false;
+	}
+
+	/**
+	 * Should this be using a simple icon-based UI?
+	 * Check the user's preferences first, using the site settings as the default.
+	 * @returns bool
+	 */
+	public function useSimpleUI() {
+		global $wgUser, $wgSimpleFlaggedRevsUI;
+		return $wgUser->getOption( 'flaggedrevssimpleui', intval( $wgSimpleFlaggedRevsUI ) );
+	}
+
+	/**
+	 * Should this user see the current revision by default?
+	 * Note: intended for users that probably edit
+	 * @returns bool
+	 */
+	public function showDraftByDefault() {
+		global $wgFlaggedRevsExceptions, $wgUser;
+		# Viewer sees current by default (editors, insiders, ect...) ?
+		foreach ( $wgFlaggedRevsExceptions as $group ) {
+			if ( $group == 'user' ) {
+				if ( $wgUser->getId() ) {
+					return true;
+				}
+			} elseif ( in_array( $group, $wgUser->getGroups() ) ) {
+				return true;
+			}
 		}
 		return false;
 	}
@@ -102,7 +132,7 @@ class FlaggedArticleView {
 		$this->load();
 		if ( $this->article->isReviewable() ) {
 			$config = $this->article->getVisibilitySettings(); // page configuration
-			return ( $config['override'] && !FlaggedRevs::ignoreDefaultVersion() );
+			return ( $config['override'] && !$this->showDraftByDefault() );
 		}
 		return false; // no stable
 	}
@@ -161,7 +191,7 @@ class FlaggedArticleView {
 			$msg = $quality ? 'revreview-quality-source' : 'revreview-basic-source';
 			$tag = wfMsgExt( $msg, array( 'parseinline' ), $frev->getRevId(), $time );
 			# Hide clutter
-			if ( !FlaggedRevs::useSimpleUI() && !empty( $flags ) ) {
+			if ( !$this->useSimpleUI() && !empty( $flags ) ) {
 				$tag .= FlaggedRevsXML::ratingToggle() .
 					"<div id='mw-fr-revisiondetails' style='display:block;'>" .
 					wfMsgHtml( 'revreview-oldrating' ) .
@@ -274,7 +304,7 @@ class FlaggedArticleView {
 		}
 		$encJS = ''; // JS events to use
 		# Some checks for which tag CSS to use
-		if ( FlaggedRevs::useSimpleUI() ) {
+		if ( $this->useSimpleUI() ) {
 			$tagClass = 'flaggedrevs_short';
 			# Collapse the box details on mouseOut
 			$encJS .= ' onMouseOut="FlaggedRevs.onBoxMouseOut(event)"';
@@ -322,7 +352,7 @@ class FlaggedArticleView {
 		}
 		$icon = FlaggedRevsXML::draftStatusIcon();
 		// Simple icon-based UI
-		if ( FlaggedRevs::useSimpleUI() ) {
+		if ( $this->useSimpleUI() ) {
 			// RTL langauges
 			$rtl = $wgContLang->isRTL() ? " rtl" : "";
 			$tag .= $prot . $icon . wfMsgExt( 'revreview-quick-none', array( 'parseinline' ) );
@@ -390,7 +420,7 @@ class FlaggedArticleView {
 		} else if ( !$wgOut->isPrintable() && !( $this->article->lowProfileUI() && $synced ) ) {
 			$revsSince = $this->article->getPendingRevCount();
 			// Simple icon-based UI
-			if ( FlaggedRevs::useSimpleUI() ) {
+			if ( $this->useSimpleUI() ) {
 				if ( !$wgUser->getId() ) {
 					$msgHTML = ''; // Anons just see simple icons
 				} else if ( $synced ) {
@@ -472,7 +502,7 @@ class FlaggedArticleView {
 		# notice has all this info already, so don't do this if we added that already.
 		if ( !$wgOut->isPrintable() ) {
 			// Simple icon-based UI
-			if ( FlaggedRevs::useSimpleUI() ) {
+			if ( $this->useSimpleUI() ) {
 				$icon = '';
 				# For protection based configs, show lock only if it's not redundant.
 				if ( $this->showRatingIcon() ) {
@@ -554,7 +584,7 @@ class FlaggedArticleView {
 		if ( !$wgOut->isPrintable() && !( $this->article->lowProfileUI() && $synced ) ) {
 			$revsSince = $this->article->getPendingRevCount();
 			// Simple icon-based UI
-			if ( FlaggedRevs::useSimpleUI() ) {
+			if ( $this->useSimpleUI() ) {
 				$icon = '';
 				# For protection based configs, show lock only if it's not redundant.
 				if ( $this->showRatingIcon() ) {
@@ -1009,7 +1039,7 @@ class FlaggedArticleView {
 				$templateIDs = $wgOut->mTemplateIds;
 				$fileSHA1Keys = $wgOut->fr_ImageSHA1Keys;
 			}
-			$form = RevisionReviewForm::buildQuickReview( $this->article,
+			$form = RevisionReviewForm::buildQuickReview( $wgUser, $this->article,
 				$rev, $templateIDs, $fileSHA1Keys, $this->isDiffFromStable );
 			# Diff action: place the form at the top of the page
 			if ( $wgRequest->getVal( 'diff' ) ) {
@@ -1526,7 +1556,7 @@ class FlaggedArticleView {
 		}
 		// If the edit was not autoreviewed, and the user can actually make a
 		// new stable version, then go to the diff...
-		if ( $frev->userCanSetFlags() ) {
+		if ( $frev->userCanSetFlags( $wgUser ) ) {
 			$extraQuery .= $extraQuery ? '&' : '';
 			// Override diffonly setting to make sure the content is shown
 			$extraQuery .= 'oldid=' . $frev->getRevId() . '&diff=cur&diffonly=0&shownotice=1';

@@ -43,7 +43,7 @@ class ApiReview extends ApiBase {
 			$this->dieUsageMsg( array( 'blockedtext' ) );
 		}
 		// Construct submit form
-		$form = new RevisionReviewForm();
+		$form = new RevisionReviewForm( $wgUser );
 		$revid = (int)$params['revid'];
 		$rev = Revision::newFromId( $revid );
 		if ( !$rev ) {

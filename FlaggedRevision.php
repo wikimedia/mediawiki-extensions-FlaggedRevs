@@ -384,10 +384,11 @@ class FlaggedRevision {
 	}
 	
 	/**
+     * @param User $user
 	 * @return bool
 	 */
-	public function userCanSetFlags() {
-		return FlaggedRevs::userCanSetFlags( $this->mTags );
+	public function userCanSetFlags( $user ) {
+		return FlaggedRevs::userCanSetFlags( $user, $this->mTags );
 	}
 
 	/**

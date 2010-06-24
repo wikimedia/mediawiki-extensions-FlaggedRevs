@@ -38,7 +38,7 @@ class Stabilization extends UnlistedSpecialPage
 		# Set page title
 		$this->setHeaders();
 		
-		$this->form = new PageStabilityGeneralForm();
+		$this->form = new PageStabilityGeneralForm( $wgUser );
 		$form = $this->form; // convenience
 		# Target page
 		$title = Title::newFromURL( $wgRequest->getVal( 'page', $par ) );
@@ -269,6 +269,7 @@ class Stabilization extends UnlistedSpecialPage
 	}
 
 	protected function buildSelector( $selected ) {
+		global $wgUser;
 		$allowedLevels = array();
 		$levels = FlaggedRevs::getRestrictionLevels();
 		array_unshift( $levels, '' ); // Add a "none" level
@@ -276,7 +277,7 @@ class Stabilization extends UnlistedSpecialPage
 			# Don't let them choose levels they can't set, 
 			# but *show* them all when the form is disabled.
 			if ( $this->form->isAllowed()
-				&& !FlaggedRevs::userCanSetAutoreviewLevel( $key ) )
+				&& !FlaggedRevs::userCanSetAutoreviewLevel( $wgUser, $key ) )
 			{
 				continue;
 			}

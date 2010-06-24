@@ -33,7 +33,7 @@ class RevisionReview extends UnlistedSpecialPage
 		}
 		$this->setHeaders();
 		
-		$this->form = new RevisionReviewForm();
+		$this->form = new RevisionReviewForm( $wgUser );
 		$form = $this->form; // convenience
 		# Our target page
 		$this->page = Title::newFromURL( $wgRequest->getVal( 'target' ) );
@@ -137,7 +137,7 @@ class RevisionReview extends UnlistedSpecialPage
 		}
 		$tags = FlaggedRevs::getDimensions();
 		// Make review interface object
-		$form = new RevisionReviewForm();
+		$form = new RevisionReviewForm( $wgUser );
 		$title = null; // target page
 		$editToken = ''; // edit token
 		// Each ajax url argument is of the form param|val.

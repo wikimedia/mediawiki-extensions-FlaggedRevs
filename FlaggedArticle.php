@@ -169,7 +169,7 @@ class FlaggedArticle extends Article {
 	* @return bool
 	*/
 	public function stableVersionIsSynced() {
-		global $wgUser, $wgMemc, $wgEnableParserCache, $wgParserCacheExpireTime;
+		global $wgMemc, $wgEnableParserCache, $wgParserCacheExpireTime;
 		$srev = $this->getStableRev();
 		if ( !$srev ) {
 			return true;

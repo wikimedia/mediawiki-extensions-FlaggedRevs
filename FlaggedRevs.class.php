@@ -138,17 +138,6 @@ class FlaggedRevs {
 	}
 
 	/**
-	 * Should this be using a simple icon-based UI?
-	 * Check the user's preferences first, using the site settings as the default.
-	 * @TODO: dependency inject the User?
-	 * @returns bool
-	 */
-	public static function useSimpleUI() {
-		global $wgUser, $wgSimpleFlaggedRevsUI;
-		return $wgUser->getOption( 'flaggedrevssimpleui', intval( $wgSimpleFlaggedRevsUI ) );
-	}
-
-	/**
 	 * Allow auto-review edits directly to the stable version by reviewers?
 	 * (1 to allow auto-sighting; 2 for auto-quality; 3 for auto-pristine)
 	 * @returns bool
@@ -210,25 +199,7 @@ class FlaggedRevs {
 	public static function stableOnlyIfConfigured() {
 		return self::forDefaultVersionOnly() && !self::isStableShownByDefault();
 	}
-	
-	/**
-	 * Should this user ignore the site and page default version settings?
-	 * @TODO: dependency inject the User?
-	 * @returns bool
-	 */
-	public static function ignoreDefaultVersion() {
-		global $wgFlaggedRevsExceptions, $wgUser;
-		# Viewer sees current by default (editors, insiders, ect...) ?
-		foreach ( $wgFlaggedRevsExceptions as $group ) {
-			if ( $group == 'user' ) {
-				return ( !$wgUser->isAnon() );
-			} elseif ( in_array( $group, $wgUser->getGroups() ) ) {
-				return true;
-			}
-		}
-		return false;
-	}
-	
+
 	/**
 	 * Return the include handling configuration
 	 * @returns int
@@ -254,17 +225,6 @@ class FlaggedRevs {
 	public static function useProtectionLevels() {
 		global $wgFlaggedRevsProtection;
 		return $wgFlaggedRevsProtection && self::getRestrictionLevels();
-	}
-
-	/**
-	 * Get the appropriate PageStabilityForm depending on whether protection
-	 * levels are being used
-	 * @return PageStabilityForm
-	 */
-	public static function getPageStabilityForm() {
-		return FlaggedRevs::useProtectionLevels() ?
-			new PageStabilityProtectForm() :
-			new PageStabilityGeneralForm();
 	}
 
 	/**
@@ -410,17 +370,16 @@ class FlaggedRevs {
 	
 	/**
 	 * Returns true if a user can set $tag to $value.
+	 * @param User $user
 	 * @param string $tag
 	 * @param int $value
 	 * @returns bool
-	 * @TODO: dependency inject the User?
 	 */
-	public static function userCanSetTag( $tag, $value ) {
-		global $wgUser;
+	public static function userCanSetTag( $user, $tag, $value ) {
 		# Sanity check tag and value
 		$levels = self::getTagLevels( $tag );
 		$highest = count( $levels ) - 1;
-		if( !$levels || $value < 0 || $value > $highest ) {
+		if ( !$levels || $value < 0 || $value > $highest ) {
 			return false; // flag range is invalid
 		}
 		$restrictions = self::getTagRestrictions();
@@ -429,13 +388,13 @@ class FlaggedRevs {
 			return true;
 		}
 		# Validators always have full access
-		if ( $wgUser->isAllowed( 'validate' ) ) {
+		if ( $user->isAllowed( 'validate' ) ) {
 			return true;
 		}
 		# Check if this user has any right that lets him/her set
 		# up to this particular value
 		foreach ( $restrictions[$tag] as $right => $level ) {
-			if ( $value <= $level && $level > 0 && $wgUser->isAllowed( $right ) ) {
+			if ( $value <= $level && $level > 0 && $user->isAllowed( $right ) ) {
 				return true;
 			}
 		}
@@ -443,28 +402,26 @@ class FlaggedRevs {
 	}
 
 	/**
-	 * Returns true if a user can set $flags.
-	 * This checks if the user has the right to review
-	 * to the given levels for each tag.
+	 * Returns true if a user can set $flags for a revision via review.
+	 * Requires the same for $oldflags if given.
+	 * @param User $user
 	 * @param array $flags, suggested flags
 	 * @param array $oldflags, pre-existing flags
 	 * @returns bool
-	 * @TODO: dependency inject the User?
 	 */
-	public static function userCanSetFlags( $flags, $oldflags = array() ) {
-		global $wgUser;
-		if ( !$wgUser->isAllowed( 'review' ) ) {
+	public static function userCanSetFlags( $user, array $flags, $oldflags = array() ) {
+		if ( !$user->isAllowed( 'review' ) ) {
 			return false; // User is not able to review pages
 		}
 		# Check if all of the required site flags have a valid value
-		# that the user is allowed to set.
+		# that the user is allowed to set...
 		foreach ( self::getDimensions() as $qal => $levels ) {
 			$level = isset( $flags[$qal] ) ? $flags[$qal] : 0;
 			$highest = count( $levels ) - 1; // highest valid level
-			if ( !self::userCanSetTag( $qal, $level ) ) {
+			if ( !self::userCanSetTag( $user, $qal, $level ) ) {
 				return false; // user cannot set proposed flag
 			} elseif ( isset( $oldflags[$qal] )
-				&& !self::userCanSetTag( $qal, $oldflags[$qal] ) )
+				&& !self::userCanSetTag( $user, $qal, $oldflags[$qal] ) )
 			{
 				return false; // user cannot change old flag
 			}
@@ -474,12 +431,11 @@ class FlaggedRevs {
 
 	/**
 	* Check if a user can set the autoreview restiction level to $right
+	* @param User $user
 	* @param string $right the level
 	* @returns bool
-	* @TODO: dependency inject the User?
 	*/
-	public static function userCanSetAutoreviewLevel( $right ) {
-		global $wgUser;
+	public static function userCanSetAutoreviewLevel( $user, $right ) {
 		if ( $right == '' ) {
 			return true; // no restrictions (none)
 		}
@@ -489,10 +445,10 @@ class FlaggedRevs {
 		# Don't let them choose levels above their own rights
 		if ( $right == 'sysop' ) {
 			// special case, rewrite sysop to protect and editprotected
-			if ( !$wgUser->isAllowed( 'protect' ) && !$wgUser->isAllowed( 'editprotected' ) ) {
+			if ( !$user->isAllowed( 'protect' ) && !$user->isAllowed( 'editprotected' ) ) {
 				return false;
 			}
-		} else if ( !$wgUser->isAllowed( $right ) ) {
+		} elseif ( !$user->isAllowed( $right ) ) {
 			return false;
 		}
 		return true;
@@ -1171,7 +1127,7 @@ class FlaggedRevs {
 			array( 'fpc_page_id', 'fpc_select' ),
 			array( 'fpc_expiry < ' . $encCutoff ),
 			__METHOD__
-			// array( 'LOCK IN SHARE MODE' )
+			// array( 'FOR UPDATE' )
 		);
 		while ( $row = $dbw->fetchObject( $ret ) ) {
 			// If FlaggedRevs got "turned off" for this page (due to not
@@ -1318,11 +1274,11 @@ class FlaggedRevs {
 	/**
 	 * Get minimum tags that are closest to $oldFlags
 	 * given the site, page, and user rights limitations.
+	 * @param User $user
 	 * @param array $oldFlags previous stable rev flags
-	 * @TODO: dependency inject the User?
 	 * @return mixed array or null
 	 */
-	public static function getAutoReviewTags( array $oldFlags ) {
+	public static function getAutoReviewTags( $user, array $oldFlags ) {
 		if ( !self::autoReviewEdits() ) {
 			return null; // shouldn't happen
 		}
@@ -1332,7 +1288,7 @@ class FlaggedRevs {
 			$val = isset( $oldFlags[$tag] ) ? $oldFlags[$tag] : 1;
 			$val = min( $val, self::maxAutoReviewLevel( $tag ) );
 			# Dial down the level to one the user has permission to set
-			while ( !self::userCanSetTag( $tag, $val ) ) {
+			while ( !self::userCanSetTag( $user, $tag, $val ) ) {
 				$val--;
 				if ( $val <= 0 ) {
 					return null; // all tags vals must be > 0
@@ -1556,7 +1512,7 @@ class FlaggedRevs {
 				if ( $user->isAllowed( 'bot' ) ) {
 					$flags = $oldSv->getTags(); // no change for bot edits
 				} else {
-					$flags = self::getAutoReviewTags( $oldSv->getTags() ); // account for perms
+					$flags = self::getAutoReviewTags( $user, $oldSv->getTags() ); // account for perms
 				}
 			} else { // new page?
 				$flags = self::quickTags( FR_SIGHTED ); // use minimal level
