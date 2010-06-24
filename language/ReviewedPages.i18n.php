@@ -334,6 +334,7 @@ $messages['et'] = array(
 	'reviewedpages' => 'Ülevaadatud leheküljed',
 	'reviewedpages-none' => 'Siin loendis ei ole lehekülgi',
 	'reviewedpages-all' => 'ülevaadatud versioonid',
+	'reviewedpages-best' => 'parim redaktsioon',
 );
 
 /** Basque (Euskara)

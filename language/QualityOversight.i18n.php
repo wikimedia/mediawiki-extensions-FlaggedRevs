@@ -171,6 +171,15 @@ $messages['es'] = array(
 	'qualityoversight-legend' => 'Buscar lista de revisiones recientes',
 );
 
+/** Estonian (Eesti)
+ * @author Pikne
+ */
+$messages['et'] = array(
+	'qualityoversight' => 'Täpne ülevaatuslogi',
+	'qualityoversight-list' => 'See lehekülg loetleb uusimad redaktsioonide heakskiitmised ja iganenuks märkimised.',
+	'qualityoversight-legend' => 'Viimastest ülevaatuslogidest otsimine',
+);
+
 /** Persian (فارسی)
  * @author Huji
  */

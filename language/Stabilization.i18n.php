@@ -811,9 +811,9 @@ Die aktuellen Einstellungen für „[[:$1|$1]]“ sind:',
 $messages['diq'] = array(
 	'stabilization-tab' => 'vet',
 	'stabilization' => 'istiqrar kerdışê peli',
-	'stabilization-text' => "'''[[:\$1|\$1]] için kararlı sürümün nasıl seçilip görüntüleneceğini ayarlamak için ayarları değiştirin.'''
+	'stabilization-text' => "'''Eyaran bine de bivurne ke versiyonê sebiti  [[:\$1|\$1]] biweciye u biese.'''
 
-Varsayılan olarak \"kalite\" ya da \"asıl\" revizyonlarını kullanmak için ''kararlı sürüm seçimi'' yapılandırmasını değiştirirken, sayfada böyle revizyonların olduğunu kontrol ettiğinize emin olun, aksi halde değişikliğin etkisi küçük olacaktır.",
+'''Diqet:''' eka ti ''versiyonê sebitu'' vurne versiyonê \"kalite\" ya zi \"pak\" etki nibena eka versiyonan cine. Hem zi, versiyonşê \"kalite\" kebul beno ke yew versiyonê \"qontrol\" biyayiya.",
 	'stabilization-perm' => 'Hesabê tu rê destur çini yo ke stable versiyon confugration bivurne.
 Tiya de eyaranê penîyî qe [[:$1|$1]] esto:',
 	'stabilization-page' => 'Nameyê pelî:',
@@ -1084,7 +1084,7 @@ $messages['et'] = array(
 	'stabilization-sel-short-2' => 'Algne',
 	'stabilization-def-short' => 'Vaikimisi',
 	'stabilization-def-short-0' => 'Praegune',
-	'stabilization-def-short-1' => 'Stabiilne',
+	'stabilization-def-short-1' => 'Püsiv',
 	'stabilize_expiry_invalid' => 'Vigane aegumistähtaeg.',
 	'stabilize_expiry_old' => 'See aegumistähtaeg on juba möödunud.',
 	'stabilize-expiring' => 'aegumistähtajaga $1 (UTC)',

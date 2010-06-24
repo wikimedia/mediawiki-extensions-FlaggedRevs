@@ -151,11 +151,17 @@ Einige Einstellungen können eine Abweichung hinsichtlich der Version bewirken, 
 	'configuredpages-def-stable' => 'stabile Version',
 );
 
-/** Zazaki (Zazaki) */
+/** Zazaki (Zazaki)
+ * @author Xoser
+ */
 $messages['diq'] = array(
+	'configuredpages-config' => 'Vıraştış',
+	'configuredpages-precedence' => 'Numune:',
 	'configuredpages-prec-none' => 'pêşani çina',
 	'configuredpages-prec-quality' => 'pêşaneyê qaliteyi',
 	'configuredpages-prec-pristine' => 'pêşaneyê ewwil',
+	'configuredpages-def-draft' => 'versiyonê peniyan',
+	'configuredpages-def-stable' => 'versiyonê sebiti',
 );
 
 /** Lower Sorbian (Dolnoserbski)

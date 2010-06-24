@@ -185,7 +185,8 @@ Bearbeitungen von anderen Bentzern werden standardmäßig solange nicht angezeig
  */
 $messages['diq'] = array(
 	'stablepages' => 'Pelanê ke vurnayise testiqi ser hewitiyeno',
-	'stablepages-text' => 'Aşağıdaki liste, ziyaretçilere geçerli sayfa içeriği olarak kararlı sürümü gösterecek şekilde elle yapılandırılmış sayfaların listesidir.',
+	'stablepages-text' => 'Cor de yew liste este ke ey de teyna pelan ke teyna belli karberan eşkeni maqalayen bivurne u kontrol gani niya.
+Vurnayişan otomatik qeyd nibena eka yew karberanê binan meqale vurne heta yew gorevli kontral bike.',
 	'stablepages-none' => 'na liste de pel çino',
 	'stablepages-config' => 'vıraştış',
 );
