@@ -149,11 +149,6 @@ $wgFlaggedRevsRestrictionLevels = array( '', 'sysop' );
 # NOTE: The stable version precedence cannot be configured per page with this.
 $wgFlaggedRevsProtection = false;
 
-# Please set these as something different. Any text will do, though it probably
-# shouldn't be very short (less secure) or very long (waste of resources).
-# There must be two codes, and only the first two are checked.
-$wgReviewCodes = array();
-
 # URL location for flaggedrevs.css and flaggedrevs.js
 # Use a literal $wgScriptPath as a placeholder for the runtime value of $wgScriptPath
 $wgFlaggedRevsStylePath = '$wgScriptPath/extensions/FlaggedRevs/client';

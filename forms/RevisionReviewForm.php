@@ -596,7 +596,7 @@ class RevisionReviewForm
 		wfProfileOut( __METHOD__ );
         return true;
     }
-	
+
 	/**
 	* Get a validation key from versioning metadata
 	* @param string $tmpP
@@ -606,15 +606,10 @@ class RevisionReviewForm
 	* @return string
 	*/
 	public static function validationKey( $tmpP, $imgP, $imgV, $rid ) {
-		global $wgReviewCodes;
-		# Fall back to $wgSecretKey/$wgProxyKey
-		if ( empty( $wgReviewCodes ) ) {
-			global $wgSecretKey, $wgProxyKey;
-			$key = $wgSecretKey ? $wgSecretKey : $wgProxyKey;
-			$p = md5( $key . $imgP . $tmpP . $rid . $imgV );
-		} else {
-			$p = md5( $wgReviewCodes[0] . $imgP . $rid . $tmpP . $imgV . $wgReviewCodes[1] );
-		}
+		global $wgSecretKey, $wgProxyKey;
+		# Fall back to $wgProxyKey
+		$key = $wgSecretKey ? $wgSecretKey : $wgProxyKey;
+		$p = md5( $key . $imgP . $tmpP . $rid . $imgV );
 		return $p;
 	}
 
