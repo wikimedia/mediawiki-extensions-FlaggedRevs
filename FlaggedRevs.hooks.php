@@ -1318,6 +1318,7 @@ class FlaggedRevsHooks {
 			$totalCheckedEditsNeeded = true;
 		}
 		# Check if user edited enough unique pages
+		$pages = explode( ',', trim( $p['uniqueContentPages'] ) ); // page IDs
 		if ( $wgFlaggedRevsAutopromote['uniqueContentPages'] > count( $pages ) ) {
 			return true;
 		}
