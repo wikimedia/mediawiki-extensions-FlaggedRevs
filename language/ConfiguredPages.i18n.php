@@ -155,6 +155,11 @@ Einige Einstellungen können eine Abweichung hinsichtlich der Version bewirken, 
  * @author Xoser
  */
 $messages['diq'] = array(
+	'configuredpages' => 'Pelanê ke eyaranşê kontrol est ê',
+	'configuredpages-text' => 'Cor de listeyê pelan este ke eyaranê inan pelanê binan ra zaf feqliye.
+
+Tey eyran belki vuriyena feqet versiyan inan bini de mocneyena  ya zi wedekaran eskena pelan kilit bike u nuşteyan kontrol bike.',
+	'configuredpages-none' => 'Ena liste de pelan çini yo',
 	'configuredpages-config' => 'Vıraştış',
 	'configuredpages-precedence' => 'Numune:',
 	'configuredpages-prec-none' => 'pêşani çina',
@@ -392,10 +397,13 @@ Alcun configurationes pote cambiar le version que es monstrate al lectores o lim
 );
 
 /** Indonesian (Bahasa Indonesia)
+ * @author ArdWar
  * @author Kenrick95
  */
 $messages['id'] = array(
+	'configuredpages-none' => 'Tidak ada halaman di dalam daftar ini',
 	'configuredpages-config' => 'Pengaturan',
+	'configuredpages-precedence' => 'Diutamakan:',
 	'configuredpages-prec-none' => 'tidak ada preseden',
 	'configuredpages-prec-quality' => 'preseden berkualitas',
 	'configuredpages-prec-pristine' => 'preseden murni',

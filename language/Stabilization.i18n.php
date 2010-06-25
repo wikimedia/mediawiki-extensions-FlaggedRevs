@@ -846,8 +846,12 @@ Konfugure ni beno.',
 	'stabilize_page_invalid' => 'Nameyê pele ya hedefi meqbul niyo.',
 	'stabilize_page_notexists' => 'Pele ke hedef biya eka cini ya.',
 	'stabilize_page_unreviewable' => 'Pele ke hedef biya cayenameyi de cini ya.',
+	'stabilize_invalid_precedence' => 'Versiyon raşy niya.',
+	'stabilize_invalid_autoreview' => 'Otokontrol raşt niya.',
+	'stabilize_invalid_level' => 'Seviyeyê pawitiş raşt niya.',
 	'stabilize_expiry_invalid' => 'Wextê qedîyayîş raşt niyo.',
 	'stabilize_expiry_old' => 'Wextê qedîyayîş penî de mend.',
+	'stabilize_denied' => 'Destur nedano.',
 	'stabilize-expiring' => '$1 (UTC) de qediyeno',
 	'stabilization-review' => 'Versiyonê penî ke kontrol biyo ay nisan bike',
 );
@@ -1748,6 +1752,7 @@ Nulle configuration es possibile.',
 );
 
 /** Indonesian (Bahasa Indonesia)
+ * @author ArdWar
  * @author Bennylin
  * @author Irwangatot
  * @author Kenrick95
@@ -1789,6 +1794,9 @@ Konfigurasi tak dapat diterapkan.',
 	'stabilization-def-short-0' => 'Terkini',
 	'stabilization-def-short-1' => 'Stabil',
 	'stabilize_page_invalid' => 'Judul halaman tujuan tidak sah.',
+	'stabilize_page_notexists' => 'Halaman $1 tidak ditemukan.',
+	'stabilize_page_unreviewable' => 'Halaman yang dituju tidak berada dalam ruang nama yang dapat ditinjau.',
+	'stabilize_invalid_level' => 'Tingkat perlindungan tidak valid.',
 	'stabilize_expiry_invalid' => 'Tanggal kadaluwarsa tak valid.',
 	'stabilize_expiry_old' => 'Tanggal kadaluwarsa telah terlewati.',
 	'stabilize_denied' => 'Hak ases ditolak',
@@ -2974,6 +2982,7 @@ Não é possível configurá-la.',
  * @author KlaudiuMihaila
  * @author Memo18
  * @author Mihai
+ * @author Minisarm
  * @author Stelistcristi
  */
 $messages['ro'] = array(
@@ -2986,7 +2995,7 @@ Iată configurația curentă pentru [[:$1|$1]]:',
 	'stabilization-select2' => 'Ultima versiune verificată',
 	'stabilization-def' => 'Revizie afișată pe vizualizarea paginii implicite',
 	'stabilization-def1' => 'Revizia stabilă; dacă nu există, atunci cea curentă',
-	'stabilization-def2' => 'Ultima revizie',
+	'stabilization-def2' => 'Ultima versiune',
 	'stabilization-restrict' => 'Restricții pentru revizualizarea automată',
 	'stabilization-restrict-none' => 'Nicio restricție suplimentară',
 	'stabilization-submit' => 'Confirmă',

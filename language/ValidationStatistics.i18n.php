@@ -541,13 +541,16 @@ Estas páginas son consideradas ''desactualizadas''. De igual modo, las páginas
  */
 $messages['et'] = array(
 	'validationstatistics' => 'Ülevaatuse arvandmestik',
+	'validationstatistics-users' => "Praegu on '''{{GRAMMAR:inessive|{{SITENAME}}}}''' '''[[Special:ListUsers/editor|$1]]''' [[{{MediaWiki:Validationpage}}|toimetaja]] õigustes {{PLURAL:$1|kasutaja|kasutajat}}.
+
+Toimetajad on kohale määratud kasutajad, kes saavad lehekülgel tehtud muudatused põgusalt üle vaadata.",
 	'validationstatistics-ns' => 'Nimeruum',
 	'validationstatistics-total' => 'Lehekülgi',
 	'validationstatistics-stable' => 'Ülevaadatud',
 	'validationstatistics-old' => 'Iganenud',
 	'validationstatistics-utable' => 'Allpool on ülevaatajate esiviisik viimase tunni jaoks.',
 	'validationstatistics-user' => 'Kasutaja',
-	'validationstatistics-reviews' => 'Ülevaatamised',
+	'validationstatistics-reviews' => 'Ülevaatamisi',
 );
 
 /** Basque (Euskara)
