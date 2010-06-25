@@ -698,7 +698,7 @@ class FlaggedRevsHooks {
 
 		if( $ns !== '' ) {
 			$ns = intval( $ns );
-			if( !in_array( $ns , $nsList ) ) {
+			if( !in_array( $ns, $nsList ) ) {
 				return 0;
 			}
 		}
@@ -715,7 +715,7 @@ class FlaggedRevsHooks {
 			$nsList[ 'all' ] = $totalCount;
 		}
 
-		if( $ns === '' || $ns === '*' ) {
+		if( $ns === '' ) {
 			return $nsList['all'];
 		} else {
 			return $nsList[ "ns-$ns" ];
