@@ -2203,6 +2203,8 @@ class FlaggedRevsHooks {
 				"$base/archives/patch-fpc_level.sql" );
 			$wgExtNewTables[] = array( 'flaggedpage_pending',
 				"$base/archives/patch-flaggedpage_pending.sql" );
+			$wgExtNewTables[] = array( 'flaggedrevs_stats',
+				"$base/archives/patch-flaggedrevs_stats.sql" );
 		} elseif ( $wgDBtype == 'postgres' ) {
 			// Initial install tables (current schema)
 			$wgExtNewTables[] = array( 'flaggedrevs', "$base/FlaggedRevs.pg.sql" );

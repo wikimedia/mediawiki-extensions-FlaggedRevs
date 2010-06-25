@@ -224,6 +224,15 @@ function update_flaggedrevs_stats() {
 	$dbCache->set( $key, $data, 30*24*3600 );
 	// Save the data
 	$dbw = wfGetDB( DB_MASTER );
+
+	// Make sure the master has flaggedrevs_stats and _stats2
+	if( !$dbw->tableExists( 'flaggedrevs_stats' ) ||
+		!$dbw->tableExists( 'flaggedrevs_stats2' ) )
+	{
+		print( "Need to run update.php to create flaggedrevs_stats and flaggedrevs_stats2. Stopping." );
+		die( 1 );
+	}
+
 	$dbw->begin();
 	// Create small stats tables if not present
 	$flaggedrevs_stats = $dbr->tableName('flaggedrevs_stats');
@@ -267,28 +276,4 @@ function update_flaggedrevs_stats() {
 	$dbCache->set( $key, '1', $wgFlaggedRevsStatsAge );
 	$dbCache->delete( $keySQL );
 	print( "done updating!\n" );
-}
-
-// Per-Namespace stats
-function createFlaggedRevsStatsTable( $dbw, $flaggedrevs_stats ) {
-	$dbw->query( 
-		"CREATE TABLE $flaggedrevs_stats (
-			namespace  INTEGER UNSIGNED NOT NULL DEFAULT 0 PRIMARY KEY,
-			total      INTEGER UNSIGNED NOT NULL DEFAULT 0,
-			reviewed   INTEGER UNSIGNED NOT NULL DEFAULT 0,
-			synced     INTEGER UNSIGNED NOT NULL DEFAULT 0
-		);"
-	);
-}
-
-// General stats
-function createFlaggedRevsStatsTable2( $dbw, $flaggedrevs_stats2 ) {
-	$dbw->query( 
-		"CREATE TABLE $flaggedrevs_stats2 (
-			stat_id          INTEGER UNSIGNED NOT NULL DEFAULT 1 PRIMARY KEY,
-			ave_review_time  INTEGER UNSIGNED NOT NULL DEFAULT 0,
-			med_review_time  INTEGER UNSIGNED NOT NULL DEFAULT 0,
-			ave_pending_time INTEGER UNSIGNED NOT NULL DEFAULT 0
-		);"
-	);
 }
