@@ -676,6 +676,52 @@ class FlaggedRevsHooks {
 		return true;
 	}
 
+	public static function onParserFirstCallInit( &$parser ) {
+		$parser->setFunctionHook( 'pagesusingpendingchanges',
+			'FlaggedRevsHooks::parserPagesUsingPendingChanges' );
+		return true;
+	}
+
+	public static function onLanguageGetMagic( &$magicWords, $langCode ) {
+		$magicWords['pagesusingpendingchanges'] =
+			array( 0, 'pagesusingpendingchanges' );
+		return true;
+	}
+
+	public static function parserPagesUsingPendingChanges( &$parser, $ns = '' ) {
+		$nsList = FlaggedRevs::getReviewNamespaces();
+
+
+		if( !$nsList ) {
+			return 0;
+		}
+
+		if( $ns !== '' ) {
+			$ns = intval( $ns );
+			if( !in_array( $ns , $nsList ) ) {
+				return 0;
+			}
+		}
+
+		static $pcCounts = null;
+		if( !$pcCounts ) {
+			$dbr = wfGetDB( DB_SLAVE );
+			$res = $dbr->select( 'flaggedrevs_stats', '*', array(), __METHOD__ );
+			$totalCount = 0;
+			foreach( $res as $row ) {
+				$nsList[ "ns-{$row->namespace}" ] = $row->reviewed;
+				$totalCount += $row->reviewed;
+			}
+			$nsList[ 'all' ] = $totalCount;
+		}
+
+		if( $ns === '' || $ns === '*' ) {
+			return $nsList['all'];
+		} else {
+			return $nsList[ "ns-$ns" ];
+		}
+	}
+
 	/**
 	* Insert image timestamps/SHA-1s into page output
 	*/

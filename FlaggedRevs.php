@@ -536,6 +536,9 @@ function efSetFlaggedRevsConditionalHooks() {
 		$wgHooks['ProtectionForm::showLogExtract'][] = 'FlaggedRevsHooks::insertStabilityLog';
 		# Save stability settings
 		$wgHooks['ProtectionForm::save'][] = 'FlaggedRevsHooks::onProtectionSave';
+		# Parser stuff
+		$wgHooks['ParserFirstCallInit'][] = 'FlaggedRevsHooks::onParserFirstCallInit';
+		$wgHooks['LanguageGetMagic'][] = 'FlaggedRevsHooks::onLanguageGetMagic';
 	}
 	# Give bots the 'autoreview' right (here so it triggers after CentralAuth)
 	# @TODO: better way to ensure hook order
