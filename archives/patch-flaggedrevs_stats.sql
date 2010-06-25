@@ -1,7 +1,7 @@
 -- Various statistics about the reviewed namespaces
 CREATE TABLE /*_*/flaggedrevs_stats (
 	namespace int unsigned NOT NULL DEFAULT 0 PRIMARY KEY,
-	total     int unsigend NOT NULL DEFAULT 0,
+	total     int unsigned NOT NULL DEFAULT 0,
 	reviewed  int unsigned NOT NULL DEFAULT 0,
 	synced    int unsigned NOT NULL DEFAULT 0
 ) /*$wgDBTableOptions*/;
