@@ -765,20 +765,21 @@ class FlaggedRevs {
 			__METHOD__,
 			array( 'ORDER BY' => 'fr_quality DESC', 'LIMIT' => 1 )
 		);
-		# Get the timestamp of the edit after the stable version (if any)
+		# Get the timestamp of the first edit after the stable version (if any)...
+		$nextTimestamp = null;
 		$revId = $rev->getId();
 		if ( $latest != $revId ) {
-			# Get the latest revision ID
 			$timestamp = $rev->getTimestamp();
-			$nextTimestamp = $dbw->selectField( 'revision',
+			$nextEditTS = $dbw->selectField( 'revision',
 				'rev_timestamp',
 				array( 'rev_page' => $article->getId(),
 					"rev_timestamp > " . $dbw->addQuotes( $dbw->timestamp( $timestamp ) ) ),
 				__METHOD__,
 				array( 'ORDER BY' => 'rev_timestamp ASC', 'LIMIT' => 1 )
 			);
-		} else {
-			$nextTimestamp = null;
+			if ( $nextEditTS ) { // sanity check
+				$nextTimestamp = $nextEditTS;
+			}
 		}
 		# Alter table metadata
 		$dbw->replace( 'flaggedpages',
@@ -788,7 +789,7 @@ class FlaggedRevs {
 				'fp_reviewed'      => ( $latest == $revId ) ? 1 : 0,
 				'fp_quality'       => ( $maxQuality === false ) ? null : $maxQuality,
 				'fp_page_id'       => $article->getId(),
-				'fp_pending_since' => $nextTimestamp ? $dbw->timestamp( $nextTimestamp ) : null
+				'fp_pending_since' => $dbw->timestampOrNull( $nextTimestamp )
 			),
 			__METHOD__
 		);
