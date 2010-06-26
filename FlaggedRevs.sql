@@ -26,7 +26,7 @@ CREATE INDEX /*i*/fp_pending_since ON /*_*/flaggedpages (fp_pending_since);
 CREATE TABLE IF NOT EXISTS /*_*/flaggedpage_pending (
   -- Foreign key to page.page_id
   fpp_page_id integer unsigned NOT NULL,
-  -- The quality tier (0=stable, 1=quality, 2=pristine)
+  -- The quality tier (0=checked, 1=quality, 2=pristine)
   fpp_quality tinyint(1) NOT NULL,
   -- The last rev ID with this quality
   fpp_rev_id integer unsigned NOT NULL,
