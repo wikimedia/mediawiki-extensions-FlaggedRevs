@@ -1077,7 +1077,23 @@ La configuración no es posible.',
  * @author Pikne
  */
 $messages['et'] = array(
+	'stabilization' => 'Lehekülje kindlustamine',
+	'stabilization-text' => "'''Muuda järgnevaid sätteid reguleerimaks, kuidas lehekülje \"[[:\$1|\$1]]\" püsiv versioon valitakse ja kuvatakse.'''
+
+'''Märkus:''' ''Püsiva versiooni valikus'' versioonide \"hea\" või \"laitmatu\" eelistamine ei muuda midagi, kui selliseid versioone pole. Samuti, versioon \"hea\" arvatakse ka versiooniks \"kord vaadatud\" ja nii edasi.",
+	'stabilization-perm' => 'Su kontol pole püsiva versiooni sätete muutmise luba.
+Siin on lehekülje "[[:$1|$1]]" praegused sätted:',
 	'stabilization-page' => 'Lehekülje nimi:',
+	'stabilization-leg' => 'Püsiva versiooni sätete kinnitamine',
+	'stabilization-select' => 'Püsiva versiooni valikujärk',
+	'stabilization-select1' => 'Uusim hea versioon; seejärel uusim kord vaadatud',
+	'stabilization-select2' => 'Uusim kord vaadatud versioon',
+	'stabilization-select3' => 'Uusim laitmatu versioon; seejärel uusim hea; seejärel uusim kord vaadatud',
+	'stabilization-def' => 'Vaikimisi kuvatav lehekülje redaktsioon',
+	'stabilization-def1' => 'Püsiv versioon; selle puudumisel uusim redaktsioon',
+	'stabilization-def2' => 'Uusim redaktsioon',
+	'stabilization-restrict' => 'Ülevaatuse või automaatse ülevaatuse piirangud',
+	'stabilization-restrict-none' => 'Lisapiiranguteta',
 	'stabilization-submit' => 'Kinnita',
 	'stabilization-comment' => 'Põhjus:',
 	'stabilization-otherreason' => 'Muu põhjus:',
@@ -1092,6 +1108,7 @@ $messages['et'] = array(
 	'stabilize_expiry_invalid' => 'Vigane aegumistähtaeg.',
 	'stabilize_expiry_old' => 'See aegumistähtaeg on juba möödunud.',
 	'stabilize-expiring' => 'aegumistähtajaga $1 (UTC)',
+	'stabilization-review' => 'Märgi praegune redaktsioon kord vaadatuks',
 );
 
 /** Basque (Euskara)

@@ -237,6 +237,24 @@ Algunos ajustes puede que cambien qué versión es mostrada a los lectores o pue
 	'configuredpages-def-stable' => 'versión publicada',
 );
 
+/** Estonian (Eesti)
+ * @author Pikne
+ */
+$messages['et'] = array(
+	'configuredpages' => 'Ülevaatamissätetega leheküljed',
+	'configuredpages-text' => 'Allpool on loetletud leheküljed, millele on seatud võrgukoha vaikesätetest erinevad  heakskiitmissätted.
+
+Mõnest sättest võib oleneda, milline versioon lugejale kuvatakse või kes saab teha muudatusi, mis ei vaja ülevaatamist.',
+	'configuredpages-none' => 'Selles loendis pole lehekülgi.',
+	'configuredpages-config' => 'Sätted',
+	'configuredpages-precedence' => 'Järk:',
+	'configuredpages-prec-none' => 'uusim kord vaadatud',
+	'configuredpages-prec-quality' => 'uusim hea',
+	'configuredpages-prec-pristine' => 'uusim laitmatu',
+	'configuredpages-def-draft' => 'uusim versioon',
+	'configuredpages-def-stable' => 'püsiv versioon',
+);
+
 /** Basque (Euskara)
  * @author Joxemai
  */

@@ -244,6 +244,7 @@ Las ediciones hechas por otros usuarios no son mostradas a los lectores por defe
 $messages['et'] = array(
 	'stablepages' => 'Leheküljed, mille muutmine vajab heakskiitu',
 	'stablepages-text' => 'Järgnevatel lehekülgedel saavad ainult kindlad kasutajad teha muudatusi, mis ei vaja ülevaatamist. Ülejäänud kasutajate tehtud muudatusi ei kuvata vaikimisi, enne kui volitatud kasutaja on need üle vaadanud.',
+	'stablepages-config' => 'Sätted',
 );
 
 /** Basque (Euskara)
