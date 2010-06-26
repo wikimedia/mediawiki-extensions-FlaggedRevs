@@ -1610,22 +1610,29 @@ class FlaggedRevsHooks {
 		return true;
 	}
 
-	public static function setActionTabs( $skin, &$contentActions ) {
+	// MonoBook et al: $contentActions is all the tabs
+	// Vector et al: $contentActions is all the action tabs...unused
+	public static function onSkinTemplateTabs( Skin $skin, array &$contentActions ) {
+		if ( $skin instanceof SkinVector ) {
+			// *sigh*...skip, dealt with in setNavigation()
+			return true;
+		}
 		// Note: $wgArticle sometimes not set here
 		if ( FlaggedArticleView::globalArticleInstance() != null ) {
 			$view = FlaggedArticleView::singleton();
 			$view->setActionTabs( $skin, $contentActions );
-			$view->setViewTabs( $skin, $contentActions );
+			$view->setViewTabs( $skin, $contentActions, 'flat' );
 		}
 		return true;
 	}
 
-	public static function setNavigation( $skin, &$links ) {
+	// Vector et al: $links is all the tabs (2 levels)
+	public static function onSkinTemplateNavigation( Skin $skin, array &$links ) {
 		// Note: $wgArticle sometimes not set here
 		if ( FlaggedArticleView::globalArticleInstance() != null ) {
 			$view = FlaggedArticleView::singleton();
 			$view->setActionTabs( $skin, $links['actions'] );
-			$view->setViewTabs( $skin, $links['views'] );
+			$view->setViewTabs( $skin, $links['views'], 'nav' );
 		}
 		return true;
 	}

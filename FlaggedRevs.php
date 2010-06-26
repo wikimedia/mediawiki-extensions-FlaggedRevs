@@ -411,8 +411,8 @@ $wgHooks['ImagePageFindFile'][] = 'FlaggedRevsHooks::onImagePageFindFile';
 # Override redirect behavior...
 $wgHooks['InitializeArticleMaybeRedirect'][] = 'FlaggedRevsHooks::overrideRedirect';
 # Set page view tabs
-$wgHooks['SkinTemplateTabs'][] = 'FlaggedRevsHooks::setActionTabs'; // Most skins
-$wgHooks['SkinTemplateNavigation'][] = 'FlaggedRevsHooks::setNavigation'; // Vector
+$wgHooks['SkinTemplateTabs'][] = 'FlaggedRevsHooks::onSkinTemplateTabs'; // All skins
+$wgHooks['SkinTemplateNavigation'][] = 'FlaggedRevsHooks::onSkinTemplateNavigation'; // Vector
 # Add notice tags to edit view
 $wgHooks['EditPage::showEditForm:initial'][] = 'FlaggedRevsHooks::addToEditView';
 # Tweak submit button name/title

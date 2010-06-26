@@ -1123,31 +1123,30 @@ class FlaggedArticleView {
 		}
 		return true;
 	}
-	
+
 	/**
-	 * Modify an array of view links, as used by SkinTemplateNavigation and
-	 * SkinTemplateTabs, to inlude flagged revs UI elements
+	 * Modify an array of tab links to include flagged revs UI elements
+	 * @param string $type ('flat' for SkinTemplateTabs, 'nav' for SkinTemplateNavigation)
 	 */
-	public function setViewTabs( $skin, array &$views ) {
+	public function setViewTabs( Skin $skin, array &$views, $type ) {
 		global $wgRequest;
 		$this->load();
 		if ( $skin->mTitle->isTalkPage() ) {
 			return true; // leave talk pages alone
 		}
-		$fa = FlaggedArticle::getTitleInstance( $skin->mTitle );
 		// Get the type of action requested
 		$action = $wgRequest->getVal( 'action', 'view' );
-		if ( !$fa->isReviewable() ) {
+		if ( !$this->article->isReviewable() ) {
 			return true; // Not a reviewable page or the UI is hidden
 		}
 		// XXX: shouldn't the session slave position check handle this?
 		$flags = ( $action == 'rollback' ) ? FR_MASTER : 0;
-		$srev = $fa->getStableRev( $flags );
+		$srev = $this->article->getStableRev( $flags );
 	   	if ( !$srev ) {
 			return true; // No stable revision exists
 		}
 		$synced = $this->article->stableVersionIsSynced();
-		$pendingEdits = !$synced && $fa->isStableShownByDefault();
+		$pendingEdits = !$synced && $this->article->isStableShownByDefault();
 		// Set the edit tab names as needed...
 	   	if ( $pendingEdits ) {
 	   		if ( isset( $views['edit'] ) ) {
@@ -1159,26 +1158,27 @@ class FlaggedArticleView {
 	   	}
 		# Add "pending changes" tab if the page is not synced
 		if ( !$synced ) {
-			$this->addDraftTab( $fa, $views, $srev, $action );
+			$this->addDraftTab( $views, $srev, $action, $type );
 		}
 		return true;
 	}
 
 	// Add "pending changes" tab and set tab selection CSS
 	protected function addDraftTab(
-		FlaggedArticle $fa, array &$views, FlaggedRevision $srev, $action
+		array &$views, FlaggedRevision $srev, $action, $type
 	) {
 		global $wgRequest, $wgOut;
+		$title = $this->article->getTitle(); // convenience
 	 	$tabs = array(
 	 		'read' => array( // view stable
 				'text'  => '', // unused
-				'href'  => $fa->getTitle()->getLocalUrl( 'stable=1' ),
+				'href'  => $title->getLocalUrl( 'stable=1' ),
 	 			'class' => ''
 	 		),
 	 		'draft' => array( // view draft
 				'text'  => wfMsg( 'revreview-current' ),
-				'href'  => $fa->getTitle()->getLocalUrl( 'stable=0&redirect=no' ),
-	 			'class' => ''
+				'href'  => $title->getLocalUrl( 'stable=0&redirect=no' ),
+	 			'class' => 'collapsible'
 	 		),
 	 	);
 		// Set tab selection CSS
@@ -1189,45 +1189,54 @@ class FlaggedArticleView {
 			// Are we looking at a draft/current revision?
 			// Note: there may *just* be template/file changes.
 			if ( $wgOut->getRevisionId() >= $srev->getRevId() ) {
-				$tabs['draft']['class'] = 'selected';
+				$tabs['draft']['class'] .= ' selected';
 			// Otherwise, fallback to regular tab behavior
 			} else {
 				$tabs['read']['class'] = 'selected';
 			}
 		}
-		$first = true;
 		$newViews = array();
 		// Rebuild tabs array. Deals with Monobook vs Vector differences.
-		foreach ( $views as $tabAction => $data ) {
-			// The first tab ('page' or 'view')...
-			if ( $first ) {
-				$first = false;
-				// 'view' tab? In this case, the "page"/"discussion" tabs are not
-				// part of $views. Also, both the page/talk page have a 'view' tab.
+		if ( $type == 'nav' ) { // Vector et al
+			foreach ( $views as $tabAction => $data ) {
+				// The 'view' tab. Make it go to the stable version...
 				if ( $tabAction == 'view' ) {
 					// 'view' for content page; make it go to the stable version
 					$newViews[$tabAction]['text'] = $data['text']; // keep tab name
 					$newViews[$tabAction]['href'] = $tabs['read']['href'];
 					$newViews[$tabAction]['class'] = $tabs['read']['class'];
-				// 'page' tab? Make it go to the stable version...
+				// All other tabs...
 				} else {
+					// Add 'draft' tab to content page to the left of 'edit'...
+					if ( $tabAction == 'edit' || $tabAction == 'viewsource' ) {
+						$newViews['current'] = $tabs['draft'];
+					}
+					$newViews[$tabAction] = $data;
+				}
+			}
+		} elseif ( $type == 'flat' ) { // MonoBook et al
+			$first = true;
+			foreach ( $views as $tabAction => $data ) {
+				// The first tab ('page'). Make it go to the stable version...
+				if ( $first ) {
+					$first = false;
 					$newViews[$tabAction]['text'] = $data['text']; // keep tab name
 					$newViews[$tabAction]['href'] = $tabs['read']['href'];
 					$newViews[$tabAction]['class'] = $data['class']; // keep tab class
+				// All other tabs...
+				} else {
+					// Add 'draft' tab to content page to the left of 'edit'...
+					if ( $tabAction == 'edit' || $tabAction == 'viewsource' ) {
+						$newViews['current'] = $tabs['draft'];
+					}
+					$newViews[$tabAction] = $data;
 				}
-			// All other tabs...
-			} else {
-				// Add 'draft' tab to content page to the left of 'edit'...
-				if ( $tabAction == 'edit' || $tabAction == 'viewsource' ) {
-					$newViews['current'] = $tabs['draft'];
-				}
-				$newViews[$tabAction] = $data;
 			}
-	   	}
+		}
 	   	// Replaces old tabs with new tabs
 	   	$views = $newViews;
 	}
-	
+
 	/**
 	 * @param FlaggedRevision $frev
 	 * @return string, revision review notes
