@@ -173,31 +173,28 @@ class FlaggedRevs {
 		global $wgFlaggedRevsAutoReviewNew;
 		return (bool)$wgFlaggedRevsAutoReviewNew;
 	}
-	
+
 	/**
-	 * Should this user see stable versions by default?
+	 * Is a "stable version" used as the default display
+	 * version for all pages in reviewable namespaces?
 	 * @returns bool
 	 */
 	public static function isStableShownByDefault() {
 		global $wgFlaggedRevsOverride;
+		if ( self::useOnlyIfStabilized() ) {
+			return false; // must be configured per-page
+		}
 		return (bool)$wgFlaggedRevsOverride;
 	}
 
 	/**
-	 * Does FlaggedRevs only show for pages were the stable version is the default?
+	 * Are pages reviewable only if they have been manually
+	 * configured by an admin to use a "stable version" as the default?
 	 * @returns bool
 	 */
-	public static function forDefaultVersionOnly() {
-		global $wgFlaggedRevsReviewForDefault;
-		return (bool)$wgFlaggedRevsReviewForDefault;
-	}
-
-	/**
-	 * Does FlaggedRevs only show for pages that have been set to do so?
-	 * @returns bool
-	 */
-	public static function stableOnlyIfConfigured() {
-		return self::forDefaultVersionOnly() && !self::isStableShownByDefault();
+	public static function useOnlyIfStabilized() {
+		global $wgFlaggedRevsProtection;
+		return (bool)$wgFlaggedRevsProtection;
 	}
 
 	/**
@@ -1133,7 +1130,7 @@ class FlaggedRevs {
 			// If FlaggedRevs got "turned off" for this page (due to not
 			// having the stable version as the default), then clear it
 			// from the tracking tables...
-			if ( !$config['override'] && self::forDefaultVersionOnly() ) {
+			if ( !$config['override'] && self::useOnlyIfStabilized() ) {
 				$pagesClearTracking[] = $row->fpc_page_id; // no stable version
 			// Check if the new (default) config has a different way
 			// of selecting the stable version of this page...

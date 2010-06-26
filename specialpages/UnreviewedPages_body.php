@@ -235,7 +235,7 @@ class UnreviewedPagesPager extends AlphabeticPager {
 		$this->level = intval( $level );
 		$this->showredirs = (bool)$redirs;
 		parent::__construct();
-		// Don't get to expensive
+		// Don't get too expensive
 		$this->mLimitsShown = array( 20, 50 );
 		$this->mLimit = min( $this->mLimit, 50 );
 	}

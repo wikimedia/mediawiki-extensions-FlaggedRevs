@@ -262,7 +262,6 @@ Please check the URL you used to access this page.',
 
 	'flaggedrevs-protect-legend'   => 'Automatic edit review ([[{{MediaWiki:Validationpage}}|help]])',
 	'flaggedrevs-protect-none'     => 'Allow all users',
-	'flaggedrevs-protect-basic'    => 'Default settings',
 	
 	'revreview-locked-title'       => 'Edits must be reviewed before being displayed to readers on this page.',
 	'revreview-unlocked-title'     => 'Edits do not require review before being displayed to readers on this page.',

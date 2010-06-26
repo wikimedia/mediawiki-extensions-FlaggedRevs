@@ -654,11 +654,11 @@ class FlaggedArticleView {
 		}
 		return '';
 	}
-	
+
 	// Show icons for draft/stable/old reviewed versions
 	protected function showRatingIcon() {
-		if ( FlaggedRevs::forDefaultVersionOnly() ) {
-			// If there is only on quality level and we have tabs to know
+		if ( FlaggedRevs::useOnlyIfStabilized() ) {
+			// If there is only one quality level and we have tabs to know
 			// which version we are looking at, then just use the lock icon...
 			return FlaggedRevs::qualityVersions();
 		}
@@ -974,7 +974,7 @@ class FlaggedArticleView {
 		if ( !$wgUser->isAllowed( 'review' ) ) {
 			return true;
 		}
-		if ( !FlaggedRevs::stableOnlyIfConfigured() ) {
+		if ( !FlaggedRevs::useOnlyIfStabilized() ) {
 			$links = array();
 			$category = $this->article->getTitle()->getText();
 			# Add link to list of unreviewed pages in this category

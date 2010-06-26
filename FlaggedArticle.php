@@ -243,7 +243,7 @@ class FlaggedArticle extends Article {
 		if ( !FlaggedRevs::inReviewNamespace( $this->getTitle() ) ) {
 			return false;
 		}
-        return !( FlaggedRevs::forDefaultVersionOnly()
+        return !( FlaggedRevs::useOnlyIfStabilized()
             && !$this->isStableShownByDefault( $flags ) );
 	}
 

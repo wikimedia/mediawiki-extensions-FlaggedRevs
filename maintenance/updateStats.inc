@@ -143,7 +143,7 @@ function update_flaggedrevs_stats() {
 	$minTS = max($minTS,$installed);
 	# Get timestamp boundaries
 	$timeCondition = 'rev_timestamp BETWEEN '.$encMinTS.' AND '.$encMaxTS;
-	if ( FlaggedRevs::stableOnlyIfConfigured() ) {
+	if ( FlaggedRevs::useOnlyIfStabilized() ) {
 		$mod = 1; // can't estimate $mod based on all edits in the range
 	} else {
 		# Modulus (to spread out over range)

@@ -87,10 +87,9 @@ $wgFlaggedRevsNamespaces = array( NS_MAIN, NS_FILE, NS_TEMPLATE );
 $wgFlaggedRevsWhitelist = array();
 # $wgFlaggedRevsWhitelist = array( 'Main_Page' );
 
-# Do flagged revs override the default view?
+# Is a "stable version" used as the default display
+# version for all pages in reviewable namespaces?
 $wgFlaggedRevsOverride = true;
-# Are pages only reviewable if the stable shows by default?
-$wgFlaggedRevsReviewForDefault = false;
 # Precedence order for stable version selection.
 # The stable version will be the highest ranked version in the page.
 # FR_PRISTINE : "pristine" > "quality" > "sighted"
@@ -143,9 +142,11 @@ $wgFlaggedRevsTagsAuto = array(
 # requires approval unless that user has the specified permission.
 # Levels are set at the Stabilization special page.
 $wgFlaggedRevsRestrictionLevels = array( '', 'sysop' );
-# Set this to disable Stabilization and show the above restriction levels
+# Set this to use FlaggedRevs *only* as a protection-like mechanism.
+# This will disable Stabilization and show the above restriction levels
 # on the protection form of pages. Each level has the stable version shown by default.
-# A "none" level will appear in the forms as well, to restore the default settings.
+# A "none" level will appear in the form as well, to disable the review process.
+# Pages will only be reviewable if manually restricted to a level above "none".
 # NOTE: The stable version precedence cannot be configured per page with this.
 $wgFlaggedRevsProtection = false;
 
@@ -261,7 +262,7 @@ $wgFlaggedRevsHandleIncludes = FR_INCLUDES_STABLE;
 # pointed to by the metadata of how the article was when it was reviewed.
 # An example would be an article that selects a template based on time.
 # The template to be selected will change, and the metadata only points
-# to the reviewed revision ID of the old template. In such cases, we can s
+# to the reviewed revision ID of the old template. In such cases, we can
 # select the current (unreviewed) revision.
 $wgUseCurrentTemplates = true;
 
@@ -522,7 +523,7 @@ $wgHooks['LoadExtensionSchemaUpdates'][] = 'FlaggedRevsHooks::addSchemaUpdates';
 function efSetFlaggedRevsConditionalHooks() {
 	global $wgHooks, $wgFlaggedRevsVisible;
 	# Mark items in user contribs
-	if ( !FlaggedRevs::stableOnlyIfConfigured() ) {
+	if ( !FlaggedRevs::useOnlyIfStabilized() ) {
 		$wgHooks['ContribsPager::getQueryInfo'][] = 'FlaggedRevsHooks::addToContribsQuery';
 		$wgHooks['ContributionsLineEnding'][] = 'FlaggedRevsHooks::addToContribsLine';
 	}
@@ -557,7 +558,7 @@ function efLoadFlaggedRevs() {
 	}
 	/* TODO: decouple from rc patrol */
 	# Check if FlaggedRevs is enabled by default for pages...
-	if ( $wgFlaggedRevsNamespaces && !FlaggedRevs::stableOnlyIfConfigured() ) {
+	if ( $wgFlaggedRevsNamespaces && !FlaggedRevs::useOnlyIfStabilized() ) {
 		# Use RC Patrolling to check for vandalism.
 		# Edits to reviewable pages must be flagged to be patrolled.
 		$wgUseRCPatrol = true;
@@ -574,7 +575,7 @@ function efLoadFlaggedRevs() {
 
 function efSetFlaggedRevsConditionalAPIModules() {
 	global $wgAPIModules, $wgAPIListModules;
-	if ( FlaggedRevs::stableOnlyIfConfigured() ) {
+	if ( FlaggedRevs::useOnlyIfStabilized() ) {
 		$wgAPIModules['stabilize'] = 'ApiStabilizeProtect';
 	} else {
 		$wgAPIModules['stabilize'] = 'ApiStabilizeGeneral';
@@ -585,7 +586,7 @@ function efSetFlaggedRevsConditionalAPIModules() {
 
 function efSetFlaggedRevsConditionalRights() {
 	global $wgGroupPermissions, $wgImplicitGroups, $wgFlaggedRevsAutoconfirm;
-	if ( FlaggedRevs::stableOnlyIfConfigured() ) {
+	if ( FlaggedRevs::useOnlyIfStabilized() ) {
 		// Removes sp:ListGroupRights cruft
 		if ( isset( $wgGroupPermissions['editor'] ) ) {
 			unset( $wgGroupPermissions['editor']['unreviewedpages'] );

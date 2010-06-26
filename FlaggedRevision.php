@@ -154,7 +154,7 @@ class FlaggedRevision {
             if ( empty( $config ) ) {
                 $config = FlaggedRevs::getPageVisibilitySettings( $title, $flags );
             }
-			if ( !$config['override'] && FlaggedRevs::forDefaultVersionOnly() ) {
+			if ( !$config['override'] && FlaggedRevs::useOnlyIfStabilized() ) {
 				return $row; // page is not reviewable; no stable version
 			}
 			$dbw = wfGetDB( DB_MASTER );

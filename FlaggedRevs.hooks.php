@@ -24,7 +24,7 @@ class FlaggedRevsHooks {
 		if ( $wgUseTagFilter && ChangeTags::listDefinedTags() ) {
 			$list['ProblemChanges'] = $wgSpecialPages['ProblemChanges'] = 'ProblemChanges';
 		}
-		if ( !FlaggedRevs::stableOnlyIfConfigured() ) {
+		if ( !FlaggedRevs::useOnlyIfStabilized() ) {
 			$list['ReviewedPages'] = $wgSpecialPages['ReviewedPages'] = 'ReviewedPages';
 			$list['UnreviewedPages'] = $wgSpecialPages['UnreviewedPages'] = 'UnreviewedPages';
 		}
@@ -1930,7 +1930,7 @@ class FlaggedRevsHooks {
 		if ( $rc->mAttribs['fp_stable'] == null ) {
 			// Is this a config were pages start off reviewable?
 			// Hide notice from non-reviewers due to vandalism concerns (bug 24002).
-			if ( !FlaggedRevs::stableOnlyIfConfigured() && $wgUser->isAllowed( 'review' ) ) {
+			if ( !FlaggedRevs::useOnlyIfStabilized() && $wgUser->isAllowed( 'review' ) ) {
 				$rlink = wfMsgHtml( 'revreview-unreviewedpage' );
 				$css = 'flaggedrevs-unreviewed';
 			}
@@ -2085,9 +2085,7 @@ class FlaggedRevsHooks {
 		$output .= Xml::openElement( 'select', $attribs );
 		foreach ( $effectiveLevels as $limit ) {
 			if ( $limit == 'none' ) {
-				$label = FlaggedRevs::stableOnlyIfConfigured()
-					? wfMsg( 'flaggedrevs-protect-none' )
-					: wfMsg( 'flaggedrevs-protect-basic' );
+				$label = wfMsg( 'flaggedrevs-protect-none' );
 			} else {
 				$label = wfMsg( 'flaggedrevs-protect-' . $limit );
 			}
