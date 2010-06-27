@@ -301,6 +301,7 @@ $wgSvgGraphDir = $dir . 'svggraph';
 $wgPHPlotDir = $dir . 'phplot-5.0.5';
 
 $wgAutoloadClasses['FlaggedRevs'] = $dir . 'FlaggedRevs.class.php';
+$wgAutoloadClasses['FRUserCounters'] = $dir . 'FRUserCounters.php';
 $wgAutoloadClasses['FlaggedRevsHooks'] = $dir . 'FlaggedRevs.hooks.php';
 $wgAutoloadClasses['FlaggedRevsLogs'] = $dir . 'FlaggedRevsLogs.php';
 $wgAutoloadClasses['FRCacheUpdate'] = $dir . 'FRCacheUpdate.php';

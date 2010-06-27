@@ -1117,12 +1117,12 @@ class FlaggedRevsHooks {
 		# Mark when a user reverts another user, but not self-reverts
 		$badUserId = $badRev->getRawUser();
 		if ( $badUserId && $user->getId() != $badUserId ) {
-			$p = FlaggedRevs::getUserParams( $badUserId );
+			$p = FRUserCounters::getUserParams( $badUserId );
 			if ( !isset( $p['revertedEdits'] ) ) {
 				$p['revertedEdits'] = 0;
 			}
 			$p['revertedEdits']++;
-			FlaggedRevs::saveUserParams( $badUserId, $p );
+			FRUserCounters::saveUserParams( $badUserId, $p );
 		}
 		return true;
 	}
@@ -1140,12 +1140,12 @@ class FlaggedRevsHooks {
 			if ( $badRev && $badRev->getRawUser()
 				&& $badRev->getRawUser() != $rev->getRawUser() )
 			{
-				$p = FlaggedRevs::getUserParams( $badRev->getRawUser() );
+				$p = FRUserCounters::getUserParams( $badRev->getRawUser() );
 				if ( !isset( $p['revertedEdits'] ) ) {
 					$p['revertedEdits'] = 0;
 				}
 				$p['revertedEdits']++;
-				FlaggedRevs::saveUserParams( $badRev->getRawUser(), $p );
+				FRUserCounters::saveUserParams( $badRev->getRawUser(), $p );
 			}
 		}
 		return true;
@@ -1234,7 +1234,7 @@ class FlaggedRevsHooks {
 		$userage = $userCreation
 			? floor( ( $now - $userCreation ) / 86400 )
 			: null;
-		$p = FlaggedRevs::getUserParams( $user->getId() );
+		$p = FRUserCounters::getUserParams( $user->getId() );
 		# Check if user edited enough content pages
 		$totalCheckedEditsNeeded = false;
 		if ( $wgFlaggedRevsAutoconfirm['totalContentEdits'] > $p['totalContentEdits'] ) {
@@ -1335,11 +1335,11 @@ class FlaggedRevsHooks {
 		} elseif ( !$wgFlaggedRevsAutopromote && !$wgFlaggedRevsAutoconfirm ) {
 			return true;
 		}
-		$p = FlaggedRevs::getUserParams( $user->getId() );
-		$changed = FlaggedRevs::updateUserParams( $p, $article, $summary );
+		$p = FRUserCounters::getUserParams( $user->getId() );
+		$changed = FRUserCounters::updateUserParams( $p, $article, $summary );
 		# Save any updates to user params
 		if ( $changed ) {
-			FlaggedRevs::saveUserParams( $user->getId(), $p );
+			FRUserCounters::saveUserParams( $user->getId(), $p );
 		}
 		if ( !is_array( $wgFlaggedRevsAutopromote ) ) {
 			return true; // nothing to do
@@ -1531,14 +1531,14 @@ class FlaggedRevsHooks {
 		if ( $removegroup && in_array( 'editor', $removegroup ) ) {
 			// Cross-wiki rights change
 			if ( $u instanceof UserRightsProxy ) {
-				$params = FlaggedRevs::getUserParams( $u->getId(), $u->getDBName() );
+				$params = FRUserCounters::getUserParams( $u->getId(), $u->getDBName() );
 				$params['demoted'] = 1;
-				FlaggedRevs::saveUserParams( $u->getId(), $params, $u->getDBName() );
+				FRUserCounters::saveUserParams( $u->getId(), $params, $u->getDBName() );
 			// On-wiki rights change
 			} else {
-				$params = FlaggedRevs::getUserParams( $u->getId() );
+				$params = FRUserCounters::getUserParams( $u->getId() );
 				$params['demoted'] = 1;
-				FlaggedRevs::saveUserParams( $u->getId(), $params );
+				FRUserCounters::saveUserParams( $u->getId(), $params );
 			}
 		}
 		return true;

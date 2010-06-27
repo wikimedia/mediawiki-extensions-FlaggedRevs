@@ -23,7 +23,7 @@ function update_autopromote() {
 		# Go through and clean up missing items, as well as correct fr_quality...
 		foreach( $res as $row ) {
 			$user = User::newFromRow( $row );
-			$p = FlaggedRevs::getUserParams( $user->getId() );
+			$p = FRUserCounters::getUserParams( $user->getId() );
 			$oldp = $p;
 			# Get edit comments used
 			$sres = $db->select( 'revision', '1',
@@ -57,7 +57,7 @@ function update_autopromote() {
 			$p['uniqueContentPages'] = implode($uniquePages,',');
 		
 			if( $oldp != $p ) {
-				FlaggedRevs::saveUserParams( $user->getId(), $p );
+				FRUserCounters::saveUserParams( $user->getId(), $p );
 				$changed++;
 			}
 		
