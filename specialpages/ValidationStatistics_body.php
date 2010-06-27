@@ -65,7 +65,7 @@ class ValidationStatistics extends IncludableSpecialPage
 		$wgOut->addWikiText(
 			wfMsgExt( 'validationstatistics-pndtime', 'parsemag', $wgLang->formatTimePeriod( $pt ) )
 		);
-		if ( !FlaggedRevs::useOnlyIfStabilized() ) {
+		if ( !FlaggedRevs::useOnlyIfProtected() ) {
 			# Show review time stats
 			$wgOut->addWikiText( wfMsgExt( 'validationstatistics-revtime', 'parsemag',
 				$wgLang->formatTimePeriod( $mt ), $wgLang->formatTimePeriod( $mdt ), $reviewChart )

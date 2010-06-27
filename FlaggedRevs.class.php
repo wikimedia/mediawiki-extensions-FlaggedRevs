@@ -186,7 +186,7 @@ class FlaggedRevs {
 	 */
 	public static function isStableShownByDefault() {
 		global $wgFlaggedRevsOverride;
-		if ( self::useOnlyIfStabilized() ) {
+		if ( self::useOnlyIfProtected() ) {
 			return false; // must be configured per-page
 		}
 		return (bool)$wgFlaggedRevsOverride;
@@ -197,7 +197,7 @@ class FlaggedRevs {
 	 * configured by an admin to use a "stable version" as the default?
 	 * @returns bool
 	 */
-	public static function useOnlyIfStabilized() {
+	public static function useOnlyIfProtected() {
 		global $wgFlaggedRevsProtection;
 		return (bool)$wgFlaggedRevsProtection;
 	}
@@ -1136,7 +1136,7 @@ class FlaggedRevs {
 			// If FlaggedRevs got "turned off" for this page (due to not
 			// having the stable version as the default), then clear it
 			// from the tracking tables...
-			if ( !$config['override'] && self::useOnlyIfStabilized() ) {
+			if ( !$config['override'] && self::useOnlyIfProtected() ) {
 				$pagesClearTracking[] = $row->fpc_page_id; // no stable version
 			// Check if the new (default) config has a different way
 			// of selecting the stable version of this page...

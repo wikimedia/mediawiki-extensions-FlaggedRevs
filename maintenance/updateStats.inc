@@ -108,7 +108,7 @@ function getAveReviewTimesAnons( $dbr, $dbCache ) {
 	global $wgFlaggedRevsNamespaces;
 	$aveRT = $medianRT = 0;
 	$rPerTable = array(); // review wait percentiles
-	if ( FlaggedRevs::useOnlyIfStabilized() ) {
+	if ( FlaggedRevs::useOnlyIfProtected() ) {
 		return array($aveRT,$medianRT,$rPerTable); // disabled
 	}
 	$nowUnix = wfTimestamp( TS_UNIX ); // current time in UNIX TS
@@ -130,39 +130,40 @@ function getAveReviewTimesAnons( $dbr, $dbCache ) {
 	$last = '0';
 	while ( true ) { // should almost always be ~1 pass
 		# Get the page with the worst pending lag...
-		$row = $dbr->selectRow( array( 'flaggedpages', 'flaggedrevs', 'page' ),
-			array( 'fp_page_id', 'fp_stable', 'fp_pending_since', 'fr_timestamp' ),
-			array( 
-				'fp_pending_since > '.$encInstalled, // needs actual display lag
-				'fr_page_id = fp_page_id AND fr_rev_id = fp_stable',
-				'fp_pending_since > '.$dbr->addQuotes($last), // skip failed rows
-				'page_id = fp_page_id', // get page title
-				'page_namespace' => $wgFlaggedRevsNamespaces // sanity check NS
+		$row = $dbr->selectRow( array( 'flaggedpage_pending', 'flaggedrevs' ),
+			array( 'fpp_page_id', 'fpp_rev_id', 'fpp_pending_since', 'fr_timestamp' ),
+			array(
+				'fpp_quality' => 0, // "checked"
+				'fpp_pending_since > '.$encInstalled, // needs actual display lag
+				'fr_page_id = fpp_page_id AND fr_rev_id = fpp_rev_id',
+				'fpp_pending_since > '.$dbr->addQuotes($last), // skip failed rows
 			),
 			__METHOD__,
-			array( 'ORDER BY' => 'fp_pending_since ASC',
-				'USE INDEX' => array( 'flaggedpages' => 'fp_pending_since' ) )
+			array( 'ORDER BY' => 'fpp_pending_since ASC',
+				'USE INDEX' => array( 'flaggedpage_pending' => 'fpp_quality_pending' ) )
 		);
 		if ( !$row ) break;
 		# Find the newest revision at the time the page was reviewed,
 		# this is the one that *should* have been reviewed.
 		$idealRev = (int)$dbr->selectField( 'revision', 'rev_id', 
-			array( 'rev_page' => $row->fp_page_id, 
-				'rev_timestamp < '.$dbr->addQuotes($row->fr_timestamp) ),
+			array( 'rev_page' => $row->fpp_page_id, 
+				'rev_timestamp < '.$dbr->addQuotes( $row->fr_timestamp ) ),
 			__METHOD__,
 			array( 'ORDER BY' => 'rev_timestamp DESC', 'LIMIT' => 1 )
 		);
 		# Fudge factor to prevent deliberate reviewing of non-current revisions
 		# from squeezing the range. Shouldn't effect anything otherwise.
-		if ( $row->fp_stable >= $idealRev ) {
-			$worstLagTS = $row->fp_pending_since;
+		if ( $row->fpp_rev_id >= $idealRev ) {
+			$worstLagTS = $row->fpp_pending_since;
 			break;
 		} else {
-			$last = $row->fp_pending_since; // next iteration
+			$last = $row->fpp_pending_since; // next iteration
 		}
 	}
-	# Add a day for good measure to avoid bias
-	$maxTSUnix = wfTimestamp(TS_UNIX,$worstLagTS) - 86400;
+	# Avoid having to censor data
+	# Note: if no edits pending, $worstLagTS is the cur time just before we checked
+	# for the worst lag. Thus, new edits *right* after the check are properly excluded.
+	$maxTSUnix = wfTimestamp(TS_UNIX,$worstLagTS) - 1; // all edits later reviewed
 	$encMaxTS = $dbr->addQuotes( $dbr->timestamp( $maxTSUnix ) );
 	# Use a one week time range
 	$days = 7;
@@ -222,7 +223,7 @@ function getAveReviewTimesAnons( $dbr, $dbCache ) {
 		INNER JOIN $flaggedrevs AS p FORCE INDEX (PRIMARY) ON
 			(p.fr_page_id = page_id AND p.fr_rev_id < rev_id AND p.fr_timestamp < rev_timestamp)
 		LEFT JOIN $flaggedrevs AS n FORCE INDEX (PRIMARY) ON
-			(n.fr_page_id = page_id AND n.fr_rev_id >= rev_id AND n.fr_timestamp > rev_timestamp)
+			(n.fr_page_id = page_id AND n.fr_rev_id >= rev_id AND n.fr_timestamp >= rev_timestamp)
 		WHERE
 			((rev_user = 0) AND ($timeCondition) AND ((rev_id % $mod) = 0))
 		GROUP BY rev_id";

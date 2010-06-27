@@ -522,7 +522,7 @@ $wgHooks['LoadExtensionSchemaUpdates'][] = 'FlaggedRevsHooks::addSchemaUpdates';
 function efSetFlaggedRevsConditionalHooks() {
 	global $wgHooks, $wgFlaggedRevsVisible;
 	# Mark items in user contribs
-	if ( !FlaggedRevs::useOnlyIfStabilized() ) {
+	if ( !FlaggedRevs::useOnlyIfProtected() ) {
 		$wgHooks['ContribsPager::getQueryInfo'][] = 'FlaggedRevsHooks::addToContribsQuery';
 		$wgHooks['ContributionsLineEnding'][] = 'FlaggedRevsHooks::addToContribsLine';
 	}
@@ -557,7 +557,7 @@ function efLoadFlaggedRevs() {
 	}
 	/* TODO: decouple from rc patrol */
 	# Check if FlaggedRevs is enabled by default for pages...
-	if ( $wgFlaggedRevsNamespaces && !FlaggedRevs::useOnlyIfStabilized() ) {
+	if ( $wgFlaggedRevsNamespaces && !FlaggedRevs::useOnlyIfProtected() ) {
 		# Use RC Patrolling to check for vandalism.
 		# Edits to reviewable pages must be flagged to be patrolled.
 		$wgUseRCPatrol = true;
@@ -574,7 +574,7 @@ function efLoadFlaggedRevs() {
 
 function efSetFlaggedRevsConditionalAPIModules() {
 	global $wgAPIModules, $wgAPIListModules;
-	if ( FlaggedRevs::useOnlyIfStabilized() ) {
+	if ( FlaggedRevs::useOnlyIfProtected() ) {
 		$wgAPIModules['stabilize'] = 'ApiStabilizeProtect';
 	} else {
 		$wgAPIModules['stabilize'] = 'ApiStabilizeGeneral';
@@ -585,7 +585,7 @@ function efSetFlaggedRevsConditionalAPIModules() {
 
 function efSetFlaggedRevsConditionalRights() {
 	global $wgGroupPermissions, $wgImplicitGroups, $wgFlaggedRevsAutoconfirm;
-	if ( FlaggedRevs::useOnlyIfStabilized() ) {
+	if ( FlaggedRevs::useOnlyIfProtected() ) {
 		// Removes sp:ListGroupRights cruft
 		if ( isset( $wgGroupPermissions['editor'] ) ) {
 			unset( $wgGroupPermissions['editor']['unreviewedpages'] );

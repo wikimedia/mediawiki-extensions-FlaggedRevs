@@ -71,7 +71,7 @@ class OldReviewedPages extends SpecialPage
 						'</span> '
 					: ""
 				) .
-				( ( !FlaggedRevs::isStableShownByDefault() && !FlaggedRevs::useOnlyIfStabilized() )
+				( ( !FlaggedRevs::isStableShownByDefault() && !FlaggedRevs::useOnlyIfProtected() )
 					? "<span style='white-space: nowrap;'>" .
 						Xml::check( 'stable', $this->stable, array( 'id' => 'wpStable' ) ) .
 						Xml::label( wfMsg( 'oldreviewed-stable' ), 'wpStable' ) . '</span> '
@@ -299,7 +299,7 @@ class OldReviewedPagesPager extends AlphabeticPager {
 		$this->size = ( $size !== null ) ? intval( $size ) : null;
 		$this->watched = (bool)$watched;
 		$this->stable = $stable && !FlaggedRevs::isStableShownByDefault()
-			&& !FlaggedRevs::useOnlyIfStabilized();
+			&& !FlaggedRevs::useOnlyIfProtected();
 		parent::__construct();
 		// Don't get too expensive
 		$this->mLimitsShown = array( 20, 50, 100 );
