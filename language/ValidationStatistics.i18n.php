@@ -13,15 +13,14 @@ $messages['en'] = array(
 	'validationstatistics-users'  => '\'\'\'{{SITENAME}}\'\'\' currently has \'\'\'[[Special:ListUsers/editor|$1]]\'\'\' {{PLURAL:$1|user|users}} with [[{{MediaWiki:Validationpage}}|Editor]] rights.
 
 Editors are established users that can spot-check revisions to pages.',
-	'validationstatistics-time'   => '\'\'The following data was last updated on $5 at $6.\'\'
+    'validationstatistics-lastupdate' => '\'\'The following data was last updated on $1 at $2.\'\'',
+	'validationstatistics-pndtime'   => 'Edits that have been checked by established users are considered to be reviewed.
 
-Edits that have been checked by established users are considered to be reviewed.
-
-The average wait for edits by \'\'users that have not logged in\'\' to be reviewed is \'\'\'$1\'\'\'; the median is \'\'\'$3\'\'\'. 
-$4
-The average lag for [[Special:OldReviewedPages|pages with unreviewed edits pending]] is \'\'\'$2\'\'\'.
-These pages are considered \'\'outdated\'\'. Likewise, pages are considered \'\'synchronized\'\' if there are no edits pending review.',
-	'validationstatistics-table'  => "Statistics for each namespace are shown below, ''excluding'' redirect pages.",
+The average delay for [[Special:OldReviewedPages|pages with unreviewed edits pending]] is \'\'\'$1\'\'\'.
+These pages are considered \'\'outdated\'\'. Likewise, pages are considered \'\'synced\'\' if there are no edits pending review.',
+    'validationstatistics-revtime'   => 'The average wait for edits by \'\'users that have not logged in\'\' to be reviewed is \'\'\'$1\'\'\'; the median is \'\'\'$2\'\'\'. 
+$3',
+	'validationstatistics-table'  => "Page review statistics for each namespace are shown below, ''excluding'' redirect pages.",
 	'validationstatistics-ns'     => 'Namespace',
 	'validationstatistics-total'  => 'Pages',
 	'validationstatistics-stable' => 'Reviewed',

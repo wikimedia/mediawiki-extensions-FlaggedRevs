@@ -56,11 +56,21 @@ class ValidationStatistics extends IncludableSpecialPage
 			$reviewChart = '';
 		}
 
-		# Show review/pending time stats
-		$wgOut->addWikiText( '<hr/>' . wfMsgExt( 'validationstatistics-time', array( 'parsemag' ),
-			$wgLang->formatTimePeriod( $mt ), $wgLang->formatTimePeriod( $pt ),
-			$wgLang->formatTimePeriod( $mdt ), $reviewChart, $date, $time )
+		# Show "last updated"
+		$wgOut->addWikiText(
+			wfMsgExt( 'validationstatistics-lastupdate', 'parsemag', $date, $time ) . '<hr/>'
 		);
+
+		# Show pending time stats
+		$wgOut->addWikiText(
+			wfMsgExt( 'validationstatistics-pndtime', 'parsemag', $wgLang->formatTimePeriod( $pt ) )
+		);
+		if ( !FlaggedRevs::useOnlyIfStabilized() ) {
+			# Show review time stats
+			$wgOut->addWikiText( wfMsgExt( 'validationstatistics-revtime', 'parsemag',
+				$wgLang->formatTimePeriod( $mt ), $wgLang->formatTimePeriod( $mdt ), $reviewChart )
+			);
+		}
 
 		$wgOut->addWikiText( wfMsg( 'validationstatistics-table' ) );
 		$wgOut->addHTML( Xml::openElement( 'table',
