@@ -48,7 +48,7 @@ if ( !defined( 'FR_TEXT' ) )
 
 # Level constants...
 if ( !defined( 'FR_SIGHTED' ) )
-	define( 'FR_SIGHTED', 0 );
+	define( 'FR_SIGHTED', 0 ); // "basic"/"checked"
 if ( !defined( 'FR_QUALITY' ) )
 	define( 'FR_QUALITY', 1 );
 if ( !defined( 'FR_PRISTINE' ) )
@@ -82,8 +82,7 @@ $wgFlaggedRevsLowProfile = true;
 
 # Allowed namespaces of reviewable pages
 $wgFlaggedRevsNamespaces = array( NS_MAIN, NS_FILE, NS_TEMPLATE );
-
-# Pages exempt from reviewing
+# Pages exempt from reviewing. No flagging UI will be shown for them.
 $wgFlaggedRevsWhitelist = array();
 # $wgFlaggedRevsWhitelist = array( 'Main_Page' );
 
@@ -96,18 +95,18 @@ $wgFlaggedRevsOverride = true;
 # FR_QUALITY : "pristine" = "quality" > "sighted"
 # FR_SIGHTED : "pristine" = "quality" = "sighted"
 $wgFlaggedRevsPrecedence = FR_QUALITY;
-# Revision tagging can slow development...
-# For example, the main user base may become complacent, perhaps treat flagged
-# pages as "done", or just be too lazy to click "current". We may just want non-user
-# visitors to see reviewed pages by default.
 # Below are groups that see the current revision by default.
+# This makes editing easier since the users always start off
+# viewing the latest version of pages.
 $wgFlaggedRevsExceptions = array( 'user' );
 
 # Can users make comments that will show up below flagged revisions?
 $wgFlaggedRevsComments = false;
-# Allow auto-review edits directly to the stable version by reviewers?
+# Auto-review edits that are:
+# (a) directly to the stable version by users with 'autoreview'/'bot'
+# (b) self-reversions back to the stable version by any user
 $wgFlaggedRevsAutoReview = true;
-# Auto-review new pages with the minimal level?
+# If $wgFlaggedRevsAutoReview, auto-review new pages as minimally "sighted"?
 $wgFlaggedRevsAutoReviewNew = true;
 
 # Define the tags we can use to rate an article, number of levels,
@@ -119,13 +118,11 @@ $wgFlaggedRevTags = array(
 	'depth'    => array( 'levels' => 3, 'quality' => 1, 'pristine' => 4 ),
 	'style'    => array( 'levels' => 3, 'quality' => 1, 'pristine' => 4 ),
 );
-
 # For each tag, define the highest tag level that is unlocked by
 # having certain rights. For example, having 'review' rights may
 # allow for "depth" to be rated up to second level.
-# NOTE: Users cannot lower tags from a level they can't set.
-# NOTE: Users with 'validate' can do anything regardless.
-# This is mainly for custom, less experienced, groups
+# NOTE: Users cannot lower revision tags from a level they can't set.
+# NOTE: Users with 'validate' (Reviewers) can set all tags to all levels.
 $wgFlagRestrictions = array(
 	'accuracy' => array( 'review' => 1, 'autoreview' => 1 ),
 	'depth'	   => array( 'review' => 2, 'autoreview' => 2 ),
@@ -139,7 +136,7 @@ $wgFlaggedRevsTagsAuto = array(
 
 # Restriction levels for 'autoreview'/'review' rights.
 # When a level is selected for a page, an edit made by a user
-# requires approval unless that user has the specified permission.
+# will not be auto-reviewed if the user lacks the specified permission.
 # Levels are set at the Stabilization special page.
 $wgFlaggedRevsRestrictionLevels = array( '', 'sysop' );
 # Set this to use FlaggedRevs *only* as a protection-like mechanism.
@@ -150,32 +147,12 @@ $wgFlaggedRevsRestrictionLevels = array( '', 'sysop' );
 # NOTE: The stable version precedence cannot be configured per page with this.
 $wgFlaggedRevsProtection = false;
 
-# URL location for flaggedrevs.css and flaggedrevs.js
-# Use a literal $wgScriptPath as a placeholder for the runtime value of $wgScriptPath
-$wgFlaggedRevsStylePath = '$wgScriptPath/extensions/FlaggedRevs/client';
-
-# Define our basic reviewer class
+# Define our basic reviewer class of established editors (Editors)
 $wgGroupPermissions['editor']['review']          = true;
 $wgGroupPermissions['editor']['autoreview']      = true;
 $wgGroupPermissions['editor']['autoconfirmed']   = true;
 $wgGroupPermissions['editor']['unreviewedpages'] = true;
 $wgGroupPermissions['editor']['patrolmarks']     = true;
-
-# Defines extra rights for advanced reviewer class
-$wgGroupPermissions['reviewer']['validate']        = true;
-# Let this stand alone just in case...
-$wgGroupPermissions['reviewer']['review']          = true;
-$wgGroupPermissions['reviewer']['autoreview']      = true;
-$wgGroupPermissions['reviewer']['autoconfirmed']   = true;
-$wgGroupPermissions['reviewer']['unreviewedpages'] = true;
-$wgGroupPermissions['reviewer']['patrolmarks']     = true;
-
-# Sysops have their edits autoreviewed
-$wgGroupPermissions['sysop']['autoreview'] = true;
-# Stable version selection and default page revision selection can be set per page.
-$wgGroupPermissions['sysop']['stablesettings'] = true;
-# Sysops can always move stable pages
-$wgGroupPermissions['sysop']['movestable'] = true;
 
 # Define when users get automatically promoted to Editors. Set as false to disable.
 # 'spacing' and 'benchmarks' require edits to be spread out. Users must have X (benchmark)
@@ -219,6 +196,22 @@ $wgFlaggedRevsAutoconfirm = array(
 );
 */
 
+# Defines extra rights for advanced reviewer class (Reviewers)
+$wgGroupPermissions['reviewer']['validate']        = true;
+# Let this stand alone just in case...
+$wgGroupPermissions['reviewer']['review']          = true;
+$wgGroupPermissions['reviewer']['autoreview']      = true;
+$wgGroupPermissions['reviewer']['autoconfirmed']   = true;
+$wgGroupPermissions['reviewer']['unreviewedpages'] = true;
+$wgGroupPermissions['reviewer']['patrolmarks']     = true;
+
+# Sysops have their edits autoreviewed
+$wgGroupPermissions['sysop']['autoreview'] = true;
+# Stable version selection and default page revision selection can be set per page.
+$wgGroupPermissions['sysop']['stablesettings'] = true;
+# Sysops can always move stable pages
+$wgGroupPermissions['sysop']['movestable'] = true;
+
 # Special:Userrights settings
 # # Basic rights for Sysops
 $wgAddGroups['sysop'][] = 'editor';
@@ -226,6 +219,10 @@ $wgRemoveGroups['sysop'][] = 'editor';
 # # Extra ones for Bureaucrats
 $wgAddGroups['bureaucrat'][] = 'reviewer';
 $wgRemoveGroups['bureaucrat'][] = 'reviewer';
+
+# URL location for flaggedrevs.css and flaggedrevs.js
+# Use a literal $wgScriptPath as a placeholder for the runtime value of $wgScriptPath
+$wgFlaggedRevsStylePath = '$wgScriptPath/extensions/FlaggedRevs/client';
 
 # Show reviews in recentchanges? Disabled by default, often spammy...
 $wgFlaggedRevsLogInRC = false;
@@ -236,12 +233,13 @@ $wgFlaggedRevsAutopromoteInRC = false;
 $wgFlaggedRevsOversightAge = 30 * 24 * 3600;
 
 # Flagged revisions are always visible to users with rights below.
-# Use '*' for non-user accounts.
+# Use '*' for non-user accounts. This is for read-restricted wikis.
 $wgFlaggedRevsVisible = array();
 # If $wgFlaggedRevsVisible is populated, it is applied to talk pages too
 $wgFlaggedRevsTalkVisible = true;
 
-# How long before Special:ValidationStatistics is updated
+# How long before Special:ValidationStatistics is updated.
+# Set to false to disable (perhaps using a cron job instead).
 $wgFlaggedRevsStatsAge = 2 * 3600; // 2 hours
 
 # How to handle templates and files used in stable versions:

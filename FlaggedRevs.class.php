@@ -94,6 +94,11 @@ class FlaggedRevs {
 		self::$reviewNamespaces = $wgFlaggedRevsNamespaces;
 		# Note: reviewable *pages* override patrollable ones
 		self::$patrolNamespaces = $wgFlaggedRevsPatrolNamespaces;
+		# !$wgFlaggedRevsAutoReview => !$wgFlaggedRevsAutoReviewNew
+		global $wgFlaggedRevsAutoReview, $wgFlaggedRevsAutoReviewNew;
+		if ( !$wgFlaggedRevsAutoReview ) {
+			$wgFlaggedRevsAutoReviewNew = false;
+		}
 	}
 	
 	# ################ Basic config accessors #################
@@ -139,12 +144,21 @@ class FlaggedRevs {
 
 	/**
 	 * Allow auto-review edits directly to the stable version by reviewers?
-	 * (1 to allow auto-sighting; 2 for auto-quality; 3 for auto-pristine)
 	 * @returns bool
 	 */
 	public static function autoReviewEdits() {
 		global $wgFlaggedRevsAutoReview;
 		return (bool)$wgFlaggedRevsAutoReview;
+	}
+
+	/**
+	 * Auto-review new pages with the minimal level?
+	 * @returns bool
+	 */
+	public static function autoReviewNewPages() {
+		global $wgFlaggedRevsAutoReviewNew;
+		self::load();
+		return (bool)$wgFlaggedRevsAutoReviewNew;
 	}
 
 	/**
@@ -163,15 +177,6 @@ class FlaggedRevs {
 		} else {
 			return 1; // B/C (before $wgFlaggedRevsTagsAuto)
 		}
-	}
-
-	/**
-	 * Auto-review new pages with the minimal level?
-	 * @returns bool
-	 */
-	public static function autoReviewNewPages() {
-		global $wgFlaggedRevsAutoReviewNew;
-		return (bool)$wgFlaggedRevsAutoReviewNew;
 	}
 
 	/**
