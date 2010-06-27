@@ -429,11 +429,13 @@ $messages['es'] = array(
  */
 $messages['et'] = array(
 	'unreviewedpages' => 'Ülevaatamata leheküljed',
-	'unreviewed-legend' => 'Ülevaatamata sisulehekülgede loend',
+	'unreviewed-legend' => 'Ülevaatamata sisulehekülgede loetlemine',
 	'unreviewed-category' => 'Kategooria:',
 	'unreviewed-diff' => 'arvusta',
 	'unreviewed-unwatched' => '(jälgimata)',
 	'unreviewed-watched' => '($1 aktiivse {{PLURAL:$1|kasutaja}} jälgitav)',
+	'unreviewed-list' => 'See lehekülg loetleb sisuleheküljed, mis pole kindlaks määratud tasemeni ülevaadatud.',
+	'unreviewed-none' => 'Sellistele kriteeriumitele vastavad leheküljed puuduvad praegu.',
 	'unreviewed-viewing' => '(ülevaatusel)',
 	'unreviewed-hours' => '($1 {{PLURAL:$1|tund|tundi}})',
 	'unreviewed-days' => '($1 {{PLURAL:$1|päev|päeva}})',

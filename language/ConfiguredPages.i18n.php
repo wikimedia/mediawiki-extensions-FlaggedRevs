@@ -460,9 +460,12 @@ $messages['ja'] = array(
  * @author გიორგიმელა
  */
 $messages['ka'] = array(
+	'configuredpages' => 'გვერდები შემოწმების კონფიგურაციით',
+	'configuredpages-none' => 'ამ სიაში გვერდები არ არის.',
 	'configuredpages-config' => 'კონფიგურაცია',
 	'configuredpages-precedence' => 'პრიორიტეტი:',
 	'configuredpages-prec-none' => 'უკანასკნელად შემოწმებული',
+	'configuredpages-prec-pristine' => 'უკანასკნელი სუფთა ვერსია',
 	'configuredpages-def-draft' => 'უკანასკნელი ვერსია',
 	'configuredpages-def-stable' => 'გამოქვეყნებული ვერსია',
 );

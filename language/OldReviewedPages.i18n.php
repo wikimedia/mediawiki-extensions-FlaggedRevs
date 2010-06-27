@@ -503,6 +503,7 @@ $messages['et'] = array(
 	'oldreviewedpages' => 'Ootel muudatustega leheküljed',
 	'oldreviewedpages-legend' => 'Ootel muudatustega ülevaadatud lehekülgede loetlemine',
 	'oldreviewedpages-list' => 'See lehekülg loetleb ootel muudatustega ülevaadatud {{PLURAL:$1|lehekülje|leheküljed}}.',
+	'oldreviewedpages-none' => 'Sellistele kriteeriumitele vastavad leheküljed puuduvad praegu.',
 	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|tund|tundi}})',
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|päev|päeva}})',
 	'oldreviewedpages-recent' => '(alla 1 tunni)',

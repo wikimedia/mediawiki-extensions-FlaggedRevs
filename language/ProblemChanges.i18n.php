@@ -189,8 +189,12 @@ $messages['es'] = array(
 
 /** Estonian (Eesti)
  * @author Avjoska
+ * @author Pikne
  */
 $messages['et'] = array(
+	'problemchanges' => 'Märgistatud ootel muudatused',
+	'problemchanges-legend' => 'Ülevaatamist ootavate märgistatud muudatustega lehekülgede loetlemine',
+	'problemchanges-none' => 'Sellistele kriteeriumitele vastavad leheküljed puuduvad praegu.',
 	'problemchanges-category' => 'Kategooria:',
 );
 

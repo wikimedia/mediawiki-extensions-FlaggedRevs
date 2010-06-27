@@ -332,6 +332,9 @@ Se da un enlace a la última revisión de este nivel.",
  */
 $messages['et'] = array(
 	'reviewedpages' => 'Ülevaadatud leheküljed',
+	'reviewedpages-leg' => 'Ülevaadatud lehekülgede loetlemine',
+	'reviewedpages-list' => "See loend sisaldab [[{{MediaWiki:Validationpage}}|ülevaadatud]] lehekülgi, mille ''kõrgeimaks saavutatud'' (redaktsiooni) ülevaatamistasemeks on kindlaks määratud tase.
+	Toodud on link viimasele sellel tasemel redaktsioonile.",
 	'reviewedpages-none' => 'Siin loendis ei ole lehekülgi',
 	'reviewedpages-all' => 'ülevaadatud versioonid',
 	'reviewedpages-best' => 'parim redaktsioon',

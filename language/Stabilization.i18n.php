@@ -1077,6 +1077,7 @@ La configuración no es posible.',
  * @author Pikne
  */
 $messages['et'] = array(
+	'stabilization-tab' => 'sätted',
 	'stabilization' => 'Lehekülje kindlustamine',
 	'stabilization-text' => "'''Muuda järgnevaid sätteid reguleerimaks, kuidas lehekülje \"[[:\$1|\$1]]\" püsiv versioon valitakse ja kuvatakse.'''
 
@@ -1095,6 +1096,10 @@ Siin on lehekülje "[[:$1|$1]]" praegused sätted:',
 	'stabilization-restrict' => 'Ülevaatuse või automaatse ülevaatuse piirangud',
 	'stabilization-restrict-none' => 'Lisapiiranguteta',
 	'stabilization-submit' => 'Kinnita',
+	'stabilization-notexists' => 'Puudub lehekülg "[[:$1|$1]]".
+Sätete seadmine pole võimalik.',
+	'stabilization-notcontent' => 'Lehekülge "[[:$1|$1]]" ei saa üle vaadata.
+Sätete seadmine pole võimalik.',
 	'stabilization-comment' => 'Põhjus:',
 	'stabilization-otherreason' => 'Muu põhjus:',
 	'stabilization-expiry' => 'Aegub:',
@@ -1107,6 +1112,7 @@ Siin on lehekülje "[[:$1|$1]]" praegused sätted:',
 	'stabilization-def-short-1' => 'Püsiv',
 	'stabilize_expiry_invalid' => 'Vigane aegumistähtaeg.',
 	'stabilize_expiry_old' => 'See aegumistähtaeg on juba möödunud.',
+	'stabilize_denied' => 'Luba tagasi lükatud.',
 	'stabilize-expiring' => 'aegumistähtajaga $1 (UTC)',
 	'stabilization-review' => 'Märgi praegune redaktsioon kord vaadatuks',
 );
