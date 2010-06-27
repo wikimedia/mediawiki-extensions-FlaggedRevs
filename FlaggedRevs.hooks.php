@@ -1112,14 +1112,17 @@ class FlaggedRevsHooks {
 	}
 
 	public static function incrementRollbacks(
-		$article, $user, $target, Revision $current
+		Article $article, $user, $goodRev, Revision $badRev
 	) {
 		# Mark when a user reverts another user, but not self-reverts
-		if ( $current->getRawUser() && $user->getId() != $current->getRawUser() ) {
-			$p = FlaggedRevs::getUserParams( $current->getRawUser() );
-			$p['revertedEdits'] = isset( $p['revertedEdits'] ) ? $p['revertedEdits'] : 0;
+		$badUserId = $badRev->getRawUser();
+		if ( $badUserId && $user->getId() != $badUserId ) {
+			$p = FlaggedRevs::getUserParams( $badUserId );
+			if ( !isset( $p['revertedEdits'] ) ) {
+				$p['revertedEdits'] = 0;
+			}
 			$p['revertedEdits']++;
-			FlaggedRevs::saveUserParams( $current->getRawUser(), $p );
+			FlaggedRevs::saveUserParams( $badUserId, $p );
 		}
 		return true;
 	}

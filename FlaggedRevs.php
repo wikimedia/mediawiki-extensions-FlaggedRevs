@@ -173,7 +173,7 @@ $wgFlaggedRevsAutopromote = array(
 	'userpageBytes'       => 0, # userpage is needed? with what min size?
 	'uniqueIPAddress'     => false, # If $wgPutIPinRC is true, users sharing IPs won't be promoted
 	'neverBlocked'        => true, # Can users that were blocked be promoted?
-	'maxRevertedEdits'    => 5, # Max edits the user could have had rolled back?
+	'maxRevertedEdits'    => 5, # Max times the user could have edits undone/"rolled back"?
 );
 
 # Define when users get to have their own edits auto-reviewed. Set to false to disable.
