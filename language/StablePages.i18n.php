@@ -14,6 +14,7 @@ $messages['en'] = array(
 Edits made by other users are not displayed to readers by default until an authorized user reviews them.',
 	'stablepages-none'          => 'There are no pages in this list.',
 	'stablepages-config'        => 'Configuration',
+	'stablepages-indef'         => 'Indefinite expiry only',
 );
 
 /** Message documentation (Message documentation)
