@@ -411,7 +411,8 @@ class FlaggedRevision {
 
 	/**
 	 * Get original template versions at time of review
-	 * @return Array template versions (ns -> dbKey -> rev id)
+	 * @return Array template versions (ns -> dbKey -> rev Id)
+     * Note: 0 used for template rev Id if it didn't exist
 	 */
 	public function getTemplateVersions() {
 		if ( $this->mTemplates == null ) {
@@ -433,7 +434,8 @@ class FlaggedRevision {
 	
 	/**
 	 * Get original template versions at time of review
-	 * @return Array file versions (dbKey -> sha1)
+	 * @return Array file versions (dbKey -> MW timestamp -> sha1)
+     * Note: '0' used for file timestamp if it didn't exist
 	 */
 	public function getFileVersions() {
 		if ( $this->mFiles == null ) {
@@ -444,7 +446,10 @@ class FlaggedRevision {
 				__METHOD__
 			);
 			while ( $row = $res->fetchObject() ) {
-				$this->mFiles[$row->fi_name] = $row->fi_img_sha1;
+                $reviewedTS = trim( $row->fi_img_timestamp ); // may be ''/NULL
+                $reviewedTS = $reviewedTS ? wfTimestamp( TS_MW, $reviewedTS ) : '0';
+				$this->mFiles[$row->fi_name] = array();
+                $this->mFiles[$row->fi_name][$reviewedTS] = $row->fi_img_sha1;
 			}
 		}
 		return $this->mFiles;

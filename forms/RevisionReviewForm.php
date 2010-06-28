@@ -332,29 +332,23 @@ class RevisionReviewForm
 		}
 		# Our flags
 		$flags = $this->dims;
-		# Some validation vars to make sure nothing changed during
-		$lastTempId = 0;
-		$lastImgTime = "0";
 		# Our template version pointers
 		$tmpset = $tmpParams = array();
 		$templateMap = explode( '#', trim( $this->templateParams ) );
 		foreach ( $templateMap as $template ) {
-			if ( !$template )
+			if ( !$template ) {
 				continue;
-
+			}
 			$m = explode( '|', $template, 2 );
-			if ( !isset( $m[0] ) || !isset( $m[1] ) || !$m[0] )
+			if ( !isset( $m[0] ) || !isset( $m[1] ) || !$m[0] ) {
 				continue;
-
+			}
 			list( $prefixed_text, $rev_id ) = $m;
-
+			# Get the template title
 			$tmp_title = Title::newFromText( $prefixed_text ); // Normalize this to be sure...
-			if ( is_null( $tmp_title ) )
+			if ( is_null( $tmp_title ) ) {
 				continue; // Page must be valid!
-
-			if ( $rev_id > $lastTempId )
-				$lastTempId = $rev_id;
-
+			}
 			$tmpset[] = array(
 				'ft_rev_id' 	=> $rev->getId(),
 				'ft_namespace'  => $tmp_title->getNamespace(),
@@ -370,31 +364,27 @@ class RevisionReviewForm
 		$imgset = $imgParams = array();
 		$imageMap = explode( '#', trim( $this->imageParams ) );
 		foreach ( $imageMap as $image ) {
-			if ( !$image )
+			if ( !$image ) {
 				continue;
+			}
 			$m = explode( '|', $image, 3 );
 			# Expand our parameters ... <name>#<timestamp>#<key>
-			if ( !isset( $m[0] ) || !isset( $m[1] ) || !isset( $m[2] ) || !$m[0] )
+			if ( !isset( $m[0] ) || !isset( $m[1] ) || !isset( $m[2] ) || !$m[0] ) {
 				continue;
-
+			}
 			list( $dbkey, $timestamp, $key ) = $m;
-
+			# Get the file title
 			$img_title = Title::makeTitle( NS_IMAGE, $dbkey ); // Normalize
-			if ( is_null( $img_title ) )
+			if ( is_null( $img_title ) ) {
 				continue; // Page must be valid!
-
-			if ( $timestamp > $lastImgTime )
-				$lastImgTime = $timestamp;
-
-			$fileIncludeData = array(
+			}
+			$imgset[] = array(
 				'fi_rev_id'			=> $rev->getId(),
 				'fi_name'			=> $img_title->getDBkey(),
 				'fi_img_sha1'		=> $key,
 				// b/c: NULL becomes '' for old fi_img_timestamp def (non-strict)
 				'fi_img_timestamp' 	=> $timestamp ? $dbw->timestamp( $timestamp ) : null
 			);
-			$imgset[] = $fileIncludeData;
-
 			if ( !isset( $imgParams[$img_title->getDBkey()] ) ) {
 				$imgParams[$img_title->getDBkey()] = array();
 			}
@@ -413,16 +403,13 @@ class RevisionReviewForm
 		
 		# Get current stable version ID (for logging)
 		$oldSv = FlaggedRevision::newFromStable( $this->page, FR_MASTER );
-		$oldSvId = $oldSv ? $oldSv->getRevId() : 0;
 		
-		# Is this rev already flagged?
-		$flaggedOutput = false;
-		$oldfrev = FlaggedRevision::newFromTitle( $this->page, $rev->getId(), FR_MASTER );
-		if ( $oldfrev ) {
-			$flaggedOutput = FlaggedRevs::parseStableText( $article,
-				$oldfrev->getRevText(), $oldfrev->getRevId() );
+		# Is this rev already flagged? (re-review)
+		if ( $oldSv && $rev->getId() == $oldSv->getRevId() ) {
+			$oldfrev = $oldSv; // save a query
+		} else {
+			$oldfrev = FlaggedRevision::newFromTitle( $this->page, $rev->getId(), FR_MASTER );
 		}
-		
 		# Be loose on templates that includes other files/templates dynamically.
 		# Strict checking breaks randomized images/metatemplates...(bug 14580)
 		global $wgUseCurrentTemplates, $wgUseCurrentImages;
@@ -435,10 +422,7 @@ class RevisionReviewForm
 		$stableOutput = FlaggedRevs::parseStableText( $article, $text, $rev->getId() );
 		$err =& $stableOutput->fr_includeErrors;
 		if ( $mustMatch ) { // if template/files must all be specified...
-			if ( !empty( $err )
-				|| $stableOutput->fr_newestImageTime > $lastImgTime
-				|| $stableOutput->fr_newestTemplateID > $lastTempId )
-			{
+			if ( !empty( $err ) ) {
 				wfProfileOut( __METHOD__ );
 				return $err; // return templates/files with no version specified
 			}
@@ -447,14 +431,15 @@ class RevisionReviewForm
 		FlaggedRevs::clearIncludeVersionCache( $rev->getId() );
 		
 		# Is this a duplicate review?
-		if ( $oldfrev && $flaggedOutput ) {
+		if ( $oldfrev ) {
 			$fileSha1 = $fileData ?
 				$fileData['sha1'] : null; // stable upload version for file pages
 			$synced = (
 				$oldfrev->getTags() == $flags && // tags => quality
 				$oldfrev->getFileSha1() == $fileSha1 &&
 				$oldfrev->getComment() == $this->notes &&
-				FlaggedRevs::includesAreSynced( $stableOutput, $flaggedOutput )
+				$oldfrev->getTemplateVersions() == $tmpParams &&
+				$oldfrev->getFileVersions() == $imgParams
 			);
 			# Don't review if the same
 			if ( $synced ) {
@@ -484,6 +469,7 @@ class RevisionReviewForm
 		# Update recent changes
 		self::updateRecentChanges( $this->page, $rev->getId(), $this->rcid, true );
 		# Update the article review log
+		$oldSvId = $oldSv ? $oldSv->getRevId() : 0;
 		FlaggedRevsLogs::updateLog( $this->page, $this->dims, $this->oflags,
 			$this->comment, $this->oldid, $oldSvId, true );
 
