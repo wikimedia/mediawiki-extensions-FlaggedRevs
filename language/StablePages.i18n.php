@@ -314,6 +314,7 @@ $messages['gl'] = array(
 As edicións feitas por outros usuarios non se mostran aos lectores por defecto ata que un usuario autorizado as revise.',
 	'stablepages-none' => 'Non hai páxinas nesta lista',
 	'stablepages-config' => 'Configuración',
+	'stablepages-indef' => 'Caducidade indefinida só',
 );
 
 /** Ancient Greek (Ἀρχαία ἑλληνικὴ)
@@ -333,6 +334,7 @@ $messages['gsw'] = array(
 	'stablepages-text' => 'Do isch e Lischt vu däne Syte, wu nume sicheri Benutzer chenne Bearbeitige dra mache, wu kei Priefig bruche. Sonigi Bearbeitige wäre erscht vereffetligt, wänn si vun eme autorisierte Benutzer freigee wore sin.',
 	'stablepages-none' => 'Die Lischt isch läär.',
 	'stablepages-config' => 'Konfiguration',
+	'stablepages-indef' => 'Nume mit uubfrischtetem Ablauf',
 );
 
 /** Hebrew (עברית)
@@ -508,6 +510,7 @@ $messages['mk'] = array(
 Уредувањата на други корисници по основно нема да бидат видливи за читателите сè додека не ги провери овластен корисник.',
 	'stablepages-none' => 'Нема страници на овој список.',
 	'stablepages-config' => 'Конфигурација',
+	'stablepages-indef' => 'Само со бесконечен рок на истекување',
 );
 
 /** Malayalam (മലയാളം)
@@ -519,6 +522,7 @@ $messages['ml'] = array(
 	'stablepages-text' => 'സംശോധനം ആവശ്യമില്ലാത്ത വിധം ചില പ്രത്യേക ഉപയോക്താക്കൾക്ക് മാത്രം തിരുത്തുവാൻ കഴിയുന്ന താളുകളുടെ പട്ടികയാണ് താഴെ നൽകിയിരിക്കുന്നത്. മറ്റ് ഉപയോക്താക്കൾ ചെയ്യുന്ന തിരുത്തലുകൾ അംഗീകരിക്കപ്പെട്ട ഒരു ഉപയോക്താവ് സംശോധനം ചെയ്യുന്നതു വരെ എല്ലാവർക്കും കാണാനാവുന്നതല്ല.',
 	'stablepages-none' => 'ഈ പട്ടികയിൽ താളുകൾ ഒന്നും ഇല്ല',
 	'stablepages-config' => 'ക്രമീകരണം',
+	'stablepages-indef' => 'തീർച്ചപ്പെടുത്താത്ത കാലാവധി മാത്രം',
 );
 
 /** Marathi (मराठी)
@@ -644,6 +648,7 @@ $messages['pt-br'] = array(
 Edições de outros utilizadores não são apresentadas aos leitores até que um usuário autorizado as tenha revisadas.',
 	'stablepages-none' => 'Não há páginas nesta lista',
 	'stablepages-config' => 'Configuração',
+	'stablepages-indef' => 'Somente de expiração infinita',
 );
 
 /** Romanian (Română)
@@ -678,6 +683,7 @@ $messages['ru'] = array(
 Сделанные другими участниками правки этих статей по умолчанию не будут показаны читателям, пока не будут проверены уполномоченными участниками.',
 	'stablepages-none' => 'В данном списке отсутствуют страницы',
 	'stablepages-config' => 'настройка',
+	'stablepages-indef' => 'Только с неопределённым сроком',
 );
 
 /** Rusyn (русиньскый язык)

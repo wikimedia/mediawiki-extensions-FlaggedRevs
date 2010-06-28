@@ -509,6 +509,7 @@ $messages['et'] = array(
 	'oldreviewedpages-recent' => '(alla 1 tunni)',
 	'oldreviewed-category' => 'Kategooria:',
 	'oldreviewed-watched' => 'Leheküljed minu jälgimisloendis',
+	'oldreviewed-stable' => 'Püsiv versioon on vaikeväärtuseks',
 	'oldreviewed-diff' => 'vaata üle',
 	'oldreviewed-size' => 'Muudatuse ülemmäär baitides:',
 	'oldreviewedpages-unwatched' => '(jälgimata)',

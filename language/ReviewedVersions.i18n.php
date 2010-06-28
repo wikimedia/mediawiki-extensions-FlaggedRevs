@@ -314,6 +314,7 @@ $messages['es'] = array(
  */
 $messages['et'] = array(
 	'reviewedversions' => 'Ülevaadatud versioonid',
+	'reviewedversions-leg1' => 'Lehekülje ülevaadatud redaktsioonide loetlemine',
 	'reviewedversions-page' => 'Lehekülje nimi:',
 	'reviewedversions-none' => 'Leheküljel "[[:$1]]" pole ülevaadatud redaktsioone.',
 	'reviewedversions-list' => 'Järgnev on {{PLURAL:$2|ainus lehekülje [[:$1]] redaktsioon|loend lehekülje [[:$1]] redaktsioonidest}}, mis on ülevaadatud:',

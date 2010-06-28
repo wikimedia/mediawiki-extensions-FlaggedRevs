@@ -161,7 +161,14 @@ $messages['be-tarask'] = array(
 	'validationstatistics-users' => "'''{{SITENAME}}''' цяпер налічвае '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|удзельніка|удзельнікаў|удзельнікаў}} з правамі «[[{{MediaWiki:Validationpage}}|рэдактара]]».
 
 Рэдактары — асобныя удзельнікі, якія могуць правяраць вэрсіі старонак.",
-	'validationstatistics-table' => "Статыстыка для кожнай прасторы назваў пададзеная ніжэй, за ''выключэньнем'' старонак-перанакіраваньняў.",
+	'validationstatistics-lastupdate' => "''Наступныя зьвесткі былі абноўленыя $1 у $2.''",
+	'validationstatistics-pndtime' => "Рэдагаваньні, прагледжаныя ўпаўнаважанымі ўдзельнікамі, лічацца рэцэнзаванымі.
+
+У сярэднім затрымка для [[Special:OldReviewedPages|старонак, якія чакаюць рэцэнзаваньня]], складае '''$1'''.
+Гэтыя старонкі лічацца''састарэлымі''. Калі няма рэдагаваньняў, якія чакаюць рэцэнзаваньня, старонкі атрымліваюць статус ''сынхранізаваных''.",
+	'validationstatistics-revtime' => "У сярэднім затрымка для рэдагаваньняў па ''ананімных карыстальніках'', якія чакаюць рэцэнзаваньня, складае '''$1'''; мэдыяна — '''$2'''.
+$3",
+	'validationstatistics-table' => "Статыстыка рэцэнзаваньняў старонак для кожнай прасторы назваў пададзеная ніжэй, ''за выключэньнем'' старонак-перанакіраваньняў.",
 	'validationstatistics-ns' => 'Прастора назваў',
 	'validationstatistics-total' => 'Старонак',
 	'validationstatistics-stable' => 'Правераных',
@@ -221,7 +228,7 @@ $messages['bs'] = array(
 	'validationstatistics-users' => "'''{{SITENAME}}''' trenutno ima '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|korisnika|korisnika}} sa pravima [[{{MediaWiki:Validationpage}}|urednika]].
 
 Urednici su potvrđeni korisnici koji mogu izvršavati provjere revizija stranice.",
-	'validationstatistics-table' => "Statistike za svaki imenski prostor su prikazane ispod, ''isključujući'' stranice preusmjeravanja.",
+	'validationstatistics-table' => "Statistike pregleda stranica za svaki imenski prostor su prikazane ispod, ''isključujući'' stranice preusmjeravanja.",
 	'validationstatistics-ns' => 'Imenski prostor',
 	'validationstatistics-total' => 'Stranice',
 	'validationstatistics-stable' => 'Provjereno',
@@ -293,11 +300,14 @@ $messages['cu'] = array(
  * @author Umherirrender
  */
 $messages['de'] = array(
-	'validationstatistics' => 'Markierungsstatistik',
+	'validationstatistics' => 'Versionsmarkierungsstatistiken',
 	'validationstatistics-users' => "'''{{SITENAME}}''' hat momentan '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|Benutzer|Benutzer}} mit [[{{MediaWiki:Validationpage}}|Sichterrecht]].
 
 Sichter sind anerkannte Benutzer, die Versionen einer Seite markieren können.",
-	'validationstatistics-table' => 'Das sind Statistiken für jeden Namensraum, ausgenommen Weiterleitungen.',
+	'validationstatistics-lastupdate' => "''Die folgenden Daten wurden zuletzt am $1 um $2 aktualisiert.''",
+	'validationstatistics-revtime' => "Die durchschnittliche Wartezeit bis zur Markierung, bei Bearbeitungen ''durch Benutzer, die nicht angemeldet waren''  beträgt '''$1'''; der Median ist '''$2'''. 
+$3",
+	'validationstatistics-table' => "Die Versionsmarkierungsstatistiken für jeden Namensraum werden unten angezeigt, ''Weiterleitungen'' ausgenommen.",
 	'validationstatistics-ns' => 'Namensraum',
 	'validationstatistics-total' => 'Seiten gesamt',
 	'validationstatistics-stable' => 'Mindestens eine Version gesichtet',
@@ -443,7 +453,14 @@ $messages['et'] = array(
 	'validationstatistics-users' => "Praegu on '''{{GRAMMAR:inessive|{{SITENAME}}}}''' '''[[Special:ListUsers/editor|$1]]''' [[{{MediaWiki:Validationpage}}|toimetaja]] õigustes {{PLURAL:$1|kasutaja|kasutajat}}.
 
 Toimetajad on kohale määratud kasutajad, kes saavad lehekülgel tehtud muudatused põgusalt üle vaadata.",
-	'validationstatistics-table' => "Allpool on toodud arvandmed nimeruumiti, ''välja arvatud'' ümbersuunamisleheküljed.",
+	'validationstatistics-lastupdate' => "''Järgnevate andmete viimane uuendamisaeg: $1, kell $2.''",
+	'validationstatistics-pndtime' => "Kohale määratud kasutajate tehtud muudatused arvatakse ülevaadatuks.
+
+Keskmine viitaeg [[Special:OldReviewedPages|ootel muudatustega lehekülgede ülevaatamiseks]] on '''$1'''.
+Need leheküljed arvatakse ''iganenuks''. Vastavalt, leheküljed arvatakse ''ühtivaks'', kui ükski muudatus ei oota ülevaatamist.",
+	'validationstatistics-revtime' => "''Sisselogimata kasutajate'' tehtud muudatuste ooteaeg ülevaatamiseks on keskmiselt '''$1'''; mediaan on '''$2'''.
+$3",
+	'validationstatistics-table' => "Allpool on toodud lehekülgede ülevaatamisarvandmed nimeruumiti, ''välja arvatud'' ümbersuunamisleheküljed.",
 	'validationstatistics-ns' => 'Nimeruum',
 	'validationstatistics-total' => 'Lehekülgi',
 	'validationstatistics-stable' => 'Ülevaadatud',
@@ -567,7 +584,14 @@ $messages['gl'] = array(
 dereitos de [[{{MediaWiki:Validationpage}}|editor]].
 
 Os editores son usuarios autoconfirmados que poden comprobar revisións de páxinas.",
-	'validationstatistics-table' => "A continuación amósanse as estatísticas para cada espazo de nomes, ''excluíndo'' as páxinas de redirección.",
+	'validationstatistics-lastupdate' => "''Os seguintes datos actualizáronse o $1 ás $2.''",
+	'validationstatistics-pndtime' => "As edicións que foron comprobadas por usuarios autoconfirmados considéranse revisadas.
+
+A media de atraso para as [[Special:OldReviewedPages|páxinas con edicións sen revisión]] é de '''$1'''.
+Estas páxinas considéranse ''obsoletas''. Do mesmo xeito, as páxinas atópanse ''sincronizadas'' se non hai edicións agardando por unha revisión.",
+	'validationstatistics-revtime' => "A media de espera de revisión para as edicións feitas polos ''usuarios que non accederon ao sistema'' é de '''$1'''; o valor medio é de '''$2'''.
+$3",
+	'validationstatistics-table' => "A continuación amósanse as estatísticas das revisións das páxinas para cada espazo de nomes, ''excluíndo'' as páxinas de redirección.",
 	'validationstatistics-ns' => 'Espazo de nomes',
 	'validationstatistics-total' => 'Páxinas',
 	'validationstatistics-stable' => 'Revisado',
@@ -609,7 +633,14 @@ $messages['gsw'] = array(
 	'validationstatistics-users' => "'''{{SITENAME}}''' het '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|Benutzer|Benutzer}} mit [[{{MediaWiki:Validationpage}}|Sichterrächt]].
 
 Sichter un Priefer sin Benutzer, wu Syte as prieft chenne markiere.",
-	'validationstatistics-table' => "Statischtike fir jede Namensruum wäre do unter zeigt, dervu ''usgnuu'' sin Wyterleitige.",
+	'validationstatistics-lastupdate' => "''Die Date sin s letscht Mol am $1 am $2 aktualisiert wore.''",
+	'validationstatistics-pndtime' => "Bearbeitige, wu vu etablierte Benutzer gmacht wore sin, wäre as iberprieft aagnuu.
+
+Di durschnittli Wartezyt fir [[Special:OldReviewedPages|Syte mit hängigen Änderige]] isch '''$1'''.
+Die Syte sin ''veraltet''. Syte wäre ''aktuäll'' gnännt, wänn s keini hängige Änderige het.",
+	'validationstatistics-revtime' => "Di durschnittli Wartezyt, bis Bearbeitige vu ''nit aagmäldete Benutzer'' iberprieft sin, lyt bi '''$1'''; dr Mittelwärt isch '''$2'''. 
+$3",
+	'validationstatistics-table' => "Versionsmarkierigsstatischtike fir jede Namensruum wäre do unter zeigt, dervu ''usgnuu'' sin Wyterleitige.",
 	'validationstatistics-ns' => 'Namensruum',
 	'validationstatistics-total' => 'Syte insgsamt',
 	'validationstatistics-stable' => 'Zmindescht ei Version isch vum Fäldhieter gsäh.',
@@ -962,6 +993,9 @@ $messages['lb'] = array(
 	'validationstatistics-users' => "'''{{SITENAME}}''' huet elo '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|Benotzer|Benotzer}} mat [[{{MediaWiki:Validationpage}}|Editeursrechter]].
 
 Editeure si confirméiert Benotzer déi nogekuckte Versioune vu Säiten derbäisetze kënnen.",
+	'validationstatistics-lastupdate' => "''Dës Date goufe fir d'lescht den $1 ëm $2 Auer aktualiséiert.''",
+	'validationstatistics-revtime' => "Déi duerchschnëttlech Waardezäit fir Ännerunge vu ''Benotzer déi net ageloggt waren'' ier hier Ännerung nogekuckt ass ass '''$1'''; d'Median ass '''$2'''. 
+$3",
 	'validationstatistics-table' => "Statistike fir jiddwer Nummraum sinn hei drënner, Viruleedungssäite sinn ''net berücksichtegt''.",
 	'validationstatistics-ns' => 'Nummraum',
 	'validationstatistics-total' => 'Säiten',
@@ -990,7 +1024,14 @@ $messages['mk'] = array(
 	'validationstatistics-users' => "'''{{SITENAME}}''' моментално има '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|корисник|корисници}} со права на „[[{{MediaWiki:Validationpage}}|Уредник]]“.
 
 Уредниците се докажани корисници кои можат да прават моментални проверки на ревизии на страници.",
-	'validationstatistics-table' => "Подолу се прикажани статистики за секој именски простор, ''без'' страници за пренасочување.",
+	'validationstatistics-lastupdate' => "''Следниве податоци се последен пат подновени на $1 во $2 ч.''",
+	'validationstatistics-pndtime' => "Уредувањата прегледани од докажани корисници се сметаат за проверени.
+
+Просечното задоцнување за [[Special:OldReviewedPages|страници со непрегледани уредувања во исчекување]] изнесува '''$1'''.
+Овие страници се сметаат за ''застарени''. Ако пак нема уредувања во исчекување на преглед, страниците се сметаат за ''усогласени''.",
+	'validationstatistics-revtime' => "Просечното време на чекање за непроверени уредувања од ''ненајавени корисници'' е '''$1'''; средната вредност изнесува '''$2'''. 
+$3",
+	'validationstatistics-table' => "Подолу се прикажани статистиките за ревизии на секој именски простор, ''освен'' страниците за пренасочување.",
 	'validationstatistics-ns' => 'Именски простор',
 	'validationstatistics-total' => 'Страници',
 	'validationstatistics-stable' => 'Оценето',
@@ -1011,7 +1052,7 @@ $messages['ml'] = array(
 	'validationstatistics-users' => "{{SITENAME}}''' പദ്ധതിയിൽ '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|ഉപയോക്താവിന്|ഉപയോക്താക്കൾക്ക്}} [[{{MediaWiki:Validationpage}}|എഡിറ്റർ]] പദവിയുണ്ട്.
 
 താളുകളുടെ നാൾവഴികൾ പരിശോധിച്ച് തെറ്റുതിരുത്താൻ കഴിയുന്ന സ്ഥാപിത ഉപയോക്താക്കളാണ് എഡിറ്റർമാർ.",
-	'validationstatistics-table' => "ഓരോ നാമമേഖലയിലേയും സ്ഥിതിവിവരക്കണക്കുകൾ താഴെ കൊടുക്കുന്നു, തിരിച്ചുവിടൽ താളുകൾ ''ഒഴിവാക്കുന്നു''.",
+	'validationstatistics-table' => "ഓരോ നാമമേഖലയിലേയും താൾ സംശോധന സ്ഥിതിവിവരക്കണക്കുകൾ താഴെ കൊടുക്കുന്നു, തിരിച്ചുവിടൽ താളുകൾ ''ഒഴിവാക്കുന്നു''.",
 	'validationstatistics-ns' => 'നാമമേഖല',
 	'validationstatistics-total' => 'താളുകൾ',
 	'validationstatistics-stable' => 'പരിശോധിച്ചവ',
@@ -1166,6 +1207,7 @@ $messages['pl'] = array(
 	'validationstatistics-users' => "W '''{{GRAMMAR:MS.lp|{{SITENAME}}}}''' zarejestrowanych jest obecnie  '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|użytkownik|użytkowników}} z uprawnieniami [[{{MediaWiki:Validationpage}}|redaktora]].
 
 Redaktorzy są doświadczonymi użytkownikami, którzy mogą oznaczać dowolne wersje stron.",
+	'validationstatistics-lastupdate' => "''Poniższe dane uaktualnione zostały $1 o $2.''",
 	'validationstatistics-table' => "Poniżej znajdują się statystyki dla każdej przestrzeni nazw, ''z wyłączeniem'' przekierowań.",
 	'validationstatistics-ns' => 'Przestrzeń nazw',
 	'validationstatistics-total' => 'Stron',
@@ -1222,7 +1264,14 @@ $messages['pt'] = array(
 	'validationstatistics-users' => "A '''{{SITENAME}}''' tem, neste momento, '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|utilizador|utilizadores}} com permissões de [[{{MediaWiki:Validationpage}}|Editor]].
 
 Editores são utilizadores que podem rever as edições de páginas.",
-	'validationstatistics-table' => "São apresentadas abaixo estatísticas para cada espaço nominal, '''excluindo''' páginas de redireccionamento.",
+	'validationstatistics-lastupdate' => "''Os seguintes dados foram actualizados pela última vez a $1 às $2.''",
+	'validationstatistics-pndtime' => "As edições verificadas por utilizadores estabelecidos são consideras revistas.
+
+O atraso médio para [[Special:OldReviewedPages|páginas com edições à espera de revisão]] é '''$1'''.
+Estas páginas são consideradas ''desactualizadas''. Da mesma forma, as páginas são consideradas ''sincronizadas'' se não tiverem edições em espera.",
+	'validationstatistics-revtime' => "O tempo médio de espera para revisão das edições de ''utilizadores não autenticados'' é '''$1'''; a mediana é '''$2'''. 
+$3",
+	'validationstatistics-table' => "São apresentadas abaixo estatísticas das revisões em cada espaço nominal, '''excluindo''' páginas de redireccionamento.",
 	'validationstatistics-ns' => 'Espaço nominal',
 	'validationstatistics-total' => 'Páginas',
 	'validationstatistics-stable' => 'Revistas',
@@ -1243,7 +1292,14 @@ $messages['pt-br'] = array(
 	'validationstatistics-users' => "'''{{SITENAME}}''' possui, no momento, '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|utilizador|utilizadores}} com privilégios de [[{{MediaWiki:Validationpage}}|Editor]] .
 
 Editores são utilizadores estabelecidos que podem verificar detalhadamente revisões de páginas.",
-	'validationstatistics-table' => "As estatísticas de cada domínio são exibidas a seguir, '''excetuando-se''' as páginas de redirecionamento.",
+	'validationstatistics-lastupdate' => "''Os seguintes dados foram atualizados pela última vez em $1 às $2.''",
+	'validationstatistics-pndtime' => "As edições verificadas por utilizadores estabelecidos são consideras revistas.
+
+O atraso médio para [[Special:OldReviewedPages|páginas com edições à espera de revisão]] é '''$1'''.
+Estas páginas são consideradas ''desatualizadas''. Da mesma forma, as páginas são consideradas ''sincronizadas'' se não tiverem edições em espera.",
+	'validationstatistics-revtime' => "O tempo médio de espera para revisão das edições de ''usuários não autenticados'' é '''$1'''; a mediana é '''$2'''. 
+$3",
+	'validationstatistics-table' => "As estatísticas de cada espaço nominal são exibidas abaixo, '''excluindo''' páginas de redirecionamento.",
 	'validationstatistics-ns' => 'Espaço nominal',
 	'validationstatistics-total' => 'Páginas',
 	'validationstatistics-stable' => 'Analisadas',
@@ -1311,7 +1367,14 @@ $messages['ru'] = array(
 	'validationstatistics-users' => "В проекте {{SITENAME}} на данный момент '''[[Special:ListUsers/editor|$1]]''' {{plural:$1|участник имееет|участника имеют|участников имеют}} полномочия [[{{MediaWiki:Validationpage}}|«редактора»]].
 
 «Редакторы» — это определённые участники, имеющие возможность делать выборочную проверку конкретных версий страниц.",
-	'validationstatistics-table' => "Ниже представлена статистика по каждому пространству имён, ''исключая'' страницы перенаправлений.",
+	'validationstatistics-lastupdate' => "''Следующие данные были последний раз обновлены $1 в $2.''",
+	'validationstatistics-pndtime' => "Правки, отмеченные определёнными участниками, считаются прошедшими проверку.
+
+Средняя задержка [[Special:OldReviewedPages|для страниц с непроверенными правками]] — '''$1'''. 
+Эти страницы считаются ''устаревшими''. Страницы считается ''синхронизированными'', если нет ожидающих проверки правок.",
+	'validationstatistics-revtime' => "Средняя задержка проверки для правок ''непредставившихся участников'' составляет '''$1'''; медиана — '''$2'''. 
+$3",
+	'validationstatistics-table' => "Ниже представлена статистика проверок по каждому пространству имён, ''исключая'' страницы перенаправлений.",
 	'validationstatistics-ns' => 'Пространство',
 	'validationstatistics-total' => 'Страниц',
 	'validationstatistics-stable' => 'Проверенные',
@@ -1447,7 +1510,14 @@ $messages['sv'] = array(
 	'validationstatistics-users' => "'''{{SITENAME}}''' har just nu '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|användare|användare}} med [[{{MediaWiki:Validationpage}}|skribenträttigheter]].
 
 Skribenter är etablerade användare som kan granska sidversioner.",
-	'validationstatistics-table' => "Statistik för varje namnrymd visas nedan, ''förutom'' omdirigeringssidor.",
+	'validationstatistics-lastupdate' => "''Följande uppgifter uppdaterades senast på $1 vid $2.''",
+	'validationstatistics-pndtime' => "Redigeringar som har kollats av etablerade användare anses vara granskade.
+
+Den genomsnittliga förseningen för [[Special:OldReviewedPages|sidor med väntande ogranskade redigeringar]] är '''$1'''.
+Dessa sidor anses vara ''utdaterade''. Likaså anses sidor vara ''synkade'' om inga redigeringar väntar på granskning.",
+	'validationstatistics-revtime' => "Den genomsnittliga väntan för redigeringar av ''användare som inte har loggat in'' för att granskas är '''$1'''; medianen är '''$2'''. 
+$3",
+	'validationstatistics-table' => "Sidgranskningsstatistik för varje namnrymd visas nedan, ''förutom'' omdirigeringssidor.",
 	'validationstatistics-ns' => 'Namnrymd',
 	'validationstatistics-total' => 'Sidor',
 	'validationstatistics-stable' => 'Granskad',
