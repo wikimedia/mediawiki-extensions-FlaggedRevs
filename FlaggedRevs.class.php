@@ -1458,8 +1458,8 @@ class FlaggedRevs {
 					'fi_rev_id' 		=> $rev->getId(),
 					'fi_name' 			=> $dbkey,
 					'fi_img_sha1' 		=> $sha1,
-					// b/c: NULL becomes '' for old fi_img_timestamp def (non-strict)
-					'fi_img_timestamp'  => $time ? $dbw->timestamp( $time ) : null
+					// b/c: fi_img_timestamp DEFAULT either NULL (new) or '' (old)
+					'fi_img_timestamp'  => $time ? $dbw->timestamp( $time ) : 'DEFAULT'
 				);
 				$imgset[] = $fileIncludeData;
 			}
