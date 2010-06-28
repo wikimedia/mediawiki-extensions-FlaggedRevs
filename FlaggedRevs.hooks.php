@@ -2011,7 +2011,7 @@ class FlaggedRevsHooks {
 		$watchlist = SpecialPage::getTitleFor( 'Watchlist' );
 		$recentchanges = SpecialPage::getTitleFor( 'Recentchanges' );
 		if ( $wgTitle->equals( $watchlist ) || $wgTitle->equals( $recentchanges ) ) {
-			$dbr = wfGetDB( DB_SLAVE );
+			$dbr = wfGetDB( DB_SLAVE, 'watchlist' );
 			$watchedOutdated = $dbr->selectField(
 				array( 'watchlist', 'page', 'flaggedpages' ),
 				'1', // existence
