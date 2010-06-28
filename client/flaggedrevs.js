@@ -13,6 +13,8 @@ var FlaggedRevs = {
 		'toggleShow'    	: '(+)',
 		'toggleHide'    	: '(-)'
 	},
+	/* Dropdown collapse timer */
+	'boxCollapseTimer': null,
 	/* Hide rating/diff clutter */
 	'enableShowhide': function() {
 		// Rating detail box
@@ -76,11 +78,18 @@ var FlaggedRevs = {
 			toggle.innerHTML = this.messages.toggleShow;
 		}
 	},
-	
+
+	/* Expands flag info box details on mouseOver */
+	'onBoxMouseOver': function( event ) {
+		window.clearTimeout( this.boxCollapseTimer );
+		this.boxCollapseTimer = null;
+		this.showBoxDetails();
+	},
+
 	/* Hides flag info box details on mouseOut *except* for event bubbling */
 	'onBoxMouseOut': function( event ) {
 		if( !this.isMouseOutBubble( event, 'mw-fr-revisiontag' ) ) {
-			this.hideBoxDetails();
+			this.boxCollapseTimer = window.setTimeout( this.hideBoxDetails, 150 );
 		}
 	},
 	
