@@ -783,6 +783,7 @@ class FlaggedArticleView {
 		if ( $frev ) {
 			$time = $frev->getFileTimestamp();
 			// B/C, may be stored in associated image version metadata table
+			// @TODO: remove, updateTracking.php does this
 			if ( !$time ) {
 				$dbr = wfGetDB( DB_SLAVE );
 				$time = $dbr->selectField( 'flaggedimages',
@@ -791,6 +792,8 @@ class FlaggedArticleView {
 						'fi_name' => $this->article->getTitle()->getDBkey() ),
 					__METHOD__
 				);
+				$time = trim( $time ); // remove garbage
+				$time = $time ? wfTimestamp( TS_MW, $time ) : false;
 			}
 			# NOTE: if not found, this will use the current
 			$wgArticle = new ImagePage( $this->article->getTitle(), $time );

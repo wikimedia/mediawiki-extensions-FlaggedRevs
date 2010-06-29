@@ -95,17 +95,18 @@ class FlaggedRevsHooks {
 
 	public static function injectGlobalJSVars( array &$globalVars ) {
 		global $wgUser;
-		$fa = FlaggedArticleView::globalArticleInstance();
-		# Try to only add to relevant pages
-		if ( !$fa || !FlaggedRevs::inReviewNamespace( $fa->getTitle() ) ) {
-			return true;
-		}
 		# Get the review tags on this wiki
 		$rTags = FlaggedRevs::getJSTagParams();
-		# Get page-specific meta-data
-		$frev = $fa->getStableRev();
-		$stableId = $frev ? $frev->getRevId() : 0;
 		$globalVars['wgFlaggedRevsParams'] = $rTags;
+		# Get page-specific meta-data
+		$fa = FlaggedArticleView::globalArticleInstance();
+		# Try to only add to relevant pages
+		if ( $fa && $fa->isReviewable() ) {
+			$frev = $fa->getStableRev();
+			$stableId = $frev ? $frev->getRevId() : 0;
+		} else {
+			$stableId = null;
+		}
 		$globalVars['wgStableRevisionId'] = $stableId;
 		if ( $wgUser->isAllowed( 'review' ) ) {
 			$ajaxReview = (object) array(
@@ -1018,7 +1019,8 @@ class FlaggedRevsHooks {
 		// Is the page reviewable?
 		if ( $fa->isReviewable( FR_MASTER ) ) {
 			$revId = $rc->mAttribs['rc_this_oldid'];
-			$quality = FlaggedRevs::getRevQuality( $rc->mAttribs['rc_cur_id'], $revId, FR_MASTER );
+			$quality = FlaggedRevs::getRevQuality(
+				$rc->mAttribs['rc_cur_id'], $revId, FR_MASTER );
 			if ( $quality !== false && $quality >= FR_SIGHTED ) {
 				RevisionReviewForm::updateRecentChanges( $rc->getTitle(), $revId );
 				$rc->mAttribs['rc_patrolled'] = 1; // make sure irc/email notifs know status
@@ -1598,21 +1600,20 @@ class FlaggedRevsHooks {
 		Title &$title, WebRequest $request, &$ignoreRedirect, &$target, Article &$article
 	) {
 		global $wgMemc, $wgParserCacheExpireTime;
-		# Get an instance on the title ($wgTitle)
-		if ( !FlaggedRevs::inReviewNamespace( $title ) ) {
-			return true;
+		$fa = FlaggedArticle::getTitleInstance( $title ); // on $wgTitle
+		if ( !$fa->isReviewable() ) {
+			return true; // nothing to do
 		}
 		if ( $request->getVal( 'stableid' ) ) {
 			$ignoreRedirect = true;
 		} else {
 			# Try the cache...
-			$key = wfMemcKey( 'flaggedrevs', 'overrideRedirect', $title->getArticleId() );
+			$key = wfMemcKey( 'flaggedrevs', 'overrideRedirect', $article->getId() );
 			$tuple = FlaggedRevs::getMemcValue( $wgMemc->get( $key ), $article );
 			if ( is_array( $tuple ) ) {
 				list( $ignoreRedirect, $target ) = $tuple;
-				return true;
+				return true; // use stable redirect
 			}
-			$fa = FlaggedArticle::getTitleInstance( $title );
 			$srev = $fa->getStableRev();
 			if ( $srev ) {
 				$view = FlaggedArticleView::singleton();
@@ -1621,7 +1622,7 @@ class FlaggedRevsHooks {
 					$text = $srev->getRevText();
 					$redirect = $fa->followRedirectText( $text );
 					if ( $redirect ) {
-						$target = $redirect;
+						$target = $redirect; // use stable redirect
 					} else {
 						$ignoreRedirect = true;
 					}
