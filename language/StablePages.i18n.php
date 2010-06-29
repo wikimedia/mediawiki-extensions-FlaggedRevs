@@ -238,6 +238,7 @@ $messages['es'] = array(
 Las ediciones hechas por otros usuarios no son mostradas a los lectores por defecto hasta que un usuario autorizado los revise.',
 	'stablepages-none' => 'No hay páginas en esta lista',
 	'stablepages-config' => 'Configuración',
+	'stablepages-indef' => 'Sólo caducidad infinita',
 );
 
 /** Estonian (Eesti)
@@ -293,6 +294,7 @@ $messages['fr'] = array(
 Aussi, les modifications faites par les autres utilisateurs ne sont pas affichées par défaut aux lecteurs tant qu'un utilisateur habilité les aient relues.",
 	'stablepages-none' => 'Il n’y a aucune page dans cette liste.',
 	'stablepages-config' => 'Configuration',
+	'stablepages-indef' => 'Délai d’expiration infini seulement',
 );
 
 /** Franco-Provençal (Arpetan)
@@ -404,6 +406,7 @@ $messages['ia'] = array(
 	'stablepages-text' => 'Hic infra es un lista de paginas al quales solmente certe usatores pote facer modificationes que non require revision. Modificationes facite per altere usatores non es initialmente monstrate al lectores usque un usator autorisate los habera revidite.',
 	'stablepages-none' => 'Il non ha paginas in iste lista',
 	'stablepages-config' => 'Configuration',
+	'stablepages-indef' => 'Expiration indefinite solmente',
 );
 
 /** Indonesian (Bahasa Indonesia)
@@ -470,11 +473,12 @@ $messages['km'] = array(
 
 /** Korean (한국어)
  * @author Devunt
+ * @author Gapo
  * @author Kwj2772
  */
 $messages['ko'] = array(
 	'stablepages' => '편집 승인을 거치는 문서 목록',
-	'stablepages-text' => '다음은 문서에 제한이 걸려 있어 특정 사용자만 검토를 거치지 않고 편집을 할 수 있는 문서의 목록입니다. 이러한 편집은 권한이 있는 사용자가 검토하기 전까지는 허용되지 않습니다.',
+	'stablepages-text' => '다음은 문서에 제한이 걸려 있어 특정한 사용자만 검토를 거치지 않고 편집을 할 수 있는 문서의 목록입니다. 다른 사용자의 편집은 권한이 있는 사용자가 검토하기 전까지는 기본적으로 보여지지 않습니다.',
 	'stablepages-none' => '이 목록에 문서가 없습니다.',
 	'stablepages-config' => '설정',
 );
@@ -566,6 +570,7 @@ $messages['nl'] = array(
 Bewerkingen door andere gebruikers worden niet weergegeven totdat daartoe gerechtigde gebruikers ze gecontroleerd hebben.",
 	'stablepages-none' => "Er zijn geen pagina's die aan de criteria voldoen",
 	'stablepages-config' => 'Instellingen',
+	'stablepages-indef' => 'Alleen zonder vervaldatum',
 );
 
 /** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
@@ -847,6 +852,7 @@ $messages['vi'] = array(
 Độc giả sẽ không thấy được sửa đổi của người khác cho đến khi người duyệt bài chấp nhận nó.',
 	'stablepages-none' => 'Không có trang nào trong danh sách',
 	'stablepages-config' => 'Cấu hình',
+	'stablepages-indef' => 'Chỉ hiện trang vô hạn',
 );
 
 /** Cantonese (粵語)

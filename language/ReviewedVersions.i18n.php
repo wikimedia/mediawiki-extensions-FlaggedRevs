@@ -869,7 +869,7 @@ $messages['pt'] = array(
 	'reviewedversions-page' => 'Nome da página:',
 	'reviewedversions-none' => '[[:$1]] não tem edições revistas.',
 	'reviewedversions-list' => 'Encontra abaixo {{PLURAL:$2|a única edição|uma lista das edições}} da página [[:$1]], que {{PLURAL:$2|foi revista|foram revistas}}:',
-	'reviewedversions-review' => 'Revista em <i>$1</i> por $2',
+	'reviewedversions-review' => 'Revista às <i>$1</i> por $2',
 );
 
 /** Brazilian Portuguese (Português do Brasil)

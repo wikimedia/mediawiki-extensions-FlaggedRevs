@@ -717,6 +717,13 @@ $messages['ru'] = array(
 	'configuredpages-def-stable' => 'опубликованная версия',
 );
 
+/** Rusyn (русиньскый язык)
+ * @author Gazeb
+ */
+$messages['rue'] = array(
+	'configuredpages-config' => 'Конфіґурація',
+);
+
 /** Yakut (Саха тыла) */
 $messages['sah'] = array(
 	'configuredpages-prec-none' => 'баһыйара (приоритета) суох',

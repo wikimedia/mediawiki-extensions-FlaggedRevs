@@ -1270,7 +1270,7 @@ Voici les paramètres actuels de [[:$1|$1]] :",
 	'stabilization-submit' => 'Confirmer',
 	'stabilization-notexists' => "Il n'y a pas de page « [[:$1|$1]] », pas de paramétrage possible",
 	'stabilization-notcontent' => 'La page « [[:$1|$1]] » ne peut être révisée, pas de paramétrage possible',
-	'stabilization-comment' => 'Raison :',
+	'stabilization-comment' => 'Motif :',
 	'stabilization-otherreason' => 'Autre raison :',
 	'stabilization-expiry' => 'Expire :',
 	'stabilization-othertime' => 'Autre temps :',
@@ -2140,6 +2140,7 @@ $messages['kn'] = array(
 
 /** Korean (한국어)
  * @author Devunt
+ * @author Gapo
  * @author Kwj2772
  */
 $messages['ko'] = array(
