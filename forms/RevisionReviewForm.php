@@ -405,11 +405,15 @@ class RevisionReviewForm
 		$oldSv = FlaggedRevision::newFromStable( $this->page, FR_MASTER );
 		
 		# Is this rev already flagged? (re-review)
-		if ( $oldSv && $rev->getId() == $oldSv->getRevId() ) {
-			$oldfrev = $oldSv; // save a query
-		} else {
-			$oldfrev = FlaggedRevision::newFromTitle( $this->page, $rev->getId(), FR_MASTER );
+		$oldFrev = null;
+		if ( $oldSv ) { // stable rev exists
+			if ( $rev->getId() == $oldSv->getRevId() ) {
+				$oldFrev = $oldSv; // save a query
+			} else {
+				$oldFrev = FlaggedRevision::newFromTitle( $this->page, $rev->getId(), FR_MASTER );
+			}
 		}
+		
 		# Be loose on templates that includes other files/templates dynamically.
 		# Strict checking breaks randomized images/metatemplates...(bug 14580)
 		global $wgUseCurrentTemplates, $wgUseCurrentImages;
@@ -431,15 +435,15 @@ class RevisionReviewForm
 		FlaggedRevs::clearIncludeVersionCache( $rev->getId() );
 		
 		# Is this a duplicate review?
-		if ( $oldfrev ) {
-			$fileSha1 = $fileData ?
-				$fileData['sha1'] : null; // stable upload version for file pages
+		if ( $oldFrev ) {
+			// stable upload version for file pages
+			$fileSha1 = $fileData ? $fileData['sha1'] : null;
 			$synced = (
-				$oldfrev->getTags() == $flags && // tags => quality
-				$oldfrev->getFileSha1() == $fileSha1 &&
-				$oldfrev->getComment() == $this->notes &&
-				$oldfrev->getTemplateVersions() == $tmpParams &&
-				$oldfrev->getFileVersions() == $imgParams
+				$oldFrev->getTags() == $flags && // tags => quality
+				$oldFrev->getFileSha1() == $fileSha1 &&
+				$oldFrev->getComment() == $this->notes &&
+				$oldFrev->getTemplateVersions() == $tmpParams &&
+				$oldFrev->getFileVersions() == $imgParams
 			);
 			# Don't review if the same
 			if ( $synced ) {
