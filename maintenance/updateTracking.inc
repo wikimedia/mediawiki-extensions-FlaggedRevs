@@ -65,13 +65,11 @@ function update_flaggedrevs( $start = null ) {
 				$sha1 = $row->fr_img_sha1;
 				$file = $row->fr_img_name;
 			}
-			if( $file &&
-				($file != $row->fr_img_name
-				|| $time != $row->fr_img_timestamp
-				|| $sha1 != $row->fr_img_sha1) )
+			if( $quality != $row->fr_quality
+				|| $file != $row->fr_img_name
+				|| $sha1 != $row->fr_img_sha1
+				|| $time != $row->fr_img_timestamp )
 			{
-				$changed++;
-			} else if ( $quality != $row->fr_quality ) {
 				$changed++;
 			}
 			# Update the row...
