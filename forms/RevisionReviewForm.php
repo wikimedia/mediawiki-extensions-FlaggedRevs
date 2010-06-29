@@ -383,7 +383,7 @@ class RevisionReviewForm
 				'fi_name'			=> $img_title->getDBkey(),
 				'fi_img_sha1'		=> $key,
 				// b/c: fi_img_timestamp DEFAULT either NULL (new) or '' (old)
-				'fi_img_timestamp' 	=> $timestamp ? $dbw->timestamp( $timestamp ) : 'DEFAULT'
+				'fi_img_timestamp' 	=> $timestamp ? $dbw->timestamp( $timestamp ) : ''
 			);
 			if ( !isset( $imgParams[$img_title->getDBkey()] ) ) {
 				$imgParams[$img_title->getDBkey()] = array();

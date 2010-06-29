@@ -1467,7 +1467,7 @@ class FlaggedRevs {
 					'fi_name' 			=> $dbkey,
 					'fi_img_sha1' 		=> $sha1,
 					// b/c: fi_img_timestamp DEFAULT either NULL (new) or '' (old)
-					'fi_img_timestamp'  => $time ? $dbw->timestamp( $time ) : 'DEFAULT'
+					'fi_img_timestamp'  => $time ? $dbw->timestamp( $time ) : ''
 				);
 				$imgset[] = $fileIncludeData;
 			}
