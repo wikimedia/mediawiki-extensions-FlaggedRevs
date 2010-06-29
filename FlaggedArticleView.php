@@ -1793,23 +1793,24 @@ class FlaggedArticleView {
 	public function maybeUpdateMainCache( &$outputDone, &$pcache ) {
 		global $wgUser, $wgRequest;
 		$this->load();
-
 		$action = $wgRequest->getVal( 'action', 'view' );
-		if ( $action == 'purge' )
+		if ( $action == 'purge' ) {
 			return true; // already purging!
+		}
 		# Only trigger on article view for content pages, not for protect/delete/hist
-		if ( !self::isViewAction( $action ) || !$wgUser->isAllowed( 'review' ) )
+		if ( !self::isViewAction( $action ) || !$wgUser->isAllowed( 'review' ) ) {
 			return true;
-		if ( !$this->article->exists() || !$this->article->isReviewable() )
+		}
+		if ( !$this->article->exists() || !$this->article->isReviewable() ) {
 			return true;
-
+		}
 		$parserCache = ParserCache::singleton();
 		$parserOut = $parserCache->get( $this->article, $wgUser );
 		if ( $parserOut ) {
 			# Clear older, incomplete, cached versions
 			# We need the IDs of templates and timestamps of images used
-			if ( !isset( $parserOut->fr_newestTemplateID )
-				|| !isset( $parserOut->fr_newestImageTime ) )
+			if ( !isset( $parserOut->fr_ImageSHA1Keys )
+				|| !isset( $parserOut->mTemplateIds ) )
 			{
 				$this->article->getTitle()->invalidateCache();
 			}

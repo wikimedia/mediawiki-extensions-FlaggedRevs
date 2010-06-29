@@ -462,24 +462,23 @@ class FlaggedRevs {
 	 * @param string $text
 	 * @param Title $title
 	 * @param integer $id, revision id
-	 * @return array( string, array, array, array, int )
+	 * @return array( string, array, array )
 	 * All included pages/arguments are expanded out
 	 */
 	public static function expandText( $text = '', Title $title, $id ) {
 		global $wgParser;
 		# Make our hooks trigger (force unstub so setting doesn't get lost)
 		$wgParser->firstCallInit();
+		# Begin stable parse
 		$wgParser->fr_isStable = ( self::inclusionSetting() != FR_INCLUDES_CURRENT );
 		# Parse with default options
 		$options = self::makeParserOptions();
 		$outputText = $wgParser->preprocess( $text, $title, $options, $id );
 		$out =& $wgParser->mOutput;
-		$data = array( $outputText, $out->mTemplates, $out->mTemplateIds,
-			$out->fr_includeErrors, $out->fr_newestTemplateID );
-		# Done!
+		# Stable parse done!
 		$wgParser->fr_isStable = false;
 		# Return data array
-		return $data;
+		return array( $outputText, $out->mTemplateIds, $out->fr_includeErrors );
 	}
 
 	/**
@@ -686,11 +685,12 @@ class FlaggedRevs {
 		}
 		return null; // cache not found
 	}
-	
+
 	# ################ Synchronization and link update functions #################
 
 	/**
-	 * Check if all includes in $stableOutput are the same as those in $currentOutput
+	 * Check if all includes in $stableOutput are the same as those in $currentOutput.
+	 * Only use this if both outputs are from the same source text.
 	 * @param ParserOutput $stableOutput
 	 * @param ParserOutput $currentOutput
 	 * @return bool
@@ -698,19 +698,27 @@ class FlaggedRevs {
 	public static function includesAreSynced(
 		ParserOutput $stableOutput, ParserOutput $currentOutput
 	) {
-		$sTmpls = $stableOutput->mTemplateIds;
-		$cTmpls = $currentOutput->mTemplateIds;
-		foreach ( $sTmpls as $name => $revId ) {
-			if ( isset( $cTmpls[$name] ) && $cTmpls[$name] != $revId ) {
-				return false; // updated/created
+		if ( isset( $stableOutput->mTemplateIds ) // sanity check
+			&& isset( $currentOutput->mTemplateIds ) )
+		{
+			$sTmpls = $stableOutput->mTemplateIds;
+			$cTmpls = $currentOutput->mTemplateIds;
+			foreach ( $sTmpls as $name => $revId ) {
+				if ( isset( $cTmpls[$name] ) && $cTmpls[$name] != $revId ) {
+					return false; // updated/created
+				}
 			}
 		}
-		$sFiles = $stableOutput->fr_ImageSHA1Keys;
-		$cFiles = $currentOutput->fr_ImageSHA1Keys;
-		foreach ( $sFiles as $name => $timeKey ) {
-			foreach ( $timeKey as $sTs => $sSha1 ) {
-				if ( isset( $cFiles[$name] ) && !isset( $cFiles[$name][$sTs] ) ) {
-					return false; // updated/created
+		if ( isset( $stableOutput->fr_ImageSHA1Keys ) // sanity check
+			&& isset( $currentOutput->fr_ImageSHA1Keys ) )
+		{
+			$sFiles = $stableOutput->fr_ImageSHA1Keys;
+			$cFiles = $currentOutput->fr_ImageSHA1Keys;
+			foreach ( $sFiles as $name => $timeKey ) {
+				foreach ( $timeKey as $sTs => $sSha1 ) {
+					if ( isset( $cFiles[$name] ) && !isset( $cFiles[$name][$sTs] ) ) {
+						return false; // updated/created
+					}
 				}
 			}
 		}

@@ -371,8 +371,6 @@ class FlaggedRevsHooks {
 	*/
 	public static function parserAddFields( Parser $parser ) {
 		$parser->mOutput->fr_ImageSHA1Keys = array();
-		$parser->mOutput->fr_newestImageTime = "0";
-		$parser->mOutput->fr_newestTemplateID = 0;
 		$parser->mOutput->fr_includeErrors = array();
 		return true;
 	}
@@ -433,9 +431,6 @@ class FlaggedRevsHooks {
 				$skip = true; // If ID is zero, don't load it
 			}
 		}
-		if ( $id > $parser->mOutput->fr_newestTemplateID ) {
-			$parser->mOutput->fr_newestTemplateID = $id;
-		}
 		return true;
 	}
 
@@ -450,7 +445,6 @@ class FlaggedRevsHooks {
 			return true;
 		}
 		$file = null;
-		$isKnownLocal = $isLocalFile = false; // local file on this wiki?
 		# Normalize NS_MEDIA to NS_FILE
 		if ( $nt->getNamespace() == NS_MEDIA ) {
 			$title = Title::makeTitle( NS_FILE, $nt->getDBkey() );
@@ -469,7 +463,6 @@ class FlaggedRevsHooks {
 			if ( $srev && $srev->getFileTimestamp() ) {
 				$time = $srev->getFileTimestamp(); // TS or null
 				$sha1 = $srev->getFileSha1();
-				$isKnownLocal = true; // must be local
 			}
 		}
 		# Check cache before doing another DB hit...
@@ -481,7 +474,6 @@ class FlaggedRevsHooks {
 			if ( !$time || $timeP > $time ) {
 				$time = $timeP;
 				$sha1 = $sha1P;
-				$isKnownLocal = false; // up in the air...possibly a commons image
 			}
 		}
 		# If there is no stable version (or that feature is not enabled), use
@@ -499,7 +491,6 @@ class FlaggedRevsHooks {
 			if ( $row && ( $time === false || $reviewedTS > $time ) ) {
 				$time = $reviewedTS;
 				$sha1 = $row->fi_img_sha1;
-				$isKnownLocal = false; // up in the air...possibly a commons image
 			}
 		}
 		$query = $time ? "filetimestamp=" . urlencode( wfTimestamp( TS_MW, $time ) ) : "";
@@ -523,20 +514,6 @@ class FlaggedRevsHooks {
 		# Add image metadata to parser output
 		$parser->mOutput->fr_ImageSHA1Keys[$title->getDBkey()] = array();
 		$parser->mOutput->fr_ImageSHA1Keys[$title->getDBkey()][$time] = $sha1;
-		# Check if this file is local or on a foreign repo...
-		if ( $isKnownLocal ) {
-			$isLocalFile = true; // no need to check
-		# Load the image if needed (note that time === '0' means we have no image)
-		} elseif ( $time !== "0" ) {
-			# FIXME: would be nice not to double fetch!
-			$file = $file ? $file : self::getLocalFile( $title, $time );
-			$isLocalFile = $file && $file->exists() && $file->isLocal();
-		}
-		# Bug 15748, be lax about commons image sync status...
-		# When getting the max timestamp, just ignore the commons image timestamps.
-		if ( $isLocalFile && $time > $parser->mOutput->fr_newestImageTime ) {
-			$parser->mOutput->fr_newestImageTime = $time;
-		}
 		return true;
 	}
 
@@ -552,7 +529,6 @@ class FlaggedRevsHooks {
 			return true; // nothing to do
 		}
 		$file = null;
-		$isKnownLocal = $isLocalFile = false; // local file on this wiki?
 		# Check for stable version of image if this feature is enabled.
 		# Should be in reviewable namespace, this saves unneeded DB checks as
 		# well as enforce site settings if they are later changed.
@@ -564,7 +540,6 @@ class FlaggedRevsHooks {
 			if ( $srev && $srev->getFileTimestamp() ) {
 				$time = $srev->getFileTimestamp(); // TS or null
 				$sha1 = $srev->getFileSha1();
-				$isKnownLocal = true; // must be local
 			}
 		}
 		# Check cache before doing another DB hit...
@@ -575,7 +550,6 @@ class FlaggedRevsHooks {
 			if ( !$time || $timeP > $time ) {
 				$time = $timeP;
 				$sha1 = $sha1P;
-				$isKnownLocal = false; // up in the air...possibly a commons image
 			}
 		}
 		# If there is no stable version (or that feature is not enabled), use
@@ -592,7 +566,6 @@ class FlaggedRevsHooks {
 			if ( $row && ( $time === false || $reviewedTS > $time ) ) {
 				$time = $reviewedTS;
 				$sha1 = $row->fi_img_sha1;
-				$isKnownLocal = false; // up in the air...possibly a commons image
 			}
 		}
 		$query = $time ? "filetimestamp=" . urlencode( wfTimestamp( TS_MW, $time ) ) : "";
@@ -616,19 +589,6 @@ class FlaggedRevsHooks {
 		# Add image metadata to parser output
 		$parser->mOutput->fr_ImageSHA1Keys[$nt->getDBkey()] = array();
 		$parser->mOutput->fr_ImageSHA1Keys[$nt->getDBkey()][$time] = $sha1;
-		# Check if this file is local or on a foreign repo...
-		if ( $isKnownLocal ) {
-			$isLocalFile = true; // no need to check
-		# Load the image if needed (note that time === '0' means we have no image)
-		} elseif ( $time !== "0" ) {
-			# FIXME: would be nice not to double fetch!
-			$file = $file ? $file : self::getLocalFile( $nt, $time );
-			$isLocalFile = $file && $file->exists() && $file->isLocal();
-		}
-		# Bug 15748, be lax about commons image sync status
-		if ( $isLocalFile && $time > $parser->mOutput->fr_newestImageTime ) {
-			$parser->mOutput->fr_newestImageTime = $time;
-		}
 		return true;
 	}
 
@@ -636,43 +596,29 @@ class FlaggedRevsHooks {
 	* Insert image timestamps/SHA-1 keys into parser output
 	*/
 	public static function parserInjectTimestamps( Parser $parser ) {
-		# Don't trigger this for stable version parsing...it will do it separately.
-		if ( !empty( $parser->fr_isStable ) ) {
-			return true;
+		$pOutput =& $parser->mOutput; // convenience
+		if ( !isset( $pOutput->mImages ) ) {
+			return true; // sanity check
 		}
-		$maxRevision = 0;
-		# Record the max template revision ID
-		if ( !empty( $parser->mOutput->mTemplateIds ) ) {
-			foreach ( $parser->mOutput->mTemplateIds as $namespace => $DBKeyRev ) {
-				foreach ( $DBKeyRev as $DBkey => $revID ) {
-					if ( $revID > $maxRevision ) {
-						$maxRevision = $revID;
-					}
-				}
-			}
-		}
-		$parser->mOutput->fr_newestTemplateID = $maxRevision;
+		$stableOut = !empty( $parser->fr_isStable );
 		# Fetch the current timestamps of the images.
-		$maxTimestamp = "0";
-		if ( !empty( $parser->mOutput->mImages ) ) {
-			foreach ( $parser->mOutput->mImages as $filename => $x ) {
-				# FIXME: it would be nice not to double fetch these!
-				$file = wfFindFile( Title::makeTitleSafe( NS_FILE, $filename ) );
-				$parser->mOutput->fr_ImageSHA1Keys[$filename] = array();
-				if ( $file ) {
-					$ts = $file->getTimestamp();
-					# Bug 15748, be lax about commons image sync status
-					if ( $file->isLocal() && $ts > $maxTimestamp ) {
-						$maxTimestamp = $ts;
-					}
-					$parser->mOutput->fr_ImageSHA1Keys[$filename][$ts] = $file->getSha1();
-				} else {
-					$parser->mOutput->fr_ImageSHA1Keys[$filename]["0"] = '';
+		foreach ( $pOutput->mImages as $filename => $x ) {
+			# FIXME: it would be nice not to double fetch these!
+			$time = false; // current
+			if ( $stableOut && isset( $pOutput->fr_ImageSHA1Keys[$filename] ) ) {
+				foreach( $pOutput->fr_ImageSHA1Keys[$filename] as $time => $sha1 ) {
+					// Fetch file with $time to confirm the specified version exists
 				}
 			}
+			$title = Title::makeTitleSafe( NS_FILE, $filename );
+			$file = wfFindFile( $title, array( 'time' => $time ) );
+			$pOutput->fr_ImageSHA1Keys[$filename] = array();
+			if ( $file ) {
+				$pOutput->fr_ImageSHA1Keys[$filename][$file->getTimestamp()] = $file->getSha1();
+			} else {
+				$pOutput->fr_ImageSHA1Keys[$filename]["0"] = '';
+			}
 		}
-		# Record the max timestamp
-		$parser->mOutput->fr_newestImageTime = $maxTimestamp;
 		return true;
 	}
 

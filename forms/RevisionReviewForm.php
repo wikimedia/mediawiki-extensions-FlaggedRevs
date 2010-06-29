@@ -482,8 +482,8 @@ class RevisionReviewForm
 		$parserCache = ParserCache::singleton();
 		$poutput = $parserCache->get( $article, $this->user );
 		if ( !$poutput
-			|| !isset( $poutput->fr_newestTemplateID )
-			|| !isset( $poutput->fr_newestImageTime ) )
+			|| !isset( $poutput->fr_ImageSHA1Keys )
+			|| !isset( $poutput->mTemplateIds ) )
 		{
 			$source = $article->getContent();
 			$options = FlaggedRevs::makeParserOptions();
@@ -503,19 +503,15 @@ class RevisionReviewForm
 			if ( !Title::newFromRedirect( $text ) ) {
 				FlaggedRevs::updatePageCache( $article, $this->user, $stableOutput );
 			}
-			# We can set the sync cache key already
-			$includesSynced = true;
-			if ( $poutput->fr_newestImageTime > $stableOutput->fr_newestImageTime ) {
-				$includesSynced = false;
-			} elseif ( $poutput->fr_newestTemplateID > $stableOutput->fr_newestTemplateID ) {
-				$includesSynced = false;
-			}
 			$u->fr_stableRev = $sv; // no need to re-fetch this!
 			$u->fr_stableParserOut = $stableOutput; // no need to re-fetch this!
-			# We can set the sync cache key already.
-			$key = wfMemcKey( 'flaggedrevs', 'includesSynced', $article->getId() );
-			$data = FlaggedRevs::makeMemcObj( $includesSynced ? "true" : "false" );
-			$wgMemc->set( $key, $data, $wgParserCacheExpireTime );
+			# We can set the sync cache key already...
+			if ( $rev->isCurrent() ) {
+				$includesSynced = FlaggedRevs::includesAreSynced( $stableOutput, $poutput );
+				$key = wfMemcKey( 'flaggedrevs', 'includesSynced', $article->getId() );
+				$data = FlaggedRevs::makeMemcObj( $includesSynced ? "true" : "false" );
+				$wgMemc->set( $key, $data, $wgParserCacheExpireTime );
+			}
 		} else {
 			# Get the old stable cache
 			$stableOutput = FlaggedRevs::getPageCache( $article, $this->user );
