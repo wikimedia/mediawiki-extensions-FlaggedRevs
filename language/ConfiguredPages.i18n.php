@@ -108,11 +108,14 @@ Arventennoù zo a c'hall lakaat da cheñch ar stumm diskwelet d'al lennerien pe 
 	'configuredpages-def-stable' => 'stumm embannet',
 );
 
-/** Bosnian (Bosanski) */
+/** Bosnian (Bosanski)
+ * @author CERminator
+ */
 $messages['bs'] = array(
 	'configuredpages-prec-none' => 'bez prednosti',
 	'configuredpages-prec-quality' => 'poredak po kvalitetu',
 	'configuredpages-prec-pristine' => 'prvobitni poredak',
+	'configuredpages-def-draft' => 'posljednja verzija',
 );
 
 /** Catalan (Català)

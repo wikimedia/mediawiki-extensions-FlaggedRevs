@@ -67,7 +67,7 @@ $messages['an'] = array(
 	'reviewedversions-leg1' => "Amostrar a lista de versions revisatas d'una pachina",
 	'reviewedversions-page' => "Nombre d'a pachina:",
 	'reviewedversions-none' => '"[[:$1]]" no tiene versions revisatas.',
-	'reviewedversions-list' => "A siguient ye una lista de versions de [[:$1]] que s'han revisato:",
+	'reviewedversions-list' => "A siguient ye una lista con {{PLURAL:%2|a sola versión|as versions}} de [[:$1]] que s'han revisato:",
 	'reviewedversions-review' => 'Revisata por $2 o <i>$1</i>',
 );
 

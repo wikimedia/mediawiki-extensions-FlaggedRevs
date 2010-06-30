@@ -481,6 +481,7 @@ $messages['ko'] = array(
 	'stablepages-text' => '다음은 문서에 제한이 걸려 있어 특정한 사용자만 검토를 거치지 않고 편집을 할 수 있는 문서의 목록입니다. 다른 사용자의 편집은 권한이 있는 사용자가 검토하기 전까지는 기본적으로 보여지지 않습니다.',
 	'stablepages-none' => '이 목록에 문서가 없습니다.',
 	'stablepages-config' => '설정',
+	'stablepages-indef' => '무기한 유효만 가능',
 );
 
 /** Colognian (Ripoarisch)
