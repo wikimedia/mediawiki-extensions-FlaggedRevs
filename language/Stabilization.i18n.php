@@ -1497,9 +1497,9 @@ $messages['haw'] = array(
 $messages['he'] = array(
 	'stabilization-tab' => 'נבדק',
 	'stabilization' => 'התייצבות הדף',
-	'stabilization-text' => "'''שנו את ההגדרות שלהלן כדי לשנות את אופני בחירתה והצגתה של הגרסה היציבה של [[:\$1|\$1]].'''
+	'stabilization-text' => "'''ניתן לשנות את ההגדרות שלהלן כדי לשנות את אופני בחירתה והצגתה של הגרסה היציבה של [[:\$1|\$1]].'''
 
-'''הערה:''' לשינוי ההגדרות של '''בחירת גרסה יציבה''' כך שייעשה שימוש בגרסאות \"איכותיות\" או \"מושלמות\" כברירת מחדל, לא תהיה הפשעה אם לא קיימות גרסאות כאלו. נא לשים לב גם לכך שגירסה \"איכותית\" נחשבת גם לגירסה \"בדוקה וכו'.",
+'''הערה:''' לשינוי ההגדרות של '''בחירת גרסה יציבה''' כך שייעשה שימוש בגרסאות \"איכותיות\" או \"מושלמות\" כברירת מחדל לא תהיה השפעה אם לא קיימות גרסאות כאלו. בנוסף, גרסה \"איכותית\" נחשבת גם לגרסה \"בדוקה\" וכן הלאה.",
 	'stabilization-perm' => 'אין לכם הרשאה לשנות את תצורת הגרסה היציבה.
 להלן ההגדרות הנוכחיות עבור [[:$1|$1]]:',
 	'stabilization-page' => 'שם הדף:',
@@ -1509,9 +1509,9 @@ $messages['he'] = array(
 	'stabilization-select2' => 'הגרסה האחרונה שנבדקה',
 	'stabilization-select3' => 'הגרסה המושלמת האחרונה; אם לא קיימת, הגרסה האיכותית או הנצפית האחרונה',
 	'stabilization-def' => 'הגרסה המופיעה כברירת מחדל',
-	'stabilization-def1' => 'הגרסה היציבה; אם לא קיימת, הגרסה הנוכחית/טיוטה',
-	'stabilization-def2' => 'הגרסה הנוכחית/טיוטה',
-	'stabilization-restrict' => 'בקורת/בקורת אוטומטית להגבלות על בדיקה אוטומטית',
+	'stabilization-def1' => 'הגרסה היציבה; אם היא לא קיימת, אז הגרסה האחרונה',
+	'stabilization-def2' => 'הגרסה האחרונה',
+	'stabilization-restrict' => 'הגבלות על בדיקה/בדיקה אוטומטית',
 	'stabilization-restrict-none' => 'אין הגבלות נוספות',
 	'stabilization-submit' => 'אישור',
 	'stabilization-notexists' => 'אין דף בשם "[[:$1|$1]]".
@@ -1529,17 +1529,17 @@ $messages['he'] = array(
 	'stabilization-def-short' => 'ברירת מחדל',
 	'stabilization-def-short-0' => 'נוכחי',
 	'stabilization-def-short-1' => 'יציב',
-	'stabilize_page_invalid' => 'כותרתו של הדף המיועד אינה תקינה',
-	'stabilize_page_notexists' => 'הדף המיועד אינו קיים',
-	'stabilize_page_unreviewable' => 'הדף המיועד אינו קיים במרחב-שם שיש בו גירסאות יציבות',
-	'stabilize_invalid_precedence' => 'ברירת גירסה לא-תקינה',
-	'stabilize_invalid_autoreview' => 'הגבלה לא-תקינה לבקורת אוטומטית',
-	'stabilize_invalid_level' => 'רמת הגנה בלתי-תקינה',
+	'stabilize_page_invalid' => 'כותרת דף היעד אינה תקינה.',
+	'stabilize_page_notexists' => 'דף היעד אינו קיים.',
+	'stabilize_page_unreviewable' => 'דף היעד אינו במרחב שם שיש בו גרסאות יציבות.',
+	'stabilize_invalid_precedence' => 'קדימות גרסאות בלתי תקינה.',
+	'stabilize_invalid_autoreview' => 'הגבלה בלתי תקינה של ביקורת אוטומטית.',
+	'stabilize_invalid_level' => 'רמת הגנה בלתי תקינה.',
 	'stabilize_expiry_invalid' => 'תאריך הפקיעה אינו תקין.',
 	'stabilize_expiry_old' => 'תאריך הפקיעה כבר עבר.',
-	'stabilize_denied' => 'אין אישור',
+	'stabilize_denied' => 'ההרשאה נדחתה.',
 	'stabilize-expiring' => 'פקיעה: $1 (UTC)',
-	'stabilization-review' => 'ציין את הגירסה הנוכחית כבדוקה',
+	'stabilization-review' => 'סימון הגרסה הנוכחית כבדוקה',
 );
 
 /** Hindi (हिन्दी)

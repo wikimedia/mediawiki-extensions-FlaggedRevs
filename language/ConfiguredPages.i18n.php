@@ -342,15 +342,16 @@ E Deil Yystellige chenne sich villicht unterscheide, je nochdäm weli Version em
 /** Hebrew (עברית)
  * @author Amire80
  * @author DoviJ
+ * @author Rotemliss
  */
 $messages['he'] = array(
 	'configuredpages-none' => 'אין דפים ברשימה זו.',
-	'configuredpages-precedence' => 'סדר קדימה',
+	'configuredpages-precedence' => 'קדימות:',
 	'configuredpages-prec-none' => 'ללא עדיפות',
 	'configuredpages-prec-quality' => 'עדיפות לגרסאות איכותיות',
 	'configuredpages-prec-pristine' => 'עדיפות לגרסאות מושלמות',
-	'configuredpages-def-draft' => 'הגירסה האחרונה',
-	'configuredpages-def-stable' => 'גירסה יציבה',
+	'configuredpages-def-draft' => 'הגרסה האחרונה',
+	'configuredpages-def-stable' => 'גרסה יציבה',
 );
 
 /** Croatian (Hrvatski)

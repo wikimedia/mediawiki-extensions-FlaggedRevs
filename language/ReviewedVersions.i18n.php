@@ -442,7 +442,7 @@ $messages['gsw'] = array(
  * @author דניאל ב.
  */
 $messages['he'] = array(
-	'reviewedversions' => 'צפייה בגרסאות יציבות',
+	'reviewedversions' => 'גרסאות שאושרו',
 	'reviewedversions-leg1' => 'רשימת גרסאות הדף שנבדקו',
 	'reviewedversions-page' => 'שם הדף:',
 	'reviewedversions-none' => 'בדף "[[:$1]]" אין גרסאות שנבדקו.',

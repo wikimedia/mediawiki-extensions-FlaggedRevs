@@ -267,10 +267,11 @@ $messages['gsw'] = array(
 /** Hebrew (עברית)
  * @author DoviJ
  * @author Rotem Liss
+ * @author Rotemliss
  */
 $messages['he'] = array(
-	'problemchanges' => 'בדיקת השינויים הבאים עם תגיות',
-	'problemchanges-legend' => 'רשימת הדפים הבדוקים עם עריכות עם תגיות הממתינות לבדיקה',
+	'problemchanges' => 'השינויים הממתינים עם תגיות',
+	'problemchanges-legend' => 'רשימת הדפים עם עריכות עם תגיות הממתינות לבדיקה',
 	'problemchanges-none' => 'אין כרגע דפים המתאימים לקריטריונים אלה',
 	'problemchanges-category' => 'קטגוריה:',
 );
