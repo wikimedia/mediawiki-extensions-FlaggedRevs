@@ -632,6 +632,26 @@ class FlaggedRevsHooks {
 	public static function onLanguageGetMagic( &$magicWords, $langCode ) {
 		$magicWords['pagesusingpendingchanges'] =
 			array( 0, 'pagesusingpendingchanges' );
+		$magicWords['pendingchangelevel'] =
+			array( 0, 'pendingchangelevel' );
+		return true;
+	}
+
+	public static function onParserGetVariableValueSwitch( &$parser, &$cache, &$word, &$ret ) {
+		if( $word == 'pendingchangelevel' ) {
+			$title = $parser->getTitle();
+			if( !FlaggedRevs::inReviewNamespace( $title ) ) {
+				$ret = '';
+			} else {
+				$config = FlaggedRevs::getPageVisibilitySettings( $title );
+				$ret = $config['autoreview'];
+			}
+		}
+		return true;
+	}
+
+	public static function onMagicWordwgVariableIDs( &$words ) {
+		$words[] = 'pendingchangelevel';
 		return true;
 	}
 

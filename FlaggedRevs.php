@@ -539,6 +539,8 @@ function efSetFlaggedRevsConditionalHooks() {
 		# Parser stuff
 		$wgHooks['ParserFirstCallInit'][] = 'FlaggedRevsHooks::onParserFirstCallInit';
 		$wgHooks['LanguageGetMagic'][] = 'FlaggedRevsHooks::onLanguageGetMagic';
+		$wgHooks['ParserGetVariableValueSwitch'][] = 'FlaggedRevsHooks::onParserGetVariableValueSwitch';
+		$wgHooks['MagicWordwgVariableIDs'][] = 'FlaggedRevsHooks::onMagicWordwgVariableIDs';
 	}
 	# Give bots the 'autoreview' right (here so it triggers after CentralAuth)
 	# @TODO: better way to ensure hook order
