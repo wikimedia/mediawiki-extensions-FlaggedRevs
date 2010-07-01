@@ -127,22 +127,23 @@ class FlaggedRevsHooks {
 
 	/**
 	* Add FlaggedRevs css for relevant special pages.
+	* @param OutputPage $out
 	*/
-	protected static function injectStyleForSpecial() {
-		global $wgTitle, $wgOut;
-		if ( empty( $wgTitle ) || $wgTitle->getNamespace() !== NS_SPECIAL ) {
+	protected static function injectStyleForSpecial( &$out ) {
+		$title = $out->getTitle();
+		if ( $title->getNamespace() !== NS_SPECIAL ) {
 			return true;
 		}
 		$spPages = array( 'UnreviewedPages', 'OldReviewedPages', 'ProblemChanges',
 			'Watchlist', 'Recentchanges', 'Contributions' );
 		foreach ( $spPages as $n => $key ) {
-			if ( $wgTitle->isSpecial( $key ) ) {
+			if ( $title->isSpecial( $key ) ) {
 				global $wgScriptPath, $wgFlaggedRevsStylePath, $wgFlaggedRevStyleVersion;
 				$stylePath = str_replace( '$wgScriptPath',
 					$wgScriptPath, $wgFlaggedRevsStylePath );
 				$encCssFile = htmlspecialchars( "$stylePath/flaggedrevs.css?" .
 					$wgFlaggedRevStyleVersion );
-				$wgOut->addExtensionStyle( $encCssFile );
+				$out->addExtensionStyle( $encCssFile );
 				break;
 			}
 		}
@@ -152,15 +153,14 @@ class FlaggedRevsHooks {
 	/*
 	* Add tag notice, CSS/JS, and set robots policy
 	*/
-	public static function onBeforePageDisplay() {
-		global $wgOut;
-		if ( $wgOut->isArticleRelated() ) {
+	public static function onBeforePageDisplay( &$out, &$skin ) {
+		if ( $out->isArticleRelated() ) {
 			$view = FlaggedArticleView::singleton();
 			$view->displayTag(); // show notice bar/icon in subtitle
 			$view->setRobotPolicy(); // set indexing policy
 			self::injectStyleAndJS(); // full CSS/JS
 		} else {
-			self::injectStyleForSpecial(); // try special page CSS
+			self::injectStyleForSpecial( $out ); // try special page CSS
 		}
 		return true;
 	}
