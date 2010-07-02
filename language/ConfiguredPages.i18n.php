@@ -829,6 +829,7 @@ May ilang mga pagtatakdang maaaring magbago na ang bersyon ay ipinapakita sa mga
 
 /** Turkish (Türkçe)
  * @author Joseph
+ * @author Srhat
  */
 $messages['tr'] = array(
 	'configuredpages' => 'İnceleme yapılandırması olan sayfalar',
@@ -842,7 +843,7 @@ Bazı ayarlar, okuyuculara hangi sürümün görüntüleneceğini değiştirebil
 	'configuredpages-prec-quality' => 'en son kaliteli',
 	'configuredpages-prec-pristine' => 'en son öncelikli',
 	'configuredpages-def-draft' => 'son sürüm',
-	'configuredpages-def-stable' => 'yayınlanan sürüm',
+	'configuredpages-def-stable' => 'kararlı sürüm',
 );
 
 /** Ukrainian (Українська)

@@ -4264,6 +4264,11 @@ $messages['et'] = array(
 	'revreview-basic-same' => 'See [[{{MediaWiki:Validationpage}}|püsiv versioon]] on [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} kord vaadatud] (<i>$2</i>).',
 	'revreview-basic-source' => 'Selle lehekülje [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} kord vaadatud versioon], mis on [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} heaks kiidetud] (<i>$2</i>), põhines sellel redaktsioonil.',
 	'revreview-failed' => "'''Seda redaktsiooni ei õnnestu üle vaadata.''' Esitamine oli puudulik või muul moel vigane.",
+	'revreview-changed' => "'''Soovitud toimingut ei saanud lehekülje [[:$1|$1]] selle redaktsiooni juures sooritada.'''
+
+Malli või faili võib olla nõutud kindlat versiooni määramata.
+Nii võib juhtuda, kui dünaamiline mall kasutab teist malli või faili, mis sõltub muutujast, mis on alates lehekülje ülevaatuse algusest muutunud.
+Lehekülje uuesti laadimine ja taasülevaatamine võib probleemi lahendada.",
 	'review_page_invalid' => 'Sihtlehekülje pealkiri on vigane.',
 	'review_page_notexists' => 'Sihtlehekülge pole olemas.',
 	'review_page_unreviewable' => 'Sihtlehekülge pole ülevaadatav.',
@@ -4293,8 +4298,10 @@ $messages['et'] = array(
 	'revreview-edited' => "'''Sinu muudatused kuvatakse lugejatele, kui volitatud kasutaja on need üle vaadanud. ([[{{MediaWiki:Validationpage}}|abi]])'''
 
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 {{PLURAL:$2|muudatus|muudatust}}] ''(näidatud allpool)'' {{PLURAL:$2|ootab|ootavad}} ülevaatamist.",
+	'revreview-edited-section' => 'Naase alaosa "[[#$1|$2]]" juurde.',
 	'revreview-flag' => 'Redaktsiooni ülevaatamine',
 	'revreview-invalid' => "'''Vigane sihtkoht:''' antud ID-le ei vasta ükski [[{{MediaWiki:Validationpage}}|ülevaadatud]] redaktsioon.",
+	'revreview-legend' => 'Redaktsiooni sisu hindamine',
 	'revreview-log' => 'Kommentaar:',
 	'revreview-main' => 'Selleks üle vaadata, pead valima sisulehekülje kindla redaktsiooni.
 
@@ -4331,7 +4338,7 @@ Vaata [[Special:Unreviewedpages|ülevaatamata lehekülgede loendit]].',
 	'revreview-quick-see-basic' => '[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} vaata ootel muudatused üle]]',
 	'revreview-quick-see-quality' => '[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} vaata ootel muudatused üle]]',
 	'revreview-selected' => "Lehekülje '''$1''' valitud redaktsioon:",
-	'revreview-source' => 'Mustandi allikas',
+	'revreview-source' => 'Vaata lähteteksti',
 	'revreview-basic-title' => 'See versioon leheküljest on kord vaadatud',
 	'revreview-stable1' => 'Ehk tahad vaadata, kas [{{fullurl:$1|stableid=$2}} see vaadatud versioon] on praegu selle lehekülje [{{fullurl:$1|stable=1}} püsiv versioon]?',
 	'revreview-stable2' => 'Võib-olla tahad vaadata [{{fullurl:$1|stable=1}} püsivat versiooni] sellest leheküljest.',
@@ -4347,11 +4354,30 @@ Vaata [[Special:Unreviewedpages|ülevaatamata lehekülgede loendit]].',
 	'revreview-submit-unreview' => 'Lükka tagasi',
 	'revreview-submit-reviewed' => 'Tehtud ja heaks kiidetud!',
 	'revreview-submit-unreviewed' => 'Tehtud ja tagasi lükatud!',
+	'revreview-successful' => "'''Lehekülje [[:$1|$1]] redaktsioon edukalt vaadatud. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} vaata ülevaadatud versioone])'''",
+	'revreview-successful2' => "'''Lehekülje [[:$1|$1]] redaktsioonilt vaatamismärkus edukalt eemaldatud.'''",
+	'revreview-text' => "''[[{{MediaWiki:Validationpage}}|Ülevaadatud versioonid]] on lehekülgede kord vaadatud versioonid, mis määravad püsiva versiooni.''",
 	'revreview-toggle-title' => 'Näita või peida üksikasjad',
+	'revreview-toolow' => '\'\'\'Lehekülje ülevaadatuks arvamiseks pead hindama kõiki tunnuseid kõrgemini kui "ebarahuldav".\'\'\'
+
+Redaktsioonilt ülevaadatu seisundi eemaldamiseks sea kõik väljad kujule "ebarahuldav".
+
+Palun klõpsa oma võrgulehitseja "Tagasi"-nuppu ja proovi uuesti.',
 	'revreview-update' => "'''Palun [[{{MediaWiki:Validationpage}}|vaata üle]] kõik alates püsivast versioonist tehtud ootel muudatused ''(näidatud allpool)''.'''
 	Võimalik, et enne tuleb sul muudatusi lähemalt uurida või need \"tagasi võtta\".",
+	'revreview-update-edited' => '<span class="flaggedrevs_important">Sinu muudatused pole veel püsivas versioonis.</span>
+
+Oma muudatuste püsivas versioonis kuvamiseks vaata palun kõik allpool näidatud muudatused üle.
+Võimalik, et enne tuleb sul muudatusi lähemalt uurida või need "tagasi võtta".',
+	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Sinu muudatused pole veel püsivas versioonis. Osa varasemaid muudatusi ootab ülevaatamist.</span>
+
+Oma muudatuste püsivas versioonis kuvamiseks vaata palun kõik allpool näidatud muudatused üle.
+Võimalik, et enne tuleb sul muudatusi lähemalt uurida või need "tagasi võtta".',
 	'revreview-update-includes' => "'''Mõnd malli või faili on uuendatud:'''",
 	'revreview-update-use' => "'''Märkus:''' Selle lehekülje püsiv versioon kasutab kõigist neist mallidest või failidest püsivat versiooni.",
+	'revreview-visibility' => "'''Sellel lehekülje on uuendatud [[{{MediaWiki:Validationpage}}|püsiv versioon]]. Lehekülje püsivussätteid saab [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} muuta].'''",
+	'revreview-visibility2' => "'''Sellel lehekülje on iganenud [[{{MediaWiki:Validationpage}}|püsiv versioon]]. Lehekülje püsivussätteid saab [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} muuta].'''",
+	'revreview-visibility3' => "'''Sellel lehekülje pole [[{{MediaWiki:Validationpage}}|püsivat versiooni]]. Lehekülje püsivussätteid saab [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} muuta].'''",
 	'revreview-revnotfound' => 'Vana redaktsiooni, mille järele te pärisite, ei leitud.
 Palun kontrollige internetiaadressi, mille abil te seda leida püüdsite.',
 	'right-autoreview' => 'Märkida enda muudatused automaatselt kord vaadatuks',
@@ -4390,6 +4416,7 @@ Palun kontrollige internetiaadressi, mille abil te seda leida püüdsite.',
 	'revreview-restriction-any' => 'igaüks',
 	'revreview-restriction-none' => 'eikeegi',
 	'revreview-reviewlink' => 'ootel muudatused',
+	'revreview-reviewlink-title' => 'Vaata kõigi ootel muudatuste erinevust',
 	'tooltip-ca-current' => 'Vaata seda lehekülge ootel muudatustega',
 	'tooltip-ca-stable' => 'Vaata selle lehekülje püsivat versiooni',
 	'tooltip-ca-default' => 'Headuse tagamise sätted',
@@ -4401,6 +4428,8 @@ Palun kontrollige internetiaadressi, mille abil te seda leida püüdsite.',
 	'revreview-unlocked' => "'''Märkus:''' Sellel leheküljel ei pea muudatusi enne lugejatele kuvamist [[{{MediaWiki:Validationpage}}|üle vaatama]].",
 	'log-show-hide-review' => '$1 ülevaatamislogi',
 	'revreview-tt-review' => 'Lisa antud redaktsioonile see seisund',
+	'revreview-tt-flag' => 'Kiida see redaktsioon heaks, märkides selle kui "kord vaadatud"',
+	'revreview-tt-unflag' => 'Lükka see redaktsioon tagasi, märkides selle kui "kord vaatamata"',
 	'validationpage' => '{{ns:help}}:Lehekülgede ülevaatus',
 );
 
@@ -6927,7 +6956,7 @@ Kérlek, ellenőrizd az URL-t, amivel erre a lapra jutottál.',
 	'revreview-restrictfilter' => 'Automatikus ellenőrzés korlátozási szintje:',
 	'revreview-restriction-any' => 'bármelyik',
 	'revreview-restriction-none' => 'egyik sem',
-	'revreview-reviewlink' => 'ellenőrzésre váró szerkesztések',
+	'revreview-reviewlink' => 'ellenőrizendő',
 	'revreview-reviewlink-title' => 'Változások az összes ellenőrzésre váró szerkesztést figyelembe véve',
 	'revreview-unreviewedpage' => 'ellenőrizetlen lap',
 	'tooltip-ca-current' => 'Lap megjelenítése az ellenőrzésre váró változtatásokkal együtt',
@@ -6935,7 +6964,6 @@ Kérlek, ellenőrizd az URL-t, amivel erre a lapra jutottál.',
 	'tooltip-ca-default' => 'Minőségbiztosítási beállítások',
 	'flaggedrevs-protect-legend' => 'Szerkesztések közzététele ([[{{MediaWiki:Validationpage}}|?]])',
 	'flaggedrevs-protect-none' => 'Összes felhasználó engedélyezése',
-	'flaggedrevs-protect-basic' => 'Alapértelmezett beállítások',
 	'revreview-locked-title' => 'A szerkesztéseket ellenőrizni kell, mielőtt megjelennének ezen a lapon.',
 	'revreview-unlocked-title' => 'A szerkesztéseket nem kell ellenőrizni, mielőtt megjelennek ezen a lapon.',
 	'revreview-locked' => "'''Megjegyzés:''' a szerkesztéseket [[{{MediaWiki:Validationpage}}|ellenőrizni]] kell, mielőtt megjelennek ezen a lapon.",
@@ -7476,6 +7504,7 @@ $messages['is'] = array(
 
 /** Italian (Italiano)
  * @author Aushulz
+ * @author Beta16
  * @author Civvì
  * @author Darth Kule
  * @author Gianfranco
@@ -7538,6 +7567,7 @@ Potrebbero essere stati apportati nuove [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&di
 Un template od un file potrebbero essere stati richiesti quando nessuna versione era stata specificata. 
 Ciò può accadere se un template dinamico include un'altro file od un template dipendente da una variabile che sia cambiata da quando hai iniziato a revisionare questa pagina.
 Aggiornare la pagina e ricominciare la revisione potrebbe risolvere il problema.",
+	'review_denied' => 'Permesso negato.',
 	'revreview-current' => 'Bozza',
 	'revreview-depth' => 'Esaustività',
 	'revreview-depth-0' => 'Non approvata',
@@ -12657,7 +12687,7 @@ $messages['ru'] = array(
 	'revreview-edited' => "'''Изменения будут показаны читателям после их проверки уполномоченным участником. ([[{{MediaWiki:Validationpage}}|подробнее]])'''
 
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 {{PLURAL:$2|изменение|изменения|изменений}}] {{PLURAL:$2|ожидает|ожидают|ожидают}} проверки (показаны ниже).",
-	'revreview-edited-section' => 'Вернуться разделу страницы под названием «[[#$1|$2]]».',
+	'revreview-edited-section' => 'Вернуться к разделу страницы под названием «[[#$1|$2]]».',
 	'revreview-flag' => 'Проверить эту версию',
 	'revreview-reflag' => 'Перепроверить эту версию',
 	'revreview-invalid' => "'''Ошибочная цель:''' не существует [[{{MediaWiki:Validationpage}}|проверенной]] версии страницы, соответствующей указанному идентификатору.",
@@ -14768,7 +14798,7 @@ $messages['tr'] = array(
 	'editor' => 'Editör',
 	'flaggedrevs' => 'İşaretli Değişiklikler',
 	'flaggedrevs-watched-pending' => "Şu anda izleme listenizdeki gözden geçirilmiş sayfaların [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} bekleyen değişiklikleri] var. '''İlginiz gerekiyor!'''",
-	'flaggedrevs-desc' => 'Editörlere ve gözden geçirenlere, revizyonları gözden geçirme ve sayfaları kararlı hale getirme yeteneği verir',
+	'flaggedrevs-desc' => 'Editörlere gözden geçirme ve kararlılaştırma yeteneği verir',
 	'flaggedrevs-pref-UI' => 'Temel arayüz:',
 	'flaggedrevs-pref-UI-0' => 'Sayfaların onay durumunu göstermek için ayrıntılı kutular kullan',
 	'flaggedrevs-pref-UI-1' => 'Sayfaların onay durumunu göstermek için küçük simgeleri ve enaz metni kullan',
@@ -14780,10 +14810,10 @@ $messages['tr'] = array(
 	'flaggedrevs-prefs-viewdiffs' => 'Son bekleyen revizyonu görüntülerken bekleyen değişiklik farklarını göster',
 	'group-editor' => 'Editörler',
 	'group-editor-member' => 'editör',
-	'group-reviewer' => 'Eleştirmenler',
-	'group-reviewer-member' => 'eleştirmen',
+	'group-reviewer' => 'Gözden geçiriciler',
+	'group-reviewer-member' => 'gözden geçirici',
 	'grouppage-editor' => '{{ns:project}}:Editör',
-	'grouppage-reviewer' => '{{ns:project}}:Eleştirmen',
+	'grouppage-reviewer' => '{{ns:project}}:Gözden geçirici',
 	'group-autoreview' => 'Oto-gözden geçiriciler',
 	'group-autoreview-member' => 'oto-gözden geçirici',
 	'grouppage-autoreview' => '{{ns:project}}:Oto-gözden geçirici',
@@ -14796,7 +14826,7 @@ $messages['tr'] = array(
 	'revreview-hist-basic-auto' => '[{{fullurl:$1|stableid=$2}} otomatik olarak kontrol edildi]',
 	'revreview-hist-quality-auto' => '[{{fullurl:$1|stableid=$2}} otomatik onaylanmış]',
 	'revreview-hist-pending-difflink' => "'''[[{{fullurl:$1|oldid=$2&diff=$3}} gözden geçirme bekliyor]]'''",
-	'review-edit-diff' => "'''UYARI: Yayınlanan sürüme yapılan bazı bekleyen değişiklikler aşağıdaki değiştirme formuna eklenmiştir.'''",
+	'review-edit-diff' => "'''UYARI: Bazı bekleyen değişiklikler sayfanın şu an düzenlemekte olduğunuz bölümüne etki etmektedir.'''",
 	'revreview-diff-toggle-show' => 'değişiklikleri göster',
 	'revreview-diff-toggle-hide' => 'değişiklikleri gizle',
 	'revreview-diff-toggle-title' => 'Yayımlanmış sürüme bekleyen değişikliklerin görüntülenmesini değiştir',
@@ -14813,8 +14843,8 @@ $messages['tr'] = array(
 	'review-logentry-diff' => 'incelenen değişiklikler',
 	'review-logentry-diff2' => 'değişiklikler eskimiş',
 	'review-logpage' => 'Günlüğü gözden geçir',
-	'review-logpagetext' => 'Bu, içerik sayfası revizyonlarının [[{{MediaWiki:Validationpage}}|kabul]] durumu değişiklikleri günlüğüdür.',
-	'reviewer' => 'Eleştirmen',
+	'review-logpagetext' => 'Bu sayfa içerik sayfasının hangi sürümlerinin  [[{{MediaWiki:Validationpage}}|onaylandığı]]nın kaydıdır.',
+	'reviewer' => 'Gözden geçirici',
 	'revisionreview' => 'Revizyonları gözden geçir',
 	'revreview-accuracy' => 'Doğruluk',
 	'revreview-accuracy-0' => 'Yetersiz',
@@ -14855,9 +14885,9 @@ Sayfayı yenilemek ve yeniden gözden geçirmek sorunu çözebilir.",
 	'revreview-edit' => 'Değiştir',
 	'revreview-editnotice' => "'''Değişiklikleriniz, yetkili bir kullanıcı inceledikten sonra yayınlanacak. ([[{{MediaWiki:Validationpage}}|yardım]])'''",
 	'revreview-check-flag-p' => 'Şuanda bekleyen değişiklikleri yayınla',
-	'revreview-edited' => "'''Değişiklikler, yetkili bir kullanıcı inceledikten sonra yayınlanacak. ([[{{MediaWiki:Validationpage}}|?]])'''
+	'revreview-edited' => "'''Değişiklikleriniz, yetkili bir kullanıcı inceledikten sonra yayınlanacak. ([[{{MediaWiki:Validationpage}}|yardım]])'''
 
-Gözden geçirme bekleyen [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 {{PLURAL:$2|değişiklik|değişiklik}}] ''(aşağıda gösterilen)'' bulunmaktadır.",
+Gözden geçirme bekleyen [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 {{PLURAL:$2|değişiklik|değişiklik}}] ''(aşağıda gösterilmiştir)'' bulunmaktadır.",
 	'revreview-edited-section' => '"[[#$1|$2]]" adındaki sayfa bölümüne geri dön.',
 	'revreview-flag' => 'Bu revizyonu gözden geçir',
 	'revreview-reflag' => 'Bu revizyonu tekrar gözden geçir',
@@ -14924,11 +14954,12 @@ Yeni [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} değişiklikler
 Bir revizyonun gözden geçirme durumunu çıkarmak için, tüm alanları "onaylanmamış" seçin.
 
 Lütfen tarayıcınızdaki "geri" tuşuna basın ve tekrar deneyin.',
-	'revreview-update' => "'''Lütfen kabul edilmiş sürüme yapılan bekleyen her değişikliği ''(aşağıda gösterilmiş)'' [[{{MediaWiki:Validationpage}}|gözden geçirin]].'''
+	'revreview-update' => "'''Lütfen kararlı sürüme yapımış bekleyen her değişikliği ''(aşağıda gösterilmiştir)'' [[{{MediaWiki:Validationpage}}|gözden geçirin]].'''
 Önce, takip etmeniz veya değişiklikleri \"geri almanız\" gerekebilir.",
-	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Değişiklikleriniz henüz yayınlanmadı.</span>
+	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Değişiklikleriniz henüz kararlı sürümde değil. Gözden geçirilmeyi bekleyen önceki değişiklikler var.</span>
 
-Gözden geçirme bekleyen önceki değişiklikler var. Değişikliklerinizi yayınlamak için, lütfen aşağıda gösterilen tüm değişiklikleri gözden geçirin.',
+Değişikliklerinizin kararlı sürümde görünmesi için, lütfen aşağıda gösterilen tüm değişiklikleri gözden geçirin.
+İlk olarak değişiklikleri takip etmeniz veya "geri almanız" gerekmektedir.',
 	'revreview-update-includes' => "'''Bazı şablonlar/dosyalar güncellenmiş:'''",
 	'revreview-update-use' => "'''NOT:''' Her şablon/dosyanın yayımlanmış sürümleri, bu sayfanın yayımlanmış sürümünde kullanılmıştır.",
 	'revreview-visibility' => "'''Bu sayfanın güncellenmiş bir [[{{MediaWiki:Validationpage}}|yayımlanmış sürümü]] mevcut; sayfa kararlılık ayarları [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} yapılandırılabilir].'''",
@@ -14944,10 +14975,10 @@ Gözden geçirme bekleyen önceki değişiklikler var. Değişikliklerinizi yay�
 	'rights-editor-autosum' => 'otomatik terfilenmiş',
 	'rights-editor-revoke' => '[[$1]] için editör statüsü geri alındı',
 	'specialpages-group-quality' => 'Değişiklik onayı',
-	'stable-logentry-config' => '$1 için kabul ayarlarını ayarladı',
-	'stable-logentry-modify' => '$1 için kabul ayarlarını değiştirdi',
-	'stable-logentry-reset' => '$1 için yayın ayarlarını sıfırla',
-	'stable-log-restriction' => 'Oto-kabul: "$1" izni gerekir',
+	'stable-logentry-config' => '"$1" için kararlı sürüm ayarlarını belirle',
+	'stable-logentry-modify' => '$1 için kararlı sürüm ayarlarını değiştirdi',
+	'stable-logentry-reset' => '$1 için kararlı sürüm ayarlarını sıfırla',
+	'stable-log-restriction' => 'Oto-gözden-geçirme: "$1" izni gerekir',
 	'stable-logpage' => 'Kararlılık günlüğü',
 	'stable-logpagetext' => 'Bu, sayfa içeriğinin [[{{MediaWiki:Validationpage}}|kararlı sürüm]] yapılandırmasındaki değişiklikler günlüğüdür.',
 	'revreview-filter-all' => 'Hepsi',
@@ -14968,8 +14999,8 @@ Gözden geçirme bekleyen önceki değişiklikler var. Değişikliklerinizi yay�
 	'revreview-defaultfilter' => 'Varsayılan sürüm:',
 	'revreview-def-all' => 'herhangi',
 	'revreview-def-draft' => 'en son',
-	'revreview-def-stable' => 'yayınlanan',
-	'revreview-restrictfilter' => 'Kısıtlama düzeyi:',
+	'revreview-def-stable' => 'kararlı',
+	'revreview-restrictfilter' => 'Oto-gözden-geçirme kısıtlaması:',
 	'revreview-restriction-any' => 'herhangi',
 	'revreview-restriction-none' => 'hiçbiri',
 	'revreview-reviewlink' => 'bekleyen değişiklikler',
@@ -14978,12 +15009,11 @@ Gözden geçirme bekleyen önceki değişiklikler var. Değişikliklerinizi yay�
 	'tooltip-ca-current' => 'Bu sayfayı bekleyen değişikliklerle gör',
 	'tooltip-ca-stable' => 'Bu sayfanın yayımlanmış sürümünü gör',
 	'tooltip-ca-default' => 'Kalite güvencesi ayarları',
-	'flaggedrevs-protect-legend' => 'Otomatik değişiklik kabulü ([[{{MediaWiki:Validationpage}}|?]])',
+	'flaggedrevs-protect-legend' => 'Otomatik değişiklik gözden geçirmesi ([{{MediaWiki:Validationpage}}|yardım]])',
 	'flaggedrevs-protect-none' => 'Tüm kullanıcılara izin ver',
-	'flaggedrevs-protect-basic' => 'Varsayılan ayarlar',
-	'revreview-locked-title' => 'Bu sayfada gösterilmeden önce, değişiklikler gözden geçirilmeli!',
-	'revreview-unlocked-title' => 'Bu sayfada gösterilmeden önce, değişikliklerin gözden geçirilmesine gerek yoktur!',
-	'revreview-locked' => 'Bu sayfada gösterilmeden önce, değişiklikler gözden geçirilmeli!',
+	'revreview-locked-title' => 'Bu sayfada okuyuculara gösterilmeden önce değişiklikler gözden geçirilmelidir.',
+	'revreview-unlocked-title' => 'Bu sayfada okuyuculara gösterilmeden önce değişikliklerin gözden geçirilmesi gerekmemektedir.',
+	'revreview-locked' => "'''Uyarı:''' bu sayfada okuyuculara gösterilmeden önce değişiklikler [[{{MediaWiki:Validationpage}}|gözden geçirilmelidir]].",
 	'revreview-unlocked' => 'Bu sayfada gösterilmeden önce, değişikliklerin gözden geçirilmesine gerek yoktur!',
 	'log-show-hide-review' => 'gözden geçirme günlüğünü $1',
 	'revreview-tt-review' => 'Bu durumu bu revizyona uygula',

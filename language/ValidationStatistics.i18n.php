@@ -736,6 +736,7 @@ $messages['hsb'] = array(
 	'validationstatistics-users' => "'''{{SITENAME}}''' ma tuchwilu '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|wužiwarja|wužiwarjow|wužiwarjow|wužiwarjow}} z [[{{MediaWiki:Validationpage}}|wobdźěłowarskimi prawami]].
 
 Wobdźěłowarjo su nazhonići wužiwarjo, kotřiž móžeja wersije stronow kontrolować.",
+	'validationstatistics-lastupdate' => "''Slědowace daty buchu $1 $2 posledni raz zaktualizowane.''",
 	'validationstatistics-table' => "Statistiki přepruwowanja stronow za kóždy mjenowy rum so deleka pokazuja, ''nimo'' daleposrědkowanjow.",
 	'validationstatistics-ns' => 'Mjenowy rum',
 	'validationstatistics-total' => 'Strony',
@@ -1272,7 +1273,14 @@ $messages['pms'] = array(
 	'validationstatistics-users' => "'''{{SITENAME}}''' al moment a l'ha '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|utent|utent}} con drit d'[[{{MediaWiki:Validationpage}}|Editor]] 
 
 J'Editor a son utent sicur che a peulo controlé le revision a le pàgine.",
-	'validationstatistics-table' => "Lë statìstiche për minca spassi nominal a son mostà sota, ''an gavand'' le pàgine ëd rediression.",
+	'validationstatistics-lastupdate' => "''Ij dat sota a son ëstàit modificà l'ùltima vira ël $1 a $2.''",
+	'validationstatistics-pndtime' => "Modìfiche ch'a son ëstàite controlà da utent definì a son considerà revisionà.
+
+Ël ritard medi për [[Special:OldReviewedPages|pàgine con modìfiche pa revisionà pendente]] a l'é '''$1'''.
+Cole pàgine a son considerà ''veje''.",
+	'validationstatistics-revtime' => "L'atesa pi àuta përchè le modìfiche dj'''utent anònim'' a sio revisionà a l'é '''$1''', la madia a l'é '''$2'''.
+$3",
+	'validationstatistics-table' => "Lë statìstiche ëd revision ëd pàgine për minca spassi nominal a son mostà sota, ''an gavand'' le pàgine ëd rediression.",
 	'validationstatistics-ns' => 'Spassi nominal',
 	'validationstatistics-total' => 'Pàgine',
 	'validationstatistics-stable' => 'Revisionà',
@@ -1662,14 +1670,16 @@ Ang mga patnugot ay mga matatagal nang mga tagagamit na makakasipat ng mga pagba
 /** Turkish (Türkçe)
  * @author Joseph
  * @author Manco Capac
+ * @author Srhat
  */
 $messages['tr'] = array(
 	'validationstatistics' => 'Sayfa gözden geçirme istatistikleri',
 	'validationstatistics-users' => "'''{{SITENAME}}''' sitesinde şuanda [[{{MediaWiki:Validationpage}}|Editör]] yetkisine sahip '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|kullanıcı|kullanıcı}} bulunmaktadır.
 
 Editörler, sayfalara kontrol revizyonu atayabilen belirli kullanıcılardır.",
-	'validationstatistics-table' => "Her bir ad alanı için istatistikler aşağıda gösterilmiştir, yönlendirme sayfaları ''hariç''.",
-	'validationstatistics-ns' => 'Ad alanı',
+	'validationstatistics-lastupdate' => '"Aşağıdaki veri en son $1, $2 tarihinde güncellendi"',
+	'validationstatistics-table' => "Ad boşluğu başına sayfa gözden geçirme istatistikleri, yönlendirme sayfaları ''dahil olmadan''  aşağıda gösterilmiştir.",
+	'validationstatistics-ns' => 'Ad boşluğu',
 	'validationstatistics-total' => 'Sayfalar',
 	'validationstatistics-stable' => 'Gözden geçirilmiş',
 	'validationstatistics-latest' => 'Senkronize edildi',
@@ -1683,13 +1693,14 @@ Editörler, sayfalara kontrol revizyonu atayabilen belirli kullanıcılardır.",
 /** Ukrainian (Українська)
  * @author Ahonc
  * @author Prima klasy4na
+ * @author Тест
  */
 $messages['uk'] = array(
 	'validationstatistics' => 'Статистика рецензувань сторінок',
 	'validationstatistics-users' => "У проекті '''{{SITENAME}}''' зараз '''[[Special:ListUsers/editor|$1]]''' {{plural:$1|користувач має|користувачі мають|користувачів мають}} права [[{{MediaWiki:Validationpage}}|«редактор»]].
 
 «Редактори» — визначені користувачі, що мають можливість робити вибіркову перевірку конкретних версій сторінок.",
-	'validationstatistics-table' => "Статистика для кожного простору назв показана нижче. ''Перенаправлення'' не враховані.",
+	'validationstatistics-table' => "Статистика рецензувань сторінок для кожного простору назв показана нижче, ''за виключенням'' сторінок перенаправлень.",
 	'validationstatistics-ns' => 'Простір назв',
 	'validationstatistics-total' => 'Сторінок',
 	'validationstatistics-stable' => 'Перевірені',

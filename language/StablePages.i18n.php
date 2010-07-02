@@ -628,6 +628,7 @@ $messages['pms'] = array(
 	'stablepages-text' => "Sota a-i é na lista ëd pàgine anté che mach serti utent a peulo fé 'd modìfiche che a l'han nen da manca ëd revision. Modìfiche fàite da d'àutri utent a son pa publicà për ij letor fin-a che n'utent autorisà a-j revision-a pa.",
 	'stablepages-none' => 'A-i é pa gnun-e pàgine an sta lista-sì',
 	'stablepages-config' => 'Configurassion',
+	'stablepages-indef' => 'Mach fin andefinìa',
 );
 
 /** Portuguese (Português)
