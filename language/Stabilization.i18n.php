@@ -216,7 +216,7 @@ $messages['aln'] = array(
  * @author Codex Sinaiticus
  */
 $messages['am'] = array(
-	'stabilization-comment' => 'ማጠቃለያ፦',
+	'stabilization-comment' => 'ምክንያቱ፦',
 	'stabilization-def-short-0' => 'ያሁኑኑ',
 );
 
@@ -381,7 +381,7 @@ Esta ye la configuración de [[:$1|$1]]:',
 	'stabilization-submit' => 'Confirmar',
 	'stabilization-notexists' => 'Nun esiste la páxina "[[:$1|$1]]". Nun ye posible la configuración.',
 	'stabilization-notcontent' => 'La páxina "[[:$1|$1]]" nun pue ser revisada. Nun ye posible la configuración.',
-	'stabilization-comment' => 'Comentariu:',
+	'stabilization-comment' => 'Motivu:',
 	'stabilization-expiry' => 'Caduca:',
 	'stabilization-sel-short' => 'Prioridá',
 	'stabilization-sel-short-0' => 'Calidable',
@@ -428,7 +428,7 @@ $messages['bcc'] = array(
 هچ تنظیمی ممکن نهنت.',
 	'stabilization-notcontent' => 'صفحه "[[:$1|$1]]" نه تونیت باز بینی بیت.
 هچ تنظیمی ممکن نهنت.',
-	'stabilization-comment' => 'نظر:',
+	'stabilization-comment' => 'دلیل:',
 	'stabilization-expiry' => 'هلیت:',
 	'stabilization-sel-short' => 'تقدم',
 	'stabilization-sel-short-0' => 'کیفیت',
@@ -1344,7 +1344,7 @@ gins de configuracion possibla.',
  */
 $messages['fy'] = array(
 	'stabilization-page' => 'Sidenamme:',
-	'stabilization-comment' => 'Oanmerking:',
+	'stabilization-comment' => 'Reden:',
 	'stabilization-sel-short-1' => 'Gjin',
 	'stabilization-def-short' => 'Standert',
 );
@@ -1567,7 +1567,7 @@ $messages['hi'] = array(
 बदलाव नहीं किये जा सकतें।',
 	'stabilization-notcontent' => '"[[:$1|$1]]" यह पृष्ठ जाँचा नहीं जा सकता।
 बदलाव नहीं किये जा सकतें।',
-	'stabilization-comment' => 'टिप्पणी:',
+	'stabilization-comment' => 'कारण:',
 	'stabilization-expiry' => 'समाप्ति:',
 	'stabilization-sel-short' => 'अनुक्रम',
 	'stabilization-sel-short-0' => 'गुणवत्ता',
@@ -1709,7 +1709,7 @@ A(z) [[:$1|$1]] lapra vonatkozó jelenlegi beállítások:',
 Nem lehet a beállításokat módosítani.',
 	'stabilization-notcontent' => 'A(z) „[[:$1|$1]]” lapot nem lehet ellenőrizni.
 Nem lehet a beállításokat módosítani.',
-	'stabilization-comment' => 'Indok:',
+	'stabilization-comment' => 'Ok:',
 	'stabilization-otherreason' => 'Egyéb indok:',
 	'stabilization-expiry' => 'Lejárat:',
 	'stabilization-othertime' => 'Más időpont:',
@@ -1859,7 +1859,7 @@ $messages['io'] = array(
 $messages['is'] = array(
 	'stabilization-page' => 'Titill síðu:',
 	'stabilization-submit' => 'Staðfesta',
-	'stabilization-comment' => 'Athugasemd:',
+	'stabilization-comment' => 'Ástæða:',
 	'stabilization-sel-short-0' => 'Gæði',
 );
 
@@ -2047,7 +2047,7 @@ $messages['kk-arab'] = array(
 	'stabilization-submit' => 'قۇپتاۋ',
 	'stabilization-notexists' => '«[[:$1|$1]]» دەپ اتالعان ەش بەت جوق. ەش باپتالىم رەتتەلمەيدى.',
 	'stabilization-notcontent' => '«[[:$1|$1]]» دەگەن بەتكە سىن بەرىلمەيدى. ەش باپتالىم رەتتەلمەيدى.',
-	'stabilization-comment' => 'ماندەمە:',
+	'stabilization-comment' => 'سەبەبى:',
 	'stabilization-sel-short' => 'ارتىقشىلىق',
 	'stabilization-sel-short-0' => 'ساپالى',
 	'stabilization-sel-short-1' => 'ەشقانداي',
@@ -2074,7 +2074,7 @@ $messages['kk-cyrl'] = array(
 	'stabilization-submit' => 'Құптау',
 	'stabilization-notexists' => '«[[:$1|$1]]» деп аталған еш бет жоқ. Еш бапталым реттелмейді.',
 	'stabilization-notcontent' => '«[[:$1|$1]]» деген бетке сын берілмейді. Еш бапталым реттелмейді.',
-	'stabilization-comment' => 'Мәндеме:',
+	'stabilization-comment' => 'Себебі:',
 	'stabilization-sel-short' => 'Артықшылық',
 	'stabilization-sel-short-0' => 'Сапалы',
 	'stabilization-sel-short-1' => 'Ешқандай',
@@ -2101,7 +2101,7 @@ $messages['kk-latn'] = array(
 	'stabilization-submit' => 'Quptaw',
 	'stabilization-notexists' => '«[[:$1|$1]]» dep atalğan eş bet joq. Eş baptalım rettelmeýdi.',
 	'stabilization-notcontent' => '«[[:$1|$1]]» degen betke sın berilmeýdi. Eş baptalım rettelmeýdi.',
-	'stabilization-comment' => 'Mändeme:',
+	'stabilization-comment' => 'Sebebi:',
 	'stabilization-sel-short' => 'Artıqşılıq',
 	'stabilization-sel-short-0' => 'Sapalı',
 	'stabilization-sel-short-1' => 'Eşqandaý',
@@ -2332,7 +2332,7 @@ Dit zijn de huidige instellingen voor [[:$1|$1]]:',
 $messages['lt'] = array(
 	'stabilization-page' => 'Puslapio pavadinimas:',
 	'stabilization-submit' => 'Patvirtinti',
-	'stabilization-comment' => 'Komentaras:',
+	'stabilization-comment' => 'Priežastis:',
 	'stabilization-sel-short-0' => 'Kokybė',
 	'stabilization-def-short' => 'Standartinis',
 	'stabilization-def-short-0' => 'Esamas',
@@ -2468,7 +2468,7 @@ $messages['mr'] = array(
 बदल करू शकत नाही.',
 	'stabilization-notcontent' => '"[[:$1|$1]]" हे पान तपासू शकत नाही.
 बदल करता येणार नाहीत.',
-	'stabilization-comment' => 'शेरा:',
+	'stabilization-comment' => 'कारण:',
 	'stabilization-expiry' => 'रद्द होते:',
 	'stabilization-sel-short' => 'अनुक्रम',
 	'stabilization-sel-short-0' => 'दर्जा',
@@ -3286,7 +3286,7 @@ $messages['sq'] = array(
 Asnjë konfigurim nuk është i mundshëm.',
 	'stabilization-notcontent' => 'Faqja "[[:$1|$1]]" nuk mund të rishqyrtohet.
 Asnjë konfigurim nuk është i mundshëm.',
-	'stabilization-comment' => 'Komenti:',
+	'stabilization-comment' => 'Arsyeja:',
 	'stabilization-expiry' => 'Skadon:',
 	'stabilization-sel-short-0' => 'Kualiteti',
 	'stabilization-sel-short-1' => "S'ka",
@@ -3584,7 +3584,7 @@ $messages['tg-cyrl'] = array(
 	'stabilization-submit' => 'Тасдиқ',
 	'stabilization-notexists' => 'Саҳифае бо унвони "[[:$1|$1]]" вуҷуд надорад. Танзимот мумкин нест.',
 	'stabilization-notcontent' => 'Саҳифаи "[[:$1|$1]]" қобили баррасӣ нест. Танзимот мумкин нест.',
-	'stabilization-comment' => 'Тавзеҳ:',
+	'stabilization-comment' => 'Сабаб:',
 	'stabilization-expiry' => 'Интиҳо:',
 	'stabilization-sel-short' => 'Тақдим',
 	'stabilization-sel-short-0' => 'Бо кайфият',
@@ -3739,14 +3739,14 @@ Walang maaaring maging pagkakaayos (konpigurasyon).',
 $messages['tr'] = array(
 	'stabilization-tab' => 'vet',
 	'stabilization' => 'Sayfa kararlılaştırılması',
-	'stabilization-text' => "'''[[:\$1|\$1]] için yayımlanmış sürümün nasıl seçilip görüntüleneceğini ayarlamak için ayarları değiştirin.'''
+	'stabilization-text' => "'''[[:\$1|\$1]] için kararlı sürümün nasıl seçilip görüntüleneceğini ayarlamak için ayarları değiştirin.'''
 
-'''Not:''' ''yayımlanmış sürüm seçimi'' \"kalite\" ya da \"asıl\" sürüm olarak değiştirmek, böyle bir sürüm yoksa etkisiz olacaktır. Ayrıca, unutmayın ki bir \"kaliteli\" sürüm aynı zamanda \"kontrol edilmiş\" sürüm sayılır, vesaire.",
-	'stabilization-perm' => 'Hesabınızın yayımlanmış sürüm yapılandırmasını değiştirmeye izni yok.
+'''Not:''' ''kararlı sürüm seçimi''ni \"kaliteli\" ya da \"bozulmamış\" sürüm olarak değiştirmek, böyle bir sürüm yoksa etkisiz olacaktır. Ayrıca, unutmayın ki bir \"kaliteli\" sürüm aynı zamanda \"kontrol edilmiş\" sürüm sayılır, vesaire.",
+	'stabilization-perm' => 'Hesabınızın kararlı sürüm yapılandırmasını değiştirmeye izni yok.
 [[:$1|$1]] için şuanki ayarlar:',
 	'stabilization-page' => 'Sayfa adı:',
-	'stabilization-leg' => 'Yayımlanmış sürüm ayarlarını onayla',
-	'stabilization-select' => 'Yayımlanmış sürüm seçim önceliği',
+	'stabilization-leg' => 'Kararlı sürüm ayarlarını onayla',
+	'stabilization-select' => 'Kararlı sürüm seçim önceliği',
 	'stabilization-select1' => 'En son kaliteli revizyon; eğer yoksa, en son gözlenmiş olan',
 	'stabilization-select2' => 'En son kontrol edilen revizyon',
 	'stabilization-select3' => 'En son bozulmamış revizyon; eğer yoksa, en son kaliteli ya da gözlenmiş olan',
@@ -3765,12 +3765,12 @@ Yapılandırma mümkün değil.',
 	'stabilization-expiry' => 'Süresi bitiyor:',
 	'stabilization-othertime' => 'Diğer zaman:',
 	'stabilization-sel-short' => 'Öncelik',
-	'stabilization-sel-short-0' => 'Kalite',
+	'stabilization-sel-short-0' => 'Kaliteli',
 	'stabilization-sel-short-1' => 'Hiçbiri',
 	'stabilization-sel-short-2' => 'Bozulmamış',
 	'stabilization-def-short' => 'Varsayılan',
-	'stabilization-def-short-0' => 'Şuanki',
-	'stabilization-def-short-1' => 'Yayımlandı',
+	'stabilization-def-short-0' => 'Şu anki',
+	'stabilization-def-short-1' => 'Kararlı',
 	'stabilize_page_invalid' => 'Hedef sayfa başlığı geçersiz.',
 	'stabilize_page_notexists' => 'Hedef sayfa mevcut değil.',
 	'stabilize_page_unreviewable' => 'Hedef sayfa incelenebilir ad boşluğunda değil.',
@@ -3956,7 +3956,7 @@ nếu không có, sẽ là bản đã xem qua mới nhất',
 	'stabilization-def' => 'Bản được hiển thị mặc định',
 	'stabilization-def1' => 'Phiên bản công bố; nếu không có, sẽ là bản hiện hành/bản nháp',
 	'stabilization-def2' => 'Phiên bản gần đây nhất',
-	'stabilization-restrict' => 'Hạn chế duyệt tự động',
+	'stabilization-restrict' => 'Hạn chế duyệt / duyệt tự động',
 	'stabilization-restrict-none' => 'Không có hạn chế nào khác',
 	'stabilization-submit' => 'Xác nhận',
 	'stabilization-notexists' => 'Không có trang nào có tên “[[:$1|$1]]”.
@@ -4045,7 +4045,7 @@ $messages['yue'] = array(
 無設定可以改到。',
 	'stabilization-notcontent' => '嗰版"[[:$1|$1]]"唔可以複審。
 無設定可以改到。',
-	'stabilization-comment' => '註解:',
+	'stabilization-comment' => '原因:',
 	'stabilization-expiry' => '到期:',
 	'stabilization-sel-short' => '優先',
 	'stabilization-sel-short-0' => '質素',

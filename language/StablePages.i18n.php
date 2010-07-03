@@ -191,6 +191,7 @@ $messages['diq'] = array(
 Vurnayişan otomatik qeyd nibena eka yew karberanê binan meqale vurne heta yew gorevli kontral bike.',
 	'stablepages-none' => 'na liste de pel çino',
 	'stablepages-config' => 'vıraştış',
+	'stablepages-indef' => 'teyna expireya ebedi',
 );
 
 /** Lower Sorbian (Dolnoserbski)
@@ -674,9 +675,11 @@ $messages['ro'] = array(
  */
 $messages['roa-tara'] = array(
 	'stablepages' => "Pàggene ca ausane 'nu cangiamende approvate",
-	'stablepages-text' => "Sotte ste 'na liste de pàggene ca onne state ristrette accussì ca sulamende certe utinde ponne fà cangiaminde ca non ge richiedene 'na revisione. Certe cangiaminde non ge ponne essere pubblecate fine ca 'n'utende autorizzate non ge le rivede.",
+	'stablepages-text' => "Sotte ste 'na liste de pàggene ca onne state ristrette accussì ca sulamende certe utinde ponne fà cangiaminde ca non ge richiedene 'na revisione. <br />
+Certe cangiaminde non ge ponne essere pubblecate fine ca 'n'utende autorizzate non ge le rivede.",
 	'stablepages-none' => "Non ge stonne pàggene jndr'à sta liste",
 	'stablepages-config' => 'Configurazione',
+	'stablepages-indef' => "Sualmende 'na scadenze indefinite",
 );
 
 /** Russian (Русский)

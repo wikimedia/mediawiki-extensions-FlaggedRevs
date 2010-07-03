@@ -335,6 +335,7 @@ $messages['diq'] = array(
 	'validationstatistics-users' => "'''{{SITENAME}}''' de nika '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|karber|karberan}} pê heqê [[{{MediaWiki:Validationpage}}|Editor]]î estê.
 
 Editorî u kontrol kerdoğî karberanê kihanyerê ke eşkenî pelan revize bike.",
+	'validationstatistics-lastupdate' => "''Ena data tewr peyên roca $1 seatê $2 de biya rocani.''",
 	'validationstatistics-table' => "Ser her cayênameyî rê îstatistiks bin de mucnayîyo, pelanê redreksiyonî ''nimucniyo\".",
 	'validationstatistics-ns' => 'Cayênameyî',
 	'validationstatistics-total' => 'Ripelî',
@@ -874,6 +875,7 @@ $messages['ja'] = array(
 	'validationstatistics-users' => "'''{{SITENAME}}''' には現在、[[{{MediaWiki:Validationpage}}|編集者]]権限をもつ利用者が '''[[Special:ListUsers/editor|$1]]'''{{PLURAL:$1|人}}います。
 
 編集者とはページの各版に対して抜き取り検査を行うことを認められた利用者です。",
+	'validationstatistics-lastupdate' => "''以下のデータは、$1の$2に最後に更新されました。''",
 	'validationstatistics-table' => '名前空間別の統計を以下に表示します。リダイレクトページは除いています。',
 	'validationstatistics-ns' => '名前空間',
 	'validationstatistics-total' => 'ページ数',
@@ -1274,13 +1276,13 @@ $messages['pms'] = array(
 
 J'Editor a son utent sicur che a peulo controlé le revision a le pàgine.",
 	'validationstatistics-lastupdate' => "''Ij dat sota a son ëstàit modificà l'ùltima vira ël $1 a $2.''",
-	'validationstatistics-pndtime' => "Modìfiche ch'a son ëstàite controlà da utent definì a son considerà revisionà.
+	'validationstatistics-pndtime' => "Modìfiche ch'a son ëstàite controlà da utent confermà a son considerà revisionà.
 
-Ël ritard medi për [[Special:OldReviewedPages|pàgine con modìfiche pa revisionà pendente]] a l'é '''$1'''.
+Ël ritard medi për [[Special:OldReviewedPages|pàgine con modìfiche pa revisionà ch'a speto]] a l'é '''$1'''.
 Cole pàgine a son considerà ''veje''.",
-	'validationstatistics-revtime' => "L'atesa pi àuta përchè le modìfiche dj'''utent anònim'' a sio revisionà a l'é '''$1''', la madia a l'é '''$2'''.
+	'validationstatistics-revtime' => "L'atèisa pi àuta përchè le modìfiche dj'''utent anònim'' a sio revisionà a l'é '''$1''', la media a l'é '''$2'''.
 $3",
-	'validationstatistics-table' => "Lë statìstiche ëd revision ëd pàgine për minca spassi nominal a son mostà sota, ''an gavand'' le pàgine ëd rediression.",
+	'validationstatistics-table' => "Le statìstiche ëd revision dle pàgine për minca spassi nominal a son mostrà sota, ''gavà'' le pàgine ëd ridiression.",
 	'validationstatistics-ns' => 'Spassi nominal',
 	'validationstatistics-total' => 'Pàgine',
 	'validationstatistics-stable' => 'Revisionà',

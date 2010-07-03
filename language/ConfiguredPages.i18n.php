@@ -841,7 +841,7 @@ Bazı ayarlar, okuyuculara hangi sürümün görüntüleneceğini değiştirebil
 	'configuredpages-precedence' => 'Öncelik:',
 	'configuredpages-prec-none' => 'en son kontrol edilen',
 	'configuredpages-prec-quality' => 'en son kaliteli',
-	'configuredpages-prec-pristine' => 'en son öncelikli',
+	'configuredpages-prec-pristine' => 'en son bozulmamış',
 	'configuredpages-def-draft' => 'son sürüm',
 	'configuredpages-def-stable' => 'kararlı sürüm',
 );

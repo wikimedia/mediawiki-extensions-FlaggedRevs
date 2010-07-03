@@ -1616,6 +1616,7 @@ $messages['tl'] = array(
  * @author Karduelis
  * @author Manco Capac
  * @author Runningfridgesrule
+ * @author Srhat
  */
 $messages['tr'] = array(
 	'oldreviewedpages' => 'Bekleyen değişiklik içeren sayfalar',
@@ -1627,7 +1628,7 @@ $messages['tr'] = array(
 	'oldreviewedpages-recent' => '(1 saatten daha az)',
 	'oldreviewed-category' => 'Kategori:',
 	'oldreviewed-watched' => 'İzleme listemdeki sayfalar',
-	'oldreviewed-stable' => 'Kararlı sürümü varsayılandır',
+	'oldreviewed-stable' => 'Varsayılan sürüm kararlı sürümdür',
 	'oldreviewed-diff' => 'gözden geçir',
 	'oldreviewed-size' => 'Azami değişiklik (bayt):',
 	'oldreviewedpages-unwatched' => '(izlenmiyor)',
