@@ -738,6 +738,12 @@ $messages['hsb'] = array(
 
 Wobdźěłowarjo su nazhonići wužiwarjo, kotřiž móžeja wersije stronow kontrolować.",
 	'validationstatistics-lastupdate' => "''Slědowace daty buchu $1 $2 posledni raz zaktualizowane.''",
+	'validationstatistics-pndtime' => "Změny, kotrež buchu wot nazhonitych wužiwarjow skontrolowane, měli so přepruwować.
+
+Přerězny komdźenje za [[Special:OldReviewedPages|strony z njepřepruwowane změny]] je '''$1'''.
+Tute strone maja za ''zestarjene''. Nimo toho měli so strony ''syncjronizować'', jeli změny, kotrež sej přepruwowanje wužaduja, njejsu.",
+	'validationstatistics-revtime' => "Přerězny čakanski čas za změny wot ''wužiwarjow, kotřiž njejsu přizjewjeni'' za přepruwowanje je '''\$1\"\"; přerězna hódnota je '''\$2'''.
+\$3",
 	'validationstatistics-table' => "Statistiki přepruwowanja stronow za kóždy mjenowy rum so deleka pokazuja, ''nimo'' daleposrědkowanjow.",
 	'validationstatistics-ns' => 'Mjenowy rum',
 	'validationstatistics-total' => 'Strony',
@@ -1200,7 +1206,14 @@ $messages['no'] = array(
 	'validationstatistics-users' => "'''{{SITENAME}}''' har på nåværende tidspunkt '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|bruker|brukere}} med [[{{MediaWiki:Validationpage}}|skribentrettigheter]].
 
 Skribenter er etablerte brukere som kan punktsjekke siderevisjoner.",
-	'validationstatistics-table' => "Statistikk for hvert navnerom vises nedenfor, ''utenom'' omdirigeringssider.",
+	'validationstatistics-lastupdate' => "''Følgende data ble sist oppdatert $1, $2.''",
+	'validationstatistics-pndtime' => "Redigeringer som har blitt kontrollert av etablerte brukere anses å være revidert.
+
+Gjennomsnittsforsinkelsen for [[Special:OldReviewedPages|sider med ureviderte ventende endringer]] er '''$1'''.
+Disse sidene anses ''utdatert''. På samme måte anses sider ''synkronisert'' om det ikke er flere ventende endringer.",
+	'validationstatistics-revtime' => "Gjennomsnittsventetiden for endringer av ''brukere som ikke har logget inn'' å bli revidert er '''$1'''; medianen er '''$2'''.
+$3",
+	'validationstatistics-table' => "Siderevideringsstatistikk for hvert navnerom vises nedenfor, ''utenom'' omdirigeringssider.",
 	'validationstatistics-ns' => 'Navnerom',
 	'validationstatistics-total' => 'Sider',
 	'validationstatistics-stable' => 'Anmeldt',

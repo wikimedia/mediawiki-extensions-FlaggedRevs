@@ -1353,7 +1353,7 @@ $messages['fy'] = array(
  * @author Alison
  */
 $messages['ga'] = array(
-	'stabilization-comment' => 'Nóta tráchta:',
+	'stabilization-comment' => 'Fáth:',
 	'stabilization-sel-short-1' => 'Faic',
 );
 
@@ -1979,7 +1979,7 @@ als ekke er, dan æ nuværende',
 Ekke konfiguråsje er mågleg.',
 	'stabilization-notcontent' => 'Æ pæge "[[:$1|$1]]" ken ekke være sæn.
 Ekke konfiguråsje er mågleg.',
-	'stabilization-comment' => 'Bemærkenge:',
+	'stabilization-comment' => 'Begrundelse:',
 	'stabilization-expiry' => 'Duråsje:',
 	'stabilization-sel-short' => 'Præsedens',
 	'stabilization-sel-short-0' => 'Kwalitæ',
@@ -2313,7 +2313,7 @@ Dit zijn de huidige instellingen voor [[:$1|$1]]:',
 	'stabilization-submit' => 'Bevestige',
 	'stabilization-notexists' => 'd\'r Is geine pazjena "[[:$1|$1]]". Instelle is neet meugelik.',
 	'stabilization-notcontent' => 'De pazjena "[[:$1|$1]]" kin neet beoordeild waere. Instelle is neet meugelik.',
-	'stabilization-comment' => 'Opmerking:',
+	'stabilization-comment' => 'Reeje:',
 	'stabilization-expiry' => 'Verloup:',
 	'stabilization-sel-short' => 'Veurrang',
 	'stabilization-sel-short-0' => 'Kwaliteit',
@@ -2685,7 +2685,7 @@ Her er de nåværende innstillingene for [[:$1|$1]]:',
 	'stabilization-select2' => 'Siste kontrollerte revisjon',
 	'stabilization-select3' => 'Den siste urørte versjonen av denne siden; om det ikke finnes, det siste kvalitetsversjonen eller den siste sjekkede versjonen',
 	'stabilization-def' => 'Sideversjonen som skal brukes som standardvisning',
-	'stabilization-def1' => 'Den publiserte revisjonen; om den ikke finnes, utkast eller siste revisjon',
+	'stabilization-def1' => 'Den stabile versjonen; om den ikke finnes, den siste revisjon',
 	'stabilization-def2' => 'Den siste revisjonen',
 	'stabilization-restrict' => 'Begrensninger av revidering/auto-revidering',
 	'stabilization-restrict-none' => 'Ingen ekstra begrensinger',
@@ -3332,9 +3332,15 @@ $messages['sr-ec'] = array(
 	'stabilization-def-short' => 'Основно',
 	'stabilization-def-short-0' => 'Тренутно',
 	'stabilization-def-short-1' => 'Прихваћено',
+	'stabilize_page_invalid' => 'Наслов циљане стране је неисправан.',
+	'stabilize_page_notexists' => 'Циљана страна не постоји.',
+	'stabilize_page_unreviewable' => 'Циљана страна се не налази у прегледивом именском простору.',
+	'stabilize_invalid_level' => 'Неисправан ниво заштите.',
 	'stabilize_expiry_invalid' => 'Лош датум истицања.',
 	'stabilize_expiry_old' => 'Време истицања је већ прошло.',
+	'stabilize_denied' => 'Приступ одбијен.',
 	'stabilize-expiring' => 'истиче $1 (UTC)',
+	'stabilization-review' => 'Означи тренутну ревизику као прегледану',
 );
 
 /** Serbian Latin ekavian (Srpski (latinica))
@@ -4011,6 +4017,11 @@ $messages['vo'] = array(
 	'stabilization-def-short-1' => 'Fümöfik',
 	'stabilize_expiry_invalid' => 'Dul no lonöföl.',
 	'stabilize-expiring' => 'dulon jü $1 (UTC)',
+);
+
+/** Wu (吴语) */
+$messages['wuu'] = array(
+	'stabilization-comment' => '理由：',
 );
 
 /** Yiddish (ייִדיש)

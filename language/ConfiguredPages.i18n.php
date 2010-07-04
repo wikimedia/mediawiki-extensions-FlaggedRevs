@@ -46,9 +46,11 @@ $messages['af'] = array(
 );
 
 /** Arabic (العربية)
+ * @author Loya
  * @author Mohamed Ouda
  */
 $messages['ar'] = array(
+	'configuredpages-config' => 'ضبط',
 	'configuredpages-prec-none' => 'لا سابقة',
 	'configuredpages-prec-quality' => 'سابقة جودة',
 	'configuredpages-prec-pristine' => 'سابقة فائقة',

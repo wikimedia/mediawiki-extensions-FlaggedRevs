@@ -3597,6 +3597,11 @@ Móžo byś, až musyš nejpjerwjej změny dalej wobźełaś abo je "slědk wze�
 	'validationpage' => '{{ns:help}}:Wobwěsćenje bokow',
 );
 
+/** Ewe (Eʋegbe) */
+$messages['ee'] = array(
+	'revreview-edit' => 'Trɔ asi le eŋu',
+);
+
 /** Greek (Ελληνικά)
  * @author Badseed
  * @author Consta
@@ -10779,7 +10784,7 @@ $messages['no'] = array(
 	'editor' => 'Skribent',
 	'flaggedrevs' => 'Stabile versjoner',
 	'flaggedrevs-watched-pending' => "Det finnes [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} ventende endringer] på vurderte sider i din overvåkningsliste. '''Din oppmerksomhet trengs!'''",
-	'flaggedrevs-desc' => 'Gir skribenter og anmeldere muligheten til å revidere revisjoner og stabilisere sider',
+	'flaggedrevs-desc' => 'Gir Skribenter muligheten til å revidere revisjoner og stabilisere sider',
 	'flaggedrevs-pref-UI' => 'Grunnleggende grensesnitt:',
 	'flaggedrevs-pref-UI-0' => 'Bruk detaljerte bokser for å vise godkjenningsstatusen til sider',
 	'flaggedrevs-pref-UI-1' => 'Bruk små ikoner og minimal tekst for å vise godkjenningsstatusen til sider',
@@ -10813,8 +10818,10 @@ $messages['no'] = array(
 	'revreview-diff-toggle-title' => 'Slå av og på visning av ventende endringer i den publiserte versjonen',
 	'revreview-log-toggle-show' => 'vis stabilitetslogg',
 	'revreview-log-toggle-hide' => 'skjul stabilitetslogg',
+	'revreview-log-toggle-title' => 'Veksle visning av loggen for stabilitetsinnstillinger',
 	'revreview-log-details-show' => 'vis detaljer',
 	'revreview-log-details-hide' => 'skjul detaljer',
+	'revreview-log-details-title' => 'Veksle visning av logg for stabilitetsinnstillinger',
 	'review-diff2stable' => 'Vis den publiserte versjonens ventende endringer',
 	'review-logentry-app' => 'reviderte en versjon av [[$1]]',
 	'review-logentry-dis' => 'degraderte en versjon av [[$1]]',
@@ -10822,7 +10829,7 @@ $messages['no'] = array(
 	'review-logentry-diff' => 'endringer revidert',
 	'review-logentry-diff2' => 'endringer degradert',
 	'review-logpage' => 'Anmeldingslogg',
-	'review-logpagetext' => 'Dette er en logg over endringer i [[{{MediaWiki:Validationpage}}|godkjenningsstatusen]] for innholdssider.',
+	'review-logpagetext' => 'Dette er en logg over hvilke versjoner av innholdssider som er [[{{MediaWiki:Validationpage}}|kontrollerte]].',
 	'reviewer' => 'Anmelder',
 	'revisionreview' => 'Anmeld sideversjoner',
 	'revreview-accuracy' => 'Nøyaktighet',
@@ -10864,11 +10871,18 @@ Dette kan skje om en dynamisk mal inneholder en annen fil eller en mal avhengig 
 	'revreview-depth-4' => 'Utmerket',
 	'revreview-draft-title' => 'Ventende endringer vises på denne siden',
 	'revreview-edit' => 'Rediger',
-	'revreview-editnotice' => "'''Dine endringer vil bli publisert når en autorisert bruker har revidert dem. ([[{{MediaWiki:Validationpage}}|?]])'''",
+	'revreview-editnotice' => "'''Endringer dine vil bli vist til lesere når en autorisert bruker har revidert dem. ([[{{MediaWiki:Validationpage}}|hjelp]])'''",
 	'revreview-check-flag-p' => 'Publiser nåværende ventende endringer',
-	'revreview-edited' => "'''Endringer vil bli publisert når en autorisert bruker har revidert dem. ([[{{MediaWiki:Validationpage}}|?]])'''
+	'revreview-check-flag-p-title' => 'Godta alle nåværende ventende endringer sammen med din egen endring. Bare bruk denne om du allerede har sett på hele diffen for ventende endringer.',
+	'revreview-check-flag-u' => 'Godta denne ureviderte siden',
+	'revreview-check-flag-u-title' => 'Godta denne versjonen av siden. Bare bruk denne om du allerede har sett hele siden.',
+	'revreview-check-flag-y' => 'Godta disse endringene',
+	'revreview-check-flag-y-title' => 'Godta alle endringene som du har gjort i denne redigeringen.',
+	'revreview-submitedit' => 'Send endringer',
+	'revreview-submitedit-title' => 'Send endringene dine for revidering',
+	'revreview-edited' => "'''Endringer vil bli vist til lesere når en autorisert bruker har revidert dem. ([[{{MediaWiki:Validationpage}}|hjelp]])'''
 
-Det er [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1|diff=cur&diffonly=0}} {{PLURAL:$2|én foreslått endring|$2 foreslåtte endringer}}] ''(vist nedenfor)'' som venter på revidering.",
+Det er [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1|diff=cur&diffonly=0}} {{PLURAL:$2|én ventende endring|$2 ventende endringer}}] ''(vist nedenfor)'' som venter på revidering.",
 	'revreview-edited-section' => 'Tilbake til avsnitt med navnet «[[#$1|$2]]».',
 	'revreview-flag' => 'Anmeld denne sideversjonen',
 	'revreview-reflag' => 'Revider denne revisjonen på nytt',
@@ -10937,10 +10951,14 @@ For å fjerne vurderingsstatusen til en revisjon kan du sette ''alle'' feltene t
 Klikk på «tilbake»-knappen i nettleseren din og prøv igjen.",
 	'revreview-update' => "'''[[{{MediaWiki:Validationpage}}|Revider]] ventende endringer ''(vist nedenfor)'' som har blitt gjort på den aksepterte versjonen.'''
 Du må kanskje følge opp eller «angre» endringer først.",
-	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Dine endringer har ikke blitt akseptert ennå. Det finnes tidligere endringer som venter på revidering.</span>
+	'revreview-update-edited' => '<span class="flaggedrevs_important">Endringene dine er ikke i den stabile versjonen ennå.</span>
 
-Se igjennom alle endringene vist nedenfor for å gjøre endringene dine akseptert.
-Du må kanskje følge opp eller «angre» endringer først.',
+Revider alle endringene vist nedenfor for å gjøre redigeringene dine synlige i den stabile versjonen.
+Du må kanskje følge opp eller «angre» redigeringer først.',
+	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Endringene dine er ikke i den stabile versjonen ennå. Det finnes tidligere endringer som venter på revidering.</span>
+
+Revider alle endringene vist nedenfor for å gjøre redigeringene dine synlige i den stabile versjonen.
+Du må kanskje følge opp eller «angre» redigeringer først.',
 	'revreview-update-includes' => "'''Noen maler eller filer ble oppdatert:'''",
 	'revreview-update-use' => "'''MERK:''' Den publiserte versjonen av hver av disse malene eller filene er brukt i den publiserte versjonen av denne siden.",
 	'revreview-visibility' => "'''Denne siden har en oppdatert [[{{MediaWiki:Validationpage}}|publisert versjon]]; innstillinger for stabile sider kan [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} endres].'''",
@@ -10956,10 +10974,10 @@ Du må kanskje følge opp eller «angre» endringer først.',
 	'rights-editor-autosum' => 'automatisk forfremmet',
 	'rights-editor-revoke' => 'fjernet skribentstatus fra [[$1]]',
 	'specialpages-group-quality' => 'Redigeringsgodkjennelse',
-	'stable-logentry-config' => 'konfigurerte publiseringsinnstillinger for $1',
-	'stable-logentry-modify' => 'forandret stabil versjon innstillinger for $1',
-	'stable-logentry-reset' => 'tilbakestilte publiseringsinnstillinger for $1',
-	'stable-log-restriction' => 'Publiser: krever «$1»-tillatelse',
+	'stable-logentry-config' => 'sett innstillinger for stabil versjon for «$1»',
+	'stable-logentry-modify' => 'endret innstillinger for stabil versjon for «$1»',
+	'stable-logentry-reset' => 'tilbakestilte innstillinger for stabil versjon for «$1»',
+	'stable-log-restriction' => 'Auto-revisjon: krever tillatelsen «$1»',
 	'stable-logpage' => 'Versjonsstabiliseringslogg',
 	'stable-logpagetext' => 'Dette er en logg over endringene av den [[{{MediaWiki:Validationpage}}|publiserte versjonens]] konfigurasjon av innholdssider.',
 	'revreview-filter-all' => 'Alle',
@@ -10981,7 +10999,7 @@ Du må kanskje følge opp eller «angre» endringer først.',
 	'revreview-def-all' => 'alle',
 	'revreview-def-draft' => 'siste',
 	'revreview-def-stable' => 'publisert',
-	'revreview-restrictfilter' => 'Begrensningsnivå:',
+	'revreview-restrictfilter' => 'Auto-revisjonsbegrensning:',
 	'revreview-restriction-any' => 'alle',
 	'revreview-restriction-none' => 'ingen',
 	'revreview-reviewlink' => 'ventende endringer',
@@ -10990,13 +11008,12 @@ Du må kanskje følge opp eller «angre» endringer først.',
 	'tooltip-ca-current' => 'Vis denne siden med ventende endringer',
 	'tooltip-ca-stable' => 'Vis den publiserte versjonen av denne siden',
 	'tooltip-ca-default' => 'Innstillinger for kvalitetssikring',
-	'flaggedrevs-protect-legend' => 'Publiser endringer ([[{{MediaWiki:Validationpage}}|?]])',
+	'flaggedrevs-protect-legend' => 'Automatisk redigeringsrevisjon ([[{{MediaWiki:Validationpage}}|hjelp]])',
 	'flaggedrevs-protect-none' => 'Tillat alle brukere',
-	'flaggedrevs-protect-basic' => 'Standardinnstillinger',
-	'revreview-locked-title' => 'Redigeringer må anmeldes før de vises på denne siden.',
-	'revreview-unlocked-title' => 'Redigeringer må ikke anmeldes før de vises på denne siden.',
-	'revreview-locked' => 'Redigeringer må anmeldes før de vises på denne siden.',
-	'revreview-unlocked' => 'Redigeringer må ikke anmeldes før de vises på denne siden.',
+	'revreview-locked-title' => 'Redigeringer må revideres før de vises for lesere på denne siden.',
+	'revreview-unlocked-title' => 'Redigeringer krever ikke revidering før de vises for lesere på denne siden.',
+	'revreview-locked' => "'''Merk:''' Redigeringer må [[{{MediaWiki:Validationpage}}|revideres]] før de vises for lesere på denne siden.",
+	'revreview-unlocked' => "'''Merk:''' Redigeringer krever ikke [[{{MediaWiki:Validationpage}}|revidering]] før de vises for lesere på denne siden.",
 	'log-show-hide-review' => '$1 vurderingslogg',
 	'revreview-tt-review' => 'Sette denne statusen til denne revisjonen',
 	'revreview-tt-flag' => 'Godkjenn denne revisjonen ved å merke den som kontrollert',
@@ -15205,7 +15222,8 @@ $messages['uk'] = array(
 Щоб відкинуту версію, встановіть усі поля у значення \"не затверджена\".
 
 Будь ласка, натисніть кнопку «Назад» у браузері і спробуйте ще раз.",
-	'revreview-update' => "Будь ласка, [[{{MediaWiki:Validationpage}}|перевірте]] всі нерецензовані зміни опублікованої версії ''(показані нижче)''.",
+	'revreview-update' => "Будь ласка, [[{{MediaWiki:Validationpage}}|перевірте]] всі нерецензовані зміни ''(показані нижче)'', зроблені з моменту стабільної версії.
+Вам потрібно спочатку прийняти або скасувати ці редагування.",
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Ваші зміни ще не опубліковані.</span>
 
 Попередні редагування очікують на перевірку. Щоб опублікувати ваші зміни, будь-ласка, перевірте усі зміни, що показані нижче.',
@@ -15261,7 +15279,6 @@ $messages['uk'] = array(
 	'tooltip-ca-default' => 'Налаштування контролю якості',
 	'flaggedrevs-protect-legend' => 'Автоматичне рецензування редагування ([[{{MediaWiki:Validationpage}}|допомога]])',
 	'flaggedrevs-protect-none' => 'Дозволено всім користувачам',
-	'flaggedrevs-protect-basic' => 'Установки за умовчанням',
 	'revreview-locked-title' => 'Редагування повинні бути перевірені перед тим, як будуть показані читачам на цій сторінці.',
 	'revreview-unlocked-title' => 'Редагування не потребують рецензування перед тим, як будуть показані читачам на цій сторінці.',
 	'revreview-locked' => "'''Примітка:''' Редагування повинні бути [[{{MediaWiki:Validationpage}}|перевірені]] перед тим, як будуть показані читачам на цій сторінці.",

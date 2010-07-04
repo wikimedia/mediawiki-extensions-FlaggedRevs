@@ -101,6 +101,7 @@ $messages['bcc'] = array(
 /** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))
  * @author EugeneZelenko
  * @author Jim-by
+ * @author Wizardist
  */
 $messages['be-tarask'] = array(
 	'stablepages' => 'Старонкі, якія выкарыстоўваюць зацьверджаньні рэдагаваньняў',
@@ -108,6 +109,7 @@ $messages['be-tarask'] = array(
 Рэдагаваньні зробленыя іншымі ўдзельнікамі, па змоўчваньні ня будуць паказвацца чытачам, пакуль аўтарызаваны ўдзельнік іх не прарэцэнзуе.',
 	'stablepages-none' => 'У гэтым сьпісе няма старонак.',
 	'stablepages-config' => 'Канфігурацыя',
+	'stablepages-indef' => 'Толькі зь непазначаным тэрмінам',
 );
 
 /** Bulgarian (Български)
@@ -591,10 +593,11 @@ $messages['nn'] = array(
  */
 $messages['no'] = array(
 	'stablepages' => 'Sider som bruker redigeringsgodkjenning',
-	'stablepages-text' => 'Nedenfor er en liste over sider som er begrenset slik at bare enkelte brukere kan redigere uten krav om revidering.
-Slike bidrag blir ikke akseptert før en autorisert bruker reviderer dem.',
+	'stablepages-text' => 'Nedenfor er en liste over sider som kun enkelte brukere kan redigere uten krav om revidering.
+Endringer utført av andre brukere vises ikke til lesere som standard før en autorisert bruker reviderer dem.',
 	'stablepages-none' => 'Det er ingen sider i denne listen',
 	'stablepages-config' => 'Konfigurering',
+	'stablepages-indef' => 'Kun ubestemt utløpstid',
 );
 
 /** Occitan (Occitan)

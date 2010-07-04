@@ -1488,9 +1488,11 @@ $messages['sr-ec'] = array(
 	'oldreviewedpages-recent' => '(мање од једног часа)',
 	'oldreviewed-category' => 'Категорија:',
 	'oldreviewed-watched' => 'Стране на мојем списку надгледања',
-	'oldreviewed-stable' => 'Стабилизоване стране',
+	'oldreviewed-stable' => 'Стабилна верзија је подразумевана',
 	'oldreviewed-diff' => 'преглед',
+	'oldreviewed-size' => 'Највећа измена (бајтови):',
 	'oldreviewedpages-unwatched' => '(ненадгледано)',
+	'oldreviewedpages-watched' => '($1 {{PLURAL:$1|активан корисник|активна корисника|активна корисника|активна корисника|активних корисника}} гледа)',
 	'oldreviewedpages-viewing' => '(под прегледом)',
 );
 
