@@ -336,6 +336,12 @@ $messages['diq'] = array(
 
 Editorî u kontrol kerdoğî karberanê kihanyerê ke eşkenî pelan revize bike.",
 	'validationstatistics-lastupdate' => "''Ena data tewr peyên roca $1 seatê $2 de biya rocani.''",
+	'validationstatistics-pndtime' => "Vurnayişan ke karberanê kihanan ra nişan biyo inan ma heseb keni qontrol biya.
+
+Avaraj tehcil qey [[Special:OldReviewedPages|pages with unreviewed edits pending]] '''$1''' a.
+Ena pelan ma ''kihanan'' ra hesebneni. Eka yew vuranayişan ciniyo, pelan ke ''sync'' kebul beno.",
+	'validationstatistics-revtime' => "Avaraj tecil seba vurnayişan pê ''karberanê ke hama ci nikewta'' qontrol beno '''$1'''; mediyan '''$2''' ya. 
+$3",
 	'validationstatistics-table' => "Ser her cayênameyî rê îstatistiks bin de mucnayîyo, pelanê redreksiyonî ''nimucniyo\".",
 	'validationstatistics-ns' => 'Cayênameyî',
 	'validationstatistics-total' => 'Ripelî',
@@ -440,6 +446,11 @@ $messages['es'] = array(
 	'validationstatistics-users' => "En '''{{SITENAME}}''' actualmente hay '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|usuario|usuarios}} con derechos de [[{{MediaWiki:Validationpage}}|Editor]].
 Los editores son usuarios establecidos que pueden verificar las revisiones de las páginas.",
 	'validationstatistics-lastupdate' => "''Los siguientes datos fueron actualizados por última vez el $1 a las $2.''",
+	'validationstatistics-pndtime' => "Ediciones que han sido verificadas por usuarios establecidos son consideradas revisadas.
+
+La demora promedio para [[Special:OldReviewedPages|páginas con ediciones pendientes no revisadas]] es '''$1'''.
+Estas páginas son consideradas ''desactualizadas''. Del mismo modo, las páginas son consideradas ''sincronizadas'' si no hay revisiones de edición pendientes.",
+	'validationstatistics-revtime' => "La espera promedio para las ediciones  hechas por ''usuarios que no han iniciado sesión'' a ser revisadas es '''$1'''; la media es '''$2'''. $3",
 	'validationstatistics-table' => "Las estadísiticas de la revisión de páginas para cada espacio de nombres están mostradas debajo, ''excluyendo'' redirecciones.",
 	'validationstatistics-ns' => 'Espacio de nombres',
 	'validationstatistics-total' => 'Páginas',
@@ -1255,6 +1266,7 @@ $messages['pdc'] = array(
 );
 
 /** Polish (Polski)
+ * @author Fizykaa
  * @author Jwitos
  * @author Leinad
  * @author Sp5uhe
@@ -1267,6 +1279,7 @@ $messages['pl'] = array(
 
 Redaktorzy są doświadczonymi użytkownikami, którzy mogą oznaczać dowolne wersje stron.",
 	'validationstatistics-lastupdate' => "''Poniższe dane uaktualnione zostały $1 o $2.''",
+	'validationstatistics-revtime' => "Średni czas oczekiwania na oznaczenie edycji użytkowników niezalogowanych wynosi '''$1''', mediana – '''$2'''. $3",
 	'validationstatistics-table' => "Poniżej znajdują się statystyki dla każdej przestrzeni nazw, ''z wyłączeniem'' przekierowań.",
 	'validationstatistics-ns' => 'Przestrzeń nazw',
 	'validationstatistics-total' => 'Stron',
@@ -1781,6 +1794,8 @@ $messages['vi'] = array(
 
 Biên tập viên là người dùng có kinh nghiệm có khả năng kiểm tra nhanh các thay đổi tại trang.",
 	'validationstatistics-lastupdate' => "''Các dữ liệu sau được cập nhật lần cuối vào $1 lúc $2.''",
+	'validationstatistics-revtime' => "Những sửa đổi của ''người dùng vô danh'' phải chờ đợi '''$1''' trung bình; thời gian trung vị là '''$2'''.
+$3",
 	'validationstatistics-table' => "Đây có thống kê duyệt trang về các không gian tên, ''trừ'' các trang đổi hướng.",
 	'validationstatistics-ns' => 'Không gian tên',
 	'validationstatistics-total' => 'Số trang',

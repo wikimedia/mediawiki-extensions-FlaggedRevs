@@ -506,6 +506,7 @@ $messages['lb'] = array(
 Ännerunge vun anere Benotzer ginn de Lieser net gewise bis en autoriséierte Benotzer se nogekuckt huet.',
 	'stablepages-none' => 'Dës Lëscht ass eidel',
 	'stablepages-config' => 'Konfiguratioun',
+	'stablepages-indef' => 'Nëmmen no net limitéiertem Delai',
 );
 
 /** Macedonian (Македонски)
@@ -618,7 +619,7 @@ $messages['oc'] = array(
 $messages['pl'] = array(
 	'stablepages' => 'Strony wykorzystujące oznaczanie zmian',
 	'stablepages-text' => 'Poniżej znajduje się lista stron, które skonfigurowano tak, że tylko niektórzy użytkownicy mogą wprowadzać na nich zmiany, które nie wymagają przejrzenia.
-Niektóre edycje nie zostaną opublikowane do momentu oznaczenia ich przez uprawnionego użytkownika.',
+Niektóre edycje nie będą domyślnie wyświetlane czytelnikom do momentu oznaczenia ich przez uprawnionego użytkownika.',
 	'stablepages-none' => 'Brak stron na tej liście',
 	'stablepages-config' => 'Konfiguracja',
 );

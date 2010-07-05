@@ -3209,6 +3209,7 @@ pel newe kerê ya zi newe ra çım ser bı çarnê belka problem hal bıbo.",
 	'revreview-edit' => 'Bıvurne',
 	'revreview-editnotice' => "'''Vurnayışê şıma neşr benê u yew karbero selahiyetdar ninan reyna çım ra viyarneno. [[{{MediaWiki:Validationpage}}|yardim]]'''",
 	'revreview-check-flag-p' => 'Vurnayışanê ke hama cap nibiyê inan kebul ke',
+	'revreview-check-flag-p-title' => 'Vurnayişê xo u vurnayişan ke hama kebul nibiya inan kebul bike. Ena xacet teyna şuxulne ci wext ke ti diffê vurnayişê hemi kontrol kerd.',
 	'revreview-check-flag-u' => 'Ena pele ke qontrol nibiya ke ay kebul bike',
 	'revreview-check-flag-u-title' => 'Versiyon ena pele kebul bike. Ena pele şuxulne eka teyna ena pele temamen diye.',
 	'revreview-check-flag-y' => 'Ena vurnayişan kebul bike',
@@ -3237,6 +3238,8 @@ bıewnê [[Special:Unreviewedpages|listeya pelê konrol nêbiyayeyan]].',
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} vurnayişê şablon/dosyayi] gani newe ra konrol bıbo.',
 	'revreview-pending-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Versiyonê sabiti] <i>$2</i> di [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} control biya]. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|vurnayis|vurnayisan}}] {{PLURAL:$3|esta|este}} ke gani kontrol biyo.',
 	'revreview-pending-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Versiyonê sabiti] <i>$2</i> de [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} qebul biya]. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|vurnayis|vurnayisan}}] {{PLURAL:$3|esta|este}} ke gani kontrol biyo.',
+	'revreview-pending-nosection' => 'Ena [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} versiyon tewr peniya] 
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 hama {{PLURAL:$2|vurnayiş|vurnayişan}}], bivini eka qisim wedariya ya zi transfer biya.',
 	'revreview-noflagged' => 'No pel de revizyono ke [[{{MediaWiki:Validationpage}}|çım ser nêçariyayi]] çini yo, no sebeb ra qey qalite belka hewl niyo.',
 	'revreview-note' => '[[User:$1|$1]] no revizyon ser [[{{MediaWiki:Validationpage}}|çım çarna]] u no not verda:',
 	'revreview-notes' => 'tayê not u muşahedati ramociyeni:',
@@ -3287,6 +3290,14 @@ Seba statuyê qontroli wedarnayişi, eyaranê ''hemi'' her ca de \"tam niya\" bi
 Ma rica keni \"peyser\" şu ra klik bike reyna deneme bike.",
 	'revreview-update' => "!Ma rica keno heta key versiyonê stablizeyî vurnayişê xo [[{{MediaWiki:Validationpage}}|kontrol]] bike ''(cor mucnayiyo)''. 
 '''Tay templateyan/dosyayan rocaniye biyo:'''",
+	'revreview-update-edited' => '<span class="flaggedrevs_important">Vurnayişanê tu hama zerrê versiyonê sebiti de niya.</span>
+
+Ma rica keni vurnayişanê xo peran versiyonê sebit biki bade kontrolê vurnayişi.
+Ti belki tewr verni de vurnayişan teqib biki ya zi "peyser biyeri".',
+	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Vurnayişanê tu hama zerrê versiyonê sebiti de niya. Hama vurnayişanê binan ho sira de.</span>
+
+Ma rica keni vurnayişanê xo peran versiyonê sebit biki bade kontrolê vurnayişi.
+Ti belki tewr verni de vurnayişan teqib biki ya zi "peyser biyeri".',
 	'revreview-update-includes' => "'''Tay Templatan/dosyayan biyo rocaniye:'''",
 	'revreview-update-use' => "'''DIQET:''' Eka ena tempelatan/dosyayan ser yew versiyonê stableyî esto, ey sero zaten versiyonê stable de kar beno.",
 	'revreview-visibility' => "Ena pel [[{{MediaWiki:Validationpage}}|versiyonê stableyî]] rocaniye biyo; stabiliteyê pelî ti eşkeno [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} konfigure bike].'''",
@@ -6846,7 +6857,7 @@ Az oldal frissítése és az újbóli ellenőrzés megoldhatja a problémát.",
 	'review_bad_oldid' => 'Nincs ilyen lapváltozat.',
 	'review_denied' => 'Engedély megtagadva.',
 	'review_param_missing' => 'Egy paraméter hiányzik vagy hibás.',
-	'revreview-current' => 'Ellenőrzésre váró változtatások',
+	'revreview-current' => 'Nem ellenőrzött változat',
 	'revreview-depth' => 'Részletesség',
 	'revreview-depth-0' => 'ellenőrizetlen',
 	'revreview-depth-1' => 'alacsony',
@@ -7490,8 +7501,11 @@ $messages['io'] = array(
 Voluntez kontrolar la URL quan vu uzis por acesar a ca pagino.",
 	'revreview-filter-all' => 'omna',
 	'revreview-levelfilter' => 'Nivelo:',
+	'revreview-lev-all' => 'ula',
+	'revreview-def-all' => 'ula',
 	'revreview-def-draft' => 'maxim nova',
 	'revreview-def-stable' => 'stabila',
+	'revreview-restriction-any' => 'ula',
 	'revreview-restriction-none' => 'nula',
 );
 
@@ -11258,6 +11272,7 @@ $messages['pdc'] = array(
 /** Polish (Polski)
  * @author Beau
  * @author Derbeth
+ * @author Fizykaa
  * @author Holek
  * @author Jwitos
  * @author Leinad
@@ -11349,9 +11364,11 @@ Odświeżenie strony i ponowne sprawdzenie może rozwiązać ten problem.",
 	'review_page_unreviewable' => 'Brak możliwości przeglądnięcia wskazanej strony.',
 	'review_no_oldid' => 'Nie podano ID wersji.',
 	'review_bad_oldid' => 'Wskazana wersja nie istnieje.',
+	'review_denied' => 'Brak dostępu.',
+	'review_param_missing' => 'Nie podano parametru lub jest on nieprawidłowy.',
 	'revreview-current' => 'Oczekuje na przejrzenie',
 	'revreview-depth' => 'Wyczerpanie tematu',
-	'revreview-depth-0' => 'nieakceptowalne',
+	'revreview-depth-0' => 'Nieakceptowalne',
 	'revreview-depth-1' => 'podstawowe',
 	'revreview-depth-2' => 'średnie',
 	'revreview-depth-3' => 'wysokie',
@@ -11385,13 +11402,13 @@ Zobacz [[Special:Unreviewedpages|listę nieprzejrzanych stron]].',
 	'revreview-newest-quality-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Wersja opublikowana] została [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} przejrzana] <i>$2</i>. W wersji roboczej [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} zmian szablonów i plików] wymaga przejrzenia.',
 	'revreview-pending-basic' => 'Ostatnia [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} wersja przejrzana] została [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} oznaczona] <i>$2</i>. Od tego czasu dokonano [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|zmianę|zmiany|zmian}}], {{PLURAL:$3|która oczekuje|które oczekują|które oczekują}} na przejrzenie.',
 	'revreview-pending-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Wersja opublikowana] została [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} przejrzana] <i>$2</i>. W [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} wersji roboczej] [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|zmiana oczekuje|zmiany oczekują|zmian oczekuje}} na przejrzenie].',
-	'revreview-noflagged' => "Ta strona nie posiada żadnej wersji oznaczonej – możliwe, że '''nie''' została [[{{MediaWiki:Validationpage}}|przejrzana]] pod kątem jakości.",
+	'revreview-noflagged' => "Ta strona nie posiada wersji oznaczonej – możliwe, że '''nie''' została [[{{MediaWiki:Validationpage}}|przejrzana]] pod kątem jakości.",
 	'revreview-note' => '[[User:$1|$1]] dokonał(a) następujących komentarzy podczas [[{{MediaWiki:Validationpage}}|sprawdzania]] tej wersji:',
 	'revreview-notes' => 'Obserwacje lub uwagi do wyświetlenia:',
 	'revreview-oldrating' => 'Uzyskana ocena:',
 	'revreview-quality' => 'To jest [[{{MediaWiki:Validationpage}}|wersja opublikowana]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} przejrzana] <i>$2</i>.
 W [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} wersji roboczej] {{PLURAL:$3|jest|są|jest}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|zmiana|zmiany|zmian}}] {{PLURAL:$3|oczekująca|oczekujące|oczekujących}} na sprawdzenie.',
-	'revreview-quality-i' => 'To jest najnowsza [[{{MediaWiki:Validationpage}}|wersja zweryfikowana]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} zatwierdzona] <i>$2</i>.
+	'revreview-quality-i' => 'To jest najnowsza [[{{MediaWiki:Validationpage}}|wersja opublikowana]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} przejrzana] <i>$2</i>.
 W [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} wersji roboczej] są [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} zmiany szablonów lub plików] oczekujące na sprawdzenie.',
 	'revreview-quality-old' => 'To jest [[{{MediaWiki:Validationpage}}|wersja zweryfikowana]] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} pokaż wszystkie]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} zatwierdzona] <i>$2</i>.
 Mogły zostać dokonane nowe [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} zmiany].',
@@ -11411,7 +11428,7 @@ Mogły zostać dokonane nowe [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diff
 	'revreview-selected' => "Wybrana wersja '''$1:'''",
 	'revreview-source' => 'Pokaż źródło',
 	'revreview-basic-title' => 'To jest wersja przejrzana tej strony',
-	'revreview-stable1' => 'Możesz zobaczyć [{{fullurl:$1|stableid=$2}} oznaczoną wersję] i sprawdzić, czy jest ona [{{fullurl:$1|stable=1}} wersją zweryfikowaną] tej strony.',
+	'revreview-stable1' => 'Możesz zobaczyć [{{fullurl:$1|stableid=$2}} wersję oznaczoną] i sprawdzić, czy jest ona [{{fullurl:$1|stable=1}} wersją zweryfikowaną] tej strony.',
 	'revreview-stable2' => 'Możesz zobaczyć [{{fullurl:$1|stable=1}} wersję zweryfikowaną] tej strony (o ile istnieje).',
 	'revreview-style' => 'Czytelność',
 	'revreview-style-0' => 'nieadekwatna',
@@ -11427,10 +11444,13 @@ Mogły zostać dokonane nowe [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diff
 	'revreview-submit-unreviewed' => 'Gotowe. Wycofano akceptację!',
 	'revreview-successful' => "'''Wersja [[:$1|$1]] została pomyślnie oznaczona. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} zobacz wszystkie wersje przejrzane])'''",
 	'revreview-successful2' => "'''Wersja [[:$1|$1]] została pomyślnie odznaczona.'''",
-	'revreview-text' => "''[[{{MediaWiki:Validationpage}}|Wersje przejrzane]] domyślnie prezentowane są czytelnikom, nawet jeśli istnieją nowsze, nieprzejrzane wersje.''",
+	'revreview-text' => "''[[{{MediaWiki:Validationpage}}|Wersje przejrzane]] są domyślnie prezentowane czytelnikom, nawet jeśli istnieją nowsze, nieprzejrzane wersje.''",
 	'revreview-toggle-title' => 'pokaż lub ukryj szczegóły',
-	'revreview-toolow' => 'Musisz ocenić każdy z atrybutów wyżej niż „nieakceptowalny“, aby uważać wersję za zweryfikowaną. 
-By wycofać weryfikację, należy ustawić wszystkie pola na „nieakceptowalny“.',
+	'revreview-toolow' => "Musisz ocenić każdy z atrybutów wyżej niż „nieakceptowalny“, aby oznaczyć wersję jako zweryfikowaną. 
+
+By wycofać weryfikację, należy ustawić '''wszystkie''' pola na „nieakceptowalny“.
+
+Kliknij przycisk ''Wstecz'' i spróbuj ponownie.",
 	'revreview-update' => "'''Proszę [[{{MediaWiki:Validationpage}}|przejrzeć]] zmiany ''(patrz niżej)'' dokonane od momentu ostatniego oznaczenia wersji.'''
 Najpierw prześledź dokonane zmiany, a następnie zaakceptuj je lub „anuluj edycję”.",
 	'revreview-update-edited' => '<span class="flaggedrevs_important">Wykonane przez Ciebie zmiany nie mają jeszcze statusu wersji oznaczonej.</span>
@@ -11492,11 +11512,10 @@ Po prześledzeniu zmian, zaakceptuj je lub „anuluj edycję”.',
 	'tooltip-ca-default' => 'Ustawienia mechanizmu zapewnienia jakości artykułów',
 	'flaggedrevs-protect-legend' => 'Automatycznie przeglądanie edycji ([[{{MediaWiki:Validationpage}}|pomoc]])',
 	'flaggedrevs-protect-none' => 'Pozwól wszystkim użytkownikom',
-	'flaggedrevs-protect-basic' => 'Domyślne ustawienia',
-	'revreview-locked-title' => 'Edycje muszą zostać oznaczone, zanim zostaną wyświetlone na tej stronie.',
-	'revreview-unlocked-title' => 'Edycje nie wymagają oznaczenia, zanim zostaną wyświetlone na tej stronie.',
-	'revreview-locked' => 'Edycje muszą zostać oznaczone, zanim zostaną wyświetlone na tej stronie!',
-	'revreview-unlocked' => 'Edycje nie wymagają oznaczenia, zanim zostaną wyświetlone na tej stronie.',
+	'revreview-locked-title' => 'Edycje muszą zostać oznaczone, zanim zostaną wyświetlone na tej stronie czytelnikom.',
+	'revreview-unlocked-title' => 'Edycje nie wymagają oznaczenia, by zostały wyświetlone na tej stronie.',
+	'revreview-locked' => 'Edycje muszą zostać [[{{MediaWiki:Validationpage}}|oznaczone]], zanim zostaną wyświetlone czytelnikom na tej stronie.',
+	'revreview-unlocked' => 'Edycje nie wymagają [[{{MediaWiki:Validationpage}}|oznaczenia]], by zostały wyświetlone na tej stronie.',
 	'log-show-hide-review' => '$1 rejestr oznaczania',
 	'revreview-tt-review' => 'Ustaw ten status dla tej wersji',
 	'revreview-tt-flag' => 'Zaakceptuj tę wersję poprzez oznaczenie jej jako „przejrzanej”',

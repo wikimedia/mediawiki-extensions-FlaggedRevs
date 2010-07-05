@@ -1846,9 +1846,11 @@ $messages['ig'] = array(
  * @author Malafaya
  */
 $messages['io'] = array(
+	'stabilization-page' => 'Nomo di la pagino:',
 	'stabilization-comment' => 'Motivo:',
 	'stabilization-otherreason' => 'Altra motivo:',
 	'stabilization-othertime' => 'Altra tempo:',
+	'stabilization-sel-short-1' => 'Nula',
 	'stabilization-def-short-0' => 'Aktuala',
 	'stabilization-def-short-1' => 'Stabila',
 );
@@ -2794,6 +2796,8 @@ $messages['pdc'] = array(
 
 /** Polish (Polski)
  * @author Derbeth
+ * @author Fizykaa
+ * @author Holek
  * @author Leinad
  * @author McMonster
  * @author Saper
@@ -2815,8 +2819,8 @@ Poniżej znajdują się aktualne ustawienia dla strony [[:$1|$1]].',
 	'stabilization-select2' => 'Ostatnia wersja oznaczona',
 	'stabilization-select3' => 'Ostatnia nienaruszona wersja, a jeśli nie istnieje, to ostatnia wersja zweryfikowana lub przejrzana',
 	'stabilization-def' => 'Wersja strony wyświetlana domyślnie',
-	'stabilization-def1' => 'Wersja opublikowana, a jeśli nie istnieje, to wersja bieżąca lub robocza',
-	'stabilization-def2' => 'Wersja bieżąca lub robocza',
+	'stabilization-def1' => 'Ostatnia wersja przejrzana, a jeśli nie istnieje, to wersja bieżąca',
+	'stabilization-def2' => 'Wersja bieżąca',
 	'stabilization-restrict' => 'Ograniczenia ręcznego i automatycznego oznaczania',
 	'stabilization-restrict-none' => 'Brak dodatkowych ograniczeń',
 	'stabilization-submit' => 'Potwierdź',
@@ -2834,8 +2838,13 @@ Nie jest możliwa jej konfiguracja.',
 	'stabilization-def-short' => 'Domyślna',
 	'stabilization-def-short-0' => 'Bieżąca',
 	'stabilization-def-short-1' => 'Opublikowana',
+	'stabilize_page_invalid' => 'Nieprawidłowy tytuł strony docelowej.',
+	'stabilize_page_notexists' => 'Strona docelowa nie istnieje.',
+	'stabilize_page_unreviewable' => 'Wersje oznaczone są nieaktywne w tej przestrzeni nazw.',
+	'stabilize_invalid_level' => 'Nieprawidłowy poziom zabezpieczeń.',
 	'stabilize_expiry_invalid' => 'Nieprawidłowa data wygaśnięcia.',
 	'stabilize_expiry_old' => 'Czas wygaśnięcia już upłynął.',
+	'stabilize_denied' => 'Brak dostępu.',
 	'stabilize-expiring' => 'wygasa $1 (UTC)',
 	'stabilization-review' => 'Oznacz jako przejrzaną aktualną wersję',
 );
