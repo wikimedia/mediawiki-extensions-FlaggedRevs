@@ -106,10 +106,8 @@ class FRInclusionManager {
 		}
 		$dbKey = $title->getDBkey();
 		$namespace = $title->getNamespace();
-		if ( isset( $this->reviewedVersions['templates'][$namespace] ) ) {
-			if ( isset( $this->reviewedVersions['templates'][$namespace][$dbKey] ) ) {
-				return $this->reviewedVersions['templates'][$namespace][$dbKey];
-			}
+		if ( isset( $this->reviewedVersions['templates'][$namespace][$dbKey] ) ) {
+			return $this->reviewedVersions['templates'][$namespace][$dbKey];
 		}
 		return null; // missing version
 	}
@@ -142,10 +140,8 @@ class FRInclusionManager {
 		$dbKey = $title->getDBkey();
 		$namespace = $title->getNamespace();
 		$id = null;
-		if ( isset( $this->stableVersions['templates'][$namespace] ) ) {
-			if ( isset( $this->stableVersions['templates'][$namespace][$dbKey] ) ) {
-				$id = $this->stableVersions['templates'][$namespace][$dbKey];
-			}
+		if ( isset( $this->stableVersions['templates'][$namespace][$dbKey] ) ) {
+			$id = $this->stableVersions['templates'][$namespace][$dbKey];
 		}
 		if ( $id === null ) { // cache miss
 			$srev = FlaggedRevision::newFromStable( $title );

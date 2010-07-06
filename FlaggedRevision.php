@@ -444,7 +444,7 @@ class FlaggedRevision {
 	 * This returns NULL for non-image page revisions.
 	 */
 	public function getFileTimestamp() {
-		return $this->mFileTimestamp;
+		return wfTimestampOrNull( TS_MW, $this->mFileTimestamp );
 	}
 	
 	/**
@@ -571,7 +571,7 @@ class FlaggedRevision {
                 $reviewedTS = '0';
                 $reviewedSha1 = '';
                 if ( $row->fr_img_timestamp ) {
-                    $reviewedTS = wfTimestamp( TS_MW, $reviewedTS );
+                    $reviewedTS = wfTimestamp( TS_MW, $row->fr_img_timestamp );
                     $reviewedSha1 = strval( $row->fr_img_sha1 );
                 }
 				$this->mStableFiles[$row->fi_name] = array();

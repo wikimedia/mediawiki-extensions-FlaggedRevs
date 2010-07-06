@@ -442,7 +442,7 @@ class FlaggedRevsHooks {
 			$parser->mOutput->fr_fileSHA1Keys[$title->getDBkey()]['ts'] = $time;
 			$parser->mOutput->fr_fileSHA1Keys[$title->getDBkey()]['sha1'] = $sha1;
 		}
-		return true;
+		return array( $time, $sha1 );
 	}
 
 	/**
