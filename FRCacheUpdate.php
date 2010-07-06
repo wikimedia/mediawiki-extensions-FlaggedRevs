@@ -23,7 +23,7 @@ class FRCacheUpdate {
 		}
 		$key = $this->mTitle->getPrefixedDBKey();
 		if ( isset( $wgFlaggedRevsCacheUpdates[$key] ) ) {
-			return; // No duplicates...
+			return; // No duplicates (templates/redirects)...
 		}
 		# Fetch the IDs
 		$dbr = wfGetDB( DB_SLAVE );
@@ -172,5 +172,30 @@ class FRCacheUpdateJob extends Job {
 		# Invalidate the pages
 		$update->invalidateIDs( $res );
 		return true;
+	}
+}
+
+/**
+ * Class for handling deferred squid purges/invalidations
+ */
+class FRSquidUpdate {
+	protected $title;
+	protected $recursive;
+
+	function __construct( Title $title, $recursive ) {
+		$this->title = $title;
+		$this->recursive = $recursive;
+	}
+	
+	function doUpdate() {
+		# Purge squid for this page only
+		$this->title->purgeSquid();
+		# Clear file cache for this page only
+		HTMLFileCache::clearFileCache( $this->title );
+		if ( $this->recursive ) {
+			# Invalidate caches of articles which include this page
+			$update = new HTMLCacheUpdate( $this->title, 'templatelinks' );
+			$update->doUpdate();
+		}
 	}
 }

@@ -18,8 +18,6 @@ class FlaggedRevs {
 	protected static $patrolNamespaces = array();
 	# Restriction levels/config
 	protected static $restrictionLevels = array();
-	# Temporary process cache variable
-	protected static $includeVersionCache = array();
 	
 	protected static $loaded = false;
 
@@ -210,7 +208,25 @@ class FlaggedRevs {
 		global $wgFlaggedRevsHandleIncludes;
 		return $wgFlaggedRevsHandleIncludes;
 	}
-	
+
+	/**
+	 * Fallback to current templates when no version is specified?
+	 * @returns bool
+	 */
+	public static function fallbackToCurrentTemplates() {
+		global $wgUseCurrentTemplates;
+		return $wgUseCurrentTemplates;
+	}
+
+	/**
+	 * Fallback to current files when no version is specified?
+	 * @returns bool
+	 */
+	public static function fallbackToCurrentFiles() {
+		global $wgUseCurrentImages;
+		return $wgUseCurrentImages;
+	}
+
 	/**
 	 * Should tags only be shown for unreviewed content for this user?
 	 * @returns bool
@@ -458,51 +474,67 @@ class FlaggedRevs {
 
 	# ################ Parsing functions #################
 
-	/**
-	 * @param string $text
-	 * @param Title $title
-	 * @param integer $id, revision id
-	 * @return array( string, array, array )
+	/** 
 	 * All included pages/arguments are expanded out
+	 * @param Title $title
+	 * @param string $text
+	 * @param int $id Source revision Id
+	 * @return array( string, array, array )
 	 */
-	public static function expandText( $text = '', Title $title, $id ) {
+	public static function expandText( Title $title, $text, $id ) {
 		global $wgParser;
-		# Make our hooks trigger (force unstub so setting doesn't get lost)
-		$wgParser->firstCallInit();
-		# Begin stable parse
-		$wgParser->fr_isStable = ( self::inclusionSetting() != FR_INCLUDES_CURRENT );
-		# Parse with default options
-		$options = self::makeParserOptions();
+		$options = self::makeParserOptions(); // default options
+		# Notify Parser if includes should be stabilized
+		$resetManager = false;
+		$incManager = FRInclusionManager::singleton();
+		if ( self::inclusionSetting() != FR_INCLUDES_CURRENT ) {
+			# Use FRInclusionManager to do the template/file version query
+			# up front unless the versions are already specified there...
+			if ( $id && !$incManager->parserOutputIsStabilized( $id ) ) {
+				$incManager->stabilizeParserOutput( $title, $id );
+				$resetManager = true; // need to reset when done
+			}
+		}
 		$outputText = $wgParser->preprocess( $text, $title, $options, $id );
-		$out =& $wgParser->mOutput;
+		$out = $wgParser->mOutput;
 		# Stable parse done!
-		$wgParser->fr_isStable = false;
+		if ( $resetManager ) {
+			$incManager->clear(); // reset the FRInclusionManager as needed
+		}
 		# Return data array
 		return array( $outputText, $out->mTemplateIds, $out->fr_includeErrors );
 	}
 
 	/**
 	 * Get the HTML output of a revision based on $text.
-	 * @param Article $article
+	 * @param Title $title
 	 * @param string $text
-	 * @param int $id
+	 * @param int $id Source revision Id
 	 * @return ParserOutput
 	 */
-	public static function parseStableText( Article $article, $text, $id ) {
+	public static function parseStableText( Title $title, $text, $id ) {
 		global $wgParser;
-		$title = $article->getTitle(); // avoid pass-by-reference error
-		# Make our hooks trigger (force unstub so setting doesn't get lost)
-		$wgParser->firstCallInit();
-		$wgParser->fr_isStable = ( self::inclusionSetting() != FR_INCLUDES_CURRENT );
-		# Don't show section-edit links, they can be old and misleading
-		$options = self::makeParserOptions();
+		$options = self::makeParserOptions(); // default options
+		# Notify Parser if includes should be stabilized
+		$resetManager = false;
+		$incManager = FRInclusionManager::singleton();
+		if ( self::inclusionSetting() != FR_INCLUDES_CURRENT ) {
+			# Use FRInclusionManager to do the template/file version query
+			# up front unless the versions are already specified there...
+			if ( $id && !$incManager->parserOutputIsStabilized( $id ) ) {
+				$incManager->stabilizeParserOutput( $title, $id );
+				$resetManager = true; // need to reset when done
+			}
+		}
 		# Parse the new body, wikitext -> html
 	   	$parserOut = $wgParser->parse( $text, $title, $options, true, true, $id );
-	   	# Done with parser!
-	   	$wgParser->fr_isStable = false;
+		# Stable parse done!
+		if ( $resetManager ) {
+			$incManager->clear(); // reset the FRInclusionManager as needed
+		}
 	   	return $parserOut;
 	}
-	
+
 	/**
 	* Get standard parser options
 	* @param User $user (optional)
@@ -523,10 +555,9 @@ class FlaggedRevs {
 	* Get the page cache for the stable version of an article
 	* @param Article $article
 	* @param User $user
-	* @param string $okStale set to 'okStale' to ignore expiration date
 	* @return mixed (ParserOutput/false)
 	*/
-	public static function getPageCache( Article $article, $user, $okStale = false ) {
+	public static function getPageCache( Article $article, $user ) {
 		global $parserMemc, $wgCacheEpoch;
 		wfProfileIn( __METHOD__ );
 		# Make sure it is valid
@@ -545,7 +576,7 @@ class FlaggedRevs {
 			$canCache = $article->checkTouched();
 			$cacheTime = $value->getCacheTime();
 			$touched = $article->mTouched;
-			if ( !$canCache || ( $value->expired( $touched ) && $okStale !== 'okStale' ) ) {
+			if ( !$canCache || $value->expired( $touched ) ) {
 				if ( !$canCache ) {
 					wfIncrStats( "pcache_miss_invalid" );
 					wfDebug( "Invalid cached redirect, touched $touched, epoch $wgCacheEpoch, cached $cacheTime\n" );
@@ -586,10 +617,12 @@ class FlaggedRevs {
 		Article $article, $user, ParserOutput $parserOut = null
 	) {
 		global $parserMemc, $wgParserCacheExpireTime, $wgEnableParserCache;
+		wfProfileIn( __METHOD__ );
 		# Make sure it is valid and $wgEnableParserCache is enabled
-		if ( !$wgEnableParserCache || is_null( $parserOut ) )
+		if ( !$wgEnableParserCache || !$parserOut ) {
+			wfProfileOut( __METHOD__ );
 			return false;
-
+		}
 		$parserCache = ParserCache::singleton();
 		$key = self::getCacheKey( $parserCache, $article, $user );
 		# Add cache mark to HTML
@@ -606,84 +639,20 @@ class FlaggedRevs {
 		}
 		# Save to objectcache
 		$parserMemc->set( $key, $parserOut, $expire );
-
+		wfProfileOut( __METHOD__ );
 		return true;
 	}
-	
-	/**
-	 * @param int $revId
-	 * @param array $tmpParams (like ParserOutput template IDs)
-	 * @param array $imgParams (like ParserOutput image time->sha1 pairs)
-	 * Set the template/image versioning cache for parser
-	 */
-	public static function setIncludeVersionCache( $revId, array $tmpParams, array $imgParams ) {
-		self::load();
-		self::$includeVersionCache[$revId] = array();
-		self::$includeVersionCache[$revId]['templates'] = $tmpParams;
-		self::$includeVersionCache[$revId]['files'] = $imgParams;
-	}
-	
-	/**
-	 * Destroy the template/image versioning cache instance for parser
-	 */
-	public static function clearIncludeVersionCache( $revId ) {
-		self::load();
-		if ( isset( self::$includeVersionCache[$revId] ) ) {
-			unset( self::$includeVersionCache[$revId] );
-		}
-	}
 
 	/**
-	 * Should the params be in the process cache?
-	 */
-	public static function useProcessCache( $revId ) {
-		self::load();
-		if ( isset( self::$includeVersionCache[$revId] ) ) {
-			return true;
-		}
-		return false;
-	}
-	
-	/**
-	 * Get template versioning cache for parser
-	 * @param int $revID
-	 * @param int $namespace
-	 * @param string $dbKey
-	 * @returns mixed (integer/null)
-	 */
-	public static function getTemplateIdFromCache( $revId, $namespace, $dbKey ) {
-		self::load();
-		if ( isset( self::$includeVersionCache[$revId] ) ) {
-			if ( isset( self::$includeVersionCache[$revId]['templates'][$namespace] ) ) {
-				if ( isset( self::$includeVersionCache[$revId]['templates'][$namespace][$dbKey] ) ) {
-					return self::$includeVersionCache[$revId]['templates'][$namespace][$dbKey];
-				}
-			}
-			return false; // missing?
-		}
-		return null; // cache not found
-	}
-	
-	/**
-	 * Get image versioning cache for parser
-	 * @param int $revID
-	 * @param string $dbKey
-	 * @returns mixed (array/null)
-	 */
-	public static function getFileVersionFromCache( $revId, $dbKey ) {
-		self::load();
-		if ( isset( self::$includeVersionCache[$revId] ) ) {
-			# All NS_FILE, no need to check namespace
-			if ( isset( self::$includeVersionCache[$revId]['files'][$dbKey] ) ) {
-				$time_SHA1 = self::$includeVersionCache[$revId]['files'][$dbKey];
-				foreach ( $time_SHA1 as $time => $sha1 ) {
-					// Should only be one, but this is an easy check
-					return array( $time, $sha1 );
-				}
-				return array( false, "" ); // missing?
-			}
-		}
-		return null; // cache not found
+	* @param Article $article
+	* @param parserOutput $parserOut
+	* Updates the stable-only cache dependancy table
+	*/
+	public static function updateCacheTracking( Article $article, ParserOutput $stableOut ) {
+		wfProfileIn( __METHOD__ );
+		$frDepUpdate = new FRDependencyUpdate( $article->getTitle(), $stableOut );
+		$frDepUpdate->doUpdate();
+		wfProfileOut( __METHOD__ );
 	}
 
 	# ################ Synchronization and link update functions #################
@@ -709,16 +678,14 @@ class FlaggedRevs {
 				}
 			}
 		}
-		if ( isset( $stableOutput->fr_ImageSHA1Keys ) // sanity check
-			&& isset( $currentOutput->fr_ImageSHA1Keys ) )
+		if ( isset( $stableOutput->fr_fileSHA1Keys ) // sanity check
+			&& isset( $currentOutput->fr_fileSHA1Keys ) )
 		{
-			$sFiles = $stableOutput->fr_ImageSHA1Keys;
-			$cFiles = $currentOutput->fr_ImageSHA1Keys;
+			$sFiles = $stableOutput->fr_fileSHA1Keys;
+			$cFiles = $currentOutput->fr_fileSHA1Keys;
 			foreach ( $sFiles as $name => $timeKey ) {
-				foreach ( $timeKey as $sTs => $sSha1 ) {
-					if ( isset( $cFiles[$name] ) && !isset( $cFiles[$name][$sTs] ) ) {
-						return false; // updated/created
-					}
+				if ( isset( $cFiles[$name] ) && $cFiles[$name]['ts'] != $timeKey['ts'] ) {
+					return false; // updated/created
 				}
 			}
 		}
@@ -748,6 +715,59 @@ class FlaggedRevs {
 			return $data->value;
 		}
 		return false;
+	}
+
+ 	/**
+	* Update the page tables with a new stable version.
+	* @param Title $title
+	* @param mixed $sv, the new stable version (optional)
+	* @param mixed $oldSv, the old stable version (optional)
+	*/
+	public static function stableVersionUpdates( Title $title, $sv = null, $oldSv = null ) {
+		$changed = false;
+		if ( $oldSv === null ) { // optional
+			$oldSv = FlaggedRevision::newFromStable( $title, FR_MASTER );
+		}
+		if ( $sv === null ) { // optional
+			$sv = FlaggedRevision::determineStable( $title, FR_MASTER );
+		}
+		if ( !$sv ) {
+			# Empty flaggedrevs data for this page if there is no stable version
+			self::clearTrackingRows( $title->getArticleID() );
+			# Check if pages using this need to be refreshed...
+			if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_STABLE ) {
+				$changed = (bool)$oldSv;
+			}
+		} else {
+			$article = new Article( $title );
+			# Update flagged page related fields
+			FlaggedRevs::updateStableVersion( $article, $sv->getRevision() );
+			# Lazily rebuild dependancies on next parse (we invalidate below)
+			FlaggedRevs::clearStableOnlyDeps( $title );
+			# Check if pages using this need to be invalidated/purged...
+			if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_STABLE ) {
+				$changed = (
+					!$oldSv ||
+					$sv->getRevId() != $oldSv->getRevId() ||
+					$sv->getFileTimestamp() != $oldSv->getFileTimestamp() ||
+					$sv->getFileSha1() != $oldSv->getFileSha1()
+				);
+			}
+		}
+		# Clear page cache
+		$title->invalidateCache();
+		# Purge squids as needed
+		FlaggedRevs::squidUpdates( $title, $changed );
+	}
+
+ 	/**
+	* @param Title $title
+	* @param bool $recursive invalidate/purge pages using this page
+	* Updates squid cache for a title. Defers till after main commit().
+	*/
+	public static function squidUpdates( Title $title, $recursive ) {
+		global $wgDeferredUpdateList;
+		$wgDeferredUpdateList[] = new FRSquidUpdate( $title, $recursive );
 	}
 
  	/**
@@ -810,7 +830,7 @@ class FlaggedRevs {
 		self::updatePendingList( $article, $latest );
 		return true;
 	}
-	
+
  	/**
 	* @param Article $article
 	* @param mixed $latest, the latest rev ID (optional)
@@ -879,35 +899,7 @@ class FlaggedRevs {
 		$dbw->insert( 'flaggedpage_pending', $data, __METHOD__ );
 		return true;
 	}
-	
-	/**
-	* Resets links for a page when changed (other than edits)
-	*/
-	public static function articleLinksUpdate( Article $article ) {
-		global $wgUser, $wgParser;
-		# Update the links tables as the stable version may now be the default page...
-		$parserCache = ParserCache::singleton();
-		$anon = new User(); // anon cache most likely to exist
-		$poutput = $parserCache->get( $article, $anon );
-		if ( $poutput == false && $wgUser->getId() )
-			$poutput = $parserCache->get( $article, $wgUser );
-		if ( $poutput == false ) {
-			$text = $article->getContent();
-			$options = self::makeParserOptions();
-			$poutput = $wgParser->parse( $text, $article->getTitle(), $options );
-		}
-		$u = new LinksUpdate( $article->getTitle(), $poutput );
-		$u->doUpdate(); // this will trigger our hook to add stable links too...
-		return true;
-	}
 
-	/**
-	* Resets links for a page when changed (other than edits)
-	*/
-	public static function titleLinksUpdate( Title $title ) {
-		return self::articleLinksUpdate( new Article( $title ) );
-	}
-	
 	# ################ Revision functions #################
 
 	/**
@@ -1000,7 +992,7 @@ class FlaggedRevs {
 		}
 		return false;
 	}
-	
+
 	# ################ Page configuration functions #################
 
 	/**
@@ -1024,8 +1016,7 @@ class FlaggedRevs {
 			if ( !$expiry || $expiry < wfTimestampNow() ) {
 				$row = null; // expired
 				self::purgeExpiredConfigurations();
-				self::titleLinksUpdate( $title ); // re-find stable version
-				$title->invalidateCache(); // purge squid/memcached
+				self::stableVersionUpdates( $title ); // re-find stable version
 			}
 		}
 		// Is there a non-expired row?
@@ -1167,13 +1158,7 @@ class FlaggedRevs {
 		foreach ( $pagesRetrack as $pageId ) {
 			$title = Title::newFromId( $pageId, GAID_FOR_UPDATE );
 			// Determine the new stable version and update the tracking tables...
-			$srev = FlaggedRevision::newFromStable( $title, FR_MASTER, $config );
-			if ( $srev ) {
-				$article = new Article( $title );
-				self::updateStableVersion( $article, $srev->getRevision(), $title->getArticleID() );
-			} else {
-				self::clearTrackingRows( $pageId ); // no stable version
-			}
+			self::stableVersionUpdates( $title );
 		}
 	}
 	
@@ -1186,7 +1171,7 @@ class FlaggedRevs {
 	public static function isSighted( array $flags ) {
 		return self::tagsAtLevel( $flags, self::$minSL );
 	}
-	
+
 	/**
 	* @param array $flags
 	* @return bool, is this revision at quality review condition?
@@ -1360,27 +1345,6 @@ class FlaggedRevs {
 	}
 
    	/**
-	* Get a list of stable categories which go in categorylinks
-	* iff they're in the stable version of of the page (if there is one).
-	* Note: used for bug 20813
-	* @return array
-	*/
-	public static function getStableCategories() {
-		$reviewedCats = array();
-		$msg = wfMsgForContent( 'flaggedrevs-stable-categories' );
-		if ( !wfEmptyMsg( 'flaggedrevs-stable-categories', $msg ) ) {
-			$list = explode( "\n*", "\n$msg" );
-			foreach ( $list as $category ) {
-				$category = trim( $category );
-				if ( $category != '' ) {
-					$reviewedCats[] = $category;
-				}
-			}
-		}
-		return $reviewedCats;
-	}
-
-   	/**
 	* Clear FlaggedRevs tracking tables for this page
 	* @param mixed $pageId (int or array)
 	*/
@@ -1389,6 +1353,15 @@ class FlaggedRevs {
 		$dbw->delete( 'flaggedpages', array( 'fp_page_id' => $pageId ), __METHOD__ );
 		$dbw->delete( 'flaggedrevs_tracking', array( 'ftr_from' => $pageId ), __METHOD__ );
 		$dbw->delete( 'flaggedpage_pending', array( 'fpp_page_id' => $pageId ), __METHOD__ );
+	}
+
+   	/**
+	* Clear tracking table of stable-only links for this page
+	* @param mixed $pageId (int or array)
+	*/
+	public static function clearStableOnlyDeps( $pageId ) {
+		$dbw = wfGetDB( DB_MASTER );
+		$dbw->delete( 'flaggedrevs_tracking', array( 'ftr_from' => $pageId ), __METHOD__ );
 	}
 
 	# ################ Auto-review function #################
@@ -1408,12 +1381,12 @@ class FlaggedRevs {
 	* If no appropriate tags can be found, then the review will abort.
 	*/
 	public static function autoReviewEdit(
-		Article $article, $user, $text, Revision $rev, array $flags = null, $auto = true
+		Article $article, $user, Revision $rev, array $flags = null, $auto = true
 	) {
 		wfProfileIn( __METHOD__ );
-		$title = $article->getTitle();
+		$title = $article->getTitle(); // convenience
 		# Get current stable version ID (for logging)
-		$oldSv = FlaggedRevision::newFromStable( $title );
+		$oldSv = FlaggedRevision::newFromStable( $title, FR_MASTER );
 		$oldSvId = $oldSv ? $oldSv->getRevId() : 0;
 		# Set the auto-review tags from the prior stable version.
 		# Normally, this should already be done and given here...
@@ -1423,7 +1396,8 @@ class FlaggedRevs {
 				if ( $user->isAllowed( 'bot' ) ) {
 					$flags = $oldSv->getTags(); // no change for bot edits
 				} else {
-					$flags = self::getAutoReviewTags( $user, $oldSv->getTags() ); // account for perms
+					# Account for perms/tags...
+					$flags = self::getAutoReviewTags( $user, $oldSv->getTags() );
 				}
 			} else { // new page?
 				$flags = self::quickTags( FR_SIGHTED ); // use minimal level
@@ -1433,48 +1407,19 @@ class FlaggedRevs {
 				return false; // can't auto-review this revision
 			}
 		}
+		# Get quality tier from flags
 		$quality = 0;
 		if ( self::isQuality( $flags ) ) {
 			$quality = self::isPristine( $flags ) ? 2 : 1;
 		}
 
-		$tmpset = $imgset = array();
-		$poutput = false;
-
 		# Rev ID is not put into parser on edit, so do the same here.
 		# Also, a second parse would be triggered otherwise.
-		$editInfo = $article->prepareTextForEdit( $text ); // Parse the revision HTML output
-		$poutput = $editInfo->output;
-
-		$dbw = wfGetDB( DB_MASTER );		
-
-		# NS:title -> rev ID mapping
-		foreach ( $poutput->mTemplateIds as $namespace => $titleAndID ) {
-			foreach ( $titleAndID as $dbkey => $id ) {
-				$tmpset[] = array(
-					'ft_rev_id' 	=> $rev->getId(),
-					'ft_namespace'  => $namespace,
-					'ft_title' 		=> $dbkey,
-					'ft_tmp_rev_id' => $id
-				);
-			}
-		}
-		# Image -> timestamp mapping
-		foreach ( $poutput->fr_ImageSHA1Keys as $dbkey => $timeAndSHA1 ) {
-			foreach ( $timeAndSHA1 as $time => $sha1 ) {
-				$fileIncludeData = array(
-					'fi_rev_id' 		=> $rev->getId(),
-					'fi_name' 			=> $dbkey,
-					'fi_img_sha1' 		=> $sha1,
-					// b/c: fi_img_timestamp DEFAULT either NULL (new) or '' (old)
-					'fi_img_timestamp'  => $time ? $dbw->timestamp( $time ) : ''
-				);
-				$imgset[] = $fileIncludeData;
-			}
-		}
+		$editInfo = $article->prepareTextForEdit( $rev->getText() );
+		$poutput = $editInfo->output; // revision HTML output
 
 		# If this is an image page, store corresponding file info
-		$fileData = array();
+		$fileData = array( 'name' => null, 'timestamp' => null, 'sha1' => null );
 		if ( $title->getNamespace() == NS_FILE ) {
 			$file = $article instanceof ImagePage ?
 				$article->getFile() : wfFindFile( $title );
@@ -1487,50 +1432,30 @@ class FlaggedRevs {
 
 		# Our review entry
 		$flaggedRevision = new FlaggedRevision( array(
-			'fr_page_id'       => $rev->getPage(),
-			'fr_rev_id'	       => $rev->getId(),
-			'fr_user'	       => $user->getId(),
-			'fr_timestamp'     => $rev->getTimestamp(),
-			'fr_comment'       => "",
-			'fr_quality'       => $quality,
-			'fr_tags'	       => FlaggedRevision::flattenRevisionTags( $flags ),
-			'fr_img_name'      => $fileData ? $fileData['name'] : null,
-			'fr_img_timestamp' => $fileData ? $fileData['timestamp'] : null,
-			'fr_img_sha1'      => $fileData ? $fileData['sha1'] : null
+			'page_id'       	=> $rev->getPage(),
+			'rev_id'	      	=> $rev->getId(),
+			'user'	       		=> $user->getId(),
+			'timestamp'     	=> $rev->getTimestamp(),
+			'comment'      	 	=> "",
+			'quality'      	 	=> $quality,
+			'tags'	       		=> FlaggedRevision::flattenRevisionTags( $flags ),
+			'img_name'      	=> $fileData['name'],
+			'img_timestamp' 	=> $fileData['timestamp'],
+			'img_sha1'      	=> $fileData['sha1'],
+			'templateVersions' 	=> $poutput->mTemplateIds,
+			'fileVersions'     	=> $poutput->fr_fileSHA1Keys
 		) );
-		$flaggedRevision->insertOn( $tmpset, $imgset, $auto );
+		$flaggedRevision->insertOn( $auto );
 		# Update the article review log
-		FlaggedRevsLogs::updateLog( $title, $flags, array(), '', $rev->getId(),
-			$oldSvId, true, $auto );
+		FlaggedRevsLogs::updateLog( $title,
+			$flags, array(), '', $rev->getId(), $oldSvId, true, $auto );
 
-		# If we know that this is now the new stable version 
-		# (which it probably is), save it to the cache...
-		$sv = FlaggedRevision::newFromStable( $article->getTitle(), FR_MASTER/*consistent*/ );
-		if ( $sv && $sv->getRevId() == $rev->getId() ) {
-			global $wgMemc;
-			# Update stable page cache. Don't cache redirects;
-			# it would go unused and complicate things.
-			if ( !Title::newFromRedirect( $text ) ) {
-				self::updatePageCache( $article, $user, $poutput  );
-			}
-			# Update page tracking fields
-			self::updateStableVersion( $article, $rev, $rev->getId() );
-			# We can set the sync cache key already.
-			global $wgParserCacheExpireTime;
-			$key = wfMemcKey( 'flaggedrevs', 'includesSynced', $article->getId() );
-			$data = self::makeMemcObj( "true" );
-			$wgMemc->set( $key, $data, $wgParserCacheExpireTime );
-		} else if ( $sv ) {
-			# Update tracking table
-			self::updatePendingList( $article, $rev->getId() );
-		} else {
-			# Weird case: autoreview when flaggedrevs is deactivated for page
-			self::clearTrackingRows( $article->getId() );
-		}
+		# Note: stableVersionUpdates() should be called after this.
+		# This is done via LinksUpdate on page edits...
 		wfProfileOut( __METHOD__ );
 		return true;
 	}
-	
+
 	/**
 	 * Get JS script params
 	 */
@@ -1546,39 +1471,5 @@ class FlaggedRevs {
 		}
 		$params = array( 'tags' => (object)$tagsJS );
 		return (object)$params;
-	}
-	
-	/**
-	 * Get template and image parameters from parser output
-	 * @param FlaggedArticle $article
-	 * @param array $templateIDs (from ParserOutput/OutputPage->mTemplateIds)
-	 * @param array $imageSHA1Keys (from ParserOutput/OutputPage->fr_ImageSHA1Keys)
-	 * @returns array( templateParams, imageParams, fileVersion )
-	 */
-	public static function getIncludeParams(
-		FlaggedArticle $article, array $templateIDs, array $imageSHA1Keys
-	) {
-		$templateParams = $imageParams = $fileVersion = '';
-		# NS -> title -> rev ID mapping
-		foreach ( $templateIDs as $namespace => $t ) {
-			foreach ( $t as $dbKey => $revId ) {
-				$temptitle = Title::makeTitle( $namespace, $dbKey );
-				$templateParams .= $temptitle->getPrefixedDBKey() . "|" . $revId . "#";
-			}
-		}
-		# Image -> timestamp -> sha1 mapping
-		foreach ( $imageSHA1Keys as $dbKey => $timeAndSHA1 ) {
-			foreach ( $timeAndSHA1 as $time => $sha1 ) {
-				$imageParams .= $dbKey . "|" . $time . "|" . $sha1 . "#";
-			}
-		}
-		# For image pages, note the displayed image version
-		if ( $article->getTitle()->getNamespace() == NS_FILE ) {
-			$file = $article->getDisplayedFile(); // File obj
-			if ( $file ) {
-				$fileVersion = $file->getTimestamp() . "#" . $file->getSha1();
-			}
-		}
-		return array( $templateParams, $imageParams, $fileVersion );
 	}
 }

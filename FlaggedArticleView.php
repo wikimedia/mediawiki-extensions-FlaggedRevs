@@ -496,7 +496,8 @@ class FlaggedArticleView {
 		# Check if this is a redirect...
 		$redirHtml = $this->getRedirectHtml( $text );
 		if ( $redirHtml == '' ) {
-			$parserOut = FlaggedRevs::parseStableText( $this->article, $text, $frev->getRevId() );
+			$parserOut = FlaggedRevs::parseStableText(
+				$this->article->getTitle(), $text, $frev->getRevId() );
 		}
 		# Construct some tagging for non-printable outputs. Note that the pending
 		# notice has all this info already, so don't do this if we added that already.
@@ -566,15 +567,18 @@ class FlaggedArticleView {
 		# Get parsed stable version
 		$redirHtml = '';
 		$parserOut = FlaggedRevs::getPageCache( $this->article, $wgUser );
-		if ( $parserOut == false ) {
+		if ( !$parserOut ) {
 			$text = $srev->getRevText();
 			# Check if this is a redirect...
 			$redirHtml = $this->getRedirectHtml( $text );
+			# Don't parse redirects, use separate handling...
 			if ( $redirHtml == '' ) {
+				# Get the new stable output
 				$parserOut = FlaggedRevs::parseStableText(
-					$this->article, $text, $srev->getRevId() );
-				# Update the stable version cache
+					$this->article->getTitle(), $text, $srev->getRevId() );
+				# Update the stable version cache & dependancies
 				FlaggedRevs::updatePageCache( $this->article, $wgUser, $parserOut );
+				FlaggedRevs::updateCacheTracking( $this->article, $parserOut );
 			} else {
 				$parserOut = null;
 			}
@@ -1035,12 +1039,13 @@ class FlaggedArticleView {
 		if ( $rev ) {
 			$templateIDs = $fileSHA1Keys = null;
 			# $wgOut may not already have the inclusion IDs, such as for diffonly=1.
+			# RevisionReviewForm will fetch them as needed however.
 			if ( $wgOut->getRevisionId() == $rev->getId()
 				&& isset( $wgOut->mTemplateIds )
-				&& isset( $wgOut->fr_ImageSHA1Keys ) )
+				&& isset( $wgOut->fr_fileSHA1Keys ) )
 			{
 				$templateIDs = $wgOut->mTemplateIds;
-				$fileSHA1Keys = $wgOut->fr_ImageSHA1Keys;
+				$fileSHA1Keys = $wgOut->fr_fileSHA1Keys;
 			}
 			$form = RevisionReviewForm::buildQuickReview( $wgUser, $this->article,
 				$rev, $templateIDs, $fileSHA1Keys, $this->isDiffFromStable );
@@ -1786,37 +1791,6 @@ class FlaggedArticleView {
 		$this->load();
 		if ( $this->reviewNotes ) {
 			$data .= $this->reviewNotes;
-		}
-		return true;
-	}
-
-	/**
-	* Updates parser cache output to included needed versioning params.
-	*/
-	public function maybeUpdateMainCache( &$outputDone, &$pcache ) {
-		global $wgUser, $wgRequest;
-		$this->load();
-		$action = $wgRequest->getVal( 'action', 'view' );
-		if ( $action == 'purge' ) {
-			return true; // already purging!
-		}
-		# Only trigger on article view for content pages, not for protect/delete/hist
-		if ( !self::isViewAction( $action ) || !$wgUser->isAllowed( 'review' ) ) {
-			return true;
-		}
-		if ( !$this->article->exists() || !$this->article->isReviewable() ) {
-			return true;
-		}
-		$parserCache = ParserCache::singleton();
-		$parserOut = $parserCache->get( $this->article, $wgUser );
-		if ( $parserOut ) {
-			# Clear older, incomplete, cached versions
-			# We need the IDs of templates and timestamps of images used
-			if ( !isset( $parserOut->fr_ImageSHA1Keys )
-				|| !isset( $parserOut->mTemplateIds ) )
-			{
-				$this->article->getTitle()->invalidateCache();
-			}
 		}
 		return true;
 	}

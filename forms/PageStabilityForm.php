@@ -255,27 +255,24 @@ abstract class PageStabilityForm
 		if ( $changed ) {
 			# Update logs and make a null edit
 			$nullRev = $this->updateLogsAndHistory( $reset );
-			# Null edit may have been autoreviewed already
-			$frev = FlaggedRevision::newFromTitle( $this->page, $nullRev->getId(), FR_MASTER );
-			# We may need to invalidate the page links after changing the stable version.
-			# Only do so if not already done, such as by an auto-review of the null edit.
-			$invalidate = !$frev;
-			# Check if this null edit is to be reviewed...
-			if ( !$frev && $this->reviewThis ) {
-				$flags = null;
-				$article = new Article( $this->page );
-				# Review this revision of the page...
-				$ok = FlaggedRevs::autoReviewEdit(
-					$article, $this->user, $nullRev->getText(), $nullRev, $flags, true );
-				if( $ok ) {
-					FlaggedRevs::markRevisionPatrolled( $nullRev ); // reviewed -> patrolled
-					$invalidate = false; // links invalidated (with auto-reviewed)
+			if ( $this->reviewThis ) {
+				# Null edit may have been auto-reviewed already
+				$frev = FlaggedRevision::newFromTitle(
+					$this->page, $nullRev->getId(), FR_MASTER );
+				# Check if this null edit is to be reviewed...
+				if ( !$frev ) {
+					$flags = null;
+					$article = new Article( $this->page );
+					# Review this revision of the page...
+					$ok = FlaggedRevs::autoReviewEdit(
+						$article, $this->user, $nullRev, $flags, true );
+					if ( $ok ) {
+						FlaggedRevs::markRevisionPatrolled( $nullRev ); // reviewed -> patrolled
+					}
 				}
 			}
-			# Update the links tables as the stable version may now be the default page...
-			if ( $invalidate ) {
-				FlaggedRevs::titleLinksUpdate( $this->page );
-			}
+			# Update page and tracking tables and clear cache
+			FlaggedRevs::stableVersionUpdates( $this->page );
 		}
 		# Apply watchlist checkbox value (may be NULL)
 		$this->updateWatchlist();

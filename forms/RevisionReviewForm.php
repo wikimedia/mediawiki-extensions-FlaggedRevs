@@ -307,7 +307,9 @@ class RevisionReviewForm
 		}
 		# Watch page if set to do so
 		if ( $status === true ) {
-			if ( $this->user->getOption( 'flaggedrevswatch' ) && !$this->page->userIsWatching() ) {
+			if ( $this->user->getOption( 'flaggedrevswatch' )
+				&& !$this->page->userIsWatching() )
+			{
 				$this->user->addWatch( $this->page );
 			}
 		}
@@ -319,80 +321,23 @@ class RevisionReviewForm
 	 * @param Revision $rev
 	 * @returns true on success, array of errors on failure
 	 */
-	private function approveRevision( $rev ) {
-		global $wgMemc, $wgParser, $wgEnableParserCache;
+	private function approveRevision( Revision $rev ) {
+		global $wgMemc, $wgParser;
 		wfProfileIn( __METHOD__ );
-
-		$dbw = wfGetDB( DB_MASTER );		
-		$article = new Article( $this->page );
-
-		$quality = 0;
-		if ( FlaggedRevs::isQuality( $this->dims ) ) {
-			$quality = FlaggedRevs::isPristine( $this->dims ) ? 2 : 1;
-		}
-		# Our flags
+		# Revision rating flags
 		$flags = $this->dims;
-		# Our template version pointers
-		$tmpset = $tmpParams = array();
-		$templateMap = explode( '#', trim( $this->templateParams ) );
-		foreach ( $templateMap as $template ) {
-			if ( !$template ) {
-				continue;
-			}
-			$m = explode( '|', $template, 2 );
-			if ( !isset( $m[0] ) || !isset( $m[1] ) || !$m[0] ) {
-				continue;
-			}
-			list( $prefixed_text, $rev_id ) = $m;
-			# Get the template title
-			$tmp_title = Title::newFromText( $prefixed_text ); // Normalize this to be sure...
-			if ( is_null( $tmp_title ) ) {
-				continue; // Page must be valid!
-			}
-			$tmpset[] = array(
-				'ft_rev_id' 	=> $rev->getId(),
-				'ft_namespace'  => $tmp_title->getNamespace(),
-				'ft_title' 		=> $tmp_title->getDBkey(),
-				'ft_tmp_rev_id' => $rev_id
-			);
-			if ( !isset( $tmpParams[$tmp_title->getNamespace()] ) ) {
-				$tmpParams[$tmp_title->getNamespace()] = array();
-			}
-			$tmpParams[$tmp_title->getNamespace()][$tmp_title->getDBkey()] = $rev_id;
+		$quality = 0; // quality tier from flags
+		if ( FlaggedRevs::isQuality( $flags ) ) {
+			$quality = FlaggedRevs::isPristine( $flags ) ? 2 : 1;
 		}
-		# Our image version pointers
-		$imgset = $imgParams = array();
-		$imageMap = explode( '#', trim( $this->imageParams ) );
-		foreach ( $imageMap as $image ) {
-			if ( !$image ) {
-				continue;
-			}
-			$m = explode( '|', $image, 3 );
-			# Expand our parameters ... <name>#<timestamp>#<key>
-			if ( !isset( $m[0] ) || !isset( $m[1] ) || !isset( $m[2] ) || !$m[0] ) {
-				continue;
-			}
-			list( $dbkey, $timestamp, $key ) = $m;
-			# Get the file title
-			$img_title = Title::makeTitle( NS_IMAGE, $dbkey ); // Normalize
-			if ( is_null( $img_title ) ) {
-				continue; // Page must be valid!
-			}
-			$imgset[] = array(
-				'fi_rev_id'			=> $rev->getId(),
-				'fi_name'			=> $img_title->getDBkey(),
-				'fi_img_sha1'		=> $key,
-				// b/c: fi_img_timestamp DEFAULT either NULL (new) or '' (old)
-				'fi_img_timestamp' 	=> $timestamp ? $dbw->timestamp( $timestamp ) : ''
-			);
-			if ( !isset( $imgParams[$img_title->getDBkey()] ) ) {
-				$imgParams[$img_title->getDBkey()] = array();
-			}
-			$imgParams[$img_title->getDBkey()][$timestamp] = $key;
-		}
+		# Our template/file version pointers
+		list( $tmpVersions, $fileVersions ) = self::getIncludeVersions(
+			$this->templateParams, $this->imageParams
+		);
 		# If this is an image page, store corresponding file info
-		$fileData = array();
-		if ( $this->page->getNamespace() == NS_IMAGE && $this->fileVersion ) {
+		$fileData = array( 'name' => null, 'timestamp' => null, 'sha1' => null );
+		if ( $this->page->getNamespace() == NS_FILE && $this->fileVersion ) {
+			# Stable upload version for file pages...
 			$data = explode( '#', $this->fileVersion, 2 );
 			if ( count( $data ) == 2 ) {
 				$fileData['name'] = $this->page->getDBkey();
@@ -400,134 +345,61 @@ class RevisionReviewForm
 				$fileData['sha1'] = $data[1];
 			}
 		}
-		
+
 		# Get current stable version ID (for logging)
 		$oldSv = FlaggedRevision::newFromStable( $this->page, FR_MASTER );
-		
+
 		# Is this rev already flagged? (re-review)
 		$oldFrev = null;
 		if ( $oldSv ) { // stable rev exists
 			if ( $rev->getId() == $oldSv->getRevId() ) {
 				$oldFrev = $oldSv; // save a query
 			} else {
-				$oldFrev = FlaggedRevision::newFromTitle( $this->page, $rev->getId(), FR_MASTER );
+				$oldFrev = FlaggedRevision::newFromTitle(
+					$this->page, $rev->getId(), FR_MASTER );
 			}
 		}
-		
-		# Be loose on templates that includes other files/templates dynamically.
-		# Strict checking breaks randomized images/metatemplates...(bug 14580)
-		global $wgUseCurrentTemplates, $wgUseCurrentImages;
-		$mustMatch = !( $wgUseCurrentTemplates && $wgUseCurrentImages );
-		
-		# Set our versioning params cache
-		FlaggedRevs::setIncludeVersionCache( $rev->getId(), $tmpParams, $imgParams );
-		# Parse the text and check if all templates/files match up
-		$text = $rev->getText();
-		$stableOutput = FlaggedRevs::parseStableText( $article, $text, $rev->getId() );
-		$err =& $stableOutput->fr_includeErrors;
-		if ( $mustMatch ) { // if template/files must all be specified...
-			if ( !empty( $err ) ) {
-				wfProfileOut( __METHOD__ );
-				return $err; // return templates/files with no version specified
-			}
-        }
-		# Clear our versioning params cache
-		FlaggedRevs::clearIncludeVersionCache( $rev->getId() );
-		
 		# Is this a duplicate review?
-		if ( $oldFrev ) {
-			// stable upload version for file pages
-			$fileSha1 = $fileData ? $fileData['sha1'] : null;
-			$synced = (
-				$oldFrev->getTags() == $flags && // tags => quality
-				$oldFrev->getFileSha1() == $fileSha1 &&
-				$oldFrev->getComment() == $this->notes &&
-				$oldFrev->getTemplateVersions() == $tmpParams &&
-				$oldFrev->getFileVersions() == $imgParams
-			);
-			# Don't review if the same
-			if ( $synced ) {
-				wfProfileOut( __METHOD__ );
-				return true;
-			}
+		if ( $oldFrev &&
+			$oldFrev->getTags() == $flags && // tags => quality
+			$oldFrev->getFileSha1() == $fileData['sha1'] &&
+			$oldFrev->getFileTimestamp() == $fileData['timestamp'] &&
+			$oldFrev->getComment() == $this->notes &&
+			$oldFrev->getTemplateVersions( FR_MASTER ) == $tmpVersions &&
+			$oldFrev->getFileVersions( FR_MASTER ) == $fileVersions )
+		{
+			wfProfileOut( __METHOD__ );
+			return true; // don't record if the same
 		}
 
-		# Our review entry
+		# Insert the review entry...
  		$flaggedRevision = new FlaggedRevision( array(
-			'fr_rev_id'        => $rev->getId(),
-			'fr_page_id'       => $rev->getPage(),
-			'fr_user'          => $this->user->getId(),
-			'fr_timestamp'     => wfTimestampNow(),
-			'fr_comment'       => $this->notes,
-			'fr_quality'       => $quality,
-			'fr_tags'          => FlaggedRevision::flattenRevisionTags( $flags ),
-			'fr_img_name'      => $fileData ? $fileData['name'] : null,
-			'fr_img_timestamp' => $fileData ? $fileData['timestamp'] : null,
-			'fr_img_sha1'      => $fileData ? $fileData['sha1'] : null
+			'rev_id'        	=> $rev->getId(),
+			'page_id'       	=> $rev->getPage(),
+			'user'          	=> $this->user->getId(),
+			'timestamp'     	=> wfTimestampNow(),
+			'comment'       	=> $this->notes,
+			'quality'       	=> $quality,
+			'tags'          	=> FlaggedRevision::flattenRevisionTags( $flags ),
+			'img_name'      	=> $fileData['name'],
+			'img_timestamp' 	=> $fileData['timestamp'],
+			'img_sha1'      	=> $fileData['sha1'],
+			'templateVersions' 	=> $tmpVersions,
+			'fileVersions'     	=> $fileVersions,
 		) );
-
-		$dbw->begin();
-		$flaggedRevision->insertOn( $tmpset, $imgset );
-		# Avoid any lag issues
-		$this->page->resetArticleId( $rev->getPage() );
-		# Update recent changes
+		$flaggedRevision->insertOn();
+		# Update recent changes...
 		self::updateRecentChanges( $this->page, $rev->getId(), $this->rcid, true );
-		# Update the article review log
+
+		# Update the article review log...
 		$oldSvId = $oldSv ? $oldSv->getRevId() : 0;
 		FlaggedRevsLogs::updateLog( $this->page, $this->dims, $this->oflags,
 			$this->comment, $this->oldid, $oldSvId, true );
 
-		# Update the links tables as the stable version may now be the default page.
-		# Try using the parser cache first since we didn't actually edit the current version.
-		$parserCache = ParserCache::singleton();
-		$poutput = $parserCache->get( $article, $this->user );
-		if ( !$poutput
-			|| !isset( $poutput->fr_ImageSHA1Keys )
-			|| !isset( $poutput->mTemplateIds ) )
-		{
-			$source = $article->getContent();
-			$options = FlaggedRevs::makeParserOptions();
-			$poutput = $wgParser->parse( $source, $article->getTitle(), $options,
-				/*$lineStart*/true, /*$clearState*/true, $article->getLatest() );
-		}
-		# Prepare for a link tracking update
-		$u = new LinksUpdate( $this->page, $poutput );
-		# If we know that this is now the new stable version 
-		# (which it probably is), save it to the stable cache...
-		$sv = FlaggedRevision::newFromStable( $this->page, FR_MASTER/*consistent*/ );
-		if ( $sv && $sv->getRevId() == $rev->getId() ) {
-			global $wgParserCacheExpireTime;
-			$this->page->invalidateCache();
-			# Update stable cache with the revision we reviewed.
-			# Don't cache redirects; it would go unused and complicate things.
-			if ( !Title::newFromRedirect( $text ) ) {
-				FlaggedRevs::updatePageCache( $article, $this->user, $stableOutput );
-			}
-			$u->fr_stableRev = $sv; // no need to re-fetch this!
-			$u->fr_stableParserOut = $stableOutput; // no need to re-fetch this!
-			# We can set the sync cache key already...
-			if ( $rev->isCurrent() ) {
-				$includesSynced = FlaggedRevs::includesAreSynced( $stableOutput, $poutput );
-				$key = wfMemcKey( 'flaggedrevs', 'includesSynced', $article->getId() );
-				$data = FlaggedRevs::makeMemcObj( $includesSynced ? "true" : "false" );
-				$wgMemc->set( $key, $data, $wgParserCacheExpireTime );
-			}
-		} else {
-			# Get the old stable cache
-			$stableOutput = FlaggedRevs::getPageCache( $article, $this->user );
-			# Clear the cache...(for page histories)
-			$this->page->invalidateCache();
-			if ( $stableOutput !== false ) {
-				# Reset stable cache if it existed, since we know it is the same.
-				FlaggedRevs::updatePageCache( $article, $this->user, $stableOutput );
-			}
-		}
-		# Update link tracking. This will trigger extraLinksUpdate()...
-		$u->doUpdate();
-
-		$dbw->commit();
-		# Purge cache/squids for this page and any page that uses it
-		Article::onArticleEdit( $this->page );
+		# Get the new stable version as of now
+		$sv = FlaggedRevision::determineStable( $this->page, FR_MASTER/*consistent*/ );
+		# Update page and tracking tables and clear cache
+		FlaggedRevs::stableVersionUpdates( $this->page, $sv, $oldSv );
 
 		wfProfileOut( __METHOD__ );
         return true;
@@ -537,12 +409,13 @@ class RevisionReviewForm
 	 * @param FlaggedRevision $frev
 	 * Removes flagged revision data for this page/id set
 	 */
-	private function unapproveRevision( $frev ) {
-		global $wgParser, $wgMemc;
+	private function unapproveRevision( FlaggedRevision $frev ) {
 		wfProfileIn( __METHOD__ );
-		
+
+		# Get current stable version ID (for logging)
+		$oldSv = FlaggedRevision::newFromStable( $this->page, FR_MASTER );
+
         $dbw = wfGetDB( DB_MASTER );
-		$dbw->begin();
 		# Delete from flaggedrevs table
 		$dbw->delete( 'flaggedrevs',
 			array( 'fr_page_id' => $frev->getPage(), 'fr_rev_id' => $frev->getRevId() ) );
@@ -552,32 +425,15 @@ class RevisionReviewForm
 		# Update recent changes
 		self::updateRecentChanges( $this->page, $frev->getRevId(), false, false );
 
-		# Get current stable version ID (for logging)
-		$oldSv = FlaggedRevision::newFromStable( $this->page, FR_MASTER );
-		$oldSvId = $oldSv ? $oldSv->getRevId() : 0;
-
 		# Update the article review log
+		$oldSvId = $oldSv ? $oldSv->getRevId() : 0;
 		FlaggedRevsLogs::updateLog( $this->page, $this->dims, $this->oflags,
 			$this->comment, $this->oldid, $oldSvId, false );
 
-		$article = new Article( $this->page );
-		# Update the links tables as a new stable version
-		# may now be the default page.
-		$parserCache = ParserCache::singleton();
-		$poutput = $parserCache->get( $article, $this->user );
-		if ( $poutput == false ) {
-			$text = $article->getContent();
-			$options = FlaggedRevs::makeParserOptions();
-			$poutput = $wgParser->parse( $text, $article->mTitle, $options );
-		}
-		$u = new LinksUpdate( $this->page, $poutput );
-		$u->doUpdate();
-
-		# Clear the cache...
-		$this->page->invalidateCache();
-		# Purge cache/squids for this page and any page that uses it
-		$dbw->commit();
-		Article::onArticleEdit( $article->getTitle() );
+		# Get the new stable version as of now
+		$sv = FlaggedRevision::determineStable( $this->page, FR_MASTER/*consistent*/ );
+		# Update page and tracking tables and clear cache
+		FlaggedRevs::stableVersionUpdates( $this->page, $sv, $oldSv );
 
 		wfProfileOut( __METHOD__ );
         return true;
@@ -626,8 +482,97 @@ class RevisionReviewForm
 		}
 		wfProfileOut( __METHOD__ );
 	}
-	
+
+	/**
+	 * Get template and image parameters from parser output to use on forms.
+	 * @param FlaggedArticle $article
+	 * @param array $templateIDs (from ParserOutput/OutputPage->mTemplateIds)
+	 * @param array $imageSHA1Keys (from ParserOutput/OutputPage->fr_fileSHA1Keys)
+	 * @returns array( templateParams, imageParams, fileVersion )
+	 */
+	public static function getIncludeParams(
+		FlaggedArticle $article, array $templateIDs, array $imageSHA1Keys
+	) {
+		$templateParams = $imageParams = $fileVersion = '';
+		# NS -> title -> rev ID mapping
+		foreach ( $templateIDs as $namespace => $t ) {
+			foreach ( $t as $dbKey => $revId ) {
+				$temptitle = Title::makeTitle( $namespace, $dbKey );
+				$templateParams .= $temptitle->getPrefixedDBKey() . "|" . $revId . "#";
+			}
+		}
+		# Image -> timestamp -> sha1 mapping
+		foreach ( $imageSHA1Keys as $dbKey => $timeAndSHA1 ) {
+			$imageParams .= $dbKey . "|" . $timeAndSHA1['ts'];
+			$imageParams .= "|" . $timeAndSHA1['sha1'] . "#";
+		}
+		# For image pages, note the displayed image version
+		if ( $article->getTitle()->getNamespace() == NS_FILE ) {
+			$file = $article->getDisplayedFile(); // File obj
+			if ( $file ) {
+				$fileVersion = $file->getTimestamp() . "#" . $file->getSha1();
+			}
+		}
+		return array( $templateParams, $imageParams, $fileVersion );
+	}
+
+	/**
+	 * Get template and image versions from form value for parser output.
+	 * @param string $templateParams
+	 * @param string $imageParams
+	 * @returns array( templateIds, fileSHA1Keys )
+	 * templateIds like ParserOutput->mTemplateIds
+	 * fileSHA1Keys like ParserOutput->fr_fileSHA1Keys
+	 */
+	public static function getIncludeVersions( $templateParams, $imageParams ) {
+		$templateIds = array();
+		$templateMap = explode( '#', trim( $templateParams ) );
+		foreach ( $templateMap as $template ) {
+			if ( !$template ) {
+				continue;
+			}
+			$m = explode( '|', $template, 2 );
+			if ( !isset( $m[0] ) || !isset( $m[1] ) || !$m[0] ) {
+				continue;
+			}
+			list( $prefixed_text, $rev_id ) = $m;
+			# Get the template title
+			$tmp_title = Title::newFromText( $prefixed_text ); // Normalize this to be sure...
+			if ( is_null( $tmp_title ) ) {
+				continue; // Page must be valid!
+			}
+			if ( !isset( $templateIds[$tmp_title->getNamespace()] ) ) {
+				$templateIds[$tmp_title->getNamespace()] = array();
+			}
+			$templateIds[$tmp_title->getNamespace()][$tmp_title->getDBkey()] = $rev_id;
+		}
+		# Our image version pointers
+		$fileSHA1Keys = array();
+		$imageMap = explode( '#', trim( $imageParams ) );
+		foreach ( $imageMap as $image ) {
+			if ( !$image ) {
+				continue;
+			}
+			$m = explode( '|', $image, 3 );
+			# Expand our parameters ... <name>#<timestamp>#<key>
+			if ( !isset( $m[0] ) || !isset( $m[1] ) || !isset( $m[2] ) || !$m[0] ) {
+				continue;
+			}
+			list( $dbkey, $timestamp, $key ) = $m;
+			# Get the file title
+			$img_title = Title::makeTitle( NS_IMAGE, $dbkey ); // Normalize
+			if ( is_null( $img_title ) ) {
+				continue; // Page must be valid!
+			}
+			$fileSHA1Keys[$img_title->getDBkey()] = array();
+			$fileSHA1Keys[$img_title->getDBkey()]['ts'] = $timestamp;
+			$fileSHA1Keys[$img_title->getDBkey()]['sha1'] = $key;
+		}
+		return array( $templateIds, $fileSHA1Keys );
+	}
+
 	########## Common form & elements ##########
+	// @TODO: move to some other class
 
 	 /**
 	 * Generates a brief review form for a page.
@@ -739,7 +684,7 @@ class RevisionReviewForm
 				$pOutput = $parserCache->get( $article, $user );
 			}
 			# Otherwise (or on cache miss), parse the rev text...
-			if ( $pOutput == false ) {
+			if ( !$pOutput || !isset( $pOutput->fr_fileSHA1Keys ) ) {
 				global $wgParser, $wgEnableParserCache;
 				$text = $rev->getText();
 				$title = $article->getTitle();
@@ -751,10 +696,10 @@ class RevisionReviewForm
 				}
 			}
 			$templateIDs = $pOutput->mTemplateIds;
-			$imageSHA1Keys = $pOutput->fr_ImageSHA1Keys;
+			$imageSHA1Keys = $pOutput->fr_fileSHA1Keys;
 		}
 		list( $templateParams, $imageParams, $fileVersion ) =
-			FlaggedRevs::getIncludeParams( $article, $templateIDs, $imageSHA1Keys );
+			RevisionReviewForm::getIncludeParams( $article, $templateIDs, $imageSHA1Keys );
 
 		$form .= Xml::openElement( 'span', array( 'style' => 'white-space: nowrap;' ) );
 		# Hide comment input if needed

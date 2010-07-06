@@ -302,11 +302,13 @@ $wgPHPlotDir = $dir . 'phplot-5.0.5';
 
 $wgAutoloadClasses['FlaggedRevs'] = $dir . 'FlaggedRevs.class.php';
 $wgAutoloadClasses['FRUserCounters'] = $dir . 'FRUserCounters.php';
+$wgAutoloadClasses['FRInclusionManager'] = $dir . 'FRInclusionManager.php';
 $wgAutoloadClasses['FlaggedRevsHooks'] = $dir . 'FlaggedRevs.hooks.php';
 $wgAutoloadClasses['FlaggedRevsLogs'] = $dir . 'FlaggedRevsLogs.php';
 $wgAutoloadClasses['FRCacheUpdate'] = $dir . 'FRCacheUpdate.php';
 $wgAutoloadClasses['FRCacheUpdateJob'] = $dir . 'FRCacheUpdate.php';
-$wgAutoloadClasses['FRLinksUpdate'] = $dir . 'FRLinksUpdate.php';
+$wgAutoloadClasses['FRSquidUpdate'] = $dir . 'FRCacheUpdate.php';
+$wgAutoloadClasses['FRDependencyUpdate'] = $dir . 'FRDependencyUpdate.php';
 
 # Special case cache invalidations
 $wgJobClasses['flaggedrevs_CacheUpdate'] = 'FRCacheUpdateJob';
@@ -463,8 +465,8 @@ $wgHooks['APIQueryAfterExecute'][] = 'FlaggedRevsApiHooks::addApiRevisionData';
 # Parser hooks, selects the desired images/templates
 $wgHooks['ParserClearState'][] = 'FlaggedRevsHooks::parserAddFields';
 $wgHooks['BeforeParserFetchTemplateAndtitle'][] = 'FlaggedRevsHooks::parserFetchStableTemplate';
-$wgHooks['BeforeParserMakeImageLinkObj'][] = 'FlaggedRevsHooks::parserMakeStableFileLink';
-$wgHooks['BeforeGalleryFindFile'][] = 'FlaggedRevsHooks::galleryFindStableFileTime';
+$wgHooks['BeforeParserMakeImageLinkObj'][] = 'FlaggedRevsHooks::parserFetchStableFile';
+$wgHooks['BeforeGalleryFindFile'][] = 'FlaggedRevsHooks::galleryFetchStableFile';
 # Additional parser versioning
 $wgHooks['ParserAfterTidy'][] = 'FlaggedRevsHooks::parserInjectTimestamps';
 $wgHooks['OutputPageParserOutput'][] = 'FlaggedRevsHooks::outputInjectTimestamps';
@@ -487,7 +489,7 @@ $wgHooks['NewRevisionFromEditComplete'][] = 'FlaggedRevsHooks::incrementReverts'
 $wgHooks['HTMLCacheUpdate::doUpdate'][] = 'FlaggedRevsHooks::doCacheUpdate';
 # Updates stable version tracking data
 $wgHooks['LinksUpdate'][] = 'FlaggedRevsHooks::onLinksUpdate';
-# Clear dead config rows
+# Clear/update config rows
 $wgHooks['ArticleDeleteComplete'][] = 'FlaggedRevsHooks::onArticleDelete';
 $wgHooks['ArticleRevisionVisibilitySet'][] = 'FlaggedRevsHooks::onRevisionDelete';
 $wgHooks['ArticleRevisionVisiblitySet'][] = 'FlaggedRevsHooks::onRevisionDelete'; // B/C for now

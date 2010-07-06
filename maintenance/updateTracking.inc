@@ -121,17 +121,19 @@ function update_flaggedpages( $start = null ) {
 			$title = Title::newFromRow( $row );
 			$article = new Article( $title );
 			# Replaces new fields into flaggedpages
-			$frev = FlaggedRevision::newFromStable( $title, FR_FOR_UPDATE );
+			$frev = FlaggedRevision::determineStable( $title, FR_MASTER );
 			# Update fp_stable, fp_quality, and fp_reviewed
 			if( $frev ) {
-				FlaggedRevs::updateStableVersion( $article, $frev->getRevision(), $row->page_latest );
+				FlaggedRevs::updateStableVersion(
+					$article, $frev->getRevision(), $row->page_latest );
 			# Somethings broke? Delete the row...
 			} else {
 				FlaggedRevs::clearTrackingRows( $row->page_id );
 				if( $db->affectedRows() > 0 ) $deleted++;
 			}
 			# Get the latest revision
-			$revRow = $db->selectRow( 'revision', '*', array('rev_page' => $row->page_id), __FUNCTION__,
+			$revRow = $db->selectRow( 'revision', '*',
+				array('rev_page' => $row->page_id), __FUNCTION__,
 				array('ORDER BY' => 'rev_timestamp DESC') );
 			# Correct page_latest if needed (import/files made plenty of bad rows)
 			if( $revRow ) {

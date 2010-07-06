@@ -205,19 +205,21 @@ class FlaggedRevsHooks {
 	}
 
 	/**
-	* Update flaggedrevs table on article history merge
+	* Update flaggedrevs page/tracking tables (revision moving)
 	*/
 	public static function updateFromMerge( Title $sourceTitle, Title $destTitle ) {
 		$oldPageID = $sourceTitle->getArticleID();
 		$newPageID = $destTitle->getArticleID();
 		# Get flagged revisions from old page id that point to destination page
 		$dbw = wfGetDB( DB_MASTER );
-		$result = $dbw->select( array( 'flaggedrevs', 'revision' ),
+		$result = $dbw->select(
+			array( 'flaggedrevs', 'revision' ),
 			array( 'fr_rev_id' ),
 			array( 'fr_page_id' => $oldPageID,
 				'fr_rev_id = rev_id',
 				'rev_page' => $newPageID ),
-			__METHOD__ );
+			__METHOD__
+		);
 		# Update these rows
 		$revIDs = array();
 		while ( $row = $dbw->fetchObject( $result ) ) {
@@ -230,32 +232,31 @@ class FlaggedRevsHooks {
 					'fr_rev_id' => $revIDs ),
 				__METHOD__ );
 		}
-		# Update pages..stable version possibly lost to another page
-		FlaggedRevs::titleLinksUpdate( $sourceTitle );
-		FlaggedRevs::titleLinksUpdate( $destTitle );
-
+		# Update pages..stable versions possibly lost to another page
+		FlaggedRevs::stableVersionUpdates( $sourceTitle );
+		FlaggedRevs::stableVersionUpdates( $destTitle );
 		return true;
 	}
 
 	/**
-	* Update flaggedrevs tracking tables
+	* Update flaggedrevs page/tracking tables
 	*/
-	public static function onArticleDelete( &$article, &$user, $reason, $id ) {
+	public static function onArticleDelete( Article $article, $user, $reason, $id ) {
 		FlaggedRevs::clearTrackingRows( $id );
 		return true;
 	}
 
 	/**
-	* Update stable version selection
+	* Update flaggedrevs page/tracking tables
 	*/
-	public static function onRevisionDelete( Title &$title ) {
-		FlaggedRevs::titleLinksUpdate( $title );
+	public static function onRevisionDelete( Title $title ) {
+		FlaggedRevs::stableVersionUpdates( $title );
 		return true;
 	}
 
 	/**
-	* Update pending revision table
-	* Autoreview pages moved into content NS
+	* (a) Update flaggedrevs page/tracking tables
+	* (b) Autoreview pages moved into content NS
 	*/
 	public static function onTitleMoveComplete(
 		Title $otitle, Title $ntitle, $user, $pageId
@@ -264,97 +265,30 @@ class FlaggedRevsHooks {
 		// Re-validate NS/config (new title may not be reviewable)
 		if ( $fa->isReviewable( FR_MASTER ) ) {
 			// Moved from non-reviewable to reviewable NS?
+			// Auto-review such edits like new pages...
 			if ( !FlaggedRevs::inReviewNamespace( $otitle )
 				&& FlaggedRevs::autoReviewNewPages()
 				&& $ntitle->userCan( 'autoreview' ) )
 			{
 				$rev = Revision::newFromTitle( $ntitle );
-				// Treat this kind of like a new page...
-				FlaggedRevs::autoReviewEdit( $fa, $user, $rev->getText(), $rev );
-				return true; // pending list handled
-			} else if ( $fa->getStableRev( FR_MASTER ) ) {
-				return true; // nothing to do
+				if ( $rev ) { // sanity
+					FlaggedRevs::autoReviewEdit( $fa, $user, $rev );
+				}
 			}
 		}
-		FlaggedRevs::clearTrackingRows( $pageId );
+		# Update page and tracking tables and clear cache
+		FlaggedRevs::stableVersionUpdates( $otitle );
+		FlaggedRevs::stableVersionUpdates( $ntitle );
 		return true;
 	}
 
 	// @TODO: replace raw $linksUpdate field accesses
 	public static function onLinksUpdate( LinksUpdate $linksUpdate ) {
-		global $wgUser;
 		wfProfileIn( __METHOD__ );
-		$fa = FlaggedArticle::getTitleInstance( $linksUpdate->mTitle );
-		# Check if this page has a stable version...
-		$sv = null;
-		if ( isset( $u->fr_stableRev ) ) {
-			$sv = $u->fr_stableRev; // Try the process cache...
-		} elseif ( $fa->isReviewable( FR_MASTER ) ) {
-			$sv = $fa->getStableRev( FR_MASTER ); // re-validate NS/config
-		}
-		if ( $sv ) {
-			$stableCats = FlaggedRevs::getStableCategories();
-			// Short-circuit things that need stable version output
-			if ( $stableCats || FlaggedRevs::inclusionSetting() != FR_INCLUDES_CURRENT ) {
-				# Get the parsed stable version...
-				if ( isset( $linksUpdate->fr_stableParserOut ) ) {
-					$stableOut = $linksUpdate->fr_stableParserOut; // process cache
-				} else {
-					# Try stable version cache, which should be up-to-date now.
-					# Hack: use 'okStale' to ignore any previous invalidate() calls.
-					$anon = new User(); // anon cache most likely to exist
-					$stableOut = FlaggedRevs::getPageCache( $fa, $anon, 'okStale' );
-					if ( $stableOut == false && $wgUser->getId() ) {
-						$stableOut = FlaggedRevs::getPageCache( $fa, $wgUser, 'okStale' );
-					}
-					if ( $stableOut == false ) { // cache miss
-						$text = $sv->getRevText();
-						$stableOut = FlaggedRevs::parseStableText( $fa, $text, $sv->getRevId() );
-					}
-				}
-				# Tracking for certain categories depends only on the stable version
-				self::stabilizeCategories( $linksUpdate, $stableOut, $stableCats );
-				# Update flaggedrevs link tracking tables
-				$frLinksUpdate = new FRLinksUpdate( $linksUpdate, $stableOut );
-				$frLinksUpdate->doUpdate();
-			}
-			# Update flagged page related fields
-			FlaggedRevs::updateStableVersion( $fa, $sv->getRevision() );
-		} else {
-			# Empty flaggedrevs data for this page if there is no stable version
-			FlaggedRevs::clearTrackingRows( $fa->getId() );
-		}
-		# Refresh links for pages were only the stable version includes this page
-		if ( $linksUpdate->mRecursive ) {
-			FRLinksUpdate::queueRefreshLinksJobs( $fa->getTitle() );
-		}
+		# Update page and tracking tables and clear cache
+		FlaggedRevs::stableVersionUpdates( $linksUpdate->mTitle );
 		wfProfileOut( __METHOD__ );
 		return true;
-	}
-
-	/**
-	* Make "stable categories" appear in categorylinks for a page
-	* iff they are currently in the stable version of the page (if there is one)
-	* @TODO: replace raw $linksUpdate field accesses
-	*/
-	protected static function stabilizeCategories(
-		LinksUpdate $linksUpdate, ParserOutput $stableOut, array $stableCats
-	) {
-		$sCategories = $stableOut->getCategories(); // assoc array (name => sortkey)
-		foreach ( $stableCats as $category ) {
-			$category = str_replace( ' ', '_', $category ); // ' ' -> underscore
-			// Stable categories cannot be added until added to the stable version
-			if ( isset( $linksUpdate->mCategories[$category] ) // in current
-				&& !isset( $sCategories[$category] ) ) // not in stable
-			{
-				unset( $linksUpdate->mCategories[$category] );
-			// Stable categories must remain until removed from the stable version
-			} elseif ( !isset( $linksUpdate->mCategories[$category] ) // not in current
-				&& isset( $sCategories[$category] ) ) // in stable
-			{
-				$linksUpdate->mCategories[$category] = $sCategories[$category];
-			}
-		}
 	}
 
 	/*
@@ -371,7 +305,7 @@ class FlaggedRevsHooks {
 	* Add special fields to parser.
 	*/
 	public static function parserAddFields( Parser $parser ) {
-		$parser->mOutput->fr_ImageSHA1Keys = array();
+		$parser->mOutput->fr_fileSHA1Keys = array();
 		$parser->mOutput->fr_includeErrors = array();
 		return true;
 	}
@@ -381,71 +315,54 @@ class FlaggedRevsHooks {
 	* Note: $parser can be false
 	*/
 	public static function parserFetchStableTemplate( $parser, Title $title, &$skip, &$id ) {
-		# Trigger for stable version parsing only
-		if ( !( $parser instanceof Parser ) || empty( $parser->fr_isStable ) ) {
-			return true;
-		} elseif ( $title->getNamespace() < 0 ) {
+		if ( !( $parser instanceof Parser ) || $title->getNamespace() < 0 ) {
 			return true; // nothing to do
 		}
-		$dbr = wfGetDB( DB_SLAVE );
+		$incManager = FRInclusionManager::singleton();
+		if ( !$incManager->parserOutputIsStabilized() ) {
+			return true; // trigger for stable version parsing only
+		}
+		$id = false; // current
+		# Check for the version of this template used when reviewed.
+		$maybeId = $incManager->getReviewedTemplateVersion( $title );
+		if ( $maybeId !== null ) {
+			$id = (int)$maybeId; // use if specified (even 0)
+		}
 		# Check for stable version of template if this feature is enabled.
-		# Should be in reviewable namespace, this saves unneeded DB checks as
-		# well as enforce site settings if they are later changed.
-		if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_STABLE
-			&& FlaggedRevs::inReviewNamespace( $title ) && $title->getArticleId() )
-		{
-			$id = $dbr->selectField( 'flaggedpages', 'fp_stable',
-				array( 'fp_page_id' => $title->getArticleId() ),
-				__METHOD__ );
-		}
-		# Check cache before doing another DB hit...
-		$idP = FlaggedRevs::getTemplateIdFromCache( $parser->getRevisionId(),
-			$title->getNamespace(), $title->getDBkey() );
-		# Use the process cache key if it's newer or we have none yet
-		if ( !is_null( $idP ) && ( !$id || $idP > $id ) ) {
-			$id = $idP;
-		}
-		# If there is no stable version (or that feature is not enabled), use
-		# the template revision during review time. If both, use the newest one.
-		$revId = $parser->getRevisionId();
-		if ( $revId && !FlaggedRevs::useProcessCache( $revId ) ) {
-			$idP = $dbr->selectField( 'flaggedtemplates',
-				'ft_tmp_rev_id',
-				array( 'ft_rev_id'  => $revId,
-					'ft_namespace'  => $title->getNamespace(),
-					'ft_title' 		=> $title->getDBkey() ),
-				__METHOD__
-			);
-			# Take the newest (or only available) of the two
-			$id = ( $id === false || $idP > $id ) ? $idP : $id;
-		}
-		# If none specified, see if we are allowed to use the current revision
-		if ( !$id ) {
-			global $wgUseCurrentTemplates;
-			if ( $id === false ) {
-				// May want to give an error
-				$parser->mOutput->fr_includeErrors[] = $title->getPrefixedDBKey();
-				if ( !$wgUseCurrentTemplates ) {
-					$skip = true;
-				}
-			} else {
-				$skip = true; // If ID is zero, don't load it
+		if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_STABLE ) {
+			$maybeId = $incManager->getStableTemplateVersion( $title );
+			# Take the newest of these two...
+			if ( $maybeId && $maybeId > $id ) {
+				$id = (int)$maybeId;
 			}
+		}
+		# If $id not specified, see if we are allowed to use the current revision
+		if ( $id === false ) {
+			$parser->mOutput->fr_includeErrors[] = $title->getPrefixedDBKey(); // unspecified
+			if ( !FlaggedRevs::fallbackToCurrentTemplates() ) {
+				$skip = true; // broken link
+			}
+		# If $id is zero, don't bother loading it
+		} elseif ( !$id ) {
+			$skip = true;
 		}
 		return true;
 	}
 
 	/**
-	* Select the desired images based on the selected stable revision times/SHA-1s
+	* (a) Select the desired images based on the selected stable version time/SHA-1
+	* (b) Set specified versions in fr_fileSHA1Keys
 	*/
-	public static function parserMakeStableFileLink(
+	public static function parserFetchStableFile(
 		$parser, Title $nt, &$skip, &$time, &$query = false
 	) {
-		# Trigger for stable version parsing only
-		if ( !( $parser instanceof Parser ) || empty( $parser->fr_isStable ) ) {
-			return true;
+		if ( !( $parser instanceof Parser ) ) {
+			return true; // nothing to do
 		}
-		$file = null;
+		$incManager = FRInclusionManager::singleton();
+		if ( !$incManager->parserOutputIsStabilized() ) {
+			return true; // trigger for stable version parsing only
+		}
 		# Normalize NS_MEDIA to NS_FILE
 		if ( $nt->getNamespace() == NS_MEDIA ) {
 			$title = Title::makeTitle( NS_FILE, $nt->getDBkey() );
@@ -453,143 +370,78 @@ class FlaggedRevsHooks {
 		} else {
 			$title =& $nt;
 		}
-		# Check for stable version of image if this feature is enabled.
-		# Should be in reviewable namespace, this saves unneeded DB checks as
-		# well as enforce site settings if they are later changed.
-		$sha1 = '';
-		if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_STABLE
-			&& FlaggedRevs::inReviewNamespace( $title ) )
-		{
-			$srev = FlaggedRevision::newFromStable( $title );
-			if ( $srev && $srev->getFileTimestamp() ) {
-				$time = $srev->getFileTimestamp(); // TS or null
-				$sha1 = $srev->getFileSha1();
-			}
+		# Get version, update fr_fileSHA1Keys...
+		list( $time, $sha1 ) = self::parserFindStableFile( $parser, $title );
+		# Stabilize the file link
+		if ( $time ) {
+			if ( $query != '' ) $query .= '&';
+			$query = "filetimestamp=" . urlencode( wfTimestamp( TS_MW, $time ) );
 		}
-		# Check cache before doing another DB hit...
-		$params = FlaggedRevs::getFileVersionFromCache(
-			$parser->getRevisionId(), $title->getDBkey() );
-		if ( is_array( $params ) ) {
-			list( $timeP, $sha1P ) = $params;
-			// Take the newest one...
-			if ( !$time || $timeP > $time ) {
-				$time = $timeP;
-				$sha1 = $sha1P;
-			}
-		}
-		# If there is no stable version (or that feature is not enabled), use
-		# the image revision during review time. If both, use the newest one.
-		$revId = $parser->getRevisionId();
-		if ( $revId && !FlaggedRevs::useProcessCache( $revId ) ) {
-			$dbr = wfGetDB( DB_SLAVE );
-			$row = $dbr->selectRow( 'flaggedimages',
-				array( 'fi_img_timestamp', 'fi_img_sha1' ),
-				array( 'fi_rev_id' => $parser->getRevisionId(), 'fi_name' => $title->getDBkey() ),
-				__METHOD__
-			);
-			$reviewedTS = trim( $row->fi_img_timestamp ); // remove garbage
-			# Only the one picked at review time exists OR it is the newest...use it!
-			if ( $row && ( $time === false || $reviewedTS > $time ) ) {
-				$time = $reviewedTS;
-				$sha1 = $row->fi_img_sha1;
-			}
-		}
-		$query = $time ? "filetimestamp=" . urlencode( wfTimestamp( TS_MW, $time ) ) : "";
-		# If none specified, see if we are allowed to use the current revision
-		if ( !$time ) {
-			global $wgUseCurrentImages;
-			# If the DB found nothing...
-			if ( $time === false ) {
-				# May want to give an error, so track these...
-				$parser->mOutput->fr_includeErrors[] = $title->getPrefixedDBKey();
-				if ( !$wgUseCurrentImages ) {
-					$time = "0"; // no image
-				} else {
-					$file = wfFindFile( $title );
-					$time = $file ? $file->getTimestamp() : "0"; // Use current
-				}
-			} else {
-				$time = "0"; // no image (may trigger on review)
-			}
-		}
-		# Add image metadata to parser output
-		$parser->mOutput->fr_ImageSHA1Keys[$title->getDBkey()] = array();
-		$parser->mOutput->fr_ImageSHA1Keys[$title->getDBkey()][$time] = $sha1;
 		return true;
 	}
 
 	/**
-	* Select the desired images based on the selected stable revision times/SHA-1s
+	* (a) Select the desired images based on the selected stable version time/SHA-1
+	* (b) Set specified versions in fr_fileSHA1Keys
 	*/
-	public static function galleryFindStableFileTime( $ig, Title $nt, &$time, &$query = false ) {
-		$parser = $ig->mParser; // convenience
-		# Trigger for stable version parsing only
-		if ( !( $parser instanceof Parser ) || empty( $parser->fr_isStable ) ) {
-			return true;
-		} elseif ( $nt->getNamespace() != NS_FILE ) {
+	public static function galleryFetchStableFile( $ig, Title $nt, &$time, &$query = false ) {
+		$parser =& $ig->mParser; // convenience
+		if ( !( $parser instanceof Parser ) || $nt->getNamespace() != NS_FILE ) {
 			return true; // nothing to do
 		}
-		$file = null;
-		# Check for stable version of image if this feature is enabled.
-		# Should be in reviewable namespace, this saves unneeded DB checks as
-		# well as enforce site settings if they are later changed.
-		$sha1 = "";
-		if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_STABLE
-			&& FlaggedRevs::inReviewNamespace( $nt ) )
-		{
-			$srev = FlaggedRevision::newFromStable( $nt );
-			if ( $srev && $srev->getFileTimestamp() ) {
-				$time = $srev->getFileTimestamp(); // TS or null
-				$sha1 = $srev->getFileSha1();
+		$incManager = FRInclusionManager::singleton();
+		if ( !$incManager->parserOutputIsStabilized() ) {
+			return true; // trigger for stable version parsing only
+		}
+		# Get version, update fr_fileSHA1Keys...
+		list( $time, $sha1 ) = self::parserFindStableFile( $parser, $nt );
+		# Stabilize the file link
+		if ( $time ) {
+			if ( $query != '' ) $query .= '&';
+			$query = "filetimestamp=" . urlencode( wfTimestamp( TS_MW, $time ) );
+		}
+		return true;
+	}
+
+	/**
+	* (a) Select the desired images based on the selected stable version time/SHA-1
+	* (b) Set specified versions in fr_fileSHA1Keys
+	*/
+	protected static function parserFindStableFile( Parser $parser, Title $title ) {
+		$time = false; // current version
+		$sha1 = null; // corresponds to $time
+		# Check for the version of this file used when reviewed.
+		$incManager = FRInclusionManager::singleton();
+		list( $maybeTS, $maybeSha1 ) = $incManager->getReviewedFileVersion( $title );
+		if ( $maybeTS !== null ) {
+			$time = $maybeTS; // use if specified (even "0")
+			$sha1 = $maybeSha1;
+		}
+		# Check for stable version of file if this feature is enabled.
+		if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_STABLE ) {
+			list( $maybeTS, $maybeSha1 ) = $incManager->getStableFileVersion( $title );
+			# Take the newest of these two...
+			if ( $maybeTS && $maybeTS > $time ) {
+				$time = $maybeTS;
+				$sha1 = $maybeSha1;
 			}
 		}
-		# Check cache before doing another DB hit...
-		$params = FlaggedRevs::getFileVersionFromCache( $ig->mRevisionId, $nt->getDBkey() );
-		if ( is_array( $params ) ) {
-			list( $timeP, $sha1P ) = $params;
-			// Take the newest one...
-			if ( !$time || $timeP > $time ) {
-				$time = $timeP;
-				$sha1 = $sha1P;
+		# If $time not specified, see if we are allowed to use the current revision
+		if ( $time === false ) {
+			# May want to give an error, so track these...
+			$parser->mOutput->fr_includeErrors[] = $title->getPrefixedDBKey();
+			if ( !FlaggedRevs::fallbackToCurrentFiles() ) {
+				$time = "0"; // no image
 			}
+		} elseif ( !$time ) {
+			$time = "0"; // make sure this the string '0'
 		}
-		# If there is no stable version (or that feature is not enabled), use
-		# the image revision during review time. If both, use the newest one.
-		if ( $ig->mRevisionId && !FlaggedRevs::useProcessCache( $ig->mRevisionId ) ) {
-			$dbr = wfGetDB( DB_SLAVE );
-			$row = $dbr->selectRow( 'flaggedimages',
-				array( 'fi_img_timestamp', 'fi_img_sha1' ),
-				array( 'fi_rev_id' => $ig->mRevisionId, 'fi_name' => $nt->getDBkey() ),
-				__METHOD__
-			);
-			$reviewedTS = trim( $row->fi_img_timestamp ); // remove garbage
-			# Only the one picked at review time exists OR it is the newest...use it!
-			if ( $row && ( $time === false || $reviewedTS > $time ) ) {
-				$time = $reviewedTS;
-				$sha1 = $row->fi_img_sha1;
-			}
+		# Add specified image metadata to parser output
+		if ( $time !== false ) {
+			$parser->mOutput->fr_fileSHA1Keys[$title->getDBkey()] =  array();
+			$parser->mOutput->fr_fileSHA1Keys[$title->getDBkey()]['ts'] = $time;
+			$parser->mOutput->fr_fileSHA1Keys[$title->getDBkey()]['sha1'] = $sha1;
 		}
-		$query = $time ? "filetimestamp=" . urlencode( wfTimestamp( TS_MW, $time ) ) : "";
-		# If none specified, see if we are allowed to use the current revision
-		if ( !$time ) {
-			global $wgUseCurrentImages;
-			# If the DB found nothing...
-			if ( $time === false ) {
-				# May want to give an error, so track these...
-				$parser->mOutput->fr_includeErrors[] = $nt->getPrefixedDBKey();
-				if ( !$wgUseCurrentImages ) {
-					$time = "0"; // no image
-				} else {
-					$file = wfFindFile( $nt );
-					$time = $file ? $file->getTimestamp() : "0";
-				}
-			} else {
-				$time = "0"; // no image (may trigger on review)
-			}
-		}
-		# Add image metadata to parser output
-		$parser->mOutput->fr_ImageSHA1Keys[$nt->getDBkey()] = array();
-		$parser->mOutput->fr_ImageSHA1Keys[$nt->getDBkey()][$time] = $sha1;
 		return true;
 	}
 
@@ -601,23 +453,25 @@ class FlaggedRevsHooks {
 		if ( !isset( $pOutput->mImages ) ) {
 			return true; // sanity check
 		}
-		$stableOut = !empty( $parser->fr_isStable );
 		# Fetch the current timestamps of the images.
 		foreach ( $pOutput->mImages as $filename => $x ) {
 			# FIXME: it would be nice not to double fetch these!
 			$time = false; // current
-			if ( $stableOut && isset( $pOutput->fr_ImageSHA1Keys[$filename] ) ) {
-				foreach( $pOutput->fr_ImageSHA1Keys[$filename] as $time => $sha1 ) {
-					// Fetch file with $time to confirm the specified version exists
-				}
+			# Stable output with versions specified
+			if ( isset( $pOutput->fr_fileSHA1Keys[$filename] ) ) {
+				// Fetch file with $time to confirm the specified version exists
+				$time = $pOutput->fr_fileSHA1Keys[$filename]['ts'];
+				$sha1 = $pOutput->fr_fileSHA1Keys[$filename]['sha1'];
 			}
 			$title = Title::makeTitleSafe( NS_FILE, $filename );
 			$file = wfFindFile( $title, array( 'time' => $time ) );
-			$pOutput->fr_ImageSHA1Keys[$filename] = array();
+			$pOutput->fr_fileSHA1Keys[$filename] = array();
 			if ( $file ) {
-				$pOutput->fr_ImageSHA1Keys[$filename][$file->getTimestamp()] = $file->getSha1();
+				$pOutput->fr_fileSHA1Keys[$filename]['ts'] = $file->getTimestamp();
+				$pOutput->fr_fileSHA1Keys[$filename]['sha1'] = $file->getSha1();
 			} else {
-				$pOutput->fr_ImageSHA1Keys[$filename]["0"] = '';
+				$pOutput->fr_fileSHA1Keys[$filename]['ts'] = '0';
+				$pOutput->fr_fileSHA1Keys[$filename]['sha1'] = '';
 			}
 		}
 		return true;
@@ -657,21 +511,19 @@ class FlaggedRevsHooks {
 
 	public static function parserPagesUsingPendingChanges( &$parser, $ns = '' ) {
 		$nsList = FlaggedRevs::getReviewNamespaces();
-
-
-		if( !$nsList ) {
+		if ( !$nsList ) {
 			return 0;
 		}
 
-		if( $ns !== '' ) {
+		if ( $ns !== '' ) {
 			$ns = intval( $ns );
-			if( !in_array( $ns, $nsList ) ) {
+			if ( !in_array( $ns, $nsList ) ) {
 				return 0;
 			}
 		}
 
 		static $pcCounts = null;
-		if( !$pcCounts ) {
+		if ( !$pcCounts ) {
 			$dbr = wfGetDB( DB_SLAVE );
 			$res = $dbr->select( 'flaggedrevs_stats', '*', array(), __METHOD__ );
 			$totalCount = 0;
@@ -682,7 +534,7 @@ class FlaggedRevsHooks {
 			$nsList[ 'all' ] = $totalCount;
 		}
 
-		if( $ns === '' ) {
+		if ( $ns === '' ) {
 			return $nsList['all'];
 		} else {
 			return $nsList[ "ns-$ns" ];
@@ -694,19 +546,16 @@ class FlaggedRevsHooks {
 	*/
 	public static function outputInjectTimestamps( OutputPage $out, ParserOutput $parserOut ) {
 		# Set first time
-		$out->fr_ImageSHA1Keys = isset( $out->fr_ImageSHA1Keys ) ?
-			$out->fr_ImageSHA1Keys : array();
+		if ( !isset( $out->fr_fileSHA1Keys ) ) {
+			$out->fr_fileSHA1Keys = array();
+		}
 		# Leave as defaults if missing. Relevant things will be updated only when needed.
 		# We don't want to go around resetting caches all over the place if avoidable...
-		$imageSHA1Keys = isset( $parserOut->fr_ImageSHA1Keys ) ?
-			$parserOut->fr_ImageSHA1Keys : array();
+		$fileSHA1Keys = isset( $parserOut->fr_fileSHA1Keys ) ?
+			$parserOut->fr_fileSHA1Keys : array();
 		# Add on any new items
-		$out->fr_ImageSHA1Keys = wfArrayMerge( $out->fr_ImageSHA1Keys, $imageSHA1Keys );
+		$out->fr_fileSHA1Keys = wfArrayMerge( $out->fr_fileSHA1Keys, $fileSHA1Keys );
 		return true;
-	}
-
-	protected static function getLocalFile( Title $title, $time ) {
-		return RepoGroup::singleton()->getLocalRepo()->findFile( $title, $time );
 	}
 
 	/**
@@ -862,7 +711,7 @@ class FlaggedRevsHooks {
 		if ( $srev && self::isSelfRevertToStable( $rev, $srev, $baseRevId, $user ) ) {
 			$flags = $srev->getTags(); // use old tags
 			# Review this revision of the page...
-			FlaggedRevs::autoReviewEdit( $article, $user, $rev->getText(), $rev, $flags );
+			FlaggedRevs::autoReviewEdit( $article, $user, $rev, $flags );
 			return true; // done!
 		}
 		# Can this user auto-review this page?
@@ -887,7 +736,7 @@ class FlaggedRevsHooks {
 				$flags = $frev->getTags(); // Dummy edits always keep previous tags
 			}
 			# Review this revision of the page...
-			FlaggedRevs::autoReviewEdit( $article, $user, $rev->getText(), $rev, $flags );
+			FlaggedRevs::autoReviewEdit( $article, $user, $rev, $flags );
 		}
 		return true;
 	}
@@ -919,7 +768,7 @@ class FlaggedRevsHooks {
 		}
 		# Review this revision of the page...
 		return FlaggedRevs::autoReviewEdit(
-			$article, $user, $rev->getText(), $rev, $flags, false  /* manual */ );
+			$article, $user, $rev, $flags, false  /* manual */ );
 	}
 
 	/**
@@ -963,6 +812,7 @@ class FlaggedRevsHooks {
 	* When an user makes a null-edit we sometimes want to review it...
 	* (a) Null undo or rollback
 	* (b) Null edit with review box checked
+	* Note: called after edit ops are finished
 	*/
 	public static function maybeNullEditReview(
 		Article $article, $user, $text, $s, $m, $a, $b, $flags, $rev, &$status, $baseId
@@ -989,9 +839,10 @@ class FlaggedRevsHooks {
 			# Was the edit that we tried to revert to reviewed?
 			if ( $frev ) {
 				# Review this revision of the page...
-				$ok = FlaggedRevs::autoReviewEdit( $article, $user, $rev->getText(), $rev, $flags );
+				$ok = FlaggedRevs::autoReviewEdit( $article, $user, $rev, $flags );
 				if ( $ok ) {
 					FlaggedRevs::markRevisionPatrolled( $rev ); // reviewed -> patrolled
+					FlaggedRevs::stableVersionUpdates( $title ); // update page tables
 					return true;
 				}
 			}
@@ -1014,10 +865,10 @@ class FlaggedRevsHooks {
 				}
 			}
 			# Review this revision of the page...
-			$ok = FlaggedRevs::autoReviewEdit(
-				$article, $user, $rev->getText(), $rev, $flags, false );
+			$ok = FlaggedRevs::autoReviewEdit( $article, $user, $rev, $flags, false );
 			if ( $ok ) {
 				FlaggedRevs::markRevisionPatrolled( $rev ); // reviewed -> patrolled
+				FlaggedRevs::stableVersionUpdates( $title ); // update page tables
 			}
 		}
 		return true;
@@ -1610,7 +1461,6 @@ class FlaggedRevsHooks {
 
 	public static function onArticleViewHeader( &$article, &$outputDone, &$pcache ) {
 		$view = FlaggedArticleView::singleton();
-		$view->maybeUpdateMainCache( $outputDone, $pcache );
 		$view->addStableLink( $outputDone, $pcache );
 		$view->setPageContent( $outputDone, $pcache );
 		return true;
