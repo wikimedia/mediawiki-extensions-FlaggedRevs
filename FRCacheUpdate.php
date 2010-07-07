@@ -196,6 +196,8 @@ class FRSquidUpdate {
 			# Invalidate caches of articles which include this page
 			$update = new HTMLCacheUpdate( $this->title, 'templatelinks' );
 			$update->doUpdate();
+			$update = new HTMLCacheUpdate( $this->title, 'imagelinks' );
+			$update->doUpdate();
 		}
 	}
 }

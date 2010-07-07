@@ -59,25 +59,31 @@ class FRDependencyUpdate {
         }
 		# Get any dependency tracking changes
 		$existing = $this->getExistingDeps();
-		$insertions = $this->getDepInsertions( $existing, $deps );
-		$deletions = $this->getDepDeletions( $existing, $deps );
-		# Delete removed links
-		if ( $deletions ) {
-			$this->dbw->delete( 'flaggedrevs_tracking', $deletions, __METHOD__ );
-		}
-		# Add any new links
-		if ( $insertions ) {
-			$this->dbw->insert( 'flaggedrevs_tracking', $insertions, __METHOD__, 'IGNORE' );
+		# Do incremental updates...
+		if ( $existing != $deps ) {
+			$existing = $this->getExistingDeps( FR_MASTER );
+			$insertions = $this->getDepInsertions( $existing, $deps );
+			$deletions = $this->getDepDeletions( $existing, $deps );
+			# Delete removed links
+			if ( $deletions ) {
+				$this->dbw->delete( 'flaggedrevs_tracking', $deletions, __METHOD__ );
+			}
+			# Add any new links
+			if ( $insertions ) {
+				$this->dbw->insert( 'flaggedrevs_tracking', $insertions, __METHOD__, 'IGNORE' );
+			}
 		}
 	}
 
 	/*
 	* Get existing cache dependancies
+	* @param int $flags FR_MASTER
 	* @return array (ns => dbKey => 1)
 	*/
-	protected function getExistingDeps() {
-		$dbr = wfGetDB( DB_SLAVE );
-		$res = $dbr->select( 'flaggedrevs_tracking',
+	protected function getExistingDeps( $flags = 0 ) {
+		$db = ( $flags & FR_MASTER ) ?
+			wfGetDB( DB_MASTER ) : wfGetDB( DB_SLAVE );
+		$res = $db->select( 'flaggedrevs_tracking',
 			array( 'ftr_namespace', 'ftr_title' ),
 			array( 'ftr_from' => $this->title->getArticleId() ),
 			__METHOD__
