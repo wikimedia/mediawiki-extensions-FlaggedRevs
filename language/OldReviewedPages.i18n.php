@@ -1277,6 +1277,7 @@ $messages['pms'] = array(
  * @author Ahmed-Najib-Biabani-Ibrahimkhel
  */
 $messages['ps'] = array(
+	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|ساعت|ساعتونه}})',
 	'oldreviewedpages-days' => '($1 {{PLURAL:$1|ورځ|ورځې}})',
 	'oldreviewed-category' => 'وېشنيزه:',
 );
@@ -1509,9 +1510,11 @@ $messages['sr-el'] = array(
 	'oldreviewedpages-recent' => '(manje od jednog časa)',
 	'oldreviewed-category' => 'Kategorija:',
 	'oldreviewed-watched' => 'Strane na mojem spisku nadgledanja',
-	'oldreviewed-stable' => 'Stabilizovane strane',
+	'oldreviewed-stable' => 'Stabilna verzija je podrazumevana',
 	'oldreviewed-diff' => 'pregled',
+	'oldreviewed-size' => 'Najveća izmena (bajtovi):',
 	'oldreviewedpages-unwatched' => '(nenadgledano)',
+	'oldreviewedpages-watched' => '($1 {{PLURAL:$1|aktivan korisnik|aktivna korisnika|aktivna korisnika|aktivna korisnika|aktivnih korisnika}} gleda)',
 	'oldreviewedpages-viewing' => '(pod pregledom)',
 );
 

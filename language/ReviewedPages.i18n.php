@@ -981,15 +981,18 @@ Existe um link para a última edição com o mesmo nível.',
  * @author Firilacroco
  * @author KlaudiuMihaila
  * @author Mihai
+ * @author Minisarm
  * @author Stelistcristi
  */
 $messages['ro'] = array(
 	'reviewedpages' => 'Pagini revizuite',
-	'reviewedpages-list' => 'Această pagină afișează paginile care au fost revizuite (la cel mai mare nivel) la nivelul specificat.',
+	'reviewedpages-leg' => 'Afișarea paginilor revizuite',
+	'reviewedpages-list' => "Această listă conține paginile [[{{MediaWiki:Validationpage}}|revizuite]] al căror nivel ''maxim'' de revizuire (al unei revizii) este cel specificat.
+O legătură către ultima revizie de acel nivel este furnizată.",
 	'reviewedpages-none' => 'Nu există pagini în această listă',
 	'reviewedpages-lev-1' => 'Calitate',
 	'reviewedpages-all' => 'versiuni revizuite',
-	'reviewedpages-best' => 'prima revizie',
+	'reviewedpages-best' => 'cea mai bună revizie',
 );
 
 /** Tarandíne (Tarandíne)

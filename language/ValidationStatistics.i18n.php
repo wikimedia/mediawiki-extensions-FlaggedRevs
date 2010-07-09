@@ -362,7 +362,8 @@ $messages['dsb'] = array(
 	'validationstatistics-users' => "'''{{SITENAME}}''' ma tuchylu '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|wužywarja|wužywarjowu|wužywarjow|wužywarjow}} z [[{{MediaWiki:Validationpage}}|pšawami wobźěłowarja]].
 
 Wobźěłowarje su etablěrowane wužiwarje, kótarež mógu wersije bokow pśeglědaś.",
-	'validationstatistics-table' => "Slěduju statistiki za kuždy mjenjowy rum, ''bźez'' dalejpósrědnjenjow.",
+	'validationstatistics-lastupdate' => "''Slědujuce daty su se $1 $2 zaktualizěrowali.''",
+	'validationstatistics-table' => "Statistiki za kuždy mjenjowy rum pokazujo se dołojce, ''bźez'' dalejpósrědnjenjow.",
 	'validationstatistics-ns' => 'Mjenjowy rum',
 	'validationstatistics-total' => 'Boki',
 	'validationstatistics-stable' => 'Pśeglědane',
@@ -1706,6 +1707,12 @@ $messages['tr'] = array(
 
 Editörler, sayfalara kontrol revizyonu atayabilen belirli kullanıcılardır.",
 	'validationstatistics-lastupdate' => '"Aşağıdaki veri en son $1, $2 tarihinde güncellendi"',
+	'validationstatistics-pndtime' => "Belirlenmiş kullanıcılar tarafından kontrol edilmiş değişiklikler gözden geçirilmiş olarak kabul edilir.
+
+[[Special:OldReviewedPages|Gözden geçirilmemiş girişleri bekleyen sayfalar]] için ortalama gecikme süresi: '''$1'''.
+Bu sayfalar zaman aşımına uğramış olarak kabul edilir. Likewise, pages are considered ''synced'' if there are no edits pending review.",
+	'validationstatistics-revtime' => "''Giriş yapmamış anonim kullanıcılar'' tarafından yapılmış girişler için ortalama bekleme süresi '''$1'''; medyanı ise '''$2''' biçimindedir.
+$3",
 	'validationstatistics-table' => "Ad boşluğu başına sayfa gözden geçirme istatistikleri, yönlendirme sayfaları ''dahil olmadan''  aşağıda gösterilmiştir.",
 	'validationstatistics-ns' => 'Ad boşluğu',
 	'validationstatistics-total' => 'Sayfalar',
@@ -1728,6 +1735,7 @@ $messages['uk'] = array(
 	'validationstatistics-users' => "У проекті '''{{SITENAME}}''' зараз '''[[Special:ListUsers/editor|$1]]''' {{plural:$1|користувач має|користувачі мають|користувачів мають}} права [[{{MediaWiki:Validationpage}}|«редактор»]].
 
 «Редактори» — визначені користувачі, що мають можливість робити вибіркову перевірку конкретних версій сторінок.",
+	'validationstatistics-lastupdate' => "''Наступні дані востаннє оновлювались $1 о $2.''",
 	'validationstatistics-table' => "Статистика рецензувань сторінок для кожного простору назв показана нижче, ''за виключенням'' сторінок перенаправлень.",
 	'validationstatistics-ns' => 'Простір назв',
 	'validationstatistics-total' => 'Сторінок',

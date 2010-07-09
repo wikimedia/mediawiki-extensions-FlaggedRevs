@@ -435,10 +435,13 @@ $messages['id'] = array(
 	'configuredpages-def-stable' => 'versi stabil',
 );
 
-/** Italian (Italiano) */
+/** Italian (Italiano)
+ * @author Beta16
+ */
 $messages['it'] = array(
 	'configuredpages-config' => 'Configurazione',
 	'configuredpages-prec-none' => 'nessuna precendenza',
+	'configuredpages-def-draft' => 'ultima versione',
 );
 
 /** Japanese (日本語)

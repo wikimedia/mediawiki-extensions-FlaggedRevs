@@ -204,6 +204,7 @@ $messages['dsb'] = array(
 	'stablepages-text' => 'Slědujo lisćina bokow, kótarež jano wěste wužywarje mógu změny pśewjasć, kótarež njetrjebaju pśeglědanje. Změny drugich wužywarjow se pó standarźe cytarjam njepokazuju, až awtorizěrowany wužywaŕ je njepśeglědujo.',
 	'stablepages-none' => 'Toś ta lisćina njewopśimujo boki',
 	'stablepages-config' => 'Konfiguracija',
+	'stablepages-indef' => 'Jano njewobgranicowany cas spadnjenja',
 );
 
 /** Greek (Ελληνικά)
@@ -817,6 +818,7 @@ $messages['tr'] = array(
 	'stablepages-text' => 'Aşağıdaki liste, sadece belirli kullanıcıların gözden geçirme gerektirmeden değişiklik yapabilecekleri sayfaların bir listesidir. Diğer kullanıcılar tarafından yapılmış değişiklikler yetkilendirilmiş bir kullanıcı tarafından gözden geçirilip onaylanmadan gösterilmemektedir.',
 	'stablepages-none' => 'Bu listede hiç sayfa yok',
 	'stablepages-config' => 'Yapılandırma',
+	'stablepages-indef' => 'Sadece belirsiz sona erme',
 );
 
 /** Ukrainian (Українська)
