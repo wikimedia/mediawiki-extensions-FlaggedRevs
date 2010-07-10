@@ -127,12 +127,13 @@ $messages['an'] = array(
 );
 
 /** Arabic (العربية)
+ * @author ;Hiba;1
  * @author Meno25
  * @author OsamaK
  * @author Ouda
  */
 $messages['ar'] = array(
-	'oldreviewedpages' => 'صفحات مراجعة قديمة',
+	'oldreviewedpages' => 'صفحات مع تغييرات معلقة',
 	'oldreviewedpages-legend' => 'عرض الصفحات المراجعة ذات المراجعات غير المراجعة',
 	'oldreviewedpages-list' => 'هذه الصفحة تعرض {{PLURAL:$1||صفحة مراجعة فيها|صفحتين مراجعتين فيهما|صفحات مراجعة فيها}} تعديلات قيد الانتظار.',
 	'oldreviewedpages-none' => 'لا توجد حاليا صفحات تطابق هذه المواصفات',

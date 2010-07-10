@@ -892,6 +892,7 @@ Por favor, revise l'adreza que fació servir t'acceder a ista pachina.",
 );
 
 /** Arabic (العربية)
+ * @author ;Hiba;1
  * @author Antime
  * @author Ciphers
  * @author Meno25
@@ -905,7 +906,7 @@ $messages['ar'] = array(
 	'editor' => 'محرر',
 	'flaggedrevs' => 'مراجعات معلمة',
 	'flaggedrevs-watched-pending' => "توجد حاليا [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} تعديلات في الانتظار] لمراجعة الصفحات في قائمة مراقبتك '''انتباهك مطلوب!'''",
-	'flaggedrevs-desc' => 'يعطي المحررين والمراجعين القدرة على مراجعة المراجعات وتثبيت الصفحات',
+	'flaggedrevs-desc' => 'يعطي المحررين القدرة على استعراض المراجعات وتثبيت الصفحات',
 	'flaggedrevs-pref-UI' => 'الواجهة الأساسية:',
 	'flaggedrevs-pref-UI-0' => 'استخدم صناديق تفصيلية لعرض حالة الموافقة للصفحات',
 	'flaggedrevs-pref-UI-1' => 'استخدم أيقونات صغيرة ونصوص قليلة لعرض حالة الموافقة للصفحات',
@@ -983,12 +984,16 @@ $messages['ar'] = array(
 	'revreview-edit' => 'عدل',
 	'revreview-editnotice' => "'''تغييراتك [[{{MediaWiki:Validationpage}}|ستنشر]] متى [[{{MediaWiki:Validationpage}}|راجعها]] مستخدم مخول.'''",
 	'revreview-check-flag-p' => 'انشر التعديلات الموقفة حاليًا',
+	'revreview-check-flag-p-title' => 'قبول كل التغييرات المعلقة حاليا بالإضافة إلى التحرير الخاص بك. استخدم هذا فقط إذا كنت قد سبق و رأيت فرق التغييرات المعلقة.',
 	'revreview-check-flag-u' => 'قبول هذه الصفحة غير المراجعة',
 	'revreview-check-flag-u-title' => 'قبول هذه النسخة من الصفحة. يستخدم فقط إن كنت قد استعرضت كامل الصفحة.',
+	'revreview-check-flag-y' => 'قبول هذه التغييرات',
+	'revreview-check-flag-y-title' => 'قبول كل التغييرات التي قمت بها في هذا التعديل',
 	'revreview-submitedit' => 'أرسل التغييرات',
 	'revreview-submitedit-title' => 'أرسل تعديلاتك للمراجعة',
 	'revreview-edited' => "'''التغييرات [[{{MediaWiki:Validationpage}}|ستنشر]] متى [[{{MediaWiki:Validationpage}}|راجعها]] مستخدم مخول.'''
 ''المسودة''، المعروضة بالأسفل، تحتوي على  [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 {{PLURAL:$2|تغيير|تغيير}}] مقترح.",
+	'revreview-edited-section' => '| العودة إلى القسم المسمى "[[#$الصفحة 1 $ 2]]".',
 	'revreview-flag' => 'راجع هذه المراجعة',
 	'revreview-reflag' => 'أعد مراجعة هذه المراجعة',
 	'revreview-invalid' => "'''هدف غير صحيح:''' لا مراجعة [[{{MediaWiki:Validationpage}}|مراجعة]] تتطابق مع الرقم المعطى.",
@@ -1109,7 +1114,7 @@ $messages['ar'] = array(
 	'flaggedrevs-protect-legend' => 'نشر التعديلات',
 	'flaggedrevs-protect-none' => 'السماح لكل المستخدمين',
 	'revreview-locked-title' => 'التعديلات يجب أن تتم مراجعتها قبل أن يتم عرضها في هذه الصفحة!',
-	'revreview-unlocked-title' => 'التعديلات لا تتطلب مراجعة قبل أن يتم عرضها في هذه الصفحة!',
+	'revreview-unlocked-title' => 'التعديلات لا تتطلب مراجعة قبل عرضها على القراء في هذه الصفحة.',
 	'revreview-locked' => 'التعديلات يجب أن تتم مراجعتها قبل أن يتم عرضها في هذه الصفحة!',
 	'revreview-unlocked' => 'التعديلات لا تتطلب [[{{MediaWiki:Validationpage}}|مراجعة]] قبل أن يتم عرضها في هذه الصفحة!',
 	'log-show-hide-review' => '$1 سجل المراجعة',

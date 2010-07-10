@@ -260,6 +260,7 @@ No ye posible confegurar-la.',
 );
 
 /** Arabic (العربية)
+ * @author ;Hiba;1
  * @author Alnokta
  * @author Ciphers
  * @author Meno25
@@ -281,7 +282,7 @@ $messages['ar'] = array(
 	'stabilization-select2' => 'آخر نسخة مفحوصة',
 	'stabilization-select3' => 'آخر مراجعة فائقة؛ لو غير موجودة، إذا آخر مراجعة جودة أو منظورة',
 	'stabilization-def' => 'المراجعة المعروضة عند رؤية الصفحة افتراضيا',
-	'stabilization-def1' => 'المراجعة المنشورة؛ لو غير موجودة، إذا المراجعة الحالية/المسودة',
+	'stabilization-def1' => 'صيغة مستقرة ، فإن لم تكن موجودة ،  فإنه آخر تنقيح',
 	'stabilization-def2' => 'آخر مراجعة',
 	'stabilization-restrict' => 'قيود المراجعة/المراجعة التلقائية',
 	'stabilization-restrict-none' => 'لا ضوابط إضافية',
@@ -1202,6 +1203,7 @@ $messages['fa'] = array(
  * @author Cimon Avaro
  * @author Crt
  * @author Nike
+ * @author Silvonen
  * @author Str4nd
  * @author ZeiP
  */
@@ -1231,6 +1233,7 @@ Tässä ovat nykyiset asetukset tunnukselle [[:$1|$1]]:',
 	'stabilization-def-short' => 'Oletus',
 	'stabilization-def-short-0' => 'Nykyinen',
 	'stabilization-def-short-1' => 'Julkaistu',
+	'stabilize_page_notexists' => 'Kohdesivua ei ole olemassa.',
 	'stabilize_expiry_invalid' => 'Virheellinen erääntymispäivä.',
 	'stabilize_expiry_old' => 'Tämä erääntymisaika on jo mennyt.',
 	'stabilize-expiring' => 'vanhenee $1 (UTC)',

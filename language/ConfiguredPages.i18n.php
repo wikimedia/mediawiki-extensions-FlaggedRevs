@@ -46,10 +46,12 @@ $messages['af'] = array(
 );
 
 /** Arabic (العربية)
+ * @author ;Hiba;1
  * @author Loya
  * @author Mohamed Ouda
  */
 $messages['ar'] = array(
+	'configuredpages-none' => 'لا توجد صفحات في هذه القائمة.',
 	'configuredpages-config' => 'ضبط',
 	'configuredpages-prec-none' => 'لا سابقة',
 	'configuredpages-prec-quality' => 'سابقة جودة',
@@ -903,14 +905,16 @@ Một số tùy chọn có thể có ảnh hưởng đến phiên bản được
 	'configuredpages-def-stable' => 'phiên bản xuất bản',
 );
 
-/** Simplified Chinese (‪中文(简体)‬) */
+/** Simplified Chinese (‪中文(简体)‬)
+ * @author Onecountry
+ */
 $messages['zh-hans'] = array(
-	'configuredpages' => '页面已有复审设定',
-	'configuredpages-text' => '下面是已有和站点预设设定不同的审核设定。
+	'configuredpages' => '已设定审核的页面',
+	'configuredpages-text' => '下面是使用非站点默认审核设置的页面列表。
 
-部份设定的更改是向读者展示的。',
-	'configuredpages-none' => '没有页面在这个清单中',
-	'configuredpages-config' => '设定',
+一些设置可能改变读者显示版本，也可能进一步限制哪些用户的编辑无需审核。',
+	'configuredpages-none' => '本页面清单为空。',
+	'configuredpages-config' => '设置',
 	'configuredpages-precedence' => '优先级：',
 	'configuredpages-prec-none' => '没有优先级',
 	'configuredpages-prec-quality' => '质量优先级',

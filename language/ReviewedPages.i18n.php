@@ -74,19 +74,20 @@ Se da un vinclo t'a zaguera versión d'iste livel.",
 );
 
 /** Arabic (العربية)
+ * @author ;Hiba;1
  * @author Meno25
  * @author OsamaK
  */
 $messages['ar'] = array(
 	'reviewedpages' => 'صفحات مراجعة',
-	'reviewedpages-leg' => 'اعرض الصفحات حسب أعلى مستوى مراجعة',
+	'reviewedpages-leg' => 'عرض الصفحات التي تمت مراجعتها',
 	'reviewedpages-list' => 'هذه الصفحة تعرض الصفحات التي تمت مراجعتها (على أقصى تقدير) للمستوى المحدد.',
 	'reviewedpages-none' => 'لا توجد صفحات في هذه القائمة',
 	'reviewedpages-lev-0' => 'منظورة',
 	'reviewedpages-lev-1' => 'جودة',
 	'reviewedpages-lev-2' => 'مختارة',
 	'reviewedpages-all' => 'نسخ مراجعة',
-	'reviewedpages-best' => 'مراجعة فائقة',
+	'reviewedpages-best' => 'افضل مراجعة',
 );
 
 /** Egyptian Spoken Arabic (مصرى)

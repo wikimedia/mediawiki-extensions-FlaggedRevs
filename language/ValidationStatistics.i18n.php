@@ -92,6 +92,7 @@ $messages['an'] = array(
 );
 
 /** Arabic (العربية)
+ * @author ;Hiba;1
  * @author Meno25
  * @author OsamaK
  */
@@ -100,7 +101,7 @@ $messages['ar'] = array(
 	'validationstatistics-users' => "'''{{SITENAME}}''' بها حاليا '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|مستخدم|مستخدمون}} بصلاحية [[{{MediaWiki:Validationpage}}|محرر]].
 
 المحررون هم مستخدمون موثوقون يمكنهم التحقق من المراجعات للصفحات.",
-	'validationstatistics-table' => "الإحصاءات لكل نطاق معروضة بالأسفل، ''ولا يشمل ذلك'' صفحات التحويل.",
+	'validationstatistics-table' => 'احصاءات تحرير الصفحات لكل اسم معروضة ادناه، باستثناء صفحات التحويل.',
 	'validationstatistics-ns' => 'النطاق',
 	'validationstatistics-total' => 'الصفحات',
 	'validationstatistics-stable' => 'مراجع',
@@ -523,12 +524,14 @@ $messages['fa'] = array(
 /** Finnish (Suomi)
  * @author Cimon Avaro
  * @author Crt
+ * @author Silvonen
  * @author Str4nd
  * @author Vililikku
  * @author ZeiP
  */
 $messages['fi'] = array(
 	'validationstatistics' => 'Validointitilastot',
+	'validationstatistics-lastupdate' => "''Seuraavat tiedot päivitettiin viimeksi $1 kello $2.''",
 	'validationstatistics-table' => "Alla on tilastot kaikille nimiavaruuksille ''lukuun ottamatta'' ohjaussivuja.",
 	'validationstatistics-ns' => 'Nimiavaruus',
 	'validationstatistics-total' => 'Sivut',
@@ -865,11 +868,14 @@ $messages['is'] = array(
  * @author Darth Kule
  * @author Gianfranco
  * @author Melos
+ * @author OrbiliusMagister
  * @author Pietrodn
  */
 $messages['it'] = array(
 	'validationstatistics' => 'Statistiche di convalidazione',
-	'validationstatistics-users' => "'''{{SITENAME}}''' ha attualmente '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|utente|utenti}} con diritti di [[{{MediaWiki:Validationpage}}|Editore]] e '''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$2|utente|utenti}} con diritti di [[{{MediaWiki:Validationpage}}|Revisore]].",
+	'validationstatistics-users' => "{{SITENAME}}''' ha attualmente '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|utente|utenti}} con diritti di [[{{MediaWiki:Validationpage}}|Editore]] e '''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$2|utente|utenti}} con diritti di [[{{MediaWiki:Validationpage}}|Revisore]].
+
+Gli editori sono utenti stabili che possono coonvalidare le revisioni nelle pagine",
 	'validationstatistics-table' => "Le statistiche per ciascun namespace sono mostrate di seguito, ''a esclusione'' delle pagine di redirect.",
 	'validationstatistics-ns' => 'Namespace',
 	'validationstatistics-total' => 'Pagine',
