@@ -324,7 +324,6 @@ class FlaggedRevsXML {
 		$img = '<img id="mw-fr-revisiontoggle" class="fr-toggle-arrow"';
 		$img .= " src=\"{$encPath}/arrow-down.png\" style=\"display:none;\"";
 		$img .= ' onMouseOver="FlaggedRevs.onBoxMouseOver()"';
-		$img .= ' title="' . wfMsgHtml( 'revreview-toggle-title' ) . '"';
 		$img .= ' alt="' . wfMsgHtml( 'revreview-toggle-show' ) . '" />';
 		return $img;
 	}
