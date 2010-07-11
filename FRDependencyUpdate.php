@@ -18,7 +18,6 @@ class FRDependencyUpdate {
 		$this->sTemplates = $stableOutput->getTemplates();
 		$this->sImages = $stableOutput->getImages();
 		$this->sCategories = $stableOutput->getCategories();
-		$this->dbw = wfGetDB( DB_MASTER );
     }
 
 	public function doUpdate() {
@@ -62,13 +61,14 @@ class FRDependencyUpdate {
 			$existing = $this->getExistingDeps( FR_MASTER );
 			$insertions = $this->getDepInsertions( $existing, $deps );
 			$deletions = $this->getDepDeletions( $existing, $deps );
+			$dbw = wfGetDB( DB_MASTER );
 			# Delete removed links
 			if ( $deletions ) {
-				$this->dbw->delete( 'flaggedrevs_tracking', $deletions, __METHOD__ );
+				$dbw->delete( 'flaggedrevs_tracking', $deletions, __METHOD__ );
 			}
 			# Add any new links
 			if ( $insertions ) {
-				$this->dbw->insert( 'flaggedrevs_tracking', $insertions, __METHOD__, 'IGNORE' );
+				$dbw->insert( 'flaggedrevs_tracking', $insertions, __METHOD__, 'IGNORE' );
 			}
 		}
 	}
@@ -133,7 +133,7 @@ class FRDependencyUpdate {
 			}
 		}
 		if ( $del ) {
-			$clause = self::makeWhereFrom2d( $del, $this->dbw );
+			$clause = self::makeWhereFrom2d( $del, wfGetDB( DB_MASTER ) );
 			$where = array( $clause, 'ftr_from' => $this->title->getArticleId() );
 		} else {
 			$where = false;
