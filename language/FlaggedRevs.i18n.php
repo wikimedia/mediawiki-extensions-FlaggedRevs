@@ -2806,6 +2806,12 @@ Možná byly provedeny nové [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diff
  * @author Lloffiwr
  */
 $messages['cy'] = array(
+	'group-editor' => 'Golygyddion',
+	'group-editor-member' => 'golygydd',
+	'group-reviewer' => 'Adolygwyr',
+	'group-reviewer-member' => 'adolygydd',
+	'grouppage-editor' => '{{ns:project}}:Golygydd',
+	'grouppage-reviewer' => '{{ns:project}}:Adolygydd',
 	'revreview-revnotfound' => "Ni ddaethpwyd o hyd i'r hen ddiwygiad o'r dudalen y gofynnwyd amdano. Gwnewch yn siwr fod yr URL yn gywir os gwelwch yn dda.",
 );
 
@@ -9744,7 +9750,7 @@ $messages['ml'] = array(
 	'flaggedrevs-pref-UI-1' => 'താളുകളുടെ അംഗീകരണ സ്ഥിതി പ്രദർശിപ്പിക്കൻ ചെറിയ ഐകോണുകളും കുറച്ച് എഴുത്തും ഉപയോഗിക്കുക',
 	'prefs-flaggedrevs' => 'തിരുത്തൽ അംഗീകരണം',
 	'prefs-flaggedrevs-ui' => 'തിരുത്തൽ അംഗീകരണം',
-	'flaggedrevs-prefs-stable' => 'ഉള്ളടക്ക താളിന്റെ പ്രസിദ്ധപ്പെടുത്തിയ പതിപ്പ് എപ്പോഴും സ്വതവേ പ്രദർശിപ്പിക്കുക (ഒന്നുണ്ടെങ്കിൽ)',
+	'flaggedrevs-prefs-stable' => 'ഉള്ളടക്ക താളിന്റെ പ്രസിദ്ധപ്പെടുത്തിയ പതിപ്പ് എപ്പോഴും സ്വതേ പ്രദർശിപ്പിക്കുക (ഒന്നുണ്ടെങ്കിൽ)',
 	'flaggedrevs-prefs-watch' => 'ഞാൻ സം‌ശോധം ചെയ്യുന്ന താളുകൾ ശ്രദ്ധിക്കുന്ന താളുകളുടെ പട്ടികയിലേക്ക് ചേർക്കുക',
 	'flaggedrevs-prefs-editdiffs' => 'താളുകൾ തിരുത്തുമ്പോൾ അവശേഷിക്കുന്ന വ്യത്യാസങ്ങൾ പ്രദർശിപ്പിക്കുക',
 	'flaggedrevs-prefs-viewdiffs' => 'സംശോധനം പ്രതീക്ഷിക്കുന്ന ഏറ്റവും പുതിയ നാൾപ്പതിപ്പുകൾ എടുത്തുനോക്കുമ്പോൾ അവശേഷിക്കുന്ന മാറ്റങ്ങളുമായുള്ള വ്യത്യാസം പ്രദർശിപ്പിക്കുക',
@@ -9754,9 +9760,9 @@ $messages['ml'] = array(
 	'group-reviewer-member' => 'സംശോധകൻ',
 	'grouppage-editor' => '{{ns:project}}:എഡിറ്റർ',
 	'grouppage-reviewer' => '{{ns:project}}:സംശോധകൻ',
-	'group-autoreview' => 'സ്വതവേ സംശോധനം ചെയ്യുന്നവർ',
-	'group-autoreview-member' => 'സ്വതവേ സംശോധനം ചെയ്യുന്നയാൾ',
-	'grouppage-autoreview' => '{{ns:project}}:സ്വതവേ സംശോധനം ചെയ്യുന്നയാൾ',
+	'group-autoreview' => 'സ്വതേ സംശോധനം ചെയ്യുന്നവർ',
+	'group-autoreview-member' => 'സ്വതേ സംശോധനം ചെയ്യുന്നയാൾ',
+	'grouppage-autoreview' => '{{ns:project}}:സ്വതേ സംശോധനം ചെയ്യുന്നയാൾ',
 	'revreview-hist-draft' => 'പരിശോധിക്കാത്ത നാൾപ്പതിപ്പ്',
 	'revreview-hist-pending' => 'സംശോധനം പ്രതീക്ഷിക്കുന്നവ',
 	'revreview-hist-quality' => 'ഉന്നത നിലവാരമുള്ള പതിപ്പ്',
@@ -9946,7 +9952,7 @@ $messages['ml'] = array(
 	'revreview-lev-all' => 'ഏതെങ്കിലും',
 	'revreview-lev-basic' => 'പരിശോധിച്ചവ',
 	'revreview-lev-quality' => 'ഗുണമേന്മ',
-	'revreview-defaultfilter' => 'സ്വതവേയുള്ള പതിപ്പ്:',
+	'revreview-defaultfilter' => 'സ്വതേയുള്ള പതിപ്പ്:',
 	'revreview-def-all' => 'ഏതെങ്കിലും',
 	'revreview-def-draft' => 'ഏറ്റവും പുതിയത്',
 	'revreview-def-stable' => 'പ്രസിദ്ധീകരിക്കപ്പെട്ടത്',
@@ -9961,7 +9967,6 @@ $messages['ml'] = array(
 	'tooltip-ca-default' => 'ഗുണനിലവാര ഉറപ്പാക്കൽ ക്രമീകരണങ്ങൾ',
 	'flaggedrevs-protect-legend' => 'തിരുത്തലുകൾ സ്വയം സംശോധനം ചെയ്യൽ ([[{{MediaWiki:Validationpage}}|?]])',
 	'flaggedrevs-protect-none' => 'എല്ലാ ഉപയോക്താക്കളേയും അനുവദിക്കുക',
-	'flaggedrevs-protect-basic' => 'സ്വതവേയുള്ള സജ്ജീകരണങ്ങൾ',
 	'revreview-locked-title' => 'ഈ താളിലെ തിരുത്തലുകൾ വായനക്കാർക്കായി പ്രദർശിക്കപ്പെടുന്നതിനു മുമ്പ് സംശോധനം ചെയ്യേണ്ടതാണ്.',
 	'revreview-unlocked-title' => 'ഈ താളിലെ തിരുത്തലുകൾ വായനക്കാർക്കായി പ്രദർശിക്കപ്പെടുന്നതിനു മുമ്പ് സംശോധനം ചെയ്യേണ്ടതില്ല.',
 	'revreview-locked' => 'ഈ താളിലെ തിരുത്തലുകൾ വായനക്കാർക്കായി പ്രദർശിക്കപ്പെടുന്നതിനു മുമ്പ്  [[{{MediaWiki:Validationpage}}|സംശോധനം]] ചെയ്തിരിക്കണം.',

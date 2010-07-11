@@ -196,6 +196,7 @@ $messages['bg'] = array(
  * @author Bellayet
  */
 $messages['bn'] = array(
+	'validationstatistics-ns' => 'নামস্থান',
 	'validationstatistics-total' => 'পাতা',
 	'validationstatistics-user' => 'ব্যবহারকারী',
 );

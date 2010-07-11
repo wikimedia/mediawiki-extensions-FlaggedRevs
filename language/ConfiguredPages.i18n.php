@@ -547,7 +547,7 @@ $messages['mk'] = array(
  */
 $messages['ml'] = array(
 	'configuredpages' => 'സംശോധന ക്രമീകരണങ്ങൾ ഉള്ള താളുകൾ',
-	'configuredpages-text' => 'സൈറ്റിൽ സ്വതവേ വിവിധ അംഗീകാര സജ്ജീകരണങ്ങളുള്ള താളുകളാണ് താഴെ കൊടുത്തിരിക്കുന്നത്.
+	'configuredpages-text' => 'സൈറ്റിൽ സ്വതേ വിവിധ അംഗീകാര സജ്ജീകരണങ്ങളുള്ള താളുകളാണ് താഴെ കൊടുത്തിരിക്കുന്നത്.
 
 വായനക്കാർക്ക് ഏത് പതിപ്പുകൾ പ്രദർശിപ്പിക്കണം എന്നതനുസരിച്ചോ, സംശോധനം ഒഴിവാക്കി ആർക്കൊക്കെ തിരുത്താം എന്നതടിസ്ഥാനപ്പെടുത്തിയോ ചില സജ്ജീകരണങ്ങൾ മാറാവുന്നതാണ്.',
 	'configuredpages-none' => 'ഈ പട്ടികയിൽ താളുകളൊന്നുമില്ല.',
@@ -657,6 +657,13 @@ Chèiche ampostassion a peulo cangé che version a l'é smonùa ai letor o rëst
 	'configuredpages-prec-pristine' => 'ùltima pa contaminà',
 	'configuredpages-def-draft' => 'ùltima version',
 	'configuredpages-def-stable' => 'version publicà',
+);
+
+/** Pashto (پښتو)
+ * @author Ahmed-Najib-Biabani-Ibrahimkhel
+ */
+$messages['ps'] = array(
+	'configuredpages-none' => 'په همدې لړليک کې هېڅ کوم مخ نشته',
 );
 
 /** Portuguese (Português)
