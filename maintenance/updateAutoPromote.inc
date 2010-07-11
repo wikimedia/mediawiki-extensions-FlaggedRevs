@@ -28,7 +28,7 @@ function update_autopromote() {
 			# Get edit comments used
 			$sres = $db->select( 'revision', '1',
 				array( 'rev_user' => $user->getID(),
-					'rev_comment != ""' ),
+					"rev_comment NOT LIKE '/*%*/'" ), // manual comments only
 				__METHOD__,
 				array( 'LIMIT' => max($wgFlaggedRevsAutopromote['editComments'],500) )
 			);

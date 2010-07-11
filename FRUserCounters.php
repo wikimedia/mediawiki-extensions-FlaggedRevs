@@ -100,7 +100,7 @@ class FRUserCounters {
 			$p['totalContentEdits'] += 1;
 			$changed = true;
 		}
-		if ( $summary != '' ) {
+		if ( !preg_match( '/^\/\*.*\*\/$/', $summary ) ) {
 			$p['editComments'] += 1;
 			$changed = true;
 		}
