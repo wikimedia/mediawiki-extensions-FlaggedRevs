@@ -219,11 +219,13 @@ class RevisionReviewForm
 		{
 			return 'review_too_low';
 		}
-		# Special token to discourage fiddling...
-		$k = self::validationKey(
-			$this->templateParams, $this->imageParams, $this->fileVersion, $this->oldid );
-		if ( $this->validatedParams !== $k ) {
-			return 'review_bad_key';
+		# Special token to discourage fiddling with template/files...
+		if ( $this->isApproval() ) {
+			$k = self::validationKey(
+				$this->templateParams, $this->imageParams, $this->fileVersion, $this->oldid );
+			if ( $this->validatedParams !== $k ) {
+				return 'review_bad_key';
+			}
 		}
 		# Check permissions and validate
 		# FIXME: invalid vs denied
@@ -301,7 +303,7 @@ class RevisionReviewForm
 			$frev = FlaggedRevision::newFromTitle( $this->page, $this->oldid );
 			# If we can't find this flagged rev, return to page???
 			if ( is_null( $frev ) ) {
-				return 'review_bad_oldid';
+				return 'review_not_flagged';
 			}
 			$status = $this->unapproveRevision( $frev );
 		}
@@ -934,19 +936,6 @@ class RevisionReviewForm
 		# Handy links to special pages
 		if ( $showlinks && $this->user->isAllowed( 'unreviewedpages' ) ) {
 			$form .= $this->getSpecialLinks();
-		}
-		return $form;
-	}
-
-	public function syncFailureHTML( array $status, $showlinks = false ) {
-		$form = wfMsgExt( 'revreview-changed', 'parse', $this->page->getPrefixedText() );
-		$form .= "<ul>";
-		foreach ( $status as $n => $text ) {
-			$form .= "<li><i>$text</i></li>\n";
-		}
-		$form .= "</ul>";
-		if ( $showlinks ) {
-			$form .= wfMsg( 'returnto', $this->skin->makeLinkObj( $this->page ) );
 		}
 		return $form;
 	}

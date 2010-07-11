@@ -101,14 +101,7 @@ class RevisionReview extends UnlistedSpecialPage
 				} else {
 					$wgOut->addHTML( $form->deapprovalSuccessHTML( true ) );
 				}
-			// Failure for unflagging
-			} elseif ( !$form->isApproval() ) {
-				$wgOut->redirect( $this->page->getFullUrl() ); // already unflagged
-			// Sync failure for flagging
-			} elseif ( is_array( $status ) ) {
-				$wgOut->setPageTitle( wfMsgHtml( 'internalerror' ) );
-				$wgOut->addHTML( $form->syncFailureHTML( $status, true ) );
-			// Any other fails for flagging...
+			// Failure for flagging or unflagging
 			} else {
 				if ( $status === 'review_denied' ) {
 					$wgOut->permissionRequired( 'badaccess-group0' ); // protected?
@@ -116,6 +109,8 @@ class RevisionReview extends UnlistedSpecialPage
 					$wgOut->permissionRequired( 'badaccess-group0' ); // fiddling
 				} elseif ( $status === 'review_bad_oldid' ) {
 					$wgOut->showErrorPage( 'internalerror', 'revreview-revnotfound' );
+				} elseif ( $status === 'review_not_flagged' ) {
+					$wgOut->redirect( $this->page->getFullUrl() ); // already unflagged
 				} elseif ( $status === 'review_too_low' ) {
 					$wgOut->addWikiText( wfMsg( 'revreview-toolow' ) );
 				} else {
@@ -223,23 +218,18 @@ class RevisionReview extends UnlistedSpecialPage
 		}
 		# Try submission...
 		$status = $form->submit();
-		# Approve/de-approve success
+		# Success...
 		if ( $status === true ) {
 			$tier = FlaggedRevs::getLevelTier( $form->getDims() ) + 1; // shift to 0-3
-			if ( $form->isApproval() ) {
+			if ( $form->isApproval() ) { // approve
 				return "<suc#><t#$tier>" . $form->approvalSuccessHTML( false );
-			} else {
+			} else { // de-approve
 				return "<suc#><t#$tier>" . $form->deapprovalSuccessHTML( false );
 			}
-		# De-approve failure
-		} elseif ( !$form->isApproval() ) {
-			return "<suc#><t#0>"; // failure -> already unflagged
-		# Approve sync failure
-		} elseif ( is_array( $status ) ) {
-			return '<err#>' . $form->syncFailureHTML( $status, false );
-		# Other approval failures
-		} else { // hmmm?
-			return '<err#>' . wfMsgExt( 'revreview-failed', 'parseinline' );
+		# Failure...
+		} else {
+			return '<err#>' . wfMsgExt( 'revreview-failed', 'parse' ) .
+				'<p>' . wfMsgHtml( $status ) . '</p>';
 		}
 	}
 }
