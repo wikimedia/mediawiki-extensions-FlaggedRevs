@@ -5,7 +5,6 @@
  * If no requirements are set, the page is parsed as normal.
  *
  * Parser hooks check this to determine what template/file version to use.
- * 
  */
 class FRInclusionManager {
 	protected $reviewedVersions = null; // files/templates at review time

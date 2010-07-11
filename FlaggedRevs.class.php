@@ -650,78 +650,21 @@ class FlaggedRevs {
 	*/
 	public static function updateCacheTracking( Article $article, ParserOutput $stableOut ) {
 		wfProfileIn( __METHOD__ );
-		$frDepUpdate = new FRDependencyUpdate( $article->getTitle(), $stableOut );
-		$frDepUpdate->doUpdate();
+		if ( !wfReadOnly() ) {
+			$frDepUpdate = new FRDependencyUpdate( $article->getTitle(), $stableOut );
+			$frDepUpdate->doUpdate();
+		}
 		wfProfileOut( __METHOD__ );
 	}
 
-	# ################ Synchronization and link update functions #################
-
-	/**
-	 * Check if all includes in $stableOutput are the same as those in $currentOutput.
-	 * Only use this if both outputs are from the same source text.
-	 * @param ParserOutput $stableOutput
-	 * @param ParserOutput $currentOutput
-	 * @return bool
-	 */
-	public static function includesAreSynced(
-		ParserOutput $stableOutput, ParserOutput $currentOutput
-	) {
-		if ( isset( $stableOutput->mTemplateIds ) // sanity check
-			&& isset( $currentOutput->mTemplateIds ) )
-		{
-			$sTmpls = $stableOutput->mTemplateIds;
-			$cTmpls = $currentOutput->mTemplateIds;
-			foreach ( $sTmpls as $name => $revId ) {
-				if ( isset( $cTmpls[$name] ) && $cTmpls[$name] != $revId ) {
-					return false; // updated/created
-				}
-			}
-		}
-		if ( isset( $stableOutput->fr_fileSHA1Keys ) // sanity check
-			&& isset( $currentOutput->fr_fileSHA1Keys ) )
-		{
-			$sFiles = $stableOutput->fr_fileSHA1Keys;
-			$cFiles = $currentOutput->fr_fileSHA1Keys;
-			foreach ( $sFiles as $name => $timeKey ) {
-				if ( isset( $cFiles[$name] ) && $cFiles[$name]['ts'] != $timeKey['ts'] ) {
-					return false; // updated/created
-				}
-			}
-		}
-		return true;
-	}
-
-	/**
-	 * @param string $val
-	 * @return Object (val,time) tuple
-	 * Get a memcache storage object
-	 */
-	public static function makeMemcObj( $val ) {
-		$data = (object) array();
-		$data->value = $val;
-		$data->time = wfTimestampNow();
-		return $data;
-	}
-	
-	/**
-	* @param mixed $data makeMemcObj() tuple (false/Object)
-	* @param Article $article
-	* @return mixed
-	* Return memc value if not expired
-	*/
-	public static function getMemcValue( $data, Article $article ) {
-		if ( is_object( $data ) && $data->time >= $article->getTouched() ) {
-			return $data->value;
-		}
-		return false;
-	}
+	# ################ Tracking/cache update update functions #################
 
  	/**
 	* Update the page tables with a new stable version.
 	* @param Title $title
 	* @param mixed $sv, the new stable version (optional)
 	* @param mixed $oldSv, the old stable version (optional)
+	* @return bool stable version text/file changed and FR_INCLUDES_STABLE
 	*/
 	public static function stableVersionUpdates( Title $title, $sv = null, $oldSv = null ) {
 		$changed = false;
@@ -756,18 +699,17 @@ class FlaggedRevs {
 		}
 		# Clear page cache
 		$title->invalidateCache();
-		# Purge squids as needed
-		FlaggedRevs::squidUpdates( $title, $changed );
+		self::purgeSquid( $title );
+		return $changed;
 	}
 
  	/**
 	* @param Title $title
-	* @param bool $recursive invalidate/purge pages using this page
 	* Updates squid cache for a title. Defers till after main commit().
 	*/
-	public static function squidUpdates( Title $title, $recursive ) {
+	public static function purgeSquid( Title $title ) {
 		global $wgDeferredUpdateList;
-		$wgDeferredUpdateList[] = new FRSquidUpdate( $title, $recursive );
+		$wgDeferredUpdateList[] = new FRSquidUpdate( $title );
 	}
 
  	/**
@@ -826,7 +768,7 @@ class FlaggedRevs {
 			),
 			__METHOD__
 		);
-		# Alter pending edit tracking table
+		# Update pending edit tracking table
 		self::updatePendingList( $article, $latest );
 		return true;
 	}
@@ -839,8 +781,9 @@ class FlaggedRevs {
 	public static function updatePendingList( Article $article, $latest = null ) {
 		$data = array();
 		$level = self::pristineVersions() ? FR_PRISTINE : FR_QUALITY;
-		if ( !self::qualityVersions() )
+		if ( !self::qualityVersions() ) {
 			$level = FR_SIGHTED;
+		}
 		# Get the latest revision ID if not set
 		if ( !$latest ) {
 			$latest = $article->getTitle()->getLatestRevID( GAID_FOR_UPDATE );
@@ -897,7 +840,31 @@ class FlaggedRevs {
 		# Clear any old junk, and insert new rows
 		$dbw->delete( 'flaggedpage_pending', array( 'fpp_page_id' => $pageId ), __METHOD__ );
 		$dbw->insert( 'flaggedpage_pending', $data, __METHOD__ );
-		return true;
+	}
+
+ 	/**
+	* Do cache updates for when the stable version of a page changed.
+	* Invalidates/purges pages that include the given page.
+	* @param Title $title
+	* @param bool $recursive
+	*/
+	public static function HTMLCacheUpdates( Title $title ) {
+		global $wgDeferredUpdateList;
+		# Invalidate caches of articles which include this page...
+		$wgDeferredUpdateList[] = new HTMLCacheUpdate( $title, 'templatelinks' );
+		if ( $title->getNamespace() == NS_FILE ) {
+			$wgDeferredUpdateList[] = new HTMLCacheUpdate( $title, 'imagelinks' );
+		}
+		$wgDeferredUpdateList[] = new FRExtraCacheUpdate( $title );
+	}
+
+ 	/**
+	* Invalidates/purges pages where only stable version includes this page.
+	* @param Title $title
+	*/
+	public static function extraHTMLCacheUpdate( Title $title ) {
+		global $wgDeferredUpdateList;
+		$wgDeferredUpdateList[] = new FRExtraCacheUpdate( $title );
 	}
 
 	# ################ Revision functions #################
@@ -1163,6 +1130,31 @@ class FlaggedRevs {
 	}
 	
 	# ################ Other utility functions #################
+
+	/**
+	 * @param string $val
+	 * @return Object (val,time) tuple
+	 * Get a memcache storage object
+	 */
+	public static function makeMemcObj( $val ) {
+		$data = (object) array();
+		$data->value = $val;
+		$data->time = wfTimestampNow();
+		return $data;
+	}
+
+	/**
+	* @param mixed $data makeMemcObj() tuple (false/Object)
+	* @param Article $article
+	* @return mixed
+	* Return memc value if not expired
+	*/
+	public static function getMemcValue( $data, Article $article ) {
+		if ( is_object( $data ) && $data->time >= $article->getTouched() ) {
+			return $data->value;
+		}
+		return false;
+	}
 
 	/**
 	* @param array $flags
@@ -1450,8 +1442,9 @@ class FlaggedRevs {
 		FlaggedRevsLogs::updateLog( $title,
 			$flags, array(), '', $rev->getId(), $oldSvId, true, $auto );
 
-		# Note: stableVersionUpdates() should be called after this.
-		# This is done via LinksUpdate on page edits...
+		# Update page and tracking tables and clear cache
+		FlaggedRevs::stableVersionUpdates( $title );
+
 		wfProfileOut( __METHOD__ );
 		return true;
 	}

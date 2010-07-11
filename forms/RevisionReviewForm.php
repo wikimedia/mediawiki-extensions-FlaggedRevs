@@ -399,7 +399,10 @@ class RevisionReviewForm
 		# Get the new stable version as of now
 		$sv = FlaggedRevision::determineStable( $this->page, FR_MASTER/*consistent*/ );
 		# Update page and tracking tables and clear cache
-		FlaggedRevs::stableVersionUpdates( $this->page, $sv, $oldSv );
+		$changed = FlaggedRevs::stableVersionUpdates( $this->page, $sv, $oldSv );
+		if ( $changed ) {
+			FlaggedRevs::HTMLCacheUpdates( $this->page ); // purge pages that use this page
+		}
 
 		wfProfileOut( __METHOD__ );
         return true;
@@ -433,7 +436,10 @@ class RevisionReviewForm
 		# Get the new stable version as of now
 		$sv = FlaggedRevision::determineStable( $this->page, FR_MASTER/*consistent*/ );
 		# Update page and tracking tables and clear cache
-		FlaggedRevs::stableVersionUpdates( $this->page, $sv, $oldSv );
+		$changed = FlaggedRevs::stableVersionUpdates( $this->page, $sv, $oldSv );
+		if ( $changed ) {
+			FlaggedRevs::HTMLCacheUpdates( $this->page ); // purge pages that use this page
+		}
 
 		wfProfileOut( __METHOD__ );
         return true;

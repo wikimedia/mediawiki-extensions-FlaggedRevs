@@ -40,8 +40,7 @@ function autoreview_current( $user, $db ) {
 				$article = new Article( $title );
 				$db->begin();
 				FlaggedRevs::autoReviewEdit( $article, $user, $rev, $flags, true );
-				# Update page and tracking tables and clear cache
-				FlaggedRevs::stableVersionUpdates( $title );
+				FlaggedRevs::HTMLCacheUpdates( $article->getTitle() );
 				$dbw->commit();
 				$changed++;
 			}

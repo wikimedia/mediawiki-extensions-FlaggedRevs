@@ -207,7 +207,7 @@ class FlaggedRevsHooks {
 	/**
 	* Update flaggedrevs page/tracking tables (revision moving)
 	*/
-	public static function updateFromMerge( Title $sourceTitle, Title $destTitle ) {
+	public static function onArticleMergeComplete( Title $sourceTitle, Title $destTitle ) {
 		$oldPageID = $sourceTitle->getArticleID();
 		$newPageID = $destTitle->getArticleID();
 		# Get flagged revisions from old page id that point to destination page
@@ -228,29 +228,15 @@ class FlaggedRevsHooks {
 		if ( !empty( $revIDs ) ) {
 			$dbw->update( 'flaggedrevs',
 				array( 'fr_page_id' => $newPageID ),
-				array( 'fr_page_id' => $oldPageID,
-					'fr_rev_id' => $revIDs ),
-				__METHOD__ );
+				array( 'fr_page_id' => $oldPageID, 'fr_rev_id' => $revIDs ),
+				__METHOD__
+			);
 		}
-		# Update pages..stable versions possibly lost to another page
+		# Update pages...stable versions possibly lost to another page
 		FlaggedRevs::stableVersionUpdates( $sourceTitle );
+		FlaggedRevs::HTMLCacheUpdates( $sourceTitle );
 		FlaggedRevs::stableVersionUpdates( $destTitle );
-		return true;
-	}
-
-	/**
-	* Update flaggedrevs page/tracking tables
-	*/
-	public static function onArticleDelete( Article $article, $user, $reason, $id ) {
-		FlaggedRevs::clearTrackingRows( $id );
-		return true;
-	}
-
-	/**
-	* Update flaggedrevs page/tracking tables
-	*/
-	public static function onRevisionDelete( Title $title ) {
-		FlaggedRevs::stableVersionUpdates( $title );
+		FlaggedRevs::HTMLCacheUpdates( $destTitle );
 		return true;
 	}
 
@@ -278,26 +264,64 @@ class FlaggedRevsHooks {
 		}
 		# Update page and tracking tables and clear cache
 		FlaggedRevs::stableVersionUpdates( $otitle );
+		FlaggedRevs::HTMLCacheUpdates( $otitle );
 		FlaggedRevs::stableVersionUpdates( $ntitle );
+		FlaggedRevs::HTMLCacheUpdates( $ntitle );
 		return true;
 	}
 
-	// @TODO: replace raw $linksUpdate field accesses
-	public static function onLinksUpdate( LinksUpdate $linksUpdate ) {
-		wfProfileIn( __METHOD__ );
-		# Update page and tracking tables and clear cache
-		FlaggedRevs::stableVersionUpdates( $linksUpdate->mTitle );
-		wfProfileOut( __METHOD__ );
-		return true;
-	}
-
-	/*
-	* Update pages where only the stable version links to a page
-	* that was just changed in some way.
+	/**
+	* (a) Update flaggedrevs page/tracking tables
+	* (b) Pages with stable versions that use this page will be purged
+	* Note: pages with current versions that use this page should already be purged
 	*/
-	public static function doCacheUpdate( Title $title ) {
-		$update = new FRCacheUpdate( $title );
-		$update->doUpdate();
+	public static function onArticleEditUpdates( Article $article ) {
+		FlaggedRevs::stableVersionUpdates( $article->getTitle() );
+		FlaggedRevs::extraHTMLCacheUpdate( $article->getTitle() );
+		return true;
+	}
+
+	/**
+	* (a) Update flaggedrevs page/tracking tables
+	* (b) Pages with stable versions that use this page will be purged
+	* Note: pages with current versions that use this page should already be purged
+	*/
+	public static function onArticleDelete( Article $article, $user, $reason, $id ) {
+		FlaggedRevs::clearTrackingRows( $id );
+		FlaggedRevs::extraHTMLCacheUpdate( $article->getTitle() );
+		return true;
+	}
+
+	/**
+	* (a) Update flaggedrevs page/tracking tables
+	* (b) Pages with stable versions that use this page will be purged
+	* Note: pages with current versions that use this page should already be purged
+	*/
+	public static function onArticleUndelete( Title $title ) {
+		FlaggedRevs::stableVersionUpdates( $title );
+		FlaggedRevs::HTMLCacheUpdates( $title );
+		return true;
+	}
+
+	/**
+	* (a) Update flaggedrevs page/tracking tables
+	* (b) Pages with stable versions that use this page will be purged
+	* Note: pages with current versions that use this page should already be purged
+	*/
+	public static function onFileUpload( File $file ) {
+		FlaggedRevs::stableVersionUpdates( $file->getTitle() );
+		FlaggedRevs::extraHTMLCacheUpdate( $file->getTitle() );
+		return true;
+	}
+
+	/**
+	* Update flaggedrevs page/tracking tables
+	*/
+	public static function onRevisionDelete( Title $title ) {
+		$changed = FlaggedRevs::stableVersionUpdates( $title );
+		if ( $changed ) {
+			FlaggedRevs::HTMLCacheUpdates( $title );
+		}
 		return true;
 	}
 
@@ -477,6 +501,23 @@ class FlaggedRevsHooks {
 		return true;
 	}
 
+	/**
+	* Insert image timestamps/SHA-1s into page output
+	*/
+	public static function outputInjectTimestamps( OutputPage $out, ParserOutput $parserOut ) {
+		# Set first time
+		if ( !isset( $out->fr_fileSHA1Keys ) ) {
+			$out->fr_fileSHA1Keys = array();
+		}
+		# Leave as defaults if missing. Relevant things will be updated only when needed.
+		# We don't want to go around resetting caches all over the place if avoidable...
+		$fileSHA1Keys = isset( $parserOut->fr_fileSHA1Keys ) ?
+			$parserOut->fr_fileSHA1Keys : array();
+		# Add on any new items
+		$out->fr_fileSHA1Keys = wfArrayMerge( $out->fr_fileSHA1Keys, $fileSHA1Keys );
+		return true;
+	}
+
 	public static function onParserFirstCallInit( &$parser ) {
 		$parser->setFunctionHook( 'pagesusingpendingchanges',
 			'FlaggedRevsHooks::parserPagesUsingPendingChanges' );
@@ -539,23 +580,6 @@ class FlaggedRevsHooks {
 		} else {
 			return $nsList[ "ns-$ns" ];
 		}
-	}
-
-	/**
-	* Insert image timestamps/SHA-1s into page output
-	*/
-	public static function outputInjectTimestamps( OutputPage $out, ParserOutput $parserOut ) {
-		# Set first time
-		if ( !isset( $out->fr_fileSHA1Keys ) ) {
-			$out->fr_fileSHA1Keys = array();
-		}
-		# Leave as defaults if missing. Relevant things will be updated only when needed.
-		# We don't want to go around resetting caches all over the place if avoidable...
-		$fileSHA1Keys = isset( $parserOut->fr_fileSHA1Keys ) ?
-			$parserOut->fr_fileSHA1Keys : array();
-		# Add on any new items
-		$out->fr_fileSHA1Keys = wfArrayMerge( $out->fr_fileSHA1Keys, $fileSHA1Keys );
-		return true;
 	}
 
 	/**
@@ -842,7 +866,7 @@ class FlaggedRevsHooks {
 				$ok = FlaggedRevs::autoReviewEdit( $article, $user, $rev, $flags );
 				if ( $ok ) {
 					FlaggedRevs::markRevisionPatrolled( $rev ); // reviewed -> patrolled
-					FlaggedRevs::stableVersionUpdates( $title ); // update page tables
+					FlaggedRevs::extraHTMLCacheUpdate( $title );
 					return true;
 				}
 			}
@@ -868,7 +892,7 @@ class FlaggedRevsHooks {
 			$ok = FlaggedRevs::autoReviewEdit( $article, $user, $rev, $flags, false );
 			if ( $ok ) {
 				FlaggedRevs::markRevisionPatrolled( $rev ); // reviewed -> patrolled
-				FlaggedRevs::stableVersionUpdates( $title ); // update page tables
+				FlaggedRevs::extraHTMLCacheUpdate( $title );
 			}
 		}
 		return true;

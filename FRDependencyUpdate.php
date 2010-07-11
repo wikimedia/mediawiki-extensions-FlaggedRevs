@@ -27,9 +27,7 @@ class FRDependencyUpdate {
 		$cLinks = $this->getCurrentVersionLinks();
 		foreach ( $this->sLinks as $ns => $titles ) {
 			foreach ( $titles as $title => $pageId ) {
-				# Only track broken links. These will require this page to
-				# be invalidated if the title is created (bluelink -> redlink).
-				if ( !$pageId && !isset( $cLinks[$ns][$title] ) ) {
+				if ( !isset( $cLinks[$ns][$title] ) ) {
 					self::addDependency( $deps, $ns, $title );
 				}
 			}

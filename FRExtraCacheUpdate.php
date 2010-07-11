@@ -1,10 +1,13 @@
 <?php
 /**
  * Class containing cache update methods and job construction
- * for the special case of purging pages due to links contained
- * only in the stable version of pages
+ * for the special case of purging pages due to dependancies
+ * contained only in the stable version of pages.
+ *
+ * These dependancies should be limited in number as most pages should
+ * have a stable version synced with the current version.
  */
-class FRCacheUpdate {
+class FRExtraCacheUpdate {
 	public $mTitle, $mTable;
     public $mRowsPerJob, $mRowsPerQuery;
 
@@ -17,14 +20,6 @@ class FRCacheUpdate {
     }
 
 	public function doUpdate() {
-		global $wgFlaggedRevsCacheUpdates;
-		if ( !isset( $wgFlaggedRevsCacheUpdates ) ) {
-			$wgFlaggedRevsCacheUpdates = array(); // temp var
-		}
-		$key = $this->mTitle->getPrefixedDBKey();
-		if ( isset( $wgFlaggedRevsCacheUpdates[$key] ) ) {
-			return; // No duplicates (templates/redirects)...
-		}
 		# Fetch the IDs
 		$dbr = wfGetDB( DB_SLAVE );
 		$res = $dbr->select( $this->mTable, $this->getFromField(),
@@ -39,7 +34,6 @@ class FRCacheUpdate {
 				$this->insertJobs( $res );
 			}
 		}
-		$wgFlaggedRevsCacheUpdates[$key] = 1; // No duplicates...
 	}
 
 	protected function insertJobs( ResultWrapper $res ) {
@@ -73,7 +67,7 @@ class FRCacheUpdate {
 					'start' => $first,
 					'end'   => $last,
 				);
-				$jobs[] = new FRCacheUpdateJob( $this->mTitle, $params );
+				$jobs[] = new FRExtraCacheUpdateJob( $this->mTitle, $params );
 			}
             $start = $id; // Where the last ID left off
 		} while ( $start );
@@ -136,10 +130,10 @@ class FRCacheUpdate {
 }
 
 /**
- * Job class for handling deferred FRCacheUpdates
+ * Job class for handling deferred FRExtraCacheUpdates
  * @ingroup JobQueue
  */
-class FRCacheUpdateJob extends Job {
+class FRExtraCacheUpdateJob extends Job {
 	var $table, $start, $end;
 
 	/**
@@ -156,7 +150,7 @@ class FRCacheUpdateJob extends Job {
 	}
 
 	function run() {
-		$update = new FRCacheUpdate( $this->title );
+		$update = new FRExtraCacheUpdate( $this->title );
 		# Get query conditions
 		$fromField = $update->getFromField();
 		$conds = $update->getToCondition();
@@ -176,28 +170,19 @@ class FRCacheUpdateJob extends Job {
 }
 
 /**
- * Class for handling deferred squid purges/invalidations
+ * Class for handling post-commit squid purge of a page
  */
 class FRSquidUpdate {
 	protected $title;
-	protected $recursive;
 
-	function __construct( Title $title, $recursive ) {
+	function __construct( Title $title ) {
 		$this->title = $title;
-		$this->recursive = $recursive;
 	}
-	
+
 	function doUpdate() {
 		# Purge squid for this page only
 		$this->title->purgeSquid();
 		# Clear file cache for this page only
 		HTMLFileCache::clearFileCache( $this->title );
-		if ( $this->recursive ) {
-			# Invalidate caches of articles which include this page
-			$update = new HTMLCacheUpdate( $this->title, 'templatelinks' );
-			$update->doUpdate();
-			$update = new HTMLCacheUpdate( $this->title, 'imagelinks' );
-			$update->doUpdate();
-		}
 	}
 }
