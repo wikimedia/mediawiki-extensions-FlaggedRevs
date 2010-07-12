@@ -2083,24 +2083,24 @@ class FlaggedRevsHooks {
 			$wgExtNewTables[] = array( 'flaggedrevs', "$base/FlaggedRevs.sql" );
 			// Updates (in order)...
 			$wgExtNewFields[] = array( 'flaggedpage_config',
-				'fpc_expiry', "$base/archives/patch-fpc_expiry.sql" );
+				'fpc_expiry', "$base/mysql/patch-fpc_expiry.sql" );
 			$wgExtNewIndexes[] = array( 'flaggedpage_config',
-				'fpc_expiry', "$base/archives/patch-expiry-index.sql" );
+				'fpc_expiry', "$base/mysql/patch-expiry-index.sql" );
 			$wgExtNewTables[] = array( 'flaggedrevs_promote',
-				"$base/archives/patch-flaggedrevs_promote.sql" );
-			$wgExtNewTables[] = array( 'flaggedpages', "$base/archives/patch-flaggedpages.sql" );
+				"$base/mysql/patch-flaggedrevs_promote.sql" );
+			$wgExtNewTables[] = array( 'flaggedpages', "$base/mysql/patch-flaggedpages.sql" );
 			$wgExtNewFields[] = array( 'flaggedrevs',
-				'fr_img_name', "$base/archives/patch-fr_img_name.sql" );
+				'fr_img_name', "$base/mysql/patch-fr_img_name.sql" );
 			$wgExtNewTables[] = array( 'flaggedrevs_tracking',
-				"$base/archives/patch-flaggedrevs_tracking.sql" );
+				"$base/mysql/patch-flaggedrevs_tracking.sql" );
 			$wgExtNewFields[] = array( 'flaggedpages', 'fp_pending_since',
-				"$base/archives/patch-fp_pending_since.sql" );
+				"$base/mysql/patch-fp_pending_since.sql" );
 			$wgExtNewFields[] = array( 'flaggedpage_config', 'fpc_level',
-				"$base/archives/patch-fpc_level.sql" );
+				"$base/mysql/patch-fpc_level.sql" );
 			$wgExtNewTables[] = array( 'flaggedpage_pending',
-				"$base/archives/patch-flaggedpage_pending.sql" );
+				"$base/mysql/patch-flaggedpage_pending.sql" );
 			$wgExtNewTables[] = array( 'flaggedrevs_stats',
-				"$base/archives/patch-flaggedrevs_stats.sql" );
+				"$base/mysql/patch-flaggedrevs_stats.sql" );
 		} elseif ( $wgDBtype == 'postgres' ) {
 			// Initial install tables (current schema)
 			$wgExtNewTables[] = array( 'flaggedrevs', "$base/FlaggedRevs.pg.sql" );
