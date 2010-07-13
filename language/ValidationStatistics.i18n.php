@@ -365,6 +365,12 @@ $messages['dsb'] = array(
 
 Wobźěłowarje su etablěrowane wužiwarje, kótarež mógu wersije bokow pśeglědaś.",
 	'validationstatistics-lastupdate' => "''Slědujuce daty su se $1 $2 zaktualizěrowali.''",
+	'validationstatistics-pndtime' => "Změny, kótarež su se pśekontrolěrowali wót  nazgónitych wužywarjow by měli se pśeglědaś.
+
+Psérězne wokomuźenje za [[Special:OldReviewedPages|boki z njepśeglědanymi změnami]] jo '''\$1'''.
+Toś te boki maju se za \"zestarjone\".  Mimo togo boki maju se za \"synchronizěrowane\", jolic njejsu njepśeglědane změny.",
+	'validationstatistics-revtime' => "Pśerězny cakański cas za změny wót \"wužywarjow\", kótarež njejsu pśizjawjone\", kótarež muse se hyšći pśeglědaś, jo '''\$1'''; pśerězna gódnota jo '''\$2'''.
+\$3",
 	'validationstatistics-table' => "Statistiki za kuždy mjenjowy rum pokazujo se dołojce, ''bźez'' dalejpósrědnjenjow.",
 	'validationstatistics-ns' => 'Mjenjowy rum',
 	'validationstatistics-total' => 'Boki',

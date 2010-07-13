@@ -973,9 +973,17 @@ $messages['lb'] = array(
  */
 $messages['li'] = array(
 	'unreviewedpages' => "Ónbekeke pazjena's",
+	'unreviewed-legend' => 'Lies mit ónbekeke paasjes',
 	'unreviewed-category' => 'Categorie:',
-	'unreviewed-diff' => 'Wieziginge',
-	'unreviewed-list' => "Dees pazjena tuunt pazjena's die nag ónbekeke zeen.",
+	'unreviewed-diff' => 'kiek nao',
+	'unreviewed-unwatched' => '(neet oppe volglies)',
+	'unreviewed-watched' => '($1 actieve {{PLURAL:$1|gebroeker|gebroekers}} kiekendj)',
+	'unreviewed-list' => "Dees pazjena tuunt pazjena's die nag ónbekeke zeen toet t aangegaeve nivo.",
+	'unreviewed-none' => "'t Göf gein paasjes die aan dees kriteria vóldoon",
+	'unreviewed-viewing' => '(wörd bekeke)',
+	'unreviewed-hours' => '$1 {{PLURAL:$1|oer|oer}}',
+	'unreviewed-days' => '$1 {{PLURAL:$1|daag|daag}}',
+	'unreviewed-recent' => '(mènder es 1 oer)',
 );
 
 /** Lithuanian (Lietuvių)

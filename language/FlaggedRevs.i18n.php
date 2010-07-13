@@ -963,12 +963,6 @@ $messages['ar'] = array(
 	'revreview-basic-same' => 'هذه هي [[{{MediaWiki:Validationpage}}|النسخة المنشورة]]، [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} المفحوصة] في <i>$2</i>.',
 	'revreview-basic-source' => '[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} نسخة مفحوصة] من هذه الصفحة، [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} تمت الموافقة عليها] في <i>$2</i>، بناء على هذه المراجعة.',
 	'revreview-failed' => "'''غير قادر على مراجعة هذه المراجعة.''' الإرسال غير مكتمل أو غير هذا غير صحيح.",
-	'revreview-changed' => "'''الفعل المطلوب لم يمكن إجراؤه على هذه المراجعة من [[:$1|$1]].'''
-
-قد يكون قالب أو ملف طُلب مع عدم تحديد نسخة معينة.
-يمكن أن يحدث هذا إذا كان قالب ديناميكي يحتوي ملفًا آخرًا أو قالبًا معتمدًا على متغير تغير منذ أن بدأت
-مراجعة هذه الصفحة.
-يمكن أن يحل تحديث الصفحة وإعادة المراجعة هذه المشكلة.",
 	'revreview-current' => 'مسودة',
 	'revreview-depth' => 'العمق',
 	'revreview-depth-0' => 'غير موافق عليها',
@@ -2297,7 +2291,7 @@ $messages['bs'] = array(
 	'flaggedrevs-prefs-stable' => 'Uvijek prikaži objavljenu verziju stranica sadržaja po pretpostavljenom (ako je samo jedna)',
 	'flaggedrevs-prefs-watch' => 'Dodaj stranice koje sam pregledao na moj spisak praćenja',
 	'flaggedrevs-prefs-editdiffs' => 'Prikaži razlike na čekanju pri uređivanju stranice',
-	'flaggedrevs-prefs-viewdiffs' => 'Pokaži razlike izmjena na čekanju pri prikazivanju posljednje revizije stranice',
+	'flaggedrevs-prefs-viewdiffs' => 'Pokaži razlike izmjena na čekanju pri prikazivanju posljednje revizije na čekanju',
 	'group-editor' => 'Urednici',
 	'group-editor-member' => 'uređivač',
 	'group-reviewer' => 'Provjerivači',
@@ -2344,16 +2338,11 @@ $messages['bs'] = array(
 {{PLURAL:$3|Postoji|Postoje}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|izmjena|izmjene|izmjena}}] koje čekaju na pregled.',
 	'revreview-basic-i' => 'Ovo je posljednja [[{{MediaWiki:Validationpage}}|stabilna]] verzija, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} provjerena] dana <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Radna verzija] ima [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} template/file izmjene] koje čekaju na provjeru.',
-	'revreview-basic-old' => 'Ovo je [[{{MediaWiki:Validationpage}}|provjerena]] revizija ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} cijeli spisak]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} odobrena] dana <i>$2</i>.
+	'revreview-basic-old' => 'Ovo je [[{{MediaWiki:Validationpage}}|provjerena]] verzija ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} cijeli spisak]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} odobrena] dana <i>$2</i>.
 Nove [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} izmjene] su napravljene.',
 	'revreview-basic-same' => 'Ovo je [[{{MediaWiki:Validationpage}}|objavljena verzija]] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} pregledana] dana <i>$2</i>.',
 	'revreview-basic-source' => '[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} pregledana verzija] ove stranice, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} odobrena] dana <i>$2</i>, je bila zasnovana na ovoj reviziji.',
 	'revreview-failed' => "'''Ne može se pregledati ova revizija.''' Slanje je nekompletno ili nije valjano.",
-	'revreview-changed' => "''Traženu akciju nije moguće izvršiti na ovoj reviziji stranice [[:$1|$1]].'''
-
-Možda je zatražen šablon ili datoteka bez navođenja određene verzije.  
-To se može dogoditi ukoliko dinamični šablon uključuje datoteku ili šablon koji zavisi od varijable koja se promijenila nakon što ste počeli ocjenjivati članak.  
-Osvježavanje stranice i ponovno ocijenjivanje može riješiti ovaj problem.",
 	'review_page_invalid' => 'Naslov ciljne datoteke nije valjan',
 	'review_denied' => 'Pristup odbijen.',
 	'revreview-current' => 'Izmjene na čekanju',
@@ -9332,24 +9321,21 @@ $messages['li'] = array(
 	'revreview-hist-basic' => 'bekeke versie',
 	'review-diff2stable' => 'Verschille tusse stabiele en huidige versies bekijke',
 	'review-logentry-app' => 'bekeek [[$1]]',
-	'review-logentry-dis' => 'haet een versie van [[$1]] leger beoordeild',
-	'review-logentry-id' => 'versienummer $1: $2',
+	'review-logentry-dis' => 'haet een versie van [[$1]] óngeldig gemaak',
+	'review-logentry-id' => 'versie: $2',
 	'review-logpage' => 'Beoordeilingslogbook',
-	'review-logpagetext' => "Dit is een logboek met wijzigingen in de [[{{MediaWiki:Makevalidate-page}}|waarderingsstatus]] van versies van pagina's.",
+	'review-logpagetext' => "Dit is een logboek met wijzigingen in de [[{{MediaWiki:Validationpage}}|waarderingsstatus]] van versies van pagina's.",
 	'reviewer' => 'Bekieker',
 	'revisionreview' => 'Versies beoordeile',
 	'revreview-accuracy' => 'Nejkeurigheid',
-	'revreview-accuracy-0' => 'Neet bekeke',
+	'revreview-accuracy-0' => 'Aafgekeurdj',
 	'revreview-accuracy-1' => 'Bekeke',
 	'revreview-accuracy-2' => 'Nejkeurig',
 	'revreview-accuracy-3' => 'Good van brónne veurzeen',
 	'revreview-accuracy-4' => 'Oetgelich',
 	'revreview-auto' => '(automatisch)',
 	'revreview-basic' => "Dit is de lets [[{{MediaWiki:Validationpage}}|beoordeilde]] versie, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} gekeurd] op <i>$2</i>. De [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} hujige] kin [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} bewerk] waere; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|versie|versies}}] {{PLURAL:$3|wach|wachte}} op 'n beoordeiling.",
-	'revreview-basic-same' => 'Dit is de laatste [[{{MediaWiki:Validationpage}}|beoordeelde]] versie, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} goedgekeurd] op <i>$2</i>. De pagina is te [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} bewerken].',
-	'revreview-changed' => "'''De gevraagde actie kon niet uitgevoerd worden voor deze versie van [[:$1|$1]].'''
-
-Er is een sjabloon of afbeelding opgevraagd zonder dat een specifieke versie is aangegeven. Dit kan voorkomen als een dynamisch sjabloon een andere afbeelding of een ander sjabloon bevat, afhankelijk van een variabele die is gewijzigd sinds u bent begonnen met de beoordeling van deze pagina. Ververs de pagina en start de beoordeling opnieuw om dit probleem op te lossen.",
+	'revreview-basic-same' => 'Dit is de lets [[{{MediaWiki:Validationpage}}|beoordeelde]] versie, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} goodgekeurdj] op <i>$2</i>.',
 	'revreview-current' => 'Hujige versie',
 	'revreview-depth' => 'Deepgank',
 	'revreview-depth-0' => 'Neet bekeke',
@@ -9357,7 +9343,7 @@ Er is een sjabloon of afbeelding opgevraagd zonder dat een specifieke versie is 
 	'revreview-depth-2' => 'Middelmaotig',
 	'revreview-depth-3' => 'Hoog',
 	'revreview-depth-4' => 'Oetgelich',
-	'revreview-edit' => 'concep bewerke',
+	'revreview-edit' => 'Bewirk',
 	'revreview-edited' => "'''Nuuj bewèrkinge waere opgenaome in de [[{{MediaWiki:Validationpage}}|stabiel versie]] es 'n eindredacteur ze gecontroleerd haet. De ''werkversie'' is hieonger te bekieke. Bedank!'''",
 	'revreview-flag' => 'Deze versie beoordeile',
 	'revreview-legend' => 'Versieinhoud wardere',
@@ -9802,10 +9788,6 @@ $messages['ml'] = array(
 	'revreview-basic-same' => 'ഇത് [[{{MediaWiki:Validationpage}}|പ്രസിദ്ധീകരിക്കപ്പെട്ട പതിപ്പ്]] ആണ്, <i>$2</i>ന് [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} പരിശോധിച്ചിരിക്കുന്നു].',
 	'revreview-basic-source' => "ഈ താളിന്റെ [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}}  ഒരു പരിശോധിക്കപ്പെട്ട പതിപ്പ്], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} ''$2'' നു അംഗീകരിച്ചത്] ഈ പതിപ്പിനെ അടിസ്ഥാനമാക്കിയാണ്‌.",
 	'revreview-failed' => "'''ഈ നാൾപ്പതിപ്പ് സംശോധനം ചെയ്യാൻ കഴിയില്ല.''' സമർപ്പിക്കപ്പെട്ടത് അപൂർണ്ണമോ മറ്റുവിധത്തിൽ അസാധുവോ ആണ്.",
-	'revreview-changed' => "'''ആവശ്യപ്പെട്ട പ്രവൃത്തി [[:$1|$1]] താളിന്റെ ഈ നാൾപ്പതിപ്പിൽ ചെയ്യാൻ കഴിയില്ല.'''
-
-പ്രത്യേകിച്ചൊരു പതിപ്പ് വ്യക്തമാക്കാതെ ഒരു ഫലകമോ പ്രമാണമോ ആയിരിക്കണം ആവശ്യപ്പെട്ടത്.
-താങ്കൾ ഈ താളിൽ സംശോധനം ചെയ്യാൻ തുടങ്ങിയ ശേഷം, ഒരു ഫലകം തത്സമയമായി മറ്റൊരു പ്രമാണമോ ഫലകമോ ഒരു ചരത്തെ അടിസ്ഥാനമാക്കി മാറ്റിയതിനാലും ഇങ്ങനെ സംഭവിക്കാം. താൾ റിഫ്രഷ് ചെയ്ത് പുനഃസംശോധനം ചെയ്താൽ ഈ പ്രശ്നം പരിഹരിക്കാം.",
 	'review_page_invalid' => 'താളിനു ലക്ഷ്യമിട്ട പേര് അസാധുവാണ്.',
 	'review_page_notexists' => 'ലക്ഷ്യമിട്ട താൾ നിലവിലില്ല.',
 	'review_page_unreviewable' => 'ലക്ഷ്യമിട്ട താൾ സംശോധനം ചെയ്യാനാവില്ല.',

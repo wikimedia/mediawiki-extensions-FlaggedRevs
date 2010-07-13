@@ -510,6 +510,13 @@ $messages['lb'] = array(
 	'stablepages-indef' => 'Nëmmen no net limitéiertem Delai',
 );
 
+/** Limburgish (Limburgs)
+ * @author Ooswesthoesbes
+ */
+$messages['li'] = array(
+	'stablepages-config' => 'Instelling',
+);
+
 /** Macedonian (Македонски)
  * @author Bjankuloski06
  * @author Brest
