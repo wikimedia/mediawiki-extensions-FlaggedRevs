@@ -483,18 +483,21 @@ class FlaggedRevs {
 	 */
 	public static function expandText( Title $title, $text, $id ) {
 		global $wgParser;
-		$options = self::makeParserOptions(); // default options
 		# Notify Parser if includes should be stabilized
 		$resetManager = false;
 		$incManager = FRInclusionManager::singleton();
-		if ( self::inclusionSetting() != FR_INCLUDES_CURRENT ) {
+		if ( $id && self::inclusionSetting() != FR_INCLUDES_CURRENT ) {
 			# Use FRInclusionManager to do the template/file version query
 			# up front unless the versions are already specified there...
-			if ( $id && !$incManager->parserOutputIsStabilized( $id ) ) {
-				$incManager->stabilizeParserOutput( $title, $id );
-				$resetManager = true; // need to reset when done
+			if ( !$incManager->parserOutputIsStabilized() ) {
+				$frev = FlaggedRevision::newFromTitle( $title, $id );
+				if ( $frev ) {
+					$incManager->stabilizeParserOutput( $title, $frev );
+					$resetManager = true; // need to reset when done
+				}
 			}
 		}
+		$options = self::makeParserOptions(); // default options
 		$outputText = $wgParser->preprocess( $text, $title, $options, $id );
 		$out = $wgParser->mOutput;
 		# Stable parse done!
@@ -514,19 +517,22 @@ class FlaggedRevs {
 	 */
 	public static function parseStableText( Title $title, $text, $id ) {
 		global $wgParser;
-		$options = self::makeParserOptions(); // default options
 		# Notify Parser if includes should be stabilized
 		$resetManager = false;
 		$incManager = FRInclusionManager::singleton();
-		if ( self::inclusionSetting() != FR_INCLUDES_CURRENT ) {
+		if ( $id && self::inclusionSetting() != FR_INCLUDES_CURRENT ) {
 			# Use FRInclusionManager to do the template/file version query
 			# up front unless the versions are already specified there...
-			if ( $id && !$incManager->parserOutputIsStabilized( $id ) ) {
-				$incManager->stabilizeParserOutput( $title, $id );
-				$resetManager = true; // need to reset when done
+			if ( !$incManager->parserOutputIsStabilized() ) {
+				$frev = FlaggedRevision::newFromTitle( $title, $id );
+				if ( $frev ) {
+					$incManager->stabilizeParserOutput( $title, $frev );
+					$resetManager = true; // need to reset when done
+				}
 			}
 		}
 		# Parse the new body, wikitext -> html
+		$options = self::makeParserOptions(); // default options
 	   	$parserOut = $wgParser->parse( $text, $title, $options, true, true, $id );
 		# Stable parse done!
 		if ( $resetManager ) {

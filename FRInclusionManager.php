@@ -66,21 +66,18 @@ class FRInclusionManager {
 	 * (c) Load their stable version counterparts (avoids DB hits)
 	 * Note: Used when calling FlaggedRevs::parseStableText().
 	 * @param Title $title
-	 * @param int $revId
+	 * @param FlaggedRevision $frev
 	 * @return void
 	 */
-	public function stabilizeParserOutput( Title $title, $revId ) {
+	public function stabilizeParserOutput( Title $title, FlaggedRevision $frev ) {
 		$tRevVersions = $fRevVersions = array(); // review time versions
 		$tStbVersions = $fStbVersions = array(); // stable versions
-		$frev = FlaggedRevision::newFromTitle( $title, $revId );
-		if ( $frev ) {
-			$tRevVersions = $frev->getTemplateVersions();
-			$fRevVersions = $frev->getFileVersions();
-			# We can preload *most* of the stable version IDs the parser will need...
-			if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_STABLE ) {
-				$tStbVersions = $frev->getStableTemplateVersions();
-				$fStbVersions = $frev->getStableFileVersions();
-			}
+		$tRevVersions = $frev->getTemplateVersions();
+		$fRevVersions = $frev->getFileVersions();
+		# We can preload *most* of the stable version IDs the parser will need...
+		if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_STABLE ) {
+			$tStbVersions = $frev->getStableTemplateVersions();
+			$fStbVersions = $frev->getStableFileVersions();
 		}
 		$this->setReviewedVersions( $tRevVersions, $fRevVersions );
 		$this->setStableVersionCache( $tStbVersions, $fStbVersions );
