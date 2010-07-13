@@ -79,7 +79,8 @@ class ApiReview extends ApiBase {
 				global $wgParser;
 				$text = $article->getContent();
 				$options = FlaggedRevs::makeParserOptions();
-				$parserOutput = $wgParser->parse( $text, $title, $options );
+				$parserOutput = $wgParser->parse(
+					$text, $title, $options, true, true, $article->getLatest() );
 			}
 			// Set version parameters for review submission
 			list( $templateParams, $imageParams, $fileVersion ) =
