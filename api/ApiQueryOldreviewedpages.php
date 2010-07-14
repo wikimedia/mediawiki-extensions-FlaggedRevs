@@ -58,6 +58,7 @@ class ApiQueryOldreviewedpages extends ApiQueryGeneratorBase {
 			$this->addWhere( 'GREATEST(page_len,rev_len)-LEAST(page_len,rev_len) <= ' .
 				intval( $params['maxsize'] ) );
 		if ( $params['filterwatched'] == 'watched' ) {
+			$this->getMain()->setVaryCookie();
 			if ( !( $uid = $wgUser->getId() ) ) {
 				$this->dieUsage( 'You must be logged-in to have a watchlist', 'notloggedin' );
 			}
