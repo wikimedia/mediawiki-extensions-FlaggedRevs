@@ -152,7 +152,7 @@ class FlaggedRevsLogs {
 			$ts = empty( $params[2] )
 				? Revision::getTimestampFromId( $title, $revId )
 				: $params[2];
-			$time = $wgLang->timeanddate( $ts );
+			$time = $wgLang->timeanddate( $ts, true );
 			$links .= ' (';
 			$links .= $wgUser->getSkin()->makeKnownLinkObj(
 				$title,
