@@ -148,7 +148,7 @@ class ValidationStatistics extends IncludableSpecialPage
 				'</th><th>' . wfMsgHtml( 'validationstatistics-reviews' ) . '</th></tr>';
 			foreach ( $data as $userId => $reviews ) {
 				$reviewChart .= '<tr><td>' . htmlspecialchars( User::whois( $userId ) ) .
-					'</td><td>' . intval( $reviews ) . '</td></tr>';
+					'</td><td>' . $wgLang->formatNum( $reviews ) . '</td></tr>';
 			}
 			$reviewChart .= "</table>\n";
 			$wgOut->addHTML( $reviewChart );

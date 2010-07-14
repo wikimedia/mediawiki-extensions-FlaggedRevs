@@ -28,7 +28,7 @@ class ConfiguredPages extends SpecialPage
 
 	protected function showForm() {
 		global $wgOut, $wgScript;
-		$wgOut->addHTML( wfMsgExt( 'configuredpages-text', array( 'parseinline' ) ) );
+		$wgOut->addWikiMsg( 'configuredpages-text' );
 		$fields = array();
 		# Namespace selector
 		if ( count( FlaggedRevs::getReviewNamespaces() ) > 1 ) {
@@ -66,7 +66,7 @@ class ConfiguredPages extends SpecialPage
 			$wgOut->addHTML( $pager->getBody() );
 			$wgOut->addHTML( $pager->getNavigationBar() );
 		} else {
-			$wgOut->addHTML( wfMsgExt( 'configuredpages-none', array( 'parse' ) ) );
+			$wgOut->addWikiMsg( 'configuredpages-none' );
 		}
 		# Take this opportunity to purge out expired configurations
 		FlaggedRevs::purgeExpiredConfigurations();
@@ -84,7 +84,7 @@ class ConfiguredPages extends SpecialPage
 			'page=' . $title->getPrefixedUrl()
 		);
 		# Show which version is the default (stable or draft)
-		if( intval( $row->fpc_override ) ) {
+		if ( intval( $row->fpc_override ) ) {
 			$default = wfMsgHtml( 'configuredpages-def-stable' );
 		} else {
 			$default = wfMsgHtml( 'configuredpages-def-draft' );
@@ -100,12 +100,12 @@ class ConfiguredPages extends SpecialPage
 			} elseif( $select === FLAGGED_VIS_LATEST ) {
 				$type = wfMsgHtml( 'configuredpages-prec-none' );
 			}
-			if( $type ) $type = "({$type})";
+			if ( $type ) $type = "({$type})";
 		}
 		# Autoreview/review restriction level
 		$restr = '';
-		if( $row->fpc_level != '' ) {
-			$restr = 'autoreview='.htmlspecialchars($row->fpc_level);
+		if ( $row->fpc_level != '' ) {
+			$restr = 'autoreview=' . htmlspecialchars( $row->fpc_level );
 			$restr = "[$restr]";
 		}
 		# When these configuration settings expire
