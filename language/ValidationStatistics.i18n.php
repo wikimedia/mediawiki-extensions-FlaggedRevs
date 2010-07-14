@@ -314,15 +314,18 @@ $messages['de'] = array(
 
 Sichter sind anerkannte Benutzer, die Versionen einer Seite markieren können.",
 	'validationstatistics-lastupdate' => "''Die folgenden Daten wurden zuletzt am $1 um $2 aktualisiert.''",
+	'validationstatistics-pndtime' => "Bearbeitungen, die von anerkannten Benutzern bestätigt wurden, gelten als markiert.
+
+Die durchschnittliche Wartezeit der [[Special:OldReviewedPages|Seiten mit unmarkierten Änderungen]] beträgt '''$1'''.",
 	'validationstatistics-revtime' => "Die durchschnittliche Wartezeit bis zur Markierung, bei Bearbeitungen ''durch Benutzer, die nicht angemeldet waren''  beträgt '''$1'''; der Median ist '''$2'''. 
 $3",
 	'validationstatistics-table' => "Die Versionsmarkierungsstatistiken für jeden Namensraum werden unten angezeigt, ''Weiterleitungen'' ausgenommen.",
 	'validationstatistics-ns' => 'Namensraum',
 	'validationstatistics-total' => 'Seiten gesamt',
-	'validationstatistics-stable' => 'Mindestens eine Version gesichtet',
-	'validationstatistics-latest' => 'Anzahl Seiten, die in der aktuellen Version gesichtet sind',
-	'validationstatistics-synced' => 'Prozentsatz an Seiten, die in der aktuellen Version gesichtet sind',
-	'validationstatistics-old' => 'Seiten mit ungesichteten Versionen',
+	'validationstatistics-stable' => 'Mindestens eine Version markiert',
+	'validationstatistics-latest' => 'Anzahl Seiten, die in der aktuellen Version markiert sind',
+	'validationstatistics-synced' => 'Prozentsatz an Seiten, die in der aktuellen Version markiert sind',
+	'validationstatistics-old' => 'Seiten mit unmarkierten Änderungen',
 	'validationstatistics-utable' => 'Nachfolgend die Liste der fünf Benutzer, die in der letzten Stunde die meisten Markierungen gesetzt haben.',
 	'validationstatistics-user' => 'Benutzer',
 	'validationstatistics-reviews' => 'Markierungen',

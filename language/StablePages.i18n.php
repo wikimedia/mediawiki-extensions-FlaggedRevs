@@ -567,10 +567,11 @@ $messages['ms'] = array(
  */
 $messages['mt'] = array(
 	'stablepages' => 'Paġni li jużaw l-approvazzjoni tal-modifiki',
-	'stablepages-list' => "Hawn taħt hawn lista ta' paġni li huma ristretti sabiex ċerti utenti biss jistgħu jagħmlu modifiki li ma jeħtieġux reviżjoni.
-Dawn il-modifiki ma jiġux aċċettati sakemm utent awtorizzat jirrevedihom.",
+	'stablepages-list' => "Hawn taħt hawn lista ta' paġni li huma ristretti għal ċerti utenti biss biex jagħmlu modifiki fihom mingħajr il-bżonn li jiġu reviżjonati.
+Modifiki magħmula minn utenti oħra ma jidhrux awtomatikament lill-qarrejja sakemm utent awtorizzat jirrevedihom.",
 	'stablepages-none' => "M'hemm ebda paġni f'din il-lista",
 	'stablepages-config' => 'Konfigurazzjoni',
+	'stablepages-indef' => 'Skadenza indefinita biss',
 );
 
 /** Dutch (Nederlands)

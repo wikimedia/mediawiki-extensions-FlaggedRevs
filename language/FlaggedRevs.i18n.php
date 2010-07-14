@@ -1185,12 +1185,6 @@ $messages['arz'] = array(
 	'revreview-basic-same' => 'هى دى [[{{MediaWiki:Validationpage}}|النسخه المنشوره]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} اتشيّك عليها] فى <i>$2</i>.',
 	'revreview-basic-source' => '[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} نسخه متشيّك عليها] من الصفحه دى, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} اتأكد عليها] فى <i>$2</i>, اتعملت على اساس المراجعه دى.',
 	'revreview-failed' => "'''غير قادر على مراجعه هذه المراجعه.''' الإرسال غير مكتمل أو غير هذا غير صحيح.",
-	'revreview-changed' => "'''الفعل المطلوب لم يمكن إجراؤه على هذه المراجعه من [[:$1|$1]].'''
-
-قد يكون قالب أو ملف طُلب مع عدم تحديد نسخه معينه.
-يمكن أن يحدث هذا إذا كان قالب ديناميكى يحتوى ملفًا آخرًا أو قالبًا معتمدًا على متغير تغير منذ أن بدأت
-مراجعه هذه الصفحه.
-يمكن أن يحل تحديث الصفحه وإعاده المراجعه هذه المشكله.",
 	'revreview-current' => 'مسودة',
 	'revreview-depth' => 'العمق',
 	'revreview-depth-0' => 'غير موافق عليها',
@@ -1310,7 +1304,6 @@ $messages['arz'] = array(
 	'tooltip-ca-default' => 'إعدادات توكيد الجودة',
 	'flaggedrevs-protect-legend' => 'نشر التعديلات',
 	'flaggedrevs-protect-none' => 'السماح لكل المستخدمين',
-	'flaggedrevs-protect-basic' => 'إعدادات افتراضية',
 	'revreview-locked-title' => 'التعديلات يجب أن تتم مراجعتها قبل أن يتم عرضها فى هذه الصفحة!',
 	'revreview-unlocked-title' => 'التعديلات لا تتطلب مراجعه قبل أن يتم عرضها فى هذه الصفحة!',
 	'revreview-locked' => 'التعديلات يجب أن تتم مراجعتها قبل أن يتم عرضها فى هذه الصفحة!',
@@ -1644,11 +1637,6 @@ $messages['be-tarask'] = array(
 	'revreview-basic-same' => 'Гэта [[{{MediaWiki:Validationpage}}|апублікаваная вэрсія]] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} правераная] <i>$2</i>.',
 	'revreview-basic-source' => '[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} Правераная вэрсія] гэтай старонкі, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} зацьверджаная] <i>$2</i>, была заснавана на гэтай вэрсіі.',
 	'revreview-failed' => "'''Немагчыма праверыць гэту вэрсію.''' Яна ня поўная альбо маецца іншая памылка.",
-	'revreview-changed' => "'''Запытанае дзеяньне ня можа быць зьдзейсьненае на гэтай вэрсіі старонкі [[:$1|$1]].'''
-
-Шаблён альбо выява маглі былі запытаныя, калі не была вызначаная вэрсія.
-Гэта магло здарыцца, калі дынамічны шаблён утрымлівае іншы шаблён альбо файл, якія залежаць ад зьменнай, якая зьмянілася з пачатку рэцэнзаваньня гэтай старонкі.
-Абнавіце старонку і пачніце рэцэнзаваньне зноў, гэта можа вырашыць гэту праблему.",
 	'review_page_invalid' => 'Няслушная назва мэтавай старонкі.',
 	'review_page_notexists' => 'Мэтавая старонка не існуе.',
 	'review_page_unreviewable' => 'Мэтавая старонка ня можа быць прарэцэнзаваная.',
@@ -1814,7 +1802,6 @@ $messages['be-tarask'] = array(
 	'tooltip-ca-default' => 'Устаноўкі падтрымкі якасьці',
 	'flaggedrevs-protect-legend' => 'Аўтаматычнае рэцэнзаваньне рэдагаваньня ([[{{MediaWiki:Validationpage}}|дапамога]])',
 	'flaggedrevs-protect-none' => 'Дазволіць усім удзельнікам',
-	'flaggedrevs-protect-basic' => 'Устаноўкі па змоўчваньні',
 	'revreview-locked-title' => 'Зьмены павінны быць рэцэнзаваныя перад тым, як будуць паказаныя чытачам на гэтай старонцы!',
 	'revreview-unlocked-title' => 'Зьмены не патрабуюць рэцэнзаваньня перад паказам чытачам на гэтай старонцы.',
 	'revreview-locked' => "'''Заўчага:''' Зьмены павінны быць [[{{MediaWiki:Validationpage}}|рэцэнзаваныя]] перад тым, як будуць паказаныя чытачам на гэтай старонцы.",
@@ -2148,8 +2135,8 @@ Bez' ez eus [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 pendi
 	'revreview-invalid' => "'''Pal direizh :''' n'eus [[{{MediaWiki:Validationpage}}|stumm adwelet ebet]] o klotañ gant an niverenn merket.",
 	'revreview-legend' => 'Priziañ danvez ar stumm',
 	'revreview-log' => 'Notenn :',
-	'revreview-main' => "Rankout a reoc'h diuzañ ur stumm resis eus ar bajenn evit ober un adlenn.
-Gwelet [[Special:Unreviewedpages|roll ar pajennoù nann-adlennet]].",
+	'revreview-main' => 'Rankout a rit diuzañ ur stumm resis eus ar bajenn evit ober un adlenn.
+Gwelet [[Special:Unreviewedpages|roll ar pajennoù nann-adlennet]].',
 	'revreview-newest-basic' => "Ar [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} stumm embannet] a zo bet [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprouet] d'an <i>$2</i>. Bez ez eus [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|c'hemm|kemm}}] o c'hortoz bezañ adlennet.",
 	'revreview-newest-basic-i' => "Ar [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} stumm embannet] a zo bet [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} gwiriet] d'an <i>$2</i>. Bez ez eus [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} kemmoù eus patromoù/restroù] o c'hortoz bezañ adlennet.",
 	'revreview-newest-quality' => "Ar [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} stumm embannet] a zo bet [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprouet] d'an <i>$2</i>. Bez ez eus [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|c'hemm|kemm}}] o c'hortoz bezañ adlennet.",
@@ -2201,11 +2188,11 @@ Bez ez eus [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} kemmoù p
 	'revreview-successful2' => "'''Stumm eus [[:$1|$1]] diwiriekaat.'''",
 	'revreview-text' => "''Ar [[{{MediaWiki:Validationpage}}|stummoù adlennet]] a zo stummoù gwiriet eus ar pajennoù implijet evit termeniñ ar stummoù embannet.''",
 	'revreview-toggle-title' => 'diskouez/kuzhat munudoù',
-	'revreview-toolow' => "'''Rankout a reoc'h reiñ ur briziadenn uheloc'h eget \"ket aprouet\" evit ma 'vefe dalc'het kont eus an adweladenn.'''
+	'revreview-toolow' => "'''Rankout a rit reiñ ur briziadenn uheloc'h eget \"ket aprouet\" evit ma 'vefe dalc'het kont eus an adweladenn.'''
 
 Evit tennañ kuit statud adlenn ur stumm, lakait an ''holl'' maeziennoù da \"ket aprouet\".
 
-Implijit bouton \"disteiñ\" ho merder ha klaskit en-dro.",
+Implijit bouton \"disteiñ\" ho merdeer ha klaskit en-dro.",
 	'revreview-update' => "'''Mar plij [[{{MediaWiki:Validationpage}}|adlennit]] an holl gemmoù ''(diskouezet a-is)'' bet graet d'ar stumm degemeret.'''
 Marteze ho po da reizhañ pe \"tennañ\" kemmoù 'zo da gentañ.",
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">N\'eo ket ho kemmoù er stumm stabil c\'hoazh. Kemmoù all a zo o c\'hortoz bezañ adlennet.</span>
@@ -2215,8 +2202,8 @@ Marteze ho po da reizhañ pe "tennañ" kemmoù \'zo da gentañ.',
 	'revreview-update-includes' => "'''Hizivaet eo bet patromoù/restroù 'zo:'''",
 	'revreview-update-use' => "'''NOTENN :''' Implijet eo stumm embannet pep patromoù/restroù er stumm embannet eus ar bajenn-se.",
 	'revreview-visibility' => "Er bajenn-mañ ez eus ur [[{{MediaWiki:Validationpage}}|stumm embannet]]. Posupl eo [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}}kefluniañ] arventennoù ar stabilded.'''",
-	'revreview-visibility2' => "Ur [[{{MediaWiki:Validationpage}}|stumm embannet]] he deus ar bajenn-mañ ; tu 'zo [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} kefluniañ] arventennoù stabilder ar bajenn.'''",
-	'revreview-visibility3' => "N'he deus ket ar bajenn-mañ ur [[{{MediaWiki:Validationpage}}|stumm embannet]] ; tu 'zo [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} kefluniañ] arventennoù stabilder ar bajenn.'''",
+	'revreview-visibility2' => "Ur [[{{MediaWiki:Validationpage}}|stumm embannet]] he deus ar bajenn-mañ ; posupl eo [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} kefluniañ] arventennoù stabilder ar bajenn.'''",
+	'revreview-visibility3' => "N'he deus ket ar bajenn-mañ ur [[{{MediaWiki:Validationpage}}|stumm embannet]] ; gellout a rit [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} kefluniañ] arventennoù stabilder ar bajenn.'''",
 	'revreview-revnotfound' => "N'eo ket bet kavet stumm kent ar bajenn-mañ. Gwiriit an URL lakaet ganeoc'h evit mont d'ar bajenn-mañ.",
 	'right-autoreview' => 'Merkañ emgefre an adweladennoù evel gwiriet',
 	'right-movestable' => "Dilec'hiañ pajennoù embannet",
@@ -2660,11 +2647,6 @@ Možná byly provedeny nové [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diff
 	'revreview-basic-same' => 'Toto je poslední  [[{{MediaWiki:Validationpage}}|prohlédnutá]] verze. Byla [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} schválena] <i>$2</i>. Stránku je možné [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} upravit].',
 	'revreview-basic-source' => '[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} Prohlédnutá verze] této stránky, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} schválená] <i>$2</i>, vychází z této verze.',
 	'revreview-failed' => "'''Nelze posoudit tuto revizi.''' Zadané údaje jsou neúplné nebo nesprávné.",
-	'revreview-changed' => "'''Požadovanou akci nelze provést na této reverzi stránky [[:$1|$1]].'''
-
-Šablona nebo soubor mohly být vyžádány na neurčitou verzi.
-To se může stát pokud dynamická šablona vkládá jinou šablonu nebo soubor v závislosti na proměnné, která se změnila zatímco jste posuzovali stránku.
-Obnovení a znovu posouzení stránky by mělo problém vyřešit.",
 	'revreview-current' => 'Návrh',
 	'revreview-depth' => 'Hloubka',
 	'revreview-depth-0' => 'Neschváleno',
@@ -2777,7 +2759,6 @@ Možná byly provedeny nové [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diff
 	'tooltip-ca-default' => 'Nastavení stabilní a zobrazované verze',
 	'flaggedrevs-protect-legend' => 'Zveřejnit úpravy',
 	'flaggedrevs-protect-none' => 'Povolit všem uživatelům',
-	'flaggedrevs-protect-basic' => 'Výchozí nastavení',
 	'revreview-locked-title' => 'Úpravy musejí být posouzeny předtím, než se zobrazí na této stránce.',
 	'revreview-unlocked-title' => 'Úpravy nevyžadují posouzení, než se zobrazí na této stránce.',
 	'revreview-locked' => 'Úpravy vyžadují [[{{MediaWiki:Validationpage}}|posouzení]], než se zobrazí na této stránce.',
@@ -2896,16 +2877,12 @@ Neue [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Änderungen] k�
 	'revreview-basic-source' => 'Eine [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} markierte Version] dieser Seite, die am <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} freigegeben] wurde, basiert auf dieser Version.',
 	'revreview-failed' => "'''Die Markierung konnte nicht gesetzt werden.'''
 Die Übertragung ist unvollständig oder ungültig.",
-	'revreview-changed' => "'''Die Aktion konnte nicht auf diese Version von [[:$1|$1]] angewendet werden.'''
-
-Eine Vorlage oder eine Datei wurden ohne spezifische Versionsnummer angefordert.
-Dies kann passieren, wenn eine dynamische Vorlage eine weitere Vorlage oder eine Datei einbindet, die von einer Variable abhängig ist, die sich seit Beginn der Markierung verändert hat.
-Ein Neuladen der Seite und erneutes Speichern der Markierung kann das Problem beheben.",
 	'review_page_invalid' => 'Der Zielseitentitel ist ungültig.',
 	'review_page_notexists' => 'Die Zielseite existiert nicht.',
 	'review_page_unreviewable' => 'Die Zielseite ist nicht prüfbar.',
 	'review_no_oldid' => 'Keine Versions-ID angegeben.',
 	'review_bad_oldid' => 'Die angegebene Ziel-Versions-ID existiert nicht.',
+	'review_not_flagged' => 'Die Zielversion ist derzeit nicht markiert.',
 	'review_too_low' => 'Version kann nicht markiert werden, solange Felder noch als „unzureichend“ gekennzeichnet sind.',
 	'review_bad_key' => 'Der Wert des Markierungsparameters ist ungültig.',
 	'review_denied' => 'Zugriff verweigert.',
@@ -2923,7 +2900,7 @@ Ein Neuladen der Seite und erneutes Speichern der Markierung kann das Problem be
 	'revreview-check-flag-p' => 'Markiere die letzen Änderungen',
 	'revreview-check-flag-p-title' => 'Akzeptiere alle noch nicht markierten Änderungen, zusammen mit deiner Bearbeitung.
 Mache dies nur, sofern du bereits alle bislang noch nicht markierten Änderungen angesehen hast.',
-	'revreview-check-flag-u' => 'Akzeptiere diese unmarkierte Seite',
+	'revreview-check-flag-u' => 'Diese unmarkierte Seite akzeptieren',
 	'revreview-check-flag-u-title' => 'Markiere diese Seitenversion. Mache dies nur nachdem die die ganze Seite betrachtet hast',
 	'revreview-check-flag-y' => 'Diese Änderungen markieren',
 	'revreview-check-flag-y-title' => 'Markieren alle Änderungen, die du mit dieser Bearbeitung gemacht hast.',
@@ -3183,10 +3160,6 @@ Belka [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} vurnayişa new
 	'revreview-basic-same' => 'No revizyon tewr peyin [[{{MediaWiki:Validationpage}}|teqib biyo]], <i>$2</i> tarix de [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} tesdiq biyo].',
 	'revreview-basic-source' => '[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} revizyonê no peli], <i>$2</i> tarix de [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} tesdiq biyo], no revizyon qıstas geriyayo.',
 	'revreview-failed' => "'''Eno versiyon tedqiq nêbeno.''' Mırecaet ya temam niyo ya zi sewbina nêvêreno.",
-	'revreview-changed' => "'''no pelê [[:$1|$1]] kariyo ke waziyayo no revizyon de tetbiq nêbeno.'''
-
-belka yew dosya yew şablon waziyayo ya zi yew revizyon nişane nêbiyo ey ra nêbeno.
-pel newe kerê ya zi newe ra çım ser bı çarnê belka problem hal bıbo.",
 	'review_page_invalid' => 'Nameyê pele ya hedefi meqbul niyo.',
 	'review_page_notexists' => 'Pele ke hedef biya eka cini ya.',
 	'review_page_unreviewable' => 'Pele ke hedef biya eka eka kontrol nibena.',
@@ -3431,11 +3404,6 @@ Jo móžno, až nowe [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}}
 	'revreview-basic-same' => 'To jo [[{{MediaWiki:Validationpage}}|wózjawjona]] wersija [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} pśekontrolěrowana] <i>$2</i>.',
 	'revreview-basic-source' => '[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} Pśekontrolěrowana wersija] toś togo boka, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} schwalona] <i>$2</i>, bazěrujo na toś tej wersiji.',
 	'revreview-failed' => "'''Njejo móžno toś tu wersiju pśeglědaś.''' Pósłanje jo njedopołne abo na druge wašnje njepłaśiwe.",
-	'revreview-changed' => "'''Pominana akcija njejo se dała na toś tej wersijej [[:$1|$1]] pśewjasć.'''
-
-Pśedłoga abo dataja jo se snaź pominała bźez pódaśa specifiskeje wersije.
-To móžo se staś, jolic dynamiska pśedłoga zapśěgujo drugu dataju abo pśedłogu we wótwisnosći wót wariable, kótaraž jo se změniła, wót togo, ako sy zachopił toś ten bok pśeglědowaś.
-Nowozacytanje boka a nowopśeglědowanje móžo toś ten problem rozwězaś.",
 	'review_page_invalid' => 'Titel celowego boka jo njepłaśiwy.',
 	'review_page_notexists' => 'Celowy bok njeeksistěrujo.',
 	'review_page_unreviewable' => 'Celowy bok njejo pśeglědujobny',
@@ -3802,11 +3770,6 @@ Novaj [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} ŝanĝoj] eble
 	'revreview-basic-same' => 'Jen la [[{{MediaWiki:Validationpage}}|publikigita versio]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} kontrolita] je <i>$2</i>.',
 	'revreview-basic-source' => '[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} Kontrolita versio] de ĉi tiu paĝo, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprobita] je <i>$2</i>, estis bazita de ĉi tiu revizio.',
 	'revreview-failed' => "'''Ne povas kontroli ĉi tiun revizion.''' La enigo estas malkompleta aŭ alimaniere malvalida.",
-	'revreview-changed' => "'''La petita ago ne povas esti farita por ĉi tiu versio de [[:$1|$1]].'''
-
-Ŝablono aŭ bildo verŝajne estis petita kiam nenia aparta versio estis petita.
-Ĉi tiel povas okzi se malstatika ŝablono transinkluzivas alian dosieron aŭ ŝablonon depende de variablo kiu ŝanĝis ekde vi ekkontrolis ĉi tiun paĝon.
-Refreŝigo de la paĝo kaj rekontrolo povas solvi ĉi tiun problemon.",
 	'review_page_invalid' => 'La cela paĝtitolo estas malvalida.',
 	'review_denied' => 'Malpermesita.',
 	'review_param_missing' => 'Parametro mankas aŭ estas malvalida.',
@@ -3947,7 +3910,6 @@ Bonvolu kontroli la retadreson (URL) kiun vi uzis por atingi la paĝon.\\b',
 	'tooltip-ca-default' => 'Konfiguro de kvalitkontrolo',
 	'flaggedrevs-protect-legend' => 'Aŭtomata akceptado de redaktoj ([[{{MediaWiki:Validationpage}}|helpo]])',
 	'flaggedrevs-protect-none' => 'Permesi por ĉiuj uzantoj',
-	'flaggedrevs-protect-basic' => 'Defaŭltaj agordoj',
 	'revreview-locked-title' => 'Redaktoj devas esti kontrolitaj antaŭ montro de ĉi tiu paĝo!',
 	'revreview-unlocked-title' => 'Redaktoj ne devas esti kontrolitaj antaŭ montrante de ĉi tiu paĝo!',
 	'revreview-locked' => 'Redaktoj devas esti kontrolitaj antaŭ montro de ĉi tiu paĝo!',
@@ -4045,16 +4007,12 @@ Puede que se hayan realizado [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diff
 	'revreview-basic-same' => 'Esta es la [[{{MediaWiki:Validationpage}}|versión publicada]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} verificada] el <i>$2</i>.',
 	'revreview-basic-source' => 'Una [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} versión verificada] de esta página, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprobada] en <i>$2</i>, estuvo basada en esta revisión.',
 	'revreview-failed' => "'''Incapaz de revisar esta revisión.''' La propuesta es incompleta o sino inválida.",
-	'revreview-changed' => "'''La acción solicitada no pudo ser ejecutada en esta revisión de [[:$1|$1]].'''
-
-Una plantilla o archivo puede haber sido solicitada cuando ninguna versión fue especificada.
-Esto puede ocurrir si una plantilla dinámica transclude alguna otra imagen o plantilla dependiente de una variable que cambió cuando comenzaste a revisar esta página.
-Refrescar la página y volviendo a revisar puede solucionar este problema.",
 	'review_page_invalid' => 'El título de página destino es inválida.',
 	'review_page_notexists' => 'La página destino no existe.',
 	'review_page_unreviewable' => 'La página destino no es revisable.',
 	'review_no_oldid' => 'Ningún ID de revisión especificado.',
 	'review_bad_oldid' => 'No hay tal revisión de objetivo.',
+	'review_not_flagged' => 'La revisión de destino no está marcada como revisada.',
 	'review_too_low' => 'La revisión no puede ser revisada con algunos campos dejados "inadecuados".',
 	'review_bad_key' => 'Clave de parámetro de inclusión inválido.',
 	'review_denied' => 'Permiso denegado.',
@@ -4293,11 +4251,6 @@ $messages['et'] = array(
 	'revreview-basic-same' => 'See [[{{MediaWiki:Validationpage}}|püsiv versioon]] on [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} kord vaadatud] (<i>$2</i>).',
 	'revreview-basic-source' => 'Selle lehekülje [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} kord vaadatud versioon], mis on [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} heaks kiidetud] (<i>$2</i>), põhines sellel redaktsioonil.',
 	'revreview-failed' => "'''Seda redaktsiooni ei õnnestu üle vaadata.''' Esitamine oli puudulik või muul moel vigane.",
-	'revreview-changed' => "'''Soovitud toimingut ei saanud lehekülje [[:$1|$1]] selle redaktsiooni juures sooritada.'''
-
-Malli või faili võib olla nõutud kindlat versiooni määramata.
-Nii võib juhtuda, kui dünaamiline mall kasutab teist malli või faili, mis sõltub muutujast, mis on alates lehekülje ülevaatuse algusest muutunud.
-Lehekülje uuesti laadimine ja taasülevaatamine võib probleemi lahendada.",
 	'review_page_invalid' => 'Sihtlehekülje pealkiri on vigane.',
 	'review_page_notexists' => 'Sihtlehekülge pole olemas.',
 	'review_page_unreviewable' => 'Sihtlehekülge pole ülevaadatav.',
@@ -4576,11 +4529,6 @@ $messages['fa'] = array(
 ممکن است [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} تغییرات] جدیدی اتفاق افتاده باشند.',
 	'revreview-basic-same' => 'این آخرین نسخهٔ [[{{MediaWiki:Validationpage}}|بررسی شده]] ‌است، که در <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} تایید شده‌است] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} فهرست کامل]).',
 	'revreview-basic-source' => 'یک [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} نسخهٔ بررسی شده] از این صفحه، [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} تایید شده] در <i>$2</i>، بر مبنای این نسخه ایجاد شده‌است.',
-	'revreview-changed' => "'''عمل درخواست شده را نمی‌توان روی این نسخه از [[:$1|$1]] انجام داد.'''
-
-یک تصویر یا الگو درخواست شده بدون آن که نسخه خاصی تعیین شده باشد.
-این اتفاق می‌تواند زمانی رخ دهد که یک الگوی پویا یک الگو یا تصویر دیگر را شامل شود که به متغیری بستگی دارد که از زمانی که شما صفحه را تغییر داده‌اید تغییر کرده‌است.
-بارگذاری دوباره صفحه و بررسی دوباره می‌تواند مشکل را برطرف کند.",
 	'revreview-current' => 'پیش‌نویس',
 	'revreview-depth' => 'عمق',
 	'revreview-depth-0' => 'تائیدنشده',
@@ -4829,7 +4777,6 @@ Palaa selaimen takaisin-painikkeella ja yritä uudelleen.",
 	'tooltip-ca-default' => 'Laadunvarmistusasetukset',
 	'flaggedrevs-protect-legend' => 'Julkaise muutokset',
 	'flaggedrevs-protect-none' => 'Salli kaikki käyttäjät',
-	'flaggedrevs-protect-basic' => 'Oletusasetukset',
 	'revreview-locked-title' => 'Muokkaukset tulee tarkistaa ennen kuin ne näkyvät tällä sivulla.',
 	'revreview-unlocked-title' => 'Muokkauksia ei tarvitse tarkastaa ennen tällä sivulla näkymistä.',
 	'revreview-locked' => 'Muokkaukset näkyvät tällä sivulla vasta [[{{MediaWiki:Validationpage}}|hyväksymisen]] jälkeen.',
@@ -4928,11 +4875,6 @@ De nouvelles [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} modific
 	'revreview-basic-same' => 'Ceci est la [[{{MediaWiki:Validationpage}}|version publiée]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} vérifiée] le <i>$2</i>.',
 	'revreview-basic-source' => 'Une [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} version vérifiée] de cette page, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approuvée] le <i>$2</i>, est basée sur cette version.',
 	'revreview-failed' => "'''La relecture a échoué.''' La soumission est incomplète ou autrement invalide.",
-	'revreview-changed' => "'''L’action demandée n’a pu être réalisée pour cette version de [[:$1|$1]].'''
-	
-Il est possible qu’un modèle ou un fichier ait été requis alors qu’aucune version précise n’était choisie.
-Ceci peut survenir lorsqu'un modèle dynamique inclut un fichier ou un autre modèle dépendant d’une variable qui a changé depuis que vous avez commencé à relire cette page.
-Recharger la page et la relire de nouveau devrait corriger ce problème.",
 	'review_page_invalid' => 'Le titre de la page cible est invalide.',
 	'review_page_notexists' => "La page cible n'existe page.",
 	'review_page_unreviewable' => 'La page cible ne peut pas être relue.',
@@ -5092,7 +5034,6 @@ Veuillez vérifier l'URL que vous avez utilisée pour accéder à cette page.",
 	'tooltip-ca-default' => "Paramètres pour l'assurance-qualité",
 	'flaggedrevs-protect-legend' => 'Relecture automatique des modifications ([[{{MediaWiki:Validationpage}}|aide]])',
 	'flaggedrevs-protect-none' => 'Autoriser tous les utilisateurs',
-	'flaggedrevs-protect-basic' => 'Paramètres par défaut',
 	'revreview-locked-title' => 'Les modifications doivent être relues avant d’être affichées aux lecteurs sur cette page.',
 	'revreview-unlocked-title' => 'Les modifications ne nécessitent pas de relecture avant d’être affichées aux lecteurs sur cette page.',
 	'revreview-locked' => "'''Note :''' les modifications doivent être [[{{MediaWiki:Validationpage}}|relues]] avant d’être affichées sur cette page.",
@@ -5170,11 +5111,6 @@ De novéls [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} changemen
 	'revreview-basic-same' => 'O est la [[{{MediaWiki:Validationpage}}|vèrsion publeyê]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} controlâ] lo <i>$2</i>.',
 	'revreview-basic-source' => 'Una [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} vèrsion controlâ] de ceta pâge, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovâ] lo <i>$2</i>, est basâ sur ceta vèrsion.',
 	'revreview-failed' => "'''La rèvision at pas reussia !''' La somission est encomplèta ou ben ôtrament envalida.",
-	'revreview-changed' => "'''L’accion demandâ at pas possu étre rèalisâ por ceta vèrsion de [[:$1|$1]].'''
-
-O est possiblo qu’un modèlo ou ben un fichiér èye étâ demandâ pendent que niona vèrsion spècefica ére chouèsia.
-Cen pôt arrevar quand un modèlo dinamico encllut un fichiér ou ben un ôtro modèlo que dèpend d’una variâbla qu’at changiê dês que vos vos éte betâ a revêre ceta pâge.
-Rechargiér la pâge et la tornar revêre devrêt corregiér cél problèmo.",
 	'revreview-current' => 'Brolyon',
 	'revreview-depth' => 'Provondior',
 	'revreview-depth-0' => 'Pas aprovâ',
@@ -5293,7 +5229,6 @@ Volyéd controlar l’URL que vos éd utilisâ por arrevar a ceta pâge.',
 	'tooltip-ca-default' => 'Paramètres por l’assurence de qualitât',
 	'flaggedrevs-protect-legend' => 'Publeyér los changements',
 	'flaggedrevs-protect-none' => 'Ôtorisar tôs los utilisators',
-	'flaggedrevs-protect-basic' => 'Paramètres per dèfôt',
 	'revreview-locked-title' => 'Los changements dêvont étre revus devant qu’étre montrâs sur ceta pâge.',
 	'revreview-unlocked-title' => 'Los changements ont pas fôta d’étre revus devant qu’étre montrâs sur ceta pâge.',
 	'revreview-locked' => 'Los changements dêvont étre [[{{MediaWiki:Validationpage}}|revus]] devant qu’étre montrâs sur ceta pâge.',
@@ -5416,11 +5351,6 @@ Fixéronse novos [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} cam
 	'revreview-basic-same' => 'Esta é a [[{{MediaWiki:Validationpage}}|versión publicada]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} comprobada] o <i>$2</i>.',
 	'revreview-basic-source' => 'Unha [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} versión comprobada] desta páxina, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprobada] o <i>$2</i>, baseouse nesta revisión.',
 	'revreview-failed' => "'''Non se puido rematar a revisión.''' O envío é incompleto ou inválido.",
-	'revreview-changed' => "'''A acción solicitada non se pode levar a cabo nesta revisión de \"[[:\$1|\$1]]\".'''
-
-Un modelo ou ficheiro puido ser solicitado cando ningunha versión específica foi especificada.
-Isto pode ocorrer se un modelo dinámico transcribe outro modelo ou ficheiro dependendo dunha variable que cambiou desde que comezou a revisar esta páxina.
-Actualizar a páxina e volvela revisar pode resolver o problema.",
 	'review_page_invalid' => 'O título da páxina de destino non é correcto.',
 	'review_page_notexists' => 'A páxina de destino non existe.',
 	'review_page_unreviewable' => 'Non se pode revisar a páxina de destino.',
@@ -5742,9 +5672,6 @@ S cha syy, ass es neiji [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=
 	'revreview-basic-same' => 'Des isch di [[{{MediaWiki:Validationpage}}|vereffetligt Version]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} prieft] am <i>$2</i>.',
 	'revreview-basic-source' => 'E [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} priefti Version] vu däre Syte, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} frejgee] am <i>$2</i>, basiert uf däre Version.',
 	'revreview-failed' => "'''D Priefig vu däre Version isch fählgschlaa!''' D Ibertragig isch nit vollständig oder uf e andri Art nit giltig gsi.",
-	'revreview-changed' => "'''D Aktion het nit chenne uf d Version vu [[:$1|$1]] aagwändet wäre.'''
-
-E Vorlag oder e Datei sin ohni spezifischi Versionsnummere aagforderet wore. Des cha passiere, wänn e dynamischi Vorlag e anderi Vorlag oder e Bild yybindet, wu vun ere Variable abhängig isch, wu sich veränderet het, syter ass es d Markierig vu däre Syte aagfange het. S Probläm cha behobe wäre, wämer d Syte nej ladet un nej markiert.",
 	'review_page_invalid' => 'Dää Sytename isch nit giltig.',
 	'review_page_notexists' => 'Ziilsyte git s nit.',
 	'review_page_unreviewable' => 'Ziilsyte isch nit priefbar.',
@@ -5909,7 +5836,6 @@ Go Dyyni Änderige vereffetlige, due bitte alli hängige Änderige priefe, wu do
 	'tooltip-ca-default' => 'Yystellige vu dr Artikel-Qualitet',
 	'flaggedrevs-protect-legend' => 'Automatischi Iberpriefig vu Bearbeitige ([[{{MediaWiki:Validationpage}}|Hilf]])',
 	'flaggedrevs-protect-none' => 'Alle Benutzer erlaube',
-	'flaggedrevs-protect-basic' => 'Standardyystellge',
 	'revreview-locked-title' => 'Bearbeitige mien iberprieft wäre, voreb si fir Läser uf däre Syte aazeigt wäre.',
 	'revreview-unlocked-title' => 'Bearbeitige bruuche nit markiert syy, voreb si fir Läser uf däre Syte aazeigt wäre.',
 	'revreview-locked' => "'''Wichtig''': Bearbeitige mien [[{{MediaWiki:Validationpage}}|iberprieft]], voreb si fir Läser uf däre Syte aazeigt wäre.",
@@ -6012,11 +5938,6 @@ $messages['he'] = array(
 	'revreview-basic-same' => 'זוהי הגרסה ה[[{{MediaWiki:Validationpage}}|נצפית]] האחרונה ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} הצגת הכול]), נבדקה ב־<i>$2</i>.',
 	'revreview-basic-source' => '[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} גרסה נצפית] של דף זה, ש[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} אושרה] ב־<i>$2</i>, מבוססת על גרסה זו.',
 	'revreview-failed' => 'הבדיקה נכשלה!',
-	'revreview-changed' => "'''לא ניתן לבצע את הפעולה המבוקשת בגרסה זו של [[:$1|$1]].'''
-
-ייתכן שביקשתם תבנית או קובץ ללא ציון גרסה מסוימת.
-בעיה זו יכולה להופיע אם תבנית דינמית מכלילה קובץ או תבנית אחרת בהתאם לערכו של משתנה, שהשתנה מאז שהתחלתם בבדיקת דף זה.
-רענון הדף וביצוע בדיקה חוזרת עשויים לפתור את הבעיה.",
 	'revreview-current' => 'טיוטה',
 	'revreview-depth' => 'שלמות',
 	'revreview-depth-0' => 'לא אושר',
@@ -6368,12 +6289,6 @@ Nove su [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} izmjene] nap
 	'revreview-basic-same' => 'Ovo je najnovija [[{{MediaWiki:Validationpage}}|pregledana]] izmjena ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} prikaži sve]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} odobrena] <i>$2</i>.',
 	'revreview-basic-source' => '[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} Pregledana inačica] ove stranice, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} odobrena] <i>$2</i>, bila je osnova ove izmjene.',
 	'revreview-failed' => 'Ocjenjivanje nije uspjelo!',
-	'revreview-changed' => "'''Traženu radnju nije moguće izvršiti na ovoj inačici stranice [[:$1|$1]].'''
-
-Možda je tražen predložak ili datoteka bez navođenja određene inačice. 
-To se može dogoditi ukoliko dinamički predložak transkludira datoteku ili predložak koji ovisi o varijabli koja se promijenila
-nakon što ste počeli ocjenjivati članak. 
-Osvježavanje stranice i ponovno ocijenjivanje može riješiti ovaj problem.",
 	'revreview-current' => 'Članak u radu',
 	'revreview-depth' => 'Dubina',
 	'revreview-depth-0' => 'Ne zadovoljava',
@@ -6506,7 +6421,6 @@ Molimo provjerite URL koji vas je doveo ovamo.',
 	'tooltip-ca-default' => 'Postavke osiguranja kvalitete',
 	'flaggedrevs-protect-legend' => 'Objavljivanje izmjena',
 	'flaggedrevs-protect-none' => 'Omogući svim suradnicima',
-	'flaggedrevs-protect-basic' => 'Pretpostavljene postavke',
 	'revreview-locked-title' => 'Izmjene moraju biti ocjenjene prije nego će se prikazati na ovoj stranici.',
 	'revreview-unlocked-title' => 'Izmjene ne zahtijevaju ocjenjivanje prije nego će se prikazati na ovoj stranici.',
 	'revreview-locked' => 'Izmjene moraju biti [[{{MediaWiki:Validationpage}}|ocjenjene]] prije nego će se prikazati na ovoj stranici.',
@@ -6590,9 +6504,6 @@ Je móžno, zo su so nowe [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonl
 	'revreview-basic-same' => 'To je [[{{MediaWiki:Validationpage}}|wozjewjena wersija]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} skontrolowana] <i>$2</i>.',
 	'revreview-basic-source' => '[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} Skontrolowana wersija] tuteje strony, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} schwalena] <i>$2</i>, bazowaše na tutej wersiji.',
 	'revreview-failed' => "'''Njeje móžno tutu wersiju přepruwować.''' Tute pósłanje je njedospołne abo na druhe wašnje njepłaćiwe.",
-	'revreview-changed' => "'''Požadana akcija njeda so na tutu wersiju wot [[:$1|$1]] nałožować.''' 
-
-Předłoha abo dataja bu bjez podaća wersije požadana/požadany. To móže so stać, jeli dynamiska předłoha dalšu dataju abo předłohu zapřijmje, kotrejž stej wot wariable wotwisnej, kotraž je so wot spočatka pruwowanja strony změniła. Znowazačitanje strony a nowe pruwowanje móže tón problem rozrisać.",
 	'review_page_invalid' => 'Titul ciloweje strony je njepłaćiwy.',
 	'review_page_notexists' => 'Cilowa strona njeeksistuje.',
 	'review_page_unreviewable' => 'Cilowa strona přepruwujomna njeje.',
@@ -6844,11 +6755,6 @@ Azóta történhettek új [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonl
 	'revreview-basic-same' => 'Ez a [[{{MediaWiki:Validationpage}}|közzétett változat]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} ellenőrizve]: <i>$2</i>.',
 	'revreview-basic-source' => 'A lap [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} ellenőrzött változata] ([{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} ellenőrizve]: <i>$2</i>) ezen a változaton alapul.',
 	'revreview-failed' => "'''A változat ellenőrzése meghiúsult.''' Érvénytelen vagy nem teljes beküldés.",
-	'revreview-changed' => "'''A kért művelet nem hajtható végre a(z) [[:$1|$1]] lap ezen változatán.'''
-
-Egy sablon vagy fájl úgy lett kérve, hogy konkrét változat nem lett megadva.
-Ez akkor történhet meg, ha egy dinamikus sablon más fájlt vagy sablont illeszt be egy paramétertől függően, ami megváltozott a lap ellenőrzésének kezdete óta. 
-Az oldal frissítése és az újbóli ellenőrzés megoldhatja a problémát.",
 	'review_page_invalid' => 'Érvénytelen cím.',
 	'review_page_notexists' => 'Nincs ilyen lap.',
 	'review_page_unreviewable' => 'Ezt a lapot nem lehet ellenőrizni.',
@@ -7084,11 +6990,6 @@ Es possibile que nove [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}
 	'revreview-basic-same' => 'Isto es le [[{{MediaWiki:Validationpage}}|version publicate]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} verificate] le <i>$2</i>.',
 	'revreview-basic-source' => 'Un [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} version verificate] de iste pagina, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approbate] le <i>$2</i>, es basate super iste version.',
 	'revreview-failed' => "'''Non esseva possibile marcar iste version.''' Le submission es incomplete o alteremente invalide.",
-	'revreview-changed' => "'''Le action requestate non poteva esser executate super iste version de [[:$1|$1]].'''
-
-Es possibile que un patrono o file ha essite requestate sin specification de un version specific.
-Isto pote occurrer si un patrono dynamic transclude un altere file o patrono dependente de un variabile que cambiava post que tu comenciava a revider iste pagina.
-Es possibile que le problema essera solvite si tu refresca le pagina e reface le revision.",
 	'review_page_invalid' => 'Le titulo del pagina de destination es invalide.',
 	'review_page_notexists' => 'Le pagina de destination non existe.',
 	'review_page_unreviewable' => 'Le pagina de destination non es revisibile.',
@@ -7248,7 +7149,6 @@ Verifica le adresse URL que tu ha usate pro acceder a iste pagina.',
 	'tooltip-ca-default' => 'Configurationes pro assecurantia de qualitate',
 	'flaggedrevs-protect-legend' => 'Revision automatic de modificationes ([[{{MediaWiki:Validationpage}}|adjuta]])',
 	'flaggedrevs-protect-none' => 'Permitter omne usatores',
-	'flaggedrevs-protect-basic' => 'Configurationes predefinite',
 	'revreview-locked-title' => 'Le modificationes debe esser revidite ante de esser monstrate al lectores in iste pagina.',
 	'revreview-unlocked-title' => 'Le modificationes non require revision ante de esser monstrate al lectores in iste pagina.',
 	'revreview-locked' => "'''Nota:''' Le modificationes debe esser [[{{MediaWiki:Validationpage}}|revidite]] ante de esser monstrate al lectores in iste pagina.",
@@ -7333,11 +7233,6 @@ Mungkin telah ada [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} pe
 	'revreview-basic-same' => 'Ini adalah revisi [[{{MediaWiki:Validationpage}}|terperiksa]] yang terakhir ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} tampilkan semua]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} disetujui] pada <i>$2</i>.',
 	'revreview-basic-source' => 'Terdapat [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} versi terperiksa] untuk halaman ini, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} disetujui] pada <i>$2</i>, yang berdasarkan pada revisi ini.',
 	'revreview-failed' => "'''Peninjauan revisi gagal.''' Penyerahan belum lengkap atau salah.",
-	'revreview-changed' => "'''Tindakan yang diminta tidak dapat dilakukan terhadap revisi [[:$1|$1]].'''
-
-Sebuah templat atau berkas mungkin telah diminta tanpa menyebutkan suatu versi spesifik.
-Hal ini dapat terjadi jika suatu templat dinamis mengikutkan suatu berkas atau templat lain yang bergantung pada suatu variabel yang telah berubah sejak Anda mulai meninjau halaman ini.
-Pemuatan dan peninjauan ulang halaman dapat memecahkan masalah ini.",
 	'review_page_invalid' => 'Judul halaman tujuan tidak sah.',
 	'review_page_notexists' => 'Halaman $1 tidak ditemukan.',
 	'review_page_unreviewable' => 'Halaman yang dituju tidak dapat ditinjau.',
@@ -7595,11 +7490,6 @@ La [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} bozza] ha [{{fullurl:{{FULLPAGENAMEE}
 	'revreview-basic-old' => 'Questa è una versione [[{{MediaWiki:Validationpage}}|revisionata]] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} elenca tutte]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approvata] il <i>$2</i>.
 Potrebbero essere stati apportati nuove [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} modifiche].',
 	'revreview-basic-same' => "Questa è l'ultima versione [[{{MediaWiki:Validationpage}}|visionata]] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} elenca tutte]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approvata] il <i>$2</i>.",
-	'revreview-changed' => "'''L'azione richiesta non è stata eseguita su questa revisione di [[:$1|$1]].'''
-
-Un template od un file potrebbero essere stati richiesti quando nessuna versione era stata specificata. 
-Ciò può accadere se un template dinamico include un'altro file od un template dipendente da una variabile che sia cambiata da quando hai iniziato a revisionare questa pagina.
-Aggiornare la pagina e ricominciare la revisione potrebbe risolvere il problema.",
 	'review_denied' => 'Permesso negato.',
 	'revreview-current' => 'Bozza',
 	'revreview-depth' => 'Esaustività',
@@ -7779,9 +7669,6 @@ $messages['ja'] = array(
 	'revreview-basic-same' => 'これは[[{{MediaWiki:Validationpage}}|公開版]]です。<i>$2</i> に[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 確認されました]。',
 	'revreview-basic-source' => '<i>$2</i> に[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 承認された]このページの[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} 確認済み版]は、この版に基づいています。',
 	'revreview-failed' => "'''この版を査読できません。'''手続きが不完全であるか、その他の点で誤りがあります。",
-	'revreview-changed' => "'''[[:$1|$1]]のこの版に対して行おうとした操作を実行できませんでした'''
-
-版が特定されていない状態でテンプレートまたはファイルに対する処理要求が行われた可能性があります。変数に依存してファイルやテンプレートを呼び出している動的なテンプレートを利用しており、その変数がページの査読開始以降に変化した時にこのようなことが起こります。ページを再読み込みして再度査読を行えばこの問題は解決できます。",
 	'review_page_invalid' => '指定されたページ名は無効です。',
 	'review_page_notexists' => '指定されたページは存在していません。',
 	'review_page_unreviewable' => '指定されたページは閲覧できません。',
@@ -8079,11 +7966,6 @@ $messages['ka'] = array(
 	'revreview-basic-same' => 'ეს არის [[{{MediaWiki:Validationpage}}|გამოქვეყნებული ვერსია]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} შემოწმებული] <i>$2</i>.',
 	'revreview-basic-source' => '[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} გვერდის შემოწმებული ვერსია], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} რეცენზირებული] <i>$2</i>, იყო დაფუძნებული ამ ვერსიაზე.',
 	'revreview-failed' => "'''შეუძლებელია ვერსიის შემოწმება.''' შეყვანილი მონაცემები არასრულია ან არაკორექტულია.",
-	'revreview-changed' => "'''მოთხოვნილი მოქმედება ვერ განხორციელდება გვერდის ამ ვერსიასთან [[:$1|$1]].'''
-
-შესაძლოა თარგი ან ფაილი იყო მოთხოვნილი კონკრეტული ვერსიის გარეშე. 
-ეს შეიძლება მოხდეს, თუ დინამიური თარგი შეიცავს სხვა ფაილს ან თარგდ , რომელიც შეიცვალა შემოწმების დაწყების მომენტიდან. 
-განაახლეთ გვერდი და დაიწყეთ შემოწმება თავიდან, წესით ამან უნდა გადაჭრას პრობლემა.",
 	'review_denied' => 'თხოვნა უარყოფილია.',
 	'review_param_missing' => 'პარამეტრი დაკარგულია ან არასწორია.',
 	'revreview-current' => 'შეუმოწმებელი ცვლილებები',
@@ -8215,7 +8097,6 @@ $messages['ka'] = array(
 	'tooltip-ca-default' => 'ხარისხის კონტროლის მართვა',
 	'flaggedrevs-protect-legend' => 'გამოქვეყნებული რედაქტირებები',
 	'flaggedrevs-protect-none' => 'ნებადართულია ყველა მომხმარებლისთვის',
-	'flaggedrevs-protect-basic' => 'საწყისი კონფიგურაცია',
 	'revreview-locked-title' => 'ცვლილებები უნდა შემოწმდეს, სანამ აჩვენებენ ამ გვერდზე.',
 	'revreview-unlocked-title' => 'ცვლილებები არ უნდა შემოწმდეს, ამ გვერდზე გამოჩენისთვის.',
 	'revreview-locked' => "'''შენიშვნა:''' რედაქტირებებს საჭიროა [[{{MediaWiki:Validationpage}}|შემოწმება]] გამოქვეყნებამდე.",
@@ -8664,11 +8545,6 @@ $messages['ko'] = array(
 	'revreview-basic-same' => '이 버전은 <i>$2</i>에 [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 검토]된 [[{{MediaWiki:Validationpage}}|배포판]]입니다.',
 	'revreview-basic-source' => '<i>$2</i>에 [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 검토]된 이 문서의 [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} 검토된 버전]은 이 판을 기반으로 합니다.',
 	'revreview-failed' => "'''이 판을 검토하지 못했습니다.''' 요청이 완전하지 못하거나 잘못되었습니다.",
-	'revreview-changed' => "'''[[:$1|$1]] 문서의 이 판에 대해 요청하신 동작을 수행할 수 없었습니다.'''
-
-틀이나 파일의 버전이 확인되지 않았을 때 재검토를 요청했을 수 있습니다.
-이는 문서 검토를 시작한 후에 동적인 틀이 다른 파일을 포함하거나 변수를 바꿨을 때 일어날 수 있습니다.
-이 문서를 다시 불러오고 재검토하면 문제를 해결할 수 있습니다.",
 	'review_page_invalid' => '대상 문서 제목이 잘못되었습니다.',
 	'review_page_notexists' => '대상 문서가 존재하지 않습니다.',
 	'review_page_unreviewable' => '대상 문서가 검토 가능한 문서가 아닙니다.',
@@ -8894,11 +8770,6 @@ Es müjjelesch, et künnt noch [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&di
 	'revreview-basic-same' => 'Dat hee es de neuste [[{{MediaWiki:Validationpage}}|{{int:revreview-lev-basic}}]] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} Alle opleßte]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} {{lcfirst:{{int:revreview-approved}}}}] aam <i>$2</i>.',
 	'revreview-basic-source' => 'En [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} {{int:revreview-lev-basic}}] vun hee dä Sigg, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} {{lcfirst:{{int:revreview-approved}}}}] aam <i>$2</i>, boud op hee di Version op.',
 	'revreview-failed' => 'Et Nohkike es donävve jejange!',
-	'revreview-changed' => "''De jewönschte Akßuhn es nit müjjelesch för hee di Version vun dä Sigg [[:$1|$1]].'''
-
-En Datei udder Schablohn weed aanjefrooch woode sin, oohne dat en Version aanjejovve wohr.
-Dat kann passeeere, wann en Schablohn en ander Schablohn udder en Dattei enbengk, di vun enem Parrameeter afhange deiht, dä jeändert woohdt, zigg dämm De di Sigg hee nohzekike aanjefange haz.
-En Löhsung för dat Problehm künnt sinn, di Sigg neu ze laade un norr_ens vun füre nohzekike.",
 	'revreview-current' => 'Äntworf',
 	'revreview-depth' => 'Deefjang',
 	'revreview-depth-0' => 'Nit {{lcfirst:{{int:revreview-approved}}}}',
@@ -9014,7 +8885,6 @@ fottjeschmesse hät?',
 	'tooltip-ca-default' => 'Enshtellunge för de Sigge ier Qualliteit',
 	'flaggedrevs-protect-legend' => 'Donn de Änderunge öfffentlesch maache',
 	'flaggedrevs-protect-none' => 'Alle Metmaacher zohlohße',
-	'flaggedrevs-protect-basic' => 'Schtandatt-Ennschtällunge',
 	'revreview-locked-title' => 'Änderunge möße nohjekik sin, iih dat se op hee dä Sigg aanjezeish wääde.',
 	'revreview-unlocked-title' => 'Änderunge möße nit nohjekik wääde, iih dat se op hee dä Sigg aanjezeish wääde.',
 	'revreview-locked' => 'Änderunge möße [[{{MediaWiki:Validationpage}}|nohjekik sin]], iih dat se op hee dä Sigg aanjezeish wääde.',
@@ -9124,12 +8994,6 @@ Nei [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Ännerunge] kën
 	'revreview-basic-same' => 'Dëst ass déi [[{{MediaWiki:Validationpage}}|publizéiert Versioun]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} nogekuckt] den <i>$2</i>.',
 	'revreview-basic-source' => 'Eng [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} nogekuckt Versioun] vun dëser Säit [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} nogekuckt] de(n) <i>$2</i>, huet op dëser Versioun baséiert.',
 	'revreview-failed' => "'''Dës Versioun konnt net nogekuckt ginn.''' Dat wat geschéckt gouf ass net komplett oder op eng aner Manéier net valabel.",
-	'revreview-changed' => "'''Déi ugefroten Aktioun konnt op dëser Versioun vu(n) [[:$1|$1]] net gemaach ginn.'''
-
-Te ass méiglech datt eng Schablun oder e Fichier ugefrot gouf fi dee keng Versioun ugi war.
-Dëst ka geschéie wann an enger dynamescher Schabloun en aner Fichier oder eng aner Schabloun dran ass déi vun enger Variabel ofhänkt, déi geännert huet zënter datt Dir ugefaang hat dës Säit nozekucken.
-
-D'Säit aktualiséieren an nokucke kann dëse Problem léisen.",
 	'review_page_invalid' => 'Den Titel vun der Zilsäit ass net valabel.',
 	'review_page_notexists' => "D'Zilsäit gëtt et net",
 	'review_page_unreviewable' => "D'Zilsäit kann net nogekuckt ginn.",
@@ -9538,16 +9402,12 @@ $messages['mk'] = array(
 	'revreview-basic-same' => 'Ова е [[{{MediaWiki:Validationpage}}|објавената верзија]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} проверена] на <i>$2</i>.',
 	'revreview-basic-source' => '[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} Проверена верзија] на оваа страница, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} одобрена] на <i>$2</i>, беше заснована на оваа ревизија.',
 	'revreview-failed' => "'''Не можам да ја оценам оваа ревизија.''' Поднесеното е нецелосно или поинаку погрешно.",
-	'revreview-changed' => "'''Побараното дејствие не може да се изведе на оваа ревизија од [[:$1|$1]].'''
-
-Може да бил побаран шаблон или податотека, без да биде назначена конкретна верзија.
-Ова може да се случи доколку еден динамички шаблон трансклудира друга податотека или шаблон зависно од променливата која се изменила откога сте започнале со оценка на оваа страница.
-Проблемот може да се реши со превчитување на страницата и нејзина повторна оценка.",
 	'review_page_invalid' => 'Насловот на целната страница е неважечки.',
 	'review_page_notexists' => 'Целната страница не постои.',
 	'review_page_unreviewable' => 'Целната страница не е проверлива.',
 	'review_no_oldid' => 'Нема назначено ID на ревизијата.',
 	'review_bad_oldid' => 'Нема таква целна ревизија.',
+	'review_not_flagged' => 'Целната ревизија моментално не е означена како прегледана.',
 	'review_too_low' => 'Ревизијата не може да се провери без да оставите некои полиња како „несоодветна“.',
 	'review_bad_key' => 'Неважечки параметарски клуч за вклучување',
 	'review_denied' => 'Пристапот е забранет.',
@@ -9704,7 +9564,6 @@ $messages['mk'] = array(
 	'tooltip-ca-default' => 'Прилагодувања за контрола на квалитет',
 	'flaggedrevs-protect-legend' => 'Автоматска проверка на уредувања ([[{{MediaWiki:Validationpage}}|помош]])',
 	'flaggedrevs-protect-none' => 'Дозволи на сите корисници',
-	'flaggedrevs-protect-basic' => 'Основни нагодувања',
 	'revreview-locked-title' => 'Уредувањата мора да се проверат пред да бидат видливи за читателите на оваа страница.',
 	'revreview-unlocked-title' => 'Уредувањата не бараат претходна проверка за да бидат видливи за читателите на оваа страница.',
 	'revreview-locked' => "'''Напомена:''' Уредувањата мора да се [[{{MediaWiki:Validationpage}}|проверат]] пред да бидат видливи за читателите на оваа страница.",
@@ -9793,6 +9652,7 @@ $messages['ml'] = array(
 	'review_page_unreviewable' => 'ലക്ഷ്യമിട്ട താൾ സംശോധനം ചെയ്യാനാവില്ല.',
 	'review_no_oldid' => 'നാൾപ്പതിപ്പിന്റെ ഐ.ഡി. വ്യക്തമാക്കിയിട്ടില്ല.',
 	'review_bad_oldid' => 'ലക്ഷ്യം വെച്ച നാൾപ്പതിപ്പ് നിലവിലില്ല.',
+	'review_not_flagged' => 'ലക്ഷ്യ നാൾപ്പതിപ്പ് ഇപ്പോൾ സംശോധനം ചെയ്തതായി അടയാളപ്പെടുത്തിയിട്ടില്ല.',
 	'review_too_low' => 'ചില മണ്ഡലങ്ങൾ "അപര്യാപ്തം" എന്നു കുറിച്ചിരിക്കെ നാൾപ്പതിപ്പ് സംശോധനം ചെയ്യാൻ കഴിയില്ല.',
 	'review_bad_key' => 'ഉൾപ്പെടുത്താനുള്ള ചരം അസാധുവാണ്.',
 	'review_denied' => 'അനുമതി നിഷേധിച്ചിരിക്കുന്നു.',
@@ -10165,11 +10025,6 @@ Beberapa [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} perubahan] 
 	'revreview-basic-same' => 'Ini ialah semakan [[{{MediaWiki:Validationpage}}|dijenguk]] terakhir ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} senarai]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} disahkan] pada <i>$2</i>.',
 	'revreview-basic-source' => 'Terdapat sebuah [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} versi dijenguk] bagi laman ini, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} disahkan] pada <i>$2</i>, berdasarkan semakan ini.',
 	'revreview-failed' => 'Semakan gagal!',
-	'revreview-changed' => "'''Tindakan yang diminta tidak dapat dilakukan pada semakan bagi [[:$1|$1]] ini.'''
-
-Sebuah templat atau imej mungkin telah diminta ketika tiada versi dinyatakan.
-Masalah ini boleh berlaku jika terdapat sebuah templat dinamik yang memasukkan imej lain, atau templat yang bergantung kepada pemboleh ubah yang telah berubah ketika anda sedang memeriksa laman ini.
-Masalah ini mungkin boleh diselesaikan dengan menyegarkan semula laman ini dan memeriksanya sekali lagi.",
 	'revreview-current' => 'Draf',
 	'revreview-depth' => 'Paras',
 	'revreview-depth-0' => 'Tidak disahkan',
@@ -10419,11 +10274,6 @@ Er kunnen nieuwe [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} wij
 	'revreview-basic-source' => 'Een [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} gecontroleerde versie] van deze pagina, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} goedgekeurd] op <i>$2</i>, is gebaseerd op deze versie.',
 	'revreview-failed' => "'''Het was niet mogelijk deze versie als gecontroleerd in te stellen.'''
 Het formulier was incompleet of bevatte ongeldige waarden.",
-	'revreview-changed' => "'''De gevraagde handeling kon niet uitgevoerd worden voor deze versie van [[:$1|$1]].'''
-	
-Er is een sjabloon of bestand opgevraagd zonder dat een specifieke versie is aangegeven.
-Dit kan voorkomen als een dynamisch sjabloon een ander bestand of een ander sjabloon bevat, afhankelijk van een variabele die is gewijzigd sinds u bent begonnen met de beoordeling van deze pagina.
-Ververs de pagina en start de beoordeling opnieuw om dit probleem op te lossen.",
 	'review_page_invalid' => 'De doelpaginanaam is ongeldig.',
 	'review_page_notexists' => 'De doelpagina bestaat niet.',
 	'review_page_unreviewable' => 'De doelpagina kan niet gecontroleerd worden.',
@@ -10591,7 +10441,6 @@ Controleer de URL die u gebruikte om naar deze pagina te gaan.',
 	'tooltip-ca-default' => 'Instellingen kwaliteitsbewaking',
 	'flaggedrevs-protect-legend' => 'Automatisch bewerkingen controleren ([[{{MediaWiki:Validationpage}}|?]])',
 	'flaggedrevs-protect-none' => 'Alle gebruikers toestaan',
-	'flaggedrevs-protect-basic' => 'Standaardinstellingen',
 	'revreview-locked-title' => 'Bewerkingen aan deze pagina moeten gecontroleerd worden voordat ze worden weergegeven.',
 	'revreview-unlocked-title' => 'Bewerkingen aan deze pagina hoeven niet gecontroleerd te worden voordat ze worden weergegeven.',
 	'revreview-locked' => "'''Let op:''' Bewerkingen aan deze pagina moeten [[{{MediaWiki:Validationpage}}|gecontroleerd]] worden voordat ze worden weergegeven.",
@@ -10655,9 +10504,6 @@ $messages['nn'] = array(
 Nye [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} endringar] kan ha vortne gjort.',
 	'revreview-basic-same' => 'Dette er den siste [[{{MediaWiki:Validationpage}}|vurderte]] versjonen ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} sjå alle]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} godkjend] den <i>$2</i>.',
 	'revreview-basic-source' => 'Ein [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} vurdert versjon] av denne sida, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} godkjend] den <i>$2</i>, byggjer på denne versjonen.',
-	'revreview-changed' => "'''Den etterspurde handlinga kan ikkje verta utførd på denne sideversjonen av [[:$1|$1]].'''
-
-Ein mal eller eit bilete kan ha vorte etterspurt utan ein spesifisert versjon. Dette kan henda om ein mal inneheld eit anna bilete eller ein mal avhengig av ein variabel som har vorten endra sidan du byrja å vurdera sida. Å oppdatera sida og vurdera ho på nytt kan løysa problemet.",
 	'revreview-current' => 'Utkast',
 	'revreview-depth' => 'Djupn',
 	'revreview-depth-0' => 'Ikkje godkjend',
@@ -10854,11 +10700,6 @@ Nye [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} endringer] kan h
 	'revreview-basic-same' => 'Dette er den [[{{MediaWiki:Validationpage}}|publiserte versjonen]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} kontrollert] <i>$2</i>.',
 	'revreview-basic-source' => 'En [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} kontrollert versjon] av denne siden, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} godkjent] <i>$2</i>, ble basert på denne revisjonen.',
 	'revreview-failed' => "'''Kunne ikke revidere denne revisjonen.''' Innsendingen er ikke komplett eller er ugyldig på en annen måte.",
-	'revreview-changed' => "'''Den etterspurte handlingen kan ikke utføres på denne versjonen av [[:$1|$1]].'''
-
-En mal eller en fil kan ha blitt etterspurt uten noen spesifisert versjon.
-Dette kan skje om en dynamisk mal inneholder en annen fil eller en mal avhengig av en variabel som er blitt endret siden du begynte å vurdere siden.
-Å oppdatere siden og vurdere siden på nytt kan løse problemet.",
 	'review_page_invalid' => 'Målsidetittelen er ugyldig.',
 	'review_page_notexists' => 'Målsiden finnes ikke.',
 	'review_page_unreviewable' => 'Målsiden er ikke reviderbar.',
@@ -11102,11 +10943,6 @@ De [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} modificacions nov
 	'revreview-basic-same' => 'Aquò es la darrièra version [[{{MediaWiki:Validationpage}}|susvelhada]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovada] sur <i>$2</i>. La pagina pòt èsser [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} modificada].',
 	'revreview-basic-source' => "Una [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} version visada] d'aquesta pagina, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprobada] lo <i>$2</i>, es estada basada en defòra d'aquesta version.",
 	'revreview-failed' => 'La relectura a fracassat !',
-	'revreview-changed' => "'''L'accion demandada a pas pogut èsser realizada per aquesta version de [[:$1|$1]].'''
-
-Es possible qu'un modèl o un fichièr siá estat demandat alara que cap de version precisa èra pas causida.
-Aquò pòt susvenir quora un modèl dinamic inclutz un fichièr o un autre modèl que depend d'un autra variabla qu'a cambiat dempuèi qu'avètz començat de tornar legir aquesta pagina.
-Tornatz cargat la pagina e tornatz-la legir tornamai ; aquò deuriá corregir aqueste problèma.",
 	'revreview-current' => 'Esbòs',
 	'revreview-depth' => 'Prigondor',
 	'revreview-depth-0' => 'Pas aprobada',
@@ -11227,7 +11063,6 @@ De [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} modificacions nov
 	'tooltip-ca-default' => "Paramètres per l'assegurança-qualitat",
 	'flaggedrevs-protect-legend' => 'Publicar los cambiaments',
 	'flaggedrevs-protect-none' => 'Permetre a totes',
-	'flaggedrevs-protect-basic' => 'Paramètres per manca',
 	'revreview-locked-title' => 'Las modificacions devon èsser revistas abans d’èsser afichadas sus aquesta pagina !',
 	'revreview-unlocked-title' => 'Las modificacions necessitan pas de relectura abans d’èsser afichadas sus aquesta pagina !',
 	'revreview-locked' => 'Las modificacions devon èsser revistas abans d’èsser afichadas sus aquesta pagina !',
@@ -11346,11 +11181,6 @@ Później mogły zostać wykonane następne [{{fullurl:{{FULLPAGENAMEE}}|oldid=$
 	'revreview-basic-same' => 'To jest [[{{MediaWiki:Validationpage}}|wersja opublikowana]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} przejrzana] <i>$2</i>.',
 	'revreview-basic-source' => 'Następująca [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} wersja przejrzana] tej strony, którą [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} oznaczono] <i>$2</i>, była oparta o tę wersję.',
 	'revreview-failed' => "'''Nie udało się oznaczyć tej wersji.''' Zostały przekazane niekompletne dane lub są nieprawidłowe.",
-	'revreview-changed' => "'''Żądana czynność nie mogła zostać wykonana na tej wersji strony [[:$1|$1]].'''
-
-Zażądano szablonu lub pliku, ale nie określono wersji.
-Może się to zdarzyć, gdy dynamiczny szablon osadza inny szablon lub plik zależnie od zmiennej, która zmieniła się od rozpoczęcia sprawdzania tej strony.
-Odświeżenie strony i ponowne sprawdzenie może rozwiązać ten problem.",
 	'review_page_invalid' => 'Podany tytuł strony jest nieprawidłowy.',
 	'review_page_notexists' => 'Wskazana strona nie istnieje.',
 	'review_page_unreviewable' => 'Brak możliwości przeglądnięcia wskazanej strony.',
@@ -11587,11 +11417,6 @@ Dle neuve [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} modìfiche
 	'revreview-basic-same' => "Costa-sì a l'é la [[{{MediaWiki:Validationpage}}|version publicà]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} controlà] dël <i>$2</i>.",
 	'revreview-basic-source' => "Na [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} version controlà] ëd costa pàgina, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovà] dël <i>$2</i>, a l'é stàita basà su sta revision-sì.",
 	'revreview-failed' => "'''As peul pa revisioné sta revision-sì.''' La sot-mission a l'é incompleta o dësnò pa bon-a.",
-	'revreview-changed' => "'''L'assion ciamà a l'é nen podusse sodisfé su sta revision-sì dël [[:$1|$1]].'''
-
-Në stamp ò na figura a peul esse stàit ciamà sensa ch'a fussa butasse la version. 
-Sòn a peul rivé quand në stamp dinàmich a anclud na figura ò n'àutr ëstamp conforma a na variàbil dont ël contnù a peul esse cambià da quand a l'ha anandiasse a vardé sta pàgina-sì. 
-Carié torna la pàgina e anandiesse da zero a peul arzòlve la gran-a.",
 	'revreview-current' => "Cangiament ch'a speto",
 	'revreview-depth' => 'Ancreus',
 	'revreview-depth-0' => 'Pa aprovà',
@@ -11728,7 +11553,6 @@ Che as controla për piasì l'adrëssa (URL) che a l'ha dovrà për rivé a sta 
 	'tooltip-ca-default' => 'Regolassion dij Contròj ëd Qualità',
 	'flaggedrevs-protect-legend' => 'Publiché le modìfiche ([[{{MediaWiki:Validationpage}}|?]])',
 	'flaggedrevs-protect-none' => "Autorisa tùit j'utent",
-	'flaggedrevs-protect-basic' => 'Ampostassion dë stàndard',
 	'revreview-locked-title' => "Le modìfiche a deuvo esse revisionà prima d'esse publicà su sta pàgina-sì.",
 	'revreview-unlocked-title' => "A-i é nen damanca che le modìfiche a sio revisionà prima d'esse publicà su sta pàgina-sì.",
 	'revreview-locked' => "'''Nòta.''' Le modìfiche a deuvo esse [[{{MediaWiki:Validationpage}}|revisionà]] prima d'esse publicà su sta pàgina-sì.",
@@ -11853,16 +11677,12 @@ Existem [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} alterações
 	'revreview-basic-same' => 'Esta é a [[{{MediaWiki:Validationpage}}|versão publicada]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} verificada] a <i>$2</i>.',
 	'revreview-basic-source' => 'Uma [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} versão verificada] desta página, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovada] a <i>$2</i>, foi baseada nesta edição.',
 	'revreview-failed' => "'''Não foi possível rever esta edição.''' A revisão ficou incompleta ou algo a torna inválida.",
-	'revreview-changed' => "'''Não foi possível executar a operação seleccionada nesta edição de [[:$1|$1]].'''
-
-Uma predefinição ou ficheiro podem ter sido solicitados sem especificar uma edição concreta.
-Isto pode ocorrer se uma predefinição dinâmica transclui um outro ficheiro ou predefinição, dependendo de uma variável que se alterou enquanto revia a página.
-Recarregar a página e refazer a revisão pode solucionar este problema.",
 	'review_page_invalid' => 'O título da página de destino é inválido.',
 	'review_page_notexists' => 'A página de destino não existe.',
 	'review_page_unreviewable' => 'A página de destino não está sujeita a revisão.',
 	'review_no_oldid' => 'Não foi especificado nenhum ID de revisão.',
 	'review_bad_oldid' => 'Essa edição de destino não existe.',
+	'review_not_flagged' => 'A edição de destino não está neste momento marcada como revista.',
 	'review_too_low' => 'A edição não pode ser revista com alguns campos classificados "inadequada".',
 	'review_bad_key' => 'A chave do parâmetro de inclusão é inválida.',
 	'review_denied' => 'Permissão negada.',
@@ -12106,11 +11926,6 @@ Podem existir [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} altera
 	'revreview-basic-same' => 'Esta é a [[{{MediaWiki:Validationpage}}|versão publicada]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} verificada] a <i>$2</i>.',
 	'revreview-basic-source' => 'Uma [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} versão verificada] desta página, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovada] em <i>$2</i>, foi baseada nesta edição.',
 	'revreview-failed' => "'''Não foi possível revisar esta edição.''' A revisão ficou incompleta ou algo a torna inválida.",
-	'revreview-changed' => "'''Não foi possível executar a operação selecionada nesta edição de [[:$1|$1]].'''
-
-Uma predefinição ou arquivo podem ter sido solicitado sem especificar uma edição concreta.
-Isto pode ocorrer se uma predefinição dinâmica transclui um outro arquivo ou predefinição, dependendo de uma variável que se alterou enquanto você revisava a página.
-Recarregar a página e refazer a revisão pode solucionar este problema.",
 	'review_page_invalid' => 'O título da página de destino é inválido.',
 	'review_page_notexists' => 'A página de destino não existe.',
 	'review_page_unreviewable' => 'A página de destino não está sujeita a revisão.',
@@ -12465,11 +12280,6 @@ Nuève [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} cangiaminde] 
 	'revreview-basic-same' => "Queste jè l'urtema [[{{MediaWiki:Validationpage}}|versione pubblecate]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} verificate] 'u <i>$2</i>.",
 	'revreview-basic-source' => "'Na [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} versiona verificate] de sta pàgene, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approvate] sus 'u <i>$2</i>, ere basate sus 'a sta revisione.",
 	'revreview-failed' => "'''None ge se pò rivedè sta revsione.''' 'A conferme jè incomblete o stè quacche otra cose de invalide.",
-	'revreview-changed' => "'''L'aziona richieste non ge pò essere fatte sus a sta revisione de [[:$1|$1]].'''
-
-'Nu template o 'nu file ponne essere state richieste quanne nisciuna versione specifica avere state specificate.
-Stu fatte pò succedere ce 'nu template dinamiche no tène cunde de 'n'otre file o 'n'otre template ca depènne da 'na variabbile ca ha cangiate da quanne tu è accumenzate a rivisità sta pàgene.
-Aggiorne 'a pàgene e repruève 'n'otra vote a fa 'na rivisita ca pò essere ca se resolve 'u probbleme.",
 	'revreview-current' => 'Bozze',
 	'revreview-depth' => 'Profunnetà',
 	'revreview-depth-0' => 'Scettate',
@@ -12598,7 +12408,6 @@ Pe piacere condrolle l'URL ca tu è ausete pe trasè jndr'à sta pagene.",
 	'tooltip-ca-default' => "'Mbostaziune de l'assicurazione de qualitate",
 	'flaggedrevs-protect-legend' => 'Pubbleche le cangiaminde',
 	'flaggedrevs-protect-none' => "Permette a tutte l'utinde",
-	'flaggedrevs-protect-basic' => "'Mbostaziune de partenze",
 	'revreview-locked-title' => 'Le cangiaminde onne a essere riviste apprime de farle vedè sus a sta pàgene!',
 	'revreview-unlocked-title' => 'Le cangiaminde non ge richiedene le revisete apprime ca avènene fatte vedè sus a stà pàgene!',
 	'revreview-locked' => 'Le cangiaminde onne a essere riviste apprime de farle vedè sus a sta pàgene!',
@@ -12694,11 +12503,6 @@ $messages['ru'] = array(
 	'revreview-basic-same' => 'Это [[{{MediaWiki:Validationpage}}|опубликованная версия]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} досмотренная] <i>$2</i>.',
 	'revreview-basic-source' => '[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} Досмотренная версия] этой страницы, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} подтверждённая] <i>$2</i>, была основана на этой версии.',
 	'revreview-failed' => "'''Невозможно проверить версию.''' Введённые данные неполны или некорректны.",
-	'revreview-changed' => "'''Запрошенное действие не может быть выполнено с этой версией страницы [[:$1|$1]].'''
-
-Возможно, шаблон или изображение были запрошены без указания конкретной версии.
-Это могло случиться, если динамический шаблон включает другой шаблон или файл, зависящие от переменной, которая изменилась с момента начала проверки.
-Обновите страницу и начните проверку заново, это может снять проблему.",
 	'review_page_invalid' => 'Недопустимое название целевой страницы.',
 	'review_page_notexists' => 'Целевой страницы не существует.',
 	'review_page_unreviewable' => 'Целевая страница не является проверяемой.',
@@ -13154,11 +12958,6 @@ Je možné, že boli vykonané ďalšie [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&di
 	'revreview-basic-same' => 'Toto je [[{{MediaWiki:Validationpage}}|stabilná verzia]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} videná] <i>$2</i>.',
 	'revreview-basic-source' => 'Na tejto revízii bola založená [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} videná verzia] tejto stránky, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} schválená] <i>$2</i>.',
 	'revreview-failed' => "'''Nebolo možné skontrolovať túto revíziu.''' Príspevok je neúplný alebo inak neplatný.",
-	'revreview-changed' => "'''Požadovanú činnosť nebolo možné vykonať na tejto revízii stránky [[:$1|$1]].'''
-
-Šablóna alebo súbor mohol byť vyžiadaný bez uvedenia konkrétnej verzie.
-To sa môže stať, keď dynamická šablóna transkluduje iný súbor alebo šablónu v závislosti od premennej, ktorá sa zmenila, odkedy ste začali s kontrolou tejto stránky.
-Obnovením stránky a opätovnou kontrolou vyriešite tento problém.",
 	'revreview-current' => 'Koncept',
 	'revreview-depth' => 'Hĺbka',
 	'revreview-depth-0' => 'neschválené',
@@ -13285,7 +13084,6 @@ Prosím skontrolujte URL adresu, ktorú ste použili na prístup k tejto stránk
 	'tooltip-ca-default' => 'Nastavenia kontroly kvality',
 	'flaggedrevs-protect-legend' => 'Zverejniť úpravy',
 	'flaggedrevs-protect-none' => 'Povoliť všetkým používateľom',
-	'flaggedrevs-protect-basic' => 'Predvolené nastavenia',
 	'revreview-locked-title' => 'Úpravy vyžadujú kontrolu predtým, než sa zobrazia na tejto stránke!',
 	'revreview-unlocked-title' => 'Úpravy nevyžadujú kontrolu predtým, než sa zobrazia na tejto stránke!',
 	'revreview-locked' => 'Úpravy vyžadujú kontrolu predtým, než sa zobrazia na tejto stránke!',
@@ -13831,11 +13629,6 @@ Nyare [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} ändringar] ka
 	'revreview-basic-same' => 'Det här är den [[{{MediaWiki:Validationpage}}|accpeterade]] sidversionen, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} kontrollerad] den <i>$2</i>.',
 	'revreview-basic-source' => 'En [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} kontrollerad version] av den här sidan, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} godkänd] den <i>$2</i>, baserades på den här versionen.',
 	'revreview-failed' => "''Kunde inte granska denna sidversion.''' Insändningen var ofullständig eller på annat sätt ogiltig.",
-	'revreview-changed' => "'''Den begärda åtgärden kunde inte utföras på denna version av [[:$1|$1]].'''
-
-En mall eller fil kan ha efterfrågats utan att någon specifik version angavs.
-Detta kan hända om en dynamisk mall inkluderar en annan fil eller mall som beror på en variabel som ändrats efter du startade att granska denna sida.
-Att ladda om sidan och granska igen kan lösa detta problem.",
 	'review_page_invalid' => 'Målsidans titel är ogiltig.',
 	'review_page_notexists' => 'Målsidan existerar inte.',
 	'review_page_unreviewable' => 'Målsidan är inte granskningsbar.',
@@ -14451,11 +14244,6 @@ Täze [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} üýtgeşmeler
 	'revreview-basic-same' => 'Bu [[{{MediaWiki:Validationpage}}|durnukly wersiýadyr]], <i>$2</i> senesinde [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} äňedilipdir].',
 	'revreview-basic-source' => 'Bu sahypanyň [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} äňedilen wersiýasy], <i>$2</i> senesinde [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} tassyklanylypdyr], bu wersiýa esaslanýar.',
 	'revreview-failed' => "'''Bu wersiýany gözden geçirip bolmaýar.''' Tabşyrma doly däl ýa-da nädogry.",
-	'revreview-changed' => "'''Talap edilýän hereketi [[:$1|$1]] sahypasynyň bu wersiýasyna berjaý edip bolmaýar.'''
-
-Kesgitli bir wersiýa bellenilmezden, bir şablon ýa-da faýl talap edilen bolmagy ahmal.
-Munuň sebäbi dinamik bir şablonyň siz gözden geçirip başlanyňyzdan soňra üýtgän bir üýtgeýäne bagly başga bir faýly ýa-da şablony atanaklaýyn öz içine alýandygy bolmagy mümkin. 
-Sahypany täzeleseňiz we gaýtadan gözden geçirseňiz meseläniň çözülmegi mümkin.",
 	'revreview-current' => 'Garalama',
 	'revreview-depth' => 'Çuňluk',
 	'revreview-depth-0' => 'Tassyklanylmadyk',
@@ -14574,7 +14362,6 @@ Brauzeriňizde "yza" düwmesine basyň we gaýtadan synanyşyň.',
 	'tooltip-ca-default' => 'Hil tassyklamasy sazlamalary',
 	'flaggedrevs-protect-legend' => 'Özgerdişleri neşir et',
 	'flaggedrevs-protect-none' => 'Ähli ulanyjylara rugsat ber',
-	'flaggedrevs-protect-basic' => 'Gaýybana sazlamalar',
 	'revreview-locked-title' => 'Özgerdişler bu sahypada görkezilmänkä gözden geçirilmelidir.',
 	'revreview-unlocked-title' => 'Özgerdişleriň bu sahypada görkezilmänkä gözden geçirilmegi talap edilmeýär.',
 	'revreview-locked' => 'Özgerdişler bu sahypada görkezilmänkä [[{{MediaWiki:Validationpage}}|gözden geçirilmelidir]].',
@@ -14659,11 +14446,6 @@ Maaaring may mga bagong [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=
 	'revreview-basic-same' => 'Ito ang [[{{MediaWiki:Validationpage}}|tanggap na bersyon]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} nasuri] noong <i>$2</i>.',
 	'revreview-basic-source' => 'Isang [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} nasuring bersyon] ng pahinang ito, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} pinayagan] noong <i>$2</i>, na ibinatay sa rebisyong ito.',
 	'revreview-failed' => "'''Hindi nagawang masuri ang rebisyong ito.''' Kulang ang pagpapasa o sa kabilang banda ay hindi tanggap.",
-	'revreview-changed' => "'''Ang galaw na hiniling ay hindi maisagawa sa pagbabagong ito ng [[:$1|$1]].'''
-
-Maaaring hiniling ang isang suleras o talaksan noong walang tinukoyna partikular na bersyon.
-Maaaring mangyari ito kung may isang masiglang suleras na naglilipat-sama sa iba pang talaksan o suleras ayon sa isang nabagong pabagu-bagong halaga magmula nang simulan mong suriin ang pahinang ito.
-Maaaring malutas ang suliraning ito sa pamamagitan ng pagsariwa sa pahina at muling pagsuri.",
 	'review_page_invalid' => 'Hindi tanggap ang puntiryang pahina ng pamagat.',
 	'review_page_notexists' => 'Hindi umiiral ang pinupukol na pahina.',
 	'review_page_unreviewable' => 'Hindi masusuri ang puntiryang pahina.',
@@ -14811,7 +14593,6 @@ Pakisuri ang URL na ginamit para mapuntahan ang pahinang ito.',
 	'tooltip-ca-default' => 'Katakdaan ng pagtitiyak ng pagkakaroon ng mataas na uri (kalidad)',
 	'flaggedrevs-protect-legend' => 'Pagsusuri ng kusang pamamatnugot ([[{{MediaWiki:Validationpage}}|tulong]])',
 	'flaggedrevs-protect-none' => 'Pahintulutan ang lahat ng mga tagagamit',
-	'flaggedrevs-protect-basic' => 'Likas na mga katakdaan',
 	'revreview-locked-title' => 'Dapat na sinusuri munang muli ang mga pagbabago bago palitawin sa pahinang ito!',
 	'revreview-unlocked-title' => 'Hindi nangangailangan ng muling pagsusuri ang mga pagbabago bago palitawin sa pahinang ito!',
 	'revreview-locked' => 'Dapat na sinusuri munang muli ang mga pagbabago bago palitawin sa pahinang ito!',
@@ -14904,11 +14685,6 @@ Yeni [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} değişiklikler
 	'revreview-basic-same' => 'Bu en son [[{{MediaWiki:Validationpage}}|kararlı sürümdür]], <i>$2</i> tarihinde [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} kontrol edilmiştir].',
 	'revreview-basic-source' => 'Bu sayfanın [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} kontrol edilmiş bir sürümü], <i>$2</i> tarihinde [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} onaylanmış], bu revizyondan baz alınmıştır.',
 	'revreview-failed' => "'''Bu revizyon gözden geçirilemiyor.''' Gönderi tam değil ya da geçersiz.",
-	'revreview-changed' => "'''İstenen işlem [[:$1|$1]] sayfasının bu revizyonunda uygulanamıyor.'''
-
-Belirli sürüm belirlenmeden, bir şablon veya dosya istenmiş olabilir.
-Bunun sebebi, dinamik bir şablonun, sizin gözden geçirmeye başlamanızdan sonra değişen bir değişkene bağımlı başka bir dosya veya şablonu çapraz olarak içermesi olabilir.
-Sayfayı yenilemek ve yeniden gözden geçirmek sorunu çözebilir.",
 	'review_page_invalid' => 'Hedef sayfa başlığı geçersiz.',
 	'review_page_notexists' => 'Hedef sayfa mevcut değil.',
 	'review_page_unreviewable' => 'Hedef sayfa incelenebilir değil.',
@@ -15151,11 +14927,6 @@ $messages['uk'] = array(
 	'revreview-basic-same' => 'Це [[{{MediaWiki:Validationpage}}|опублікована версія]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} перевірена] <i>$2</i>.',
 	'revreview-basic-source' => '[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} Перевірена версія] цієї сторінки, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} затверджена] <i>$2</i>, виключила цю редакцію.',
 	'revreview-failed' => "'''Не вдалося перевірити версію.''' Надані дані неповні або іншим чином недійсні.",
-	'revreview-changed' => "'''Зазначена дія не може бути виконана з цією версією сторінки [[:$1|$1]].'''
-
-Можливо, вона містить шаблон або файл без зазначення конкретної версії.
-Це могло статися, якщо динамічний шаблон включає інший шаблон або файл, що залежать від змінної, яка змінилася з моменту початку перевірки.
-Оновлення сторінки і повторна перевірка можуть вирішити цю проблему.",
 	'review_page_invalid' => 'Неприпустима назва цільової сторінки.',
 	'review_page_notexists' => 'Цільової сторінки не існує.',
 	'review_bad_oldid' => 'Немає такої цільової версії.',
@@ -15376,11 +15147,6 @@ La [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} bozza] la gà [{{fullurl:{{FULLPAGENA
 Po' darse che sia stà fati [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} canbiamenti novi].",
 	'revreview-basic-same' => 'Sta qua la xe la [[{{MediaWiki:Validationpage}}|version publicà]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} verificà] el <i>$2</i>.',
 	'revreview-basic-source' => 'Na [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} version verificà] de sta pagina, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovà] el <i>$2</i>, le xe stà basà su sta version.',
-	'revreview-changed' => "'''Su sta version de [[:$1|$1]] no se pode eseguir l'azion richiesta.'''
-
-Podarìa èssar stà richiesto un modèl o un file sensa prima specificar na version.
-Questo pode capitar se un template dinamico l'include n'altro modèl o file in base a na variabile che xe canbià da quando ti gà tacà a riesaminar sta pagina.
-Par risolvar el problema próa a rinfrescar la pagina e tacar da novo a riesaminarla.",
 	'revreview-current' => 'Bozza',
 	'revreview-depth' => 'Profondità',
 	'revreview-depth-0' => 'Non aprovà',
@@ -15507,7 +15273,6 @@ Verifica l'URL che te doparà par açedere a sta pàxena.",
 	'tooltip-ca-default' => 'Inpostassion par el controlo de qualità',
 	'flaggedrevs-protect-legend' => 'Pùblica i canbiamenti',
 	'flaggedrevs-protect-none' => 'Autoriza tuti i utenti',
-	'flaggedrevs-protect-basic' => 'Inpostassion predefinìe',
 	'revreview-locked-title' => 'I canbiamenti i ga da èssar verificà prima de vegner publicà su sta pagina.',
 	'revreview-unlocked-title' => 'I canbiamenti no i ga bisogno de èssar verificà prima de vegner publicà su sta pagina.',
 	'revreview-locked' => "'''Ocio''': I canbiamenti i ga da èssar [[{{MediaWiki:Validationpage}}|verificà]] prima de vegner publicà su sta pagina.",
@@ -15589,11 +15354,6 @@ Ken-se voinuiži tehta [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0
 	'revreview-basic-source' => 'Necen lehtpolen [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} kactud versii], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} kudamban om kodvnu] <i>$2</i>, 
 om tehtud necen versijan alusel.',
 	'revreview-failed' => 'Redakcii ei ole lopnus petusen tagut!',
-	'revreview-changed' => "'''Necidä tegendad ei voi tehta necil lehtpolen [[:$1|$1]]-versijalpäi.'''
-
-Voib olda, šablon vai fail oma znamoitud niiden konkretižita versijoita.
-Nece voinuiži tehtas, ku dinamine šablon mülütab toižen šablonan vai kuvan, a ned rippudas toižetunuden kodvindan augotižkurolpäi vajehtujas luguspäi.
-Udištagat lehtpol' i augotagat kodvindad udes, nece voib koheta problemad.",
 	'revreview-current' => 'Mustkirjutuz',
 	'revreview-depth' => 'Süvuz',
 	'revreview-depth-0' => 'ei ole ozutadud',
@@ -15716,7 +15476,6 @@ sab toižetada [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}}-le
 	'tooltip-ca-default' => 'Ladun kontrolin järgendused',
 	'flaggedrevs-protect-legend' => 'Publikoita redakcijad',
 	'flaggedrevs-protect-none' => 'Kaičemata',
-	'flaggedrevs-protect-basic' => 'Seižutesed augotižjärgendusen mödhe',
 	'revreview-locked-title' => 'Pidab kodvda toižetusid edel niiden ozutamišt necil lehtpolel!',
 	'revreview-unlocked-title' => 'Toižetusiden ozutamine necil lehtpolel ei rippu niiden kodvindaspäi!',
 	'revreview-locked' => 'Pidab kodvda toižetusid edel niiden ozutamišt necil lehtpolel!',
@@ -15795,11 +15554,6 @@ $messages['vi'] = array(
 	'revreview-basic-source' => 'Một [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} bản đã xem qua] của trang này, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} được phê chuẩn] vào <i>$2</i>, 
 khác với bản này.',
 	'revreview-failed' => "'''Không thể duyệt phiên bản này.''' Dữ liệu được gửi không đầy đủ hay không hợp lệ.",
-	'revreview-changed' => "'''Không thể thực hiện tác vụ yêu cầu đối với phiên bản này của [[:$1|$1]].'''
-
-Một bản mẫu hoặc tập tin có thể được yêu cầu mà chưa chỉ định phiên bản cụ thể.
-Điều này có thể xảy ra nếu một bản mẫu động nhúng một tập tin hoặc bản mẫu khác phụ thuộc vào một biến, biến đó đã thay đổi từ khi bạn bắt đầu duyệt trang này.
-Làm tươi trang và duyệt lại có thể giải quyết vấn đề này.",
 	'review_no_oldid' => 'Không định rõ ID phiên bản.',
 	'review_denied' => 'Không cho phép.',
 	'revreview-current' => 'Bản nháp',
@@ -16298,11 +16052,6 @@ $messages['zh-hans'] = array(
 	'revreview-basic-same' => '这是[[{{MediaWiki:Validationpage}}|稳定版本]]，[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 审核于]<i>$2</i>.',
 	'revreview-basic-source' => '本页的[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} 已审核版本]，[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 审核]于<i>$2</i>。',
 	'revreview-failed' => "'''复审失败！'''这个提交资料不足，请重试。",
-	'revreview-changed' => "'''该复审的动作不可以在这次修订([[:$1|$1]])中进行。'''
-
-当无一个指定的版本时，一个模版或图片已经被请求。
-当一个动态模版包含着图片或跟变数的模版在您开始复审后改过。
-重新整理这页后再重新复审便可以解决这个问题。",
 	'review_page_invalid' => '目标页面名称是无效的',
 	'review_page_notexists' => '目标页面不存在',
 	'review_page_unreviewable' => '目标网页无法复审。',
@@ -16438,7 +16187,6 @@ $messages['zh-hans'] = array(
 	'tooltip-ca-stable' => '检视本页的稳定版本',
 	'tooltip-ca-default' => '品质保证设定',
 	'flaggedrevs-protect-none' => '容许所有用户',
-	'flaggedrevs-protect-basic' => '默认设置',
 	'revreview-locked-title' => '对本页作出的编辑必须经复审后方可显示。',
 	'revreview-unlocked-title' => '对本页作出的编辑无须经过复审即可显示。',
 	'revreview-locked' => '对本页作出的编辑必须经[[{{MediaWiki:Validationpage}}|复审]]后方可显示。',
@@ -16527,11 +16275,6 @@ $messages['zh-hant'] = array(
 	'revreview-basic-same' => '這是[[{{MediaWiki:Validationpage}}|穩定版本]]，[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 審核於]<i>$2</i>.',
 	'revreview-basic-source' => '本頁的[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} 已審核版本]，[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 審核]於<i>$2</i>。',
 	'revreview-failed' => "'''複審失敗！'''這個提交資料不足，請重試。",
-	'revreview-changed' => "'''該複審的動作不可以在這次修訂([[:$1|$1]])中進行。'''
-
-當無一個指定的版本時，一個模版或圖片已經被請求。
-當一個動態模版包含著圖片或跟變數的模版在您開始複審後改過。
-重新整理這頁後再重新複審便可以解決這個問題。",
 	'review_page_invalid' => '目標頁面名稱是無效的',
 	'review_page_notexists' => '目標頁面不存在',
 	'review_page_unreviewable' => '目標網頁無法複審。',
@@ -16675,7 +16418,6 @@ $messages['zh-hant'] = array(
 	'tooltip-ca-default' => '品質保證設定',
 	'flaggedrevs-protect-legend' => '已發佈的發訂 ([[{{MediaWiki:Validationpage}}|?]])',
 	'flaggedrevs-protect-none' => '容許所有用戶',
-	'flaggedrevs-protect-basic' => '默認設置',
 	'revreview-locked-title' => '對本頁作出的編輯必須經複審後方可顯示。',
 	'revreview-unlocked-title' => '對本頁作出的編輯無須經過複審即可顯示。',
 	'revreview-locked' => '對本頁作出的編輯必須經[[{{MediaWiki:Validationpage}}|複審]]後方可顯示。',
