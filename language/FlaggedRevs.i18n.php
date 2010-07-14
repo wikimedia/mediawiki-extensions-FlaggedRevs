@@ -259,8 +259,8 @@ Please check the URL you used to access this page.',
 	'flaggedrevs-protect-legend'   => 'Automatic edit review ([[{{MediaWiki:Validationpage}}|help]])',
 	'flaggedrevs-protect-none'     => 'Allow all users',
 	
-	'revreview-locked-title'       => 'Edits must be reviewed before being displayed to readers on this page.',
-	'revreview-unlocked-title'     => 'Edits do not require review before being displayed to readers on this page.',
+	'revreview-locked-title'       => 'Edits to this page require review.',
+	'revreview-unlocked-title'     => 'Edits to this page do not require review.',
 	'revreview-locked'             => '\'\'\'Note:\'\'\' Edits must be [[{{MediaWiki:Validationpage}}|reviewed]] before being displayed to readers on this page.',
 	'revreview-unlocked'           => '\'\'\'Note:\'\'\' Edits do not require [[{{MediaWiki:Validationpage}}|review]] before being displayed to readers on this page.',
 	
