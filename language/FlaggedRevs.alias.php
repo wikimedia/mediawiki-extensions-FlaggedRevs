@@ -12,7 +12,7 @@ $aliases = array();
  * @author Aaron Schulz
  */
 $aliases['en'] = array(
-	'OldReviewedPages' => array( 'OldReviewedPages' ),
+	'OldReviewedPages' => array( 'PendingChanges', 'OldReviewedPages' ),
 	'ProblemChanges' => array( 'ProblemChanges' ),
 	'QualityOversight' => array( 'AdvancedReviewLog', 'QualityOversight' ),
 	'ReviewedPages' => array( 'ReviewedPages' ),
