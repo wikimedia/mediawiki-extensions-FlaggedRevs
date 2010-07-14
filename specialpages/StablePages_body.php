@@ -27,7 +27,7 @@ class StablePages extends SpecialPage
 
 	protected function showForm() {
 		global $wgOut, $wgScript;
-		$wgOut->addHTML( wfMsgExt( 'stablepages-text', array( 'parseinline' ) ) );
+		$wgOut->addWikiMsg( 'stablepages-list' );
 		$fields = array();
 		# Namespace selector
 		if ( count( FlaggedRevs::getReviewNamespaces() ) > 1 ) {
@@ -39,6 +39,7 @@ class StablePages extends SpecialPage
 		}
 		$fields[] = Xml::checkLabel( wfMsg( 'stablepages-indef' ), 'indef', 
 			'stablepages-indef', $this->indef );
+		# Use form if it has options
 		if ( count( $fields ) ) {
 			$form = Xml::openElement( 'form',
 				array( 'name' => 'stablepages', 'action' => $wgScript, 'method' => 'get' ) );
@@ -54,13 +55,14 @@ class StablePages extends SpecialPage
 
 	protected function showPageList() {
 		global $wgOut;
-		$pager = new StablePagesPager( $this, array(), $this->namespace, $this->autoreview, $this->indef );
+		$pager = new StablePagesPager(
+			$this, array(), $this->namespace, $this->autoreview, $this->indef );
 		if ( $pager->getNumRows() ) {
 			$wgOut->addHTML( $pager->getNavigationBar() );
 			$wgOut->addHTML( $pager->getBody() );
 			$wgOut->addHTML( $pager->getNavigationBar() );
 		} else {
-			$wgOut->addHTML( wfMsgExt( 'configuredpages-none', array( 'parse' ) ) );
+			$wgOut->addWikiMsg( 'stablepages-none' );
 		}
 		# Take this opportunity to purge out expired configurations
 		FlaggedRevs::purgeExpiredConfigurations();
@@ -84,8 +86,8 @@ class StablePages extends SpecialPage
 			array(), array( 'page' => $title->getPrefixedText() ), 'known' );
 		# Autoreview/review restriction level
 		$restr = '';
-		if( $row->fpc_level != '' ) {
-			$restr = 'autoreview='.htmlspecialchars($row->fpc_level);
+		if ( $row->fpc_level != '' ) {
+			$restr = 'autoreview=' . htmlspecialchars( $row->fpc_level );
 			$restr = "[$restr]";
 		}
 		# When these configuration settings expire
