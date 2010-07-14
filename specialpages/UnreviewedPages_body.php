@@ -111,18 +111,18 @@ class UnreviewedPages extends SpecialPage
 		// After three days, just use days
 		if ( $hours > ( 3 * 24 ) ) {
 			$days = round( $hours / 24, 0 );
-			$age = ' ' . wfMsgExt( 'unreviewed-days', array( 'parsemag' ), $days );
+			$age = ' ' . wfMsgExt( 'unreviewed-days', array( 'parsemag' ), $wgLang->formatNum( $days ) );
 		// If one or more hours, use hours
 		} elseif ( $hours >= 1 ) {
 			$hours = round( $hours, 0 );
-			$age = ' ' . wfMsgExt( 'unreviewed-hours', array( 'parsemag' ), $hours );
+			$age = ' ' . wfMsgExt( 'unreviewed-hours', array( 'parsemag' ), $wgLang->formatNum( $hours ) );
 		} else {
 			$age = ' ' . wfMsg( 'unreviewed-recent' ); // hot off the press :)
 		}
 		if ( $wgUser->isAllowed( 'unwatchedpages' ) ) {
 			$uw = self::usersWatching( $title );
 			$watching = $uw
-				? wfMsgExt( 'unreviewed-watched', array( 'parsemag' ), $uw )
+				? wfMsgExt( 'unreviewed-watched', array( 'parsemag' ), $wgLang->formatNum( $uw ) )
 				: wfMsgHtml( 'unreviewed-unwatched' );
 			$watching = " $watching"; // Oh-noes!
 		} else {

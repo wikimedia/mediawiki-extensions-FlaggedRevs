@@ -96,7 +96,7 @@ class OldReviewedPages extends SpecialPage
 			$wgOut->addHTML( $form );
 			# Add list output
 			$num = $pager->getNumRows();
-			$wgOut->addHTML( wfMsgExt( 'oldreviewedpages-list', array( 'parse' ), $num ) );
+			$wgOut->addHTML( wfMsgExt( 'oldreviewedpages-list', array( 'parse' ), $wgLang->formatNum( $num ) ) );
 			if ( $num ) {
 				$wgOut->addHTML( $pager->getNavigationBar() );
 				$wgOut->addHTML( $pager->getBody() );
@@ -221,7 +221,7 @@ class OldReviewedPages extends SpecialPage
 		if ( !$this->including() && $wgUser->isAllowed( 'unreviewedpages' ) ) {
 			$uw = UnreviewedPages::usersWatching( $title );
 			$watching = $uw
-				? wfMsgExt( 'oldreviewedpages-watched', 'parsemag', $uw )
+				? wfMsgExt( 'oldreviewedpages-watched', 'parsemag', $wgLang->formatNum( $uw ) )
 				: wfMsgHtml( 'oldreviewedpages-unwatched' );
 			$watching = " {$watching}";
 		} else {
@@ -237,11 +237,11 @@ class OldReviewedPages extends SpecialPage
 			// After three days, just use days
 			if ( $hours > ( 3 * 24 ) ) {
 				$days = round( $hours / 24, 0 );
-				$age = wfMsgExt( 'oldreviewedpages-days', array( 'parsemag' ), $days );
+				$age = wfMsgExt( 'oldreviewedpages-days', array( 'parsemag' ), $wgLang->formatNum( $days ) );
 			// If one or more hours, use hours
 			} elseif ( $hours >= 1 ) {
 				$hours = round( $hours, 0 );
-				$age = wfMsgExt( 'oldreviewedpages-hours', array( 'parsemag' ), $hours );
+				$age = wfMsgExt( 'oldreviewedpages-hours', array( 'parsemag' ), $wgLang->formatNum( $hours ) );
 			} else {
 				$age = wfMsg( 'oldreviewedpages-recent' ); // hot off the press :)
 			}
