@@ -4167,8 +4167,8 @@ Por favor, revise la dirección que usó para acceder a esta página.',
 	'tooltip-ca-default' => 'Opciones de control de calidad',
 	'flaggedrevs-protect-legend' => 'Revisión automática de ediciones ([[{{MediaWiki:Validationpage}}|ayuda]])',
 	'flaggedrevs-protect-none' => 'Permitir todos los usuarios',
-	'revreview-locked-title' => 'Las ediciones deben ser revisadas antes de ser mostradas en esta página.',
-	'revreview-unlocked-title' => 'Las ediciones no requieren revisión antes de ser mostradas en esta página.',
+	'revreview-locked-title' => 'Las ediciones a esta página requieren revisión.',
+	'revreview-unlocked-title' => 'La ediciones a esta página no requieren revisión.',
 	'revreview-locked' => "'''Atención:''' Las ediciones deben ser [[{{MediaWiki:Validationpage}}|revisadas]] antes de ser mostradas en esta página.",
 	'revreview-unlocked' => "'''Atención:''' Las ediciones no requieren [[{{MediaWiki:Validationpage}}|revisión]] antes de ser mostradas en esta página.",
 	'log-show-hide-review' => '$1 registro de revisiones',
@@ -6683,6 +6683,7 @@ Móže być, zo dyrbiš najprjedy změny dale wobdźěłać abo "cofnyć".',
  * @author Adam78
  * @author Bdamokos
  * @author Bennó
+ * @author BáthoryPéter
  * @author Dani
  * @author Dorgan
  * @author Enbéká
@@ -6778,6 +6779,7 @@ Azóta történhettek új [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonl
 	'revreview-edit' => 'Szerkesztés',
 	'revreview-editnotice' => "'''A változtatásaid akkor lesznek közzétéve, ha egy erre jogosult felhasználó ellenőrizte őket. [[{{MediaWiki:Validationpage}}|(?)]]'''",
 	'revreview-check-flag-p' => 'Jelenleg ellenőrzésre váró változtatások közzététele',
+	'revreview-check-flag-u' => 'Ellenőrizetlen lap közzététele',
 	'revreview-edited' => "'''A változtatások akkor lesznek közzétéve, ha egy erre jogosult felhasználó ellenőrizte őket. [[{{MediaWiki:Validationpage}}|(?)]]'''
 
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} {{PLURAL:$2|Egy|$2}} változtatás vár ellenőrzésre] ''(lásd alább)''.",

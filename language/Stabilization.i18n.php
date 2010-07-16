@@ -3872,6 +3872,7 @@ $messages['uk'] = array(
 	'stabilization-def-short-1' => 'Опублікована',
 	'stabilize_page_invalid' => 'Неприпустима назва цільової сторінки.',
 	'stabilize_page_notexists' => 'Цільової сторінки не існує.',
+	'stabilize_page_unreviewable' => 'Цільова сторінка не перебуває в просторі назв, що може рецензуватись.',
 	'stabilize_expiry_invalid' => 'Помилкова дата закінчення.',
 	'stabilize_expiry_old' => 'Зазначений час закінчення пройшов.',
 	'stabilize_denied' => 'Доступ заборонено.',
