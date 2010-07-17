@@ -28,7 +28,7 @@ class ConfiguredPages extends SpecialPage
 
 	protected function showForm() {
 		global $wgOut, $wgScript;
-		$wgOut->addWikiMsg( 'configuredpages-text' );
+		$wgOut->addWikiMsg( 'configuredpages-list' );
 		$fields = array();
 		# Namespace selector
 		if ( count( FlaggedRevs::getReviewNamespaces() ) > 1 ) {

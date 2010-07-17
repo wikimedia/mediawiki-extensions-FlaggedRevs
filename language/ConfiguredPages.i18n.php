@@ -10,9 +10,7 @@ $messages = array();
 
 $messages['en'] = array(
 	'configuredpages'               => 'Pages with review configurations',
-	'configuredpages-text'          => 'Below is a list of pages configured to have different approval settings than the site default.
-
-Some settings might change which version is displayed to readers or further restrict who can make edits that don\'t require review.',
+	'configuredpages-list'          => 'Below is a list of pages configured to have different approval settings than the site default. Some settings might change which version is displayed to readers or further restrict who can make edits that don\'t require review.',
 	'configuredpages-none'          => 'There are no pages in this list.',
 	'configuredpages-config'        => 'Configuration',
 	'configuredpages-precedence'    => 'Precedence:',
@@ -73,7 +71,7 @@ $messages['arz'] = array(
  */
 $messages['be-tarask'] = array(
 	'configuredpages' => 'Старонкі з устаноўкамі рэцэнзаваньня',
-	'configuredpages-text' => 'Ніжэй пададзены сьпіс старонак, якія маюць устаноўкі зацьверджаньня, якія адрозьніваюцца ад установак сайта па змоўчваньні.
+	'configuredpages-list' => 'Ніжэй пададзены сьпіс старонак, якія маюць устаноўкі зацьверджаньня, якія адрозьніваюцца ад установак сайта па змоўчваньні.
 
 Некаторыя ўстаноўкі могуць зьмяняць вэрсію, якая паказваецца чытачам ці абмяжоўваць кола ўдзельнікаў, рэдагаваньні якіх не патрабуюць рэцэнзаваньня.',
 	'configuredpages-none' => 'У гэтым сьпісе няма старонак.',
@@ -99,7 +97,7 @@ $messages['bn'] = array(
  */
 $messages['br'] = array(
 	'configuredpages' => 'Pajennoù gant an arventennoù adlenn',
-	'configuredpages-text' => "Dindan ez eus ur roll pajennoù dezho arventennoù aprouiñ disheñvel diouzh arvezntennoù dre ziouer al lec'hienn-mañ.
+	'configuredpages-list' => "Dindan ez eus ur roll pajennoù dezho arventennoù aprouiñ disheñvel diouzh arvezntennoù dre ziouer al lec'hienn-mañ.
 
 Arventennoù zo a c'hall lakaat da cheñch ar stumm diskwelet d'al lennerien pe strishaat roll ar re a c'hall degas kemmoù n'emaint ket da vezañ gwiriet dre ret.",
 	'configuredpages-none' => "N'eus pajenn ebet er roll-mañ.",
@@ -145,7 +143,7 @@ $messages['cs'] = array(
  */
 $messages['de'] = array(
 	'configuredpages' => 'Seiten die hinsichtlich der Versionsmarkierung konfiguriert wurden',
-	'configuredpages-text' => 'Es folgt eine Liste der Seiten, deren Konfiguration zur Versionsmarkierung vom Standard der Website abweicht.
+	'configuredpages-list' => 'Es folgt eine Liste der Seiten, deren Konfiguration zur Versionsmarkierung vom Standard der Website abweicht.
 
 Einige Einstellungen können eine Abweichung hinsichtlich der Version bewirken, die dem Leser angezeigt wird. Sie können auch den Kreis derjenigen weiter einschränken, deren Bearbeitungen keine weitere Durchsicht erfordert.',
 	'configuredpages-none' => 'Diese Liste enthält keine Seiten.',
@@ -163,7 +161,7 @@ Einige Einstellungen können eine Abweichung hinsichtlich der Version bewirken, 
  */
 $messages['diq'] = array(
 	'configuredpages' => 'Pelanê ke eyaranşê kontrol est ê',
-	'configuredpages-text' => 'Cor de listeyê pelan este ke eyaranê inan pelanê binan ra zaf feqliye.
+	'configuredpages-list' => 'Cor de listeyê pelan este ke eyaranê inan pelanê binan ra zaf feqliye.
 
 Tey eyran belki vuriyena feqet versiyan inan bini de mocneyena  ya zi wedekaran eskena pelan kilit bike u nuşteyan kontrol bike.',
 	'configuredpages-none' => 'Ena liste de pelan çini yo',
@@ -181,7 +179,7 @@ Tey eyran belki vuriyena feqet versiyan inan bini de mocneyena  ya zi wedekaran 
  */
 $messages['dsb'] = array(
 	'configuredpages' => 'Boki z pśeglědowańskimi konfiguracijami',
-	'configuredpages-text' => 'Dołojce jo lisćina bokow, konfigurěrowanych, aby su druge pśizwóleńske nastajenja ako standardne sedło ma. 
+	'configuredpages-list' => 'Dołojce jo lisćina bokow, konfigurěrowanych, aby su druge pśizwóleńske nastajenja ako standardne sedło ma. 
 
 Někotare nastajenja by mógli se změniś, kótara wersija zwobraznja se cytarjam abo dalej wobgranicowaś, chto nógu změny cyniś, kótarež njepominaju se pśeglědanje.',
 	'configuredpages-none' => 'W toś tom lisćinje žedne boki njejsu.',
@@ -212,7 +210,7 @@ $messages['el'] = array(
  */
 $messages['eo'] = array(
 	'configuredpages' => 'Paĝoj kun kontrolaj konfiguradoj',
-	'configuredpages-text' => 'Jen listo de paĝoj konfiguritaj enhavi malsamajn aprobado-agordojn ol la defaŭlto de la retejo.
+	'configuredpages-list' => 'Jen listo de paĝoj konfiguritaj enhavi malsamajn aprobado-agordojn ol la defaŭlto de la retejo.
 
 Kelkaj agordoj eble ŝanĝos kiun version estos montrita al legantoj aŭ plu limigos kiu povas fari redaktojn nedevante kontroladon.',
 	'configuredpages-none' => 'Estas neniuj paĝoj en ĉi tiu listo.',
@@ -231,7 +229,7 @@ Kelkaj agordoj eble ŝanĝos kiun version estos montrita al legantoj aŭ plu lim
  */
 $messages['es'] = array(
 	'configuredpages' => 'Páginas con configuraciones de revisión',
-	'configuredpages-text' => 'Debajo se encuentra una lista de páginas que han sido configuradas para tener distintos niveles de aprobación de aquel que ofrede el sitio por defecto.
+	'configuredpages-list' => 'Debajo se encuentra una lista de páginas que han sido configuradas para tener distintos niveles de aprobación de aquel que ofrede el sitio por defecto.
 
 Algunos ajustes puede que cambien qué versión es mostrada a los lectores o puede restringir quiénes pueden realizar ediciones que no necesitan revisión posterior.',
 	'configuredpages-none' => 'No hay páginas en esta lista.',
@@ -249,7 +247,7 @@ Algunos ajustes puede que cambien qué versión es mostrada a los lectores o pue
  */
 $messages['et'] = array(
 	'configuredpages' => 'Ülevaatamissätetega leheküljed',
-	'configuredpages-text' => 'Allpool on loetletud leheküljed, millele on seatud võrgukoha vaikesätetest erinevad  heakskiitmissätted.
+	'configuredpages-list' => 'Allpool on loetletud leheküljed, millele on seatud võrgukoha vaikesätetest erinevad  heakskiitmissätted.
 
 Mõnest sättest võib oleneda, milline versioon lugejale kuvatakse või kes saab teha muudatusi, mis ei vaja ülevaatamist.',
 	'configuredpages-none' => 'Selles loendis pole lehekülgi.',
@@ -287,7 +285,7 @@ $messages['fi'] = array(
  */
 $messages['fr'] = array(
 	'configuredpages' => 'Pages avec des configurations de relecture',
-	'configuredpages-text' => "La liste ci-dessous contient les pages qui ont des paramètres d'approbation différents de ceux par défaut pour ce site.
+	'configuredpages-list' => "La liste ci-dessous contient les pages qui ont des paramètres d'approbation différents de ceux par défaut pour ce site.
 
 Certains paramètres peuvent faire apparaître une version différente pour les lecteurs ou restreindre la liste des contributeurs dont les modifications n'ont pas besoin d'être vérifiées.",
 	'configuredpages-none' => 'Il n’y a aucune page dans cette liste.',
@@ -312,7 +310,7 @@ $messages['frp'] = array(
  */
 $messages['gl'] = array(
 	'configuredpages' => 'Páxinas con configuracións de revisión',
-	'configuredpages-text' => 'A continuación está a lista coas páxinas configuradas para ter opcións de aprobación diferentes ás opcións por defecto do sitio.
+	'configuredpages-list' => 'A continuación está a lista coas páxinas configuradas para ter opcións de aprobación diferentes ás opcións por defecto do sitio.
 
 Algunhas configuracións poden facer aparecer unha versión diferente para os lectores ou restrinxir a lista de colaboradores que poden realizar edicións sen necesidade de revisión.',
 	'configuredpages-none' => 'Non hai páxinas nesta lista.',
@@ -330,7 +328,7 @@ Algunhas configuracións poden facer aparecer unha versión diferente para os le
  */
 $messages['gsw'] = array(
 	'configuredpages' => 'Syte mit Priefigsyystellige',
-	'configuredpages-text' => 'Unte het s e Lischte mit Syte, wu anderi Kontrollyystellige hän wie d Standardyystellige.
+	'configuredpages-list' => 'Unte het s e Lischte mit Syte, wu anderi Kontrollyystellige hän wie d Standardyystellige.
 
 E Deil Yystellige chenne sich villicht unterscheide, je nochdäm weli Version eme Läser aazeigt wird oder je noch Yyschränkig wär Bearbeitige ohni Priefig cha mache.',
 	'configuredpages-none' => 'S het keini Syte in däre Lischt.',
@@ -373,7 +371,7 @@ $messages['hr'] = array(
  */
 $messages['hsb'] = array(
 	'configuredpages' => 'Strony z přepruwowanskimi konfiguracijemi',
-	'configuredpages-text' => 'Deleka je lisćina stronow konfigurowanych, zo bychu druhe schwalenske nastajenja hač standardne sydło měli.
+	'configuredpages-list' => 'Deleka je lisćina stronow konfigurowanych, zo bychu druhe schwalenske nastajenja hač standardne sydło měli.
 
 Někotre nastajenja móhli změnić, kotra wersija so zwobraznja abo dale wobmjezować, štóž móže změny činić, kotrež njewužaduja sej přepruwowanje.',
 	'configuredpages-none' => 'W tutej lisćinje strony njejsu.',
@@ -391,7 +389,7 @@ Někotre nastajenja móhli změnić, kotra wersija so zwobraznja abo dale wobmje
  */
 $messages['hu'] = array(
 	'configuredpages' => 'Ellenőrzési beállításokkal rendelkező lapok',
-	'configuredpages-text' => 'Alább azok a lapok láthatóak, amelyek az alapértelmezettől eltérő ellenőrzési beállítással rendelkeznek.
+	'configuredpages-list' => 'Alább azok a lapok láthatóak, amelyek az alapértelmezettől eltérő ellenőrzési beállítással rendelkeznek.
 
 Néhány beállítás megváltoztathatja, az olvasók melyik változatot látják, vagy tovább szűkítheti, kik szerkeszthetnek ellenőrzés nélkül.',
 	'configuredpages-none' => 'Nem található egyetlen lap sem a listában.',
@@ -409,7 +407,7 @@ Néhány beállítás megváltoztathatja, az olvasók melyik változatot látjá
  */
 $messages['ia'] = array(
 	'configuredpages' => 'Paginas con configurationes de revision',
-	'configuredpages-text' => 'Hic infra es un lista de paginas con configurationes de approbation differente del predefinition del sito.
+	'configuredpages-list' => 'Hic infra es un lista de paginas con configurationes de approbation differente del predefinition del sito.
 
 Alcun configurationes pote cambiar le version que es monstrate al lectores o limitar ulteriormente le personas qui pote facer modificationes que non require revision.',
 	'configuredpages-none' => 'Il non ha paginas in iste lista.',
@@ -455,7 +453,7 @@ $messages['it'] = array(
  */
 $messages['ja'] = array(
 	'configuredpages' => '査読設定のあるページ',
-	'configuredpages-text' => '以下は、サイトの既定とは異なる承認設定がされているページの一覧です。
+	'configuredpages-list' => '以下は、サイトの既定とは異なる承認設定がされているページの一覧です。
 
 設定の中には、読者に表示される版を変えたり、査読なしに変更を加えることのできる利用者をより厳しく制限したりするものが含まれる可能性があります。',
 	'configuredpages-none' => 'この一覧にはページがありません。',
@@ -488,7 +486,7 @@ $messages['ka'] = array(
  */
 $messages['ko'] = array(
 	'configuredpages' => '검토 설정이 되어 있는 문서',
-	'configuredpages-text' => '다음은 기본값과 다른 검토 설정이 되어 있는 문서의 목록입니다.
+	'configuredpages-list' => '다음은 기본값과 다른 검토 설정이 되어 있는 문서의 목록입니다.
 
 어떤 설정은 독자에게 보여지는 판을 바꾸거나 검토 없이 편집할 수 있는 사용자를 제한할 수 있습니다.',
 	'configuredpages-none' => '이 목록에 문서가 없습니다.',
@@ -513,7 +511,7 @@ $messages['ksh'] = array(
  */
 $messages['lb'] = array(
 	'configuredpages' => 'Säite mat Nokuck-Konfiguratioun',
-	'configuredpages-text' => 'Hei ënnendrënner ass eng Lëscht mat Säiten déi aner Zoustëmmungsparameter hunn wéi dat Standard op dësem Site ass.
+	'configuredpages-list' => 'Hei ënnendrënner ass eng Lëscht mat Säiten déi aner Zoustëmmungsparameter hunn wéi dat Standard op dësem Site ass.
 
 Verschidden Astellungen kënne beaflosse wat fir eng Versioun de Lieser gewise gëtt oder esouguer limitéiere wien Ännerunge maache kann déi net mussen nogekuckt ginn.',
 	'configuredpages-none' => 'Et gëtt keng Säiten op dëser Lëscht.',
@@ -531,7 +529,7 @@ Verschidden Astellungen kënne beaflosse wat fir eng Versioun de Lieser gewise g
  */
 $messages['mk'] = array(
 	'configuredpages' => 'Страници со прилагодувања за преглед',
-	'configuredpages-text' => 'Подолу е наведен списокот на страници што се прилагодени со поинакви поставки за одобрување од основните на мрежното место.
+	'configuredpages-list' => 'Подолу е наведен списокот на страници што се прилагодени со поинакви поставки за одобрување од основните на мрежното место.
 
 Некои поставки може да ја променат верзијата што ќе им се прикажува на корисниците, или уште повеќе да ограничи кој сè може да врши уредувања без да треба тие да се прегледуваат.',
 	'configuredpages-none' => 'Нема страници на овој список.',
@@ -549,7 +547,7 @@ $messages['mk'] = array(
  */
 $messages['ml'] = array(
 	'configuredpages' => 'സംശോധന ക്രമീകരണങ്ങൾ ഉള്ള താളുകൾ',
-	'configuredpages-text' => 'സൈറ്റിൽ സ്വതേ വിവിധ അംഗീകാര സജ്ജീകരണങ്ങളുള്ള താളുകളാണ് താഴെ കൊടുത്തിരിക്കുന്നത്.
+	'configuredpages-list' => 'സൈറ്റിൽ സ്വതേ വിവിധ അംഗീകാര സജ്ജീകരണങ്ങളുള്ള താളുകളാണ് താഴെ കൊടുത്തിരിക്കുന്നത്.
 
 വായനക്കാർക്ക് ഏത് പതിപ്പുകൾ പ്രദർശിപ്പിക്കണം എന്നതനുസരിച്ചോ, സംശോധനം ഒഴിവാക്കി ആർക്കൊക്കെ തിരുത്താം എന്നതടിസ്ഥാനപ്പെടുത്തിയോ ചില സജ്ജീകരണങ്ങൾ മാറാവുന്നതാണ്.',
 	'configuredpages-none' => 'ഈ പട്ടികയിൽ താളുകളൊന്നുമില്ല.',
@@ -573,7 +571,7 @@ $messages['mt'] = array(
  */
 $messages['nl'] = array(
 	'configuredpages' => "Pagina's met controleinstellingen",
-	'configuredpages-text' => "Deze pagina bevat een lijst met pagina's waarvoor de controleinstellingen afwijken van de standaardinstellingen.
+	'configuredpages-list' => "Deze pagina bevat een lijst met pagina's waarvoor de controleinstellingen afwijken van de standaardinstellingen.
 
 Instellingen wijzigen welke versie wordt weergegeven aan lezers of beperken wie kan kan bewerken zonder dat controle noodzakelijk is.",
 	'configuredpages-none' => "Er zijn geen pagina's die aan de criteria voldoen.",
@@ -598,7 +596,7 @@ $messages['nn'] = array(
  */
 $messages['no'] = array(
 	'configuredpages' => 'Sider med revisjonsinnstillinger',
-	'configuredpages-text' => 'Nedenfor er en liste over sider som er satt opp med godkjenningsinnstillinger som er forskjellig fra nettstedsstandarden.
+	'configuredpages-list' => 'Nedenfor er en liste over sider som er satt opp med godkjenningsinnstillinger som er forskjellig fra nettstedsstandarden.
 
 Enkelte innstillinger kan endre hvilken versjon som vises til lesere eller ytterligere begrense hvem som kan gjøre endringer som ikke krever revidering.',
 	'configuredpages-none' => 'Det er ingen sider i denne listen.',
@@ -629,7 +627,7 @@ $messages['oc'] = array(
  */
 $messages['pl'] = array(
 	'configuredpages' => 'Strony ze skonfigurowanym oznaczaniem',
-	'configuredpages-text' => 'Poniżej znajduje się lista stron, których ustawienia zatwierdzania są inne niż domyślne.
+	'configuredpages-list' => 'Poniżej znajduje się lista stron, których ustawienia zatwierdzania są inne niż domyślne.
 
 Niektóre ustawienia można zmieniać jak wersja widoczna dla czytelników czy dodatkowe ograniczenie osób, których edycje nie wymagają sprawdzania.',
 	'configuredpages-none' => 'Brak stron na tej liście.',
@@ -648,7 +646,7 @@ Niektóre ustawienia można zmieniać jak wersja widoczna dla czytelników czy d
  */
 $messages['pms'] = array(
 	'configuredpages' => 'Pàgine con configurassion ëd revision',
-	'configuredpages-text' => "Sota a-i é na lista ëd pagine configurà për avèj d'ampostassion d'aprovassion diferente da lë stàndard dël sit.
+	'configuredpages-list' => "Sota a-i é na lista ëd pagine configurà për avèj d'ampostassion d'aprovassion diferente da lë stàndard dël sit.
 
 Chèiche ampostassion a peulo cangé che version a l'é smonùa ai letor o rëstrenze ëd pi chi ch'a peul fé 'd modìfiche ch'a l'han pa damanca ëd revision.",
 	'configuredpages-none' => 'A-i son gnun-e pàgine an sta lista-sì.',
@@ -673,7 +671,7 @@ $messages['ps'] = array(
  */
 $messages['pt'] = array(
 	'configuredpages' => 'Páginas com configuração de revisão',
-	'configuredpages-text' => 'Segue-se uma lista de páginas configuradas com parâmetros de aprovação diferentes dos normais do site.
+	'configuredpages-list' => 'Segue-se uma lista de páginas configuradas com parâmetros de aprovação diferentes dos normais do site.
 
 Alguns parâmetros podem alterar a versão que é apresentada aos utilizadores, ou aumentar a restrição de quem pode fazer edições que não requerem revisão.',
 	'configuredpages-none' => 'Não existem páginas nesta lista.',
@@ -691,7 +689,7 @@ Alguns parâmetros podem alterar a versão que é apresentada aos utilizadores, 
  */
 $messages['pt-br'] = array(
 	'configuredpages' => 'Páginas com configuração de revisão',
-	'configuredpages-text' => 'Segue-se uma lista de páginas configuradas com parâmetros de aprovação diferentes do padrão do site.
+	'configuredpages-list' => 'Segue-se uma lista de páginas configuradas com parâmetros de aprovação diferentes do padrão do site.
 
 Alguns parâmetros podem alterar a versão que é apresentada aos usuários, ou aumentar a restrição de quem pode fazer edições que não requerem revisão.',
 	'configuredpages-none' => 'Não existem páginas nesta lista.',
@@ -724,7 +722,7 @@ $messages['roa-tara'] = array(
  */
 $messages['ru'] = array(
 	'configuredpages' => 'Страницы с настройками проверки',
-	'configuredpages-text' => 'Ниже приведён список страниц, имеющих настройки подтверждения отличные от настроек сайта по умолчанию.
+	'configuredpages-list' => 'Ниже приведён список страниц, имеющих настройки подтверждения отличные от настроек сайта по умолчанию.
 
 Некоторые параметры могут быть изменены, какая версия отображается для читателей, кто сможет вносить изменения, не требующие проверки.',
 	'configuredpages-none' => 'В данном списке нет страниц.',
@@ -787,7 +785,7 @@ $messages['sr-el'] = array(
  */
 $messages['sv'] = array(
 	'configuredpages' => 'Sidor med granskningsinställningar',
-	'configuredpages-text' => 'Nedan är en lista över sidor konfigurerade för att ha olika godkännandeinställningar än platsens standard.
+	'configuredpages-list' => 'Nedan är en lista över sidor konfigurerade för att ha olika godkännandeinställningar än platsens standard.
 
 Vissa inställningar kan ändra vilken version som visas för läsarna eller ytterligare begränsa vem som kan göra ändringar som inte kräver granskning.',
 	'configuredpages-none' => 'Det finns inga sidor i den här listan.',
@@ -830,7 +828,7 @@ $messages['tk'] = array(
  */
 $messages['tl'] = array(
 	'configuredpages' => 'Mga pahinang may kaayusan ng pagsusuri',
-	'configuredpages-text' => "Nasa ibaba ang isang talaan ng mga pahinan inayos upang magkaroon ng iba't ibang mga pagtatakda ng pagpayag kaysa sa katakdaan ng sityo.
+	'configuredpages-list' => "Nasa ibaba ang isang talaan ng mga pahinan inayos upang magkaroon ng iba't ibang mga pagtatakda ng pagpayag kaysa sa katakdaan ng sityo.
 
 May ilang mga pagtatakdang maaaring magbago na ang bersyon ay ipinapakita sa mga mambabasa o magbabawal pa lalo kung sino ang makapamamatnugot na hindi nangangailangan ng pagsusuri.",
 	'configuredpages-none' => 'Walang mga pahina sa loob ng talaang ito.',
@@ -849,7 +847,7 @@ May ilang mga pagtatakdang maaaring magbago na ang bersyon ay ipinapakita sa mga
  */
 $messages['tr'] = array(
 	'configuredpages' => 'İnceleme yapılandırması olan sayfalar',
-	'configuredpages-text' => 'Aşağıdaki, site varsayılanından farklı onay ayarına sahip olarak yapılandırılmış sayfaların bir listesidir.
+	'configuredpages-list' => 'Aşağıdaki, site varsayılanından farklı onay ayarına sahip olarak yapılandırılmış sayfaların bir listesidir.
 
 Bazı ayarlar, okuyuculara hangi sürümün görüntüleneceğini değiştirebilir ya da inceleme gerektirmeyen değişiklikleri kimin yapabileceğini ayrıca kısıtlayabilir.',
 	'configuredpages-none' => 'Bu listede hiç sayfa yok.',
@@ -868,7 +866,7 @@ Bazı ayarlar, okuyuculara hangi sürümün görüntüleneceğini değiştirebil
  */
 $messages['uk'] = array(
 	'configuredpages' => 'Сторінки з налаштуваннями рецензування',
-	'configuredpages-text' => 'Далі наведено список сторінок, які мають відмінні від звичайних налаштування перевірки.
+	'configuredpages-list' => 'Далі наведено список сторінок, які мають відмінні від звичайних налаштування перевірки.
 
 Деякі параметри можуть міняти, яку версію показувати читачам або хто може вносити зміни, які не потребують перевірки.',
 	'configuredpages-none' => 'У цьому списку немає сторінок.',
@@ -901,7 +899,7 @@ $messages['vep'] = array(
  */
 $messages['vi'] = array(
 	'configuredpages' => 'Các trang có cấu hình duyệt tùy biến',
-	'configuredpages-text' => 'Đây là danh sách các trang được cấu hình duyệt khác với mặc định của website.
+	'configuredpages-list' => 'Đây là danh sách các trang được cấu hình duyệt khác với mặc định của website.
 
 Một số tùy chọn có thể có ảnh hưởng đến phiên bản được trình bày cho độc giả hoặc hạn chế những người có thể sửa đổi không cần duyệt sau.',
 	'configuredpages-none' => 'Danh sách không có trang nào.',
@@ -919,7 +917,7 @@ Một số tùy chọn có thể có ảnh hưởng đến phiên bản được
  */
 $messages['zh-hans'] = array(
 	'configuredpages' => '已设定审核的页面',
-	'configuredpages-text' => '下面是使用非站点默认审核设置的页面列表。
+	'configuredpages-list' => '下面是使用非站点默认审核设置的页面列表。
 
 一些设置可能改变读者显示版本，也可能进一步限制哪些用户的编辑无需审核。',
 	'configuredpages-none' => '本页面清单为空。',
@@ -937,7 +935,7 @@ $messages['zh-hans'] = array(
  */
 $messages['zh-hant'] = array(
 	'configuredpages' => '頁面已有複審設定',
-	'configuredpages-text' => '下面是已有和站點預設設定不同的審核設定。
+	'configuredpages-list' => '下面是已有和站點預設設定不同的審核設定。
 
 部份設定的更改是向讀者展示的。',
 	'configuredpages-none' => '沒有頁面在這個清單中',
