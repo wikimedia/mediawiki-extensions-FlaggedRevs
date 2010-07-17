@@ -31,18 +31,17 @@ class ReviewedVersions extends UnlistedSpecialPage
 	}
 
 	protected function showStableList() {
-		global $wgOut, $wgUser;
+		global $wgOut, $wgUser, $wgLang;
 		# Must be a content page
 		if ( !FlaggedRevs::inReviewNamespace( $this->page ) ) {
-			$wgOut->addHTML( wfMsgExt( 'reviewedversions-none', array( 'parse' ),
-				$this->page->getPrefixedText() ) );
+			$wgOut->addWikiMsg( 'reviewedversions-none', $this->page->getPrefixedText() );
 			return;
 		}
 		$pager = new ReviewedVersionsPager( $this, array(), $this->page );
 		$num = $pager->getNumRows();
 		if ( $num ) {
-			$wgOut->addHTML( wfMsgExt( 'reviewedversions-list', array( 'parse' ),
-				$this->page->getPrefixedText(), $num ) );
+			$wgOut->addWikiMsg( 'reviewedversions-list',
+				$this->page->getPrefixedText(), $wgLang->formatNum( $num ) );
 			$wgOut->addHTML( $pager->getNavigationBar() );
 			$wgOut->addHTML( "<ul>" . $pager->getBody() . "</ul>" );
 			$wgOut->addHTML( $pager->getNavigationBar() );

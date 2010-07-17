@@ -71,7 +71,7 @@ class ReviewedPages extends SpecialPage
 		if ( $num ) {
 			// Text to explain level select (if there are several levels)
 			if ( FlaggedRevs::qualityVersions() ) {
-				$wgOut->addHTML( wfMsgExt( 'reviewedpages-list', array( 'parse' ), $wgLang->formatNum( $num ) ) );
+				$wgOut->addWikiMsg( 'reviewedpages-list', $wgLang->formatNum( $num ) );
 			}
 			$wgOut->addHTML( $pager->getNavigationBar() );
 			$wgOut->addHTML( $pager->getBody() );

@@ -79,14 +79,14 @@ class ProblemChanges extends SpecialPage
 				$wgOut->addHTML( $pager->getBody() );
 				$wgOut->addHTML( $pager->getNavigationBar() );
 			} else {
-				$wgOut->addHTML( wfMsgExt( 'problemchanges-none', array( 'parse' ) ) );
+				$wgOut->addWikiMsg( 'problemchanges-none' );
 			}
 		// If this page is transcluded...
 		} else {
 			if ( $pager->getNumRows() ) {
 				$wgOut->addHTML( $pager->getBody() );
 			} else {
-				$wgOut->addHTML( wfMsgExt( 'problemchanges-none', array( 'parse' ) ) );
+				$wgOut->addWikiMsg( 'problemchanges-none' );
 			}
 		}
 	}

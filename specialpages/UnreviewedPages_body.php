@@ -80,12 +80,12 @@ class UnreviewedPages extends SpecialPage
 		$pager = new UnreviewedPagesPager( $this, $live, $namespace,
 			!$hideRedirs, $category, $level );
 		if ( $pager->getNumRows() ) {
-			$wgOut->addHTML( wfMsgExt( 'unreviewed-list', array( 'parse' ) ) );
+			$wgOut->addWikiMsg( 'unreviewed-list' );
 			$wgOut->addHTML( $pager->getNavigationBar() );
 			$wgOut->addHTML( $pager->getBody() );
 			$wgOut->addHTML( $pager->getNavigationBar() );
 		} else {
-			$wgOut->addHTML( wfMsgExt( 'unreviewed-none', array( 'parse' ) ) );
+			$wgOut->addWikiMsg( 'unreviewed-none' );
 		}
 	}
 	
@@ -110,11 +110,11 @@ class UnreviewedPages extends SpecialPage
 		$hours = ( $currentTime - $firstPendingTime ) / 3600;
 		// After three days, just use days
 		if ( $hours > ( 3 * 24 ) ) {
-			$days = round( $hours / 24, 0 );
+			$days = $wgLang->formatNum( round( $hours / 24, 0 ) );
 			$age = ' ' . wfMsgExt( 'unreviewed-days', array( 'parsemag' ), $wgLang->formatNum( $days ) );
 		// If one or more hours, use hours
 		} elseif ( $hours >= 1 ) {
-			$hours = round( $hours, 0 );
+			$hours = $wgLang->formatNum( round( $hours, 0 ) );
 			$age = ' ' . wfMsgExt( 'unreviewed-hours', array( 'parsemag' ), $wgLang->formatNum( $hours ) );
 		} else {
 			$age = ' ' . wfMsg( 'unreviewed-recent' ); // hot off the press :)
@@ -122,7 +122,7 @@ class UnreviewedPages extends SpecialPage
 		if ( $wgUser->isAllowed( 'unwatchedpages' ) ) {
 			$uw = self::usersWatching( $title );
 			$watching = $uw
-				? wfMsgExt( 'unreviewed-watched', array( 'parsemag' ), $wgLang->formatNum( $uw ) )
+				? wfMsgExt( 'unreviewed-watched', 'parsemag', $wgLang->formatNum( $uw ) )
 				: wfMsgHtml( 'unreviewed-unwatched' );
 			$watching = " $watching"; // Oh-noes!
 		} else {
@@ -130,7 +130,8 @@ class UnreviewedPages extends SpecialPage
 		}
 		$css = self::getLineClass( $hours, $uw );
 		$css = $css ? " class='$css'" : "";
-		$pageId = isset( $row->page_id ) ? $row->page_id : $row->qc_value;
+		$pageId = isset( $row->page_id ) ?
+			$row->page_id : $row->qc_value;
 		$key = wfMemcKey( 'unreviewedPages', 'underReview', $pageId );
 		$val = $wgMemc->get( $key );
 		# Show if a user is looking at this page
@@ -146,9 +147,10 @@ class UnreviewedPages extends SpecialPage
 	/**
 	 * Get number of users watching a page. Max is 5.
 	 * @param Title $title
+	 * @return int
 	 */
-	public static function usersWatching( $title ) {
-		global $wgMiserMode;
+	public static function usersWatching( Title $title ) {
+		global $wgMiserMode, $wgCookieExpiration;
 		$dbr = wfGetDB( DB_SLAVE );
 		$count = - 1;
 		if ( $wgMiserMode ) {
@@ -160,7 +162,6 @@ class UnreviewedPages extends SpecialPage
 		}
 		# If it is small, just COUNT() it, otherwise, stick with estimate...
 		if ( $count == - 1 || $count <= 100 ) {
-			global $wgCookieExpiration;
 			# Get number of active editors watchling this
 			$cutoff = $dbr->timestamp( wfTimestamp( TS_UNIX ) - 2 * $wgCookieExpiration );
 			$res = $dbr->select( array( 'watchlist', 'user' ), '1',
@@ -174,7 +175,7 @@ class UnreviewedPages extends SpecialPage
 			);
 			$count = $dbr->numRows( $res );
 		}
-		return $count;
+		return (int)$count;
 	}
 	
 	protected static function getLineClass( $hours, $uw ) {
