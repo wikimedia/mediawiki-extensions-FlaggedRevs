@@ -424,9 +424,11 @@ Alcun configurationes pote cambiar le version que es monstrate al lectores o lim
 
 /** Indonesian (Bahasa Indonesia)
  * @author ArdWar
+ * @author Farras
  * @author Kenrick95
  */
 $messages['id'] = array(
+	'configuredpages' => 'Halaman dengan konfigurasi pratayang',
 	'configuredpages-none' => 'Tidak ada halaman di dalam daftar ini',
 	'configuredpages-config' => 'Pengaturan',
 	'configuredpages-precedence' => 'Diutamakan:',

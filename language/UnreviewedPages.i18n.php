@@ -299,10 +299,12 @@ $messages['cu'] = array(
 );
 
 /** Danish (Dansk)
+ * @author Froztbyte
  * @author Jon Harald Søby
  */
 $messages['da'] = array(
 	'unreviewed-category' => 'Kategori:',
+	'unreviewed-recent' => '(mindre end 1 time)',
 );
 
 /** German (Deutsch)

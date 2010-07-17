@@ -727,14 +727,20 @@ Při změně nastavení ''přednost výběru stabilní verze'', aby se standardn
 );
 
 /** Danish (Dansk)
+ * @author Froztbyte
  * @author Jon Harald Søby
  */
 $messages['da'] = array(
 	'stabilization-submit' => 'Bekræft',
+	'stabilization-comment' => 'Årsag:',
+	'stabilization-otherreason' => 'Anden årsag:',
 	'stabilization-expiry' => 'Udløb:',
+	'stabilization-othertime' => 'Anden tid:',
+	'stabilization-sel-short-0' => 'Kvalitet',
 	'stabilization-sel-short-1' => 'Ingen',
 	'stabilization-def-short' => 'Standard',
 	'stabilization-def-short-0' => 'Nuværende',
+	'stabilize_denied' => 'Tilgang nægtet.',
 	'stabilize-expiring' => 'til $1 (UTC)',
 );
 
@@ -1790,6 +1796,7 @@ Nulle configuration es possibile.',
 /** Indonesian (Bahasa Indonesia)
  * @author ArdWar
  * @author Bennylin
+ * @author Farras
  * @author Irwangatot
  * @author Kenrick95
  * @author Rex
@@ -1803,15 +1810,15 @@ Saat mengubah  konfigurasi ''pilihan versi stabil'' gunakan revisi \"berkualitas
 pastikan untuk memeriksa apakah ada yang benar-benar seperti revisi di halaman, jika ada perubahan akan sedikit berpengaruh.",
 	'stabilization-perm' => 'Akun Anda tak memiliki hak untuk mengganti konfigurasi versi stabil. Berikut konfigurasi terkini dari [[:$1|$1]]:',
 	'stabilization-page' => 'Nama halaman:',
-	'stabilization-leg' => 'Konfirmasi konfigurasi versi stabil',
+	'stabilization-leg' => 'Konfirmasi pengaturan versi stabil',
 	'stabilization-select' => 'Pemilihan versi stabil sebelumnya',
 	'stabilization-select1' => 'Revisi layak terakhir; jika tak ada, versi terperiksa terakhir',
-	'stabilization-select2' => 'Revisi stabil terakhir, tanpa memandang tingkat validasi',
+	'stabilization-select2' => 'Revisi stabil terakhir',
 	'stabilization-select3' => 'Revisi asli terakhir; jika tidak ada, versi layak atau terperiksa terakhir',
 	'stabilization-def' => 'Revisi yang ditampilkan sebagai tampilan baku halaman',
-	'stabilization-def1' => 'Revisi stabil; jika tak ada, maka terkini/konsep',
-	'stabilization-def2' => 'Revisi terkini/konsep',
-	'stabilization-restrict' => 'Pembatasan auto-peninjau',
+	'stabilization-def1' => 'Revisi stabil; jika tidak ada, maka revisi terkini',
+	'stabilization-def2' => 'Revisi terkini',
+	'stabilization-restrict' => 'Pembatasan tinjauan/tinjauan otomatis',
 	'stabilization-restrict-none' => 'Tidak ada tambahan pembatasan',
 	'stabilization-submit' => 'Konfirmasi',
 	'stabilization-notexists' => 'Tak ada halaman berjudul "[[:$1|$1]]".
@@ -1830,12 +1837,13 @@ Konfigurasi tak dapat diterapkan.',
 	'stabilization-def-short-0' => 'Terkini',
 	'stabilization-def-short-1' => 'Stabil',
 	'stabilize_page_invalid' => 'Judul halaman tujuan tidak sah.',
-	'stabilize_page_notexists' => 'Halaman $1 tidak ditemukan.',
+	'stabilize_page_notexists' => 'Halaman yang dituju tidak ditemukan',
 	'stabilize_page_unreviewable' => 'Halaman yang dituju tidak berada dalam ruang nama yang dapat ditinjau.',
+	'stabilize_invalid_autoreview' => 'Pembatasan tinjauan otomatis tidak sah.',
 	'stabilize_invalid_level' => 'Tingkat perlindungan tidak valid.',
 	'stabilize_expiry_invalid' => 'Tanggal kadaluwarsa tak valid.',
 	'stabilize_expiry_old' => 'Tanggal kadaluwarsa telah terlewati.',
-	'stabilize_denied' => 'Hak ases ditolak',
+	'stabilize_denied' => 'Izin ditolak.',
 	'stabilize-expiring' => 'kadaluwarsa $1 (UTC)',
 	'stabilization-review' => 'Tinjau versi sekarang',
 );
@@ -3873,6 +3881,9 @@ $messages['uk'] = array(
 	'stabilize_page_invalid' => 'Неприпустима назва цільової сторінки.',
 	'stabilize_page_notexists' => 'Цільової сторінки не існує.',
 	'stabilize_page_unreviewable' => 'Цільова сторінка не перебуває в просторі назв, що може рецензуватись.',
+	'stabilize_invalid_precedence' => 'Неправильний пріоритет версій.',
+	'stabilize_invalid_autoreview' => 'Невірне обмеження автоматичного рецензування.',
+	'stabilize_invalid_level' => 'Невірний рівень захисту.',
 	'stabilize_expiry_invalid' => 'Помилкова дата закінчення.',
 	'stabilize_expiry_old' => 'Зазначений час закінчення пройшов.',
 	'stabilize_denied' => 'Доступ заборонено.',

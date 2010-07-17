@@ -167,6 +167,13 @@ $messages['cs'] = array(
 	'stablepages-config' => 'Konfigurace',
 );
 
+/** Danish (Dansk)
+ * @author Froztbyte
+ */
+$messages['da'] = array(
+	'stablepages-config' => 'Konfiguration',
+);
+
 /** German (Deutsch)
  * @author Kghbln
  * @author MF-Warburg
@@ -185,15 +192,16 @@ Bearbeitungen von anderen Bentzern werden standardmäßig solange nicht angezeig
 
 /** Zazaki (Zazaki)
  * @author Aspar
+ * @author Mirzali
  * @author Xoser
  */
 $messages['diq'] = array(
 	'stablepages' => 'Pelanê ke vurnayise testiqi ser hewitiyeno',
 	'stablepages-list' => 'Cor de yew liste este ke ey de teyna pelan ke teyna belli karberan eşkeni maqalayen bivurne u kontrol gani niya.
 Vurnayişan otomatik qeyd nibena eka yew karberanê binan meqale vurne heta yew gorevli kontral bike.',
-	'stablepages-none' => 'na liste de pel çino',
-	'stablepages-config' => 'vıraştış',
-	'stablepages-indef' => 'teyna expireya ebedi',
+	'stablepages-none' => 'Ena liste de qet peli çıniyê.',
+	'stablepages-config' => 'Vıraştış',
+	'stablepages-indef' => 'Tenya vêrdışo ebedi',
 );
 
 /** Lower Sorbian (Dolnoserbski)
@@ -415,6 +423,7 @@ $messages['ia'] = array(
 
 /** Indonesian (Bahasa Indonesia)
  * @author Bennylin
+ * @author Farras
  * @author Irwangatot
  * @author Iwan Novirion
  * @author Rex
@@ -424,6 +433,7 @@ $messages['id'] = array(
 	'stablepages-list' => 'Di bawah ini adalah daftar halaman yang dibatasi sehingga hanya pengguna tertentu dapat melakukan penyuntingan yang tidak membutuhkan peninjauan. Suntingan yang dilakukan pengguna lain tidak akan ditampilkan ke pembaca secara langsung sampai seorang pengguna yang diberi kuasa meninjaunya.',
 	'stablepages-none' => 'Tidak ada halaman di dalam daftar ini',
 	'stablepages-config' => 'Konfigurasi',
+	'stablepages-indef' => 'Hanya untuk kadaluwarsa tak terbatas',
 );
 
 /** Italian (Italiano)

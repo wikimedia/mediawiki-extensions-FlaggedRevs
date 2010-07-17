@@ -296,6 +296,7 @@ Please check the URL you used to access this page.',
  * @author Siebrand
  * @author Tgr
  * @author Umherirrender
+ * @author Тест
  */
 $messages['qqq'] = array(
 	'action-review' => '{{doc-action|review}}',
@@ -397,7 +398,6 @@ Displayed on the top of a page when you are viewing an old sighted version.
 * Example: [http://de.wikipedia.org/w/index.php?title=Deutsche_Sprache&oldid=46894374 de.wikipedia].
 * Parameter $2 is the date of the approval',
 	'revreview-failed' => '{{Flagged Revs}}',
-	'revreview-changed' => '{{Flagged Revs}}',
 	'review_bad_key' => 'When you review, you specify the template/file versions to use. The key given by the user must match a special hash salted with those parameters. This makes it so users can only use the template/file versions as shown on the form they submitted on, rather than sending their own arbitrary values.',
 	'revreview-current' => '{{Flagged Revs}}',
 	'revreview-depth' => '{{Flagged Revs}}',
@@ -562,15 +562,12 @@ A group in [[Special:SpecialPages]] for all special pages of the Flagged Revs ex
 	'revreview-lev-basic' => '{{Flagged Revs}}',
 	'revreview-lev-quality' => '{{Flagged Revs}}',
 	'revreview-lev-pristine' => '{{Flagged Revs}}',
-	'revreview-reviewlink' => '{{Flagged Revs}}
-
-{{Identical|Review}}',
+	'revreview-reviewlink' => '{{Flagged Revs}}',
 	'tooltip-ca-current' => '{{Flagged Revs}}',
 	'tooltip-ca-stable' => '{{Flagged Revs}}',
 	'tooltip-ca-default' => '{{Flagged Revs}}',
 	'flaggedrevs-protect-legend' => '{{FlaggedRevs}}',
 	'flaggedrevs-protect-none' => '{{Flagged Revs}}',
-	'flaggedrevs-protect-basic' => '{{FlaggedRevs}}',
 	'revreview-locked-title' => '{{Flagged Revs}}',
 	'revreview-unlocked-title' => '{{Flagged Revs}}',
 	'revreview-locked' => '{{Flagged Revs}}',
@@ -2120,6 +2117,7 @@ $messages['br'] = array(
 	'revreview-edit' => 'Kemmañ',
 	'revreview-editnotice' => "'''Ho kemmoù a vo embannet pa 'vo bet adlennet gant un implijer en deus ar gwirioù a zere. ([[{{MediaWiki:Validationpage}}|?]])'''",
 	'revreview-check-flag-p' => "Embann ar c'hemmoù o c'hortoz er mare-mañ",
+	'revreview-check-flag-u' => 'Asantiñ ar bajenn nann-adwelet-mañ',
 	'revreview-check-flag-y' => "Degemer ar c'hemmoù-mañ",
 	'revreview-check-flag-y-title' => "Degemer an holl gemmoù hoc'h eus graet er c'hemm-mañ.",
 	'revreview-submitedit' => 'Kinnigit ho kemmoù',
@@ -7184,7 +7182,7 @@ $messages['id'] = array(
 	'flaggedrevs' => 'Revisi bertanda',
 	'flaggedrevs-watched-pending' => "Saat ini ada halaman [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} suntingan tertunda] untuk ditinjau dalam daftar pantauan Anda. '''Memerlukan perhatian anda!'''",
 	'flaggedrevs-desc' => 'Memberikan fasilitas bagi Editor atau Peninjau untuk memvalidasi versi-versi artikel dan menandai sebagai stabil',
-	'flaggedrevs-pref-UI' => 'Antarmuka versi stabil:',
+	'flaggedrevs-pref-UI' => 'Antarmuka dasar:',
 	'flaggedrevs-pref-UI-0' => 'Gunakan antarmuka pengguna detail untuk versi stabil',
 	'flaggedrevs-pref-UI-1' => 'Gunakan antarmuka pengguna sederhana untuk versi stabil',
 	'prefs-flaggedrevs' => 'Stabilitas',
@@ -7244,7 +7242,9 @@ Mungkin telah ada [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} pe
 	'review_page_invalid' => 'Judul halaman tujuan tidak sah.',
 	'review_page_notexists' => 'Halaman $1 tidak ditemukan.',
 	'review_page_unreviewable' => 'Halaman yang dituju tidak dapat ditinjau.',
+	'review_bad_key' => 'Kunci parameter masukan tidak sah.',
 	'review_denied' => 'Izin ditolak.',
+	'review_param_missing' => 'Sebuah parameter hilang atau tidak sah.',
 	'revreview-current' => 'Draf',
 	'revreview-depth' => 'Kedalaman',
 	'revreview-depth-0' => 'Tak disetujui',
@@ -7258,6 +7258,7 @@ Mungkin telah ada [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} pe
 	'revreview-check-flag-p' => 'terima perubahan tertunda',
 	'revreview-check-flag-u' => 'Terima halaman yang belum diperiksa ini',
 	'revreview-check-flag-y' => 'setujui perubahan',
+	'revreview-check-flag-y-title' => 'Setujui semua perubahan yang Anda buat dalam suntingan ini.',
 	'revreview-submitedit' => 'Simpan perubahan',
 	'revreview-submitedit-title' => 'Kirimkan perubahan Anda untuk ditinjau',
 	'revreview-edited' => "'''Suntingan akan dimasukkan ke [[{{MediaWiki:Validationpage}}|versi stabil]] setelah ditinjau oleh pengguna terotorisasi.
@@ -7362,6 +7363,7 @@ Mungkin telah ada [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} pe
 	'revreview-def-all' => 'semua',
 	'revreview-def-draft' => 'terbaru',
 	'revreview-def-stable' => 'stabil',
+	'revreview-restrictfilter' => 'Pembatasan tinjauan otomatis:',
 	'revreview-restriction-any' => 'semua',
 	'revreview-restriction-none' => 'tidak ada',
 	'revreview-reviewlink' => 'suntingan tunda',
@@ -10288,7 +10290,7 @@ Het formulier was incompleet of bevatte ongeldige waarden.",
 	'review_page_unreviewable' => 'De doelpagina kan niet gecontroleerd worden.',
 	'review_no_oldid' => 'Er is geen versienummer opgegeven.',
 	'review_bad_oldid' => 'De opgegeven doelversie bestaat niet.',
-	'review_not_flagged' => 'De doelwijziging is momenteel niet gemarkeerd als gecontroleerd.',
+	'review_not_flagged' => 'De doelversie is niet gemarkeerd als gecontroleerd.',
 	'review_too_low' => 'De versie kan niet als gecontroleerd worden gemarkeerd als niet alle velden een andere waarde dan {{int:Revreview-accuracy-0}} hebben.',
 	'review_bad_key' => 'Ongeldige parametersleutel.',
 	'review_denied' => 'Geen toegang.',
@@ -14944,6 +14946,7 @@ $messages['uk'] = array(
 	'review_page_notexists' => 'Цільової сторінки не існує.',
 	'review_bad_oldid' => 'Немає такої цільової версії.',
 	'review_denied' => 'Доступ заборонено.',
+	'review_param_missing' => 'Параметр не зазначено або зазначено невірно.',
 	'revreview-current' => 'Нерецензовані зміни',
 	'revreview-depth' => 'Повнота',
 	'revreview-depth-0' => 'незазначена',
@@ -14956,6 +14959,7 @@ $messages['uk'] = array(
 	'revreview-editnotice' => "'''Ваші зміни будуть показані читачам, як тільки уповноважений користувач перевірить їх.
 ([[{{MediaWiki:Validationpage}}|допомога]])'''",
 	'revreview-check-flag-p' => 'Опублікувати поточні нерецензовані зміни',
+	'revreview-check-flag-y' => 'Прийняти ці зміни',
 	'revreview-submitedit' => 'Записати зміни',
 	'revreview-submitedit-title' => 'Надіслати ваші зміни на розгляд',
 	'revreview-edited' => "'''Ваші зміни будуть показані читачам, як тільки уповноважений користувач перевірить їх.
@@ -15077,7 +15081,7 @@ $messages['uk'] = array(
 	'revreview-restrictfilter' => 'Обмеження автоматичного рецензування:',
 	'revreview-restriction-any' => 'будь-яка',
 	'revreview-restriction-none' => 'немає',
-	'revreview-reviewlink' => 'нерецензовані редагування',
+	'revreview-reviewlink' => 'нерецензовані зміни',
 	'revreview-reviewlink-title' => 'Перегляд різниці всіх нерецензованих змін',
 	'revreview-unreviewedpage' => 'неперевірена сторінка',
 	'tooltip-ca-current' => 'Переглянути цю сторінку з нерецензованими змінами',

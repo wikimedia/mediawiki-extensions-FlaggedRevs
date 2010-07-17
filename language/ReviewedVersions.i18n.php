@@ -229,6 +229,13 @@ $messages['cu'] = array(
 	'reviewedversions-page' => 'страни́цѧ и́мѧ',
 );
 
+/** Danish (Dansk)
+ * @author Froztbyte
+ */
+$messages['da'] = array(
+	'reviewedversions-page' => 'Sidenavn:',
+);
+
 /** German (Deutsch)
  * @author Giftpflanze
  * @author Imre
