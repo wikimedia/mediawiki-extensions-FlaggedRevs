@@ -100,7 +100,7 @@ class UnreviewedPages extends SpecialPage
 		if ( !is_null( $size = $row->page_len ) ) {
 			$stxt = ( $size == 0 )
 				? wfMsgHtml( 'historyempty' )
-				: wfMsgExt( 'historysize', array( 'parsemag' ), $wgLang->formatNum( $size ) );
+				: wfMsgExt( 'historysize', 'parsemag', $wgLang->formatNum( $size ) );
 			$stxt = " <small>$stxt</small>";
 		}
 		# Get how long the first unreviewed edit has been waiting...
@@ -110,12 +110,12 @@ class UnreviewedPages extends SpecialPage
 		$hours = ( $currentTime - $firstPendingTime ) / 3600;
 		// After three days, just use days
 		if ( $hours > ( 3 * 24 ) ) {
-			$days = $wgLang->formatNum( round( $hours / 24, 0 ) );
-			$age = ' ' . wfMsgExt( 'unreviewed-days', array( 'parsemag' ), $wgLang->formatNum( $days ) );
+			$days = round( $hours / 24, 0 );
+			$age = ' ' . wfMsgExt( 'unreviewed-days', 'parsemag', $wgLang->formatNum( $days ) );
 		// If one or more hours, use hours
 		} elseif ( $hours >= 1 ) {
-			$hours = $wgLang->formatNum( round( $hours, 0 ) );
-			$age = ' ' . wfMsgExt( 'unreviewed-hours', array( 'parsemag' ), $wgLang->formatNum( $hours ) );
+			$hours = round( $hours, 0 );
+			$age = ' ' . wfMsgExt( 'unreviewed-hours', 'parsemag', $wgLang->formatNum( $hours ) );
 		} else {
 			$age = ' ' . wfMsg( 'unreviewed-recent' ); // hot off the press :)
 		}
