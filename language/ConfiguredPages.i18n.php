@@ -137,6 +137,16 @@ $messages['cs'] = array(
 	'configuredpages-prec-pristine' => 'čistá přednost',
 );
 
+/** Danish (Dansk)
+ * @author Froztbyte
+ */
+$messages['da'] = array(
+	'configuredpages-none' => 'Der er ingen sider i denne liste.',
+	'configuredpages-config' => 'Konfiguration',
+	'configuredpages-prec-none' => 'sidst kontrolleret',
+	'configuredpages-def-stable' => 'publiseret version',
+);
+
 /** German (Deutsch)
  * @author Kghbln
  * @author Merlissimo

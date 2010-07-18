@@ -307,6 +307,7 @@ $messages['cu'] = array(
 $messages['da'] = array(
 	'validationstatistics-ns' => 'Navnerum',
 	'validationstatistics-total' => 'Sider',
+	'validationstatistics-stable' => 'Vurderet',
 	'validationstatistics-old' => 'Forældet',
 	'validationstatistics-user' => 'Bruger',
 );

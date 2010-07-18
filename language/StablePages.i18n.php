@@ -171,6 +171,7 @@ $messages['cs'] = array(
  * @author Froztbyte
  */
 $messages['da'] = array(
+	'stablepages-none' => 'Der er ingen sider i denne liste.',
 	'stablepages-config' => 'Konfiguration',
 );
 
@@ -314,7 +315,8 @@ Aussi, les modifications faites par les autres utilisateurs ne sont pas affiché
  */
 $messages['frp'] = array(
 	'stablepages' => 'Pâges stâbles.',
-	'stablepages-list' => 'Vê-que una lista de les pâges configurâs a la man por que lo contegnu de lor vèrsion publeyê seye montrâ per dèfôt por los liésors.',
+	'stablepages-list' => 'Vê-que una lista de les pâges que sont rètrentes de façon que solament quârques utilisators la pôvont changiér sen qu’una rèvision seye nècèssèra.
+Los changements fêts per los ôtros utilisators sont pas montrâs per dèfôt ux liésors tant qu’un utilisator ôtorisâ los èye revus.',
 	'stablepages-none' => 'Y at gins de pâge dens ceta lista.',
 	'stablepages-config' => 'Configuracion',
 );

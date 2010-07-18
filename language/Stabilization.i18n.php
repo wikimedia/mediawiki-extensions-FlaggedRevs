@@ -731,17 +731,25 @@ Při změně nastavení ''přednost výběru stabilní verze'', aby se standardn
  * @author Jon Harald Søby
  */
 $messages['da'] = array(
+	'stabilization-def2' => 'Den seneste version',
 	'stabilization-submit' => 'Bekræft',
+	'stabilization-notexists' => 'Der findes ingen side kaldet "[[:$1|$1]]".
+Ingen konfigurering er mulig.',
 	'stabilization-comment' => 'Årsag:',
 	'stabilization-otherreason' => 'Anden årsag:',
 	'stabilization-expiry' => 'Udløb:',
 	'stabilization-othertime' => 'Anden tid:',
 	'stabilization-sel-short-0' => 'Kvalitet',
 	'stabilization-sel-short-1' => 'Ingen',
+	'stabilization-sel-short-2' => 'Urørt',
 	'stabilization-def-short' => 'Standard',
 	'stabilization-def-short-0' => 'Nuværende',
+	'stabilization-def-short-1' => 'Publiseret',
+	'stabilize_invalid_level' => 'Ugyldigt beskyttelsesniveau.',
+	'stabilize_expiry_old' => 'Udløbstidspunktet er allerede passeret.',
 	'stabilize_denied' => 'Tilgang nægtet.',
 	'stabilize-expiring' => 'til $1 (UTC)',
+	'stabilization-review' => 'Marker den nuværende version som kontrolleret',
 );
 
 /** German (Deutsch)
@@ -1314,8 +1322,7 @@ $messages['frp'] = array(
 	'stabilization' => 'Stabilisacion de la pâge.',
 	'stabilization-text' => "'''Changiéd los paramètres ce-desot por dèfenir la façon que la vèrsion publeyê de [[:$1|$1]] est chouèsia et montrâ.'''
 
-Quand vos configurâd lo ''chouèx de la vèrsion publeyê'' por utilisar les vèrsions « de qualitât » ou ben « sen tache » per dèfôt,
-assurâd-vos qu’y at verément de tâles vèrsions dens la pâge, ôtrament los changements aront gins de rèsultat.",
+'''Nota :''' changiér lo ''chouèx de la vèrsion publeyê'' por utilisar les vèrsions « de qualitât » ou ben « sen tache » arat gins de rèsultat se celes vèrsions ègzistont pas. Notâd asse-ben que les vèrsions « de qualitât » sont considèrâs coment « controlâs » et d’ense de suita.",
 	'stabilization-perm' => 'Voutron compto at pas los drêts por changiér los paramètres de la vèrsion publeyê.
 Vê-que los paramètres d’ora de [[:$1|$1]] :',
 	'stabilization-page' => 'Nom de la pâge :',
@@ -1808,7 +1815,8 @@ $messages['id'] = array(
 
 Saat mengubah  konfigurasi ''pilihan versi stabil'' gunakan revisi \"berkualitas\" atau \"murni\" secara default,  
 pastikan untuk memeriksa apakah ada yang benar-benar seperti revisi di halaman, jika ada perubahan akan sedikit berpengaruh.",
-	'stabilization-perm' => 'Akun Anda tak memiliki hak untuk mengganti konfigurasi versi stabil. Berikut konfigurasi terkini dari [[:$1|$1]]:',
+	'stabilization-perm' => 'Akun Anda tidak memiliki izin untuk mengubah konfigurasi versi stabil.
+Berikut adalah pengaturan terkini untuk [[:$1|$1]]:',
 	'stabilization-page' => 'Nama halaman:',
 	'stabilization-leg' => 'Konfirmasi pengaturan versi stabil',
 	'stabilization-select' => 'Pemilihan versi stabil sebelumnya',
@@ -1845,7 +1853,7 @@ Konfigurasi tak dapat diterapkan.',
 	'stabilize_expiry_old' => 'Tanggal kadaluwarsa telah terlewati.',
 	'stabilize_denied' => 'Izin ditolak.',
 	'stabilize-expiring' => 'kadaluwarsa $1 (UTC)',
-	'stabilization-review' => 'Tinjau versi sekarang',
+	'stabilization-review' => 'Tandai revisi terkini sebagai terperiksa',
 );
 
 /** Igbo (Igbo)
