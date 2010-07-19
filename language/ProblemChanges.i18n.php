@@ -534,10 +534,13 @@ $messages['pt-br'] = array(
 
 /** Romanian (Română)
  * @author KlaudiuMihaila
+ * @author Minisarm
  * @author Stelistcristi
  */
 $messages['ro'] = array(
-	'problemchanges' => 'Revizualizați schimbările etichetate',
+	'problemchanges' => 'Modificări etichetate ca fiind în așteptare',
+	'problemchanges-legend' => 'Afișează paginile cu eticheta „modificări în așteptarea revizuirii”',
+	'problemchanges-none' => 'Nu există pagini care să îndeplinească aceste criterii',
 	'problemchanges-category' => 'Categorie:',
 );
 

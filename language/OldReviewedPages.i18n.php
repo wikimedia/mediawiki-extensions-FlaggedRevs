@@ -1335,11 +1335,12 @@ $messages['pt-br'] = array(
  * @author Firilacroco
  * @author KlaudiuMihaila
  * @author Mihai
+ * @author Minisarm
  * @author Stelistcristi
  */
 $messages['ro'] = array(
-	'oldreviewedpages' => 'Pagini revizuite expirate',
-	'oldreviewedpages-legend' => 'Lista de pagini revizuite, cu revizuiri în așteptarea revizuirii',
+	'oldreviewedpages' => 'Pagini cu modificări în așteptare',
+	'oldreviewedpages-legend' => 'Afișează pagini revizuite cu modificări în așteptarea revizuirii',
 	'oldreviewedpages-list' => 'Această pagină afișează {{PLURAL:$1|o pagină revizuită care are|paginile revizuite care au}} modificări în așteptare.',
 	'oldreviewedpages-none' => 'Momentan nu există pagini care satisfac aceste criterii',
 	'oldreviewedpages-hours' => '($1 {{PLURAL:$1|oră|ore}})',

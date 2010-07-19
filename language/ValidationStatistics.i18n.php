@@ -859,7 +859,13 @@ $messages['id'] = array(
 
 Penyunting adalah para pengguna tetap yang dapat melakukan pemeriksaan perbaikan di setiap halaman.",
 	'validationstatistics-lastupdate' => "''Data berikut terakhir dimutakhirkan pada tanggal $1 pukul $2.''",
-	'validationstatistics-table' => "Statistik untuk setiap ruang nama ditampilkan di bawah ini, ''kecuali'' halaman pengalihan.",
+	'validationstatistics-pndtime' => "Suntingan yang telah diperiksa oleh pengguna terdaftar dipertimbangkan untuk ditinjau.
+
+Lama tunda rata-rata untuk [[Special:OldReviewedPages|halaman dengan suntingan tertunda yang belum ditinjau]] adalah '''$1'''.
+Halaman-halaman ini dianggap ''kadaluwarsa''. Demikian juga, halaman dianggap ''disinkronisasikan'' bila tidak ada suntingan yang menunggu tinjauan.",
+	'validationstatistics-revtime' => "Lama waktu rata-rata untuk suntingan oleh ''pengguna yang tidak masuk log'' agar ditinjau adalah '''$1'''; mediannya adalah '''$2'''.
+$3",
+	'validationstatistics-table' => "Statistik tinjauan halaman untuk setiap ruang nama ditampilkan di bawah ini, ''kecuali'' halaman pengalihan.",
 	'validationstatistics-ns' => 'Ruang nama',
 	'validationstatistics-total' => 'Halaman',
 	'validationstatistics-stable' => 'Telah ditinjau',

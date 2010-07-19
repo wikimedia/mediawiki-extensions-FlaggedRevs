@@ -1811,15 +1811,14 @@ Nulle configuration es possibile.',
 $messages['id'] = array(
 	'stabilization-tab' => 'cek',
 	'stabilization' => 'Pengaturan versi stabil halaman',
-	'stabilization-text' => "'''Ubah seting berikut untuk mengatur versi stabil dari [[:\$1|\$1]] telah dipilih dan ditampilkan.'''
+	'stabilization-text' => "'''Ubah pengaturan berikut untuk mengatur cara versi stabil dari [[:\$1|\$1]] dipilih dan ditampilkan.'''
 
-Saat mengubah  konfigurasi ''pilihan versi stabil'' gunakan revisi \"berkualitas\" atau \"murni\" secara default,  
-pastikan untuk memeriksa apakah ada yang benar-benar seperti revisi di halaman, jika ada perubahan akan sedikit berpengaruh.",
+'''Catatan:''' mengubah konfigurasi ''pilihan versi stabil'' untuk memilih versi \"berkualitas\" atau \"murni\" tidak akan memberikan efek apa pun jika versi tersebut tidak ada. Selain itu, ingat bahwa versi \"berkualitas\" juga dianggap sebagai versi \"terperiksa\" dan seterusnya.",
 	'stabilization-perm' => 'Akun Anda tidak memiliki izin untuk mengubah konfigurasi versi stabil.
 Berikut adalah pengaturan terkini untuk [[:$1|$1]]:',
 	'stabilization-page' => 'Nama halaman:',
 	'stabilization-leg' => 'Konfirmasi pengaturan versi stabil',
-	'stabilization-select' => 'Pemilihan versi stabil sebelumnya',
+	'stabilization-select' => 'Pengutamaan pilihan versi stabil',
 	'stabilization-select1' => 'Revisi layak terakhir; jika tak ada, versi terperiksa terakhir',
 	'stabilization-select2' => 'Revisi stabil terakhir',
 	'stabilization-select3' => 'Revisi asli terakhir; jika tidak ada, versi layak atau terperiksa terakhir',
@@ -1847,6 +1846,7 @@ Konfigurasi tak dapat diterapkan.',
 	'stabilize_page_invalid' => 'Judul halaman tujuan tidak sah.',
 	'stabilize_page_notexists' => 'Halaman yang dituju tidak ditemukan',
 	'stabilize_page_unreviewable' => 'Halaman yang dituju tidak berada dalam ruang nama yang dapat ditinjau.',
+	'stabilize_invalid_precedence' => 'Pengutamaan versi tidak sah.',
 	'stabilize_invalid_autoreview' => 'Pembatasan tinjauan otomatis tidak sah.',
 	'stabilize_invalid_level' => 'Tingkat perlindungan tidak valid.',
 	'stabilize_expiry_invalid' => 'Tanggal kadaluwarsa tak valid.',

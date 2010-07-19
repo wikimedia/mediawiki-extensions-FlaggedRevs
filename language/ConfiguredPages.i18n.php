@@ -437,6 +437,7 @@ Alcun configurationes pote cambiar le version que es monstrate al lectores o lim
  */
 $messages['id'] = array(
 	'configuredpages' => 'Halaman dengan konfigurasi pratayang',
+	'configuredpages-list' => 'Berikut adalah daftar halaman yang dibuah agar pengaturan penyetujuannya berbeda dari pengaturan baku situs ini. Beberapa pengaturan mungkin berubah tergantung versi yang ditampilkan kepada pembaca atau membatasi siapa saja yang diperbolehkan menyunting tanpa ditinjau.',
 	'configuredpages-none' => 'Tidak ada halaman di dalam daftar ini',
 	'configuredpages-config' => 'Pengaturan',
 	'configuredpages-precedence' => 'Diutamakan:',
