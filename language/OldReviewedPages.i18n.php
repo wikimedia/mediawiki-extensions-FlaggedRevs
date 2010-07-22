@@ -1783,6 +1783,7 @@ $messages['zh-hans'] = array(
 );
 
 /** Traditional Chinese (‪中文(繁體)‬)
+ * @author Frankou
  * @author Gzdavidwong
  * @author Horacewai2
  * @author Liangent
@@ -1799,7 +1800,7 @@ $messages['zh-hant'] = array(
 	'oldreviewedpages-recent' => '（少於1小時）',
 	'oldreviewed-category' => '分類:',
 	'oldreviewed-watched' => '在我的監視列表上的頁面',
-	'oldreviewed-stable' => '穩定的',
+	'oldreviewed-stable' => '默認為Stable的版本',
 	'oldreviewed-diff' => '複審',
 	'oldreviewed-size' => '最大變動（位元組）：',
 	'oldreviewedpages-unwatched' => '（未看）',

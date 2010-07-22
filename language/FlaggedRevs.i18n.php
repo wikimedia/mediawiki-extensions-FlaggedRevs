@@ -5092,7 +5092,7 @@ $messages['frp'] = array(
 	'revreview-hist-basic' => 'vèrsion controlâ',
 	'revreview-hist-quality-user' => '[{{fullurl:$1|stableid=$2}} validâ] per [[User:$3|$3]]',
 	'revreview-hist-basic-user' => '[{{fullurl:$1|stableid=$2}} controlâ] per [[User:$3|$3]]',
-	'revreview-hist-basic-auto' => '[{{fullurl:$1|stableid=$2}} revua ôtomaticament]',
+	'revreview-hist-basic-auto' => '[{{fullurl:$1|stableid=$2}} controlâ ôtomaticament]',
 	'review-diff2stable' => 'Vêde los changements conselyês per rapôrt a la vèrsion publeyê',
 	'review-logentry-app' => 'at revu una vèrsion de [[$1]]',
 	'review-logentry-dis' => 'at dèprèciyê una vèrsion de [[$1]]',

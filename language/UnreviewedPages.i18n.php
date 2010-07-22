@@ -164,7 +164,7 @@ $messages['bcc'] = array(
  */
 $messages['bcl'] = array(
 	'unreviewed-category' => 'Kategorya:',
-	'unreviewed-diff' => 'Mga pagbabâgo',
+	'unreviewed-diff' => 'Mga pagbabàgo',
 );
 
 /** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))
