@@ -58,7 +58,6 @@ class ApiQueryOldreviewedpages extends ApiQueryGeneratorBase {
 			$this->addWhere( 'GREATEST(page_len,rev_len)-LEAST(page_len,rev_len) <= ' .
 				intval( $params['maxsize'] ) );
 		if ( $params['filterwatched'] == 'watched' ) {
-			$this->getMain()->setVaryCookie();
 			if ( !( $uid = $wgUser->getId() ) ) {
 				$this->dieUsage( 'You must be logged-in to have a watchlist', 'notloggedin' );
 			}
@@ -147,6 +146,15 @@ class ApiQueryOldreviewedpages extends ApiQueryGeneratorBase {
 			$result = $this->getResult();
 			$result->setIndexedTagName( $data, 'p' );
 			$result->addValue( 'query', $this->getModuleName(), $data );
+		}
+	}
+
+	public function getCachedMode( $params ) {
+		if ( $params['filterwatched'] == 'watched' ) {
+			// Private data
+			return 'private';
+		} else {
+			return 'public';
 		}
 	}
 

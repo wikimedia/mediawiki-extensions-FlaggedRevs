@@ -44,6 +44,10 @@ class ApiFlagConfig extends ApiBase {
 		$result->addValue( null, $this->getModuleName(), $data );
 	}
 
+	public function getCacheMode( $params ) {
+		return 'public';
+	}
+
 	public function mustBePosted() {
 		return false;
 	}

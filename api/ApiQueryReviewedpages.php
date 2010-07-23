@@ -119,6 +119,10 @@ class ApiQueryReviewedpages extends ApiQueryGeneratorBase {
 		}
 	}
 
+	public function getCacheMode( $params ) {
+		return 'public';
+	}
+
 	public function getAllowedParams() {
 		$namespaces = FlaggedRevs::getReviewNamespaces();
 		return array (

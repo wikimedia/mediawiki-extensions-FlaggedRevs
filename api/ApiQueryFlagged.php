@@ -59,6 +59,10 @@ class ApiQueryFlagged extends ApiQueryBase {
 		$db->freeResult( $res );
 	}
 
+	public function getCacheMode( $params ) {
+		return 'public';
+	}
+
 	public function getAllowedParams() {
 		return array();
 	}
