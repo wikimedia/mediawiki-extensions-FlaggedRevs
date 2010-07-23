@@ -178,7 +178,7 @@ class ProblemChanges extends SpecialPage
 		$title = Title::newFromRow( $row );
 		$link = $this->skin->makeKnownLinkObj( $title );
 		$review = $this->skin->makeKnownLinkObj( $title,
-			wfMsg( 'oldreviewed-diff' ),
+			wfMsg( 'pendingchanges-diff' ),
 			'diff=cur&oldid=' . intval($row->stable) . '&diffonly=0' );
 		# Show quality level if there are several
 		if ( FlaggedRevs::qualityVersions() ) {
@@ -197,8 +197,8 @@ class ProblemChanges extends SpecialPage
 		if ( !$this->including() && $wgUser->isAllowed( 'unreviewedpages' ) ) {
 			$uw = UnreviewedPages::usersWatching( $title );
 			$watching = $uw
-				? wfMsgExt( 'oldreviewedpages-watched', 'parsemag', $wgLang->formatNum( $uw ) )
-				: wfMsgHtml( 'oldreviewedpages-unwatched' );
+				? wfMsgExt( 'pendingchanges-watched', 'parsemag', $wgLang->formatNum( $uw ) )
+				: wfMsgHtml( 'pendingchanges-unwatched' );
 			$watching = " {$watching}";
 		} else {
 			$uw = - 1;
@@ -213,13 +213,13 @@ class ProblemChanges extends SpecialPage
 			// After three days, just use days
 			if ( $hours > ( 3 * 24 ) ) {
 				$days = round( $hours / 24, 0 );
-				$age = wfMsgExt( 'oldreviewedpages-days', array( 'parsemag' ), $wgLang->formatNum( $days ) );
+				$age = wfMsgExt( 'pendingchanges-days', array( 'parsemag' ), $wgLang->formatNum( $days ) );
 			// If one or more hours, use hours
 			} elseif ( $hours >= 1 ) {
 				$hours = round( $hours, 0 );
-				$age = wfMsgExt( 'oldreviewedpages-hours', array( 'parsemag' ), $wgLang->formatNum( $hours ) );
+				$age = wfMsgExt( 'pendingchanges-hours', array( 'parsemag' ), $wgLang->formatNum( $hours ) );
 			} else {
-				$age = wfMsg( 'oldreviewedpages-recent' ); // hot off the press :)
+				$age = wfMsg( 'pendingchanges-recent' ); // hot off the press :)
 			}
 			// Oh-noes!
 			$css = self::getLineClass( $hours, $uw );
@@ -231,7 +231,7 @@ class ProblemChanges extends SpecialPage
 		# Show if a user is looking at this page
 		if ( $wgMemc->get( $key ) ) {
 			$underReview = ' <span class="fr-under-review">' .
-				wfMsgHtml( 'oldreviewedpages-viewing' ) . '</span>';
+				wfMsgHtml( 'pendingchanges-viewing' ) . '</span>';
 		}
 
 		return( "<li{$css}>{$link} ({$review}) <i>{$age}</i>" .

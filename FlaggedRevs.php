@@ -345,9 +345,9 @@ $wgAutoloadClasses['UnreviewedPages'] = $dir . 'specialpages/UnreviewedPages_bod
 $wgExtensionMessagesFiles['UnreviewedPages'] = $langDir . 'UnreviewedPages.i18n.php';
 $wgSpecialPageGroups['UnreviewedPages'] = 'quality';
 # Load "in need of re-review" pages list
-$wgAutoloadClasses['OldReviewedPages'] = $dir . 'specialpages/OldReviewedPages_body.php';
-$wgExtensionMessagesFiles['OldReviewedPages'] = $langDir . 'OldReviewedPages.i18n.php';
-$wgSpecialPageGroups['OldReviewedPages'] = 'quality';
+$wgAutoloadClasses['PendingChanges'] = $dir . 'specialpages/PendingChanges_body.php';
+$wgExtensionMessagesFiles['PendingChanges'] = $langDir . 'PendingChanges.i18n.php';
+$wgSpecialPageGroups['PendingChanges'] = 'quality';
 # Load "suspicious changes" pages list
 $wgAutoloadClasses['ProblemChanges'] = $dir . 'specialpages/ProblemChanges_body.php';
 $wgExtensionMessagesFiles['ProblemChanges'] = $langDir . 'ProblemChanges.i18n.php';
@@ -485,17 +485,24 @@ $wgHooks['UserRights'][] = 'FlaggedRevsHooks::recordDemote';
 # User edit tallies
 $wgHooks['ArticleRollbackComplete'][] = 'FlaggedRevsHooks::incrementRollbacks';
 $wgHooks['NewRevisionFromEditComplete'][] = 'FlaggedRevsHooks::incrementReverts';
-# Update fr_page_id values on revision restore
+# Update fr_page_id and tracking rows on revision restore and merge
 $wgHooks['ArticleRevisionUndeleted'][] = 'FlaggedRevsHooks::onRevisionRestore';
-# Update config, tracking rows, cache on page changes
+$wgHooks['ArticleMergeComplete'][] = 'FlaggedRevsHooks::onArticleMergeComplete';
+
+# Update tracking rows and cache on page changes (@TODO: this sucks):
+# Article edit/create
 $wgHooks['ArticleEditUpdates'][] = 'FlaggedRevsHooks::onArticleEditUpdates';
+# Article delete/restore
 $wgHooks['ArticleDeleteComplete'][] = 'FlaggedRevsHooks::onArticleDelete';
 $wgHooks['ArticleUndelete'][] = 'FlaggedRevsHooks::onArticleUndelete';
-$wgHooks['FileUpload'][] = 'FlaggedRevsHooks::onFileUpload';
+# Revision delete/restore
 $wgHooks['ArticleRevisionVisibilitySet'][] = 'FlaggedRevsHooks::onRevisionDelete';
-$wgHooks['ArticleRevisionVisiblitySet'][] = 'FlaggedRevsHooks::onRevisionDelete'; // B/C for now
+# Article move
 $wgHooks['TitleMoveComplete'][] = 'FlaggedRevsHooks::onTitleMoveComplete';
-$wgHooks['ArticleMergeComplete'][] = 'FlaggedRevsHooks::onArticleMergeComplete';
+# File upload
+$wgHooks['FileUpload'][] = 'FlaggedRevsHooks::onFileUpload';
+
+$wgHooks['ArticleRevisionVisiblitySet'][] = 'FlaggedRevsHooks::onRevisionDelete'; // B/C for now
 # ########
 
 # ######## Other #########

@@ -19,7 +19,7 @@ class FlaggedRevsHooks {
 		}
 		$list['RevisionReview'] = $wgSpecialPages['RevisionReview'] = 'RevisionReview';
 		$list['ReviewedVersions'] = $wgSpecialPages['ReviewedVersions'] = 'ReviewedVersions';
-		$list['OldReviewedPages'] = $wgSpecialPages['OldReviewedPages'] = 'OldReviewedPages';
+		$list['PendingChanges'] = $wgSpecialPages['PendingChanges'] = 'PendingChanges';
 		// Show tag filtered pending edit page if there are tags
 		if ( $wgUseTagFilter && ChangeTags::listDefinedTags() ) {
 			$list['ProblemChanges'] = $wgSpecialPages['ProblemChanges'] = 'ProblemChanges';
@@ -134,7 +134,7 @@ class FlaggedRevsHooks {
 		if ( $title->getNamespace() !== NS_SPECIAL ) {
 			return true;
 		}
-		$spPages = array( 'UnreviewedPages', 'OldReviewedPages', 'ProblemChanges',
+		$spPages = array( 'UnreviewedPages', 'PendingChanges', 'ProblemChanges',
 			'Watchlist', 'Recentchanges', 'Contributions' );
 		foreach ( $spPages as $n => $key ) {
 			if ( $title->isSpecial( $key ) ) {

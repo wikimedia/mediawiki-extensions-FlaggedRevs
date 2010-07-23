@@ -945,7 +945,7 @@ class RevisionReviewForm
 		$s = '<p>' . wfMsg( 'returnto',
 			$this->skin->makeLinkObj( SpecialPage::getTitleFor( 'UnreviewedPages' ) ) ) . '</p>';
 		$s .= '<p>' . wfMsg( 'returnto',
-			$this->skin->makeLinkObj( SpecialPage::getTitleFor( 'OldReviewedPages' ) ) ) . '</p>';
+			$this->skin->makeLinkObj( SpecialPage::getTitleFor( 'PendingChanges' ) ) ) . '</p>';
 		return $s;
 	}
 }

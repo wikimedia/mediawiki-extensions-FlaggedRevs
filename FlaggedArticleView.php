@@ -992,8 +992,8 @@ class FlaggedArticleView {
 			);
 			# Add link to list of pages in this category with pending edits
 			$links[] = $wgUser->getSkin()->makeKnownLinkObj(
-				SpecialPage::getTitleFor( 'OldReviewedPages' ),
-				wfMsgHtml( 'oldreviewedpages' ),
+				SpecialPage::getTitleFor( 'PendingChanges' ),
+				wfMsgHtml( 'pendingchanges' ),
 				'category=' . urlencode( $category )
 			);
 			$quickLinks = implode( ' / ', $links );
