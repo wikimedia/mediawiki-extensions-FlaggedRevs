@@ -130,7 +130,7 @@ class FRInclusionManager {
 	/**
 	 * Get the stable version of a template
 	 * @param Title $title
-	 * @returns int (0 if none)
+	 * @returns int
 	 */
 	public function getStableTemplateVersion( Title $title ) {
 		$dbKey = $title->getDBkey();
