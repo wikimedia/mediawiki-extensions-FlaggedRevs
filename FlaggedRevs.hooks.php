@@ -182,7 +182,7 @@ class FlaggedRevsHooks {
 		if ( $request->getInt( 'reviewing' ) || $request->getInt( 'rcid' ) ) {
 			if ( $fa->isReviewable() && $fa->getTitle()->userCan( 'review' ) ) {
 				$key = wfMemcKey( 'unreviewedPages', 'underReview', $fa->getId() );
-				$wgMemc->set( $key, '1', 20 * 60 ); // 20 min
+				$wgMemc->set( $key, '1', 20 * 60 );
 			}
 		}
 		return true;

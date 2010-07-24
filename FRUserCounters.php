@@ -126,7 +126,7 @@ class FRUserCounters {
 
    	/**
 	* Update users params array for a user on edit
-	* @param &array $params
+	* @param &array $p user params
 	* @param Article $article the article just edited
 	* @param string $summary edit summary
 	* @returns bool anything changed
