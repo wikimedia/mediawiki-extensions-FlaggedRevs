@@ -1516,7 +1516,7 @@ class FlaggedArticleView {
 	protected function markDiffUnderReview( Revision $oldRev, Revision $newRev ) {
 		global $wgMemc;
 		$key = wfMemcKey( 'stableDiffs', 'underReview', $oldRev->getID(), $newRev->getID() );
-		$wgMemc->set( $key, '1', 10 * 60 ); // 10 min
+		$wgMemc->set( $key, '1', 6 * 60 ); // 10 min
 	}
 
 	/**
