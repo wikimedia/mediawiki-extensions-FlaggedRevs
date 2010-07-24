@@ -960,7 +960,7 @@ class FlaggedRevsHooks {
 		# Mark when a user reverts another user, but not self-reverts
 		$badUserId = $badRev->getRawUser();
 		if ( $badUserId && $user->getId() != $badUserId ) {
-			$p = FRUserCounters::getUserParams( $badUserId );
+			$p = FRUserCounters::getUserParams( $badUserId, FR_FOR_UPDATE );
 			if ( !isset( $p['revertedEdits'] ) ) {
 				$p['revertedEdits'] = 0;
 			}
@@ -983,7 +983,7 @@ class FlaggedRevsHooks {
 			if ( $badRev && $badRev->getRawUser()
 				&& $badRev->getRawUser() != $rev->getRawUser() )
 			{
-				$p = FRUserCounters::getUserParams( $badRev->getRawUser() );
+				$p = FRUserCounters::getUserParams( $badRev->getRawUser(), FR_FOR_UPDATE );
 				if ( !isset( $p['revertedEdits'] ) ) {
 					$p['revertedEdits'] = 0;
 				}
@@ -1087,7 +1087,7 @@ class FlaggedRevsHooks {
 			$totalCheckedEditsNeeded = true;
 		}
 		# Check if user edited enough unique pages
-		$pages = explode( ',', trim( $p['uniqueContentPages'] ) ); // page IDs
+		$pages = $p['uniqueContentPages']; // page IDs
 		if ( $wgFlaggedRevsAutoconfirm['uniqueContentPages'] > count( $pages ) ) {
 			return true;
 		}
@@ -1178,7 +1178,7 @@ class FlaggedRevsHooks {
 		} elseif ( !$wgFlaggedRevsAutopromote && !$wgFlaggedRevsAutoconfirm ) {
 			return true;
 		}
-		$p = FRUserCounters::getUserParams( $user->getId() );
+		$p = FRUserCounters::getUserParams( $user->getId(), FR_FOR_UPDATE );
 		$changed = FRUserCounters::updateUserParams( $p, $article, $summary );
 		# Save any updates to user params
 		if ( $changed ) {
@@ -1210,7 +1210,7 @@ class FlaggedRevsHooks {
 			$totalCheckedEditsNeeded = true;
 		}
 		# Check if user edited enough unique pages
-		$pages = explode( ',', trim( $p['uniqueContentPages'] ) ); // page IDs
+		$pages = $p['uniqueContentPages']; // page IDs
 		if ( $wgFlaggedRevsAutopromote['uniqueContentPages'] > count( $pages ) ) {
 			return true;
 		}
@@ -1370,19 +1370,16 @@ class FlaggedRevsHooks {
    	/**
 	* Record demotion so that auto-promote will be disabled
 	*/
-	public static function recordDemote( $u, $addgroup, $removegroup ) {
+	public static function recordDemote( $user, array $addgroup, array $removegroup ) {
 		if ( $removegroup && in_array( 'editor', $removegroup ) ) {
-			// Cross-wiki rights change
-			if ( $u instanceof UserRightsProxy ) {
-				$params = FRUserCounters::getUserParams( $u->getId(), $u->getDBName() );
-				$params['demoted'] = 1;
-				FRUserCounters::saveUserParams( $u->getId(), $params, $u->getDBName() );
-			// On-wiki rights change
-			} else {
-				$params = FRUserCounters::getUserParams( $u->getId() );
-				$params['demoted'] = 1;
-				FRUserCounters::saveUserParams( $u->getId(), $params );
+			$dbName = false; // this wiki
+			// Cross-wiki rights changes...
+			if ( $user instanceof UserRightsProxy ) {
+				$dbName = $user->getDBName(); // use foreign DB of the user
 			}
+			$p = FRUserCounters::getUserParams( $user->getId(), FR_FOR_UPDATE, $dbName );
+			$p['demoted'] = 1;
+			FRUserCounters::saveUserParams( $user->getId(), $p, $dbName );
 		}
 		return true;
 	}
