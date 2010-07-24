@@ -7471,6 +7471,7 @@ $messages['is'] = array(
  * @author Beta16
  * @author Civvì
  * @author Darth Kule
+ * @author EdoDodo
  * @author Gianfranco
  * @author Melos
  * @author Nemo bis
@@ -7537,6 +7538,7 @@ Potrebbero essere stati apportati nuove [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&di
 	'revreview-draft-title' => 'Pagina bozza',
 	'revreview-edit' => 'Modifica',
 	'revreview-editnotice' => "'''Le modifiche a questa pagina saranno inserite nella [[{{MediaWiki:Validationpage}}|versione stabile]] una volta che un utente autorizzato le avrà revisionate.'''",
+	'revreview-check-flag-y' => 'Accettare queste modifiche',
 	'revreview-edited' => "'''Gli edit saranno inclusi nella [[{{MediaWiki:Validationpage}}|versione stabile]] dopo che un utente autorizzato li avrà revisionati.'''
 '''La ''bozza'' è mostrata di seguito.''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 {{PLURAL:$2|modifica attende|modifiche attendono}}] una revisione.",
 	'revreview-flag' => 'Revisiona questa versione',
@@ -14911,8 +14913,8 @@ $messages['uk'] = array(
 	'flaggedrevs-pref-UI' => 'Основний інтерфейс:',
 	'flaggedrevs-pref-UI-0' => 'Використовувати деталізований інтерфейс для відображення статусу схвалення сторінки',
 	'flaggedrevs-pref-UI-1' => 'Використовувати маленькі іконки і мінімальний текст для відображення статусу схвалення сторінки',
-	'prefs-flaggedrevs' => 'Стабілізація',
-	'prefs-flaggedrevs-ui' => 'Позначені версії',
+	'prefs-flaggedrevs' => 'Перевірка редагувань',
+	'prefs-flaggedrevs-ui' => 'Перевірка редагувань',
 	'flaggedrevs-prefs-stable' => 'Завжди показувати опубліковану версію сторінок за умовчанням (якщо така існує)',
 	'flaggedrevs-prefs-watch' => 'Додавати перевірені мною сторінки до списку спостереження',
 	'flaggedrevs-prefs-editdiffs' => 'Показувати неперевірені зміни в режимі редагування',
@@ -14941,8 +14943,10 @@ $messages['uk'] = array(
 	'revreview-diff-toggle-title' => 'Переключити відображення нерецензованих змін до опублікованої версії',
 	'revreview-log-toggle-show' => 'показати журнал стабільності',
 	'revreview-log-toggle-hide' => 'сховати журнал стабільності',
+	'revreview-log-toggle-title' => 'Показати/приховати журнал налаштувань стабілізації',
 	'revreview-log-details-show' => 'показати деталі',
 	'revreview-log-details-hide' => 'сховати деталі',
+	'revreview-log-details-title' => 'Показати/приховати журнал налаштувань стабілізації',
 	'review-diff2stable' => 'Переглянути непідтверджені зміни опублікованої версії',
 	'review-logentry-app' => 'перевірив версію [[$1]]',
 	'review-logentry-dis' => 'позначив версію [[$1]] неприйнятною',
@@ -14954,7 +14958,7 @@ $messages['uk'] = array(
 	'reviewer' => 'рецензент',
 	'revisionreview' => 'Перевірка версій',
 	'revreview-accuracy' => 'Точність',
-	'revreview-accuracy-0' => 'не зазначена',
+	'revreview-accuracy-0' => 'Незазначена',
 	'revreview-accuracy-1' => 'переглянута',
 	'revreview-accuracy-2' => 'точна',
 	'revreview-accuracy-3' => 'з джерелами',
@@ -14972,7 +14976,9 @@ $messages['uk'] = array(
 	'review_page_invalid' => 'Неприпустима назва цільової сторінки.',
 	'review_page_notexists' => 'Цільової сторінки не існує.',
 	'review_page_unreviewable' => 'Цільова сторінка не підлягає рецензуванню.',
+	'review_no_oldid' => 'Незазначений ідентифікатор версії.',
 	'review_bad_oldid' => 'Немає такої цільової версії.',
+	'review_not_flagged' => 'Цільова версія сторінки зараз не позначена перевіреною.',
 	'review_denied' => 'Доступ заборонено.',
 	'review_param_missing' => 'Параметр не зазначено або зазначено невірно.',
 	'revreview-current' => 'Нерецензовані зміни',
@@ -14987,6 +14993,7 @@ $messages['uk'] = array(
 	'revreview-editnotice' => "'''Ваші зміни будуть показані читачам, як тільки уповноважений користувач перевірить їх.
 ([[{{MediaWiki:Validationpage}}|допомога]])'''",
 	'revreview-check-flag-p' => 'Опублікувати поточні нерецензовані зміни',
+	'revreview-check-flag-u' => 'Позначити цю сторінку перевіреною',
 	'revreview-check-flag-y' => 'Прийняти ці зміни',
 	'revreview-submitedit' => 'Записати зміни',
 	'revreview-submitedit-title' => 'Надіслати ваші зміни на розгляд',

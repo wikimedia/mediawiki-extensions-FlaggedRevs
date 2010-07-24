@@ -1592,6 +1592,7 @@ $messages['sq'] = array(
 );
 
 /** Serbian Cyrillic ekavian (Српски (ћирилица))
+ * @author Sasa Stefanovic
  * @author Михајло Анђелковић
  * @author Обрадовић Горан
  */
@@ -1600,7 +1601,11 @@ $messages['sr-ec'] = array(
 	'validationstatistics-ns' => 'Именски простор',
 	'validationstatistics-total' => 'Странице',
 	'validationstatistics-latest' => 'Синхронизовано',
+	'validationstatistics-synced' => 'Синхронизован/Прегледан',
 	'validationstatistics-old' => 'Застарело',
+	'validationstatistics-utable' => 'Испод се налази списак од топ 5 прегледача у последњих сат времена',
+	'validationstatistics-user' => 'Корисник',
+	'validationstatistics-reviews' => 'Прегледи',
 );
 
 /** Serbian Latin ekavian (Srpski (latinica))

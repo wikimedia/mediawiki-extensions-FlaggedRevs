@@ -1593,6 +1593,7 @@ $messages['tr'] = array(
 	'pendingchanges-days' => '($1 {{PLURAL:$1|gün|gün}})',
 	'pendingchanges-recent' => '(1 saatten daha az)',
 	'pendingchanges-category' => 'Kategori:',
+	'pendingchanges-onwatchlist' => 'İzleme listemdeki sayfalar',
 	'pendingchanges-stable' => 'gözlenmiş',
 	'pendingchanges-diff' => 'gözden geçir',
 	'pendingchanges-size' => 'Azami değişiklik (bayt):',
