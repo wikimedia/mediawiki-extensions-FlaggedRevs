@@ -870,18 +870,20 @@ class RevisionReviewForm
 	}
 
 	/**
+	 * Generates review form submit buttons
 	 * @param FlaggedRevision $frev, the flagged revision, if any
 	 * @param bool $disabled, is the form disabled?
 	 * @param bool $rereview, force the review button to be usable?
 	 * @returns string
-	 * Generates one or two button submit for the review form
 	 */
 	private static function submitButtons( $frev, $disabled, $rereview = false ) {
 		$disAttrib = array( 'disabled' => 'disabled' );
 		# Add the submit button
 		if ( FlaggedRevs::binaryFlagging() ) {
+			# ACCEPT BUTTON: accept a revision
 			# We may want to re-review to change the notes ($wgFlaggedRevsComments)
-			$s = Xml::submitButton( wfMsg( 'revreview-submit-review' ),
+			# or re-review due to pending template/file changes
+			$s = Xml::submitButton( wfMsgHtml( 'revreview-submit-review' ),
 				array(
 					'name'  	=> 'wpApprove',
 					'id' 		=> 'mw-fr-submitreview',
@@ -890,16 +892,19 @@ class RevisionReviewForm
 						wfMsg( 'revreview-ak-review' ) . ']'
 				) + ( ( $disabled || ( $frev && !$rereview ) ) ? $disAttrib : array() )
 			);
+			# UNACCEPT BUTTON: revoke a revisions acceptance
+			# Hide if revision is not flagged
 			$s .= ' ';
-			$s .= Xml::submitButton( wfMsg( 'revreview-submit-unreview' ),
+			$s .= Xml::submitButton( wfMsgHtml( 'revreview-submit-unreview' ),
 				array(
 					'name'  => 'wpUnapprove',
 					'id' 	=> 'mw-fr-submitunreview',
-					'title' => wfMsg( 'revreview-tt-unflag' )
-				) + ( ( $disabled || !$frev ) ? $disAttrib : array() )
+					'title' => wfMsg( 'revreview-tt-unflag' ),
+					'style' => $frev ? '' : 'visibility: hidden;'
+				) + ( $disabled ? $disAttrib : array() )
 			);
 		} else {
-			$s = Xml::submitButton( wfMsg( 'revreview-submit' ),
+			$s = Xml::submitButton( wfMsgHtml( 'revreview-submit' ),
 				array(
 					'id' 		=> 'mw-fr-submitreview',
 					'accesskey' => wfMsg( 'revreview-ak-review' ),
