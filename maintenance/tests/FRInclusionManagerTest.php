@@ -6,49 +6,49 @@ class FRInclusionManagerTest extends PHPUnit_Framework_TestCase {
 	/* starting input */
 	protected static $inputTemplates = array(
 		10 	=> array('XX' => '1242', 'YY' => '0'),
-		4 	=> array('cite' => '30', 'moo' => 0),
+		4 	=> array('Cite' => '30', 'Moo' => 0),
 		0 	=> array('ZZ' => 464, '0' => 13)
 	);
 	protected static $inputFiles = array(
-		'fXX' => array('ts' => '20100405192110', 'sha1' => 'abc1'),
-		'fYY' => array('ts' => '20000403101300', 'sha1' => 'ffc2'),
-		'fZZ' => array('ts' => '0', 'sha1' => ''),
-		'fle' => array('ts' => 0, 'sha1' => ''),
-		'0'   => array('ts' => '20000203101350', 'sha1' => 'ae33'),
+		'FileXX' => array('ts' => '20100405192110', 'sha1' => 'abc1'),
+		'FileYY' => array('ts' => '20000403101300', 'sha1' => 'ffc2'),
+		'FileZZ' => array('ts' => '0', 'sha1' => ''),
+		'Filele' => array('ts' => 0, 'sha1' => ''),
+		'0'   	 => array('ts' => '20000203101350', 'sha1' => 'ae33'),
 	);
 	/* output to test against (test# => <NS,dbkey,expected rev ID>) */
 	protected static $reviewedOutputTemplates = array(
 		0 => array( 10, 'XX', 1242 ),
 		1 => array( 10, 'YY', 0 ),
-		2 => array( 4, 'cite', 30 ),
-		3 => array( 4, 'moo', 0 ),
+		2 => array( 4, 'Cite', 30 ),
+		3 => array( 4, 'Moo', 0 ),
 		4 => array( 0, 'ZZ', 464 ),
-		5 => array( 0, 'notexists', null ),
+		5 => array( 0, 'Notexists', null ),
 		6 => array( 0, '0', 13 ),
 	);
 	protected static $stableOutputTemplates = array(
 		0 => array( 10, 'XX', 1242 ),
 		1 => array( 10, 'YY', 0 ),
-		2 => array( 4, 'cite', 30 ),
-		3 => array( 4, 'moo', 0 ),
+		2 => array( 4, 'Cite', 30 ),
+		3 => array( 4, 'Moo', 0 ),
 		4 => array( 0, 'ZZ', 464 ),
-		5 => array( 0, 'notexists', 0 ),
+		5 => array( 0, 'NotexistsPage1111', 0 ),
 		6 => array( 0, '0', 13 ),
 	);
 	/* output to test against (test# => <dbkey,expected TS,expected sha1>) */
 	protected static $reviewedOutputFiles = array(
-		0 => array( 'fXX', '20100405192110', 'abc1'),
-		1 => array( 'fYY', '20000403101300', 'ffc2'),
-		2 => array( 'fZZ', '0', ''),
-		3 => array( 'fle', '0', ''),
-		4 => array( 'notgiven', null, null),
+		0 => array( 'FileXX', '20100405192110', 'abc1'),
+		1 => array( 'FileYY', '20000403101300', 'ffc2'),
+		2 => array( 'FileZZ', '0', ''),
+		3 => array( 'Filele', '0', ''),
+		4 => array( 'Notgiven', null, null),
 	);
 	protected static $stableOutputFiles = array(
-		0 => array( 'fXX', '20100405192110', 'abc1'),
-		1 => array( 'fYY', '20000403101300', 'ffc2'),
-		2 => array( 'fZZ', '0', ''),
-		3 => array( 'fle', '0', ''),
-		4 => array( 'notgiven', '0', ''),
+		0 => array( 'FileXX', '20100405192110', 'abc1'),
+		1 => array( 'FileYY', '20000403101300', 'ffc2'),
+		2 => array( 'FileZZ', '0', ''),
+		3 => array( 'Filele', '0', ''),
+		4 => array( 'NotexistsPage1111', '0', ''),
 	);
 
 	/**
