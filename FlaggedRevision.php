@@ -330,7 +330,7 @@ class FlaggedRevision {
 	/**
 	 * @return Array basic select fields (not including text/text flags)
 	 */
-	public static function selectFields() {
+	protected static function selectFields() {
 		return array(
 			'fr_rev_id', 'fr_page_id', 'fr_user', 'fr_timestamp',
             'fr_comment', 'fr_quality', 'fr_tags', 'fr_img_name',
