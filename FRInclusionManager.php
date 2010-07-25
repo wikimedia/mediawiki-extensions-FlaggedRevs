@@ -12,9 +12,6 @@ class FRInclusionManager {
 
 	protected static $instance = null;
 
-	/*
-	* Get the FlaggedArticleView for this request
-	*/
 	public static function singleton() {
 		if ( self::$instance == null ) {
 			self::$instance = new self();
