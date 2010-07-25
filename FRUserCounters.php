@@ -115,7 +115,9 @@ class FRUserCounters {
 			$key = $m[0];
 			$value = isset( $m[1] ) ? $m[1] : null;
 			if ( $key === 'uniqueContentPages' ) { // list
-				$value = array_map( 'intval', explode( ',', $value ) );
+				$value = ( $value === '' )
+					? array() // explode() would make array( 0 => '')
+					: array_map( 'intval', explode( ',', $value ) );
 			} else {
 				$value = intval( $value );
 			}
