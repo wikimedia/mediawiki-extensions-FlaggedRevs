@@ -400,6 +400,7 @@ $messages['dsb'] = array(
 	'pendingchanges-days' => '($1 {{PLURAL:$1|źeń|dnja|dny|dnjow}})',
 	'pendingchanges-recent' => '(mjenjej ako 1 góźina)',
 	'pendingchanges-category' => 'Kategorija:',
+	'pendingchanges-onwatchlist' => 'Boki mjazy wobglědowańkami',
 	'pendingchanges-stable' => 'pśeglědany',
 	'pendingchanges-diff' => 'pśeglědaś',
 	'pendingchanges-size' => 'Maksimalna změna w bytach:',
@@ -460,6 +461,7 @@ $messages['eo'] = array(
 /** Spanish (Español)
  * @author Bola
  * @author Crazymadlover
+ * @author Locos epraix
  * @author Sanbec
  * @author Translationista
  */
@@ -472,6 +474,7 @@ $messages['es'] = array(
 	'pendingchanges-days' => '($1 {{PLURAL:$1|día|días}})',
 	'pendingchanges-recent' => '(menos de 1 hora)',
 	'pendingchanges-category' => 'Categoría:',
+	'pendingchanges-onwatchlist' => 'Páginas en mi lista de seguimiento',
 	'pendingchanges-stable' => 'visto',
 	'pendingchanges-diff' => 'Revisado',
 	'pendingchanges-size' => 'Cambio máximo (bytes):',
@@ -633,9 +636,10 @@ $messages['gl'] = array(
 	'pendingchanges-days' => '($1 {{PLURAL:$1|día|días}})',
 	'pendingchanges-recent' => '(menos de 1 hora)',
 	'pendingchanges-category' => 'Categoría:',
+	'pendingchanges-onwatchlist' => 'Páxinas na miña lista de vixilancia',
 	'pendingchanges-stable' => 'revisado',
 	'pendingchanges-diff' => 'revisar',
-	'pendingchanges-size' => 'Tamaño máximo, en bytes, do cambio:',
+	'pendingchanges-size' => 'Tamaño máximo (en bytes):',
 	'pendingchanges-unwatched' => '(sen vixiar)',
 	'pendingchanges-watched' => '($1 {{PLURAL:$1|usuario activo|usuarios activos}} vixiando)',
 	'pendingchanges-viewing' => '(en revisión)',
@@ -745,6 +749,7 @@ $messages['hsb'] = array(
 	'pendingchanges-days' => '($1 {{PLURAL:$1|dźeń|dnjej|dny|dnjow}})',
 	'pendingchanges-recent' => '(mjenje hač 1 hodźina)',
 	'pendingchanges-category' => 'Kategorija:',
+	'pendingchanges-onwatchlist' => 'Strony w mojim wobkedźbowankach',
 	'pendingchanges-stable' => 'přehladany',
 	'pendingchanges-diff' => 'kontrolować',
 	'pendingchanges-size' => 'Maksimalna změna (w bajtach):',
@@ -992,6 +997,7 @@ $messages['lb'] = array(
 	'pendingchanges-days' => '($1 {{PLURAL:$1|Dag|Deeg}})',
 	'pendingchanges-recent' => '(manner wéi 1 Stonn)',
 	'pendingchanges-category' => 'Kategorie:',
+	'pendingchanges-onwatchlist' => 'Säiten op menger Iwwerwaachungslëscht',
 	'pendingchanges-stable' => 'iwwerkuckt',
 	'pendingchanges-diff' => 'iwwerkucken',
 	'pendingchanges-size' => 'Maximal Ännerung (Bytes):',
@@ -1335,6 +1341,7 @@ $messages['roa-tara'] = array(
 	'pendingchanges-days' => '($1 {{PLURAL:$1|sciurne|sciurne}})',
 	'pendingchanges-recent' => "(mene de n'ore)",
 	'pendingchanges-category' => 'Categorije:',
+	'pendingchanges-onwatchlist' => 'Pàggene condrollate da me',
 	'pendingchanges-stable' => 'viste',
 	'pendingchanges-diff' => 'riviste',
 	'pendingchanges-size' => "Cange 'a dimenzione massime de byte:",
@@ -1678,6 +1685,7 @@ $messages['vi'] = array(
 	'pendingchanges-days' => '($1 {{PLURAL:$1|ngày|ngày}})',
 	'pendingchanges-recent' => '(dưới 1 giờ)',
 	'pendingchanges-category' => 'Thể loại:',
+	'pendingchanges-onwatchlist' => 'Các trang trong danh sách theo dõi của tôi',
 	'pendingchanges-stable' => 'đã xem qua',
 	'pendingchanges-diff' => 'duyệt',
 	'pendingchanges-size' => 'Thay đổi lớn nhất (byte):',

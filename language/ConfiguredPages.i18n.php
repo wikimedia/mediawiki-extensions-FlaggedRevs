@@ -721,11 +721,19 @@ $messages['ro'] = array(
 	'configuredpages-prec-quality' => 'ultima calitate',
 );
 
-/** Tarandíne (Tarandíne) */
+/** Tarandíne (Tarandíne)
+ * @author Joetaras
+ */
 $messages['roa-tara'] = array(
+	'configuredpages' => 'Pàggene cu le configuraziune de le revisitaziune',
+	'configuredpages-none' => "Non ge stonne pàggene jndr'à sta liste.",
+	'configuredpages-config' => 'Configurazione',
+	'configuredpages-precedence' => 'Precedenze:',
 	'configuredpages-prec-none' => 'urtema verificate',
 	'configuredpages-prec-quality' => 'urteme de qualità',
 	'configuredpages-prec-pristine' => 'urteme repristinate',
+	'configuredpages-def-draft' => 'urtema versione',
+	'configuredpages-def-stable' => 'versiona secure',
 );
 
 /** Russian (Русский)
