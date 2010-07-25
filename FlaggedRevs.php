@@ -522,6 +522,8 @@ $wgHooks['WikiExporter::dumpStableQuery'][] = 'FlaggedRevsHooks::stableDumpQuery
 
 # Duplicate flagged* tables in parserTests.php
 $wgHooks['ParserTestTables'][] = 'FlaggedRevsHooks::onParserTestTables';
+#Unit tests
+$wgHooks['UnitTestsList'][] = 'FlaggedRevsHooks::getUnitTests';
 
 # Database schema changes
 $wgHooks['LoadExtensionSchemaUpdates'][] = 'FlaggedRevsHooks::addSchemaUpdates';

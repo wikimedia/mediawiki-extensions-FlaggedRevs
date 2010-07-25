@@ -2,40 +2,6 @@
 
 require_once 'PHPUnit\Framework\TestCase.php';
 
-define( 'MEDIAWIKI', 1 ); // hack
-if ( getenv( 'MW_INSTALL_PATH' ) ) {
-	$IP = getenv( 'MW_INSTALL_PATH' );
-} else {
-	$IP = dirname(__FILE__).'/../../../..';
-}
-require_once "$IP/includes/defines.php"; // constants (NS_FILE ect...)
-require_once dirname(__FILE__).'/../../FRInclusionManager.php';
-
-##### Fake classes for dependencies ####
-class Title {
-	protected $ns;
-	protected $dbKey;
-	public static function makeTitleSafe( $ns, $dbKey ) {
-		$t = new self();
-		$t->ns = (int)$ns;
-		$t->dbKey = (string)$dbKey;
-		return $t;
-	}
-	public function getNamespace() {
-		return $this->ns;
-	}
-	public function getDBKey() {
-		return $this->dbKey;
-	}
-}
-class FlaggedRevision {
-	public static function newFromStable() {
-		return null; // not in DB
-	}
-}
-class MWException extends Exception { } // just in case
-##### End fake classes #####
-
 class FRInclusionManagerTest extends PHPUnit_Framework_TestCase {
 	/* starting input */
 	protected static $inputTemplates = array(

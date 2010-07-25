@@ -1799,8 +1799,11 @@ class FlaggedRevsHooks {
 	}
 
 	public static function injectPostEditURLParams( $article, &$sectionAnchor, &$extraQuery ) {
-		$view = FlaggedArticleView::singleton();
-		$view->injectPostEditURLParams( $sectionAnchor, $extraQuery );
+		// Note: $wgArticle sometimes not set here
+		if ( FlaggedArticleView::globalArticleInstance() != null ) {
+			$view = FlaggedArticleView::singleton();
+			$view->injectPostEditURLParams( $sectionAnchor, $extraQuery );
+		}
 		return true;
 	}
 
@@ -2057,6 +2060,11 @@ class FlaggedRevsHooks {
 				$errorMsg = wfMsg( $status ); // some error message
 			}
 		}
+		return true;
+	}
+
+	public static function getUnitTests( &$files ) {
+		$files[] = dirname( __FILE__ ) . '/maintenance/tests/FRInclusionManagerTest.php';
 		return true;
 	}
 
