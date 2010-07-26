@@ -7,7 +7,7 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 class QualityOversight extends SpecialPage
 {
     public function __construct() {
-        SpecialPage::SpecialPage( 'QualityOversight' );
+        parent::SpecialPage( 'QualityOversight' );
     }
 
     public function execute( $par ) {

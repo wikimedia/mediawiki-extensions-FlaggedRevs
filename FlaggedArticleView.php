@@ -401,7 +401,7 @@ class FlaggedArticleView {
 			$revsSince = $this->article->getPendingRevCount();
 			$tooltip = wfMsgHtml( 'revreview-draft-title' );
 			$pending = $prot;
-			if ( self::showRatingIcon() ) {
+			if ( $this->showRatingIcon() ) {
 				$pending .= FlaggedRevsXML::draftStatusIcon();
 			}
 			$pending .= wfMsgExt( 'revreview-edited',

@@ -502,7 +502,7 @@ class PageStabilityGeneralForm extends PageStabilityForm {
 				'FOR UPDATE'
 			);
 			# Check if this is not the same config as the existing row (if any)
-			$changed = self::configIsDifferent( $oldRow,
+			$changed = $this->configIsDifferent( $oldRow,
 				$this->select, $this->override, $this->autoreview, $dbExpiry );
 			# If the new config is different, replace the old row...
 			if ( $changed ) {
@@ -618,7 +618,7 @@ class PageStabilityProtectForm extends PageStabilityForm {
 				'FOR UPDATE'
 			);
 			# Check if this is not the same config as the existing row (if any)
-			$changed = self::configIsDifferent( $oldRow,
+			$changed = $this->configIsDifferent( $oldRow,
 				$this->override, $this->autoreview, $dbExpiry );
 			# If the new config is different, replace the old row...
 			if ( $changed ) {
