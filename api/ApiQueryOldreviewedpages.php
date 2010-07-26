@@ -149,7 +149,7 @@ class ApiQueryOldreviewedpages extends ApiQueryGeneratorBase {
 		}
 	}
 
-	public function getCachedMode( $params ) {
+	public function getCacheMode( $params ) {
 		if ( $params['filterwatched'] == 'watched' ) {
 			// Private data
 			return 'private';

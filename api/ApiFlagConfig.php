@@ -29,6 +29,7 @@
 class ApiFlagConfig extends ApiBase {
 
 	public function execute() {
+		$this->getMain()->setCacheMode( 'public' );
 		global $wgFlaggedRevTags;
 		$data = array();
 		foreach ( $wgFlaggedRevTags as $tag => $params ) {
@@ -42,10 +43,6 @@ class ApiFlagConfig extends ApiBase {
 		$result = $this->getResult();
 		$result->setIndexedTagName( $data, 'tag' );
 		$result->addValue( null, $this->getModuleName(), $data );
-	}
-
-	public function getCacheMode( $params ) {
-		return 'public';
 	}
 
 	public function mustBePosted() {
