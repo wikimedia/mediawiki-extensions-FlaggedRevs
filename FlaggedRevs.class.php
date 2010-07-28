@@ -531,16 +531,10 @@ class FlaggedRevs {
 				}
 			}
 		}
-		# Parse the new body, wikitext -> html. Maybe use parser cache
-		$options = self::makeParserOptions();
-		$parserOut = null;
-		if( $title->getLatestRevID() == $id ) {
-			$parserOut = ParserCache::singleton()->get( new Article( $title, 0 ), $options );
-		}
-		if( !$parserOut ) {
-			$parserOut = $wgParser->parse( $text, $title, $options, true, true, $id );
-		}
-
+		# Parse the new body, wikitext -> html
+		$options = self::makeParserOptions(); // default options
+	   	$parserOut = $wgParser->parse( $text, $title, $options, true, true, $id );
+		# Stable parse done!
 		if ( $resetManager ) {
 			$incManager->clear(); // reset the FRInclusionManager as needed
 		}
