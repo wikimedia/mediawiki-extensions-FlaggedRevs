@@ -726,6 +726,7 @@ $messages['ro'] = array(
  */
 $messages['roa-tara'] = array(
 	'configuredpages' => 'Pàggene cu le configuraziune de le revisitaziune',
+	'configuredpages-list' => "Sotte ste 'n'elenghe de pàggene configurate ca onna avè diverse 'mbostaziune de approvazione ca 'u site de base. Certe 'mbostaziune ponne cangià quale versione avene visualizzate pe le letture o cchiù restriziune ca ponne fa cangiaminde ca non ge avene abbesogne de 'na revisione.",
 	'configuredpages-none' => "Non ge stonne pàggene jndr'à sta liste.",
 	'configuredpages-config' => 'Configurazione',
 	'configuredpages-precedence' => 'Precedenze:',

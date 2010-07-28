@@ -670,6 +670,7 @@ $messages['gsw'] = array(
 	'pendingchanges-days' => '($1 {{PLURAL:$1|Tag|Täg}})',
 	'pendingchanges-recent' => '(weniger wie 1 Stund)',
 	'pendingchanges-category' => 'Kategorii:',
+	'pendingchanges-onwatchlist' => 'Syten uf myyre Beobachtigslischt',
 	'pendingchanges-stable' => 'vum Fäldhieter gsäh',
 	'pendingchanges-diff' => 'as Fäldhieter aaluege',
 	'pendingchanges-size' => 'Maximali Änderigsgreßi in Byte:',
@@ -887,6 +888,7 @@ $messages['ja'] = array(
 	'pendingchanges-days' => '($1{{PLURAL:$1|日}})',
 	'pendingchanges-recent' => '(1時間未満)',
 	'pendingchanges-category' => 'カテゴリ:',
+	'pendingchanges-onwatchlist' => '自分のウォッチリストに含まれるページ',
 	'pendingchanges-stable' => '採択済',
 	'pendingchanges-diff' => '査読',
 	'pendingchanges-size' => '変更量の上限 (バイト):',
@@ -1233,13 +1235,13 @@ $messages['pl'] = array(
 $messages['pms'] = array(
 	'pendingchanges' => 'Pàgine con dle modìfiche an cors',
 	'pendingchanges-legend' => 'Listé le pàgine revisionà con dle revision an cors',
-	'pendingchanges-list' => "Sta pàgina-sì a lista le pàgine revisionà che a l'han un-a o pi modìfiche ch'a spet revision.",
+	'pendingchanges-list' => "Sta pàgina-sì a lista le pàgine revisionà che a l'han un-a o pi modìfiche ch'a speto na revision.",
 	'pendingchanges-none' => "Al moment a-i son gnun-e pàgine ch'a sodisfo costi criteri",
 	'pendingchanges-hours' => '($1 {{PLURAL:$1|ora|ore}})',
 	'pendingchanges-days' => '($1 {{PLURAL:$1|di|di}})',
 	'pendingchanges-recent' => '(men che 1 ora)',
 	'pendingchanges-category' => 'Categorìa:',
-	'pendingchanges-onwatchlist' => 'Pàgine che im ten sot euj',
+	'pendingchanges-onwatchlist' => 'Pàgine che im ten-o sot-euj',
 	'pendingchanges-stable' => "La version stàbil a l'é lë stàndard",
 	'pendingchanges-diff' => 'revision-a',
 	'pendingchanges-size' => 'Màssim cambi (byte):',
@@ -1625,6 +1627,7 @@ $messages['uk'] = array(
 	'pendingchanges-days' => '($1 {{PLURAL:$1|день|дні|днів}})',
 	'pendingchanges-recent' => '(менше 1 години)',
 	'pendingchanges-category' => 'Категорія:',
+	'pendingchanges-onwatchlist' => 'Сторінки з мого списку спостереження',
 	'pendingchanges-stable' => 'переглянута',
 	'pendingchanges-diff' => 'перевірити',
 	'pendingchanges-size' => 'Максимальна зміна розміру в байтах:',
@@ -1723,6 +1726,7 @@ $messages['yue'] = array(
 );
 
 /** Simplified Chinese (‪中文(简体)‬)
+ * @author Chenxiaoqino
  * @author Gaoxuewei
  * @author Gzdavidwong
  * @author Jimmy xu wrk
@@ -1738,6 +1742,7 @@ $messages['zh-hans'] = array(
 	'pendingchanges-days' => '（$1日）',
 	'pendingchanges-recent' => '（少于1小时）',
 	'pendingchanges-category' => '分类:',
+	'pendingchanges-onwatchlist' => '我的监视列表中的页面',
 	'pendingchanges-stable' => '察看',
 	'pendingchanges-diff' => '复审',
 	'pendingchanges-size' => '最大变更（字节）：',
@@ -1763,6 +1768,7 @@ $messages['zh-hant'] = array(
 	'pendingchanges-days' => '（$1日）',
 	'pendingchanges-recent' => '（少於1小時）',
 	'pendingchanges-category' => '分類:',
+	'pendingchanges-onwatchlist' => '在我的監視列表中的頁面',
 	'pendingchanges-stable' => '察看',
 	'pendingchanges-diff' => '複審',
 	'pendingchanges-size' => '最大變動（位元組）：',
