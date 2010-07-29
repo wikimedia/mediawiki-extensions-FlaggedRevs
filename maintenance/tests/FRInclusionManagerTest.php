@@ -11,44 +11,48 @@ class FRInclusionManagerTest extends PHPUnit_Framework_TestCase {
 	);
 	protected static $inputFiles = array(
 		'FileXX' => array('ts' => '20100405192110', 'sha1' => 'abc1'),
-		'FileYY' => array('ts' => '20000403101300', 'sha1' => 'ffc2'),
+		'FileYY' => array('ts' => '20000403101300', 'sha1' => 1134),
 		'FileZZ' => array('ts' => '0', 'sha1' => ''),
 		'Filele' => array('ts' => 0, 'sha1' => ''),
 		'0'   	 => array('ts' => '20000203101350', 'sha1' => 'ae33'),
 	);
 	/* output to test against (test# => <NS,dbkey,expected rev ID>) */
 	protected static $reviewedOutputTemplates = array(
-		0 => array( 10, 'XX', 1242 ),
-		1 => array( 10, 'YY', 0 ),
-		2 => array( 4, 'Cite', 30 ),
-		3 => array( 4, 'Moo', 0 ),
-		4 => array( 0, 'ZZ', 464 ),
-		5 => array( 0, 'Notexists', null ),
-		6 => array( 0, '0', 13 ),
+		array( "Output version when given '1224'", 10, 'XX', 1242 ),
+		array( "Output version when given '0'", 10, 'YY', 0 ),
+		array( "Output version when given '30'", 4, 'Cite', 30 ),
+		array( "Output version when given 0", 4, 'Moo', 0 ),
+		array( "Output version when given 464", 0, 'ZZ', 464 ),
+		array( "Output version when given 13", 0, '0', 13 ),
+		array( "Output version when not given", 0, 'Notexists', null ),
 	);
 	protected static $stableOutputTemplates = array(
-		0 => array( 10, 'XX', 1242 ),
-		1 => array( 10, 'YY', 0 ),
-		2 => array( 4, 'Cite', 30 ),
-		3 => array( 4, 'Moo', 0 ),
-		4 => array( 0, 'ZZ', 464 ),
-		5 => array( 0, 'NotexistsPage1111', 0 ),
-		6 => array( 0, '0', 13 ),
+		array( "Output version when given '1224'", 10, 'XX', 1242 ),
+		array( "Output version when given '0'", 10, 'YY', 0 ),
+		array( "Output version when given '30'", 4, 'Cite', 30 ),
+		array( "Output version when given 0", 4, 'Moo', 0 ),
+		array( "Output version when given 464", 0, 'ZZ', 464 ),
+		array( "Output version when given 13", 0, '0', 13 ),
+		array( "Output version when not given", 0, 'NotexistsPage1111', 0 ),
 	);
 	/* output to test against (test# => <dbkey,expected TS,expected sha1>) */
 	protected static $reviewedOutputFiles = array(
-		0 => array( 'FileXX', '20100405192110', 'abc1'),
-		1 => array( 'FileYY', '20000403101300', 'ffc2'),
-		2 => array( 'FileZZ', '0', ''),
-		3 => array( 'Filele', '0', ''),
-		4 => array( 'Notgiven', null, null),
+		array( "Output version when given '20100405192110'/'abc1'",
+			'FileXX', '20100405192110', 'abc1'),
+		array( "Output version when given '20000403101300'/'ffc2'",
+			'FileYY', '20000403101300', '1134'),
+		array( "Output version when given '0'/''", 'FileZZ', '0', ''),
+		array( "Output version when given 0/''", 'Filele', '0', ''),
+		array( "Output version when not given", 'Notgiven', null, null),
 	);
 	protected static $stableOutputFiles = array(
-		0 => array( 'FileXX', '20100405192110', 'abc1'),
-		1 => array( 'FileYY', '20000403101300', 'ffc2'),
-		2 => array( 'FileZZ', '0', ''),
-		3 => array( 'Filele', '0', ''),
-		4 => array( 'NotexistsPage1111', '0', ''),
+		array( "Output version when given '20100405192110'/'abc1'",
+			'FileXX', '20100405192110', 'abc1'),
+		array( "Output version when given '20000403101300'/'ffc2'",
+			'FileYY', '20000403101300', '1134'),
+		array( "Output version when given '0'/''", 'FileZZ', '0', ''),
+		array( "Output version when given 0/''", 'Filele', '0', ''),
+		array( "Output version when not given", 'NotexistsPage1111', '0', ''),
 	);
 
 	/**
@@ -87,10 +91,10 @@ class FRInclusionManagerTest extends PHPUnit_Framework_TestCase {
 		$im = FRInclusionManager::singleton();
 		$im->setReviewedVersions( self::$inputTemplates, self::$inputFiles );
 		foreach ( self::$reviewedOutputTemplates as $x => $triple ) {
-			list($ns,$dbKey,$expId) = $triple;
+			list($test,$ns,$dbKey,$expId) = $triple;
 			$title = Title::makeTitleSafe( $ns, $dbKey );
 			$actual = $im->getReviewedTemplateVersion( $title );
-			$this->assertEquals( $expId, $actual, "Rev ID test case $x" );
+			$this->assertEquals( $expId, $actual, "Rev ID test: $test" );
 		}
 	}
 
@@ -98,11 +102,11 @@ class FRInclusionManagerTest extends PHPUnit_Framework_TestCase {
 		$im = FRInclusionManager::singleton();
 		$im->setReviewedVersions( self::$inputTemplates, self::$inputFiles );
 		foreach ( self::$reviewedOutputFiles as $x => $triple ) {
-			list($dbKey,$expTS,$expSha1) = $triple;
+			list($test,$dbKey,$expTS,$expSha1) = $triple;
 			$title = Title::makeTitleSafe( NS_FILE, $dbKey );
 			list($actualTS,$actualSha1) = $im->getReviewedFileVersion( $title );
-			$this->assertEquals( $expTS, $actualTS, "Timestamp test case $x" );
-			$this->assertEquals( $expSha1, $actualSha1, "Sha1 test case $x" );
+			$this->assertEquals( $expTS, $actualTS, "Timestamp test: $test" );
+			$this->assertEquals( $expSha1, $actualSha1, "Sha1 test: $test" );
 		}
 	}
 
@@ -111,10 +115,10 @@ class FRInclusionManagerTest extends PHPUnit_Framework_TestCase {
 		$im->setReviewedVersions( array(), array() );
 		$im->setStableVersionCache( self::$inputTemplates, self::$inputFiles );
 		foreach ( self::$stableOutputTemplates as $x => $triple ) {
-			list($ns,$dbKey,$expId) = $triple;
+			list($test,$ns,$dbKey,$expId) = $triple;
 			$title = Title::makeTitleSafe( $ns, $dbKey );
 			$actual = $im->getStableTemplateVersion( $title );
-			$this->assertEquals( $expId, $actual, "Rev ID test case $x" );
+			$this->assertEquals( $expId, $actual, "Rev ID test: $test" );
 		}
 	}
 
@@ -123,11 +127,11 @@ class FRInclusionManagerTest extends PHPUnit_Framework_TestCase {
 		$im->setReviewedVersions( array(), array() );
 		$im->setStableVersionCache( self::$inputTemplates, self::$inputFiles );
 		foreach ( self::$stableOutputFiles as $x => $triple ) {
-			list($dbKey,$expTS,$expSha1) = $triple;
+			list($test,$dbKey,$expTS,$expSha1) = $triple;
 			$title = Title::makeTitleSafe( NS_FILE, $dbKey );
 			list($actualTS,$actualSha1) = $im->getStableFileVersion( $title );
-			$this->assertEquals( $expTS, $actualTS, "Timestamp test case $x" );
-			$this->assertEquals( $expSha1, $actualSha1, "Sha1 test case $x" );
+			$this->assertEquals( $expTS, $actualTS, "Timestamp test: $test" );
+			$this->assertEquals( $expSha1, $actualSha1, "Sha1 test: $test" );
 		}
 	}
 }
