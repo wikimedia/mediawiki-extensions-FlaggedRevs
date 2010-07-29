@@ -1439,16 +1439,20 @@ $messages['sk'] = array(
  * @author Dbc334
  */
 $messages['sl'] = array(
+	'pendingchanges' => 'Strani s spremembami v teku',
 	'pendingchanges-legend' => 'Seznam pregledanih strani z urejanji na čakanju',
+	'pendingchanges-list' => 'Ta stran navaja pregledane strani, ki imajo eno ali več urejanj, čakajočih na pregled.',
 	'pendingchanges-none' => 'Trenutno ni nobene strani, ki bi ustrezala izbranim merilom',
 	'pendingchanges-hours' => '($1 {{PLURAL:$1|ura|uri|ure|ur}})',
 	'pendingchanges-days' => '($1 {{PLURAL:$1|dan|dneva|dnevi|dni}})',
 	'pendingchanges-recent' => '(manj kot 1 ura)',
 	'pendingchanges-category' => 'Kategorija:',
+	'pendingchanges-onwatchlist' => 'Strani na mojem spisku nadzorov',
+	'pendingchanges-stable' => 'Ustaljena različica je privzeta',
 	'pendingchanges-diff' => 'preglej',
 	'pendingchanges-size' => 'Največja sprememba (bajtov):',
 	'pendingchanges-unwatched' => '(nespremljano)',
-	'pendingchanges-watched' => 'Strani na mojem spisku nadzorov',
+	'pendingchanges-watched' => '({{PLURAL:$1|spremlja $1 aktiven uporabnik|spremljata $1 aktivna uporabnika|spremljajo $1 aktivni uporabniki|spremlja $1 aktivnih uporabnikov}})',
 	'pendingchanges-viewing' => '(v pregledu)',
 );
 

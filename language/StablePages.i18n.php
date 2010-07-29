@@ -920,5 +920,6 @@ $messages['zh-hant'] = array(
 只有指定用戶的編輯才不需要通過審核。',
 	'stablepages-none' => '沒有頁面在這個清單中',
 	'stablepages-config' => '設定',
+	'stablepages-indef' => '只限永久到期',
 );
 
