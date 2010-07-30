@@ -877,6 +877,13 @@ $3",
 	'validationstatistics-reviews' => 'Tinjauan',
 );
 
+/** Igbo (Igbo)
+ * @author Ukabia
+ */
+$messages['ig'] = array(
+	'validationstatistics-total' => 'Ihü',
+);
+
 /** Ido (Ido)
  * @author Malafaya
  */

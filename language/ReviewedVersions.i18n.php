@@ -534,6 +534,13 @@ $messages['id'] = array(
 	'reviewedversions-review' => 'Ditinjau pada <i>$1</i> oleh $2',
 );
 
+/** Igbo (Igbo)
+ * @author Ukabia
+ */
+$messages['ig'] = array(
+	'reviewedversions-page' => 'Áhà ihü:',
+);
+
 /** Icelandic (Íslenska)
  * @author S.Örvarr.S
  */

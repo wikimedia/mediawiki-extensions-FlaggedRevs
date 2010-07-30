@@ -753,6 +753,15 @@ $messages['id'] = array(
 	'unreviewed-recent' => '(kurang dari 1 jam)',
 );
 
+/** Igbo (Igbo)
+ * @author Ukabia
+ */
+$messages['ig'] = array(
+	'unreviewed-category' => 'Ébéonọr:',
+	'unreviewed-diff' => 'lèwárí',
+	'unreviewed-unwatched' => '(ēléghịdị)',
+);
+
 /** Ido (Ido)
  * @author Malafaya
  */

@@ -827,6 +827,14 @@ $messages['id'] = array(
 	'pendingchanges-viewing' => '(sedang ditinjau)',
 );
 
+/** Igbo (Igbo)
+ * @author Ukabia
+ */
+$messages['ig'] = array(
+	'pendingchanges-category' => 'Ébéonọr:',
+	'pendingchanges-diff' => 'lèwárí',
+);
+
 /** Ido (Ido)
  * @author Malafaya
  */
