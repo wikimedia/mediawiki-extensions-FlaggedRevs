@@ -958,6 +958,7 @@ $messages['ko'] = array(
 	'pendingchanges-days' => '($1일 전)',
 	'pendingchanges-recent' => '(1시간 미만)',
 	'pendingchanges-category' => '분류:',
+	'pendingchanges-onwatchlist' => '내 주시문서 목록에 있는 문서',
 	'pendingchanges-stable' => '검토 설정이 된 문서',
 	'pendingchanges-diff' => '검토',
 	'pendingchanges-size' => '최대 변화량 (바이트):',

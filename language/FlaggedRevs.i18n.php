@@ -6758,13 +6758,13 @@ $messages['hu'] = array(
 	'revreview-accuracy-3' => 'forrásokkal megfelelően alátámasztott',
 	'revreview-accuracy-4' => 'kiemelt',
 	'revreview-auto' => '(automatikus)',
-	'revreview-basic' => 'Ez a [[{{MediaWiki:Validationpage}}|közzétett változat]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} ellenőrizve]: <i>$2</i>.
+	'revreview-basic' => 'Ez a [[{{MediaWiki:Validationpage}}|közzétett változat]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} ellenőrizve]: <i>$2</i>
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 változtatás] vár ellenőrzésre.',
-	'revreview-basic-i' => 'Ez a [[{{MediaWiki:Validationpage}}|közzétett változat]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} ellenőrizve]: <i>$2</i>.
+	'revreview-basic-i' => 'Ez a [[{{MediaWiki:Validationpage}}|közzétett változat]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} ellenőrizve]: <i>$2</i>
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Sablon- vagy fájlváltoztatások] várnak ellenőrzésre.',
 	'revreview-basic-old' => 'Ez egy [[{{MediaWiki:Validationpage}}|ellenőrzött]] változat ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} összes]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} ellenőrizve]: <i>$2</i>.
 Azóta történhettek új [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} változtatások].',
-	'revreview-basic-same' => 'Ez a [[{{MediaWiki:Validationpage}}|közzétett változat]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} ellenőrizve]: <i>$2</i>.',
+	'revreview-basic-same' => 'Ez a [[{{MediaWiki:Validationpage}}|közzétett változat]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} ellenőrizve]: <i>$2</i>',
 	'revreview-basic-source' => 'A lap [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} ellenőrzött változata] ([{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} ellenőrizve]: <i>$2</i>) ezen a változaton alapul.',
 	'revreview-failed' => "'''A változat ellenőrzése meghiúsult.''' Érvénytelen vagy nem teljes beküldés.",
 	'review_page_invalid' => 'Érvénytelen cím.',
@@ -6809,9 +6809,9 @@ Lásd az [[Special:Unreviewedpages|ellenőrizetlen lapok listáját]].',
 	'revreview-note' => '[[User:$1|$1]] az alábbi megjegyzéseket fűzte ezen változat [[{{MediaWiki:Validationpage}}|ellenőrzése]] mellé:',
 	'revreview-notes' => 'Megjelenítendő megfigyelések vagy megjegyzések:',
 	'revreview-oldrating' => 'Értékelése:',
-	'revreview-quality' => 'Ez a [[{{MediaWiki:Validationpage}}|közzétett változat]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} minőséginek jelölve]: <i>$2</i>.
+	'revreview-quality' => 'Ez a [[{{MediaWiki:Validationpage}}|közzétett változat]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} minőséginek jelölve]: <i>$2</i>
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 változtatás] vár ellenőrzésre.',
-	'revreview-quality-i' => 'Ez a [[{{MediaWiki:Validationpage}}|közzétett változat]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} minőséginek jelölve]: <i>$2</i>.
+	'revreview-quality-i' => 'Ez a [[{{MediaWiki:Validationpage}}|közzétett változat]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} minőséginek jelölve]: <i>$2</i>
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Sablon- vagy fájlváltoztatások] várnak ellenőrzésre.',
 	'revreview-quality-old' => 'Ez egy [[{{MediaWiki:Validationpage}}|minőségi]] változat ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} összes]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} minőséginek jelölve]: <i>$2</i>.
 Új [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} változtatások] történhettek.',
@@ -8589,6 +8589,7 @@ $messages['ko'] = array(
 	'review_page_unreviewable' => '대상 문서가 검토 가능한 문서가 아닙니다.',
 	'review_no_oldid' => '판 번호가 정의되지 않았습니다.',
 	'review_bad_oldid' => '해당 판이 존재하지 않습니다.',
+	'review_not_flagged' => '해당 판이 아직 검토되지 않았습니다.',
 	'review_too_low' => '어떤 입력 사항을 "부적절"으로 남겨 둔 채로 검토할 수 없습니다.',
 	'review_bad_key' => '틀/파일 포함 변수 키가 잘못되었습니다.',
 	'review_denied' => '권한 없음',
@@ -8740,8 +8741,8 @@ $messages['ko'] = array(
 	'tooltip-ca-default' => '문서 품질 보증 설정',
 	'flaggedrevs-protect-legend' => '자동으로 편집 검토하기 ([[{{MediaWiki:Validationpage}}|도움말]])',
 	'flaggedrevs-protect-none' => '모든 사용자에게 허용',
-	'revreview-locked-title' => '편집이 이 문서에 공개되기 전에 반드시 검토를 거쳐야 합니다.',
-	'revreview-unlocked-title' => '이 문서에 보여지기 전에 편집은 검토를 필요로 하지 않습니다!',
+	'revreview-locked-title' => '이 문서에 대한 편집은 반드시 검토를 거쳐야 합니다.',
+	'revreview-unlocked-title' => '이 문서에 대한 편집은 검토를 필요로 하지 않습니다.',
 	'revreview-locked' => "'''주의:''' 이 문서에 편집이 배포되기 전에 반드시 [[{{MediaWiki:Validationpage}}|검토]]를 거쳐야 합니다.",
 	'revreview-unlocked' => "'''알림''' 이 문서에 보여지기 전에 편집은 [[{{MediaWiki:Validationpage}}|검토]]가 필요하지 않습니다.",
 	'log-show-hide-review' => '문서 검토 기록 $1',
@@ -15652,8 +15653,9 @@ khác với bản này.',
 	'revreview-check-flag-y-title' => 'Chấp nhận tất cả những thay đổi của bạn trong sửa đổi này.',
 	'revreview-submitedit' => 'Gửi thay đổi',
 	'revreview-submitedit-title' => 'Đệ trình các thay đổi của bạn để duyệt',
-	'revreview-edited' => "'''Những sửa đổi sẽ được đưa vào [[{{MediaWiki:Validationpage}}|bản ổn định]] ngay khi được một thành viên được chỉ định duyệt qua.
-Dưới đây là ''bản nháp''.''' Có [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 {{PLURAL:$2|thay đổi|thay đổi}}] đề nghị.",
+	'revreview-edited' => "'''Những sửa đổi sẽ được trình bày cho độc giả ngay khi được một thành viên được chỉ định duyệt qua. ([[{{MediaWiki:Validationpage}}|Trợ giúp]])'''
+
+Hiện có [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 thay đổi] ''(ở dưới)'' đang chờ được duyệt.",
 	'revreview-edited-section' => 'Trở về phần “[[#$1|$2]]”.',
 	'revreview-flag' => 'Duyệt phiên bản này',
 	'revreview-reflag' => 'Duyệt lại phiên bản này',
@@ -15665,9 +15667,8 @@ Dưới đây là ''bản nháp''.''' Có [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&
 Mời xem [[Special:Unreviewedpages|danh sách các trang chưa được duyệt]].',
 	'revreview-newest-basic' => 'Bản [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} ổn định] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} tất cả]) đã được [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} phê chuẩn] vào <i>$2</i>. Bản nháp có [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|thay đổi|thay đổi}}] được đề nghị.',
 	'revreview-newest-basic-i' => 'Bản [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} ổn định] được [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} chứng nhận] vào <i>$2</i>. Bản nháp có [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} thay đổi bản mẫu/tập tin] cần duyệt.',
-	'revreview-newest-quality' => 'Bản [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} chất lượng] được [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} phê chuẩn] vào <i>$2</i>. Bản nháp có [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|thay đổi|thay đổi}}] cần duyệt.',
-	'revreview-newest-quality-i' => 'Bản [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} ổn định] đã được [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} chứng nhận] vào <i>$2</i>.
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Thay đổi bản mẫu/tập tin] cần duyệt qua.',
+	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Phiên bản ổn định] đã được [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} chấp nhận] vào <i>$2</i>. Hiện có [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 thay đổi] đang chờ được duyệt.',
+	'revreview-newest-quality-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Phiên bản ổn định] đã được [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} chấp nhận] vào <i>$2</i>. Hiện có [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} thay đổi bản mẫu/tập tin] đang chờ được duyệt.',
 	'revreview-pending-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Phiên bản ổn định] đã được [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} chấp nhận] vào <i>$2</i>. Hiện có [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 thay đổi] đang chờ được duyệt.',
 	'revreview-pending-nosection' => 'Hãy thử xem [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} phiên bản gần đây nhất] gồm có 
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 thay đổi đang chờ] để biết phần này đã được di chuyển hoặc xóa hay không.',
