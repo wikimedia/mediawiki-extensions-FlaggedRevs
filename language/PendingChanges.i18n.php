@@ -805,6 +805,7 @@ $messages['ia'] = array(
 
 /** Indonesian (Bahasa Indonesia)
  * @author Bennylin
+ * @author Farras
  * @author Irwangatot
  * @author IvanLanin
  * @author Iwan Novirion
@@ -819,6 +820,7 @@ $messages['id'] = array(
 	'pendingchanges-days' => '($1 {{PLURAL:$1|hari|hari}})',
 	'pendingchanges-recent' => '(kurang dari 1 jam)',
 	'pendingchanges-category' => 'Kategori:',
+	'pendingchanges-onwatchlist' => 'Halaman pada daftar pantauan saya',
 	'pendingchanges-stable' => 'terperiksa',
 	'pendingchanges-diff' => 'tinjau',
 	'pendingchanges-size' => 'Perubahan maks. (byte):',
