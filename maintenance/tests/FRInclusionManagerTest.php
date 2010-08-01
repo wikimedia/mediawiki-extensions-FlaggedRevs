@@ -1,7 +1,5 @@
 <?php
 
-require_once 'PHPUnit\Framework\TestCase.php';
-
 class FRInclusionManagerTest extends PHPUnit_Framework_TestCase {
 	/* starting input */
 	protected static $inputTemplates = array(
@@ -16,7 +14,7 @@ class FRInclusionManagerTest extends PHPUnit_Framework_TestCase {
 		'Filele' => array('ts' => 0, 'sha1' => ''),
 		'0'   	 => array('ts' => '20000203101350', 'sha1' => 'ae33'),
 	);
-	/* output to test against (test# => <NS,dbkey,expected rev ID>) */
+	/* output to test against (<test,NS,dbkey,expected rev ID>) */
 	protected static $reviewedOutputTemplates = array(
 		array( "Output version when given '1224'", 10, 'XX', 1242 ),
 		array( "Output version when given '0'", 10, 'YY', 0 ),
@@ -35,7 +33,7 @@ class FRInclusionManagerTest extends PHPUnit_Framework_TestCase {
 		array( "Output version when given 13", 0, '0', 13 ),
 		array( "Output version when not given", 0, 'NotexistsPage1111', 0 ),
 	);
-	/* output to test against (test# => <dbkey,expected TS,expected sha1>) */
+	/* output to test against (<test,dbkey,expected TS,expected sha1>) */
 	protected static $reviewedOutputFiles = array(
 		array( "Output version when given '20100405192110'/'abc1'",
 			'FileXX', '20100405192110', 'abc1'),

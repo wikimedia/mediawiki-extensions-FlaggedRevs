@@ -1,7 +1,5 @@
 <?php
 
-require_once 'PHPUnit\Framework\TestCase.php';
-
 class FRUserCountersTest extends PHPUnit_Framework_TestCase {
 	/**
 	 * Prepares the environment before running a test.
