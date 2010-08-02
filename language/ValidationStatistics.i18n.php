@@ -1640,7 +1640,11 @@ $messages['sr-el'] = array(
 	'validationstatistics-ns' => 'Imenski prostor',
 	'validationstatistics-total' => 'Stranice',
 	'validationstatistics-latest' => 'Sinhronizovano',
+	'validationstatistics-synced' => 'Sinhronizovan/Pregledan',
 	'validationstatistics-old' => 'Zastarelo',
+	'validationstatistics-utable' => 'Ispod se nalazi spisak od top 5 pregledača u poslednjih sat vremena',
+	'validationstatistics-user' => 'Korisnik',
+	'validationstatistics-reviews' => 'Pregledi',
 );
 
 /** Swedish (Svenska)
@@ -1907,6 +1911,11 @@ $messages['zh-hans'] = array(
 	'validationstatistics-users' => "'''{{SITENAME}}'''现时有'''[[Special:ListUsers/editor|$1]]'''{{PLURAL:$1|个|个}}用户具有[[{{MediaWiki:Validationpage}}|编辑]]的权限。
 
 编辑及审定皆为已确认的用户，并可以检查各页面的修定。",
+	'validationstatistics-lastupdate' => "''以下数据最后更新于$1在$2。''",
+	'validationstatistics-pndtime' => "已被用户被认为是审查的编辑。 
+
+平均延迟 [[Special:OldReviewedPages|页面编辑是未审核]]的等待时间是'''$1'''。 
+这些网页被认为是''过时''的。同样，网页被认为是''最新''，如果没有修改等待审核的话。",
 	'validationstatistics-table' => "各名称空间的统计信息显示如下，''不包含''转向页。",
 	'validationstatistics-ns' => '名字空间',
 	'validationstatistics-total' => '页',

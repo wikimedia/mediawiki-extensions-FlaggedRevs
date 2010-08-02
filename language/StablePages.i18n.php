@@ -907,6 +907,7 @@ $messages['zh-hans'] = array(
 只有指定用户的编辑才不需要通过审核。',
 	'stablepages-none' => '没有页面在这个列表中',
 	'stablepages-config' => '设置',
+	'stablepages-indef' => '只限永久到期',
 );
 
 /** Traditional Chinese (‪中文(繁體)‬)
