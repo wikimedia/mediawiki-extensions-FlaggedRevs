@@ -1860,9 +1860,9 @@ Konfigurasi tak dapat diterapkan.',
  * @author Ukabia
  */
 $messages['ig'] = array(
-	'stabilization-submit' => 'Si ọ bụ ézíbóté',
-	'stabilization-comment' => 'Mgbaghaputa:',
-	'stabilization-sel-short-1' => 'O digị',
+	'stabilization-submit' => 'Sị Í kwèrè',
+	'stabilization-comment' => 'Mgbághapụtà:',
+	'stabilization-sel-short-1' => 'Efù',
 	'stabilization-def-short-0' => 'Nká Í nọr',
 );
 
