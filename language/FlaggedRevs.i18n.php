@@ -7411,9 +7411,27 @@ Anda perlu menindaklanjuti atau "tak jadikan" suntingan.',
 	'validationpage' => '{{ns:help}}:Validasi artikel',
 );
 
-/** Igbo (Igbo) */
+/** Igbo (Igbo)
+ * @author Ukabia
+ */
 $messages['ig'] = array(
 	'revreview-edit' => 'Rüwa',
+	'revreview-source' => 'Zi mkpurụ',
+	'revreview-style-2' => 'Ómá',
+	'revreview-submit' => 'Dànyé',
+	'revreview-submitting' => 'Nà dànyé...',
+	'revreview-submit-review' => 'Kwelụ',
+	'revreview-submit-unreview' => 'Ékwèlụ',
+	'revreview-filter-all' => 'nke níle',
+	'revreview-filter-stable' => 'chịm',
+	'revreview-typefilter' => 'Ùdị:',
+	'revreview-lev-all' => 'nkéowulà',
+	'revreview-lev-quality' => 'ómá ya',
+	'revreview-def-all' => 'nkéowulà',
+	'revreview-def-draft' => 'nke ohúrù',
+	'revreview-restriction-any' => 'nkéowulà',
+	'revreview-restriction-none' => 'efù',
+	'flaggedrevs-protect-none' => "Kwèré ọ'bànifé nílé",
 );
 
 /** Ido (Ido)
@@ -12202,6 +12220,7 @@ $messages['ro'] = array(
 	'revreview-accuracy-3' => 'Bine referențiat',
 	'revreview-accuracy-4' => 'Remarcabil',
 	'revreview-auto' => '(automat)',
+	'review_denied' => 'Permisiune refuzată.',
 	'revreview-current' => 'Schiță',
 	'revreview-depth' => 'Profunzime',
 	'revreview-depth-0' => 'Neadecvat',
@@ -12225,6 +12244,7 @@ $messages['ro'] = array(
 	'revreview-style-4' => 'Remarcabil',
 	'revreview-submit' => 'Trimite',
 	'revreview-submitting' => 'Se trimite...',
+	'revreview-submit-review' => 'Acceptare',
 	'revreview-toggle-title' => 'arată/ascunde detalii',
 	'revreview-revnotfound' => 'Versiunea mai veche a paginii pe care ați cerut-o nu a fost găsită. Vă rugăm să verificați legătura pe care ați folosit-o pentru a accesa această pagină.',
 	'rights-editor-autosum' => 'autopromovat',
@@ -12241,9 +12261,12 @@ $messages['ro'] = array(
 	'revreview-filter-manual' => 'Manual',
 	'revreview-levelfilter' => 'Nivel:',
 	'revreview-precedencefilter' => 'Prioritate:',
+	'revreview-lev-all' => 'oricare',
 	'revreview-lev-basic' => 'verificat',
 	'revreview-lev-quality' => 'calitate',
 	'revreview-lev-pristine' => 'primitiv',
+	'revreview-restriction-any' => 'oricare',
+	'revreview-restriction-none' => 'nimic',
 	'revreview-reviewlink' => 'modificări în așteptare',
 	'tooltip-ca-current' => 'Vedeți schița curentă a acestei pagini',
 	'tooltip-ca-stable' => 'Vedeți versiunea stabilă a acestei pagini',
@@ -13903,7 +13926,7 @@ $messages['ta'] = array(
 	'review-logpagetext' => 'இந்த கட்டுரை பக்கத்தின் பதிப்பின் தொகுப்பு [[{{MediaWiki:Validationpage}}|சரிபார்க்கப்பட்டது]].',
 	'reviewer' => 'மதிப்பீட்டாளர்',
 	'revisionreview' => 'மறுஆய்வின் மதிப்பீடுகள்',
-	'revreview-accuracy' => 'துள்ளியமாக',
+	'revreview-accuracy' => 'துல்லியமாக',
 	'revreview-accuracy-0' => 'போதாத',
 	'revreview-accuracy-1' => 'பார்க்கப்பட்டது',
 	'revreview-accuracy-2' => 'துல்லியமாக',

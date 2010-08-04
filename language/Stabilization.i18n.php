@@ -3085,6 +3085,7 @@ Iată configurația curentă pentru [[:$1|$1]]:',
 	'stabilization-def-short-1' => 'Stabil',
 	'stabilize_expiry_invalid' => 'Data expirării incorectă.',
 	'stabilize_expiry_old' => 'Această dată de expirare a trecut deja.',
+	'stabilize_denied' => 'Permisiune refuzată.',
 	'stabilize-expiring' => 'expiră $1 (UTC)',
 	'stabilization-review' => 'Revizuiește versiunea curentă',
 );

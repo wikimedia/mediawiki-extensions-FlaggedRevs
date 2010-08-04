@@ -717,6 +717,7 @@ Alguns parâmetros podem alterar a versão que é apresentada aos usuários, ou 
  * @author Cin
  */
 $messages['ro'] = array(
+	'configuredpages-config' => 'Configurație',
 	'configuredpages-prec-none' => 'ultimele verificate',
 	'configuredpages-prec-quality' => 'ultima calitate',
 );
