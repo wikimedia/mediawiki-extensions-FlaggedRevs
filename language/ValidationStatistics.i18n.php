@@ -882,6 +882,7 @@ $3",
  */
 $messages['ig'] = array(
 	'validationstatistics-total' => 'Ihü',
+	'validationstatistics-user' => "Ọ'bànifé",
 );
 
 /** Ido (Ido)

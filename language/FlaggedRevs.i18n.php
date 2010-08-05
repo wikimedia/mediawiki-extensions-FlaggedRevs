@@ -2118,6 +2118,7 @@ $messages['br'] = array(
 	'revreview-editnotice' => "'''Ho kemmoù a vo embannet pa 'vo bet adlennet gant un implijer en deus ar gwirioù a zere. ([[{{MediaWiki:Validationpage}}|?]])'''",
 	'revreview-check-flag-p' => "Embann ar c'hemmoù o c'hortoz er mare-mañ",
 	'revreview-check-flag-u' => 'Asantiñ ar bajenn nann-adwelet-mañ',
+	'revreview-check-flag-u-title' => "Degemer ar stumm-mañ eus ar bajenn. Na implijit an kement-mañ nemet m'hoc'h eus gwelet dija ar bajenn en he fezh.",
 	'revreview-check-flag-y' => "Degemer ar c'hemmoù-mañ",
 	'revreview-check-flag-y-title' => "Degemer an holl gemmoù hoc'h eus graet er c'hemm-mañ.",
 	'revreview-submitedit' => 'Kinnigit ho kemmoù',
@@ -2143,7 +2144,7 @@ Gwelet [[Special:Unreviewedpages|roll ar pajennoù nann-adlennet]].',
 	'revreview-pending-basic' => "Ar [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} stumm embannet] a zo bet [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} gwiriet] d'an <i>$2</i>. Bez ez eus [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 kemm{{PLURAL:$3||}}] o c'hortoz bezañ adlennet.",
 	'revreview-pending-quality' => "Ar [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} stumm embannet] a zo bet [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprouet] d'an <i>$2</i>. Bez ez eus [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 kemm{{PLURAL:$3||}}] o c'hortoz bezañ adlennet.",
 	'revreview-pending-nosection' => "Klask gwelet an [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} adweladennoù ziwezhañ], e lec'h ma 'vez [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 kemm{{PLURAL:$2||}}], a-benn gwelet ma 'z eo bet dilerc'hiet pe dilamet an diuzadenn.",
-	'revreview-noflagged' => "N'eus stumm [[{{MediaWiki:Validationpage}}|adlennet]] ebet eus ar bajenn-mañ, setu marteze n'eo '''ket''' bet [[{{MediaWiki:Validationpage}}|gwiriekaet]] he ferzhioù.",
+	'revreview-noflagged' => "N'eus [[{{MediaWiki:Validationpage}}|stumm adlennet]] ebet eus ar bajenn-mañ, setu marteze n'eo '''ket''' bet [[{{MediaWiki:Validationpage}}|gwiriekaet]] he ferzhioù evit ar c'henfurmded d'ar reoladoù.",
 	'revreview-note' => 'Skrivet eo bet an notennoù-mañ gant [[User:$1|$1]] e-ser [[{{MediaWiki:Validationpage}}|adwelet]] ar stumm :',
 	'revreview-notes' => 'Evezhiadennoù ha notennoù da ziskouez :',
 	'revreview-oldrating' => 'E boentadur :',
@@ -2215,7 +2216,7 @@ Marteze ho po da reizhañ pe "tennañ" kemmoù \'zo da gentañ.',
 	'specialpages-group-quality' => "Aprouadur ar c'hemmoù",
 	'stable-logentry-config' => 'en deus termenet arventennoù stumm stabil "$1"',
 	'stable-logentry-modify' => 'en deus kemmet arventennoù stumm stabil "$1"',
-	'stable-logentry-reset' => 'en deus adderaouekaet an arventennoù embann eus $1',
+	'stable-logentry-reset' => 'en deus adderaouekaet an arventennoù embann eus "$1"',
 	'stable-log-restriction' => 'Adlenn emgefre: ezhomm \'zo an aotre "$1"',
 	'stable-logpage' => 'Marilh ar stummoù stabil',
 	'stable-logpagetext' => "Setu marilh ar c'hemmoù evit kefluniadur [[{{MediaWiki:Validationpage}}|stummoù embannet]] ar pajennoù.",
@@ -2249,10 +2250,10 @@ Marteze ho po da reizhañ pe "tennañ" kemmoù \'zo da gentañ.',
 	'tooltip-ca-default' => 'Arventennoù Kontrolliñ ar Berzhded',
 	'flaggedrevs-protect-legend' => "Adweladenn emgefre ar c'hemmoù ([[{{MediaWiki:Validationpage}}|skoazell]])",
 	'flaggedrevs-protect-none' => 'Aotren an holl implijerien',
-	'revreview-locked-title' => "Ret eo d'an aozadennoù bezañ adwelet a-raok bezañ embannet war ar bajenn-mañ.",
-	'revreview-unlocked-title' => "Ne rank ket bezañ adlennet ar c'hemmoù a-raok bezañ embannet er bajenn-mañ !",
-	'revreview-locked' => "'''Notenn :''' Rankout a ra bezañ [[{{MediaWiki:Validationpage}}|adlennet]] ar c'hemmoù a-raok bezañ embannet er bajenn-mañ !",
-	'revreview-unlocked' => "'''Notenn :''' Ne rank ket bezañ [[{{MediaWiki:Validationpage}}|adlennet]] ar c'hemmoù a-raok bezañ embannet er bajenn-mañ !",
+	'revreview-locked-title' => 'Ret eo adlenn kemmoù ar bajenn-mañ.',
+	'revreview-unlocked-title' => 'Ne rank ket bezañ adlennet kemmoù ar bajenn-mañ.',
+	'revreview-locked' => "'''Notenn :''' Rankout a ra bezañ [[{{MediaWiki:Validationpage}}|adlennet]] ar c'hemmoù a-raok bezañ embannet er bajenn-mañ.",
+	'revreview-unlocked' => "'''Notenn :''' Ne rank ket bezañ [[{{MediaWiki:Validationpage}}|adlennet]] ar c'hemmoù a-raok bezañ embannet er bajenn-mañ.",
 	'log-show-hide-review' => '$10$1 istor an adlennoù',
 	'revreview-tt-review' => "Lakaat ar statud-mañ d'ar stumm-mañ",
 	'revreview-tt-flag' => 'Aprouiñ ar stumm-mañ en ur merkañ anezhañ evel gwiriekaet',
@@ -15172,14 +15173,15 @@ $messages['uk'] = array(
 	'revreview-text' => "''[[{{MediaWiki:Validationpage}}|Перевірені версії]] — проконтрольовані версії сторінок, що використовуються для визначення опублікованої версії.''",
 	'revreview-toggle-title' => 'показати/приховати подробиці',
 	'revreview-toolow' => "'''Ви повинні встановити кожен з нижченаведених атрибутів у значення вище, ніж \"не затверджена\", відповідно до процедури позначення версії рецензованою.'''
-Щоб відкинуту версію, встановіть усі поля у значення \"не затверджена\".
+
+Щоб відкинути рецензію версії, встановіть ''усі'' поля у значення \"не затверджена\".
 
 Будь ласка, натисніть кнопку «Назад» у браузері і спробуйте ще раз.",
 	'revreview-update' => "Будь ласка, [[{{MediaWiki:Validationpage}}|перевірте]] всі нерецензовані зміни ''(показані нижче)'', зроблені з моменту стабільної версії.
 Вам потрібно спочатку прийняти або скасувати ці редагування.",
-	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Ваші зміни ще не опубліковані.</span>
+	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Ваші зміни ще не опубліковані. Є ще раніші зміни, які очікують перевірки.</span>
 
-Попередні редагування очікують на перевірку. Щоб опублікувати ваші зміни, будь-ласка, перевірте усі зміни, що показані нижче.',
+Щоб включити ваші зміни, перевірте всі зміни, показані далі. Можливо, вам доведеться спершу переглянути редагування.',
 	'revreview-update-includes' => "'''Деякі шаблони або файли були оновлені:'''",
 	'revreview-update-use' => "'''ЗАУВАЖЕННЯ:''' Опублікована версія кожного з цих шаблонів/файлів використовується в опублікованій версії цієї сторінки.",
 	'revreview-visibility' => "'''Ця сторінка має оновлену [[{{MediaWiki:Validationpage}}|опубліковану версію]]; налаштування стабілізації сторінки можуть бути [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} зміненні].'''",
@@ -16176,6 +16178,7 @@ Controleer asjeblieft de URL die  a je hebruken om ni deêze pagina te haene.',
  * @author Jimmy xu wrk
  * @author Liangent
  * @author PhiLiP
+ * @author Xiaomingyan
  */
 $messages['zh-hans'] = array(
 	'action-review' => '复查修改',

@@ -1862,6 +1862,10 @@ Konfigurasi tak dapat diterapkan.',
 $messages['ig'] = array(
 	'stabilization-submit' => 'Sị Í kwèrè',
 	'stabilization-comment' => 'Mgbághapụtà:',
+	'stabilization-otherreason' => 'Mgbághàpụtá ozor:',
+	'stabilization-expiry' => 'Gbá okà:',
+	'stabilization-othertime' => 'Ógẹ ozor',
+	'stabilization-sel-short-0' => 'Ómá ya',
 	'stabilization-sel-short-1' => 'Efù',
 	'stabilization-def-short-0' => 'Nká Í nọr',
 );

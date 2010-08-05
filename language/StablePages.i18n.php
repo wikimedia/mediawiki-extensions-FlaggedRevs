@@ -132,6 +132,7 @@ $messages['br'] = array(
 Ne vo degemeret ar c'hemmoù-se nemet pa vint bet adlennet gant un aozer aotreet evit se.",
 	'stablepages-none' => "N'eus pajenn ebet er roll-mañ.",
 	'stablepages-config' => 'Kefluniañ',
+	'stablepages-indef' => 'Padelezh termen amfin hepken',
 );
 
 /** Bosnian (Bosanski)
@@ -900,6 +901,7 @@ $messages['yue'] = array(
 /** Simplified Chinese (‪中文(简体)‬)
  * @author Gaoxuewei
  * @author Shinjiman
+ * @author Xiaomingyan
  */
 $messages['zh-hans'] = array(
 	'stablepages' => '页面已经通过审核',

@@ -760,6 +760,7 @@ $messages['ig'] = array(
 	'unreviewed-category' => 'Ébéonọr:',
 	'unreviewed-diff' => 'lèwárí',
 	'unreviewed-unwatched' => '(ēléghịdị)',
+	'unreviewed-recent' => '(bènata àmànì 1)',
 );
 
 /** Ido (Ido)

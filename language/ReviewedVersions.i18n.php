@@ -645,7 +645,7 @@ $messages['ko'] = array(
  * @author Purodha
  */
 $messages['ksh'] = array(
-	'reviewedversions' => 'Beshtändeje Versione aanloore',
+	'reviewedversions' => 'Nohjekik Versione',
 	'reviewedversions-leg1' => 'De Leß met de nohjekik Versione för en Sigg.',
 	'reviewedversions-page' => 'Sigge-Tittel:',
 	'reviewedversions-none' => 'De Sigg „[[:$1]]“ hät kei nohjekik Versione.',
