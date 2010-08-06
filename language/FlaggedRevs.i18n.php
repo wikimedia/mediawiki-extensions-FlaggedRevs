@@ -3950,7 +3950,7 @@ $messages['es'] = array(
 	'action-review' => 'Verificar revisiones',
 	'editor' => 'Editor',
 	'flaggedrevs' => 'Revisiones verificadas',
-	'flaggedrevs-watched-pending' => "Hay actualmente [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} ediciones pendientes] a páginas revisadas en tu lista de vigilancia. '''Se necesita tu atención!'''",
+	'flaggedrevs-watched-pending' => "Hay actualmente [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} ediciones pendientes] a páginas revisadas en tu lista de seguimiento. '''Se necesita tu atención!'''",
 	'flaggedrevs-desc' => 'Ofrece a los editores la habilidad de validar revisiones y estabilizar páginas',
 	'flaggedrevs-pref-UI' => 'Interfaz básica:',
 	'flaggedrevs-pref-UI-0' => 'Usar cajas detalladas para mostrar el estado de aprobación de las páginas',
@@ -5858,6 +5858,12 @@ Go Dyyni Änderige vereffetlige, due bitte alli hängige Änderige priefe, wu do
 	'validationpage' => '{{ns:project}}:Gesichtete und geprüfte Versionen',
 );
 
+/** Hausa (هَوُسَ) */
+$messages['ha'] = array(
+	'revreview-log' => 'Bahasi:',
+	'revreview-filter-all' => 'duka',
+);
+
 /** Hakka (Hak-kâ-fa)
  * @author Hakka
  */
@@ -7416,6 +7422,7 @@ Anda perlu menindaklanjuti atau "tak jadikan" suntingan.',
  * @author Ukabia
  */
 $messages['ig'] = array(
+	'editor' => 'Onye orü',
 	'revreview-edit' => 'Rüwa',
 	'revreview-source' => 'Zi mkpurụ',
 	'revreview-style-2' => 'Ómá',

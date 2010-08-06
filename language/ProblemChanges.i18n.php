@@ -264,6 +264,11 @@ $messages['gsw'] = array(
 	'problemchanges-category' => 'Kategorii:',
 );
 
+/** Hausa (هَوُسَ) */
+$messages['ha'] = array(
+	'problemchanges-category' => 'Rukuni:',
+);
+
 /** Hebrew (עברית)
  * @author DoviJ
  * @author Rotem Liss
@@ -327,6 +332,13 @@ $messages['id'] = array(
 	'problemchanges-legend' => 'Daftarkan halaman dengan suntingan bertag menunggu tinjauan',
 	'problemchanges-none' => 'Saat ini tidak ada halaman yang memenuhi kriteria tersebut',
 	'problemchanges-category' => 'Kategori:',
+);
+
+/** Igbo (Igbo)
+ * @author Ukabia
+ */
+$messages['ig'] = array(
+	'problemchanges-category' => 'Ébéonọr:',
 );
 
 /** Ido (Ido)

@@ -713,6 +713,11 @@ $messages['gu'] = array(
 	'validationstatistics-stable' => 'પરામર્શિત',
 );
 
+/** Hausa (هَوُسَ) */
+$messages['ha'] = array(
+	'validationstatistics-ns' => 'Sararin suna',
+);
+
 /** Hebrew (עברית)
  * @author Agbad
  * @author DoviJ
@@ -881,6 +886,7 @@ $3",
  * @author Ukabia
  */
 $messages['ig'] = array(
+	'validationstatistics-ns' => 'Ámááhà',
 	'validationstatistics-total' => 'Ihü',
 	'validationstatistics-user' => "Ọ'bànifé",
 );

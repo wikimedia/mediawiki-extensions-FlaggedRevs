@@ -834,6 +834,9 @@ $messages['id'] = array(
  * @author Ukabia
  */
 $messages['ig'] = array(
+	'pendingchanges-hours' => '({{PLURAL:$1|àmànì|àmànì}} $1)',
+	'pendingchanges-days' => '({{PLURAL:$1|chi|chi}} $1)',
+	'pendingchanges-recent' => '(bènata àmànì 1)',
 	'pendingchanges-category' => 'Ébéonọr:',
 	'pendingchanges-diff' => 'lèwárí',
 );

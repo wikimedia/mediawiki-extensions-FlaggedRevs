@@ -611,6 +611,11 @@ $messages['gsw'] = array(
 	'unreviewed-recent' => '(weniger wie ei Stund)',
 );
 
+/** Hausa (هَوُسَ) */
+$messages['ha'] = array(
+	'unreviewed-category' => 'Rukuni:',
+);
+
 /** Hawaiian (Hawai`i)
  * @author Singularity
  */

@@ -1500,6 +1500,13 @@ Di aktuällen Yystellige fir „[[:$1|$1]]“ sin:',
 	'stabilization-review' => 'Di aktuäll Version as aagluegt markiere',
 );
 
+/** Hausa (هَوُسَ) */
+$messages['ha'] = array(
+	'stabilization-comment' => 'Dalili:',
+	'stabilization-otherreason' => 'Wani dalili:',
+	'stabilization-expiry' => "Wa'adi:",
+);
+
 /** Hawaiian (Hawai`i)
  * @author Kalani
  */
@@ -1860,6 +1867,7 @@ Konfigurasi tak dapat diterapkan.',
  * @author Ukabia
  */
 $messages['ig'] = array(
+	'stabilization-tab' => 'vet',
 	'stabilization-submit' => 'Sị Í kwèrè',
 	'stabilization-comment' => 'Mgbághapụtà:',
 	'stabilization-otherreason' => 'Mgbághàpụtá ozor:',
@@ -1868,6 +1876,7 @@ $messages['ig'] = array(
 	'stabilization-sel-short-0' => 'Ómá ya',
 	'stabilization-sel-short-1' => 'Efù',
 	'stabilization-def-short-0' => 'Nká Í nọr',
+	'stabilization-def-short-1' => 'Chịm',
 );
 
 /** Ido (Ido)
