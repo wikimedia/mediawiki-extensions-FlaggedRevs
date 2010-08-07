@@ -109,6 +109,11 @@ $messages['ca'] = array(
 	'problemchanges-category' => 'Categoria:',
 );
 
+/** Sorani (کوردی) */
+$messages['ckb'] = array(
+	'problemchanges-category' => 'پۆل:',
+);
+
 /** Czech (Česky)
  * @author Kuvaly
  * @author Matěj Grabovský

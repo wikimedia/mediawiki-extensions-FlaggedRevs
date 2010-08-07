@@ -275,6 +275,11 @@ Aquestes pàgines es consideren ''obsoletes''. De la mateixa manera, es consider
 	'validationstatistics-synced' => 'Sincronitzat/Revisat',
 );
 
+/** Sorani (کوردی) */
+$messages['ckb'] = array(
+	'validationstatistics-user' => 'بەکارهێنەر',
+);
+
 /** Czech (Česky)
  * @author Kuvaly
  * @author Matěj Grabovský

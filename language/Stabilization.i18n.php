@@ -682,6 +682,14 @@ $messages['ce'] = array(
 	'stabilization-comment' => 'Бахьан:',
 );
 
+/** Sorani (کوردی) */
+$messages['ckb'] = array(
+	'stabilization-submit' => 'پشتدار بکەرەوە',
+	'stabilization-comment' => 'هۆکار:',
+	'stabilization-otherreason' => 'هۆکاری دیکە:',
+	'stabilization-expiry' => 'ھەتا:',
+);
+
 /** Czech (Česky)
  * @author Danny B.
  * @author Li-sung

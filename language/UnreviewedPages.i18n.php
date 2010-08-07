@@ -270,6 +270,11 @@ $messages['ca'] = array(
 	'unreviewed-recent' => "(menys d'una hora)",
 );
 
+/** Sorani (کوردی) */
+$messages['ckb'] = array(
+	'unreviewed-category' => 'پۆل:',
+);
+
 /** Czech (Česky)
  * @author Danny B.
  * @author Li-sung

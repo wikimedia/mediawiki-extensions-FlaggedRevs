@@ -1931,10 +1931,6 @@ $messages['bn'] = array(
 	'revreview-accuracy-3' => 'ভালো তথ্যসূত্র যোগ করা হয়েছে',
 	'revreview-accuracy-4' => 'ফিচার করা হয়েছে',
 	'revreview-auto' => '(সয়ংক্রিয়)',
-	'revreview-changed' => "'''[[:$1|$1]]-এর এই সংশোধনটির উপর অনুরোধকৃত কাজটি সম্পাদন করা যায়নি'''
-
-কোন নির্দিষ্ট সংস্করণ নির্দেশ না করেই একটি টেম্পলেট বা ছবি হয়ত অনুরোধ করা হয়েছে। যদি কোন চলমান টেম্পলেট কোন একটি ভ্যারিয়েবলের উপর নির্ভর করে আরেকটি টেম্পলেট বা ছবিকে অন্তর্ভুক্ত করে, এবং সেই ভ্যারিয়েবলটি যদি আপনি পর্যালোচনা শুরু করার পর পরিবর্তিত হয়ে থাকে, তবে এমনটি ঘটতে পারে।
-পাতাটি রিফ্রেশ করে পুনরায় পর্যালোচনা করলে সমস্যাটির সমাধান হতে পারে।",
 	'review_denied' => 'অনুমতি প্রত্যাখ্যাত হয়েছে।',
 	'revreview-current' => 'খসড়া',
 	'revreview-depth' => 'গভীরতা',
@@ -1971,7 +1967,7 @@ $messages['bn'] = array(
 	'revreview-style-2' => 'ভাল',
 	'revreview-style-3' => 'সংক্ষিপ্ত',
 	'revreview-style-4' => 'ফিচার করা হয়েছে',
-	'revreview-submit' => 'পর্যালোচনা জমা দিন',
+	'revreview-submit' => 'জমা দাও',
 	'revreview-submitting' => 'জমা হচ্ছে …',
 	'revreview-submit-review' => 'গ্রহণ',
 	'revreview-submit-unreview' => 'প্রত্যাখান',
@@ -2569,6 +2565,11 @@ Reviseu l'URL que heu emprat per a accedir-hi.",
  */
 $messages['ch'] = array(
 	'revreview-revnotfound' => "Ti siña masodda' i tinilaika i påhina ni finaisen-mu. Pot fabot chek i URL ni un usa para i finatto-mu gi påhina.",
+);
+
+/** Sorani (کوردی) */
+$messages['ckb'] = array(
+	'revreview-submit' => 'ناردن',
 );
 
 /** Crimean Turkish (Latin) (Qırımtatarca (Latin))
@@ -7251,12 +7252,14 @@ $messages['id'] = array(
 	'revreview-accuracy-3' => 'Data sumber bagus',
 	'revreview-accuracy-4' => 'Terpilih',
 	'revreview-auto' => '(otomatis)',
-	'revreview-basic' => 'Ini adalah revisi [[{{MediaWiki:Validationpage}}|stabil]] yang terakhir, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} dilihat] pada <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Drafnya] memiliki [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|perubahan|perubahan}}] yang diusulkan.',
-	'revreview-basic-i' => 'Ini adalah [[{{MediaWiki:Validationpage}}|versi stabil]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} dilihat] pada <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Drafnya] memiliki [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} perubahan templat/berkas] yang menunggu tinjauan.',
-	'revreview-basic-old' => 'Ini adalah revisi [[{{MediaWiki:Validationpage}}|terperiksa]] yang terakhir ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} tampilkan semua]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} disetujui] pada <i>$2</i>.
-Mungkin telah ada [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} perubahan-perubahan] yang lebih baru pada draf.',
-	'revreview-basic-same' => 'Ini adalah revisi [[{{MediaWiki:Validationpage}}|terperiksa]] yang terakhir ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} tampilkan semua]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} disetujui] pada <i>$2</i>.',
-	'revreview-basic-source' => 'Terdapat [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} versi terperiksa] untuk halaman ini, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} disetujui] pada <i>$2</i>, yang berdasarkan pada revisi ini.',
+	'revreview-basic' => 'Ini adalah [[{{MediaWiki:Validationpage}}|versi stabil]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} diperiksa] pada tanggal <i>$2</i>.
+{{PLURAL:$3|Ada|Ada}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|perubahan|perubahan}} tertunda] menunggu peninjauan.',
+	'revreview-basic-i' => 'Ini adalah [[{{MediaWiki:Validationpage}}|versi stabil]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} diperiksa] pada tanggal <i>$2</i>.
+Ada [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} perubahan templat/berkas] menunggu peninjauan.',
+	'revreview-basic-old' => 'Ini adalah versi [[{{MediaWiki:Validationpage}}|terperiksa]] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} semua daftar]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} disetujui] pada tanggal <i>$2</i>.
+	[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Perubahan] baru mungkin terjadi.',
+	'revreview-basic-same' => 'Ini adalah [[{{MediaWiki:Validationpage}}|versi stabil]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} terperiksa] pada tanggal <i>$2</i>.',
+	'revreview-basic-source' => '[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} Versi terperiksa] halaman ini, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} disetujui] pada tanggal <i>$2</i>, tidak berdasarkan revisi ini.',
 	'revreview-failed' => "'''Peninjauan revisi gagal.''' Penyerahan belum lengkap atau salah.",
 	'review_page_invalid' => 'Judul halaman tujuan tidak sah.',
 	'review_page_notexists' => 'Halaman yang dituju tidak ditemukan',
@@ -7277,7 +7280,7 @@ Mungkin telah ada [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} pe
 	'revreview-depth-4' => 'Terpilih',
 	'revreview-draft-title' => 'Perubahan tertunda ditampilkan di halaman ini',
 	'revreview-edit' => 'Sunting',
-	'revreview-editnotice' => "'''Suntingan Anda akan dimasukkan ke [[{{MediaWiki:Validationpage}}|versi stabil]] setelah diperiksa oleh pengguna terotorisasi.'''",
+	'revreview-editnotice' => "'''Perubahan Anda akan ditampilkan kepada pembaca setelah pengguna terotorisasi meninjaunya. ([[{{MediaWiki:Validationpage}}|bantuan]])'''",
 	'revreview-check-flag-p' => 'terima perubahan tertunda',
 	'revreview-check-flag-p-title' => 'Terima semua perubahan tertunda saat ini bersama suntingan Anda. Gunakan ini hanya bila Anda telah meliaht keseluruhan perbedaan perubahan tertunda.',
 	'revreview-check-flag-u' => 'Terima halaman yang belum diperiksa ini',
@@ -7286,8 +7289,9 @@ Mungkin telah ada [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} pe
 	'revreview-check-flag-y-title' => 'Setujui semua perubahan yang Anda buat dalam suntingan ini.',
 	'revreview-submitedit' => 'Simpan perubahan',
 	'revreview-submitedit-title' => 'Kirimkan perubahan Anda untuk ditinjau',
-	'revreview-edited' => "'''Suntingan akan dimasukkan ke [[{{MediaWiki:Validationpage}}|versi stabil]] setelah ditinjau oleh pengguna terotorisasi.
-''Draf'' yang ditampilkan di bawah ini mengandung ''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 usulan {{PLURAL:$2|perubahan|perubahan}}].",
+	'revreview-edited' => "'''Perubahan Anda akan ditampilkan kepada pembaca setelah pengguna terotorisasi meninjaunya. ([[{{MediaWiki:Validationpage}}|bantuan]])'''
+
+{{PLURAL:$2|Ada|Ada}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 {{PLURAL:$2|perubahan|perubahan}} tertunda] ''(ditampilkan di bawah)'' menunggu peninjauan.",
 	'revreview-edited-section' => 'Kembali ke bagian halaman berjudul "[[#$1|$2]]".',
 	'revreview-flag' => 'Tinjau revisi ini',
 	'revreview-reflag' => 'Tinjau kembali revisi ini',
@@ -7298,20 +7302,23 @@ Mungkin telah ada [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} pe
 
 Lihat [[Special:Unreviewedpages]] untuk daftar halaman yang belum ditinjau.',
 	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Revisi terakhir yang terperiksa] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} tampilkan semua]) [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} disetujui] pada <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|perubahan|perubahan}}] {{PLURAL:$3|butuh|butuh}} tinjauan.',
-	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Revisi terperiksa yang terakhir] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} tampilkan semua]) [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} disetujui] pada <i>$2</i>.
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Templat/berkas berubah] memerlukan tinjauan.',
-	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Revisi layak yang terakhir] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} tampilkan semua]) [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} disetujui] pada <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|perubahan|perubahan}}] {{PLURAL:$3|butuh|butuh}} tinjauan.',
-	'revreview-newest-quality-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Revisi layak yang terakhir] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} tampilkan semua]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} disetujui] pada <i>$2</i>.
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Templat/berkas berubah] memerlukan tinjauan.',
-	'revreview-noflagged' => "Tak ada revisi tertinjau dari halaman ini, jadi halaman ini mungkin '''belum''' [[{{MediaWiki:Validationpage}}|diperiksa]] kelayakannya.",
+	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Versi stabil] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} diperiksa] pada tanggal <i>$2</i>. Ada [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} perubahan templat/berkas] menunggu peninjauan.',
+	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Versi stabil] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} disetujui] pada tanggal <i>$2</i>. {{PLURAL:$3|Ada|Ada}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|perubahan|perubahan}} tertunda] yang menunggu peninjauan.',
+	'revreview-newest-quality-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Versi stabil] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} disetujui] pada tanggal <i>$2</i>. Ada [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} perubahan templat/berkas] menunggu peninjauan.',
+	'revreview-pending-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Versi stabil] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} diperiksa] pada tanggal <i>$2</i>. {{PLURAL:$3|Ada|Ada}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|perubahan|perubahan}} tertunda] menunggu peninjauan.',
+	'revreview-pending-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Versi stabil] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} disetujui] pada tanggal <i>$2</i>. {{PLURAL:$3|Ada|Ada}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|perubahan|perubahan}} tertunda] yang menunggu peninjauan.',
+	'revreview-pending-nosection' => 'Coba lihat [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} revisi terkini], yang memiliki
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 {{PLURAL:$2|perubahan|perubahan}} tertunda], untuk melihat apabila bagian ini dipindahkan atau dihapus.',
+	'revreview-noflagged' => "Tidak ada [[{{MediaWiki:Validationpage}}|versi tertinjau]] dari halaman ini, jadi kemungkinan halaman ini '''belum''' diperiksa kelayakannya.",
 	'revreview-note' => '[[User:$1]] memberikan catatan berikut sewaktu [[{{MediaWiki:Validationpage}}|meninjau]] revisi ini:',
 	'revreview-notes' => 'Pengamatan atau catatan untuk ditampilkan:',
 	'revreview-oldrating' => 'Memiliki rating:',
 	'revreview-quality' => 'Ini adalah [[{{MediaWiki:Validationpage}}|versi stabil]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} disetujui] pada <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Drafnya] memiliki [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 usulan {{PLURAL:$3|perubahan|perubahan}}] yang menunggu tinjauan.',
-	'revreview-quality-i' => 'Ini adalah [[{{MediaWiki:Validationpage}}|versi stabil]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} disetujui] pada <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Drafnya] memiliki [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} perubahan templat/berkas] yang menunggu tinjauan.',
-	'revreview-quality-old' => 'Ini adalah revisi [[{{MediaWiki:Validationpage}}|layak]] yang terakhir ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} tampilkan semua]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} disetujui] pada <i>$2</i>.
-Mungkin telah ada [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} perubahan-perubahan] yang lebih baru pada draf.',
-	'revreview-quality-same' => 'Ini adalah revisi [[{{MediaWiki:Validationpage}}|layak]] yang terakhir ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} tampilkan semua]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} disetujui] pada <i>$2</i>.',
+	'revreview-quality-i' => 'Ini adalah [[{{MediaWiki:Validationpage}}|versi stabil]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} disetujui] pada tanggal <i>$2</i>.
+Ada [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} perubahan templat/berkas] menunggu peninjauan.',
+	'revreview-quality-old' => 'Ini adalah versi [[{{MediaWiki:Validationpage}}|berkualitas]] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} semua daftar]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} disetujui] pada tanggal <i>$2</i>.
+	[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Perubahan] baru mungkin terjadi.',
+	'revreview-quality-same' => 'Ini adalah [[{{MediaWiki:Validationpage}}|versi stabil]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} disetujui] pada tanggal <i>$2</i>.',
 	'revreview-quality-source' => '[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} Revisi layak] dari halaman ini, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} disetujui] pada <i>$2</i>, didasarkan pada revisi ini.',
 	'revreview-quality-title' => 'Ini adalah versi layak dari halaman ini',
 	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|Terperiksa]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} perubahan menunggu tinjauan]]",
@@ -7345,9 +7352,13 @@ Mungkin telah ada [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} pe
 	'revreview-successful2' => "'''Penandaan revisi [[:$1|$1]] berhasil dibatalkan.'''",
 	'revreview-text' => "''[[{{MediaWiki:Validationpage}}|Versi tertinjau]] adalah versi terperiksa dari halaman yang dulunya merupakan versi stabil.''",
 	'revreview-toggle-title' => 'tampilkan/sembunyikan detail',
-	'revreview-toolow' => 'Anda harus memberi peringkat lebih tinggi dari "tak disetujui" dalam penilaian di bawah ini agar suatu revisi dapat dianggap telah ditinjau. Untuk menurunkan peringkat suatu revisi, berikan nilai "tak disetujui" pada semua penilaian.',
-	'revreview-update' => "Harap [[{{MediaWiki:Validationpage}}|meninjau]] semua perubahan ''(ditampilkan berikut)'' yang dibuat sejak revisi stabil [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} disetujui].<br />
-'''Beberapa templat/berkas juga telah diperbarui:'''",
+	'revreview-toolow' => '\'\'\'Anda harus memberi peringkat lebih tinggi dari "tak disetujui" pada masing-masing atribut agar sebuah revisi dapat dianggap tertinjau.\'\'\'
+
+Untuk menghapus status tinjauan revisi, berikan "semua" kotak nilai "tidak disetujui".
+
+Tekan tombol "kembali" pada peramban Anda dan coba lagi.',
+	'revreview-update' => "'''Mohon [[{{MediaWiki:Validationpage}}|tinjau]] semua perubahan tertunda ''(ditampilkan di bawah)'' yang dibuat sejak versi stabil dimuat.'''
+	Anda perlu menindaklanjuti atau \"takjadi\"-kan suntingan.",
 	'revreview-update-edited' => '<span class="flaggedrevs_important">Perubahan Anda belum ditetapkan sebagai versi stabil.</span>
 
 Silakan tinjau semua perubahan di bawah ini agar suntingan Anda muncul di versi stabil.
