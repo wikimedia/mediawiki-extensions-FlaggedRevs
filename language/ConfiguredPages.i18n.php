@@ -10,7 +10,8 @@ $messages = array();
 
 $messages['en'] = array(
 	'configuredpages'               => 'Pages with review configurations',
-	'configuredpages-list'          => 'Below is a list of pages configured to have different approval settings than the site default. Some settings might change which version is displayed to readers or further restrict who can make edits that don\'t require review.',
+	'configuredpages-list'          => 'Below is a list of pages configured to have different approval settings than the site default.
+Some settings might change which version is displayed to readers or further restrict who can make edits that do not require review.',
 	'configuredpages-none'          => 'There are no pages in this list.',
 	'configuredpages-config'        => 'Configuration',
 	'configuredpages-precedence'    => 'Precedence:',
