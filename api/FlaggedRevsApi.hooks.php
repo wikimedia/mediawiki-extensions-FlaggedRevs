@@ -80,7 +80,6 @@ abstract class FlaggedRevsApiHooks extends ApiQueryBase {
 				$data
 			);
 		}
-		$db->freeResult( $res );
 		return true;
 	}
 	

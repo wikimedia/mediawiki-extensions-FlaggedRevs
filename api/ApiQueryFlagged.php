@@ -56,7 +56,6 @@ class ApiQueryFlagged extends ApiQueryBase {
 				$data['pending_since'] = wfTimestamp( TS_ISO_8601, $row->fp_pending_since );
 			$result->addValue( array( 'query', 'pages', $pageid ), 'flagged', $data );
 		}
-		$db->freeResult( $res );
 	}
 
 	public function getCacheMode( $params ) {

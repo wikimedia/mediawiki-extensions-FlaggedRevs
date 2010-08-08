@@ -108,7 +108,6 @@ class ApiQueryUnreviewedpages extends ApiQueryGeneratorBase {
 				$resultPageSet->processDbRow( $row );
 			}
 		}
-		$db->freeResult( $res );
 
 		if ( is_null(  $resultPageSet ) ) {
 			$result = $this->getResult();
