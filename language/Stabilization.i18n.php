@@ -1876,6 +1876,7 @@ Konfigurasi tak dapat diterapkan.',
  */
 $messages['ig'] = array(
 	'stabilization-tab' => 'vet',
+	'stabilization-page' => 'Áhà ihü:',
 	'stabilization-submit' => 'Sị Í kwèrè',
 	'stabilization-comment' => 'Mgbághapụtà:',
 	'stabilization-otherreason' => 'Mgbághàpụtá ozor:',
@@ -1883,8 +1884,10 @@ $messages['ig'] = array(
 	'stabilization-othertime' => 'Ógẹ ozor',
 	'stabilization-sel-short-0' => 'Ómá ya',
 	'stabilization-sel-short-1' => 'Efù',
+	'stabilization-sel-short-2' => 'Mmámma',
 	'stabilization-def-short-0' => 'Nká Í nọr',
 	'stabilization-def-short-1' => 'Chịm',
+	'stabilize-expiring' => 'nà gbá ókà na $1 (UTC)',
 );
 
 /** Ido (Ido)
@@ -2885,8 +2888,8 @@ Nie jest możliwa jej konfiguracja.',
 	'stabilization-def-short' => 'Domyślna',
 	'stabilization-def-short-0' => 'Bieżąca',
 	'stabilization-def-short-1' => 'Opublikowana',
-	'stabilize_page_invalid' => 'Nieprawidłowy tytuł strony docelowej.',
-	'stabilize_page_notexists' => 'Strona docelowa nie istnieje.',
+	'stabilize_page_invalid' => 'Nieprawidłowy tytuł wskazanej strony.',
+	'stabilize_page_notexists' => 'Wskazana strona nie istnieje.',
 	'stabilize_page_unreviewable' => 'Wersje oznaczone są nieaktywne w tej przestrzeni nazw.',
 	'stabilize_invalid_level' => 'Nieprawidłowy poziom zabezpieczeń.',
 	'stabilize_expiry_invalid' => 'Nieprawidłowa data wygaśnięcia.',
@@ -3925,6 +3928,11 @@ $messages['uk'] = array(
 	'stabilize_denied' => 'Доступ заборонено.',
 	'stabilize-expiring' => 'закінчується о $1 (UTC)',
 	'stabilization-review' => 'Позначити поточну версію перевіреною',
+);
+
+/** Urdu (اردو) */
+$messages['ur'] = array(
+	'stabilization-comment' => 'وجہ:',
 );
 
 /** Vèneto (Vèneto)

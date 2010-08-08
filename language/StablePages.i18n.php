@@ -640,8 +640,8 @@ $messages['oc'] = array(
  */
 $messages['pl'] = array(
 	'stablepages' => 'Strony wykorzystujące oznaczanie zmian',
-	'stablepages-list' => 'Poniżej znajduje się lista stron, które skonfigurowano tak, że tylko niektórzy użytkownicy mogą wprowadzać na nich zmiany, które nie wymagają przejrzenia.
-Niektóre edycje nie będą domyślnie wyświetlane czytelnikom do momentu oznaczenia ich przez uprawnionego użytkownika.',
+	'stablepages-list' => 'Poniżej znajduje się lista stron, które skonfigurowano tak, że tylko określeni użytkownicy mogą wprowadzać do nich zmiany niewymagające oznaczenia.
+Edycje dokonane przez innych użytkowników nie będą domyślnie wyświetlane czytelnikom do momentu oznaczenia ich przez uprawnionego użytkownika.',
 	'stablepages-none' => 'Brak stron na tej liście',
 	'stablepages-config' => 'Konfiguracja',
 );

@@ -891,9 +891,12 @@ $3",
  * @author Ukabia
  */
 $messages['ig'] = array(
+	'validationstatistics' => 'Nlé màkà orüba ihü',
 	'validationstatistics-ns' => 'Ámááhà',
 	'validationstatistics-total' => 'Ihü',
+	'validationstatistics-stable' => 'Hé léfùrù ya',
 	'validationstatistics-user' => "Ọ'bànifé",
+	'validationstatistics-reviews' => 'Nléfù',
 );
 
 /** Ido (Ido)
