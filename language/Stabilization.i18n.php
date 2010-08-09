@@ -1885,6 +1885,7 @@ $messages['ig'] = array(
 	'stabilization-sel-short-0' => 'Ómá ya',
 	'stabilization-sel-short-1' => 'Efù',
 	'stabilization-sel-short-2' => 'Mmámma',
+	'stabilization-def-short' => 'Nke éjị bịdó',
 	'stabilization-def-short-0' => 'Nká Í nọr',
 	'stabilization-def-short-1' => 'Chịm',
 	'stabilize-expiring' => 'nà gbá ókà na $1 (UTC)',
@@ -1915,6 +1916,7 @@ $messages['is'] = array(
 
 /** Italian (Italiano)
  * @author Beta16
+ * @author Blaisorblade
  * @author Darth Kule
  * @author Gianfranco
  * @author Melos
@@ -1923,21 +1925,20 @@ $messages['is'] = array(
  */
 $messages['it'] = array(
 	'stabilization' => 'Stabilizzazione pagina',
-	'stabilization-text' => "'''Modifica le impostazioni sotto per regolare come la versione stabile di [[:\$1|\$1]] è selezionata e visualizzata.'''
+	'stabilization-text' => "'''Modifica le impostazioni sottostanti per regolare come la versione stabile di [[:\$1|\$1]] è selezionata e visualizzata.'''
 
-Quando cambi la configurazione ''selezione versione stabile'' per usare di default le revisioni \"qualità\" o \"immacolata\",
-assicurati di controllare se effettivamente ci siano nella pagina tali revisioni, altrimenti la modifica non avrà molto effetto.",
+'''Nota:''' cambiare la configurazione ''selezione versione stabile'', per usare di default le revisioni \"qualità\" o \"originaria\", non avrà effetto se non esistono tali versioni. Inoltre, nota che una versione ''di qualità'' è considerata anche ''controllata'' e così via.",
 	'stabilization-perm' => "L'utente non dispone dei permessi necessari a cambiare la configurazione della versione stabile.
 Qui ci sono le impostazioni attuali per [[:$1|$1]]:",
 	'stabilization-page' => 'Nome della pagina:',
 	'stabilization-leg' => 'Conferma le impostazioni della versione stabile',
 	'stabilization-select' => 'Priorità per la selezione della versione stabile',
 	'stabilization-select1' => "L'ultima versione di qualità; se non presente, allora l'ultima visionata",
-	'stabilization-select2' => "L'ultima versione revisionata, indipendentemente dal livello di validazione",
+	'stabilization-select2' => 'Ultima versione controllata',
 	'stabilization-def' => 'Revisione visualizzata di default alla visita della pagina',
-	'stabilization-def1' => 'La versione stabile; se non disponibile, quella attuale o la bozza',
-	'stabilization-def2' => 'La revisione/bozza attuale',
-	'stabilization-restrict' => "Restrizioni sull'auto-revisione",
+	'stabilization-def1' => "La versione stabile; se non disponibile, l'ultima revisione",
+	'stabilization-def2' => "L'ultima revisione",
+	'stabilization-restrict' => 'Restrizioni sulla revisione/auto-revisione',
 	'stabilization-restrict-none' => "Nessun'ulteriore restrizione",
 	'stabilization-submit' => 'Conferma',
 	'stabilization-notexists' => 'Non ci sono pagine col titolo "[[:$1|$1]]".
@@ -1959,7 +1960,7 @@ Non è possibile effettuare la configurazione.',
 	'stabilize_expiry_old' => 'La data di scadenza è già passata.',
 	'stabilize_denied' => 'Permesso negato.',
 	'stabilize-expiring' => 'scadenza: $1 (UTC)',
-	'stabilization-review' => 'Revisiona la versione corrente',
+	'stabilization-review' => 'Marca la versione corrente come controllata',
 );
 
 /** Japanese (日本語)

@@ -441,12 +441,13 @@ $messages['id'] = array(
 
 /** Italian (Italiano)
  * @author Beta16
+ * @author Blaisorblade
  * @author Darth Kule
  * @author Pietrodn
  */
 $messages['it'] = array(
 	'stablepages' => "Pagine che utilizzano l'approvazione delle modifiche",
-	'stablepages-list' => 'Di seguito sono elencate le pagine configurate in modo tale che solo determinati utenti possono fare modifiche che non necessitano di revisione. Le altre modifiche non sono pubblicate fino a quando un utente autorizzato non le revisioni.',
+	'stablepages-list' => 'Di seguito sono elencate le pagine cui solo determinati utenti possono fare modifiche che non necessitano di revisione. Le modifiche di altri utenti non sono mostrate ai lettori, di default, fino a quando un utente autorizzato non le revisioni.',
 	'stablepages-none' => 'Non ci sono pagine in questo elenco',
 	'stablepages-config' => 'Configurazione',
 );

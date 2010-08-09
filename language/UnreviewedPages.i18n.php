@@ -770,6 +770,8 @@ $messages['ig'] = array(
 	'unreviewed-category' => 'Ébéonọr:',
 	'unreviewed-diff' => 'lèwárí',
 	'unreviewed-unwatched' => '(ēléghịdị)',
+	'unreviewed-hours' => '({{PLURAL:$1|àmànì|àmànì}} $1)',
+	'unreviewed-days' => '({{PLURAL:$1|chi|chi}} $1)',
 	'unreviewed-recent' => '(bènata àmànì 1)',
 );
 

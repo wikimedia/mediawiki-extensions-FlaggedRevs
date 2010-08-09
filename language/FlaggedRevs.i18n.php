@@ -7435,6 +7435,9 @@ Anda perlu menindaklanjuti atau "tak jadikan" suntingan.',
  */
 $messages['ig'] = array(
 	'editor' => 'Onye orü',
+	'prefs-flaggedrevs' => 'Nlé orü',
+	'prefs-flaggedrevs-ui' => 'Nlé orü',
+	'group-editor' => 'Ndi orü',
 	'revreview-edit' => 'Rüwa',
 	'revreview-source' => 'Zi mkpurụ',
 	'revreview-style-2' => 'Ómá',
@@ -7507,6 +7510,7 @@ $messages['is'] = array(
 /** Italian (Italiano)
  * @author Aushulz
  * @author Beta16
+ * @author Blaisorblade
  * @author Civvì
  * @author Darth Kule
  * @author EdoDodo
@@ -7518,12 +7522,12 @@ $messages['is'] = array(
 $messages['it'] = array(
 	'editor' => 'Editore',
 	'flaggedrevs' => 'Verifica delle revisioni',
-	'flaggedrevs-desc' => 'Dà agli editori e ai revisori la possibilità di validare le revisioni e stabilizzare le pagine',
-	'flaggedrevs-pref-UI' => 'Interfaccia della versione stabile:',
-	'flaggedrevs-pref-UI-0' => "Usa l'interfaccia utente dettagliata delle revisioni stabili",
-	'flaggedrevs-pref-UI-1' => "Usa l'interfaccia utente semplice delle revisioni stabili",
-	'prefs-flaggedrevs' => 'Stabilità',
-	'prefs-flaggedrevs-ui' => 'Verifica delle revisioni',
+	'flaggedrevs-desc' => 'Dà agli editori la possibilità di validare le revisioni e stabilizzare le pagine',
+	'flaggedrevs-pref-UI' => 'Interfaccia base:',
+	'flaggedrevs-pref-UI-0' => "Usa un'interfaccia dettagliata per mostrare lo stato di revisione delle pagine",
+	'flaggedrevs-pref-UI-1' => 'Usa icone piccole e testo minimale per mostrare lo stato di revisione delle pagine',
+	'prefs-flaggedrevs' => 'Modifica recensione',
+	'prefs-flaggedrevs-ui' => 'Modifica recensione',
 	'flaggedrevs-prefs-stable' => 'Mostra sempre, di default, la versione stabile delle pagine di contenuto (se esiste)',
 	'flaggedrevs-prefs-watch' => 'Aggiungi le pagine che revisiono agli osservati speciali',
 	'group-editor' => 'Editori',
@@ -7552,7 +7556,7 @@ $messages['it'] = array(
 	'reviewer' => 'Revisore',
 	'revisionreview' => 'Revisiona versioni',
 	'revreview-accuracy' => 'Accuratezza',
-	'revreview-accuracy-0' => 'Non approvata',
+	'revreview-accuracy-0' => 'Inadeguata',
 	'revreview-accuracy-1' => 'Visionata',
 	'revreview-accuracy-2' => 'Preciso',
 	'revreview-accuracy-3' => 'Ben documentata',
@@ -7568,15 +7572,22 @@ Potrebbero essere stati apportati nuove [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&di
 	'review_denied' => 'Permesso negato.',
 	'revreview-current' => 'Bozza',
 	'revreview-depth' => 'Esaustività',
-	'revreview-depth-0' => 'Non approvata',
+	'revreview-depth-0' => 'Inadeguata',
 	'revreview-depth-1' => 'Minima',
 	'revreview-depth-2' => 'Mediocre',
 	'revreview-depth-3' => 'Alta',
 	'revreview-depth-4' => 'Ottima',
-	'revreview-draft-title' => 'Pagina bozza',
+	'revreview-draft-title' => 'Le modifiche in sospeso vengono visualizzate su questa pagina',
 	'revreview-edit' => 'Modifica',
-	'revreview-editnotice' => "'''Le modifiche a questa pagina saranno inserite nella [[{{MediaWiki:Validationpage}}|versione stabile]] una volta che un utente autorizzato le avrà revisionate.'''",
+	'revreview-editnotice' => "'''Le tue modifiche saranno mostrate ai lettori una volta che un utente autorizzato le avrà revisionate. ([[{{MediaWiki:Validationpage}}|aiuto]])'''",
+	'revreview-check-flag-p' => 'Accettare le modifiche in sospeso',
+	'revreview-check-flag-p-title' => "Accettare tutte le modifiche attualmente in sospeso assieme con le vostre. Utilizzare solo se hai già visto l'intera diff delle modifiche in sospeso.",
+	'revreview-check-flag-u' => 'Accetta questa pagina non revisionata',
+	'revreview-check-flag-u-title' => "Accettare questa versione della pagina. Utilizzare solo se hai già visto l'intera pagina.",
 	'revreview-check-flag-y' => 'Accettare queste modifiche',
+	'revreview-check-flag-y-title' => 'Accetta tutti i cambiamenti che hai fatto in questa modifica.',
+	'revreview-submitedit' => 'Invia modifiche',
+	'revreview-submitedit-title' => 'Invia le tue modifiche per la revisione',
 	'revreview-edited' => "'''Gli edit saranno inclusi nella [[{{MediaWiki:Validationpage}}|versione stabile]] dopo che un utente autorizzato li avrà revisionati.'''
 '''La ''bozza'' è mostrata di seguito.''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 {{PLURAL:$2|modifica attende|modifiche attendono}}] una revisione.",
 	'revreview-flag' => 'Revisiona questa versione',
@@ -7612,22 +7623,35 @@ Potrebbero essere state apportate nuove [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&di
 	'revreview-quick-quality-old' => "'''[[{{MediaWiki:Validationpage}}|Pagina di qualità]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} visualizza bozza]]",
 	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|Pagina di qualità]]'''",
 	'revreview-selected' => "Versione selezionata di '''$1:'''",
-	'revreview-source' => 'Visualizza sorgente bozza',
+	'revreview-source' => 'Visualizza sorgente',
+	'revreview-basic-title' => 'Questa è una versione verificata di questa pagina',
 	'revreview-stable1' => 'Puoi visualizzare [{{fullurl:$1|stableid=$2}} questa versione verificata] e vedere se adesso è la [{{fullurl:$1|stable=1}} versione stabile] di questa pagina.',
-	'revreview-stable2' => 'Puoi visualizzare la [{{fullurl:$1|stable=1}} versione stabile] di questa pagina (se ce ne è una).',
+	'revreview-stable2' => 'Puoi visualizzare la [{{fullurl:$1|stable=1}} versione stabile] di questa pagina.',
 	'revreview-style' => 'Leggibilità',
-	'revreview-style-0' => 'Non approvata',
+	'revreview-style-0' => 'Inadeguata',
 	'revreview-style-1' => 'Accettabile',
 	'revreview-style-2' => 'Buona',
 	'revreview-style-3' => 'Concisa',
 	'revreview-style-4' => 'Ottima',
 	'revreview-submit' => 'Invia',
 	'revreview-submitting' => 'Invio in corso...',
+	'revreview-submit-review' => 'Accetta',
+	'revreview-submit-reviewed' => 'Fatto. Accettata!',
+	'revreview-submit-unreviewed' => 'Fatto. Non accettata!',
 	'revreview-successful' => "'''Versione di [[:$1|$1]] verificata con successo. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} visualizza versione stabile])'''",
-	'revreview-text' => "Le ''[[{{MediaWiki:Validationpage}}|versioni stabili]] sono i contenuti di default della pagina per i visitatori, invece della versione più recente.''",
+	'revreview-successful2' => "'''Versione di [[:$1|$1]] marcata come non verificata con successo.'''",
+	'revreview-text' => "''Le [[{{MediaWiki:Validationpage}}|versioni revisionate]] sono versioni controllate della pagina usate per determinare la versione più recente.''",
 	'revreview-toggle-title' => 'mostra/nascondi dettagli',
-	'revreview-update' => "[[{{MediaWiki:Validationpage}}|Revisiona]] le modifiche ''(mostrate di seguito)'' apportate da quanto la versione stabile è stata [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approvata].<br />
-'''Alcuni template o file sono stati aggiornati:'''",
+	'revreview-update' => "'''[[{{MediaWiki:Validationpage}}|Revisiona]] le modifiche in sospeso ''(mostrate di seguito)'' apportate dalla versione stabile.'''
+Potresti aver bisogno di proseguire o \"annullare\" modifiche.",
+	'revreview-update-edited' => '<span class="flaggedrevs_important">Le tue modifiche non sono ancora nella versione stabile.</span> 
+
+ Si prega di rivedere tutte le modifiche di seguito riportate perché le tue modifiche vengano visualizzate nella versione stabile. 
+ Potrebbe essere necessario prima proseguire o "annullare" modifiche.',
+	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Le tue modifiche non sono ancora nella versione stabile. Ci sono precedenti modifiche che aspettano una revisione.</span> 
+
+ Si prega di rivedere tutte le modifiche di seguito riportate perché le tue modifiche vengano visualizzate nella versione stabile. 
+ Potrebbe essere necessario prima proseguire o "annullare" modifiche.',
 	'revreview-update-includes' => "'''Alcuni template/file sono stati aggiornati:'''",
 	'revreview-update-use' => "'''NOTA:''' Se qualcuno di questi template/file ha una versione stabile, allora è già usato nella versione stabile di questa pagina.",
 	'revreview-visibility' => "'''Questa pagina ha una [[{{MediaWiki:Validationpage}}|versione stabile]] aggiornata; le impostazioni della stabilità della pagina possono essere [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} configurate].'''",

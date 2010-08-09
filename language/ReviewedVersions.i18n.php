@@ -538,6 +538,7 @@ $messages['id'] = array(
  * @author Ukabia
  */
 $messages['ig'] = array(
+	'reviewedversions-leg1' => 'Dètú orübà hé lèrè màkà ótù ihü',
 	'reviewedversions-page' => 'Áhà ihü:',
 );
 

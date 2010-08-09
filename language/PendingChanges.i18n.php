@@ -452,6 +452,7 @@ $messages['eo'] = array(
 	'pendingchanges-days' => '($1 {{PLURAL:$1|tago|tagoj}})',
 	'pendingchanges-recent' => '(malpli ol 1 horo)',
 	'pendingchanges-category' => 'Kategorio:',
+	'pendingchanges-onwatchlist' => 'Paĝoj en mia atentaro',
 	'pendingchanges-stable' => 'reviziita',
 	'pendingchanges-diff' => 'kontroli',
 	'pendingchanges-size' => 'Maksimuma ŝanĝo de bitokoj:',
@@ -578,6 +579,7 @@ $messages['fi'] = array(
  * @author PieRRoMaN
  * @author Verdy p
  * @author Yekrats
+ * @author Yumeki
  */
 $messages['fr'] = array(
 	'pendingchanges' => 'Pages ayant des modifications en attente',
@@ -589,7 +591,7 @@ $messages['fr'] = array(
 	'pendingchanges-recent' => '(moins d’une heure)',
 	'pendingchanges-category' => 'Catégorie :',
 	'pendingchanges-onwatchlist' => 'Pages dans ma liste de suivi',
-	'pendingchanges-stable' => 'révisée',
+	'pendingchanges-stable' => '↓ La version stable est celle par défaut',
 	'pendingchanges-diff' => 'relecture',
 	'pendingchanges-size' => 'Différence de taille maximale (en octets) :',
 	'pendingchanges-unwatched' => '(non suivie)',
@@ -840,6 +842,7 @@ $messages['ig'] = array(
 	'pendingchanges-recent' => '(bènata àmànì 1)',
 	'pendingchanges-category' => 'Ébéonọr:',
 	'pendingchanges-diff' => 'lèwárí',
+	'pendingchanges-viewing' => '(na nlé)',
 );
 
 /** Ido (Ido)
@@ -865,6 +868,7 @@ $messages['is'] = array(
 
 /** Italian (Italiano)
  * @author Beta16
+ * @author Blaisorblade
  * @author Civvì
  * @author Darth Kule
  * @author Melos
@@ -879,7 +883,7 @@ $messages['it'] = array(
 	'pendingchanges-days' => '($1 {{PLURAL:$1|giorno|giorni}})',
 	'pendingchanges-recent' => "(meno di un'ora)",
 	'pendingchanges-category' => 'Categoria:',
-	'pendingchanges-stable' => 'visionata',
+	'pendingchanges-stable' => 'La versione stabile è di default',
 	'pendingchanges-diff' => 'revisiona',
 	'pendingchanges-size' => 'Cambiamento massimo (byte):',
 	'pendingchanges-unwatched' => '(non osservata)',
@@ -1260,7 +1264,7 @@ $messages['pms'] = array(
 	'pendingchanges-recent' => '(men che 1 ora)',
 	'pendingchanges-category' => 'Categorìa:',
 	'pendingchanges-onwatchlist' => 'Pàgine che im ten-o sot-euj',
-	'pendingchanges-stable' => "La version stàbil a l'é lë stàndard",
+	'pendingchanges-stable' => "La version stàbil a l'é stàndard",
 	'pendingchanges-diff' => 'revision-a',
 	'pendingchanges-size' => 'Màssim cambi (byte):',
 	'pendingchanges-unwatched' => '(pa tnùa sot euj)',
@@ -1387,7 +1391,7 @@ $messages['ru'] = array(
 	'pendingchanges-recent' => '(менее 1 часа)',
 	'pendingchanges-category' => 'Категория:',
 	'pendingchanges-onwatchlist' => 'Страницы из моего списка наблюдения',
-	'pendingchanges-stable' => 'досмотрена',
+	'pendingchanges-stable' => 'Стабильная версия по умолчанию',
 	'pendingchanges-diff' => 'проверить',
 	'pendingchanges-size' => 'Наибольшее изменение в байтах:',
 	'pendingchanges-unwatched' => '(не следят)',
