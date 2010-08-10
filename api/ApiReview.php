@@ -33,7 +33,7 @@ class ApiReview extends ApiBase {
 	 * except that it generates the template and image parameters itself.
 	 */
 	public function execute() {
-		global $wgUser;
+		global $wgUser, $wgOut;
 		$params = $this->extractRequestParams();
 		// Check basic permissions
 		if ( !$wgUser->isAllowed( 'review' ) ) {
@@ -72,7 +72,7 @@ class ApiReview extends ApiBase {
 			$article = new FlaggedArticle( $title, $revid );
 			if ( $rev->isCurrent() ) {
 				$parserCache = ParserCache::singleton();
-				$parserOutput = $parserCache->get( $article, $wgUser );
+				$parserOutput = $parserCache->get( $article, $wgOut->parserOptions() );
 			}
 			if ( !$parserOutput || !isset( $parserOutput->fr_fileSHA1Keys ) ) {
 				// Miss, we have to reparse the page

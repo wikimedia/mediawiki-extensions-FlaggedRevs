@@ -596,7 +596,7 @@ class RevisionReviewForm
 		$user, FlaggedArticle $article, Revision $rev,
 		$templateIDs, $imageSHA1Keys, $stableDiff = false
 	) {
-		global $wgRequest;
+		global $wgRequest, $wgOut;
 		if ( $rev->isDeleted( Revision::DELETED_TEXT ) ) {
 			return false; # The revision must be valid and public
 		}
@@ -689,7 +689,7 @@ class RevisionReviewForm
 			# Current version: try parser cache
 			if ( $rev->isCurrent() ) {
 				$parserCache = ParserCache::singleton();
-				$pOutput = $parserCache->get( $article, $user );
+				$pOutput = $parserCache->get( $article, $wgOut->parserOptions() );
 			}
 			# Otherwise (or on cache miss), parse the rev text...
 			if ( !$pOutput || !isset( $pOutput->fr_fileSHA1Keys ) ) {
