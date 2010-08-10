@@ -603,7 +603,7 @@ $messages['fr'] = array(
  * @author ChrisPtDe
  */
 $messages['frp'] = array(
-	'pendingchanges' => 'Pâges que les rèvisions sont dèpassâs.',
+	'pendingchanges' => 'Pâges qu’ont des changements en atenta',
 	'pendingchanges-legend' => 'Listar les pâges revues avouéc des vèrsions a revêre',
 	'pendingchanges-list' => 'Ceta pâge liste {{PLURAL:$1|una pâge ja revua qu’at|des pâges ja revues qu’ont}} de novéls changements.',
 	'pendingchanges-none' => 'Ora, y at gins de pâge que corrèspond a cetos critèros',
@@ -611,7 +611,7 @@ $messages['frp'] = array(
 	'pendingchanges-days' => '($1 jorn{{PLURAL:$1||s}})',
 	'pendingchanges-recent' => '(muens de yona hora)',
 	'pendingchanges-category' => 'Catègorie :',
-	'pendingchanges-stable' => 'Stabilisâ',
+	'pendingchanges-stable' => 'La vèrsion stâbla est cela per dèfôt',
 	'pendingchanges-diff' => 'revêre',
 	'pendingchanges-size' => 'Difèrence de talye la ples grôssa (en octèts) :',
 	'pendingchanges-unwatched' => '(pas siuvua)',
@@ -825,7 +825,7 @@ $messages['id'] = array(
 	'pendingchanges-recent' => '(kurang dari 1 jam)',
 	'pendingchanges-category' => 'Kategori:',
 	'pendingchanges-onwatchlist' => 'Halaman pada daftar pantauan saya',
-	'pendingchanges-stable' => 'terperiksa',
+	'pendingchanges-stable' => 'Versi stabil adalah baku',
 	'pendingchanges-diff' => 'tinjau',
 	'pendingchanges-size' => 'Perubahan maks. (byte):',
 	'pendingchanges-unwatched' => '(tidak dipantau)',

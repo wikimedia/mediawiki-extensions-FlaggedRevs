@@ -404,14 +404,15 @@ Le lien donné pointe vers la dernière version de ce niveau.",
  */
 $messages['frp'] = array(
 	'reviewedpages' => 'Pâges passâs en revua',
-	'reviewedpages-leg' => 'Liste les pâges per nivél de rèvision ples hôt',
-	'reviewedpages-list' => 'Ceta pâge liste les pâges qu’ont étâ passâs en revua (u més) u nivél spècefiâ.',
+	'reviewedpages-leg' => 'Listar les pâges qu’ont étâ revues',
+	'reviewedpages-list' => "Ceta lista contint les pâges [[{{MediaWiki:Validationpage}}|revues]] que yona de les vèrsions at avengiê lo ''ples hôt'' nivél de rèvision spècefiâ.
+Lo lim balyê pouente vers la dèrriére vèrsion de cél nivél.",
 	'reviewedpages-none' => 'Ceta lista est voueda.',
 	'reviewedpages-lev-0' => 'Revua',
 	'reviewedpages-lev-1' => 'De qualitât',
 	'reviewedpages-lev-2' => 'Sen tache',
-	'reviewedpages-all' => 'vèrsions passâs en revua',
-	'reviewedpages-best' => 'vèrsion principâla',
+	'reviewedpages-all' => 'vèrsions revues',
+	'reviewedpages-best' => 'vèrsion la ples bôna',
 );
 
 /** Galician (Galego)

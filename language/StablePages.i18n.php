@@ -315,7 +315,7 @@ Aussi, les modifications faites par les autres utilisateurs ne sont pas affiché
  * @author ChrisPtDe
  */
 $messages['frp'] = array(
-	'stablepages' => 'Pâges stâbles.',
+	'stablepages' => 'Pâges qu’utilisont la validacion des changements',
 	'stablepages-list' => 'Vê-que una lista de les pâges que sont rètrentes de façon que solament quârques utilisators la pôvont changiér sen qu’una rèvision seye nècèssèra.
 Los changements fêts per los ôtros utilisators sont pas montrâs per dèfôt ux liésors tant qu’un utilisator ôtorisâ los èye revus.',
 	'stablepages-none' => 'Y at gins de pâge dens ceta lista.',

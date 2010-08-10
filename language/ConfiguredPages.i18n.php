@@ -300,11 +300,13 @@ Certains paramètres peuvent faire apparaître une version différente pour les 
 	'configuredpages-def-stable' => 'version publiée',
 );
 
-/** Franco-Provençal (Arpetan) */
+/** Franco-Provençal (Arpetan)
+ * @author ChrisPtDe
+ */
 $messages['frp'] = array(
-	'configuredpages-prec-none' => 'gins de prèference',
-	'configuredpages-prec-quality' => 'prèference por la qualitât',
-	'configuredpages-prec-pristine' => 'prèference sen tache',
+	'configuredpages-prec-none' => 'dèrriére controlâ',
+	'configuredpages-prec-quality' => 'dèrriére de qualitât',
+	'configuredpages-prec-pristine' => 'dèrriére sen tache',
 );
 
 /** Galician (Galego)

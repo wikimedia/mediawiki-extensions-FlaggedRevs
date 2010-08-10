@@ -390,7 +390,7 @@ $messages['fr'] = array(
  * @author ChrisPtDe
  */
 $messages['frp'] = array(
-	'reviewedversions' => 'Vêre les vèrsions stâbles',
+	'reviewedversions' => 'Vèrsions revues',
 	'reviewedversions-leg1' => 'Montre una lista de les dèrriéres vèrsions revues d’una pâge.',
 	'reviewedversions-page' => 'Nom de la pâge :',
 	'reviewedversions-none' => '« [[:$1]] » at gins de vèrsion revua.',
@@ -721,9 +721,9 @@ $messages['ml'] = array(
 	'reviewedversions' => 'സംശോധനം ചെയ്ത പതിപ്പുകൾ',
 	'reviewedversions-leg1' => 'ഒരു താളിന്റെ സം‌ശോധനം ചെയ്യപ്പെട്ട പതിപ്പുകള്‍ പ്രദര്‍ശിപ്പിക്കുക',
 	'reviewedversions-page' => 'താളിന്റെ പേര്‌:',
-	'reviewedversions-none' => '"[[:$1]]"നു സംശോധനം നിര്‍‌വഹിച്ച പതിപ്പുകള്‍ ഒന്നുമില്ല.',
+	'reviewedversions-none' => '"[[:$1]]"നു സംശോധനം നിർവഹിച്ച പതിപ്പുകൾ ഒന്നുമില്ല.',
 	'reviewedversions-list' => '[[:$1]] എന്ന താളിന്റെ സം‌ശോധനം ചെയ്യപ്പെട്ട {{PLURAL:$2|ഒരു നാൾപ്പതിപ്പിന്റെ|നാൾപ്പതിപ്പുകളുടെ}} പട്ടികയാണ് താഴെ പ്രദര്‍ശിപ്പിച്ചിരിക്കുന്നത്:',
-	'reviewedversions-review' => "''$1''നു $2 സം‌ശോധനം നിര്‍‌വ്വഹിച്ചു",
+	'reviewedversions-review' => "''$1''നു $2 സം‌ശോധനം നിർവ്വഹിച്ചു",
 );
 
 /** Marathi (मराठी)

@@ -1328,21 +1328,21 @@ Voici les paramètres actuels de [[:$1|$1]] :",
 $messages['frp'] = array(
 	'stabilization-tab' => 'Controlar',
 	'stabilization' => 'Stabilisacion de la pâge.',
-	'stabilization-text' => "'''Changiéd los paramètres ce-desot por dèfenir la façon que la vèrsion publeyê de [[:$1|$1]] est chouèsia et montrâ.'''
+	'stabilization-text' => "'''Changiéd los paramètres ce-desot por dèfenir la façon que la vèrsion stâbla de [[:$1|$1]] est chouèsia et pués montrâ.'''
 
-'''Nota :''' changiér lo ''chouèx de la vèrsion publeyê'' por utilisar les vèrsions « de qualitât » ou ben « sen tache » arat gins de rèsultat se celes vèrsions ègzistont pas. Notâd asse-ben que les vèrsions « de qualitât » sont considèrâs coment « controlâs » et d’ense de suita.",
-	'stabilization-perm' => 'Voutron compto at pas los drêts por changiér los paramètres de la vèrsion publeyê.
+'''Nota :''' changiér lo ''chouèx de la vèrsion stâbla'' por utilisar les vèrsions « de qualitât » ou ben « sen tache » arat gins de rèsultat se celes vèrsions ègzistont pas. Notâd asse-ben que les vèrsions « de qualitât » sont considèrâs coment « controlâs » et d’ense de suita.",
+	'stabilization-perm' => 'Voutron compto at pas los drêts por changiér los paramètres de la vèrsion stâbla.
 Vê-que los paramètres d’ora de [[:$1|$1]] :',
 	'stabilization-page' => 'Nom de la pâge :',
-	'stabilization-leg' => 'Confirmar los paramètres de la vèrsion publeyê',
-	'stabilization-select' => 'Prioritât de chouèx de la vèrsion publeyê',
+	'stabilization-leg' => 'Confirmar los paramètres de la vèrsion stâbla',
+	'stabilization-select' => 'Prioritât de chouèx de la vèrsion stâbla',
 	'stabilization-select1' => 'La dèrriére vèrsion de qualitât, ôtrament la dèrriére vèrsion revua',
-	'stabilization-select2' => 'La dèrriére vèrsion revua, sen tegnir compto du nivél de validacion',
-	'stabilization-select3' => 'La dèrriére vèrsion sen tache, ôtrament la dèrriére vèrsion de qualitât ou ben revua',
+	'stabilization-select2' => 'Dèrriére vèrsion controlâ',
+	'stabilization-select3' => 'La dèrriére vèrsion sen tache ; ôtrament la dèrriére de qualitât ou ben revua',
 	'stabilization-def' => 'Vèrsion montrâ pendent la visualisacion de la pâge per dèfôt',
-	'stabilization-def1' => 'La vèrsion publeyê ; s’y en at pas, adonc cela d’ora ou ben lo brolyon',
-	'stabilization-def2' => 'La vèrsion d’ora ou ben lo brolyon',
-	'stabilization-restrict' => 'Rèstriccions sur les rèvisions ôtomatiques',
+	'stabilization-def1' => 'La vèrsion stâbla ; s’y en at pas, adonc cela d’ora',
+	'stabilization-def2' => 'La vèrsion d’ora',
+	'stabilization-restrict' => 'Rèstriccions de rèvision (ôtomatica)',
 	'stabilization-restrict-none' => 'Gins de rèstriccion de ples',
 	'stabilization-submit' => 'Confirmar',
 	'stabilization-notexists' => 'Y at gins de pâge « [[:$1|$1]] »,
@@ -1359,11 +1359,11 @@ gins de configuracion possibla.',
 	'stabilization-sel-short-2' => 'Sen tache',
 	'stabilization-def-short' => 'Dèfôt',
 	'stabilization-def-short-0' => 'D’ora',
-	'stabilization-def-short-1' => 'Publeyê',
+	'stabilization-def-short-1' => 'Stâbla',
 	'stabilize_expiry_invalid' => 'Dâta d’èxpiracion envalida.',
 	'stabilize_expiry_old' => 'Cél temps d’èxpiracion est ja passâ.',
 	'stabilize-expiring' => 'èxpire lo $1 (UTC)',
-	'stabilization-review' => 'Revêre la vèrsion d’ora',
+	'stabilization-review' => 'Marcar la vèrsion d’ora coment controlâ',
 );
 
 /** Western Frisian (Frysk)

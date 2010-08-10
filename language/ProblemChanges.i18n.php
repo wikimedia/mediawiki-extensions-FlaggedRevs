@@ -236,7 +236,7 @@ $messages['fr'] = array(
  * @author ChrisPtDe
  */
 $messages['frp'] = array(
-	'problemchanges' => 'Revêre los changements balisâs.',
+	'problemchanges' => 'Changements balisâs en atenta',
 	'problemchanges-legend' => 'Listar les pâges avouéc des changements balisâs en atenta de rèvision',
 	'problemchanges-none' => 'Ora, y at gins de pâge que corrèspond a cetos critèros',
 	'problemchanges-category' => 'Catègorie :',

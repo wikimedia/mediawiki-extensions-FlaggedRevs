@@ -203,6 +203,7 @@ $messages['bn'] = array(
 
 /** Breton (Brezhoneg)
  * @author Fulup
+ * @author Gwendal
  * @author Y-M D
  */
 $messages['br'] = array(
@@ -211,7 +212,7 @@ $messages['br'] = array(
 
 An Aozerien hag an Adlennerien a zo implijerien staliet a c'hell gwiriañ adweladennoù ar pajennoù.",
 	'validationstatistics-lastupdate' => "''Ar roadennoù da-heul a zo bet hizivaet d'an $1 da $2.''",
-	'validationstatistics-table' => "A-is emañ diskouezet ar stadegoù evit pep esaouenn anv, ''nemet'' evit ar pajennoù adkas.",
+	'validationstatistics-table' => "A-is emañ diskouezet ar stadegoù adwelout evit pep esaouenn anv, ''nemet'' evit ar pajennoù adkas.",
 	'validationstatistics-ns' => 'Esaouenn anv',
 	'validationstatistics-total' => 'Pajennoù',
 	'validationstatistics-stable' => 'Adwelet',
@@ -609,18 +610,18 @@ $3",
  * @author ChrisPtDe
  */
 $messages['frp'] = array(
-	'validationstatistics' => 'Statistiques de validacion.',
+	'validationstatistics' => 'Statistiques de rèvision de les pâges',
 	'validationstatistics-users' => "'''{{SITENAME}}''' at ora '''[[Special:ListUsers/editor|$1]]''' utilisator{{PLURAL:$1||s}} avouéc los drêts de [[{{MediaWiki:Validationpage}}|contributor]].
 
 Los contributors sont des utilisators ètablis que pôvont controlar les vèrsions de les pâges.",
-	'validationstatistics-table' => "Les statistiques por châque èspâço de noms sont montrâs ce-desot, a l’''èxcllusion'' de les pâges de redirèccion.",
+	'validationstatistics-table' => "Les statistiques de rèvision de les pâges por châque èspâço de noms sont montrâs ce-desot, ''mas pas'' les pâges de redirèccion.",
 	'validationstatistics-ns' => 'Èspâço de noms',
 	'validationstatistics-total' => 'Pâges',
 	'validationstatistics-stable' => 'Revua',
 	'validationstatistics-latest' => 'Sincronisâ',
 	'validationstatistics-synced' => 'Sincronisâ / Revua',
 	'validationstatistics-old' => 'Dèpassâ',
-	'validationstatistics-utable' => 'Vê-que la lista des 5 mèlyors rèvisors dens l’hora passâ.',
+	'validationstatistics-utable' => 'Vê-que la lista des 5 rèvisors los ples bons dens l’hora passâ.',
 	'validationstatistics-user' => 'Utilisator',
 	'validationstatistics-reviews' => 'Rèvisions',
 );
