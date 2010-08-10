@@ -497,7 +497,8 @@ class FlaggedArticleView {
 		$redirHtml = $this->getRedirectHtml( $text );
 		if ( $redirHtml == '' ) {
 			$parserOut = FlaggedRevs::parseStableText(
-				$this->article->getTitle(), $text, $frev->getRevId() );
+				$this->article->getTitle(), $text, $frev->getRevId(), 
+				FlaggedRevs::::makeParserOptions() );
 		}
 		# Construct some tagging for non-printable outputs. Note that the pending
 		# notice has all this info already, so don't do this if we added that already.
@@ -574,10 +575,11 @@ class FlaggedArticleView {
 			# Don't parse redirects, use separate handling...
 			if ( $redirHtml == '' ) {
 				# Get the new stable output
+				$parserOptions = FlaggedRevs::makeParserOptions();
 				$parserOut = FlaggedRevs::parseStableText(
-					$this->article->getTitle(), $text, $srev->getRevId() );
+					$this->article->getTitle(), $text, $srev->getRevId(), $parserOptions );
 				# Update the stable version cache & dependancies
-				FlaggedRevs::updatePageCache( $this->article, $wgUser, $parserOut );
+				FlaggedRevs::updatePageCache( $this->article, $parserOptions, $parserOut );
 				FlaggedRevs::updateCacheTracking( $this->article, $parserOut );
 			} else {
 				$parserOut = null;

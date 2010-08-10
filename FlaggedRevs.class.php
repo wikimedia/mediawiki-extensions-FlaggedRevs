@@ -515,7 +515,7 @@ class FlaggedRevs {
 	 * @param int $id Source revision Id
 	 * @return ParserOutput
 	 */
-	public static function parseStableText( Title $title, $text, $id ) {
+	public static function parseStableText( Title $title, $text, $id, $parserOptions = null ) {
 		global $wgParser;
 		# Notify Parser if includes should be stabilized
 		$resetManager = false;
@@ -532,8 +532,9 @@ class FlaggedRevs {
 			}
 		}
 		# Parse the new body, wikitext -> html
-		$options = self::makeParserOptions(); // default options
-	   	$parserOut = $wgParser->parse( $text, $title, $options, true, true, $id );
+		if ( is_null( $parserOptions ) )
+			$parserOptions = self::makeParserOptions(); // default options
+		$parserOut = $wgParser->parse( $text, $title, $parserOptions, true, true, $id );
 		# Stable parse done!
 		if ( $resetManager ) {
 			$incManager->clear(); // reset the FRInclusionManager as needed
@@ -607,20 +608,20 @@ class FlaggedRevs {
 	/**
 	 * Like ParserCache::getKey() with stable-pcache instead of pcache
 	 */
-	public static function getCacheKey( $parserCache, Article $article, $user ) {
-		$key = $parserCache->getKey( $article, $user );
+	protected static function getCacheKey( $parserCache, Article $article, $popts ) {
+		$key = $parserCache->getKey( $article, $popts );
 		$key = str_replace( ':pcache:', ':stable-pcache:', $key );
 		return $key;
 	}
 
 	/**
 	* @param Article $article
-	* @param User $user
+	* @param ParserOptions $popts
 	* @param parserOutput $parserOut
 	* Updates the stable cache of a page with the given $parserOut
 	*/
 	public static function updatePageCache(
-		Article $article, $user, ParserOutput $parserOut = null
+		Article $article, $popts, ParserOutput $parserOut = null
 	) {
 		global $parserMemc, $wgParserCacheExpireTime, $wgEnableParserCache;
 		wfProfileIn( __METHOD__ );
@@ -630,7 +631,7 @@ class FlaggedRevs {
 			return false;
 		}
 		$parserCache = ParserCache::singleton();
-		$key = self::getCacheKey( $parserCache, $article, $user );
+		$key = self::getCacheKey( $parserCache, $article, $popts );
 		# Add cache mark to HTML
 		$now = wfTimestampNow();
 		$parserOut->setCacheTime( $now );
