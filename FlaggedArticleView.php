@@ -498,7 +498,7 @@ class FlaggedArticleView {
 		if ( $redirHtml == '' ) {
 			$parserOut = FlaggedRevs::parseStableText(
 				$this->article->getTitle(), $text, $frev->getRevId(), 
-				FlaggedRevs::::makeParserOptions() );
+				FlaggedRevs::makeParserOptions() );
 		}
 		# Construct some tagging for non-printable outputs. Note that the pending
 		# notice has all this info already, so don't do this if we added that already.
