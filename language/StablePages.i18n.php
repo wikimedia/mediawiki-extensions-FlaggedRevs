@@ -21,6 +21,7 @@ Edits made by other users are not displayed to readers by default until an autho
  * @author EugeneZelenko
  * @author Jon Harald Søby
  * @author Purodha
+ * @author Raymond
  * @author Umherirrender
  */
 $messages['qqq'] = array(

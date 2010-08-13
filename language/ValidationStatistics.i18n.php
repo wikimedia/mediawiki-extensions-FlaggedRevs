@@ -41,15 +41,6 @@ $3',
 $messages['qqq'] = array(
 	'validationstatistics' => '{{Flagged Revs}}',
 	'validationstatistics-users' => '{{Flagged Revs}}',
-	'validationstatistics-time' => '{{FlaggedRevs}}
-This message is shown on [http://de.wikipedia.org/wiki/Spezial:Markierungsstatistik?uselang={{UILANGCODE}} Special:ValidationStatistics].
-
-* $1: the average time in hhmmss
-* $2: average lag in hhmmss
-* $3: the median in hhmmss
-* $4: a table in HTML syntax.
-* $5: the date of the last update
-* $6: the time of the last update',
 	'validationstatistics-table' => '{{Flagged Revs}}',
 	'validationstatistics-ns' => '{{Flagged Revs}}
 {{Identical|Namespace}}',
@@ -261,14 +252,6 @@ $messages['ca'] = array(
 	'validationstatistics-users' => "'''{{SITENAME}}''' té actualment '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|usuari|usuaris}} amb drets d'[[{{MediaWiki:Validationpage}}|Editor]].
 
 Els Editors són usuaris experimentats que poden validar les revisions de les pàgines.",
-	'validationstatistics-time' => "''Les següents dades van ser actualitzades per darrera vegada el dia $5 a les $6.''
-
-Es consideren revisades aquelles edicions que han estat validades per usuaris establerts.
-
-La mitja d'espera de les edicions d'''usuaris no registrats'' per a ser revisades és de '''$1'''; la mitjana és de '''$3'''.
-$4
-El retard mig per a [[Special:OldReviewedPages|pàgines amb edicions no revisades pendents]] és '''$2'''.
-Aquestes pàgines es consideren ''obsoletes''. De la mateixa manera, es consideren com a ''sincronitzades'' quan no hi ha modificacions pendents de revisió.",
 	'validationstatistics-ns' => "Nom d'espai",
 	'validationstatistics-total' => 'Pàgines',
 	'validationstatistics-stable' => "S'ha revisat",
@@ -433,15 +416,6 @@ $messages['el'] = array(
  */
 $messages['en-gb'] = array(
 	'validationstatistics' => 'Page review statistics',
-	'validationstatistics-time' => "''The following data was last updated on $5 at $6.''
-
-Edits that have been checked by established users are considered to be reviewed.
-
-The average wait for edits by ''users that have not logged in'' to be reviewed is '''$1'''; the median is '''$3'''.  
-$4
-The average lag for [[Special:OldReviewedPages|pages with unreviewed edits pending]] is '''$2'''.
-These pages are considered ''outdated''. Likewise, pages are considered ''synchronised'' if there are no edits pending review.
-The published version of a page is the newest revision that has been approved to show by default to all readers.",
 );
 
 /** Esperanto (Esperanto)

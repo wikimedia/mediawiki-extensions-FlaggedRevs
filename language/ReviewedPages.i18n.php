@@ -1066,6 +1066,9 @@ $messages['sk'] = array(
 $messages['sl'] = array(
 	'reviewedpages' => 'Pregledane strani',
 	'reviewedpages-leg' => 'Navede strani, ki so bile pregledane',
+	'reviewedpages-none' => 'Na tem seznamu ni strani.',
+	'reviewedpages-all' => 'pregledane redakcije',
+	'reviewedpages-best' => 'najboljša redakcija',
 );
 
 /** Albanian (Shqip)
