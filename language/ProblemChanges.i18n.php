@@ -210,6 +210,13 @@ $messages['eu'] = array(
 	'problemchanges-category' => 'Kategoria:',
 );
 
+/** Persian (فارسی)
+ * @author Wayiran
+ */
+$messages['fa'] = array(
+	'problemchanges-category' => 'رده:',
+);
+
 /** Finnish (Suomi)
  * @author Cimon Avaro
  * @author Crt
@@ -428,6 +435,13 @@ $messages['lb'] = array(
 	'problemchanges-legend' => 'Lëscht vun de markéierte Säiten déi nach net nogekuckt sinn',
 	'problemchanges-none' => 'Et gëtt el keng Säiten déi dës Kriterien entspriechen',
 	'problemchanges-category' => 'Kategorie:',
+);
+
+/** Limburgish (Limburgs)
+ * @author Ooswesthoesbes
+ */
+$messages['li'] = array(
+	'problemchanges-category' => 'Categorie:',
 );
 
 /** Macedonian (Македонски)

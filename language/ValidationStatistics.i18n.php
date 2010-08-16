@@ -510,9 +510,10 @@ $messages['eu'] = array(
 
 /** Persian (فارسی)
  * @author Huji
+ * @author Wayiran
  */
 $messages['fa'] = array(
-	'validationstatistics' => 'آمار معتبرسازی',
+	'validationstatistics' => 'آمار بازبینی صفحه',
 	'validationstatistics-users' => "'''{{SITENAME}}''' در حال حاضر '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|کاربر|کاربر}} با اختیارات [[{{MediaWiki:Validationpage}}|ویرایشگر]] و '''$2''' {{PLURAL:$2|کاربر|کاربر}} با اختیارات[[{{MediaWiki:Validationpage}}|مرورگر]] دارد.",
 	'validationstatistics-table' => "'''نکته:''' داده‌هایی که در ادامه می‌آید برای چندین ساعت در میان‌گیر ذخیره شده‌اند و ممکن است به روز نباشند.",
 	'validationstatistics-ns' => 'فضای نام',
@@ -521,6 +522,8 @@ $messages['fa'] = array(
 	'validationstatistics-latest' => 'آخرین بازبینی',
 	'validationstatistics-synced' => 'به روز شده/بازبینی شده',
 	'validationstatistics-old' => 'تاریخ گذشته',
+	'validationstatistics-user' => 'کاربر',
+	'validationstatistics-reviews' => 'بازبینی‌ها',
 );
 
 /** Finnish (Suomi)
@@ -1100,6 +1103,13 @@ $3",
 	'validationstatistics-utable' => "Hei ënnendrënner ass d'Lëscht mat de 5 Benotzer, déi an der leschter Stonn am meeschte Bewäertunge gemaach hunn.",
 	'validationstatistics-user' => 'Benotzer',
 	'validationstatistics-reviews' => 'Bewäertungen',
+);
+
+/** Limburgish (Limburgs)
+ * @author Ooswesthoesbes
+ */
+$messages['li'] = array(
+	'validationstatistics-user' => 'Gebroeker',
 );
 
 /** Eastern Mari (Олык Марий)

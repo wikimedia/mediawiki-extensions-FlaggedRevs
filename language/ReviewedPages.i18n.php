@@ -1066,6 +1066,8 @@ $messages['sk'] = array(
 $messages['sl'] = array(
 	'reviewedpages' => 'Pregledane strani',
 	'reviewedpages-leg' => 'Navede strani, ki so bile pregledane',
+	'reviewedpages-list' => "Ta seznam vsebuje [[{{MediaWiki:Validationpage}}|pregledane]] strani, ki imajo določeno ''najvišjo doseženo'' stopnjo pregleda (redakcije).
+Podana je tudi povezava do najnovejše redakcije te stopnje.",
 	'reviewedpages-none' => 'Na tem seznamu ni strani.',
 	'reviewedpages-all' => 'pregledane redakcije',
 	'reviewedpages-best' => 'najboljša redakcija',

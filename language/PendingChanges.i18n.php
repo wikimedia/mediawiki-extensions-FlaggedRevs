@@ -528,6 +528,7 @@ $messages['eu'] = array(
 /** Persian (فارسی)
  * @author Huji
  * @author Mardetanha
+ * @author Wayiran
  */
 $messages['fa'] = array(
 	'pendingchanges' => 'صفحه‌های بازبینی شدهٔ تاریخ گذشته',
@@ -542,6 +543,7 @@ $messages['fa'] = array(
 	'pendingchanges-diff' => 'بازبینی',
 	'pendingchanges-unwatched' => '(پیگیری نشده)',
 	'pendingchanges-watched' => '(پیگیری شده توسط $1 {{PLURAL:$1|کاربر|کاربر}})',
+	'pendingchanges-viewing' => '(تحت بازبینی)',
 );
 
 /** Finnish (Suomi)
@@ -1320,7 +1322,7 @@ $messages['pt-br'] = array(
 	'pendingchanges-recent' => '(menos de 1 hora)',
 	'pendingchanges-category' => 'Categoria:',
 	'pendingchanges-onwatchlist' => 'Páginas na minha lista de páginas vigiadas',
-	'pendingchanges-stable' => 'analisada',
+	'pendingchanges-stable' => 'Versão publicada por padrão',
 	'pendingchanges-diff' => 'analisar',
 	'pendingchanges-size' => 'Tamanho máximo da alteração (em bytes):',
 	'pendingchanges-unwatched' => '(não-vigiada)',

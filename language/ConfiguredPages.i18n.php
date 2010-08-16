@@ -277,6 +277,20 @@ $messages['eu'] = array(
 	'configuredpages-def-stable' => 'argitaraturiko bertsioa',
 );
 
+/** Persian (فارسی)
+ * @author Wayiran
+ */
+$messages['fa'] = array(
+	'configuredpages' => 'صفحات با تنظیمات بازبینی',
+	'configuredpages-config' => 'تنظیمات',
+	'configuredpages-precedence' => 'تقدم:',
+	'configuredpages-prec-none' => 'آخرین بررسی',
+	'configuredpages-prec-quality' => 'آخرین کیفیت',
+	'configuredpages-prec-pristine' => 'آخرین بکر',
+	'configuredpages-def-draft' => 'آخرین نسخه',
+	'configuredpages-def-stable' => 'نسخه پایدار',
+);
+
 /** Finnish (Suomi) */
 $messages['fi'] = array(
 	'configuredpages-prec-none' => 'viimeisin tarkastettu',
