@@ -1185,7 +1185,9 @@ $messages['ext'] = array(
 );
 
 /** Persian (فارسی)
+ * @author Ebraminio
  * @author Huji
+ * @author Ladsgroup
  * @author Momeni
  * @author Wayiran
  */
@@ -1199,11 +1201,11 @@ $messages['fa'] = array(
 	'stabilization-leg' => 'تایید تنظیمات نسخهٔ پایدار',
 	'stabilization-select' => 'انتخاب نسخهٔ پایدار',
 	'stabilization-select1' => 'آخرین نسخه با کیفیت، یا در صورت عدم وجود آن، آخرین نسخه بررسی شده',
-	'stabilization-select2' => 'آخرین نسخه بررسی شده',
+	'stabilization-select2' => 'آخرین نسخهٔ بررسی شده',
 	'stabilization-select3' => 'آخرین نسخهٔ دست نخورده؛ در صورت عدم وجود، آخرین نسخهٔ با کیفیت یا بررسی شده',
 	'stabilization-def' => 'نسخه‌ای که در حالت پیش‌فرض نمایش داده می‌شود',
-	'stabilization-def1' => 'نسخه پایدار، یا در صورت عدم وجود، نسخه فعلی',
-	'stabilization-def2' => 'نسخه فعلی',
+	'stabilization-def1' => 'نسخه پایدار؛ اگر وجود ندارد، آخرین نسخه',
+	'stabilization-def2' => 'آخرین نسخه',
 	'stabilization-restrict-none' => 'بدون هرگونه محدودیت اضافی',
 	'stabilization-submit' => 'تائید',
 	'stabilization-notexists' => 'صفحه‌ای با عنوان «[[:$1|$1]]» وجود ندارد. تنظیمات ممکن نیست.',
@@ -1226,7 +1228,9 @@ $messages['fa'] = array(
 	'stabilize_invalid_level' => 'سطح محافظت نامعتبر',
 	'stabilize_expiry_invalid' => 'تاریخ انقضای غیرمجاز',
 	'stabilize_expiry_old' => 'این تاریخ انقضا همینک سپری شده‌است.',
+	'stabilize_denied' => 'اجازه داده نشد.',
 	'stabilize-expiring' => 'در $1 (UTC) منقضی می‌شود.',
+	'stabilization-review' => 'علامت زدن این نسخه به عنوان بازبینی شده',
 );
 
 /** Finnish (Suomi)
@@ -3385,6 +3389,7 @@ Asnjë konfigurim nuk është i mundshëm.',
 /** Serbian Cyrillic ekavian (Српски (ћирилица))
  * @author Millosh
  * @author Sasa Stefanovic
+ * @author Жељко Тодоровић
  * @author Михајло Анђелковић
  */
 $messages['sr-ec'] = array(
@@ -3405,8 +3410,8 @@ $messages['sr-ec'] = array(
 	'stabilization-restrict' => 'Ограничења за прегледање и аутоматско прегледање',
 	'stabilization-restrict-none' => 'Без додатних ограничења',
 	'stabilization-submit' => 'Прихвати',
-	'stabilization-notexists' => 'Не постоји страна под именом "[[:$1|$1]]". Подешавање није могуће.',
-	'stabilization-notcontent' => 'Страна "[[:$1|$1]]" не може бити прегледана. Подешавање није могуће.',
+	'stabilization-notexists' => 'Не постоји страница под именом „[[:$1|$1]]“. Подешавање није могуће.',
+	'stabilization-notcontent' => 'Страница „[[:$1|$1]]“ не може бити прегледана. Подешавање није могуће.',
 	'stabilization-comment' => 'Разлог:',
 	'stabilization-otherreason' => 'Други разлог:',
 	'stabilization-expiry' => 'Истиче:',

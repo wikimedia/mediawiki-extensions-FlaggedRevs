@@ -510,11 +510,14 @@ $messages['eu'] = array(
 
 /** Persian (فارسی)
  * @author Huji
+ * @author Ladsgroup
  * @author Wayiran
  */
 $messages['fa'] = array(
 	'validationstatistics' => 'آمار بازبینی صفحه',
-	'validationstatistics-users' => "'''{{SITENAME}}''' در حال حاضر '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|کاربر|کاربر}} با اختیارات [[{{MediaWiki:Validationpage}}|ویرایشگر]] و '''$2''' {{PLURAL:$2|کاربر|کاربر}} با اختیارات[[{{MediaWiki:Validationpage}}|مرورگر]] دارد.",
+	'validationstatistics-users' => "'''{{SITENAME}}''' در حال حاضر '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|کاربر|کاربر}} با اختیارات [[{{MediaWiki:Validationpage}}|ویرایشگر]] و '''$2''' {{PLURAL:$2|کاربر|کاربر}} با اختیارات[[{{MediaWiki:Validationpage}}|مرورگر]] دارد.
+
+ویرایشگران توانایی بازبینی ویرایش‌ها را دارند",
 	'validationstatistics-table' => "'''نکته:''' داده‌هایی که در ادامه می‌آید برای چندین ساعت در میان‌گیر ذخیره شده‌اند و ممکن است به روز نباشند.",
 	'validationstatistics-ns' => 'فضای نام',
 	'validationstatistics-total' => 'صفحه‌ها',
@@ -522,6 +525,7 @@ $messages['fa'] = array(
 	'validationstatistics-latest' => 'آخرین بازبینی',
 	'validationstatistics-synced' => 'به روز شده/بازبینی شده',
 	'validationstatistics-old' => 'تاریخ گذشته',
+	'validationstatistics-utable' => 'در زیر فهرستی از پنج بازبینی کننده اول در ساعت گذشته است.',
 	'validationstatistics-user' => 'کاربر',
 	'validationstatistics-reviews' => 'بازبینی‌ها',
 );

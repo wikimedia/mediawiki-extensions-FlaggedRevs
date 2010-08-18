@@ -349,6 +349,7 @@ $messages['eu'] = array(
 );
 
 /** Persian (فارسی)
+ * @author Ebraminio
  * @author Huji
  */
 $messages['fa'] = array(
@@ -360,7 +361,7 @@ $messages['fa'] = array(
 	'reviewedpages-lev-1' => 'با کیفیت',
 	'reviewedpages-lev-2' => 'برگزیده',
 	'reviewedpages-all' => 'نسخه‌های بررسی شده',
-	'reviewedpages-best' => 'آخرین نسخه با بالاترین نمره',
+	'reviewedpages-best' => 'بهترین نسخه',
 );
 
 /** Finnish (Suomi)
@@ -1084,6 +1085,7 @@ $messages['sq'] = array(
  * @author Charmed94
  * @author Millosh
  * @author Sasa Stefanovic
+ * @author Жељко Тодоровић
  * @author Михајло Анђелковић
  */
 $messages['sr-ec'] = array(
@@ -1091,7 +1093,7 @@ $messages['sr-ec'] = array(
 	'reviewedpages-leg' => 'Сврстај стране које су прегледане',
 	'reviewedpages-list' => "Ови спискови садрже [[{{MediaWiki:Validationpage}}|прегледане]] странице чији ''највиши достигнут'' ниво прегледа (ревизије) је одређени ниво.
 Веза је дата најновијој ревизији тог нивоа.",
-	'reviewedpages-none' => 'Нема страна у овом списку.',
+	'reviewedpages-none' => 'Нема страница у овом списку.',
 	'reviewedpages-lev-0' => 'Прегледано',
 	'reviewedpages-lev-1' => 'Квалитет',
 	'reviewedpages-lev-2' => 'Изабрани',

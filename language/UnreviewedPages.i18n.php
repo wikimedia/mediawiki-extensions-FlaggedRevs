@@ -1457,17 +1457,18 @@ $messages['sq'] = array(
 /** Serbian Cyrillic ekavian (Српски (ћирилица))
  * @author Millosh
  * @author Sasa Stefanovic
+ * @author Жељко Тодоровић
  * @author Михајло Анђелковић
  */
 $messages['sr-ec'] = array(
 	'unreviewedpages' => 'Непрегледане стране.',
-	'unreviewed-legend' => 'Списак непрегледаних садржајних страна.',
+	'unreviewed-legend' => 'Списак непрегледаних страница са садржајем.',
 	'unreviewed-category' => 'Категорија:',
 	'unreviewed-diff' => 'преглед',
 	'unreviewed-unwatched' => '(ненадзирано)',
 	'unreviewed-watched' => '($1 {{PLURAL:$1|активан корисник надгледа|акхивних корисника надгледају}})',
-	'unreviewed-list' => 'Ово је списак страна садржаја које још нису прегледане до наведеног нивоа.',
-	'unreviewed-none' => 'Не постоји ниједна страна која се поклапа са овим критеријима.',
+	'unreviewed-list' => 'Ово је списак страница са садржајем које још нису прегледане до наведеног нивоа.',
+	'unreviewed-none' => 'Не постоји ниједна страница која се поклапа са овим критеријумима.',
 	'unreviewed-viewing' => '(под прегледом)',
 	'unreviewed-hours' => '($1 {{PLURAL:$1|сат|сати}})',
 	'unreviewed-days' => '($1 {{PLURAL:$1|дан|дана}})',

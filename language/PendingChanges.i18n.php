@@ -526,7 +526,9 @@ $messages['eu'] = array(
 );
 
 /** Persian (فارسی)
+ * @author Ebraminio
  * @author Huji
+ * @author Ladsgroup
  * @author Mardetanha
  * @author Wayiran
  */
@@ -539,8 +541,10 @@ $messages['fa'] = array(
 	'pendingchanges-days' => '($1 {{PLURAL:$1|روز|روز}})',
 	'pendingchanges-recent' => '(کمتر از ۱ ساعت)',
 	'pendingchanges-category' => 'رده:',
-	'pendingchanges-stable' => 'بررسی شده',
+	'pendingchanges-onwatchlist' => 'صفحات موجود در فهرست پی‌گیری‌های من',
+	'pendingchanges-stable' => 'نسخهٔ پایدار پیش‌فرض است',
 	'pendingchanges-diff' => 'بازبینی',
+	'pendingchanges-size' => 'بزرگترین تغییر (بایت):',
 	'pendingchanges-unwatched' => '(پیگیری نشده)',
 	'pendingchanges-watched' => '(پیگیری شده توسط $1 {{PLURAL:$1|کاربر|کاربر}})',
 	'pendingchanges-viewing' => '(تحت بازبینی)',
@@ -972,7 +976,7 @@ $messages['ko'] = array(
 	'pendingchanges-recent' => '(1시간 미만)',
 	'pendingchanges-category' => '분류:',
 	'pendingchanges-onwatchlist' => '내 주시문서 목록에 있는 문서',
-	'pendingchanges-stable' => '검토 설정이 된 문서',
+	'pendingchanges-stable' => '안정 버전이 기본값입니다.',
 	'pendingchanges-diff' => '검토',
 	'pendingchanges-size' => '최대 변화량 (바이트):',
 	'pendingchanges-unwatched' => '(주시되지 않음)',
@@ -1482,13 +1486,14 @@ $messages['sl'] = array(
 
 /** Serbian Cyrillic ekavian (Српски (ћирилица))
  * @author Millosh
+ * @author Жељко Тодоровић
  * @author Михајло Анђелковић
  */
 $messages['sr-ec'] = array(
 	'pendingchanges' => 'Стране са променама за преглед',
-	'pendingchanges-legend' => 'Списак прегледаних страна са непрегледаним верзијама.',
-	'pendingchanges-list' => 'Ово је {{PLURAL:$1|прегледана страна|списак прегледаних страна}} са изменама за преглед.',
-	'pendingchanges-none' => 'Тренутно нема страна које задовољавају ове критерије,',
+	'pendingchanges-legend' => 'Списак прегледаних страница са непрегледаним верзијама.',
+	'pendingchanges-list' => 'Ово је {{PLURAL:$1|прегледана страница|списак прегледаних страница}} са изменама за преглед.',
+	'pendingchanges-none' => 'Тренутно нема страница које испуњавају ове критеријуме',
 	'pendingchanges-hours' => '($1 {{PLURAL:$1|сат|сати}})',
 	'pendingchanges-days' => '($1 {{PLURAL:$1|дан|дана}})',
 	'pendingchanges-recent' => '(мање од једног часа)',

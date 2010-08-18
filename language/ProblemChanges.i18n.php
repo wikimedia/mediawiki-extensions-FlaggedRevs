@@ -211,9 +211,13 @@ $messages['eu'] = array(
 );
 
 /** Persian (فارسی)
+ * @author Ebraminio
  * @author Wayiran
  */
 $messages['fa'] = array(
+	'problemchanges' => 'ویرایش‌های برچسب‌خوردهٔ در انتظار',
+	'problemchanges-legend' => 'صفحه‌های با ویرایش‌های برچسب‌خوردهٔ در انتظار بازبینی را فهرست کن.',
+	'problemchanges-none' => 'در حال حاضر صفحه‌ای که با این معیارها سازگار باشد وجود ندارد',
 	'problemchanges-category' => 'رده:',
 );
 

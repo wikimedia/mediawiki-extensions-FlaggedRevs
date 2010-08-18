@@ -4480,6 +4480,7 @@ $messages['ext'] = array(
 /** Persian (فارسی)
  * @author Ebraminio
  * @author Huji
+ * @author Ladsgroup
  * @author Mardetanha
  * @author Wayiran
  */
@@ -4503,12 +4504,16 @@ $messages['fa'] = array(
 	'grouppage-reviewer' => '{{ns:project}}:مرورگر',
 	'group-autoreview' => 'کاربران خودبررسی‌شده',
 	'group-autoreview-member' => 'کاربران خودبررسی‌شده',
-	'revreview-hist-draft' => 'نسخهٔ پیش‌نویس',
+	'revreview-hist-draft' => 'نسخه بررسی‌نشده',
 	'revreview-hist-pending' => 'در انتظار بازبینی',
 	'revreview-hist-quality' => '[با کیفیت]',
 	'revreview-hist-basic' => 'بازبینی بررسی‌شده',
 	'revreview-hist-quality-user' => 'توسط [[User:$3|$3]] [{{fullurl:$1|stableid=$2}} تایید شد]',
 	'revreview-hist-basic-user' => 'توسط [[User:$3|$3]] [{{fullurl:$1|stableid=$2}} بررسی شد]',
+	'revreview-diff-toggle-show' => 'نمایش آن تغییرات',
+	'revreview-diff-toggle-hide' => 'نهفتن آن تغییرات',
+	'revreview-log-toggle-show' => 'نمایش سیاهه پایداری',
+	'revreview-log-toggle-hide' => 'نهفتن سیاهه پایداری',
 	'revreview-log-details-show' => 'نمایش جزئیات',
 	'revreview-log-details-hide' => 'نهفتن جزئیات',
 	'review-diff2stable' => 'تفاوت با نسخه پایدار',
@@ -4540,11 +4545,13 @@ $messages['fa'] = array(
 	'review_page_invalid' => 'عنوان صفحهٔ مقصد نامعتبر است.',
 	'review_page_notexists' => 'صفحهٔ مقصد وجود ندارد.',
 	'review_page_unreviewable' => 'صفحهٔ مقصد بازبین‌پذیر نیست.',
-	'review_no_oldid' => 'آی‌دی هیچ نسخه‌ای مشخص نشده است.',
+	'review_no_oldid' => 'شناسهٔ هیچ نسخه‌ای مشخص نشده است.',
 	'review_bad_oldid' => 'نسخهٔ مقصد وجود ندارد.',
 	'review_not_flagged' => 'نسخهٔ مقصد تاکنون به عنوان بازبینی‌شده علامت‌گذاری نشده است.',
 	'review_too_low' => 'در حالی که برخی فیلدها «نابسنده» رها شده‌اند، نمی‌توان نسخه را بازبینی کرد.',
 	'review_bad_key' => 'کلید پارامتر گنجایش نامعتبر.',
+	'review_denied' => 'اجازه داده نشد.',
+	'review_param_missing' => 'یک پارامتر وارد نشده یا نادرست وارد شده‌است',
 	'revreview-current' => 'پیش‌نویس تغییرات',
 	'revreview-depth' => 'عمق',
 	'revreview-depth-0' => 'نابسنده',
@@ -4602,10 +4609,10 @@ $messages['fa'] = array(
 	'revreview-quality-source' => 'یک [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} نسخهٔ باکیفیت] از این صفحه، [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} تایید شده] در <i>$2</i>، بر مبنای این نسخه ایجاد شده‌است.',
 	'revreview-quality-title' => 'مقالهٔ با کیفیت',
 	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|بررسی‌شده]]'''. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} مشاهده نسخه فعلی]]",
-	'revreview-quick-basic-old' => "'''[[{{MediaWiki:Validationpage}}|مقالهٔ بررسی شده]]''' [ مشاهدهٔ پیش‌نویس]]",
-	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|بررسی شده]]''' (فاقد تغییرهای بررسی نشده)",
+	'revreview-quick-basic-old' => "'''[[{{MediaWiki:Validationpage}}|بررسی شد]]'''",
+	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|بررسی شد]]'''",
 	'revreview-quick-invalid' => "'''شناسهٔ نسخهٔ غیر مجاز'''",
-	'revreview-quick-none' => "'''فعلی'''. فاقد نسخه مرورشده",
+	'revreview-quick-none' => "'''[[{{MediaWiki:Validationpage}}|بررسی نشده]]'''",
 	'revreview-quick-quality' => "'''[[{{MediaWiki:Validationpage}}|با کیفیت]]'''. [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} مشاهده نسخه فعلی]]",
 	'revreview-quick-quality-old' => "'''[[{{MediaWiki:Validationpage}}|مقالهٔ با کیفیت]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} مشاهدهٔ پیش‌نویس]]",
 	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|با کیفیت]]''' (فاقد تغییرهای بررسی نشده)",
@@ -4637,7 +4644,7 @@ $messages['fa'] = array(
 	'revreview-toggle-title' => 'نمایش/پنهان کردن جزئیات',
 	'revreview-toolow' => 'شما باید هر یک از موارد زیر را با درجه‌ای بیش از «تائیدنشده» علامت بزنید تا آن نسخه بررسی شده به حساب بیاید. برای مستهلک کردن یک نسخه، تمام موارد را «تائیدنشده» علامت بزنید.',
 	'revreview-update' => 'لطفاً تمام تغییراتی که از آخرین نسخه پایدار صورت گرفته را بررسی کنید. برخی الگوها/تصویرها تغییر یافته‌اند:',
-	'revreview-update-includes' => "'''برخی الگوها/تصویرها به روز شده‌اند:'''",
+	'revreview-update-includes' => "'''برخی الگوها/پرونده‌ها به روز شده‌اند:'''",
 	'revreview-update-use' => "'''تذکر:''' اگر هر کدام از این الگوها/تصویرها نسخهٔ پایداری داشته باشند، در نسخهٔ پایدار این صفحه استفاده می‌شوند.",
 	'revreview-visibility' => 'این صفحه دارای یک [[{{MediaWiki:Validationpage}}|نسخه پایدار است]] که قابل 
 	[{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} تنظیم] است.',
@@ -9366,7 +9373,7 @@ op <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{P
 	'revreview-quick-see-quality' => "'''Hujige versie'''. [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} stabiele versie bekieke]
 ($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} {{PLURAL:$2|wieziging|wieziginge}}]]",
 	'revreview-selected' => "Geselecteerde versie van '''$1:'''",
-	'revreview-source' => 'Brónteks concep',
+	'revreview-source' => 'Bekiek bróntèks',
 	'revreview-style' => 'Laesbaarheid',
 	'revreview-style-0' => 'Neet bekeke',
 	'revreview-style-1' => 'Aanvaardbaar',
@@ -12387,6 +12394,7 @@ $messages['roa-tara'] = array(
 	'revreview-diff-toggle-hide' => 'scunne le cangiaminde',
 	'revreview-diff-toggle-title' => "Abbilete/disabbilete 'a visualizzazzione de le cangiaminde a 'a versiona secure",
 	'revreview-log-toggle-show' => "fà vedè l'archivije de stabbilità",
+	'revreview-log-toggle-hide' => "scunne l'archivije de stabbilità",
 	'revreview-log-details-show' => 'fa vedè le dettaglie',
 	'revreview-log-details-hide' => 'scunne le dettaglie',
 	'review-diff2stable' => "Vide le cangiaminde pendende de 'na versiona pubblecate",
@@ -12452,8 +12460,8 @@ Vide 'a [[Special:Unreviewedpages|liste de le pàggene ca non g'onne state rivis
 Stonne [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} cangiaminde sus a template/file] abbesognene de 'na reviste.",
 	'revreview-newest-quality' => "' A[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} versione secure] avere state [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} verificate] 'u <i>$2</i>.
 {{PLURAL:$3|Ste|Stonne}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|cangiamende|cangiaminde}}] pendende ca stonne aspettane 'na revisione.",
-	'revreview-newest-quality-i' => "'A [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} versiona pubblecate] ere [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approvate] 'u <i>$2</i>.
-'A bozze tène [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} cangiaminde de template/file] abbesognene de 'na reviste.",
+	'revreview-newest-quality-i' => "'A [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} versiona secure] avere state [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approvate] 'u <i>$2</i>.
+Stonne [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} cangiaminde de template/file] ca abbesognene de 'na reviste.",
 	'revreview-pending-basic' => "'A [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} versiona pubblecate] ere [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} verificate] 'u <i>$2</i>.
 'A [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} bozze] tène [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|cangiamende|cangiaminde}} pendende].",
 	'revreview-pending-quality' => "'A [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} versiona pubblecate] ere [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approvate] 'u <i>$2</i>.
@@ -12477,7 +12485,7 @@ Le [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} cangiaminde] nuè
 	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|Verificate]]'''",
 	'revreview-quick-invalid' => "'''ID d'a revisione invalide'''",
 	'revreview-quick-none' => "'''[[{{MediaWiki:Validationpage}}|None verificate]]'''",
-	'revreview-quick-quality' => "'''[[{{MediaWiki:Validationpage}}|Pàgene de qualità]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} vide 'a bozze]]",
+	'revreview-quick-quality' => "'''[[{{MediaWiki:Validationpage}}|Qualità]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} revide le cangiaminde pendende]]",
 	'revreview-quick-quality-old' => "'''[[{{MediaWiki:Validationpage}}|Qualità]]'''",
 	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|Qualità]]'''",
 	'revreview-quick-see-basic' => '[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} revide le cangiaminde pendende]]',
@@ -12507,8 +12515,8 @@ Le [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} cangiaminde] nuè
 Pe sckefà 'na revisione, 'mboste tutte le cambe a \"non approvate\".
 
 Pe piacere cazze 'u buttone \"back\" d'u browser tune e pruève arrete.",
-	'revreview-update' => "Pe piacere [[{{MediaWiki:Validationpage}}|revide]] ogne cangiamende ''(le vide aqquà sotte)'' fatte da 'a versiona pubblecate ca avère state [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approvate].<br />
-'''Alcune template e file onne state aggiornate:'''",
+	'revreview-update' => "'''Pe piacere [[{{MediaWiki:Validationpage}}|revide]] ogne cangiamende pendende ''(le vide aqquà sotte)'' fatte da 'a versiona secure.'''
+Tu puè fà apprimme 'n'annullamende de le cangiaminde.",
 	'revreview-update-includes' => "'''Certe template/file onne state aggiornate:'''",
 	'revreview-update-use' => "'''VIDE BBUENE:''' 'A versiona secure de ognune de chiste template/file jè ausate jndr'à versiona secure de sta pàgene.",
 	'revreview-visibility' => "'''Sta pàgene tène 'na [[{{MediaWiki:Validationpage}}|versiona pubblecate]] aggiornate; le 'mbostaziune de'a stabbilità d'a pàgene ponne essere [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} configurate].'''",
@@ -12527,6 +12535,7 @@ Pe piacere condrolle l'URL ca tu è ausete pe trasè jndr'à sta pagene.",
 	'specialpages-group-quality' => "Cange 'a reviste",
 	'stable-logentry-config' => 'configure le \'mbostaziune d\'a versiona secure pe "$1"',
 	'stable-logentry-reset' => 'azzere le \'mbostaziune d\'a versiona secure pe "$1"',
+	'stable-log-restriction' => 'Auto-reviste: richiede "$1" permesse',
 	'stable-logpage' => 'Archivie de le stabilizzaziune',
 	'stable-logpagetext' => "Quiste jè 'n'archivije de le cangiaminde a 'a configurazione d'a [[{{MediaWiki:Validationpage}}|versiona secure]] de le vôsce.",
 	'revreview-filter-all' => 'Tutte',
@@ -12560,7 +12569,7 @@ Pe piacere condrolle l'URL ca tu è ausete pe trasè jndr'à sta pagene.",
 	'flaggedrevs-protect-none' => "Permette a tutte l'utinde",
 	'revreview-locked-title' => 'Le cangiaminde a a sta pàgene onne abbesogne de reviste.',
 	'revreview-unlocked-title' => "Le cangiaminde 'a sta pàgene non ge abbesognene de reviste.",
-	'revreview-locked' => 'Le cangiaminde onne a essere riviste apprime de farle vedè sus a sta pàgene!',
+	'revreview-locked' => "'''Vide Bbuène:''' Le cangiaminde onna essere [[{{MediaWiki:Validationpage}}|reviste]] apprime ca avènene fatte vedè a le letture sus a sta pàgene.",
 	'revreview-unlocked' => "'''Note:''' Le cangiaminde non ge richiedene [[{{MediaWiki:Validationpage}}|reviste]] apprime ca avènene fatte vedè sus a sta pàgene.",
 	'log-show-hide-review' => '$1 archivie de le rivisitaziune',
 	'revreview-tt-review' => 'Appliche stu state a sta revisione',
@@ -13367,7 +13376,7 @@ $messages['sr-ec'] = array(
 	'revreview-invalid' => "'''Лош циљ:''' ниједна [[{{MediaWiki:Validationpage}}|прегледана]] верзије не поседује дати редни број.",
 	'revreview-legend' => 'Оцени верзију садржаја',
 	'revreview-log' => 'Коментар:',
-	'revreview-main' => 'Види [[Special:Unreviewedpages|списак непрегледаних страна]].',
+	'revreview-main' => 'Види [[Special:Unreviewedpages|списак непрегледаних страница]].',
 	'revreview-note' => '[[User:$1|$1]] направи следећу белешку током [[{{MediaWiki:Validationpage}}|прегледања]] ове верзије.',
 	'revreview-notes' => 'Мишљења и белешке за приказ:',
 	'revreview-oldrating' => 'Оцењено је:',
@@ -13406,7 +13415,7 @@ $messages['sr-ec'] = array(
 	'right-review' => 'Означи верзије као прегледане.',
 	'right-stablesettings' => 'Намести означавање и приказ стабилних верзија.',
 	'right-validate' => 'Означи верзије овереним.',
-	'right-unreviewedpages' => 'Види [[Special:UnreviewedPages|списак непрегледаних страна]]',
+	'right-unreviewedpages' => 'Види [[Special:UnreviewedPages|списак непрегледаних страница]]',
 	'rights-editor-autosum' => 'аутоматски напредовано',
 	'rights-editor-revoke' => 'уклоњен статус уређивача кориснику [[$1]]',
 	'specialpages-group-quality' => 'Обезбеђење квалитета',
