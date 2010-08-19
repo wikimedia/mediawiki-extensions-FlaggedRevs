@@ -857,7 +857,7 @@ class FlaggedArticleView {
 	 * Adds stable version tags to page when editing
 	 */
 	public function addToEditView( EditPage $editPage ) {
-		global $wgRequest, $wgOut, $wgLang, $wgUser;
+		global $wgOut, $wgUser;
 		$this->load();
 		# Must be reviewable. UI may be limited to unobtrusive patrolling system.
 		if ( !$this->article->isReviewable() ) {
@@ -1067,7 +1067,7 @@ class FlaggedArticleView {
 	 * Add link to stable version setting to protection form
 	 */
 	public function addVisibilityLink( &$data ) {
-		global $wgUser, $wgRequest, $wgOut;
+		global $wgRequest, $wgOut;
 		$this->load();
 		if ( FlaggedRevs::useProtectionLevels() ) {
 			return true; // simple custom levels set for action=protect

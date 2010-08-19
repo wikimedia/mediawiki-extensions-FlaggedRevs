@@ -29,11 +29,11 @@
 class ApiQueryFlagged extends ApiQueryBase {
 
 	public function execute() {
-		$params = $this->extractRequestParams();
 		$pageSet = $this->getPageSet();
 		$pageids = array_keys( $pageSet->getGoodTitles() );
-		if ( !$pageids )
+		if ( !$pageids ) {
 			return true;
+		}
 		
 		// Construct SQL Query
 		$this->addTables( 'flaggedpages' );

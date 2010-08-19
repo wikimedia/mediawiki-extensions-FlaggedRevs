@@ -12,7 +12,7 @@ class ProblemChanges extends SpecialPage
 	}
 
 	public function execute( $par ) {
-		global $wgRequest, $wgUser, $wgOut;
+		global $wgRequest, $wgUser;
 		$this->setHeaders();
 		$this->skin = $wgUser->getSkin();
 		$this->level = $wgRequest->getInt( 'level', - 1 );
@@ -40,7 +40,7 @@ class ProblemChanges extends SpecialPage
 	}
 
 	public function showList( $par ) {
-		global $wgOut, $wgScript, $wgUser;
+		global $wgOut, $wgScript;
 		$limit = $this->parseParams( $par );
 		$pager = new ProblemChangesPager( $this, $this->level, $this->category, $this->tag );
 		// Apply limit if transcluded
@@ -92,7 +92,6 @@ class ProblemChanges extends SpecialPage
 	}
 	
 	protected function parseParams( $par ) {
-		global $wgLang;
 		$bits = preg_split( '/\s*,\s*/', trim( $par ) );
 		$limit = false;
 		foreach ( $bits as $bit ) {
@@ -298,7 +297,7 @@ class ProblemChangesPager extends AlphabeticPager {
 	}
 
 	function getQueryInfo() {
-		global $wgUser, $wgOldChangeTagsIndex;
+		global $wgOldChangeTagsIndex;
 		$conds = $this->mConds;
 		$tables = array( 'revision', 'change_tag', 'page' );
 		$fields = array( 'page_namespace' , 'page_title', 'page_latest' );

@@ -1,7 +1,7 @@
 <?php
 
 function flag_to_semi_protect( $db, $reason ) {
-	global $wgUser, $wgFlaggedRevsNamespaces, $wgFlaggedRevsProtection;
+	global $wgFlaggedRevsNamespaces, $wgFlaggedRevsProtection;
 	echo "Semi-protecting all flag-protected pages...\n";
 	if ( !$wgFlaggedRevsProtection ) {
 		echo "\$wgFlaggedRevsProtection not enabled!\n";

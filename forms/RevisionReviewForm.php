@@ -324,7 +324,6 @@ class RevisionReviewForm
 	 * @returns true on success, array of errors on failure
 	 */
 	private function approveRevision( Revision $rev ) {
-		global $wgMemc, $wgParser;
 		wfProfileIn( __METHOD__ );
 		# Revision rating flags
 		$flags = $this->dims;

@@ -31,7 +31,7 @@ class ReviewedVersions extends UnlistedSpecialPage
 	}
 
 	protected function showStableList() {
-		global $wgOut, $wgUser, $wgLang;
+		global $wgOut, $wgLang;
 		# Must be a content page
 		if ( !FlaggedRevs::inReviewNamespace( $this->page ) ) {
 			$wgOut->addWikiMsg( 'reviewedversions-none', $this->page->getPrefixedText() );
@@ -52,7 +52,7 @@ class ReviewedVersions extends UnlistedSpecialPage
 	}
 
 	public function formatRow( $row ) {
-		global $wgLang, $wgUser;
+		global $wgLang;
 		$rdatim = $wgLang->timeanddate( wfTimestamp( TS_MW, $row->rev_timestamp ), true );
 		$fdatim = $wgLang->timeanddate( wfTimestamp( TS_MW, $row->fr_timestamp ), true );
 		$fdate = $wgLang->date( wfTimestamp( TS_MW, $row->fr_timestamp ), true );

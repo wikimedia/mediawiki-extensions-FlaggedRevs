@@ -41,7 +41,7 @@ function autoreview_current( $user, $db ) {
 				$db->begin();
 				FlaggedRevs::autoReviewEdit( $article, $user, $rev, $flags, true );
 				FlaggedRevs::HTMLCacheUpdates( $article->getTitle() );
-				$dbw->commit();
+				$db->commit();
 				$changed++;
 			}
 			$count++;

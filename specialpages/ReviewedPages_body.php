@@ -63,7 +63,7 @@ class ReviewedPages extends SpecialPage
 	}
 
 	protected function showPageList() {
-		global $wgOut, $wgUser, $wgLang;
+		global $wgOut, $wgLang;
 
 		$pager = new ReviewedPagesPager( $this, array(), $this->type,
 			$this->namespace, $this->hideRedirs );
@@ -82,7 +82,7 @@ class ReviewedPages extends SpecialPage
 	}
 
 	public function formatRow( $row ) {
-		global $wgLang, $wgUser;
+		global $wgLang;
 
 		$title = Title::makeTitle( $row->page_namespace, $row->page_title );
 		$link = $this->skin->makeKnownLinkObj( $title, $title->getPrefixedText() );
