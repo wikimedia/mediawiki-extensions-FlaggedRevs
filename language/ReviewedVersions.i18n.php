@@ -345,10 +345,11 @@ $messages['ext'] = array(
 );
 
 /** Persian (فارسی)
+ * @author Ebraminio
  * @author Huji
  */
 $messages['fa'] = array(
-	'reviewedversions' => 'نمایش نسخه‌های پایدار',
+	'reviewedversions' => 'نسخهٔ بازبینی شده',
 	'reviewedversions-leg1' => 'فهرست کردن نسخه‌های بررسی شده یک صفحه',
 	'reviewedversions-page' => 'نام صفحه:',
 	'reviewedversions-none' => '"[[:$1]]" هیچ نسخه بررسی‌ شده‌ای ندارد.',

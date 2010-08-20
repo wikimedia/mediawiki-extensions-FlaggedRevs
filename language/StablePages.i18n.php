@@ -275,12 +275,15 @@ $messages['eu'] = array(
 	'stablepages-config' => 'Konfigurazioa',
 );
 
-/** Persian (فارسی) */
+/** Persian (فارسی)
+ * @author Sahim
+ */
 $messages['fa'] = array(
 	'stablepages' => 'صفحه‌های پایدار',
 	'stablepages-list' => 'در زیر فهرستی از صفحه‌هایی که به طور دستی تنظیم شده‌اند تا نسخهٔ پایدارشان به عنوان نسخهٔ پیش‌فرض به بینندگان نمایش داده شود را می‌بینید.',
 	'stablepages-none' => 'هیچ صفحه‌ای در این فهرست وجود ندارد',
 	'stablepages-config' => 'تنظیمات',
+	'stablepages-indef' => 'فقط انقضا(خاتمه) نامحدود',
 );
 
 /** Finnish (Suomi)

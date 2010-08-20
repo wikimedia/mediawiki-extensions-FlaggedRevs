@@ -3782,6 +3782,7 @@ Novaj [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} ŝanĝoj] eble
 	'revreview-editnotice' => "'''Viaj ŝanĝoj estos publikigita kiam aŭtoritata uzanto kontrolis ili. ([[{{MediaWiki:Validationpage}}|?]])'''",
 	'revreview-check-flag-p' => 'Publikigi nune kontrolendajn ŝanĝojn',
 	'revreview-check-flag-u' => 'Akceptu ĉi tiun ne jam reviziitan paĝon',
+	'revreview-check-flag-y' => 'Validigi ĉi tiujn ŝanĝojn',
 	'revreview-submitedit' => 'Sendi ŝanĝojn',
 	'revreview-edited' => "'''Ŝanĝoj estos publikigitaj post kiam aŭtorita uzanto kontrolas ilin. ([[{{MediaWiki:Validationpage}}|?]])'''
 
@@ -4482,6 +4483,7 @@ $messages['ext'] = array(
  * @author Huji
  * @author Ladsgroup
  * @author Mardetanha
+ * @author Sahim
  * @author Wayiran
  */
 $messages['fa'] = array(
@@ -4496,6 +4498,8 @@ $messages['fa'] = array(
 	'prefs-flaggedrevs-ui' => 'ویرایش بازبینی',
 	'flaggedrevs-prefs-stable' => '(در صورت وجود) همیشه نسخهٔ پایدار یک صفحه را به عنوان نسخهٔ پیش فرض نمایش بده',
 	'flaggedrevs-prefs-watch' => 'صفحه‌هایی که بازبینی می‌کنم را به فهرست پیگیری‌هایم اضافه کن',
+	'flaggedrevs-prefs-editdiffs' => 'نمایش تفاوت تغییرات در زمان ویرایش صفحه‌ها',
+	'flaggedrevs-prefs-viewdiffs' => 'نمایش در مدت اختلاف تغییرات در هنگام ویرایش اخیر و مدت بازبینی',
 	'group-editor' => 'ویرایشگران',
 	'group-editor-member' => 'ویرایشگر',
 	'group-reviewer' => 'مرورگران',
@@ -4504,6 +4508,7 @@ $messages['fa'] = array(
 	'grouppage-reviewer' => '{{ns:project}}:مرورگر',
 	'group-autoreview' => 'کاربران خودبررسی‌شده',
 	'group-autoreview-member' => 'کاربران خودبررسی‌شده',
+	'grouppage-autoreview' => '{{ns:project}}:بازبین‌گرهای خودکار کاربر',
 	'revreview-hist-draft' => 'نسخه بررسی‌نشده',
 	'revreview-hist-pending' => 'در انتظار بازبینی',
 	'revreview-hist-quality' => '[با کیفیت]',
@@ -4521,6 +4526,7 @@ $messages['fa'] = array(
 	'review-logentry-dis' => 'نسخه‌ای از [[$1]] را مستهلک کرد',
 	'review-logentry-id' => 'شماره نسخه: $2',
 	'review-logentry-diff' => 'تفاوت با نسخهٔ پایدار',
+	'review-logentry-diff2' => 'تغییرات نامناسب',
 	'review-logpage' => 'سیاههٔ بررسی مقاله',
 	'review-logpagetext' => 'این سیاهه‌ای از تعییرات وضعیت [[{{MediaWiki:Validationpage}}|تائید]] نسخه‌های صفحه‌ها است.',
 	'reviewer' => 'مرورگر',
@@ -4694,6 +4700,7 @@ $messages['fa'] = array(
 	'tooltip-ca-current' => 'نمایش این صفحه همراه با تغییرات در حال انتظار',
 	'tooltip-ca-stable' => 'نمایش نسخهٔ پایدار این صفحه',
 	'tooltip-ca-default' => 'تنظیمات کنترل کیفیت',
+	'flaggedrevs-protect-legend' => 'بازبینی خودکار ویرایشها ([[{{MediaWiki:Validationpage}}|کمک]])',
 	'flaggedrevs-protect-none' => 'به همهٔ کاربران اجازه بده',
 	'revreview-locked-title' => 'ویرایش‌ها باید قبل از این که در این صفحه نمایش یابند بازبینی شوند!',
 	'revreview-unlocked-title' => 'ویرایش‌ها لازم نیست قبل از این که در این صفحه نمایش یابند بازبینی شوند!',
@@ -4703,7 +4710,7 @@ $messages['fa'] = array(
 	'revreview-tt-review' => 'بازبینی این صفحه',
 	'revreview-tt-flag' => 'با برچسب‌زده به این نسخه به‌عنوان «بررسی‌شده» آن را بپذیر',
 	'revreview-tt-unflag' => 'با برچسب‌زده به این نسخه به‌عنوان «بررسی‌نشده» آن را نپذیر',
-	'validationpage' => '{{ns:help}}:تایید اعتبار مقاله‌ها',
+	'validationpage' => '{{ns:help}}:اعتبار صفحه‌ها',
 );
 
 /** Finnish (Suomi)
@@ -13369,7 +13376,7 @@ $messages['sr-ec'] = array(
 	'revreview-depth-2' => 'Умерено',
 	'revreview-depth-3' => 'Висок',
 	'revreview-depth-4' => 'Изабрани',
-	'revreview-draft-title' => 'Страна скице',
+	'revreview-draft-title' => 'Страна нацрта',
 	'revreview-edit' => 'Уреди',
 	'revreview-submitedit' => 'Пошаљи промене',
 	'revreview-flag' => 'Преглед ове верзије',

@@ -294,6 +294,7 @@ $messages['bs'] = array(
 	'pendingchanges-days' => '($1 {{PLURAL:$1|dan|dana}})',
 	'pendingchanges-recent' => '(manje od 1 sata)',
 	'pendingchanges-category' => 'Kategorija:',
+	'pendingchanges-onwatchlist' => 'Stranice na mom spisku praćenja',
 	'pendingchanges-stable' => 'Stabilna verzija je pretpostavljena',
 	'pendingchanges-diff' => 'pregled',
 	'pendingchanges-size' => 'Najveća izmjena (bajta):',

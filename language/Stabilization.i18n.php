@@ -615,7 +615,7 @@ $messages['bs'] = array(
 	'stabilization-text' => "'''Promijenite postavke ispod da biste podesili kako će se stabilna verzija stranice [[:\$1|\$1]] odabrati i prikazati.'''
 
 '''Pažnja:''' Kada mijenjate konfiguraciju ''Prioritet odabira objavljene verzije'' za korištenje \"kvalitetnih\" ili \"starih\" verzija po prepostavljenom, provjerite da li zaista postoje takve verzije stranice, u suprotnom će promjena imati malo uticaja. Također, zapamtite da se ''kvalitetna'' verzija smatra ''provjerenom'' i obrnuto.",
-	'stabilization-perm' => '!Vaš račun nema dopuštenje da mijenja konfiguraciju objavljenje verzije.
+	'stabilization-perm' => 'Vaš račun nema dopuštenje da mijenja konfiguraciju objavljene verzije.
 Ovdje su trenutne postavke za [[:$1|$1]]:',
 	'stabilization-page' => 'Naslov stranice:',
 	'stabilization-leg' => 'Potvrdite postavke objavljene verzije',
@@ -644,6 +644,9 @@ Nije moguća konfiguracija.',
 	'stabilization-def-short' => 'Standardno',
 	'stabilization-def-short-0' => 'Trenutna',
 	'stabilization-def-short-1' => 'Objavljeno',
+	'stabilize_page_invalid' => 'Naslov ciljne stranice nije valjan.',
+	'stabilize_page_notexists' => 'Ciljna stranica ne postoji.',
+	'stabilize_invalid_level' => 'Nevaljan nivo zaštite.',
 	'stabilize_expiry_invalid' => 'Nevaljan datum isticanja.',
 	'stabilize_expiry_old' => 'Ovo vrijeme isticanja je već prošlo.',
 	'stabilize_denied' => 'Pristup odbijen.',
@@ -1007,7 +1010,7 @@ Jen la nunaj agordoj por [[:$1|$1]]:',
 	'stabilization-select3' => 'La lasta netega versio; se ne estanta, la lasta bonkvalita aŭ reviziita versio.',
 	'stabilization-def' => 'Versio montrita en defaŭlta paĝa vido',
 	'stabilization-def1' => 'La publikigita versio; se ĝi ne ekzistas, la nuna aŭ malneta versio',
-	'stabilization-def2' => 'La nuna/malneta revizio',
+	'stabilization-def2' => 'La lasta revizio',
 	'stabilization-restrict' => 'Limigoj pri kontrolado aŭ aŭtomata kontrolado',
 	'stabilization-restrict-none' => 'Neniuj pliaj limigoj',
 	'stabilization-submit' => 'Konfirmi',
