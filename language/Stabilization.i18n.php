@@ -646,6 +646,9 @@ Nije moguća konfiguracija.',
 	'stabilization-def-short-1' => 'Objavljeno',
 	'stabilize_page_invalid' => 'Naslov ciljne stranice nije valjan.',
 	'stabilize_page_notexists' => 'Ciljna stranica ne postoji.',
+	'stabilize_page_unreviewable' => 'Ciljna stranica nije u imenskom prostoru koji se može provjeravati.',
+	'stabilize_invalid_precedence' => 'Nevaljan prioritet verzije.',
+	'stabilize_invalid_autoreview' => 'Nevaljano ograničenje automatskog provjeravanja.',
 	'stabilize_invalid_level' => 'Nevaljan nivo zaštite.',
 	'stabilize_expiry_invalid' => 'Nevaljan datum isticanja.',
 	'stabilize_expiry_old' => 'Ovo vrijeme isticanja je već prošlo.',
@@ -1192,6 +1195,7 @@ $messages['ext'] = array(
  * @author Huji
  * @author Ladsgroup
  * @author Momeni
+ * @author Sahim
  * @author Wayiran
  */
 $messages['fa'] = array(
@@ -1202,13 +1206,14 @@ $messages['fa'] = array(
 تنظیمات فعلی برای [[:$1|$1]] چنین هستند:',
 	'stabilization-page' => 'نام صفحه:',
 	'stabilization-leg' => 'تایید تنظیمات نسخهٔ پایدار',
-	'stabilization-select' => 'انتخاب نسخهٔ پایدار',
+	'stabilization-select' => 'انتخاب با اولویت نسخهٔ پایدار',
 	'stabilization-select1' => 'آخرین نسخه با کیفیت، یا در صورت عدم وجود آن، آخرین نسخه بررسی شده',
 	'stabilization-select2' => 'آخرین نسخهٔ بررسی شده',
 	'stabilization-select3' => 'آخرین نسخهٔ دست نخورده؛ در صورت عدم وجود، آخرین نسخهٔ با کیفیت یا بررسی شده',
 	'stabilization-def' => 'نسخه‌ای که در حالت پیش‌فرض نمایش داده می‌شود',
 	'stabilization-def1' => 'نسخه پایدار؛ اگر وجود ندارد، آخرین نسخه',
 	'stabilization-def2' => 'آخرین نسخه',
+	'stabilization-restrict' => 'بازبینی/بازبینی خودکار محدودیت‌ها',
 	'stabilization-restrict-none' => 'بدون هرگونه محدودیت اضافی',
 	'stabilization-submit' => 'تائید',
 	'stabilization-notexists' => 'صفحه‌ای با عنوان «[[:$1|$1]]» وجود ندارد. تنظیمات ممکن نیست.',
@@ -1228,6 +1233,7 @@ $messages['fa'] = array(
 	'stabilize_page_notexists' => 'صفحهٔ مقصد وجود ندارد.',
 	'stabilize_page_unreviewable' => 'صفحهٔ مقصد در فضای نام قابل بازبینی نیست.',
 	'stabilize_invalid_precedence' => 'تقدم نسخهٔ نامعتبر',
+	'stabilize_invalid_autoreview' => 'بی‌اعتباری بازبینی‌های خودکار محدود',
 	'stabilize_invalid_level' => 'سطح محافظت نامعتبر',
 	'stabilize_expiry_invalid' => 'تاریخ انقضای غیرمجاز',
 	'stabilize_expiry_old' => 'این تاریخ انقضا همینک سپری شده‌است.',

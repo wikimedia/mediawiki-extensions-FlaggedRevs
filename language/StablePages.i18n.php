@@ -276,14 +276,15 @@ $messages['eu'] = array(
 );
 
 /** Persian (فارسی)
+ * @author Ebraminio
  * @author Sahim
  */
 $messages['fa'] = array(
-	'stablepages' => 'صفحه‌های پایدار',
+	'stablepages' => 'صفحه‌های تصویب شده در حال تغییر',
 	'stablepages-list' => 'در زیر فهرستی از صفحه‌هایی که به طور دستی تنظیم شده‌اند تا نسخهٔ پایدارشان به عنوان نسخهٔ پیش‌فرض به بینندگان نمایش داده شود را می‌بینید.',
 	'stablepages-none' => 'هیچ صفحه‌ای در این فهرست وجود ندارد',
 	'stablepages-config' => 'تنظیمات',
-	'stablepages-indef' => 'فقط انقضا(خاتمه) نامحدود',
+	'stablepages-indef' => 'فقط انقضای نامحدود',
 );
 
 /** Finnish (Suomi)
@@ -647,8 +648,9 @@ $messages['pl'] = array(
 	'stablepages' => 'Strony wykorzystujące oznaczanie zmian',
 	'stablepages-list' => 'Poniżej znajduje się lista stron, które skonfigurowano tak, że tylko określeni użytkownicy mogą wprowadzać do nich zmiany niewymagające oznaczenia.
 Edycje dokonane przez innych użytkowników nie będą domyślnie wyświetlane czytelnikom do momentu oznaczenia ich przez uprawnionego użytkownika.',
-	'stablepages-none' => 'Brak stron na tej liście',
+	'stablepages-none' => 'Brak stron na tej liście.',
 	'stablepages-config' => 'Konfiguracja',
+	'stablepages-indef' => 'Wyłącznie z niezdefiniowanym czasem wygaśnięcia',
 );
 
 /** Piedmontese (Piemontèis)

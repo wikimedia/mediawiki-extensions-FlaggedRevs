@@ -113,10 +113,15 @@ Arventennoù zo a c'hall lakaat da cheñch ar stumm diskwelet d'al lennerien pe 
  * @author CERminator
  */
 $messages['bs'] = array(
+	'configuredpages' => 'Stranice sa postavkama provjere',
+	'configuredpages-none' => 'Nema stranica na ovom spisku.',
+	'configuredpages-config' => 'Podešavanje',
+	'configuredpages-precedence' => 'Prednost:',
 	'configuredpages-prec-none' => 'bez prednosti',
 	'configuredpages-prec-quality' => 'poredak po kvalitetu',
 	'configuredpages-prec-pristine' => 'prvobitni poredak',
 	'configuredpages-def-draft' => 'posljednja verzija',
+	'configuredpages-def-stable' => 'stabilna verzija',
 );
 
 /** Catalan (Català)

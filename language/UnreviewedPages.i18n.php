@@ -1437,9 +1437,12 @@ $messages['sk'] = array(
  */
 $messages['sl'] = array(
 	'unreviewedpages' => 'Nepregledane strani',
+	'unreviewed-legend' => 'Seznam nepregledanih strani z vsebino',
 	'unreviewed-category' => 'Kategorija:',
 	'unreviewed-diff' => 'preglej',
 	'unreviewed-unwatched' => '(nespremljano)',
+	'unreviewed-watched' => '({{PLURAL:$1|spremlja $1 dejavni uporabnik|spremljata $1 dejavna uporabnika|spremljajo $1 dejavni uporabniki|spremlja $1 dejavnih uporabnikov}})',
+	'unreviewed-list' => 'Ta seznam navaja strani z vsebino, ki še niso bile pregledane do določene ravni.',
 	'unreviewed-none' => 'Trenutno ni nobene strani, ki bi ustrezala izbranim merilom',
 	'unreviewed-viewing' => '(v pregledu)',
 	'unreviewed-hours' => '($1 {{PLURAL:$1|ura|uri|ure|ur}})',

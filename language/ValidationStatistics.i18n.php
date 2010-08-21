@@ -203,6 +203,12 @@ $messages['br'] = array(
 
 An Aozerien hag an Adlennerien a zo implijerien staliet a c'hell gwiriañ adweladennoù ar pajennoù.",
 	'validationstatistics-lastupdate' => "''Ar roadennoù da-heul a zo bet hizivaet d'an $1 da $2.''",
+	'validationstatistics-pndtime' => "Sellet a reer evel adlennet ouzh ar c'hemmoù bet degaset gant an implijerien enrollet.
+
+An dale keitat evit [[Special:OldReviewedPages|ar pajennoù enno kemmoù da vezañ adlennet]] a sav da '''\$1'''.
+Sellet a reer ouzh ar pajennoù-se evel ouzh pajennoù \"dispredet''. Heñveldra, sellet a reer ouzh ur bajenn evel \"hizivaet\" ma n'eus ket enni kemm ebet da vezañ adlennet.",
+	'validationstatistics-revtime' => "Sevel a ra an amzer gortoz keitat evit adlenn kemmoù graet gant \"implijerien dienroll\" da '''\$1''' ; ar geidenn zo '''\$2'''.
+\$3",
 	'validationstatistics-table' => "A-is emañ diskouezet ar stadegoù adwelout evit pep esaouenn anv, ''nemet'' evit ar pajennoù adkas.",
 	'validationstatistics-ns' => 'Esaouenn anv',
 	'validationstatistics-total' => 'Pajennoù',
@@ -509,17 +515,19 @@ $messages['eu'] = array(
 );
 
 /** Persian (فارسی)
+ * @author Ebraminio
  * @author Huji
  * @author Ladsgroup
+ * @author Sahim
  * @author Wayiran
  */
 $messages['fa'] = array(
 	'validationstatistics' => 'آمار بازبینی صفحه',
-	'validationstatistics-users' => "'''{{SITENAME}}''' در حال حاضر '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|کاربر|کاربر}} با اختیارات [[{{MediaWiki:Validationpage}}|ویرایشگر]] و '''$2''' {{PLURAL:$2|کاربر|کاربر}} با اختیارات[[{{MediaWiki:Validationpage}}|مرورگر]] دارد.
+	'validationstatistics-users' => "'''{{SITENAME}}''' در حال حاضر '''[[Special:ListUsers/editor|$1]]''' کاربر با اختیارات [[{{MediaWiki:Validationpage}}|ویرایشگر]] دارد.
 
-ویرایشگران توانایی بازبینی ویرایش‌ها را دارند",
+ویرایش‌گران کاربران محرزی هستند که می‌توانند نسخه‌های صفحات را بررسی سرسری کنند.",
 	'validationstatistics-lastupdate' => "''داده‌های زیر آخرین بار در تاریخ $1 در $2 به‌روزرسانی شده است.''",
-	'validationstatistics-table' => "'''نکته:''' داده‌هایی که در ادامه می‌آید برای چندین ساعت در میان‌گیر ذخیره شده‌اند و ممکن است به روز نباشند.",
+	'validationstatistics-table' => "آمار بازبینی صفحه برای هر فضای‌نام که در زیر نشان داده‌شده، به ''استثنای'' صفحه‌های تغییر مسیر است.",
 	'validationstatistics-ns' => 'فضای نام',
 	'validationstatistics-total' => 'صفحه‌ها',
 	'validationstatistics-stable' => 'بازبینی شده',

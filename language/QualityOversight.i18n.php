@@ -182,10 +182,11 @@ $messages['et'] = array(
 );
 
 /** Persian (فارسی)
+ * @author Ebraminio
  * @author Huji
  */
 $messages['fa'] = array(
-	'qualityoversight' => 'ناظر کیفیت',
+	'qualityoversight' => 'سیاههٔ پیشرفتهٔ بازبینی',
 	'qualityoversight-list' => 'این صفحه آخرین موارد تایید نسخه‌های با کیفیت و نیز مستهلک شدن نسخه‌های با کیفیت را فهرست می‌کند.',
 	'qualityoversight-legend' => 'جستجوی سیاهه‌های بازبینی اخیر',
 );
