@@ -351,10 +351,11 @@ $messages['eu'] = array(
 /** Persian (فارسی)
  * @author Ebraminio
  * @author Huji
+ * @author Sahim
  */
 $messages['fa'] = array(
 	'reviewedpages' => 'صفحه‌های بررسی شده',
-	'reviewedpages-leg' => 'نمایش صفحه‌هایی که تا حد خاصی بررسی شده‌اند',
+	'reviewedpages-leg' => 'لیست صفحه‌های بازبینی شده',
 	'reviewedpages-list' => 'صفحه‌های زیر تا حد تعیین شده مورد بررسی قرار گرفته‌اند',
 	'reviewedpages-none' => 'صفحه‌ای در این فهرست نیست',
 	'reviewedpages-lev-0' => 'بررسی شده',

@@ -114,6 +114,8 @@ Arventennoù zo a c'hall lakaat da cheñch ar stumm diskwelet d'al lennerien pe 
  */
 $messages['bs'] = array(
 	'configuredpages' => 'Stranice sa postavkama provjere',
+	'configuredpages-list' => 'Ispod je spisak stranica koje su podešene da imaju različite postavke odobrenja različite u odnosu na standard stranice.
+Neke postavke mogu promijeniti vidljivost vezije koja je prikazana čitaocu ili može dalje onemogućiti ko može načiniti izmjene koje ne traže provjeru.',
 	'configuredpages-none' => 'Nema stranica na ovom spisku.',
 	'configuredpages-config' => 'Podešavanje',
 	'configuredpages-precedence' => 'Prednost:',
