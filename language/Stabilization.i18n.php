@@ -1201,9 +1201,11 @@ $messages['ext'] = array(
 $messages['fa'] = array(
 	'stabilization-tab' => '(کک)',
 	'stabilization' => 'پایدارسازی صفحه‌ها',
-	'stabilization-text' => "'''تغییر تنظیمات زیر به منظور تعیین این که نسخه پایدار [[:$1|$1]] چگونه انتخاب و نمایش داده می‌شود.'''",
-	'stabilization-perm' => 'حساب شما اجازه تغییر تنظیمات نسخه پایدار را ندارد.
-تنظیمات فعلی برای [[:$1|$1]] چنین هستند:',
+	'stabilization-text' => "برای تعیین چگونگی انتخاب و نمایش نسخهٔ پایدار [[:$1|$1]]، تنظیمات زیر را تغییر دهید.
+
+'''توجه:''' تغییر ''انتخاب نسخهٔ پایدار'' برای ترجیح نسخه‌های ''کیفیت'' یا ''اصالت''، در صورتی که نسخه‌هایی از آن نوع وجود نداشته باشند هیچ اثری نخواهد داشت. همچنین، توجه کنید که نسخهٔ ''کیفیت'' به عنوان نسخه‌ای ''بررسی‌شده'' در نظر گرفته می‌شود و به همین ترتیب.",
+	'stabilization-perm' => 'حساب شما اجازهٔ تغییر پیکربندی نسخهٔ پایدار را ندارد.
+تنظیمات کنونی برای [[:$1|$1]] چنین هستند:',
 	'stabilization-page' => 'نام صفحه:',
 	'stabilization-leg' => 'تایید تنظیمات نسخهٔ پایدار',
 	'stabilization-select' => 'انتخاب با اولویت نسخهٔ پایدار',
@@ -4129,7 +4131,9 @@ $messages['vo'] = array(
 	'stabilization-notexists' => 'Pad tiädü "[[:$1|$1]]" no dabinon. Fomükam no mögon.',
 	'stabilization-notcontent' => 'Pad: "[[:$1|$1]]" no kanon pakrütön. Parametem nonik mögon.',
 	'stabilization-comment' => 'Kod:',
+	'stabilization-otherreason' => 'Kod votik:',
 	'stabilization-expiry' => 'Dul jü:',
+	'stabilization-othertime' => 'Dul votik:',
 	'stabilization-sel-short-0' => 'Kaliet',
 	'stabilization-sel-short-1' => 'Nonik',
 	'stabilization-def-short-0' => 'Anuik',

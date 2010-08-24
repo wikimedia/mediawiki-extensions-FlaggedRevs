@@ -800,10 +800,13 @@ $messages['sv'] = array(
 
 /** Tamil (தமிழ்)
  * @author Kanags
+ * @author TRYPPN
  */
 $messages['ta'] = array(
+	'stablepages' => 'இப்பக்கங்கள் தொகுத்தலுக்கான அனுமதிகளை பயன்படுத்துகின்றன',
 	'stablepages-none' => 'இப்பட்டியலில் எந்தப் பக்கங்களும் இல்லை.',
 	'stablepages-config' => 'வடிவமைப்பு',
+	'stablepages-indef' => 'காலாவதியாவதற்கான காலவரம்பற்றவை மாத்திரம்',
 );
 
 /** Telugu (తెలుగు)
@@ -893,6 +896,13 @@ $messages['vi'] = array(
 	'stablepages-none' => 'Không có trang nào trong danh sách',
 	'stablepages-config' => 'Cấu hình',
 	'stablepages-indef' => 'Chỉ hiện trang vô hạn',
+);
+
+/** Volapük (Volapük)
+ * @author Malafaya
+ */
+$messages['vo'] = array(
+	'stablepages-none' => 'Lised at labon padis nonik.',
 );
 
 /** Cantonese (粵語)

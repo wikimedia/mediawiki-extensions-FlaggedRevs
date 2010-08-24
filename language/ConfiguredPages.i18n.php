@@ -823,9 +823,16 @@ Vissa inställningar kan ändra vilken version som visas för läsarna eller ytt
 
 /** Tamil (தமிழ்)
  * @author Mahir78
+ * @author TRYPPN
  */
 $messages['ta'] = array(
+	'configuredpages' => 'அமைப்புவடிவாக்கத்தை மாற்றியமைக்க மறுபரிசீலனை செய்ய உதவும் பக்கங்கள்',
+	'configuredpages-none' => 'இப்பட்டியலில் எந்தப் பக்கங்களும் இல்லை.',
+	'configuredpages-config' => 'அமைப்புவடிவாக்கம்',
+	'configuredpages-precedence' => 'முன்னிகழ்வு:',
+	'configuredpages-prec-none' => 'கடைசியாக சரிபார்க்கப்பட்டது',
 	'configuredpages-prec-quality' => 'தற்போதையத் தரம்',
+	'configuredpages-prec-pristine' => 'அண்மைய மாற்றம் ஏதும் நிகழாத',
 	'configuredpages-def-draft' => 'தற்போதைய பதிப்பு',
 	'configuredpages-def-stable' => 'ஏற்றுக்கொள்ளப்பட்ட பதிப்பு',
 );

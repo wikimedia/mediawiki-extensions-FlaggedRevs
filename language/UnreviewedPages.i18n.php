@@ -964,7 +964,7 @@ $messages['ksh'] = array(
  * @author Kw-Moon
  */
 $messages['kw'] = array(
-	'unreviewed-category' => 'Klass:',
+	'unreviewed-category' => 'Class:',
 );
 
 /** Latin (Latina)
@@ -1742,6 +1742,8 @@ $messages['vo'] = array(
 	'unreviewed-category' => 'Klad:',
 	'unreviewed-diff' => 'Votükams',
 	'unreviewed-list' => 'Su pad at palisedons yegeds no pekrütöls u labü fomams nulik no pekrütöls',
+	'unreviewed-hours' => '({{PLURAL:$1|düp|düps}} $1)',
+	'unreviewed-days' => '({{PLURAL:$1|del|dels}} $1)',
 );
 
 /** Yiddish (ייִדיש)

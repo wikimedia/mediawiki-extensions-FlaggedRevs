@@ -348,15 +348,14 @@ $messages['ext'] = array(
  * @author Ebraminio
  * @author Huji
  * @author Sahim
+ * @author Wayiran
  */
 $messages['fa'] = array(
 	'reviewedversions' => 'نسخهٔ بازبینی شده',
 	'reviewedversions-leg1' => 'فهرست کردن نسخه‌های بررسی شده یک صفحه',
 	'reviewedversions-page' => 'نام صفحه:',
-	'reviewedversions-none' => '"[[:$1]]" هیچ نسخه بررسی‌ شده‌ای ندارد.',
-	'reviewedversions-list' => 'در زیر فهرستی از نسخه‌ةای بررسی شده «[[:$1]]» را می‌بینید:
-
-پیروری از لیست {{PLURAL:$2|فقط برای تجدید نظر|تجدیدنظر}} بواسطه [[:$1]] برای آنکه بازبینی {{PLURAL:$2|شده است|دارد می‌شود}}:',
+	'reviewedversions-none' => '«[[:$1]]» هیچ نسخه بررسی‌ شده‌ای ندارد.',
+	'reviewedversions-list' => 'در زیر فهرستی از {{PLURAL:$2|تنها نسخهٔ|نسخه‌های}} [[:$1]] که بازبینی {{PLURAL:$2|شده‌است|شده‌اند}} می‌باشد:',
 	'reviewedversions-review' => 'بررسی شده در <i>$1</i> توسط $2',
 );
 

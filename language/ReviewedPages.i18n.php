@@ -352,11 +352,13 @@ $messages['eu'] = array(
  * @author Ebraminio
  * @author Huji
  * @author Sahim
+ * @author Wayiran
  */
 $messages['fa'] = array(
 	'reviewedpages' => 'صفحه‌های بررسی شده',
 	'reviewedpages-leg' => 'لیست صفحه‌های بازبینی شده',
-	'reviewedpages-list' => 'صفحه‌های زیر تا حد تعیین شده مورد بررسی قرار گرفته‌اند',
+	'reviewedpages-list' => "این فهرست‌ها دربردارندهٔ صفحات [[{{MediaWiki:Validationpage}}|بازبینی‌شده‌ای]] است که '' بالاترین'' سطح بازبینی بدست‌آمده‌شان (در یک نسخه)، یک سطح مشخص است.
+پیوندی به آخرین نسخهٔ آن سطح داده شده است.",
 	'reviewedpages-none' => 'صفحه‌ای در این فهرست نیست',
 	'reviewedpages-lev-0' => 'بررسی شده',
 	'reviewedpages-lev-1' => 'با کیفیت',

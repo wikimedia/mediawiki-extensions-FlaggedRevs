@@ -757,6 +757,13 @@ $messages['vi'] = array(
 	'problemchanges-category' => 'Thể loại:',
 );
 
+/** Volapük (Volapük)
+ * @author Malafaya
+ */
+$messages['vo'] = array(
+	'problemchanges-category' => 'Klad:',
+);
+
 /** Simplified Chinese (‪中文(简体)‬)
  * @author Gaoxuewei
  * @author Jimmy xu wrk
