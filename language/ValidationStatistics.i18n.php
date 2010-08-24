@@ -1128,7 +1128,15 @@ $3",
  * @author Ooswesthoesbes
  */
 $messages['li'] = array(
+	'validationstatistics-ns' => 'Naamruumde',
+	'validationstatistics-total' => 'Paasj',
+	'validationstatistics-stable' => 'Bekeke',
+	'validationstatistics-latest' => 'Synchroniseerd',
+	'validationstatistics-synced' => 'Synchroniseerd/bekeke',
+	'validationstatistics-old' => 'Verajerd',
+	'validationstatistics-utable' => 'Inne óngestaonde lieste staon de vief actiefste eindredactäöre.',
 	'validationstatistics-user' => 'Gebroeker',
+	'validationstatistics-reviews' => 'Beoeardeilinge',
 );
 
 /** Eastern Mari (Олык Марий)
@@ -1238,6 +1246,7 @@ $messages['myv'] = array(
 );
 
 /** Dutch (Nederlands)
+ * @author Ooswesthoesbes
  * @author Siebrand
  */
 $messages['nl'] = array(
@@ -1260,7 +1269,7 @@ $3",
 	'validationstatistics-latest' => 'Gesynchroniseerd',
 	'validationstatistics-synced' => 'Gesynchroniseerd/gecontroleerd',
 	'validationstatistics-old' => 'Verouderd',
-	'validationstatistics-utable' => 'In de onderstaande lijst worden de vijf meest actieve eindredacteuren.',
+	'validationstatistics-utable' => 'In de onderstaande lijst worden de vijf actiefste eindredacteuren getoond.',
 	'validationstatistics-user' => 'Gebruiker',
 	'validationstatistics-reviews' => 'Beoordelingen',
 );

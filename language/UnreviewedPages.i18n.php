@@ -665,6 +665,7 @@ $messages['hi'] = array(
 /** Croatian (Hrvatski)
  * @author Dalibor Bosits
  * @author Ex13
+ * @author Excaliboor
  * @author SpeedyGonsales
  */
 $messages['hr'] = array(
@@ -674,7 +675,7 @@ $messages['hr'] = array(
 	'unreviewed-diff' => 'ocijeni',
 	'unreviewed-unwatched' => '(nepraćeno)',
 	'unreviewed-watched' => '($1 {{PLURAL:$1|aktivni suradnik|aktivnih suradnika}} prati)',
-	'unreviewed-list' => 'Ovo je popis sadržaja stranica koji nisu ocijenjeni.',
+	'unreviewed-list' => 'Ovdje se navode stranice sa sadržajem koje nisu pregledane do određene razine.',
 	'unreviewed-none' => 'Trenutačno nema stranica koje zadovoljavaju ovim kriterijima',
 	'unreviewed-viewing' => '(u ocijenjivanju)',
 	'unreviewed-hours' => '($1 {{PLURAL:$1|sat|sata|sati}})',

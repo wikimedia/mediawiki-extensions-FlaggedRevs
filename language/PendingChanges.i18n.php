@@ -1011,8 +1011,8 @@ $messages['ksh'] = array(
  * @author Kw-Moon
  */
 $messages['kw'] = array(
-	'pendingchanges-days' => '($1 {{PLURAL:$1|dydh|dydh}})',
-	'pendingchanges-category' => 'Klass:',
+	'pendingchanges-days' => '($1 {{PLURAL:$1|dedh|dedh}})',
+	'pendingchanges-category' => 'Class:',
 );
 
 /** Luxembourgish (Lëtzebuergesch)
@@ -1034,6 +1034,15 @@ $messages['lb'] = array(
 	'pendingchanges-unwatched' => '(net iwwerwaacht)',
 	'pendingchanges-watched' => '(Vu(n) $1 {{PLURAL:$1|Benotzer|Benotzer}} iwwerwaacht)',
 	'pendingchanges-viewing' => '(gëtt nogekuckt)',
+);
+
+/** Limburgish (Limburgs)
+ * @author Ooswesthoesbes
+ */
+$messages['li'] = array(
+	'pendingchanges-hours' => '$1 {{PLURAL:$1|oer|oer}}',
+	'pendingchanges-days' => '$1 {{PLURAL:$1|daag|daag}}',
+	'pendingchanges-category' => 'Categorie:',
 );
 
 /** Macedonian (Македонски)
