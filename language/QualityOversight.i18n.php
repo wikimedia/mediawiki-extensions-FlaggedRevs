@@ -366,6 +366,15 @@ $messages['lb'] = array(
 	'qualityoversight-legend' => 'Am Logbuch vun den nogekuckte Säite sichen',
 );
 
+/** Limburgish (Limburgs)
+ * @author Ooswesthoesbes
+ */
+$messages['li'] = array(
+	'qualityoversight' => 'Kwaliteitscontrolelogbook',
+	'qualityoversight-list' => "Op dees pagina's waere recent gecontroleerde kwaliteitsversies weergegaeve en pagina's woveur de kwaliteit leger is ingesteld.",
+	'qualityoversight-legend' => 'Doorzeuk recente contrologbeuk',
+);
+
 /** Macedonian (Македонски)
  * @author Bjankuloski06
  */

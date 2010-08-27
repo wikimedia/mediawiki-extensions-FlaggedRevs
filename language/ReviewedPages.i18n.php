@@ -753,8 +753,9 @@ Et gëtt e Link op déi leschte Versioun vun deem Niveau.",
  */
 $messages['li'] = array(
 	'reviewedpages' => "Beoordeilde pagina's",
-	'reviewedpages-leg' => "Een lijst met pagina's die tot op 't aangegeve beoordeild zien",
-	'reviewedpages-list' => "De volgende pagina's zijn tot op het geselecteerde niveau beoordeild",
+	'reviewedpages-leg' => "Liest mit gecontroleerde pagina's",
+	'reviewedpages-list' => "De volgende pagina's zeen [[{{MediaWiki:Validationpage}}|gecontroleerd]] toet 't '''hoeags aangegaeve''' niveau (van 'n versie).
+d'r Weurt 'n verwiezing gegaeve nao de leste versie veur det niveau.",
 	'reviewedpages-none' => "Er staan geen pagina's in deze lijst",
 	'reviewedpages-lev-0' => 'Beoordeild',
 	'reviewedpages-lev-1' => 'Kwaliteit',

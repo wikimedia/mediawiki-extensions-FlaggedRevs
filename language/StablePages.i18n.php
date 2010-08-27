@@ -167,6 +167,7 @@ $messages['cs'] = array(
 	'stablepages-list' => 'Níže je seznam stránek, které byly ručně nastaveny, aby se jako jejich výchozí obash zobrazovala jejich stabilní verze.',
 	'stablepages-none' => 'V tomto seznamu nejsou žádné stránky.',
 	'stablepages-config' => 'Konfigurace',
+	'stablepages-indef' => 'Pouze neurčitá expirace',
 );
 
 /** Danish (Dansk)
@@ -533,7 +534,12 @@ $messages['lb'] = array(
  * @author Ooswesthoesbes
  */
 $messages['li'] = array(
+	'stablepages' => "Pagina's ongerhevig aan goodkeuring van bewerkinge",
+	'stablepages-list' => "Hie waere pagina's weergegaeve wo allein bepaolde gebroekers kinne bewerke zonger det controle neudig is.
+Bewerkinge door anger gebroekers waere neet weergegaeve toetdet daotoe gerechtigde gebroekers ze gecontroleerd höbbe.",
+	'stablepages-none' => "Gein pagina's op dees lies.",
 	'stablepages-config' => 'Instelling',
+	'stablepages-indef' => 'Allein zonger vervaldatum',
 );
 
 /** Macedonian (Македонски)

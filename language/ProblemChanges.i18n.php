@@ -445,6 +445,9 @@ $messages['lb'] = array(
  * @author Ooswesthoesbes
  */
 $messages['li'] = array(
+	'problemchanges' => 'Gelabelde controleerbare wieziginge',
+	'problemchanges-legend' => "Tuin óngecontroleerde pagina's mit gelabelde bewerkinge",
+	'problemchanges-none' => "'t Göf gein paasjes die aan dees kriteria vóldoon",
 	'problemchanges-category' => 'Categorie:',
 );
 

@@ -1040,9 +1040,21 @@ $messages['lb'] = array(
  * @author Ooswesthoesbes
  */
 $messages['li'] = array(
+	'pendingchanges' => "Pagina's mit te controlere wieziginge",
+	'pendingchanges-legend' => "Lies mit gecontroleerde pagina's mit ongecontroleerde versies",
+	'pendingchanges-list' => "Op dees pagina {{PLURAL:$1|weurt de gecontroleerde pagina|waere de gecontroleerde pagina's}} weergegaeve woveur nag te controlere versies zeen.",
+	'pendingchanges-none' => "'t Göf gein paasjes die aan dees kriteria vóldoon",
 	'pendingchanges-hours' => '$1 {{PLURAL:$1|oer|oer}}',
 	'pendingchanges-days' => '$1 {{PLURAL:$1|daag|daag}}',
+	'pendingchanges-recent' => '(mènder es 1 oer)',
 	'pendingchanges-category' => 'Categorie:',
+	'pendingchanges-onwatchlist' => "Pagina's op mien volgleis",
+	'pendingchanges-stable' => 'Stabiel versie is standaard',
+	'pendingchanges-diff' => 'kiek nao',
+	'pendingchanges-size' => 'Maximale wieziging in aantal bytes:',
+	'pendingchanges-unwatched' => '(neet oppe volglies)',
+	'pendingchanges-watched' => '($1 actieve {{PLURAL:$1|gebroeker|gebroekers}} kiekendj)',
+	'pendingchanges-viewing' => '(wörd bekeke)',
 );
 
 /** Macedonian (Македонски)
@@ -1518,12 +1530,13 @@ $messages['sr-ec'] = array(
 
 /** Serbian Latin ekavian (Srpski (latinica))
  * @author Michaello
+ * @author Жељко Тодоровић
  */
 $messages['sr-el'] = array(
 	'pendingchanges' => 'Strane sa promenama za pregled',
-	'pendingchanges-legend' => 'Spisak pregledanih strana sa nepregledanim verzijama.',
-	'pendingchanges-list' => 'Ovo je {{PLURAL:$1|pregledana strana|spisak pregledanih strana}} sa izmenama za pregled.',
-	'pendingchanges-none' => 'Trenutno nema strana koje zadovoljavaju ove kriterije,',
+	'pendingchanges-legend' => 'Spisak pregledanih stranica sa nepregledanim verzijama.',
+	'pendingchanges-list' => 'Ovo je {{PLURAL:$1|pregledana stranica|spisak pregledanih stranica}} sa izmenama za pregled.',
+	'pendingchanges-none' => 'Trenutno nema stranica koje ispunjavaju ove kriterijume',
 	'pendingchanges-hours' => '($1 {{PLURAL:$1|sat|sati}})',
 	'pendingchanges-days' => '($1 {{PLURAL:$1|dan|dana}})',
 	'pendingchanges-recent' => '(manje od jednog časa)',
@@ -1733,7 +1746,7 @@ $messages['vi'] = array(
 	'pendingchanges-recent' => '(dưới 1 giờ)',
 	'pendingchanges-category' => 'Thể loại:',
 	'pendingchanges-onwatchlist' => 'Các trang trong danh sách theo dõi của tôi',
-	'pendingchanges-stable' => 'đã xem qua',
+	'pendingchanges-stable' => 'Phiên bản ổn định là mặc định',
 	'pendingchanges-diff' => 'duyệt',
 	'pendingchanges-size' => 'Thay đổi lớn nhất (byte):',
 	'pendingchanges-unwatched' => '(chưa theo dõi)',

@@ -2723,6 +2723,8 @@ Možná byly provedeny nové [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diff
 	'revreview-submitting' => 'Odesílá se',
 	'revreview-submit-review' => 'Označit jako posouzené',
 	'revreview-submit-unreview' => 'Označit jako neposouzené',
+	'revreview-submit-reviewed' => 'Hotovo. Akceptováno!',
+	'revreview-submit-unreviewed' => 'Hotovo. Neakceptováno!',
 	'revreview-successful' => "'''Vybraná revize stránky [[:$1|$1]] byla úspěšně označena. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} zobrazit stabilní verze])'''",
 	'revreview-successful2' => "'''Označení revize stránky [[:$1|$1]] bylo úspěšně zrušeno.'''",
 	'revreview-text' => "''Zobrazení [[{{MediaWiki:Validationpage}}|stabilních verzí]] je upřednostněno před nejnovějšími verzemi.''",
@@ -7643,7 +7645,7 @@ $messages['it'] = array(
 	'review-diff2stable' => "Visualizza i cambiamenti fra la versione stabile e l'ultima",
 	'review-logentry-app' => 'ha revisionato r$2 di [[$1]]',
 	'review-logentry-id' => 'revisione: $2',
-	'review-logentry-diff' => 'differenze dalla versione stabile',
+	'review-logentry-diff' => 'modifiche controllate',
 	'review-logpage' => 'Log revisioni',
 	'reviewer' => 'Revisore',
 	'revisionreview' => 'Revisiona versioni',
@@ -9354,15 +9356,21 @@ Et ka sinn datt Dir d'éischt Ännerungen noverfollegen oder ''zrécksetze'' mus
  * @author Ooswesthoesbes
  */
 $messages['li'] = array(
+	'action-review' => 'controleer',
 	'editor' => 'Bewèrker',
 	'flaggedrevs' => 'Aangevinkdje versies',
 	'flaggedrevs-desc' => "Guf redacteurs/controleurs de meugelikheid versies te wardere en stebiel pazjena's aan te mèrke",
+	'prefs-flaggedrevs' => 'Bewèrkingskóntraol',
+	'prefs-flaggedrevs-ui' => 'Bewèrkingskóntraol',
 	'group-editor' => 'Bewèrkers',
 	'group-editor-member' => 'Bewèrker',
 	'group-reviewer' => 'Bekiekers',
 	'group-reviewer-member' => 'Bekieker',
 	'grouppage-editor' => '{{ns:project}}:Bewèrker',
 	'grouppage-reviewer' => '{{ns:project}}:Bekieker',
+	'group-autoreview' => 'Automatische controleurs',
+	'group-autoreview-member' => 'automatische controleur',
+	'grouppage-autoreview' => '{{ns:project}}:Automatische controleur',
 	'revreview-hist-quality' => 'kwaliteitsversie',
 	'revreview-hist-basic' => 'bekeke versie',
 	'review-diff2stable' => 'Verschille tusse stabiele en huidige versies bekijke',
@@ -9382,7 +9390,12 @@ $messages['li'] = array(
 	'revreview-auto' => '(automatisch)',
 	'revreview-basic' => "Dit is de lets [[{{MediaWiki:Validationpage}}|beoordeilde]] versie, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} gekeurd] op <i>$2</i>. De [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} hujige] kin [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} bewerk] waere; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|versie|versies}}] {{PLURAL:$3|wach|wachte}} op 'n beoordeiling.",
 	'revreview-basic-same' => 'Dit is de lets [[{{MediaWiki:Validationpage}}|beoordeelde]] versie, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} goodgekeurdj] op <i>$2</i>.',
-	'revreview-current' => 'Hujige versie',
+	'review_page_invalid' => 'De doelpaginanaam is ongeldig.',
+	'review_page_notexists' => 'De doelpagina besteit neet.',
+	'review_page_unreviewable' => 'De doelpagina kan neet gecontroleerd waere.',
+	'review_no_oldid' => "d'r Is gein versienummer opgegaeve.",
+	'review_bad_oldid' => 'De opgegaeve doelversie besteit neet.',
+	'revreview-current' => 'Ongecontroleerde wieziginge',
 	'revreview-depth' => 'Deepgank',
 	'revreview-depth-0' => 'Neet bekeke',
 	'revreview-depth-1' => 'Basis',
@@ -9390,36 +9403,40 @@ $messages['li'] = array(
 	'revreview-depth-3' => 'Hoog',
 	'revreview-depth-4' => 'Oetgelich',
 	'revreview-edit' => 'Bewirk',
-	'revreview-edited' => "'''Nuuj bewèrkinge waere opgenaome in de [[{{MediaWiki:Validationpage}}|stabiel versie]] es 'n eindredacteur ze gecontroleerd haet. De ''werkversie'' is hieonger te bekieke. Bedank!'''",
+	'revreview-edited' => "'''Nuuj bewèrkinge waere opgenaome in de [[{{MediaWiki:Validationpage}}|stabiel versie]] es 'n eindredacteur ze gecontroleerd haet.'''
+
+d'r {{PLURAL:$2|Is|zeen}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 ongecontroleerde {{PLURAL:$2|wieziging|wieziginge}}]; dees waeren hieonger weergegaeve.",
 	'revreview-flag' => 'Deze versie beoordeile',
 	'revreview-legend' => 'Versieinhoud wardere',
 	'revreview-log' => 'Opmerking:',
-	'revreview-main' => "U mót 'n specifieke versie van 'n pagina kieze om te kunnen beoordelen.  
+	'revreview-main' => "De mós 'n specifieke versie van 'n pagina keze die se wils controlere.
 
-Zie  [[Special:Unreviewedpages]] voor een lijst met pagina's waarvoor nog geen beoordeling is gegeven.",
-	'revreview-newest-basic' => "De [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} lets beoordeilde versie]
-([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} alles tone]) is [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} gekeurd]
-op <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|versie|versies}}] {{PLURAL:$3|haet|höbbe}} 'n beoordeiling neudig.",
-	'revreview-newest-quality' => "De [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} letste kwaliteitsversie]
-([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} alles tone]) is [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} gekeurd]
-op <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|versie|versies}}] {{PLURAL:$3|haet|höbbe}} 'n beoordeiling neudig.",
+Zuuch de [[Special:Unreviewedpages|lies mit ongecontroleerde pagina's]].",
+	'revreview-newest-basic' => "De [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} gepubliceerde versie] is [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} gecontroleerd] op <i>$2</i>.
+d'r {{PLURAL:$3|Is|Zeen}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 ongecontroleerde {{PLURAL:$3|wieziging|wieziginge}}].",
+	'revreview-newest-quality' => "De [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} gepubliceerde versie] is [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} goodgekeurd] op <i>$2</i>.
+d'r {{PLURAL:$3|Is|zeen}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 ongecontroleerde {{PLURAL:$3|wieziging|wieziginge}}].",
 	'revreview-noflagged' => "D'r zeen gein beoordeelde versies van deze pagina, dus dae is wellich '''neet''' [[{{MediaWiki:Validationpage}}|gecontroleerd]] op kwaliteit.",
 	'revreview-note' => '[[User:$1|$1]] heeft de volgende opmerkingen gemaakt bij de [[{{MediaWiki:Validationpage}}|beoordeling]] van deze versie:',
 	'revreview-notes' => 'Weer te geve observaties of notities:',
 	'revreview-oldrating' => 'Woor gewardeerd es:',
-	'revreview-quality' => "Dit is de letste [[{{MediaWiki:Validationpage}}|kwaliteitsversie]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} gekeurd] op <i>$2</i>. De [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} hujige] kin [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} bewerk] waere; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|versie|versies}}] {{PLURAL:$3|wach|wachte}} op 'n beoordeiling.",
-	'revreview-quality-same' => 'Dit is de laatste [[{{MediaWiki:Validationpage}}|kwaliteitsversie]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} goedgekeurd] op <i>$2</i>. De pagina is te [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} bewerken].',
-	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|Bekeke]]'''. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} hujige versie bekieke]]",
-	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|Beoordeeld]]''' (geen wijzigingen die niet beoordeeld zijn)",
-	'revreview-quick-none' => "'''Hujige versie'''. Gein beoordeilde versies.",
-	'revreview-quick-quality' => "'''[[{{MediaWiki:Validationpage}}|Kwaliteitsversie]]'''. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} hujige versie bekieke]",
-	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|Kwaliteitsversie]]''' (geen wijzigingen die niet beoordeeld zijn)",
-	'revreview-quick-see-basic' => "'''Hujige versie'''. [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} stabiele versie bekieke]
-($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} {{PLURAL:$2|wieziging|wieziginge}}]]",
-	'revreview-quick-see-quality' => "'''Hujige versie'''. [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} stabiele versie bekieke]
-($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} {{PLURAL:$2|wieziging|wieziginge}}]]",
+	'revreview-quality' => "Dit is de [[{{MediaWiki:Validationpage}}|gepubliceerde versie]] die is [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} goodgekeurd] op <i>$2</i>.
+d'r {{PLURAL:$3|Is|zeen}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 ongecontroleerde {{PLURAL:$3|wieziging|wieziginge}}].",
+	'revreview-quality-same' => 'Dit is de [[{{MediaWiki:Validationpage}}|gepubliceerde versie]] die is [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} goodgekeurd] op <i>$2</i>.',
+	'revreview-quality-title' => "Dit is 'n kwaliteitsversie van dees pagina",
+	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|Gecontroleerd]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} ongecontroleerde wieziginge controlere]]",
+	'revreview-quick-basic-old' => "'''[[{{MediaWiki:Validationpage}}|Gecontroleerd]]'''",
+	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|Gecontroleerd]]'''",
+	'revreview-quick-invalid' => "'''Ongeldig versienummer'''",
+	'revreview-quick-none' => "'''[[{{MediaWiki:Validationpage}}|Ongecontroleerd]]'''",
+	'revreview-quick-quality' => "'''[[{{MediaWiki:Validationpage}}|Kwaliteitspagina]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} ongecontroleerde wieziginge controlere]]",
+	'revreview-quick-quality-old' => "'''[[{{MediaWiki:Validationpage}}|Kwaliteitsversie]]'''",
+	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|Kwaliteitsversie]]'''",
+	'revreview-quick-see-basic' => '[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} ongecontroleerde wieziginge controlere]]',
+	'revreview-quick-see-quality' => '[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} ongecontroleerde wieziginge controlere]]',
 	'revreview-selected' => "Geselecteerde versie van '''$1:'''",
 	'revreview-source' => 'Bekiek bróntèks',
+	'revreview-basic-title' => "Dit is 'n gecontroleerde versie van dees pagina",
 	'revreview-style' => 'Laesbaarheid',
 	'revreview-style-0' => 'Aafgekäördj',
 	'revreview-style-1' => 'Aanvaardbaar',
@@ -9432,19 +9449,26 @@ op <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{P
 	'revreview-submit-unreview' => 'Aafkäöre',
 	'revreview-submit-reviewed' => 'Klaor. Gedaon!',
 	'revreview-submit-unreviewed' => 'Gedaon. Neet gecontroleerd!',
-	'revreview-text' => 'Stabiele versies worden standaard getoond in plaats van de nieuwste versie.',
-	'revreview-toolow' => 'U moet tenminste alle onderstaande eigenschappen hoger instellen dan "niet gekeurd" om een versie als  
-beoordeeld aan te laten merken. Om de waardering van een versie te verwijderen, stelt u alle velden in op "niet gekeurd".',
-	'revreview-update' => 'Controleer alstublieft alle wijziginge die gemaakt zien seer de stabiele versie waar gecontroleerd. Enkele sjablone/aafbeeldinge werde gewijzigd:',
-	'revreview-visibility' => 'Dees pazjena haet een [[{{MediaWiki:Validationpage}}|stabiele versie]], die [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} aangepas] kan waere.',
+	'revreview-successful2' => "'''De versie van [[:$1|$1]] is es neet gepubliceerd aangemerk.'''",
+	'revreview-text' => "''[[{{MediaWiki:Validationpage}}|Gecontroleerde versies]] waere standaard weergegaeve in plaats van de nuujste versie.''",
+	'revreview-toggle-title' => 'tuin/verberg details',
+	'revreview-toolow' => "'''Doe mós tenminste alle ongerstaonde eigesjappe hoeger instelle es \"{{int:Revreview-accuracy-0}}\" om veur 'n versie aan te gaeve det dees is gecontroleerd.'''
+Stel alle velje in op \"{{int:Revreview-accuracy-0}}\" om de waardering van 'n versie te verwiedere.
+
+Klik op de knoep \"Trök\" in diene browser en probeer  t opnúuj.",
+	'revreview-update' => "'''[[{{MediaWiki:Validationpage}}|Controleer]] e.t.b. de ''ongerstaonde'' wieziginge ten opzichte van de gepubliceerde versie.'''
+Waleech deens se iers correcties oet te veure of bewerkinge ongedaon te make.",
+	'revreview-visibility' => '!Dees pazjena haet een [[{{MediaWiki:Validationpage}}|stabiele versie]]. Die [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} aangepas] kan waere.',
 	'revreview-revnotfound' => 'De opgevraogde aw versie van dees pazjena is verdwene. Controleer estebleef de URL dies doe gebroek höbs óm nao dees pagina te gaon.',
 	'rights-editor-autosum' => 'automatisch gepromoveerd',
 	'rights-editor-revoke' => 'verwijderde redacteurstatus van [[$1]]',
 	'specialpages-group-quality' => 'Bewèkingskóntraol',
-	'stable-logentry-config' => 'stabiele versies zijn ingesteld voor $1',
-	'stable-logentry-reset' => 'stabiele versies voor $1 opnieuw instelle',
+	'stable-logentry-config' => 'haet publicatieinstellinge gemaak veur "$1"',
+	'stable-logentry-modify' => 'haet publicatieinstellinge gewiezig veur "$1"',
+	'stable-logentry-reset' => 'haet publicatieinstellinge nao standaard ingesteld veur "$1"',
+	'stable-log-restriction' => 'Automatisch controlere: rech "$1" beneudig',
 	'stable-logpage' => 'Logbook stabiele versies',
-	'stable-logpagetext' => 'Dit is een logbook met wijziginge aan de instellinge veur [[{{MediaWiki:Validationpage}}|stabiele versies]] veur de hoofdnaamruimte.',
+	'stable-logpagetext' => 'Dit is e logbook mit wieziginge aan de instellinge veur [[{{MediaWiki:Validationpage}}|gepubliceerde versies]] veur de inhaudsnaamruumde.',
 	'revreview-filter-all' => 'al',
 	'revreview-filter-stable' => 'stabiel',
 	'revreview-statusfilter' => 'Kontraolhanjeling:',
@@ -9470,9 +9494,11 @@ beoordeeld aan te laten merken. Om de waardering van een versie te verwijderen, 
 	'revreview-reviewlink' => 'te controlere bewerkinge',
 	'revreview-reviewlink-title' => 'Bekiek alle ongecontroleerde versjille',
 	'revreview-unreviewedpage' => 'óngecontroleerde pagina',
-	'tooltip-ca-current' => 'hujige wèrkversie van dees pazjena toeane',
-	'tooltip-ca-stable' => 'Toean de stabiele versie van dees pazjena',
+	'tooltip-ca-current' => 'Bekiek óngecontroleerde wieziginge veur dees pagina',
+	'tooltip-ca-stable' => 'Bekiek gepubliceerde versie van dees pagina',
 	'tooltip-ca-default' => 'Instellinge kwaliteitsbewaking',
+	'flaggedrevs-protect-legend' => 'Controleer automatisch bewerkinge ([[{{MediaWiki:Validationpage}}|?]])',
+	'flaggedrevs-protect-none' => 'Staon alle gebroekers toe',
 	'validationpage' => '{{ns:help}}:Pazjenaredaksie',
 );
 
@@ -13551,6 +13577,7 @@ $messages['sr-ec'] = array(
 
 /** Serbian Latin ekavian (Srpski (latinica))
  * @author Michaello
+ * @author Жељко Тодоровић
  * @author Михајло Анђелковић
  */
 $messages['sr-el'] = array(
@@ -13571,7 +13598,7 @@ $messages['sr-el'] = array(
 	'revreview-hist-draft' => 'neproverena revizija',
 	'revreview-hist-quality' => 'kvalitetna verzija',
 	'revreview-hist-basic' => 'proverena revizija',
-	'revreview-hist-quality-user' => '[{{fullurl:$1|stableid=$2}} overeno] od strane saradnika [[User:$3|$3]]',
+	'revreview-hist-quality-user' => '[{{fullurl:$1|stableid=$2}} overeno] od strane korisnika [[User:$3|$3]]',
 	'revreview-hist-basic-user' => '[{{fullurl:$1|stableid=$2}} proverio/la] [[User:$3|$3]]',
 	'review-diff2stable' => 'Pogledaj izmene između stabilne i tekuće verzije.',
 	'review-logentry-app' => 'pregledao r$2 od [[$1]]',
@@ -13639,9 +13666,9 @@ Molimo vas da proverite URL koji ste upotrebili da biste pristupili ovoj stranic
 	'right-validate' => 'Označi verzije overenim.',
 	'right-unreviewedpages' => 'Vidi [[Special:UnreviewedPages|spisak nepregledanih strana]]',
 	'rights-editor-autosum' => 'automatski napredovano',
-	'rights-editor-revoke' => 'uklonjen status urednika saradniku [[$1]]',
+	'rights-editor-revoke' => 'uklonjen status uređivača korisniku [[$1]]',
 	'specialpages-group-quality' => 'Obezbeđenje kvaliteta',
-	'stable-logentry-config' => 'omogućene stabilne verzije za saradnika $1',
+	'stable-logentry-config' => 'omogućene stabilne verzije za korisnika $1',
 	'stable-logentry-reset' => 'poništi pristup stabilnim verzija za $1',
 	'stable-logpage' => 'Log stabilnosti',
 	'revreview-filter-all' => 'sve',
@@ -14070,6 +14097,7 @@ $messages['szl'] = array(
 /** Tamil (தமிழ்)
  * @author Kanags
  * @author Mahir78
+ * @author TRYPPN
  * @author Trengarasu
  */
 $messages['ta'] = array(
@@ -14166,7 +14194,19 @@ $messages['ta'] = array(
 	'revreview-submit-unreview' => 'ஏற்றுக்கொள்ளப்படாத',
 	'revreview-submit-reviewed' => 'முடிந்தது. ஏற்றுக்கொள்ளப்பட்டது!',
 	'revreview-submit-unreviewed' => 'முடிந்தது. ஏற்றுக்கொள்ளப்படவில்லை!',
+	'revreview-toggle-title' => 'விவரங்களைக் காட்டு/மறை',
 	'revreview-revnotfound' => 'இப் பக்கத்துக்குரிய, நீங்கள் கோரிய பழைய திருத்தம் காணப்படவில்லை. இந்தப் பக்கத்தை அணுகுவதற்கு நீங்கள் பயன்படுத்திய இணைய முகவரியை அருள் கூர்ந்து சரி பார்க்கவும்.',
+	'revreview-filter-all' => 'அனைத்து',
+	'revreview-filter-stable' => 'நிலையான',
+	'revreview-filter-approved' => 'அனுமதிக்கப்பட்டது',
+	'revreview-levelfilter' => 'நிலை:',
+	'revreview-lev-all' => 'ஏதாவது',
+	'revreview-lev-basic' => 'சரிபார்க்கப்பட்டது',
+	'revreview-lev-quality' => 'தன்மை',
+	'revreview-lev-pristine' => 'தூய்மையான',
+	'revreview-def-all' => 'ஏதாவது',
+	'revreview-def-draft' => 'அண்மைய',
+	'revreview-def-stable' => 'நிலையான',
 );
 
 /** Telugu (తెలుగు)

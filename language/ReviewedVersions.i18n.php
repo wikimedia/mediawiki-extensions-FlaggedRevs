@@ -681,11 +681,11 @@ $messages['lb'] = array(
  * @author Ooswesthoesbes
  */
 $messages['li'] = array(
-	'reviewedversions' => 'Stabiel versies bekieke',
+	'reviewedversions' => 'Gecontroleerde versies',
 	'reviewedversions-leg1' => 'Lijst van beoordeelde versies voor een pagina',
 	'reviewedversions-page' => 'Pazjenanaam:',
 	'reviewedversions-none' => '[[:$1]] haet gein beoordeilde versies.',
-	'reviewedversions-list' => 'Hieronder staat een lijst met versies van [[:$1]] waarvoor een beoordeling is uitgevoerd:',
+	'reviewedversions-list' => "Hieonger steit {{PLURAL:$2|de versie|'n lies mit gecontroleerde versies}} van [[:$1]]:",
 	'reviewedversions-review' => 'Beoordeiling oetgeveurd op <i>$1</i> door $2',
 );
 

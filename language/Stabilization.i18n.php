@@ -733,7 +733,7 @@ Při změně nastavení ''přednost výběru stabilní verze'', aby se standardn
 	'stabilization-sel-short-2' => 'čistá',
 	'stabilization-def-short' => 'výchozí',
 	'stabilization-def-short-0' => 'současná',
-	'stabilization-def-short-1' => 'stabilní',
+	'stabilization-def-short-1' => 'Stabilní',
 	'stabilize_expiry_invalid' => 'Datum vypršení je chybné.',
 	'stabilize_expiry_old' => 'Čas vypršení již minul.',
 	'stabilize-expiring' => 'vyprší $1 (UTC)',
@@ -2374,17 +2374,23 @@ Et ass keng Konfiguratioun méiglech.',
 $messages['li'] = array(
 	'stabilization-tab' => '(kb)',
 	'stabilization' => 'Paginastabilisatie',
-	'stabilization-text' => "'''Wijzig de onderstaande instellingen om aan te passen hoe de stabiele versie van [[:$1|$1]] geselecteerd is en getoond wordt.'''",
-	'stabilization-perm' => 'Uw account heeft niet de toelating om de stabiele versie te wijzigen.
-Dit zijn de huidige instellingen voor [[:$1|$1]]:',
+	'stabilization-text' => "'''Wiezig de ongerstaonde instellinge om aan te passe wie de gepubliceerde versie van [[:\$1|\$1]] geselecteerd en weergegaeve weurt.'''
+
+'''Let op:''' 't wiezige van de '''gepubliceerde versieselectie''' in \"kwaliteitsversie\" of \"ongerepte versie\" haet gein gevolge es die versies neet bestaon.
+'n Kwaliteitsversie is ouch 'n gecontroleerde versie, enzovoorts.",
+	'stabilization-perm' => 'Doe höbs gein rechte om de instellinge veur de gepubliceerde versie te wiezige.
+Dit zeen de hudige instellinge veur [[:$1|$1]]:',
 	'stabilization-page' => 'Pazjenanaam:',
-	'stabilization-leg' => "Stebiel versie van 'ne pazjena aanpasse",
-	'stabilization-select' => 'Wie de stebiel versie wörd geselecteerd',
+	'stabilization-leg' => 'Bevestig instellinge stabiel versie',
+	'stabilization-select' => 'Veurkeure gepubliceerde versieselectie',
 	'stabilization-select1' => "De letste kwaliteitsversie; es dae d'r neet is, den de letste bedoordeilde versie",
-	'stabilization-select2' => 'De letste beoordeilde versie',
+	'stabilization-select2' => 'Les gecontroleerde versie',
+	'stabilization-select3' => 'De letste ongerepte versie.
+Es dees neet besjikbaar is, den de letste kwaliteitsversie of gecontroleerde versie',
 	'stabilization-def' => 'Versie dae standerd getuund wörd',
 	'stabilization-def1' => "De stebiel verzie; is die d'r neet, den de lèste",
 	'stabilization-def2' => 'De nuujste versie',
+	'stabilization-restrict' => 'Beperkinge op (automatisch) gecontroleerd markere',
 	'stabilization-restrict-none' => 'Gein biekómstig beperkinge',
 	'stabilization-submit' => 'Bevestige',
 	'stabilization-notexists' => 'd\'r Is geine pazjena "[[:$1|$1]]". Instelle is neet meugelik.',
@@ -2400,9 +2406,17 @@ Dit zijn de huidige instellingen voor [[:$1|$1]]:',
 	'stabilization-def-short' => 'Standerd',
 	'stabilization-def-short-0' => 'Hujig',
 	'stabilization-def-short-1' => 'Stabiel',
+	'stabilize_page_invalid' => 'De doelpaginanaam is ongeldig.',
+	'stabilize_page_notexists' => 'De doelpagina besteit neet.',
+	'stabilize_page_unreviewable' => "De doelpagina bevindj zich neet in 'n te controlere naamruumde.",
+	'stabilize_invalid_precedence' => 'Ongeldig versieveurvoogsel.',
+	'stabilize_invalid_autoreview' => 'Ongeldige beperking veur automatische controle',
+	'stabilize_invalid_level' => 'Ongeldig besjörmingsniveau.',
 	'stabilize_expiry_invalid' => 'Ongeldige verloopdatum.',
 	'stabilize_expiry_old' => 'Deze verloopdatum is al verstreke.',
+	'stabilize_denied' => 'Geinen toegank.',
 	'stabilize-expiring' => 'verloopt $1 (UTC)',
+	'stabilization-review' => 'Markeer hudige versie es gecontroleerd',
 );
 
 /** Lithuanian (Lietuvių)
@@ -3448,6 +3462,7 @@ $messages['sr-ec'] = array(
 
 /** Serbian Latin ekavian (Srpski (latinica))
  * @author Michaello
+ * @author Жељко Тодоровић
  * @author Михајло Анђелковић
  */
 $messages['sr-el'] = array(
@@ -3467,8 +3482,8 @@ Ovde su trenutna podešavanja za [[:$1|$1]]:',
 	'stabilization-restrict' => 'Ograničenja za pregledanje i automatsko pregledanje',
 	'stabilization-restrict-none' => 'Bez dodatnih ograničenja',
 	'stabilization-submit' => 'Prihvati',
-	'stabilization-notexists' => 'Ne postoji strana pod imenom "[[:$1|$1]]". Podešavanje nije moguće.',
-	'stabilization-notcontent' => 'Strana "[[:$1|$1]]" ne može biti pregledana. Podešavanje nije moguće.',
+	'stabilization-notexists' => 'Ne postoji stranica pod imenom „[[:$1|$1]]“. Podešavanje nije moguće.',
+	'stabilization-notcontent' => 'Stranica „[[:$1|$1]]“ ne može biti pregledana. Podešavanje nije moguće.',
 	'stabilization-comment' => 'Razlog:',
 	'stabilization-otherreason' => 'Drugi razlog:',
 	'stabilization-expiry' => 'Ističe:',
