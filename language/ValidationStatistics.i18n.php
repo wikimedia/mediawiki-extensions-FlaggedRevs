@@ -1709,9 +1709,11 @@ $3",
 
 /** Tamil (தமிழ்)
  * @author Kanags
+ * @author TRYPPN
  * @author Ulmo
  */
 $messages['ta'] = array(
+	'validationstatistics' => 'பக்கத்தின் மறுபார்வை பற்றிய புள்ளிவிவரங்கள்',
 	'validationstatistics-ns' => 'பெயர்வெளி',
 	'validationstatistics-total' => 'பக்கங்கள்',
 	'validationstatistics-stable' => 'மீள்பார்வையிடப்பட்டது',

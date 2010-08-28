@@ -547,6 +547,20 @@ Verschidden Astellungen kënne beaflosse wat fir eng Versioun de Lieser gewise g
 	'configuredpages-def-stable' => 'publizéiert Versioun',
 );
 
+/** Limburgish (Limburgs)
+ * @author Ooswesthoesbes
+ */
+$messages['li'] = array(
+	'configuredpages-none' => "Gein pagina's op dees lies.",
+	'configuredpages-config' => 'Instelling',
+	'configuredpages-precedence' => 'Veurrang:',
+	'configuredpages-prec-none' => 'les gecontroleerde',
+	'configuredpages-prec-quality' => 'letste kwaliteitsversie',
+	'configuredpages-prec-pristine' => 'letste ongerepte versie',
+	'configuredpages-def-draft' => 'letste versie',
+	'configuredpages-def-stable' => 'gepubliceerde versie',
+);
+
 /** Macedonian (Македонски)
  * @author Bjankuloski06
  */

@@ -6522,12 +6522,13 @@ Molimo provjerite URL koji vas je doveo ovamo.',
 	'revreview-lev-quality' => 'kvalitetno',
 	'revreview-lev-pristine' => 'zastarjelo',
 	'revreview-defaultfilter' => 'Zadana inačica:',
+	'revreview-def-all' => 'bilo koji',
 	'revreview-def-draft' => 'zadnji',
 	'revreview-def-stable' => 'objavljen',
 	'revreview-restrictfilter' => 'Stupanj ograničenja:',
 	'revreview-restriction-any' => 'bilo koji',
 	'revreview-restriction-none' => 'ništa',
-	'revreview-reviewlink' => 'ocijeni',
+	'revreview-reviewlink' => 'neocijenjena uređivanja',
 	'tooltip-ca-current' => 'Vidi trenutnu inačicu u radu ove stranice',
 	'tooltip-ca-stable' => 'Vidi važeću inačicu stranice',
 	'tooltip-ca-default' => 'Postavke osiguranja kvalitete',
@@ -9360,6 +9361,7 @@ $messages['li'] = array(
 	'editor' => 'Bewèrker',
 	'flaggedrevs' => 'Aangevinkdje versies',
 	'flaggedrevs-desc' => "Guf redacteurs/controleurs de meugelikheid versies te wardere en stebiel pazjena's aan te mèrke",
+	'flaggedrevs-pref-UI' => 'Basisinterface:',
 	'prefs-flaggedrevs' => 'Bewèrkingskóntraol',
 	'prefs-flaggedrevs-ui' => 'Bewèrkingskóntraol',
 	'group-editor' => 'Bewèrkers',
@@ -9371,12 +9373,27 @@ $messages['li'] = array(
 	'group-autoreview' => 'Automatische controleurs',
 	'group-autoreview-member' => 'automatische controleur',
 	'grouppage-autoreview' => '{{ns:project}}:Automatische controleur',
+	'revreview-hist-draft' => 'ongecontroleerde versie',
+	'revreview-hist-pending' => 'wach op controle',
 	'revreview-hist-quality' => 'kwaliteitsversie',
 	'revreview-hist-basic' => 'bekeke versie',
+	'revreview-hist-quality-user' => '[{{fullurl:$1|stableid=$2}} goodgekeurd] door [[User:$3|$3]]',
+	'revreview-hist-basic-user' => '[{{fullurl:$1|stableid=$2}} gecontroleerd] door [[User:$3|$3]]',
+	'revreview-hist-basic-auto' => '[{{fullurl:$1|stableid=$2}} automatisch gecontroleerd]',
+	'revreview-hist-quality-auto' => '[{{fullurl:$1|stableid=$2}} automatisch goodgekeurd]',
+	'revreview-hist-pending-difflink' => "'''[[{{fullurl:$1|oldid=$2&diff=$3}} wach op controle]]'''",
+	'revreview-diff-toggle-show' => 'tuin wieziginge',
+	'revreview-diff-toggle-hide' => 'verberg wieziginge',
+	'revreview-log-toggle-show' => 'tuin stabiliteitslogbook',
+	'revreview-log-toggle-hide' => 'verberg stabiliteitslogbook',
+	'revreview-log-details-show' => 'tuin details',
+	'revreview-log-details-hide' => 'verberg details',
 	'review-diff2stable' => 'Verschille tusse stabiele en huidige versies bekijke',
 	'review-logentry-app' => 'bekeek [[$1]]',
 	'review-logentry-dis' => 'haet een versie van [[$1]] óngeldig gemaak',
 	'review-logentry-id' => 'versie: $2',
+	'review-logentry-diff' => 'wijziginge gecontroleerd',
+	'review-logentry-diff2' => 'verajerde wieziginge',
 	'review-logpage' => 'Beoordeilingslogbook',
 	'review-logpagetext' => "Dit is een logboek met wijzigingen in de [[{{MediaWiki:Validationpage}}|waarderingsstatus]] van versies van pagina's.",
 	'reviewer' => 'Bekieker',
@@ -9499,6 +9516,7 @@ Waleech deens se iers correcties oet te veure of bewerkinge ongedaon te make.",
 	'tooltip-ca-default' => 'Instellinge kwaliteitsbewaking',
 	'flaggedrevs-protect-legend' => 'Controleer automatisch bewerkinge ([[{{MediaWiki:Validationpage}}|?]])',
 	'flaggedrevs-protect-none' => 'Staon alle gebroekers toe',
+	'log-show-hide-review' => 'Waarderingslogbook $1',
 	'validationpage' => '{{ns:help}}:Pazjenaredaksie',
 );
 
@@ -11328,7 +11346,7 @@ $messages['pam'] = array(
  */
 $messages['pdc'] = array(
 	'revreview-depth-1' => 'eefach',
-	'revreview-log' => 'Anmaerricking:',
+	'revreview-log' => 'Aamaericking:',
 	'revreview-style-2' => 'gans guud',
 	'revreview-filter-all' => 'All',
 );
@@ -14103,6 +14121,7 @@ $messages['szl'] = array(
 $messages['ta'] = array(
 	'action-review' => 'திருத்தங்களைப் பார்வையிடுக',
 	'editor' => 'பதிப்பாளர்',
+	'flaggedrevs' => 'குறிக்கப்பட்ட திருத்தங்கள்',
 	'flaggedrevs-watched-pending' => "There are currently [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} pending changes] to reviewed pages on your watchlist. '''உங்களது கவனம் தேவை!'''",
 	'flaggedrevs-pref-UI' => 'அடிப்படை இடைமுகப்பு:',
 	'prefs-flaggedrevs' => 'மதிப்பீடை தொகு',
@@ -14117,6 +14136,7 @@ $messages['ta'] = array(
 	'group-autoreview-member' => 'தானியக்கமாக சோதிக்கப்பட்ட பயனர்கள்',
 	'grouppage-autoreview' => '{{ns:project}}:தானியக்கமாக சோதிக்கப்பட்ட பயனர்கள்',
 	'revreview-hist-draft' => 'மறுநோக்கு சோதிக்கப்படவில்லை',
+	'revreview-hist-pending' => 'கவனிக்கப்படவேண்டிய திருத்தங்கள்',
 	'revreview-hist-quality' => 'தரமான மேலாய்வு',
 	'revreview-hist-basic' => 'சோதிக்கப்பட்ட மேலாய்வு',
 	'revreview-hist-quality-auto' => '[{{fullurl:$1|stableid=$2}} தானியக்கமாக ஏற்றுக்கொள்ளப்பட்டது]',
@@ -14174,6 +14194,8 @@ $messages['ta'] = array(
 	'revreview-reflag' => 'இந்த மறுபதிப்பை மீண்டும் மதிப்பிடுக',
 	'revreview-invalid' => "'''தவறான இலக்கு:''' no [[{{MediaWiki:Validationpage}}|reviewed]] revision corresponds to the given ID.",
 	'revreview-log' => 'கருத்து:',
+	'revreview-notes' => 'காட்டப்பட வேண்டிய கண்டுபிடிப்புக்கள் அல்லது குறிப்புக்கள்:',
+	'revreview-oldrating' => 'இது கணிக்கப்பட்டது:',
 	'revreview-quick-none' => "'''[[{{MediaWiki:Validationpage}}|சரிபார்க்கப்படவில்லை]]'''",
 	'revreview-quick-quality-old' => "'''[[{{MediaWiki:Validationpage}}|தரம்]]'''",
 	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|தரம்]]'''",
@@ -14199,7 +14221,9 @@ $messages['ta'] = array(
 	'revreview-filter-all' => 'அனைத்து',
 	'revreview-filter-stable' => 'நிலையான',
 	'revreview-filter-approved' => 'அனுமதிக்கப்பட்டது',
+	'revreview-typefilter' => 'வகை:',
 	'revreview-levelfilter' => 'நிலை:',
+	'revreview-precedencefilter' => 'முன்னிகழ்வு:',
 	'revreview-lev-all' => 'ஏதாவது',
 	'revreview-lev-basic' => 'சரிபார்க்கப்பட்டது',
 	'revreview-lev-quality' => 'தன்மை',
@@ -14207,6 +14231,9 @@ $messages['ta'] = array(
 	'revreview-def-all' => 'ஏதாவது',
 	'revreview-def-draft' => 'அண்மைய',
 	'revreview-def-stable' => 'நிலையான',
+	'revreview-restriction-any' => 'ஏதாவது',
+	'revreview-restriction-none' => 'ஒன்றுமில்லை',
+	'flaggedrevs-protect-none' => 'அனைத்துப் பயனர்களையும் அனுமதிக்கவும்',
 );
 
 /** Telugu (తెలుగు)
@@ -15222,6 +15249,13 @@ Değişikliklerinizin kararlı sürümde görünmesi için, lütfen aşağıda g
 	'revreview-tt-flag' => 'Bu revizyonu kontrol edilmiş olarak işaretleyerek onayla',
 	'revreview-tt-unflag' => 'Bu revizyonu kontrol edilmemiş olarak işaretleyerek onayı kaldır',
 	'validationpage' => '{{ns:help}}:Sayfa doğrulaması',
+);
+
+/** Tatar (Cyrillic) (Татарча/Tatarça (Cyrillic))
+ * @author Ильнар
+ */
+$messages['tt-cyrl'] = array(
+	'revreview-edit' => 'Үзгәртү',
 );
 
 /** Ukrainian (Українська)

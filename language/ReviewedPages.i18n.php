@@ -603,7 +603,8 @@ $messages['is'] = array(
 $messages['it'] = array(
 	'reviewedpages' => 'Pagine revisionate',
 	'reviewedpages-leg' => 'Elenca le pagine revisionate',
-	'reviewedpages-list' => 'Di seguito sono elencate le pagine che sono state revisionate (al massimo) al livello specificato.',
+	'reviewedpages-list' => "Questo elenco contiene le [[{{MediaWiki:Validationpage}}|pagine controllate]] il cui massimo livello di revisione raggiunto (di una revisione) è il livello specificato.
+E' fornito un link all'ultima revisione per quel livello.",
 	'reviewedpages-none' => 'Non ci sono pagine in questo elenco',
 	'reviewedpages-lev-0' => 'Visionata',
 	'reviewedpages-lev-1' => 'Qualità',

@@ -878,6 +878,7 @@ $messages['is'] = array(
  * @author Blaisorblade
  * @author Civvì
  * @author Darth Kule
+ * @author Gianfranco
  * @author Melos
  * @author Pietrodn
  */
@@ -890,6 +891,7 @@ $messages['it'] = array(
 	'pendingchanges-days' => '($1 {{PLURAL:$1|giorno|giorni}})',
 	'pendingchanges-recent' => "(meno di un'ora)",
 	'pendingchanges-category' => 'Categoria:',
+	'pendingchanges-onwatchlist' => 'Pagine nei miei osservati speciali',
 	'pendingchanges-stable' => 'La versione stabile è di default',
 	'pendingchanges-diff' => 'revisiona',
 	'pendingchanges-size' => 'Cambiamento massimo (byte):',
@@ -1042,7 +1044,7 @@ $messages['lb'] = array(
 $messages['li'] = array(
 	'pendingchanges' => "Pagina's mit te controlere wieziginge",
 	'pendingchanges-legend' => "Lies mit gecontroleerde pagina's mit ongecontroleerde versies",
-	'pendingchanges-list' => "Op dees pagina {{PLURAL:$1|weurt de gecontroleerde pagina|waere de gecontroleerde pagina's}} weergegaeve woveur nag te controlere versies zeen.",
+	'pendingchanges-list' => "Op dees pagina weurt de gecontroleerde pagina|waere de gecontroleerde pagina's weergegaeve woveur nag te controlere versies zeen.",
 	'pendingchanges-none' => "'t Göf gein paasjes die aan dees kriteria vóldoon",
 	'pendingchanges-hours' => '$1 {{PLURAL:$1|oer|oer}}',
 	'pendingchanges-days' => '$1 {{PLURAL:$1|daag|daag}}',

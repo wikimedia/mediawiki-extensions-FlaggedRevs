@@ -449,6 +449,7 @@ $messages['id'] = array(
  * @author Beta16
  * @author Blaisorblade
  * @author Darth Kule
+ * @author Gianfranco
  * @author Pietrodn
  */
 $messages['it'] = array(
@@ -456,6 +457,7 @@ $messages['it'] = array(
 	'stablepages-list' => 'Di seguito sono elencate le pagine cui solo determinati utenti possono fare modifiche che non necessitano di revisione. Le modifiche di altri utenti non sono mostrate ai lettori, di default, fino a quando un utente autorizzato non le revisioni.',
 	'stablepages-none' => 'Non ci sono pagine in questo elenco',
 	'stablepages-config' => 'Configurazione',
+	'stablepages-indef' => 'Solo scadenza indefinita',
 );
 
 /** Japanese (日本語)
