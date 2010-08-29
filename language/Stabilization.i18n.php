@@ -2526,6 +2526,7 @@ $messages['ml'] = array(
 	'stabilize_page_invalid' => 'താളിനു ലക്ഷ്യമിട്ട പേര് അസാധുവാണ്.',
 	'stabilize_page_notexists' => 'ലക്ഷ്യമിട്ട താൾ നിലവിലില്ല.',
 	'stabilize_page_unreviewable' => 'ലക്ഷ്യമിട്ട താൾ സംശോധനം ചെയ്യാവുന്ന നാമമേഖലയിലല്ല.',
+	'stabilize_invalid_precedence' => 'പതിപ്പിന്റെ സംഖ്യ അസാധുവായ വിധത്തിലാണ് നീങ്ങുന്നത്.',
 	'stabilize_invalid_autoreview' => 'അസാധുവായ സ്വയംസംശോധന പരിമിതപ്പെടുത്തൽ',
 	'stabilize_invalid_level' => 'അസാധുവായ സംരക്ഷണ മാനം.',
 	'stabilize_expiry_invalid' => 'അസാധുവായ കാലാവധി തീയതി.',

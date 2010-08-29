@@ -7279,6 +7279,7 @@ Verifica le adresse URL que tu ha usate pro acceder a iste pagina.',
 );
 
 /** Indonesian (Bahasa Indonesia)
+ * @author -iNu-
  * @author ArdWar
  * @author Bennylin
  * @author Farras
@@ -7522,7 +7523,7 @@ Anda perlu menindaklanjuti atau "tak jadikan" suntingan.',
 	'revreview-tt-review' => 'Tinjau halaman ini',
 	'revreview-tt-flag' => 'Terima revisi dengan status "terperiksa"',
 	'revreview-tt-unflag' => 'Tolak revisi ini dengan status "belum diperiksa"',
-	'validationpage' => '{{ns:help}}:Validasi artikel',
+	'validationpage' => '{{ns:help}}:Validasi halaman',
 );
 
 /** Igbo (Igbo)
