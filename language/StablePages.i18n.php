@@ -145,6 +145,7 @@ $messages['bs'] = array(
 Izmjene drugih korisnika nisu prikazane čitaocima po postavkama dok ih ne provjeri autorizovani korisnik.',
 	'stablepages-none' => 'Nema stranica na ovom spisku',
 	'stablepages-config' => 'Podešavanje',
+	'stablepages-indef' => 'Samo bez isteka roka',
 );
 
 /** Catalan (Català)
