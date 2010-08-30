@@ -135,7 +135,7 @@ class FlaggedRevsHooks {
 			return true;
 		}
 		$spPages = array( 'UnreviewedPages', 'PendingChanges', 'ProblemChanges',
-			'Watchlist', 'Recentchanges', 'Contributions' );
+			'Watchlist', 'Recentchanges', 'Contributions', 'Recentchangeslinked' );
 		foreach ( $spPages as $n => $key ) {
 			if ( $title->isSpecial( $key ) ) {
 				global $wgScriptPath, $wgFlaggedRevsStylePath, $wgFlaggedRevStyleVersion;
@@ -1632,9 +1632,13 @@ class FlaggedRevsHooks {
 		return true;
 	}
 
-	public static function addToRCQuery( &$conds, array &$tables, array &$join_conds, $opts ) {
+	public static function addToRCQuery( &$conds, array &$tables, array &$join_conds, $opts, &$query_opts, &$select ) {
 		$tables[] = 'flaggedpages';
 		$join_conds['flaggedpages'] = array( 'LEFT JOIN', 'fp_page_id = rc_cur_id' );
+		if( is_array( $select ) ) {
+			$dbr = wfGetDB( DB_SLAVE );
+			$select[] = $dbr->tableName( 'flaggedpages' ) . '.*';
+		}
 		return true;
 	}
 
