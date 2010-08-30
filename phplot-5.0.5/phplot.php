@@ -209,7 +209,7 @@ class PHPlot {
      * \param which_output_file string Filename for output.
      * \param which_input_fule  string Path to a file to be used as background.
      */
-    function PHPlot($which_width=600, $which_height=400, $which_output_file=null, $which_input_file=null)
+    function __construct($which_width=600, $which_height=400, $which_output_file=null, $which_input_file=null)
     {
         $this->SetRGBArray($this->color_array);
 

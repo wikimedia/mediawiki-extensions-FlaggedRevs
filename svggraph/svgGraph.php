@@ -373,7 +373,7 @@ class svgGraph {
   * Define static variables used in the class.
   * @returns void
   */
-  function svgGraph() {
+  function __construct() {
 	if( !defined("DECIMAL_POINT") )
 		define("DECIMAL_POINT", ".");
 	if( !defined("THOUSANDS_SEPARATOR") )
