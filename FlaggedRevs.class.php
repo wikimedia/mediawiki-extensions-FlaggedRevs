@@ -609,6 +609,9 @@ class FlaggedRevs {
 	 * Like ParserCache::getKey() with stable-pcache instead of pcache
 	 */
 	protected static function getCacheKey( $parserCache, Article $article, $popts ) {
+		if( $popts instanceof User ) {
+			$popts = ParserOptions::newFromUser( $popts );
+		}
 		$key = $parserCache->getKey( $article, $popts );
 		$key = str_replace( ':pcache:', ':stable-pcache:', $key );
 		return $key;
