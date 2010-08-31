@@ -515,7 +515,7 @@ class FlaggedRevs {
 	 * @param int $id Source revision Id
 	 * @return ParserOutput
 	 */
-	public static function parseStableText( Title $title, $text, $id, $parserOptions = null ) {
+	public static function parseStableText( Title $title, $text, $id, $parserOptions ) {
 		global $wgParser;
 		# Notify Parser if includes should be stabilized
 		$resetManager = false;
@@ -532,8 +532,6 @@ class FlaggedRevs {
 			}
 		}
 		# Parse the new body, wikitext -> html
-		if ( is_null( $parserOptions ) )
-			$parserOptions = self::makeParserOptions(); // default options
 		$parserOut = $wgParser->parse( $text, $title, $parserOptions, true, true, $id );
 		# Stable parse done!
 		if ( $resetManager ) {

@@ -496,9 +496,9 @@ class FlaggedArticleView {
 		# Check if this is a redirect...
 		$redirHtml = $this->getRedirectHtml( $text );
 		if ( $redirHtml == '' ) {
+			$parserOptions = FlaggedRevs::makeParserOptions();
 			$parserOut = FlaggedRevs::parseStableText(
-				$this->article->getTitle(), $text, $frev->getRevId(), 
-				FlaggedRevs::makeParserOptions() );
+				$this->article->getTitle(), $text, $frev->getRevId(), $parserOptions );
 		}
 		# Construct some tagging for non-printable outputs. Note that the pending
 		# notice has all this info already, so don't do this if we added that already.

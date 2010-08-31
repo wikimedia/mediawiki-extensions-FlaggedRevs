@@ -891,6 +891,9 @@ class RevisionReviewForm
 						wfMsg( 'revreview-ak-review' ) . ']'
 				) + ( ( $disabled || ( $frev && !$rereview ) ) ? $disAttrib : array() )
 			);
+			# UNDO BUTTON: revert from a pending revision to the stable
+			# @TODO...
+			
 			# UNACCEPT BUTTON: revoke a revisions acceptance
 			# Hide if revision is not flagged
 			$s .= ' ';
@@ -899,7 +902,7 @@ class RevisionReviewForm
 					'name'  => 'wpUnapprove',
 					'id' 	=> 'mw-fr-submitunreview',
 					'title' => wfMsg( 'revreview-tt-unflag' ),
-					'style' => $frev ? '' : 'visibility: hidden;'
+					'style' => $frev ? '' : 'display:none;'
 				) + ( $disabled ? $disAttrib : array() )
 			);
 		} else {
