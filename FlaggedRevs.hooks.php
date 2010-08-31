@@ -633,43 +633,6 @@ class FlaggedRevsHooks {
 		return true;
 	}
 
-    /**
-    * Allow users to view reviewed pages
-    */
-    public static function userCanView( Title $title, $user, $action, &$result ) {
-        global $wgFlaggedRevsVisible, $wgFlaggedRevsTalkVisible, $wgTitle;
-        # Assume $action may still not be set, in which case, treat it as 'view'...
-		# Return out if $result set to false by some other hooked call.
-        if ( $action !== 'read' || $result === false || empty( $wgFlaggedRevsVisible ) )
-            return true;
-        # Admin may set this to false, rather than array()...
-        $groups = $user->getGroups();
-        $groups[] = '*';
-        if ( !array_intersect( $groups, $wgFlaggedRevsVisible ) )
-            return true;
-        # Is this a talk page?
-        if ( $wgFlaggedRevsTalkVisible && $title->isTalkPage() ) {
-            $result = true;
-            return true;
-        }
-        # See if there is a stable version. Also, see if, given the page 
-        # config and URL params, the page can be overriden. The later
-		# only applies on page views of $title.
-		$flaggedArticle = FlaggedArticle::getTitleInstance( $title );
-        if ( !empty( $wgTitle ) && $wgTitle->equals( $title ) ) {
-			$view = FlaggedArticleView::singleton();
-            // Cache stable version while we are at it.
-            if ( $view->pageOverride() && $flaggedArticle->getStableRev() ) {
-                $result = true;
-            }
-        } else {
-            if ( FlaggedRevision::newFromStable( $title ) ) {
-                $result = true;
-            }
-        }
-        return true;
-    }
-
 	/**
 	* When an edit is made by a user, review it if either:
 	* (a) The user can 'autoreview' and the edit's base revision is a checked

@@ -232,12 +232,6 @@ $wgFlaggedRevsAutopromoteInRC = false;
 # How far the logs for overseeing quality revisions and depreciations go
 $wgFlaggedRevsOversightAge = 30 * 24 * 3600;
 
-# Flagged revisions are always visible to users with rights below.
-# Use '*' for non-user accounts. This is for read-restricted wikis.
-$wgFlaggedRevsVisible = array();
-# If $wgFlaggedRevsVisible is populated, it is applied to talk pages too
-$wgFlaggedRevsTalkVisible = true;
-
 # How long before Special:ValidationStatistics is updated.
 # Set to false to disable (perhaps using a cron job instead).
 $wgFlaggedRevsStatsAge = 2 * 3600; // 2 hours
@@ -530,15 +524,11 @@ $wgHooks['LoadExtensionSchemaUpdates'][] = 'FlaggedRevsHooks::addSchemaUpdates';
 # ########
 
 function efSetFlaggedRevsConditionalHooks() {
-	global $wgHooks, $wgFlaggedRevsVisible;
+	global $wgHooks;
 	# Mark items in user contribs
 	if ( !FlaggedRevs::useOnlyIfProtected() ) {
 		$wgHooks['ContribsPager::getQueryInfo'][] = 'FlaggedRevsHooks::addToContribsQuery';
 		$wgHooks['ContributionsLineEnding'][] = 'FlaggedRevsHooks::addToContribsLine';
-	}
-	# Visibility - experimental
-	if ( !empty( $wgFlaggedRevsVisible ) ) {
-		$wgHooks['getUserPermissionsErrors'][] = 'FlaggedRevsHooks::userCanView';
 	}
 	if ( FlaggedRevs::useProtectionLevels() ) {
 		# Add protection form field
