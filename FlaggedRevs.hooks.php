@@ -363,9 +363,6 @@ class FlaggedRevsHooks {
 		# If $id not specified, see if we are allowed to use the current revision
 		if ( $id === false ) {
 			$parser->mOutput->fr_includeErrors[] = $title->getPrefixedDBKey(); // unspecified
-			if ( !FlaggedRevs::fallbackToCurrentTemplates() ) {
-				$skip = true; // broken link
-			}
 		# If $id is zero, don't bother loading it
 		} elseif ( !$id ) {
 			$skip = true;
@@ -454,9 +451,6 @@ class FlaggedRevsHooks {
 		if ( $time === false ) {
 			# May want to give an error, so track these...
 			$parser->mOutput->fr_includeErrors[] = $title->getPrefixedDBKey();
-			if ( !FlaggedRevs::fallbackToCurrentFiles() ) {
-				$time = "0"; // no image
-			}
 		} elseif ( !$time ) {
 			$time = "0"; // make sure this the string '0'
 		}

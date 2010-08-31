@@ -210,24 +210,6 @@ class FlaggedRevs {
 	}
 
 	/**
-	 * Fallback to current templates when no version is specified?
-	 * @returns bool
-	 */
-	public static function fallbackToCurrentTemplates() {
-		global $wgUseCurrentTemplates;
-		return $wgUseCurrentTemplates;
-	}
-
-	/**
-	 * Fallback to current files when no version is specified?
-	 * @returns bool
-	 */
-	public static function fallbackToCurrentFiles() {
-		global $wgUseCurrentImages;
-		return $wgUseCurrentImages;
-	}
-
-	/**
 	 * Should tags only be shown for unreviewed content for this user?
 	 * @returns bool
 	 */

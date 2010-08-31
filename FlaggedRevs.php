@@ -244,26 +244,11 @@ $wgFlaggedRevsStatsAge = 2 * 3600; // 2 hours
 # FR_INCLUDES_STABLE
 # 	Use the stable version of templates/files that themselves have a stable version
 #	and the template/file version used at the time of review for those that don't have one
+# NOTE: We may have templates that do not have stable version. Given situational
+# inclusion of templates (e.g. parser functions selecting template X or Y based on date),
+# there may also be no "review time version" revision ID for a template used on a page.
+# In such cases, we select the current (unreviewed) revision. Likewise for files.
 $wgFlaggedRevsHandleIncludes = FR_INCLUDES_STABLE;
-
-# NOTE: ignore the next two settings if set to FR_CURRENT_INCLUDES.
-
-# We may have templates that do not have stable version. Given situational
-# inclusion of templates (such as parser functions that select template
-# X or Y depending), there may also be no revision ID for each template
-# pointed to by the metadata of how the article was when it was reviewed.
-# An example would be an article that selects a template based on time.
-# The template to be selected will change, and the metadata only points
-# to the reviewed revision ID of the old template. In such cases, we can
-# select the current (unreviewed) revision.
-$wgUseCurrentTemplates = true;
-
-# We may have file pages that do not have stable version. Given situational
-# inclusion of templates/files (such as a random featured image template), 
-# there may also be no sha-1/time for each file pointed to by the metadata 
-# of how the article was when it was reviewed. In such cases, we can select 
-# the current (unreviewed) revision.
-$wgUseCurrentImages = true;
 
 # End of configuration variables.
 # ########
