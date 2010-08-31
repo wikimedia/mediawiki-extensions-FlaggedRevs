@@ -9392,6 +9392,7 @@ $messages['li'] = array(
 	'revreview-hist-basic-auto' => '[{{fullurl:$1|stableid=$2}} automatisch gecontroleerd]',
 	'revreview-hist-quality-auto' => '[{{fullurl:$1|stableid=$2}} automatisch goodgekeurd]',
 	'revreview-hist-pending-difflink' => "'''[[{{fullurl:$1|oldid=$2&diff=$3}} wach op controle]]'''",
+	'review-edit-diff' => "'''Let op: d'r zeen nag neet gecontroleerde wieziginge ten opzichte van de gepubliceerde versie opgenomme in de paginateks in t ongerstaonde bewerkingsvenster.'''",
 	'revreview-diff-toggle-show' => 'tuin wieziginge',
 	'revreview-diff-toggle-hide' => 'verberg wieziginge',
 	'revreview-log-toggle-show' => 'tuin stabiliteitslogbook',
@@ -9422,6 +9423,11 @@ $messages['li'] = array(
 	'review_page_unreviewable' => 'De doelpagina kan neet gecontroleerd waere.',
 	'review_no_oldid' => "d'r Is gein versienummer opgegaeve.",
 	'review_bad_oldid' => 'De opgegaeve doelversie besteit neet.',
+	'review_not_flagged' => 'De doelversie is neet gemarkeerd es gecontroleerd.',
+	'review_too_low' => "De versie kin neet es gecontroleerd waere gemarkeerd es neet alle veljer 'n anger waerd es {{int:Revreview-accuracy-0}} höbbe.",
+	'review_bad_key' => 'Ongeljige paramaetersleutel.',
+	'review_denied' => 'Geinen toegank.',
+	'review_param_missing' => "d'r Óntbrik 'ne paramaeter of de opgegaeve paramaeter is ongeldig.",
 	'revreview-current' => 'Ongecontroleerde wieziginge',
 	'revreview-depth' => 'Deepgank',
 	'revreview-depth-0' => 'Neet bekeke',
@@ -9430,6 +9436,9 @@ $messages['li'] = array(
 	'revreview-depth-3' => 'Hoog',
 	'revreview-depth-4' => 'Oetgelich',
 	'revreview-edit' => 'Bewirk',
+	'revreview-check-flag-p' => 'Markeer óngecontroleerde wieziginge',
+	'revreview-check-flag-p-title' => 'Publiceer alle ongecontroleerde wieziginge same mit dien wieziginge.
+Gebroek dit allein es se de ongecontroleerde wieziginge haes bekeke.',
 	'revreview-edited' => "'''Nuuj bewèrkinge waere opgenaome in de [[{{MediaWiki:Validationpage}}|stabiel versie]] es 'n eindredacteur ze gecontroleerd haet.'''
 
 d'r {{PLURAL:$2|Is|zeen}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 ongecontroleerde {{PLURAL:$2|wieziging|wieziginge}}]; dees waeren hieonger weergegaeve.",
