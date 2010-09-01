@@ -1186,7 +1186,9 @@ $messages['no'] = array(
  */
 $messages['nso'] = array(
 	'unreviewed-category' => 'Sehlopha:',
-	'unreviewed-diff' => 'Diphetogo',
+	'unreviewed-diff' => 'Poeletšo',
+	'unreviewed-hours' => '($1 {{PLURAL:$1|iri|diiri}})',
+	'unreviewed-days' => '($1 {{PLURAL:$1|letšatši|matšatši}})',
 );
 
 /** Occitan (Occitan)
