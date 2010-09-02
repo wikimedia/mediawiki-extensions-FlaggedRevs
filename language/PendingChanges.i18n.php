@@ -991,7 +991,7 @@ $messages['ko'] = array(
  * @author Purodha
  */
 $messages['ksh'] = array(
-	'pendingchanges' => 'Vörmols ens nohjekik jewääse Sigge',
+	'pendingchanges' => 'Vörmols ens nohjekik jewääse Sigge met Änderonge, di emer noch nohkike möße',
 	'pendingchanges-legend' => 'Leß met de nohjekik Sigge met neue Versione, di op et Nohkike waade',
 	'pendingchanges-list' => 'Heh di Sigg zeijsch {{PLURAL:$1|en {{lcfirst:{{int:revreview-accuracy-1}}}} Sigg|{{lcfirst:{{int:revreview-accuracy-1}}}}e Sigge|kei {{lcfirst:{{int:revreview-accuracy-1}}}} Sigg}} met Änderunge, di noch nit nohjekik woode sen.',
 	'pendingchanges-none' => 'För der Momang paße jrad kei Sigge op die Ußwahl',

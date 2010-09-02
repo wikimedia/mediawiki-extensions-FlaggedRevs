@@ -2934,6 +2934,7 @@ Nie jest możliwa jej konfiguracja.',
 	'stabilize_page_notexists' => 'Wskazana strona nie istnieje.',
 	'stabilize_page_unreviewable' => 'Wersje oznaczone są nieaktywne w tej przestrzeni nazw.',
 	'stabilize_invalid_precedence' => 'Nieprawidłowy priorytet wersji.',
+	'stabilize_invalid_autoreview' => 'Nieprawidłowe ograniczenia automatycznego oznaczania.',
 	'stabilize_invalid_level' => 'Nieprawidłowy poziom zabezpieczeń.',
 	'stabilize_expiry_invalid' => 'Nieprawidłowa data wygaśnięcia.',
 	'stabilize_expiry_old' => 'Czas wygaśnięcia już upłynął.',
@@ -3115,6 +3116,13 @@ Não é possível configurá-la.',
 	'stabilize_denied' => 'Permissão negada.',
 	'stabilize-expiring' => 'expira às $1 (UTC)',
 	'stabilization-review' => 'Marcar a revisão atual como verificada',
+);
+
+/** Quechua (Runa Simi)
+ * @author AlimanRuna
+ */
+$messages['qu'] = array(
+	'stabilize_denied' => 'Manam saqillasqachu.',
 );
 
 /** Romanian (Română)

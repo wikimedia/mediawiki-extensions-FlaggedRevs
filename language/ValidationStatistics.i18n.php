@@ -1364,6 +1364,10 @@ $messages['pl'] = array(
 
 Redaktorzy są doświadczonymi użytkownikami, którzy mogą oznaczać dowolne wersje stron.",
 	'validationstatistics-lastupdate' => "''Poniższe dane uaktualnione zostały $1 o $2.''",
+	'validationstatistics-pndtime' => "Zmiany, które zostały sprawdzone przez wyznaczonych użytkowników są uznawane za oznaczone.
+
+Średnie opóźnienie dla [[Special:OldReviewedPages|stron ze zamianami oczekującymi na oznaczenie]] wynosi '''$1'''.
+Te strony uważane są za ''przestarzałe''. Podobnie strony uznawane są za ''zsynchronizowane'' jeśli brak jest edycji oczekujących na oznaczenie.",
 	'validationstatistics-revtime' => "Średni czas oczekiwania na oznaczenie edycji użytkowników niezalogowanych wynosi '''$1''', mediana – '''$2'''. $3",
 	'validationstatistics-table' => "Poniżej znajdują się statystyki dla każdej przestrzeni nazw, ''z wyłączeniem'' przekierowań.",
 	'validationstatistics-ns' => 'Przestrzeń nazw',
@@ -1829,6 +1833,7 @@ $3",
 
 /** Ukrainian (Українська)
  * @author Ahonc
+ * @author Alex Khimich
  * @author Prima klasy4na
  * @author Тест
  */
@@ -1838,6 +1843,10 @@ $messages['uk'] = array(
 
 «Редактори» — визначені користувачі, що мають можливість робити вибіркову перевірку конкретних версій сторінок.",
 	'validationstatistics-lastupdate' => "''Наступні дані востаннє оновлювались $1 о $2.''",
+	'validationstatistics-pndtime' => "Правки, які були перевірені встановленими користувачами вважаються такими, що пройшли перевірку
+
+Середня затримка для [[Special:OldReviewedPages|сторінок з неперевіреними правками]] становить '''$1'''.
+Ці сторінки вважаються застарілими, так само як це стосується синхронізованих сторінок, якщо відсутні правки для перевірки.",
 	'validationstatistics-table' => "Статистика рецензувань сторінок для кожного простору назв показана нижче, ''за виключенням'' сторінок перенаправлень.",
 	'validationstatistics-ns' => 'Простір назв',
 	'validationstatistics-total' => 'Сторінок',

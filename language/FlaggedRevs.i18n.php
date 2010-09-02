@@ -11460,6 +11460,9 @@ Później mogły zostać wykonane następne [{{fullurl:{{FULLPAGENAMEE}}|oldid=$
 	'review_page_unreviewable' => 'Brak możliwości przeglądnięcia wskazanej strony.',
 	'review_no_oldid' => 'Nie podano ID wersji.',
 	'review_bad_oldid' => 'Wskazana wersja nie istnieje.',
+	'review_not_flagged' => 'Wybrana wersja nie jest oznaczona.',
+	'review_too_low' => 'Wersja nie może zostać oznaczona jeśli niektóre pola pozostały „nieadekwatne”.',
+	'review_bad_key' => 'Nieprawidłowy klucz identyfikujący parametry.',
 	'review_denied' => 'Brak dostępu.',
 	'review_param_missing' => 'Nie podano parametru lub jest on nieprawidłowy.',
 	'revreview-current' => 'Oczekuje na przejrzenie',
@@ -12409,6 +12412,7 @@ $messages['qu'] = array(
 	'revreview-log-details-show' => 'imaymanakunata rikuchiy',
 	'revreview-log-details-hide' => 'imaymanakunata pakay',
 	'review-logentry-app' => "[[$1]] p'anqapaq musuqchasqata qhawaykun",
+	'review_denied' => 'Manam saqillasqachu.',
 	'revreview-toggle-title' => 'Imaymanata rikuchiy/pakay',
 	'revreview-revnotfound' => "Mañakusqayki llamk'apusqaqa manam tarisqachu.
 Ama hina kaspa, kay p'anqap URL nisqa tiyayninta k'uskiriy.",
