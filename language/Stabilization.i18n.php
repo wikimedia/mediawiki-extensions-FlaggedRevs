@@ -725,7 +725,7 @@ Při změně nastavení ''přednost výběru stabilní verze'', aby se standardn
 	'stabilization-notcontent' => 'Stránka „[[:$1|$1]]“ nemůže být posouzena. Nastavení není možné.',
 	'stabilization-comment' => 'Důvod:',
 	'stabilization-otherreason' => 'Jiný důvod:',
-	'stabilization-expiry' => 'Vyprší:',
+	'stabilization-expiry' => 'Čas vypršení:',
 	'stabilization-othertime' => 'Jiný čas:',
 	'stabilization-sel-short' => 'Váha',
 	'stabilization-sel-short-0' => 'kvalitní',
