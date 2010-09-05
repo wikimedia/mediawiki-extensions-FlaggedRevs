@@ -551,6 +551,7 @@ Verschidden Astellungen kënne beaflosse wat fir eng Versioun de Lieser gewise g
  * @author Ooswesthoesbes
  */
 $messages['li'] = array(
+	'configuredpages' => "Pagina's mit controleinstellinge",
 	'configuredpages-none' => "Gein pagina's op dees lies.",
 	'configuredpages-config' => 'Instelling',
 	'configuredpages-precedence' => 'Veurrang:',

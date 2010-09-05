@@ -1128,6 +1128,10 @@ $3",
  * @author Ooswesthoesbes
  */
 $messages['li'] = array(
+	'validationstatistics' => 'Paginacontrolestatistieke',
+	'validationstatistics-revtime' => "De gemiddelde wachtied veur controle van bewirkinge door ''gebroekers die neet aangemeld zeen' is '''$1'''. De mediaan is '''$2'''.
+$3",
+	'validationstatistics-table' => "Controlestatistieke veur eder naamruumde, ''exclusief'' redireks waere hieónger getuind.",
 	'validationstatistics-ns' => 'Naamruumde',
 	'validationstatistics-total' => 'Paasj',
 	'validationstatistics-stable' => 'Bekeke',
