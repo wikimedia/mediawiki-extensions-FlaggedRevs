@@ -270,6 +270,13 @@ class UnreviewedPagesPager extends AlphabeticPager {
 			$fields[] = 'cl_sortkey';
 			$conds['cl_to'] = $this->category;
 			$conds[] = 'cl_from = page_id';
+			if( $this->namespace == NS_FILE ) {
+				$conds['cl_type'] = 'file';
+			} elseif( $this->namespace == NS_CATEGORY ) {
+				$conds['cl_type'] = 'subcat';
+			} else {
+				$conds['cl_type'] = 'page';
+			}
 			$this->mIndexField = 'cl_sortkey';
 			$useIndex = array( 'categorylinks' => 'cl_sortkey' );
 			$groupBy = 'cl_sortkey,cl_from';
