@@ -1099,6 +1099,7 @@ $messages['ms'] = array(
 	'unreviewed-none' => 'Tiada laman yang memenuhi kriteria ini',
 	'unreviewed-viewing' => '(dalam semakan)',
 	'unreviewed-hours' => '({{PLURAL:$1|sejam|$1 jam}})',
+	'unreviewed-days' => '($1 hari)',
 	'unreviewed-recent' => '(kurang drpd. 1 jam)',
 );
 
