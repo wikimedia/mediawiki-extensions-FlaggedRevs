@@ -1438,7 +1438,7 @@ $messages['rue'] = array(
 	'pendingchanges-recent' => '(менше 1 годины)',
 	'pendingchanges-category' => 'Катеґорія:',
 	'pendingchanges-diff' => 'перевірити',
-	'pendingchanges-watched' => 'Сторінкы з мого списку слїдованых',
+	'pendingchanges-watched' => '({{PLURAL:$1|слїдує $1 актівный хоснователь|слїдують $1 актівны хоснователї|слїдує $1 актівных хоснователїв}})',
 );
 
 /** Yakut (Саха тыла)
@@ -1573,6 +1573,11 @@ $messages['sv'] = array(
 	'pendingchanges-unwatched' => '(obevakad)',
 	'pendingchanges-watched' => '($1 {{PLURAL:$1|aktiv användare|aktiva användare}} bevakar)',
 	'pendingchanges-viewing' => '(granskas)',
+);
+
+/** Swahili (Kiswahili) */
+$messages['sw'] = array(
+	'pendingchanges-category' => 'Jamii:',
 );
 
 /** Telugu (తెలుగు)

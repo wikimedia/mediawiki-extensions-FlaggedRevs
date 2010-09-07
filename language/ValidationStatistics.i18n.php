@@ -1717,6 +1717,14 @@ $3",
 	'validationstatistics-reviews' => 'Granskningar',
 );
 
+/** Swahili (Kiswahili) */
+$messages['sw'] = array(
+	'validationstatistics-ns' => 'Eneo la wiki',
+	'validationstatistics-total' => 'Kurasa',
+	'validationstatistics-old' => 'Zilizopitwa na wakati',
+	'validationstatistics-user' => 'Mtumiaji',
+);
+
 /** Tamil (தமிழ்)
  * @author Kanags
  * @author TRYPPN

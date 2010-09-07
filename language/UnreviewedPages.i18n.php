@@ -1543,6 +1543,11 @@ $messages['sv'] = array(
 	'unreviewed-recent' => '(mindre än en timme)',
 );
 
+/** Swahili (Kiswahili) */
+$messages['sw'] = array(
+	'unreviewed-category' => 'Jamii:',
+);
+
 /** Tamil (தமிழ்)
  * @author Kanags
  * @author TRYPPN

@@ -681,6 +681,11 @@ $messages['sv'] = array(
 	'problemchanges-category' => 'Kategori:',
 );
 
+/** Swahili (Kiswahili) */
+$messages['sw'] = array(
+	'problemchanges-category' => 'Jamii:',
+);
+
 /** Telugu (తెలుగు)
  * @author Veeven
  */

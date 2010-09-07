@@ -10483,6 +10483,13 @@ $messages['myv'] = array(
 	'revreview-def-draft' => 'меельсе',
 );
 
+/** Mazanderani (مازِرونی)
+ * @author محک
+ */
+$messages['mzn'] = array(
+	'revreview-edit' => 'دچی‌ین',
+);
+
 /** Nahuatl (Nāhuatl)
  * @author Fluence
  */
@@ -14182,6 +14189,18 @@ Du kanske först måste följa upp eller "ogöra" redigeringar.',
 	'revreview-tt-flag' => 'Acceptera denna sidversion genom att markera den "kontrollerad"',
 	'revreview-tt-unflag' => 'Oacceptera denna sidversion genom att markera den som "okontrollerad"',
 	'validationpage' => '{{ns:help}}:Sidvalidering',
+);
+
+/** Swahili (Kiswahili) */
+$messages['sw'] = array(
+	'revreview-log-details-hide' => 'ficha maelezo mengine',
+	'revreview-auto' => '(kwa kujiendesha)',
+	'revreview-log' => 'Sababu:',
+	'revreview-style-2' => 'Nzuri',
+	'revreview-submit' => 'Wasilisha',
+	'revreview-filter-all' => 'zote',
+	'revreview-filter-auto' => 'Kwa kujiendesha',
+	'revreview-restriction-none' => 'usichague',
 );
 
 /** Silesian (Ślůnski)

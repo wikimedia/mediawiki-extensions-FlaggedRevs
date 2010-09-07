@@ -3633,6 +3633,15 @@ Här visas de nuvarande inställningarna för [[:$1|$1]]:',
 	'stabilization-review' => 'Markera den nuvarande revisionen som kontrollerad',
 );
 
+/** Swahili (Kiswahili) */
+$messages['sw'] = array(
+	'stabilization-submit' => 'Yakinisha',
+	'stabilization-comment' => 'Sababu:',
+	'stabilization-otherreason' => 'Sababu nyingine:',
+	'stabilization-expiry' => 'Itakwisha:',
+	'stabilization-othertime' => 'Kipindi kingine:',
+);
+
 /** Silesian (Ślůnski)
  * @author Herr Kriss
  */
