@@ -223,13 +223,13 @@ class UnreviewedPagesPager extends AlphabeticPager {
 		$this->mForm = $form;
 		$this->live = (bool)$live;
 		# Must be a content page...
-
 		if ( !is_null( $namespace ) ) {
-			$namespace = intval( $namespace );
+			$namespace = (int)$namespace;
 		}
 		$vnamespaces = FlaggedRevs::getReviewNamespaces();
+		# Must be a single NS for perfomance reasons
 		if ( is_null( $namespace ) || !in_array( $namespace, $vnamespaces ) ) {
-			$namespace = !$vnamespaces ? - 1 : $vnamespaces[0];
+			$namespace = !$vnamespaces ? -1 : $vnamespaces[0];
 		}
 		$this->namespace = $namespace;
 		$this->category = $category ? str_replace( ' ', '_', $category ) : null;
@@ -270,6 +270,7 @@ class UnreviewedPagesPager extends AlphabeticPager {
 			$fields[] = 'cl_sortkey';
 			$conds['cl_to'] = $this->category;
 			$conds[] = 'cl_from = page_id';
+			# Note: single NS always specified
 			if( $this->namespace == NS_FILE ) {
 				$conds['cl_type'] = 'file';
 			} elseif( $this->namespace == NS_CATEGORY ) {
