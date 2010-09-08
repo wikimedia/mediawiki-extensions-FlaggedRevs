@@ -938,6 +938,7 @@ $messages['ka'] = array(
 	'pendingchanges-category' => 'კატეგორია:',
 	'pendingchanges-stable' => 'სტაბილური გვერდები',
 	'pendingchanges-diff' => 'შემოწმება',
+	'pendingchanges-unwatched' => '(არავის კონტროლის სიაში არ არის)',
 	'pendingchanges-watched' => 'ჩემი კონტროლის სიის გვერდები',
 );
 
@@ -1804,7 +1805,7 @@ $messages['zh-hans'] = array(
 	'pendingchanges-hours' => '（$1小时）',
 	'pendingchanges-days' => '（$1日）',
 	'pendingchanges-recent' => '（少于1小时）',
-	'pendingchanges-category' => '分类:',
+	'pendingchanges-category' => '分类：',
 	'pendingchanges-onwatchlist' => '我的监视列表中的页面',
 	'pendingchanges-stable' => '察看',
 	'pendingchanges-diff' => '复审',
@@ -1830,7 +1831,7 @@ $messages['zh-hant'] = array(
 	'pendingchanges-hours' => '（$1小時）',
 	'pendingchanges-days' => '（$1日）',
 	'pendingchanges-recent' => '（少於1小時）',
-	'pendingchanges-category' => '分類:',
+	'pendingchanges-category' => '分類：',
 	'pendingchanges-onwatchlist' => '在我的監視列表中的頁面',
 	'pendingchanges-stable' => '察看',
 	'pendingchanges-diff' => '複審',

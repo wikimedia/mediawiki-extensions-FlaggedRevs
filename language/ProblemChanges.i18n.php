@@ -780,7 +780,7 @@ $messages['zh-hans'] = array(
 	'problemchanges' => '标记审核',
 	'problemchanges-legend' => '列出页面正等待审核',
 	'problemchanges-none' => '目前没有页面符合这些条件',
-	'problemchanges-category' => '分类:',
+	'problemchanges-category' => '分类：',
 );
 
 /** Traditional Chinese (‪中文(繁體)‬)
@@ -791,6 +791,6 @@ $messages['zh-hant'] = array(
 	'problemchanges' => '標記審核',
 	'problemchanges-legend' => '列出頁面正等待審核',
 	'problemchanges-none' => '目前沒有頁面符合這些條件',
-	'problemchanges-category' => '分類:',
+	'problemchanges-category' => '分類：',
 );
 

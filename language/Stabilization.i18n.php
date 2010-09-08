@@ -731,11 +731,12 @@ Při změně nastavení ''přednost výběru stabilní verze'', aby se standardn
 	'stabilization-sel-short-0' => 'kvalitní',
 	'stabilization-sel-short-1' => 'žádná',
 	'stabilization-sel-short-2' => 'čistá',
-	'stabilization-def-short' => 'výchozí',
+	'stabilization-def-short' => 'Výchozí',
 	'stabilization-def-short-0' => 'současná',
 	'stabilization-def-short-1' => 'Stabilní',
 	'stabilize_expiry_invalid' => 'Datum vypršení je chybné.',
 	'stabilize_expiry_old' => 'Čas vypršení již minul.',
+	'stabilize_denied' => 'Přístup odmítnut.',
 	'stabilize-expiring' => 'vyprší $1 (UTC)',
 	'stabilization-review' => 'Posoudit aktuální verzi',
 );
