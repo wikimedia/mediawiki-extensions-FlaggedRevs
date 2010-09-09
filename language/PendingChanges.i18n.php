@@ -784,6 +784,7 @@ $messages['hu'] = array(
 	'pendingchanges-days' => '({{PLURAL:$1|Egy|$1}} napja)',
 	'pendingchanges-recent' => '(kevesebb, mint egy órája)',
 	'pendingchanges-category' => 'Kategória:',
+	'pendingchanges-onwatchlist' => 'Lapok a figyelőlistámon',
 	'pendingchanges-stable' => 'megtekintett',
 	'pendingchanges-diff' => 'ellenőriz',
 	'pendingchanges-size' => 'Változás legfeljebb (bájtban):',
