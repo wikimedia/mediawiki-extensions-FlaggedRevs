@@ -1642,6 +1642,7 @@ $messages['hi'] = array(
  * @author Dalibor Bosits
  * @author Dnik
  * @author Ex13
+ * @author Herr Mlinka
  * @author SpeedyGonsales
  */
 $messages['hr'] = array(
@@ -1680,7 +1681,7 @@ Slijede važeće postavke za [[:$1|$1]]:',
 	'stabilize_expiry_invalid' => 'Neispravan datum isticanja.',
 	'stabilize_expiry_old' => 'Ovo vrijeme isticanja je već prošlo.',
 	'stabilize-expiring' => 'ističe $1 (UTC)',
-	'stabilization-review' => 'Ocijenite trenutačnu inačicu',
+	'stabilization-review' => 'Označite trenutačnu inačicu pregledanom',
 );
 
 /** Upper Sorbian (Hornjoserbsce)
