@@ -2503,7 +2503,7 @@ Molimo Vas da provjerite URL pomoću kojeg ste pristupili ovoj stranici.',
 $messages['ca'] = array(
 	'editor' => 'Editor',
 	'flaggedrevs' => 'Revisions senyalades',
-	'flaggedrevs-desc' => "Dóna als editors/revisors l'habilitat de validar revisions de pàgines i declarar-les estables.",
+	'flaggedrevs-desc' => 'Dóna als editors la capacitat de validar revisions de pàgines i declarar-les estables.',
 	'prefs-flaggedrevs' => 'Estabilitat',
 	'flaggedrevs-prefs-stable' => "Per defecte, mostra sempre la versió estable de les pàgines de contingut (si n'hi ha)",
 	'flaggedrevs-prefs-watch' => 'Posar a la meva llista de seguiment les pàgines que revisi',
