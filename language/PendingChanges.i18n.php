@@ -185,9 +185,10 @@ $messages['ast'] = array(
 
 /** Bavarian (Boarisch)
  * @author Man77
+ * @author Mucalexx
  */
 $messages['bar'] = array(
-	'pendingchanges' => 'Åide, gsichtete Seitn',
+	'pendingchanges' => 'Saiten mid unmarkiarde Enderungen',
 	'pendingchanges-legend' => 'Listn vu gsichtete Seitn mid nu ned gsichtete Veasionen',
 	'pendingchanges-list' => "De Spezialseitn zoagt {{PLURAL:$1|a gsichtete|gsichtete}} Seitn, vu {{PLURAL:$1|dea's|de's}} nu ned gsichtete Veasionen gibt.",
 	'pendingchanges-none' => "Momentan gibt's kane Seitn, de wås zu de Kriterien passn.",
@@ -195,7 +196,7 @@ $messages['bar'] = array(
 	'pendingchanges-days' => '($1 Tåg)',
 	'pendingchanges-recent' => '(weniga wia a Stund)',
 	'pendingchanges-category' => 'Kategorie:',
-	'pendingchanges-stable' => 'gsichtet',
+	'pendingchanges-stable' => 'De stabile Version is Standard',
 	'pendingchanges-diff' => 'sichtn',
 	'pendingchanges-size' => "Maximale Ändarungsgreß (in ''Bytes''):",
 	'pendingchanges-unwatched' => '(ned beobåchtet)',
