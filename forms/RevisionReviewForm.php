@@ -700,7 +700,7 @@ class RevisionReviewForm
 					$text, $title, $options, true, true, $article->getLatest() );
 				# Might as well save the cache while we're at it
 				if ( $rev->isCurrent() && $wgEnableParserCache ) {
-					$parserCache->save( $pOutput, $article, $user );
+					$parserCache->save( $pOutput, $article, $options );
 				}
 			}
 			$templateIDs = $pOutput->mTemplateIds;
