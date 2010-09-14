@@ -4100,9 +4100,9 @@ Ei voi järgeta.',
 $messages['vi'] = array(
 	'stabilization-tab' => 'vet',
 	'stabilization' => 'Ổn định trang',
-	'stabilization-text' => "'''Thay đổi thiết lập dưới đây để điều chỉnh cách lựa chọn và hiển thị phiên bản công bố của [[:\$1|\$1]].'''
+	'stabilization-text' => "'''Thay đổi thiết lập dưới đây để điều chỉnh cách lựa chọn và hiển thị phiên bản ổn định của [[:\$1|\$1]].'''
 
-Khi thay đổi cấu hình ''lựa chọn phiên bản công bố'' để mặc định sử dụng các phiên bản \"chất lượng\" hoặc \"sơ khai\",
+Khi thay đổi cấu hình ''lựa chọn phiên bản ổn định'' để mặc định sử dụng các phiên bản \"chất lượng\" hoặc \"sơ khai\",
 hãy nhớ kiểm tra xem thực sự có những phiên bản như vậy trong trang không, nếu không thay đổi đó sẽ có rất ít tác dụng.",
 	'stabilization-perm' => 'Tài khoản của bạn không có quyền thay đổi cấu hình phiên bản công bố.
 Dưới đây là các thiết lập hiện hành cho [[:$1|$1]]:',

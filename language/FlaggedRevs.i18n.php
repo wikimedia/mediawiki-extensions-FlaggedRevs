@@ -16239,6 +16239,7 @@ Trước tiên, có thể cần chỉnh lại hay ''lùi lại'' một số sử
 	'revreview-restriction-none' => 'không có',
 	'revreview-reviewlink' => 'sửa đổi đang chờ',
 	'revreview-reviewlink-title' => 'So sánh các thay đổi đang chờ',
+	'revreview-unreviewedpage' => 'Bỏ đánh dấu trang này',
 	'tooltip-ca-current' => 'Xem trang này với các thay đổi đang chờ',
 	'tooltip-ca-stable' => 'Xem phiên bản ổn định của trang này',
 	'tooltip-ca-default' => 'Thiết lập về bảo đảm chất lượng',
@@ -16250,6 +16251,8 @@ Trước tiên, có thể cần chỉnh lại hay ''lùi lại'' một số sử
 	'revreview-unlocked' => "'''Lưu ý:''' Các sửa đổi không cần được [[{{MediaWiki:Validationpage}}|duyệt]] trước khi được hiển thị tại trang này.",
 	'log-show-hide-review' => '$1 nhật trình duyệt',
 	'revreview-tt-review' => 'Áp dụng trạng thái này vào phiên bản này',
+	'revreview-tt-flag' => 'Chấp nhận sửa đổi này bằng cách đánh dấu nó là "đã duyệt"',
+	'revreview-tt-unflag' => 'Không chấp nhận sửa đổi này bằng cách đánh dấu nó là "không được duyệt"',
 	'validationpage' => '{{ns:help}}:Phê chuẩn trang',
 );
 
