@@ -4100,10 +4100,9 @@ Ei voi järgeta.',
 $messages['vi'] = array(
 	'stabilization-tab' => 'vet',
 	'stabilization' => 'Ổn định trang',
-	'stabilization-text' => "'''Thay đổi thiết lập dưới đây để điều chỉnh cách lựa chọn và hiển thị phiên bản ổn định của [[:\$1|\$1]].'''
+	'stabilization-text' => "'''Thay đổi thiết lập dưới đây để điều chỉnh cách lựa chọn và hiển thị phiên bản ổn định của [[:$1|$1]].'''
 
-Khi thay đổi cấu hình ''lựa chọn phiên bản ổn định'' để mặc định sử dụng các phiên bản \"chất lượng\" hoặc \"sơ khai\",
-hãy nhớ kiểm tra xem thực sự có những phiên bản như vậy trong trang không, nếu không thay đổi đó sẽ có rất ít tác dụng.",
+'''Lưu ý:''' Chỉ có thể thay đổi cấu hình ''lựa chọn phiên bản ổn định'' để mặc định sử dụng các phiên bản “chất lượng” hoặc ”ban sơ” nếu những phiên bản đó tồn tại. Ngoài ra, lưu ý rằng một phiên bản “chất lượng” cũng được coi là “đã xem qua” v.v.",
 	'stabilization-perm' => 'Tài khoản của bạn không có quyền thay đổi cấu hình phiên bản công bố.
 Dưới đây là các thiết lập hiện hành cho [[:$1|$1]]:',
 	'stabilization-page' => 'Tên trang:',
@@ -4111,7 +4110,7 @@ Dưới đây là các thiết lập hiện hành cho [[:$1|$1]]:',
 	'stabilization-select' => 'Thứ tự lựa chọn bản công bố',
 	'stabilization-select1' => 'Bản chất lượng mới nhất;
 nếu không có, sẽ là bản đã xem qua mới nhất',
-	'stabilization-select2' => 'Bản đã duyệt mới nhất, bất kể mức độ phê chuẩn',
+	'stabilization-select2' => 'Phiên bản được xem qua gần đây nhất',
 	'stabilization-select3' => 'Phiên bản cổ xưa mới nhất; nếu không có, thì bản chất lượng hoặc đã xem qua mới nhất',
 	'stabilization-def' => 'Bản được hiển thị mặc định',
 	'stabilization-def1' => 'Phiên bản ổn định; không có thì phiên bản hiện hành',
@@ -4144,7 +4143,7 @@ Không thể cấu hình.',
 	'stabilize_expiry_old' => 'Thời hạn đã qua.',
 	'stabilize_denied' => 'Không cho phép.',
 	'stabilize-expiring' => 'hết hạn vào $1 (UTC)',
-	'stabilization-review' => 'Duyệt phiên bản hiện hành',
+	'stabilization-review' => 'Đánh dấu phiên bản hiện hành là “đã xem qua”.',
 );
 
 /** Volapük (Volapük)

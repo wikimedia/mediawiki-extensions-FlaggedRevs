@@ -16042,12 +16042,12 @@ $messages['vi'] = array(
 	'group-autoreview' => 'Người tự duyệt',
 	'group-autoreview-member' => 'người tự duyệt',
 	'grouppage-autoreview' => '{{ns:project}}:Người tự duyệt',
-	'revreview-hist-draft' => 'phiên bản nháp',
+	'revreview-hist-draft' => 'phiên bản chưa xem qua',
 	'revreview-hist-pending' => 'phiên bản đang chờ',
 	'revreview-hist-quality' => 'bản chất lượng cao',
-	'revreview-hist-basic' => 'bản đã xem qua',
+	'revreview-hist-basic' => 'phiên bản đã xem qua',
 	'revreview-hist-quality-user' => '[[User:$3|$3]] [{{fullurl:$1|stableid=$2}} đã phê chuẩn]',
-	'revreview-hist-basic-user' => '[[User:$3|$3]] [{{fullurl:$1|stableid=$2}} đã xem qua]',
+	'revreview-hist-basic-user' => 'đã được [[User:$3|$3]] [{{fullurl:$1|stableid=$2}} xem qua]',
 	'revreview-hist-basic-auto' => '[{{fullurl:$1|stableid=$2}} được xem qua tự động]',
 	'revreview-hist-quality-auto' => '[{{fullurl:$1|stableid=$2}} được chấp nhận tự động]',
 	'revreview-hist-pending-difflink' => "'''[[{{fullurl:$1|oldid=$2&diff=$3}} đang chờ được duyệt]]'''",
@@ -16078,10 +16078,10 @@ $messages['vi'] = array(
 	'revreview-accuracy-3' => 'Đầy đủ nguồn',
 	'revreview-accuracy-4' => 'Rất tốt',
 	'revreview-auto' => '(tự động)',
-	'revreview-basic' => 'Đây là bản [[{{MediaWiki:Validationpage}}|ổn định]] mới nhất, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} được xem qua] vào <i>$2</i>.
-[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Bản nháp] có [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|thay đổi|thay đổi}}] đề nghị.',
-	'revreview-basic-i' => 'Đây là phiên bản [[{{MediaWiki:Validationpage}}|ổn định]] được [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} xem qua] vào <i>$2</i>.
-[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Bản nháp] có các [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} thay đổi bản mẫu hay tập tin] đang chờ được duyệt.',
+	'revreview-basic' => 'Đây là [[{{MediaWiki:Validationpage}}|phiên bản ổn định]] được [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} xem qua] vào <i>$2</i>.
+Hiện có [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 thay đổi] đang chờ được duyệt',
+	'revreview-basic-i' => 'Dây là [[{{MediaWiki:Validationpage}}|phiên bản ổn định]] được [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} xem qua] vào <i>$2</i>.
+Hiện có [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} thay đổi bản mẫu/tập tin] đang chờ được duyệt.',
 	'revreview-basic-old' => 'Đây là một bản [[{{MediaWiki:Validationpage}}|đã xem qua]] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} tất cả]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} được phê chuẩn] vào <i>$2</i>.
 Đã có [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} những sửa đổi] mới.',
 	'revreview-basic-same' => 'Đây là bản [[{{MediaWiki:Validationpage}}|ổn định]] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} được xem qua] vào <i>$2</i>.',
@@ -16239,7 +16239,7 @@ Trước tiên, có thể cần chỉnh lại hay ''lùi lại'' một số sử
 	'revreview-restriction-none' => 'không có',
 	'revreview-reviewlink' => 'sửa đổi đang chờ',
 	'revreview-reviewlink-title' => 'So sánh các thay đổi đang chờ',
-	'revreview-unreviewedpage' => 'Bỏ đánh dấu trang này',
+	'revreview-unreviewedpage' => 'trang chưa xem qua',
 	'tooltip-ca-current' => 'Xem trang này với các thay đổi đang chờ',
 	'tooltip-ca-stable' => 'Xem phiên bản ổn định của trang này',
 	'tooltip-ca-default' => 'Thiết lập về bảo đảm chất lượng',
@@ -16251,8 +16251,8 @@ Trước tiên, có thể cần chỉnh lại hay ''lùi lại'' một số sử
 	'revreview-unlocked' => "'''Lưu ý:''' Các sửa đổi không cần được [[{{MediaWiki:Validationpage}}|duyệt]] trước khi được hiển thị tại trang này.",
 	'log-show-hide-review' => '$1 nhật trình duyệt',
 	'revreview-tt-review' => 'Áp dụng trạng thái này vào phiên bản này',
-	'revreview-tt-flag' => 'Chấp nhận sửa đổi này bằng cách đánh dấu nó là "đã duyệt"',
-	'revreview-tt-unflag' => 'Không chấp nhận sửa đổi này bằng cách đánh dấu nó là "không được duyệt"',
+	'revreview-tt-flag' => 'Chấp nhận thay đổi này bằng cách đánh dấu nó là “đã xem qua”',
+	'revreview-tt-unflag' => 'Không chấp nhận phiên bản này bằng cách đánh dấu nó là “chưa xem qua”',
 	'validationpage' => '{{ns:help}}:Phê chuẩn trang',
 );
 
