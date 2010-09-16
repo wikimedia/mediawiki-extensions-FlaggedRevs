@@ -135,6 +135,17 @@ $messages['bcc'] = array(
 	'reviewedpages-best' => 'بازبینی اصلی',
 );
 
+/** Belarusian (Беларуская)
+ * @author Хомелка
+ */
+$messages['be'] = array(
+	'reviewedpages' => 'Прагледжаныя старонкі',
+	'reviewedpages-leg' => 'Пералік старонак, якія былі дагледжаны',
+	'reviewedpages-none' => 'Няма старонак у гэтым пераліку.',
+	'reviewedpages-all' => 'Дагледжаныя версіі',
+	'reviewedpages-best' => 'лепшая версія',
+);
+
 /** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))
  * @author EugeneZelenko
  * @author Jim-by

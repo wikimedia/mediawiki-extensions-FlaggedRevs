@@ -55,6 +55,14 @@ $messages['arz'] = array(
 	'problemchanges-category' => 'التصنيف:',
 );
 
+/** Belarusian (Беларуская)
+ * @author Хомелка
+ */
+$messages['be'] = array(
+	'problemchanges-none' => 'У цяперашні час няма старонак, якія адпавядаюць гэтым крытэрыям',
+	'problemchanges-category' => 'Катэгорыя:',
+);
+
 /** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))
  * @author EugeneZelenko
  * @author Jim-by

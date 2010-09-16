@@ -59,6 +59,15 @@ $messages['bcc'] = array(
 	'qualityoversight-legend' => 'گردگ په آماران نوکین بازبینی',
 );
 
+/** Belarusian (Беларуская)
+ * @author Хомелка
+ */
+$messages['be'] = array(
+	'qualityoversight' => 'Пашыраны прагляд логаў',
+	'qualityoversight-list' => 'На гэтай старонцы пералічаны апошнія ўзгадненні і неўзгадненні зменаў.',
+	'qualityoversight-legend' => 'Пошук апошняга прагляду логаў',
+);
+
 /** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))
  * @author EugeneZelenko
  * @author Jim-by

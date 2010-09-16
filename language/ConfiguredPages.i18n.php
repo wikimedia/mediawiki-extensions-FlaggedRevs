@@ -66,6 +66,23 @@ $messages['arz'] = array(
 	'configuredpages-prec-pristine' => 'سابقه فائقة',
 );
 
+/** Belarusian (Беларуская)
+ * @author Хомелка
+ */
+$messages['be'] = array(
+	'configuredpages' => 'Старонкі з канфігурацыяй папярэдняга прагляду',
+	'configuredpages-list' => 'Ніжэй прыведзены пералік старонак, настроены на іншыя настаўленні разглядання, чым старонка па змоўчванні. 
+Некаторыя параметры могуць змяніць тое, якая версія адлюстроўваецца для чытачоў або яшчэ больш абмежаваць, хто можа ўносіць змены, якія не патрабуюць перагляду.',
+	'configuredpages-none' => 'Няма старонак у гэтым пераліку.',
+	'configuredpages-config' => 'Канфігурацыя',
+	'configuredpages-precedence' => 'Прыярытэт:',
+	'configuredpages-prec-none' => 'апошняя правераная',
+	'configuredpages-prec-quality' => 'апошняя якасная',
+	'configuredpages-prec-pristine' => 'апошняя некранутая',
+	'configuredpages-def-draft' => 'апошняя версія',
+	'configuredpages-def-stable' => 'стабільная версія',
+);
+
 /** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))
  * @author EugeneZelenko
  * @author Wizardist

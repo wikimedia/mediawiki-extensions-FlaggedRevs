@@ -1545,8 +1545,20 @@ $messages['bcl'] = array(
 	'revreview-revnotfound' => 'Dai nahanap an lumang pagpakaraháy kan pahina na hinagad mo. Sosogon tabì an URL na ginamit mo sa pagabót sa pahinang ini.',
 );
 
-/** Belarusian (Беларуская) */
+/** Belarusian (Беларуская)
+ * @author Хомелка
+ */
 $messages['be'] = array(
+	'action-review' => 'дагледжаныя версіі',
+	'editor' => 'Даглядальнік',
+	'flaggedrevs' => 'Дагледжаныя версіі',
+	'group-editor' => 'Рэдактары',
+	'group-editor-member' => 'рэдактар',
+	'group-reviewer' => 'Даглядальнікі',
+	'group-reviewer-member' => 'даглядальнік',
+	'revreview-hist-draft' => 'неправераная версія',
+	'revreview-hist-quality' => 'якасная версія',
+	'revreview-hist-basic' => 'правераная версія',
 	'revreview-revnotfound' => 'Не ўдалося знайсці ранейшую версію гэтага артыкула, па якую вы звярталіся.
 Праверце URL, праз які вы спрабавалі адкрыць старонку.',
 );
@@ -16068,7 +16080,7 @@ $messages['vi'] = array(
 	'review-logentry-diff' => 'thay đổi được duyệt',
 	'review-logentry-diff2' => 'các thay đổi bị giáng cấp',
 	'review-logpage' => 'Nhật trình duyệt',
-	'review-logpagetext' => 'Đây là nhật trình ghi lại những thay đổi đối với tình trạng [[{{MediaWiki:Validationpage}}|phê chuẩn]] cho nội dung trang.',
+	'review-logpagetext' => 'Đây là nhật trình ghi lại những phiên bản của trang nội dung đã được [[{{MediaWiki:Validationpage}}|xem qua]].',
 	'reviewer' => 'Người duyệt bài',
 	'revisionreview' => 'Các bản đã duyệt',
 	'revreview-accuracy' => 'Độ chính xác',
@@ -16148,11 +16160,11 @@ Hiện có [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} thay đ�
 	'revreview-quality-same' => 'Đây là [[{{MediaWiki:Validationpage}}|phiên bản ổn định]] được [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} chấp nhận] vào <i>$2</i>.',
 	'revreview-quality-source' => 'Một [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} bản chất lượng] của trang này, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} được phê chuẩn] vào <i>$2</i>, khác với bản này.',
 	'revreview-quality-title' => 'Đây là một phiên bản chất lượng của trang này',
-	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|Trang đã xem qua]]''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} xem bản nháp]]",
-	'revreview-quick-basic-old' => "'''[[{{MediaWiki:Validationpage}}|Trang đã xem qua]]''' [ xem bản nháp]]",
-	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|Trang đã xem qua]]'''",
+	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|Đã xem qua]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} duyệt thay đổi đang chờ]]",
+	'revreview-quick-basic-old' => "'''[[{{MediaWiki:Validationpage}}|Đã xem qua]]'''",
+	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|Đã xem qua]]'''",
 	'revreview-quick-invalid' => "'''ID phiên bản không hợp lệ'''",
-	'revreview-quick-none' => "'''[[{{MediaWiki:Validationpage}}|Bản hiện hành]]''' (chưa duyệt)",
+	'revreview-quick-none' => "'''[[{{MediaWiki:Validationpage}}|Chưa xem qua]]'''",
 	'revreview-quick-quality' => "'''[[{{MediaWiki:Validationpage}}|Chất lượng]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} duyệt thay đổi đang chờ]]",
 	'revreview-quick-quality-old' => "'''[[{{MediaWiki:Validationpage}}|Chất lượng]]'''",
 	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|Chất lượng]]'''",
@@ -16160,7 +16172,7 @@ Hiện có [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} thay đ�
 	'revreview-quick-see-quality' => '[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} duyệt thay đổi đang chờ]]',
 	'revreview-selected' => "Phiên bản được chọn của '''$1''':",
 	'revreview-source' => 'Mã nguồn',
-	'revreview-basic-title' => 'Trang này đã được xem qua',
+	'revreview-basic-title' => 'Đây là một phiên bản đã xem qua của trang này',
 	'revreview-stable1' => 'Bạn có thể muốn xem [{{fullurl:$1|stableid=$2}} phiên bản có cờ này] để xem nó mới có phải là [{{fullurl:$1|stable=1}} phiên bản ổn định] của trang này hay chưa.',
 	'revreview-stable2' => 'Bạn có thể muốn xem [{{fullurl:$1|stable=1}} phiên bản ổn định] của trang này.',
 	'revreview-style' => 'Độ dễ đọc',
@@ -16200,11 +16212,11 @@ Trước tiên, có thể cần chỉnh lại hay ''lùi lại'' một số sử
 	'revreview-visibility2' => "'''Trang này có một [[{{MediaWiki:Validationpage}}|phiên bản ổn định]] lỗi thời; có thể [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} cấu hình] thiết lập độ ổn định cho trang.'''",
 	'revreview-visibility3' => "'''Trang này không có [[{{MediaWiki:Validationpage}}|phiên bản ổn định]]; có thể [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} cấu hình] thiết lập độ ổn định cho trang.'''",
 	'revreview-revnotfound' => 'Không thấy phiên bản trước của trang này. Xin kiểm tra lại.',
-	'right-autoreview' => 'Tự động đánh dấu phiên bản là đã xem qua',
+	'right-autoreview' => 'Tự động đánh dấu phiên bản của mình là đã “xem qua”',
 	'right-movestable' => 'Di chuyển trang có phiên bản ổn định',
-	'right-review' => 'Đánh dấu phiên bản đã xem qua',
+	'right-review' => 'Đánh dấu các phiên bản là đã “xem qua”',
 	'right-stablesettings' => 'Cấu hình cho phiên bản ổn định được lựa chọn và hiển thị như thế nào',
-	'right-validate' => 'Đánh dấu phiên bản là “chất lượng cao”',
+	'right-validate' => 'Đánh dấu các phiên bản là “chất lượng cao”',
 	'right-unreviewedpages' => 'Xem [[Special:UnreviewedPages|danh sách các trang chưa duyệt]]',
 	'rights-editor-autosum' => 'tự phong cờ',
 	'rights-editor-revoke' => 'đưa [[$1]] ra khỏi nhóm biên tập viên',
