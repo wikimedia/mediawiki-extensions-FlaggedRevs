@@ -71,7 +71,7 @@ abstract class PageStabilityForm
 	public function getExpiry() {
 		return $this->expiry;
 	}
-	
+
 	public function setExpiry( $value ) {
 		$this->trySet( $this->expiry, $value );
 	}
@@ -87,7 +87,7 @@ abstract class PageStabilityForm
 	public function getAutoreview() {
 		return $this->autoreview;
 	}	
-	
+
 	public function setAutoreview( $value ) {
 		$this->trySet( $this->autoreview, $value );
 	}
@@ -366,7 +366,7 @@ abstract class PageStabilityForm
 	}
 
 	protected function loadExpiry() {
-		# Custom expiry takes precedence
+		# Custom expiry replaces dropdown
 		if ( $this->expiry == '' ) {
 			$this->expiry = $this->expirySelection;
 			if ( $this->expiry == 'existing' ) {
@@ -376,7 +376,7 @@ abstract class PageStabilityForm
 	}
 
 	protected function loadReason() {
-		# Custom reason takes precedence
+		# Custom reason replaces dropdown
 		if ( $this->reasonSelection != 'other' ) {
 			$comment = $this->reasonSelection; // start with dropdown reason
 			if ( $this->reason != '' ) {
@@ -407,9 +407,6 @@ abstract class PageStabilityForm
 
 // Assumes $wgFlaggedRevsProtection is off
 class PageStabilityGeneralForm extends PageStabilityForm {
-	/* Form parameters which can be user given */
-	public $select = -1; # Precedence
-
 	public function getReviewThis() {
 		return $this->reviewThis;
 	}
@@ -417,14 +414,6 @@ class PageStabilityGeneralForm extends PageStabilityForm {
 	public function setReviewThis( $value ) {
 		$this->trySet( $this->reviewThis, $value );
 	}
-
-	public function getPrecedence() {
-		return $this->select;
-	}
-
-	public function setPrecedence( $value ) {
-		$this->trySet( $this->select, $value );
-	}	
 
 	public function getOverride() {
 		return $this->override;
@@ -435,7 +424,6 @@ class PageStabilityGeneralForm extends PageStabilityForm {
 	}
 
 	protected function reallyPreloadSettings() {
-		$this->select = $this->oldConfig['select'];
 		$this->override = $this->oldConfig['override'];
 		$this->autoreview = $this->oldConfig['autoreview'];
 		$this->expiry = $this->oldExpiry;
@@ -448,9 +436,6 @@ class PageStabilityGeneralForm extends PageStabilityForm {
 		$this->loadReason();
 		$this->loadExpiry();
 		$this->override = $this->override ? 1 : 0; // default version settings is 0 or 1
-		if ( !FlaggedRevs::isValidPrecedence( $this->select ) ) {
-			return 'stabilize_invalid_precedence'; // invalid precedence value
-		}
 		// Check autoreview restriction setting
 		if ( $this->autoreview != '' // restriction other than 'none'
 			&& !in_array( $this->autoreview, FlaggedRevs::getRestrictionLevels() ) )
@@ -468,7 +453,7 @@ class PageStabilityGeneralForm extends PageStabilityForm {
 			'override'   => $this->override,
 			'autoreview' => $this->autoreview,
 			'expiry'     => $this->expiry, // TS_MW/infinity
-			'precedence' => $this->select
+			'precedence' => 1 // here for log hook b/c
 		);
 	}
 
@@ -510,7 +495,7 @@ class PageStabilityGeneralForm extends PageStabilityForm {
 					array( 'PRIMARY' ),
 					array(
 						'fpc_page_id'  => $this->page->getArticleID(),
-						'fpc_select'   => (int)$this->select,
+						'fpc_select'   => 1, // unused
 						'fpc_override' => (int)$this->override,
 						'fpc_level'    => $this->autoreview,
 						'fpc_expiry'   => $dbExpiry
@@ -523,18 +508,16 @@ class PageStabilityGeneralForm extends PageStabilityForm {
 	}
 
 	protected function newConfigIsReset() {
-		return ( $this->select == FlaggedRevs::getPrecedence()
-			&& $this->override == FlaggedRevs::isStableShownByDefault()
+		return ( $this->override == FlaggedRevs::isStableShownByDefault()
 			&& $this->autoreview == '' );
 	}
 
 	// Checks if new config is different than the existing row
-	protected function configIsDifferent( $oldRow, $select, $override, $autoreview, $dbExpiry ) {
+	protected function configIsDifferent( $oldRow, $override, $autoreview, $dbExpiry ) {
 		if( !$oldRow ) {
 			return true; // no previous config
 		}
-		return ( $oldRow->fpc_select != $select // ...precedence changed, or...
-			|| $oldRow->fpc_override != $override // ...override changed, or...
+		return ( $oldRow->fpc_override != $override // ...override changed, or...
 			|| $oldRow->fpc_level != $autoreview // ...autoreview level changed, or...
 			|| $oldRow->fpc_expiry != $dbExpiry // ...expiry changed
 		);
@@ -588,7 +571,7 @@ class PageStabilityProtectForm extends PageStabilityForm {
 		return true;
 	}
 
-	// Doesn't include 'precedence'; checked in FlaggedRevsLogs
+	// Doesn't and shouldn't include 'precedence'; checked in FlaggedRevsLogs
 	protected function getLogParams() {
 		return array(
 			'override'   => $this->override, // in case of site changes

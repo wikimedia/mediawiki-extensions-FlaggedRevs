@@ -172,8 +172,9 @@ There are [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} template/f
 	'revreview-style-4'            => 'Featured',
 	'revreview-submit'             => 'Submit',
 	'revreview-submitting'         => 'Submitting...',
-	'revreview-submit-review'      => 'Accept',
-	'revreview-submit-unreview'    => 'Unaccept',
+	'revreview-submit-review'      => 'Accept revision',
+	'revreview-submit-unreview'    => 'Unaccept revision',
+	'revreview-submit-reject'      => 'Reject changes',
 	'revreview-submit-reviewed'    => 'Done. Accepted!',
 	'revreview-submit-unreviewed'  => 'Done. Unaccepted!',
 	'revreview-successful'         => '\'\'\'Revision of [[:$1|$1]] successfully flagged. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} view reviewed versions])\'\'\'',
@@ -184,19 +185,19 @@ There are [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} template/f
 	'revreview-toggle-title'       => 'show/hide details',
 	'revreview-toolow'             => '\'\'\'You must rate each of the attributes higher than "inadequate" in order for a revision to be considered reviewed.\'\'\'
 
-To remove the review status of a revision, set \'\'all\'\' fields to "inadequate".
+To remove the review status of a revision, click "unaccept".
 
 Please hit the "back" button in your browser and try again.',
 	'revreview-update'             => '\'\'\'Please [[{{MediaWiki:Validationpage}}|review]] any pending changes \'\'(shown below)\'\' made since the stable version.\'\'\'
-	You may first need to follow-up on or "undo" edits.',
+	You may need to follow-up on or "undo" edits.',
 	'revreview-update-edited'      => '<span class="flaggedrevs_important">Your changes are not yet in the stable version.</span>
 
 Please review all the changes shown below to make your edits appear in the stable version.
-You may first need to follow-up on or "undo" edits.',
+You may need to follow-up on or "undo" edits.',
 	'revreview-update-edited-prev'  => '<span class="flaggedrevs_important">Your changes are not yet in the stable version. There are previous changes pending review.</span>
 
 Please review all the changes shown below to make your edits appear in the stable version.
-You may first need to follow-up on or "undo" edits.',
+You may need to follow-up on or "undo" edits.',
 	'revreview-update-includes'    => '\'\'\'Some templates/files were updated:\'\'\'',
 	'revreview-update-use'         => '\'\'\'NOTE:\'\'\' The stable version of each of these templates/files is used in the stable version of this page.',
 	'revreview-visibility'         => '\'\'\'This page has an updated [[{{MediaWiki:Validationpage}}|stable version]]; page stability settings can be [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} configured].\'\'\'',
@@ -272,7 +273,8 @@ Please check the URL you used to access this page.',
 	
 	'revreview-tt-review'          => 'Apply this status to this revision',
 	'revreview-tt-flag'            => 'Accept this revision by marking it as "checked"',
-	'revreview-tt-unflag'		   => 'Unaccept this revision by marking it as "unchecked"',
+	'revreview-tt-unflag'		   => 'Unaccept this revision by marking it as "unchecked" (ignores ratings)',
+	'revreview-tt-reject'		   => 'Reject these changes by reverting them (ignores ratings)',
 	'validationpage'               => '{{ns:help}}:Page validation',
 );
 

@@ -82,7 +82,6 @@ class ApiStabilizeGeneral extends ApiStabilize {
 		$form->setExpirySelection( 'other' ); # Expiry dropdown
 		$restriction = $params['autoreview'];
 		// Fill in config fields from URL params
-		$form->setPrecedence( $this->precendenceFromKey( $params['precedence'] ) );
 		if ( $params['default'] === null ) {
 			// Default version setting not optional
 			$this->dieUsageMsg( array( 'missingparam', 'default' ) );
@@ -105,7 +104,6 @@ class ApiStabilizeGeneral extends ApiStabilize {
 		$res = array();
 		$res['title'] = $title->getPrefixedText();
 		$res['default'] = $params['default'];
-		$res['precedence'] = $params['precedence'];
 		$res['autoreview'] = $params['autoreview'];
 		$res['expiry'] = $form->getExpiry();
 		$this->getResult()->addValue( null, $this->getModuleName(), $res );
@@ -120,28 +118,6 @@ class ApiStabilizeGeneral extends ApiStabilize {
 		return null; // bad key?
 	}
 
-	protected function precendenceFromKey( $key ) {
-		if ( $key == 'pristine' ) {
-			return FLAGGED_VIS_PRISTINE;
-		} else if ( $key == 'quality' ) {
-			return FLAGGED_VIS_QUALITY;
-		} else if ( $key == 'latest' ) {
-			return FLAGGED_VIS_LATEST;
-		}
-		return null; // bad key?
-	}
-
-	protected function keyFromPrecendence( $precedence ) {
-		if ( $precedence == FLAGGED_VIS_PRISTINE ) {
-			return 'pristine';
-		} else if ( $precedence == FLAGGED_VIS_QUALITY ) {
-			return 'quality';
-		} else if ( $precedence == FLAGGED_VIS_LATEST ) {
-			return 'lastest';
-		}
-		return null; // bad key?
-	}
-
 	public function getAllowedParams() {
 		// Replace '' with more readable 'none' in autoreview restiction levels
 		$autoreviewLevels = FlaggedRevs::getRestrictionLevels();
@@ -150,10 +126,6 @@ class ApiStabilizeGeneral extends ApiStabilize {
 			'default'     => array(
 				ApiBase :: PARAM_TYPE => array( 'latest', 'stable' ),
 				ApiBase :: PARAM_DFLT => null,
-			),
-			'precedence'  => array(
-				ApiBase :: PARAM_TYPE => array( 'pristine', 'quality', 'latest' ),
-				ApiBase :: PARAM_DFLT => $this->keyFromPrecendence( FlaggedRevs::getPrecedence() )
 			),
 			'autoreview'  => array(
 				ApiBase :: PARAM_TYPE => $autoreviewLevels,
@@ -172,7 +144,6 @@ class ApiStabilizeGeneral extends ApiStabilize {
 	public function getParamDescription() {
 		return array(
 			'default' 		=> 'Default revision to show',
-			'precedence'	=> 'How the stable version is selected by precedence',
 			'autoreview' 	=> 'Auto-review restriction',
 			'expiry' 		=> 'Expiry for these settings',
 			'title' 		=> 'Title of page to be stabilized',

@@ -5,6 +5,8 @@
 class FlaggedArticleView {
 	protected $article = null;
 
+	protected $diffRevs = null;
+	protected $isReviewableDiff = false;
 	protected $isDiffFromStable = false;
 	protected $isMultiPageDiff = false;
 	protected $reviewNotice = '';
@@ -1038,10 +1040,10 @@ class FlaggedArticleView {
 			$rev = Revision::newFromId( $wgOut->getRevisionId() );
 		}
 		# Build the review form as needed
-		if ( $rev ) {
-			$templateIDs = $fileSHA1Keys = null;
+		if ( $rev && ( !$this->diffRevs || $this->isReviewableDiff ) ) {
 			# $wgOut may not already have the inclusion IDs, such as for diffonly=1.
 			# RevisionReviewForm will fetch them as needed however.
+			$templateIDs = $fileSHA1Keys = null;
 			if ( $wgOut->getRevisionId() == $rev->getId()
 				&& isset( $wgOut->mTemplateIds )
 				&& isset( $wgOut->fr_fileSHA1Keys ) )
@@ -1049,12 +1051,14 @@ class FlaggedArticleView {
 				$templateIDs = $wgOut->mTemplateIds;
 				$fileSHA1Keys = $wgOut->fr_fileSHA1Keys;
 			}
-			$form = RevisionReviewForm::buildQuickReview( $wgUser, $this->article,
-				$rev, $templateIDs, $fileSHA1Keys, $this->isDiffFromStable );
+			# Review notice box goes in top of form
+			$form = RevisionReviewForm::buildQuickReview(
+				$wgUser, $this->article, $rev, $this->diffRevs['old'],
+				$this->diffNoticeBox, $templateIDs, $fileSHA1Keys
+			);
 			# Diff action: place the form at the top of the page
-			if ( $wgRequest->getVal( 'diff' ) ) {
-				# Review notice box goes above form
-				$wgOut->prependHTML( $this->diffNoticeBox . $form );
+			if ( $this->diffRevs ) {
+				$wgOut->prependHTML( $form );
 			# View action: place the form at the bottom of the page
 			} else {
 				$data .= $form;
@@ -1292,7 +1296,7 @@ class FlaggedArticleView {
 			&& $this->isDiffFromStable
 			&& !$this->article->stableVersionIsSynced() ) // pending changes
 		{
-			$form = '';
+			$changeDiv = '';
 			$this->reviewFormRev = $newRev;
 			$changeList = array();
 			# Page not synced only due to includes?
@@ -1345,15 +1349,16 @@ class FlaggedArticleView {
 						$changeDiv .= wfMsgExt( 'revreview-update-use', 'parse' );
 					}
 				}
-				if ( $changeDiv != '' ) {
-					$css = 'flaggedrevs_diffnotice plainlinks';
-					$form .= "<div id='mw-fr-difftostable' class='$css'>$changeDiv</div>\n";
-				}
 			}
-			if ( $wgUser->isAllowed( 'review' ) ) {
-				$this->diffNoticeBox = $form; // add as part of form
-			} else {
-				$wgOut->addHTML( $form );
+			if ( $changeDiv != '' ) {
+				if ( $wgUser->isAllowed( 'review' ) ) {
+					$this->diffNoticeBox = $changeDiv; // add as part of form
+				} else {
+					$css = 'flaggedrevs_diffnotice plainlinks';
+					$wgOut->addHTML(
+						"<div id='mw-fr-difftostable' class='$css'>$changeDiv</div>\n"
+					);
+				}
 			}
 		}
 		# Add a link to diff from stable to current as needed.
@@ -1537,9 +1542,17 @@ class FlaggedArticleView {
 				// Is this a diff of a draft rev against the stable rev?
 				if ( self::isDiffToStable( $srev, $oldRev, $newRev ) ) {
 					$this->isDiffFromStable = true;
+					$this->isReviewableDiff = true;
+				// Is this a diff of a draft rev against a reviewed rev?
+				} elseif (
+					FlaggedRevision::newFromTitle( $diff->getTitle(), $oldRev->getId() ) ||
+					FlaggedRevision::newFromTitle( $diff->getTitle(), $newRev->getId() )
+				) {
+					$this->isReviewableDiff = true;
 				}
 			}
 		}
+		$this->diffRevs = array( 'old' => $oldRev->getId(), 'new' => $newRev->getId() ); 
 		return true;
 	}
 

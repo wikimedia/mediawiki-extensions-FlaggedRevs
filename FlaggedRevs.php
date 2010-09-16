@@ -28,16 +28,6 @@ if ( defined( 'MW_HTML_FOR_DUMP' ) ) {
 	return;
 }
 
-# Quality -> Sighted (default)
-if ( !defined( 'FLAGGED_VIS_QUALITY' ) )
-	define( 'FLAGGED_VIS_QUALITY', 0 );
-# No precedence
-if ( !defined( 'FLAGGED_VIS_LATEST' ) )
-	define( 'FLAGGED_VIS_LATEST', 1 );
-# Pristine -> Quality -> Sighted
-if ( !defined( 'FLAGGED_VIS_PRISTINE' ) )
-	define( 'FLAGGED_VIS_PRISTINE', 2 );
-	
 # SELECT parameters...
 if ( !defined( 'FR_FOR_UPDATE' ) )
 	define( 'FR_FOR_UPDATE', 1 );
@@ -76,7 +66,7 @@ $wgExtensionCredits['specialpage'][] = array(
 
 # This will only distinguish "sighted", "quality", and unreviewed
 # A small icon will show in the upper right hand corner
-$wgSimpleFlaggedRevsUI = true;
+$wgSimpleFlaggedRevsUI = true; // @TODO: remove when ready
 # For visitors, only show tags/icons for unreviewed/outdated pages
 $wgFlaggedRevsLowProfile = true;
 
@@ -89,19 +79,14 @@ $wgFlaggedRevsWhitelist = array();
 # Is a "stable version" used as the default display
 # version for all pages in reviewable namespaces?
 $wgFlaggedRevsOverride = true;
-# Precedence order for stable version selection.
-# The stable version will be the highest ranked version in the page.
-# FR_PRISTINE : "pristine" > "quality" > "sighted"
-# FR_QUALITY : "pristine" = "quality" > "sighted"
-# FR_SIGHTED : "pristine" = "quality" = "sighted"
-$wgFlaggedRevsPrecedence = FR_QUALITY;
 # Below are groups that see the current revision by default.
 # This makes editing easier since the users always start off
 # viewing the latest version of pages.
 $wgFlaggedRevsExceptions = array( 'user' );
 
 # Can users make comments that will show up below flagged revisions?
-$wgFlaggedRevsComments = false;
+# NOTE: this is NOT the same as the simple log comment
+$wgFlaggedRevsComments = false; // @TODO: remove when ready?
 # Auto-review edits that are:
 # (a) directly to the stable version by users with 'autoreview'/'bot'
 # (b) self-reversions back to the stable version by any user
@@ -144,7 +129,6 @@ $wgFlaggedRevsRestrictionLevels = array( '', 'sysop' );
 # on the protection form of pages. Each level has the stable version shown by default.
 # A "none" level will appear in the form as well, to disable the review process.
 # Pages will only be reviewable if manually restricted to a level above "none".
-# NOTE: The stable version precedence cannot be configured per page with this.
 $wgFlaggedRevsProtection = false;
 
 # Define our basic reviewer class of established editors (Editors)
@@ -253,8 +237,10 @@ $wgFlaggedRevsHandleIncludes = FR_INCLUDES_STABLE;
 # End of configuration variables.
 # ########
 
-# Patrollable namespaces (overridden by reviewable namespaces)
-$wgFlaggedRevsPatrolNamespaces = array();
+# Temp var
+$wgFlaggedRevsRCCrap = true;
+# Patrollable namespaces (overridden by reviewable namespaces) (don't use)
+$wgFlaggedRevsPatrolNamespaces = array(); // @TODO: remove when ready
 
 # Bots are granted autoreview via hooks, mark in rights 
 # array so that it shows up in sp:ListGroupRights...
@@ -535,19 +521,21 @@ function efSetFlaggedRevsConditionalHooks() {
 # ####### END HOOK TRIGGERED FUNCTIONS  #########
 
 function efLoadFlaggedRevs() {
-	global $wgUseRCPatrol, $wgFlaggedRevsNamespaces;
-	# If patrolling is already on, then we know that it 
-	# was intended to have all namespaces patrollable.
-	if ( $wgUseRCPatrol ) {
-		global $wgFlaggedRevsPatrolNamespaces, $wgCanonicalNamespaceNames;
-		$wgFlaggedRevsPatrolNamespaces = array_keys( $wgCanonicalNamespaceNames );
-	}
-	/* TODO: decouple from rc patrol */
-	# Check if FlaggedRevs is enabled by default for pages...
-	if ( $wgFlaggedRevsNamespaces && !FlaggedRevs::useOnlyIfProtected() ) {
-		# Use RC Patrolling to check for vandalism.
-		# Edits to reviewable pages must be flagged to be patrolled.
-		$wgUseRCPatrol = true;
+	global $wgFlaggedRevsRCCrap, $wgUseRCPatrol, $wgFlaggedRevsNamespaces;
+	if ( $wgFlaggedRevsRCCrap ) {
+		# If patrolling is already on, then we know that it 
+		# was intended to have all namespaces patrollable.
+		if ( $wgUseRCPatrol ) {
+			global $wgFlaggedRevsPatrolNamespaces, $wgCanonicalNamespaceNames;
+			$wgFlaggedRevsPatrolNamespaces = array_keys( $wgCanonicalNamespaceNames );
+		}
+		/* TODO: decouple from rc patrol */
+		# Check if FlaggedRevs is enabled by default for pages...
+		if ( $wgFlaggedRevsNamespaces && !FlaggedRevs::useOnlyIfProtected() ) {
+			# Use RC Patrolling to check for vandalism.
+			# Edits to reviewable pages must be flagged to be patrolled.
+			$wgUseRCPatrol = true;
+		}
 	}
 	# Conditional API modules
 	efSetFlaggedRevsConditionalAPIModules();

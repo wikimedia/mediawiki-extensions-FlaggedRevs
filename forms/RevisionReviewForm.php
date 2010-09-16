@@ -15,10 +15,11 @@ class RevisionReviewForm
 {
 	/* Form parameters which can be user given */
 	protected $page = null;
-	protected $rcid = 0;
 	protected $approve = false;
 	protected $unapprove = false;
+	protected $reject = false;
 	protected $oldid = 0;
+	protected $refid = 0;
 	protected $templateParams = '';
 	protected $imageParams = '';
 	protected $fileVersion = '';
@@ -50,20 +51,24 @@ class RevisionReviewForm
 		$this->trySet( $this->page, $value );
 	}
 
-	public function getRCId() {
-		return $this->rcid;
-	}
-
-	public function setRCId( $value ) {
-		$this->trySet( $this->rcid, (int)$value );
-	}
-
 	public function setApprove( $value ) {
 		$this->trySet( $this->approve, $value );
 	}
 
 	public function setUnapprove( $value ) {
 		$this->trySet( $this->unapprove, $value );
+	}
+
+	public function setReject( $value ) {
+		$this->trySet( $this->reject, $value );
+	}
+
+	public function getRefId() {
+		return $this->refid;
+	}
+
+	public function setRefId( $value ) {
+		$this->trySet( $this->refid, (int)$value );
 	}
 
 	public function getOldId() {
@@ -199,7 +204,7 @@ class RevisionReviewForm
 			return 'review_no_oldid';
 		}
 		# Check that this is an approval or de-approval
-		if ( $this->isApproval() === null ) {
+		if ( $this->getAction() === null ) {
 			return 'review_param_missing'; // user didn't say
 		}
 		# Fill in implicit tag data for binary flag case
@@ -220,7 +225,7 @@ class RevisionReviewForm
 			return 'review_too_low';
 		}
 		# Special token to discourage fiddling with template/files...
-		if ( $this->isApproval() ) {
+		if ( $this->getAction() === 'approve' ) {
 			$k = self::validationKey(
 				$this->templateParams, $this->imageParams, $this->fileVersion, $this->oldid );
 			if ( $this->validatedParams !== $k ) {
@@ -256,21 +261,19 @@ class RevisionReviewForm
 		return null;
 	}
 
-	public function isApproval() {
-		# If all values are set to zero, this has been unapproved
-		if ( FlaggedRevs::dimensionsEmpty() ) {
-			if ( $this->approve && !$this->unapprove ) {
-				return true; // no tags & approve param given
-			} elseif ( $this->unapprove && !$this->approve ) {
-				return false;
-			}
-			return null; // nothing valid asserted
-		} else {
-			foreach ( $this->dims as $quality => $value ) {
-				if ( $value ) return true;
-			}
-			return false;
+	/*
+	* What are we doing?
+	* @return string (approve,unapprove,reject)
+	*/
+	public function getAction() {
+		if ( !$this->reject && !$this->unapprove && $this->approve ) {
+			return 'approve';
+		} elseif ( !$this->reject && $this->unapprove && !$this->approve ) {
+			return 'unapprove';
+		} elseif ( $this->reject && !$this->unapprove && !$this->approve ) {
+			return 'reject';
 		}
+		return null; // nothing valid asserted
 	}
 
 	/**
@@ -291,7 +294,7 @@ class RevisionReviewForm
 			return 'review_denied';
 		}
 		# We can only approve actual revisions...
-		if ( $this->isApproval() ) {
+		if ( $this->getAction() === 'approve' ) {
 			$rev = Revision::newFromTitle( $this->page, $this->oldid );
 			# Do not mess with archived/deleted revisions
 			if ( is_null( $rev ) || $rev->mDeleted ) {
@@ -299,13 +302,29 @@ class RevisionReviewForm
 			}
 			$status = $this->approveRevision( $rev );
 		# We can only unapprove approved revisions...
-		} else {
+		} elseif ( $this->getAction() === 'unapprove' ) {
 			$frev = FlaggedRevision::newFromTitle( $this->page, $this->oldid );
 			# If we can't find this flagged rev, return to page???
 			if ( is_null( $frev ) ) {
 				return 'review_not_flagged';
 			}
 			$status = $this->unapproveRevision( $frev );
+		} elseif ( $this->getAction() === 'reject' ) {
+			$newRev = Revision::newFromTitle( $this->page, $this->oldid );
+			$oldRev = Revision::newFromTitle( $this->page, $this->refid );
+			# Do not mess with archived/deleted revisions
+			if ( is_null( $oldRev ) || $oldRev->mDeleted ) {
+				return 'review_bad_oldid';
+			} elseif ( is_null( $newRev ) || $newRev->mDeleted ) {
+				return 'review_bad_oldid';
+			}
+			$article = new Article( $this->page );
+			$new_text = $article->getUndoText( $newRev, $oldRev );
+			if ( $new_text === false ) {
+				return 'review_cannot_undo';
+			}
+			$baseRevId = $newRev->isCurrent() ? $oldRev->getId() : 0;
+			$article->doEdit( $new_text, $this->getComment(), 0, $baseRevId, $this->user );
 		}
 		# Watch page if set to do so
 		if ( $status === true ) {
@@ -390,7 +409,8 @@ class RevisionReviewForm
 		) );
 		$flaggedRevision->insertOn();
 		# Update recent changes...
-		self::updateRecentChanges( $this->page, $rev->getId(), $this->rcid, true );
+		$rcId = $rev->isUnpatrolled(); // int
+		self::updateRecentChanges( $this->page, $rev->getId(), $rcId, true );
 
 		# Update the article review log...
 		$oldSvId = $oldSv ? $oldSv->getRevId() : 0;
@@ -583,36 +603,42 @@ class RevisionReviewForm
 
 	 /**
 	 * Generates a brief review form for a page.
+	 * NOTE: use ONLY for diff-to-stable views and page version views
 	 * @param User $user
 	 * @param FlaggedArticle $article
 	 * @param Revision $rev
+	 * @param int $refId (left side version ID for diffs, $rev is the right rev)
 	 * @param array $templateIDs
 	 * @param array $imageSHA1Keys
-	 * @param bool $stableDiff this is a diff-to-stable 
 	 * @return mixed (string/false)
 	 */
 	public static function buildQuickReview(
-		$user, FlaggedArticle $article, Revision $rev,
-		$templateIDs, $imageSHA1Keys, $stableDiff = false
+		User $user, FlaggedArticle $article, Revision $rev,
+		$refId = 0, $topNotice = '', $templateIDs, $imageSHA1Keys
 	) {
-		global $wgRequest, $wgOut;
+		global $wgOut;
+		$id = $rev->getId();
 		if ( $rev->isDeleted( Revision::DELETED_TEXT ) ) {
 			return false; # The revision must be valid and public
 		}
-		$id = $rev->getId();
-		$skin = $user->getSkin();
 		# Do we need to get inclusion IDs from parser output?
 		$getPOut = !( $templateIDs && $imageSHA1Keys );
 
+		$srev = $article->getStableRev();
 		# See if the version being displayed is flagged...
-		$frev = FlaggedRevision::newFromTitle( $article->getTitle(), $id );
+		if ( $id == $article->getStable() ) {
+			$frev = $srev; // avoid query
+		} else {
+			$frev = FlaggedRevision::newFromTitle( $article->getTitle(), $id );
+		}
 		$oldFlags = $frev
 			? $frev->getTags() // existing tags
-			: FlaggedRevision::expandRevisionTags( '' ); // unset tags
+			: FlaggedRevs::quickTags( FR_SIGHTED ); // basic tags
+
 		# If we are reviewing updates to a page, start off with the stable revision's
 		# flags. Otherwise, we just fill them in with the selected revision's flags.
-		if ( $stableDiff ) {
-			$srev = $article->getStableRev();
+		# @TODO: do we want to carry over info for other diffs?
+		if ( $srev && $srev->getRevId() == $refId ) { // diff-to-stable
 			$flags = $srev->getTags();
 			# Check if user is allowed to renew the stable version.
 			# If not, then get the flags for the new revision itself.
@@ -621,12 +647,12 @@ class RevisionReviewForm
 			}
 			$reviewNotes = $srev->getComment();
 			# Re-review button is need for template/file only review case
-			$allowRereview = ( $srev->getRevId() == $id && !$article->stableVersionIsSynced() );
-		} else {
+			$reviewIncludes = ( $srev->getRevId() == $id && !$article->stableVersionIsSynced() );
+		} else { // views
 			$flags = $oldFlags;
 			// Get existing notes to pre-fill field
 			$reviewNotes = $frev ? $frev->getComment() : "";
-			$allowRereview = false; // re-review button
+			$reviewIncludes = false; // re-review button
 		}
 
 		# Disable form for unprivileged users
@@ -646,13 +672,12 @@ class RevisionReviewForm
 		$form .= Xml::openElement( 'fieldset',
 			array( 'class' => 'flaggedrevs_reviewform noprint' ) );
 		# Add appropriate legend text
-		$legendMsg = ( FlaggedRevs::binaryFlagging() && $allowRereview )
-			? 'revreview-reflag'
-			: 'revreview-flag';
+		$legendMsg = $frev ? 'revreview-reflag' : 'revreview-flag';
 		$form .= Xml::openElement( 'legend', array( 'id' => 'mw-fr-reviewformlegend' ) );
 		$form .= "<strong>" . wfMsgHtml( $legendMsg ) . "</strong>";
 		$form .= Xml::closeElement( 'legend' ) . "\n";
 		# Show explanatory text
+		$form .= $topNotice;
 		if ( !FlaggedRevs::lowProfileUI() ) {
 			$form .= wfMsgExt( 'revreview-text', array( 'parse' ) );
 		}
@@ -674,7 +699,8 @@ class RevisionReviewForm
 			$form .= "<div id='mw-fr-notebox'>\n";
 			$form .= "<p>" . wfMsgHtml( 'revreview-notes' ) . "</p>\n";
 			$params = array( 'name' => 'wpNotes', 'id' => 'wpNotes',
-				'class' => 'fr-notes-box', 'rows' => '2', 'cols' => '80' ) + $disabled;
+				'class' => 'fr-notes-box', 'rows' => '2', 'cols' => '80',
+				'onchange' => "FlaggedRevs.updateRatingForm()" ) + $disabled;
 			$form .= Xml::openElement( 'textarea', $params ) .
 				htmlspecialchars( $reviewNotes ) .
 				Xml::closeElement( 'textarea' ) . "\n";
@@ -719,7 +745,10 @@ class RevisionReviewForm
 					array( 'class' => 'fr-comment-box' ) ) . "&#160;&#160;&#160;</span>";
 		}
 		# Add the submit buttons
-		$form .= self::submitButtons( $frev, (bool)$disabled, $allowRereview );
+		if ( $rev->getId() == $refId ) {
+			$refId = 0; // revisions are the same => can't reject
+		}
+		$form .= self::submitButtons( $refId, $frev, (bool)$disabled, $reviewIncludes );
 		# Show stability log if there is anything interesting...
 		if ( $article->isPageLocked() ) {
 			$form .= ' ' . FlaggedRevsXML::logToggle( 'revreview-log-toggle-show' );
@@ -734,6 +763,7 @@ class RevisionReviewForm
 		# Hidden params
 		$form .= Xml::hidden( 'title', $reviewTitle->getPrefixedText() ) . "\n";
 		$form .= Xml::hidden( 'target', $article->getTitle()->getPrefixedDBKey() ) . "\n";
+		$form .= Xml::hidden( 'refid', $refId ) . "\n";
 		$form .= Xml::hidden( 'oldid', $id ) . "\n";
 		$form .= Xml::hidden( 'action', 'submit' ) . "\n";
 		$form .= Xml::hidden( 'wpEditToken', $user->editToken() ) . "\n";
@@ -741,8 +771,6 @@ class RevisionReviewForm
 		$form .= Xml::hidden( 'templateParams', $templateParams ) . "\n";
 		$form .= Xml::hidden( 'imageParams', $imageParams ) . "\n";
 		$form .= Xml::hidden( 'fileVersion', $fileVersion ) . "\n";
-		# Pass this in if given; useful for new page patrol
-		$form .= Xml::hidden( 'rcid', $wgRequest->getVal( 'rcid' ) ) . "\n";
 		# Special token to discourage fiddling...
 		$checkCode = self::validationKey(
 			$templateParams, $imageParams, $fileVersion, $id
@@ -781,7 +809,7 @@ class RevisionReviewForm
 			// Display the value for each tag as text
 			foreach ( $dimensions as $quality => $levels ) {
 				$selected = isset( $flags[$quality] ) ? $flags[$quality] : 0;
-				$items[] = "<b>" . FlaggedRevs::getTagMsg( $quality ) . ":</b> " .
+				$items[] = FlaggedRevs::getTagMsg( $quality ) . ": " .
 					FlaggedRevs::getTagValueMsg( $quality, $selected );
 			}
 		} else {
@@ -798,8 +826,8 @@ class RevisionReviewForm
 				}
 				# Show label as needed
 				if ( !FlaggedRevs::binaryFlagging() ) {
-					$item .= "<b>" . Xml::tags( 'label', array( 'for' => "wp$quality" ),
-						FlaggedRevs::getTagMsg( $quality ) ) . ":</b>\n";
+					$item .= Xml::tags( 'label', array( 'for' => "wp$quality" ),
+						FlaggedRevs::getTagMsg( $quality ) ) . ":\n";
 				}
 				# If the sum of qualities of all flags is above 6, use drop down boxes.
 				# 6 is an arbitrary value choosen according to screen space and usability.
@@ -870,51 +898,58 @@ class RevisionReviewForm
 
 	/**
 	 * Generates review form submit buttons
+	 * @param int $refId left rev ID for "reject" on diffs
 	 * @param FlaggedRevision $frev, the flagged revision, if any
 	 * @param bool $disabled, is the form disabled?
-	 * @param bool $rereview, force the review button to be usable?
+	 * @param bool $reviewIncludes, force the review button to be usable?
 	 * @returns string
 	 */
-	private static function submitButtons( $frev, $disabled, $rereview = false ) {
+	private static function submitButtons( $refId, $frev, $disabled, $reviewIncludes = false ) {
 		$disAttrib = array( 'disabled' => 'disabled' );
-		# Add the submit button
-		if ( FlaggedRevs::binaryFlagging() ) {
-			# ACCEPT BUTTON: accept a revision
-			# We may want to re-review to change the notes ($wgFlaggedRevsComments)
-			# or re-review due to pending template/file changes
-			$s = Xml::submitButton( wfMsgHtml( 'revreview-submit-review' ),
-				array(
-					'name'  	=> 'wpApprove',
-					'id' 		=> 'mw-fr-submitreview',
-					'accesskey' => wfMsg( 'revreview-ak-review' ),
-					'title' 	=> wfMsg( 'revreview-tt-flag' ) . ' [' .
-						wfMsg( 'revreview-ak-review' ) . ']'
-				) + ( ( $disabled || ( $frev && !$rereview ) ) ? $disAttrib : array() )
-			);
-			# UNDO BUTTON: revert from a pending revision to the stable
-			# @TODO...
-			
-			# UNACCEPT BUTTON: revoke a revisions acceptance
-			# Hide if revision is not flagged
+		# ACCEPT BUTTON: accept a revision
+		# We may want to re-review to change:
+		# (a) notes (b) tags (c) pending template/file changes
+		if ( FlaggedRevs::binaryFlagging() ) { // just the buttons
+			$applicable = ( !$frev || $reviewIncludes ); // no tags/notes
+			$needsChange = false; // no state change possible
+		} else { // buttons + ratings
+			$applicable = true; // tags might change
+			$needsChange = ( $frev && !$reviewIncludes );
+		}
+		$s = Xml::submitButton( wfMsgHtml( 'revreview-submit-review' ),
+			array(
+				'name'  	=> 'wpApprove',
+				'id' 		=> 'mw-fr-submit-accept',
+				'accesskey' => wfMsg( 'revreview-ak-review' ),
+				'title' 	=> wfMsg( 'revreview-tt-flag' ) . ' [' .
+					wfMsg( 'revreview-ak-review' ) . ']'
+			) + ( ( $disabled || !$applicable ) ? $disAttrib : array() )
+		);
+		# REJECT BUTTON: revert from a pending revision to the stable
+		if ( $refId ) {
 			$s .= ' ';
-			$s .= Xml::submitButton( wfMsgHtml( 'revreview-submit-unreview' ),
+			$s .= Xml::submitButton( wfMsgHtml( 'revreview-submit-reject' ),
 				array(
-					'name'  => 'wpUnapprove',
-					'id' 	=> 'mw-fr-submitunreview',
-					'title' => wfMsg( 'revreview-tt-unflag' ),
-					'style' => $frev ? '' : 'display:none;'
-				) + ( $disabled ? $disAttrib : array() )
-			);
-		} else {
-			$s = Xml::submitButton( wfMsgHtml( 'revreview-submit' ),
-				array(
-					'id' 		=> 'mw-fr-submitreview',
-					'accesskey' => wfMsg( 'revreview-ak-review' ),
-					'title' 	=> wfMsg( 'revreview-tt-review' ) . ' [' .
-						wfMsg( 'revreview-ak-review' ) . ']'
+					'name'  => 'wpReject',
+					'id' 	=> 'mw-fr-submit-reject',
+					'title' => wfMsg( 'revreview-tt-reject' ),
 				) + ( $disabled ? $disAttrib : array() )
 			);
 		}
+		# UNACCEPT BUTTON: revoke a revisions acceptance
+		# Hide if revision is not flagged
+		$s .= ' ';
+		$s .= Xml::submitButton( wfMsgHtml( 'revreview-submit-unreview' ),
+			array(
+				'name'  => 'wpUnapprove',
+				'id' 	=> 'mw-fr-submit-unaccept',
+				'title' => wfMsg( 'revreview-tt-unflag' ),
+				'style' => $frev ? '' : 'display:none'
+			) + ( $disabled ? $disAttrib : array() )
+		);
+		// Disable buttons unless state changes in some cases (non-JS compatible)
+		$s .= "<script type=\"text/javascript\">
+			var jsReviewNeedsChange = " . (int)$needsChange . "</script>";
 		return $s;
 	}
 

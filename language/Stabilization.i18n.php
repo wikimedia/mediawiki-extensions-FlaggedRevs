@@ -11,10 +11,8 @@ $messages = array();
 $messages['en'] = array(
 	'stabilization-tab' => 'vet',
 	'stabilization' => 'Page stabilization',
-	'stabilization-text' => '\'\'\'Change the settings below to adjust how the stable version of [[:$1|$1]] is selected and displayed.\'\'\'
-
-\'\'\'Note:\'\'\' changing the \'\'stable version selection\'\' to prefer "quality" or "pristine" versions will have no effect if there are no such versions. Also, note that a "quality" version is also considered a "checked" version and so on.',
-	'stabilization-perm' => 'Your account does not have permission to change the stable version configuration.
+	'stabilization-text' => '\'\'\'Change the settings below to adjust how the stable version of [[:$1|$1]] is selected and displayed.\'\'\'',
+    'stabilization-perm' => 'Your account does not have permission to change the stable version configuration.
 Here are the current settings for [[:$1|$1]]:',
 	'stabilization-page' => 'Page name:',
 	'stabilization-leg' => 'Confirm stable version settings',

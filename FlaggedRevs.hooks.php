@@ -113,7 +113,6 @@ class FlaggedRevsHooks {
 				'sendMsg'		 => wfMsgHtml( 'revreview-submit' ),
 				'flagMsg'		 => wfMsgHtml( 'revreview-submit-review' ),
 				'unflagMsg'		 => wfMsgHtml( 'revreview-submit-unreview' ),
-				'flagLegMsg'	 => wfMsgHtml( 'revreview-flag' ),
 				'sendingMsg'     => wfMsgHtml( 'revreview-submitting' ),
 				'flaggedMsg'	 => wfMsgHtml( 'revreview-submit-reviewed' ),
 				'unflaggedMsg'	 => wfMsgHtml( 'revreview-submit-unreviewed' ),
@@ -873,39 +872,43 @@ class FlaggedRevsHooks {
 			$revId = $rc->mAttribs['rc_this_oldid'];
 			$quality = FlaggedRevs::getRevQuality(
 				$rc->mAttribs['rc_cur_id'], $revId, FR_MASTER );
+			// Reviewed => patrolled
 			if ( $quality !== false && $quality >= FR_SIGHTED ) {
 				RevisionReviewForm::updateRecentChanges( $rc->getTitle(), $revId );
 				$rc->mAttribs['rc_patrolled'] = 1; // make sure irc/email notifs know status
 			}
 			return true;
 		}
-		// Is this page in patrollable namespace?
-		$patrol = $record = false;
-		if ( FlaggedRevs::inPatrolNamespace( $rc->getTitle() ) ) {
-			# Bots and users with 'autopatrol' have edits to patrollable
-			# pages marked automatically on edit.
-			$patrol = $wgUser->isAllowed( 'autopatrol' ) || $wgUser->isAllowed( 'bot' );
-			$record = true; // record if patrolled
-		} else {
-			global $wgUseNPPatrol;
-			// Is this is a new page edit and $wgUseNPPatrol is enabled?
-			if ( $wgUseNPPatrol && !empty( $rc->mAttribs['rc_new'] ) ) {
-				# Automatically mark it patrolled if the user can do so
-				$patrol = $wgUser->isAllowed( 'autopatrol' );
-				$record = true;
-			// Otherwise, this edit is not patrollable
+		global $wgFlaggedRevsRCCrap;
+		if ( $wgFlaggedRevsRCCrap ) {
+			// Is this page in patrollable namespace?
+			$patrol = $record = false;
+			if ( FlaggedRevs::inPatrolNamespace( $rc->getTitle() ) ) {
+				# Bots and users with 'autopatrol' have edits to patrollable
+				# pages marked automatically on edit.
+				$patrol = $wgUser->isAllowed( 'autopatrol' ) || $wgUser->isAllowed( 'bot' );
+				$record = true; // record if patrolled
 			} else {
-				# Silently mark it "patrolled" so that it doesn't show up as being unpatrolled
-				$patrol = true;
-				$record = false;
+				global $wgUseNPPatrol;
+				// Is this is a new page edit and $wgUseNPPatrol is enabled?
+				if ( $wgUseNPPatrol && !empty( $rc->mAttribs['rc_new'] ) ) {
+					# Automatically mark it patrolled if the user can do so
+					$patrol = $wgUser->isAllowed( 'autopatrol' );
+					$record = true;
+				// Otherwise, this edit is not patrollable
+				} else {
+					# Silently mark it "patrolled" so that it doesn't show up as being unpatrolled
+					$patrol = true;
+					$record = false;
+				}
 			}
-		}
-		// Set rc_patrolled flag and add log entry as needed
-		if ( $patrol ) {
-			$rc->reallyMarkPatrolled();
-			$rc->mAttribs['rc_patrolled'] = 1; // make sure irc/email notifs now status
-			if ( $record ) {
-				PatrolLog::record( $rc->mAttribs['rc_id'], true );
+			// Set rc_patrolled flag and add log entry as needed
+			if ( $patrol ) {
+				$rc->reallyMarkPatrolled();
+				$rc->mAttribs['rc_patrolled'] = 1; // make sure irc/email notifs now status
+				if ( $record ) {
+					PatrolLog::record( $rc->mAttribs['rc_id'], true );
+				}
 			}
 		}
 		return true;
@@ -1589,7 +1592,9 @@ class FlaggedRevsHooks {
 		return true;
 	}
 
-	public static function addToRCQuery( &$conds, array &$tables, array &$join_conds, $opts, &$query_opts, &$select ) {
+	public static function addToRCQuery(
+		&$conds, array &$tables, array &$join_conds, $opts, &$query_opts, &$select
+	) {
 		$tables[] = 'flaggedpages';
 		$join_conds['flaggedpages'] = array( 'LEFT JOIN', 'fp_page_id = rc_cur_id' );
 		if( is_array( $select ) ) {
@@ -1619,31 +1624,30 @@ class FlaggedRevsHooks {
 		$title = $history->getArticle()->getTitle();
 		# Fetch and process cache the stable revision
 		if ( !isset( $history->fr_stableRevId ) ) {
-			$frev = $fa->getStableRev();
-			$history->fr_stableRevId = $frev ? $frev->getRevId() : 0;
+			$history->fr_stableRevId = $fa->getStable();
 			$history->fr_pendingRevs = false;
-		}
-		if ( !$history->fr_stableRevId ) {
-			return true; // nothing to do here
+			if ( !$history->fr_stableRevId ) {
+				return true; // nothing to do here
+			}
 		}
 		$revId = (int)$row->rev_id;
-		// Unreviewed revision: highlight if pending
+		// Pending revision: highlight and add diff link
 		$link = $class = '';
-		if ( !isset( $row->fr_quality ) ) {
-			if ( $revId > $history->fr_stableRevId ) {
-				$class = 'flaggedrevs-pending';
-				$link = wfMsgExt( 'revreview-hist-pending-difflink', 'parseinline',
-					$title->getPrefixedText(), $history->fr_stableRevId, $revId );
-				$link = '<span class="plainlinks">' . $link . '</span>';
-				$history->fr_pendingRevs = true; // pending rev shown above stable
-			}
+		if ( $revId > $history->fr_stableRevId ) {
+			$class = 'flaggedrevs-pending';
+			$link = wfMsgExt( 'revreview-hist-pending-difflink', 'parseinline',
+				$title->getPrefixedText(), $history->fr_stableRevId, $revId );
+			$link = '<span class="plainlinks">' . $link . '</span>';
+			$history->fr_pendingRevs = true; // pending rev shown above stable
 		// Reviewed revision: highlight and add link
-		} else if ( !( $row->rev_deleted & Revision::DELETED_TEXT ) ) {
-			# Add link to stable version of *this* rev, if any
-			list( $link, $class ) = self::markHistoryRow( $title, $row );
-			# Space out and demark the stable revision
-			if ( $revId == $history->fr_stableRevId && $history->fr_pendingRevs ) {
-				$liClasses[] = 'fr-hist-stable-margin';
+		} elseif ( isset( $row->fr_quality ) ) {
+			if ( !( $row->rev_deleted & Revision::DELETED_TEXT ) ) {
+				# Add link to stable version of *this* rev, if any
+				list( $link, $class ) = self::markHistoryRow( $title, $row );
+				# Space out and demark the stable revision
+				if ( $revId == $history->fr_stableRevId && $history->fr_pendingRevs ) {
+					$liClasses[] = 'fr-hist-stable-margin';
+				}
 			}
 		}
 		# Style the row as needed

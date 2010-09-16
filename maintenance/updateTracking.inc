@@ -152,7 +152,6 @@ function update_flaggedpages( $start = null ) {
 		# Remove manual config settings that simply restate the site defaults
 		$db->delete( 'flaggedpage_config',
 			array( "fpc_page_id BETWEEN $blockStart AND $blockEnd",
-				'fpc_select'   	=> FlaggedRevs::getPrecedence(),
 				'fpc_override' 	=> intval( FlaggedRevs::isStableShownByDefault() ),
 				'fpc_level' 	=> ''
 			),

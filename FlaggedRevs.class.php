@@ -962,7 +962,7 @@ class FlaggedRevs {
 		$db = ( $flags & FR_MASTER ) ?
 			wfGetDB( DB_MASTER ) : wfGetDB( DB_SLAVE );
 		$row = $db->selectRow( 'flaggedpage_config',
-			array( 'fpc_select', 'fpc_override', 'fpc_level', 'fpc_expiry' ),
+			array( 'fpc_override', 'fpc_level', 'fpc_expiry' ),
 			array( 'fpc_page_id' => $title->getArticleID() ),
 			__METHOD__
 		);
@@ -978,16 +978,11 @@ class FlaggedRevs {
 		}
 		// Is there a non-expired row?
 		if ( $row ) {
-			$precedence = intval( $row->fpc_select );
-			if ( self::useProtectionLevels() || !self::isValidPrecedence( $precedence ) ) {
-				$precedence = self::getPrecedence(); // site default; ignore fpc_select
-			}
 			$level = $row->fpc_level;
 			if ( !self::isValidRestriction( $row->fpc_level ) ) {
 				$level = ''; // site default; ignore fpc_level
 			}
 			$config = array(
-				'select' 	 => $precedence,
 				'override'   => $row->fpc_override ? 1 : 0,
 				'autoreview' => $level,
 				'expiry'	 => Block::decodeExpiry( $row->fpc_expiry ) // TS_MW
@@ -1012,11 +1007,6 @@ class FlaggedRevs {
 	 */
 	public static function getDefaultVisibilitySettings() {
 		return array(
-			# Keep this consistent across settings: 
-			# # 2 = pristine -> quality -> stable; 
-			# # 1 = quality -> stable
-			# # 0 = none
-			'select'     => self::getPrecedence(),
 			# Keep this consistent across settings:
 			# # 1 -> override, 0 -> don't
 			'override'   => self::isStableShownByDefault() ? 1 : 0,
@@ -1053,15 +1043,6 @@ class FlaggedRevs {
 	}
 
 	/**
-	 * Check if an fpc_select value is valid
-	 * @param int $select
-	 */
-	public static function isValidPrecedence( $select ) {
-		$allowed = array( FLAGGED_VIS_QUALITY, FLAGGED_VIS_LATEST, FLAGGED_VIS_PRISTINE );
-		return in_array( $select, $allowed, true );
-	}
-
-	/**
 	 * Check if an fpc_level value is valid
 	 * @param string $right
 	 */
@@ -1079,11 +1060,11 @@ class FlaggedRevs {
 	public static function purgeExpiredConfigurations() {
 		$dbw = wfGetDB( DB_MASTER );
 		$pageIds = array();
-		$pagesClearTracking = $pagesRetrack = array();
+		$pagesClearTracking = array();
 		$config = self::getDefaultVisibilitySettings(); // config is to be reset
 		$encCutoff = $dbw->addQuotes( $dbw->timestamp() );
 		$ret = $dbw->select( 'flaggedpage_config',
-			array( 'fpc_page_id', 'fpc_select' ),
+			array( 'fpc_page_id' ),
 			array( 'fpc_expiry < ' . $encCutoff ),
 			__METHOD__
 			// array( 'FOR UPDATE' )
@@ -1094,10 +1075,6 @@ class FlaggedRevs {
 			// from the tracking tables...
 			if ( !$config['override'] && self::useOnlyIfProtected() ) {
 				$pagesClearTracking[] = $row->fpc_page_id; // no stable version
-			// Check if the new (default) config has a different way
-			// of selecting the stable version of this page...
-			} else if ( $config['select'] !== intval( $row->fpc_select ) ) {
-				$pagesRetrack[] = $row->fpc_page_id; // new stable version
 			}
 			$pageIds[] = $row->fpc_page_id; // page with expired config
 		}
@@ -1111,14 +1088,8 @@ class FlaggedRevs {
 		if ( count( $pagesClearTracking ) ) {
 			self::clearTrackingRows( $pagesClearTracking );
 		}
-		// Find and track the new stable version where needed
-		foreach ( $pagesRetrack as $pageId ) {
-			$title = Title::newFromId( $pageId, GAID_FOR_UPDATE );
-			// Determine the new stable version and update the tracking tables...
-			self::stableVersionUpdates( $title );
-		}
 	}
-	
+
 	# ################ Other utility functions #################
 
 	/**
@@ -1182,51 +1153,23 @@ class FlaggedRevs {
 		}
 		return true;
 	}
-	
+
 	/**
 	* Get the quality tier of review flags
 	* @param array $flags
 	* @return int, flagging tier (-1 for non-sighted)
 	*/
 	public static function getLevelTier( array $flags ) {
-		if ( self::isPristine( $flags ) )
+		if ( self::isPristine( $flags ) ) {
 			return FR_PRISTINE; // 2
-		elseif ( self::isQuality( $flags ) )
+		} elseif ( self::isQuality( $flags ) ) {
 			return FR_QUALITY; // 1
-		elseif ( self::isSighted( $flags ) )
+		} elseif ( self::isSighted( $flags ) ) {
 			return FR_SIGHTED; // 0
-		else
-			return -1;
+		}
+		return -1;
 	}
 
-	/**
-	 * Get global revision status precedence setting
-	 * or a specific one if given a tag tier (e.g. FR_QUALITY).
-	 * Returns one of FLAGGED_VIS_PRISTINE, FLAGGED_VIS_QUALITY, FLAGGED_VIS_LATEST.
-	 *
-	 * @param int config tier, optional (FR_PRISTINE,FR_QUALITY,FR_SIGHTED)
-	 * @return int
-	 */
-	public static function getPrecedence( $configTier = null ) {
-		global $wgFlaggedRevsPrecedence;
-		if ( is_null( $configTier ) ) {
-			$configTier = (int)$wgFlaggedRevsPrecedence;
-		}
-		switch( $configTier )
-		{
-			case FR_PRISTINE:
-				$select = FLAGGED_VIS_PRISTINE;
-				break;
-			case FR_QUALITY:
-				$select = FLAGGED_VIS_QUALITY;
-				break;
-			default:
-				$select = FLAGGED_VIS_LATEST;
-				break;
-		}
-		return $select;
-	}
-	
 	/**
 	 * Get minimum level tags for a tier
 	 * @return array

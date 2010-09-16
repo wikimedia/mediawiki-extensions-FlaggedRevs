@@ -45,9 +45,10 @@ class RevisionReview extends UnlistedSpecialPage
 		# Param for sites with binary flagging
 		$form->setApprove( $wgRequest->getCheck( 'wpApprove' ) );
 		$form->setUnapprove( $wgRequest->getCheck( 'wpUnapprove' ) );
+		$form->setReject( $wgRequest->getCheck( 'wpReject' ) );
 		# Rev ID
-		$oldid = $wgRequest->getInt( 'oldid' );
-		$form->setOldId( $oldid );
+		$form->setOldId( $wgRequest->getInt( 'oldid' ) );
+		$form->setRefId( $wgRequest->getInt( 'refid' ) );
 		# Special parameter mapping
 		$form->setTemplateParams( $wgRequest->getVal( 'templateParams' ) );
 		$form->setFileParams( $wgRequest->getVal( 'imageParams' ) );
@@ -96,10 +97,12 @@ class RevisionReview extends UnlistedSpecialPage
 			// Success for either flagging or unflagging
 			if ( $status === true ) {
 				$wgOut->setPageTitle( wfMsgHtml( 'actioncomplete' ) );
-				if ( $form->isApproval() ) {
+				if ( $form->getAction() === 'approve' ) {
 					$wgOut->addHTML( $form->approvalSuccessHTML( true ) );
-				} else {
+				} elseif ( $form->getAction() === 'unapprove' ) {
 					$wgOut->addHTML( $form->deapprovalSuccessHTML( true ) );
+				} elseif ( $form->getAction() === 'reject' ) {
+					$wgOut->redirect( $this->page->getFullUrl() );
 				}
 			// Failure for flagging or unflagging
 			} else {
@@ -151,8 +154,8 @@ class RevisionReview extends UnlistedSpecialPage
 				case "oldid":
 					$form->setOldId( $val );
 					break;
-				case "rcid":
-					$form->setRCId( $val );
+				case "refid":
+					$form->setRefId( $val );
 					break;
 				case "validatedParams":
 					$form->setValidatedParams( $val );
@@ -171,6 +174,9 @@ class RevisionReview extends UnlistedSpecialPage
 					break;
 				case "wpUnapprove":
 					$form->setUnapprove( $val );
+					break;
+				case "wpReject":
+					$form->setReject( $val );
 					break;
 				case "wpReason":
 					$form->setComment( $val );
@@ -221,10 +227,12 @@ class RevisionReview extends UnlistedSpecialPage
 		# Success...
 		if ( $status === true ) {
 			$tier = FlaggedRevs::getLevelTier( $form->getDims() ) + 1; // shift to 0-3
-			if ( $form->isApproval() ) { // approve
+			if ( $form->getAction() === 'approve' ) { // approve
 				return "<suc#><t#$tier>" . $form->approvalSuccessHTML( false );
-			} else { // de-approve
+			} elseif ( $form->getAction() === 'unapprove' ) { // de-approve
 				return "<suc#><t#$tier>" . $form->deapprovalSuccessHTML( false );
+			} elseif ( $form->getAction() === 'reject' ) { // revert
+				return "<suc#><t#$tier>" . $form->rejectSuccessHTML( false );
 			}
 		# Failure...
 		} else {

@@ -70,33 +70,6 @@ class FlaggedRevsXML {
 	}
 
 	/**
-	 * Get a <select> of options of available precendents. Used for filters.
-	 * @param int $selected selected level, null for "all"
-	 * @returns string
-	 */
-	public static function getPrecedenceFilterMenu( $selected = null ) {
-		if ( is_null( $selected ) ) {
-			$selected = ''; // "all"
-		}
-		$s = Xml::label( wfMsg( 'revreview-precedencefilter' ), 'wpPrecedence' ) . "\n";
-		$s .= Xml::openElement( 'select',
-			array( 'name' => 'precedence', 'id' => 'wpPrecedence' ) );
-		$s .= Xml::option( wfMsg( 'revreview-lev-all' ), '', $selected === '' );
-		$s .= Xml::option( wfMsg( 'revreview-lev-basic' ), FLAGGED_VIS_LATEST,
-			$selected === FLAGGED_VIS_LATEST );
-		if ( FlaggedRevs::qualityVersions() ) {
-			$s .= Xml::option( wfMsg( 'revreview-lev-quality' ), FLAGGED_VIS_QUALITY,
-				$selected === FLAGGED_VIS_QUALITY );
-		}
-		if ( FlaggedRevs::pristineVersions() ) {
-			$s .= Xml::option( wfMsg( 'revreview-lev-pristine' ), FLAGGED_VIS_PRISTINE,
-				$selected === FLAGGED_VIS_PRISTINE );
-		}
-		$s .= Xml::closeElement( 'select' ) . "\n";
-		return $s;
-	}
-
-	/**
 	 * Get a <select> of default page version (stable or draft). Used for filters.
 	 * @param int $selected (0=draft, 1=stable, null=either )
 	 * @returns string

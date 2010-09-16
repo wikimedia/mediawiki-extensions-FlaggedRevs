@@ -126,10 +126,9 @@ class FlaggedRevision {
      * Get a FlaggedRevision of the stable version of a title.
 	 * @param Title $title, page title
 	 * @param int $flags FR_MASTER
-     * @param array $config, optional page config (use to skip queries)
 	 * @return mixed FlaggedRevision (null on failure)
 	 */
-	public static function newFromStable( Title $title, $flags = 0, $config = array() ) {
+	public static function newFromStable( Title $title, $flags = 0 ) {
 		if ( !FlaggedRevs::inReviewNamespace( $title ) ) {
             return null; // short-circuit
         }
@@ -171,9 +170,12 @@ class FlaggedRevision {
 	 * @param Title $title, page title
 	 * @param int $flags FR_MASTER
      * @param array $config, optional page config (use to skip queries)
+	 * @param string $precedence (latest,quality,pristine)
 	 * @return mixed FlaggedRevision (null on failure)
 	 */
-	public static function determineStable( Title $title, $flags = 0, $config = array() ) {
+	public static function determineStable(
+		Title $title, $flags = 0, $config = array(), $precedence = 'latest'
+	) {
 		if ( !FlaggedRevs::inReviewNamespace( $title ) ) {
             return null; // short-circuit
         }
@@ -200,7 +202,7 @@ class FlaggedRevision {
 		$row = null;
 		$options['ORDER BY'] = 'fr_rev_id DESC';
 		# Look for the latest pristine revision...
-		if ( FlaggedRevs::pristineVersions() && $config['select'] != FLAGGED_VIS_LATEST ) {
+		if ( FlaggedRevs::pristineVersions() && $precedence !== 'latest' ) {
 			$prow = $db->selectRow(
 				array( 'flaggedrevs', 'revision' ),
 				$columns,
@@ -216,10 +218,10 @@ class FlaggedRevision {
 			# Looks like a plausible revision
 			$row = $prow ? $prow : $row;
 		}
-		if ( $row && $config['select'] == FLAGGED_VIS_PRISTINE ) {
+		if ( $row && $precedence === 'pristine' ) {
 			// we have what we want already
 		# Look for the latest quality revision...
-		} elseif ( FlaggedRevs::qualityVersions() && $config['select'] != FLAGGED_VIS_LATEST ) {
+		} elseif ( FlaggedRevs::qualityVersions() && $precedence !== 'latest' ) {
 			// If we found a pristine rev above, this one must be newer...
 			$newerClause = $row ? "fr_rev_id > {$row->fr_rev_id}" : "1 = 1";
 			$qrow = $db->selectRow(

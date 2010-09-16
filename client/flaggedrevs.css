@@ -279,7 +279,6 @@ span.fr-under-review {
 .fr-rating-controls,
 .fr-rating-controls-disabled {
 	vertical-align: middle;
-	line-height: 1em;
 }
 
 .fr-rating-controls-disabled {
@@ -288,6 +287,13 @@ span.fr-under-review {
 
 .fr-rating-options {
 	margin-right: 1.5em;
+}
+
+#mw-fr-submit-unaccept {
+	color: darkblue;
+}
+#mw-fr-submit-reject {
+	color: darkred;
 }
 
 .fr-rating-option-0 {

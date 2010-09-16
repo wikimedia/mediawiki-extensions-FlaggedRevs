@@ -19,7 +19,6 @@ class ConfiguredPages extends SpecialPage
 
 		$this->namespace = $wgRequest->getIntOrNull( 'namespace' );
 		$this->override = $wgRequest->getIntOrNull( 'stable' );
-		$this->precedence = $wgRequest->getIntOrNull( 'precedence' );
 		$this->autoreview = $wgRequest->getVal( 'restriction', '' );
 
 		$this->showForm();
@@ -40,10 +39,6 @@ class ConfiguredPages extends SpecialPage
 		if( FlaggedRevs::getRestrictionLevels() ) {
 			$fields[] = FlaggedRevsXML::getRestrictionFilterMenu( $this->autoreview );
 		}
-		# Stable version selection precedence
-		if ( FlaggedRevs::qualityVersions() ) {
-			$fields[] = FlaggedRevsXML::getPrecedenceFilterMenu( $this->precedence );
-		}
 		if ( count( $fields ) ) {
 			$form = Xml::openElement( 'form',
 				array( 'name' => 'configuredpages', 'action' => $wgScript, 'method' => 'get' ) );
@@ -60,7 +55,7 @@ class ConfiguredPages extends SpecialPage
 	protected function showPageList() {
 		global $wgOut;
 		$pager = new ConfiguredPagesPager( $this, array(),
-			$this->namespace, $this->override, $this->precedence, $this->autoreview );
+			$this->namespace, $this->override, $this->autoreview );
 		if ( $pager->getNumRows() ) {
 			$wgOut->addHTML( $pager->getNavigationBar() );
 			$wgOut->addHTML( $pager->getBody() );
@@ -89,19 +84,6 @@ class ConfiguredPages extends SpecialPage
 		} else {
 			$default = wfMsgHtml( 'configuredpages-def-draft' );
 		}
-		// Show precedence if there are several possible levels
-		$type = '';
-		if ( FlaggedRevs::qualityVersions() ) {
-			$select = intval( $row->fpc_select );
-			if ( $select === FLAGGED_VIS_PRISTINE ) {
-				$type = wfMsgHtml( 'configuredpages-prec-pristine' );
-			} elseif ( $select === FLAGGED_VIS_QUALITY ) {
-				$type = wfMsgHtml( 'configuredpages-prec-quality' );
-			} elseif( $select === FLAGGED_VIS_LATEST ) {
-				$type = wfMsgHtml( 'configuredpages-prec-none' );
-			}
-			if ( $type ) $type = "({$type})";
-		}
 		# Autoreview/review restriction level
 		$restr = '';
 		if ( $row->fpc_level != '' ) {
@@ -119,7 +101,7 @@ class ConfiguredPages extends SpecialPage
 		} else {
 			$expiry_description = "";
 		}
-		return "<li>{$link} ({$config}) <b>[$default]</b> {$type} {$restr}<i>{$expiry_description}</i></li>";
+		return "<li>{$link} ({$config}) <b>[$default]</b> {$restr}<i>{$expiry_description}</i></li>";
 	}
 }
 
@@ -127,14 +109,13 @@ class ConfiguredPages extends SpecialPage
  * Query to list out stable versions for a page
  */
 class ConfiguredPagesPager extends AlphabeticPager {
-	public $mForm, $mConds, $namespace, $override, $precedence, $autoreview;
+	public $mForm, $mConds, $namespace, $override, $autoreview;
 
 	// @param int $namespace (null for "all")
 	// @param int $override (null for "either")
-	// @param int $precedence (null for "all")
 	// @param string $autoreview ('' for "all", 'none' for no restriction)
 	function __construct(
-		$form, $conds = array(), $namespace, $override, $precedence, $autoreview
+		$form, $conds = array(), $namespace, $override, $autoreview
 	) {
 		$this->mForm = $form;
 		$this->mConds = $conds;
@@ -152,10 +133,6 @@ class ConfiguredPagesPager extends AlphabeticPager {
 			$override = null; // "all"
 		}
 		$this->override = $override;
-		if ( !is_integer( $precedence ) ) {
-			$precedence = null; // "all"
-		}
-		$this->precedence = $precedence;
 		if ( $autoreview === 'none' ) {
 			$autoreview = ''; // 'none' => ''
 		} elseif ( $autoreview === '' ) {
@@ -175,9 +152,6 @@ class ConfiguredPagesPager extends AlphabeticPager {
 		if ( $this->override !== null ) {
 			$conds['fpc_override'] = $this->override;
 		}
-		if ( $this->precedence !== null ) {
-			$conds['fpc_select'] = $this->precedence;
-		}
 		if ( $this->autoreview !== null ) {
 			$conds['fpc_level'] = $this->autoreview;
 		}
@@ -188,7 +162,7 @@ class ConfiguredPagesPager extends AlphabeticPager {
 		return array(
 			'tables' => array( 'flaggedpage_config', 'page' ),
 			'fields' => array( 'page_namespace', 'page_title', 'fpc_override',
-				'fpc_expiry', 'fpc_page_id', 'fpc_select', 'fpc_level' ),
+				'fpc_expiry', 'fpc_page_id', 'fpc_level' ),
 			'conds'  => $conds,
 			'options' => array()
 		);
