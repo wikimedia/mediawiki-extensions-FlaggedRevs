@@ -333,7 +333,8 @@ This appears in [[Special:Preferences]]:
 	'flaggedrevs-prefs-watch' => '{{Flagged Revs}}',
 	'flaggedrevs-prefs-editdiffs' => '{{Flagged Revs}}',
 	'flaggedrevs-prefs-viewdiffs' => '{{Flagged Revs}}',
-	'group-editor' => '{{Flagged Revs}}',
+	'group-editor' => '{{Flagged Revs}}
+{{Identical|Editor}}',
 	'group-editor-member' => '{{Flagged Revs}}
 {{Identical|Editor}}',
 	'group-reviewer' => '{{Flagged Revs}}',
@@ -1732,17 +1733,18 @@ $messages['be-tarask'] = array(
 	'revreview-style-4' => 'Выбраная',
 	'revreview-submit' => 'Даслаць',
 	'revreview-submitting' => 'Адпраўка…',
-	'revreview-submit-review' => 'Зацьвердзіць',
-	'revreview-submit-unreview' => 'Зьняць зацьверджаньне',
+	'revreview-submit-review' => 'Зацьвердзіць вэрсію',
+	'revreview-submit-unreview' => 'Зьняць зацьверджаньне вэрсіі',
+	'revreview-submit-reject' => 'Скасаваць зьмены',
 	'revreview-submit-reviewed' => 'Выканана. Зацьверджана!',
 	'revreview-submit-unreviewed' => 'Выканана. Зацьверджаньне зьнятае!',
 	'revreview-successful' => "'''Вэрсія [[:$1|$1]] пасьпяхова пазначана. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} паказаць стабільныя вэрсіі])'''",
 	'revreview-successful2' => "'''З вэрсіі [[:$1|$1]] было пасьпяхова зьнятае пазначэньне.'''",
 	'revreview-text' => "''[[{{MediaWiki:Validationpage}}|Рэцэнзаваныя вэрсіі]] — правераныя вэрсіі старонак, якія выкарыстоўваюцца для вызначэньня апублікаванай вэрсіі.''",
 	'revreview-toggle-title' => 'паказаць/схаваць падрабязнасьці',
-	'revreview-toolow' => "'''Вам неабходна адзначыць кожны атрыбут адзнакай вышэй за «не зацьверджаная», каб вэрсія старонкі лічылася рэцэнзаванай.'''
+	'revreview-toolow' => "'''Вам неабходна адзначыць кожны атрыбут адзнакай вышэй за «недастатковая», каб вэрсія старонкі лічылася рэцэнзаванай.'''
 
-Каб зьняць адзнаку, устанавіце ''ўсе'' значэньні ў «не зацьверджаная».
+Каб зьняць адзнаку з вэрсіі, націсьніце «зьняць зацьверджаньне».
 
 Калі ласка, націсьніце ў Вашым браўзэры кнопку «вярнуцца» і паспрабуйце зноў.",
 	'revreview-update' => "'''Калі ласка, [[{{MediaWiki:Validationpage}}|прарэцэнзуйце]] ўсе зьмены ''(паказаныя ніжэй)'', зробленыя ў апублікаванай вэрсіі.'''
@@ -1813,7 +1815,8 @@ $messages['be-tarask'] = array(
 	'log-show-hide-review' => '$1 журнал рэцэнзаваньняў',
 	'revreview-tt-review' => 'Ужыць гэты статус для гэтай вэрсіі',
 	'revreview-tt-flag' => 'Зацьвердзіць гэтую вэрсію пазначыўшы як правераную',
-	'revreview-tt-unflag' => 'Зьняць зацьверджаньне вэрсіі і пазначыць як неправераную',
+	'revreview-tt-unflag' => 'Зьняць зацьверджаньне вэрсіі, пазначыўшы яе як «неправеранаю» (ігнаруе адзнакі)',
+	'revreview-tt-reject' => 'Адмяніць гэтыя зьмены скасаваўшы іх (ігнаруе адзнакі)',
 	'validationpage' => '{{ns:help}}:Праверка старонак',
 );
 
@@ -3009,8 +3012,9 @@ Neue [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Änderungen] k�
 	'revreview-style-4' => 'exzellent',
 	'revreview-submit' => 'Speichern',
 	'revreview-submitting' => 'Übertragung …',
-	'revreview-submit-review' => 'Markiere',
-	'revreview-submit-unreview' => 'Markierung entfernen',
+	'revreview-submit-review' => 'Markiere Version',
+	'revreview-submit-unreview' => 'Versionsmarkierung entfernen',
+	'revreview-submit-reject' => 'Änderungen verwerfen',
 	'revreview-submit-reviewed' => 'Erledigt und markiert!',
 	'revreview-submit-unreviewed' => 'Erledigt und Markierung aufgehoben!',
 	'revreview-successful' => "'''Die Version der Seite ''[[:$1|$1]]'' wurde erfolgreich markiert ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} alle markierten Versionen dieser Seite])'''.",
@@ -3019,7 +3023,7 @@ Neue [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Änderungen] k�
 	'revreview-toggle-title' => 'Details zeigen/verstecken',
 	'revreview-toolow' => "'''Du musst jedes der Attribute besser als „unzureichend“ einstufen, damit eine Version als markiert angesehen werden kann.'''
 
-Um den Markierungstatus einer Version aufzuheben, müssen ''alle'' Attribute auf „unzureichend“ gesetzt werden.
+Um den Markierungstatus einer Version aufzuheben, muss auf „Markierung entfernen“ geklickt werden.
 
 Klicke auf die „Zurück“-Schaltfläche deines Browsers und versuche es erneut.",
 	'revreview-update' => "'''Bitte [[{{MediaWiki:Validationpage}}|markiere]] alle Änderungen ''(siehe unten)'', die seit der letzten stabilen Version getätigt wurden.'''
@@ -3090,7 +3094,8 @@ Gegebenenfalls musst du zunächst diese Bearbeitungen nachvollziehen oder „rü
 	'log-show-hide-review' => 'Versionsmarkierungs-Logbuch $1',
 	'revreview-tt-review' => 'Wende diesen Status auf diese Version an',
 	'revreview-tt-flag' => 'Diese Version anzeigen, indem du die Änderungen markierst',
-	'revreview-tt-unflag' => 'Diese Version nicht anzeigen, indem du die Markierung entfernst',
+	'revreview-tt-unflag' => 'Diese Version nicht anzeigen, indem du die Markierung entfernst (ignoriert Bewertungen)',
+	'revreview-tt-reject' => 'Diese Änderungen zurückweisen, indem man sie zurückgesetzt (ignoriert  Bewertungen)',
 	'validationpage' => '{{ns:help}}:Gesichtete und geprüfte Versionen',
 );
 
@@ -5097,8 +5102,8 @@ De nouvelles [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} modific
 	'revreview-style-4' => 'Remarquable',
 	'revreview-submit' => 'Soumettre',
 	'revreview-submitting' => 'Soumission…',
-	'revreview-submit-review' => 'Approuver',
-	'revreview-submit-unreview' => 'Désapprouver',
+	'revreview-submit-review' => 'Accepter la version',
+	'revreview-submit-unreview' => 'Désapprouver la version',
 	'revreview-submit-reviewed' => 'Fait. Approuvé !',
 	'revreview-submit-unreviewed' => 'Fait. Désapprouvé !',
 	'revreview-successful' => "'''La version sélectionnée de [[:$1|$1]] a été marquée avec succès ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} voir les versions stables])'''",
@@ -5573,19 +5578,20 @@ Fixéronse novos [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} cam
 	'revreview-style-4' => 'Destacada',
 	'revreview-submit' => 'Enviar',
 	'revreview-submitting' => 'Enviando...',
-	'revreview-submit-review' => 'Aprobar',
-	'revreview-submit-unreview' => 'Suspender',
+	'revreview-submit-review' => 'Aprobar a revisión',
+	'revreview-submit-unreview' => 'Suspender a revisión',
+	'revreview-submit-reject' => 'Rexeitar os cambios',
 	'revreview-submit-reviewed' => 'Feito. Aprobada!',
 	'revreview-submit-unreviewed' => 'Feito. Retiróuselle a aprobación!',
 	'revreview-successful' => "'''Examinouse con éxito a revisión de \"[[:\$1|\$1]]\". ([{{fullurl:{{#Special:ReviewedVersions}}|page=\$2}} ver as versións estábeis])'''",
 	'revreview-successful2' => "'''Retiouse con éxito o exame da revisión de \"[[:\$1|\$1]]\".'''",
 	'revreview-text' => "''As [[{{MediaWiki:Validationpage}}|versións revisadas]] son versións comprobadas de páxinas, utilizadas para determinar a versión publicada.''",
 	'revreview-toggle-title' => 'amosar/agochar os detalles',
-	'revreview-toolow' => "'''Debe, polo menos, valorar cada un dos atributos cunha puntuación maior a \"inadecuado\" para que unha revisión sexa considerada como revisada.'''
+	'revreview-toolow' => '\'\'\'Debe, polo menos, valorar cada un dos atributos cunha puntuación maior que "inadecuado" para que unha revisión sexa considerada como revisada.\'\'\'
 
-Para retirar o estado de aprobación dunha revisión, encha '''todos''' os campos con \"inadecuado\".
+Para retirar o estado de aprobación dunha revisión, prema sobre "suspender".
 
-Por favor, prema sobre o botón \"Volver\" do seu navegador e inténteo de novo.",
+Por favor, prema sobre o botón "Volver" do seu navegador e inténteo de novo.',
 	'revreview-update' => "'''[[{{MediaWiki:Validationpage}}|Revise]] os cambios pendentes ''(amósanse a continuación)'' feitos á versión aceptada.'''
 Quizais queira corrixir ou desfacer algunhas modificacións.",
 	'revreview-update-edited' => '<span class="flaggedrevs_important">Os seus cambios aínda non se atopan na versión estable.</span>
@@ -5655,7 +5661,8 @@ Por favor verifique o URL que utilizou para acceder a esta páxina.',
 	'log-show-hide-review' => '$1 o rexistro de revisións',
 	'revreview-tt-review' => 'Dar este estado a esta revisión',
 	'revreview-tt-flag' => 'Aprobar esta revisión marcándoa como comprobada',
-	'revreview-tt-unflag' => 'Desaprobar esta revisión marcándoa como non comprobada',
+	'revreview-tt-unflag' => 'Suspender esta revisión marcándoa como non comprobada (ignora as valoracións)',
+	'revreview-tt-reject' => 'Rexeitar estes cambios reverténdoos (ignora as valoracións)',
 	'validationpage' => '{{ns:help}}:Validación da páxina',
 );
 
@@ -6830,6 +6837,7 @@ Móže być, zo dyrbiš najprjedy změny dale wobdźěłać abo "cofnyć".',
  * @author Gondnok
  * @author Hunyadym
  * @author KossuthRad
+ * @author Misibacsi
  * @author Samat
  * @author Tgr
  */
@@ -6919,6 +6927,7 @@ Azóta történhettek új [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonl
 	'revreview-editnotice' => "'''A változtatásaid akkor lesznek közzétéve, ha egy erre jogosult felhasználó ellenőrizte őket. [[{{MediaWiki:Validationpage}}|(?)]]'''",
 	'revreview-check-flag-p' => 'Jelenleg ellenőrzésre váró változtatások közzététele',
 	'revreview-check-flag-u' => 'Ellenőrizetlen lap közzététele',
+	'revreview-check-flag-y' => 'Változások elfogadása',
 	'revreview-submitedit' => 'Lap mentése',
 	'revreview-edited' => "'''A változtatások akkor lesznek közzétéve, ha egy erre jogosult felhasználó ellenőrizte őket. [[{{MediaWiki:Validationpage}}|(?)]]'''
 
@@ -6977,6 +6986,7 @@ Lásd az [[Special:Unreviewedpages|ellenőrizetlen lapok listáját]].',
 	'revreview-submitting' => 'Küldés…',
 	'revreview-submit-review' => 'Ellenőrzöttnek jelölés',
 	'revreview-submit-unreview' => 'Ellenőrizetlennek jelölés',
+	'revreview-submit-reject' => 'Változások elutasítása',
 	'revreview-submit-reviewed' => 'Kész. Ellenőrizve!',
 	'revreview-submit-unreviewed' => 'Kész. A változat nem ellenőrzött!',
 	'revreview-successful' => "'''A(z) [[:$1|$1]] változatát sikeresen megjelölted. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} ellenőrzött változatok megjelenítése])'''",
@@ -7222,19 +7232,20 @@ Nove [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} modificationes]
 	'revreview-style-4' => 'Eminente',
 	'revreview-submit' => 'Submitter',
 	'revreview-submitting' => 'Invio in curso…',
-	'revreview-submit-review' => 'Approbar',
-	'revreview-submit-unreview' => 'Disapprobar',
+	'revreview-submit-review' => 'Acceptar version',
+	'revreview-submit-unreview' => 'Non plus acceptar version',
+	'revreview-submit-reject' => 'Rejectar modificationes',
 	'revreview-submit-reviewed' => 'Facite. Approbate!',
 	'revreview-submit-unreviewed' => 'Facite. Disapprobate!',
 	'revreview-successful' => "'''Le version de [[:$1|$1]] ha essite marcate con successo. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} vider versiones stabile])'''",
 	'revreview-successful2' => "'''Le version de [[:$1|$1]] ha essite dismarcate con successo.'''",
 	'revreview-text' => "''[[{{MediaWiki:Validationpage}}|Versiones revidite]] es versiones verificate de paginas usate pro determinar le version publicate.''",
 	'revreview-toggle-title' => 'revelar/celar detalios',
-	'revreview-toolow' => "'''Tu debe valorisar cata un del attributos como plus alte que \"inadequate\" a fin que un version sia considerate como revidite.'''
+	'revreview-toolow' => '\'\'\'Tu debe evalutar cata un del attributos como plus alte que "inadequate" a fin que un version sia considerate como revidite.\'\'\'
 
-Pro remover le stato de revision de un version, mitte ''tote'' le campos a \"inadequate\".
+Pro remover le stato de revision de un version, clicca super "non plus acceptar".
 
-Per favor preme le button \"retro\" in tu navigator e reproba.",
+Per favor preme le button "retro" in tu navigator e reproba.',
 	'revreview-update' => "'''Per favor [[{{MediaWiki:Validationpage}}|revide]] omne modificationes pendente ''(monstrate hic infra)'' facite al version acceptate.'''
 Pote esser necessari primo investigar o \"disfacer\" modificationes.",
 	'revreview-update-edited' => '<span class="flaggedrevs_important">Tu modificationes non es ancora in le version stabile.</span>
@@ -7304,7 +7315,8 @@ Verifica le adresse URL que tu ha usate pro acceder a iste pagina.',
 	'log-show-hide-review' => '$1 le registro de revisiones',
 	'revreview-tt-review' => 'Attribuer iste stato a iste version',
 	'revreview-tt-flag' => 'Approbar iste version per marcar lo como verificate',
-	'revreview-tt-unflag' => 'Disapprobar iste version per marcar lo como como non verificate',
+	'revreview-tt-unflag' => 'Cessar de acceptar iste version per marcar lo como como "non verificate" (ignora evalutationes)',
+	'revreview-tt-reject' => 'Rejectar iste modificationes per reverter los (ignora evalutationes)',
 	'validationpage' => '{{ns:help}}:Validation de paginas',
 );
 
@@ -7978,8 +7990,9 @@ $messages['ja'] = array(
 	'revreview-style-4' => '秀逸',
 	'revreview-submit' => '送信',
 	'revreview-submitting' => '送信中…',
-	'revreview-submit-review' => '承認',
-	'revreview-submit-unreview' => '承認取り消し',
+	'revreview-submit-review' => '版を承認',
+	'revreview-submit-unreview' => '版の承認を取り消し',
+	'revreview-submit-reject' => '変更を却下',
 	'revreview-submit-reviewed' => '完了。承認されました！',
 	'revreview-submit-unreviewed' => '完了。未承認になりました！',
 	'revreview-successful' => "'''[[:$1|$1]] の特定版の判定に成功しました。([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} 固定版を閲覧])'''",
@@ -9843,8 +9856,9 @@ $messages['mk'] = array(
 	'revreview-style-4' => 'Одлично',
 	'revreview-submit' => 'Зачувај',
 	'revreview-submitting' => 'Поднесувам ...',
-	'revreview-submit-review' => 'Одобри',
-	'revreview-submit-unreview' => 'Тргни одобрение',
+	'revreview-submit-review' => 'Прифати',
+	'revreview-submit-unreview' => 'Неприфатливо',
+	'revreview-submit-reject' => 'Одбиј промени',
 	'revreview-submit-reviewed' => 'Готово. Одобрено!',
 	'revreview-submit-unreviewed' => 'Готово. Тргнато одобрение!',
 	'revreview-successful' => "'''Ревизијата на [[:$1|$1]] e успешно означена. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} прегледани верзии])'''",
@@ -9853,7 +9867,7 @@ $messages['mk'] = array(
 	'revreview-toggle-title' => 'прикажи/сокриј детали',
 	'revreview-toolow' => "'''Атрибутите мора да ги оцените со нешто повисоко од „недоволно“ за ревизијата да се смета за проверена.'''
 
-За да го отстраните статусот на ревизијата, поставете ги сите полиња како „недоволно“.
+За да го отстраните статусот на ревизијата, поставете ги сите полиња како „неприфатливо“.
 
 Притиснете на копчето „назад“ во вашиот прелистувач и обидете се повторно.",
 	'revreview-update' => "'''[[{{MediaWiki:Validationpage}}|проверете]] ги промените ''(прикажани подолу)'' направени на прифатената верзија.'''",
@@ -9924,7 +9938,8 @@ $messages['mk'] = array(
 	'log-show-hide-review' => '$1 дневник на оценувања',
 	'revreview-tt-review' => 'Примени го овој статус на оваа ревизија',
 	'revreview-tt-flag' => 'Одобри ја оваа верзија означувајќи ја како проверена',
-	'revreview-tt-unflag' => 'Отстрани одобрување на оваа верзија означувајќи ја како непроверена',
+	'revreview-tt-unflag' => 'Направете ја оваа верзија неприфатлива означувајќи ја како „непроверена“ (ги занемарува оценките)',
+	'revreview-tt-reject' => 'Одбијте ги овие промени, враќајќи ги (ги занемарува оценките)',
 	'validationpage' => '{{ns:help}}:Проверка на страница',
 );
 
@@ -10085,8 +10100,9 @@ $messages['ml'] = array(
 	'revreview-style-4' => 'തിരഞ്ഞെടുക്കപ്പെട്ടത്',
 	'revreview-submit' => 'സമർപ്പിക്കുക',
 	'revreview-submitting' => 'സമർപ്പിക്കുന്നു...',
-	'revreview-submit-review' => 'അംഗീകരിക്കുക',
-	'revreview-submit-unreview' => 'അംഗീകാരം നീക്കുക',
+	'revreview-submit-review' => 'നാൾപ്പതിപ്പ് അംഗീകരിക്കുക',
+	'revreview-submit-unreview' => 'നാൾപ്പതിപ്പ് തിരസ്കരിക്കുക',
+	'revreview-submit-reject' => 'മാറ്റങ്ങൾ നിരാകരിക്കുക',
 	'revreview-submit-reviewed' => 'ചെയ്തുകഴിഞ്ഞു. അംഗീകരിക്കപ്പെട്ടിരിക്കുന്നു!',
 	'revreview-submit-unreviewed' => 'ചെയ്തുകഴിഞ്ഞു. അംഗീകാരം നീക്കംചെയ്തിരിക്കുന്നു!',
 	'revreview-successful' => "'''[[:$1|$1]] താളിന്റെ നാൾപ്പതിപ്പിൽ പതാക വിജയകരമായി ചേർത്തിരിക്കുന്നു. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} സ്ഥിരതയുള്ള പതിപ്പുകൾ കാണുക])'''",
@@ -10095,7 +10111,7 @@ $messages['ml'] = array(
 	'revreview-toggle-title' => 'വിവരങ്ങൾ കാണിക്കുക/മറയ്ക്കുക',
 	'revreview-toolow' => '\'\'\'നാൾപ്പതിപ്പ് സംശോധനം ചെയ്തതാണെന്ന് കണക്കാക്കാൻ താഴെ കൊടുത്തിരിക്കുന്ന ഓരോന്നിലും താങ്കൾ "അപര്യാപ്തം" എന്ന നിലയ്ക്ക് മുകളിലുള്ള ഒരു നിലവാരമിടേണ്ടതാണ്.\'\'\'
 
-ഒരു നാൾപ്പതിപ്പിന്റെ സംശോധിത പദവി ഒഴിവാക്കാൻ എല്ലാ മണ്ഡലങ്ങളും "അപര്യാപ്തം" എന്നു കുറിക്കുക.
+ഒരു നാൾപ്പതിപ്പിന്റെ സംശോധിത പദവി ഒഴിവാക്കാൻ എല്ലാ മണ്ഡലങ്ങളും "അസ്വീകാര്യം" എന്നു കുറിക്കുക.
 
 താങ്കളുടെ ബ്രൗസറിന്റെ "ബാക്ക്" ബട്ടൺ ഞെക്കി പിന്നോട്ട് പോയി വീണ്ടും ശ്രമിക്കുക.',
 	'revreview-update' => "'''ദയവായി അവശേഷിക്കുന്ന മാറ്റങ്ങൾ ''(താഴെ കൊടുത്തിരിക്കുന്നു)'' [[{{MediaWiki:Validationpage}}|സംശോധനം ചെയ്ത്]] അംഗീകരിക്കപ്പെട്ട പതിപ്പ് ആക്കുക.'''
@@ -10165,7 +10181,7 @@ $messages['ml'] = array(
 	'log-show-hide-review' => 'സംശോധന രേഖ $1',
 	'revreview-tt-review' => 'ഈ നാൾപ്പതിപ്പിന് ഈ പദവി നൽകുക',
 	'revreview-tt-flag' => 'ഈ നാൾപ്പതിപ്പ് പരിശോധിച്ചതായി അടയാളപ്പെടുത്തി അംഗീകരിക്കുക',
-	'revreview-tt-unflag' => 'ഈ നാൾപ്പതിപ്പ് പരിശോധിച്ചതല്ല എന്നടയാളപ്പെടുത്തി അംഗീകാരം നീക്കുക',
+	'revreview-tt-unflag' => 'ഈ നാൾപ്പതിപ്പ് "പരിശോധിച്ചതല്ല" എന്നടയാളപ്പെടുത്തി അംഗീകാരം നീക്കുക (നിലവാരം അവഗണിക്കപ്പെടും)',
 	'validationpage' => '{{ns:help}}:താളിന്റെ സാധുത',
 );
 
@@ -10720,16 +10736,18 @@ Er kunnen ongecontroleerde [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffon
 	'revreview-style-4' => 'Uitgelicht',
 	'revreview-submit' => 'Opslaan',
 	'revreview-submitting' => 'Bezig met opslaan…',
-	'revreview-submit-review' => 'Goedkeuren',
-	'revreview-submit-unreview' => 'Afkeuren',
+	'revreview-submit-review' => 'Versie accepteren',
+	'revreview-submit-unreview' => 'Versie afkeuren',
+	'revreview-submit-reject' => 'Wijzigingen afwijzen',
 	'revreview-submit-reviewed' => 'Klaar. Gecontroleerd!',
 	'revreview-submit-unreviewed' => 'Klaar. Niet gecontroleerd!',
 	'revreview-successful' => "'''De versie van [[:$1|$1]] is gecontroleerd. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} gepubliceerde versies bekijken])'''",
 	'revreview-successful2' => "'''De versie van [[:$1|$1]] is als niet gepubliceerd aangemerkt.'''",
 	'revreview-text' => "''[[{{MediaWiki:Validationpage}}|Gecontroleerde versies]] worden standaard weergegeven in plaats van de nieuwste versie.''",
 	'revreview-toggle-title' => 'details weergeven/verbergen',
-	'revreview-toolow' => '\'\'\'U moet tenminste alle onderstaande eigenschappen hoger instellen dan "{{int:Revreview-accuracy-0}}" om voor een versie aan te geven dat deze is gecontroleerd.\'\'\'
-Stel alle velden in op "{{int:Revreview-accuracy-0}}" om de waardering van een versie te verwijderen.
+	'revreview-toolow' => '\'\'\'U moet tenminste alle eigenschappen hoger instellen dan "{{int:Revreview-accuracy-0}}" om voor een versie aan te geven dat deze is gecontroleerd.\'\'\'
+
+Klik op "Versie afkeuren" om de waardering van een versie te verwijderen.
 
 Klik op de knop "Terug" in uw browser en probeer het opnieuw.',
 	'revreview-update' => "'''[[{{MediaWiki:Validationpage}}|Controleer]] alstublieft de ''onderstaande'' wijzigingen ten opzichte van de gepubliceerde versie.'''
@@ -10804,7 +10822,8 @@ Controleer de URL die u gebruikte om naar deze pagina te gaan.',
 	'log-show-hide-review' => 'Waarderingslogboek $1',
 	'revreview-tt-review' => 'Deze status voor deze versie instellen',
 	'revreview-tt-flag' => 'Deze versie goedkeuren door haar als gecontroleerd te markeren',
-	'revreview-tt-unflag' => 'De goedkeuring van deze versie intrekken door haar als ongecontroleerd te markeren',
+	'revreview-tt-unflag' => "Keur deze versie af door haar als '''ongecontroleerd''' te markeren (beoordelingen worden genegeerd)",
+	'revreview-tt-reject' => 'Deze wijzigingen afkeuren door te terug te draaien (beoordelingen worden genegeerd)',
 	'validationpage' => '{{ns:help}}:Paginaredactie',
 );
 
@@ -11622,19 +11641,20 @@ Później mogły zostać wykonane następne [{{fullurl:{{FULLPAGENAMEE}}|oldid=$
 	'revreview-style-4' => 'na medal',
 	'revreview-submit' => 'Oznacz wersję',
 	'revreview-submitting' => 'Zapisywanie...',
-	'revreview-submit-review' => 'Zaakceptuj',
-	'revreview-submit-unreview' => 'Odrzuć',
+	'revreview-submit-review' => 'Zaakceptuj wersję',
+	'revreview-submit-unreview' => 'Cofnij akceptację wersji',
+	'revreview-submit-reject' => 'Odrzuć zmiany',
 	'revreview-submit-reviewed' => 'Gotowe. Zaakceptowano!',
 	'revreview-submit-unreviewed' => 'Gotowe. Wycofano akceptację!',
 	'revreview-successful' => "'''Wersja [[:$1|$1]] została pomyślnie oznaczona. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} zobacz wszystkie wersje przejrzane])'''",
 	'revreview-successful2' => "'''Wersja [[:$1|$1]] została pomyślnie odznaczona.'''",
 	'revreview-text' => "''[[{{MediaWiki:Validationpage}}|Wersje przejrzane]] są domyślnie prezentowane czytelnikom, nawet jeśli istnieją nowsze, nieprzejrzane wersje.''",
 	'revreview-toggle-title' => 'pokaż lub ukryj szczegóły',
-	'revreview-toolow' => "Musisz ocenić każdy z atrybutów wyżej niż „nieakceptowalny“, aby oznaczyć wersję jako zweryfikowaną. 
+	'revreview-toolow' => "'''Musisz ocenić każdy z atrybutów wyżej niż „nieakceptowalny“, aby oznaczyć wersję jako zweryfikowaną.'''
 
-By wycofać weryfikację, należy ustawić '''wszystkie''' pola na „nieakceptowalny“.
+Aby wycofać zweryfikowanie kliknij na „Cofnij akceptację wersji”.
 
-Kliknij przycisk ''Wstecz'' i spróbuj ponownie.",
+Kliknij przycisk „Wstecz” w przeglądarce i spróbuj ponownie.",
 	'revreview-update' => "'''Proszę [[{{MediaWiki:Validationpage}}|przejrzeć]] zmiany ''(patrz niżej)'' dokonane od momentu ostatniego oznaczenia wersji.'''
 Najpierw prześledź dokonane zmiany, a następnie zaakceptuj je lub „anuluj edycję”.",
 	'revreview-update-edited' => '<span class="flaggedrevs_important">Wykonane przez Ciebie zmiany nie mają jeszcze statusu wersji oznaczonej.</span>
@@ -11703,7 +11723,8 @@ Po prześledzeniu zmian, zaakceptuj je lub „anuluj edycję”.',
 	'log-show-hide-review' => '$1 rejestr oznaczania',
 	'revreview-tt-review' => 'Ustaw ten status dla tej wersji',
 	'revreview-tt-flag' => 'Zaakceptuj tę wersję poprzez oznaczenie jej jako „przejrzanej”',
-	'revreview-tt-unflag' => 'Wycofaj akceptację tej wersji',
+	'revreview-tt-unflag' => 'Wycofaj akceptację tej wersji poprzez oznaczenie jest jako „niesprawdzonej” (ignoruj wcześniejsze oceny)',
+	'revreview-tt-reject' => 'Odrzucić te zmiany poprzez wycofanie ich (zignoruj oceny)',
 	'validationpage' => '{{ns:help}}:Wersje oznaczone',
 );
 
@@ -11865,8 +11886,9 @@ Dij neuv [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} cangiament]
 	'revreview-style-4' => 'Premià',
 	'revreview-submit' => 'Spediss',
 	'revreview-submitting' => 'Spedì ...',
-	'revreview-submit-review' => 'Apreuva',
-	'revreview-submit-unreview' => "Gavé l'aprovassion",
+	'revreview-submit-review' => 'Aceta revision',
+	'revreview-submit-unreview' => 'Revision pa acetà',
+	'revreview-submit-reject' => 'Arfuda modìfiche',
 	'revreview-submit-reviewed' => 'Fàit. Aprovà!',
 	'revreview-submit-unreviewed' => "Fàit. Gavà l'aprovassion!",
 	'revreview-successful' => "'''Revision ëd [[:$1|$1]] signalà da bin. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} vardé le version revisionà])'''",
@@ -11875,7 +11897,7 @@ Dij neuv [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} cangiament]
 	'revreview-toggle-title' => 'smon-e/stërmé ij detaj',
 	'revreview-toolow' => "'''A venta ch'a stima mincadun ëd j'atribù pi àut che \"pa adeguà\" përchè na revision a sia considerà revisionà.'''
 
-Për gavé lë stat ëd revision ëd na revision, ch'a ampòsta ''tùit'' ij camp a \"pa adeguà\".
+Për gavé lë stat ëd revision ëd na revision, sgnaca \"pa acetà\".
 
 Për piasì, ch'a sgnaca ël boton \"andré\" an sò navigador e ch'a preuva torna.",
 	'revreview-update' => "'''Për piasì [[{{MediaWiki:Validationpage}}|ch'a revision-a]] tuti ij cangiament an cors ''(smonù ambelessì-sota)'' fàit a la version publicà.'''
@@ -11947,7 +11969,8 @@ Che as controla për piasì l'adrëssa (URL) che a l'ha dovrà për rivé a sta 
 	'log-show-hide-review' => '$1 registr ëd le revision',
 	'revreview-tt-review' => 'Amposté së statù a costa revision-sì',
 	'revreview-tt-flag' => 'Apreuva sta revision-sì an marcandla com revisionà',
-	'revreview-tt-unflag' => 'Gava da aprovà sta revision-sì an marcandla com pa revisionà',
+	'revreview-tt-unflag' => 'Gava da aprovà sta revision-sì an marcandla com pa controlà (varda pa le valutassion)',
+	'revreview-tt-reject' => 'Arfuda sti cambi an butandje andré (varda pa le valutassion)',
 	'validationpage' => '{{ns:help}}:Validassion ëd la pàgina',
 );
 
@@ -12153,6 +12176,7 @@ Existem [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} alterações
 	'revreview-submitting' => 'Enviando...',
 	'revreview-submit-review' => 'Aprovar',
 	'revreview-submit-unreview' => 'Anular aprovação',
+	'revreview-submit-reject' => 'Rejeitar as alterações',
 	'revreview-submit-reviewed' => 'Terminado. Aprovada!',
 	'revreview-submit-unreviewed' => 'Terminado. Aprovação anulada!',
 	'revreview-successful' => "'''A edição de [[:$1|$1]] foi marcada com sucesso. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} ver as versões revistas])'''",
@@ -12400,8 +12424,9 @@ Podem existir [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} altera
 	'revreview-style-4' => 'Exemplar',
 	'revreview-submit' => 'Enviar',
 	'revreview-submitting' => 'Enviando...',
-	'revreview-submit-review' => 'Aprovar',
-	'revreview-submit-unreview' => 'Anular aprovação',
+	'revreview-submit-review' => 'Aceitar edição',
+	'revreview-submit-unreview' => 'Não aceitar edição',
+	'revreview-submit-reject' => 'Rejeitar as alterações',
 	'revreview-submit-reviewed' => 'Feito. Aprovada!',
 	'revreview-submit-unreviewed' => 'Feito. Aprovação anulada!',
 	'revreview-successful' => "'''A edição de [[:$1|$1]] foi marcada com sucesso. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} ver as versões revisadas])'''",
@@ -13004,8 +13029,9 @@ $messages['ru'] = array(
 	'revreview-style-4' => 'избранная',
 	'revreview-submit' => 'Отправить',
 	'revreview-submitting' => 'Отправка…',
-	'revreview-submit-review' => 'Подтвердить',
+	'revreview-submit-review' => 'Подтвердить версию',
 	'revreview-submit-unreview' => 'Снять подтверждение',
+	'revreview-submit-reject' => 'Отклонить изменения',
 	'revreview-submit-reviewed' => 'Готово. Подтверждено!',
 	'revreview-submit-unreviewed' => 'Готово. Отменено подтверждение!',
 	'revreview-successful' => "'''Выбранная версия [[:$1|$1]] успешно отмечена. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} просмотр стабильных версий])'''",
@@ -13014,7 +13040,7 @@ $messages['ru'] = array(
 	'revreview-toggle-title' => 'показать/скрыть подробности',
 	'revreview-toolow' => "'''Вы должны указать для всех значений уровень выше, чем «недостаточный», чтобы версия страницы считалась проверенной.'''
 
-Чтобы сбросить признак проверки, установите ''все'' значения в значение «не указано».
+Чтобы сбросить признак проверки этой версии, нажмите «Снять подтверждение».
 
 Пожалуйста, нажмите в браузере кнопку «назад», чтобы указать значения заново.",
 	'revreview-update' => "'''Пожалуйста, [[{{MediaWiki:Validationpage}}|проверьте]] изменения ''(показаны ниже)'', сделанные в принятой версии.'''
@@ -13085,11 +13111,12 @@ $messages['ru'] = array(
 	'log-show-hide-review' => '$1 журнал проверок',
 	'revreview-tt-review' => 'Указать это состояние для данной версии',
 	'revreview-tt-flag' => 'Подтвердите эту версию, отметив её как проверенную',
-	'revreview-tt-unflag' => 'Снять подтверждение, отметив эту версию как непроверенную',
+	'revreview-tt-unflag' => 'Снять подтверждение с этой версии, отметив её как непроверенную (игнорирует оценки)',
+	'revreview-tt-reject' => 'Отклонить эти изменения, откатить их (игнорирует оценок)',
 	'validationpage' => '{{ns:help}}:Проверка страниц',
 );
 
-/** Rusyn (русиньскый язык)
+/** Rusyn (Русиньскый)
  * @author Gazeb
  */
 $messages['rue'] = array(
@@ -13562,8 +13589,8 @@ $messages['sl'] = array(
 	'revreview-style-4' => 'Izbrano',
 	'revreview-submit' => 'Potrdi',
 	'revreview-submitting' => 'Potrjevanje ...',
-	'revreview-submit-review' => 'Potrdi',
-	'revreview-submit-unreview' => 'Od-potrdi',
+	'revreview-submit-review' => 'Sprejmi redakcijo',
+	'revreview-submit-unreview' => 'Redakcije ne sprejmi',
 	'revreview-submit-reviewed' => 'Končano. Potrjeno!',
 	'revreview-submit-unreviewed' => 'Končano. Od-potrjeno!',
 	'revreview-toggle-title' => 'prikaži/skrij podrobnosti',
@@ -14459,7 +14486,7 @@ $messages['te'] = array(
 	'revreview-style-4' => 'విశేషనీయం',
 	'revreview-submit' => 'దాఖలుచెయ్యి',
 	'revreview-submitting' => 'దాఖలుచేస్తున్నాం...',
-	'revreview-submit-review' => 'అంగీకరించు',
+	'revreview-submit-review' => 'కూర్పుని అంగీకరించు',
 	'revreview-text' => 'కొత్త కూర్పులు కాకుండా [[{{MediaWiki:Validationpage}}|సుస్థిర కూర్పులు ]]కనిపిస్తాయి.',
 	'revreview-toggle-title' => 'వివరాలను చూపించు/దాచు',
 	'revreview-toolow' => 'ఓ కూర్పును సమీక్షించినట్లుగా భావించాలంటే కింద ఇచ్చిన గుణాలన్నిటినీ "సమ్మతించలేదు" కంటే ఉన్నతంగా రేటు చెయ్యాలి.',
@@ -15542,8 +15569,8 @@ $messages['uk'] = array(
 	'revreview-style-4' => 'вибрана',
 	'revreview-submit' => 'Позначити',
 	'revreview-submitting' => 'Надсилання...',
-	'revreview-submit-review' => 'Затвердити',
-	'revreview-submit-unreview' => 'Зняти затвердження',
+	'revreview-submit-review' => 'Затвердити версію',
+	'revreview-submit-unreview' => 'Зняти затвердження версії',
 	'revreview-submit-reviewed' => 'Виконано. Затверджена!',
 	'revreview-submit-unreviewed' => 'Виконано. Не затверджена!',
 	'revreview-successful' => "'''Обрана версія [[:$1|$1]] успішно позначена. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} перегляд усіх стабільних версій])'''",
