@@ -14,10 +14,6 @@ $messages['en'] = array(
 Some settings might change which version is displayed to readers or further restrict who can make edits that do not require review.',
 	'configuredpages-none'          => 'There are no pages in this list.',
 	'configuredpages-config'        => 'Configuration',
-	'configuredpages-precedence'    => 'Precedence:',
-	'configuredpages-prec-none'     => 'latest checked',
-	'configuredpages-prec-quality'  => 'latest quality',
-	'configuredpages-prec-pristine' => 'latest pristine',
 	'configuredpages-def-draft'     => 'latest version',
 	'configuredpages-def-stable'    => 'stable version',
 );

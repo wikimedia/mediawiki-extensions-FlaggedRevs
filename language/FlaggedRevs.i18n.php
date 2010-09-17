@@ -97,6 +97,7 @@ There are [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} template/f
 	'review_bad_key'           => 'Invalid inclusion parameter key.',
 	'review_denied'            => 'Permission denied.',
 	'review_param_missing'     => 'A parameter is missing or invalid.',
+	'review_cannot_undo'       => 'Cannot undo these changes because further pending edits changed the same areas.',
 
 	'revreview-current'            => 'Pending changes',
 	'revreview-depth'              => 'Depth',
@@ -234,7 +235,6 @@ Please check the URL you used to access this page.',
 	'revreview-filter-manual'      => 'Manual',
 
 	'revreview-levelfilter'        => 'Level:',
-	'revreview-precedencefilter'   => 'Precedence:',
 	'revreview-lev-all'            => 'any',
 	'revreview-lev-basic'          => 'checked',
 	'revreview-lev-quality'        => 'quality',
