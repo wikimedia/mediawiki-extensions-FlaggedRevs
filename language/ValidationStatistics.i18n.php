@@ -1925,6 +1925,10 @@ $messages['vi'] = array(
 
 Biên tập viên là người dùng có kinh nghiệm có khả năng kiểm tra nhanh các thay đổi tại trang.",
 	'validationstatistics-lastupdate' => "''Các dữ liệu sau được cập nhật lần cuối vào $1 lúc $2.''",
+	'validationstatistics-pndtime' => "Những sửa đổi được duyệt khi được người dùng có kinh nghiệm xem qua.
+
+[[Special:OldReviewedPages|Các trang có sửa đổi đang chờ duyệt]] đã chờ đợi '''$1''' trung bình.
+Những trang này được coi là ''lỗi thời''. Tương tự, các trang được coi là ''đồng bộ hóa'' khi không còn sửa đổi đang chờ duyệt.",
 	'validationstatistics-revtime' => "Những sửa đổi của ''người dùng vô danh'' phải chờ đợi '''$1''' trung bình; thời gian trung vị là '''$2'''.
 $3",
 	'validationstatistics-table' => "Đây có thống kê duyệt trang về các không gian tên, ''trừ'' các trang đổi hướng.",
