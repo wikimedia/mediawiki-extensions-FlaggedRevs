@@ -6,12 +6,8 @@
  * @ingroup Extensions
  */
 
-$aliases = array();
-
-/** English
- * @author Aaron Schulz
- */
-$aliases['en'] = array(
+/** English (English) */
+$specialPageAliases['en'] = array(
 	'PendingChanges' => array( 'PendingChanges', 'OldReviewedPages' /* deprecated */ ),
 	'ProblemChanges' => array( 'ProblemChanges' ),
 	'QualityOversight' => array( 'AdvancedReviewLog', 'QualityOversight' /* deprecated */ ),
@@ -19,540 +15,600 @@ $aliases['en'] = array(
 	'RevisionReview' => array( 'RevisionReview' ),
 	'Stabilization' => array( 'Stabilization', 'Stabilisation' ),
 	'StablePages' => array( 'StablePages' ),
-    'ConfiguredPages' => array( 'ConfiguredPages' ),
+	'ConfiguredPages' => array( 'ConfiguredPages' ),
 	'ReviewedVersions' => array( 'ReviewedVersions', 'StableVersions' /*old name*/ ),
 	'UnreviewedPages' => array( 'UnreviewedPages' ),
 	'ValidationStatistics' => array( 'ValidationStatistics' ),
 );
 
-$aliases['an'] = array(
-	'PendingChanges'         => array( 'PachinasSupervisatasAntigas' ),
-	'QualityOversight'       => array( 'SupervisataDeCalidat' ),
-	'ReviewedPages'          => array( 'PachinasSubervisatas' ),
-	'StablePages'            => array( 'PachinasEstables' ),
-	'UnreviewedPages'        => array( 'PachinasNoRevisatas' ),
+/** Aragonese (Aragonés) */
+$specialPageAliases['an'] = array(
+	'PendingChanges' => array( 'PachinasSupervisatasAntigas' ),
+	'QualityOversight' => array( 'SupervisataDeCalidat' ),
+	'ReviewedPages' => array( 'PachinasSubervisatas' ),
+	'StablePages' => array( 'PachinasEstables' ),
+	'UnreviewedPages' => array( 'PachinasNoRevisatas' ),
 );
 
-$aliases['ar'] = array(
-	'PendingChanges'         => array( 'صفحات_مراجعة_قديمة' ),
-	'ProblemChanges'         => array( 'تغييرات_المشاكل' ),
-	'QualityOversight'       => array( 'سجل_المراجعة_المتقدم', 'نظر_الجودة' ),
-	'ReviewedPages'          => array( 'صفحات_مراجعة' ),
-	'RevisionReview'         => array( 'مراجعة_نسخة' ),
-	'Stabilization'          => array( 'استقرار' ),
-	'StablePages'            => array( 'صفحات_مستقرة' ),
-	'ConfiguredPages'        => array( 'صفحات_مضبوطة' ),
-	'ReviewedVersions'       => array( 'نسخ_مراجعة', 'نسخ_مستقرة' ),
-	'UnreviewedPages'        => array( 'صفحات_غير_مراجعة' ),
-	'ValidationStatistics'   => array( 'إحصاءات_التحقق' ),
+/** Arabic (العربية) */
+$specialPageAliases['ar'] = array(
+	'PendingChanges' => array( 'صفحات_مراجعة_قديمة' ),
+	'ProblemChanges' => array( 'تغييرات_المشاكل' ),
+	'QualityOversight' => array( 'سجل_المراجعة_المتقدم', 'نظر_الجودة' ),
+	'ReviewedPages' => array( 'صفحات_مراجعة' ),
+	'RevisionReview' => array( 'مراجعة_نسخة' ),
+	'Stabilization' => array( 'استقرار' ),
+	'StablePages' => array( 'صفحات_مستقرة' ),
+	'ConfiguredPages' => array( 'صفحات_مضبوطة' ),
+	'ReviewedVersions' => array( 'نسخ_مراجعة', 'نسخ_مستقرة' ),
+	'UnreviewedPages' => array( 'صفحات_غير_مراجعة' ),
+	'ValidationStatistics' => array( 'إحصاءات_التحقق' ),
 );
 
-$aliases['arz'] = array(
-	'PendingChanges'         => array( 'صفح_مراجعه_قديمه' ),
-	'ProblemChanges'         => array( 'تغييرات_المشاكل' ),
-	'QualityOversight'       => array( 'مراقبة_الجوده' ),
-	'ReviewedPages'          => array( 'صفح_مراجعه' ),
-	'RevisionReview'         => array( 'مراجعة_نسخه' ),
-	'Stabilization'          => array( 'استقرار' ),
-	'StablePages'            => array( 'صفح_مستقر' ),
-	'ConfiguredPages'        => array( 'صفحات_مضبوطه' ),
-	'ReviewedVersions'       => array( 'نسخ_مراجعه', 'نسخ_مستقره' ),
-	'UnreviewedPages'        => array( 'صفح_مش_متراجعه' ),
-	'ValidationStatistics'   => array( 'احصائيات_الصلاحيه' ),
+/** Egyptian Spoken Arabic (مصرى) */
+$specialPageAliases['arz'] = array(
+	'PendingChanges' => array( 'صفح_مراجعه_قديمه' ),
+	'ProblemChanges' => array( 'تغييرات_المشاكل' ),
+	'QualityOversight' => array( 'مراقبة_الجوده' ),
+	'ReviewedPages' => array( 'صفح_مراجعه' ),
+	'RevisionReview' => array( 'مراجعة_نسخه' ),
+	'Stabilization' => array( 'استقرار' ),
+	'StablePages' => array( 'صفح_مستقر' ),
+	'ConfiguredPages' => array( 'صفحات_مضبوطه' ),
+	'ReviewedVersions' => array( 'نسخ_مراجعه', 'نسخ_مستقره' ),
+	'UnreviewedPages' => array( 'صفح_مش_متراجعه' ),
+	'ValidationStatistics' => array( 'احصائيات_الصلاحيه' ),
 );
 
-$aliases['bcc'] = array(
-	'PendingChanges'         => array( 'صفحات-بازبینی-قدیمی' ),
-	'QualityOversight'       => array( 'رویت-کیفیت' ),
-	'ReviewedPages'          => array( 'صفحات-بازبینی' ),
-	'StablePages'            => array( 'صفحات-ثابت' ),
-	'UnreviewedPages'        => array( 'صفحات-بی-بازبینی' ),
+/** Southern Balochi (بلوچی مکرانی) */
+$specialPageAliases['bcc'] = array(
+	'PendingChanges' => array( 'صفحات-بازبینی-قدیمی' ),
+	'QualityOversight' => array( 'رویت-کیفیت' ),
+	'ReviewedPages' => array( 'صفحات-بازبینی' ),
+	'StablePages' => array( 'صفحات-ثابت' ),
+	'UnreviewedPages' => array( 'صفحات-بی-بازبینی' ),
 );
 
-$aliases['br'] = array(
-	'Stabilization'          => array( 'Stabiladur' ),
-	'StablePages'            => array( 'PajennoùStabil' ),
-	'ConfiguredPages'        => array( 'PajennoùKefluniet' ),
-	'ValidationStatistics'   => array( 'KadarnaatStadegoù' ),
+/** Breton (Brezhoneg) */
+$specialPageAliases['br'] = array(
+	'Stabilization' => array( 'Stabiladur' ),
+	'StablePages' => array( 'PajennoùStabil' ),
+	'ConfiguredPages' => array( 'PajennoùKefluniet' ),
+	'ValidationStatistics' => array( 'KadarnaatStadegoù' ),
 );
 
-$aliases['bs'] = array(
-	'PendingChanges'         => array( 'StarePregledaneStranice' ),
-	'QualityOversight'       => array( 'KvalitetNadzora' ),
-	'ReviewedPages'          => array( 'PregledaneStranice' ),
-	'RevisionReview'         => array( 'PregledRevizija' ),
-	'Stabilization'          => array( 'Stabilizacija' ),
-	'StablePages'            => array( 'StabilneStranice' ),
-	'UnreviewedPages'        => array( 'NeprovjereneStranice' ),
-	'ValidationStatistics'   => array( 'StatistikeValidacije' ),
+/** Bosnian (Bosanski) */
+$specialPageAliases['bs'] = array(
+	'PendingChanges' => array( 'StarePregledaneStranice' ),
+	'QualityOversight' => array( 'KvalitetNadzora' ),
+	'ReviewedPages' => array( 'PregledaneStranice' ),
+	'RevisionReview' => array( 'PregledRevizija' ),
+	'Stabilization' => array( 'Stabilizacija' ),
+	'StablePages' => array( 'StabilneStranice' ),
+	'UnreviewedPages' => array( 'NeprovjereneStranice' ),
+	'ValidationStatistics' => array( 'StatistikeValidacije' ),
 );
 
-$aliases['de'] = array(
-	'PendingChanges'         => array( 'Seiten_mit_ungesichteten_Versionen' ),
-	'QualityOversight'       => array( 'Markierungsübersicht' ),
-	'ReviewedPages'          => array( 'Gesichtete_Seiten' ),
-	'RevisionReview'         => array( 'Versionsprüfung' ),
-	'Stabilization'          => array( 'Seitenkonfiguration', 'Stabilisierung' ),
-	'StablePages'            => array( 'Konfigurierte_Seiten' ),
-	'UnreviewedPages'        => array( 'Ungesichtete_Seiten' ),
-	'ValidationStatistics'   => array( 'Markierungsstatistik' ),
+/** German (Deutsch) */
+$specialPageAliases['de'] = array(
+	'PendingChanges' => array( 'Seiten_mit_ungesichteten_Versionen' ),
+	'QualityOversight' => array( 'Markierungsübersicht' ),
+	'ReviewedPages' => array( 'Gesichtete_Seiten' ),
+	'RevisionReview' => array( 'Versionsprüfung' ),
+	'Stabilization' => array( 'Seitenkonfiguration', 'Stabilisierung' ),
+	'StablePages' => array( 'Konfigurierte_Seiten' ),
+	'UnreviewedPages' => array( 'Ungesichtete_Seiten' ),
+	'ValidationStatistics' => array( 'Markierungsstatistik' ),
 );
 
-$aliases['dsb'] = array(
-	'PendingChanges'         => array( 'Zasej njepśeglědane boki' ),
-	'QualityOversight'       => array( 'Kwalitna_kontrola' ),
-	'ReviewedPages'          => array( 'Pśeglědane_boki' ),
-	'RevisionReview'         => array( 'Wersijowe_pśeglědanje' ),
-	'Stabilization'          => array( 'Stabilizacija' ),
-	'StablePages'            => array( 'Stabilne_boki' ),
-	'UnreviewedPages'        => array( 'Njepśeglědane_boki' ),
-	'ValidationStatistics'   => array( 'Statistika_pśeglědanjow' ),
+/** Lower Sorbian (Dolnoserbski) */
+$specialPageAliases['dsb'] = array(
+	'PendingChanges' => array( 'Zasej njepśeglědane boki' ),
+	'QualityOversight' => array( 'Kwalitna_kontrola' ),
+	'ReviewedPages' => array( 'Pśeglědane_boki' ),
+	'RevisionReview' => array( 'Wersijowe_pśeglědanje' ),
+	'Stabilization' => array( 'Stabilizacija' ),
+	'StablePages' => array( 'Stabilne_boki' ),
+	'UnreviewedPages' => array( 'Njepśeglědane_boki' ),
+	'ValidationStatistics' => array( 'Statistika_pśeglědanjow' ),
 );
 
-$aliases['eo'] = array(
-	'PendingChanges'         => array( 'Malfreŝe kontrolitaj paĝoj' ),
-	'QualityOversight'       => array( 'Kvalita_kontrolo' ),
-	'ReviewedPages'          => array( 'Kontrolitaj_paĝoj' ),
-	'Stabilization'          => array( 'Stabilado' ),
-	'StablePages'            => array( 'Stabilaj_paĝoj' ),
-	'UnreviewedPages'        => array( 'Nekontrolitaj_paĝoj' ),
+/** Esperanto (Esperanto) */
+$specialPageAliases['eo'] = array(
+	'PendingChanges' => array( 'Malfreŝe kontrolitaj paĝoj' ),
+	'QualityOversight' => array( 'Kvalita_kontrolo' ),
+	'ReviewedPages' => array( 'Kontrolitaj_paĝoj' ),
+	'Stabilization' => array( 'Stabilado' ),
+	'StablePages' => array( 'Stabilaj_paĝoj' ),
+	'UnreviewedPages' => array( 'Nekontrolitaj_paĝoj' ),
 );
 
-$aliases['es'] = array(
-	'PendingChanges'         => array( 'Páginas revisadas antiguas' ),
-	'Stabilization'          => array( 'Estabilización' ),
-	'StablePages'            => array( 'Páginas_publicadas' ),
-	'ReviewedVersions'       => array( 'Versiones_revisadas' ),
-	'UnreviewedPages'        => array( 'Páginas_sin_revisar' ),
-	'ValidationStatistics'   => array( 'Estadísticas_de_validación' ),
+/** Spanish (Español) */
+$specialPageAliases['es'] = array(
+	'PendingChanges' => array( 'Páginas revisadas antiguas' ),
+	'Stabilization' => array( 'Estabilización' ),
+	'StablePages' => array( 'Páginas_publicadas' ),
+	'ReviewedVersions' => array( 'Versiones_revisadas' ),
+	'UnreviewedPages' => array( 'Páginas_sin_revisar' ),
+	'ValidationStatistics' => array( 'Estadísticas_de_validación' ),
 );
 
-$aliases['fa'] = array(
-	'PendingChanges'         => array( 'صفحه‌های_بازبینی_شده_قدیمی' ),
-	'ProblemChanges'         => array( 'تغییر_مشکلات' ),
-	'QualityOversight'       => array( 'نظارت_کیفی' ),
-	'ReviewedPages'          => array( 'صفحه‌های_بازبینی_شده' ),
-	'RevisionReview'         => array( 'بازبینی_نسخه' ),
-	'Stabilization'          => array( 'پایدارسازی' ),
-	'StablePages'            => array( 'صفحه‌های_پایدار' ),
-	'ConfiguredPages'        => array( 'صفحه‌های_تنظیم_شده' ),
-	'ReviewedVersions'       => array( 'نسخه‌های_پایدار' ),
-	'UnreviewedPages'        => array( 'صفحه‌های‌بازبینی‌نشده' ),
-	'ValidationStatistics'   => array( 'آمار_تاییدها' ),
+/** Persian (فارسی) */
+$specialPageAliases['fa'] = array(
+	'PendingChanges' => array( 'صفحه‌های_بازبینی_شده_قدیمی' ),
+	'ProblemChanges' => array( 'تغییر_مشکلات' ),
+	'QualityOversight' => array( 'نظارت_کیفی' ),
+	'ReviewedPages' => array( 'صفحه‌های_بازبینی_شده' ),
+	'RevisionReview' => array( 'بازبینی_نسخه' ),
+	'Stabilization' => array( 'پایدارسازی' ),
+	'StablePages' => array( 'صفحه‌های_پایدار' ),
+	'ConfiguredPages' => array( 'صفحه‌های_تنظیم_شده' ),
+	'ReviewedVersions' => array( 'نسخه‌های_پایدار' ),
+	'UnreviewedPages' => array( 'صفحه‌های‌بازبینی‌نشده' ),
+	'ValidationStatistics' => array( 'آمار_تاییدها' ),
 );
 
-$aliases['fi'] = array(
-	'ProblemChanges'         => array( 'Ongelmalliset_muutokset' ),
-	'Stabilization'          => array( 'Vakaaksi_versioksi' ),
-	'StablePages'            => array( 'Vakaat_sivut' ),
-	'UnreviewedPages'        => array( 'Arvioimattomat_sivut' ),
+/** Finnish (Suomi) */
+$specialPageAliases['fi'] = array(
+	'ProblemChanges' => array( 'Ongelmalliset_muutokset' ),
+	'Stabilization' => array( 'Vakaaksi_versioksi' ),
+	'StablePages' => array( 'Vakaat_sivut' ),
+	'UnreviewedPages' => array( 'Arvioimattomat_sivut' ),
 );
 
-$aliases['fr'] = array(
-	'PendingChanges'         => array( 'AnciennesPagesRelues' ),
-	'QualityOversight'       => array( 'SuperviseurQualité' ),
-	'ReviewedPages'          => array( 'Pages_révisées' ),
-	'RevisionReview'         => array( 'Relecture_des_révisions' ),
-	'StablePages'            => array( 'Pages_stables' ),
-	'UnreviewedPages'        => array( 'Pages_non_relues' ),
-	'ValidationStatistics'   => array( 'Statistiques_de_validation' ),
+/** French (Français) */
+$specialPageAliases['fr'] = array(
+	'PendingChanges' => array( 'AnciennesPagesRelues' ),
+	'QualityOversight' => array( 'SuperviseurQualité' ),
+	'ReviewedPages' => array( 'Pages_révisées' ),
+	'RevisionReview' => array( 'Relecture_des_révisions' ),
+	'StablePages' => array( 'Pages_stables' ),
+	'UnreviewedPages' => array( 'Pages_non_relues' ),
+	'ValidationStatistics' => array( 'Statistiques_de_validation' ),
 );
 
-$aliases['frp'] = array(
-	'PendingChanges'         => array( 'Pâges que les vèrsions sont dèpassâs', 'PâgesQueLesVèrsionsSontDèpassâs' ),
-	'QualityOversight'       => array( 'Supèrvision_de_qualitât', 'SupèrvisionDeQualitât' ),
-	'ReviewedPages'          => array( 'Pâges_revues', 'PâgesRevues' ),
-	'RevisionReview'         => array( 'Rèvision_de_les_vèrsions', 'RèvisionDeLesVèrsions' ),
-	'Stabilization'          => array( 'Stabilisacion' ),
-	'StablePages'            => array( 'Pâges_stâbles', 'PâgesStâbles' ),
-	'UnreviewedPages'        => array( 'Pâges_pas_revues', 'PâgesPasRevues' ),
-	'ValidationStatistics'   => array( 'Statistiques_de_validacion', 'StatistiquesDeValidacion' ),
+/** Franco-Provençal (Arpetan) */
+$specialPageAliases['frp'] = array(
+	'PendingChanges' => array( 'Pâges que les vèrsions sont dèpassâs', 'PâgesQueLesVèrsionsSontDèpassâs' ),
+	'QualityOversight' => array( 'Supèrvision_de_qualitât', 'SupèrvisionDeQualitât' ),
+	'ReviewedPages' => array( 'Pâges_revues', 'PâgesRevues' ),
+	'RevisionReview' => array( 'Rèvision_de_les_vèrsions', 'RèvisionDeLesVèrsions' ),
+	'Stabilization' => array( 'Stabilisacion' ),
+	'StablePages' => array( 'Pâges_stâbles', 'PâgesStâbles' ),
+	'UnreviewedPages' => array( 'Pâges_pas_revues', 'PâgesPasRevues' ),
+	'ValidationStatistics' => array( 'Statistiques_de_validacion', 'StatistiquesDeValidacion' ),
 );
 
-$aliases['gl'] = array(
-	'PendingChanges'         => array( 'Páxinas revisadas hai tempo' ),
-	'QualityOversight'       => array( 'Revisión de calidade' ),
-	'ReviewedPages'          => array( 'Páxinas revisadas' ),
-	'RevisionReview'         => array( 'Revisión da revisión' ),
-	'Stabilization'          => array( 'Estabilización' ),
-	'StablePages'            => array( 'Páxinas estábeis' ),
-	'UnreviewedPages'        => array( 'Páxinas non revisadas' ),
-	'ValidationStatistics'   => array( 'Estatísticas de validación' ),
+/** Galician (Galego) */
+$specialPageAliases['gl'] = array(
+	'PendingChanges' => array( 'Páxinas revisadas hai tempo' ),
+	'QualityOversight' => array( 'Revisión de calidade' ),
+	'ReviewedPages' => array( 'Páxinas revisadas' ),
+	'RevisionReview' => array( 'Revisión da revisión' ),
+	'Stabilization' => array( 'Estabilización' ),
+	'StablePages' => array( 'Páxinas estábeis' ),
+	'UnreviewedPages' => array( 'Páxinas non revisadas' ),
+	'ValidationStatistics' => array( 'Estatísticas de validación' ),
 );
 
-$aliases['gsw'] = array(
-	'PendingChanges'         => array( 'Syte mit Versione wu nit gsichtet sin' ),
-	'QualityOversight'       => array( 'Markierigsibersicht' ),
-	'ReviewedPages'          => array( 'Gsichteti Syte' ),
-	'RevisionReview'         => array( 'Versionspriefig' ),
-	'Stabilization'          => array( 'Sytekonfiguration' ),
-	'StablePages'            => array( 'Konfigurierti Syte' ),
-	'UnreviewedPages'        => array( 'Syte wu nit gsichtet sin' ),
-	'ValidationStatistics'   => array( 'Markierigsstatischtik' ),
+/** Swiss German (Alemannisch) */
+$specialPageAliases['gsw'] = array(
+	'PendingChanges' => array( 'Syte mit Versione wu nit gsichtet sin' ),
+	'QualityOversight' => array( 'Markierigsibersicht' ),
+	'ReviewedPages' => array( 'Gsichteti Syte' ),
+	'RevisionReview' => array( 'Versionspriefig' ),
+	'Stabilization' => array( 'Sytekonfiguration' ),
+	'StablePages' => array( 'Konfigurierti Syte' ),
+	'UnreviewedPages' => array( 'Syte wu nit gsichtet sin' ),
+	'ValidationStatistics' => array( 'Markierigsstatischtik' ),
 );
 
-$aliases['gu'] = array(
-	'PendingChanges'         => array( 'જુનાં તપાસાયેલા પાનાં' ),
-	'QualityOversight'       => array( 'ગુણવતા_દુર્લક્ષ' ),
-	'ReviewedPages'          => array( 'રીવ્યુપાનાં' ),
-	'RevisionReview'         => array( 'આવૃત્તિરીવ્યુ' ),
-	'Stabilization'          => array( 'સ્થિરતા' ),
-	'StablePages'            => array( 'સ્થિરપાનાઓ' ),
+/** Gujarati (ગુજરાતી) */
+$specialPageAliases['gu'] = array(
+	'PendingChanges' => array( 'જુનાં તપાસાયેલા પાનાં' ),
+	'QualityOversight' => array( 'ગુણવતા_દુર્લક્ષ' ),
+	'ReviewedPages' => array( 'રીવ્યુપાનાં' ),
+	'RevisionReview' => array( 'આવૃત્તિરીવ્યુ' ),
+	'Stabilization' => array( 'સ્થિરતા' ),
+	'StablePages' => array( 'સ્થિરપાનાઓ' ),
 );
 
-$aliases['hi'] = array(
-	'PendingChanges'         => array( 'पुरानेदेखेंहुएपन्ने' ),
-	'QualityOversight'       => array( 'गुणवत्ताओव्हरसाईट' ),
-	'ReviewedPages'          => array( 'जाँचेहुएपन्ने' ),
-	'StablePages'            => array( 'स्थिरपन्ने' ),
-	'UnreviewedPages'        => array( 'नदेखेंहुएपन्ने' ),
+/** Hindi (हिन्दी) */
+$specialPageAliases['hi'] = array(
+	'PendingChanges' => array( 'पुरानेदेखेंहुएपन्ने' ),
+	'QualityOversight' => array( 'गुणवत्ताओव्हरसाईट' ),
+	'ReviewedPages' => array( 'जाँचेहुएपन्ने' ),
+	'StablePages' => array( 'स्थिरपन्ने' ),
+	'UnreviewedPages' => array( 'नदेखेंहुएपन्ने' ),
 );
 
-$aliases['hr'] = array(
-	'StablePages'            => array( 'Stabilne_stranice' ),
+/** Croatian (Hrvatski) */
+$specialPageAliases['hr'] = array(
+	'StablePages' => array( 'Stabilne_stranice' ),
 );
 
-$aliases['hsb'] = array(
-	'PendingChanges'         => array( 'Zaso njepřehladane strony' ),
-	'QualityOversight'       => array( 'Kwalitna_kontrola' ),
-	'ReviewedPages'          => array( 'Přehladane_strony' ),
-	'RevisionReview'         => array( 'Wersijowe_přehladanje' ),
-	'Stabilization'          => array( 'Stabilizacija' ),
-	'StablePages'            => array( 'Stabilne_strony' ),
-	'UnreviewedPages'        => array( 'Njepřehladane_strony' ),
-	'ValidationStatistics'   => array( 'Statistika_přehladanjow' ),
+/** Upper Sorbian (Hornjoserbsce) */
+$specialPageAliases['hsb'] = array(
+	'PendingChanges' => array( 'Zaso njepřehladane strony' ),
+	'QualityOversight' => array( 'Kwalitna_kontrola' ),
+	'ReviewedPages' => array( 'Přehladane_strony' ),
+	'RevisionReview' => array( 'Wersijowe_přehladanje' ),
+	'Stabilization' => array( 'Stabilizacija' ),
+	'StablePages' => array( 'Stabilne_strony' ),
+	'UnreviewedPages' => array( 'Njepřehladane_strony' ),
+	'ValidationStatistics' => array( 'Statistika_přehladanjow' ),
 );
 
-$aliases['hu'] = array(
-	'PendingChanges'         => array( 'Elavult ellenőrzött lapok', 'Régen ellenőrzött lapok' ),
-	'QualityOversight'       => array( 'Minőségellenőrzés' ),
-	'ReviewedPages'          => array( 'Ellenőrzött_lapok' ),
-	'RevisionReview'         => array( 'Változat_ellenőrzése' ),
-	'Stabilization'          => array( 'Lap_rögzítése' ),
-	'StablePages'            => array( 'Rögzített_lapok' ),
-	'UnreviewedPages'        => array( 'Ellenőrizetlen_lapok' ),
-	'ValidationStatistics'   => array( 'Ellenőrzési_statisztika' ),
+/** Hungarian (Magyar) */
+$specialPageAliases['hu'] = array(
+	'PendingChanges' => array( 'Elavult ellenőrzött lapok', 'Régen ellenőrzött lapok' ),
+	'QualityOversight' => array( 'Minőségellenőrzés' ),
+	'ReviewedPages' => array( 'Ellenőrzött_lapok' ),
+	'RevisionReview' => array( 'Változat_ellenőrzése' ),
+	'Stabilization' => array( 'Lap_rögzítése' ),
+	'StablePages' => array( 'Rögzített_lapok' ),
+	'UnreviewedPages' => array( 'Ellenőrizetlen_lapok' ),
+	'ValidationStatistics' => array( 'Ellenőrzési_statisztika' ),
 );
 
-$aliases['ia'] = array(
-	'PendingChanges'         => array( 'Paginas revidite ancian' ),
-	'ProblemChanges'         => array( 'Modificationes_problematic' ),
-	'QualityOversight'       => array( 'Supervision_de_qualitate' ),
-	'ReviewedPages'          => array( 'Paginas_revidite' ),
-	'RevisionReview'         => array( 'Recension_de_versiones' ),
-	'StablePages'            => array( 'Paginas_publicate', 'Paginas_stabile' ),
-	'ReviewedVersions'       => array( 'Versiones_revidite', 'Versiones_stabile' ),
-	'UnreviewedPages'        => array( 'Paginas_non_revidite' ),
-	'ValidationStatistics'   => array( 'Statisticas_de_validation' ),
+/** Interlingua (Interlingua) */
+$specialPageAliases['ia'] = array(
+	'PendingChanges' => array( 'Paginas revidite ancian' ),
+	'ProblemChanges' => array( 'Modificationes_problematic' ),
+	'QualityOversight' => array( 'Supervision_de_qualitate' ),
+	'ReviewedPages' => array( 'Paginas_revidite' ),
+	'RevisionReview' => array( 'Recension_de_versiones' ),
+	'StablePages' => array( 'Paginas_publicate', 'Paginas_stabile' ),
+	'ReviewedVersions' => array( 'Versiones_revidite', 'Versiones_stabile' ),
+	'UnreviewedPages' => array( 'Paginas_non_revidite' ),
+	'ValidationStatistics' => array( 'Statisticas_de_validation' ),
 );
 
-$aliases['id'] = array(
-	'PendingChanges'         => array( 'Halaman tertinjau usang', 'HalamanTertinjauUsang' ),
-	'ProblemChanges'         => array( 'Perubahan_masalah', 'PerubahanMasalah' ),
-	'QualityOversight'       => array( 'Pemeriksaan_kualitas', 'PemeriksaanKualitas' ),
-	'ReviewedPages'          => array( 'Halaman_tertinjau', 'HalamanTertinjau' ),
-	'RevisionReview'         => array( 'Tinjauan_revisi', 'TinjauanRevisi' ),
-	'Stabilization'          => array( 'Stabilisasi' ),
-	'StablePages'            => array( 'Halaman_stabil', 'HalamanStabil' ),
-	'ConfiguredPages'        => array( 'Halaman_terkonfigurasi', 'HalamanTerkonfigurasi' ),
-	'ReviewedVersions'       => array( 'Versi_tertinjau', 'VersiTertinjau', 'Versi_stabil', 'VersiStabil' ),
-	'UnreviewedPages'        => array( 'Halaman_yang_belum_ditinjau', 'HalamanBelumDitinjau' ),
-	'ValidationStatistics'   => array( 'Statistik_validasi', 'StatistikValidasi' ),
+/** Indonesian (Bahasa Indonesia) */
+$specialPageAliases['id'] = array(
+	'PendingChanges' => array( 'Halaman_tertinjau_usang', 'HalamanTertinjauUsang' ),
+	'ProblemChanges' => array( 'Perubahan_masalah', 'PerubahanMasalah' ),
+	'QualityOversight' => array( 'Pemeriksaan_kualitas', 'PemeriksaanKualitas' ),
+	'ReviewedPages' => array( 'Halaman_tertinjau', 'HalamanTertinjau' ),
+	'RevisionReview' => array( 'Tinjauan_revisi', 'TinjauanRevisi' ),
+	'Stabilization' => array( 'Stabilisasi' ),
+	'StablePages' => array( 'Halaman_stabil', 'HalamanStabil' ),
+	'ConfiguredPages' => array( 'Halaman_terkonfigurasi', 'HalamanTerkonfigurasi' ),
+	'ReviewedVersions' => array( 'Versi_tertinjau', 'VersiTertinjau', 'Versi_stabil', 'VersiStabil' ),
+	'UnreviewedPages' => array( 'Halaman_yang_belum_ditinjau', 'HalamanBelumDitinjau' ),
+	'ValidationStatistics' => array( 'Statistik_validasi', 'StatistikValidasi' ),
 );
 
-$aliases['ja'] = array(
-	'PendingChanges'         => array( '古くなった査読済みページ' ),
-	'ProblemChanges'         => array( '問題の修正' ),
-	'QualityOversight'       => array( '品質監督' ),
-	'ReviewedPages'          => array( '査読済みページ' ),
-	'RevisionReview'         => array( '特定版の査読' ),
-	'Stabilization'          => array( '固定', '採択', 'ページの採択' ),
-	'StablePages'            => array( '固定ページ', '安定ページ', '採用ページ' ),
-	'ConfiguredPages'        => array( '査読設定のあるページ' ),
-	'ReviewedVersions'       => array( '固定版', '安定版', '採用版' ),
-	'UnreviewedPages'        => array( '未査読ページ', '査読待ちページ' ),
-	'ValidationStatistics'   => array( '判定統計' ),
+/** Japanese (日本語) */
+$specialPageAliases['ja'] = array(
+	'PendingChanges' => array( '古くなった査読済みページ' ),
+	'ProblemChanges' => array( '問題の修正' ),
+	'QualityOversight' => array( '品質監督' ),
+	'ReviewedPages' => array( '査読済みページ' ),
+	'RevisionReview' => array( '特定版の査読' ),
+	'Stabilization' => array( '固定', '採択', 'ページの採択' ),
+	'StablePages' => array( '固定ページ', '安定ページ', '採用ページ' ),
+	'ConfiguredPages' => array( '査読設定のあるページ' ),
+	'ReviewedVersions' => array( '固定版', '安定版', '採用版' ),
+	'UnreviewedPages' => array( '未査読ページ', '査読待ちページ' ),
+	'ValidationStatistics' => array( '判定統計' ),
 );
 
-$aliases['ksh'] = array(
-	'PendingChanges'         => array( 'SiggeMetUnjesichVersione' ),
-	'ProblemChanges'         => array( 'SiggeMetProbleme' ),
-	'ReviewedPages'          => array( 'JesichSigge' ),
-	'UnreviewedPages'        => array( 'UNjesichSigge' ),
+/** Colognian (Ripoarisch) */
+$specialPageAliases['ksh'] = array(
+	'PendingChanges' => array( 'SiggeMetUnjesichVersione' ),
+	'ProblemChanges' => array( 'SiggeMetProbleme' ),
+	'ReviewedPages' => array( 'JesichSigge' ),
+	'UnreviewedPages' => array( 'UNjesichSigge' ),
 );
 
-$aliases['lad'] = array(
-	'ProblemChanges'         => array( 'Trocamientos_de_problemes' ),
-	'QualityOversight'       => array( 'Sorvelyança_de_calidad' ),
-	'ReviewedPages'          => array( 'HojasEgzaminadas' ),
-	'RevisionReview'         => array( 'Egzamén_de_rēvizyones' ),
-	'Stabilization'          => array( 'Estabilizasyón' ),
-	'StablePages'            => array( 'HojasEstables' ),
-	'ConfiguredPages'        => array( 'HojasArregladas' ),
-	'ReviewedVersions'       => array( 'VersionesEgzaminadas' ),
-	'UnreviewedPages'        => array( 'HojasNoEgzaminadas' ),
-	'ValidationStatistics'   => array( 'Estatistikas_de_validdasyón' ),
+/** Ladino (Ladino) */
+$specialPageAliases['lad'] = array(
+	'ProblemChanges' => array( 'Trocamientos_de_problemes' ),
+	'QualityOversight' => array( 'Sorvelyança_de_calidad' ),
+	'ReviewedPages' => array( 'HojasEgzaminadas' ),
+	'RevisionReview' => array( 'Egzamén_de_rēvizyones' ),
+	'Stabilization' => array( 'Estabilizasyón' ),
+	'StablePages' => array( 'HojasEstables' ),
+	'ConfiguredPages' => array( 'HojasArregladas' ),
+	'ReviewedVersions' => array( 'VersionesEgzaminadas' ),
+	'UnreviewedPages' => array( 'HojasNoEgzaminadas' ),
+	'ValidationStatistics' => array( 'Estatistikas_de_validdasyón' ),
 );
 
-$aliases['lb'] = array(
-	'PendingChanges'         => array( 'Säite mat Versiounen déi net iwwerpréift sinn' ),
-	'ProblemChanges'         => array( 'Problematesch_Ännerungen' ),
-	'ReviewedPages'          => array( 'Säiten_déi_iwwerkuckt_goufen' ),
-	'RevisionReview'         => array( 'Versioun_iwwerpréifen' ),
-	'Stabilization'          => array( 'Stabilisatioun' ),
-	'StablePages'            => array( 'Stabil_Säiten' ),
-	'ReviewedVersions'       => array( 'Stabil_Versiounen' ),
-	'UnreviewedPages'        => array( 'Net_iwwerpréifte_Säiten' ),
-	'ValidationStatistics'   => array( 'Statistik_vun_den_iwwerpréifte_Säiten' ),
+/** Luxembourgish (Lëtzebuergesch) */
+$specialPageAliases['lb'] = array(
+	'PendingChanges' => array( 'Säite_mat_Versiounen_déi_net_iwwerpréift_sinn' ),
+	'ProblemChanges' => array( 'Problematesch_Ännerungen' ),
+	'ReviewedPages' => array( 'Säiten_déi_iwwerkuckt_goufen' ),
+	'RevisionReview' => array( 'Versioun_iwwerpréifen' ),
+	'Stabilization' => array( 'Stabilisatioun' ),
+	'StablePages' => array( 'Stabil_Säiten' ),
+	'ReviewedVersions' => array( 'Stabil_Versiounen' ),
+	'UnreviewedPages' => array( 'Net_iwwerpréifte_Säiten' ),
+	'ValidationStatistics' => array( 'Statistik_vun_den_iwwerpréifte_Säiten' ),
 );
 
-$aliases['mk'] = array(
-	'PendingChanges'         => array( 'СтариОценетиСтраници' ),
-	'ProblemChanges'         => array( 'ПромениНаПроблеми' ),
-	'QualityOversight'       => array( 'НадлегувањеНаКвалитетот' ),
-	'ReviewedPages'          => array( 'ПрегледаниСтраници' ),
-	'RevisionReview'         => array( 'ПрегледНаРевизии' ),
-	'Stabilization'          => array( 'Стабилизација' ),
-	'StablePages'            => array( 'СтабилниСтраници' ),
-	'ReviewedVersions'       => array( 'ПрегледаниВерзии', 'СтабилниВерзии' ),
-	'UnreviewedPages'        => array( 'НепрегледаниСтраници' ),
-	'ValidationStatistics'   => array( 'ВалидацискиСтатистики' ),
+/** Macedonian (Македонски) */
+$specialPageAliases['mk'] = array(
+	'PendingChanges' => array( 'СтариОценетиСтраници' ),
+	'ProblemChanges' => array( 'ПромениНаПроблеми' ),
+	'QualityOversight' => array( 'НадлегувањеНаКвалитетот' ),
+	'ReviewedPages' => array( 'ПрегледаниСтраници' ),
+	'RevisionReview' => array( 'ПрегледНаРевизии' ),
+	'Stabilization' => array( 'Стабилизација' ),
+	'StablePages' => array( 'СтабилниСтраници' ),
+	'ReviewedVersions' => array( 'ПрегледаниВерзии', 'СтабилниВерзии' ),
+	'UnreviewedPages' => array( 'НепрегледаниСтраници' ),
+	'ValidationStatistics' => array( 'ВалидацискиСтатистики' ),
 );
 
-$aliases['ml'] = array(
-	'PendingChanges'         => array( 'മുമ്പ്_സംശോധനം_ചെയ്ത_താളുകൾ' ),
-	'ProblemChanges'         => array( 'പ്രശ്നകാരിമാറ്റങ്ങൾ' ),
-	'QualityOversight'       => array( 'ഗുണമേന്മാമേൽനോട്ടം' ),
-	'ReviewedPages'          => array( 'സംശോധനംചെയ്തതാളുകൾ' ),
-	'RevisionReview'         => array( 'നാൾപ്പതിപ്പ്സംശോധനം' ),
-	'Stabilization'          => array( 'സ്ഥിരപ്പെടുത്തൽ' ),
-	'StablePages'            => array( 'സ്ഥിരതാളുകൾ' ),
-	'ConfiguredPages'        => array( 'ക്രമീകരിച്ചതാളുകൾ' ),
-	'ReviewedVersions'       => array( 'സംശോധിതപതിപ്പുകൾ', 'സ്ഥിരതയുള്ള_പതിപ്പുകൾ' ),
-	'UnreviewedPages'        => array( 'സംശോധനംചെയ്യാത്തതാളുകൾ' ),
-	'ValidationStatistics'   => array( 'മൂല്യനിർണ്ണയസ്ഥിതിവിവരം' ),
+/** Malayalam (മലയാളം) */
+$specialPageAliases['ml'] = array(
+	'PendingChanges' => array( 'മുമ്പ്_സംശോധനം_ചെയ്ത_താളുകൾ' ),
+	'ProblemChanges' => array( 'പ്രശ്നകാരിമാറ്റങ്ങൾ' ),
+	'QualityOversight' => array( 'ഗുണമേന്മാമേൽനോട്ടം' ),
+	'ReviewedPages' => array( 'സംശോധനംചെയ്തതാളുകൾ' ),
+	'RevisionReview' => array( 'നാൾപ്പതിപ്പ്സംശോധനം' ),
+	'Stabilization' => array( 'സ്ഥിരപ്പെടുത്തൽ' ),
+	'StablePages' => array( 'സ്ഥിരതാളുകൾ' ),
+	'ConfiguredPages' => array( 'ക്രമീകരിച്ചതാളുകൾ' ),
+	'ReviewedVersions' => array( 'സംശോധിതപതിപ്പുകൾ', 'സ്ഥിരതയുള്ള_പതിപ്പുകൾ' ),
+	'UnreviewedPages' => array( 'സംശോധനംചെയ്യാത്തതാളുകൾ' ),
+	'ValidationStatistics' => array( 'മൂല്യനിർണ്ണയസ്ഥിതിവിവരം' ),
 );
 
-$aliases['mr'] = array(
-	'PendingChanges'         => array( 'जुनीतपासलेलीपाने' ),
-	'QualityOversight'       => array( 'गुणवत्ताओव्हरसाईट' ),
-	'ReviewedPages'          => array( 'तपासलेलीपाने' ),
-	'RevisionReview'         => array( 'आवृत्तीसमीक्षा' ),
-	'Stabilization'          => array( 'स्थिरीकरण' ),
-	'StablePages'            => array( 'स्थिरपाने' ),
-	'UnreviewedPages'        => array( 'नतपासलेलीपाने' ),
+/** Marathi (मराठी) */
+$specialPageAliases['mr'] = array(
+	'PendingChanges' => array( 'जुनीतपासलेलीपाने' ),
+	'QualityOversight' => array( 'गुणवत्ताओव्हरसाईट' ),
+	'ReviewedPages' => array( 'तपासलेलीपाने' ),
+	'RevisionReview' => array( 'आवृत्तीसमीक्षा' ),
+	'Stabilization' => array( 'स्थिरीकरण' ),
+	'StablePages' => array( 'स्थिरपाने' ),
+	'UnreviewedPages' => array( 'नतपासलेलीपाने' ),
 );
 
-$aliases['ms'] = array(
-	'PendingChanges'         => array( 'Laman diperiksa lapuk' ),
-	'QualityOversight'       => array( 'Kawalan mutu' ),
-	'ReviewedPages'          => array( 'Laman diperiksa' ),
-	'StablePages'            => array( 'Laman stabil' ),
-	'UnreviewedPages'        => array( 'Laman_tidak_diperiksa' ),
+/** Malay (Bahasa Melayu) */
+$specialPageAliases['ms'] = array(
+	'PendingChanges' => array( 'Laman_diperiksa_lapuk' ),
+	'QualityOversight' => array( 'Kawalan_mutu' ),
+	'ReviewedPages' => array( 'Laman_diperiksa' ),
+	'StablePages' => array( 'Laman_stabil' ),
+	'UnreviewedPages' => array( 'Laman_tidak_diperiksa' ),
 );
 
-$aliases['nds-nl'] = array(
-	'PendingChanges'         => array( 'Pagina\'s_verouwerde_eindredactie' ),
-	'ProblemChanges'         => array( 'Preblematische_wiezigingen' ),
-	'QualityOversight'       => array( 'Kwaliteitscontrole' ),
-	'ReviewedPages'          => array( 'Pagina_mit_eindredactie' ),
-	'RevisionReview'         => array( 'Eindredactie_versies' ),
-	'Stabilization'          => array( 'Stabilisasie' ),
-	'StablePages'            => array( 'Stebiele_pagina\'s' ),
-	'UnreviewedPages'        => array( 'Pagina\'s_zonder_eindredactie' ),
-	'ValidationStatistics'   => array( 'Eindredactiestaotestieken' ),
+/** Nedersaksisch (Nedersaksisch) */
+$specialPageAliases['nds-nl'] = array(
+	'PendingChanges' => array( 'Pagina\'s_verouwerde_eindredactie' ),
+	'ProblemChanges' => array( 'Preblematische_wiezigingen' ),
+	'QualityOversight' => array( 'Kwaliteitscontrole' ),
+	'ReviewedPages' => array( 'Pagina_mit_eindredactie' ),
+	'RevisionReview' => array( 'Eindredactie_versies' ),
+	'Stabilization' => array( 'Stabilisasie' ),
+	'StablePages' => array( 'Stebiele_pagina\'s' ),
+	'UnreviewedPages' => array( 'Pagina\'s_zonder_eindredactie' ),
+	'ValidationStatistics' => array( 'Eindredactiestaotestieken' ),
 );
 
-$aliases['nl'] = array(
-	'PendingChanges'         => array( 'PaginasVerouderdeEindredactie', 'Pagina\'sVerouderdeEindredactie' ),
-	'ProblemChanges'         => array( 'ProblematischeWijzigingen' ),
-	'QualityOversight'       => array( 'KwaliteitsControle' ),
-	'ReviewedPages'          => array( 'PaginasMetEindredactie', 'Pagina\'sMetEindredactie' ),
-	'RevisionReview'         => array( 'EindredactieVersies' ),
-	'Stabilization'          => array( 'Stabilisatie' ),
-	'StablePages'            => array( 'StabielePaginas', 'StabielePagina\'s' ),
-	'ConfiguredPages'        => array( 'IngesteldePaginas', 'IngesteldePagina\'s' ),
-	'ReviewedVersions'       => array( 'GecontroleerdeVersies', 'StabieleVersies' ),
-	'UnreviewedPages'        => array( 'PaginasZonderEindredactie', 'Pagina\'sZonderEindredactie' ),
-	'ValidationStatistics'   => array( 'Eindredactiestatistieken', 'StatistiekenEindredactie' ),
+/** Dutch (Nederlands) */
+$specialPageAliases['nl'] = array(
+	'PendingChanges' => array( 'PaginasVerouderdeEindredactie', 'Pagina\'sVerouderdeEindredactie' ),
+	'ProblemChanges' => array( 'ProblematischeWijzigingen' ),
+	'QualityOversight' => array( 'KwaliteitsControle' ),
+	'ReviewedPages' => array( 'PaginasMetEindredactie', 'Pagina\'sMetEindredactie' ),
+	'RevisionReview' => array( 'EindredactieVersies' ),
+	'Stabilization' => array( 'Stabilisatie' ),
+	'StablePages' => array( 'StabielePaginas', 'StabielePagina\'s' ),
+	'ConfiguredPages' => array( 'IngesteldePaginas', 'IngesteldePagina\'s' ),
+	'ReviewedVersions' => array( 'GecontroleerdeVersies', 'StabieleVersies' ),
+	'UnreviewedPages' => array( 'PaginasZonderEindredactie', 'Pagina\'sZonderEindredactie' ),
+	'ValidationStatistics' => array( 'Eindredactiestatistieken', 'StatistiekenEindredactie' ),
 );
 
-$aliases['nn'] = array(
-	'PendingChanges'         => array( 'Gamle vurderte sider' ),
-	'QualityOversight'       => array( 'Kvalitetsoversyn' ),
-	'ReviewedPages'          => array( 'Vurderte_sider' ),
-	'RevisionReview'         => array( 'Versjonsvurdering' ),
-	'Stabilization'          => array( 'Stabilisering' ),
-	'StablePages'            => array( 'Stabile_sider' ),
-	'UnreviewedPages'        => array( 'Ikkje-vurderte_sider' ),
-	'ValidationStatistics'   => array( 'Valideringsstatistikk' ),
+/** Norwegian Nynorsk (‪Norsk (nynorsk)‬) */
+$specialPageAliases['nn'] = array(
+	'PendingChanges' => array( 'Gamle vurderte sider' ),
+	'QualityOversight' => array( 'Kvalitetsoversyn' ),
+	'ReviewedPages' => array( 'Vurderte_sider' ),
+	'RevisionReview' => array( 'Versjonsvurdering' ),
+	'Stabilization' => array( 'Stabilisering' ),
+	'StablePages' => array( 'Stabile_sider' ),
+	'UnreviewedPages' => array( 'Ikkje-vurderte_sider' ),
+	'ValidationStatistics' => array( 'Valideringsstatistikk' ),
 );
 
-$aliases['no'] = array(
-	'PendingChanges'         => array( 'Gamle anmeldte sider' ),
-	'ProblemChanges'         => array( 'Problemendringer' ),
-	'QualityOversight'       => array( 'Kvalitetsoversikt' ),
-	'ReviewedPages'          => array( 'Anmeldte_sider' ),
-	'RevisionReview'         => array( 'Revisjonsgjennomgang' ),
-	'Stabilization'          => array( 'Stabilisering' ),
-	'StablePages'            => array( 'Stabile_sider' ),
-	'ConfiguredPages'        => array( 'Konfigurerte_sider' ),
-	'ReviewedVersions'       => array( 'Gjennomgåtte_sider' ),
-	'UnreviewedPages'        => array( 'Ikke-gjennomgåtte_sider' ),
-	'ValidationStatistics'   => array( 'Valideringsstatistikk' ),
+/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬) */
+$specialPageAliases['no'] = array(
+	'PendingChanges' => array( 'Gamle anmeldte sider' ),
+	'ProblemChanges' => array( 'Problemendringer' ),
+	'QualityOversight' => array( 'Kvalitetsoversikt' ),
+	'ReviewedPages' => array( 'Anmeldte_sider' ),
+	'RevisionReview' => array( 'Revisjonsgjennomgang' ),
+	'Stabilization' => array( 'Stabilisering' ),
+	'StablePages' => array( 'Stabile_sider' ),
+	'ConfiguredPages' => array( 'Konfigurerte_sider' ),
+	'ReviewedVersions' => array( 'Gjennomgåtte_sider' ),
+	'UnreviewedPages' => array( 'Ikke-gjennomgåtte_sider' ),
+	'ValidationStatistics' => array( 'Valideringsstatistikk' ),
 );
 
-$aliases['oc'] = array(
-	'PendingChanges'         => array( 'PaginasAncianasRelegidas' ),
-	'QualityOversight'       => array( 'SupervisorQualitat' ),
-	'ReviewedPages'          => array( 'Paginas_revisadas', 'PaginasRevisadas' ),
-	'RevisionReview'         => array( 'Relectura_de_las_revisions' ),
-	'StablePages'            => array( 'Paginas_establas', 'PaginasEstablas' ),
-	'UnreviewedPages'        => array( 'Paginas_pas_relegidas', 'PaginasPasRelegidas' ),
+/** Occitan (Occitan) */
+$specialPageAliases['oc'] = array(
+	'PendingChanges' => array( 'PaginasAncianasRelegidas' ),
+	'QualityOversight' => array( 'SupervisorQualitat' ),
+	'ReviewedPages' => array( 'Paginas_revisadas', 'PaginasRevisadas' ),
+	'RevisionReview' => array( 'Relectura_de_las_revisions' ),
+	'StablePages' => array( 'Paginas_establas', 'PaginasEstablas' ),
+	'UnreviewedPages' => array( 'Paginas_pas_relegidas', 'PaginasPasRelegidas' ),
 );
 
-$aliases['pl'] = array(
-	'PendingChanges'         => array( 'Zdezaktualizowane_przejrzane_strony' ),
-	'ProblemChanges'         => array( 'Wątpliwe_zmiany' ),
-	'QualityOversight'       => array( 'Rejestr_oznaczania_wersji' ),
-	'ReviewedPages'          => array( 'Przejrzane_strony' ),
-	'RevisionReview'         => array( 'Oznaczenie_wersji' ),
-	'Stabilization'          => array( 'Konfiguracja_strony' ),
-	'StablePages'            => array( 'Strony_stabilizowane', 'Strony_z_domyślnie_pokazywaną_wersją_oznaczoną' ),
-	'ConfiguredPages'        => array( 'Skonfigurowane_strony' ),
-	'ReviewedVersions'       => array( 'Przejrzane_wersje' ),
-	'UnreviewedPages'        => array( 'Nieprzejrzane_strony' ),
-	'ValidationStatistics'   => array( 'Statystyki_oznaczania' ),
+/** Polish (Polski) */
+$specialPageAliases['pl'] = array(
+	'PendingChanges' => array( 'Zdezaktualizowane_przejrzane_strony' ),
+	'ProblemChanges' => array( 'Wątpliwe_zmiany' ),
+	'QualityOversight' => array( 'Rejestr_oznaczania_wersji' ),
+	'ReviewedPages' => array( 'Przejrzane_strony' ),
+	'RevisionReview' => array( 'Oznaczenie_wersji' ),
+	'Stabilization' => array( 'Konfiguracja_strony' ),
+	'StablePages' => array( 'Strony_stabilizowane', 'Strony_z_domyślnie_pokazywaną_wersją_oznaczoną' ),
+	'ConfiguredPages' => array( 'Skonfigurowane_strony' ),
+	'ReviewedVersions' => array( 'Przejrzane_wersje' ),
+	'UnreviewedPages' => array( 'Nieprzejrzane_strony' ),
+	'ValidationStatistics' => array( 'Statystyki_oznaczania' ),
 );
 
-$aliases['pt'] = array(
-	'PendingChanges'         => array( 'Páginas analisadas antigas' ),
-	'QualityOversight'       => array( 'Controlo_de_qualidade' ),
-	'ReviewedPages'          => array( 'Páginas_analisadas' ),
-	'RevisionReview'         => array( 'Revisão_de_versões' ),
-	'Stabilization'          => array( 'Estabilização' ),
-	'StablePages'            => array( 'Páginas_estáveis' ),
-	'ReviewedVersions'       => array( 'Versões_revistas' ),
-	'UnreviewedPages'        => array( 'Páginas_a_analisar' ),
-	'ValidationStatistics'   => array( 'Estatísticas_de_validação' ),
+/** Portuguese (Português) */
+$specialPageAliases['pt'] = array(
+	'PendingChanges' => array( 'Páginas analisadas antigas' ),
+	'QualityOversight' => array( 'Controlo_de_qualidade' ),
+	'ReviewedPages' => array( 'Páginas_analisadas' ),
+	'RevisionReview' => array( 'Revisão_de_versões' ),
+	'Stabilization' => array( 'Estabilização' ),
+	'StablePages' => array( 'Páginas_estáveis' ),
+	'ReviewedVersions' => array( 'Versões_revistas' ),
+	'UnreviewedPages' => array( 'Páginas_a_analisar' ),
+	'ValidationStatistics' => array( 'Estatísticas_de_validação' ),
 );
 
-$aliases['pt-br'] = array(
-	'PendingChanges'         => array( 'Versões_antigas_de_páginas_analisadas' ),
-	'QualityOversight'       => array( 'Observatório_da_qualidade' ),
-	'ReviewedPages'          => array( 'Páginas_analisadas' ),
-	'RevisionReview'         => array( 'Revisão_de_edições' ),
-	'Stabilization'          => array( 'Estabilização' ),
-	'StablePages'            => array( 'Páginas_estáveis' ),
-	'ConfiguredPages'        => array( 'Páginas_configuradas' ),
-	'UnreviewedPages'        => array( 'Páginas_a_analisar' ),
-	'ValidationStatistics'   => array( 'Estatísticas_de_validação' ),
+/** Brazilian Portuguese (Português do Brasil) */
+$specialPageAliases['pt-br'] = array(
+	'PendingChanges' => array( 'Versões_antigas_de_páginas_analisadas' ),
+	'QualityOversight' => array( 'Observatório_da_qualidade' ),
+	'ReviewedPages' => array( 'Páginas_analisadas' ),
+	'RevisionReview' => array( 'Revisão_de_edições' ),
+	'Stabilization' => array( 'Estabilização' ),
+	'StablePages' => array( 'Páginas_estáveis' ),
+	'ConfiguredPages' => array( 'Páginas_configuradas' ),
+	'UnreviewedPages' => array( 'Páginas_a_analisar' ),
+	'ValidationStatistics' => array( 'Estatísticas_de_validação' ),
 );
 
-$aliases['sa'] = array(
-	'PendingChanges'         => array( 'पूर्वतनआवलोकीतपृष्ठ:' ),
-	'QualityOversight'       => array( 'गुणपूर्णवृजावलोकन' ),
-	'ReviewedPages'          => array( 'समसमीक्षीतपृष्ठ:' ),
-	'RevisionReview'         => array( 'आवृत्तीसमसमीक्षा' ),
-	'Stabilization'          => array( 'स्वास्थ्य' ),
-	'StablePages'            => array( 'स्वस्थपृष्ठ' ),
-	'UnreviewedPages'        => array( 'असमसमीक्षीतपृष्ठ:' ),
-	'ValidationStatistics'   => array( 'उपयोगितासिद्धीसांख्यिकी' ),
+/** Sanskrit (संस्कृत) */
+$specialPageAliases['sa'] = array(
+	'PendingChanges' => array( 'पूर्वतनआवलोकीतपृष्ठ:' ),
+	'QualityOversight' => array( 'गुणपूर्णवृजावलोकन' ),
+	'ReviewedPages' => array( 'समसमीक्षीतपृष्ठ:' ),
+	'RevisionReview' => array( 'आवृत्तीसमसमीक्षा' ),
+	'Stabilization' => array( 'स्वास्थ्य' ),
+	'StablePages' => array( 'स्वस्थपृष्ठ' ),
+	'UnreviewedPages' => array( 'असमसमीक्षीतपृष्ठ:' ),
+	'ValidationStatistics' => array( 'उपयोगितासिद्धीसांख्यिकी' ),
 );
 
-$aliases['sk'] = array(
-	'PendingChanges'         => array( 'StaréSkontrolovanéStránky' ),
-	'ProblemChanges'         => array( 'ProblematickéZmeny' ),
-	'QualityOversight'       => array( 'DohľadNadKvalitou' ),
-	'ReviewedPages'          => array( 'SkontrolovanéStránky' ),
-	'RevisionReview'         => array( 'KontrolaKontroly' ),
-	'Stabilization'          => array( 'Stabilizácia' ),
-	'StablePages'            => array( 'StabilnéStránky' ),
-	'UnreviewedPages'        => array( 'NeskontrolovanéStránky' ),
-	'ValidationStatistics'   => array( 'ŠtatistikaOverovania' ),
+/** Slovak (Slovenčina) */
+$specialPageAliases['sk'] = array(
+	'PendingChanges' => array( 'StaréSkontrolovanéStránky' ),
+	'ProblemChanges' => array( 'ProblematickéZmeny' ),
+	'QualityOversight' => array( 'DohľadNadKvalitou' ),
+	'ReviewedPages' => array( 'SkontrolovanéStránky' ),
+	'RevisionReview' => array( 'KontrolaKontroly' ),
+	'Stabilization' => array( 'Stabilizácia' ),
+	'StablePages' => array( 'StabilnéStránky' ),
+	'UnreviewedPages' => array( 'NeskontrolovanéStránky' ),
+	'ValidationStatistics' => array( 'ŠtatistikaOverovania' ),
 );
 
-$aliases['sq'] = array(
-	'Stabilization'          => array( 'Stabilizim' ),
-	'StablePages'            => array( 'FaqetStabile' ),
+/** Albanian (Shqip) */
+$specialPageAliases['sq'] = array(
+	'Stabilization' => array( 'Stabilizim' ),
+	'StablePages' => array( 'FaqetStabile' ),
 );
 
-$aliases['sr-ec'] = array(
-	'PendingChanges'         => array( 'СтареПрегледанеСтране' ),
-	'QualityOversight'       => array( 'НадгледањеКвалитета' ),
-	'ReviewedPages'          => array( 'ПрегледанеСтране' ),
-	'StablePages'            => array( 'СтабилнеСтране' ),
-	'UnreviewedPages'        => array( 'НепрегледанеСтране' ),
+/** Serbian Cyrillic ekavian (Српски (ћирилица)) */
+$specialPageAliases['sr-ec'] = array(
+	'PendingChanges' => array( 'СтареПрегледанеСтране' ),
+	'QualityOversight' => array( 'НадгледањеКвалитета' ),
+	'ReviewedPages' => array( 'ПрегледанеСтране' ),
+	'StablePages' => array( 'СтабилнеСтране' ),
+	'UnreviewedPages' => array( 'НепрегледанеСтране' ),
 );
 
-$aliases['sv'] = array(
-	'PendingChanges'         => array( 'Gamla granskade sidor' ),
-	'QualityOversight'       => array( 'Kvalitetsöversikt' ),
-	'ReviewedPages'          => array( 'Granskade_sidor' ),
-	'RevisionReview'         => array( 'Versionsgranskning' ),
-	'Stabilization'          => array( 'Stabilisering' ),
-	'StablePages'            => array( 'Stabila_sidor' ),
-	'UnreviewedPages'        => array( 'Ogranskade_sidor' ),
-	'ValidationStatistics'   => array( 'Valideringsstatistik' ),
+/** Swedish (Svenska) */
+$specialPageAliases['sv'] = array(
+	'PendingChanges' => array( 'Gamla granskade sidor' ),
+	'QualityOversight' => array( 'Kvalitetsöversikt' ),
+	'ReviewedPages' => array( 'Granskade_sidor' ),
+	'RevisionReview' => array( 'Versionsgranskning' ),
+	'Stabilization' => array( 'Stabilisering' ),
+	'StablePages' => array( 'Stabila_sidor' ),
+	'UnreviewedPages' => array( 'Ogranskade_sidor' ),
+	'ValidationStatistics' => array( 'Valideringsstatistik' ),
 );
 
-$aliases['sw'] = array(
-	'PendingChanges'         => array( 'KurasaZilizoonyeshwaAwali' ),
-	'ReviewedPages'          => array( 'OnyeshaKurasa' ),
-	'Stabilization'          => array( 'Uimalishaji' ),
-	'StablePages'            => array( 'KurasaImara' ),
-	'UnreviewedPages'        => array( 'KurasaZisizoonyeshwa' ),
-	'ValidationStatistics'   => array( 'TakwimuIliyosahihi' ),
+/** Swahili (Kiswahili) */
+$specialPageAliases['sw'] = array(
+	'PendingChanges' => array( 'KurasaZilizoonyeshwaAwali' ),
+	'ReviewedPages' => array( 'OnyeshaKurasa' ),
+	'Stabilization' => array( 'Uimalishaji' ),
+	'StablePages' => array( 'KurasaImara' ),
+	'UnreviewedPages' => array( 'KurasaZisizoonyeshwa' ),
+	'ValidationStatistics' => array( 'TakwimuIliyosahihi' ),
 );
 
-$aliases['tl'] = array(
-	'PendingChanges'         => array( 'Nasuring lumang mga pahina' ),
-	'QualityOversight'       => array( 'Maingat na pamamahala ng kalidad' ),
-	'ReviewedPages'          => array( 'Sinuring mga pahina' ),
-	'RevisionReview'         => array( 'Pagsusuri ng pagbabago' ),
-	'Stabilization'          => array( 'Pagpapatatag', 'Pagpapatibay' ),
-	'StablePages'            => array( 'Matatag na mga pahina' ),
-	'UnreviewedPages'        => array( 'Mga pahina hindi pa nasusuri' ),
-	'ValidationStatistics'   => array( 'Mga estadistika ng pagtitiyak' ),
+/** Tagalog (Tagalog) */
+$specialPageAliases['tl'] = array(
+	'PendingChanges' => array( 'Nasuring lumang mga pahina' ),
+	'QualityOversight' => array( 'Maingat na pamamahala ng kalidad' ),
+	'ReviewedPages' => array( 'Sinuring mga pahina' ),
+	'RevisionReview' => array( 'Pagsusuri ng pagbabago' ),
+	'Stabilization' => array( 'Pagpapatatag', 'Pagpapatibay' ),
+	'StablePages' => array( 'Matatag na mga pahina' ),
+	'UnreviewedPages' => array( 'Mga pahina hindi pa nasusuri' ),
+	'ValidationStatistics' => array( 'Mga estadistika ng pagtitiyak' ),
 );
 
-$aliases['tr'] = array(
-	'PendingChanges'         => array( 'EskiİncelenmişSayfalar' ),
-	'ProblemChanges'         => array( 'ProblemDeğişiklikleri' ),
-	'QualityOversight'       => array( 'KaliteGözetimi' ),
-	'ReviewedPages'          => array( 'İncelenmişSayfalar' ),
-	'RevisionReview'         => array( 'Sürümİnceleme' ),
-	'Stabilization'          => array( 'Stabilizasyon', 'İstikrar' ),
-	'StablePages'            => array( 'StabilSayfalar', 'İstikrarlıSayfalar' ),
-	'ReviewedVersions'       => array( 'İncelenmişSürümler', 'StabilSürümler' ),
-	'UnreviewedPages'        => array( 'İncelenmemişSayfalar' ),
-	'ValidationStatistics'   => array( 'Doğrulamaİstatistikleri' ),
+/** Turkish (Türkçe) */
+$specialPageAliases['tr'] = array(
+	'PendingChanges' => array( 'EskiİncelenmişSayfalar' ),
+	'ProblemChanges' => array( 'ProblemDeğişiklikleri' ),
+	'QualityOversight' => array( 'KaliteGözetimi' ),
+	'ReviewedPages' => array( 'İncelenmişSayfalar' ),
+	'RevisionReview' => array( 'Sürümİnceleme' ),
+	'Stabilization' => array( 'Stabilizasyon', 'İstikrar' ),
+	'StablePages' => array( 'StabilSayfalar', 'İstikrarlıSayfalar' ),
+	'ReviewedVersions' => array( 'İncelenmişSürümler', 'StabilSürümler' ),
+	'UnreviewedPages' => array( 'İncelenmemişSayfalar' ),
+	'ValidationStatistics' => array( 'Doğrulamaİstatistikleri' ),
 );
 
-$aliases['vec'] = array(
-	'PendingChanges'         => array( 'PagineRiesaminàVèce' ),
-	'QualityOversight'       => array( 'ControloQualità' ),
-	'ReviewedPages'          => array( 'PagineRiesaminà' ),
-	'StablePages'            => array( 'PagineStabili' ),
-	'UnreviewedPages'        => array( 'PagineNonRiesaminà' ),
-	'ValidationStatistics'   => array( 'StatìstegheDeValidassion' ),
+/** Татарча (Татарча) */
+$specialPageAliases['tt-cyrl'] = array(
+	'StablePages' => array( 'Тотрыклы_битләр' ),
 );
 
-$aliases['vi'] = array(
-	'PendingChanges'         => array( 'Trang chưa duyệt cũ' ),
-	'QualityOversight'       => array( 'Giám_sát_chất_lượng' ),
-	'ReviewedPages'          => array( 'Trang_đã_duyệt' ),
-	'StablePages'            => array( 'Trang_ổn_định' ),
-	'UnreviewedPages'        => array( 'Trang_chưa_duyệt' ),
+/** Vèneto (Vèneto) */
+$specialPageAliases['vec'] = array(
+	'PendingChanges' => array( 'PagineRiesaminàVèce' ),
+	'QualityOversight' => array( 'ControloQualità' ),
+	'ReviewedPages' => array( 'PagineRiesaminà' ),
+	'StablePages' => array( 'PagineStabili' ),
+	'UnreviewedPages' => array( 'PagineNonRiesaminà' ),
+	'ValidationStatistics' => array( 'StatìstegheDeValidassion' ),
 );
 
-$aliases['zh-hant'] = array(
-	'ProblemChanges'         => array( '問題改變' ),
-	'QualityOversight'       => array( '進階審閱日誌' ),
-	'ReviewedPages'          => array( '已審閱頁面' ),
-	'RevisionReview'         => array( '版本審核' ),
-	'StablePages'            => array( '穩定頁面' ),
-	'ConfiguredPages'        => array( '頁面審核設定' ),
-	'ReviewedVersions'       => array( '穩定版本' ),
-	'UnreviewedPages'        => array( '未審閱頁面' ),
+/** Vietnamese (Tiếng Việt) */
+$specialPageAliases['vi'] = array(
+	'PendingChanges' => array( 'Trang chưa duyệt cũ' ),
+	'QualityOversight' => array( 'Giám_sát_chất_lượng' ),
+	'ReviewedPages' => array( 'Trang_đã_duyệt' ),
+	'StablePages' => array( 'Trang_ổn_định' ),
+	'UnreviewedPages' => array( 'Trang_chưa_duyệt' ),
 );
+
+/** Traditional Chinese (‪中文(繁體)‬) */
+$specialPageAliases['zh-hant'] = array(
+	'ProblemChanges' => array( '問題改變' ),
+	'QualityOversight' => array( '進階審閱日誌' ),
+	'ReviewedPages' => array( '已審閱頁面' ),
+	'RevisionReview' => array( '版本審核' ),
+	'StablePages' => array( '穩定頁面' ),
+	'ConfiguredPages' => array( '頁面審核設定' ),
+	'ReviewedVersions' => array( '穩定版本' ),
+	'UnreviewedPages' => array( '未審閱頁面' ),
+);
+
+/**
+ * For backwards compatibility with MediaWiki 1.15 and earlier.
+ */
+$aliases =& $specialPageAliases;
