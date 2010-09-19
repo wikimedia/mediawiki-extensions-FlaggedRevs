@@ -260,6 +260,15 @@ $messages['bg'] = array(
 	'pendingchanges-watched' => '($1 {{PLURAL:$1|активен наблюдаващ потребител|активни наблюдаващи потребители}})',
 );
 
+/** Bengali (বাংলা)
+ * @author Bellayet
+ */
+$messages['bn'] = array(
+	'pendingchanges-hours' => '($1 {{PLURAL:$1|ঘন্টা|ঘন্টা}})',
+	'pendingchanges-days' => '($1 {{PLURAL:$1|দিন|দিন}})',
+	'pendingchanges-category' => 'বিষয়শ্রেণী:',
+);
+
 /** Breton (Brezhoneg)
  * @author Fulup
  * @author Gwendal

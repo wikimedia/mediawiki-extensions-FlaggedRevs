@@ -1968,7 +1968,7 @@ $messages['bn'] = array(
 	'revreview-quick-see-quality' => "'''খসড়া''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} নিবন্ধ দেখুন]]
 [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} তুলনা]]",
 	'revreview-selected' => "'''$1'''-এর যে সংশোধন নির্বাচন করা হয়েছে:",
-	'revreview-source' => 'খসড়া উৎস',
+	'revreview-source' => 'সোর্স দেখাও',
 	'revreview-style' => 'পঠনযোগ্যতা',
 	'revreview-style-0' => 'অননুমদিত',
 	'revreview-style-1' => 'গ্রহণযোগ্য',
@@ -1990,12 +1990,16 @@ $messages['bn'] = array(
 	'revreview-filter-reapproved' => 'পুন-অনুমোদিত',
 	'revreview-typefilter' => 'ধরন:',
 	'revreview-filter-auto' => 'স্বয়ংক্রিয়',
+	'revreview-filter-manual' => 'হাতে কলমে',
+	'revreview-lev-all' => 'যেকোন',
 	'revreview-lev-quality' => 'গুণ',
+	'revreview-def-all' => 'যেকোন',
 	'revreview-def-draft' => 'সাম্প্রতিক',
 	'revreview-def-stable' => 'গৃহীত',
+	'revreview-restriction-any' => 'যেকোন',
 	'revreview-restriction-none' => 'কিছু না',
 	'tooltip-ca-current' => 'এই পাতাটির বর্তমান খসড়াটি দেখুন',
-	'tooltip-ca-stable' => 'এই পাতাটির স্থিতিশীল সংস্করণটি দেখুন',
+	'tooltip-ca-stable' => 'এই পাতার স্থিতিশীল সংস্করণটি দেখাও',
 	'tooltip-ca-default' => 'গুণাগুল নিশ্চিতকরণ সেটিংস',
 	'validationpage' => '{{ns:help}}:নিবন্ধ বৈধকরণ',
 );
@@ -8862,6 +8866,7 @@ $messages['ko'] = array(
 	'revreview-submitting' => '보내는 중...',
 	'revreview-submit-review' => '승인',
 	'revreview-submit-unreview' => '승인 철회',
+	'revreview-submit-reject' => '편집 거부',
 	'revreview-submit-reviewed' => '완료. 승인하였습니다!',
 	'revreview-submit-unreviewed' => '완료. 승인 취소하였습니다!',
 	'revreview-successful' => "'''[[:$1|$1]] 문서의 편집이 성공적으로 검토되었습니다. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} 안정 버전 보기])'''",
@@ -8914,7 +8919,6 @@ $messages['ko'] = array(
 	'revreview-filter-auto' => '자동',
 	'revreview-filter-manual' => '수동',
 	'revreview-levelfilter' => '단계:',
-	'revreview-precedencefilter' => '우선 순위:',
 	'revreview-lev-all' => '모두',
 	'revreview-lev-basic' => '검토된 판',
 	'revreview-lev-quality' => '고품질판',
@@ -11093,6 +11097,7 @@ Nye [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} endringer] kan h
 	'review_bad_key' => 'Ugyldig inkluderingsparameternøkkel.',
 	'review_denied' => 'Ingen tillatelse.',
 	'review_param_missing' => 'En parameter mangler eller er ugyldig.',
+	'review_cannot_undo' => 'Kan ikke omgjøre disse endringene fordi ventende endringer endret i samme område.',
 	'revreview-current' => 'Ventende endringer',
 	'revreview-depth' => 'Dybde',
 	'revreview-depth-0' => 'Utilstrekkelig',
@@ -11167,8 +11172,9 @@ Nye [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} endringer] kan h
 	'revreview-style-4' => 'Utmerket',
 	'revreview-submit' => 'Send',
 	'revreview-submitting' => 'Leverer …',
-	'revreview-submit-review' => 'Godkjenn',
-	'revreview-submit-unreview' => 'Fjern godkjenning',
+	'revreview-submit-review' => 'Godkjenn revisjon',
+	'revreview-submit-unreview' => 'Ikke godkjenn revisjon',
+	'revreview-submit-reject' => 'Avvis endringer',
 	'revreview-submit-reviewed' => 'Ferdig. Godkjent.',
 	'revreview-submit-unreviewed' => 'Ferdig. Ikke godkjent.',
 	'revreview-successful' => "'''Valgt versjon av [[:$1|$1]] har blitt merket. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} se alle stabile versjoner])'''",
@@ -11221,7 +11227,6 @@ Du må kanskje følge opp eller «angre» redigeringer først.',
 	'revreview-filter-auto' => 'Automatisk',
 	'revreview-filter-manual' => 'Manuelt',
 	'revreview-levelfilter' => 'Nivå:',
-	'revreview-precedencefilter' => 'Prioritering:',
 	'revreview-lev-all' => 'hvilken som helst',
 	'revreview-lev-basic' => 'kontrollert',
 	'revreview-lev-quality' => 'kvalitet',
@@ -11575,6 +11580,7 @@ Później mogły zostać wykonane następne [{{fullurl:{{FULLPAGENAMEE}}|oldid=$
 	'review_bad_key' => 'Nieprawidłowy klucz identyfikujący parametry.',
 	'review_denied' => 'Brak dostępu.',
 	'review_param_missing' => 'Nie podano parametru lub jest on nieprawidłowy.',
+	'review_cannot_undo' => 'Nie można cofnąć tych zmian, ponieważ te same fragmenty tekstu były później modyfikowane.',
 	'revreview-current' => 'Oczekuje na przejrzenie',
 	'revreview-depth' => 'Wyczerpanie tematu',
 	'revreview-depth-0' => 'Nieakceptowalne',
@@ -11704,7 +11710,6 @@ Po prześledzeniu zmian, zaakceptuj je lub „anuluj edycję”.',
 	'revreview-filter-auto' => 'automatycznie',
 	'revreview-filter-manual' => 'ręcznie',
 	'revreview-levelfilter' => 'Poziom:',
-	'revreview-precedencefilter' => 'Pierwszeństwo w wyświetlaniu',
 	'revreview-lev-all' => 'dowolne',
 	'revreview-lev-basic' => 'przejrzane',
 	'revreview-lev-quality' => 'zweryfikowane',
@@ -12356,6 +12361,7 @@ Podem existir [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} altera
 	'review_bad_key' => 'A chave do parâmetro de inclusão é inválida.',
 	'review_denied' => 'Permissão negada.',
 	'review_param_missing' => 'Um parâmetro está em falta ou é inválido.',
+	'review_cannot_undo' => 'Não é possível desfazer estas alterações porque outras alterações pendentes alteraram as mesmas áreas.',
 	'revreview-current' => 'Alterações pendentes',
 	'revreview-depth' => 'Profundidade',
 	'revreview-depth-0' => 'Inadequada',
@@ -12442,11 +12448,11 @@ Podem existir [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} altera
 	'revreview-successful2' => "'''A edição de [[:$1|$1]] foi desmarcada com sucesso.'''",
 	'revreview-text' => "'''[[{{MediaWiki:Validationpage}}|Versões revisadas]] são versões verificadas das páginas, usadas para determinar a versão publicada.'''",
 	'revreview-toggle-title' => 'mostrar/esconder detalhes',
-	'revreview-toolow' => "'''Você deve classificar cada atributo com valores diferentes de \"inadequada\", para que uma edição seja considerada revisada.'''
+	'revreview-toolow' => '\'\'\'Para uma edição ser considerada revisada, você deve avaliar cada atributo com valores acima de "inadequada".\'\'\'
 
-Para anular a revisão de uma edição, classifique ''todos'' os atributos como \"inadequada\".
+Para anular a revisão de uma edição, clique "anular revisão".
 
-Clique o botão \"voltar\" do seu navegador e tente novamente, por favor.",
+Clique o botão "voltar" do seu navegador e tente novamente, por favor.',
 	'revreview-update' => "'''[[{{MediaWiki:Validationpage}}|Reveja]] quaisquer alterações pendentes ''(mostradas abaixo)'' que tenham sido feitas à versão publicada, por favor.'''
 Pode ser necessário primeiro investigar ou \"reverter\" algumas edições.",
 	'revreview-update-edited' => '<span class="flaggedrevs_important">As suas alterações ainda não estão na versão publicada.</span>
@@ -12515,7 +12521,8 @@ Por favor verifique a URL que você usou para acessar esta página.',
 	'log-show-hide-review' => '$1 registro de revisões',
 	'revreview-tt-review' => 'Aplicar este estado a esta edição',
 	'revreview-tt-flag' => 'Aprovar esta edição, marcando-a como "verificada"',
-	'revreview-tt-unflag' => 'Anular a aprovação desta edição, marcando-a como "não verificada"',
+	'revreview-tt-unflag' => 'Anular a aprovação desta edição, marcando-a como "não verificada" (ignora as avaliações)',
+	'revreview-tt-reject' => 'Rejeitar estas alterações, revertendo-as (ignora as avaliações)',
 	'validationpage' => '{{ns:help}}:Validação de páginas',
 );
 
@@ -12793,8 +12800,9 @@ Le [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} cangiaminde] nuè
 	'revreview-style-4' => 'Dettagliete',
 	'revreview-submit' => 'Conferme',
 	'revreview-submitting' => 'Stoche a conferme',
-	'revreview-submit-review' => 'Accette',
-	'revreview-submit-unreview' => 'None accettà',
+	'revreview-submit-review' => "Accette 'a revisione",
+	'revreview-submit-unreview' => "None accettà 'a revisione",
+	'revreview-submit-reject' => 'Refiute le cangiaminde',
 	'revreview-submit-reviewed' => 'Apposte. Accettate!',
 	'revreview-submit-unreviewed' => 'Apposte. None accettate!',
 	'revreview-successful' => "'''Revisione de [[:$1|$1]] ha state mise 'u flag.''' ([{{fullurl:{{#Special:ReviewedVersions}}|pàgene=$2}} vide le versiune secure])'''",
@@ -12803,7 +12811,7 @@ Le [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} cangiaminde] nuè
 	'revreview-toggle-title' => 'fa vedè/scunne le dettaglie',
 	'revreview-toolow' => "'''Tu ninde ninde a valutà ognedune de le attrebbute cchiù ierte de ''inadeguate'' purcé 'na revisione pò essere considerate reviste.'''
 
-Pe luà 'u state de reviste de 'na revisione, mitte ''tutte'' le cambe cumme ''inadeguate''.
+Pe luà 'u state de reviste de 'na revisione, cazze sus a \"none accettà\".
 
 Pe piacere cazze 'u buttone \"back\" d'u browser tune e pruève arrete.",
 	'revreview-update' => "'''Pe piacere [[{{MediaWiki:Validationpage}}|revide]] ogne cangiamende pendende ''(le vide aqquà sotte)'' fatte da 'a versiona secure.'''
@@ -12839,7 +12847,6 @@ Pe piacere condrolle l'URL ca tu è ausete pe trasè jndr'à sta pagene.",
 	'revreview-filter-auto' => 'Automateche',
 	'revreview-filter-manual' => 'Manuele',
 	'revreview-levelfilter' => 'Levèlle:',
-	'revreview-precedencefilter' => 'Precedenze:',
 	'revreview-lev-all' => 'tutte',
 	'revreview-lev-basic' => 'verificate',
 	'revreview-lev-quality' => 'qualità',
@@ -12866,7 +12873,8 @@ Pe piacere condrolle l'URL ca tu è ausete pe trasè jndr'à sta pagene.",
 	'log-show-hide-review' => '$1 archivie de le rivisitaziune',
 	'revreview-tt-review' => 'Appliche stu state a sta revisione',
 	'revreview-tt-flag' => 'Appruève sta revisione marcannele cumme verificate',
-	'revreview-tt-unflag' => 'Non appruvà sta revisione marcannele cumme none verificate',
+	'revreview-tt-unflag' => 'Non accettà sta revisione marcannele cumme "none verificate" (no sce penzanne a le vote)',
+	'revreview-tt-reject' => 'Refiute ste cangiaminde annullannele (no sce penzanne a le vote)',
 	'validationpage' => "{{ns:help}}:Validazione d'a vôsce",
 );
 

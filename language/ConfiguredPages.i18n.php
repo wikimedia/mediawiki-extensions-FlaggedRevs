@@ -101,7 +101,9 @@ $messages['be-tarask'] = array(
  * @author Bellayet
  */
 $messages['bn'] = array(
+	'configuredpages-none' => 'তালিকায় কোন পাতা নাই।',
 	'configuredpages-def-draft' => 'সাম্প্রতিকতম সংস্করণ',
+	'configuredpages-def-stable' => 'স্থিতিশীল সংস্করণ',
 );
 
 /** Breton (Brezhoneg)
