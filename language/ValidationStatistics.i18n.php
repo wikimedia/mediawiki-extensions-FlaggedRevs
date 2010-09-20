@@ -1802,7 +1802,14 @@ $messages['tl'] = array(
 	'validationstatistics-users' => "Ang '''{{SITENAME}}''' ay  pangkasalukuyang may '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|tagagamit|mga tagagamit}} na may karapatan bilang [[{{MediaWiki:Validationpage}}|Patnugot]] .
 
 Ang mga patnugot ay mga matatagal nang mga tagagamit na makakasipat ng mga pagbabago sa mga pahina.",
-	'validationstatistics-table' => "Ipinapakita sa ibaba ang mga estadistika para sa bawat espasyo ng pangalan, ''hindi kasama'' ang mga pahinang tumuturo papunta sa ibang pahina.",
+	'validationstatistics-lastupdate' => "''Ang sumusunod na dato ay huling naisapanahon noong $1 noong $2.''",
+	'validationstatistics-pndtime' => "Mga pamamatnugot na nasuri ng matatag nang mga tagagamit ay itinuturing bilang nasuri na.
+
+Ang karaniwang pagkabinbin para sa [[Special:OldReviewedPages|mga pahinang may nakabinbing mga pahinang hindi pa nasusuri]] ay '''$1'''.
+Ang mga pahinang ito ay itinuturing na ''wala sa panahon''.  Gayun din, ang mga pahina ay itinuturing na ''kasabay'' kung walang mga pagbabagong naghihintay ng pagsusuri.",
+	'validationstatistics-revtime' => "Ang karaniwang paghihintay para sa mga susuriing mga pagbabago ng ''mga tagagamit na hindi lumalagda'' ay '''$1'''; ang panggitnaan ay '''$2'''. 
+$3",
+	'validationstatistics-table' => "Ipinapakita sa ibaba ang mga estadistika ng pagsusuri ng pahina para sa bawat puwang na pampangalan, ''hindi kasama'' ang mga pahinang itinuro papunta sa iba.",
 	'validationstatistics-ns' => 'Espasyo ng pangalan',
 	'validationstatistics-total' => 'Mga pahina',
 	'validationstatistics-stable' => 'Nasuri na',

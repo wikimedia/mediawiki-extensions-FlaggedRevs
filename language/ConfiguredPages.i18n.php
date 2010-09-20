@@ -857,12 +857,9 @@ Vissa inställningar kan ändra vilken version som visas för läsarna eller ytt
  */
 $messages['ta'] = array(
 	'configuredpages' => 'அமைப்புவடிவாக்கத்தை மாற்றியமைக்க மறுபரிசீலனை செய்ய உதவும் பக்கங்கள்',
+	'configuredpages-list' => 'கீழே கொடுத்துள்ள பட்டியலானது, இத்தளத்தின் பொதுவான அனுமதிகளில் இருந்து மாறுபட்டவைகளை குறிப்பிடுகின்றது.  மேலும் குறிப்பிட்ட சிலருக்கு தொகுத்த பின் அதனை மறுபார்வை செய்ய வேண்டிய அவசியம் இல்லை.',
 	'configuredpages-none' => 'இப்பட்டியலில் எந்தப் பக்கங்களும் இல்லை.',
 	'configuredpages-config' => 'அமைப்புவடிவாக்கம்',
-	'configuredpages-precedence' => 'முன்னிகழ்வு:',
-	'configuredpages-prec-none' => 'கடைசியாக சரிபார்க்கப்பட்டது',
-	'configuredpages-prec-quality' => 'தற்போதையத் தரம்',
-	'configuredpages-prec-pristine' => 'அண்மைய மாற்றம் ஏதும் நிகழாத',
 	'configuredpages-def-draft' => 'தற்போதைய பதிப்பு',
 	'configuredpages-def-stable' => 'ஏற்றுக்கொள்ளப்பட்ட பதிப்பு',
 );

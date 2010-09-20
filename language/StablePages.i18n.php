@@ -813,6 +813,9 @@ $messages['sv'] = array(
  */
 $messages['ta'] = array(
 	'stablepages' => 'இப்பக்கங்கள் தொகுத்தலுக்கான அனுமதிகளை பயன்படுத்துகின்றன',
+	'stablepages-list' => 'கீழே கொடுக்கப்பட்ட பட்டியலில் உள்ள பக்கங்களை ஒரு சில குறிப்பிட்ட பயனர்கள் மட்டுமே தொகுக்க கூடியவை. அவ்வாறு தொகுக்கப்பட்ட பக்கங்களை மறு ஆய்வு செய்ய வேண்டிய அவசியமில்லை. 
+
+மற்ற பயனர்கள் தொகுத்த பக்கங்களை படிப்பவர்களுக்கு, அதிகாரமளிக்கப்பட்ட பயனர்கள் மறு ஆய்வு செய்த பின்பே காட்டப்படும்.',
 	'stablepages-none' => 'இப்பட்டியலில் எந்தப் பக்கங்களும் இல்லை.',
 	'stablepages-config' => 'வடிவமைப்பு',
 	'stablepages-indef' => 'காலாவதியாவதற்கான காலவரம்பற்றவை மாத்திரம்',
@@ -847,6 +850,7 @@ $messages['tl'] = array(
 Ang ganitong mga pagbabago ay hindi tinatanggap hangga't hindi pa sila nasusuri ng isang awtorisadong tagagamit.",
 	'stablepages-none' => 'Walang mga pahina sa loob ng talaang ito',
 	'stablepages-config' => 'Pagkakaayos (konpigurasyon)',
+	'stablepages-indef' => 'Walang taning na katapusan lamang',
 );
 
 /** Turkish (Türkçe)
