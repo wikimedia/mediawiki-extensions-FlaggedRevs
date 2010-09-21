@@ -612,7 +612,7 @@ $messages['ru'] = array(
 	'problemchanges-category' => 'Категория:',
 );
 
-/** Rusyn (русиньскый язык)
+/** Rusyn (Русиньскый)
  * @author Gazeb
  */
 $messages['rue'] = array(

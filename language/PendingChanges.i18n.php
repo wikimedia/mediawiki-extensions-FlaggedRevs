@@ -1441,7 +1441,7 @@ $messages['ru'] = array(
 	'pendingchanges-viewing' => '(проверяются)',
 );
 
-/** Rusyn (русиньскый язык)
+/** Rusyn (Русиньскый)
  * @author Gazeb
  */
 $messages['rue'] = array(

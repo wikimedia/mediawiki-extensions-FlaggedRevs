@@ -738,7 +738,7 @@ $messages['ru'] = array(
 	'stablepages-indef' => 'Только с неопределённым сроком',
 );
 
-/** Rusyn (русиньскый язык)
+/** Rusyn (Русиньскый)
  * @author Gazeb
  */
 $messages['rue'] = array(

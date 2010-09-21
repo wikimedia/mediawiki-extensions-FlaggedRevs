@@ -1565,7 +1565,7 @@ $3",
 	'validationstatistics-reviews' => 'Проверки',
 );
 
-/** Rusyn (русиньскый язык)
+/** Rusyn (Русиньскый)
  * @author Gazeb
  */
 $messages['rue'] = array(

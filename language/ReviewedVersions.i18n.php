@@ -939,7 +939,7 @@ $messages['ru'] = array(
 	'reviewedversions-review' => 'Проверена <i>$1</i> участником $2',
 );
 
-/** Rusyn (русиньскый язык)
+/** Rusyn (Русиньскый)
  * @author Gazeb
  */
 $messages['rue'] = array(

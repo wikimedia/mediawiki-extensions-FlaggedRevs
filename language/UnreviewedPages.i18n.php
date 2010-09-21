@@ -1377,7 +1377,7 @@ $messages['ru'] = array(
 	'unreviewed-recent' => '(менее, чем 1 час)',
 );
 
-/** Rusyn (русиньскый язык)
+/** Rusyn (Русиньскый)
  * @author Gazeb
  */
 $messages['rue'] = array(
