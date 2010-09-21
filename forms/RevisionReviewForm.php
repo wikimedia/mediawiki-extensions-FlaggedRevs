@@ -738,17 +738,20 @@ class RevisionReviewForm
 		$form .= Xml::openElement( 'span', array( 'style' => 'white-space: nowrap;' ) );
 		# Hide comment input if needed
 		if ( !$disabled ) {
-			if ( count( FlaggedRevs::getDimensions() ) > 1 )
+			if ( count( FlaggedRevs::getDimensions() ) > 1 ) {
 				$form .= "<br />"; // Don't put too much on one line
+			}
 			$form .= "<span id='mw-fr-commentbox' style='clear:both'>" .
 				Xml::inputLabel( wfMsg( 'revreview-log' ), 'wpReason', 'wpReason', 35, '',
 					array( 'class' => 'fr-comment-box' ) ) . "&#160;&#160;&#160;</span>";
 		}
-		# Add the submit buttons
-		if ( $rev->getId() == $refId ) {
-			$refId = 0; // revisions are the same => can't reject
+		# Determine if there will be reject button
+		$rejectId = 0;
+		if ( $refId == $article->getStable() && $id != $refId ) {
+			$rejectId = $refId; // left rev must be stable and right one newer
 		}
-		$form .= self::submitButtons( $refId, $frev, (bool)$disabled, $reviewIncludes );
+		# Add the submit buttons
+		$form .= self::submitButtons( $rejectId, $frev, (bool)$disabled, $reviewIncludes );
 		# Show stability log if there is anything interesting...
 		if ( $article->isPageLocked() ) {
 			$form .= ' ' . FlaggedRevsXML::logToggle( 'revreview-log-toggle-show' );
@@ -898,13 +901,15 @@ class RevisionReviewForm
 
 	/**
 	 * Generates review form submit buttons
-	 * @param int $refId left rev ID for "reject" on diffs
+	 * @param int $rejectId left rev ID for "reject" on diffs
 	 * @param FlaggedRevision $frev, the flagged revision, if any
 	 * @param bool $disabled, is the form disabled?
 	 * @param bool $reviewIncludes, force the review button to be usable?
 	 * @returns string
 	 */
-	private static function submitButtons( $refId, $frev, $disabled, $reviewIncludes = false ) {
+	private static function submitButtons(
+		$rejectId, $frev, $disabled, $reviewIncludes = false
+	) {
 		$disAttrib = array( 'disabled' => 'disabled' );
 		# ACCEPT BUTTON: accept a revision
 		# We may want to re-review to change:
@@ -926,7 +931,7 @@ class RevisionReviewForm
 			) + ( ( $disabled || !$applicable ) ? $disAttrib : array() )
 		);
 		# REJECT BUTTON: revert from a pending revision to the stable
-		if ( $refId ) {
+		if ( $rejectId ) {
 			$s .= ' ';
 			$s .= Xml::submitButton( wfMsgHtml( 'revreview-submit-reject' ),
 				array(

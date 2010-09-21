@@ -1532,7 +1532,8 @@ class FlaggedArticleView {
 	*/
 	public function setViewFlags( $diff, $oldRev, $newRev ) {
 		$this->load();
-		if ( $newRev && $oldRev ) {
+		// We only want valid diffs that actually make sense...
+		if ( $newRev && $oldRev && $newRev->getTimestamp() >= $oldRev->getTimestamp() ) {
 			// Is this a diff between two pages?
 			if ( $newRev->getPage() != $oldRev->getPage() ) {
 				$this->isMultiPageDiff = true;
