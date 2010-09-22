@@ -2046,6 +2046,7 @@ $messages['br'] = array(
 	'prefs-flaggedrevs-ui' => "Aprouadur ar c'hemmoù",
 	'flaggedrevs-prefs-stable' => "Diskouez atav stumm embannet ar pajennoù dre ziouer (ma'z eus unan)",
 	'flaggedrevs-prefs-watch' => "Ouzhpennañ ar pajennoù a adwelan da'm roll evezhiañ.",
+	'flaggedrevs-prefs-editdiffs' => "Diskouez difoc'h ar c'hemmoù o c'hortoz pa vezoc'h o kemm ar bajennoù",
 	'group-editor' => 'Skridaozerien',
 	'group-editor-member' => 'Skridaozer',
 	'group-reviewer' => 'Reizherien',
@@ -2079,7 +2080,7 @@ $messages['br'] = array(
 	'review-logentry-diff' => 'kemmoù bet adlennet',
 	'review-logentry-diff2' => 'kemmoù dispredet',
 	'review-logpage' => 'Marilh an adweladennoù',
-	'review-logpagetext' => "Setu marilh ar c'hemmoù ber degaset [[{{MediaWiki:Validationpage}}|d'ar statud aprouiñ]] an adweladennoù.",
+	'review-logpagetext' => "Setu marilh ar c'hemmoù enno stummoù ar pajennoù bet [[{{MediaWiki:Validationpage}}|adwelet]].",
 	'reviewer' => 'Reizher',
 	'revisionreview' => 'Adwelet ar reizhadennoù',
 	'revreview-accuracy' => 'Pizhder',
@@ -2114,7 +2115,7 @@ $messages['br'] = array(
 	'revreview-depth-4' => 'Heverk',
 	'revreview-draft-title' => "Ar c'hemmoù o c'hortoz a zo diskouezet er bajenn-mañ",
 	'revreview-edit' => 'Kemmañ',
-	'revreview-editnotice' => "'''Ho kemmoù a vo embannet pa 'vo bet adlennet gant un implijer en deus ar gwirioù a zere. ([[{{MediaWiki:Validationpage}}|?]])'''",
+	'revreview-editnotice' => "'''Ho kemmoù a vo embannet d'al lennerien pa 'vo bet adlennet gant un implijer en deus ar gwirioù a zere. ([[{{MediaWiki:Validationpage}}|sikour]])'''",
 	'revreview-check-flag-p' => "Embann ar c'hemmoù o c'hortoz er mare-mañ",
 	'revreview-check-flag-u' => 'Asantiñ ar bajenn nann-adwelet-mañ',
 	'revreview-check-flag-u-title' => "Degemer ar stumm-mañ eus ar bajenn. Na implijit an kement-mañ nemet m'hoc'h eus gwelet dija ar bajenn en he fezh.",
@@ -2122,12 +2123,9 @@ $messages['br'] = array(
 	'revreview-check-flag-y-title' => "Degemer an holl gemmoù hoc'h eus graet er c'hemm-mañ.",
 	'revreview-submitedit' => 'Kinnigit ho kemmoù',
 	'revreview-submitedit-title' => 'Kinnig ho kemmoù evit bezañ adlennet',
-	'revreview-edited' => "'''Embannet e vo ar c'hemmoù ur wezh bet adlennet gant un implijer aotreet. ([[{{MediaWiki:Validationpage}}|?]])'''
+	'revreview-edited' => "'''Embannet e vo ar c'hemmoù d'al lennerien ur wech bet adlennet gant un implijer aotreet. ([[{{MediaWiki:Validationpage}}|sikour]])'''
 
-Bez' ez eus [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 pending {{PLURAL:$2|change|changes}}] ''(shown below)'' awaiting review.
-
-
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 {{PLURAL:$2|c'hemm|kemm}}] ''(diskouezet a-is)'' o c'hortoz bezañ adlennet.",
+Bez ez eus [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 {{PLURAL:$2|kemm|kemm}}] ''(diskouezet a-is)'' o c'hortoz da vezañ bet adwelet.",
 	'revreview-edited-section' => 'Distreiñ da rann "[[#$1|$2]]" ar bajenn.',
 	'revreview-flag' => 'Adwelet an adweladenn',
 	'revreview-reflag' => 'Adlenn adarre an adweladenn-mañ',
@@ -2190,11 +2188,15 @@ Bez ez eus [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} kemmoù p
 	'revreview-toggle-title' => 'diskouez/kuzhat munudoù',
 	'revreview-toolow' => "'''Rankout a rit reiñ ur briziadenn uheloc'h eget \"ket aprouet\" evit ma 'vefe dalc'het kont eus an adweladenn.'''
 
-Evit tennañ kuit statud adlenn ur stumm, lakait an ''holl'' maeziennoù da \"ket aprouet\".
+Evit tennañ kuit statud adlenn ur stumm, klikit war \"diaprouiñ\".
 
-Implijit bouton \"disteiñ\" ho merdeer ha klaskit en-dro.",
+Implijit bouton \"distreiñ\" ho merdeer ha klaskit en-dro.",
 	'revreview-update' => "'''Mar plij [[{{MediaWiki:Validationpage}}|adlennit]] an holl gemmoù ''(diskouezet a-is)'' bet graet d'ar stumm degemeret.'''
 Marteze ho po da reizhañ pe \"tennañ\" kemmoù 'zo da gentañ.",
+	'revreview-update-edited' => '<span class="flaggedrevs_important">N\'eo ket ho kemmoù er stumm stabil c\'hoazh.</span>
+
+Rankout a rit adlenn an holl gemmoù diskouezet a-is evit ma vo diskouezet ho kemmoù er stumm stabil.
+Marteze ho po da reizhañ pe "tennañ" kemmoù \'zo da gentañ.',
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">N\'eo ket ho kemmoù er stumm stabil c\'hoazh. Kemmoù all a zo o c\'hortoz bezañ adlennet.</span>
 
 Rankout a rit adlenn an holl gemmoù diskouezet a-is evit ma vo diskouezet ho kemmoù er stumm stabil.
@@ -2256,7 +2258,8 @@ Marteze ho po da reizhañ pe "tennañ" kemmoù \'zo da gentañ.',
 	'log-show-hide-review' => '$10$1 istor an adlennoù',
 	'revreview-tt-review' => "Lakaat ar statud-mañ d'ar stumm-mañ",
 	'revreview-tt-flag' => 'Aprouiñ ar stumm-mañ en ur merkañ anezhañ evel gwiriekaet',
-	'revreview-tt-unflag' => 'Diaprouiñ ar stumm-mañ en ur merkañ anezhañ evel "nann-gwiriekaet"',
+	'revreview-tt-unflag' => 'Diaprouiñ ar stumm-mañ en ur merkañ anezhañ evel "nann-gwiriekaet" (ober a ra fae ouzh ar priziadennoù)',
+	'revreview-tt-reject' => "Disteurel ar c'hemmoù-se dre zizober (ober van ouzh ar briziadennoù)",
 	'validationpage' => '{{ns:help}}:Kadarnaat ar bajenn',
 );
 
@@ -9993,7 +9996,7 @@ $messages['ml'] = array(
 	'revreview-accuracy-0' => 'അപര്യാപ്തം',
 	'revreview-accuracy-1' => 'സൈറ്റഡ്',
 	'revreview-accuracy-2' => 'സൂക്ഷ്മം',
-	'revreview-accuracy-3' => 'നന്നായി അവലംബം ചേർക്കപ്പെട്ടത്',
+	'revreview-accuracy-3' => 'സ്രോതസ്സധിഷ്ഠിതം',
 	'revreview-accuracy-4' => 'തിരഞ്ഞെടുക്കപ്പെട്ടത്',
 	'revreview-auto' => '(യാന്ത്രികം)',
 	'revreview-basic' => 'ഇതൊരു [[{{MediaWiki:Validationpage}}|പ്രസിദ്ധീകരിക്കപ്പെട്ട പതിപ്പ്]] ആണ്. [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}}|പരിശോധിച്ച] പതിപ്പ്, <i>$2</i> തീയതിയിലുള്ളതാണ്.
