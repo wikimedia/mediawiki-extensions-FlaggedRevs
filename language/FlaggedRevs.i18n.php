@@ -270,8 +270,7 @@ Please check the URL you used to access this page.',
 	'accesskey-ca-stable'          => 'c', # do not translate or duplicate this message to other languages
 	
 	'log-show-hide-review'         => '$1 review log',
-	
-	'revreview-tt-review'          => 'Apply this status to this revision',
+
 	'revreview-tt-flag'            => 'Accept this revision by marking it as "checked"',
 	'revreview-tt-unflag'		   => 'Unaccept this revision by marking it as "unchecked"',
 	'revreview-tt-reject'		   => 'Reject these changes by reverting them',
