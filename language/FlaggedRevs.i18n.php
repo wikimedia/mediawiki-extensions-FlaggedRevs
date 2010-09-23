@@ -273,8 +273,8 @@ Please check the URL you used to access this page.',
 	
 	'revreview-tt-review'          => 'Apply this status to this revision',
 	'revreview-tt-flag'            => 'Accept this revision by marking it as "checked"',
-	'revreview-tt-unflag'		   => 'Unaccept this revision by marking it as "unchecked" (ignores ratings)',
-	'revreview-tt-reject'		   => 'Reject these changes by reverting them (ignores ratings)',
+	'revreview-tt-unflag'		   => 'Unaccept this revision by marking it as "unchecked"',
+	'revreview-tt-reject'		   => 'Reject these changes by reverting them',
 	'validationpage'               => '{{ns:help}}:Page validation',
 );
 
