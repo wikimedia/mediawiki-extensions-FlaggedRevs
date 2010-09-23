@@ -1809,8 +1809,8 @@ $messages['be-tarask'] = array(
 	'log-show-hide-review' => '$1 журнал рэцэнзаваньняў',
 	'revreview-tt-review' => 'Ужыць гэты статус для гэтай вэрсіі',
 	'revreview-tt-flag' => 'Зацьвердзіць гэтую вэрсію пазначыўшы як правераную',
-	'revreview-tt-unflag' => 'Зьняць зацьверджаньне вэрсіі, пазначыўшы яе як «неправеранаю» (ігнаруе адзнакі)',
-	'revreview-tt-reject' => 'Адмяніць гэтыя зьмены скасаваўшы іх (ігнаруе адзнакі)',
+	'revreview-tt-unflag' => 'Зьняць зацьверджаньне вэрсіі, пазначыўшы яе як «неправеранаю»',
+	'revreview-tt-reject' => 'Адмяніць гэтыя зьмены скасаваўшы іх',
 	'validationpage' => '{{ns:help}}:Праверка старонак',
 );
 
@@ -2047,6 +2047,7 @@ $messages['br'] = array(
 	'flaggedrevs-prefs-stable' => "Diskouez atav stumm embannet ar pajennoù dre ziouer (ma'z eus unan)",
 	'flaggedrevs-prefs-watch' => "Ouzhpennañ ar pajennoù a adwelan da'm roll evezhiañ.",
 	'flaggedrevs-prefs-editdiffs' => "Diskouez difoc'h ar c'hemmoù o c'hortoz pa vezoc'h o kemm ar bajennoù",
+	'flaggedrevs-prefs-viewdiffs' => "Diskwel difoc'hoù ar c'hemmoù o c'hortoz p'emañ stumm diwezhañ ur bajenn o c'hortoz gwelet",
 	'group-editor' => 'Skridaozerien',
 	'group-editor-member' => 'Skridaozer',
 	'group-reviewer' => 'Reizherien',
@@ -2065,8 +2066,10 @@ $messages['br'] = array(
 	'revreview-hist-basic-auto' => '[{{fullurl:$1|stableid=$2}} bet gwelet emgefre]',
 	'revreview-hist-quality-auto' => '[{{fullurl:$1|stableid=$2}} aprouet emgefre]',
 	'revreview-hist-pending-difflink' => "'''[[{{fullurl:$1|oldid=$2&diff=$3}} o c'hortoz bezañ adlennet]]'''",
+	'review-edit-diff' => "'''DIWALLIT: Cheñchamantoù 'zo a lak diaes lec'h ar bajenn emaoc'h o kemmañ.'''",
 	'revreview-diff-toggle-show' => "diskouez ar c'hemmoù",
 	'revreview-diff-toggle-hide' => "kuzhat ar c'hemmoù",
+	'revreview-diff-toggle-title' => "Gwintañ an diskwel etre ar c'hemmoù o c'hortoz hag ar stumm stabil",
 	'revreview-log-toggle-show' => 'diskouez marilh ar stabilder',
 	'revreview-log-toggle-hide' => 'kuzhat ar marilh stabilder',
 	'revreview-log-toggle-title' => 'Gwintañ diskwel marilh an arventennoù stabilder',
@@ -2102,10 +2105,12 @@ $messages['br'] = array(
 	'review_page_unreviewable' => "Ar bajenn da dizhout ne c'hell ket bezañ adlennet.",
 	'review_no_oldid' => "N'eus bet diferet ID adweladenn ebet.",
 	'review_bad_oldid' => "N'eus ket eus an adweladenn klasket.",
+	'review_not_flagged' => "An adweladenn pal n'emañ ket merket e-giz adwelet.",
 	'review_too_low' => 'Ne c\'hell ket an adweladenn bezañ adlennet gant maeziennoù laosket "nann-aprouet".',
 	'review_bad_key' => "Alc'hwez arventenn enklozadur direizh.",
 	'review_denied' => "Aotre nac'het.",
 	'review_param_missing' => 'Un arventenn a vank pe a zo direizh.',
+	'review_cannot_undo' => "N'eus ket tu da zizober ar c'hemmoù peogwir ez eus kemmoù all o c'hortoz er memes lec'h.",
 	'revreview-current' => "Kemmoù o c'hortoz",
 	'revreview-depth' => 'Donder',
 	'revreview-depth-0' => 'Digevazas',
@@ -2117,6 +2122,7 @@ $messages['br'] = array(
 	'revreview-edit' => 'Kemmañ',
 	'revreview-editnotice' => "'''Ho kemmoù a vo embannet d'al lennerien pa 'vo bet adlennet gant un implijer en deus ar gwirioù a zere. ([[{{MediaWiki:Validationpage}}|sikour]])'''",
 	'revreview-check-flag-p' => "Embann ar c'hemmoù o c'hortoz er mare-mañ",
+	'revreview-check-flag-p-title' => "Asantiñ pep kemm o c'hortoz gant ho kemmoù deoc'h. Implijit an dra-se nemet m'ho peus gwelet an difoc'h eus hollad ar c'hemmoù o c'hortoz.",
 	'revreview-check-flag-u' => 'Asantiñ ar bajenn nann-adwelet-mañ',
 	'revreview-check-flag-u-title' => "Degemer ar stumm-mañ eus ar bajenn. Na implijit an kement-mañ nemet m'hoc'h eus gwelet dija ar bajenn en he fezh.",
 	'revreview-check-flag-y' => "Degemer ar c'hemmoù-mañ",
@@ -2258,8 +2264,8 @@ Marteze ho po da reizhañ pe "tennañ" kemmoù \'zo da gentañ.',
 	'log-show-hide-review' => '$10$1 istor an adlennoù',
 	'revreview-tt-review' => "Lakaat ar statud-mañ d'ar stumm-mañ",
 	'revreview-tt-flag' => 'Aprouiñ ar stumm-mañ en ur merkañ anezhañ evel gwiriekaet',
-	'revreview-tt-unflag' => 'Diaprouiñ ar stumm-mañ en ur merkañ anezhañ evel "nann-gwiriekaet" (ober a ra fae ouzh ar priziadennoù)',
-	'revreview-tt-reject' => "Disteurel ar c'hemmoù-se dre zizober (ober van ouzh ar briziadennoù)",
+	'revreview-tt-unflag' => 'Diaprouiñ ar stumm-mañ en ur merkañ anezhañ evel "nann-gwiriekaet"',
+	'revreview-tt-reject' => "Disteurel ar c'hemmoù-se dre zizober",
 	'validationpage' => '{{ns:help}}:Kadarnaat ar bajenn',
 );
 
@@ -2504,8 +2510,8 @@ Molimo Vas da provjerite URL pomoću kojeg ste pristupili ovoj stranici.',
 	'log-show-hide-review' => '$1 zapisnik pregledavanja',
 	'revreview-tt-review' => 'Primijeni ovaj status na ovu reviziju',
 	'revreview-tt-flag' => "Prihvati ovu reviziju označavajući je ''provjerenom''",
-	'revreview-tt-unflag' => "Ne prihvati ovu reviziju označavajući je ''neprovjerenom'' (zanemari rajting)",
-	'revreview-tt-reject' => 'Odbij ove promjene tako što ćete ih vratiti (zanemaruje rejtinge)',
+	'revreview-tt-unflag' => "Ne prihvati ovu reviziju označavajući je ''neprovjerenom''",
+	'revreview-tt-reject' => 'Odbij ove promjene tako što ćete ih vratiti',
 	'validationpage' => '{{ns:help}}:Provjera stranice',
 );
 
@@ -3097,8 +3103,8 @@ Gegebenenfalls musst du zunächst diese Bearbeitungen nachvollziehen oder „rü
 	'log-show-hide-review' => 'Versionsmarkierungs-Logbuch $1',
 	'revreview-tt-review' => 'Wende diesen Status auf diese Version an',
 	'revreview-tt-flag' => 'Diese Version anzeigen, indem du die Änderungen markierst',
-	'revreview-tt-unflag' => 'Diese Version nicht anzeigen, indem du die Markierung entfernst (ignoriert Bewertungen)',
-	'revreview-tt-reject' => 'Diese Änderungen zurückweisen, indem man sie zurückgesetzt (ignoriert  Bewertungen)',
+	'revreview-tt-unflag' => 'Diese Version nicht anzeigen, indem du die Markierung entfernst',
+	'revreview-tt-reject' => 'Diese Änderungen zurückweisen, indem man sie zurückgesetzt',
 	'validationpage' => '{{ns:help}}:Gesichtete und geprüfte Versionen',
 );
 
@@ -4388,8 +4394,8 @@ Vaata [[Special:Unreviewedpages|ülevaatamata lehekülgede loendit]].',
 	'revreview-style-4' => 'Esile tõstetud',
 	'revreview-submit' => 'Esita',
 	'revreview-submitting' => 'Esitan...',
-	'revreview-submit-review' => 'Kiida heaks',
-	'revreview-submit-unreview' => 'Lükka tagasi',
+	'revreview-submit-review' => 'Kiida redaktsioon heaks',
+	'revreview-submit-unreview' => 'Lükka redaktsioon tagasi',
 	'revreview-submit-reviewed' => 'Tehtud ja heaks kiidetud!',
 	'revreview-submit-unreviewed' => 'Tehtud ja tagasi lükatud!',
 	'revreview-successful' => "'''Lehekülje [[:$1|$1]] redaktsioon edukalt vaadatud. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} vaata ülevaadatud versioone])'''",
@@ -4398,7 +4404,7 @@ Vaata [[Special:Unreviewedpages|ülevaatamata lehekülgede loendit]].',
 	'revreview-toggle-title' => 'Näita või peida üksikasjad',
 	'revreview-toolow' => '\'\'\'Lehekülje ülevaadatuks arvamiseks pead hindama kõiki tunnuseid kõrgemini kui "ebarahuldav".\'\'\'
 
-Redaktsioonilt ülevaadatu seisundi eemaldamiseks sea kõik väljad kujule "ebarahuldav".
+Redaktsioonilt ülevaadatu seisundi eemaldamiseks klõpsa "lükka tagasi".
 
 Palun klõpsa oma võrgulehitseja "Tagasi"-nuppu ja proovi uuesti.',
 	'revreview-update' => "'''Palun [[{{MediaWiki:Validationpage}}|vaata üle]] kõik alates püsivast versioonist tehtud ootel muudatused ''(näidatud allpool)''.'''
@@ -5179,8 +5185,8 @@ Veuillez vérifier l'URL que vous avez utilisée pour accéder à cette page.",
 	'log-show-hide-review' => "$1 l'historique des relectures",
 	'revreview-tt-review' => 'Appliquer ce statut à cette version',
 	'revreview-tt-flag' => 'Approuver cette version en la marquant comme vérifiée',
-	'revreview-tt-unflag' => 'Désapprouver cette version en la marquant comme non-vérifiée (ignore les évaluations)',
-	'revreview-tt-reject' => 'Rejeter ces modifications en les révoquant (ignore les évaluation)',
+	'revreview-tt-unflag' => 'Désapprouver cette version en la marquant comme non-vérifiée',
+	'revreview-tt-reject' => 'Rejeter ces modifications en les révoquant',
 	'validationpage' => '{{ns:help}}:Validation de la page',
 );
 
@@ -5656,8 +5662,8 @@ Por favor verifique o URL que utilizou para acceder a esta páxina.',
 	'log-show-hide-review' => '$1 o rexistro de revisións',
 	'revreview-tt-review' => 'Dar este estado a esta revisión',
 	'revreview-tt-flag' => 'Aprobar esta revisión marcándoa como comprobada',
-	'revreview-tt-unflag' => 'Suspender esta revisión marcándoa como non comprobada (ignora as valoracións)',
-	'revreview-tt-reject' => 'Rexeitar estes cambios reverténdoos (ignora as valoracións)',
+	'revreview-tt-unflag' => 'Suspender esta revisión marcándoa como non comprobada',
+	'revreview-tt-reject' => 'Rexeitar estes cambios reverténdoos',
 	'validationpage' => '{{ns:help}}:Validación da páxina',
 );
 
@@ -5986,8 +5992,8 @@ Go Dyyni Änderige vereffetlige, due bitte alli hängige Änderige priefe, wu do
 	'log-show-hide-review' => 'Versionsmarkierigs-Logbuech $1',
 	'revreview-tt-review' => 'Dää Status uf die Version aawände',
 	'revreview-tt-flag' => "Die Version zueloo dur Markiere as ''aagluegt''",
-	'revreview-tt-unflag' => "Die Version ablähne dur Markiere as ''nit aagluegt'' (Bewärtige ignoriere)",
-	'revreview-tt-reject' => 'Die Änderige zruckwyse dur zrucksetze (ignoriert  Bewärtige)',
+	'revreview-tt-unflag' => "Die Version ablähne dur Markiere as ''nit aagluegt''",
+	'revreview-tt-reject' => 'Die Änderige zruckwyse dur zrucksetze',
 	'validationpage' => '{{ns:project}}:Gesichtete und geprüfte Versionen',
 );
 
@@ -7056,7 +7062,7 @@ Kérlek, ellenőrizd az URL-t, amivel erre a lapra jutottál.',
 	'log-show-hide-review' => 'ellenőrzési napló $1',
 	'revreview-tt-review' => 'Állapot alkalmazása ehhez a változathoz',
 	'revreview-tt-flag' => 'Változat elfogadása (ellenőrzöttnek jelölés)',
-	'revreview-tt-unflag' => 'Változat elfogadásának visszavonása (visszaminősítés nem ellenőrzöttnek)',
+	'revreview-tt-unflag' => 'Változat elfogadásának visszavonása',
 	'validationpage' => '{{ns:help}}:Jelölt lapváltozatok',
 );
 
@@ -7308,8 +7314,8 @@ Verifica le adresse URL que tu ha usate pro acceder a iste pagina.',
 	'log-show-hide-review' => '$1 le registro de revisiones',
 	'revreview-tt-review' => 'Attribuer iste stato a iste version',
 	'revreview-tt-flag' => 'Approbar iste version per marcar lo como verificate',
-	'revreview-tt-unflag' => 'Cessar de acceptar iste version per marcar lo como como "non verificate" (ignora evalutationes)',
-	'revreview-tt-reject' => 'Rejectar iste modificationes per reverter los (ignora evalutationes)',
+	'revreview-tt-unflag' => 'Cessar de acceptar iste version per marcar lo como como "non verificate"',
+	'revreview-tt-reject' => 'Rejectar iste modificationes per reverter los',
 	'validationpage' => '{{ns:help}}:Validation de paginas',
 );
 
@@ -8061,8 +8067,8 @@ $messages['ja'] = array(
 	'log-show-hide-review' => '査読記録を$1',
 	'revreview-tt-review' => 'この版にこの状態を設定する',
 	'revreview-tt-flag' => 'この版に確認済みの印を付けて承認する',
-	'revreview-tt-unflag' => 'この版に「未確認」の印を付けて未承認とする（評価は無視されます）',
-	'revreview-tt-reject' => 'これらの変更を差し戻して却下する（評価は無視されます）',
+	'revreview-tt-unflag' => 'この版に「未確認」の印を付けて未承認とする',
+	'revreview-tt-reject' => 'これらの変更を差し戻して却下する',
 	'validationpage' => '{{ns:help}}:ページの判定',
 );
 
@@ -9389,8 +9395,8 @@ Et ka sinn datt Dir d'éischt Ännerungen noverfollegen oder ''zrécksetze'' mus
 	'log-show-hide-review' => 'Logbuch vun den nogekucke Verisoune $1',
 	'revreview-tt-review' => 'Dëse Status op dës Versioun uwenden',
 	'revreview-tt-flag' => 'Dës Versioun als nogekuckt markéieren',
-	'revreview-tt-unflag' => 'Dës Versioun net akzeptéieren andeem se als "net méi nogekuckt" markéiert gëtt (Bewäertungen ignoréieren)',
-	'revreview-tt-reject' => 'Dës Ännerungen zréckweisen an deem ze zréckgesat ginn (Bewäertunge ginn ignoréiert)',
+	'revreview-tt-unflag' => 'Dës Versioun net akzeptéieren andeem se als "net méi nogekuckt" markéiert gëtt',
+	'revreview-tt-reject' => 'Dës Ännerungen zréckweisen an deem ze zréckgesat ginn',
 	'validationpage' => '{{ns:help}}:Validatioun vun der Säit',
 );
 
@@ -9929,8 +9935,8 @@ $messages['mk'] = array(
 	'log-show-hide-review' => '$1 дневник на оценувања',
 	'revreview-tt-review' => 'Примени го овој статус на оваа ревизија',
 	'revreview-tt-flag' => 'Одобри ја оваа верзија означувајќи ја како проверена',
-	'revreview-tt-unflag' => 'Направете ја оваа верзија неприфатлива означувајќи ја како „непроверена“ (ги занемарува оценките)',
-	'revreview-tt-reject' => 'Одбијте ги овие промени, враќајќи ги (ги занемарува оценките)',
+	'revreview-tt-unflag' => 'Направете ја оваа верзија неприфатлива означувајќи ја како „непроверена“',
+	'revreview-tt-reject' => 'Одбијте ги овие промени, враќајќи ги',
 	'validationpage' => '{{ns:help}}:Проверка на страница',
 );
 
@@ -10172,8 +10178,8 @@ $messages['ml'] = array(
 	'log-show-hide-review' => 'സംശോധന രേഖ $1',
 	'revreview-tt-review' => 'ഈ നാൾപ്പതിപ്പിന് ഈ പദവി നൽകുക',
 	'revreview-tt-flag' => 'ഈ നാൾപ്പതിപ്പ് പരിശോധിച്ചതായി അടയാളപ്പെടുത്തി അംഗീകരിക്കുക',
-	'revreview-tt-unflag' => 'ഈ നാൾപ്പതിപ്പ് "പരിശോധിച്ചതല്ല" എന്നടയാളപ്പെടുത്തി അംഗീകാരം നീക്കുക (നിലവാരം അവഗണിക്കപ്പെടും)',
-	'revreview-tt-reject' => 'ഈ മാറ്റങ്ങൾ പുനഃപ്രാപനം ചെയ്ത് നിരാകരിക്കുക (ഇട്ട നിലവാരങ്ങൾ അവഗണിക്കപ്പെടും)',
+	'revreview-tt-unflag' => 'ഈ നാൾപ്പതിപ്പ് "പരിശോധിച്ചതല്ല" എന്നടയാളപ്പെടുത്തി അംഗീകാരം നീക്കുക',
+	'revreview-tt-reject' => 'ഈ മാറ്റങ്ങൾ പുനഃപ്രാപനം ചെയ്ത് നിരാകരിക്കുക',
 	'validationpage' => '{{ns:help}}:താളിന്റെ സാധുത',
 );
 
@@ -10813,8 +10819,8 @@ Controleer de URL die u gebruikte om naar deze pagina te gaan.',
 	'log-show-hide-review' => 'Waarderingslogboek $1',
 	'revreview-tt-review' => 'Deze status voor deze versie instellen',
 	'revreview-tt-flag' => 'Deze versie goedkeuren door haar als gecontroleerd te markeren',
-	'revreview-tt-unflag' => "Keur deze versie af door haar als '''ongecontroleerd''' te markeren (beoordelingen worden genegeerd)",
-	'revreview-tt-reject' => 'Deze wijzigingen afkeuren door te terug te draaien (beoordelingen worden genegeerd)',
+	'revreview-tt-unflag' => "Keur deze versie af door haar als '''ongecontroleerd''' te markeren",
+	'revreview-tt-reject' => 'Deze wijzigingen afkeuren door te terug te draaien',
 	'validationpage' => '{{ns:help}}:Paginaredactie',
 );
 
@@ -11231,8 +11237,8 @@ Du må kanskje følge opp eller «angre» redigeringer først.',
 	'log-show-hide-review' => '$1 vurderingslogg',
 	'revreview-tt-review' => 'Sette denne statusen til denne revisjonen',
 	'revreview-tt-flag' => 'Godkjenn denne revisjonen ved å merke den som kontrollert',
-	'revreview-tt-unflag' => 'Underkjenn denne revisjonen ved å merke den som «ukontrollert» (ignorer rangeringer)',
-	'revreview-tt-reject' => 'Avvis disse endringene ved å tilbakestille dem (ignorer rangeringer)',
+	'revreview-tt-unflag' => 'Underkjenn denne revisjonen ved å merke den som «ukontrollert»',
+	'revreview-tt-reject' => 'Avvis disse endringene ved å tilbakestille dem',
 	'validationpage' => '{{ns:help}}:Sidegodkjenning',
 );
 
@@ -11522,7 +11528,7 @@ $messages['pl'] = array(
 	'revreview-log-details-show' => 'pokaż szczegóły',
 	'revreview-log-details-hide' => 'ukryj szczegóły',
 	'revreview-log-details-title' => 'Zmień widoczność rejestru konfiguracji stron',
-	'review-diff2stable' => 'Pokaż różnicę pomiędzy wersją roboczą a opublikowaną',
+	'review-diff2stable' => 'Pokaż wszystkie zmiany oczekujące na przejrzenie',
 	'review-logentry-app' => 'przejrzał wersję [[$1]]',
 	'review-logentry-dis' => 'wycofał oznaczenie wersji [[$1]]',
 	'review-logentry-id' => 'zobacz wersję z $2',
@@ -11635,7 +11641,7 @@ Później mogły zostać wykonane następne [{{fullurl:{{FULLPAGENAMEE}}|oldid=$
 	'revreview-submitting' => 'Zapisywanie...',
 	'revreview-submit-review' => 'Zaakceptuj wersję',
 	'revreview-submit-unreview' => 'Cofnij akceptację wersji',
-	'revreview-submit-reject' => 'Odrzuć zmiany',
+	'revreview-submit-reject' => 'Wycofaj zmiany',
 	'revreview-submit-reviewed' => 'Gotowe. Zaakceptowano!',
 	'revreview-submit-unreviewed' => 'Gotowe. Wycofano akceptację!',
 	'revreview-successful' => "'''Wersja [[:$1|$1]] została pomyślnie oznaczona. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} zobacz wszystkie wersje przejrzane])'''",
@@ -11714,8 +11720,8 @@ Po prześledzeniu zmian, zaakceptuj je lub „anuluj edycję”.',
 	'log-show-hide-review' => '$1 rejestr oznaczania',
 	'revreview-tt-review' => 'Ustaw ten status dla tej wersji',
 	'revreview-tt-flag' => 'Zaakceptuj tę wersję poprzez oznaczenie jej jako „przejrzanej”',
-	'revreview-tt-unflag' => 'Wycofaj akceptację tej wersji poprzez oznaczenie jest jako „niesprawdzonej” (ignoruj wcześniejsze oceny)',
-	'revreview-tt-reject' => 'Odrzucić te zmiany poprzez wycofanie ich (zignoruj oceny)',
+	'revreview-tt-unflag' => 'Wycofaj akceptację tej wersji poprzez oznaczenie jest jako „niesprawdzonej”',
+	'revreview-tt-reject' => 'Wycofaj te zmiany poprzez przywrócenie ostatniej wersji przejrzanej',
 	'validationpage' => '{{ns:help}}:Wersje oznaczone',
 );
 
@@ -11960,8 +11966,8 @@ Che as controla për piasì l'adrëssa (URL) che a l'ha dovrà për rivé a sta 
 	'log-show-hide-review' => '$1 registr ëd le revision',
 	'revreview-tt-review' => 'Amposté së statù a costa revision-sì',
 	'revreview-tt-flag' => 'Apreuva sta revision-sì an marcandla com revisionà',
-	'revreview-tt-unflag' => 'Gava da aprovà sta revision-sì an marcandla com pa controlà (varda pa le valutassion)',
-	'revreview-tt-reject' => 'Arfuda sti cambi an butandje andré (varda pa le valutassion)',
+	'revreview-tt-unflag' => 'Gava da aprovà sta revision-sì an marcandla com pa controlà',
+	'revreview-tt-reject' => 'Arfuda sti cambi an butandje andré',
 	'validationpage' => '{{ns:help}}:Validassion ëd la pàgina',
 );
 
@@ -12248,8 +12254,8 @@ Verifique a URL que usou para aceder a esta página.',
 	'log-show-hide-review' => '$1 registo de revisões',
 	'revreview-tt-review' => 'Aplicar este estado a esta edição',
 	'revreview-tt-flag' => 'Aprovar esta edição, marcando-a como "verificada"',
-	'revreview-tt-unflag' => 'Anular a aprovação desta edição, marcando-a como "não verificada" (ignora as avaliações)',
-	'revreview-tt-reject' => 'Rejeitar estas alterações, revertendo-as (ignora as avaliações)',
+	'revreview-tt-unflag' => 'Anular a aprovação desta edição, marcando-a como "não verificada"',
+	'revreview-tt-reject' => 'Rejeitar estas alterações, revertendo-as',
 	'validationpage' => '{{ns:help}}:Validação de páginas',
 );
 
@@ -12499,8 +12505,8 @@ Por favor verifique a URL que você usou para acessar esta página.',
 	'log-show-hide-review' => '$1 registro de revisões',
 	'revreview-tt-review' => 'Aplicar este estado a esta edição',
 	'revreview-tt-flag' => 'Aprovar esta edição, marcando-a como "verificada"',
-	'revreview-tt-unflag' => 'Anular a aprovação desta edição, marcando-a como "não verificada" (ignora as avaliações)',
-	'revreview-tt-reject' => 'Rejeitar estas alterações, revertendo-as (ignora as avaliações)',
+	'revreview-tt-unflag' => 'Anular a aprovação desta edição, marcando-a como "não verificada"',
+	'revreview-tt-reject' => 'Rejeitar estas alterações, revertendo-as',
 	'validationpage' => '{{ns:help}}:Validação de páginas',
 );
 
@@ -12850,8 +12856,8 @@ Pe piacere condrolle l'URL ca tu è ausete pe trasè jndr'à sta pagene.",
 	'log-show-hide-review' => '$1 archivie de le rivisitaziune',
 	'revreview-tt-review' => 'Appliche stu state a sta revisione',
 	'revreview-tt-flag' => 'Appruève sta revisione marcannele cumme verificate',
-	'revreview-tt-unflag' => 'Non accettà sta revisione marcannele cumme "none verificate" (no sce penzanne a le vote)',
-	'revreview-tt-reject' => 'Refiute ste cangiaminde annullannele (no sce penzanne a le vote)',
+	'revreview-tt-unflag' => 'Non accettà sta revisione marcannele cumme "none verificate"',
+	'revreview-tt-reject' => 'Refiute ste cangiaminde annullannele',
 	'validationpage' => "{{ns:help}}:Validazione d'a vôsce",
 );
 
@@ -13104,8 +13110,8 @@ $messages['ru'] = array(
 	'log-show-hide-review' => '$1 журнал проверок',
 	'revreview-tt-review' => 'Указать это состояние для данной версии',
 	'revreview-tt-flag' => 'Подтвердите эту версию, отметив её как проверенную',
-	'revreview-tt-unflag' => 'Снять подтверждение с этой версии, отметив её как непроверенную (игнорирует оценки)',
-	'revreview-tt-reject' => 'Отклонить эти изменения, откатить их (игнорирует оценок)',
+	'revreview-tt-unflag' => 'Снять подтверждение с этой версии, отметив её как непроверенную',
+	'revreview-tt-reject' => 'Отклонить эти изменения, откатить их',
 	'validationpage' => '{{ns:help}}:Проверка страниц',
 );
 
@@ -14942,9 +14948,9 @@ $messages['tl'] = array(
 	'revreview-hist-pending' => 'naghihintay ng pagsusuri',
 	'revreview-hist-quality' => 'katangiang pangkagalingan ng pagbabago',
 	'revreview-hist-basic' => 'nasuring pagbabago',
-	'revreview-hist-quality-user' => '[{{fullurl:$1|stableid=$2}} pinatunayan] ni [[User:$3|$3]]',
+	'revreview-hist-quality-user' => '[{{fullurl:$1|stableid=$2}} pinayagan] ni [[User:$3|$3]]',
 	'revreview-hist-basic-user' => '[{{fullurl:$1|stableid=$2}} nasuri na] ni [[User:$3|$3]]',
-	'revreview-hist-basic-auto' => '[{{fullurl:$1|stableid=$2}} kusang namataan]',
+	'revreview-hist-basic-auto' => '[{{fullurl:$1|stableid=$2}} kusang nasuri]',
 	'revreview-hist-quality-auto' => '[{{fullurl:$1|stableid=$2}} kusang napayagan]',
 	'revreview-hist-pending-difflink' => "'''[[{{fullurl:$1|oldid=$2&diff=$3}} naghihintay ng pagsusuri]]'''",
 	'review-edit-diff' => "'''PAUNAWA: Ilan sa mga pagbabagong naghihintay ang makakaapekto sa pahinang binabago mo.'''",
@@ -15155,8 +15161,8 @@ Pakisuri ang URL na ginamit para mapuntahan ang pahinang ito.',
 	'log-show-hide-review' => '$1 pagtatala ng pagsusuri',
 	'revreview-tt-review' => 'Gamitin ang katayuang ito sa rebisyong ito',
 	'revreview-tt-flag' => 'Tanggapin ang rebisyong ito sa pamamagitan ng pagtatatak dito bilang "nasuri"',
-	'revreview-tt-unflag' => 'Huwag tanggapin ang rebisyong ito sa pamamagitan ng pagtatatak dito bilang "hindi nasuri" (binabalewala ang pag-aantas)',
-	'revreview-tt-reject' => 'Tanggihan ang mga pagbabagong ito sa pamamagitan ng pagpapabalik sa mga ito (binabalewala ang mga pag-aantas)',
+	'revreview-tt-unflag' => 'Huwag tanggapin ang rebisyong ito sa pamamagitan ng pagtatatak dito bilang "hindi nasuri"',
+	'revreview-tt-reject' => 'Tanggihan ang mga pagbabagong ito sa pamamagitan ng pagpapabalik sa mga ito',
 	'validationpage' => '{{ns:help}}:Pagpapatunay ng pahina',
 );
 
@@ -15650,7 +15656,7 @@ $messages['uk'] = array(
 	'log-show-hide-review' => '$1 журнал перевірок',
 	'revreview-tt-review' => 'Застосувати статус до цієї версії',
 	'revreview-tt-flag' => 'Затвердити цю версію з позначенням її перевіреною',
-	'revreview-tt-unflag' => 'Зняти затвердження цієї версії і позначити її неперевіреною',
+	'revreview-tt-unflag' => 'Зняти затвердження цієї версії шляхом позначення її як "неперевірена"',
 	'validationpage' => '{{ns:help}}:Перевірка сторінки',
 );
 
@@ -16297,8 +16303,8 @@ Trước tiên, có thể cần chỉnh lại hay ''lùi lại'' một số sử
 	'log-show-hide-review' => '$1 nhật trình duyệt',
 	'revreview-tt-review' => 'Áp dụng trạng thái này vào phiên bản này',
 	'revreview-tt-flag' => 'Chấp nhận thay đổi này bằng cách đánh dấu nó là “đã xem qua”',
-	'revreview-tt-unflag' => 'Rút chấp nhận phiên bản này bằng cách đánh dấu nó là “chưa xem qua” (bất chấp đánh giá)',
-	'revreview-tt-reject' => 'Từ chối các thay đổi này bằng cách lùi lại (bất chấp đánh giá)',
+	'revreview-tt-unflag' => 'Rút chấp nhận phiên bản này bằng cách đánh dấu nó là “chưa xem qua”',
+	'revreview-tt-reject' => 'Từ chối các thay đổi này bằng cách lùi lại',
 	'validationpage' => '{{ns:help}}:Phê chuẩn trang',
 );
 

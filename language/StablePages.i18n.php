@@ -846,8 +846,8 @@ $messages['tk'] = array(
  */
 $messages['tl'] = array(
 	'stablepages' => 'Mga pahinang gumagamit ng pagpayag sa pagbago',
-	'stablepages-list' => "Nasa ibaba ang isang talaan ng mga pahinang na may pagbabawal upang tiyak na mga tagagamit lamang ang maaaring makagawa ng mga pagbabago na hindi nangangailangan ng pagsusuri.
-Ang ganitong mga pagbabago ay hindi tinatanggap hangga't hindi pa sila nasusuri ng isang awtorisadong tagagamit.",
+	'stablepages-list' => 'Nasa ibaba ang isang talaan ng mga pahinang tanging ilang partikular na mga tagagamit lamang ang makagagawa ng mga pamamatnugot na hindi nangangailangan ng muling pagsusuri.  
+Ang mga pagbabago na ginawa ng ibang mga tagagamit ay likas na nakatakdang hindi ipinapakita sa mga mambabasa hanggang sa suriin sila ng isang may pahintulot na tagagamit.',
 	'stablepages-none' => 'Walang mga pahina sa loob ng talaang ito',
 	'stablepages-config' => 'Pagkakaayos (konpigurasyon)',
 	'stablepages-indef' => 'Walang taning na katapusan lamang',
