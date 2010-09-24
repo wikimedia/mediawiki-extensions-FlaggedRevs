@@ -1249,6 +1249,7 @@ $messages['mt'] = array(
  */
 $messages['myv'] = array(
 	'validationstatistics-ns' => 'Лем потмо',
+	'validationstatistics-total' => 'Лопат',
 );
 
 /** Dutch (Nederlands)

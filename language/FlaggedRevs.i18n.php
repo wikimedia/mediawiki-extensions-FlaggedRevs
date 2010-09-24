@@ -6379,6 +6379,7 @@ Aap jon URL ke use kar ke ii panna ke acess karaa hai, uske check karo.',
  * @author Dalibor Bosits
  * @author Dnik
  * @author Ex13
+ * @author Herr Mlinka
  * @author Roberta F.
  * @author SpeedyGonsales
  */
@@ -6412,6 +6413,8 @@ $messages['hr'] = array(
 	'revreview-hist-basic-auto' => '[{{fullurl:$1|stableid=$2}} automatski pregledana]',
 	'revreview-diff-toggle-show' => 'prikaži promjene',
 	'revreview-diff-toggle-hide' => '(sakrij promjene)',
+	'revreview-log-details-show' => 'prikaži detalje',
+	'revreview-log-details-hide' => 'sakrij detalje',
 	'review-diff2stable' => 'Promjene između važeće i trenutačne inačice',
 	'review-logentry-app' => 'ocijenjena r$2 od [[$1]]',
 	'review-logentry-dis' => 'zastarjela r$2 od [[$1]]',
@@ -6576,7 +6579,6 @@ Molimo provjerite URL koji vas je doveo ovamo.',
 	'revreview-locked' => 'Izmjene moraju biti [[{{MediaWiki:Validationpage}}|ocjenjene]] prije nego će se prikazati na ovoj stranici.',
 	'revreview-unlocked' => 'Izmjene ne zahtijevaju [[{{MediaWiki:Validationpage}}|ocjenjivanje]] prije nego će se prikazati na ovoj stranici.',
 	'log-show-hide-review' => '$1 evidenciju ocjenjivanja',
-	'revreview-tt-review' => 'Primjeni ovaj status na ovu izmjenu',
 	'validationpage' => '{{ns:help}}:Ocjenjivanje članaka',
 );
 
@@ -10512,7 +10514,7 @@ $messages['mt'] = array(
 $messages['myv'] = array(
 	'group-editor-member' => 'витницязо-петницязо',
 	'revreview-style' => 'Ловновиксчизэ',
-	'revreview-style-0' => 'А маштови',
+	'revreview-style-0' => 'Асатышка',
 	'revreview-style-1' => 'Маштови',
 	'revreview-style-2' => 'Вадря',
 	'revreview-style-3' => 'Ладязь лади',
@@ -11717,9 +11719,8 @@ Po prześledzeniu zmian, zaakceptuj je lub „anuluj edycję”.',
 	'revreview-locked' => 'Edycje muszą zostać [[{{MediaWiki:Validationpage}}|oznaczone]], zanim zostaną wyświetlone czytelnikom na tej stronie.',
 	'revreview-unlocked' => 'Edycje nie wymagają [[{{MediaWiki:Validationpage}}|oznaczenia]], by zostały wyświetlone na tej stronie.',
 	'log-show-hide-review' => '$1 rejestr oznaczania',
-	'revreview-tt-review' => 'Ustaw ten status dla tej wersji',
 	'revreview-tt-flag' => 'Zaakceptuj tę wersję poprzez oznaczenie jej jako „przejrzanej”',
-	'revreview-tt-unflag' => 'Wycofaj akceptację tej wersji poprzez oznaczenie jest jako „niesprawdzonej”',
+	'revreview-tt-unflag' => 'Wycofaj akceptację tej wersji poprzez oznaczenie jej jako „niesprawdzonej”',
 	'revreview-tt-reject' => 'Wycofaj te zmiany poprzez przywrócenie ostatniej wersji przejrzanej',
 	'validationpage' => '{{ns:help}}:Wersje oznaczone',
 );

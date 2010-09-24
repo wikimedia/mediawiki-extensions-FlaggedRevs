@@ -196,6 +196,7 @@ $messages['bar'] = array(
 	'pendingchanges-days' => '($1 Tåg)',
 	'pendingchanges-recent' => '(weniga wia a Stund)',
 	'pendingchanges-category' => 'Kategorie:',
+	'pendingchanges-onwatchlist' => 'Saiten auf mainer Bowochtungslisten',
 	'pendingchanges-stable' => 'De stabile Version is Standard',
 	'pendingchanges-diff' => 'sichtn',
 	'pendingchanges-size' => "Maximale Ändarungsgreß (in ''Bytes''):",
