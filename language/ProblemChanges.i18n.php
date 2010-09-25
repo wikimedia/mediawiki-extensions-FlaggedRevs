@@ -307,10 +307,11 @@ $messages['he'] = array(
 
 /** Croatian (Hrvatski)
  * @author Ex13
+ * @author SpeedyGonsales
  */
 $messages['hr'] = array(
-	'problemchanges' => 'Ocijeni označene promjene',
-	'problemchanges-legend' => 'Izlistaj ocjenjene stranice s oznakom izmjene čekaju ocjenu',
+	'problemchanges' => 'Označene promjene na čekanju',
+	'problemchanges-legend' => 'Popis stranica s označenim izmjenama koje čekaju ocjenu',
 	'problemchanges-none' => 'Trenutačno nema stranica koje zadovoljavaju ove kriterije',
 	'problemchanges-category' => 'Kategorija:',
 );

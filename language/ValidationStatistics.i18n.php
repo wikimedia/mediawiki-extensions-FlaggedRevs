@@ -755,13 +755,21 @@ $messages['hil'] = array(
 /** Croatian (Hrvatski)
  * @author Dalibor Bosits
  * @author Ex13
+ * @author SpeedyGonsales
  */
 $messages['hr'] = array(
 	'validationstatistics' => 'Statistike pregledavanja stranice',
 	'validationstatistics-users' => "{{SITENAME}}''' trenutačno ima '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|suradnika|suradnika}} s [[{{MediaWiki:Validationpage}}|uredničkim]] pravima.
 
 Urednici su dokazani suradnici koji mogu provjeriti inačice stranice.",
-	'validationstatistics-table' => "Statistike za svaki imenski prostor prikazane su u nastavku, ''ne uključujući'' stranice za preusmjeravanje.",
+	'validationstatistics-lastupdate' => "''Sljedeći podaci su posljednji put osvježeni $1 u $2.''",
+	'validationstatistics-pndtime' => "Izmjene koje su pregledali potvrđeni suradnici se smatraju pregledanima.
+
+Prosječno čekanje za [[Special:OldReviewedPages|stranice s nepregledanim izmjenama na čekanju]] je '''$1'''.
+Ove stranice se smatraju ''neažurnim''. Slično, stranice se smatraju ''sinkroniziranima'', ako nema izmjena koje čekaju pregled.",
+	'validationstatistics-revtime' => "Prosječno čekanje izmjena od strane ''suradnika koji nisu prijavljeni'' za pregled je '''$1'''; medijan je '''$2'''. 
+$3",
+	'validationstatistics-table' => "Statistike pregledavanja za svaki imenski prostor prikazane su u nastavku, ''ne uključujući'' stranice za preusmjeravanje.",
 	'validationstatistics-ns' => 'Imenski prostor',
 	'validationstatistics-total' => 'Stranice',
 	'validationstatistics-stable' => 'Ocijenjeno',
@@ -770,7 +778,7 @@ Urednici su dokazani suradnici koji mogu provjeriti inačice stranice.",
 	'validationstatistics-old' => 'Zastarjelo',
 	'validationstatistics-utable' => 'Ispod je popis top 5 ocjenjivača u zadnjih sat vremena.',
 	'validationstatistics-user' => 'Suradnik',
-	'validationstatistics-reviews' => 'Ocijene',
+	'validationstatistics-reviews' => 'Ocjene',
 );
 
 /** Upper Sorbian (Hornjoserbsce)

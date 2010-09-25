@@ -293,9 +293,16 @@ $messages['he'] = array(
 
 /** Croatian (Hrvatski)
  * @author Ex13
+ * @author SpeedyGonsales
  */
 $messages['hr'] = array(
+	'configuredpages' => 'Stranice s postavkama provjere',
+	'configuredpages-list' => "Slijedi popis stranica konfiguriranih tako da imaju različite postavke odobrenja od pretpostavljene vrijednosti (''default'') projekta.
+Određene postavke mogu promijeniti koja se inačica prikazuje čitateljima ili dalje ograničiti tko može uređivati stranicu da pregled nije nužan.",
+	'configuredpages-none' => 'Nema stranica na ovom popisu.',
 	'configuredpages-config' => 'Konfiguracija',
+	'configuredpages-def-draft' => 'najnovija inačica',
+	'configuredpages-def-stable' => 'stabilna inačica',
 );
 
 /** Upper Sorbian (Hornjoserbsce)

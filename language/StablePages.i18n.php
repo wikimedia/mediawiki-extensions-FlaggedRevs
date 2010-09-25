@@ -389,12 +389,14 @@ $messages['hi'] = array(
 /** Croatian (Hrvatski)
  * @author Dalibor Bosits
  * @author Ex13
+ * @author SpeedyGonsales
  */
 $messages['hr'] = array(
-	'stablepages' => 'Važeće stranice',
+	'stablepages' => 'Stranice koje rabe potvrdu uređivanja',
 	'stablepages-list' => 'Ispod je popis stranica koje su ručno podešene kako bi prikazivale važeću inačicu kao zadani sadržaj stranice za čitače sadržaja.',
 	'stablepages-none' => 'Nema stranica u ovom popisu',
 	'stablepages-config' => 'Postavka',
+	'stablepages-indef' => 'Samo bez isteka roka',
 );
 
 /** Upper Sorbian (Hornjoserbsce)

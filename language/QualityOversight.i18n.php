@@ -274,9 +274,10 @@ $messages['hi'] = array(
 
 /** Croatian (Hrvatski)
  * @author Ex13
+ * @author SpeedyGonsales
  */
 $messages['hr'] = array(
-	'qualityoversight' => 'Nadzor kvalitete',
+	'qualityoversight' => 'Detaljna evidencija ocjenjivanja',
 	'qualityoversight-list' => 'Ova stranica navodi najnovija odobrenja i snižavanja ocjena inačica.',
 	'qualityoversight-legend' => 'Pretraži evidencije nedavnih ocjena',
 );

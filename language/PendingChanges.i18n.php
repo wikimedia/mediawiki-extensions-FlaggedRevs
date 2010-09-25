@@ -742,6 +742,7 @@ $messages['hi'] = array(
 
 /** Croatian (Hrvatski)
  * @author Ex13
+ * @author SpeedyGonsales
  */
 $messages['hr'] = array(
 	'pendingchanges' => 'Zastarjele ocjenjene stranice',
@@ -752,7 +753,8 @@ $messages['hr'] = array(
 	'pendingchanges-days' => '($1 {{PLURAL:$1|dan|dana}})',
 	'pendingchanges-recent' => '(manje od 1 sat)',
 	'pendingchanges-category' => 'Kategorija:',
-	'pendingchanges-stable' => 'Stabilizirano',
+	'pendingchanges-onwatchlist' => 'Stranice na mom popisu praćenja',
+	'pendingchanges-stable' => "Stabilna inačica je pretpostavljena (''default'')",
 	'pendingchanges-diff' => 'ocijeni',
 	'pendingchanges-size' => 'Najveća promjena (bajtovi):',
 	'pendingchanges-unwatched' => '(nepraćeno)',

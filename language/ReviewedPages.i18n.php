@@ -516,14 +516,15 @@ $messages['hi'] = array(
  */
 $messages['hr'] = array(
 	'reviewedpages' => 'Ocijenjene stranice',
-	'reviewedpages-leg' => 'Prikaži stranice s najvišom ocjenom',
-	'reviewedpages-list' => '{{PLURAL:$1|Sljedeća stranica je ocjenjena|Sljedeće stranice su ocijenjene}} traženom ocjenom',
+	'reviewedpages-leg' => 'Prikaži ocijenjene stranice',
+	'reviewedpages-list' => "Ovaj popis sadrži [[{{MediaWiki:Validationpage}}|ocijenjene]] stranice čija je ''najviša dostignuta'' ocjena jednaka zadanoj.
+Navedena je poveznica do najnovije inačice stranice koja je ocijenjena najmanje zadanom ocjenom.",
 	'reviewedpages-none' => 'Nema stranica u ovom popisu',
 	'reviewedpages-lev-0' => 'Pregledani članci',
 	'reviewedpages-lev-1' => 'Kvalitetni članci',
 	'reviewedpages-lev-2' => 'Izvrsni članci',
 	'reviewedpages-all' => 'ocjenjene verzije',
-	'reviewedpages-best' => 'prvotna inačica',
+	'reviewedpages-best' => 'najbolje ocijenjena inačica',
 );
 
 /** Upper Sorbian (Hornjoserbsce)

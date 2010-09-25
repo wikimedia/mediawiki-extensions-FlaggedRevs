@@ -478,7 +478,7 @@ $messages['hi'] = array(
  * @author SpeedyGonsales
  */
 $messages['hr'] = array(
-	'reviewedversions' => 'Pregled važeće inačice',
+	'reviewedversions' => 'Pregledane inačice',
 	'reviewedversions-leg1' => 'Popis ocijenjenih inačica stranice',
 	'reviewedversions-page' => 'Ime stranice:',
 	'reviewedversions-none' => 'Članak "[[:$1]]" nema ocijenjenih inačica.',
