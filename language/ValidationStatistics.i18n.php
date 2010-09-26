@@ -810,6 +810,7 @@ Tute strone maja za ''zestarjene''. Nimo toho měli so strony ''syncjronizować'
 
 /** Hungarian (Magyar)
  * @author Bdamokos
+ * @author BáthoryPéter
  * @author Dani
  * @author Dorgan
  * @author Glanthor Reviol
@@ -821,7 +822,7 @@ $messages['hu'] = array(
 	'validationstatistics-users' => "A(z) '''{{SITENAME}}''' wikinek jelenleg '''[[Special:ListUsers/editor|$1]]''' [[{{MediaWiki:Validationpage}}|járőrjoggal]]  rendelkező szerkesztője van.
 
 A járőrök olyan tapasztalt szerkesztők, akik ellenőrizhetik a lapok változatait.",
-	'validationstatistics-table' => "Ezen az oldalon a névterekre bontott statisztika látható, az átirányítások ''nélkül''.",
+	'validationstatistics-table' => "Ezen az oldalon a névterekre bontott ellenőrzési statisztika látható, az átirányítások ''nélkül''.",
 	'validationstatistics-ns' => 'Névtér',
 	'validationstatistics-total' => 'Lapok',
 	'validationstatistics-stable' => 'Ellenőrizve',
