@@ -223,7 +223,7 @@ class FlaggedArticleView {
 	 * Adds stable version status/info tags and notes
 	 * Adds a quick review form on the bottom if needed
 	 */
-	public function setPageContent( &$outputDone, &$pcache ) {
+	public function setPageContent( &$outputDone, &$useParserCache ) {
 		global $wgRequest, $wgOut, $wgLang, $wgContLang;
 		$this->load();
 		# Only trigger on article view for content pages, not for protect/delete/hist...
@@ -267,7 +267,7 @@ class FlaggedArticleView {
 			$wgOut->returnToMain( false, $this->article->getTitle() );
 			# Tell MW that parser output is done
 			$outputDone = true;
-			$pcache = false;
+			$useParserCache = false;
 			return true;
 		}
 		// Is the page config altered?
@@ -291,13 +291,13 @@ class FlaggedArticleView {
 		if ( $old ) {
 			$this->showOldReviewedVersion( $srev, $frev, $tag, $prot );
 			$outputDone = true; # Tell MW that parser output is done
-			$pcache = false;
+			$useParserCache = false;
 		// Stable version requested by ID or relevant conditions met to
 		// to override page view.
 		} else if ( $stable || $this->pageOverride() ) {
-	   		$this->showStableVersion( $srev, $tag, $prot );
+			$this->showStableVersion( $srev, $tag, $prot );
 			$outputDone = true; # Tell MW that parser output is done
-			$pcache = false;
+			$useParserCache = false;
 		// Looking at some specific old revision (&oldid=x) or if FlaggedRevs is not
 		// set to override given the relevant conditions (like &stable=0) or there
 		// is no stable version.
@@ -494,14 +494,7 @@ class FlaggedArticleView {
 		# Get quality level
 		$quality = FlaggedRevs::isQuality( $flags );
 		$pristine = FlaggedRevs::isPristine( $flags );
-		$text = $frev->getRevText();
-		# Check if this is a redirect...
-		$redirHtml = $this->getRedirectHtml( $text );
-		if ( $redirHtml == '' ) {
-			$parserOptions = FlaggedRevs::makeParserOptions();
-			$parserOut = FlaggedRevs::parseStableText(
-				$this->article->getTitle(), $text, $frev->getRevId(), $parserOptions );
-		}
+
 		# Construct some tagging for non-printable outputs. Note that the pending
 		# notice has all this info already, so don't do this if we added that already.
 		if ( !$wgOut->isPrintable() ) {
@@ -541,12 +534,21 @@ class FlaggedArticleView {
 				}
 			}
 		}
-		# Output HTML
+		# Load the review notes which will be shown by onSkinAfterContent
 		$this->setReviewNotes( $frev );
-	   	if ( $redirHtml != '' ) {
-			$wgOut->addHtml( $redirHtml );
-		} else {
+
+		# Check if this is a redirect...
+		$text = $frev->getRevText();
+		$redirHtml = $this->getRedirectHtml( $text );
+
+		# Parse and output HTML
+		if ( $redirHtml == '' ) {
+			$parserOptions = FlaggedRevs::makeParserOptions();
+			$parserOut = FlaggedRevs::parseStableText(
+				$this->article->getTitle(), $text, $frev->getRevId(), $parserOptions );
 			$this->addParserOutput( $parserOut );
+		} else {
+			$wgOut->addHtml( $redirHtml );
 		}
 	}
 
@@ -567,26 +569,7 @@ class FlaggedArticleView {
 		# Get quality level
 		$quality = FlaggedRevs::isQuality( $flags );
 		$pristine = FlaggedRevs::isPristine( $flags );
-		# Get parsed stable version
-		$redirHtml = '';
-		$parserOut = FlaggedRevs::getPageCache( $this->article, $wgUser );
-		if ( !$parserOut ) {
-			$text = $srev->getRevText();
-			# Check if this is a redirect...
-			$redirHtml = $this->getRedirectHtml( $text );
-			# Don't parse redirects, use separate handling...
-			if ( $redirHtml == '' ) {
-				# Get the new stable output
-				$parserOptions = FlaggedRevs::makeParserOptions();
-				$parserOut = FlaggedRevs::parseStableText(
-					$this->article->getTitle(), $text, $srev->getRevId(), $parserOptions );
-				# Update the stable version cache & dependancies
-				FlaggedRevs::updatePageCache( $this->article, $parserOptions, $parserOut );
-				FlaggedRevs::updateCacheTracking( $this->article, $parserOut );
-			} else {
-				$parserOut = null;
-			}
-	   	}
+
 		$synced = $this->article->stableVersionIsSynced();
 		# Construct some tagging
 		if ( !$wgOut->isPrintable() && !( $this->article->lowProfileUI() && $synced ) ) {
@@ -632,13 +615,31 @@ class FlaggedArticleView {
 				}
 			}
 		}
-		# Output HTML
+
+		# Load the review notes which will be shown by onSkinAfterContent
 		$this->setReviewNotes( $srev );
-		if ( $redirHtml != '' ) {
-			$wgOut->addHtml( $redirHtml );
-		} else {
-			// $parserOut will not be null here
-			$this->addParserOutput( $parserOut );
+
+		# Get parsed stable version and output HTML
+		$redirHtml = '';
+		$parserOut = FlaggedRevs::getPageCache( $this->article, $wgUser );
+		if ( !$parserOut ) {
+			$text = $srev->getRevText();
+			# Check if this is a redirect...
+			$redirHtml = $this->getRedirectHtml( $text );
+			# Don't parse redirects, use separate handling...
+			if ( $redirHtml == '' ) {
+				# Get the new stable output
+				$parserOptions = FlaggedRevs::makeParserOptions();
+				$parserOut = FlaggedRevs::parseStableText(
+					$this->article->getTitle(), $text, $srev->getRevId(), $parserOptions );
+				# Update the stable version cache & dependancies
+				FlaggedRevs::updatePageCache( $this->article, $parserOptions, $parserOut );
+				FlaggedRevs::updateCacheTracking( $this->article, $parserOut );
+
+				$this->addParserOutput( $parserOut );
+			} else {
+				$wgOut->addHtml( $redirHtml );
+			}
 		}
 	}
 

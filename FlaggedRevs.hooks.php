@@ -1440,10 +1440,10 @@ class FlaggedRevsHooks {
 		return true;
 	}
 
-	public static function onArticleViewHeader( &$article, &$outputDone, &$pcache ) {
+	public static function onArticleViewHeader( &$article, &$outputDone, &$useParserCache ) {
 		$view = FlaggedArticleView::singleton();
-		$view->addStableLink( $outputDone, $pcache );
-		$view->setPageContent( $outputDone, $pcache );
+		$view->addStableLink( $outputDone, $useParserCache );
+		$view->setPageContent( $outputDone, $useParserCache );
 		return true;
 	}
 
