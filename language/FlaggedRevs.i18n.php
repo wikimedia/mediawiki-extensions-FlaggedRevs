@@ -1546,16 +1546,145 @@ $messages['bcl'] = array(
  * @author Хомелка
  */
 $messages['be'] = array(
-	'action-review' => 'дагледжаныя версіі',
+	'action-review' => 'Праверка версій старонак',
 	'editor' => 'Даглядальнік',
-	'flaggedrevs' => 'Дагледжаныя версіі',
-	'group-editor' => 'Рэдактары',
-	'group-editor-member' => 'рэдактар',
-	'group-reviewer' => 'Даглядальнікі',
-	'group-reviewer-member' => 'даглядальнік',
+	'flaggedrevs' => 'Адзначаныя версіі',
+	'flaggedrevs-watched-pending' => "У вашым спісе назірання [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} прысутнічаюць праўкі], якія чакаюць праверкі. '''Калі ласка, звярніце ўвагу!'''",
+	'flaggedrevs-desc' => 'Прадастаўляе рэдактарам магчымасць правяраць версіі старонак і ўсталёўваць стабільныя версіі',
+	'flaggedrevs-pref-UI' => 'Просты інтэрфейс:',
+	'flaggedrevs-pref-UI-0' => 'Падрабязная інфармацыя аб стане пацверджання старонкі',
+	'flaggedrevs-pref-UI-1' => 'Невялікія значкі і мінімум тэксту для інфармацыі аб стане пацверджання старонкі',
+	'prefs-flaggedrevs' => 'Пацвярджэнне зменаў',
+	'prefs-flaggedrevs-ui' => 'Пацвярджэнне зменаў',
+	'flaggedrevs-prefs-stable' => 'Заўсёды паказваць па змаўчанні апублікаваную версію артыкула (калі такая існуе)',
+	'flaggedrevs-prefs-watch' => 'Дадаваць правераныя мною старонкі ў спіс назірання',
+	'flaggedrevs-prefs-editdiffs' => 'Паказваць розніцу паміж праверанай і неправеранай версіямі пры рэдагаванні старонак',
+	'flaggedrevs-prefs-viewdiffs' => 'Паказваць неправераныя змены пры праглядзе апошняй неправеранай версіі старонкі',
+	'group-editor' => 'Даглядальнікі',
+	'group-editor-member' => 'Даглядальнік',
+	'group-reviewer' => 'Вывяраючыя',
+	'group-reviewer-member' => 'вывяраючы',
+	'grouppage-editor' => '{{ns:project}}:Даглядальнік',
+	'grouppage-reviewer' => '{{ns:project}}:Вывяраючы',
+	'group-autoreview' => 'Аўтадаглядальнікі',
+	'group-autoreview-member' => 'Аўтадаглядальнік',
+	'grouppage-autoreview' => '{{ns:project}}:Аўтадаглядальнікі',
 	'revreview-hist-draft' => 'неправераная версія',
-	'revreview-hist-quality' => 'якасная версія',
-	'revreview-hist-basic' => 'правераная версія',
+	'revreview-hist-pending' => 'чакае праверкі',
+	'revreview-hist-quality' => 'Вывераная версія',
+	'revreview-hist-basic' => 'Дагледжаная версія',
+	'revreview-hist-quality-user' => '	[{{fullurl:$1|stableid=$2}} пацверджана] ўдзельнікам [[User:$3|$3]]',
+	'revreview-hist-basic-user' => '[{{fullurl:$1|stableid=$2}} дагледжана] ўдзельнікам [[User:$3|$3]]',
+	'revreview-hist-basic-auto' => '[{{fullurl:$1|stableid=$2}} аўтаматычна дагледжана]',
+	'revreview-hist-quality-auto' => '[{{fullurl:$1|stableid=$2}} пацвержана аўтаматычна]',
+	'revreview-hist-pending-difflink' => "	'''[[{{fullurl:$1|oldid=$2&diff=$3}} чакае праверкі]]'''",
+	'review-edit-diff' => "'''ЗАЎВАГА. Да вобласці старонкі, якую вы рэдагуеце, адносяцца некаторыя праўкі, якія чакаюць праверкі.'''",
+	'revreview-diff-toggle-show' => 'Паказаць змены',
+	'revreview-diff-toggle-hide' => 'Схаваць змены',
+	'revreview-diff-toggle-title' => 'Пераключыць адлюстраванне неправераных змяненняў да апублікаванай версіі',
+	'revreview-log-toggle-show' => 'паказаць журнал стабілізацыі',
+	'revreview-log-toggle-hide' => 'схаваць журнал стабільнасці',
+	'revreview-log-toggle-title' => 'Уключыць адлюстраванне журнала наладак стабілізацыі',
+	'revreview-log-details-show' => 'паказаць падрабязнасці',
+	'revreview-log-details-hide' => 'схаваць падрабязнасці',
+	'revreview-log-details-title' => 'Уключыць адлюстраванне журнала наладак стабілізацыі',
+	'review-diff2stable' => 'Паказаць усе неправераныя змены',
+	'review-logentry-app' => 'праверыў версію [[$1]]',
+	'review-logentry-dis' => 'адзначыў састарэлую версію [[$1]]',
+	'review-logentry-id' => 'версія: $2',
+	'review-logentry-diff' => 'Правераныя змены',
+	'review-logentry-diff2' => 'Састарэлыя змены',
+	'review-logpage' => 'Журнал праверак',
+	'review-logpagetext' => 'Гэта журнал, які паказвае якія версіі артыкулаў былі [[{{MediaWiki:Validationpage}}|правераны]].',
+	'reviewer' => 'Вывяраючы',
+	'revisionreview' => 'Праверка версій',
+	'revreview-accuracy' => 'Дакладнасць',
+	'revreview-accuracy-0' => 'Не паказана',
+	'revreview-accuracy-1' => 'Дагледжана',
+	'revreview-accuracy-2' => 'Дакладна',
+	'revreview-accuracy-3' => 'З крыніцамі',
+	'revreview-accuracy-4' => 'Абраная',
+	'revreview-auto' => '(Аўтаматычна)',
+	'revreview-basic' => 'Гэта [[{{MediaWiki:Validationpage}}|апублікаваная версія]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} правераная] <i>$2</i>.
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|змена|змены|змен}}] {{PLURAL:$3|чакае|чакаюць|чакаюць}} праверки.',
+	'revreview-basic-i' => 'Гэта [[{{MediaWiki:Validationpage}}|апублікаваная версія]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} правераная] <i>$2</i>.
+Маюцца неправераныя [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} змены ў шаблонах ці файлах].',
+	'revreview-basic-old' => 'Гэта [[{{MediaWiki:Validationpage}}|дагледжаная]] версія ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} пералік усех]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} пацвержана] <i>$2</i>.
+Маглі быць зроблены новыя [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} змены].',
+	'revreview-basic-same' => 'Гэта [[{{MediaWiki:Validationpage}}|апублікаваная версія]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} дагледжаная] <i>$2</i>.',
+	'revreview-basic-source' => '[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} Дагледжаная версія] гэтай старонкі, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} пацвержаная] <i>$2</i>, была заснавана на гэтай версіі.',
+	'revreview-failed' => "'''Немагчыма праверыць версію.''' Уведзеныя дадзеныя няпоўныя або некарэктныя.",
+	'review_page_invalid' => 'Недапушчальная назва мэтавай старонкі.',
+	'review_page_notexists' => 'Мэтавая старонка не існуе.',
+	'review_page_unreviewable' => "Мэтавая старонка не з'яўляецца правяраемай.",
+	'review_no_oldid' => 'Не паказана ID версіі.',
+	'review_bad_oldid' => 'Не існуе такой мэтавай версіі.',
+	'review_not_flagged' => 'Мэтавая версія цяпер не пазначана як правераная.',
+	'review_too_low' => 'Версія не можа быць праверана, не паказаныя значэнні некаторых палёў.',
+	'review_bad_key' => 'недапушчальны ключ параметра ўключэння.',
+	'review_denied' => 'Доступ забаронены.',
+	'review_param_missing' => 'Параметр не паказаны ці пазначаны няправільна.',
+	'review_cannot_undo' => 'Не ўдаецца адмяніць гэтыя змены, паколькі далейшыя змены, якія чакаюць праверкі, закранаюць той жа ўчастак.',
+	'revreview-current' => 'Неправераныя змены',
+	'revreview-depth' => 'Паўната',
+	'revreview-depth-0' => 'Не паказана',
+	'revreview-depth-1' => 'Базавая',
+	'revreview-depth-2' => 'Сярэдняя',
+	'revreview-depth-3' => 'Высокая',
+	'revreview-depth-4' => 'Абраная',
+	'revreview-draft-title' => 'На гэтай старонцы паказваюцца неправераныя змены',
+	'revreview-edit' => 'Правіць',
+	'revreview-editnotice' => "	'''Зробленыя вамі змены будуць паказаны чытачам пасля праверкі упаўнаважаным удзельнікам. ([[{{MediaWiki:Validationpage}}|падрабязней]])'''",
+	'revreview-check-flag-p' => 'Пацвердзіць неправераныя змены',
+	'revreview-check-flag-p-title' => 'Пацвердзіць ўсе змены, якія чакаюць праверкі, разам з вашай праўкай. Выкарыстоўвайце, толькі калі вы ўжо прагледзелі ўсе змены, якія чакаюць праверкі.',
+	'revreview-check-flag-u' => 'Пацвердзіць гэтую версію неправеранай старонкі',
+	'revreview-check-flag-u-title' => 'Пацвердзіць гэтую версію старонкі. Ужывайце толькі ў выпадку, калі вы цалкам прагледзелі старонку.',
+	'revreview-check-flag-y' => 'Пацвердзіць гэтыя змены',
+	'revreview-check-flag-y-title' => 'Пацвердзіць ўсе змены, зробленыя вамі ў гэтай праўцы',
+	'revreview-submitedit' => 'Пацвердзіць змены',
+	'revreview-submitedit-title' => 'Адправіць вашыя змены для праверкі',
+	'revreview-edited' => "'''Змены будуць паказаны чытачам пасля іх праверкі упаўнаважаным удзельнікам. ([[{{MediaWiki:Validationpage}}|падрабязней]])'''
+
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 {{PLURAL:$2|змена|змены|змен}}] {{PLURAL:$2|чакае|чакаюць|чакаюць}} праверки (паказаны ніжэй).",
+	'revreview-edited-section' => 'Вярнуцца да раздзелу старонкі пад назвай «[[#$1|$2]]».',
+	'revreview-flag' => 'Праверыць гэтую версію',
+	'revreview-reflag' => 'Пераправерыць гэтую версію',
+	'revreview-invalid' => "'''Памылковая мэта:''' не існуе [[{{MediaWiki:Validationpage}}|праверанай]] версіі старонкі, якая адпавядае паказанаму ідэнтыфікатару.",
+	'revreview-legend' => 'Ацэнкі зместу версіі',
+	'revreview-log' => 'Заўвага:',
+	'revreview-main' => 'Вы павінны выбраць адну з версій старонкі для праверкі.
+
+Гл. [[Special:Unreviewedpages|пералік неправераных старонак]].',
+	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Апублікаваная версія] была [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} праверана] <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|змена|змены|змен}}] {{PLURAL:$3|чакае|чакаюць|чакаюць}} праверкі.',
+	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Апублікаваная версія] была [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} праверана] <i>$2</i>. Маюцца неправераныя [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} змены ў шаблонах ці файлах].',
+	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Апублікаваная версія] была [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} пацвержана] <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|змена|змены|зменаў}}] {{PLURAL:$3|чакае|чакаюць|чакаюць}} праверкі.',
+	'revreview-newest-quality-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Апублікаваная версія] была [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} пацвержана] <i>$2</i>. Маецца неправераныя [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} змены ў шаблонах ці файлах].',
+	'revreview-pending-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Апублікаваная версія] была [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} праверана] <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|змена|змены|змен}}] {{PLURAL:$3|чакае|чакаюць|чакаюць}} праверкі.',
+	'revreview-pending-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Апублікаваная версія] была [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} пацвержана] <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|змена|змены|змен}}] {{PLURAL:$3|чакае|чакаюць|чакаюць}} праверкі.',
+	'revreview-pending-nosection' => 'Звярніце ўвагу на [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} апошнюю версію], у каторай {{PLURAL:$2|чакае|чакаюць|чакаюць}} праверкі [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 {{PLURAL:$2|змена|змены|змен}}]. Магчыма, раздел быў перамешчаны ці выдалены.',
+	'revreview-noflagged' => "У гэтай старонкі няма [[{{MediaWiki:Validationpage}}|правераных версій]], хутчэй за ўсё, яе якасць '''не''' ацэньвалася на адпаведнасць стандартам.",
+	'revreview-note' => '[[User:$1|$1]] зрабіў наступную заўвагу, [[{{MediaWiki:Validationpage}}|правяраючы]] гэтую версію:',
+	'revreview-notes' => 'Назіранні і заўвагі для адлюстравання:',
+	'revreview-oldrating' => 'Была адзначана',
+	'revreview-quality' => 'Гэта [[{{MediaWiki:Validationpage}}|апубликаваная версія]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} пацвержаная] <i>$2</i>.
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|змена|змены|змен}}] {{PLURAL:$3|чакае|чакаюць|чакаюць}} праверкі.',
+	'revreview-quality-i' => 'Гэта [[{{MediaWiki:Validationpage}}|апублікаваная версія]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} пацвержаная] <i>$2</i>.
+Маюцца неправераныя [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} змены ў шаблонах ці файлах].',
+	'revreview-quality-old' => 'Гэта [[{{MediaWiki:Validationpage}}|вывераная]] версія ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} пералік усех]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} пацвержаная] <i>$2</i>.
+Маглі быць зроблены новыя [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} праўкі].',
+	'revreview-quality-same' => 'Гэта [[{{MediaWiki:Validationpage}}|апублікаваная версія]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} пацвержаная] <i>$2</i>.',
+	'revreview-quality-source' => '[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} Вывераная версія] гэтай старонкі, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} правераная] <i>$2</i>, была заснавана на гэтай версіі.',
+	'revreview-quality-title' => 'Гэта вывераная версія старонкі',
+	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|Правераная]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} паказаць неправераныя змены]]",
+	'revreview-quick-basic-old' => "'''[[{{MediaWiki:Validationpage}}|Правераная]]'''",
+	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|Правераная]]'''",
+	'revreview-quick-invalid' => "'''Памылковы ідэнтыфікатар версіі старонкі'''",
+	'revreview-quick-none' => "'''[[{{MediaWiki:Validationpage}}|Неправераная]]'''",
+	'revreview-quick-quality' => "'''[[{{MediaWiki:Validationpage}}|Вывераная]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} паказаць неправераныя змены]]",
+	'revreview-quick-quality-old' => "'''[[{{MediaWiki:Validationpage}}|Вывераная]]'''",
+	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|Вывераная]]'''",
+	'revreview-quick-see-basic' => '[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} паказаць неправераныя змены]]',
+	'revreview-quick-see-quality' => '[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} паказаць неправераныя змены]]',
 	'revreview-revnotfound' => 'Не ўдалося знайсці ранейшую версію гэтага артыкула, па якую вы звярталіся.
 Праверце URL, праз які вы спрабавалі адкрыць старонку.',
 );
@@ -4154,8 +4283,9 @@ Nuevos [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} cambios] pued
 	'revreview-style-4' => 'Destacado',
 	'revreview-submit' => 'Enviar',
 	'revreview-submitting' => 'Enviando...',
-	'revreview-submit-review' => 'Aprobar',
-	'revreview-submit-unreview' => 'Desaprobar',
+	'revreview-submit-review' => 'Aceptar revisión',
+	'revreview-submit-unreview' => 'Desaprobar revisión',
+	'revreview-submit-reject' => 'Rechazar cambios',
 	'revreview-submit-reviewed' => 'Hecho. Aprobado!',
 	'revreview-submit-unreviewed' => 'Hecho. Desaprobado!',
 	'revreview-successful' => "'''La revisión de [[:$1|$1]] ha sido exitósamente marcada. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} ver versiones estables])'''",
@@ -4163,7 +4293,8 @@ Nuevos [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} cambios] pued
 	'revreview-text' => "''[[{{MediaWiki:Validationpage}}|Las versiones revisadas]] son versiones verificadas de páginas usadas para determinar la versión publicada.''",
 	'revreview-toggle-title' => 'mostrar/ocultar detalles',
 	'revreview-toolow' => "'''Debes valorar cada uno de los atributos más alto que \"inadecuado\" para que la revisión sea considerada verificada.'''
-Para remover el status de una revisión, marque ''todos'' los campos como \"inadecuado\".
+
+Para remover el status de una revisión, clic \"no aceptar\".
 
 Por favor presiona el botón ''atrás'' en tu navegador e intenta de nuevo.",
 	'revreview-update' => "'''Por favor,[[{{MediaWiki:Validationpage}}|revisa]] los cambios pendientes ''(que se muestran a continuación)'' hechos en la versión aceptada.'''
@@ -4232,9 +4363,9 @@ Por favor, revise la dirección que usó para acceder a esta página.',
 	'revreview-locked' => "'''Atención:''' Las ediciones deben ser [[{{MediaWiki:Validationpage}}|revisadas]] antes de ser mostradas en esta página.",
 	'revreview-unlocked' => "'''Atención:''' Las ediciones no requieren [[{{MediaWiki:Validationpage}}|revisión]] antes de ser mostradas en esta página.",
 	'log-show-hide-review' => '$1 registro de revisiones',
-	'revreview-tt-review' => 'Aplicar este status a esta revisión',
 	'revreview-tt-flag' => 'Aprobar esta revisión marcándola como revisada',
-	'revreview-tt-unflag' => 'Desaprobar esta revisión marcándola como no verificada',
+	'revreview-tt-unflag' => 'Desaprobar esta revisión marcándola como "no-verificada"',
+	'revreview-tt-reject' => 'Rechazar estos cambios revirtiendolos',
 	'validationpage' => '{{ns:help}}:Validación de artículo',
 );
 
@@ -6445,8 +6576,8 @@ $messages['hr'] = array(
 	'revreview-auto' => '(automatski)',
 	'revreview-basic' => 'Ovo je zadnja [[{{MediaWiki:Validationpage}}|pregledana]] inačica, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} odobrena] dana <i>$2</i>.
 {{PLURAL:$3|Postoji $3 promjena|Postoje $3 promjene|Postoji $3 promjena}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} {{PLURAL:$3|koja čeka|koje čekaju|koje čekaju}}] ocjenjivanje.',
-	'revreview-basic-i' => 'Ovo je posljednja [[{{MediaWiki:Validationpage}}|pregledana]] inačica, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} odobrena] <i>$2</i>.
-[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Članak u radu] ima [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} izmjena predloška/datoteke] koji čekaju ocjenu.',
+	'revreview-basic-i' => 'Ovo je posljednja [[{{MediaWiki:Validationpage}}|pregledana]] inačica, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} odobrena] dana <i>$2</i>.
+Postoje [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} izmjena predloška/datoteke] koji čekaju ocjenu.',
 	'revreview-basic-old' => 'Ovo je [[{{MediaWiki:Validationpage}}|pregledana]] inačica ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} prikaži sve]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} odobrena] <i>$2</i>.
 Nove su [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} izmjene] napravljene.',
 	'revreview-basic-same' => 'Ovo je najnovija [[{{MediaWiki:Validationpage}}|pregledana]] izmjena, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} odobrena] dana <i>$2</i>.',
@@ -6492,9 +6623,8 @@ Nove su [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} izmjene] nap
 	'revreview-main' => 'Morate odabrati neku izmjenu stranice sa sadržajem za ocjenjivanje.
 
 Pogledajte [[Special:Unreviewedpages|popis neocijenjenih stranica]].',
-	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} zadnji pregled promjena na članku]
-([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} prikaži sve]) je [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} izvršen]
-dana <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|promjena|promjene|promjena}}] {{PLURAL:$3|treba|trebaju|treba}} ocjenu.',
+	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Stabilna inačica] je bila [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} provjerena] dana <i>$2</i>.
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} {{PLURAL:$3|Postoji $3 promjena koja|Postoje $3 promjene koje|Postoji $3 promjena koje}}] {{PLURAL:$3|treba|trebaju|trebaju}} ocjenu.',
 	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Posljednja pregledana izmjena] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} prikaži sve]) je [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} odobrena] <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Izmjene predloška/datoteke] potrebno je ocijeniti.',
 	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} zadnje ocjenjivanje članka]
@@ -12314,6 +12444,7 @@ Verifique a URL que usou para aceder a esta página.',
  * @author Eduardo.mps
  * @author Giro720
  * @author Hamilton Abreu
+ * @author Heldergeovane
  * @author Luckas Blade
  * @author Rafael Vargas
  */
@@ -12455,7 +12586,7 @@ Podem existir [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} altera
 	'revreview-quick-basic-old' => "'''[[{{MediaWiki:Validationpage}}|Versão verificada]]'''",
 	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|Página verificada]]'''",
 	'revreview-quick-invalid' => "'''ID de edição inválido'''",
-	'revreview-quick-none' => "'''[[{{MediaWiki:Validationpage}}|Página não verificadas]]'''",
+	'revreview-quick-none' => "'''[[{{MediaWiki:Validationpage}}|Página não verificada]]'''",
 	'revreview-quick-quality' => "'''[[{{MediaWiki:Validationpage}}|Página de qualidade]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} rever alterações pendentes]]",
 	'revreview-quick-quality-old' => "'''[[{{MediaWiki:Validationpage}}|Página de qualidade]]'''",
 	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|Página de qualidade]]'''",
@@ -12554,7 +12685,6 @@ Por favor verifique a URL que você usou para acessar esta página.',
 	'revreview-locked' => "'''Nota:''' As edições precisam ser [[{{MediaWiki:Validationpage}}|revisadas]] antes de serem apresentadas aos leitores nesta página.",
 	'revreview-unlocked' => "'''Nota:''' As edições não precisam ser [[{{MediaWiki:Validationpage}}|revisadas]] antes de serem apresentadas aos leitores nesta página.",
 	'log-show-hide-review' => '$1 registro de revisões',
-	'revreview-tt-review' => 'Aplicar este estado a esta edição',
 	'revreview-tt-flag' => 'Aprovar esta edição, marcando-a como "verificada"',
 	'revreview-tt-unflag' => 'Anular a aprovação desta edição, marcando-a como "não verificada"',
 	'revreview-tt-reject' => 'Rejeitar estas alterações, revertendo-as',
