@@ -362,6 +362,44 @@ $messages['bcc'] = array(
 	'stabilize-expiring' => 'وهدی هلیت  $1 (UTC)',
 );
 
+/** Belarusian (Беларуская)
+ * @author Хомелка
+ */
+$messages['be'] = array(
+	'stabilization-tab' => '(кк)',
+	'stabilization' => 'Стабілізацыя старонкі',
+	'stabilization-text' => "'''З дапамогай прыведзеных ніжэй наладак можна кіраваць выбарам і адлюстраваннем апублікаванай версіі старонкі [[:$1|$1]].'''",
+	'stabilization-perm' => 'Вашаму ўліковага запісу не дастаткова паўнамоцтваў для змены наладак апублікаваных версій.
+Тут прыведзены бягучыя наладкі для [[:$1|$1]]:',
+	'stabilization-page' => 'Назва старонкі:',
+	'stabilization-leg' => 'Пацвярджэнне наладак апублікаванай версіі',
+	'stabilization-def' => 'Версія, якая адлюстроўваецца па змаўчанні',
+	'stabilization-def1' => 'Стабільная версія; калі такой няма, то апошняя версія',
+	'stabilization-def2' => 'Апошняя версія',
+	'stabilization-restrict' => 'Абмежаванні праверкі/аўтаправеркі',
+	'stabilization-restrict-none' => 'Няма дадатковых абмежаванняў',
+	'stabilization-submit' => 'Пацвердзіць',
+	'stabilization-notexists' => 'Адсутнічае старонка з назвай «[[:$1|$1]]». Наладка немагчыма.',
+	'stabilization-notcontent' => 'Старонка «[[:$1|$1]]» не можа быць праверана. Наладка немагчыма.',
+	'stabilization-comment' => 'Прычына:',
+	'stabilization-otherreason' => 'Іншая прычына:',
+	'stabilization-expiry' => 'Канчаецца:',
+	'stabilization-othertime' => 'Іншы час:',
+	'stabilization-def-short' => 'Па змаўчанні',
+	'stabilization-def-short-0' => 'Бягучая',
+	'stabilization-def-short-1' => 'Апублікаваная',
+	'stabilize_page_invalid' => 'Недапушчальная назва мэтавай старонкі.',
+	'stabilize_page_notexists' => 'Мэтавая старонка не існуе.',
+	'stabilize_page_unreviewable' => 'Мэтавая старонка не знаходзіцца ў правяраемай прасторы імёнаў.',
+	'stabilize_invalid_autoreview' => 'Памылковыя абмежаванні аўтаправеркі',
+	'stabilize_invalid_level' => 'Памылковы ўзровень абароны.',
+	'stabilize_expiry_invalid' => 'Памылковая дата заканчэння.',
+	'stabilize_expiry_old' => 'Абраны час заканчэння дзеяння ўжо прайшло.',
+	'stabilize_denied' => 'Доступ забаронены.',
+	'stabilize-expiring' => 'Скончыцца  $1 (UTC)',
+	'stabilization-review' => 'Адзначыць бягучую версію як правераную',
+);
+
 /** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))
  * @author EugeneZelenko
  * @author Jim-by
@@ -1428,7 +1466,7 @@ A(z) [[:$1|$1]] lapra vonatkozó jelenlegi beállítások:',
 	'stabilization-leg' => 'Közzétett változat beállításainak megerősítése',
 	'stabilization-def' => 'Az alapértelmezettként megjelenített változat',
 	'stabilization-def1' => 'A közzétett változat; ha nincs, akkor a jelenlegi legutolsó',
-	'stabilization-def2' => 'A jelenlegi, még nem ellenőrzött változat',
+	'stabilization-def2' => 'A legutolsó változat',
 	'stabilization-restrict' => 'Ellenőrzés/automatikus ellenőrzés korlátozásai',
 	'stabilization-restrict-none' => 'Nincsenek külön megkötések',
 	'stabilization-submit' => 'Megerősítés',
@@ -2960,15 +2998,19 @@ $messages['szl'] = array(
 
 /** Tamil (தமிழ்)
  * @author Kanags
+ * @author TRYPPN
  * @author Ulmo
  */
 $messages['ta'] = array(
 	'stabilization-page' => 'பக்கப் பெயர்:',
+	'stabilization-def2' => 'அண்மைய திருத்தங்கள்',
+	'stabilization-restrict-none' => 'மேலும் அதிகப்படியான தடைகள் இல்லை',
 	'stabilization-submit' => 'உறுதிப்படுத்து',
 	'stabilization-comment' => 'காரணம்:',
 	'stabilization-otherreason' => 'வேறு காரணம்:',
 	'stabilization-expiry' => 'முடிவு நாள்:',
 	'stabilization-othertime' => 'வேறு நேரம்:',
+	'stabilization-def-short' => 'பொதுவானது',
 	'stabilization-def-short-0' => 'நடப்பு',
 	'stabilization-def-short-1' => 'ஏற்றுக்கொள்ளப்பட்டது',
 );

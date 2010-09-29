@@ -134,6 +134,18 @@ $messages['bcl'] = array(
 	'reviewedversions-page' => 'Pangaran kan pahina',
 );
 
+/** Belarusian (Беларуская)
+ * @author Хомелка
+ */
+$messages['be'] = array(
+	'reviewedversions' => 'Правераныя версіі',
+	'reviewedversions-leg1' => 'Пералік правераных версій старонкі',
+	'reviewedversions-page' => 'Назва старонкі:',
+	'reviewedversions-none' => '«[[:$1]]» не мае правераных версій.',
+	'reviewedversions-list' => '{{PLURAL:$2|Была праверана наступная версія|Былі правераны наступныя версіі}} старонкі «[[:$1]]»:',
+	'reviewedversions-review' => 'Праверана <i>$1</i> ўдзельнікам $2',
+);
+
 /** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))
  * @author EugeneZelenko
  */

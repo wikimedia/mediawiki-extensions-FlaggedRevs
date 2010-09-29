@@ -99,6 +99,18 @@ $messages['bcc'] = array(
 	'stablepages-config' => 'تنظیمات',
 );
 
+/** Belarusian (Беларуская)
+ * @author Хомелка
+ */
+$messages['be'] = array(
+	'stablepages' => 'Старонкі, якія выкарыстоўваюць пацверджанне зменаў',
+	'stablepages-list' => 'Ніжэй паказаны пералік старонак на якіх толькі пэўныя ўдзельнікі могуць рабіць праўкі, якія не патрабуюць праверкі.
+Зробленыя іншымі ўдзельнікамі праўкі гэтых артыкулаў па змаўчанні не будуць паказаны чытачам, пакуль не будуць правераны ўпаўнаважанымі ўдзельнікамі.',
+	'stablepages-none' => 'Няма старонак у гэтым пераліку.',
+	'stablepages-config' => 'Наладка',
+	'stablepages-indef' => 'Толькі з нявызначаным тэрмінам',
+);
+
 /** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))
  * @author EugeneZelenko
  * @author Jim-by
@@ -420,6 +432,7 @@ $messages['hu'] = array(
 	'stablepages-list' => 'Ez a lista azokat a korlátozott lapokat tartalmazza, amelyeknél csak meghatározott felhasználók szerkeszthetnek ellenőrzés nélkül. Az ilyen szerkesztések nincsenek közzétéve, amíg egy járőr nem ellenőrzi őket.',
 	'stablepages-none' => 'Nem található egyetlen lap sem a listában',
 	'stablepages-config' => 'beállítás',
+	'stablepages-indef' => 'Csak határozatlan lejárat',
 );
 
 /** Interlingua (Interlingua)

@@ -59,7 +59,9 @@ $messages['arz'] = array(
  * @author Хомелка
  */
 $messages['be'] = array(
-	'problemchanges-none' => 'У цяперашні час няма старонак, якія адпавядаюць гэтым крытэрыям',
+	'problemchanges' => 'Адзначаныя неправераныя змены',
+	'problemchanges-legend' => 'Пералік старонак з адзначанымі праўкамі, якія чакаюць праверкі',
+	'problemchanges-none' => 'У цяперашні час няма старонак, якія адпавядаюць гэтым умовам',
 	'problemchanges-category' => 'Катэгорыя:',
 );
 

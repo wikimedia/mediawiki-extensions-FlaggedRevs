@@ -63,9 +63,9 @@ $messages['bcc'] = array(
  * @author Хомелка
  */
 $messages['be'] = array(
-	'qualityoversight' => 'Пашыраны прагляд логаў',
-	'qualityoversight-list' => 'На гэтай старонцы пералічаны апошнія ўзгадненні і неўзгадненні зменаў.',
-	'qualityoversight-legend' => 'Пошук апошняга прагляду логаў',
+	'qualityoversight' => 'Журнал пашыраных праверак',
+	'qualityoversight-list' => 'Гэтая старонка ўтрымлівае пералік нядаўніх пацверджанняў і здыманняў узроўняў якасці версій.',
+	'qualityoversight-legend' => 'Пошук па журналу праверак',
 );
 
 /** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))

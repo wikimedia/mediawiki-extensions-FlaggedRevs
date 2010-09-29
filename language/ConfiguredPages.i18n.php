@@ -49,13 +49,13 @@ $messages['ar'] = array(
  * @author Хомелка
  */
 $messages['be'] = array(
-	'configuredpages' => 'Старонкі з канфігурацыяй папярэдняга прагляду',
+	'configuredpages' => 'Старонкі з наладкамі праверкі',
 	'configuredpages-list' => 'Ніжэй прыведзены пералік старонак, настроены на іншыя настаўленні разглядання, чым старонка па змоўчванні. 
 Некаторыя параметры могуць змяніць тое, якая версія адлюстроўваецца для чытачоў або яшчэ больш абмежаваць, хто можа ўносіць змены, якія не патрабуюць перагляду.',
 	'configuredpages-none' => 'Няма старонак у гэтым пераліку.',
-	'configuredpages-config' => 'Канфігурацыя',
+	'configuredpages-config' => 'Наладка',
 	'configuredpages-def-draft' => 'апошняя версія',
-	'configuredpages-def-stable' => 'стабільная версія',
+	'configuredpages-def-stable' => 'Апублікаваная версія',
 );
 
 /** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))

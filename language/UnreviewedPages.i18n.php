@@ -167,6 +167,24 @@ $messages['bcl'] = array(
 	'unreviewed-diff' => 'Mga pagbabàgo',
 );
 
+/** Belarusian (Беларуская)
+ * @author Хомелка
+ */
+$messages['be'] = array(
+	'unreviewedpages' => 'Неправераныя старонкі',
+	'unreviewed-legend' => 'Пералік неправераных старонак',
+	'unreviewed-category' => 'Катэгорыя:',
+	'unreviewed-diff' => 'праверыць',
+	'unreviewed-unwatched' => '(не сочаць)',
+	'unreviewed-watched' => '({{PLURAL:$1|сочыць $1 актыўны ўдзельнік|сочыць $1 актыўных удзельніка|сочаць $1 актыўных удзельнікаў}})',
+	'unreviewed-list' => 'На гэтай старонцы пералічаны артыкулы, якія не былі ацэненыя на паказаны ўзровень.',
+	'unreviewed-none' => 'У сапраўдны момант няма старонак, якія задавальняюць названым умовам',
+	'unreviewed-viewing' => '(правяраецца)',
+	'unreviewed-hours' => '($1 {{PLURAL:$1|гадзіну|гадзіны|гадзін}})',
+	'unreviewed-days' => '($1 {{PLURAL:$1|дзень|дня|дзён}})',
+	'unreviewed-recent' => '(Менш 1 гадзіны)',
+);
+
 /** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))
  * @author EugeneZelenko
  * @author Jim-by
@@ -1556,7 +1574,7 @@ $messages['ta'] = array(
 	'unreviewedpages' => 'பார்வையிடப்படாத பக்கங்கள்',
 	'unreviewed-legend' => 'மீள்பார்வையிடப்படாத பகுதிகளைக் கொண்ட பக்கங்கள்',
 	'unreviewed-category' => 'பகுப்பு:',
-	'unreviewed-diff' => 'முன்தோற்றம்',
+	'unreviewed-diff' => 'மதிப்பிடு',
 	'unreviewed-unwatched' => '(கவனிக்கப்படமாட்டாது)',
 	'unreviewed-watched' => '($1 {{PLURAL:$1|பயனர்|பயனர்கள்}} பார்வையிடுகிறார்கள்)',
 	'unreviewed-list' => 'இங்கே கொடுக்கப்பட்ட பக்கங்களின் உள்ளடக்கங்களை குறிப்பிடப்பட்ட அளவுக்கு இன்னும் பரிசீலனை செய்யப்படவில்லை.',

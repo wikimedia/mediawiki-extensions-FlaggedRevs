@@ -143,6 +143,33 @@ $messages['ast'] = array(
 	'validationstatistics-total' => 'Páxines',
 );
 
+/** Belarusian (Беларуская)
+ * @author Хомелка
+ */
+$messages['be'] = array(
+	'validationstatistics' => 'Статыстыка праверак старонак',
+	'validationstatistics-users' => "У праекце {{SITENAME}} на дадзены момант '''[[Special:ListUsers/editor|$1]]''' {{plural:$1|удзельнік мае|удзельнікі маюць|удзельнікаў маюць}} паўнамоцтвы [[{{MediaWiki:Validationpage}}|«рэдактара»]].
+
+«Рэдактары» — гэта пэўныя ўдзельнікі, якія маюць магчымасць рабіць выбарачную праверку пэўных версій старонак.",
+	'validationstatistics-lastupdate' => "''Наступныя дадзеныя былі апошні раз абноўленыя $1 у $2.''",
+	'validationstatistics-pndtime' => "Праўкі, адзначаныя пэўнымі удзельнікамі, лічацца праверанымі.
+
+Сярэдняя затрымка [[Special:OldReviewedPages|для старонак з неправеранымі зменамі]] — '''$1'''. 
+Гэтыя старонкі лічацца''састарэлымі''. Старонкі лічыцца''сінхранізаванымі'', калі няма правак, якія чакаюць праверкі.",
+	'validationstatistics-revtime' => "Сярэдняя затрымка праверкі для зменаў, якія зрабілі ''ўдзельнікі, якія не прадставіліся'', складае '''$1'''; медыяна — '''$2'''. 
+$3",
+	'validationstatistics-table' => "Ніжэй прадстаўлена статыстыка праверак па кожнай прасторы імёнаў, ''выключаючы'' старонкі перанакіраванняў.",
+	'validationstatistics-ns' => 'Прастора імёнаў',
+	'validationstatistics-total' => 'Старонак',
+	'validationstatistics-stable' => 'Правераныя',
+	'validationstatistics-latest' => 'Пераправераныя',
+	'validationstatistics-synced' => 'Доля пераправераных у правераных',
+	'validationstatistics-old' => 'Састарэлыя',
+	'validationstatistics-utable' => 'Ніжэй прыведзены пералік з 5 найбольш актыўных вывяраючых за апошнюю гадзіну.',
+	'validationstatistics-user' => 'Удзельнік',
+	'validationstatistics-reviews' => 'Праверкі',
+);
+
 /** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))
  * @author EugeneZelenko
  * @author Jim-by
@@ -1747,6 +1774,7 @@ $messages['ta'] = array(
 	'validationstatistics-stable' => 'மீள்பார்வையிடப்பட்டது',
 	'validationstatistics-old' => 'காலாவதியானது',
 	'validationstatistics-user' => 'பயனர்',
+	'validationstatistics-reviews' => 'மதிப்பீடுகள்',
 );
 
 /** Telugu (తెలుగు)

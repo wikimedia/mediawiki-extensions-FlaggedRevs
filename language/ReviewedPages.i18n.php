@@ -139,11 +139,13 @@ $messages['bcc'] = array(
  * @author Хомелка
  */
 $messages['be'] = array(
-	'reviewedpages' => 'Прагледжаныя старонкі',
+	'reviewedpages' => 'Правераныя старонкі',
 	'reviewedpages-leg' => 'Пералік старонак, якія былі дагледжаны',
+	'reviewedpages-list' => "На гэтай старонцы пералічаны [[{{MediaWiki:Validationpage}}|правераныя]] старонкі, чыя ''найлепшая адзнака'' (адной з версій) адпавядае паказанаму узроўню.
+Спасылка вядзе на апошнюю версію старонкі з гэтай адзнакай.",
 	'reviewedpages-none' => 'Няма старонак у гэтым пераліку.',
-	'reviewedpages-all' => 'Дагледжаныя версіі',
-	'reviewedpages-best' => 'лепшая версія',
+	'reviewedpages-all' => 'Правераныя версіі',
+	'reviewedpages-best' => 'найлепшая версія',
 );
 
 /** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))

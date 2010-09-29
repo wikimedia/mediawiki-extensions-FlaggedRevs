@@ -223,6 +223,27 @@ $messages['bcc'] = array(
 	'pendingchanges-watched' => '($1 {{PLURAL:$1|کاربر|کابران}} چارگنت)',
 );
 
+/** Belarusian (Беларуская)
+ * @author Хомелка
+ */
+$messages['be'] = array(
+	'pendingchanges' => 'Старонкі з неправеранымі зменамі',
+	'pendingchanges-legend' => 'Пералік правераных старонак з неправеранымі версіямі',
+	'pendingchanges-list' => 'На гэтай старонцы пералічаны правераныя старонкі, якія ў далейшым правіліся',
+	'pendingchanges-none' => 'У цяперашні час няма старонак, якія задавальняюць гэтым умовам',
+	'pendingchanges-hours' => '($1 {{PLURAL:$1|гадзіну|гадзіны|гадзін}})',
+	'pendingchanges-days' => '($1 {{PLURAL:$1|дзень|дня|дзён}})',
+	'pendingchanges-recent' => '(Менш 1 гадзіны)',
+	'pendingchanges-category' => 'Катэгорыя:',
+	'pendingchanges-onwatchlist' => 'Старонкі з майго спіса назірання',
+	'pendingchanges-stable' => 'Стабільная версія па змоўчванні',
+	'pendingchanges-diff' => 'праверыць',
+	'pendingchanges-size' => 'Найбольшае змяненне ў байтах:',
+	'pendingchanges-unwatched' => '(не сочаць)',
+	'pendingchanges-watched' => '({{PLURAL:$1|сочыць $1 актыўны ўдзельнік|сочаць $1 актыўных удзельніка|сочаць $1 актыўных удзельнікаў}})',
+	'pendingchanges-viewing' => '(правяраюцца)',
+);
+
 /** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))
  * @author EugeneZelenko
  * @author Jim-by
@@ -1593,6 +1614,16 @@ $messages['sv'] = array(
 /** Swahili (Kiswahili) */
 $messages['sw'] = array(
 	'pendingchanges-category' => 'Jamii:',
+);
+
+/** Tamil (தமிழ்)
+ * @author TRYPPN
+ */
+$messages['ta'] = array(
+	'pendingchanges-recent' => '( 1 மணிக்கும் குறைவாக )',
+	'pendingchanges-category' => 'பகுப்பு:',
+	'pendingchanges-diff' => 'மதிப்பிடு',
+	'pendingchanges-unwatched' => '(கவனிக்கப்படமாட்டாது)',
 );
 
 /** Telugu (తెలుగు)
