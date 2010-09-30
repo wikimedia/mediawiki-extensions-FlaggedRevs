@@ -109,7 +109,7 @@ class FlaggedArticle extends Article {
 			$srev = $this->getStableRev( $flags );
 			if ( $srev ) {
 				if ( $flags & FR_MASTER ) {
-					$latest = $this->getTitle()->getLatestRevID( GAID_FOR_UPDATE );
+					$latest = $this->getTitle()->getLatestRevID( Title::GAID_FOR_UPDATE );
 				} else {
 					$latest = $this->getLatest();
 				}

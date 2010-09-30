@@ -96,7 +96,7 @@ class FlaggedRevision {
 		} else {
 			$db = wfGetDB( DB_SLAVE );
 		}
-		$pageId = $title->getArticleID( $flags & FR_FOR_UPDATE ? GAID_FOR_UPDATE : 0 );
+		$pageId = $title->getArticleID( $flags & FR_FOR_UPDATE ? Title::GAID_FOR_UPDATE : 0 );
 		# Short-circuit query
 		if ( !$pageId ) {
 			return null;
@@ -134,7 +134,7 @@ class FlaggedRevision {
         }
         $columns = self::selectFields();
 		$options = array();
-		$pageId = $title->getArticleID( $flags & FR_MASTER ? GAID_FOR_UPDATE : 0 );
+		$pageId = $title->getArticleID( $flags & FR_MASTER ? Title::GAID_FOR_UPDATE : 0 );
 		if ( !$pageId ) {
 			return null; // short-circuit query
 		}
@@ -181,7 +181,7 @@ class FlaggedRevision {
         }
         $columns = self::selectFields();
 		$options = array();
-		$pageId = $title->getArticleID( $flags & FR_FOR_UPDATE ? GAID_FOR_UPDATE : 0 );
+		$pageId = $title->getArticleID( $flags & FR_FOR_UPDATE ? Title::GAID_FOR_UPDATE : 0 );
 		if ( !$pageId ) {
 			return null; // short-circuit query
 		}

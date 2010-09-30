@@ -1584,7 +1584,7 @@ class FlaggedArticleView {
 			return true;
 		}
 		# Get latest revision Id (lag safe)
-		$latest = $this->article->getTitle()->getLatestRevID( GAID_FOR_UPDATE );
+		$latest = $this->article->getTitle()->getLatestRevID( Title::GAID_FOR_UPDATE );
 		if ( $latest == $frev->getRevId() ) {
 			return true; // only for pages with pending edits
 		}
@@ -1779,7 +1779,7 @@ class FlaggedArticleView {
 				# We are undoing all edits *after* some rev ID (undoafter).
 				# If undoafter is not given, then it is the previous rev ID.
 				$revId = $wgRequest->getInt( 'undoafter',
-					$article->getTitle()->getPreviousRevisionID( $latestId, GAID_FOR_UPDATE ) );
+					$article->getTitle()->getPreviousRevisionID( $latestId, Title::GAID_FOR_UPDATE ) );
 			# Undoing other edits...
 			} elseif ( $undo ) {
 				$revId = $latestId; // current rev is the base rev

@@ -290,7 +290,7 @@ abstract class PageStabilityForm
 	protected function updateLogsAndHistory( $reset ) {
 		global $wgContLang;
 		$article = new Article( $this->page );
-		$latest = $this->page->getLatestRevID( GAID_FOR_UPDATE );
+		$latest = $this->page->getLatestRevID( Title::GAID_FOR_UPDATE );
 		# Config may have changed to allow stable versions.
 		# Refresh tracking to account for any hidden reviewed versions...
 		$frev = FlaggedRevision::newFromStable( $this->page, FR_MASTER );

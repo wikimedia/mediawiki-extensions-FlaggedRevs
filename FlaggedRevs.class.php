@@ -716,7 +716,7 @@ class FlaggedRevs {
 		}
 		# Get the latest revision ID if not set
 		if ( !$latest ) {
-			$latest = $article->getTitle()->getLatestRevID( GAID_FOR_UPDATE );
+			$latest = $article->getTitle()->getLatestRevID( Title::GAID_FOR_UPDATE );
 		}
 		# Get the highest quality revision (not necessarily this one)
 		$dbw = wfGetDB( DB_MASTER );
@@ -776,7 +776,7 @@ class FlaggedRevs {
 		}
 		# Get the latest revision ID if not set
 		if ( !$latest ) {
-			$latest = $article->getTitle()->getLatestRevID( GAID_FOR_UPDATE );
+			$latest = $article->getTitle()->getLatestRevID( Title::GAID_FOR_UPDATE );
 		}
 		$pageId = $article->getId();
 		# Update pending times for each level, going from highest to lowest
