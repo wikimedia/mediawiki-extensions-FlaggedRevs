@@ -6607,6 +6607,7 @@ Aap jon URL ke use kar ke ii panna ke acess karaa hai, uske check karo.',
  * @author Herr Mlinka
  * @author Roberta F.
  * @author SpeedyGonsales
+ * @author Tivek
  */
 $messages['hr'] = array(
 	'action-review' => 'Ocijenjene izmjene',
