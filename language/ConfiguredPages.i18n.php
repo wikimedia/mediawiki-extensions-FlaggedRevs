@@ -46,16 +46,17 @@ $messages['ar'] = array(
 );
 
 /** Belarusian (Беларуская)
+ * @author Yury Tarasievich
  * @author Хомелка
  */
 $messages['be'] = array(
-	'configuredpages' => 'Старонкі з наладкамі праверкі',
+	'configuredpages' => 'Старонкі з рэцэнзіямі',
 	'configuredpages-list' => 'Ніжэй прыведзены пералік старонак, настроены на іншыя настаўленні разглядання, чым старонка па змоўчванні. 
 Некаторыя параметры могуць змяніць тое, якая версія адлюстроўваецца для чытачоў або яшчэ больш абмежаваць, хто можа ўносіць змены, якія не патрабуюць перагляду.',
 	'configuredpages-none' => 'Няма старонак у гэтым пераліку.',
-	'configuredpages-config' => 'Наладка',
+	'configuredpages-config' => 'Настаўленні',
 	'configuredpages-def-draft' => 'апошняя версія',
-	'configuredpages-def-stable' => 'Апублікаваная версія',
+	'configuredpages-def-stable' => 'публікаваная версія',
 );
 
 /** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))

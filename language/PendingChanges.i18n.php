@@ -550,6 +550,7 @@ $messages['eu'] = array(
 	'pendingchanges-days' => '($1 {{PLURAL:$1|egun|egun}})',
 	'pendingchanges-recent' => '(ordu bat baino gutxiago)',
 	'pendingchanges-category' => 'Kategoria:',
+	'pendingchanges-onwatchlist' => 'Nire jarraipen zerrendako orrialdeak',
 	'pendingchanges-stable' => 'Bertsio egonkorra lehenetsitakoa da',
 	'pendingchanges-diff' => 'Aurreikusi',
 	'pendingchanges-size' => 'Aldaketa maximoa (bytetan):',
