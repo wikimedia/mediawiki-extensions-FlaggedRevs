@@ -2288,7 +2288,7 @@ $messages['br'] = array(
 	'revreview-hist-basic-auto' => '[{{fullurl:$1|stableid=$2}} bet gwelet emgefre]',
 	'revreview-hist-quality-auto' => '[{{fullurl:$1|stableid=$2}} aprouet emgefre]',
 	'revreview-hist-pending-difflink' => "'''[[{{fullurl:$1|oldid=$2&diff=$3}} o c'hortoz bezañ adlennet]]'''",
-	'review-edit-diff' => "'''DIWALLIT: Cheñchamantoù 'zo a lak diaes lec'h ar bajenn emaoc'h o kemmañ.'''",
+	'review-edit-diff' => "'''DIWALLIT : Cheñchamantoù 'zo a lak diaes lec'h ar bajenn emaoc'h o kemmañ.'''",
 	'revreview-diff-toggle-show' => "diskouez ar c'hemmoù",
 	'revreview-diff-toggle-hide' => "kuzhat ar c'hemmoù",
 	'revreview-diff-toggle-title' => "Gwintañ an diskwel etre ar c'hemmoù o c'hortoz hag ar stumm stabil",
@@ -2484,7 +2484,6 @@ Marteze ho po da reizhañ pe "tennañ" kemmoù \'zo da gentañ.',
 	'revreview-locked' => "'''Notenn :''' Rankout a ra bezañ [[{{MediaWiki:Validationpage}}|adlennet]] ar c'hemmoù a-raok bezañ embannet er bajenn-mañ.",
 	'revreview-unlocked' => "'''Notenn :''' Ne rank ket bezañ [[{{MediaWiki:Validationpage}}|adlennet]] ar c'hemmoù a-raok bezañ embannet er bajenn-mañ.",
 	'log-show-hide-review' => '$10$1 istor an adlennoù',
-	'revreview-tt-review' => "Lakaat ar statud-mañ d'ar stumm-mañ",
 	'revreview-tt-flag' => 'Aprouiñ ar stumm-mañ en ur merkañ anezhañ evel gwiriekaet',
 	'revreview-tt-unflag' => 'Diaprouiñ ar stumm-mañ en ur merkañ anezhañ evel "nann-gwiriekaet"',
 	'revreview-tt-reject' => "Disteurel ar c'hemmoù-se dre zizober",
@@ -4302,6 +4301,7 @@ Puede que se hayan realizado [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diff
 	'review_bad_key' => 'Clave de parámetro de inclusión inválido.',
 	'review_denied' => 'Permiso denegado.',
 	'review_param_missing' => 'Un parámetro está perdido o es inválido.',
+	'review_cannot_undo' => 'No es posible deshacer estos cambio, ya que otras ediciones pendientes han cambiado estas áreas.',
 	'revreview-current' => 'Cambios pendientes',
 	'revreview-depth' => 'Profundidad',
 	'revreview-depth-0' => 'Inadecuado',
@@ -4925,8 +4925,8 @@ $3  [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} تغییر در�
 	'revreview-style-4' => 'برگزیده',
 	'revreview-submit' => 'ارسال',
 	'revreview-submitting' => 'در حال ارسال...',
-	'revreview-submit-review' => 'پذیرفتن',
-	'revreview-submit-unreview' => 'نپذیرفتن',
+	'revreview-submit-review' => 'پذیرفتن نسخه',
+	'revreview-submit-unreview' => 'نپذیرفتن نسخه',
 	'revreview-submit-reviewed' => 'انجام شد. پذیرفته شد!',
 	'revreview-submit-unreviewed' => 'انجام شد. پذیرفته نشد!',
 	'revreview-successful' => "'''نسخهٔ انتخابی از [[:$1|$1]] با موفقیت علامت زده شد.
@@ -4936,7 +4936,7 @@ $3  [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} تغییر در�
 	'revreview-toggle-title' => 'نمایش/پنهان کردن جزئیات',
 	'revreview-toolow' => "'''برای درنظرگرفته‌شدن یک نسخه به‌عنوان بازبینی‌شده، باید هر یک از موارد بالاتر از «نابسنده» را امتیازدهی کنید.'''
 
-به منظور حذف وضعیت بازبینی یک نسخه، ''همهٔ'' فیلدها را به‌صورت «نابسنده» تنظیم کنید.
+به منظور حذف وضعیت بازبینی یک نسخه، روی «نپذیرفتن» کلیک کنید.
 
 لطفاً دکمهٔ «بازگشت» را در مرورگرتان بفشارید و دوباره تلاش کنید.",
 	'revreview-update' => "'''لطفاً هرگونه تغییر درحال‌انتظاری ''(در زیر نشان داده شده)'' را که از آخرین نسخهٔ پایدار صورت گرفته، [[{{MediaWiki:Validationpage}}|بازبینی کنید]].'''
@@ -5005,9 +5005,9 @@ $3  [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} تغییر در�
 	'revreview-locked' => "'''توجه:''' ویرایش‌ها باید پیش از نمایش به خوانندگان در این صفحه، [[{{MediaWiki:Validationpage}}|بازبینی]] شوند.",
 	'revreview-unlocked' => "'''توجه:''' .ویرایش‌ها بایذ قبل از اینکه نمایش یابند در آن صفحه  [[{{MediaWiki:Validationpage}}|بازبینی]] شوند.",
 	'log-show-hide-review' => 'بازبینی لاگ $1',
-	'revreview-tt-review' => 'درخواست بازبینی این وضعیت',
 	'revreview-tt-flag' => 'با برچسب‌زده به این نسخه به‌عنوان «بررسی‌شده» آن را بپذیر',
-	'revreview-tt-unflag' => 'با برچسب‌زده به این نسخه به‌عنوان «بررسی‌نشده» آن را نپذیر',
+	'revreview-tt-unflag' => 'با برچسب زدن به این نسخه به‌عنوان «بررسی‌نشده» آن را نپذیر',
+	'revreview-tt-reject' => 'این تغییرات را با واگردانی مردود کنید',
 	'validationpage' => '{{ns:help}}:اعتبار صفحه‌ها',
 );
 
