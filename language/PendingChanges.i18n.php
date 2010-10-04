@@ -1621,8 +1621,10 @@ $messages['sw'] = array(
  * @author TRYPPN
  */
 $messages['ta'] = array(
+	'pendingchanges' => 'நிலுவையிலுள்ள மாற்றங்களின் பக்கங்கள்',
 	'pendingchanges-recent' => '( 1 மணிக்கும் குறைவாக )',
 	'pendingchanges-category' => 'பகுப்பு:',
+	'pendingchanges-onwatchlist' => 'எனது கவனிப்பு பட்டியலில் உள்ள பக்கங்கள்',
 	'pendingchanges-diff' => 'மதிப்பிடு',
 	'pendingchanges-unwatched' => '(கவனிக்கப்படமாட்டாது)',
 );

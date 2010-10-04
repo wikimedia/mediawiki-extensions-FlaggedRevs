@@ -3013,6 +3013,7 @@ $messages['ta'] = array(
 	'stabilization-def-short' => 'பொதுவானது',
 	'stabilization-def-short-0' => 'நடப்பு',
 	'stabilization-def-short-1' => 'ஏற்றுக்கொள்ளப்பட்டது',
+	'stabilize_denied' => 'அனுமதி மறுக்கப்பட்டது.',
 );
 
 /** Telugu (తెలుగు)

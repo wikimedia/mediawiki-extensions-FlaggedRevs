@@ -1320,10 +1320,11 @@ $3",
 /** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
  * @author Gunnernett
  * @author Harald Khan
+ * @author Ranveig
  */
 $messages['nn'] = array(
 	'validationstatistics' => 'Valideringsstatistikk',
-	'validationstatistics-users' => "'''{{SITENAME}}''' har på noverande tidspunkt {{PLURAL:$1|'''éin''' brukar|'''[[Special:ListUsers/editor|$1]]''' brukarar}} med [[{{MediaWiki:Validationpage}}|skribentrettar]] og {{PLURAL:$1|'''éin''' brukar|'''$2''' brukarar}} med [[{{MediaWiki:Validationpage}}|meldarrettar]].",
+	'validationstatistics-users' => "'''{{SITENAME}}''' har nett no {{PLURAL:$1|'''éin''' brukar|'''[[Special:ListUsers/editor|$1]]''' brukarar}} med [[{{MediaWiki:Validationpage}}|skriverettar]]. Skriverettar vil seie at ein kan sjekke endringar av sider.",
 	'validationstatistics-table' => "Statistikk for kvart namnerom er synt nedanfor, ''utanom'' omdirigeringssider.",
 	'validationstatistics-ns' => 'Namnerom',
 	'validationstatistics-total' => 'Sider',
