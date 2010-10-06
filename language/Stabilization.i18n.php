@@ -3434,6 +3434,7 @@ $messages['wuu'] = array(
 $messages['yi'] = array(
 	'stabilization-page' => 'בלאט נאמען:',
 	'stabilization-comment' => 'אורזאַך:',
+	'stabilization-otherreason' => 'אַנדער אורזאַך',
 );
 
 /** Cantonese (粵語)

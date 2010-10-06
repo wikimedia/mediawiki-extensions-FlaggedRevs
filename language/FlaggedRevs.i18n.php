@@ -3322,9 +3322,8 @@ Gegebenenfalls musst du zunächst diese Bearbeitungen nachvollziehen oder „rü
 	'revreview-locked' => "'''Hinweis:''' Bearbeitungen müssen [[{{MediaWiki:Validationpage}}|markiert]] werden, bevor sie Lesern dieser Seite angezeigt werden.",
 	'revreview-unlocked' => "'''Hinweis:''' Bearbeitungen benötigen keine [[{{MediaWiki:Validationpage}}|Markierung]], bevor sie allen Lesern dieser Seite angezeigt werden.",
 	'log-show-hide-review' => 'Versionsmarkierungs-Logbuch $1',
-	'revreview-tt-review' => 'Wende diesen Status auf diese Version an',
 	'revreview-tt-flag' => 'Diese Version anzeigen, indem du die Änderungen markierst',
-	'revreview-tt-unflag' => 'Diese Version nicht anzeigen, indem du die Markierung entfernst',
+	'revreview-tt-unflag' => 'Diese Version nicht mehr anzeigen lassen, indem du die Markierung entfernst',
 	'revreview-tt-reject' => 'Diese Änderungen zurückweisen, indem man sie zurückgesetzt',
 	'validationpage' => '{{ns:help}}:Gesichtete und geprüfte Versionen',
 );
@@ -8970,6 +8969,9 @@ $messages['km'] = array(
  * @author Shushruth
  */
 $messages['kn'] = array(
+	'editor' => 'ಸಂಪಾದಕ',
+	'group-editor' => 'ಸಂಪಾದಕರು',
+	'group-editor-member' => 'ಸಂಪಾದಕ',
 	'revreview-edit' => 'ಸಂಪಾದಿಸಿ',
 	'revreview-revnotfound' => 'ನೀವು ಕೋರಿದ ಪುಟದ ಹಳೆ ಆವೃತ್ತಿ ಸಿಗಲಿಲ್ಲ. ದಯವಿಟ್ಟು ಈ ಪುಟವನ್ನು ತಲುಪಲು ಉಪಯೋಗಿಸಿದ URL ಅನ್ನು ಒಮ್ಮೆ ಪರೀಕ್ಷಿಸಿ.',
 );
@@ -16417,11 +16419,10 @@ $messages['vi'] = array(
 Hiện có [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 thay đổi] đang chờ được duyệt',
 	'revreview-basic-i' => 'Dây là [[{{MediaWiki:Validationpage}}|phiên bản ổn định]] được [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} xem qua] vào <i>$2</i>.
 Hiện có [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} thay đổi bản mẫu/tập tin] đang chờ được duyệt.',
-	'revreview-basic-old' => 'Đây là một bản [[{{MediaWiki:Validationpage}}|đã xem qua]] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} tất cả]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} được phê chuẩn] vào <i>$2</i>.
-Đã có [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} những sửa đổi] mới.',
+	'revreview-basic-old' => 'Đây là một [[{{MediaWiki:Validationpage}}|phiên bản đã xem qua]] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} danh sách tất cả]) đã được [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} chấp nhận] vào <i>$2</i>.
+Có thể đã có [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} những thay đổi mới].',
 	'revreview-basic-same' => 'Đây là [[{{MediaWiki:Validationpage}}|phiên bản ổn định]] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} được xem qua] vào <i>$2</i>.',
-	'revreview-basic-source' => 'Một [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} bản đã xem qua] của trang này, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} được phê chuẩn] vào <i>$2</i>, 
-khác với bản này.',
+	'revreview-basic-source' => 'Một [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} phiên bản đã xem qua] của trang này, được [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} chấp nhận] vào <i>$2</i>, bắt nguồn từ phiên bản này.',
 	'revreview-failed' => "'''Không thể duyệt phiên bản này.''' Dữ liệu được gửi không đầy đủ hay không hợp lệ.",
 	'review_page_invalid' => 'Tựa trang đích không hợp lệ.',
 	'review_page_notexists' => 'Trang đích không tồn tại.',
@@ -16464,8 +16465,8 @@ Hiện có [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 thay �
 	'revreview-main' => 'Bạn phải chọn một phiên bản cụ thể từ một trang nội dung để duyệt.
 
 Mời xem [[Special:Unreviewedpages|danh sách các trang chưa được duyệt]].',
-	'revreview-newest-basic' => 'Bản [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} ổn định] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} tất cả]) đã được [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} phê chuẩn] vào <i>$2</i>. Bản nháp có [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|thay đổi|thay đổi}}] được đề nghị.',
-	'revreview-newest-basic-i' => 'Bản [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} ổn định] được [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} chứng nhận] vào <i>$2</i>. Bản nháp có [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} thay đổi bản mẫu/tập tin] cần duyệt.',
+	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Phiên bản ổn định] đã được [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} xem qua] vào <i>$2</i>. Hiện có [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 thay đổi] đang chờ được duyệt.',
+	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Phiên bản ổn định] đã được [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} xem qua] vào <i>$2</i>. Hiện có [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} thay đổi bản mẫu/tập tin] đang chờ được duyệt.',
 	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Phiên bản ổn định] đã được [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} chấp nhận] vào <i>$2</i>. Hiện có [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 thay đổi] đang chờ được duyệt.',
 	'revreview-newest-quality-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Phiên bản ổn định] đã được [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} chấp nhận] vào <i>$2</i>. Hiện có [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} thay đổi bản mẫu/tập tin] đang chờ được duyệt.',
 	'revreview-pending-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Phiên bản ổn định] đã được [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} xem qua] vào <i>$2</i>. Hiện có [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 thay đổi] đang chờ được duyệt.',
@@ -16483,7 +16484,7 @@ Hiện có [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} thay đ�
 	'revreview-quality-old' => 'Đây là [[{{MediaWiki:Validationpage}}|phiên bản chất lượng]] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} liệt kê tất cả]) đã được [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} chấp nhận] vào <i>$2</i>.
 	Có thể đã có [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} những thay đổi mới].',
 	'revreview-quality-same' => 'Đây là [[{{MediaWiki:Validationpage}}|phiên bản ổn định]] được [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} chấp nhận] vào <i>$2</i>.',
-	'revreview-quality-source' => 'Một [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} bản chất lượng] của trang này, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} được phê chuẩn] vào <i>$2</i>, khác với bản này.',
+	'revreview-quality-source' => 'Một [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} phiên bản chất lượng] của trang này, được [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} phê chuẩn] vào <i>$2</i>, bắt nguồn từ phiên bản này.',
 	'revreview-quality-title' => 'Đây là một phiên bản chất lượng của trang này',
 	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|Đã xem qua]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} duyệt thay đổi đang chờ]]",
 	'revreview-quick-basic-old' => "'''[[{{MediaWiki:Validationpage}}|Đã xem qua]]'''",
@@ -16587,7 +16588,6 @@ Trước tiên, có thể cần chỉnh lại hay ''lùi lại'' một số sử
 	'revreview-locked' => "'''Lưu ý:''' Các sửa đổi phải được [[{{MediaWiki:Validationpage}}|duyệt]] trước khi được hiển thị tại trang này.",
 	'revreview-unlocked' => "'''Lưu ý:''' Các sửa đổi không cần được [[{{MediaWiki:Validationpage}}|duyệt]] trước khi được hiển thị tại trang này.",
 	'log-show-hide-review' => '$1 nhật trình duyệt',
-	'revreview-tt-review' => 'Áp dụng trạng thái này vào phiên bản này',
 	'revreview-tt-flag' => 'Chấp nhận thay đổi này bằng cách đánh dấu nó là “đã xem qua”',
 	'revreview-tt-unflag' => 'Rút chấp nhận phiên bản này bằng cách đánh dấu nó là “chưa xem qua”',
 	'revreview-tt-reject' => 'Từ chối các thay đổi này bằng cách lùi lại',
@@ -16711,6 +16711,8 @@ $messages['wo'] = array(
  * @author פוילישער
  */
 $messages['yi'] = array(
+	'editor' => 'רעדאַקטאָר',
+	'revreview-depth-3' => 'הויך',
 	'revreview-edit' => 'רעדאַקטירן',
 	'revreview-revnotfound' => 'די אלטע רעוויזיע איר האט געבעטן קען נישט געפינען ווערן.
 ביטע טשעקט די URL וואס ברויכט אריינצוגיין אין דעם בלאט.',
