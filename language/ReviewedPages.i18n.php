@@ -1300,7 +1300,7 @@ $messages['vec'] = array(
 	'reviewedpages-lev-1' => 'De qualità',
 	'reviewedpages-lev-2' => 'De alta qualità',
 	'reviewedpages-all' => 'versioni riesaminà',
-	'reviewedpages-best' => 'version prinçipal',
+	'reviewedpages-best' => 'revision mejo',
 );
 
 /** Veps (Vepsan kel')

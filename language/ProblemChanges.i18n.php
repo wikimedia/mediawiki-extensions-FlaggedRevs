@@ -697,6 +697,13 @@ $messages['sw'] = array(
 	'problemchanges-category' => 'Jamii:',
 );
 
+/** Tamil (தமிழ்)
+ * @author TRYPPN
+ */
+$messages['ta'] = array(
+	'problemchanges-category' => 'பகுப்பு:',
+);
+
 /** Telugu (తెలుగు)
  * @author Veeven
  */
