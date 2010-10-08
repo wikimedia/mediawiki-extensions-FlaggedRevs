@@ -1291,7 +1291,7 @@ $messages['pdc'] = array(
 	'pendingchanges-days' => '($1 {{PLURAL:$1|Daag|Daag}})',
 	'pendingchanges-recent' => '(wennicher ass 1 Schtund)',
 	'pendingchanges-category' => 'Abdeeling:',
-	'pendingchanges-watched' => 'Bledder uff mei Watsch-Lischt',
+	'pendingchanges-watched' => '(vun $1 {{PLURAL:$1|aktivem Yuuser|aktive Yuuser}} gewatscht)',
 );
 
 /** Polish (Polski)
