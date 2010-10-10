@@ -695,6 +695,14 @@ $messages['uk'] = array(
 	'configuredpages-def-stable' => 'опублікована версія',
 );
 
+/** Vèneto (Vèneto)
+ * @author Candalua
+ */
+$messages['vec'] = array(
+	'configuredpages-def-draft' => 'ultima version',
+	'configuredpages-def-stable' => 'version stabile',
+);
+
 /** Vietnamese (Tiếng Việt)
  * @author Minh Nguyen
  * @author Trần Nguyễn Minh Huy

@@ -1921,11 +1921,11 @@ $messages['uk'] = array(
  * @author Candalua
  */
 $messages['vec'] = array(
-	'validationstatistics' => 'Statìsteghe de validassion',
+	'validationstatistics' => 'Statìsteghe de revision',
 	'validationstatistics-users' => "'''{{SITENAME}}''' el gà atualmente '''[[Special:ListUsers/editor|$1]]'''  {{PLURAL:$1|utente|utenti}} con diriti de [[{{MediaWiki:Validationpage}}|revisor]].
 
 I revisori i xe utenti che pode verificar le revision de le pagine.",
-	'validationstatistics-table' => "Qua soto se cata le statìsteghe par ogni namespace, ''escluse'' le pagine de redirect.",
+	'validationstatistics-table' => "Qua soto se cata le statìsteghe de revision par ogni namespace, ''escluse'' le pagine de redirect.",
 	'validationstatistics-ns' => 'Namespace',
 	'validationstatistics-total' => 'Pagine',
 	'validationstatistics-stable' => 'Ricontrolà',
