@@ -699,6 +699,7 @@ $messages['uk'] = array(
  * @author Candalua
  */
 $messages['vec'] = array(
+	'configuredpages-config' => 'Configurassion',
 	'configuredpages-def-draft' => 'ultima version',
 	'configuredpages-def-stable' => 'version stabile',
 );
