@@ -954,31 +954,47 @@ class FlaggedRevsHooks {
 		return true;
 	}
 
-	protected static function editSpacingCheck( $spacing, $points, $user ) {
+	/*
+	 * Check if a user meets the edit spacing requirements.
+	 * If the user does not, return a *lower bound* number of seconds
+	 * that must elapse for it to be possible for the user to meet them.
+	 * @param int $spacingReq days apart (of edit points)
+	 * @param int $pointsReq number of edit points
+	 * @param User $user
+	 * @returns mixed (true if passed, int seconds on failure)
+	 */
+	protected static function editSpacingCheck( $spacingReq, $pointsReq, $user ) {
+		$benchmarks = 0; // actual edit points
 		# Convert days to seconds...
-		$spacing = $spacing * 24 * 3600;
+		$spacingReq = $spacingReq * 24 * 3600;
 		# Check the oldest edit
-		$dbr = isset( $dbr ) ? $dbr : wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_SLAVE );
 		$lower = $dbr->selectField( 'revision', 'rev_timestamp',
 			array( 'rev_user' => $user->getId() ),
 			__METHOD__,
 			array( 'ORDER BY' => 'rev_timestamp ASC', 'USE INDEX' => 'user_timestamp' )
 		);
-		# Recursively check for an edit $spacing seconds later, until we are done.
-		# The first edit counts, so we have one less scans to do...
-		$benchmarks = 0; // actual
-		$needed = $points - 1; // required
-		while ( $lower && $benchmarks < $needed ) {
-			$next = wfTimestamp( TS_UNIX, $lower ) + $spacing;
-			$lower = $dbr->selectField( 'revision', 'rev_timestamp',
-				array( 'rev_user' => $user->getId(),
-					'rev_timestamp > ' . $dbr->addQuotes( $dbr->timestamp( $next ) ) ),
-					__METHOD__,
-				array( 'ORDER BY' => 'rev_timestamp ASC', 'USE INDEX' => 'user_timestamp' )
-			);
-			if ( $lower !== false ) $benchmarks++;
+		# Recursively check for an edit $spacingReq seconds later, until we are done.
+		if ( $lower ) {
+			$benchmarks++; // the first edit above counts
+			while ( $lower && $benchmarks < $pointsReq ) {
+				$next = wfTimestamp( TS_UNIX, $lower ) + $spacingReq;
+				$lower = $dbr->selectField( 'revision', 'rev_timestamp',
+					array( 'rev_user' => $user->getId(),
+						'rev_timestamp > ' . $dbr->addQuotes( $dbr->timestamp( $next ) ) ),
+						__METHOD__,
+					array( 'ORDER BY' => 'rev_timestamp ASC', 'USE INDEX' => 'user_timestamp' )
+				);
+				if ( $lower !== false ) $benchmarks++;
+			}
 		}
-		return ( $benchmarks >= $needed );
+		if ( $benchmarks >= $pointsReq ) {
+			return true;
+		} else {
+			// Does not add time for the last required edit point; it could be a
+			// fraction of $spacingReq depending on the last actual edit point time.
+			return ( $spacingReq * ($pointsReq - $benchmarks - 1) );
+		}
 	}
 
 	/**
@@ -1096,12 +1112,11 @@ class FlaggedRevsHooks {
 					$user
 				);
 				# Make a key to store the results
-				if ( !$pass ) {
-					$wgMemc->set( $APSkipKey, 'true',
-						3600 * 24 * $spacing * ( $benchmarks - $needed - 1 ) );
-					return true;
-				} else {
+				if ( $pass === true ) {
 					$wgMemc->set( $sTestKey, 'true', 7 * 24 * 3600 );
+				} else {
+					$wgMemc->set( $APSkipKey, 'true', $pass /* wait time */ );
+					return true;
 				}
 			}
 		}
@@ -1236,12 +1251,11 @@ class FlaggedRevsHooks {
 					$user
 				);
 				# Make a key to store the results
-				if ( !$pass ) {
-					$wgMemc->set( $APSkipKey, 'true',
-						3600 * 24 * $spacing * ( $benchmarks - $needed - 1 ) );
-					return true;
-				} else {
+				if ( $pass === true ) {
 					$wgMemc->set( $sTestKey, 'true', 7 * 24 * 3600 );
+				} else {
+					$wgMemc->set( $APSkipKey, 'true', $pass /* wait time */ );
+					return true;
 				}
 			}
 		}
