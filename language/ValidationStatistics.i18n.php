@@ -290,6 +290,7 @@ Els Editors són usuaris experimentats que poden validar les revisions de les p�
 	'validationstatistics-stable' => "S'ha revisat",
 	'validationstatistics-latest' => 'Sincronitzat',
 	'validationstatistics-synced' => 'Sincronitzat/Revisat',
+	'validationstatistics-user' => 'Usuari',
 );
 
 /** Sorani (کوردی) */

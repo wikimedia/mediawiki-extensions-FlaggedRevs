@@ -2766,7 +2766,7 @@ $messages['ca'] = array(
 	'revreview-hist-quality-user' => '[{{fullurl:$1|stableid=$2}} validada] per [[User:$3|$3]]',
 	'review-diff2stable' => 'Visualitza els canvis entre les revisions estable i actual',
 	'review-logentry-app' => 'revisada la r$2 de [[$1]]',
-	'review-logentry-id' => 'veure: $2',
+	'review-logentry-id' => 'revisió: $2',
 	'review-logentry-diff' => 'Canvis a la versió estable',
 	'review-logpage' => 'Registre de revisió',
 	'reviewer' => 'Supervisor',
