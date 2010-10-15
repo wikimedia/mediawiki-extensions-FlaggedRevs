@@ -1175,7 +1175,7 @@ $messages['uk'] = array(
  * @author Candalua
  */
 $messages['vec'] = array(
-	'reviewedversions' => 'Varda le version riesaminà',
+	'reviewedversions' => 'Version riesaminà',
 	'reviewedversions-leg1' => 'Elenca le version riesaminà de na pagina',
 	'reviewedversions-page' => 'Nome de la pagina:',
 	'reviewedversions-none' => '"[[:$1]]" no la gà version riesaminà.',
