@@ -897,10 +897,11 @@ $messages['uk'] = array(
  * @author Candalua
  */
 $messages['vec'] = array(
-	'stablepages' => 'Pagine stabili',
+	'stablepages' => "Pagine che dopara l'aprovassion de le modifiche",
 	'stablepages-list' => 'Sta qua la xe na lista de pagine configurà manualmente par mostrar la version publicà come contenuto de default par i letori.',
 	'stablepages-none' => 'No ghe xe nissuna pagina su sta lista',
 	'stablepages-config' => 'Configurassion',
+	'stablepages-indef' => 'Solo scadensa indefinìa',
 );
 
 /** Veps (Vepsan kel')

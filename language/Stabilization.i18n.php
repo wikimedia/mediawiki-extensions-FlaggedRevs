@@ -1484,6 +1484,7 @@ Nem lehet a beállításokat módosítani.',
 	'stabilization-def-short-1' => 'közzétett',
 	'stabilize_page_invalid' => 'A céloldal címe érvénytelen.',
 	'stabilize_page_notexists' => 'A céloldal nem létezik.',
+	'stabilize_page_unreviewable' => 'A kiválasztott lap nem ellenőrizhető névtérben van.',
 	'stabilize_invalid_level' => 'Érvénytelen védelmi szint.',
 	'stabilize_expiry_invalid' => 'Hibás lejárati idő.',
 	'stabilize_expiry_old' => 'A megadott lejárati idő már elmúlt.',
@@ -1836,6 +1837,7 @@ $messages['km'] = array(
  */
 $messages['kn'] = array(
 	'stabilization-comment' => 'ಕಾರಣ:',
+	'stabilization-otherreason' => 'ಇತರ ಕಾರಣ:',
 );
 
 /** Korean (한국어)
@@ -2096,6 +2098,13 @@ $messages['ml'] = array(
 	'stabilize_denied' => 'അനുമതി നിഷേധിച്ചിരിക്കുന്നു.',
 	'stabilize-expiring' => 'കാലാവധി തീരുന്നത് - $1 (UTC)',
 	'stabilization-review' => 'ഇപ്പോഴുള്ള പതിപ്പ് പരിശോധിച്ചതായി അടയാളപ്പെടുത്തുക',
+);
+
+/** Mongolian (Монгол)
+ * @author Chinneeb
+ */
+$messages['mn'] = array(
+	'stabilization-comment' => 'Шалтгаан:',
 );
 
 /** Marathi (मराठी)
@@ -2568,6 +2577,7 @@ $messages['qu'] = array(
 
 /** Romanian (Română)
  * @author Cin
+ * @author Firilacroco
  * @author KlaudiuMihaila
  * @author Memo18
  * @author Mihai
@@ -2576,6 +2586,7 @@ $messages['qu'] = array(
  */
 $messages['ro'] = array(
 	'stabilization-tab' => 'config.',
+	'stabilization' => 'Stabilizarea paginii',
 	'stabilization-perm' => 'Contul tău nu are permisiunea de a schimba versiunea stabilă a configurației.
 Iată configurația curentă pentru [[:$1|$1]]:',
 	'stabilization-page' => 'Numele paginii:',
@@ -3045,6 +3056,7 @@ $messages['te'] = array(
 	'stabilization-def-short-1' => 'ప్రచురితం',
 	'stabilize_expiry_invalid' => 'తప్పుడు కాలపరిమితి తేదీ.',
 	'stabilize_expiry_old' => 'ఈ కాలం ఎప్పుడో చెల్లిపోయింది.',
+	'stabilize_denied' => 'అనుమతిని నిరాకరించారు.',
 	'stabilize-expiring' => '$1 (UTC) నాడు కాలం చెల్లుతుంది',
 );
 
@@ -3294,13 +3306,13 @@ $messages['ur'] = array(
 $messages['vec'] = array(
 	'stabilization-tab' => 'c. q.',
 	'stabilization' => 'Stabilizassion de pagina',
-	'stabilization-text' => "'''Canbia le inpostassion qua soto par stabilir come la version publicà de [[:$1|$1]] la vegna selessionà e mostrà.'''",
+	'stabilization-text' => "'''Canbia le inpostassion qua soto par stabilir come la version stabile de [[:$1|$1]] la vegna selessionà e mostrà.'''",
 	'stabilization-perm' => 'No ti gà i permessi necessari par canbiar le inpostassion de la version publicà.
 Chì ghe xe le inpostassion atuali par [[:$1|$1]]:',
 	'stabilization-page' => 'Nome de la pagina:',
 	'stabilization-leg' => 'Conferma le inpostassion par la version publicà',
 	'stabilization-def' => 'Version mostrà par default quando se varda la pagina',
-	'stabilization-def1' => "La revision publicà; se no ghe n'è, alora la revision o bozza atuale",
+	'stabilization-def1' => "La revision stabile; se no ghe n'è, alora l'ultima revision",
 	'stabilization-def2' => "L'ultima revision",
 	'stabilization-restrict' => "Restrizioni su l'auto-revision",
 	'stabilization-restrict-none' => 'Nissun restrizion èstra',
@@ -3318,11 +3330,14 @@ No se pode canbiar le inpostassion.',
 	'stabilization-def-short-1' => 'Publicà',
 	'stabilize_page_invalid' => "El titolo de destinassion no'l xe mia valido",
 	'stabilize_page_notexists' => 'La pagina de destinassion no la esiste.',
+	'stabilize_page_unreviewable' => 'La pagina de destinassion no la xe in un namespace revisionabile.',
+	'stabilize_invalid_autoreview' => 'Restrission de autorevision mia valida.',
+	'stabilize_invalid_level' => 'Livel de protession mia valido.',
 	'stabilize_expiry_invalid' => 'Data de scadensa mìa valida.',
 	'stabilize_expiry_old' => 'Sta scadensa la xe zà passà.',
 	'stabilize_denied' => 'Parmesso negà',
 	'stabilize-expiring' => 'scadensa $1 (UTC)',
-	'stabilization-review' => 'Verifica la version atuale',
+	'stabilization-review' => 'Segna la revision atuale come controlà',
 );
 
 /** Veps (Vepsan kel')
