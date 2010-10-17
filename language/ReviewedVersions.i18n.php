@@ -916,11 +916,12 @@ $messages['pt-br'] = array(
 );
 
 /** Romanian (Română)
+ * @author Firilacroco
  * @author KlaudiuMihaila
  * @author Mihai
  */
 $messages['ro'] = array(
-	'reviewedversions' => 'Vizualizați versiunile stabile',
+	'reviewedversions' => 'Versiuni revizuite',
 	'reviewedversions-leg1' => 'Afișează reviziile revizuite pentru o pagină',
 	'reviewedversions-page' => 'Numele paginii:',
 	'reviewedversions-none' => '"[[:$1]]" nu are revizii revizuite.',

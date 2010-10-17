@@ -861,7 +861,7 @@ Jen la nunaj agordoj por [[:$1|$1]]:',
 	'stabilization-page' => 'Paĝnomo:',
 	'stabilization-leg' => 'Konfirmi agordojn de publikigitaj versioj',
 	'stabilization-def' => 'Versio montrita en defaŭlta paĝa vido',
-	'stabilization-def1' => 'La publikigita versio; se ĝi ne ekzistas, la nuna aŭ malneta versio',
+	'stabilization-def1' => 'La stabila versio; se ĝi ne ekzistas, la lasta revizio',
 	'stabilization-def2' => 'La lasta revizio',
 	'stabilization-restrict' => 'Limigoj pri kontrolado aŭ aŭtomata kontrolado',
 	'stabilization-restrict-none' => 'Neniuj pliaj limigoj',
@@ -880,6 +880,7 @@ Neniu konfiguro eblas.',
 	'stabilize_page_invalid' => 'La titolo de la cela paĝo estas malvalida.',
 	'stabilize_page_notexists' => 'La cela paĝo ne ekzistas.',
 	'stabilize_page_unreviewable' => 'La cela paĝo ne estas en kontrolebla nomspaco.',
+	'stabilize_invalid_autoreview' => 'Malvalida limigo de aŭtomata kontrolado',
 	'stabilize_invalid_level' => 'Malvalida nivelo de protektado.',
 	'stabilize_expiry_invalid' => 'Malvalida findato.',
 	'stabilize_expiry_old' => 'Ĉi tiu findato jam estas pasita.',
@@ -1056,6 +1057,7 @@ $messages['fa'] = array(
  * @author Cimon Avaro
  * @author Crt
  * @author Nike
+ * @author Olli
  * @author Silvonen
  * @author Str4nd
  * @author ZeiP
@@ -1063,15 +1065,21 @@ $messages['fa'] = array(
 $messages['fi'] = array(
 	'stabilization-tab' => 'tarkistus',
 	'stabilization' => 'Sivun vakaus',
+	'stabilization-text' => "'''Säädä kuinka sivun [[:$1|$1]] versio valitaan ja näytetään säätämällä alla olevia asetuksia.'''",
 	'stabilization-perm' => 'Tunnuksellasi ei ole oikeutta muuttaa julkaistujen versioiden kokoonpanoa.
 Tässä ovat nykyiset asetukset tunnukselle [[:$1|$1]]:',
 	'stabilization-page' => 'Sivun nimi',
 	'stabilization-leg' => 'Vahvista julkaistujen versioiden asetukset',
 	'stabilization-def' => 'Versio, joka näytetään oletusarvoisesti',
-	'stabilization-def1' => 'Julkaistu versio; jos sellaista ei ole, ajantasainen- tai luonnosversio',
+	'stabilization-def1' => 'Vakaa versio; jos sellaista ei ole, viimeisin versio',
 	'stabilization-def2' => 'Viimeisin versio',
+	'stabilization-restrict' => 'Tarkistuksen/automaattisen tarkistuksen rajoitukset',
 	'stabilization-restrict-none' => 'Ei lisärajauksia',
 	'stabilization-submit' => 'Vahvista',
+	'stabilization-notexists' => 'Sivua [[:$1|$1]] ei ole olemassa.
+Asetusten määrittäminen ei ole mahdollista.',
+	'stabilization-notcontent' => 'Sivua "[[:$1|$1]]" ei voida tarkistaa.
+Asetuksia ei voi muuttaa.',
 	'stabilization-comment' => 'Syy:',
 	'stabilization-otherreason' => 'Muu syy',
 	'stabilization-expiry' => 'Vanhenee:',
@@ -1079,11 +1087,16 @@ Tässä ovat nykyiset asetukset tunnukselle [[:$1|$1]]:',
 	'stabilization-def-short' => 'Oletus',
 	'stabilization-def-short-0' => 'Nykyinen',
 	'stabilization-def-short-1' => 'Julkaistu',
+	'stabilize_page_invalid' => 'Kohdesivun nimi ei kelpaa.',
 	'stabilize_page_notexists' => 'Kohdesivua ei ole olemassa.',
+	'stabilize_page_unreviewable' => 'Kohdesivu ei ole nimiavaruudessa, jonka sivuja voitaisiin arvioida.',
+	'stabilize_invalid_autoreview' => 'Automaattisen arvioinnin rajoitus ei kelpaa.',
+	'stabilize_invalid_level' => 'Suojaustaso ei kelpaa.',
 	'stabilize_expiry_invalid' => 'Virheellinen erääntymispäivä.',
 	'stabilize_expiry_old' => 'Tämä erääntymisaika on jo mennyt.',
+	'stabilize_denied' => 'Ei oikeutta.',
 	'stabilize-expiring' => 'vanhenee $1 (UTC)',
-	'stabilization-review' => 'Tarkista nykyinen versio',
+	'stabilization-review' => 'Merkitse nykyinen versio tarkistetuksi',
 );
 
 /** French (Français)
@@ -1485,6 +1498,7 @@ Nem lehet a beállításokat módosítani.',
 	'stabilize_page_invalid' => 'A céloldal címe érvénytelen.',
 	'stabilize_page_notexists' => 'A céloldal nem létezik.',
 	'stabilize_page_unreviewable' => 'A kiválasztott lap nem ellenőrizhető névtérben van.',
+	'stabilize_invalid_autoreview' => 'Érvénytelen automatikus ellenőrzési megszorítás.',
 	'stabilize_invalid_level' => 'Érvénytelen védelmi szint.',
 	'stabilize_expiry_invalid' => 'Hibás lejárati idő.',
 	'stabilize_expiry_old' => 'A megadott lejárati idő már elmúlt.',
@@ -1617,6 +1631,7 @@ $messages['is'] = array(
 );
 
 /** Italian (Italiano)
+ * @author Aushulz
  * @author Beta16
  * @author Blaisorblade
  * @author Darth Kule
@@ -1649,6 +1664,9 @@ Non è possibile effettuare la configurazione.',
 	'stabilization-def-short' => 'Default',
 	'stabilization-def-short-0' => 'Attuale',
 	'stabilization-def-short-1' => 'Stabile',
+	'stabilize_page_invalid' => 'Il titolo della pagina di destinazione non è valido.',
+	'stabilize_page_notexists' => 'La pagina di destinazione non esiste.',
+	'stabilize_invalid_level' => 'Livello di protezione non valido.',
 	'stabilize_expiry_invalid' => 'Data di scadenza non valida.',
 	'stabilize_expiry_old' => 'La data di scadenza è già passata.',
 	'stabilize_denied' => 'Permesso negato.',
@@ -2105,6 +2123,7 @@ $messages['ml'] = array(
  */
 $messages['mn'] = array(
 	'stabilization-comment' => 'Шалтгаан:',
+	'stabilization-otherreason' => 'Өөр шалтгаан:',
 );
 
 /** Marathi (मराठी)
@@ -2251,6 +2270,7 @@ Instellen is niet mogelijk.',
  * @author Gunnernett
  * @author Harald Khan
  * @author Jon Harald Søby
+ * @author Nghtwlkr
  */
 $messages['nn'] = array(
 	'stabilization-tab' => 'kvalitet',
@@ -2273,10 +2293,12 @@ Ingen innstillingar kan verta gjorde.',
 	'stabilization-comment' => 'Årsak:',
 	'stabilization-otherreason' => 'Anna årsak',
 	'stabilization-expiry' => 'Endar:',
-	'stabilization-othertime' => 'Anna tid',
+	'stabilization-othertime' => 'Anna tid:',
 	'stabilization-def-short' => '(standard)',
 	'stabilization-def-short-0' => 'Noverande',
 	'stabilization-def-short-1' => 'Stabil',
+	'stabilize_page_invalid' => 'Målsidetittelen er ugyldig.',
+	'stabilize_page_notexists' => 'Målsida finst ikkje.',
 	'stabilize_expiry_invalid' => 'Ugyldig sluttdato.',
 	'stabilize_expiry_old' => 'Sluttdatoen har alt vore.',
 	'stabilize-expiring' => 'endar $1 (UTC)',
@@ -2604,11 +2626,13 @@ Iată configurația curentă pentru [[:$1|$1]]:',
 	'stabilization-def-short' => 'Implicit',
 	'stabilization-def-short-0' => 'Curent',
 	'stabilization-def-short-1' => 'Stabil',
+	'stabilize_page_invalid' => 'Titlul paginii ţintă este invalid.',
+	'stabilize_page_notexists' => 'Pagina-ţintă nu există.',
 	'stabilize_expiry_invalid' => 'Data expirării incorectă.',
 	'stabilize_expiry_old' => 'Această dată de expirare a trecut deja.',
 	'stabilize_denied' => 'Permisiune refuzată.',
 	'stabilize-expiring' => 'expiră $1 (UTC)',
-	'stabilization-review' => 'Revizuiește versiunea curentă',
+	'stabilization-review' => 'Marchează versiunea curentă ca verificată',
 );
 
 /** Tarandíne (Tarandíne)
@@ -3314,7 +3338,7 @@ Chì ghe xe le inpostassion atuali par [[:$1|$1]]:',
 	'stabilization-def' => 'Version mostrà par default quando se varda la pagina',
 	'stabilization-def1' => "La revision stabile; se no ghe n'è, alora l'ultima revision",
 	'stabilization-def2' => "L'ultima revision",
-	'stabilization-restrict' => "Restrizioni su l'auto-revision",
+	'stabilization-restrict' => 'Restrizion su la revision/auto-revision',
 	'stabilization-restrict-none' => 'Nissun restrizion èstra',
 	'stabilization-submit' => 'Conferma',
 	'stabilization-notexists' => 'No ghe xe nissuna pagina che se ciama "[[:$1|$1]]".

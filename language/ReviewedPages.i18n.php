@@ -383,16 +383,19 @@ $messages['fa'] = array(
 /** Finnish (Suomi)
  * @author Cimon Avaro
  * @author Crt
+ * @author Olli
  * @author ZeiP
  */
 $messages['fi'] = array(
 	'reviewedpages' => 'Arvioidut sivut',
 	'reviewedpages-leg' => 'Lista sivuista, jotka on arvioitu',
-	'reviewedpages-list' => 'Tämä sivu listaa sivut, jotka on arvioitu (korkeimmalle) annetulla tasolla.',
+	'reviewedpages-list' => "Tämä sivu listaa sivut, jotka on [[{{MediaWiki:Validationpage}}|arvioitu]] ''parhaalle tasolle'' valitulla tasolla.
+Linkki viittaa tämän tason viimeisimpään muokkaukseen.",
 	'reviewedpages-none' => 'Tällä listalla ei ole sivuja.',
 	'reviewedpages-lev-0' => '{{int:revreview-lev-basic}}',
 	'reviewedpages-lev-2' => '{{int:revreview-lev-pristine}}',
 	'reviewedpages-all' => 'tarkastetut versiot',
+	'reviewedpages-best' => 'paras versio',
 );
 
 /** French (Français)
@@ -1294,7 +1297,8 @@ $messages['uk'] = array(
 $messages['vec'] = array(
 	'reviewedpages' => 'Pagine riesaminà',
 	'reviewedpages-leg' => 'Elenco de le pagine revisionà',
-	'reviewedpages-list' => 'Sta pagina la elenca le pagine che xe stà riesaminà al massimo fin al livèl indicà.',
+	'reviewedpages-list' => "Sto elenco contien le [[{{MediaWiki:Validationpage}}|pagine controlà]] el cui massimo livèl de revisione ragiunto (de una revisione) el xe quelo indicà.
+Xe fornìo un link a l'ultima revision par quel livèl.",
 	'reviewedpages-none' => 'No ghe xe nissuna pagina su sta lista',
 	'reviewedpages-lev-0' => 'Rivardà',
 	'reviewedpages-lev-1' => 'De qualità',

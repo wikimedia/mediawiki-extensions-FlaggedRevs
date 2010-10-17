@@ -235,9 +235,12 @@ $messages['fa'] = array(
  * @author Cimon Avaro
  * @author Crt
  * @author Nike
+ * @author Olli
  * @author Str4nd
  */
 $messages['fi'] = array(
+	'problemchanges' => 'Merkityt odottavat muutokset',
+	'problemchanges-legend' => 'Lista sivuista, joilla on odottavia muokkauksia, jotka ovat merkittyjä',
 	'problemchanges-none' => 'Tällä hetkellä ei ole sivuja, jotka täyttävät nämä ehdot',
 	'problemchanges-category' => 'Luokka',
 );
@@ -500,6 +503,13 @@ $messages['nl'] = array(
 	'problemchanges-category' => 'Categorie:',
 );
 
+/** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
+ * @author Nghtwlkr
+ */
+$messages['nn'] = array(
+	'problemchanges-category' => 'Kategori:',
+);
+
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
  * @author Jon Harald Søby
  * @author Laaknor
@@ -759,6 +769,7 @@ $messages['uk'] = array(
  */
 $messages['vec'] = array(
 	'problemchanges' => 'Modifiche mia controlà con etichete',
+	'problemchanges-legend' => 'Elenco de le pagine con modifiche etichetà in atesa di revision',
 	'problemchanges-none' => 'Al momento no ghe xe pagine che sodisfa sti criteri',
 	'problemchanges-category' => 'Categoria:',
 );

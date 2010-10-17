@@ -1166,6 +1166,7 @@ $messages['nl'] = array(
 /** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
  * @author Harald Khan
  * @author Jon Harald Søby
+ * @author Nghtwlkr
  */
 $messages['nn'] = array(
 	'unreviewedpages' => 'Sider som ikkje er vortne vurderte',
@@ -1177,6 +1178,9 @@ $messages['nn'] = array(
 	'unreviewed-list' => 'Denne sida listar opp artiklar som manglar vurdering',
 	'unreviewed-none' => 'Det finst ingen sider som svarer til søkekriteria',
 	'unreviewed-viewing' => '(under vurdering)',
+	'unreviewed-hours' => '($1 {{PLURAL:$1|time|timar}})',
+	'unreviewed-days' => '($1 {{PLURAL:$1|dag|dagar}})',
+	'unreviewed-recent' => '(mindre enn éin time)',
 );
 
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
