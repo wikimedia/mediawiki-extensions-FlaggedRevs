@@ -301,6 +301,7 @@ E Deil Yystellige chenne sich villicht unterscheide, je nochdäm weli Version em
  * @author YaronSh
  */
 $messages['he'] = array(
+	'configuredpages' => 'דפים עם תצורות סקירה',
 	'configuredpages-none' => 'אין דפים ברשימה זו.',
 	'configuredpages-config' => 'הגדרות',
 	'configuredpages-def-draft' => 'הגרסה האחרונה',

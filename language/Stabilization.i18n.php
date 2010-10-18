@@ -322,6 +322,19 @@ Esta ye la configuración de [[:$1|$1]]:',
 	'stabilize-expiring' => "caduca'l $1 (UTC)",
 );
 
+/** Bashkir (Башҡорт)
+ * @author Haqmar
+ */
+$messages['ba'] = array(
+	'stabilization-comment' => 'Сәбәп:',
+	'stabilization-otherreason' => 'Башҡа сәбәп:',
+	'stabilization-expiry' => 'Бөтә:',
+	'stabilization-othertime' => 'Башҡа ваҡыт:',
+	'stabilization-def-short' => 'Ғәҙәттәге',
+	'stabilization-def-short-0' => 'Хәҙерге',
+	'stabilization-def-short-1' => 'Тотороҡло',
+);
+
 /** Bavarian (Boarisch)
  * @author Man77
  */
@@ -576,6 +589,7 @@ Nije moguća konfiguracija.',
  * @author Jordi Roqué
  * @author Paucabot
  * @author Qllach
+ * @author Solde
  * @author Toniher
  */
 $messages['ca'] = array(
@@ -585,7 +599,9 @@ $messages['ca'] = array(
 	'stabilization-notexists' => 'No hi ha cap pàgina que s\'anomeni "[[:$1|$1]]".
 No és possible fer cap configuració.',
 	'stabilization-comment' => 'Motiu:',
+	'stabilization-otherreason' => 'Altres raons:',
 	'stabilization-expiry' => 'Venç:',
+	'stabilization-othertime' => 'Un altre temps:',
 	'stabilization-def-short' => 'Per defecte',
 	'stabilization-def-short-0' => 'Actual',
 	'stabilization-def-short-1' => 'Publicat',
