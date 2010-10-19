@@ -532,6 +532,7 @@ $messages['et'] = array(
 	'pendingchanges-days' => '($1 {{PLURAL:$1|päev|päeva}})',
 	'pendingchanges-recent' => '(alla 1 tunni)',
 	'pendingchanges-category' => 'Kategooria:',
+	'pendingchanges-onwatchlist' => 'Minu jälgitavad leheküljed',
 	'pendingchanges-stable' => 'Püsiv versioon on vaikeväärtuseks',
 	'pendingchanges-diff' => 'vaata üle',
 	'pendingchanges-size' => 'Muudatuse ülemmäär baitides:',

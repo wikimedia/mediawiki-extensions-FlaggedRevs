@@ -2111,6 +2111,7 @@ $messages['bg'] = array(
 	'grouppage-autoreview' => '{ns:project}}:Авторецензент',
 	'revreview-hist-draft' => 'чернова версия',
 	'revreview-hist-quality' => 'качествена версия',
+	'revreview-log-details-show' => 'показване на подробности',
 	'review-diff2stable' => 'Преглед на разликите между устойчивата и текущата версия',
 	'review-logentry-id' => 'номер на редакция: $2',
 	'reviewer' => 'Рецензент',
@@ -4621,6 +4622,7 @@ $messages['et'] = array(
 	'review_page_unreviewable' => 'Sihtlehekülge pole ülevaadatav.',
 	'review_no_oldid' => 'Redaktsiooni ID pole määratud.',
 	'review_bad_oldid' => 'Sellist sihtredaktsiooni pole.',
+	'review_not_flagged' => 'Sihtredaktsioon pole praegu ülevaadatuks märgitud.',
 	'review_too_low' => 'Jättes mõnele väljale väärtuse "ebarahuldav", ei saa redaktsiooni ülevaadatuks märkida.',
 	'review_denied' => 'Luba tagasi lükatud.',
 	'review_param_missing' => 'Parameeter puudub või on vigane.',
@@ -4773,7 +4775,6 @@ Palun kontrollige internetiaadressi, mille abil te seda leida püüdsite.',
 	'revreview-locked' => "'''Märkus:''' Sellel leheküljel peab muudatused enne lugejatele kuvamist [[{{MediaWiki:Validationpage}}|üle vaatama]].",
 	'revreview-unlocked' => "'''Märkus:''' Sellel leheküljel ei pea muudatusi enne lugejatele kuvamist [[{{MediaWiki:Validationpage}}|üle vaatama]].",
 	'log-show-hide-review' => '$1 ülevaatamislogi',
-	'revreview-tt-review' => 'Lisa antud redaktsioonile see seisund',
 	'revreview-tt-flag' => 'Kiida see redaktsioon heaks, märkides selle kui "kord vaadatud"',
 	'revreview-tt-unflag' => 'Lükka see redaktsioon tagasi, märkides selle kui "kord vaatamata"',
 	'validationpage' => '{{ns:help}}:Lehekülgede ülevaatus',
@@ -10694,6 +10695,7 @@ $messages['mn'] = array(
 	'revreview-auto' => '（автоматаар）',
 	'revreview-log' => 'Тайлбар:',
 	'revreview-revnotfound' => 'Таны орохыг хүссэн хуудасны хуучин засвар олдсонгүй. Энэ хуудас руу явахад хэрэглэсэн URL-ээ шалгана уу.',
+	'revreview-filter-all' => 'бүгдийг',
 );
 
 /** Marathi (मराठी)
@@ -13088,6 +13090,7 @@ $messages['ro'] = array(
 	'revreview-accuracy-4' => 'Remarcabil',
 	'revreview-auto' => '(automat)',
 	'review_denied' => 'Permisiune refuzată.',
+	'review_param_missing' => 'Un parametru lipseşte sau este invalid.',
 	'revreview-current' => 'Modificări în așteptare',
 	'revreview-depth' => 'Profunzime',
 	'revreview-depth-0' => 'Neadecvat',
@@ -13097,6 +13100,7 @@ $messages['ro'] = array(
 	'revreview-depth-4' => 'Remarcabil',
 	'revreview-draft-title' => 'Această pagină afișează modificări în așteptarea recenziei',
 	'revreview-edit' => 'Modifică',
+	'revreview-check-flag-u' => 'Acceptă această pagină nerevizuită',
 	'revreview-check-flag-u-title' => 'Acceptă această versiune a paginii. Folosiţi asta doar dacă aţi văzut deja întreaga pagină.',
 	'revreview-check-flag-y' => 'Acceptă aceste schimbări',
 	'revreview-submitedit' => 'Trimite schimbările',
@@ -13139,12 +13143,14 @@ $messages['ro'] = array(
 	'revreview-lev-basic' => 'verificat',
 	'revreview-lev-quality' => 'calitate',
 	'revreview-lev-pristine' => 'primitiv',
+	'revreview-defaultfilter' => 'Versiunea implictă:',
 	'revreview-def-all' => 'oricare',
 	'revreview-def-draft' => 'ultimele',
 	'revreview-def-stable' => 'stabil',
 	'revreview-restriction-any' => 'oricare',
 	'revreview-restriction-none' => 'nimic',
 	'revreview-reviewlink' => 'modificări în așteptare',
+	'revreview-reviewlink-title' => 'Vezi diferenţele între modificările în curs',
 	'revreview-unreviewedpage' => 'pagină neverificată',
 	'tooltip-ca-current' => 'Vizualizaţi această pagină cu modificările în aşteptare',
 	'tooltip-ca-stable' => 'Vizualizați versiunea stabilă a acestei pagini',
@@ -13236,6 +13242,8 @@ Nuève [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} cangiaminde] 
 	'review_no_oldid' => 'Nisciune ID de revisione ha state specificate.',
 	'review_bad_oldid' => "'A versione de destinazzione non g'esiste.",
 	'review_not_flagged' => "'A versione de destinazione non g'è pe mò signate cumme reviste.",
+	'review_too_low' => '\'A revisione non ge pò essere reviste cu quacche cambe lassate "inadeguate".',
+	'review_bad_key' => "Inglusione invalide d'u parametre chiave.",
 	'review_denied' => 'Permesse vietate.',
 	'review_param_missing' => "'Nu parametre ha state zumbate o jè invalide.",
 	'revreview-current' => 'Cangiaminde pendende',
@@ -13830,10 +13838,13 @@ Abbàida pro praxere sa diretzione URL ki as impreadu pro lòmper a custa pàgin
 );
 
 /** Sicilian (Sicilianu)
+ * @author Aushulz
  * @author Tonyfroio
  */
 $messages['scn'] = array(
+	'revreview-edit' => 'Cancia',
 	'revreview-revnotfound' => "La virsioni pricidenti di st'artìculu c'hai addumannatu nun hà statu attruvata. Cuntrolla pi favuri la URL c'hai usatu p'accèdiri a sta pàggina.",
+	'revreview-restriction-none' => 'nuddu',
 );
 
 /** Scots (Scots) */
@@ -16062,9 +16073,11 @@ $messages['uk'] = array(
 	'review_no_oldid' => 'Незазначений ідентифікатор версії.',
 	'review_bad_oldid' => 'Немає такої цільової версії.',
 	'review_not_flagged' => 'Цільова версія сторінки зараз не позначена перевіреною.',
+	'review_too_low' => 'Версію не може бути рецензовано через невстановлені значення деяких полів.',
 	'review_bad_key' => 'неприпустимий ключ параметра включення.',
 	'review_denied' => 'Доступ заборонено.',
 	'review_param_missing' => 'Параметр не зазначено або зазначено невірно.',
+	'review_cannot_undo' => 'Не можна скасувати ці зміни, тому що подальші редагування, що очікують перевірки, змінили ці фрагменти.',
 	'revreview-current' => 'Нерецензовані зміни',
 	'revreview-depth' => 'Повнота',
 	'revreview-depth-0' => 'Не зазначена',
@@ -16077,8 +16090,11 @@ $messages['uk'] = array(
 	'revreview-editnotice' => "'''Ваші зміни будуть показані читачам, як тільки уповноважений користувач перевірить їх.
 ([[{{MediaWiki:Validationpage}}|допомога]])'''",
 	'revreview-check-flag-p' => 'Опублікувати поточні нерецензовані зміни',
+	'revreview-check-flag-p-title' => 'Підтвердити всі зміни, що в даний час очікують перевірки, разом з вашою власною зміною. Використовуйте тільки у випадку, якщо ви вже переглянули відмінності, внесені цими змінами.',
 	'revreview-check-flag-u' => 'Позначити цю сторінку перевіреною',
+	'revreview-check-flag-u-title' => 'Прийняти цю версію сторінки. Використовуйте тільки у випадку, якщо ви переглянули сторінку повністю.',
 	'revreview-check-flag-y' => 'Прийняти ці зміни',
+	'revreview-check-flag-y-title' => 'Підтвердити всі зміни, які ви зробили в цьому редагуванні.',
 	'revreview-submitedit' => 'Записати зміни',
 	'revreview-submitedit-title' => 'Надіслати ваші зміни на розгляд',
 	'revreview-edited' => "'''Ваші зміни будуть показані читачам, як тільки уповноважений користувач перевірить їх.
@@ -16141,19 +16157,24 @@ $messages['uk'] = array(
 	'revreview-submitting' => 'Надсилання...',
 	'revreview-submit-review' => 'Затвердити версію',
 	'revreview-submit-unreview' => 'Зняти затвердження версії',
+	'revreview-submit-reject' => 'Відхилити зміни',
 	'revreview-submit-reviewed' => 'Виконано. Затверджена!',
 	'revreview-submit-unreviewed' => 'Виконано. Не затверджена!',
 	'revreview-successful' => "'''Обрана версія [[:$1|$1]] успішно позначена. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} перегляд усіх стабільних версій])'''",
 	'revreview-successful2' => "'''Із обраної версії [[:$1|$1]] успішно знята позначка.'''",
 	'revreview-text' => "''[[{{MediaWiki:Validationpage}}|Перевірені версії]] — проконтрольовані версії сторінок, що використовуються для визначення опублікованої версії.''",
 	'revreview-toggle-title' => 'показати/приховати подробиці',
-	'revreview-toolow' => "'''Ви повинні встановити кожен з нижченаведених атрибутів у значення вище, ніж \"не затверджена\", відповідно до процедури позначення версії рецензованою.'''
+	'revreview-toolow' => "'''Ви повинні встановити кожен з атрибутів у значення вище, ніж \"недостатній\", відповідно до процедури позначення версії рецензованою.'''
 
-Щоб відкинути рецензію версії, встановіть ''усі'' поля у значення \"не затверджена\".
+Щоб зняти статус рецензування, натисніть \"зняти\".
 
 Будь ласка, натисніть кнопку «Назад» у браузері і спробуйте ще раз.",
 	'revreview-update' => "Будь ласка, [[{{MediaWiki:Validationpage}}|перевірте]] всі нерецензовані зміни ''(показані нижче)'', зроблені з моменту стабільної версії.
 Вам потрібно спочатку прийняти або скасувати ці редагування.",
+	'revreview-update-edited' => '<span class="flaggedrevs_important">Ваші зміни ще не включені до стабільної версії.</span> 
+
+Будь ласка, перевірте усі зміни, наведені нижче, щоб включити ваші редагування до стабільної версії. 
+Можливо, вам доведеться прийняти або "відмінити" редагування.',
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Ваші зміни ще не опубліковані. Є ще раніші зміни, які очікують перевірки.</span>
 
 Щоб включити ваші зміни, перевірте всі зміни, показані далі. Можливо, вам доведеться спершу переглянути редагування.',
@@ -16215,6 +16236,7 @@ $messages['uk'] = array(
 	'log-show-hide-review' => '$1 журнал перевірок',
 	'revreview-tt-flag' => 'Затвердити цю версію з позначенням її перевіреною',
 	'revreview-tt-unflag' => 'Зняти затвердження цієї версії шляхом позначення її як "неперевірена"',
+	'revreview-tt-reject' => 'Відхилити ці зміни шляхом їх скасування',
 	'validationpage' => '{{ns:help}}:Перевірка сторінки',
 );
 

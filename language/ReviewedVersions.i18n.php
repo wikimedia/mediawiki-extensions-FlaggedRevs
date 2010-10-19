@@ -978,6 +978,13 @@ $messages['sc'] = array(
 	'reviewedversions-page' => 'Nùmene pàgina:',
 );
 
+/** Sicilian (Sicilianu)
+ * @author Aushulz
+ */
+$messages['scn'] = array(
+	'reviewedversions-page' => 'Nnomu dâ pàggina:',
+);
+
 /** Slovak (Slovenčina)
  * @author Helix84
  */

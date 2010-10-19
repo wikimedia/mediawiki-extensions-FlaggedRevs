@@ -1670,6 +1670,14 @@ $messages['sc'] = array(
 	'validationstatistics-user' => 'Usuàriu',
 );
 
+/** Sicilian (Sicilianu)
+ * @author Aushulz
+ */
+$messages['scn'] = array(
+	'validationstatistics-total' => 'Pàggini',
+	'validationstatistics-user' => 'Utenti',
+);
+
 /** Sinhala (සිංහල)
  * @author බිඟුවා
  */
@@ -1932,6 +1940,8 @@ $messages['uk'] = array(
 
 Середня затримка для [[Special:OldReviewedPages|сторінок з неперевіреними правками]] становить '''$1'''.
 Ці сторінки вважаються застарілими, так само як це стосується синхронізованих сторінок, якщо відсутні правки для перевірки.",
+	'validationstatistics-revtime' => "Середній час очікування на рецензування для редагувань ''користувачів, що не увійшли до системи'' '''$1'''; медіана — '''$2'''. 
+$3",
 	'validationstatistics-table' => "Статистика рецензувань сторінок для кожного простору назв показана нижче, ''за виключенням'' сторінок перенаправлень.",
 	'validationstatistics-ns' => 'Простір назв',
 	'validationstatistics-total' => 'Сторінок',

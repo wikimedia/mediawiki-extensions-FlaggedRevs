@@ -2792,6 +2792,15 @@ $messages['sc'] = array(
 	'stabilization-otherreason' => 'Àteru motivu:',
 );
 
+/** Sicilian (Sicilianu)
+ * @author Aushulz
+ */
+$messages['scn'] = array(
+	'stabilization-page' => 'Nnomu dâ pàggina:',
+	'stabilization-comment' => 'Mutivu:',
+	'stabilization-otherreason' => 'Àutru mutivu:',
+);
+
 /** Slovak (Slovenčina)
  * @author Helix84
  */
