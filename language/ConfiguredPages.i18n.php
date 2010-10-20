@@ -619,6 +619,8 @@ $messages['ru'] = array(
  */
 $messages['rue'] = array(
 	'configuredpages-config' => 'Конфіґурація',
+	'configuredpages-def-draft' => 'остатня верзія',
+	'configuredpages-def-stable' => 'опублікована верзія',
 );
 
 /** Sardinian (Sardu)

@@ -2741,6 +2741,7 @@ $messages['ru'] = array(
  */
 $messages['rue'] = array(
 	'stabilization-page' => 'Назва сторінкы:',
+	'stabilization-submit' => 'Підтвердити',
 	'stabilization-comment' => 'Причіна:',
 	'stabilization-otherreason' => 'Інша причіна:',
 	'stabilization-expiry' => 'Кінчіть:',
