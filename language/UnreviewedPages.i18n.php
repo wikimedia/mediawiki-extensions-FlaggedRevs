@@ -1408,9 +1408,11 @@ $messages['rue'] = array(
 	'unreviewed-category' => 'Катеґорія:',
 	'unreviewed-diff' => 'перевірити',
 	'unreviewed-unwatched' => '(неслїдованы)',
+	'unreviewed-watched' => '({{PLURAL:$1|слїдує $1 актівный хоснователь|слїдують $1 актівны хоснователї|слїдує $1 актівных хоснователїв}})',
 	'unreviewed-viewing' => '(контролює ся)',
 	'unreviewed-hours' => '($1 {{PLURAL:$1|година|годины|годин}})',
 	'unreviewed-days' => '($1 {{PLURAL:$1|день|днї|днів}})',
+	'unreviewed-recent' => '(менше 1 годины)',
 );
 
 /** Yakut (Саха тыла)

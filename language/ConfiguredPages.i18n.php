@@ -268,6 +268,16 @@ Certains paramètres peuvent faire apparaître une version différente pour les 
 	'configuredpages-def-stable' => 'version publiée',
 );
 
+/** Franco-Provençal (Arpetan)
+ * @author ChrisPtDe
+ */
+$messages['frp'] = array(
+	'configuredpages-none' => 'Y at gins de pâge dens ceta lista.',
+	'configuredpages-config' => 'Configuracion',
+	'configuredpages-def-draft' => 'dèrriére vèrsion',
+	'configuredpages-def-stable' => 'vèrsion stâbla',
+);
+
 /** Galician (Galego)
  * @author Toliño
  */
@@ -618,6 +628,7 @@ $messages['ru'] = array(
  * @author Gazeb
  */
 $messages['rue'] = array(
+	'configuredpages-none' => 'У тім списку не суть жадны сторінкы.',
 	'configuredpages-config' => 'Конфіґурація',
 	'configuredpages-def-draft' => 'остатня верзія',
 	'configuredpages-def-stable' => 'опублікована верзія',
@@ -685,6 +696,15 @@ $messages['te'] = array(
 	'configuredpages-config' => 'స్వరూపణం',
 	'configuredpages-def-draft' => 'చిట్టచివరి కూర్పు',
 	'configuredpages-def-stable' => 'ప్రచురిత కూర్పు',
+);
+
+/** Turkmen (Türkmençe)
+ * @author Hanberke
+ */
+$messages['tk'] = array(
+	'configuredpages-config' => 'Konfigurasiýa',
+	'configuredpages-def-draft' => 'iň soňky wersiýa',
+	'configuredpages-def-stable' => 'durnukly wersiýa',
 );
 
 /** Tagalog (Tagalog)

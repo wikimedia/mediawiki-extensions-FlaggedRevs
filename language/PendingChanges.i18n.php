@@ -350,6 +350,7 @@ $messages['ca'] = array(
 
 /** Czech (Česky)
  * @author Danny B.
+ * @author Jkjk
  * @author Li-sung
  * @author Matěj Grabovský
  */
@@ -362,6 +363,7 @@ $messages['cs'] = array(
 	'pendingchanges-days' => '($1 {{plural:$1|den|dny|dní}})',
 	'pendingchanges-recent' => '(méně než 1 hodina)',
 	'pendingchanges-category' => 'Kategorie:',
+	'pendingchanges-onwatchlist' => 'Stránky na mém seznamu sledovaných stránek',
 	'pendingchanges-stable' => 'prohlédnuto',
 	'pendingchanges-diff' => 'posoudit',
 	'pendingchanges-size' => 'Maximální velikost změny (v bajtech):',
@@ -654,6 +656,7 @@ $messages['frp'] = array(
 	'pendingchanges-days' => '($1 jorn{{PLURAL:$1||s}})',
 	'pendingchanges-recent' => '(muens de yona hora)',
 	'pendingchanges-category' => 'Catègorie :',
+	'pendingchanges-onwatchlist' => 'Pâges dens ma lista de survelyence',
 	'pendingchanges-stable' => 'La vèrsion stâbla est cela per dèfôt',
 	'pendingchanges-diff' => 'revêre',
 	'pendingchanges-size' => 'Difèrence de talye la ples grôssa (en octèts) :',
@@ -1475,12 +1478,18 @@ $messages['ru'] = array(
  * @author Gazeb
  */
 $messages['rue'] = array(
+	'pendingchanges' => 'Сторінкы з нерецензованыма змінами',
+	'pendingchanges-legend' => 'Список перевіреных сторінок з неперевіреныма ревізіями',
 	'pendingchanges-hours' => '($1 {{PLURAL:$1|година|годины|годин}})',
 	'pendingchanges-days' => '($1 {{PLURAL:$1|день|днї|днів}})',
 	'pendingchanges-recent' => '(менше 1 годины)',
 	'pendingchanges-category' => 'Катеґорія:',
+	'pendingchanges-onwatchlist' => 'Сторінкы з мого списку слїдованых',
 	'pendingchanges-diff' => 'перевірити',
+	'pendingchanges-size' => 'Максімална зміна розміру в байтах:',
+	'pendingchanges-unwatched' => '(неслїдованы)',
 	'pendingchanges-watched' => '({{PLURAL:$1|слїдує $1 актівный хоснователь|слїдують $1 актівны хоснователї|слїдує $1 актівных хоснователїв}})',
+	'pendingchanges-viewing' => '(перевірює ся)',
 );
 
 /** Yakut (Саха тыла)

@@ -655,6 +655,7 @@ $messages['frp'] = array(
 	'validationstatistics-users' => "'''{{SITENAME}}''' at ora '''[[Special:ListUsers/editor|$1]]''' utilisator{{PLURAL:$1||s}} avouéc los drêts de [[{{MediaWiki:Validationpage}}|contributor]].
 
 Los contributors sont des utilisators ètablis que pôvont controlar les vèrsions de les pâges.",
+	'validationstatistics-lastupdate' => "''Cetes balyês ont étâ betâs a jorn lo $1 a $2.''",
 	'validationstatistics-table' => "Les statistiques de rèvision de les pâges por châque èspâço de noms sont montrâs ce-desot, ''mas pas'' les pâges de redirèccion.",
 	'validationstatistics-ns' => 'Èspâço de noms',
 	'validationstatistics-total' => 'Pâges',
@@ -1634,6 +1635,8 @@ $3",
  * @author Gazeb
  */
 $messages['rue'] = array(
+	'validationstatistics' => 'Штатістіка рецензовань сторінок',
+	'validationstatistics-ns' => 'Простор назв',
 	'validationstatistics-total' => 'Сторінкы',
 	'validationstatistics-stable' => 'Перевірены',
 	'validationstatistics-latest' => 'Сінхронізовано',

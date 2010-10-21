@@ -1053,6 +1053,17 @@ $messages['ru'] = array(
 	'reviewedpages-best' => 'наилучшая версия',
 );
 
+/** Rusyn (Русиньскый)
+ * @author Gazeb
+ */
+$messages['rue'] = array(
+	'reviewedpages' => 'Перевірены сторінкы',
+	'reviewedpages-leg' => 'Список сторінок, што были рецензованы',
+	'reviewedpages-none' => 'У тім списку не суть жадны сторінкы.',
+	'reviewedpages-all' => 'перевірены верзії',
+	'reviewedpages-best' => 'найлїпша верзія',
+);
+
 /** Yakut (Саха тыла)
  * @author HalanTul
  */

@@ -1191,8 +1191,14 @@ gins de configuracion possibla.',
 	'stabilization-def-short' => 'Per dèfôt',
 	'stabilization-def-short-0' => 'D’ora',
 	'stabilization-def-short-1' => 'Stâbla',
+	'stabilize_page_invalid' => 'Lo titro de la pâge ciba est fôx.',
+	'stabilize_page_notexists' => 'La pâge ciba ègziste pas.',
+	'stabilize_page_unreviewable' => 'La pâge ciba est pas dens un èspâço de noms que pôt étre revu.',
+	'stabilize_invalid_autoreview' => 'Rèstriccion de rèvision ôtomatica envalida.',
+	'stabilize_invalid_level' => 'Nivél de protèccion envalido.',
 	'stabilize_expiry_invalid' => 'Dâta d’èxpiracion envalida.',
 	'stabilize_expiry_old' => 'Cél temps d’èxpiracion est ja passâ.',
+	'stabilize_denied' => 'Pèrmission refusâ.',
 	'stabilize-expiring' => 'èxpire lo $1 (UTC)',
 	'stabilization-review' => 'Marcar la vèrsion d’ora coment controlâ',
 );
@@ -2740,8 +2746,13 @@ $messages['ru'] = array(
  * @author Gazeb
  */
 $messages['rue'] = array(
+	'stabilization' => 'Стабілізація сторінкы',
 	'stabilization-page' => 'Назва сторінкы:',
+	'stabilization-def2' => 'Послїдня ревізія',
+	'stabilization-restrict-none' => 'Без далшых обмеджінь',
 	'stabilization-submit' => 'Підтвердити',
+	'stabilization-notcontent' => 'Сторінка «[[:$1|$1]]» не може быти перевірена.
+Наставлїня не є можне.',
 	'stabilization-comment' => 'Причіна:',
 	'stabilization-otherreason' => 'Інша причіна:',
 	'stabilization-expiry' => 'Кінчіть:',
@@ -2749,6 +2760,9 @@ $messages['rue'] = array(
 	'stabilization-def-short' => 'Імпліцітне',
 	'stabilization-def-short-0' => 'Актуална',
 	'stabilization-def-short-1' => 'Публікована',
+	'stabilize_page_invalid' => 'Назва цілёвой сторінкы не є платна',
+	'stabilize_page_notexists' => 'Цілёвой сторінкы не є.',
+	'stabilize_denied' => 'Приступ забороненый.',
 	'stabilize-expiring' => 'кінчіть $1 (UTC)',
 );
 
@@ -3204,6 +3218,8 @@ Konfigurirlemek mümkin däl.',
 	'stabilization-def-short' => 'Gaýybana',
 	'stabilization-def-short-0' => 'Häzirki',
 	'stabilization-def-short-1' => 'Durnukly',
+	'stabilize_page_invalid' => 'Niýetlenilýän sahypa ady nädogry.',
+	'stabilize_page_notexists' => 'Niýetlenilýän sahypa ýok.',
 	'stabilize_expiry_invalid' => 'Nädogry gutaryş senesi.',
 	'stabilize_expiry_old' => 'Gutaryş möhleti eýýäm geçipdir.',
 	'stabilize-expiring' => 'gutarýar $1 (UTC)',

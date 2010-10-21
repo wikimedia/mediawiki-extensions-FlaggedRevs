@@ -956,7 +956,11 @@ $messages['ru'] = array(
  * @author Gazeb
  */
 $messages['rue'] = array(
+	'reviewedversions' => 'Рецензованы верзії',
+	'reviewedversions-leg1' => 'Список перевіреных ревізій сторінкы',
 	'reviewedversions-page' => 'Назва сторінкы:',
+	'reviewedversions-none' => '«[[:$1]]» не має перевіреных ревізій.',
+	'reviewedversions-review' => 'Перевірена <i>$1</i> хоснователём $2',
 );
 
 /** Yakut (Саха тыла)
