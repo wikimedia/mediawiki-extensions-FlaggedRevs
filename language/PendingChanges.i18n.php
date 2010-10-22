@@ -143,6 +143,13 @@ $messages['ar'] = array(
 	'pendingchanges-viewing' => '(تحت المراجعة)',
 );
 
+/** Aramaic (ܐܪܡܝܐ)
+ * @author Basharh
+ */
+$messages['arc'] = array(
+	'pendingchanges-category' => 'ܣܕܪܐ:',
+);
+
 /** Egyptian Spoken Arabic (مصرى)
  * @author Dudi
  * @author Meno25
@@ -1530,7 +1537,8 @@ $messages['sk'] = array(
 	'pendingchanges-days' => '($1 {{PLURAL:$1|deň|dni|dní}})',
 	'pendingchanges-recent' => '(menej ako 1 hodina)',
 	'pendingchanges-category' => 'Kategória:',
-	'pendingchanges-stable' => 'videná',
+	'pendingchanges-onwatchlist' => 'Stránky v mojom zozname sledovaných',
+	'pendingchanges-stable' => 'Stabilná verzia je predvolená',
 	'pendingchanges-diff' => 'skontrolovať',
 	'pendingchanges-size' => 'Max. veľkosť zmeny v bajtoch:',
 	'pendingchanges-unwatched' => '(nesledovaná)',
@@ -1688,6 +1696,7 @@ $messages['tk'] = array(
 	'pendingchanges-days' => '($1 {{PLURAL:$1|gün|gün}})',
 	'pendingchanges-recent' => '(1 sagatdan az)',
 	'pendingchanges-category' => 'Kategoriýa:',
+	'pendingchanges-onwatchlist' => 'Gözegçilik sanawymdaky sahypalar',
 	'pendingchanges-stable' => 'Durnuklaşdyryldy',
 	'pendingchanges-diff' => 'gözden geçir',
 	'pendingchanges-size' => 'Maksimum üýtgeşme (baýt):',

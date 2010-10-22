@@ -650,7 +650,7 @@ $messages['sc'] = array(
  * @author Helix84
  */
 $messages['sk'] = array(
-	'problemchanges' => 'Skontrolovať označené zmeny',
+	'problemchanges' => 'Označené čakajúce zmeny',
 	'problemchanges-legend' => 'Vypísať zoznam stránok s označenými úpravami čakajúcimi na kontrolu',
 	'problemchanges-none' => 'Momentálne neexistujú žiadne stránky zodpovedajúce týmto požiadavkám',
 	'problemchanges-category' => 'Kategória:',

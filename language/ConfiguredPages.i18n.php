@@ -45,6 +45,13 @@ $messages['ar'] = array(
 	'configuredpages-def-stable' => 'نسخة مستقرة',
 );
 
+/** Aramaic (ܐܪܡܝܐ)
+ * @author Basharh
+ */
+$messages['arc'] = array(
+	'configuredpages-def-draft' => 'ܨܚܚܐ ܚܕܬ ܡܢ ܟܠ',
+);
+
 /** Belarusian (Беларуская)
  * @author Yury Tarasievich
  * @author Хомелка
@@ -646,6 +653,12 @@ $messages['sc'] = array(
  */
 $messages['sk'] = array(
 	'configuredpages' => 'Stránky s nastavením kontroly',
+	'configuredpages-list' => 'Nižšie je zoznam stránok nakonfigurovaných tak, aby mali odlišné nastavenia schválenia ako je predvolený jazyk webu. 
+Niektoré nastavenia môžu meniť verziu, ktorá je zobrazená pre čitateľa, alebo ďalej obmedziť, kto môže vykonávať úpravy, ktoré nevyžadujú kontrolu.',
+	'configuredpages-none' => 'V tomto zozname sa nenachádzajú žiadne stránky.',
+	'configuredpages-config' => 'Konfigurácia',
+	'configuredpages-def-draft' => 'najnovšia verzia',
+	'configuredpages-def-stable' => 'stabilná verzia',
 );
 
 /** Serbian Cyrillic ekavian (Српски (ћирилица))

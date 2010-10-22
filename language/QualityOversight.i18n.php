@@ -530,7 +530,7 @@ $messages['ru'] = array(
  * @author Helix84
  */
 $messages['sk'] = array(
-	'qualityoversight' => 'kvalitný dozor',
+	'qualityoversight' => 'Pokročilý záznam kontrol',
 	'qualityoversight-list' => 'Táto stránka obsahuje zoznam všetkých posledných schválení kvalitných verzií ako aj zavrhnutí revízií.',
 	'qualityoversight-legend' => 'Hľadať v posledných záznamoch kontrol',
 );
