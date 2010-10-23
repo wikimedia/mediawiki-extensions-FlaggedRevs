@@ -177,6 +177,10 @@ class ApiStabilizeGeneral extends ApiStabilize {
 	protected function getExamples() {
 		return 'api.php?action=stabilize&title=Test&default=stable&reason=Test&token=123ABC';
 	}
+
+	public function getVersion() {
+		return __CLASS__ . ': $Id$';
+ 	}
 }
 
 // Assumes $wgFlaggedRevsProtection is on
@@ -259,4 +263,8 @@ class ApiStabilizeProtect extends ApiStabilize {
 	protected function getExamples() {
 		return 'api.php?action=stabilize&title=Test&protectlevel=none&reason=Test&token=123ABC';
 	}
+
+	public function getVersion() {
+		return __CLASS__ . ': $Id$';
+ 	}
 }
