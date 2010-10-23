@@ -58,6 +58,10 @@ abstract class ApiStabilize extends ApiBase {
  		return true;
  	}
 
+	public function needsToken() {
+		return true;
+	}
+
 	public function getTokenSalt() {
 		return '';
 	}

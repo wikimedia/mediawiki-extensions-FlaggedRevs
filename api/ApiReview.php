@@ -196,8 +196,12 @@ class ApiReview extends ApiBase {
 			array( 'code' => 'syncfailure', 'info' => 'A sync failure has occured while reviewing. Please try again.' ),
 		) );
 	}
-	
-	public function getTokenSalt() {
+
+	public function needsToken() {
+		return true;
+	}
+
+    public function getTokenSalt() {
 		return '';
 	}
 
