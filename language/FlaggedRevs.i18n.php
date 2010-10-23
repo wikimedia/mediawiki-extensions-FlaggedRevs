@@ -1479,7 +1479,7 @@ $messages['ba'] = array(
 );
 
 /** Samogitian (Žemaitėška) */
-$messages['bat-smg'] = array(
+$messages['sgs'] = array(
 	'revreview-revnotfound' => 'Nuorima poslapė versėjė narasta. Patėkrėnkėt URL, katro patekuot i šėta poslapi.',
 );
 
