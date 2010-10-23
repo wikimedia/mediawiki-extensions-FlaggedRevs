@@ -129,7 +129,7 @@ class ApiReview extends ApiBase {
 					'permissiondenied' );
 			} else {
 				// FIXME: review_param_missing? better msg?
-				$this->dieUsage( array( 'unknownerror' ) );
+				$this->dieUsageMsg( array( 'unknownerror', '' ) );
 			}
 		}
 	}
