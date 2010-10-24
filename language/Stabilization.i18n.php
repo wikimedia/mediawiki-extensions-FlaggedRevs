@@ -257,6 +257,11 @@ $messages['ar'] = array(
  */
 $messages['arc'] = array(
 	'stabilization-page' => 'ܫܡܐ ܕܦܐܬܐ:',
+	'stabilization-submit' => 'ܚܬܬ',
+	'stabilization-comment' => 'ܥܠܬܐ:',
+	'stabilization-otherreason' => 'ܥܠܬܐ ܐܚܪܬܐ:',
+	'stabilization-othertime' => 'ܥܕܢܐ ܐܚܪܬܐ:',
+	'stabilization-def-short-0' => 'ܗܫܝܐ',
 );
 
 /** Egyptian Spoken Arabic (مصرى)
@@ -477,6 +482,7 @@ $messages['bg'] = array(
 	'stabilization-def-short-1' => 'Устойчива',
 	'stabilize_expiry_invalid' => 'Невалидна дата на изтичане.',
 	'stabilize_expiry_old' => 'Дата на изтичане вече е отминала.',
+	'stabilize_denied' => 'Достъпът е отказан.',
 	'stabilize-expiring' => 'изтича на $1 (UTC)',
 );
 
@@ -626,6 +632,7 @@ $messages['ckb'] = array(
 
 /** Czech (Česky)
  * @author Danny B.
+ * @author Jkjk
  * @author Li-sung
  * @author Matěj Grabovský
  * @author Mormegil
@@ -652,6 +659,11 @@ $messages['cs'] = array(
 	'stabilization-def-short' => 'Výchozí',
 	'stabilization-def-short-0' => 'současná',
 	'stabilization-def-short-1' => 'Stabilní',
+	'stabilize_page_invalid' => 'Cílová stránka je neplatná.',
+	'stabilize_page_notexists' => 'Cílová stránka neexistuje.',
+	'stabilize_page_unreviewable' => 'Cílová stránka není v posuzovatelném jmenném prostoru.',
+	'stabilize_invalid_autoreview' => 'Nesprávné omezení automatického posuzování.',
+	'stabilize_invalid_level' => 'Neplatná úroveň ochrany.',
 	'stabilize_expiry_invalid' => 'Datum vypršení je chybné.',
 	'stabilize_expiry_old' => 'Čas vypršení již minul.',
 	'stabilize_denied' => 'Přístup odmítnut.',
@@ -2841,22 +2853,54 @@ $messages['sk'] = array(
 	'stabilization-def-short' => 'štandard',
 	'stabilization-def-short-0' => 'aktuálna',
 	'stabilization-def-short-1' => 'stabilná',
+	'stabilize_page_invalid' => 'Názov cieľovej stránky nie je platný.',
+	'stabilize_page_notexists' => 'Cieľová stránka neexistuje.',
+	'stabilize_page_unreviewable' => 'Cieľová stránka nie je v mennom priestore, v ktorom možno kontrolovať.',
+	'stabilize_invalid_autoreview' => 'Neplatné obmedzenie automatickej kontroly.',
+	'stabilize_invalid_level' => 'Neplatná úroveň ochrany.',
 	'stabilize_expiry_invalid' => 'Neplatný dátum vypršania.',
 	'stabilize_expiry_old' => 'Čas vypršania už prešiel.',
+	'stabilize_denied' => 'Nedostatočné oprávnenie.',
 	'stabilize-expiring' => 'vyprší $1 (UTC)',
-	'stabilization-review' => 'Skontrolovať aktuálnu verziu',
+	'stabilization-review' => 'Označiť aktuálnu revíziu ako skontrolovanú',
 );
 
 /** Slovenian (Slovenščina)
  * @author Dbc334
  */
 $messages['sl'] = array(
+	'stabilization-tab' => 'redakcije',
+	'stabilization' => 'Ustaljevanje strani',
+	'stabilization-text' => "'''Spremenite spodnje nastavitve, da prilagodite, kako je ustaljena različica [[:$1|$1]] izbrana in prikazana.'''",
+	'stabilization-perm' => 'Vaš račun nima dovoljenja za spreminjanje nastavitev stabilne različice.
+Tukaj so trenutne nastavitve [[:$1|$1]]:',
 	'stabilization-page' => 'Naslov strani:',
+	'stabilization-leg' => 'Potrdi nastavitve ustaljene različice',
+	'stabilization-def' => 'Redakcija prikazana na privzetem pogledu strani',
+	'stabilization-def1' => 'Ustaljena različica; če ni prisotna, potem zadnja različica',
+	'stabilization-def2' => 'Zadnja redakcija',
+	'stabilization-restrict' => 'Omejitve pregledov/samodejnih pregledov',
+	'stabilization-restrict-none' => 'Brez dodatnih omejitev',
 	'stabilization-submit' => 'Potrdi',
+	'stabilization-notexists' => 'Stran »[[:$1|$1]]« ne obstaja.
+Nastavitev ni mogoča.',
+	'stabilization-notcontent' => 'Strani »[[:$1|$1]]« ni mogoče pregledati.
+Nastavitev ni mogoča.',
 	'stabilization-comment' => 'Razlog:',
 	'stabilization-otherreason' => 'Drug razlog:',
 	'stabilization-expiry' => 'Poteče:',
 	'stabilization-othertime' => 'Drugačen čas:',
+	'stabilization-def-short' => 'Privzeto',
+	'stabilization-def-short-0' => 'Trenutno',
+	'stabilization-def-short-1' => 'Stabilno',
+	'stabilize_page_invalid' => 'Naslov ciljne strani ni veljaven.',
+	'stabilize_page_notexists' => 'Ciljna stran ne obstaja.',
+	'stabilize_page_unreviewable' => 'Ciljna stran ni v imenskem prostoru, ki omogoča preglede.',
+	'stabilize_invalid_autoreview' => 'Neveljavna omejitev samodejnih pregledov.',
+	'stabilize_invalid_level' => 'Neveljavna raven zaščite.',
+	'stabilize_expiry_invalid' => 'Neveljaven datum poteka.',
+	'stabilize_expiry_old' => 'Ta čas poteka je že minil.',
+	'stabilize_denied' => 'Dovoljenje je zavrnjeno.',
 	'stabilize-expiring' => 'poteče $1 (UTC)',
 	'stabilization-review' => 'Označi trenutno redakcijo kot pregledano',
 );

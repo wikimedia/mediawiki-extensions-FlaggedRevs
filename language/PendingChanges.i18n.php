@@ -147,6 +147,7 @@ $messages['ar'] = array(
  * @author Basharh
  */
 $messages['arc'] = array(
+	'pendingchanges-recent' => '(ܒܨܝܪ ܡܢ ܚܕܐ ܫܥܬܐ)',
 	'pendingchanges-category' => 'ܣܕܪܐ:',
 );
 

@@ -110,6 +110,8 @@ $messages['ar'] = array(
 $messages['arc'] = array(
 	'validationstatistics-ns' => 'ܚܩܠܐ',
 	'validationstatistics-total' => 'ܦܐܬܬ̈ܐ',
+	'validationstatistics-user' => 'ܡܬܚܫܚܢܐ',
+	'validationstatistics-reviews' => 'ܬܢܝܬ̈ܐ',
 );
 
 /** Egyptian Spoken Arabic (مصرى)
@@ -299,12 +301,20 @@ $messages['ckb'] = array(
 );
 
 /** Czech (Česky)
+ * @author Jkjk
  * @author Kuvaly
  * @author Matěj Grabovský
  */
 $messages['cs'] = array(
 	'validationstatistics' => 'Statistiky ověřování',
 	'validationstatistics-users' => "'''{{SITENAME}}''' má práve teď '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|uživatele|uživatele|uživatelů}} s právy [[{{MediaWiki:Validationpage}}|editora]] a '''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$1|uživatele|uživatele|uživatelů}} s právy [[{{MediaWiki:Validationpage}}|posuzovatele]].",
+	'validationstatistics-lastupdate' => "''Následující údaje byly aktualizovány $1 $2.''",
+	'validationstatistics-pndtime' => "Editace, který byly zkontrolovány důvěryhodnými uživateli se považují za posouzené.
+
+Průměrné zpoždění [[Special:OldReviewedPages|stránek s čekajícími editacemi]] je '''$1'''.
+Tyto stránky jsou považovány za ''zastaralé''. Podobně stránky jsou považovány za ''synchronizované'', pokud nemají žádné čekající změny.",
+	'validationstatistics-revtime' => "Průměrná čekací doba editací od ''nepřihlášených uživatelů'' na posouzení je '''$1'''; medián je '''$2'''.
+$3",
 	'validationstatistics-table' => "Níže jsou zobrazeny statistiky pro každý jmenný prostor ''kromě'' přesměrování.",
 	'validationstatistics-ns' => 'Jmenný prostor',
 	'validationstatistics-total' => 'Stránky',
@@ -1695,6 +1705,12 @@ $messages['si'] = array(
 $messages['sk'] = array(
 	'validationstatistics' => 'Štatistiky overenia',
 	'validationstatistics-users' => "'''{{SITENAME}}''' má momentálne '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|používateľa|používateľov}} s právami [[{{MediaWiki:Validationpage}}|redaktor]] a '''[[Special:ListUsers/reviewer|$2]]'' {{PLURAL:$2|používateľa|používateľov}} s právami [[{{MediaWiki:Validationpage}}|kontrolór]].",
+	'validationstatistics-lastupdate' => "''Nasledujúce údaje boli naposledy aktualizované $1 $2.''",
+	'validationstatistics-pndtime' => "Úpravy, ktoré boli overené dôveryhodnými používateľmi sú považované za skontrolované.
+
+Priemerné čakanie na [[Special:OldReviewedPages|stránky s  čakajúcimi úpravami]] je '''$1'''.
+Tieto stránky sú považované za ''zastarané''. Podobne, stránky sú považované za ''synchronizované'', ak nie sú k dispozícii žiadne úpravy čakajúce na kontrolu.",
+	'validationstatistics-revtime' => "Priemerné čakanie na skontrolovanie úprav ''neprihlásených používateľov'' je '''$1''', medián je '''$2'''.",
 	'validationstatistics-table' => "Dolu sú zobrazené štatistiky pre každý menný priestor ''okrem'' presmerovacích stránok.",
 	'validationstatistics-ns' => 'Menný priestor',
 	'validationstatistics-total' => 'Stránky',
@@ -1712,6 +1728,17 @@ $messages['sk'] = array(
  */
 $messages['sl'] = array(
 	'validationstatistics' => 'Statistika pregledov strani',
+	'validationstatistics-users' => "'''{{SITENAME}}''' ima trenutno '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|uporabnika|uporabnika|uporabnike|uporabnikov}} s pravicami [[{{MediaWiki:Validationpage}}|Urednika]].
+
+Uredniki so uveljavljeni uporabniki, ki lahko samodejno preverijo redakcije strani.",
+	'validationstatistics-lastupdate' => "''Sledeči podatki so bili nazadnje posodobljeni dne $1 ob $2.''",
+	'validationstatistics-pndtime' => "Urejanja, ki so jih preverili uveljavljeni uporabniki, se smatrajo kot pregledana.
+
+Povprečni zamik [[Special:OldReviewedPages|strani z nepregledanimi urejanji v teku]] je '''$1'''.
+Te strani se štejejo za ''zastarele''. Prav tako se strani štejejo za ''usklajene'', če nimajo urejanj, ki čakajo na pregled.",
+	'validationstatistics-revtime' => "Povprečna čakalna doba pregleda urejanj ''uporabnikov, ki niso prijavljeni''', je '''$1'''; mediana je '''$2'''.
+$3",
+	'validationstatistics-table' => "Statistika pregleda strani za posamezni imenski prostor je prikazana spodaj, ''brez'' preusmeritvenih strani.",
 	'validationstatistics-ns' => 'Imenski prostor',
 	'validationstatistics-total' => 'Strani',
 	'validationstatistics-stable' => 'Pregledano',
@@ -1859,6 +1886,7 @@ $messages['tk'] = array(
 	'validationstatistics-users' => "'''{{SITENAME}}''' saýtynda häzirki wagtda [[{{MediaWiki:Validationpage}}|Redaktor]] hukugyna eýe '''[[Special:ListUsers/editor|$1]]''' sany {{PLURAL:$1|ulanyjy|ulanyjy}} hem-de [[{{MediaWiki:Validationpage}}|Gözden geçiriji]] hukugyna eýe '''[[Special:ListUsers/reviewer|$2]]''' sany {{PLURAL:$2|ulanyjy|ulanyjy}} bardyr.
 
 Redaktorlar we Gözden Geçirijiler sahypalara barlag wersiýasyny belläp bilýän kesgitli ulanyjylardyr.",
+	'validationstatistics-lastupdate' => '"Aşakdaky maglumat soňky gezek $1, $2 senesinde täzelendi"',
 	'validationstatistics-table' => "Her bir at giňişligi üçin statistikalar aşakda görkezilýär, gönükdirme sahypalary ''degişli däl''.",
 	'validationstatistics-ns' => 'At giňişligi',
 	'validationstatistics-total' => 'Sahypalar',

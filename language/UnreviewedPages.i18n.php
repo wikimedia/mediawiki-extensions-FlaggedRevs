@@ -116,6 +116,17 @@ $messages['ar'] = array(
 	'unreviewed-recent' => '(أقل من ساعة واحدة)',
 );
 
+/** Aramaic (ܐܪܡܝܐ)
+ * @author Basharh
+ */
+$messages['arc'] = array(
+	'unreviewed-category' => 'ܣܕܪܐ:',
+	'unreviewed-diff' => 'ܬܢܝ',
+	'unreviewed-hours' => '($1 {{PLURAL:$1|ܫܥܬܐ|ܫܥܬ̈ܐ}})',
+	'unreviewed-days' => '($1 {{PLURAL:$1|ܝܘܡܐ|ܝܘܡܬ̈ܐ}})',
+	'unreviewed-recent' => '(ܒܨܝܪ ܡܢ ܚܕܐ ܫܥܬܐ)',
+);
+
 /** Egyptian Spoken Arabic (مصرى)
  * @author Meno25
  * @author Ramsis II

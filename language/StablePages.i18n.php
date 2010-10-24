@@ -784,13 +784,19 @@ $messages['sk'] = array(
 	'stablepages-list' => 'Toto je zoznam stránok, ktoré boli ručne nastavené, aby sa ako ich štandardný obsah zobrazovala čitateľom stabilná verzia.',
 	'stablepages-none' => 'Tento zoznam neobsahuje žiadne stránky.',
 	'stablepages-config' => 'Nastavenie',
+	'stablepages-indef' => 'Vypršanie iba na dobu neurčitú',
 );
 
 /** Slovenian (Slovenščina)
  * @author Dbc334
  */
 $messages['sl'] = array(
+	'stablepages' => 'Strani, ki uporabljajo odobritev urejanj',
+	'stablepages-list' => 'Spodaj se nahaja seznam strani, katere lahko brez zahtevanega pregleda urejajo samo določeni uporabniki.
+Urejanja, ki jih naredijo ostali uporabniki, privzeto niso prikazana bralcem, dokler jih ne pregleda pooblaščen uporabnik.',
 	'stablepages-none' => 'Na tem seznamu ni strani.',
+	'stablepages-config' => 'Konfiguracija',
+	'stablepages-indef' => 'Samo neomejen potek',
 );
 
 /** Serbian Cyrillic ekavian (Српски (ћирилица))
