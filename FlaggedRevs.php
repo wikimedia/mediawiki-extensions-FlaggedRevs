@@ -255,7 +255,7 @@ $wgAvailableRights[] = 'movestable';
 $wgAvailableRights[] = 'stablesettings';
 
 # Bump this number every time you change flaggedrevs.css/flaggedrevs.js
-$wgFlaggedRevStyleVersion = 77;
+$wgFlaggedRevStyleVersion = '78';
 
 $wgExtensionFunctions[] = 'efLoadFlaggedRevs';
 
@@ -492,6 +492,10 @@ $wgHooks['UnitTestsList'][] = 'FlaggedRevsHooks::getUnitTests';
 
 # Database schema changes
 $wgHooks['LoadExtensionSchemaUpdates'][] = 'FlaggedRevsHooks::addSchemaUpdates';
+
+# Performance Don't show content on diff
+$wgHooks['ArticleContentOnDiff'][] = 'FlaggedRevsHooks::addCustomHtml';
+
 # ########
 
 function efSetFlaggedRevsConditionalHooks() {

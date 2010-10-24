@@ -164,9 +164,9 @@ class FlaggedArticleView {
 	 */
 	public function displayTag() {
 		global $wgOut;
-		$this->load();
+		$this->load();	
 		// Sanity check that this is a reviewable page
-		if ( $this->article->isReviewable() ) {
+		if ( $this->article->isReviewable() ) {		
 			$wgOut->appendSubtitle( $this->reviewNotice );
 		}
 		return true;
@@ -1810,5 +1810,20 @@ class FlaggedArticleView {
 			$data .= $this->reviewNotes;
 		}
 		return true;
+	}
+	
+	/*
+	 * If this is a diff page then replace the article contents with a link to the specific revision.
+	 * This will be replaced with artice content using javascript and an api call.
+	 */
+	public function addCustomHtml( OutputPage &$out ) {
+		global $wgTitle, $wgScript, $wgRequest;
+		$this->load();
+		if ( $wgRequest->getVal( 'oldid' ) ) {
+			$oldId = $wgRequest->getVal( 'oldid' );
+			$oldRevisionUrl = $wgScript . '?title=' . $wgTitle . '&oldid=' . $oldId;
+			$out->addHTML( "<div id='mw-fr-revisioncontents'>Click <a href='" . $oldRevisionUrl . "' >here</a> to view this revision.</div>" );
+		}
+		
 	}
 }

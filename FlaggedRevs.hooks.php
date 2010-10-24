@@ -53,15 +53,18 @@ class FlaggedRevsHooks {
 		if ( !$fa || !$fa->isReviewable() ) {
 			return true;
 		}
-		global $wgJsMimeType, $wgFlaggedRevStyleVersion;
+		global $wgJsMimeType, $wgFlaggedRevStyleVersion, $wgStylePath, $wgStyleVersion;
 		$stylePath = FlaggedRevs::styleUrlPath();
 		# Get JS/CSS file locations
 		$encCssFile = htmlspecialchars( "$stylePath/flaggedrevs.css?$wgFlaggedRevStyleVersion" );
 		$encJsFile = htmlspecialchars( "$stylePath/flaggedrevs.js?$wgFlaggedRevStyleVersion" );
+		
+		//TODO fix this to use the correct method
 		# Add CSS file
-		$wgOut->addExtensionStyle( $encCssFile );
+		//$wgOut->addExtensionStyle( $encCssFile );
 		# Add main JS file
 		$head = "<script type=\"{$wgJsMimeType}\" src=\"{$encJsFile}\"></script>";
+		$head .= "<link rel=\"stylesheet\" href=\"{$encCssFile}\"></link>";
 		# Add review form JS for reviewers
 		if ( $wgUser->isAllowed( 'review' ) ) {
 			$encJsFile = htmlspecialchars( "$stylePath/review.js?$wgFlaggedRevStyleVersion" );
@@ -108,6 +111,8 @@ class FlaggedRevsHooks {
 			$stableId = null;
 		}
 		$globalVars['wgStableRevisionId'] = $stableId;
+		$globalVars['wgLatestRevisionId'] = $fa->getLatest();
+		$globalVars['wgPageId'] = $fa->getID();
 		if ( $wgUser->isAllowed( 'review' ) ) {
 			$ajaxReview = (object) array(
 				'sendMsg'		 => wfMsgHtml( 'revreview-submit' ),
@@ -1804,6 +1809,20 @@ class FlaggedRevsHooks {
 		$view->setViewFlags( $diff, $oldRev, $newRev );
 		$view->addToDiffView( $diff, $oldRev, $newRev );
 		return true;
+	}
+	
+	/*
+	 * If an article is reviewable, get custom article contents from the FlaggedArticleView
+	 */
+	public static function addCustomHtml( $diffEngine, &$out ) {
+		$fa = FlaggedArticle::getTitleInstance( $out->getTitle() );
+		if ( !$fa->isReviewable() ) {
+			return true; // nothing to do
+		}
+		
+		$view = FlaggedArticleView::singleton();
+		$view->addCustomHtml( $out );
+		return false;
 	}
 
 	public static function addRevisionIDField( $editPage, $out ) {
