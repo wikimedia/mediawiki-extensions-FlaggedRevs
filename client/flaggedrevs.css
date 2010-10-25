@@ -289,13 +289,6 @@ span.fr-under-review {
 	margin-right: 1.5em;
 }
 
-#mw-fr-submit-unaccept {
-	color: darkblue;
-}
-#mw-fr-submit-reject {
-	color: darkred;
-}
-
 .fr-rating-option-0 {
 	background-color: #f5ecec;
 }
