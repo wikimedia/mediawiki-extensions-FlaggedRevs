@@ -262,9 +262,6 @@ $wgExtensionFunctions[] = 'efLoadFlaggedRevs';
 $dir = dirname( __FILE__ ) . '/';
 $langDir = $dir . 'language/';
 
-$wgSvgGraphDir = $dir . 'svggraph';
-$wgPHPlotDir = $dir . 'phplot-5.0.5';
-
 $wgAutoloadClasses['FlaggedRevs'] = $dir . 'FlaggedRevs.class.php';
 $wgAutoloadClasses['FRUserCounters'] = $dir . 'FRUserCounters.php';
 $wgAutoloadClasses['FRInclusionManager'] = $dir . 'FRInclusionManager.php';
