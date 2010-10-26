@@ -556,29 +556,29 @@ class FlaggedRevision {
 			$db = ( $flags & FR_MASTER ) ?
 				wfGetDB( DB_MASTER ) : wfGetDB( DB_SLAVE );
 			$res = $db->select(
-                array( 'flaggedimages', 'page', 'flaggedpages', 'flaggedrevs' ),
-                array( 'fi_name', 'fr_img_timestamp', 'fr_img_sha1' ),
+				array( 'flaggedimages', 'page', 'flaggedpages', 'flaggedrevs' ),
+				array( 'fi_name', 'fr_img_timestamp', 'fr_img_sha1' ),
 				array( 'fi_rev_id' => $this->getRevId() ),
 				__METHOD__,
-                array(),
-                array(
-                    'page' 			=> array( 'LEFT JOIN',
-                        'page_namespace = ' . NS_FILE . ' AND page_title = fi_name' ),
-                    'flaggedpages' 	=> array( 'LEFT JOIN', 'fp_page_id = page_id' ),
-                    'flaggedrevs' 	=> array( 'LEFT JOIN',
-                        'fr_page_id = fp_page_id AND fr_rev_id = fp_stable' )
+				array(),
+				array(
+					'page' 			=> array( 'LEFT JOIN',
+					'page_namespace = ' . NS_FILE . ' AND page_title = fi_name' ),
+					'flaggedpages' 	=> array( 'LEFT JOIN', 'fp_page_id = page_id' ),
+					'flaggedrevs' 	=> array( 'LEFT JOIN',
+					'fr_page_id = fp_page_id AND fr_rev_id = fp_stable' )
                 )
 			);
 			foreach ( $res as $row ) {
-                $reviewedTS = '0';
-                $reviewedSha1 = '';
-                if ( $row->fr_img_timestamp ) {
-                    $reviewedTS = wfTimestamp( TS_MW, $row->fr_img_timestamp );
-                    $reviewedSha1 = strval( $row->fr_img_sha1 );
-                }
+				$reviewedTS = '0';
+				$reviewedSha1 = '';
+				if ( $row->fr_img_timestamp ) {
+					$reviewedTS = wfTimestamp( TS_MW, $row->fr_img_timestamp );
+					$reviewedSha1 = strval( $row->fr_img_sha1 );
+				}
 				$this->mStableFiles[$row->fi_name] = array();
-                $this->mStableFiles[$row->fi_name]['ts'] = $reviewedTS;
-                $this->mStableFiles[$row->fi_name]['sha1'] = $reviewedSha1;
+				$this->mStableFiles[$row->fi_name]['ts'] = $reviewedTS;
+				$this->mStableFiles[$row->fi_name]['sha1'] = $reviewedSha1;
 			}
 		}
 		return $this->mStableFiles;
