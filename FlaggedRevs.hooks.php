@@ -226,7 +226,7 @@ class FlaggedRevsHooks {
 		);
 		# Update these rows
 		$revIDs = array();
-		while ( $row = $dbw->fetchObject( $result ) ) {
+		foreach( $result as $row ) {
 			$revIDs[] = $row->fr_rev_id;
 		}
 		if ( !empty( $revIDs ) ) {

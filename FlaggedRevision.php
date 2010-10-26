@@ -473,7 +473,7 @@ class FlaggedRevision {
 				array( 'ft_rev_id' => $this->getRevId() ),
 				__METHOD__
 			);
-			while ( $row = $res->fetchObject() ) {
+			foreach( $res as $row ) {
 				if ( !isset( $this->mTemplates[$row->ft_namespace] ) ) {
 					$this->mTemplates[$row->ft_namespace] = array();
 				}
@@ -499,7 +499,7 @@ class FlaggedRevision {
 				array( 'fi_rev_id' => $this->getRevId() ),
 				__METHOD__
 			);
-			while ( $row = $res->fetchObject() ) {
+			foreach( $res as $row ) {
                 $reviewedTS = trim( $row->fi_img_timestamp ); // may be ''/NULL
                 $reviewedTS = $reviewedTS ? wfTimestamp( TS_MW, $reviewedTS ) : '0';
 				$this->mFiles[$row->fi_name] = array();
@@ -533,7 +533,7 @@ class FlaggedRevision {
                     'flaggedpages' => array( 'LEFT JOIN', 'fp_page_id = page_id' )
                 )
 			);
-			while ( $row = $res->fetchObject() ) {
+			foreach( $res as $row ) {
 				if ( !isset( $this->mStableTemplates[$row->ft_namespace] ) ) {
 					$this->mStableTemplates[$row->ft_namespace] = array();
 				}
@@ -626,7 +626,7 @@ class FlaggedRevision {
 			)
 		);
 		$tmpChanges = array();
-		while ( $row = $dbr->fetchObject( $ret ) ) {
+		foreach( $ret as $row ) {
 			$title = Title::makeTitleSafe( $row->tl_namespace, $row->tl_title );
 			$revIdDraft = (int)$row->page_latest; // may be NULL
 			if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_STABLE ) {
@@ -689,7 +689,7 @@ class FlaggedRevision {
             )
 		);
 		$fileChanges = array();
-		while ( $row = $dbr->fetchObject( $ret ) ) {
+		foreach( $ret as $row ) {
 			$title = Title::makeTitleSafe( NS_FILE, $row->il_to );
 			$reviewedTS = trim( $row->fi_img_timestamp ); // may be ''/NULL
             $reviewedTS = $reviewedTS ? wfTimestamp( TS_MW, $reviewedTS ) : null;

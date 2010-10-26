@@ -774,21 +774,21 @@ class RevisionReviewForm
 		$form .= Xml::closeElement( 'div' ) . "\n";
 
 		# Hidden params
-		$form .= Xml::hidden( 'title', $reviewTitle->getPrefixedText() ) . "\n";
-		$form .= Xml::hidden( 'target', $article->getTitle()->getPrefixedDBKey() ) . "\n";
-		$form .= Xml::hidden( 'refid', $refId ) . "\n";
-		$form .= Xml::hidden( 'oldid', $id ) . "\n";
-		$form .= Xml::hidden( 'action', 'submit' ) . "\n";
-		$form .= Xml::hidden( 'wpEditToken', $user->editToken() ) . "\n";
+		$form .= Html::hidden( 'title', $reviewTitle->getPrefixedText() ) . "\n";
+		$form .= Html::hidden( 'target', $article->getTitle()->getPrefixedDBKey() ) . "\n";
+		$form .= Html::hidden( 'refid', $refId ) . "\n";
+		$form .= Html::hidden( 'oldid', $id ) . "\n";
+		$form .= Html::hidden( 'action', 'submit' ) . "\n";
+		$form .= Html::hidden( 'wpEditToken', $user->editToken() ) . "\n";
 		# Add review parameters
-		$form .= Xml::hidden( 'templateParams', $templateParams ) . "\n";
-		$form .= Xml::hidden( 'imageParams', $imageParams ) . "\n";
-		$form .= Xml::hidden( 'fileVersion', $fileVersion ) . "\n";
+		$form .= Html::hidden( 'templateParams', $templateParams ) . "\n";
+		$form .= Html::hidden( 'imageParams', $imageParams ) . "\n";
+		$form .= Html::hidden( 'fileVersion', $fileVersion ) . "\n";
 		# Special token to discourage fiddling...
 		$checkCode = self::validationKey(
 			$templateParams, $imageParams, $fileVersion, $id
 		);
-		$form .= Xml::hidden( 'validatedParams', $checkCode ) . "\n";
+		$form .= Html::hidden( 'validatedParams', $checkCode ) . "\n";
 
 		$form .= Xml::closeElement( 'fieldset' );
 		$form .= Xml::closeElement( 'form' );

@@ -234,9 +234,9 @@ class Stabilization extends UnlistedSpecialPage
 						Xml::submitButton( wfMsg( 'stabilization-submit' ) ) .
 					'</td>
 				</tr>' . Xml::closeElement( 'table' ) .
-				Xml::hidden( 'title', $this->getTitle()->getPrefixedDBKey() ) .
-				Xml::hidden( 'page', $title->getPrefixedText() ) .
-				Xml::hidden( 'wpEditToken', $wgUser->editToken() );
+				Html::hidden( 'title', $this->getTitle()->getPrefixedDBKey() ) .
+				Html::hidden( 'page', $title->getPrefixedText() ) .
+				Html::hidden( 'wpEditToken', $wgUser->editToken() );
 		} else {
 			$s .= Xml::closeElement( 'table' );
 		}

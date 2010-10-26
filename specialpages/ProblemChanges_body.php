@@ -52,7 +52,7 @@ class ProblemChanges extends SpecialPage
 			$wgOut->addHTML(
 				"<form action=\"$action\" method=\"get\">\n" .
 				'<fieldset><legend>' . wfMsg( 'problemchanges-legend' ) . '</legend>' .
-				Xml::hidden( 'title', $this->getTitle()->getPrefixedDBKey() )
+				Html::hidden( 'title', $this->getTitle()->getPrefixedDBKey() )
 			);
 			$form =
 				( FlaggedRevs::qualityVersions()

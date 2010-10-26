@@ -63,7 +63,7 @@ abstract class FlaggedRevsApiHooks extends ApiQueryBase {
 		$res = $module->select( __METHOD__ );
 
 		// Add flagging data to result array
-		while ( $row = $db->fetchObject( $res ) ) {
+		foreach( $res as $row ) {
 			$index = $pageids[$row->fr_page_id][$row->fr_rev_id];
 			$data = array(
 				'user' => $row->user_name,

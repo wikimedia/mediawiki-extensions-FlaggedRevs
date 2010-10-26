@@ -57,7 +57,7 @@ class PendingChanges extends SpecialPage
 		$form =
 			"<form action=\"$action\" method=\"get\">\n" .
 			'<fieldset><legend>' . wfMsg( 'pendingchanges-legend' ) . '</legend>' .
-			Xml::hidden( 'title', $this->getTitle()->getPrefixedDBKey() );
+			Html::hidden( 'title', $this->getTitle()->getPrefixedDBKey() );
 
 		$items = array();
 		if ( count( FlaggedRevs::getReviewNamespaces() ) > 1 ) {

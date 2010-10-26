@@ -1755,8 +1755,8 @@ class FlaggedArticleView {
 	public function addRevisionIDField( EditPage $editPage, OutputPage $out ) {
 		$this->load();
 		$revId = self::getBaseRevId( $editPage );
-		$out->addHTML( "\n" . Xml::hidden( 'baseRevId', $revId ) );
-		$out->addHTML( "\n" . Xml::hidden( 'undidRev',
+		$out->addHTML( "\n" . Html::hidden( 'baseRevId', $revId ) );
+		$out->addHTML( "\n" . Html::hidden( 'undidRev',
 			empty( $editPage->undidRev ) ? 0 : $editPage->undidRev )
 		);
 		return true;

@@ -87,7 +87,7 @@ class FRDependencyUpdate {
 			__METHOD__
 		);
 		$arr = array();
-		while ( $row = $res->fetchObject() ) {
+		foreach( $res as $row ) {
 			if ( !isset( $arr[$row->ftr_namespace] ) ) {
 				$arr[$row->ftr_namespace] = array();
 			}
@@ -167,7 +167,7 @@ class FRDependencyUpdate {
 			__METHOD__
 		);
 		$arr = array();
-		while ( $row = $res->fetchObject() ) {
+		foreach( $res as $row ) {
 			if ( !isset( $arr[$row->pl_namespace] ) ) {
 				$arr[$row->pl_namespace] = array();
 			}
@@ -188,7 +188,7 @@ class FRDependencyUpdate {
 			__METHOD__
 		);
 		$arr = array();
-		while ( $row = $res->fetchObject() ) {
+		foreach( $res as $row ) {
 			if ( !isset( $arr[$row->tl_namespace] ) ) {
 				$arr[$row->tl_namespace] = array();
 			}
@@ -209,7 +209,7 @@ class FRDependencyUpdate {
 			__METHOD__
 		);
 		$arr = array();
-		while ( $row = $res->fetchObject() ) {
+		foreach( $res as $row ) {
 			$arr[$row->il_to] = 1;
 		}
 		return $arr;
@@ -227,7 +227,7 @@ class FRDependencyUpdate {
 			__METHOD__
 		);
 		$arr = array();
-		while ( $row = $res->fetchObject() ) {
+		foreach( $res as $row ) {
 			$arr[$row->cl_to] = $row->cl_sortkey;
 		}
 		return $arr;

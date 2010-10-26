@@ -1069,7 +1069,7 @@ class FlaggedRevs {
 			__METHOD__
 			// array( 'FOR UPDATE' )
 		);
-		while ( $row = $dbw->fetchObject( $ret ) ) {
+		foreach( $ret as $row ) {
 			// If FlaggedRevs got "turned off" for this page (due to not
 			// having the stable version as the default), then clear it
 			// from the tracking tables...
