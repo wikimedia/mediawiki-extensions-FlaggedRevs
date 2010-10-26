@@ -1006,14 +1006,11 @@ class RevisionReviewForm
 	 * or a string message key
 	 */
 	private function rejectConfirmationForm( Revision $oldRev, $newRev ) {
-		global $wgOut;
-
+		global $wgOut, $wgLang;
 		$thisPage = SpecialPage::getTitleFor( 'RevisionReview' );
 
-		$permaLink = $oldRev->getTitle()->getFullURL( 'oldid=' . $oldRev->getId() );
-		$wgOut->addWikiMsg( 'revreview-reject-text', $permaLink );
+		$wgOut->addHtml( '<div class="plainlinks">' );
 
-		$thisPage->skin = $this->user->getSkin();
 		$dbr = wfGetDB( DB_SLAVE );
 		$oldid = $dbr->addQuotes( $oldRev->getId() );
 		$res = $dbr->select( 'revision', 'rev_id',
@@ -1026,8 +1023,13 @@ class RevisionReviewForm
 			$ids[] = $r->rev_id;
 		}
 
-		$list = new RevDel_RevisionList( $thisPage, $oldRev->getTitle(), $ids );
+		// List of revisions being undone...
+		$wgOut->addWikiMsg( 'revreview-reject-text-list' );
 		$wgOut->addHtml( '<ul>' );
+		// FIXME: we need a generic revision list class
+		$spRevDelete = SpecialPage::getPage( 'RevisionReview' );
+		$spRevDelete->skin = $this->user->getSkin(); // XXX
+		$list = new RevDel_RevisionList( $spRevDelete, $oldRev->getTitle(), $ids );
 		for ( $list->reset(); $list->current(); $list->next() ) {
 			$item = $list->current();
 			if ( $item->canView() ) {
@@ -1035,6 +1037,17 @@ class RevisionReviewForm
 			}
 		}
 		$wgOut->addHtml( '</ul>' );
+		// Revision this will revert to (when reverting the top X revs)...
+		if ( $newRev->isCurrent() ) {
+			$permaLink = $oldRev->getTitle()->getFullURL( 'oldid=' . $oldRev->getId() );
+			$wgOut->addWikiMsg( 'revreview-reject-text-revto',
+				$permaLink, $wgLang->timeanddate( $oldRev->getTimestamp(), true ) );
+		}
+		$wgOut->addHtml( '</div>' );
+		
+		$defaultSummary = wfMsg( 'revreview-reject-default-summary',
+			$newRev->getUserText(), $oldRev->getId(), $oldRev->getUserText() );
+
 		$form = Html::openElement( 'form',
 			array( 'method' => 'POST', 'action' => $thisPage->getFullUrl() )
 		);
@@ -1045,10 +1058,6 @@ class RevisionReviewForm
 		$form .= Html::hidden( 'refid', $this->refid );
 		$form .= Html::hidden( 'target', $oldRev->getTitle()->getPrefixedDBKey() );
 		$form .= Html::hidden( 'wpEditToken', $this->user->editToken() );
-		$form .= "<br />";
-
-		$defaultSummary = wfMsg( 'revreview-reject-default-summary',
-			$newRev->getUserText(), $oldRev->getId(), $oldRev->getUserText() );
 		$form .= Xml::inputLabel( wfMsg( 'revreview-reject-summary' ), 'wpReason',
 			'wpReason', 120, $defaultSummary ) . "<br />";
 		$form .= Html::input( 'wpSubmit', wfMsg( 'revreview-reject-confirm' ), 'submit' );
