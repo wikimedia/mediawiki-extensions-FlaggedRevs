@@ -88,7 +88,7 @@ class FRInclusionManagerTest extends PHPUnit_Framework_TestCase {
 	public function testReviewedTemplateVersions() {
 		$im = FRInclusionManager::singleton();
 		$im->setReviewedVersions( self::$inputTemplates, self::$inputFiles );
-		foreach ( self::$reviewedOutputTemplates as $x => $triple ) {
+		foreach ( self::$reviewedOutputTemplates as $triple ) {
 			list($test,$ns,$dbKey,$expId) = $triple;
 			$title = Title::makeTitleSafe( $ns, $dbKey );
 			$actual = $im->getReviewedTemplateVersion( $title );
@@ -99,7 +99,7 @@ class FRInclusionManagerTest extends PHPUnit_Framework_TestCase {
 	public function testReviewedFileVersions() {
 		$im = FRInclusionManager::singleton();
 		$im->setReviewedVersions( self::$inputTemplates, self::$inputFiles );
-		foreach ( self::$reviewedOutputFiles as $x => $triple ) {
+		foreach ( self::$reviewedOutputFiles as $triple ) {
 			list($test,$dbKey,$expTS,$expSha1) = $triple;
 			$title = Title::makeTitleSafe( NS_FILE, $dbKey );
 			list($actualTS,$actualSha1) = $im->getReviewedFileVersion( $title );
@@ -112,7 +112,7 @@ class FRInclusionManagerTest extends PHPUnit_Framework_TestCase {
 		$im = FRInclusionManager::singleton();
 		$im->setReviewedVersions( array(), array() );
 		$im->setStableVersionCache( self::$inputTemplates, self::$inputFiles );
-		foreach ( self::$stableOutputTemplates as $x => $triple ) {
+		foreach ( self::$stableOutputTemplates as $triple ) {
 			list($test,$ns,$dbKey,$expId) = $triple;
 			$title = Title::makeTitleSafe( $ns, $dbKey );
 			$actual = $im->getStableTemplateVersion( $title );
@@ -124,7 +124,7 @@ class FRInclusionManagerTest extends PHPUnit_Framework_TestCase {
 		$im = FRInclusionManager::singleton();
 		$im->setReviewedVersions( array(), array() );
 		$im->setStableVersionCache( self::$inputTemplates, self::$inputFiles );
-		foreach ( self::$stableOutputFiles as $x => $triple ) {
+		foreach ( self::$stableOutputFiles as $triple ) {
 			list($test,$dbKey,$expTS,$expSha1) = $triple;
 			$title = Title::makeTitleSafe( NS_FILE, $dbKey );
 			list($actualTS,$actualSha1) = $im->getStableFileVersion( $title );

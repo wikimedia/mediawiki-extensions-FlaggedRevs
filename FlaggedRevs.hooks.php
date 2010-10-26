@@ -53,7 +53,7 @@ class FlaggedRevsHooks {
 		if ( !$fa || !$fa->isReviewable() ) {
 			return true;
 		}
-		global $wgJsMimeType, $wgFlaggedRevStyleVersion, $wgStylePath, $wgStyleVersion;
+		global $wgJsMimeType, $wgFlaggedRevStyleVersion;
 		$stylePath = FlaggedRevs::styleUrlPath();
 		# Get JS/CSS file locations
 		$encCssFile = htmlspecialchars( "$stylePath/flaggedrevs.css?$wgFlaggedRevStyleVersion" );
@@ -140,7 +140,7 @@ class FlaggedRevsHooks {
 		}
 		$spPages = array( 'UnreviewedPages', 'PendingChanges', 'ProblemChanges',
 			'Watchlist', 'Recentchanges', 'Contributions', 'Recentchangeslinked' );
-		foreach ( $spPages as $n => $key ) {
+		foreach ( $spPages as $key ) {
 			if ( $title->isSpecial( $key ) ) {
 				global $wgScriptPath, $wgFlaggedRevsStylePath, $wgFlaggedRevStyleVersion;
 				$stylePath = str_replace( '$wgScriptPath',
@@ -887,7 +887,6 @@ class FlaggedRevsHooks {
 		global $wgFlaggedRevsRCCrap;
 		if ( $wgFlaggedRevsRCCrap ) {
 			// Is this page in patrollable namespace?
-			$patrol = $record = false;
 			if ( FlaggedRevs::inPatrolNamespace( $rc->getTitle() ) ) {
 				# Bots and users with 'autopatrol' have edits to patrollable
 				# pages marked automatically on edit.

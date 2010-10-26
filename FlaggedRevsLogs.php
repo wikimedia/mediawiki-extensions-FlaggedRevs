@@ -35,7 +35,6 @@ class FlaggedRevsLogs {
 		if ( !$title ) {
 			return ''; // sanity check
 		}
-		$text = '';
 		if ( $skin ) {
 			$titleLink = $skin->link( $title, $title->getPrefixedText() );
 			$text = wfMsgHtml( "stable-logentry-{$action}", $titleLink );

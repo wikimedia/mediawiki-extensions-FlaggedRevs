@@ -67,7 +67,6 @@ class FRInclusionManager {
 	 * @return void
 	 */
 	public function stabilizeParserOutput( Title $title, FlaggedRevision $frev ) {
-		$tRevVersions = $fRevVersions = array(); // review time versions
 		$tStbVersions = $fStbVersions = array(); // stable versions
 		$tRevVersions = $frev->getTemplateVersions();
 		$fRevVersions = $frev->getFileVersions();

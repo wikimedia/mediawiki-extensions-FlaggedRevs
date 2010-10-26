@@ -46,7 +46,6 @@ function flag_to_semi_protect( $db, $reason ) {
 			$limit = $expiry = array();
 			$desc = array(); // for output
 			foreach ( $title->getRestrictionTypes() as $type ) {
-				$newLimit = $newExpiry = '';
 				# Get existing restrictions for this action
 				$oldLimit = $title->getRestrictions( $type ); // array
 				$oldExpiry = $title->getRestrictionExpiry( $type ); // MW_TS

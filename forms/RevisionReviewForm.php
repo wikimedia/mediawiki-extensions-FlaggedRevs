@@ -718,7 +718,6 @@ class RevisionReviewForm
 		}
 
 		# Get versions of templates/files used
-		$imageParams = $templateParams = $fileVersion = '';
 		if ( $getPOut ) {
 			$pOutput = false;
 			# Current version: try parser cache
@@ -804,14 +803,12 @@ class RevisionReviewForm
 	 * Generates a main tag inputs (checkboxes/radios/selects) for review form
 	 */
 	private static function ratingInputs( $user, $flags, $disabled, $reviewed ) {
-		$form = '';
 		# Get all available tags for this page/user
 		list( $labels, $minLevels ) = self::ratingFormTags( $user, $flags );
 		if ( $labels === false ) {
 			$disabled = true; // a tag is unsettable
 		}
 		$dimensions = FlaggedRevs::getDimensions();
-		$tags = array_keys( $dimensions );
 		# If there are no tags, make one checkbox to approve/unapprove
 		if ( FlaggedRevs::binaryFlagging() ) {
 			return '';

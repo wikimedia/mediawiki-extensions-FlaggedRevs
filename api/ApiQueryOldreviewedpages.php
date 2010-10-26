@@ -108,7 +108,6 @@ class ApiQueryOldreviewedpages extends ApiQueryGeneratorBase {
 
 		$data = array ();
 		$count = 0;
-		$db = $this->getDB();
 		foreach( $res as $row ) {
 			if ( ++$count > $limit ) {
 				// We've reached the one extra which shows that there are

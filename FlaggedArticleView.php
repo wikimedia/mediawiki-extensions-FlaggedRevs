@@ -620,7 +620,6 @@ class FlaggedArticleView {
 		$this->setReviewNotes( $srev );
 
 		# Get parsed stable version and output HTML
-		$redirHtml = '';
 		$parserOut = FlaggedRevs::getPageCache( $this->article, $wgUser );
 		if ( !$parserOut ) {
 			$text = $srev->getRevText();
@@ -867,7 +866,6 @@ class FlaggedArticleView {
 			return true;
 		}
 		$items = array();
-		$tag = $warning = $prot = '';
 		# Show stabilization log
 		$log = $this->stabilityLogNotice();
 		if ( $log ) $items[] = $log;
@@ -1474,7 +1472,6 @@ class FlaggedArticleView {
 	}
 
 	protected static function getDiffRevMsgAndClass( Revision $rev, $stableId ) {
-		$msg = '';
 		$tier = FlaggedRevs::getRevQuality( $rev->getPage(), $rev->getId() );
 		if ( $tier !== false ) {
 			$msg = $tier

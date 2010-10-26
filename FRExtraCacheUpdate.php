@@ -38,10 +38,11 @@ class FRExtraCacheUpdate {
 
 	protected function insertJobs( ResultWrapper $res ) {
 		$numRows = $res->numRows();
-		if ( !$numRows ) return; // sanity check
+		if ( !$numRows ) {
+			return; // sanity check
+		}
 		$numBatches = ceil( $numRows / $this->mRowsPerJob );
 		$realBatchSize = ceil( $numRows / $numBatches );
-		$start = false;
 		$jobs = array();
 		do {
 			$first = $last = false; // first/last page_id of this batch
