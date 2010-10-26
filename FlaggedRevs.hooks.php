@@ -1274,7 +1274,7 @@ class FlaggedRevsHooks {
 				array( 'USE INDEX' => 'rc_ip' ) );
 			if ( $shared ) {
 				# Make a key to store the results
-				$wgMemc->set( $key, 'true', 3600 * 24 * 7 );
+				$wgMemc->set( $sTestKey, 'true', 3600 * 24 * 7 );
 				return true;
 			}
 		}
