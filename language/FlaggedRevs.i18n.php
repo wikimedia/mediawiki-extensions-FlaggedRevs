@@ -249,6 +249,13 @@ Please check the URL you used to access this page.',
 	'revreview-restriction-any'    => 'any',
 	'revreview-restriction-none'   => 'none',
 
+	'revreview-reject-header'      => 'Reject changes for $1',
+	'revreview-reject-text'        => 'By completing this action, you will be \'\'\'rejecting\'\'\' the following changes. This will revert the article back to this [$1 older revision]',
+	'revreview-reject-summary'     => 'Edit summary:',
+	'revreview-reject-confirm'     => 'Reject these changes',
+	'revreview-reject-cancel'      => 'Cancel',
+	'revreview-reject-default-summary' => 'Rejecting changes by [[User:$1|$1]] to version $2 by [[User:$3|$3]]',
+
 	'revreview-reviewlink'         => 'pending edits',
 	'revreview-reviewlink-title'   => 'View diff of all pending changes',
 	'revreview-unreviewedpage'     => 'unchecked page',

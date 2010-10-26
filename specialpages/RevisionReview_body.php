@@ -46,6 +46,7 @@ class RevisionReview extends UnlistedSpecialPage
 		$form->setApprove( $wgRequest->getCheck( 'wpApprove' ) );
 		$form->setUnapprove( $wgRequest->getCheck( 'wpUnapprove' ) );
 		$form->setReject( $wgRequest->getCheck( 'wpReject' ) );
+		$form->setRejectConfirm( $wgRequest->getBool( 'wpRejectConfirm' ) );
 		# Rev ID
 		$form->setOldId( $wgRequest->getInt( 'oldid' ) );
 		$form->setRefId( $wgRequest->getInt( 'refid' ) );
@@ -104,7 +105,9 @@ class RevisionReview extends UnlistedSpecialPage
 				} elseif ( $form->getAction() === 'reject' ) {
 					$wgOut->redirect( $this->page->getFullUrl() );
 				}
-			// Failure for flagging or unflagging
+			} elseif( $status === false ) {
+				// Reject confirmation screen. HACKY :(
+				return;
 			} else {
 				if ( $status === 'review_denied' ) {
 					$wgOut->permissionRequired( 'badaccess-group0' ); // protected?

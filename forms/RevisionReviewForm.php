@@ -18,6 +18,7 @@ class RevisionReviewForm
 	protected $approve = false;
 	protected $unapprove = false;
 	protected $reject = false;
+	protected $rejectConfirm = false;
 	protected $oldid = 0;
 	protected $refid = 0;
 	protected $templateParams = '';
@@ -61,6 +62,10 @@ class RevisionReviewForm
 
 	public function setReject( $value ) {
 		$this->trySet( $this->reject, $value );
+	}
+
+	public function setRejectConfirm( $value ) {
+		$this->trySet( $this->rejectConfirm, $value );
 	}
 
 	public function getRefId() {
@@ -312,6 +317,11 @@ class RevisionReviewForm
 		} elseif ( $this->getAction() === 'reject' ) {
 			$newRev = Revision::newFromTitle( $this->page, $this->oldid );
 			$oldRev = Revision::newFromTitle( $this->page, $this->refid );
+
+			if( !$this->rejectConfirm ) {
+				$this->rejectConfirmationForm( $oldRev, $newRev );
+				return false;
+			}
 			# Do not mess with archived/deleted revisions
 			if ( is_null( $oldRev ) || $oldRev->mDeleted ) {
 				return 'review_bad_oldid';
@@ -986,6 +996,64 @@ class RevisionReviewForm
 			$form .= $this->getSpecialLinks();
 		}
 		return $form;
+	}
+
+	/**
+	 * Output the "are you sure you want to reject this" form
+	 *
+	 * A bit hacky, but we don't have a way to pass more complicated
+	 * UI things back up, since RevisionReview expects either true
+	 * or a string message key
+	 */
+	private function rejectConfirmationForm( Revision $oldRev, $newRev ) {
+		global $wgOut;
+
+		$thisPage = SpecialPage::getTitleFor( 'RevisionReview' );
+
+		$permaLink = $oldRev->getTitle()->getFullURL( 'oldid=' . $oldRev->getId() );
+		$wgOut->addWikiMsg( 'revreview-reject-text', $permaLink );
+
+		$thisPage->skin = $this->user->getSkin();
+		$dbr = wfGetDB( DB_SLAVE );
+		$oldid = $dbr->addQuotes( $oldRev->getId() );
+		$res = $dbr->select( 'revision', 'rev_id',
+			array( 'rev_id > ' . $oldid, 'rev_page' => $oldRev->getPage() ),
+			__METHOD__
+		);
+
+		$ids = array();
+		foreach( $res as $r ) {
+			$ids[] = $r->rev_id;
+		}
+
+		$list = new RevDel_RevisionList( $thisPage, $oldRev->getTitle(), $ids );
+		for ( $list->reset(); $list->current(); $list->next() ) {
+			$item = $list->current();
+			if ( $item->canView() ) {
+				$wgOut->addHTML( $item->getHTML() );
+			}
+		}
+		$form = Html::openElement( 'form',
+			array( 'method' => 'POST', 'action' => $thisPage->getFullUrl() )
+		);
+		$form .= Html::hidden( 'action', 'reject' );
+		$form .= Html::hidden( 'wpReject', 1 );
+		$form .= Html::hidden( 'wpRejectConfirm', 1 );
+		$form .= Html::hidden( 'oldid', $this->oldid );
+		$form .= Html::hidden( 'refid', $this->refid );
+		$form .= Html::hidden( 'target', $oldRev->getTitle()->getPrefixedDBKey() );
+		$form .= Html::hidden( 'wpEditToken', $this->user->editToken() );
+		$form .= "<br />";
+
+		$defaultSummary = wfMsg( 'revreview-reject-default-summary',
+			$newRev->getUserText(), $oldRev->getId(), $oldRev->getUserText() );
+		$form .= Xml::inputLabel( wfMsg( 'revreview-reject-summary' ), 'wpReason',
+			'wpReason', 120, $defaultSummary ) . "<br />";
+		$form .= Html::input( 'wpSubmit', wfMsg( 'revreview-reject-confirm' ), 'submit' );
+		$form .= Html::input( 'wpCancel', wfMsg( 'revreview-reject-cancel' ), 
+			'button', array( 'onClick' => 'history.back();' ) );
+		$form .= Html::closeElement( 'form' );
+		$wgOut->addHtml( $form );
 	}
 
 	private function getSpecialLinks() {
