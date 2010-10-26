@@ -1027,12 +1027,14 @@ class RevisionReviewForm
 		}
 
 		$list = new RevDel_RevisionList( $thisPage, $oldRev->getTitle(), $ids );
+		$wgOut->addHtml( '<ul>' );
 		for ( $list->reset(); $list->current(); $list->next() ) {
 			$item = $list->current();
 			if ( $item->canView() ) {
 				$wgOut->addHTML( $item->getHTML() );
 			}
 		}
+		$wgOut->addHtml( '</ul>' );
 		$form = Html::openElement( 'form',
 			array( 'method' => 'POST', 'action' => $thisPage->getFullUrl() )
 		);
