@@ -68,7 +68,7 @@ class PHPlot {
     var $y_precision = 1;
     var $x_precision = 1;
 
-    var $data_units_text = '';              // Units text for 'data' labels (i.e: '¤', '$', etc.)
+    var $data_units_text = '';              // Units text for 'data' labels (i.e: 'ï¿½', '$', etc.)
 
 // Titles
     var $title_txt = '';
@@ -3296,7 +3296,7 @@ class PHPlot {
         } else if ($mode == 'centeredtile') {
             $x0 = - floor($tile_width/2);   // Make the tile look better
             $y0 = - floor($tile_height/2);
-        } else if ($mode = 'tile') {
+        } else if ($mode == 'tile') {
             $x0 = 0;
             $y0 = 0;
         }
