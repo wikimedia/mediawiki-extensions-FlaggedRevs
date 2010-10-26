@@ -184,7 +184,6 @@ function getAveReviewTimesAnons( $dbr, $dbCache ) {
 		if ( $rows < 500 ) {
 			$days = 90;
 			$minTSUnix = $maxTSUnix - $days*86400;
-			$encMinTS = $dbr->addQuotes( $dbr->timestamp( $minTSUnix ) );
 		}
 	}
 	$sampleSize = 1500; // sample size

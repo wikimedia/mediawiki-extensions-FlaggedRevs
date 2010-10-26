@@ -328,7 +328,7 @@ abstract class PageStabilityForm
 		# Insert a null revision...
 		$dbw = wfGetDB( DB_MASTER );
 		$nullRev = Revision::newNullRevision( $dbw, $article->getId(), $comment, true );
-		$nullRevId = $nullRev->insertOn( $dbw );
+		$nullRev->insertOn( $dbw );
 		# Update page record and touch page
 		$article->updateRevisionOn( $dbw, $nullRev, $latest );
 		wfRunHooks( 'NewRevisionFromEditComplete', array( $article, $nullRev, $latest ) );

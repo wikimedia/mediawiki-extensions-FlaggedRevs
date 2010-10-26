@@ -58,15 +58,15 @@ class FRUserCountersTest extends PHPUnit_Framework_TestCase {
 		$article = new Article( $title );
 
 		$copyP = $p;
-		$changed = FRUserCounters::updateUserParams( $copyP, $article, "Manual edit comment" );
+		FRUserCounters::updateUserParams( $copyP, $article, "Manual edit comment" );
 		$this->assertEquals( $p['editComments']+1, $copyP['editComments'], "Manual summary" );
 
 		$copyP = $p;
-		$changed = FRUserCounters::updateUserParams( $copyP, $article, "/* section */" );
+		FRUserCounters::updateUserParams( $copyP, $article, "/* section */" );
 		$this->assertEquals( $p['editComments'], $copyP['editComments'], "Auto summary" );
 
 		$copyP = $p;
-		$changed = FRUserCounters::updateUserParams( $copyP, $article, "edit summary" );
+		FRUserCounters::updateUserParams( $copyP, $article, "edit summary" );
 		$this->assertEquals( $p['totalContentEdits']+1, $copyP['totalContentEdits'],
 			"Content edit count on content edit" );
 		$expected = $p['uniqueContentPages'];
@@ -79,15 +79,15 @@ class FRUserCountersTest extends PHPUnit_Framework_TestCase {
 		$article = new Article( $title );
 
 		$copyP = $p;
-		$changed = FRUserCounters::updateUserParams( $copyP, $article, "Manual edit comment" );
+		FRUserCounters::updateUserParams( $copyP, $article, "Manual edit comment" );
 		$this->assertEquals( $p['editComments']+1, $copyP['editComments'], "Manual summary" );
 
 		$copyP = $p;
-		$changed = FRUserCounters::updateUserParams( $copyP, $article, "/* section */" );
+		FRUserCounters::updateUserParams( $copyP, $article, "/* section */" );
 		$this->assertEquals( $p['editComments'], $copyP['editComments'], "Auto summary" );
 
 		$copyP = $p;
-		$changed = FRUserCounters::updateUserParams( $copyP, $article, "edit summary" );
+		FRUserCounters::updateUserParams( $copyP, $article, "edit summary" );
 		$this->assertEquals( $p['totalContentEdits'], $copyP['totalContentEdits'],
 			"Content edit count on non-content edit" );
 		$this->assertEquals( $p['uniqueContentPages'], $copyP['uniqueContentPages'],

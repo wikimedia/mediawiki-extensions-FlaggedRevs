@@ -143,7 +143,7 @@ class RevisionReview extends UnlistedSpecialPage
 		$editToken = ''; // edit token
 		// Each ajax url argument is of the form param|val.
 		// This means that there is no ugly order dependance.
-		foreach ( $args as $x => $arg ) {
+		foreach ( $args as $arg ) {
 			$set = explode( '|', $arg, 2 );
 			if ( count( $set ) != 2 ) {
 				return '<err#>' . wfMsgExt( 'revreview-failed', 'parseinline' );

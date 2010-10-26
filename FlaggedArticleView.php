@@ -224,7 +224,7 @@ class FlaggedArticleView {
 	 * Adds a quick review form on the bottom if needed
 	 */
 	public function setPageContent( &$outputDone, &$useParserCache ) {
-		global $wgRequest, $wgOut, $wgLang, $wgContLang;
+		global $wgRequest, $wgOut, $wgContLang;
 		$this->load();
 		# Only trigger on article view for content pages, not for protect/delete/hist...
 		$action = $wgRequest->getVal( 'action', 'view' );
@@ -239,7 +239,7 @@ class FlaggedArticleView {
 			return true;
 		}
 		$simpleTag = $old = $stable = false;
-		$tag = $prot = '';
+		$tag = '';
 		# Check the newest stable version.
 		$srev = $this->article->getStableRev();
 		$stableId = $srev ? $srev->getRevId() : 0;
@@ -279,7 +279,6 @@ class FlaggedArticleView {
 			return true;
 		}
 		# Get flags and date
-		$time = $wgLang->date( $frev->getTimestamp(), true );
 		$flags = $frev->getTags();
 		# Get quality level
 		$quality = FlaggedRevs::isQuality( $flags );
@@ -384,7 +383,6 @@ class FlaggedArticleView {
 		$time = $wgLang->date( $srev->getTimestamp(), true );
 		# Get quality level
 		$quality = FlaggedRevs::isQuality( $flags );
-		$pristine = FlaggedRevs::isPristine( $flags );
 		# Get stable version sync status
 		$synced = $this->article->stableVersionIsSynced();
 		if ( $synced ) {
@@ -393,7 +391,6 @@ class FlaggedArticleView {
 			$this->maybeShowTopDiff( $srev, $quality ); // user may want diff (via prefs)
 		}
 		# If they are synced, do special styling
-		$simpleTag = !$synced;
 		# Give notice to newer users if an unreviewed edit was completed...
 		if ( $wgRequest->getVal( 'shownotice' )
 			&& $this->article->getUserText() == $wgUser->getName() // FIXME: rawUserText?
@@ -401,7 +398,6 @@ class FlaggedArticleView {
 			&& !$wgUser->isAllowed( 'review' ) )
 		{
 			$revsSince = $this->article->getPendingRevCount();
-			$tooltip = wfMsgHtml( 'revreview-draft-title' );
 			$pending = $prot;
 			if ( $this->showRatingIcon() ) {
 				$pending .= FlaggedRevsXML::draftStatusIcon();
@@ -493,7 +489,6 @@ class FlaggedArticleView {
 		$wgOut->setRevisionId( $frev->getRevId() );
 		# Get quality level
 		$quality = FlaggedRevs::isQuality( $flags );
-		$pristine = FlaggedRevs::isPristine( $flags );
 
 		# Construct some tagging for non-printable outputs. Note that the pending
 		# notice has all this info already, so don't do this if we added that already.
@@ -568,7 +563,6 @@ class FlaggedArticleView {
 		$wgOut->setRevisionId( $srev->getRevId() );
 		# Get quality level
 		$quality = FlaggedRevs::isQuality( $flags );
-		$pristine = FlaggedRevs::isPristine( $flags );
 
 		$synced = $this->article->stableVersionIsSynced();
 		# Construct some tagging
@@ -870,7 +864,6 @@ class FlaggedArticleView {
 		$log = $this->stabilityLogNotice();
 		if ( $log ) $items[] = $log;
 		# Check the newest stable version
-		$quality = 0;
 		$frev = $this->article->getStableRev();
 		if ( $frev ) {
 			$quality = $frev->getQuality();
@@ -1437,13 +1430,7 @@ class FlaggedArticleView {
 	*/
 	protected static function diffReviewMarkers( FlaggedArticle $article, $oldRev, $newRev ) {
 		$form = '';
-		$oldRevQ = $newRevQ = false;
-		if ( $oldRev ) {
-			$oldRevQ = FlaggedRevs::getRevQuality( $oldRev->getPage(), $oldRev->getId() );
-		}
-		if ( $newRev ) {
-			$newRevQ = FlaggedRevs::getRevQuality( $newRev->getPage(), $newRev->getId() );
-		}
+
 		$srev = $article->getStableRev();
 		$stableId = $srev ? $srev->getRevId() : 0;
 		# Diff between two revisions
@@ -1628,7 +1615,7 @@ class FlaggedArticleView {
 			return true; # PECL extension conflicts with the core DOM extension (see bug 13770)
 		} elseif ( isset( $buttons['save'] ) && extension_loaded( 'dom' ) ) {
 			$dom = new DOMDocument();
-			$result = $dom->loadXML( $buttons['save'] ); // load button XML from hook
+			$dom->loadXML( $buttons['save'] ); // load button XML from hook
 			foreach ( $dom->getElementsByTagName( 'input' ) as $input ) { // one <input>
 				$input->setAttribute( 'value', wfMsg( 'revreview-submitedit' ) );
 				$input->setAttribute( 'title', // keep accesskey
@@ -1662,7 +1649,6 @@ class FlaggedArticleView {
 	* @return bool
 	*/
 	protected function editRequiresReview( EditPage $editPage ) {
-		$title = $this->article->getTitle(); // convenience
 		if ( !$this->article->editsRequireReview() ) {
 			return false; // edits go live immediatly
 		} elseif ( $this->editWillBeAutoreviewed( $editPage ) ) {

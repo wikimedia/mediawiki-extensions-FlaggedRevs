@@ -186,14 +186,7 @@ class FlaggedRevsXML {
 			$level = isset( $flags[$quality] ) ? $flags[$quality] : 0;
 			$encValueText = wfMsgHtml( "revreview-$quality-$level" );
             $level = $flags[$quality];
-            $minlevel = FlaggedRevs::getMinQL( $quality );
-            if ( $level >= $minlevel ) {
-                $classmarker = 2;
-            } elseif ( $level > 0 ) {
-                $classmarker = 1;
-            } else {
-                $classmarker = 0;
-			}
+
             $levelmarker = $level * 20 + 20;
             if ( $prettyBox ) {
             	$tag .= "<tr><td class='fr-text' valign='middle'>" .

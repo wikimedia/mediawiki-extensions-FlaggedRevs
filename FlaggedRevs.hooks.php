@@ -483,7 +483,6 @@ class FlaggedRevsHooks {
 			if ( isset( $pOutput->fr_fileSHA1Keys[$filename] ) ) {
 				// Fetch file with $time to confirm the specified version exists
 				$time = $pOutput->fr_fileSHA1Keys[$filename]['ts'];
-				$sha1 = $pOutput->fr_fileSHA1Keys[$filename]['sha1'];
 			}
 			$title = Title::makeTitleSafe( NS_FILE, $filename );
 			$file = wfFindFile( $title, array( 'time' => $time ) );
@@ -1946,7 +1945,6 @@ class FlaggedRevsHooks {
 		$output .= Xml::closeElement( 'select' );
 		# Get expiry dropdown <select>...
 		$scExpiryOptions = wfMsgForContent( 'protect-expiry-options' );
-		$showProtectOptions = ( $scExpiryOptions !== '-' && $isAllowed );
 		# Add the current expiry as an option
 		$expiryFormOptions = '';
 		if ( $config['expiry'] != 'infinity' ) {

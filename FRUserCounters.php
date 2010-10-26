@@ -71,7 +71,7 @@ class FRUserCounters {
 	*/
 	public static function saveUserParams( $uid, array $params, $dBName = false ) {
 		$dbw = wfGetDB( DB_MASTER, array(), $dBName );
-		$row = $dbw->replace( 'flaggedrevs_promote',
+		$dbw->replace( 'flaggedrevs_promote',
 			array( 'frp_user_id' ),
 			array( 'frp_user_id' => $uid,
 				'frp_user_params' => self::flattenParams( $params ) ),
