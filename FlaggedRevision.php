@@ -569,7 +569,7 @@ class FlaggedRevision {
                         'fr_page_id = fp_page_id AND fr_rev_id = fp_stable' )
                 )
 			);
-			foreach ( $res as $row )
+			foreach ( $res as $row ) {
                 $reviewedTS = '0';
                 $reviewedSha1 = '';
                 if ( $row->fr_img_timestamp ) {
