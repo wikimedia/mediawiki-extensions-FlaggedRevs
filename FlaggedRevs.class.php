@@ -417,7 +417,6 @@ class FlaggedRevs {
 		# that the user is allowed to set...
 		foreach ( self::getDimensions() as $qal => $levels ) {
 			$level = isset( $flags[$qal] ) ? $flags[$qal] : 0;
-			$highest = count( $levels ) - 1; // highest valid level
 			if ( !self::userCanSetTag( $user, $qal, $level ) ) {
 				return false; // user cannot set proposed flag
 			} elseif ( isset( $oldflags[$qal] )
@@ -1180,8 +1179,10 @@ class FlaggedRevs {
 		{
 			case FR_PRISTINE:
 				$minLevels = self::$minPL;
+		        break;
 			case FR_QUALITY:
 				$minLevels = self::$minQL;
+		        break;
 			default:
 				$minLevels = self::$minSL;
 		}
