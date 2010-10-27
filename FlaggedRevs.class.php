@@ -1179,10 +1179,10 @@ class FlaggedRevs {
 		{
 			case FR_PRISTINE:
 				$minLevels = self::$minPL;
-		        break;
+				break;
 			case FR_QUALITY:
 				$minLevels = self::$minQL;
-		        break;
+				break;
 			default:
 				$minLevels = self::$minSL;
 		}
