@@ -1010,8 +1010,10 @@ class RevisionReviewForm
 
 		$dbr = wfGetDB( DB_SLAVE );
 		$oldid = $dbr->addQuotes( $oldRev->getId() );
+		$newid = $dbr->addQuotes( $newRev->getId() );
 		$res = $dbr->select( 'revision', 'rev_id',
-			array( 'rev_id > ' . $oldid, 'rev_page' => $oldRev->getPage() ),
+			array( 'rev_id > ' . $oldid, 'rev_id <= ' . $newid,
+				'rev_page' => $oldRev->getPage() ),
 			__METHOD__
 		);
 
