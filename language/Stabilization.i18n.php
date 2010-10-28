@@ -328,12 +328,13 @@ Esta ye la configuración de [[:$1|$1]]:',
 );
 
 /** Bashkir (Башҡорт)
+ * @author Assele
  * @author Haqmar
  */
 $messages['ba'] = array(
 	'stabilization-comment' => 'Сәбәп:',
 	'stabilization-otherreason' => 'Башҡа сәбәп:',
-	'stabilization-expiry' => 'Бөтә:',
+	'stabilization-expiry' => 'Тамамлана:',
 	'stabilization-othertime' => 'Башҡа ваҡыт:',
 	'stabilization-def-short' => 'Ғәҙәттәге',
 	'stabilization-def-short-0' => 'Хәҙерге',
