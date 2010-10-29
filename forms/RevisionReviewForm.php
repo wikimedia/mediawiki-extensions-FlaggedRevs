@@ -1047,7 +1047,7 @@ class RevisionReviewForm
 		$defaultSummary = wfMsg( 'revreview-reject-default-summary',
 			$newRev->getUserText(), $oldRev->getId(), $oldRev->getUserText() );
 
-		$form = Html::openElement( 'form',
+		$form = Xml::openElement( 'form',
 			array( 'method' => 'POST', 'action' => $thisPage->getFullUrl() )
 		);
 		$form .= Html::hidden( 'action', 'reject' );
@@ -1062,7 +1062,7 @@ class RevisionReviewForm
 		$form .= Html::input( 'wpSubmit', wfMsg( 'revreview-reject-confirm' ), 'submit' );
 		$form .= Html::input( 'wpCancel', wfMsg( 'revreview-reject-cancel' ), 
 			'button', array( 'onClick' => 'history.back();' ) );
-		$form .= Html::closeElement( 'form' );
+		$form .= Xml::closeElement( 'form' );
 		$wgOut->addHtml( $form );
 	}
 
