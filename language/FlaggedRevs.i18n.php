@@ -6777,7 +6777,7 @@ $messages['he'] = array(
 	'revreview-visibility2' => "'''לדף זה יש [[{{MediaWiki:Validationpage}}|גרסה יציבה]] מיושנת; ניתן [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} לשנות] את הגדרות היציבות של הדף.'''",
 	'revreview-visibility3' => "'''אין לדף זה [[{{MediaWiki:Validationpage}}|גרסה יציבה]]; ניתן [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} לשנות] את הגדרות היציבות של הדף.'''",
 	'revreview-revnotfound' => 'הגרסה הישנה של דף זה לא נמצאה. אנא בדקו את כתובת הקישור שהוביל אתכם הנה.',
-	'right-autoreview' => 'סימון אוטומטי של גרסאות שנערכו על ידי המשתמש עצמו כגרסאות ש"נצפו"',
+	'right-autoreview' => 'סימון אוטומטי של גרסאות שנערכו על ידי המשתמש עצמו כגרסאות ש"נבדקו"',
 	'right-movestable' => 'העברת דפים עם גרסאות יציבות',
 	'right-review' => 'סימון גרסאות כ"נבדקו"',
 	'right-stablesettings' => 'הגדרת הדרך בה הגרסה היציבה נבחרת ומוצגת',
