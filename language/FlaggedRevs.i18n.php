@@ -255,7 +255,7 @@ Please check the URL you used to access this page.',
 	'revreview-reject-summary'     => 'Edit summary:',
 	'revreview-reject-confirm'     => 'Reject these changes',
 	'revreview-reject-cancel'      => 'Cancel',
-	'revreview-reject-default-summary' => 'Rejecting changes by [[User:$1|$1]] to version $2 by [[User:$3|$3]]',
+	'revreview-reject-default-summary' => 'Rejected changes by [[User:$1|$1]] to version $2 by [[User:$3|$3]]',
 
 	'revreview-reviewlink'         => 'pending edits',
 	'revreview-reviewlink-title'   => 'View diff of all pending changes',
