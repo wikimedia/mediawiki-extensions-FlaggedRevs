@@ -897,7 +897,6 @@ Por favor, revise l'adreza que fació servir t'acceder a ista pachina.",
 	'tooltip-ca-current' => 'Amostrar ista pachina con os cambios pendients',
 	'tooltip-ca-stable' => "Amostrar a versión acceptata d'ista pachina",
 	'tooltip-ca-default' => "Opcions d'aseguranza d'a calidat",
-	'revreview-tt-review' => 'Aplicar iste status ta ista versión',
 	'validationpage' => "{{ns:help}}:Validación d'a pachina",
 );
 
@@ -1121,7 +1120,6 @@ $messages['ar'] = array(
 	'revreview-locked' => 'التعديلات يجب أن تتم مراجعتها قبل أن يتم عرضها في هذه الصفحة!',
 	'revreview-unlocked' => 'التعديلات لا تتطلب [[{{MediaWiki:Validationpage}}|مراجعة]] قبل أن يتم عرضها في هذه الصفحة!',
 	'log-show-hide-review' => '$1 سجل المراجعة',
-	'revreview-tt-review' => 'طبق هذه الحالة على هذه المراجعة',
 	'revreview-tt-flag' => 'علّم هذه المراجعة مراجعة',
 	'revreview-tt-unflag' => 'علّم هذه المراجعة غير مراجعة',
 	'validationpage' => '{{ns:help}}:تحقيق الصفحة',
@@ -1339,7 +1337,6 @@ $messages['arz'] = array(
 	'revreview-locked' => 'التعديلات يجب أن تتم مراجعتها قبل أن يتم عرضها فى هذه الصفحة!',
 	'revreview-unlocked' => "'''ملاحظه:''' التعديلات مش بتحتاج [[{{MediaWiki:Validationpage}}|مراجعه]] قبل ما تتنشر على الصفحه دى.",
 	'log-show-hide-review' => '$1 سجل المراجعة',
-	'revreview-tt-review' => 'طبق هذه الحاله على هذه المراجعة',
 	'validationpage' => '{{ns:help}}:تحقيق الصفحة',
 );
 
@@ -1602,7 +1599,6 @@ $messages['bcc'] = array(
 	'tooltip-ca-current' => 'به گند هنوکین پیش نویس ای صفحهء',
 	'tooltip-ca-stable' => 'به گند نسخه ثابت ای صفحهء',
 	'tooltip-ca-default' => 'تنضیمات اطمینان کیفیت',
-	'revreview-tt-review' => 'ای صفحهء بازبینی کن',
 	'validationpage' => '{{ns:help}}: اعتبار مقاله',
 );
 
@@ -3513,9 +3509,9 @@ Siehe die [[Special:Unreviewedpages|Liste unmarkierter Versionen]].',
 	'revreview-pending-nosection' => 'Versuchen Sie die [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} neueste Version], die [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 zu überprüfende {{PLURAL:$2|Änderung|Änderungen}}] enthält, anzusehen, um festzustellen, ob der Abschnitt verschoben oder gelöscht wurde.',
 	'revreview-stable1' => 'Vielleicht möchten Sie [{{fullurl:$1|stableid=$2}} die markierte Version] aufrufen, um zu sehen, ob es nunmehr die [{{fullurl:$1|stable=1}} freigegebene Version] dieser Seite ist?',
 	'revreview-stable2' => 'Vielleicht möchten Sie die [{{fullurl:$1|stable=1}} freigegebene Version] dieser Seite sehen?',
-	'revreview-toolow' => "'''Sie müssen jedes der Attribute besser als „unzureichend“ einstufen, damit eine Version als überprüft angesehen werden kann.'''
+	'revreview-toolow' => "'''Sie müssen jedes der Attribute besser als „unzureichend“ einstufen, damit eine Version als markiert angesehen werden kann.'''
 
-Um den Überprüfungsstatus einer Version aufzuheben, müssen ''alle'' Attribute auf „unzureichend“ gesetzt werden.
+Um den Markierungstatus einer Version aufzuheben, muss auf „Markierung entfernen“ geklickt werden.
 
 Klicken Sie auf die „Zurück“-Schaltfläche Ihres Browsers und versuchen Sie es erneut.",
 	'revreview-update' => "'''Bitte [[{{MediaWiki:Validationpage}}|überprüfen]] Sie alle Änderungen ''(siehe unten)'', die seit der neuesten freigegebenen Version getätigt wurden.'''
@@ -3530,7 +3526,7 @@ Bitte überprüfen Sie alle unten angezeigten Änderungen, damit Ihre Bearbeitun
 Gegebenenfalls müssen Sie zunächst diese Bearbeitungen nachvollziehen oder „rückgängig machen“.',
 	'revreview-revnotfound' => 'Die Version dieser Seite, nach der Sie suchen, konnte nicht gefunden werden. Bitte überprüfen Sie die URL dieser Seite.',
 	'revreview-tt-flag' => 'Diese Version akzeptieren, indem Sie sie als „überprüft“ markieren',
-	'revreview-tt-unflag' => 'Diese Version nicht akzeptieren, indem Sie sie als „nicht überprüft“ markieren',
+	'revreview-tt-unflag' => 'Diese Version nicht mehr anzeigen lassen, indem Sie die Markierung entfernen',
 );
 
 /** Zazaki (Zazaki)
@@ -3771,7 +3767,6 @@ Ti belki tewr verni de vurnayişan teqib biki ya zi "peyser biyeri".',
 	'revreview-locked' => "'''Diqet:''' Verniya mucnayîşê ena pele wendekaran re, vurnayîşan gani [[{{MediaWiki:Validationpage}}|kontrol]] bibi.",
 	'revreview-unlocked' => 'Verniya mucnayîşê ena pele wendekaran re, vurnayîşan gani niyo ke [[{{MediaWiki:Validationpage}}|kontrol]] bibi.',
 	'log-show-hide-review' => 'rocaneya çım serçarnayişi $1',
-	'revreview-tt-review' => 'Enê hali tetqiqê be enê çımraviyarnayışi ke',
 	'revreview-tt-flag' => '"Qontrol" nişan bike ke ena revizyon qebul bike',
 	'revreview-tt-unflag' => '"Qontrol nibiyo" nişan bike ke ena revizyon qebul meke',
 	'validationpage' => '{{ns:help}}:tesdiq kerdışê peli',
@@ -4015,7 +4010,6 @@ Móžo byś, až musyš nejpjerwjej změny dalej wobźełaś abo je "slědk wze�
 	'revreview-locked' => "'''Glědaj:''' Změny muse se [[{{MediaWiki:Validationpage}}|pśeglědaś]], pjerwjej až pokazuju se cytarjam na toś tom boku.",
 	'revreview-unlocked' => "'''Glědaj:''' Změny njetrjebaju [[{{MediaWiki:Validationpage}}|pśeglědanje]], pjerwjej až pokazuju se cytarjam na toś tom boku.",
 	'log-show-hide-review' => 'Protokol pśespytanjow $1',
-	'revreview-tt-review' => 'Toś ten status na wersiju nałožyś',
 	'revreview-tt-flag' => 'Toś tu wersiju pśez markěrowanje ako pśekontrolěrowanu pśizwóliś',
 	'revreview-tt-unflag' => 'Toś tej wersiji pśizwólenje pśez jeje markěrowanje ako "njepśekontrolěrowana" zebraś',
 	'validationpage' => '{{ns:help}}:Wobwěsćenje bokow',
@@ -4133,7 +4127,6 @@ $messages['el'] = array(
 	'flaggedrevs-protect-legend' => 'Επιβεβαίωση επεξεργασίας',
 	'flaggedrevs-protect-none' => 'Κανένας πρόσθετος περιορισμός.',
 	'log-show-hide-review' => '$1 αρχείο επιθεωρήσεων',
-	'revreview-tt-review' => 'Επιθεώρηση αυτής της σελίδας',
 	'validationpage' => '{{ns:help}}:Επικύρωση σελίδας',
 );
 
@@ -6293,7 +6286,6 @@ $messages['grc'] = array(
 	'revreview-lev-pristine' => 'Ἀνέπαφος',
 	'revreview-reviewlink' => 'ἐπιθεωρεῖν',
 	'log-show-hide-review' => '$1 κατάλογος ἀναθεωρήσεων',
-	'revreview-tt-review' => 'Ἐπιθεωρεῖν τήνδε τὴν δέλτον',
 	'validationpage' => '{{ns:help}}:Έπικύρωσις δέλτου',
 );
 
@@ -6781,14 +6773,14 @@ $messages['he'] = array(
 	'right-movestable' => 'העברת דפים עם גרסאות יציבות',
 	'right-review' => 'סימון גרסאות כ"נבדקו"',
 	'right-stablesettings' => 'הגדרת הדרך בה הגרסה היציבה נבחרת ומוצגת',
-	'right-validate' => 'סימון גרסאות כמאומתות',
+	'right-validate' => 'סימון גרסאות כ"איכותיות"',
 	'right-unreviewedpages' => 'צפייה ב[[Special:UnreviewedPages|רשימת הדפים שלא נבדקו]]',
 	'rights-editor-autosum' => 'קודם אוטומטית',
 	'rights-editor-revoke' => 'הסרת מעמד העורך מ[[$1]]',
 	'specialpages-group-quality' => 'עריכת סקירה',
-	'stable-logentry-config' => 'הגדיר את הגדרות הפרסום של $1',
+	'stable-logentry-config' => 'הגדיר את הגדרות הגרסה היציבה של "$1"',
 	'stable-logentry-modify' => 'שונו הגדרות הגרסאות היציבות עבור "$1"',
-	'stable-logentry-reset' => 'איפס את הגדרות הפרסום של $1',
+	'stable-logentry-reset' => 'איפס את הגדרות הגרסה היציבה של "$1"',
 	'stable-log-restriction' => 'סקירה אוטומטית: נדרשת ההרשאה "$1"',
 	'stable-logpage' => 'יומן יציבות',
 	'stable-logpagetext' => 'זהו יומן השינויים בתצורת [[{{MediaWiki:Validationpage}}|הגרסה היציבה]] בדפי תוכן.',
@@ -8226,7 +8218,6 @@ Anda perlu menindaklanjuti atau "tak jadikan" suntingan.',
 	'revreview-locked' => "'''Catatan:''' Suntingan harus [[{{MediaWiki:Validationpage}}|ditinjau]] sebelum ditampilkan kepada pembaca laman ini.",
 	'revreview-unlocked' => "'''Catatan:''' Suntingan tidak perlu [[{{MediaWiki:Validationpage}}|ditinjau]] sebelum ditampilkan kepada pembaca laman ini.",
 	'log-show-hide-review' => '$1 log peninjau',
-	'revreview-tt-review' => 'Tinjau halaman ini',
 	'revreview-tt-flag' => 'Terima revisi dengan status "terperiksa"',
 	'revreview-tt-unflag' => 'Tolak revisi ini dengan status "belum diperiksa"',
 	'validationpage' => '{{ns:help}}:Validasi halaman',
@@ -9026,7 +9017,6 @@ $messages['ka'] = array(
 	'revreview-locked' => "'''ყურადღება:''' გამოქვეყნებამდე შეტანილი ცვლილება [[{{MediaWiki:Validationpage}}|შემოწმდეს]].",
 	'revreview-unlocked' => "'''შენიშვნა:''' რედაქტირებებს არ სჭირდებათ [[{{MediaWiki:Validationpage}}|შემოწმება]] გამოქვეყნებამდე.",
 	'log-show-hide-review' => '$1 შემოწმებათა ჟურნალი',
-	'revreview-tt-review' => 'მონიშნეთ ეს მდგომარეობა ამ ვერსიისთვის',
 	'revreview-tt-flag' => 'მონიშნეთ ეს გვერდი როგორც შემოწმებული',
 	'revreview-tt-unflag' => 'მონიშნეთ ეს გვერდი როგორც არ შემოწმებული',
 	'validationpage' => '{{ns:help}}:გვერდების შემოწმება',
@@ -9365,7 +9355,6 @@ $messages['km'] = array(
 	'revreview-reviewlink' => 'ពិនិត្យឡើងវិញ',
 	'tooltip-ca-current' => 'មើលសេចក្តីព្រាងបច្ចុប្បន្ន​នៃទំព័រនេះ',
 	'log-show-hide-review' => '$1 កំណត់ហេតុ​នៃ​ការ​ពិនិត្យឡើងវិញ',
-	'revreview-tt-review' => 'ពិនិត្យ​ទំព័រ​នេះ​ឡើងវិញ',
 	'validationpage' => '{{ns:help}}: សុពលកម្ម​ទំព័រ',
 );
 
@@ -9810,7 +9799,6 @@ fottjeschmesse hät?',
 	'revreview-locked' => 'Änderunge möße [[{{MediaWiki:Validationpage}}|nohjekik sin]], iih dat se op hee dä Sigg aanjezeish wääde.',
 	'revreview-unlocked' => 'Änderunge möße nit [[{{MediaWiki:Validationpage}}|nohjekik wääde]], iih dat se op hee dä Sigg aanjezeish wääde.',
 	'log-show-hide-review' => '$1 et {{int:review-logpage}}',
-	'revreview-tt-review' => 'Donn heh di Sigg nohkike',
 	'validationpage' => '{{ns:help}}:Nohjeloorte, jeprööfte un beschtätijunge Versione vun Sigge',
 );
 
@@ -11205,7 +11193,6 @@ Sila tekan butang "back" pada pelayar anda dan cuba sekali lagi.',
 	'revreview-locked' => 'Suntingan perlulah diperiksa terlebih dahulu sebelum dipaparkan di laman ini!',
 	'revreview-unlocked' => 'Suntingan tidak perlu diperiksa untuk dipaparkan di laman ini!',
 	'log-show-hide-review' => '$1 log semakan',
-	'revreview-tt-review' => 'Periksa laman ini',
 	'validationpage' => '{{ns:help}}:Pengesahan rencana',
 );
 
@@ -12167,7 +12154,6 @@ De [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} modificacions nov
 	'revreview-locked' => 'Las modificacions devon èsser revistas abans d’èsser afichadas sus aquesta pagina !',
 	'revreview-unlocked' => 'Las modificacions necessitan pas de relectura abans d’èsser afichadas sus aquesta pagina !',
 	'log-show-hide-review' => "$1 l'istoric de las relecturas",
-	'revreview-tt-review' => 'Revisar aquesta pagina',
 	'validationpage' => '{{ns:help}}:Validacion de la pagina',
 );
 
@@ -13883,7 +13869,6 @@ $messages['ru'] = array(
 	'revreview-locked' => "'''Замечание.''' Правки должны быть [[{{MediaWiki:Validationpage}}|проверены]], прежде чем они будут показаны читателям этой страницы.",
 	'revreview-unlocked' => "'''ЗАмечание.''' Правки не требуют предварительной [[{{MediaWiki:Validationpage}}|проверки]] для отображения читателям этой страницы.",
 	'log-show-hide-review' => '$1 журнал проверок',
-	'revreview-tt-review' => 'Указать это состояние для данной версии',
 	'revreview-tt-flag' => 'Подтвердите эту версию, отметив её как проверенную',
 	'revreview-tt-unflag' => 'Снять подтверждение с этой версии, отметив её как непроверенную',
 	'revreview-tt-reject' => 'Отклонить эти изменения, откатить их',
@@ -14836,7 +14821,6 @@ $messages['sr-ec'] = array(
 	'tooltip-ca-stable' => 'Погледајте стабилну верзију ове странице',
 	'tooltip-ca-default' => 'Подешавања обезбеђивања квалитета.',
 	'revreview-ak-review' => 'с',
-	'revreview-tt-review' => 'Постави овај статус на ову ревизију',
 	'validationpage' => '{{ns:help}}:Валидација чланка',
 );
 
@@ -14957,7 +14941,6 @@ Molimo vas da proverite URL koji ste upotrebili da biste pristupili ovoj stranic
 	'tooltip-ca-stable' => 'Pogledajte stabilnu verziju ove stranice',
 	'tooltip-ca-default' => 'Podešavanja obezbeđivanja kvaliteta.',
 	'revreview-ak-review' => 's',
-	'revreview-tt-review' => 'Postavi ovaj status na ovu reviziju',
 	'validationpage' => '{{ns:help}}:Validacija članka',
 );
 
@@ -16331,7 +16314,6 @@ Pakisuri ang URL na ginamit para mapuntahan ang pahinang ito.',
 	'revreview-locked' => "'''Paunawa:''' Dapat na [[{{MediaWiki:Validationpage}}|suriin]] ang mga pagbabago bago ipakita sa mga mambabasa ng pahinang ito.",
 	'revreview-unlocked' => "'''Paunawa:''' Hindi nangangailangan ng [[{{MediaWiki:Validationpage}}|pagsusuri]] ang mga pagbabago bago ipakita sa mga mambabasa ng pahinang ito.",
 	'log-show-hide-review' => '$1 pagtatala ng pagsusuri',
-	'revreview-tt-review' => 'Gamitin ang katayuang ito sa rebisyong ito',
 	'revreview-tt-flag' => 'Tanggapin ang rebisyong ito sa pamamagitan ng pagtatatak dito bilang "nasuri"',
 	'revreview-tt-unflag' => 'Huwag tanggapin ang rebisyong ito sa pamamagitan ng pagtatatak dito bilang "hindi nasuri"',
 	'revreview-tt-reject' => 'Tanggihan ang mga pagbabagong ito sa pamamagitan ng pagpapabalik sa mga ito',
@@ -16580,7 +16562,6 @@ Değişikliklerinizin kararlı sürümde görünmesi için, lütfen aşağıda g
 	'revreview-locked' => "'''Uyarı:''' bu sayfada okuyuculara gösterilmeden önce değişiklikler [[{{MediaWiki:Validationpage}}|gözden geçirilmelidir]].",
 	'revreview-unlocked' => "'''Uyarı:''' Değişikliklerin okuyuculara gösterilmeden önce [[{{MediaWiki:Validationpage}}|gözden geçirilmesine]] gerek yoktur.",
 	'log-show-hide-review' => 'gözden geçirme günlüğünü $1',
-	'revreview-tt-review' => 'Bu durumu bu revizyona uygula',
 	'revreview-tt-flag' => 'Bu revizyonu kontrol edilmiş olarak işaretleyerek onayla',
 	'revreview-tt-unflag' => 'Bu revizyonu kontrol edilmemiş olarak işaretleyerek onayı kaldır',
 	'validationpage' => '{{ns:help}}:Sayfa doğrulaması',
@@ -17291,7 +17272,6 @@ sab toižetada [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}}-le
 	'revreview-locked' => 'Pidab kodvda toižetusid edel niiden ozutamišt necil lehtpolel!',
 	'revreview-unlocked' => 'Toižetusiden ozutamine necil lehtpolel ei rippu niiden kodvindaspäi!',
 	'log-show-hide-review' => '$1 kodvindoiden aigkirj',
-	'revreview-tt-review' => 'Ozutada nece olemine necen versijan täht',
 	'revreview-tt-flag' => 'Znamoita nece versii kut kodvdud',
 	'revreview-tt-unflag' => 'Znamoita nece versii kut kodvmatoi',
 	'validationpage' => '{{ns:help}}:Lehtpoliden kodvind',
@@ -18054,7 +18034,6 @@ $messages['zh-hans'] = array(
 	'revreview-locked' => '对本页作出的编辑必须经[[{{MediaWiki:Validationpage}}|复审]]后方可显示。',
 	'revreview-unlocked' => '对本页作出的编辑无须经过[[{{MediaWiki:Validationpage}}|复审]]即可显示。',
 	'log-show-hide-review' => '$1复审日志',
-	'revreview-tt-review' => '将此等级设定到此版本',
 	'revreview-tt-flag' => '通过这项修订通过标记它作为已审核',
 	'revreview-tt-unflag' => '取消批准这一修正它通过标记为未审批',
 	'validationpage' => '{{ns:help}}:页面验证',
@@ -18289,7 +18268,6 @@ $messages['zh-hant'] = array(
 	'revreview-locked' => '對本頁作出的編輯必須經[[{{MediaWiki:Validationpage}}|複審]]後方可顯示。',
 	'revreview-unlocked' => '對本頁作出的編輯無須經過[[{{MediaWiki:Validationpage}}|複審]]即可顯示。',
 	'log-show-hide-review' => '$1複審日誌',
-	'revreview-tt-review' => '將此等級設定到此版本',
 	'revreview-tt-flag' => '通過這項修訂通過標記它作為已審核',
 	'revreview-tt-unflag' => '取消批准這一修正它通過標記為未審批',
 	'validationpage' => '{{ns:help}}:頁面驗證',

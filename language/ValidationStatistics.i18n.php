@@ -105,12 +105,13 @@ $messages['ar'] = array(
 );
 
 /** Aramaic (ܐܪܡܝܐ)
+ * @author 334a
  * @author Basharh
  */
 $messages['arc'] = array(
 	'validationstatistics-ns' => 'ܚܩܠܐ',
 	'validationstatistics-total' => 'ܦܐܬܬ̈ܐ',
-	'validationstatistics-user' => 'ܡܬܚܫܚܢܐ',
+	'validationstatistics-user' => 'ܡܦܠܚܢܐ',
 	'validationstatistics-reviews' => 'ܬܢܝܬ̈ܐ',
 );
 
@@ -789,7 +790,7 @@ $messages['he'] = array(
 
 עורכים הם משתמשים ותיקים שיכולים לבצע בדיקה מהירה של גרסאות ושל דפים.",
 	'validationstatistics-lastupdate' => "''הנתונים הבאים עודכנו לאחרונה ב־$1 בשעה $2.''",
-	'validationstatistics-table' => "סטטיסטיקות לכל מרחב שם מוצגות להלן, תוך '''התעלמות''' מדפי הפניה.",
+	'validationstatistics-table' => "סטטיסטיקות על בדיקת דפים לכל מרחב שם מוצגות להלן, '''למעט''' דפי הפניה.",
 	'validationstatistics-ns' => 'מרחב שם',
 	'validationstatistics-total' => 'דפים',
 	'validationstatistics-stable' => 'עבר ביקורת',

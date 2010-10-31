@@ -127,9 +127,11 @@ $specialPageAliases['eo'] = array(
 
 /** Spanish (Español) */
 $specialPageAliases['es'] = array(
-	'PendingChanges' => array( 'Páginas revisadas antiguas' ),
+	'PendingChanges' => array( 'Páginas_revisadas_antiguas' ),
+	'ReviewedPages' => array( 'PáginasRevisadas', 'Páginas_revisadas' ),
 	'Stabilization' => array( 'Estabilización' ),
 	'StablePages' => array( 'Páginas_publicadas' ),
+	'ConfiguredPages' => array( 'PáginasConfiguradas', 'Páginas_configuradas' ),
 	'ReviewedVersions' => array( 'Versiones_revisadas' ),
 	'UnreviewedPages' => array( 'Páginas_sin_revisar' ),
 	'ValidationStatistics' => array( 'Estadísticas_de_validación' ),
@@ -255,12 +257,13 @@ $specialPageAliases['hu'] = array(
 
 /** Interlingua (Interlingua) */
 $specialPageAliases['ia'] = array(
-	'PendingChanges' => array( 'Paginas revidite ancian' ),
+	'PendingChanges' => array( 'Modificationes_pendente', 'Paginas_revidite_ancian' ),
 	'ProblemChanges' => array( 'Modificationes_problematic' ),
-	'QualityOversight' => array( 'Supervision_de_qualitate' ),
+	'QualityOversight' => array( 'Registro_de_revision_avantiate', 'Supervision_de_qualitate' ),
 	'ReviewedPages' => array( 'Paginas_revidite' ),
-	'RevisionReview' => array( 'Recension_de_versiones' ),
-	'StablePages' => array( 'Paginas_publicate', 'Paginas_stabile' ),
+	'RevisionReview' => array( 'Revision_de_versiones' ),
+	'StablePages' => array( 'Paginas_stabile', 'Paginas_publicate' ),
+	'ConfiguredPages' => array( 'Paginas_configurate' ),
 	'ReviewedVersions' => array( 'Versiones_revidite', 'Versiones_stabile' ),
 	'UnreviewedPages' => array( 'Paginas_non_revidite' ),
 	'ValidationStatistics' => array( 'Statisticas_de_validation' ),
