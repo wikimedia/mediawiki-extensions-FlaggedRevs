@@ -1711,8 +1711,9 @@ class FlaggedArticleView {
 			if ( $this->article->getStable() ) {
 				// For pending changes...
 				if ( $this->article->revsArePending() ) {
+					$n = $this->article->getPendingRevCount();
 					$attribs['title'] = wfMsg( 'revreview-check-flag-p-title' );
-					$labelMsg = wfMsgExt( 'revreview-check-flag-p', 'parseinline' );
+					$labelMsg = wfMsgExt( 'revreview-check-flag-p', 'parseinline', $n );
 				// For just the user's changes...
 				} else {
 					$attribs['title'] = wfMsg( 'revreview-check-flag-y-title' );

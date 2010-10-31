@@ -730,24 +730,23 @@ class FlaggedRevsHooks {
 	protected static function editCheckReview(
 		Article $article, $rev, $user, $editTimestamp
 	) {
-		$prevRevId = $rev->getParentId();
 		$prevTimestamp = $flags = null;
+		$prevRevId = $rev->getParentId(); // revision before $rev
 		$title = $article->getTitle(); // convenience
 		# Check wpEdittime against the former current rev for verification
 		if ( $prevRevId ) {
 			$prevTimestamp = Revision::getTimestampFromId( $title, $prevRevId );
 		}
-		# Is $rev is an edit to an existing page?
+		# Was $rev is an edit to an existing page?
 		if ( $prevTimestamp ) {
 			# Check wpEdittime against the former current revision's time.
-			# If an edit was auto-merged in between, review only up to what
-			# was the current rev when this user started editing the page.
-			if ( $editTimestamp != $prevTimestamp ) {
-				$dbw = wfGetDB( DB_MASTER );
-				$rev = Revision::loadFromTimestamp( $dbw, $title, $editTimestamp );
-				if ( !$rev ) {
-					return false; // deleted?
-				}
+			# If an edit was auto-merged in between, then the new revision
+			# has content different than what the user expected. However, if
+			# the auto-merged edit was reviewed, then assume that it's OK.
+			if ( $editTimestamp != $prevTimestamp
+				&& !FlaggedRevs::revIsFlagged( $title, $prevRevId, FR_MASTER )
+			) {
+				return false; // not flagged?
 			}
 		}
 		# Review this revision of the page...
@@ -1812,7 +1811,7 @@ class FlaggedRevsHooks {
 	/*
 	 * If an article is reviewable, get custom article contents from the FlaggedArticleView
 	 */
-	public static function addCustomHtml( $diffEngine, &$out ) {
+	public static function addCustomHtml( $diffEngine, $out ) {
 		$fa = FlaggedArticle::getTitleInstance( $out->getTitle() );
 		if ( !$fa->isReviewable() ) {
 			return true; // nothing to do

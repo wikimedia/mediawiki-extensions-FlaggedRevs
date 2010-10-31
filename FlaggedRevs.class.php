@@ -873,7 +873,7 @@ class FlaggedRevs {
 		$tags = $tags ? $tags : "";
 		return FlaggedRevision::expandRevisionTags( strval( $tags ) );
 	}
-	
+
 	/**
 	 * @param int $page_id
 	 * @param int $rev_id
@@ -891,7 +891,7 @@ class FlaggedRevs {
 			array( 'USE INDEX' => 'PRIMARY' )
 		);
 	}
-	
+
 	/**
 	 * @param Title $title
 	 * @param int $rev_id
