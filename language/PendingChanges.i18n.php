@@ -346,6 +346,7 @@ $messages['bs'] = array(
 /** Catalan (Català)
  * @author Aleator
  * @author Jordi Roqué
+ * @author Martorell
  * @author Paucabot
  */
 $messages['ca'] = array(
@@ -353,7 +354,7 @@ $messages['ca'] = array(
 	'pendingchanges-days' => '($1 {{PLURAL:$1|dia|dies}})',
 	'pendingchanges-recent' => "(menys d'una hora)",
 	'pendingchanges-category' => 'Categoria:',
-	'pendingchanges-watched' => 'Pàgines de la meva llista de seguiment',
+	'pendingchanges-watched' => '({{PLURAL:$1|un usari|$1 usuaris}} actius en vigilen)',
 );
 
 /** Czech (Česky)

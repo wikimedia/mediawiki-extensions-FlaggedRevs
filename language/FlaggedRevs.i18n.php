@@ -1127,6 +1127,7 @@ $messages['ar'] = array(
 
 /** Aramaic (ܐܪܡܝܐ)
  * @author Basharh
+ * @author Michaelovic
  */
 $messages['arc'] = array(
 	'editor' => 'ܫܚܠܦܢܐ',
@@ -1142,7 +1143,7 @@ $messages['arc'] = array(
 	'revreview-log-details-hide' => 'ܛܫܝ ܐܪ̈ܝܟܬܐ',
 	'review-logentry-id' => 'ܬܢܝܬܐ: $2',
 	'revreview-edit' => 'ܫܚܠܦ',
-	'revreview-source' => 'ܚܙܝ ܥܩܪܐ',
+	'revreview-source' => 'ܚܙܝ ܡܒܘܥܐ',
 	'revreview-style-2' => 'ܛܒܬܐ',
 	'revreview-submit' => 'ܫܕܪ',
 	'revreview-filter-all' => 'ܟܠ',
@@ -2669,7 +2670,7 @@ Nove [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} izmjene] su nap
 	'revreview-draft-title' => 'Na ovoj stranici su prikazane izmjene na čekanju',
 	'revreview-edit' => 'Uredi',
 	'revreview-editnotice' => "'''Vaše izmjene će biti prikazane čitaocima tek kada ih pregleda potvrđeni korisnik. ([[{{MediaWiki:Validationpage}}|pomoć]])'''",
-	'revreview-check-flag-p' => 'Prihvati izmjene koje su trenutno na čekanju',
+	'revreview-check-flag-p' => 'Prihvati ovu verziju (uključujući $1 {{PLURAL:$1|izmjenu|izmjene|izmjena}} na čekanju)',
 	'revreview-check-flag-p-title' => 'Prihvati sve trenutne izmjene na čekanju zajedno sa vašim vlastitim izmjenama. Koristite ovo samo ako ste već pregledali sve razlike izmjena na čekanju.',
 	'revreview-check-flag-u' => 'Prihvati ovu nepregledanu stranicu',
 	'revreview-check-flag-u-title' => 'Prihvati ovu verziju stranice. Koristite ovo samo ako ste pregledali cijelu stranicu.',
@@ -2832,6 +2833,7 @@ Molimo Vas da provjerite URL pomoću kojeg ste pristupili ovoj stranici.',
  * @author Aleator
  * @author Jordi Roqué
  * @author Juanpabl
+ * @author Martorell
  * @author Paucabot
  * @author Qllach
  * @author SMP
@@ -2846,7 +2848,7 @@ $messages['ca'] = array(
 	'flaggedrevs-desc' => 'Dóna als editors la capacitat de validar revisions de pàgines i declarar-les estables.',
 	'prefs-flaggedrevs' => 'Estabilitat',
 	'flaggedrevs-prefs-stable' => "Per defecte, mostra sempre la versió estable de les pàgines de contingut (si n'hi ha)",
-	'flaggedrevs-prefs-watch' => 'Posar a la meva llista de seguiment les pàgines que revisi',
+	'flaggedrevs-prefs-watch' => 'Posa a la llista de seguiment les pàgines què faig revisió',
 	'group-editor' => 'Editors',
 	'group-editor-member' => 'editor',
 	'group-reviewer' => 'Supervisors',
@@ -3332,7 +3334,7 @@ Die Übertragung ist unvollständig oder ungültig.",
 	'revreview-draft-title' => 'Unmarkierte Änderungen werden auf dieser Seite angezeigt',
 	'revreview-edit' => 'Bearbeiten',
 	'revreview-editnotice' => "'''Deine Änderungen werden angezeigt, sobald ein dazu berechtigter Benutzer sie markiert hat. ([[{{MediaWiki:Validationpage}}|Hilfe]])'''",
-	'revreview-check-flag-p' => 'Die letzen Änderungen akzeptieren',
+	'revreview-check-flag-p' => 'Diese Version akzeptieren (inklusive $1 ausstehenden {{PLURAL:$1|Änderung|Änderungen}})',
 	'revreview-check-flag-p-title' => 'Alle noch nicht markierten Änderungen, zusammen mit deiner Bearbeitung, akzeptieren. Dies sollte nur gemacht werden, sofern bereits alle bislang noch nicht markierten Änderungen angesehen wurden.',
 	'revreview-check-flag-u' => 'Diese unmarkierte Seite akzeptieren',
 	'revreview-check-flag-u-title' => 'Diese Seitenversion akzeptieren. Dies sollte nur gemacht werden, wenn vorher die gesamte Seite angeschaut wurde.',
@@ -7819,7 +7821,7 @@ Es possibile que nove [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}
 	'revreview-draft-title' => 'Le modificationes pendente es presentate in iste pagina',
 	'revreview-edit' => 'Modificar',
 	'revreview-editnotice' => "'''Tu modificationes essera monstrate a lectores quando un usator autorisate los habera revidite. ([[{{MediaWiki:Validationpage}}|adjuta]])'''",
-	'revreview-check-flag-p' => 'Publicar le modificationes actualmente pendente',
+	'revreview-check-flag-p' => 'Acceptar iste version (incluse $1 {{PLURAL:$1|modification|modificationes}} pendente)',
 	'revreview-check-flag-p-title' => 'Acceptar tote le modificationes actualmente pendente con tu proprie modification. Usa isto solmente si tu ha ja vidite tote le diff de modificationes pendente.',
 	'revreview-check-flag-u' => 'Acceptar iste pagina non revidite',
 	'revreview-check-flag-u-title' => 'Acceptar iste version del pagina. Solmente usa isto si tu ha ja vidite tote le pagina.',
@@ -9923,7 +9925,7 @@ Nei [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Ännerunge] kën
 	'revreview-draft-title' => "D'Ännerungen, déi am Suspens sinnn, stinn op op dëser Säit",
 	'revreview-edit' => 'Änneren',
 	'revreview-editnotice' => "'''Är Ännerungen ginn deLieser gewisen esoubal wéi en autoriséierte Benotzer se nogekuckt huet. ([[{{MediaWiki:Validationpage}}|Hëllef]])'''",
-	'revreview-check-flag-p' => "D'Ännerungen déi elo am Suspens si publizéieren",
+	'revreview-check-flag-p' => 'Dës Versioun (mat {{PLURAL:$1|enger Ännerungen déi elo am Suspens ass|$1 Ännerungen déi elo am Suspens sinn}}) akzeptéieren  publizéieren',
 	'revreview-check-flag-p-title' => 'All déi Ännerungen déi elo am Suspens sinn zesumme mat Ärer Ännerung akzeptéieren. Benotzt dëst nëmme wann Dir Iech all Ännerungen déi am Suspens sinn ugekuckt hutt.',
 	'revreview-check-flag-u' => 'Dës net nogekuckte Säit akzeptéieren',
 	'revreview-check-flag-u-title' => 'Dës Versioun vun der Säit akzeptéieren. Benotzt dëst nëmme wann Dir schonn déi ganz Säit gesinn hutt.',
@@ -10722,7 +10724,7 @@ $messages['ml'] = array(
 	'revreview-draft-title' => 'ഈ താളിൽ അവശേഷിക്കുന്ന മാറ്റങ്ങൾ കാണാം',
 	'revreview-edit' => 'തിരുത്തുക',
 	'revreview-editnotice' => "'''താങ്കളുടെ തിരുത്തലുകൾ അംഗീകരിക്കപ്പെട്ട ഒരുപയോക്താവ് സംശോധനം ചെയ്ത ശേഷം എല്ലാവർക്കും കാണാനാവുന്നതാണ്. ([[{{MediaWiki:Validationpage}}|സഹായം]])'''",
-	'revreview-check-flag-p' => 'ഇപ്പോൾ അവശേഷിക്കുന്ന തിരുത്തലുകൾ പ്രസിദ്ധീകരിക്കുക',
+	'revreview-check-flag-p' => 'ഈ പതിപ്പ് സ്വീകരിക്കുക (അവശേഷിക്കുന്ന {{PLURAL:$1|ഒരു മാറ്റം|$1 മാറ്റങ്ങൾ}} ഉൾക്കൊള്ളുന്നു)',
 	'revreview-check-flag-p-title' => 'താങ്കളുടെ തിരുത്തലിനൊപ്പം അവശേഷിക്കുന്ന മാറ്റങ്ങളും സ്വീകരിക്കുക.
 അവശേഷിക്കുന്ന മാറ്റങ്ങൾ സൃഷ്ടിച്ച വ്യത്യാസം കണ്ടിട്ടുണ്ടെങ്കിൽ മാത്രമേ ഇതുപയോഗിക്കാവൂ.',
 	'revreview-check-flag-u' => 'സംശോധനം ചെയ്യാത്ത ഈ താൾ അംഗീകരിക്കുക',
@@ -11359,7 +11361,7 @@ Het formulier was incompleet of bevatte ongeldige waarden.",
 	'revreview-draft-title' => 'Deze pagina bevat ongecontroleerde wijzigingen',
 	'revreview-edit' => 'Bewerken',
 	'revreview-editnotice' => "'''Uw wijzigingen worden weergegeven nadat een daartoe bevoegde gebruiker deze heeft gecontroleerd. ([[{{MediaWiki:Validationpage}}|?]])'''",
-	'revreview-check-flag-p' => 'Ongecontroleerde wijzigingen accepteren',
+	'revreview-check-flag-p' => 'Deze versie accepteren (inclusief $1 ongecontroleerde {{PLURAL:$1|bewerking|bewerkingen}})',
 	'revreview-check-flag-p-title' => 'Alle ongecontroleerde wijzigingen samen met uw wijzigingen publiceren.
 Gebruik dit alleen als u de ongecontroleerde wijzigingen hebt bekeken.',
 	'revreview-check-flag-u' => 'Deze ongecontroleerde pagina accepteren',
@@ -11799,7 +11801,7 @@ Nye [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} endringer] kan h
 	'revreview-draft-title' => 'Ventende endringer vises på denne siden',
 	'revreview-edit' => 'Rediger',
 	'revreview-editnotice' => "'''Endringer dine vil bli vist til lesere når en autorisert bruker har revidert dem. ([[{{MediaWiki:Validationpage}}|hjelp]])'''",
-	'revreview-check-flag-p' => 'Publiser nåværende ventende endringer',
+	'revreview-check-flag-p' => 'Godta denne versjonen (inkluderer $1 ventende {{PLURAL:$1|endring|endringer}})',
 	'revreview-check-flag-p-title' => 'Godta alle nåværende ventende endringer sammen med din egen endring. Bare bruk denne om du allerede har sett på hele diffen for ventende endringer.',
 	'revreview-check-flag-u' => 'Godta denne ureviderte siden',
 	'revreview-check-flag-u-title' => 'Godta denne versjonen av siden. Bare bruk denne om du allerede har sett hele siden.',
@@ -12287,7 +12289,7 @@ Później mogły zostać wykonane następne [{{fullurl:{{FULLPAGENAMEE}}|oldid=$
 	'revreview-draft-title' => 'Na tej stronie wyświetlane są oczekujące zmiany',
 	'revreview-edit' => 'Edytuj',
 	'revreview-editnotice' => "'''Dokonane przez Ciebie zmiany zostaną pokazane natychmiast po przejrzeniu przez uprawnionego użytkownika ([[{{MediaWiki:Validationpage}}|pomoc]]).'''",
-	'revreview-check-flag-p' => 'Zaakceptuj oczekujące zmiany',
+	'revreview-check-flag-p' => 'Zaakceptuj tę wersję (włącznie z $1 {{PLURAL:$1|oczekującą zmianą|oczekującymi zmianami}})',
 	'revreview-check-flag-p-title' => 'Zostanie zaakceptowana Twoja edycja wraz ze wszystkimi oczekującymi zmianami. Użyj tej opcji tylko w przypadku, gdy uprzednio zostały przejrzane oczekujące zmiany.',
 	'revreview-check-flag-u' => 'Zaakceptuj tę nieprzejrzaną stronę',
 	'revreview-check-flag-u-title' => 'Zostanie zaakceptowana strona, którą właśnie edytujesz. Użyj tej opcji tylko w przypadku, gdy zapoznano się z całą zawartością strony.',
@@ -12669,6 +12671,7 @@ Che as controla për piasì l'adrëssa (URL) che a l'ha dovrà për rivé a sta 
 	'revreview-restrictfilter' => "Restrission d'auto-revision:",
 	'revreview-restriction-any' => 'tùit',
 	'revreview-restriction-none' => 'gnun',
+	'revreview-reject-header' => 'Cambi arfudà për $1',
 	'revreview-reviewlink' => "modìfiche ch'a speto",
 	'revreview-reviewlink-title' => "Vëdde le diferense ëd tùit ij cambiament ch'a speto",
 	'revreview-unreviewedpage' => 'pàgina pa controlà',
@@ -13478,7 +13481,7 @@ Nuève [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} cangiaminde] 
 	'revreview-draft-title' => 'Le cangiaminde pendende avènene fatte vedè sus a sta pàgene',
 	'revreview-edit' => 'Cange',
 	'revreview-editnotice' => "'''Le cangiaminde tune avènene fatte vedè a le letture 'na vote ca 'n'utende autorizzate l'ave reviste. ([[{{MediaWiki:Validationpage}}|ajute]])'''",
-	'revreview-check-flag-p' => 'Pubbleche le cangiaminde pendende de mò',
+	'revreview-check-flag-p' => 'Accette sta versione (inglude $1 {{PLURAL:$1|cangiamende|cangiaminde}} appese)',
 	'revreview-check-flag-u' => 'Accette sta pàgene none reviste',
 	'revreview-check-flag-y' => 'Accette ste cangiaminde',
 	'revreview-submitedit' => 'Conferme le cangiaminde',
@@ -13603,6 +13606,11 @@ Pe piacere condrolle l'URL ca tu è ausete pe trasè jndr'à sta pagene.",
 	'revreview-restrictfilter' => "Restriziune sus a l'auto revisitazione:",
 	'revreview-restriction-any' => 'tutte',
 	'revreview-restriction-none' => 'ninde',
+	'revreview-reject-header' => 'Scitte le cangaminde pe $1',
+	'revreview-reject-text-revto' => "Quiste annulle 'a pàgene turnanne a 'a [versione $1 de $2].",
+	'revreview-reject-summary' => "Cange 'u riepileghe:",
+	'revreview-reject-confirm' => 'Scitte ste cangiaminde',
+	'revreview-reject-cancel' => 'Annulle',
 	'revreview-reviewlink' => 'cangiaminde pendende',
 	'revreview-reviewlink-title' => 'Vide le differenze de tutte le cangiaminde pedende',
 	'revreview-unreviewedpage' => 'pàgene none verificate',
@@ -16674,7 +16682,7 @@ $messages['uk'] = array(
 	'revreview-edit' => 'Редагувати',
 	'revreview-editnotice' => "'''Ваші зміни будуть показані читачам, як тільки уповноважений користувач перевірить їх.
 ([[{{MediaWiki:Validationpage}}|допомога]])'''",
-	'revreview-check-flag-p' => 'Опублікувати поточні нерецензовані зміни',
+	'revreview-check-flag-p' => 'Прийняти цю версію (включає $1 {{PLURAL:$1|неприйняту зміну|неприйняті зміни|неприйнятих змін}})',
 	'revreview-check-flag-p-title' => 'Підтвердити всі зміни, що в даний час очікують перевірки, разом з вашою власною зміною. Використовуйте тільки у випадку, якщо ви вже переглянули відмінності, внесені цими змінами.',
 	'revreview-check-flag-u' => 'Позначити цю сторінку перевіреною',
 	'revreview-check-flag-u-title' => 'Прийняти цю версію сторінки. Використовуйте тільки у випадку, якщо ви переглянули сторінку повністю.',
