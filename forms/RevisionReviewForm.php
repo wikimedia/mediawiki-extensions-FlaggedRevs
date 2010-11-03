@@ -213,7 +213,8 @@ class RevisionReviewForm
 			return 'review_param_missing'; // user didn't say
 		}
 		# Fill in implicit tag data for binary flag case
-		if ( $iDims = $this->implicitDims() ) {
+		$iDims = $this->implicitDims();
+		if ( $iDims ) {
 			$this->dims = $iDims;
 		} else {
 			foreach ( FlaggedRevs::getDimensions() as $tag => $levels ) {

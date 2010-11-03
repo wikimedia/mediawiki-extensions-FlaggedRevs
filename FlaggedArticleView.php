@@ -777,7 +777,8 @@ class FlaggedArticleView {
 		# Determine timestamp. A reviewed version may have explicitly been requested...
 		$frev = null;
 		$time = false;
-		if ( $reqId = $wgRequest->getVal( 'stableid' ) ) {
+		$reqId = $wgRequest->getVal( 'stableid' );
+		if ( $reqId ) {
 			$frev = FlaggedRevision::newFromTitle( $this->article->getTitle(), $reqId );
 		} elseif ( $this->pageOverride() ) {
 			$frev = $this->article->getStableRev();
