@@ -57,7 +57,7 @@ class RevisionReview extends UnlistedSpecialPage
 		# Special token to discourage fiddling...
 		$form->setValidatedParams( $wgRequest->getVal( 'validatedParams' ) );
 		# Tag values
-		foreach ( FlaggedRevs::getDimensions() as $tag => $levels ) {
+		foreach ( FlaggedRevs::getDimensions() as $tag ) {
 			# This can be NULL if we uncheck a checkbox
 			$val = $wgRequest->getInt( "wp$tag" );
 			$form->setDim( $tag, $val );

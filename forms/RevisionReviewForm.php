@@ -217,7 +217,7 @@ class RevisionReviewForm
 		if ( $iDims ) {
 			$this->dims = $iDims;
 		} else {
-			foreach ( FlaggedRevs::getDimensions() as $tag => $levels ) {
+			foreach ( FlaggedRevs::getDimensions() as $tag ) {
 				if ( $this->dims[$tag] === 0 ) {
 					$this->unapprovedTags++;
 				}

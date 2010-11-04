@@ -62,7 +62,7 @@ class ApiReview extends ApiBase {
 			$form->setNotes( $params['notes'] );
 		// The flagging parameters have the form 'flag_$name'.
 		// Extract them and put the values into $form->dims
-		foreach ( FlaggedRevs::getDimensions() as $tag => $levels ) {
+		foreach ( FlaggedRevs::getDimensions() as $tag ) {
 			$form->setDim( $tag, intval( $params['flag_' . $tag] ) );
 		}
 		if ( $form->isApproval() ) {
@@ -174,7 +174,7 @@ class ApiReview extends ApiBase {
 		if ( FlaggedRevs::dimensionsEmpty() ) {
 			$desc['unapprove'] = "If set, revision will be unapproved rather than approved.";
 		} else {
-			foreach ( FlaggedRevs::getDimensions() as $flagname => $levels ) {
+			foreach ( FlaggedRevs::getDimensions() as $flagname ) {
 				$desc['flag_' . $flagname] = "Set the flag ''{$flagname}'' to the specified value";
 			}
 		}

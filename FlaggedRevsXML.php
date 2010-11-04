@@ -182,7 +182,7 @@ class FlaggedRevsXML {
         if ( $prettyBox ) {
         	$tag .= "<table id='mw-fr-revisionratings-box' align='center' class='$css' cellpadding='0'>";
 		}
-		foreach ( FlaggedRevs::getDimensions() as $quality => $x ) {
+		foreach ( FlaggedRevs::getDimensions() as $quality ) {
 			$level = isset( $flags[$quality] ) ? $flags[$quality] : 0;
 			$encValueText = wfMsgHtml( "revreview-$quality-$level" );
             $level = $flags[$quality];
