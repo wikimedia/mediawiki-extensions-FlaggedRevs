@@ -377,7 +377,8 @@ Parameters:
 	'review-logentry-dis' => '{{Flagged Revs}}
 Parameters:
 * $1 is a page title',
-	'review-logentry-id' => '{{Flagged Revs}}',
+	'review-logentry-id' => '{{Flagged Revs}}
+{{Identical|Revision}}',
 	'review-logentry-diff' => '{{Flagged Revs}}',
 	'review-logentry-diff2' => '{{Flagged Revs}}',
 	'review-logpage' => '{{Flagged Revs}}',
@@ -8597,7 +8598,7 @@ $messages['ja'] = array(
 	'revreview-draft-title' => '査読待ちの変更がこのページに表示されています',
 	'revreview-edit' => '編集',
 	'revreview-editnotice' => "'''あなたの変更は承認された利用者の査読の後に公開されます。 ([[{{MediaWiki:Validationpage}}|ヘルプ]])'''",
-	'revreview-check-flag-p' => '現在査読待ちの編集を公開する',
+	'revreview-check-flag-p' => 'この版を承認する（保留中の$1コの{{PLURAL:$1|変更}}を含む）',
 	'revreview-check-flag-p-title' => '自身の編集とともに現在保留中の変更をすべて承認する。
 これは、あなたが既に保留中の変更全体の差分表示を確認した場合のみに使用してください。',
 	'revreview-check-flag-u' => 'この未査読ページを受理する',
