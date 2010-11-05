@@ -4133,9 +4133,11 @@ $messages['el'] = array(
 	'validationpage' => '{{ns:help}}:Επικύρωση σελίδας',
 );
 
-/** British English (British English) */
+/** British English (British English)
+ * @author Reedy
+ */
 $messages['en-gb'] = array(
-	'flaggedrevs-desc' => 'Gives editors and reviewers the ability to validate revisions and stabilise pages',
+	'flaggedrevs-desc' => 'Gives editors and reviewers the ability to review revisions and stabilise pages',
 );
 
 /** Esperanto (Esperanto)
@@ -7647,7 +7649,7 @@ Lásd az [[Special:Unreviewedpages|ellenőrizetlen lapok listáját]].',
 	'revreview-successful2' => "'''A(z) [[:$1|$1]] változatáról sikeresen eltávolítottad a jelölést.'''",
 	'revreview-text' => "''Az [[{{MediaWiki:Validationpage}}|ellenőrzött változatok]] olyan átnézett lapok, amiken a közzétett változat alapul.''",
 	'revreview-toggle-title' => 'részletek megjelenítése/elrejtése',
-	'revreview-toolow' => "Ahhoz, hogy egy változat ellenőrzöttnek tekinthető legyen, minden tulajdonságot magasabbra kell értékelned a „nem ellenőrzött” szintnél.'''
+	'revreview-toolow' => "'''Ahhoz, hogy egy változat ellenőrzöttnek tekinthető legyen, minden tulajdonságot magasabbra kell értékelned a „nem ellenőrzött” szintnél.'''
 
 Nem ellenőrzöttnek való visszaminősítéshez állítsd az összes mezőt „nem ellenőrzött” értékre.
 

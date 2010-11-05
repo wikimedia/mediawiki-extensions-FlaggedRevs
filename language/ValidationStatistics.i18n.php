@@ -885,7 +885,7 @@ A járőrök olyan tapasztalt szerkesztők, akik ellenőrizhetik a lapok változ
 
 [[Special:OldReviewedPages|A nem ellenőrzött szerkesztésekkel rendelkező lapok]] átlagos késleltetési ideje '''$1'''.
 Ezek a lapok ''elavultnak'' számítanak. A lapok akkor számítanak „frissnek”, ha nincsenek ellenőrzésre váró szerkesztéseik.",
-	'validationstatistics-revtime' => "A ''nem bejelentkezett szerkesztőknek'' '''$1''' az átlagos várakozási idő az ellenőrzésig; a medián '''$2''''.
+	'validationstatistics-revtime' => "A ''nem bejelentkezett szerkesztőknek'' '''$1''' az átlagos várakozási idő az ellenőrzésig; a medián '''$2'''.
 $3",
 	'validationstatistics-table' => "Ezen az oldalon a névterekre bontott ellenőrzési statisztika látható, az átirányítások ''nélkül''.",
 	'validationstatistics-ns' => 'Névtér',
