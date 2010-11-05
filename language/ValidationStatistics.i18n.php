@@ -455,14 +455,6 @@ $messages['el'] = array(
 	'validationstatistics-reviews' => 'Επιθεωρήσεις',
 );
 
-/** British English (British English)
- * @author Bruce89
- * @author Reedy
- */
-$messages['en-gb'] = array(
-	'validationstatistics' => 'Page review statistics',
-);
-
 /** Esperanto (Esperanto)
  * @author Yekrats
  */
