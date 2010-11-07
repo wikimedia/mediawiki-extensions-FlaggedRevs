@@ -217,7 +217,7 @@ class RevisionReviewForm
 		if ( $iDims ) {
 			$this->dims = $iDims;
 		} else {
-			foreach ( FlaggedRevs::getDimensions() as $tag ) {
+			foreach ( FlaggedRevs::getTags() as $tag ) {
 				if ( $this->dims[$tag] === 0 ) {
 					$this->unapprovedTags++;
 				}
@@ -226,7 +226,7 @@ class RevisionReviewForm
 		# We must at least rate each category as 1, the minimum
 		# Exception: we can rate ALL as unapproved to depreciate a revision
 		if ( $this->unapprovedTags
-			&& $this->unapprovedTags < count( FlaggedRevs::getDimensions() ) )
+			&& $this->unapprovedTags < count( FlaggedRevs::getTags() ) )
 		{
 			return 'review_too_low';
 		}
@@ -748,7 +748,7 @@ class RevisionReviewForm
 		$form .= Xml::openElement( 'span', array( 'style' => 'white-space: nowrap;' ) );
 		# Hide comment input if needed
 		if ( !$disabled ) {
-			if ( count( FlaggedRevs::getDimensions() ) > 1 ) {
+			if ( count( FlaggedRevs::getTags() ) > 1 ) {
 				$form .= "<br />"; // Don't put too much on one line
 			}
 			$form .= "<span id='mw-fr-commentbox' style='clear:both'>" .
@@ -809,7 +809,6 @@ class RevisionReviewForm
 		if ( $labels === false ) {
 			$disabled = true; // a tag is unsettable
 		}
-		$dimensions = FlaggedRevs::getDimensions();
 		# If there are no tags, make one checkbox to approve/unapprove
 		if ( FlaggedRevs::binaryFlagging() ) {
 			return '';
@@ -818,7 +817,7 @@ class RevisionReviewForm
 		# Build rating form...
 		if ( $disabled ) {
 			// Display the value for each tag as text
-			foreach ( $dimensions as $quality => $levels ) {
+			foreach ( FlaggedRevs::getTags() as $quality ) {
 				$selected = isset( $flags[$quality] ) ? $flags[$quality] : 0;
 				$items[] = FlaggedRevs::getTagMsg( $quality ) . ": " .
 					FlaggedRevs::getTagValueMsg( $quality, $selected );

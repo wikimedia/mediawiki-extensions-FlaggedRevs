@@ -1187,7 +1187,7 @@ class FlaggedRevs {
 				$minLevels = self::$minSL;
 		}
 		$flags = array();
-		foreach ( self::getDimensions() as $tag => $x ) {
+		foreach ( self::getTags() as $tag ) {
 			$flags[$tag] = $minLevels[$tag];
 		}
 		return $flags;
@@ -1205,7 +1205,7 @@ class FlaggedRevs {
 			return null; // shouldn't happen
 		}
 		$flags = array();
-		foreach ( self::getDimensions() as $tag => $levels ) {
+		foreach ( self::getTags() as $tag ) {
 			# Try to keep this tag val the same as the stable rev's
 			$val = isset( $oldFlags[$tag] ) ? $oldFlags[$tag] : 1;
 			$val = min( $val, self::maxAutoReviewLevel( $tag ) );

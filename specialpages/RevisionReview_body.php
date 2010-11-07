@@ -57,7 +57,7 @@ class RevisionReview extends UnlistedSpecialPage
 		# Special token to discourage fiddling...
 		$form->setValidatedParams( $wgRequest->getVal( 'validatedParams' ) );
 		# Tag values
-		foreach ( FlaggedRevs::getDimensions() as $tag ) {
+		foreach ( FlaggedRevs::getTags() as $tag ) {
 			# This can be NULL if we uncheck a checkbox
 			$val = $wgRequest->getInt( "wp$tag" );
 			$form->setDim( $tag, $val );
@@ -136,7 +136,7 @@ class RevisionReview extends UnlistedSpecialPage
 		if ( wfReadOnly() ) {
 			return '<err#>' . wfMsgExt( 'revreview-failed', 'parseinline' );
 		}
-		$tags = FlaggedRevs::getDimensions();
+		$tags = FlaggedRevs::getTags();
 		// Make review interface object
 		$form = new RevisionReviewForm( $wgUser );
 		$title = null; // target page

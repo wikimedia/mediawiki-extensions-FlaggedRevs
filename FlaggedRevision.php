@@ -741,7 +741,7 @@ class FlaggedRevision {
 	public static function expandRevisionTags( $tags ) {
 		# Set all flags to zero
 		$flags = array();
-		foreach ( FlaggedRevs::getDimensions() as $tag => $levels ) {
+		foreach ( FlaggedRevs::getTags() as $tag ) {
 			$flags[$tag] = 0;
 		}
 		$tags = str_replace( '\n', "\n", $tags ); // B/C, old broken rows
