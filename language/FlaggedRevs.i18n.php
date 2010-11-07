@@ -358,7 +358,7 @@ This appears in [[Special:Preferences]]:
 	'revreview-hist-quality' => '{{Flagged Revs-small}}
 The accuracy "quality", as displayed on the page history after a revision with this setting.',
 	'revreview-hist-basic' => '{{Flagged Revs-small}}
-The accuracy "sighted", as displayed on the page history after a revision with this setting.',
+The accuracy "checked", as displayed on the page history after a revision with this setting.',
 	'revreview-hist-quality-user' => '{{Flagged Revs}}',
 	'revreview-hist-basic-user' => '{{Flagged Revs}}',
 	'revreview-hist-basic-auto' => '{{Flagged Revs}}',
@@ -391,7 +391,7 @@ Parameters:
 	'revreview-accuracy-0' => '{{Flagged Revs-small}}
 This is the default configuration, i.e. the revision has not (yet) been reviewed.',
 	'revreview-accuracy-1' => '{{Flagged Revs-small}}
-A basic check on vandalism ("sighted" as "has been seen/checked"). This configuration is considered as "flagged".',
+A basic check on vandalism ("checked" as "has been seen/checked"). This configuration is considered as "flagged".',
 	'revreview-accuracy-2' => '{{Flagged Revs}}',
 	'revreview-accuracy-3' => '{{Flagged Revs}}',
 	'revreview-accuracy-4' => '{{Flagged Revs}}
@@ -407,7 +407,7 @@ A basic check on vandalism ("sighted" as "has been seen/checked"). This configur
 	'revreview-basic-same' => '{{Flagged Revs}}
 * Parameter $2 is the date of the approval',
 	'revreview-basic-source' => '{{Flagged Revs-small}}
-Displayed on the top of a page when you are viewing an old sighted version. 
+Displayed on the top of a page when you are viewing an old checked version. 
 * Example: [http://de.wikipedia.org/w/index.php?title=Deutsche_Sprache&oldid=46894374 de.wikipedia].
 * Parameter $2 is the date of the approval',
 	'revreview-failed' => '{{Flagged Revs}}',
@@ -443,7 +443,7 @@ If an anonymous user edits a stable page, after saving the page he sees the draf
 {{Identical|Content page}}',
 	'revreview-newest-basic' => '{{Flagged Revs}}',
 	'revreview-newest-basic-i' => '{{Flagged Revs-small}}
-Used in the "flagged revs box" when you are viewing the latest draft version, but when there is a sighted revision, the stable version. 
+Used in the "flagged revs box" when you are viewing the latest draft version, but when there is a checked revision, the stable version. 
 
 Example: [http://de.wikipedia.org/w/index.php?title=Deutsche_Sprache&stable=0 de.wikipedia].
 * Note, the example seems not to work, currently.',
@@ -466,7 +466,7 @@ Used in the detailed version as label text for the ratings, see [http://translat
 	'revreview-quality-same' => '{{Flagged Revs}}',
 	'revreview-quality-source' => "{{Flagged Revs-small}}
 Displayed on the top of a page when you are viewing an old quality version. 
-* Example: [http://de.wikipedia.org/w/index.php?title=Deutsche_Sprache&oldid=46894374 de.wikipedia] (this is a sighted version, but it's the same for a quality version).
+* Example: [http://de.wikipedia.org/w/index.php?title=Deutsche_Sprache&oldid=46894374 de.wikipedia] (this is a checked version, but it's the same for a quality version).
 * Parameter $2 is the date of the approval",
 	'revreview-quality-title' => '{{Flagged Revs}}',
 	'revreview-quick-basic' => '{{Flagged Revs}}',
@@ -474,7 +474,7 @@ Displayed on the top of a page when you are viewing an old quality version.
 	'revreview-quick-basic-same' => '{{Flagged Revs}}',
 	'revreview-quick-invalid' => '{{Flagged Revs}}',
 	'revreview-quick-none' => '{{Flagged Revs-small}}
-Shown in the "flagged revs box" on the content page when there isn\'t any sighted or quality revision yet.',
+Shown in the "flagged revs box" on the content page when there isn\'t any checked or quality revision yet.',
 	'revreview-quick-quality' => '{{Flagged Revs-small}}
 Used in the "flagged revs box" when viewing a quality version, while there are new changes (in a draft version) to be reviewed.',
 	'revreview-quick-quality-old' => '{{Flagged Revs}}',
@@ -507,9 +507,9 @@ The text on the submit button in the form used to review pages.
 	'revreview-submit-reviewed' => '{{Flagged Revs}}',
 	'revreview-submit-unreviewed' => '{{Flagged Revs}}',
 	'revreview-successful' => '{{Flagged Revs-small}}
-Shown when a reviewer/editor has marked a revision as stable/sighted/... See also {{msg|revreview-successful2|pl=yes}}.',
+Shown when a reviewer/editor has marked a revision as stable/checked/... See also {{msg|revreview-successful2|pl=yes}}.',
 	'revreview-successful2' => '{{Flagged Revs-small}}
-Shown when a reviewer/editor has marked a stable/sighted/... revision as unstable/unsighted/... After that, it can normally be reviewed again. See also {{msg|revreview-successful|pl=yes}}.',
+Shown when a reviewer/editor has marked a stable/checked/... revision as unstable/unchecked/... After that, it can normally be reviewed again. See also {{msg|revreview-successful|pl=yes}}.',
 	'revreview-text' => "{{Flagged Revs-small}}
 Displayed in the review box for the reviewers' information.",
 	'revreview-toggle-show' => '{{Optional}}

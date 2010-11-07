@@ -278,7 +278,7 @@ class ProblemChangesPager extends AlphabeticPager {
 		$this->mForm = $form;
 		# Must be a content page...
 		$this->namespace = FlaggedRevs::getReviewNamespaces();
-		# Sanity check level: 0 = sighted; 1 = quality; 2 = pristine
+		# Sanity check level: 0 = checked; 1 = quality; 2 = pristine
 		$this->level = ( $level >= 0 && $level <= 2 ) ? $level : - 1;
 		$this->tag = $tag;
 		$this->category = $category ? str_replace( ' ', '_', $category ) : null;

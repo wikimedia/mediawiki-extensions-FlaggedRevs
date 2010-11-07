@@ -739,23 +739,23 @@ class FlaggedRevision {
 	 * @return Array
 	*/
 	public static function expandRevisionTags( $tags ) {
-		# Set all flags to zero
 		$flags = array();
 		foreach ( FlaggedRevs::getTags() as $tag ) {
-			$flags[$tag] = 0;
+			$flags[$tag] = 0; // init all flags values to zero
 		}
 		$tags = str_replace( '\n', "\n", $tags ); // B/C, old broken rows
+		// Tag string format is <tag:val\ntag:val\n...>
 		$tags = explode( "\n", $tags );
 		foreach ( $tags as $tuple ) {
 			$set = explode( ':', $tuple, 2 );
 			if ( count( $set ) == 2 ) {
 				list( $tag, $value ) = $set;
-				$value = intval( $value );
-				# Add only currently recognized ones
+				$value = max( 0, (int)$value ); // validate
+				# Add only currently recognized tags
 				if ( isset( $flags[$tag] ) ) {
-					# If a level was removed, default to the highest
-					$flags[$tag] = $value < count( $levels ) ?
-						$value : count( $levels ) - 1;
+					$levels = FlaggedRevs::getTagLevels( $tag );
+					# If a level was removed, default to the highest...
+					$flags[$tag] = min( $value, count( $levels ) - 1 );
 				}
 			}
 		}

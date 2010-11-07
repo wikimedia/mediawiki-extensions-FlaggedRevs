@@ -21,7 +21,7 @@ function autoreview_current( $user, $db ) {
 	$blockEnd = $start + $BATCH_SIZE - 1;
 	$count = 0;
 	$changed = 0;
-	$flags = FlaggedRevs::quickTags( FR_SIGHTED ); // Assume basic level
+	$flags = FlaggedRevs::quickTags( FR_CHECKED ); // Assume basic level
 	while( $blockEnd <= $end ) {
 		echo "...doing page_id from $blockStart to $blockEnd\n";
 		$cond = "page_id BETWEEN $blockStart AND $blockEnd";

@@ -771,7 +771,7 @@ class FlaggedRevs {
 		$data = array();
 		$level = self::pristineVersions() ? FR_PRISTINE : FR_QUALITY;
 		if ( !self::qualityVersions() ) {
-			$level = FR_SIGHTED;
+			$level = FR_CHECKED;
 		}
 		# Get the latest revision ID if not set
 		if ( !$latest ) {
@@ -798,13 +798,13 @@ class FlaggedRevs {
 			);
 			# If there is a revision of this level, track it...
 			# Revisions reviewed to one level  count as reviewed
-			# at the lower levels (i.e. quality -> sighted).
+			# at the lower levels (i.e. quality -> checked).
 			if ( $row ) {
 				$id = $row->fr_rev_id;
 				$ts = $row->rev_timestamp;
 			} else {
-				$id = $higherLevelId; // use previous (quality -> sighted)
-				$ts = $higherLevelTS; // use previous (quality -> sighted)
+				$id = $higherLevelId; // use previous (quality -> checked)
+				$ts = $higherLevelTS; // use previous (quality -> checked)
 			}
 			# Get edits that actually are pending...
 			if ( $id && $latest > $id ) {
@@ -1156,7 +1156,7 @@ class FlaggedRevs {
 	/**
 	* Get the quality tier of review flags
 	* @param array $flags
-	* @return int, flagging tier (-1 for non-sighted)
+	* @return int, flagging tier (-1 for non-checked)
 	*/
 	public static function getLevelTier( array $flags ) {
 		if ( self::isPristine( $flags ) ) {
@@ -1164,7 +1164,7 @@ class FlaggedRevs {
 		} elseif ( self::isQuality( $flags ) ) {
 			return FR_QUALITY; // 1
 		} elseif ( self::isSighted( $flags ) ) {
-			return FR_SIGHTED; // 0
+			return FR_CHECKED; // 0
 		}
 		return -1;
 	}
@@ -1326,7 +1326,7 @@ class FlaggedRevs {
 					$flags = self::getAutoReviewTags( $user, $oldSv->getTags() );
 				}
 			} else { // new page?
-				$flags = self::quickTags( FR_SIGHTED ); // use minimal level
+				$flags = self::quickTags( FR_CHECKED ); // use minimal level
 			}
 			if ( !is_array( $flags ) ) {
 				wfProfileOut( __METHOD__ );

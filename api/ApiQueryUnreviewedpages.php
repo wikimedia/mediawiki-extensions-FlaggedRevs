@@ -164,7 +164,7 @@ class ApiQueryUnreviewedpages extends ApiQueryGeneratorBase {
 			'end' => 'Stop listing at this page title.',
 			'namespace' => 'The namespaces to enumerate.',
 			'filterredir' => 'How to filter for redirects',
-			'filterlevel' => 'How to filter by quality (0=sighted,1=quality)',
+			'filterlevel' => 'How to filter by quality (0=checked,1=quality)',
 			'limit' => 'How many total pages to return.',
 		);
 	}

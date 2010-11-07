@@ -60,7 +60,7 @@ No configuration is possible.',
 $messages['qqq'] = array(
 	'stabilization-tab' => '{{Flagged Revs-small}}
 
-Some skins (e.g. standard/classic) display an additional tab to control visibility of the page revisions, e.g. whether last revision should be included or perhaps the last sighted or published version.',
+Some skins (e.g. standard/classic) display an additional tab to control visibility of the page revisions, e.g. whether last revision should be included or perhaps the last checked or published version.',
 	'stabilization' => '{{Flagged Revs-small}}
 Page title of Special:Stabilization.',
 	'stabilization-text' => '{{Flagged Revs-small}}

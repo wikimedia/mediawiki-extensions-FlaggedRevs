@@ -876,7 +876,7 @@ class FlaggedRevsHooks {
 			$quality = FlaggedRevs::getRevQuality(
 				$rc->mAttribs['rc_cur_id'], $revId, FR_MASTER );
 			// Reviewed => patrolled
-			if ( $quality !== false && $quality >= FR_SIGHTED ) {
+			if ( $quality !== false && $quality >= FR_CHECKED ) {
 				RevisionReviewForm::updateRecentChanges( $rc->getTitle(), $revId );
 				$rc->mAttribs['rc_patrolled'] = 1; // make sure irc/email notifs know status
 			}
@@ -1122,7 +1122,7 @@ class FlaggedRevsHooks {
 				}
 			}
 		}
-		# Check implicitly sighted edits
+		# Check implicitly checked edits
 		if ( $totalCheckedEditsNeeded && $wgFlaggedRevsAutoconfirm['totalCheckedEdits'] ) {
 			$dbr = wfGetDB( DB_SLAVE );
 			$res = $dbr->select( array( 'revision', 'flaggedpages' ), '1',
@@ -1316,7 +1316,7 @@ class FlaggedRevsHooks {
 				return true;
 			}
 		}
-		# Check implicitly sighted edits
+		# Check implicitly checked edits
 		if ( $totalCheckedEditsNeeded && $wgFlaggedRevsAutopromote['totalCheckedEdits'] ) {
 			$dbr = isset( $dbr ) ? $dbr : wfGetDB( DB_SLAVE );
 			$res = $dbr->select( array( 'revision', 'flaggedpages' ), '1',

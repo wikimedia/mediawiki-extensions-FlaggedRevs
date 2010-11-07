@@ -644,7 +644,7 @@ class RevisionReviewForm
 		}
 		$oldFlags = $frev
 			? $frev->getTags() // existing tags
-			: FlaggedRevs::quickTags( FR_SIGHTED ); // basic tags
+			: FlaggedRevs::quickTags( FR_CHECKED ); // basic tags
 
 		# If we are reviewing updates to a page, start off with the stable revision's
 		# flags. Otherwise, we just fill them in with the selected revision's flags.
