@@ -7314,6 +7314,7 @@ Je móžno, zo su so nowe [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonl
 	'review_bad_key' => 'Njepłaćiwy kluč za zapřijimowanski parameter.',
 	'review_denied' => 'Prawo zapowědźene.',
 	'review_param_missing' => 'Parameter faluje abo je njepłaćiwy.',
+	'review_cannot_undo' => 'Tute změny njehodźa so cofnyć, dokelž dalše njesčinjene změny su samsne městna změnili.',
 	'revreview-current' => 'Nječinjene změny',
 	'revreview-depth' => 'Hłubokosć',
 	'revreview-depth-0' => 'Njepřiměrjeny',
@@ -7324,7 +7325,7 @@ Je móžno, zo su so nowe [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonl
 	'revreview-draft-title' => 'Nječinjene změny so na tutej stronje zwobraznjeja',
 	'revreview-edit' => 'Wobdźěłać',
 	'revreview-editnotice' => "'''Twoje změny budu so čitarjam pokazować, tak ruče kaž awtorizowany wužiwar je přepruwuje. ([[{{MediaWiki:Validationpage}}|pomoc]])'''",
-	'revreview-check-flag-p' => 'Tuchwilu njepřepruwowane změny wozjewić',
+	'revreview-check-flag-p' => 'Tutu wersiju akceptować (zapřijima $1 njesčinjene {{PLURAL:$1|změna|změnje|změny|změnow}})',
 	'revreview-check-flag-p-title' => 'Akceptowanje wšěch tuchwilu njepřepruwowanych změnow hromadźe z twojej swójskej změnu.
 Wužij to jenož, jeli sy hižo wšě hišće njepřepruwowane změny widźał.',
 	'revreview-check-flag-u' => 'Tutu njepřepruwowanu stronu akceptować',
@@ -7399,11 +7400,11 @@ Je móžno, zo su so hižo nowe [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&d
 	'revreview-successful2' => "'''Woznamjenjenje wersije [[:$1|$1]] je so wuspěšnje wotstroniło.'''",
 	'revreview-text' => "''[[{{MediaWiki:Validationpage}}|Přepruwowane wersije]] su skontrolowane wersije stronow, kotrež so wužiwaja, zo bychu wozjewjenu wersiju postajili.''",
 	'revreview-toggle-title' => 'Podrobnosće pokazać/schować',
-	'revreview-toolow' => "'''Dyrbiš kóždy z atributow wyše hač \"njepřiměrjeny\" pohódnoćić, zo by so wersija jako přepruwowana wobkedźbowała.'''
+	'revreview-toolow' => '\'\'\'Dyrbiš kóždy z atributow wyše hač "njepřiměrjeny" pohódnoćić, zo by so wersija jako přepruwowana wobkedźbowała.\'\'\'
 
-Zo by přepruwowanski status wersije wotstronił, staj '''wšě''' pola na \"njepřiměrjeny\".
+Zo by přepruwowanski status wersije wotstronił, klikń na "njeakceptować".
 
-Prošu klikń na tłóčatko \"Wróćo\" w swojim wobhladowaku a spytaj hišće raz.",
+Prošu klikń na tłóčatko "Wróćo" w swojim wobhladowaku a spytaj hišće raz.',
 	'revreview-update' => "'''Prošu [[{{MediaWiki:Validationpage}}|přepruwuj]] njepřepruwowane změny ''(hlej deleka)'', kotrež buchu na akceptowanej wersiji přewjedźene.'''
 Dyrbiš snano změny dale wobźěłać abo je' 'cofnyć''.",
 	'revreview-update-edited' => '<span class="flaggedrevs_important">Twoje změny hišće w stabilnej wersiji njeje.</span>
@@ -7456,6 +7457,13 @@ Móže być, zo dyrbiš najprjedy změny dale wobdźěłać abo "cofnyć".',
 	'revreview-restrictfilter' => 'Wobmjezowanje awtomatiskeho přepruwowanja:',
 	'revreview-restriction-any' => 'někajka',
 	'revreview-restriction-none' => 'žana',
+	'revreview-reject-header' => 'Změny za $1 wotpokazać',
+	'revreview-reject-text-list' => "Přewjedujo tutu akciju, budźeš slědowace '''wotpokazować''':",
+	'revreview-reject-text-revto' => 'To stronu na [$1 wersiju wot dnja $2] wróćo staji.',
+	'revreview-reject-summary' => 'Zjeće wobdźěłać',
+	'revreview-reject-confirm' => 'Tute změny wotpokazać',
+	'revreview-reject-cancel' => 'Přetorhnyć',
+	'revreview-reject-default-summary' => 'Změny wot wužiwarja [[User:$1|$1]] su so do wersije $2 wot wužiwarja  [[User:$3|$3]] wróćo stajili',
 	'revreview-reviewlink' => 'njepřepruwowane změny',
 	'revreview-reviewlink-title' => 'Rozdźěl wšěch njepřepruwowanych změnow pokazać',
 	'revreview-unreviewedpage' => 'njeskontrolowana strona',
@@ -16593,6 +16601,16 @@ Değişikliklerinizin kararlı sürümde görünmesi için, lütfen aşağıda g
  */
 $messages['tt-cyrl'] = array(
 	'revreview-edit' => 'Үзгәртү',
+	'revreview-quick-none' => "'''[[{{MediaWiki:Validationpage}}|Тикшерелмәгән]]'''",
+	'revreview-quick-quality' => "'''[[{{MediaWiki:Validationpage}}|Тикшерелгән]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} тикшерелмәгән үзгәртүләрне күрсәтергә]]",
+	'revreview-quick-quality-old' => "'''[[{{MediaWiki:Validationpage}}|Тикшерелгән]]'''",
+	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|Тикшерелгән]]'''",
+	'revreview-quick-see-basic' => '[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} тикшерелмәгән үзгәрешләрне карарга]]',
+	'revreview-quick-see-quality' => '[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} тикшерелмәгән үзгәрешләрне карарга]]',
+	'revreview-selected' => "Сайланган юрама '''$1:'''",
+	'revreview-source' => 'Карау',
+	'revreview-basic-title' => 'Бу битнең каралган юрамасы',
+	'validationpage' => '{{ns:help}}:Битләрне тикшерү',
 );
 
 /** Ukrainian (Українська)
