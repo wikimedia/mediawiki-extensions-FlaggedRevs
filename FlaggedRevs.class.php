@@ -1120,7 +1120,7 @@ class FlaggedRevs {
 	* @param array $flags
 	* @return bool, is this revision at basic review condition?
 	*/
-	public static function isSighted( array $flags ) {
+	public static function isChecked( array $flags ) {
 		return self::tagsAtLevel( $flags, self::$minSL );
 	}
 
@@ -1163,7 +1163,7 @@ class FlaggedRevs {
 			return FR_PRISTINE; // 2
 		} elseif ( self::isQuality( $flags ) ) {
 			return FR_QUALITY; // 1
-		} elseif ( self::isSighted( $flags ) ) {
+		} elseif ( self::isChecked( $flags ) ) {
 			return FR_CHECKED; // 0
 		}
 		return -1;
