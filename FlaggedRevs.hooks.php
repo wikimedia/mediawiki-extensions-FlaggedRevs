@@ -44,7 +44,7 @@ class FlaggedRevsHooks {
 	* Add FlaggedRevs css/js.
 	*/
 	protected static function injectStyleAndJS() {
-		global $wgOut, $wgUser;
+		global $wgOut, $wgUser, $wgJsMimeType, $wgFlaggedRevStyleVersion;
 		if ( $wgOut->hasHeadItem( 'FlaggedRevs' ) ) {
 			return true; # Don't double-load
 		}
@@ -53,22 +53,20 @@ class FlaggedRevsHooks {
 		if ( !$fa || !$fa->isReviewable() ) {
 			return true;
 		}
-		global $wgJsMimeType, $wgFlaggedRevStyleVersion;
 		$stylePath = FlaggedRevs::styleUrlPath();
 		# Get JS/CSS file locations
 		$encCssFile = htmlspecialchars( "$stylePath/flaggedrevs.css?$wgFlaggedRevStyleVersion" );
 		$encJsFile = htmlspecialchars( "$stylePath/flaggedrevs.js?$wgFlaggedRevStyleVersion" );
-		
-		//TODO fix this to use the correct method
+
+		// TODO fix this to use the correct method
 		# Add CSS file
-		//$wgOut->addExtensionStyle( $encCssFile );
+		$head = "<link rel=\"stylesheet\" href=\"{$encCssFile}\"></link>";
 		# Add main JS file
-		$head = "<script type=\"{$wgJsMimeType}\" src=\"{$encJsFile}\"></script>";
-		$head .= "<link rel=\"stylesheet\" href=\"{$encCssFile}\"></link>";
+		$wgOut->addScript( "<script type=\"{$wgJsMimeType}\" src=\"{$encJsFile}\"></script>" );
 		# Add review form JS for reviewers
 		if ( $wgUser->isAllowed( 'review' ) ) {
 			$encJsFile = htmlspecialchars( "$stylePath/review.js?$wgFlaggedRevStyleVersion" );
-			$head .= "\n<script type=\"{$wgJsMimeType}\" src=\"{$encJsFile}\"></script>";
+			$wgOut->addScript( "<script type=\"{$wgJsMimeType}\" src=\"{$encJsFile}\"></script>" );
 		}
 		# Set basic messages for all users...
 		$msgs = array(
@@ -89,10 +87,11 @@ class FlaggedRevsHooks {
 			$msgs['tooltipSubmit'] = wfMsg( 'revreview-submitedit-title' ) .
 				' ['. wfMsg( 'accesskey-save' ) . ']';
 		}
-		$head .= "\n<script type=\"{$wgJsMimeType}\">" .
-			"FlaggedRevs.messages = " . Xml::encodeJsVar( (object)$msgs ) . ";</script>\n";
-		$wgOut->addHeadItem( 'FlaggedRevs', $head );
+		# Add msgs to JS
+		$wgOut->addScript( "<script type=\"{$wgJsMimeType}\">" .
+			"FlaggedRevs.messages = " . Xml::encodeJsVar( (object)$msgs ) . ";</script>" );
 
+		$wgOut->addHeadItem( 'FlaggedRevs', $head );
 		return true;
 	}
 
