@@ -52,10 +52,10 @@ FlaggedRevs.updateRatingForm = function() {
 
 	// (a) If only a few levels are zero ("incomplete") then disable submission.
 	// (b) Re-enable submission for already accepted revs when ratings change.
-	var rsubmit = document.getElementById('mw-fr-submit-accept');
-	if( rsubmit ) {
-		rsubmit.disabled = somezero ? 'disabled' : '';
-		rsubmit.value = wgAjaxReview.flagMsg; // reset to "Accept"
+	var asubmit = document.getElementById('mw-fr-submit-accept');
+	if( asubmit ) {
+		asubmit.disabled = somezero ? 'disabled' : '';
+		asubmit.value = wgAjaxReview.flagMsg; // reset to "Accept"
 	}
 
 	// Update colors of <select>
@@ -68,9 +68,9 @@ FlaggedRevs.updateRatingForm = function() {
 */
 FlaggedRevs.maybeDisableAcceptButton = function() {
 	if ( typeof(jsReviewNeedsChange) != 'undefined' && jsReviewNeedsChange == 1 ) {
-		var rsubmit = document.getElementById('mw-fr-submit-accept');
-		if( rsubmit ) {
-			rsubmit.disabled = 'disabled';
+		var asubmit = document.getElementById('mw-fr-submit-accept');
+		if( asubmit ) {
+			asubmit.disabled = 'disabled';
 		}
 	}
 }
@@ -215,23 +215,50 @@ wgAjaxReview.processResult = function(request) {
 		window.clearTimeout(wgAjaxReview.timeoutID);
 	}
 	var tier = 0; // review tier
-	var response = request.responseText;
+	var response = request.responseText; // full response text
 	var msg = response.substr(6); // remove <err#> or <suc#>
 	var tierMatch = msg.match(/^<t#(\d)>/);
 	if( tierMatch ) {
 		tier = tierMatch[1];
 		msg = msg.substr(5); // remove <t#x>
 	}
-	var diffRevRatings = null;
-	// Errors: output any error response message
-	if( response.indexOf('<err#>') == 0 ) {
-		jsMsg( msg, 'review' ); // success/failure notice
-		window.scroll(0,0); // scroll up to notice
-	// OK: get new diff UI elements
-	} else {
-		var diffUIParams = document.getElementById("mw-fr-diff-dataform");
-		// Diffs: update the contents of the mw-fr-diff-headeritems div
+	// Some form elements...
+	var asubmit = document.getElementById('mw-fr-submit-accept');
+	var usubmit = document.getElementById('mw-fr-submit-unaccept');
+	var legend = document.getElementById('mw-fr-reviewformlegend');
+	var diffNotice = document.getElementById('mw-fr-difftostable');
+	var tagBox = document.getElementById('mw-fr-revisiontag');
+	// On success...
+	if( response.indexOf('<suc#>') == 0 ) {
+		// (a) Update document title and form buttons...
+		document.title = wgAjaxReview.actioncomplete;
+		if( asubmit && usubmit ) {
+			// Revision was flagged
+			if( asubmit.value == wgAjaxReview.sendingMsg ) {
+				asubmit.value = wgAjaxReview.flaggedMsg; // done!
+				asubmit.style.fontWeight = 'bold';
+				// Unlock and reset *unflag* button
+				usubmit.value = wgAjaxReview.unflagMsg;
+				usubmit.removeAttribute( 'style' ); // back to normal
+				usubmit.disabled = '';
+			// Revision was unflagged
+			} else if( usubmit.value == wgAjaxReview.sendingMsg ) {
+				usubmit.value = wgAjaxReview.unflaggedMsg; // done!
+				usubmit.style.fontWeight = 'bold';
+				// Unlock and reset *flag* button
+				asubmit.value = wgAjaxReview.flagMsg;
+				asubmit.removeAttribute( 'style' ); // back to normal
+				asubmit.disabled = '';
+			}
+		}
+		// (b) Remove review tag from drafts
+		if( tagBox ) tagBox.style.display = 'none';
+		// (c) Update diff-related items...
+		var diffUIParams = document.getElementById('mw-fr-diff-dataform');
 		if ( diffUIParams ) {
+			// Hide "review this" box on diffs
+			if( diffNotice ) diffNotice.style.display = 'none';
+			// Update the contents of the mw-fr-diff-headeritems div
 			wgAjaxReview.inprogress = true;
 			var args = []; // <oldid, newid>
 			args.push( diffUIParams.getElementsByTagName('input')[0].value );
@@ -243,52 +270,28 @@ wgAjaxReview.processResult = function(request) {
 				args, wgAjaxReview.processDiffHeaderItemsResult );
 			sajax_request_type = old;
 		}
-	}
-	var rsubmit = document.getElementById("mw-fr-submit-accept");
-	var usubmit = document.getElementById("mw-fr-submit-unaccept");
-	var legend = document.getElementById("mw-fr-reviewformlegend");
-	var diffNotice = document.getElementById("mw-fr-difftostable");
-	var tagBox = document.getElementById('mw-fr-revisiontag');
-	// On success...
-	if( response.indexOf('<suc#>') == 0 ) {
-		document.title = wgAjaxReview.actioncomplete;
-		if( rsubmit && usubmit ) {
-			// Revision was flagged
-			if( rsubmit.value == wgAjaxReview.sendingMsg ) {
-				rsubmit.value = wgAjaxReview.flaggedMsg; // done!
-				rsubmit.style.fontWeight = 'bold';
-				// Unlock and reset *unflag* button
-				usubmit.value = wgAjaxReview.unflagMsg;
-				usubmit.removeAttribute( 'style' ); // back to normal
-				usubmit.disabled = '';
-			// Revision was unflagged
-			} else if( usubmit.value == wgAjaxReview.sendingMsg ) {
-				usubmit.value = wgAjaxReview.unflaggedMsg; // done!
-				usubmit.style.fontWeight = 'bold';
-				// Unlock and reset *flag* button
-				rsubmit.value = wgAjaxReview.flagMsg;
-				rsubmit.removeAttribute( 'style' ); // back to normal
-				rsubmit.disabled = '';
-			}
-		}
-		// Hide "review this" box on diffs
-		if( diffNotice ) diffNotice.style.display = 'none';
-		// Remove review tag from draft
-		if( tagBox ) tagBox.style.display = 'none';
 	// On failure...
 	} else {
+		// (a) Update document title and form buttons...
 		document.title = wgAjaxReview.actionfailed;
-		if( rsubmit && usubmit ) {
+		if( asubmit && usubmit ) {
 			// Revision was flagged
-			if( rsubmit.value == wgAjaxReview.sendingMsg ) {
-				rsubmit.value = wgAjaxReview.flagMsg; // back to normal
-				rsubmit.disabled = ''; // unlock flag button
+			if( asubmit.value == wgAjaxReview.sendingMsg ) {
+				asubmit.value = wgAjaxReview.flagMsg; // back to normal
+				asubmit.disabled = ''; // unlock flag button
 			// Revision was unflagged
 			} else if( usubmit.value == wgAjaxReview.sendingMsg ) {
 				usubmit.value = wgAjaxReview.unflagMsg; // back to normal
 				usubmit.disabled = ''; // unlock
 			}
 		}
+		// (b) Output any error response message
+		if ( response.indexOf('<err#>') == 0 ) {
+			jsMsg( msg, 'review' ); // success/failure notice
+		} else {
+			jsMsg( request.responseText, 'review' ); // fatal notice
+		}
+		window.scroll(0,0); // scroll up to notice
 	}
 	wgAjaxReview.unlockForm();
 };
@@ -307,9 +310,9 @@ wgAjaxReview.processDiffHeaderItemsResult = function(request) {
 }
 
 wgAjaxReview.onLoad = function() {
-	var rsubmit = document.getElementById("mw-fr-submit-accept");
-	if( rsubmit ) {
-		rsubmit.onclick = wgAjaxReview.ajaxCall;
+	var asubmit = document.getElementById("mw-fr-submit-accept");
+	if( asubmit ) {
+		asubmit.onclick = wgAjaxReview.ajaxCall;
 	}
 	var usubmit = document.getElementById("mw-fr-submit-unaccept");
 	if( usubmit ) {
