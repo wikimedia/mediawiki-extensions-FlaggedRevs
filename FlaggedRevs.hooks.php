@@ -58,15 +58,15 @@ class FlaggedRevsHooks {
 		$encCssFile = htmlspecialchars( "$stylePath/flaggedrevs.css?$wgFlaggedRevStyleVersion" );
 		$encJsFile = htmlspecialchars( "$stylePath/flaggedrevs.js?$wgFlaggedRevStyleVersion" );
 
-		// TODO fix this to use the correct method
 		# Add CSS file
-		$head = "<link rel=\"stylesheet\" href=\"{$encCssFile}\"></link>";
+		$linkedStyle = Html::linkedStyle( $encCssFile );
+		$wgOut->addHeadItem( 'FlaggedRevs', $linkedStyle );
 		# Add main JS file
-		$wgOut->addScript( "<script type=\"{$wgJsMimeType}\" src=\"{$encJsFile}\"></script>" );
+		$wgOut->addScriptFile( $encJsFile );
 		# Add review form JS for reviewers
 		if ( $wgUser->isAllowed( 'review' ) ) {
 			$encJsFile = htmlspecialchars( "$stylePath/review.js?$wgFlaggedRevStyleVersion" );
-			$wgOut->addScript( "<script type=\"{$wgJsMimeType}\" src=\"{$encJsFile}\"></script>" );
+			$wgOut->addScriptFile( $encJsFile );
 		}
 		# Set basic messages for all users...
 		$msgs = array(
@@ -88,10 +88,9 @@ class FlaggedRevsHooks {
 				' ['. wfMsg( 'accesskey-save' ) . ']';
 		}
 		# Add msgs to JS
-		$wgOut->addScript( "<script type=\"{$wgJsMimeType}\">" .
-			"FlaggedRevs.messages = " . Xml::encodeJsVar( (object)$msgs ) . ";</script>" );
+		$wgOut->addInlineScript( "FlaggedRevs.messages = " . Xml::encodeJsVar( (object)$msgs ) . ";" );
 
-		$wgOut->addHeadItem( 'FlaggedRevs', $head );
+		//$wgOut->addHeadItem( 'FlaggedRevs', $head );
 		return true;
 	}
 
@@ -112,6 +111,11 @@ class FlaggedRevsHooks {
 		$globalVars['wgStableRevisionId'] = $stableId;
 		$globalVars['wgLatestRevisionId'] = $fa->getLatest();
 		$globalVars['wgPageId'] = $fa->getID();
+		$revisionContents = (object) array(
+			'error'		=> wfMsgHtml( 'revcontents-error' ),
+			'waiting'	=> wfMsgHtml( 'revcontents-waiting' )
+		);
+		$globalVars['wgRevContents'] = $revisionContents;
 		if ( $wgUser->isAllowed( 'review' ) ) {
 			$ajaxReview = (object) array(
 				'sendMsg'		 => wfMsgHtml( 'revreview-submit' ),

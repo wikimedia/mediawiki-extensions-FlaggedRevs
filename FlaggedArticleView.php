@@ -1801,13 +1801,13 @@ class FlaggedArticleView {
 	 * If this is a diff page then replace the article contents with a link to the specific revision.
 	 * This will be replaced with artice content using javascript and an api call.
 	 */
-	public function addCustomHtml( OutputPage &$out ) {
+	public function addCustomHtml( OutputPage $out ) {
 		global $wgTitle, $wgScript, $wgRequest;
 		$this->load();
 		if ( $wgRequest->getVal( 'oldid' ) ) {
 			$oldId = $wgRequest->getVal( 'oldid' );
 			$oldRevisionUrl = $wgScript . '?title=' . $wgTitle . '&oldid=' . $oldId;
-			$out->addHTML( "<div id='mw-fr-revisioncontents'>Click <a href='" . $oldRevisionUrl . "' >here</a> to view this revision.</div>" );
+			$out->addHTML( "<div id='mw-fr-revisioncontents'>" . wfMsg( 'revcontents-getcontents', $oldRevisionUrl ) . "</div>" );
 		}
 		
 	}

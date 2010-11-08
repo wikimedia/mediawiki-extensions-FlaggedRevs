@@ -191,39 +191,44 @@ FlaggedRevs.getRevisionContents = function() {
 	if( contentsDiv ) {	
 		var diffUIParams = document.getElementById("mw-fr-diff-dataform");
 		var oldRevId = diffUIParams.getElementsByTagName('input')[1].value;
-		contentsDiv.innerHTML = "<span class='loading spinner'></span><span class='loading' >Waiting for contents</span>";
+		var origContents = contentsDiv.innerHTML;
+		contentsDiv.innerHTML = "<span class='loading spinner'></span><span class='loading' >" + wgRevContents.waiting + "</span>";
 		var requestArgs = 'action=parse&prop=text&format=xml';
 		if ( window.wgLatestRevisionId == oldRevId ) {
 			requestArgs += '&pageid=' + window.wgPageId;
 		} else {
 			requestArgs += '&oldid=' + oldRevId;
 		}
-		timeoutId = window.setTimeout( function() {
-			$.ajax({
+		var call = $.ajax({
 				url		: wgScriptPath + '/api.php',
 				type	: "GET",
 				data	: requestArgs,
 				dataType: "xml",
 				success	: function( result ) {
 					contents = $(result).find("text");
-					if ( contents ) {
+					if ( contents && contents.text() ) {
 						contentsDiv.innerHTML = contents.text();
+					} else {
+						contentsDiv.innerHTML = wgRevContents.error + " " + origContents;
 					}
 				},
 				error	: function(xmlHttpRequest, textStatus, errThrown) {
-					alert("error: " + textStauts); 
+					contentsDiv.innerHTML = wgRevContents.error + " " + origContents;
 				}
 			});
-		}, 1000 );
 	}
-	if ( prevLink && timeoutId ) {
+	if ( prevLink ) {
 		prevLink.onclick = function() {
-			window.clearTimeout( timeoutId );
+			if ( call ) {
+				call.abort();
+			}
 		}
 	}
-	if ( nextLink && timeoutId ) {
+	if ( nextLink ) {
 		nextLink.onclick = function() {
-			window.clearTimeout( timeoutId );
+			if ( call ) {
+				call.abort();
+			}
 		}
 	}
 }

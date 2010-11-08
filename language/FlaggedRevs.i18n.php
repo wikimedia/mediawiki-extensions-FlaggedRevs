@@ -41,6 +41,9 @@ $messages['en'] = array(
 	'group-autoreview'             => 'Autochecked users',
 	'group-autoreview-member'      => 'autochecked users',
 	'grouppage-autoreview'         => '{{ns:project}}:Autochecked users',
+	'revcontents-error'            => 'Unable to get content.',
+	'revcontents-getcontents'      => 'Click <a href="$1" >here</a> to view this revision.',
+	'revcontents-waiting'          => 'Waiting for content',
 	'revreview-hist-draft'         => 'unchecked revision',
 	'revreview-hist-pending'       => 'pending revision',
 	'revreview-hist-quality'       => 'quality revision',
@@ -776,6 +779,7 @@ $messages['an'] = array(
 	'group-reviewer-member' => 'Revisador',
 	'grouppage-editor' => '{{ns:project}}:Editor',
 	'grouppage-reviewer' => '{{ns:project}}:Revisador',
+
 	'revreview-hist-draft' => 'versión no verificata',
 	'revreview-hist-quality' => 'versión de calidat',
 	'revreview-hist-basic' => 'versión verificata',
