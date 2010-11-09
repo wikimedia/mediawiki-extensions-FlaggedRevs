@@ -333,14 +333,12 @@ span.fr-under-review {
 .loading { 
 	display: block;
 	color: #666666; 
-	padding-left: 32px;
+	padding-left: 40px;
 	height: 32px;
 }
 .spinner {
-	background-image: url(img/loading-small.gif) !important;
 	background-position: left center;
-	background-repeat: no-repeat;
-	margin-left: 0.5em;
-	margin-top: -0.25em;
+	margin-left: 1em;
+	margin-top: -1.3em;
 	float: left;
 }

@@ -192,7 +192,7 @@ FlaggedRevs.getRevisionContents = function() {
 		var diffUIParams = document.getElementById("mw-fr-diff-dataform");
 		var oldRevId = diffUIParams.getElementsByTagName('input')[1].value;
 		var origContents = contentsDiv.innerHTML;
-		contentsDiv.innerHTML = "<span class='loading spinner'></span><span class='loading' >" + wgRevContents.waiting + "</span>";
+		contentsDiv.innerHTML = "<span class='loading mw-small-spinner spinner'></span><span class='loading' >" + wgRevContents.waiting + "</span>";
 		var requestArgs = 'action=parse&prop=text&format=xml';
 		if ( window.wgLatestRevisionId == oldRevId ) {
 			requestArgs += '&pageid=' + window.wgPageId;
