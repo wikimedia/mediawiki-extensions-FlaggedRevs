@@ -44,7 +44,7 @@ class FlaggedRevsHooks {
 	* Add FlaggedRevs css/js.
 	*/
 	protected static function injectStyleAndJS() {
-		global $wgOut, $wgUser, $wgJsMimeType, $wgFlaggedRevStyleVersion;
+		global $wgOut, $wgUser, $wgFlaggedRevStyleVersion;
 		if ( $wgOut->hasHeadItem( 'FlaggedRevs' ) ) {
 			return true; # Don't double-load
 		}
@@ -82,15 +82,16 @@ class FlaggedRevsHooks {
 		# Extra reviewer messages...
 		if ( $wgUser->isAllowed( 'review' ) ) {
 			$msgs['saveArticle'] = wfMsgHtml( 'savearticle' );
-			$msgs['tooltipSave'] = wfMsgHtml( 'tooltip-save' ).' ['.wfMsgHtml( 'accesskey-save' ).']';
+			$msgs['tooltipSave'] = wfMsgHtml( 'tooltip-save' ) .
+				' [' . wfMsgHtml( 'accesskey-save' ) . ']';
 			$msgs['submitArticle'] = wfMsg( 'revreview-submitedit' );
 			$msgs['tooltipSubmit'] = wfMsg( 'revreview-submitedit-title' ) .
 				' ['. wfMsg( 'accesskey-save' ) . ']';
 		}
 		# Add msgs to JS
-		$wgOut->addInlineScript( "FlaggedRevs.messages = " . Xml::encodeJsVar( (object)$msgs ) . ";" );
+		$wgOut->addInlineScript(
+			"FlaggedRevs.messages = " . Xml::encodeJsVar( (object)$msgs ) . ";" );
 
-		//$wgOut->addHeadItem( 'FlaggedRevs', $head );
 		return true;
 	}
 
