@@ -1538,8 +1538,8 @@ class FlaggedArticleView {
 					$this->isReviewableDiff = true;
 				}
 			}
+			$this->diffRevs = array( 'old' => $oldRev->getId(), 'new' => $newRev->getId() );
 		}
-		$this->diffRevs = array( 'old' => $oldRev->getId(), 'new' => $newRev->getId() ); 
 		return true;
 	}
 
