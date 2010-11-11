@@ -29,7 +29,6 @@ class RevisionReviewForm
 	protected $comment = '';
 	protected $dims = array();
 
-	protected $unapprovedTags = 0;
 	protected $oflags = array();
 	protected $inputLock = 0; # Disallow bad submissions
 
@@ -203,35 +202,25 @@ class RevisionReviewForm
 	protected function checkSettings() {
 		$status = $this->checkTarget();
 		if ( $status !== true ) {
-			return $status; // bad target
+			return $status; // bad page target
+		} elseif ( !$this->oldid ) {
+			return 'review_no_oldid'; // bad revision target
 		}
-		if ( !$this->oldid ) {
-			return 'review_no_oldid';
-		}
-		# Check that this is an approval or de-approval
+		# Check that an action is specified (approve, reject, de-approve)
 		if ( $this->getAction() === null ) {
 			return 'review_param_missing'; // user didn't say
 		}
 		# Fill in implicit tag data for binary flag case
 		$iDims = $this->implicitDims();
 		if ( $iDims ) {
-			$this->dims = $iDims;
-		} else {
-			foreach ( FlaggedRevs::getTags() as $tag ) {
-				if ( $this->dims[$tag] === 0 ) {
-					$this->unapprovedTags++;
-				}
-			}
+			$this->dims = $iDims; // binary flag case
 		}
-		# We must at least rate each category as 1, the minimum
-		# Exception: we can rate ALL as unapproved to depreciate a revision
-		if ( $this->unapprovedTags
-			&& $this->unapprovedTags < count( FlaggedRevs::getTags() ) )
-		{
-			return 'review_too_low';
-		}
-		# Special token to discourage fiddling with template/files...
 		if ( $this->getAction() === 'approve' ) {
+			# We must at least rate each category as 1, the minimum
+			if ( in_array( 0, $this->dims, true ) ) {
+				return 'review_too_low';
+			}
+			# Special token to discourage fiddling with template/files...
 			$k = self::validationKey(
 				$this->templateParams, $this->imageParams, $this->fileVersion, $this->oldid );
 			if ( $this->validatedParams !== $k ) {
