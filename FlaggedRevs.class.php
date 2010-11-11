@@ -244,7 +244,7 @@ class FlaggedRevs {
 		global $wgFlaggedRevsComments;
 		return $wgFlaggedRevsComments;
 	}
-	
+
 	/**
 	 * Get the array of tag dimensions and level messages
 	 * @returns array
@@ -253,25 +253,7 @@ class FlaggedRevs {
 		self::load();
 		return self::$dimensions;
 	}
-	
-	/**
-	 * Get min level this tag needs to be for a rev to be "quality"
-	 * @returns int
-	 */
-	public static function getMinQL( $tag ) {
-		self::load();
-		return self::$minQL[$tag];
-	}
-	
-	/**
-	 * Get min level this tag needs to be for a rev to be "pristine"
-	 * @returns int
-	 */
-	public static function getMinPL( $tag ) {
-		self::load();
-		return self::$minPL[$tag];
-	}
-	
+
 	/**
 	 * Get the associative array of tag dimensions
 	 * (tags => array(levels => msgkey))
@@ -867,11 +849,12 @@ class FlaggedRevs {
 	*/
 	public static function getRevisionTags( Title $title, $rev_id ) {
 		$dbr = wfGetDB( DB_SLAVE );
-		$tags = $dbr->selectField( 'flaggedrevs', 'fr_tags',
+		$tags = (string)$dbr->selectField( 'flaggedrevs',
+			'fr_tags',
 			array( 'fr_rev_id' => $rev_id,
 				'fr_page_id' => $title->getArticleId() ),
-			__METHOD__ );
-		$tags = $tags ? $tags : "";
+			__METHOD__
+		);
 		return FlaggedRevision::expandRevisionTags( strval( $tags ) );
 	}
 
@@ -1161,7 +1144,7 @@ class FlaggedRevs {
 	/**
 	* Get the quality tier of review flags
 	* @param array $flags
-	* @return int, flagging tier (-1 for non-checked)
+	* @return int flagging tier (FR_PRISTINE,FR_QUALITY,FR_CHECKED,-1)
 	*/
 	public static function getLevelTier( array $flags ) {
 		if ( self::isPristine( $flags ) ) {
@@ -1176,26 +1159,17 @@ class FlaggedRevs {
 
 	/**
 	 * Get minimum level tags for a tier
+	 * @param int $tier FR_PRISTINE/FR_QUALITY/FR_CHECKED
 	 * @return array
 	 */
 	public static function quickTags( $tier ) {
 		self::load();
-		switch( $tier ) // select reference levels
-		{
-			case FR_PRISTINE:
-				$minLevels = self::$minPL;
-				break;
-			case FR_QUALITY:
-				$minLevels = self::$minQL;
-				break;
-			default:
-				$minLevels = self::$minSL;
+		if ( $tier == FR_PRISTINE ) {
+			return self::$minPL;
+		} elseif ( $tier == FR_QUALITY ) {
+			return self::$minQL;
 		}
-		$flags = array();
-		foreach ( self::getTags() as $tag ) {
-			$flags[$tag] = $minLevels[$tag];
-		}
-		return $flags;
+		return self::$minSL;
 	}
 
 	/**
