@@ -2989,6 +2989,8 @@ $messages['cs'] = array(
 	'group-autoreview' => 'Automatičtí posuzovatelé',
 	'group-autoreview-member' => 'automatický posuzovatel',
 	'grouppage-autoreview' => '{{ns:project}}:Automatický posuzovatel',
+	'revcontents-error' => 'Nelze získat obsah.',
+	'revcontents-waiting' => 'Čekám na obsah',
 	'revreview-hist-draft' => 'nezkontrolovaná revize',
 	'revreview-hist-pending' => 'čeká na kontrolu',
 	'revreview-hist-quality' => 'kvalitní verze',
@@ -4037,6 +4039,7 @@ $messages['ee'] = array(
  * @author Crazymadlover
  * @author Dead3y3
  * @author Flyax
+ * @author Glavkos
  * @author Omnipaedista
  * @author ZaDiak
  */
@@ -4077,14 +4080,14 @@ $messages['el'] = array(
 	'revreview-accuracy-4' => 'Επιλεγμένο',
 	'revreview-auto' => '(αυτόματο)',
 	'revreview-failed' => 'Η επιθεώρηση απέτυχε!',
-	'revreview-current' => 'Προσχέδιο',
+	'revreview-current' => 'Αλλαγές σε εκκρεμότητα',
 	'revreview-depth' => 'Βάθος',
-	'revreview-depth-0' => 'Μη εγκεκριμένο',
+	'revreview-depth-0' => 'Ανεπαρκής',
 	'revreview-depth-1' => 'Βασικό',
 	'revreview-depth-2' => 'Μέτριο',
 	'revreview-depth-3' => 'Υψηλό',
 	'revreview-depth-4' => 'Εξαίρετο',
-	'revreview-draft-title' => 'Πρόχειρη σελίδα',
+	'revreview-draft-title' => 'Οι  αλλαγές σε εκκρεμότητα εμφανίζονται σε αυτήν τη σελίδα',
 	'revreview-edit' => 'Επεξεργασία',
 	'revreview-flag' => 'Επιθεώρησε αυτή την τροποποίηση',
 	'revreview-reflag' => 'Αναίρεση επισκόπησης αυτής της έκδοσης',
@@ -4092,7 +4095,7 @@ $messages['el'] = array(
 	'revreview-log' => 'Σχόλιο:',
 	'revreview-notes' => 'Εμφάνιση παρατηρήσεων ή σημειώσεων:',
 	'revreview-oldrating' => 'Βαθμολογήθηκε:',
-	'revreview-quality-title' => 'Σελίδα ποιότητας',
+	'revreview-quality-title' => 'Αυτή είναι μια ποιοτική έκδοση αυτής της σελίδας',
 	'revreview-quick-invalid' => "'''Άκυρος κωδικός αναθεώρησης'''",
 	'revreview-selected' => "Επιλεγμένη έκδοση του '''$1:'''",
 	'revreview-source' => 'Πηγή προσχεδίου',
@@ -4128,7 +4131,7 @@ $messages['el'] = array(
 	'revreview-filter-auto' => 'Αυτόματος',
 	'revreview-filter-manual' => 'Χειροκίνητο',
 	'revreview-levelfilter' => 'Επίπεδο:',
-	'revreview-lev-basic' => 'επιθεωρημένη',
+	'revreview-lev-basic' => 'ελέγχθηκαν',
 	'revreview-lev-quality' => 'ποιότητα',
 	'revreview-lev-pristine' => 'μη αλλοιωμένο',
 	'revreview-reviewlink' => 'επιθεώρηση',
