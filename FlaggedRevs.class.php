@@ -115,6 +115,7 @@ class FlaggedRevs {
 	 * @returns string
 	 */
 	public static function binaryTagName() {
+		self::load();
 		if ( !self::binaryFlagging() ) {
 			return null;
 		}
@@ -155,7 +156,6 @@ class FlaggedRevs {
 	 */
 	public static function autoReviewNewPages() {
 		global $wgFlaggedRevsAutoReviewNew;
-		self::load();
 		return (bool)$wgFlaggedRevsAutoReviewNew;
 	}
 
@@ -320,10 +320,11 @@ class FlaggedRevs {
 	 */
 	public static function getTagValueMsg( $tag, $value ) {
 		self::load();
-		if ( !isset( self::$dimensions[$tag] ) )
+		if ( !isset( self::$dimensions[$tag] ) ) {
 			return '';
-		if ( !isset( self::$dimensions[$tag][$value] ) )
+		} elseif ( !isset( self::$dimensions[$tag][$value] ) ) {
 			return '';
+		}
 		# Return empty string if not there
 		return wfMsgExt( 'revreview-' . self::$dimensions[$tag][$value],
 			array( 'escapenoentities' ) );
@@ -1121,6 +1122,7 @@ class FlaggedRevs {
 	* @return bool, is this revision at basic review condition?
 	*/
 	public static function isChecked( array $flags ) {
+		self::load();
 		return self::tagsAtLevel( $flags, self::$minSL );
 	}
 
@@ -1129,6 +1131,7 @@ class FlaggedRevs {
 	* @return bool, is this revision at quality review condition?
 	*/
 	public static function isQuality( array $flags ) {
+		self::load();
 		return self::tagsAtLevel( $flags, self::$minQL );
 	}
 
@@ -1137,11 +1140,13 @@ class FlaggedRevs {
 	* @return bool, is this revision at pristine review condition?
 	*/
 	public static function isPristine( array $flags ) {
+		self::load();
 		return self::tagsAtLevel( $flags, self::$minPL );
 	}
 	
 	// Checks if $flags meets $reqFlagLevels
 	protected static function tagsAtLevel( array $flags, $reqFlagLevels ) {
+		self::load();
 		if ( empty( $flags ) ) {
 			return false;
 		}
