@@ -192,7 +192,7 @@ class RevisionReview extends UnlistedSpecialPage
 					break;
 				default:
 					$p = preg_replace( '/^wp/', '', $par ); // kill any "wp" prefix
-					if ( array_key_exists( $p, $tags ) ) {
+					if ( in_array( $p, $tags ) ) {
 						$form->setDim( $p, $val );
 					}
 					break;
