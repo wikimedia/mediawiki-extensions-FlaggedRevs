@@ -25,7 +25,7 @@ class FRDependencyUpdate {
 		# Get any links that are only in the stable version...
 		$cLinks = $this->getCurrentVersionLinks();
 		foreach ( $this->sLinks as $ns => $titles ) {
-			foreach ( $titles as $title ) {
+			foreach ( $titles as $title => $pageId ) {
 				if ( !isset( $cLinks[$ns][$title] ) ) {
 					self::addDependency( $deps, $ns, $title );
 				}
@@ -33,7 +33,7 @@ class FRDependencyUpdate {
 		}
 		# Get any images that are only in the stable version...
 		$cImages = $this->getCurrentVersionImages();
-		foreach ( $this->sImages as $image ) {
+		foreach ( $this->sImages as $image => $n ) {
 			if ( !isset( $cImages[$image] ) ) {
 				self::addDependency( $deps, NS_FILE, $image );
 			}
@@ -41,7 +41,7 @@ class FRDependencyUpdate {
 		# Get any templates that are only in the stable version...
 		$cTemplates = $this->getCurrentVersionTemplates();
 		foreach ( $this->sTemplates as $ns => $titles ) {
-			foreach ( $titles as $title ) {
+			foreach ( $titles as $title => $id ) {
 				if ( !isset( $cTemplates[$ns][$title] ) ) {
 					self::addDependency( $deps, $ns, $title );
 				}
@@ -49,7 +49,7 @@ class FRDependencyUpdate {
 		}
 		# Get any categories that are only in the stable version...
 		$cCategories = $this->getCurrentVersionCategories();
-		foreach ( $this->sCategories as $category ) {
+		foreach ( $this->sCategories as $category => $sort ) {
             if ( !isset( $cCategories[$category] ) ) {
 				self::addDependency( $deps, NS_CATEGORY, $category );
 			}
@@ -108,7 +108,7 @@ class FRDependencyUpdate {
 			} else {
 				$diffs = $dbkeys;
 			}
-			foreach ( $diffs as $dbk ) {
+			foreach ( $diffs as $dbk => $id ) {
 				$arr[] = array(
 					'ftr_from'      => $this->title->getArticleId(),
 					'ftr_namespace' => $ns,
@@ -125,7 +125,7 @@ class FRDependencyUpdate {
 	*/
 	protected function getDepDeletions( array $existing, array $new ) {
 		$del = array();
-		foreach ( $existing as $ns ) {
+		foreach ( $existing as $ns => $dbkeys ) {
 			if ( isset( $new[$ns] ) ) {
 				$del[$ns] = array_diff_key( $existing[$ns], $new[$ns] );
 			} else {
