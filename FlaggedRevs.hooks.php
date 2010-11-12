@@ -57,12 +57,11 @@ class FlaggedRevsHooks {
 		# Get JS/CSS file locations
 		$encCssFile = htmlspecialchars( "$stylePath/flaggedrevs.css?$wgFlaggedRevStyleVersion" );
 		$encJsFile = htmlspecialchars( "$stylePath/flaggedrevs.js?$wgFlaggedRevStyleVersion" );
-		$encJQueryFile = "jquery.js";
 		# Add CSS file
 		$linkedStyle = Html::linkedStyle( $encCssFile );
 		$wgOut->addHeadItem( 'FlaggedRevs', $linkedStyle );
 		# Add main JS file
-		$wgOut->addScriptFile( $encJQueryFile );
+		$wgOut->includeJQuery();
 		$wgOut->addScriptFile( $encJsFile );
 		# Add review form JS for reviewers
 		if ( $wgUser->isAllowed( 'review' ) ) {
@@ -112,7 +111,6 @@ class FlaggedRevsHooks {
 		}
 		$globalVars['wgStableRevisionId'] = $stableId;
 		$globalVars['wgLatestRevisionId'] = $fa->getLatest();
-		//$globalVars['wgPageId'] = $fa->getID();
 		$revisionContents = (object) array(
 			'error'		=> wfMsgHtml( 'revcontents-error' ),
 			'waiting'	=> wfMsgHtml( 'revcontents-waiting' )

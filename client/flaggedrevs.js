@@ -188,12 +188,18 @@ FlaggedRevs.getRevisionContents = function() {
 	var prevLink = document.getElementById("differences-prevlink");
 	var nextLink = document.getElementById("differences-nextlink");
 	var timeoutId = null;
-	if( contentsDiv ) {	
+	if( contentsDiv ) {
 		var diffUIParams = document.getElementById("mw-fr-diff-dataform");
 		var oldRevId = diffUIParams.getElementsByTagName('input')[1].value;
 		var origContents = contentsDiv.innerHTML;
 		contentsDiv.innerHTML = "<span class='loading mw-small-spinner spinner'></span><span class='loading' >" + wgRevContents.waiting + "</span>";
-		var requestArgs = 'action=parse&prop=text&format=xml&oldid=' + oldRevId;
+		var requestArgs = 'action=parse&prop=text&format=xml';
+		if ( window.wgLatestRevisionId == oldRevId && window.wgPageName ) {
+			requestArgs += '&page=' + window.wgPageName;
+		} else {
+			requestArgs += '&oldid=' + oldRevId;
+		}
+
 		var call = jQuery.ajax({
 				url		: wgScriptPath + '/api.php',
 				type	: "GET",
