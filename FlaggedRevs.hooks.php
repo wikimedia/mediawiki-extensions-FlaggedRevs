@@ -2124,6 +2124,8 @@ class FlaggedRevsHooks {
 			$wgExtPGNewFields[] = array( 'flaggedpage_config', 'fpc_level', "TEXT NULL" );
 			$wgExtNewTables[] = array( 'flaggedpage_pending',
 				"$base/postgres/patch-flaggedpage_pending.sql" );
+		} elseif ( $wgDBtype == 'sqlite' ) {
+			$wgExtNewTables[] = array( 'flaggedrevs', "$base/FlaggedRevs.sql" );
 		}
 		return true;
 	}
