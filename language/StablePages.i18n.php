@@ -379,6 +379,7 @@ $messages['gsw'] = array(
 );
 
 /** Hebrew (עברית)
+ * @author Amire80
  * @author DoviJ
  * @author Ori229
  * @author Rotemliss
@@ -391,6 +392,7 @@ $messages['he'] = array(
 עריכות שבוצעו על ידי משתמשים אחרים אינן מוצגות לקוראים כברירת מחדל עד שהמשתמשים המורשים בודקים אותן.',
 	'stablepages-none' => 'אין דפים ברשימה זו',
 	'stablepages-config' => 'תצורה',
+	'stablepages-indef' => 'רק ללא תאריך פתוגה',
 );
 
 /** Hindi (हिन्दी)

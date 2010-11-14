@@ -771,6 +771,7 @@ $messages['ha'] = array(
 
 /** Hebrew (עברית)
  * @author Agbad
+ * @author Amire80
  * @author DoviJ
  * @author Erel Segal
  * @author Rotemliss
@@ -782,6 +783,12 @@ $messages['he'] = array(
 
 עורכים הם משתמשים ותיקים שיכולים לבצע בדיקה מהירה של גרסאות ושל דפים.",
 	'validationstatistics-lastupdate' => "''הנתונים הבאים עודכנו לאחרונה ב־$1 בשעה $2.''",
+	'validationstatistics-pndtime' => "עריכות שנבדקו על משתמשים מוּכָּרִים נחשבות לעריכות שנצפו.
+
+עיכוב ממוצע ל[[Special:OldReviewedPages|דפים עם עריכות טעונות אישור]] הוא '''\$1'''.
+הדפים האלה נחשבים \"לא עדכניים\". כמו כן, דפים נחשבים \"מסונכרנים\" אם אין עריכות טעונות בדיקה.",
+	'validationstatistics-revtime' => "ההמתנה הממוצעת לאישור עריכות של '''משמשים אלמוניים''' היא '''$1'''; החציון הוא '''$2'''.
+$3",
 	'validationstatistics-table' => "סטטיסטיקות על בדיקת דפים לכל מרחב שם מוצגות להלן, '''למעט''' דפי הפניה.",
 	'validationstatistics-ns' => 'מרחב שם',
 	'validationstatistics-total' => 'דפים',

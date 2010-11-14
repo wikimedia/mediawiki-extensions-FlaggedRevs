@@ -5512,6 +5512,9 @@ $messages['fr'] = array(
 	'group-autoreview' => 'Relecteurs automatiques',
 	'group-autoreview-member' => 'Relecteur automatique',
 	'grouppage-autoreview' => '{{ns:project}}:Relecteur automatique',
+	'revcontents-error' => 'Impossible de récupérer le contenu.',
+	'revcontents-getcontents' => 'Cliquez <a href="$1">ici</a> pour voir cette version.',
+	'revcontents-waiting' => 'En attente de contenu',
 	'revreview-hist-draft' => 'version non vérifiée',
 	'revreview-hist-pending' => 'en attente de relecture',
 	'revreview-hist-quality' => 'version de qualité',
@@ -6647,6 +6650,9 @@ $messages['he'] = array(
 	'group-autoreview' => 'בודקי דפים אוטומטיים',
 	'group-autoreview-member' => 'בודק דפים אוטומטי',
 	'grouppage-autoreview' => '{{ns:project}}:בודק דפים אוטומטי',
+	'revcontents-error' => 'לא ניתן לקבל את התוכן.',
+	'revcontents-getcontents' => 'יש ללחוץ <a href="$1" >כאן</a> כדי לצפות במהדורה זו.',
+	'revcontents-waiting' => 'בהמתנה לתוכן',
 	'revreview-hist-draft' => 'גרסה לא בדוקה',
 	'revreview-hist-pending' => 'עריכה ממתינה',
 	'revreview-hist-quality' => 'גרסה איכותית',
@@ -6683,14 +6689,14 @@ $messages['he'] = array(
 	'revreview-accuracy-3' => 'עם מקורות תקינים',
 	'revreview-accuracy-4' => 'מצוין',
 	'revreview-auto' => '(אוטומטי)',
-	'revreview-basic' => 'זוהי הגרסה ה[[{{MediaWiki:Validationpage}}|נצפית]] האחרונה, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} נבדקה] ב<i>$2</i>.
-ב[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} טיוטה] יש [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} {{PLURAL:$3|שינוי אחד|$3 שינויים}}] {{PLURAL:$3|הטעון אישור|הטעונים אישור}}.',
-	'revreview-basic-i' => 'זוהי הגרסה האחרונה ש[[{{MediaWiki:Validationpage}}|נצפתה]], והיא [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} אושרה] ב־<i>$2</i>.
-ב[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} טיוטה] יש [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} שינויים בתבניות/בקבצים] הטעונים אישור.',
-	'revreview-basic-old' => 'זוהי גרסה [[{{MediaWiki:Validationpage}}|נצפית]] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} הצגת הכול]), נבדקה ב־<i>$2</i>.
-ייתכן שנעשו בה [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} שינויים חדשים].',
-	'revreview-basic-same' => 'זוהי הגרסה ה[[{{MediaWiki:Validationpage}}|נצפית]] האחרונה ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} הצגת הכול]), נבדקה ב־<i>$2</i>.',
-	'revreview-basic-source' => '[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} גרסה נצפית] של דף זה, ש[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} אושרה] ב־<i>$2</i>, מבוססת על גרסה זו.',
+	'revreview-basic' => 'זוהי [[{{MediaWiki:Validationpage}}|הגרסה היציבה]] האחרונה ש[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} נבדקה] ב־<i>$2</i>.
+יש [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} {{PLURAL:$3|שינוי אחד|$3 שינויים}}] {{PLURAL:$3|הטעון אישור|הטעונים אישור}}.',
+	'revreview-basic-i' => 'זוהי [[{{MediaWiki:Validationpage}}|הגרסה היציבה]] ש[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} נבדקה] ב־<i>$2</i>.
+יש [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} שינויים בתבניות/בקבצים] הטעונים אישור.',
+	'revreview-basic-old' => 'זוהי גרסה [[{{MediaWiki:Validationpage}}|בדוקה]] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} הצגת הכול]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} אושרה] ב־<i>$2</i>.
+ייתכן שנעשו [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} שינויים חדשים].',
+	'revreview-basic-same' => 'זוהי [[{{MediaWiki:Validationpage}}|הגרסה היציבה]] ש[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}}נבדקה] ב־<i>$2</i>.',
+	'revreview-basic-source' => '[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} גרסה בדוקה] של דף זה, ש[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} אושרה] ב־<i>$2</i>, מבוססת על גרסה זו.',
 	'revreview-failed' => "'''לא ניתן לסקור גרסה זו.''' השליחה הייתה חלקית או שגויה.",
 	'review_page_invalid' => 'כותרת דף היעד אינה תקינה.',
 	'review_page_notexists' => 'דף היעד אינו קיים.',
@@ -6713,7 +6719,7 @@ $messages['he'] = array(
 	'revreview-draft-title' => 'השינויים בהמתנה מופיעים בדף זה',
 	'revreview-edit' => 'עריכה',
 	'revreview-editnotice' => "'''השינויים שלך יוצגו לקוראים לאחר שמשתמש מורשה יבדוק אותם. ([[{{MediaWiki:Validationpage}}|עזרה]])'''",
-	'revreview-check-flag-p' => 'קבלת השינויים הממתינים',
+	'revreview-check-flag-p' => 'קבלת גרסה זו (לרבות {{PLURAL:$1|השינוי הממתין|$1 השינויים הממתינים}})',
 	'revreview-check-flag-p-title' => 'קבלת כל השינויים הממתינים הנוכחיים לצד העריכות שלך.  יש להשתמש בזה אם כבר ראית את ההבדל עבור כל השינויים הממתינים.',
 	'revreview-check-flag-u' => 'קבלת הדף הזה שלא נבדק',
 	'revreview-check-flag-u-title' => 'קבלת הגרסה הזו לדף. אנא השתמשו בזה רק אם ראיתם כבר את הדף כולו.',
@@ -6733,30 +6739,31 @@ $messages['he'] = array(
 	'revreview-main' => 'עליכם לבחור גרסה מסוימת של דף תוכן כדי לבדוק אותה.
 
 ראו את [[Special:Unreviewedpages|רשימת הדפים שלא נבדקו]].',
-	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} הגרסה הנצפית האחרונה] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} הצגת כולן]) [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} נבדקה] ב־<i>$2</i>.
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} {{PLURAL:$3|שינוי אחד|$3 שינויים}}] {{PLURAL:$3|טעונים|טעון}} בדיקה.',
-	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} הגרסה האחרונה שנצפתה] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} הצגת כולן]) [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} נבדקה] ב־<i>$2</i>.
+	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} הגרסה היציבה] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} נבדקה] ב־<i>$2</i>.
+יש [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} {{PLURAL:$3|שינוי אחד|$3 שינויים}}] {{PLURAL:$3|טעונים|טעון}} בדיקה.',
+	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} הגרסה היציבה] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} נבדקה] ב־<i>$2</i>.
+יש [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} שינויים בתבניות/בקבצים] שטעונים בדיקה.',
+	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} הגרסה היציבה] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} נבדקה] ב־<i>$2</i>. יש [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} {{PLURAL:$3|שינוי אחד|$3 שינויים}}] {{PLURAL:$3|טעונים|טעון}} בדיקה.',
+	'revreview-newest-quality-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} הגרסה היציבה] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} אושרה] ב־<i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} שינויים בתבניות/בקבצים] טעונים בדיקה.',
-	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} הגרסה האיכותית האחרונה] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} הצגת כולן]) [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} נבדקה] ב־<i>$2</i>.
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} {{PLURAL:$3|שינוי אחד|$3 שינויים}}] {{PLURAL:$3|טעונים|טעון}} בדיקה.',
-	'revreview-newest-quality-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} הגרסה האיכותית האחרונה] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} הצגת כולן]) [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} נבדקה] ב־<i>$2</i>.
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} שינויים בתבניות/בקבצים] טעונים בדיקה.',
+	'revreview-pending-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} הגרסה היציבה] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} נבדקה] ב־<i>$2</i>. יש [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} {{PLURAL:$3|שינוי אחד|$3 שינויים}}] שצריך לבדוק.',
+	'revreview-pending-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} הגרסה היציבה] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} אושרה] ב־<i>$2</i>. יש [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 pending {{PLURAL:$3|שינוי אחד|$3 שינויים}}] שצריך לבדוק.',
 	'revreview-pending-nosection' => 'יש לנסות לסקור את [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} הגרסה האחרונה], הכוללת
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} {{PLURAL:$2|שינוי אחד|$2 שינויים}}] בהמתנה, כדי האם האגף הועבר או נמחק..',
 	'revreview-noflagged' => "אין בדף זה [[{{MediaWiki:Validationpage}}|גרסאות שנבדקו]], ויתכן ש'''לא''' עבר בדיקת איכות.",
 	'revreview-note' => '[[User:$1|$1]] רשם את ההערות הבאות במהלך [[{{MediaWiki:Validationpage}}|בדיקה]] של גרסה זו:',
 	'revreview-notes' => 'תובנות או הערות להצגה:',
 	'revreview-oldrating' => 'קיבל דירוג של:',
-	'revreview-quality' => 'זו הגרסה ה[[{{MediaWiki:Validationpage}}|איכותית]] האחרונה, ש[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} אושרה] ב־<i>$2</i>.
-ב[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} טיוטה] יש [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} {{PLURAL:$3|שינוי אחד|$3 שינויים}}] {{PLURAL:$3|הטעון אישור|הטעונים אישור}}.',
-	'revreview-quality-i' => 'זוהי הגרסה ה[[{{MediaWiki:Validationpage}}|איכותית]] האחרונה, ש[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} אושרה] ב־<i>$2</i>.
-ב[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} טיוטה] יש [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} שינויים בתבניות או בקבצים] הטעונים אישור.',
-	'revreview-quality-old' => 'זוהי גרסה [[{{MediaWiki:Validationpage}}|איכותית]] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} הצגת הכול]), ש[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} אושרה] ב־<i>$2</i>.
+	'revreview-quality' => 'זוהי [[{{MediaWiki:Validationpage}}|הגרסה היציבה]] ש[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} אושרה] ב־<i>$2</i>.
+יש [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} {{PLURAL:$3|שינוי אחד|$3 שינויים}}] {{PLURAL:$3|הטעון אישור|הטעונים אישור}}.',
+	'revreview-quality-i' => 'זוהי [[{{MediaWiki:Validationpage}}|הגרסה היציבה]], ש[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} אושרה] ב־<i>$2</i>.
+יש [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} שינויים בתבניות/בקבצים] הטעונים אישור.',
+	'revreview-quality-old' => 'זוהי [[{{MediaWiki:Validationpage}}|גרסה איכותית]] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} הצגת הכול]), ש[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} אושרה] ב־<i>$2</i>.
 ייתכן שנעשו בה [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} שינויים חדשים].',
-	'revreview-quality-same' => 'זוהי הגרסה ה[[{{MediaWiki:Validationpage}}|איכותית]] האחרונה ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} הצגת הכול]), ש[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} אושרה] ב־<i>$2</i>.',
+	'revreview-quality-same' => 'זוהי [[{{MediaWiki:Validationpage}}|הגרסה היציבה]] ש[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} אושרה] ב־<i>$2</i>.',
 	'revreview-quality-source' => '[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} גרסה איכותית] של דף זה, ש[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} אושרה] ב־<i>$2</i>, מבוססת על גרסה זו.',
 	'revreview-quality-title' => 'זוהי גרסה איכותית של דף זה',
-	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|דף שנצפה]]''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} צפייה בטיוטה]]",
+	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|דף שנבדק]]''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} צפייה בשינויים טעוני בדיקה]]",
 	'revreview-quick-basic-old' => "'''[[{{MediaWiki:Validationpage}}|נבדקה]]'''",
 	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|נבדקה]]'''",
 	'revreview-quick-invalid' => "'''מספר גרסה בלתי תקין'''",
@@ -6769,8 +6776,8 @@ $messages['he'] = array(
 	'revreview-selected' => "הגרסה שנבחרה של '''$1''':",
 	'revreview-source' => 'צפייה במקור',
 	'revreview-basic-title' => 'זוהי גרסה בדוקה של דף זה',
-	'revreview-stable1' => 'ייתכן שתרצו לצפות ב[{{fullurl:$1|stableid=$2}} גרסה מסומנת זו] ולבדוק האם היא עכשיו [{{fullurl:$1|stable=1}} הגרסה היציבה] של דף זה.',
-	'revreview-stable2' => 'ייתכן שתרצו לצפות ב[{{fullurl:$1|stable=1}} גרסה היציבה] של הדף הזה (אם עדיין קיימת גרסה כזו).',
+	'revreview-stable1' => 'ייתכן שתרצו לצפות ב[{{fullurl:$1|stableid=$2}} גרסה מסומנת זו] ולבדוק האם היא עכשיו [{{fullurl:$1|stable=1}} הגרסה היציבה] של הדף הזה.',
+	'revreview-stable2' => 'ייתכן שתרצו לצפות ב[{{fullurl:$1|stable=1}} גרסה היציבה] של הדף הזה.',
 	'revreview-style' => 'קריאות',
 	'revreview-style-0' => 'בלתי מספק',
 	'revreview-style-1' => 'סביר',
@@ -6786,15 +6793,15 @@ $messages['he'] = array(
 	'revreview-submit-unreviewed' => 'בוצע. בוטל האישור!',
 	'revreview-successful' => "'''הגרסה של [[:$1|$1]] סומנה בהצלחה. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} צפייה בגרסאות היציבות])'''",
 	'revreview-successful2' => "'''סימון הגרסה [[:$1|$1]] הוסר בהצלחה.'''",
-	'revreview-text' => "'''[[{{MediaWiki:Validationpage}}|גרסאות יציבות]] מוצגות כברירת מחדל לקוראים במקום הגרסה האחרונה.'''",
+	'revreview-text' => "'''[[{{MediaWiki:Validationpage}}|גרסאות נצפות]] הן גרסאות של דפים שמשמשות לבחירת הגרסה היציבה.'''",
 	'revreview-toggle-title' => 'הצגת/הסתרת פרטים',
 	'revreview-toolow' => 'יש לדרג כל אחת מהתכונות הבאות גבוה יותר מ"לא אושר" כדי שהגרסה תיחשב לגרסה שנבדקה.
 
 כדי להסיר מגרסה את הגדרת מצב הביקורת שלה, יש ללחוץ על "דחיית הגרסה".
 
 עתה יש ללחוץ על כפתור "חץ אחורה" בדפדפן ולנסות שוב.',
-	'revreview-update' => "אנא [[{{MediaWiki:Validationpage}}|בדקו]] את כל השינויים '''(המוצגים להלן)''' שנעשו מאז שהגרסה היציבה [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} נבדקה].<br />
-'''מספר תבניות/קבצים עודכנו:'''",
+	'revreview-update' => "אנא [[{{MediaWiki:Validationpage}}|בדקו]] את כל השינויים '''(המוצגים להלן)''' שנעשו מאז הגרסה היציבה האחרונה.'''
+ייתכן שצריך לבצע פעולות נוספות או לבטל עריכות.",
 	'revreview-update-edited' => '<span class="flaggedrevs_important">השינויים שלך עדיין אינם בגרסה היציבה.</span>
 
 נא לסקור את כל השינויים המופיעים להלן כדי שהעריכות שלך יופיעו בגרסה היציבה.
@@ -6834,6 +6841,7 @@ $messages['he'] = array(
 	'revreview-filter-auto' => 'אוטומטי',
 	'revreview-filter-manual' => 'ידנית',
 	'revreview-levelfilter' => 'רמה:',
+	'revreview-lev-all' => 'כולן',
 	'revreview-lev-basic' => 'נבדקה',
 	'revreview-lev-quality' => 'איכותית',
 	'revreview-lev-pristine' => 'מושלמת',
@@ -6842,7 +6850,15 @@ $messages['he'] = array(
 	'revreview-def-draft' => 'אחרון',
 	'revreview-def-stable' => 'יציב',
 	'revreview-restrictfilter' => 'מגבלת הסקירה האוטומטית:',
+	'revreview-restriction-any' => 'כולן',
+	'revreview-restriction-none' => 'אף לא אחת',
+	'revreview-reject-header' => 'דחיית השינויים עבור $1',
+	'revreview-reject-text-list' => "על ידי השלמת פעולה זו, שינויים אלו '''יידחו''':",
+	'revreview-reject-text-revto' => 'פעולה זו תשחזר את העמוד בחזרה ל[גרסה $1 מהתאריך of $2].',
+	'revreview-reject-summary' => 'תקציר העריכה:',
+	'revreview-reject-confirm' => 'דחיית שינויים אלו',
 	'revreview-reject-cancel' => 'ביטול',
+	'revreview-reject-default-summary' => 'השינויים של [[User:$1|$1]] נדחו לגרסה $2 על ידי [[User:$3|$3]]',
 	'revreview-reviewlink' => 'עריכות ממתינות',
 	'revreview-reviewlink-title' => 'צפייה ביומן ההבדל של כל השינויים הממתינים',
 	'revreview-unreviewedpage' => 'דף לא בדוק',
@@ -8582,6 +8598,9 @@ $messages['ja'] = array(
 	'group-autoreview' => '自動査読者',
 	'group-autoreview-member' => '自動査読者',
 	'grouppage-autoreview' => '{{ns:project}}:自動査読者',
+	'revcontents-error' => '内容を取得できません。',
+	'revcontents-getcontents' => '<a href="$1" >ここ</a>をクリックしてこの版を閲覧',
+	'revcontents-waiting' => '内容を待機中',
 	'revreview-hist-draft' => '未確認版',
 	'revreview-hist-pending' => '査読待ち',
 	'revreview-hist-quality' => '高品質版',
@@ -10540,7 +10559,7 @@ $messages['mk'] = array(
 
 Има [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 {{PLURAL:$2|промена|промени}}] ''({{PLURAL:$2|прикажана подолу|прикажани подолу}})'' што {{PLURAL:$2|чека проверка|чекаат проверка}}.",
 	'revreview-edited-section' => 'Назад на заглавието со име „[[#$1|$2]]“.',
-	'revreview-flag' => 'Оценка за оваа ревизија',
+	'revreview-flag' => 'Оценка на оваа ревизија',
 	'revreview-reflag' => 'Преоцени ја оваа ревизија',
 	'revreview-invalid' => "'''Погрешна цел:''' нема [[{{MediaWiki:Validationpage}}|оценети]] ревизии кои соодветствуваат на наведениот ид. бр.",
 	'revreview-legend' => 'Оценка за содржината на ревизијата',
@@ -11796,6 +11815,9 @@ $messages['no'] = array(
 	'group-autoreview' => 'Autoanmeldere',
 	'group-autoreview-member' => 'autoanmelder',
 	'grouppage-autoreview' => '{{ns:project}}:Autoanmelder',
+	'revcontents-error' => 'Kan ikke hente innhold.',
+	'revcontents-getcontents' => 'Klikk <a href="$1">her</a> for å vise denne revisjonen.',
+	'revcontents-waiting' => 'Venter på innhold',
 	'revreview-hist-draft' => 'ukontrollert revisjon',
 	'revreview-hist-pending' => 'venter på godkjennelse',
 	'revreview-hist-quality' => 'kvalitetsversjon',

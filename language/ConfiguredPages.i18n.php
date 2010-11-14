@@ -341,6 +341,8 @@ E Deil Yystellige chenne sich villicht unterscheide, je nochdäm weli Version em
  */
 $messages['he'] = array(
 	'configuredpages' => 'דפים עם תצורות סקירה',
+	'configuredpages-list' => 'להלן רשימה של דפים שהגדרות האישור שלהם שונות מברירת המחדל של האתר.
+הגדרות מסוימות עשויות לשנות איזו גרסה מוצגת לקוראים או להגביל יותר את מי שיכול לפרסם גרסה חדשה של דף בלי לעבור בדיקה.',
 	'configuredpages-none' => 'אין דפים ברשימה זו.',
 	'configuredpages-config' => 'הגדרות',
 	'configuredpages-def-draft' => 'הגרסה האחרונה',
