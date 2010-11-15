@@ -1640,15 +1640,15 @@ class FlaggedRevsHooks {
 		if ( !$fa->isReviewable() ) {
 			return true; // nothing to do here
 		}
-		$title = $history->getArticle()->getTitle();
 		# Fetch and process cache the stable revision
 		if ( !isset( $history->fr_stableRevId ) ) {
 			$history->fr_stableRevId = $fa->getStable();
 			$history->fr_pendingRevs = false;
-			if ( !$history->fr_stableRevId ) {
-				return true; // nothing to do here
-			}
 		}
+		if ( !$history->fr_stableRevId ) {
+			return true; // nothing to do here
+		}
+		$title = $history->getArticle()->getTitle();
 		$revId = (int)$row->rev_id;
 		// Pending revision: highlight and add diff link
 		$link = $class = '';
