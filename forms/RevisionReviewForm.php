@@ -1007,8 +1007,10 @@ class RevisionReviewForm
 		);
 
 		$ids = array();
-		foreach( $res as $r ) {
-			$ids[] = $r->rev_id;
+		if( $res ) {
+			foreach( $res as $r ) {
+				$ids[] = $r->rev_id;
+			}
 		}
 
 		// List of revisions being undone...
