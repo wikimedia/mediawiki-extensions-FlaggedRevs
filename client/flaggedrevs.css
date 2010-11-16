@@ -32,7 +32,7 @@ div.flaggedrevs_notice {
 table.flaggedrevs_editnotice,
 table.flaggedrevs_viewnotice {
 	padding: 3px;
-	border: 2px solid #aaa;
+	border: 2px solid #6cc8f3;
 	background-color: #f9f9f9;
 	text-align: left;
 	width: 100%;
@@ -41,7 +41,7 @@ table.flaggedrevs_viewnotice {
 
 div.flaggedrevs_diffnotice,
 div.flaggedrevs_preview {
-	border: 1px solid #aaa;
+	border: 1px solid #a7d7f9;
 	padding: 5px;
 	text-align: center;
 	clear: both;
@@ -51,8 +51,8 @@ div.flaggedrevs_diffnotice {
 	background-color: #f9f9f9;
 }
 div.flaggedrevs_preview {
-	background-color: #f9f9f9;
-	color: #8b0000;
+	background-color: #eaf2fd;
+	color: black;
 }
 
 span.flaggedrevs_important {
