@@ -8629,7 +8629,7 @@ $messages['ja'] = array(
 	'review-diff2stable' => '査読待ちの変更点をすべて見る',
 	'review-logentry-app' => '[[$1]] の特定版を査読承認',
 	'review-logentry-dis' => '[[$1]] の特定版を棄却',
-	'review-logentry-id' => '版: $2',
+	'review-logentry-id' => '版：$2',
 	'review-logentry-diff' => '査読済みの変更',
 	'review-logentry-diff2' => '反対されている変更',
 	'review-logpage' => '査読記録',
@@ -12272,6 +12272,13 @@ $messages['pdc'] = array(
 	'revreview-filter-all' => 'All',
 );
 
+/** Pfälzisch (Pfälzisch)
+ * @author Xqt
+ */
+$messages['pfl'] = array(
+	'revreview-edit' => 'Bearwaide',
+);
+
 /** Polish (Polski)
  * @author Beau
  * @author Derbeth
@@ -12343,7 +12350,7 @@ $messages['pl'] = array(
 	'review-logpage' => 'Rejestr oznaczania',
 	'review-logpagetext' => 'To jest rejestr zmian w [[{{MediaWiki:Validationpage}}|oznaczaniu]] wersji stron.',
 	'reviewer' => 'Weryfikator',
-	'revisionreview' => 'Wersja zweryfikowana',
+	'revisionreview' => 'Oznaczenie wersji',
 	'revreview-accuracy' => 'Status',
 	'revreview-accuracy-0' => 'nieadekwatna',
 	'revreview-accuracy-1' => 'przejrzana',
@@ -12385,8 +12392,8 @@ Później mogły zostać wykonane następne [{{fullurl:{{FULLPAGENAMEE}}|oldid=$
 	'revreview-check-flag-p-title' => 'Zostanie zaakceptowana Twoja edycja wraz ze wszystkimi oczekującymi zmianami. Użyj tej opcji tylko w przypadku, gdy uprzednio zostały przejrzane oczekujące zmiany.',
 	'revreview-check-flag-u' => 'Zaakceptuj tę nieprzejrzaną stronę',
 	'revreview-check-flag-u-title' => 'Zostanie zaakceptowana strona, którą właśnie edytujesz. Użyj tej opcji tylko w przypadku, gdy zapoznano się z całą zawartością strony.',
-	'revreview-check-flag-y' => 'Zaakceptuj wykonane zmiany',
-	'revreview-check-flag-y-title' => 'Zostaną zaakceptowane wszystkie zmiany, które zostały wykonane przez Ciebie w tej edycji.',
+	'revreview-check-flag-y' => 'Zaakceptuj moje zmiany',
+	'revreview-check-flag-y-title' => 'Zostaną zaakceptowane wszystkie zmiany, które tutaj zostały wykonane przez Ciebie.',
 	'revreview-submitedit' => 'Zapisz zmiany',
 	'revreview-submitedit-title' => 'Zapisz swoją edycję i dołącz ją do zmian oczekujących na przejrzenie',
 	'revreview-edited' => "'''Dokonane przez Ciebie zmiany zostaną pokazane natychmiast po przejrzeniu ich przez uprawnionego użytkownika ([[{{MediaWiki:Validationpage}}|pomoc]]).'''
@@ -12511,13 +12518,13 @@ Po prześledzeniu zmian, zaakceptuj je lub „anuluj edycję”.',
 	'revreview-restrictfilter' => 'Ograniczenie automatycznego oznaczania',
 	'revreview-restriction-any' => 'każdy',
 	'revreview-restriction-none' => 'nikt',
-	'revreview-reject-header' => 'Odrzucanie zmian w $1',
+	'revreview-reject-header' => 'Wycofanie zmian w $1',
 	'revreview-reject-text-list' => "Wykonując tę akcję '''wycofasz''' poniższe zmiany:",
-	'revreview-reject-text-revto' => 'Ta akcja spowoduje cofnięcie zmian na stronie do [$1 wersji z $2].',
-	'revreview-reject-summary' => 'Edycja podsumowania',
-	'revreview-reject-confirm' => 'Odrzuć te zmiany',
+	'revreview-reject-text-revto' => 'Ta akcja spowoduje przywrócenie strony do [$1 wersji z $2].',
+	'revreview-reject-summary' => 'Opis zmian',
+	'revreview-reject-confirm' => 'Wycofaj te zmiany',
 	'revreview-reject-cancel' => 'Anuluj',
-	'revreview-reject-default-summary' => 'Odrzucenie zmian zrobionych przez [[User:$1|$1]] do wersji $2 zrobionej przez [[User:$3|$3]]',
+	'revreview-reject-default-summary' => 'Wycofano zmiany użytkownika [[User:$1|$1]]. Przywrócono wersję $2 autorstwa [[User:$3|$3]].',
 	'revreview-reviewlink' => 'oczekuje na przejrzenie',
 	'revreview-reviewlink-title' => 'Pokaż różnicę dla wszystkich oczekujących zmian',
 	'revreview-unreviewedpage' => 'nieprzejrzana strona',
