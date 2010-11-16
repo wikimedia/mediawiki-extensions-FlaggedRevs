@@ -382,8 +382,8 @@ Parameters:
 * $1 is a page title',
 	'review-logentry-id' => '{{Flagged Revs}}
 {{Identical|Revision}}',
-	'review-logentry-diff' => '{{Flagged Revs}}',
-	'review-logentry-diff2' => '{{Flagged Revs}}',
+	'review-logentry-diff' => 'Appears at [[Special:Log/review]] and is used for diff link text of log entries. The diff is between a revision that had been accepted and the previous accepted revision.',
+	'review-logentry-diff2' => 'Appears at [[Special:Log/review]] and is used for diff link text of log entries. The diff is between a revision that had its acceptance revoked and the previous accepted revision.',
 	'review-logpage' => '{{Flagged Revs}}',
 	'review-logpagetext' => '{{Flagged Revs}}
 {{Identical|Content page}}',
