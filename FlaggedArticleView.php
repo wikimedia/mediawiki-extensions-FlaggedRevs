@@ -385,8 +385,10 @@ class FlaggedArticleView {
 		$quality = FlaggedRevs::isQuality( $flags );
 		# Get stable version sync status
 		$synced = $this->article->stableVersionIsSynced();
-		$this->setReviewNotes( $srev, $synced ); // Still the same
-		if ( !$synced ) {
+		if ( $synced ) {
+			$this->setReviewNotes( $srev ); // Still the same
+		} else {
+			$this->setPendingNotice( $srev );
 			$this->maybeShowTopDiff( $srev, $quality ); // user may want diff (via prefs)
 		}
 		# If they are synced, do special styling
@@ -1249,24 +1251,29 @@ class FlaggedArticleView {
 	 * @param FlaggedRevision $frev
 	 * @return string, revision review notes
 	 */
-	public function setReviewNotes( $frev, $synced = true ) {
-		global $wgUser, $wgLang;
+	public function setReviewNotes( $frev ) {
+		global $wgUser;
 		$this->load();
-
-		if ( $synced ) {
-			if ( $frev && FlaggedRevs::allowComments() && $frev->getComment() != '' ) {
-				$this->reviewNotes = "<br /><div class='flaggedrevs_notes plainlinks'>";
-				$this->reviewNotes .= wfMsgExt( 'revreview-note', array( 'parseinline' ),
-					User::whoIs( $frev->getUser() ) );
-				$this->reviewNotes .= '<br /><i>' .
-					$wgUser->getSkin()->formatComment( $frev->getComment() ) . '</i></div>';
-			}
-		} else {
-			$time = $wgLang->date( $frev->getTimestamp(), true );
-			$pendingNotice = wfMsgExt( 'revreview-pendingnotice', array( 'parseinline' ), $time );
-			$this->reviewNotice = "<div id='mw-fr-reviewnotice' " .
-				"class='flaggedrevs_preview plainlinks'>" . $pendingNotice . "</div>";
+		if ( $frev && FlaggedRevs::allowComments() && $frev->getComment() != '' ) {
+			$this->reviewNotes = "<br /><div class='flaggedrevs_notes plainlinks'>";
+			$this->reviewNotes .= wfMsgExt( 'revreview-note', array( 'parseinline' ),
+				User::whoIs( $frev->getUser() ) );
+			$this->reviewNotes .= '<br /><i>' .
+				$wgUser->getSkin()->formatComment( $frev->getComment() ) . '</i></div>';
 		}
+	}
+	
+/**
+	 * @param FlaggedRevision $frev
+	 * Adds a notice saying that this is a revision that is pending review
+	 */
+	public function setPendingNotice( $frev ) {
+		global $wgLang;
+		$this->load();
+		$time = $wgLang->date( $frev->getTimestamp(), true );
+		$pendingNotice = wfMsgExt( 'revreview-pendingnotice', array( 'parseinline' ), $time );
+		$this->reviewNotice .= "<div id='mw-fr-reviewnotice' class='flaggedrevs_preview plainlinks'>" . 
+			$pendingNotice . "</div>";
 	}
 	
 
