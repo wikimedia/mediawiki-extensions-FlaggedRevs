@@ -3899,7 +3899,7 @@ Jo móžno, až nowe [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}}
 	'revreview-draft-title' => 'Njepśeglědane změny zwobraznjuju se na toś tom boku',
 	'revreview-edit' => 'Wobźěłaś',
 	'revreview-editnotice' => "'''Twóje změny budu se cytarjam pokazowaś, gaž awtorizěrowany wužywaŕ je pśeglědujo.  ([[{{MediaWiki:Validationpage}}|pomoc]]).'''",
-	'revreview-check-flag-p' => 'Tuchylu njepśeglědane změny wózjawiś',
+	'revreview-check-flag-p' => 'Toś tu wersiju akceptěrowaś (wopśimujo $1 {{PLURaL:$1|njedocynjonu změnu|njedocynjonej změnje|njedocynjone změny|njedocynjonych změnow}})',
 	'revreview-check-flag-p-title' => 'Wšykne tuchylu njepśeglědane změny gromaźe ze swójsku změnu akceptěrowaś.
 Wužywaj to jano, jolic sy južo wšykne njepśeglědane změny wiźeł.',
 	'revreview-check-flag-u' => 'Toś ten njepśeglědany bok akceptěrowaś',
@@ -3966,19 +3966,20 @@ Jo móžno, až nowe [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}}
 	'revreview-style-4' => 'Nabejny',
 	'revreview-submit' => 'Wótpósłaś',
 	'revreview-submitting' => 'Wótpósćeła se...',
-	'revreview-submit-review' => 'Pśizwóliś',
-	'revreview-submit-unreview' => 'Zakazany',
+	'revreview-submit-review' => 'Wersiju akceptěrowaś',
+	'revreview-submit-unreview' => 'Wersiju wótpokazaś',
+	'revreview-submit-reject' => 'Změny wótpokazaś',
 	'revreview-submit-reviewed' => 'Gótowo. Pśizwólony!',
 	'revreview-submit-unreviewed' => 'Gótowo. Pśizwólenje zajmjone!',
 	'revreview-successful' => "'''Wersija nastawka [[:$1|$1]] jo se wuspěšnje markěrowała. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} stabilne wersije se woglědaś])'''",
 	'revreview-successful2' => "'''Markěrowanje [[:$1|$1]] jo se wuspěšnje wótpórało.'''",
 	'revreview-text' => "''[[{{MediaWiki:Validationpage}}|Pśeglědane wersije]] su pśekontrolěrowane wersije bokow, kótarež se wužywaju, aby póstajili wózjawjonu wersiju.''",
 	'revreview-toggle-title' => 'drobnostki pokazaś/schowaś',
-	'revreview-toolow' => "'''Musyš nanejmjenjej kuždy z atributow wušej ako \"njepśiměrjony\" pógódnośiś, aby wersija płaśeła ako pśeglědana.'''
+	'revreview-toolow' => '\'\'\'Musyš nanejmjenjej kuždy z atributow wušej ako "njepśiměrjony" pógódnośiś, aby wersija płaśeła ako pśeglědana.\'\'\'
 
-Aby pśeglědowański status wersije wótpórał, staj '''wšykne''' póla na \"njepśiměrjony\".
+Aby pśeglědowański status wersije wótpórał, klikni na  "wótpokazaś".
 
-Pšosym klikni na tłocašk \"Slědk\" w swójom wobglědowaku a wopytaj hyšći raz.",
+Pšosym klikni na tłocašk "Slědk" w swójom wobglědowaku a wopytaj hyšći raz.',
 	'revreview-update' => "'''Pšosym [[{{MediaWiki:Validationpage}}|pśeglědaj]] ''(slědujuce)'' njepśeglědane změny, kótarež su se na akceptěrowanej wersiji pśewjedli.'''
 Musyš nejpjerwjeje změny dalej wobźěłaś abo \"slědk wześ\".",
 	'revreview-update-edited' => '<span class="flaggedrevs_important">Twóje změny hyšći njejsu w stabilnej wersiji.</span>
@@ -4045,7 +4046,7 @@ Móžo byś, až musyš nejpjerwjej změny dalej wobźełaś abo je "slědk wze�
 	'revreview-unlocked' => "'''Glědaj:''' Změny njetrjebaju [[{{MediaWiki:Validationpage}}|pśeglědanje]], pjerwjej až pokazuju se cytarjam na toś tom boku.",
 	'log-show-hide-review' => 'Protokol pśespytanjow $1',
 	'revreview-tt-flag' => 'Toś tu wersiju pśez markěrowanje ako pśekontrolěrowanu pśizwóliś',
-	'revreview-tt-unflag' => 'Toś tej wersiji pśizwólenje pśez jeje markěrowanje ako "njepśekontrolěrowana" zebraś',
+	'revreview-tt-unflag' => 'Toś tu wersiju pśez jeje markěrowanje ako "njepśekontrolěrowanu" wótpokazaś',
 	'validationpage' => '{{ns:help}}:Wobwěsćenje bokow',
 );
 
@@ -10554,6 +10555,9 @@ $messages['mk'] = array(
 	'revreview-draft-title' => 'На оваа страница се прикажуваат промените во исчекување',
 	'revreview-edit' => 'Уреди',
 	'revreview-editnotice' => "'''Вашите промени ќе бидат видливи за корисниците откако ќе ги провери овластен корисник. ([[{{MediaWiki:Validationpage}}|помош]])'''",
+	'revreview-pendingnotice' => "'''Ова е [[{{MediaWiki:Validationpage}}|ревизија во исчекување]].
+Последен пат е прифатена на <i>$1</i>.
+Може да постојат мали разлики од прифатената ревизија.'''",
 	'revreview-check-flag-p' => 'Прифати ја оваа верзија (содржи $1 {{PLURAL:$1|промена|промени}} во исчекување)',
 	'revreview-check-flag-p-title' => 'Прифаќање на сите тековни промени во исчекување заедно со сопственото уредување.
 Користете го ова само ако веќе ги имате видено сите разлики со промените во исчекување.',
@@ -10576,12 +10580,12 @@ $messages['mk'] = array(
 	'revreview-main' => 'Мора да изберете конкретна ревизија на страницата за проверка.
 
 Погледајте го [[Special:Unreviewedpages|списокот на неоценети страници]].',
-	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Објавената верзија] била [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} проверена] на <i>$2</i>. Има [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|промена|промени}}] во исчекување на оценка.',
-	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Објавената верзија] била [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} проверена] на <i>$2</i>. Има [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} промени на шаблони/податотеки] кои чекаат за оценка.',
+	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Објавената верзија] е [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} проверена] на <i>$2</i>. Има [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|промена|промени}}] кои чекаат на проверка.',
+	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Објавената верзија] е [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} проверена] на <i>$2</i>. Има [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} промени на шаблони/податотеки] кои чекаат на проверка.',
 	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Објавената верзија] била [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} одобрена] на <i>$2</i>. 
 Има [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|промена |промени}}] во исчекување на преглед.',
 	'revreview-newest-quality-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Објавената верзија] била [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} одобрена] на <i>$2</i>. Има [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} промени на шаблонот/податотеката] во исчекување на проверка.',
-	'revreview-pending-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Објавената верзија] била [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} проверена] на <i>$2</i>. Има [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|промена|промени}}] во исчекување на проверка.',
+	'revreview-pending-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Објавената верзија] е [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} проверена] на <i>$2</i>. Има [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|промена|промени}}] кои чекаат на проверка.',
 	'revreview-pending-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Објавената верзија] била [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} одобрена] на <i>$2</i>.
 {{PLURAL:$3|Има|Има}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|промена|промени}}] во исчекување на проверка.',
 	'revreview-pending-nosection' => 'Погледнете ја [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} последната ревизија], која содржи
@@ -10810,6 +10814,9 @@ $messages['ml'] = array(
 	'revreview-draft-title' => 'ഈ താളിൽ അവശേഷിക്കുന്ന മാറ്റങ്ങൾ കാണാം',
 	'revreview-edit' => 'തിരുത്തുക',
 	'revreview-editnotice' => "'''താങ്കളുടെ തിരുത്തലുകൾ അംഗീകരിക്കപ്പെട്ട ഒരുപയോക്താവ് സംശോധനം ചെയ്ത ശേഷം എല്ലാവർക്കും കാണാനാവുന്നതാണ്. ([[{{MediaWiki:Validationpage}}|സഹായം]])'''",
+	'revreview-pendingnotice' => "'''ഇത് ഈ താളിന്റെ [[{{MediaWiki:Validationpage}}|സംശോധനത്തിന് അവശേഷിക്കുന്ന നാൾപ്പതിപ്പ്]] ആണ്.
+ഇത് അവസാനം അംഗീകരിച്ച തീയതി <i>$1</i> ആണ്.
+അംഗീകരിച്ച നാൾപ്പതിപ്പിൽ നിന്നും ഇപ്പോളിതിന് ചെറിയ വ്യത്യാസമുണ്ടായേക്കാം.'''",
 	'revreview-check-flag-p' => 'ഈ പതിപ്പ് സ്വീകരിക്കുക (അവശേഷിക്കുന്ന {{PLURAL:$1|ഒരു മാറ്റം|$1 മാറ്റങ്ങൾ}} ഉൾക്കൊള്ളുന്നു)',
 	'revreview-check-flag-p-title' => 'താങ്കളുടെ തിരുത്തലിനൊപ്പം അവശേഷിക്കുന്ന മാറ്റങ്ങളും സ്വീകരിക്കുക.
 അവശേഷിക്കുന്ന മാറ്റങ്ങൾ സൃഷ്ടിച്ച വ്യത്യാസം കണ്ടിട്ടുണ്ടെങ്കിൽ മാത്രമേ ഇതുപയോഗിക്കാവൂ.',
@@ -12391,12 +12398,14 @@ Później mogły zostać wykonane następne [{{fullurl:{{FULLPAGENAMEE}}|oldid=$
 	'revreview-draft-title' => 'Na tej stronie wyświetlane są oczekujące zmiany',
 	'revreview-edit' => 'Edytuj',
 	'revreview-editnotice' => "'''Dokonane przez Ciebie zmiany zostaną pokazane natychmiast po przejrzeniu przez uprawnionego użytkownika ([[{{MediaWiki:Validationpage}}|pomoc]]).'''",
+	'revreview-pendingnotice' => "'''Ta wersja strony [[{{MediaWiki:Validationpage}}|oczekuje na przejrzenie]].
+Po raz ostatni strona została zaakceptowana <i>$1</i> i od tego czasu mogła zostać zmodyfikowana.'''",
 	'revreview-check-flag-p' => 'Zaakceptuj tę wersję (włącznie z $1 {{PLURAL:$1|oczekującą zmianą|oczekującymi zmianami}})',
 	'revreview-check-flag-p-title' => 'Zostanie zaakceptowana Twoja edycja wraz ze wszystkimi oczekującymi zmianami. Użyj tej opcji tylko w przypadku, gdy uprzednio zostały przejrzane oczekujące zmiany.',
 	'revreview-check-flag-u' => 'Zaakceptuj tę nieprzejrzaną stronę',
 	'revreview-check-flag-u-title' => 'Zostanie zaakceptowana strona, którą właśnie edytujesz. Użyj tej opcji tylko w przypadku, gdy zapoznano się z całą zawartością strony.',
 	'revreview-check-flag-y' => 'Zaakceptuj moje zmiany',
-	'revreview-check-flag-y-title' => 'Zostaną zaakceptowane wszystkie zmiany, które tutaj zostały wykonane przez Ciebie.',
+	'revreview-check-flag-y-title' => 'Zostaną zaakceptowane wszystkie zmiany, które tutaj wykonałeś.',
 	'revreview-submitedit' => 'Zapisz zmiany',
 	'revreview-submitedit-title' => 'Zapisz swoją edycję i dołącz ją do zmian oczekujących na przejrzenie',
 	'revreview-edited' => "'''Dokonane przez Ciebie zmiany zostaną pokazane natychmiast po przejrzeniu ich przez uprawnionego użytkownika ([[{{MediaWiki:Validationpage}}|pomoc]]).'''
@@ -14696,6 +14705,9 @@ Storjene so morda bile že nove [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&d
 	'revreview-draft-title' => 'Spremembe v teku so prikazane na tej strani',
 	'revreview-edit' => 'Uredi',
 	'revreview-editnotice' => "'''Vaše spremembe bodo prikazane bralcem, ko jih pooblaščen uporabnik enkrat pregleda. ([[{{MediaWiki:Validationpage}}|pomoč]])'''",
+	'revreview-pendingnotice' => "'''To je [[{{MediaWiki:Validationpage}}|redakcija na čakanju]] te strani.
+Nazadnje je bila sprejeta <i>$1</i>.
+Morda se nekoliko razlikuje od sprejete redakcije.'''",
 	'revreview-check-flag-p' => 'Sprejmi to različico (vključuje $1 {{PLURAL:$1|spremembo|spremembi|spremembe|sprememb}} v teku)',
 	'revreview-check-flag-p-title' => 'Sprejmi vse trenutne spremembe v teku skupaj z mojim urejanjem. To uporabite samo, če ste si že ogledali celotno primerjavo sprememb v teku.',
 	'revreview-check-flag-u' => 'Sprejmi to nepregledano stran',

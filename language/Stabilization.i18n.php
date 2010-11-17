@@ -2439,6 +2439,13 @@ $messages['pdc'] = array(
 	'stabilization-otherreason' => 'Annerer Grund:',
 );
 
+/** Pfälzisch (Pfälzisch)
+ * @author Xqt
+ */
+$messages['pfl'] = array(
+	'stabilization-page' => 'Saidename:',
+);
+
 /** Polish (Polski)
  * @author Derbeth
  * @author Fizykaa
