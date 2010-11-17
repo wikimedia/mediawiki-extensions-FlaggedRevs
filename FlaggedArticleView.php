@@ -1248,8 +1248,9 @@ class FlaggedArticleView {
 	}
 
 	/**
+	 * Adds notes by the reviewer to the bottom of the page
 	 * @param FlaggedRevision $frev
-	 * @return string, revision review notes
+	 * @return void
 	 */
 	public function setReviewNotes( $frev ) {
 		global $wgUser;
@@ -1263,19 +1264,19 @@ class FlaggedArticleView {
 		}
 	}
 	
-/**
+	/**
+	 * Adds a notice saying that this revision is pending review
 	 * @param FlaggedRevision $frev
-	 * Adds a notice saying that this is a revision that is pending review
+	 * @return void
 	 */
 	public function setPendingNotice( $frev ) {
 		global $wgLang;
 		$this->load();
 		$time = $wgLang->date( $frev->getTimestamp(), true );
-		$pendingNotice = wfMsgExt( 'revreview-pendingnotice', array( 'parseinline' ), $time );
+		$pendingNotice = wfMsgExt( 'revreview-pendingnotice', 'parseinline', $time );
 		$this->reviewNotice .= "<div id='mw-fr-reviewnotice' class='flaggedrevs_preview plainlinks'>" . 
 			$pendingNotice . "</div>";
 	}
-	
 
 	/**
 	* When viewing a diff:
