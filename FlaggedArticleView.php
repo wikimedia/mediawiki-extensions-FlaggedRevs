@@ -614,7 +614,9 @@ class FlaggedArticleView {
 
 		# Get parsed stable version and output HTML
 		$parserOut = FlaggedRevs::getPageCache( $this->article, $wgUser );
-		if ( !$parserOut ) {
+		if ( $parserOut ) {
+			$this->addParserOutput( $parserOut );
+		} else {
 			$text = $srev->getRevText();
 			# Check if this is a redirect...
 			$redirHtml = $this->getRedirectHtml( $text );
