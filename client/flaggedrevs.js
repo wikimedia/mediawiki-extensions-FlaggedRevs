@@ -194,7 +194,7 @@ FlaggedRevs.getRevisionContents = function() {
 		var origContents = contentsDiv.innerHTML;
 		contentsDiv.innerHTML = "<span class='loading mw-small-spinner spinner'></span><span class='loading' >" + wgRevContents.waiting + "</span>";
 		var requestArgs = 'action=parse&prop=text&format=xml';
-		if ( window.wgLatestRevisionId == oldRevId && window.wgPageName ) {
+		if ( window.wgCurRevisionId == oldRevId && window.wgPageName ) {
 			requestArgs += '&page=' + encodeURIComponent( window.wgPageName );
 		} else {
 			requestArgs += '&oldid=' + oldRevId;

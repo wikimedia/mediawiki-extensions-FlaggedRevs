@@ -110,7 +110,6 @@ class FlaggedRevsHooks {
 			$stableId = null;
 		}
 		$globalVars['wgStableRevisionId'] = $stableId;
-		$globalVars['wgLatestRevisionId'] = $fa->getLatest();
 		$revisionContents = (object) array(
 			'error'		=> wfMsgHtml( 'revcontents-error' ),
 			'waiting'	=> wfMsgHtml( 'revcontents-waiting' )
