@@ -1048,7 +1048,7 @@ class RevisionReviewForm
 				)
 			);
 		} else {
-			$defaultSummary = wfMsg( 'revreview-reject-default-summary',
+			$defaultSummary = wfMsg( 'revreview-reject-default-summary-old',
 				$wgLang->formatNum( count( $rejectIds ) ), 
 				$wgLang->listToText( array_values( array_unique( $rejectIds ) ) )
 			);

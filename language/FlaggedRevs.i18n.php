@@ -257,7 +257,7 @@ Please check the URL you used to access this page.',
 	'revreview-reject-confirm'     => 'Reject these changes',
 	'revreview-reject-cancel'      => 'Cancel',
 	'revreview-reject-default-summary-cur' => 'Rejected {{PLURAL:$1|one change|$1 changes}} by $2 to [$3 this version]',
-	'revreview-reject-default-summary' => 'Rejected {{PLURAL:$1|one change|$1 changes}} by $2',
+	'revreview-reject-default-summary-old' => 'Rejected {{PLURAL:$1|one change|$1 changes}} by $2',
 
 	'revreview-reviewlink'         => 'pending edits',
 	'revreview-reviewlink-title'   => 'View diff of all pending changes',
@@ -582,7 +582,7 @@ Default summary shown when rejecting pending changes, and they are the latest re
 * $1 is the number of rejected revisions
 * $2 is the list of (one or more) users who are being rejected
 * $3 is the link to the revision being reverted to',
-	'revreview-reject-default-summary' => '{{Flagged Revs-small}}
+	'revreview-reject-default-summary-old' => '{{Flagged Revs-small}}
 Default summary shown when rejecting pending changes.
 * $1 is the number of rejected revisions
 * $2 is the list of (one or more) users who are being rejected',
