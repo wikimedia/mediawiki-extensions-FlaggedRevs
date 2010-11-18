@@ -388,7 +388,10 @@ class FlaggedArticleView {
 		if ( $synced ) {
 			$this->setReviewNotes( $srev ); // Still the same
 		} else {
-			$this->setPendingNotice( $srev );
+			# Make sure there is always a notice bar when viewing the draft
+			if ( $this->useSimpleUI() ) { // already one for detailed UI
+				$this->setPendingNotice( $srev );
+			}
 			$this->maybeShowTopDiff( $srev, $quality ); // user may want diff (via prefs)
 		}
 		# If they are synced, do special styling
@@ -677,12 +680,10 @@ class FlaggedArticleView {
 	* @returns bool, diff added to output
 	*/
 	protected function maybeShowTopDiff( FlaggedRevision $srev, $quality ) {
-		global $wgUser, $wgOut;
+		global $wgUser;
 		$this->load();
 		if ( !$wgUser->getBoolOption( 'flaggedrevsviewdiffs' ) ) {
 			return false; // nothing to do here
-		} elseif ( !$wgUser->isAllowed( 'review' ) ) {
-			return false; // does not apply to this user
 		}
 		# Diff should only show for the draft
 		$oldid = $this->article->getOldIDFromRequest();
@@ -694,35 +695,24 @@ class FlaggedArticleView {
 		if ( !$revsSince ) {
 			return false; // no pending changes
 		}
-		# Conditions are met to show diff...
-		# Left side of diff...
+		$title = $this->article->getTitle(); // convenience
+		# Review status of left diff revision...
 		$leftNote = $quality
 			? 'revreview-hist-quality'
 			: 'revreview-hist-basic';
 		$lClass = FlaggedRevsXML::getQualityColor( (int)$quality );
 		$leftNote = "<span class='$lClass'>[" . wfMsgHtml( $leftNote ) . "]</span>";
-		# Right side of diff...
+		# Review status of right diff revision...
 		$rClass = FlaggedRevsXML::getQualityColor( false );
 		$rightNote = "<span class='$rClass'>[" .
 			wfMsgHtml( 'revreview-hist-pending' ) . "]</span>";
-		# Fetch the stable and draft revision text
-		$oText = $srev->getRevText();
-		if ( $oText === false ) {
-			return false; // deleted revision or something?
-		}
-		$nText = $this->article->getContent();
-		if ( $nText === false ) {
-			return false; // deleted revision or something?
-		}
-		# Build diff at the top of the page
-		if ( strcmp( $oText, $nText ) !== 0 ) {
-			$diffEngine = new DifferenceEngine( $this->article->getTitle() );
-			$diffEngine->showDiffStyle();
-			$diffBody = $diffEngine->generateDiffBody( $oText, $nText );
+		# Get the actual body of the diff...
+		$diffEngine = new DifferenceEngine( $title, $srev->getRevId(), $latest );
+		$diffBody = $diffEngine->getDiffBody();
+		if ( strlen( $diffBody ) > 0 ) {
 			$nEdits = $revsSince - 1; // full diff-to-stable, no need for query
 			if ( $nEdits ) {
-				$nUsers = $this->article->getTitle()->countAuthorsBetween(
-					$this->article->getStable(), $latest, 101 );
+				$nUsers = $title->countAuthorsBetween( $srev->getRevId(), $latest, 101 );
 				$multiNotice = DifferenceEngine::intermediateEditsMsg( $nEdits, $nUsers, 100 );
 			} else {
 				$multiNotice = '';
@@ -740,7 +730,8 @@ class FlaggedArticleView {
 				$html .= '<tr><td>' . $item . '</td></tr>';
 			}
 			$html .= '</table>';
-			$wgOut->addHtml( $html );
+			$this->reviewNotice .= $html;
+			$diffEngine->showDiffStyle(); // add CSS
 			$this->isDiffFromStable = true; // alter default review form tags
 			return true;
 		}
@@ -921,7 +912,6 @@ class FlaggedArticleView {
 				}
 				if ( $text !== false && strcmp( $text, $editPage->textbox1 ) !== 0 ) {
 					$diffEngine = new DifferenceEngine( $this->article->getTitle() );
-					$diffEngine->showDiffStyle();
 					$diffBody = $diffEngine->generateDiffBody( $text, $editPage->textbox1 );
 					$diffHtml =
 						wfMsgExt( 'review-edit-diff', 'parseinline' ) . ' ' .
@@ -930,6 +920,7 @@ class FlaggedArticleView {
 						self::getFormattedDiff( $diffBody, '', $leftNote, $rightNote ) .
 						"</div>\n";
 					$items[] = $diffHtml;
+					$diffEngine->showDiffStyle(); // add CSS
 				}
 			}
 			# Output items
@@ -1259,24 +1250,24 @@ class FlaggedArticleView {
 	 * @param FlaggedRevision $frev
 	 * @return void
 	 */
-	public function setReviewNotes( $frev ) {
+	public function setReviewNotes( FlaggedRevision $frev ) {
 		global $wgUser;
 		$this->load();
-		if ( $frev && FlaggedRevs::allowComments() && $frev->getComment() != '' ) {
+		if ( FlaggedRevs::allowComments() && $frev->getComment() != '' ) {
 			$this->reviewNotes = "<br /><div class='flaggedrevs_notes plainlinks'>";
-			$this->reviewNotes .= wfMsgExt( 'revreview-note', array( 'parseinline' ),
+			$this->reviewNotes .= wfMsgExt( 'revreview-note', 'parseinline',
 				User::whoIs( $frev->getUser() ) );
 			$this->reviewNotes .= '<br /><i>' .
 				$wgUser->getSkin()->formatComment( $frev->getComment() ) . '</i></div>';
 		}
 	}
-	
+
 	/**
 	 * Adds a notice saying that this revision is pending review
 	 * @param FlaggedRevision $frev
 	 * @return void
 	 */
-	public function setPendingNotice( $frev ) {
+	public function setPendingNotice( FlaggedRevision $frev ) {
 		global $wgLang;
 		$this->load();
 		$time = $wgLang->date( $frev->getTimestamp(), true );
