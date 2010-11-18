@@ -1029,9 +1029,9 @@ class RevisionReviewForm
 		$wgOut->addHtml( '</ul>' );
 		// Revision this will revert to (when reverting the top X revs)...
 		if ( $newRev->isCurrent() ) {
-			$permaLink = $oldRev->getTitle()->getFullURL( 'oldid=' . $oldRev->getId() );
 			$wgOut->addWikiMsg( 'revreview-reject-text-revto',
-				$permaLink, $wgLang->timeanddate( $oldRev->getTimestamp(), true ) );
+				$oldRev->getTitle()->getPrefixedDBKey(), $oldRev->getId(),
+				$wgLang->timeanddate( $oldRev->getTimestamp(), true ) );
 		}
 		$wgOut->addHtml( '</div>' );
 		
