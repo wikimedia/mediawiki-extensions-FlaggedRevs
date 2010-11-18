@@ -1043,14 +1043,14 @@ class RevisionReviewForm
 			$defaultSummary = wfMsgExt( 'revreview-reject-default-summary-cur',
 				array( 'parsemag' ),
 				$wgLang->formatNum( count( $rejectIds ) ),
-				$wgLang->listToText( array_values( array_unique( $rejectIds ) ) ),
+				$wgLang->listToText( array_unique( array_values( $rejectIds ) ) ),
 				$wgLang->timeanddate( $oldRev->getTimestamp(), true )
 			);
 		} else {
 			$defaultSummary = wfMsgExt( 'revreview-reject-default-summary-old',
 				array( 'parsemag' ),
 				$wgLang->formatNum( count( $rejectIds ) ), 
-				$wgLang->listToText( array_values( array_unique( $rejectIds ) ) )
+				$wgLang->listToText( array_unique( array_values( $rejectIds ) ) )
 			);
 		}
 
