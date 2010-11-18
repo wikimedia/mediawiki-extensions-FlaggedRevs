@@ -991,7 +991,7 @@ class RevisionReviewForm
 	 * UI things back up, since RevisionReview expects either true
 	 * or a string message key
 	 */
-	private function rejectConfirmationForm( Revision $oldRev, $newRev ) {
+	private function rejectConfirmationForm( Revision $oldRev, Revision $newRev ) {
 		global $wgOut, $wgLang;
 		$thisPage = SpecialPage::getTitleFor( 'RevisionReview' );
 
@@ -1000,7 +1000,8 @@ class RevisionReviewForm
 		$dbr = wfGetDB( DB_SLAVE );
 		$oldid = $dbr->addQuotes( $oldRev->getId() );
 		$newid = $dbr->addQuotes( $newRev->getId() );
-		$res = $dbr->select( 'revision', array( 'rev_id', 'rev_user_text' ),
+		$res = $dbr->select( 'revision',
+			array( 'rev_id', 'rev_user_text' ),
 			array(
 				'rev_id > ' . $oldid,
 				'rev_id <= ' . $newid,
@@ -1008,13 +1009,15 @@ class RevisionReviewForm
 			),
 			__METHOD__
 		);
+		if ( !$dbr->numRows( $res ) ) { // sanity check
+			$wgOut->redirect( $this->getPage()->getFullUrl() );
+			return;
+		}
 
 		$rejectIds = array();
-		if( $res ) {
-			foreach( $res as $r ) {
-				$rejectIds[$r->rev_id] =
-					"[[User:{$r->rev_user_text}|{$r->rev_user_text}]]";
-			}
+		foreach( $res as $r ) {
+			$rejectIds[$r->rev_id] =
+				"[[User:{$r->rev_user_text}|{$r->rev_user_text}]]";
 		}
 
 		// List of revisions being undone...
