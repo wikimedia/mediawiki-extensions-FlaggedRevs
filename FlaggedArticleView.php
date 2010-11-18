@@ -1827,12 +1827,11 @@ class FlaggedArticleView {
 	 * This will be replaced with artice content using javascript and an api call.
 	 */
 	public function addCustomHtml( OutputPage $out ) {
-		global $wgTitle, $wgScript, $wgRequest;
+		global $wgTitle;
 		$this->load();
-		if ( $wgRequest->getVal( 'oldid' ) ) {
-			$oldId = $wgRequest->getVal( 'oldid' );
-			$oldRevisionUrl = $wgScript . '?title=' . $wgTitle . '&oldid=' . $oldId;
-			$out->addHTML( "<div id='mw-fr-revisioncontents'>" . wfMsg( 'revcontents-getcontents', $oldRevisionUrl ) . "</div>" );
+		if ( $out->getRevisionId() ) {
+			$oldRevisionLink = wfMsgExt( 'revcontents-getcontents', array( 'parseinline' ), $wgTitle, $out->getRevisionId() );
+			$out->addHTML( "<div id='mw-fr-revisioncontents' class='plainlinks'>" . $oldRevisionLink . "</div>" );
 		}
 		
 	}
