@@ -1040,19 +1040,24 @@ class RevisionReviewForm
 			$wgOut->addWikiMsg( 'revreview-reject-text-revto',
 				$oldRev->getTitle()->getPrefixedDBKey(), $oldRev->getId(),
 				$wgLang->timeanddate( $oldRev->getTimestamp(), true ) );
-			$defaultSummary = wfMsg( 'revreview-reject-default-summary-cur',
+			$defaultSummary = wfMsgExt( 'revreview-reject-default-summary-cur',
+				array( 'parsemag' ),
 				$wgLang->formatNum( count( $rejectIds ) ),
 				$wgLang->listToText( array_values( array_unique( $rejectIds ) ) ),
-				$oldRev->getTitle()->getFullURL( 
-					array( 'oldid' => $oldRev->getId() )
-				)
+				$wgLang->timeanddate( $oldRev->getTimestamp(), true )
 			);
 		} else {
-			$defaultSummary = wfMsg( 'revreview-reject-default-summary-old',
+			$defaultSummary = wfMsgExt( 'revreview-reject-default-summary-old',
+				array( 'parsemag' ),
 				$wgLang->formatNum( count( $rejectIds ) ), 
 				$wgLang->listToText( array_values( array_unique( $rejectIds ) ) )
 			);
 		}
+
+		if( $this->comment ) {
+			$defaultSummary = "{$defaultSummary}: {$this->comment}";
+		}
+
 		$wgOut->addHtml( '</div>' );
 
 		$form = Xml::openElement( 'form',

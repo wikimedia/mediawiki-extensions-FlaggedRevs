@@ -256,7 +256,7 @@ Please check the URL you used to access this page.',
 	'revreview-reject-summary'     => 'Edit summary:',
 	'revreview-reject-confirm'     => 'Reject these changes',
 	'revreview-reject-cancel'      => 'Cancel',
-	'revreview-reject-default-summary-cur' => 'Rejected {{PLURAL:$1|one change|$1 changes}} by $2 to [$3 this version]',
+	'revreview-reject-default-summary-cur' => 'Rejected {{PLURAL:$1|one change|$1 changes}} by $2 to version as of $3',
 	'revreview-reject-default-summary-old' => 'Rejected {{PLURAL:$1|one change|$1 changes}} by $2',
 
 	'revreview-reviewlink'         => 'pending edits',
@@ -581,7 +581,7 @@ A group in [[Special:SpecialPages]] for all special pages of the Flagged Revs ex
 Default summary shown when rejecting pending changes, and they are the latest revisions to a page
 * $1 is the number of rejected revisions
 * $2 is the list of (one or more) users who are being rejected
-* $3 is the link to the revision being reverted to',
+* $3 is the timestamp of the revision being reverted to',
 	'revreview-reject-default-summary-old' => '{{Flagged Revs-small}}
 Default summary shown when rejecting pending changes.
 * $1 is the number of rejected revisions
