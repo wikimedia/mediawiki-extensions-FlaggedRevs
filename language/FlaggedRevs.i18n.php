@@ -195,16 +195,13 @@ There are [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} template/f
 To remove the review status of a revision, click "unaccept".
 
 Please hit the "back" button in your browser and try again.',
-	'revreview-update'             => '\'\'\'Please [[{{MediaWiki:Validationpage}}|review]] any pending changes \'\'(shown below)\'\' made since the stable version.\'\'\'
-	You may need to follow-up on or "undo" edits.',
+	'revreview-update'             => '\'\'\'Please [[{{MediaWiki:Validationpage}}|review]] any pending changes \'\'(shown below)\'\' made since the stable version.\'\'\'',
 	'revreview-update-edited'      => '<span class="flaggedrevs_important">Your changes are not yet in the stable version.</span>
 
-Please review all the changes shown below to make your edits appear in the stable version.
-You may need to follow-up on or "undo" edits.',
+Please review all the changes shown below to make your edits appear in the stable version.',
 	'revreview-update-edited-prev'  => '<span class="flaggedrevs_important">Your changes are not yet in the stable version. There are previous changes pending review.</span>
 
-Please review all the changes shown below to make your edits appear in the stable version.
-You may need to follow-up on or "undo" edits.',
+Please review all the changes shown below to make your edits appear in the stable version.',
 	'revreview-update-includes'    => '\'\'\'Some templates/files were updated:\'\'\'',
 	'revreview-update-use'         => '\'\'\'NOTE:\'\'\' The stable version of each of these templates/files is used in the stable version of this page.',
 	'revreview-visibility'         => '\'\'\'This page has an updated [[{{MediaWiki:Validationpage}}|stable version]]; page stability settings can be [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} configured].\'\'\'',
