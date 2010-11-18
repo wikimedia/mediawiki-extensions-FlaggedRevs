@@ -719,13 +719,20 @@ class FlaggedArticleView {
 			$diffEngine = new DifferenceEngine( $this->article->getTitle() );
 			$diffEngine->showDiffStyle();
 			$diffBody = $diffEngine->generateDiffBody( $oText, $nText );
-			$n = $revsSince - 1; // this is the full diff-to-stable
+			$nEdits = $revsSince - 1; // full diff-to-stable, no need for query
+			if ( $nEdits ) {
+				$nUsers = $this->article->getTitle()->countAuthorsBetween(
+					$this->article->getStable(), $latest, 101 );
+				$multiNotice = DifferenceEngine::intermediateEditsMsg( $nEdits, $nUsers, 100 );
+			} else {
+				$multiNotice = '';
+			}
 			$items = array();
 			$diffHtml =
 				FlaggedRevsXML::pendingEditNotice( $this->article, $srev, $revsSince ) .
 				' ' . FlaggedRevsXML::diffToggle() .
 				"<div id='mw-fr-stablediff'>" .
-				self::getFormattedDiff( $diffBody, $n, $leftNote, $rightNote ) .
+				self::getFormattedDiff( $diffBody, $multiNotice, $leftNote, $rightNote ) .
 				"</div>\n";
 			$items[] = $diffHtml;
 			$html = "<table class='flaggedrevs_viewnotice plainlinks'>";
@@ -741,12 +748,12 @@ class FlaggedArticleView {
 	}
 
 	// $n number of in-between revs
-	protected static function getFormattedDiff( $diffBody, $n, $leftStatus, $rightStatus ) {
-		if ( $n ) {
+	protected static function getFormattedDiff(
+		$diffBody, $multiNotice, $leftStatus, $rightStatus
+	) {
+		if ( $multiNotice != '' ) {
 			$multiNotice = "<tr><td colspan='4' align='center' class='diff-multi'>" .
-				wfMsgExt( 'diff-multi', array( 'parse' ), $n ) . "</td></tr>";
-		} else {
-			$multiNotice = '';
+				$multiNotice . "</td></tr>";
 		}
 		return
 			"<table border='0' width='98%' cellpadding='0' cellspacing='4' class='diff'>" .
@@ -920,7 +927,7 @@ class FlaggedArticleView {
 						wfMsgExt( 'review-edit-diff', 'parseinline' ) . ' ' .
 						FlaggedRevsXML::diffToggle() .
 						"<div id='mw-fr-stablediff'>" .
-						self::getFormattedDiff( $diffBody, false, $leftNote, $rightNote ) .
+						self::getFormattedDiff( $diffBody, '', $leftNote, $rightNote ) .
 						"</div>\n";
 					$items[] = $diffHtml;
 				}
