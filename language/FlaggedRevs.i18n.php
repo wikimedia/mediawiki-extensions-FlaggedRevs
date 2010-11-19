@@ -585,11 +585,20 @@ A group in [[Special:SpecialPages]] for all special pages of the Flagged Revs ex
 Default summary shown when rejecting pending changes, and they are the latest revisions to a page
 * $1 is the number of rejected revisions
 * $2 is the list of (one or more) users who are being rejected
-* $3 is the timestamp of the revision being reverted to',
+* $3 is the revision ID of the revision being reverted to',
 	'revreview-reject-summary-old' => '{{Flagged Revs-small}}
 Default summary shown when rejecting pending changes.
 * $1 is the number of rejected revisions
-* $2 is the list of (one or more) users who are being rejected',
+* $2 is the list of (one or more) users who are being rejected
+* $3 is the revision ID of the revision before the first pending change',
+	'revreview-reject-summary-cur-short' => '{{Flagged Revs-small}}
+Default summary shown when rejecting pending changes, and they are the latest revisions to a page
+* $1 is the number of rejected revisions
+* $2 is the revision ID of the revision being reverted to',
+	'revreview-reject-summary-old-short' => '{{Flagged Revs-small}}
+Default summary shown when rejecting pending changes.
+* $1 is the number of rejected revisions
+* $3 is the revision ID of the revision before the first pending change',
 	'revreview-reviewlink' => '{{Flagged Revs}}',
 	'tooltip-ca-current' => '{{Flagged Revs}}',
 	'tooltip-ca-stable' => '{{Flagged Revs}}',
