@@ -28,6 +28,7 @@ class RevisionReviewForm
 	protected $notes = '';
 	protected $comment = '';
 	protected $dims = array();
+	protected $lastChangeTime = '';
 
 	protected $oflags = array();
 	protected $inputLock = 0; # Disallow bad submissions
@@ -65,6 +66,10 @@ class RevisionReviewForm
 
 	public function setRejectConfirm( $value ) {
 		$this->trySet( $this->rejectConfirm, $value );
+	}
+
+	public function setLastChangeTime( $value ) {
+		$this->trySet( $this->lastChangeTime, $value );
 	}
 
 	public function getRefId() {
@@ -307,16 +312,16 @@ class RevisionReviewForm
 		} elseif ( $this->getAction() === 'reject' ) {
 			$newRev = Revision::newFromTitle( $this->page, $this->oldid );
 			$oldRev = Revision::newFromTitle( $this->page, $this->refid );
-
-			if( !$this->rejectConfirm ) {
-				$this->rejectConfirmationForm( $oldRev, $newRev );
-				return false;
-			}
 			# Do not mess with archived/deleted revisions
 			if ( is_null( $oldRev ) || $oldRev->mDeleted ) {
 				return 'review_bad_oldid';
 			} elseif ( is_null( $newRev ) || $newRev->mDeleted ) {
 				return 'review_bad_oldid';
+			}
+			# Go to confirmation screen first
+			if ( !$this->rejectConfirm ) {
+				$this->rejectConfirmationForm( $oldRev, $newRev );
+				return false; // xxx
 			}
 			$article = new Article( $this->page );
 			$new_text = $article->getUndoText( $newRev, $oldRev );
@@ -634,6 +639,7 @@ class RevisionReviewForm
 		$oldFlags = $frev
 			? $frev->getTags() // existing tags
 			: FlaggedRevs::quickTags( FR_CHECKED ); // basic tags
+		$reviewTime = $frev ? $frev->getTimestamp() : ''; // last review of rev
 
 		# If we are reviewing updates to a page, start off with the stable revision's
 		# flags. Otherwise, we just fill them in with the selected revision's flags.
@@ -769,6 +775,7 @@ class RevisionReviewForm
 		$form .= Html::hidden( 'oldid', $id ) . "\n";
 		$form .= Html::hidden( 'action', 'submit' ) . "\n";
 		$form .= Html::hidden( 'wpEditToken', $user->editToken() ) . "\n";
+		$form .= Html::hidden( 'changetime', $reviewTime );
 		# Add review parameters
 		$form .= Html::hidden( 'templateParams', $templateParams ) . "\n";
 		$form .= Html::hidden( 'imageParams', $imageParams ) . "\n";
@@ -998,26 +1005,27 @@ class RevisionReviewForm
 		$wgOut->addHtml( '<div class="plainlinks">' );
 
 		$dbr = wfGetDB( DB_SLAVE );
-		$oldid = $dbr->addQuotes( $oldRev->getId() );
-		$newid = $dbr->addQuotes( $newRev->getId() );
 		$res = $dbr->select( 'revision',
 			array( 'rev_id', 'rev_user_text' ),
 			array(
-				'rev_id > ' . $oldid,
-				'rev_id <= ' . $newid,
-				'rev_page' => $oldRev->getPage()
+				'rev_page' => $oldRev->getPage(),
+				'rev_id > ' . $dbr->addQuotes( $oldRev->getId() ),
+				'rev_id <= ' . $dbr->addQuotes( $newRev->getId() )
 			),
-			__METHOD__
+			__METHOD__,
+			array( 'LIMIT' => 251 ) // sanity check
 		);
-		if ( !$dbr->numRows( $res ) ) { // sanity check
-			$wgOut->redirect( $this->getPage()->getFullUrl() );
+		if ( !$dbr->numRows( $res ) ) {
+			$wgOut->redirect( $this->getPage()->getFullUrl() ); // sanity check
+			return;
+		} elseif ( $dbr->numRows( $res ) > 250 ) {
+			$wgOut->showErrorPage( 'internalerror', 'revreview-reject-toomanyedits' );
 			return;
 		}
 
 		$rejectIds = array();
-		foreach( $res as $r ) {
-			$rejectIds[$r->rev_id] =
-				"[[User:{$r->rev_user_text}|{$r->rev_user_text}]]";
+		foreach ( $res as $r ) {
+			$rejectIds[$r->rev_id] = "[[User:{$r->rev_user_text}|{$r->rev_user_text}]]";
 		}
 
 		// List of revisions being undone...
@@ -1035,27 +1043,39 @@ class RevisionReviewForm
 			}
 		}
 		$wgOut->addHtml( '</ul>' );
-		// Revision this will revert to (when reverting the top X revs)...
 		if ( $newRev->isCurrent() ) {
+			// Revision this will revert to (when reverting the top X revs)...
 			$wgOut->addWikiMsg( 'revreview-reject-text-revto',
 				$oldRev->getTitle()->getPrefixedDBKey(), $oldRev->getId(),
-				$wgLang->timeanddate( $oldRev->getTimestamp(), true ) );
-			$defaultSummary = wfMsgExt( 'revreview-reject-default-summary-cur',
-				array( 'parsemag' ),
-				$wgLang->formatNum( count( $rejectIds ) ),
-				$wgLang->listToText( array_unique( array_values( $rejectIds ) ) ),
 				$wgLang->timeanddate( $oldRev->getTimestamp(), true )
-			);
-		} else {
-			$defaultSummary = wfMsgExt( 'revreview-reject-default-summary-old',
-				array( 'parsemag' ),
-				$wgLang->formatNum( count( $rejectIds ) ), 
-				$wgLang->listToText( array_unique( array_values( $rejectIds ) ) )
 			);
 		}
 
-		if( $this->comment ) {
-			$defaultSummary = "{$defaultSummary}: {$this->comment}";
+		// Determine the default edit summary...
+		// NOTE: *-cur msg wording not safe for (unlikely) edit auto-merge
+		$rejectAuthors = array_values( array_unique( $rejectIds ) );
+		if ( count( $rejectAuthors ) > 3 ) {
+			$msg = $newRev->isCurrent()
+				? 'revreview-reject-summary-cur-short' 
+				: 'revreview-reject-summary-old-short';
+			$defaultSummary = wfMsgExt( $msg, 'parsemag',
+				$wgLang->formatNum( count( $rejectIds ) ), $oldRev->getId() );
+		} else {
+			$msg = $newRev->isCurrent()
+				? 'revreview-reject-summary-cur' 
+				: 'revreview-reject-summary-old';
+			$defaultSummary = wfMsgExt( $msg, 'parsemag',
+				$wgLang->formatNum( count( $rejectIds ) ),
+				$wgLang->listToText( $rejectAuthors ),
+				$oldRev->getId()
+			);
+		}
+		// Append any review comment...
+		if ( $this->comment != '' ) {
+			if ( $defaultSummary != '' ) {
+				$defaultSummary .= wfMsgForContent( 'colon-separator' );
+			}
+			$defaultSummary .= $this->comment;
 		}
 
 		$wgOut->addHtml( '</div>' );
@@ -1070,12 +1090,14 @@ class RevisionReviewForm
 		$form .= Html::hidden( 'refid', $this->refid );
 		$form .= Html::hidden( 'target', $oldRev->getTitle()->getPrefixedDBKey() );
 		$form .= Html::hidden( 'wpEditToken', $this->user->editToken() );
+		$form .= Html::hidden( 'changetime', $newRev->getTimestamp() );
 		$form .= Xml::inputLabel( wfMsg( 'revreview-reject-summary' ), 'wpReason',
 			'wpReason', 120, $defaultSummary ) . "<br />";
 		$form .= Html::input( 'wpSubmit', wfMsg( 'revreview-reject-confirm' ), 'submit' );
 		$form .= Html::input( 'wpCancel', wfMsg( 'revreview-reject-cancel' ), 
 			'button', array( 'onClick' => 'history.back();' ) );
 		$form .= Xml::closeElement( 'form' );
+
 		$wgOut->addHtml( $form );
 	}
 

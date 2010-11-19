@@ -256,8 +256,12 @@ Please check the URL you used to access this page.',
 	'revreview-reject-summary'     => 'Edit summary:',
 	'revreview-reject-confirm'     => 'Reject these changes',
 	'revreview-reject-cancel'      => 'Cancel',
-	'revreview-reject-default-summary-cur' => 'Rejected {{PLURAL:$1|one change|$1 changes}} by $2 to version as of $3',
-	'revreview-reject-default-summary-old' => 'Rejected {{PLURAL:$1|one change|$1 changes}} by $2',
+	'revreview-reject-summary-cur' => 'Rejected the last {{PLURAL:$1|one change|$1 changes}} (by $2) and restored revision $3',
+	'revreview-reject-summary-old' => 'Rejected the first {{PLURAL:$1|one change|$1 changes}} (by $2) following revision $3',
+	'revreview-reject-summary-cur-short' => 'Rejected the last {{PLURAL:$1|one change|$1 changes}} and restored revision $2',
+	'revreview-reject-summary-old-short' => 'Rejected the first {{PLURAL:$1|one change|$1 changes}} following revision $2',
+	'revreview-reject-usercount'    => '{{PLURAL:$1|one user|$1 users}}',
+	'revreview-reject-toomanyedits' => 'Cannot reject this many edits at once.',
 
 	'revreview-reviewlink'         => 'pending edits',
 	'revreview-reviewlink-title'   => 'View diff of all pending changes',
@@ -577,12 +581,12 @@ A group in [[Special:SpecialPages]] for all special pages of the Flagged Revs ex
 	'revreview-lev-quality' => '{{Flagged Revs}}',
 	'revreview-lev-pristine' => '{{Flagged Revs}}',
 	'revreview-reject-cancel' => '{{Identical|Cancel}}',
-	'revreview-reject-default-summary-cur' => '{{Flagged Revs-small}}
+	'revreview-reject-summary-cur' => '{{Flagged Revs-small}}
 Default summary shown when rejecting pending changes, and they are the latest revisions to a page
 * $1 is the number of rejected revisions
 * $2 is the list of (one or more) users who are being rejected
 * $3 is the timestamp of the revision being reverted to',
-	'revreview-reject-default-summary-old' => '{{Flagged Revs-small}}
+	'revreview-reject-summary-old' => '{{Flagged Revs-small}}
 Default summary shown when rejecting pending changes.
 * $1 is the number of rejected revisions
 * $2 is the list of (one or more) users who are being rejected',

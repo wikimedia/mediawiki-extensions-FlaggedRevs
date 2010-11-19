@@ -56,6 +56,8 @@ class RevisionReview extends UnlistedSpecialPage
 		$form->setFileVersion( $wgRequest->getVal( 'fileVersion' ) );
 		# Special token to discourage fiddling...
 		$form->setValidatedParams( $wgRequest->getVal( 'validatedParams' ) );
+		# Conflict handling
+		$form->setLastChangeTime( $wgRequest->getVal( 'changetime' ) );
 		# Tag values
 		foreach ( FlaggedRevs::getTags() as $tag ) {
 			# This can be NULL if we uncheck a checkbox
