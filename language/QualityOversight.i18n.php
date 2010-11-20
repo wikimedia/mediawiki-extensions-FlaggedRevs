@@ -99,7 +99,7 @@ $messages['br'] = array(
  * @author CERminator
  */
 $messages['bs'] = array(
-	'qualityoversight' => 'Nadzor kvalitete',
+	'qualityoversight' => 'Napredni zapisnik pregleda',
 	'qualityoversight-list' => 'Ova stranica prikazuje nedavna odobrenja i uklanjanja revizija.',
 	'qualityoversight-legend' => 'Traži nedavne zapise pregleda',
 );
