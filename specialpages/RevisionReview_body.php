@@ -107,7 +107,7 @@ class RevisionReview extends UnlistedSpecialPage
 				} elseif ( $form->getAction() === 'reject' ) {
 					$wgOut->redirect( $this->page->getFullUrl() );
 				}
-			} elseif( $status === false ) {
+			} elseif ( $status === false ) {
 				// Reject confirmation screen. HACKY :(
 				return;
 			} else {

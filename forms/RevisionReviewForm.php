@@ -313,15 +313,15 @@ class RevisionReviewForm
 			$newRev = Revision::newFromTitle( $this->page, $this->oldid );
 			$oldRev = Revision::newFromTitle( $this->page, $this->refid );
 			# Do not mess with archived/deleted revisions
-			if ( is_null( $oldRev ) || $oldRev->mDeleted ) {
+			if ( !$oldRev || $newRev->isDeleted( Revision::DELETED_TEXT ) ) {
 				return 'review_bad_oldid';
-			} elseif ( is_null( $newRev ) || $newRev->mDeleted ) {
+			} elseif ( !$newRev || $newRev->isDeleted( Revision::DELETED_TEXT ) ) {
 				return 'review_bad_oldid';
 			}
 			# Go to confirmation screen first
 			if ( !$this->rejectConfirm ) {
-				$this->rejectConfirmationForm( $oldRev, $newRev );
-				return false; // xxx
+				$status = $this->rejectConfirmationForm( $oldRev, $newRev );
+				return is_string( $status ) ? $status : false; // xxx
 			}
 			$article = new Article( $this->page );
 			$new_text = $article->getUndoText( $newRev, $oldRev );
@@ -747,7 +747,7 @@ class RevisionReviewForm
 				$form .= "<br />"; // Don't put too much on one line
 			}
 			$form .= "<span id='mw-fr-commentbox' style='clear:both'>" .
-				Xml::inputLabel( wfMsg( 'revreview-log' ), 'wpReason', 'wpReason', 35, '',
+				Xml::inputLabel( wfMsg( 'revreview-log' ), 'wpReason', 'wpReason', 40, '',
 					array( 'class' => 'fr-comment-box' ) ) . "&#160;&#160;&#160;</span>";
 		}
 		# Determine if there will be reject button
@@ -997,16 +997,17 @@ class RevisionReviewForm
 	 * A bit hacky, but we don't have a way to pass more complicated
 	 * UI things back up, since RevisionReview expects either true
 	 * or a string message key
+	 * @return mixed (string/true)
 	 */
 	private function rejectConfirmationForm( Revision $oldRev, Revision $newRev ) {
-		global $wgOut, $wgLang;
+		global $wgOut, $wgLang, $wgContLang;
 		$thisPage = SpecialPage::getTitleFor( 'RevisionReview' );
 
 		$wgOut->addHtml( '<div class="plainlinks">' );
 
 		$dbr = wfGetDB( DB_SLAVE );
 		$res = $dbr->select( 'revision',
-			array( 'rev_id', 'rev_user_text' ),
+			Revision::selectFields(),
 			array(
 				'rev_page' => $oldRev->getPage(),
 				'rev_id > ' . $dbr->addQuotes( $oldRev->getId() ),
@@ -1016,16 +1017,19 @@ class RevisionReviewForm
 			array( 'LIMIT' => 251 ) // sanity check
 		);
 		if ( !$dbr->numRows( $res ) ) {
-			$wgOut->redirect( $this->getPage()->getFullUrl() ); // sanity check
-			return;
+			return 'review_bad_oldid';
 		} elseif ( $dbr->numRows( $res ) > 250 ) {
-			$wgOut->showErrorPage( 'internalerror', 'revreview-reject-toomanyedits' );
-			return;
+			return 'review_reject_excessive';
 		}
 
-		$rejectIds = array();
-		foreach ( $res as $r ) {
-			$rejectIds[$r->rev_id] = "[[User:{$r->rev_user_text}|{$r->rev_user_text}]]";
+		$rejectIds = $rejectAuthors = array();
+		$UserNS = $wgContLang->getNsText( NS_USER );
+		foreach ( $res as $row ) {
+			$rev = new Revision( $row );
+			$rejectIds[] = $rev->getId();
+			$rejectAuthors[] = $rev->isDeleted( Revision::DELETED_USER )
+				? wfMsg( 'rev-deleted-user' )
+				: "[[{$UserNS}:{$rev->getUserText()}|{$rev->getUserText()}]]";
 		}
 
 		// List of revisions being undone...
@@ -1034,8 +1038,7 @@ class RevisionReviewForm
 		// FIXME: we need a generic revision list class
 		$spRevDelete = SpecialPage::getPage( 'RevisionReview' );
 		$spRevDelete->skin = $this->user->getSkin(); // XXX
-		$list = new RevDel_RevisionList( $spRevDelete, $oldRev->getTitle(), 
-			array_keys( $rejectIds ) );
+		$list = new RevDel_RevisionList( $spRevDelete, $oldRev->getTitle(), $rejectIds );
 		for ( $list->reset(); $list->current(); $list->next() ) {
 			$item = $list->current();
 			if ( $item->canView() ) {
@@ -1052,23 +1055,28 @@ class RevisionReviewForm
 		}
 
 		// Determine the default edit summary...
+		$oldRevAuthor = $oldRev->isDeleted( Revision::DELETED_USER )
+			? wfMsg( 'rev-deleted-user' )
+			: $oldRev->getUserText();
 		// NOTE: *-cur msg wording not safe for (unlikely) edit auto-merge
-		$rejectAuthors = array_values( array_unique( $rejectIds ) );
+		$rejectAuthors = array_values( array_unique( $rejectAuthors ) );
 		if ( count( $rejectAuthors ) > 3 ) {
 			$msg = $newRev->isCurrent()
 				? 'revreview-reject-summary-cur-short' 
 				: 'revreview-reject-summary-old-short';
 			$defaultSummary = wfMsgExt( $msg, 'parsemag',
-				$wgLang->formatNum( count( $rejectIds ) ), $oldRev->getId() );
+				$wgContLang->formatNum( count( $rejectIds ) ),
+				$oldRev->getId(),
+				$oldRevAuthor );
 		} else {
 			$msg = $newRev->isCurrent()
 				? 'revreview-reject-summary-cur' 
 				: 'revreview-reject-summary-old';
 			$defaultSummary = wfMsgExt( $msg, 'parsemag',
-				$wgLang->formatNum( count( $rejectIds ) ),
-				$wgLang->listToText( $rejectAuthors ),
-				$oldRev->getId()
-			);
+				$wgContLang->formatNum( count( $rejectIds ) ),
+				$wgContLang->listToText( $rejectAuthors ),
+				$oldRev->getId(),
+				$oldRevAuthor );
 		}
 		// Append any review comment...
 		if ( $this->comment != '' ) {
@@ -1099,6 +1107,7 @@ class RevisionReviewForm
 		$form .= Xml::closeElement( 'form' );
 
 		$wgOut->addHtml( $form );
+		return true;
 	}
 
 	private function getSpecialLinks() {
