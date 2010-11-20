@@ -85,7 +85,7 @@ FlaggedRevs.updateRatingFormColors = function() {
 			selectedlevel = levels[0].selectedIndex;
 			// Update color. Opera does this already, and doing so
 			// seems to kill custom pretty opera skin form styling.
-			if( navigator.appName != 'Opera') {
+			if( navigator.appName != 'Opera' ) {
 				value = levels[0].getElementsByTagName('option')[selectedlevel].value;
 				levels[0].className = 'fr-rating-option-' + value;
 			}

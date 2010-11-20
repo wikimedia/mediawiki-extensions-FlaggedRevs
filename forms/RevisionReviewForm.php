@@ -318,6 +318,10 @@ class RevisionReviewForm
 			} elseif ( !$newRev || $newRev->isDeleted( Revision::DELETED_TEXT ) ) {
 				return 'review_bad_oldid';
 			}
+			$srev = FlaggedRevision::newFromStable( $this->page, FR_MASTER );
+			if ( $srev && $srev->getRevId() > $oldRev->getId() ) {
+				return 'review_cannot_reject'; // not really a use case
+			}
 			# Go to confirmation screen first
 			if ( !$this->rejectConfirm ) {
 				$status = $this->rejectConfirmationForm( $oldRev, $newRev );
@@ -1033,7 +1037,7 @@ class RevisionReviewForm
 		}
 
 		// List of revisions being undone...
-		$wgOut->addWikiMsg( 'revreview-reject-text-list' );
+		$wgOut->addWikiMsg( 'revreview-reject-text-list', count( $rejectIds ) );
 		$wgOut->addHtml( '<ul>' );
 		// FIXME: we need a generic revision list class
 		$spRevDelete = SpecialPage::getPage( 'RevisionReview' );
@@ -1089,8 +1093,7 @@ class RevisionReviewForm
 		$wgOut->addHtml( '</div>' );
 
 		$form = Xml::openElement( 'form',
-			array( 'method' => 'POST', 'action' => $thisPage->getFullUrl() )
-		);
+			array( 'method' => 'POST', 'action' => $thisPage->getFullUrl() ) );
 		$form .= Html::hidden( 'action', 'reject' );
 		$form .= Html::hidden( 'wpReject', 1 );
 		$form .= Html::hidden( 'wpRejectConfirm', 1 );
@@ -1102,8 +1105,10 @@ class RevisionReviewForm
 		$form .= Xml::inputLabel( wfMsg( 'revreview-reject-summary' ), 'wpReason',
 			'wpReason', 120, $defaultSummary ) . "<br />";
 		$form .= Html::input( 'wpSubmit', wfMsg( 'revreview-reject-confirm' ), 'submit' );
-		$form .= Html::input( 'wpCancel', wfMsg( 'revreview-reject-cancel' ), 
-			'button', array( 'onClick' => 'history.back();' ) );
+		$form .= ' ';
+		$form .= $this->skin->link( $this->page, wfMsg( 'revreview-reject-cancel' ),
+			array( 'onClick' => 'history.back()' ),
+			array( 'oldid' => $this->refid, 'diff' => $this->oldid ) );
 		$form .= Xml::closeElement( 'form' );
 
 		$wgOut->addHtml( $form );
