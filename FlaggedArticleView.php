@@ -1818,12 +1818,12 @@ class FlaggedArticleView {
 	 * This will be replaced with artice content using javascript and an api call.
 	 */
 	public function addCustomHtml( OutputPage $out ) {
-		global $wgTitle;
 		$this->load();
 		if ( $out->getRevisionId() ) {
-			$oldRevisionLink = wfMsgExt( 'revcontents-getcontents', array( 'parseinline' ), $wgTitle, $out->getRevisionId() );
-			$out->addHTML( "<div id='mw-fr-revisioncontents' class='plainlinks'>" . $oldRevisionLink . "</div>" );
+			$out->addHTML( "<div id='mw-fr-revisioncontents' class='plainlinks'>" );
+			$out->addWikiMsg( 'revcontents-getcontents',
+				$this->article->getTitle()->getPrefixedDBKey(), $out->getRevisionId() );
+			$out->addHTML( "</div>" );
 		}
-		
 	}
 }
