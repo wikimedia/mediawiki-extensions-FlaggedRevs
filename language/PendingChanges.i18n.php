@@ -1131,7 +1131,7 @@ $messages['mk'] = array(
 	'pendingchanges-diff' => 'оцени',
 	'pendingchanges-size' => 'Макс. промена (во бајти):',
 	'pendingchanges-unwatched' => '(ненабљудувана)',
-	'pendingchanges-watched' => '($1 {{PLURAL:$1|активен корисник набљудува|активни корисници набљудуваат}})',
+	'pendingchanges-watched' => '({{PLURAL:$1|набљудува $1 активен корисник|набљудуваат $1 активни корисници}})',
 	'pendingchanges-viewing' => '(во проверка)',
 );
 
