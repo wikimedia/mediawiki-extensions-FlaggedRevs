@@ -491,7 +491,7 @@ $wgHooks['UnitTestsList'][] = 'FlaggedRevsHooks::getUnitTests';
 $wgHooks['LoadExtensionSchemaUpdates'][] = 'FlaggedRevsHooks::addSchemaUpdates';
 
 # Performance Don't show content on diff
-$wgHooks['ArticleContentOnDiff'][] = 'FlaggedRevsHooks::addCustomHtml';
+$wgHooks['ArticleContentOnDiff'][] = 'FlaggedRevsHooks::onArticleContentOnDiff';
 
 # ########
 

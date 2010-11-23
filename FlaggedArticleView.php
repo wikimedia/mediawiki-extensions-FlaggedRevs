@@ -1814,10 +1814,11 @@ class FlaggedArticleView {
 	}
 	
 	/*
-	 * If this is a diff page then replace the article contents with a link to the specific revision.
-	 * This will be replaced with artice content using javascript and an api call.
+	 * If this is a diff page then replace the article contents with a link
+	 * to the specific revision. This will be replaced with article content
+	 * using javascript and an api call.
 	 */
-	public function addCustomHtml( OutputPage $out ) {
+	public function addCustomContentHtml( OutputPage $out ) {
 		$this->load();
 		if ( $out->getRevisionId() ) {
 			$out->addHTML( "<div id='mw-fr-revisioncontents' class='plainlinks'>" );
