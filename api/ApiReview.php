@@ -65,7 +65,7 @@ class ApiReview extends ApiBase {
 		foreach ( FlaggedRevs::getTags() as $tag ) {
 			$form->setDim( $tag, intval( $params['flag_' . $tag] ) );
 		}
-		if ( $form->isApproval() ) {
+		if ( $form->getAction() === 'approve' ) {
 			$parserOutput = null;
 			// Now get the template and image parameters needed
 			// If it is the current revision, try the parser cache first

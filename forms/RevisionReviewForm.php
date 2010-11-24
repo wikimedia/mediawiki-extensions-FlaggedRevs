@@ -625,13 +625,11 @@ class RevisionReviewForm
 		User $user, FlaggedArticle $article, Revision $rev,
 		$refId = 0, $topNotice = '', $templateIDs, $imageSHA1Keys
 	) {
-		global $wgOut;
+		global $wgOut, $wgParser, $wgEnableParserCache;
 		$id = $rev->getId();
 		if ( $rev->isDeleted( Revision::DELETED_TEXT ) ) {
 			return false; # The revision must be valid and public
 		}
-		# Do we need to get inclusion IDs from parser output?
-		$getPOut = !( $templateIDs && $imageSHA1Keys );
 
 		$srev = $article->getStableRev();
 		# See if the version being displayed is flagged...
@@ -717,8 +715,8 @@ class RevisionReviewForm
 			$form .= "</div>\n";
 		}
 
-		# Get versions of templates/files used
-		if ( $getPOut ) {
+		# Do we need to get inclusion IDs from parser output?
+		if ( !$templateIDs || !$imageSHA1Keys ) {
 			$pOutput = false;
 			# Current version: try parser cache
 			if ( $rev->isCurrent() ) {
@@ -727,7 +725,6 @@ class RevisionReviewForm
 			}
 			# Otherwise (or on cache miss), parse the rev text...
 			if ( !$pOutput || !isset( $pOutput->fr_fileSHA1Keys ) ) {
-				global $wgParser, $wgEnableParserCache;
 				$text = $rev->getText();
 				$title = $article->getTitle();
 				$options = FlaggedRevs::makeParserOptions();
