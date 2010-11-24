@@ -248,8 +248,7 @@ $messages['el'] = array(
  */
 $messages['eo'] = array(
 	'stablepages' => 'Paĝoj uzantaj redaktan aprobadon',
-	'stablepages-list' => 'Jen listo de paĝoj kiuj estas limigitaj tiel nur specifaj uzantoj povas fari redaktojn kiuj ne bezonas kontroladon.
-Ĉi tiaj redaktoj ne estas publikigita ĝis aŭtorita uzanto kontrolas tiujn.',
+	'stablepages-list' => 'Jen listo de paĝoj kiuj estas limigitaj tiel nur specifaj uzantoj povas fari redaktojn kiuj ne bezonas kontroladon. Redaktoj faritaj de aliaj uzantoj ne estas montrataj al legantoj defaŭlte ĝis kontrolanta uzanto kontrolis ilin.',
 	'stablepages-none' => 'Neniuj paĝoj estas en ĉi tiu listo',
 	'stablepages-config' => 'Konfiguro',
 	'stablepages-indef' => 'Nur maldefinita findato',
