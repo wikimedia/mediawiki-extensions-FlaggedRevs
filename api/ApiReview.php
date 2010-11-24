@@ -111,7 +111,7 @@ class ApiReview extends ApiBase {
 			$this->getResult()->addValue(
 				null, $this->getModuleName(), array( 'result' => 'Success' ) );
 		# De-approve failure
-		} elseif ( $form->getAction() === 'approve' ) {
+		} elseif ( $form->getAction() !== 'approve' ) {
 			$this->dieUsage( "Cannot find a flagged revision with the specified ID.", 'notarget' );
 		# Approval failures
 		} else {
