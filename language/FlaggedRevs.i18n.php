@@ -274,6 +274,8 @@ Please check the URL you used to access this page.',
 
 	'flaggedrevs-protect-legend'   => 'Automatic edit review ([[{{MediaWiki:Validationpage}}|help]])',
 	'flaggedrevs-protect-none'     => 'Allow all users',
+
+	'flaggedrevs-categoryview'     => '[{{fullurl:Special:UnreviewedPages|category=$1}} Unreviewed pages]{{int:pipe-separator}}[{{fullurl:Special:PendingChanges|category=$1}} Pending changes]',
 	
 	'revreview-locked-title'       => 'Edits to this page require review.',
 	'revreview-unlocked-title'     => 'Edits to this page do not require review.',

@@ -980,23 +980,14 @@ class FlaggedArticleView {
 			return true;
 		}
 		if ( !FlaggedRevs::useOnlyIfProtected() ) {
-			$links = array();
+			# Add links to lists of unreviewed pages and pending changes in this category
 			$category = $this->article->getTitle()->getText();
-			# Add link to list of unreviewed pages in this category
-			$links[] = $wgUser->getSkin()->makeKnownLinkObj(
-				SpecialPage::getTitleFor( 'UnreviewedPages' ),
-				wfMsgHtml( 'unreviewedpages' ),
-				'category=' . urlencode( $category )
-			);
-			# Add link to list of pages in this category with pending edits
-			$links[] = $wgUser->getSkin()->makeKnownLinkObj(
-				SpecialPage::getTitleFor( 'PendingChanges' ),
-				wfMsgHtml( 'pendingchanges' ),
-				'category=' . urlencode( $category )
-			);
-			$quickLinks = implode( ' / ', $links );
 			$wgOut->appendSubtitle(
-				"<span id='mw-fr-category-oldreviewed'>$quickLinks</span>"
+				Html::rawElement(
+					'span',
+					array( 'class' => 'plainlinks', 'id' => 'mw-fr-category-oldreviewed' ), 
+					wfMsgExt( 'flaggedrevs-categoryview', 'parseinline', urlencode( $category ) )
+				)
 			);
 		}
 		return true;
