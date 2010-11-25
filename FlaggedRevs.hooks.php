@@ -166,6 +166,7 @@ class FlaggedRevsHooks {
 			$view->setRobotPolicy(); // set indexing policy
 			self::injectStyleAndJS(); // full CSS/JS
 		} else {
+			self::maybeAddBacklogNotice( $out ); // RC/Watchlist notice
 			self::injectStyleForSpecial( $out ); // try special page CSS
 		}
 		return true;
@@ -1835,36 +1836,36 @@ class FlaggedRevsHooks {
 		return true;
 	}
 
-	public static function addBacklogNotice( &$notice ) {
-		global $wgUser, $wgTitle;
-		$namespaces = FlaggedRevs::getReviewNamespaces();
-		if ( !count( $namespaces ) ) {
-			return true; // nothing to have a backlog on
-		} elseif ( empty( $wgTitle ) || $wgTitle->getNamespace() !== NS_SPECIAL ) {
-			return true; // nothing to do here
-		} elseif ( !$wgUser->isAllowed( 'review' ) ) {
+	protected static function maybeAddBacklogNotice( OutputPage &$out ) {
+		global $wgUser;
+		if ( !$wgUser->isAllowed( 'review' ) ) {
 			return true; // not relevant to user
 		}
-		$watchlist = SpecialPage::getTitleFor( 'Watchlist' );
-		$recentchanges = SpecialPage::getTitleFor( 'Recentchanges' );
-		if ( $wgTitle->equals( $watchlist ) || $wgTitle->equals( $recentchanges ) ) {
-			$dbr = wfGetDB( DB_SLAVE, 'watchlist' );
-			$watchedOutdated = $dbr->selectField(
-				array( 'watchlist', 'page', 'flaggedpages' ),
-				'1', // existence
-				array( 'wl_user' => $wgUser->getId(), // this user
-					'wl_namespace' => $namespaces, // reviewable
-					'wl_namespace = page_namespace',
-					'wl_title = page_title',
-					'fp_page_id = page_id',
-					'fp_reviewed' => 0,  // edits pending
-				), __METHOD__
-			);
-			# Give a notice if pages on the wachlist are outdated
-			if ( $watchedOutdated ) {
-				$css = 'plainlinks fr-watchlist-pending-notice';
-				$notice .= "<div id='mw-fr-watchlist-pending-notice' class='$css'>" .
-					wfMsgExt( 'flaggedrevs-watched-pending', 'parseinline' ) . "</div>";
+		$title = $out->getTitle();
+		$namespaces = FlaggedRevs::getReviewNamespaces();
+		if ( $title->getNamespace() == NS_SPECIAL && $namespaces ) {
+			$watchlist = SpecialPage::getTitleFor( 'Watchlist' );
+			$recentchanges = SpecialPage::getTitleFor( 'Recentchanges' );
+			# Notice applies only to RC/watchlists
+			if ( $title->equals( $watchlist ) || $title->equals( $recentchanges ) ) {
+				$dbr = wfGetDB( DB_SLAVE, 'watchlist' ); // consistency with watchlist
+				$watchedOutdated = $dbr->selectField(
+					array( 'watchlist', 'page', 'flaggedpages' ),
+					'1', // existence
+					array( 'wl_user' => $wgUser->getId(), // this user
+						'wl_namespace' => $namespaces, // reviewable
+						'wl_namespace = page_namespace',
+						'wl_title = page_title',
+						'fp_page_id = page_id',
+						'fp_reviewed' => 0,  // edits pending
+					), __METHOD__
+				);
+				# Give a notice if pages on the users's wachlist have pending edits
+				if ( $watchedOutdated ) {
+					$css = 'plainlinks fr-watchlist-pending-notice';
+					$out->prependHTML( "<div id='mw-fr-watchlist-pending-notice' class='$css'>" .
+						wfMsgExt( 'flaggedrevs-watched-pending', 'parseinline' ) . "</div>" );
+				}
 			}
 		}
 		return true;

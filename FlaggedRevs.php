@@ -408,12 +408,10 @@ $wgHooks['NewDifferenceEngine'][] = 'FlaggedRevsHooks::checkDiffUrl';
 $wgHooks['GetPreferences'][] = 'FlaggedRevsHooks::onGetPreferences';
 # Show unreviewed pages links
 $wgHooks['CategoryPageView'][] = 'FlaggedRevsHooks::onCategoryPageView';
-# Backlog notice
-$wgHooks['SiteNoticeAfter'][] = 'FlaggedRevsHooks::addBacklogNotice';
 # Review/stability log links
 $wgHooks['LogLine'][] = 'FlaggedRevsHooks::logLineLinks';
 
-# Add CSS/JS and review notice
+# Add review notice, backlog notices and CSS/JS and set robots
 $wgHooks['BeforePageDisplay'][] = 'FlaggedRevsHooks::onBeforePageDisplay';
 # Add global JS vars
 $wgHooks['MakeGlobalVariablesScript'][] = 'FlaggedRevsHooks::injectGlobalJSVars';
