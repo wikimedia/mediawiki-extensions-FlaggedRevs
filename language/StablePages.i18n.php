@@ -456,6 +456,7 @@ $messages['ia'] = array(
  * @author Bennylin
  * @author Farras
  * @author Irwangatot
+ * @author IvanLanin
  * @author Iwan Novirion
  * @author Rex
  */
@@ -464,7 +465,7 @@ $messages['id'] = array(
 	'stablepages-list' => 'Di bawah ini adalah daftar halaman yang dibatasi sehingga hanya pengguna tertentu dapat melakukan penyuntingan yang tidak membutuhkan peninjauan. Suntingan yang dilakukan pengguna lain tidak akan ditampilkan ke pembaca secara langsung sampai seorang pengguna yang diberi kuasa meninjaunya.',
 	'stablepages-none' => 'Tidak ada halaman di dalam daftar ini',
 	'stablepages-config' => 'Konfigurasi',
-	'stablepages-indef' => 'Hanya untuk kadaluwarsa tak terbatas',
+	'stablepages-indef' => 'Hanya untuk kedaluwarsa tak terbatas',
 );
 
 /** Italian (Italiano)

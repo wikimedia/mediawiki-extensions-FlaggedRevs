@@ -929,6 +929,7 @@ $3",
  * @author Bennylin
  * @author Farras
  * @author Irwangatot
+ * @author IvanLanin
  * @author Iwan Novirion
  * @author Kenrick95
  * @author Rex
@@ -942,7 +943,7 @@ Penyunting adalah para pengguna tetap yang dapat melakukan pemeriksaan perbaikan
 	'validationstatistics-pndtime' => "Suntingan yang telah diperiksa oleh pengguna terdaftar dipertimbangkan untuk ditinjau.
 
 Lama tunda rata-rata untuk [[Special:OldReviewedPages|halaman dengan suntingan tertunda yang belum ditinjau]] adalah '''$1'''.
-Halaman-halaman ini dianggap ''kadaluwarsa''. Demikian juga, halaman dianggap ''disinkronisasikan'' bila tidak ada suntingan yang menunggu tinjauan.",
+Halaman-halaman ini dianggap ''kedaluwarsa''. Demikian juga, halaman dianggap ''disinkronisasikan'' bila tidak ada suntingan yang menunggu tinjauan.",
 	'validationstatistics-revtime' => "Lama waktu rata-rata untuk suntingan oleh ''pengguna yang tidak masuk log'' agar ditinjau adalah '''$1'''; mediannya adalah '''$2'''.
 $3",
 	'validationstatistics-table' => "Statistik tinjauan halaman untuk setiap ruang nama ditampilkan di bawah ini, ''kecuali'' halaman pengalihan.",

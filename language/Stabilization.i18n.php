@@ -1587,6 +1587,7 @@ Nulle configuration es possibile.',
  * @author Bennylin
  * @author Farras
  * @author Irwangatot
+ * @author IvanLanin
  * @author Kenrick95
  * @author Rex
  */
@@ -1610,7 +1611,7 @@ Konfigurasi tak dapat diterapkan.',
 Konfigurasi tak dapat diterapkan.',
 	'stabilization-comment' => 'Alasan:',
 	'stabilization-otherreason' => 'Alasan lain:',
-	'stabilization-expiry' => 'Kadaluwarsa:',
+	'stabilization-expiry' => 'Kedaluwarsa:',
 	'stabilization-othertime' => 'Waktu lain:',
 	'stabilization-def-short' => 'Baku',
 	'stabilization-def-short-0' => 'Terkini',
@@ -1620,10 +1621,10 @@ Konfigurasi tak dapat diterapkan.',
 	'stabilize_page_unreviewable' => 'Halaman yang dituju tidak berada dalam ruang nama yang dapat ditinjau.',
 	'stabilize_invalid_autoreview' => 'Pembatasan tinjauan otomatis tidak sah.',
 	'stabilize_invalid_level' => 'Tingkat perlindungan tidak valid.',
-	'stabilize_expiry_invalid' => 'Tanggal kadaluwarsa tak valid.',
-	'stabilize_expiry_old' => 'Tanggal kadaluwarsa telah terlewati.',
+	'stabilize_expiry_invalid' => 'Tanggal kedaluwarsa tak valid.',
+	'stabilize_expiry_old' => 'Tanggal kedaluwarsa telah terlewati.',
 	'stabilize_denied' => 'Izin ditolak.',
-	'stabilize-expiring' => 'kadaluwarsa $1 (UTC)',
+	'stabilize-expiring' => 'kedaluwarsa $1 (UTC)',
 	'stabilization-review' => 'Tandai revisi terkini sebagai terperiksa',
 );
 
