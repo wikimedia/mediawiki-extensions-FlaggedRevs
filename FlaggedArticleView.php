@@ -1812,10 +1812,10 @@ class FlaggedArticleView {
 	public function addCustomContentHtml( OutputPage $out ) {
 		$this->load();
 		if ( $out->getRevisionId() ) {
-			$out->addHTML( "<div id='mw-fr-revisioncontents' class='plainlinks'>" );
+			$out->addHTML( "<div id='mw-fr-revisioncontents'><span class='plainlinks'>" );
 			$out->addWikiMsg( 'revcontents-getcontents',
 				$this->article->getTitle()->getPrefixedDBKey(), $out->getRevisionId() );
-			$out->addHTML( "</div>" );
+			$out->addHTML( "</span></div>" );
 		}
 	}
 }
