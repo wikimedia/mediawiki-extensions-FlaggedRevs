@@ -359,7 +359,7 @@ $messages['de'] = array(
 	'validationstatistics-users' => "'''{{SITENAME}}''' hat momentan '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|Benutzer|Benutzer}} mit [[{{MediaWiki:Validationpage}}|Sichterrecht]].
 
 Sichter sind anerkannte Benutzer, die Versionen einer Seite markieren können.",
-	'validationstatistics-lastupdate' => "''Die folgenden Daten wurden zuletzt am $1 um $2 aktualisiert.''",
+	'validationstatistics-lastupdate' => "''Die folgenden Daten wurden zuletzt am $1 um $2 Uhr aktualisiert.''",
 	'validationstatistics-pndtime' => "Bearbeitungen, die von anerkannten Benutzern bestätigt wurden, gelten als markiert.
 
 Die durchschnittliche Wartezeit der [[Special:OldReviewedPages|Seiten mit unmarkierten Änderungen]] beträgt '''$1'''.",

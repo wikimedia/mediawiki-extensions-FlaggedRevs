@@ -27,7 +27,7 @@ $messages['qqq'] = array(
  * @author Juanpabl
  */
 $messages['an'] = array(
-	'qualityoversight' => 'Rechistro de versions avanzato',
+	'qualityoversight' => 'Rechistro de versions abanzato',
 	'qualityoversight-list' => "Ista pachina amuestra as zagueras aprebacions y depreciacions d'as revisions.",
 	'qualityoversight-legend' => "Mirar en os rechistros d'as zagueras revisions",
 );

@@ -898,9 +898,9 @@ Talment s'haiga feito [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}
 	'revreview-toggle-title' => 'amostrar/amagar detalles',
 	'revreview-toolow' => "'''Ha d'avaluar totz os atributos con una calificación mayor que \"inadequato\" ta que una versión se considere revisata.''' 
 
-Ta sacar o status de revisato d'una versión, ha de fixar ''totz'' os campos como \"inadequato\". 
+Ta sacar o status de revisato d'una versión, faiga click en \"no acceptar\". 
 
-Por favor, prete o botón de \"entazaga\" d'o suyo navegador y torne a intentar-lo.",
+Por favor, prete o botón de \"enta zaga\" d'o suyo navegador y torne a intentar-lo.",
 	'revreview-update' => "Por favor [[{{MediaWiki:Validationpage}}|revise]] os cambios pendients ''(que s'amuestran en o cobaixo)'' feitos sobre a versión acceptata.",
 	'revreview-update-includes' => "'''S'han esviellato bellas plantillas u fichers:'''",
 	'revreview-update-use' => "'''PARE CUENTA:''' En a versión acceptata d'ista pachina s'emplega a versión acceptata de cadaguna d'istas plantillas u fichers.",
@@ -3308,6 +3308,7 @@ ikke findes. Kontrollér den URL du brugte til at få adgang til denne side.',
  * @author The Evil IP address
  * @author Umherirrender
  * @author Xqt
+ * @author ✓
  */
 $messages['de'] = array(
 	'action-review' => 'Versionen markieren',
@@ -3405,7 +3406,7 @@ Die Übertragung ist unvollständig oder ungültig.",
 	'revreview-draft-title' => 'Unmarkierte Änderungen werden auf dieser Seite angezeigt',
 	'revreview-edit' => 'Bearbeiten',
 	'revreview-editnotice' => "'''Deine Änderungen werden angezeigt, sobald ein dazu berechtigter Benutzer sie markiert hat. ([[{{MediaWiki:Validationpage}}|Hilfe]])'''",
-	'revreview-pendingnotice' => "'''Dies ist eine [[{{MediaWiki:Validationpage}}|noch nicht markierte Version]] dieser Seite, die sich von der letzten, am <i>$1</i> akzeptierten Version unterscheiden kann.'''",
+	'revreview-pendingnotice' => "'''Dies ist eine [[{{MediaWiki:Validationpage}}|noch nicht markierte Version]] dieser Seite, die sich von der älteren, am <i>$1</i> akzeptierten Version unterscheiden kann.'''",
 	'revreview-check-flag-p' => 'Diese Version akzeptieren (inklusive $1 ausstehenden {{PLURAL:$1|Änderung|Änderungen}})',
 	'revreview-check-flag-p-title' => 'Alle noch nicht markierten Änderungen, zusammen mit deiner Bearbeitung, akzeptieren. Dies sollte nur gemacht werden, sofern bereits alle bislang noch nicht markierten Änderungen angesehen wurden.',
 	'revreview-check-flag-u' => 'Diese unmarkierte Seite akzeptieren',
@@ -10242,7 +10243,7 @@ Kuckt w.e.g. all d\'Ännerungen hei drënner no fir datt Är Ännerungen akzept�
 	'revreview-reject-summary-cur' => "Déi lescht {{PLURAL:$1|Ännerung|$1 Ännerunge}} vum/vu(n) $2 {{PLURAL:$1|gouf|goufe}} refuséiert an d'Versioun $3 vum $4 gouf restauréiert",
 	'revreview-reject-summary-old' => 'Déi lescht {{PLURAL:$1|Ännerung|$1 Ännerunge}} (vum $2) déi no der Versioun $3 vum $4 koum {{PLURAL:$1|gouf|goufe}} refuséiert',
 	'revreview-reject-summary-cur-short' => "Déi lescht {{PLURAL:$1|Ännerung gouf|$1 Ännerunge goufe}} refuséiert an d'Versioun $2 vum $3 gouf restauréiert",
-	'revreview-reject-summary-old-short' => 'Déi {{PLURAL:$1|Ännerung|$1 Ännerungen}} déi no der Versioun $2 vum $3 {{PLURAL:$1|koum, gouf|koumen, goufe}} refuséiert',
+	'revreview-reject-summary-old-short' => 'Déi éischt {{PLURAL:$1|Ännerung|$1 Ännerungen}} déi no der Versioun $2 vum $3 {{PLURAL:$1|koum, gouf|koumen, goufe}} refuséiert',
 	'revreview-reject-usercount' => '{{PLURAL:$1|Ee Benotzer|$1 Benotzer}}',
 	'revreview-reviewlink' => 'Ännerungen am Suspens',
 	'revreview-reviewlink-title' => 'Ënnerscheed fir all Ännerungen am Suspens weisen',
@@ -12523,7 +12524,7 @@ Później mogły zostać wykonane następne [{{fullurl:{{FULLPAGENAMEE}}|oldid=$
 Obecnie [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 {{PLURAL:$2|zmiana|zmiany|zmian}}] {{PLURAL:$2|oczekuje|oczekują|oczekuje}} na przejrzenie.",
 	'revreview-edited-section' => 'Wróć do sekcji „[[#$1|$2]]“.',
 	'revreview-flag' => 'Oznacz tę wersję',
-	'revreview-reflag' => 'Ponownie przejrzy tę wersję',
+	'revreview-reflag' => 'Ponownie przejrzyj tę wersję',
 	'revreview-invalid' => "'''Niewłaściwy obiekt:''' brak [[{{MediaWiki:Validationpage}}|wersji przejrzanej]] odpowiadającej podanemu ID.",
 	'revreview-legend' => 'Oceń treść zmiany',
 	'revreview-log' => 'Komentarz:',
