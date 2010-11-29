@@ -1024,17 +1024,17 @@ class RevisionReviewForm
 		}
 
 		$rejectIds = $rejectAuthors = array();
-		$UserNS = $wgContLang->getNsText( NS_USER );
+		$userNS = $wgContLang->getNsText( NS_USER );
 		foreach ( $res as $row ) {
 			$rev = new Revision( $row );
 			$rejectIds[] = $rev->getId();
 			$rejectAuthors[] = $rev->isDeleted( Revision::DELETED_USER )
 				? wfMsg( 'rev-deleted-user' )
-				: "[[{$UserNS}:{$rev->getUserText()}|{$rev->getUserText()}]]";
+				: "[[{$userNS}:{$rev->getUserText()}|{$rev->getUserText()}]]";
 		}
 
 		// List of revisions being undone...
-		$wgOut->addWikiMsg( 'revreview-reject-text-list', count( $rejectIds ) );
+		$wgOut->addWikiMsg( 'revreview-reject-text-list', $wgLang->formatNum( count( $rejectIds ) ) );
 		$wgOut->addHtml( '<ul>' );
 		// FIXME: we need a generic revision list class
 		$spRevDelete = SpecialPage::getPage( 'RevisionReview' );
