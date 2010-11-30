@@ -261,7 +261,8 @@ class FlaggedRevsXML {
 		$box = '<div class="flaggedrevs_short_basic">';
 		$box .= $shtml . self::ratingArrow();
 		$box .= "</div>\n";
-		$box .= '<div style="position:relative;">'; // for rel-absolute child div
+		// For rel-absolute child div (the fly-out)
+		$box .= '<div id="mw-fr-revisiondetails-wrapper" style="position:relative;">';
 		$box .= Xml::openElement( 'div',
 			array(
 				'id' 	=> 'mw-fr-revisiondetails',
