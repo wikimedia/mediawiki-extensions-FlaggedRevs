@@ -267,7 +267,7 @@ class FlaggedRevsXML {
 			array(
 				'id' 	=> 'mw-fr-revisiondetails',
 				'class' => 'flaggedrevs_short_details',
-			)
+				'style' => 'display:none' )
 		);
 		$box .= $html; // details text
 		# Add any rating tags as needed...

@@ -21,10 +21,6 @@ var FlaggedRevs = {
 		var toggle = document.getElementById('mw-fr-revisiontoggle');
 		if( toggle ) {
 			toggle.style.display = 'inline';
-			var ratings = document.getElementById('mw-fr-revisiondetails');
-			if( ratings ) {
-				ratings.style.display = 'none';
-			}
 		}
 		// Diff detail box
 		toggle = document.getElementById('mw-fr-difftoggle');
