@@ -24,10 +24,6 @@ class ValidationStatistics extends IncludableSpecialPage
 		$mdt = $this->getMedianReviewWait();
 		$pt = $this->getMeanPendingWait();
 		$timestamp = $this->getLastUpdate();
-		if ( $timestamp != '-' ) {
-			$date = $wgLang->date( $timestamp, true );
-			$time = $wgLang->time( $timestamp, true );
-		}
 
 		$wgOut->addWikiMsg( 'validationstatistics-users',
 			$wgLang->formatnum( $ec ), $wgLang->formatnum( $rc )
@@ -56,8 +52,13 @@ class ValidationStatistics extends IncludableSpecialPage
 			$reviewChart = '';
 		}
 
-		# Show "last updated"...
-		$wgOut->addWikiMsg( 'validationstatistics-lastupdate', $date, $time );
+		if ( $timestamp != '-' ) {
+			# Show "last updated"...
+			$wgOut->addWikiMsg( 'validationstatistics-lastupdate',
+				 $wgLang->date( $timestamp, true ),
+				 $wgLang->time( $timestamp, true )
+			);
+		}
 		$wgOut->addHtml( '<hr/>' );
 		# Show pending time stats...
 		$wgOut->addWikiMsg( 'validationstatistics-pndtime', $wgLang->formatTimePeriod( $pt ) );
