@@ -141,8 +141,8 @@ $messages['bg'] = array(
  */
 $messages['br'] = array(
 	'stablepages' => "Pajennoù oc'h implijout kadarnadur ar c'hemmoù",
-	'stablepages-list' => "A-is ez eus ur roll pajennoù strishaet o implij a c'hall bezañ kemmet, gant implijerien zo hepken, hep na vije ezhomm d'o adlenn. 
-Ne vo degemeret ar c'hemmoù-se nemet pa vint bet adlennet gant un aozer aotreet evit se.",
+	'stablepages-list' => "A-is ez eus ur roll pajennoù strishaet o implij, a c'hall bezañ kemmet gant implijerien zo hepken, hep na vije ezhomm d'o adlenn. 
+Gant se, ne vo diskouezet dre ziouer d'al lennerien ar c'hemmoù graet gant implijerien all nemet pa vint bet adlennet gant un implijer aotreet evit se.",
 	'stablepages-none' => "N'eus pajenn ebet er roll-mañ.",
 	'stablepages-config' => 'Kefluniañ',
 	'stablepages-indef' => 'Padelezh termen amfin hepken',
@@ -291,11 +291,13 @@ $messages['eu'] = array(
 
 /** Persian (فارسی)
  * @author Ebraminio
+ * @author Mjbmr
  * @author Sahim
  */
 $messages['fa'] = array(
 	'stablepages' => 'صفحه‌های تصویب شده در حال تغییر',
-	'stablepages-list' => 'در زیر فهرستی از صفحه‌هایی که به طور دستی تنظیم شده‌اند تا نسخهٔ پایدارشان به عنوان نسخهٔ پیش‌فرض به بینندگان نمایش داده شود را می‌بینید.',
+	'stablepages-list' => 'در زیر فهرستی از صفحات وجود دارد که فقط کاربران معینی می‌توانند آن‌ها را ویرایش کنند که دیگر نیاز به بازبینی ندارند.
+ویرایش‌های دیگر کاربران به طور پیش‌فرض برای خوانندگان نمایش داده نمی‌شود تا زمانی که یک کاربر مجاز، آن‌ها را بازبینی کند.',
 	'stablepages-none' => 'هیچ صفحه‌ای در این فهرست وجود ندارد',
 	'stablepages-config' => 'تنظیمات',
 	'stablepages-indef' => 'فقط انقضای نامحدود',

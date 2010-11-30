@@ -576,12 +576,13 @@ $messages['eu'] = array(
  * @author Huji
  * @author Ladsgroup
  * @author Mardetanha
+ * @author Mjbmr
  * @author Wayiran
  */
 $messages['fa'] = array(
-	'pendingchanges' => 'صفحه‌های بازبینی شدهٔ تاریخ گذشته',
+	'pendingchanges' => 'صفحات دارای تغییرات در حال انتظار',
 	'pendingchanges-legend' => 'فهرست صفحه‌های بازبینی شده با ویرایش‌های بازبینی نشده',
-	'pendingchanges-list' => 'این صفحه فهرستی از صفحه‌هایی که بازبینی شده‌اند و ویرایش‌های بازبینی نشده‌ای دارند را نمایش می‌دهد.',
+	'pendingchanges-list' => 'این فهرست صفحات بازبینی شده دارای یک یا چند تغییر در حال انتظار می‌باشد.',
 	'pendingchanges-none' => 'در حال حاضر صفحه‌ای که با این معیارها سازگار باشد وجود ندارد',
 	'pendingchanges-hours' => '($1 {{PLURAL:$1|ساعت|ساعت}})',
 	'pendingchanges-days' => '($1 {{PLURAL:$1|روز|روز}})',
