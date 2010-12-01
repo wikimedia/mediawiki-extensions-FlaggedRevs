@@ -1065,7 +1065,7 @@ class RevisionReviewForm
 			$msg = $newRev->isCurrent()
 				? 'revreview-reject-summary-cur-short' 
 				: 'revreview-reject-summary-old-short';
-			$defaultSummary = wfMsgExt( $msg, 'parsemag',
+			$defaultSummary = wfMsgExt( $msg, array( 'parsemag', 'content' ),
 				$wgContLang->formatNum( count( $rejectIds ) ),
 				$oldRev->getId(),
 				$oldRevAuthor );
@@ -1073,7 +1073,7 @@ class RevisionReviewForm
 			$msg = $newRev->isCurrent()
 				? 'revreview-reject-summary-cur' 
 				: 'revreview-reject-summary-old';
-			$defaultSummary = wfMsgExt( $msg, 'parsemag',
+			$defaultSummary = wfMsgExt( $msg, array( 'parsemag', 'content' ),
 				$wgContLang->formatNum( count( $rejectIds ) ),
 				$wgContLang->listToText( $rejectAuthors ),
 				$oldRev->getId(),
