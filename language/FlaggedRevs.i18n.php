@@ -5081,7 +5081,7 @@ $messages['fa'] = array(
 	'revreview-hist-pending' => 'در انتظار بازبینی',
 	'revreview-hist-quality' => '[با کیفیت]',
 	'revreview-hist-basic' => 'بازبینی بررسی‌شده',
-	'revreview-hist-quality-user' => 'توسط [[User:$3|$3]] [{{fullurl:$1|stableid=$2}} بررسی شد]',
+	'revreview-hist-quality-user' => 'توسط [[User:$3|$3]] [{{fullurl:$1|stableid=$2}} تثبیت شد]',
 	'revreview-hist-basic-user' => 'توسط [[User:$3|$3]] [{{fullurl:$1|stableid=$2}} بررسی شد]',
 	'revreview-hist-basic-auto' => '[{{fullurl:$1|stableid=$2}} خودکار بررسی‌شده]',
 	'revreview-hist-quality-auto' => '[{{fullurl:$1|stableid=$2}} تایید خودکار]',
