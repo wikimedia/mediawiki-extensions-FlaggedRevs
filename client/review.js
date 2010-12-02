@@ -285,7 +285,7 @@ wgAjaxReview.processResult = function(request) {
 		}
 		// (b) Output any error response message
 		if ( response.indexOf('<err#>') == 0 ) {
-			jsMsg( msg, 'review' ); // success/failure notice
+			jsMsg( msg, 'review' ); // failure notice
 		} else {
 			jsMsg( request.responseText, 'review' ); // fatal notice
 		}

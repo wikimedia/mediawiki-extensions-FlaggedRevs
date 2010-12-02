@@ -1627,7 +1627,8 @@ class FlaggedArticleView {
 			foreach ( $dom->getElementsByTagName( 'input' ) as $input ) { // one <input>
 				$input->setAttribute( 'value', wfMsg( 'revreview-submitedit' ) );
 				$input->setAttribute( 'title', // keep accesskey
-					wfMsg( 'revreview-submitedit-title' ).' ['.wfMsg( 'accesskey-save' ).']' );
+					wfMsgExt( 'revreview-submitedit-title', 'parsemag' ) .
+						' [' . wfMsg( 'accesskey-save' ) . ']' );
 				# Change submit button text & title
 				$buttons['save'] = $dom->saveXML( $dom->documentElement );
 			}
@@ -1724,7 +1725,7 @@ class FlaggedArticleView {
 					$labelMsg = wfMsgExt( 'revreview-check-flag-p', 'parseinline', $n );
 				// For just the user's changes...
 				} else {
-					$attribs['title'] = wfMsg( 'revreview-check-flag-y-title' );
+					$attribs['title'] = wfMsgExt( 'revreview-check-flag-y-title', 'parsemag' );
 					$labelMsg = wfMsgExt( 'revreview-check-flag-y', 'parseinline' );
 				}
 			// For unreviewed pages...
