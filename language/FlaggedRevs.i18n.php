@@ -88,13 +88,16 @@ There are [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} template/f
 	New [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} changes] may have been made.',
 	'revreview-basic-same'         => 'This is the [[{{MediaWiki:Validationpage}}|stable version]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} checked] on <i>$2</i>.',
 	'revreview-basic-source'       => 'A [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} checked version] of this page, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>, was based off this revision.',
-	'revreview-failed'             => "'''Unable to review this revision.''' The submission was incomplete or otherwise invalid.",
+
+	'revreview-failed'             => "'''Unable to review this revision.'''",
+	'revreview-submission-invalid' => "The submission was incomplete or otherwise invalid.",
 
 	'review_page_invalid'      => 'The target page title is invalid.',
 	'review_page_notexists'    => 'The target page does not exist.',
 	'review_page_unreviewable' => 'The target page is not reviewable.',
 	'review_no_oldid'          => 'No revision ID specified.',
 	'review_bad_oldid'         => 'The target revision does not exist.',
+	'review_conflict_oldid'    => 'Someone already accepted or unaccepted this revision while you were viewing it.',
 	'review_not_flagged'       => 'The target revision is not currently marked as reviewed.',
 	'review_too_low'           => 'Revision cannot be reviewed with some fields left "inadequate".',
 	'review_bad_key'           => 'Invalid inclusion parameter key.',

@@ -136,7 +136,8 @@ class RevisionReview extends UnlistedSpecialPage
 		global $wgUser, $wgOut;
 		$args = func_get_args();
 		if ( wfReadOnly() ) {
-			return '<err#>' . wfMsgExt( 'revreview-failed', 'parseinline' );
+			return '<err#>' . wfMsgExt( 'revreview-failed', 'parseinline' ) .
+				wfMsgExt( 'revreview-submission-invalid', 'parseinline' );
 		}
 		$tags = FlaggedRevs::getTags();
 		// Make review interface object
@@ -148,7 +149,8 @@ class RevisionReview extends UnlistedSpecialPage
 		foreach ( $args as $arg ) {
 			$set = explode( '|', $arg, 2 );
 			if ( count( $set ) != 2 ) {
-				return '<err#>' . wfMsgExt( 'revreview-failed', 'parseinline' );
+				return '<err#>' . wfMsgExt( 'revreview-failed', 'parseinline' ) .
+					wfMsgExt( 'revreview-submission-invalid', 'parseinline' );
 			}
 			list( $par, $val ) = $set;
 			switch( $par )
@@ -188,6 +190,9 @@ class RevisionReview extends UnlistedSpecialPage
 					break;
 				case "wpNotes":
 					$form->setNotes( $val );
+					break;
+				case "changetime":
+					$form->setLastChangeTime( $val );
 					break;
 				case "wpEditToken":
 					$editToken = $val;
@@ -231,13 +236,14 @@ class RevisionReview extends UnlistedSpecialPage
 		$status = $form->submit();
 		# Success...
 		if ( $status === true ) {
-			$tier = FlaggedRevs::getLevelTier( $form->getDims() ) + 1; // shift to 0-3
+			# Sent new lastChangeTime TS to client for later submissions...
+			$changeTime = $form->getNewLastChangeTime();
 			if ( $form->getAction() === 'approve' ) { // approve
-				return "<suc#><t#$tier>" . $form->approvalSuccessHTML( false );
+				return "<suc#><lct#$changeTime>" . $form->approvalSuccessHTML( false );
 			} elseif ( $form->getAction() === 'unapprove' ) { // de-approve
-				return "<suc#><t#$tier>" . $form->deapprovalSuccessHTML( false );
+				return "<suc#><lct#$changeTime>" . $form->deapprovalSuccessHTML( false );
 			} elseif ( $form->getAction() === 'reject' ) { // revert
-				return "<suc#><t#$tier>" . $form->rejectSuccessHTML( false );
+				return "<suc#><lct#$changeTime>" . $form->rejectSuccessHTML( false );
 			}
 		# Failure...
 		} else {

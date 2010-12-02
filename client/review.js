@@ -214,14 +214,12 @@ wgAjaxReview.processResult = function(request) {
 	if( wgAjaxReview.timeoutID ) {
 		window.clearTimeout(wgAjaxReview.timeoutID);
 	}
-	var tier = 0; // review tier
 	var response = request.responseText; // full response text
 	var msg = response.substr(6); // remove <err#> or <suc#>
-	var tierMatch = msg.match(/^<t#(\d)>/);
-	if( tierMatch ) {
-		tier = tierMatch[1];
-		msg = msg.substr(5); // remove <t#x>
-	}
+	// Read new "last change time" timestamp for conflict handling
+	var m = msg.match(/^<lct#(\d*)>(.+)/m);
+	if( m ) msg = m[2]; // remove tag from msg
+	var changeTime = m ? m[1] : null; // MW TS
 	// Some form elements...
 	var asubmit = document.getElementById('mw-fr-submit-accept');
 	var usubmit = document.getElementById('mw-fr-submit-unaccept');
@@ -292,6 +290,10 @@ wgAjaxReview.processResult = function(request) {
 			jsMsg( request.responseText, 'review' ); // fatal notice
 		}
 		window.scroll(0,0); // scroll up to notice
+	}
+	// Update changetime for conflict handling
+	if ( changeTime != null ) {
+		document.getElementById('mw-fr-input-changetime').value = changeTime;
 	}
 	wgAjaxReview.unlockForm();
 };

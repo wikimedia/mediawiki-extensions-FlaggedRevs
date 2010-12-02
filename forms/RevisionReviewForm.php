@@ -28,7 +28,8 @@ class RevisionReviewForm
 	protected $notes = '';
 	protected $comment = '';
 	protected $dims = array();
-	protected $lastChangeTime = '';
+	protected $lastChangeTime = null; # Conflict handling
+	protected $newLastChangeTime = null; # Conflict handling
 
 	protected $oflags = array();
 	protected $inputLock = 0; # Disallow bad submissions
@@ -70,6 +71,10 @@ class RevisionReviewForm
 
 	public function setLastChangeTime( $value ) {
 		$this->trySet( $this->lastChangeTime, $value );
+	}
+
+	public function getNewLastChangeTime() {
+		return $this->newLastChangeTime;
 	}
 
 	public function getRefId() {
@@ -179,7 +184,9 @@ class RevisionReviewForm
 			return $status; // bad target
 		}
 		# Get the revision's current flags, if any
-		$this->oflags = FlaggedRevs::getRevisionTags( $this->page, $this->oldid );
+		$this->oflags = FlaggedRevs::getRevisionTags( $this->page, $this->oldid, FR_MASTER );
+		# Set initial value for newLastChangeTime (if unchanged on submit)
+		$this->newLastChangeTime = $this->lastChangeTime;
 		return $status;
 	}
 
@@ -296,19 +303,34 @@ class RevisionReviewForm
 		# We can only approve actual revisions...
 		if ( $this->getAction() === 'approve' ) {
 			$rev = Revision::newFromTitle( $this->page, $this->oldid );
-			# Do not mess with archived/deleted revisions
-			if ( is_null( $rev ) || $rev->mDeleted ) {
+			# Check for archived/deleted revisions...
+			if ( !$rev || $rev->mDeleted ) {
 				return 'review_bad_oldid';
 			}
-			$status = $this->approveRevision( $rev );
+			$oldFrev = FlaggedRevision::newFromTitle( $this->page, $this->oldid, FR_MASTER );
+			# Check for review conflicts...
+			if ( $this->lastChangeTime !== null ) { // API uses null
+				$lastChange = $oldFrev ? $oldFrev->getTimestamp() : '';
+				if ( $lastChange !== $this->lastChangeTime ) {
+					return 'review_conflict_oldid';
+				}
+			}
+			$status = $this->approveRevision( $rev, $oldFrev );
 		# We can only unapprove approved revisions...
 		} elseif ( $this->getAction() === 'unapprove' ) {
-			$frev = FlaggedRevision::newFromTitle( $this->page, $this->oldid );
-			# If we can't find this flagged rev, return to page???
-			if ( is_null( $frev ) ) {
+			$oldFrev = FlaggedRevision::newFromTitle( $this->page, $this->oldid, FR_MASTER );
+			# Check for review conflicts...
+			if ( $this->lastChangeTime !== null ) { // API uses null
+				$lastChange = $oldFrev ? $oldFrev->getTimestamp() : '';
+				if ( $lastChange !== $this->lastChangeTime ) {
+					return 'review_conflict_oldid';
+				}
+			}
+			# Check if we can find this flagged rev...
+			if ( !$oldFrev ) {
 				return 'review_not_flagged';
 			}
-			$status = $this->unapproveRevision( $frev );
+			$status = $this->unapproveRevision( $oldFrev );
 		} elseif ( $this->getAction() === 'reject' ) {
 			$newRev = Revision::newFromTitle( $this->page, $this->oldid );
 			$oldRev = Revision::newFromTitle( $this->page, $this->refid );
@@ -348,10 +370,11 @@ class RevisionReviewForm
 
 	/**
 	 * Adds or updates the flagged revision table for this page/id set
-	 * @param Revision $rev
+	 * @param Revision $rev The revision to be accepted
+	 * @param FlaggedRevision $oldFrev Currently accepted version of $rev or null
 	 * @returns true on success, array of errors on failure
 	 */
-	private function approveRevision( Revision $rev ) {
+	private function approveRevision( Revision $rev, FlaggedRevision $oldFrev = null ) {
 		wfProfileIn( __METHOD__ );
 		# Revision rating flags
 		$flags = $this->dims;
@@ -378,16 +401,6 @@ class RevisionReviewForm
 		# Get current stable version ID (for logging)
 		$oldSv = FlaggedRevision::newFromStable( $this->page, FR_MASTER );
 
-		# Is this rev already flagged? (re-review)
-		$oldFrev = null;
-		if ( $oldSv ) { // stable rev exists
-			if ( $rev->getId() == $oldSv->getRevId() ) {
-				$oldFrev = $oldSv; // save a query
-			} else {
-				$oldFrev = FlaggedRevision::newFromTitle(
-					$this->page, $rev->getId(), FR_MASTER );
-			}
-		}
 		# Is this a duplicate review?
 		if ( $oldFrev &&
 			$oldFrev->getTags() == $flags && // tags => quality
@@ -434,6 +447,9 @@ class RevisionReviewForm
 			FlaggedRevs::HTMLCacheUpdates( $this->page ); // purge pages that use this page
 		}
 
+		# Caller may want to get the change time
+		$this->newLastChangeTime = $flaggedRevision->getTimestamp();
+
 		wfProfileOut( __METHOD__ );
         return true;
     }
@@ -470,6 +486,9 @@ class RevisionReviewForm
 		if ( $changed ) {
 			FlaggedRevs::HTMLCacheUpdates( $this->page ); // purge pages that use this page
 		}
+
+		# Caller may want to get the change time
+		$this->newLastChangeTime = '';
 
 		wfProfileOut( __METHOD__ );
         return true;
@@ -776,7 +795,8 @@ class RevisionReviewForm
 		$form .= Html::hidden( 'oldid', $id ) . "\n";
 		$form .= Html::hidden( 'action', 'submit' ) . "\n";
 		$form .= Html::hidden( 'wpEditToken', $user->editToken() ) . "\n";
-		$form .= Html::hidden( 'changetime', $reviewTime );
+		$form .= Html::hidden( 'changetime', $reviewTime,
+			array( 'id' => 'mw-fr-input-changetime' ) ); // id for JS
 		# Add review parameters
 		$form .= Html::hidden( 'templateParams', $templateParams ) . "\n";
 		$form .= Html::hidden( 'imageParams', $imageParams ) . "\n";
