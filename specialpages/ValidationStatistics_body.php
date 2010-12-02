@@ -96,18 +96,22 @@ class ValidationStatistics extends IncludableSpecialPage
 
 			$percRev = intval( $row->total ) == 0
 				? '-' // devision by zero
-				: $wgLang->formatnum( wfMsgExt( 'percent', array( 'escapenoentities' ),
-					sprintf( '%4.2f', 100 * intval( $row->reviewed ) / intval( $row->total ) ) )
+				: wfMsg( 'parentheses',
+					wfMsgExt( 'percent', array( 'escapenoentities' ),
+						$wgLang->formatnum( sprintf( '%4.2f', 100 * intval( $row->reviewed ) / intval( $row->total ) ) )
+					)
 				);
 			$percLatest = intval( $row->total ) == 0
 				? '-' // devision by zero
-				: $wgLang->formatnum( wfMsgExt( 'percent', array( 'escapenoentities' ),
-					sprintf( '%4.2f', 100 * intval( $row->synced ) / intval( $row->total ) ) )
+				: wfMsg( 'parentheses', 
+					wfMsgExt( 'percent', array( 'escapenoentities' ),
+						$wgLang->formatnum( sprintf( '%4.2f', 100 * intval( $row->synced ) / intval( $row->total ) ) )
+					)
 				);
 			$percSynced = intval( $row->reviewed ) == 0
 				? '-' // devision by zero
-				: $wgLang->formatnum( wfMsgExt( 'percent', array( 'escapenoentities' ),
-					sprintf( '%4.2f', 100 * intval( $row->synced ) / intval( $row->reviewed ) ) )
+				: wfMsgExt( 'percent', array( 'escapenoentities' ),
+					$wgLang->formatnum( sprintf( '%4.2f', 100 * intval( $row->synced ) / intval( $row->reviewed ) ) )
 				);
 			$outdated = intval( $row->reviewed ) - intval( $row->synced );
 			$outdated = $wgLang->formatnum( max( 0, $outdated ) ); // lag between queries
@@ -122,11 +126,11 @@ class ValidationStatistics extends IncludableSpecialPage
 					"</td>
 					<td>" .
 						htmlspecialchars( $wgLang->formatnum( $row->reviewed ) .
-							$wgContLang->getDirMark() ) . " <i>($percRev)</i>
+							$wgContLang->getDirMark() ) . " <i>$percRev</i>
 					</td>
 					<td>" .
 						htmlspecialchars( $wgLang->formatnum( $row->synced ) .
-							$wgContLang->getDirMark() ) . " <i>($percLatest)</i>
+							$wgContLang->getDirMark() ) . " <i>$percLatest</i>
 					</td>
 					<td>" .
 						$percSynced .
