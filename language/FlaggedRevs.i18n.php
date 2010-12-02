@@ -117,7 +117,7 @@ There are [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} template/f
 	'revreview-draft-title'        => 'Pending changes are displayed on this page',
 	'revreview-edit'               => 'Edit',
 	'revreview-editnotice'         => '\'\'\'Your changes will be displayed to readers once an authorized user reviews them. ([[{{MediaWiki:Validationpage}}|help]])\'\'\'',
-	'revreview-pendingnotice'      => "'''This is a [[{{MediaWiki:Validationpage}}|pending revision]] of this page. It was last accepted at <i>$1</i>. It may differ slightly from the accepted revision.'''",	
+	'revreview-pendingnotice'      => "'''This is a [[{{MediaWiki:Validationpage}}|pending revision]] of this page. It may differ from the [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} latest accepted revision], which was accepted on <i>$1</i>.'''",	
 	'revreview-check-flag-p'       => 'Accept this version (includes $1 pending {{PLURAL:$1|change|changes}})',
 	'revreview-check-flag-p-title' => 'Accept the result of the pending changes and the changes you made here. Use this only if you have already seen the entire pending changes diff.',
 	'revreview-check-flag-u'       => 'Accept this unreviewed page',
