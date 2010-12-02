@@ -146,7 +146,7 @@ class ValidationStatistics extends IncludableSpecialPage
 		# Is there a top 5 user list? If so, then show it...
 		$data = $this->getTopFiveReviewers();
 		if ( is_array( $data ) && count( $data ) ) {
-			$wgOut->addWikiMsg( 'validationstatistics-utable' );
+			$wgOut->addWikiMsg( 'validationstatistics-utable', $wgLang->formatNum( 5 ) );
 		
 			$reviewChart = "<table class='wikitable flaggedrevs_stats_table' style='white-space: nowrap;'>\n";
 			$reviewChart .= '<tr><th>' . wfMsgHtml( 'validationstatistics-user' ) .

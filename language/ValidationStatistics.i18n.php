@@ -27,7 +27,7 @@ $3',
 	'validationstatistics-latest' => 'Synced',
 	'validationstatistics-synced' => 'Synced/Reviewed',
 	'validationstatistics-old'    => 'Outdated',
-	'validationstatistics-utable' => 'Below is the list of top 5 reviewers in the last hour.',
+	'validationstatistics-utable' => 'Below is a list of the $1 most active reviewers in the last hour.',
 	'validationstatistics-user'   => 'User',
 	'validationstatistics-reviews' => 'Reviews',
 );
