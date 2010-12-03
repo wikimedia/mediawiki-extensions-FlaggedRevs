@@ -211,7 +211,7 @@ $wgFlaggedRevsStylePath = '$wgScriptPath/extensions/FlaggedRevs/client';
 # Show reviews in recentchanges? Disabled by default, often spammy...
 $wgFlaggedRevsLogInRC = false;
 # Show automatic promotions to Editor in RC? Disabled by default, often spammy...
-$wgFlaggedRevsAutopromoteInRC = false;
+$wgFlaggedRevsAutopromoteInRC = false; // @TODO: remove when ready
 
 # How far the logs for overseeing quality revisions and depreciations go
 $wgFlaggedRevsOversightAge = 30 * 24 * 3600;
@@ -226,9 +226,9 @@ $wgFlaggedRevsStatsAge = 2 * 3600; // 2 hours
 # FR_INCLUDES_FREEZE
 #	Use the version of templates/files that the page used when reviewed
 # FR_INCLUDES_STABLE
-# 	Use the stable version of templates/files that themselves have a stable version
-#	and the template/file version used at the time of review for those that don't have one
-# NOTE: We may have templates that do not have stable version. Given situational
+#	For each template/file, check if a version of it was used when the page was reviewed
+#	and	if the template/file itself has a stable version; use the newest those versions
+# NOTE: We may have templates that do not have stable version. Also, given situational
 # inclusion of templates (e.g. parser functions selecting template X or Y based on date),
 # there may also be no "review time version" revision ID for a template used on a page.
 # In such cases, we select the current (unreviewed) revision. Likewise for files.

@@ -1255,13 +1255,13 @@ class FlaggedArticleView {
 
 	/**
 	 * Adds a notice saying that this revision is pending review
-	 * @param FlaggedRevision $frev
+	 * @param FlaggedRevision $srev The stable version
 	 * @return void
 	 */
-	public function setPendingNotice( FlaggedRevision $frev ) {
+	public function setPendingNotice( FlaggedRevision $srev ) {
 		global $wgLang;
 		$this->load();
-		$time = $wgLang->date( $frev->getTimestamp(), true );
+		$time = $wgLang->date( $srev->getTimestamp(), true );
 		$pendingNotice = wfMsgExt( 'revreview-pendingnotice', 'parseinline', $time );
 		$this->reviewNotice .= "<div id='mw-fr-reviewnotice' class='flaggedrevs_preview plainlinks'>" . 
 			$pendingNotice . "</div>";
