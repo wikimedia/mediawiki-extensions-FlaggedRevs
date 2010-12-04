@@ -1841,31 +1841,27 @@ class FlaggedRevsHooks {
 		if ( !$wgUser->isAllowed( 'review' ) ) {
 			return true; // not relevant to user
 		}
-		$title = $out->getTitle();
 		$namespaces = FlaggedRevs::getReviewNamespaces();
-		if ( $title->getNamespace() == NS_SPECIAL && $namespaces ) {
-			$watchlist = SpecialPage::getTitleFor( 'Watchlist' );
-			$recentchanges = SpecialPage::getTitleFor( 'Recentchanges' );
-			# Notice applies only to RC/watchlists
-			if ( $title->equals( $watchlist ) || $title->equals( $recentchanges ) ) {
-				$dbr = wfGetDB( DB_SLAVE, 'watchlist' ); // consistency with watchlist
-				$watchedOutdated = $dbr->selectField(
-					array( 'watchlist', 'page', 'flaggedpages' ),
-					'1', // existence
-					array( 'wl_user' => $wgUser->getId(), // this user
-						'wl_namespace' => $namespaces, // reviewable
-						'wl_namespace = page_namespace',
-						'wl_title = page_title',
-						'fp_page_id = page_id',
-						'fp_reviewed' => 0,  // edits pending
-					), __METHOD__
-				);
-				# Give a notice if pages on the users's wachlist have pending edits
-				if ( $watchedOutdated ) {
-					$css = 'plainlinks fr-watchlist-pending-notice';
-					$out->prependHTML( "<div id='mw-fr-watchlist-pending-notice' class='$css'>" .
-						wfMsgExt( 'flaggedrevs-watched-pending', 'parseinline' ) . "</div>" );
-				}
+		$watchlist = SpecialPage::getTitleFor( 'Watchlist' );
+		# Add notice to watchlist about pending changes...
+		if ( $out->getTitle()->equals( $watchlist ) && $namespaces ) {
+			$dbr = wfGetDB( DB_SLAVE, 'watchlist' ); // consistency with watchlist
+			$watchedOutdated = (bool)$dbr->selectField(
+				array( 'watchlist', 'page', 'flaggedpages' ),
+				'1', // existence
+				array( 'wl_user' => $wgUser->getId(), // this user
+					'wl_namespace' => $namespaces, // reviewable
+					'wl_namespace = page_namespace',
+					'wl_title = page_title',
+					'fp_page_id = page_id',
+					'fp_pending_since IS NOT NULL', // edits pending
+				), __METHOD__
+			);
+			# Give a notice if pages on the users's wachlist have pending edits
+			if ( $watchedOutdated ) {
+				$css = 'plainlinks fr-watchlist-pending-notice';
+				$out->prependHTML( "<div id='mw-fr-watchlist-pending-notice' class='$css'>" .
+					wfMsgExt( 'flaggedrevs-watched-pending', 'parseinline' ) . "</div>" );
 			}
 		}
 		return true;
