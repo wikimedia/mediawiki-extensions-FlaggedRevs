@@ -134,11 +134,11 @@ class FRDependencyUpdate {
 		}
 		if ( $del ) {
 			$clause = self::makeWhereFrom2d( $del, wfGetDB( DB_MASTER ) );
-			$where = array( $clause, 'ftr_from' => $this->title->getArticleId() );
-		} else {
-			$where = false;
+			if ( $clause ) {
+				return array( $clause, 'ftr_from' => $this->title->getArticleId() );
+			}
 		}
-		return $where;
+		return false;
 	}
 
 	// Make WHERE clause to match $arr titles
