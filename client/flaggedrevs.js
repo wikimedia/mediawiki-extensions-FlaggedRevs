@@ -219,14 +219,14 @@ FlaggedRevs.getRevisionContents = function() {
 			if ( call ) {
 				call.abort();
 			}
-		}
+		};
 	}
 	if ( nextLink ) {
 		nextLink.onclick = function() {
 			if ( call ) {
 				call.abort();
 			}
-		}
+		};
 	}
 };
 
