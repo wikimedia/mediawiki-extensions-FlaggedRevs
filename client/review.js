@@ -60,7 +60,7 @@ FlaggedRevs.updateRatingForm = function() {
 
 	// Update colors of <select>
 	FlaggedRevs.updateRatingFormColors();
-}
+};
 
 /*
 * Disable 'accept' button if the revision was already reviewed
@@ -73,7 +73,7 @@ FlaggedRevs.maybeDisableAcceptButton = function() {
 			asubmit.disabled = 'disabled';
 		}
 	}
-}
+};
 
 hookEvent( "load", FlaggedRevs.maybeDisableAcceptButton );
 
@@ -91,7 +91,7 @@ FlaggedRevs.updateRatingFormColors = function() {
 			}
 		}
 	}
-}
+};
 
 hookEvent( "load", FlaggedRevs.updateRatingFormColors );
 
@@ -309,7 +309,7 @@ wgAjaxReview.processDiffHeaderItemsResult = function(request) {
 	if( diffHeaderItems && response != '' ) {
 		diffHeaderItems.innerHTML = response;
 	}
-}
+};
 
 wgAjaxReview.onLoad = function() {
 	var asubmit = document.getElementById("mw-fr-submit-accept");

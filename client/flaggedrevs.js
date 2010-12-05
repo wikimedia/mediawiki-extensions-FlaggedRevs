@@ -160,7 +160,7 @@ FlaggedRevs.setCheckTrigger = function() {
 	if( checkbox ) {
 		checkbox.onclick = FlaggedRevs.updateSaveButton;
 	}
-}
+};
 
 FlaggedRevs.updateSaveButton = function() {
 	var checkbox = document.getElementById("wpReviewEdit");
@@ -176,7 +176,7 @@ FlaggedRevs.updateSaveButton = function() {
 			save.title = FlaggedRevs.messages.tooltipSubmit;
 		}
 	}
-}
+};
 
 FlaggedRevs.getRevisionContents = function() {
 	//get the contents div and replace it with actual parsed article contents via an API call.
@@ -228,13 +228,13 @@ FlaggedRevs.getRevisionContents = function() {
 			}
 		}
 	}
-}
+};
 
 FlaggedRevs.setJSTriggers = function() {
 	FlaggedRevs.enableShowhide();
 	FlaggedRevs.setCheckTrigger();
 	FlaggedRevs.getRevisionContents();
-}
+};
 
 //TODO figure out the correct way to do this
 window.onload = FlaggedRevs.setJSTriggers;
