@@ -703,7 +703,7 @@ $3",
 	'validationstatistics-latest' => 'Sincronizado',
 	'validationstatistics-synced' => 'Sincronizado/Revisado',
 	'validationstatistics-old' => 'Obsoleto',
-	'validationstatistics-utable' => 'A continuación está a lista cos $1 revisores máis activos na última hora.',
+	'validationstatistics-utable' => 'A continuación está {{PLURAL:$1|o revisor máis activo|a lista cos $1 revisores máis activos}} na última hora.',
 	'validationstatistics-user' => 'Usuario',
 	'validationstatistics-reviews' => 'Revisións',
 );
@@ -894,7 +894,7 @@ $3",
 	'validationstatistics-latest' => 'Szinkronizálva',
 	'validationstatistics-synced' => 'Szinkronizálva/ellenőrizve',
 	'validationstatistics-old' => 'Elavult',
-	'validationstatistics-utable' => 'Az alábbi lista az elmúlt óra öt legtöbbet ellenőrző felhasználóját mutatja.',
+	'validationstatistics-utable' => 'Az alábbi lista az elmúlt óra {{PLURAL:$1| legtöbbet ellenőrző felhasználóját|$1 legtöbbet ellenőrző felhasználóit}} mutatja.',
 	'validationstatistics-user' => 'Felhasználó',
 	'validationstatistics-reviews' => 'Ellenőrzések',
 );
@@ -1038,7 +1038,7 @@ $3",
 	'validationstatistics-latest' => '最新版査読済',
 	'validationstatistics-synced' => '最新版査読済/全査読済',
 	'validationstatistics-old' => '最新版未査読',
-	'validationstatistics-utable' => '以下は最近1時間において最も活動的な査読者$1人の一覧です。',
+	'validationstatistics-utable' => '以下は、最近1時間において最も活動的な査読者$1人の一覧です。',
 	'validationstatistics-user' => '利用者',
 	'validationstatistics-reviews' => '査読回数',
 );
@@ -1194,7 +1194,7 @@ $3",
 	'validationstatistics-latest' => 'Synchroniséiert',
 	'validationstatistics-synced' => 'Synchroniséiert/Nogekuckt',
 	'validationstatistics-old' => 'Ofgelaf',
-	'validationstatistics-utable' => "Hei ënnendrënner ass d'Lëscht mat de $1 Benotzer, déi an der leschter Stonn am meeschte Bewäertunge gemaach hunn.",
+	'validationstatistics-utable' => "Hei ënnendrënner ass d'Lëscht mat {{PLURAL:$1|dem aktivste Benotzer|den aktivste(n) $1 Benotzer}}, an der leschter Stonn.",
 	'validationstatistics-user' => 'Benotzer',
 	'validationstatistics-reviews' => 'Bewäertungen',
 );
@@ -1457,7 +1457,7 @@ Te strony uważane są za ''przestarzałe''. Podobnie strony uznawane są za ''z
 	'validationstatistics-latest' => 'Z ostatnią edycją oznaczoną jako przejrzana',
 	'validationstatistics-synced' => 'Zsynchronizowanych lub przejrzanych',
 	'validationstatistics-old' => 'Zdezaktualizowane',
-	'validationstatistics-utable' => 'Poniżej znajduje się lista $1 użytkowników najaktywniej oznaczających strony w ciągu ostatniej godziny.',
+	'validationstatistics-utable' => 'Poniżej znajduje się {{PLURAL:$1|nazwa użytkownika najaktywniej oznaczającego|lista $1 użytkowników najaktywniej oznaczających}} strony w ciągu ostatniej godziny.',
 	'validationstatistics-user' => 'Użytkownik',
 	'validationstatistics-reviews' => 'Liczba oznaczeń',
 );
@@ -1555,7 +1555,7 @@ $3",
 	'validationstatistics-latest' => 'Sincronizada',
 	'validationstatistics-synced' => 'Sincronizadas/Analisadas',
 	'validationstatistics-old' => 'Desatualizadas',
-	'validationstatistics-utable' => 'Abaixo está uma lista dos $1 maiores analisadores na última hora.',
+	'validationstatistics-utable' => 'Abaixo está a lista {{PLURAL:$1|do revisor mais ativo|dos $1 revisores mais ativos}} na última hora.',
 	'validationstatistics-user' => 'Usuário',
 	'validationstatistics-reviews' => 'Análises',
 );
@@ -1565,6 +1565,7 @@ $3",
  * @author Firilacroco
  * @author KlaudiuMihaila
  * @author Mihai
+ * @author Minisarm
  * @author Stelistcristi
  */
 $messages['ro'] = array(
@@ -1577,7 +1578,7 @@ Editorii și recenzorii sunt utilizatori stabiliți care pot verifica modificăr
 	'validationstatistics-latest' => 'Sincronizată',
 	'validationstatistics-synced' => 'Sincronizată/Revizualizată',
 	'validationstatistics-old' => 'Învechită',
-	'validationstatistics-utable' => 'Mai jos este lista cu top $1 recenzenţi în ultima oră.',
+	'validationstatistics-utable' => 'Mai jos se află {{PLURAL:$1|cel mai activ recenzent|cei mai activi $1 recenzenți}} în ultima oră.',
 	'validationstatistics-user' => 'Utilizator',
 	'validationstatistics-reviews' => 'Recenzii',
 );
@@ -1861,7 +1862,7 @@ $messages['te'] = array(
 	'validationstatistics-latest' => 'సింకుడు',
 	'validationstatistics-synced' => 'సింకుడు/రివ్యూడ్',
 	'validationstatistics-old' => 'పాతవి',
-	'validationstatistics-utable' => 'ఈ క్రిందిది గడచిన గంటలో $1గురు క్రియాశీల సమీక్షకుల యొక్క జాబితా.',
+	'validationstatistics-utable' => 'ఇది గడచిన గంటలో {{PLURAL:$1|ఒక|$1గురు}} అత్యంత క్రియాశీల సమీక్షకుల యొక్క జాబితా.',
 	'validationstatistics-user' => 'వాడుకరి',
 	'validationstatistics-reviews' => 'సమీక్షలు',
 );
@@ -2061,7 +2062,7 @@ $3",
 	'validationstatistics-latest' => 'Đã đồng bộ',
 	'validationstatistics-synced' => 'Cập nhật/Duyệt',
 	'validationstatistics-old' => 'Lỗi thời',
-	'validationstatistics-utable' => 'Đây là danh sách top $1 người duyệt trong giờ qua.',
+	'validationstatistics-utable' => 'Đây là {{PLURAL:$1|người duyệt|danh sách $1 người duyệt}} tích cực nhất trong giờ qua.',
 	'validationstatistics-user' => 'Người dùng',
 	'validationstatistics-reviews' => 'Bản duyệt',
 );
