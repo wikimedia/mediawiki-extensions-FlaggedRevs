@@ -22,18 +22,24 @@ class FlaggedRevs {
 	protected static $loaded = false;
 
 	public static function load() {
-		global $wgFlaggedRevTags;
+		global $wgFlaggedRevsTags, $wgFlaggedRevTags;
 		if ( self::$loaded ) {
 			return true;
 		}
 		self::$loaded = true;
+		$flaggedRevsTags = null;
+		if ( isset( $wgFlaggedRevsTags ) ) {
+			$flaggedRevsTags = $wgFlaggedRevsTags;
+		} elseif ( isset( $wgFlaggedRevTags ) ) {
+			$flaggedRevsTags = $wgFlaggedRevTags; // b/c
+		}
 		# Assume true, then set to false if needed
-		if ( !empty( $wgFlaggedRevTags ) ) {
+		if ( !empty( $flaggedRevsTags ) ) {
 			self::$qualityVersions = true;
 			self::$pristineVersions = true;
-			self::$binaryFlagging = ( count( $wgFlaggedRevTags ) <= 1 );
+			self::$binaryFlagging = ( count( $flaggedRevsTags ) <= 1 );
 		}
-		foreach ( $wgFlaggedRevTags as $tag => $levels ) {
+		foreach ( $flaggedRevsTags as $tag => $levels ) {
 			# Sanity checks
 			$safeTag = htmlspecialchars( $tag );
 			if ( !preg_match( '/^[a-zA-Z]{1,20}$/', $tag ) || $safeTag !== $tag ) {

@@ -98,7 +98,7 @@ $wgFlaggedRevsAutoReviewNew = true;
 # and set the minimum level to have it become a "quality" or "pristine" version.
 # NOTE: When setting up new dimensions or levels, you will need to add some
 # 		MediaWiki messages for the UI to show properly; any sysop can do this.
-$wgFlaggedRevTags = array(
+$wgFlaggedRevsTags = array(
 	'accuracy' => array( 'levels' => 3, 'quality' => 2, 'pristine' => 4 ),
 	'depth'    => array( 'levels' => 3, 'quality' => 1, 'pristine' => 4 ),
 	'style'    => array( 'levels' => 3, 'quality' => 1, 'pristine' => 4 ),
