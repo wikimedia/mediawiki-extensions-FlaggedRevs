@@ -12,6 +12,7 @@ class FlaggedRevs {
 	protected static $minPL = array();
 	protected static $qualityVersions = false;
 	protected static $pristineVersions = false;
+	protected static $tagRestrictions = array();
 	protected static $binaryFlagging = true;
 	# Namespace config
 	protected static $reviewNamespaces = array();
@@ -28,10 +29,11 @@ class FlaggedRevs {
 		}
 		self::$loaded = true;
 		$flaggedRevsTags = null;
-		if ( isset( $wgFlaggedRevsTags ) ) {
-			$flaggedRevsTags = $wgFlaggedRevsTags;
-		} elseif ( isset( $wgFlaggedRevTags ) ) {
+		if ( isset( $wgFlaggedRevTags ) ) {
 			$flaggedRevsTags = $wgFlaggedRevTags; // b/c
+			wfWarn( 'Please use $wgFlaggedRevsTags instead of $wgFlaggedRevTags in config.' );
+		} elseif ( isset( $wgFlaggedRevsTags ) ) {
+			$flaggedRevsTags = $wgFlaggedRevsTags;
 		}
 		# Assume true, then set to false if needed
 		if ( !empty( $flaggedRevsTags ) ) {
@@ -58,6 +60,7 @@ class FlaggedRevs {
 				$minQL = $levels; // an integer
 				$minPL = isset( $wgFlaggedRevPristine ) ?
 					$wgFlaggedRevPristine : $ratingLevels + 1;
+				wfWarn( 'Please update the format of $wgFlaggedRevsTags in config.' );
 			}
 			# Set FlaggedRevs tags
 			self::$dimensions[$tag] = array();
@@ -82,8 +85,15 @@ class FlaggedRevs {
 			self::$minPL[$tag] = max( $minPL, 1 );
 			self::$minSL[$tag] = 1;
 		}
+		global $wgFlaggedRevsTagsRestrictions, $wgFlagRestrictions;
+		if ( isset( $wgFlagRestrictions ) ) {
+			self::$tagRestrictions = $wgFlagRestrictions; // b/c
+			wfWarn( 'Please use $wgFlaggedRevsTagsRestrictions instead of $wgFlagRestrictions in config.' );
+		} else {
+			self::$tagRestrictions = $wgFlaggedRevsTagsRestrictions;
+		}
+		# Make sure that the restriction levels are unique
 		global $wgFlaggedRevsRestrictionLevels;
-		# Make sure that the levels are unique
 		self::$restrictionLevels = array_unique( $wgFlaggedRevsRestrictionLevels );
 		self::$restrictionLevels = array_filter( self::$restrictionLevels, 'strlen' );
 		# Make sure no talk namespaces are in review namespace
@@ -276,8 +286,8 @@ class FlaggedRevs {
 	 * @returns array
 	 */
 	public static function getTagRestrictions() {
-		global $wgFlagRestrictions;
-		return $wgFlagRestrictions;
+		self::load();
+		return self::$tagRestrictions;
 	}
 	
 	/**

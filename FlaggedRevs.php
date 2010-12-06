@@ -108,7 +108,7 @@ $wgFlaggedRevsTags = array(
 # allow for "depth" to be rated up to second level.
 # NOTE: Users cannot lower revision tags from a level they can't set.
 # NOTE: Users with 'validate' (Reviewers) can set all tags to all levels.
-$wgFlagRestrictions = array(
+$wgFlaggedRevsTagsRestrictions = array(
 	'accuracy' => array( 'review' => 1, 'autoreview' => 1 ),
 	'depth'	   => array( 'review' => 2, 'autoreview' => 2 ),
 	'style'	   => array( 'review' => 3, 'autoreview' => 3 ),
