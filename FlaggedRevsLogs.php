@@ -177,9 +177,8 @@ class FlaggedRevsLogs {
 	public static function updateLog( $title, $dims, $oldDims, $comment,
 		$revId, $stableId, $approve, $auto = false )
 	{
-		global $wgFlaggedRevsLogInRC;
 		$log = new LogPage( 'review',
-			$auto ? false : $wgFlaggedRevsLogInRC, // RC logging
+			false /* $rc */,
 			$auto ? "skipUDP" : "UDP" // UDP logging
 		);
 		# Tag rating list (e.g. accuracy=x, depth=y, style=z)

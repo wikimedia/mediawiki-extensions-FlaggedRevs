@@ -1337,7 +1337,7 @@ class FlaggedRevsHooks {
 		$newGroups = $groups ;
 		array_push( $newGroups, 'editor' );
 
-		$log = new LogPage( 'rights', false /* in RC */ );
+		$log = new LogPage( 'rights', false /* $rc */ );
 		$log->addEntry( 'rights',
 			$user->getUserPage(),
 			wfMsgForContent( 'rights-editor-autosum' ),

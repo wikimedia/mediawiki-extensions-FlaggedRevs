@@ -208,9 +208,6 @@ $wgRemoveGroups['bureaucrat'][] = 'reviewer';
 # Use a literal $wgScriptPath as a placeholder for the runtime value of $wgScriptPath
 $wgFlaggedRevsStylePath = '$wgScriptPath/extensions/FlaggedRevs/client';
 
-# Show reviews in recentchanges? Disabled by default, often spammy...
-$wgFlaggedRevsLogInRC = false;
-
 # How far the logs for overseeing quality revisions and depreciations go
 $wgFlaggedRevsOversightAge = 30 * 24 * 3600;
 
