@@ -210,8 +210,6 @@ $wgFlaggedRevsStylePath = '$wgScriptPath/extensions/FlaggedRevs/client';
 
 # Show reviews in recentchanges? Disabled by default, often spammy...
 $wgFlaggedRevsLogInRC = false;
-# Show automatic promotions to Editor in RC? Disabled by default, often spammy...
-$wgFlaggedRevsAutopromoteInRC = false; // @TODO: remove when ready
 
 # How far the logs for overseeing quality revisions and depreciations go
 $wgFlaggedRevsOversightAge = 30 * 24 * 3600;

@@ -1337,10 +1337,12 @@ class FlaggedRevsHooks {
 		$newGroups = $groups ;
 		array_push( $newGroups, 'editor' );
 
-		global $wgFlaggedRevsAutopromoteInRC;
-		$log = new LogPage( 'rights', $wgFlaggedRevsAutopromoteInRC );
-		$log->addEntry( 'rights', $user->getUserPage(), wfMsgForContent( 'rights-editor-autosum' ),
-			array( implode( ', ', $groups ), implode( ', ', $newGroups ) ) );
+		$log = new LogPage( 'rights', false /* in RC */ );
+		$log->addEntry( 'rights',
+			$user->getUserPage(),
+			wfMsgForContent( 'rights-editor-autosum' ),
+			array( implode( ', ', $groups ), implode( ', ', $newGroups ) )
+		);
 		$user->addGroup( 'editor' );
 
 		return true;
