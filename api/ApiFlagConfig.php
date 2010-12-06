@@ -30,15 +30,17 @@ class ApiFlagConfig extends ApiBase {
 
 	public function execute() {
 		$this->getMain()->setCacheMode( 'public' );
-		global $wgFlaggedRevTags;
+		$minQLTags = FlaggedRevs::quickTags( FR_QUALITY );
+		$minPLTags = FlaggedRevs::quickTags( FR_PRISTINE );
 		$data = array();
-		foreach ( $wgFlaggedRevTags as $tag => $params ) {
-			$tagInfo = array();
-			$tagInfo['name'] = $tag;
-			$tagInfo['levels'] = $params['levels'];
-			$tagInfo['tier2'] = $params['quality'];
-			$tagInfo['tier3'] = $params['pristine'];
-			$data[] = $tagInfo;
+		foreach ( FlaggedRevs::getDimensions() as $tag => $levels ) {
+			$data[] = array(
+				'name'   => $tag,
+				'levels' => count( $levels ) - 1, // exclude '0' level
+				'tier1'  => 1,
+				'tier2'  => $minQLTags[$tag],
+				'tier3'  => $minPLTags[$tag]
+			);
 		}
 		$result = $this->getResult();
 		$result->setIndexedTagName( $data, 'tag' );
