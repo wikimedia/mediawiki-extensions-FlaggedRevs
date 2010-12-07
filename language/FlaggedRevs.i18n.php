@@ -440,6 +440,8 @@ Users who see the stable version and not the draft version as page, have this me
 	'revreview-editnotice' => '{{Flagged Revs}}
 {{Identical|Authorised user}}',
 	'revreview-check-flag-p' => '{{Flagged Revs}}',
+	'revreview-check-flag-y-title' => '{{Gender}}',
+	'revreview-submitedit-title' => '{{Gender}}',
 	'revreview-edited' => '{{Flagged Revs-small}}
 If an anonymous user edits a stable page, after saving the page he sees the draft version (<tt>stable=0</tt> in page title) he has made.
 
@@ -4507,6 +4509,7 @@ Bonvolu kontroli la retadreson (URL) kiun vi uzis por atingi la paĝon.\\b',
  * @author Diego Grez
  * @author Drini
  * @author Imre
+ * @author Jurock
  * @author Lin linao
  * @author Locos epraix
  * @author Manuelt15
@@ -4540,7 +4543,9 @@ $messages['es'] = array(
 	'group-autoreview' => 'Autorevisores',
 	'group-autoreview-member' => 'autorevisor',
 	'grouppage-autoreview' => '{{ns:project}}:Autorevisor',
+	'revcontents-error' => 'No se pudo obtener el contenido',
 	'revcontents-getcontents' => '[{{fullurl:$1|oldid=$2}} Ver esta revisión]',
+	'revcontents-waiting' => 'Esperando contenido',
 	'revreview-hist-draft' => 'revisión no verificada',
 	'revreview-hist-pending' => 'a espera de revisión',
 	'revreview-hist-quality' => 'revisión de calidad',
@@ -4585,18 +4590,22 @@ Hay [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} borrador] contiene [{{fullurl:{{FULL
 Puede que se hayan realizado [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} más cambios] desde entonces.',
 	'revreview-basic-same' => 'Esta es la [[{{MediaWiki:Validationpage}}|versión publicada]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} verificada] el <i>$2</i>.',
 	'revreview-basic-source' => 'Una [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} versión verificada] de esta página, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprobada] en <i>$2</i>, estuvo basada en esta revisión.',
-	'revreview-failed' => "'''Incapaz de revisar esta revisión.''' La propuesta es incompleta o sino inválida.",
+	'revreview-failed' => "'''No se pudo revisar esta revisión.'''",
+	'revreview-submission-invalid' => 'El envío estaba incompleto o era inválido',
 	'review_page_invalid' => 'El título de página destino es inválida.',
 	'review_page_notexists' => 'La página destino no existe.',
 	'review_page_unreviewable' => 'La página destino no es revisable.',
 	'review_no_oldid' => 'Ningún ID de revisión especificado.',
 	'review_bad_oldid' => 'No hay tal revisión de objetivo.',
+	'review_conflict_oldid' => 'Alguien ya ha aceptado o rechazado esta revisión mientras la leías',
 	'review_not_flagged' => 'La revisión de destino no está marcada como revisada.',
 	'review_too_low' => 'La revisión no puede ser revisada con algunos campos dejados "inadecuados".',
 	'review_bad_key' => 'Clave de parámetro de inclusión inválido.',
 	'review_denied' => 'Permiso denegado.',
 	'review_param_missing' => 'Un parámetro está perdido o es inválido.',
 	'review_cannot_undo' => 'No es posible deshacer estos cambio, ya que otras ediciones pendientes han cambiado estas áreas.',
+	'review_cannot_reject' => 'No se pudo rechazar estos cambios porque alguien aceptó algunas (o todas) las modificaciones.',
+	'review_reject_excessive' => 'No se puede rechazar esta cantidad de modificaciones a la vez.',
 	'revreview-current' => 'Cambios pendientes',
 	'revreview-depth' => 'Profundidad',
 	'revreview-depth-0' => 'Inadecuado',
@@ -4607,6 +4616,7 @@ Puede que se hayan realizado [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diff
 	'revreview-draft-title' => 'Los cambios pendientes se muestran en esta página',
 	'revreview-edit' => 'Editar',
 	'revreview-editnotice' => "'''Tus cambios serán publicados una vez que un usuario autorizado los revise. ([[{{MediaWiki:Validationpage}}|ayuda]])'''",
+	'revreview-pendingnotice' => "'''Esta es una [[{{MediaWiki:Validationpage}}|revisión pendiente]] de esta página. Puede diferir de la [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} última revisión aceptada], que fue aprobada el <i>$1</i>.'''",
 	'revreview-check-flag-p' => 'Aceptar esta versión (incluye {{PLURAL:$1|un cambio pendiente|$1 cambios pendientes}})',
 	'revreview-check-flag-p-title' => 'Aceptar todos los cambios actualmente pendientesjunto con tu propia edición.
 Solamente usar esto si ya has visto por completo las diferencias de los cambios pendientes.',
@@ -4690,10 +4700,9 @@ Por favor presiona el botón ''atrás'' en tu navegador e intenta de nuevo.",
 	'revreview-update-edited' => '<span class="flaggedrevs_important">Tus cambios aún no han sido incorporados en la versión estable.</span>
 
 Por favor revisa todos los cambios mostrados debajo para hacer que tus ediciones aparezcan en la versión estable.',
-	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Tus cambios no han sido aceptados aún. Hay ediciones previas pendientes de ser revisadas.</span>
+	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Tus cambios no está en la versión estable aún. Hay ediciones previas pendientes de ser revisadas.</span>
 
-Por favor, revisa todos los cambios mostrados a continuación para que se acepten tus ediciones.
-Primero tendrás que hacer un seguimiento de las ediciones, o "deshacerlas".',
+Por favor, revisa todos los cambios mostrados a continuación para que se acepten tus ediciones.',
 	'revreview-update-includes' => "'''Algunas plantillas/archivos fueron actualizados:'''",
 	'revreview-update-use' => "'''Nota:''' La versión publicada de cada una de estas plantillas / archivos se utiliza en la versión publicada de esta página.",
 	'revreview-visibility' => "'''Esta página tiene una [[{{MediaWiki:Validationpage}}|versión publicada]] actualizada; configuraciones de estabilidad de página pueden ser [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} configuradas].'''",
@@ -4738,6 +4747,16 @@ Por favor, revise la dirección que usó para acceder a esta página.',
 	'revreview-restriction-any' => 'cualquiera',
 	'revreview-restriction-none' => 'ninguno',
 	'revreview-reject-header' => 'Rechazar los cambios para $1',
+	'revreview-reject-text-list' => "Al ejecutar esta acción, estarás '''rechazando''' {{PLURAL:$1|el siguiente cambio|los siguientes cambios}}:",
+	'revreview-reject-text-revto' => 'La página será revertida a su [{{*fullurl:$1|*oldid=$2}} versión de $3].',
+	'revreview-reject-summary' => 'Resumen de edición:',
+	'revreview-reject-confirm' => 'Rechazar estos cambios',
+	'revreview-reject-cancel' => 'Cancelar',
+	'revreview-reject-summary-cur' => '{{PLURAL:$1|Rechazado el último cambio|Rechazados los últimos $1 cambios}} (por $2) y restaurada la revisión $3 de $4.',
+	'revreview-reject-summary-old' => '{{PLURAL:$1|Rechazado el primer cambio|Rechazados los primeros $1 cambios}} (de $2) que seguían a la revisión $3 de $4.',
+	'revreview-reject-summary-cur-short' => '{{PLURAL:$1|Rechazado el último cambio|Rechazados los últimos $1 cambios}} y restaurada la revisión $2 de $3',
+	'revreview-reject-summary-old-short' => '{{PLURAL:$1|Rechazado el primer cambio|Rechazados los primeros $1 cambios}} que seguían la revisión $2 de $3',
+	'revreview-reject-usercount' => '{{PLURAL:$1|un usuario|$1 usuarios}}',
 	'revreview-reviewlink' => 'ediciones pendientes',
 	'revreview-reviewlink-title' => 'Ver las diferencias de todos los cambios pendientes',
 	'revreview-unreviewedpage' => 'Página no verificada',
@@ -4746,6 +4765,7 @@ Por favor, revise la dirección que usó para acceder a esta página.',
 	'tooltip-ca-default' => 'Opciones de control de calidad',
 	'flaggedrevs-protect-legend' => 'Revisión automática de ediciones ([[{{MediaWiki:Validationpage}}|ayuda]])',
 	'flaggedrevs-protect-none' => 'Permitir todos los usuarios',
+	'flaggedrevs-categoryview' => '[{{fullurl:Special:UnreviewedPages|category=$1}} Páginas no revisadas]{{int:pipe-separator}}[{{fullurl:Special:PendingChanges|category=$1}} Cambios pendientes]',
 	'revreview-locked-title' => 'Las ediciones a esta página requieren revisión.',
 	'revreview-unlocked-title' => 'La ediciones a esta página no requieren revisión.',
 	'revreview-locked' => "'''Atención:''' Las ediciones deben ser [[{{MediaWiki:Validationpage}}|revisadas]] antes de ser mostradas en esta página.",
@@ -11537,6 +11557,49 @@ $messages['nds-nl'] = array(
 Kiek de URL nao dee-j gebruken um naor disse pagina te gaon.',
 );
 
+/** Nepali (नेपाली)
+ * @author Bhawani Gautam Rhk
+ */
+$messages['ne'] = array(
+	'action-review' => 'समीक्षा संशोधन',
+	'editor' => 'सम्पादक',
+	'flaggedrevs' => 'चिन्हित संशोधन',
+	'flaggedrevs-watched-pending' => "अहिले [{{fullurl:{{#Special:OldReviewedPages}}|अवलोकन गरिएको=1}} परिवर्तन स्थगित] तपाईंको अवलोकन सूचीमा समीक्षा गरिएका पृष्ठहरु छ्न्। '''तपाईंको ध्यानको आवश्यकता छ!'''",
+	'flaggedrevs-desc' => 'संपादकहरुकोलागि संशोधनहरुको समीक्षा गर्ने र पृष्ठहरुलाई स्थिर गर्ने क्षमता प्रदान गर्छ',
+	'flaggedrevs-pref-UI' => 'बुनियादी अन्तर्मोहड़ा',
+	'flaggedrevs-pref-UI-0' => 'पृष्ठको समीक्षा स्थिति देखाउन विवरणसहितका बाकसहरु प्रयोग गर्नुहोस्',
+	'flaggedrevs-pref-UI-1' => 'पृष्ठको समीक्षा स्थिति देखाउन साना चिह्न र न्यूनतम पाठको प्रयोग  गर्नुहोस्',
+	'prefs-flaggedrevs' => 'समीक्षा गर्ने',
+	'prefs-flaggedrevs-ui' => 'समीक्षा गर्ने',
+	'flaggedrevs-prefs-stable' => 'सधैं सामाग्री पृष्ठको स्थिर संस्करण (यदि छ भनें) डिफल्ट रुपमा  देखाउनुहोस्',
+	'flaggedrevs-prefs-editdiffs' => 'पृष्ठ सम्पादनको बेला लंबित परिवर्तन भिन्नता देखाउनुहोस्',
+	'flaggedrevs-prefs-viewdiffs' => 'नवीनतम लंबित संस्करण हेरेको बेला लंबित परिवर्तन भिन्नता देखाउनुहोस्',
+	'group-editor' => 'सम्पादकहरु',
+	'group-editor-member' => 'सम्पादक',
+	'group-reviewer' => 'समीक्षकहरु',
+	'group-reviewer-member' => 'समीक्षक',
+	'grouppage-editor' => '{{ns:project}}:सम्पादक',
+	'grouppage-reviewer' => '{{ns:project}}:समीक्षक',
+	'group-autoreview' => 'स्वनियन्त्रित प्रयोगकर्ताहरु',
+	'group-autoreview-member' => 'स्वनियन्त्रित प्रयोगकर्ताहरु',
+	'grouppage-autoreview' => '{{ns:project}}:स्वनियन्त्रित प्रयोगकर्ताहरु',
+	'revcontents-error' => 'सामाग्री प्राप्त गर्न असमर्थ।',
+	'revcontents-getcontents' => '[{{fullurl:$1|oldid=$2}} यो संशोधन हेर्ने]',
+	'revcontents-waiting' => 'सामाग्रीकोनिम्ति प्रतिक्षा गर्दै',
+	'revreview-hist-draft' => 'अनियंत्रित संशोधन',
+	'revreview-hist-pending' => 'लंबित संशोधन',
+	'revreview-hist-quality' => 'गुणवत्ता संशोधन',
+	'revreview-hist-basic' => 'नियन्त्रित संशोधन',
+	'revreview-hist-quality-user' => '[[User:$3|$3]] द्वारा [{{fullurl:$1|stableid=$2}} स्वीकृत]',
+	'revreview-hist-basic-user' => '[[User:$3|$3]] द्वारा [{{fullurl:$1|stableid=$2}} परीक्षित]',
+	'revreview-hist-basic-auto' => '[{{fullurl:$1|stableid=$2}}स्वतः परीक्षित]',
+	'revreview-hist-quality-auto' => '[{{fullurl:$1|stableid=$2}} स्वतः स्वीकृत]',
+	'revreview-hist-pending-difflink' => "'''[[{{fullurl:$1|oldid=$2&diff=$3}} लंबित समीक्षा]]'''",
+	'review-edit-diff' => "'''सूचना: ''केहि'' लंबित परिवर्तनले तपाईंले परिवर्तन गरेको भागलाई असर गर्नेछ ।'''",
+	'revreview-diff-toggle-show' => 'ती परिवर्तनहरु देखाउनुहोस्',
+	'revreview-diff-toggle-hide' => 'ती परिवर्तनहरु लुकाउनुहोस्',
+);
+
 /** Dutch (Nederlands)
  * @author Annabel
  * @author McDutchie
@@ -13806,7 +13869,7 @@ Stonne [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} cangiaminde a
 Nuève [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} cangiaminde] ponne essere state fatte.",
 	'revreview-basic-same' => "Queste jè l'urtema [[{{MediaWiki:Validationpage}}|versione pubblecate]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} verificate] 'u <i>$2</i>.",
 	'revreview-basic-source' => "'Na [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} versiona verificate] de sta pàgene, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approvate] sus 'u <i>$2</i>, ere basate sus 'a sta revisione.",
-	'revreview-failed' => "'''None ge se pò rivedè sta revsione.''' 'A conferme jè incomblete o stè quacche otra cose de invalide.",
+	'revreview-failed' => "'''None ge se pò rivedè sta revisione.'''",
 	'review_page_invalid' => "'U titele d'a pàgene de destinazzione jè invalide.",
 	'review_page_notexists' => "'A pàgene de destinazzione non g'esiste.",
 	'review_page_unreviewable' => "'A pàgene de destinazione non g'è revisitabbele.",

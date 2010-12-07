@@ -487,6 +487,7 @@ $3",
  * @author Crazymadlover
  * @author Dferg
  * @author Imre
+ * @author Jurock
  * @author Translationista
  */
 $messages['es'] = array(
@@ -506,7 +507,7 @@ Estas páginas son consideradas ''desactualizadas''. Del mismo modo, las página
 	'validationstatistics-latest' => 'Sincronizado',
 	'validationstatistics-synced' => 'Sincronizado/Revisado',
 	'validationstatistics-old' => 'desactualizado',
-	'validationstatistics-utable' => 'Debajo está un lista de los $1 revisores top en la última hora.',
+	'validationstatistics-utable' => 'Debajo hay un lista de {{PLURAL:$1|el revisor más activo|los $1 revisores más activos}} en la última hora.',
 	'validationstatistics-user' => 'Usuario',
 	'validationstatistics-reviews' => 'Revisiones',
 );
@@ -1605,7 +1606,7 @@ $3",
 	'validationstatistics-latest' => 'Singronizzate',
 	'validationstatistics-synced' => 'Singronizzete/Riviste',
 	'validationstatistics-old' => "Non g'è aggiornete",
-	'validationstatistics-utable' => "Sotte ste 'na liste de le $1 cchiù 'mbortande revisure de l'urtema ore.",
+	'validationstatistics-utable' => "Sotte ste 'na liste de le {{PLURAL:$1|revisitatore cchiù attive|$1 revisitature cchiù attive}}jndr'à  l'urtema ore.",
 	'validationstatistics-user' => 'Utende',
 	'validationstatistics-reviews' => 'Reviste',
 );
