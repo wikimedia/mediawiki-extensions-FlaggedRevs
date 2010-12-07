@@ -58,8 +58,7 @@ class FlaggedRevsHooks {
 		$encCssFile = htmlspecialchars( "$stylePath/flaggedrevs.css?$wgFlaggedRevStyleVersion" );
 		$encJsFile = htmlspecialchars( "$stylePath/flaggedrevs.js?$wgFlaggedRevStyleVersion" );
 		# Add CSS file
-		$linkedStyle = Html::linkedStyle( $encCssFile );
-		$wgOut->addHeadItem( 'FlaggedRevs', $linkedStyle );
+		$wgOut->addExtensionStyle( $encCssFile );
 		# Add main JS file
 		$wgOut->includeJQuery();
 		$wgOut->addScriptFile( $encJsFile );
