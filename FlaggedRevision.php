@@ -313,16 +313,17 @@ class FlaggedRevision {
 		# Update flagged revisions table
 		$dbw->replace( 'flaggedrevs',
 			array( array( 'fr_page_id', 'fr_rev_id' ) ), $revRow, __METHOD__ );
-		# Clear out any previous garbage.
-		# We want to be able to use this for tracking...
+		# Clear out any previous garbage...
 		$dbw->delete( 'flaggedtemplates',
             array( 'ft_rev_id' => $this->getRevId() ), __METHOD__ );
-		$dbw->delete( 'flaggedimages',
-            array( 'fi_rev_id' => $this->getRevId() ), __METHOD__ );
-		# Update our versioning params
+		# ...and insert template version data
 		if ( $tmpInsertRows ) {
 			$dbw->insert( 'flaggedtemplates', $tmpInsertRows, __METHOD__, 'IGNORE' );
 		}
+		# Clear out any previous garbage...
+		$dbw->delete( 'flaggedimages',
+            array( 'fi_rev_id' => $this->getRevId() ), __METHOD__ );
+		# ...and insert file version data
 		if ( $fileInsertRows ) {
 			$dbw->insert( 'flaggedimages', $fileInsertRows, __METHOD__, 'IGNORE' );
 		}
