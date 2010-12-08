@@ -311,8 +311,8 @@ class FlaggedRevision {
 			'fr_img_sha1'      => $this->getFileSha1()
 		);
 		# Update flagged revisions table
-		$dbw->replace( 'flaggedrevs', array( array( 'fr_page_id', 'fr_rev_id' ) ),
-            $revRow, __METHOD__ );
+		$dbw->replace( 'flaggedrevs',
+			array( array( 'fr_page_id', 'fr_rev_id' ) ), $revRow, __METHOD__ );
 		# Clear out any previous garbage.
 		# We want to be able to use this for tracking...
 		$dbw->delete( 'flaggedtemplates',
@@ -387,14 +387,23 @@ class FlaggedRevision {
 	}
 
 	/**
+	 * Check if the corresponding revision is the current revision
+	 * Note: here for convenience
+	 * @return bool
+	 */
+	public function isCurrent() {
+		$rev = $this->getRevision(); // corresponding revision
+		return ( $rev ? $rev->isCurrent() : false );
+	}
+
+	/**
 	 * Get timestamp of the corresponding revision
+	 * Note: here for convenience
 	 * @return string revision timestamp in MW format
 	 */
 	public function getRevTimestamp() {
-		# Get corresponding revision
-		$rev = $this->getRevision();
-		$timestamp = $rev ? $rev->getTimestamp() : "0";
-		return $timestamp;
+		$rev = $this->getRevision(); // corresponding revision
+		return ( $rev ? $rev->getTimestamp() : "0" );
 	}
 
 	/**

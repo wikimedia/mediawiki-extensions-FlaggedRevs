@@ -1643,7 +1643,10 @@ class FlaggedRevsHooks {
 		}
 		# Fetch and process cache the stable revision
 		if ( !isset( $history->fr_stableRevId ) ) {
-			$history->fr_stableRevId = $fa->getStable();
+			$srev = $fa->getStableRev();
+			$history->fr_stableRevId = $srev ? $srev->getRevId() : null;
+			$history->fr_stableRevUTS = $srev ? // bug 15515
+				wfTimestamp( TS_UNIX, $srev->getRevTimestamp() ) : null;
 			$history->fr_pendingRevs = false;
 		}
 		if ( !$history->fr_stableRevId ) {
@@ -1653,7 +1656,7 @@ class FlaggedRevsHooks {
 		$revId = (int)$row->rev_id;
 		// Pending revision: highlight and add diff link
 		$link = $class = '';
-		if ( $revId > $history->fr_stableRevId ) {
+		if ( wfTimestamp( TS_UNIX, $row->rev_timestamp ) > $history->fr_stableRevUTS ) {
 			$class = 'flaggedrevs-pending';
 			$link = wfMsgExt( 'revreview-hist-pending-difflink', 'parseinline',
 				$title->getPrefixedText(), $history->fr_stableRevId, $revId );

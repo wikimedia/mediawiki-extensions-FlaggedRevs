@@ -1555,7 +1555,7 @@ class FlaggedArticleView {
 		return ( $srev && $oldRev && $newRev
 			&& $oldRev->getPage() == $newRev->getPage() // no multipage diffs
 			&& $oldRev->getId() == $srev->getRevId()
-			&& $newRev->getTimestamp() >= $oldRev->getTimestamp()
+			&& $newRev->getTimestamp() >= $oldRev->getTimestamp() // no backwards diffs
  		);
 	}
 

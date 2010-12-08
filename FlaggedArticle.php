@@ -131,8 +131,12 @@ class FlaggedArticle extends Article {
 		if ( !( $flags & FR_MASTER ) && $this->pendingRevs !== null ) {
 			return $this->pendingRevs;
 		}
+		$srev = $this->getStableRev( $flags );
+		if ( !$srev ) {
+			return 0; // none
+		}
 		$count = null;
-		$sRevId = $this->getStable( $flags );
+		$sRevId = $srev->getRevId();
 		# Try the cache...
 		$key = wfMemcKey( 'flaggedrevs', 'countPending', $this->getId() );
 		if ( !( $flags & FR_MASTER ) ) {
@@ -149,11 +153,12 @@ class FlaggedArticle extends Article {
 		}
 		# Otherwise, fetch result from DB as needed...
 		if ( is_null( $count ) ) {
-			$db = ( $flags & FR_MASTER )
-				? wfGetDB( DB_MASTER )
-				: wfGetDB( DB_SLAVE );
+			$db = ( $flags & FR_MASTER ) ?
+				wfGetDB( DB_MASTER ) : wfGetDB( DB_SLAVE );
+			$srevTS = $db->timestamp( $srev->getRevTimestamp() );
 			$count = $db->selectField( 'revision', 'COUNT(*)',
-				array( 'rev_page' => $this->getId(), 'rev_id > ' . (int)$sRevId ),
+				array( 'rev_page' => $this->getId(),
+					'rev_timestamp > ' . $db->addQuotes( $srevTS ) ), // bug 15515
 				__METHOD__ );
 			# Save result to cache...
 			$data = FlaggedRevs::makeMemcObj( "{$sRevId}-{$count}" );
