@@ -1447,43 +1447,43 @@ class FlaggedArticleView {
 	* Add [checked version] and such to left and right side of diff
 	*/
 	protected static function diffReviewMarkers( FlaggedArticle $article, $oldRev, $newRev ) {
-		$form = '';
-
+		$table = '';
 		$srev = $article->getStableRev();
-		$stableId = $srev ? $srev->getRevId() : 0;
 		# Diff between two revisions
 		if ( $oldRev && $newRev ) {
-			list( $msg, $class ) = self::getDiffRevMsgAndClass( $oldRev, $stableId );
-			$form .= "<table class='fr-diff-ratings'><tr>";
-			$form .= "<td width='50%' align='center'>";
-			$form .= "<span class='$class'>[" .
+			list( $msg, $class ) = self::getDiffRevMsgAndClass( $oldRev, $srev );
+			$table .= "<table class='fr-diff-ratings'><tr>";
+			$table .= "<td width='50%' align='center'>";
+			$table .= "<span class='$class'>[" .
 				wfMsgHtml( $msg ) . "]</span>";
 
-			list( $msg, $class ) = self::getDiffRevMsgAndClass( $newRev, $stableId );
-			$form .= "</td><td width='50%' align='center'>";
-			$form .= "<span class='$class'>[" .
+			list( $msg, $class ) = self::getDiffRevMsgAndClass( $newRev, $srev );
+			$table .= "</td><td width='50%' align='center'>";
+			$table .= "<span class='$class'>[" .
 				wfMsgHtml( $msg ) . "]</span>";
 
-			$form .= "</td></tr></table>\n";
+			$table .= "</td></tr></table>\n";
 		# New page "diffs" - just one rev
 		} elseif ( $newRev ) {
-			list( $msg, $class ) = self::getDiffRevMsgAndClass( $newRev, $stableId );
-			$form .= "<table class='fr-diff-ratings'>";
-			$form .= "<tr><td align='center'><span class='$class'>";
-			$form .= '[' . wfMsgHtml( $msg ) . ']';
-			$form .= "</span></td></tr></table>\n";
+			list( $msg, $class ) = self::getDiffRevMsgAndClass( $newRev, $srev );
+			$table .= "<table class='fr-diff-ratings'>";
+			$table .= "<tr><td align='center'><span class='$class'>";
+			$table .= '[' . wfMsgHtml( $msg ) . ']';
+			$table .= "</span></td></tr></table>\n";
 		}
-		return $form;
+		return $table;
 	}
 
-	protected static function getDiffRevMsgAndClass( Revision $rev, $stableId ) {
+	protected static function getDiffRevMsgAndClass(
+		Revision $rev, FlaggedRevision $srev = null
+	) {
 		$tier = FlaggedRevs::getRevQuality( $rev->getPage(), $rev->getId() );
 		if ( $tier !== false ) {
 			$msg = $tier
 				? 'revreview-hist-quality'
 				: 'revreview-hist-basic';
 		} else {
-			$msg = ( $stableId && $rev->getId() > $stableId )
+			$msg = ( $srev && $rev->getTimestamp() > $srev->getRevTimestamp() ) // bug 15515
 				? 'revreview-hist-pending'
 				: 'revreview-hist-draft';
 		}
