@@ -215,6 +215,14 @@ class FlaggedArticle extends Article {
 	}
 
 	/**
+	 * Are template/file changes and ONLY template/file changes pending?
+	 * @return bool
+	 */
+	public function onlyTemplatesOrFilesPending() {
+		return ( !$this->revsArePending() && !$this->stableVersionIsSynced() );
+	}
+
+	/**
 	 * Is this page less open than the site defaults?
 	 * @return bool
 	 */

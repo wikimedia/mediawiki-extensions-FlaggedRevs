@@ -1608,6 +1608,7 @@ class FlaggedRevsHooks {
 		# Highlight unchecked content
 		$queryInfo['tables'][] = 'flaggedpages';
 		$queryInfo['fields'][] = 'fp_stable';
+		$queryInfo['fields'][] = 'fp_pending_since';
 		$queryInfo['join_conds']['flaggedpages'] = array( 'LEFT JOIN', "fp_page_id = rev_page" );
 		return true;
 	}
@@ -1744,7 +1745,9 @@ class FlaggedRevsHooks {
 		} elseif ( isset( $row->fr_quality ) ) {
 			$ret = '<span class="' . FlaggedRevsXML::getQualityColor( $row->fr_quality ) .
 				'">' . $ret . '</span>';
-		} elseif ( isset( $row->fp_stable ) && $row->rev_id > $row->fp_stable ) {
+		} elseif ( isset( $row->fp_pending_since )
+			&& $row->rev_timestamp >= $row->fp_pending_since ) // bug 15515
+		{
 			$ret = '<span class="flaggedrevs-pending">' . $ret . '</span>';
 		} elseif ( !isset( $row->fp_stable ) ) {
 			$ret = '<span class="flaggedrevs-unreviewed">' . $ret . '</span>';

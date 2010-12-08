@@ -1185,9 +1185,19 @@ class FlaggedArticleView {
 			// We are looking a the stable version or an old reviewed one
 			$tabs['read']['class'] = 'selected';
 		} elseif ( self::isViewAction( $action ) ) {
-			// Are we looking at a draft/current revision?
-			// Note: there may *just* be template/file changes.
-			if ( $wgOut->getRevisionId() >= $srev->getRevId() ) {
+			$ts = null;
+			if ( $wgOut->getRevisionId() ) { // @TODO: avoid same query in Skin.php
+				$ts = ( $wgOut->getRevisionId() == $this->article->getLatest() )
+					? $this->article->getTimestamp() // skip query
+					: Revision::getTimestampFromId( $title, $wgOut->getRevisionId() );
+			}
+			// Are we looking at a pending revision?
+			if ( $ts > $srev->getRevTimestamp() ) { // bug 15515
+				$tabs['draft']['class'] .= ' selected';
+			// Are there *just* pending template/file changes.
+			} elseif ( $this->article->onlyTemplatesOrFilesPending()
+				&& $wgOut->getRevisionId() == $this->article->getStable() )
+			{
 				$tabs['draft']['class'] .= ' selected';
 			// Otherwise, fallback to regular tab behavior
 			} else {

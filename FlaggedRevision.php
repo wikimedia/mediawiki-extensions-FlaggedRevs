@@ -391,7 +391,7 @@ class FlaggedRevision {
 	 * Note: here for convenience
 	 * @return bool
 	 */
-	public function isCurrent() {
+	public function revIsCurrent() {
 		$rev = $this->getRevision(); // corresponding revision
 		return ( $rev ? $rev->isCurrent() : false );
 	}
