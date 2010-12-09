@@ -155,7 +155,6 @@ $wgFlaggedRevsAutopromote = array(
 	'uniqueContentPages'  => 12, # $wgContentNamespaces unique pages edited
 	'editComments'        => 50, # how many edit comments used?
 	'userpageBytes'       => 0, # userpage is needed? with what min size?
-	'uniqueIPAddress'     => false, # If $wgPutIPinRC is true, users sharing IPs won't be promoted
 	'neverBlocked'        => true, # Can users that were blocked be promoted?
 	'maxRevertedEdits'    => 5, # Max times the user could have edits undone/"rolled back"?
 );

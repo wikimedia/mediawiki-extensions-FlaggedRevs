@@ -1263,22 +1263,6 @@ class FlaggedRevsHooks {
 				}
 			}
 		}
-		# Check if this user is sharing IPs with another users
-		if ( $wgFlaggedRevsAutopromote['uniqueIPAddress'] ) {
-			$uid = $user->getId();
-
-			$dbr = isset( $dbr ) ? $dbr : wfGetDB( DB_SLAVE );
-			$shared = $dbr->selectField( 'recentchanges', '1',
-				array( 'rc_ip' => wfGetIP(),
-					"rc_user != '$uid'" ),
-				__METHOD__,
-				array( 'USE INDEX' => 'rc_ip' ) );
-			if ( $shared ) {
-				# Make a key to store the results
-				$wgMemc->set( $sTestKey, 'true', 3600 * 24 * 7 );
-				return true;
-			}
-		}
 		# Check if the user has any recent content edits
 		if ( $wgFlaggedRevsAutopromote['recentContentEdits'] > 0 ) {
 			global $wgContentNamespaces;
