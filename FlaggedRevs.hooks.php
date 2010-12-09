@@ -1602,9 +1602,10 @@ class FlaggedRevsHooks {
 	) {
 		$tables[] = 'flaggedpages';
 		$join_conds['flaggedpages'] = array( 'LEFT JOIN', 'fp_page_id = rc_cur_id' );
-		if( is_array( $select ) ) {
+		if( is_array( $select ) ) { // RCL
 			$dbr = wfGetDB( DB_SLAVE );
-			$select[] = $dbr->tableName( 'flaggedpages' ) . '.*';
+			$select[] = 'fp_stable';
+			$select[] = 'fp_pending_since';
 		}
 		return true;
 	}
@@ -1615,6 +1616,7 @@ class FlaggedRevsHooks {
 		global $wgUser;
 		if ( $wgUser->isAllowed( 'review' ) ) {
 			$fields[] = 'fp_stable';
+			$fields[] = 'fp_pending_since';
 			$tables[] = 'flaggedpages';
 			$join_conds['flaggedpages'] = array( 'LEFT JOIN', 'fp_page_id = rc_cur_id' );
 		}
@@ -1743,7 +1745,7 @@ class FlaggedRevsHooks {
 		global $wgUser;
 		$title = $rc->getTitle(); // convenience
 		if ( !FlaggedRevs::inReviewNamespace( $title )
-			|| empty( $rc->mAttribs['rc_this_oldid'] )
+			|| empty( $rc->mAttribs['rc_this_oldid'] ) // rev, not log
 			|| !array_key_exists( 'fp_stable', $rc->mAttribs ) )
 		{
 			return true; // confirm that page is in reviewable namespace
@@ -1757,8 +1759,8 @@ class FlaggedRevsHooks {
 				$rlink = wfMsgHtml( 'revreview-unreviewedpage' );
 				$css = 'flaggedrevs-unreviewed';
 			}
-		// page is reviewed and has pending edits
-		} elseif ( $rc->mAttribs['rc_this_oldid'] > $rc->mAttribs['fp_stable'] ) {
+		// page is reviewed and has pending edits (use timestamps; bug 15515)
+		} elseif ( $rc->mAttribs['rc_timestamp'] > $rc->mAttribs['fp_pending_since'] ) {
 			$rlink = $list->skin->link(
 				$title,
 				wfMsgHtml( 'revreview-reviewlink' ),
