@@ -1602,8 +1602,7 @@ class FlaggedRevsHooks {
 	) {
 		$tables[] = 'flaggedpages';
 		$join_conds['flaggedpages'] = array( 'LEFT JOIN', 'fp_page_id = rc_cur_id' );
-		if( is_array( $select ) ) { // RCL
-			$dbr = wfGetDB( DB_SLAVE );
+		if ( is_array( $select ) ) { // RCL
 			$select[] = 'fp_stable';
 			$select[] = 'fp_pending_since';
 		}
