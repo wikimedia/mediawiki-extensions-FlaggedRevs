@@ -477,7 +477,7 @@ $3",
 	'validationstatistics-latest' => 'Sinkronigita',
 	'validationstatistics-synced' => 'Ĝisdatigitaj/Reviziitaj',
 	'validationstatistics-old' => 'Malfreŝaj',
-	'validationstatistics-utable' => 'Jen listo de la plej aktivaj kontrolantoj dum la lasta horo.',
+	'validationstatistics-utable' => 'Jen listo de la plej {{PLURAL:$1|aktiva kontrolanto|aktivaj kontrolantoj}} dum la lasta horo.',
 	'validationstatistics-user' => 'Uzanto',
 	'validationstatistics-reviews' => 'Kontrolaĵoj',
 );
