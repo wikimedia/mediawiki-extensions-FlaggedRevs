@@ -45,9 +45,11 @@ class FlaggedRevsHooks {
 	*/
 	protected static function injectStyleAndJS() {
 		global $wgOut, $wgUser, $wgFlaggedRevStyleVersion;
-		if ( $wgOut->hasHeadItem( 'FlaggedRevs' ) ) {
+		static $loadedModules = false;
+		if ( $loadedModules ) {
 			return true; # Don't double-load
 		}
+		$loadedModules = true;
 		$fa = FlaggedArticleView::globalArticleInstance();
 		# Try to only add to relevant pages
 		if ( !$fa || !$fa->isReviewable() ) {
