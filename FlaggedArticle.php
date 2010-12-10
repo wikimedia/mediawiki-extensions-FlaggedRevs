@@ -275,21 +275,18 @@ class FlaggedArticle extends Article {
 	/**
 	 * Get the stable revision
 	 * @param int $flags
-	 * @return mixed (FlaggedRevision/false)
+	 * @return mixed (FlaggedRevision/null)
 	 */
 	public function getStableRev( $flags = 0 ) {
 		# Cached results available?
-		if ( !( $flags & FR_MASTER ) && $this->stableRev !== null ) {
+		if ( $this->stableRev == null || ( $flags & FR_MASTER ) ) {
+			$srev = FlaggedRevision::newFromStable( $this->getTitle(), $flags );
+			$this->stableRev = $srev ? $srev : false; // false => "found nothing"
+		}
+        if ( $this->stableRev ) {
 			return $this->stableRev;
 		}
-		# Do we have one?
-		$srev = FlaggedRevision::newFromStable( $this->getTitle(), $flags );
-		if ( $srev ) {
-			$this->stableRev = $srev;
-		} else {
-			$this->stableRev = false;
-		}
-        return $this->stableRev;
+		return null;
 	}
 
 	/**
