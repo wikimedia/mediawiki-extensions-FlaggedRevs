@@ -1820,12 +1820,12 @@ class FlaggedArticleView {
 	 * to the specific revision. This will be replaced with article content
 	 * using javascript and an api call.
 	 */
-	public function addCustomContentHtml( OutputPage $out ) {
+	public function addCustomContentHtml( OutputPage $out, $newRevId ) {
 		$this->load();
-		if ( $out->getRevisionId() ) {
+		if ( $newRevId ) {
 			$out->addHTML( "<div id='mw-fr-revisioncontents'><span class='plainlinks'>" );
 			$out->addWikiMsg( 'revcontents-getcontents',
-				$this->article->getTitle()->getPrefixedDBKey(), $out->getRevisionId() );
+				$this->article->getTitle()->getPrefixedDBKey(), $newRevId );
 			$out->addHTML( "</span></div>" );
 		}
 	}
