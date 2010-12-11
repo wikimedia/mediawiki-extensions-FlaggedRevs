@@ -1656,7 +1656,7 @@ $messages['rue'] = array(
 	'validationstatistics-latest' => 'Сінхронізовано',
 	'validationstatistics-synced' => 'Сінхронізовано/перевірено',
 	'validationstatistics-old' => 'Застарілы',
-	'validationstatistics-utable' => 'Ниже є список $1 найвеце актівных редакторів за послїдню годину.',
+	'validationstatistics-utable' => 'Ниже є список {{PLURAL:$1|найвеце актівного редактора|список $1 найвеце актівных редакторів}} за послїдню годину.',
 	'validationstatistics-user' => 'Хоснователь',
 	'validationstatistics-reviews' => 'Посуджіня',
 );
