@@ -145,10 +145,10 @@ $wgFlaggedRevsAutopromote = array(
 	'days'	              => 60, # days since registration
 	'edits'	              => 250, # total edit count
 	'excludeDeleted'      => true, # exclude deleted edits from 'edits' count above?
+	'excludeLastDays'     => 1, # exclude last X days of edits from 'edits' count above
 	// Require 'benchmark' edits 'spacing' days apart from each other
 	'spacing'	          => 3, # spacing of edit intervals
 	'benchmarks'          => 15, # how many edit intervals are needed?
-	'recentContentEdits'  => 0, # $wgContentNamespaces edits in recent changes
 	// Either totalContentEdits reqs OR totalCheckedEdits requirements needed
 	'totalContentEdits'   => 300, # $wgContentNamespaces edits OR...
 	'totalCheckedEdits'   => 200, # ...Edits before the stable version of pages

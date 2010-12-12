@@ -1227,12 +1227,12 @@ class FlaggedRevsHooks {
 				return true;
 			}
 		}
+		$dbr = wfGetDB( DB_SLAVE );
 		# See if the page actually has sufficient content...
 		if ( $wgFlaggedRevsAutopromote['userpageBytes'] > 0 ) {
 			if ( !$user->getUserPage()->exists() ) {
 				return true;
 			}
-			$dbr = isset( $dbr ) ? $dbr : wfGetDB( DB_SLAVE );
 			$size = $dbr->selectField( 'page', 'page_len',
 				array( 'page_namespace' => $user->getUserPage()->getNamespace(),
 					'page_title' => $user->getUserPage()->getDBkey() ),
@@ -1265,48 +1265,38 @@ class FlaggedRevsHooks {
 				}
 			}
 		}
-		# Check if the user has any recent content edits
-		if ( $wgFlaggedRevsAutopromote['recentContentEdits'] > 0 ) {
-			global $wgContentNamespaces;
-		
-			$dbr = isset( $dbr ) ? $dbr : wfGetDB( DB_SLAVE );
-			$res = $dbr->select( 'recentchanges', '1',
-				array( 'rc_user_text' => $user->getName(),
-					'rc_namespace' => $wgContentNamespaces ),
-				__METHOD__,
-				array( 'USE INDEX' => 'rc_ns_usertext',
-					'LIMIT' => $wgFlaggedRevsAutopromote['recentContentEdits'] )
-			);
-			if ( $dbr->numRows( $res ) < $wgFlaggedRevsAutopromote['recentContentEdits'] ) {
-				return true;
-			}
-		}
+		$deletedEdits = $recentEdits = 0;
+		# Get one plus the surplus of edits needed
+		$minDiff = $user->getEditCount() - $wgFlaggedRevsAutopromote['edits'] + 1;
 		# Check to see if the user has so many deleted edits that
 		# they don't actually enough live edits. This is because
 		# $user->getEditCount() is the count of edits made, not live.
-		if ( $wgFlaggedRevsAutopromote['excludeDeleted'] ) {
-			$dbr = isset( $dbr ) ? $dbr : wfGetDB( DB_SLAVE );
-			$minDiff = $user->getEditCount() - $wgFlaggedRevsAutopromote['days'] + 1;
-			# Use an estimate if the number starts to get large
-			if ( $minDiff <= 100 ) {
-				$res = $dbr->select( 'archive', '1',
-					array( 'ar_user_text' => $user->getName() ),
-					__METHOD__,
-					array( 'USE INDEX' => 'usertext_timestamp', 'LIMIT' => $minDiff ) );
-				$deletedEdits = $dbr->numRows( $res );
-			} else {
-				$deletedEdits = $dbr->estimateRowCount( 'archive', '1',
-					array( 'ar_user_text' => $user->getName() ),
-					__METHOD__,
-					array( 'USE INDEX' => 'usertext_timestamp' ) );
-			}
-			if ( $deletedEdits >= $minDiff ) {
-				return true;
-			}
+		# NOTE: check skipped if the query gets large (due to high edit count surplus)
+		if ( $wgFlaggedRevsAutopromote['excludeDeleted'] && $minDiff <= 200 ) {
+			$res = $dbr->select( 'archive', '1',
+				array( 'ar_user_text' => $user->getName() ),
+				__METHOD__,
+				array( 'USE INDEX' => 'usertext_timestamp', 'LIMIT' => $minDiff ) );
+			$deletedEdits = $dbr->numRows( $res );
+		}
+		# Check to see if the user made almost all their edits at
+		# the last minute and delay promotion if that is the case.
+		if ( $wgFlaggedRevsAutopromote['excludeLastDays'] > 0 ) {
+			$cutoff_unixtime = time() - 86400*$wgFlaggedRevsAutopromote['excludeLastDays'];
+			$encCutoff = $dbr->addQuotes( $dbr->timestamp( $cutoff_unixtime ) );
+			$res = $dbr->select( 'revision', '1',
+				array( 'rev_user' => $user->getId(), "rev_timestamp > $encCutoff" ),
+				__METHOD__,
+				array( 'USE INDEX' => 'user_timestamp', 'LIMIT' => $minDiff )
+			);
+			$recentEdits = $dbr->numRows( $res );
+		}
+		# Are too many edits deleted or too recent to count?
+		if ( ( $deletedEdits + $recentEdits ) >= $minDiff ) {
+			return true;
 		}
 		# Check implicitly checked edits
 		if ( $totalCheckedEditsNeeded && $wgFlaggedRevsAutopromote['totalCheckedEdits'] ) {
-			$dbr = isset( $dbr ) ? $dbr : wfGetDB( DB_SLAVE );
 			$res = $dbr->select( array( 'revision', 'flaggedpages' ), '1',
 				array( 'rev_user' => $user->getId(),
 					'fp_page_id = rev_page', 'fp_stable >= rev_id' ),
