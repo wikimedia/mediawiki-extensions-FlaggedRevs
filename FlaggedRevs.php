@@ -139,24 +139,22 @@ $wgGroupPermissions['editor']['unreviewedpages'] = true;
 $wgGroupPermissions['editor']['patrolmarks']     = true;
 
 # Define when users get automatically promoted to Editors. Set as false to disable.
-# 'spacing' and 'benchmarks' require edits to be spread out. Users must have X (benchmark)
-# edits Y (spacing) days apart.
+# Once users meet these requirements they will be promoted, unless previously demoted.
 $wgFlaggedRevsAutopromote = array(
 	'days'	              => 60, # days since registration
 	'edits'	              => 250, # total edit count
 	'excludeDeleted'      => true, # exclude deleted edits from 'edits' count above?
 	'excludeLastDays'     => 1, # exclude last X days of edits from 'edits' count above
-	// Require 'benchmark' edits 'spacing' days apart from each other
-	'spacing'	          => 3, # spacing of edit intervals
-	'benchmarks'          => 15, # how many edit intervals are needed?
+	'benchmarks'          => 15, # number of "spread out" edits
+	'spacing'	          => 3, # number of days between these edits (the "spread")
 	// Either totalContentEdits reqs OR totalCheckedEdits requirements needed
 	'totalContentEdits'   => 300, # $wgContentNamespaces edits OR...
 	'totalCheckedEdits'   => 200, # ...Edits before the stable version of pages
-	'uniqueContentPages'  => 12, # $wgContentNamespaces unique pages edited
-	'editComments'        => 50, # how many edit comments used?
-	'userpageBytes'       => 0, # userpage is needed? with what min size?
-	'neverBlocked'        => true, # Can users that were blocked be promoted?
-	'maxRevertedEdits'    => 5, # Max times the user could have edits undone/"rolled back"?
+	'uniqueContentPages'  => 12, # unique pages in $wgContentNamespaces edited
+	'editComments'        => 50, # number of manual edit summaries used
+	'userpageBytes'       => 0, # size of userpage (use 0 to not require a userpage)
+	'neverBlocked'        => true, # username was never blocked before?
+	'maxRevertedEdits'    => 5, # max times the user had edits undone/"rolled back"
 );
 
 # Define when users get to have their own edits auto-reviewed. Set to false to disable.
