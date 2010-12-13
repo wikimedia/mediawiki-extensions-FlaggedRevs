@@ -1804,7 +1804,7 @@ class FlaggedRevsHooks {
 			return true; // nothing to do
 		}
 		$view = FlaggedArticleView::singleton();
-		$view->addCustomContentHtml( $out, $diffEngine->mNewid );
+		$view->addCustomContentHtml( $out, $diffEngine->getNewid() );
 		return false;
 	}
 
