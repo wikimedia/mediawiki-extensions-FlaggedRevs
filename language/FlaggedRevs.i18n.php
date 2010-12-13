@@ -6498,7 +6498,7 @@ $messages['gsw'] = array(
 	'revreview-hist-basic' => 'kontrollierti Version',
 	'revreview-hist-quality-user' => '[{{fullurl:$1|stableid=$2}} bstetigt] vu [[User:$3|$3]]',
 	'revreview-hist-basic-user' => '[{{fullurl:$1|stableid=$2}} kontrolliert] dur [[User:$3|$3]]',
-	'revreview-hist-basic-auto' => '[{{fullurl:$1|stableid=$2}} automatisch vum Fäldhieter aaglueget]',
+	'revreview-hist-basic-auto' => '[{{fullurl:$1|stableid=$2}} automatisch gsichtet]',
 	'revreview-hist-quality-auto' => '[{{fullurl:$1|stableid=$2}} automatisch frejgee]',
 	'revreview-hist-pending-difflink' => '[[{{fullurl:$1|oldid=$2&diff=$3}} nonig prieft]]',
 	'review-edit-diff' => "'''WICHTIG: E baar vu dr hängige Änderige beträffe dr Abschnitt, wu Du grad am Bearbeite bisch.'''",
@@ -6539,12 +6539,14 @@ Im [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Entwurf] het s',
 S cha syy, ass es neiji [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Änderige] dra gee het.',
 	'revreview-basic-same' => 'Des isch di [[{{MediaWiki:Validationpage}}|vereffetligt Version]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} prieft] am <i>$2</i>.',
 	'revreview-basic-source' => 'E [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} priefti Version] vu däre Syte, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} frejgee] am <i>$2</i>, basiert uf däre Version.',
-	'revreview-failed' => "'''D Priefig vu däre Version isch fählgschlaa!''' D Ibertragig isch nit vollständig oder uf e andri Art nit giltig gsi.",
+	'revreview-failed' => "'''Die Version het nit chenne markiert wäre.'''",
+	'revreview-submission-invalid' => 'D Ibertragig isch nit vollständig oder nit giltig gsi.',
 	'review_page_invalid' => 'Dää Sytename isch nit giltig.',
 	'review_page_notexists' => 'Ziilsyte git s nit.',
 	'review_page_unreviewable' => 'Ziilsyte isch nit priefbar.',
 	'review_no_oldid' => 'Kei Versions-ID aagee.',
 	'review_bad_oldid' => 'D Ziilversion, wu aagee isch, git s nit.',
+	'review_conflict_oldid' => 'Eber het die Version scho akzeptiert oder verworfe, derwylscht Du si gläse hesch.',
 	'review_not_flagged' => 'D Ziilversion isch zurzyt nit markiert.',
 	'review_too_low' => 'Version cha nit prieft wäre, solang Fälder no as „längt nit“ gchännzeichnet sin.',
 	'review_bad_key' => 'Dr Wärt vum Priefparameter isch not giltig.',
@@ -6563,7 +6565,7 @@ S cha syy, ass es neiji [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=
 	'revreview-draft-title' => 'Hängigi Änderige wäre uf däre Syte aazeigt',
 	'revreview-edit' => 'Bearbeite',
 	'revreview-editnotice' => "'''Dyyni Bearbeitige vu däre Syte wäre vereffentligt, wänn si vun eme autorisierte Benutzer prieft wore sin. ([[{{MediaWiki:Validationpage}}|Hilf]])'''",
-	'revreview-pendingnotice' => "'''Des isch e [[{{MediaWiki:Validationpage}}|nonig markierti Version]] vu däre Syte. Di letscht Version isch am <i>$1</i> akzeptiert wore. Si cha sich lycht vu däre Version unterscheide.'''",
+	'revreview-pendingnotice' => "'''Des isch e [[{{MediaWiki:Validationpage}}|nonig markierti Version]] vu däre Syte. Si cha sich vu dr [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} letschte akzeptierte Version] vum <i>$1</i> unterscheide.'''",
 	'revreview-check-flag-p' => 'Die Version akzeptiere (mitsamt dr $1 hängige {{PLURAL:$1|Änderig|Änderige}})',
 	'revreview-check-flag-p-title' => 'Alli hängige Änderige akzeptiere zämme mit Dyyre eigene Bearbeitig.
 Mache des nume, wänn Du dir alli hängige Änderige aagluegt hesch.',
@@ -14653,6 +14655,15 @@ $messages['sei'] = array(
 /** Samogitian (Žemaitėška) */
 $messages['sgs'] = array(
 	'revreview-revnotfound' => 'Nuorima poslapė versėjė narasta. Patėkrėnkėt URL, katro patekuot i šėta poslapi.',
+);
+
+/** Tachelhit (Tašlḥiyt)
+ * @author Dalinanir
+ */
+$messages['shi'] = array(
+	'flaggedrevs-prefs-stable' => 'Ml dima lqm lli ibidn n tisniwin ( iɣ llant)',
+	'flaggedrevs-prefs-watch' => 'Zayd tisniwin lli ttasɣ i umuɣ n tilli n tfur.',
+	'flaggedrevs-prefs-editdiffs' => 'Ml inaḥyatn gr imbdln lli zul iqln ɣ tizi lliɣ at sbadlt tisniwin',
 );
 
 /** Slovak (Slovenčina)

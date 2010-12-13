@@ -753,7 +753,7 @@ $3",
 	'validationstatistics-latest' => 'Zytglychi',
 	'validationstatistics-synced' => 'Prozäntsatz vu dr Syte, wu vum Fäldhieter gsäh sin.',
 	'validationstatistics-old' => 'Syte mit Versione, wu nit vum Fäldhieter gsäh sin.',
-	'validationstatistics-utable' => 'Unte findsch e Lischt mit dr Top $1 Priefer in dr letschte Stund.',
+	'validationstatistics-utable' => 'Unte findsch e Lischt mit {{PLURAL:$1|em aktivschte Sichter|dr $1 aktivschte Sichter}} in dr letschten Stund.',
 	'validationstatistics-user' => 'Benutzer',
 	'validationstatistics-reviews' => 'Priefige',
 );
