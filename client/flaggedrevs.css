@@ -342,3 +342,9 @@ span.fr-under-review {
 	margin-top: -1.3em;
 	float: left;
 }
+
+div.langlinks {
+	margin-top: 1em;
+	padding: 5px;
+	border: 1px solid #aaa;
+}

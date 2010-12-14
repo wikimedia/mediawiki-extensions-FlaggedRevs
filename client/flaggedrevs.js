@@ -215,7 +215,7 @@ FlaggedRevs.getRevisionContents = function() {
 					}
 					languageshtml = jQuery(result).find("languageshtml");
 					if ( languageshtml && languageshtml.text() ) {
-						contentsDiv.innerHTML += languageshtml.text();
+						contentsDiv.innerHTML += "<div class='langlinks' >" + languageshtml.text() + "</div>";
 					}
 					
 				},
