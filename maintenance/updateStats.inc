@@ -227,14 +227,14 @@ function getAveReviewTimesAnons( $dbr, $dbCache ) {
 			((rev_user = 0) AND ($timeCondition) AND ((rev_id % $mod) = 0))
 		GROUP BY rev_id";
 	# Actually run the query...
-	$res = $dbr->doQuery( $sql, __METHOD__ );
+	$res = $dbr->query( $sql, __METHOD__ );
 	$secondsR = 0; // total wait seconds for edits later reviewed
 	$secondsP = 0; // total wait seconds for edits still pending
 	$aveRT = $medianRT = 0;
-	if ( $dbr->numRows($res) ) {
+	if ( $dbr->numRows( $res ) ) {
 		$times = array();
 		# Get the sum of elapsed times
-		while ( $row = $dbr->fetchObject($res) ) {
+		foreach( $res as $row ) {
 			# Reviewed: just subtract the times (flagged - edit made)
 			if ( $row->nft != null ) {
 				$time = wfTimestamp(TS_UNIX,$row->nft) - wfTimestamp(TS_UNIX,$row->rt);
