@@ -14,7 +14,7 @@ class Stabilization extends UnlistedSpecialPage
 		global $wgUser;
 		parent::__construct( 'Stabilization', 'stablesettings' );
 		$this->skin = $wgUser->getSkin();
-    }
+	}
 
 	public function execute( $par ) {
 		global $wgRequest, $wgUser, $wgOut;

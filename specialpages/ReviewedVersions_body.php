@@ -6,12 +6,12 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 
 class ReviewedVersions extends UnlistedSpecialPage
 {
-    public function __construct() {
-        parent::__construct( 'ReviewedVersions' );
-    }
+	public function __construct() {
+		parent::__construct( 'ReviewedVersions' );
+	}
 
-    public function execute( $par ) {
-        global $wgRequest, $wgUser, $wgOut;
+	public function execute( $par ) {
+		global $wgRequest, $wgUser, $wgOut;
 
 		$this->setHeaders();
 		$this->skin = $wgUser->getSkin();
@@ -59,8 +59,8 @@ class ReviewedVersions extends UnlistedSpecialPage
 		$ftime = $wgLang->time( wfTimestamp( TS_MW, $row->fr_timestamp ), true );
 		$review = wfMsgExt( 'reviewedversions-review', array( 'parseinline', 'replaceafter' ),
 			$fdatim,
- 			$this->skin->userLink( $row->fr_user, $row->user_name ) .
- 			' ' . $this->skin->userToolLinks( $row->fr_user, $row->user_name ),
+			$this->skin->userLink( $row->fr_user, $row->user_name ) .
+			' ' . $this->skin->userToolLinks( $row->fr_user, $row->user_name ),
 			$fdate, $ftime, $row->user_name
 		);
 		$lev = ( $row->fr_quality >= 1 )

@@ -77,7 +77,7 @@ class FlaggedArticle extends Article {
 
 	 /**
 	 * Is the stable version shown by default for this page?
-     * @param int $flags, FR_MASTER
+	 * @param int $flags, FR_MASTER
 	 * @return bool
 	 */
 	public function isStableShownByDefault( $flags = 0 ) {
@@ -88,7 +88,7 @@ class FlaggedArticle extends Article {
 
 	/**
 	 * Do edits have to be reviewed before being shown by default (going live)?
-     * @param int $flags, FR_MASTER
+	 * @param int $flags, FR_MASTER
 	 * @return bool
 	 */
 	public function editsRequireReview( $flags = 0 ) {
@@ -101,7 +101,7 @@ class FlaggedArticle extends Article {
 
 	/**
 	 * Are edits to this page currently pending?
-     * @param int $flags, FR_MASTER
+	 * @param int $flags, FR_MASTER
 	 * @return bool
 	 */
 	public function revsArePending( $flags = 0 ) {
@@ -249,27 +249,27 @@ class FlaggedArticle extends Article {
 
 	 /**
 	 * Is this article reviewable?
-     * @param int $flags, FR_MASTER
-     * @return bool
+	 * @param int $flags, FR_MASTER
+	 * @return bool
 	 */
 	public function isReviewable( $flags = 0 ) {
 		if ( !FlaggedRevs::inReviewNamespace( $this->getTitle() ) ) {
 			return false;
 		}
-        return !( FlaggedRevs::useOnlyIfProtected()
-            && !$this->isStableShownByDefault( $flags ) );
+		return !( FlaggedRevs::useOnlyIfProtected()
+			&& !$this->isStableShownByDefault( $flags ) );
 	}
 
 	/**
 	* Is this page in patrollable?
-    * @param int $flags, FR_MASTER
+	* @param int $flags, FR_MASTER
 	* @return bool
 	*/
 	public function isPatrollable( $flags = 0 ) {
-        if ( !FlaggedRevs::inPatrolNamespace( $this->getTitle() ) ) {
+		if ( !FlaggedRevs::inPatrolNamespace( $this->getTitle() ) ) {
 			return false;
-        }
-        return !$this->isReviewable( $flags ); // pages that are reviewable are not patrollable
+		}
+		return !$this->isReviewable( $flags ); // pages that are reviewable are not patrollable
 	}
 
 	/**
@@ -283,7 +283,7 @@ class FlaggedArticle extends Article {
 			$srev = FlaggedRevision::newFromStable( $this->getTitle(), $flags );
 			$this->stableRev = $srev ? $srev : false; // false => "found nothing"
 		}
-        if ( $this->stableRev ) {
+		if ( $this->stableRev ) {
 			return $this->stableRev;
 		}
 		return null;

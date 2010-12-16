@@ -51,7 +51,7 @@ if ( !defined( 'FR_INCLUDES_FREEZE' ) )
 	define( 'FR_INCLUDES_FREEZE', 1 );
 if ( !defined( 'FR_INCLUDES_STABLE' ) )
 	define( 'FR_INCLUDES_STABLE', 2 );
-	
+
 $wgExtensionCredits['specialpage'][] = array(
 	'path'           => __FILE__,
 	'name'           => 'Flagged Revisions',
@@ -615,4 +615,3 @@ function efFlaggedRevsUnreviewedPagesUpdate() {
 
 # B/C ...
 $wgLogActions['rights/erevoke']  = 'rights-editor-revoke';
-

@@ -8,7 +8,7 @@ class ReviewedPages extends SpecialPage
 {
 	public function __construct() {
 		parent::__construct( 'ReviewedPages' );
-    }
+	}
 
 	public function execute( $par ) {
 		global $wgRequest, $wgUser;

@@ -177,23 +177,23 @@ class FlaggedRevsXML {
 	 * @returns string
 	 * Generates a review box/tag
 	 */
-    public static function addTagRatings( $flags, $prettyBox = false, $css = '' ) {
-        $tag = '';
-        if ( $prettyBox ) {
-        	$tag .= "<table id='mw-fr-revisionratings-box' align='center' class='$css' cellpadding='0'>";
+	public static function addTagRatings( $flags, $prettyBox = false, $css = '' ) {
+		$tag = '';
+		if ( $prettyBox ) {
+			$tag .= "<table id='mw-fr-revisionratings-box' align='center' class='$css' cellpadding='0'>";
 		}
 		foreach ( FlaggedRevs::getTags() as $quality ) {
 			$level = isset( $flags[$quality] ) ? $flags[$quality] : 0;
 			$encValueText = wfMsgHtml( "revreview-$quality-$level" );
-            $level = $flags[$quality];
+			$level = $flags[$quality];
 
-            $levelmarker = $level * 20 + 20;
-            if ( $prettyBox ) {
-            	$tag .= "<tr><td class='fr-text' valign='middle'>" .
+			$levelmarker = $level * 20 + 20;
+			if ( $prettyBox ) {
+				$tag .= "<tr><td class='fr-text' valign='middle'>" .
 					wfMsgHtml( "revreview-$quality" ) .
 					"</td><td class='fr-value$levelmarker' valign='middle'>" .
 					$encValueText . "</td></tr>\n";
-            } else {
+			} else {
 				$tag .= "&#160;<span class='fr-marker-$levelmarker'><strong>" .
 					wfMsgHtml( "revreview-$quality" ) .
 					"</strong>: <span class='fr-text-value'>$encValueText&#160;</span>&#160;" .
@@ -204,7 +204,7 @@ class FlaggedRevsXML {
 			$tag .= '</table>';
 		}
 		return $tag;
-    }
+	}
 
 	/**
 	 * @param FlaggedRevision $frev, the reviewed version
@@ -233,7 +233,7 @@ class FlaggedRevsXML {
 		} else {
 			$color = 'flaggedrevs-color-1';
 		}
-        # Construct some tagging
+		# Construct some tagging
 		if ( $synced && ( $type == 'stable' || $type == 'draft' ) ) {
 			$msg = $quality ?
 				'revreview-quality-same' : 'revreview-basic-same';
@@ -279,7 +279,7 @@ class FlaggedRevsXML {
 		}
 		$box .= Xml::closeElement( 'div' ) . "\n";
 		$box .= "</div>\n";
-        return $box;
+		return $box;
 	}
 
 	/**

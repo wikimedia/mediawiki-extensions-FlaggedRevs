@@ -9,15 +9,15 @@
  */
 class FRExtraCacheUpdate {
 	public $mTitle, $mTable;
-    public $mRowsPerJob, $mRowsPerQuery;
+	public $mRowsPerJob, $mRowsPerQuery;
 
-    public function __construct( Title $titleTo ) {
-        global $wgUpdateRowsPerJob, $wgUpdateRowsPerQuery;
-        $this->mTitle = $titleTo;
-        $this->mTable = 'flaggedrevs_tracking';
-        $this->mRowsPerJob = $wgUpdateRowsPerJob;
-        $this->mRowsPerQuery = $wgUpdateRowsPerQuery;
-    }
+	public function __construct( Title $titleTo ) {
+		global $wgUpdateRowsPerJob, $wgUpdateRowsPerQuery;
+		$this->mTitle = $titleTo;
+		$this->mTable = 'flaggedrevs_tracking';
+		$this->mRowsPerJob = $wgUpdateRowsPerJob;
+		$this->mRowsPerQuery = $wgUpdateRowsPerQuery;
+	}
 
 	public function doUpdate() {
 		# Fetch the IDs
@@ -60,7 +60,7 @@ class FRExtraCacheUpdate {
 					$id = false;
 					break;
 				}
-            }
+			}
 			# Insert batch into the queue if there is anything there
 			if ( $first ) {
 				$params = array(
@@ -70,10 +70,10 @@ class FRExtraCacheUpdate {
 				);
 				$jobs[] = new FRExtraCacheUpdateJob( $this->mTitle, $params );
 			}
-            $start = $id; // Where the last ID left off
+			$start = $id; // Where the last ID left off
 		} while ( $start );
 		Job::batchInsert( $jobs );
-    }
+	}
 
 	public function getFromField() {
 		return 'ftr_from';
@@ -85,49 +85,49 @@ class FRExtraCacheUpdate {
 	}
 
 	/**
-     * Invalidate a set of IDs, right now
-     */
-    public function invalidateIDs( ResultWrapper $res ) {
-        global $wgUseFileCache, $wgUseSquid;
-        if ( $res->numRows() == 0 ) return; // sanity check
+	 * Invalidate a set of IDs, right now
+	 */
+	public function invalidateIDs( ResultWrapper $res ) {
+		global $wgUseFileCache, $wgUseSquid;
+		if ( $res->numRows() == 0 ) return; // sanity check
 
-        $dbw = wfGetDB( DB_MASTER );
-        $timestamp = $dbw->timestamp();
-        $done = false;
+		$dbw = wfGetDB( DB_MASTER );
+		$timestamp = $dbw->timestamp();
+		$done = false;
 
-        while ( !$done ) {
-            # Get all IDs in this query into an array
-            $ids = array();
-            for ( $i = 0; $i < $this->mRowsPerQuery; $i++ ) {
-                $row = $res->fetchRow();
-                if ( $row ) {
-                    $ids[] = $row[0];
-                } else {
-                    $done = true;
-                    break;
-                }
-            }
-            if ( count( $ids ) == 0 ) break;
-            # Update page_touched
-            $dbw->update( 'page', array( 'page_touched' => $timestamp ),
+		while ( !$done ) {
+			# Get all IDs in this query into an array
+			$ids = array();
+			for ( $i = 0; $i < $this->mRowsPerQuery; $i++ ) {
+				$row = $res->fetchRow();
+				if ( $row ) {
+					$ids[] = $row[0];
+				} else {
+					$done = true;
+					break;
+				}
+			}
+			if ( count( $ids ) == 0 ) break;
+			# Update page_touched
+			$dbw->update( 'page', array( 'page_touched' => $timestamp ),
 				array( 'page_id' => $ids ), __METHOD__ );
-            # Update static caches
-            if ( $wgUseSquid || $wgUseFileCache ) {
-                $titles = Title::newFromIDs( $ids );
+			# Update static caches
+			if ( $wgUseSquid || $wgUseFileCache ) {
+				$titles = Title::newFromIDs( $ids );
 				# Update squid cache
-                if ( $wgUseSquid ) {
-                    $u = SquidUpdate::newFromTitles( $titles );
-                    $u->doUpdate();
-                }
-                # Update file cache
-                if ( $wgUseFileCache ) {
-                    foreach ( $titles as $title ) {
-                        HTMLFileCache::clearFileCache( $title );
-                    }
-                }
-            }
-        }
-    }
+				if ( $wgUseSquid ) {
+					$u = SquidUpdate::newFromTitles( $titles );
+					$u->doUpdate();
+				}
+				# Update file cache
+				if ( $wgUseFileCache ) {
+					foreach ( $titles as $title ) {
+						HTMLFileCache::clearFileCache( $title );
+					}
+				}
+			}
+		}
+	}
 }
 
 /**

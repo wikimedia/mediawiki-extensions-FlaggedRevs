@@ -23,12 +23,12 @@ class FlaggedRevision {
 	private $mTitle;
 	private $mPageId;
 	private $mRevId;
-    private $mStableTemplates;
-    private $mStableFiles;
+	private $mStableTemplates;
+	private $mStableFiles;
 
 	/**
 	 * @param mixed $row (DB row or array)
-     * @return void
+	 * @return void
 	 */
 	public function __construct( $row ) {
 		if ( is_object( $row ) ) {
@@ -66,27 +66,27 @@ class FlaggedRevision {
 			# Optional fields
 			$this->mFlags = isset( $row['flags'] ) ?
 				explode( ',', $row['flags'] ) : null;
-            $this->mTemplates = isset( $row['templateVersions'] ) ?
-                $row['templateVersions'] : null;
-            $this->mFiles = isset( $row['fileVersions'] ) ?
-                $row['fileVersions'] : null;
+			$this->mTemplates = isset( $row['templateVersions'] ) ?
+				$row['templateVersions'] : null;
+			$this->mFiles = isset( $row['fileVersions'] ) ?
+				$row['fileVersions'] : null;
 		} else {
 			throw new MWException( 'FlaggedRevision constructor passed invalid row format.' );
 		}
 	}
 
 	/**
-     * Get a FlaggedRevision for a title and rev ID.
-     * Note: will return NULL if the revision is deleted.
+	 * Get a FlaggedRevision for a title and rev ID.
+	 * Note: will return NULL if the revision is deleted.
 	 * @param Title $title
 	 * @param int $revId
 	 * @param int $flags FR_MASTER
 	 * @return mixed FlaggedRevision (null on failure)
 	 */
 	public static function newFromTitle( Title $title, $revId, $flags = 0 ) {
-        if ( !FlaggedRevs::inReviewNamespace( $title ) ) {
-            return null; // short-circuit
-        }
+		if ( !FlaggedRevs::inReviewNamespace( $title ) ) {
+			return null; // short-circuit
+		}
 		$columns = self::selectFields();
 		$options = array();
 		# User master/slave as appropriate
@@ -123,16 +123,16 @@ class FlaggedRevision {
 	}
 
 	/**
-     * Get a FlaggedRevision of the stable version of a title.
+	 * Get a FlaggedRevision of the stable version of a title.
 	 * @param Title $title, page title
 	 * @param int $flags FR_MASTER
 	 * @return mixed FlaggedRevision (null on failure)
 	 */
 	public static function newFromStable( Title $title, $flags = 0 ) {
 		if ( !FlaggedRevs::inReviewNamespace( $title ) ) {
-            return null; // short-circuit
-        }
-        $columns = self::selectFields();
+			return null; // short-circuit
+		}
+		$columns = self::selectFields();
 		$options = array();
 		$pageId = $title->getArticleID( $flags & FR_MASTER ? Title::GAID_FOR_UPDATE : 0 );
 		if ( !$pageId ) {
@@ -165,11 +165,11 @@ class FlaggedRevision {
 	}
 
 	/**
-     * Get a FlaggedRevision of the stable version of a title.
+	 * Get a FlaggedRevision of the stable version of a title.
 	 * Skips tracking tables to figure out new stable version.
 	 * @param Title $title, page title
 	 * @param int $flags FR_MASTER
-     * @param array $config, optional page config (use to skip queries)
+	 * @param array $config, optional page config (use to skip queries)
 	 * @param string $precedence (latest,quality,pristine)
 	 * @return mixed FlaggedRevision (null on failure)
 	 */
@@ -177,9 +177,9 @@ class FlaggedRevision {
 		Title $title, $flags = 0, $config = array(), $precedence = 'latest'
 	) {
 		if ( !FlaggedRevs::inReviewNamespace( $title ) ) {
-            return null; // short-circuit
-        }
-        $columns = self::selectFields();
+			return null; // short-circuit
+		}
+		$columns = self::selectFields();
 		$options = array();
 		$pageId = $title->getArticleID( $flags & FR_FOR_UPDATE ? Title::GAID_FOR_UPDATE : 0 );
 		if ( !$pageId ) {
@@ -193,9 +193,9 @@ class FlaggedRevision {
 			$db = wfGetDB( DB_SLAVE );
 		}
 		# Get visiblity settings...
-        if ( empty( $config ) ) {
-           $config = FlaggedRevs::getPageVisibilitySettings( $title, $flags );
-        }
+		if ( empty( $config ) ) {
+		   $config = FlaggedRevs::getPageVisibilitySettings( $title, $flags );
+		}
 		if ( !$config['override'] && FlaggedRevs::useOnlyIfProtected() ) {
 			return null; // page is not reviewable; no stable version
 		}
@@ -268,13 +268,13 @@ class FlaggedRevision {
 	* @return bool success
 	*/
 	public function insertOn( $auto = false ) {
-        $dbw = wfGetDB( DB_MASTER );
-        # Set any text flags
-        $textFlags = 'dynamic';
+		$dbw = wfGetDB( DB_MASTER );
+		# Set any text flags
+		$textFlags = 'dynamic';
 		if ( $auto ) $textFlags .= ',auto';
 		$this->mFlags = explode( ',', $textFlags );
-        # Build the inclusion data chunks
-        $tmpInsertRows = array();
+		# Build the inclusion data chunks
+		$tmpInsertRows = array();
 		foreach ( $this->getTemplateVersions() as $namespace => $titleAndID ) {
 			foreach ( $titleAndID as $dbkey => $id ) {
 				$tmpInsertRows[] = array(
@@ -315,14 +315,14 @@ class FlaggedRevision {
 			array( array( 'fr_page_id', 'fr_rev_id' ) ), $revRow, __METHOD__ );
 		# Clear out any previous garbage...
 		$dbw->delete( 'flaggedtemplates',
-            array( 'ft_rev_id' => $this->getRevId() ), __METHOD__ );
+			array( 'ft_rev_id' => $this->getRevId() ), __METHOD__ );
 		# ...and insert template version data
 		if ( $tmpInsertRows ) {
 			$dbw->insert( 'flaggedtemplates', $tmpInsertRows, __METHOD__, 'IGNORE' );
 		}
 		# Clear out any previous garbage...
 		$dbw->delete( 'flaggedimages',
-            array( 'fi_rev_id' => $this->getRevId() ), __METHOD__ );
+			array( 'fi_rev_id' => $this->getRevId() ), __METHOD__ );
 		# ...and insert file version data
 		if ( $fileInsertRows ) {
 			$dbw->insert( 'flaggedimages', $fileInsertRows, __METHOD__, 'IGNORE' );
@@ -336,7 +336,7 @@ class FlaggedRevision {
 	protected static function selectFields() {
 		return array(
 			'fr_rev_id', 'fr_page_id', 'fr_user', 'fr_timestamp',
-            'fr_comment', 'fr_quality', 'fr_tags', 'fr_img_name',
+			'fr_comment', 'fr_quality', 'fr_tags', 'fr_img_name',
 			'fr_img_sha1', 'fr_img_timestamp', 'fr_flags'
 		);
 	}
@@ -460,7 +460,7 @@ class FlaggedRevision {
 	}
 
 	/**
-     * @param User $user
+	 * @param User $user
 	 * @return bool
 	 */
 	public function userCanSetFlags( $user ) {
@@ -471,7 +471,7 @@ class FlaggedRevision {
 	 * Get original template versions at time of review
 	 * @param int $flags FR_MASTER
 	 * @return Array template versions (ns -> dbKey -> rev Id)
-     * Note: 0 used for template rev Id if it didn't exist
+	 * Note: 0 used for template rev Id if it didn't exist
 	 */
 	public function getTemplateVersions( $flags = 0 ) {
 		if ( $this->mTemplates == null ) {
@@ -479,7 +479,7 @@ class FlaggedRevision {
 			$db = ( $flags & FR_MASTER ) ?
 				wfGetDB( DB_MASTER ) : wfGetDB( DB_SLAVE );
 			$res = $db->select( 'flaggedtemplates',
-                array( 'ft_namespace', 'ft_title', 'ft_tmp_rev_id' ),
+				array( 'ft_namespace', 'ft_title', 'ft_tmp_rev_id' ),
 				array( 'ft_rev_id' => $this->getRevId() ),
 				__METHOD__
 			);
@@ -497,7 +497,7 @@ class FlaggedRevision {
 	 * Get original template versions at time of review
 	 * @param int $flags FR_MASTER
 	 * @return Array file versions (dbKey => array('ts' => MW timestamp,'sha1' => sha1) )
-     * Note: '0' used for file timestamp if it didn't exist ('' for sha1)
+	 * Note: '0' used for file timestamp if it didn't exist ('' for sha1)
 	 */
 	public function getFileVersions( $flags = 0 ) {
 		if ( $this->mFiles == null ) {
@@ -505,16 +505,16 @@ class FlaggedRevision {
 			$db = ( $flags & FR_MASTER ) ?
 				wfGetDB( DB_MASTER ) : wfGetDB( DB_SLAVE );
 			$res = $db->select( 'flaggedimages',
-                array( 'fi_name', 'fi_img_timestamp', 'fi_img_sha1' ),
+				array( 'fi_name', 'fi_img_timestamp', 'fi_img_sha1' ),
 				array( 'fi_rev_id' => $this->getRevId() ),
 				__METHOD__
 			);
 			foreach ( $res as $row ) {
-                $reviewedTS = trim( $row->fi_img_timestamp ); // may be ''/NULL
-                $reviewedTS = $reviewedTS ? wfTimestamp( TS_MW, $reviewedTS ) : '0';
+				$reviewedTS = trim( $row->fi_img_timestamp ); // may be ''/NULL
+				$reviewedTS = $reviewedTS ? wfTimestamp( TS_MW, $reviewedTS ) : '0';
 				$this->mFiles[$row->fi_name] = array();
-                $this->mFiles[$row->fi_name]['ts'] = $reviewedTS;
-                $this->mFiles[$row->fi_name]['sha1'] = $row->fi_img_sha1;
+				$this->mFiles[$row->fi_name]['ts'] = $reviewedTS;
+				$this->mFiles[$row->fi_name]['sha1'] = $row->fi_img_sha1;
 			}
 		}
 		return $this->mFiles;
@@ -524,7 +524,7 @@ class FlaggedRevision {
 	 * Get the current stable version of the templates used at time of review
 	 * @param int $flags FR_MASTER
 	 * @return Array template versions (ns -> dbKey -> rev Id)
-     * Note: 0 used for template rev Id if it doesn't exist
+	 * Note: 0 used for template rev Id if it doesn't exist
 	 */
 	public function getStableTemplateVersions( $flags = 0 ) {
 		if ( $this->mStableTemplates == null ) {
@@ -532,22 +532,22 @@ class FlaggedRevision {
 			$db = ( $flags & FR_MASTER ) ?
 				wfGetDB( DB_MASTER ) : wfGetDB( DB_SLAVE );
 			$res = $db->select(
-                array( 'flaggedtemplates', 'page', 'flaggedpages' ),
-                array( 'ft_namespace', 'ft_title', 'fp_stable' ),
+				array( 'flaggedtemplates', 'page', 'flaggedpages' ),
+				array( 'ft_namespace', 'ft_title', 'fp_stable' ),
 				array( 'ft_rev_id' => $this->getRevId() ),
 				__METHOD__,
-                array(),
-                array(
-                    'page' => array( 'LEFT JOIN',
-                        'page_namespace = ft_namespace AND page_title = ft_title'),
-                    'flaggedpages' => array( 'LEFT JOIN', 'fp_page_id = page_id' )
-                )
+				array(),
+				array(
+					'page' => array( 'LEFT JOIN',
+						'page_namespace = ft_namespace AND page_title = ft_title'),
+					'flaggedpages' => array( 'LEFT JOIN', 'fp_page_id = page_id' )
+				)
 			);
 			foreach ( $res as $row ) {
 				if ( !isset( $this->mStableTemplates[$row->ft_namespace] ) ) {
 					$this->mStableTemplates[$row->ft_namespace] = array();
 				}
-                $revId = (int)$row->fp_stable; // 0 => none
+				$revId = (int)$row->fp_stable; // 0 => none
 				$this->mStableTemplates[$row->ft_namespace][$row->ft_title] = $revId;
 			}
 		}
@@ -558,7 +558,7 @@ class FlaggedRevision {
 	 * Get the current stable version of the files used at time of review
 	 * @param int $flags FR_MASTER
 	 * @return Array file versions (dbKey => array('ts' => MW timestamp,'sha1' => sha1) )
-     * Note: '0' used for file timestamp if it doesn't exist ('' for sha1)
+	 * Note: '0' used for file timestamp if it doesn't exist ('' for sha1)
 	 */
 	public function getStableFileVersions( $flags = 0 ) {
 		if ( $this->mStableFiles == null ) {
@@ -577,7 +577,7 @@ class FlaggedRevision {
 					'flaggedpages' 	=> array( 'LEFT JOIN', 'fp_page_id = page_id' ),
 					'flaggedrevs' 	=> array( 'LEFT JOIN',
 					'fr_page_id = fp_page_id AND fr_rev_id = fp_stable' )
-                )
+				)
 			);
 			foreach ( $res as $row ) {
 				$reviewedTS = '0';
@@ -613,13 +613,13 @@ class FlaggedRevision {
 			return array(); // short-circuit
 		}
 		$dbr = wfGetDB( DB_SLAVE );
-        # Only get templates with stable or "review time" versions.
-        # Note: ft_tmp_rev_id is nullable (for deadlinks), so use ft_title
-        if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_STABLE ) {
-            $reviewed = "ft_title IS NOT NULL OR fp_stable IS NOT NULL";
-        } else {
-            $reviewed = "ft_title IS NOT NULL";
-        }
+		# Only get templates with stable or "review time" versions.
+		# Note: ft_tmp_rev_id is nullable (for deadlinks), so use ft_title
+		if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_STABLE ) {
+			$reviewed = "ft_title IS NOT NULL OR fp_stable IS NOT NULL";
+		} else {
+			$reviewed = "ft_title IS NOT NULL";
+		}
 		$ret = $dbr->select(
 			array( 'templatelinks', 'flaggedtemplates', 'page', 'flaggedpages' ),
 			array( 'tl_namespace', 'tl_title', 'fp_stable', 'ft_tmp_rev_id', 'page_latest' ),
@@ -665,7 +665,7 @@ class FlaggedRevision {
 
 	/*
 	 * Fetch pending file changes for this reviewed page version.
-     * For each file, the "version used" (for stable parsing) is:
+	 * For each file, the "version used" (for stable parsing) is:
 	 *    (a) (the latest rev) if FR_INCLUDES_CURRENT. Might be non-existing.
 	 *    (b) newest( stable rev, rev at time of review ) if FR_INCLUDES_STABLE
 	 *    (c) ( rev at time of review ) if FR_INCLUDES_FREEZE
@@ -683,13 +683,13 @@ class FlaggedRevision {
 			return array(); // short-circuit
 		}
 		$dbr = wfGetDB( DB_SLAVE );
-        # Only get templates with stable or "review time" versions.
-        # Note: fi_img_timestamp is nullable (for deadlinks), so use fi_name
-        if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_STABLE ) {
-            $reviewed = "fi_name IS NOT NULL OR fr_img_timestamp IS NOT NULL";
-        } else {
-            $reviewed = "fi_name IS NOT NULL";
-        }
+		# Only get templates with stable or "review time" versions.
+		# Note: fi_img_timestamp is nullable (for deadlinks), so use fi_name
+		if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_STABLE ) {
+			$reviewed = "fi_name IS NOT NULL OR fr_img_timestamp IS NOT NULL";
+		} else {
+			$reviewed = "fi_name IS NOT NULL";
+		}
 		$ret = $dbr->select(
 			array( 'imagelinks', 'flaggedimages', 'page', 'flaggedpages', 'flaggedrevs' ),
 			array( 'il_to', 'fi_img_timestamp', 'fr_img_timestamp' ),
@@ -704,34 +704,34 @@ class FlaggedRevision {
 				'flaggedpages' 	=> array( 'LEFT JOIN', 'fp_page_id = page_id' ),
 				'flaggedrevs' 	=> array( 'LEFT JOIN',
 					'fr_page_id = fp_page_id AND fr_rev_id = fp_stable' )
-            )
+			)
 		);
 		$fileChanges = array();
 		foreach ( $ret as $row ) {
 			$title = Title::makeTitleSafe( NS_FILE, $row->il_to );
 			$reviewedTS = trim( $row->fi_img_timestamp ); // may be ''/NULL
-            $reviewedTS = $reviewedTS ? wfTimestamp( TS_MW, $reviewedTS ) : null;
+			$reviewedTS = $reviewedTS ? wfTimestamp( TS_MW, $reviewedTS ) : null;
 			if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_STABLE ) {
 				$stableTS = wfTimestampOrNull( TS_MW, $row->fr_img_timestamp );
-                # Select newest of (stable rev, rev when reviewed) as "version used"
+				# Select newest of (stable rev, rev when reviewed) as "version used"
 				$tsStable = ( $stableTS >= $reviewedTS )
-                    ? $stableTS
-                    : $reviewedTS;
+					? $stableTS
+					: $reviewedTS;
 			} else {
 				$tsStable = $reviewedTS;
 			}
 			# Compare to current...
 			$file = wfFindFile( $title ); // current file version
 			if ( $file ) { // file exists
-                if ( $noForeign === 'noForeign' && !$file->isLocal() ) {
-                    $updated = !$tsStable; // created (ignore new versions)
-                } else {
-                    $updated = ( $file->getTimestamp() > $tsStable ); // edited/created
-                }
-                $deleted = false;
+				if ( $noForeign === 'noForeign' && !$file->isLocal() ) {
+					$updated = !$tsStable; // created (ignore new versions)
+				} else {
+					$updated = ( $file->getTimestamp() > $tsStable ); // edited/created
+				}
+				$deleted = false;
 			} else { // file doesn't exists
 				$updated = false;
-                $deleted = (bool)$tsStable; // later deleted
+				$deleted = (bool)$tsStable; // later deleted
 			}
 			if ( $deleted || $updated ) {
 				$fileChanges[] = array( $title, $tsStable );

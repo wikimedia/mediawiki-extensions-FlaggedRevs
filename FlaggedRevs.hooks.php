@@ -1323,7 +1323,7 @@ class FlaggedRevsHooks {
 		return true;
 	}
 
-   	/**
+	/**
 	* Record demotion so that auto-promote will be disabled
 	*/
 	public static function recordDemote( $user, array $addgroup, array $removegroup ) {

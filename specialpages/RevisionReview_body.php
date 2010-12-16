@@ -11,12 +11,12 @@ class RevisionReview extends UnlistedSpecialPage
 	private $form;
 	private $page;
 
-    public function __construct() {
+	public function __construct() {
 		parent::__construct( 'RevisionReview', 'review' );
-    }
+	}
 
-    public function execute( $par ) {
-        global $wgRequest, $wgUser, $wgOut;
+	public function execute( $par ) {
+		global $wgRequest, $wgUser, $wgOut;
 		$confirmed = $wgUser->matchEditToken( $wgRequest->getVal( 'wpEditToken' ) );
 		if ( $wgUser->isAllowed( 'review' ) ) {
 			if ( $wgUser->isBlocked( !$confirmed ) ) {

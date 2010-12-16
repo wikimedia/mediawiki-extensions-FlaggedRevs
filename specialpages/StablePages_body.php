@@ -8,11 +8,11 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 class StablePages extends SpecialPage
 {
 	public function __construct() {
-        parent::__construct( 'StablePages' );
-    }
+		parent::__construct( 'StablePages' );
+	}
 
 	public function execute( $par ) {
-        global $wgRequest, $wgUser;
+		global $wgRequest, $wgUser;
 
 		$this->setHeaders();
 		$this->skin = $wgUser->getSkin();

@@ -6,11 +6,11 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 
 class QualityOversight extends SpecialPage
 {
-    public function __construct() {
-        parent::__construct( 'QualityOversight' );
-    }
+	public function __construct() {
+		parent::__construct( 'QualityOversight' );
+	}
 
-    public function execute( $par ) {
+	public function execute( $par ) {
 		global $wgOut, $wgUser, $wgRequest, $wgFlaggedRevsOversightAge;
 		
 		$this->setHeaders();

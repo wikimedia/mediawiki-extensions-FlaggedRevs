@@ -3,7 +3,7 @@
  * Class containing utility functions for per-user stats
  */
 class FRUserCounters {
-   	/**
+	/**
 	* Get params for a user
 	* @param int $uid
 	* @param int $flags FR_MASTER, FR_FOR_UPDATE
@@ -20,7 +20,7 @@ class FRUserCounters {
 		return $p;
 	}
 
-   	/**
+	/**
 	* Initializes unset param fields to their starting values
 	* @param &array $p
 	*/
@@ -39,7 +39,7 @@ class FRUserCounters {
 		}
 	}
 
-   	/**
+	/**
 	* Get the params row for a user
 	* @param int $uid
 	* @param int $flags FR_MASTER, FR_FOR_UPDATE
@@ -62,7 +62,7 @@ class FRUserCounters {
 		);
 	}
 
-   	/**
+	/**
 	* Save params for a user
 	* @param int $uid
 	* @param array $params
@@ -80,7 +80,7 @@ class FRUserCounters {
 		return ( $dbw->affectedRows() > 0 );
 	}
 
-   	/**
+	/**
 	* Flatten params for a user for DB storage
 	* Note: param values must be integers
 	* @param array $params
@@ -126,7 +126,7 @@ class FRUserCounters {
 		return $p;
 	}
 
-   	/**
+	/**
 	* Update users params array for a user on edit
 	* @param &array $p user params
 	* @param Article $article the article just edited

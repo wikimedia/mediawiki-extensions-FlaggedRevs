@@ -11,14 +11,14 @@ class FRDependencyUpdate {
 	protected $sCategories;
 	protected $dbw;
 
-    public function __construct( Title $title, ParserOutput $stableOutput ) {
+	public function __construct( Title $title, ParserOutput $stableOutput ) {
 		$this->title = $title;
 		# Stable version links
 		$this->sLinks = $stableOutput->getLinks();
 		$this->sTemplates = $stableOutput->getTemplates();
 		$this->sImages = $stableOutput->getImages();
 		$this->sCategories = $stableOutput->getCategories();
-    }
+	}
 
 	public function doUpdate() {
 		$deps = array();
@@ -50,10 +50,10 @@ class FRDependencyUpdate {
 		# Get any categories that are only in the stable version...
 		$cCategories = $this->getCurrentVersionCategories();
 		foreach ( $this->sCategories as $category => $sort ) {
-            if ( !isset( $cCategories[$category] ) ) {
+			if ( !isset( $cCategories[$category] ) ) {
 				self::addDependency( $deps, NS_CATEGORY, $category );
 			}
-        }
+		}
 		# Get any dependency tracking changes
 		$existing = $this->getExistingDeps();
 		# Do incremental updates...

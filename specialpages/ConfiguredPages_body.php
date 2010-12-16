@@ -8,11 +8,11 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 class ConfiguredPages extends SpecialPage
 {
 	public function __construct() {
-        parent::__construct( 'ConfiguredPages' );
-    }
+		parent::__construct( 'ConfiguredPages' );
+	}
 
 	public function execute( $par ) {
-        global $wgRequest, $wgUser;
+		global $wgRequest, $wgUser;
 
 		$this->setHeaders();
 		$this->skin = $wgUser->getSkin();
