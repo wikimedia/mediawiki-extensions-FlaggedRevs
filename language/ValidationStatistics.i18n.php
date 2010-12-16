@@ -1398,7 +1398,7 @@ $3",
 	'validationstatistics-latest' => 'Synkronisert',
 	'validationstatistics-synced' => 'Synkronisert/Anmeldt',
 	'validationstatistics-old' => 'Foreldet',
-	'validationstatistics-utable' => 'Under er en liste med de topp $1 anmelderne den siste timen.',
+	'validationstatistics-utable' => 'Under er en liste over {{PLURAL:$1|den mest aktive anmelderen|de $1 mest aktive anmelderne}} den siste timen.',
 	'validationstatistics-user' => 'Bruker',
 	'validationstatistics-reviews' => 'Anmeldelser',
 );
