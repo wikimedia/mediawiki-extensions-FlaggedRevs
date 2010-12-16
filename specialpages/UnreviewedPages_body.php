@@ -42,11 +42,11 @@ class UnreviewedPages extends SpecialPage
 		$showhideredirs = wfMsgHtml( 'whatlinkshere-hideredirs', $link );
 
 		# Add explanatory text
-		$wgOut->addWikiMsg( 'unreviewed-list' );
+		$wgOut->addWikiMsg( 'unreviewedpages-list' );
 		# Add form...
 		$action = htmlspecialchars( $wgScript );
 		$wgOut->addHTML( "<form action=\"$action\" method=\"get\">\n" .
-			'<fieldset><legend>' . wfMsg( 'unreviewed-legend' ) . '</legend>' .
+			'<fieldset><legend>' . wfMsg( 'unreviewedpages-legend' ) . '</legend>' .
 			Html::hidden( 'title', $this->getTitle()->getPrefixedDBKey() ) . '<p>' );
 		# Add dropdowns as needed
 		if ( count( $namespaces ) > 1 ) {
@@ -57,7 +57,7 @@ class UnreviewedPages extends SpecialPage
 		}
 		$wgOut->addHTML(
 			"<span style='white-space: nowrap;'>" .
-			Xml::label( wfMsg( "unreviewed-category" ), 'category' ) . '&#160;' .
+			Xml::label( wfMsg( "unreviewedpages-category" ), 'category' ) . '&#160;' .
 			Xml::input( 'category', 30, $category, array( 'id' => 'category' ) ) .
 			'</span><br />' .
 			$showhideredirs . '&#160;&#160;' .
@@ -87,7 +87,7 @@ class UnreviewedPages extends SpecialPage
 			$wgOut->addHTML( $pager->getBody() );
 			$wgOut->addHTML( $pager->getNavigationBar() );
 		} else {
-			$wgOut->addWikiMsg( 'unreviewed-none' );
+			$wgOut->addWikiMsg( 'unreviewedpages-none' );
 		}
 	}
 	
@@ -113,19 +113,19 @@ class UnreviewedPages extends SpecialPage
 		// After three days, just use days
 		if ( $hours > ( 3 * 24 ) ) {
 			$days = round( $hours / 24, 0 );
-			$age = ' ' . wfMsgExt( 'unreviewed-days', 'parsemag', $wgLang->formatNum( $days ) );
+			$age = ' ' . wfMsgExt( 'unreviewedpages-days', 'parsemag', $wgLang->formatNum( $days ) );
 		// If one or more hours, use hours
 		} elseif ( $hours >= 1 ) {
 			$hours = round( $hours, 0 );
-			$age = ' ' . wfMsgExt( 'unreviewed-hours', 'parsemag', $wgLang->formatNum( $hours ) );
+			$age = ' ' . wfMsgExt( 'unreviewedpages-hours', 'parsemag', $wgLang->formatNum( $hours ) );
 		} else {
-			$age = ' ' . wfMsg( 'unreviewed-recent' ); // hot off the press :)
+			$age = ' ' . wfMsg( 'unreviewedpages-recent' ); // hot off the press :)
 		}
 		if ( $wgUser->isAllowed( 'unwatchedpages' ) ) {
 			$uw = self::usersWatching( $title );
 			$watching = $uw
-				? wfMsgExt( 'unreviewed-watched', 'parsemag', $wgLang->formatNum( $uw ) )
-				: wfMsgHtml( 'unreviewed-unwatched' );
+				? wfMsgExt( 'unreviewedpages-watched', 'parsemag', $wgLang->formatNum( $uw ) )
+				: wfMsgHtml( 'unreviewedpages-unwatched' );
 			$watching = " $watching"; // Oh-noes!
 		} else {
 			$uw = - 1;
@@ -139,7 +139,7 @@ class UnreviewedPages extends SpecialPage
 		# Show if a user is looking at this page
 		if ( $val ) {
 			$underReview = " <b class='fr-under-review'>" .
-				wfMsgHtml( 'unreviewed-viewing' ) . '</b>';
+				wfMsgHtml( 'unreviewedpages-viewing' ) . '</b>';
 		}
 
 		return( "<li{$css}>{$link} {$stxt} ({$hist})" .
