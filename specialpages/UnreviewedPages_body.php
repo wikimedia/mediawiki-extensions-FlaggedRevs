@@ -41,6 +41,9 @@ class UnreviewedPages extends SpecialPage
 		);
 		$showhideredirs = wfMsgHtml( 'whatlinkshere-hideredirs', $link );
 
+		# Add explanatory text
+		$wgOut->addWikiMsg( 'unreviewed-list' );
+		# Add form...
 		$action = htmlspecialchars( $wgScript );
 		$wgOut->addHTML( "<form action=\"$action\" method=\"get\">\n" .
 			'<fieldset><legend>' . wfMsg( 'unreviewed-legend' ) . '</legend>' .
@@ -77,10 +80,9 @@ class UnreviewedPages extends SpecialPage
 				$wgOut->addHTML( wfMsg( 'perfcached' ) );
 			}
 		}
-		$pager = new UnreviewedPagesPager( $this, $live, $namespace,
-			!$hideRedirs, $category, $level );
+		$pager = new UnreviewedPagesPager(
+			$this, $live, $namespace, !$hideRedirs, $category, $level );
 		if ( $pager->getNumRows() ) {
-			$wgOut->addWikiMsg( 'unreviewed-list' );
 			$wgOut->addHTML( $pager->getNavigationBar() );
 			$wgOut->addHTML( $pager->getBody() );
 			$wgOut->addHTML( $pager->getNavigationBar() );

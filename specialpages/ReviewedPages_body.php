@@ -30,9 +30,13 @@ class ReviewedPages extends SpecialPage
 	public function showForm() {
 		global $wgOut, $wgScript;
 
+		// Text to explain level select (if there are several levels)
+		if ( FlaggedRevs::qualityVersions() ) {
+			$wgOut->addWikiMsg( 'reviewedpages-list' );
+		}
 		$form = Xml::openElement( 'form',
 			array( 'name' => 'reviewedpages', 'action' => $wgScript, 'method' => 'get' ) );
-		$form .= "<fieldset><legend>" . wfMsg( 'reviewedpages-leg' ) . "</legend>\n";
+		$form .= "<fieldset><legend>" . wfMsgHtml( 'reviewedpages-leg' ) . "</legend>\n";
 
 		// show/hide links
 		$showhide = array( wfMsgHtml( 'show' ), wfMsgHtml( 'hide' ) );
@@ -63,16 +67,12 @@ class ReviewedPages extends SpecialPage
 	}
 
 	protected function showPageList() {
-		global $wgOut, $wgLang;
+		global $wgOut;
 
 		$pager = new ReviewedPagesPager( $this, array(), $this->type,
 			$this->namespace, $this->hideRedirs );
 		$num = $pager->getNumRows();
 		if ( $num ) {
-			// Text to explain level select (if there are several levels)
-			if ( FlaggedRevs::qualityVersions() ) {
-				$wgOut->addWikiMsg( 'reviewedpages-list', $wgLang->formatNum( $num ) );
-			}
 			$wgOut->addHTML( $pager->getNavigationBar() );
 			$wgOut->addHTML( $pager->getBody() );
 			$wgOut->addHTML( $pager->getNavigationBar() );
