@@ -602,8 +602,8 @@ class FlaggedRevision {
 	 *    (c) ( rev at time of review ) if FR_INCLUDES_FREEZE
 	 * Pending changes exist for a template iff the template is used in
 	 * the current rev of this page and one of the following holds:
-	 *	  (a) Current template is newer than the "version used" above (updated)
-	 *	  (b) Current template exists and the "version used" was non-existing (created)
+	 *    (a) Current template is newer than the "version used" above (updated)
+	 *    (b) Current template exists and the "version used" was non-existing (created)
 	 *    (c) Current template doesn't exist and the "version used" existed (deleted)
 	 *
 	 * @return Array of (template title, rev ID in reviewed version) tuples
@@ -671,8 +671,8 @@ class FlaggedRevision {
 	 *    (c) ( rev at time of review ) if FR_INCLUDES_FREEZE
 	 * Pending changes exist for a file iff the file is used in
 	 * the current rev of this page and one of the following holds:
-	 *	  (a) Current file is newer than the "version used" above (updated)
-	 *	  (b) Current file exists and the "version used" was non-existing (created)
+	 *    (a) Current file is newer than the "version used" above (updated)
+	 *    (b) Current file exists and the "version used" was non-existing (created)
 	 *    (c) Current file doesn't exist and the "version used" existed (deleted)
 	 *
 	 * @param string $noForeign Using 'noForeign' skips new non-local file versions (bug 15748)

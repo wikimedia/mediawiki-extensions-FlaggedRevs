@@ -10,6 +10,7 @@ $messages = array();
 
 $messages['en'] = array(
 	'problemchanges' => 'Tagged pending changes',
+	'problemchanges-list' => 'This page lists [[{{MediaWiki:Validationpage}}|reviewed]] pages having one or more tagged edits awaiting review. A list of valid change tags can be found at [[Special:Tags]].',
 	'problemchanges-legend' => 'List pages with tagged edits pending review',
 	'problemchanges-none' => 'There are currently no pages meeting these criteria',
 	'problemchanges-category' => 'Category:',

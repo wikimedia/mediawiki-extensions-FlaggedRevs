@@ -41,6 +41,8 @@ class ProblemChanges extends SpecialPage
 
 	public function showList( $par ) {
 		global $wgOut, $wgScript;
+		// Add explanatory text
+		$wgOut->addWikiMsg( 'problemchanges-list' );
 		$limit = $this->parseParams( $par );
 		$pager = new ProblemChangesPager( $this, $this->level, $this->category, $this->tag );
 		// Apply limit if transcluded
