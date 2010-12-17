@@ -307,12 +307,14 @@ $messages['ha'] = array(
 );
 
 /** Hebrew (עברית)
+ * @author Amire80
  * @author DoviJ
  * @author Rotem Liss
  * @author Rotemliss
  */
 $messages['he'] = array(
 	'problemchanges' => 'השינויים הממתינים עם תגיות',
+	'problemchanges-list' => 'הדף הזה מציג רשימה של דפים [[{{MediaWiki:Validationpage}}|בדוקים]] שיש להם עריכה מתויגת אחת או יותר שיש לבדוק. רשימה של תגי שינוי תקינים נמצא בדף [[Special:Tags]].',
 	'problemchanges-legend' => 'רשימת הדפים עם עריכות עם תגיות הממתינות לבדיקה',
 	'problemchanges-none' => 'אין כרגע דפים המתאימים לקריטריונים אלה',
 	'problemchanges-category' => 'קטגוריה:',
@@ -800,6 +802,7 @@ $messages['vep'] = array(
  */
 $messages['vi'] = array(
 	'problemchanges' => 'Các thay đổi chưa duyệt được đánh dấu',
+	'problemchanges-list' => 'Đây là [[{{MediaWiki:Validationpage}}|các trang đã duyệt]] có thêm sửa đổi đánh dấu đang chờ duyệt. Xem các thẻ đánh dấu hợp lệ tại [[Special:Tags]].',
 	'problemchanges-legend' => 'Liệt kê các trang có sửa đổi được đánh dấu mà cần được duyệt',
 	'problemchanges-none' => 'Hiện không có trang nào hợp tiêu chuẩn này.',
 	'problemchanges-category' => 'Thể loại:',

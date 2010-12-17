@@ -260,7 +260,7 @@ $messages['be'] = array(
 $messages['be-tarask'] = array(
 	'pendingchanges' => 'Старонкі з нерэцэнзаванымі зьменамі',
 	'pendingchanges-legend' => 'Сьпіс правераных старонак з неправеранымі вэрсіямі',
-	'pendingchanges-list' => 'На гэтай старонцы {{PLURAL:$1|пададзеная правераная старонка, якая рэдагавалася|пададзены сьпіс правераных старонак, якія рэдагаваліся}} пасьля праверкі.',
+	'pendingchanges-list' => 'На гэтай старонцы пададзены сьпіс [[{{MediaWiki:Validationpage}}|рэцэнзаваных]] старонак, якія маюць адно ці болей рэдагаваньняў чакаючых рэцэнзаваньня.',
 	'pendingchanges-none' => 'Зараз няма старонак, якія адпавядаюць гэтым крытэрам',
 	'pendingchanges-hours' => '($1 {{PLURAL:$1|гадзіна|гадзіны|гадзінаў}})',
 	'pendingchanges-days' => '($1 {{PLURAL:$1|дзень|дні|дзён}})',
@@ -399,7 +399,7 @@ $messages['cu'] = array(
 $messages['de'] = array(
 	'pendingchanges' => 'Seiten mit unmarkierten Änderungen',
 	'pendingchanges-legend' => 'Liste gesichteter Seiten mit ungesichteten Versionen',
-	'pendingchanges-list' => 'Diese Spezialseite zeigt {{PLURAL:$1|eine gesichtete Seite|gesichtete Seiten}}, die noch ungesichtete Bearbeitungen {{PLURAL:$1|hat|haben}}.',
+	'pendingchanges-list' => 'Diese Spezialseite zeigt [[{{MediaWiki:Validationpage}}|markierte]] Seiten mit einer oder mehreren nicht markierten Bearbeitungen.',
 	'pendingchanges-none' => 'Gegenwärtig gibt es keine Seiten, auf die diese Kriterien zutreffen.',
 	'pendingchanges-hours' => '($1 {{PLURAL:$1|Stunde|Stunden}})',
 	'pendingchanges-days' => '($1 {{PLURAL:$1|Tag|Tage}})',
@@ -440,7 +440,7 @@ $messages['diq'] = array(
 $messages['dsb'] = array(
 	'pendingchanges' => 'Boki z njepśeglědanymi změnami',
 	'pendingchanges-legend' => 'Lisćina pśeglědanych bokow z njepśeglědanymi wersijami',
-	'pendingchanges-list' => 'Toś ten bok nalistujo {{PLURAL:$1|pśeglědany bok, kótaryž ma|pśeglědanej boka, kótarejž matej|pśeglědane boki, kótarež maju|pśeglědane boki, kótarež maju}} hyšći njepśeglědane změny.',
+	'pendingchanges-list' => 'Toś ten bok nalistujo [[{{MediaWiki:Validationpage}}|pśeglědane]] boki, kótarež maju hyšći njepśeglědane změny.',
 	'pendingchanges-none' => 'Tuchylu njejsu boki, kótarež wótpówěduju toś tym kriterijam',
 	'pendingchanges-hours' => '($1 {{PLURAL:$1|góźina|góźinje|góźiny|góźinow}})',
 	'pendingchanges-days' => '($1 {{PLURAL:$1|źeń|dnja|dny|dnjow}})',
@@ -582,7 +582,7 @@ $messages['eu'] = array(
 $messages['fa'] = array(
 	'pendingchanges' => 'صفحات دارای تغییرات در حال انتظار',
 	'pendingchanges-legend' => 'فهرست صفحه‌های بازبینی شده با ویرایش‌های بازبینی نشده',
-	'pendingchanges-list' => 'این فهرست صفحات بازبینی شده دارای یک یا چند تغییر در حال انتظار می‌باشد.',
+	'pendingchanges-list' => 'این صفحه فهرستی از صفحه‌های [[{{MediaWiki:Validationpage}}|بازبینی شده]] دارای یک یا چند تغییر در حال انتظار می‌باشد.',
 	'pendingchanges-none' => 'در حال حاضر صفحه‌ای که با این معیارها سازگار باشد وجود ندارد',
 	'pendingchanges-hours' => '($1 {{PLURAL:$1|ساعت|ساعت}})',
 	'pendingchanges-days' => '($1 {{PLURAL:$1|روز|روز}})',
@@ -740,6 +740,7 @@ $messages['gsw'] = array(
 );
 
 /** Hebrew (עברית)
+ * @author Amire80
  * @author DoviJ
  * @author Rotemliss
  * @author YaronSh
@@ -747,7 +748,7 @@ $messages['gsw'] = array(
 $messages['he'] = array(
 	'pendingchanges' => 'דפים עם שינויים ממתינים',
 	'pendingchanges-legend' => 'רשימת דפים בדוקים עם גרסאות שלא נבדקו',
-	'pendingchanges-list' => 'דף זה מציג {{PLURAL:$1|דף שנבדק, שיש לו|דפים שנבדקו, שיש להם}} עריכות הממתינות לבדיקה.',
+	'pendingchanges-list' => 'דף זה מציג {{PLURAL:$1|דף ש[[{{MediaWiki:Validationpage}}|נבדק]], שיש לו|דפים ש[[{{MediaWiki:Validationpage}}|נבדקו]], שיש להם}} עריכות הממתינות לבדיקה.',
 	'pendingchanges-none' => 'אין כרגע דפים שעונים על קריטריונים אלה',
 	'pendingchanges-hours' => '({{PLURAL:$1|שעה|$1 שעות|שעתיים}})',
 	'pendingchanges-days' => '({{PLURAL:$1|יום|$1 ימים|יומיים}})',
@@ -808,7 +809,7 @@ $messages['hr'] = array(
 $messages['hsb'] = array(
 	'pendingchanges' => 'Strony z njepřepruwowanymi změnami',
 	'pendingchanges-legend' => 'Lisćina skontrolowanych stronow z njeskontrolowanymi wersijemi',
-	'pendingchanges-list' => 'Tuta strona nalistuje {{PLURAL:$1|přepruwowanu stronu, kotraž|přepruwowanej stronje, kotrejž|přepruwowane strony, kotrež|přepruwowane strony, kotrež}} hišće njeskontrolowane změny {{PLURAL:$1|ma|matej|maja|maja}}.',
+	'pendingchanges-list' => 'Tuta strona nalistuje [[{{MediaWiki:Validationpage}}|přepruwowane]], strony. korež hišće njeskontrolowane změny maja.',
 	'pendingchanges-none' => 'Tuchwilu žane strony njejsu, kotrež tutym kriterijam wotpowěduja',
 	'pendingchanges-hours' => '($1 {{PLURAL:$1|hodźina|hodźinje|hodźiny|hodźin}})',
 	'pendingchanges-days' => '($1 {{PLURAL:$1|dźeń|dnjej|dny|dnjow}})',
@@ -879,7 +880,7 @@ $messages['ia'] = array(
 $messages['id'] = array(
 	'pendingchanges' => 'Halaman dengan penundaan perubahan',
 	'pendingchanges-legend' => 'Daftar halaman tertinjau yang memiliki revisi yang belum ditinjau',
-	'pendingchanges-list' => 'Di bawah ini adalah daftar {{PLURAL:$1||}}halaman tertinjau yang memiliki suntingan yang ditangguhkan.',
+	'pendingchanges-list' => 'Berikut adalah daftar halaman [[{{MediaWiki:Validationpage}}|tertinjau]] yang memiliki satu atau lebih suntingan yang ditangguhkan.',
 	'pendingchanges-none' => 'Tidak ada halaman yang sesuai dengan kriteria ini',
 	'pendingchanges-hours' => '($1 {{PLURAL:$1|jam|jam}})',
 	'pendingchanges-days' => '($1 {{PLURAL:$1|hari|hari}})',
@@ -959,12 +960,13 @@ $messages['it'] = array(
  * @author Fievarsty
  * @author Fryed-peach
  * @author Hosiryuhosi
+ * @author Ohgi
  * @author 青子守歌
  */
 $messages['ja'] = array(
 	'pendingchanges' => '編集が保留されているページ',
 	'pendingchanges-legend' => '査読待ちの版のある査読済みページを一覧',
-	'pendingchanges-list' => 'このページは以前の査読以降に査読待ちの編集がなされた{{PLURAL:$1|ページ}}を一覧します。',
+	'pendingchanges-list' => 'このページは、一度[[{{MediaWiki:Validationpage}}|査読]]されたページで、査読待ちの編集があるものの一覧です。',
 	'pendingchanges-none' => '現在、この基準に合うページはありません',
 	'pendingchanges-hours' => '($1{{PLURAL:$1|時間}})',
 	'pendingchanges-days' => '($1{{PLURAL:$1|日}})',
@@ -1121,7 +1123,7 @@ $messages['li'] = array(
 $messages['mk'] = array(
 	'pendingchanges' => 'Страници со промени во исчекување',
 	'pendingchanges-legend' => 'Список на оценети страници со уредувања во исчекување за проверка',
-	'pendingchanges-list' => 'Оваа страница наведува {{PLURAL:$1|оценета страница|оценети страници}} со уредувања во исчекување на проверка.',
+	'pendingchanges-list' => 'Оваа страница наведува [[{{MediaWiki:Validationpage}}|прегледани]] страници со едно или повеќе уредувања во исчекување на проверка.',
 	'pendingchanges-none' => 'Моментално нема страници кои ги задоволуваат овие критериуми',
 	'pendingchanges-hours' => '($1 {{PLURAL:$1|час|часа}})',
 	'pendingchanges-days' => '($1 {{PLURAL:$1|ден|дена}})',
@@ -1424,7 +1426,7 @@ $messages['pt-br'] = array(
 $messages['ro'] = array(
 	'pendingchanges' => 'Pagini cu modificări în așteptare',
 	'pendingchanges-legend' => 'Afișează pagini revizuite cu modificări în așteptarea revizuirii',
-	'pendingchanges-list' => 'Această pagină afișează {{PLURAL:$1|o pagină revizuită care are|paginile revizuite care au}} modificări în așteptare.',
+	'pendingchanges-list' => 'Această pagină afișează paginile [[{{MediaWiki:Validationpage}}|revizuite]] care au una sau mai multe modificări în așteptare.',
 	'pendingchanges-none' => 'Momentan nu există pagini care satisfac aceste criterii',
 	'pendingchanges-hours' => '($1 {{PLURAL:$1|oră|ore}})',
 	'pendingchanges-days' => '($1 {{PLURAL:$1|zi|zile}})',
@@ -1827,7 +1829,7 @@ $messages['vep'] = array(
 $messages['vi'] = array(
 	'pendingchanges' => 'Các trang có thay đổi chưa duyệt',
 	'pendingchanges-legend' => 'Liệt kê các trang đã duyệt có các phiên bản chưa duyệt',
-	'pendingchanges-list' => 'Trang này liệt kê {{PLURAL:$1|một|những}} trang đã duyệt nhưng có các sửa đổi chờ duyệt.',
+	'pendingchanges-list' => 'Trang này liệt kê [[{{MediaWiki:Validationpage}}|các trang đã duyệt]] có thêm sửa đổi đang chờ duyệt.',
 	'pendingchanges-none' => 'Hiện không có trang này thỏa mãn tiêu chí này',
 	'pendingchanges-hours' => '($1 {{PLURAL:$1|giờ|giờ}})',
 	'pendingchanges-days' => '($1 {{PLURAL:$1|ngày|ngày}})',

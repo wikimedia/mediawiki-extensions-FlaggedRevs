@@ -6799,7 +6799,7 @@ $messages['he'] = array(
 	'revreview-hist-basic' => 'גרסה בדוקה',
 	'revreview-hist-quality-user' => '[{{fullurl:$1|stableid=$2}} אושרה] על ידי [[User:$3|$3]]',
 	'revreview-hist-basic-user' => '[{{fullurl:$1|stableid=$2}} נבדקה] על ידי [[User:$3|$3]]',
-	'revreview-hist-basic-auto' => '[{{fullurl:$1|stableid=$2}} נצפתה אוטומטית]',
+	'revreview-hist-basic-auto' => '[{{fullurl:$1|stableid=$2}} נבדקה אוטומטית]',
 	'revreview-hist-quality-auto' => '[{{fullurl:$1|stableid=$2}} אושר אוטומטית]',
 	'revreview-hist-pending-difflink' => "'''[[{{fullurl:$1|oldid=$2&diff=$3}} ממתין לאישור]]'''",
 	'review-edit-diff' => "'''שימו לב: חלק מהשינויים הממתינים משנים את האזור בדף שאתם עורכים.'''",
@@ -6837,7 +6837,7 @@ $messages['he'] = array(
 ייתכן שנעשו [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} שינויים חדשים].',
 	'revreview-basic-same' => 'זוהי [[{{MediaWiki:Validationpage}}|הגרסה היציבה]] ש[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}}נבדקה] ב־<i>$2</i>.',
 	'revreview-basic-source' => '[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} גרסה בדוקה] של דף זה, ש[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} אושרה] ב־<i>$2</i>, מבוססת על גרסה זו.',
-	'revreview-failed' => "'''לא ניתן לסקור גרסה זו.''' השליחה הייתה חלקית או שגויה.",
+	'revreview-failed' => "'''לא ניתן לסקור גרסה זו.'''",
 	'revreview-submission-invalid' => 'המידע שנשלח היה לא שלם או לא תקין בצורה כלשהי.',
 	'review_page_invalid' => 'כותרת דף היעד אינה תקינה.',
 	'review_page_notexists' => 'דף היעד אינו קיים.',
@@ -6946,14 +6946,12 @@ $messages['he'] = array(
 
 עתה יש ללחוץ על כפתור "חץ אחורה" בדפדפן ולנסות שוב.',
 	'revreview-update' => "אנא [[{{MediaWiki:Validationpage}}|בדקו]] את כל השינויים הממתינים '''(המוצגים להלן)''' שנעשו מאז הגרסה היציבה האחרונה.'''",
-	'revreview-update-edited' => '<span class="flaggedrevs_important">השינויים שלך עדיין אינם בגרסה היציבה.</span>
+	'revreview-update-edited' => '<span class="flaggedrevs_important">השינויים שלכם עדיין אינם בגרסה היציבה.</span>
 
-נא לסקור את כל השינויים המופיעים להלן כדי שהעריכות שלך יופיעו בגרסה היציבה.
-יתכן שיהיה עליך להשלים או לבטל עריכות.',
-	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">השינויים שלך אינם חלים עדיין על הגרסה היציבה.  ישנם שינויים קודמים הממתינים לסקירה.</span>
+נא לסקור את כל השינויים המופיעים להלן כדי שהעריכות שלך יופיעו בגרסה היציבה.',
+	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">השינויים שלכם עדיין אינם בגרסה היציבה. ישנם שינויים קודמים הממתינים לסקירה.</span>
 
-נא לסקור את כל השינויים המופיעים להלן כדי שהשינויים שלך יופיעו בגרסה היציבה.
-יתכן שיהיה עליך להשלים או לבטל עריכות.',
+נא לסקור את כל השינויים המופיעים להלן כדי שהשינויים שלך יופיעו בגרסה היציבה.',
 	'revreview-update-includes' => "'''מספר תבניות/קבצים עודכנו:'''",
 	'revreview-update-use' => "'''הערה:''' הגרסה יציבה לאחת מהתבניות/הקבצים האלו כבר נמצאת בשימוש בגרסה היציבה של דף זה.",
 	'revreview-visibility' => "'''לדף זה יש [[{{MediaWiki:Validationpage}}|גרסה יציבה]] מעודכנת; ניתן [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} לשנות] את הגדרות היציבות של הדף.'''",
@@ -6998,7 +6996,7 @@ $messages['he'] = array(
 	'revreview-restriction-none' => 'אף לא אחת',
 	'revreview-reject-header' => 'דחיית השינויים עבור $1',
 	'revreview-reject-text-list' => "על ידי השלמת פעולה זו, שינוי{{PLURAL:$1| זה '''יידחה'''|ים אלו '''יידחו'''}}:",
-	'revreview-reject-text-revto' => 'פעולה זו תשחזר את העמוד בחזרה לגרסה [{{fullurl:$1|oldid=$2}} מהתאריך of $3].',
+	'revreview-reject-text-revto' => 'פעולה זו תשחזר את העמוד בחזרה לגרסה [{{fullurl:$1|oldid=$2}} מתאריך $3].',
 	'revreview-reject-summary' => 'תקציר העריכה:',
 	'revreview-reject-confirm' => 'דחיית שינויים אלו',
 	'revreview-reject-cancel' => 'ביטול',

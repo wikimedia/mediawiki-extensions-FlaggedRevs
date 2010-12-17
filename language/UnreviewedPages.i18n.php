@@ -852,6 +852,7 @@ $messages['it'] = array(
  * @author Fryed-peach
  * @author Hosiryuhosi
  * @author JtFuruhata
+ * @author Ohgi
  */
 $messages['ja'] = array(
 	'unreviewedpages' => '未査読ページ',
@@ -860,7 +861,7 @@ $messages['ja'] = array(
 	'unreviewedpages-diff' => '査読',
 	'unreviewedpages-unwatched' => '(未ウォッチ)',
 	'unreviewedpages-watched' => '($1人の活動中の{{PLURAL:$1|利用者}}がウォッチ)',
-	'unreviewedpages-list' => 'これは指定した水準に達する査読結果を得ていない記事の一覧です。',
+	'unreviewedpages-list' => 'このページは、指定された水準に達する[[{{MediaWiki:Validationpage}}|査読]]をされていない記事の一覧です。',
 	'unreviewedpages-none' => '現時点でこの基準に適合するページはありません',
 	'unreviewedpages-viewing' => '(査読中)',
 	'unreviewedpages-hours' => '($1 時間)',
@@ -1325,7 +1326,7 @@ $messages['pt'] = array(
 	'unreviewedpages-diff' => 'rever',
 	'unreviewedpages-unwatched' => '(não vigiada)',
 	'unreviewedpages-watched' => '(vigiada por $1 {{PLURAL:$1|utilizador activo|utilizadores activos}})',
-	'unreviewedpages-list' => 'Esta página lista as páginas de conteúdo que não foram revistas até ao nível escolhido.',
+	'unreviewedpages-list' => "Esta página lista as páginas de conteúdo que ''ainda'' não foram [[{{MediaWiki:Validationpage}}|revistas]] até ao nível escolhido.",
 	'unreviewedpages-none' => 'De momento, não há páginas que se enquadrem nestes critérios',
 	'unreviewedpages-viewing' => '(em revisão)',
 	'unreviewedpages-hours' => '($1 {{PLURAL:$1|hora|horas}})',
@@ -1708,6 +1709,7 @@ $messages['tr'] = array(
 /** Ukrainian (Українська)
  * @author Ahonc
  * @author Prima klasy4na
+ * @author Тест
  */
 $messages['uk'] = array(
 	'unreviewedpages' => 'Неперевірені сторінки',
@@ -1716,7 +1718,7 @@ $messages['uk'] = array(
 	'unreviewedpages-diff' => 'перевірити',
 	'unreviewedpages-unwatched' => '(не спостерігають)',
 	'unreviewedpages-watched' => '({{PLURAL:$1|спостерігає $1 активний користувач|спостерігають $1 активних користувачі|спостерігають $1 активних користувачів}})',
-	'unreviewedpages-list' => 'На цій сторінці перераховані статті, що не були оцінені на зазначений рівень.',
+	'unreviewedpages-list' => "На цій сторінці перераховані статті, що ще ''не'' були [[{{MediaWiki:Validationpage}}|рецензовані]] на зазначений рівень.",
 	'unreviewedpages-none' => 'Зараз нема сторінок, що відповідають зазначеним критеріям',
 	'unreviewedpages-viewing' => '(перевіряється)',
 	'unreviewedpages-hours' => '($1 {{PLURAL:$1|година|години|годин}})',
