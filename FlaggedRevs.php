@@ -141,20 +141,19 @@ $wgGroupPermissions['editor']['patrolmarks']     = true;
 # Define when users get automatically promoted to Editors. Set as false to disable.
 # Once users meet these requirements they will be promoted, unless previously demoted.
 $wgFlaggedRevsAutopromote = array(
-	'days'	              => 60, # days since registration
-	'edits'	              => 250, # total edit count
-	'excludeDeleted'      => true, # exclude deleted edits from 'edits' count above?
-	'excludeLastDays'     => 1, # exclude last X days of edits from 'edits' count above
-	'benchmarks'          => 15, # number of "spread out" edits
-	'spacing'	          => 3, # number of days between these edits (the "spread")
+	'days'	              	=> 60, # days since registration
+	'edits'	              	=> 250, # total edit count
+	'excludeLastDays'     	=> 1, # exclude the last X days of edits from edit counts
+	'benchmarks'         	=> 15, # number of "spread out" edits
+	'spacing'	        	=> 3, # number of days between these edits (the "spread")
 	// Either totalContentEdits reqs OR totalCheckedEdits requirements needed
-	'totalContentEdits'   => 300, # $wgContentNamespaces edits OR...
-	'totalCheckedEdits'   => 200, # ...Edits before the stable version of pages
-	'uniqueContentPages'  => 12, # unique pages in $wgContentNamespaces edited
-	'editComments'        => 50, # number of manual edit summaries used
-	'userpageBytes'       => 0, # size of userpage (use 0 to not require a userpage)
-	'neverBlocked'        => true, # username was never blocked before?
-	'maxRevertedEdits'    => 5, # max times the user had edits undone/"rolled back"
+	'totalContentEdits' 	=> 300, # edits to pages in $wgContentNamespaces
+	'totalCheckedEdits' 	=> 200, # edits before the stable version of pages
+	'uniqueContentPages'	=> 12, # unique pages in $wgContentNamespaces edited
+	'editComments'      	=> 50, # number of manual edit summaries used
+	'userpageBytes'     	=> 0, # size of userpage (use 0 to not require a userpage)
+	'neverBlocked'      	=> true, # username was never blocked before?
+	'maxRevertedEditRatio' 	=> .03, # max fraction of edits reverted via "rollback"/"undo"
 );
 
 # Define when users get to have their own edits auto-reviewed. Set to false to disable.
@@ -165,8 +164,8 @@ $wgFlaggedRevsAutoconfirm = false;
 $wgFlaggedRevsAutoconfirm = array(
 	'days'	              => 30, # days since registration
 	'edits'	              => 50, # total edit count
-	'spacing'	          => 3, # spacing of edit intervals
-	'benchmarks'          => 7, # how many edit intervals are needed?
+	'benchmarks'          => 7, # number of "spread out" edits
+	'spacing'	          => 3, # number of days between these edits (the "spread")
 	// Either totalContentEdits reqs OR totalCheckedEdits requirements needed
 	'totalContentEdits'   => 150, # $wgContentNamespaces edits OR...
 	'totalCheckedEdits'   => 50, # ...Edits before the stable version of pages
@@ -426,7 +425,7 @@ $wgHooks['OutputPageParserOutput'][] = 'FlaggedRevsHooks::outputInjectTimestamps
 
 # ######## DB write operations #########
 # Autopromote Editors
-$wgHooks['ArticleSaveComplete'][] = 'FlaggedRevsHooks::maybeMakeEditor';
+$wgHooks['ArticleSaveComplete'][] = 'FlaggedRevsHooks::onArticleSaveComplete';
 # Auto-reviewing
 $wgHooks['RecentChange_save'][] = 'FlaggedRevsHooks::autoMarkPatrolled';
 $wgHooks['NewRevisionFromEditComplete'][] = 'FlaggedRevsHooks::maybeMakeEditReviewed';

@@ -1004,9 +1004,31 @@ class FlaggedRevsHooks {
 	}
 
 	/**
+	* Check if a user has enough implicitly reviewed edits (before stable version)
+	* @param $user User
+	* @param $editsReq int
+	* @param $cutoff_unixtime int exclude edits after this timestamp
+	* @return bool
+	*/
+	protected static function reviewedEditsCheck( $user, $editsReq, $cutoff_unixtime = 0 ) {
+		$dbr = wfGetDB( DB_SLAVE );
+		$encCutoff = $dbr->addQuotes( $dbr->timestamp( $cutoff_unixtime ) );
+		$res = $dbr->select( array( 'revision', 'flaggedpages' ), '1',
+			array( 'rev_user' => $user->getId(),
+				"rev_timestamp < $encCutoff",
+				'fp_page_id = rev_page',
+				'fp_pending_since IS NULL OR fp_pending_since > rev_timestamp' // bug 15515
+			),
+			__METHOD__,
+			array( 'USE INDEX' => array( 'revision' => 'user_timestamp' ), 'LIMIT' => $editsReq )
+		);
+		return ( $dbr->numRows( $res ) >= $editsReq );
+	}
+
+	/**
 	* Checks if $user was previously blocked
 	*/
-	public static function previousBlockCheck( $user ) {
+	public static function wasPreviouslyBlocked( $user ) {
 		$dbr = wfGetDB( DB_SLAVE );
 		return (bool)$dbr->selectField( 'logging', '1',
 			array(
@@ -1031,127 +1053,13 @@ class FlaggedRevsHooks {
 	}
 
 	/**
-	* Grant implicit 'autoreview' group to users meeting the
-	* $wgFlaggedRevsAutoconfirm requirements. This lets people who
-	* opt-out as Editors still have their own edits automatically reviewed.
-	*
-	* Note: some unobtrusive caching is used to avoid DB hits.
-	*/
-	public static function checkAutoPromote( $user, array &$promote ) {
-		global $wgFlaggedRevsAutoconfirm, $wgMemc;
-		# Check if $wgFlaggedRevsAutoconfirm is actually enabled
-		# and that this is a logged-in user that doesn't already
-		# have the 'autoreview' permission
-		if ( !$user->getId() || empty( $wgFlaggedRevsAutoconfirm ) ) {
-			return true;
-		}
-		# Check if results are cached to avoid DB queries.
-		# Checked basic, already available, promotion heuristics first...
-		$APSkipKey = wfMemcKey( 'flaggedrevs', 'autoreview-skip', $user->getId() );
-		$value = $wgMemc->get( $APSkipKey );
-		if ( $value === 'true' ) {
-			return true;
-		}
-		# Check $wgFlaggedRevsAutoconfirm settings...
-		$now = time();
-		$userCreation = wfTimestampOrNull( TS_UNIX, $user->getRegistration() );
-		# User registration was not always tracked in DB...use null for such cases
-		$userage = $userCreation
-			? floor( ( $now - $userCreation ) / 86400 )
-			: null;
-		$p = FRUserCounters::getUserParams( $user->getId() );
-		# Check if user edited enough content pages
-		$totalCheckedEditsNeeded = false;
-		if ( $wgFlaggedRevsAutoconfirm['totalContentEdits'] > $p['totalContentEdits'] ) {
-			if ( !$wgFlaggedRevsAutoconfirm['totalCheckedEdits'] ) {
-				return true;
-			}
-			$totalCheckedEditsNeeded = true;
-		}
-		# Check if user edited enough unique pages
-		$pages = $p['uniqueContentPages']; // page IDs
-		if ( $wgFlaggedRevsAutoconfirm['uniqueContentPages'] > count( $pages ) ) {
-			return true;
-		}
-		# Check edit comment use
-		if ( $wgFlaggedRevsAutoconfirm['editComments'] > $p['editComments'] ) {
-			return true;
-		}
-		# Check account age
-		if ( !is_null( $userage ) && $userage < $wgFlaggedRevsAutoconfirm['days'] ) {
-			return true;
-		}
-		# Check user edit count. Should be stored.
-		if ( $user->getEditCount() < $wgFlaggedRevsAutoconfirm['edits'] ) {
-			return true;
-		}
-		# Check user email
-		if ( $wgFlaggedRevsAutoconfirm['email'] && !$user->isEmailConfirmed() ) {
-			return true;
-		}
-		# Don't grant to currently blocked users...
-		if ( $user->isBlocked() ) {
-			return true;
-		}
-		# Check if user was ever blocked before
-		if ( $wgFlaggedRevsAutoconfirm['neverBlocked'] ) {
-			$blocked = self::previousBlockCheck( $user );
-			if ( $blocked ) {
-				# Make a key to store the results
-				$wgMemc->set( $APSkipKey, 'true', 3600 * 24 * 7 );
-				return true;
-			}
-		}
-		# Check for edit spacing. This lets us know that the account has
-		# been used over N different days, rather than all in one lump.
-		if ( $wgFlaggedRevsAutoconfirm['spacing'] > 0
-			&& $wgFlaggedRevsAutoconfirm['benchmarks'] > 1 )
-		{
-			$sTestKey = wfMemcKey( 'flaggedrevs', 'autoreview-spacing-ok', $user->getId() );
-			$value = $wgMemc->get( $sTestKey );
-			# Check if the user already passed this test via cache.
-			# If no cache key is available, then check the DB...
-			if ( $value !== 'true' ) {
-				$pass = self::editSpacingCheck(
-					$wgFlaggedRevsAutoconfirm['spacing'],
-					$wgFlaggedRevsAutoconfirm['benchmarks'],
-					$user
-				);
-				# Make a key to store the results
-				if ( $pass === true ) {
-					$wgMemc->set( $sTestKey, 'true', 7 * 24 * 3600 );
-				} else {
-					$wgMemc->set( $APSkipKey, 'true', $pass /* wait time */ );
-					return true;
-				}
-			}
-		}
-		# Check implicitly checked edits
-		if ( $totalCheckedEditsNeeded && $wgFlaggedRevsAutoconfirm['totalCheckedEdits'] ) {
-			$dbr = wfGetDB( DB_SLAVE );
-			$res = $dbr->select( array( 'revision', 'flaggedpages' ), '1',
-				array( 'rev_user' => $user->getId(),
-					'fp_page_id = rev_page', 'fp_stable >= rev_id' ),
-				__METHOD__,
-				array( 'USE INDEX' => array( 'revision' => 'user_timestamp' ),
-					'LIMIT' => $wgFlaggedRevsAutoconfirm['totalCheckedEdits'] )
-			);
-			if ( $dbr->numRows( $res ) < $wgFlaggedRevsAutoconfirm['totalCheckedEdits'] ) {
-				return true;
-			}
-		}
-		$promote[] = 'autoreview';  // add the group
-		return true;
-	}
-
-	/**
 	* Callback that autopromotes user according to the setting in
 	* $wgFlaggedRevsAutopromote. This also handles user stats tallies.
 	*/
-	public static function maybeMakeEditor(
+	public static function onArticleSaveComplete(
 		Article $article, $user, $text, $summary, $m, $a, $b, &$f, $rev
 	) {
-		global $wgFlaggedRevsAutopromote, $wgFlaggedRevsAutoconfirm, $wgMemc;
+		global $wgFlaggedRevsAutopromote, $wgFlaggedRevsAutoconfirm;
 		# Ignore NULL edits or edits by anon users
 		if ( !$rev || !$user->getId() ) {
 			return true;
@@ -1161,101 +1069,67 @@ class FlaggedRevsHooks {
 		}
 		$p = FRUserCounters::getUserParams( $user->getId(), FR_FOR_UPDATE );
 		$changed = FRUserCounters::updateUserParams( $p, $article, $summary );
-		# Save any updates to user params
 		if ( $changed ) {
-			FRUserCounters::saveUserParams( $user->getId(), $p );
+			FRUserCounters::saveUserParams( $user->getId(), $p ); // save any updates
 		}
-		if ( !is_array( $wgFlaggedRevsAutopromote ) ) {
-			return true; // nothing to do
+		if ( is_array( $wgFlaggedRevsAutopromote ) ) {
+			self::maybeMakeEditor( $user, $p, $wgFlaggedRevsAutopromote );
 		}
-		# Grab current groups
-		$groups = $user->getGroups();
-		# Do not give this to current holders or bots
-		if ( $user->isAllowed( 'bot' ) || in_array( 'editor', $groups ) ) {
+		return true;
+	}
+
+	/**
+	* Grant implicit 'autoreview' group to users meeting the
+	* $wgFlaggedRevsAutoconfirm requirements. This lets people who
+	* opt-out as Editors still have their own edits automatically reviewed.
+	*
+	* Note: some unobtrusive caching is used to avoid DB hits.
+	*/
+	public static function checkAutoPromote( $user, array &$promote ) {
+		global $wgFlaggedRevsAutoconfirm, $wgMemc;
+		$conds = $wgFlaggedRevsAutoconfirm; // convenience
+		if ( !is_array( $conds ) || !$user->getId() ) {
+			return true; // $wgFlaggedRevsAutoconfirm not applicable
+		}
+		$p = FRUserCounters::getUserParams( $user->getId() );
+		$regTime = wfTimestampOrNull( TS_UNIX, $user->getRegistration() );
+		if (
+			# Check if user edited enough unique pages
+			$conds['uniqueContentPages'] > count( $p['uniqueContentPages'] ) ||
+			# Check edit comment use
+			$conds['editComments'] > $p['editComments'] ||
+			# Check user edit count
+			$conds['edits'] > $user->getEditCount() ||
+			# Check account age
+			( $regTime && $conds['days'] > ( ( time() - $regTime ) / 86400 ) ) ||
+			# Check user email
+			$conds['email'] && !$user->isEmailConfirmed() ||
+			# Don't grant to currently blocked users...
+			$user->isBlocked()
+		) {
 			return true;
 		}
-		# Do not re-add status if it was previously removed!
-		if ( isset( $p['demoted'] ) && $p['demoted'] ) {
-			return true;
-		}
-		# Check if results are cached to avoid DB queries
-		$APSkipKey = wfMemcKey( 'flaggedrevs', 'autopromote-skip', $user->getId() );
-		$value = $wgMemc->get( $APSkipKey );
-		if ( $value == 'true' ) return true;
 		# Check if user edited enough content pages
-		$totalCheckedEditsNeeded = false;
-		if ( $wgFlaggedRevsAutopromote['totalContentEdits'] > $p['totalContentEdits'] ) {
-			if ( !$wgFlaggedRevsAutopromote['totalCheckedEdits'] ) {
-				return true;
-			}
-			$totalCheckedEditsNeeded = true;
-		}
-		# Check if user edited enough unique pages
-		$pages = $p['uniqueContentPages']; // page IDs
-		if ( $wgFlaggedRevsAutopromote['uniqueContentPages'] > count( $pages ) ) {
-			return true;
-		}
-		# Check edit comment use
-		if ( $wgFlaggedRevsAutopromote['editComments'] > $p['editComments'] ) {
-			return true;
-		}
-		# Check reverted edits
-		if ( $wgFlaggedRevsAutopromote['maxRevertedEdits'] < $p['revertedEdits'] ) {
-			return true;
-		}
-		# Check account age
-		$now = time();
-		$usercreation = wfTimestampOrNull( TS_UNIX, $user->getRegistration() );
-		$userage = $usercreation ? floor( ( $now - $usercreation ) / 86400 ) : null;
-		if ( !is_null( $userage ) && $userage < $wgFlaggedRevsAutopromote['days'] ) {
-			return true;
-		}
-		# Check user edit count. Should be stored.
-		if ( $user->getEditCount() < $wgFlaggedRevsAutopromote['edits'] ) {
-			return true;
-		}
-		# Don't grant to currently blocked users...
-		if ( $user->isBlocked() ) {
+		$failedContentEdits = ( $conds['totalContentEdits'] > $p['totalContentEdits'] );
+
+		# Check if results are cached to avoid DB queries.
+		# Checked basic, already available, promotion heuristics first...
+		$APSkipKey = wfMemcKey( 'flaggedrevs', 'autoreview-skip', $user->getId() );
+		if ( $wgMemc->get( $APSkipKey ) === 'true' ) {
 			return true;
 		}
 		# Check if user was ever blocked before
-		if ( $wgFlaggedRevsAutopromote['neverBlocked'] ) {
-			$blocked = self::previousBlockCheck( $user );
-			if ( $blocked ) {
-				# Make a key to store the results
-				$wgMemc->set( $APSkipKey, 'true', 3600 * 24 * 7 );
-				return true;
-			}
-		}
-		$dbr = wfGetDB( DB_SLAVE );
-		# See if the page actually has sufficient content...
-		if ( $wgFlaggedRevsAutopromote['userpageBytes'] > 0 ) {
-			if ( !$user->getUserPage()->exists() ) {
-				return true;
-			}
-			$size = $dbr->selectField( 'page', 'page_len',
-				array( 'page_namespace' => $user->getUserPage()->getNamespace(),
-					'page_title' => $user->getUserPage()->getDBkey() ),
-				__METHOD__ );
-			if ( $size < $wgFlaggedRevsAutopromote['userpageBytes'] ) {
-				return true;
-			}
+		if ( $conds['neverBlocked'] && self::wasPreviouslyBlocked( $user ) ) {
+			$wgMemc->set( $APSkipKey, 'true', 3600 * 24 * 7 ); // cache results
+			return true;
 		}
 		# Check for edit spacing. This lets us know that the account has
 		# been used over N different days, rather than all in one lump.
-		if ( $wgFlaggedRevsAutopromote['spacing'] > 0
-			&& $wgFlaggedRevsAutopromote['benchmarks'] > 1 )
-		{
-			$sTestKey = wfMemcKey( 'flaggedrevs', 'autopromote-spacing-ok', $user->getId() );
-			$value = $wgMemc->get( $sTestKey );
-			# Check if the user already passed this test via cache.
-			# If no cache key is available, then check the DB...
-			if ( $value !== 'true' ) {
-				$pass = self::editSpacingCheck(
-					$wgFlaggedRevsAutopromote['spacing'],
-					$wgFlaggedRevsAutopromote['benchmarks'],
-					$user
-				);
+		if ( $conds['spacing'] > 0 && $conds['benchmarks'] > 1 ) {
+			$sTestKey = wfMemcKey( 'flaggedrevs', 'autoreview-spacing-ok', $user->getId() );
+			# Hit the DB only if the result is not cached...
+			if ( $wgMemc->get( $sTestKey ) !== 'true' ) {
+				$pass = self::editSpacingCheck( $conds['spacing'], $conds['benchmarks'], $user );
 				# Make a key to store the results
 				if ( $pass === true ) {
 					$wgMemc->set( $sTestKey, 'true', 7 * 24 * 3600 );
@@ -1265,53 +1139,118 @@ class FlaggedRevsHooks {
 				}
 			}
 		}
-		$deletedEdits = $recentEdits = 0;
-		# Get one plus the surplus of edits needed
-		$minDiff = $user->getEditCount() - $wgFlaggedRevsAutopromote['edits'] + 1;
-		# Check to see if the user has so many deleted edits that
-		# they don't actually enough live edits. This is because
-		# $user->getEditCount() is the count of edits made, not live.
-		# NOTE: check skipped if the query gets large (due to high edit count surplus)
-		if ( $wgFlaggedRevsAutopromote['excludeDeleted'] && $minDiff <= 200 ) {
-			$res = $dbr->select( 'archive', '1',
-				array( 'ar_user_text' => $user->getName() ),
-				__METHOD__,
-				array( 'USE INDEX' => 'usertext_timestamp', 'LIMIT' => $minDiff ) );
-			$deletedEdits = $dbr->numRows( $res );
-		}
-		# Check to see if the user made almost all their edits at
-		# the last minute and delay promotion if that is the case.
-		if ( $wgFlaggedRevsAutopromote['excludeLastDays'] > 0 ) {
-			$cutoff_unixtime = time() - 86400*$wgFlaggedRevsAutopromote['excludeLastDays'];
-			$encCutoff = $dbr->addQuotes( $dbr->timestamp( $cutoff_unixtime ) );
-			$res = $dbr->select( 'revision', '1',
-				array( 'rev_user' => $user->getId(), "rev_timestamp > $encCutoff" ),
-				__METHOD__,
-				array( 'USE INDEX' => 'user_timestamp', 'LIMIT' => $minDiff )
-			);
-			$recentEdits = $dbr->numRows( $res );
-		}
-		# Are too many edits deleted or too recent to count?
-		if ( ( $deletedEdits + $recentEdits ) >= $minDiff ) {
-			return true;
-		}
 		# Check implicitly checked edits
-		if ( $totalCheckedEditsNeeded && $wgFlaggedRevsAutopromote['totalCheckedEdits'] ) {
-			$res = $dbr->select( array( 'revision', 'flaggedpages' ), '1',
-				array( 'rev_user' => $user->getId(),
-					'fp_page_id = rev_page', 'fp_stable >= rev_id' ),
-				__METHOD__,
-				array( 'USE INDEX' => array( 'revision' => 'user_timestamp' ),
-					'LIMIT' => $wgFlaggedRevsAutopromote['totalCheckedEdits'] )
-			);
-			if ( $dbr->numRows( $res ) < $wgFlaggedRevsAutopromote['totalCheckedEdits'] ) {
+		if ( $failedContentEdits && $conds['totalCheckedEdits'] > 0 ) {
+			if ( !self::reviewedEditsCheck( $user, $conds['totalCheckedEdits'] ) ) {
 				return true;
 			}
 		}
-		# Add editor rights
-		$newGroups = $groups ;
-		array_push( $newGroups, 'editor' );
+		$promote[] = 'autoreview'; // add the group
+		return true;
+	}
 
+	/**
+	* Autopromotes user according to the setting in $wgFlaggedRevsAutopromote.
+	* @param $user User
+	* @param $p array user tallies
+	* @param $conds array $wgFlaggedRevsAutopromote
+	*/
+	protected static function maybeMakeEditor( User $user, array $p, array $conds ) {
+		global $wgMemc, $wgContentNamespaces;
+		$groups = $user->getGroups(); // current groups
+		$regTime = wfTimestampOrNull( TS_UNIX, $user->getRegistration() );
+		if (
+			!$user->getId() ||
+			# Do not give this to current holders
+			in_array( 'editor', $groups ) ||
+			# Do not give this right to bots
+			$user->isAllowed( 'bot' ) ||
+			# Do not re-add status if it was previously removed!
+			( isset( $p['demoted'] ) && $p['demoted'] ) ||
+			# Check if user edited enough unique pages
+			$conds['uniqueContentPages'] > count( $p['uniqueContentPages'] ) ||
+			# Check edit summary usage
+			$conds['editComments'] > $p['editComments'] ||
+			# Check reverted edits
+			$conds['maxRevertedEditRatio']*$user->getEditCount() < $p['revertedEdits'] ||
+			# Check user edit count
+			$conds['edits'] > $user->getEditCount() ||
+			# Check account age
+			( $regTime && $conds['days'] > ( ( time() - $regTime ) / 86400 ) ) ||
+			# See if the page actually has sufficient content...
+			$conds['userpageBytes'] > $user->getUserPage()->getLength() ||
+			# Don't grant to currently blocked users...
+			$user->isBlocked()
+		) {
+			return true; // not ready
+		}
+		# User needs to meet 'totalContentEdits' OR 'totalCheckedEdits'
+		$failedContentEdits = ( $conds['totalContentEdits'] > $p['totalContentEdits'] );
+
+		# More expensive checks below...
+		# Check if results are cached to avoid DB queries
+		$APSkipKey = wfMemcKey( 'flaggedrevs', 'autopromote-skip', $user->getId() );
+		if ( $wgMemc->get( $APSkipKey ) === 'true' ) {
+			return true;
+		}
+		# Check if user was ever blocked before
+		if ( $conds['neverBlocked'] && self::wasPreviouslyBlocked( $user ) ) {
+			$wgMemc->set( $APSkipKey, 'true', 3600 * 24 * 7 ); // cache results
+			return true;
+		}
+		$dbr = wfGetDB( DB_SLAVE );
+		$cutoff_ts = 0;
+		# Check to see if the user has enough non-"last minute" edits.
+		if ( $conds['excludeLastDays'] > 0 ) {
+			$minDiffAll = $user->getEditCount() - $conds['edits'] + 1;
+			# Get cutoff timestamp
+			$cutoff_ts = time() - 86400*$conds['excludeLastDays'];
+			$encCutoff = $dbr->addQuotes( $dbr->timestamp( $cutoff_ts ) );
+			# Check all recent edits...
+			$res = $dbr->select( 'revision', '1',
+				array( 'rev_user' => $user->getId(), "rev_timestamp > $encCutoff" ),
+				__METHOD__,
+				array( 'USE INDEX' => 'user_timestamp', 'LIMIT' => $minDiffAll )
+			);
+			if ( $dbr->numRows( $res ) >= $minDiffAll ) {
+				return true; // delay promotion
+			}
+			# Check recent content edits...
+			if ( !$failedContentEdits && $wgContentNamespaces ) {
+				$minDiffContent = $p['totalContentEdits'] - $conds['totalContentEdits'] + 1;
+				$res = $dbr->select( array( 'revision', 'page' ), '1',
+					array( 'rev_user' => $user->getId(),
+						"rev_timestamp > $encCutoff",
+						'rev_page = page_id',
+						'page_namespace' => $wgContentNamespaces ),
+					__METHOD__,
+					array( 'USE INDEX' => array( 'revision' => 'user_timestamp' ),
+						'LIMIT' => $minDiffContent )
+				);
+				if ( $dbr->numRows( $res ) >= $minDiffContent ) {
+					$failedContentEdits = true; // totalCheckedEdits needed
+				}
+			}
+		}
+		# Check for edit spacing. This lets us know that the account has
+		# been used over N different days, rather than all in one lump.
+		if ( $conds['spacing'] > 0 && $conds['benchmarks'] > 1 ) {
+			$pass = self::editSpacingCheck( $conds['spacing'], $conds['benchmarks'], $user );
+			if ( $pass !== true ) {
+				$wgMemc->set( $APSkipKey, 'true', $pass /* wait time */ ); // cache results
+				return true;
+			}
+		}
+		# Check if there are enough implicitly reviewed edits
+		if ( $failedContentEdits && $conds['totalCheckedEdits'] > 0 ) {
+			if ( !self::reviewedEditsCheck( $user, $conds['totalCheckedEdits'], $cutoff_ts ) ) {
+				return true;
+			}
+		}
+
+		# Add editor rights...
+		$newGroups = $groups;
+		array_push( $newGroups, 'editor' );
 		$log = new LogPage( 'rights', false /* $rc */ );
 		$log->addEntry( 'rights',
 			$user->getUserPage(),
