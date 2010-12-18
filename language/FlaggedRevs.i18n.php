@@ -4417,7 +4417,7 @@ Novaj [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} ŝanĝoj] eble
 	'revreview-submit-review' => 'Aprobi revizion',
 	'revreview-submit-unreview' => 'Malaprobi revizion',
 	'revreview-submit-reject' => 'Malaprobi ŝanĝojn',
-	'revreview-submit-reviewed' => 'Farita. Aprobita!',
+	'revreview-submit-reviewed' => 'Farite. Aprobita!',
 	'revreview-submit-unreviewed' => 'Farita. Malaprobita!',
 	'revreview-successful' => "'''Tiu ĉi versio de [[:$1|$1]] estas markita kiel reviziita. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} vidi ĉiujn markitajn versiojn])'''",
 	'revreview-successful2' => "'''Versio de [[:$1|$1]] sukcese malmarkita.'''",
