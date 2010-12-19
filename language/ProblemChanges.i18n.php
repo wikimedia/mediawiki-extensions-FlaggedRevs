@@ -114,6 +114,7 @@ $messages['br'] = array(
  */
 $messages['bs'] = array(
 	'problemchanges' => 'Označene promjene na čekanju',
+	'problemchanges-list' => 'Ova stranica prikazuje [[{{MediaWiki:Validationpage}}|pregledane]] stranice koje imaju jednu ili više označenih izmjena koje čekaju provjeru. Spisak valjanih oznaka izmjena se može naći na stranici [[Special:Tags]].',
 	'problemchanges-legend' => 'Spisak stranica sa označenim izmjenama koje čekaju pregled',
 	'problemchanges-none' => 'Trenutno nema stranica koje zadovoljavaju ove kriterije',
 	'problemchanges-category' => 'Kategorija:',
@@ -299,6 +300,7 @@ $messages['grc'] = array(
  */
 $messages['gsw'] = array(
 	'problemchanges' => 'Markierti hängigi Änderige',
+	'problemchanges-list' => 'Die Spezialsyte zeigt [[{{MediaWiki:Validationpage}}|markierti]] Syte mit eire oder mehrere gchännzeichnte Bearbeitige, wu no mien amrkiert wäre. E Lischt vu dr giltigen Änderigschännzeiche git s uf dr Spezialsyte [[Special:Tags|Chännzeiche]].',
 	'problemchanges-legend' => 'Lischt vu Syte mit markierte Bearbeitige, wu nonig prieft sin',
 	'problemchanges-none' => 'Zur Zyt träffe fir kei Syte die Kriterie zue',
 	'problemchanges-category' => 'Kategorii:',
@@ -607,6 +609,7 @@ $messages['pt'] = array(
  */
 $messages['pt-br'] = array(
 	'problemchanges' => 'Alterações pendentes que foram assinaladas',
+	'problemchanges-list' => 'Esta página lista as [[{{MediaWiki:Validationpage}}|páginas sujeitas a revisão]] com uma ou mais edições pendentes marcadas com etiquetas de edição. Você pode encontrar uma lista da etiquetas de edição válidas em [[Special:Tags]].',
 	'problemchanges-legend' => 'Listar páginas com edições assinaladas aguardando revisão',
 	'problemchanges-none' => 'Atualmente não existem páginas que satisfaçam estes critérios',
 	'problemchanges-category' => 'Categoria:',
