@@ -5427,7 +5427,7 @@ $messages['fi'] = array(
 Uusia [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} muutoksia] on saatettu tehdä.',
 	'revreview-basic-same' => 'Tämä on [[{{MediaWiki:Validationpage}}|vakaa versio]], joka on [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} tarkistettu] <i>$2</i>.',
 	'revreview-basic-source' => '[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} Tarkistettu versio] tästä sivusta, joka [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} hyväksyttiin] <i>$2</i>, pohjautui tähän muutokseen.',
-	'revreview-failed' => "'''Tämän version arviointi epäonnistui.''' Lähetys on puutteellinen tai muuten epäkelpo.",
+	'revreview-failed' => "'''Tätä versiota ei voitu arvioida.'''",
 	'review_page_invalid' => 'Kohdesivun nimi ei kelpaa.',
 	'review_page_notexists' => 'Kohdesivua ei ole olemassa.',
 	'review_page_unreviewable' => 'Kohdesivua ei voi arvostella.',
@@ -5449,7 +5449,7 @@ Uusia [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} muutoksia] on 
 	'revreview-draft-title' => 'Odottavat muutokset näytetään tällä sivulla',
 	'revreview-edit' => 'Muokkaa',
 	'revreview-editnotice' => "'''Muutoksesi tulevat näkyville lukijoille, kun valtuutettu käyttäjä tarkistaa ne. ([[{{MediaWiki:Validationpage}}|ohjeet]])'''",
-	'revreview-check-flag-p' => 'Hyväksy odottavat muutokset',
+	'revreview-check-flag-p' => 'Hyväksy tämä versio (sisältää {{PLURAL:$1|yhden odottavan muutoksen|$1 odottavaa muutosta}})',
 	'revreview-check-flag-p-title' => 'Hyväksy kaikki odottavat muutokset oman muokkauksesi yhteydessä. Käytä tätä vain, jos olet jo tarkistanut nämä muokkaukset.',
 	'revreview-check-flag-u' => 'Hyväksy tämä tarkistamaton sivu',
 	'revreview-check-flag-u-title' => 'Hyväksy tämä versio tästä sivusta. Käytä tätä vain, jos olet jo nähnyt koko sivun.',
@@ -5529,12 +5529,10 @@ Palaa selaimen takaisin-painikkeella ja yritä uudelleen.",
 	'revreview-update' => "'''[[{{MediaWiki:Validationpage}}|Arvioi]] kaikki odottavat muutokset, ''(näytetään alla)'' jotka on tehty vakaan version jälkeen.'''",
 	'revreview-update-edited' => '<span class="flaggedrevs_important">Muutoksesi eivät ole vielä näkyvissä vakaassa versiossa.</span>
 
-Tarkista kaikki alla olevat muutokset, jotta muutoksesi näkyisivät vakaassa versiossa.
-Saatat joutua tekemään korjauksia tai kumoamaan muutoksia.',
+Tarkista kaikki alla olevat muutokset, jotta muutoksesi näkyisivät vakaassa versiossa.',
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Muutoksesi eivät ole vielä näkyvissä vakaassa versiossa. Edelliset muutokset odottavat arviointia.</span>
 
-Arvioi kaikki alla olevat muutokset, jotta muokkauksesi näkyisivät vakaassa versiossa.
-Saatat joutua tekemään korjauksia tai kumoamaan muokkauksia.',
+Arvioi kaikki alla olevat muutokset, jotta muokkauksesi näkyisivät vakaassa versiossa.',
 	'revreview-update-includes' => "'''Joitakin mallineita tai tiedostoja on päivitetty:'''",
 	'revreview-update-use' => "'''Huomaa:''' Tämän sivun vakaassa versiossa käytetään vakaata versiota mallineista ja tiedostoista.",
 	'revreview-visibility' => "'''Tämä sivu on päivitetty [[{{MediaWiki:Validationpage}}|vakaaseen versioon]] – sivun vakautusasetuksia on mahdollista [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} muuttaa].'''",
@@ -17162,11 +17160,13 @@ $messages['uk'] = array(
 	'revreview-basic-same' => 'Це [[{{MediaWiki:Validationpage}}|опублікована версія]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} перевірена] <i>$2</i>.',
 	'revreview-basic-source' => '[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} Перевірена версія] цієї сторінки, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} затверджена] <i>$2</i>, виключила цю редакцію.',
 	'revreview-failed' => "'''Не вдалося перевірити цю версію.'''",
+	'revreview-submission-invalid' => 'Дане подання було неповним або іншим чином недійсним.',
 	'review_page_invalid' => 'Неприпустима назва цільової сторінки.',
 	'review_page_notexists' => 'Цільової сторінки не існує.',
 	'review_page_unreviewable' => 'Цільова сторінка не підлягає рецензуванню.',
 	'review_no_oldid' => 'Незазначений ідентифікатор версії.',
 	'review_bad_oldid' => 'Немає такої цільової версії.',
+	'review_conflict_oldid' => 'Хтось вже підтвердив або зняв підтвердження з цієї версії, поки ви переглядали її.',
 	'review_not_flagged' => 'Цільова версія сторінки зараз не позначена перевіреною.',
 	'review_too_low' => 'Версію не може бути рецензовано через невстановлені значення деяких полів.',
 	'review_bad_key' => 'неприпустимий ключ параметра включення.',
