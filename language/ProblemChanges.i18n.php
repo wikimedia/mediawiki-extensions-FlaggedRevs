@@ -579,6 +579,7 @@ $messages['pl'] = array(
  */
 $messages['pms'] = array(
 	'problemchanges' => 'Modìfiche etichëttà an cors',
+	'problemchanges-list' => "Sta pàgina-sì a lista le pàgine [[{{MediaWiki:Validationpage}}|revisionà]] ch'a l'han un-a o pi modìfiche tichëttà ch'a speto revision. Na lista ëd tichëtte ëd cambiament bon-e as peul trovesse a [[Special:Tags]].",
 	'problemchanges-legend' => 'Lista le pàgine con ëd le revision pendente ëd modìfiche etichëttà',
 	'problemchanges-none' => 'A-i é pa al moment ëd pàgine che a sodisfo sto criteri-sì',
 	'problemchanges-category' => 'Categorìa:',
@@ -644,6 +645,7 @@ $messages['roa-tara'] = array(
  */
 $messages['ru'] = array(
 	'problemchanges' => 'Отмеченные непроверенные изменения',
+	'problemchanges-list' => 'На этой странице перечислены  [[{{MediaWiki:Validationpage}}|проверенные]] страницы, имеющие помеченные правки, ожидающие проверки. Список допустимых меток можно найти на странице [[Special:Tags]].',
 	'problemchanges-legend' => 'Список cтраниц с отмеченными правками, ожидающими проверки',
 	'problemchanges-none' => 'В настоящее время нет отвечающих этим условиям страниц',
 	'problemchanges-category' => 'Категория:',
