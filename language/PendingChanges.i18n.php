@@ -1447,7 +1447,7 @@ $messages['ro'] = array(
 $messages['roa-tara'] = array(
 	'pendingchanges' => 'Pàggene cu cangiaminde pendende',
 	'pendingchanges-legend' => 'Liste de le pàggene riviste cu revisiune non reviste',
-	'pendingchanges-list' => "Sta pàgene elenghe {{PLURAL:$1|'na pàgene reviste ca tène|le pàggene reviste ca tènene}} cangiaminde pendende.",
+	'pendingchanges-list' => 'Sta pàgene elenghe le pàggene [[{{MediaWiki:Validationpage}}|reviste]] ca tènene cangiaminde pendende.',
 	'pendingchanges-none' => 'Non ge stonne pàggene ca ingontrene chiste criterie',
 	'pendingchanges-hours' => '($1 {{PLURAL:$1|ore|ore}})',
 	'pendingchanges-days' => '($1 {{PLURAL:$1|sciurne|sciurne}})',
@@ -1465,13 +1465,14 @@ $messages['roa-tara'] = array(
 /** Russian (Русский)
  * @author Ferrer
  * @author JenVan
+ * @author MaxSem
  * @author Putnik
  * @author Александр Сигачёв
  */
 $messages['ru'] = array(
 	'pendingchanges' => 'Страницы с непроверенными изменениями',
 	'pendingchanges-legend' => 'Список проверенных страниц с непроверенными версиями',
-	'pendingchanges-list' => 'На этой странице перечислены  [[{{MediaWiki:Validationpage}}|проверенные]] страницы, имеющие ожидающие проверки правки.',
+	'pendingchanges-list' => 'На этой странице перечислены  [[{{MediaWiki:Validationpage}}|проверенные]] страницы с правками, ожидающими проверки.',
 	'pendingchanges-none' => 'В настоящее время нет страниц, удовлетворяющих этим условиям',
 	'pendingchanges-hours' => '($1 {{PLURAL:$1|час|часа|часов}})',
 	'pendingchanges-days' => '($1 {{PLURAL:$1|день|дня|дней}})',

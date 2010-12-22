@@ -613,7 +613,7 @@ $3",
 	'validationstatistics-latest' => 'Synkronoitu',
 	'validationstatistics-synced' => 'Synkronoitu/arvioitu',
 	'validationstatistics-old' => 'Vanhentunut',
-	'validationstatistics-utable' => 'Alla on lista viidestä ahkerimmasta arvioijasta edellisen tunnin aikana.',
+	'validationstatistics-utable' => 'Alla on lueteltu {{PLURAL:$1|aktiivisin arvioija|$1 aktiivisinta arvioijaa}} edellisen tunnin ajalta.',
 	'validationstatistics-user' => 'Käyttäjä',
 	'validationstatistics-reviews' => 'Arviot',
 );
