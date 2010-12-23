@@ -7205,6 +7205,9 @@ $messages['hr'] = array(
 	'group-autoreview' => 'Samoocjenjivači',
 	'group-autoreview-member' => 'samoocjenjivač',
 	'grouppage-autoreview' => '{{ns:project}}:Samoocjenjivač',
+	'revcontents-error' => 'Ne mogu dobaviti sadržaj.',
+	'revcontents-getcontents' => 'Kliknite [{{fullurl:$1|oldid=$2}} ovdje] da vidite ovu reviziju.',
+	'revcontents-waiting' => 'Čekam na sadržaj',
 	'revreview-hist-draft' => 'neprovjerena inačica',
 	'revreview-hist-pending' => 'čeka na provjeru',
 	'revreview-hist-quality' => 'kvalitetna izmjena',
@@ -7249,18 +7252,22 @@ Postoje [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} izmjena pred
 Nove su [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} izmjene] napravljene.',
 	'revreview-basic-same' => 'Ovo je najnovija [[{{MediaWiki:Validationpage}}|pregledana]] izmjena, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} odobrena] dana <i>$2</i>.',
 	'revreview-basic-source' => '[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} Pregledana inačica] ove stranice, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} odobrena] dana <i>$2</i>, bila je osnova ove inačice.',
-	'revreview-failed' => "'''Ocjenjivanje nije uspjelo.''' Slanje nije potpuno ili nije valjano u nekom drugom pogledu.",
+	'revreview-failed' => "'''Ocjenjivanje nije uspjelo.'''",
+	'revreview-submission-invalid' => 'Slanje je nekompletno ili na drugi način nevaljano.',
 	'review_page_invalid' => 'Naslov ciljne stranice nije valjan',
 	'review_page_notexists' => 'Ciljna stranica ne postoji.',
 	'review_page_unreviewable' => 'Ciljna stranica se ne može pregledati.',
 	'review_no_oldid' => 'Nije naveden identikikacijski broj inačice.',
 	'review_bad_oldid' => 'Ciljna inačica ne postoji.',
+	'review_conflict_oldid' => 'Netko je već prihvatio ili odbio ovu reviziju dok ste je vi gledali.',
 	'review_not_flagged' => 'Ciljna inačica nije trenutačno označena kao pregledana.',
 	'review_too_low' => "Inačica ne može biti pregledane ako su neka polja ostavljena s ocjenom ''ne zadovoljava''.",
 	'review_bad_key' => 'Nevaljan ključ parametra uključivanja.',
 	'review_denied' => 'Pristup odbijen.',
 	'review_param_missing' => 'Parametar nedostaje ili nije valjan.',
 	'review_cannot_undo' => 'Ne mogu vratiti ove promjene jer su ostale izmjene na čekanju mijenjale isti odlomak stranice.',
+	'review_cannot_reject' => 'Ne možete odbiti ove promjene jer je netko već prihvatio neke (ili sve) izmjene.',
+	'review_reject_excessive' => 'Ne možete odbiti tako velik broj uređivanja odjednom.',
 	'revreview-current' => 'Izmjene na čekanju',
 	'revreview-depth' => 'Dubina',
 	'revreview-depth-0' => 'Ne zadovoljava',
@@ -7271,7 +7278,8 @@ Nove su [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} izmjene] nap
 	'revreview-draft-title' => 'Na ovoj stranici su prikazane izmjene na čekanju',
 	'revreview-edit' => 'Uredi',
 	'revreview-editnotice' => "'''Vaše izmjene ove stranice bit će prikazane čitateljima kad ih ovlašteni suradnik ocijeni. ([[{{MediaWiki:Validationpage}}|pomoć]])'''",
-	'revreview-check-flag-p' => 'Prihvati promjene na čekanju',
+	'revreview-pendingnotice' => "'''Ovo je [[{{MediaWiki:Validationpage}}|revizija na čekanju]] ove stranice. Može se razlikovati od [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} posljednje prihvaćene revizije], koja je prihvaćena dana <i>$1</i>.'''",
+	'revreview-check-flag-p' => 'Prihvati ovu verziju (uključujući $1 {{PLURAL:$1|izmjenu|izmjene|izmjena}} na čekanju)',
 	'revreview-check-flag-p-title' => 'Prihvati sve trenutne promjene na čekanju zajedno s vašim vlastitim izmjenama. Rabite ovo samo ako ste već pregledali sve razlike promjena na čekanju.',
 	'revreview-check-flag-u' => 'Prihvati ovu nepregledanu stranicu',
 	'revreview-check-flag-u-title' => 'Prihvati ovu inačicu stranice. Rabite ovo samo ako ste pregledali cijelu stranicu.',
@@ -7352,14 +7360,12 @@ Za uklanjanje pregledanog statusa inačice, kliknite na ''unaccept''.
 
 Molimo kliknite gumb \"natrag\" u Vašem web pregledniku i pokušajte opet.",
 	'revreview-update' => "'''Molimo [[{{MediaWiki:Validationpage}}|ocijenite]] sve promjene ''(prikazane dolje)'' učinjene nakon važeće inačice.'''",
-	'revreview-update-edited' => "<span class=\"flaggedrevs_important\">Vaše izmjene još uvijek nisu u stabilnoj inačici.</span>
+	'revreview-update-edited' => '<span class="flaggedrevs_important">Vaše izmjene još uvijek nisu u stabilnoj inačici.</span>
 
-Molimo provjerite sve izmjene prikazane ispod da bi se vaše izmjene prikazale u stabilnoj inačici.
-Možda biste trebali provjeriti ili ''vratiti'' izmjene.",
-	'revreview-update-edited-prev' => "<span class=\"flaggedrevs_important\">Vaše izmjene još uvijek nisu u stabilnoj inačici. Postoje ranije izmjene koje su na čekanju za provjeru</span>
+Molimo provjerite sve izmjene prikazane ispod da bi se vaše izmjene prikazale u stabilnoj inačici.',
+	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Vaše izmjene još uvijek nisu u stabilnoj inačici. Postoje ranije izmjene koje su na čekanju za provjeru</span>
 
-Molimo provjerite sve izmjene prikazane ispod da bi se vaše izmjene prikazale u stabilnoj inačici.
-Možda biste trebali provjeriti ili ''vratiti'' izmjene.",
+Molimo provjerite sve izmjene prikazane ispod da bi se vaše izmjene prikazale u stabilnoj inačici.',
 	'revreview-update-includes' => "'''Neki predlošci/datoteke su ažurirane:'''",
 	'revreview-update-use' => "'''NAPOMENA:''' Ako bilo koji od ovih predložaka/datoteka imaju važeću inačicu, tada se rabe u važećoj inačici ove stranice.",
 	'revreview-visibility' => "'''Ova stranica ima ažuriranu [[{{MediaWiki:Validationpage}}|važeću inačicu]]; postavke stabilnosti stranice mogu biti [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} namještene].'''",
