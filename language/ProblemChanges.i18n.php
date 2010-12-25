@@ -365,6 +365,7 @@ $messages['hu'] = array(
  */
 $messages['ia'] = array(
 	'problemchanges' => 'Modificationes pendente etiquettate',
+	'problemchanges-list' => 'Iste pagina lista le paginas [[{{MediaWiki:Validationpage}}|revidite]] con un o plus modificationes marcate que attende revision. Un lista de marcas valide de cambio se trova a [[Special:Tags]].',
 	'problemchanges-legend' => 'Listar paginas con modificationes etiquettate que attende revision',
 	'problemchanges-none' => 'Al momento il non ha paginas que satisface iste criterios',
 	'problemchanges-category' => 'Categoria:',
@@ -469,6 +470,7 @@ $messages['ksh'] = array(
  */
 $messages['lb'] = array(
 	'problemchanges' => 'Markéiert Ännerunge am Suspens',
+	'problemchanges-list' => 'Op dëser Säit stinn [[{{MediaWiki:Validationpage}}|nogekuckte]] Säiten déi eng oder méi Versiounen hunn déi nach drop waarde fir nogekuckt ze ginn. Eng Lëscht vun de valabelen Ännerungsmarkéierunge fannt Dir op [[Special:Tags]].',
 	'problemchanges-legend' => 'Lëscht vun de markéierte Säiten déi nach net nogekuckt sinn',
 	'problemchanges-none' => 'Et gëtt el keng Säiten déi dës Kriterien entspriechen',
 	'problemchanges-category' => 'Kategorie:',
@@ -539,6 +541,7 @@ $messages['nn'] = array(
  */
 $messages['no'] = array(
 	'problemchanges' => 'Merket ventende endringer',
+	'problemchanges-list' => 'Denne siden lister opp [[{{MediaWiki:Validationpage}}|reviderte]] sider med en eller flere merkede ventende endringer. En liste over gyldige endringsmerkelapper kan finnes på [[Special:Tags]].',
 	'problemchanges-legend' => 'Vis sider som inneholder merkede redigeringer som trenger gjennomsyn',
 	'problemchanges-none' => 'Det er for øyeblikket ingen sider som passer med disse kjennetegnene',
 	'problemchanges-category' => 'Kategori:',
