@@ -3556,7 +3556,7 @@ Bitte markiere alle unten angezeigten Änderungen, damit deine Bearbeitungen zur
 	'revreview-reject-summary-cur' => 'Die {{PLURAL:$1|letzte Änderung|$1 letzten Änderungen}} von $2 {{PLURAL:$1|wurde|wurden}} verworfen und die Version $3 von $4 wiederhergestellt',
 	'revreview-reject-summary-old' => 'Die {{PLURAL:$1|erste Änderung|$1 ersten Änderungen}} von $2, die auf die Version $3 von $4  {{PLURAL:$1|folgte, wurde|folgten, wurden}} verworfen',
 	'revreview-reject-summary-cur-short' => 'Die {{PLURAL:$1|letzte Änderung wurde|$1 letzten Änderungen wurden}} verworfen und die Version $2 von $3 wiederhergestellt',
-	'revreview-reject-summary-old-short' => 'Die {{PLURAL:$1|erste Änderung|$1 ersten Änderungen}}, die auf die Version $2 von $3  {{PLURAL:$1|folgte, wurde|folgten, wurden}} verworfen',
+	'revreview-reject-summary-old-short' => '{{PLURAL:$1|Die erste Änderung|$1 Änderungen}}, die auf die Version $2 von $3 {{PLURAL:$1|folgte, wurde|folgten, wurden}} verworfen',
 	'revreview-reject-usercount' => '{{PLURAL:$1|Ein Benutzer|$1 Benutzer}}',
 	'revreview-reviewlink' => 'markieren',
 	'revreview-reviewlink-title' => 'Betrachte den Unterschied aller unmarkierten Änderungen',
