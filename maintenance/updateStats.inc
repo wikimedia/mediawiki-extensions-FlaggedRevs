@@ -151,11 +151,11 @@ function getAveReviewTimesAnons( $dbr, $dbCache ) {
 			__METHOD__,
 			array( 'ORDER BY' => 'rev_timestamp DESC', 'LIMIT' => 1 )
 		);
-		# Fudge factor to prevent deliberate reviewing of non-current revisions
-		# from squeezing the range. Shouldn't effect anything otherwise.
 		if ( $row->fpp_rev_id >= $idealRev ) {
 			$worstLagTS = $row->fpp_pending_since;
-			break;
+			break; // sane $worstLagTS found
+		# Fudge factor to prevent deliberate reviewing of non-current revisions
+		# from squeezing the range. Shouldn't effect anything otherwise.
 		} else {
 			$last = $row->fpp_pending_since; // next iteration
 		}
@@ -209,20 +209,17 @@ function getAveReviewTimesAnons( $dbr, $dbCache ) {
 	}
 	$mod = max( floor( $edits/$sampleSize ), 1 ); # $mod >= 1
 	# For edits that started off pending, how long do they take to get reviewed?
-	# Edits started off pending if they were made when a flagged rev of the page already existed.
+	# Edits started off pending if made when a flagged rev of the page already existed.
 	# Get the *first* reviewed rev *after* each edit and get the time difference.
-	list($revision,$page,$flaggedrevs) = $dbr->tableNamesN('revision','page','flaggedrevs');
-	$reviewableNS = $dbr->makeList( $wgFlaggedRevsNamespaces );
+	list($revision,$flaggedrevs) = $dbr->tableNamesN('revision','flaggedrevs');
 	$sql = "
 		SELECT
 			MIN(rev_timestamp) AS rt, MAX(p.fr_timestamp) AS pft, MIN(n.fr_timestamp) AS nft
 		FROM $revision
-		INNER JOIN $page FORCE INDEX (PRIMARY) ON
-			(page_id = rev_page AND page_namespace IN ($reviewableNS))
 		INNER JOIN $flaggedrevs AS p FORCE INDEX (PRIMARY) ON
-			(p.fr_page_id = page_id AND p.fr_rev_id < rev_id AND p.fr_timestamp < rev_timestamp)
-		LEFT JOIN $flaggedrevs AS n FORCE INDEX (PRIMARY) ON
-			(n.fr_page_id = page_id AND n.fr_rev_id >= rev_id AND n.fr_timestamp >= rev_timestamp)
+			(p.fr_page_id = rev_page AND p.fr_rev_id < rev_id AND p.fr_timestamp < rev_timestamp)
+		INNER JOIN $flaggedrevs AS n FORCE INDEX (PRIMARY) ON
+			(n.fr_page_id = rev_page AND n.fr_rev_id >= rev_id AND n.fr_timestamp >= rev_timestamp)
 		WHERE
 			((rev_user = 0) AND ($timeCondition) AND ((rev_id % $mod) = 0))
 		GROUP BY rev_id";
@@ -233,20 +230,12 @@ function getAveReviewTimesAnons( $dbr, $dbCache ) {
 	$aveRT = $medianRT = 0;
 	if ( $dbr->numRows( $res ) ) {
 		$times = array();
-		# Get the sum of elapsed times
+		# Get the elapsed times revs were pending (flagged time - edit time)
 		foreach( $res as $row ) {
-			# Reviewed: just subtract the times (flagged - edit made)
-			if ( $row->nft != null ) {
-				$time = wfTimestamp(TS_UNIX,$row->nft) - wfTimestamp(TS_UNIX,$row->rt);
-				$time = max( $time, 0 ); // sanity
-				$secondsR += $time;
-				$times[] = $time;
-			# Not reviewed yet: censored data (now - edit made)
-			} else {
-				$time = $nowUnix - wfTimestamp(TS_UNIX,$row->rt);
-				$time = max( $time, 0 ); // sanity
-				$secondsP += $time;
-			}
+			$time = wfTimestamp(TS_UNIX,$row->nft) - wfTimestamp(TS_UNIX,$row->rt);
+			$time = max( $time, 0 ); // sanity
+			$secondsR += $time;
+			$times[] = $time;
 			#echo( "\nedit:".$row->rt . "\twait:" . $time );
 		}
 		$sampleSize = count($times);
