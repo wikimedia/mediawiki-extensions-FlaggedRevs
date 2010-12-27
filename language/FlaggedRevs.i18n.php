@@ -308,6 +308,7 @@ Please check the URL you used to access this page.',
  * @author IAlex
  * @author Jon Harald Søby
  * @author Liangent
+ * @author Lloffiwr
  * @author McDutchie
  * @author Meno25
  * @author Prima klasy4na
@@ -607,7 +608,11 @@ Default summary shown when rejecting pending changes, and they are the latest re
 	'revreview-reject-summary-old-short' => '{{Flagged Revs-small}}
 Default summary shown when rejecting pending changes.
 * $1 is the number of rejected revisions
-* $3 is the revision ID of the revision before the first pending change',
+* $3 is the revision ID of the revision before the first pending change
+
+Alternative sentences which mean the same as the above message are:
+* Rejected the next {{PLURAL:$1|change|$1 changes}} that followed revision $2 by $3
+* Rejected the {{PLURAL:$1|change|$1 changes}} that immediately followed revision $2 by $3',
 	'revreview-reject-usercount' => '{{Identical|User}}',
 	'revreview-reviewlink' => '{{Flagged Revs}}',
 	'tooltip-ca-current' => '{{Flagged Revs}}',
