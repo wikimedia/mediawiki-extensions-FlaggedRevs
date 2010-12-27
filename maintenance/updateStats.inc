@@ -24,7 +24,7 @@ function update_flaggedrevs_stats() {
 
 	$dbr = wfGetDB( DB_SLAVE );
 	// Get total, reviewed, and synced page count for each namespace
-	$ret = $dbr->select( array( 'page', 'flaggedpages' ),
+	$res = $dbr->select( array( 'page', 'flaggedpages' ),
 		array( 'page_namespace',
 			'COUNT(*) AS total',
 			'COUNT(fp_page_id) AS reviewed',
@@ -34,7 +34,7 @@ function update_flaggedrevs_stats() {
 		array( 'GROUP BY' => 'page_namespace' ),
 		array( 'flaggedpages' => array( 'LEFT JOIN', 'fp_page_id = page_id' ) )
 	);
-	while ( $row = $dbr->fetchObject( $ret ) ) {
+	foreach ( $res as $row ) {
 		$ns_total[$row->page_namespace] = (int)$row->total;
 		$ns_reviewed[$row->page_namespace] = (int)$row->reviewed;
 		$ns_synced[$row->page_namespace] = (int)$row->reviewed - (int)$row->pending;

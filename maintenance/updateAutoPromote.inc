@@ -5,9 +5,10 @@ function update_autopromote() {
 	$batchSize = 50;
 	echo "Populating and updating flaggedrevs_promote table\n";
 
-	$db = wfGetDB( DB_SLAVE );
-	$start = $db->selectField( 'user', 'MIN(user_id)', false, __FUNCTION__ );
-	$end = $db->selectField( 'user', 'MAX(user_id)', false, __FUNCTION__ );
+	$dbr = wfGetDB( DB_SLAVE );
+	$dbw = wfGetDB( DB_MASTER );
+	$start = $dbr->selectField( 'user', 'MIN(user_id)', false, __FUNCTION__ );
+	$end = $dbr->selectField( 'user', 'MAX(user_id)', false, __FUNCTION__ );
 	if( is_null( $start ) || is_null( $end ) ){
 		echo "...user table seems to be empty.\n";
 		return;
@@ -18,31 +19,32 @@ function update_autopromote() {
 		$blockEnd = min( $end, $blockStart + $batchSize - 1 );
 		echo "...doing user_id from $blockStart to $blockEnd\n";
 		$cond = "user_id BETWEEN $blockStart AND $blockEnd\n";
-		$res = $db->select( 'user', '*', $cond, __FUNCTION__ );
+		$res = $dbr->select( 'user', '*', $cond, __FUNCTION__ );
 		# Go through and clean up missing items, as well as correct fr_quality...
 		foreach( $res as $row ) {
+			$dbw->begin();
 			$user = User::newFromRow( $row );
 			$p = FRUserCounters::getUserParams( $user->getId(), FR_FOR_UPDATE );
 			$oldp = $p;
 			# Get edit comments used
-			$sres = $db->select( 'revision', '1',
+			$sres = $dbr->select( 'revision', '1',
 				array( 'rev_user' => $user->getID(),
 					"rev_comment NOT LIKE '/*%*/'" ), // manual comments only
 				__METHOD__,
 				array( 'LIMIT' => max($wgFlaggedRevsAutopromote['editComments'],500) )
 			);
-			$p['editComments'] = $db->numRows( $sres );
+			$p['editComments'] = $dbr->numRows( $sres );
 			# Get content page edits
-			$sres = $db->select( array('revision','page'), '1',
+			$sres = $dbr->select( array('revision','page'), '1',
 				array( 'rev_user' => $user->getID(),
 					'page_id = rev_page',
 					'page_namespace' => $wgContentNamespaces ),
 				__METHOD__,
 				array( 'LIMIT' => max($wgFlaggedRevsAutopromote['totalContentEdits'],500) )
 			);
-			$p['totalContentEdits'] = $db->numRows( $sres );
+			$p['totalContentEdits'] = $dbr->numRows( $sres );
 			# Get unique content pages edited
-			$sres = $db->select( array('revision','page'), 'DISTINCT(rev_page)',
+			$sres = $dbr->select( array('revision','page'), 'DISTINCT(rev_page)',
 				array( 'rev_user' => $user->getID(),
 					'page_id = rev_page', 
 					'page_namespace' => $wgContentNamespaces ),
@@ -60,6 +62,7 @@ function update_autopromote() {
 			}
 		
 			$count++;
+			$dbw->commit();
 		}
 		wfWaitForSlaves( 5 );
 	}
