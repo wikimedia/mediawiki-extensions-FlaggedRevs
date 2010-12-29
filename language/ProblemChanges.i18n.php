@@ -151,6 +151,7 @@ $messages['cs'] = array(
  * @author Kghbln
  * @author Khaledelmansoury
  * @author Merlissimo
+ * @author Metalhead64
  * @author Umherirrender
  */
 $messages['de'] = array(
@@ -368,7 +369,7 @@ $messages['hu'] = array(
  */
 $messages['ia'] = array(
 	'problemchanges' => 'Modificationes pendente etiquettate',
-	'problemchanges-list' => 'Iste pagina lista le paginas [[{{MediaWiki:Validationpage}}|revidite]] con un o plus modificationes marcate que attende revision. Un lista de marcas valide de cambio se trova a [[Special:Tags]].',
+	'problemchanges-list' => 'Iste pagina lista le paginas [[{{MediaWiki:Validationpage}}|revidite]] con un o plus modificationes marcate que attende revision. Un lista de [[Special:Tags|marcas valide de cambio]] es disponibile.',
 	'problemchanges-legend' => 'Listar paginas con modificationes etiquettate que attende revision',
 	'problemchanges-none' => 'Al momento il non ha paginas que satisface iste criterios',
 	'problemchanges-category' => 'Categoria:',
@@ -603,10 +604,11 @@ $messages['ps'] = array(
  * @author Giro720
  * @author Hamilton Abreu
  * @author Malafaya
+ * @author Waldir
  */
 $messages['pt'] = array(
 	'problemchanges' => 'Alterações pendentes que foram assinaladas',
-	'problemchanges-list' => 'Esta página lista as [[{{MediaWiki:Validationpage}}|páginas sujeitas a revisão]] com edições pendentes marcadas com etiquetas de edição. Pode encontrar uma lista da etiquetas de edição válidas em [[Special:Tags]].',
+	'problemchanges-list' => 'Esta página lista as [[{{MediaWiki:Validationpage}}|páginas sujeitas a revisão]] com uma ou mais edições pendentes marcadas com etiquetas de edição. Pode encontrar uma lista de etiquetas de edição válidas em [[Special:Tags]].',
 	'problemchanges-legend' => 'Listar páginas com edições marcadas a aguardar revisão',
 	'problemchanges-none' => 'De momento, não há páginas que satisfaçam estes critérios',
 	'problemchanges-category' => 'Categoria:',
