@@ -647,7 +647,7 @@ class FlaggedRevision {
 			}
 			# Compare to current...
 			$updated = false; // edited/created
-			if ( $revIdDraft && $revIdDraft > $revIdStable ) {
+			if ( $revIdDraft && $revIdDraft != $revIdStable ) {
 				$dRev = Revision::newFromId( $revIdDraft );
 				$sRev = Revision::newFromId( $revIdStable );
 				# Don't do this for null edits (like protection) (bug 25919)
@@ -714,9 +714,7 @@ class FlaggedRevision {
 			if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_STABLE ) {
 				$stableTS = wfTimestampOrNull( TS_MW, $row->fr_img_timestamp );
 				# Select newest of (stable rev, rev when reviewed) as "version used"
-				$tsStable = ( $stableTS >= $reviewedTS )
-					? $stableTS
-					: $reviewedTS;
+				$tsStable = ( $stableTS >= $reviewedTS ) ? $stableTS : $reviewedTS;
 			} else {
 				$tsStable = $reviewedTS;
 			}

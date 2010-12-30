@@ -149,7 +149,7 @@ $wgFlaggedRevsAutopromote = array(
 	// Either totalContentEdits reqs OR totalCheckedEdits requirements needed
 	'totalContentEdits' 	=> 300, # edits to pages in $wgContentNamespaces
 	'totalCheckedEdits' 	=> 200, # edits before the stable version of pages
-	'uniqueContentPages'	=> 12, # unique pages in $wgContentNamespaces edited
+	'uniqueContentPages'	=> 14, # unique pages in $wgContentNamespaces edited
 	'editComments'      	=> 50, # number of manual edit summaries used
 	'userpageBytes'     	=> 0, # size of userpage (use 0 to not require a userpage)
 	'neverBlocked'      	=> true, # username was never blocked before?
