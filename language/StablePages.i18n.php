@@ -413,7 +413,8 @@ $messages['hi'] = array(
  */
 $messages['hr'] = array(
 	'stablepages' => 'Stranice koje rabe potvrdu uređivanja',
-	'stablepages-list' => 'Ispod je popis stranica koje su ručno podešene kako bi prikazivale važeću inačicu kao zadani sadržaj stranice za čitače sadržaja.',
+	'stablepages-list' => 'Ispod je popis stranica koje samo određeni suradnici mogu mijenjati a te izmjene ne zahtjevaju provjeru.
+Izmjene drugih suradnika nisu prikazane čitateljima po postavkama dok ih ne provjeri autorizirani suradnik.',
 	'stablepages-none' => 'Nema stranica u ovom popisu',
 	'stablepages-config' => 'Postavka',
 	'stablepages-indef' => 'Samo bez isteka roka',
@@ -964,13 +965,14 @@ $messages['yue'] = array(
 
 /** Simplified Chinese (‪中文(简体)‬)
  * @author Gaoxuewei
+ * @author Hydra
  * @author Shinjiman
  * @author Xiaomingyan
  */
 $messages['zh-hans'] = array(
 	'stablepages' => '页面已经通过审核',
-	'stablepages-list' => '以下的页面列示出一些页面是手动地设定去显示稳定版作为观看者做预设页面版内容，
-只有指定用户的编辑才不需要通过审核。',
+	'stablepages-list' => '下面是，只有某些用户可以进行编辑，不需要审查的页的列表。
+由其他用户所做的编辑读者在默认情况下才显示授权的用户审查他们。',
 	'stablepages-none' => '没有页面在这个列表中',
 	'stablepages-config' => '设置',
 	'stablepages-indef' => '只限永久到期',

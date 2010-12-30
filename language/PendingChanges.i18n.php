@@ -786,9 +786,9 @@ $messages['hi'] = array(
  * @author SpeedyGonsales
  */
 $messages['hr'] = array(
-	'pendingchanges' => 'Zastarjele ocjenjene stranice',
+	'pendingchanges' => 'Stranice s uređivanjima koja čekaju pregled',
 	'pendingchanges-legend' => 'Popis ocjenjenih stranica s izmjenama koje čekaju ocjenu',
-	'pendingchanges-list' => 'Ova stranica navodi {{PLURAL:$1|ocjenjenu stranicu koja čeka|ocjenjene stranice koje čekaju}} uređivanja.',
+	'pendingchanges-list' => 'Ova stranica navodi [[{{MediaWiki:Validationpage}}|pregledane]] stranice koje imaju jedno ili više uređivanja na čekanju.',
 	'pendingchanges-none' => 'Trenutačno nema stranica koje zadovoljavaju ove kriterije',
 	'pendingchanges-hours' => '($1 {{PLURAL:$1|sat|sata|sati}})',
 	'pendingchanges-days' => '($1 {{PLURAL:$1|dan|dana}})',
@@ -1876,6 +1876,7 @@ $messages['yue'] = array(
  * @author Chenxiaoqino
  * @author Gaoxuewei
  * @author Gzdavidwong
+ * @author Hydra
  * @author Jimmy xu wrk
  * @author Liangent
  * @author Shinjiman
@@ -1883,14 +1884,14 @@ $messages['yue'] = array(
 $messages['zh-hans'] = array(
 	'pendingchanges' => '已过时复审过的页面',
 	'pendingchanges-legend' => '列示有未复审修订之复审过的页面',
-	'pendingchanges-list' => '这个页面列示出{{PLURAL:$1|一个|一些}}正等候编辑之评论页面。',
+	'pendingchanges-list' => '本页面列出了[[{{MediaWiki:Validationpage}}|被审查]]页具有一个或多个等待审查的编辑。',
 	'pendingchanges-none' => '这里现时没有页面系合乎这些条件',
 	'pendingchanges-hours' => '（$1小时）',
 	'pendingchanges-days' => '（$1日）',
 	'pendingchanges-recent' => '（少于1小时）',
 	'pendingchanges-category' => '分类：',
 	'pendingchanges-onwatchlist' => '我的监视列表中的页面',
-	'pendingchanges-stable' => '察看',
+	'pendingchanges-stable' => '稳定版本是默认值',
 	'pendingchanges-diff' => '复审',
 	'pendingchanges-size' => '最大变更（字节）：',
 	'pendingchanges-unwatched' => '（未看）',

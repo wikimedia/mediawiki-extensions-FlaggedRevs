@@ -336,6 +336,7 @@ $messages['he'] = array(
  */
 $messages['hr'] = array(
 	'problemchanges' => 'Označene promjene na čekanju',
+	'problemchanges-list' => 'Ova stranica prikazuje [[{{MediaWiki:Validationpage}}|pregledane]] stranice koje imaju jedno ili više označenih uređivanja koja čekaju provjeru. Popis [[Special:Tags|valjanih oznaka izmjena]] je dostupan.',
 	'problemchanges-legend' => 'Popis stranica s označenim izmjenama koje čekaju ocjenu',
 	'problemchanges-none' => 'Trenutačno nema stranica koje zadovoljavaju ove kriterije',
 	'problemchanges-category' => 'Kategorija:',
@@ -843,10 +844,12 @@ $messages['vo'] = array(
 
 /** Simplified Chinese (‪中文(简体)‬)
  * @author Gaoxuewei
+ * @author Hydra
  * @author Jimmy xu wrk
  */
 $messages['zh-hans'] = array(
 	'problemchanges' => '标记审核',
+	'problemchanges-list' => '本页面列出了[[{{MediaWiki:Validationpage}}|被审查过]]的页具有一个或多个标记的编辑等待审查。[[Special:Tags|有效更改标记]] 列表中是可用的。',
 	'problemchanges-legend' => '列出页面正等待审核',
 	'problemchanges-none' => '目前没有页面符合这些条件',
 	'problemchanges-category' => '分类：',

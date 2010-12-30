@@ -835,7 +835,7 @@ $3",
 	'validationstatistics-latest' => 'Sinkronizirano',
 	'validationstatistics-synced' => 'Usklađeno/Ocijenjeno',
 	'validationstatistics-old' => 'Zastarjelo',
-	'validationstatistics-utable' => 'Ispod je popis top $1 ocjenjivača u zadnjih sat vremena.',
+	'validationstatistics-utable' => 'Ispod je popis {{PLURAL:$1|najaktivnijeg|$1 najaktivnija|$1 najaktivnijih}} ocjenjivača u zadnjih sat vremena.',
 	'validationstatistics-user' => 'Suradnik',
 	'validationstatistics-reviews' => 'Ocjene',
 );
@@ -2088,6 +2088,7 @@ $messages['yi'] = array(
 /** Simplified Chinese (‪中文(简体)‬)
  * @author Bencmq
  * @author Gaoxuewei
+ * @author Hydra
  */
 $messages['zh-hans'] = array(
 	'validationstatistics' => '审核统计',
@@ -2099,14 +2100,16 @@ $messages['zh-hans'] = array(
 
 平均延迟 [[Special:OldReviewedPages|页面编辑是未审核]]的等待时间是'''$1'''。 
 这些网页被认为是''过时''的。同样，网页被认为是''最新''，如果没有修改等待审核的话。",
-	'validationstatistics-table' => "各名称空间的统计信息显示如下，''不包含''转向页。",
+	'validationstatistics-revtime' => "平均等待''没有登录的用户''的编辑审查是'''$1'''；中值是'''$2'''。
+$3",
+	'validationstatistics-table' => "每个命名空间的页审查统计信息如下所示，'''不包括'''重定向页。",
 	'validationstatistics-ns' => '名字空间',
 	'validationstatistics-total' => '页',
 	'validationstatistics-stable' => '已复审',
 	'validationstatistics-latest' => '已同步',
 	'validationstatistics-synced' => '已同步/已复审',
 	'validationstatistics-old' => '已过期',
-	'validationstatistics-utable' => '如下列表是过去一小时内前$1名审核者。',
+	'validationstatistics-utable' => '下面是一个列表，在最后一个小时{{PLURAL:$1|最活跃的审查家|最活跃的$1审查家}}。',
 	'validationstatistics-user' => '用户',
 	'validationstatistics-reviews' => '审核者',
 );

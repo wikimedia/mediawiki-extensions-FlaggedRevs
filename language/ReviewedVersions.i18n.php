@@ -1252,6 +1252,7 @@ $messages['yue'] = array(
 
 /** Simplified Chinese (‪中文(简体)‬)
  * @author Gaoxuewei
+ * @author Hydra
  * @author Liangent
  */
 $messages['zh-hans'] = array(
@@ -1259,7 +1260,7 @@ $messages['zh-hans'] = array(
 	'reviewedversions-leg1' => '列示一版已复审的修订',
 	'reviewedversions-page' => '页面名',
 	'reviewedversions-none' => '[[:$1]]没有已复审过的修订。',
-	'reviewedversions-list' => '以下是[[:$1]]已复审的修订列表：',
+	'reviewedversions-list' => '以下是列表的{{PLURAL:$2|唯一被审查过|被审查过}}的[[:$1]]已被审查：',
 	'reviewedversions-review' => '由$2于<i>$1</i>进行了复审',
 );
 
