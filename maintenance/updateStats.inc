@@ -211,10 +211,10 @@ function getAveReviewTimesAnons( $dbr, $dbCache ) {
 	# For edits that started off pending, how long do they take to get reviewed?
 	# Edits started off pending if made when a flagged rev of the page already existed.
 	# Get the *first* reviewed rev *after* each edit and get the time difference.
-	list($revision,$flaggedrevs) = $dbr->tableNamesN('revision','flaggedrevs');
+	list( $revision, $flaggedrevs ) = $dbr->tableNamesN( 'revision', 'flaggedrevs' );
 	$sql = "
 		SELECT
-			MIN(rev_timestamp) AS rt, MAX(p.fr_timestamp) AS pft, MIN(n.fr_timestamp) AS nft
+			MIN(rev_timestamp) AS rt, MIN(n.fr_timestamp) AS nft, MAX(p.fr_rev_id) 
 		FROM $revision
 		INNER JOIN $flaggedrevs AS p FORCE INDEX (PRIMARY) ON
 			(p.fr_page_id = rev_page AND p.fr_rev_id < rev_id AND p.fr_timestamp < rev_timestamp)
