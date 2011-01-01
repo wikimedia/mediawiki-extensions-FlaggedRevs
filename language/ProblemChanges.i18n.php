@@ -576,7 +576,7 @@ $messages['pdc'] = array(
  */
 $messages['pl'] = array(
 	'problemchanges' => 'Przeglądanie wątpliwych zmian',
-	'problemchanges-list' => 'Na tej stronie znajduje się spis [[{{MediaWiki:Validationpage}}|przejrzanych]] stron, które mają jedną lub więcej oznakowanych edycji czekających na przejrzenie. Listę prawidłowych oznakowań można sprawdzić na stronie [[Special:Tags]].',
+	'problemchanges-list' => 'Na tej stronie znajduje się spis [[{{MediaWiki:Validationpage}}|przejrzanych]] stron, które mają jedną lub więcej oznakowanych edycji czekających na przejrzenie. Dostępna jest również [[Special:Tags|lista prawidłowych oznakowań]].',
 	'problemchanges-legend' => 'Lista stron z oznakowanymi wersjami oczekującymi na przejrzenie',
 	'problemchanges-none' => 'Obecnie nie ma stron spełniających podane kryteria',
 	'problemchanges-category' => 'Kategoria',
