@@ -383,7 +383,7 @@ $messages['ia'] = array(
  */
 $messages['id'] = array(
 	'problemchanges' => 'Pemberian label penundaan perubahan',
-	'problemchanges-list' => 'Halaman ini berisi daftar halaman [[{{MediaWiki:Validationpage}}|tertinjau]] yang memiliki satu atau lebih suntingan bertanda menunggu tinjauan. Daftar tag perubahan yang berlaku dapat ditemukan pada [[Special:Tags]].',
+	'problemchanges-list' => 'Halaman ini berisi daftar halaman [[{{MediaWiki:Validationpage}}|tertinjau]] yang memiliki satu atau lebih suntingan bertanda menunggu tinjauan. Lihat [[Special:Tags|daftar tanda yang sah]].',
 	'problemchanges-legend' => 'Daftarkan halaman dengan suntingan bertag menunggu tinjauan',
 	'problemchanges-none' => 'Saat ini tidak ada halaman yang memenuhi kriteria tersebut',
 	'problemchanges-category' => 'Kategori:',

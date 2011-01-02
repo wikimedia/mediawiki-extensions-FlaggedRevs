@@ -2937,6 +2937,7 @@ Asnjë konfigurim nuk është i mundshëm.',
 
 /** Serbian Cyrillic ekavian (Српски (ћирилица))
  * @author Millosh
+ * @author Rancher
  * @author Sasa Stefanovic
  * @author Жељко Тодоровић
  * @author Михајло Анђелковић
@@ -2961,7 +2962,7 @@ $messages['sr-ec'] = array(
 	'stabilization-otherreason' => 'Други разлог:',
 	'stabilization-expiry' => 'Истиче:',
 	'stabilization-othertime' => 'Друго време:',
-	'stabilization-def-short' => 'Основно',
+	'stabilization-def-short' => 'Подразумевано',
 	'stabilization-def-short-0' => 'Тренутно',
 	'stabilization-def-short-1' => 'Прихваћено',
 	'stabilize_page_invalid' => 'Наслов циљане стране је неисправан.',

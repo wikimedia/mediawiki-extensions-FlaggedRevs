@@ -6774,7 +6774,7 @@ $messages['he'] = array(
 	'action-review' => 'לאשר גרסאות',
 	'editor' => 'עורך',
 	'flaggedrevs' => 'גרסאות מסומנות',
-	'flaggedrevs-watched-pending' => "יש [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} עריכות ממתינות] בדפים שנבדקו הנמצאים ברשימת המעקב שלך. '''תשומת לבך נדרשת!'''",
+	'flaggedrevs-watched-pending' => "יש [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} עריכות ממתינות] בדפים נבדקים שנמצאים ברשימת המעקב שלך. '''נדרשת פעולה!'''",
 	'flaggedrevs-desc' => 'הענקת אפשרות לעורכים לאשר גרסאות ולייצב דפים',
 	'flaggedrevs-pref-UI' => 'ממשק בסיסי:',
 	'flaggedrevs-pref-UI-0' => 'תיבות מפורטות להצגת מצב הביקורת של הדפים',
@@ -7750,6 +7750,7 @@ $messages['hu'] = array(
 	'grouppage-autoreview' => '{{ns:project}}:Automatikusan megerősített szerkesztő',
 	'revcontents-error' => 'Nem sikerült lekérni a tartalmat.',
 	'revcontents-getcontents' => '[{{fullurl:$1|oldid=$2}} Változat megtekintése]',
+	'revcontents-waiting' => 'Tartalom betöltése',
 	'revreview-hist-draft' => 'nem ellenőrzött változat',
 	'revreview-hist-pending' => 'ellenőrzés folyamatban',
 	'revreview-hist-quality' => 'minőségi változat',
@@ -7955,7 +7956,7 @@ Kérlek, ellenőrizd az URL-t, amivel erre a lapra jutottál.',
 	'revreview-reject-cancel' => 'Mégse',
 	'revreview-reject-summary-cur' => 'Visszavontam az utolsó {{PLURAL:$1||$1&#32;}}változtatást (szerkesztette $2); előző változat: $3 ($4)',
 	'revreview-reject-summary-old' => 'Visszavontam az első {{PLURAL:$1||$1&#32;}}változtatást (szerkesztette $2); következő változat: $3 ($4)',
-	'revreview-reject-summary-cur-short' => 'Visszavontam az utolsó {{PLURAL:$1||$1&#32;}}változtatást; előző változat: $2 ($3)',
+	'revreview-reject-summary-cur-short' => 'Visszavontam az utolsó {{PLURAL:$1||$1}} változtatást; előző változat: $2 ($3)',
 	'revreview-reject-summary-old-short' => 'Visszavontam az első {{PLURAL:$1||$1&#32;}}változtatást; következő változat: $2 ($3)',
 	'revreview-reject-usercount' => '{{PLURAL:$1|egy felhasználó|$1 felhasználó}}',
 	'revreview-reviewlink' => 'ellenőrizendő',
@@ -15847,7 +15848,9 @@ Vänligen granska alla ändringar som visas nedan för att göra så att dina re
 	'validationpage' => '{{ns:help}}:Sidvalidering',
 );
 
-/** Swahili (Kiswahili) */
+/** Swahili (Kiswahili)
+ * @author Lloffiwr
+ */
 $messages['sw'] = array(
 	'revreview-log-details-hide' => 'ficha maelezo mengine',
 	'revreview-auto' => '(kwa kujiendesha)',
@@ -15857,6 +15860,7 @@ $messages['sw'] = array(
 	'revreview-filter-all' => 'zote',
 	'revreview-filter-auto' => 'Kwa kujiendesha',
 	'revreview-restriction-none' => 'usichague',
+	'revreview-reject-summary-old-short' => '{{PLURAL:$1|Badiliko la kwanza lililofuata|Mabadiliko ya $1 yaliyofuata}} pitio la $2 lililoandikwa na $3',
 );
 
 /** Silesian (Ślůnski)
@@ -17233,9 +17237,9 @@ $messages['uk'] = array(
 Див. також [[Special:Unreviewedpages|список неперевірених сторінок]].',
 	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Опублікована версія] була [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} перевірена] <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|нерецензована зміна|нерецензовані зміни|нерецензованих змін}}] {{PLURAL:$3|очікує|очікують|очікують}} на перевірку.',
-	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Опублікована версія] була [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} перевірена] <i>$2</i>. Є [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} зміни шаблона/файлу], що очікують на перевірку.',
+	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Опублікована версія] була [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} перевірена] <i>$2</i>. Є [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} зміни шаблону/файлу], що очікують на перевірку.',
 	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Опублікована версія] була [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} затверджена] <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|нерецензована зміна|нерецензовані зміни|нерецензованих змін}}] {{PLURAL:$3|очікує|очікують|очікують}} на перевірку.',
-	'revreview-newest-quality-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Опублікована версія] була [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} затверджена] <i>$2</i>. Є [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} зміни шаблона/файлу], що очікують на перевірку.',
+	'revreview-newest-quality-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Опублікована версія] була [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} затверджена] <i>$2</i>. Є [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} зміни шаблону/файлу], що очікують на перевірку.',
 	'revreview-pending-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Опублікована версія] була [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} перевірена] <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|нерецензована зміна|нерецензовані зміни|нерецензованих змін}}] {{PLURAL:$3|очікує|очікують|очікують}} на перевірку.',
 	'revreview-pending-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Опублікована версія] була [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} затверджена] <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|нерецензована зміна|нерецензовані зміни|нерецензованих змін}}] {{PLURAL:$3|очікує|очікують|очікують}} на перевірку.',
 	'revreview-pending-nosection' => 'Спробуйте переглянути [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} останню версію], яка містить
@@ -17247,7 +17251,7 @@ $messages['uk'] = array(
 	'revreview-quality' => 'Це [[{{MediaWiki:Validationpage}}|опублікована версія]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} затверджена] <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|нерецензована зміна|нерецензовані зміни|нерецензованих змін}}] {{PLURAL:$3|очікує|очікують|очікують}} на перевірку.',
 	'revreview-quality-i' => 'Це [[{{MediaWiki:Validationpage}}|опублікована версія]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} затверджена] <i>$2</i>.
-Є [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} зміни шаблона/файлу], що очікують на перевірку.',
+Є [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} зміни шаблону/файлу], що очікують на перевірку.',
 	'revreview-quality-old' => 'Це [[{{MediaWiki:Validationpage}}|якісна]] версія ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} список усіх]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} затверджена] <i>$2</i>.
 Могли бути зроблені нові [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} редагування].',
 	'revreview-quality-same' => 'Це [[{{MediaWiki:Validationpage}}|опублікована версія]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} затверджена] <i>$2</i>.',
