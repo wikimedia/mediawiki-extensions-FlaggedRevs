@@ -15209,6 +15209,7 @@ $messages['sq'] = array(
 
 /** Serbian Cyrillic ekavian (Српски (ћирилица))
  * @author Millosh
+ * @author Rancher
  * @author Sasa Stefanovic
  * @author Жељко Тодоровић
  * @author Михајло Анђелковић
@@ -15279,7 +15280,7 @@ $messages['sr-ec'] = array(
 	'revreview-quick-quality-old' => "'''[[{{MediaWiki:Validationpage}}|Квалитетан чланак]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} види нацрт]]",
 	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|Квалитетан чланак]]'''",
 	'revreview-selected' => "Означена верзија стране '''$1:'''",
-	'revreview-source' => 'Види извор',
+	'revreview-source' => 'Извор',
 	'revreview-basic-title' => 'Ово је проверена верзија ове стране',
 	'revreview-stable2' => 'Можда бисте хтели да видите [{{fullurl:$1|stable=1}} прихваћену верзију] ове стране.',
 	'revreview-style' => 'Читљивост',
