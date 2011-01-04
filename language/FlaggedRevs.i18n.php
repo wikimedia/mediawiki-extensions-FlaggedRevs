@@ -15222,7 +15222,7 @@ $messages['sr-ec'] = array(
 	'flaggedrevs-pref-UI-0' => 'Коришњење детаљног интерфејса за стабилне верзије.',
 	'flaggedrevs-pref-UI-1' => 'Коришћење једноставног интерфејса за стабилне верзије.',
 	'flaggedrevs-prefs-stable' => 'Подразумевај приказ стабилних верзија страна (ако постоје).',
-	'flaggedrevs-prefs-watch' => 'Додај стране које сам прегледао у мој списак надгледања.',
+	'flaggedrevs-prefs-watch' => 'Додај странице које прегледам у списак надгледања',
 	'group-editor' => 'Уређивачи',
 	'group-editor-member' => 'Уређивач',
 	'group-reviewer' => 'Прегледачи',
@@ -15241,7 +15241,7 @@ $messages['sr-ec'] = array(
 	'review-logentry-diff' => 'измене до стабилне верзије',
 	'review-logpage' => 'Лог прегледа чланка',
 	'reviewer' => 'Прегледач',
-	'revisionreview' => 'Преглед верзија',
+	'revisionreview' => 'Претпреглед ревизија',
 	'revreview-accuracy' => 'Тачност',
 	'revreview-accuracy-0' => 'Неадекватне',
 	'revreview-accuracy-1' => 'Прегледано',
@@ -18000,6 +18000,7 @@ Hiện có [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} thay đ�
 	'revreview-successful' => "'''Phiên bản của [[:$1|$1]] đã được gắn cờ. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} xem các phiên bản có cờ])'''",
 	'revreview-successful2' => "'''Phiên bản của [[:$1|$1]] đã được bỏ cờ thành công.'''",
 	'revreview-text' => "''[[{{MediaWiki:Validationpage}}|Phiên bản ổn định]] là một phiên bản trang đã xem qua được sử dụng để chọn phiên bản ổn định.''",
+	'revreview-toggle-hide' => '(−)',
 	'revreview-toggle-title' => 'hiện/ẩn chi tiết',
 	'revreview-toolow' => "'''Mỗi thuộc tính cần phải cao hơn “kém” để cho phiên bản có thể được xem là được duyệt.'''
 
