@@ -621,7 +621,7 @@ $messages['pt'] = array(
  */
 $messages['pt-br'] = array(
 	'problemchanges' => 'Alterações pendentes que foram assinaladas',
-	'problemchanges-list' => 'Esta página lista as [[{{MediaWiki:Validationpage}}|páginas sujeitas a revisão]] com uma ou mais edições pendentes marcadas com etiquetas de edição. Você pode encontrar uma lista da etiquetas de edição válidas em [[Special:Tags]].',
+	'problemchanges-list' => 'Esta página lista as [[{{MediaWiki:Validationpage}}|páginas sujeitas a revisão]] com uma ou mais edições pendentes marcadas com etiquetas de edição. Você pode encontrar uma lista de etiquetas de edição válidas em [[Special:Tags]].',
 	'problemchanges-legend' => 'Listar páginas com edições assinaladas aguardando revisão',
 	'problemchanges-none' => 'Atualmente não existem páginas que satisfaçam estes critérios',
 	'problemchanges-category' => 'Categoria:',
