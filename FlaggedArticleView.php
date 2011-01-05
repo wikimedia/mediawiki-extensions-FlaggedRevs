@@ -773,7 +773,7 @@ class FlaggedArticleView {
 	 * Depends on $wgRequest
 	 */
 	public function imagePageFindFile( &$normalFile, &$displayFile ) {
-		global $wgRequest, $wgArticle;
+		global $wgRequest;
 		$this->load();
 		# Determine timestamp. A reviewed version may have explicitly been requested...
 		$frev = null;
@@ -799,8 +799,6 @@ class FlaggedArticleView {
 				$time = trim( $time ); // remove garbage
 				$time = $time ? wfTimestamp( TS_MW, $time ) : false;
 			}
-			# NOTE: if not found, this will use the current
-			$wgArticle = new ImagePage( $this->article->getTitle(), $time );
 		}
 		if ( !$time ) {
 			# Try request parameter
