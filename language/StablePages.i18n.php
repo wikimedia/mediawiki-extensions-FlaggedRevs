@@ -985,8 +985,8 @@ $messages['zh-hans'] = array(
  */
 $messages['zh-hant'] = array(
 	'stablepages' => '頁面已經通過審核',
-	'stablepages-list' => '以下的頁面列示出一些頁面是手動地設定去顯示穩定版作為觀看者做預設頁面版內容，
-只有指定用戶的編輯才不需要通過審核。',
+	'stablepages-list' => '以下列出的頁面只有某些用戶可以進行編輯而無須通過審查。
+由其他用戶所做的編輯，除非已被獲授權的用戶檢查，否則預設不會向讀者顯示。',
 	'stablepages-none' => '沒有頁面在這個清單中',
 	'stablepages-config' => '設定',
 	'stablepages-indef' => '只限永久到期',

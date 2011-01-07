@@ -1786,6 +1786,7 @@ $messages['ka'] = array(
 	'stabilization-tab' => 'vet',
 	'stabilization' => 'გვერდის სტაბილიზაცია',
 	'stabilization-page' => 'გვერდის სახელი:',
+	'stabilization-def2' => 'ბოლო ვერსია',
 	'stabilization-restrict-none' => 'არც-ერთი დამატებითი აკრძალვა',
 	'stabilization-submit' => 'დამოწმება',
 	'stabilization-notexists' => 'არ არსებობს გვერდი სახელით "[[:$1|$1]]".
@@ -1872,16 +1873,21 @@ $messages['kk-latn'] = array(
  * @author Lovekhmer
  * @author Thearith
  * @author គីមស៊្រុន
+ * @author វ័ណថារិទ្ធ
  */
 $messages['km'] = array(
 	'stabilization-page' => 'ឈ្មោះទំព័រ៖',
 	'stabilization-def2' => 'ការពិនិត្យឡើងវិញពេលបច្ចុប្បន្ន',
 	'stabilization-submit' => 'បញ្ជាក់ទទួលស្គាល់',
 	'stabilization-comment' => 'មូលហេតុ៖',
+	'stabilization-otherreason' => 'មូលហេតុផ្សេងទៀត៖',
 	'stabilization-expiry' => 'ផុតកំណត់៖',
+	'stabilization-othertime' => 'រយៈពេលផ្សេងទៀត៖',
 	'stabilization-def-short' => 'លំនាំដើម',
 	'stabilization-def-short-0' => 'បច្ចុប្បន្ន',
 	'stabilization-def-short-1' => 'ឋិតថេរ',
+	'stabilize_page_invalid' => 'ឈ្មោះឯកសារគោលដៅមិនត្រឹមត្រូវ។',
+	'stabilize_page_notexists' => 'មិនមាន​ទំព័រ​គោលដៅនេះ​ទេ​។',
 	'stabilize_expiry_invalid' => 'កាលបរិច្ឆេទផុតកំណត់មិនត្រឹមត្រូវ។',
 	'stabilize-expiring' => 'ផុតកំណត់ម៉ោង $1 (UTC)',
 );
@@ -2811,7 +2817,10 @@ $messages['sah'] = array(
 	'stabilization-othertime' => 'Атын кэм:',
 	'stabilization-def-short' => 'Анал туруоруута суох',
 	'stabilization-def-short-0' => 'Бүтэһик',
-	'stabilization-def-short-1' => 'Чистовой',
+	'stabilization-def-short-1' => 'Бигэ',
+	'stabilize_page_invalid' => 'Сорук-сирэй аата сыыһалаах.',
+	'stabilize_page_notexists' => 'Сорук-сирэй суох эбит.',
+	'stabilize_page_unreviewable' => 'Сорук-сирэй тургутуллар аат далын таһыгар эбит.',
 	'stabilize_expiry_invalid' => 'Болдьох сыыһа туруорулунна.',
 	'stabilize_expiry_old' => 'Болдьох этиллибит кэмэ номнуо ааспыт.',
 	'stabilize-expiring' => 'Болдьоҕо бүтэр: $1 (UTC)',

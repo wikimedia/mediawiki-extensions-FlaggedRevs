@@ -861,6 +861,7 @@ $messages['zh-hans'] = array(
  */
 $messages['zh-hant'] = array(
 	'problemchanges' => '標記審核',
+	'problemchanges-list' => '本頁面列出了[[{{MediaWiki:Validationpage}}|被審查過]]的頁面具有一個或多个標記的編輯等待審查。[[Special:Tags|有效更改標記]]列表可以提供的。',
 	'problemchanges-legend' => '列出頁面正等待審核',
 	'problemchanges-none' => '目前沒有頁面符合這些條件',
 	'problemchanges-category' => '分類：',
