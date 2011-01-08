@@ -127,8 +127,13 @@ div.flaggedrevs_short_details {
 	padding: 5px;
 	position: absolute;
 	top: 0;
-	right: -3px;
+	right: -2px;
 	width: 25em;
+}
+
+.rtl div.flaggedrevs_short_details {
+	right: auto;
+	left: -2px;
 }
 
 .fr-text {
