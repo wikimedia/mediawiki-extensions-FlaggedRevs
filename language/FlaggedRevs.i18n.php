@@ -6774,7 +6774,7 @@ $messages['he'] = array(
 	'action-review' => 'לאשר גרסאות',
 	'editor' => 'עורך',
 	'flaggedrevs' => 'גרסאות מסומנות',
-	'flaggedrevs-watched-pending' => "יש [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} עריכות ממתינות] בדפים נבדקים שנמצאים ברשימת המעקב שלך. '''נדרשת פעולה!'''",
+	'flaggedrevs-watched-pending' => "בדפים נבדקים שנמצאים ברשימת המעקב יש [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} עריכות ממתינות]. '''נדרשת פעולה!'''",
 	'flaggedrevs-desc' => 'הענקת אפשרות לעורכים לאשר גרסאות ולייצב דפים',
 	'flaggedrevs-pref-UI' => 'ממשק בסיסי:',
 	'flaggedrevs-pref-UI-0' => 'תיבות מפורטות להצגת מצב הביקורת של הדפים',
@@ -6834,9 +6834,9 @@ $messages['he'] = array(
 	'revreview-accuracy-4' => 'מצוין',
 	'revreview-auto' => '(אוטומטי)',
 	'revreview-basic' => 'זוהי [[{{MediaWiki:Validationpage}}|הגרסה היציבה]] האחרונה ש[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} נבדקה] ב־<i>$2</i>.
-יש [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} {{PLURAL:$3|שינוי אחד|$3 שינויים}}] {{PLURAL:$3|הטעון אישור|הטעונים אישור}}.',
+יש [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} {{PLURAL:$3|שינוי אחד|$3 שינויים}}] שצריך לאשר.',
 	'revreview-basic-i' => 'זוהי [[{{MediaWiki:Validationpage}}|הגרסה היציבה]] ש[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} נבדקה] ב־<i>$2</i>.
-יש [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} שינויים בתבניות/בקבצים] הטעונים אישור.',
+יש [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} שינויים בתבניות/בקבצים] שצריך לאשר.',
 	'revreview-basic-old' => 'זוהי גרסה [[{{MediaWiki:Validationpage}}|בדוקה]] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} הצגת הכול]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} אושרה] ב־<i>$2</i>.
 ייתכן שנעשו [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} שינויים חדשים].',
 	'revreview-basic-same' => 'זוהי [[{{MediaWiki:Validationpage}}|הגרסה היציבה]] ש[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}}נבדקה] ב־<i>$2</i>.',
@@ -6867,7 +6867,7 @@ $messages['he'] = array(
 	'revreview-draft-title' => 'השינויים בהמתנה מופיעים בדף זה',
 	'revreview-edit' => 'עריכה',
 	'revreview-editnotice' => "'''השינויים שלך יוצגו לקוראים לאחר שמשתמש מורשה יבדוק אותם. ([[{{MediaWiki:Validationpage}}|עזרה]])'''",
-	'revreview-pendingnotice' => "'''זוהי [[{{MediaWiki:Validationpage}}|גרסה ממתינה לבדיקה]] של הדף הזה. היא יכולה להיות שונה מ[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} הגרסה היציבה החדשה ביותר], שהתקבלה ב־<i>$1</i>.'''",
+	'revreview-pendingnotice' => "'''גרסה זו של הדף [[{{MediaWiki:Validationpage}}|ממתינה לבדיקה]]. היא יכולה להיות שונה מ[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} הגרסה היציבה האחרונה], שהתקבלה ב־<i>$1</i>.'''",
 	'revreview-check-flag-p' => 'קבלת גרסה זו (לרבות {{PLURAL:$1|השינוי הממתין|$1 השינויים הממתינים}})',
 	'revreview-check-flag-p-title' => 'קבלת כל השינויים הממתינים הנוכחיים לצד העריכות שלך.  יש להשתמש בזה אם כבר ראית את ההבדל עבור כל השינויים הממתינים.',
 	'revreview-check-flag-u' => 'קבלת הדף הזה שלא נבדק',
@@ -6878,7 +6878,7 @@ $messages['he'] = array(
 	'revreview-submitedit-title' => 'שליחת השינויים שלך לסקירה',
 	'revreview-edited' => "'''השינויים שלך יוצגו לקוראים לאחר שמשתמש מורשה יבדוק אותם. ([[{{MediaWiki:Validationpage}}|עזרה]])'''
 
-יש [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 {{PLURAL:$2|שינוי|שינויים}}] ''(מוצגים בהמשך)'' שממתינים לבדיקה.",
+יש [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} {{PLURAL:$2|שינוי אחד|$2 שינויים}}] ''(מוצג{{PLURAL:$2||ים}} בהמשך)'' שממתי{{PLURAL:$2|ן|נים}} לבדיקה.",
 	'revreview-edited-section' => 'חזרה לסעיף בדף בשם "[[#$1|$2]]".',
 	'revreview-flag' => 'סימון גרסה זו כבדוקה',
 	'revreview-reflag' => 'סקירה חוזרת של גרסה זו',
@@ -6889,10 +6889,10 @@ $messages['he'] = array(
 
 ראו את [[Special:Unreviewedpages|רשימת הדפים שלא נבדקו]].',
 	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} הגרסה היציבה] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} נבדקה] ב־<i>$2</i>.
-יש [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} {{PLURAL:$3|שינוי אחד|$3 שינויים}}] {{PLURAL:$3|טעונים|טעון}} בדיקה.',
+יש [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} {{PLURAL:$3|שינוי אחד|$3 שינויים}}] שצריך לבדוק.',
 	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} הגרסה היציבה] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} נבדקה] ב־<i>$2</i>.
-יש [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} שינויים בתבניות/בקבצים] שטעונים בדיקה.',
-	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} הגרסה היציבה] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} נבדקה] ב־<i>$2</i>. יש [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} {{PLURAL:$3|שינוי אחד|$3 שינויים}}] {{PLURAL:$3|טעונים|טעון}} בדיקה.',
+יש [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} שינויים בתבניות/בקבצים] שצריך לבדוק.',
+	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} הגרסה היציבה] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} נבדקה] ב־<i>$2</i>. יש [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}}ג {{PLURAL:$3|שינוי אחד|$3 שינויים}}] שצריך בדיקה.',
 	'revreview-newest-quality-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} הגרסה היציבה] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} אושרה] ב־<i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} שינויים בתבניות/בקבצים] טעונים בדיקה.',
 	'revreview-pending-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} הגרסה היציבה] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} נבדקה] ב־<i>$2</i>. יש [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} {{PLURAL:$3|שינוי אחד|$3 שינויים}}] שצריך לבדוק.',
@@ -10627,6 +10627,13 @@ $messages['lt'] = array(
 	'revreview-style-0' => 'Nepatvirtintas',
 	'revreview-style-2' => 'Geras',
 	'revreview-revnotfound' => 'Norima puslapio versija nerasta. Patikrinkite URL, kuriuo patekote į šį puslapį.',
+);
+
+/** Latgalian (Latgaļu)
+ * @author Dark Eagle
+ */
+$messages['ltg'] = array(
+	'revreview-filter-all' => 'vysi',
 );
 
 /** Latvian (Latviešu)
