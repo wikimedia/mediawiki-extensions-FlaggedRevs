@@ -288,6 +288,7 @@ $messages['frp'] = array(
  */
 $messages['gl'] = array(
 	'problemchanges' => 'Cambios etiquetados pendentes',
+	'problemchanges-list' => 'Esta páxina lista as páxinas [[{{MediaWiki:Validationpage}}|revisadas]] que teñen unha ou máis edicións pendentes. Hai dispoñible unha lista coas [[Special:Tags|etiquetas de cambios válidas]].',
 	'problemchanges-legend' => 'Listar as páxinas con edicións etiquetadas pendentes de revisión',
 	'problemchanges-none' => 'Actualmente non hai páxinas que reúnan estes criterios',
 	'problemchanges-category' => 'Categoría:',
@@ -305,7 +306,7 @@ $messages['grc'] = array(
  */
 $messages['gsw'] = array(
 	'problemchanges' => 'Markierti hängigi Änderige',
-	'problemchanges-list' => 'Die Spezialsyte zeigt [[{{MediaWiki:Validationpage}}|markierti]] Syte mit eire oder mehrere gchännzeichnte Bearbeitige, wu no mien amrkiert wäre. E Lischt vu dr giltigen Änderigschännzeiche git s uf dr Spezialsyte [[Special:Tags|Chännzeiche]].',
+	'problemchanges-list' => 'Die Spezialsyte zeigt [[{{MediaWiki:Validationpage}}|markierti]] Syte mit eire oder mehrere gchännzeichnte Bearbeitige, wu no mien markiert wäre. E Lischt vu dr giltigen Änderigschännzeiche git s uf dr Spezialsyte [[Special:Tags|Chännzeiche]].',
 	'problemchanges-legend' => 'Lischt vu Syte mit markierte Bearbeitige, wu nonig prieft sin',
 	'problemchanges-none' => 'Zur Zyt träffe fir kei Syte die Kriterie zue',
 	'problemchanges-category' => 'Kategorii:',
