@@ -978,6 +978,9 @@ $messages['ar'] = array(
 	'group-autoreview' => 'مراجعون تلقائيون',
 	'group-autoreview-member' => 'مراجع تلقائي',
 	'grouppage-autoreview' => '{{ns:project}}:مراجع تلقائي',
+	'revcontents-error' => 'غير قادر على الحصول على المحتوى.',
+	'revcontents-getcontents' => '[{{fullurl:$1|oldid=$2}} عرض هذه النسخة]',
+	'revcontents-waiting' => 'في انتظار المحتوى',
 	'revreview-hist-draft' => 'مراجعة غير مفحوصة',
 	'revreview-hist-pending' => 'مراجعة موقفة',
 	'revreview-hist-quality' => 'مراجعة جودة',
@@ -985,9 +988,12 @@ $messages['ar'] = array(
 	'revreview-hist-quality-user' => '[{{fullurl:$1|stableid=$2}} وافق] عليها [[User:$3|$3]]',
 	'revreview-hist-basic-user' => '[{{fullurl:$1|stableid=$2}} تم التحقق منها] بواسطة [[User:$3|$3]]',
 	'revreview-hist-basic-auto' => '[{{fullurl:$1|stableid=$2}} تم التحقق منها تلقائيا]',
+	'revreview-hist-quality-auto' => '[{{fullurl:$1|stableid=$2}} تمت الموافقة تلقائيا]',
 	'revreview-hist-pending-difflink' => "'''[[{{fullurl:$1|oldid=$2&diff=$3}} مراجعة موقفة]]'''",
+	'review-edit-diff' => "''' ملاحظة:  إن ''بعض'' التغييرات المعلقة تؤثر على منطقة من الصفحة التي تقوم بتحريرها. '''",
 	'revreview-diff-toggle-show' => 'أظهر التغييرات',
 	'revreview-diff-toggle-hide' => '(أخفِ التغييرات)',
+	'revreview-diff-toggle-title' => 'تبديل العرض من التغييرات المعلقة إلى النسخة المستقرة',
 	'revreview-log-toggle-show' => 'أظهر سجل الاستقرار',
 	'revreview-log-toggle-hide' => 'أخفِ سجل الاستقرار',
 	'revreview-log-toggle-title' => 'بدّل عرض سجل إعدادات الاستقرار',
@@ -1020,6 +1026,13 @@ $messages['ar'] = array(
 	'revreview-basic-same' => 'هذه هي [[{{MediaWiki:Validationpage}}|النسخة المنشورة]]، [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} المفحوصة] في <i>$2</i>.',
 	'revreview-basic-source' => '[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} نسخة مفحوصة] من هذه الصفحة، [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} تمت الموافقة عليها] في <i>$2</i>، بناء على هذه المراجعة.',
 	'revreview-failed' => "'''غير قادر على مراجعة هذه المراجعة.''' الإرسال غير مكتمل أو غير هذا غير صحيح.",
+	'revreview-submission-invalid' => 'لم يتم الإرسال أو بالتالي لم يقبل',
+	'review_page_invalid' => 'عنوان الصفحة الهدف غير صالح.',
+	'review_page_notexists' => 'الصفحة الهدف غير موجودة.',
+	'review_page_unreviewable' => 'الصفحة الهدف غير قابلة للمراجعة.',
+	'review_no_oldid' => 'لم يتم تحديد معرف المراجعة.',
+	'review_bad_oldid' => 'المراجعة المستهدفة غير موجودة.',
+	'review_conflict_oldid' => 'شخص ما قبل أو رفض هذه النسخة بينما كنت تقوم بعرضها.',
 	'revreview-current' => 'مسودة',
 	'revreview-depth' => 'العمق',
 	'revreview-depth-0' => 'غير موافق عليها',
@@ -1097,6 +1110,7 @@ $messages['ar'] = array(
 	'revreview-submitting' => 'يرسل...',
 	'revreview-submit-review' => 'علم كمراجعة',
 	'revreview-submit-unreview' => 'علم كغير مراجعة',
+	'revreview-submit-reject' => 'رفض التغييرات',
 	'revreview-submit-reviewed' => 'تم. قبلت!',
 	'revreview-submit-unreviewed' => 'تم. لم يتم القبول!',
 	'revreview-successful' => "'''عُلّمت مراجعة [[:$1|$1]] بنجاح. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} اعرض النسخ المستقرة])'''",
@@ -1151,6 +1165,11 @@ $messages['ar'] = array(
 	'revreview-restrictfilter' => 'تقييد المراجعة التلقائية:',
 	'revreview-restriction-any' => 'أي',
 	'revreview-restriction-none' => 'لا يوجد',
+	'revreview-reject-header' => 'رفض التغييرات لـ$1',
+	'revreview-reject-summary-cur' => '{{PLURAL:$1|رفض التغيير الأخير|$1 رفضت التغييرات الأخيرة}} (من قبل $2) وتمت استعادة النسخة $3 من قبل $4',
+	'revreview-reject-summary-old' => '{{PLURAL:$1|رفض التغيير الأول|$1 رفضت التغييرات الأولى}} (من قبل $2) وتمت استعادة النسخة $3 من قبل $4',
+	'revreview-reject-summary-cur-short' => '{{PLURAL:$1|رفض التغيير الأخير|$1 رفضت التغييرات الأخيرة}} وتمت استعادة النسخة $2 من قبل $3',
+	'revreview-reject-summary-old-short' => '{{PLURAL:$1|رفض التغيير الأول|$1 رفضت التغييرات الأولى}} وتمت استعادة النسخة $2 من قبل $3',
 	'revreview-reviewlink' => 'مراجعة',
 	'revreview-reviewlink-title' => 'مشاهدة فرق جميع التغييرات قيد الانتظار',
 	'revreview-unreviewedpage' => 'صفحة غير مفحوصة',
@@ -2999,6 +3018,14 @@ Reviseu l'URL que heu emprat per a accedir-hi.",
 	'revreview-levelfilter' => 'Nivell:',
 	'tooltip-ca-current' => "Vegeu l'actual proposta per aquesta pàgina",
 	'tooltip-ca-stable' => 'Vegeu la versió estable de la pàgina',
+);
+
+/** Chechen (Нохчийн)
+ * @author Sasan700
+ */
+$messages['ce'] = array(
+	'group-editor' => 'Гlаролхой',
+	'group-editor-member' => 'гlаролхо',
 );
 
 /** Chamorro (Chamoru)
@@ -15254,7 +15281,7 @@ $messages['sq'] = array(
 	'revreview-revnotfound' => 'Versioni i vjetër i faqes së kërkuar nuk mund të gjehej.Ju lutem kontrolloni URL-in që përdorët për të ardhur tek kjo faqe.',
 );
 
-/** Serbian Cyrillic ekavian (Српски (ћирилица))
+/** Serbian Cyrillic ekavian (‪Српски (ћирилица)‬)
  * @author Millosh
  * @author Rancher
  * @author Sasa Stefanovic
@@ -15288,7 +15315,7 @@ $messages['sr-ec'] = array(
 	'review-logentry-diff' => 'измене до стабилне верзије',
 	'review-logpage' => 'Лог прегледа чланка',
 	'reviewer' => 'Прегледач',
-	'revisionreview' => 'Претпреглед ревизија',
+	'revisionreview' => 'Претпреглед измена',
 	'revreview-accuracy' => 'Тачност',
 	'revreview-accuracy-0' => 'Неадекватне',
 	'revreview-accuracy-1' => 'Прегледано',

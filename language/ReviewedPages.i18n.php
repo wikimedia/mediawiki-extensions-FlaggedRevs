@@ -1114,9 +1114,10 @@ $messages['sq'] = array(
 	'reviewedpages-lev-1' => 'Kualiteti',
 );
 
-/** Serbian Cyrillic ekavian (Српски (ћирилица))
+/** Serbian Cyrillic ekavian (‪Српски (ћирилица)‬)
  * @author Charmed94
  * @author Millosh
+ * @author Rancher
  * @author Sasa Stefanovic
  * @author Жељко Тодоровић
  * @author Михајло Анђелковић
@@ -1131,7 +1132,7 @@ $messages['sr-ec'] = array(
 	'reviewedpages-lev-1' => 'Квалитет',
 	'reviewedpages-lev-2' => 'Изабрани',
 	'reviewedpages-all' => 'прегледана издања',
-	'reviewedpages-best' => 'најбоља ревизија',
+	'reviewedpages-best' => 'најбоља измена',
 );
 
 /** Serbian Latin ekavian (Srpski (latinica))

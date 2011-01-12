@@ -299,6 +299,13 @@ $messages['ca'] = array(
 	'unreviewedpages-recent' => "(menys d'una hora)",
 );
 
+/** Chechen (Нохчийн)
+ * @author Sasan700
+ */
+$messages['ce'] = array(
+	'unreviewedpages-viewing' => '(талламяхь йу)',
+);
+
 /** Sorani (کوردی) */
 $messages['ckb'] = array(
 	'unreviewedpages-category' => 'پۆل:',

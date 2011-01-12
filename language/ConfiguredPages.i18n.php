@@ -698,16 +698,19 @@ Nekatere nastavitve morda spremenijo, katera različica je prikazana bralcem, al
 	'configuredpages-def-stable' => 'stabilna različica',
 );
 
-/** Serbian Cyrillic ekavian (Српски (ћирилица))
+/** Serbian Cyrillic ekavian (‪Српски (ћирилица)‬)
+ * @author Жељко Тодоровић
  * @author Михајло Анђелковић
  */
 $messages['sr-ec'] = array(
-	'configuredpages-config' => 'Поставке',
+	'configuredpages-config' => 'Подешавања',
 );
 
-/** Serbian Latin ekavian (Srpski (latinica)) */
+/** Serbian Latin ekavian (‪Srpski (latinica)‬)
+ * @author Жељко Тодоровић
+ */
 $messages['sr-el'] = array(
-	'configuredpages-config' => 'Postavke',
+	'configuredpages-config' => 'Podešavanja',
 );
 
 /** Swedish (Svenska)

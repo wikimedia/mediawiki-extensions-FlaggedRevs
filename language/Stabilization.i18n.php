@@ -618,9 +618,12 @@ No és possible fer cap configuració.',
 	'stabilize-expiring' => 'expira $1 (UTC)',
 );
 
-/** Chechen (Нохчийн) */
+/** Chechen (Нохчийн)
+ * @author Sasan700
+ */
 $messages['ce'] = array(
 	'stabilization-comment' => 'Бахьан:',
+	'stabilization-otherreason' => 'Кхин бахьан:',
 );
 
 /** Sorani (کوردی) */

@@ -430,8 +430,10 @@ $messages['ja'] = array(
 
 /** Georgian (ქართული)
  * @author BRUTE
+ * @author Dawid Deutschland
  */
 $messages['ka'] = array(
+	'problemchanges-legend' => 'სია იმ გვერდებისა, რომელთა ბოლო ვერსია ჯერ კიდევ შეუმოწმებელია',
 	'problemchanges-none' => 'ამ დროისათვის არ არსებობს სტატიები ასეთი კრიტერიუმებით',
 	'problemchanges-category' => 'კატეგორია:',
 );

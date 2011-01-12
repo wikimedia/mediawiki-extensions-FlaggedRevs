@@ -296,6 +296,13 @@ Els Editors són usuaris experimentats que poden validar les revisions de les p�
 	'validationstatistics-user' => 'Usuari',
 );
 
+/** Chechen (Нохчийн)
+ * @author Sasan700
+ */
+$messages['ce'] = array(
+	'validationstatistics-user' => 'Декъашхо',
+);
+
 /** Sorani (کوردی) */
 $messages['ckb'] = array(
 	'validationstatistics-user' => 'بەکارهێنەر',

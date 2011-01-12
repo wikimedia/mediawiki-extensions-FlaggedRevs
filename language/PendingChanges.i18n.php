@@ -122,6 +122,7 @@ $messages['an'] = array(
 
 /** Arabic (العربية)
  * @author ;Hiba;1
+ * @author Ciphers
  * @author Meno25
  * @author OsamaK
  * @author Ouda
@@ -129,13 +130,14 @@ $messages['an'] = array(
 $messages['ar'] = array(
 	'pendingchanges' => 'صفحات مع تغييرات معلقة',
 	'pendingchanges-legend' => 'عرض الصفحات المراجعة ذات المراجعات غير المراجعة',
-	'pendingchanges-list' => 'هذه الصفحة تعرض {{PLURAL:$1||صفحة مراجعة فيها|صفحتين مراجعتين فيهما|صفحات مراجعة فيها}} تعديلات قيد الانتظار.',
+	'pendingchanges-list' => 'هذه الصفحة تعرض [[{{MediaWiki:Validationpage}}|{{PLURAL:$1||صفحة مراجعة فيها|صفحتين مراجعتين فيهما|صفحات مراجعة فيها}}]] تعديل أو أكثر قيد الانتظار.',
 	'pendingchanges-none' => 'لا توجد حاليا صفحات تطابق هذه المواصفات',
 	'pendingchanges-hours' => '({{PLURAL:$1||ساعة واحد|ساعتان|$1 ساعات|$1 ساعة}})',
 	'pendingchanges-days' => '({{PLURAL:$1||يوم واحد|يومان|$1 أيام|$1 يومًا|$1 يوم}})',
 	'pendingchanges-recent' => '(أقل من ساعة)',
 	'pendingchanges-category' => 'تصنيف:',
-	'pendingchanges-stable' => 'منظورة',
+	'pendingchanges-onwatchlist' => 'الصفحات في قائمة مراقبتي',
+	'pendingchanges-stable' => 'الإصدار المستقر هو الافتراضي',
 	'pendingchanges-diff' => 'راجع',
 	'pendingchanges-size' => 'أقصى تغيير (بايت):',
 	'pendingchanges-unwatched' => '(غير مراقبة)',
