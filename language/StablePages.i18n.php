@@ -804,24 +804,26 @@ Urejanja, ki jih naredijo ostali uporabniki, privzeto niso prikazana bralcem, do
 	'stablepages-indef' => 'Samo neomejen potek',
 );
 
-/** Serbian Cyrillic ekavian (Српски (ћирилица))
+/** Serbian Cyrillic ekavian (‪Српски (ћирилица)‬)
  * @author Charmed94
  * @author Millosh
+ * @author Жељко Тодоровић
  */
 $messages['sr-ec'] = array(
 	'stablepages' => 'Странице које користе потврду измена',
-	'stablepages-list' => 'Испод се налази списак страна које су ограничене тако да само одређени корисници могу да их уреде.
+	'stablepages-list' => 'Испод се налази списак страница које су ограничене тако да само одређени корисници могу да их уреде.
 Такве измене нису прихваћене док их овлашћени корисник не прегледа.',
 	'stablepages-none' => 'Не постоје стране у овом списку.',
 	'stablepages-config' => 'Поставке',
 );
 
-/** Serbian Latin ekavian (Srpski (latinica))
+/** Serbian Latin ekavian (‪Srpski (latinica)‬)
  * @author Michaello
+ * @author Жељко Тодоровић
  */
 $messages['sr-el'] = array(
 	'stablepages' => 'Stranice koje koriste potvrdu izmena',
-	'stablepages-list' => 'Ispod se nalazi spisak strana koje su ograničene tako da samo određeni korisnici mogu da ih urede.
+	'stablepages-list' => 'Ispod se nalazi spisak stranica koje su ograničene tako da samo određeni korisnici mogu da ih urede.
 Takve izmene nisu prihvaćene dok ih ovlašćeni korisnik ne pregleda.',
 	'stablepages-none' => 'Ne postoje strane u spisku.',
 	'stablepages-config' => 'Podešavanje',

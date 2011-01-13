@@ -994,6 +994,7 @@ $messages['ka'] = array(
 	'pendingchanges-days' => '($1 {{PLURAL:$1|დღე|დღე}})',
 	'pendingchanges-recent' => '(1 საათზე ნაკლები)',
 	'pendingchanges-category' => 'კატეგორია:',
+	'pendingchanges-onwatchlist' => 'ჩემი კონტროლის სიის გვერდები',
 	'pendingchanges-stable' => 'სტაბილური გვერდები',
 	'pendingchanges-diff' => 'შემოწმება',
 	'pendingchanges-unwatched' => '(არავის კონტროლის სიაში არ არის)',
