@@ -303,6 +303,8 @@ $messages['ca'] = array(
  * @author Sasan700
  */
 $messages['ce'] = array(
+	'unreviewedpages-category' => 'Кадегар:',
+	'unreviewedpages-diff' => 'хьажа',
 	'unreviewedpages-viewing' => '(талламяхь йу)',
 );
 

@@ -359,6 +359,16 @@ $messages['ca'] = array(
 	'pendingchanges-watched' => '({{PLURAL:$1|un usari|$1 usuaris}} actius en vigilen)',
 );
 
+/** Chechen (Нохчийн)
+ * @author Sasan700
+ */
+$messages['ce'] = array(
+	'pendingchanges-hours' => '($1 {{PLURAL:$1|сахьат|сахьат}})',
+	'pendingchanges-days' => '($1 {{PLURAL:$1|де|де}})',
+	'pendingchanges-category' => 'Кадегар:',
+	'pendingchanges-watched' => '({{PLURAL:$1|терго йеш $1 жигар декъашхо|терго йеш $1 жигар декъашхой}})',
+);
+
 /** Czech (Česky)
  * @author Danny B.
  * @author Jkjk

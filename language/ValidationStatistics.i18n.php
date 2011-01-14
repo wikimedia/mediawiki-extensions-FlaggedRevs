@@ -300,6 +300,7 @@ Els Editors són usuaris experimentats que poden validar les revisions de les p�
  * @author Sasan700
  */
 $messages['ce'] = array(
+	'validationstatistics-total' => 'Агlонаш',
 	'validationstatistics-user' => 'Декъашхо',
 );
 

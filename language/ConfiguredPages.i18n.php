@@ -35,10 +35,14 @@ $messages['af'] = array(
 
 /** Arabic (العربية)
  * @author ;Hiba;1
+ * @author Ciphers
  * @author Loya
  * @author Mohamed Ouda
  */
 $messages['ar'] = array(
+	'configuredpages' => 'صفحات مع إعدادات عرض مسبق',
+	'configuredpages-list' => 'وفيما يلي قائمة من صفحات لها إعدادات لكي يكون لها إعدادات موافقة مختلفة من إعدادات الموقع الافتراضية. 
+قد تغير بعض الإعدادات النسخة التي يتم عرضها للقراء أو تزيد من تقييد الذين يمكنهم التعديل بدون أن يتطلب ذلك المراجعة.',
 	'configuredpages-none' => 'لا توجد صفحات في هذه القائمة.',
 	'configuredpages-config' => 'ضبط',
 	'configuredpages-def-draft' => 'أحدث نسخة',

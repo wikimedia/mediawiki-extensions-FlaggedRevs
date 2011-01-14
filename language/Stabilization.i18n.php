@@ -246,8 +246,12 @@ $messages['ar'] = array(
 	'stabilization-def-short-1' => 'منشورة',
 	'stabilize_page_invalid' => 'عنوان الصفحة الهدف ليس صالحًا.',
 	'stabilize_page_notexists' => 'الصفحة الهدف غير موجودة.',
+	'stabilize_page_unreviewable' => 'الصفحة الهدف ليست في نطاق يسمح بالمراجعة.',
+	'stabilize_invalid_autoreview' => 'تقييد مراجعة تلقائية غير صالح.',
+	'stabilize_invalid_level' => 'مستوى حماية غير صالح.',
 	'stabilize_expiry_invalid' => 'تاريخ انتهاء غير صحيح.',
 	'stabilize_expiry_old' => 'تاريخ الانتهاء هذا مر بالفعل.',
+	'stabilize_denied' => 'الإذن مرفوض!',
 	'stabilize-expiring' => 'تنتهي في $1 (UTC)',
 	'stabilization-review' => 'راجع النسخة الحالية',
 );
@@ -622,8 +626,10 @@ No és possible fer cap configuració.',
  * @author Sasan700
  */
 $messages['ce'] = array(
+	'stabilization-page' => 'Агlон цlе:',
 	'stabilization-comment' => 'Бахьан:',
 	'stabilization-otherreason' => 'Кхин бахьан:',
+	'stabilization-othertime' => 'Кхин хан:',
 );
 
 /** Sorani (کوردی) */

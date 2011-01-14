@@ -130,6 +130,13 @@ $messages['ca'] = array(
 	'problemchanges-category' => 'Categoria:',
 );
 
+/** Chechen (Нохчийн)
+ * @author Sasan700
+ */
+$messages['ce'] = array(
+	'problemchanges-category' => 'Кадегар:',
+);
+
 /** Sorani (کوردی) */
 $messages['ckb'] = array(
 	'problemchanges-category' => 'پۆل:',
