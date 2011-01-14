@@ -96,12 +96,6 @@ class FlaggedRevsLogs {
 					$wfMsg( 'colon-separator' ) .
 					$wfMsg( 'stabilization-def-short-' . $pars['override'] );
 			}
-			// Precedence (ignored for protection-based configs)
-			if ( isset( $pars['precedence'] ) ) {
-				$set[] = $wfMsg( 'stabilization-sel-short' ) .
-					$wfMsg( 'colon-separator' ) .
-					$wfMsg( 'stabilization-sel-short-' . $pars['precedence'] );
-			}
 			// Autoreview restriction
 			if ( isset( $pars['autoreview'] ) && strlen( $pars['autoreview'] ) ) {
 				$set[] = 'autoreview=' . $pars['autoreview'];
