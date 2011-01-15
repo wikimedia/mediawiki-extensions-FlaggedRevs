@@ -3673,14 +3673,15 @@ $messages['zh-hans'] = array(
  * @author Gaoxuewei
  * @author Horacewai2
  * @author Liangent
+ * @author Mark85296341
  * @author Shinjiman
  */
 $messages['zh-hant'] = array(
 	'stabilization-tab' => '調查',
 	'stabilization' => '穩定頁面',
 	'stabilization-text' => "'''更改以下的設定去調節所選擇的[[:$1|$1]]之穩定版本如何顯示。'''",
-	'stabilization-perm' => '您的賬戶並沒有權限去更改穩定版本設定。
-這是[[:$1|$1]]當前的設定：',
+	'stabilization-perm' => '您的帳戶並沒有權限去更改穩定版本設定。
+這是[[:$1|$1]]目前的設定：',
 	'stabilization-page' => '頁面名稱:',
 	'stabilization-leg' => '確認穩定版本的設定',
 	'stabilization-def' => '在預設頁視的修訂顯示',
@@ -3689,13 +3690,13 @@ $messages['zh-hant'] = array(
 	'stabilization-restrict' => '自動審核限制',
 	'stabilization-restrict-none' => '無其他限制',
 	'stabilization-submit' => '確認',
-	'stabilization-notexists' => '頁面"[[:$1|$1]]"不存在。
-無法進行設置。',
-	'stabilization-notcontent' => '頁面"[[:$1|$1]]"不能被審核。
-無法進行設置。',
+	'stabilization-notexists' => '頁面「[[:$1|$1]]」不存在。
+無法進行設定。',
+	'stabilization-notcontent' => '頁面「[[:$1|$1]]」不能被審核。
+無法進行設定。',
 	'stabilization-comment' => '原因：',
 	'stabilization-otherreason' => '其他原因：',
-	'stabilization-expiry' => '到期:',
+	'stabilization-expiry' => '到期：',
 	'stabilization-othertime' => '其他時間：',
 	'stabilization-def-short' => '預設',
 	'stabilization-def-short-0' => '現時',

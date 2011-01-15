@@ -2140,7 +2140,7 @@ $messages['zh-hant'] = array(
 
 平均延遲 [[Special:OldReviewedPages|頁面編輯是未審核]]的等待時間是'''$1'''。 
 這些網頁被認為是''過時''的。同樣，網頁被認為是''最新''，如果沒有修改等待審核的話。",
-	'validationstatistics-revtime' => "平均等待''未登錄用戶''的編輯審核是'''$1'''；中位數是'''$2 '''。 
+	'validationstatistics-revtime' => "平均等待''未登入用戶''的編輯審核是'''$1'''；中位數是'''$2 '''。 
 $3",
 	'validationstatistics-table' => "各名稱空間的統計資訊顯示如下，''不包含''重定向頁面。",
 	'validationstatistics-ns' => '名稱空間',

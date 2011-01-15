@@ -665,11 +665,12 @@ $messages['zh-hans'] = array(
 /** Traditional Chinese (‪中文(繁體)‬)
  * @author Horacewai2
  * @author Liangent
+ * @author Mark85296341
  * @author Shinjiman
  */
 $messages['zh-hant'] = array(
 	'qualityoversight' => '品質管理日誌',
 	'qualityoversight-list' => '這個頁面列示出最近核准修訂以及最近品質修訂之折舊。',
-	'qualityoversight-legend' => '搜索最近審核記錄',
+	'qualityoversight-legend' => '搜尋最近審核記錄',
 );
 
