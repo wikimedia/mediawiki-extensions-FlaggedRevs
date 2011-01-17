@@ -253,7 +253,7 @@ $messages['ar'] = array(
 	'stabilize_expiry_old' => 'تاريخ الانتهاء هذا مر بالفعل.',
 	'stabilize_denied' => 'الإذن مرفوض!',
 	'stabilize-expiring' => 'تنتهي في $1 (UTC)',
-	'stabilization-review' => 'راجع النسخة الحالية',
+	'stabilization-review' => 'عام على النسخة الحالية كمراجعة',
 );
 
 /** Aramaic (ܐܪܡܝܐ)
@@ -627,9 +627,15 @@ No és possible fer cap configuració.',
  */
 $messages['ce'] = array(
 	'stabilization-page' => 'Агlон цlе:',
+	'stabilization-submit' => 'Къобалде',
 	'stabilization-comment' => 'Бахьан:',
 	'stabilization-otherreason' => 'Кхин бахьан:',
+	'stabilization-expiry' => 'Чекхйолу:',
 	'stabilization-othertime' => 'Кхин хан:',
+	'stabilization-def-short' => 'Iад йитарца',
+	'stabilization-def-short-0' => 'хlинцлера',
+	'stabilization-def-short-1' => 'Чутоьхнарг',
+	'stabilize-expiring' => 'чакхйолу $1 (UTC)',
 );
 
 /** Sorani (کوردی) */

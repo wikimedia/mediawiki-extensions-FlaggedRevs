@@ -365,8 +365,12 @@ $messages['ca'] = array(
 $messages['ce'] = array(
 	'pendingchanges-hours' => '($1 {{PLURAL:$1|сахьат|сахьат}})',
 	'pendingchanges-days' => '($1 {{PLURAL:$1|де|де}})',
+	'pendingchanges-recent' => '(лаххар 1 сахьтехь)',
 	'pendingchanges-category' => 'Кадегар:',
+	'pendingchanges-diff' => 'хьажа',
+	'pendingchanges-unwatched' => '(терго йац)',
 	'pendingchanges-watched' => '({{PLURAL:$1|терго йеш $1 жигар декъашхо|терго йеш $1 жигар декъашхой}})',
+	'pendingchanges-viewing' => '(хьовсамехь йу)',
 );
 
 /** Czech (Česky)

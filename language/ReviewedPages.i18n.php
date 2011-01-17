@@ -226,6 +226,15 @@ $messages['ca'] = array(
 	'reviewedpages-best' => 'millor revisió',
 );
 
+/** Chechen (Нохчийн)
+ * @author Sasan700
+ */
+$messages['ce'] = array(
+	'reviewedpages' => 'Хьойсина агlонаш',
+	'reviewedpages-all' => 'хьаьжина варсийш',
+	'reviewedpages-best' => 'чlогlа дика варси',
+);
+
 /** Czech (Česky)
  * @author Li-sung
  * @author Matěj Grabovský

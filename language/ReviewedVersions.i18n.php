@@ -221,6 +221,15 @@ $messages['ca'] = array(
 	'reviewedversions-review' => 'Revisat el <em>$1</em> per $2',
 );
 
+/** Chechen (Нохчийн)
+ * @author Sasan700
+ */
+$messages['ce'] = array(
+	'reviewedversions' => 'Хьаьжина варсийш',
+	'reviewedversions-page' => 'Агlон цlе:',
+	'reviewedversions-review' => 'Хьаьжна  <i>$1</i> декъашхо $2',
+);
+
 /** Czech (Česky)
  * @author Li-sung
  * @author Matěj Grabovský

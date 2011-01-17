@@ -138,6 +138,14 @@ $messages['ca'] = array(
 	'configuredpages-def-stable' => 'versió publicada',
 );
 
+/** Chechen (Нохчийн)
+ * @author Sasan700
+ */
+$messages['ce'] = array(
+	'configuredpages-def-draft' => 'тlаьххьара варси',
+	'configuredpages-def-stable' => 'чутоьхна йолу варси',
+);
+
 /** Czech (Česky)
  * @author Jkjk
  */

@@ -305,7 +305,11 @@ $messages['ca'] = array(
 $messages['ce'] = array(
 	'unreviewedpages-category' => 'Кадегар:',
 	'unreviewedpages-diff' => 'хьажа',
+	'unreviewedpages-unwatched' => '(терго йац)',
+	'unreviewedpages-watched' => '({{PLURAL:$1|терго йеш $1 жигар декъашхо|терго йеш $1 жигар декъашхой}})',
 	'unreviewedpages-viewing' => '(талламяхь йу)',
+	'unreviewedpages-hours' => '($1 {{PLURAL:$1|сахьат|сахьат}})',
+	'unreviewedpages-days' => '($1 {{PLURAL:$1|де|де}})',
 );
 
 /** Sorani (کوردی) */

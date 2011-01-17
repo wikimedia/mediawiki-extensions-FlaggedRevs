@@ -84,6 +84,7 @@ $messages['an'] = array(
 
 /** Arabic (العربية)
  * @author ;Hiba;1
+ * @author Ciphers
  * @author Meno25
  * @author OsamaK
  */
@@ -92,6 +93,8 @@ $messages['ar'] = array(
 	'validationstatistics-users' => "'''{{SITENAME}}''' بها حاليا '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|مستخدم|مستخدمون}} بصلاحية [[{{MediaWiki:Validationpage}}|محرر]].
 
 المحررون هم مستخدمون موثوقون يمكنهم التحقق من المراجعات للصفحات.",
+	'validationstatistics-revtime' => "معدل الانتظار للتعديل من قبل ''المستخدمين غير المسجلين'' ليتم مراجعتها هو '''$1'''، والوسيط هو '''$2'''. 
+$3",
 	'validationstatistics-table' => 'احصاءات تحرير الصفحات لكل اسم معروضة ادناه، باستثناء صفحات التحويل.',
 	'validationstatistics-ns' => 'النطاق',
 	'validationstatistics-total' => 'الصفحات',
@@ -99,7 +102,7 @@ $messages['ar'] = array(
 	'validationstatistics-latest' => 'محدث',
 	'validationstatistics-synced' => 'تم تحديثه/تمت مراجعته',
 	'validationstatistics-old' => 'قديمة',
-	'validationstatistics-utable' => 'بالأسفل قائمة بأعلى $1 مراجعين في الساعة الأخيرة.',
+	'validationstatistics-utable' => 'بالأسفل قائمة  {{PLURAL:$1|أكثر مراجع نشاطا|$1 أكثر المراجعين نشاطا}} في الساعة الأخيرة.',
 	'validationstatistics-user' => 'المستخدم',
 	'validationstatistics-reviews' => 'مراجعات',
 );
@@ -300,8 +303,12 @@ Els Editors són usuaris experimentats que poden validar les revisions de les p�
  * @author Sasan700
  */
 $messages['ce'] = array(
+	'validationstatistics-ns' => 'Цlерийн ана',
 	'validationstatistics-total' => 'Агlонаш',
+	'validationstatistics-stable' => 'Нийса йуй хаьжнарш',
+	'validationstatistics-latest' => 'Йуха хьаьжинарш',
 	'validationstatistics-user' => 'Декъашхо',
+	'validationstatistics-reviews' => 'Нийса йуй хьажар',
 );
 
 /** Sorani (کوردی) */
