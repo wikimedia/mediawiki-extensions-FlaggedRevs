@@ -963,12 +963,12 @@ $messages['ar'] = array(
 	'flaggedrevs-pref-UI' => 'الواجهة الأساسية:',
 	'flaggedrevs-pref-UI-0' => 'استخدم صناديق تفصيلية لعرض حالة الموافقة للصفحات',
 	'flaggedrevs-pref-UI-1' => 'استخدم أيقونات صغيرة ونصوص قليلة لعرض حالة الموافقة للصفحات',
-	'prefs-flaggedrevs' => 'الاستقرار',
-	'prefs-flaggedrevs-ui' => 'مراجعات مُعلّمة',
+	'prefs-flaggedrevs' => 'عرض التعديل',
+	'prefs-flaggedrevs-ui' => 'عرض التعديل',
 	'flaggedrevs-prefs-stable' => 'دائما اعرض النسخة المنشورة لصفحات المحتوى افتراضيا (لو كانت هناك واحدة)',
 	'flaggedrevs-prefs-watch' => 'أضف الصفحات التي أراجعها إلى قائمة مراقبتي',
 	'flaggedrevs-prefs-editdiffs' => 'اعرض فرق التغييرات قيد الانتظار عند تعديل الصفحات',
-	'flaggedrevs-prefs-viewdiffs' => 'اعرض فرق التغييرات قيد الانتظار عند رؤية مسودات الصفحات',
+	'flaggedrevs-prefs-viewdiffs' => 'عرض مقارنة التغييرات بالانتظار عند عرض أحدث مراجعة بالانتظار',
 	'group-editor' => 'محررون',
 	'group-editor-member' => 'محرر',
 	'group-reviewer' => 'مراجعون',
@@ -992,7 +992,7 @@ $messages['ar'] = array(
 	'revreview-hist-pending-difflink' => "'''[[{{fullurl:$1|oldid=$2&diff=$3}} مراجعة موقفة]]'''",
 	'review-edit-diff' => "''' ملاحظة:  إن ''بعض'' التغييرات المعلقة تؤثر على منطقة من الصفحة التي تقوم بتحريرها. '''",
 	'revreview-diff-toggle-show' => 'أظهر التغييرات',
-	'revreview-diff-toggle-hide' => '(أخفِ التغييرات)',
+	'revreview-diff-toggle-hide' => 'إخفاء تلك التغييرات',
 	'revreview-diff-toggle-title' => 'تبديل العرض من التغييرات المعلقة إلى النسخة المستقرة',
 	'revreview-log-toggle-show' => 'أظهر سجل الاستقرار',
 	'revreview-log-toggle-hide' => 'أخفِ سجل الاستقرار',
@@ -1078,8 +1078,8 @@ $messages['ar'] = array(
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|تغيير مقترح|تغييرات مقترحة}}].',
 	'revreview-newest-quality-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} النسخة المنشورة] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} تمت الموافقة عليها] في <i>$2</i>. المسودة تحتوي على  
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} تغييرات قالب/ملف] بانتظار المراجعة.',
-	'revreview-pending-basic' => 'إن [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} النسخة المستقرة] قد [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} فحصت] في <i>$2</i>. هناك $3 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|تعديل|تعديلات}} في انتظار] المراجعة.',
-	'revreview-pending-quality' => 'إن [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} النسخة المستقرة] قد تم [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} الموافقة عليها] في <i>$2</i>. هناك $3 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|تعديل|تعديلات}} بانتظار] المراجعة.',
+	'revreview-pending-basic' => 'إن [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} النسخة المستقرة] قد [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} فحصت] في <i>$2</i>. هناك [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|تعديل|تعديلات}} في انتظار] المراجعة.',
+	'revreview-pending-quality' => 'إن [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} النسخة المستقرة] قد تم [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} الموافقة عليها] في <i>$2</i>. هناك [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|تعديل|تعديلات}} بانتظار] المراجعة.',
 	'revreview-noflagged' => "لا توجد مراجعات [[{{MediaWiki:Validationpage}}|مراجعة]] لهذه الصفحة، لذا فربما '''لم''' يتم [[{{MediaWiki:Validationpage}}|فحصها]] للجودة.",
 	'revreview-note' => '[[User:$1|$1]] كتب الملاحظات التالية [[{{MediaWiki:Validationpage}}|عند مراجعة]] هذه المراجعة:',
 	'revreview-notes' => 'الملاحظات للعرض:',
@@ -5393,7 +5393,7 @@ $messages['fa'] = array(
 	'revreview-hist-quality-user' => 'توسط [[User:$3|$3]] [{{fullurl:$1|stableid=$2}} تثبیت شد]',
 	'revreview-hist-basic-user' => 'توسط [[User:$3|$3]] [{{fullurl:$1|stableid=$2}} بررسی شد]',
 	'revreview-hist-basic-auto' => '[{{fullurl:$1|stableid=$2}} خودکار بررسی‌شده]',
-	'revreview-hist-quality-auto' => '[{{fullurl:$1|stableid=$2}} تایید خودکار]',
+	'revreview-hist-quality-auto' => '[{{fullurl:$1|stableid=$2}} تأیید خودکار]',
 	'revreview-hist-pending-difflink' => "'''[[{{fullurl:$1|oldid=$2&diff=$3}} در انتظار بازبینی]]'''",
 	'review-edit-diff' => "'''.اطلاعیه: بعضی از تغییرات زمانی منطقه‌ای از صفحه شما در حال تغییر است'''",
 	'revreview-diff-toggle-show' => 'نمایش آن تغییرات',
@@ -5412,7 +5412,7 @@ $messages['fa'] = array(
 	'review-logentry-diff' => 'تغییرات بازبینی‌شده',
 	'review-logentry-diff2' => 'تغییرات نامناسب',
 	'review-logpage' => 'سیاههٔ بررسی مقاله',
-	'review-logpagetext' => 'این هست سیاهه ای از نسخه هایی از حجم صفحه‌ها [[{{MediaWiki:Validationpage}}|تایید]].',
+	'review-logpagetext' => 'این سیاهه‌ای از نسخه‌هایی از صفحه‌های متحوا است که [[{{MediaWiki:Validationpage}}|تأیید شده‌اند]].',
 	'reviewer' => 'مرورگر',
 	'revisionreview' => 'نسخه‌های بررسی',
 	'revreview-accuracy' => 'دقت',
@@ -5427,7 +5427,7 @@ $messages['fa'] = array(
 $3  [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} تغییر درحال‌انتظار] نیازمند بازبینی {{PLURAL:$3|است|هستند}}.',
 	'revreview-basic-i' => 'این [[{{MediaWiki:Validationpage}}|نسخهٔ پایداری]] است که در <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} بازبینی شد].
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} تغییراتی از الگو/پروندهٔ] در انتظار بازبینی، وجود دارند.',
-	'revreview-basic-old' => 'این یک نسخهٔ [[{{MediaWiki:Validationpage}}|بررسی‌شده]] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} همه را فهرست کن]) است که در تاریخ <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} تایید شده است].
+	'revreview-basic-old' => 'این یک نسخهٔ [[{{MediaWiki:Validationpage}}|بررسی‌شده]] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} همه را فهرست کن]) است که در تاریخ <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} تأیید شده است].
 ممکن است [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} تغییرات] جدیدی صورت گرفته باشد.',
 	'revreview-basic-same' => 'این [[{{MediaWiki:Validationpage}}|نسخهٔ پایداری]] است که در <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} بررسی شد].',
 	'revreview-basic-source' => 'یک [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} نسخهٔ بررسی‌شده] از این صفحه، [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} تائیدشده] در <i>$2</i>، بر پایهٔ این نسخه قرار گرفت.',
@@ -5497,7 +5497,7 @@ $3  [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} تغییر در�
 	'revreview-quality-old' => 'این یک نسخهٔ [[{{MediaWiki:Validationpage}}|باکیفیت]] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} همه را فهرست کن]) [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} تائیدشده] در <i>$2</i> است.
 ممکن است [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} تغییرات] جدیدی صورت گرفته باشد.',
 	'revreview-quality-same' => 'این [[{{MediaWiki:Validationpage}}|نسخهٔ پایداری]] است که در تاریخ <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} تائید شده است].',
-	'revreview-quality-source' => 'یک [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} نسخهٔ باکیفیت] از این صفحه، [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} تایید شده] در <i>$2</i>، بر مبنای این نسخه ایجاد شده‌است.',
+	'revreview-quality-source' => 'یک [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} نسخهٔ باکیفیت] از این صفحه، [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} تأیید شده] در <i>$2</i>، بر مبنای این نسخه ایجاد شده‌است.',
 	'revreview-quality-title' => 'این نسخهٔ با کیفیت این صفحه است.',
 	'revreview-quick-basic' => "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} تغییرات درانتظار بازبینی]] '''[[{{MediaWiki:Validationpage}}|بررسی‌شده]]'''",
 	'revreview-quick-basic-old' => "'''[[{{MediaWiki:Validationpage}}|بررسی شد]]'''",
@@ -5555,7 +5555,7 @@ $3  [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} تغییر در�
 	'right-movestable' => 'انتقال صفحات با نسخه‌های پایدار',
 	'right-review' => 'علامت زدن نسخه‌ها به عنوان «بررسی شده»',
 	'right-stablesettings' => 'نحوهٔ انتخاب و نمایش نسخهٔ پایدار را پیکربندی کنید',
-	'right-validate' => 'علامت زدن نسخه‌های «با کیفیت» به عنوان تایید شده',
+	'right-validate' => 'علامت زدن نسخه‌های «با کیفیت» به عنوان تأیید شده',
 	'right-unreviewedpages' => 'مشاهدهٔ فهرست صفحه‌های بازبینی نشده',
 	'rights-editor-autosum' => 'ترفیع خودکار',
 	'rights-editor-revoke' => 'وضعیت مرورگر را از [[$1]] گرفت',
@@ -5569,8 +5569,8 @@ $3  [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} تغییر در�
 	'revreview-filter-all' => 'همه',
 	'revreview-filter-stable' => 'پایدار',
 	'revreview-statusfilter' => 'اقدام بازبینی:',
-	'revreview-filter-approved' => 'تایید شده',
-	'revreview-filter-reapproved' => 'دوباره تایید شده',
+	'revreview-filter-approved' => 'تأیید شده',
+	'revreview-filter-reapproved' => 'دوباره تأیید شده',
 	'revreview-filter-unapproved' => 'مردودشده',
 	'revreview-typefilter' => 'نوع',
 	'revreview-filter-auto' => 'خودکار',

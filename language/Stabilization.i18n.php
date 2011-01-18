@@ -1069,7 +1069,7 @@ $messages['fa'] = array(
 	'stabilization-perm' => 'حساب شما اجازهٔ تغییر پیکربندی نسخهٔ پایدار را ندارد.
 تنظیمات کنونی برای [[:$1|$1]] چنین هستند:',
 	'stabilization-page' => 'نام صفحه:',
-	'stabilization-leg' => 'تایید تنظیمات نسخهٔ پایدار',
+	'stabilization-leg' => 'تأیید تنظیمات نسخهٔ پایدار',
 	'stabilization-def' => 'نسخه‌ای که در حالت پیش‌فرض نمایش داده می‌شود',
 	'stabilization-def1' => 'نسخه پایدار؛ اگر وجود ندارد، آخرین نسخه',
 	'stabilization-def2' => 'آخرین نسخه',
