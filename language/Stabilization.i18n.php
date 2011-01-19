@@ -635,6 +635,8 @@ $messages['ce'] = array(
 	'stabilization-def-short' => 'Iад йитарца',
 	'stabilization-def-short-0' => 'хlинцлера',
 	'stabilization-def-short-1' => 'Чутоьхнарг',
+	'stabilize_page_invalid' => 'Агlонан чулацамца йогlуш йоцу цlе.',
+	'stabilize_page_notexists' => 'Iалаше хьажийна агlо йа йац.',
 	'stabilize-expiring' => 'чакхйолу $1 (UTC)',
 );
 
@@ -2959,7 +2961,7 @@ Asnjë konfigurim nuk është i mundshëm.',
 	'stabilize-expiring' => 'skadon $1 (UTC)',
 );
 
-/** Serbian Cyrillic ekavian (Српски (ћирилица))
+/** Serbian Cyrillic ekavian (‪Српски (ћирилица)‬)
  * @author Millosh
  * @author Rancher
  * @author Sasa Stefanovic
@@ -2988,7 +2990,7 @@ $messages['sr-ec'] = array(
 	'stabilization-othertime' => 'Друго време:',
 	'stabilization-def-short' => 'Подразумевано',
 	'stabilization-def-short-0' => 'Тренутно',
-	'stabilization-def-short-1' => 'Прихваћено',
+	'stabilization-def-short-1' => 'Стабилно',
 	'stabilize_page_invalid' => 'Наслов циљане стране је неисправан.',
 	'stabilize_page_notexists' => 'Циљана страна не постоји.',
 	'stabilize_page_unreviewable' => 'Циљана страна се не налази у прегледивом именском простору.',
