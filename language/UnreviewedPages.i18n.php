@@ -196,7 +196,7 @@ $messages['be'] = array(
 	'unreviewedpages-recent' => '(Менш 1 гадзіны)',
 );
 
-/** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))
+/** Belarusian (Taraškievica orthography) (‪Беларуская (тарашкевіца)‬)
  * @author EugeneZelenko
  * @author Jim-by
  * @author Red Winged Duck
@@ -1003,7 +1003,7 @@ $messages['ksh'] = array(
 	'unreviewedpages-recent' => '(winnijer wie en Shtund)',
 );
 
-/** Cornish (Kernewek)
+/** Cornish (Kernowek)
  * @author Kernoweger
  * @author Kw-Moon
  */
@@ -1512,7 +1512,7 @@ $messages['sq'] = array(
 	'unreviewedpages-category' => 'Kategoria:',
 );
 
-/** Serbian Cyrillic ekavian (Српски (ћирилица))
+/** Serbian Cyrillic ekavian (‪Српски (ћирилица)‬)
  * @author Millosh
  * @author Sasa Stefanovic
  * @author Жељко Тодоровић
@@ -1533,7 +1533,7 @@ $messages['sr-ec'] = array(
 	'unreviewedpages-recent' => '(мање од сата)',
 );
 
-/** Serbian Latin ekavian (Srpski (latinica))
+/** Serbian Latin ekavian (‪Srpski (latinica)‬)
  * @author Michaello
  */
 $messages['sr-el'] = array(

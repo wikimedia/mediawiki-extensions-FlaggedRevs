@@ -111,7 +111,7 @@ $messages['be'] = array(
 	'stablepages-indef' => 'Толькі з нявызначаным тэрмінам',
 );
 
-/** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))
+/** Belarusian (Taraškievica orthography) (‪Беларуская (тарашкевіца)‬)
  * @author EugeneZelenko
  * @author Jim-by
  * @author Wizardist
@@ -984,6 +984,7 @@ $messages['zh-hans'] = array(
  * @author Gaoxuewei
  * @author Horacewai2
  * @author Shinjiman
+ * @author Waihorace
  */
 $messages['zh-hant'] = array(
 	'stablepages' => '頁面已經通過審核',

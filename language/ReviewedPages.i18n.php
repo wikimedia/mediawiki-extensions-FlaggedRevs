@@ -148,7 +148,7 @@ $messages['be'] = array(
 	'reviewedpages-best' => 'найлепшая версія',
 );
 
-/** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))
+/** Belarusian (Taraškievica orthography) (‪Беларуская (тарашкевіца)‬)
  * @author EugeneZelenko
  * @author Jim-by
  */
@@ -1144,7 +1144,7 @@ $messages['sr-ec'] = array(
 	'reviewedpages-best' => 'најбоља измена',
 );
 
-/** Serbian Latin ekavian (Srpski (latinica))
+/** Serbian Latin ekavian (‪Srpski (latinica)‬)
  * @author Michaello
  * @author Михајло Анђелковић
  */
@@ -1403,6 +1403,7 @@ $messages['zh-hans'] = array(
 /** Traditional Chinese (‪中文(繁體)‬)
  * @author Horacewai2
  * @author Shinjiman
+ * @author Waihorace
  */
 $messages['zh-hant'] = array(
 	'reviewedpages' => '複審過的頁面',

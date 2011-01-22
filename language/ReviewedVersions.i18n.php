@@ -146,7 +146,7 @@ $messages['be'] = array(
 	'reviewedversions-review' => 'Праверана <i>$1</i> ўдзельнікам $2',
 );
 
-/** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))
+/** Belarusian (Taraškievica orthography) (‪Беларуская (тарашкевіца)‬)
  * @author EugeneZelenko
  */
 $messages['be-tarask'] = array(
@@ -1022,7 +1022,7 @@ $messages['sl'] = array(
 	'reviewedversions-review' => 'Pregledano <i>$1</i> s strani $2',
 );
 
-/** Serbian Cyrillic ekavian (Српски (ћирилица))
+/** Serbian Cyrillic ekavian (‪Српски (ћирилица)‬)
  * @author Charmed94
  * @author Millosh
  * @author Sasa Stefanovic
@@ -1037,7 +1037,7 @@ $messages['sr-ec'] = array(
 	'reviewedversions-review' => 'Прегледано на <i>$1</i> од стране $2',
 );
 
-/** Serbian Latin ekavian (Srpski (latinica))
+/** Serbian Latin ekavian (‪Srpski (latinica)‬)
  * @author Michaello
  */
 $messages['sr-el'] = array(
@@ -1276,6 +1276,7 @@ $messages['zh-hans'] = array(
 /** Traditional Chinese (‪中文(繁體)‬)
  * @author Horacewai2
  * @author Liangent
+ * @author Waihorace
  */
 $messages['zh-hant'] = array(
 	'reviewedversions' => '穩定版本',

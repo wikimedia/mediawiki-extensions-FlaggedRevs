@@ -68,7 +68,7 @@ $messages['be'] = array(
 	'qualityoversight-legend' => 'Пошук па журналу праверак',
 );
 
-/** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))
+/** Belarusian (Taraškievica orthography) (‪Беларуская (тарашкевіца)‬)
  * @author EugeneZelenko
  * @author Jim-by
  */
@@ -544,7 +544,7 @@ $messages['sl'] = array(
 	'qualityoversight-legend' => 'Iskanje nedavnih dnevnikov pregledov',
 );
 
-/** Serbian Cyrillic ekavian (Српски (ћирилица))
+/** Serbian Cyrillic ekavian (‪Српски (ћирилица)‬)
  * @author Charmed94
  * @author Millosh
  */
@@ -554,7 +554,7 @@ $messages['sr-ec'] = array(
 	'qualityoversight-legend' => 'Претрага извештаја недавних прегледа',
 );
 
-/** Serbian Latin ekavian (Srpski (latinica))
+/** Serbian Latin ekavian (‪Srpski (latinica)‬)
  * @author Michaello
  */
 $messages['sr-el'] = array(
@@ -667,6 +667,7 @@ $messages['zh-hans'] = array(
  * @author Liangent
  * @author Mark85296341
  * @author Shinjiman
+ * @author Waihorace
  */
 $messages['zh-hant'] = array(
 	'qualityoversight' => '品質管理日誌',

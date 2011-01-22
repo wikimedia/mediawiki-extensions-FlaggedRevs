@@ -176,7 +176,7 @@ $3",
 	'validationstatistics-reviews' => 'Праверкі',
 );
 
-/** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))
+/** Belarusian (Taraškievica orthography) (‪Беларуская (тарашкевіца)‬)
  * @author EugeneZelenko
  * @author Jim-by
  * @author Red Winged Duck
@@ -1181,7 +1181,7 @@ $messages['ksh'] = array(
 	'validationstatistics-reviews' => 'Mohlde en Sigg beshtätesh',
 );
 
-/** Cornish (Kernewek)
+/** Cornish (Kernowek)
  * @author Kernoweger
  * @author Kw-Moon
  */
@@ -1778,7 +1778,7 @@ $messages['sq'] = array(
 	'validationstatistics-total' => 'Faqet',
 );
 
-/** Serbian Cyrillic ekavian (Српски (ћирилица))
+/** Serbian Cyrillic ekavian (‪Српски (ћирилица)‬)
  * @author Sasa Stefanovic
  * @author Михајло Анђелковић
  * @author Обрадовић Горан
@@ -1795,7 +1795,7 @@ $messages['sr-ec'] = array(
 	'validationstatistics-reviews' => 'Прегледи',
 );
 
-/** Serbian Latin ekavian (Srpski (latinica))
+/** Serbian Latin ekavian (‪Srpski (latinica)‬)
  * @author Michaello
  */
 $messages['sr-el'] = array(
@@ -2136,6 +2136,7 @@ $3",
  * @author Horacewai2
  * @author Mark85296341
  * @author Tomchiukc
+ * @author Waihorace
  */
 $messages['zh-hant'] = array(
 	'validationstatistics' => '審核統計',

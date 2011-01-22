@@ -1538,7 +1538,7 @@ $messages['az'] = array(
 Xahiş edirik, URL ünvanını yoxlayasınız.',
 );
 
-/** Bashkir (Башҡорт)
+/** Bashkir (Башҡортса)
  * @author Haqmar
  */
 $messages['ba'] = array(
@@ -1936,7 +1936,7 @@ $messages['be'] = array(
 	'validationpage' => '{{ns:help}}:Праверка старонак',
 );
 
-/** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))
+/** Belarusian (Taraškievica orthography) (‪Беларуская (тарашкевіца)‬)
  * @author EugeneZelenko
  * @author Jim-by
  * @author Red Winged Duck
@@ -3847,7 +3847,7 @@ Bitte markiere alle unten angezeigten Änderungen, damit deine Bearbeitungen zur
 	'validationpage' => '{{ns:help}}:Gesichtete und geprüfte Versionen',
 );
 
-/** German (formal address) (Deutsch (Sie-Form))
+/** German (formal address) (‪Deutsch (Sie-Form)‬)
  * @author Imre
  * @author Jens Liebenau
  * @author Kghbln
@@ -3856,6 +3856,7 @@ Bitte markiere alle unten angezeigten Änderungen, damit deine Bearbeitungen zur
 $messages['de-formal'] = array(
 	'flaggedrevs-watched-pending' => "Es sind aktuell [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} ungesichtete Bearbeitungen] von gesichteten Seiten auf Ihrer Beobachtungsliste. '''Ihre Aufmerksamkeit ist nötig!'''",
 	'review-edit-diff' => "'''Hinweis: Einige der noch nicht überprüften Änderungen betreffen den Abschnitt des Textes, den Sie gerade bearbeiten.'''",
+	'review_conflict_oldid' => 'Jemand hat bereits diese Version akzeptiert oder verworfen während Sie sie gelesen haben.',
 	'revreview-editnotice' => "'''Ihre Änderungen werden veröffentlicht, sobald ein dazu berechtigter Benutzer sie überprüft hat. ([[{{MediaWiki:Validationpage}}|Hilfe]])'''",
 	'revreview-check-flag-p-title' => 'Alle noch nicht markierten Änderungen, zusammen mit Ihrer Bearbeitung, akzeptieren. Dies sollte nur gemacht werden, sofern bereits alle bislang noch nicht markierten Änderungen angesehen wurden.',
 	'revreview-check-flag-y-title' => 'Markieren aller Änderungen, die Sie mit dieser Bearbeitung gemacht haben.',
@@ -3874,16 +3875,13 @@ Siehe die [[Special:Unreviewedpages|Liste unmarkierter Versionen]].',
 Um den Markierungstatus einer Version aufzuheben, muss auf „Markierung entfernen“ geklickt werden.
 
 Klicken Sie auf die „Zurück“-Schaltfläche Ihres Browsers und versuchen Sie es erneut.",
-	'revreview-update' => "'''Bitte [[{{MediaWiki:Validationpage}}|überprüfen]] Sie alle Änderungen ''(siehe unten)'', die seit der neuesten freigegebenen Version getätigt wurden.'''
-Gegebenenfalls müssen Sie zunächst diese Bearbeitungen nachvollziehen oder ''rückgängig'' machen.",
+	'revreview-update' => "'''Bitte [[{{MediaWiki:Validationpage}}|überprüfen]] Sie alle Änderungen ''(siehe unten)'', die seit der neuesten freigegebenen Version getätigt wurden.'''",
 	'revreview-update-edited' => '<span class="flaggedrevs_important">Ihre Änderungen wurden bislang noch nicht als stabile Version gekennzeichnet.</span>
 
-Bitte überprüfen Sie alle unten angezeigten Änderungen, damit Ihre Bearbeitungen zur stabilen Version werden.
-Gegebenenfalls müssen Sie zunächst diese Bearbeitungen nachvollziehen oder „rückgängig machen“.',
-	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Ihre Änderungen wurden bislang noch nicht als stabile Version gekennzeichnet. Es gibt ältere Bearbeitungen, die noch überprüft werden müssen.</span>
+Bitte markieren Sie alle unten angezeigten Änderungen, damit Ihre Bearbeitungen zur stabilen Version werden.',
+	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Ihre Änderungen wurden bislang noch nicht als stabile Version gekennzeichnet. Es gibt ältere Bearbeitungen, die noch markiert werden müssen.</span>
 
-Bitte überprüfen Sie alle unten angezeigten Änderungen, damit Ihre Bearbeitungen zur stabilen Version werden.
-Gegebenenfalls müssen Sie zunächst diese Bearbeitungen nachvollziehen oder „rückgängig machen“.',
+Bitte markieren Sie alle unten angezeigten Änderungen, damit Ihre Bearbeitungen zur stabilen Version werden.',
 	'revreview-revnotfound' => 'Die Version dieser Seite, nach der Sie suchen, konnte nicht gefunden werden. Bitte überprüfen Sie die URL dieser Seite.',
 	'revreview-tt-flag' => 'Diese Version akzeptieren, indem Sie sie als „überprüft“ markieren',
 	'revreview-tt-unflag' => 'Diese Version nicht mehr anzeigen lassen, indem Sie die Markierung entfernen',
@@ -10376,7 +10374,7 @@ fottjeschmesse hät?',
 	'validationpage' => '{{ns:help}}:Nohjeloorte, jeprööfte un beschtätijunge Versione vun Sigge',
 );
 
-/** Cornish (Kernewek)
+/** Cornish (Kernowek)
  * @author Kw-Moon
  */
 $messages['kw'] = array(
@@ -12855,7 +12853,7 @@ $messages['pdc'] = array(
 	'revreview-filter-all' => 'All',
 );
 
-/** Pfälzisch (Pfälzisch)
+/** Pälzisch (Pälzisch)
  * @author Xqt
  */
 $messages['pfl'] = array(
@@ -18696,6 +18694,7 @@ Controleer asjeblieft de URL die  a je hebruken om ni deêze pagina te haene.',
  * @author Jimmy xu wrk
  * @author Liangent
  * @author PhiLiP
+ * @author Waihorace
  * @author Xiaomingyan
  */
 $messages['zh-hans'] = array(
@@ -18965,6 +18964,7 @@ $messages['zh-hans'] = array(
  * @author Horacewai2
  * @author Liangent
  * @author Mark85296341
+ * @author Waihorace
  * @author Wrightbus
  */
 $messages['zh-hant'] = array(

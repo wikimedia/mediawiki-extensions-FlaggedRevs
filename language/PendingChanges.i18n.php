@@ -254,7 +254,7 @@ $messages['be'] = array(
 	'pendingchanges-viewing' => '(правяраюцца)',
 );
 
-/** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))
+/** Belarusian (Taraškievica orthography) (‪Беларуская (тарашкевіца)‬)
  * @author EugeneZelenko
  * @author Jim-by
  * @author Wizardist
@@ -1082,7 +1082,7 @@ $messages['ksh'] = array(
 	'pendingchanges-viewing' => '(weed nohjekik)',
 );
 
-/** Cornish (Kernewek)
+/** Cornish (Kernowek)
  * @author Kernoweger
  * @author Kw-Moon
  */
@@ -1590,7 +1590,7 @@ $messages['sl'] = array(
 	'pendingchanges-viewing' => '(v pregledu)',
 );
 
-/** Serbian Cyrillic ekavian (Српски (ћирилица))
+/** Serbian Cyrillic ekavian (‪Српски (ћирилица)‬)
  * @author Millosh
  * @author Жељко Тодоровић
  * @author Михајло Анђелковић
@@ -1612,7 +1612,7 @@ $messages['sr-ec'] = array(
 	'pendingchanges-viewing' => '(под прегледом)',
 );
 
-/** Serbian Latin ekavian (Srpski (latinica))
+/** Serbian Latin ekavian (‪Srpski (latinica)‬)
  * @author Michaello
  * @author Жељко Тодоровић
  */
@@ -1922,6 +1922,7 @@ $messages['zh-hans'] = array(
  * @author Horacewai2
  * @author Liangent
  * @author Shinjiman
+ * @author Waihorace
  * @author Wrightbus
  */
 $messages['zh-hant'] = array(

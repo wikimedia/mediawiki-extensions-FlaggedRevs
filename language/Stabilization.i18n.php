@@ -331,7 +331,7 @@ Esta ye la configuración de [[:$1|$1]]:',
 	'stabilize-expiring' => "caduca'l $1 (UTC)",
 );
 
-/** Bashkir (Башҡорт)
+/** Bashkir (Башҡортса)
  * @author Assele
  * @author Haqmar
  */
@@ -423,7 +423,7 @@ $messages['be'] = array(
 	'stabilization-review' => 'Адзначыць бягучую версію як правераную',
 );
 
-/** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))
+/** Belarusian (Taraškievica orthography) (‪Беларуская (тарашкевіца)‬)
  * @author EugeneZelenko
  * @author Jim-by
  */
@@ -757,7 +757,7 @@ Die aktuellen Einstellungen für „[[:$1|$1]]“ sind:',
 	'stabilization-review' => 'Markiere die aktuelle Version',
 );
 
-/** German (formal address) (Deutsch (Sie-Form))
+/** German (formal address) (‪Deutsch (Sie-Form)‬)
  * @author Kghbln
  * @author Umherirrender
  */
@@ -2463,7 +2463,7 @@ $messages['pdc'] = array(
 	'stabilization-otherreason' => 'Annerer Grund:',
 );
 
-/** Pfälzisch (Pfälzisch)
+/** Pälzisch (Pälzisch)
  * @author Xqt
  */
 $messages['pfl'] = array(
@@ -3002,7 +3002,7 @@ $messages['sr-ec'] = array(
 	'stabilization-review' => 'Означи тренутну ревизику као прегледану',
 );
 
-/** Serbian Latin ekavian (Srpski (latinica))
+/** Serbian Latin ekavian (‪Srpski (latinica)‬)
  * @author Michaello
  * @author Жељко Тодоровић
  * @author Михајло Анђелковић
@@ -3683,6 +3683,7 @@ $messages['zh-hans'] = array(
  * @author Liangent
  * @author Mark85296341
  * @author Shinjiman
+ * @author Waihorace
  */
 $messages['zh-hant'] = array(
 	'stabilization-tab' => '調查',

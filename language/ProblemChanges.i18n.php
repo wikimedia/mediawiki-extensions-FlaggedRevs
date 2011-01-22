@@ -73,7 +73,7 @@ $messages['be'] = array(
 	'problemchanges-category' => 'Катэгорыя:',
 );
 
-/** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))
+/** Belarusian (Taraškievica orthography) (‪Беларуская (тарашкевіца)‬)
  * @author EugeneZelenko
  * @author Jim-by
  * @author Wizardist
@@ -713,7 +713,7 @@ $messages['sl'] = array(
 	'problemchanges-category' => 'Kategorija:',
 );
 
-/** Serbian Cyrillic ekavian (Српски (ћирилица))
+/** Serbian Cyrillic ekavian (‪Српски (ћирилица)‬)
  * @author Charmed94
  */
 $messages['sr-ec'] = array(
@@ -723,7 +723,7 @@ $messages['sr-ec'] = array(
 	'problemchanges-category' => 'Категорија:',
 );
 
-/** Serbian Latin ekavian (Srpski (latinica)) */
+/** Serbian Latin ekavian (‪Srpski (latinica)‬) */
 $messages['sr-el'] = array(
 	'problemchanges' => 'Označene izmene na čekanju',
 	'problemchanges-legend' => 'Prelistaj stranice na čekanju s označenim izmenama za pregled',
@@ -868,6 +868,7 @@ $messages['zh-hans'] = array(
 /** Traditional Chinese (‪中文(繁體)‬)
  * @author Horacewai2
  * @author Liangent
+ * @author Waihorace
  */
 $messages['zh-hant'] = array(
 	'problemchanges' => '標記審核',

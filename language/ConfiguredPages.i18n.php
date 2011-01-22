@@ -70,7 +70,7 @@ $messages['be'] = array(
 	'configuredpages-def-stable' => 'публікаваная версія',
 );
 
-/** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))
+/** Belarusian (Taraškievica orthography) (‪Беларуская (тарашкевіца)‬)
  * @author EugeneZelenko
  * @author Wizardist
  */
@@ -855,6 +855,7 @@ $messages['zh-hans'] = array(
 
 /** Traditional Chinese (‪中文(繁體)‬)
  * @author Horacewai2
+ * @author Waihorace
  */
 $messages['zh-hant'] = array(
 	'configuredpages' => '頁面已有複審設定',
