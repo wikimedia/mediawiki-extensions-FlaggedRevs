@@ -1941,6 +1941,7 @@ $messages['be'] = array(
  * @author Jim-by
  * @author Red Winged Duck
  * @author Wizardist
+ * @author Zedlik
  */
 $messages['be-tarask'] = array(
 	'action-review' => 'праверыць вэрсіі',
@@ -1984,10 +1985,10 @@ $messages['be-tarask'] = array(
 	'revreview-diff-toggle-title' => 'Пераключэньне паказу неравераных зьменаў апублікаванай вэрсіяй',
 	'revreview-log-toggle-show' => 'паказаць журнал стабілізацыяў',
 	'revreview-log-toggle-hide' => 'схаваць журнал стабілізацыяў',
-	'revreview-log-toggle-title' => 'Уключыць паказ журнала ўстановак стабілізацыі',
+	'revreview-log-toggle-title' => 'Уключыць паказ журнала наладаў стабілізацыі',
 	'revreview-log-details-show' => 'паказаць падрабязнасьці',
 	'revreview-log-details-hide' => 'схаваць падрабязнасьці',
-	'revreview-log-details-title' => 'Уключыць паказ журнала ўстановак стабілізацыі',
+	'revreview-log-details-title' => 'Уключыць паказ журнала наладаў стабілізацыі',
 	'review-diff2stable' => 'Паказаць непрагледжаныя зьмены апублікаванай вэрсіі',
 	'review-logentry-app' => 'праверыў вэрсію старонкі [[$1]]',
 	'review-logentry-dis' => 'састарэлая вэрсія старонкі [[$1]]',
@@ -2135,9 +2136,9 @@ $messages['be-tarask'] = array(
 Калі ласка, прарэцэнзуйце ўсе зьмены пададзеныя ніжэй, каб Вашыя рэдагаваньні былі далучаныя да стабільнай вэрсіі.',
 	'revreview-update-includes' => "'''Некаторыя шаблёны/файлы былі абноўленыя:'''",
 	'revreview-update-use' => "'''ЗАЎВАГА:''' Апублікаваныя вэрсіі гэтых шаблёнаў/файлаў выкарыстоўваюцца ў апублікаванай вэрсіі гэтай старонкі.",
-	'revreview-visibility' => "'''Гэтая старонка мае новую [[{{MediaWiki:Validationpage}}|апублікаваную вэрсію]]; можна [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} зьмяніць] устаноўкі апублікаванай вэрсіі.'''",
-	'revreview-visibility2' => "'''Гэтая старонка мае састарэлую [[{{MediaWiki:Validationpage}}|апублікаваную вэрсію]]; можна [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} зьмяніць] устаноўкі апублікаванай вэрсіі.'''",
-	'revreview-visibility3' => "'''Гэтая старонка ня мае [[{{MediaWiki:Validationpage}}|апублікаванай вэрсіі]]; можна [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} зьмяніць] устаноўкі апублікаванай вэрсіі.'''",
+	'revreview-visibility' => "'''Гэтая старонка мае новую [[{{MediaWiki:Validationpage}}|апублікаваную вэрсію]]; можна [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} зьмяніць] налады апублікаванай вэрсіі.'''",
+	'revreview-visibility2' => "'''Гэтая старонка мае састарэлую [[{{MediaWiki:Validationpage}}|апублікаваную вэрсію]]; можна [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} зьмяніць] налады апублікаванай вэрсіі.'''",
+	'revreview-visibility3' => "'''Гэтая старонка ня мае [[{{MediaWiki:Validationpage}}|апублікаванай вэрсіі]]; можна [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} зьмяніць] налады апублікаванай вэрсіі.'''",
 	'revreview-revnotfound' => 'Ранейшая вэрсія гэтай старонкі ня знойдзеная. Праверце спасылку, празь якую Вы спрабавалі перайсьці на гэтую старонку.',
 	'right-autoreview' => 'аўтаматычнае пазначэньне вэрсіяў старонак як правераных',
 	'right-movestable' => 'перанос апублікаваных старонак',
@@ -2148,9 +2149,9 @@ $messages['be-tarask'] = array(
 	'rights-editor-autosum' => 'аўтаматычна прызначаны',
 	'rights-editor-revoke' => 'зьняты статус рэдактара з [[$1]]',
 	'specialpages-group-quality' => 'Зацьверджаньне рэдагаваньняў',
-	'stable-logentry-config' => 'сканфігураваныя ўстаноўкі стабільнай вэрсіі для «$1»',
-	'stable-logentry-modify' => 'зьмененыя ўстаноўкі стабільнай вэрсіі для «$1»',
-	'stable-logentry-reset' => 'скінутыя ўстаноўкі стабільнай вэрсіі для «$1»',
+	'stable-logentry-config' => 'сканфігураваныя налады стабільнай вэрсіі для «$1»',
+	'stable-logentry-modify' => 'зьмененыя налады стабільнай вэрсіі для «$1»',
+	'stable-logentry-reset' => 'скінутыя налады стабільнай вэрсіі для «$1»',
 	'stable-log-restriction' => 'Аўтаматычнае рэцэнзаваньне: патрабуецца дазвол «$1»',
 	'stable-logpage' => 'Журнал стабілізацыі',
 	'stable-logpagetext' => 'Гэты журнал зьменаў канфігурацыі [[{{MediaWiki:Validationpage}}|стабільных вэрсіяў]] старонак.',

@@ -426,15 +426,16 @@ $messages['be'] = array(
 /** Belarusian (Taraškievica orthography) (‪Беларуская (тарашкевіца)‬)
  * @author EugeneZelenko
  * @author Jim-by
+ * @author Zedlik
  */
 $messages['be-tarask'] = array(
 	'stabilization-tab' => 'Бачная вэрсія старонкі',
 	'stabilization' => 'Стабілізацыя старонкі',
-	'stabilization-text' => "'''Зьмяніце ўстаноўкі ніжэй, якім чынам павінна выбірацца і паказвацца апублікаваная вэрсія старонкі [[:$1|$1]].'''",
+	'stabilization-text' => "'''Зьмяніце налады ніжэй, якім чынам павінна выбірацца і паказвацца апублікаваная вэрсія старонкі [[:$1|$1]].'''",
 	'stabilization-perm' => 'Ваш рахунак ня мае правоў для зьмены канфігурацыі апублікаванай вэрсіі.
-Тут пададзеныя цяперашнія ўстаноўкі для [[:$1|$1]]:',
+Тут пададзеныя цяперашнія налады для [[:$1|$1]]:',
 	'stabilization-page' => 'Назва старонкі:',
-	'stabilization-leg' => 'Пацьвердзіць устаноўкі апублікаванай вэрсіі',
+	'stabilization-leg' => 'Пацьвердзіць налады апублікаванай вэрсіі',
 	'stabilization-def' => 'Вэрсія, якая паказваецца па змоўчваньні',
 	'stabilization-def1' => 'Стабільная вэрсія; калі яе не існуе, то апошняя вэрсія',
 	'stabilization-def2' => 'Апошняя вэрсія',
@@ -442,9 +443,9 @@ $messages['be-tarask'] = array(
 	'stabilization-restrict-none' => 'Няма дадатковых абмежаваньняў',
 	'stabilization-submit' => 'Пацьвердзіць',
 	'stabilization-notexists' => 'Не існуе старонкі з назвай «[[:$1|$1]]».
-Немагчыма зьмяніць устаноўкі.',
+Немагчыма зьмяніць налады.',
 	'stabilization-notcontent' => 'Старонка «[[:$1|$1]]» ня можа быць правераная.
-Немагчыма зьмяніць устаноўкі.',
+Немагчыма зьмяніць налады.',
 	'stabilization-comment' => 'Прычына:',
 	'stabilization-otherreason' => 'Іншая прычына:',
 	'stabilization-expiry' => 'Тэрмін:',
@@ -1990,6 +1991,13 @@ Et jidd och nix ennzeshtelle.',
 	'stabilize_expiry_old' => 'Dat Affloufdattum es ald förbei.',
 	'stabilize-expiring' => 'leuf uß, am $2 öm $3 Uhr (UTC)',
 	'stabilization-review' => 'Donn de aktoälle Version nohkike',
+);
+
+/** Kurdish (Latin) (Kurdî (Latin))
+ * @author George Animal
+ */
+$messages['ku-latn'] = array(
+	'stabilization-comment' => 'Sedem:',
 );
 
 /** Latin (Latina)
