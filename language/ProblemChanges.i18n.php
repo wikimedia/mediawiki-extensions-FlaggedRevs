@@ -427,9 +427,11 @@ $messages['it'] = array(
  * @author Aotake
  * @author Fryed-peach
  * @author Hosiryuhosi
+ * @author Ohgi
  */
 $messages['ja'] = array(
 	'problemchanges' => 'タグ付けされた保留中の編集',
+	'problemchanges-list' => 'このページで、[[{{MediaWiki:Validationpage}}|査読]]済みのページで、タグ付きの査読待ちの編集があるものの一覧です。[[Special:Tags|有効なタグ]]の一覧も利用可能です。',
 	'problemchanges-legend' => '査読待ちのタグ付き編集のあるページの一覧',
 	'problemchanges-none' => '現時点でこれらの基準に合致するページはありません',
 	'problemchanges-category' => 'カテゴリ:',
