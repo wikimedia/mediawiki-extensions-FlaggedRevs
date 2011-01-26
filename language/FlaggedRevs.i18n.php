@@ -13162,7 +13162,7 @@ $messages['pms'] = array(
 	'group-autoreview' => 'Utent autocontrolà',
 	'group-autoreview-member' => 'utent autocontrolà',
 	'grouppage-autoreview' => '{{ns:project}}:Utent autocontrolà',
-	'revcontents-error' => 'As peul pa pijesse ël contnù.',
+	'revcontents-error' => 'Ël contnù as peul pa arcuperesse.',
 	'revcontents-getcontents' => 'Sgnaca [{{fullurl:$1|oldid=$2}} ambelessì] për vardé sta revision.',
 	'revcontents-waiting' => 'Speté dël contnù',
 	'revreview-hist-draft' => 'revision pa controlà',

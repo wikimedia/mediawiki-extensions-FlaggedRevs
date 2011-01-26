@@ -326,11 +326,12 @@ Muiden käyttäjien tekemiä muokkauksia ei näytetä ennen kuin valtuutettu kä
  * @author Mihai
  * @author Peter17
  * @author Verdy p
+ * @author Zetud
  */
 $messages['fr'] = array(
 	'stablepages' => 'Pages utilisant la validation des modifications',
-	'stablepages-list' => "Ci-dessous figure une liste de pages qui sont restreintes tel que seul certains utilisateurs peuvent la modifier sans qu'une relecture soit nécessaire.
-Aussi, les modifications faites par les autres utilisateurs ne sont pas affichées par défaut aux lecteurs tant qu'un utilisateur habilité les aient relues.",
+	'stablepages-list' => "Ci-dessous figure une liste de pages qui sont restreintes, c'est-à-dire que seuls certains utilisateurs peuvent les modifier sans qu'une relecture soit nécessaire.
+Les modifications faites par les autres utilisateurs ne sont pas affichées par défaut aux lecteurs tant qu'un utilisateur habilité ne les a pas relues.",
 	'stablepages-none' => 'Il n’y a aucune page dans cette liste.',
 	'stablepages-config' => 'Configuration',
 	'stablepages-indef' => 'Délai d’expiration infini seulement',
