@@ -452,8 +452,6 @@ $wgHooks['ArticleRevisionVisibilitySet'][] = 'FlaggedRevsHooks::onRevisionDelete
 $wgHooks['TitleMoveComplete'][] = 'FlaggedRevsHooks::onTitleMoveComplete';
 # File upload
 $wgHooks['FileUpload'][] = 'FlaggedRevsHooks::onFileUpload';
-
-$wgHooks['ArticleRevisionVisiblitySet'][] = 'FlaggedRevsHooks::onRevisionDelete'; // B/C for now
 # ########
 
 # ######## Other #########
