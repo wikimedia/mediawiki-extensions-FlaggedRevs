@@ -1133,7 +1133,7 @@ $messages['ar'] = array(
 من فضلك اضغط زر "رجوع" في متصفحك وحاول مجددا.',
 	'revreview-update' => "من فضلك [[{{MediaWiki:Validationpage}}|راجع]] أية تغييرات ''(معروضة بالأسفل)'' تمت منذ [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} اعتماد] المراجعة المنشورة.<br />
 '''بعض القوالب/الملفات تم تحديثها:'''",
-	'revreview-update-edited-prev' => ' <span class="flaggedrevs_important"> لم تضف تعديلات بعد إلى النسخة المستقرة. هناك تعديلات مسبقة تنتظر المراجعة. </span>
+	'revreview-update-edited-prev' => '<span class="flaggedrevs_important"> لم تضف تعديلات بعد إلى النسخة المستقرة. هناك تعديلات مسبقة تنتظر المراجعة. </span>
 رجاء راجع جميع التغييرات الظاهرة أدناه من أجل أن تظهر تعديلاتك في النسخة المستقرة.',
 	'revreview-update-includes' => "'''بعض القوالب/الملفات تم تحديثها:'''",
 	'revreview-update-use' => "'''ملاحظة:''' إذا كان  لأي من هذه القوالب/الملفات نسخة منشورة، فهي مستخدمة بالفعل في النسخة المنشورة لهذه الصفحة.",
@@ -14938,8 +14938,8 @@ $messages['sah'] = array(
 	'revreview-reject-summary' => 'Уларытыылар туһунан:',
 	'revreview-reject-confirm' => 'Бу уларытыылары суох гынарга',
 	'revreview-reject-cancel' => 'Салҕаама',
-	'tooltip-ca-current' => 'Сирэй саҥа (бүтэһик) черновигын көрдөр',
-	'tooltip-ca-stable' => 'Бу сирэй чистовигын көрүү',
+	'tooltip-ca-current' => 'Бу сирэйи тургутуллубатах уларытыыларын кытта көрдөр',
+	'tooltip-ca-stable' => 'Бу сирэй бэчээккэ бигэргэммит барылын көрүү',
 	'tooltip-ca-default' => 'Хаачыстыба хонтуруолун туруоруулара',
 	'validationpage' => '{{ns:help}}:Ыстатыйа бэрэбиэркэтэ',
 );
