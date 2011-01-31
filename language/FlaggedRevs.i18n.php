@@ -15520,9 +15520,15 @@ Prosimo, preglejte vse spremembe prikazane podaj, da prikažete vaše spremembe 
 	'validationpage' => '{{ns:help}}:Vrednotenje strani',
 );
 
-/** Albanian (Shqip) */
+/** Albanian (Shqip)
+ * @author Cradel
+ */
 $messages['sq'] = array(
-	'revreview-revnotfound' => 'Versioni i vjetër i faqes së kërkuar nuk mund të gjehej.Ju lutem kontrolloni URL-in që përdorët për të ardhur tek kjo faqe.',
+	'action-review' => 'redaktimet e shqyrtuara',
+	'editor' => 'Redaktuesi',
+	'flaggedrevs-desc' => 'I jep përdoruesve të drejtën e shqyrtimit të redaktimeve dhe stabilizimit të faqeve',
+	'flaggedrevs-pref-UI' => 'Ndërfaqe e thjeshtë:',
+	'revreview-revnotfound' => 'Versioni i vjetër i faqes së kërkuar nuk mund të gjindej. Ju lutem kontrolloni URL-n që përdorët për të ardhur tek kjo faqe.',
 );
 
 /** Serbian Cyrillic ekavian (‪Српски (ћирилица)‬)

@@ -1590,6 +1590,27 @@ $messages['sl'] = array(
 	'pendingchanges-viewing' => '(v pregledu)',
 );
 
+/** Albanian (Shqip)
+ * @author Cradel
+ */
+$messages['sq'] = array(
+	'pendingchanges' => 'Faqet me ndryshime në pritje',
+	'pendingchanges-legend' => 'Listo faqet e shqyrtuara me ndryshime në pritje',
+	'pendingchanges-list' => 'Kjo faqe liston faqet [[{{MediaWiki:Validationpage}}|e shqyrtuara]] të cilat kanë një ose më shumë redaktime që presin të shqyrtohen.',
+	'pendingchanges-none' => 'Aktualisht nuk ka faqe që përputher me këto kritere',
+	'pendingchanges-hours' => '($1 orë)',
+	'pendingchanges-days' => '($1 ditë)',
+	'pendingchanges-recent' => '(më pak se 1 orë)',
+	'pendingchanges-category' => 'Kategoria:',
+	'pendingchanges-onwatchlist' => 'Faqet në listën time mbikëqurëse',
+	'pendingchanges-stable' => 'Verzioni stabil është i nënkuptuar',
+	'pendingchanges-diff' => 'shqyrtim',
+	'pendingchanges-size' => 'ndryshimi max. (në bajtë)',
+	'pendingchanges-unwatched' => '(e pambikëqyrur)',
+	'pendingchanges-watched' => '($1 përdorues {{PLURAL:$1|aktiv|aktivë}} duke e mbikëqyrur)',
+	'pendingchanges-viewing' => '(duke u shqyrtuar)',
+);
+
 /** Serbian Cyrillic ekavian (‪Српски (ћирилица)‬)
  * @author Millosh
  * @author Жељко Тодоровић
