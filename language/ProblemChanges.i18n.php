@@ -209,6 +209,7 @@ $messages['el'] = array(
  */
 $messages['eo'] = array(
 	'problemchanges' => 'Markis kontrolendajn ŝanĝojn',
+	'problemchanges-list' => 'Ĉi tiu paĝo montras [[{{MediaWiki:Validationpage}}|reviziitajn]] paĝojn havantajn unu aŭ pliajn kontrolendajn reviziojn. Listo de [[Special:Tags|validaj ŝanĝo-etikedoj]] disponas.',
 	'problemchanges-legend' => 'Listigi paĝojn kun markitaj kaj kontrolendaj redaktoj',
 	'problemchanges-none' => 'Estas nune neniuj paĝoj kongruante ĉi tiun kriterion',
 	'problemchanges-category' => 'Kategorio:',

@@ -1971,7 +1971,7 @@ $3",
 	'validationstatistics-latest' => 'Senkronize edildi',
 	'validationstatistics-synced' => 'Eşitlenmiş/Gözden geçirilmiş',
 	'validationstatistics-old' => 'Eski',
-	'validationstatistics-utable' => 'Aşağıdaki, son bir saatteki top $1 inceleyicinin listesidir.',
+	'validationstatistics-utable' => 'Aşağıdaki liste son saatteki {{PLURAL:$1|en etkin gözden geçirici|$1 en etkin gözden geçirici}}yi gösterir.',
 	'validationstatistics-user' => 'Kullanıcı',
 	'validationstatistics-reviews' => 'İncelemeler',
 );

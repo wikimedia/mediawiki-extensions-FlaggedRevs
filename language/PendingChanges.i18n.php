@@ -1779,7 +1779,7 @@ $messages['tl'] = array(
  * @author Srhat
  */
 $messages['tr'] = array(
-	'pendingchanges' => 'Bekleyen değişiklik içeren sayfalar',
+	'pendingchanges' => 'İnceleme bekleyen sayfalar',
 	'pendingchanges-legend' => 'Gözden geçirilme bekleyen revizyonu olan gözden geçirilmiş sayfaları listele',
 	'pendingchanges-list' => 'Bu sayfa, bekleyen değişikliğe sahip gözden geçirilmiş {{PLURAL:$1|bir sayfayı|sayfaları}} listeler.',
 	'pendingchanges-none' => 'Şimdilik bu kriterlere uyan sayfa yoktur',
