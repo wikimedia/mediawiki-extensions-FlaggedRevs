@@ -7,7 +7,7 @@ http://www.mediawiki.org/wiki/Extension:FlaggedRevs
 * Shell access
 
 == Setup ==
-* Run 'maintenance/archives/populateSha1.php' if not already done.
+* Run 'maintenance/populateSha1.php' if not already done.
 * Make sure '../extensions/FlaggedRevs/client' is readable (for CSS/JS)
 * Add the following line to 'LocalSettings.php':
 	include_once('extensions/FlaggedRevs/FlaggedRevs.php');
