@@ -1690,7 +1690,9 @@ class FlaggedRevsHooks {
 				$css = 'flaggedrevs-unreviewed';
 			}
 		// page is reviewed and has pending edits (use timestamps; bug 15515)
-		} elseif ( $rc->mAttribs['rc_timestamp'] >= $rc->mAttribs['fp_pending_since'] ) {
+		} elseif ( isset( $rc->mAttribs['fp_pending_since'] ) &&
+			$rc->mAttribs['rc_timestamp'] >= $rc->mAttribs['fp_pending_since'] )
+		{
 			$rlink = $list->skin->link(
 				$title,
 				wfMsgHtml( 'revreview-reviewlink' ),
