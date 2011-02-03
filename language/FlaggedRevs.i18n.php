@@ -13996,6 +13996,7 @@ $messages['rmy'] = array(
 
 /** Romanian (Română)
  * @author Cin
+ * @author Danutz
  * @author Emily
  * @author Firilacroco
  * @author KlaudiuMihaila
@@ -14052,7 +14053,7 @@ $messages['ro'] = array(
 	'revreview-depth-3' => 'Înalt',
 	'revreview-depth-4' => 'Remarcabil',
 	'revreview-draft-title' => 'Această pagină afișează modificări în așteptarea recenziei',
-	'revreview-edit' => 'Modifică',
+	'revreview-edit' => 'Modificare',
 	'revreview-check-flag-u' => 'Acceptă această pagină nerevizuită',
 	'revreview-check-flag-u-title' => 'Acceptă această versiune a paginii. Folosiţi asta doar dacă aţi văzut deja întreaga pagină.',
 	'revreview-check-flag-y' => 'Acceptă aceste schimbări',
@@ -15936,6 +15937,7 @@ Please check the URL you used to access this page.',
  * @author Nghtwlkr
  * @author Per
  * @author Rotsee
+ * @author Tobulos1
  */
 $messages['sv'] = array(
 	'action-review' => 'granska sidversioner',
@@ -16028,7 +16030,7 @@ Nyare [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} ändringar] ka
 	'revreview-edit' => 'Redigera',
 	'revreview-editnotice' => "'''Dina ändringar kommer att visas när en behörig användare granskar dem.
 ([[{{MediaWiki:Validationpage}}|hjälp]])'''",
-	'revreview-check-flag-p' => 'Acceptera de väntande ändringarna',
+	'revreview-check-flag-p' => 'Accept this version (includes $1 pending {{PLURAL:$1|change|changes}})',
 	'revreview-check-flag-p-title' => 'Acceptera alla nuvarande väntande ändringar tillsammans med din egen redigering. Använd endast detta om du redan har sett hela diffen för väntande ändringar.',
 	'revreview-check-flag-u' => 'Acceptera denna ogranskade sida',
 	'revreview-check-flag-u-title' => 'Acceptera den här versionen av sidan. Använd endast detta om du redan sett hela sidan.',
@@ -16157,6 +16159,7 @@ Vänligen granska alla ändringar som visas nedan för att göra så att dina re
 	'revreview-restriction-any' => 'någon',
 	'revreview-restriction-none' => 'ingen',
 	'revreview-reject-cancel' => 'Avbryt',
+	'revreview-reject-usercount' => '{{PLURAL:$1|en användare|$1 användare}}',
 	'revreview-reviewlink' => 'väntande redigeringar',
 	'revreview-reviewlink-title' => 'Se diff för alla väntande ändringar',
 	'revreview-unreviewedpage' => 'ej kontrollerad sida',
@@ -16664,7 +16667,7 @@ $messages['tg-latn'] = array(
  * @author Woraponboonkerd
  */
 $messages['th'] = array(
-	'editor' => 'ผู้้แก้ไข',
+	'editor' => 'ผู้แก้ไข',
 	'group-editor-member' => 'ผู้แก้ไข',
 	'revreview-accuracy' => 'ความถูกต้อง',
 	'revreview-accuracy-0' => 'ยังไม่ได้ตรวจสอบ',
@@ -17161,6 +17164,7 @@ Pakisuri ang URL na ginamit para mapuntahan ang pahinang ito.',
 );
 
 /** Turkish (Türkçe)
+ * @author Emperyan
  * @author Erkan Yilmaz
  * @author Hanberke
  * @author Homonihilis
@@ -17244,6 +17248,7 @@ Yeni [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} değişiklikler
 	'revreview-basic-same' => '<i>$2</i> tarihinde [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} kontrol edilmiş] en son [[{{MediaWiki:Validationpage}}|kararlı sürüm]] gösterilmektedir.',
 	'revreview-basic-source' => 'Sayfanın, <i>$2</i> tarihinde [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} onaylanmış] olan  [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} kontrol edilmiş bir sürümü], bu revizyondan baz alınmıştır.',
 	'revreview-failed' => "'''Bu revizyon gözden geçirilemiyor.'''",
+	'revreview-submission-invalid' => 'Eksik veya başka bir şekilde geçersiz başvuru.',
 	'review_page_invalid' => 'Hedef sayfa başlığı geçersiz.',
 	'review_page_notexists' => 'Hedef sayfa mevcut değil.',
 	'review_page_unreviewable' => 'Hedef sayfa incelenebilir değil.',
@@ -17346,12 +17351,10 @@ Lütfen tarayıcınızdaki "geri" tuşuna basın ve tekrar deneyin.',
 	'revreview-update' => "'''Lütfen kararlı sürüme yapımış bekleyen her değişikliği ''(aşağıda gösterilmiştir)'' [[{{MediaWiki:Validationpage}}|gözden geçirin]].'''",
 	'revreview-update-edited' => '<span class="flaggedrevs_important">Değişiklikleriniz henüz onaylanmış sürüm içinde değildir.</span>
 
-Yaptığınız değişikliklerin onaylanmış sürümde yer alması için lütfen aşağıda görünen tüm değişiklikleri gözden geçirin.
-Değişikliklerinizi takip etmek ya da "geri al" yapmak durumda olabilirsiniz.',
+Yaptığınız değişikliklerin onaylanmış sürümde yer alması için lütfen aşağıda görünen tüm değişiklikleri gözden geçirin.',
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Değişiklikleriniz henüz kararlı sürümde değil. Gözden geçirilmeyi bekleyen önceki değişiklikler var.</span>
 
-Değişikliklerinizin kararlı sürümde görünmesi için, lütfen aşağıda gösterilen tüm değişiklikleri gözden geçirin.
-İlk olarak değişiklikleri takip etmeniz veya "geri almanız" gerekmektedir.',
+Değişikliklerinizin kararlı sürümde görünmesi için, lütfen aşağıda gösterilen tüm değişiklikleri gözden geçirin.',
 	'revreview-update-includes' => "'''Bazı şablonlar/dosyalar güncellenmiş:'''",
 	'revreview-update-use' => "'''NOT:''' Her şablon/dosyanın kararlı sürümleri, bu sayfanın kararlı sürümünde kullanılmıştır.",
 	'revreview-visibility' => "'''Bu sayfanın güncellenmiş bir [[{{MediaWiki:Validationpage}}|kararlı sürümü]] mevcut; sayfa kararlılık ayarları [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} yapılandırılabilir].'''",
@@ -17395,10 +17398,11 @@ Değişikliklerinizin kararlı sürümde görünmesi için, lütfen aşağıda g
 	'revreview-restriction-any' => 'herhangi',
 	'revreview-restriction-none' => 'hiçbiri',
 	'revreview-reject-header' => '$1 için değişiklikleri reddet',
-	'revreview-reject-text-list' => "Bu eylemi tamamlayarak, aşağıdaki değişiklikleri '''reddetmiş''' olacaksınız:",
+	'revreview-reject-text-list' => "Bu eylemi tamamlayarak, aşağıdaki {{PLURAL:$1|değişiklik|değişiklikleri}} '''reddetmiş''' olacaksınız:",
 	'revreview-reject-summary' => 'Değişiklik özeti:',
 	'revreview-reject-confirm' => 'Bu değişiklikleri reddet',
 	'revreview-reject-cancel' => 'İptal',
+	'revreview-reject-usercount' => '{{PLURAL:$1|bir kullanıcı|$1 kullanıcı}}',
 	'revreview-reviewlink' => 'bekleyen değişiklikler',
 	'revreview-reviewlink-title' => 'Tüm bekleyen değişikliklerin farkını gör',
 	'revreview-unreviewedpage' => 'denetlenmemiş sayfa',
@@ -17407,6 +17411,7 @@ Değişikliklerinizin kararlı sürümde görünmesi için, lütfen aşağıda g
 	'tooltip-ca-default' => 'Kalite güvencesi ayarları',
 	'flaggedrevs-protect-legend' => 'Otomatik değişiklik gözden geçirmesi ([[{{MediaWiki:Validationpage}}|yardım]])',
 	'flaggedrevs-protect-none' => 'Tüm kullanıcılara izin ver',
+	'flaggedrevs-categoryview' => '[{{fullurl:Special:UnreviewedPages|category=$1}} İncelenmemiş sayfalar]{{int:pipe-separator}}[{{fullurl:Special:PendingChanges|category=$1}} Bekleyen değişiklikler]',
 	'revreview-locked-title' => 'Bu sayfada yapılan değişiklikler gözden geçirme gerektirmektedir.',
 	'revreview-unlocked-title' => 'Bu sayfada yapılan değişiklikler gözden geçirme gerektirmemektedir.',
 	'revreview-locked' => "'''Uyarı:''' bu sayfada okuyuculara gösterilmeden önce değişiklikler [[{{MediaWiki:Validationpage}}|gözden geçirilmelidir]].",
