@@ -4812,13 +4812,13 @@ $messages['es'] = array(
 	'flaggedrevs-prefs-editdiffs' => 'Mostrar las diferencias de cambios pendientes al editar páginas',
 	'flaggedrevs-prefs-viewdiffs' => 'Mostrar la diferencia de los cambios pendientes al ver la última revisión pendiente',
 	'group-editor' => 'Editores',
-	'group-editor-member' => 'Editor',
+	'group-editor-member' => 'editor',
 	'group-reviewer' => 'Revisores',
-	'group-reviewer-member' => 'Revisor',
+	'group-reviewer-member' => 'revisor',
 	'grouppage-editor' => '{{ns:project}}:Editor',
 	'grouppage-reviewer' => '{{ns:project}}:Revisor',
 	'group-autoreview' => 'Autorevisores',
-	'group-autoreview-member' => 'autorevisor',
+	'group-autoreview-member' => 'usuarios autorevisados',
 	'grouppage-autoreview' => '{{ns:project}}:Autorevisor',
 	'revcontents-error' => 'No se pudo obtener el contenido',
 	'revcontents-getcontents' => '[{{fullurl:$1|oldid=$2}} Ver esta revisión]',
@@ -9387,6 +9387,7 @@ $messages['jv'] = array(
 
 /** Georgian (ქართული)
  * @author BRUTE
+ * @author Dawid Deutschland
  * @author ITshnik
  * @author გიორგიმელა
  */
@@ -9461,14 +9462,14 @@ $messages['ka'] = array(
 	'review_param_missing' => 'პარამეტრი დაკარგულია ან არასწორია.',
 	'revreview-current' => 'შავი ფურცელი',
 	'revreview-depth' => 'სიღრმე',
-	'revreview-depth-0' => 'არ არის მონიშნული',
+	'revreview-depth-0' => 'არასაკმარისი',
 	'revreview-depth-1' => 'საბაზისო',
 	'revreview-depth-2' => 'საშუალო',
 	'revreview-depth-3' => 'მაღალი',
 	'revreview-depth-4' => 'რჩეული',
 	'revreview-draft-title' => 'ამ გვერდზე წარმოდგენილია შემოუწმებელი ცვლილებები',
 	'revreview-edit' => 'რედაქტირება',
-	'revreview-editnotice' => "'''თქვენს მიერ განხორციელებული ცვლილებები იქნება გამოქვეყნებული უფლებამოსილი მომხმარებლის მიერ შემოწმების შემდეგ. ([[{{MediaWiki:Validationpage}}|?]])'''",
+	'revreview-editnotice' => "თქვენ მიერ განხორციელებული ცვლილებები გამოქვეყნდება უფლებამოსილი მომხმარებლის მიერ მონიშვნის შემდეგ. ([[{{MediaWiki:Validationpage}}|დახმარება]])'''",
 	'revreview-check-flag-p' => 'შემოწმების მომლოდინე გადაუმოწმებელი რედაქტირების გამოქვეყნება.',
 	'revreview-submitedit' => 'ცვლილებების შენახვა',
 	'revreview-submitedit-title' => 'გამოგვიგზავნეთ თქვენი ცვლილებები განხილვისთვის',
