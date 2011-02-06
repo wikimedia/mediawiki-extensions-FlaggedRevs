@@ -1951,6 +1951,7 @@ $3",
  * @author Joseph
  * @author Manco Capac
  * @author Srhat
+ * @author Vito Genovese
  */
 $messages['tr'] = array(
 	'validationstatistics' => 'Sayfa gözden geçirme istatistikleri',
@@ -1971,7 +1972,7 @@ $3",
 	'validationstatistics-latest' => 'Senkronize edildi',
 	'validationstatistics-synced' => 'Eşitlenmiş/Gözden geçirilmiş',
 	'validationstatistics-old' => 'Eski',
-	'validationstatistics-utable' => 'Aşağıdaki liste son saatteki {{PLURAL:$1|en etkin gözden geçirici|$1 en etkin gözden geçirici}}yi gösterir.',
+	'validationstatistics-utable' => 'Aşağıda son bir saatte en çok inceleme yapan $1 kullanıcı listelenmektedir.',
 	'validationstatistics-user' => 'Kullanıcı',
 	'validationstatistics-reviews' => 'İncelemeler',
 );
