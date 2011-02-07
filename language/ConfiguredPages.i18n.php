@@ -353,9 +353,9 @@ E Deil Yystellige chenne sich villicht unterscheide, je nochdäm weli Version em
  * @author YaronSh
  */
 $messages['he'] = array(
-	'configuredpages' => 'דפים עם תצורות סקירה',
-	'configuredpages-list' => 'להלן רשימה של דפים שהגדרות האישור שלהם שונות מברירת המחדל של האתר.
-הגדרות מסוימות עשויות לשנות איזו גרסה מוצגת לקוראים או להגביל יותר את מי שיכול לפרסם גרסה חדשה של דף בלי לעבור בדיקה.',
+	'configuredpages' => 'דפים עם הגדרות סקירה',
+	'configuredpages-list' => 'להלן רשימה של דפים שהגדרות האישור שלהם שונות מההגדרות הכלליות של האתר.
+הגדרות מסוימות עשויות לשנות איזו גרסה מוצגת לקוראים או להגדיר קבוצה מצומצמת יותר של משתמשים שיכולים לעשות עריכות שלא דורשות סקירה.',
 	'configuredpages-none' => 'אין דפים ברשימה זו.',
 	'configuredpages-config' => 'הגדרות',
 	'configuredpages-def-draft' => 'הגרסה האחרונה',

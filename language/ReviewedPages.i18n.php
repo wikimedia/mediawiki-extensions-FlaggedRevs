@@ -491,20 +491,21 @@ E Gleich isch aagee zue dr letschte Version uf däm Nivo.",
 );
 
 /** Hebrew (עברית)
+ * @author Amire80
  * @author DoviJ
  * @author Rotemliss
  * @author YaronSh
  */
 $messages['he'] = array(
-	'reviewedpages' => 'דפים שנבדקו',
-	'reviewedpages-leg' => 'רשימת הדפים שאושרו',
-	'reviewedpages-list' => "דף זה מציג את כל הדפים [[{{MediaWiki:Validationpage}}|המאושרים]] ש'''רמתם הגבוהה ביותר''' (לירסה) היא הרמה שצוינה.
-יוצג קישור לגירסה האחרונה ברמה זו.",
+	'reviewedpages' => 'דפים שנסקרו',
+	'reviewedpages-leg' => 'רשימת הדפים שנסקרו',
+	'reviewedpages-list' => "דף זה מציג את כל הדפים [[{{MediaWiki:Validationpage}}|שנסקרו]] שרמת הסקירה '''הגבוהה ביותר''' (לגרסה) היא הרמה שצוינה.
+יוצג קישור לגרסה האחרונה ברמה זו.",
 	'reviewedpages-none' => 'אין דפים ברשימה זו',
-	'reviewedpages-lev-0' => 'נצפה',
-	'reviewedpages-lev-1' => 'איכותי',
-	'reviewedpages-lev-2' => 'מומלץ',
-	'reviewedpages-all' => 'גרסאות שנבדקו',
+	'reviewedpages-lev-0' => '{{int:revreview-lev-basic}}',
+	'reviewedpages-lev-1' => '{{int:revreview-lev-quality}}',
+	'reviewedpages-lev-2' => '{{int:revreview-lev-pristine}}',
+	'reviewedpages-all' => 'גרסאות שנסקרו',
 	'reviewedpages-best' => 'הגרסה הטובה ביותר',
 );
 

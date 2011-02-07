@@ -763,8 +763,8 @@ $messages['gsw'] = array(
  */
 $messages['he'] = array(
 	'pendingchanges' => 'דפים עם שינויים ממתינים',
-	'pendingchanges-legend' => 'רשימת דפים בדוקים עם גרסאות שלא נבדקו',
-	'pendingchanges-list' => 'דף זה מציג {{PLURAL:$1|דף ש[[{{MediaWiki:Validationpage}}|נבדק]], שיש לו|דפים ש[[{{MediaWiki:Validationpage}}|נבדקו]], שיש להם}} עריכות הממתינות לבדיקה.',
+	'pendingchanges-legend' => 'רשימת דפים שנסקרו עם שינויים ממתינים',
+	'pendingchanges-list' => 'דף זה מציג {{PLURAL:$1|דף ש[[{{MediaWiki:Validationpage}}|נסרק]], שיש לו|דפים ש[[{{MediaWiki:Validationpage}}|נסרקו]], שיש להם}} עריכות שממתינות לסקירה.',
 	'pendingchanges-none' => 'אין כרגע דפים שעונים על קריטריונים אלה',
 	'pendingchanges-hours' => '({{PLURAL:$1|שעה|$1 שעות|שעתיים}})',
 	'pendingchanges-days' => '({{PLURAL:$1|יום|$1 ימים|יומיים}})',
@@ -772,11 +772,11 @@ $messages['he'] = array(
 	'pendingchanges-category' => 'קטגוריה:',
 	'pendingchanges-onwatchlist' => 'דפים ברשימת המעקב שלי',
 	'pendingchanges-stable' => 'הגרסה היציבה היא בררת המחדל',
-	'pendingchanges-diff' => 'לבדוק',
+	'pendingchanges-diff' => 'לסקור',
 	'pendingchanges-size' => 'השינוי המירבי בגודל בבתים:',
 	'pendingchanges-unwatched' => '(לא במעקב)',
 	'pendingchanges-watched' => '({{PLURAL:$1|משתמש פעיל אחד עוקב|$1 משתמשים פעילים עוקבים}})',
-	'pendingchanges-viewing' => '(בבדיקה)',
+	'pendingchanges-viewing' => '(בתהליך סקירה)',
 );
 
 /** Hindi (हिन्दी)

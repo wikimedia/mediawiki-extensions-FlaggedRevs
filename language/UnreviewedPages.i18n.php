@@ -671,20 +671,21 @@ $messages['haw'] = array(
 );
 
 /** Hebrew (עברית)
+ * @author Amire80
  * @author Rotemliss
  * @author StuB
  * @author YaronSh
  */
 $messages['he'] = array(
-	'unreviewedpages' => 'דפים שלא נבדקו',
-	'unreviewedpages-legend' => 'רשימת דפי התוכן שלא נבדקו',
+	'unreviewedpages' => 'דפים שלא נסקרו',
+	'unreviewedpages-legend' => 'רשימת דפי התוכן שלא נסקרו',
 	'unreviewedpages-category' => 'קטגוריה:',
-	'unreviewedpages-diff' => 'בדיקה',
+	'unreviewedpages-diff' => 'לסקור',
 	'unreviewedpages-unwatched' => 'לא במעקב',
 	'unreviewedpages-watched' => '({{PLURAL:$1|משתמש פעיל אחד עוקב|$1 משתמשים פעילים עוקבים}})',
-	'unreviewedpages-list' => 'דף זה מכיל רשימה של דפי תוכן שלא נבדקו עד לרמה שצויינה.',
+	'unreviewedpages-list' => 'רשימת דפי תוכן שטרם [[{{MediaWiki:Validationpage}}|נסקרו]] ברמה המוגדרת.',
 	'unreviewedpages-none' => 'אין כרגע דפים העונים לקריטריונים אלו',
-	'unreviewedpages-viewing' => '(בבדיקה)',
+	'unreviewedpages-viewing' => '(במהלך סקירה)',
 	'unreviewedpages-hours' => '({{PLURAL:$1|שעה|$1 שעות|שעתיים}})',
 	'unreviewedpages-days' => '({{PLURAL:$1|יום|$1 ימים|יומיים}})',
 	'unreviewedpages-recent' => '(פחות משעה)',

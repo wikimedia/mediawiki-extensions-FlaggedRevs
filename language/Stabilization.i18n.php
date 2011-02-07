@@ -1361,6 +1361,7 @@ $messages['haw'] = array(
 );
 
 /** Hebrew (עברית)
+ * @author Amire80
  * @author DoviJ
  * @author Ori229
  * @author Rotemliss
@@ -1377,13 +1378,13 @@ $messages['he'] = array(
 	'stabilization-def' => 'הגרסה המופיעה כברירת מחדל',
 	'stabilization-def1' => 'הגרסה היציבה; אם היא לא קיימת, אז הגרסה האחרונה',
 	'stabilization-def2' => 'הגרסה האחרונה',
-	'stabilization-restrict' => 'הגבלות על בדיקה/בדיקה אוטומטית',
+	'stabilization-restrict' => 'הגבלות על סקירה/סקירה אוטומטית',
 	'stabilization-restrict-none' => 'אין הגבלות נוספות',
 	'stabilization-submit' => 'אישור',
 	'stabilization-notexists' => 'אין דף בשם "[[:$1|$1]]".
 לא ניתן לבצע תצורה.',
-	'stabilization-notcontent' => 'אין אפשרות לבדוק את הדף "[[:$1|$1]]".
-לא ניתן לבצע תצורה.',
+	'stabilization-notcontent' => 'אין אפשרות לסקור את הדף "[[:$1|$1]]".
+לא ניתן לבצע הגדרות.',
 	'stabilization-comment' => 'סיבה:',
 	'stabilization-otherreason' => 'סיבה אחרת:',
 	'stabilization-expiry' => 'פקיעה:',
@@ -1393,8 +1394,8 @@ $messages['he'] = array(
 	'stabilization-def-short-1' => 'יציב',
 	'stabilize_page_invalid' => 'כותרת דף היעד אינה תקינה.',
 	'stabilize_page_notexists' => 'דף היעד אינו קיים.',
-	'stabilize_page_unreviewable' => 'דף היעד אינו במרחב שם שיש בו גרסאות יציבות.',
-	'stabilize_invalid_autoreview' => 'הגבלה בלתי תקינה של ביקורת אוטומטית.',
+	'stabilize_page_unreviewable' => 'דף היעד אינו במרחב שסקירת דפים מופעלת בו.',
+	'stabilize_invalid_autoreview' => 'הגבלה בלתי תקינה של סקירה אוטומטית.',
 	'stabilize_invalid_level' => 'רמת הגנה בלתי תקינה.',
 	'stabilize_expiry_invalid' => 'תאריך הפקיעה אינו תקין.',
 	'stabilize_expiry_old' => 'תאריך הפקיעה כבר עבר.',

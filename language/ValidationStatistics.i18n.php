@@ -795,27 +795,27 @@ $messages['ha'] = array(
  * @author YaronSh
  */
 $messages['he'] = array(
-	'validationstatistics' => 'סטיסטיקות של בדיקת דפים',
+	'validationstatistics' => 'סטיסטיקות של סקירת דפים',
 	'validationstatistics-users' => "ב'''{{grammar:תחילית|{{SITENAME}}}}''' יש כרגע {{PLURAL:$1|משתמש '''[[Special:ListUsers/editor|אחד]]'''|'''[[Special:ListUsers/editor|$1]]''' משתמשים}} עם הרשאת [[{{MediaWiki:Validationpage}}|עורך]].
 
 עורכים הם משתמשים ותיקים שיכולים לבצע בדיקה מהירה של גרסאות ושל דפים.",
 	'validationstatistics-lastupdate' => "''הנתונים הבאים עודכנו לאחרונה ב־$1 בשעה $2.''",
-	'validationstatistics-pndtime' => "עריכות שנבדקו על משתמשים מוּכָּרִים נחשבות לעריכות שנצפו.
+	'validationstatistics-pndtime' => "עריכות שנבדקו על משתמשים מוּכָּרִים נחשבות עריכות שנסקרו.
 
-עיכוב ממוצע ל[[Special:OldReviewedPages|דפים עם עריכות טעונות אישור]] הוא '''\$1'''.
-הדפים האלה נחשבים \"לא עדכניים\". כמו כן, דפים נחשבים \"מסונכרנים\" אם אין עריכות טעונות בדיקה.",
-	'validationstatistics-revtime' => "ההמתנה הממוצעת לאישור עריכות של '''משמשים אלמוניים''' היא '''$1'''; החציון הוא '''$2'''.
+עיכוב ממוצע ל[[Special:OldReviewedPages|דפים עם עריכות שממתינות לסקירה]] הוא '''\$1'''.
+הדפים האלה נחשבים \"לא עדכניים\". כמו כן, דפים נחשבים \"מסונכרנים\" אם אין עריכות שממתינות לסקירה.",
+	'validationstatistics-revtime' => "זמן ההמתנה הממוצע לסקירת עריכות של '''משמשים אלמוניים''' הוא '''$1'''; החציון הוא '''$2'''.
 $3",
-	'validationstatistics-table' => "סטטיסטיקות על בדיקת דפים לכל מרחב שם מוצגות להלן, '''למעט''' דפי הפניה.",
+	'validationstatistics-table' => "סטטיסטיקות על סקירת דפים לכל מרחב שמות מוצגות להלן, '''למעט''' דפי הפניה.",
 	'validationstatistics-ns' => 'מרחב שם',
 	'validationstatistics-total' => 'דפים',
 	'validationstatistics-stable' => 'עבר ביקורת',
 	'validationstatistics-latest' => 'מסונכרן',
-	'validationstatistics-synced' => 'סונכרנו/נבדקו',
+	'validationstatistics-synced' => 'סונכרנו/נסקרו',
 	'validationstatistics-old' => 'פג תוקף',
-	'validationstatistics-utable' => 'להלן רשימה המציגה את {{PLURAL:$1|המשתמש שבדק|$1 המשתמשים שבדקו}} הכי הרבה דפים בשעה האחרונה.',
+	'validationstatistics-utable' => '{{PLURAL:$1|הסוקר הפעיל|$1 רשימת הסוקרים הפעילים}} ביותר בשעה האחרונה.',
 	'validationstatistics-user' => 'משתמש',
-	'validationstatistics-reviews' => 'בדיקות',
+	'validationstatistics-reviews' => 'סקירות',
 );
 
 /** Hiligaynon (Ilonggo)
@@ -1166,9 +1166,9 @@ $messages['krc'] = array(
  */
 $messages['ksh'] = array(
 	'validationstatistics' => 'Shtatistike vun de Beschtätijunge för Sigge',
-	'validationstatistics-users' => "De '''{{SITENAME}}''' hät em Momang [[Special:ListUsers/editor|{{PLURAL:$1|'''eine''' Metmaacher|'''$1''' Metmaacher|'''keine''' Metmaacher}}]] met däm Rääsch, der [[{{MediaWiki:Validationpage}}|{{int:group-editor-member}}]] ze maache, un [[Special:ListUsers/reviewer|{{PLURAL:$2|'''eine''' Metmaacher|'''$2''' Metmaacher|'''keine''' Metmaacher}}]] met däm Rääsch, der [[{{MediaWiki:Validationpage}}|{{int:group-reviewer-member}}]] ze maache.
+	'validationstatistics-users' => "'''{{ucfirst:{{GRAMMAR:Mominativ|{{SITENAME}}}}}}''' hät em Momang [[Special:ListUsers/editor|{{PLURAL:$1|'''eine''' Metmaacher|'''$1''' Metmaacher|'''keine''' Metmaacher}}]] met däm Rääsch, der [[{{MediaWiki:Validationpage}}|{{int:group-editor-member}}]] ze maache.
 
-{{int:group-editor}}, un {{int:group-reviewer}}, sin doför aanerkannte un extra ußjesöhk Metmaacher, di Versione vun Sigge beshtäteje künne.",
+{{int:group-editor}} sin doför aanerkannte un extra ußjesöhk Metmaacher, di Versione vun Sigge beshtäteje künne.",
 	'validationstatistics-table' => 'Statistike för jedes Appachtemang (oohne de Sigge met Ömleijdunge)',
 	'validationstatistics-ns' => 'Appachtemang',
 	'validationstatistics-total' => 'Sigge ensjesamp',

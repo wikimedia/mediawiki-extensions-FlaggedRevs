@@ -468,17 +468,18 @@ $messages['gsw'] = array(
 );
 
 /** Hebrew (עברית)
+ * @author Amire80
  * @author DoviJ
  * @author Rotemliss
  * @author דניאל ב.
  */
 $messages['he'] = array(
-	'reviewedversions' => 'גרסאות שאושרו',
-	'reviewedversions-leg1' => 'רשימת גרסאות הדף שנבדקו',
+	'reviewedversions' => 'גרסאות שנסקרו',
+	'reviewedversions-leg1' => 'רשימת גרסאות הדף שנסקרו',
 	'reviewedversions-page' => 'שם הדף:',
-	'reviewedversions-none' => 'בדף "[[:$1]]" אין גרסאות שנבדקו.',
-	'reviewedversions-list' => 'להלן {{PLURAL:$2|הגרסה היחידה|רשימת הגרסאות}} של [[:$1]] {{PLURAL:$2|שנבדקה|שנבדקו}}:',
-	'reviewedversions-review' => 'נבדקה בתאריך <i>$1</i> על ידי $2',
+	'reviewedversions-none' => 'בדף "[[:$1]]" אין גרסאות שנסקרו.',
+	'reviewedversions-list' => 'להלן {{PLURAL:$2|הגרסה היחידה|רשימת הגרסאות}} של [[:$1]] {{PLURAL:$2|שנסקרה|שנסקרו}}:',
+	'reviewedversions-review' => 'נסקרה ב־<i>$1</i> על ידי $2',
 );
 
 /** Hindi (हिन्दी)

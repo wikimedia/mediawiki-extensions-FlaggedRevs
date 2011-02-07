@@ -333,8 +333,8 @@ $messages['ha'] = array(
  */
 $messages['he'] = array(
 	'problemchanges' => 'השינויים הממתינים עם תגיות',
-	'problemchanges-list' => "הדף הזה מציג רשימה של דפים [[{{MediaWiki:Validationpage}}|בדוקים]] שיש להם עריכה מתויגת אחת או יותר שיש לבדוק. ר' [[Special:Tags|רשימה של תגי שינוי תקינים]].",
-	'problemchanges-legend' => 'רשימת הדפים עם עריכות עם תגיות הממתינות לבדיקה',
+	'problemchanges-list' => "הדף הזה מציג רשימה של דפים ש[[{{MediaWiki:Validationpage}}|נסקרו]] שיש להם עריכה מתויגת אחת או יותר שממתינה לסקירה. ר' [[Special:Tags|רשימה של תגי שינוי תקינים]].",
+	'problemchanges-legend' => 'רשימת הדפים עם עריכות מתויגות הממתינות לסקירה',
 	'problemchanges-none' => 'אין כרגע דפים המתאימים לקריטריונים אלה',
 	'problemchanges-category' => 'קטגוריה:',
 );

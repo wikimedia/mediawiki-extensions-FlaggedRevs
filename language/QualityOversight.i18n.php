@@ -257,13 +257,14 @@ $messages['gsw'] = array(
 );
 
 /** Hebrew (עברית)
+ * @author Amire80
  * @author DoviJ
  * @author Rotemliss
  */
 $messages['he'] = array(
-	'qualityoversight' => 'יומן לבקרת איכות מתקדמת',
+	'qualityoversight' => 'יומן סקירה מתקדם',
 	'qualityoversight-list' => 'בדף זה רשומים האישורים החדשים ביותר של גרסאות וכן הסימונים האחרונים של גרסאות כבעייתיות.',
-	'qualityoversight-legend' => 'חיפוש ביומני הבדיקה האחרונים',
+	'qualityoversight-legend' => 'חיפוש ביומני הסקירה האחרונים',
 );
 
 /** Hindi (हिन्दी)
