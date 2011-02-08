@@ -308,7 +308,7 @@ class FlaggedArticleView {
 		if ( $this->useSimpleUI() ) {
 			$tagClass = 'flaggedrevs_short';
 			# Collapse the box details on mouseOut
-			$encJS .= ' onMouseOut="FlaggedRevs.onBoxMouseOut(event)"';
+			$encJS .= ' onmouseout="FlaggedRevs.onBoxMouseOut(event)"';
 		} elseif ( $simpleTag ) {
 			$tagClass = 'flaggedrevs_notice';
 		} elseif ( $pristine ) {

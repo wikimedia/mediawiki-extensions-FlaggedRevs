@@ -290,7 +290,7 @@ class FlaggedRevsXML {
 		$encPath = htmlspecialchars( FlaggedRevs::styleUrlPath() . '/img' );
 		$img = '<img id="mw-fr-revisiontoggle" class="fr-toggle-arrow"';
 		$img .= " src=\"{$encPath}/arrow-down.png\" style=\"display:none;\"";
-		$img .= ' onMouseOver="FlaggedRevs.onBoxMouseOver()"';
+		$img .= ' onmouseover="FlaggedRevs.onBoxMouseOver()"';
 		$img .= ' alt="' . wfMsgHtml( 'revreview-toggle-title' ) . '" />';
 		return $img;
 	}
