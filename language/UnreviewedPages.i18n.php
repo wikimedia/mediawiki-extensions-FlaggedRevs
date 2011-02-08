@@ -1004,6 +1004,13 @@ $messages['ksh'] = array(
 	'unreviewedpages-recent' => '(winnijer wie en Shtund)',
 );
 
+/** Kurdish (Latin) (Kurdî (Latin))
+ * @author George Animal
+ */
+$messages['ku-latn'] = array(
+	'unreviewedpages-category' => 'Kategorî:',
+);
+
 /** Cornish (Kernowek)
  * @author Kernoweger
  * @author Kw-Moon

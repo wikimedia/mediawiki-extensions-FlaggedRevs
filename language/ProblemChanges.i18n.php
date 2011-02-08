@@ -483,6 +483,13 @@ $messages['ksh'] = array(
 	'problemchanges-category' => 'Zoot:',
 );
 
+/** Kurdish (Latin) (Kurdî (Latin))
+ * @author George Animal
+ */
+$messages['ku-latn'] = array(
+	'problemchanges-category' => 'Kategorî:',
+);
+
 /** Luxembourgish (Lëtzebuergesch)
  * @author Robby
  */

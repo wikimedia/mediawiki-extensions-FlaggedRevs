@@ -773,7 +773,7 @@ $messages['he'] = array(
 	'pendingchanges-onwatchlist' => 'דפים ברשימת המעקב שלי',
 	'pendingchanges-stable' => 'הגרסה היציבה היא בררת המחדל',
 	'pendingchanges-diff' => 'לסקור',
-	'pendingchanges-size' => 'השינוי המירבי בגודל בבתים:',
+	'pendingchanges-size' => 'השינוי המרבי בגודל (בבתים):',
 	'pendingchanges-unwatched' => '(לא במעקב)',
 	'pendingchanges-watched' => '({{PLURAL:$1|משתמש פעיל אחד עוקב|$1 משתמשים פעילים עוקבים}})',
 	'pendingchanges-viewing' => '(בתהליך סקירה)',
@@ -1080,6 +1080,13 @@ $messages['ksh'] = array(
 	'pendingchanges-unwatched' => '(op keine Oppassleß)',
 	'pendingchanges-watched' => '(bei {{PLURAL:$1|einem aktive Metmaacher|$1 aktive Metmaachere|keinem aktive Metmaacher}} op de Oppassleß)',
 	'pendingchanges-viewing' => '(weed nohjekik)',
+);
+
+/** Kurdish (Latin) (Kurdî (Latin))
+ * @author George Animal
+ */
+$messages['ku-latn'] = array(
+	'pendingchanges-category' => 'Kategorî:',
 );
 
 /** Cornish (Kernowek)

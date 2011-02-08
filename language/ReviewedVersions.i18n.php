@@ -679,6 +679,13 @@ $messages['ksh'] = array(
 	'reviewedversions-review' => 'Nohjekik {{GENDER:$5|vum|vum|vun däm Metmaacher|vun däm|vun dä}} $2 aam $3 öm $4 Uhr.',
 );
 
+/** Kurdish (Latin) (Kurdî (Latin))
+ * @author George Animal
+ */
+$messages['ku-latn'] = array(
+	'reviewedversions-page' => 'Navê rûpelê:',
+);
+
 /** Latin (Latina)
  * @author UV
  */

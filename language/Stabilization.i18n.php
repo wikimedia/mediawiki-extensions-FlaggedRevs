@@ -1998,7 +1998,9 @@ Et jidd och nix ennzeshtelle.',
  * @author George Animal
  */
 $messages['ku-latn'] = array(
+	'stabilization-page' => 'Navê rûpelê:',
 	'stabilization-comment' => 'Sedem:',
+	'stabilization-otherreason' => 'Sedemekî din:',
 );
 
 /** Latin (Latina)

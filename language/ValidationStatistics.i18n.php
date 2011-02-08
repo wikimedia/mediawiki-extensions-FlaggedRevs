@@ -795,12 +795,12 @@ $messages['ha'] = array(
  * @author YaronSh
  */
 $messages['he'] = array(
-	'validationstatistics' => 'סטיסטיקות של סקירת דפים',
+	'validationstatistics' => 'סטטיסטיקות של סקירת דפים',
 	'validationstatistics-users' => "ב'''{{grammar:תחילית|{{SITENAME}}}}''' יש כרגע {{PLURAL:$1|משתמש '''[[Special:ListUsers/editor|אחד]]'''|'''[[Special:ListUsers/editor|$1]]''' משתמשים}} עם הרשאת [[{{MediaWiki:Validationpage}}|עורך]].
 
 עורכים הם משתמשים ותיקים שיכולים לבצע בדיקה מהירה של גרסאות ושל דפים.",
 	'validationstatistics-lastupdate' => "''הנתונים הבאים עודכנו לאחרונה ב־$1 בשעה $2.''",
-	'validationstatistics-pndtime' => "עריכות שנבדקו על משתמשים מוּכָּרִים נחשבות עריכות שנסקרו.
+	'validationstatistics-pndtime' => "עריכות שנבדקו על ידי משתמשים מוּכָּרִים נחשבות עריכות שנסקרו.
 
 עיכוב ממוצע ל[[Special:OldReviewedPages|דפים עם עריכות שממתינות לסקירה]] הוא '''\$1'''.
 הדפים האלה נחשבים \"לא עדכניים\". כמו כן, דפים נחשבים \"מסונכרנים\" אם אין עריכות שממתינות לסקירה.",
@@ -1179,6 +1179,13 @@ $messages['ksh'] = array(
 	'validationstatistics-utable' => 'Hee dronger shteiht de Leß met de aktievste $1 unger de {{int:reviewer}} en de läzte Shtond.',
 	'validationstatistics-user' => 'Metmaacher',
 	'validationstatistics-reviews' => 'Mohlde en Sigg beshtätesh',
+);
+
+/** Kurdish (Latin) (Kurdî (Latin))
+ * @author George Animal
+ */
+$messages['ku-latn'] = array(
+	'validationstatistics-user' => 'Bikarhêner',
 );
 
 /** Cornish (Kernowek)

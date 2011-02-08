@@ -263,7 +263,7 @@ $messages['gsw'] = array(
  */
 $messages['he'] = array(
 	'qualityoversight' => 'יומן סקירה מתקדם',
-	'qualityoversight-list' => 'בדף זה רשומים האישורים החדשים ביותר של גרסאות וכן הסימונים האחרונים של גרסאות כבעייתיות.',
+	'qualityoversight-list' => 'בדף זה רשומים הסימונים האחרונים של גרסאות כמאושרות או כמיושנות.',
 	'qualityoversight-legend' => 'חיפוש ביומני הסקירה האחרונים',
 );
 

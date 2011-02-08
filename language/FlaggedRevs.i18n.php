@@ -7115,7 +7115,7 @@ $messages['he'] = array(
 יש [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} {{PLURAL:$3|שינוי אחד|$3 שינויים}}] שצריך לאשר.',
 	'revreview-basic-i' => 'זוהי [[{{MediaWiki:Validationpage}}|הגרסה היציבה]] ש[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} נבדקה] ב־<i>$2</i>.
 יש [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} שינויים בתבניות או בקבצים] שממתינים לבדיקה.',
-	'revreview-basic-old' => 'זוהי גרסה [[{{MediaWiki:Validationpage}}|בדוקה]] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} הצגת הכול]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} אושרה] ב־<i>$2</i>.
+	'revreview-basic-old' => 'זוהי גרסה [[{{MediaWiki:Validationpage}}|בדוקה]] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} הצגת רשימה מלאה]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} אושרה] ב־<i>$2</i>.
 ייתכן שנעשו [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} שינויים חדשים].',
 	'revreview-basic-same' => 'זוהי [[{{MediaWiki:Validationpage}}|הגרסה היציבה]] ש[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}}נבדקה] ב־<i>$2</i>.',
 	'revreview-basic-source' => '[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} גרסה בדוקה] של דף זה, ש[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} אושרה] ב־<i>$2</i>, מבוססת על גרסה זו.',
@@ -7157,7 +7157,7 @@ $messages['he'] = array(
 	'revreview-edited' => "'''השינויים שלכם יוצגו לקוראים לאחר שמשתמש מורשה יסקור אותם. ([[{{MediaWiki:Validationpage}}|עזרה]])'''
 
 יש [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} {{PLURAL:$2|שינוי אחד|$2 שינויים}}] ''(מוצג{{PLURAL:$2||ים}} בהמשך)'' {{PLURAL:$2|שממתין|שממתינים}} לסקירה.",
-	'revreview-edited-section' => 'חזרה לסעיף בדף בשם "[[#$1|$2]]".',
+	'revreview-edited-section' => 'חזרה לפסקה בשם "[[#$1|$2]]".',
 	'revreview-flag' => 'סקירה של גרסה זו',
 	'revreview-reflag' => 'סקירה חוזרת של גרסה זו',
 	'revreview-invalid' => "'''יעד בלתי תקין:''' מספר הגרסה שניתן אינו מצביע לגרסה [[{{MediaWiki:Validationpage}}|שנסקרה]].",
@@ -7166,17 +7166,17 @@ $messages['he'] = array(
 	'revreview-main' => 'כדי לסקור, יש לבחור גרסה מסוימת של דף תוכן.
 
 ראו את [[Special:Unreviewedpages|רשימת הדפים שלא נסקרו]].',
-	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} הגרסה היציבה] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} נסקרה] ב־<i>$2</i>.
+	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} הגרסה היציבה] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} נבדקה] ב־<i>$2</i>.
 יש [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} {{PLURAL:$3|שינוי אחד|$3 שינויים}}] שממתינים לסקירה.',
-	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} הגרסה היציבה] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} נסקרה] ב־<i>$2</i>.
+	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} הגרסה היציבה] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} נבדקה] ב־<i>$2</i>.
 יש [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} שינויים בתבניות או בקבצים] שממתינים לסקירה.',
-	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} הגרסה היציבה] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} נסקרה] ב־<i>$2</i>. יש [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}}ג {{PLURAL:$3|שינוי אחד שממתין|$3 שינויים שממתינים}}] לסקירה.',
+	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} הגרסה היציבה] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} אושרה] ב־<i>$2</i>. יש [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}}ג {{PLURAL:$3|שינוי אחד שממתין|$3 שינויים שממתינים}}] לסקירה.',
 	'revreview-newest-quality-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} הגרסה היציבה] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} אושרה] ב־<i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} שינויים בתבניות או בקבצים] שממתינים לסקירה.',
-	'revreview-pending-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} הגרסה היציבה] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} נסקרה] ב־<i>$2</i>. יש [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} {{PLURAL:$3|שינוי אחד שממתין|$3 שינויים שממתינים}}] לסקירה.',
+	'revreview-pending-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} הגרסה היציבה] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} נבדקה] ב־<i>$2</i>. יש [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} {{PLURAL:$3|שינוי אחד שממתין|$3 שינויים שממתינים}}] לסקירה.',
 	'revreview-pending-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} הגרסה היציבה] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} אושרה] ב־<i>$2</i>. יש [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} {{PLURAL:$3|שינוי אחד שממתין|$3 שינויים שממתינים}}] לסקירה.',
 	'revreview-pending-nosection' => 'נסו לצפות [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} בגרסה האחרונה], המכילה
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} {{PLURAL:$2|שינוי ממתין אחד|$2 שינויים ממתינים}}], כדי לראות האם המקטע הועבר או נמחק.',
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} {{PLURAL:$2|שינוי ממתין אחד|$2 שינויים ממתינים}}], כדי לראות האם הפסקה הועברה או נמחקה.',
 	'revreview-noflagged' => "אין בדף זה [[{{MediaWiki:Validationpage}}|גרסאות שנסקרו]], וייתכן שהוא מעולם '''לא''' עבר בדיקת איכות.",
 	'revreview-note' => '[[User:$1|$1]] רשם את ההערות הבאות במהלך [[{{MediaWiki:Validationpage}}|סקירה]] של גרסה זו:',
 	'revreview-notes' => 'תובנות או הערות להצגה:',
@@ -7185,7 +7185,7 @@ $messages['he'] = array(
 יש [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} {{PLURAL:$3|שינוי אחד שממתין|$3 שינויים שממתינים}}] לסקירה.',
 	'revreview-quality-i' => 'זוהי [[{{MediaWiki:Validationpage}}|הגרסה היציבה]], ש[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} אושרה] ב־<i>$2</i>.
 יש [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} שינויים בתבניות או בקבצים] שממתינים לסקירה.',
-	'revreview-quality-old' => 'זוהי [[{{MediaWiki:Validationpage}}|גרסה איכותית]] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} הצגת הכול]), ש[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} אושרה] ב־<i>$2</i>.
+	'revreview-quality-old' => 'זוהי [[{{MediaWiki:Validationpage}}|גרסה איכותית]] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} הצגת רשימה מלאה]), ש[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} אושרה] ב־<i>$2</i>.
 ייתכן שנעשו בה [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} שינויים חדשים].',
 	'revreview-quality-same' => 'זוהי [[{{MediaWiki:Validationpage}}|הגרסה היציבה]] ש[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} אושרה] ב־<i>$2</i>.',
 	'revreview-quality-source' => '[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} גרסה איכותית] של דף זה, ש[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} אושרה] ב־<i>$2</i>, מבוססת על גרסה זו.',
@@ -7258,21 +7258,21 @@ $messages['he'] = array(
 	'revreview-filter-all' => 'הכול',
 	'revreview-filter-stable' => 'יציב',
 	'revreview-statusfilter' => 'פעולת סקירה:',
-	'revreview-filter-approved' => 'מאושר',
-	'revreview-filter-reapproved' => 'אושר מחדש',
+	'revreview-filter-approved' => 'אושרה',
+	'revreview-filter-reapproved' => 'אושרה מחדש',
 	'revreview-filter-unapproved' => 'האישור הוסר',
 	'revreview-typefilter' => 'סוג:',
-	'revreview-filter-auto' => 'אוטומטי',
+	'revreview-filter-auto' => 'אוטומטית',
 	'revreview-filter-manual' => 'ידנית',
-	'revreview-levelfilter' => 'רמה:',
-	'revreview-lev-all' => 'כולן',
-	'revreview-lev-basic' => 'נבדקה',
-	'revreview-lev-quality' => 'איכותית',
-	'revreview-lev-pristine' => 'מושלמת',
+	'revreview-levelfilter' => 'רמת הדף:',
+	'revreview-lev-all' => 'כלשהי',
+	'revreview-lev-basic' => 'בדוק',
+	'revreview-lev-quality' => 'איכותי',
+	'revreview-lev-pristine' => 'מושלם',
 	'revreview-defaultfilter' => 'גרסת ברירת המחדל:',
-	'revreview-def-all' => 'כלשהו',
-	'revreview-def-draft' => 'אחרון',
-	'revreview-def-stable' => 'יציב',
+	'revreview-def-all' => 'כלשהי',
+	'revreview-def-draft' => 'אחרונה',
+	'revreview-def-stable' => 'יציבה',
 	'revreview-restrictfilter' => 'מגבלת הסקירה האוטומטית:',
 	'revreview-restriction-any' => 'כולן',
 	'revreview-restriction-none' => 'אף לא אחת',
@@ -10381,6 +10381,15 @@ fottjeschmesse hät?',
 	'revreview-unlocked' => 'Änderunge möße nit [[{{MediaWiki:Validationpage}}|nohjekik wääde]], iih dat se op hee dä Sigg aanjezeish wääde.',
 	'log-show-hide-review' => '$1 et {{int:review-logpage}}',
 	'validationpage' => '{{ns:help}}:Nohjeloorte, jeprööfte un beschtäteschte Versione vun Sigge',
+);
+
+/** Kurdish (Latin) (Kurdî (Latin))
+ * @author George Animal
+ */
+$messages['ku-latn'] = array(
+	'revreview-edit' => 'Biguherîne',
+	'revreview-filter-all' => 'hemû',
+	'revreview-typefilter' => 'Cure:',
 );
 
 /** Cornish (Kernowek)
