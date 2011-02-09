@@ -365,7 +365,7 @@ $messages['ko'] = array(
  * @author Purodha
  */
 $messages['ksh'] = array(
-	'qualityoversight' => 'Övverseech övver de Versione met Enschätzunge för dänne ier Qualliteit',
+	'qualityoversight' => 'Ußföhlesch Logbooch vun de nohjekik Versione',
 	'qualityoversight-list' => 'Hee die Sigg zeich en Leß met de neuste Zostimmunge un Afflehnunge vun bestemmpte Versione fun Sigge.',
 	'qualityoversight-legend' => 'En de neuste Enschätzunge för de Qualliteit vun nojekik Sigge söke',
 );
