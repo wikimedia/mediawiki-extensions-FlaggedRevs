@@ -194,7 +194,7 @@ class FlaggedRevision {
 		}
 		# Get visiblity settings...
 		if ( empty( $config ) ) {
-		   $config = FlaggedRevs::getPageVisibilitySettings( $title, $flags );
+		   $config = FlaggedRevs::getPageStabilitySettings( $title, $flags );
 		}
 		if ( !$config['override'] && FlaggedRevs::useOnlyIfProtected() ) {
 			return null; // page is not reviewable; no stable version

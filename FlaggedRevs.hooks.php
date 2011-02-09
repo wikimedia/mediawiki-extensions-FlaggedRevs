@@ -539,7 +539,7 @@ class FlaggedRevsHooks {
 			if( !FlaggedRevs::inReviewNamespace( $title ) ) {
 				$ret = '';
 			} else {
-				$config = FlaggedRevs::getPageVisibilitySettings( $title );
+				$config = FlaggedRevs::getPageStabilitySettings( $title );
 				$ret = $config['autoreview'];
 			}
 		}
@@ -593,10 +593,10 @@ class FlaggedRevsHooks {
 		# Don't let users vandalize pages by moving them...
 		if ( $action === 'move' ) {
 			if ( !FlaggedRevs::inReviewNamespace( $title ) || !$title->exists() ) {
-				return true;
+				return true; // extra short-circuit
 			}
 			$flaggedArticle = FlaggedArticle::getTitleInstance( $title );
-			# If the current shows be default anyway, nothing to do...
+			# If the draft shows by default anyway, nothing to do...
 			if ( !$flaggedArticle->isStableShownByDefault() ) {
 				return true;
 			}
@@ -621,7 +621,7 @@ class FlaggedRevsHooks {
 		} else if ( $action === 'autoreview' || $action === 'review' ) {
 			# Get autoreview restriction settings...
 			$fa = FlaggedArticle::getTitleInstance( $title );
-			$config = $fa->getVisibilitySettings();
+			$config = $fa->getStabilitySettings();
 			# Convert Sysop -> protect
 			$right = ( $config['autoreview'] === 'sysop' ) ?
 				'protect' : $config['autoreview'];
@@ -1390,33 +1390,40 @@ class FlaggedRevsHooks {
 		if ( !$fa->isReviewable() ) {
 			return true; // nothing to do
 		}
+		# Viewing an old reviewed version...
 		if ( $request->getVal( 'stableid' ) ) {
-			$ignoreRedirect = true;
-		} else {
-			# Try the cache...
+			$ignoreRedirect = true; // don't redirect (same as ?oldid=x)
+			return true;
+		}
+		$srev = $fa->getStableRev();
+		$view = FlaggedArticleView::singleton();
+		# Check if we are viewing an unsynced stable version...
+		if ( $srev && $view->showingStable() && $srev->getRevId() != $article->getLatest() ) {
+			# Check the stable redirect properties from the cache...
 			$key = wfMemcKey( 'flaggedrevs', 'overrideRedirect', $article->getId() );
 			$tuple = FlaggedRevs::getMemcValue( $wgMemc->get( $key ), $article );
-			if ( is_array( $tuple ) ) {
+			if ( is_array( $tuple ) ) { // cache hit
 				list( $ignoreRedirect, $target ) = $tuple;
-				return true; // use stable redirect
-			}
-			$srev = $fa->getStableRev();
-			if ( $srev ) {
-				$view = FlaggedArticleView::singleton();
-				# If synced, nothing special here...
-				if ( $srev->getRevId() != $article->getLatest() && $view->pageOverride() ) {
-					$text = $srev->getRevText();
-					$redirect = $fa->followRedirectText( $text );
-					if ( $redirect ) {
-						$target = $redirect; // use stable redirect
-					} else {
-						$ignoreRedirect = true;
-					}
+			} else { // cache miss; fetch the stable rev text...
+				$text = $srev->getRevText();
+				$redirect = $fa->getRedirectURL( Title::newFromRedirectRecurse( $text ) );
+				if ( $redirect ) {
+					$target = $redirect; // use stable redirect
+				} else {
+					$ignoreRedirect = true; // make MW skip redirection
 				}
 				$data = FlaggedRevs::makeMemcObj( array( $ignoreRedirect, $target ) );
-				$wgMemc->set( $key, $data, $wgParserCacheExpireTime );
+				$wgMemc->set( $key, $data, $wgParserCacheExpireTime ); // cache results
 			}
+			$clearEnvironment = (bool)$target;
+		# Check if the we are viewing a draft or synced stable version...
+		} else {
+			# In both cases, we can just let MW use followRedirect()
+			# on the draft as normal, avoiding any page text hits.
+			$clearEnvironment = $article->isRedirect();
 		}
+		# Environment (e.g. $wgTitle) will change in MediaWiki::initializeArticle
+		if ( $clearEnvironment ) $view->clear();
 		return true;
 	}
 
@@ -1824,7 +1831,7 @@ class FlaggedRevsHooks {
 			array() : array( 'disabled' => 'disabled' );
 		
 		# Get the current config/expiry
-		$config = FlaggedRevs::getPageVisibilitySettings( $article->getTitle(), FR_MASTER );
+		$config = FlaggedRevs::getPageStabilitySettings( $article->getTitle(), FR_MASTER );
 		$oldExpirySelect = ( $config['expiry'] == 'infinity' ) ? 'infinite' : 'existing';
 		
 		# Load requested restriction level, default to current level...

@@ -82,7 +82,7 @@ $wgFlaggedRevsOverride = true;
 # Below are groups that see the current revision by default.
 # This makes editing easier since the users always start off
 # viewing the latest version of pages.
-$wgFlaggedRevsExceptions = array( 'user' );
+$wgFlaggedRevsExceptions = array( 'user' ); // @TODO: remove when ready (and swap pref)
 
 # Can users make comments that will show up below flagged revisions?
 # NOTE: this is NOT the same as the simple log comment

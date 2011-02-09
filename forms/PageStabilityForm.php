@@ -183,7 +183,7 @@ abstract class PageStabilityForm
 
 	protected function loadOldConfig() {
 		# Get the current page config and GMT expiry
-		$this->oldConfig = FlaggedRevs::getPageVisibilitySettings( $this->page, FR_MASTER );
+		$this->oldConfig = FlaggedRevs::getPageStabilitySettings( $this->page, FR_MASTER );
 		$this->oldExpiry = $this->oldConfig['expiry'] === 'infinity'
 			? 'infinite'
 			: wfTimestamp( TS_RFC2822, $this->oldConfig['expiry'] );

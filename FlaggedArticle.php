@@ -81,8 +81,10 @@ class FlaggedArticle extends Article {
 	 * @return bool
 	 */
 	public function isStableShownByDefault( $flags = 0 ) {
-		# Get page configuration
-		$config = $this->getVisibilitySettings( $flags );
+		if ( !$this->isReviewable( $flags ) ) {
+			return false; // no stable versions can exist
+		}
+		$config = $this->getStabilitySettings( $flags ); // page configuration
 		return (bool)$config['override'];
 	}
 
@@ -239,7 +241,7 @@ class FlaggedArticle extends Article {
 	}
 
 	/**
-	 * Should tags only be shown for unreviewed content for this user?
+	 * Tags are only shown for unreviewed content and this page is not locked/unlocked?
 	 * @return bool
 	 */
 	public function lowProfileUI() {
@@ -256,8 +258,12 @@ class FlaggedArticle extends Article {
 		if ( !FlaggedRevs::inReviewNamespace( $this->getTitle() ) ) {
 			return false;
 		}
-		return !( FlaggedRevs::useOnlyIfProtected()
-			&& !$this->isStableShownByDefault( $flags ) );
+		# Check if flagging is disabled for this page via config
+		if ( FlaggedRevs::useOnlyIfProtected() ) {
+			$config = $this->getStabilitySettings( $flags ); // page configuration
+			return (bool)$config['override']; // stable is default or flagging disabled
+		}
+		return true;
 	}
 
 	/**
@@ -279,8 +285,11 @@ class FlaggedArticle extends Article {
 	 */
 	public function getStableRev( $flags = 0 ) {
 		# Cached results available?
-		if ( $this->stableRev == null || ( $flags & FR_MASTER ) ) {
-			$srev = FlaggedRevision::newFromStable( $this->getTitle(), $flags );
+		if ( $this->stableRev === null || ( $flags & FR_MASTER ) ) {
+			$srev = null;
+			if ( $this->isReviewable( $flags ) ) { // short-circuit if not reviewable
+				$srev = FlaggedRevision::newFromStable( $this->getTitle(), $flags );
+			}
 			$this->stableRev = $srev ? $srev : false; // false => "found nothing"
 		}
 		if ( $this->stableRev ) {
@@ -304,13 +313,11 @@ class FlaggedArticle extends Article {
 	 * @param int $flags, FR_MASTER
 	 * @return array (select,override)
 	 */
-	public function getVisibilitySettings( $flags = 0 ) {
-		# Cached results available?
+	public function getStabilitySettings( $flags = 0 ) {
 		if ( !( $flags & FR_MASTER ) && $this->pageConfig !== null ) {
-			return $this->pageConfig;
+			return $this->pageConfig; // use process cache
 		}
-		$config = FlaggedRevs::getPageVisibilitySettings( $this->getTitle(), $flags );
-		$this->pageConfig = $config;
-		return $config;
+		$this->pageConfig = FlaggedRevs::getPageStabilitySettings( $this->getTitle(), $flags );
+		return $this->pageConfig;
 	}
 }

@@ -959,7 +959,7 @@ class FlaggedRevs {
 	 * @param int $flags, FR_MASTER
 	 * @returns array (associative) (select,override,autoreview,expiry)
 	 */
-	public static function getPageVisibilitySettings( Title $title, $flags = 0 ) {
+	public static function getPageStabilitySettings( Title $title, $flags = 0 ) {
 		$db = ( $flags & FR_MASTER ) ?
 			wfGetDB( DB_MASTER ) : wfGetDB( DB_SLAVE );
 		$row = $db->selectRow( 'flaggedpage_config',

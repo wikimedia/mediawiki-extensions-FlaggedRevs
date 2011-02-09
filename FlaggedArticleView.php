@@ -31,6 +31,14 @@ class FlaggedArticleView {
 	protected function __clone() { }
 
 	/*
+	* Clear the FlaggedArticleView for this request.
+	* Only needed when page redirection changes the environment.
+	*/
+	public function clear() {
+		self::$instance = null;
+	}
+
+	/*
 	* Load the global FlaggedArticle instance
 	*/
 	protected function load() {
@@ -56,44 +64,68 @@ class FlaggedArticleView {
 	}
 
 	/**
-	 * Do the config and current URL params allow
-	 * for content overriding by the stable version?
+	 * Is this web response for a request to view a page where both:
+	 * (a) no specific page version was requested via URL params
+	 * (b) a stable version exists and is to be displayed
+	 * This factors in site/page config, user preferences, and web request params.
 	 * @returns bool
 	 */
-	public function pageOverride() {
+	protected function showingStableAsDefault() {
 		global $wgUser, $wgRequest;
 		$this->load();
-		# This only applies to viewing content pages
-		$action = $wgRequest->getVal( 'action', 'view' );
-		if ( !self::isViewAction( $action ) || !$this->article->isReviewable() ) {
+		# This only applies to viewing the default version of pages...
+		if ( !$this->isDefaultPageView( $wgRequest ) ) {
+			return false;
+		# ...and the page must be reviewable and have a stable version
+		} elseif ( !$this->article->getStableRev() ) {
 			return false;
 		}
-		# Does not apply to diffs/old revision...
-		if ( $wgRequest->getVal( 'oldid' ) || $wgRequest->getVal( 'diff' ) ) {
-			return false;
-		}
-		# Explicit requests  for a certain stable version handled elsewhere...
-		if ( $wgRequest->getVal( 'stableid' ) ) {
-			return false;
-		}
-		# Check user preferences
+		# Check user preferences ("show stable by default?")
 		if ( $wgUser->getOption( 'flaggedrevsstable' ) ) {
-			return !( $wgRequest->getIntOrNull( 'stable' ) === 0 );
-		}
-		# Get page configuration
-		$config = $this->article->getVisibilitySettings();
-		# Does the stable version override the current one?
-		if ( $config['override'] ) {
-			if ( $this->showDraftByDefault() ) {
-				return ( $wgRequest->getIntOrNull( 'stable' ) === 1 );
-			}
-			# Viewer sees stable by default
-			return !( $wgRequest->getIntOrNull( 'stable' ) === 0 );
-		# We are explicity requesting the stable version?
-		} elseif ( $wgRequest->getIntOrNull( 'stable' ) === 1 ) {
 			return true;
 		}
+		# Viewer may be in a group that sees the draft by default
+		if ( $this->userViewsDraftByDefault( $wgUser ) ) {
+			return false;
+		}
+		# Does the stable version override the draft?
+		$config = $this->article->getStabilitySettings();
+		return (bool)$config['override'];
+	}
+
+	/**
+	 * Is this web response for a request to view a page where both:
+	 * (a) the stable version of a page was requested (?stable=1)
+	 * (b) the stable version exists and is to be displayed
+	 * @returns bool
+	 */
+	protected function showingStableByRequest() {
+		global $wgRequest;
+		$this->load();
+		# Are we explicity requesting the stable version?
+		if ( $wgRequest->getIntOrNull( 'stable' ) === 1 ) {
+			# This only applies to viewing a version of the page...
+			if ( !$this->isPageView( $wgRequest ) ) {
+				return false;
+			# ...with no version parameters other than ?stable=1...
+			} elseif ( $wgRequest->getVal( 'oldid' ) || $wgRequest->getVal( 'stableid' ) ) {
+				return false; // over-determined
+			# ...and the page must be reviewable and have a stable version
+			} elseif ( !$this->article->getStableRev() ) {
+				return false;
+			}
+			return true; // show stable version
+		}
 		return false;
+	}
+
+	/**
+	 * Is this web response for a request to view a page
+	 * where a stable version exists and is to be displayed
+	 * @returns bool
+	 */
+	public function showingStable() {
+		return $this->showingStableByRequest() || $this->showingStableAsDefault();
 	}
 
 	/**
@@ -107,19 +139,23 @@ class FlaggedArticleView {
 	}
 
 	/**
-	 * Should this user see the current revision by default?
-	 * Note: intended for users that probably edit
+	 * Should this user see the draft revision of pages by default?
+	 * @param $user User
 	 * @returns bool
 	 */
-	public function showDraftByDefault() {
-		global $wgFlaggedRevsExceptions, $wgUser;
+	protected function userViewsDraftByDefault( $user ) {
+		global $wgFlaggedRevsExceptions;
+		# Check user preferences ("show stable by default?")
+		if ( $user->getOption( 'flaggedrevsstable' ) ) {
+			return false;
+		}
 		# Viewer sees current by default (editors, insiders, ect...) ?
 		foreach ( $wgFlaggedRevsExceptions as $group ) {
 			if ( $group == 'user' ) {
-				if ( $wgUser->getId() ) {
+				if ( $user->getId() ) {
 					return true;
 				}
-			} elseif ( in_array( $group, $wgUser->getGroups() ) ) {
+			} elseif ( in_array( $group, $user->getGroups() ) ) {
 				return true;
 			}
 		}
@@ -127,36 +163,51 @@ class FlaggedArticleView {
 	}
 
 	 /**
-	 * Is this user shown the stable version by default for this page?
+	 * Is this a view page action (including diffs)?
+	 * @param $request WebRequest
 	 * @returns bool
 	 */
-	public function isStableShownByDefaultUser() {
-		$this->load();
-		if ( $this->article->isReviewable() ) {
-			$config = $this->article->getVisibilitySettings(); // page configuration
-			return ( $config['override'] && !$this->showDraftByDefault() );
-		}
-		return false; // no stable
+	protected function isPageViewOrDiff( WebRequest $request ) {
+		global $mediaWiki;
+		$action = isset( $mediaWiki )
+			? $mediaWiki->getAction( $request )
+			: $request->getVal( 'action', 'view' ); // cli
+		return self::isViewAction( $action );
 	}
-	
+
 	 /**
-	 * Is this user shown the diff-to-stable on edit for this page?
+	 * Is this a view page action (not including diffs)?
+	 * @param $request WebRequest
 	 * @returns bool
 	 */
-	public function isDiffShownOnEdit() {
-		global $wgUser;
-		$this->load();
-		return ( $wgUser->isAllowed( 'review' ) || $this->isStableShownByDefaultUser() );
+	protected function isPageView( WebRequest $request ) {
+		return $this->isPageViewOrDiff( $request ) && !$request->getVal( 'diff' );
+	}
+
+	 /**
+	 * Is this a web request to just *view* the *default* version of a page?
+	 * @param $request WebRequest
+	 * @returns bool
+	 */
+	protected function isDefaultPageView( WebRequest $request ) {
+		global $mediaWiki;
+		$action = isset( $mediaWiki )
+			? $mediaWiki->getAction( $request )
+			: $request->getVal( 'action', 'view' ); // cli
+		return ( self::isViewAction( $action )
+			&& !$request->getVal( 'oldid' )
+			&& !$request->getVal( 'stable' )
+			&& !$request->getVal( 'stableid' )
+			&& !$request->getVal( 'diff' ) );
 	}
 
 	 /**
 	 * Is this a view page action?
-	 * @param $action string
+	 * @param $action string from MediaWiki::getAction()
 	 * @returns bool
 	 */
 	protected static function isViewAction( $action ) {
-		return ( $action == 'view' || $action == 'purge' || $action == 'render'
-			|| $action == 'historysubmit' );
+		return ( $action == 'view' || $action == 'purge' || $action == 'render' );
 	}
 
 	 /**
@@ -226,25 +277,20 @@ class FlaggedArticleView {
 	public function setPageContent( &$outputDone, &$useParserCache ) {
 		global $wgRequest, $wgOut, $wgContLang;
 		$this->load();
-		# Only trigger on article view for content pages, not for protect/delete/hist...
-		$action = $wgRequest->getVal( 'action', 'view' );
-		if ( !self::isViewAction( $action ) || !$this->article->exists() )
+		# Only trigger on page views with no oldid=x param
+		if ( !$this->isPageView( $wgRequest ) || $wgRequest->getVal( 'oldid' ) ) {
 			return true;
-		# Do not clutter up diffs any further and leave archived versions alone...
-		if ( $wgRequest->getVal( 'diff' ) || $wgRequest->getVal( 'oldid' ) ) {
-			return true;
-		}
-		# Only trigger for reviewable pages
-		if ( !$this->article->isReviewable() ) {
+		# Only trigger for reviewable pages that exist
+		} elseif ( !$this->article->exists() || !$this->article->isReviewable() ) {
 			return true;
 		}
-		$simpleTag = $old = $stable = false;
 		$tag = '';
+		$old = $stable = false;
 		# Check the newest stable version.
 		$srev = $this->article->getStableRev();
 		$stableId = $srev ? $srev->getRevId() : 0;
 		$frev = $srev; // $frev is the revision we are looking at
-		# Check for any explicitly requested old stable version...
+		# Check for any explicitly requested reviewed version (stableid=X)...
 		$reqId = $this->getRequestedStableId();
 		if ( $reqId ) {
 			if ( !$stableId ) {
@@ -252,8 +298,8 @@ class FlaggedArticleView {
 			# Treat requesting the stable version by ID as &stable=1
 			} else if ( $reqId != $stableId ) {
 				$old = true; // old reviewed version requested by ID
-				$frev = FlaggedRevision::newFromTitle( $this->article->getTitle(),
-					$reqId, FR_TEXT );
+				$frev = FlaggedRevision::newFromTitle(
+					$this->article->getTitle(), $reqId, FR_TEXT );
 				if ( !$frev ) {
 					$reqId = false; // invalid ID given
 				}
@@ -292,8 +338,8 @@ class FlaggedArticleView {
 			$outputDone = true; # Tell MW that parser output is done
 			$useParserCache = false;
 		// Stable version requested by ID or relevant conditions met to
-		// to override page view.
-		} else if ( $stable || $this->pageOverride() ) {
+		// to override page view with the stable version.
+		} else if ( $stable || $this->showingStable() ) {
 			$this->showStableVersion( $srev, $tag, $prot );
 			$outputDone = true; # Tell MW that parser output is done
 			$useParserCache = false;
@@ -309,8 +355,6 @@ class FlaggedArticleView {
 			$tagClass = 'flaggedrevs_short';
 			# Collapse the box details on mouseOut
 			$encJS .= ' onmouseout="FlaggedRevs.onBoxMouseOut(event)"';
-		} elseif ( $simpleTag ) {
-			$tagClass = 'flaggedrevs_notice';
 		} elseif ( $pristine ) {
 			$tagClass = 'flaggedrevs_pristine';
 		} elseif ( $quality ) {
@@ -328,15 +372,18 @@ class FlaggedArticleView {
 		return true;
 	}
 
-	// For pages that have a stable version, index only that version
+	/**
+	* If the page has a stable version and it shows by default,
+	* tell bots to index only that version of the page.
+	* @TODO: what about viewing the draft but when it is synced?
+	*/
 	public function setRobotPolicy() {
 		global $wgOut;
-		if ( !$this->article->isReviewable() || !$this->article->getStableRev() ) {
+		if ( !$this->article->getStableRev() ) {
 			return true; // page has no stable version
 		}
-		if ( !$this->pageOverride() && $this->article->isStableShownByDefault() ) {
-			# Index the stable version only if it is the default
-			$wgOut->setRobotPolicy( 'noindex,nofollow' );
+		if ( $this->article->isStableShownByDefault() && !$this->showingStable() ) {
+			$wgOut->setRobotPolicy( 'noindex,nofollow' ); // don't index this version
 		}
 		return true;
 	}
@@ -781,7 +828,7 @@ class FlaggedArticleView {
 		$reqId = $wgRequest->getVal( 'stableid' );
 		if ( $reqId ) {
 			$frev = FlaggedRevision::newFromTitle( $this->article->getTitle(), $reqId );
-		} elseif ( $this->pageOverride() ) {
+		} elseif ( $this->showingStable() ) {
 			$frev = $this->article->getStableRev();
 		}
 		if ( $frev ) {
@@ -833,10 +880,6 @@ class FlaggedArticleView {
 	public function addToHistView() {
 		global $wgOut;
 		$this->load();
-		# Must be reviewable. UI may be limited to unobtrusive patrolling system.
-		if ( !$this->article->isReviewable() ) {
-			return true;
-		}
 		# Add a notice if there are pending edits...
 		$srev = $this->article->getStableRev();
 		if ( $srev && $this->article->revsArePending() ) {
@@ -883,7 +926,6 @@ class FlaggedArticleView {
 			# Show diff to stable, to make things less confusing.
 			# This can be disabled via user preferences and other conditions...
 			if ( $frev->getRevId() < $latestId // changes were made
-				&& $this->isDiffShownOnEdit() // stable default and user cannot review
 				&& $wgUser->getBoolOption( 'flaggedrevseditdiffs' ) // not disable via prefs
 				&& $revId == $latestId // only for current rev
 				&& $editPage->section != 'new' // not for new sections
@@ -953,10 +995,9 @@ class FlaggedArticleView {
 	
 	public function addToNoSuchSection( EditPage $editPage, &$s ) {
 		$this->load();
-		if ( !$this->article->isReviewable() ) {
-			return true; // nothing to do
-		}
 		$srev = $this->article->getStableRev();
+		# Add notice for users that may have clicked "edit" for a
+		# section in the stable version that isn't in the draft.
 		if ( $srev && $this->article->revsArePending() ) {
 			$revsSince = $this->article->getPendingRevCount();
 			if ( $revsSince ) {
@@ -1009,10 +1050,8 @@ class FlaggedArticleView {
 		if ( !$this->article->exists() || !$this->article->isReviewable() ) {
 			return true;
 		}
-		# Check action and if page is protected
-		$action = $wgRequest->getVal( 'action', 'view' );
-		# Must be view action...diffs handled elsewhere
-		if ( !self::isViewAction( $action ) ) {
+		# Must be a page view action...
+		if ( !$this->isPageViewOrDiff( $wgRequest ) ) {
 			return true;
 		}
 		# Get the revision being displayed
@@ -1155,15 +1194,13 @@ class FlaggedArticleView {
 		}
 		# Add "pending changes" tab if the page is not synced
 		if ( !$synced ) {
-			$this->addDraftTab( $views, $srev, $action, $type );
+			$this->addDraftTab( $views, $srev, $type );
 		}
 		return true;
 	}
 
 	// Add "pending changes" tab and set tab selection CSS
-	protected function addDraftTab(
-		array &$views, FlaggedRevision $srev, $action, $type
-	) {
+	protected function addDraftTab( array &$views, FlaggedRevision $srev, $type ) {
 		global $wgRequest, $wgOut;
 		$title = $this->article->getTitle(); // convenience
 		$tabs = array(
@@ -1179,10 +1216,10 @@ class FlaggedArticleView {
 			),
 		);
 		// Set tab selection CSS
-		if ( $this->pageOverride() || $wgRequest->getVal( 'stableid' ) ) {
+		if ( $this->showingStable() || $wgRequest->getVal( 'stableid' ) ) {
 			// We are looking a the stable version or an old reviewed one
 			$tabs['read']['class'] = 'selected';
-		} elseif ( self::isViewAction( $action ) ) {
+		} elseif ( $this->isPageViewOrDiff( $wgRequest ) ) {
 			$ts = null;
 			if ( $wgOut->getRevisionId() ) { // @TODO: avoid same query in Skin.php
 				$ts = ( $wgOut->getRevisionId() == $this->article->getLatest() )
@@ -1574,11 +1611,7 @@ class FlaggedArticleView {
 	public function injectPostEditURLParams( &$sectionAnchor, &$extraQuery ) {
 		global $wgUser;
 		$this->load();
-		# Don't show this for pages that are not reviewable
-		if ( !$this->article->isReviewable() ) {
-			return true;
-		}
-		# Get the stable version, from master
+		# Get the stable version from the master
 		$frev = $this->article->getStableRev( FR_MASTER );
 		if ( !$frev ) {
 			return true;
@@ -1594,7 +1627,7 @@ class FlaggedArticleView {
 			$extraQuery .= $extraQuery ? '&' : '';
 			// Override diffonly setting to make sure the content is shown
 			$extraQuery .= 'oldid=' . $frev->getRevId() . '&diff=cur&diffonly=0&shownotice=1';
-		// ...otherwise, go to the current revision after completing an edit.
+		// ...otherwise, go to the draft revision after completing an edit.
 		// This allows for users to immediately see their changes.
 		} else {
 			$extraQuery .= $extraQuery ? '&' : '';
@@ -1792,7 +1825,7 @@ class FlaggedArticleView {
 					? $article->getOldID()
 					: $wgRequest->getInt( 'baseRevId' ); // e.g. "show changes"/"preview"
 			}
-			# Zero oldid => current revision
+			# Zero oldid => draft revision
 			if ( !$revId ) {
 				$revId = $latestId;
 			}
