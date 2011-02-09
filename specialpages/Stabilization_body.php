@@ -193,12 +193,12 @@ class Stabilization extends UnlistedSpecialPage
 			</tr>';
 		# Add comment input and submit button
 		if ( $form->isAllowed() ) {
-			$watchLabel = wfMsgExt( 'watchthis', array( 'parseinline' ) );
+			$watchLabel = wfMsgExt( 'watchthis', 'parseinline' );
 			$watchAttribs = array( 'accesskey' => wfMsg( 'accesskey-watch' ),
 				'id' => 'wpWatchthis' );
 			$watchChecked = ( $wgUser->getOption( 'watchdefault' )
 				|| $title->userIsWatching() );
-			$reviewLabel = wfMsgExt( 'stabilization-review', array( 'parseinline' ) );
+			$reviewLabel = wfMsgExt( 'stabilization-review', 'parseinline' );
 
 			$s .= ' <tr>
 					<td class="mw-label">' .

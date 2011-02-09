@@ -82,7 +82,7 @@ class ValidationStatistics extends IncludableSpecialPage
 		$msgs = array( 'ns', 'total', 'stable', 'latest', 'synced', 'old' ); // our headings
 		foreach ( $msgs as $msg ) {
 			$wgOut->addHTML( '<th>' .
-				wfMsgExt( "validationstatistics-$msg", array( 'parseinline' ) ) . '</th>' );
+				wfMsgExt( "validationstatistics-$msg", 'parseinline' ) . '</th>' );
 		}
 		$wgOut->addHTML( "</tr>\n" );
 		$namespaces = FlaggedRevs::getReviewNamespaces();

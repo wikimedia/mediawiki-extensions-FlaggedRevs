@@ -237,12 +237,12 @@ class FlaggedRevsXML {
 		if ( $synced && ( $type == 'stable' || $type == 'draft' ) ) {
 			$msg = $quality ?
 				'revreview-quality-same' : 'revreview-basic-same';
-			$html = wfMsgExt( $msg, array( 'parseinline' ),
+			$html = wfMsgExt( $msg, 'parseinline',
 				$frev->getRevId(), $time, $revsSince );
 		} elseif ( $type == 'oldstable' ) {
 			$msg = $quality ?
 				'revreview-quality-old' : 'revreview-basic-old';
-			$html = wfMsgExt( $msg, array( 'parseinline' ), $frev->getRevId(), $time );
+			$html = wfMsgExt( $msg, 'parseinline', $frev->getRevId(), $time );
 		} else {
 			if ( $type == 'stable' ) {
 				$msg = $quality ?
@@ -254,7 +254,7 @@ class FlaggedRevsXML {
 			# For searching: uses messages 'revreview-quality-i', 'revreview-basic-i',
 			# 'revreview-newest-quality-i', 'revreview-newest-basic-i'
 			$msg .= ( $revsSince == 0 ) ? '-i' : '';
-			$html = wfMsgExt( $msg, array( 'parseinline' ),
+			$html = wfMsgExt( $msg, 'parseinline',
 				$frev->getRevId(), $time, $revsSince );
 		}
 		# Make fancy box...
@@ -404,7 +404,7 @@ class FlaggedRevsXML {
 		$msg = FlaggedRevs::isQuality( $flags )
 			? 'revreview-pending-quality'
 			: 'revreview-pending-basic';
-		$tag = wfMsgExt( $msg, array( 'parseinline' ), $frev->getRevId(), $time, $revsSince );
+		$tag = wfMsgExt( $msg, 'parseinline', $frev->getRevId(), $time, $revsSince );
 		return $tag;
 	}
 

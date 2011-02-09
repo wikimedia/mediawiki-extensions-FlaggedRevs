@@ -242,7 +242,7 @@ class FlaggedArticleView {
 			$flags = $frev->getTags();
 			$quality = FlaggedRevs::isQuality( $flags );
 			$msg = $quality ? 'revreview-quality-source' : 'revreview-basic-source';
-			$tag = wfMsgExt( $msg, array( 'parseinline' ), $frev->getRevId(), $time );
+			$tag = wfMsgExt( $msg, 'parseinline', $frev->getRevId(), $time );
 			# Hide clutter
 			if ( !$this->useSimpleUI() && !empty( $flags ) ) {
 				$tag .= FlaggedRevsXML::ratingToggle() .
@@ -403,14 +403,14 @@ class FlaggedArticleView {
 		if ( $this->useSimpleUI() ) {
 			// RTL langauges
 			$rtl = $wgContLang->isRTL() ? " rtl" : "";
-			$tag .= $prot . $icon . wfMsgExt( 'revreview-quick-none', array( 'parseinline' ) );
+			$tag .= $prot . $icon . wfMsgExt( 'revreview-quick-none', 'parseinline' );
 			$css = "flaggedrevs_short{$rtl} plainlinks noprint";
 			$this->reviewNotice .= "<div id='mw-fr-revisiontag' class='$css'>$tag</div>";
 		// Standard UI
 		} else {
 			$css = 'flaggedrevs_notice plainlinks noprint';
 			$tag = "<div id='mw-fr-revisiontag' class='$css'>" .
-				$prot . $icon . wfMsgExt( 'revreview-noflagged', array( 'parseinline' ) ) .
+				$prot . $icon . wfMsgExt( 'revreview-noflagged', 'parseinline' ) .
 				"</div>";
 			$this->reviewNotice .= $tag;
 		}
@@ -454,7 +454,7 @@ class FlaggedArticleView {
 				$pending .= FlaggedRevsXML::draftStatusIcon();
 			}
 			$pending .= wfMsgExt( 'revreview-edited',
-				array( 'parseinline' ), $srev->getRevId(), $revsSince );
+				'parseinline', $srev->getRevId(), $revsSince );
 			$anchor = $wgRequest->getVal( 'fromsection' );
 			if ( $anchor != null ) {
 				$section = str_replace( '_', ' ', $anchor ); // prettify
@@ -476,13 +476,13 @@ class FlaggedArticleView {
 					$msg = $quality
 						? 'revreview-quick-quality-same'
 						: 'revreview-quick-basic-same';
-					$msgHTML = wfMsgExt( $msg, array( 'parseinline' ),
+					$msgHTML = wfMsgExt( $msg, 'parseinline',
 						$srev->getRevId(), $revsSince );
 				} else {
 					$msg = $quality
 						? 'revreview-quick-see-quality'
 						: 'revreview-quick-see-basic';
-					$msgHTML = wfMsgExt( $msg, array( 'parseinline' ),
+					$msgHTML = wfMsgExt( $msg, 'parseinline',
 						$srev->getRevId(), $revsSince );
 				}
 				$icon = '';
@@ -503,14 +503,14 @@ class FlaggedArticleView {
 					} else {
 						$msg = 'revreview-basic-same';
 					}
-					$msgHTML = wfMsgExt( $msg, array( 'parseinline' ),
+					$msgHTML = wfMsgExt( $msg, 'parseinline',
 						$srev->getRevId(), $time, $revsSince );
 				} else {
 					$msg = $quality
 						? 'revreview-newest-quality'
 						: 'revreview-newest-basic';
 					$msg .= ( $revsSince == 0 ) ? '-i' : '';
-					$msgHTML = wfMsgExt( $msg, array( 'parseinline' ),
+					$msgHTML = wfMsgExt( $msg, 'parseinline',
 						$srev->getRevId(), $time, $revsSince );
 				}
 				$icon = $synced
@@ -558,7 +558,7 @@ class FlaggedArticleView {
 					$msg = $quality
 						? 'revreview-quick-quality-old'
 						: 'revreview-quick-basic-old';
-					$msgHTML = wfMsgExt( $msg, array( 'parseinline' ), $frev->getRevId(), $revsSince );
+					$msgHTML = wfMsgExt( $msg, 'parseinline', $frev->getRevId(), $revsSince );
 				}
 				$msgHTML = $prot . $icon . $msgHTML;
 				$tag = FlaggedRevsXML::prettyRatingBox( $frev, $msgHTML,
@@ -634,7 +634,7 @@ class FlaggedArticleView {
 						: 'revreview-quick-basic';
 					# Uses messages 'revreview-quick-quality-same', 'revreview-quick-basic-same'
 					$msg = $synced ? "{$msg}-same" : $msg;
-					$msgHTML = wfMsgExt( $msg, array( 'parseinline' ),
+					$msgHTML = wfMsgExt( $msg, 'parseinline',
 						$srev->getRevId(), $revsSince );
 				}
 				$msgHTML = $prot . $icon . $msgHTML;
@@ -916,7 +916,7 @@ class FlaggedArticleView {
 			# Let new users know about review procedure a tag.
 			# If the log excerpt was shown this is redundant.
 			if ( !$log && !$wgUser->getId() && $this->article->isStableShownByDefault() ) {
-				$items[] = wfMsgExt( 'revreview-editnotice', array( 'parseinline' ) );
+				$items[] = wfMsgExt( 'revreview-editnotice', 'parseinline' );
 			}
 			# Add a notice if there are pending edits...
 			if ( $this->article->revsArePending() ) {
@@ -1002,7 +1002,7 @@ class FlaggedArticleView {
 			$revsSince = $this->article->getPendingRevCount();
 			if ( $revsSince ) {
 				$s .= "<div class='flaggedrevs_editnotice plainlinks'>" .
-					wfMsgExt( 'revreview-pending-nosection', array( 'parseinline' ),
+					wfMsgExt( 'revreview-pending-nosection', 'parseinline',
 						$srev->getRevId(), $revsSince ) . "</div>";
 			}
 		}
@@ -1109,15 +1109,15 @@ class FlaggedArticleView {
 			$frev = $this->article->getStableRev();
 			if ( $frev && $frev->getRevId() == $this->article->getLatest() ) {
 				$wgOut->prependHTML( "<span class='plainlinks'>" .
-					wfMsgExt( 'revreview-visibility', array( 'parseinline' ),
+					wfMsgExt( 'revreview-visibility', 'parseinline',
 						$title->getPrefixedText() ) . "</span>" );
 			} elseif ( $frev ) {
 				$wgOut->prependHTML( "<span class='plainlinks'>" .
-					wfMsgExt( 'revreview-visibility2', array( 'parseinline' ),
+					wfMsgExt( 'revreview-visibility2', 'parseinline',
 						$title->getPrefixedText() ) . "</span>" );
 			} else {
 				$wgOut->prependHTML( "<span class='plainlinks'>" .
-					wfMsgExt( 'revreview-visibility3', array( 'parseinline' ),
+					wfMsgExt( 'revreview-visibility3', 'parseinline',
 						$title->getPrefixedText() ) . "</span>" );
 			}
 		}
