@@ -1,21 +1,10 @@
-/* -- (c) Aaron Schulz, Daniel Arnold 2008 */
+/* -- (c) Aaron Schulz */
 
-/* Every time you change this JS please bump $wgFlaggedRevStyleVersion in FlaggedRevs.php */
-
-var FlaggedRevs = {
-	'messages': {
-		'diffToggleShow'	: '(show changes)',
-		'diffToggleHide'	: '(hide changes)',
-		'logToggleShow'		: '(show log)',
-		'logToggleHide'		: '(hide log)',
-		'logDetailsShow'	: '(show details)',
-		'logDetailsHide'	: '(hide details)',
-		'toggleShow'    	: '(+)',
-		'toggleHide'    	: '(-)'
-	},
+window.FlaggedRevs = {
 	/* Dropdown collapse timer */
 	'boxCollapseTimer': null,
-	/* Hide rating/diff clutter */
+	
+	/* Enables rating/diff clutter via show/hide */
 	'enableShowhide': function() {
 		// Rating detail box
 		var toggle = document.getElementById('mw-fr-revisiontoggle');
@@ -67,11 +56,11 @@ var FlaggedRevs = {
 		// Collapsed -> expand
 		if( ratings.style.display == 'none' ) {
 			this.showBoxDetails();
-			toggle.innerHTML = this.messages.toggleHide;
+			toggle.innerHTML = mediaWiki.msg('revreview-toggle-hide');
 		// Expanded -> collapse
 		} else {
 			this.hideBoxDetails();
-			toggle.innerHTML = this.messages.toggleShow;
+			toggle.innerHTML = mediaWiki.msg('revreview-toggle-show');
 		}
 	},
 
@@ -117,10 +106,12 @@ var FlaggedRevs = {
 		if( !toggle ) return;
 		if( diff.style.display == 'none' ) {
 			diff.style.display = 'block';
-			toggle.getElementsByTagName('a')[0].innerHTML = this.messages.diffToggleHide;
+			toggle.getElementsByTagName('a')[0].innerHTML =
+				mediaWiki.msg('revreview-diff-toggle-hide');
 		} else {
 			diff.style.display = 'none';
-			toggle.getElementsByTagName('a')[0].innerHTML = this.messages.diffToggleShow;
+			toggle.getElementsByTagName('a')[0].innerHTML =
+				mediaWiki.msg('revreview-diff-toggle-show');
 		}
 	},
 	
@@ -132,10 +123,12 @@ var FlaggedRevs = {
 		if( !toggle ) return;
 		if( log.style.display == 'none' ) {
 			log.style.display = 'block';
-			toggle.getElementsByTagName('a')[0].innerHTML = this.messages.logToggleHide;
+			toggle.getElementsByTagName('a')[0].innerHTML =
+				mediaWiki.msg('revreview-log-toggle-hide');
 		} else {
 			log.style.display = 'none';
-			toggle.getElementsByTagName('a')[0].innerHTML = this.messages.logToggleShow;
+			toggle.getElementsByTagName('a')[0].innerHTML =
+				mediaWiki.msg('revreview-log-toggle-show');
 		}
 	},
 	
@@ -147,37 +140,45 @@ var FlaggedRevs = {
 		if( !toggle ) return;
 		if( log.style.display == 'none' ) {
 			log.style.display = 'block';
-			toggle.getElementsByTagName('a')[0].innerHTML = this.messages.logDetailsHide;
+			toggle.getElementsByTagName('a')[0].innerHTML =
+				mediaWiki.msg('revreview-log-details-hide');
 		} else {
 			log.style.display = 'none';
-			toggle.getElementsByTagName('a')[0].innerHTML = this.messages.logDetailsShow;
+			toggle.getElementsByTagName('a')[0].innerHTML =
+				mediaWiki.msg('revreview-log-details-show');
 		}
-	}
-};
-
-FlaggedRevs.setCheckTrigger = function() {
-	var checkbox = document.getElementById("wpReviewEdit");
-	if( checkbox ) {
-		checkbox.onclick = FlaggedRevs.updateSaveButton;
-	}
-};
-
-FlaggedRevs.updateSaveButton = function() {
-	var checkbox = document.getElementById("wpReviewEdit");
-	var save = document.getElementById("wpSave");
-	if( checkbox && save ) {
-		// Review pending changes
-		if ( checkbox.checked ) {
-			save.value = FlaggedRevs.messages.saveArticle;
-			save.title = FlaggedRevs.messages.tooltipSave;
-		// Submit for review
-		} else {
-			save.value = FlaggedRevs.messages.submitArticle;
-			save.title = FlaggedRevs.messages.tooltipSubmit;
+	},
+	
+	/* Enables changing of save button when "review this" checkbox changes */
+	'setCheckTrigger': function() {
+		var checkbox = document.getElementById("wpReviewEdit");
+		if( checkbox ) {
+			checkbox.onclick = FlaggedRevs.updateSaveButton;
 		}
+	},
+	
+	/* Update save button when "review this" checkbox changes */
+	'updateSaveButton': function() {
+		var checkbox = document.getElementById("wpReviewEdit");
+		var save = document.getElementById("wpSave");
+		if( checkbox && save ) {
+			// Review pending changes
+			if ( checkbox.checked ) {
+				save.value = mediaWiki.msg('savearticle');
+				save.title = mediaWiki.msg('tooltip-save') +
+					' [' + mediaWiki.msg('accesskey-save') + ']';
+			// Submit for review
+			} else {
+				save.value = mediaWiki.msg('revreview-submitedit');
+				save.title = mediaWiki.msg('revreview-submitedit-title')
+					+ ' [' + mediaWiki.msg('accesskey-save') + ']';
+			}
+		}
+		window.updateTooltipAccessKeys( [ save ] ); // update accesskey in save.title
 	}
 };
 
+// @TODO: move this crap to core or something
 FlaggedRevs.getRevisionContents = function() {
 	//get the contents div and replace it with actual parsed article contents via an API call.
 	var contentsDiv = document.getElementById("mw-fr-revisioncontents");
@@ -188,7 +189,8 @@ FlaggedRevs.getRevisionContents = function() {
 		var diffUIParams = document.getElementById("mw-fr-diff-dataform");
 		var oldRevId = diffUIParams.getElementsByTagName('input')[1].value;
 		var origContents = contentsDiv.innerHTML;
-		contentsDiv.innerHTML = "<span class='loading mw-small-spinner spinner'></span><span class='loading' >" + wgRevContents.waiting + "</span>";
+		contentsDiv.innerHTML = "<span class='loading mw-small-spinner spinner'>" +
+			"</span><span class='loading' >" + wgRevContents.waiting + "</span>";
 		var requestArgs = 'action=parse&prop=text|categorieshtml|languageshtml&format=xml';
 		if ( window.wgCurRevisionId == oldRevId && window.wgPageName ) {
 			requestArgs += '&page=' + encodeURIComponent( window.wgPageName );
@@ -197,32 +199,33 @@ FlaggedRevs.getRevisionContents = function() {
 		}
 
 		var call = jQuery.ajax({
-				url		: wgScriptPath + '/api.php',
-				type	: "GET",
-				data	: requestArgs,
-				dataType: "xml",
-				success	: function( result ) {
-					contentsDiv.innerHTML = "";
-					contents = jQuery(result).find("text");
-					if ( contents && contents.text() ) {
-						contentsDiv.innerHTML += contents.text();
-					} else {
-						contentsDiv.innerHTML = wgRevContents.error + " " + origContents;
-					}
-					categoryhtml = jQuery(result).find("categorieshtml");
-					if ( categoryhtml && categoryhtml.text() ) {
-						contentsDiv.innerHTML += categoryhtml.text();
-					}
-					languageshtml = jQuery(result).find("languageshtml");
-					if ( languageshtml && languageshtml.text() ) {
-						contentsDiv.innerHTML += "<div class='langlinks' >" + languageshtml.text() + "</div>";
-					}
-					
-				},
-				error	: function(xmlHttpRequest, textStatus, errThrown) {
+			url		: wgScriptPath + '/api.php',
+			type	: "GET",
+			data	: requestArgs,
+			dataType: "xml",
+			success	: function( result ) {
+				contentsDiv.innerHTML = "";
+				contents = jQuery(result).find("text");
+				if ( contents && contents.text() ) {
+					contentsDiv.innerHTML += contents.text();
+				} else {
 					contentsDiv.innerHTML = wgRevContents.error + " " + origContents;
 				}
-			});
+				categoryhtml = jQuery(result).find("categorieshtml");
+				if ( categoryhtml && categoryhtml.text() ) {
+					contentsDiv.innerHTML += categoryhtml.text();
+				}
+				languageshtml = jQuery(result).find("languageshtml");
+				if ( languageshtml && languageshtml.text() ) {
+					contentsDiv.innerHTML += "<div class='langlinks' >" +
+						languageshtml.text() + "</div>";
+				}
+				
+			},
+			error	: function(xmlHttpRequest, textStatus, errThrown) {
+				contentsDiv.innerHTML = wgRevContents.error + " " + origContents;
+			}
+		});
 	}
 	if ( prevLink ) {
 		prevLink.onclick = function() {
@@ -240,10 +243,7 @@ FlaggedRevs.getRevisionContents = function() {
 	}
 };
 
-FlaggedRevs.setJSTriggers = function() {
-	FlaggedRevs.enableShowhide();
-	FlaggedRevs.setCheckTrigger();
-	FlaggedRevs.getRevisionContents();
-};
-
-window.onload = FlaggedRevs.setJSTriggers;
+// Perform some onload (which is when this script is included) events:
+FlaggedRevs.enableShowhide();
+FlaggedRevs.setCheckTrigger();
+FlaggedRevs.getRevisionContents();

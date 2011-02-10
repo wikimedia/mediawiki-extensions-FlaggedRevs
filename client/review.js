@@ -1,8 +1,8 @@
 /* -- (c) Aaron Schulz, Daniel Arnold 2008 */
 
-/* Every time you change this JS please bump $wgFlaggedRevStyleVersion in FlaggedRevs.php */
-
 /*
+* Updates for radios/checkboxes on patch by Daniel Arnold (bug 13744).
+* Visually update the revision rating form on change.
 * a) Disable submit in case of invalid input.
 * b) Update colors when select changes (Opera already does this).
 * c) Also remove comment box clutter in case of invalid input.
@@ -75,8 +75,6 @@ FlaggedRevs.maybeDisableAcceptButton = function() {
 	}
 };
 
-hookEvent( "load", FlaggedRevs.maybeDisableAcceptButton );
-
 FlaggedRevs.updateRatingFormColors = function() {
 	for( tag in wgFlaggedRevsParams.tags ) {
 		var controlName = "wp" + tag;
@@ -93,13 +91,12 @@ FlaggedRevs.updateRatingFormColors = function() {
 	}
 };
 
-hookEvent( "load", FlaggedRevs.updateRatingFormColors );
-
+// @TODO: use jQuery AJAX
 // dependencies:
 // * ajax.js:
   /*extern sajax_init_object, sajax_do_call */
 // * wikibits.js:
-  /*extern hookEvent, jsMsg */
+  /*extern jsMsg */
 // These should have been initialized in the generated js
 if( typeof wgAjaxReview === "undefined" || !wgAjaxReview ) {
 	wgAjaxReview = {};
@@ -109,6 +106,7 @@ wgAjaxReview.supported = true; // supported on current page and by browser
 wgAjaxReview.inprogress = false; // ajax request in progress
 wgAjaxReview.timeoutID = null; // see wgAjaxReview.ajaxCall
 
+// Args build-up from radios/checkboxes based on patch by Daniel Arnold (bug 13744)
 wgAjaxReview.ajaxCall = function() {
 	if( !wgAjaxReview.supported ) {
 		return true;
@@ -322,4 +320,7 @@ wgAjaxReview.onLoad = function() {
 	}
 };
 
-hookEvent("load", wgAjaxReview.onLoad);
+// Perform some onload (which is when this script is included) events:
+FlaggedRevs.maybeDisableAcceptButton();
+FlaggedRevs.updateRatingFormColors();
+wgAjaxReview.onLoad();

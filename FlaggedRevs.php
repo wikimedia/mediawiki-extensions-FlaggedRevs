@@ -200,7 +200,7 @@ $wgRemoveGroups['sysop'][] = 'editor';
 $wgAddGroups['bureaucrat'][] = 'reviewer';
 $wgRemoveGroups['bureaucrat'][] = 'reviewer';
 
-# URL location for flaggedrevs.css and flaggedrevs.js
+# URL location that has an /img subdirectory containing UI icons
 # Use a literal $wgScriptPath as a placeholder for the runtime value of $wgScriptPath
 $wgFlaggedRevsStylePath = '$wgScriptPath/extensions/FlaggedRevs/client';
 
@@ -244,9 +244,6 @@ $wgAvailableRights[] = 'autoreview';
 $wgAvailableRights[] = 'unreviewedpages';
 $wgAvailableRights[] = 'movestable';
 $wgAvailableRights[] = 'stablesettings';
-
-# Bump this number every time you change flaggedrevs.css/flaggedrevs.js
-$wgFlaggedRevStyleVersion = 85;
 
 $wgExtensionFunctions[] = 'efLoadFlaggedRevs';
 
@@ -355,6 +352,32 @@ $wgDefaultUserOptions['flaggedrevssimpleui'] = (int)$wgSimpleFlaggedRevsUI;
 $wgDefaultUserOptions['flaggedrevsstable'] = false;
 $wgDefaultUserOptions['flaggedrevseditdiffs'] = true;
 $wgDefaultUserOptions['flaggedrevsviewdiffs'] = false;
+
+# JS/CSS modules and message bundles used by JS scripts
+$dir = dirname( __FILE__ ) . '/client/';
+$wgResourceModules['ext.flaggedRevs.basic'] = array(
+	'styles' 		=> array( 'flaggedrevs.css' ),
+	'scripts' 		=> array( 'flaggedrevs.js' ),
+	'messages'      => array(
+		'revreview-toggle-show', 'revreview-toggle-hide',
+		'revreview-diff-toggle-show', 'revreview-diff-toggle-hide',
+		'revreview-log-toggle-show', 'revreview-log-toggle-hide',
+		'revreview-log-details-show', 'revreview-log-details-hide'
+	),
+	'dependencies' 	=> array( 'jquery', 'mediawiki.legacy.wikibits' ),
+	'localBasePath' => $dir,
+	'remoteExtPath' => 'FlaggedRevs'
+);
+$wgResourceModules['ext.flaggedRevs.review'] = array(
+	'scripts' 		=> array( 'review.js' ),
+	'messages'      => array(
+		'savearticle', 'tooltip-save', 'accesskey-save',
+		'revreview-submitedit', 'revreview-submitedit-title'
+	),
+	'dependencies' 	=> array( 'ext.flaggedRevs.basic', 'mediawiki.legacy.ajax' ),
+	'localBasePath' => $dir,
+	'remoteExtPath' => 'FlaggedRevs'
+);
 
 # ####### HOOK TRIGGERED FUNCTIONS  #########
 

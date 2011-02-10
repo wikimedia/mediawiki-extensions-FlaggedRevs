@@ -44,10 +44,10 @@ class FlaggedRevsHooks {
 	* Add FlaggedRevs css/js.
 	*/
 	protected static function injectStyleAndJS() {
-		global $wgOut, $wgUser, $wgFlaggedRevStyleVersion;
+		global $wgOut, $wgUser;
 		static $loadedModules = false;
 		if ( $loadedModules ) {
-			return true; # Don't double-load
+			return true; // don't double-load
 		}
 		$loadedModules = true;
 		$fa = FlaggedArticleView::globalArticleInstance();
@@ -55,44 +55,12 @@ class FlaggedRevsHooks {
 		if ( !$fa || !$fa->isReviewable() ) {
 			return true;
 		}
-		$stylePath = FlaggedRevs::styleUrlPath();
-		# Get JS/CSS file locations
-		$encCssFile = htmlspecialchars( "$stylePath/flaggedrevs.css?$wgFlaggedRevStyleVersion" );
-		$encJsFile = htmlspecialchars( "$stylePath/flaggedrevs.js?$wgFlaggedRevStyleVersion" );
-		# Add CSS file
-		$wgOut->addExtensionStyle( $encCssFile );
-		# Add main JS file
-		$wgOut->includeJQuery();
-		$wgOut->addScriptFile( $encJsFile );
+		# Add main CSS & JS files
+		$wgOut->addModules( 'ext.flaggedRevs.basic' );
 		# Add review form JS for reviewers
 		if ( $wgUser->isAllowed( 'review' ) ) {
-			$encJsFile = htmlspecialchars( "$stylePath/review.js?$wgFlaggedRevStyleVersion" );
-			$wgOut->addScriptFile( $encJsFile );
+			$wgOut->addModules( 'ext.flaggedRevs.review' );
 		}
-		# Set basic messages for all users...
-		$msgs = array(
-			'diffToggleShow' => wfMsgHtml( 'revreview-diff-toggle-show' ),
-			'diffToggleHide' => wfMsgHtml( 'revreview-diff-toggle-hide' ),
-			'logToggleShow'	 => wfMsgHtml( 'revreview-log-toggle-show' ),
-			'logToggleHide'  => wfMsgHtml( 'revreview-log-toggle-hide' ),
-			'logDetailsShow' => wfMsgHtml( 'revreview-log-details-show' ),
-			'logDetailsHide' => wfMsgHtml( 'revreview-log-details-hide' ),
-			'toggleShow'	 => wfMsgHtml( 'revreview-toggle-show' ),
-			'toggleHide'     => wfMsgHtml( 'revreview-toggle-hide' )
-		);
-		# Extra reviewer messages...
-		if ( $wgUser->isAllowed( 'review' ) ) {
-			$msgs['saveArticle'] = wfMsgHtml( 'savearticle' );
-			$msgs['tooltipSave'] = wfMsgHtml( 'tooltip-save' ) .
-				' [' . wfMsgHtml( 'accesskey-save' ) . ']';
-			$msgs['submitArticle'] = wfMsg( 'revreview-submitedit' );
-			$msgs['tooltipSubmit'] = wfMsg( 'revreview-submitedit-title' ) .
-				' ['. wfMsg( 'accesskey-save' ) . ']';
-		}
-		# Add msgs to JS
-		$wgOut->addInlineScript(
-			"FlaggedRevs.messages = " . Xml::encodeJsVar( (object)$msgs ) . ";" );
-
 		return true;
 	}
 
@@ -145,12 +113,7 @@ class FlaggedRevsHooks {
 			'Watchlist', 'Recentchanges', 'Contributions', 'Recentchangeslinked' );
 		foreach ( $spPages as $key ) {
 			if ( $title->isSpecial( $key ) ) {
-				global $wgScriptPath, $wgFlaggedRevsStylePath, $wgFlaggedRevStyleVersion;
-				$stylePath = str_replace( '$wgScriptPath',
-					$wgScriptPath, $wgFlaggedRevsStylePath );
-				$encCssFile = htmlspecialchars( "$stylePath/flaggedrevs.css?" .
-					$wgFlaggedRevStyleVersion );
-				$out->addExtensionStyle( $encCssFile );
+				$out->addModuleStyles( 'ext.flaggedRevs.basic' ); // CSS only
 				break;
 			}
 		}
