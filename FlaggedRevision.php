@@ -80,30 +80,29 @@ class FlaggedRevision {
 	 * Note: will return NULL if the revision is deleted.
 	 * @param Title $title
 	 * @param int $revId
-	 * @param int $flags FR_MASTER
+	 * @param int $flags (FR_MASTER, FR_FOR_UPDATE)
 	 * @return mixed FlaggedRevision (null on failure)
 	 */
 	public static function newFromTitle( Title $title, $revId, $flags = 0 ) {
 		if ( !FlaggedRevs::inReviewNamespace( $title ) ) {
 			return null; // short-circuit
 		}
-		$columns = self::selectFields();
 		$options = array();
-		# User master/slave as appropriate
+		# User master/slave as appropriate...
 		if ( $flags & FR_FOR_UPDATE || $flags & FR_MASTER ) {
 			$db = wfGetDB( DB_MASTER );
 			if ( $flags & FR_FOR_UPDATE ) $options[] = 'FOR UPDATE';
+			$pageId = $title->getArticleID( Title::GAID_FOR_UPDATE );
 		} else {
 			$db = wfGetDB( DB_SLAVE );
+			$pageId = $title->getArticleID();
 		}
-		$pageId = $title->getArticleID( $flags & FR_FOR_UPDATE ? Title::GAID_FOR_UPDATE : 0 );
-		# Short-circuit query
 		if ( !$pageId ) {
-			return null;
+			return null; // short-circuit query
 		}
 		# Skip deleted revisions
 		$row = $db->selectRow( array( 'flaggedrevs', 'revision' ),
-			$columns,
+			self::selectFields(),
 			array( 'fr_page_id' => $pageId,
 				'fr_rev_id' => $revId,
 				'rev_id = fr_rev_id',
@@ -125,30 +124,30 @@ class FlaggedRevision {
 	/**
 	 * Get a FlaggedRevision of the stable version of a title.
 	 * @param Title $title, page title
-	 * @param int $flags FR_MASTER
+	 * @param int $flags (FR_MASTER, FR_FOR_UPDATE)
 	 * @return mixed FlaggedRevision (null on failure)
 	 */
 	public static function newFromStable( Title $title, $flags = 0 ) {
 		if ( !FlaggedRevs::inReviewNamespace( $title ) ) {
 			return null; // short-circuit
 		}
-		$columns = self::selectFields();
 		$options = array();
-		$pageId = $title->getArticleID( $flags & FR_MASTER ? Title::GAID_FOR_UPDATE : 0 );
-		if ( !$pageId ) {
-			return null; // short-circuit query
-		}
-		# User master/slave as appropriate
+		# User master/slave as appropriate...
 		if ( $flags & FR_FOR_UPDATE || $flags & FR_MASTER ) {
 			$db = wfGetDB( DB_MASTER );
 			if ( $flags & FR_FOR_UPDATE ) $options[] = 'FOR UPDATE';
+			$pageId = $title->getArticleID( Title::GAID_FOR_UPDATE );
 		} else {
 			$db = wfGetDB( DB_SLAVE );
+			$pageId = $title->getArticleID();
+		}
+		if ( !$pageId ) {
+			return null; // short-circuit query
 		}
 		# Check tracking tables
 		$row = $db->selectRow(
 			array( 'flaggedpages', 'flaggedrevs' ),
-			$columns,
+			self::selectFields(),
 			array( 'fp_page_id' => $pageId,
 				'fr_page_id = fp_page_id',
 				'fr_rev_id = fp_stable'
@@ -168,7 +167,7 @@ class FlaggedRevision {
 	 * Get a FlaggedRevision of the stable version of a title.
 	 * Skips tracking tables to figure out new stable version.
 	 * @param Title $title, page title
-	 * @param int $flags FR_MASTER
+	 * @param int $flags (FR_MASTER, FR_FOR_UPDATE)
 	 * @param array $config, optional page config (use to skip queries)
 	 * @param string $precedence (latest,quality,pristine)
 	 * @return mixed FlaggedRevision (null on failure)
@@ -179,18 +178,18 @@ class FlaggedRevision {
 		if ( !FlaggedRevs::inReviewNamespace( $title ) ) {
 			return null; // short-circuit
 		}
-		$columns = self::selectFields();
 		$options = array();
-		$pageId = $title->getArticleID( $flags & FR_FOR_UPDATE ? Title::GAID_FOR_UPDATE : 0 );
-		if ( !$pageId ) {
-			return null; // short-circuit query
-		}
-		# User master/slave as appropriate
+		# User master/slave as appropriate...
 		if ( $flags & FR_FOR_UPDATE || $flags & FR_MASTER ) {
 			$db = wfGetDB( DB_MASTER );
 			if ( $flags & FR_FOR_UPDATE ) $options[] = 'FOR UPDATE';
+			$pageId = $title->getArticleID( Title::GAID_FOR_UPDATE );
 		} else {
 			$db = wfGetDB( DB_SLAVE );
+			$pageId = $title->getArticleID();
+		}
+		if ( !$pageId ) {
+			return null; // short-circuit query
 		}
 		# Get visiblity settings...
 		if ( empty( $config ) ) {
@@ -200,6 +199,7 @@ class FlaggedRevision {
 			return null; // page is not reviewable; no stable version
 		}
 		$row = null;
+		$columns = self::selectFields();
 		$options['ORDER BY'] = 'fr_rev_id DESC';
 		# Look for the latest pristine revision...
 		if ( FlaggedRevs::pristineVersions() && $precedence !== 'latest' ) {
@@ -331,9 +331,9 @@ class FlaggedRevision {
 	}
 
 	/**
-	 * @return Array basic select fields (not including text/text flags)
+	 * @return Array basic select fields for FlaggedRevision DB row
 	 */
-	protected static function selectFields() {
+	public static function selectFields() {
 		return array(
 			'fr_rev_id', 'fr_page_id', 'fr_user', 'fr_timestamp',
 			'fr_comment', 'fr_quality', 'fr_tags', 'fr_img_name',

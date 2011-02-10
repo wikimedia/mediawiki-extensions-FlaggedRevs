@@ -967,6 +967,13 @@ class FlaggedRevs {
 			array( 'fpc_page_id' => $title->getArticleID() ),
 			__METHOD__
 		);
+		return self::getVisibilitySettingsFromRow( $row );
+	}
+
+	/**
+	 * Get page configuration settings from a DB row
+	 */
+	public static function getVisibilitySettingsFromRow( $row ) {
 		if ( $row ) {
 			# This code should be refactored, now that it's being used more generally.
 			$expiry = Block::decodeExpiry( $row->fpc_expiry );
@@ -974,7 +981,6 @@ class FlaggedRevs {
 			if ( !$expiry || $expiry < wfTimestampNow() ) {
 				$row = null; // expired
 				self::purgeExpiredConfigurations();
-				self::stableVersionUpdates( $title ); // re-find stable version
 			}
 		}
 		// Is there a non-expired row?
@@ -1059,35 +1065,53 @@ class FlaggedRevs {
 	 * The stable version of pages may change and invalidation may be required.
 	 */
 	public static function purgeExpiredConfigurations() {
+		if ( wfReadOnly() ) return;
+
 		$dbw = wfGetDB( DB_MASTER );
-		$pageIds = array();
-		$pagesClearTracking = array();
 		$config = self::getDefaultVisibilitySettings(); // config is to be reset
 		$encCutoff = $dbw->addQuotes( $dbw->timestamp() );
-		$ret = $dbw->select( 'flaggedpage_config',
-			array( 'fpc_page_id' ),
-			array( 'fpc_expiry < ' . $encCutoff ),
+		$ret = $dbw->select(
+			array( 'flaggedpage_config', 'page' ),
+			array( 'fpc_page_id', 'page_namespace', 'page_title' ),
+			array( 'page_id = fpc_page_id', 'fpc_expiry < ' . $encCutoff ),
 			__METHOD__
 			// array( 'FOR UPDATE' )
 		);
-		foreach( $ret as $row ) {
-			// If FlaggedRevs got "turned off" for this page (due to not
-			// having the stable version as the default), then clear it
-			// from the tracking tables...
-			if ( !$config['override'] && self::useOnlyIfProtected() ) {
+		$pagesClearConfig = array();
+		$pagesClearTracking = $titlesClearTracking = array();
+		foreach ( $ret as $row ) {
+			# If FlaggedRevs got "turned off" (in protection config)
+			# for this page, then clear it from the tracking tables...
+			if ( self::useOnlyIfProtected() && !$config['override'] ) {
 				$pagesClearTracking[] = $row->fpc_page_id; // no stable version
+				$titlesClearTracking[] = Title::newFromRow( $row ); // no stable version
 			}
-			$pageIds[] = $row->fpc_page_id; // page with expired config
+			$pagesClearConfig[] = $row->fpc_page_id; // page with expired config
 		}
-		// Clear the expired config for these pages
-		if ( count( $pageIds ) ) {
+		# Clear the expired config for these pages...
+		if ( count( $pagesClearConfig ) ) {
 			$dbw->delete( 'flaggedpage_config',
-				array( 'fpc_page_id' => $pageIds, 'fpc_expiry < ' . $encCutoff ),
-				__METHOD__ );
+				array( 'fpc_page_id' => $pagesClearConfig, 'fpc_expiry < ' . $encCutoff ),
+				__METHOD__
+			);
 		}
-		// Clear the tracking rows where needed
+		# Clear the tracking rows and update page_touched for the
+		# pages in $pagesClearConfig that do now have a stable version...
 		if ( count( $pagesClearTracking ) ) {
 			self::clearTrackingRows( $pagesClearTracking );
+			$dbw->update( 'page',
+				array( 'page_touched' => $dbw->timestamp() ),
+				array( 'page_id' => $pagesClearTracking ),
+				__METHOD__
+			);
+		}
+		# Also, clear their squid caches and purge other pages that use this page.
+		# NOTE: all of these updates are deferred via $wgDeferredUpdateList.
+		foreach ( $titlesClearTracking as $title ) {
+			self::purgeSquid( $title );
+			if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_STABLE ) {
+				FlaggedRevs::HTMLCacheUpdates( $title ); // purge pages that use this page
+			}
 		}
 	}
 

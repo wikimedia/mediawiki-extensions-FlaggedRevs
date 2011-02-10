@@ -279,26 +279,6 @@ class FlaggedArticle extends Article {
 	}
 
 	/**
-	 * Get the stable revision
-	 * @param int $flags
-	 * @return mixed (FlaggedRevision/null)
-	 */
-	public function getStableRev( $flags = 0 ) {
-		# Cached results available?
-		if ( $this->stableRev === null || ( $flags & FR_MASTER ) ) {
-			$srev = null;
-			if ( $this->isReviewable( $flags ) ) { // short-circuit if not reviewable
-				$srev = FlaggedRevision::newFromStable( $this->getTitle(), $flags );
-			}
-			$this->stableRev = $srev ? $srev : false; // false => "found nothing"
-		}
-		if ( $this->stableRev ) {
-			return $this->stableRev;
-		}
-		return null;
-	}
-
-	/**
 	 * Get the stable revision ID
 	 * @param int $flags
 	 * @return int
@@ -306,6 +286,22 @@ class FlaggedArticle extends Article {
 	public function getStable( $flags = 0 ) {
 		$srev = $this->getStableRev( $flags );
 		return $srev ? $srev->getRevId() : 0;
+	}
+
+	/**
+	 * Get the stable revision
+	 * @param int $flags
+	 * @return mixed (FlaggedRevision/null)
+	 */
+	public function getStableRev( $flags = 0 ) {
+		# Cached results available?
+		if ( $this->stableRev === null || ( $flags & FR_MASTER ) ) {
+			$this->loadStableRevAndConfig();
+		}
+		if ( $this->stableRev ) {
+			return $this->stableRev;
+		}
+		return null; // false => null
 	}
 
 	/**
@@ -317,7 +313,48 @@ class FlaggedArticle extends Article {
 		if ( !( $flags & FR_MASTER ) && $this->pageConfig !== null ) {
 			return $this->pageConfig; // use process cache
 		}
-		$this->pageConfig = FlaggedRevs::getPageStabilitySettings( $this->getTitle(), $flags );
+		$this->loadStableRevAndConfig();
 		return $this->pageConfig;
+	}
+
+	/**
+	 * Get a DB row of the stable version and page config of a title.
+	 * @param Title $title, page title
+	 * @param int $flags FR_MASTER
+	 */
+	protected function loadStableRevAndConfig( $flags = 0 ) {
+		$this->stableRev = false; // false => "found nothing"
+		$this->pageConfig = FlaggedRevs::getDefaultVisibilitySettings(); // default
+		if ( !FlaggedRevs::inReviewNamespace( $this->getTitle() ) ) {
+			return; // short-circuit
+		}
+		# User master/slave as appropriate...
+		$db = ( $flags & FR_MASTER ) ?
+			wfGetDB( DB_MASTER ) : wfGetDB( DB_SLAVE );
+		$row = $db->selectRow(
+			array( 'page', 'flaggedpages', 'flaggedrevs', 'flaggedpage_config' ),
+			array_merge( FlaggedRevision::selectFields(),
+				array( 'fpc_override', 'fpc_level', 'fpc_expiry' ) ),
+			array( 'page_id' => $this->getID() ),
+			__METHOD__,
+			array(),
+			array(
+				'flaggedpages' => array( 'LEFT JOIN', 'fp_page_id = page_id' ),
+				'flaggedrevs' => array( 'LEFT JOIN',
+					'fr_page_id = fp_page_id AND fr_rev_id = fp_stable' ),
+				'flaggedpage_config' => array( 'LEFT JOIN', 'fpc_page_id = page_id' ) )
+		);
+		if ( !$row ) {
+			return; // no page found at all
+		}
+		if ( $row->fpc_override !== null ) { // page config row found
+			$this->pageConfig = FlaggedRevs::getVisibilitySettingsFromRow( $row );
+		}
+		if ( $row->fr_rev_id !== null ) { // stable rev row found		
+			// Page may not reviewable, which implies no stable version
+			if ( !FlaggedRevs::useOnlyIfProtected() || $this->pageConfig['override']  ) {
+				$this->stableRev = new FlaggedRevision( $row );
+			}
+		}
 	}
 }
