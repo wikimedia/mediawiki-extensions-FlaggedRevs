@@ -181,7 +181,8 @@ class FlaggedArticleView {
 	 * @returns bool
 	 */
 	protected function isPageView( WebRequest $request ) {
-		return $this->isPageViewOrDiff( $request ) && !$request->getVal( 'diff' );
+		return $this->isPageViewOrDiff( $request )
+			&& $request->getVal( 'diff' ) === null;
 	}
 
 	 /**
@@ -195,10 +196,11 @@ class FlaggedArticleView {
 			? $mediaWiki->getAction( $request )
 			: $request->getVal( 'action', 'view' ); // cli
 		return ( self::isViewAction( $action )
-			&& !$request->getVal( 'oldid' )
-			&& !$request->getVal( 'stable' )
-			&& !$request->getVal( 'stableid' )
-			&& !$request->getVal( 'diff' ) );
+			&& $request->getVal( 'oldid' ) === null
+			&& $request->getVal( 'stable' ) === null
+			&& $request->getVal( 'stableid' ) === null
+			&& $request->getVal( 'diff' ) === null
+		);
 	}
 
 	 /**
@@ -374,18 +376,23 @@ class FlaggedArticleView {
 
 	/**
 	* If the page has a stable version and it shows by default,
-	* tell bots to index only that version of the page.
-	* @TODO: what about viewing the draft but when it is synced?
+	* tell search crawlers to index only that version of the page.
+	* Also index the draft as well if they are synced (bug 27173).
+	* However, any URL with ?stableid=x should not be indexed (as with ?oldid=x).
 	*/
 	public function setRobotPolicy() {
-		global $wgOut;
-		if ( !$this->article->getStableRev() ) {
-			return true; // page has no stable version
-		}
-		if ( $this->article->isStableShownByDefault() && !$this->showingStable() ) {
+		global $wgRequest, $wgOut;
+		if ( $this->article->getStableRev() && $this->article->isStableShownByDefault() ) {
+			if ( $this->showingStable() ) {
+				return; // stable version - index this
+			} elseif ( !$wgRequest->getVal( 'stableid' )
+				&& $wgOut->getRevisionId() == $this->article->getStable()
+				&& $this->article->stableVersionIsSynced() )
+			{
+				return; // draft that is synced with the stable version - index this
+			}
 			$wgOut->setRobotPolicy( 'noindex,nofollow' ); // don't index this version
 		}
-		return true;
 	}
 
 	/**
