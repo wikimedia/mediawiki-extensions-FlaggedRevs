@@ -417,7 +417,7 @@ class FlaggedRevsXML {
 		$logHtml = '';
 		$params = array(
 			'lim'   => 1,
-			#'flags' => LogEventsList::NO_EXTRA_USER_LINKS // hold off for wmf
+			'flags' => LogEventsList::NO_EXTRA_USER_LINKS
 		);
 		LogEventsList::showLogExtract( $logHtml, 'stable',
 			$article->getTitle()->getPrefixedText(), '', $params );
