@@ -1533,11 +1533,16 @@ $messages['rue'] = array(
  * @author HalanTul
  */
 $messages['sah'] = array(
+	'pendingchanges' => 'Тургутуллубатах көннөрүүлээх сирэйдэр',
+	'pendingchanges-legend' => 'Тургутуллубатах кэнники көннөрүүлэрдээх бигэ сирэйдэр тиһиктэрэ',
+	'pendingchanges-list' => 'Бу сирэйгэ  тургутууну көһүтэр көннөрүүлээх [[{{MediaWiki:Validationpage}}|бигэ]] сирэйдэр көстөллөр.',
+	'pendingchanges-none' => 'Көрдөбүлгэр эппиэттиир ыстатыйа билигин суох эбит',
 	'pendingchanges-hours' => '($1 чаас)',
 	'pendingchanges-days' => '($1 хонук)',
 	'pendingchanges-recent' => '(1 чаастан кылгас)',
 	'pendingchanges-category' => 'Категория:',
-	'pendingchanges-stable' => 'Бигэргэтиллибит сирэйдэр',
+	'pendingchanges-onwatchlist' => 'Бэйэм кэтиир сирэйдэрим',
+	'pendingchanges-stable' => 'Атын этиллибэтэҕинэ - бигэ сирэйдэр',
 	'pendingchanges-diff' => 'тургутарга',
 	'pendingchanges-size' => 'Саамай ыйааһыннаах уларытыы (баайтынан):',
 	'pendingchanges-unwatched' => '(кэтээбэттэр)',

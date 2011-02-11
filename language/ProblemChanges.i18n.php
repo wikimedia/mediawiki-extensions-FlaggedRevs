@@ -692,6 +692,7 @@ $messages['rue'] = array(
  * @author HalanTul
  */
 $messages['sah'] = array(
+	'problemchanges' => 'Тургутуллубатах уларытыылар бэлиэтэммиттэр',
 	'problemchanges-category' => 'Категория:',
 );
 

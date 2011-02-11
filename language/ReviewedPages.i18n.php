@@ -1079,14 +1079,15 @@ $messages['rue'] = array(
  */
 $messages['sah'] = array(
 	'reviewedpages' => 'Ырытыллыбыт сирэйдэр',
-	'reviewedpages-leg' => 'Үрдүк сыанабылы ылбыт сирэйдэр тиһиктэрэ',
-	'reviewedpages-list' => 'Бу сирэйгэ этиллибит таһымынан сыаналаммыт сирэйдэр көрдөрүлүннүлэр.',
+	'reviewedpages-leg' => 'Тургутуллубут сирэйдэр тиһиктэрэ',
+	'reviewedpages-list' => 'Бу сирэйгэ этиллибит таһымҥа эппиэттиир барыллаах [[{{MediaWiki:Validationpage}}|тургутуллубут]] сирэйдэр көрдөрүлүннүлэр.
+Сигэ ыстатыйа оннук сыаналаах барылыгар тиэрдиэ.',
 	'reviewedpages-none' => 'Испииһэк кураанах',
 	'reviewedpages-lev-0' => 'Көрүллүбүт',
 	'reviewedpages-lev-1' => 'Бэрэбиэркэлэммит',
 	'reviewedpages-lev-2' => 'Талыы-талба',
 	'reviewedpages-all' => 'ырытыллыбыт торумнар',
-	'reviewedpages-best' => 'бастыҥ торум',
+	'reviewedpages-best' => 'бастыҥ барыла',
 );
 
 /** Slovak (Slovenčina)

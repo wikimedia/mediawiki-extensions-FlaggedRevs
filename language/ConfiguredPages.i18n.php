@@ -678,6 +678,16 @@ $messages['rue'] = array(
 	'configuredpages-def-stable' => 'опублікована верзія',
 );
 
+/** Yakut (Саха тыла)
+ * @author HalanTul
+ */
+$messages['sah'] = array(
+	'configuredpages-none' => 'Бу тиһиккэ сирэйдэр суохтар.',
+	'configuredpages-config' => 'Туруоруулар',
+	'configuredpages-def-draft' => 'бүтэһик барыл',
+	'configuredpages-def-stable' => 'бигэ барыл',
+);
+
 /** Sardinian (Sardu)
  * @author Andria
  */

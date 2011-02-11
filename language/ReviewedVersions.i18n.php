@@ -984,7 +984,7 @@ $messages['rue'] = array(
  * @author HalanTul
  */
 $messages['sah'] = array(
-	'reviewedversions' => 'Көрүллүбүт барыллары көрүү',
+	'reviewedversions' => 'Тургутуллубут барыллара',
 	'reviewedversions-leg1' => 'Сирэй ырытыллыбыт торумнарын испииһэгэ',
 	'reviewedversions-page' => 'Сирэй аата:',
 	'reviewedversions-none' => '"[[:$1]]" көрүллүбүт/бэрэбиэркэлэммит торумнара суох.',
