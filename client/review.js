@@ -1,94 +1,99 @@
 /* -- (c) Aaron Schulz, Daniel Arnold 2008 */
 
-/*
-* Updates for radios/checkboxes on patch by Daniel Arnold (bug 13744).
-* Visually update the revision rating form on change.
-* a) Disable submit in case of invalid input.
-* b) Update colors when select changes (Opera already does this).
-* c) Also remove comment box clutter in case of invalid input.
-* NOTE: all buttons should exist (perhaps hidden though)
-*/
-FlaggedRevs.updateRatingForm = function() {
-	var ratingform = document.getElementById('mw-fr-ratingselects');
-	if( !ratingform ) return;
-	var disabled = document.getElementById('fr-rating-controls-disabled');
-	if( disabled ) return;
-
-	var quality = true;
-	var somezero = false;
-
-	// Determine if this is a "quality" or "incomplete" review
-	for( tag in wgFlaggedRevsParams.tags ) {
-		var controlName = "wp" + tag;
-		var levels = document.getElementsByName(controlName);
-		if( !levels.length ) continue;
-
-		var selectedlevel = 0; // default
-		if( levels[0].nodeName == 'SELECT' ) {
-			selectedlevel = levels[0].selectedIndex;
-		} else if( levels[0].type == 'radio' ) {
-			for( i = 0; i < levels.length; i++ ) {
-				if( levels[i].checked ) {
-					selectedlevel = i;
-					break;
-				}
-			}
-		} else if( levels[0].type == 'checkbox' ) {
-			selectedlevel = (levels[0].checked) ? 1: 0;
-		} else {
-			return; // error: should not happen
-		}
-
-		// Get quality level for this tag
-		qualityLevel = wgFlaggedRevsParams.tags[tag]['quality'];
+window.FlaggedRevsReview = {
+	/*
+	* Updates for radios/checkboxes on patch by Daniel Arnold (bug 13744).
+	* Visually update the revision rating form on change.
+	* a) Disable submit in case of invalid input.
+	* b) Update colors when select changes (Opera already does this).
+	* c) Also remove comment box clutter in case of invalid input.
+	* NOTE: all buttons should exist (perhaps hidden though)
+	*/
+	'updateRatingForm': function() {
+		var ratingform = document.getElementById('mw-fr-ratingselects');
+		if( !ratingform ) return;
+		var disabled = document.getElementById('fr-rating-controls-disabled');
+		if( disabled ) return;
 	
-		if( selectedlevel < qualityLevel ) {
-			quality = false; // not a quality review
+		var quality = true;
+		var somezero = false;
+	
+		// Determine if this is a "quality" or "incomplete" review
+		for( tag in wgFlaggedRevsParams.tags ) {
+			var controlName = "wp" + tag;
+			var levels = document.getElementsByName(controlName);
+			if( !levels.length ) continue;
+	
+			var selectedlevel = 0; // default
+			if( levels[0].nodeName == 'SELECT' ) {
+				selectedlevel = levels[0].selectedIndex;
+			} else if( levels[0].type == 'radio' ) {
+				for( i = 0; i < levels.length; i++ ) {
+					if( levels[i].checked ) {
+						selectedlevel = i;
+						break;
+					}
+				}
+			} else if( levels[0].type == 'checkbox' ) {
+				selectedlevel = (levels[0].checked) ? 1: 0;
+			} else {
+				return; // error: should not happen
+			}
+	
+			// Get quality level for this tag
+			qualityLevel = wgFlaggedRevsParams.tags[tag]['quality'];
+		
+			if( selectedlevel < qualityLevel ) {
+				quality = false; // not a quality review
+			}
+			if( selectedlevel <= 0 ) {
+				somezero = true;
+			}
 		}
-		if( selectedlevel <= 0 ) {
-			somezero = true;
-		}
-	}
-
-	// (a) If only a few levels are zero ("incomplete") then disable submission.
-	// (b) Re-enable submission for already accepted revs when ratings change.
-	var asubmit = document.getElementById('mw-fr-submit-accept');
-	if( asubmit ) {
-		asubmit.disabled = somezero ? 'disabled' : '';
-		asubmit.value = wgAjaxReview.flagMsg; // reset to "Accept"
-	}
-
-	// Update colors of <select>
-	FlaggedRevs.updateRatingFormColors();
-};
-
-/*
-* Disable 'accept' button if the revision was already reviewed
-* NOTE: this is used so that they can be re-enabled if a rating changes
-*/
-FlaggedRevs.maybeDisableAcceptButton = function() {
-	if ( typeof(jsReviewNeedsChange) != 'undefined' && jsReviewNeedsChange == 1 ) {
+	
+		// (a) If only a few levels are zero ("incomplete") then disable submission.
+		// (b) Re-enable submission for already accepted revs when ratings change.
 		var asubmit = document.getElementById('mw-fr-submit-accept');
 		if( asubmit ) {
-			asubmit.disabled = 'disabled';
+			asubmit.disabled = somezero ? 'disabled' : '';
+			asubmit.value = mediaWiki.msg('revreview-submit-review'); // reset to "Accept"
 		}
-	}
-};
-
-FlaggedRevs.updateRatingFormColors = function() {
-	for( tag in wgFlaggedRevsParams.tags ) {
-		var controlName = "wp" + tag;
-		var levels = document.getElementsByName(controlName);
-		if( levels.length && levels[0].nodeName == 'SELECT' ) {
-			selectedlevel = levels[0].selectedIndex;
-			// Update color. Opera does this already, and doing so
-			// seems to kill custom pretty opera skin form styling.
-			if( navigator.appName != 'Opera' ) {
-				value = levels[0].getElementsByTagName('option')[selectedlevel].value;
-				levels[0].className = 'fr-rating-option-' + value;
+	
+		// Update colors of <select>
+		this.updateRatingFormColors();
+	},
+	
+	/*
+	* Update <select> color for the selected item
+	*/
+	'updateRatingFormColors': function() {
+		for( tag in wgFlaggedRevsParams.tags ) {
+			var controlName = "wp" + tag;
+			var levels = document.getElementsByName(controlName);
+			if( levels.length && levels[0].nodeName == 'SELECT' ) {
+				selectedlevel = levels[0].selectedIndex;
+				// Update color. Opera does this already, and doing so
+				// seems to kill custom pretty opera skin form styling.
+				if( navigator.appName != 'Opera' ) {
+					value = levels[0].getElementsByTagName('option')[selectedlevel].value;
+					levels[0].className = 'fr-rating-option-' + value;
+				}
 			}
 		}
-	}
+	},
+	
+	/*
+	* Disable 'accept' button if the revision was already reviewed
+	* NOTE: this is used so that they can be re-enabled if a rating changes
+	*/
+	'maybeDisableAcceptButton': function() {
+		if ( typeof(jsReviewNeedsChange) != 'undefined' && jsReviewNeedsChange == 1 ) {
+			var asubmit = document.getElementById('mw-fr-submit-accept');
+			if( asubmit ) {
+				asubmit.disabled = 'disabled';
+			}
+		}
+	},
 };
 
 // @TODO: use jQuery AJAX
@@ -136,8 +141,9 @@ wgAjaxReview.ajaxCall = function() {
 			continue; // No need to send these...
 		} else if( inputs[i].type == "submit" ) {
 			if( inputs[i].id == this.id ) {
-				inputs[i].value = wgAjaxReview.sendingMsg; // show that we are submitting
 				args.push( inputs[i].name + "|1" );
+				// Show that we are submitting via this button
+				inputs[i].value = mediaWiki.msg('revreview-submitting');
 			}
 		} else if( inputs[i].type == "checkbox" ) {
 			args.push( inputs[i].name + "|" + (inputs[i].checked ? inputs[i].value : 0) );
@@ -227,22 +233,22 @@ wgAjaxReview.processResult = function(request) {
 	// On success...
 	if( response.indexOf('<suc#>') == 0 ) {
 		// (a) Update document title and form buttons...
-		document.title = wgAjaxReview.actioncomplete;
+		document.title = mediaWiki.msg('actioncomplete');
 		if( asubmit && usubmit ) {
 			// Revision was flagged
-			if( asubmit.value == wgAjaxReview.sendingMsg ) {
-				asubmit.value = wgAjaxReview.flaggedMsg; // done!
+			if( asubmit.value == mediaWiki.msg('revreview-submitting') ) {
+				asubmit.value = mediaWiki.msg('revreview-submit-reviewed'); // done!
 				asubmit.style.fontWeight = 'bold';
 				// Unlock and reset *unflag* button
-				usubmit.value = wgAjaxReview.unflagMsg;
+				usubmit.value = mediaWiki.msg('revreview-submit-unreview');
 				usubmit.removeAttribute( 'style' ); // back to normal
 				usubmit.disabled = '';
 			// Revision was unflagged
-			} else if( usubmit.value == wgAjaxReview.sendingMsg ) {
-				usubmit.value = wgAjaxReview.unflaggedMsg; // done!
+			} else if( usubmit.value == mediaWiki.msg('revreview-submitting') ) {
+				usubmit.value = mediaWiki.msg('revreview-submit-unreviewed'); // done!
 				usubmit.style.fontWeight = 'bold';
 				// Unlock and reset *flag* button
-				asubmit.value = wgAjaxReview.flagMsg;
+				asubmit.value = mediaWiki.msg('revreview-submit-review');
 				asubmit.removeAttribute( 'style' ); // back to normal
 				asubmit.disabled = '';
 			}
@@ -269,15 +275,15 @@ wgAjaxReview.processResult = function(request) {
 	// On failure...
 	} else {
 		// (a) Update document title and form buttons...
-		document.title = wgAjaxReview.actionfailed;
+		document.title = mediaWiki.msg('actionfailed');
 		if( asubmit && usubmit ) {
 			// Revision was flagged
-			if( asubmit.value == wgAjaxReview.sendingMsg ) {
-				asubmit.value = wgAjaxReview.flagMsg; // back to normal
+			if( asubmit.value == mediaWiki.msg('revreview-submitting') ) {
+				asubmit.value = mediaWiki.msg('revreview-submit-review'); // back to normal
 				asubmit.disabled = ''; // unlock flag button
 			// Revision was unflagged
-			} else if( usubmit.value == wgAjaxReview.sendingMsg ) {
-				usubmit.value = wgAjaxReview.unflagMsg; // back to normal
+			} else if( usubmit.value == mediaWiki.msg('revreview-submitting') ) {
+				usubmit.value = mediaWiki.msg('revreview-submit-unreview'); // back to normal
 				usubmit.disabled = ''; // unlock
 			}
 		}
@@ -321,6 +327,6 @@ wgAjaxReview.onLoad = function() {
 };
 
 // Perform some onload (which is when this script is included) events:
-FlaggedRevs.maybeDisableAcceptButton();
-FlaggedRevs.updateRatingFormColors();
+FlaggedRevsReview.maybeDisableAcceptButton();
+FlaggedRevsReview.updateRatingFormColors();
 wgAjaxReview.onLoad();

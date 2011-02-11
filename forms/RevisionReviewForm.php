@@ -727,7 +727,7 @@ class RevisionReviewForm
 			$form .= "<p>" . wfMsgHtml( 'revreview-notes' ) . "</p>\n";
 			$params = array( 'name' => 'wpNotes', 'id' => 'wpNotes',
 				'class' => 'fr-notes-box', 'rows' => '2', 'cols' => '80',
-				'onchange' => "FlaggedRevs.updateRatingForm()" ) + $disabled;
+				'onchange' => "FlaggedRevsReview.updateRatingForm()" ) + $disabled;
 			$form .= Xml::openElement( 'textarea', $params ) .
 				htmlspecialchars( $reviewNotes ) .
 				Xml::closeElement( 'textarea' ) . "\n";
@@ -860,7 +860,7 @@ class RevisionReviewForm
 				# 6 is an arbitrary value choosen according to screen space and usability.
 				if ( $size > 6 ) {
 					$attribs = array( 'name' => "wp$quality", 'id' => "wp$quality",
-						'onchange' => "FlaggedRevs.updateRatingForm()" );
+						'onchange' => "FlaggedRevsReview.updateRatingForm()" );
 					$item .= Xml::openElement( 'select', $attribs );
 					foreach ( $levels as $i => $name ) {
 						$optionClass = array( 'class' => "fr-rating-option-$i" );
@@ -872,7 +872,7 @@ class RevisionReviewForm
 				} elseif ( $numLevels > 2 ) {
 					foreach ( $levels as $i => $name ) {
 						$attribs = array( 'class' => "fr-rating-option-$i",
-							'onchange' => "FlaggedRevs.updateRatingForm()" );
+							'onchange' => "FlaggedRevsReview.updateRatingForm()" );
 						$item .= Xml::radioLabel( FlaggedRevs::getTagMsg( $name ), "wp$quality",
 							$i,	"wp$quality" . $i, ( $i == $selected ), $attribs ) . "\n";
 					}
@@ -880,7 +880,7 @@ class RevisionReviewForm
 				} else if ( $numLevels == 2 ) {
 					$i = $minLevel;
 					$attribs = array( 'class' => "fr-rating-option-$i",
-						'onchange' => "FlaggedRevs.updateRatingForm()" );
+						'onchange' => "FlaggedRevsReview.updateRatingForm()" );
 					$attribs = $attribs + array( 'value' => $i );
 					$item .= Xml::checkLabel( wfMsg( 'revreview-' . $levels[$i] ),
 						"wp$quality", "wp$quality", ( $selected == $i ), $attribs ) . "\n";

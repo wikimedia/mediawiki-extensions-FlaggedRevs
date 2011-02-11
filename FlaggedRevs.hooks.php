@@ -65,7 +65,6 @@ class FlaggedRevsHooks {
 	}
 
 	public static function injectGlobalJSVars( array &$globalVars ) {
-		global $wgUser;
 		# Get the review tags on this wiki
 		$rTags = FlaggedRevs::getJSTagParams();
 		$globalVars['wgFlaggedRevsParams'] = $rTags;
@@ -84,19 +83,6 @@ class FlaggedRevsHooks {
 			'waiting'	=> wfMsgHtml( 'revcontents-waiting' )
 		);
 		$globalVars['wgRevContents'] = $revisionContents;
-		if ( $wgUser->isAllowed( 'review' ) ) {
-			$ajaxReview = (object) array(
-				'sendMsg'		 => wfMsgHtml( 'revreview-submit' ),
-				'flagMsg'		 => wfMsgHtml( 'revreview-submit-review' ),
-				'unflagMsg'		 => wfMsgHtml( 'revreview-submit-unreview' ),
-				'sendingMsg'     => wfMsgHtml( 'revreview-submitting' ),
-				'flaggedMsg'	 => wfMsgHtml( 'revreview-submit-reviewed' ),
-				'unflaggedMsg'	 => wfMsgHtml( 'revreview-submit-unreviewed' ),
-				'actioncomplete' => wfMsgHtml( 'actioncomplete' ),
-				'actionfailed'	 => wfMsgHtml( 'actionfailed' ),
-			);
-			$globalVars['wgAjaxReview'] = $ajaxReview; // language for AJAX form
-		}
 		return true;
 	}
 

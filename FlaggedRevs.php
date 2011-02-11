@@ -372,9 +372,12 @@ $wgResourceModules['ext.flaggedRevs.review'] = array(
 	'scripts' 		=> array( 'review.js' ),
 	'messages'      => array(
 		'savearticle', 'tooltip-save', 'accesskey-save',
-		'revreview-submitedit', 'revreview-submitedit-title'
+		'revreview-submitedit', 'revreview-submitedit-title',
+		'revreview-submit-review', 'revreview-submit-unreview',
+		'revreview-submit-reviewed', 'revreview-submit-unreviewed',
+		'revreview-submitting', 'actioncomplete', 'actionfailed'
 	),
-	'dependencies' 	=> array( 'ext.flaggedRevs.basic', 'mediawiki.legacy.ajax' ),
+	'dependencies' 	=> array( 'mediawiki.legacy.ajax' ),
 	'localBasePath' => $dir,
 	'remoteExtPath' => 'FlaggedRevs'
 );
