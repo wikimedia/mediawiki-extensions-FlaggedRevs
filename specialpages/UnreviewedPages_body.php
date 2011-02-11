@@ -147,7 +147,7 @@ class UnreviewedPages extends SpecialPage
 	}
 	
 	/**
-	 * Get number of users watching a page. Max is 5.
+	 * Get number of users watching a page.
 	 * @param Title $title
 	 * @return int
 	 */
@@ -267,15 +267,15 @@ class UnreviewedPagesPager extends AlphabeticPager {
 			$conds['page_is_redirect'] = 0;
 		}
 		# Filter by category
-		if ( $this->category ) {
+		if ( $this->category != '' ) {
 			$tables = array( 'categorylinks', 'page', 'flaggedpages', 'revision' );
 			$fields[] = 'cl_sortkey';
 			$conds['cl_to'] = $this->category;
 			$conds[] = 'cl_from = page_id';
 			# Note: single NS always specified
-			if( $this->namespace == NS_FILE ) {
+			if ( $this->namespace == NS_FILE ) {
 				$conds['cl_type'] = 'file';
-			} elseif( $this->namespace == NS_CATEGORY ) {
+			} elseif ( $this->namespace == NS_CATEGORY ) {
 				$conds['cl_type'] = 'subcat';
 			} else {
 				$conds['cl_type'] = 'page';
@@ -311,7 +311,7 @@ class UnreviewedPagesPager extends AlphabeticPager {
 		# the proper cache for this level.
 		if ( $this->level == 1 ) {
 			$conds['qc_type'] = 'fr_unreviewedpages_q';
-			$conds[] = "fp_page_id IS NULL OR fp_quality < {$this->level}";
+			$conds[] = "fp_page_id IS NULL OR fp_quality < 1";
 		} else {
 			$conds['qc_type'] = 'fr_unreviewedpages';
 			$conds[] = 'fp_page_id IS NULL';
@@ -324,10 +324,18 @@ class UnreviewedPagesPager extends AlphabeticPager {
 		}
 		$this->mIndexField = 'qc_value'; // page_id
 		# Filter by category
-		if ( $this->category ) {
+		if ( $this->category != '' ) {
 			$tables = array( 'page', 'categorylinks', 'querycache', 'flaggedpages', 'revision' );
 			$conds['cl_to'] = $this->category;
 			$conds[] = 'cl_from = qc_value'; // page_id
+			# Note: single NS always specified
+			if ( $this->namespace == NS_FILE ) {
+				$conds['cl_type'] = 'file';
+			} elseif ( $this->namespace == NS_CATEGORY ) {
+				$conds['cl_type'] = 'subcat';
+			} else {
+				$conds['cl_type'] = 'page';
+			}
 		} else {
 			$tables = array( 'page', 'querycache', 'flaggedpages', 'revision' );
 		}

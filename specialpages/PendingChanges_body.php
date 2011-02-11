@@ -341,8 +341,7 @@ class PendingChangesPager extends AlphabeticPager {
 			$fields[] = 'fp_quality AS quality';
 			$fields[] = 'fp_pending_since AS pending_since';
 			$conds[] = 'page_id = fp_page_id';
-			# Overconstrain rev_page to force PK use
-			$conds[] = 'rev_page = page_id AND rev_id = fp_stable';
+			$conds[] = 'rev_id = fp_stable'; // PK
 			$conds[] = 'fp_pending_since IS NOT NULL';
 			$useIndex = array( 'flaggedpages' => 'fp_pending_since', 'page' => 'PRIMARY' );
 			# Filter by pages configured to be stable
@@ -352,7 +351,7 @@ class PendingChangesPager extends AlphabeticPager {
 				$conds['fpc_override'] = 1;
 			}
 			# Filter by category
-			if ( $this->category ) {
+			if ( $this->category != '' ) {
 				$tables[] = 'categorylinks';
 				$conds[] = 'cl_from = fp_page_id';
 				$conds['cl_to'] = $this->category;
@@ -366,11 +365,10 @@ class PendingChangesPager extends AlphabeticPager {
 			$fields[] = 'fpp_quality AS quality';
 			$fields[] = 'fpp_pending_since AS pending_since';
 			$conds[] = 'page_id = fpp_page_id';
-			# Overconstrain rev_page to force PK use
-			$conds[] = 'rev_page = page_id AND rev_id = fpp_rev_id';
+			$conds[] = 'rev_id = fpp_rev_id'; // PK
 			$conds[] = 'fpp_pending_since IS NOT NULL';
-			$useIndex = array( 'flaggedpage_pending' => 'fpp_quality_pending',
-				'page' => 'PRIMARY' );
+			$useIndex = array(
+				'flaggedpage_pending' => 'fpp_quality_pending', 'page' => 'PRIMARY' );
 			# Filter by review level
 			$conds['fpp_quality'] = $this->level;
 			# Filter by pages configured to be stable
@@ -402,8 +400,7 @@ class PendingChangesPager extends AlphabeticPager {
 		}
 		# Filter by bytes changed
 		if ( $this->size !== null && $this->size >= 0 ) {
-			# Get absolute difference for comparison. ABS(x-y)
-			# is broken due to mysql unsigned int design.
+			# Note: ABS(x-y) is broken due to mysql unsigned int design.
 			$conds[] = 'GREATEST(page_len,rev_len)-LEAST(page_len,rev_len) <= ' .
 				intval( $this->size );
 		}
