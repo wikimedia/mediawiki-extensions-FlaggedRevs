@@ -85,19 +85,24 @@ div.flaggedrevs_notes {
 }
 
 .fr-marker-20 {
-	background-image: url(img/bar_20.png);
+	/* @embed */
+	background-image: url('img/bar_20.png');
 }
 .fr-marker-40 {
-	background-image: url(img/bar_40.png);
+	/* @embed */
+	background-image: url('img/bar_40.png');
 }
 .fr-marker-60 {
-	background-image: url(img/bar_60.png);
+	/* @embed */
+	background-image: url('img/bar_60.png');
 }
 .fr-marker-80 {
-	background-image: url(img/bar_80.png);
+	/* @embed */
+	background-image: url('img/bar_80.png');
 }
 .fr-marker-100 {
-	background-image: url(img/bar_100.png);
+	/* @embed */
+	background-image: url('img/bar_100.png');
 }
 
 /* Short User Interface */
@@ -160,19 +165,24 @@ div.flaggedrevs_short_details {
 }
 
 .fr-value20 {
-	background-image: url(img/fr-marker-20.png);
+	/* @embed */
+	background-image: url('img/fr-marker-20.png');
 }
 .fr-value40 {
-	background-image: url(img/fr-marker-40.png);
+	/* @embed */
+	background-image: url('img/fr-marker-40.png');
 }
 .fr-value60 {
-	background-image: url(img/fr-marker-60.png);
+	/* @embed */
+	background-image: url('img/fr-marker-60.png');
 }
 .fr-value80 {
-	background-image: url(img/fr-marker-80.png);
+	/* @embed */
+	background-image: url('img/fr-marker-80.png');
 }
 .fr-value100 {
-	background-image: url(img/fr-marker-100.png);
+	/* @embed */
+	background-image: url('img/fr-marker-100.png');
 }
 
 /* Both User Interfaces */
