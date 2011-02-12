@@ -60,7 +60,7 @@ window.FlaggedRevsReview = {
 		}
 	
 		// Update colors of <select>
-		this.updateRatingFormColors();
+		FlaggedRevsReview.updateRatingFormColors( ratingform );
 	},
 	
 	/*
@@ -87,246 +87,237 @@ window.FlaggedRevsReview = {
 	* NOTE: this is used so that they can be re-enabled if a rating changes
 	*/
 	'maybeDisableAcceptButton': function() {
-		if ( typeof(jsReviewNeedsChange) != 'undefined' && jsReviewNeedsChange == 1 ) {
+		if( typeof(jsReviewNeedsChange) != 'undefined' && jsReviewNeedsChange == 1 ) {
 			var asubmit = document.getElementById('mw-fr-submit-accept');
 			if( asubmit ) {
 				asubmit.disabled = 'disabled';
 			}
 		}
 	},
-};
-
-// @TODO: use jQuery AJAX
-// dependencies:
-// * ajax.js:
-  /*extern sajax_init_object, sajax_do_call */
-// * wikibits.js:
-  /*extern jsMsg */
-// These should have been initialized in the generated js
-if( typeof wgAjaxReview === "undefined" || !wgAjaxReview ) {
-	wgAjaxReview = {};
-}
-
-wgAjaxReview.supported = true; // supported on current page and by browser
-wgAjaxReview.inprogress = false; // ajax request in progress
-wgAjaxReview.timeoutID = null; // see wgAjaxReview.ajaxCall
-
-// Args build-up from radios/checkboxes based on patch by Daniel Arnold (bug 13744)
-wgAjaxReview.ajaxCall = function() {
-	if( !wgAjaxReview.supported ) {
-		return true;
-	} else if( wgAjaxReview.inprogress ) {
-		return false;
-	}
-	if( !wfSupportsAjax() ) {
-		// Lazy initialization so we don't toss up
-		// ActiveX warnings on initial page load
-		// for IE 6 users with security settings.
-		wgAjaxReview.supported = false;
-		return true;
-	}
-	var form = document.getElementById("mw-fr-reviewform");
-	var notes = document.getElementById("wpNotes");
-	var reason = document.getElementById("wpReason");
-	if( !form ) {
-		return false;
-	}
-	wgAjaxReview.inprogress = true;
-	// Build up arguments
-	var args = [];
-	var inputs = form.getElementsByTagName("input");
-	for( var i=0; i < inputs.length; i++) {
-		// Different input types may occur depending on tags...
-		if( inputs[i].name == "title" || inputs[i].name == "action" ) {
-			continue; // No need to send these...
-		} else if( inputs[i].type == "submit" ) {
-			if( inputs[i].id == this.id ) {
-				args.push( inputs[i].name + "|1" );
-				// Show that we are submitting via this button
-				inputs[i].value = mediaWiki.msg('revreview-submitting');
+	
+	/*
+	* Enable AJAX-based submit functionality to the review form on this page
+	*/
+	'enableAjaxReview': function() {
+		var asubmit = document.getElementById("mw-fr-submit-accept");
+		if( asubmit ) {
+			asubmit.onclick = FlaggedRevsReview.submitRevisionReview;
+		}
+		var usubmit = document.getElementById("mw-fr-submit-unaccept");
+		if( usubmit ) {
+			usubmit.onclick = FlaggedRevsReview.submitRevisionReview;
+		}
+	},
+	
+	/*
+	* Lock review form from submissions (using during AJAX requests)
+	*/
+	'lockReviewForm': function( form ) {
+		var inputs = form.getElementsByTagName("input");
+		for( var i=0; i < inputs.length; i++) {
+			inputs[i].disabled = "disabled";
+		}
+		var textareas = document.getElementsByTagName("textarea");
+		for( var i=0; i < textareas.length; i++) {
+			textareas[i].disabled = "disabled";
+		}
+		var selects = form.getElementsByTagName("select");
+		for( var i=0; i < selects.length; i++) {
+			selects[i].disabled = "disabled";
+		}
+	},
+	
+	/*
+	* Unlock review form from submissions (using after AJAX requests)
+	*/	
+	'unlockReviewForm': function( form ) {
+		var inputs = form.getElementsByTagName("input");
+		for( var i=0; i < inputs.length; i++) {
+			if( inputs[i].type != 'submit' ) { // not all buttons can be enabled
+				inputs[i].disabled = "";
+			} else {
+				inputs[i].blur(); // focus off element (bug 24013)
 			}
-		} else if( inputs[i].type == "checkbox" ) {
-			args.push( inputs[i].name + "|" + (inputs[i].checked ? inputs[i].value : 0) );
-		} else if( inputs[i].type == "radio" ) {
-			if( inputs[i].checked ) { // must be checked
-				args.push( inputs[i].name + "|" + inputs[i].value );
+		}
+		var textareas = document.getElementsByTagName("textarea");
+		for( var i=0; i < textareas.length; i++) {
+			textareas[i].disabled = "";
+		}
+		var selects = form.getElementsByTagName("select");
+		for( var i=0; i < selects.length; i++) {
+			selects[i].disabled = "";
+		}
+	},
+	
+	/*
+	* Submit a revision review via AJAX and update form elements.
+	*
+	* Note: requestArgs build-up from radios/checkboxes
+	* based on patch by Daniel Arnold (bug 13744)
+	*/
+	'submitRevisionReview': function() {
+		var form = document.getElementById("mw-fr-reviewform");
+		if( !form ) {
+			return true; // do normal behavoir (shouldn't happen)
+		}
+		FlaggedRevsReview.lockReviewForm( form ); // disallow submissions
+		
+		var notes = document.getElementById("wpNotes");
+		var reason = document.getElementById("wpReason");
+		// Build up arguments array and update submit button text...
+		var requestArgs = []; // array of strings of the format <"pname|pval">.
+		var inputs = form.getElementsByTagName("input");
+		for( var i=0; i < inputs.length; i++) {
+			// Different input types may occur depending on tags...
+			if( inputs[i].name == "title" || inputs[i].name == "action" ) {
+				continue; // No need to send these...
+			} else if( inputs[i].type == "submit" ) {
+				if( inputs[i].id == this.id ) {
+					requestArgs.push( inputs[i].name + "|1" );
+					// Show that we are submitting via this button
+					inputs[i].value = mediaWiki.msg('revreview-submitting');
+				}
+			} else if( inputs[i].type == "checkbox" ) {
+				requestArgs.push( inputs[i].name + "|" +
+					(inputs[i].checked ? inputs[i].value : 0) );
+			} else if( inputs[i].type == "radio" ) {
+				if( inputs[i].checked ) { // must be checked
+					requestArgs.push( inputs[i].name + "|" + inputs[i].value );
+				}
+			} else {
+				requestArgs.push( inputs[i].name + "|" + inputs[i].value ); // text/hiddens...
 			}
+		}
+		if( notes ) {
+			requestArgs.push( notes.name + "|" + notes.value );
+		}
+		var selects = form.getElementsByTagName("select");
+		for( var i=0; i < selects.length; i++) {
+			// Get the selected tag level...
+			if( selects[i].selectedIndex >= 0 ) {
+				var soption = selects[i].getElementsByTagName("option")[selects[i].selectedIndex];
+				requestArgs.push( selects[i].name + "|" + soption.value );
+			}
+		}
+		// Send encoded function plus all arguments...
+		post_data = 'action=ajax&rs=RevisionReview::AjaxReview';
+		for( var i=0; i<requestArgs.length; i++ ) {
+			post_data += '&rsargs[]=' + encodeURIComponent( requestArgs[i] );
+		}
+		// Send POST request via AJAX!
+		var call = jQuery.ajax({
+			url		: wgScriptPath + '/index.php',
+			type	: "POST",
+			data	: post_data,
+			dataType: "html", // response type
+			success	: function( response ) {
+				FlaggedRevsReview.updateReviewForm( form, response ); },
+			timeout : 5000, // 5 second timeout
+			error	: function( response ) {
+				FlaggedRevsReview.unlockReviewForm( form ); }
+		});
+		return false; // don't do normal non-AJAX submit
+	},
+	
+	'updateReviewForm': function( form, response ) {
+		var msg = response.substr(6); // remove <err#> or <suc#>
+		// Read new "last change time" timestamp for conflict handling
+		var m = msg.match(/^<lct#(\d*)>(.+)/m);
+		if( m ) msg = m[2]; // remove tag from msg
+		var changeTime = m ? m[1] : null; // MW TS
+		// Some form elements...
+		var asubmit = document.getElementById('mw-fr-submit-accept');
+		var usubmit = document.getElementById('mw-fr-submit-unaccept');
+		var legend = document.getElementById('mw-fr-reviewformlegend');
+		var diffNotice = document.getElementById('mw-fr-difftostable');
+		var tagBox = document.getElementById('mw-fr-revisiontag');
+		// On success...
+		if( response.indexOf('<suc#>') == 0 ) {
+			// (a) Update document title and form buttons...
+			document.title = mediaWiki.msg('actioncomplete');
+			if( asubmit && usubmit ) {
+				// Revision was flagged
+				if( asubmit.value == mediaWiki.msg('revreview-submitting') ) {
+					asubmit.value = mediaWiki.msg('revreview-submit-reviewed'); // done!
+					asubmit.style.fontWeight = 'bold';
+					// Unlock and reset *unflag* button
+					usubmit.value = mediaWiki.msg('revreview-submit-unreview');
+					usubmit.removeAttribute( 'style' ); // back to normal
+					usubmit.disabled = '';
+				// Revision was unflagged
+				} else if( usubmit.value == mediaWiki.msg('revreview-submitting') ) {
+					usubmit.value = mediaWiki.msg('revreview-submit-unreviewed'); // done!
+					usubmit.style.fontWeight = 'bold';
+					// Unlock and reset *flag* button
+					asubmit.value = mediaWiki.msg('revreview-submit-review');
+					asubmit.removeAttribute( 'style' ); // back to normal
+					asubmit.disabled = '';
+				}
+			}
+			// (b) Remove review tag from drafts
+			if( tagBox ) tagBox.style.display = 'none';
+			// (c) Update diff-related items...
+			var diffUIParams = document.getElementById('mw-fr-diff-dataform');
+			if( diffUIParams ) {
+				// Hide "review this" box on diffs
+				if( diffNotice ) diffNotice.style.display = 'none';
+				// Update the contents of the mw-fr-diff-headeritems div
+				var requestArgs = []; // <oldid, newid>
+				requestArgs.push( diffUIParams.getElementsByTagName('input')[0].value );
+				requestArgs.push( diffUIParams.getElementsByTagName('input')[1].value );
+				// Send encoded function plus all arguments...
+				url_pars = '?action=ajax&rs=FlaggedArticleView::AjaxBuildDiffHeaderItems';
+				for( var i=0; i<requestArgs.length; i++ ) {
+					url_pars += '&rsargs[]=' + encodeURIComponent(requestArgs[i]);
+				}
+				// Send GET request via AJAX!
+				var call = jQuery.ajax({
+					url		: wgScriptPath + '/index.php' + url_pars,
+					type	: "GET",
+					dataType: "html", // response type
+					success	: FlaggedRevsReview.processDiffHeaderItemsResult
+				});
+			}
+		// On failure...
 		} else {
-			args.push( inputs[i].name + "|" + inputs[i].value ); // text/hiddens...
-		}
-		inputs[i].disabled = "disabled";
-	}
-	if( notes ) {
-		args.push( notes.name + "|" + notes.value );
-		notes.disabled = "disabled";
-	}
-	var selects = form.getElementsByTagName("select");
-	for( var i=0; i < selects.length; i++) {
-		// Get the selected tag level...
-		if( selects[i].selectedIndex >= 0 ) {
-			var soption = selects[i].getElementsByTagName("option")[selects[i].selectedIndex];
-			args.push( selects[i].name + "|" + soption.value );
-		}
-		selects[i].disabled = "disabled";
-	}
-	// Send!
-	var old = sajax_request_type;
-	sajax_request_type = "POST";
-	sajax_do_call( "RevisionReview::AjaxReview", args, wgAjaxReview.processResult );
-	sajax_request_type = old;
-	// If the request isn't done in 30 seconds, allow user to try again
-	wgAjaxReview.timeoutID = window.setTimeout(
-		function() { wgAjaxReview.inprogress = false; wgAjaxReview.unlockForm(); },
-		30000
-	);
-	return false;
-};
-
-wgAjaxReview.unlockForm = function() {
-	var form = document.getElementById("mw-fr-reviewform");
-	var notes = document.getElementById("wpNotes");
-	var reason = document.getElementById("wpReason");
-	if( !form ) {
-		return false;
-	}
-	var inputs = form.getElementsByTagName("input");
-	for( var i=0; i < inputs.length; i++) {
-		if( inputs[i].type != 'submit' ) {
-			inputs[i].disabled = "";
-		} else {
-			inputs[i].blur(); // focus off element (bug 24013)
-		}
-	}
-	if( notes ) {
-		notes.disabled = "";
-	}
-	if( reason ) {
-		reason.disabled = "";
-	}
-	var selects = form.getElementsByTagName("select");
-	for( var i=0; i < selects.length; i++) {
-		selects[i].disabled = "";
-	}
-	return true;
-};
-
-wgAjaxReview.processResult = function(request) {
-	if( !wgAjaxReview.supported ) {
-		return;
-	}
-	wgAjaxReview.inprogress = false;
-	if( wgAjaxReview.timeoutID ) {
-		window.clearTimeout(wgAjaxReview.timeoutID);
-	}
-	var response = request.responseText; // full response text
-	var msg = response.substr(6); // remove <err#> or <suc#>
-	// Read new "last change time" timestamp for conflict handling
-	var m = msg.match(/^<lct#(\d*)>(.+)/m);
-	if( m ) msg = m[2]; // remove tag from msg
-	var changeTime = m ? m[1] : null; // MW TS
-	// Some form elements...
-	var asubmit = document.getElementById('mw-fr-submit-accept');
-	var usubmit = document.getElementById('mw-fr-submit-unaccept');
-	var legend = document.getElementById('mw-fr-reviewformlegend');
-	var diffNotice = document.getElementById('mw-fr-difftostable');
-	var tagBox = document.getElementById('mw-fr-revisiontag');
-	// On success...
-	if( response.indexOf('<suc#>') == 0 ) {
-		// (a) Update document title and form buttons...
-		document.title = mediaWiki.msg('actioncomplete');
-		if( asubmit && usubmit ) {
-			// Revision was flagged
-			if( asubmit.value == mediaWiki.msg('revreview-submitting') ) {
-				asubmit.value = mediaWiki.msg('revreview-submit-reviewed'); // done!
-				asubmit.style.fontWeight = 'bold';
-				// Unlock and reset *unflag* button
-				usubmit.value = mediaWiki.msg('revreview-submit-unreview');
-				usubmit.removeAttribute( 'style' ); // back to normal
-				usubmit.disabled = '';
-			// Revision was unflagged
-			} else if( usubmit.value == mediaWiki.msg('revreview-submitting') ) {
-				usubmit.value = mediaWiki.msg('revreview-submit-unreviewed'); // done!
-				usubmit.style.fontWeight = 'bold';
-				// Unlock and reset *flag* button
-				asubmit.value = mediaWiki.msg('revreview-submit-review');
-				asubmit.removeAttribute( 'style' ); // back to normal
-				asubmit.disabled = '';
+			// (a) Update document title and form buttons...
+			document.title = mediaWiki.msg('actionfailed');
+			if( asubmit && usubmit ) {
+				// Revision was flagged
+				if( asubmit.value == mediaWiki.msg('revreview-submitting') ) {
+					asubmit.value = mediaWiki.msg('revreview-submit-review'); // back to normal
+					asubmit.disabled = ''; // unlock flag button
+				// Revision was unflagged
+				} else if( usubmit.value == mediaWiki.msg('revreview-submitting') ) {
+					usubmit.value = mediaWiki.msg('revreview-submit-unreview'); // back to normal
+					usubmit.disabled = ''; // unlock
+				}
 			}
-		}
-		// (b) Remove review tag from drafts
-		if( tagBox ) tagBox.style.display = 'none';
-		// (c) Update diff-related items...
-		var diffUIParams = document.getElementById('mw-fr-diff-dataform');
-		if ( diffUIParams ) {
-			// Hide "review this" box on diffs
-			if( diffNotice ) diffNotice.style.display = 'none';
-			// Update the contents of the mw-fr-diff-headeritems div
-			wgAjaxReview.inprogress = true;
-			var args = []; // <oldid, newid>
-			args.push( diffUIParams.getElementsByTagName('input')[0].value );
-			args.push( diffUIParams.getElementsByTagName('input')[1].value );
-			// Send!
-			var old = sajax_request_type;
-			sajax_request_type = "GET";
-			sajax_do_call( "FlaggedArticleView::AjaxBuildDiffHeaderItems",
-				args, wgAjaxReview.processDiffHeaderItemsResult );
-			sajax_request_type = old;
-		}
-	// On failure...
-	} else {
-		// (a) Update document title and form buttons...
-		document.title = mediaWiki.msg('actionfailed');
-		if( asubmit && usubmit ) {
-			// Revision was flagged
-			if( asubmit.value == mediaWiki.msg('revreview-submitting') ) {
-				asubmit.value = mediaWiki.msg('revreview-submit-review'); // back to normal
-				asubmit.disabled = ''; // unlock flag button
-			// Revision was unflagged
-			} else if( usubmit.value == mediaWiki.msg('revreview-submitting') ) {
-				usubmit.value = mediaWiki.msg('revreview-submit-unreview'); // back to normal
-				usubmit.disabled = ''; // unlock
+			// (b) Output any error response message
+			if( response.indexOf('<err#>') == 0 ) {
+				jsMsg( msg, 'review' ); // failure notice
+			} else {
+				jsMsg( request.responseText, 'review' ); // fatal notice
 			}
+			window.scroll(0,0); // scroll up to notice
 		}
-		// (b) Output any error response message
-		if ( response.indexOf('<err#>') == 0 ) {
-			jsMsg( msg, 'review' ); // failure notice
-		} else {
-			jsMsg( request.responseText, 'review' ); // fatal notice
+		// Update changetime for conflict handling
+		if( changeTime != null ) {
+			document.getElementById('mw-fr-input-changetime').value = changeTime;
 		}
-		window.scroll(0,0); // scroll up to notice
-	}
-	// Update changetime for conflict handling
-	if ( changeTime != null ) {
-		document.getElementById('mw-fr-input-changetime').value = changeTime;
-	}
-	wgAjaxReview.unlockForm();
-};
-
-// update the contents of the mw-fr-diff-headeritems div
-wgAjaxReview.processDiffHeaderItemsResult = function(request) {
-	if( !wgAjaxReview.supported ) {
-		return;
-	}
-	wgAjaxReview.inprogress = false;
-	var response = request.responseText;
-	var diffHeaderItems = document.getElementById("mw-fr-diff-headeritems");
-	if( diffHeaderItems && response != '' ) {
-		diffHeaderItems.innerHTML = response;
-	}
-};
-
-wgAjaxReview.onLoad = function() {
-	var asubmit = document.getElementById("mw-fr-submit-accept");
-	if( asubmit ) {
-		asubmit.onclick = wgAjaxReview.ajaxCall;
-	}
-	var usubmit = document.getElementById("mw-fr-submit-unaccept");
-	if( usubmit ) {
-		usubmit.onclick = wgAjaxReview.ajaxCall;
+		FlaggedRevsReview.unlockReviewForm( form );
+	},
+	
+	// update the contents of the mw-fr-diff-headeritems div
+	'processDiffHeaderItemsResult': function( response ) {
+		var diffHeaderItems = document.getElementById("mw-fr-diff-headeritems");
+		if( diffHeaderItems && response != '' ) {
+			diffHeaderItems.innerHTML = response;
+		}
 	}
 };
 
 // Perform some onload (which is when this script is included) events:
 FlaggedRevsReview.maybeDisableAcceptButton();
 FlaggedRevsReview.updateRatingFormColors();
-wgAjaxReview.onLoad();
+FlaggedRevsReview.enableAjaxReview();

@@ -377,7 +377,7 @@ $wgResourceModules['ext.flaggedRevs.review'] = array(
 		'revreview-submit-reviewed', 'revreview-submit-unreviewed',
 		'revreview-submitting', 'actioncomplete', 'actionfailed'
 	),
-	'dependencies' 	=> array( 'mediawiki.legacy.ajax' ),
+	'dependencies' 	=> array( 'jquery' ),
 	'localBasePath' => $dir,
 	'remoteExtPath' => 'FlaggedRevs'
 );
