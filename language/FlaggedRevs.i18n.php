@@ -377,8 +377,8 @@ The accuracy "quality", as displayed on the page history after a revision with t
 The accuracy "checked", as displayed on the page history after a revision with this setting.',
 	'revreview-hist-quality-user' => '{{Flagged Revs}}',
 	'revreview-hist-basic-user' => '{{Flagged Revs}}',
-	'revreview-hist-basic-auto' => '{{Flagged Revs}}',
 	'revreview-hist-quality-auto' => '{{Flagged Revs}}',
+	'revreview-hist-basic-auto' => '{{Flagged Revs}}',
 	'revreview-hist-pending-difflink' => '{{Flagged Revs}}',
 	'review-edit-diff' => '{{Flagged Revs}}',
 	'revreview-diff-toggle-show' => '{{Flagged Revs}}',
@@ -444,6 +444,7 @@ Users who see the stable version and not the draft version as page, have this me
 	'revreview-editnotice' => '{{Flagged Revs}}
 {{Identical|Authorised user}}',
 	'revreview-check-flag-p' => '{{Flagged Revs}}',
+	'revreview-check-flag-u' => 'This is a label for the  checkbox that appears under the edit box next to "This is a minor edit" and "Watch this page".',
 	'revreview-check-flag-y-title' => '{{Gender}}',
 	'revreview-submitedit-title' => '{{Gender}}',
 	'revreview-edited' => '{{Flagged Revs-small}}
@@ -18792,8 +18793,8 @@ $messages['zh-hans'] = array(
 	'revreview-hist-pending' => '等待审核',
 	'revreview-hist-quality' => '[质素]',
 	'revreview-hist-basic' => '已察版本',
-	'revreview-hist-quality-user' => '批准]的[[User:$3|$3]]',
-	'revreview-hist-basic-user' => '已由[[User:$3|$3]]复查]',
+	'revreview-hist-quality-user' => '通过 [[User:$3|$3]] 批准',
+	'revreview-hist-basic-user' => '被 [[User:$3|$3]] 检查',
 	'revreview-hist-quality-auto' => '已自动复查',
 	'revreview-hist-basic-auto' => '自动检查',
 	'revreview-hist-pending-difflink' => "''[[{{fullurl:$1|oldid=$2&diff=$3}} 等待审核]]'''",
