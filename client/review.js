@@ -295,9 +295,9 @@ window.FlaggedRevsReview = {
 			}
 			// (b) Output any error response message
 			if( response.indexOf('<err#>') == 0 ) {
-				jsMsg( msg, 'review' ); // failure notice
+				mediaWiki.util.jsMessage( msg, 'review' ); // failure notice
 			} else {
-				jsMsg( request.responseText, 'review' ); // fatal notice
+				mediaWiki.util.jsMessage( response, 'review' ); // fatal notice
 			}
 			window.scroll(0,0); // scroll up to notice
 		}

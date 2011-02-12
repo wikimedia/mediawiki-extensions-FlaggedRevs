@@ -364,7 +364,7 @@ $wgResourceModules['ext.flaggedRevs.basic'] = array(
 		'revreview-log-toggle-show', 'revreview-log-toggle-hide',
 		'revreview-log-details-show', 'revreview-log-details-hide'
 	),
-	'dependencies' 	=> array( 'jquery', 'mediawiki.legacy.wikibits' ),
+	'dependencies' 	=> array( 'jquery', 'mediawiki.util' ),
 	'localBasePath' => $dir,
 	'remoteExtPath' => 'FlaggedRevs'
 );
@@ -377,7 +377,7 @@ $wgResourceModules['ext.flaggedRevs.review'] = array(
 		'revreview-submit-reviewed', 'revreview-submit-unreviewed',
 		'revreview-submitting', 'actioncomplete', 'actionfailed'
 	),
-	'dependencies' 	=> array( 'jquery' ),
+	'dependencies' 	=> array( 'jquery', 'mediawiki.util' ),
 	'localBasePath' => $dir,
 	'remoteExtPath' => 'FlaggedRevs'
 );

@@ -174,7 +174,7 @@ window.FlaggedRevs = {
 					+ ' [' + mediaWiki.msg('accesskey-save') + ']';
 			}
 		}
-		window.updateTooltipAccessKeys( [ save ] ); // update accesskey in save.title
+		mediaWiki.util.updateTooltipAccessKeys( [ save ] ); // update accesskey in save.title
 	}
 };
 
