@@ -14,16 +14,16 @@ window.FlaggedRevsReview = {
 		if( !ratingform ) return;
 		var disabled = document.getElementById('fr-rating-controls-disabled');
 		if( disabled ) return;
-	
+		
 		var quality = true;
 		var somezero = false;
-	
+		
 		// Determine if this is a "quality" or "incomplete" review
 		for( tag in wgFlaggedRevsParams.tags ) {
 			var controlName = "wp" + tag;
 			var levels = document.getElementsByName(controlName);
 			if( !levels.length ) continue;
-	
+		
 			var selectedlevel = 0; // default
 			if( levels[0].nodeName == 'SELECT' ) {
 				selectedlevel = levels[0].selectedIndex;
@@ -39,10 +39,10 @@ window.FlaggedRevsReview = {
 			} else {
 				return; // error: should not happen
 			}
-	
+			
 			// Get quality level for this tag
 			qualityLevel = wgFlaggedRevsParams.tags[tag]['quality'];
-		
+			
 			if( selectedlevel < qualityLevel ) {
 				quality = false; // not a quality review
 			}
@@ -163,7 +163,6 @@ window.FlaggedRevsReview = {
 		FlaggedRevsReview.lockReviewForm( form ); // disallow submissions
 		
 		var notes = document.getElementById("wpNotes");
-		var reason = document.getElementById("wpReason");
 		// Build up arguments array and update submit button text...
 		var requestArgs = []; // array of strings of the format <"pname|pval">.
 		var inputs = form.getElementsByTagName("input");
@@ -212,7 +211,6 @@ window.FlaggedRevsReview = {
 			dataType: "html", // response type
 			success	: function( response ) {
 				FlaggedRevsReview.updateReviewForm( form, response ); },
-			timeout : 5000, // 5 second timeout
 			error	: function( response ) {
 				FlaggedRevsReview.unlockReviewForm( form ); }
 		});

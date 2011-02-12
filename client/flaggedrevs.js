@@ -82,10 +82,10 @@ window.FlaggedRevs = {
 	'isMouseOutBubble': function( event, parentId ) {
 		var toNode = null;
 		if( event.relatedTarget != undefined ) {
-            toNode = event.relatedTarget; // FF/Opera/Safari
-        } else {
-            toNode = event.toElement; // IE
-        }
+			toNode = event.relatedTarget; // FF/Opera/Safari
+		} else {
+			toNode = event.toElement; // IE
+		}
 		if( toNode ) {
 			var nextParent = toNode.parentNode;
 			while( nextParent ) {
