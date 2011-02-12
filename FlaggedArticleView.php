@@ -1116,15 +1116,15 @@ class FlaggedArticleView {
 			$frev = $this->article->getStableRev();
 			if ( $frev && $frev->getRevId() == $this->article->getLatest() ) {
 				$wgOut->prependHTML( "<span class='plainlinks'>" .
-					wfMsgExt( 'revreview-visibility', 'parseinline',
+					wfMsgExt( 'revreview-visibility-synced', 'parseinline',
 						$title->getPrefixedText() ) . "</span>" );
 			} elseif ( $frev ) {
 				$wgOut->prependHTML( "<span class='plainlinks'>" .
-					wfMsgExt( 'revreview-visibility2', 'parseinline',
+					wfMsgExt( 'revreview-visibility-outdated', 'parseinline',
 						$title->getPrefixedText() ) . "</span>" );
 			} else {
 				$wgOut->prependHTML( "<span class='plainlinks'>" .
-					wfMsgExt( 'revreview-visibility3', 'parseinline',
+					wfMsgExt( 'revreview-visibility-nostable', 'parseinline',
 						$title->getPrefixedText() ) . "</span>" );
 			}
 		}
