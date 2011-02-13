@@ -106,6 +106,7 @@ $messages['bn'] = array(
  */
 $messages['br'] = array(
 	'problemchanges' => "Kemmoù balizennet o c'hortoz",
+	'problemchanges-list' => "Rollañ a ra ar bajenn-mañ ar pajennoù [[{{MediaWiki:Validationpage}}|da vezañ adwelet]] enno ur c'hemm pe meur a hini a chom da vezañ aprouet. Gallout a reer kaout ur roll eus [[Special:Tags|ar balizennoù aotreet]].",
 	'problemchanges-legend' => 'Rollañ ar pajennoù warno kemmoù balizennet da vezañ adlennet',
 	'problemchanges-none' => "N'eus pajenn ebet diouzh an dezverkoù-mañ evit poent",
 	'problemchanges-category' => 'Rummad :',
