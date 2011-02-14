@@ -336,7 +336,7 @@ $messages['he'] = array(
 	'problemchanges' => 'השינויים הממתינים עם תגיות',
 	'problemchanges-list' => "הדף הזה מציג רשימה של דפים ש[[{{MediaWiki:Validationpage}}|נסקרו]] שיש להם עריכה מתויגת אחת או יותר שממתינה לסקירה. ר' [[Special:Tags|רשימה של תגי שינוי תקינים]].",
 	'problemchanges-legend' => 'רשימת הדפים עם עריכות מתויגות הממתינות לסקירה',
-	'problemchanges-none' => 'אין כרגע דפים המתאימים לקריטריונים אלה',
+	'problemchanges-none' => 'אין כרגע דפים המתאימים לאמות המידה האלו',
 	'problemchanges-category' => 'קטגוריה:',
 );
 
@@ -862,6 +862,13 @@ $messages['vi'] = array(
  */
 $messages['vo'] = array(
 	'problemchanges-category' => 'Klad:',
+);
+
+/** Yiddish (ייִדיש)
+ * @author פוילישער
+ */
+$messages['yi'] = array(
+	'problemchanges-category' => 'קאַטעגאריע:',
 );
 
 /** Simplified Chinese (‪中文(简体)‬)

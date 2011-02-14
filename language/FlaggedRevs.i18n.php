@@ -383,7 +383,9 @@ The accuracy "checked", as displayed on the page history after a revision with t
 	'review-edit-diff' => '{{Flagged Revs}}',
 	'revreview-diff-toggle-show' => '{{Flagged Revs}}',
 	'revreview-diff-toggle-hide' => '{{Flagged Revs}}',
-	'revreview-diff-toggle-title' => '{{Flagged Revs}}',
+	'revreview-diff-toggle-title' => '{{Flagged Revs}}
+
+This message is shown above the edit box. Clicking it displays a diff of changes.',
 	'revreview-log-toggle-show' => '{{Flagged Revs}}',
 	'revreview-log-details-show' => '{{Flagged Revs}}',
 	'review-diff2stable' => '{{Flagged Revs}}',
@@ -443,6 +445,7 @@ Users who see the stable version and not the draft version as page, have this me
 {{Identical|Edit}}',
 	'revreview-editnotice' => '{{Flagged Revs}}
 {{Identical|Authorised user}}',
+	'revreview-pendingnotice' => 'This message is displayed above a page showing a pending revision of a page.',
 	'revreview-check-flag-p' => '{{Flagged Revs}}',
 	'revreview-check-flag-u' => 'This is a label for the  checkbox that appears under the edit box next to "This is a minor edit" and "Watch this page".',
 	'revreview-check-flag-y-title' => '{{Gender}}',
@@ -541,8 +544,11 @@ Tooltip shown when hovering over <span style="color:blue;">(-/+)</span>.',
 	'revreview-toolow' => '{{Flagged Revs-small}}
 A kind of error shown when trying to review a revision with all settings on "unapproved".',
 	'revreview-update' => '{{Flagged Revs}}',
+	'revreview-update-edited-prev' => 'This message is shown after a user saves a version after another user made changes that were not reviewed yet.',
 	'revreview-update-includes' => '{{Flagged Revs}}',
-	'revreview-update-use' => '{{Flagged Revs}}',
+	'revreview-update-use' => '{{Flagged Revs}}
+
+This message appears in the review page after the list of templates or files with pending changes.',
 	'revreview-visibility-synced' => '{{Flagged Revs-small}}
 Appears above the protection form when the current version of the page is the stable version; otherwise {{msg-mw|revreview-visibility2}} or {{msg-mw|revreview-visibility3}} is shown.',
 	'revreview-visibility-outdated' => '{{Flagged Revs-small}}
@@ -7072,23 +7078,23 @@ $messages['he'] = array(
 	'flaggedrevs-watched-pending' => "יש [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} שינויים ממתינים] בדפים שנמצאים ברשימת המעקב ושנסקרו בעבר. '''נדרשת פעולה!'''",
 	'flaggedrevs-desc' => 'הענקת אפשרות לעורכים לסקור גרסאות ולייצב דפים',
 	'flaggedrevs-pref-UI' => 'ממשק בסיסי:',
-	'flaggedrevs-pref-UI-0' => 'תיבות מפורטות להצגת מצב הסקירה של הדפים',
-	'flaggedrevs-pref-UI-1' => 'סמלים קטנים והסבר קצר להצגת מצב הסקירה של דפים',
+	'flaggedrevs-pref-UI-0' => 'להציג את מצב הסקירה של הדפים בתיבות מפורטות',
+	'flaggedrevs-pref-UI-1' => 'להציג את מצב הסקירה של הדפים בסמלים קטנים עם הסבר קצר',
 	'prefs-flaggedrevs' => 'סקירת עריכות',
-	'prefs-flaggedrevs-ui' => 'סקירת עריכות',
+	'prefs-flaggedrevs-ui' => '{{int:Prefs-flaggedrevs}}',
 	'flaggedrevs-prefs-stable' => 'תמיד להציג תחילה את הגרסה היציבה של דפי תוכן (אם היא קיימת)',
 	'flaggedrevs-prefs-watch' => 'מעקב אחרי דפים שסקרתי',
-	'flaggedrevs-prefs-editdiffs' => 'הצגת ההשוואה של השינויים הממתינים בעת עריכת דפים',
-	'flaggedrevs-prefs-viewdiffs' => 'הצגת ההשוואה של השינויים הממתינים בעת צפייה בגרסה הממתינה האחרונה',
+	'flaggedrevs-prefs-editdiffs' => 'להציג ההשוואה של השינויים הממתינים בעת עריכת דפים',
+	'flaggedrevs-prefs-viewdiffs' => 'להציג ההשוואה של השינויים הממתינים בעת צפייה בגרסה הממתינה האחרונה',
 	'group-editor' => 'עורכים',
 	'group-editor-member' => 'עורך',
-	'group-reviewer' => 'סוקרי גרסאות',
-	'group-reviewer-member' => 'סוקר גרסאות',
+	'group-reviewer' => 'סוקרים',
+	'group-reviewer-member' => 'סוקר',
 	'grouppage-editor' => '{{ns:project}}:עורך',
 	'grouppage-reviewer' => '{{ns:project}}:סוקר גרסאות',
-	'group-autoreview' => 'משתמשים שעריכותיהם בדוקות אוטומטית',
-	'group-autoreview-member' => 'משתמשים שעריכותיהם בדוקות אוטומטית',
-	'grouppage-autoreview' => '{{ns:project}}:משתמשים שעריכותיהם בדוקות אוטומטית',
+	'group-autoreview' => 'בדוקים אוטומטית',
+	'group-autoreview-member' => 'בדוקים אוטומטית',
+	'grouppage-autoreview' => '{{ns:project}}:בדוקים אוטומטית',
 	'revcontents-error' => 'לא ניתן לקבל את התוכן.',
 	'revcontents-getcontents' => '[{{fullurl:$1|oldid=$2}} לצפות בגרסה זו]',
 	'revcontents-waiting' => 'בהמתנה לתוכן',
@@ -7104,7 +7110,7 @@ $messages['he'] = array(
 	'review-edit-diff' => "'''שימו לב: חלק מהשינויים הממתינים משנים את האזור בדף שאתם עורכים.'''",
 	'revreview-diff-toggle-show' => 'הצגת שינויים אלה',
 	'revreview-diff-toggle-hide' => 'הסתרת שינויים אלה',
-	'revreview-diff-toggle-title' => 'החלפת מצב התצוגה של שינויים בהמתנה לגרסה היציבה',
+	'revreview-diff-toggle-title' => 'להציג את השינויים שנעשו לגרסה היציבה וממתינים לסקירה',
 	'revreview-log-toggle-show' => 'הצגת יומן היציבות',
 	'revreview-log-toggle-hide' => 'הסתרת יומן היציבות',
 	'revreview-log-toggle-title' => 'החלפת מצב התצוגה של יומן הגדרות היציבות',
@@ -7117,10 +7123,10 @@ $messages['he'] = array(
 	'review-logentry-id' => 'גרסה: $2',
 	'review-logentry-diff' => 'השינויים נסקרו',
 	'review-logentry-diff2' => 'השינויים הוגדרו כמיושנים',
-	'review-logpage' => 'יומן בדיקת גרסאות',
+	'review-logpage' => 'יומן סקירה',
 	'review-logpagetext' => 'זהו יומן שמציג את הגרסאות של דפי תוכן ש[[{{MediaWiki:Validationpage}}|נבדקו]].',
-	'reviewer' => 'בודק גרסאות',
-	'revisionreview' => 'בדיקת גרסאות',
+	'reviewer' => 'סוקר',
+	'revisionreview' => 'סקירת גרסאות',
 	'revreview-accuracy' => 'דיוק',
 	'revreview-accuracy-0' => 'הדף אינו קביל',
 	'revreview-accuracy-1' => 'נצפה',
@@ -7170,7 +7176,7 @@ $messages['he'] = array(
 	'revreview-check-flag-y' => 'לקבל את השינויים שלי',
 	'revreview-check-flag-y-title' => 'לקבל את כל השינויים שביצעתם בעריכה זו.',
 	'revreview-submitedit' => 'שליחת השינויים',
-	'revreview-submitedit-title' => 'שליחת השינויים שלך לסקירה',
+	'revreview-submitedit-title' => 'שליחת השינויים שלכם לסקירה',
 	'revreview-edited' => "'''השינויים שלכם יוצגו לקוראים לאחר שמשתמש מורשה יסקור אותם. ([[{{MediaWiki:Validationpage}}|עזרה]])'''
 
 יש [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} {{PLURAL:$2|שינוי אחד|$2 שינויים}}] ''(מוצג{{PLURAL:$2||ים}} בהמשך)'' {{PLURAL:$2|שממתין|שממתינים}} לסקירה.",
@@ -7184,7 +7190,7 @@ $messages['he'] = array(
 
 ראו את [[Special:Unreviewedpages|רשימת הדפים שלא נסקרו]].',
 	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} הגרסה היציבה] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} נבדקה] ב־<i>$2</i>.
-יש [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} {{PLURAL:$3|שינוי אחד|$3 שינויים}}] שממתינים לסקירה.',
+יש [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} {{PLURAL:$3|שינוי אחד שממתין|$3 שינויים שממתינים}}] לסקירה.',
 	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} הגרסה היציבה] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} נבדקה] ב־<i>$2</i>.
 יש [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} שינויים בתבניות או בקבצים] שממתינים לסקירה.',
 	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} הגרסה היציבה] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} אושרה] ב־<i>$2</i>. יש [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}}ג {{PLURAL:$3|שינוי אחד שממתין|$3 שינויים שממתינים}}] לסקירה.',
@@ -7247,12 +7253,12 @@ $messages['he'] = array(
 	'revreview-update' => "נא [[{{MediaWiki:Validationpage}}|לסקור]] את כל השינויים הממתינים '''(מוצגים להלן)''' שנעשו מאז הגרסה היציבה האחרונה.'''",
 	'revreview-update-edited' => '<span class="flaggedrevs_important">השינויים שלכם עדיין אינם בגרסה היציבה.</span>
 
-נא לסקור את כל השינויים המופיעים להלן כדי שהעריכות שלך יופיעו בגרסה היציבה.',
-	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">השינויים שלכם עדיין אינם בגרסה היציבה. ישנם שינויים קודמים הממתינים לסקירה.</span>
+נא לסקור את כל השינויים המופיעים להלן כדי שהעריכות שלכם תופענה בגרסה היציבה.',
+	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">השינויים שלכם עדיין אינם בגרסה היציבה. יש שינויים קודמים שממתינים לסקירה.</span>
 
-נא לסקור את כל השינויים המופיעים להלן כדי שהשינויים שלך יופיעו בגרסה היציבה.',
+נא לסקור את כל השינויים המופיעים להלן כדי שהעריכות שלכם תופענה בגרסה היציבה.',
 	'revreview-update-includes' => "'''עודכנו תבניות או קבצים:'''",
-	'revreview-update-use' => "'''הערה:''' הגרסה יציבה לאחת מהתבניות/הקבצים האלו כבר נמצאת בשימוש בגרסה היציבה של דף זה.",
+	'revreview-update-use' => "'''הערה''': הגרסאות היציבות של התבניות או הקבצים האלה משמשות בגרסה היציבה של הדף הזה.",
 	'revreview-visibility-synced' => "'''לדף זה יש [[{{MediaWiki:Validationpage}}|גרסה יציבה]] מעודכנת; ניתן [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} לשנות] את הגדרות היציבות של הדף.'''",
 	'revreview-visibility-outdated' => "'''לדף זה יש [[{{MediaWiki:Validationpage}}|גרסה יציבה]] מיושנת; ניתן [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} לשנות] את הגדרות היציבות של הדף.'''",
 	'revreview-visibility-nostable' => "'''אין לדף זה [[{{MediaWiki:Validationpage}}|גרסה יציבה]]; ניתן [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} לשנות] את הגדרות היציבות של הדף.'''",
@@ -7297,7 +7303,7 @@ $messages['he'] = array(
 	'revreview-reject-text-list' => "על ידי השלמת פעולה זו, {{PLURAL:$1|שינוי זה '''יידחה'''|שינויים אלה '''יידחו'''}}:",
 	'revreview-reject-text-revto' => 'פעולה זו תשחזר את העמוד בחזרה לגרסה [{{fullurl:$1|oldid=$2}} מתאריך $3].',
 	'revreview-reject-summary' => 'תקציר העריכה:',
-	'revreview-reject-confirm' => 'דחיית שינויים אלו',
+	'revreview-reject-confirm' => 'דחיית שינויים אלה',
 	'revreview-reject-cancel' => 'ביטול',
 	'revreview-reject-summary-cur' => '{{PLURAL:$1|השינוי האחרון נדחה|$1 השינויים האחרונים נדחו}} (על ידי $2) ושוחזרה הגרסה $3 על ידי $4',
 	'revreview-reject-summary-old' => 'דחייה של {{PLURAL:$1|השינוי הראשון|$1 השינויים הראשונים}} (של $2) אחרי גרסה $3 מאת $4',
@@ -7310,7 +7316,7 @@ $messages['he'] = array(
 	'tooltip-ca-current' => 'צפייה בדף זה עם השינויים הממתינים לאישור',
 	'tooltip-ca-stable' => 'צפייה בגרסה היציבה של דף זה',
 	'tooltip-ca-default' => 'הגדרות בקרת איכות',
-	'flaggedrevs-protect-legend' => 'סקירת עריכה אוטומטית ([[{{MediaWiki:Validationpage}}|עזרה]])',
+	'flaggedrevs-protect-legend' => 'סקירת אוטומטית של עריכה ([[{{MediaWiki:Validationpage}}|עזרה]])',
 	'flaggedrevs-protect-none' => 'היתר לכל המשתמשים',
 	'flaggedrevs-categoryview' => '[{{fullurl:Special:UnreviewedPages|category=$1}} דפים שלא נסקרו]{{int:pipe-separator}}[{{fullurl:Special:PendingChanges|category=$1}} שינויים ממתינים]',
 	'revreview-locked-title' => 'עריכות בדף זה דורשות סקירה.',
@@ -7320,7 +7326,7 @@ $messages['he'] = array(
 	'log-show-hide-review' => '$1 יומן סקירות',
 	'revreview-tt-flag' => 'קבלת גרסה זו באמצעות סימונה כ"בדוקה"',
 	'revreview-tt-unflag' => 'דחיית הגרסה הזאת באמצעות סימונה כ"לא בדוקה"',
-	'revreview-tt-reject' => 'דחיית שינויים אלו על ידי שחזורם',
+	'revreview-tt-reject' => 'דחיית שינויים אלה על ידי שחזורם',
 	'validationpage' => '{{ns:help}}:אישור דפים',
 );
 
@@ -14859,6 +14865,8 @@ $messages['sah'] = array(
 	'review_page_notexists' => 'Сорук-сирэй суох эбит.',
 	'review_page_unreviewable' => 'Сорук-сирэй тургутуллубат эбит.',
 	'review_no_oldid' => 'Барыл ID-та ыйыллыбатах.',
+	'review_denied' => 'Киирии хааччахтаммыт.',
+	'review_param_missing' => 'Параметра ыйыллыбатах эбэтэр сыыһа ыйыллыбыт.',
 	'revreview-current' => 'Тургутуллубатах уларытыылар',
 	'revreview-depth' => 'Толорута',
 	'revreview-depth-0' => 'Ыйыллыбатах',
@@ -14868,6 +14876,7 @@ $messages['sah'] = array(
 	'revreview-depth-4' => 'Талыы-талба',
 	'revreview-draft-title' => 'Бу сирэйгэ көрүллүбэтэх уларытыылар эмиэ көстөллөр',
 	'revreview-edit' => 'Уларытыы',
+	'revreview-check-flag-p' => '($1 {{PLURAL:$1|Тургутуллубатах уларытыы бу барылын|Тургутуллубутах уларытыылар бу барылларын}}) бигэргэтэргэ',
 	'revreview-flag' => 'торуму ырытыы',
 	'revreview-legend' => 'Торум ис хоһоонун сыаналааһын',
 	'revreview-log' => 'Ырытыы:',

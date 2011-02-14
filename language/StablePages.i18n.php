@@ -541,10 +541,11 @@ $messages['ko'] = array(
  * @author Purodha
  */
 $messages['ksh'] = array(
-	'stablepages' => 'Beshtändeje Sigge met einzel Enshtellunge',
+	'stablepages' => 'Sigge, di bloß met Beshtäätejong aanjezeish wääde',
 	'stablepages-list' => 'Hee dronger kütt en Leß met Sigge, woh vun Hand enjshtallt es, dat de {{int:stablepages-stable}} ier Enhallt shtandatmäßesch för der Lesser aanjezeisch weedt.',
 	'stablepages-none' => 'En dä Leß sin kein Sigge dren',
 	'stablepages-config' => 'Enstellunge',
+	'stablepages-indef' => 'Bloß met onbejränz Duuer',
 );
 
 /** Luxembourgish (Lëtzebuergesch)

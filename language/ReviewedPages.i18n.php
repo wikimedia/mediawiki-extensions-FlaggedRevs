@@ -749,14 +749,14 @@ $messages['ko'] = array(
  */
 $messages['ksh'] = array(
 	'reviewedpages' => 'Nohjekik Versione',
-	'reviewedpages-leg' => 'Sigge opleßte noh de Qualiteit, wi joot se nohjekik sin',
+	'reviewedpages-leg' => 'Nohjekik Sigge opleßte',
 	'reviewedpages-list' => 'Hee di {{PLURAL:$1|Sigg es|Sigge sen|noll Sigge sen}} nohjekik, se {{PLURAL:$1|sullt dat|sullte dat|sullte et}} aanjejovve Nivo han.',
 	'reviewedpages-none' => 'En dä Leß sin kein Sigge.',
 	'reviewedpages-lev-0' => '{{int:revreview-lev-basic}}',
 	'reviewedpages-lev-1' => '{{int:revreview-lev-quality}}',
 	'reviewedpages-lev-2' => '{{int:revreview-lev-pristine}}',
 	'reviewedpages-all' => 'nohjekik Versione',
-	'reviewedpages-best' => 'de neuste un aam hühßte enjeshtoof nohjekik Version',
+	'reviewedpages-best' => 'de beste Version',
 );
 
 /** Luxembourgish (Lëtzebuergesch)
