@@ -678,7 +678,7 @@ $messages['haw'] = array(
  */
 $messages['he'] = array(
 	'unreviewedpages' => 'דפים שלא נסקרו',
-	'unreviewedpages-legend' => 'רשימת דפי התוכן שלא נסקרו',
+	'unreviewedpages-legend' => 'רשימה של דפי תוכן שלא נסקרו',
 	'unreviewedpages-category' => 'קטגוריה:',
 	'unreviewedpages-diff' => 'לסקור',
 	'unreviewedpages-unwatched' => 'לא במעקב',

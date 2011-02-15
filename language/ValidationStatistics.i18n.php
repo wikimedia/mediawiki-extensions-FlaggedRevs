@@ -796,23 +796,23 @@ $messages['ha'] = array(
  */
 $messages['he'] = array(
 	'validationstatistics' => 'סטטיסטיקות של סקירת דפים',
-	'validationstatistics-users' => "ב'''{{grammar:תחילית|{{SITENAME}}}}''' יש כרגע {{PLURAL:$1|משתמש '''[[Special:ListUsers/editor|אחד]]'''|'''[[Special:ListUsers/editor|$1]]''' משתמשים}} עם הרשאת [[{{MediaWiki:Validationpage}}|עורך]].
+	'validationstatistics-users' => "באתר '''{{SITENAME}}''' יש כעת {{PLURAL:$1|משתמש '''[[Special:ListUsers/editor|אחד]]'''|'''[[Special:ListUsers/editor|$1]]''' משתמשים}} עם הרשאת [[{{MediaWiki:Validationpage}}|עורך]].
 
-עורכים הם משתמשים ותיקים שיכולים לבצע בדיקה מהירה של גרסאות ושל דפים.",
+עורכים הם משתמשים ותיקים שיכולים לבצע בדיקה מהירה של גרסאות של דפים.",
 	'validationstatistics-lastupdate' => "''הנתונים הבאים עודכנו לאחרונה ב־$1 בשעה $2.''",
 	'validationstatistics-pndtime' => "עריכות שנבדקו על ידי משתמשים מוּכָּרִים נחשבות עריכות שנסקרו.
 
-עיכוב ממוצע ל[[Special:OldReviewedPages|דפים עם עריכות שממתינות לסקירה]] הוא '''\$1'''.
-הדפים האלה נחשבים \"לא עדכניים\". כמו כן, דפים נחשבים \"מסונכרנים\" אם אין עריכות שממתינות לסקירה.",
+עיכוב ממוצע ל[[Special:OldReviewedPages|דפים עם עריכות שממתינות לסקירה]] הוא '''$1'''.
+הדפים האלה נחשבים ''לא עדכניים''. כמו־כן, דפים נחשבים ''מסונכרנים'' אם אין בהם עריכות שממתינות לסקירה.",
 	'validationstatistics-revtime' => "זמן ההמתנה הממוצע לסקירת עריכות של '''משמשים אלמוניים''' הוא '''$1'''; החציון הוא '''$2'''.
 $3",
 	'validationstatistics-table' => "סטטיסטיקות על סקירת דפים לכל מרחב שמות מוצגות להלן, '''למעט''' דפי הפניה.",
 	'validationstatistics-ns' => 'מרחב שם',
 	'validationstatistics-total' => 'דפים',
-	'validationstatistics-stable' => 'עבר ביקורת',
-	'validationstatistics-latest' => 'מסונכרן',
+	'validationstatistics-stable' => 'נסקרו',
+	'validationstatistics-latest' => 'סונכרנו',
 	'validationstatistics-synced' => 'סונכרנו/נסקרו',
-	'validationstatistics-old' => 'פג תוקף',
+	'validationstatistics-old' => 'לא עדכניים',
 	'validationstatistics-utable' => '{{PLURAL:$1|הסוקר הפעיל|$1 רשימת הסוקרים הפעילים}} ביותר בשעה האחרונה.',
 	'validationstatistics-user' => 'משתמש',
 	'validationstatistics-reviews' => 'סקירות',
@@ -1169,14 +1169,20 @@ $messages['ksh'] = array(
 	'validationstatistics-users' => "'''{{ucfirst:{{GRAMMAR:Mominativ|{{SITENAME}}}}}}''' hät em Momang [[Special:ListUsers/editor|{{PLURAL:$1|'''eine''' Metmaacher|'''$1''' Metmaacher|'''keine''' Metmaacher}}]] met däm Rääsch, der [[{{MediaWiki:Validationpage}}|{{int:group-editor-member}}]] ze maache.
 
 {{int:group-editor}} sin doför aanerkannte un extra ußjesöhk Metmaacher, di Versione vun Sigge beshtäteje künne.",
-	'validationstatistics-table' => 'Statistike för jedes Appachtemang (oohne de Sigge met Ömleijdunge)',
+	'validationstatistics-lastupdate' => "''De Daate heh henger sen et läz aam $1 öm $2 Uhr op der neuste Shtand jebraat woode.''",
+	'validationstatistics-pndtime' => "Änderunge vun „aanerkannte“ Metmaacher wääde als ''reviewed'' aanjesinn.
+
+Em Schnett doohrd et '''$1''' för [[Special:OldReviewedPages|pages with unreviewed edits pending]].
+Die Sigge wääde als ''övverhollt'' aanjesinn.
+Likewise, pages are considered ''synced'' if there are no edits pending review.",
+	'validationstatistics-table' => 'Statistike vun de Beschtäätejunge för jedes Appachtemang (oohne de Sigge met Ömleijdunge)',
 	'validationstatistics-ns' => 'Appachtemang',
 	'validationstatistics-total' => 'Sigge ensjesamp',
 	'validationstatistics-stable' => 'Aanjekik',
 	'validationstatistics-latest' => '<span style="white-space:nowrap">A-juur</span>',
 	'validationstatistics-synced' => '{{int:validationstatistics-stable}} un {{int:validationstatistics-latest}}',
 	'validationstatistics-old' => 'Övverhollt',
-	'validationstatistics-utable' => 'Hee dronger shteiht de Leß met de aktievste $1 unger de {{int:reviewer}} en de läzte Shtond.',
+	'validationstatistics-utable' => 'Hee dronger shteiht {{PLURAL:$1|dä Aktievste|de Leß met de Aktievste $1|keine als Aktievste}} unger de {{int:reviewer}} en de läzte Shtond.',
 	'validationstatistics-user' => 'Metmaacher',
 	'validationstatistics-reviews' => 'Mohlde en Sigg beshtätesh',
 );
