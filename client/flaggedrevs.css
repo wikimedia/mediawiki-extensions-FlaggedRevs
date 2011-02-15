@@ -117,6 +117,7 @@ div.flaggedrevs_short {
 	float: right;
 }
 
+/* @noflip */
 .rtl div.flaggedrevs_short {
 	float: left;
 	margin: 0 1em 0 0;
@@ -136,6 +137,7 @@ div.flaggedrevs_short_details {
 	width: 25em;
 }
 
+/* @noflip */
 .rtl div.flaggedrevs_short_details {
 	right: auto;
 	left: -2px;
