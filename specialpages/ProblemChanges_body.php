@@ -147,7 +147,7 @@ class ProblemChanges extends SpecialPage
 	
 	protected function feedTitle() {
 		global $wgContLanguageCode, $wgSitename;
-		$page = SpecialPage::getPage( 'problemchanges' );
+		$page = SpecialPage::getPage( 'ProblemChanges' );
 		$desc = $page->getDescription();
 		return "$wgSitename - $desc [$wgContLanguageCode]";
 	}
