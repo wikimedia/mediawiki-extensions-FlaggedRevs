@@ -499,8 +499,8 @@ E Gleich isch aagee zue dr letschte Version uf däm Nivo.",
 $messages['he'] = array(
 	'reviewedpages' => 'דפים שנסקרו',
 	'reviewedpages-leg' => 'רשימת הדפים שנסקרו',
-	'reviewedpages-list' => "דף זה מציג את כל הדפים [[{{MediaWiki:Validationpage}}|שנסקרו]] שרמת הסקירה '''הגבוהה ביותר''' (לגרסה) היא הרמה שצוינה.
-יוצג קישור לגרסה האחרונה ברמה זו.",
+	'reviewedpages-list' => "דף זה מציג את כל הדפים [[{{MediaWiki:Validationpage}}|שנסקרו]] ושרמת הסקירה '''הגבוהה ביותר''' (לגרסה) היא הרמה שצוינה.
+מוצג גם קישור לגרסה האחרונה ברמה זו.",
 	'reviewedpages-none' => 'אין דפים ברשימה זו',
 	'reviewedpages-lev-0' => '{{int:revreview-lev-basic}}',
 	'reviewedpages-lev-1' => '{{int:revreview-lev-quality}}',

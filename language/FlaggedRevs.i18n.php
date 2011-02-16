@@ -7266,15 +7266,15 @@ $messages['he'] = array(
 	'right-autoreview' => 'סימון אוטומטי של גרסאות שנערכו על ידי המשתמש עצמו כגרסאות ש"נבדקו"',
 	'right-movestable' => 'העברת דפים עם גרסאות יציבות',
 	'right-review' => 'סימון גרסאות כ"בדוקות"',
-	'right-stablesettings' => 'הגדרת הדרך בה הגרסה היציבה נבחרת ומוצגת',
+	'right-stablesettings' => 'הגדרה כיצד הגרסה היציבה של הדף נבחרת ומוצגת',
 	'right-validate' => 'סימון גרסאות כ"איכותיות"',
 	'right-unreviewedpages' => 'צפייה ב[[Special:UnreviewedPages|רשימת הדפים שלא נסקרו]]',
 	'rights-editor-autosum' => 'קודם אוטומטית',
 	'rights-editor-revoke' => 'הסרת מעמד העורך מ[[$1]]',
-	'specialpages-group-quality' => 'סקירת עריכה',
-	'stable-logentry-config' => 'הגדיר את הגדרות הגרסה היציבה של "$1"',
-	'stable-logentry-modify' => 'שונו הגדרות הגרסאות היציבות עבור "$1"',
-	'stable-logentry-reset' => 'איפס את הגדרות הגרסה היציבה של "$1"',
+	'specialpages-group-quality' => '{{int:Prefs-flaggedrevs}}',
+	'stable-logentry-config' => 'קבע את הגדרות היציבות של "$1"',
+	'stable-logentry-modify' => 'שינה את הגדרות היציבות של "$1"',
+	'stable-logentry-reset' => 'איפס את הגדרות היציבות של "$1"',
 	'stable-log-restriction' => 'סקירה אוטומטית: נדרשת ההרשאה "$1"',
 	'stable-logpage' => 'יומן יציבות',
 	'stable-logpagetext' => 'זהו יומן השינויים בתצורת [[{{MediaWiki:Validationpage}}|הגרסה היציבה]] בדפי תוכן.',
@@ -7315,7 +7315,7 @@ $messages['he'] = array(
 	'revreview-unreviewedpage' => 'דף לא בדוק',
 	'tooltip-ca-current' => 'צפייה בדף זה עם השינויים הממתינים לאישור',
 	'tooltip-ca-stable' => 'צפייה בגרסה היציבה של דף זה',
-	'tooltip-ca-default' => 'הגדרות בקרת איכות',
+	'tooltip-ca-default' => 'הגדרות הבטחת איכות',
 	'flaggedrevs-protect-legend' => 'סקירת אוטומטית של עריכה ([[{{MediaWiki:Validationpage}}|עזרה]])',
 	'flaggedrevs-protect-none' => 'היתר לכל המשתמשים',
 	'flaggedrevs-categoryview' => '[{{fullurl:Special:UnreviewedPages|category=$1}} דפים שלא נסקרו]{{int:pipe-separator}}[{{fullurl:Special:PendingChanges|category=$1}} שינויים ממתינים]',
@@ -9095,6 +9095,7 @@ Verificare la URL usata per accedere a questa pagina.',
  * @author Hosiryuhosi
  * @author JtFuruhata
  * @author Naohiro19
+ * @author Ohgi
  * @author Whym
  * @author 青子守歌
  */
@@ -9129,8 +9130,8 @@ $messages['ja'] = array(
 	'revreview-hist-pending' => '査読待ち',
 	'revreview-hist-quality' => '高品質版',
 	'revreview-hist-basic' => '確認済み版',
-	'revreview-hist-quality-user' => '[[User:$3|$3]]が承認]',
-	'revreview-hist-basic-user' => '[[User:$3|$3]]が確認]',
+	'revreview-hist-quality-user' => '[[User:$3|$3]]が承認',
+	'revreview-hist-basic-user' => '[[User:$3|$3]]が確認',
 	'revreview-hist-quality-auto' => '自動的に承認されました',
 	'revreview-hist-basic-auto' => '自動的に確認されました',
 	'revreview-hist-pending-difflink' => "'''[[{{fullurl:$1|oldid=$2&diff=$3}} 査読待ち]]'''",

@@ -763,7 +763,7 @@ $messages['gsw'] = array(
  */
 $messages['he'] = array(
 	'pendingchanges' => 'דפים עם שינויים ממתינים',
-	'pendingchanges-legend' => 'רשימת דפים שנסקרו עם שינויים ממתינים',
+	'pendingchanges-legend' => 'רשימת דפים שנסקרו ושיש בהם שינויים ממתינים',
 	'pendingchanges-list' => 'דף זה מציג {{PLURAL:$1|דף ש[[{{MediaWiki:Validationpage}}|נסרק]], שיש לו|דפים ש[[{{MediaWiki:Validationpage}}|נסרקו]], שיש להם}} עריכות שממתינות לסקירה.',
 	'pendingchanges-none' => 'אין כרגע דפים המתאימים לאמות המידה האלו',
 	'pendingchanges-hours' => '({{PLURAL:$1|שעה|$1 שעות|שעתיים}})',
