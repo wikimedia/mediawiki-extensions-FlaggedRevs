@@ -357,12 +357,12 @@ class FlaggedRevs {
 	}
 	
 	/**
-	 * Get the URL path to /client
+	 * Get the URL path to /client (has JS, CSS, & icons)
 	 * @return string
 	 */
 	public static function styleUrlPath() {
-		global $wgFlaggedRevsStylePath, $wgScriptPath;
-		return str_replace( '$wgScriptPath', $wgScriptPath, $wgFlaggedRevsStylePath );
+		global $wgExtensionAssetsPath;
+		return "$wgExtensionAssetsPath/FlaggedRevs/client";
 	}
 
 	# ################ Permission functions #################	

@@ -200,10 +200,6 @@ $wgRemoveGroups['sysop'][] = 'editor';
 $wgAddGroups['bureaucrat'][] = 'reviewer';
 $wgRemoveGroups['bureaucrat'][] = 'reviewer';
 
-# URL location that has an /img subdirectory containing UI icons
-# Use a literal $wgScriptPath as a placeholder for the runtime value of $wgScriptPath
-$wgFlaggedRevsStylePath = '$wgScriptPath/extensions/FlaggedRevs/client';
-
 # How far the logs for overseeing quality revisions and depreciations go
 $wgFlaggedRevsOversightAge = 30 * 24 * 3600;
 
