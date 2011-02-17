@@ -1368,7 +1368,7 @@ $messages['haw'] = array(
  * @author YaronSh
  */
 $messages['he'] = array(
-	'stabilization-tab' => 'נבדק',
+	'stabilization-tab' => 'ביקורת',
 	'stabilization' => 'הגדרות היציבות של הדף',
 	'stabilization-text' => "'''ניתן לשנות את ההגדרות שלהלן כדי לכוונן כיצד נבחרת ומוצגת הגרסה היציבה של [[:$1|$1]].'''",
 	'stabilization-perm' => 'אין לכם הרשאה לשנות את הגדרות היציבות.
