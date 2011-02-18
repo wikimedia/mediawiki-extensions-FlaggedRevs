@@ -1782,7 +1782,7 @@ class FlaggedArticleView {
 				$labelMsg = wfMsgExt( 'revreview-check-flag-u', 'parseinline' );
 			}
 			$label = Xml::element( 'label', $attribs, $labelMsg );
-			$checkboxes['reviewed'] = $checkbox . '&nbsp;' . $label;
+			$checkboxes['reviewed'] = $checkbox . '&#160;' . $label;
 		}
 		return true;
 	}
