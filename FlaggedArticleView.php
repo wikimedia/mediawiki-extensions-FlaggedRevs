@@ -433,23 +433,29 @@ class FlaggedArticleView {
 	protected function showDraftVersion( FlaggedRevision $srev, &$tag, $prot ) {
 		global $wgUser, $wgOut, $wgLang, $wgRequest;
 		$this->load();
+		if ( $wgOut->isPrintable() ) {
+			return; // all this function does is add notices; don't show them
+		}
 		$flags = $srev->getTags();
 		$time = $wgLang->date( $srev->getTimestamp(), true );
 		# Get quality level
 		$quality = FlaggedRevs::isQuality( $flags );
 		# Get stable version sync status
 		$synced = $this->article->stableVersionIsSynced();
-		if ( $synced ) {
-			$this->setReviewNotes( $srev ); // Still the same
-		} else {
-			# Make sure there is always a notice bar when viewing the draft
-			if ( $this->useSimpleUI() ) { // already one for detailed UI
-				$this->setPendingNotice( $srev );
+		if ( $synced ) { // draft == stable
+			$diffToggle = ''; // no diff to show
+			$this->setReviewNotes( $srev ); // same review notes apply
+		} else { // draft != stable
+			# The user may want the diff (via prefs)
+			$diffToggle = $this->getTopDiffToggle( $srev, $quality );
+			if ( $diffToggle != '' ) $diffToggle = " $diffToggle";
+			# Make sure there is always a notice bar when viewing the draft.
+			if ( $this->useSimpleUI() ) { // we already one for detailed UI
+				$this->setPendingNotice( $srev, $diffToggle );
 			}
-			$this->maybeShowTopDiff( $srev, $quality ); // user may want diff (via prefs)
 		}
-		# If they are synced, do special styling
-		# Give notice to newer users if an unreviewed edit was completed...
+		# Give a "your edit is pending" notice to newer users if
+		# an unreviewed edit was completed...
 		if ( $wgRequest->getVal( 'shownotice' )
 			&& $this->article->getUserText() == $wgUser->getName() // FIXME: rawUserText?
 			&& $this->article->revsArePending()
@@ -470,10 +476,10 @@ class FlaggedArticleView {
 			# Notice should always use subtitle
 			$this->reviewNotice = "<div id='mw-fr-reviewnotice' " .
 				"class='flaggedrevs_preview plainlinks'>$pending</div>";
-		# Construct some tagging for non-printable outputs. Note that the pending
-		# notice has all this info already, so don't do this if we added that already.
+		# Otherwise, construct some tagging info for non-printable outputs.
 		# Also, if low profile UI is enabled and the page is synced, skip the tag.
-		} else if ( !$wgOut->isPrintable() && !( $this->article->lowProfileUI() && $synced ) ) {
+		# Note: the "your edit is pending" notice has all this info, so we never add both.
+		} else if ( !( $this->article->lowProfileUI() && $synced ) ) {
 			$revsSince = $this->article->getPendingRevCount();
 			// Simple icon-based UI
 			if ( $this->useSimpleUI() ) {
@@ -523,7 +529,7 @@ class FlaggedArticleView {
 				$icon = $synced
 					? FlaggedRevsXML::stableStatusIcon( $quality )
 					: FlaggedRevsXML::draftStatusIcon();
-				$tag .= $prot . $icon . $msgHTML;
+				$tag .= $prot . $icon . $msgHTML . $diffToggle;
 			}
 		}
 	}
@@ -728,12 +734,12 @@ class FlaggedArticleView {
 	}
 
 	/**
-	* Add diff-to-stable to top of page views as needed
+	* Get collapsible diff-to-stable html to add to the review notice as needed
 	* @param FlaggedRevision $srev, stable version
 	* @param bool $quality, revision is quality
-	* @returns bool, diff added to output
+	* @returns string, the html line (either "" or "<diff toggle><diff div>")
 	*/
-	protected function maybeShowTopDiff( FlaggedRevision $srev, $quality ) {
+	protected function getTopDiffToggle( FlaggedRevision $srev, $quality ) {
 		global $wgUser;
 		$this->load();
 		if ( !$wgUser->getBoolOption( 'flaggedrevsviewdiffs' ) ) {
@@ -771,25 +777,15 @@ class FlaggedArticleView {
 			} else {
 				$multiNotice = '';
 			}
-			$items = array();
-			$diffHtml =
-				FlaggedRevsXML::pendingEditNotice( $this->article, $srev, $revsSince ) .
-				' ' . FlaggedRevsXML::diffToggle() .
-				"<div id='mw-fr-stablediff'>" .
-				self::getFormattedDiff( $diffBody, $multiNotice, $leftNote, $rightNote ) .
-				"</div>\n";
-			$items[] = $diffHtml;
-			$html = "<table class='flaggedrevs_viewnotice plainlinks'>";
-			foreach ( $items as $item ) {
-				$html .= '<tr><td>' . $item . '</td></tr>';
-			}
-			$html .= '</table>';
-			$this->reviewNotice .= $html;
 			$diffEngine->showDiffStyle(); // add CSS
 			$this->isDiffFromStable = true; // alter default review form tags
-			return true;
+			return
+				FlaggedRevsXML::diffToggle() .
+				"<div id='mw-fr-stablediff'>" .
+				self::getFormattedDiff( $diffBody, $multiNotice, $leftNote, $rightNote ) .
+				"</div>\n";;
 		}
-		return false;
+		return '';
 	}
 
 	// $n number of in-between revs
@@ -1308,15 +1304,23 @@ class FlaggedArticleView {
 	/**
 	 * Adds a notice saying that this revision is pending review
 	 * @param FlaggedRevision $srev The stable version
+	 * @param string $diffToggle either "" or " <diff toggle><diff div>"
 	 * @return void
 	 */
-	public function setPendingNotice( FlaggedRevision $srev ) {
+	public function setPendingNotice( FlaggedRevision $srev, $diffToggle = '' ) {
 		global $wgLang;
 		$this->load();
 		$time = $wgLang->date( $srev->getTimestamp(), true );
-		$pendingNotice = wfMsgExt( 'revreview-pendingnotice', 'parseinline', $time );
-		$this->reviewNotice .= "<div id='mw-fr-reviewnotice' class='flaggedrevs_preview plainlinks'>" . 
-			$pendingNotice . "</div>";
+		$revsSince = $this->article->getPendingRevCount();
+		$msg = $srev->getQuality()
+			? 'revreview-newest-quality'
+			: 'revreview-newest-basic';
+		$msg .= ( $revsSince == 0 ) ? '-i' : '';
+		# Add bar msg to the top of the page...
+		$css = 'flaggedrevs_preview plainlinks';
+		$msgHTML = wfMsgExt( $msg, 'parseinline', $srev->getRevId(), $time, $revsSince );
+		$this->reviewNotice .= "<div id='mw-fr-reviewnotice' class='$css'>" . 
+			"$msgHTML$diffToggle</div>";
 	}
 
 	/**
