@@ -7180,7 +7180,7 @@ $messages['he'] = array(
 	'revreview-edited' => "'''השינויים שלכם יוצגו לקוראים לאחר שמשתמש מורשה יסקור אותם. ([[{{MediaWiki:Validationpage}}|עזרה]])'''
 
 יש [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} {{PLURAL:$2|שינוי אחד|$2 שינויים}}] ''(מוצג{{PLURAL:$2||ים}} בהמשך)'' {{PLURAL:$2|שממתין|שממתינים}} לסקירה.",
-	'revreview-edited-section' => 'חזרה לפסקה בשם "[[#$1|$2]]".',
+	'revreview-edited-section' => 'חזרה לפסקה "[[#$1|$2]]".',
 	'revreview-flag' => 'סקירה של גרסה זו',
 	'revreview-reflag' => 'סקירה חוזרת של גרסה זו',
 	'revreview-invalid' => "'''יעד בלתי תקין:''' מספר הגרסה שניתן אינו מצביע לגרסה [[{{MediaWiki:Validationpage}}|שנסקרה]].",
@@ -11129,12 +11129,12 @@ $messages['mk'] = array(
 	'revreview-main' => 'Мора да изберете конкретна ревизија на страницата за проверка.
 
 Погледајте го [[Special:Unreviewedpages|списокот на неоценети страници]].',
-	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Објавената верзија] е [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} проверена] на <i>$2</i>. Има [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|промена|промени}}] кои чекаат на проверка.',
-	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Објавената верзија] е [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} проверена] на <i>$2</i>. Има [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} промени на шаблони/податотеки] кои чекаат на проверка.',
+	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Стабилната верзија] е [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} проверена] на <i>$2</i>. Има [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|промена|промени}}] {{PLURAL:$3|што чека|што чекаат}} на проверка.',
+	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Објавената верзија] е [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} проверена] на <i>$2</i>. Има [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} промени во шаблони/податотеки] што чекаат на проверка.',
 	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Објавената верзија] била [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} одобрена] на <i>$2</i>. 
 Има [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|промена |промени}}] во исчекување на преглед.',
 	'revreview-newest-quality-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Објавената верзија] била [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} одобрена] на <i>$2</i>. Има [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} промени на шаблонот/податотеката] во исчекување на проверка.',
-	'revreview-pending-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Објавената верзија] е [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} проверена] на <i>$2</i>. Има [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|промена|промени}}] кои чекаат на проверка.',
+	'revreview-pending-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Стабилната верзија] е [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} проверена] на <i>$2</i>. Има [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|промена|промени}}] {{PLURAL:$3|што чека|што чекаат}} на проверка.',
 	'revreview-pending-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Објавената верзија] била [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} одобрена] на <i>$2</i>.
 {{PLURAL:$3|Има|Има}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|промена|промени}}] во исчекување на проверка.',
 	'revreview-pending-nosection' => 'Погледнете ја [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} последната ревизија], која содржи
@@ -14860,7 +14860,7 @@ $messages['sah'] = array(
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|уларытыы|уларытыылар}}] бигэргэтэри {{PLURAL:$3|кэтэһэр|кэтэһэллэр}}.',
 	'revreview-basic-i' => 'Бу [[{{MediaWiki:Validationpage}}|тахсыбыт барыл]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} тургутуллубут] <i>$2</i>.
 Халыыптарга эбэтэр билэлэргэ тургутуллубатах [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} уларытыылар] бааллар.',
-	'revreview-basic-same' => 'Бу [[{{MediaWiki:Validationpage}}|стабильнай барыл]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} бэрэбиэркэлэммит] <i>$2</i>.',
+	'revreview-basic-same' => 'Бу [[{{MediaWiki:Validationpage}}|бигэ барыл]],  <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} көрбүт].',
 	'revreview-failed' => "'''Барылы тургутуу сатаммата.'''",
 	'review_page_invalid' => 'Сорук-сирэй аата сыыһалаах.',
 	'review_page_notexists' => 'Сорук-сирэй суох эбит.',
