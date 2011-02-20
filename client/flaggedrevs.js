@@ -9,12 +9,13 @@ window.FlaggedRevs = {
 		// Rating detail box
 		var toggle = document.getElementById('mw-fr-revisiontoggle');
 		if( toggle ) {
-			toggle.style.display = 'inline';
+			toggle.style.display = 'inline'; /* show toggle control */
+			this.hideBoxDetails(); /* hide the initially displayed ratings */
 		}
 		// Diff detail box
 		toggle = document.getElementById('mw-fr-difftoggle');
 		if( toggle ) {
-			toggle.style.display = 'inline';
+			toggle.style.display = 'inline'; /* show toggle control */
 			var diff = document.getElementById('mw-fr-stablediff');
 			if( diff ) {
 				diff.style.display = 'none';
@@ -23,7 +24,7 @@ window.FlaggedRevs = {
 		// Log detail box
 		toggle = document.getElementById('mw-fr-logtoggle');
 		if( toggle ) {
-			toggle.style.display = 'inline';
+			toggle.style.display = 'inline'; /* show toggle control */
 			var log = document.getElementById('mw-fr-logexcerpt');
 			if( log ) {
 				log.style.display = 'none';
