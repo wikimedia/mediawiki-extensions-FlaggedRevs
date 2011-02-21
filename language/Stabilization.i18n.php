@@ -494,6 +494,7 @@ $messages['bg'] = array(
 
 /** Bengali (বাংলা)
  * @author Bellayet
+ * @author Ehsanulhb
  * @author Zaheen
  */
 $messages['bn'] = array(
@@ -501,7 +502,7 @@ $messages['bn'] = array(
 	'stabilization' => 'পাতা স্থিতিকরণ',
 	'stabilization-page' => 'পাতার নাম:',
 	'stabilization-def2' => 'বর্তমান/খসড়া সংশোধন',
-	'stabilization-submit' => 'নিশ্চিত করো',
+	'stabilization-submit' => 'নিশ্চিত করুন',
 	'stabilization-comment' => 'কারণ:',
 	'stabilization-otherreason' => 'অন্য কারণ:',
 	'stabilization-expiry' => 'মেয়াদ উত্তীর্ণ:',
@@ -1375,7 +1376,7 @@ $messages['he'] = array(
 להלן ההגדרות הנוכחיות עבור [[:$1|$1]]:',
 	'stabilization-page' => 'שם הדף:',
 	'stabilization-leg' => 'אנא אשרו את הגדרות היציבות',
-	'stabilization-def' => 'הגרסה המופיעה כברירת מחדל',
+	'stabilization-def' => 'הגרסה המופיעה לפי בררת מחדל',
 	'stabilization-def1' => 'הגרסה היציבה; אם היא לא קיימת, אז הגרסה האחרונה',
 	'stabilization-def2' => 'הגרסה האחרונה',
 	'stabilization-restrict' => 'הגבלות על סקירה וסקירה אוטומטית',
@@ -1389,7 +1390,7 @@ $messages['he'] = array(
 	'stabilization-otherreason' => 'סיבה אחרת:',
 	'stabilization-expiry' => 'פקיעה:',
 	'stabilization-othertime' => 'זמן פקיעה אחר:',
-	'stabilization-def-short' => 'ברירת מחדל',
+	'stabilization-def-short' => 'בררת מחדל',
 	'stabilization-def-short-0' => 'נוכחי',
 	'stabilization-def-short-1' => 'יציב',
 	'stabilize_page_invalid' => 'כותרת דף היעד אינה תקינה.',
