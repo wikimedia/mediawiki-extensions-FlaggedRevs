@@ -403,7 +403,7 @@ class FlaggedArticleView {
 	protected function showUnreviewedPage( $tag, $prot ) {
 		global $wgOut, $wgContLang;
 		if ( $wgOut->isPrintable() ) {
-			return;
+			return; // all this function does is add notices; don't show them
 		}
 		$icon = FlaggedRevsXML::draftStatusIcon();
 		// Simple icon-based UI
@@ -592,9 +592,9 @@ class FlaggedArticleView {
 						FlaggedRevsXML::addTagRatings( $flags ) . '</div>';
 				}
 			}
+			# Load the review notes which will be shown by onSkinAfterContent
+			$this->setReviewNotes( $frev );
 		}
-		# Load the review notes which will be shown by onSkinAfterContent
-		$this->setReviewNotes( $frev );
 
 		# Check if this is a redirect...
 		$text = $frev->getRevText();
@@ -675,7 +675,9 @@ class FlaggedArticleView {
 		}
 
 		# Load the review notes which will be shown by onSkinAfterContent
-		$this->setReviewNotes( $srev );
+		if ( !$wgOut->isPrintable() ) {
+			$this->setReviewNotes( $srev );
+		}
 
 		# Get parsed stable version and output HTML
 		$parserOut = FlaggedRevs::getPageCache( $this->article, $wgUser );
