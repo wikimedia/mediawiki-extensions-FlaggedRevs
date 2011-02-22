@@ -1481,7 +1481,7 @@ Slijede važeće postavke za [[:$1|$1]]:',
  * @author Michawiki
  */
 $messages['hsb'] = array(
-	'stabilization-tab' => '(Kwalitne zawěsćenje)',
+	'stabilization-tab' => 'přepruwować',
 	'stabilization' => 'Stabilizacija strony',
 	'stabilization-text' => "'''Změń slědowace nastajenja, zo by postajił, kak so wozjewjena wersija wot [[:$1|$1]] wuběra a zwobraznja.'''",
 	'stabilization-perm' => 'Twoje wužiwarske konto nima trěbne prawo, zo by nastajenja wozjewjeneje wersije změniło.
@@ -1502,7 +1502,7 @@ Aktualne nastajenja za „[[:$1|$1]]“ su:',
 	'stabilization-othertime' => 'Druhi čas:',
 	'stabilization-def-short' => 'Standard',
 	'stabilization-def-short-0' => 'Aktualny',
-	'stabilization-def-short-1' => 'Wozjewjeny',
+	'stabilization-def-short-1' => 'Stabilna wersija',
 	'stabilize_page_invalid' => 'Titul ciloweje strony je njepłaćiwy.',
 	'stabilize_page_notexists' => 'Cilowa strona njeeksistuje.',
 	'stabilize_page_unreviewable' => 'Cilowa strona w přepruwujomnym mjenowym rumje njeje.',
