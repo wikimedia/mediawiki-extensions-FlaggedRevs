@@ -2834,9 +2834,12 @@ Nove [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} izmjene] su nap
 Pogledajte [[Special:Unreviewedpages|spisak nepregledanih stranica]].',
 	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|izmjena|izmjene}}] u ovoj verziji {{PLURAL:$3|je|su}} [[{{MediaWiki:Validationpage}}|na čekanju za provjeru]].
 [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Stabilna verzija] je bila [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} provjerena] dana <i>$2</i>.',
-	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Stabilna verzija] je bila [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} provjerena] dana <i>$2</i>. Postoji [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} izmjena šablona/datoteke] koja čeka na provjeru.',
-	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Stabilna verzija] je bila [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} odobrena] dana <i>$2</i>. {{PLURAL:$3|Postoji|Postoje}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|izmjena|izmjene}}] koje čekaju na pregled.',
-	'revreview-newest-quality-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Stabilna verzija] je bila [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} odobrena] dana <i>$2</i>. Postoje [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} izmjene šablona/datoteke] koje čekaju na provjeru.',
+	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Izmjene šablona/datoteke] u ovoj verziji [[{{MediaWiki:Validationpage}}|čekaju na provjeru]].
+[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Stabilna verzija] je [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} provjerena] dana <i>$2</i>.',
+	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3  {{PLURAL:$3|izmjena|izmjene|izmjena}}] u ovoj verziji {{PLURAL:$3|čeka|čekaju}} [[{{MediaWiki:Validationpage}}|na provjeru]].
+[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Stabilna verzija] je bila [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} odobrena] dana <i>$2</i>.',
+	'revreview-newest-quality-i' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Izmjene šablona/datoteke] u ovoj verziji [[{{MediaWiki:Validationpage}}|čekaju na provjeru]].
+[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Stabilna verzija] je bila [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} odobrena] dana <i>$2</i>.',
 	'revreview-pending-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Stabilna verzija] je bila [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} provjerena] dana <i>$2</i>. {{PLURAL:$3|Postoji|Postoje}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|izmjena|izmjene}}] koje čekaju na provjeru.',
 	'revreview-pending-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Stabilna verzija] je bila [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} odobrena] dana <i>$2</i>. 
 {{PLURAL:$3|Postoji|Postoje}}  [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|izmjena|izmjene}}] koje čekaju na pregled.',
@@ -4279,14 +4282,14 @@ Wužywaj to jano, jolic sy južo wšykne njepśeglědane změny wiźeł.',
 	'revreview-main' => 'Musyš jadnotliwu wersiju wopśimjeśowego boka za pśeglědanje wubraś.
 
 Glědaj [[Special:Unreviewedpages|lisćinu njepśeglědanych bokow]].',
-	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Wózjawjona wersija] jo se [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} pśekontrolěrowała] <i>$2</i>.
-{{PLURAL:$3|Jo|Stej|Su|Jo}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|njepśeglědana změna|njepśeglědanej změnje|njepśeglědane změny|njepśeglědanych změnow}}], {{PLURAL:$3|kótaraž caka|kótarejž cakatej|kótarež cakaju|kótarež cakaju}} na pśeglědanje.',
-	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Wózjawjona wersija] jo se [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} pśekotrolěrowała] <i>$2</i>. Su
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} změny pśedłogow/datajow], kótarež cakaju na pśeglědanje.',
-	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Wózjawjona wersija] jo se [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} schwaliła] <i>$2</i>.
-{{PLURAL:$3|Jo|Stej|Su|Jo}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|změna|změnje|změny|změnow}}] {{PLURAL:$3|kótaraž caka|kótarejž cakatej|kótarež cakaju|kótarež cakaju}} na pśeglědanje.',
-	'revreview-newest-quality-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Wózjawjona wersija] jo se [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} schwaliła] <i>$2</i>.
-Su [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} změny pśedłogow/datajow], kótarež cakaju na pśeglědanje.',
+	'revreview-newest-basic' => ' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|změna|změnje|změny|změnow}}] w toś tej wersiji, {{PLURAL:$3|kótaraž caka|kótarejž cakatej|kótarež cakaju|kótarež cakaju}} na  [[{{MediaWiki:Validationpage}}|pśeglědanje]].
+ [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Stabilna wersija] jo se <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} pśekontrolěrowała].',
+	'revreview-newest-basic-i' => 'Su [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} změny pśedłogow/datajow] w toś tej wersiji, kótarež cakaju na [[{{MediaWiki:Validationpage}}|pśeglědanje]].
+[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Stabilna wersija] jo se <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} pśekotrolěrowała].',
+	'revreview-newest-quality' => ' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|změna|změnje|změny|změnow}}] w toś tej wersiji, {{PLURAL:$3|kótaraž caka|kótarejž cakatej|kótarež cakaju|kótarež cakaju}} na  [[{{MediaWiki:Validationpage}}|pśeglědanje]].
+ [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Stabilna wersija] jo se <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} wobkšuśiła].',
+	'revreview-newest-quality-i' => 'Su [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} změny pśedłogow/datajow] w toś tej wersiji, kótarež cakaju na [[{{MediaWiki:Validationpage}}|pśeglědanje]].
+[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Stabilna wersija] jo se <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} wobkšuśiła].',
 	'revreview-pending-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Wózjawjona wersija] jo se [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} pśekontrolěrowała] <i>$2</i>. {{PLURAL:$3|Jo|Stej|Su|Jo}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|njepśeglědana změna|njepśeglědanej změnje|njepśeglědane změny|njepśeglědanych změnow}}], {{PLURAL:$3|kótaraž caka|kótarejž cakatej|kótarež cakaju|kótarež cakaju}} na pśeglědanje.',
 	'revreview-pending-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Wózjawjona wersija] jo se [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} pśizwóliła] na <i>$2</i>. {{PLURAL:$3|Jo|Stej|Su|Jo}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|njepśeglědana změna|njepśeglědanej změnje|njepśeglědane změny|njepśeglědanych změnow}}], {{PLURAL:$3|kótaraž caka|kótarejž cakatej|kótarež cakaju|kótarež cakaju}} na pśeglědanje.',
 	'revreview-pending-nosection' => 'Wopytaj se [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} nejnowšu wersiju] woglědaś, kótaraž wopśimujo [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 {{PLURAL:$2|njepśeglědanu změnu|njepśeglědanej změnje|njepśeglědane změny|njepśeglědanych změnow}}], aby wiźeł, lěc wótrězk jo se pśesunuł abi wulašował.',
@@ -12082,14 +12085,14 @@ Er {{PLURAL:$2|is|zijn}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly
 	'revreview-main' => "U moet een specifieke versie van een pagina kiezen die u wilt controleren.
 
 Zie  de [[Special:Unreviewedpages|lijst met ongecontroleerde pagina's]].",
-	'revreview-newest-basic' => 'De [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} gepubliceerde versie] is [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} gecontroleerd] op <i>$2</i>.
-Er {{PLURAL:$3|is|zijn}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 ongecontroleerde {{PLURAL:$3|wijziging|wijzigingen}}].',
-	'revreview-newest-basic-i' => 'De [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} gepubliceerde versie ] is [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} gecontroleerd] op <i>$2</i>.
-Er zijn ongecontroleerde [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} wijzigingen in gebruikte sjablonen en bestanden].',
-	'revreview-newest-quality' => 'De [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} gepubliceerde versie] is [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} goedgekeurd] op <i>$2</i>.
-Er {{PLURAL:$3|is|zijn}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 ongecontroleerde {{PLURAL:$3|wijziging|wijzigingen}}].',
-	'revreview-newest-quality-i' => 'De [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} gepubliceerde versie] is [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} geoedgekeurd] op <i>$2</i>.
-Er zijn ongecontroleerde [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} wijzigingen in gebruikte sjablonen en bestanden].',
+	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|wijziging|wijzigingen}}] in deze versie {{PLURAL:$3|wacht|wachten}} op [[{{MediaWiki:Validationpage}}|controle]].
+De [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} stabiele versie] is [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} gecontroleerd] op <i>$2</i>.',
+	'revreview-newest-basic-i' => 'Er zijn [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} wijzigingen in sjablonen of bestanden] voor deze versie die wachten op [[{{MediaWiki:Validationpage}}|controle]].
+De [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} stabiele versie] is [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} gecontroleerd] op <i>$2</i>.',
+	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|wijziging|wijzigingen}}] in deze versie {{PLURAL:$3|wacht|wachten}} op [[{{MediaWiki:Validationpage}}|controle]].
+De [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} stabiele versie] is [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} goedgekeurd] op <i>$2</i>.',
+	'revreview-newest-quality-i' => 'Er zijn [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} wijzigingen in sjablonen of bestanden] voor deze versie die wachten op [[{{MediaWiki:Validationpage}}|controle]].
+De [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} stabiele versie] is [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} goedgekeurd] op <i>$2</i>.',
 	'revreview-pending-basic' => 'De [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} gepubliceerde versie] is [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} gecontroleerd] op <i>$2</i>.
 Er {{PLURAL:$3|is|zijn}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 ongecontroleerde {{PLURAL:$3|wijziging|wijzigingen}}].',
 	'revreview-pending-quality' => 'De [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} gepubliceerde versie] is [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} goedgekeurd] op <i>$2</i>.
@@ -13600,10 +13603,14 @@ Faça-o só se já viu a lista completa de diferenças das alterações pendente
 	'revreview-main' => 'Tem de seleccionar uma edição específica de uma página, para revê-la.
 
 Veja a [[Special:Unreviewedpages|lista de páginas não revistas]].',
-	'revreview-newest-basic' => 'A [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} versão publicada] foi [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} verificada] a <i>$2</i>. {{PLURAL:$3|Existe|Existem}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|alteração pendente|alterações pendentes}}] a aguardar revisão.',
-	'revreview-newest-basic-i' => 'A [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} versão publicada] foi [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} verificada] a <i>$2</i>. Existem [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} alterações a predefinições ou ficheiros] a aguardar revisão.',
-	'revreview-newest-quality' => 'A [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} versão publicada] foi [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovada] a <i>$2</i>. {{PLURAL:$3|Existe|Existem}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|alteração pendente|alterações pendentes}}] a aguardar revisão.',
-	'revreview-newest-quality-i' => 'A [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} versão publicada] foi [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovada] a <i>$2</i>. Existem [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} alterações a predefinições ou ficheiros] a aguardar revisão.',
+	'revreview-newest-basic' => '{{PLURAL:$3|Existe|Existem}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|alteração pendente|alterações pendentes}}] a [[{{MediaWiki:Validationpage}}|aguardar revisão]].
+A [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} versão publicada] foi [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} verificada] a <i>$2</i>.',
+	'revreview-newest-basic-i' => 'Existem [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} alterações a predefinições ou ficheiros] a [[{{MediaWiki:Validationpage}}|aguardar revisão]].
+A [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} versão publicada] foi [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} verificada] a <i>$2</i>.',
+	'revreview-newest-quality' => '{{PLURAL:$3|Existe|Existem}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|alteração pendente|alterações pendentes}}] a [[{{MediaWiki:Validationpage}}|aguardar revisão]].
+A [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} versão publicada] foi [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovada] a <i>$2</i>.',
+	'revreview-newest-quality-i' => 'Existem [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} alterações a predefinições ou ficheiros] a [[{{MediaWiki:Validationpage}}|aguardar revisão]].
+A [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} versão publicada] foi [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovada] a <i>$2</i>.',
 	'revreview-pending-basic' => 'A [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} versão publicada] foi [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} verificada] a <i>$2</i>. {{PLURAL:$3|Existe|Existem}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|alteração pendente|alterações pendentes}}] a aguardar revisão.',
 	'revreview-pending-quality' => 'A [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} versão publicada] foi [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovada] a <i>$2</i>. {{PLURAL:$3|Existe|Existem}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|alteração pendente|alterações pendentes}}] a aguardar revisão.',
 	'revreview-pending-nosection' => 'Tente ver a [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} edição mais recente], que inclui
@@ -18787,6 +18794,7 @@ Controleer asjeblieft de URL die  a je hebruken om ni deêze pagina te haene.',
  * @author PhiLiP
  * @author Waihorace
  * @author Xiaomingyan
+ * @author 阿pp
  */
 $messages['zh-hans'] = array(
 	'action-review' => '复查修改',
@@ -18905,15 +18913,17 @@ $messages['zh-hans'] = array(
 	'revreview-main' => '您一定要在一页的内容页中选择一个个别的修订去复审。
 
 	参看[[Special:Unreviewedpages]]去撷取未复审的页面。',
-	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 最后视察过的修订][{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 审核] 于<i>$2</i>。
+	'revreview-newest-basic' => '此版本中的[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3个 {{PLURAL:$3|修订|修订}}]{{PLURAL:$3|正|正}} [[{{MediaWiki:Validationpage}}|等待视察]]。
+[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 最后视察过的修订][{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 审核] 于<i>$2</i>。
 
 {{PLURAL:$3|有|有}}[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3次更改]需要复审。',
-	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 稳定版本][{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 审核]于<i>$2</i>。
+	'revreview-newest-basic-i' => '此版本中[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} 模板/文档的修订] 正[[{{MediaWiki:Validationpage}}|等待审核]]。
+[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 稳定版本][{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 审核]于<i>$2</i>。
 
 这里有[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} 模板或档案]等待审查。',
 	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|更改|更改}}] 在此版本中 {{PLURAL:$3|是|是}} [[{{MediaWiki:Validationpage}}|有待审查]]。
 [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 稳定版本] 是在<i>$2</i>。 [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 批准]',
-	'revreview-newest-quality-i' => '[{{fullurl: {{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} 模板/文件更改] 在此版本中 [[{{MediaWiki:Validationpage}} |有待审查]]。
+	'revreview-newest-quality-i' => '[{{fullurl: {{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} 模板/文件更改] 在此版本中 [[{{MediaWiki:Validationpage}}|等待审查]]。
 [{{fullurl: {{FULLPAGENAMEE}}|stable=1}} 稳定版本] 是在<i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 批准]。',
 	'revreview-pending-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 稳定版本]是在<i>$2</i>[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 检查]的。那里还有[{{fullurl:{{FULLPAGENAMEE}}|oldid =$1&diff=cur&diffonly=0}}$3未决定变化]等待审查。',
 	'revreview-pending-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 稳定版本]是在<i>$2</i>[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 批准]。还有[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}}$3未决定变化]等待审查。',
