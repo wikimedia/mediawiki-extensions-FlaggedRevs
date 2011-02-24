@@ -10569,8 +10569,8 @@ Et gëtt [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 {{PLURAL
 Kuckt d'[[Special:Unreviewedpages|Lëscht vun den net nogekuckte Sàiten]].",
 	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} {{PLURAL:$3|Ännerung|$3 Ännerunge}}] an dëser Versioun déi drop {{PLURAL:$3|waaard|waarde}} [[{{MediaWiki:Validationpage}}|nogekuckt ze ginn]].
 Déi [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} stabil Versioun] gouf den <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} nogekuckt].',
-	'revreview-newest-basic-i' => 'Déi [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} publizéiert Versioun] gouf den <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} nogekuckt].
-Et gëtt [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Schabloun/Fichier-Ännerungen] déi nach mussen nogekuckt ginn.',
+	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Schabloun/Fichier-Ännerungen] vun dëser Versioun mussen nach [[{{MediaWiki:Validationpage}}|nogekuckt ginn]].
+Déi [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} stabil Versioun] gouf den <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} nogekuckt].',
 	'revreview-newest-quality' => 'Déi [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} publizéiert Versioun] gouf den <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} fräiginn].
 Et gëtt [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|Ännerung|Ännerungen}} am Suspens] déi drop {{PLURAL:$3|waard|waarden}} fir nogekuckt ze ginn.',
 	'revreview-newest-quality-i' => 'Déi [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} publizéiert Versioun] gouf den <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} fräiginn]. Et gëtt [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Schablounen/Fichier Ännerungen] déi dorop waarde fir nogekuckt ze ginn.',
