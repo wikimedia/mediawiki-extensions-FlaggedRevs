@@ -3629,8 +3629,8 @@ $messages['de'] = array(
 	'flaggedrevs-pref-UI' => 'Einfache Benutzeroberfläche:',
 	'flaggedrevs-pref-UI-0' => 'Verwende die detaillierte Übersicht, um den Markierungstatus von Seiten anzuzeigen',
 	'flaggedrevs-pref-UI-1' => 'Verwende kleine Symbole und wenig Text, um den Markierungstatus von Seiten anzuzeigen',
-	'prefs-flaggedrevs' => 'Bearbeitungsberechtigung',
-	'prefs-flaggedrevs-ui' => 'Bearbeitungsberechtigung',
+	'prefs-flaggedrevs' => 'Seitenanzeige',
+	'prefs-flaggedrevs-ui' => 'Seitenanzeige',
 	'flaggedrevs-prefs-stable' => 'Zeige standardmäßig die stabile Version einer Seite (falls vorhanden)',
 	'flaggedrevs-prefs-watch' => 'Selbst markierte Seiten automatisch beobachten',
 	'flaggedrevs-prefs-editdiffs' => 'Zeige beim Bearbeiten auch den Unterschied zur letzten stabilen Version im Versionsvergleich',
@@ -7085,7 +7085,7 @@ $messages['he'] = array(
 	'prefs-flaggedrevs-ui' => '{{int:Prefs-flaggedrevs}}',
 	'flaggedrevs-prefs-stable' => 'תמיד להציג תחילה את הגרסה היציבה של דפי תוכן (אם היא קיימת)',
 	'flaggedrevs-prefs-watch' => 'מעקב אחרי דפים שסקרתי',
-	'flaggedrevs-prefs-editdiffs' => 'להציג ההשוואה של השינויים הממתינים בעת עריכת דפים',
+	'flaggedrevs-prefs-editdiffs' => 'להציג את ההשוואה של השינויים הממתינים בעת עריכת דפים',
 	'flaggedrevs-prefs-viewdiffs' => 'להציג ההשוואה של השינויים הממתינים בעת צפייה בגרסה הממתינה האחרונה',
 	'group-editor' => 'עורכים',
 	'group-editor-member' => 'עורך',
@@ -9219,11 +9219,14 @@ $messages['ja'] = array(
 	'revreview-main' => '査読のためには対象記事から特定の版を選択する必要があります。
 
 [[Special:Unreviewedpages|未査読ページ一覧]]を参照してください。',
-	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 公開版]は <i>$2</i> に[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 確認されました]。[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3件の保留中の{{PLURAL:$3|変更}}]が査読を待っています。',
-	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 公開版]は <i>$2</i> に[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 確認されました]。査読待ちの[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} テンプレートまたはファイルの変更]があります。',
-	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 公開版]は <i>$2</i> に[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 承認されました]。
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0&editreview=1}} $3件の保留中の{{PLURAL:$3|変更}}]が査読を待っています。',
-	'revreview-newest-quality-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 公開版]は <i>$2</i> に[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 承認されました]。査読待ちの[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} テンプレートまたはファイルの変更]があります。',
+	'revreview-newest-basic' => 'この版における[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3件の変更{{PLURAL:$3}}]が{{PLURAL:$3}}、[[{{MediaWiki:Validationpage}}|査読待ち]]の状態にあります。
+[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 公開版]は<i>$2</i>に[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 確認されました]。',
+	'revreview-newest-basic-i' => 'この版における[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} テンプレートまたはファイルの変更]が[[{{MediaWiki:Validationpage}}|査読待ち]]の状態にあります。
+[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 公開版]は<i>$2</i>に[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 確認されました]。',
+	'revreview-newest-quality' => 'この版における[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3件の変更{{PLURAL:$3}}]が{{PLURAL:$3}}[[{{MediaWiki:Validationpage}}|査読待ち]]の状態にあります。
+[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 公開版]は<i>$2</i>に[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 承認されました]。',
+	'revreview-newest-quality-i' => 'この版における[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} テンプレートまたはファイルの変更]が[[{{MediaWiki:Validationpage}}|査読待ち]]の状態にあります。
+[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 公開版]は<i>$2</i>に[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 承認されました]。',
 	'revreview-pending-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 公開版]は <i>$2</i> に[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 確認されました]。[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3件の保留中の{{PLURAL:$3|変更}}]が査読を待っています。',
 	'revreview-pending-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 公開版]は <i>$2</i> に[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 承認されました]。[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3件の保留中の{{PLURAL:$3|変更}}]が査読を待っています。',
 	'revreview-pending-nosection' => 'セクションが移動または削除されているかを確認するには、[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} 最新版]（[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2件の保留中の{{PLURAL:$2|変更}}]あり）を確認してください。',
@@ -10571,9 +10574,10 @@ Kuckt d'[[Special:Unreviewedpages|Lëscht vun den net nogekuckte Sàiten]].",
 Déi [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} stabil Versioun] gouf den <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} nogekuckt].',
 	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Schabloun/Fichier-Ännerungen] vun dëser Versioun mussen nach [[{{MediaWiki:Validationpage}}|nogekuckt ginn]].
 Déi [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} stabil Versioun] gouf den <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} nogekuckt].',
-	'revreview-newest-quality' => 'Déi [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} publizéiert Versioun] gouf den <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} fräiginn].
-Et gëtt [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|Ännerung|Ännerungen}} am Suspens] déi drop {{PLURAL:$3|waard|waarden}} fir nogekuckt ze ginn.',
-	'revreview-newest-quality-i' => 'Déi [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} publizéiert Versioun] gouf den <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} fräiginn]. Et gëtt [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Schablounen/Fichier Ännerungen] déi dorop waarde fir nogekuckt ze ginn.',
+	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|Ännerung ass|Ännerunge sinn}} an dëser Versioun] déi drop {{PLURAL:$3|waart|waarden}} fir [[{{MediaWiki:Validationpage}}|nogekuckt ze ginn]].
+Déi [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} stabil Versioun] gouf den <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} fräiginn].',
+	'revreview-newest-quality-i' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Schablounen/Fichier Ännerungen] sinn an dëser Versioun [[{{MediaWiki:Validationpage}}|déi dorop waarde fir nogekuckt ze ginn]].
+Déi [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} publizéiert Versioun] gouf den <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} fräiginn].',
 	'revreview-pending-basic' => 'Déi [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} publizéiert Versioun] gouf den <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} nogekuckt]. Et gëtt
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|Ännerung|Ännerungen}}] déi drop waarden nogekuckt ze ginn.',
 	'revreview-pending-quality' => 'Déi [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} publizéiert Versioun] gouf den <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} fräiginn]. Et gëtt 
