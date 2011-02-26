@@ -3951,9 +3951,9 @@ $messages['diq'] = array(
 	'revreview-hist-pending' => 'qontrol ho vindeno',
 	'revreview-hist-quality' => 'revizyonê qaliteyi',
 	'revreview-hist-basic' => 'çımraviyarnayışo qontrolbiyae',
-	'revreview-hist-quality-user' => '[[User:$3|$3]], tesdiq kerd]',
+	'revreview-hist-quality-user' => 'terefê [[User:$3|$3]] ra qebul bi',
 	'revreview-hist-basic-user' => 'terefê [[User:$3|$3]] ra qontrol bi',
-	'revreview-hist-quality-auto' => 'otomatikmen tesdiq bi',
+	'revreview-hist-quality-auto' => 'otomatikmen qebul bi',
 	'revreview-hist-basic-auto' => 'otomatikmen qontrol bi',
 	'revreview-hist-pending-difflink' => "'''[[{{fullurl:$1|oldid=$2&diff=$3}} qontrol ho vindeno]]'''",
 	'review-edit-diff' => "'''DIQET: Tay vurnayişan ke hama çap nibiya ho pedê nuştiş de ca geno.'''",
@@ -6893,14 +6893,14 @@ S het [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 hängigi {{
 	'revreview-main' => 'Du muesch e Artikelversion uswehle go si markiere.
 
 Lueg au d [[Special:Unreviewedpages|Lischt vu nit markierte Versione]].',
-	'revreview-newest-basic' => 'Di [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} vereffetligt Version] isch [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} kontrolliert wore] am <i>$2</i>. S het [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 hängigi {{PLURAL:$3|Änderig|Änderige}}].',
-	'revreview-newest-basic-i' => 'Di [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} vereffetligt Version] isch  [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} kontrolliert wore] am <i>$2</i>.
-S het [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} hängigi Änderige an Vorlage/Dateie].',
-	'revreview-newest-quality' => 'Di [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} vereffetligt Version] isch am <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} frejgee wore].
-S het [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 hängigi {{PLURAL:$3|Änderig|Änderige}}].
-wu no sotte aagluegt wäre',
-	'revreview-newest-quality-i' => 'Di [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} vereffetligt Version] isch [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} frejgee wore] am <i>$2</i>.
-S het [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} hängigi Änderige an Vorlage/Dateie]',
+	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|Änderig|Änderige}}] vu däre Version {{PLURAL:$3|isch|sin}} [[{{MediaWiki:Validationpage}}|nonig markiert]].
+Di [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} gsichtet Version] isch am <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} markiert wore].',
+	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Vorlagen- un Dateiänderige] vu däre Version sin [[{{MediaWiki:Validationpage}}|nonig markiert]].
+Di [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} gsichtet Version] isch am <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} markiert wore].',
+	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|Änderig|Änderige}}] vu däre Version {{PLURAL:$3|isch|sin}} [[{{MediaWiki:Validationpage}}|nonig markiert]].
+Di [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} gsichtet Version] isch am <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} markiert wore].',
+	'revreview-newest-quality-i' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Vorlagen- un Dateiänderige] vu däre Version sin [[{{MediaWiki:Validationpage}}|nonig markiert]].
+Di [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} gsichtet Version] isch am <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} markiert wore].',
 	'revreview-pending-basic' => 'Di [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} vereffetligt Version] isch am <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} kontrolliert wore].
 S het [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 hängigi {{PLURAL:$3|Änderig|Änderige}}].',
 	'revreview-pending-quality' => 'Di [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} vereffetligt Version] isch am <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} frejgee wore].
