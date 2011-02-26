@@ -1818,8 +1818,10 @@ class FlaggedRevsHooks {
 			$output .= Xml::option( $label, $limit, $limit == $restriction );
 		}
 		$output .= Xml::closeElement( 'select' );
+
 		# Get expiry dropdown <select>...
 		$scExpiryOptions = wfMsgForContent( 'protect-expiry-options' );
+		$showProtectOptions = ( $scExpiryOptions !== '-' && $isAllowed );
 		# Add the current expiry as an option
 		$expiryFormOptions = '';
 		if ( $config['expiry'] != 'infinity' ) {
@@ -1846,14 +1848,13 @@ class FlaggedRevsHooks {
 			$expiryFormOptions .= Xml::option( $show, $value, $expirySelect == $value ) . "\n";
 		}
 		# Actually add expiry dropdown to form
-		$scExpiryOptions = wfMsgForContent( 'protect-expiry-options' );
-		$showProtectOptions = ( $scExpiryOptions !== '-' && $isAllowed );
 		$output .= "<table>"; // expiry table start
 		if ( $showProtectOptions && $isAllowed ) {
 			$output .= "
 				<tr>
 					<td class='mw-label'>" .
-						Xml::label( wfMsg( 'stabilization-expiry' ), 'mwStabilizeExpirySelection' ) .
+						Xml::label( wfMsg( 'stabilization-expiry' ),
+							'mwStabilizeExpirySelection' ) .
 					"</td>
 					<td class='mw-input'>" .
 						Xml::tags( 'select',
@@ -1919,9 +1920,9 @@ class FlaggedRevsHooks {
 		}
 		$form->setAutoreview( $permission ); // protection level (autoreview restriction)
 		$form->setWatchThis( null ); // protection form already has a watch check
-		$form->setReason( $wgRequest->getText( 'mwProtect-reason' ) ); // manual
+		$form->setReasonExtra( $wgRequest->getText( 'mwProtect-reason' ) ); // manual
 		$form->setReasonSelection( $wgRequest->getVal( 'wpProtectReasonSelection' ) ); // dropdown
-		$form->setExpiry( $wgRequest->getVal( 'mwStabilizeExpiryOther' ) ); // manual
+		$form->setExpiryCustom( $wgRequest->getVal( 'mwStabilizeExpiryOther' ) ); // manual
 		$form->setExpirySelection( $wgRequest->getVal( 'mwStabilizeExpirySelection' ) ); // dropdown
 		$form->ready(); // params all set
 		if ( $wgRequest->wasPosted() && $form->isAllowed() ) {

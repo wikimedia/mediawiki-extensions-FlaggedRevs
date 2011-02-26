@@ -17,15 +17,14 @@ abstract class PageStabilityForm
 	protected $page = false; # Target page obj
 	protected $watchThis = null; # Watch checkbox
 	protected $reviewThis = null; # Auto-review option...
-	protected $reason = ''; # Custom/extra reason
+	protected $reasonExtra = ''; # Custom/extra reason
 	protected $reasonSelection = ''; # Reason dropdown key
-	protected $expiry = ''; # Custom expiry
+	protected $expiryCustom = ''; # Custom expiry
 	protected $expirySelection = ''; # Expiry dropdown key
 	protected $override = -1; # Default version
 	protected $autoreview = ''; # Autoreview restrictions...
 
 	protected $oldConfig = array(); # Old page config
-	protected $oldExpiry = ''; # Old page config expiry (GMT)
 	protected $inputLock = 0; # Disallow bad submissions
 
 	protected $user = null;
@@ -52,12 +51,12 @@ abstract class PageStabilityForm
 		$this->trySet( $this->watchThis, $value );
 	}
 
-	public function getReason() {
-		return $this->reason;
+	public function getReasonExtra() {
+		return $this->reasonExtra;
 	}
 
-	public function setReason( $value ) {
-		$this->trySet( $this->reason, $value );
+	public function setReasonExtra( $value ) {
+		$this->trySet( $this->reasonExtra, $value );
 	}
 
 	public function getReasonSelection() {
@@ -68,12 +67,12 @@ abstract class PageStabilityForm
 		$this->trySet( $this->reasonSelection, $value );
 	}
 
-	public function getExpiry() {
-		return $this->expiry;
+	public function getExpiryCustom() {
+		return $this->expiryCustom;
 	}
 
-	public function setExpiry( $value ) {
-		$this->trySet( $this->expiry, $value );
+	public function setExpiryCustom( $value ) {
+		$this->trySet( $this->expiryCustom, $value );
 	}
 
 	public function getExpirySelection() {
@@ -86,10 +85,56 @@ abstract class PageStabilityForm
 
 	public function getAutoreview() {
 		return $this->autoreview;
-	}	
+	}
 
 	public function setAutoreview( $value ) {
 		$this->trySet( $this->autoreview, $value );
+	}
+
+	/*
+	* Get the final expiry, all inputs considered
+	* Note: does not check if the expiration is less than wfTimestampNow()
+	* @return 14-char timestamp or "infinity", or false if the input was invalid
+	*/
+	public function getExpiry() {
+		if ( $this->expirySelection == 'existing' ) {
+			return $this->oldConfig['expiry'];
+		} elseif ( $this->expirySelection == 'othertime' ) {
+			$value = $this->expiryCustom;
+		} else {
+			$value = $this->expirySelection;
+		}
+		if ( $value == 'infinite' || $value == 'indefinite' || $value == 'infinity' ) {
+			$time = Block::infinity();
+		} else {
+			$unix = strtotime( $value );
+			# On error returns -1 for PHP <5.1 and false for PHP >=5.1
+			if ( !$unix || $unix === -1 ) {
+				return false;
+			}
+			// FIXME: non-qualified absolute times are not in users
+			// specified timezone and there isn't notice about it in the ui
+			$time = wfTimestamp( TS_MW, $unix );
+		}
+		return $time;
+	}
+
+	/*
+	* Get the final reason, all inputs considered
+	* @return string
+	*/
+	public function getReason() {
+		# Custom reason replaces dropdown
+		if ( $this->reasonSelection != 'other' ) {
+			$comment = $this->reasonSelection; // start with dropdown reason
+			if ( $this->reasonExtra != '' ) {
+				# Append custom reason
+				$comment .= wfMsgForContent( 'colon-separator' ) . $this->reasonExtra;
+			}
+		} else {
+			$comment = $this->reasonExtra; // just use custom reason
+		}
+		return $comment;
 	}
 
 	/**
@@ -136,6 +181,11 @@ abstract class PageStabilityForm
 		if ( $status !== true ) {
 			return $status; // bad target
 		}
+		if ( $this->oldConfig === FlaggedRevs::getDefaultVisibilitySettings() ) {
+			$this->expirySelection = 'infinite'; // no settings are set
+		} else {
+			$this->expirySelection = 'existing'; // settings are set
+		}
 		return $this->reallyPreloadSettings(); // load the params...
 	}
 
@@ -154,6 +204,10 @@ abstract class PageStabilityForm
 		$status = $this->checkTarget();
 		if ( $status !== true ) {
 			return $status; // bad target
+		}
+		if ( $this->expiryCustom != '' ) {
+			// Custom expiry takes precedence
+			$this->expirySelection = 'othertime';
 		}
 		$status = $this->reallyCheckSettings(); // check other params...
 		return $status;
@@ -182,22 +236,8 @@ abstract class PageStabilityForm
 	}
 
 	protected function loadOldConfig() {
-		# Get the current page config and GMT expiry
+		# Get the current page config
 		$this->oldConfig = FlaggedRevs::getPageStabilitySettings( $this->page, FR_MASTER );
-		$this->oldExpiry = $this->oldConfig['expiry'] === 'infinity'
-			? 'infinite'
-			: wfTimestamp( TS_RFC2822, $this->oldConfig['expiry'] );
-	}
-
-	/*
-	* Gets the current config expiry in GMT (or 'infinite')
-	* @return string
-	*/
-	public function getOldExpiryGMT() {
-		if ( !$this->inputLock ) {
-			throw new MWException( __CLASS__ . " input fields not set yet.\n");
-		}
-		return $this->oldExpiry;
 	}
 
 	/*
@@ -235,19 +275,13 @@ abstract class PageStabilityForm
 		# Are we are going back to site defaults?
 		$reset = $this->newConfigIsReset();
 		# Parse and cleanup the expiry time given...
-		if ( $reset || $this->expiry == 'infinite' || $this->expiry == 'indefinite' ) {
-			$this->expiry = Block::infinity(); // normalize to 'infinity'
-		} else {
-			# Convert GNU-style date, on error returns -1 for PHP <5.1 and false for PHP >=5.1
-			$this->expiry = strtotime( $this->expiry );
-			if ( $this->expiry < 0 || $this->expiry === false ) {
-				return 'stabilize_expiry_invalid';
-			}
-			# Convert date to MW timestamp format
-			$this->expiry = wfTimestamp( TS_MW, $this->expiry );
-			if ( $this->expiry < wfTimestampNow() ) {
-				return 'stabilize_expiry_old';
-			}
+		$expiry = $this->getExpiry();
+		if ( $reset || $expiry == 'infinite' || $expiry == 'indefinite' ) {
+			$expiry = Block::infinity(); // normalize to 'infinity'
+		} elseif ( $expiry === false ) {
+			return 'stabilize_expiry_invalid';
+		} elseif ( $expiry < wfTimestampNow() ) {
+			return 'stabilize_expiry_old';
 		}
 		# Update the DB row with the new config...
 		$changed = $this->updateConfigRow( $reset );
@@ -299,10 +333,11 @@ abstract class PageStabilityForm
 		} else {
 			FlaggedRevs::clearTrackingRows( $article->getId() );
 		}
+		$reason = $this->getReason();
 		# Insert stability log entry...
 		$log = new LogPage( 'stable' );
 		if ( $reset ) {
-			$log->addEntry( 'reset', $this->page, $this->reason );
+			$log->addEntry( 'reset', $this->page, $reason );
 			$type = "stable-logentry-reset";
 			$settings = ''; // no level, expiry info
 		} else {
@@ -310,7 +345,7 @@ abstract class PageStabilityForm
 			$action = ( $this->oldConfig === FlaggedRevs::getDefaultVisibilitySettings() )
 				? 'config' // set a custom configuration
 				: 'modify'; // modified an existing custom configuration
-			$log->addEntry( $action, $this->page, $this->reason,
+			$log->addEntry( $action, $this->page, $reason,
 				FlaggedRevsLogs::collapseParams( $params ) );
 			$type = "stable-logentry-config";
 			// Settings message in text form (e.g. [x=a,y=b,z])
@@ -319,8 +354,8 @@ abstract class PageStabilityForm
 		# Build null-edit comment...<action: reason [settings] (expiry)>
 		$comment = $wgContLang->ucfirst(
 			wfMsgForContent( $type, $this->page->getPrefixedText() ) ); // action
-		if ( $this->reason != '' ) {
-			$comment .= wfMsgForContent( 'colon-separator' ) . $this->reason; // add reason
+		if ( $reason != '' ) {
+			$comment .= wfMsgForContent( 'colon-separator' ) . $reason; // add reason
 		}
 		if ( $settings != '' ) {
 			$comment .= " {$settings}"; // add settings
@@ -365,30 +400,6 @@ abstract class PageStabilityForm
 		}
 	}
 
-	protected function loadExpiry() {
-		# Custom expiry replaces dropdown
-		if ( $this->expiry == '' ) {
-			$this->expiry = $this->expirySelection;
-			if ( $this->expiry == 'existing' ) {
-				$this->expiry = $this->oldExpiry;
-			}
-		}
-	}
-
-	protected function loadReason() {
-		# Custom reason replaces dropdown
-		if ( $this->reasonSelection != 'other' ) {
-			$comment = $this->reasonSelection; // start with dropdown reason
-			if ( $this->reason != '' ) {
-				# Append custom reason
-				$comment .= wfMsgForContent( 'colon-separator' ) . $this->reason;
-			}
-		} else {
-			$comment = $this->reason; // just use custom reason
-		}
-		$this->reason = $comment;
-	}
-
 	// Same JS used for expiry for either $wgFlaggedRevsProtection case
 	public static function addProtectionJS() {
 		global $wgOut;
@@ -426,15 +437,11 @@ class PageStabilityGeneralForm extends PageStabilityForm {
 	protected function reallyPreloadSettings() {
 		$this->override = $this->oldConfig['override'];
 		$this->autoreview = $this->oldConfig['autoreview'];
-		$this->expiry = $this->oldExpiry;
-		$this->expirySelection = 'existing';
 		$this->watchThis = $this->page->userIsWatching();
 		return true;
 	}
 
 	protected function reallyCheckSettings() {
-		$this->loadReason();
-		$this->loadExpiry();
 		$this->override = $this->override ? 1 : 0; // default version settings is 0 or 1
 		// Check autoreview restriction setting
 		if ( $this->autoreview != '' // restriction other than 'none'
@@ -452,7 +459,7 @@ class PageStabilityGeneralForm extends PageStabilityForm {
 		return array(
 			'override'   => $this->override,
 			'autoreview' => $this->autoreview,
-			'expiry'     => $this->expiry, // TS_MW/infinity
+			'expiry'     => $this->getExpiry(), // TS_MW/infinity
 			'precedence' => 1 // here for log hook b/c
 		);
 	}
@@ -478,7 +485,7 @@ class PageStabilityGeneralForm extends PageStabilityForm {
 			$changed = ( $dbw->affectedRows() != 0 ); // did this do anything?
 		# Otherwise, add/replace row if we are not just setting it to the site default
 		} elseif ( !$reset ) {
-			$dbExpiry = Block::encodeExpiry( $this->expiry, $dbw );
+			$dbExpiry = Block::encodeExpiry( $this->getExpiry(), $dbw );
 			# Get current config...
 			$oldRow = $dbw->selectRow( 'flaggedpage_config',
 				array( 'fpc_select', 'fpc_override', 'fpc_level', 'fpc_expiry' ),
@@ -528,8 +535,6 @@ class PageStabilityGeneralForm extends PageStabilityForm {
 class PageStabilityProtectForm extends PageStabilityForm {
 	protected function reallyPreloadSettings() {
 		$this->autoreview = $this->oldConfig['autoreview']; // protect level
-		$this->expiry = $this->oldExpiry;
-		$this->expirySelection = 'existing';
 		$this->watchThis = $this->page->userIsWatching();
 		return true;
 	}
@@ -539,7 +544,7 @@ class PageStabilityProtectForm extends PageStabilityForm {
 		global $wgFlaggedRevsProtectQuota;
 		if ( isset( $wgFlaggedRevsProtectQuota ) // quota exists
 			&& $this->autoreview != '' // and we are protecting
-			&& FlaggedRevs::getProtectionLevel( $this->oldConfig ) == 'none' ) // and page is unprotected
+			&& FlaggedRevs::getProtectionLevel( $this->oldConfig ) == 'none' ) // page unprotected
 		{
 			$dbw = wfGetDB( DB_MASTER );
 			$count = $dbw->selectField( 'flaggedpage_config', 'COUNT(*)', '', __METHOD__ );
@@ -547,8 +552,6 @@ class PageStabilityProtectForm extends PageStabilityForm {
 				return 'stabilize_protect_quota';
 			}
 		}
-		$this->loadReason();
-		$this->loadExpiry();
 		# Autoreview only when protecting currently unprotected pages
 		$this->reviewThis = ( FlaggedRevs::getProtectionLevel( $this->oldConfig ) == 'none' );
 		# Autoreview restriction => use stable
@@ -576,7 +579,7 @@ class PageStabilityProtectForm extends PageStabilityForm {
 		return array(
 			'override'   => $this->override, // in case of site changes
 			'autoreview' => $this->autoreview,
-			'expiry'     => $this->expiry // TS_MW/infinity
+			'expiry'     => $this->getExpiry() // TS_MW/infinity
 		);
 	}
 
@@ -592,7 +595,7 @@ class PageStabilityProtectForm extends PageStabilityForm {
 			$changed = ( $dbw->affectedRows() != 0 ); // did this do anything?
 		# Otherwise, add/replace row if we are not just setting it to the site default
 		} elseif ( !$reset ) {
-			$dbExpiry = Block::encodeExpiry( $this->expiry, $dbw );
+			$dbExpiry = Block::encodeExpiry( $this->getExpiry(), $dbw );
 			# Get current config...
 			$oldRow = $dbw->selectRow( 'flaggedpage_config',
 				array( 'fpc_override', 'fpc_level', 'fpc_expiry' ),

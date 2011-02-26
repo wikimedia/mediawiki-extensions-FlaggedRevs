@@ -52,10 +52,10 @@ class Stabilization extends UnlistedSpecialPage
 		# Get auto-review option...
 		$form->setReviewThis( $wgRequest->getBool( 'wpReviewthis', true ) );
 		# Reason
-		$form->setReason( $wgRequest->getText( 'wpReason' ) );
+		$form->setReasonExtra( $wgRequest->getText( 'wpReason' ) );
 		$form->setReasonSelection( $wgRequest->getVal( 'wpReasonSelection' ) );
 		# Expiry
-		$form->setExpiry( $wgRequest->getText( 'mwStabilize-expiry' ) );
+		$form->setExpiryCustom( $wgRequest->getText( 'mwStabilize-expiry' ) );
 		$form->setExpirySelection( $wgRequest->getVal( 'wpExpirySelection' ) );
 		# Default version
 		$form->setOverride( (int)$wgRequest->getBool( 'wpStableconfig-override' ) );
@@ -106,44 +106,50 @@ class Stabilization extends UnlistedSpecialPage
 			$s .= wfMsgExt( 'stabilization-text', 'parse', $title->getPrefixedText() );
 		}
 		# Borrow some protection messages for dropdowns
-		$reasonDropDown = Xml::listDropDown( 'wpReasonSelection',
+		$reasonDropDown = Xml::listDropDown(
+			'wpReasonSelection',
 			wfMsgForContent( 'protect-dropdown' ),
 			wfMsgForContent( 'protect-otherreason-op' ),
 			$form->getReasonSelection(),
-			'mwStabilize-reason', 4
+			'mwStabilize-reason',
+			4
 		);
 		$scExpiryOptions = wfMsgForContent( 'protect-expiry-options' );
 		$showProtectOptions = ( $scExpiryOptions !== '-' && $form->isAllowed() );
-		# Add the current expiry as an option
-		$expiryFormOptions = '';
-		if ( $oldConfig['expiry'] && $oldConfig['expiry'] != 'infinity' ) {
+		$dropdownOptions = array(); // array of <label,value>
+		# Add the current expiry as a dropdown option
+		if ( $oldConfig['expiry'] && $oldConfig['expiry'] != Block::infinity() ) {
 			$timestamp = $wgLang->timeanddate( $oldConfig['expiry'] );
 			$d = $wgLang->date( $oldConfig['expiry'] );
 			$t = $wgLang->time( $oldConfig['expiry'] );
-			$expiryFormOptions .=
-				Xml::option(
-					wfMsg( 'protect-existing-expiry', $timestamp, $d, $t ),
-					'existing',
-					$oldConfig['expiry'] == 'existing'
-				) . "\n";
+			$dropdownOptions[] = array(
+				wfMsg( 'protect-existing-expiry', $timestamp, $d, $t ), 'existing' );
 		}
-		$expiryFormOptions .= Xml::option( wfMsg( 'protect-othertime-op' ), "othertime" ) . "\n";
-		# Add custom levels (from MediaWiki message)
-		foreach ( explode( ',', $scExpiryOptions ) as $option ) {
+		# Add "other time" expiry dropdown option
+		$dropdownOptions[] = array( wfMsg( 'protect-othertime-op' ), 'othertime' );
+		# Add custom expiry dropdown options (from MediaWiki message)
+		foreach( explode( ',', $scExpiryOptions ) as $option ) {
 			if ( strpos( $option, ":" ) === false ) {
 				$show = $value = $option;
 			} else {
 				list( $show, $value ) = explode( ":", $option );
 			}
-			$show = htmlspecialchars( $show );
-			$value = htmlspecialchars( $value );
-			$expiryFormOptions .= Xml::option( $show, $value, $oldConfig['expiry'] === $value );
-			$expiryFormOptions .= "\n";
+			$dropdownOptions[] = array( $show, $value );
 		}
-		# Add stable version override and selection options
-		$special = SpecialPage::getTitleFor( 'Stabilization' );
+		
+		# Actually build the options HTML...
+		$expiryFormOptions = '';
+		foreach ( $dropdownOptions as $option ) {
+			$show = htmlspecialchars( $option[0] );
+			$value = htmlspecialchars( $option[1] );
+			$expiryFormOptions .= Xml::option( $show, $value,
+				$form->getExpirySelection() === $value ) . "\n";
+		}
+
+		# Build up the form...
 		$s .= Xml::openElement( 'form', array( 'name' => 'stabilization',
-				'action' => $special->getLocalUrl(), 'method' => 'post' ) );
+			'action' => $this->getTitle()->getLocalUrl(), 'method' => 'post' ) );
+		# Add stable version override and selection options
 		$s .=
 			Xml::fieldset( wfMsg( 'stabilization-def' ), false ) . "\n" .
 			Xml::radioLabel( wfMsg( 'stabilization-def1' ), 'wpStableconfig-override', 1,
@@ -159,12 +165,13 @@ class Stabilization extends UnlistedSpecialPage
 
 			Xml::fieldset( wfMsg( 'stabilization-leg' ), false ) .
 			Xml::openElement( 'table' );
-		# Add expiry dropdown
+		# Add expiry dropdown to form...
 		if ( $showProtectOptions && $form->isAllowed() ) {
 			$s .= "
 				<tr>
 					<td class='mw-label'>" .
-						Xml::label( wfMsg( 'stabilization-expiry' ), 'mwStabilizeExpirySelection' ) .
+						Xml::label( wfMsg( 'stabilization-expiry' ),
+							'mwStabilizeExpirySelection' ) .
 					"</td>
 					<td class='mw-input'>" .
 						Xml::tags( 'select',
@@ -177,18 +184,16 @@ class Stabilization extends UnlistedSpecialPage
 					"</td>
 				</tr>";
 		}
-		# Add custom expiry field
+		# Add custom expiry field to form...
 		$attribs = array( 'id' => "mwStabilizeExpiryOther",
 			'onkeyup' => 'onFRChangeExpiryField()' ) + $this->disabledAttr();
-		$formExpiry = $form->getExpiry() ?
-			$form->getExpiry() : $form->getOldExpiryGMT();
 		$s .= "
 			<tr>
 				<td class='mw-label'>" .
 					Xml::label( wfMsg( 'stabilization-othertime' ), 'mwStabilizeExpiryOther' ) .
 				'</td>
 				<td class="mw-input">' .
-					Xml::input( "mwStabilize-expiry", 50, $formExpiry, $attribs ) .
+					Xml::input( "mwStabilize-expiry", 50, $form->getExpiryCustom(), $attribs ) .
 				'</td>
 			</tr>';
 		# Add comment input and submit button
@@ -213,7 +218,8 @@ class Stabilization extends UnlistedSpecialPage
 						Xml::label( wfMsg( 'stabilization-otherreason' ), 'wpReason' ) .
 					'</td>
 					<td class="mw-input">' .
-						Xml::input( 'wpReason', 70, $form->getReason(), array( 'id' => 'wpReason' ) ) .
+						Xml::input( 'wpReason', 70, $form->getReasonExtra(),
+							array( 'id' => 'wpReason' ) ) .
 					'</td>
 				</tr>
 				<tr>
@@ -246,7 +252,8 @@ class Stabilization extends UnlistedSpecialPage
 
 		$wgOut->addHTML( Xml::element( 'h2', null,
 			htmlspecialchars( LogPage::logName( 'stable' ) ) ) );
-		LogEventsList::showLogExtract( $wgOut, 'stable', $title->getPrefixedText() );
+		LogEventsList::showLogExtract( $wgOut, 'stable',
+			$title->getPrefixedText(), '', array( 'lim' => 25 ) );
 
 		# Add some javascript for expiry dropdowns
 		PageStabilityForm::addProtectionJS();

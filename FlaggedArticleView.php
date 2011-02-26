@@ -783,7 +783,7 @@ class FlaggedArticleView {
 			$this->isDiffFromStable = true; // alter default review form tags
 			return
 				FlaggedRevsXML::diffToggle() .
-				"<div id='mw-fr-stablediff'>" .
+				"<div id='mw-fr-stablediff'>\n" .
 				self::getFormattedDiff( $diffBody, $multiNotice, $leftNote, $rightNote ) .
 				"</div>\n";;
 		}

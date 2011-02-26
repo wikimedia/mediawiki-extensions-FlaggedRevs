@@ -340,7 +340,7 @@ class FlaggedArticle extends Article {
 			array(),
 			array(
 				'flaggedpages' => array( 'LEFT JOIN', 'fp_page_id = page_id' ),
-				'flaggedrevs' => array( 'LEFT JOIN',
+				'flaggedrevs'  => array( 'LEFT JOIN',
 					'fr_page_id = fp_page_id AND fr_rev_id = fp_stable' ),
 				'flaggedpage_config' => array( 'LEFT JOIN', 'fpc_page_id = page_id' ) )
 		);
