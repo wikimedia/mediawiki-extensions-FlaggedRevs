@@ -181,10 +181,10 @@ abstract class PageStabilityForm
 		if ( $status !== true ) {
 			return $status; // bad target
 		}
-		if ( $this->oldConfig === FlaggedRevs::getDefaultVisibilitySettings() ) {
-			$this->expirySelection = 'infinite'; // no settings are set
+		if ( $this->oldConfig['expiry'] == Block::infinity() ) {
+			$this->expirySelection = 'infinite'; // no settings set OR indefinite
 		} else {
-			$this->expirySelection = 'existing'; // settings are set
+			$this->expirySelection = 'existing'; // settings set and NOT indefinite
 		}
 		return $this->reallyPreloadSettings(); // load the params...
 	}
@@ -276,11 +276,9 @@ abstract class PageStabilityForm
 		$reset = $this->newConfigIsReset();
 		# Parse and cleanup the expiry time given...
 		$expiry = $this->getExpiry();
-		if ( $reset || $expiry == 'infinite' || $expiry == 'indefinite' ) {
-			$expiry = Block::infinity(); // normalize to 'infinity'
-		} elseif ( $expiry === false ) {
+		if ( $expiry === false ) {
 			return 'stabilize_expiry_invalid';
-		} elseif ( $expiry < wfTimestampNow() ) {
+		} elseif ( $expiry !== Block::infinity() && $expiry < wfTimestampNow() ) {
 			return 'stabilize_expiry_old';
 		}
 		# Update the DB row with the new config...
