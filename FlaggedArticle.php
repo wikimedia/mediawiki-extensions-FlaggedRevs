@@ -324,7 +324,7 @@ class FlaggedArticle extends Article {
 	 */
 	protected function loadStableRevAndConfig( $flags = 0 ) {
 		$this->stableRev = false; // false => "found nothing"
-		$this->pageConfig = FlaggedRevs::getDefaultVisibilitySettings(); // default
+		$this->pageConfig = FlaggedPageConfig::getDefaultVisibilitySettings(); // default
 		if ( !FlaggedRevs::inReviewNamespace( $this->getTitle() ) ) {
 			return; // short-circuit
 		}
@@ -333,8 +333,7 @@ class FlaggedArticle extends Article {
 			wfGetDB( DB_MASTER ) : wfGetDB( DB_SLAVE );
 		$row = $db->selectRow(
 			array( 'page', 'flaggedpages', 'flaggedrevs', 'flaggedpage_config' ),
-			array_merge( FlaggedRevision::selectFields(),
-				array( 'fpc_override', 'fpc_level', 'fpc_expiry' ) ),
+			array_merge( FlaggedRevision::selectFields(), FlaggedPageConfig::selectFields() ),
 			array( 'page_id' => $this->getID() ),
 			__METHOD__,
 			array(),
@@ -348,7 +347,7 @@ class FlaggedArticle extends Article {
 			return; // no page found at all
 		}
 		if ( $row->fpc_override !== null ) { // page config row found
-			$this->pageConfig = FlaggedRevs::getVisibilitySettingsFromRow( $row );
+			$this->pageConfig = FlaggedPageConfig::getVisibilitySettingsFromRow( $row );
 		}
 		if ( $row->fr_rev_id !== null ) { // stable rev row found		
 			// Page may not reviewable, which implies no stable version

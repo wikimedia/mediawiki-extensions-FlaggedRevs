@@ -268,6 +268,8 @@ $wgAutoloadClasses['FlaggedRevsXML'] = $dir . 'FlaggedRevsXML.php';
 $wgAutoloadClasses['FlaggedArticleView'] = $dir . 'FlaggedArticleView.php';
 # Load FlaggedArticle object class
 $wgAutoloadClasses['FlaggedArticle'] = $dir . 'FlaggedArticle.php';
+# Load FlaggedPageConfig object class
+$wgAutoloadClasses['FlaggedPageConfig'] = $dir . 'FlaggedPageConfig.php';
 # Load FlaggedRevision object class
 $wgAutoloadClasses['FlaggedRevision'] = $dir . 'FlaggedRevision.php';
 

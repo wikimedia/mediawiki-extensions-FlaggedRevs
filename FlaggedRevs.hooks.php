@@ -488,7 +488,7 @@ class FlaggedRevsHooks {
 			if( !FlaggedRevs::inReviewNamespace( $title ) ) {
 				$ret = '';
 			} else {
-				$config = FlaggedRevs::getPageStabilitySettings( $title );
+				$config = FlaggedPageConfig::getPageStabilitySettings( $title );
 				$ret = $config['autoreview'];
 			}
 		}
@@ -1777,12 +1777,12 @@ class FlaggedRevsHooks {
 			array() : array( 'disabled' => 'disabled' );
 		
 		# Get the current config/expiry
-		$config = FlaggedRevs::getPageStabilitySettings( $article->getTitle(), FR_MASTER );
+		$config = FlaggedPageConfig::getPageStabilitySettings( $article->getTitle(), FR_MASTER );
 		$oldExpirySelect = ( $config['expiry'] == 'infinity' ) ? 'infinite' : 'existing';
 		
 		# Load requested restriction level, default to current level...
 		$restriction = $wgRequest->getVal( 'mwStabilityLevel',
-			FlaggedRevs::getProtectionLevel( $config ) );
+			FlaggedPageConfig::getProtectionLevel( $config ) );
 		# Load the requested expiry time (dropdown)
 		$expirySelect = $wgRequest->getVal( 'mwStabilizeExpirySelection', $oldExpirySelect );
 		# Load the requested expiry time (field)

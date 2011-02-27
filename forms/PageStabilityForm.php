@@ -237,7 +237,7 @@ abstract class PageStabilityForm
 
 	protected function loadOldConfig() {
 		# Get the current page config
-		$this->oldConfig = FlaggedRevs::getPageStabilitySettings( $this->page, FR_MASTER );
+		$this->oldConfig = FlaggedPageConfig::getPageStabilitySettings( $this->page, FR_MASTER );
 	}
 
 	/*
@@ -309,7 +309,7 @@ abstract class PageStabilityForm
 		# Apply watchlist checkbox value (may be NULL)
 		$this->updateWatchlist();
 		# Take this opportunity to purge out expired configurations
-		FlaggedRevs::purgeExpiredConfigurations();
+		FlaggedPageConfig::purgeExpiredConfigurations();
 		return true;
 	}
 
@@ -340,7 +340,7 @@ abstract class PageStabilityForm
 			$settings = ''; // no level, expiry info
 		} else {
 			$params = $this->getLogParams();
-			$action = ( $this->oldConfig === FlaggedRevs::getDefaultVisibilitySettings() )
+			$action = ( $this->oldConfig === FlaggedPageConfig::getDefaultVisibilitySettings() )
 				? 'config' // set a custom configuration
 				: 'modify'; // modified an existing custom configuration
 			$log->addEntry( $action, $this->page, $reason,
@@ -542,7 +542,7 @@ class PageStabilityProtectForm extends PageStabilityForm {
 		global $wgFlaggedRevsProtectQuota;
 		if ( isset( $wgFlaggedRevsProtectQuota ) // quota exists
 			&& $this->autoreview != '' // and we are protecting
-			&& FlaggedRevs::getProtectionLevel( $this->oldConfig ) == 'none' ) // page unprotected
+			&& FlaggedPageConfig::getProtectionLevel( $this->oldConfig ) == 'none' ) // page unprotected
 		{
 			$dbw = wfGetDB( DB_MASTER );
 			$count = $dbw->selectField( 'flaggedpage_config', 'COUNT(*)', '', __METHOD__ );
@@ -551,7 +551,7 @@ class PageStabilityProtectForm extends PageStabilityForm {
 			}
 		}
 		# Autoreview only when protecting currently unprotected pages
-		$this->reviewThis = ( FlaggedRevs::getProtectionLevel( $this->oldConfig ) == 'none' );
+		$this->reviewThis = ( FlaggedPageConfig::getProtectionLevel( $this->oldConfig ) == 'none' );
 		# Autoreview restriction => use stable
 		# No autoreview restriction => site default
 		$this->override = ( $this->autoreview != '' )
@@ -562,7 +562,7 @@ class PageStabilityProtectForm extends PageStabilityForm {
 			'override'   => $this->override,
 			'autoreview' => $this->autoreview
 		);
-		if ( FlaggedRevs::getProtectionLevel( $newConfig ) == 'invalid' ) {
+		if ( FlaggedPageConfig::getProtectionLevel( $newConfig ) == 'invalid' ) {
 			return 'stabilize_invalid_level'; // double-check configuration
 		}
 		# Check autoreview restriction setting

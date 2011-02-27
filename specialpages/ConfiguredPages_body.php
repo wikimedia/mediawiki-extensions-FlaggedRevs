@@ -64,7 +64,7 @@ class ConfiguredPages extends SpecialPage
 			$wgOut->addWikiMsg( 'configuredpages-none' );
 		}
 		# Take this opportunity to purge out expired configurations
-		FlaggedRevs::purgeExpiredConfigurations();
+		FlaggedPageConfig::purgeExpiredConfigurations();
 	}
 
 	public function formatRow( $row ) {
