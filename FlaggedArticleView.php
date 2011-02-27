@@ -1626,12 +1626,7 @@ class FlaggedArticleView {
 		$this->load();
 		# Get the stable version from the master
 		$frev = $this->article->getStableRev( FR_MASTER );
-		if ( !$frev ) {
-			return true;
-		}
-		# Get latest revision Id (lag safe)
-		$latest = $this->article->getTitle()->getLatestRevID( Title::GAID_FOR_UPDATE );
-		if ( $latest == $frev->getRevId() ) {
+		if ( !$frev || !$this->article->revsArePending() ) {
 			return true; // only for pages with pending edits
 		}
 		// If the edit was not autoreviewed, and the user can actually make a
@@ -1652,7 +1647,7 @@ class FlaggedArticleView {
 					// Pass a section parameter in the URL as needed to add a link to
 					// the "your changes are pending" box on the top of the page...
 					$section = str_replace(
-						array( ':' , '.' ), array( '%3A', '%' ), // hack: reverse special encoding
+						array( ':' , '.' ), array( '%3A', '%' ), // hack: reverse encoding
 						substr( $sectionAnchor, 1 ) // remove the '#'
 					);
 					$extraQuery .= '&fromsection=' . $section;
