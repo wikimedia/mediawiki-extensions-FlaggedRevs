@@ -7,9 +7,12 @@
 class FlaggedArticle extends Article {
 	/* Process cache variables */
 	protected $stableRev = null;
-	protected $pendingRevs = null;
+	protected $revsArePending = null;
+	protected $pendingRevCount = null;
 	protected $pageConfig = null;
 	protected $imagePage = null; // for file pages
+
+	protected $stabilityDataLoaded = false;
 
 	/**
 	 * Get a FlaggedArticle for a given title
@@ -39,9 +42,12 @@ class FlaggedArticle extends Article {
 	 */
 	public function clear() {
 		$this->stableRev = null;
-		$this->pendingRevs = null;
+		$this->revsArePending = null;
+		$this->pendingRevCount = null;
 		$this->pageConfig = null;
 		$this->imagePage = null;
+
+		$this->stabilityDataLoaded = false;
 		parent::clear();
 	}
 
@@ -81,10 +87,11 @@ class FlaggedArticle extends Article {
 	 * @return bool
 	 */
 	public function isStableShownByDefault( $flags = 0 ) {
-		if ( !$this->isReviewable( $flags ) ) {
+		$this->loadFlaggedRevsData( $flags );
+		if ( !$this->isReviewable() ) {
 			return false; // no stable versions can exist
 		}
-		$config = $this->getStabilitySettings( $flags ); // page configuration
+		$config = $this->getStabilitySettings(); // page configuration
 		return (bool)$config['override'];
 	}
 
@@ -94,10 +101,11 @@ class FlaggedArticle extends Article {
 	 * @return bool
 	 */
 	public function editsRequireReview( $flags = 0 ) {
+		$this->loadFlaggedRevsData( $flags );
 		return (
-			$this->isReviewable( $flags ) && // reviewable page
-			$this->isStableShownByDefault( $flags ) && // and stable versions override
-			$this->getStableRev( $flags ) // and there is a stable version
+			$this->isReviewable() && // reviewable page
+			$this->isStableShownByDefault() && // and stable versions override
+			$this->getStableRev() // and there is a stable version
 		);
 	}
 
@@ -107,18 +115,8 @@ class FlaggedArticle extends Article {
 	 * @return bool
 	 */
 	public function revsArePending( $flags = 0 ) {
-		if ( $this->isReviewable() ) {
-			$srev = $this->getStableRev( $flags );
-			if ( $srev ) {
-				if ( $flags & FR_MASTER ) {
-					$latest = $this->getTitle()->getLatestRevID( Title::GAID_FOR_UPDATE );
-				} else {
-					$latest = $this->getLatest();
-				}
-				return ( $srev->getRevId() != $latest ); // edits need review
-			}
-		}
-		return false; // all edits go live
+		$this->loadFlaggedRevsData( $flags );
+		return $this->revsArePending;
 	}
 
 	/**
@@ -129,11 +127,11 @@ class FlaggedArticle extends Article {
 	 */
 	public function getPendingRevCount( $flags = 0 ) {
 		global $wgMemc, $wgParserCacheExpireTime;
-		# Cached results available?
-		if ( !( $flags & FR_MASTER ) && $this->pendingRevs !== null ) {
-			return $this->pendingRevs;
+		$this->loadFlaggedRevsData( $flags );
+		if ( !( $flags & FR_MASTER ) && $this->pendingRevCount !== null ) {
+			return $this->pendingRevCount; // use process cache
 		}
-		$srev = $this->getStableRev( $flags );
+		$srev = $this->getStableRev();
 		if ( !$srev ) {
 			return 0; // none
 		}
@@ -166,8 +164,8 @@ class FlaggedArticle extends Article {
 			$data = FlaggedRevs::makeMemcObj( "{$sRevId}-{$count}" );
 			$wgMemc->set( $key, $data, $wgParserCacheExpireTime );
 		}
-		$this->pendingRevs = $count;
-		return $this->pendingRevs;
+		$this->pendingRevCount = $count;
+		return $this->pendingRevCount;
 	}
 
 	/**
@@ -255,12 +253,13 @@ class FlaggedArticle extends Article {
 	 * @return bool
 	 */
 	public function isReviewable( $flags = 0 ) {
+		$this->loadFlaggedRevsData( $flags );
 		if ( !FlaggedRevs::inReviewNamespace( $this->getTitle() ) ) {
 			return false;
 		}
 		# Check if flagging is disabled for this page via config
 		if ( FlaggedRevs::useOnlyIfProtected() ) {
-			$config = $this->getStabilitySettings( $flags ); // page configuration
+			$config = $this->getStabilitySettings(); // page configuration
 			return (bool)$config['override']; // stable is default or flagging disabled
 		}
 		return true;
@@ -294,14 +293,8 @@ class FlaggedArticle extends Article {
 	 * @return mixed (FlaggedRevision/null)
 	 */
 	public function getStableRev( $flags = 0 ) {
-		# Cached results available?
-		if ( $this->stableRev === null || ( $flags & FR_MASTER ) ) {
-			$this->loadStableRevAndConfig( $flags );
-		}
-		if ( $this->stableRev ) {
-			return $this->stableRev;
-		}
-		return null; // false => null
+		$this->loadFlaggedRevsData( $flags );
+		return $this->stableRev ? $this->stableRev : null; // false => null
 	}
 
 	/**
@@ -310,10 +303,7 @@ class FlaggedArticle extends Article {
 	 * @return array (select,override)
 	 */
 	public function getStabilitySettings( $flags = 0 ) {
-		if ( !( $flags & FR_MASTER ) && $this->pageConfig !== null ) {
-			return $this->pageConfig; // use process cache
-		}
-		$this->loadStableRevAndConfig( $flags);
+		$this->loadFlaggedRevsData( $flags );
 		return $this->pageConfig;
 	}
 
@@ -322,9 +312,17 @@ class FlaggedArticle extends Article {
 	 * @param Title $title, page title
 	 * @param int $flags FR_MASTER
 	 */
-	protected function loadStableRevAndConfig( $flags = 0 ) {
-		$this->stableRev = false; // false => "found nothing"
+	protected function loadFlaggedRevsData( $flags = 0 ) {
+		if ( $this->stabilityDataLoaded && !( $flags & FR_MASTER ) ) {
+			return; // no need to reload everything
+		}
+		$this->stabilityDataLoaded = true;
+
 		$this->pageConfig = FlaggedPageConfig::getDefaultVisibilitySettings(); // default
+		$this->stableRev = false; // false => "found nothing"
+		$this->revsArePending = false;
+		$this->pendingRevCount = null; // defer this one
+
 		if ( !FlaggedRevs::inReviewNamespace( $this->getTitle() ) ) {
 			return; // short-circuit
 		}
@@ -333,7 +331,8 @@ class FlaggedArticle extends Article {
 			wfGetDB( DB_MASTER ) : wfGetDB( DB_SLAVE );
 		$row = $db->selectRow(
 			array( 'page', 'flaggedpages', 'flaggedrevs', 'flaggedpage_config' ),
-			array_merge( FlaggedRevision::selectFields(), FlaggedPageConfig::selectFields() ),
+			array_merge( FlaggedRevision::selectFields(),
+				FlaggedPageConfig::selectFields(), array( 'fp_pending_since' ) ),
 			array( 'page_id' => $this->getID() ),
 			__METHOD__,
 			array(),
@@ -355,5 +354,6 @@ class FlaggedArticle extends Article {
 				$this->stableRev = new FlaggedRevision( $row );
 			}
 		}
+		$this->revsArePending = ( $row->fp_pending_since !== null ); // revs await review
 	}
 }
