@@ -296,7 +296,7 @@ class FlaggedArticle extends Article {
 	public function getStableRev( $flags = 0 ) {
 		# Cached results available?
 		if ( $this->stableRev === null || ( $flags & FR_MASTER ) ) {
-			$this->loadStableRevAndConfig();
+			$this->loadStableRevAndConfig( $flags );
 		}
 		if ( $this->stableRev ) {
 			return $this->stableRev;
@@ -313,7 +313,7 @@ class FlaggedArticle extends Article {
 		if ( !( $flags & FR_MASTER ) && $this->pageConfig !== null ) {
 			return $this->pageConfig; // use process cache
 		}
-		$this->loadStableRevAndConfig();
+		$this->loadStableRevAndConfig( $flags);
 		return $this->pageConfig;
 	}
 
