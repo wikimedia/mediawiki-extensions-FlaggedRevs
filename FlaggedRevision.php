@@ -730,7 +730,7 @@ class FlaggedRevision {
 					$updated = ( $file->getTimestamp() > $tsStable ); // edited/created
 				}
 				$deleted = $tsStable // included file deleted after review
-					&& !$file->getRepo()->findFile( $title, array( 'time' => $tsStable ) );
+					&& !wfFindFile( $title, array( 'time' => $tsStable ) );
 			} else { // file doesn't exists
 				$updated = false;
 				$deleted = (bool)$tsStable; // included file deleted after review
