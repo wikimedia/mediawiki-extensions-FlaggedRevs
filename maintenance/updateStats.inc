@@ -245,11 +245,10 @@ function getAveReviewTimesAnons( $dbr, $dbCache ) {
 		$rank = round( count($times)/2 + .5 ) - 1;
 		$medianRT = $times[$rank];
 		// Make percentile tabulation data
-		$percentile = 35; // start at 35th
-		while ( $percentile < 100 ) {
+		$doPercentiles = array( 35, 45, 55, 65, 75, 85, 90, 95 );
+		foreach ( $doPercentiles as $percentile ) {
 			$rank = round( $percentile*count($times)/100 + .5 ) - 1;
 			$rPerTable[$percentile] = $times[$rank];
-			$percentile += 10;
 		}
 		echo "(sampled ".count($times)." edits)...";
 	}
