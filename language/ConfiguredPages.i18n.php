@@ -682,6 +682,7 @@ $messages['rue'] = array(
  * @author HalanTul
  */
 $messages['sah'] = array(
+	'configuredpages' => 'Тургутууну туруоруу сирэйдэрэ',
 	'configuredpages-none' => 'Бу тиһиккэ сирэйдэр суохтар.',
 	'configuredpages-config' => 'Туруоруулар',
 	'configuredpages-def-draft' => 'бүтэһик барыл',
