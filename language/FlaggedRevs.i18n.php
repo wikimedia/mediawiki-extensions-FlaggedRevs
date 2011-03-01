@@ -448,7 +448,6 @@ Users who see the stable version and not the draft version as page, have this me
 {{Identical|Edit}}',
 	'revreview-editnotice' => '{{Flagged Revs}}
 {{Identical|Authorised user}}',
-	'revreview-pendingnotice' => 'This message is displayed above a page showing a pending revision of a page.',
 	'revreview-check-flag-p' => '{{Flagged Revs}}',
 	'revreview-check-flag-u' => 'This is a label for the  checkbox that appears under the edit box next to "This is a minor edit" and "Watch this page".',
 	'revreview-check-flag-y-title' => '{{Gender}}',
