@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS /*_*/flaggedpages (
   -- Is the stable version synced?
   fp_reviewed bool NOT NULL default '0',
   -- When (or NULL) the first edit after the stable version was made
-  fp_pending_since char(14) NULL,
+  fp_pending_since varbinary(14) NULL,
   -- Foreign key to flaggedrevs.fr_rev_id
   fp_stable integer unsigned NOT NULL,
   -- The highest quality of the page's reviewed revisions.
@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS /*_*/flaggedpage_pending (
   -- The last rev ID with this quality
   fpp_rev_id integer unsigned NOT NULL,
   -- Time of the first edit after the last revision reviewed to this level
-  fpp_pending_since char(14) NOT NULL,
+  fpp_pending_since varbinary(14) NOT NULL,
   
   PRIMARY KEY (fpp_page_id,fpp_quality)
 ) /*$wgDBTableOptions*/;
@@ -47,7 +47,7 @@ CREATE TABLE IF NOT EXISTS /*_*/flaggedrevs (
   fr_rev_id integer unsigned NOT NULL,
   -- Foreign key to user.user_id
   fr_user integer unsigned NOT NULL,
-  fr_timestamp char(14) NOT NULL,
+  fr_timestamp varbinary(14) NOT NULL,
   fr_comment mediumblob NOT NULL,
   -- Store the precedence level
   fr_quality tinyint(1) NOT NULL default 0,
@@ -66,7 +66,7 @@ CREATE TABLE IF NOT EXISTS /*_*/flaggedrevs (
   -- Name of included image (NULL if n/a)
   fr_img_name varchar(255) binary NULL default NULL,
   -- Timestamp of file (when uploaded) (NULL if n/a)
-  fr_img_timestamp char(14) NULL default NULL,
+  fr_img_timestamp varbinary(14) NULL default NULL,
   -- Statistically unique SHA-1 key (NULL if n/a)
   fr_img_sha1 varbinary(32) NULL default NULL,
   
@@ -94,7 +94,7 @@ CREATE TABLE IF NOT EXISTS /*_*/flaggedimages (
   -- Name of included image
   fi_name varchar(255) binary NOT NULL default '',
   -- Timestamp of image used when reviewed
-  fi_img_timestamp char(14) NULL,
+  fi_img_timestamp varbinary(14) NULL,
   -- Statistically unique SHA-1 key
   fi_img_sha1 varbinary(32) NOT NULL default '',
   
