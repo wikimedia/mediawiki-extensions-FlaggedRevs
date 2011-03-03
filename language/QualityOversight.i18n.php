@@ -601,10 +601,11 @@ $messages['tl'] = array(
 
 /** Turkish (Türkçe)
  * @author Joseph
+ * @author Vito Genovese
  */
 $messages['tr'] = array(
 	'qualityoversight' => 'Gelişmiş gözden geçirme günlüğü',
-	'qualityoversight-list' => 'Bu sayfa, en yeni onaylamaları ve revizyonların yıpranmalarını listeler.',
+	'qualityoversight-list' => 'Bu sayfa, en yeni revizyon onay ve retlerini listelemektedir.',
 	'qualityoversight-legend' => 'Yakın zamandaki gözden geçirme günlüklerini ara',
 );
 
