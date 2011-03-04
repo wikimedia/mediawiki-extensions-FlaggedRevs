@@ -527,6 +527,15 @@ $messages['ru'] = array(
 	'qualityoversight-legend' => 'Поиск по журналу проверок',
 );
 
+/** Yakut (Саха тыла)
+ * @author HalanTul
+ */
+$messages['sah'] = array(
+	'qualityoversight' => 'Дириҥник ырытыы сурунаала',
+	'qualityoversight-list' => 'Бу сирэйгэ соторутааҕыта бигэргэммит уонна таһыма уларытыллыбыт барыллар тиһиктэрэ көстөр.',
+	'qualityoversight-legend' => 'Тургутуу сурунаалыттан булан ылыы',
+);
+
 /** Slovak (Slovenčina)
  * @author Helix84
  */
@@ -604,7 +613,7 @@ $messages['tl'] = array(
  * @author Vito Genovese
  */
 $messages['tr'] = array(
-	'qualityoversight' => 'Gelişmiş gözden geçirme günlüğü',
+	'qualityoversight' => 'Gelişmiş inceleme günlüğü',
 	'qualityoversight-list' => 'Bu sayfa, en yeni revizyon onay ve retlerini listelemektedir.',
 	'qualityoversight-legend' => 'Yakın zamandaki gözden geçirme günlüklerini ara',
 );

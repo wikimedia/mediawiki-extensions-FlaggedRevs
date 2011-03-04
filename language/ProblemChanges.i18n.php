@@ -694,6 +694,8 @@ $messages['rue'] = array(
  */
 $messages['sah'] = array(
 	'problemchanges' => 'Тургутуллубатах уларытыылар бэлиэтэммиттэр',
+	'problemchanges-legend' => 'Тургутуллуохтаах көннөрүүлэрдээх курдук бэлиэтэммит сирэйдэр тиһиктэрэ',
+	'problemchanges-none' => 'Көрдөбүлгэр эппиэттиир ыстатыйа билигин суох эбит',
 	'problemchanges-category' => 'Категория:',
 );
 
