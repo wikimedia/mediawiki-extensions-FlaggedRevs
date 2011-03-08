@@ -185,6 +185,7 @@ FlaggedRevs.getRevisionContents = function() {
 	var contentsDiv = document.getElementById("mw-fr-revisioncontents");
 	var prevLink = document.getElementById("differences-prevlink");
 	var nextLink = document.getElementById("differences-nextlink");
+
 	var timeoutId = null;
 	if( contentsDiv ) {
 		var diffUIParams = document.getElementById("mw-fr-diff-dataform");
@@ -192,7 +193,7 @@ FlaggedRevs.getRevisionContents = function() {
 		var origContents = contentsDiv.innerHTML;
 		contentsDiv.innerHTML = "<span class='loading mw-small-spinner spinner'>" +
 			"</span><span class='loading' >" + wgRevContents.waiting + "</span>";
-		var requestArgs = 'action=parse&prop=text|categorieshtml|languageshtml&format=xml';
+		var requestArgs = 'action=parse&prop=text|categorieshtml|languageshtml|headitems&format=xml';
 		if ( window.wgCurRevisionId == oldRevId && window.wgPageName ) {
 			requestArgs += '&page=' + encodeURIComponent( window.wgPageName );
 		} else {
@@ -207,21 +208,24 @@ FlaggedRevs.getRevisionContents = function() {
 			success	: function( result ) {
 				contentsDiv.innerHTML = "";
 				contents = jQuery(result).find("text");
-				if ( contents && contents.text() ) {
+				if ( contents.text() ) {
 					contentsDiv.innerHTML += contents.text();
 				} else {
 					contentsDiv.innerHTML = wgRevContents.error + " " + origContents;
 				}
 				categoryhtml = jQuery(result).find("categorieshtml");
-				if ( categoryhtml && categoryhtml.text() ) {
+				if ( categoryhtml.text() ) {
 					contentsDiv.innerHTML += categoryhtml.text();
 				}
 				languageshtml = jQuery(result).find("languageshtml");
-				if ( languageshtml && languageshtml.text() ) {
+				if ( languageshtml.text() ) {
 					contentsDiv.innerHTML += "<div class='langlinks' >" +
 						languageshtml.text() + "</div>";
 				}
-				
+				$headitems = jQuery(result).find("hi");
+				if ( $headitems.text() ) {
+					$('head').append( $headitems.text() );
+				}
 			},
 			error	: function(xmlHttpRequest, textStatus, errThrown) {
 				contentsDiv.innerHTML = wgRevContents.error + " " + origContents;
