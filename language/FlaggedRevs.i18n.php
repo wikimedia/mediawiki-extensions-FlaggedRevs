@@ -2574,8 +2574,10 @@ Bez ez eus [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 {{PLUR
 	'revreview-log' => 'Notenn :',
 	'revreview-main' => 'Rankout a rit diuzañ ur stumm resis eus ar bajenn evit ober un adlenn.
 Gwelet [[Special:Unreviewedpages|roll ar pajennoù nann-adlennet]].',
-	'revreview-newest-basic' => "Ar [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} stumm embannet] a zo bet [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprouet] d'an <i>$2</i>. Bez ez eus [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|c'hemm|kemm}}] o c'hortoz bezañ adlennet.",
-	'revreview-newest-basic-i' => "Ar [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} stumm embannet] a zo bet [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} gwiriet] d'an <i>$2</i>. Bez ez eus [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} kemmoù eus patromoù/restroù] o c'hortoz bezañ adlennet.",
+	'revreview-newest-basic' => "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|c'hemm|kemm}}] eus ar stumm-mañ {{PLURAL:$3|a c'hortoz|a c'hortoz}} [[{{MediaWiki:Validationpage}}|bezañ aprouet]].
+[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} Gwirie] e oa bet [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} ar stumm stabil]  d'an <i>$2</i>.",
+	'revreview-newest-basic-i' => "Emañ [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Template/file kemmoù] ar stumm-mañ [[{{MediaWiki:Validationpage}}|o c'hortoz bezañ aprouet]].
+[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} Gwiriet] e oa bet ar [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} stumm stabil] d'an <i>$2</i>.",
 	'revreview-newest-quality' => "Ar [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} stumm embannet] a zo bet [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprouet] d'an <i>$2</i>. Bez ez eus [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|c'hemm|kemm}}] o c'hortoz bezañ adlennet.",
 	'revreview-newest-quality-i' => "Ar [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} stumm embannet] a zo bet [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprouet] d'an <i>$2</i>. Bez ez eus [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} kemmoù patromoù/restroù] o c'hortoz bezañ adlennet.",
 	'revreview-pending-basic' => "Ar [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} stumm embannet] a zo bet [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} gwiriet] d'an <i>$2</i>. Bez ez eus [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 kemm{{PLURAL:$3||}}] o c'hortoz bezañ adlennet.",
@@ -8685,10 +8687,14 @@ Ada [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} perubahan templa
 	'revreview-main' => 'Anda harus memilih suatu revisi tertentu dari halaman isi untuk ditinjau.
 
 Lihat [[Special:Unreviewedpages]] untuk daftar halaman yang belum ditinjau.',
-	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Revisi terakhir yang terperiksa] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} tampilkan semua]) [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} disetujui] pada <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|perubahan|perubahan}}] {{PLURAL:$3|butuh|butuh}} tinjauan.',
-	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Versi stabil] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} diperiksa] pada tanggal <i>$2</i>. Ada [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} perubahan templat/berkas] menunggu peninjauan.',
-	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Versi stabil] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} disetujui] pada tanggal <i>$2</i>. {{PLURAL:$3|Ada|Ada}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|perubahan|perubahan}} tertunda] yang menunggu peninjauan.',
-	'revreview-newest-quality-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Versi stabil] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} disetujui] pada tanggal <i>$2</i>. Ada [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} perubahan templat/berkas] menunggu peninjauan.',
+	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|perubahan|perubahan}}] pada versi ini {{PLURAL:$3|merupakan|merupakan}} [[{{MediaWiki:Validationpage}}|revisi tunda]].
+[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Versi stabil] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} diperiksa] pada <i>$2</i>.',
+	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Perubahan templat/berkas] pada versi ini merupakan [[{{MediaWiki:Validationpage}}|revisi tunda]].
+[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Versi stabil] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} diperiksa] pada <i>$2</i>.',
+	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|perubahan|perubahan}}] pada versi ini {{PLURAL:$3|merupakan|merupakan}} [[{{MediaWiki:Validationpage}}|revisi tunda]].
+[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Versi stabil] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} disetujui] pada <i>$2</i>.',
+	'revreview-newest-quality-i' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Perubahan templat/berkas] pada versi ini merupakan [[{{MediaWiki:Validationpage}}|revisi tunda]].
+[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Versi stabil] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} disetujui] pada <i>$2</i>.',
 	'revreview-pending-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Versi stabil] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} diperiksa] pada tanggal <i>$2</i>. {{PLURAL:$3|Ada|Ada}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|perubahan|perubahan}} tertunda] menunggu peninjauan.',
 	'revreview-pending-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Versi stabil] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} disetujui] pada tanggal <i>$2</i>. {{PLURAL:$3|Ada|Ada}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|perubahan|perubahan}} tertunda] yang menunggu peninjauan.',
 	'revreview-pending-nosection' => 'Coba lihat [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} revisi terkini], yang memiliki
@@ -17086,6 +17092,9 @@ $messages['tl'] = array(
 	'group-autoreview' => 'Mga kusang-tagapagsuri',
 	'group-autoreview-member' => 'Kusang-tagapagsuri',
 	'grouppage-autoreview' => '{{ns:project}}:Kusang-tagapagsuri',
+	'revcontents-error' => 'Hindi nagawang kuhanin ang nilalaman.',
+	'revcontents-getcontents' => '[{{fullurl:$1|oldid=$2}} Tingnan ang rebisyong ito]',
+	'revcontents-waiting' => 'Hinihintay ang nilalaman',
 	'revreview-hist-draft' => 'hindi pa nasusuring pagbabago',
 	'revreview-hist-pending' => 'naghihintay ng pagsusuri',
 	'revreview-hist-quality' => 'katangiang pangkagalingan ng pagbabago',
@@ -17131,18 +17140,22 @@ May mga [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} pagbabago sa
 Maaaring may mga bagong [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} pagbabagong] nagawa.',
 	'revreview-basic-same' => 'Ito ang [[{{MediaWiki:Validationpage}}|tanggap na bersyon]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} nasuri] noong <i>$2</i>.',
 	'revreview-basic-source' => 'Isang [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} nasuring bersyon] ng pahinang ito, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} pinayagan] noong <i>$2</i>, na ibinatay sa rebisyong ito.',
-	'revreview-failed' => "'''Hindi nagawang masuri ang rebisyong ito.''' Kulang ang pagpapasa o sa kabilang banda ay hindi tanggap.",
+	'revreview-failed' => "'''Hindi nagawang masuri ang rebisyong ito.'''",
+	'revreview-submission-invalid' => 'Hindi buo ang pagpapassa o kaya ay hindi tanggap.',
 	'review_page_invalid' => 'Hindi tanggap ang puntiryang pahina ng pamagat.',
 	'review_page_notexists' => 'Hindi umiiral ang pinupukol na pahina.',
 	'review_page_unreviewable' => 'Hindi masusuri ang puntiryang pahina.',
 	'review_no_oldid' => 'Walang tinukoy na ID ng rebisyon.',
 	'review_bad_oldid' => 'Walang ganyang puntiryang rebisyon.',
+	'review_conflict_oldid' => 'May ibang tao na tumanggap o hindi tumanggap ng rebisyong ito habang sinusuri mo ito.',
 	'review_not_flagged' => 'Ang puntiryang rebisyon ay kasalukuyang hindi natatakan bilang nasuri na.',
 	'review_too_low' => 'Hindi masusuri ang rebisyon kung may ilang mga lugar na iniwang "hindi sapat".',
 	'review_bad_key' => 'Hindi tanggap na paramentrong susi ng pagsama.',
 	'review_denied' => 'Ipinagkait ang pahintulot.',
 	'review_param_missing' => 'Nawawala o hindi tanggap ang isang parametro.',
 	'review_cannot_undo' => 'Hindi maibabalik sa dati ang mga pagbabago dahil ang kasunod na iba pang nakabinbing mga pamamatnugot ay nagbago ng katulad na mga lugar.',
+	'review_cannot_reject' => 'Hindi matatanggihan ang mga pagbabagong ito dahil may ibang tao nang tumanggap sa ilan (o lahat) ng mga pagbabago.',
+	'review_reject_excessive' => 'Hindi matanggihan sa isang pagkakataon ang ganito karaming mga pagbabago.',
 	'revreview-current' => 'Mga pagbabagong naghihintay',
 	'revreview-depth' => 'Lalim',
 	'revreview-depth-0' => 'Kapos',
@@ -17153,7 +17166,7 @@ Maaaring may mga bagong [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=
 	'revreview-draft-title' => 'Ipinapakita sa pahinang ito ang naghihintay na mga pagbabago',
 	'revreview-edit' => 'Baguhin',
 	'revreview-editnotice' => "'''Ang mga binago mo ay ipapakita sa mga mambabasa kapag nasuri na ng isang may pahintulot na tagagamit.  ([[{{MediaWiki:Validationpage}}|tulong]])'''",
-	'revreview-check-flag-p' => 'Tanggapin ang kasalukuyang mga pagbabagong naghihintay',
+	'revreview-check-flag-p' => 'Tanggapin ang bersyong ito (kabilang ang $1 na naghihintay na {{PLURAL:$1|pagbabago|mga pagbabago}})',
 	'revreview-check-flag-p-title' => 'Tanggapin ang lahat ng pangkasalukuyang nakabinbing mga pagbabago kasama ang binago mo.
 Gamitin lamang ito kapag nakita mo na ang buong pagkakaiba ng mga pagbabagong nakabinbin.',
 	'revreview-check-flag-u' => 'Tanggapin ang hindi nasuring pahinang ito',
@@ -17174,10 +17187,14 @@ May {{PLURAL:$2|isang|mga}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffo
 	'revreview-main' => 'Dapat kang pumili ng isang partikular na pagbabago mula sa isang pahinan ng nilalaman upang makapagsuri.
 
 Tingnan ang [[Special:Unreviewedpages|talaan ng mga pahina hindi pa nasusuring muli]].',
-	'revreview-newest-basic' => 'Ang [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} tinanggap na bersyon] ay [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} nasuri] noong <i>$2</i>. May {{PLURAL:$3|isang|mga}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 nakabinbing {{PLURAL:$3|pagbabago|mga pagbabago}}] na naghihintay ng pagsusuri.',
-	'revreview-newest-basic-i' => 'Ang [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} tanggap na bersyon] ay [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} nasuri] noong <i>$2</i>. May [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} mga pagbabago sa suleras/talaksan] na naghihintay ng pagsusuri.',
-	'revreview-newest-quality' => 'Ang [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} tanggap na bersyon] ay [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} pinayagan] noong <i>$2</i>. May {{PLURAL:$3|isang|mga}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 nakabinbing {{PLURAL:$3|pagbabago|mga pagbabago}}] na naghihintay ng pagsusuri.',
-	'revreview-newest-quality-i' => 'Ang [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} tanggap na bersyon] ay [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} pinayagan] noong <i>$2</i>. May mga [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}}  pagbabago sa suleras/talaksan] na naghihintay ng pagsusuri.',
+	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|pagbabago|mga pagbabago}}] sa bersyong ito {{PLURAL:$3|ay|ay mga}} [[{{MediaWiki:Validationpage}}|naghihintay ng pagsusuri]].
+Ang [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} matatag na bersyon] ay [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} nasuri] noong <i>$2</i>.',
+	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Mga pagbabago sa suleras/talaksan] sa bersyong ito ay [[{{MediaWiki:Validationpage}}|naghihintay ng pagsusuri]].
+Ang [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} matatag na bersyon] ay [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} nasuri] noong <i>$2</i>.',
+	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3  {{PLURAL:$3|pagbabago|mga pagbabago}}] sa bersyong ito {{PLURAL:$3|ay|ay mga}} [[{{MediaWiki:Validationpage}}|naghihintay ng pagsusuri]].
+Ang [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} matatag na bersyon] ay [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} pinayagan] noong <i>$2</i>.',
+	'revreview-newest-quality-i' => 'Ang [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} mga pagbabago sa suleras/talaksan] sa bersyong ito ay  [[{{MediaWiki:Validationpage}}|naghihintay ng pagsusuri]].
+Ang [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} matatag na bersyon] ay [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} pinayagan] noong <i>$2</i>.',
 	'revreview-pending-basic' => 'Ang [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} tanggap na bersyon] ay [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} nasuri] noong <i>$2</i>. May {{PLURAL:$3|isang|mga}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 nakabinbing {{PLURAL:$3|pagbabago|mga pagbabago}}]ng naghihintay ng muling pagsusuri.',
 	'revreview-pending-quality' => 'Ang [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} tanggap na bersyon] ay [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} pinayagan] noong <i>$2</i>. May {{PLURAL:$3|isang|mga}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 nakabinbing {{PLURAL:$3|pagbabago|mga pagbabago}}]ng naghihintay ng muling pagsusuri.',
 	'revreview-pending-nosection' => 'Subuking tingnan ang [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} pinakahuling pagbabago], na kinabibilangan ng [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 nakabinbing {{PLURAL:$2|pagbabago|mga pagbabago}}], upang tingnan kung ang seksyon ay inilipat o binura.',
@@ -17233,15 +17250,12 @@ Upang matanggal ang katayuan ng pagsusuri ng isang rebisyon, pindutin ang "huwag
 
 Pakipindot ang pindutang "bumalik" sa iyong pantingin-tingin at subukang muli.',
 	'revreview-update' => "''' Mangyaring [[{{MediaWiki:Validationpage}}|pakisuri]] ang anumang nakabinbing mga pagbabago ''(ipinapakita sa ibaba)'' na ginawa magmula noong magkaroon ng matatag ang bersyon.'''",
-	'revreview-update-edited' => '<span class="flaggedrevs_important">Ang iyong mga binago ay hindi pa nasa matatag na bersyon.</span>
+	'revreview-update-edited' => '<span class="flaggedrevs_important">Ang mga binago mo ay hindi pa nasa loob ng matatag na bersyon.</span>
 
-Pakisuri ang lahat ng mga pagbabagong ipinapakita sa ibaba upang magawang lumitaw ng mga binago mo sa bersyong matatag.
-Maaaring kailangan mong tugaygayan o "ibalik sa dati" ang mga nabago.',
-	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Wala pa sa matatag na bersyon ang mga binago mo. Mayroong mga dating mga pagbabago na nakabinbin ang pagsusuri.</span>
+Pakisuri ang lahat ng mga pagbabagong ipinakikita sa ibaba upang magawang lumitaw ang mga binago mo sa loob ng matatag na bersyon.',
+	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Ang mga binago mo ay hindi pa nasa loob ng matatag na bersyon.  May mga naunang mga pagbabago naghihintay ng pagsusuri.</span>
 
-Pakisuri ang lahat ng mga pagbabagong ipinapakita sa ibaba upang magawang lumitaw ang mga binago mo sa bersyong matatag. 
-Maaaring kailanganin mong tugaygayan o "ibalik sa dati" ang mga nabago.
-You may need to follow-up on or "undo" edits.',
+Pakisuri ang lahat ng mga pagbabagong ipinapakita sa ibaba upang magawang lumitaw ng mga binago mo sa loob ng matatag na bersyon.',
 	'revreview-update-includes' => "'''Naisapanahon na ang ilang mga suleras/talaksan:'''",
 	'revreview-update-use' => "'''PAUNAWA:''' Ang matatag na bersyon ng bawat isa ng mga suleras/talaksang ito ay ginamit sa bersyong matatag ng pahinang ito.",
 	'revreview-visibility-synced' => "'''Ang pahinang ito ay may isang naisapanahon nang [[{{MediaWiki:Validationpage}}|matatag na bersyon]]; ang katakdaang pangkatatagan ay maaaring [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} iayos].'''",
@@ -17287,6 +17301,17 @@ Pakisuri ang URL na ginamit para mapuntahan ang pahinang ito.',
 	'revreview-restrictfilter' => 'Paghihigpit ng kusang-pagsusuring muli:',
 	'revreview-restriction-any' => 'alin man',
 	'revreview-restriction-none' => 'wala',
+	'revreview-reject-header' => 'Tanggihan ang mga pagbabago para sa $1',
+	'revreview-reject-text-list' => "Sa pamamagitan ng pagbuo sa galaw na ito, '''tatanggihan''' mo ang sumusunod na {{PLURAL:$1|pagbabago|mga pagbabago}}:",
+	'revreview-reject-text-revto' => 'Magpapabalik ito ng pahina sa dati papunta sa [{{fullurl:$1|oldid=$2}} bersyon ng $3].',
+	'revreview-reject-summary' => 'Buod ng pagbago:',
+	'revreview-reject-confirm' => 'Tanggihan ang mga pagbabagong ito',
+	'revreview-reject-cancel' => 'Huwag ituloy',
+	'revreview-reject-summary-cur' => 'Tinanggihan ang huling {{PLURAL:$1|pagbabago|$1 mga pagbabago}} (ni $2) at ibinalik ang rebisyong $3 ni $4',
+	'revreview-reject-summary-old' => 'Tinanggihan ang unang {{PLURAL:$1|pagbabago|$1 mga pagbabago}} (ni $2) na sinundan ng rebisyong $3 ni $4',
+	'revreview-reject-summary-cur-short' => 'Tinanggihan ang huling {{PLURAL:$1|pagbabago|$1 mga pagbabago}} at naibalik ang rebisyong $2 ni $3',
+	'revreview-reject-summary-old-short' => 'Tinanggihana ng unang {{PLURAL:$1|pagbabago|$1 mga pagbabago}} na sumundo sa rebisyong $2 ni $3',
+	'revreview-reject-usercount' => '{{PLURAL:$1|isang tagagamit|$1 mga tagagamit}}',
 	'revreview-reviewlink' => 'mga pagbabagong naghihintay',
 	'revreview-reviewlink-title' => 'Tingnan ang pagkakaiba ng lahat ng mga pagbabagong naghihintay',
 	'revreview-unreviewedpage' => 'pahinang hindi nasuri',
@@ -17295,6 +17320,7 @@ Pakisuri ang URL na ginamit para mapuntahan ang pahinang ito.',
 	'tooltip-ca-default' => 'Katakdaan ng pagtitiyak ng pagkakaroon ng mataas na uri (kalidad)',
 	'flaggedrevs-protect-legend' => 'Pagsusuri ng kusang pamamatnugot ([[{{MediaWiki:Validationpage}}|tulong]])',
 	'flaggedrevs-protect-none' => 'Pahintulutan ang lahat ng mga tagagamit',
+	'flaggedrevs-categoryview' => '[{{fullurl:Special:UnreviewedPages|category=$1}} Hindi nasusuring mga pahina]{{int:pipe-separator}}[{{fullurl:Special:PendingChanges|category=$1}} Naghihintay na mga pagbabago]',
 	'revreview-locked-title' => 'Dapat na masuri munang muli ang pagbabago sa pahinang ito.',
 	'revreview-unlocked-title' => 'Hindi nangangailangan ng muling pagsusuri ang mga pagbabago sa pahinang ito.',
 	'revreview-locked' => "'''Paunawa:''' Dapat na [[{{MediaWiki:Validationpage}}|suriin]] ang mga pagbabago bago ipakita sa mga mambabasa ng pahinang ito.",
@@ -18691,8 +18717,12 @@ $messages['wo'] = array(
  */
 $messages['yi'] = array(
 	'editor' => 'רעדאַקטאָר',
+	'flaggedrevs-prefs-stable' => "שטענדיק ווייַזן די סטאַבילע ווערסיע פון אינהאַלט בלעטער (אויב ס'איז פֿאַראַן)",
 	'revreview-depth-3' => 'הויך',
 	'revreview-edit' => 'רעדאַקטירן',
+	'revreview-main' => 'איר מוזט אויסקלויבן א געוויסע ווערסיע פֿון אַן אינהאַלט בלאַט צו רעוויזירן.
+
+זעט די  [[Special:Unreviewedpages|ליסטע פֿון אומרעוויזירטע בלעטער]].',
 	'revreview-revnotfound' => 'די אלטע רעוויזיע איר האט געבעטן קען נישט געפינען ווערן.
 ביטע טשעקט די URL וואס ברויכט אריינצוגיין אין דעם בלאט.',
 	'revreview-filter-all' => 'אַלע',

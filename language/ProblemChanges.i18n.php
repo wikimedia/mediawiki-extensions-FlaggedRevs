@@ -609,7 +609,7 @@ $messages['pl'] = array(
  */
 $messages['pms'] = array(
 	'problemchanges' => 'Modìfiche etichëttà an cors',
-	'problemchanges-list' => "Sta pàgina-sì a lista le pàgine [[{{MediaWiki:Validationpage}}|revisionà]] ch'a l'han un-a o pi modìfiche tichëttà ch'a speto revision. Na lista ëd [[Special:Tags|tichëtte ëd cambiament bon-e]] a l'é disponibla.",
+	'problemchanges-list' => "Sta pàgina-sì a lista le pàgine [[{{MediaWiki:Validationpage}}|revisionà]] ch'a l'han un-a o pi modìfiche tichëttà ch'a speto na revision. Na lista ëd [[Special:Tags|tichëtte ëd cambiament bon-e]] a l'é disponìbil.",
 	'problemchanges-legend' => 'Lista le pàgine con ëd le revision pendente ëd modìfiche etichëttà',
 	'problemchanges-none' => 'A-i é pa al moment ëd pàgine che a sodisfo sto criteri-sì',
 	'problemchanges-category' => 'Categorìa:',
@@ -801,6 +801,7 @@ $messages['tk'] = array(
  */
 $messages['tl'] = array(
 	'problemchanges' => 'Tinatakang mga pagbabagong naghihintay',
+	'problemchanges-list' => 'Ang pahinang ito ay nagtatala ng [[{{MediaWiki:Validationpage}}|nasuring]] mga pahina na may isa o mahigit pang natatakang mga pagbabago na naghihintay ng pagsusuri.  May makukuhang isang tala ng [[Special:Tags|mga tatak ng tanggap na pagbabago]].',
 	'problemchanges-legend' => 'Itala ang mga pahinang may tinatakang mga pagbabago na naghihintay ng pagsusuri',
 	'problemchanges-none' => 'Kasalukuyang walang mga pahinang ummabot sa ganitong mga kategorya',
 	'problemchanges-category' => 'Kaurian:',

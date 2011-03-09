@@ -1696,7 +1696,7 @@ $messages['rue'] = array(
  */
 $messages['sah'] = array(
 	'validationstatistics' => 'Сирэй тургутуутун статиистиката',
-	'validationstatistics-table' => "Аллара утаарыылартан ''ураты'' ааттар далларын статиистиката бэриллибит.",
+	'validationstatistics-table' => "Аллара утаарыылартан ''ураты'' ааттар далларын тургутуу статиистиката бэриллибит.",
 	'validationstatistics-ns' => 'Аат дала',
 	'validationstatistics-total' => 'Сирэй',
 	'validationstatistics-stable' => 'Тургутуллубут',
@@ -1955,7 +1955,7 @@ $3",
 	'validationstatistics-latest' => 'Napagsabay na',
 	'validationstatistics-synced' => 'Pinagsabay-sabay/Nasuri nang muli',
 	'validationstatistics-old' => 'Wala na sa panahon (luma)',
-	'validationstatistics-utable' => 'Nasa ibaba ang talaan ng limang pinakamataas na manunuri sa loob ng huling oras.',
+	'validationstatistics-utable' => 'Nasa ibaba ang talaan ng {{PLURAL:$1|painakamasiglang tagapagsuri|$1 pinakamasisiglang mga tagapagsuri}} sa loob ng huling oras.',
 	'validationstatistics-user' => 'Tagagamit',
 	'validationstatistics-reviews' => 'Mga pagsusuri',
 );
@@ -1979,7 +1979,7 @@ Bu sayfalar zaman aşımına uğramış olarak kabul edilir. Likewise, pages are
 	'validationstatistics-revtime' => "''Giriş yapmamış anonim kullanıcılar'' tarafından yapılmış girişler için ortalama bekleme süresi '''$1'''; medyanı ise '''$2''' biçimindedir.
 $3",
 	'validationstatistics-table' => "İsim alanları için sayfa inceleme istatistikleri, yönlendirme sayfaları ''dahil olmadan''  aşağıda gösterilmiştir.",
-	'validationstatistics-ns' => 'İsim alanı',
+	'validationstatistics-ns' => 'Ad alanı',
 	'validationstatistics-total' => 'Sayfalar',
 	'validationstatistics-stable' => 'Gözden geçirilmiş',
 	'validationstatistics-latest' => 'Senkronize edildi',
