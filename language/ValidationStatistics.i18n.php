@@ -1967,7 +1967,7 @@ $3",
  * @author Vito Genovese
  */
 $messages['tr'] = array(
-	'validationstatistics' => 'Sayfa gözden geçirme istatistikleri',
+	'validationstatistics' => 'Sayfa inceleme istatistikleri',
 	'validationstatistics-users' => "'''{{SITENAME}}''' sitesinde şuanda [[{{MediaWiki:Validationpage}}|Editör]] yetkisine sahip '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|kullanıcı|kullanıcı}} bulunmaktadır.
 
 Editörler, sayfalara kontrol revizyonu atayabilen belirli kullanıcılardır.",

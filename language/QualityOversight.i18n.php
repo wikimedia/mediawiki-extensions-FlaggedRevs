@@ -615,7 +615,7 @@ $messages['tl'] = array(
 $messages['tr'] = array(
 	'qualityoversight' => 'Gelişmiş inceleme günlüğü',
 	'qualityoversight-list' => 'Bu sayfa, en yeni revizyon onay ve retlerini listelemektedir.',
-	'qualityoversight-legend' => 'Yakın zamandaki gözden geçirme günlüklerini ara',
+	'qualityoversight-legend' => 'Yakın zamanlı inceleme günlüklerini ara',
 );
 
 /** Ukrainian (Українська)
