@@ -644,6 +644,14 @@ Alternative sentences which mean the same as the above message are:
 Link to the general help page. Do ''not'' translate the <tt><nowiki>{{ns:help}}:</nowiki></tt> part, including the colon.",
 );
 
+/** Dusun Bundu-liwan (Dusun Bundu-liwan)
+ * @author FRANCIS5091
+ */
+$messages['dtp'] = array(
+	'editor' => 'Mongi-ngidit',
+	'flaggedrevs' => 'Sinimakan Natandaan',
+);
+
 /** Afrikaans (Afrikaans)
  * @author Arnobarnard
  * @author Naudefj
@@ -7091,7 +7099,7 @@ $messages['he'] = array(
 	'flaggedrevs-prefs-stable' => 'תמיד להציג תחילה את הגרסה היציבה של דפי תוכן (אם היא קיימת)',
 	'flaggedrevs-prefs-watch' => 'מעקב אחרי דפים שסקרתי',
 	'flaggedrevs-prefs-editdiffs' => 'להציג את ההשוואה של השינויים הממתינים בעת עריכת דפים',
-	'flaggedrevs-prefs-viewdiffs' => 'להציג ההשוואה של השינויים הממתינים בעת צפייה בגרסה הממתינה האחרונה',
+	'flaggedrevs-prefs-viewdiffs' => 'להציג את ההשוואה של השינויים הממתינים בעת צפייה בגרסה הממתינה האחרונה',
 	'group-editor' => 'עורכים',
 	'group-editor-member' => 'עורך',
 	'group-reviewer' => 'סוקרים',
@@ -13344,10 +13352,14 @@ A-i {{PLURAL:$2|é|son}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly
 	'revreview-main' => 'A deuv selessioné na revision particolar ëd na pàgina ëd contnù për revisionela.
 
 Vardé la [[Special:Unreviewedpages|lista dle pàgine pa revisionà]].',
-	'revreview-newest-basic' => "La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} version publicà] a l'é stàita [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} controlà] dël <i>$2</i>. A-i {{PLURAL:$3|é|son}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|cangiament|cangiament}}] pendent ch'a speto revision.",
-	'revreview-newest-basic-i' => "La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} version publicà] a l'é stàita [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} controlà] dël <i>$2</i>. A-i son [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} cangiament dë stamp/archivi] ch'a speto na revision.",
-	'revreview-newest-quality' => "La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} version publicà] a l'é stàita [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovà] dël <i>$2</i>. A-i {{PLURAL:$3|é|son}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|cangiament|cangiament}}] pendent ch'a speto na revision.",
-	'revreview-newest-quality-i' => "La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} version publicà] a l'é stàita [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovà] dël <i>$2</i>. A-i son [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} cangiament dë stamp/archivi] ch'a speto na revision.",
+	'revreview-newest-basic' => "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|cambe|cambe}}] an sta vërsion a {{PLURAL:$3|l'é|son}} [[{{MediaWiki:Validationpage}}|revision pendente]].
+La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} vërsion stabila] a l'era [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} cntrolà] su <i>$2</i>.",
+	'revreview-newest-basic-i' => "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Template/file changes] an sta vërsion a son [[{{MediaWiki:Validationpage}}|revision pendente]].
+La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} vërsion stabila] a l'era [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} controlà] su <i>$2</i>.",
+	'revreview-newest-quality' => "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3  {{PLURAL:$3|change|changes}}] an sta vërsion a {{PLURAL:$3|l'é|son}} [[{{MediaWiki:Validationpage}}|revision pendente]].
+La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} vërsion stabila] a l'era [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovà] su <i>$2</i>.",
+	'revreview-newest-quality-i' => "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Template/file changes] an sta vërsion a son [[{{MediaWiki:Validationpage}}|revision pendente]].
+La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} vërsion stabila] a l'era [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovà] su <i>$2</i>.",
 	'revreview-pending-basic' => "La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} version publicà] a l'é stàita [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} controlà] dël <i>$2</i>. A-i {{PLURAL:$3|é|son}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|cangiament|cangiament}}] pendent ch'a speto na revision.",
 	'revreview-pending-quality' => "La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} version publicà] a l'é stàita [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovà] dël <i>$2</i>. A-i {{PLURAL:$3|é|son}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|cangiament|cangiament}}] pendent ch'a speto na revision.",
 	'revreview-pending-nosection' => "Prové a vëdde l'[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} ùltima revision], ch'a anclud
