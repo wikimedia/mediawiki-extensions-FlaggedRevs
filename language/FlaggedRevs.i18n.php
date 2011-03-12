@@ -598,10 +598,13 @@ A group in [[Special:SpecialPages]] for all special pages of the Flagged Revs ex
 	'revreview-filter-auto' => '{{Flagged Revs}}',
 	'revreview-filter-manual' => '{{Flagged Revs}}',
 	'revreview-levelfilter' => '{{Flagged Revs}}',
-	'revreview-lev-all' => '{{Flagged Revs}}',
+	'revreview-lev-all' => '{{Flagged Revs}}
+{{Identical|Any}}',
 	'revreview-lev-basic' => '{{Flagged Revs}}',
 	'revreview-lev-quality' => '{{Flagged Revs}}',
 	'revreview-lev-pristine' => '{{Flagged Revs}}',
+	'revreview-def-all' => '{{Identical|Any}}',
+	'revreview-restriction-any' => '{{Identical|Any}}',
 	'revreview-reject-cancel' => '{{Identical|Cancel}}',
 	'revreview-reject-summary-cur' => '{{Flagged Revs-small}}
 Default summary shown when rejecting pending changes, and they are the latest revisions to a page
