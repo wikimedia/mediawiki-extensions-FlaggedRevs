@@ -333,8 +333,8 @@ $messages['ha'] = array(
  * @author Rotemliss
  */
 $messages['he'] = array(
-	'problemchanges' => 'השינויים הממתינים עם תגיות',
-	'problemchanges-list' => "הדף הזה מציג רשימה של דפים ש[[{{MediaWiki:Validationpage}}|נסקרו]] שיש להם עריכה מתויגת אחת או יותר שממתינה לסקירה. ר' [[Special:Tags|רשימה של תגי שינוי תקינים]].",
+	'problemchanges' => 'שינויים ממתינים מתויגים',
+	'problemchanges-list' => "הדף הזה מציג רשימה של דפים ש[[{{MediaWiki:Validationpage}}|נסקרו]] ושנעשתה בהם עריכה מתויגת אחת או יותר שממתינה לסקירה. ר' [[Special:Tags|רשימה של תגי שינוי תקינים]].",
 	'problemchanges-legend' => 'רשימת הדפים עם עריכות מתויגות הממתינות לסקירה',
 	'problemchanges-none' => 'אין כרגע דפים המתאימים לאמות המידה האלו',
 	'problemchanges-category' => 'קטגוריה:',
