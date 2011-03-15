@@ -343,7 +343,6 @@ class PendingChangesPager extends AlphabeticPager {
 			$conds[] = 'page_id = fp_page_id';
 			$conds[] = 'rev_id = fp_stable'; // PK
 			$conds[] = 'fp_pending_since IS NOT NULL';
-			$useIndex = array( 'flaggedpages' => 'fp_pending_since', 'page' => 'PRIMARY' );
 			# Filter by pages configured to be stable
 			if ( $this->stable ) {
 				$tables[] = 'flaggedpage_config';
@@ -355,7 +354,6 @@ class PendingChangesPager extends AlphabeticPager {
 				$tables[] = 'categorylinks';
 				$conds[] = 'cl_from = fp_page_id';
 				$conds['cl_to'] = $this->category;
-				$useIndex['categorylinks'] = 'cl_from';
 			}
 			$this->mIndexField = 'fp_pending_since';
 		# Show outdated version for a specific review level
@@ -367,8 +365,6 @@ class PendingChangesPager extends AlphabeticPager {
 			$conds[] = 'page_id = fpp_page_id';
 			$conds[] = 'rev_id = fpp_rev_id'; // PK
 			$conds[] = 'fpp_pending_since IS NOT NULL';
-			$useIndex = array(
-				'flaggedpage_pending' => 'fpp_quality_pending', 'page' => 'PRIMARY' );
 			# Filter by review level
 			$conds['fpp_quality'] = $this->level;
 			# Filter by pages configured to be stable
@@ -382,7 +378,6 @@ class PendingChangesPager extends AlphabeticPager {
 				$tables[] = 'categorylinks';
 				$conds[] = 'cl_from = fpp_page_id';
 				$conds['cl_to'] = $this->category;
-				$useIndex['categorylinks'] = 'cl_from';
 			}
 			$this->mIndexField = 'fpp_pending_since';
 		}
@@ -407,8 +402,7 @@ class PendingChangesPager extends AlphabeticPager {
 		return array(
 			'tables'  => $tables,
 			'fields'  => $fields,
-			'conds'   => $conds,
-			'options' => array( 'USE INDEX' => $useIndex )
+			'conds'   => $conds
 		);
 	}
 
