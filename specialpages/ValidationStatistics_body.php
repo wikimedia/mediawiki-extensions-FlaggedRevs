@@ -136,8 +136,11 @@ class ValidationStatistics extends IncludableSpecialPage
 						$percSynced .
 					"</td>
 					<td>" .
-					
-						htmlspecialchars( $outdated ) .
+						$this->skin->linkKnown( SpecialPage::getTitleFor( 'PendingChanges' ),
+							htmlspecialchars( $outdated ),
+							array(),
+							array( 'namespace' => $namespace )
+						) .
 					"</td>
 				</tr>"
 			);
