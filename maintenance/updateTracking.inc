@@ -128,8 +128,7 @@ function update_flaggedpages( $start = null ) {
 			$frev = FlaggedRevision::determineStable( $title, FR_MASTER );
 			# Update fp_stable, fp_quality, and fp_reviewed
 			if( $frev ) {
-				FlaggedRevs::updateStableVersion(
-					$article, $frev->getRevision(), $row->page_latest );
+				FlaggedRevs::updateStableVersion( $article, $frev, $row->page_latest );
 			# Somethings broke? Delete the row...
 			} else {
 				FlaggedRevs::clearTrackingRows( $row->page_id );

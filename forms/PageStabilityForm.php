@@ -327,7 +327,7 @@ abstract class PageStabilityForm
 		# Refresh tracking to account for any hidden reviewed versions...
 		$frev = FlaggedRevision::newFromStable( $this->page, FR_MASTER );
 		if ( $frev ) {
-			FlaggedRevs::updateStableVersion( $article, $frev->getRevision(), $latest );
+			FlaggedRevs::updateStableVersion( $article, $frev, $latest );
 		} else {
 			FlaggedRevs::clearTrackingRows( $article->getId() );
 		}

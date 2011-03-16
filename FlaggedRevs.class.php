@@ -645,6 +645,22 @@ class FlaggedRevs {
 		wfProfileOut( __METHOD__ );
 	}
 
+	/**
+	* @param Article $article
+	* @param bool $synced
+	* Updates the fp_reviewed field for this article
+	*/	
+	public static function updateSyncStatus( Article $article, $synced ) {
+		wfProfileIn( __METHOD__ );
+		$dbw = wfGetDB( DB_MASTER );
+		$dbw->update( 'flaggedpages',
+			array( 'fp_reviewed' => (int)$synced ),
+			array( 'fp_page_id'  => $article->getID() ),
+			__METHOD__
+		);
+		wfProfileOut( __METHOD__ );
+	}
+
 	# ################ Tracking/cache update update functions #################
 
 	/**
@@ -672,7 +688,7 @@ class FlaggedRevs {
 		} else {
 			$article = new Article( $title );
 			# Update flagged page related fields
-			FlaggedRevs::updateStableVersion( $article, $sv->getRevision() );
+			FlaggedRevs::updateStableVersion( $article, $sv );
 			# Lazily rebuild dependancies on next parse (we invalidate below)
 			FlaggedRevs::clearStableOnlyDeps( $title );
 			# Check if pages using this need to be invalidated/purged...
@@ -702,14 +718,15 @@ class FlaggedRevs {
 
 	/**
 	* @param Article $article
-	* @param Revision $rev, the new stable version
+	* @param FlaggedRevision $srev, the new stable version
 	* @param mixed $latest, the latest rev ID (optional)
 	* Updates the tracking tables and pending edit count cache. Called on edit.
 	*/
 	public static function updateStableVersion(
-		Article $article, Revision $rev, $latest = null
+		Article $article, FlaggedRevision $srev, $latest = null
 	) {
-		if ( !$article->getId() ) {
+		$rev = $srev->getRevision();
+		if ( !$rev || !$article->getId() ) {
 			return true; // no bogus entries
 		}
 		# Get the latest revision ID if not set
@@ -744,13 +761,19 @@ class FlaggedRevs {
 				$nextTimestamp = $nextEditTS;
 			}
 		}
+		# Get the new page sync status...
+		$synced = !(
+			$nextTimestamp !== null || // edits pending
+			$srev->findPendingTemplateChanges() || // template changes pending
+			$srev->findPendingFileChanges( 'noForeign' ) // file changes pending
+		);
 		# Alter table metadata
 		$dbw->replace( 'flaggedpages',
 			array( 'fp_page_id' ),
 			array(
 				'fp_page_id'       => $article->getId(),
 				'fp_stable'        => $rev->getId(),
-				'fp_reviewed'      => ( $nextTimestamp === null ) ? 1 : 0,
+				'fp_reviewed'      => $synced ? 1 : 0,
 				'fp_quality'       => ( $maxQuality === false ) ? null : $maxQuality,
 				'fp_pending_since' => $dbw->timestampOrNull( $nextTimestamp )
 			),

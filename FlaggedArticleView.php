@@ -693,14 +693,24 @@ class FlaggedArticleView {
 				$parserOptions = FlaggedRevs::makeParserOptions();
 				$parserOut = FlaggedRevs::parseStableText(
 					$this->article->getTitle(), $text, $srev->getRevId(), $parserOptions );
-				# Update the stable version cache & dependancies
+				# Update the stable version cache
 				FlaggedRevs::updatePageCache( $this->article, $parserOptions, $parserOut );
-				FlaggedRevs::updateCacheTracking( $this->article, $parserOut );
-
+				# Add the stable output to the page view
 				$this->addParserOutput( $parserOut );
+				
+				# Update the stable version dependancies
+				FlaggedRevs::updateCacheTracking( $this->article, $parserOut );
 			} else {
 				$wgOut->addHtml( $redirHtml );
 			}
+		}
+
+		# Update page sync status for tracking purposes.
+		# NOTE: avoids master hits and doesn't have to be perfect for what it does
+		if ( !$this->article->revsArePending() // already updated on edit
+			&& $this->article->syncedInTracking() != $synced )
+		{
+			FlaggedRevs::updateSyncStatus( $this->article, $synced );
 		}
 	}
 

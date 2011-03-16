@@ -10,6 +10,8 @@ class FlaggedArticle extends Article {
 	protected $revsArePending = null;
 	protected $pendingRevCount = null;
 	protected $pageConfig = null;
+	protected $syncedInTracking = null;
+
 	protected $imagePage = null; // for file pages
 
 	protected $stabilityDataLoaded = false;
@@ -332,7 +334,8 @@ class FlaggedArticle extends Article {
 		$row = $db->selectRow(
 			array( 'page', 'flaggedpages', 'flaggedrevs', 'flaggedpage_config' ),
 			array_merge( FlaggedRevision::selectFields(),
-				FlaggedPageConfig::selectFields(), array( 'fp_pending_since' ) ),
+				FlaggedPageConfig::selectFields(),
+				array( 'fp_pending_since', 'fp_reviewed' ) ),
 			array( 'page_id' => $this->getID() ),
 			__METHOD__,
 			array(),
@@ -355,5 +358,16 @@ class FlaggedArticle extends Article {
 			}
 		}
 		$this->revsArePending = ( $row->fp_pending_since !== null ); // revs await review
+		$this->syncedInTracking = (bool)$row->fp_reviewed;
+	}
+
+	/*
+	* Get the fp_reviewed value for this page
+	* @param int $flags FR_MASTER
+	* @return bool
+	*/
+	public function syncedInTracking( $flags = 0 ) {
+		$this->loadFlaggedRevsData( $flags );
+		return $this->syncedInTracking;
 	}
 }
