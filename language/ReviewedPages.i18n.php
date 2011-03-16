@@ -28,8 +28,7 @@ $messages['en'] = array(
 $messages['qqq'] = array(
 	'reviewedpages' => '{{Flagged Revs}}',
 	'reviewedpages-leg' => '{{Flagged Revs}}',
-	'reviewedpages-list' => '{{Flagged Revs}}
-Parameter $1 is the number of reviewed pages for use with PLURAL.',
+	'reviewedpages-list' => '{{Flagged Revs}}',
 	'reviewedpages-none' => '{{Flagged Revs}}
 {{Identical|There are no pages in this list}}',
 	'reviewedpages-lev-0' => '{{Flagged Revs}}',
