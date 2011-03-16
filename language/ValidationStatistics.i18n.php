@@ -376,10 +376,10 @@ Sichter sind anerkannte Benutzer, die Versionen einer Seite markieren können.",
 	'validationstatistics-lastupdate' => "''Die folgenden Daten wurden zuletzt am $1 um $2 Uhr aktualisiert.''",
 	'validationstatistics-pndtime' => "Bearbeitungen, die von anerkannten Benutzern bestätigt wurden, gelten als markiert.
 
-Die durchschnittliche Wartezeit der [[Special:OldReviewedPages|Seiten mit unmarkierten Änderungen]] beträgt '''$1'''.",
+Die durchschnittliche Wartezeit der [[Special:OldReviewedPages|Seiten mit unmarkierten Änderungen]] beträgt '''$1'''. Die Verzögerung misst wie lang die älteste unmarkierte Änderung unbestätigt blieb.",
 	'validationstatistics-revtime' => "Die durchschnittliche Wartezeit bis zur Markierung, bei Bearbeitungen ''durch Benutzer, die nicht angemeldet waren''  beträgt '''$1'''; der Median ist '''$2'''. 
 $3",
-	'validationstatistics-table' => "Die Versionsmarkierungsstatistiken für jeden Namensraum werden unten angezeigt, ''Weiterleitungen'' ausgenommen.",
+	'validationstatistics-table' => 'Die Versionsmarkierungsstatistiken aller Seiten, mit Ausnahme von Weiterleitungsseiten, werden unten für jeden Namensraum angezeigt. Seiten werden als veraltet eingestuft, sofern sie unmarkierte Änderungen enthalten. Alle anderen Seiten werden als markiert und somit aktuell eingestuft.',
 	'validationstatistics-ns' => 'Namensraum',
 	'validationstatistics-total' => 'Seiten gesamt',
 	'validationstatistics-stable' => 'Mindestens eine Version markiert',
@@ -863,13 +863,12 @@ $messages['hsb'] = array(
 
 Wobdźěłowarjo su nazhonići wužiwarjo, kotřiž móžeja wersije stronow kontrolować.",
 	'validationstatistics-lastupdate' => "''Slědowace daty buchu $1 $2 posledni raz zaktualizowane.''",
-	'validationstatistics-pndtime' => "Změny, kotrež buchu wot nazhonitych wužiwarjow skontrolowane, měli so přepruwować.
+	'validationstatistics-pndtime' => "Změny, kotrež buchu wot nazhonitych wužiwarjow skontrolowane, měli so ''přepruwować''.
 
-Přerězny komdźenje za [[Special:OldReviewedPages|strony z njepřepruwowane změny]] je '''$1'''.
-Tute strone maja za ''zestarjene''. Nimo toho měli so strony ''syncjronizować'', jeli změny, kotrež sej přepruwowanje wužaduja, njejsu.",
+Přerězny komdźenje za [[Special:OldReviewedPages|strony z njepřepruwowane změny]] je '''$1'''; komdźenje měri, kak dołho najstarša njekontrolowana změna wosta njepřepruwowana.",
 	'validationstatistics-revtime' => "Přerězny čakanski čas za změny wot ''wužiwarjow, kotřiž njejsu přizjewjeni'' za přepruwowanje je '''\$1\"\"; přerězna hódnota je '''\$2'''.
 \$3",
-	'validationstatistics-table' => "Statistiki přepruwowanja stronow za kóždy mjenowy rum so deleka pokazuja, ''nimo'' daleposrědkowanjow.",
+	'validationstatistics-table' => "Statistika přepruwowanja stronow za kóždy mjenowy rum so deleka pokazuje, ''nimo'' daleposrědkowanjow. Strony maja za ''zestarjene'', jeli maja změny, kotrež na přepruwowanje čakaja; strony maja za ''synchronizowane'', jeli změny, kotrež na přepruwowanje čakaja, njejsu.",
 	'validationstatistics-ns' => 'Mjenowy rum',
 	'validationstatistics-total' => 'Strony',
 	'validationstatistics-stable' => 'Skontrolowane',
@@ -1293,14 +1292,13 @@ $messages['ml'] = array(
 
 താളുകളുടെ നാൾവഴികൾ പരിശോധിച്ച് തെറ്റുതിരുത്താൻ കഴിയുന്ന സ്ഥാപിത ഉപയോക്താക്കളാണ് എഡിറ്റർമാർ.",
 	'validationstatistics-lastupdate' => "''താഴെ പറയുന്ന വിവരങ്ങൾ അവസാനം പുതുക്കിയത് $1 $2-നു ആണ്.''",
-	'validationstatistics-pndtime' => "മികച്ച ഉപയോക്താക്കൾ പരിശോധിക്കപ്പെട്ട തിരുത്തലുകൾ സംശോധനം ചെയ്തതായി കരുതപ്പെടും.
+	'validationstatistics-pndtime' => "സ്ഥിരീകൃത ഉപയോക്താക്കൾ പരിശോധിക്കപ്പെട്ട തിരുത്തലുകൾ ''സംശോധനം ചെയ്തതായി'' കരുതപ്പെടും.
 
 
-[[Special:OldReviewedPages|സംശോധനം ചെയ്യാൻ അവശേഷിക്കുന്ന താളുകൾ]] എടുക്കാനുള്ള ശരാശരി താമസം '''$1''' ആണ്.
-ഈ താളുകൾ ''കാലഹരണപ്പെട്ടതായി'' കണക്കാക്കുന്നു, അതുപോലെ തിരുത്തലുകൾ ഒന്നും സംശോധനത്തിനായി ഇല്ലാത്ത താളുകൾ ''യോജിപ്പിക്കപ്പെട്ടവയായും'' കണക്കാക്കുന്നു.",
+[[Special:OldReviewedPages|സംശോധനം ചെയ്യാൻ അവശേഷിക്കുന്ന താളുകൾ]] എടുക്കാനുള്ള ശരാശരി താമസം '''$1''' ആണ്; ഏറ്റവും പഴയ അവശേഷിക്കുന്ന തിരുത്തൽ എത്രനാൾ സംശോധനത്തിനായി കാത്തുകിടന്നു എന്നതുപയോഗിച്ചാണ് കാലതാമസം അളക്കുന്നത്.",
 	'validationstatistics-revtime' => "''ലോഗിൻ ചെയ്യാത്ത ഉപയോക്താക്കളുടെ'' തിരുത്തലുകൾ സംശോധനം ചെയ്യാനുള്ള ശരാശരി കാലതാമസം '''$1''' ആണ്; മീഡിയൻ '''$2''' ആണ്.
 $3",
-	'validationstatistics-table' => "ഓരോ നാമമേഖലയിലേയും താൾ സംശോധന സ്ഥിതിവിവരക്കണക്കുകൾ താഴെ കൊടുക്കുന്നു, തിരിച്ചുവിടൽ താളുകൾ ''ഒഴിവാക്കുന്നു''.",
+	'validationstatistics-table' => "ഓരോ നാമമേഖലയിലേയും താൾ സംശോധന സ്ഥിതിവിവരക്കണക്കുകൾ താഴെ കൊടുക്കുന്നു, തിരിച്ചുവിടൽ താളുകൾ ''ഒഴിവാക്കുന്നു''. താളുകളിൽ തിരുത്തലുകൾ സംശോധനത്തിനവശേഷിക്കുന്നുൻടെങ്കിൽ അവ ''കാലഹരണപ്പെട്ടവ'' ആയി കണക്കാക്കുന്നു; താളുകളിൽ സംശോധനത്തിനു തിരുത്തലുകൾ ഒന്നുമില്ലെങ്കിൽ അവ ''യോജിപ്പിച്ചതായി'' കണക്കാക്കുന്നു.",
 	'validationstatistics-ns' => 'നാമമേഖല',
 	'validationstatistics-total' => 'താളുകൾ',
 	'validationstatistics-stable' => 'പരിശോധിച്ചവ',
@@ -1658,11 +1656,10 @@ $messages['ru'] = array(
 	'validationstatistics-lastupdate' => "''Следующие данные были последний раз обновлены $1 в $2.''",
 	'validationstatistics-pndtime' => "Правки, отмеченные определёнными участниками, считаются прошедшими проверку.
 
-Средняя задержка [[Special:OldReviewedPages|для страниц с непроверенными правками]] — '''$1'''. 
-Эти страницы считаются ''устаревшими''. Страницы считается ''синхронизированными'', если нет ожидающих проверки правок.",
+Средняя задержка [[Special:OldReviewedPages|для страниц с непроверенными правками]] — '''$1'''. Этот параметр показывает как долго последняя непроверенная версия правка остаётся без внимания проверяющих.",
 	'validationstatistics-revtime' => "Средняя задержка проверки для правок ''непредставившихся участников'' составляет '''$1'''; медиана — '''$2'''. 
 $3",
-	'validationstatistics-table' => "Ниже представлена статистика проверок по каждому пространству имён, ''исключая'' страницы перенаправлений.",
+	'validationstatistics-table' => "Ниже представлена статистика проверок по каждому пространству имён, ''исключая'' страницы перенаправлений. Страницы считаются «устаревшими», если они имеют непроверенные правки; страницы считаются «синхронизироваными», если у них нет правок, ожидающих проверки.",
 	'validationstatistics-ns' => 'Пространство',
 	'validationstatistics-total' => 'Страниц',
 	'validationstatistics-stable' => 'Проверенные',
@@ -1765,13 +1762,12 @@ $messages['sl'] = array(
 
 Uredniki so uveljavljeni uporabniki, ki lahko samodejno preverijo redakcije strani.",
 	'validationstatistics-lastupdate' => "''Sledeči podatki so bili nazadnje posodobljeni dne $1 ob $2.''",
-	'validationstatistics-pndtime' => "Urejanja, ki so jih preverili uveljavljeni uporabniki, se smatrajo kot pregledana.
+	'validationstatistics-pndtime' => "Urejanja, ki so jih preverili uveljavljeni uporabniki, se smatrajo kot ''pregledana''.
 
-Povprečni zamik [[Special:OldReviewedPages|strani z nepregledanimi urejanji v teku]] je '''$1'''.
-Te strani se štejejo za ''zastarele''. Prav tako se strani štejejo za ''usklajene'', če nimajo urejanj, ki čakajo na pregled.",
+Povprečni zamik pregleda [[Special:OldReviewedPages|strani z urejanji, ki čakajo na pregled]], je '''$1'''; zakasnitev meri, kako dolgo je bilo nepregledano najstarejše urejanje, ki je čakalo na pregled.",
 	'validationstatistics-revtime' => "Povprečna čakalna doba pregleda urejanj ''uporabnikov, ki niso prijavljeni''', je '''$1'''; mediana je '''$2'''.
 $3",
-	'validationstatistics-table' => "Statistika pregleda strani za posamezni imenski prostor je prikazana spodaj, ''brez'' preusmeritvenih strani.",
+	'validationstatistics-table' => "Statistika pregleda strani za posamezni imenski prostor je prikazana spodaj, ''brez'' preusmeritvenih strani. Srtrani se obravnavajo kot ''zastarele'', če imajo urejanja, ki čakajo na pregled; strani se štejejo kot ''usklajene'', če nobeno urejanje ne čaka na pregled.",
 	'validationstatistics-ns' => 'Imenski prostor',
 	'validationstatistics-total' => 'Strani',
 	'validationstatistics-stable' => 'Pregledano',
@@ -2080,10 +2076,9 @@ $messages['vi'] = array(
 
 Biên tập viên là người dùng có kinh nghiệm có khả năng kiểm tra nhanh các thay đổi tại trang.",
 	'validationstatistics-lastupdate' => "''Các dữ liệu sau được cập nhật lần cuối vào $1 lúc $2.''",
-	'validationstatistics-pndtime' => "Những sửa đổi được duyệt khi được người dùng có kinh nghiệm xem qua.
+	'validationstatistics-pndtime' => "Những sửa đổi được ''duyệt'' khi được người dùng có kinh nghiệm xem qua.
 
-[[Special:OldReviewedPages|Các trang có sửa đổi đang chờ duyệt]] đã chờ đợi '''$1''' trung bình.
-Những trang này được coi là ''lỗi thời''. Tương tự, các trang được coi là ''đồng bộ hóa'' khi không còn sửa đổi đang chờ duyệt.",
+[[Special:OldReviewedPages|Các trang có sửa đổi đang chờ duyệt]] đã chờ đợi '''$1''' trung bình, tính theo sửa đổi cũ nhất đang chờ duyệt.",
 	'validationstatistics-revtime' => "Những sửa đổi của ''người dùng vô danh'' phải chờ đợi '''$1''' trung bình; thời gian trung vị là '''$2'''.
 $3",
 	'validationstatistics-table' => "Đây có thống kê duyệt trang về các không gian tên, ''trừ'' các trang đổi hướng.",

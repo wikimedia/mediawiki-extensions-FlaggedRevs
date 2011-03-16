@@ -10281,6 +10281,7 @@ $messages['ko'] = array(
  * @author Purodha
  */
 $messages['ksh'] = array(
+	'action-review' => 'Versione nohkike',
 	'editor' => 'Redaktör för et Sichte',
 	'flaggedrevs' => 'Beschtähteschte Versione',
 	'flaggedrevs-watched-pending' => "Mer han jraad [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} noch nit nohjekik Änderunge] aan Sigge op Ding Oppassleß, wohvun ällder Versione ald nohjekik wohre. '''Ding Hülp weedt jebruch!'''",
