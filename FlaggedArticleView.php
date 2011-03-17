@@ -707,10 +707,10 @@ class FlaggedArticleView {
 
 		# Update page sync status for tracking purposes.
 		# NOTE: avoids master hits and doesn't have to be perfect for what it does
-		if ( !$this->article->revsArePending() // already updated on edit
-			&& $this->article->syncedInTracking() != $synced )
-		{
-			FlaggedRevs::updateSyncStatus( $this->article, $synced );
+		if ( $this->article->syncedInTracking() != $synced ) {
+			if ( wfGetDB( DB_SLAVE )->getLag() <= 5 ) { // avoid write-delay cycles
+				FlaggedRevs::updateSyncStatus( $this->article, $synced );
+			}
 		}
 	}
 
