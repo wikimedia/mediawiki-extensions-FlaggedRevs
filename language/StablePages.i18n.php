@@ -542,7 +542,8 @@ $messages['ko'] = array(
  */
 $messages['ksh'] = array(
 	'stablepages' => 'Sigge, di bloß met Beshtäätejong aanjezeish wääde',
-	'stablepages-list' => 'Hee dronger kütt en Leß met Sigge, woh vun Hand enjshtallt es, dat de {{int:stablepages-stable}} ier Enhallt shtandatmäßesch för der Lesser aanjezeisch weedt.',
+	'stablepages-list' => 'Heh dronger kütt en Leß met Sigge, woh bloß beshtemmpte Metmaacher draan ändere künne, di nit nohjekik wääde möße.
+Änderonge vun ander Metmaacher kritt der Lesser shtandatmäßesch nit aanjezeisch, bes ene berääschteschte Metmaacher se nohjekik hät.',
 	'stablepages-none' => 'En dä Leß sin kein Sigge dren',
 	'stablepages-config' => 'Enstellunge',
 	'stablepages-indef' => 'Bloß met onbejränz Duuer',

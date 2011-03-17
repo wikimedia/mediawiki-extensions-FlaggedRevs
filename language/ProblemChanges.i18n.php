@@ -478,7 +478,7 @@ $messages['ko'] = array(
  * @author Purodha
  */
 $messages['ksh'] = array(
-	'problemchanges' => 'Makeete Änderunge nohkike',
+	'problemchanges' => 'Makeete Änderunge, di nit nojehkik sin',
 	'problemchanges-legend' => 'Donn de Sigge met makeete Änderunge opleßte, woh di Änderunge noch nit nohjekik sen',
 	'problemchanges-none' => 'Mer han jraad kei Sigge, di met heh dänne Pungkte zor Ußwahl zosamme paße dähte.',
 	'problemchanges-category' => 'Zoot:',
