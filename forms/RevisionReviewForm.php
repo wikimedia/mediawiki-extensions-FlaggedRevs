@@ -1044,14 +1044,15 @@ class RevisionReviewForm
 		}
 
 		$rejectIds = $rejectAuthors = array();
-		$userNS = $wgContLang->getNsText( NS_USER );
+		$contribs = SpecialPage::getTitleFor( 'Contributions' )->getPrefixedText();
 		foreach ( $res as $row ) {
 			$rev = new Revision( $row );
 			$rejectIds[] = $rev->getId();
 			$rejectAuthors[] = $rev->isDeleted( Revision::DELETED_USER )
 				? wfMsg( 'rev-deleted-user' )
-				: "[[{$userNS}:{$rev->getUserText()}|{$rev->getUserText()}]]";
+				: "[[{$contribs}/{$rev->getUserText()}|{$rev->getUserText()}]]";
 		}
+		$rejectAuthors = array_values( array_unique( $rejectAuthors ) );
 
 		// List of revisions being undone...
 		$wgOut->addWikiMsg( 'revreview-reject-text-list', $wgLang->formatNum( count( $rejectIds ) ) );
@@ -1080,8 +1081,18 @@ class RevisionReviewForm
 			? wfMsg( 'rev-deleted-user' )
 			: $oldRev->getUserText();
 		// NOTE: *-cur msg wording not safe for (unlikely) edit auto-merge
-		$rejectAuthors = array_values( array_unique( $rejectAuthors ) );
-		if ( count( $rejectAuthors ) > 3 ) {
+		$msg = $newRev->isCurrent()
+			? 'revreview-reject-summary-cur' 
+			: 'revreview-reject-summary-old';
+		$defaultSummary = wfMsgExt( $msg, array( 'parsemag', 'content' ),
+			$wgContLang->formatNum( count( $rejectIds ) ),
+			$wgContLang->listToText( $rejectAuthors ),
+			$oldRev->getId(),
+			$oldRevAuthor );
+		// If the message is too big, then fallback to the shorter one
+		$colonSeparator = wfMsgForContent( 'colon-separator' );
+		$maxLen = 255 - count( $colonSeparator ) - count( $this->comment );
+		if ( strlen( $defaultSummary ) > $maxLen ) {
 			$msg = $newRev->isCurrent()
 				? 'revreview-reject-summary-cur-short' 
 				: 'revreview-reject-summary-old-short';
@@ -1089,20 +1100,11 @@ class RevisionReviewForm
 				$wgContLang->formatNum( count( $rejectIds ) ),
 				$oldRev->getId(),
 				$oldRevAuthor );
-		} else {
-			$msg = $newRev->isCurrent()
-				? 'revreview-reject-summary-cur' 
-				: 'revreview-reject-summary-old';
-			$defaultSummary = wfMsgExt( $msg, array( 'parsemag', 'content' ),
-				$wgContLang->formatNum( count( $rejectIds ) ),
-				$wgContLang->listToText( $rejectAuthors ),
-				$oldRev->getId(),
-				$oldRevAuthor );
 		}
 		// Append any review comment...
 		if ( $this->comment != '' ) {
 			if ( $defaultSummary != '' ) {
-				$defaultSummary .= wfMsgForContent( 'colon-separator' );
+				$defaultSummary .= $colonSeparator;
 			}
 			$defaultSummary .= $this->comment;
 		}
