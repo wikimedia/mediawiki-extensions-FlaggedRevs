@@ -619,7 +619,7 @@ class FlaggedRevsHooks {
 		}
 		# All cases below require auto-review of edits to be enabled
 		if ( !FlaggedRevs::autoReviewEnabled() ) {
-			return true;
+			return true; // short-circuit
 		}
 		# If a $baseRevId is passed in, the edit is using an old revision's text
 		$isOldRevCopy = (bool)$baseRevId; // null edit or rollback
@@ -670,7 +670,7 @@ class FlaggedRevsHooks {
 		# (a) this is a rollback to the stable version
 		# (b) this is a self-reversion to the stable version
 		# These are subcases of making a new revision based on an old, reviewed, revision.
-		} elseif ( $fa->getStableRev( FR_MASTER ) ) {
+		} elseif ( FlaggedRevs::autoReviewEdits() && $fa->getStableRev( FR_MASTER ) ) {
 			$srev = $fa->getStableRev();
 			# Check for rollbacks...
 			$reviewableChange = (
