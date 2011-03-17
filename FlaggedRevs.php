@@ -76,9 +76,9 @@ $wgFlaggedRevsComments = false; // @TODO: remove when ready?
 # 	(c) self-reversions back to the stable version by any user
 # FR_AUTOREVIEW_CREATION
 #	Auto-review new pages as minimally "checked"
-# FR_AUTOREVIEW_BOTH
+# FR_AUTOREVIEW_CREATION_AND_CHANGES
 #	Combines FR_AUTOREVIEW_CHANGES and FR_AUTOREVIEW_CREATION
-$wgFlaggedRevsAutoReview = FR_AUTOREVIEW_BOTH;
+$wgFlaggedRevsAutoReview = FR_AUTOREVIEW_CREATION_AND_CHANGES;
 
 # Define the tags we can use to rate an article, number of levels,
 # and set the minimum level to have it become a "quality" or "pristine" version.
