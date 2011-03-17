@@ -234,12 +234,13 @@ $wgFlaggedRevsPatrolNamespaces = array(); // @TODO: remove when ready
 $wgGroupPermissions['bot']['autoreview'] = true;
 
 # Lets some users access the review UI and set some flags
-$wgAvailableRights[] = 'review';
-$wgAvailableRights[] = 'validate'; # Let some users set higher settings
-$wgAvailableRights[] = 'autoreview';
-$wgAvailableRights[] = 'unreviewedpages';
-$wgAvailableRights[] = 'movestable';
-$wgAvailableRights[] = 'stablesettings';
+$wgAvailableRights[] = 'review'; # review pages to basic levels
+$wgAvailableRights[] = 'validate'; # review pages to all levels
+$wgAvailableRights[] = 'autoreview'; # auto-review pages on edit (including rollback)
+$wgAvailableRights[] = 'autoreviewrestore'; # auto-review on rollback
+$wgAvailableRights[] = 'unreviewedpages'; # view the list of unreviewed pages
+$wgAvailableRights[] = 'movestable'; # move pages with stable versions
+$wgAvailableRights[] = 'stablesettings'; # change page stability settings
 
 $wgExtensionFunctions[] = 'efLoadFlaggedRevs';
 

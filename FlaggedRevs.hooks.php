@@ -606,7 +606,6 @@ class FlaggedRevsHooks {
 		$title->resetArticleID( $rev->getPage() ); // Avoid extra DB hit and lag issues
 		# Get what was just the current revision ID
 		$prevRevId = $rev->getParentId();
-		$frev = $flags = null;
 		# Get edit timestamp. Existance already validated by EditPage.php.
 		$editTimestamp = $wgRequest->getVal( 'wpEdittime' );
 		# Is the page manually checked off to be reviewed?
@@ -622,8 +621,8 @@ class FlaggedRevsHooks {
 		if ( !FlaggedRevs::autoReviewEdits() ) {
 			return true;
 		}
-		# If a $baseRevId is passed in this is a null edit
-		$isNullEdit = (bool)$baseRevId;
+		# If a $baseRevId is passed in, the edit is using an old revision's text
+		$isOldRevCopy = (bool)$baseRevId; // null edit or rollback
 		# Get the revision ID the incoming one was based off...
 		if ( !$baseRevId && $prevRevId ) {
 			$prevTimestamp = Revision::getTimestampFromId( $title, $prevRevId );
@@ -640,6 +639,8 @@ class FlaggedRevsHooks {
 				$baseRevId = $prevRevId;
 			}
 		}
+		$frev = null; // flagged rev this edit was based on
+		$flags = null; // review flags (null => default flags)
 		# Case A: this user can auto-review edits. Check if either:
 		# (a) this new revision creates a new page and new page autoreview is enabled
 		# (b) this new revision is based on an old, reviewed, revision
@@ -647,26 +648,41 @@ class FlaggedRevsHooks {
 			// New pages
 			if ( !$prevRevId ) {
 				$reviewableNewPage = FlaggedRevs::autoReviewNewPages();
+				$reviewableChange = false;
 			// Edits to existing pages
 			} elseif ( $baseRevId ) {
 				$reviewableNewPage = false; // had previous rev
 				# Check if the base revision was reviewed...
 				$frev = FlaggedRevision::newFromTitle( $title, $baseRevId, FR_MASTER );
+				$reviewableChange = (bool)$frev;
 			}
-			// Is this an edit directly to the stable version? Is it a new page?
-			if ( $reviewableNewPage || $frev ) {
-				if ( $isNullEdit && $frev ) {
-					$flags = $frev->getTags(); // dummy edits always keep previous tags
+			// Is this an edit directly to a reviewed version or a new page?
+			if ( $reviewableNewPage || $reviewableChange ) {
+				if ( $isOldRevCopy && $frev ) {
+					$flags = $frev->getTags(); // null edits & rollbacks keep previous tags
 				}
 				# Review this revision of the page...
 				FlaggedRevs::autoReviewEdit( $article, $user, $rev, $flags );
 			}
-		# Case B: the user cannot autoreview edits. Check if this is a
-		# self-reversion to the stable version. Note that this is a subcase
-		# of making a new revision based on an old, reviewed, revision.
-		} else {
-			$srev = $fa->getStableRev( FR_MASTER );
-			if ( $srev && self::isSelfRevertToStable( $rev, $srev, $baseRevId, $user ) ) {
+		# Case B: the user cannot autoreview edits. Check if either:
+		# (a) this is a rollback to the stable version
+		# (b) this is a self-reversion to the stable version
+		# These are subcases of making a new revision based on an old, reviewed, revision.
+		} elseif ( $fa->getStableRev( FR_MASTER ) ) {
+			$srev = $fa->getStableRev();
+			# Check for rollbacks...
+			$reviewableChange = (
+				$isOldRevCopy && // rollback or null edit
+				$baseRevId != $prevRevId && // not a null edit
+				$baseRevId == $srev->getRevId() && // restored stable rev
+				$title->getUserPermissionsErrors( 'autoreviewrestore', $user ) === array()
+			);
+			# Check for self-reversions...
+			if ( !$reviewableChange ) {
+				$reviewableChange = self::isSelfRevertToStable( $rev, $srev, $baseRevId, $user );
+			}
+			// Is this a rollback or self-reversion to the stable rev?
+			if ( $reviewableChange ) {
 				$flags = $srev->getTags(); // use old tags
 				# Review this revision of the page...
 				FlaggedRevs::autoReviewEdit( $article, $user, $rev, $flags );
