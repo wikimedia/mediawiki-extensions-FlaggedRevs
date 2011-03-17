@@ -618,7 +618,7 @@ class FlaggedRevsHooks {
 			}
 		}
 		# All cases below require auto-review of edits to be enabled
-		if ( !FlaggedRevs::autoReviewEdits() ) {
+		if ( !FlaggedRevs::autoReviewEnabled() ) {
 			return true;
 		}
 		# If a $baseRevId is passed in, the edit is using an old revision's text
@@ -653,7 +653,9 @@ class FlaggedRevsHooks {
 			} elseif ( $baseRevId ) {
 				$reviewableNewPage = false; // had previous rev
 				# Check if the base revision was reviewed...
-				$frev = FlaggedRevision::newFromTitle( $title, $baseRevId, FR_MASTER );
+				if ( FlaggedRevs::autoReviewEdits() ) {
+					$frev = FlaggedRevision::newFromTitle( $title, $baseRevId, FR_MASTER );
+				}
 				$reviewableChange = (bool)$frev;
 			}
 			// Is this an edit directly to a reviewed version or a new page?

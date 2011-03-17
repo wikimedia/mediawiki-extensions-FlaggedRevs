@@ -19,6 +19,8 @@ class FlaggedRevs {
 	protected static $patrolNamespaces = array();
 	# Restriction levels/config
 	protected static $restrictionLevels = array();
+	# Autoreview config
+	protected static $autoReviewConfig = 0;
 	
 	protected static $loaded = false;
 
@@ -108,10 +110,18 @@ class FlaggedRevs {
 		self::$reviewNamespaces = $wgFlaggedRevsNamespaces;
 		# Note: reviewable *pages* override patrollable ones
 		self::$patrolNamespaces = $wgFlaggedRevsPatrolNamespaces;
-		# !$wgFlaggedRevsAutoReview => !$wgFlaggedRevsAutoReviewNew
+		# B/C for $wgFlaggedRevsAutoReview
 		global $wgFlaggedRevsAutoReview, $wgFlaggedRevsAutoReviewNew;
-		if ( !$wgFlaggedRevsAutoReview ) {
-			$wgFlaggedRevsAutoReviewNew = false;
+		if ( is_int( $wgFlaggedRevsAutoReview ) ) {
+			self::$autoReviewConfig = $wgFlaggedRevsAutoReview;
+		} else {
+			if ( $wgFlaggedRevsAutoReview ) {
+				self::$autoReviewConfig |= FR_AUTOREVIEW_CHANGES; // b/c
+			}
+			if ( $wgFlaggedRevsAutoReviewNew ) {
+				self::$autoReviewConfig |= FR_AUTOREVIEW_CREATION; // b/c
+			}
+			wfWarn( '$wgFlaggedRevsAutoReview is now a bitfield instead of a boolean. $wgFlaggedRevsAutoReviewNew is deprecated.' );
 		}
 	}
 	
@@ -162,8 +172,8 @@ class FlaggedRevs {
 	 * @returns bool
 	 */
 	public static function autoReviewEdits() {
-		global $wgFlaggedRevsAutoReview;
-		return (bool)$wgFlaggedRevsAutoReview;
+		self::load();
+		return self::$autoReviewConfig & FR_AUTOREVIEW_CHANGES;
 	}
 
 	/**
@@ -171,8 +181,16 @@ class FlaggedRevs {
 	 * @returns bool
 	 */
 	public static function autoReviewNewPages() {
-		global $wgFlaggedRevsAutoReviewNew;
-		return (bool)$wgFlaggedRevsAutoReviewNew;
+		self::load();
+		return self::$autoReviewConfig & FR_AUTOREVIEW_CREATION;
+	}
+
+	/**
+	 * Auto-review of new pages or edits to pages enabled?
+	 * @returns bool
+	 */
+	public static function autoReviewEnabled() {
+		return self::autoReviewEdits() || self::autoReviewNewPages();
 	}
 
 	/**
@@ -183,8 +201,8 @@ class FlaggedRevs {
 	public static function maxAutoReviewLevel( $tag ) {
 		global $wgFlaggedRevsTagsAuto;
 		self::load();
-		if ( !self::autoReviewEdits() ) {
-			return 0; // no auto-review allowed at all
+		if ( !self::autoReviewEnabled() ) {
+			return 0; // shouldn't happen
 		}
 		if ( isset( $wgFlaggedRevsTagsAuto[$tag] ) ) {
 			return (int)$wgFlaggedRevsTagsAuto[$tag];
