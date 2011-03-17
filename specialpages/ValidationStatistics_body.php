@@ -11,7 +11,7 @@ class ValidationStatistics extends IncludableSpecialPage
 	}
 
 	public function execute( $par ) {
-		global $wgUser, $wgOut, $wgLang, $wgContLang;
+		global $wgUser, $wgOut, $wgLang, $wgContLang, $wgFlaggedRevsStats;
 		$this->setHeaders();
 		$this->skin = $wgUser->getSkin();
 		$this->db = wfGetDB( DB_SLAVE );
@@ -146,12 +146,15 @@ class ValidationStatistics extends IncludableSpecialPage
 			);
 		}
 		$wgOut->addHTML( Xml::closeElement( 'table' ) );
-		# Is there a top 5 user list? If so, then show it...
-		$data = $this->getTopFiveReviewers();
+		# Is there a top X user list? If so, then show it...
+		$data = $this->getTopReviewers();
 		if ( is_array( $data ) && count( $data ) ) {
-			$wgOut->addWikiMsg( 'validationstatistics-utable', $wgLang->formatNum( 5 ) );
-		
-			$reviewChart = "<table class='wikitable flaggedrevs_stats_table' style='white-space: nowrap;'>\n";
+			$wgOut->addWikiMsg( 'validationstatistics-utable',
+				$wgLang->formatNum( $wgFlaggedRevsStats['topReviewersCount'] ),
+				$wgLang->formatNum( $wgFlaggedRevsStats['topReviewersHours'] )
+			);
+			$css = 'wikitable flaggedrevs_stats_table';
+			$reviewChart = "<table class='$css' style='white-space: nowrap;'>\n";
 			$reviewChart .= '<tr><th>' . wfMsgHtml( 'validationstatistics-user' ) .
 				'</th><th>' . wfMsgHtml( 'validationstatistics-reviews' ) . '</th></tr>';
 			foreach ( $data as $userId => $reviews ) {
@@ -236,24 +239,31 @@ class ValidationStatistics extends IncludableSpecialPage
 		return ( $val == false ? '-' : $val );
 	}
 	
-	protected function getTopFiveReviewers() {
+	// top X reviewers in the last Y hours
+	protected function getTopReviewers() {
+		global $wgFlaggedRevsStats;
+		
 		$key = wfMemcKey( 'flaggedrevs', 'reviewTopUsers' );
 		$dbCache = wfGetCache( CACHE_DB );
 		$data = $dbCache->get( $key );
-		if ( is_array( $data ) )
+		if ( is_array( $data ) ) {
 			return $data; // cache hit
+		}
+		$limit = (int)$wgFlaggedRevsStats['topReviewersCount'];
+		$seconds = 3600*$wgFlaggedRevsStats['topReviewersHours'];
 
 		$dbr = wfGetDB( DB_SLAVE );
-		$cutoff = $dbr->timestamp( time() - 3600 );
+		$cutoff = $dbr->timestamp( time() - $seconds );
 		$res = $dbr->select( 'logging',
 			array( 'log_user', 'COUNT(*) AS reviews' ),
 			array(
 				'log_type' => 'review', // page reviews
-				'log_action' => array( 'approve', 'approve2', 'approve-i', 'approve2-i' ), // manual approvals
+				// manual approvals (filter on log_action)
+				'log_action' => array( 'approve', 'approve2', 'approve-i', 'approve2-i' ),
 				'log_timestamp >= ' . $dbr->addQuotes( $cutoff ) // last hour
 			),
 			__METHOD__,
-			array( 'GROUP BY' => 'log_user', 'ORDER BY' => 'reviews DESC', 'LIMIT' => 5 )
+			array( 'GROUP BY' => 'log_user', 'ORDER BY' => 'reviews DESC', 'LIMIT' => $limit )
 		);
 		$data = array();
 		foreach ( $res as $row ) {

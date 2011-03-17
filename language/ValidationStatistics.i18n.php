@@ -26,7 +26,7 @@ $3',
 	'validationstatistics-latest' => 'Synced',
 	'validationstatistics-synced' => 'Synced/Reviewed',
 	'validationstatistics-old'    => 'Outdated',
-	'validationstatistics-utable' => 'Below is a list of the {{PLURAL:$1|most active reviewer|$1 most active reviewers}} in the last hour.',
+	'validationstatistics-utable' => 'Below is a list of the {{PLURAL:$1|most active reviewer|$1 most active reviewers}} in the last {{PLURAL:$2|hour|$2 hours}}.',
 	'validationstatistics-user'   => 'User',
 	'validationstatistics-reviews' => 'Reviews',
 );

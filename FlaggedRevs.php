@@ -193,6 +193,12 @@ $wgFlaggedRevsOversightAge = 30 * 24 * 3600;
 # Set to false to disable (perhaps using a cron job instead).
 $wgFlaggedRevsStatsAge = 2 * 3600; // 2 hours
 
+# Configurable information to collect and display at Special:ValidationStatistics
+$wgFlaggedRevsStats = array(
+	'topReviewersCount'		=> 5, # how many top reviewers to list
+	'topReviewersHours' 	=> 1, # how many hours of the last reviews to count
+);
+
 # How to handle templates and files used in stable versions:
 # FR_INCLUDES_CURRENT
 #	Always use the current version of templates/files
