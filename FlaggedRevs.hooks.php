@@ -337,8 +337,7 @@ class FlaggedRevsHooks {
 		if ( !( $parser instanceof Parser ) ) {
 			return true; // nothing to do
 		}
-		$incManager = FRInclusionManager::singleton();
-		if ( !$incManager->parserOutputIsStabilized() ) {
+		if ( !FRInclusionManager::singleton()->parserOutputIsStabilized() ) {
 			return true; // trigger for stable version parsing only
 		}
 		# Normalize NS_MEDIA to NS_FILE
@@ -367,8 +366,7 @@ class FlaggedRevsHooks {
 		if ( !( $parser instanceof Parser ) || $nt->getNamespace() != NS_FILE ) {
 			return true; // nothing to do
 		}
-		$incManager = FRInclusionManager::singleton();
-		if ( !$incManager->parserOutputIsStabilized() ) {
+		if ( !FRInclusionManager::singleton()->parserOutputIsStabilized() ) {
 			return true; // trigger for stable version parsing only
 		}
 		# Get version, update fr_fileSHA1Keys...

@@ -670,12 +670,14 @@ class FlaggedRevs {
 	*/	
 	public static function updateSyncStatus( Article $article, $synced ) {
 		wfProfileIn( __METHOD__ );
-		$dbw = wfGetDB( DB_MASTER );
-		$dbw->update( 'flaggedpages',
-			array( 'fp_reviewed' => (int)$synced ),
-			array( 'fp_page_id'  => $article->getID() ),
-			__METHOD__
-		);
+		if ( !wfReadOnly() ) {
+			$dbw = wfGetDB( DB_MASTER );
+			$dbw->update( 'flaggedpages',
+				array( 'fp_reviewed' => (int)$synced ),
+				array( 'fp_page_id'  => $article->getID() ),
+				__METHOD__
+			);
+		}
 		wfProfileOut( __METHOD__ );
 	}
 
