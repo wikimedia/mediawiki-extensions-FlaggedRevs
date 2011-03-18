@@ -216,6 +216,7 @@ Please review all the changes shown below to make your edits appear in the stabl
 	'revreview-revnotfound'        => 'The old version of the page you asked for could not be found.
 Please check the URL you used to access this page.',
 	'right-autoreview'             => 'Have one\'s own edits automatically marked as "checked"',
+	'right-autoreviewrestore'      => 'Auto-review on rollback',
 	'right-movestable'             => 'Move pages with stable versions',
 	'right-review'                 => 'Mark revisions as being "checked"',
 	'right-stablesettings'         => 'Configure how the stable version is selected and displayed',
