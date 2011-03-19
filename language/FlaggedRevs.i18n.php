@@ -3825,6 +3825,7 @@ Bitte markiere alle unten angezeigten Änderungen, damit deine Bearbeitungen zur
 	'revreview-visibility-nostable' => "'''Diese Seite hat keine [[{{MediaWiki:Validationpage}}|stabile Version]]. Die Einstellungen bezüglich der stabilen Version können [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} konfiguriert werden].'''",
 	'revreview-revnotfound' => 'Die Version dieser Seite, nach der du suchst, konnte nicht gefunden werden. Bitte überprüfe die URL dieser Seite.',
 	'right-autoreview' => 'Eigene Bearbeitungen automatisch als gesichtet markieren',
+	'right-autoreviewrestore' => 'Beim Zurücksetzen Änderungen automatisch als gesichtet markieren',
 	'right-movestable' => 'Seiten mit stabilen Versionen verschieben',
 	'right-review' => 'Versionen als gesichtet markieren',
 	'right-stablesettings' => 'Konfigurieren, wie die stabile Version ausgewählt und angezeigt werden soll',
@@ -6645,6 +6646,7 @@ Revise todos os cambios listados a continuación para que as súas edicións apa
 	'revreview-revnotfound' => 'A revisión vella que pediu non se deu atopado.
 Por favor verifique o URL que utilizou para acceder a esta páxina.',
 	'right-autoreview' => 'Marcar automaticamente revisións como comprobadas',
+	'right-autoreviewrestore' => 'Revisión automática na reversión',
 	'right-movestable' => 'Mover páxinas publicadas',
 	'right-review' => 'Marcar revisións como "comprobadas"',
 	'right-stablesettings' => 'Configurar a forma de seleccionar e mostrar a versión publicada',
@@ -11266,6 +11268,7 @@ $messages['mk'] = array(
 	'revreview-revnotfound' => 'Старата верзија на оваа страница не може да се пронајде.
 Проверете ја URL адресата што ја користевте за пристап до оваа страница.',
 	'right-autoreview' => 'Автоматско означување на ревизии како проверени',
+	'right-autoreviewrestore' => 'Автоматски проверено при враќање',
 	'right-movestable' => 'Преместување на објавени страници',
 	'right-review' => 'Означување на ревизии како „проверени“',
 	'right-stablesettings' => 'Нагодување како објавената верзија ќе се избира и прикажува',
@@ -11526,6 +11529,7 @@ $messages['ml'] = array(
 	'revreview-visibility-nostable' => "'''ഈ താളിനു [[{{MediaWiki:Validationpage}}|പ്രസിദ്ധീകരിക്കപ്പെട്ട പതിപ്പ്]] ഇല്ല; താളിന്റെ സ്ഥിരതാ സജ്ജീകരണങ്ങൾ [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} ക്രമീകരിക്കാവുന്നതാണ്].'''",
 	'revreview-revnotfound' => 'ഈ താളിന്റെ താങ്കൾ ആവശ്യപ്പെട്ട പഴയ പതിപ്പ് കാണ്മാനില്ല. ഈ താളിലെത്താൻ താങ്കളുപയോഗിച്ച URL ഒരിക്കൽക്കൂടി പരിശോധിക്കുക.',
 	'right-autoreview' => 'നാൾപ്പതിപ്പുകൾ പരിശോധിച്ചതായി സ്വയം അടയാളപ്പെടുത്തുക',
+	'right-autoreviewrestore' => 'പുനർപ്രാപനത്തിനു സ്വയംസംശോധനം നടപ്പിലാക്കുക',
 	'right-movestable' => 'പ്രസിദ്ധീകരിക്കപ്പെട്ട താളുകൾ മാറ്റുക',
 	'right-review' => 'നാൾപ്പതിപ്പുകൾ "പരിശോധിച്ചതായി" അടയാളപ്പെടുത്തുക',
 	'right-stablesettings' => 'പ്രസിദ്ധീകരിക്കപ്പെട്ട പതിപ്പ് എപ്രകാരം തിരഞ്ഞെടുക്കണം എന്നും പ്രദർശിപ്പിക്കണം എന്നും ക്രമീകരിക്കുക',
@@ -12012,8 +12016,10 @@ $messages['ne'] = array(
 	'revreview-hist-basic-auto' => '[{{fullurl:$1|stableid=$2}}स्वतः परीक्षित',
 	'revreview-hist-pending-difflink' => "'''[[{{fullurl:$1|oldid=$2&diff=$3}} लंबित समीक्षा]]'''",
 	'review-edit-diff' => "'''सूचना: ''केहि'' लंबित परिवर्तनले तपाईंले परिवर्तन गरेको भागलाई असर गर्नेछ ।'''",
-	'revreview-diff-toggle-show' => 'ती परिवर्तनहरु देखाउनुहोस्',
-	'revreview-diff-toggle-hide' => 'ती परिवर्तनहरु लुकाउनुहोस्',
+	'revreview-diff-toggle-show' => 'ती परिवर्तनहरु हेर्ने',
+	'revreview-diff-toggle-hide' => 'ती परिवर्तनहरु लुकाउने',
+	'revreview-log-details-show' => 'विस्तृत जानकारी हेर्ने',
+	'revreview-log-details-hide' => 'विस्तृत जानकारी लुकाउने',
 );
 
 /** Dutch (Nederlands)
@@ -12224,6 +12230,7 @@ U kunt hiervoor [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} i
 	'revreview-revnotfound' => 'De opgevraagde oude versie van deze pagina is onvindbaar.
 Controleer de URL die u gebruikte om naar deze pagina te gaan.',
 	'right-autoreview' => 'Versies automatisch als gecontroleerd markeren',
+	'right-autoreviewrestore' => 'Automatisch als gecontroleerd markeren bij terugdraaien',
 	'right-movestable' => "Gepubliceerde pagina's hernoemen",
 	'right-review' => 'Versies als "gecontroleerd" markeren',
 	'right-stablesettings' => 'Instellen hoe een gepubliceerde versie wordt geselecteerd en weergegeven',
@@ -15621,6 +15628,7 @@ Prosimo, preglejte vse spremembe prikazane podaj, da prikažete vaše spremembe 
 	'revreview-visibility-nostable' => "'''Stran nima [[{{MediaWiki:Validationpage}}|ustaljene različice]]; nastavitve ustaljenosti strani je mogoče [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} konfigurirati].'''",
 	'revreview-revnotfound' => 'Redakcije strani, ki ste jo poskušali pridobiti, ni mogoče najti. Prosimo, preverite spletni naslov, ki ste ga uporabili za dostop do strani.',
 	'right-autoreview' => 'Njihova urejanja se samodejno označijo kot »preverjena«',
+	'right-autoreviewrestore' => 'Samodejno preglej ob vrnitvi',
 	'right-movestable' => 'Premikanje strani s stabilnimi različicami',
 	'right-review' => 'Označevanje redakcij kot »pregledane«',
 	'right-stablesettings' => 'Določanje, kako so ustaljene različice izbrane in prikazane',
@@ -18551,6 +18559,7 @@ Xin hãy duyệt các thay đổi ở dưới để đưa các sửa đổi củ
 	'revreview-visibility-nostable' => "'''Trang này không có [[{{MediaWiki:Validationpage}}|phiên bản ổn định]]; có thể [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} cấu hình] thiết lập độ ổn định cho trang.'''",
 	'revreview-revnotfound' => 'Không thấy phiên bản trước của trang này. Xin kiểm tra lại.',
 	'right-autoreview' => 'Tự động đánh dấu phiên bản của mình là đã “xem qua”',
+	'right-autoreviewrestore' => 'Tự động duyệt khi lùi sửa tất cả',
 	'right-movestable' => 'Di chuyển trang có phiên bản ổn định',
 	'right-review' => 'Đánh dấu các phiên bản là đã “xem qua”',
 	'right-stablesettings' => 'Cấu hình cho phiên bản ổn định được lựa chọn và hiển thị như thế nào',

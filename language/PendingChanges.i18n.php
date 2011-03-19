@@ -1223,10 +1223,11 @@ $messages['ms'] = array(
 
 /** Nahuatl (Nāhuatl)
  * @author Fluence
+ * @author Teòtlalili
  */
 $messages['nah'] = array(
-	'pendingchanges-days' => '($1 {{PLURAL:$1|tōnalli|tōnaltin}})',
-	'pendingchanges-category' => 'Neneuhcāyōtl:',
+	'pendingchanges-days' => '($1 {{PLURAL:$1|tònalli|tònaltin}})',
+	'pendingchanges-category' => 'Tlaìxmatkàtlàlilòtl:',
 	'pendingchanges-watched' => '($1 tlatequitiltilīlli {{PLURAL:$1|quichiya|quichiyah}})',
 );
 

@@ -198,7 +198,7 @@ $3",
 	'validationstatistics-latest' => 'Сынхранізаваных',
 	'validationstatistics-synced' => 'Паўторна правераных',
 	'validationstatistics-old' => 'Састарэлых',
-	'validationstatistics-utable' => 'Ніжэй пададзены сьпіс з $1 {{PLURAL:$1|самага актыўнага рэцэнзэнта|самых актыўных рэцэнзэнтаў|самых актыўных рэцэнзэнтаў}} за апошнюю гадзіну.',
+	'validationstatistics-utable' => 'Ніжэй пададзены сьпіс з $1 {{PLURAL:$1|самага актыўнага рэцэнзэнта|самых актыўных рэцэнзэнтаў|самых актыўных рэцэнзэнтаў}} за {{PLURAL:$2|$2 апошнюю гадзіну|$2 апошнія гадзіны|$2 апошніх гадзінаў}}.',
 	'validationstatistics-user' => 'Удзельнік',
 	'validationstatistics-reviews' => 'Рэцэнзіяў',
 );
@@ -385,7 +385,7 @@ $3",
 	'validationstatistics-latest' => 'Anzahl Seiten, die in der aktuellen Version markiert sind',
 	'validationstatistics-synced' => 'Prozentsatz an Seiten, die in der aktuellen Version markiert sind',
 	'validationstatistics-old' => 'Seiten mit unmarkierten Änderungen',
-	'validationstatistics-utable' => 'Nachfolgend die Liste {{PLURAL:$1|des aktivsten Sichters|der $1 aktivsten Sichter}} der letzten Stunde.',
+	'validationstatistics-utable' => 'Nachfolgend die Anzeige {{PLURAL:$1|des aktivsten Sichters|der $1 aktivsten Sichter}} der letzten {{PLURAL:$2|Stunde|$2 Stunden}}.',
 	'validationstatistics-user' => 'Benutzer',
 	'validationstatistics-reviews' => 'Markierungen',
 );
@@ -582,11 +582,10 @@ $messages['fa'] = array(
 	'validationstatistics-lastupdate' => "''داده‌های زیر آخرین بار در تاریخ $1 در $2 به‌روزرسانی شده است.''",
 	'validationstatistics-pndtime' => "ویرایش‌هایی که توسط کاربران محرز بررسی شده‌اند برای بازبینی در نظر گرفته شده‌اند.
 
-میانگین تأخیر برای [[Special:OldReviewedPages|صفحات با ویرایش‌های بازبینی‌نشدهٔ در حال انتظار]] '''$1''' است.
-این صفحات به عنوان ''منسوخ'' شناخته می‌شوند. به همین ترتیب، در صورتی که هیچ ویرایشی برای بازبینی در حال انتظار نباشد، صفحات به عنوان ''هم‌زمان‌شده'' در نظر گرفته می‌شوند.",
+میانگین تأخیر برای [[Special:OldReviewedPages|صفحات با ویرایش‌های بازبینی‌نشدهٔ در حال انتظار]] '''$1''' است؛ این تاخیر نشان‌دهنده مدت زمانی است که قدیمی‌ترین نسخه بررسی نشده در انتظار بررسی باقی مانده است.",
 	'validationstatistics-revtime' => "میانگین انتظار برای بازبینی ویرایش‌های ''کاربرانی که وارد نشده‌اند''، '''$1''' است؛ میانهٔ آن '''$2''' است.
 $3",
-	'validationstatistics-table' => "آمار بازبینی صفحه برای هر فضای‌نام که در زیر نشان داده‌شده، به ''استثنای'' صفحه‌های تغییر مسیر است.",
+	'validationstatistics-table' => "آمار بازبینی صفحه برای هر فضای‌نام که در زیر نشان داده‌شده، به ''استثنای'' صفحه‌های تغییر مسیر است. صفحه‌های که ویرایش‌های بررسی نشده داشته باشند ''تاریخ گذشته'' محسوب می‌شوند؛ صفحه‌هایی که ویرایش بررسی نشده نداشته باشند ''همزمان‌شده'' تلفی می‌شوند.",
 	'validationstatistics-ns' => 'فضای نام',
 	'validationstatistics-total' => 'صفحه‌ها',
 	'validationstatistics-stable' => 'بازبینی شده',
@@ -716,7 +715,7 @@ $3",
 	'validationstatistics-latest' => 'Sincronizado',
 	'validationstatistics-synced' => 'Sincronizado/Revisado',
 	'validationstatistics-old' => 'Obsoleto',
-	'validationstatistics-utable' => 'A continuación está {{PLURAL:$1|o revisor máis activo|a lista cos $1 revisores máis activos}} na última hora.',
+	'validationstatistics-utable' => 'A continuación está {{PLURAL:$1|o revisor máis activo|a lista cos $1 revisores máis activos}} {{PLURAL:$2|na última hora|nas últimas $2 horas}}.',
 	'validationstatistics-user' => 'Usuario',
 	'validationstatistics-reviews' => 'Revisións',
 );
@@ -762,7 +761,7 @@ $3",
 	'validationstatistics-latest' => 'Zytglychi',
 	'validationstatistics-synced' => 'Prozäntsatz vu dr Syte, wu vum Fäldhieter gsäh sin.',
 	'validationstatistics-old' => 'Syte mit Versione, wu nit vum Fäldhieter gsäh sin.',
-	'validationstatistics-utable' => 'Unte findsch e Lischt mit {{PLURAL:$1|em aktivschte Sichter|dr $1 aktivschte Sichter}} in dr letschten Stund.',
+	'validationstatistics-utable' => 'Unte findsch e Lischt mit {{PLURAL:$1|em aktivschte Sichter|dr $1 aktivschte Sichter}} in dr letschten {{PLURAL:$2|Stund |$2 Stund}}.',
 	'validationstatistics-user' => 'Benutzer',
 	'validationstatistics-reviews' => 'Priefige',
 );
@@ -844,7 +843,7 @@ $3",
 	'validationstatistics-latest' => 'Sinkronizirano',
 	'validationstatistics-synced' => 'Usklađeno/Ocijenjeno',
 	'validationstatistics-old' => 'Zastarjelo',
-	'validationstatistics-utable' => 'Ispod je popis {{PLURAL:$1|najaktivnijeg|$1 najaktivnija|$1 najaktivnijih}} ocjenjivača u zadnjih sat vremena.',
+	'validationstatistics-utable' => 'Ispod je popis {{PLURAL:$1|najaktivnijeg|$1 najaktivnija|$1 najaktivnijih}} ocjenjivača u zadnjih {{PLURAL:$2|sat vremena|$2 sata|$2 sati}}.',
 	'validationstatistics-user' => 'Suradnik',
 	'validationstatistics-reviews' => 'Ocjene',
 );
@@ -870,7 +869,7 @@ Přerězny komdźenje za [[Special:OldReviewedPages|strony z njepřepruwowane zm
 	'validationstatistics-latest' => 'Synchronizowany',
 	'validationstatistics-synced' => 'Synchronizowane/Skontrolowane',
 	'validationstatistics-old' => 'Zestarjene',
-	'validationstatistics-utable' => 'Deleka je lisćina {{PLURAL:$1|najaktiwnišeho přepruwowarja|$1 najaktiwnišeju přepruwowarjow|$1 najaktiwnišich přepruwowarjow|$1 najaktiwnišich přepruwowarjow}} w zańdźenej hodźinje.',
+	'validationstatistics-utable' => 'Deleka je lisćina {{PLURAL:$1|najaktiwnišeho přepruwowarja|$1 najaktiwnišeju přepruwowarjow|$1 najaktiwnišich přepruwowarjow|$1 najaktiwnišich přepruwowarjow}} w {{PLURAL:$2|zańdźenej hodźinje|zańdźenymaj $2 hodźinomaj|zańdźenych $2 hodźinach|zańdźenych $2 hodźinach}}.',
 	'validationstatistics-user' => 'Wužiwar',
 	'validationstatistics-reviews' => 'Přepruwowanja',
 );
@@ -929,7 +928,7 @@ $3",
 	'validationstatistics-latest' => 'Synchronisate',
 	'validationstatistics-synced' => 'Synchronisate/Revidite',
 	'validationstatistics-old' => 'Obsolete',
-	'validationstatistics-utable' => 'Infra es le {{PLURAL:$1|revisor|lista del $1 revisores}} le plus active del ultime hora.',
+	'validationstatistics-utable' => 'Infra es le {{PLURAL:$1|revisor|lista del $1 revisores}} le plus active del ultime {{PLURAL:$2|hora|$2 horas}}.',
 	'validationstatistics-user' => 'Usator',
 	'validationstatistics-reviews' => 'Revisiones',
 );
@@ -1175,7 +1174,7 @@ Sigge sen als övverhollt enjeschtoof, wann Änderonge doh sen, di noch nit nohj
 	'validationstatistics-latest' => '<span style="white-space:nowrap">A-juur</span>',
 	'validationstatistics-synced' => '{{int:validationstatistics-stable}} un {{int:validationstatistics-latest}}',
 	'validationstatistics-old' => 'Övverhollt',
-	'validationstatistics-utable' => 'Hee dronger shteiht {{PLURAL:$1|dä Aktievste|de Leß met de Aktievste $1|keine als Aktievste}} unger de {{int:reviewer}} en de läzte Shtond.',
+	'validationstatistics-utable' => 'Hee dronger shteiht {{PLURAL:$1|dä Aktievste|de Leß met de Aktievste $1|keine als Aktievste}} unger de {{int:reviewer}}e en {{PLURAL:$2|de läzte Shtond|de läzte $2 Shtonde|winnijer wi de läzte Shtond}}.',
 	'validationstatistics-user' => 'Metmaacher',
 	'validationstatistics-reviews' => 'Mohlde en Sigg beshtätesh',
 );
@@ -1271,7 +1270,7 @@ $3",
 	'validationstatistics-latest' => 'Синхронизирано',
 	'validationstatistics-synced' => 'Синхронизирани/Оценети',
 	'validationstatistics-old' => 'Застарени',
-	'validationstatistics-utable' => 'Еве список на {{PLURAL:$1|$1 најактивен прегледувач|$1 најактивни прегледувачи}} во последниов час.',
+	'validationstatistics-utable' => 'Подолу е наведен список на {{PLURAL:$1|најактивниот прегледувач|$1 најактивни прегледувачи}} {{PLURAL:$2|во последниов час|во последниве $2 часа}}.',
 	'validationstatistics-user' => 'Корисник',
 	'validationstatistics-reviews' => 'Оцени',
 );
@@ -1299,7 +1298,7 @@ $3",
 	'validationstatistics-latest' => 'ഏകതാനമാക്കിയിരിക്കുന്നു',
 	'validationstatistics-synced' => 'ഏകകാലികമാക്കിയവ/പരിശോധിച്ചവ',
 	'validationstatistics-old' => 'കാലഹരണപ്പെട്ടവ',
-	'validationstatistics-utable' => 'കഴിഞ്ഞ മണിക്കൂറിലെ ഏറ്റവും സജീവമായി പ്രവർത്തിച്ച {{PLURAL:$1|സംശോധകന്റെ|$1 സംശോധകരുടെ}} പട്ടികയാണ് താഴെയുള്ളത്.',
+	'validationstatistics-utable' => 'കഴിഞ്ഞ {{PLURAL:$2|മണിക്കൂറിൽ|$2 മണിക്കൂറുകളിൽ}} ഏറ്റവും സജീവമായി പ്രവർത്തിച്ച {{PLURAL:$1|സംശോധകന്റെ|$1 സംശോധകരുടെ}} പട്ടികയാണ് താഴെയുള്ളത്.',
 	'validationstatistics-user' => 'ഉപയോക്താവ്',
 	'validationstatistics-reviews' => 'സംശോധനങ്ങൾ',
 );
@@ -1349,6 +1348,14 @@ $messages['myv'] = array(
 	'validationstatistics-total' => 'Лопат',
 );
 
+/** Nahuatl (Nāhuatl)
+ * @author Teòtlalili
+ */
+$messages['nah'] = array(
+	'validationstatistics-ns' => 'Tòkâyeyàntli',
+	'validationstatistics-total' => 'Tlaìxtlapaltìn',
+);
+
 /** Dutch (Nederlands)
  * @author Ooswesthoesbes
  * @author Siebrand
@@ -1372,7 +1379,7 @@ $3",
 	'validationstatistics-latest' => 'Gesynchroniseerd',
 	'validationstatistics-synced' => 'Gesynchroniseerd/gecontroleerd',
 	'validationstatistics-old' => 'Verouderd',
-	'validationstatistics-utable' => 'In de onderstaande lijst {{PLURAL:$1|wordt de meest actieve eindredacteur|worden de $1 meest actieve eindredacteuren}} weergegeven.',
+	'validationstatistics-utable' => 'In de onderstaande lijst {{PLURAL:$1|wordt de meest actieve eindredacteur|worden de $1 meest actieve eindredacteuren}} weergegeven in {{PLURAL:$2|het afgelopen uur|de afgelopen $2 uur}}.',
 	'validationstatistics-user' => 'Gebruiker',
 	'validationstatistics-reviews' => 'Beoordelingen',
 );
@@ -1599,7 +1606,7 @@ Editorii și recenzorii sunt utilizatori stabiliți care pot verifica modificăr
 	'validationstatistics-latest' => 'Sincronizată',
 	'validationstatistics-synced' => 'Sincronizată/Revizualizată',
 	'validationstatistics-old' => 'Învechită',
-	'validationstatistics-utable' => 'Mai jos se află {{PLURAL:$1|cel mai activ recenzent|cei mai activi $1 recenzenți}} în ultima oră.',
+	'validationstatistics-utable' => 'Mai jos se află {{PLURAL:$1|cel mai activ recenzent|lista cu cei mai activi $1 (de) recenzenți}} din {{PLURAL:$2|ultima oră|ultimele $2 ore}}.',
 	'validationstatistics-user' => 'Utilizator',
 	'validationstatistics-reviews' => 'Recenzii',
 );
@@ -1659,7 +1666,7 @@ $3",
 	'validationstatistics-latest' => 'Перепроверенные',
 	'validationstatistics-synced' => 'Доля перепроверенных в проверенных',
 	'validationstatistics-old' => 'Устаревшие',
-	'validationstatistics-utable' => 'Ниже приведён список из {{PLURAL:$1|$1 наиболее активного выверяющего|$1 наиболее активных выверяющих|$1 наиболее активных выверяющих}} за последний час.',
+	'validationstatistics-utable' => 'Ниже приведён список из {{PLURAL:$1|$1 наиболее активного выверяющего|$1 наиболее активных выверяющих|$1 наиболее активных выверяющих}} за {{PLURAL:$2|последний $2 час|последние $2 часа|последние $2 часов}}.',
 	'validationstatistics-user' => 'Участник',
 	'validationstatistics-reviews' => 'Проверки',
 );
@@ -1767,7 +1774,7 @@ $3",
 	'validationstatistics-latest' => 'Usklajeno',
 	'validationstatistics-synced' => 'Usklajeno/Pregledano',
 	'validationstatistics-old' => 'Zastarelo',
-	'validationstatistics-utable' => 'Spodaj se nahaja seznam {{PLURAL:$1|najdejavnejšega pregledovalca|$1 najdejavnejših pregledovalcev}} v zadnji uri.',
+	'validationstatistics-utable' => 'Spodaj se nahaja seznam {{PLURAL:$1|najdejavnejšega pregledovalca|$1 najdejavnejših pregledovalcev}} v {{PLURAL:$1|zadnji uri|zadnjih $2 urah}}.',
 	'validationstatistics-user' => 'Uporabnik',
 	'validationstatistics-reviews' => 'Pregledi',
 );
@@ -1943,7 +1950,7 @@ $3",
 	'validationstatistics-latest' => 'Napagsabay na',
 	'validationstatistics-synced' => 'Pinagsabay-sabay/Nasuri nang muli',
 	'validationstatistics-old' => 'Wala na sa panahon (luma)',
-	'validationstatistics-utable' => 'Nasa ibaba ang talaan ng {{PLURAL:$1|painakamasiglang tagapagsuri|$1 pinakamasisiglang mga tagapagsuri}} sa loob ng huling oras.',
+	'validationstatistics-utable' => 'Nasa ibaba ang talaan ng {{PLURAL:$1|pinakamasiglang tagapagsuri|$1 pinakamasisiglang mga tagapagsuri}} sa loob ng huling {{PLURAL:$2|oras|$2 mga oras}}.',
 	'validationstatistics-user' => 'Tagagamit',
 	'validationstatistics-reviews' => 'Mga pagsusuri',
 );
@@ -2081,7 +2088,7 @@ $3",
 	'validationstatistics-latest' => 'Đã đồng bộ',
 	'validationstatistics-synced' => 'Cập nhật/Duyệt',
 	'validationstatistics-old' => 'Lỗi thời',
-	'validationstatistics-utable' => 'Đây là {{PLURAL:$1|người duyệt|danh sách $1 người duyệt}} tích cực nhất trong giờ qua.',
+	'validationstatistics-utable' => 'Đây là {{PLURAL:$1|người duyệt|danh sách $1 người duyệt}} tích cực nhất trong {{PLURAL:$2|giờ|$2 giờ}} qua.',
 	'validationstatistics-user' => 'Người dùng',
 	'validationstatistics-reviews' => 'Bản duyệt',
 );

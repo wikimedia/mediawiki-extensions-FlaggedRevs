@@ -1164,9 +1164,10 @@ $messages['myv'] = array(
 
 /** Nahuatl (Nāhuatl)
  * @author Fluence
+ * @author Teòtlalili
  */
 $messages['nah'] = array(
-	'unreviewedpages-category' => 'Neneuhcāyōtl:',
+	'unreviewedpages-category' => 'Tlaìxmatkàtlàlilòtl:',
 );
 
 /** Low German (Plattdüütsch)
