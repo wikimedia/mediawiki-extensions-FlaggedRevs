@@ -92,7 +92,7 @@ class ReviewedPages extends SpecialPage
 			if ( $size == 0 )
 				$stxt = ' <small>' . wfMsgHtml( 'historyempty' ) . '</small>';
 			else
-				$stxt = ' <small>' . wfMsgExt( 'historysize', array( 'parsemag' ),
+				$stxt = ' <small>' . wfMsgExt( 'historysize', 'parsemag',
 					$wgLang->formatNum( $size ) ) . '</small>';
 		}
 
