@@ -209,7 +209,7 @@ class PendingChanges extends SpecialPage
 	}
 
 	public function formatRow( $row ) {
-		global $wgLang, $wgUser, $wgMemc;
+		global $wgLang, $wgUser;
 		$css = $quality = $underReview = '';
 
 		$title = Title::newFromRow( $row );
@@ -229,7 +229,7 @@ class PendingChanges extends SpecialPage
 		}
 		# Is anybody watching?
 		if ( !$this->including() && $wgUser->isAllowed( 'unreviewedpages' ) ) {
-			$uw = UnreviewedPages::usersWatching( $title );
+			$uw = FRUserActivity::numUsersWatchingPage( $title );
 			$watching = $uw
 				? wfMsgExt( 'pendingchanges-watched', 'parsemag', $wgLang->formatNum( $uw ) )
 				: wfMsgHtml( 'pendingchanges-unwatched' );
@@ -259,9 +259,9 @@ class PendingChanges extends SpecialPage
 		} else {
 			$age = ""; // wtf?
 		}
-		$key = wfMemcKey( 'stableDiffs', 'underReview', $row->stable, $row->page_latest );
 		# Show if a user is looking at this page
-		if ( $wgMemc->get( $key ) ) {
+		list( $u, $ts ) = FRUserActivity::getUserReviewingDiff( $row->stable, $row->page_latest );
+		if ( $u !== null ) {
 			$underReview = ' <span class="fr-under-review">' .
 				wfMsgHtml( 'pendingchanges-viewing' ) . '</span>';
 		}

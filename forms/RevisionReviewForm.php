@@ -644,7 +644,7 @@ class RevisionReviewForm
 		User $user, FlaggedArticle $article, Revision $rev,
 		$refId = 0, $topNotice = '', $templateIDs, $imageSHA1Keys
 	) {
-		global $wgOut, $wgParser, $wgEnableParserCache;
+		global $wgOut, $wgLang, $wgParser, $wgEnableParserCache;
 		$id = $rev->getId();
 		if ( $rev->isDeleted( Revision::DELETED_TEXT ) ) {
 			return false; # The revision must be valid and public
@@ -705,8 +705,17 @@ class RevisionReviewForm
 		$form .= Xml::closeElement( 'legend' ) . "\n";
 		# Show explanatory text
 		$form .= $topNotice;
-		if ( !FlaggedRevs::lowProfileUI() ) {
-			$form .= wfMsgExt( 'revreview-text', array( 'parse' ) );
+		# Show possible conflict warning msg
+		if ( $refId ) {
+			list( $u, $ts ) = FRUserActivity::getUserReviewingDiff( $refId, $rev->getId() );
+		} else {
+			list( $u, $ts ) = FRUserActivity::getUserReviewingPage( $rev->getPage() );
+		}
+		if ( $u !== null && $u != $user->getName() ) {
+			$msg = $refId ? 'revreview-poss-conflict-c' : 'revreview-poss-conflict-p';
+			$form .= '<p><span class="fr-under-review">' .
+				wfMsgExt( $msg, 'parseinline', $u, $wgLang->timeanddate( $ts, true ) ) .
+					'</span></p>';
 		}
 
 		if ( $disabled ) {

@@ -133,14 +133,16 @@ class FlaggedRevsHooks {
 
 	// Mark when an unreviewed page is being reviewed
 	protected static function maybeMarkUnderReview( FlaggedArticle $fa, WebRequest $request ) {
-		global $wgMemc;
+		global $wgUser;
+		if ( !$request->getInt( 'reviewing' ) && !$request->getInt( 'rcid' ) ) {
+			return true; // not implied by URL
+		}
 		# Set a key to note when someone is reviewing this.
 		# NOTE: diff-to-stable views already handled elsewhere.
-		if ( $request->getInt( 'reviewing' ) || $request->getInt( 'rcid' ) ) {
-			if ( $fa->isReviewable() && $fa->getTitle()->userCan( 'review' ) ) {
-				$key = wfMemcKey( 'unreviewedPages', 'underReview', $fa->getId() );
-				$wgMemc->set( $key, '1', 20 * 60 );
-			}
+		if ( $fa->isReviewable() && !$fa->getStable() // not reviewed yet
+			&& $fa->getTitle()->userCan( 'review' ) )
+		{
+			FRUserActivity::setUserReviewingPage( $wgUser, $fa->getID() );
 		}
 		return true;
 	}

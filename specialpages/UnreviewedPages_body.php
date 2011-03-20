@@ -92,7 +92,7 @@ class UnreviewedPages extends SpecialPage
 	}
 	
 	public function formatRow( $row ) {
-		global $wgLang, $wgUser, $wgMemc;
+		global $wgLang, $wgUser;
 
 		$stxt = $underReview = $watching = '';
 		$title = Title::newFromRow( $row );
@@ -122,7 +122,7 @@ class UnreviewedPages extends SpecialPage
 			$age = ' ' . wfMsg( 'unreviewedpages-recent' ); // hot off the press :)
 		}
 		if ( $wgUser->isAllowed( 'unwatchedpages' ) ) {
-			$uw = self::usersWatching( $title );
+			$uw = FRUserActivity::numUsersWatchingPage( $title );
 			$watching = $uw
 				? wfMsgExt( 'unreviewedpages-watched', 'parsemag', $wgLang->formatNum( $uw ) )
 				: wfMsgHtml( 'unreviewedpages-unwatched' );
@@ -132,53 +132,18 @@ class UnreviewedPages extends SpecialPage
 		}
 		$css = self::getLineClass( $hours, $uw );
 		$css = $css ? " class='$css'" : "";
-		$pageId = isset( $row->page_id ) ? $row->page_id : $row->qc_value;
-		$key = wfMemcKey( 'unreviewedPages', 'underReview', $pageId );
-		$val = $wgMemc->get( $key );
+
 		# Show if a user is looking at this page
-		if ( $val ) {
-			$underReview = " <b class='fr-under-review'>" .
-				wfMsgHtml( 'unreviewedpages-viewing' ) . '</b>';
+		list( $u, $ts ) = FRUserActivity::getUserReviewingPage( $row->page_id );
+		if ( $u !== null ) {
+			$underReview = " <span class='fr-under-review'>" .
+				wfMsgHtml( 'unreviewedpages-viewing' ) . '</span>';
 		}
 
 		return( "<li{$css}>{$link} {$stxt} ({$hist})" .
 			"{$age}{$watching}{$underReview}</li>" );
 	}
-	
-	/**
-	 * Get number of users watching a page.
-	 * @param Title $title
-	 * @return int
-	 */
-	public static function usersWatching( Title $title ) {
-		global $wgMiserMode, $wgCookieExpiration;
-		$dbr = wfGetDB( DB_SLAVE );
-		$count = - 1;
-		if ( $wgMiserMode ) {
-			# Get a rough idea of size
-			$count = $dbr->estimateRowCount( 'watchlist', '*',
-				array( 'wl_namespace' => $title->getNamespace(),
-					'wl_title' => $title->getDBkey() ),
-				__METHOD__ );
-		}
-		# If it is small, just COUNT() it, otherwise, stick with estimate...
-		if ( $count == - 1 || $count <= 100 ) {
-			# Get number of active editors watchling this
-			$cutoff = $dbr->timestamp( wfTimestamp( TS_UNIX ) - 2 * $wgCookieExpiration );
-			$res = $dbr->select( array( 'watchlist', 'user' ), '1',
-				array( 'wl_namespace' => $title->getNamespace(),
-					'wl_title' => $title->getDBkey(),
-					'wl_user = user_id',
-					// logged in or out
-					'user_touched > ' . $dbr->addQuotes( $cutoff ) ),
-				__METHOD__,
-				array( 'USE INDEX' => array( 'watchlist' => 'namespace_title' ) )
-			);
-			$count = $dbr->numRows( $res );
-		}
-		return (int)$count;
-	}
-	
+
 	protected static function getLineClass( $hours, $uw ) {
 		if ( $uw == 0 )
 			return 'fr-unreviewed-unwatched';
@@ -189,7 +154,7 @@ class UnreviewedPages extends SpecialPage
 		else
 			return "";
 	}
-	
+
 	/**
 	 * There may be many pages, most of which are reviewed
 	 */
@@ -303,8 +268,8 @@ class UnreviewedPagesPager extends AlphabeticPager {
 	
 	function getQueryCacheInfo() {
 		$conds = $this->mConds;
-		$fields = array( 'page_namespace', 'page_title', 'page_len', 'qc_value',
-			'MIN(rev_timestamp) AS creation' );
+		$fields = array( 'page_namespace', 'page_title', 'page_len', 'page_id',
+			'qc_value', 'MIN(rev_timestamp) AS creation' );
 		# Re-join on flaggedpages to double-check since things
 		# could have changed since the cache date. Also, use
 		# the proper cache for this level.

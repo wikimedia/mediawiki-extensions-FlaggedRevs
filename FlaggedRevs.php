@@ -66,6 +66,7 @@ $wgFlaggedRevsExceptions = array( 'user' ); // @TODO: remove when ready (and swa
 # Can users make comments that will show up below flagged revisions?
 # NOTE: this is NOT the same as the simple log comment
 $wgFlaggedRevsComments = false; // @TODO: remove when ready?
+
 # Auto-review settings for edits/new pages:
 # FR_AUTOREVIEW_NONE
 #	Don't auto-review any edits or new pages
@@ -242,6 +243,7 @@ $langDir = $dir . 'language/';
 $wgAutoloadClasses['FlaggedRevs'] = $dir . 'FlaggedRevs.class.php';
 $wgAutoloadClasses['FRUserCounters'] = $dir . 'FRUserCounters.php';
 $wgAutoloadClasses['FRInclusionManager'] = $dir . 'FRInclusionManager.php';
+$wgAutoloadClasses['FRUserActivity'] = $dir . 'FRUserActivity.php';
 $wgAutoloadClasses['FlaggedRevsHooks'] = $dir . 'FlaggedRevs.hooks.php';
 $wgAutoloadClasses['FlaggedRevsLogs'] = $dir . 'FlaggedRevsLogs.php';
 $wgAutoloadClasses['FRExtraCacheUpdate'] = $dir . 'FRExtraCacheUpdate.php';

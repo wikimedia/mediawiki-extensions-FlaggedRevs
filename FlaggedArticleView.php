@@ -1387,7 +1387,8 @@ class FlaggedArticleView {
 				# If the user can review then prompt them to review them...
 				if ( $wgUser->isAllowed( 'review' ) ) {
 					# Set a key to note that someone is viewing this
-					$this->markDiffUnderReview( $oldRev, $newRev );
+					FRUserActivity::setUserReviewingDiff(
+						$wgUser, $oldRev->getId(), $newRev->getId() );
 					// Reviewer just edited...
 					if ( $wgRequest->getInt( 'shownotice' )
 						&& $newRev->isCurrent()
@@ -1578,13 +1579,6 @@ class FlaggedArticleView {
 			$diffLinks[] = $skin->makeLinkObj( $title, $title->getPrefixedText() );
 		}
 		return $diffLinks;
-	}
-
-	// Mark that someone is viewing a portion or all of the diff-to-stable
-	protected function markDiffUnderReview( Revision $oldRev, Revision $newRev ) {
-		global $wgMemc;
-		$key = wfMemcKey( 'stableDiffs', 'underReview', $oldRev->getID(), $newRev->getID() );
-		$wgMemc->set( $key, '1', 6 * 60 );
 	}
 
 	/**
