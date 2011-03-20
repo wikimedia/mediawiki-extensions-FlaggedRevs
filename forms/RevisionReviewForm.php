@@ -727,7 +727,8 @@ class RevisionReviewForm
 		}
 
 		# Add main checkboxes/selects
-		$form .= Xml::openElement( 'span', array( 'id' => 'mw-fr-ratingselects' ) );
+		$form .= Xml::openElement( 'span',
+			array( 'id' => 'mw-fr-ratingselects', 'class' => 'fr-rating-options' ) );
 		$form .= self::ratingInputs( $user, $flags, (bool)$disabled, (bool)$frev );
 		$form .= Xml::closeElement( 'span' );
 		# Add review notes input
@@ -870,7 +871,7 @@ class RevisionReviewForm
 				if ( $size > 6 ) {
 					$attribs = array( 'name' => "wp$quality", 'id' => "wp$quality",
 						'onchange' => "FlaggedRevsReview.updateRatingForm()" );
-					$item .= Xml::openElement( 'select', $attribs );
+					$item .= Xml::openElement( 'select', $attribs ) . "\n";
 					foreach ( $levels as $i => $name ) {
 						$optionClass = array( 'class' => "fr-rating-option-$i" );
 						$item .= Xml::option( FlaggedRevs::getTagMsg( $name ), $i,
@@ -897,11 +898,7 @@ class RevisionReviewForm
 				$items[] = $item;
 			}
 		}
-		# Wrap visible controls in a span
-		$form = Xml::openElement( 'span', array( 'class' => 'fr-rating-options' ) ) . "\n";
-		$form .= implode( '&#160;&#160;&#160;', $items );
-		$form .= Xml::closeElement( 'span' ) . "\n";
-		return $form;
+		return implode( '&#160;&#160;&#160;', $items );
 	}
 
 	private static function ratingFormTags( $user, $selected ) {
