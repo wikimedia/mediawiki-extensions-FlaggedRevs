@@ -72,12 +72,8 @@ window.FlaggedRevsReview = {
 			var levels = document.getElementsByName(controlName);
 			if( levels.length && levels[0].nodeName == 'SELECT' ) {
 				selectedlevel = levels[0].selectedIndex;
-				// Update color. Opera does this already, and doing so
-				// seems to kill custom pretty opera skin form styling.
-				if( navigator.appName != 'Opera' ) {
-					value = levels[0].getElementsByTagName('option')[selectedlevel].value;
-					levels[0].className = 'fr-rating-option-' + value;
-				}
+				value = levels[0].getElementsByTagName('option')[selectedlevel].value;
+				levels[0].className = 'fr-rating-option-' + value;
 			}
 		}
 	},
