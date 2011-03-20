@@ -714,7 +714,7 @@ class RevisionReviewForm
 		if ( $u !== null && $u != $user->getName() ) {
 			$msg = $refId ? 'revreview-poss-conflict-c' : 'revreview-poss-conflict-p';
 			$form .= '<p><span class="fr-under-review">' .
-				wfMsgExt( $msg, 'parseinline', $u, $wgLang->timeanddate( $ts, true ) ) .
+				wfMsgExt( $msg, 'parseinline', $u, $wgLang->date( $ts, true ), $wgLang->time( $ts, true ) ) .
 					'</span></p>';
 		}
 
