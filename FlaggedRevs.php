@@ -359,7 +359,7 @@ $wgResourceModules['ext.flaggedRevs.basic'] = array(
 	),
 	'dependencies' 	=> array( 'jquery', 'mediawiki.util' ),
 	'localBasePath' => $dir,
-	'remoteExtPath' => 'FlaggedRevs'
+	'remoteExtPath' => 'FlaggedRevs/client'
 );
 $wgResourceModules['ext.flaggedRevs.review'] = array(
 	'scripts' 		=> array( 'review.js' ),
@@ -372,7 +372,7 @@ $wgResourceModules['ext.flaggedRevs.review'] = array(
 	),
 	'dependencies' 	=> array( 'jquery', 'mediawiki.util' ),
 	'localBasePath' => $dir,
-	'remoteExtPath' => 'FlaggedRevs'
+	'remoteExtPath' => 'FlaggedRevs/client'
 );
 
 # ####### HOOK TRIGGERED FUNCTIONS  #########
