@@ -411,14 +411,6 @@ class PendingChangesPager extends AlphabeticPager {
 	}
 	
 	function getStartBody() {
-		wfProfileIn( __METHOD__ );
-		# Do a link batch query
-		$lb = new LinkBatch();
-		foreach ( $this->mResult as $row ) {
-			$lb->add( $row->page_namespace, $row->page_title );
-		}
-		$lb->execute();
-		wfProfileOut( __METHOD__ );
 		return '<ul>';
 	}
 	

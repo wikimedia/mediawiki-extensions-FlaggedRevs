@@ -132,8 +132,7 @@ class UnreviewedPages extends SpecialPage
 		}
 		$css = self::getLineClass( $hours, $uw );
 		$css = $css ? " class='$css'" : "";
-		$pageId = isset( $row->page_id ) ?
-			$row->page_id : $row->qc_value;
+		$pageId = isset( $row->page_id ) ? $row->page_id : $row->qc_value;
 		$key = wfMemcKey( 'unreviewedPages', 'underReview', $pageId );
 		$val = $wgMemc->get( $key );
 		# Show if a user is looking at this page
@@ -361,14 +360,6 @@ class UnreviewedPagesPager extends AlphabeticPager {
 	}
 	
 	function getStartBody() {
-		wfProfileIn( __METHOD__ );
-		# Do a link batch query
-		$lb = new LinkBatch();
-		foreach ( $this->mResult as $row ) {
-			$lb->add( $row->page_namespace, $row->page_title );
-		}
-		$lb->execute();
-		wfProfileOut( __METHOD__ );
 		return '<ul>';
 	}
 	
