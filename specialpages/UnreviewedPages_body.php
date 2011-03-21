@@ -44,7 +44,8 @@ class UnreviewedPages extends SpecialPage
 	protected function showForm() {
 		global $wgOut, $wgLang, $wgScript;
 		# Add explanatory text
-		$wgOut->addWikiMsg( 'unreviewedpages-list', $wgLang->formatNum( $this->pager->getNumRows() ) );
+		$wgOut->addWikiMsg( 'unreviewedpages-list',
+			$wgLang->formatNum( $this->pager->getNumRows() ) );
 
 		# show/hide links
 		$showhide = array( wfMsgHtml( 'show' ), wfMsgHtml( 'hide' ) );

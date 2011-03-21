@@ -94,8 +94,10 @@ class QualityOversight extends SpecialPage
 	* @returns array
 	*/
 	private function getActions() {
-		$actions = array( 'approve' => 1, 'approve2' => 1, 'approve-a' => 1, 'approve-i' => 1,
-			'approve-ia' => 1, 'approve2-i' => 1, 'unapprove' => 1, 'unapprove2' => 1 );
+		$actions = array(
+			'approve' => 1, 'approve2' => 1, 'approve-a' => 1, 'approve-i' => 1,
+			'approve-ia' => 1, 'approve2-i' => 1, 'unapprove' => 1, 'unapprove2' => 1
+		);
 		if ( $this->level === 0 ) { // checked revisions
 			$actions['approve2'] = 0;
 			$actions['approve2-i'] = 0;

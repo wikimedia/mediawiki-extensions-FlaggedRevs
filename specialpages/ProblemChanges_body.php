@@ -227,11 +227,13 @@ class ProblemChanges extends SpecialPage
 			// After three days, just use days
 			if ( $hours > ( 3 * 24 ) ) {
 				$days = round( $hours / 24, 0 );
-				$age = wfMsgExt( 'pendingchanges-days', 'parsemag', $wgLang->formatNum( $days ) );
+				$age = wfMsgExt( 'pendingchanges-days',
+					'parsemag', $wgLang->formatNum( $days ) );
 			// If one or more hours, use hours
 			} elseif ( $hours >= 1 ) {
 				$hours = round( $hours, 0 );
-				$age = wfMsgExt( 'pendingchanges-hours', 'parsemag', $wgLang->formatNum( $hours ) );
+				$age = wfMsgExt( 'pendingchanges-hours',
+					'parsemag', $wgLang->formatNum( $hours ) );
 			} else {
 				$age = wfMsg( 'pendingchanges-recent' ); // hot off the press :)
 			}
