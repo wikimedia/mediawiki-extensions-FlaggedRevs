@@ -7,6 +7,8 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 // Assumes $wgFlaggedRevsProtection is on
 class StablePages extends SpecialPage
 {
+	protected $pager = null;
+
 	public function __construct() {
 		parent::__construct( 'StablePages' );
 	}
@@ -21,51 +23,53 @@ class StablePages extends SpecialPage
 		$this->autoreview = $wgRequest->getVal( 'restriction', '' );
 		$this->indef = $wgRequest->getBool( 'indef', false );
 
+		$this->pager = new StablePagesPager( $this, array(),
+			$this->namespace, $this->autoreview, $this->indef );
+
 		$this->showForm();
 		$this->showPageList();
 	}
 
 	protected function showForm() {
 		global $wgOut, $wgScript;
-		$wgOut->addWikiMsg( 'stablepages-list' );
+		$wgOut->addWikiMsg( 'stablepages-list', $this->pager->getNumRows() );
 		$fields = array();
 		# Namespace selector
 		if ( count( FlaggedRevs::getReviewNamespaces() ) > 1 ) {
 			$fields[] = FlaggedRevsXML::getNamespaceMenu( $this->namespace, '' );
 		}
 		# Restriction level selector
-		if( FlaggedRevs::getRestrictionLevels() ) {
+		if ( FlaggedRevs::getRestrictionLevels() ) {
 			$fields[] = FlaggedRevsXML::getRestrictionFilterMenu( $this->autoreview );
 		}
 		$fields[] = Xml::checkLabel( wfMsg( 'stablepages-indef' ), 'indef', 
 			'stablepages-indef', $this->indef );
-		# Use form if it has options
-		if ( count( $fields ) ) {
-			$form = Xml::openElement( 'form',
-				array( 'name' => 'stablepages', 'action' => $wgScript, 'method' => 'get' ) );
-			$form .= Html::hidden( 'title', $this->getTitle()->getPrefixedDBKey() );
-			$form .= "<fieldset><legend>" . wfMsg( 'stablepages' ) . "</legend>\n";
-			$form .= implode( '&#160;', $fields ) . '&nbsp';
-			$form .= " " . Xml::submitButton( wfMsg( 'go' ) );
-			$form .= "</fieldset>\n";
-			$form .= Xml::closeElement( 'form' );
-			$wgOut->addHTML( $form );
-		}
+
+		$form = Html::openElement( 'form',
+			array( 'name' => 'stablepages', 'action' => $wgScript, 'method' => 'get' ) );
+		$form .= Html::hidden( 'title', $this->getTitle()->getPrefixedDBKey() );
+		$form .= "<fieldset><legend>" . wfMsg( 'stablepages' ) . "</legend>\n";
+		$form .= implode( '&#160;', $fields ) . '&nbsp';
+		$form .= " " . Xml::submitButton( wfMsg( 'go' ) );
+		$form .= "</fieldset>\n";
+		$form .= Html::closeElement( 'form' ) . "\n";
+
+		$wgOut->addHTML( $form );
 	}
 
 	protected function showPageList() {
 		global $wgOut;
-		$pager = new StablePagesPager(
-			$this, array(), $this->namespace, $this->autoreview, $this->indef );
-		if ( $pager->getNumRows() ) {
-			$wgOut->addHTML( $pager->getNavigationBar() );
-			$wgOut->addHTML( $pager->getBody() );
-			$wgOut->addHTML( $pager->getNavigationBar() );
+		if ( $this->pager->getNumRows() ) {
+			$wgOut->addHTML( $this->pager->getNavigationBar() );
+			$wgOut->addHTML( $this->pager->getBody() );
+			$wgOut->addHTML( $this->pager->getNavigationBar() );
 		} else {
 			$wgOut->addWikiMsg( 'stablepages-none' );
 		}
-		# Take this opportunity to purge out expired configurations
-		FlaggedPageConfig::purgeExpiredConfigurations();
+		# Purge expired entries on one in every 10 queries
+		if ( !mt_rand( 0, 10 ) ) {
+			FlaggedPageConfig::purgeExpiredConfigurations();
+		}
 	}
 
 	public function formatRow( $row ) {

@@ -6,99 +6,115 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 
 class UnreviewedPages extends SpecialPage
 {
+	protected $pager = null;
+
 	public function __construct() {
 		parent::__construct( 'UnreviewedPages', 'unreviewedpages' );
 	}
 
 	public function execute( $par ) {
 		global $wgRequest, $wgUser, $wgOut;
+
 		$this->setHeaders();
 		if ( !$wgUser->isAllowed( 'unreviewedpages' ) ) {
 			$wgOut->permissionRequired( 'unreviewedpages' );
 			return;
 		}
 		$this->skin = $wgUser->getSkin();
-		$this->showList( $wgRequest );
-	}
 
-	protected function showList( $wgRequest ) {
-		global $wgOut, $wgScript;
+		# Get default namespace
 		$namespaces = FlaggedRevs::getReviewNamespaces();
 		$defaultNS = !$namespaces ? NS_MAIN : $namespaces[0];
-		
-		$namespace = $wgRequest->getIntOrNull( 'namespace', $defaultNS );
+
+		$this->namespace = $wgRequest->getIntOrNull( 'namespace', $defaultNS );
 		$category = trim( $wgRequest->getVal( 'category' ) );
 		$catTitle = Title::makeTitleSafe( NS_CATEGORY, $category );
-		$category = is_null( $catTitle ) ? '' : $catTitle->getText();
-		$level = $wgRequest->getInt( 'level' );
-		$hideRedirs = $wgRequest->getBool( 'hideredirs', true );
-		
-		// show/hide links
+		$this->category = is_null( $catTitle ) ? '' : $catTitle->getText();
+		$this->level = $wgRequest->getInt( 'level' );
+		$this->hideRedirs = $wgRequest->getBool( 'hideredirs', true );
+		$this->live = self::generalQueryOK();
+
+		$this->pager = new UnreviewedPagesPager( $this, $this->live,
+			$this->namespace, !$this->hideRedirs, $this->category, $this->level );
+
+		$this->showForm();
+		$this->showPageList();
+	}
+
+	protected function showForm() {
+		global $wgOut, $wgLang, $wgScript;
+		# Add explanatory text
+		$wgOut->addWikiMsg( 'unreviewedpages-list', $this->pager->getNumRows() );
+
+		# show/hide links
 		$showhide = array( wfMsgHtml( 'show' ), wfMsgHtml( 'hide' ) );
-		$onoff = 1 - $hideRedirs;
+		$onoff = 1 - $this->hideRedirs;
 		$link = $this->skin->link( $this->getTitle(), $showhide[$onoff], array(),
-			 array( 'hideredirs' => $onoff, 'category' => $category, 'namespace' => $namespace )
+			array( 'hideredirs' => $onoff, 'category' => $this->category,
+				'namespace' => $this->namespace )
 		);
 		$showhideredirs = wfMsgHtml( 'whatlinkshere-hideredirs', $link );
 
-		# Add explanatory text
-		$wgOut->addWikiMsg( 'unreviewedpages-list' );
 		# Add form...
-		$action = htmlspecialchars( $wgScript );
-		$wgOut->addHTML( "<form action=\"$action\" method=\"get\">\n" .
-			'<fieldset><legend>' . wfMsg( 'unreviewedpages-legend' ) . '</legend>' .
-			Html::hidden( 'title', $this->getTitle()->getPrefixedDBKey() ) . '<p>' );
+		$form = Html::openElement( 'form', array( 'name' => 'unreviewedpages',
+			'action' => $wgScript, 'method' => 'get' ) ) . "\n";
+		$form .= "<fieldset><legend>" . wfMsg( 'unreviewedpages-legend' ) . "</legend>\n";
+		$form .= Html::hidden( 'title', $this->getTitle()->getPrefixedDBKey() ) . "\n";
 		# Add dropdowns as needed
-		if ( count( $namespaces ) > 1 ) {
-			$wgOut->addHTML( FlaggedRevsXML::getNamespaceMenu( $namespace ) . '&#160;' );
+		if ( count( FlaggedRevs::getReviewNamespaces() ) > 1 ) {
+			$form .= FlaggedRevsXML::getNamespaceMenu( $this->namespace ) . '&#160;';
 		}
 		if ( FlaggedRevs::qualityVersions() ) {
-			$wgOut->addHTML( FlaggedRevsXML::getLevelMenu( $level, false, 1 ) . '&#160;' );
+			$form .= FlaggedRevsXML::getLevelMenu( $this->level, false, 1 ) . '&#160;';
 		}
-		$wgOut->addHTML(
+		$form .= 
 			"<span style='white-space: nowrap;'>" .
 			Xml::label( wfMsg( "unreviewedpages-category" ), 'category' ) . '&#160;' .
-			Xml::input( 'category', 30, $category, array( 'id' => 'category' ) ) .
-			'</span><br />' .
-			$showhideredirs . '&#160;&#160;' .
-			Xml::submitButton( wfMsg( 'allpagessubmit' ) ) . "</p>\n" .
-			"</fieldset></form>"
-		);
-		# This will start to get slower if live...
-		if ( !$live = self::generalQueryOK() ) {
+			Xml::input( 'category', 30, $this->category, array( 'id' => 'category' ) ) .
+			'</span><br />';
+		$form .= $showhideredirs . '&#160;&#160;';
+		$form .= Xml::submitButton( wfMsg( 'allpagessubmit' ) );
+		$form .= '</fieldset>';
+		$form .= Html::closeElement( 'form' ) . "\n";
+
+		# Query may get too slow to be live...
+		if ( !$this->live ) {
 			$dbr = wfGetDB( DB_SLAVE );
 			$ts = $dbr->selectField( 'querycache_info', 'qci_timestamp',
 				array( 'qci_type' => 'fr_unreviewedpages' ), __METHOD__ );
 			if ( $ts ) {
-				global $wgLang;
 				$ts = wfTimestamp( TS_MW, $ts );
 				$td = $wgLang->timeanddate( $ts );
 				$d = $wgLang->date( $ts );
 				$t = $wgLang->time( $ts );
-				$wgOut->addHTML( wfMsg( 'perfcachedts', $td, $d, $t ) );
+				$form .= wfMsgExt( 'perfcachedts', 'parse', $td, $d, $t );
 			} else {
-				$wgOut->addHTML( wfMsg( 'perfcached' ) );
+				$form .= wfMsgExt( 'perfcached', 'parse' );
 			}
 		}
-		$pager = new UnreviewedPagesPager(
-			$this, $live, $namespace, !$hideRedirs, $category, $level );
-		if ( $pager->getNumRows() ) {
-			$wgOut->addHTML( $pager->getNavigationBar() );
-			$wgOut->addHTML( $pager->getBody() );
-			$wgOut->addHTML( $pager->getNavigationBar() );
+
+		$wgOut->addHTML( $form );
+	}
+
+	protected function showPageList() {
+		global $wgOut;
+		if ( $this->pager->getNumRows() ) {
+			$wgOut->addHTML( $this->pager->getNavigationBar() );
+			$wgOut->addHTML( $this->pager->getBody() );
+			$wgOut->addHTML( $this->pager->getNavigationBar() );
 		} else {
 			$wgOut->addWikiMsg( 'unreviewedpages-none' );
 		}
 	}
-	
+
 	public function formatRow( $row ) {
 		global $wgLang, $wgUser;
+		$title = Title::newFromRow( $row );
 
 		$stxt = $underReview = $watching = '';
-		$title = Title::newFromRow( $row );
-		$link = $this->skin->makeKnownLinkObj( $title, null, 'redirect=no&reviewing=1' );
-		$hist = $this->skin->makeKnownLinkObj( $title, wfMsgHtml( 'hist' ),
-			'action=history&reviewing=1' );
+		$link = $this->skin->link( $title, null, array(), 'redirect=no&reviewing=1' );
+		$hist = $this->skin->linkKnown( $title, wfMsgHtml( 'hist' ),
+			array(), 'action=history&reviewing=1' );
 		if ( !is_null( $size = $row->page_len ) ) {
 			$stxt = ( $size == 0 )
 				? wfMsgHtml( 'historyempty' )
@@ -113,11 +129,13 @@ class UnreviewedPages extends SpecialPage
 		// After three days, just use days
 		if ( $hours > ( 3 * 24 ) ) {
 			$days = round( $hours / 24, 0 );
-			$age = ' ' . wfMsgExt( 'unreviewedpages-days', 'parsemag', $wgLang->formatNum( $days ) );
+			$age = ' ' . wfMsgExt( 'unreviewedpages-days',
+				'parsemag', $wgLang->formatNum( $days ) );
 		// If one or more hours, use hours
 		} elseif ( $hours >= 1 ) {
 			$hours = round( $hours, 0 );
-			$age = ' ' . wfMsgExt( 'unreviewedpages-hours', 'parsemag', $wgLang->formatNum( $hours ) );
+			$age = ' ' . wfMsgExt( 'unreviewedpages-hours',
+				'parsemag', $wgLang->formatNum( $hours ) );
 		} else {
 			$age = ' ' . wfMsg( 'unreviewedpages-recent' ); // hot off the press :)
 		}
@@ -180,8 +198,10 @@ class UnreviewedPages extends SpecialPage
  * Query to list out unreviewed pages
  */
 class UnreviewedPagesPager extends AlphabeticPager {
-	public $mForm, $mConds;
-	private $live, $namespace, $category, $showredirs;
+	public $mForm;
+	protected $live, $namespace, $category, $showredirs;
+
+	const PAGE_LIMIT = 50; // Don't get too expensive
 
 	function __construct(
 		$form, $live, $namespace, $redirs = false, $category = null, $level = 0
@@ -204,7 +224,11 @@ class UnreviewedPagesPager extends AlphabeticPager {
 		parent::__construct();
 		// Don't get too expensive
 		$this->mLimitsShown = array( 20, 50 );
-		$this->mLimit = min( $this->mLimit, 50 );
+		$this->setLimit( $this->mLimit ); // apply max limit
+	}
+
+	function setLimit( $limit ) {
+		$this->mLimit = min( $limit, self::PAGE_LIMIT );
 	}
 
 	function formatRow( $row ) {
@@ -215,7 +239,6 @@ class UnreviewedPagesPager extends AlphabeticPager {
 		if ( !$this->live ) {
 			return $this->getQueryCacheInfo();
 		}
-		$conds = $this->mConds;
 		$fields = array( 'page_namespace', 'page_title', 'page_len', 'page_id',
 			'MIN(rev_timestamp) AS creation' );
 		# Filter by level
@@ -325,6 +348,14 @@ class UnreviewedPagesPager extends AlphabeticPager {
 	}
 	
 	function getStartBody() {
+		wfProfileIn( __METHOD__ );
+		# Do a link batch query
+		$lb = new LinkBatch();
+		foreach ( $this->mResult as $row ) {
+			$lb->add( $row->page_namespace, $row->page_title );
+		}
+		$lb->execute();
+		wfProfileOut( __METHOD__ );
 		return '<ul>';
 	}
 	

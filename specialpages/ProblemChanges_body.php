@@ -6,6 +6,8 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 
 class ProblemChanges extends SpecialPage
 {
+	protected $pager = null;
+
 	public function __construct() {
 		parent::__construct( 'ProblemChanges' );
 		$this->includable( true );
@@ -13,19 +15,34 @@ class ProblemChanges extends SpecialPage
 
 	public function execute( $par ) {
 		global $wgRequest, $wgUser;
+
 		$this->setHeaders();
 		$this->skin = $wgUser->getSkin();
 		$this->level = $wgRequest->getInt( 'level', - 1 );
 		$this->tag = trim( $wgRequest->getVal( 'tagfilter' ) );
-		$this->category = trim( $wgRequest->getVal( 'category' ) );
-		$catTitle = Title::newFromText( $this->category );
+		$category = trim( $wgRequest->getVal( 'category' ) );
+		$catTitle = Title::newFromText( $category );
 		$this->category = is_null( $catTitle ) ? '' : $catTitle->getText();
 		$feedType = $wgRequest->getVal( 'feed' );
-		if ( $feedType ) {
-			return $this->feed( $feedType );
+		if ( $this->including() ) {
+			$incLimit = $this->parseParams( $par ); // apply non-URL params
 		}
-		$this->setSyndicated();
-		$this->showList( $par );
+
+		$this->pager = new ProblemChangesPager(
+			$this, $this->level, $this->category, $this->tag );
+
+		# Output appropriate format...
+		if ( $feedType != null ) {
+			$this->feed( $feedType );
+		} else {
+			if ( $this->including() ) {
+				$this->pager->setLimit( $incLimit ); // apply non-URL limit
+			} else {
+				$this->setSyndicated();
+				$this->showForm();
+			}
+			$this->showPageList();
+		}
 	}
 	
 	protected function setSyndicated() {
@@ -39,60 +56,59 @@ class ProblemChanges extends SpecialPage
 		$wgOut->setFeedAppendQuery( wfArrayToCGI( $queryParams ) );
 	}
 
-	public function showList( $par ) {
+	public function showForm() {
 		global $wgOut, $wgScript;
 		// Add explanatory text
-		$wgOut->addWikiMsg( 'problemchanges-list' );
-		$limit = $this->parseParams( $par );
-		$pager = new ProblemChangesPager( $this, $this->level, $this->category, $this->tag );
-		// Apply limit if transcluded
-		$pager->mLimit = $limit ? $limit : $pager->mLimit;
+		$wgOut->addWikiMsg( 'problemchanges-list', $this->pager->getNumRows() );
+
+		$form = Html::openElement( 'form', array( 'name' => 'problemchanges',
+			'action' => $wgScript, 'method' => 'get' ) ) . "\n";
+		$form .= "<fieldset><legend>" . wfMsg( 'problemchanges-legend' ) . "</legend>\n";
+		$form .= Html::hidden( 'title', $this->getTitle()->getPrefixedDBKey() ) . "\n";
+		$form .=
+			( FlaggedRevs::qualityVersions()
+				? "<span style='white-space: nowrap;'>" .
+					FlaggedRevsXML::getLevelMenu( $this->level, 'revreview-filter-stable' ) .
+					'</span> '
+				: ""
+			);
+		$tagForm = ChangeTags::buildTagFilterSelector( $this->tag );
+		if ( count( $tagForm ) ) {
+			$form .= Xml::tags( 'td', array( 'class' => 'mw-label' ), $tagForm[0] );
+			$form .= Xml::tags( 'td', array( 'class' => 'mw-input' ), $tagForm[1] );
+		}
+		$form .= '<br />' .
+			Xml::label( wfMsg( "problemchanges-category" ), 'wpCategory' ) . '&#160;' .
+			Xml::input( 'category', 30, $this->category, array( 'id' => 'wpCategory' ) ) . ' ';
+		$form .= Xml::submitButton( wfMsg( 'allpagessubmit' ) ) . "\n";
+		$form .= '</fieldset>';
+		$form .= Html::closeElement( 'form' ) . "\n";
+
+		$wgOut->addHTML( $form );
+	}
+
+	public function showPageList() {
+		global $wgOut;
 		// Viewing the page normally...
 		if ( !$this->including() ) {
-			$action = htmlspecialchars( $wgScript );
-			$tagForm = ChangeTags::buildTagFilterSelector( $this->tag );
-			$wgOut->addHTML(
-				"<form action=\"$action\" method=\"get\">\n" .
-				'<fieldset><legend>' . wfMsg( 'problemchanges-legend' ) . '</legend>' .
-				Html::hidden( 'title', $this->getTitle()->getPrefixedDBKey() )
-			);
-			$form =
-				( FlaggedRevs::qualityVersions()
-					? "<span style='white-space: nowrap;'>" .
-						FlaggedRevsXML::getLevelMenu( $this->level, 'revreview-filter-stable' ) .
-						'</span> '
-					: ""
-				);
-			if ( count( $tagForm ) ) {
-				$form .= Xml::tags( 'td', array( 'class' => 'mw-label' ), $tagForm[0] );
-				$form .= Xml::tags( 'td', array( 'class' => 'mw-input' ), $tagForm[1] );
-			}
-			$form .= '<br />' .
-				Xml::label( wfMsg( "problemchanges-category" ), 'wpCategory' ) . '&#160;' .
-				Xml::input( 'category', 30, $this->category,
-					array( 'id' => 'wpCategory' ) ) . ' ';
-			$form .= Xml::submitButton( wfMsg( 'allpagessubmit' ) ) . "\n" .
-				"</fieldset></form>";
-			# Add filter options
-			$wgOut->addHTML( $form );
-			# Add list output
-			if ( $pager->getNumRows() ) {
-				$wgOut->addHTML( $pager->getNavigationBar() );
-				$wgOut->addHTML( $pager->getBody() );
-				$wgOut->addHTML( $pager->getNavigationBar() );
+			if ( $this->pager->getNumRows() ) {
+				$wgOut->addHTML( $this->pager->getNavigationBar() );
+				$wgOut->addHTML( $this->pager->getBody() );
+				$wgOut->addHTML( $this->pager->getNavigationBar() );
 			} else {
 				$wgOut->addWikiMsg( 'problemchanges-none' );
 			}
 		// If this page is transcluded...
 		} else {
-			if ( $pager->getNumRows() ) {
-				$wgOut->addHTML( $pager->getBody() );
+			if ( $this->pager->getNumRows() ) {
+				$wgOut->addHTML( $this->pager->getBody() );
 			} else {
 				$wgOut->addWikiMsg( 'problemchanges-none' );
 			}
 		}
 	}
-	
+
+	// set pager parameters from $par, return pager limit	
 	protected function parseParams( $par ) {
 		$bits = preg_split( '/\s*,\s*/', trim( $par ) );
 		$limit = false;
@@ -115,30 +131,25 @@ class ProblemChanges extends SpecialPage
 	 * @param string $type
 	 */
 	protected function feed( $type ) {
-		global $wgFeed, $wgFeedClasses, $wgRequest;
+		global $wgFeed, $wgFeedClasses, $wgFeedLimit, $wgOut;
 		if ( !$wgFeed ) {
-			global $wgOut;
 			$wgOut->addWikiMsg( 'feed-unavailable' );
 			return;
 		}
 		if ( !isset( $wgFeedClasses[$type] ) ) {
-			global $wgOut;
 			$wgOut->addWikiMsg( 'feed-invalid' );
 			return;
 		}
 		$feed = new $wgFeedClasses[$type](
 			$this->feedTitle(),
 			wfMsg( 'tagline' ),
-			$this->getTitle()->getFullUrl() );
-
-		$pager = new ProblemChangesPager( $this, $this->category );
-		$limit = $wgRequest->getInt( 'limit', 50 );
-		global $wgFeedLimit;
-		$pager->mLimit = min( $wgFeedLimit, $limit );
+			$this->getTitle()->getFullUrl()
+		);
+		$this->pager->mLimit = min( $wgFeedLimit, $this->pager->mLimit );
 
 		$feed->outHeader();
-		if ( $pager->getNumRows() > 0 ) {
-			foreach ( $pager->mResult as $row ) {
+		if ( $this->pager->getNumRows() > 0 ) {
+			foreach ( $this->pager->mResult as $row ) {
 				$feed->outItem( $this->feedItem( $row ) );
 			}
 		}
@@ -177,9 +188,10 @@ class ProblemChanges extends SpecialPage
 		$css = $quality = $tags = $underReview = '';
 		
 		$title = Title::newFromRow( $row );
-		$link = $this->skin->makeKnownLinkObj( $title );
-		$review = $this->skin->makeKnownLinkObj( $title,
+		$link = $this->skin->link( $title );
+		$review = $this->skin->knownLink( $title,
 			wfMsg( 'pendingchanges-diff' ),
+			array(),
 			'diff=cur&oldid=' . intval($row->stable) . '&diffonly=0' );
 		# Show quality level if there are several
 		if ( FlaggedRevs::qualityVersions() ) {
@@ -272,8 +284,10 @@ class ProblemChanges extends SpecialPage
  * Query to list out outdated reviewed pages
  */
 class ProblemChangesPager extends AlphabeticPager {
-	public $mForm, $mConds;
-	private $category, $namespace, $tag;
+	public $mForm;
+	protected $category, $namespace, $tag;
+
+	const PAGE_LIMIT = 100; // Don't get too expensive
 
 	function __construct( $form, $level = - 1, $category = '', $tag = '' )
 	{
@@ -287,7 +301,11 @@ class ProblemChangesPager extends AlphabeticPager {
 		parent::__construct();
 		// Don't get to expensive
 		$this->mLimitsShown = array( 20, 50, 100 );
-		$this->mLimit = min( $this->mLimit, 100 );
+		$this->setLimit( $this->mLimit ); // apply max limit
+	}
+
+	function setLimit( $limit ) {
+		$this->mLimit = min( $limit, self::PAGE_LIMIT );
 	}
 
 	function formatRow( $row ) {
@@ -300,7 +318,6 @@ class ProblemChangesPager extends AlphabeticPager {
 
 	function getQueryInfo() {
 		global $wgOldChangeTagsIndex;
-		$conds = $this->mConds;
 		$tables = array( 'revision', 'change_tag', 'page' );
 		$fields = array( 'page_namespace' , 'page_title', 'page_latest' );
 		$ctIndex = $wgOldChangeTagsIndex ?

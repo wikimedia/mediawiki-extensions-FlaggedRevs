@@ -7,6 +7,8 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 // Assumes $wgFlaggedRevsProtection is off
 class ConfiguredPages extends SpecialPage
 {
+	protected $pager = null;
+
 	public function __construct() {
 		parent::__construct( 'ConfiguredPages' );
 	}
@@ -21,13 +23,18 @@ class ConfiguredPages extends SpecialPage
 		$this->override = $wgRequest->getIntOrNull( 'stable' );
 		$this->autoreview = $wgRequest->getVal( 'restriction', '' );
 
+		$this->pager = new ConfiguredPagesPager(
+			$this, array(), $this->namespace, $this->override, $this->autoreview );
+
 		$this->showForm();
 		$this->showPageList();
 	}
 
 	protected function showForm() {
 		global $wgOut, $wgScript;
-		$wgOut->addWikiMsg( 'configuredpages-list' );
+		# Explanatory text
+		$wgOut->addWikiMsg( 'configuredpages-list', $this->pager->getNumRows() );
+
 		$fields = array();
 		# Namespace selector
 		if ( count( FlaggedRevs::getReviewNamespaces() ) > 1 ) {
@@ -36,46 +43,47 @@ class ConfiguredPages extends SpecialPage
 		# Default version selector
 		$fields[] = FlaggedRevsXML::getDefaultFilterMenu( $this->override );
 		# Restriction level selector
-		if( FlaggedRevs::getRestrictionLevels() ) {
+		if ( FlaggedRevs::getRestrictionLevels() ) {
 			$fields[] = FlaggedRevsXML::getRestrictionFilterMenu( $this->autoreview );
 		}
-		if ( count( $fields ) ) {
-			$form = Xml::openElement( 'form',
-				array( 'name' => 'configuredpages', 'action' => $wgScript, 'method' => 'get' ) );
-			$form .= Html::hidden( 'title', $this->getTitle()->getPrefixedDBKey() );
-			$form .= "<fieldset><legend>" . wfMsg( 'configuredpages' ) . "</legend>\n";
-			$form .= implode( '&#160;', $fields ) . '<br/>';
-			$form .= Xml::submitButton( wfMsg( 'go' ) );
-			$form .= "</fieldset>\n";
-			$form .= Xml::closeElement( 'form' );
-			$wgOut->addHTML( $form );
-		}
+
+		$form = Html::openElement( 'form',
+			array( 'name' => 'configuredpages', 'action' => $wgScript, 'method' => 'get' ) );
+		$form .= Html::hidden( 'title', $this->getTitle()->getPrefixedDBKey() );
+		$form .= "<fieldset><legend>" . wfMsg( 'configuredpages' ) . "</legend>\n";
+		$form .= implode( '&#160;', $fields ) . '<br/>';
+		$form .= Xml::submitButton( wfMsg( 'go' ) );
+		$form .= "</fieldset>\n";
+		$form .= Html::closeElement( 'form' ) . "\n";
+
+		$wgOut->addHTML( $form );
 	}
 
 	protected function showPageList() {
 		global $wgOut;
-		$pager = new ConfiguredPagesPager( $this, array(),
-			$this->namespace, $this->override, $this->autoreview );
-		if ( $pager->getNumRows() ) {
-			$wgOut->addHTML( $pager->getNavigationBar() );
-			$wgOut->addHTML( $pager->getBody() );
-			$wgOut->addHTML( $pager->getNavigationBar() );
+		if ( $this->pager->getNumRows() ) {
+			$wgOut->addHTML( $this->pager->getNavigationBar() );
+			$wgOut->addHTML( $this->pager->getBody() );
+			$wgOut->addHTML( $this->pager->getNavigationBar() );
 		} else {
 			$wgOut->addWikiMsg( 'configuredpages-none' );
 		}
-		# Take this opportunity to purge out expired configurations
-		FlaggedPageConfig::purgeExpiredConfigurations();
+		# Purge expired entries on one in every 10 queries
+		if ( !mt_rand( 0, 10 ) ) {
+			FlaggedPageConfig::purgeExpiredConfigurations();
+		}
 	}
 
 	public function formatRow( $row ) {
 		global $wgLang;
-		$title = Title::makeTitle( $row->page_namespace, $row->page_title );
+		$title = Title::newFromRow( $row );
 		# Link to page
-		$link = $this->skin->makeKnownLinkObj( $title, $title->getPrefixedText() );
+		$link = $this->skin->link( $title );
 		# Link to page configuration
-		$config = $this->skin->makeKnownLinkObj(
+		$config = $this->skin->linkKnown(
 			SpecialPage::getTitleFor( 'Stabilization' ),
 			wfMsgHtml( 'configuredpages-config' ),
+			array(),
 			'page=' . $title->getPrefixedUrl()
 		);
 		# Show which version is the default (stable or draft)
@@ -101,7 +109,8 @@ class ConfiguredPages extends SpecialPage
 		} else {
 			$expiry_description = "";
 		}
-		return "<li>{$link} ({$config}) <b>[$default]</b> {$restr}<i>{$expiry_description}</i></li>";
+		return "<li>{$link} ({$config}) <b>[$default]</b> " .
+			"{$restr}<i>{$expiry_description}</i></li>";
 	}
 }
 
@@ -111,12 +120,12 @@ class ConfiguredPages extends SpecialPage
 class ConfiguredPagesPager extends AlphabeticPager {
 	public $mForm, $mConds, $namespace, $override, $autoreview;
 
-	// @param int $namespace (null for "all")
-	// @param int $override (null for "either")
-	// @param string $autoreview ('' for "all", 'none' for no restriction)
-	function __construct(
-		$form, $conds = array(), $namespace, $override, $autoreview
-	) {
+	/*
+	* @param int $namespace (null for "all")
+	* @param int $override (null for "either")
+	* @param string $autoreview ('' for "all", 'none' for no restriction)
+	*/
+	function __construct( $form, $conds = array(), $namespace, $override, $autoreview ) {
 		$this->mForm = $form;
 		$this->mConds = $conds;
 		# Must be content pages...
@@ -171,7 +180,7 @@ class ConfiguredPagesPager extends AlphabeticPager {
 	function getIndexField() {
 		return 'fpc_page_id';
 	}
-	
+
 	function getStartBody() {
 		wfProfileIn( __METHOD__ );
 		# Do a link batch query

@@ -6,6 +6,8 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 
 class ReviewedPages extends SpecialPage
 {
+	protected $pager = null;
+
 	public function __construct() {
 		parent::__construct( 'ReviewedPages' );
 	}
@@ -18,11 +20,15 @@ class ReviewedPages extends SpecialPage
 
 		# Check if there is a featured level
 		$maxType = FlaggedRevs::pristineVersions() ? 2 : 1;
+
 		$this->namespace = $wgRequest->getInt( 'namespace' );
 		$this->type = $wgRequest->getInt( 'level', - 1 );
 		$this->type = min( $this->type, $maxType );
 		$this->hideRedirs = $wgRequest->getBool( 'hideredirs', true );
-		
+
+		$this->pager = new ReviewedPagesPager(
+			$this, array(), $this->type, $this->namespace, $this->hideRedirs );
+
 		$this->showForm();
 		$this->showPageList();
 	}
@@ -32,9 +38,9 @@ class ReviewedPages extends SpecialPage
 
 		// Text to explain level select (if there are several levels)
 		if ( FlaggedRevs::qualityVersions() ) {
-			$wgOut->addWikiMsg( 'reviewedpages-list' );
+			$wgOut->addWikiMsg( 'reviewedpages-list', $this->pager->getNumRows() );
 		}
-		$form = Xml::openElement( 'form',
+		$form = Html::openElement( 'form',
 			array( 'name' => 'reviewedpages', 'action' => $wgScript, 'method' => 'get' ) );
 		$form .= "<fieldset><legend>" . wfMsgHtml( 'reviewedpages-leg' ) . "</legend>\n";
 
@@ -60,22 +66,20 @@ class ReviewedPages extends SpecialPage
 		if ( count( $fields ) ) {
 			$form .= " " . Xml::submitButton( wfMsg( 'go' ) );
 		}
-		$form .= Html::hidden( 'title', $this->getTitle()->getPrefixedDBKey() );
-		$form .= "</fieldset></form>\n";
+		$form .= Html::hidden( 'title', $this->getTitle()->getPrefixedDBKey() ) . "\n";
+		$form .= "</fieldset>";
+		$form .= Html::closeElement( 'form ' ) . "\n";
 
 		$wgOut->addHTML( $form );
 	}
 
 	protected function showPageList() {
 		global $wgOut;
-
-		$pager = new ReviewedPagesPager( $this, array(), $this->type,
-			$this->namespace, $this->hideRedirs );
-		$num = $pager->getNumRows();
+		$num = $this->pager->getNumRows();
 		if ( $num ) {
-			$wgOut->addHTML( $pager->getNavigationBar() );
-			$wgOut->addHTML( $pager->getBody() );
-			$wgOut->addHTML( $pager->getNavigationBar() );
+			$wgOut->addHTML( $this->pager->getNavigationBar() );
+			$wgOut->addHTML( $this->pager->getBody() );
+			$wgOut->addHTML( $this->pager->getNavigationBar() );
 		} else {
 			$wgOut->addHTML( wfMsgExt( 'reviewedpages-none', array( 'parse' ) ) );
 		}
@@ -83,30 +87,34 @@ class ReviewedPages extends SpecialPage
 
 	public function formatRow( $row ) {
 		global $wgLang;
-
-		$title = Title::makeTitle( $row->page_namespace, $row->page_title );
-		$link = $this->skin->makeKnownLinkObj( $title, $title->getPrefixedText() );
-
+		$title = Title::newFromRow( $row );
+		# Link to page
+		$link = $this->skin->link( $title );
+		# Size (bytes)
 		$stxt = '';
 		if ( !is_null( $size = $row->page_len ) ) {
-			if ( $size == 0 )
+			if ( $size == 0 ) {
 				$stxt = ' <small>' . wfMsgHtml( 'historyempty' ) . '</small>';
-			else
-				$stxt = ' <small>' . wfMsgExt( 'historysize', 'parsemag',
-					$wgLang->formatNum( $size ) ) . '</small>';
+			} else {
+				$stxt = ' <small>' .
+					wfMsgExt( 'historysize', 'parsemag', $wgLang->formatNum( $size ) ) .
+					'</small>';
+			}
 		}
-
-		$list = $this->skin->makeKnownLinkObj(
+		# Link to list of reviewed versions for page
+		$list = $this->skin->linkKnown(
 			SpecialPage::getTitleFor( 'ReviewedVersions' ),
 			wfMsgHtml( 'reviewedpages-all' ),
+			array(),
 			'page=' . $title->getPrefixedUrl()
 		);
-
+		# Link to highest tier rev
 		$best = '';
 		if ( FlaggedRevs::qualityVersions() ) {
-			$best = $this->skin->makeKnownLinkObj(
+			$best = $this->skin->linkKnown(
 				$title,
 				wfMsgHtml( 'reviewedpages-best' ),
+				array(),
 				'stableid=best'
 			);
 			$best = " [$best]";

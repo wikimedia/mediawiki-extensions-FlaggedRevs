@@ -6,6 +6,8 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 
 class PendingChanges extends SpecialPage
 {
+	protected $pager = null;
+
 	public function __construct() {
 		parent::__construct( 'PendingChanges' );
 		$this->includable( true );
@@ -13,28 +15,38 @@ class PendingChanges extends SpecialPage
 
 	public function execute( $par ) {
 		global $wgRequest, $wgUser;
+
 		$this->setHeaders();
 		$this->skin = $wgUser->getSkin();
 		$this->currentUnixTS = wfTimestamp( TS_UNIX ); // now
-		# Read params
+
 		$this->namespace = $wgRequest->getIntOrNull( 'namespace' );
 		$this->level = $wgRequest->getInt( 'level', - 1 );
-		$this->category = trim( $wgRequest->getVal( 'category' ) );
-		$catTitle = Title::makeTitleSafe( NS_CATEGORY, $this->category );
+		$category = trim( $wgRequest->getVal( 'category' ) );
+		$catTitle = Title::makeTitleSafe( NS_CATEGORY, $category );
 		$this->category = is_null( $catTitle ) ? '' : $catTitle->getText();
 		$this->size = $wgRequest->getIntOrNull( 'size' );
 		$this->watched = $wgRequest->getCheck( 'watched' );
 		$this->stable = $wgRequest->getCheck( 'stable' );
 		$feedType = $wgRequest->getVal( 'feed' );
+		if ( $this->including() ) {
+			$incLimit = $this->parseParams( $par ); // apply non-URL params
+		}
+
+		$this->pager = new PendingChangesPager( $this, $this->namespace,
+			$this->level, $this->category, $this->size, $this->watched, $this->stable );
+
 		# Output appropriate format...
 		if ( $feedType != null ) {
 			$this->feed( $feedType );
 		} else {
-			if ( !$this->including() ) {
+			if ( $this->including() ) {
+				$this->pager->setLimit( $incLimit ); // apply non-URL limit
+			} else {
 				$this->setSyndicated();
 				$this->showForm();
 			}
-			$this->showList( $par );
+			$this->showPageList();
 		}
 	}
 
@@ -51,13 +63,13 @@ class PendingChanges extends SpecialPage
 
 	public function showForm() {
 		global $wgUser, $wgOut, $wgScript;
-		$action = htmlspecialchars( $wgScript );
-		# Explanation text...
-		$wgOut->addWikiMsg( 'pendingchanges-list' );
-		$form =
-			"<form action=\"$action\" method=\"get\">\n" .
-			'<fieldset><legend>' . wfMsg( 'pendingchanges-legend' ) . '</legend>' .
-			Html::hidden( 'title', $this->getTitle()->getPrefixedDBKey() );
+		# Explanatory text
+		$wgOut->addWikiMsg( 'pendingchanges-list', $this->pager->getNumRows() );
+
+		$form = Html::openElement( 'form', array( 'name' => 'pendingchanges',
+			'action' => $wgScript, 'method' => 'get' ) ) . "\n";
+		$form .= "<fieldset><legend>" . wfMsgHtml( 'pendingchanges-legend' ) . "</legend>\n";
+		$form .= Html::hidden( 'title', $this->getTitle()->getPrefixedDBKey() ) . "\n";
 
 		$items = array();
 		if ( count( FlaggedRevs::getReviewNamespaces() ) > 1 ) {
@@ -77,6 +89,7 @@ class PendingChanges extends SpecialPage
 		if ( $items ) {
 			$form .= implode( ' ', $items ) . '<br />';
 		}
+
 		$items = array();
 		$items[] =
 			Xml::label( wfMsg( "pendingchanges-category" ), 'wpCategory' ) . '&#160;' .
@@ -89,42 +102,35 @@ class PendingChanges extends SpecialPage
 		$form .=
 			Xml::label( wfMsg( 'pendingchanges-size' ), 'wpSize' ) .
 			Xml::input( 'size', 4, $this->size, array( 'id' => 'wpSize' ) ) . ' ' .
-			Xml::submitButton( wfMsg( 'allpagessubmit' ) ) . "\n" .
-			"</fieldset></form>";
+			Xml::submitButton( wfMsg( 'allpagessubmit' ) ) . "\n";
+		$form .= "</fieldset>";
+		$form .= Html::closeElement( 'form' ) . "\n";
+
 		$wgOut->addHTML( $form );
 	}
 
-	public function showList( $par ) {
+	public function showPageList() {
 		global $wgOut;
-		$limit = false; // defer to Pager
-		if ( $this->including() ) {
-			$limit = $this->parseParams( $par );
-		}
-		$pager = new PendingChangesPager( $this, $this->namespace, $this->level,
-			$this->category, $this->size, $this->watched, $this->stable );
-		// Apply limit if transcluded
-		if ( $limit ) $pager->mLimit = $limit;
 		// Viewing the list normally...
 		if ( !$this->including() ) {
-			if ( $pager->getNumRows() ) {
-				$wgOut->addHTML( $pager->getNavigationBar() );
-				$wgOut->addHTML( $pager->getBody() );
-				$wgOut->addHTML( $pager->getNavigationBar() );
+			if ( $this->pager->getNumRows() ) {
+				$wgOut->addHTML( $this->pager->getNavigationBar() );
+				$wgOut->addHTML( $this->pager->getBody() );
+				$wgOut->addHTML( $this->pager->getNavigationBar() );
 			} else {
 				$wgOut->addWikiMsg( 'pendingchanges-none' );
 			}
 		// If this list is transcluded...
 		} else {
-			if ( $pager->getNumRows() ) {
-				$wgOut->addHTML( $pager->getBody() );
+			if ( $this->pager->getNumRows() ) {
+				$wgOut->addHTML( $this->pager->getBody() );
 			} else {
 				$wgOut->addWikiMsg( 'pendingchanges-none' );
 			}
 		}
 	}
 
-	// set namespace and category fields of $this
-	// @returns int paging limit
+	// set pager parameters from $par, return pager limit
 	protected function parseParams( $par ) {
 		global $wgLang;
 		$bits = preg_split( '/\s*,\s*/', trim( $par ) );
@@ -155,7 +161,7 @@ class PendingChanges extends SpecialPage
 	 * @param string $type
 	 */
 	protected function feed( $type ) {
-		global $wgFeed, $wgFeedClasses, $wgFeedLimit, $wgOut, $wgRequest;
+		global $wgFeed, $wgFeedClasses, $wgFeedLimit, $wgOut;
 		if ( !$wgFeed ) {
 			$wgOut->addWikiMsg( 'feed-unavailable' );
 			return;
@@ -169,13 +175,11 @@ class PendingChanges extends SpecialPage
 			wfMsg( 'tagline' ),
 			$this->getTitle()->getFullUrl()
 		);
-		$pager = new PendingChangesPager( $this, $this->namespace, $this->category );
-		$limit = $wgRequest->getInt( 'limit', 50 );
-		$pager->mLimit = min( $wgFeedLimit, $limit );
+		$this->pager->mLimit = min( $wgFeedLimit, $this->pager->mLimit );
 
 		$feed->outHeader();
-		if ( $pager->getNumRows() > 0 ) {
-			foreach ( $pager->mResult as $row ) {
+		if ( $this->pager->getNumRows() > 0 ) {
+			foreach ( $this->pager->mResult as $row ) {
 				$feed->outItem( $this->feedItem( $row ) );
 			}
 		}
@@ -211,14 +215,15 @@ class PendingChanges extends SpecialPage
 	public function formatRow( $row ) {
 		global $wgLang, $wgUser;
 		$css = $quality = $underReview = '';
-
 		$title = Title::newFromRow( $row );
-		$link = $this->skin->makeKnownLinkObj( $title );
-		$hist = $this->skin->makeKnownLinkObj( $title,
-			wfMsgHtml( 'hist' ), 'action=history' );
 		$stxt = ChangesList::showCharacterDifference( $row->rev_len, $row->page_len );
-		$review = $this->skin->makeKnownLinkObj( $title,
+		# Page links...
+		$link = $this->skin->link( $title );
+		$hist = $this->skin->linkKnown( $title,
+			wfMsgHtml( 'hist' ), array(), 'action=history' );
+		$review = $this->skin->linkKnown( $title,
 			wfMsg( 'pendingchanges-diff' ),
+			array(),
 			'diff=cur&oldid='.intval($row->stable).'&diffonly=0' );
 		# Show quality level if there are several
 		if ( FlaggedRevs::qualityVersions() ) {
@@ -283,8 +288,10 @@ class PendingChanges extends SpecialPage
  * Query to list out outdated reviewed pages
  */
 class PendingChangesPager extends AlphabeticPager {
-	public $mForm, $mConds;
-	private $category, $namespace;
+	public $mForm;
+	protected $category, $namespace;
+
+	const PAGE_LIMIT = 100; // Don't get too expensive
 
 	function __construct( $form, $namespace, $level = - 1, $category = '',
 		$size = null, $watched = false, $stable = false )
@@ -309,10 +316,15 @@ class PendingChangesPager extends AlphabeticPager {
 		$this->watched = (bool)$watched;
 		$this->stable = $stable && !FlaggedRevs::isStableShownByDefault()
 			&& !FlaggedRevs::useOnlyIfProtected();
+
 		parent::__construct();
-		// Don't get too expensive
+		# Don't get too expensive
 		$this->mLimitsShown = array( 20, 50, 100 );
-		$this->mLimit = min( $this->mLimit, 100 );
+		$this->setLimit( $this->mLimit ); // apply max limit
+	}
+
+	function setLimit( $limit ) {
+		$this->mLimit = min( $limit, self::PAGE_LIMIT );
 	}
 
 	function formatRow( $row ) {
@@ -331,7 +343,6 @@ class PendingChangesPager extends AlphabeticPager {
 
 	function getQueryInfo() {
 		global $wgUser;
-		$conds = $this->mConds;
 		$tables = array( 'page', 'revision' );
 		$fields = array( 'page_namespace', 'page_title', 'page_len', 'rev_len', 'page_latest' );
 		# Show outdated "stable" versions
@@ -411,6 +422,14 @@ class PendingChangesPager extends AlphabeticPager {
 	}
 	
 	function getStartBody() {
+		wfProfileIn( __METHOD__ );
+		# Do a link batch query
+		$lb = new LinkBatch();
+		foreach ( $this->mResult as $row ) {
+			$lb->add( $row->page_namespace, $row->page_title );
+		}
+		$lb->execute();
+		wfProfileOut( __METHOD__ );
 		return '<ul>';
 	}
 	
