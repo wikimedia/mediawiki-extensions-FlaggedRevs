@@ -730,7 +730,7 @@ class FlaggedArticleView {
 	protected function getRedirectHtml( $text ) {
 		$rTarget = $this->article->followRedirectText( $text );
 		if ( $rTarget ) {
-			return $this->article->viewRedirect( $rTarget );
+			return $this->article->viewRedirect( array( $rTarget ) );
 		}
 		return '';
 	}
