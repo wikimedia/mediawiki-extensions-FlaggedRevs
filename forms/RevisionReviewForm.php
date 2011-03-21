@@ -436,7 +436,7 @@ class RevisionReviewForm
 
 		# Update the article review log...
 		$oldSvId = $oldSv ? $oldSv->getRevId() : 0;
-		FlaggedRevsLogs::updateLog( $this->page, $this->dims, $this->oflags,
+		FlaggedRevsLogs::updateReviewLog( $this->page, $this->dims, $this->oflags,
 			$this->comment, $this->oldid, $oldSvId, true );
 
 		# Get the new stable version as of now
@@ -476,7 +476,7 @@ class RevisionReviewForm
 
 		# Update the article review log
 		$oldSvId = $oldSv ? $oldSv->getRevId() : 0;
-		FlaggedRevsLogs::updateLog( $this->page, $this->dims, $this->oflags,
+		FlaggedRevsLogs::updateReviewLog( $this->page, $this->dims, $this->oflags,
 			$this->comment, $this->oldid, $oldSvId, false );
 
 		# Get the new stable version as of now

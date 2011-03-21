@@ -158,7 +158,7 @@ class FlaggedRevsLogs {
 	}
 
 	/**
-	 * Record a log entry on the action
+	 * Record a log entry on the review action
 	 * @param Title $title
 	 * @param array $dims
 	 * @param array $oldDims
@@ -168,7 +168,7 @@ class FlaggedRevsLogs {
 	 * @param bool $approve, approved? (otherwise unapproved)
 	 * @param bool $auto
 	 */
-	public static function updateLog( $title, $dims, $oldDims, $comment,
+	public static function updateReviewLog( $title, $dims, $oldDims, $comment,
 		$revId, $stableId, $approve, $auto = false )
 	{
 		$log = new LogPage( 'review',
@@ -214,7 +214,9 @@ class FlaggedRevsLogs {
 		}
 		$ts = Revision::getTimestampFromId( $title, $revId );
 		# Param format is <rev id, old stable id, rev timestamp>
-		$log->addEntry( $action, $title, $comment, array( $revId, $stableId, $ts ) );
+		$logid = $log->addEntry( $action, $title, $comment, array( $revId, $stableId, $ts ) );
+		# Make log easily searchable by rev_id
+		$log->addRelations( 'rev_id', array( $revId ), $logid );
 	}
 
 	/**
