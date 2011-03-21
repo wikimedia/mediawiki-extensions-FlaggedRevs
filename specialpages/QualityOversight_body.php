@@ -11,10 +11,9 @@ class QualityOversight extends SpecialPage
 	}
 
 	public function execute( $par ) {
-		global $wgOut, $wgUser, $wgRequest, $wgFlaggedRevsOversightAge;
+		global $wgOut, $wgUser, $wgRequest, $wgLang, $wgFlaggedRevsOversightAge;
 		
 		$this->setHeaders();
-		$wgOut->addHTML( wfMsgExt( 'qualityoversight-list', array( 'parse' ) ) );
 		
 		$this->namespace = $wgRequest->getInt( 'namespace' );
 		$this->level = $wgRequest->getIntOrNull( 'level' );
@@ -24,28 +23,35 @@ class QualityOversight extends SpecialPage
 		# Check if the user exists
 		$usertitle = Title::makeTitleSafe( NS_USER, $this->user );
 		$u = $usertitle ? User::idFromName( $this->user ) : false;
-		
-		# Show options
-		$this->showForm();
-		
+
+		# Are the dropdown params given even valid?
 		$actions = $this->getActions();
 		if ( empty( $actions ) ) {
+			$wgOut->addWikiMsg( 'qualityoversight-list', 0 );
 			$wgOut->addWikiMsg( 'logempty' );
 			return;
 		}
-		
-		$dbr = wfGetDB( DB_SLAVE );
+
 		# Get extra query conds
 		$conds = array( 'log_namespace' => $this->namespace, 'log_action' => $actions );
 		# Get cutoff time (mainly for performance)
 		if ( !$u ) {
+			$dbr = wfGetDB( DB_SLAVE );
 			$cutoff_unixtime = time() - $wgFlaggedRevsOversightAge;
 			$cutoff = $dbr->addQuotes( $dbr->timestamp( $cutoff_unixtime ) );
 			$conds[] = "log_timestamp >= $cutoff";
 		}
+
 		# Create a LogPager item to get the results and a LogEventsList item to format them...
 		$loglist = new LogEventsList( $wgUser->getSkin(), $wgOut, 0 );
 		$pager = new LogPager( $loglist, 'review', $this->user, '', '', $conds );
+
+		# Explanatory text
+		$wgOut->addWikiMsg( 'qualityoversight-list',
+			$wgLang->formatNum( $pager->getNumRows() ) );
+		# Show form options
+		$this->showForm();
+
 		# Insert list
 		$logBody = $pager->getBody();
 		if ( $logBody ) {

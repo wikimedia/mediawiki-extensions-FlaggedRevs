@@ -62,9 +62,10 @@ class PendingChanges extends SpecialPage
 	}
 
 	public function showForm() {
-		global $wgUser, $wgOut, $wgScript;
+		global $wgUser, $wgOut, $wgScript, $wgLang;
 		# Explanatory text
-		$wgOut->addWikiMsg( 'pendingchanges-list', $this->pager->getNumRows() );
+		$wgOut->addWikiMsg( 'pendingchanges-list',
+			$wgLang->formatNum( $this->pager->getNumRows() ) );
 
 		$form = Html::openElement( 'form', array( 'name' => 'pendingchanges',
 			'action' => $wgScript, 'method' => 'get' ) ) . "\n";

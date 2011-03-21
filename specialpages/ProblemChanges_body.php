@@ -57,9 +57,10 @@ class ProblemChanges extends SpecialPage
 	}
 
 	public function showForm() {
-		global $wgOut, $wgScript;
+		global $wgOut, $wgScript, $wgLang;
 		// Add explanatory text
-		$wgOut->addWikiMsg( 'problemchanges-list', $this->pager->getNumRows() );
+		$wgOut->addWikiMsg( 'problemchanges-list',
+			$wgLang->formatNum( $this->pager->getNumRows() ) );
 
 		$form = Html::openElement( 'form', array( 'name' => 'problemchanges',
 			'action' => $wgScript, 'method' => 'get' ) ) . "\n";

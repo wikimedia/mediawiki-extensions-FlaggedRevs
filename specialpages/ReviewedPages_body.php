@@ -34,11 +34,12 @@ class ReviewedPages extends SpecialPage
 	}
 
 	public function showForm() {
-		global $wgOut, $wgScript;
+		global $wgOut, $wgScript, $wgLang;
 
 		// Text to explain level select (if there are several levels)
 		if ( FlaggedRevs::qualityVersions() ) {
-			$wgOut->addWikiMsg( 'reviewedpages-list', $this->pager->getNumRows() );
+			$wgOut->addWikiMsg( 'reviewedpages-list',
+				$wgLang->formatNum( $this->pager->getNumRows() ) );
 		}
 		$form = Html::openElement( 'form',
 			array( 'name' => 'reviewedpages', 'action' => $wgScript, 'method' => 'get' ) );

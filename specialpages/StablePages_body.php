@@ -31,8 +31,9 @@ class StablePages extends SpecialPage
 	}
 
 	protected function showForm() {
-		global $wgOut, $wgScript;
-		$wgOut->addWikiMsg( 'stablepages-list', $this->pager->getNumRows() );
+		global $wgOut, $wgScript, $wgLang;
+		$wgOut->addWikiMsg( 'stablepages-list',
+			$wgLang->formatNum( $this->pager->getNumRows() ) );
 		$fields = array();
 		# Namespace selector
 		if ( count( FlaggedRevs::getReviewNamespaces() ) > 1 ) {

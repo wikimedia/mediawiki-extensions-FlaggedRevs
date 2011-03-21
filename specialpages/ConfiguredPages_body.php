@@ -31,9 +31,10 @@ class ConfiguredPages extends SpecialPage
 	}
 
 	protected function showForm() {
-		global $wgOut, $wgScript;
+		global $wgOut, $wgScript, $wgLang;
 		# Explanatory text
-		$wgOut->addWikiMsg( 'configuredpages-list', $this->pager->getNumRows() );
+		$wgOut->addWikiMsg( 'configuredpages-list',
+			$wgLang->formatNum( $this->pager->getNumRows() ) );
 
 		$fields = array();
 		# Namespace selector
