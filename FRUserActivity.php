@@ -64,24 +64,35 @@ class FRUserActivity {
 		global $wgMemc;
 		$key = wfMemcKey( 'flaggedrevs', 'userReviewingPage', $pageId );
 		$val = array( $user->getName(), wfTimestampNow() );
+		$wasSet = false;
+
+		$wgMemc->lock( $key, 4 ); // 4 sec timeout
 		if ( !$wgMemc->get( $key ) ) { // no flag set
-			# Set the flag (use locks if available)
-			$wgMemc->lock( $key, 4000 ); // 4 sec timeout
 			$wgMemc->set( $key, $val, 20*60 ); // 20 min
-			$wgMemc->unlock( $key );
-			return true;
+			$wasSet = true;
 		}
-		return false;
+		$wgMemc->unlock( $key );
+
+		return $wasSet;
 	}
 
 	/*
 	* Clear the flag for who is reviewing a page
+	* @param User $user
 	* @param int $pageId
 	*/
-	public static function clearUserReviewingPage( $pageId ) {
+	public static function clearUserReviewingPage( $user, $pageId ) {
 		global $wgMemc;
 		$key = wfMemcKey( 'flaggedrevs', 'userReviewingPage', $pageId );
-		$wgMemc->delete( $key );
+		$wgMemc->lock( $key, 4 ); // 4 sec timeout
+		$val = $wgMemc->get( $key );
+		if ( is_array( $val ) && count( $val ) == 2 ) { // flag set
+			list( $u, $ts ) = $val;
+			if ( $u === $user->getName() ) {
+				$wgMemc->delete( $key );
+			}
+		}
+		$this->unlock();
 	}
 
 	/*
@@ -110,23 +121,35 @@ class FRUserActivity {
 		global $wgMemc;
 		$key = wfMemcKey( 'flaggedrevs', 'userReviewingDiff', $oldId, $newId );
 		$val = array( $user->getName(), wfTimestampNow() );
+		$wasSet = false;
+
+		$wgMemc->lock( $key, 4 ); // 4 sec timeout
 		if ( !$wgMemc->get( $key ) ) { // no flag set
-			# Set the flag (use locks if available)
-			$wgMemc->lock( $key, 4000 ); // 4 sec timeout
 			$wgMemc->set( $key, $val, 6*20 ); // 6 min
-			$wgMemc->unlock( $key );
-			return true;
+			$wasSet = true;
 		}
-		return false;
+		$wgMemc->unlock( $key );
+
+		return $wasSet;
 	}
 
 	/*
 	* Clear the flag for who is reviewing a diff
-	* @param int $pageId
+	* @param User $user
+	* @param int $oldId
+	* @param int $newId
 	*/
-	public static function clearUserReviewingDiff( $oldId, $newId ) {
+	public static function clearUserReviewingDiff( $user, $oldId, $newId ) {
 		global $wgMemc;
 		$key = wfMemcKey( 'flaggedrevs', 'userReviewingDiff', $oldId, $newId );
-		$wgMemc->delete( $key );
+		$wgMemc->lock( $key, 4 ); // 4 sec timeout
+		$val = $wgMemc->get( $key );
+		if ( is_array( $val ) && count( $val ) == 2 ) { // flag set
+			list( $u, $ts ) = $val;
+			if ( $u === $user->getName() ) {
+				$wgMemc->delete( $key );
+			}
+		}
+		$this->unlock();
 	}
 }
