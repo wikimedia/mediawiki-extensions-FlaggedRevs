@@ -749,7 +749,8 @@ $messages['ko'] = array(
 $messages['ksh'] = array(
 	'reviewedpages' => 'Nohjekik Versione',
 	'reviewedpages-leg' => 'Nohjekik Sigge opleßte',
-	'reviewedpages-list' => 'Hee di {{PLURAL:$1|Sigg es|Sigge sen|noll Sigge sen}} [[{{MediaWiki:Validationpage}}|nohjekik]], se {{PLURAL:$1|sullt dat|sullte dat|sullte et}} aanjejovve Nivo han.',
+	'reviewedpages-list' => 'Hee di {{PLURAL:$1|Sigg es|Sigge sen|noll Sigge sen}} [[{{MediaWiki:Validationpage}}|nohjekik]].
+Et hühste Nivoh vun öhns ene Version vun dä {{PLURAL:$1|Sigg sullt dat|Sigge sullt dat|noll Sigge sulld et}} aanjejovve Nivoh sin. Dä Lengk en jeedem Leßte-Endraach jeihd immer op de neuste Version met dämm Nivoh.',
 	'reviewedpages-none' => 'En dä Leß sin kein Sigge.',
 	'reviewedpages-lev-0' => '{{int:revreview-lev-basic}}',
 	'reviewedpages-lev-1' => '{{int:revreview-lev-quality}}',

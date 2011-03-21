@@ -480,6 +480,19 @@ $messages['ko'] = array(
 	'configuredpages-def-stable' => '공개된 버전',
 );
 
+/** Colognian (Ripoarisch)
+ * @author Purodha
+ */
+$messages['ksh'] = array(
+	'configuredpages' => 'Sigge met eije Enstellung för et Nohkike un ußjesöhk Version Aanzeije',
+	'configuredpages-list' => 'Heh kütt en Leß met {{GENDER:$1|dä Sigg|dä Sigge|kein Sigge}} met eije Enstellunge för Aanzeije un Nohkike, di anders sin, wi der Standatt för et Wiki.
+Enstellunge künne jemaat wääde, öm faßzelääje, wat för en Version de Lässer ze sinn kritt, udder öm zohsäzlesch ze beschrängke, wä Änderonge maache kann, di keiner nohkike udder beschtääteje moß.',
+	'configuredpages-none' => 'En heh dä Leß sin kein Sigge dren.',
+	'configuredpages-config' => 'Enshtellung',
+	'configuredpages-def-draft' => 'de neuste Version',
+	'configuredpages-def-stable' => 'de Version för de Öffentleschkeit',
+);
+
 /** Luxembourgish (Lëtzebuergesch)
  * @author Robby
  */

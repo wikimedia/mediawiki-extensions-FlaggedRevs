@@ -1059,6 +1059,7 @@ $messages['ext'] = array(
 );
 
 /** Persian (فارسی)
+ * @author BlueDevil
  * @author Ebraminio
  * @author Huji
  * @author Ladsgroup
@@ -1087,7 +1088,7 @@ $messages['fa'] = array(
 	'stabilization-expiry' => 'انقضا:',
 	'stabilization-othertime' => 'زمان دیگر:',
 	'stabilization-def-short' => 'پیش‌فرض',
-	'stabilization-def-short-0' => 'فعلی',
+	'stabilization-def-short-0' => 'کنونی',
 	'stabilization-def-short-1' => 'پایدار',
 	'stabilize_page_invalid' => 'عنوان صفحهٔ مقصد نامعتبر است.',
 	'stabilize_page_notexists' => 'صفحهٔ مقصد وجود ندارد.',
