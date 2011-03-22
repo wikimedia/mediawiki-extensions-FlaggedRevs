@@ -375,12 +375,12 @@ class FlaggedRevs {
 	}
 	
 	/**
-	 * Get the URL path to /client (has JS, CSS, & icons)
+	 * Get the URL path to where the client side resources are (JS, CSS, images..)
 	 * @return string
 	 */
 	public static function styleUrlPath() {
 		global $wgExtensionAssetsPath;
-		return "$wgExtensionAssetsPath/FlaggedRevs/client";
+		return "$wgExtensionAssetsPath/FlaggedRevs/modules";
 	}
 
 	# ################ Permission functions #################	
@@ -1273,7 +1273,7 @@ class FlaggedRevs {
 		) );
 		$flaggedRevision->insertOn( $auto );
 		# Update the article review log
-		FlaggedRevsLogs::updateReviewLog( $title,
+		FlaggedRevsLogs::updateLog( $title,
 			$flags, array(), '', $rev->getId(), $oldSvId, true, $auto );
 
 		# Update page and tracking tables and clear cache

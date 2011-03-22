@@ -1,4 +1,7 @@
-/* -- (c) Aaron Schulz */
+/**
+ * FlaggedRevs Stylesheet
+ * @author Aaron Schulz
+ */
 
 /* Standard User Interface */
 div.flaggedrevs_basic,
@@ -80,7 +83,7 @@ div.flaggedrevs_notes {
 .fr-marker-80,
 .fr-marker-100 {
 	background-position: bottom left;
-	background-repeat: no-repeat;    
+	background-repeat: no-repeat;
 	padding-bottom: 3px;
 }
 
@@ -347,10 +350,8 @@ span.fr-under-review {
 	display: none;
 }
 
-.loading { 
-	display: block;
-	color: #666666; 
-	padding-left: 40px;
+.loading {	display: block;
+	color: #666666;	padding-left: 40px;
 	height: 32px;
 }
 .spinner {

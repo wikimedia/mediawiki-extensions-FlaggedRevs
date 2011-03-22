@@ -347,7 +347,8 @@ $wgDefaultUserOptions['flaggedrevseditdiffs'] = true;
 $wgDefaultUserOptions['flaggedrevsviewdiffs'] = false;
 
 # JS/CSS modules and message bundles used by JS scripts
-$dir = dirname( __FILE__ ) . '/client/';
+$localModulePath = dirname( __FILE__ ) . '/modules/';
+$remoteModulePath = 'FlaggedRevs/modules';
 $wgResourceModules['ext.flaggedRevs.basic'] = array(
 	'styles' 		=> array( 'flaggedrevs.css' ),
 	'scripts' 		=> array( 'flaggedrevs.js' ),
@@ -357,9 +358,9 @@ $wgResourceModules['ext.flaggedRevs.basic'] = array(
 		'revreview-log-toggle-show', 'revreview-log-toggle-hide',
 		'revreview-log-details-show', 'revreview-log-details-hide'
 	),
-	'dependencies' 	=> array( 'jquery', 'mediawiki.util' ),
-	'localBasePath' => $dir,
-	'remoteExtPath' => 'FlaggedRevs/client'
+	'dependencies' 	=> array( 'mediawiki.util' ),
+	'localBasePath' => $localModulePath,
+	'remoteExtPath' => $remoteModulePath,
 );
 $wgResourceModules['ext.flaggedRevs.review'] = array(
 	'scripts' 		=> array( 'review.js' ),
@@ -370,9 +371,9 @@ $wgResourceModules['ext.flaggedRevs.review'] = array(
 		'revreview-submit-reviewed', 'revreview-submit-unreviewed',
 		'revreview-submitting', 'actioncomplete', 'actionfailed'
 	),
-	'dependencies' 	=> array( 'jquery', 'mediawiki.util' ),
-	'localBasePath' => $dir,
-	'remoteExtPath' => 'FlaggedRevs/client'
+	'dependencies' 	=> array( 'mediawiki.util' ),
+	'localBasePath' => $localModulePath,
+	'remoteExtPath' => $remoteModulePath,
 );
 
 # ####### HOOK TRIGGERED FUNCTIONS  #########

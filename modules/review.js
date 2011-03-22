@@ -1,12 +1,16 @@
-/* -- (c) Aaron Schulz, Daniel Arnold 2008 */
+/**
+ * FlaggedRevs Stylesheet
+ * @author Aaron Schulz
+ * @author Daniel Arnold 2008
+ */
 
 window.FlaggedRevsReview = {
 	/*
 	* Updates for radios/checkboxes on patch by Daniel Arnold (bug 13744).
 	* Visually update the revision rating form on change.
-	* a) Disable submit in case of invalid input.
-	* b) Update colors when select changes (Opera already does this).
-	* c) Also remove comment box clutter in case of invalid input.
+	* - Disable submit in case of invalid input.
+	* - Update colors when select changes (Opera already does this).
+	* - Also remove comment box clutter in case of invalid input.
 	* NOTE: all buttons should exist (perhaps hidden though)
 	*/
 	'updateRatingForm': function() {
