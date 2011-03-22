@@ -9,7 +9,7 @@ window.FlaggedRevsReview = {
 	* Updates for radios/checkboxes on patch by Daniel Arnold (bug 13744).
 	* Visually update the revision rating form on change.
 	* - Disable submit in case of invalid input.
-	* - Update colors when select changes (Opera already does this).
+	* - Update colors when <select> changes.
 	* - Also remove comment box clutter in case of invalid input.
 	* NOTE: all buttons should exist (perhaps hidden though)
 	*/
