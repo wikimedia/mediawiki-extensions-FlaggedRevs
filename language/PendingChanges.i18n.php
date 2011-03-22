@@ -40,7 +40,9 @@ Title of [http://en.labs.wikimedia.org/wiki/Special:OldReviewedPages Special:Old
 	'pendingchanges-legend' => '{{Flagged Revs-small}}
 Used on [http://en.labs.wikimedia.org/wiki/Special:OldReviewedPages Special:OldReviewedPages] as title/legend of the fieldset.',
 	'pendingchanges-list' => '{{Flagged Revs}}
-Used on [http://en.labs.wikimedia.org/wiki/Special:OldReviewedPages Special:OldReviewedPages].',
+Used on [http://en.labs.wikimedia.org/wiki/Special:OldReviewedPages Special:OldReviewedPages].
+
+Parameter $1 is the number of pages going to be listed, to be used with PLURAL.',
 	'pendingchanges-none' => '{{Flagged Revs}}
 Used on [http://en.labs.wikimedia.org/wiki/Special:OldReviewedPages Special:OldReviewedPages].',
 	'pendingchanges-hours' => '{{Flagged Revs}}
