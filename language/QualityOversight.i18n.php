@@ -16,10 +16,14 @@ $messages['en'] = array(
 
 /** Message documentation (Message documentation)
  * @author Jon Harald Søby
+ * @author Purodha
  */
 $messages['qqq'] = array(
 	'qualityoversight' => '{{Flagged Revs}}',
-	'qualityoversight-list' => '{{Flagged Revs}}',
+	'qualityoversight-list' => '{{Flagged Revs}}
+
+Parameters:
+* $1 - (optional) Number of items in the list, to be used with PLURAL, when unavoidable.',
 	'qualityoversight-legend' => '{{Flagged Revs}}',
 );
 

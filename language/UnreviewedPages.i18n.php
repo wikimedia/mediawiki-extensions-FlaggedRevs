@@ -27,6 +27,7 @@ $messages['en'] = array(
  * @author Darth Kule
  * @author Fryed-peach
  * @author Jon Harald Søby
+ * @author Purodha
  * @author Raymond
  * @author Siebrand
  * @author Umherirrender
@@ -44,7 +45,10 @@ $messages['qqq'] = array(
 	'unreviewedpages-watched' => '{{Flagged Revs}}
 * $1 is the number of active users that have the page on their watchlist',
 	'unreviewedpages-list' => '{{Flagged Revs}}
-{{Identical|Content page}}',
+{{Identical|Content page}}
+
+Parameters:
+* $1 - (optional) Number of items in the list, to be used with PLURAL, when unavoidable.',
 	'unreviewedpages-none' => '{{Flagged Revs}}',
 	'unreviewedpages-viewing' => '{{Flagged Revs}}',
 	'unreviewedpages-hours' => '{{Flagged Revs}}',
@@ -997,7 +1001,7 @@ $messages['ksh'] = array(
 	'unreviewedpages-diff' => 'nohkike',
 	'unreviewedpages-unwatched' => '(en keine Oppassleß)',
 	'unreviewedpages-watched' => '({{PLURAL:$1|Eine Metmaacher hät|$1 Metmaacher han|Keine hät}} se en de Opassliß)',
-	'unreviewedpages-list' => "Di Leß hee zeich Atikelle, die noch '''nit''' op dämm aanjejovve Nivo [[{{MediaWiki:Validationpage}}|nohjekik]] woode sen.",
+	'unreviewedpages-list' => "Di Leß hee zeich {{PLURAL:$1|di Sigg|Sigge|kein Sigge}}, di noch '''nit''' op dämm aanjejovve Nivoh [[{{MediaWiki:Validationpage}}|nohjekik]] woode sen.",
 	'unreviewedpages-none' => 'Mer han jrad kein Sigge för di Ußwahl.',
 	'unreviewedpages-viewing' => '(weed nohjekik)',
 	'unreviewedpages-hours' => '({{PLURAL:$1|ein Shtund|$1 Shtunde|nit ein Shtund}})',

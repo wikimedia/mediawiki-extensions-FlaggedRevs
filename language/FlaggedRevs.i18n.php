@@ -3669,7 +3669,7 @@ $messages['de'] = array(
 	'group-autoreview-member' => 'Automatischer Sichter',
 	'grouppage-autoreview' => '{{ns:project}}:Automatischer Sichter',
 	'revcontents-error' => 'Konnte keinen Inhalt empfangen.',
-	'revcontents-getcontents' => 'Klicke [{{fullurl:$1|oldid=$2}} hier], um diese Version anzusehen.',
+	'revcontents-getcontents' => '[{{fullurl:$1|oldid=$2}} Diese Version ansehen]',
 	'revcontents-waiting' => 'Warte auf Inhalt',
 	'revreview-hist-draft' => 'unmarkierte Version',
 	'revreview-hist-pending' => 'Markierung ausstehend',
@@ -8499,6 +8499,8 @@ Nove [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} modificationes]
 	'revreview-submit-unreviewed' => 'Facite. Disapprobate!',
 	'revreview-successful' => "'''Le version de [[:$1|$1]] ha essite marcate con successo. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} vider versiones stabile])'''",
 	'revreview-successful2' => "'''Le version de [[:$1|$1]] ha essite dismarcate con successo.'''",
+	'revreview-poss-conflict-p' => "'''Attention: [[User:$1|$1]] comenciava a revider iste pagina le $2 a $3.'''",
+	'revreview-poss-conflict-c' => "'''Attention: [[User:$1|$1]] comenciava a revider iste modificationes le $2 a $3.'''",
 	'revreview-toggle-title' => 'revelar/celar detalios',
 	'revreview-toolow' => '\'\'\'Tu debe evalutar cata un del attributos como plus alte que "inadequate" a fin que un version sia considerate como revidite.\'\'\'
 
@@ -10561,7 +10563,7 @@ $messages['lb'] = array(
 	'group-autoreview-member' => 'Benotzer den automatesch nokuckt',
 	'grouppage-autoreview' => '{{ns:project}}:Benotzer déi automatesch iwwerliesen',
 	'revcontents-error' => 'Inhalt konnt net geluede ginn',
-	'revcontents-getcontents' => 'Klickt [{{fullurl:$1|oldid=$2}} hei], fir dës Versioun ze gesinn.',
+	'revcontents-getcontents' => '[{{fullurl:$1|oldid=$2}} Kuckt dës Versioun]',
 	'revcontents-waiting' => 'Waarden op Inhalt',
 	'revreview-hist-draft' => 'net nogekuckte Versioun',
 	'revreview-hist-pending' => 'muss nach nogekuckt ginn',
@@ -14693,6 +14695,8 @@ $messages['ru'] = array(
 	'revreview-submit-unreviewed' => 'Готово. Отменено подтверждение!',
 	'revreview-successful' => "'''Выбранная версия [[:$1|$1]] успешно отмечена. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} просмотр стабильных версий])'''",
 	'revreview-successful2' => "'''С выбранной версии [[:$1|$1]] снята пометка.'''",
+	'revreview-poss-conflict-p' => "'''Предупреждение. [[User:$1|$1]] приступил к проверке этой страницы $2 в $3.'''",
+	'revreview-poss-conflict-c' => "'''Предупреждение. [[User:$1|$1]] приступил к проверке этих изменений $2 в $3.'''",
 	'revreview-toggle-title' => 'показать/скрыть подробности',
 	'revreview-toolow' => "'''Вы должны указать для всех значений уровень выше, чем «недостаточный», чтобы версия страницы считалась проверенной.'''
 
@@ -15641,7 +15645,8 @@ Obstajajo [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} spremembe 
 	'revreview-submit-unreviewed' => 'Končano. Od-potrjeno!',
 	'revreview-successful' => "'''Redakcija [[:$1|$1]] je bila uspešno označena. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} ogled pregledanih različic])'''",
 	'revreview-successful2' => "'''Redakcija [[:$1|$1]] je uspešno odznačena.'''",
-	'revreview-text' => "''[[{{MediaWiki:Validationpage}}|Pregledane različice]] so preverjene različice strani, ki se uporabljajo za določitev ustaljene različice.''",
+	'revreview-poss-conflict-p' => "'''Opozorilo: [[User:$1|$1]] je pričel(-a) pregledovati to stran dne $2 ob $3.'''",
+	'revreview-poss-conflict-c' => "'''Opozorilo: [[User:$1|$1]] je pričel(-a) pregledovati te spremembe dne $2 ob $3.'''",
 	'revreview-toggle-title' => 'prikaži/skrij podrobnosti',
 	'revreview-toolow' => "'''Vse atribute morate oceniti višje od »neustrezno«, če želite redakcijo označiti kot pregledano.'''
 

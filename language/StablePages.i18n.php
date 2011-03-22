@@ -27,7 +27,10 @@ Edits made by other users are not displayed to readers by default until an autho
 $messages['qqq'] = array(
 	'stablepages' => '{{Flagged Revs}}',
 	'stablepages-list' => '{{Flagged Revs}}
-This text is shown on [http://flaggedrevs.labs.wikimedia.org/wiki/Special:StablePages Special:StablePages].',
+This text is shown on [http://flaggedrevs.labs.wikimedia.org/wiki/Special:StablePages Special:StablePages].
+
+Parameters:
+* $1 - (optional) Number of items in the list, to be used with PLURAL, when unavoidable.',
 	'stablepages-none' => '{{Flagged Revs}}
 {{Identical|There are no pages in this list}}',
 	'stablepages-config' => '{{Flagged Revs}}
@@ -542,7 +545,7 @@ $messages['ko'] = array(
  */
 $messages['ksh'] = array(
 	'stablepages' => 'Sigge, di bloß met Beshtäätejong aanjezeish wääde',
-	'stablepages-list' => 'Heh dronger kütt en Leß met Sigge, woh bloß beshtemmpte Metmaacher draan ändere künne, di nit nohjekik wääde möße.
+	'stablepages-list' => 'Heh dronger kütt en Leß met {{PLURAL:$1|dä Sigg|dä Sigge|dä Noll Sigge}}, woh bloß beshtemmpte Metmaacher draan ändere künne, di nit nohjekik wääde möße.
 Änderonge vun ander Metmaacher kritt der Lesser shtandatmäßesch nit aanjezeisch, bes ene berääschteschte Metmaacher se nohjekik hät.',
 	'stablepages-none' => 'En dä Leß sin kein Sigge dren',
 	'stablepages-config' => 'Enstellunge',

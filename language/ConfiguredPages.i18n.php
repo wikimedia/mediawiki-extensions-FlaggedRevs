@@ -20,9 +20,14 @@ Some settings might change which version is displayed to readers or further rest
 
 /** Message documentation (Message documentation)
  * @author EugeneZelenko
+ * @author Purodha
  * @author Raymond
  */
 $messages['qqq'] = array(
+	'configuredpages-list' => '{{Flagged Revs}}
+
+Parameters:
+* $1 - (optional) Number of items in the list, to be used with PLURAL, when unavoidable.',
 	'configuredpages-config' => '{{Identical|Configuration}}',
 );
 
@@ -485,7 +490,7 @@ $messages['ko'] = array(
  */
 $messages['ksh'] = array(
 	'configuredpages' => 'Sigge met eije Enstellung för et Nohkike un ußjesöhk Version Aanzeije',
-	'configuredpages-list' => 'Heh kütt en Leß met {{GENDER:$1|dä Sigg|dä Sigge|kein Sigge}} met eije Enstellunge för Aanzeije un Nohkike, di anders sin, wi der Standatt för et Wiki.
+	'configuredpages-list' => 'Heh kütt en Leß met {{PLURAL:$1|dä Sigg|dä Sigge|kein Sigge}} met eije Enstellunge för Aanzeije un Nohkike, di anders sin, wi der Standatt för et Wiki.
 Enstellunge künne jemaat wääde, öm faßzelääje, wat för en Version de Lässer ze sinn kritt, udder öm zohsäzlesch ze beschrängke, wä Änderonge maache kann, di keiner nohkike udder beschtääteje moß.',
 	'configuredpages-none' => 'En heh dä Leß sin kein Sigge dren.',
 	'configuredpages-config' => 'Enshtellung',

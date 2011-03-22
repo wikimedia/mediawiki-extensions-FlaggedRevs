@@ -19,9 +19,14 @@ $messages['en'] = array(
 /** Message documentation (Message documentation)
  * @author EugeneZelenko
  * @author IAlex
+ * @author Purodha
  */
 $messages['qqq'] = array(
 	'problemchanges' => '{{Flagged Revs}}',
+	'problemchanges-list' => '{{Flagged Revs}}
+
+Parameters:
+* $1 - (optional) Number of items in the list, to be used with PLURAL, when unavoidable.',
 	'problemchanges-legend' => '{{Flagged Revs}}',
 	'problemchanges-none' => '{{Flagged Revs}}',
 	'problemchanges-category' => '{{Flagged Revs}}
@@ -480,7 +485,7 @@ $messages['ko'] = array(
 $messages['ksh'] = array(
 	'problemchanges' => 'Makeete Änderunge, di nit nojehkik sin',
 	'problemchanges-list' => 'Heh küdd_en Leß met {{PLURAL:$1|dä|de|kein}} [[{{MediaWiki:Validationpage}}|nohjekik]] {{PLURAL:$1|Sigg|Sigge|Sigg}} woh noch en makeete Änderong nohjekik wääde moß.
-A list of [[Special:Tags|valid change tags]] is available.',
+En Leß met de [[Special:Tags|jöltejje Makeeronge för Änderonge]] hammer och.',
 	'problemchanges-legend' => 'Donn de Sigge met makeete Änderunge opleßte, woh di Änderunge noch nit nohjekik sen',
 	'problemchanges-none' => 'Mer han jraad kei Sigge, di met heh dänne Pungkte zor Ußwahl zosamme paße dähte.',
 	'problemchanges-category' => 'Zoot:',
