@@ -641,7 +641,7 @@ class FlaggedRevision {
 			$revIdDraft = (int)$row->page_latest; // may be NULL
 			if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_STABLE ) {
 				# Select newest of (stable rev, rev when reviewed) as "version used"
-				$revIdStable = max( $row->fp_stable, $row->ft_tmp_rev_id );
+				$revIdStable = (int)max( $row->fp_stable, $row->ft_tmp_rev_id );
 			} else {
 				$revIdStable = (int)$row->ft_tmp_rev_id; // may be NULL
 			}
@@ -697,7 +697,7 @@ class FlaggedRevision {
 				__METHOD__,
 			array(), /* OPTIONS */
 			array(
-				'flaggedimages' 	=> array( 'LEFT JOIN',
+				'flaggedimages' => array( 'LEFT JOIN',
 					array( 'fi_rev_id' => $this->getRevId(), 'fi_name = il_to' ) ),
 				'page' 			=> array( 'LEFT JOIN',
 					'page_namespace = ' . NS_FILE . ' AND page_title = il_to' ),
