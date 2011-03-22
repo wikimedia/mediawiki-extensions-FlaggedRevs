@@ -216,7 +216,9 @@ FlaggedRevs.getRevisionContents = function() {
 			action: 'parse',
 			prop: 'text|categorieshtml|languageshtml|headitems'
 		};
-		if ( mw.config.get( 'wgCurRevisionId' ) == oldRevId && mw.config.exists( 'wgPageName' ) ) {
+		if ( mw.config.get( 'wgCurRevisionId' ) == oldRevId
+			&& mw.config.exists( 'wgPageName' ) )
+		{
 			queryParams.page = mw.config.get( 'wgPageName' );
 		} else {
 			queryParams.oldid = oldRevId;
@@ -242,7 +244,8 @@ FlaggedRevs.getRevisionContents = function() {
 					$frRevContents.empty().append( revContent.error + ' ' + origContents );
 				}
 				if ( languageshtml && languageshtml['*'] ) {
-					$frRevContents.append( '<div class="langlinks" >' + languageshtml['*'] + '</div>' );
+					$frRevContents.append( '<div class="langlinks" >' +
+						languageshtml['*'] + '</div>' );
 				}
 				if ( categoryhtml && categoryhtml['*'] ) {
 					$('#catlinks').replaceWith( $(categoryhtml['*']) );
