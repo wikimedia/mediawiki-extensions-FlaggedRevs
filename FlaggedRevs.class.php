@@ -1273,7 +1273,7 @@ class FlaggedRevs {
 		) );
 		$flaggedRevision->insertOn( $auto );
 		# Update the article review log
-		FlaggedRevsLogs::updateLog( $title,
+		FlaggedRevsLogs::updateReviewLog( $title,
 			$flags, array(), '', $rev->getId(), $oldSvId, true, $auto );
 
 		# Update page and tracking tables and clear cache
