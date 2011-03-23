@@ -334,7 +334,7 @@ class FlaggedRevsHooks {
 	* (b) Set specified versions in fr_fileSHA1Keys
 	*/
 	public static function parserFetchStableFile(
-		$parser, Title $nt, &$skip, &$time, &$query = false
+		$parser, Title $nt, &$skip, &$time, &$query, &$sha1
 	) {
 		if ( !( $parser instanceof Parser ) ) {
 			return true; // nothing to do
@@ -363,7 +363,7 @@ class FlaggedRevsHooks {
 	* (a) Select the desired images based on the selected stable version time/SHA-1
 	* (b) Set specified versions in fr_fileSHA1Keys
 	*/
-	public static function galleryFetchStableFile( $ig, Title $nt, &$time, &$query = false ) {
+	public static function galleryFetchStableFile( $ig, Title $nt, &$time, &$query, &$sha1 ) {
 		$parser =& $ig->mParser; // convenience
 		if ( !( $parser instanceof Parser ) || $nt->getNamespace() != NS_FILE ) {
 			return true; // nothing to do
@@ -387,7 +387,7 @@ class FlaggedRevsHooks {
 	*/
 	protected static function parserFindStableFile( Parser $parser, Title $title ) {
 		$time = false; // current version
-		$sha1 = null; // corresponds to $time
+		$sha1 = false; // corresponds to $time
 		# Check for the version of this file used when reviewed.
 		$incManager = FRInclusionManager::singleton();
 		list( $maybeTS, $maybeSha1 ) = $incManager->getReviewedFileVersion( $title );
@@ -430,15 +430,20 @@ class FlaggedRevsHooks {
 		}
 		# Fetch the current timestamps of the images.
 		foreach ( $pOutput->mImages as $filename => $x ) {
-			# FIXME: it would be nice not to double fetch these!
-			$time = false; // current
 			# Stable output with versions specified
 			if ( isset( $pOutput->fr_fileSHA1Keys[$filename] ) ) {
 				// Fetch file with $time to confirm the specified version exists
 				$time = $pOutput->fr_fileSHA1Keys[$filename]['ts'];
+				$sha1 = $pOutput->fr_fileSHA1Keys[$filename]['sha1'];
+				# FIXME: don't double fetch these (Parser just did)!!!
+				$file = RepoGroup::singleton()->findFileFromKey(
+					$sha1, array( 'time' => $time ) );
+			} else {
+				$title = Title::makeTitleSafe( NS_FILE, $filename );
+				# FIXME: don't double fetch these (Parser just did)!!!
+				$file = wfFindFile( $title ); 
 			}
-			$title = Title::makeTitleSafe( NS_FILE, $filename );
-			$file = wfFindFile( $title, array( 'time' => $time ) );
+			# Update tracking vars...
 			$pOutput->fr_fileSHA1Keys[$filename] = array();
 			if ( $file ) {
 				$pOutput->fr_fileSHA1Keys[$filename]['ts'] = $file->getTimestamp();
