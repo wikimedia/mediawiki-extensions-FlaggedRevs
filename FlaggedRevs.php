@@ -438,9 +438,6 @@ $wgHooks['ParserClearState'][] = 'FlaggedRevsHooks::parserAddFields';
 $wgHooks['BeforeParserFetchTemplateAndtitle'][] = 'FlaggedRevsHooks::parserFetchStableTemplate';
 $wgHooks['BeforeParserMakeImageLinkObj'][] = 'FlaggedRevsHooks::parserFetchStableFile';
 $wgHooks['BeforeGalleryFindFile'][] = 'FlaggedRevsHooks::galleryFetchStableFile';
-# Additional parser versioning
-$wgHooks['ParserAfterTidy'][] = 'FlaggedRevsHooks::parserInjectTimestamps';
-$wgHooks['OutputPageParserOutput'][] = 'FlaggedRevsHooks::outputInjectTimestamps';
 # ########
 
 # ######## DB write operations #########

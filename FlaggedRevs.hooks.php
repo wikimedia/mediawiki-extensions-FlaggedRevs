@@ -288,8 +288,7 @@ class FlaggedRevsHooks {
 	* Add special fields to parser.
 	*/
 	public static function parserAddFields( Parser $parser ) {
-		$parser->mOutput->fr_fileSHA1Keys = array();
-		$parser->mOutput->fr_includeErrors = array();
+		$parser->getOutput()->fr_includeErrors = array();
 		return true;
 	}
 
@@ -321,7 +320,7 @@ class FlaggedRevsHooks {
 		}
 		# If $id not specified, see if we are allowed to use the current revision
 		if ( $id === false ) {
-			$parser->mOutput->fr_includeErrors[] = $title->getPrefixedDBKey(); // unspecified
+			$parser->getOutput()->fr_includeErrors[] = $title->getPrefixedDBKey(); // unspecified
 		# If $id is zero, don't bother loading it
 		} elseif ( !$id ) {
 			$skip = true;
@@ -331,7 +330,7 @@ class FlaggedRevsHooks {
 
 	/**
 	* (a) Select the desired images based on the selected stable version time/SHA-1
-	* (b) Set specified versions in fr_fileSHA1Keys
+	* (b) Set specified versions in mImageTimeKeys
 	*/
 	public static function parserFetchStableFile(
 		$parser, Title $nt, &$skip, &$time, &$query, &$sha1
@@ -349,7 +348,7 @@ class FlaggedRevsHooks {
 		} else {
 			$title =& $nt;
 		}
-		# Get version, update fr_fileSHA1Keys...
+		# Get version, update mImageTimeKeys...
 		list( $time, $sha1 ) = self::parserFindStableFile( $parser, $title );
 		# Stabilize the file link
 		if ( $time ) {
@@ -361,7 +360,7 @@ class FlaggedRevsHooks {
 
 	/**
 	* (a) Select the desired images based on the selected stable version time/SHA-1
-	* (b) Set specified versions in fr_fileSHA1Keys
+	* (b) Set specified versions in mImageTimeKeys
 	*/
 	public static function galleryFetchStableFile( $ig, Title $nt, &$time, &$query, &$sha1 ) {
 		$parser =& $ig->mParser; // convenience
@@ -371,7 +370,7 @@ class FlaggedRevsHooks {
 		if ( !FRInclusionManager::singleton()->parserOutputIsStabilized() ) {
 			return true; // trigger for stable version parsing only
 		}
-		# Get version, update fr_fileSHA1Keys...
+		# Get version, update mImageTimeKeys...
 		list( $time, $sha1 ) = self::parserFindStableFile( $parser, $nt );
 		# Stabilize the file link
 		if ( $time ) {
@@ -383,7 +382,7 @@ class FlaggedRevsHooks {
 
 	/**
 	* (a) Select the desired images based on the selected stable version time/SHA-1
-	* (b) Set specified versions in fr_fileSHA1Keys
+	* (b) Set specified versions in mImageTimeKeys
 	*/
 	protected static function parserFindStableFile( Parser $parser, Title $title ) {
 		$time = false; // current version
@@ -407,70 +406,11 @@ class FlaggedRevsHooks {
 		# If $time not specified, see if we are allowed to use the current revision
 		if ( $time === false ) {
 			# May want to give an error, so track these...
-			$parser->mOutput->fr_includeErrors[] = $title->getPrefixedDBKey();
+			$parser->getOutput()->fr_includeErrors[] = $title->getPrefixedDBKey();
 		} elseif ( !$time ) {
 			$time = "0"; // make sure this the string '0'
 		}
-		# Add specified image metadata to parser output
-		if ( $time !== false ) {
-			$parser->mOutput->fr_fileSHA1Keys[$title->getDBkey()] =  array();
-			$parser->mOutput->fr_fileSHA1Keys[$title->getDBkey()]['ts'] = $time;
-			$parser->mOutput->fr_fileSHA1Keys[$title->getDBkey()]['sha1'] = $sha1;
-		}
 		return array( $time, $sha1 );
-	}
-
-	/**
-	* Insert image timestamps/SHA-1 keys into parser output
-	*/
-	public static function parserInjectTimestamps( Parser $parser ) {
-		$pOutput =& $parser->mOutput; // convenience
-		if ( !isset( $pOutput->mImages ) ) {
-			return true; // sanity check
-		}
-		# Fetch the current timestamps of the images.
-		foreach ( $pOutput->mImages as $filename => $x ) {
-			# Stable output with versions specified
-			if ( isset( $pOutput->fr_fileSHA1Keys[$filename] ) ) {
-				// Fetch file with $time to confirm the specified version exists
-				$time = $pOutput->fr_fileSHA1Keys[$filename]['ts'];
-				$sha1 = $pOutput->fr_fileSHA1Keys[$filename]['sha1'];
-				# FIXME: don't double fetch these (Parser just did)!!!
-				$file = RepoGroup::singleton()->findFileFromKey(
-					$sha1, array( 'time' => $time ) );
-			} else {
-				$title = Title::makeTitleSafe( NS_FILE, $filename );
-				# FIXME: don't double fetch these (Parser just did)!!!
-				$file = wfFindFile( $title ); 
-			}
-			# Update tracking vars...
-			$pOutput->fr_fileSHA1Keys[$filename] = array();
-			if ( $file ) {
-				$pOutput->fr_fileSHA1Keys[$filename]['ts'] = $file->getTimestamp();
-				$pOutput->fr_fileSHA1Keys[$filename]['sha1'] = $file->getSha1();
-			} else {
-				$pOutput->fr_fileSHA1Keys[$filename]['ts'] = '0';
-				$pOutput->fr_fileSHA1Keys[$filename]['sha1'] = '';
-			}
-		}
-		return true;
-	}
-
-	/**
-	* Insert image timestamps/SHA-1s into page output
-	*/
-	public static function outputInjectTimestamps( OutputPage $out, ParserOutput $parserOut ) {
-		# Set first time
-		if ( !isset( $out->fr_fileSHA1Keys ) ) {
-			$out->fr_fileSHA1Keys = array();
-		}
-		# Leave as defaults if missing. Relevant things will be updated only when needed.
-		# We don't want to go around resetting caches all over the place if avoidable...
-		$fileSHA1Keys = isset( $parserOut->fr_fileSHA1Keys ) ?
-			$parserOut->fr_fileSHA1Keys : array();
-		# Add on any new items
-		$out->fr_fileSHA1Keys = wfArrayMerge( $out->fr_fileSHA1Keys, $fileSHA1Keys );
-		return true;
 	}
 
 	public static function onParserFirstCallInit( &$parser ) {
@@ -488,9 +428,9 @@ class FlaggedRevsHooks {
 	}
 
 	public static function onParserGetVariableValueSwitch( &$parser, &$cache, &$word, &$ret ) {
-		if( $word == 'pendingchangelevel' ) {
+		if ( $word == 'pendingchangelevel' ) {
 			$title = $parser->getTitle();
-			if( !FlaggedRevs::inReviewNamespace( $title ) ) {
+			if ( !FlaggedRevs::inReviewNamespace( $title ) ) {
 				$ret = '';
 			} else {
 				$config = FlaggedPageConfig::getPageStabilitySettings( $title );

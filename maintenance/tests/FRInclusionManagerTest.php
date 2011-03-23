@@ -8,11 +8,11 @@ class FRInclusionManagerTest extends PHPUnit_Framework_TestCase {
 		0 	=> array('ZZ' => 464, '0' => 13)
 	);
 	protected static $inputFiles = array(
-		'FileXX' => array('ts' => '20100405192110', 'sha1' => 'abc1'),
-		'FileYY' => array('ts' => '20000403101300', 'sha1' => 1134),
-		'FileZZ' => array('ts' => '0', 'sha1' => ''),
-		'Filele' => array('ts' => 0, 'sha1' => ''),
-		'0'   	 => array('ts' => '20000203101350', 'sha1' => 'ae33'),
+		'FileXX' => array('time' => '20100405192110', 'sha1' => 'abc1'),
+		'FileYY' => array('time' => '20000403101300', 'sha1' => 1134),
+		'FileZZ' => array('time' => '0', 'sha1' => ''),
+		'Filele' => array('time' => 0, 'sha1' => ''),
+		'0'   	 => array('time' => '20000203101350', 'sha1' => 'ae33'),
 	);
 	/* output to test against (<test,NS,dbkey,expected rev ID>) */
 	protected static $reviewedOutputTemplates = array(

@@ -72,7 +72,7 @@ class ApiReview extends ApiBase {
 				$parserCache = ParserCache::singleton();
 				$parserOutput = $parserCache->get( $article, $wgOut->parserOptions() );
 			}
-			if ( !$parserOutput || !isset( $parserOutput->fr_fileSHA1Keys ) ) {
+			if ( !$parserOutput || !isset( $parserOutput->mImageTimeKeys ) ) {
 				// Miss, we have to reparse the page
 				$text = $article->getContent();
 				$options = FlaggedRevs::makeParserOptions();
@@ -82,7 +82,7 @@ class ApiReview extends ApiBase {
 			// Set version parameters for review submission
 			list( $templateParams, $imageParams, $fileVersion ) =
 				RevisionReviewForm::getIncludeParams( $article,
-					$parserOutput->mTemplateIds, $parserOutput->fr_fileSHA1Keys );
+					$parserOutput->mTemplateIds, $parserOutput->mImageTimeKeys );
 			$form->setTemplateParams( $templateParams );
 			$form->setFileParams( $imageParams );
 			$form->setFileVersion( $fileVersion );

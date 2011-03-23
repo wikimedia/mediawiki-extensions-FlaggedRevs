@@ -542,7 +542,7 @@ class RevisionReviewForm
 	 * Get template and image parameters from parser output to use on forms.
 	 * @param FlaggedArticle $article
 	 * @param array $templateIDs (from ParserOutput/OutputPage->mTemplateIds)
-	 * @param array $imageSHA1Keys (from ParserOutput/OutputPage->fr_fileSHA1Keys)
+	 * @param array $imageSHA1Keys (from ParserOutput/OutputPage->mImageTimeKeys)
 	 * @returns array( templateParams, imageParams, fileVersion )
 	 */
 	public static function getIncludeParams(
@@ -558,7 +558,7 @@ class RevisionReviewForm
 		}
 		# Image -> timestamp -> sha1 mapping
 		foreach ( $imageSHA1Keys as $dbKey => $timeAndSHA1 ) {
-			$imageParams .= $dbKey . "|" . $timeAndSHA1['ts'];
+			$imageParams .= $dbKey . "|" . $timeAndSHA1['time'];
 			$imageParams .= "|" . $timeAndSHA1['sha1'] . "#";
 		}
 		# For image pages, note the displayed image version
@@ -577,7 +577,7 @@ class RevisionReviewForm
 	 * @param string $imageParams
 	 * @returns array( templateIds, fileSHA1Keys )
 	 * templateIds like ParserOutput->mTemplateIds
-	 * fileSHA1Keys like ParserOutput->fr_fileSHA1Keys
+	 * fileSHA1Keys like ParserOutput->mImageTimeKeys
 	 */
 	public static function getIncludeVersions( $templateParams, $imageParams ) {
 		$templateIds = array();
@@ -613,15 +613,15 @@ class RevisionReviewForm
 			if ( !isset( $m[0] ) || !isset( $m[1] ) || !isset( $m[2] ) || !$m[0] ) {
 				continue;
 			}
-			list( $dbkey, $timestamp, $key ) = $m;
+			list( $dbkey, $time, $key ) = $m;
 			# Get the file title
 			$img_title = Title::makeTitle( NS_IMAGE, $dbkey ); // Normalize
 			if ( is_null( $img_title ) ) {
 				continue; // Page must be valid!
 			}
 			$fileSHA1Keys[$img_title->getDBkey()] = array();
-			$fileSHA1Keys[$img_title->getDBkey()]['ts'] = $timestamp;
-			$fileSHA1Keys[$img_title->getDBkey()]['sha1'] = $key;
+			$fileSHA1Keys[$img_title->getDBkey()]['time'] = $time ? $time : '0';
+			$fileSHA1Keys[$img_title->getDBkey()]['sha1'] = $key ? $key : '';
 		}
 		return array( $templateIds, $fileSHA1Keys );
 	}
@@ -753,7 +753,7 @@ class RevisionReviewForm
 				$pOutput = $parserCache->get( $article, $wgOut->parserOptions() );
 			}
 			# Otherwise (or on cache miss), parse the rev text...
-			if ( !$pOutput || !isset( $pOutput->fr_fileSHA1Keys ) ) {
+			if ( !$pOutput || !isset( $pOutput->mImageTimeKeys ) ) {
 				$text = $rev->getText();
 				$title = $article->getTitle();
 				$options = FlaggedRevs::makeParserOptions();
@@ -765,7 +765,7 @@ class RevisionReviewForm
 				}
 			}
 			$templateIDs = $pOutput->mTemplateIds;
-			$imageSHA1Keys = $pOutput->fr_fileSHA1Keys;
+			$imageSHA1Keys = $pOutput->mImageTimeKeys;
 		}
 		list( $templateParams, $imageParams, $fileVersion ) =
 			RevisionReviewForm::getIncludeParams( $article, $templateIDs, $imageSHA1Keys );

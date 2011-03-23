@@ -292,7 +292,8 @@ class FlaggedRevision {
 				'fi_name' 			=> $dbkey,
 				'fi_img_sha1' 		=> strval( $timeSHA1['sha1'] ),
 				// b/c: fi_img_timestamp DEFAULT either NULL (new) or '' (old)
-				'fi_img_timestamp'  => $timeSHA1['ts'] ? $dbw->timestamp( $timeSHA1['ts'] ) : ''
+				'fi_img_timestamp'  => $timeSHA1['time'] ?
+					$dbw->timestamp( $timeSHA1['time'] ) : ''
 			);
 		}
 		# Our review entry
@@ -496,7 +497,7 @@ class FlaggedRevision {
 	/**
 	 * Get original template versions at time of review
 	 * @param int $flags FR_MASTER
-	 * @return Array file versions (dbKey => array('ts' => MW timestamp,'sha1' => sha1) )
+	 * @return Array file versions (dbKey => array('time' => MW timestamp,'sha1' => sha1) )
 	 * Note: '0' used for file timestamp if it didn't exist ('' for sha1)
 	 */
 	public function getFileVersions( $flags = 0 ) {
@@ -513,7 +514,7 @@ class FlaggedRevision {
 				$reviewedTS = trim( $row->fi_img_timestamp ); // may be ''/NULL
 				$reviewedTS = $reviewedTS ? wfTimestamp( TS_MW, $reviewedTS ) : '0';
 				$this->mFiles[$row->fi_name] = array();
-				$this->mFiles[$row->fi_name]['ts'] = $reviewedTS;
+				$this->mFiles[$row->fi_name]['time'] = $reviewedTS;
 				$this->mFiles[$row->fi_name]['sha1'] = $row->fi_img_sha1;
 			}
 		}
@@ -557,7 +558,7 @@ class FlaggedRevision {
 	/**
 	 * Get the current stable version of the files used at time of review
 	 * @param int $flags FR_MASTER
-	 * @return Array file versions (dbKey => array('ts' => MW timestamp,'sha1' => sha1) )
+	 * @return Array file versions (dbKey => array('time' => MW timestamp,'sha1' => sha1) )
 	 * Note: '0' used for file timestamp if it doesn't exist ('' for sha1)
 	 */
 	public function getStableFileVersions( $flags = 0 ) {
@@ -587,7 +588,7 @@ class FlaggedRevision {
 					$reviewedSha1 = strval( $row->fr_img_sha1 );
 				}
 				$this->mStableFiles[$row->fi_name] = array();
-				$this->mStableFiles[$row->fi_name]['ts'] = $reviewedTS;
+				$this->mStableFiles[$row->fi_name]['time'] = $reviewedTS;
 				$this->mStableFiles[$row->fi_name]['sha1'] = $reviewedSha1;
 			}
 		}
@@ -714,7 +715,7 @@ class FlaggedRevision {
 			if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_STABLE ) {
 				$stableTS = wfTimestampOrNull( TS_MW, $row->fr_img_timestamp );
 				# Select newest of (stable rev, rev when reviewed) as "version used"
-				$tsStable = ( $stableTS >= $reviewedTS ) ? $stableTS : $reviewedTS;
+				$tsStable = max( $stableTS, $reviewedTS );
 			} else {
 				$tsStable = $reviewedTS;
 			}

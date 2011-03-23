@@ -652,7 +652,7 @@ class FlaggedRevs {
 	/**
 	* @param Article $article
 	* @param parserOutput $parserOut
-	* Updates the stable-only cache dependancy table
+	* Updates the stable-only cache dependency table
 	*/
 	public static function updateCacheTracking( Article $article, ParserOutput $stableOut ) {
 		wfProfileIn( __METHOD__ );
@@ -1269,7 +1269,7 @@ class FlaggedRevs {
 			'img_timestamp' 	=> $fileData['timestamp'],
 			'img_sha1'      	=> $fileData['sha1'],
 			'templateVersions' 	=> $poutput->mTemplateIds,
-			'fileVersions'     	=> $poutput->fr_fileSHA1Keys
+			'fileVersions'     	=> $poutput->mImageTimeKeys
 		) );
 		$flaggedRevision->insertOn( $auto );
 		# Update the article review log

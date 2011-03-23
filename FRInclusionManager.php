@@ -39,7 +39,7 @@ class FRInclusionManager {
 	 * (a) Stabilize inclusions in Parser output
 	 * (b) Set the template/image versions used in the flagged version of a revision
 	 * @param array $tmpParams (ns => dbKey => revId )
-	 * @param array $imgParams (dbKey => array('ts' => MW timestamp,'sha1' => sha1) )
+	 * @param array $imgParams (dbKey => array('time' => MW timestamp,'sha1' => sha1) )
 	 */
 	public function setReviewedVersions( array $tmpParams, array $imgParams ) {
 		$this->reviewedVersions = array();
@@ -50,7 +50,7 @@ class FRInclusionManager {
 	/**
 	 * Set the stable versions of some template/images
 	 * @param array $tmpParams (ns => dbKey => revId )
-	 * @param array $imgParams (dbKey => array('ts' => MW timestamp,'sha1' => sha1) )
+	 * @param array $imgParams (dbKey => array('time' => MW timestamp,'sha1' => sha1) )
 	 */
 	public function setStableVersionCache( array $tmpParams, array $imgParams ) {
 		$this->stableVersions['templates'] = $tmpParams;
@@ -116,7 +116,7 @@ class FRInclusionManager {
 		$dbKey = $title->getDBkey();
 		# All NS_FILE, no need to check namespace
 		if ( isset( $this->reviewedVersions['files'][$dbKey] ) ) {
-			$time = $this->reviewedVersions['files'][$dbKey]['ts'];
+			$time = $this->reviewedVersions['files'][$dbKey]['time'];
 			$sha1 = $this->reviewedVersions['files'][$dbKey]['sha1'];
 			return array( $time, $sha1 );
 		}
@@ -154,7 +154,7 @@ class FRInclusionManager {
 		$sha1 = '';
 		# All NS_FILE, no need to check namespace
 		if ( isset( $this->stableVersions['files'][$dbKey] ) ) {
-			$time = $this->stableVersions['files'][$dbKey]['ts'];
+			$time = $this->stableVersions['files'][$dbKey]['time'];
 			$sha1 = $this->stableVersions['files'][$dbKey]['sha1'];
 			return array( $time, $sha1 );
 		}
@@ -164,7 +164,7 @@ class FRInclusionManager {
 			$sha1 = $srev->getFileSha1();
 		}
 		$this->stableVersions['files'][$dbKey] = array();
-		$this->stableVersions['files'][$dbKey]['ts'] = $time;
+		$this->stableVersions['files'][$dbKey]['time'] = $time;
 		$this->stableVersions['files'][$dbKey]['sha1'] = $sha1;
 		return array( $time, $sha1 );
 	}

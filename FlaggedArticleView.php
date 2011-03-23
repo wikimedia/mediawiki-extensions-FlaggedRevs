@@ -1083,10 +1083,10 @@ class FlaggedArticleView {
 			$templateIDs = $fileSHA1Keys = null;
 			if ( $wgOut->getRevisionId() == $rev->getId()
 				&& isset( $wgOut->mTemplateIds )
-				&& isset( $wgOut->fr_fileSHA1Keys ) )
+				&& isset( $wgOut->mImageTimeKeys ) )
 			{
 				$templateIDs = $wgOut->mTemplateIds;
-				$fileSHA1Keys = $wgOut->fr_fileSHA1Keys;
+				$fileSHA1Keys = $wgOut->mImageTimeKeys;
 			}
 			# Review notice box goes in top of form
 			$form = RevisionReviewForm::buildQuickReview(
