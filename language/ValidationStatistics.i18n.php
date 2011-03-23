@@ -792,20 +792,19 @@ $messages['he'] = array(
 
 עורכים הם משתמשים ותיקים שיכולים לבצע בדיקה מהירה של גרסאות של דפים.",
 	'validationstatistics-lastupdate' => "''הנתונים הבאים עודכנו לאחרונה ב־$1 בשעה $2.''",
-	'validationstatistics-pndtime' => "עריכות שנבדקו על ידי משתמשים מוּכָּרִים מוגדרות כעריכות שנסקרו.
+	'validationstatistics-pndtime' => "עריכות שנבדקו על־ידי משתמשים מוּכָּרִים מוגדרות כעריכות ש'''נסקרו'''.
 
-עיכוב ממוצע ל[[Special:OldReviewedPages|דפים עם עריכות שממתינות לסקירה]] הוא '''$1'''.
-הדפים האלה מוגדרים כ''לא עדכניים''. כמו־כן, דפים מוגדרים כ''מסונכרנים'' אם אין בהם עריכות שממתינות לסקירה.",
+עיכוב ממוצע ל[[Special:OldReviewedPages|דפים עם עריכות שממתינות לסקירה]] הוא '''$1'''; העיכוב מודד כמה זמן העריכה הממתינה הישנה ביותר נשארה בלי סקירה.",
 	'validationstatistics-revtime' => "זמן ההמתנה הממוצע לסקירת עריכות של '''משתמשים אלמוניים''' הוא '''$1'''; החציון הוא '''$2'''.
 $3",
-	'validationstatistics-table' => "סטטיסטיקות על סקירת דפים לכל מרחב שמות מוצגות להלן, '''למעט''' דפי הפניה.",
+	'validationstatistics-table' => "דפים מוגדרים כ'''לא עדכניים''' אם יש בהם עריכות שממתינות לסקירה; דפים מוגדרים כ'''מסונכרנים''' אם אין בהם עריכות שממתינות לסקירה.",
 	'validationstatistics-ns' => 'מרחב שם',
 	'validationstatistics-total' => 'דפים',
 	'validationstatistics-stable' => 'נסקרו',
 	'validationstatistics-latest' => 'סונכרנו',
 	'validationstatistics-synced' => 'סונכרנו/נסקרו',
 	'validationstatistics-old' => 'לא עדכניים',
-	'validationstatistics-utable' => '{{PLURAL:$1|הסוקר הפעיל|רשימת $1 הסוקרים הפעילים}} ביותר בשעה האחרונה.',
+	'validationstatistics-utable' => '{{PLURAL:$1|הסוקר הפעיל|רשימת $1 הסוקרים הפעילים}} ביותר ב{{PLURAL:$2|שעה האחרונה|־$2 השעות האחרונות}}.',
 	'validationstatistics-user' => 'משתמש',
 	'validationstatistics-reviews' => 'סקירות',
 );
@@ -1497,20 +1496,20 @@ $messages['pms'] = array(
 
 J'Editor a son utent sicur che a peulo controlé le revision a le pàgine.",
 	'validationstatistics-lastupdate' => "''Ij dat sota a son ëstàit modificà l'ùltima vira ël $1 a $2.''",
-	'validationstatistics-pndtime' => "Modìfiche ch'a son ëstàite controlà da utent confermà a son considerà revisionà.
+	'validationstatistics-pndtime' => "Modìfiche ch'a son ëstàite controlà da utent confermà a son considerà ''revisionà''.
 
-Ël ritard medi për [[Special:OldReviewedPages|pàgine con modìfiche pa revisionà ch'a speto]] a l'é '''$1'''.
-Cole pàgine a son considerà ''veje''.",
+Ël ritard medi për [[Special:OldReviewedPages|pàgine con modìfiche pa revisionà ch'a speto]] a l'é '''$1''';
+ël ritard a misura vàire che le modìfiche spetante pi veje a son ëstàite pa rivisionà.",
 	'validationstatistics-revtime' => "L'atèisa pi àuta përchè le modìfiche dj'''utent anònim'' a sio revisionà a l'é '''$1''', la media a l'é '''$2'''.
 $3",
-	'validationstatistics-table' => "Le statìstiche ëd revision dle pàgine për minca spassi nominal a son mostrà sota, ''gavà'' le pàgine ëd ridiression.",
+	'validationstatistics-table' => "Le statìstiche ëd revision dle pàgine për minca spassi nominal a son mostrà sota, ''gavà'' le pàgine ëd ridiression. Le pàgine a son tratà com ''veje'' se a l'han modìfiche ch'a speto revision; le pàgine a son considrà ''sincronisà'' se a l'han pa ëd modìfiche ch'a speto revision.",
 	'validationstatistics-ns' => 'Spassi nominal',
 	'validationstatistics-total' => 'Pàgine',
 	'validationstatistics-stable' => 'Revisionà',
 	'validationstatistics-latest' => 'Sincronisà',
 	'validationstatistics-synced' => 'Sincronisà/Revisionà',
 	'validationstatistics-old' => 'Veje',
-	'validationstatistics-utable' => "Sota a-i é la lista {{PLURAL:$1|dël revisor pi ativ|dij $1 revisor pi ativ}} ëd l'ùltima ora.",
+	'validationstatistics-utable' => "Sota a-i é na lista {{PLURAL:$1|dël revisor pi ativ|dij $1 revisor pi ativ}} ant {{PLURAL:$2|l'ùltima ora|j'ùltime $2 ore}}.",
 	'validationstatistics-user' => 'Utent',
 	'validationstatistics-reviews' => 'Revisor',
 );
@@ -1616,10 +1615,9 @@ $messages['roa-tara'] = array(
 
 Le cangiature sonde utinde stabbelite ca ponne fà verifiche a cambione de le revisiune a le pàggene.",
 	'validationstatistics-lastupdate' => "''Le seguende date onne state cangiate l'urtema vote 'u $1 a le $2.''",
-	'validationstatistics-pndtime' => "Le cangiaminde onne state verificate da utinde stabbelite e sonde considerate pe essere reviste.
+	'validationstatistics-pndtime' => "Le cangiaminde onne state verificate da utinde stabbelite e sonde considerate ''reviste''.
 
-'U ritarde medie pe [[Special:OldReviewedPages|le pàggene cu cangiaminde pendende none reviste]] jè '''$1'''.<br />
-Ste pàggene avènene considerate ''none aggiornate''. Comungue, le pàggene avènene considerate ''datate da'' ce non ge stonne cangiaminde in attese d'a revisione.",
+'U ritarde medie pe [[Special:OldReviewedPages|le pàggene cu cangiaminde pendende none reviste]] jè '''$1'''; 'a mesure d'u ritarde parte da quanne 'u cangiamende pendende cchiù vecchie non g'a state reviste.",
 	'validationstatistics-revtime' => "'A medie de attese pe le cangiaminde da ''utinde ca non ge s'onne collegate'' pe esseere reviste jè '''$1'''; 'a mediane jè '''$2'''.
 $3",
 	'validationstatistics-table' => "Le statisteche de le pàggene reviste pe ogne namespace sonde fatte vedè aqquà sotte, ''<nowiki>'</nowiki>scludenne'' le pàggene de le redirezionaminde.",

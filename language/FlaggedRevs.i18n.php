@@ -6636,7 +6636,8 @@ Fixéronse novos [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} cam
 	'revreview-submit-unreviewed' => 'Feito. Retiróuselle a aprobación!',
 	'revreview-successful' => "'''Examinouse con éxito a revisión de \"[[:\$1|\$1]]\". ([{{fullurl:{{#Special:ReviewedVersions}}|page=\$2}} ver as versións estábeis])'''",
 	'revreview-successful2' => "'''Retiouse con éxito o exame da revisión de \"[[:\$1|\$1]]\".'''",
-	'revreview-text' => "''As [[{{MediaWiki:Validationpage}}|versións revisadas]] son versións comprobadas de páxinas, utilizadas para determinar a versión publicada.''",
+	'revreview-poss-conflict-p' => "'''Atención: [[User:$1|$1]] comezou a revisar este artigo o $2 ás $3.'''",
+	'revreview-poss-conflict-c' => "'''Atención: [[User:$1|$1]] comezou a revisar estes cambios o $2 ás $3.'''",
 	'revreview-toggle-title' => 'amosar/agochar os detalles',
 	'revreview-toolow' => '\'\'\'Debe, polo menos, valorar cada un dos atributos cunha puntuación maior que "inadecuado" para que unha revisión sexa considerada como revisada.\'\'\'
 
@@ -7275,7 +7276,8 @@ $messages['he'] = array(
 	'revreview-submit-unreviewed' => 'בוצע. נדחה!',
 	'revreview-successful' => "'''הגרסה של [[:$1|$1]] סומנה בהצלחה. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} צפייה בגרסאות שנסקרו])'''",
 	'revreview-successful2' => "'''סימון הגרסה [[:$1|$1]] הוסר בהצלחה.'''",
-	'revreview-text' => "'''[[{{MediaWiki:Validationpage}}|גרסאות שנסקרו]] הן גרסאות בדוקות של דפים שמשמשות לבחירת הגרסה היציבה.'''",
+	'revreview-poss-conflict-p' => "'''אזהרה: [[User:$1|$1]] התחיל לסקור את הדף הזה ב־$2 בשעה $3.'''",
+	'revreview-poss-conflict-c' => "'''אזהרה: [[User:$1|$1]] התחיל לסקור את השינויים האלה ב־$2 בשעה $3.'''",
 	'revreview-toggle-title' => 'הצגה או הסתרה של פרטים',
 	'revreview-toolow' => 'יש לדרג כל אחת מהתכונות הבאות גבוה יותר מ"בלתי קבילה" כדי שהגרסה תיחשב לגרסה שנסקרה.
 
@@ -7296,6 +7298,7 @@ $messages['he'] = array(
 	'revreview-visibility-nostable' => "'''אין לדף זה [[{{MediaWiki:Validationpage}}|גרסה יציבה]]; ניתן [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} לשנות] את הגדרות היציבות של הדף.'''",
 	'revreview-revnotfound' => 'הגרסה הישנה של דף זה לא נמצאה. אנא בדקו את כתובת הקישור שהוביל אתכם הנה.',
 	'right-autoreview' => 'סימון אוטומטי של גרסאות שנערכו על ידי המשתמש עצמו כגרסאות ש"נבדקו"',
+	'right-autoreviewrestore' => 'סקירה אוטומטית בשחזור',
 	'right-movestable' => 'העברת דפים עם גרסאות יציבות',
 	'right-review' => 'סימון גרסאות כ"בדוקות"',
 	'right-stablesettings' => 'הגדרה כיצד הגרסה היציבה של הדף נבחרת ומוצגת',
@@ -10731,6 +10734,7 @@ Kuckt w.e.g. all d\'Ännerungen hei drënner no fir datt Är Ännerungen akzept�
 	'revreview-visibility-nostable' => "'''Dës Säit huet keng [[{{MediaWiki:Validationpage}}|publizéiert Versioun]]; d'Astellunge vun der Säitestabilitéit kënnen  [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} agestallt] ginn.'''",
 	'revreview-revnotfound' => "Déi Versioun vun der Säit déi Dir gefrot hutt konnt net fonnt ginn. Kuckt d'URL no, déi Dir benotzt hutt fir op dës Säit ze kommen.",
 	'right-autoreview' => 'Versiounen automatesch als "nogekuckt" markéieren',
+	'right-autoreviewrestore' => 'Automatesch nokucke beim zrécksetzen',
 	'right-movestable' => 'Publizéiert Säite réckelen',
 	'right-review' => 'Versiounen als "nogekuckt" markéieren',
 	'right-stablesettings' => 'Astelle wéi eng publizéiert Versioun erausgesicht an ugewise gëtt',
@@ -13187,6 +13191,8 @@ Później mogły zostać wykonane następne [{{fullurl:{{FULLPAGENAMEE}}|oldid=$
 	'revreview-submit-unreviewed' => 'Gotowe. Wycofano akceptację!',
 	'revreview-successful' => "'''Wersja [[:$1|$1]] została pomyślnie oznaczona. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} zobacz wszystkie wersje przejrzane])'''",
 	'revreview-successful2' => "'''Wersja [[:$1|$1]] została pomyślnie odznaczona.'''",
+	'revreview-poss-conflict-p' => "'''Uwaga – [[User:$1|$1]] rozpoczął przeglądanie tej strony $2 o $3.'''",
+	'revreview-poss-conflict-c' => "'''Uwaga – [[User:$1|$1]] rozpoczął przeglądanie tych zmian $2 o $3.'''",
 	'revreview-toggle-title' => 'pokaż lub ukryj szczegóły',
 	'revreview-toolow' => "'''Musisz ocenić każdy z atrybutów wyżej niż „nieakceptowalny“, aby oznaczyć wersję jako zweryfikowaną.'''
 
@@ -14375,14 +14381,14 @@ Nuève [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} cangiaminde] 
 	'revreview-main' => "Tu a selezionà ìna particolera revisione da 'na vosce pe fà 'na revisitazione.
 
 Vide 'a [[Special:Unreviewedpages|liste de le pàggene ca non g'onne state rivisitete]].",
-	'revreview-newest-basic' => "' A[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} versione secure] avere state [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} verificate] 'u <i>$2</i>.
-{{PLURAL:$3|Ste|Stonne}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|cangiamende|cangiaminde}}] pendende ca stonne aspettane 'na revisione.",
-	'revreview-newest-basic-i' => "' A[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} versione secure] avere state [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} verificate] 'u <i>$2</i>.
-Stonne [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} cangiaminde sus a template/file] abbesognene de 'na reviste.",
-	'revreview-newest-quality' => "' A[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} versione secure] avere state [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} verificate] 'u <i>$2</i>.
-{{PLURAL:$3|Ste|Stonne}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|cangiamende|cangiaminde}}] pendende ca stonne aspettane 'na revisione.",
-	'revreview-newest-quality-i' => "'A [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} versiona secure] avere state [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approvate] 'u <i>$2</i>.
-Stonne [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} cangiaminde de template/file] ca abbesognene de 'na reviste.",
+	'revreview-newest-basic' => "{{PLURAL:$3|Ste|Stonne}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|cangiamende|cangiaminde}}] pendende ca [[{{MediaWiki:Validationpage}}|stonne aspettane 'na revisione]].
+' A[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} versione secure] avere state [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} verificate] 'u <i>$2</i>.",
+	'revreview-newest-basic-i' => "Stonne [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} cangiaminde sus a template/file] abbesognene [[{{MediaWiki:Validationpage}}|de 'na revisione]].
+' A[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} versione secure] avere state [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} verificate] 'u <i>$2</i>.",
+	'revreview-newest-quality' => "{{PLURAL:$3|Ste|Stonne}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|cangiamende|cangiaminde}}] pendende ca [[{{MediaWiki:Validationpage}}|stonne aspettane 'na revisione]].
+' A[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} versione secure] avere state [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} verificate] 'u <i>$2</i>.",
+	'revreview-newest-quality-i' => "Stonne [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} cangiaminde de template/file] ca abbesognene [[{{MediaWiki:Validationpage}}|de 'na revisione]].
+'A [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} versiona secure] avere state [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approvate] 'u <i>$2</i>.",
 	'revreview-pending-basic' => "' A[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} versione secure] avere state [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} verificate] 'u <i>$2</i>.
 {{PLURAL:$3|Ste|Stonne}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|cangiamende|cangiaminde}}] pendende ca stonne aspettane 'na revisione.",
 	'revreview-pending-quality' => "' A[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} versione secure] avere state [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approvate] 'u <i>$2</i>.
@@ -14431,7 +14437,6 @@ Le [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} cangiaminde] nuè
 	'revreview-submit-unreviewed' => 'Apposte. None accettate!',
 	'revreview-successful' => "'''Revisione de [[:$1|$1]] ha state mise 'u flag.''' ([{{fullurl:{{#Special:ReviewedVersions}}|pàgene=$2}} vide le versiune secure])'''",
 	'revreview-successful2' => "'''Revisione de [[:$1|$1]] ha state luete 'u flag.'''",
-	'revreview-text' => "''Le [[{{MediaWiki:Validationpage}}|versiune reviste]] sonde le versiune verificate de le pàggene ausate pe determinà 'a versiona pubblecate.''",
 	'revreview-toggle-title' => 'fa vedè/scunne le dettaglie',
 	'revreview-toolow' => "'''Tu ninde ninde a valutà ognedune de le attrebbute cchiù ierte de ''inadeguate'' purcé 'na revisione pò essere considerate reviste.'''
 
@@ -18278,7 +18283,7 @@ om tehtud necen versijan alusel.',
 	'revreview-depth-3' => 'Korged',
 	'revreview-depth-4' => 'Valitud',
 	'revreview-draft-title' => 'Lehtpolen mustkirjutuz',
-	'revreview-edit' => 'Redaktiruida mustkirjutuz',
+	'revreview-edit' => 'Redaktiruida',
 	'revreview-editnotice' => "'''Homaičend: necen lehtpolen toižetused mülütadas [[{{MediaWiki:Validationpage}}|stabiližhe versijaha]], konz niid kodvib avtoriziruidud kävutai .'''",
 	'revreview-check-flag-p' => 'Kodvindad varastajiden toižetusiden publikoičend',
 	'revreview-edited' => "'''Redaktiruindad mülütadas [[{{MediaWiki:Validationpage}}|stabiližehe versijaha]], konz niid kodvdas kävutajad sättuiden oiktusidenke.
@@ -18344,7 +18349,6 @@ Ken-se voinuiži tehta [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0
 	'revreview-submit-unreview' => 'Znamoita kut kodvmatoi',
 	'revreview-successful' => "'''Valitud [[:$1|$1]]-versii om znamoitud satusekahas. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} stabiližiden versijoiden kacund])'''",
 	'revreview-successful2' => "'''Virg om heittud [[:$1|$1]]-versijaspäi.'''",
-	'revreview-text' => "''Augotižjärgendusen mödhe ozutadas lehtpoliden [[{{MediaWiki:Validationpage}}|stabiližed versijad]], ei udembad.''",
 	'revreview-toggle-title' => 'ozutada/peitta detalid',
 	'revreview-toolow' => 'Pidab kirjutada kaikuččiden znamoičedoiden täht korktemb tazopind, mi "ei ole znamoitud", miše versii oliži vahvištadud kut kodvdud.
 Miše heitta kodvindan znam, kirjutagat kaikjal "ei ole znamoitud".',

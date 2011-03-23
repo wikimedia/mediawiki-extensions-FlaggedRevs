@@ -485,7 +485,7 @@ $messages['ko'] = array(
 $messages['ksh'] = array(
 	'problemchanges' => 'Makeete Änderunge, di nit nojehkik sin',
 	'problemchanges-list' => 'Heh küdd_en Leß met {{PLURAL:$1|dä|de|kein}} [[{{MediaWiki:Validationpage}}|nohjekik]] {{PLURAL:$1|Sigg|Sigge|Sigg}} woh noch en makeete Änderong nohjekik wääde moß.
-En Leß met de [[Special:Tags|jöltejje Makeeronge för Änderonge]] hammer och.',
+En Leß met de [[Special:Tags|jöltejje Makeeronge för Änderonge]] ham_mer och.',
 	'problemchanges-legend' => 'Donn de Sigge met makeete Änderunge opleßte, woh di Änderunge noch nit nohjekik sen',
 	'problemchanges-none' => 'Mer han jraad kei Sigge, di met heh dänne Pungkte zor Ußwahl zosamme paße dähte.',
 	'problemchanges-category' => 'Zoot:',
