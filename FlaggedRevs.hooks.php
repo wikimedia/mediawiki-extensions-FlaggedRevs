@@ -329,12 +329,9 @@ class FlaggedRevsHooks {
 	}
 
 	/**
-	* (a) Select the desired images based on the selected stable version time/SHA-1
-	* (b) Set specified versions in mImageTimeKeys
+	* Select the desired images based on the selected stable version time/SHA-1
 	*/
-	public static function parserFetchStableFile(
-		$parser, Title $nt, &$skip, &$time, &$query, &$sha1
-	) {
+	public static function parserFetchStableFile( $parser, Title $nt, &$time, &$sha1, &$query ) {
 		if ( !( $parser instanceof Parser ) ) {
 			return true; // nothing to do
 		}
@@ -359,30 +356,7 @@ class FlaggedRevsHooks {
 	}
 
 	/**
-	* (a) Select the desired images based on the selected stable version time/SHA-1
-	* (b) Set specified versions in mImageTimeKeys
-	*/
-	public static function galleryFetchStableFile( $ig, Title $nt, &$time, &$query, &$sha1 ) {
-		$parser =& $ig->mParser; // convenience
-		if ( !( $parser instanceof Parser ) || $nt->getNamespace() != NS_FILE ) {
-			return true; // nothing to do
-		}
-		if ( !FRInclusionManager::singleton()->parserOutputIsStabilized() ) {
-			return true; // trigger for stable version parsing only
-		}
-		# Get version, update mImageTimeKeys...
-		list( $time, $sha1 ) = self::parserFindStableFile( $parser, $nt );
-		# Stabilize the file link
-		if ( $time ) {
-			if ( $query != '' ) $query .= '&';
-			$query = "filetimestamp=" . urlencode( wfTimestamp( TS_MW, $time ) );
-		}
-		return true;
-	}
-
-	/**
-	* (a) Select the desired images based on the selected stable version time/SHA-1
-	* (b) Set specified versions in mImageTimeKeys
+	* Select the desired images based on the selected stable version time/SHA-1
 	*/
 	protected static function parserFindStableFile( Parser $parser, Title $title ) {
 		$time = false; // current version

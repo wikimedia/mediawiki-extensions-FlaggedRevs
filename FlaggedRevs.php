@@ -436,8 +436,7 @@ $wgHooks['APIQueryAfterExecute'][] = 'FlaggedRevsApiHooks::addApiRevisionData';
 # Parser hooks, selects the desired images/templates
 $wgHooks['ParserClearState'][] = 'FlaggedRevsHooks::parserAddFields';
 $wgHooks['BeforeParserFetchTemplateAndtitle'][] = 'FlaggedRevsHooks::parserFetchStableTemplate';
-$wgHooks['BeforeParserMakeImageLinkObj'][] = 'FlaggedRevsHooks::parserFetchStableFile';
-$wgHooks['BeforeGalleryFindFile'][] = 'FlaggedRevsHooks::galleryFetchStableFile';
+$wgHooks['BeforeParserFetchFileAndTitle'][] = 'FlaggedRevsHooks::parserFetchStableFile';
 # ########
 
 # ######## DB write operations #########
