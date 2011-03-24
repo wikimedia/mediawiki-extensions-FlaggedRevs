@@ -1036,14 +1036,14 @@ $messages['ja'] = array(
 [[Special:OldReviewedPages|未査読の編集が保留となっているページ]]の平均遅延時間は'''$1'''です。この遅延時間は、保留中の最古の編集が査読待ちの状態を脱するのにかかった時間から測定されます。",
 	'validationstatistics-revtime' => "''非ログイン利用者''による編集が査読されるまでの平均待ち時間は'''$1'''で、中央値は'''$2'''です。
 $3",
-	'validationstatistics-table' => "名前空間別のページの査読に関する統計を以下に表示します（リダイレクトページは'''除外'''）。",
+	'validationstatistics-table' => "名前空間別のページの査読に関する統計を以下に表示します（リダイレクトページは''除外''）。ページに査読待ちの編集がある場合は、''最新版未査読''として扱われます。査読待ちの編集がない場合は、''最新版査読済''とみなされます。",
 	'validationstatistics-ns' => '名前空間',
 	'validationstatistics-total' => 'ページ数',
 	'validationstatistics-stable' => '査読済',
 	'validationstatistics-latest' => '最新版査読済',
 	'validationstatistics-synced' => '最新版査読済/全査読済',
 	'validationstatistics-old' => '最新版未査読',
-	'validationstatistics-utable' => '以下は、最近1時間において最も活動的な査読者$1人の一覧です。',
+	'validationstatistics-utable' => '以下は、最近$2{{PLURAL:$2|}}時間において最も活動的な査読者$1人{{PLURAL:$1|}}の一覧です。',
 	'validationstatistics-user' => '利用者',
 	'validationstatistics-reviews' => '査読回数',
 );
@@ -1571,14 +1571,14 @@ O atraso médio para [[Special:OldReviewedPages|páginas com edições à espera
 Estas páginas são consideradas ''desatualizadas''. Da mesma forma, as páginas são consideradas ''sincronizadas'' se não tiverem edições em espera.",
 	'validationstatistics-revtime' => "O tempo médio de espera para revisão das edições de ''usuários não autenticados'' é '''$1'''; a mediana é '''$2'''. 
 $3",
-	'validationstatistics-table' => "As estatísticas de cada espaço nominal são exibidas abaixo, '''excluindo''' páginas de redirecionamento.",
+	'validationstatistics-table' => "São apresentadas abaixo estatísticas das revisões em cada espaço nominal, '''excluindo''' páginas de redirecionamento. As páginas são consideradas ''desatualizadas'' se tiverem edições à espera de revisão, e ''sincronizadas'' se não tiverem edições em espera.",
 	'validationstatistics-ns' => 'Espaço nominal',
 	'validationstatistics-total' => 'Páginas',
 	'validationstatistics-stable' => 'Analisadas',
 	'validationstatistics-latest' => 'Sincronizada',
 	'validationstatistics-synced' => 'Sincronizadas/Analisadas',
 	'validationstatistics-old' => 'Desatualizadas',
-	'validationstatistics-utable' => 'Abaixo está a lista {{PLURAL:$1|do revisor mais ativo|dos $1 revisores mais ativos}} na última hora.',
+	'validationstatistics-utable' => 'Abaixo está a lista {{PLURAL:$1|do revisor mais ativo|dos $1 revisores mais ativos}} {{PLURAL:$2|na última hora|nas últimas horas}}.',
 	'validationstatistics-user' => 'Usuário',
 	'validationstatistics-reviews' => 'Análises',
 );

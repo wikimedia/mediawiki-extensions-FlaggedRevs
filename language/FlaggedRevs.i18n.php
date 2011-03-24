@@ -13985,10 +13985,14 @@ Faça-o só se já viu a lista completa de diferenças das alterações pendente
 	'revreview-main' => 'Você tem de selecionar uma edição específica de uma página, para revisá-la.
 
 Veja a [[Special:Unreviewedpages|lista de páginas não revisadas]].',
-	'revreview-newest-basic' => 'A [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} versão publicada] foi [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} verificada] em <i>$2</i>. {{PLURAL:$3|Existe|Existem}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|alteração pendente|alterações pendentes}}] aguardando revisão.',
-	'revreview-newest-basic-i' => 'A [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} versão publicada] foi [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} verificada] em <i>$2</i>. Existem [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} alterações a predefinições ou arquivos] aguardando revisão.',
-	'revreview-newest-quality' => 'A [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} versão publicada] foi [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovada] em <i>$2</i>. {{PLURAL:$3|Existe|Existem}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|alteração pendente|alterações pendentes}}] aguardando revisão.',
-	'revreview-newest-quality-i' => 'A [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} versão publicada] foi [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovada] em <i>$2</i>. Existem [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} alterações a predefinições ou arquivos] aguardando revisão.',
+	'revreview-newest-basic' => '{{PLURAL:$3|Existe|Existem}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|alteração pendente|alterações pendentes}}] [[{{MediaWiki:Validationpage}}|aguardando revisão]].
+A [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} versão publicada] foi [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} verificada] em <i>$2</i>.',
+	'revreview-newest-basic-i' => 'Existem [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} alterações a predefinições ou arquivos] [[{{MediaWiki:Validationpage}}|aguardando revisão]].
+A [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} versão publicada] foi [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} verificada] em <i>$2</i>.',
+	'revreview-newest-quality' => '{{PLURAL:$3|Existe|Existem}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|alteração pendente|alterações pendentes}}] [[{{MediaWiki:Validationpage}}|aguardando revisão]].
+A [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} versão publicada] foi [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovada] em <i>$2</i>.',
+	'revreview-newest-quality-i' => 'Existem [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} alterações a predefinições ou arquivos] [[{{MediaWiki:Validationpage}}|aguardando revisão]].
+A [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} versão publicada] foi [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovada] em <i>$2</i>.',
 	'revreview-pending-basic' => 'A [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} versão publicada] foi [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} verificada] em <i>$2</i>. {{PLURAL:$3|Existe|Existem}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|alteração pendente|alterações pendentes}}] aguardando revisão.',
 	'revreview-pending-quality' => 'A [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} versão publicada] foi [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovada] em <i>$2</i>. {{PLURAL:$3|Existe|Existem}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|alteração pendente|alterações pendentes}}] aguardando revisão.',
 	'revreview-pending-nosection' => 'Tente ver a [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} edição mais recente], que inclui
@@ -14036,7 +14040,8 @@ Podem existir [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} altera
 	'revreview-submit-unreviewed' => 'Feito. Aprovação anulada!',
 	'revreview-successful' => "'''A edição de [[:$1|$1]] foi marcada com sucesso. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} ver as versões revisadas])'''",
 	'revreview-successful2' => "'''A edição de [[:$1|$1]] foi desmarcada com sucesso.'''",
-	'revreview-text' => "'''[[{{MediaWiki:Validationpage}}|Versões revisadas]] são versões verificadas das páginas, usadas para determinar a versão publicada.'''",
+	'revreview-poss-conflict-p' => "'''Aviso: O usuário [[User:$1|$1]] começou a revisar esta página às $3 de $2.'''",
+	'revreview-poss-conflict-c' => "'''Aviso: O usuário [[User:$1|$1]] começou a revisar estas alterações às $3 de $2.'''",
 	'revreview-toggle-title' => 'mostrar/esconder detalhes',
 	'revreview-toolow' => '\'\'\'Para uma edição ser considerada revisada, você deve avaliar cada atributo com valores acima de "inadequada".\'\'\'
 
@@ -14058,6 +14063,7 @@ Para que as suas edições apareçam na versão publicada, revise todas as alter
 	'revreview-revnotfound' => 'A antiga revisão da página que você está procurando não pode ser encontrada.
 Por favor verifique a URL que você usou para acessar esta página.',
 	'right-autoreview' => 'Ter as próprias edições marcadas como "verificadas"',
+	'right-autoreviewrestore' => 'Autorrevisar ao reverter',
 	'right-movestable' => 'Mover páginas publicadas',
 	'right-review' => 'Marcar edições como tendo sido "verificadas"',
 	'right-stablesettings' => 'Configurar como é selecionada e apresentada a versão publicada',
@@ -18213,16 +18219,16 @@ $messages['vep'] = array(
 	'editor' => 'Redaktor',
 	'flaggedrevs' => 'Znamoitud versijad',
 	'flaggedrevs-watched-pending' => "Nügüd' om [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} uzid arvosteldud lehtpoliden redakcijoid] teiden kaclendnimikirjuteses. '''Olgat hüväd, vedagat teiden tarkust!'''",
-	'flaggedrevs-desc' => 'Andab redaktorile/recenzentoile voimut kodvda lehtpoliden stabiližed versijad da vahvištada stabiližed versijad',
-	'flaggedrevs-pref-UI' => 'Stabiližen versijan interfeis:',
-	'flaggedrevs-pref-UI-0' => 'Kävutada stabiližiden versijoiden detaline interfeis',
-	'flaggedrevs-pref-UI-1' => 'Kävutada stabiližiden versijoiden detalitoi interfeis',
-	'prefs-flaggedrevs' => 'Stabiližuz',
-	'prefs-flaggedrevs-ui' => 'Znamoitud versijad',
-	'flaggedrevs-prefs-stable' => 'Kaiken ozutada augotižjärgendusen mödhe stabiline versii (ku se om)',
+	'flaggedrevs-desc' => 'Andab redaktorile voimut kodvda lehtpoliden versijad da stabiliziruida versijad',
+	'flaggedrevs-pref-UI' => 'Järgeline interfeis:',
+	'flaggedrevs-pref-UI-0' => 'Kävutada detaliziruidud informacijad lehtpolen vahvištamižen statusas',
+	'flaggedrevs-pref-UI-1' => 'Kävutada pened znamaižed da minimum tekstad, miše ozutada informacijad lehtpolen vahvištamižen statusas',
+	'prefs-flaggedrevs' => 'Toižetusiden vahvištoitand',
+	'prefs-flaggedrevs-ui' => 'Toižetusiden vahvištoitand',
+	'flaggedrevs-prefs-stable' => 'Kaiken ozutada augotižjärgendusen mödhe südäimištlehtpoliden stabiližed versijad (ku niid om)',
 	'flaggedrevs-prefs-watch' => 'Ližata minai kodvdud lehtpolid kaclendnimikirjuteshe',
-	'flaggedrevs-prefs-editdiffs' => 'Ozutada erod stabiližen versijanke lehtpolen redaktiruindan aigan',
-	'flaggedrevs-prefs-viewdiffs' => 'Ozutada erod stabiližen versijanke korvversijad kactes',
+	'flaggedrevs-prefs-editdiffs' => 'Ozutada erod kodvdud da ei kodvdud versijoiden keskes lehtpoliden redaktiruindan aigan',
+	'flaggedrevs-prefs-viewdiffs' => "Ozutada kodvmatomad toižetused lehtpolen jäl'gmäšt kodvmatont versijad kactes",
 	'group-editor' => 'Redaktorad',
 	'group-editor-member' => 'redaktor',
 	'group-reviewer' => 'Arvostelijad',
@@ -19146,7 +19152,8 @@ $messages['zh-hans'] = array(
 	'revreview-submit-unreviewed' => '完成。已取消批准！',
 	'revreview-successful' => "'''[[:$1|$1]]的指定版本已被标记。 ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} 检视已审核版本])'''",
 	'revreview-successful2' => "'''[[:$1|$1]]的指定版本已成功移除标记。'''",
-	'revreview-text' => '[[{{MediaWiki:Validationpage}}|稳定版]]会设定成一页检视时的预设内容，而非最新的修订。',
+	'revreview-poss-conflict-p' => "'''警告：[[User:$1|$1]]在$2$3开始审查此页。'''",
+	'revreview-poss-conflict-c' => "'''警告：[[User:$1|$1]]于$2$3起开始审查这些更改'''",
 	'revreview-toggle-title' => '显示/隐藏详细信息',
 	'revreview-toolow' => "'''你必须率每个属性高于''不足\"，以便考虑修订审查。'''
 
@@ -19168,6 +19175,7 @@ $messages['zh-hans'] = array(
 	'revreview-revnotfound' => '您请求的更早版本的修订记录没有找到。
 请检查您请求本页面用的 URL 是否正确。',
 	'right-autoreview' => '将自己的编辑自动标示为已审核的',
+	'right-autoreviewrestore' => '回退自动审查',
 	'right-movestable' => '移动稳定页面',
 	'right-review' => '将修改标记为已检查',
 	'right-stablesettings' => '设定如何发布及显示稳定版本选择',
