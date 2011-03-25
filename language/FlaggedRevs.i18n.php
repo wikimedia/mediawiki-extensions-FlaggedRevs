@@ -11786,6 +11786,7 @@ $messages['mr'] = array(
 );
 
 /** Malay (Bahasa Melayu)
+ * @author Anakmalaysia
  * @author Aurora
  * @author Aviator
  * @author Kurniasan
@@ -11898,8 +11899,7 @@ Beberapa [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} perubahan] 
 	'revreview-submitting' => 'Menyerah...',
 	'revreview-successful' => "'''Semakan bagi [[:$1|$1]] berjaya ditanda. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} lihat semua versi stabil])'''",
 	'revreview-successful2' => "'''Tanda semakan bagi [[:$1|$1]] berjaya dibuang.'''",
-	'revreview-text' => "''[[{{MediaWiki:Validationpage}}|Versi stabil]] ialah kandungan laman lalai yang menggantikan semakan terbaru untuk dipaparkan kepada pengunjung.''",
-	'revreview-toggle-title' => 'papar/sembunyi butiran',
+	'revreview-toggle-title' => 'paparkan/sorokkan butiran',
 	'revreview-toolow' => '\'\'\'Anda hendaklah memberi penilaian yang lebih tinggi daripada "tidak disahkan" kepada setiap kriteria di bawah untuk semakan dianggap telah ditinjau.\'\'\'
 Untuk menggugurkan semakan ini, sila tukar semua kriteria kepada "tidak disahkan".
 
@@ -15237,16 +15237,16 @@ $messages['sk'] = array(
 	'flaggedrevs' => 'Označené verzie',
 	'flaggedrevs-watched-pending' => "Momentálne existujú [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} neskontrolované úpravy] skontrolovaných stránok, ktoré máte v zozname sledovaných.
 '''Vyžaduje sa vaša pozornosť!'''",
-	'flaggedrevs-desc' => 'Dáva redaktorom/kontrolórom možnosť overovať revízie a označovať stránky ako stabilné',
-	'flaggedrevs-pref-UI' => 'Rozhranie stabilnej verzie:',
-	'flaggedrevs-pref-UI-0' => 'Používať podrobné používateľské rozhranie stabilných verzií',
-	'flaggedrevs-pref-UI-1' => 'Používať jednoduché používateľské rozhranie stabilných verzií',
-	'prefs-flaggedrevs' => 'Stabilita',
-	'prefs-flaggedrevs-ui' => 'Označené revízie',
+	'flaggedrevs-desc' => 'Dáva redaktorom možnosť overovať revízie a označovať stránky ako stabilné',
+	'flaggedrevs-pref-UI' => 'Základné rozhranie:',
+	'flaggedrevs-pref-UI-0' => 'Pužívať podrobné infoboxy na zobrazenie stavu kontroly stránok',
+	'flaggedrevs-pref-UI-1' => 'Používať malé ikony a minimum textu na zobrazenie stavu kontroly stránok',
+	'prefs-flaggedrevs' => 'Upraviť kontrolu',
+	'prefs-flaggedrevs-ui' => 'Upraviť kontrolu',
 	'flaggedrevs-prefs-stable' => 'Vždy štandardne zobrazovať stabilnú verziu stránok s obsahom (ak existuje)',
 	'flaggedrevs-prefs-watch' => 'Pridať stránky, ktoré skontrolujem, do môjho zoznamu sledovaných',
-	'flaggedrevs-prefs-editdiffs' => 'Zobrazovať pri upravovaní stránky rozdiely od stabilnej verzie',
-	'flaggedrevs-prefs-viewdiffs' => 'Zobraziť rozdiel oproti stabilnej pri zobrazovaní návrhov stránok',
+	'flaggedrevs-prefs-editdiffs' => 'Zobrazovať pri upravovaní stránky rozdiel so zmenami čakajúcimi na schválenie',
+	'flaggedrevs-prefs-viewdiffs' => 'Zobrazovať rozdiel so zmenami čakajúcimi na schválenie pri zobrazení poslednej revízie čakajúcej na schválenie',
 	'group-editor' => 'Redaktori',
 	'group-editor-member' => 'Redaktor',
 	'group-reviewer' => 'Revízori',
@@ -15256,16 +15256,16 @@ $messages['sk'] = array(
 	'group-autoreview' => 'Autokontrolóri',
 	'group-autoreview-member' => 'autokontrolór',
 	'grouppage-autoreview' => '{{ns:project}}:Autokontrolór',
-	'revreview-hist-draft' => 'revízia - návrh',
+	'revreview-hist-draft' => 'neskontrolovaná revízia',
 	'revreview-hist-pending' => 'čaká na kontrolu',
 	'revreview-hist-quality' => 'kvalitná revízia',
-	'revreview-hist-basic' => 'videná revízia',
+	'revreview-hist-basic' => 'skontrolovaná revízia',
 	'revreview-hist-quality-user' => 'schválil [[User:$3|$3]]',
-	'revreview-hist-basic-user' => 'videl [[User:$3|$3]]',
+	'revreview-hist-basic-user' => 'skontroloval [[User:$3|$3]]',
 	'revreview-hist-quality-auto' => 'automaticky schválená',
-	'revreview-hist-basic-auto' => 'automaticky videná',
+	'revreview-hist-basic-auto' => 'automaticky skontrolovaná',
 	'revreview-hist-pending-difflink' => "'''[[{{fullurl:$1|oldid=$2&diff=$3}} čaká na kontrolu]]'''",
-	'review-edit-diff' => "'''Poznámka: Niektoré čakajúce zmeny publikovanej verzie sú súčasťou poľa na úpravy dolu.'''",
+	'review-edit-diff' => "'''Poznámka: ''Niektoré'' z čakajúcich zmien ovplyvňujú oblasť stránky, ktorú upravujete.'''",
 	'revreview-diff-toggle-show' => 'zobraziť zmeny',
 	'revreview-diff-toggle-hide' => '(skryť zmeny)',
 	'revreview-diff-toggle-title' => 'Prepnúť zobrazenie zmien medzi návrhom a zverejnenou verziou',
@@ -15403,7 +15403,6 @@ Je možné, že boli vykonané ďalšie [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&di
 	'revreview-submit-unreviewed' => 'Hotovo. Neprijaté!',
 	'revreview-successful' => "'''Vybraná revízia [[:$1|$1]] bola úspešne označená. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} zobraziť stabilné verzie])'''",
 	'revreview-successful2' => "'''Označenie vybranej revízie [[:$1|$1]] bolo úspešne zrušené.'''",
-	'revreview-text' => "''[[{{MediaWiki:Validationpage}}|Stabilné verzie]], nie najnovšie verzie, sú nastavené ako štandardný obsah stránky pre čitateľov.''",
 	'revreview-toggle-title' => 'zobraziť/skryť podrobnosti',
 	'revreview-toolow' => "'''Musíte ohodnotiť každý z nasledujúcich atribútov minimálne vyššie ako „neschválené“, aby bolo možné verziu považovať za skontrolovanú.'''
 Ak chcete učiniť verziu zavrhovanou, nastavte všetky polia na „neschválené“.
