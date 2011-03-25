@@ -394,10 +394,8 @@ class FlaggedRevsHooks {
 	}
 
 	public static function onLanguageGetMagic( &$magicWords, $langCode ) {
-		$magicWords['pagesusingpendingchanges'] =
-			array( 0, 'pagesusingpendingchanges' );
-		$magicWords['pendingchangelevel'] =
-			array( 0, 'pendingchangelevel' );
+		$magicWords['pagesusingpendingchanges'] = array( 0, 'pagesusingpendingchanges' );
+		$magicWords['pendingchangelevel'] = array( 0, 'pendingchangelevel' );
 		return true;
 	}
 

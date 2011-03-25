@@ -110,18 +110,21 @@ class FlaggedRevs {
 		self::$reviewNamespaces = $wgFlaggedRevsNamespaces;
 		# Note: reviewable *pages* override patrollable ones
 		self::$patrolNamespaces = $wgFlaggedRevsPatrolNamespaces;
-		# B/C for $wgFlaggedRevsAutoReview
+		# Handle $wgFlaggedRevsAutoReview settings
 		global $wgFlaggedRevsAutoReview, $wgFlaggedRevsAutoReviewNew;
 		if ( is_int( $wgFlaggedRevsAutoReview ) ) {
 			self::$autoReviewConfig = $wgFlaggedRevsAutoReview;
-		} else {
+		} else { // b/c
 			if ( $wgFlaggedRevsAutoReview ) {
-				self::$autoReviewConfig |= FR_AUTOREVIEW_CHANGES; // b/c
+				self::$autoReviewConfig = FR_AUTOREVIEW_CHANGES;
 			}
-			if ( $wgFlaggedRevsAutoReviewNew ) {
-				self::$autoReviewConfig |= FR_AUTOREVIEW_CREATION; // b/c
-			}
-			wfWarn( '$wgFlaggedRevsAutoReview is now a bitfield instead of a boolean. $wgFlaggedRevsAutoReviewNew is deprecated.' );
+			wfWarn( '$wgFlaggedRevsAutoReview is now a bitfield instead of a boolean.' );
+		}
+		if ( isset( $wgFlaggedRevsAutoReviewNew ) ) { // b/c
+			self::$autoReviewConfig = ( $wgFlaggedRevsAutoReviewNew )
+				? self::$autoReviewConfig |= FR_AUTOREVIEW_CREATION
+				: self::$autoReviewConfig & ~FR_AUTOREVIEW_CREATION;
+			wfWarn( '$wgFlaggedRevsAutoReviewNew is deprecated; use $wgFlaggedRevsAutoReview.' );
 		}
 	}
 	
