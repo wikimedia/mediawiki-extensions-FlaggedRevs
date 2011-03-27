@@ -476,11 +476,11 @@ class FlaggedRevs {
 	# ################ Parsing functions #################
 
 	/** 
-	 * All included pages/arguments are expanded out
+	 * All templates and arguments in $text are expanded out
 	 * @param Title $title
-	 * @param string $text
+	 * @param string $text wikitext
 	 * @param int $id Source revision Id
-	 * @return array( string, array, array )
+	 * @return array( string wikitext, array of template versions )
 	 */
 	public static function expandText( Title $title, $text, $id ) {
 		global $wgParser;
@@ -500,13 +500,13 @@ class FlaggedRevs {
 		}
 		$options = self::makeParserOptions(); // default options
 		$outputText = $wgParser->preprocess( $text, $title, $options, $id );
-		$out = $wgParser->mOutput;
+		$pOutput = $wgParser->getOutput();
 		# Stable parse done!
 		if ( $resetManager ) {
 			$incManager->clear(); // reset the FRInclusionManager as needed
 		}
 		# Return data array
-		return array( $outputText, $out->mTemplateIds, $out->fr_includeErrors );
+		return array( $outputText, $pOutput->getTemplateIds() );
 	}
 
 	/**

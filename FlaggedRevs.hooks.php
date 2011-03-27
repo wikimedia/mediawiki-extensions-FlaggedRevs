@@ -285,14 +285,6 @@ class FlaggedRevsHooks {
 	}
 
 	/**
-	* Add special fields to parser.
-	*/
-	public static function parserAddFields( Parser $parser ) {
-		$parser->getOutput()->fr_includeErrors = array();
-		return true;
-	}
-
-	/**
 	* Select the desired templates based on the selected stable revision IDs
 	* Note: $parser can be false
 	*/
@@ -305,12 +297,12 @@ class FlaggedRevsHooks {
 			return true; // trigger for stable version parsing only
 		}
 		$id = false; // current
-		# Check for the version of this template used when reviewed.
+		# Check for the version of this template used when reviewed...
 		$maybeId = $incManager->getReviewedTemplateVersion( $title );
 		if ( $maybeId !== null ) {
 			$id = (int)$maybeId; // use if specified (even 0)
 		}
-		# Check for stable version of template if this feature is enabled.
+		# Check for stable version of template if this feature is enabled...
 		if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_STABLE ) {
 			$maybeId = $incManager->getStableTemplateVersion( $title );
 			# Take the newest of these two...
@@ -318,11 +310,8 @@ class FlaggedRevsHooks {
 				$id = (int)$maybeId;
 			}
 		}
-		# If $id not specified, see if we are allowed to use the current revision
-		if ( $id === false ) {
-			$parser->getOutput()->fr_includeErrors[] = $title->getPrefixedDBKey(); // unspecified
-		# If $id is zero, don't bother loading it
-		} elseif ( !$id ) {
+		# If $id is zero, don't bother loading it (use blue/red link)
+		if ( $id === 0 ) {
 			$skip = true;
 		}
 		return true;
@@ -335,7 +324,8 @@ class FlaggedRevsHooks {
 		if ( !( $parser instanceof Parser ) ) {
 			return true; // nothing to do
 		}
-		if ( !FRInclusionManager::singleton()->parserOutputIsStabilized() ) {
+		$incManager = FRInclusionManager::singleton();
+		if ( !$incManager->parserOutputIsStabilized() ) {
 			return true; // trigger for stable version parsing only
 		}
 		# Normalize NS_MEDIA to NS_FILE
@@ -345,30 +335,15 @@ class FlaggedRevsHooks {
 		} else {
 			$title =& $nt;
 		}
-		# Get version, update mImageTimeKeys...
-		list( $time, $sha1 ) = self::parserFindStableFile( $parser, $title );
-		# Stabilize the file link
-		if ( $time ) {
-			if ( $query != '' ) $query .= '&';
-			$query = "filetimestamp=" . urlencode( wfTimestamp( TS_MW, $time ) );
-		}
-		return true;
-	}
-
-	/**
-	* Select the desired images based on the selected stable version time/SHA-1
-	*/
-	protected static function parserFindStableFile( Parser $parser, Title $title ) {
 		$time = false; // current version
 		$sha1 = false; // corresponds to $time
-		# Check for the version of this file used when reviewed.
-		$incManager = FRInclusionManager::singleton();
+		# Check for the version of this file used when reviewed...
 		list( $maybeTS, $maybeSha1 ) = $incManager->getReviewedFileVersion( $title );
 		if ( $maybeTS !== null ) {
 			$time = $maybeTS; // use if specified (even "0")
 			$sha1 = $maybeSha1;
 		}
-		# Check for stable version of file if this feature is enabled.
+		# Check for stable version of file if this feature is enabled...
 		if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_STABLE ) {
 			list( $maybeTS, $maybeSha1 ) = $incManager->getStableFileVersion( $title );
 			# Take the newest of these two...
@@ -377,14 +352,12 @@ class FlaggedRevsHooks {
 				$sha1 = $maybeSha1;
 			}
 		}
-		# If $time not specified, see if we are allowed to use the current revision
-		if ( $time === false ) {
-			# May want to give an error, so track these...
-			$parser->getOutput()->fr_includeErrors[] = $title->getPrefixedDBKey();
-		} elseif ( !$time ) {
-			$time = "0"; // make sure this the string '0'
+		# Stabilize the file link
+		if ( $time ) {
+			if ( $query != '' ) $query .= '&';
+			$query = "filetimestamp=" . urlencode( wfTimestamp( TS_MW, $time ) );
 		}
-		return array( $time, $sha1 );
+		return true;
 	}
 
 	public static function onParserFirstCallInit( &$parser ) {
