@@ -575,7 +575,7 @@ $messages['nn'] = array(
  */
 $messages['no'] = array(
 	'problemchanges' => 'Merket ventende endringer',
-	'problemchanges-list' => 'Denne siden lister opp [[{{MediaWiki:Validationpage}}|reviderte]] sider med en eller flere merkede ventende endringer. En liste over gyldige endringsmerkelapper kan finnes på [[Special:Tags]].',
+	'problemchanges-list' => 'Denne siden lister opp [[{{MediaWiki:Validationpage}}|reviderte]] sider med en eller flere merkede ventende endringer. En liste over [[Special:Tags|gyldige endringsmerkelapper]] er tilgjengelig.',
 	'problemchanges-legend' => 'Vis sider som inneholder merkede redigeringer som trenger gjennomsyn',
 	'problemchanges-none' => 'Det er for øyeblikket ingen sider som passer med disse kjennetegnene',
 	'problemchanges-category' => 'Kategori:',

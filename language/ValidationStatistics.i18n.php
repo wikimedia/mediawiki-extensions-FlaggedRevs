@@ -1409,20 +1409,19 @@ $messages['no'] = array(
 
 Skribenter er etablerte brukere som kan punktsjekke siderevisjoner.",
 	'validationstatistics-lastupdate' => "''Følgende data ble sist oppdatert $1, $2.''",
-	'validationstatistics-pndtime' => "Redigeringer som har blitt kontrollert av etablerte brukere anses å være revidert.
+	'validationstatistics-pndtime' => "Redigeringer som har blitt kontrollert av etablerte brukere anses å være ''revidert''.
 
-Gjennomsnittsforsinkelsen for [[Special:OldReviewedPages|sider med ureviderte ventende endringer]] er '''$1'''.
-Disse sidene anses ''utdatert''. På samme måte anses sider ''synkronisert'' om det ikke er flere ventende endringer.",
+Gjennomsnittsforsinkelsen for [[Special:OldReviewedPages|sider med ureviderte ventende endringer]] er '''$1'''; forsinkelsen måler hvor lenge den eldste ventende endringer har vært uvurdert.",
 	'validationstatistics-revtime' => "Gjennomsnittsventetiden for endringer av ''brukere som ikke har logget inn'' å bli revidert er '''$1'''; medianen er '''$2'''.
 $3",
-	'validationstatistics-table' => "Siderevideringsstatistikk for hvert navnerom vises nedenfor, ''utenom'' omdirigeringssider.",
+	'validationstatistics-table' => "Siderevideringsstatistikk for hvert navnerom vises nedenfor, ''utenom'' omdirigeringssider. Sider behandles som ''utdaterte'' om de har uvurderte ventende endringer; sider anses å være ''synket'' dersom de har ingen uvurderte ventende endringer.",
 	'validationstatistics-ns' => 'Navnerom',
 	'validationstatistics-total' => 'Sider',
 	'validationstatistics-stable' => 'Anmeldt',
 	'validationstatistics-latest' => 'Synkronisert',
 	'validationstatistics-synced' => 'Synkronisert/Anmeldt',
 	'validationstatistics-old' => 'Foreldet',
-	'validationstatistics-utable' => 'Under er en liste over {{PLURAL:$1|den mest aktive anmelderen|de $1 mest aktive anmelderne}} den siste timen.',
+	'validationstatistics-utable' => 'Under er en liste over {{PLURAL:$1|den mest aktive anmelderen|de $1 mest aktive anmelderne}} {{PLURAL:$2|den siste timen|de siste $2 timene}}.',
 	'validationstatistics-user' => 'Bruker',
 	'validationstatistics-reviews' => 'Anmeldelser',
 );

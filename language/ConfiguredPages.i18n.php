@@ -291,9 +291,10 @@ $messages['fa'] = array(
 
 /** Finnish (Suomi)
  * @author Olli
+ * @author Pxos
  */
 $messages['fi'] = array(
-	'configuredpages' => 'Sivut, joilla on tarkistusasetuksia',
+	'configuredpages' => 'Sivut, joilla on arviointiasetuksia',
 	'configuredpages-list' => 'Alla on lista sivuista, joilla on sivun oletusasetuksista poikkeavat hyväksymisasetukset.
 Jotkut asetukset saattavat muuttaa sitä, mikä versio näytetään lukijoille tai rajoittaa tulevia muokkauksia siltä osin, kuka voi tehdä muokkauksia, joita ei tarvitse tarkistaa.',
 	'configuredpages-none' => 'Tällä listalla ei ole sivuja.',
