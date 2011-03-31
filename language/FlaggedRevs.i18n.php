@@ -5680,6 +5680,7 @@ $3  [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} تغییر در�
  * @author Cimon Avaro
  * @author Crt
  * @author Jaakonam
+ * @author Nedergard
  * @author Nike
  * @author Olli
  * @author Pxos
@@ -5745,7 +5746,7 @@ $messages['fi'] = array(
 	'revisionreview' => 'Arvioi versioita',
 	'revreview-accuracy' => 'Paikkansapitävyys',
 	'revreview-accuracy-0' => 'Puutteellinen',
-	'revreview-accuracy-1' => 'katsastettu',
+	'revreview-accuracy-1' => 'Katsastettu',
 	'revreview-accuracy-2' => 'Paikkansapitävä',
 	'revreview-accuracy-3' => 'Hyvin lähteistetty',
 	'revreview-accuracy-4' => 'Kiitettävä',
@@ -5910,7 +5911,10 @@ Arvioi kaikki alla olevat muutokset, jotta muokkauksesi näkyisivät vakaassa ve
 	'revreview-restrictfilter' => 'Automaattisen arvioinnin rajoitus:',
 	'revreview-restriction-any' => 'mikä tahansa',
 	'revreview-restriction-none' => 'ei mikään',
+	'revreview-reject-summary' => 'Muokkaa yhteenvetoa:',
+	'revreview-reject-confirm' => 'Hylkää muutokset',
 	'revreview-reject-cancel' => 'Peruuta',
+	'revreview-reject-usercount' => '{{PLURAL:$1|yksi käyttäjä|$1 käyttäjää}}',
 	'revreview-reviewlink' => 'odottavat muokkaukset',
 	'revreview-reviewlink-title' => 'Näytä odottavien muokkausten eroavuudet',
 	'revreview-unreviewedpage' => 'tarkistamaton sivu',

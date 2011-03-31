@@ -599,6 +599,7 @@ $3",
 /** Finnish (Suomi)
  * @author Cimon Avaro
  * @author Crt
+ * @author Nedergard
  * @author Olli
  * @author Silvonen
  * @author Str4nd
@@ -624,7 +625,7 @@ $3",
 	'validationstatistics-latest' => 'Synkronoitu',
 	'validationstatistics-synced' => 'Synkronoitu/arvioitu',
 	'validationstatistics-old' => 'Vanhentunut',
-	'validationstatistics-utable' => 'Alla on lueteltu {{PLURAL:$1|aktiivisin arvioija|$1 aktiivisinta arvioijaa}} edellisen tunnin ajalta.',
+	'validationstatistics-utable' => 'Alla on lueteltu {{PLURAL:$1|aktiivisin arvioija|$1 aktiivisinta arvioijaa}} edellisen {{PLURAL:$2|tunnin|$2 tunnin}} ajalta.',
 	'validationstatistics-user' => 'Käyttäjä',
 	'validationstatistics-reviews' => 'Arviot',
 );
@@ -1619,14 +1620,14 @@ Le cangiature sonde utinde stabbelite ca ponne fà verifiche a cambione de le re
 'U ritarde medie pe [[Special:OldReviewedPages|le pàggene cu cangiaminde pendende none reviste]] jè '''$1'''; 'a mesure d'u ritarde parte da quanne 'u cangiamende pendende cchiù vecchie non g'a state reviste.",
 	'validationstatistics-revtime' => "'A medie de attese pe le cangiaminde da ''utinde ca non ge s'onne collegate'' pe esseere reviste jè '''$1'''; 'a mediane jè '''$2'''.
 $3",
-	'validationstatistics-table' => "Le statisteche de le pàggene reviste pe ogne namespace sonde fatte vedè aqquà sotte, ''<nowiki>'</nowiki>scludenne'' le pàggene de le redirezionaminde.",
+	'validationstatistics-table' => "Le statisteche de le pàggene reviste pe ogne namespace avènene fatte vedè aqquà sotte, ''<nowiki>'</nowiki>scludenne'' le pàggene de le redirezionaminde. Le pàggene sonde trattate cumme ''none aggiornate'' ce lore onne cangiaminde appise pa revisione; le pàggene sonde conziderate ''aggiornate'' ce non ge tènene cangiaminde appise pa revisione.",
 	'validationstatistics-ns' => 'Neimspeise',
 	'validationstatistics-total' => 'Pàggene',
 	'validationstatistics-stable' => 'Riviste',
 	'validationstatistics-latest' => 'Singronizzate',
 	'validationstatistics-synced' => 'Singronizzete/Riviste',
 	'validationstatistics-old' => "Non g'è aggiornete",
-	'validationstatistics-utable' => "Sotte ste 'na liste de le {{PLURAL:$1|revisitatore cchiù attive|$1 revisitature cchiù attive}}jndr'à  l'urtema ore.",
+	'validationstatistics-utable' => "Sotte ste 'n'elenghe de le {{PLURAL:$1|revisitatore cchiù attive|$1 revisitature cchiù attive}} jndr'à {{PLURAL:$2|l'urtema ore|$2 l'urteme ore}}.",
 	'validationstatistics-user' => 'Utende',
 	'validationstatistics-reviews' => 'Reviste',
 );
