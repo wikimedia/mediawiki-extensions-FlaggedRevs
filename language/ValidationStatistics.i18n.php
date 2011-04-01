@@ -1239,6 +1239,15 @@ $3",
 	'validationstatistics-reviews' => 'Beoeardeilinge',
 );
 
+/** Latgalian (Latgaļu)
+ * @author Dark Eagle
+ */
+$messages['ltg'] = array(
+	'validationstatistics-ns' => 'Vuordu pluots',
+	'validationstatistics-total' => 'Puslopys',
+	'validationstatistics-user' => 'Lītuotuojs',
+);
+
 /** Eastern Mari (Олык Марий)
  * @author Сай
  */
