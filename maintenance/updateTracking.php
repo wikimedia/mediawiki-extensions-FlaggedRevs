@@ -22,7 +22,7 @@ Usage:
 
     --help             : This help message
     --<ID>             : The ID of the starting rev/page
-    --<CALL>           : One of (revs, pages)
+    --<CALL>           : One of (revs, pages, images)
 
 TEXT;
 	exit(0);
@@ -45,6 +45,9 @@ if ( $updateonly ) {
 		case 'pages':
 			update_flaggedpages( $startPage );
 			break;
+		case 'images':
+			update_flaggedimages( $startRev );
+			break;
 		default:
 			echo "Invalidate operation specified.\n";
 	}
@@ -54,3 +57,5 @@ if ( $updateonly ) {
 update_flaggedrevs( $startRev );
 
 update_flaggedpages( $startPage );
+
+update_flaggedimages( $startRev );

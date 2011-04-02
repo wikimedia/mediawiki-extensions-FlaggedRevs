@@ -11,7 +11,7 @@ function update_flaggedrevs( $start = null ) {
 		$start = $db->selectField( 'revision', 'MIN(rev_id)', false, __FUNCTION__ );
 	}
 	$end = $db->selectField( 'revision', 'MAX(rev_id)', false, __FUNCTION__ );
-	if( is_null( $start ) || is_null( $end ) ){
+	if( is_null( $start ) || is_null( $end ) ) {
 		echo "...revision table seems to be empty.\n";
 		return;
 	}
@@ -105,7 +105,7 @@ function update_flaggedpages( $start = null ) {
 		$start = $db->selectField( 'page', 'MIN(page_id)', false, __FUNCTION__ );
 	}
 	$end = $db->selectField( 'page', 'MAX(page_id)', false, __FUNCTION__ );
-	if( is_null( $start ) || is_null( $end ) ){
+	if( is_null( $start ) || is_null( $end ) ) {
 		echo "...flaggedpages table seems to be empty.\n";
 		return;
 	}
@@ -163,4 +163,45 @@ function update_flaggedpages( $start = null ) {
 		wfWaitForSlaves( 5 );
 	}
 	echo "flaggedpage columns update complete ... {$count} rows [{$fixed} fixed] [{$deleted} deleted]\n";
+}
+
+function update_flaggedimages( $start = null ) {
+	echo "Cleaning up flaggedimages columns\n";
+	
+	$BATCH_SIZE = 1000;
+	
+	$db = wfGetDB( DB_MASTER );
+	
+	if( $start === null ) {
+		$start = $db->selectField( 'flaggedimages', 'MIN(fi_rev_id)', false, __FUNCTION__ );
+	}
+	$end = $db->selectField( 'flaggedimages', 'MAX(fi_rev_id)', false, __FUNCTION__ );
+	if( is_null( $start ) || is_null( $end ) ) {
+		echo "...flaggedimages table seems to be empty.\n";
+		return;
+	}
+	# Do remaining chunk
+	$end += $BATCH_SIZE - 1;
+	$blockStart = $start;
+	$blockEnd = $start + $BATCH_SIZE - 1;
+	$nulled = 0;
+	while( $blockEnd <= $end ) {
+		echo "...doing fi_rev_id from $blockStart to $blockEnd\n";
+		$cond = "fi_rev_id BETWEEN $blockStart AND $blockEnd";
+		$db->begin();
+		# Remove padding garbage and such...turn to NULL instead
+		$db->update( 'flaggedimages',
+			array( 'fi_img_timestamp' => null ),
+			array( $cond, "fi_img_timestamp = '' OR LOCATE( '\\0', fi_img_timestamp )" ),
+			__FUNCTION__
+		);
+		if( $db->affectedRows() > 0 ) {
+			$nulled += $db->affectedRows();
+		}
+		$db->commit();
+		$blockStart += $BATCH_SIZE;
+		$blockEnd += $BATCH_SIZE;
+		wfWaitForSlaves( 5 );
+	}
+	echo "flaggedimages columns update complete ... [{$nulled} fixed]\n";
 }
