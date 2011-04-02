@@ -240,40 +240,42 @@ $wgExtensionFunctions[] = 'efLoadFlaggedRevs';
 $dir = dirname( __FILE__ ) . '/';
 $langDir = $dir . 'language/';
 
+# Utility classes...
 $wgAutoloadClasses['FlaggedRevs'] = $dir . 'FlaggedRevs.class.php';
 $wgAutoloadClasses['FRUserCounters'] = $dir . 'FRUserCounters.php';
-$wgAutoloadClasses['FRInclusionManager'] = $dir . 'FRInclusionManager.php';
 $wgAutoloadClasses['FRUserActivity'] = $dir . 'FRUserActivity.php';
-$wgAutoloadClasses['FlaggedRevsHooks'] = $dir . 'FlaggedRevs.hooks.php';
+$wgAutoloadClasses['FlaggedPageConfig'] = $dir . 'FlaggedPageConfig.php';
 $wgAutoloadClasses['FlaggedRevsLogs'] = $dir . 'FlaggedRevsLogs.php';
+$wgAutoloadClasses['FlaggedRevsXML'] = $dir . 'FlaggedRevsXML.php';
+
+# Event handler classes...
+$wgAutoloadClasses['FlaggedRevsHooks'] = $dir . 'FlaggedRevs.hooks.php';
+$wgAutoloadClasses['FlaggedRevsApiHooks'] = $dir . 'api/FlaggedRevsApi.hooks.php';
+$wgAutoloadClasses['FlaggedRevsUpdaterHooks'] = $dir . 'updater/FlaggedRevsUpdater.hooks.php';
+
+# Object classes...
 $wgAutoloadClasses['FRExtraCacheUpdate'] = $dir . 'FRExtraCacheUpdate.php';
 $wgAutoloadClasses['FRExtraCacheUpdateJob'] = $dir . 'FRExtraCacheUpdate.php';
 $wgAutoloadClasses['FRSquidUpdate'] = $dir . 'FRExtraCacheUpdate.php';
 $wgAutoloadClasses['FRDependencyUpdate'] = $dir . 'FRDependencyUpdate.php';
+$wgAutoloadClasses['FRInclusionManager'] = $dir . 'FRInclusionManager.php';
+$wgAutoloadClasses['FlaggedArticleView'] = $dir . 'FlaggedArticleView.php';
+$wgAutoloadClasses['FlaggedArticle'] = $dir . 'FlaggedArticle.php';
+$wgAutoloadClasses['FlaggedRevision'] = $dir . 'FlaggedRevision.php';
+
+# Review form class
+$wgAutoloadClasses['RevisionReviewForm'] = $dir . 'forms/RevisionReviewForm.php';
+# Protection/stability form classes
+$wgAutoloadClasses['PageStabilityForm'] = $dir . 'forms/PageStabilityForm.php';
+$wgAutoloadClasses['PageStabilityGeneralForm'] = $dir . 'forms/PageStabilityForm.php';
+$wgAutoloadClasses['PageStabilityProtectForm'] = $dir . 'forms/PageStabilityForm.php';
 
 # Special case cache invalidations
 $wgJobClasses['flaggedrevs_CacheUpdate'] = 'FRExtraCacheUpdateJob';
 
+# Load main i18n file and special page alias file
 $wgExtensionMessagesFiles['FlaggedRevs'] = $langDir . 'FlaggedRevs.i18n.php';
 $wgExtensionAliasesFiles['FlaggedRevs'] = $langDir . 'FlaggedRevs.alias.php';
-
-# Load general UI
-$wgAutoloadClasses['FlaggedRevsXML'] = $dir . 'FlaggedRevsXML.php';
-# Load web request context article stuff
-$wgAutoloadClasses['FlaggedArticleView'] = $dir . 'FlaggedArticleView.php';
-# Load FlaggedArticle object class
-$wgAutoloadClasses['FlaggedArticle'] = $dir . 'FlaggedArticle.php';
-# Load FlaggedPageConfig object class
-$wgAutoloadClasses['FlaggedPageConfig'] = $dir . 'FlaggedPageConfig.php';
-# Load FlaggedRevision object class
-$wgAutoloadClasses['FlaggedRevision'] = $dir . 'FlaggedRevision.php';
-
-# Load review form
-$wgAutoloadClasses['RevisionReviewForm'] = $dir . 'forms/RevisionReviewForm.php';
-# Load protection/stability form
-$wgAutoloadClasses['PageStabilityForm'] = $dir . 'forms/PageStabilityForm.php';
-$wgAutoloadClasses['PageStabilityGeneralForm'] = $dir . 'forms/PageStabilityForm.php';
-$wgAutoloadClasses['PageStabilityProtectForm'] = $dir . 'forms/PageStabilityForm.php';
 
 # Load revision review UI
 $wgAutoloadClasses['RevisionReview'] = $dir . 'specialpages/RevisionReview_body.php';
@@ -317,7 +319,6 @@ $wgExtensionMessagesFiles['ValidationStatistics'] = $langDir . 'ValidationStatis
 $wgSpecialPageGroups['ValidationStatistics'] = 'quality';
 
 # API Modules
-$wgAutoloadClasses['FlaggedRevsApiHooks'] = $dir . 'api/FlaggedRevsApi.hooks.php';
 # OldReviewedPages for API
 $wgAutoloadClasses['ApiQueryOldreviewedpages'] = $dir . 'api/ApiQueryOldreviewedpages.php';
 $wgAPIListModules['oldreviewedpages'] = 'ApiQueryOldreviewedpages';
@@ -490,7 +491,7 @@ $wgHooks['ParserTestTables'][] = 'FlaggedRevsHooks::onParserTestTables';
 $wgHooks['UnitTestsList'][] = 'FlaggedRevsHooks::getUnitTests';
 
 # Database schema changes
-$wgHooks['LoadExtensionSchemaUpdates'][] = 'FlaggedRevsHooks::addSchemaUpdates';
+$wgHooks['LoadExtensionSchemaUpdates'][] = 'FlaggedRevsUpdaterHooks::addSchemaUpdates';
 
 # Performance Don't show content on diff
 $wgHooks['ArticleContentOnDiff'][] = 'FlaggedRevsHooks::onArticleContentOnDiff';
