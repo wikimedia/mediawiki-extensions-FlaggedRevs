@@ -444,7 +444,6 @@ class FlaggedArticleView {
 		$synced = $this->article->stableVersionIsSynced();
 		if ( $synced ) { // draft == stable
 			$diffToggle = ''; // no diff to show
-			$this->setReviewNotes( $srev ); // same review notes apply
 		} else { // draft != stable
 			# The user may want the diff (via prefs)
 			$diffToggle = $this->getTopDiffToggle( $srev, $quality );
@@ -592,8 +591,6 @@ class FlaggedArticleView {
 						FlaggedRevsXML::addTagRatings( $flags ) . '</div>';
 				}
 			}
-			# Load the review notes which will be shown by onSkinAfterContent
-			$this->setReviewNotes( $frev );
 		}
 
 		# Check if this is a redirect...
@@ -672,11 +669,6 @@ class FlaggedArticleView {
 						FlaggedRevsXML::addTagRatings( $flags ) . '</div>';
 				}
 			}
-		}
-
-		# Load the review notes which will be shown by onSkinAfterContent
-		if ( !$wgOut->isPrintable() ) {
-			$this->setReviewNotes( $srev );
 		}
 
 		# Get parsed stable version and output HTML
@@ -1294,23 +1286,6 @@ class FlaggedArticleView {
 		}
 		// Replaces old tabs with new tabs
 		$views = $newViews;
-	}
-
-	/**
-	 * Adds notes by the reviewer to the bottom of the page
-	 * @param FlaggedRevision $frev
-	 * @return void
-	 */
-	public function setReviewNotes( FlaggedRevision $frev ) {
-		global $wgUser;
-		$this->load();
-		if ( FlaggedRevs::allowComments() && $frev->getComment() != '' ) {
-			$this->reviewNotes = "<br /><div class='flaggedrevs_notes plainlinks'>";
-			$this->reviewNotes .= wfMsgExt( 'revreview-note', 'parseinline',
-				User::whoIs( $frev->getUser() ) );
-			$this->reviewNotes .= '<br /><i>' .
-				$wgUser->getSkin()->formatComment( $frev->getComment() ) . '</i></div>';
-		}
 	}
 
 	/**

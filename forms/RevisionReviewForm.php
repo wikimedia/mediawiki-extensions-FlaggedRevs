@@ -25,7 +25,6 @@ class RevisionReviewForm
 	protected $imageParams = '';
 	protected $fileVersion = '';
 	protected $validatedParams = '';
-	protected $notes = '';
 	protected $comment = '';
 	protected $dims = array();
 	protected $lastChangeTime = null; # Conflict handling
@@ -131,17 +130,6 @@ class RevisionReviewForm
 
 	public function setComment( $value ) {
 		$this->trySet( $this->comment, $value );
-	}
-
-	public function getNotes() {
-		return $this->notes;
-	}
-
-	public function setNotes( $value ) {
-		if ( !FlaggedRevs::allowComments() || !$this->user->isAllowed( 'validate' ) ) {
-			$value = '';
-		}
-		$this->trySet( $this->notes, $value );
 	}
 
 	public function getDims() {
@@ -406,7 +394,6 @@ class RevisionReviewForm
 			$oldFrev->getTags() == $flags && // tags => quality
 			$oldFrev->getFileSha1() == $fileData['sha1'] &&
 			$oldFrev->getFileTimestamp() == $fileData['timestamp'] &&
-			$oldFrev->getComment() == $this->notes &&
 			$oldFrev->getTemplateVersions( FR_MASTER ) == $tmpVersions &&
 			$oldFrev->getFileVersions( FR_MASTER ) == $fileVersions )
 		{
@@ -420,7 +407,6 @@ class RevisionReviewForm
 			'page_id'       	=> $rev->getPage(),
 			'user'          	=> $this->user->getId(),
 			'timestamp'     	=> wfTimestampNow(),
-			'comment'       	=> $this->notes,
 			'quality'       	=> $quality,
 			'tags'          	=> FlaggedRevision::flattenRevisionTags( $flags ),
 			'img_name'      	=> $fileData['name'],
@@ -672,14 +658,11 @@ class RevisionReviewForm
 			if ( !FlaggedRevs::userCanSetFlags( $user, $oldFlags ) ) {
 				$flags = $oldFlags;
 			}
-			$reviewNotes = $srev->getComment();
 			# Re-review button is need for template/file only review case
 			$reviewIncludes = ( $srev->getRevId() == $id && !$article->stableVersionIsSynced() );
 		} else { // views
 			$flags = $oldFlags;
-			// Get existing notes to pre-fill field
-			$reviewNotes = $frev ? $frev->getComment() : "";
-			$reviewIncludes = false; // re-review button
+			$reviewIncludes = false; // re-review button not needed
 		}
 
 		# Disable form for unprivileged users
@@ -731,18 +714,6 @@ class RevisionReviewForm
 			array( 'id' => 'mw-fr-ratingselects', 'class' => 'fr-rating-options' ) );
 		$form .= self::ratingInputs( $user, $flags, (bool)$disabled, (bool)$frev );
 		$form .= Xml::closeElement( 'span' );
-		# Add review notes input
-		if ( FlaggedRevs::allowComments() && $user->isAllowed( 'validate' ) ) {
-			$form .= "<div id='mw-fr-notebox'>\n";
-			$form .= "<p>" . wfMsgHtml( 'revreview-notes' ) . "</p>\n";
-			$params = array( 'name' => 'wpNotes', 'id' => 'wpNotes',
-				'class' => 'fr-notes-box', 'rows' => '2', 'cols' => '80',
-				'onchange' => "FlaggedRevsReview.updateRatingForm()" ) + $disabled;
-			$form .= Xml::openElement( 'textarea', $params ) .
-				htmlspecialchars( $reviewNotes ) .
-				Xml::closeElement( 'textarea' ) . "\n";
-			$form .= "</div>\n";
-		}
 
 		# Do we need to get inclusion IDs from parser output?
 		if ( $templateIDs === null || $imageSHA1Keys === null ) {

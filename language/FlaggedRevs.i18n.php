@@ -150,8 +150,6 @@ The [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} stable version] was [{{fullurl:{{#Sp
  	'revreview-pending-nosection'  => 'Try viewing the [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} latest revision], which includes
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 pending {{PLURAL:$2|change|changes}}], to see if the section was moved or deleted.',
 	'revreview-noflagged'          => 'There are no [[{{MediaWiki:Validationpage}}|reviewed versions]] of this page, so it may \'\'\'not\'\'\' have been checked for adherence to standards.',
-	'revreview-note'               => '[[User:$1|$1]] made the following notes [[{{MediaWiki:Validationpage}}|reviewing]] this revision:',
-	'revreview-notes'              => 'Observations or notes to display:',
 	'revreview-oldrating'          => 'It was rated:',
 	'revreview-quality'            => 'This is the [[{{MediaWiki:Validationpage}}|stable version]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 pending {{PLURAL:$3|change|changes}}] {{PLURAL:$3|awaits|awaits}} review.',

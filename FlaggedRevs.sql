@@ -47,7 +47,9 @@ CREATE TABLE IF NOT EXISTS /*_*/flaggedrevs (
   fr_rev_id integer unsigned NOT NULL,
   -- Foreign key to user.user_id
   fr_user integer unsigned NOT NULL,
+  -- Timestamp of review
   fr_timestamp varbinary(14) NOT NULL,
+  -- Review notes
   fr_comment mediumblob NOT NULL,
   -- Store the precedence level
   fr_quality tinyint(1) NOT NULL default 0,

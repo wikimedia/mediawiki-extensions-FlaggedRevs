@@ -13,7 +13,6 @@ class FlaggedRevision {
 	private $mFileTimestamp;	// file version timestamp (for revisions of File pages)
 	/* Flagging metadata */
 	private $mTimestamp;
-	private $mComment;
 	private $mQuality;
 	private $mTags;
 	private $mFlags;
@@ -35,7 +34,6 @@ class FlaggedRevision {
 			$this->mRevId = intval( $row->fr_rev_id );
 			$this->mPageId = intval( $row->fr_page_id );
 			$this->mTimestamp = $row->fr_timestamp;
-			$this->mComment = $row->fr_comment;
 			$this->mQuality = intval( $row->fr_quality );
 			$this->mTags = self::expandRevisionTags( strval( $row->fr_tags ) );
 			# Image page revision relevant params
@@ -54,7 +52,6 @@ class FlaggedRevision {
 			$this->mRevId = intval( $row['rev_id'] );
 			$this->mPageId = intval( $row['page_id'] );
 			$this->mTimestamp = $row['timestamp'];
-			$this->mComment = $row['comment'];
 			$this->mQuality = intval( $row['quality'] );
 			$this->mTags = self::expandRevisionTags( strval( $row['tags'] ) );
 			# Image page revision relevant params
@@ -302,7 +299,7 @@ class FlaggedRevision {
 			'fr_rev_id'	       => $this->getRevId(),
 			'fr_user'	       => $this->getUser(),
 			'fr_timestamp'     => $dbw->timestamp( $this->getTimestamp() ),
-			'fr_comment'       => $this->getComment(),
+			'fr_comment'       => '', # not used anymore
 			'fr_quality'       => $this->getQuality(),
 			'fr_tags'	       => self::flattenRevisionTags( $this->getTags() ),
 			'fr_text'	       => '', # not used anymore
@@ -336,9 +333,8 @@ class FlaggedRevision {
 	 */
 	public static function selectFields() {
 		return array(
-			'fr_rev_id', 'fr_page_id', 'fr_user', 'fr_timestamp',
-			'fr_comment', 'fr_quality', 'fr_tags', 'fr_img_name',
-			'fr_img_sha1', 'fr_img_timestamp', 'fr_flags'
+			'fr_rev_id', 'fr_page_id', 'fr_user', 'fr_timestamp', 'fr_quality',
+			'fr_tags', 'fr_flags', 'fr_img_name', 'fr_img_sha1', 'fr_img_timestamp',
 		);
 	}
 
@@ -406,13 +402,6 @@ class FlaggedRevision {
 	public function getRevTimestamp() {
 		$rev = $this->getRevision(); // corresponding revision
 		return ( $rev ? $rev->getTimestamp() : "0" );
-	}
-
-	/**
-	 * @return string review comment
-	 */
-	public function getComment() {
-		return $this->mComment;
 	}
 
 	/**

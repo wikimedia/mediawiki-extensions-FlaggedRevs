@@ -3,28 +3,32 @@
 abstract class FlaggedRevsApiHooks extends ApiQueryBase {
 	
 	public static function addApiRevisionParams ( &$module, &$params ) {
-		if ( !$module instanceof ApiQueryRevisions )
+		if ( !$module instanceof ApiQueryRevisions ) {
 			return true;
+		}
 		$params['prop'][ApiBase::PARAM_TYPE][] = 'flagged';
 		return true;
 	}
 	
 	public static function addApiRevisionData( &$module ) {
-		if ( !$module instanceof ApiQueryRevisions )
+		if ( !$module instanceof ApiQueryRevisions ) {
 			return true;
+		}
 		$params = $module->extractRequestParams( false );
-		if ( empty( $params['prop'] ) || !in_array( 'flagged', $params['prop'] ) )
+		if ( empty( $params['prop'] ) || !in_array( 'flagged', $params['prop'] ) ) {
 			return true;
-		if ( !in_array( 'ids', $params['prop'] ) )
+		}
+		if ( !in_array( 'ids', $params['prop'] ) ) {
 			$module->dieUsage( 'if rvprop=flagged is set, you must also set rvprop=ids', 'missingparam' );
-
+		}
 		// Get all requested pageids/revids in a mapping:
 		// pageid => revid => array_index of the revision
 		// we will need this later to add data to the result array 
 		$result = $module->getResult();
 		$data = $result->getData();
-		if ( !isset( $data['query'] ) || !isset( $data['query']['pages'] ) )
+		if ( !isset( $data['query'] ) || !isset( $data['query']['pages'] ) ) {
 			return true;
+		}
 		foreach ( $data['query']['pages'] as $pageid => $page ) {
 			if ( array_key_exists( 'revisions', (array)$page ) ) {
 				foreach ( $page['revisions'] as $index => $rev ) {
@@ -33,8 +37,9 @@ abstract class FlaggedRevsApiHooks extends ApiQueryBase {
 				}
 			}
 		}
-		if ( empty( $pageids ) )
+		if ( empty( $pageids ) ) {
 			return true;
+		}
 
 		// Construct SQL Query
 		$db = $module->getDB();
@@ -44,7 +49,6 @@ abstract class FlaggedRevsApiHooks extends ApiQueryBase {
 			'fr_page_id',
 			'fr_rev_id',
 			'fr_timestamp',
-			'fr_comment',
 			'fr_quality',
 			'fr_tags',
 			'user_name'
@@ -66,14 +70,12 @@ abstract class FlaggedRevsApiHooks extends ApiQueryBase {
 		foreach( $res as $row ) {
 			$index = $pageids[$row->fr_page_id][$row->fr_rev_id];
 			$data = array(
-				'user' => $row->user_name,
-				'timestamp' => wfTimestamp( TS_ISO_8601, $row->fr_timestamp ),
-				'level' => intval( $row->fr_quality ),
-				'level_text' => FlaggedRevs::getQualityLevelText( $row->fr_quality ),
-				'tags' => FlaggedRevision::expandRevisionTags( $row->fr_tags )
+				'user' 			=> $row->user_name,
+				'timestamp' 	=> wfTimestamp( TS_ISO_8601, $row->fr_timestamp ),
+				'level' 		=> intval( $row->fr_quality ),
+				'level_text' 	=> FlaggedRevs::getQualityLevelText( $row->fr_quality ),
+				'tags' 			=> FlaggedRevision::expandRevisionTags( $row->fr_tags )
 			);
-			if ( $row->fr_comment )
-				$data['comment'] = $row->fr_comment;
 			$result->addValue(
 				array( 'query', 'pages', $row->fr_page_id, 'revisions', $index ),
 				'flagged',
@@ -82,13 +84,13 @@ abstract class FlaggedRevsApiHooks extends ApiQueryBase {
 		}
 		return true;
 	}
-	
+
 	public function getPossibleErrors() {
 		return array_merge( parent::getPossibleErrors(), array(
 			array( 'code' => 'missingparam', 'info' => 'if rvprop=flagged is set, you must also set rvprop=ids' ),
 		) );
 	}
-	
+
 	public function getVersion() {
 		return __CLASS__ . ': $Id$';
 	}

@@ -66,8 +66,6 @@ class RevisionReview extends UnlistedSpecialPage
 		}
 		# Log comment
 		$form->setComment( $wgRequest->getText( 'wpReason' ) );
-		# Additional notes (displayed at bottom of page)
-		$form->setNotes( $wgRequest->getText( 'wpNotes' ) );
 
 		$status = $form->ready();
 		# Page must exist and be in reviewable namespace
@@ -187,9 +185,6 @@ class RevisionReview extends UnlistedSpecialPage
 					break;
 				case "wpReason":
 					$form->setComment( $val );
-					break;
-				case "wpNotes":
-					$form->setNotes( $val );
 					break;
 				case "changetime":
 					$form->setLastChangeTime( $val );

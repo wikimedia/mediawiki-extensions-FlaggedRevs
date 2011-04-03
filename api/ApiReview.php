@@ -56,8 +56,6 @@ class ApiReview extends ApiBase {
 		$form->setUnapprove( !empty( $params['unapprove'] ) );
 		if ( isset( $params['comment'] ) )
 			$form->setComment( $params['comment'] );
-		if ( isset( $params['notes'] ) )
-			$form->setNotes( $params['notes'] );
 		// The flagging parameters have the form 'flag_$name'.
 		// Extract them and put the values into $form->dims
 		foreach ( FlaggedRevs::getTags() as $tag ) {
@@ -142,9 +140,6 @@ class ApiReview extends ApiBase {
 			'comment' 	=> null,
 			'unapprove' => false
 		);
-		if ( FlaggedRevs::allowComments() ) {
-			$pars['notes'] = null;
-		}
 		if ( !FlaggedRevs::binaryFlagging() ) {
 			foreach ( FlaggedRevs::getDimensions() as $flagname => $levels ) {
 				$pars['flag_' . $flagname] = array(
@@ -163,9 +158,6 @@ class ApiReview extends ApiBase {
 			'comment' 	=> 'Comment for the review (optional)',
 			'unapprove' => 'If set, revision will be unapproved rather than approved.'
 		);
-		if ( FlaggedRevs::allowComments() ) {
-			$desc['notes'] = "Additional notes for the review. The ''validate'' right is needed to set this parameter.";
-		}
 		if ( !FlaggedRevs::binaryFlagging() ) {
 			foreach ( FlaggedRevs::getTags() as $flagname ) {
 				$desc['flag_' . $flagname] = "Set the flag ''{$flagname}'' to the specified value";

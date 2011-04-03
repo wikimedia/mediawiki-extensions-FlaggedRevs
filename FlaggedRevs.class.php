@@ -274,15 +274,6 @@ class FlaggedRevs {
 	}
 
 	/**
-	 * Should comments be allowed on pages and forms?
-	 * @returns bool
-	 */
-	public static function allowComments() {
-		global $wgFlaggedRevsComments;
-		return $wgFlaggedRevsComments;
-	}
-
-	/**
 	 * Get the array of tag dimensions and level messages
 	 * @returns array
 	 */

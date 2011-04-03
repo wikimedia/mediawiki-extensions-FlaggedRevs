@@ -47,7 +47,7 @@ include_once( "FlaggedRevsDefines.php" );
 # A small icon will show in the upper right hand corner
 $wgSimpleFlaggedRevsUI = true; // @TODO: remove when ready
 # For visitors, only show tags/icons for unreviewed/outdated pages
-$wgFlaggedRevsLowProfile = true;
+$wgFlaggedRevsLowProfile = true; // @TODO: remove with new icon UI?
 
 # Allowed namespaces of reviewable pages
 $wgFlaggedRevsNamespaces = array( NS_MAIN, NS_FILE, NS_TEMPLATE );
@@ -61,11 +61,7 @@ $wgFlaggedRevsOverride = true;
 # Below are groups that see the current revision by default.
 # This makes editing easier since the users always start off
 # viewing the latest version of pages.
-$wgFlaggedRevsExceptions = array( 'user' ); // @TODO: remove when ready (and swap pref)
-
-# Can users make comments that will show up below flagged revisions?
-# NOTE: this is NOT the same as the simple log comment
-$wgFlaggedRevsComments = false; // @TODO: remove when ready?
+$wgFlaggedRevsExceptions = array( 'user' ); // @TODO: remove when ready (and expand pref)
 
 # Auto-review settings for edits/new pages:
 # FR_AUTOREVIEW_NONE
@@ -183,7 +179,7 @@ $wgGroupPermissions['sysop']['movestable'] = true;
 # # Basic rights for Sysops
 $wgAddGroups['sysop'][] = 'editor';
 $wgRemoveGroups['sysop'][] = 'editor';
-# # Extra ones for Bureaucrats
+# # Extra ones for Bureaucrats (@TODO: remove this)
 $wgAddGroups['bureaucrat'][] = 'reviewer';
 $wgRemoveGroups['bureaucrat'][] = 'reviewer';
 
@@ -262,16 +258,10 @@ $wgAutoloadClasses['FRInclusionManager'] = $dir . 'FRInclusionManager.php';
 $wgAutoloadClasses['FlaggedArticleView'] = $dir . 'FlaggedArticleView.php';
 $wgAutoloadClasses['FlaggedArticle'] = $dir . 'FlaggedArticle.php';
 $wgAutoloadClasses['FlaggedRevision'] = $dir . 'FlaggedRevision.php';
-
-# Review form class
 $wgAutoloadClasses['RevisionReviewForm'] = $dir . 'forms/RevisionReviewForm.php';
-# Protection/stability form classes
 $wgAutoloadClasses['PageStabilityForm'] = $dir . 'forms/PageStabilityForm.php';
 $wgAutoloadClasses['PageStabilityGeneralForm'] = $dir . 'forms/PageStabilityForm.php';
 $wgAutoloadClasses['PageStabilityProtectForm'] = $dir . 'forms/PageStabilityForm.php';
-
-# Special case cache invalidations
-$wgJobClasses['flaggedrevs_CacheUpdate'] = 'FRExtraCacheUpdateJob';
 
 # Load main i18n file and special page alias file
 $wgExtensionMessagesFiles['FlaggedRevs'] = $langDir . 'FlaggedRevs.i18n.php';
@@ -332,7 +322,6 @@ $wgAPIPropModules['flagged'] = 'ApiQueryFlagged';
 # Site flag config for API
 $wgAutoloadClasses['ApiFlagConfig'] = $dir . 'api/ApiFlagConfig.php';
 $wgAPIModules['flagconfig'] = 'ApiFlagConfig';
-
 # Page review module for API
 $wgAutoloadClasses['ApiReview'] = $dir . 'api/ApiReview.php';
 $wgAPIModules['review'] = 'ApiReview';
@@ -340,6 +329,9 @@ $wgAPIModules['review'] = 'ApiReview';
 $wgAutoloadClasses['ApiStabilize'] = $dir . 'api/ApiStabilize.php';
 $wgAutoloadClasses['ApiStabilizeGeneral'] = $dir . 'api/ApiStabilize.php';
 $wgAutoloadClasses['ApiStabilizeProtect'] = $dir . 'api/ApiStabilize.php';
+
+# Special case cache invalidations
+$wgJobClasses['flaggedrevs_CacheUpdate'] = 'FRExtraCacheUpdateJob';
 
 # New user preferences
 $wgDefaultUserOptions['flaggedrevssimpleui'] = (int)$wgSimpleFlaggedRevsUI;
