@@ -1144,7 +1144,7 @@ class FlaggedArticleView {
 		}
 		// Check if we should show a stabilization tab
 		if (
-			!$skin->mTitle->isTalkPage() &&
+			!$this->article->getTitle()->isTalkPage() &&
 			is_array( $actions ) &&
 			!isset( $actions['protect'] ) &&
 			!isset( $actions['unprotect'] ) &&
@@ -1171,7 +1171,7 @@ class FlaggedArticleView {
 	public function setViewTabs( Skin $skin, array &$views, $type ) {
 		global $wgRequest;
 		$this->load();
-		if ( $skin->mTitle->isTalkPage() ) {
+		if ( $this->article->getTitle()->isTalkPage() ) {
 			return true; // leave talk pages alone
 		}
 		// Get the type of action requested
