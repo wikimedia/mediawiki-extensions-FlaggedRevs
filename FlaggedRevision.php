@@ -36,33 +36,31 @@ class FlaggedRevision {
 			$this->mTimestamp = $row->fr_timestamp;
 			$this->mQuality = intval( $row->fr_quality );
 			$this->mTags = self::expandRevisionTags( strval( $row->fr_tags ) );
+			$this->mFlags = explode( ',', $row->fr_flags );
+			$this->mUser = intval( $row->fr_user );
 			# Image page revision relevant params
 			$this->mFileName = $row->fr_img_name ? $row->fr_img_name : null;
 			$this->mFileSha1 = $row->fr_img_sha1 ? $row->fr_img_sha1 : null;
 			$this->mFileTimestamp = $row->fr_img_timestamp ?
 				$row->fr_img_timestamp : null;
-			$this->mUser = intval( $row->fr_user );
 			# Optional fields
 			$this->mTitle = isset( $row->page_namespace ) && isset( $row->page_title )
 				? Title::makeTitleSafe( $row->page_namespace, $row->page_title )
 				: null;
-			$this->mFlags = isset( $row->fr_flags ) ?
-				explode( ',', $row->fr_flags ) : null;
 		} elseif ( is_array( $row ) ) {
 			$this->mRevId = intval( $row['rev_id'] );
 			$this->mPageId = intval( $row['page_id'] );
 			$this->mTimestamp = $row['timestamp'];
 			$this->mQuality = intval( $row['quality'] );
 			$this->mTags = self::expandRevisionTags( strval( $row['tags'] ) );
+			$this->mFlags = explode( ',', $row['flags'] );
+			$this->mUser = intval( $row['user'] );
 			# Image page revision relevant params
 			$this->mFileName = $row['img_name'] ? $row['img_name'] : null;
 			$this->mFileSha1 = $row['img_sha1'] ? $row['img_sha1'] : null;
 			$this->mFileTimestamp = $row['img_timestamp'] ?
 				$row['img_timestamp'] : null;
-			$this->mUser = intval( $row['user'] );
 			# Optional fields
-			$this->mFlags = isset( $row['flags'] ) ?
-				explode( ',', $row['flags'] ) : null;
 			$this->mTemplates = isset( $row['templateVersions'] ) ?
 				$row['templateVersions'] : null;
 			$this->mFiles = isset( $row['fileVersions'] ) ?
@@ -259,20 +257,15 @@ class FlaggedRevision {
 	/*
 	* Insert a FlaggedRevision object into the database
 	*
-	* @param array $tmpRows template version rows
-	* @param array $fileRows file version rows
-	* @param bool $auto autopatrolled
 	* @return bool success
 	*/
-	public function insertOn( $auto = false ) {
+	public function insertOn() {
 		$dbw = wfGetDB( DB_MASTER );
-		# Set any text flags
-		$textFlags = 'dynamic';
-		if ( $auto ) $textFlags .= ',auto';
-		$this->mFlags = explode( ',', $textFlags );
+		# Set any flagged revision flags
+		$this->mFlags = array_merge( $this->mFlags, array( 'dynamic' ) ); // legacy
 		# Build the inclusion data chunks
 		$tmpInsertRows = array();
-		foreach ( $this->getTemplateVersions() as $namespace => $titleAndID ) {
+		foreach ( (array)$this->mTemplates as $namespace => $titleAndID ) {
 			foreach ( $titleAndID as $dbkey => $id ) {
 				$tmpInsertRows[] = array(
 					'ft_rev_id' 	=> $this->getRevId(),
@@ -283,7 +276,7 @@ class FlaggedRevision {
 			}
 		}
 		$fileInsertRows = array();
-		foreach ( $this->getFileVersions() as $dbkey => $timeSHA1 ) {
+		foreach ( (array)$this->mFiles as $dbkey => $timeSHA1 ) {
 			$fileInsertRows[] = array(
 				'fi_rev_id' 		=> $this->getRevId(),
 				'fi_name' 			=> $dbkey,
@@ -302,7 +295,7 @@ class FlaggedRevision {
 			'fr_quality'       => $this->getQuality(),
 			'fr_tags'	       => self::flattenRevisionTags( $this->getTags() ),
 			'fr_text'	       => '', # not used anymore
-			'fr_flags'	       => $textFlags,
+			'fr_flags'	       => implode( ',', $this->mFlags ),
 			'fr_img_name'      => $this->getFileName(),
 			'fr_img_timestamp' => $dbw->timestampOrNull( $this->getFileTimestamp() ),
 			'fr_img_sha1'      => $this->getFileSha1()

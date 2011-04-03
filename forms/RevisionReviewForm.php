@@ -414,6 +414,7 @@ class RevisionReviewForm
 			'img_sha1'      	=> $fileData['sha1'],
 			'templateVersions' 	=> $tmpVersions,
 			'fileVersions'     	=> $fileVersions,
+			'flags'				=> ''
 		) );
 		$flaggedRevision->insertOn();
 		# Update recent changes...
@@ -544,8 +545,7 @@ class RevisionReviewForm
 		}
 		# Image -> timestamp -> sha1 mapping
 		foreach ( $imageSHA1Keys as $dbKey => $timeAndSHA1 ) {
-			$imageParams .= $dbKey . "|" . $timeAndSHA1['time'];
-			$imageParams .= "|" . $timeAndSHA1['sha1'] . "#";
+			$imageParams .= $dbKey . "|" . $timeAndSHA1['time'] . "|" . $timeAndSHA1['sha1'] . "#";
 		}
 		# For image pages, note the displayed image version
 		if ( $article->getTitle()->getNamespace() == NS_FILE ) {
@@ -601,7 +601,7 @@ class RevisionReviewForm
 			}
 			list( $dbkey, $time, $key ) = $m;
 			# Get the file title
-			$img_title = Title::makeTitle( NS_IMAGE, $dbkey ); // Normalize
+			$img_title = Title::makeTitle( NS_FILE, $dbkey ); // Normalize
 			if ( is_null( $img_title ) ) {
 				continue; // Page must be valid!
 			}
@@ -724,7 +724,7 @@ class RevisionReviewForm
 				$pOutput = $parserCache->get( $article, $wgOut->parserOptions() );
 			}
 			# Otherwise (or on cache miss), parse the rev text...
-			if ( !$pOutput || !isset( $pOutput->mImageTimeKeys ) ) {
+			if ( !$pOutput ) {
 				$text = $rev->getText();
 				$title = $article->getTitle();
 				$options = FlaggedRevs::makeParserOptions();
@@ -735,8 +735,8 @@ class RevisionReviewForm
 					$parserCache->save( $pOutput, $article, $options );
 				}
 			}
-			$templateIDs = $pOutput->mTemplateIds;
-			$imageSHA1Keys = $pOutput->mImageTimeKeys;
+			$templateIDs = $pOutput->getTemplateIds();
+			$imageSHA1Keys = $pOutput->getImageTimeKeys();
 		}
 		list( $templateParams, $imageParams, $fileVersion ) =
 			RevisionReviewForm::getIncludeParams( $article, $templateIDs, $imageSHA1Keys );

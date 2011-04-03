@@ -1073,12 +1073,9 @@ class FlaggedArticleView {
 			# $wgOut may not already have the inclusion IDs, such as for diffonly=1.
 			# RevisionReviewForm will fetch them as needed however.
 			$templateIDs = $fileSHA1Keys = null;
-			if ( $wgOut->getRevisionId() == $rev->getId()
-				&& isset( $wgOut->mTemplateIds )
-				&& isset( $wgOut->mImageTimeKeys ) )
-			{
-				$templateIDs = $wgOut->mTemplateIds;
-				$fileSHA1Keys = $wgOut->mImageTimeKeys;
+			if ( $wgOut->getRevisionId() == $rev->getId() ) {
+				$templateIDs = $wgOut->getTemplateIds();
+				$fileSHA1Keys = $wgOut->getImageTimeKeys();
 			}
 			# Review notice box goes in top of form
 			$form = RevisionReviewForm::buildQuickReview(

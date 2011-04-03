@@ -1193,7 +1193,7 @@ class FlaggedRevs {
 	* and the page tables updated, but before LinksUpdate is called.
 	*
 	* $auto is here for revisions checked off to be reviewed. Auto-review
-	* triggers on edit, but we don't want it to count as just automatic.
+	* triggers on edit, but we don't want those to count as just automatic.
 	* This also makes it so the user's name shows up in the page history.
 	*
 	* If $flags is given, then they will be the review tags. If not, the one
@@ -1232,6 +1232,8 @@ class FlaggedRevs {
 		if ( self::isQuality( $flags ) ) {
 			$quality = self::isPristine( $flags ) ? 2 : 1;
 		}
+		# Get review property flags
+		$propFlags = $auto ? array( 'auto' ) : array();
 
 		# Rev ID is not put into parser on edit, so do the same here.
 		# Also, a second parse would be triggered otherwise.
@@ -1256,16 +1258,16 @@ class FlaggedRevs {
 			'rev_id'	      	=> $rev->getId(),
 			'user'	       		=> $user->getId(),
 			'timestamp'     	=> $rev->getTimestamp(),
-			'comment'      	 	=> "",
 			'quality'      	 	=> $quality,
 			'tags'	       		=> FlaggedRevision::flattenRevisionTags( $flags ),
 			'img_name'      	=> $fileData['name'],
 			'img_timestamp' 	=> $fileData['timestamp'],
 			'img_sha1'      	=> $fileData['sha1'],
-			'templateVersions' 	=> $poutput->mTemplateIds,
-			'fileVersions'     	=> $poutput->mImageTimeKeys
+			'templateVersions' 	=> $poutput->getTemplateIds(),
+			'fileVersions'     	=> $poutput->getImageTimeKeys(),
+			'flags'				=> implode( ',', $propFlags ),
 		) );
-		$flaggedRevision->insertOn( $auto );
+		$flaggedRevision->insertOn();
 		# Update the article review log
 		FlaggedRevsLogs::updateReviewLog( $title,
 			$flags, array(), '', $rev->getId(), $oldSvId, true, $auto );
