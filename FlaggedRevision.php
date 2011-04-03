@@ -288,9 +288,8 @@ class FlaggedRevision {
 				'fi_rev_id' 		=> $this->getRevId(),
 				'fi_name' 			=> $dbkey,
 				'fi_img_sha1' 		=> strval( $timeSHA1['sha1'] ),
-				// b/c: fi_img_timestamp DEFAULT either NULL (new) or '' (old)
-				'fi_img_timestamp'  => $timeSHA1['time'] ?
-					$dbw->timestamp( $timeSHA1['time'] ) : ''
+				'fi_img_timestamp'  => $timeSHA1['time'] ? // '0' => NULL
+					$dbw->timestamp( $timeSHA1['time'] ) : null
 			);
 		}
 		# Our review entry
