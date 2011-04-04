@@ -8,8 +8,9 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 
 class RevisionReview extends UnlistedSpecialPage
 {
-	private $form;
-	private $page;
+	protected $form;
+	protected $page;
+	protected $skin;
 
 	public function __construct() {
 		parent::__construct( 'RevisionReview', 'review' );
@@ -32,15 +33,17 @@ class RevisionReview extends UnlistedSpecialPage
 			return;
 		}
 		$this->setHeaders();
-		
+
+		$this->skin = $wgUser->getSkin();
 		$this->form = new RevisionReviewForm( $wgUser );
-		$form = $this->form; // convenience
 		# Our target page
 		$this->page = Title::newFromURL( $wgRequest->getVal( 'target' ) );
 		if ( !$this->page ) {
 			$wgOut->showErrorPage( 'notargettitle', 'notargettext' );
 			return;
 		}
+
+		$form = $this->form; // convenience
 		$form->setPage( $this->page );
 		# Param for sites with binary flagging
 		$form->setApprove( $wgRequest->getCheck( 'wpApprove' ) );
@@ -99,9 +102,9 @@ class RevisionReview extends UnlistedSpecialPage
 			if ( $status === true ) {
 				$wgOut->setPageTitle( wfMsgHtml( 'actioncomplete' ) );
 				if ( $form->getAction() === 'approve' ) {
-					$wgOut->addHTML( $form->approvalSuccessHTML( true ) );
+					$wgOut->addHTML( $this->approvalSuccessHTML( true ) );
 				} elseif ( $form->getAction() === 'unapprove' ) {
-					$wgOut->addHTML( $form->deapprovalSuccessHTML( true ) );
+					$wgOut->addHTML( $this->deapprovalSuccessHTML( true ) );
 				} elseif ( $form->getAction() === 'reject' ) {
 					$wgOut->redirect( $this->page->getFullUrl() );
 				}
@@ -128,6 +131,50 @@ class RevisionReview extends UnlistedSpecialPage
 		} else {
 			$wgOut->returnToMain( false, $this->page );
 		}
+	}
+
+	protected function approvalSuccessHTML( $showlinks = false ) {
+		global $wgUser;
+		$title = $this->form->getPage();
+		# Show success message
+		$s = "<div class='plainlinks'>";
+		$s .= wfMsgExt( 'revreview-successful', 'parse',
+			$title->getPrefixedText(), $title->getPrefixedUrl() );
+		$s .= wfMsgExt( 'revreview-stable1', 'parse',
+			$title->getPrefixedUrl(), $this->form->getOldId() );
+		$s .= "</div>";
+		# Handy links to special pages
+		if ( $showlinks && $wgUser->isAllowed( 'unreviewedpages' ) ) {
+			$s .= $this->getSpecialLinks();
+		}
+		return $s;
+	}
+
+	protected function deapprovalSuccessHTML( $showlinks = false ) {
+		global $wgUser;
+		$title = $this->form->getPage();
+		# Show success message
+		$s = "<div class='plainlinks'>";
+		$s .= wfMsgExt( 'revreview-successful2', 'parse',
+			$title->getPrefixedText(), $title->getPrefixedUrl() );
+		$s .= wfMsgExt( 'revreview-stable2', 'parse',
+			$title->getPrefixedUrl(), $this->form->getOldId() );
+		$s .= "</div>";
+		# Handy links to special pages
+		if ( $showlinks && $wgUser->isAllowed( 'unreviewedpages' ) ) {
+			$s .= $this->getSpecialLinks();
+		}
+		return $s;
+	}
+
+	protected function getSpecialLinks() {
+		$s = '<p>' . wfMsgHtml( 'returnto',
+			$this->skin->linkKnown( SpecialPage::getTitleFor( 'UnreviewedPages' ) )
+		) . '</p>';
+		$s .= '<p>' . wfMsgHtml( 'returnto',
+			$this->skin->linkKnown( SpecialPage::getTitleFor( 'PendingChanges' ) )
+		) . '</p>';
+		return $s;
 	}
 
 	public static function AjaxReview( /*$args...*/ ) {
@@ -234,11 +281,11 @@ class RevisionReview extends UnlistedSpecialPage
 			# Sent new lastChangeTime TS to client for later submissions...
 			$changeTime = $form->getNewLastChangeTime();
 			if ( $form->getAction() === 'approve' ) { // approve
-				return "<suc#><lct#$changeTime>" . $form->approvalSuccessHTML( false );
+				return "<suc#><lct#$changeTime>";
 			} elseif ( $form->getAction() === 'unapprove' ) { // de-approve
-				return "<suc#><lct#$changeTime>" . $form->deapprovalSuccessHTML( false );
+				return "<suc#><lct#$changeTime>";
 			} elseif ( $form->getAction() === 'reject' ) { // revert
-				return "<suc#><lct#$changeTime>" . $form->rejectSuccessHTML( false );
+				return "<suc#><lct#$changeTime>";
 			}
 		# Failure...
 		} else {

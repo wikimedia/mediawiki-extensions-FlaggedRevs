@@ -334,6 +334,7 @@ class RevisionReviewForm
 			}
 			# Go to confirmation screen first
 			if ( !$this->rejectConfirm ) {
+				# FIXME: presentation layer stuff in here!??
 				$status = $this->rejectConfirmationForm( $oldRev, $newRev );
 				return is_string( $status ) ? $status : false; // xxx
 			}
@@ -959,36 +960,6 @@ class RevisionReviewForm
 		return $s;
 	}
 
-	public function approvalSuccessHTML( $showlinks = false ) {
-		# Show success message
-		$form = "<div class='plainlinks'>";
-		$form .= wfMsgExt( 'revreview-successful', 'parse',
-			$this->page->getPrefixedText(), $this->page->getPrefixedUrl() );
-		$form .= wfMsgExt( 'revreview-stable1', 'parse',
-			$this->page->getPrefixedUrl(), $this->getOldId() );
-		$form .= "</div>";
-		# Handy links to special pages
-		if ( $showlinks && $this->user->isAllowed( 'unreviewedpages' ) ) {
-			$form .= $this->getSpecialLinks();
-		}
-		return $form;
-	}
-
-	public function deapprovalSuccessHTML( $showlinks = false ) {
-		# Show success message
-		$form = "<div class='plainlinks'>";
-		$form .= wfMsgExt( 'revreview-successful2', 'parse',
-			$this->page->getPrefixedText(), $this->page->getPrefixedUrl() );
-		$form .= wfMsgExt( 'revreview-stable2', 'parse',
-			$this->page->getPrefixedUrl(), $this->getOldId() );
-		$form .= "</div>";
-		# Handy links to special pages
-		if ( $showlinks && $this->user->isAllowed( 'unreviewedpages' ) ) {
-			$form .= $this->getSpecialLinks();
-		}
-		return $form;
-	}
-
 	/**
 	 * Output the "are you sure you want to reject this" form
 	 *
@@ -1109,13 +1080,5 @@ class RevisionReviewForm
 
 		$wgOut->addHtml( $form );
 		return true;
-	}
-
-	private function getSpecialLinks() {
-		$s = '<p>' . wfMsg( 'returnto',
-			$this->skin->makeLinkObj( SpecialPage::getTitleFor( 'UnreviewedPages' ) ) ) . '</p>';
-		$s .= '<p>' . wfMsg( 'returnto',
-			$this->skin->makeLinkObj( SpecialPage::getTitleFor( 'PendingChanges' ) ) ) . '</p>';
-		return $s;
 	}
 }
