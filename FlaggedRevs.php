@@ -344,6 +344,10 @@ $localModulePath = dirname( __FILE__ ) . '/modules/';
 $remoteModulePath = 'FlaggedRevs/modules';
 $wgResourceModules['ext.flaggedRevs.basic'] = array(
 	'styles' 		=> array( 'flaggedrevs.css' ),
+	'localBasePath' => $localModulePath,
+	'remoteExtPath' => $remoteModulePath,
+);
+$wgResourceModules['ext.flaggedRevs.advanced'] = array(
 	'scripts' 		=> array( 'flaggedrevs.js' ),
 	'messages'      => array(
 		'revreview-toggle-show', 'revreview-toggle-hide',
@@ -369,7 +373,7 @@ $wgResourceModules['ext.flaggedRevs.review'] = array(
 	'remoteExtPath' => $remoteModulePath,
 );
 
-# ####### HOOK TRIGGERED FUNCTIONS  #########
+# ####### EVENT-HANDLER FUNCTIONS  #########
 
 # ######## User interface #########
 # Override current revision, add patrol links, set cache...

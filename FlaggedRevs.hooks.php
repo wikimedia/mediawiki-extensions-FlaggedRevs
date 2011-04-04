@@ -56,7 +56,8 @@ class FlaggedRevsHooks {
 			return true;
 		}
 		# Add main CSS & JS files
-		$wgOut->addModules( 'ext.flaggedRevs.basic' );
+		$wgOut->addModuleStyles( 'ext.flaggedRevs.basic' );
+		$wgOut->addModules( 'ext.flaggedRevs.advanced' );
 		# Add review form JS for reviewers
 		if ( $wgUser->isAllowed( 'review' ) ) {
 			$wgOut->addModules( 'ext.flaggedRevs.review' );
