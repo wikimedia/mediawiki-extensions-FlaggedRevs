@@ -1237,7 +1237,7 @@ class FlaggedRevsHooks {
 	}
 
 	public static function overrideRedirect(
-		Title &$title, WebRequest $request, &$ignoreRedirect, &$target, Article &$article
+		Title $title, WebRequest $request, &$ignoreRedirect, &$target, Article &$article
 	) {
 		global $wgMemc, $wgParserCacheExpireTime;
 		$fa = FlaggedArticle::getTitleInstance( $title ); // on $wgTitle
