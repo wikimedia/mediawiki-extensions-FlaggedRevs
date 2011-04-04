@@ -34,7 +34,7 @@ class FRInclusionManager {
 		$this->stableVersions['templates'] = array();
 		$this->stableVersions['files'] = array();
 	}
-	
+
 	/**
 	 * (a) Stabilize inclusions in Parser output
 	 * (b) Set the template/image versions used in the flagged version of a revision
@@ -43,8 +43,8 @@ class FRInclusionManager {
 	 */
 	public function setReviewedVersions( array $tmpParams, array $imgParams ) {
 		$this->reviewedVersions = array();
-		$this->reviewedVersions['templates'] = $tmpParams;
-		$this->reviewedVersions['files'] = $imgParams;
+		$this->reviewedVersions['templates'] = self::formatTemplateArray( $tmpParams );
+		$this->reviewedVersions['files'] = self::formatFileArray( $imgParams );
 	}
 
 	/**
@@ -53,8 +53,43 @@ class FRInclusionManager {
 	 * @param array $imgParams (dbKey => array('time' => MW timestamp,'sha1' => sha1) )
 	 */
 	public function setStableVersionCache( array $tmpParams, array $imgParams ) {
-		$this->stableVersions['templates'] = $tmpParams;
-		$this->stableVersions['files'] = $imgParams;
+		$this->stableVersions['templates'] = self::formatTemplateArray( $tmpParams );
+		$this->stableVersions['files'] = self::formatFileArray( $imgParams );
+	}
+
+	/**
+	 * Clean up a template version array
+	 * @param array $tmpParams (ns => dbKey => revId )
+	 * @returns Array
+	 */	
+	protected function formatTemplateArray( array $params ) {
+		$res = array();
+		foreach ( $params as $ns => $templates ) {
+			$res[$ns] = array();
+			foreach ( $templates as $dbKey => $revId ) {
+				$res[$ns][$dbKey] = (int)$revId;
+			}
+		}
+		return $res;
+	}
+
+	/**
+	 * Clean up a file version array
+	 * @param array $imgParams (dbKey => array('time' => MW timestamp,'sha1' => sha1) )
+	 * @returns Array
+	 */	
+	protected function formatFileArray( array $params ) {
+		$res = array();
+		foreach ( $params as $dbKey => $timeKey ) {
+			$time = '0'; // missing
+			$sha1 = false;
+			if ( $timeKey['time'] ) {
+				$time = $timeKey['time'];
+				$sha1 = strval( $timeKey['sha1'] );
+			}
+			$res[$dbKey] = array( 'time' => $time, 'sha1' => $sha1 );
+		}
+		return $res;
 	}
 
 	/**
@@ -150,8 +185,8 @@ class FRInclusionManager {
 	 */
 	public function getStableFileVersion( Title $title ) {
 		$dbKey = $title->getDBkey();
-		$time = '0';
-		$sha1 = '';
+		$time = '0'; // missing
+		$sha1 = false;
 		# All NS_FILE, no need to check namespace
 		if ( isset( $this->stableVersions['files'][$dbKey] ) ) {
 			$time = $this->stableVersions['files'][$dbKey]['time'];
@@ -160,7 +195,7 @@ class FRInclusionManager {
 		}
 		$srev = FlaggedRevision::newFromStable( $title );
 		if ( $srev && $srev->getFileTimestamp() ) {
-			$time = $srev->getFileTimestamp(); // TS or null
+			$time = $srev->getFileTimestamp();
 			$sha1 = $srev->getFileSha1();
 		}
 		$this->stableVersions['files'][$dbKey] = array();

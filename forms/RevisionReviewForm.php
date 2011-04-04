@@ -606,8 +606,8 @@ class RevisionReviewForm
 				continue; // Page must be valid!
 			}
 			$fileSHA1Keys[$img_title->getDBkey()] = array();
-			$fileSHA1Keys[$img_title->getDBkey()]['time'] = $time ? $time : '0';
-			$fileSHA1Keys[$img_title->getDBkey()]['sha1'] = $key ? $key : '';
+			$fileSHA1Keys[$img_title->getDBkey()]['time'] = $time ? $time : false;
+			$fileSHA1Keys[$img_title->getDBkey()]['sha1'] = strlen( $key ) ? $key : false;
 		}
 		return array( $templateIds, $fileSHA1Keys );
 	}

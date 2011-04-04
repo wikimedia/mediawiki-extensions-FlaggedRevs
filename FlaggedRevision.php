@@ -281,7 +281,7 @@ class FlaggedRevision {
 				'fi_rev_id' 		=> $this->getRevId(),
 				'fi_name' 			=> $dbkey,
 				'fi_img_sha1' 		=> strval( $timeSHA1['sha1'] ),
-				'fi_img_timestamp'  => $timeSHA1['time'] ? // '0' => NULL
+				'fi_img_timestamp'  => $timeSHA1['time'] ? // false => NULL
 					$dbw->timestamp( $timeSHA1['time'] ) : null
 			);
 		}
@@ -479,7 +479,7 @@ class FlaggedRevision {
 	 * Get original template versions at time of review
 	 * @param int $flags FR_MASTER
 	 * @return Array file versions (dbKey => array('time' => MW timestamp,'sha1' => sha1) )
-	 * Note: '0' used for file timestamp if it didn't exist ('' for sha1)
+	 * Note: false used for file timestamp/sha1 if it didn't exist
 	 */
 	public function getFileVersions( $flags = 0 ) {
 		if ( $this->mFiles == null ) {
@@ -492,11 +492,15 @@ class FlaggedRevision {
 				__METHOD__
 			);
 			foreach ( $res as $row ) {
-				$reviewedTS = trim( $row->fi_img_timestamp ); // may be ''/NULL
-				$reviewedTS = $reviewedTS ? wfTimestamp( TS_MW, $reviewedTS ) : '0';
+				$reviewedTS = $reviewedSha1 = false;
+				$fi_img_timestamp = trim( $row->fi_img_timestamp ); // may have \0's
+				if ( $fi_img_timestamp ) {
+					$reviewedTS = wfTimestamp( TS_MW, $fi_img_timestamp );
+					$reviewedSha1 = strval( $row->fi_img_sha1 );
+				}
 				$this->mFiles[$row->fi_name] = array();
 				$this->mFiles[$row->fi_name]['time'] = $reviewedTS;
-				$this->mFiles[$row->fi_name]['sha1'] = $row->fi_img_sha1;
+				$this->mFiles[$row->fi_name]['sha1'] = $reviewedSha1;
 			}
 		}
 		return $this->mFiles;
@@ -540,7 +544,7 @@ class FlaggedRevision {
 	 * Get the current stable version of the files used at time of review
 	 * @param int $flags FR_MASTER
 	 * @return Array file versions (dbKey => array('time' => MW timestamp,'sha1' => sha1) )
-	 * Note: '0' used for file timestamp if it doesn't exist ('' for sha1)
+	 * Note: false used for file timestamp/sha1 if it didn't exist
 	 */
 	public function getStableFileVersions( $flags = 0 ) {
 		if ( $this->mStableFiles == null ) {
@@ -558,12 +562,11 @@ class FlaggedRevision {
 					'page_namespace = ' . NS_FILE . ' AND page_title = fi_name' ),
 					'flaggedpages' 	=> array( 'LEFT JOIN', 'fp_page_id = page_id' ),
 					'flaggedrevs' 	=> array( 'LEFT JOIN',
-					'fr_page_id = fp_page_id AND fr_rev_id = fp_stable' )
+						'fr_page_id = fp_page_id AND fr_rev_id = fp_stable' )
 				)
 			);
 			foreach ( $res as $row ) {
-				$reviewedTS = '0';
-				$reviewedSha1 = '';
+				$reviewedTS = $reviewedSha1 = false;
 				if ( $row->fr_img_timestamp ) {
 					$reviewedTS = wfTimestamp( TS_MW, $row->fr_img_timestamp );
 					$reviewedSha1 = strval( $row->fr_img_sha1 );
@@ -691,7 +694,7 @@ class FlaggedRevision {
 		$fileChanges = array();
 		foreach ( $ret as $row ) {
 			$title = Title::makeTitleSafe( NS_FILE, $row->il_to );
-			$reviewedTS = trim( $row->fi_img_timestamp ); // may be ''/NULL
+			$reviewedTS = trim( $row->fi_img_timestamp ); // may have \0's
 			$reviewedTS = $reviewedTS ? wfTimestamp( TS_MW, $reviewedTS ) : null;
 			if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_STABLE ) {
 				$stableTS = wfTimestampOrNull( TS_MW, $row->fr_img_timestamp );

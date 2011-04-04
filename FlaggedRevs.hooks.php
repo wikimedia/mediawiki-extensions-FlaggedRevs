@@ -296,7 +296,7 @@ class FlaggedRevsHooks {
 		if ( !$incManager->parserOutputIsStabilized() ) {
 			return true; // trigger for stable version parsing only
 		}
-		$id = false; // current
+		$id = false; // current version
 		# Check for the version of this template used when reviewed...
 		$maybeId = $incManager->getReviewedTemplateVersion( $title );
 		if ( $maybeId !== null ) {
@@ -320,7 +320,7 @@ class FlaggedRevsHooks {
 	/**
 	* Select the desired images based on the selected stable version time/SHA-1
 	*/
-	public static function parserFetchStableFile( $parser, Title $nt, &$time, &$sha1, &$query ) {
+	public static function parserFetchStableFile( $parser, Title $title, &$time, &$sha1, &$query ) {
 		if ( !( $parser instanceof Parser ) ) {
 			return true; // nothing to do
 		}
@@ -329,18 +329,17 @@ class FlaggedRevsHooks {
 			return true; // trigger for stable version parsing only
 		}
 		# Normalize NS_MEDIA to NS_FILE
-		if ( $nt->getNamespace() == NS_MEDIA ) {
-			$title = Title::makeTitle( NS_FILE, $nt->getDBkey() );
-			$title->resetArticleId( $nt->getArticleId() ); // avoid extra queries
+		if ( $title->getNamespace() == NS_MEDIA ) {
+			$title = Title::makeTitle( NS_FILE, $title->getDBkey() );
+			$title->resetArticleId( $title->getArticleId() ); // avoid extra queries
 		} else {
-			$title =& $nt;
+			$title =& $title;
 		}
-		$time = false; // current version
-		$sha1 = false; // corresponds to $time
+		$time = $sha1 = false; // current version
 		# Check for the version of this file used when reviewed...
 		list( $maybeTS, $maybeSha1 ) = $incManager->getReviewedFileVersion( $title );
 		if ( $maybeTS !== null ) {
-			$time = $maybeTS; // use if specified (even "0")
+			$time = $maybeTS; // use if specified (even '0')
 			$sha1 = $maybeSha1;
 		}
 		# Check for stable version of file if this feature is enabled...
