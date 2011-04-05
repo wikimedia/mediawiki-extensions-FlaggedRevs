@@ -776,8 +776,9 @@ class FlaggedArticleView {
 		if ( strlen( $diffBody ) > 0 ) {
 			$nEdits = $revsSince - 1; // full diff-to-stable, no need for query
 			if ( $nEdits ) {
-				$nUsers = $title->countAuthorsBetween( $srev->getRevId(), $latest, 101 );
-				$multiNotice = DifferenceEngine::intermediateEditsMsg( $nEdits, $nUsers, 100 );
+				$limit = 100;
+				$nUsers = $title->countAuthorsBetween( $srev->getRevId(), $latest, $limit );
+				$multiNotice = DifferenceEngine::intermediateEditsMsg( $nEdits, $nUsers, $limit );
 			} else {
 				$multiNotice = '';
 			}
