@@ -1368,7 +1368,7 @@ class FlaggedArticleView {
 					{
 						$title = $this->article->getTitle(); // convenience
 						// @TODO: make diff class cache this
-						$n = $title->countRevisionsBetween( $oldRev->getId(), $newRev->getId() );
+						$n = $title->countRevisionsBetween( $oldRev, $newRev );
 						if ( $n ) {
 							$msg = 'revreview-update-edited-prev'; // previous pending edits
 						} else {
