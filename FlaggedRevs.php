@@ -273,11 +273,11 @@ $wgAutoloadClasses['FlaggedRevsXML'] = $dir . 'presentation/FlaggedRevsXML.php';
 $wgExtensionMessagesFiles['FlaggedRevs'] = $langDir . 'FlaggedRevs.i18n.php';
 $wgExtensionAliasesFiles['FlaggedRevs'] = $langDir . 'FlaggedRevs.alias.php';
 
-$specialFunctionDir = $dir . 'specialpages/functions/';
+$specialActionDir = $dir . 'specialpages/actions/';
 # Load revision review UI
-$wgAutoloadClasses['RevisionReview'] = $specialFunctionDir . 'RevisionReview_body.php';
+$wgAutoloadClasses['RevisionReview'] = $specialActionDir . 'RevisionReview_body.php';
 # Stable version config UI
-$wgAutoloadClasses['Stabilization'] = $specialFunctionDir . 'Stabilization_body.php';
+$wgAutoloadClasses['Stabilization'] = $specialActionDir . 'Stabilization_body.php';
 $wgExtensionMessagesFiles['Stabilization'] = $langDir . 'Stabilization.i18n.php';
 
 $specialReportDir = $dir . 'specialpages/reports/';
