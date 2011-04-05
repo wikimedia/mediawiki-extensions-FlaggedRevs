@@ -249,7 +249,7 @@ $wgAutoloadClasses['FlaggedRevsHooks'] = $dir . 'FlaggedRevs.hooks.php';
 $wgAutoloadClasses['FlaggedRevsApiHooks'] = $dir . 'api/FlaggedRevsApi.hooks.php';
 $wgAutoloadClasses['FlaggedRevsUpdaterHooks'] = $dir . 'updater/FlaggedRevsUpdater.hooks.php';
 
-# Object classes...
+# Data object classes...
 $wgAutoloadClasses['FRExtraCacheUpdate'] = $dir . 'FRExtraCacheUpdate.php';
 $wgAutoloadClasses['FRExtraCacheUpdateJob'] = $dir . 'FRExtraCacheUpdate.php';
 $wgAutoloadClasses['FRSquidUpdate'] = $dir . 'FRExtraCacheUpdate.php';
@@ -258,10 +258,16 @@ $wgAutoloadClasses['FRInclusionManager'] = $dir . 'FRInclusionManager.php';
 $wgAutoloadClasses['FlaggedArticleView'] = $dir . 'FlaggedArticleView.php';
 $wgAutoloadClasses['FlaggedArticle'] = $dir . 'FlaggedArticle.php';
 $wgAutoloadClasses['FlaggedRevision'] = $dir . 'FlaggedRevision.php';
-$wgAutoloadClasses['RevisionReviewForm'] = $dir . 'forms/RevisionReviewForm.php';
-$wgAutoloadClasses['PageStabilityForm'] = $dir . 'forms/PageStabilityForm.php';
-$wgAutoloadClasses['PageStabilityGeneralForm'] = $dir . 'forms/PageStabilityForm.php';
-$wgAutoloadClasses['PageStabilityProtectForm'] = $dir . 'forms/PageStabilityForm.php';
+
+# Business object classes
+$wgAutoloadClasses['RevisionReviewForm'] = $dir . 'business/RevisionReviewForm.php';
+$wgAutoloadClasses['PageStabilityForm'] = $dir . 'business/PageStabilityForm.php';
+$wgAutoloadClasses['PageStabilityGeneralForm'] = $dir . 'business/PageStabilityForm.php';
+$wgAutoloadClasses['PageStabilityProtectForm'] = $dir . 'business/PageStabilityForm.php';
+
+# Presentation classes...
+$wgAutoloadClasses['RevisionReviewFormGUI'] = $dir . 'presentation/RevisionReviewFormGUI.php';
+$wgAutoloadClasses['RejectConfirmationFormGUI'] = $dir . 'presentation/RejectConfirmationFormGUI.php';
 
 # Load main i18n file and special page alias file
 $wgExtensionMessagesFiles['FlaggedRevs'] = $langDir . 'FlaggedRevs.i18n.php';

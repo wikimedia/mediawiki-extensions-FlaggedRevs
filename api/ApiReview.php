@@ -54,33 +54,23 @@ class ApiReview extends ApiBase {
 		$form->setOldId( $revid );
 		$form->setApprove( empty( $params['unapprove'] ) );
 		$form->setUnapprove( !empty( $params['unapprove'] ) );
-		if ( isset( $params['comment'] ) )
+		if ( isset( $params['comment'] ) ) {
 			$form->setComment( $params['comment'] );
+		}
 		// The flagging parameters have the form 'flag_$name'.
 		// Extract them and put the values into $form->dims
 		foreach ( FlaggedRevs::getTags() as $tag ) {
 			$form->setDim( $tag, (int)$params['flag_' . $tag] );
 		}
 		if ( $form->getAction() === 'approve' ) {
-			$parserOutput = null;
+			$article = new FlaggedArticle( $title );
 			// Now get the template and image parameters needed
-			// If it is the current revision, try the parser cache first
-			$article = new FlaggedArticle( $title, $revid );
-			if ( $rev->isCurrent() ) {
-				$parserCache = ParserCache::singleton();
-				$parserOutput = $parserCache->get( $article, $wgOut->parserOptions() );
-			}
-			if ( !$parserOutput ) {
-				// Miss, we have to reparse the page
-				$text = $article->getContent();
-				$options = FlaggedRevs::makeParserOptions();
-				$parserOutput = $wgParser->parse(
-					$text, $title, $options, true, true, $article->getLatest() );
-			}
-			// Set version parameters for review submission
+			list( $templateIds, $fileTimeKeys ) =
+				RevisionReviewForm::currentIncludeVersions( $article, $rev );
+			// Get version parameters for review submission (flat strings)
 			list( $templateParams, $imageParams, $fileVersion ) =
-				RevisionReviewForm::getIncludeParams( $article,
-					$parserOutput->getTemplateIds(), $parserOutput->getImageTimeKeys() );
+				RevisionReviewForm::getIncludeParams( $article, $templateIds, $fileTimeKeys );
+			// Set the version parameters...
 			$form->setTemplateParams( $templateParams );
 			$form->setFileParams( $imageParams );
 			$form->setFileVersion( $fileVersion );

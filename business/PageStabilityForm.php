@@ -28,11 +28,9 @@ abstract class PageStabilityForm
 	protected $inputLock = 0; # Disallow bad submissions
 
 	protected $user = null;
-	protected $skin = null;
 
-	public function __construct( $user ) {
+	public function __construct( User $user ) {
 		$this->user = $user;
-		$this->skin = $user->getSkin();
 	}
 
 	public function getPage() {

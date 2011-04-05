@@ -10,7 +10,7 @@ class RevisionReview extends UnlistedSpecialPage
 {
 	protected $form;
 	protected $page;
-	protected $skin;
+	var $skin; // FIXME: with RevDel_RevisionList stuff
 
 	public function __construct() {
 		parent::__construct( 'RevisionReview', 'review' );
@@ -49,7 +49,6 @@ class RevisionReview extends UnlistedSpecialPage
 		$form->setApprove( $wgRequest->getCheck( 'wpApprove' ) );
 		$form->setUnapprove( $wgRequest->getCheck( 'wpUnapprove' ) );
 		$form->setReject( $wgRequest->getCheck( 'wpReject' ) );
-		$form->setRejectConfirm( $wgRequest->getBool( 'wpRejectConfirm' ) );
 		# Rev ID
 		$form->setOldId( $wgRequest->getInt( 'oldid' ) );
 		$form->setRefId( $wgRequest->getInt( 'refid' ) );
@@ -97,35 +96,52 @@ class RevisionReview extends UnlistedSpecialPage
 				$wgOut->returnToMain( false, $this->page );
 				return;
 			}
-			$status = $form->submit();
-			// Success for either flagging or unflagging
-			if ( $status === true ) {
-				$wgOut->setPageTitle( wfMsgHtml( 'actioncomplete' ) );
-				if ( $form->getAction() === 'approve' ) {
-					$wgOut->addHTML( $this->approvalSuccessHTML( true ) );
-				} elseif ( $form->getAction() === 'unapprove' ) {
-					$wgOut->addHTML( $this->deapprovalSuccessHTML( true ) );
-				} elseif ( $form->getAction() === 'reject' ) {
-					$wgOut->redirect( $this->page->getFullUrl() );
-				}
-			} elseif ( $status === false ) {
-				// Reject confirmation screen. HACKY :(
-				return;
-			} else {
-				if ( $status === 'review_denied' ) {
-					$wgOut->permissionRequired( 'badaccess-group0' ); // protected?
-				} elseif ( $status === 'review_bad_key' ) {
-					$wgOut->permissionRequired( 'badaccess-group0' ); // fiddling
-				} elseif ( $status === 'review_bad_oldid' ) {
-					$wgOut->showErrorPage( 'internalerror', 'revreview-revnotfound' );
-				} elseif ( $status === 'review_not_flagged' ) {
-					$wgOut->redirect( $this->page->getFullUrl() ); // already unflagged
-				} elseif ( $status === 'review_too_low' ) {
-					$wgOut->addWikiText( wfMsg( 'revreview-toolow' ) );
+			// Use confirmation screen for reject...
+			if ( $form->getAction() == 'reject' && !$wgRequest->getBool( 'wpRejectConfirm' ) ) {
+				$rejectForm = new RejectConfirmationFormGUI( $form );
+				list( $html, $status ) = $rejectForm->getHtml();
+				// Success...
+				if ( $status === true ) {
+					$wgOut->addHtml( $html );
+				// Failure...
 				} else {
-					$wgOut->showErrorPage( 'internalerror', $status );
+					if ( $status === 'review_bad_oldid' ) {
+						$wgOut->showErrorPage( 'internalerror', 'revreview-revnotfound' );
+					} else {
+						$wgOut->showErrorPage( 'internalerror', $status );
+					}
+					$wgOut->returnToMain( false, $this->page );
 				}
-				$wgOut->returnToMain( false, $this->page );
+			// Otherwise submit...
+			} else {
+				$status = $form->submit();
+				// Success...
+				if ( $status === true ) {
+					$wgOut->setPageTitle( wfMsgHtml( 'actioncomplete' ) );
+					if ( $form->getAction() === 'approve' ) {
+						$wgOut->addHTML( $this->approvalSuccessHTML( true ) );
+					} elseif ( $form->getAction() === 'unapprove' ) {
+						$wgOut->addHTML( $this->deapprovalSuccessHTML( true ) );
+					} elseif ( $form->getAction() === 'reject' ) {
+						$wgOut->redirect( $this->page->getFullUrl() );
+					}
+				// Failure...
+				} else {
+					if ( $status === 'review_denied' ) {
+						$wgOut->permissionRequired( 'badaccess-group0' ); // protected?
+					} elseif ( $status === 'review_bad_key' ) {
+						$wgOut->permissionRequired( 'badaccess-group0' ); // fiddling
+					} elseif ( $status === 'review_bad_oldid' ) {
+						$wgOut->showErrorPage( 'internalerror', 'revreview-revnotfound' );
+					} elseif ( $status === 'review_not_flagged' ) {
+						$wgOut->redirect( $this->page->getFullUrl() ); // already unflagged
+					} elseif ( $status === 'review_too_low' ) {
+						$wgOut->addWikiText( wfMsg( 'revreview-toolow' ) );
+					} else {
+						$wgOut->showErrorPage( 'internalerror', $status );
+					}
+					$wgOut->returnToMain( false, $this->page );
+				}
 			}
 		// No form to view (GET)
 		} else {

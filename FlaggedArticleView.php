@@ -1070,24 +1070,23 @@ class FlaggedArticleView {
 		}
 		# Build the review form as needed
 		if ( $rev && ( !$this->diffRevs || $this->isReviewableDiff ) ) {
+			$form = new RevisionReviewFormGUI( $wgUser, $this->article, $rev );
+			# Tag default and "reject" button depend on context
+			$form->setDiffLeftId( $this->diffRevs['old'] );
+			# Review notice box goes in top of form
+			$form->setTopNotice( $this->diffNoticeBox );
 			# $wgOut may not already have the inclusion IDs, such as for diffonly=1.
 			# RevisionReviewForm will fetch them as needed however.
-			$templateIDs = $fileSHA1Keys = null;
 			if ( $wgOut->getRevisionId() == $rev->getId() ) {
-				$templateIDs = $wgOut->getTemplateIds();
-				$fileSHA1Keys = $wgOut->getImageTimeKeys();
+				$form->setIncludeVersions( $wgOut->getTemplateIds(), $wgOut->getImageTimeKeys() );
 			}
-			# Review notice box goes in top of form
-			$form = RevisionReviewForm::buildQuickReview(
-				$wgUser, $this->article, $rev, $this->diffRevs['old'],
-				$this->diffNoticeBox, $templateIDs, $fileSHA1Keys
-			);
+			list( $html, $status ) = $form->getHtml();
 			# Diff action: place the form at the top of the page
 			if ( $this->diffRevs ) {
-				$wgOut->prependHTML( $form );
+				$wgOut->prependHTML( $html );
 			# View action: place the form at the bottom of the page
 			} else {
-				$data .= $form;
+				$data .= $html;
 			}
 		}
 		return true;
