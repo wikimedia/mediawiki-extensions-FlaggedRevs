@@ -4068,8 +4068,6 @@ bıewnê [[Special:Unreviewedpages|listeya pelê konrol nêbiyayeyan]].',
 	'revreview-pending-nosection' => 'Ena [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} versiyon tewr peniya] 
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 hama {{PLURAL:$2|vurnayiş|vurnayişan}}], bivini eka qisim wedariya ya zi transfer biya.',
 	'revreview-noflagged' => 'No pel de revizyono ke [[{{MediaWiki:Validationpage}}|çım ser nêçariyayi]] çini yo, no sebeb ra qey qalite belka hewl niyo.',
-	'revreview-note' => '[[User:$1|$1]] no revizyon ser [[{{MediaWiki:Validationpage}}|çım çarna]] u no not verda:',
-	'revreview-notes' => 'tayê not u muşahedati ramociyeni:',
 	'revreview-oldrating' => 'derecekerdış:',
 	'revreview-quality' => 'No revizyon, revizyono [[{{MediaWiki:Validationpage}}|qaliteyıno]] tewr peyin o, <i>$2</i> tarix de [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} tesdiq biyo]. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|vurnayis|vurnayisan}}] {{PLURAL:$3|esta|este}} ke gani kontrol biya.',
 	'revreview-quality-i' => 'Eno [[{{MediaWiki:Validationpage}}|versiyono sebiti]] roca <i>$2</i>ine de [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} tesdiq biyo].
@@ -4108,14 +4106,13 @@ bıewnê [[Special:Unreviewedpages|listeya pelê konrol nêbiyayeyan]].',
 	'revreview-submit-unreviewed' => 'Temam. Tesdiq nêbi!',
 	'revreview-successful' => "'''qey [[:$1|$1]] revizyon bı serkewte işaret bı. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} revizyonê istiqarınan bıvin])'''",
 	'revreview-successful2' => "'''qey [[:$1|$1]] işaretê revizyoni bı serkewte wera diya.'''",
-	'revreview-text' => "[[{{MediaWiki:Validationpage}}|Versiyonê sebiti]] seba meymanan, tewr newi revizyonê sebiti yo u qontrol biya yq.''",
 	'revreview-toggle-title' => 'Detayan binume/bimocne',
 	'revreview-toolow' => "'''Ti gani her nitelikan \"tam niya\" zafyer rate bike ke seba revizyon gani qontrol bibo.'''
 
 Seba statuyê qontroli wedarnayişi, eyaranê ''hemi'' her ca de \"tam niya\" bike.
 
 Ma rica keni \"peyser\" şu ra klik bike reyna deneme bike.",
-	'revreview-update' => "↓ '''Kerem ke, vurnayışanê teberi pêro ''(cêr mocniyenê)'' [[{{MediaWiki:Validationpage}}|tekrar bıvêne]] heta ke verziyono qayım vıraciya.'''",
+	'revreview-update' => "'''Kerem ke, vurnayışanê teberi pêro ''(cêr mocniyenê)'' [[{{MediaWiki:Validationpage}}|tekrar bıvêne]] heta ke verziyono qayım vıraciya.'''",
 	'revreview-update-edited' => '<span class="flaggedrevs_important">Vurnayişanê tu hama zerrê versiyonê sebiti de niya.</span>
 
 Ma rica keni vurnayişanê xo peran versiyonê sebit biki bade kontrolê vurnayişi.
@@ -11246,8 +11243,6 @@ $messages['mk'] = array(
 	'revreview-pending-nosection' => 'Погледнете ја [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} последната ревизија], која содржи
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 {{PLURAL:$2|промена|промени}}] во исчекување, за да видите дали заглавието било преместено или избришано.',
 	'revreview-noflagged' => "Нема [[{{MediaWiki:Validationpage}}|проверени ревизии]] на оваа страница, што значи дека можеби '''не''' е проверено дали се придржува до стандардите.",
-	'revreview-note' => '[[User:$1|$1]] ги направи следниве забелешки [[{{MediaWiki:Validationpage}}|проверувајќи]] ја оваа ревизија:',
-	'revreview-notes' => 'Набљудувања или белешки за прикажување:',
 	'revreview-oldrating' => 'Оценето со:',
 	'revreview-quality' => 'Ова е [[{{MediaWiki:Validationpage}}|објавената верзија]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} одобрена] на <i>$2</i>.
 Има [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|промена|промени}}] во исчекување на проверка.',
@@ -11355,7 +11350,7 @@ $messages['mk'] = array(
 	'revreview-reject-cancel' => 'Откажи',
 	'revreview-reject-summary-cur' => '{{PLURAL:$1|Одбиена последната промена|Одбиени последните $1 промени}} (од $2) и вратена ревизијата $3 од $4',
 	'revreview-reject-summary-old' => '{{PLURAL:$1|Одбиена првата промена|Одбиени првите $1 промени}} (од $2) извршени по ревизијата $3 од $4',
-	'revreview-reject-summary-cur-short' => '↓ {{PLURAL:$1|Одбиена последната промена|Одбиени последните $1 промени}} и вратена ревизијата $2 од $3',
+	'revreview-reject-summary-cur-short' => '{{PLURAL:$1|Одбиена последната промена|Одбиени последните $1 промени}} и вратена ревизијата $2 од $3',
 	'revreview-reject-summary-old-short' => '{{PLURAL:$1|Одбиена првата промена|Одбиени првите $1 промени}} извршени по ревизијата $2 од $3',
 	'revreview-reject-usercount' => '{{PLURAL:$1|еден корисник|$1 корисници}}',
 	'revreview-reviewlink' => 'уредувања во исчекување',
@@ -18098,8 +18093,6 @@ Varda la [[Special:Unreviewedpages|lista de pagine da riesaminar]].',
 	'revreview-pending-nosection' => "Pròa a védar l'[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} ultima revision], che la include
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 {{PLURAL:$2|canbiamento|canbiamenti}}] in atesa, par védar se la sezion la xe stà spostà o scancelà.",
 	'revreview-noflagged' => "No ghe xe version [[{{MediaWiki:Validationpage}}|verificà]] de sta pagina, quindi podarìa '''no''' èssar stà controlà la so qualità.",
-	'revreview-note' => '[[User:$1|$1]] el gà fato le seguenti anotassion [[{{MediaWiki:Validationpage}}|riesaminando]] sta version:',
-	'revreview-notes' => 'Osservassioni o note da far védar:',
 	'revreview-oldrating' => 'La xe stà giudicà:',
 	'revreview-quality' => 'Sta qua la xe la [[{{MediaWiki:Validationpage}}|version stabile]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovà] el <i>$2</i>.
 Ghe xe [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|canbiamenti|canbiamenti}}] in atesa de verifica.',
@@ -18119,7 +18112,7 @@ Xe stà fato dei [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} can
 	'revreview-quick-quality-old' => "'''[[{{MediaWiki:Validationpage}}|Pagina de qualità]]'''",
 	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|Pagina de qualità]]'''",
 	'revreview-quick-see-basic' => '[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} revisiona i canbiamenti pendenti]]',
-	'revreview-quick-see-quality' => '↓ [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} verifica i canbiamenti pendenti]]',
+	'revreview-quick-see-quality' => '[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} verifica i canbiamenti pendenti]]',
 	'revreview-selected' => "Revision selessionà de '''$1:'''",
 	'revreview-source' => 'Varda el còdese sorgente',
 	'revreview-basic-title' => 'Sta qua la xe na version verificà de sta pagina',
@@ -18140,7 +18133,6 @@ Xe stà fato dei [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} can
 	'revreview-submit-unreviewed' => 'Finìo. Rifiutà!',
 	'revreview-successful' => "'''La revision de [[:$1|$1]] la xe stà verificà. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} varda tute le version stabili])'''",
 	'revreview-successful2' => "'''Cavà el contrassegno a la version selessionà de [[:$1|$1]].'''",
-	'revreview-text' => "''Le [[{{MediaWiki:Validationpage}}|versioni verificà]] le xe dele version de pagina controlà e doparà par stabilir la version publicà.''",
 	'revreview-toggle-title' => 'mostra/scondi detagli',
 	'revreview-toolow' => '\'\'\'Ti gà da segnar ognuno dei atributi qua soto piessè alto de "Non aprovà" parché la revision la sia considerà verificà.\'\'\'
 

@@ -234,10 +234,9 @@ $messages['br'] = array(
 
 An Aozerien hag an Adlennerien a zo implijerien staliet a c'hell gwiriañ adweladennoù ar pajennoù.",
 	'validationstatistics-lastupdate' => "''Ar roadennoù da-heul a zo bet hizivaet d'an $1 da $2.''",
-	'validationstatistics-pndtime' => "Sellet a reer evel adlennet ouzh ar c'hemmoù bet degaset gant an implijerien enrollet.
+	'validationstatistics-pndtime' => "Sellet a reer ouzh ar c'hemmoù gwiriet gant an implijerien arroutet evel kemmoù ''adlennet''..
 
-An dale keitat evit [[Special:OldReviewedPages|ar pajennoù enno kemmoù da vezañ adlennet]] a sav da '''\$1'''.
-Sellet a reer ouzh ar pajennoù-se evel ouzh pajennoù \"dispredet''. Heñveldra, sellet a reer ouzh ur bajenn evel \"hizivaet\" ma n'eus ket enni kemm ebet da vezañ adlennet.",
+An dale keitat evit [[Special:OldReviewedPages|ar pajennoù a c'hortoz bezañ adlennet]] a sav da '''$1'''; Muzuliañ a ra an termen pegen pell eo chomet ar c'hemm diwezhañ hep bezañ gwiriet.",
 	'validationstatistics-revtime' => "Sevel a ra an amzer gortoz keitat evit adlenn kemmoù graet gant \"implijerien dienroll\" da '''\$1''' ; ar geidenn zo '''\$2'''.
 \$3",
 	'validationstatistics-table' => "A-is emañ diskouezet ar stadegoù adwelout evit pep esaouenn anv, ''nemet'' evit ar pajennoù adkas.",
@@ -247,7 +246,7 @@ Sellet a reer ouzh ar pajennoù-se evel ouzh pajennoù \"dispredet''. Heñveldra
 	'validationstatistics-latest' => 'Sinkronelaet',
 	'validationstatistics-synced' => 'Sinkronelaet/Adwelet',
 	'validationstatistics-old' => 'Dispredet',
-	'validationstatistics-utable' => 'A-is emañ {{PLURAL:$1|anv an adlenner gredusañ|roll an $1 adlenner gredusañ}} en eurvezh tremenet.',
+	'validationstatistics-utable' => 'A-is emañ {{PLURAL:$1|anv an adlenner oberiantañ|anv an $1 adlenner oberiantañ}} en {{PLURAL:$2|eurvezh|$2 eurvezh}} ziwezhañ.',
 	'validationstatistics-user' => 'Implijer',
 	'validationstatistics-reviews' => 'Adweladennoù',
 );

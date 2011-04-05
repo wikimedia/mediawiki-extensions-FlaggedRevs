@@ -1348,6 +1348,13 @@ Di aktuällen Yystellige fir „[[:$1|$1]]“ sin:',
 	'stabilization-review' => 'Di aktuäll Version as aagluegt markiere',
 );
 
+/** Manx (Gaelg)
+ * @author Shimmin Beg
+ */
+$messages['gv'] = array(
+	'stabilization-comment' => 'Fa:',
+);
+
 /** Hausa (هَوُسَ) */
 $messages['ha'] = array(
 	'stabilization-comment' => 'Dalili:',
