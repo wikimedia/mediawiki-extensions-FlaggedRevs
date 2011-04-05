@@ -220,7 +220,8 @@ window.FlaggedRevsReview = {
 	'updateReviewForm': function( form, response ) {
 		var msg = response.substr(6); // remove <err#> or <suc#>
 		// Read new "last change time" timestamp for conflict handling
-		var m = msg.match(/^<lct#(\d*)>(.+)/m);
+		// @TODO: pass last-chage-time data using JSON or something not retarded
+		var m = msg.match(/^<lct#(\d*)>(.*)/m);
 		if( m ) msg = m[2]; // remove tag from msg
 		var changeTime = m ? m[1] : null; // MW TS
 		// Some form elements...

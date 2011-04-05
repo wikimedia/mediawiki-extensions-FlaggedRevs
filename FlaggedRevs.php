@@ -242,7 +242,6 @@ $wgAutoloadClasses['FRUserCounters'] = $dir . 'FRUserCounters.php';
 $wgAutoloadClasses['FRUserActivity'] = $dir . 'FRUserActivity.php';
 $wgAutoloadClasses['FlaggedPageConfig'] = $dir . 'FlaggedPageConfig.php';
 $wgAutoloadClasses['FlaggedRevsLogs'] = $dir . 'FlaggedRevsLogs.php';
-$wgAutoloadClasses['FlaggedRevsXML'] = $dir . 'FlaggedRevsXML.php';
 
 # Event handler classes...
 $wgAutoloadClasses['FlaggedRevsHooks'] = $dir . 'FlaggedRevs.hooks.php';
@@ -255,7 +254,6 @@ $wgAutoloadClasses['FRExtraCacheUpdateJob'] = $dir . 'FRExtraCacheUpdate.php';
 $wgAutoloadClasses['FRSquidUpdate'] = $dir . 'FRExtraCacheUpdate.php';
 $wgAutoloadClasses['FRDependencyUpdate'] = $dir . 'FRDependencyUpdate.php';
 $wgAutoloadClasses['FRInclusionManager'] = $dir . 'FRInclusionManager.php';
-$wgAutoloadClasses['FlaggedArticleView'] = $dir . 'FlaggedArticleView.php';
 $wgAutoloadClasses['FlaggedArticle'] = $dir . 'FlaggedArticle.php';
 $wgAutoloadClasses['FlaggedRevision'] = $dir . 'FlaggedRevision.php';
 
@@ -266,51 +264,56 @@ $wgAutoloadClasses['PageStabilityGeneralForm'] = $dir . 'business/PageStabilityF
 $wgAutoloadClasses['PageStabilityProtectForm'] = $dir . 'business/PageStabilityForm.php';
 
 # Presentation classes...
+$wgAutoloadClasses['FlaggedArticleView'] = $dir . 'presentation/FlaggedArticleView.php';
 $wgAutoloadClasses['RevisionReviewFormGUI'] = $dir . 'presentation/RevisionReviewFormGUI.php';
 $wgAutoloadClasses['RejectConfirmationFormGUI'] = $dir . 'presentation/RejectConfirmationFormGUI.php';
+$wgAutoloadClasses['FlaggedRevsXML'] = $dir . 'presentation/FlaggedRevsXML.php';
 
 # Load main i18n file and special page alias file
 $wgExtensionMessagesFiles['FlaggedRevs'] = $langDir . 'FlaggedRevs.i18n.php';
 $wgExtensionAliasesFiles['FlaggedRevs'] = $langDir . 'FlaggedRevs.alias.php';
 
+$specialFunctionDir = $dir . 'specialpages/functions/';
 # Load revision review UI
-$wgAutoloadClasses['RevisionReview'] = $dir . 'specialpages/RevisionReview_body.php';
-# Load reviewed versions UI
-$wgAutoloadClasses['ReviewedVersions'] = $dir . 'specialpages/ReviewedVersions_body.php';
-$wgExtensionMessagesFiles['ReviewedVersions'] = $langDir . 'ReviewedVersions.i18n.php';
-# Stable version config
-$wgAutoloadClasses['Stabilization'] = $dir . 'specialpages/Stabilization_body.php';
+$wgAutoloadClasses['RevisionReview'] = $specialFunctionDir . 'RevisionReview_body.php';
+# Stable version config UI
+$wgAutoloadClasses['Stabilization'] = $specialFunctionDir . 'Stabilization_body.php';
 $wgExtensionMessagesFiles['Stabilization'] = $langDir . 'Stabilization.i18n.php';
+
+$specialReportDir = $dir . 'specialpages/reports/';
+# Load reviewed versions UI
+$wgAutoloadClasses['ReviewedVersions'] = $specialReportDir . 'ReviewedVersions_body.php';
+$wgExtensionMessagesFiles['ReviewedVersions'] = $langDir . 'ReviewedVersions.i18n.php';
 # Load unreviewed pages list
-$wgAutoloadClasses['UnreviewedPages'] = $dir . 'specialpages/UnreviewedPages_body.php';
+$wgAutoloadClasses['UnreviewedPages'] = $specialReportDir . 'UnreviewedPages_body.php';
 $wgExtensionMessagesFiles['UnreviewedPages'] = $langDir . 'UnreviewedPages.i18n.php';
 $wgSpecialPageGroups['UnreviewedPages'] = 'quality';
 # Load "in need of re-review" pages list
-$wgAutoloadClasses['PendingChanges'] = $dir . 'specialpages/PendingChanges_body.php';
+$wgAutoloadClasses['PendingChanges'] = $specialReportDir . 'PendingChanges_body.php';
 $wgExtensionMessagesFiles['PendingChanges'] = $langDir . 'PendingChanges.i18n.php';
 $wgSpecialPageGroups['PendingChanges'] = 'quality';
 # Load "suspicious changes" pages list
-$wgAutoloadClasses['ProblemChanges'] = $dir . 'specialpages/ProblemChanges_body.php';
+$wgAutoloadClasses['ProblemChanges'] = $specialReportDir . 'ProblemChanges_body.php';
 $wgExtensionMessagesFiles['ProblemChanges'] = $langDir . 'ProblemChanges.i18n.php';
 $wgSpecialPageGroups['ProblemChanges'] = 'quality';
 # Load reviewed pages list
-$wgAutoloadClasses['ReviewedPages'] = $dir . 'specialpages/ReviewedPages_body.php';
+$wgAutoloadClasses['ReviewedPages'] = $specialReportDir . 'ReviewedPages_body.php';
 $wgExtensionMessagesFiles['ReviewedPages'] = $langDir . 'ReviewedPages.i18n.php';
 $wgSpecialPageGroups['ReviewedPages'] = 'quality';
 # Load stable pages list (for protection config)
-$wgAutoloadClasses['StablePages'] = $dir . 'specialpages/StablePages_body.php';
+$wgAutoloadClasses['StablePages'] = $specialReportDir . 'StablePages_body.php';
 $wgExtensionMessagesFiles['StablePages'] = $langDir . 'StablePages.i18n.php';
 $wgSpecialPageGroups['StablePages'] = 'quality';
 # Load configured pages list (non-protection config)
-$wgAutoloadClasses['ConfiguredPages'] = $dir . 'specialpages/ConfiguredPages_body.php';
+$wgAutoloadClasses['ConfiguredPages'] = $specialReportDir . 'ConfiguredPages_body.php';
 $wgExtensionMessagesFiles['ConfiguredPages'] = $langDir . 'ConfiguredPages.i18n.php';
 $wgSpecialPageGroups['ConfiguredPages'] = 'quality';
 # To oversee quality revisions
-$wgAutoloadClasses['QualityOversight'] = $dir . 'specialpages/QualityOversight_body.php';
+$wgAutoloadClasses['QualityOversight'] = $specialReportDir . 'QualityOversight_body.php';
 $wgExtensionMessagesFiles['QualityOversight'] = $langDir . 'QualityOversight.i18n.php';
 $wgSpecialPageGroups['QualityOversight'] = 'quality';
 # Statistics
-$wgAutoloadClasses['ValidationStatistics'] = $dir . 'specialpages/ValidationStatistics_body.php';
+$wgAutoloadClasses['ValidationStatistics'] = $specialReportDir . 'ValidationStatistics_body.php';
 $wgExtensionMessagesFiles['ValidationStatistics'] = $langDir . 'ValidationStatistics.i18n.php';
 $wgSpecialPageGroups['ValidationStatistics'] = 'quality';
 
