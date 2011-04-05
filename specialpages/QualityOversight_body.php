@@ -1,11 +1,6 @@
 <?php
-if ( !defined( 'MEDIAWIKI' ) ) {
-	echo "FlaggedRevs extension\n";
-	exit( 1 );
-}
 
-class QualityOversight extends SpecialPage
-{
+class QualityOversight extends SpecialPage {
 	public function __construct() {
 		parent::__construct( 'QualityOversight' );
 	}

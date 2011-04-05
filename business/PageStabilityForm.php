@@ -1,9 +1,4 @@
 <?php
-# (c) Aaron Schulz 2010 GPL
-if ( !defined( 'MEDIAWIKI' ) ) {
-	echo "FlaggedRevs extension\n";
-	exit( 1 );
-}
 /**
  * Class containing stability settings form business logic
  * Note: edit tokens are the responsibility of caller
@@ -11,8 +6,7 @@ if ( !defined( 'MEDIAWIKI' ) ) {
  *		  (b) call ready() when all params are set
  *		  (c) call preloadSettings() or submit() as needed
  */
-abstract class PageStabilityForm
-{
+abstract class PageStabilityForm {
 	/* Form parameters which can be user given */
 	protected $page = false; # Target page obj
 	protected $watchThis = null; # Watch checkbox
@@ -31,6 +25,10 @@ abstract class PageStabilityForm
 
 	public function __construct( User $user ) {
 		$this->user = $user;
+	}
+
+	public function getUser() {
+		return $this->user;
 	}
 
 	public function getPage() {
@@ -377,7 +375,7 @@ abstract class PageStabilityForm
 
 	/*
 	* Get assoc. array of log params
-	* @return array
+	* @return Array
 	*/
 	protected function getLogParams() {
 		return array();

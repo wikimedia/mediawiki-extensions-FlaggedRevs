@@ -1,13 +1,6 @@
 <?php
-# (c) Aaron Schulz, Joerg Baach, 2007 GPL
 
-if ( !defined( 'MEDIAWIKI' ) ) {
-	echo "FlaggedRevs extension\n";
-	exit( 1 );
-}
-
-class RevisionReview extends UnlistedSpecialPage
-{
+class RevisionReview extends UnlistedSpecialPage {
 	protected $form;
 	protected $page;
 	var $skin; // FIXME: with RevDel_RevisionList stuff

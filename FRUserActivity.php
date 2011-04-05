@@ -42,7 +42,7 @@ class FRUserActivity {
 	/*
 	* Get who is currently reviewing a page
 	* @param int $pageId
-	* @return array (username or null, MW timestamp or null)
+	* @return Array (username or null, MW timestamp or null)
 	*/
 	public static function getUserReviewingPage( $pageId ) {
 		global $wgMemc;
@@ -99,7 +99,7 @@ class FRUserActivity {
 	* Get who is currently reviewing a diff
 	* @param int $oldId
 	* @param int $newId
-	* @return array (username or null, MW timestamp or null)
+	* @return Array (username or null, MW timestamp or null)
 	*/
 	public static function getUserReviewingDiff( $oldId, $newId ) {
 		global $wgMemc;

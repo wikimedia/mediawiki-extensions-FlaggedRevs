@@ -471,7 +471,7 @@ class FlaggedRevs {
 	 * @param Title $title
 	 * @param string $text wikitext
 	 * @param int $id Source revision Id
-	 * @return array( string wikitext, array of template versions )
+	 * @return Array( string wikitext, array of template versions )
 	 */
 	public static function expandText( Title $title, $text, $id ) {
 		global $wgParser;
@@ -1075,7 +1075,7 @@ class FlaggedRevs {
 	/**
 	 * Get minimum level tags for a tier
 	 * @param int $tier FR_PRISTINE/FR_QUALITY/FR_CHECKED
-	 * @return array
+	 * @return Array
 	 */
 	public static function quickTags( $tier ) {
 		self::load();
@@ -1117,7 +1117,7 @@ class FlaggedRevs {
 
 	/**
 	* Get the list of reviewable namespaces
-	* @return array
+	* @return Array
 	*/
 	public static function getReviewNamespaces() {
 		self::load(); // validates namespaces
@@ -1126,7 +1126,7 @@ class FlaggedRevs {
 	
 	/**
 	* Get the list of patrollable namespaces
-	* @return array
+	* @return Array
 	*/
 	public static function getPatrolNamespaces() {
 		self::load(); // validates namespaces

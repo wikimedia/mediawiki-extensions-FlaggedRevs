@@ -1,12 +1,7 @@
 <?php
-if ( !defined( 'MEDIAWIKI' ) ) {
-	echo "FlaggedRevs extension\n";
-	exit( 1 );
-}
 
 // Assumes $wgFlaggedRevsProtection is off
-class Stabilization extends UnlistedSpecialPage
-{
+class Stabilization extends UnlistedSpecialPage {
 	protected $form = null;
 	protected $skin;
 

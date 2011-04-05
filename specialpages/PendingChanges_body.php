@@ -1,11 +1,6 @@
 <?php
-if ( !defined( 'MEDIAWIKI' ) ) {
-	echo "FlaggedRevs extension\n";
-	exit( 1 );
-}
 
-class PendingChanges extends SpecialPage
-{
+class PendingChanges extends SpecialPage {
 	protected $pager = null;
 
 	public function __construct() {

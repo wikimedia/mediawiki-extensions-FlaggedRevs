@@ -302,7 +302,7 @@ class FlaggedArticle extends Article {
 	/**
 	 * Get visiblity restrictions on page
 	 * @param int $flags, FR_MASTER
-	 * @return array (select,override)
+	 * @return Array (select,override)
 	 */
 	public function getStabilitySettings( $flags = 0 ) {
 		$this->loadFlaggedRevsData( $flags );

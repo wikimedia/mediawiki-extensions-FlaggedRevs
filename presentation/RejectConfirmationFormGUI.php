@@ -1,9 +1,4 @@
 <?php
-# (c) Aaron Schulz 2011 GPL
-if ( !defined( 'MEDIAWIKI' ) ) {
-	echo "FlaggedRevs extension\n";
-	exit( 1 );
-}
 /**
  * Reject confirmation review form UI
  */
@@ -17,11 +12,7 @@ class RejectConfirmationFormGUI {
 	}
 
 	/**
-	 * Output the "are you sure you want to reject this" form
-	 *
-	 * A bit hacky, but we don't have a way to pass more complicated
-	 * UI things back up, since RevisionReview expects either true
-	 * or a string message key
+	 * Get the "are you sure you want to reject these changes?" form
 	 * @return Array (html string, error string or true)
 	 */
 	public function getHtml() {

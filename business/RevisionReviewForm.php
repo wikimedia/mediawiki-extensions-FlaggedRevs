@@ -1,9 +1,4 @@
 <?php
-# (c) Aaron Schulz 2010 GPL
-if ( !defined( 'MEDIAWIKI' ) ) {
-	echo "FlaggedRevs extension\n";
-	exit( 1 );
-}
 /**
  * Class containing revision review form business logic
  * Note: edit tokens are the responsibility of caller
@@ -11,8 +6,7 @@ if ( !defined( 'MEDIAWIKI' ) ) {
  *		  (b) call ready() when all params are set
  *		  (c) call submit() as needed
  */
-class RevisionReviewForm
-{
+class RevisionReviewForm {
 	/* Form parameters which can be user given */
 	protected $page = null;
 	protected $approve = false;
@@ -37,7 +31,7 @@ class RevisionReviewForm
 	public function __construct( User $user ) {
 		$this->user = $user;
 		foreach ( FlaggedRevs::getTags() as $tag ) {
-			$this->dims[$tag] = 0;
+			$this->dims[$tag] = 0; // default to "inadequate"
 		}
 	}
 
@@ -339,9 +333,7 @@ class RevisionReviewForm
 		}
 		# Watch page if set to do so
 		if ( $status === true ) {
-			if ( $this->user->getOption( 'flaggedrevswatch' )
-				&& !$this->page->userIsWatching() )
-			{
+			if ( $this->user->getOption( 'flaggedrevswatch' ) && !$this->page->userIsWatching() ) {
 				$this->user->addWatch( $this->page );
 			}
 		}

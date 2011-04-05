@@ -1,11 +1,6 @@
 <?php
-if ( !defined( 'MEDIAWIKI' ) ) {
-	echo "FlaggedRevs extension\n";
-	exit( 1 );
-}
 
-class ValidationStatistics extends IncludableSpecialPage
-{
+class ValidationStatistics extends IncludableSpecialPage {
 	public function __construct() {
 		parent::__construct( 'ValidationStatistics' );
 	}

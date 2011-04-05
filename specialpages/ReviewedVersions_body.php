@@ -1,11 +1,6 @@
 <?php
-if ( !defined( 'MEDIAWIKI' ) ) {
-	echo "FlaggedRevs extension\n";
-	exit( 1 );
-}
 
-class ReviewedVersions extends UnlistedSpecialPage
-{
+class ReviewedVersions extends UnlistedSpecialPage {
 	public function __construct() {
 		parent::__construct( 'ReviewedVersions' );
 	}

@@ -1,8 +1,4 @@
 <?php
-if ( !defined( 'MEDIAWIKI' ) ) {
-	echo "FlaggedRevs extension\n";
-	exit( 1 );
-}
 /**
  * Class containing hooked functions for a FlaggedRevs environment
  */

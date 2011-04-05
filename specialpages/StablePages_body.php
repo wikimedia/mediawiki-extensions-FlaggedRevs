@@ -1,12 +1,7 @@
 <?php
-if ( !defined( 'MEDIAWIKI' ) ) {
-	echo "FlaggedRevs extension\n";
-	exit( 1 );
-}
 
 // Assumes $wgFlaggedRevsProtection is on
-class StablePages extends SpecialPage
-{
+class StablePages extends SpecialPage {
 	protected $pager = null;
 
 	public function __construct() {

@@ -76,7 +76,7 @@ class FRDependencyUpdate {
 	/*
 	* Get existing cache dependancies
 	* @param int $flags FR_MASTER
-	* @return array (ns => dbKey => 1)
+	* @return Array (ns => dbKey => 1)
 	*/
 	protected function getExistingDeps( $flags = 0 ) {
 		$db = ( $flags & FR_MASTER ) ?
@@ -98,7 +98,7 @@ class FRDependencyUpdate {
 
 	/*
 	* Get INSERT rows for cache dependancies in $new but not in $existing
-	* @return array
+	* @return Array
 	*/
 	protected function getDepInsertions( array $existing, array $new ) {
 		$arr = array();
@@ -157,7 +157,7 @@ class FRDependencyUpdate {
 
 	/**
 	 * Get an array of existing links, as a 2-D array
-	 * @return array (ns => dbKey => 1)
+	 * @return Array (ns => dbKey => 1)
 	 */
 	protected function getCurrentVersionLinks() {
 		$dbr = wfGetDB( DB_SLAVE );
@@ -178,7 +178,7 @@ class FRDependencyUpdate {
 
 	/**
 	 * Get an array of existing templates, as a 2-D array
-	 * @return array (ns => dbKey => 1)
+	 * @return Array (ns => dbKey => 1)
 	 */
 	protected function getCurrentVersionTemplates() {
 		$dbr = wfGetDB( DB_SLAVE );
@@ -199,7 +199,7 @@ class FRDependencyUpdate {
 
 	/**
 	 * Get an array of existing images, image names in the keys
-	 * @return array (dbKey => 1)
+	 * @return Array (dbKey => 1)
 	 */
 	protected function getCurrentVersionImages() {
 		$dbr = wfGetDB( DB_SLAVE );
@@ -217,7 +217,7 @@ class FRDependencyUpdate {
 
 	/**
 	 * Get an array of existing categories, with the name in the key and sort key in the value.
-	 * @return array (category => sortkey)
+	 * @return Array (category => sortkey)
 	 */
 	protected function getCurrentVersionCategories() {
 		$dbr = wfGetDB( DB_SLAVE );
