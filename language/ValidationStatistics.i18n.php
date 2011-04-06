@@ -1884,7 +1884,7 @@ $messages['te'] = array(
 
 సంపాదకులు మరియు సమీక్షకులు అంటే పేజీలకు కూర్పులను ఎప్పటికప్పుడు సరిచూడగలిగిన నిర్ధారిత వాడుకరులు.",
 	'validationstatistics-table' => "ప్రతీ పేరుబరి యొక్క గణాంకాలు క్రింద చూపించాం, దారిమార్పు పేజీలని ''మినహాయించి''.",
-	'validationstatistics-ns' => 'నేంస్పేసు',
+	'validationstatistics-ns' => 'పేరుబరి',
 	'validationstatistics-total' => 'పేజీలు',
 	'validationstatistics-stable' => 'రివ్యూడ్',
 	'validationstatistics-latest' => 'సింకుడు',
