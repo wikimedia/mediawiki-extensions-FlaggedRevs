@@ -101,6 +101,7 @@ $messages['en'] = array(
 	'review_not_flagged'       => 'The target revision is not currently marked as reviewed.',
 	'review_too_low'           => 'Revision cannot be reviewed with some fields left "inadequate".',
 	'review_bad_key'           => 'Invalid inclusion parameter key.',
+	'review_bad_tags'          => 'Some of the specified tag values are invalid.',
 	'review_denied'            => 'Permission denied.',
 	'review_param_missing'     => 'A parameter is missing or invalid.',
 	'review_cannot_undo'       => 'Cannot undo these changes because further pending edits changed the same areas.',

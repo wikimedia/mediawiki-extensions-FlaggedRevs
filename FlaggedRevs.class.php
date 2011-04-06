@@ -378,9 +378,38 @@ class FlaggedRevs {
 	}
 
 	# ################ Permission functions #################	
-	
+
+	/*
+	* Sanity check a (tag,value) pair
+	* @param string $tag
+	* @param int $value
+	* @return bool
+	*/
+	public static function tagIsValid( $tag, $value ) {
+		$levels = self::getTagLevels( $tag );
+		$highest = count( $levels ) - 1;
+		if ( !$levels || $value < 0 || $value > $highest ) {
+			return false; // flag range is invalid
+		}
+		return true;
+	}
+
 	/**
-	 * Returns true if a user can set $tag to $value.
+	 * Check if all of the required site flags have a valid value
+	 * @param array $flags
+	 * @returns bool
+	 */
+	public static function flagsAreValid( array $flags ) {
+		foreach ( self::getDimensions() as $qal => $levels ) {
+			if ( !isset( $flags[$qal] ) || !self::tagIsValid( $qal, $flags[$qal] ) ) {
+				return false;
+			}
+		}
+		return true;
+	}
+
+	/**
+	 * Returns true if a user can set $tag to $value
 	 * @param User $user
 	 * @param string $tag
 	 * @param int $value
@@ -388,9 +417,7 @@ class FlaggedRevs {
 	 */
 	public static function userCanSetTag( $user, $tag, $value ) {
 		# Sanity check tag and value
-		$levels = self::getTagLevels( $tag );
-		$highest = count( $levels ) - 1;
-		if ( !$levels || $value < 0 || $value > $highest ) {
+		if ( !self::tagIsValid( $tag, $value ) ) {
 			return false; // flag range is invalid
 		}
 		$restrictions = self::getTagRestrictions();
@@ -424,11 +451,12 @@ class FlaggedRevs {
 		if ( !$user->isAllowed( 'review' ) ) {
 			return false; // User is not able to review pages
 		}
-		# Check if all of the required site flags have a valid value
-		# that the user is allowed to set...
+		# Check if all of the required site flags have
+		# a valid value that the user is allowed to set...
 		foreach ( self::getDimensions() as $qal => $levels ) {
-			$level = isset( $flags[$qal] ) ? $flags[$qal] : 0;
-			if ( !self::userCanSetTag( $user, $qal, $level ) ) {
+			if ( !isset( $flags[$qal] ) ) {
+				return false; // unspecified
+			} elseif ( !self::userCanSetTag( $user, $qal, $flags[$qal] ) ) {
 				return false; // user cannot set proposed flag
 			} elseif ( isset( $oldflags[$qal] )
 				&& !self::userCanSetTag( $user, $qal, $oldflags[$qal] ) )

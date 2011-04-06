@@ -211,17 +211,25 @@ class RevisionReviewForm {
 			if ( in_array( 0, $this->dims, true ) ) {
 				return 'review_too_low';
 			}
-			# Special token to discourage fiddling with template/files...
+			# Special token to discourage fiddling with templates/files...
 			$k = self::validationKey(
 				$this->templateParams, $this->imageParams, $this->fileVersion, $this->oldid );
 			if ( $this->validatedParams !== $k ) {
 				return 'review_bad_key';
 			}
-		}
-		# Check permissions and validate
-		# FIXME: invalid vs denied
-		if ( !FlaggedRevs::userCanSetFlags( $this->user, $this->dims, $this->oflags ) ) {
-			return 'review_denied';
+			# Sanity check tags
+			if ( !FlaggedRevs::flagsAreValid( $this->dims ) ) {
+				return 'review_bad_tags';
+			}
+			# Check permissions with tags
+			if ( !FlaggedRevs::userCanSetFlags( $this->user, $this->dims, $this->oflags ) ) {
+				return 'review_denied';
+			}
+		} elseif ( $this->getAction() === 'unapprove' ) {
+			# Check permissions with old tags
+			if ( !FlaggedRevs::userCanSetFlags( $this->user, $this->oflags ) ) {
+				return 'review_denied';
+			}
 		}
 		return true;
 	}
