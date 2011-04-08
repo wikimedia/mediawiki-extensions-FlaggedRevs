@@ -1,12 +1,8 @@
 <?php
 /**
  * Class containing revision review form business logic
- * Note: edit tokens are the responsibility of caller
- * Usage: (a) set ALL form params before doing anything else
- *		  (b) call ready() when all params are set
- *		  (c) call submit() as needed
  */
-class RevisionReviewForm {
+class RevisionReviewForm extends FRGenericSubmitForm {
 	/* Form parameters which can be user given */
 	protected $page = null;
 	protected $approve = false;
@@ -24,19 +20,11 @@ class RevisionReviewForm {
 	protected $newLastChangeTime = null; # Conflict handling
 
 	protected $oflags = array();
-	protected $inputLock = 0; # Disallow bad submissions
 
-	protected $user = null;
-
-	public function __construct( User $user ) {
-		$this->user = $user;
+	public function initialize() {
 		foreach ( FlaggedRevs::getTags() as $tag ) {
 			$this->dims[$tag] = 0; // default to "inadequate"
 		}
-	}
-
-	public function getUser() {
-		return $this->user;
 	}
 
 	public function getPage() {
@@ -135,52 +123,31 @@ class RevisionReviewForm {
 	}
 
 	/**
-	* Set a member field to a value if the fields are unlocked
-	*/
-	protected function trySet( &$field, $value ) {
-		if ( $this->inputLock ) {
-			throw new MWException( __CLASS__ . " fields cannot be set anymore.\n");
-		} else {
-			$field = $value; // still allowing input
-		} 
-	}
-
-	/**
-	* Signal that inputs are starting
-	*/
-	public function start() {
-		$this->inputLock = 0;
-	}
-
-	/**
-	* Signal that inputs are done and load old config
+	* Load old config and last review status change time
 	* @return mixed (true on success, error string on target failure)
 	*/
-	public function ready() {
-		$this->inputLock = 1;
-		$status = $this->checkTarget();
-		if ( $status !== true ) {
-			return $status; // bad target
-		}
+	public function doLoadOnReady() {
 		# Get the revision's current flags, if any
 		$this->oflags = FlaggedRevs::getRevisionTags( $this->page, $this->oldid, FR_MASTER );
 		# Set initial value for newLastChangeTime (if unchanged on submit)
 		$this->newLastChangeTime = $this->lastChangeTime;
-		return $status;
+		return true;
 	}
 
 	/*
-	* Check that the target page is valid
+	* Check that the target is valid (e.g. from GET/POST request)
+	* @param int $flags ON_SUBMISSION (set on submit)
 	* @return mixed (true on success, error string on failure)
 	*/
-	protected function checkTarget() {
+	protected function doCheckTarget( $flags = 0 ) {
 		if ( is_null( $this->page ) ) {
 			return 'review_page_invalid';
 		} elseif ( !$this->page->exists() ) {
 			return 'review_page_notexists';
 		}
 		$fa = FlaggedArticle::getTitleInstance( $this->page );
-		if ( !$fa->isReviewable() ) {
+		$flags = ( $flags & self::ON_SUBMISSION ) ? FR_MASTER : 0;
+		if ( !$fa->isReviewable( $flags ) ) {
 			return 'review_page_unreviewable';
 		}
 		return true;
@@ -190,11 +157,8 @@ class RevisionReviewForm {
 	* Verify and clean up parameters (e.g. from POST request).
 	* @return mixed (true on success, error string on failure)
 	*/
-	protected function checkSettings() {
-		$status = $this->checkTarget();
-		if ( $status !== true ) {
-			return $status; // bad page target
-		} elseif ( !$this->oldid ) {
+	protected function doCheckParameters() {
+		if ( !$this->oldid ) {
 			return 'review_no_oldid'; // bad revision target
 		}
 		# Check that an action is specified (approve, reject, de-approve)
@@ -275,14 +239,7 @@ class RevisionReviewForm {
 	* 
 	* @return mixed (true on success, error string on failure)
 	*/
-	public function submit() {
-		if ( !$this->inputLock ) {
-			throw new MWException( __CLASS__ . " input fields not set yet.\n");
-		}
-		$status = $this->checkSettings();
-		if ( $status !== true ) {
-			return $status; // cannot submit - broken params
-		}
+	public function doSubmit() {
 		# Double-check permissions
 		if ( !$this->isAllowed() ) {
 			return 'review_denied';

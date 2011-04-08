@@ -1,12 +1,8 @@
 <?php
 /**
  * Class containing stability settings form business logic
- * Note: edit tokens are the responsibility of caller
- * Usage: (a) set ALL form params before doing anything else
- *		  (b) call ready() when all params are set
- *		  (c) call preloadSettings() or submit() as needed
  */
-abstract class PageStabilityForm {
+abstract class PageStabilityForm extends FRGenericSubmitForm {
 	/* Form parameters which can be user given */
 	protected $page = false; # Target page obj
 	protected $watchThis = null; # Watch checkbox
@@ -19,17 +15,6 @@ abstract class PageStabilityForm {
 	protected $autoreview = ''; # Autoreview restrictions...
 
 	protected $oldConfig = array(); # Old page config
-	protected $inputLock = 0; # Disallow bad submissions
-
-	protected $user = null;
-
-	public function __construct( User $user ) {
-		$this->user = $user;
-	}
-
-	public function getUser() {
-		return $this->user;
-	}
 
 	public function getPage() {
 		return $this->page;
@@ -133,38 +118,6 @@ abstract class PageStabilityForm {
 		return $comment;
 	}
 
-	/**
-	* Set a member field to a value if the fields are unlocked
-	*/
-	protected function trySet( &$field, $value ) {
-		if ( $this->inputLock ) {
-			throw new MWException( __CLASS__ . " fields cannot be set anymore.\n");
-		} else {
-			$field = $value; // still allowing input
-		} 
-	}
-
-	/**
-	* Signal that inputs are starting
-	*/
-	public function start() {
-		$this->inputLock = 0;
-	}
-
-	/**
-	* Signal that inputs are done and load old config
-	* @return mixed (true on success, error string on target failure)
-	*/
-	public function ready() {
-		$this->inputLock = 1;
-		$status = $this->checkTarget();
-		if ( $status !== true ) {
-			return $status; // bad target
-		}
-		$this->loadOldConfig(); // current settings from DB
-		return $status;
-	}
-
 	/*
 	* Preload existing page settings (e.g. from GET request).
 	* @return mixed (true on success, error string on failure)
@@ -173,7 +126,7 @@ abstract class PageStabilityForm {
 		if ( !$this->inputLock ) {
 			throw new MWException( __CLASS__ . " input fields not set yet.\n");
 		}
-		$status = $this->checkTarget();
+		$status = $this->doCheckTarget();
 		if ( $status !== true ) {
 			return $status; // bad target
 		}
@@ -196,31 +149,28 @@ abstract class PageStabilityForm {
 	* Verify and clean up parameters (e.g. from POST request).
 	* @return mixed (true on success, error string on failure)
 	*/
-	protected function checkSettings() {
-		$status = $this->checkTarget();
-		if ( $status !== true ) {
-			return $status; // bad target
-		}
+	protected function doCheckParameters() {
 		if ( $this->expiryCustom != '' ) {
 			// Custom expiry takes precedence
 			$this->expirySelection = 'othertime';
 		}
-		$status = $this->reallyCheckSettings(); // check other params...
+		$status = $this->reallyDoCheckParameters(); // check other params...
 		return $status;
 	}
 
 	/*
 	* @return mixed (true on success, error string on failure)
 	*/
-	protected function reallyCheckSettings() {
+	protected function reallyDoCheckParameters() {
 		return true;
 	}
 
 	/*
 	* Check that the target page is valid
+	* @param int $flags ON_SUBMISSION (set on submit)
 	* @return mixed (true on success, error string on failure)
 	*/
-	protected function checkTarget() {
+	protected function doCheckTarget( $flags = 0 ) {
 		if ( is_null( $this->page ) ) {
 			return 'stabilize_page_invalid';
 		} elseif ( !$this->page->exists() ) {
@@ -231,9 +181,10 @@ abstract class PageStabilityForm {
 		return true;
 	}
 
-	protected function loadOldConfig() {
+	protected function doLoadOnReady() {
 		# Get the current page config
 		$this->oldConfig = FlaggedPageConfig::getPageStabilitySettings( $this->page, FR_MASTER );
+		return true;
 	}
 
 	/*
@@ -256,14 +207,7 @@ abstract class PageStabilityForm {
 	* 
 	* @return mixed (true on success, error string on failure)
 	*/
-	public function submit() {
-		if ( !$this->inputLock ) {
-			throw new MWException( __CLASS__ . " input fields not set yet.\n");
-		}
-		$status = $this->checkSettings();
-		if ( $status !== true ) {
-			return $status; // cannot submit - broken params
-		}
+	public function doSubmit() {
 		# Double-check permissions
 		if ( !$this->isAllowed() ) {
 			return 'stablize_denied';
@@ -435,7 +379,7 @@ class PageStabilityGeneralForm extends PageStabilityForm {
 		return true;
 	}
 
-	protected function reallyCheckSettings() {
+	protected function reallyDoCheckParameters() {
 		$this->override = $this->override ? 1 : 0; // default version settings is 0 or 1
 		// Check autoreview restriction setting
 		if ( $this->autoreview != '' // restriction other than 'none'
@@ -533,12 +477,12 @@ class PageStabilityProtectForm extends PageStabilityForm {
 		return true;
 	}
 
-	protected function reallyCheckSettings() {
+	protected function reallyDoCheckParameters() {
 		# WMF temp hack...protection limit quota
 		global $wgFlaggedRevsProtectQuota;
 		if ( isset( $wgFlaggedRevsProtectQuota ) // quota exists
 			&& $this->autoreview != '' // and we are protecting
-			&& FlaggedPageConfig::getProtectionLevel( $this->oldConfig ) == 'none' ) // page unprotected
+			&& FlaggedPageConfig::getProtectionLevel( $this->oldConfig ) == 'none' ) // unprotected
 		{
 			$dbw = wfGetDB( DB_MASTER );
 			$count = $dbw->selectField( 'flaggedpage_config', 'COUNT(*)', '', __METHOD__ );

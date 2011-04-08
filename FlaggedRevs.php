@@ -258,6 +258,7 @@ $wgAutoloadClasses['FlaggedArticle'] = $dir . 'FlaggedArticle.php';
 $wgAutoloadClasses['FlaggedRevision'] = $dir . 'FlaggedRevision.php';
 
 # Business object classes
+$wgAutoloadClasses['FRGenericSubmitForm'] = $dir . 'business/FRGenericSubmitForm.php';
 $wgAutoloadClasses['RevisionReviewForm'] = $dir . 'business/RevisionReviewForm.php';
 $wgAutoloadClasses['PageStabilityForm'] = $dir . 'business/PageStabilityForm.php';
 $wgAutoloadClasses['PageStabilityGeneralForm'] = $dir . 'business/PageStabilityForm.php';
