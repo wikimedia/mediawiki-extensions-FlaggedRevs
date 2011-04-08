@@ -13679,6 +13679,7 @@ Existem [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} alterações
 	'review_not_flagged' => 'A edição de destino não está neste momento marcada como revista.',
 	'review_too_low' => 'A edição não pode ser revista com alguns campos classificados "inadequada".',
 	'review_bad_key' => 'A chave do parâmetro de inclusão é inválida.',
+	'review_bad_tags' => 'Algumas das etiquetas de edição especificadas são inválidas.',
 	'review_denied' => 'Permissão negada.',
 	'review_param_missing' => 'Um parâmetro está em falta ou é inválido.',
 	'review_cannot_undo' => 'Não é possível desfazer estas alterações, porque outras alterações pendentes alteraram as mesmas áreas.',
@@ -13730,8 +13731,6 @@ A [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} versão publicada] foi [{{fullurl:{{#S
 	'revreview-pending-nosection' => 'Tente ver a [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} edição mais recente], que inclui
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 {{PLURAL:$2|alteração pendente|alterações pendentes}}], para verificar se a secção foi movida ou apagada.',
 	'revreview-noflagged' => "Não existem edições [[{{MediaWiki:Validationpage}}|revistas]] desta página, por isso pode ainda '''não''' ter sido verificada a sua aderência aos padrões de qualidade.",
-	'revreview-note' => '[[User:$1|$1]] deixou as seguintes observações ao [[{{MediaWiki:Validationpage}}|rever]] esta edição:',
-	'revreview-notes' => 'Observações ou notas a mostrar:',
 	'revreview-oldrating' => 'Avaliação:',
 	'revreview-quality' => 'Esta é a [[{{MediaWiki:Validationpage}}|versão publicada]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovada] a <i>$2</i>.
 {{PLURAL:$3|Existe|Existem}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|alteração pendente|alterações pendentes}}] a aguardar revisão.',
@@ -18492,6 +18491,7 @@ Có thể đã có [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} n
 	'review_not_flagged' => 'Phiên bản đích hiện không được đánh dấu cần duyệt.',
 	'review_too_low' => 'Không thể duyệt phiên bản có thuộc tính “kém”.',
 	'review_bad_key' => 'Từ khóa tham số nhúng không hợp lệ.',
+	'review_bad_tags' => 'Một số giá trị nhãn không hợp lệ.',
 	'review_denied' => 'Không cho phép.',
 	'review_param_missing' => 'Một tham số bị thiếu hoặc không hợp lệ.',
 	'review_cannot_undo' => 'Không thể lùi lại những thay dổi này vì những thay đổi về sau ở cùng phần đang chờ được duyệt.',
@@ -18540,8 +18540,6 @@ The [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Phiên bản ổn định] đã đư
 	'revreview-pending-nosection' => 'Hãy thử xem [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} phiên bản gần đây nhất] gồm có 
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 thay đổi đang chờ] để biết phần này đã được di chuyển hoặc xóa hay không.',
 	'revreview-noflagged' => "Không có [[{{MediaWiki:Validationpage}}|phiên bản đã được duyệt]] của trang này, do đó có thể '''chưa''' ai kiểm tra nó có đủ chuẩn hay không.",
-	'revreview-note' => '[[User:$1|$1]] đã ghi chú như sau khi [[{{MediaWiki:Validationpage}}|duyệt]] bản này:',
-	'revreview-notes' => 'Nhận xét hoặc ghi chú sẽ hiển thị:',
 	'revreview-oldrating' => 'Được xếp hạng:',
 	'revreview-quality' => 'Đây là [[{{MediaWiki:Validationpage}}|phiên bản ổn định]] đã được [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} chấp nhận] vào <i>$2</i>.
 Hiện có [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 thay đổi] đang chờ được duyệt.',
