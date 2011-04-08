@@ -122,26 +122,19 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 	* Preload existing page settings (e.g. from GET request).
 	* @return mixed (true on success, error string on failure)
 	*/
-	public function preloadSettings() {
-		if ( !$this->inputLock ) {
-			throw new MWException( __CLASS__ . " input fields not set yet.\n");
-		}
-		$status = $this->doCheckTarget();
-		if ( $status !== true ) {
-			return $status; // bad target
-		}
+	public function doPreloadParameters() {
 		if ( $this->oldConfig['expiry'] == Block::infinity() ) {
 			$this->expirySelection = 'infinite'; // no settings set OR indefinite
 		} else {
 			$this->expirySelection = 'existing'; // settings set and NOT indefinite
 		}
-		return $this->reallyPreloadSettings(); // load the params...
+		return $this->reallyDoPreloadParameters(); // load the params...
 	}
 
 	/*
 	* @return mixed (true on success, error string on failure)
 	*/	
-	protected function reallyPreloadSettings() {
+	protected function reallyDoPreloadParameters() {
 		return true;
 	}
 
@@ -372,7 +365,7 @@ class PageStabilityGeneralForm extends PageStabilityForm {
 		$this->trySet( $this->override, $value );
 	}
 
-	protected function reallyPreloadSettings() {
+	protected function reallyDoPreloadParameters() {
 		$this->override = $this->oldConfig['override'];
 		$this->autoreview = $this->oldConfig['autoreview'];
 		$this->watchThis = $this->page->userIsWatching();
@@ -471,7 +464,7 @@ class PageStabilityGeneralForm extends PageStabilityForm {
 
 // Assumes $wgFlaggedRevsProtection is on
 class PageStabilityProtectForm extends PageStabilityForm {
-	protected function reallyPreloadSettings() {
+	protected function reallyDoPreloadParameters() {
 		$this->autoreview = $this->oldConfig['autoreview']; // protect level
 		$this->watchThis = $this->page->userIsWatching();
 		return true;

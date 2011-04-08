@@ -77,7 +77,7 @@ class Stabilization extends UnlistedSpecialPage {
 			}
 		# Form GET request...
 		} else {
-			$form->preloadSettings();
+			$form->preload();
 			$this->showForm();
 		}
 	}

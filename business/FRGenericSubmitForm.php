@@ -67,6 +67,29 @@ abstract class FRGenericSubmitForm {
 	}
 
 	/*
+	* Preload existing params from a DB (e.g. for GET request).
+	* @return mixed (true on success, error string on failure)
+	*/
+	public function preload() {
+		if ( !$this->inputLock ) {
+			throw new MWException( __CLASS__ . " input fields not set yet.\n");
+		}
+		$status = $this->doCheckTarget();
+		if ( $status !== true ) {
+			return $status; // bad target
+		}
+		return $this->doPreloadParameters();
+	}
+
+	/*
+	* Preload existing params from a DB (e.g. for GET request).
+	* @return mixed (true on success, error string on failure)
+	*/
+	protected function doPreloadParameters() {
+		return true;
+	}
+
+	/*
 	* Check that the target is valid (e.g. from GET/POST request)
 	* @param int $flags ON_SUBMISSION (set on submit)
 	* @return mixed (true on success, error string on failure)
