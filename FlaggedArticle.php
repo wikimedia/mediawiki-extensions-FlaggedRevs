@@ -255,7 +255,6 @@ class FlaggedArticle extends Article {
 	 * @return bool
 	 */
 	public function isReviewable( $flags = 0 ) {
-		$this->loadFlaggedRevsData( $flags );
 		if ( !FlaggedRevs::inReviewNamespace( $this->getTitle() ) ) {
 			return false;
 		}
