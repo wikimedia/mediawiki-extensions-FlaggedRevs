@@ -326,6 +326,8 @@ $wgAPIListModules['oldreviewedpages'] = 'ApiQueryOldreviewedpages';
 $wgAutoloadClasses['ApiQueryUnreviewedpages'] = $dir . 'api/ApiQueryUnreviewedpages.php';
 # ReviewedPages for API
 $wgAutoloadClasses['ApiQueryReviewedpages'] = $dir . 'api/ApiQueryReviewedpages.php';
+# ConfiguredPages for API
+$wgAutoloadClasses['ApiQueryConfiguredpages'] = $dir . 'api/ApiQueryConfiguredpages.php';
 # Flag metadata for pages for API
 $wgAutoloadClasses['ApiQueryFlagged'] = $dir . 'api/ApiQueryFlagged.php';
 $wgAPIPropModules['flagged'] = 'ApiQueryFlagged';
@@ -565,6 +567,7 @@ function efSetFlaggedRevsConditionalAPIModules() {
 		$wgAPIModules['stabilize'] = 'ApiStabilizeGeneral';
 		$wgAPIListModules['reviewedpages'] = 'ApiQueryReviewedpages';
 		$wgAPIListModules['unreviewedpages'] = 'ApiQueryUnreviewedpages';
+		$wgAPIListModules['configuredpages'] = 'ApiQueryConfiguredpages';
 	}
 }
 
