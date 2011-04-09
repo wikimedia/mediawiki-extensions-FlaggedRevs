@@ -251,7 +251,7 @@ class ApiStabilizeProtect extends ApiStabilize {
 	}
 
 	public function getDescription() {
-		return 'Configure review-protection settings.';
+		return 'Configure review-protection settings for a page';
 	}
 
 	// @TODO: fill in stabilize_* values from PageStabilityProtectForm

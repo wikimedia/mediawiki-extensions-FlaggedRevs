@@ -47,10 +47,13 @@ class ApiQueryUnreviewedpages extends ApiQueryGeneratorBase {
 		// Construct SQL Query
 		$this->addTables( array( 'page', 'flaggedpages' ) );
 		$this->addWhereFld( 'page_namespace', $params['namespace'] );
-		if ( $params['filterredir'] == 'redirects' )
+		if ( $params['filterredir'] == 'redirects' ) {
 			$this->addWhereFld( 'page_is_redirect', 1 );
-		if ( $params['filterredir'] == 'nonredirects' )
+		}
+		if ( $params['filterredir'] == 'nonredirects' ) {
 			$this->addWhereFld( 'page_is_redirect', 0 );
+		}
+
 		$this->addWhereRange(
 			'page_title',
 			'newer',
@@ -95,13 +98,12 @@ class ApiQueryUnreviewedpages extends ApiQueryGeneratorBase {
 
 			if ( is_null( $resultPageSet ) ) {
 				$title = Title::newFromRow( $row );
-				$key = wfMemcKey( 'unreviewedPages', 'underReview', $row->page_id );
 				$data[] = array(
 					'pageid' 		=> intval( $row->page_id ),
 					'ns'     		=> intval( $title->getNamespace() ),
 					'title'  		=> $title->getPrefixedText(),
 					'revid'  	  	=> intval( $row->page_latest ),
-					'under_review'  => (bool)$wgMemc->get( $key )
+					'under_review'  => FRUserActivity::pageIsUnderReview( $row->page_id )
 				);
 			} else {
 				$resultPageSet->processDbRow( $row );
@@ -129,8 +131,7 @@ class ApiQueryUnreviewedpages extends ApiQueryGeneratorBase {
 				ApiBase::PARAM_TYPE => 'string'
 			),
 			'namespace' => array (
-				ApiBase::PARAM_DFLT => !$namespaces ?
-					NS_MAIN : $namespaces[0],
+				ApiBase::PARAM_DFLT => !$namespaces ? NS_MAIN : $namespaces[0],
 				ApiBase::PARAM_TYPE => 'namespace',
 				ApiBase::PARAM_ISMULTI => true,
 			),
@@ -160,20 +161,17 @@ class ApiQueryUnreviewedpages extends ApiQueryGeneratorBase {
 
 	public function getParamDescription() {
 		return array (
-			'start' => 'Start listing at this page title.',
-			'end' => 'Stop listing at this page title.',
-			'namespace' => 'The namespaces to enumerate.',
-			'filterredir' => 'How to filter for redirects',
-			'filterlevel' => 'How to filter by quality (0=checked,1=quality)',
-			'limit' => 'How many total pages to return.',
+			'start' 		=> 'Start listing at this page title.',
+			'end' 			=> 'Stop listing at this page title.',
+			'namespace' 	=> 'The namespaces to enumerate.',
+			'filterredir' 	=> 'How to filter for redirects',
+			'filterlevel' 	=> 'How to filter by quality (0=checked,1=quality)',
+			'limit' 		=> 'How many total pages to return.',
 		);
 	}
 
 	public function getDescription() {
-		return array(
-			'Returns a list of pages, that have not been reviewed (to "filterlevel"),',
-			'sorted by page title.'
-		);
+		return 'Enumerates pages that have not been reviewed to a given quality level ("filterlevel")';
 	}
 
 	protected function getExamples() {

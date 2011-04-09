@@ -45,15 +45,15 @@ class ApiQueryFlagged extends ApiQueryBase {
 
 		$result = $this->getResult();
 		foreach( $res as $row ) {
-			$pageid = $row->fp_page_id;
 			$data = array(
-				'stable_revid' => intval( $row->fp_stable ),
-				'level' => intval( $row->fp_quality ),
-				'level_text' => FlaggedRevs::getQualityLevelText( $row->fp_quality )
+				'stable_revid' 	=> intval( $row->fp_stable ),
+				'level' 		=> intval( $row->fp_quality ),
+				'level_text' 	=> FlaggedRevs::getQualityLevelText( $row->fp_quality )
 			);
-			if ( $row->fp_pending_since )
+			if ( $row->fp_pending_since ) {
 				$data['pending_since'] = wfTimestamp( TS_ISO_8601, $row->fp_pending_since );
-			$result->addValue( array( 'query', 'pages', $pageid ), 'flagged', $data );
+			}
+			$result->addValue( array( 'query', 'pages', $row->fp_page_id ), 'flagged', $data );
 		}
 	}
 

@@ -55,6 +55,16 @@ class FRUserActivity {
 	}
 
 	/*
+	* Check is someone is currently reviewing a page
+	* @param int $pageId
+	* @return bool
+	*/
+	public static function pageIsUnderReview( $pageId ) {
+		$m = self::getUserReviewingPage( $pageId );
+		return ( $m[0] !== null );
+	}
+
+	/*
 	* Set the flag for who is reviewing a page if not already set by someone
 	* @param User $user
 	* @param int $pageId
@@ -109,6 +119,17 @@ class FRUserActivity {
 			return $val;
 		}
 		return array( null, null );
+	}
+
+	/*
+	* Check is someone is currently reviewing a diff
+	* @param int $oldId
+	* @param int $newId
+	* @return bool
+	*/
+	public static function diffIsUnderReview( $oldId, $newId ) {
+		$m = self::getUserReviewingDiff( $oldId, $newId );
+		return ( $m[0] !== null );
 	}
 
 	/*

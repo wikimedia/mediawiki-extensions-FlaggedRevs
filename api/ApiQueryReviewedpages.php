@@ -46,12 +46,15 @@ class ApiQueryReviewedpages extends ApiQueryGeneratorBase {
 		// Construct SQL Query
 		$this->addTables( array( 'page', 'flaggedpages' ) );
 		$this->addWhereFld( 'page_namespace', $params['namespace'] );
-		if ( $params['filterredir'] == 'redirects' )
+		if ( $params['filterredir'] == 'redirects' ) {
 			$this->addWhereFld( 'page_is_redirect', 1 );
-		if ( $params['filterredir'] == 'nonredirects' )
+		}
+		if ( $params['filterredir'] == 'nonredirects' ) {
 			$this->addWhereFld( 'page_is_redirect', 0 );
-		if ( $params['filterlevel'] !== null )
+		}
+		if ( $params['filterlevel'] !== null ) {
 			$this->addWhereFld( 'fp_quality', $params['filterlevel'] );
+		}
 		$this->addWhereRange(
 			'fp_page_id',
 			$params['dir'],
@@ -97,11 +100,11 @@ class ApiQueryReviewedpages extends ApiQueryGeneratorBase {
 			if ( is_null( $resultPageSet ) ) {
 				$title = Title::newFromRow( $row );
 				$data[] = array(
-					'pageid' => intval( $row->page_id ),
-					'ns' => intval( $title->getNamespace() ),
-					'title' => $title->getPrefixedText(),
-					'revid' => intval( $row->page_latest ),
-					'stable_revid' => intval( $row->fp_stable ),
+					'pageid' 		=> intval( $row->page_id ),
+					'ns' 			=> intval( $title->getNamespace() ),
+					'title' 		=> $title->getPrefixedText(),
+					'revid' 		=> intval( $row->page_latest ),
+					'stable_revid' 	=> intval( $row->fp_stable ),
 					'flagged_level' => intval( $row->fp_quality ),
 					'flagged_level_text' => FlaggedRevs::getQualityLevelText( $row->fp_quality )
 				);
@@ -169,13 +172,13 @@ class ApiQueryReviewedpages extends ApiQueryGeneratorBase {
 
 	public function getParamDescription() {
 		return array (
-			'start' => 'Start listing at this page id.',
-			'end' => 'Stop listing at this page id.',
-			'namespace' => 'The namespaces to enumerate.',
-			'filterredir' => 'How to filter for redirects',
-			'filterlevel' => 'How to filter by quality (0=checked,1=quality)',
-			'limit' => 'How many total pages to return.',
-			'dir' => array(
+			'start' 		=> 'Start listing at this page id.',
+			'end' 			=> 'Stop listing at this page id.',
+			'namespace' 	=> 'The namespaces to enumerate.',
+			'filterredir' 	=> 'How to filter for redirects',
+			'filterlevel' 	=> 'How to filter by quality (0=checked,1=quality)',
+			'limit' 		=> 'How many total pages to return.',
+			'dir' 			=> array(
 				'In which direction to list.',
 				'*newer: list the newest pages first',
 				'*older: list the oldest pages first'
@@ -184,10 +187,7 @@ class ApiQueryReviewedpages extends ApiQueryGeneratorBase {
 	}
 
 	public function getDescription() {
-		return array(
-			'Returns a list of pages, that have been reviewed,',
-			'sorted by page id.'
-		);
+		return 'Enumerates pages that have a reviewed version';
 	}
 
 	protected function getExamples() {
