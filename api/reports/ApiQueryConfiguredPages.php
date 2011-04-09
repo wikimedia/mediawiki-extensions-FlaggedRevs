@@ -204,6 +204,6 @@ class ApiQueryConfiguredpages extends ApiQueryGeneratorBase {
 	}
 
 	public function getVersion() {
-		return __CLASS__ . ': $Id: $';
+		return __CLASS__ . ': $Id$';
 	}
 }
