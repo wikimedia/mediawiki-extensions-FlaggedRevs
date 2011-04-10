@@ -236,12 +236,16 @@ $wgExtensionFunctions[] = 'efLoadFlaggedRevs';
 $dir = dirname( __FILE__ ) . '/';
 $langDir = $dir . 'language/';
 
+# Load main i18n file and special page alias file
+$wgExtensionMessagesFiles['FlaggedRevs'] = $langDir . 'FlaggedRevs.i18n.php';
+$wgExtensionAliasesFiles['FlaggedRevs'] = $langDir . 'FlaggedRevs.alias.php';
+
 # Utility classes...
 $wgAutoloadClasses['FlaggedRevs'] = $dir . 'FlaggedRevs.class.php';
 $wgAutoloadClasses['FRUserCounters'] = $dir . 'FRUserCounters.php';
 $wgAutoloadClasses['FRUserActivity'] = $dir . 'FRUserActivity.php';
 $wgAutoloadClasses['FlaggedPageConfig'] = $dir . 'FlaggedPageConfig.php';
-$wgAutoloadClasses['FlaggedRevsLogs'] = $dir . 'FlaggedRevsLogs.php';
+$wgAutoloadClasses['FlaggedRevsLog'] = $dir . 'FlaggedRevsLog.php';
 
 # Event handler classes...
 $wgAutoloadClasses['FlaggedRevsHooks'] = $dir . 'FlaggedRevs.hooks.php';
@@ -266,13 +270,10 @@ $wgAutoloadClasses['PageStabilityProtectForm'] = $dir . 'business/PageStabilityF
 
 # Presentation classes...
 $wgAutoloadClasses['FlaggedArticleView'] = $dir . 'presentation/FlaggedArticleView.php';
+$wgAutoloadClasses['FlaggedRevsLogView'] = $dir . 'presentation/FlaggedRevsLogView.php';
+$wgAutoloadClasses['FlaggedRevsXML'] = $dir . 'presentation/FlaggedRevsXML.php';
 $wgAutoloadClasses['RevisionReviewFormGUI'] = $dir . 'presentation/RevisionReviewFormGUI.php';
 $wgAutoloadClasses['RejectConfirmationFormGUI'] = $dir . 'presentation/RejectConfirmationFormGUI.php';
-$wgAutoloadClasses['FlaggedRevsXML'] = $dir . 'presentation/FlaggedRevsXML.php';
-
-# Load main i18n file and special page alias file
-$wgExtensionMessagesFiles['FlaggedRevs'] = $langDir . 'FlaggedRevs.i18n.php';
-$wgExtensionAliasesFiles['FlaggedRevs'] = $langDir . 'FlaggedRevs.alias.php';
 
 $specialActionDir = $dir . 'presentation/specialpages/actions/';
 # Load revision review UI
@@ -619,9 +620,9 @@ $wgLogActions['review/unapprove2'] = 'review-logentry-dis'; // was quality
 $wgLogTypes[] = 'stable';
 $wgLogNames['stable'] = 'stable-logpage';
 $wgLogHeaders['stable'] = 'stable-logpagetext';
-$wgLogActionsHandlers['stable/config'] = 'FlaggedRevsLogs::stabilityLogText'; // customize
-$wgLogActionsHandlers['stable/modify'] = 'FlaggedRevsLogs::stabilityLogText'; // re-customize
-$wgLogActionsHandlers['stable/reset'] = 'FlaggedRevsLogs::stabilityLogText'; // reset
+$wgLogActionsHandlers['stable/config'] = 'FlaggedRevsLogView::stabilityLogText'; // customize
+$wgLogActionsHandlers['stable/modify'] = 'FlaggedRevsLogView::stabilityLogText'; // re-customize
+$wgLogActionsHandlers['stable/reset'] = 'FlaggedRevsLogView::stabilityLogText'; // reset
 
 # AJAX functions
 $wgAjaxExportList[] = 'RevisionReview::AjaxReview';

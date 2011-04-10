@@ -176,7 +176,7 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 
 	protected function doLoadOnReady() {
 		# Get the current page config
-		$this->oldConfig = FlaggedPageConfig::getPageStabilitySettings( $this->page, FR_MASTER );
+		$this->oldConfig = FlaggedPageConfig::getStabilitySettings( $this->page, FR_MASTER );
 		return true;
 	}
 
@@ -205,8 +205,6 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 		if ( !$this->isAllowed() ) {
 			return 'stablize_denied';
 		}
-		# Are we are going back to site defaults?
-		$reset = $this->newConfigIsReset();
 		# Parse and cleanup the expiry time given...
 		$expiry = $this->getExpiry();
 		if ( $expiry === false ) {
@@ -215,11 +213,11 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 			return 'stabilize_expiry_old';
 		}
 		# Update the DB row with the new config...
-		$changed = $this->updateConfigRow( $reset );
+		$changed = FlaggedPageConfig::setStabilitySettings( $this->page, $this->getNewConfig() );
 		# Log if this actually changed anything...
 		if ( $changed ) {
 			# Update logs and make a null edit
-			$nullRev = $this->updateLogsAndHistory( $reset );
+			$nullRev = $this->updateLogsAndHistory();
 			if ( $this->reviewThis ) {
 				# Null edit may have been auto-reviewed already
 				$frev = FlaggedRevision::newFromTitle(
@@ -252,37 +250,37 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 	* (b) Add a null edit like the log entry
 	* @return Revision
 	*/
-	protected function updateLogsAndHistory( $reset ) {
+	protected function updateLogsAndHistory() {
 		global $wgContLang;
 		$article = new Article( $this->page );
-		$latest = $this->page->getLatestRevID( Title::GAID_FOR_UPDATE );
-		# Config may have changed to allow stable versions.
-		# Refresh tracking to account for any hidden reviewed versions...
-		$frev = FlaggedRevision::newFromStable( $this->page, FR_MASTER );
-		if ( $frev ) {
-			FlaggedRevs::updateStableVersion( $article, $frev, $latest );
-		} else {
-			FlaggedRevs::clearTrackingRows( $article->getId() );
-		}
+		$newConfig = $this->getNewConfig();
+		$oldConfig = $this->getOldConfig();
 		$reason = $this->getReason();
+
+		if ( FlaggedRevs::useOnlyIfProtected() ) {
+			# Config may have changed to allow stable versions, so refresh
+			# the tracking table to account for any hidden reviewed versions...
+			$frev = FlaggedRevision::determineStable( $this->page, FR_MASTER );
+			if ( $frev ) {
+				FlaggedRevs::updateStableVersion( $article, $frev );
+			} else {
+				FlaggedRevs::clearTrackingRows( $article->getId() );
+			}
+		}
+
 		# Insert stability log entry...
-		$log = new LogPage( 'stable' );
-		if ( $reset ) {
-			$log->addEntry( 'reset', $this->page, $reason );
+		FlaggedRevsLog::updateStabilityLog( $this->page, $newConfig, $oldConfig, $reason );
+
+		# Build null-edit comment...<action: reason [settings] (expiry)>
+		if ( FlaggedPageConfig::configIsReset( $newConfig ) ) {
 			$type = "stable-logentry-reset";
 			$settings = ''; // no level, expiry info
 		} else {
-			$params = $this->getLogParams();
-			$action = ( $this->oldConfig === FlaggedPageConfig::getDefaultVisibilitySettings() )
-				? 'config' // set a custom configuration
-				: 'modify'; // modified an existing custom configuration
-			$log->addEntry( $action, $this->page, $reason,
-				FlaggedRevsLogs::collapseParams( $params ) );
 			$type = "stable-logentry-config";
 			// Settings message in text form (e.g. [x=a,y=b,z])
-			$settings = FlaggedRevsLogs::stabilitySettings( $params, true /*content*/ );
+			$params = FlaggedRevsLog::stabilityLogParams( $newConfig );
+			$settings = FlaggedRevsLogView::stabilitySettings( $params, true /*content*/ );
 		}
-		# Build null-edit comment...<action: reason [settings] (expiry)>
 		$comment = $wgContLang->ucfirst(
 			wfMsgForContent( $type, $this->page->getPrefixedText() ) ); // action
 		if ( $reason != '' ) {
@@ -291,31 +289,42 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 		if ( $settings != '' ) {
 			$comment .= " {$settings}"; // add settings
 		}
+
 		# Insert a null revision...
 		$dbw = wfGetDB( DB_MASTER );
 		$nullRev = Revision::newNullRevision( $dbw, $article->getId(), $comment, true );
 		$nullRev->insertOn( $dbw );
 		# Update page record and touch page
-		$article->updateRevisionOn( $dbw, $nullRev, $latest );
-		wfRunHooks( 'NewRevisionFromEditComplete', array( $article, $nullRev, $latest ) );
+		$oldLatest = $nullRev->getParentId();
+		$article->updateRevisionOn( $dbw, $nullRev, $oldLatest );
+		wfRunHooks( 'NewRevisionFromEditComplete',
+			array( $article, $nullRev, $oldLatest, $this->user ) );
+
 		# Return null Revision object for autoreview check
 		return $nullRev;
 	}
 
 	/*
-	* Checks if new config is the same as the site default
-	* @return bool
+	* Get current stability config array
+	* @return Array
 	*/
-	protected function newConfigIsReset() {
-		return false;
+	public function getOldConfig() {
+		if ( !$this->inputLock ) {
+			throw new MWException( __CLASS__ . " input fields not set yet.\n");
+		}
+		return $this->oldConfig;
 	}
 
 	/*
-	* Get assoc. array of log params
+	* Get proposed stability config array
 	* @return Array
 	*/
-	protected function getLogParams() {
-		return array();
+	public function getNewConfig() {
+		return array(
+			'override'   => $this->override,
+			'autoreview' => $this->autoreview,
+			'expiry'     => $this->getExpiry(), // TS_MW/infinity
+		);
 	}
 
 	/*
@@ -329,21 +338,6 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 		} elseif ( $this->watchThis === false ) {
 			$this->user->removeWatch( $this->page );
 		}
-	}
-
-	// Same JS used for expiry for either $wgFlaggedRevsProtection case
-	public static function addProtectionJS() {
-		global $wgOut;
-		$wgOut->addScript(
-			"<script type=\"text/javascript\">
-				function onFRChangeExpiryDropdown() {
-					document.getElementById('mwStabilizeExpiryOther').value = '';
-				}
-				function onFRChangeExpiryField() {
-					document.getElementById('mwStabilizeExpirySelection').value = 'othertime';
-				}
-			</script>"
-		);
 	}
 }
 
@@ -384,81 +378,6 @@ class PageStabilityGeneralForm extends PageStabilityForm {
 			return 'stabilize_denied'; // invalid value
 		}
 		return true;
-	}
-
-	protected function getLogParams() {
-		return array(
-			'override'   => $this->override,
-			'autoreview' => $this->autoreview,
-			'expiry'     => $this->getExpiry(), // TS_MW/infinity
-			'precedence' => 1 // here for log hook b/c
-		);
-	}
-
-	// Return current config array
-	public function getOldConfig() {
-		if ( !$this->inputLock ) {
-			throw new MWException( __CLASS__ . " input fields not set yet.\n");
-		}
-		return $this->oldConfig;
-	}
-
-	// returns whether row changed
-	protected function updateConfigRow( $reset ) {
-		$changed = false;
-		$dbw = wfGetDB( DB_MASTER );
-		# If setting to site default values and there is a row then erase it
-		if ( $reset ) {
-			$dbw->delete( 'flaggedpage_config',
-				array( 'fpc_page_id' => $this->page->getArticleID() ),
-				__METHOD__
-			);
-			$changed = ( $dbw->affectedRows() != 0 ); // did this do anything?
-		# Otherwise, add/replace row if we are not just setting it to the site default
-		} elseif ( !$reset ) {
-			$dbExpiry = Block::encodeExpiry( $this->getExpiry(), $dbw );
-			# Get current config...
-			$oldRow = $dbw->selectRow( 'flaggedpage_config',
-				array( 'fpc_select', 'fpc_override', 'fpc_level', 'fpc_expiry' ),
-				array( 'fpc_page_id' => $this->page->getArticleID() ),
-				__METHOD__,
-				'FOR UPDATE'
-			);
-			# Check if this is not the same config as the existing row (if any)
-			$changed = $this->configIsDifferent( $oldRow,
-				$this->select, $this->override, $this->autoreview, $dbExpiry );
-			# If the new config is different, replace the old row...
-			if ( $changed ) {
-				$dbw->replace( 'flaggedpage_config',
-					array( 'PRIMARY' ),
-					array(
-						'fpc_page_id'  => $this->page->getArticleID(),
-						'fpc_select'   => 1, // unused
-						'fpc_override' => (int)$this->override,
-						'fpc_level'    => $this->autoreview,
-						'fpc_expiry'   => $dbExpiry
-					),
-					__METHOD__
-				);
-			}
-		}
-		return $changed;
-	}
-
-	protected function newConfigIsReset() {
-		return ( $this->override == FlaggedRevs::isStableShownByDefault()
-			&& $this->autoreview == '' );
-	}
-
-	// Checks if new config is different than the existing row
-	protected function configIsDifferent( $oldRow, $override, $autoreview, $dbExpiry ) {
-		if( !$oldRow ) {
-			return true; // no previous config
-		}
-		return ( $oldRow->fpc_override != $override // ...override changed, or...
-			|| $oldRow->fpc_level != $autoreview // ...autoreview level changed, or...
-			|| $oldRow->fpc_expiry != $dbExpiry // ...expiry changed
-		);
 	}
 }
 
@@ -503,72 +422,5 @@ class PageStabilityProtectForm extends PageStabilityForm {
 			return 'stabilize_denied'; // invalid value
 		}
 		return true;
-	}
-
-	// Doesn't and shouldn't include 'precedence'; checked in FlaggedRevsLogs
-	protected function getLogParams() {
-		return array(
-			'override'   => $this->override, // in case of site changes
-			'autoreview' => $this->autoreview,
-			'expiry'     => $this->getExpiry() // TS_MW/infinity
-		);
-	}
-
-	protected function updateConfigRow( $reset ) {
-		$changed = false;
-		$dbw = wfGetDB( DB_MASTER );
-		# If setting to site default values and there is a row then erase it
-		if ( $reset ) {
-			$dbw->delete( 'flaggedpage_config',
-				array( 'fpc_page_id' => $this->page->getArticleID() ),
-				__METHOD__
-			);
-			$changed = ( $dbw->affectedRows() != 0 ); // did this do anything?
-		# Otherwise, add/replace row if we are not just setting it to the site default
-		} elseif ( !$reset ) {
-			$dbExpiry = Block::encodeExpiry( $this->getExpiry(), $dbw );
-			# Get current config...
-			$oldRow = $dbw->selectRow( 'flaggedpage_config',
-				array( 'fpc_override', 'fpc_level', 'fpc_expiry' ),
-				array( 'fpc_page_id' => $this->page->getArticleID() ),
-				__METHOD__,
-				'FOR UPDATE'
-			);
-			# Check if this is not the same config as the existing row (if any)
-			$changed = $this->configIsDifferent( $oldRow,
-				$this->override, $this->autoreview, $dbExpiry );
-			# If the new config is different, replace the old row...
-			if ( $changed ) {
-				$dbw->replace( 'flaggedpage_config',
-					array( 'PRIMARY' ),
-					array(
-						'fpc_page_id'  => $this->page->getArticleID(),
-						'fpc_select'   => -1, // ignored
-						'fpc_override' => (int)$this->override,
-						'fpc_level'    => $this->autoreview,
-						'fpc_expiry'   => $dbExpiry
-					),
-					__METHOD__
-				);
-			}
-		}
-		return $changed;
-	}
-
-	protected function newConfigIsReset() {
-		# For protection config, just ignore the fpc_select column
-		return ( $this->autoreview == '' );
-	}
-
-	// Checks if new config is different than the existing row
-	protected function configIsDifferent( $oldRow, $override, $autoreview, $dbExpiry ) {
-		if ( !$oldRow ) {
-			return true; // no previous config
-		}
-		# For protection config, just ignore the fpc_select column
-		return ( $oldRow->fpc_override != $override // ...override changed, or...
-			|| $oldRow->fpc_level != $autoreview // ...autoreview level changed, or...
-			|| $oldRow->fpc_expiry != $dbExpiry // ...expiry changed
-		);
 	}
 }

@@ -373,7 +373,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 
 		# Update the article review log...
 		$oldSvId = $oldSv ? $oldSv->getRevId() : 0;
-		FlaggedRevsLogs::updateReviewLog( $this->page, $this->dims, $this->oflags,
+		FlaggedRevsLog::updateReviewLog( $this->page, $this->dims, $this->oflags,
 			$this->comment, $this->oldid, $oldSvId, true );
 
 		# Get the new stable version as of now
@@ -413,7 +413,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 
 		# Update the article review log
 		$oldSvId = $oldSv ? $oldSv->getRevId() : 0;
-		FlaggedRevsLogs::updateReviewLog( $this->page, $this->dims, $this->oflags,
+		FlaggedRevsLog::updateReviewLog( $this->page, $this->dims, $this->oflags,
 			$this->comment, $this->oldid, $oldSvId, false );
 
 		# Get the new stable version as of now

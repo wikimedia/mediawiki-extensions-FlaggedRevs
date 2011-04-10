@@ -1297,7 +1297,7 @@ class FlaggedRevs {
 		) );
 		$flaggedRevision->insertOn();
 		# Update the article review log
-		FlaggedRevsLogs::updateReviewLog( $title,
+		FlaggedRevsLog::updateReviewLog( $title,
 			$flags, array(), '', $rev->getId(), $oldSvId, true, $auto );
 
 		# Update page and tracking tables and clear cache

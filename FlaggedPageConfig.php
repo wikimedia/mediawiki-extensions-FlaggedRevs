@@ -9,7 +9,7 @@ class FlaggedPageConfig {
 	 * @param int $flags, FR_MASTER
 	 * @returns array (associative) (select,override,autoreview,expiry)
 	 */
-	public static function getPageStabilitySettings( Title $title, $flags = 0 ) {
+	public static function getStabilitySettings( Title $title, $flags = 0 ) {
 		$db = ( $flags & FR_MASTER ) ?
 			wfGetDB( DB_MASTER ) : wfGetDB( DB_SLAVE );
 		$row = $db->selectRow( 'flaggedpage_config',
@@ -67,7 +67,8 @@ class FlaggedPageConfig {
 	}
 
 	/**
-	 * Get default page configuration settings
+	 * Get default stability configuration settings
+	 * @return array
 	 */
 	public static function getDefaultVisibilitySettings() {
 		return array(
@@ -78,7 +79,69 @@ class FlaggedPageConfig {
 		);
 	}
 
-	
+	/**
+	 * Set the stability configuration settings for a page
+	 * @param Title $title
+	 * @param Array $config
+	 * @return bool Row changed
+	 */
+	public static function setStabilitySettings( Title $title, array $config ) {
+		$dbw = wfGetDB( DB_MASTER );
+		# If setting to site default values and there is a row then erase it
+		if ( self::configIsReset( $config ) ) {
+			$dbw->delete( 'flaggedpage_config',
+				array( 'fpc_page_id' => $title->getArticleID() ),
+				__METHOD__
+			);
+			$changed = ( $dbw->affectedRows() != 0 ); // did this do anything?
+		# Otherwise, add/replace row if we are not just setting it to the site default
+		} else {
+			$dbExpiry = Block::encodeExpiry( $config['expiry'], $dbw );
+			# Get current config...
+			$oldRow = $dbw->selectRow( 'flaggedpage_config',
+				array( 'fpc_override', 'fpc_level', 'fpc_expiry' ),
+				array( 'fpc_page_id' => $title->getArticleID() ),
+				__METHOD__,
+				'FOR UPDATE' // lock
+			);
+			# Check if this is not the same config as the existing (if any) row
+			$changed = ( !$oldRow // no previous config
+				|| $oldRow->fpc_override != $config['override'] // ...override changed, or...
+				|| $oldRow->fpc_level != $config['autoreview'] // ...autoreview level changed, or...
+				|| $oldRow->fpc_expiry != $dbExpiry // ...expiry changed
+			);
+			# If the new config is different, replace the old row...
+			if ( $changed ) {
+				$dbw->replace( 'flaggedpage_config',
+					array( 'PRIMARY' ),
+					array(
+						'fpc_page_id'  => $title->getArticleID(),
+						'fpc_select'   => -1, // unused
+						'fpc_override' => (int)$config['override'],
+						'fpc_level'    => $config['autoreview'],
+						'fpc_expiry'   => $dbExpiry
+					),
+					__METHOD__
+				);
+			}
+		}
+		return $changed;
+	}
+
+	/**
+	 * Does this config equal the default settings?
+	 * @param array $config
+	 * @returns bool
+	 */
+	public static function configIsReset( array $config ) {
+		if ( FlaggedRevs::useOnlyIfProtected() ) {
+			return ( $config['autoreview'] == '' );
+		} else {
+			return ( $config['override'] == FlaggedRevs::isStableShownByDefault()
+				&& $config['autoreview'] == '' );
+		}
+	}
+
 	/**
 	 * Find what protection level a config is in
 	 * @param array $config

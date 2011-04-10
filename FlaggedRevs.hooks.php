@@ -374,7 +374,7 @@ class FlaggedRevsHooks {
 			if ( !FlaggedRevs::inReviewNamespace( $title ) ) {
 				$ret = '';
 			} else {
-				$config = FlaggedPageConfig::getPageStabilitySettings( $title );
+				$config = FlaggedPageConfig::getStabilitySettings( $title );
 				$ret = $config['autoreview'];
 			}
 		}
@@ -1183,11 +1183,11 @@ class FlaggedRevsHooks {
 			return true; // sanity check
 		}
 		// Stability log
-		if ( $type == 'stable' && FlaggedRevsLogs::isStabilityAction( $action ) ) {
-			$rv .= FlaggedRevsLogs::stabilityLogLinks( $title, $ts, $params );
+		if ( $type == 'stable' && FlaggedRevsLog::isStabilityAction( $action ) ) {
+			$rv .= FlaggedRevsLogView::stabilityLogLinks( $title, $ts, $params );
 		// Review log
-		} elseif ( $type == 'review' && FlaggedRevsLogs::isReviewAction( $action ) ) {
-			$rv .= FlaggedRevsLogs::reviewLogLinks( $action, $title, $params );
+		} elseif ( $type == 'review' && FlaggedRevsLog::isReviewAction( $action ) ) {
+			$rv .= FlaggedRevsLogView::reviewLogLinks( $action, $title, $params );
 		}
 		return true;
 	}
@@ -1667,7 +1667,7 @@ class FlaggedRevsHooks {
 	// Add selector of review "protection" options
 	// Code stolen from Stabilization (which was stolen from ProtectionForm)
 	public static function onProtectionForm( Article $article, &$output ) {
-		global $wgUser, $wgRequest, $wgLang;
+		global $wgUser, $wgOut, $wgRequest, $wgLang;
 		if ( !$article->exists() ) {
 			return true; // nothing to do
 		} elseif ( !FlaggedRevs::inReviewNamespace( $article->getTitle() ) ) {
@@ -1681,7 +1681,7 @@ class FlaggedRevsHooks {
 			array() : array( 'disabled' => 'disabled' );
 		
 		# Get the current config/expiry
-		$config = FlaggedPageConfig::getPageStabilitySettings( $article->getTitle(), FR_MASTER );
+		$config = FlaggedPageConfig::getStabilitySettings( $article->getTitle(), FR_MASTER );
 		$oldExpirySelect = ( $config['expiry'] == 'infinity' ) ? 'infinite' : 'existing';
 		
 		# Load requested restriction level, default to current level...
@@ -1789,7 +1789,16 @@ class FlaggedRevsHooks {
 		$output .= "</td></tr>";
 
 		# Add some javascript for expiry dropdowns
-		PageStabilityProtectForm::addProtectionJS();
+		$wgOut->addScript(
+			"<script type=\"text/javascript\">
+				function onFRChangeExpiryDropdown() {
+					document.getElementById('mwStabilizeExpiryOther').value = '';
+				}
+				function onFRChangeExpiryField() {
+					document.getElementById('mwStabilizeExpirySelection').value = 'othertime';
+				}
+			</script>"
+		);
 		return true;
 	}
 

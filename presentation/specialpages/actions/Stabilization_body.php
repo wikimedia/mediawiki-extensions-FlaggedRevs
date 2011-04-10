@@ -251,7 +251,16 @@ class Stabilization extends UnlistedSpecialPage {
 			$title->getPrefixedText(), '', array( 'lim' => 25 ) );
 
 		# Add some javascript for expiry dropdowns
-		PageStabilityForm::addProtectionJS();
+		$wgOut->addScript(
+			"<script type=\"text/javascript\">
+				function onFRChangeExpiryDropdown() {
+					document.getElementById('mwStabilizeExpiryOther').value = '';
+				}
+				function onFRChangeExpiryField() {
+					document.getElementById('mwStabilizeExpirySelection').value = 'othertime';
+				}
+			</script>"
+		);
 	}
 
 	protected function buildSelector( $selected ) {

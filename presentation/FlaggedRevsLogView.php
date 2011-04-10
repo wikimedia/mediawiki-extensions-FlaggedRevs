@@ -1,30 +1,6 @@
 <?php
 
-class FlaggedRevsLogs {
-	/**
-	* $action is a valid review log action
-	* @returns bool
-	*/
-	public static function isReviewAction( $action ) {
-		return preg_match( '/^(approve2?(-i|-a|-ia)?|unapprove2?)$/', $action );
-	}
-
-	/**
-	* $action is a valid stability log action
-	* @returns bool
-	*/
-	public static function isStabilityAction( $action ) {
-		return preg_match( '/^(config|modify|reset)$/', $action );
-	}
-
-	/**
-	* $action is a valid review log deprecate action
-	* @returns bool
-	*/
-	public static function isReviewDeapproval( $action ) {
-		return ( $action == 'unapprove' || $action == 'unapprove2' );
-	}
-
+class FlaggedRevsLogView {
 	/**	
 	* Add setting change description to log line
 	* @returns string
@@ -43,7 +19,7 @@ class FlaggedRevsLogs {
 				array( 'parsemag', 'escape', 'replaceafter', 'content' ),
 				$title->getPrefixedText() );
 		}
-		$pars = self::expandParams( $params ); // list -> assoc array
+		$pars = FlaggedRevsLog::expandParams( $params ); // list -> assoc array
 		$details = self::stabilitySettings( $pars, !$skin ); // list of setting values
 		$text .= " $details";
 		return $text;
@@ -130,7 +106,7 @@ class FlaggedRevsLogs {
 			$oldStable = isset( $params[1] ) ? (int)$params[1] : 0;
 			# Show diff to changes since the prior stable version
 			if ( $oldStable && $revId > $oldStable ) {
-				$msg = self::isReviewDeapproval( $action )
+				$msg = FlaggedRevsLog::isReviewDeapproval( $action )
 					? 'review-logentry-diff2' // unreviewed
 					: 'review-logentry-diff'; // reviewed
 				$links .= '(';
@@ -155,100 +131,5 @@ class FlaggedRevsLogs {
 			$links .= ')';
 		}
 		return $links;
-	}
-
-	/**
-	 * Record a log entry on the review action
-	 * @param Title $title
-	 * @param array $dims
-	 * @param array $oldDims
-	 * @param string $comment
-	 * @param int $revId, revision ID
-	 * @param int $stableId, prior stable revision ID
-	 * @param bool $approve, approved? (otherwise unapproved)
-	 * @param bool $auto
-	 */
-	public static function updateReviewLog( $title, $dims, $oldDims, $comment,
-		$revId, $stableId, $approve, $auto = false )
-	{
-		$log = new LogPage( 'review',
-			false /* $rc */,
-			$auto ? "skipUDP" : "UDP" // UDP logging
-		);
-		# Tag rating list (e.g. accuracy=x, depth=y, style=z)
-		$ratings = array();
-		# Skip rating list if flagging is just an 0/1 feature...
-		if ( !FlaggedRevs::binaryFlagging() ) {
-			foreach ( $dims as $quality => $level ) {
-				$ratings[] = wfMsgForContent( "revreview-$quality" ) .
-					wfMsgForContent( 'colon-separator' ) .
-					wfMsgForContent( "revreview-$quality-$level" );
-			}
-		}
-		$isAuto = ( $auto && !FlaggedRevs::isQuality( $dims ) ); // Paranoid check
-		// Approved revisions
-		if ( $approve ) {
-			if ( $isAuto ) {
-				$comment = wfMsgForContent( 'revreview-auto' ); // override this
-			}
-			# Make comma-separated list of ratings
-			$rating = !empty( $ratings )
-				? '[' . implode( ', ', $ratings ) . ']'
-				: '';
-			# Append comment with ratings
-			if ( $rating != '' ) {
-				$comment .= $comment ? " $rating" : $rating;
-			}
-			# Sort into the proper action (useful for filtering)
-			$action = ( FlaggedRevs::isQuality( $dims ) || FlaggedRevs::isQuality( $oldDims ) ) ?
-				'approve2' : 'approve';
-			if ( !$stableId ) { // first time
-				$action .= $isAuto ? "-ia" : "-i";
-			} elseif ( $isAuto ) { // automatic
-				$action .= "-a";
-			}
-		// De-approved revisions
-		} else {
-			$action = FlaggedRevs::isQuality( $oldDims ) ?
-				'unapprove2' : 'unapprove';
-		}
-		$ts = Revision::getTimestampFromId( $title, $revId );
-		# Param format is <rev id, old stable id, rev timestamp>
-		$logid = $log->addEntry( $action, $title, $comment, array( $revId, $stableId, $ts ) );
-		# Make log easily searchable by rev_id
-		$log->addRelations( 'rev_id', array( $revId ), $logid );
-	}
-
-	/**
-	 * Collapse an associate array into a string
-	 * @param array $pars
-	 * @returns string
-	 */
-	public static function collapseParams( Array $pars ) {
-		$res = array();
-		foreach ( $pars as $param => $value ) {
-			// Sanity check...
-			if ( strpos( $param, '=' ) !== false || strpos( $value, '=' ) !== false ) {
-				throw new MWException( "collapseParams() - cannot use equal sign" );
-			} elseif ( strpos( $param, "\n" ) !== false || strpos( $value, "\n" ) !== false ) {
-				throw new MWException( "collapseParams() - cannot use newline" );
-			}
-			$res[] = "{$param}={$value}";
-		}
-		return implode( "\n", $res );
-	}
-
-	/**
-	 * Expand a list of log params into an associative array
-	 * @params array $pars
-	 * @returns array (associative)
-	 */
-	public static function expandParams( Array $pars ) {
-		$res = array();
-		foreach ( $pars as $paramAndValue ) {
-			list( $param, $value ) = explode( '=', $paramAndValue, 2 );
-			$res[$param] = $value;
-		}
-		return $res;
 	}
 }
