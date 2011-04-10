@@ -94,14 +94,13 @@ class FRInclusionManager {
 
 	/**
 	 * (a) Stabilize inclusions in Parser output
-	 * (b) Load all of the "at review time" versions of template/files
+	 * (b) Load all of the "review time" versions of template/files from $frev
 	 * (c) Load their stable version counterparts (avoids DB hits)
 	 * Note: Used when calling FlaggedRevs::parseStableText().
-	 * @param Title $title
 	 * @param FlaggedRevision $frev
 	 * @return void
 	 */
-	public function stabilizeParserOutput( Title $title, FlaggedRevision $frev ) {
+	public function stabilizeParserOutput( FlaggedRevision $frev ) {
 		$tStbVersions = $fStbVersions = array(); // stable versions
 		$tRevVersions = $frev->getTemplateVersions();
 		$fRevVersions = $frev->getFileVersions();

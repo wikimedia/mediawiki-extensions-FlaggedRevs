@@ -512,7 +512,7 @@ class FlaggedRevs {
 			if ( !$incManager->parserOutputIsStabilized() ) {
 				$frev = FlaggedRevision::newFromTitle( $title, $id );
 				if ( $frev ) {
-					$incManager->stabilizeParserOutput( $title, $frev );
+					$incManager->stabilizeParserOutput( $frev );
 					$resetManager = true; // need to reset when done
 				}
 			}
@@ -546,7 +546,7 @@ class FlaggedRevs {
 			if ( !$incManager->parserOutputIsStabilized() ) {
 				$frev = FlaggedRevision::newFromTitle( $title, $id );
 				if ( $frev ) {
-					$incManager->stabilizeParserOutput( $title, $frev );
+					$incManager->stabilizeParserOutput( $frev );
 					$resetManager = true; // need to reset when done
 				}
 			}
