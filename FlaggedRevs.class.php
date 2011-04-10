@@ -374,7 +374,7 @@ class FlaggedRevs {
 	 */
 	public static function styleUrlPath() {
 		global $wgExtensionAssetsPath;
-		return "$wgExtensionAssetsPath/FlaggedRevs/modules";
+		return "$wgExtensionAssetsPath/FlaggedRevs/presentation/modules";
 	}
 
 	# ################ Permission functions #################	
