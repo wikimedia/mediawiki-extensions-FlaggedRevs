@@ -274,7 +274,7 @@ $wgAutoloadClasses['FlaggedRevsXML'] = $dir . 'presentation/FlaggedRevsXML.php';
 $wgExtensionMessagesFiles['FlaggedRevs'] = $langDir . 'FlaggedRevs.i18n.php';
 $wgExtensionAliasesFiles['FlaggedRevs'] = $langDir . 'FlaggedRevs.alias.php';
 
-$specialActionDir = $dir . 'specialpages/actions/';
+$specialActionDir = $dir . 'presentation/specialpages/actions/';
 # Load revision review UI
 $wgAutoloadClasses['RevisionReview'] = $specialActionDir . 'RevisionReview_body.php';
 // @TODO: move review action related messages to separate file?
@@ -282,7 +282,7 @@ $wgAutoloadClasses['RevisionReview'] = $specialActionDir . 'RevisionReview_body.
 $wgAutoloadClasses['Stabilization'] = $specialActionDir . 'Stabilization_body.php';
 $wgExtensionMessagesFiles['Stabilization'] = $langDir . 'Stabilization.i18n.php';
 
-$specialReportDir = $dir . 'specialpages/reports/';
+$specialReportDir = $dir . 'presentation/specialpages/reports/';
 # Reviewed versions list
 $wgAutoloadClasses['ReviewedVersions'] = $specialReportDir . 'ReviewedVersions_body.php';
 $wgExtensionMessagesFiles['ReviewedVersions'] = $langDir . 'ReviewedVersions.i18n.php';
@@ -355,8 +355,8 @@ $wgDefaultUserOptions['flaggedrevseditdiffs'] = true;
 $wgDefaultUserOptions['flaggedrevsviewdiffs'] = false;
 
 # JS/CSS modules and message bundles used by JS scripts
-$localModulePath = dirname( __FILE__ ) . '/modules/';
-$remoteModulePath = 'FlaggedRevs/modules';
+$localModulePath = dirname( __FILE__ ) . '/presentation/modules/';
+$remoteModulePath = 'FlaggedRevs/presentation/modules';
 $wgResourceModules['ext.flaggedRevs.basic'] = array(
 	'styles' 		=> array( 'flaggedrevs.css' ),
 	'localBasePath' => $localModulePath,
