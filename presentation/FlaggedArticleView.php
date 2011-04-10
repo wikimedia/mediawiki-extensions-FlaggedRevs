@@ -5,7 +5,7 @@
 class FlaggedArticleView {
 	protected $article = null;
 
-	protected $diffRevs = null;
+	protected $diffRevs = null; // assoc array of old and new Revisions for diffs
 	protected $isReviewableDiff = false;
 	protected $isDiffFromStable = false;
 	protected $isMultiPageDiff = false;
@@ -1072,8 +1072,10 @@ class FlaggedArticleView {
 		# Build the review form as needed
 		if ( $rev && ( !$this->diffRevs || $this->isReviewableDiff ) ) {
 			$form = new RevisionReviewFormGUI( $wgUser, $this->article, $rev );
-			# Tag default and "reject" button depend on context
-			$form->setDiffLeftId( $this->diffRevs['old'] );
+			# Default tags and existence of "reject" button depend on context
+			if ( $this->diffRevs ) {
+				$form->setDiffPriorRev( $this->diffRevs['old'] );
+			}
 			# Review notice box goes in top of form
 			$form->setTopNotice( $this->diffNoticeBox );
 			# $wgOut may not already have the inclusion IDs, such as for diffonly=1.
@@ -1579,7 +1581,7 @@ class FlaggedArticleView {
 					$this->isReviewableDiff = true;
 				}
 			}
-			$this->diffRevs = array( 'old' => $oldRev->getId(), 'new' => $newRev->getId() );
+			$this->diffRevs = array( 'old' => $oldRev, 'new' => $newRev );
 		}
 		return true;
 	}

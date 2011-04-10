@@ -6,7 +6,8 @@
  */
 class RevisionReviewFormGUI {
 	protected $user, $article, $rev;
-	protected $refId = 0, $topNotice = '';
+	protected $refRev = null;
+	protected $topNotice = '';
 	protected $templateIDs = null, $imageSHA1Keys = null;
 
 	 /**
@@ -22,13 +23,13 @@ class RevisionReviewFormGUI {
 	}
 
 	/*
-	 * If $refId > 0:
-	 * (a) Show "reject" button
-	 * (b) default the rating tags to those of $rev if it was flagged
-	 * @param int $refId Left side version ID for diffs, $rev is the right rev
+	 * Call this only when the form is shown on a diff:
+	 * (a) Shows the "reject" button
+	 * (b) Default the rating tags to those of $this->rev (if flagged)
+	 * @param Revision $refRev Old revision for diffs ($this->rev is the new rev)
 	 */
-	public function setDiffLeftId( $refId ) {
-		$this->refId = $refId;
+	public function setDiffPriorRev( Revision $refRev ) {
+		$this->refRev = $refRev;
 	}
 
 	/*
@@ -54,7 +55,7 @@ class RevisionReviewFormGUI {
 	 */
 	public function getHtml() {
 		global $wgOut, $wgLang, $wgParser, $wgEnableParserCache;
-		$id = $this->rev->getId();
+		$revId = $this->rev->getId();
 		if ( $this->rev->isDeleted( Revision::DELETED_TEXT ) ) {
 			return array( '', 'review_bad_oldid' ); # The revision must be valid and public
 		}
@@ -62,20 +63,21 @@ class RevisionReviewFormGUI {
 
 		$srev = $article->getStableRev();
 		# See if the version being displayed is flagged...
-		if ( $id == $article->getStable() ) {
+		if ( $revId == $article->getStable() ) {
 			$frev = $srev; // avoid query
 		} else {
-			$frev = FlaggedRevision::newFromTitle( $article->getTitle(), $id );
+			$frev = FlaggedRevision::newFromTitle( $article->getTitle(), $revId );
 		}
 		$oldFlags = $frev
 			? $frev->getTags() // existing tags
 			: FlaggedRevs::quickTags( FR_CHECKED ); // basic tags
 		$reviewTime = $frev ? $frev->getTimestamp() : ''; // last review of rev
 
+		$priorRevId = $this->refRev ? $this->refRev->getId() : 0;
 		# If we are reviewing updates to a page, start off with the stable revision's
 		# flags. Otherwise, we just fill them in with the selected revision's flags.
 		# @TODO: do we want to carry over info for other diffs?
-		if ( $srev && $srev->getRevId() == $this->refId ) { // diff-to-stable
+		if ( $srev && $srev->getRevId() == $priorRevId ) { // diff-to-stable
 			$flags = $srev->getTags();
 			# Check if user is allowed to renew the stable version.
 			# If not, then get the flags for the new revision itself.
@@ -83,7 +85,7 @@ class RevisionReviewFormGUI {
 				$flags = $oldFlags;
 			}
 			# Re-review button is need for template/file only review case
-			$reviewIncludes = ( $srev->getRevId() == $id && !$article->stableVersionIsSynced() );
+			$reviewIncludes = ( $srev->getRevId() == $revId && !$article->stableVersionIsSynced() );
 		} else { // views
 			$flags = $oldFlags;
 			$reviewIncludes = false; // re-review button not needed
@@ -112,18 +114,18 @@ class RevisionReviewFormGUI {
 		$form .= Xml::closeElement( 'legend' ) . "\n";
 		# Show explanatory text
 		$form .= $this->topNotice;
-		# Show possible conflict warning msg
-		if ( $this->refId ) {
+		# Show possible conflict warning msg...
+		if ( $priorRevId ) {
 			list( $u, $ts ) =
-				FRUserActivity::getUserReviewingDiff( $this->refId, $this->rev->getId() );
+				FRUserActivity::getUserReviewingDiff( $priorRevId, $this->rev->getId() );
 		} else {
 			list( $u, $ts ) = FRUserActivity::getUserReviewingPage( $this->rev->getPage() );
 		}
 		if ( $u !== null && $u != $this->user->getName() ) {
-			$msg = $this->refId ? 'revreview-poss-conflict-c' : 'revreview-poss-conflict-p';
+			$msg = $priorRevId ? 'revreview-poss-conflict-c' : 'revreview-poss-conflict-p';
 			$form .= '<p><span class="fr-under-review">' .
-				wfMsgExt( $msg, 'parseinline', $u,
-					$wgLang->date( $ts, true ), $wgLang->time( $ts, true ) ) .
+				wfMsgExt( $msg, 'parseinline',
+					$u, $wgLang->date( $ts, true ), $wgLang->time( $ts, true ) ) .
 				'</span></p>';
 		}
 
@@ -158,10 +160,7 @@ class RevisionReviewFormGUI {
 					array( 'class' => 'fr-comment-box' ) ) . "&#160;&#160;&#160;</span>";
 		}
 		# Determine if there will be reject button
-		$rejectId = 0;
-		if ( $this->refId == $article->getStable() && $id != $this->refId ) {
-			$rejectId = $this->refId; // left rev must be stable and right one newer
-		}
+		$rejectId = $this->rejectRefRevId();
 		# Add the submit buttons
 		$form .= self::submitButtons( $rejectId, $frev, (bool)$disabled, $reviewIncludes );
 		# Show stability log if there is anything interesting...
@@ -178,8 +177,8 @@ class RevisionReviewFormGUI {
 		# Hidden params
 		$form .= Html::hidden( 'title', $reviewTitle->getPrefixedText() ) . "\n";
 		$form .= Html::hidden( 'target', $article->getTitle()->getPrefixedDBKey() ) . "\n";
-		$form .= Html::hidden( 'refid', $this->refId ) . "\n";
-		$form .= Html::hidden( 'oldid', $id ) . "\n";
+		$form .= Html::hidden( 'refid', $priorRevId ) . "\n";
+		$form .= Html::hidden( 'oldid', $revId ) . "\n";
 		$form .= Html::hidden( 'action', 'submit' ) . "\n";
 		$form .= Html::hidden( 'wpEditToken', $this->user->editToken() ) . "\n";
 		$form .= Html::hidden( 'changetime', $reviewTime,
@@ -190,7 +189,7 @@ class RevisionReviewFormGUI {
 		$form .= Html::hidden( 'fileVersion', $fileVersion ) . "\n";
 		# Special token to discourage fiddling...
 		$checkCode = RevisionReviewForm::validationKey(
-			$templateParams, $imageParams, $fileVersion, $id
+			$templateParams, $imageParams, $fileVersion, $revId
 		);
 		$form .= Html::hidden( 'validatedParams', $checkCode ) . "\n";
 
@@ -198,6 +197,22 @@ class RevisionReviewFormGUI {
 		$form .= Xml::closeElement( 'form' );
 
 		return array( $form, true /* ok */ );
+	}
+
+	/*
+	* If the REJECT button should show then get the ID of the last good rev
+	* @return int
+	*/
+	protected function rejectRefRevId() {
+		if ( $this->refRev ) {
+			$priorId = $this->refRev->getId();
+			if ( $priorId == $this->article->getStable() && $priorId != $this->rev->getId() ) {
+				if ( $this->rev->getText() != $this->refRev->getText() ) {
+					return $priorId; // left rev must be stable and right one newer
+				}
+			}
+		}
+		return 0;
 	}
 
 	/**

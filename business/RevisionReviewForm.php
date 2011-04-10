@@ -289,6 +289,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 				return 'review_cannot_reject'; // not really a use case
 			}
 			$article = new Article( $this->page );
+			# Get text with changes after $oldRev up to and including $newRev removed
 			$new_text = $article->getUndoText( $newRev, $oldRev );
 			if ( $new_text === false ) {
 				return 'review_cannot_undo';
