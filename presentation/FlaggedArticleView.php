@@ -456,7 +456,7 @@ class FlaggedArticleView {
 		# Give a "your edit is pending" notice to newer users if
 		# an unreviewed edit was completed...
 		if ( $wgRequest->getVal( 'shownotice' )
-			&& $this->article->getUserText() == $wgUser->getName() // FIXME: rawUserText?
+			&& $this->article->getUserText( Revision::RAW ) == $wgUser->getName()
 			&& $this->article->revsArePending()
 			&& !$wgUser->isAllowed( 'review' ) )
 		{
