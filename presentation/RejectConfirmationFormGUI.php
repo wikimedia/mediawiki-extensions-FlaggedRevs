@@ -132,7 +132,7 @@ class RejectConfirmationFormGUI {
 		$form .= Html::input( 'wpSubmit', wfMsg( 'revreview-reject-confirm' ), 'submit' );
 		$form .= ' ';
 		$form .= $skin->link( $this->form->getPage(), wfMsg( 'revreview-reject-cancel' ),
-			array( 'onClick' => 'history.back()' ),
+			array( 'onClick' => 'history.back(); return false;' ),
 			array( 'oldid' => $this->form->getRefId(), 'diff' => $this->form->getOldId() ) );
 		$form .= Xml::closeElement( 'form' );
 
