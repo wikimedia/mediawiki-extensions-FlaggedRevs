@@ -4,15 +4,20 @@
  * Note: edit tokens are the responsibility of the caller
  * Usage: (a) set ALL form params before doing anything else
  *		  (b) call ready() when all params are set
- *		  (c) call submit() as needed
+ *		  (c) call preload() OR submit() as needed
  */
 abstract class FRGenericSubmitForm {
-	const ON_SUBMISSION = 1; # Notify functions when we are submitting
+	const FOR_SUBMISSION = 1; 				# Notify functions when we are submitting
+	/* Internal form state */
+	const FORM_UNREADY = 0;					# Params not given yet
+	const FORM_READY = 1;					# Params given and ready to submit
+	const FORM_PRELOADED = 2;				# Params pre-loaded (likely from slave DB)
+	const FORM_SUBMITTED = 3;				# Form submitted
+	private $state = self::FORM_UNREADY; 	# Form state (disallows bad operations)
 
-	protected $inputLock = 0; # Disallow bad submissions
-	protected $user = null;
+	protected $user = null; 		 		# User performing the action
 
-	public function __construct( User $user ) {
+	final public function __construct( User $user ) {
 		$this->user = $user;
 		$this->initialize();
 	}
@@ -27,29 +32,41 @@ abstract class FRGenericSubmitForm {
 	* Get the submitting user
 	* @return User
 	*/
-	public function getUser() {
+	final public function getUser() {
 		return $this->user;
 	}
 
 	/**
-	* Signal that inputs will be given (via accessors)
-	* @return void
+	* Get the internal form state
+	* @return int
 	*/
-	public function start() {
-		$this->inputLock = 0;
+	final protected function getState() {
+		return $this->state;
 	}
 
 	/**
 	* Signal that inputs are all given (via accessors)
 	* @return mixed (true on success, error string on target failure)
 	*/
-	public function ready() {
-		$this->inputLock = 1;
-		$status = $this->doCheckTarget();
+	final public function ready() {
+		if ( $this->state != self::FORM_UNREADY ) {
+			throw new MWException( __CLASS__ . " ready() already called.\n");
+		} 
+		$this->state = self::FORM_READY;
+		$status = $this->doCheckTargetGiven();
 		if ( $status !== true ) {
 			return $status; // bad target
 		}
-		return $this->doLoadOnReady();
+		return $this->doBuildOnReady();
+	}
+
+	/**
+	* Load any objects after ready() called
+	* NOTE: do not do any DB hits here, just build objects
+	* @return mixed (true on success, error string on failure)
+	*/
+	protected function doBuildOnReady() {
+		return true;
 	}
 
 	/**
@@ -58,8 +75,8 @@ abstract class FRGenericSubmitForm {
 	* @param mixed $value Value to set the field to
 	* @return void
 	*/
-	protected function trySet( &$field, $value ) {
-		if ( $this->inputLock ) {
+	final protected function trySet( &$field, $value ) {
+		if ( $this->state != self::FORM_UNREADY ) {
 			throw new MWException( __CLASS__ . " fields cannot be set anymore.\n");
 		} else {
 			$field = $value; // still allowing input
@@ -67,51 +84,45 @@ abstract class FRGenericSubmitForm {
 	}
 
 	/*
-	* Preload existing params from a DB (e.g. for GET request).
+	* Check that a target is given (e.g. from GET/POST request)
+	* NOTE: do not do any DB hits here, just check if there is a target
 	* @return mixed (true on success, error string on failure)
 	*/
-	public function preload() {
-		if ( !$this->inputLock ) {
-			throw new MWException( __CLASS__ . " input fields not set yet.\n");
-		}
-		$status = $this->doCheckTarget();
-		if ( $status !== true ) {
-			return $status; // bad target
-		}
-		return $this->doPreloadParameters();
-	}
-
-	/*
-	* Preload existing params from a DB (e.g. for GET request).
-	* @return mixed (true on success, error string on failure)
-	*/
-	protected function doPreloadParameters() {
+	protected function doCheckTargetGiven() {
 		return true;
 	}
 
 	/*
 	* Check that the target is valid (e.g. from GET/POST request)
-	* @param int $flags ON_SUBMISSION (set on submit)
+	* @param int $flags FOR_SUBMISSION (set on submit)
 	* @return mixed (true on success, error string on failure)
 	*/
 	protected function doCheckTarget( $flags = 0 ) {
 		return true;
 	}
 
-	/**
-	* Load any parameters after ready() called
+	/*
+	* Check that a target is and it is valid (e.g. from GET/POST request)
+	* NOTE: do not do any DB hits here, just check if there is a target
 	* @return mixed (true on success, error string on failure)
 	*/
-	protected function doLoadOnReady() {
-		return true;
+	final public function checkTarget() {
+		if ( $this->state != self::FORM_READY ) {
+			throw new MWException( __CLASS__ . " input fields not set yet.\n");
+		}
+		$status = $this->doCheckTargetGiven();
+		if ( $status !== true ) {
+			return $status; // bad target
+		}
+		return $this->doCheckTarget();
 	}
 
 	/*
-	* Verify and clean up parameters (e.g. from POST request)
+	* Validate and clean up target/parameters (e.g. from POST request)
 	* @return mixed (true on success, error string on failure)
 	*/
-	protected function checkParameters() {
-		$status = $this->doCheckTarget( self::ON_SUBMISSION );
+	final protected function checkParameters() {
+		$status = $this->checkTarget( self::FOR_SUBMISSION );
 		if ( $status !== true ) {
 			return $status; // bad target
 		}
@@ -126,25 +137,57 @@ abstract class FRGenericSubmitForm {
 		return true;
 	}
 
-	/**
-	* Submit the form parameters for the page config to the DB.
-	* 
+	/*
+	* Preload existing params for the target from the DB (e.g. for GET request)
+	* NOTE: do not call this and then submit()
 	* @return mixed (true on success, error string on failure)
 	*/
-	public function submit() {
-		if ( !$this->inputLock ) {
+	final public function preload() {
+		if ( $this->state != self::FORM_READY ) {
 			throw new MWException( __CLASS__ . " input fields not set yet.\n");
 		}
-		$status = $this->checkParameters();
+		$status = $this->checkTarget();
 		if ( $status !== true ) {
-			return $status; // cannot submit - broken params
+			return $status; // bad target
 		}
-		return $this->doSubmit();
+		$status = $this->doPreloadParameters();
+		if ( $status !== true ) {
+			return $status; // bad target
+		}
+		$this->state = self::FORM_PRELOADED;
+		return true;
+	}
+
+	/*
+	* Preload existing params for the target from the DB (e.g. for GET request)
+	* @return mixed (true on success, error string on failure)
+	*/
+	protected function doPreloadParameters() {
+		return true;
 	}
 
 	/**
-	* Submit the form parameters for the page config to the DB.
-	* 
+	* Submit the form parameters for the page config to the DB
+	* @return mixed (true on success, error string on failure)
+	*/
+	final public function submit() {
+		if ( $this->state != self::FORM_READY ) {
+			throw new MWException( __CLASS__ . " input fields preloaded or not set yet.\n");
+		}
+		$status = $this->checkParameters();
+		if ( $status !== true ) {
+			return $status; // cannot submit - broken target or params
+		}
+		$status = $this->doSubmit();
+		if ( $status !== true ) {
+			return $status; // cannot submit
+		}
+		$this->state = self::FORM_SUBMITTED;
+		return true;
+	}
+
+	/**
+	* Submit the form parameters for the page config to the DB
 	* @return mixed (true on success, error string on failure)
 	*/
 	protected function doSubmit() {

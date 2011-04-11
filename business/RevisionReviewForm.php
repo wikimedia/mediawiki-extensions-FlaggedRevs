@@ -4,24 +4,24 @@
  */
 class RevisionReviewForm extends FRGenericSubmitForm {
 	/* Form parameters which can be user given */
-	protected $page = null;
-	protected $approve = false;
-	protected $unapprove = false;
-	protected $reject = false;
-	protected $oldid = 0;
-	protected $refid = 0;
-	protected $templateParams = '';
-	protected $imageParams = '';
-	protected $fileVersion = '';
-	protected $validatedParams = '';
-	protected $comment = '';
-	protected $dims = array();
-	protected $lastChangeTime = null; # Conflict handling
-	protected $newLastChangeTime = null; # Conflict handling
+	protected $page = null;					# Target page obj
+	protected $approve = false;				# Approval requested
+	protected $unapprove = false;			# De-approval requested
+	protected $reject = false;				# Rejection requested
+	protected $oldid = 0;					# ID being reviewed (last "bad" ID for rejection)
+	protected $refid = 0;					# Old, "last good", ID (used for rejection)
+	protected $templateParams = '';			# Included template versions (flat string)
+	protected $imageParams = '';			# Included file versions (flat string)
+	protected $fileVersion = '';			# File page file version (flat string)
+	protected $validatedParams = '';		# Parameter key
+	protected $comment = '';				# Review comments
+	protected $dims = array();				# Review flags (for approval)
+	protected $lastChangeTime = null; 		# Conflict handling
+	protected $newLastChangeTime = null; 	# Conflict handling
 
-	protected $oflags = array();
+	protected $oflags = array();			# Prior flags for Rev with ID $oldid
 
-	public function initialize() {
+	protected function initialize() {
 		foreach ( FlaggedRevs::getTags() as $tag ) {
 			$this->dims[$tag] = 0; // default to "inadequate"
 		}
@@ -122,39 +122,45 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 		$this->trySet( $this->dims[$tag], (int)$value );
 	}
 
-	/**
-	* Load old config and last review status change time
-	* @return mixed (true on success, error string on target failure)
+	/*
+	* Check that a target is given (e.g. from GET/POST request)
+	* @return mixed (true on success, error string on failure)
 	*/
-	public function doLoadOnReady() {
-		# Get the revision's current flags, if any
-		$this->oflags = FlaggedRevs::getRevisionTags( $this->page, $this->oldid, FR_MASTER );
-		# Set initial value for newLastChangeTime (if unchanged on submit)
-		$this->newLastChangeTime = $this->lastChangeTime;
+	public function doCheckTargetGiven() {
+		if ( is_null( $this->page ) ) {
+			return 'review_page_invalid';
+		}
+		return true;
+	}
+
+	/**
+	* Load any objects after ready() called
+	* @return mixed (true on success, error string on failure)
+	*/
+	protected function doBuildOnReady() {
+		$this->article = FlaggedArticle::getTitleInstance( $this->page );
 		return true;
 	}
 
 	/*
 	* Check that the target is valid (e.g. from GET/POST request)
-	* @param int $flags ON_SUBMISSION (set on submit)
+	* @param int $flags FOR_SUBMISSION (set on submit)
 	* @return mixed (true on success, error string on failure)
 	*/
 	protected function doCheckTarget( $flags = 0 ) {
-		if ( is_null( $this->page ) ) {
-			return 'review_page_invalid';
-		} elseif ( !$this->page->exists() ) {
+		$flgs = ( $flags & self::FOR_SUBMISSION ) ? Title::GAID_FOR_UPDATE : 0;
+		if ( !$this->page->getArticleId( $flgs ) ) {
 			return 'review_page_notexists';
 		}
-		$fa = FlaggedArticle::getTitleInstance( $this->page );
-		$flags = ( $flags & self::ON_SUBMISSION ) ? FR_MASTER : 0;
-		if ( !$fa->isReviewable( $flags ) ) {
+		$flgs = ( $flags & self::FOR_SUBMISSION ) ? FR_MASTER : 0;
+		if ( !$this->article->isReviewable( $flgs ) ) {
 			return 'review_page_unreviewable';
 		}
 		return true;
 	}
 
 	/*
-	* Verify and clean up parameters (e.g. from POST request).
+	* Validate and clean up parameters (e.g. from POST request).
 	* @return mixed (true on success, error string on failure)
 	*/
 	protected function doCheckParameters() {
@@ -165,6 +171,10 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 		if ( $this->getAction() === null ) {
 			return 'review_param_missing'; // user didn't say
 		}
+		# Get the revision's current flags, if any
+		$this->oflags = FlaggedRevs::getRevisionTags( $this->page, $this->oldid, FR_MASTER );
+		# Set initial value for newLastChangeTime (if unchanged on submit)
+		$this->newLastChangeTime = $this->lastChangeTime;
 		# Fill in implicit tag data for binary flag case
 		$iDims = $this->implicitDims();
 		if ( $iDims ) {

@@ -17,6 +17,10 @@ class RejectConfirmationFormGUI {
 	 */
 	public function getHtml() {
 		global $wgLang, $wgContLang;
+		$status = $this->form->checkTarget();
+		if ( $status !== true ) {
+			return array( '', $status ); // not a reviewable existing page
+		}
 		$oldRev = $this->oldRev; // convenience
 		$newRev = $this->newRev; // convenience
 		# Do not mess with archived/deleted revisions

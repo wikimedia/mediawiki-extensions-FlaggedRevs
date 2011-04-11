@@ -6,7 +6,9 @@ class RevisionReview extends UnlistedSpecialPage {
 	var $skin; // FIXME: with RevDel_RevisionList stuff
 
 	public function __construct() {
+		global $wgUser;
 		parent::__construct( 'RevisionReview', 'review' );
+		$this->skin = $wgUser->getSkin();
 	}
 
 	public function execute( $par ) {
@@ -27,16 +29,25 @@ class RevisionReview extends UnlistedSpecialPage {
 		}
 		$this->setHeaders();
 
-		$this->skin = $wgUser->getSkin();
-		$this->form = new RevisionReviewForm( $wgUser );
 		# Our target page
 		$this->page = Title::newFromURL( $wgRequest->getVal( 'target' ) );
 		if ( !$this->page ) {
 			$wgOut->showErrorPage( 'notargettitle', 'notargettext' );
 			return;
 		}
+		# Basic page permission checks...
+		$permErrors = $this->page->getUserPermissionsErrors( 'review', $wgUser, false );
+		if ( !$permErrors ) {
+			$permErrors = $this->page->getUserPermissionsErrors( 'edit', $wgUser, false );
+		}
+		if ( $permErrors ) {
+			$wgOut->showPermissionsErrorPage( $permErrors, 'review' );
+			return;
+		}
 
+		$this->form = new RevisionReviewForm( $wgUser );
 		$form = $this->form; // convenience
+
 		$form->setPage( $this->page );
 		# Param for sites with binary flagging
 		$form->setApprove( $wgRequest->getCheck( 'wpApprove' ) );
@@ -61,25 +72,7 @@ class RevisionReview extends UnlistedSpecialPage {
 		}
 		# Log comment
 		$form->setComment( $wgRequest->getText( 'wpReason' ) );
-
-		$status = $form->ready();
-		# Page must exist and be in reviewable namespace
-		if ( $status === 'review_page_unreviewable' ) {
-			$wgOut->addWikiText( wfMsg( 'revreview-main' ) );
-			return;
-		} elseif ( $status === 'review_page_notexists' ) {
-			$wgOut->showErrorPage( 'internalerror', 'nopagetext' );
-			return;
-		}
-		# Basic page permission checks...
-		$permErrors = $this->page->getUserPermissionsErrors( 'review', $wgUser, false );
-		if ( !$permErrors ) {
-			$permErrors = $this->page->getUserPermissionsErrors( 'edit', $wgUser, false );
-		}
-		if ( $permErrors ) {
-			$wgOut->showPermissionsErrorPage( $permErrors, 'review' );
-			return;
-		}
+		$form->ready();
 
 		# Review the edit if requested (POST)...
 		if ( $wgRequest->wasPosted() ) {
@@ -98,7 +91,13 @@ class RevisionReview extends UnlistedSpecialPage {
 					$wgOut->addHtml( $html );
 				// Failure...
 				} else {
-					if ( $status === 'review_bad_oldid' ) {
+					if ( $status === 'review_page_unreviewable' ) {
+						$wgOut->addWikiText( wfMsg( 'revreview-main' ) );
+						return;
+					} elseif ( $status === 'review_page_notexists' ) {
+						$wgOut->showErrorPage( 'internalerror', 'nopagetext' );
+						return;
+					} elseif ( $status === 'review_bad_oldid' ) {
 						$wgOut->showErrorPage( 'internalerror', 'revreview-revnotfound' );
 					} else {
 						$wgOut->showErrorPage( 'internalerror', $status );
@@ -120,7 +119,13 @@ class RevisionReview extends UnlistedSpecialPage {
 					}
 				// Failure...
 				} else {
-					if ( $status === 'review_denied' ) {
+					if ( $status === 'review_page_unreviewable' ) {
+						$wgOut->addWikiText( wfMsg( 'revreview-main' ) );
+						return;
+					} elseif ( $status === 'review_page_notexists' ) {
+						$wgOut->showErrorPage( 'internalerror', 'nopagetext' );
+						return;
+					} elseif ( $status === 'review_denied' ) {
 						$wgOut->permissionRequired( 'badaccess-group0' ); // protected?
 					} elseif ( $status === 'review_bad_key' ) {
 						$wgOut->permissionRequired( 'badaccess-group0' ); // fiddling
@@ -263,12 +268,6 @@ class RevisionReview extends UnlistedSpecialPage {
 		$form->setPage( $title );
 
 		$status = $form->ready(); // all params loaded
-		# Page must exist and be in reviewable namespace
-		if ( $status === 'review_page_unreviewable' ) {
-			return '<err#>' . wfMsgExt( 'revreview-main', 'parseinline' );
-		} elseif ( $status === 'review_page_notexists' ) {
-			return '<err#>' . wfMsgExt( 'nopagetext', 'parseinline' );
-		}
 		# Check session via user token
 		if ( !$wgUser->matchEditToken( $editToken ) ) {
 			return '<err#>' . wfMsgExt( 'sessionfailure', 'parseinline' );

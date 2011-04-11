@@ -32,15 +32,17 @@ class Stabilization extends UnlistedSpecialPage {
 		}
 		# Set page title
 		$this->setHeaders();
-		
-		$this->form = new PageStabilityGeneralForm( $wgUser );
-		$form = $this->form; // convenience
+
 		# Target page
 		$title = Title::newFromURL( $wgRequest->getVal( 'page', $par ) );
 		if ( !$title ) {
 			$wgOut->showErrorPage( 'notargettitle', 'notargettext' );
 			return;
 		}
+	
+		$this->form = new PageStabilityGeneralForm( $wgUser );
+		$form = $this->form; // convenience
+
 		$form->setPage( $title );
 		# Watch checkbox
 		$form->setWatchThis( (bool)$wgRequest->getCheck( 'wpWatchthis' ) );
@@ -56,15 +58,14 @@ class Stabilization extends UnlistedSpecialPage {
 		$form->setOverride( (int)$wgRequest->getBool( 'wpStableconfig-override' ) );
 		# Get autoreview restrictions...
 		$form->setAutoreview( $wgRequest->getVal( 'mwProtect-level-autoreview' ) );
+		$form->ready(); // params all set
 
-		$status = $form->ready(); // params all set
+		$status = $form->checkTarget();
 		if ( $status === 'stabilize_page_notexists' ) {
-			$wgOut->addWikiText(
-				wfMsg( 'stabilization-notexists', $title->getPrefixedText() ) );
+			$wgOut->addWikiMsg( 'stabilization-notexists', $title->getPrefixedText() );
 			return;
 		} elseif ( $status === 'stabilize_page_unreviewable' ) {
-			$wgOut->addWikiText(
-				wfMsg( 'stabilization-notcontent', $title->getPrefixedText() ) );
+			$wgOut->addWikiMsg( 'stabilization-notcontent', $title->getPrefixedText() );
 			return;
 		}
 		# Form POST request...

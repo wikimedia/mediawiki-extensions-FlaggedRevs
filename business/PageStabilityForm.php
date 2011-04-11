@@ -4,15 +4,15 @@
  */
 abstract class PageStabilityForm extends FRGenericSubmitForm {
 	/* Form parameters which can be user given */
-	protected $page = false; # Target page obj
-	protected $watchThis = null; # Watch checkbox
-	protected $reviewThis = null; # Auto-review option...
-	protected $reasonExtra = ''; # Custom/extra reason
-	protected $reasonSelection = ''; # Reason dropdown key
-	protected $expiryCustom = ''; # Custom expiry
-	protected $expirySelection = ''; # Expiry dropdown key
-	protected $override = -1; # Default version
-	protected $autoreview = ''; # Autoreview restrictions...
+	protected $page = false; 			# Target page obj
+	protected $watchThis = null; 		# Watch checkbox
+	protected $reviewThis = null; 		# Auto-review option...
+	protected $reasonExtra = ''; 		# Custom/extra reason
+	protected $reasonSelection = '';	# Reason dropdown key
+	protected $expiryCustom = ''; 		# Custom expiry
+	protected $expirySelection = '';	# Expiry dropdown key
+	protected $override = -1; 			# Default version
+	protected $autoreview = ''; 		# Autoreview restrictions...
 
 	protected $oldConfig = array(); # Old page config
 
@@ -78,8 +78,9 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 	* @return 14-char timestamp or "infinity", or false if the input was invalid
 	*/
 	public function getExpiry() {
+		$oldConfig = $this->getOldConfig();
 		if ( $this->expirySelection == 'existing' ) {
-			return $this->oldConfig['expiry'];
+			return $oldConfig['expiry'];
 		} elseif ( $this->expirySelection == 'othertime' ) {
 			$value = $this->expiryCustom;
 		} else {
@@ -119,30 +120,38 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 	}
 
 	/*
-	* Preload existing page settings (e.g. from GET request).
+	* Check that a target is given (e.g. from GET/POST request)
 	* @return mixed (true on success, error string on failure)
 	*/
-	public function doPreloadParameters() {
-		if ( $this->oldConfig['expiry'] == Block::infinity() ) {
-			$this->expirySelection = 'infinite'; // no settings set OR indefinite
-		} else {
-			$this->expirySelection = 'existing'; // settings set and NOT indefinite
+	protected function doCheckTargetGiven() {
+		if ( is_null( $this->page ) ) {
+			return 'stabilize_page_invalid';
 		}
-		return $this->reallyDoPreloadParameters(); // load the params...
-	}
-
-	/*
-	* @return mixed (true on success, error string on failure)
-	*/	
-	protected function reallyDoPreloadParameters() {
 		return true;
 	}
 
 	/*
-	* Verify and clean up parameters (e.g. from POST request).
+	* Check that the target page is valid
+	* @param int $flags FOR_SUBMISSION (set on submit)
+	* @return mixed (true on success, error string on failure)
+	*/
+	protected function doCheckTarget( $flags = 0 ) {
+		$flgs = ( $flags & self::FOR_SUBMISSION ) ? Title::GAID_FOR_UPDATE : 0;
+		if ( !$this->page->getArticleId( $flgs ) ) {
+			return 'stabilize_page_notexists';
+		} elseif ( !FlaggedRevs::inReviewNamespace( $this->page ) ) {
+			return 'stabilize_page_unreviewable';
+		}
+		return true;
+	}
+
+	/*
+	* Verify and clean up parameters (e.g. from POST request)
 	* @return mixed (true on success, error string on failure)
 	*/
 	protected function doCheckParameters() {
+		# Load old config settings from the master
+		$this->oldConfig = FlaggedPageConfig::getStabilitySettings( $this->page, FR_MASTER );
 		if ( $this->expiryCustom != '' ) {
 			// Custom expiry takes precedence
 			$this->expirySelection = 'othertime';
@@ -159,28 +168,6 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 	}
 
 	/*
-	* Check that the target page is valid
-	* @param int $flags ON_SUBMISSION (set on submit)
-	* @return mixed (true on success, error string on failure)
-	*/
-	protected function doCheckTarget( $flags = 0 ) {
-		if ( is_null( $this->page ) ) {
-			return 'stabilize_page_invalid';
-		} elseif ( !$this->page->exists() ) {
-			return 'stabilize_page_notexists';
-		} elseif ( !FlaggedRevs::inReviewNamespace( $this->page ) ) {
-			return 'stabilize_page_unreviewable';
-		}
-		return true;
-	}
-
-	protected function doLoadOnReady() {
-		# Get the current page config
-		$this->oldConfig = FlaggedPageConfig::getStabilitySettings( $this->page, FR_MASTER );
-		return true;
-	}
-
-	/*
 	* Can the user change the settings for this page?
 	* Note: if the current autoreview restriction is too high for this user
 	*		then this will return false. Useful for form selectors.
@@ -193,6 +180,27 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 			&& $this->page->userCan( 'edit' )
 			&& $this->page->userCan( 'review' )
 		);
+	}
+
+	/*
+	* Preload existing page settings (e.g. from GET request).
+	* @return mixed (true on success, error string on failure)
+	*/
+	public function doPreloadParameters() {
+		$oldConfig = $this->getOldConfig();
+		if ( $oldConfig['expiry'] == Block::infinity() ) {
+			$this->expirySelection = 'infinite'; // no settings set OR indefinite
+		} else {
+			$this->expirySelection = 'existing'; // settings set and NOT indefinite
+		}
+		return $this->reallyDoPreloadParameters(); // load the params...
+	}
+
+	/*
+	* @return mixed (true on success, error string on failure)
+	*/	
+	protected function reallyDoPreloadParameters() {
+		return true;
 	}
 
 	/**
@@ -309,8 +317,11 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 	* @return Array
 	*/
 	public function getOldConfig() {
-		if ( !$this->inputLock ) {
+		if ( $this->getState() == self::FORM_UNREADY ) {
 			throw new MWException( __CLASS__ . " input fields not set yet.\n");
+		}
+		if ( $this->oldConfig === array() && $this->page ) {
+			$this->oldConfig = FlaggedPageConfig::getStabilitySettings( $this->page );
 		}
 		return $this->oldConfig;
 	}
@@ -360,8 +371,9 @@ class PageStabilityGeneralForm extends PageStabilityForm {
 	}
 
 	protected function reallyDoPreloadParameters() {
-		$this->override = $this->oldConfig['override'];
-		$this->autoreview = $this->oldConfig['autoreview'];
+		$oldConfig = $this->getOldConfig();
+		$this->override = $oldConfig['override'];
+		$this->autoreview = $oldConfig['autoreview'];
 		$this->watchThis = $this->page->userIsWatching();
 		return true;
 	}
@@ -384,7 +396,8 @@ class PageStabilityGeneralForm extends PageStabilityForm {
 // Assumes $wgFlaggedRevsProtection is on
 class PageStabilityProtectForm extends PageStabilityForm {
 	protected function reallyDoPreloadParameters() {
-		$this->autoreview = $this->oldConfig['autoreview']; // protect level
+		$oldConfig = $this->getOldConfig();
+		$this->autoreview = $oldConfig['autoreview']; // protect level
 		$this->watchThis = $this->page->userIsWatching();
 		return true;
 	}
@@ -392,9 +405,10 @@ class PageStabilityProtectForm extends PageStabilityForm {
 	protected function reallyDoCheckParameters() {
 		# WMF temp hack...protection limit quota
 		global $wgFlaggedRevsProtectQuota;
+		$oldConfig = $this->getOldConfig();
 		if ( isset( $wgFlaggedRevsProtectQuota ) // quota exists
 			&& $this->autoreview != '' // and we are protecting
-			&& FlaggedPageConfig::getProtectionLevel( $this->oldConfig ) == 'none' ) // unprotected
+			&& FlaggedPageConfig::getProtectionLevel( $oldConfig ) == 'none' ) // unprotected
 		{
 			$dbw = wfGetDB( DB_MASTER );
 			$count = $dbw->selectField( 'flaggedpage_config', 'COUNT(*)', '', __METHOD__ );
@@ -403,7 +417,7 @@ class PageStabilityProtectForm extends PageStabilityForm {
 			}
 		}
 		# Autoreview only when protecting currently unprotected pages
-		$this->reviewThis = ( FlaggedPageConfig::getProtectionLevel( $this->oldConfig ) == 'none' );
+		$this->reviewThis = ( FlaggedPageConfig::getProtectionLevel( $oldConfig ) == 'none' );
 		# Autoreview restriction => use stable
 		# No autoreview restriction => site default
 		$this->override = ( $this->autoreview != '' )
