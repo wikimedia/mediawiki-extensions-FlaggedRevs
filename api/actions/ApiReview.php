@@ -33,23 +33,26 @@ class ApiReview extends ApiBase {
 	 * except that it generates the template and image parameters itself.
 	 */
 	public function execute() {
-		global $wgUser, $wgOut, $wgParser;
+		global $wgUser;
 		$params = $this->extractRequestParams();
 		// Check basic permissions
 		if ( !$wgUser->isAllowed( 'review' ) ) {
-			// FIXME: better msg?
-			$this->dieUsageMsg( array( 'badaccess-group0' ) );
+			$this->dieUsage( "You don't have the right to review revisions.",
+				'permissiondenied' );
 		} elseif ( $wgUser->isBlocked( false ) ) {
 			$this->dieUsageMsg( array( 'blockedtext' ) );
 		}
-		// Construct submit form
-		$form = new RevisionReviewForm( $wgUser );
+
+		// Get target rev and title
 		$revid = (int)$params['revid'];
 		$rev = Revision::newFromId( $revid );
 		if ( !$rev ) {
 			$this->dieUsage( "Cannot find a revision with the specified ID.", 'notarget' );
 		}
 		$title = $rev->getTitle();
+
+		// Construct submit form...
+		$form = new RevisionReviewForm( $wgUser );
 		$form->setPage( $title );
 		$form->setOldId( $revid );
 		$form->setApprove( empty( $params['unapprove'] ) );
@@ -78,15 +81,7 @@ class ApiReview extends ApiBase {
 				$templateParams, $imageParams, $fileVersion, $revid );
 			$form->setValidatedParams( $key ); # always OK
 		}
-
 		$status = $form->ready(); // all params set
-		if ( $status === 'review_page_unreviewable' ) {
-			$this->dieUsage( "Provided page is not reviewable.", 'notreviewable' );
-		// Check basic page permissions
-		} elseif ( !$title->quickUserCan( 'review' ) || !$title->quickUserCan( 'edit' ) ) {
-			$this->dieUsage( "Insufficient rights to set the specified flags.",
-				'permissiondenied' );
-		}
 
 		# Try to do the actual review
 		$status = $form->submit();
@@ -94,24 +89,43 @@ class ApiReview extends ApiBase {
 		if ( $status === true ) {
 			$this->getResult()->addValue(
 				null, $this->getModuleName(), array( 'result' => 'Success' ) );
-		# De-approve failure
-		} elseif ( $form->getAction() !== 'approve' ) {
-			$this->dieUsage( "Cannot find a flagged revision with the specified ID.", 'notarget' );
-		# Approval failures
-		} else {
-			if ( $status === 'review_too_low' ) {
-				$this->dieUsage( "Either all or none of the flags have to be set to zero.",
-					'mixedapproval' );
-			} elseif ( $status === 'review_denied' ) {
+		# Approve-specific failures
+		} elseif ( $form->getAction() === 'approve' ) {
+			if ( $status === 'review_denied' ) {
 				$this->dieUsage( "You don't have the necessary rights to set the specified flags.",
 					'permissiondenied' );
+			} elseif ( $status === 'review_too_low' ) {
+				$this->dieUsage( "Either all or none of the flags have to be set to zero.",
+					'mixedapproval' );
 			} elseif ( $status === 'review_bad_key' ) {
 				$this->dieUsage( "You don't have the necessary rights to set the specified flags.",
 					'permissiondenied' );
+			} elseif ( $status === 'review_bad_tags' ) {
+				$this->dieUsage( "The specified flags are not valid.", 'invalidtags' );
+			} elseif ( $status === 'review_bad_oldid' ) {
+				$this->dieUsage( "No revision with the specified ID.", 'notarget' );
 			} else {
 				// FIXME: review_param_missing? better msg?
 				$this->dieUsageMsg( array( 'unknownerror', '' ) );
 			}
+		# De-approve specific failure
+		} elseif ( $form->getAction() === 'unapprove' ) {
+			if ( $status === 'review_denied' ) {
+				$this->dieUsage( "You don't have the necessary rights to remove the flags.",
+					'permissiondenied' );
+			} elseif ( $status === 'review_not_flagged' ) {
+				$this->dieUsage( "No flagged revision with the specified ID.", 'notarget' );
+			} else {
+				// FIXME: review_param_missing? better msg?
+				$this->dieUsageMsg( array( 'unknownerror', '' ) );
+			}
+		# Generic failures
+		} else {
+			if ( $status === 'review_page_unreviewable' ) {
+				$this->dieUsage( "Provided page is not reviewable.", 'notreviewable' );
+			} elseif ( $status === 'review_page_notexists' ) {
+				$this->dieUsage( "Provided page does not exist.", 'notarget' );
+			} 
 		}
 	}
 
@@ -157,17 +171,21 @@ class ApiReview extends ApiBase {
 	}
 
 	public function getDescription() {
-		return 'Review a revision via FlaggedRevs.';
+		return 'Review a revision by approving or de-approving it';
 	}
-	
+
 	public function getPossibleErrors() {
 		return array_merge( parent::getPossibleErrors(), array(
-			array( 'badaccess-group0' ),
-			array( 'blockedtext' ),
-			array( 'code' => 'notarget', 'info' => 'Provided revision or page can not be found.' ),
-			array( 'code' => 'notreviewable', 'info' => 'Provided page is not reviewable.' ),
-			array( 'code' => 'mixedapproval', 'info' => 'No flags can be set to zero when accepting a revision.' ),
-			array( 'code' => 'permissiondenied', 'info' => 'Insufficient rights to set the specified flags.' ),
+			array( 'code' => 'notarget',
+				'info' => 'Provided revision or page can not be found.' ),
+			array( 'code' => 'notreviewable',
+				'info' => 'Provided page is not reviewable.' ),
+			array( 'code' => 'mixedapproval',
+				'info' => 'No flags can be set to zero when accepting a revision.' ),
+			array( 'code' => 'invalidtags',
+				'info' => 'The given tags have a value that is out of range.' ),
+			array( 'code' => 'permissiondenied',
+				'info' => 'Insufficient rights to set the specified flags or review/edit the page.' ),
 		) );
 	}
 

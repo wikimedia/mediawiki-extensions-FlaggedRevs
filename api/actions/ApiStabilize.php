@@ -165,7 +165,7 @@ class ApiStabilizeGeneral extends ApiStabilize {
 	}
 
 	public function getDescription() {
-		return 'Change page stability settings.';
+		return 'Change page stability settings';
 	}
 
 	// @TODO: fill in stabilize_* values from PageStabilityGeneralForm
