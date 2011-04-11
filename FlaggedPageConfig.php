@@ -185,8 +185,10 @@ class FlaggedPageConfig {
 	 */
 	public static function purgeExpiredConfigurations() {
 		if ( wfReadOnly() ) return;
-
-		$dbw = wfGetDB( DB_MASTER );
+		# Get a separate master session for this transaction (deadlock avoidance)
+		$lb = wfGetLBFactory()->newMainLB();
+		$dbw = $lb->getConnection( DB_MASTER );
+		# Find pages with expired configs...
 		$config = self::getDefaultVisibilitySettings(); // config is to be reset
 		$encCutoff = $dbw->addQuotes( $dbw->timestamp() );
 		$ret = $dbw->select(
@@ -196,6 +198,7 @@ class FlaggedPageConfig {
 			__METHOD__
 			// array( 'FOR UPDATE' )
 		);
+		# Figured out to do with each page...
 		$pagesClearConfig = array();
 		$pagesClearTracking = $titlesClearTracking = array();
 		foreach ( $ret as $row ) {
@@ -232,5 +235,8 @@ class FlaggedPageConfig {
 				FlaggedRevs::HTMLCacheUpdates( $title ); // purge pages that use this page
 			}
 		}
+		# Commit this transaction and close session
+		$lb->commitMasterChanges();
+		$lb->closeAll();
 	}
 }
