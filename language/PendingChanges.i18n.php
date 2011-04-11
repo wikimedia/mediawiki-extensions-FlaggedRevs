@@ -626,7 +626,7 @@ $messages['fa'] = array(
  */
 $messages['fi'] = array(
 	'pendingchanges' => 'Sivut, joilla on arviointia odottavia muutoksia',
-	'pendingchanges-legend' => 'Luettelo tarkastetuista sivuista, joista on tarkastamattomia versioita.',
+	'pendingchanges-legend' => 'Luettelo arvioiduista sivuista, joilla on arviointia odottavia muutoksia.',
 	'pendingchanges-list' => 'Tämä sivu näyttää [[{{MediaWiki:Validationpage}}|arvioidut]] sivut, joilla on odottavia muutoksia.',
 	'pendingchanges-none' => 'Ehdot täyttäviä sivuja ei ole',
 	'pendingchanges-hours' => '($1 {{PLURAL:$1|tunti|tuntia}})',

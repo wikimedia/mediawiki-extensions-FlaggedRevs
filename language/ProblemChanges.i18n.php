@@ -265,6 +265,7 @@ $messages['fa'] = array(
  * @author Crt
  * @author Nike
  * @author Olli
+ * @author Pxos
  * @author Str4nd
  */
 $messages['fi'] = array(

@@ -287,7 +287,7 @@ $messages['ca'] = array(
 	'validationstatistics-users' => "'''{{SITENAME}}''' té actualment '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|usuari|usuaris}} amb drets d'[[{{MediaWiki:Validationpage}}|Editor]].
 
 Els Editors són usuaris experimentats que poden validar les revisions de les pàgines.",
-	'validationstatistics-ns' => "Nom d'espai",
+	'validationstatistics-ns' => 'Espai de noms',
 	'validationstatistics-total' => 'Pàgines',
 	'validationstatistics-stable' => "S'ha revisat",
 	'validationstatistics-latest' => 'Sincronitzat',

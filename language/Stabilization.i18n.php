@@ -1107,45 +1107,46 @@ $messages['fa'] = array(
  * @author Crt
  * @author Nike
  * @author Olli
+ * @author Pxos
  * @author Silvonen
  * @author Str4nd
  * @author ZeiP
  */
 $messages['fi'] = array(
-	'stabilization-tab' => 'tarkistus',
-	'stabilization' => 'Sivun vakaus',
-	'stabilization-text' => "'''Säädä kuinka sivun [[:$1|$1]] versio valitaan ja näytetään säätämällä alla olevia asetuksia.'''",
-	'stabilization-perm' => 'Tunnuksellasi ei ole oikeutta muuttaa julkaistujen versioiden kokoonpanoa.
-Tässä ovat nykyiset asetukset tunnukselle [[:$1|$1]]:',
-	'stabilization-page' => 'Sivun nimi',
-	'stabilization-leg' => 'Vahvista julkaistujen versioiden asetukset',
+	'stabilization-tab' => 'konfiguroi',
+	'stabilization' => 'Sivun vakauttaminen',
+	'stabilization-text' => "'''Muuta alla olevia asetuksia jotka määrittävät, kuinka sivun [[:$1|$1]] vakaa versio valitaan ja näytetään.'''",
+	'stabilization-perm' => 'Tunnuksellasi ei ole oikeutta muuttaa vakaiden versioiden asetuksia.
+Tässä ovat nykyiset asetukset kohteelle [[:$1|$1]]:',
+	'stabilization-page' => 'Sivun nimi:',
+	'stabilization-leg' => 'Vahvista vakaiden versioiden asetukset',
 	'stabilization-def' => 'Versio, joka näytetään oletusarvoisesti',
 	'stabilization-def1' => 'Vakaa versio; jos sellaista ei ole, viimeisin versio',
 	'stabilization-def2' => 'Viimeisin versio',
-	'stabilization-restrict' => 'Tarkistuksen/automaattisen tarkistuksen rajoitukset',
-	'stabilization-restrict-none' => 'Ei lisärajauksia',
+	'stabilization-restrict' => 'Seulonnan/automaattiseulonnan rajoitukset',
+	'stabilization-restrict-none' => 'Ei erityisiä rajoituksia',
 	'stabilization-submit' => 'Vahvista',
 	'stabilization-notexists' => 'Sivua [[:$1|$1]] ei ole olemassa.
 Asetusten määrittäminen ei ole mahdollista.',
-	'stabilization-notcontent' => 'Sivua "[[:$1|$1]]" ei voida tarkistaa.
-Asetuksia ei voi muuttaa.',
+	'stabilization-notcontent' => 'Sivua "[[:$1|$1]]" ei voi merkitä arvioiduksi.
+Asetuksia ei voi tehdä.',
 	'stabilization-comment' => 'Syy:',
 	'stabilization-otherreason' => 'Muu syy',
 	'stabilization-expiry' => 'Vanhenee:',
 	'stabilization-othertime' => 'Muu aika',
-	'stabilization-def-short' => 'Oletus',
-	'stabilization-def-short-0' => 'Nykyinen',
-	'stabilization-def-short-1' => 'Julkaistu',
+	'stabilization-def-short' => 'Oletusarvo',
+	'stabilization-def-short-0' => 'Uusin',
+	'stabilization-def-short-1' => 'Vakaa versio',
 	'stabilize_page_invalid' => 'Kohdesivun nimi ei kelpaa.',
 	'stabilize_page_notexists' => 'Kohdesivua ei ole olemassa.',
 	'stabilize_page_unreviewable' => 'Kohdesivu ei ole nimiavaruudessa, jonka sivuja voitaisiin arvioida.',
-	'stabilize_invalid_autoreview' => 'Automaattisen arvioinnin rajoitus ei kelpaa.',
-	'stabilize_invalid_level' => 'Suojaustaso ei kelpaa.',
+	'stabilize_invalid_autoreview' => 'Automaattisen seulonnan rajoitus ei kelpaa.',
+	'stabilize_invalid_level' => 'Suojaustaso on virheellinen.',
 	'stabilize_expiry_invalid' => 'Virheellinen erääntymispäivä.',
 	'stabilize_expiry_old' => 'Tämä erääntymisaika on jo mennyt.',
 	'stabilize_denied' => 'Ei oikeutta.',
 	'stabilize-expiring' => 'vanhenee $1 (UTC)',
-	'stabilization-review' => 'Merkitse nykyinen versio tarkistetuksi',
+	'stabilization-review' => 'Merkitse nykyinen versio silmäillyksi',
 );
 
 /** French (Français)

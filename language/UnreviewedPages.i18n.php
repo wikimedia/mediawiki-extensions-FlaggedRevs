@@ -255,7 +255,7 @@ $messages['br'] = array(
 	'unreviewedpages-diff' => 'adwelet',
 	'unreviewedpages-unwatched' => '(dievezhiet)',
 	'unreviewedpages-watched' => '($1 {{PLURAL:$1|implijer|implijer}} oberiant o evezhiañ ar bajenn-mañ)',
-	'unreviewedpages-list' => "Rollañ a ra ar bajenn-mañ ar pajennoù danvez n'int ket bet adwelet d'al live spisaet.",
+	'unreviewedpages-list' => "Rollañ a ra ar bajenn-mañ ar pajennoù zo danvez enno ha n'int ket bet [[{{MediaWiki:Validationpage}}|adwelet]] d'al live rekis c'hoazh.",
 	'unreviewedpages-none' => "Evit poent n'eus pajenn ebet a glotfe gant an dezverkoù-mañ",
 	'unreviewedpages-viewing' => '(o vezañ adwelet)',
 	'unreviewedpages-hours' => '($1 {{PLURAL:$1|eurvezh|eurvezh}})',
@@ -541,17 +541,18 @@ $messages['fa'] = array(
  * @author Crt
  * @author Jaakonam
  * @author Nike
+ * @author Pxos
  * @author Str4nd
  * @author ZeiP
  */
 $messages['fi'] = array(
 	'unreviewedpages' => 'Arvioimattomat sivut',
-	'unreviewedpages-legend' => 'Luettelo tarkistamattomista sisältösivuista',
+	'unreviewedpages-legend' => 'Luettelo sisältösivuista, joita ei ole arvioitu',
 	'unreviewedpages-category' => 'Luokka',
 	'unreviewedpages-diff' => 'arvioi',
 	'unreviewedpages-unwatched' => '(tarkkailematon)',
 	'unreviewedpages-watched' => '($1 aktiivisen {{PLURAL:$1|käyttäjän}} tarkkailema)',
-	'unreviewedpages-list' => "Tämä on lista sisältösivuista, joita ''ei'' ole vielä [[{{MediaWiki:Validationpage}}|arvioitu]] tietyllä tasolla.",
+	'unreviewedpages-list' => "Tämä on lista sisältösivuista, joita ''ei'' ole vielä [[{{MediaWiki:Validationpage}}|arvioitu]] tietylle tasolle.",
 	'unreviewedpages-none' => 'Tällä hetkellä ei ole sivuja, jotka täyttävät nämä ehdot',
 	'unreviewedpages-viewing' => '(arvioitavana)',
 	'unreviewedpages-hours' => '($1 {{PLURAL:$1|tunti|tuntia}})',

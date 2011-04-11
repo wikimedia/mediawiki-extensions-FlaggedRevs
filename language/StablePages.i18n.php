@@ -310,16 +310,17 @@ $messages['fa'] = array(
  * @author Cimon Avaro
  * @author Crt
  * @author Olli
+ * @author Pxos
  * @author Str4nd
  * @author ZeiP
  */
 $messages['fi'] = array(
-	'stablepages' => 'Sivut, jotka käyttävät muokkausten hyväksyntää',
-	'stablepages-list' => 'Alla on lista sivuista, joihin vain tietyt käyttäjät voivat tehdä muokkauksia, jotka eivät vaadi tarkistusta.
-Muiden käyttäjien tekemiä muokkauksia ei näytetä ennen kuin valtuutettu käyttäjä tarkistaa ne.',
-	'stablepages-none' => 'Tällä listalla ei ole sivuja.',
+	'stablepages' => 'Sivut, jotka näytetään vasta version arvioinnin jälkeen',
+	'stablepages-list' => 'Tässä on luettelo sivuista, joihin vain tietyt käyttäjät voivat tehdä muokkauksia, jotka eivät vaadi arviointia.
+Muiden käyttäjien tekemiä muokkauksia ei näytetä, ennen kuin valtuutettu käyttäjä on arvioinut ne.',
+	'stablepages-none' => 'Tässä luettelossa ei ole sivuja.',
 	'stablepages-config' => 'Asetukset',
-	'stablepages-indef' => 'Vain ikuinen vanhentuminen',
+	'stablepages-indef' => 'Vain määrittämätön vanhentumisaika',
 );
 
 /** French (Français)

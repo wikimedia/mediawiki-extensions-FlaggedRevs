@@ -393,17 +393,18 @@ $messages['fa'] = array(
  * @author Cimon Avaro
  * @author Crt
  * @author Olli
+ * @author Pxos
  * @author ZeiP
  */
 $messages['fi'] = array(
 	'reviewedpages' => 'Arvioidut sivut',
-	'reviewedpages-leg' => 'Lista sivuista, jotka on arvioitu',
-	'reviewedpages-list' => "Tämä sivu listaa sivut, jotka on [[{{MediaWiki:Validationpage}}|arvioitu]] ''parhaalle tasolle'' valitulla tasolla.
-Linkki viittaa tämän tason viimeisimpään muokkaukseen.",
-	'reviewedpages-none' => 'Tällä listalla ei ole sivuja.',
+	'reviewedpages-leg' => 'Luettelo sivuista, jotka on arvioitu',
+	'reviewedpages-list' => "Tämä sivu listaa sivut, joiden versio on [[{{MediaWiki:Validationpage}}|arvioitu]] ''parhaalle laatutasolle'' valitulla tasolla.
+Linkki viittaa tämän tason viimeisimpään versioon.",
+	'reviewedpages-none' => 'Tässä luettelossa ei ole yhtään sivua.',
 	'reviewedpages-lev-0' => '{{int:revreview-lev-basic}}',
 	'reviewedpages-lev-2' => '{{int:revreview-lev-pristine}}',
-	'reviewedpages-all' => 'tarkastetut versiot',
+	'reviewedpages-all' => 'arvioidut versiot',
 	'reviewedpages-best' => 'paras versio',
 );
 

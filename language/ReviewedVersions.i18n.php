@@ -384,13 +384,14 @@ $messages['fa'] = array(
  * @author Crt
  * @author Jaakonam
  * @author Nike
+ * @author Pxos
  */
 $messages['fi'] = array(
-	'reviewedversions' => 'Tarkastetut versiot',
-	'reviewedversions-leg1' => 'Näytä sivun tarkastetut versiot',
+	'reviewedversions' => 'Arvioidut versiot',
+	'reviewedversions-leg1' => 'Näytä luettelona sivun arvioidut versiot',
 	'reviewedversions-page' => 'Sivun nimi',
-	'reviewedversions-none' => 'Sivusta ”[[:$1]]” ei ole tarkastettuja versioita.',
-	'reviewedversions-list' => 'Seuraavassa on listattu {{PLURAL:$2|ainoa versio, joka|versiot, jotka}} on tarkastettu kohteesta [[:$1]]:',
+	'reviewedversions-none' => 'Sivusta "[[:$1]]" ei ole arvioituja versioita.',
+	'reviewedversions-list' => 'Seuraavassa on luettelossa {{PLURAL:$2|ainoa versio, joka|versiot, jotka}} on arvioitu kohteesta [[:$1]]:',
 	'reviewedversions-review' => '$2 arvioi sivun <i>$1</i>',
 );
 
