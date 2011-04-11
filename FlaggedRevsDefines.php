@@ -6,7 +6,6 @@
 # Query SELECT parameters...
 define( 'FR_FOR_UPDATE', 1 );
 define( 'FR_MASTER', 2 );
-define( 'FR_TEXT', 3 );
 
 # Review tier constants...
 define( 'FR_CHECKED', 0 ); // "basic"/"checked"

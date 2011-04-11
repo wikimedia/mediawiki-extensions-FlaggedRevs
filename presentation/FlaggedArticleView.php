@@ -300,8 +300,7 @@ class FlaggedArticleView {
 			# Treat requesting the stable version by ID as &stable=1
 			} else if ( $reqId != $stableId ) {
 				$old = true; // old reviewed version requested by ID
-				$frev = FlaggedRevision::newFromTitle(
-					$this->article->getTitle(), $reqId, FR_TEXT );
+				$frev = FlaggedRevision::newFromTitle( $this->article->getTitle(), $reqId );
 				if ( !$frev ) {
 					$reqId = false; // invalid ID given
 				}
