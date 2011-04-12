@@ -136,7 +136,6 @@ The [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} stable version] was [{{fullurl:{{#Sp
 	'revreview-quick-quality-same' => '\'\'\'[[{{MediaWiki:Validationpage}}|Quality]]\'\'\'',
 	'revreview-quick-see-basic'    => '[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} review pending changes]]',
 	'revreview-quick-see-quality'  => '[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} review pending changes]]',
-	'revreview-selected'           => 'Selected revision of \'\'\'$1:\'\'\'',
 	'revreview-source'             => 'View source',
 	'revreview-basic-title'        => 'This is a checked version of this page',
 	'revreview-style'              => 'Readability',
