@@ -10,7 +10,7 @@ function list_reviewable_pages( $db, $fileHandle ) {
 		echo "There are no reviewable namespaces ... nothing to purge.\n";
 		return;
 	}
-	$BATCH_SIZE = 500;
+	$BATCH_SIZE = 1000;
 	$start = $db->selectField( 'page', 'MIN(page_id)', false, __FUNCTION__ );
 	$end = $db->selectField( 'page', 'MAX(page_id)', false, __FUNCTION__ );
 	if ( is_null( $start ) || is_null( $end ) ) {
@@ -30,11 +30,11 @@ function list_reviewable_pages( $db, $fileHandle ) {
 				'page_namespace' => $wgFlaggedRevsNamespaces ),
 			__FUNCTION__
 		);
-		# Go through and protect each page...
+		# Go through and append each purgeable page...
 		foreach ( $res as $row ) {
 			$title = Title::newFromRow( $row );
 			$fa = FlaggedArticle::getTitleInstance( $title );
-			if ( $fa->isReviewable( FR_MASTER ) ) {
+			if ( $fa->isReviewable() ) {
 				# Need to purge this page - add to list
 				fwrite( $fileHandle, $title->getPrefixedDBKey() . "\n" );
 				$count++;
