@@ -278,7 +278,7 @@ $wgAutoloadClasses['RejectConfirmationFormGUI'] = $dir . 'presentation/RejectCon
 $specialActionDir = $dir . 'presentation/specialpages/actions/';
 # Load revision review UI
 $wgAutoloadClasses['RevisionReview'] = $specialActionDir . 'RevisionReview_body.php';
-// @TODO: move review action related messages to separate file?
+$wgExtensionMessagesFiles['RevisionReview'] = $langDir . 'RevisionReview.i18n.php';
 # Stable version config UI
 $wgAutoloadClasses['Stabilization'] = $specialActionDir . 'Stabilization_body.php';
 $wgExtensionMessagesFiles['Stabilization'] = $langDir . 'Stabilization.i18n.php';
