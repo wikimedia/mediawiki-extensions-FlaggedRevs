@@ -404,7 +404,7 @@ class FlaggedRevision {
 	}
 
 	/**
-	 * @return integer revision timestamp in MW format
+	 * @return integer quality level (FR_CHECKED,FR_QUALITY,FR_PRISTINE)
 	 */
 	public function getQuality() {
 		return $this->mQuality;

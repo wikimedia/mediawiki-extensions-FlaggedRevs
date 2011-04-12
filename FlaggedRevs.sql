@@ -51,7 +51,7 @@ CREATE TABLE IF NOT EXISTS /*_*/flaggedrevs (
   fr_timestamp varbinary(14) NOT NULL,
   -- Review notes
   fr_comment mediumblob NOT NULL,
-  -- Store the precedence level
+  -- The quality tier (0=checked, 1=quality, 2=pristine)
   fr_quality tinyint(1) NOT NULL default 0,
   -- Store tag metadata as newline separated, 
   -- colon separated tag:value pairs
