@@ -239,7 +239,7 @@ An Aozerien hag an Adlennerien a zo implijerien staliet a c'hell gwiriañ adwela
 An dale keitat evit [[Special:OldReviewedPages|ar pajennoù a c'hortoz bezañ adlennet]] a sav da '''$1'''; Muzuliañ a ra an termen pegen pell eo chomet ar c'hemm diwezhañ hep bezañ gwiriet.",
 	'validationstatistics-revtime' => "Sevel a ra an amzer gortoz keitat evit adlenn kemmoù graet gant \"implijerien dienroll\" da '''\$1''' ; ar geidenn zo '''\$2'''.
 \$3",
-	'validationstatistics-table' => "A-is emañ diskouezet ar stadegoù adwelout evit pep esaouenn anv, ''nemet'' evit ar pajennoù adkas.",
+	'validationstatistics-table' => "A-is emañ diskouezet ar stadegoù adwelout evit pep esaouenn anv, ''nemet'' evit ar pajennoù adkas. Sellet a reer ouzh ar pajennoù evel ''dispredet'' ma'z eus kemmoù enno a chom da vezañ aprouet; sellet a reer ouzh ar pajennoù evel ''sinkronelaet'' ma n'eus netra enno da vezañ aprouet.",
 	'validationstatistics-ns' => 'Esaouenn anv',
 	'validationstatistics-total' => 'Pajennoù',
 	'validationstatistics-stable' => 'Adwelet',
