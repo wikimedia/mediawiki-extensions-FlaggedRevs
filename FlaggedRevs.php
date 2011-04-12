@@ -234,7 +234,7 @@ $wgAvailableRights[] = 'stablesettings'; # change page stability settings
 $wgExtensionFunctions[] = 'efLoadFlaggedRevs';
 
 $dir = dirname( __FILE__ ) . '/';
-$langDir = $dir . 'language/';
+$langDir = $dir . 'presentation/language/';
 
 # Load main i18n file and special page alias file
 $wgExtensionMessagesFiles['FlaggedRevs'] = $langDir . 'FlaggedRevs.i18n.php';
