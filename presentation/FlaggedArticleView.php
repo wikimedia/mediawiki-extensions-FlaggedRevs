@@ -1175,14 +1175,10 @@ class FlaggedArticleView {
 		if ( $this->article->getTitle()->isTalkPage() ) {
 			return true; // leave talk pages alone
 		}
-		// Get the type of action requested
-		$action = $wgRequest->getVal( 'action', 'view' );
 		if ( !$this->article->isReviewable() ) {
 			return true; // Not a reviewable page or the UI is hidden
 		}
-		// XXX: shouldn't the session slave position check handle this?
-		$flags = ( $action == 'rollback' ) ? FR_MASTER : 0;
-		$srev = $this->article->getStableRev( $flags );
+		$srev = $this->article->getStableRev();
 		if ( !$srev ) {
 			return true; // No stable revision exists
 		}
