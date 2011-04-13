@@ -2766,7 +2766,7 @@ $messages['ko'] = array(
  */
 $messages['ksh'] = array(
 	'revisionreview' => 'Versione nohkike',
-	'revreview-failed' => 'Et Nohkike es donävve jejange!',
+	'revreview-failed' => "'''Mer kunnte di Version nit nohkike.'''",
 	'revreview-submission-invalid' => 'De Einjaab wohr nit kummplätt udder sönßwi nit jöltesch.',
 	'review_page_invalid' => 'Dä Ziel-Tittel för di Sigg es onjöltesch',
 	'review_page_notexists' => 'Di Ziel_Sigg jitt et nit.',
