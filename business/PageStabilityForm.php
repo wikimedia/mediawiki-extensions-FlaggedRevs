@@ -224,7 +224,7 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 		$changed = FlaggedPageConfig::setStabilitySettings( $this->page, $this->getNewConfig() );
 		# Log if this actually changed anything...
 		if ( $changed ) {
-			$article = new FlaggedArticle( $this->page );
+			$article = new FlaggedPage( $this->page );
 			if ( FlaggedRevs::useOnlyIfProtected() ) {
 				# Config may have changed to allow stable versions, so refresh
 				# the tracking table to account for any hidden reviewed versions...
@@ -268,7 +268,7 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 	* (b) Add a null edit like the log entry
 	* @return Revision
 	*/
-	protected function updateLogsAndHistory( FlaggedArticle $article ) {
+	protected function updateLogsAndHistory( FlaggedPage $article ) {
 		global $wgContLang;
 		$newConfig = $this->getNewConfig();
 		$oldConfig = $this->getOldConfig();
@@ -312,7 +312,7 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 
 	/*
 	* Get current stability config array
-	* @return Array
+	* @return array
 	*/
 	public function getOldConfig() {
 		if ( $this->getState() == self::FORM_UNREADY ) {
@@ -326,7 +326,7 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 
 	/*
 	* Get proposed stability config array
-	* @return Array
+	* @return array
 	*/
 	public function getNewConfig() {
 		return array(

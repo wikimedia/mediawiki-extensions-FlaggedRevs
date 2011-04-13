@@ -123,7 +123,7 @@ function update_flaggedpages( $start = null ) {
 		$db->begin();
 		foreach ( $res as $row ) {
 			$title = Title::newFromRow( $row );
-			$article = new FlaggedArticle( $title );
+			$article = new FlaggedPage( $title );
 			$oldFrev = FlaggedRevision::newFromStable( $title, FR_MASTER );
 			$frev = FlaggedRevision::determineStable( $title, FR_MASTER );
 			# Update fp_stable, fp_quality, and fp_reviewed

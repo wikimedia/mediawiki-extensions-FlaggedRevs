@@ -13,10 +13,10 @@ class RevisionReviewFormGUI {
 	 /**
 	 * Generates a brief review form for a page
 	 * @param User $user
-	 * @param FlaggedArticle $article
+	 * @param FlaggedPage $article
 	 * @param Revision $rev
 	 */
-	public function __construct( User $user, FlaggedArticle $article, Revision $rev ) {
+	public function __construct( User $user, FlaggedPage $article, Revision $rev ) {
 		$this->user = $user;
 		$this->article = $article;
 		$this->rev = $rev;
@@ -51,7 +51,7 @@ class RevisionReviewFormGUI {
 
 	 /**
 	 * Generates a brief review form for a page
-	 * @return Array (html string, error string or true)
+	 * @return array (html string, error string or true)
 	 */
 	public function getHtml() {
 		global $wgOut, $wgLang, $wgParser, $wgEnableParserCache;
@@ -220,7 +220,7 @@ class RevisionReviewFormGUI {
 	 * @param array $flags, selected flags
 	 * @param bool $disabled, form disabled
 	 * @param bool $reviewed, rev already reviewed
-	 * @returns string
+	 * @return string
 	 * Generates a main tag inputs (checkboxes/radios/selects) for review form
 	 */
 	protected static function ratingInputs( $user, $flags, $disabled, $reviewed ) {
@@ -328,7 +328,7 @@ class RevisionReviewFormGUI {
 	 * @param FlaggedRevision $frev, the flagged revision, if any
 	 * @param bool $disabled, is the form disabled?
 	 * @param bool $reviewIncludes, force the review button to be usable?
-	 * @returns string
+	 * @return string
 	 */
 	protected static function submitButtons(
 		$rejectId, $frev, $disabled, $reviewIncludes = false

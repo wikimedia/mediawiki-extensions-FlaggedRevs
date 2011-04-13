@@ -3,7 +3,7 @@
 class FlaggedRevsLogView {
 	/**	
 	* Add setting change description to log line
-	* @returns string
+	* @return string
 	*/
 	public static function stabilityLogText(
 		$type, $action, $title = null, $skin = null, $params = array()
@@ -31,7 +31,7 @@ class FlaggedRevsLogView {
 	* @param Title $title
 	* @param string $timestamp
 	* @param array $params
-	* @returns string
+	* @return string
 	*/
 	public static function stabilityLogLinks( $title, $timestamp, $params ) {
 		global $wgUser;
@@ -51,9 +51,9 @@ class FlaggedRevsLogView {
 	*
 	* @param array $pars assoc array
 	* @param bool $forContent
-	* @returns string
+	* @return string
 	*/
-	public static function stabilitySettings( Array $pars, $forContent ) {
+	public static function stabilitySettings( array $pars, $forContent ) {
 		global $wgLang, $wgContLang;
 		$set = array();
 		$settings = '';

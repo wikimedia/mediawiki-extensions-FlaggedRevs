@@ -60,7 +60,7 @@ class FRInclusionManager {
 	/**
 	 * Clean up a template version array
 	 * @param array $tmpParams (ns => dbKey => revId )
-	 * @returns Array
+	 * @return array
 	 */	
 	protected function formatTemplateArray( array $params ) {
 		$res = array();
@@ -76,7 +76,7 @@ class FRInclusionManager {
 	/**
 	 * Clean up a file version array
 	 * @param array $imgParams (dbKey => array('time' => MW timestamp,'sha1' => sha1) )
-	 * @returns Array
+	 * @return array
 	 */	
 	protected function formatFileArray( array $params ) {
 		$res = array();
@@ -124,7 +124,7 @@ class FRInclusionManager {
 	/**
 	 * Get the "review time" template version for parser
 	 * @param Title $title
-	 * @returns mixed (int/null)
+	 * @return mixed (int/null)
 	 */
 	public function getReviewedTemplateVersion( Title $title ) {
 		if ( !is_array( $this->reviewedVersions ) ) {
@@ -141,7 +141,7 @@ class FRInclusionManager {
 	/**
 	 * Get the "review time" file version for parser
 	 * @param Title $title
-	 * @returns array (MW timestamp/'0'/null, sha1/''/null )
+	 * @return array (MW timestamp/'0'/null, sha1/''/null )
 	 */
 	public function getReviewedFileVersion( Title $title ) {
 		if ( !is_array( $this->reviewedVersions ) ) {
@@ -160,7 +160,7 @@ class FRInclusionManager {
 	/**
 	 * Get the stable version of a template
 	 * @param Title $title
-	 * @returns int
+	 * @return int
 	 */
 	public function getStableTemplateVersion( Title $title ) {
 		$dbKey = $title->getDBkey();
@@ -180,7 +180,7 @@ class FRInclusionManager {
 	/**
 	 * Get the stable version of a file
 	 * @param Title $title
-	 * @returns array (MW timestamp/'0', sha1/'')
+	 * @return array (MW timestamp/'0', sha1/'')
 	 */
 	public function getStableFileVersion( Title $title ) {
 		$dbKey = $title->getDBkey();

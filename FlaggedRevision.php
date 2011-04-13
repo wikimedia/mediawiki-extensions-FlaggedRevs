@@ -327,7 +327,7 @@ class FlaggedRevision {
 
 	/**
 	 * Get select fields for FlaggedRevision DB row (flaggedrevs/revision tables)
-	 * @return Array
+	 * @return array
 	 */
 	public static function selectFields() {
 		return array_merge(
@@ -418,7 +418,7 @@ class FlaggedRevision {
 	}
 
 	/**
-	 * @return Array tag metadata
+	 * @return array tag metadata
 	 */
 	public function getTags() {
 		return $this->mTags;
@@ -459,7 +459,7 @@ class FlaggedRevision {
 	/**
 	 * Get original template versions at time of review
 	 * @param int $flags FR_MASTER
-	 * @return Array template versions (ns -> dbKey -> rev Id)
+	 * @return array template versions (ns -> dbKey -> rev Id)
 	 * Note: 0 used for template rev Id if it didn't exist
 	 */
 	public function getTemplateVersions( $flags = 0 ) {
@@ -485,7 +485,7 @@ class FlaggedRevision {
 	/**
 	 * Get original template versions at time of review
 	 * @param int $flags FR_MASTER
-	 * @return Array file versions (dbKey => array('time' => MW timestamp,'sha1' => sha1) )
+	 * @return array file versions (dbKey => array('time' => MW timestamp,'sha1' => sha1) )
 	 * Note: false used for file timestamp/sha1 if it didn't exist
 	 */
 	public function getFileVersions( $flags = 0 ) {
@@ -516,7 +516,7 @@ class FlaggedRevision {
 	/**
 	 * Get the current stable version of the templates used at time of review
 	 * @param int $flags FR_MASTER
-	 * @return Array template versions (ns -> dbKey -> rev Id)
+	 * @return array template versions (ns -> dbKey -> rev Id)
 	 * Note: 0 used for template rev Id if it doesn't exist
 	 */
 	public function getStableTemplateVersions( $flags = 0 ) {
@@ -550,7 +550,7 @@ class FlaggedRevision {
 	/**
 	 * Get the current stable version of the files used at time of review
 	 * @param int $flags FR_MASTER
-	 * @return Array file versions (dbKey => array('time' => MW timestamp,'sha1' => sha1) )
+	 * @return array file versions (dbKey => array('time' => MW timestamp,'sha1' => sha1) )
 	 * Note: false used for file timestamp/sha1 if it didn't exist
 	 */
 	public function getStableFileVersions( $flags = 0 ) {
@@ -598,7 +598,7 @@ class FlaggedRevision {
 	 *    (b) Current template exists and the "version used" was non-existing (created)
 	 *    (c) Current template doesn't exist and the "version used" existed (deleted)
 	 *
-	 * @return Array of (template title, rev ID in reviewed version) tuples
+	 * @return array of (template title, rev ID in reviewed version) tuples
 	 */
 	public function findPendingTemplateChanges() {
 		if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_CURRENT ) {
@@ -668,7 +668,7 @@ class FlaggedRevision {
 	 *    (c) Current file doesn't exist and the "version used" existed (deleted)
 	 *
 	 * @param string $noForeign Using 'noForeign' skips foreign file updates (bug 15748)
-	 * @return Array of (file title, MW file timestamp in reviewed version) tuples
+	 * @return array of (file title, MW file timestamp in reviewed version) tuples
 	 */
 	public function findPendingFileChanges( $noForeign = false ) {
 		if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_CURRENT ) {
@@ -749,7 +749,7 @@ class FlaggedRevision {
 	/**
 	 * Get flags for a revision
 	 * @param string $tags
-	 * @return Array
+	 * @return array
 	*/
 	public static function expandRevisionTags( $tags ) {
 		$flags = array();

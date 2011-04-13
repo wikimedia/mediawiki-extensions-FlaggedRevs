@@ -138,7 +138,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 	* @return mixed (true on success, error string on failure)
 	*/
 	protected function doBuildOnReady() {
-		$this->article = FlaggedArticle::getTitleInstance( $this->page );
+		$this->article = FlaggedPage::getTitleInstance( $this->page );
 		return true;
 	}
 
@@ -320,7 +320,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 	 * Adds or updates the flagged revision table for this page/id set
 	 * @param Revision $rev The revision to be accepted
 	 * @param FlaggedRevision $oldFrev Currently accepted version of $rev or null
-	 * @returns true on success, array of errors on failure
+	 * @return true on success, array of errors on failure
 	 */
 	private function approveRevision( Revision $rev, FlaggedRevision $oldFrev = null ) {
 		wfProfileIn( __METHOD__ );
@@ -486,13 +486,13 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 
 	/**
 	 * Get template and image parameters from parser output to use on forms.
-	 * @param FlaggedArticle $article
+	 * @param FlaggedPage $article
 	 * @param array $templateIDs (from ParserOutput/OutputPage->mTemplateIds)
 	 * @param array $imageSHA1Keys (from ParserOutput/OutputPage->mImageTimeKeys)
-	 * @returns array( templateParams, imageParams, fileVersion )
+	 * @return array( templateParams, imageParams, fileVersion )
 	 */
 	public static function getIncludeParams(
-		FlaggedArticle $article, array $templateIDs, array $imageSHA1Keys
+		FlaggedPage $article, array $templateIDs, array $imageSHA1Keys
 	) {
 		$templateParams = $imageParams = $fileVersion = '';
 		# NS -> title -> rev ID mapping
@@ -520,7 +520,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 	 * Get template and image versions from form value for parser output.
 	 * @param string $templateParams
 	 * @param string $imageParams
-	 * @returns array( templateIds, fileSHA1Keys )
+	 * @return array( templateIds, fileSHA1Keys )
 	 * templateIds like ParserOutput->mTemplateIds
 	 * fileSHA1Keys like ParserOutput->mImageTimeKeys
 	 */
@@ -575,7 +575,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 	 * Get template and image versions from parsing a revision.
 	 * @param Article $article
 	 * @param Revision $rev
-	 * @returns array( templateIds, fileSHA1Keys )
+	 * @return array( templateIds, fileSHA1Keys )
 	 * templateIds like ParserOutput->mTemplateIds
 	 * fileSHA1Keys like ParserOutput->mImageTimeKeys
 	 */

@@ -2,9 +2,9 @@
 /**
  * Class representing a MediaWiki article and history
  *
- * FlaggedArticle::getTitleInstance() is preferred over constructor calls
+ * FlaggedPage::getTitleInstance() is preferred over constructor calls
  */
-class FlaggedArticle extends Article {
+class FlaggedPage extends Article {
 	/* Process cache variables */
 	protected $stable = 0;
 	protected $stableRev = null;
@@ -16,9 +16,9 @@ class FlaggedArticle extends Article {
 	protected $imagePage = null; // for file pages
 
 	/**
-	 * Get a FlaggedArticle for a given title
+	 * Get a FlaggedPage for a given title
 	 * @param Title
-	 * @return FlaggedArticle
+	 * @return FlaggedPage
 	 */
 	public static function getTitleInstance( Title $title ) {
 		// Check if there is already an instance on this title
@@ -29,9 +29,9 @@ class FlaggedArticle extends Article {
 	}
 
 	/**
-	 * Get a FlaggedArticle for a given article
+	 * Get a FlaggedPage for a given article
 	 * @param Article
-	 * @return FlaggedArticle
+	 * @return FlaggedPage
 	 */
 	public static function getArticleInstance( Article $article ) {
 		return self::getTitleInstance( $article->mTitle );
@@ -304,7 +304,7 @@ class FlaggedArticle extends Article {
 
 	/**
 	 * Get visiblity restrictions on page
-	 * @return Array (select,override)
+	 * @return array (select,override)
 	 */
 	public function getStabilitySettings() {
 		if ( !$this->mDataLoaded ) {
@@ -394,7 +394,7 @@ class FlaggedArticle extends Article {
 	/**
 	* Updates the flagging tracking tables for this page
 	* @param FlaggedRevision $srev The new stable version
-	* @param mixed $latest The latest rev ID (optional)
+	* @param int|null $latest The latest rev ID (optional)
 	* @return bool Updates were done
 	*/
 	public function updateStableVersion( FlaggedRevision $srev, $latest = null ) {

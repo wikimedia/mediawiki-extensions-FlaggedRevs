@@ -86,7 +86,7 @@ class QualityOversight extends SpecialPage {
 	
 	/*
 	* Get actions for IN clause
-	* @returns array
+	* @return array
 	*/
 	private function getActions() {
 		$actions = array(

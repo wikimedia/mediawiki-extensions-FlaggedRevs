@@ -2,7 +2,7 @@
 /**
  * Class representing a web view of a MediaWiki page
  */
-class FlaggedArticleView {
+class FlaggedPageView {
 	protected $article = null;
 
 	protected $diffRevs = null; // assoc array of old and new Revisions for diffs
@@ -19,7 +19,7 @@ class FlaggedArticleView {
 	protected static $instance = null;
 
 	/*
-	* Get the FlaggedArticleView for this request
+	* Get the FlaggedPageView for this request
 	*/
 	public static function singleton() {
 		if ( self::$instance == null ) {
@@ -31,7 +31,7 @@ class FlaggedArticleView {
 	protected function __clone() { }
 
 	/*
-	* Clear the FlaggedArticleView for this request.
+	* Clear the FlaggedPageView for this request.
 	* Only needed when page redirection changes the environment.
 	*/
 	public function clear() {
@@ -39,26 +39,26 @@ class FlaggedArticleView {
 	}
 
 	/*
-	* Load the global FlaggedArticle instance
+	* Load the global FlaggedPage instance
 	*/
 	protected function load() {
 		if ( !$this->loaded ) {
 			$this->loaded = true;
 			$this->article = self::globalArticleInstance();
 			if ( $this->article == null ) {
-				throw new MWException( 'FlaggedArticleView has no context article!' );
+				throw new MWException( 'FlaggedPageView has no context article!' );
 			}
 		}
 	}
 
 	/**
-	 * Get the FlaggedArticle instance associated with $wgArticle/$wgTitle,
+	 * Get the FlaggedPage instance associated with $wgArticle/$wgTitle,
 	 * or false if there isn't such a title
 	 */
 	public static function globalArticleInstance() {
 		global $wgTitle;
 		if ( !empty( $wgTitle ) ) {
-			return FlaggedArticle::getTitleInstance( $wgTitle );
+			return FlaggedPage::getTitleInstance( $wgTitle );
 		}
 		return null;
 	}
@@ -68,7 +68,7 @@ class FlaggedArticleView {
 	 * (a) no specific page version was requested via URL params
 	 * (b) a stable version exists and is to be displayed
 	 * This factors in site/page config, user preferences, and web request params.
-	 * @returns bool
+	 * @return bool
 	 */
 	protected function showingStableAsDefault() {
 		global $wgUser, $wgRequest;
@@ -97,7 +97,7 @@ class FlaggedArticleView {
 	 * Is this web response for a request to view a page where both:
 	 * (a) the stable version of a page was requested (?stable=1)
 	 * (b) the stable version exists and is to be displayed
-	 * @returns bool
+	 * @return bool
 	 */
 	protected function showingStableByRequest() {
 		global $wgRequest;
@@ -122,7 +122,7 @@ class FlaggedArticleView {
 	/**
 	 * Is this web response for a request to view a page
 	 * where a stable version exists and is to be displayed
-	 * @returns bool
+	 * @return bool
 	 */
 	public function showingStable() {
 		return $this->showingStableByRequest() || $this->showingStableAsDefault();
@@ -131,7 +131,7 @@ class FlaggedArticleView {
 	/**
 	 * Should this be using a simple icon-based UI?
 	 * Check the user's preferences first, using the site settings as the default.
-	 * @returns bool
+	 * @return bool
 	 */
 	public function useSimpleUI() {
 		global $wgUser, $wgSimpleFlaggedRevsUI;
@@ -141,7 +141,7 @@ class FlaggedArticleView {
 	/**
 	 * Should this user see the draft revision of pages by default?
 	 * @param $user User
-	 * @returns bool
+	 * @return bool
 	 */
 	protected function userViewsDraftByDefault( $user ) {
 		global $wgFlaggedRevsExceptions;
@@ -165,7 +165,7 @@ class FlaggedArticleView {
 	 /**
 	 * Is this a view page action (including diffs)?
 	 * @param $request WebRequest
-	 * @returns bool
+	 * @return bool
 	 */
 	protected function isPageViewOrDiff( WebRequest $request ) {
 		global $mediaWiki;
@@ -178,7 +178,7 @@ class FlaggedArticleView {
 	 /**
 	 * Is this a view page action (not including diffs)?
 	 * @param $request WebRequest
-	 * @returns bool
+	 * @return bool
 	 */
 	protected function isPageView( WebRequest $request ) {
 		return $this->isPageViewOrDiff( $request )
@@ -188,7 +188,7 @@ class FlaggedArticleView {
 	 /**
 	 * Is this a web request to just *view* the *default* version of a page?
 	 * @param $request WebRequest
-	 * @returns bool
+	 * @return bool
 	 */
 	protected function isDefaultPageView( WebRequest $request ) {
 		global $mediaWiki;
@@ -206,7 +206,7 @@ class FlaggedArticleView {
 	 /**
 	 * Is this a view page action?
 	 * @param $action string from MediaWiki::getAction()
-	 * @returns bool
+	 * @return bool
 	 */
 	protected static function isViewAction( $action ) {
 		return ( $action == 'view' || $action == 'purge' || $action == 'render' );
@@ -260,7 +260,7 @@ class FlaggedArticleView {
 	}
 	
 	/**
-	* @returns mixed int/false/null
+	* @return mixed int/false/null
 	*/
 	protected function getRequestedStableId() {
 		global $wgRequest;
@@ -740,7 +740,7 @@ class FlaggedArticleView {
 	* Get collapsible diff-to-stable html to add to the review notice as needed
 	* @param FlaggedRevision $srev, stable version
 	* @param bool $quality, revision is quality
-	* @returns string, the html line (either "" or "<diff toggle><diff div>")
+	* @return string, the html line (either "" or "<diff toggle><diff div>")
 	*/
 	protected function getTopDiffToggle( FlaggedRevision $srev, $quality ) {
 		global $wgUser;
@@ -1418,7 +1418,7 @@ class FlaggedArticleView {
 			$oldRev = Revision::newFromId( $oldid );
 			$newRev = Revision::newFromId( $newid );
 			if ( $newRev && $newRev->getTitle() ) {
-				$fa = FlaggedArticle::getTitleInstance( $newRev->getTitle() );
+				$fa = FlaggedPage::getTitleInstance( $newRev->getTitle() );
 				return self::diffLinkAndMarkers( $fa, $oldRev, $newRev );
 			}
 		}
@@ -1430,7 +1430,7 @@ class FlaggedArticleView {
 	* (b) Show review status of the diff revision(s). Uses a <table>.
 	* Note: used by ajax function to rebuild diff page
 	*/
-	public static function diffLinkAndMarkers( FlaggedArticle $article, $oldRev, $newRev ) {
+	public static function diffLinkAndMarkers( FlaggedPage $article, $oldRev, $newRev ) {
 		$s = '<form id="mw-fr-diff-dataform">';
 		$s .= Html::hidden( 'oldid', $oldRev ? $oldRev->getId() : 0 );
 		$s .= Html::hidden( 'newid', $newRev ? $newRev->getId() : 0 );
@@ -1446,7 +1446,7 @@ class FlaggedArticleView {
 	* Add a link to diff-to-stable for reviewable pages
 	*/
 	protected static function diffToStableLink(
-		FlaggedArticle $article, $oldRev, Revision $newRev
+		FlaggedPage $article, $oldRev, Revision $newRev
 	) {
 		global $wgUser;
 		$srev = $article->getStableRev();
@@ -1474,7 +1474,7 @@ class FlaggedArticleView {
 	/**
 	* Add [checked version] and such to left and right side of diff
 	*/
-	protected static function diffReviewMarkers( FlaggedArticle $article, $oldRev, $newRev ) {
+	protected static function diffReviewMarkers( FlaggedPage $article, $oldRev, $newRev ) {
 		$table = '';
 		$srev = $article->getStableRev();
 		# Diff between two revisions
@@ -1520,7 +1520,7 @@ class FlaggedArticleView {
 	}
 
 	// Fetch template changes for a reviewed revision since review
-	// @returns array
+	// @return array
 	protected static function fetchTemplateChanges( FlaggedRevision $frev ) {
 		global $wgUser;
 		$skin = $wgUser->getSkin();
@@ -1536,7 +1536,7 @@ class FlaggedArticleView {
 	}
 
 	// Fetch file changes for a reviewed revision since review
-	// @returns array
+	// @return array
 	protected static function fetchFileChanges( FlaggedRevision $frev ) {
 		global $wgUser;
 		$skin = $wgUser->getSkin();

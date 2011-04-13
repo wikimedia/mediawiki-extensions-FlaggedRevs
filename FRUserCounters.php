@@ -8,7 +8,7 @@ class FRUserCounters {
 	* @param int $uid
 	* @param int $flags FR_MASTER, FR_FOR_UPDATE
 	* @param string $dBName, optional wiki name
-	* @returns array
+	* @return array
 	*/
 	public static function getUserParams( $uid, $flags = 0, $dBName = false ) {
 		$p = array();
@@ -44,7 +44,7 @@ class FRUserCounters {
 	* @param int $uid
 	* @param int $flags FR_MASTER, FR_FOR_UPDATE
 	* @param string $dBName, optional wiki name
-	* @returns mixed (false or Row)
+	* @return mixed (false or Row)
 	*/
 	protected static function fetchParamsRow( $uid, $flags = 0, $dBName = false ) {
 		$options = array();
@@ -67,7 +67,7 @@ class FRUserCounters {
 	* @param int $uid
 	* @param array $params
 	* @param string $dBName, optional wiki name
-	* @returns bool success
+	* @return bool success
 	*/
 	public static function saveUserParams( $uid, array $params, $dBName = false ) {
 		$dbw = wfGetDB( DB_MASTER, array(), $dBName );
@@ -84,7 +84,7 @@ class FRUserCounters {
 	* Flatten params for a user for DB storage
 	* Note: param values must be integers
 	* @param array $params
-	* @returns string
+	* @return string
 	*/
 	protected static function flattenParams( array $params ) {
 		$flatRows = array();
@@ -105,7 +105,7 @@ class FRUserCounters {
 	/**
 	* Expand params for a user from DB storage
 	* @param string $flatPars
-	* @returns array
+	* @return array
 	*/
 	protected static function expandParams( $flatPars ) {
 		$p = array(); // init
@@ -131,7 +131,7 @@ class FRUserCounters {
 	* @param &array $p user params
 	* @param Article $article the article just edited
 	* @param string $summary edit summary
-	* @returns bool anything changed
+	* @return bool anything changed
 	*/
 	public static function updateUserParams( array &$p, Article $article, $summary ) {
 		global $wgFlaggedRevsAutoconfirm, $wgFlaggedRevsAutopromote;

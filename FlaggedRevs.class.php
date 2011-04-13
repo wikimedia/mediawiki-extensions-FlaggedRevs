@@ -132,7 +132,7 @@ class FlaggedRevs {
 
 	/**
 	 * Is there only one tag and it has only one level?
-	 * @returns bool
+	 * @return bool
 	 */
 	public static function binaryFlagging() {
 		self::load();
@@ -141,7 +141,7 @@ class FlaggedRevs {
 	
 	/**
 	 * If there only one tag and it has only one level, return it
-	 * @returns string
+	 * @return string
 	 */
 	public static function binaryTagName() {
 		self::load();
@@ -154,7 +154,7 @@ class FlaggedRevs {
 	
 	/**
 	 * Are quality versions enabled?
-	 * @returns bool
+	 * @return bool
 	 */
 	public static function qualityVersions() {
 		self::load();
@@ -163,7 +163,7 @@ class FlaggedRevs {
 	
 	/**
 	 * Are pristine versions enabled?
-	 * @returns bool
+	 * @return bool
 	 */
 	public static function pristineVersions() {
 		self::load();
@@ -172,7 +172,7 @@ class FlaggedRevs {
 
 	/**
 	 * Get the highest review tier that is enabled
-	 * @returns int One of FR_PRISTINE,FR_QUALITY,FR_CHECKED
+	 * @return int One of FR_PRISTINE,FR_QUALITY,FR_CHECKED
 	 */
 	public static function highestReviewTier() {
 		self::load();
@@ -186,7 +186,7 @@ class FlaggedRevs {
 
 	/**
 	 * Allow auto-review edits directly to the stable version by reviewers?
-	 * @returns bool
+	 * @return bool
 	 */
 	public static function autoReviewEdits() {
 		self::load();
@@ -195,7 +195,7 @@ class FlaggedRevs {
 
 	/**
 	 * Auto-review new pages with the minimal level?
-	 * @returns bool
+	 * @return bool
 	 */
 	public static function autoReviewNewPages() {
 		self::load();
@@ -204,7 +204,7 @@ class FlaggedRevs {
 
 	/**
 	 * Auto-review of new pages or edits to pages enabled?
-	 * @returns bool
+	 * @return bool
 	 */
 	public static function autoReviewEnabled() {
 		return self::autoReviewEdits() || self::autoReviewNewPages();
@@ -213,7 +213,7 @@ class FlaggedRevs {
 	/**
 	 * Get the maximum level that $tag can be autoreviewed to
 	 * @param string $tag
-	 * @returns int
+	 * @return int
 	 */
 	public static function maxAutoReviewLevel( $tag ) {
 		global $wgFlaggedRevsTagsAuto;
@@ -231,7 +231,7 @@ class FlaggedRevs {
 	/**
 	 * Is a "stable version" used as the default display
 	 * version for all pages in reviewable namespaces?
-	 * @returns bool
+	 * @return bool
 	 */
 	public static function isStableShownByDefault() {
 		global $wgFlaggedRevsOverride;
@@ -244,7 +244,7 @@ class FlaggedRevs {
 	/**
 	 * Are pages reviewable only if they have been manually
 	 * configured by an admin to use a "stable version" as the default?
-	 * @returns bool
+	 * @return bool
 	 */
 	public static function useOnlyIfProtected() {
 		global $wgFlaggedRevsProtection;
@@ -253,7 +253,7 @@ class FlaggedRevs {
 
 	/**
 	 * Return the include handling configuration
-	 * @returns int
+	 * @return int
 	 */
 	public static function inclusionSetting() {
 		global $wgFlaggedRevsHandleIncludes;
@@ -262,7 +262,7 @@ class FlaggedRevs {
 
 	/**
 	 * Should tags only be shown for unreviewed content for this user?
-	 * @returns bool
+	 * @return bool
 	 */
 	public static function lowProfileUI() {
 		global $wgFlaggedRevsLowProfile;
@@ -271,7 +271,7 @@ class FlaggedRevs {
 
 	/**
 	 * Are there site defined protection levels for review
-	 * @returns bool
+	 * @return bool
 	 */
 	public static function useProtectionLevels() {
 		global $wgFlaggedRevsProtection;
@@ -280,7 +280,7 @@ class FlaggedRevs {
 
 	/**
 	 * Get the autoreview restriction levels available
-	 * @returns array
+	 * @return array
 	 */
 	public static function getRestrictionLevels() {
 		self::load();
@@ -289,7 +289,7 @@ class FlaggedRevs {
 
 	/**
 	 * Get the array of tag dimensions and level messages
-	 * @returns array
+	 * @return array
 	 */
 	public static function getDimensions() {
 		self::load();
@@ -299,7 +299,7 @@ class FlaggedRevs {
 	/**
 	 * Get the associative array of tag dimensions
 	 * (tags => array(levels => msgkey))
-	 * @returns array
+	 * @return array
 	 */
 	public static function getTags() {
 		self::load();
@@ -309,7 +309,7 @@ class FlaggedRevs {
 	/**
 	 * Get the associative array of tag restrictions
 	 * (tags => array(rights => levels))
-	 * @returns array
+	 * @return array
 	 */
 	public static function getTagRestrictions() {
 		self::load();
@@ -319,7 +319,7 @@ class FlaggedRevs {
 	/**
 	 * Get the UI name for a tag
 	 * @param string $tag
-	 * @returns string
+	 * @return string
 	 */
 	public static function getTagMsg( $tag ) {
 		return wfMsgExt( "revreview-$tag", array( 'escapenoentities' ) );
@@ -328,7 +328,7 @@ class FlaggedRevs {
 	/**
 	 * Get the levels for a tag. Gives map of level to message name.
 	 * @param string $tag
-	 * @returns associative array (integer -> string)
+	 * @return associative array (integer -> string)
 	 */
 	public static function getTagLevels( $tag ) {
 		self::load();
@@ -340,7 +340,7 @@ class FlaggedRevs {
 	 * Get the the UI name for a value of a tag
 	 * @param string $tag
 	 * @param int $value
-	 * @returns string
+	 * @return string
 	 */
 	public static function getTagValueMsg( $tag, $value ) {
 		self::load();
@@ -356,7 +356,7 @@ class FlaggedRevs {
 	
 	/**
 	 * Are there no actual dimensions?
-	 * @returns bool
+	 * @return bool
 	 */
 	public static function dimensionsEmpty() {
 		self::load();
@@ -411,7 +411,7 @@ class FlaggedRevs {
 	/**
 	 * Check if all of the required site flags have a valid value
 	 * @param array $flags
-	 * @returns bool
+	 * @return bool
 	 */
 	public static function flagsAreValid( array $flags ) {
 		foreach ( self::getDimensions() as $qal => $levels ) {
@@ -427,7 +427,7 @@ class FlaggedRevs {
 	 * @param User $user
 	 * @param string $tag
 	 * @param int $value
-	 * @returns bool
+	 * @return bool
 	 */
 	public static function userCanSetTag( $user, $tag, $value ) {
 		# Sanity check tag and value
@@ -459,7 +459,7 @@ class FlaggedRevs {
 	 * @param User $user
 	 * @param array $flags, suggested flags
 	 * @param array $oldflags, pre-existing flags
-	 * @returns bool
+	 * @return bool
 	 */
 	public static function userCanSetFlags( $user, array $flags, $oldflags = array() ) {
 		if ( !$user->isAllowed( 'review' ) ) {
@@ -485,7 +485,7 @@ class FlaggedRevs {
 	* Check if a user can set the autoreview restiction level to $right
 	* @param User $user
 	* @param string $right the level
-	* @returns bool
+	* @return bool
 	*/
 	public static function userCanSetAutoreviewLevel( $user, $right ) {
 		if ( $right == '' ) {
@@ -513,7 +513,7 @@ class FlaggedRevs {
 	 * @param Title $title
 	 * @param string $text wikitext
 	 * @param int $id Source revision Id
-	 * @return Array( string wikitext, array of template versions )
+	 * @return array( string wikitext, array of template versions )
 	 */
 	public static function expandText( Title $title, $text, $id ) {
 		global $wgParser;
@@ -577,7 +577,7 @@ class FlaggedRevs {
 	/**
 	* Get standard parser options
 	* @param User $user (optional)
-	* @returns ParserOptions
+	* @return ParserOptions
 	*/
 	public static function makeParserOptions( $user = null ) {
 		global $wgUser;
@@ -722,8 +722,8 @@ class FlaggedRevs {
 	/**
 	* Update the page tables with a new stable version.
 	* @param Title $title
-	* @param mixed $sv, the new stable version (optional)
-	* @param mixed $oldSv, the old stable version (optional)
+	* @param FlaggedRevision|null $sv, the new stable version (optional)
+	* @param FlaggedRevision|null $oldSv, the old stable version (optional)
 	* @return bool stable version text/file changed and FR_INCLUDES_STABLE
 	*/
 	public static function stableVersionUpdates( Title $title, $sv = null, $oldSv = null ) {
@@ -734,7 +734,7 @@ class FlaggedRevs {
 		if ( $sv === null ) { // optional
 			$sv = FlaggedRevision::determineStable( $title, FR_MASTER );
 		}
-		$article = new FlaggedArticle( $title );
+		$article = new FlaggedPage( $title );
 		if ( !$sv ) {
 			# Empty flaggedrevs data for this page if there is no stable version
 			$article->clearStableVersion();
@@ -804,7 +804,7 @@ class FlaggedRevs {
 	 * @param Title $title
 	 * @param int $rev_id
 	 * @param $flags, FR_MASTER
-	 * @return Array
+	 * @return array
 	*/
 	public static function getRevisionTags( Title $title, $rev_id, $flags = 0 ) {
 		$db = ( $flags & FR_MASTER ) ?
@@ -822,7 +822,7 @@ class FlaggedRevs {
 	 * @param int $page_id
 	 * @param int $rev_id
 	 * @param $flags, FR_MASTER
-	 * @returns mixed (int or false)
+	 * @return mixed (int or false)
 	 * Get quality of a revision
 	 */
 	public static function getRevQuality( $page_id, $rev_id, $flags = 0 ) {
@@ -840,7 +840,7 @@ class FlaggedRevs {
 	 * @param Title $title
 	 * @param int $rev_id
 	 * @param $flags, FR_MASTER
-	 * @returns bool
+	 * @return bool
 	 * Useful for quickly pinging to see if a revision is flagged
 	 */
 	public static function revIsFlagged( Title $title, $rev_id, $flags = 0 ) {
@@ -851,7 +851,7 @@ class FlaggedRevs {
 	/**
 	 * Get the "prime" flagged revision of a page
 	 * @param Article $article
-	 * @returns mixed (integer/false)
+	 * @return mixed (integer/false)
 	 * Will not return a revision if deleted
 	 */
 	public static function getPrimeFlaggedRevId( Article $article ) {
@@ -876,7 +876,7 @@ class FlaggedRevs {
 	/**
 	 * Mark a revision as patrolled if needed
 	 * @param Revision $rev
-	 * @returns bool DB write query used
+	 * @return bool DB write query used
 	 */
 	public static function markRevisionPatrolled( Revision $rev ) {
 		$rcid = $rev->isUnpatrolled();
@@ -908,7 +908,7 @@ class FlaggedRevs {
 	}
 
 	/**
-	* @param mixed $data makeMemcObj() tuple (false/Object)
+	* @param object|false $data makeMemcObj() tuple
 	* @param Article $article
 	* @return mixed
 	* Return memc value if not expired
@@ -980,7 +980,7 @@ class FlaggedRevs {
 	/**
 	 * Get minimum level tags for a tier
 	 * @param int $tier FR_PRISTINE/FR_QUALITY/FR_CHECKED
-	 * @return Array
+	 * @return array
 	 */
 	public static function quickTags( $tier ) {
 		self::load();
@@ -1022,7 +1022,7 @@ class FlaggedRevs {
 
 	/**
 	* Get the list of reviewable namespaces
-	* @return Array
+	* @return array
 	*/
 	public static function getReviewNamespaces() {
 		self::load(); // validates namespaces
@@ -1031,7 +1031,7 @@ class FlaggedRevs {
 	
 	/**
 	* Get the list of patrollable namespaces
-	* @return Array
+	* @return array
 	*/
 	public static function getPatrolNamespaces() {
 		self::load(); // validates namespaces
@@ -1071,7 +1071,7 @@ class FlaggedRevs {
 
 	/**
 	* Clear FlaggedRevs tracking tables for this page
-	* @param mixed $pageId (int or array)
+	* @param int|array $pageId (int or array)
 	*/
 	public static function clearTrackingRows( $pageId ) {
 		$dbw = wfGetDB( DB_MASTER );
@@ -1082,7 +1082,7 @@ class FlaggedRevs {
 
 	/**
 	* Clear tracking table of stable-only links for this page
-	* @param mixed $pageId (int or array)
+	* @param int|array $pageId (int or array)
 	*/
 	public static function clearStableOnlyDeps( $pageId ) {
 		$dbw = wfGetDB( DB_MASTER );

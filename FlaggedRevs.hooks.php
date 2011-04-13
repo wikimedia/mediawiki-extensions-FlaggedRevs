@@ -46,7 +46,7 @@ class FlaggedRevsHooks {
 			return true; // don't double-load
 		}
 		$loadedModules = true;
-		$fa = FlaggedArticleView::globalArticleInstance();
+		$fa = FlaggedPageView::globalArticleInstance();
 		# Try to only add to relevant pages
 		if ( !$fa || !$fa->isReviewable() ) {
 			return true;
@@ -66,7 +66,7 @@ class FlaggedRevsHooks {
 		$rTags = FlaggedRevs::getJSTagParams();
 		$globalVars['wgFlaggedRevsParams'] = $rTags;
 		# Get page-specific meta-data
-		$fa = FlaggedArticleView::globalArticleInstance();
+		$fa = FlaggedPageView::globalArticleInstance();
 		# Try to only add to relevant pages
 		if ( $fa && $fa->isReviewable() ) {
 			$frev = $fa->getStableRev();
@@ -108,7 +108,7 @@ class FlaggedRevsHooks {
 	*/
 	public static function onBeforePageDisplay( &$out, &$skin ) {
 		if ( $out->isArticleRelated() ) {
-			$view = FlaggedArticleView::singleton();
+			$view = FlaggedPageView::singleton();
 			$view->displayTag(); // show notice bar/icon in subtitle
 			$view->setRobotPolicy(); // set indexing policy
 			self::injectStyleAndJS(); // full CSS/JS
@@ -123,13 +123,13 @@ class FlaggedRevsHooks {
 	public static function onMediaWikiPerformAction(
 		$output, $article, Title $title, $user, $request
 	) {
-		$fa = FlaggedArticle::getTitleInstance( $title );
+		$fa = FlaggedPage::getTitleInstance( $title );
 		self::maybeMarkUnderReview( $fa, $request );
 		return true;
 	}
 
 	// Mark when an unreviewed page is being reviewed
-	protected static function maybeMarkUnderReview( FlaggedArticle $fa, WebRequest $request ) {
+	protected static function maybeMarkUnderReview( FlaggedPage $fa, WebRequest $request ) {
 		global $wgUser;
 		if ( !$request->getInt( 'reviewing' ) && !$request->getInt( 'rcid' ) ) {
 			return true; // not implied by URL
@@ -203,7 +203,7 @@ class FlaggedRevsHooks {
 	public static function onTitleMoveComplete(
 		Title $otitle, Title $ntitle, $user, $pageId
 	) {
-		$fa = FlaggedArticle::getTitleInstance( $ntitle );
+		$fa = FlaggedPage::getTitleInstance( $ntitle );
 		$fa->loadFromDB( FR_MASTER );
 		// Re-validate NS/config (new title may not be reviewable)
 		if ( $fa->isReviewable() ) {
@@ -431,7 +431,7 @@ class FlaggedRevsHooks {
 			if ( !FlaggedRevs::inReviewNamespace( $title ) || !$title->exists() ) {
 				return true; // extra short-circuit
 			}
-			$flaggedArticle = FlaggedArticle::getTitleInstance( $title );
+			$flaggedArticle = FlaggedPage::getTitleInstance( $title );
 			# If the draft shows by default anyway, nothing to do...
 			if ( !$flaggedArticle->isStableShownByDefault() ) {
 				return true;
@@ -444,7 +444,7 @@ class FlaggedRevsHooks {
 			}
 		# Don't let users patrol pages not in $wgFlaggedRevsPatrolNamespaces
 		} else if ( $action === 'patrol' || $action === 'autopatrol' ) {
-			$flaggedArticle = FlaggedArticle::getTitleInstance( $title );
+			$flaggedArticle = FlaggedPage::getTitleInstance( $title );
 			# For a page to be patrollable it must not be reviewable.
 			# Note: normally, edits to non-reviewable, non-patrollable, pages are
 			# silently marked patrolled automatically. With $wgUseNPPatrol on, the
@@ -456,7 +456,7 @@ class FlaggedRevsHooks {
 		# Enforce autoreview/review restrictions
 		} else if ( $action === 'autoreview' || $action === 'review' ) {
 			# Get autoreview restriction settings...
-			$fa = FlaggedArticle::getTitleInstance( $title );
+			$fa = FlaggedPage::getTitleInstance( $title );
 			$config = $fa->getStabilitySettings();
 			# Convert Sysop -> protect
 			$right = ( $config['autoreview'] === 'sysop' ) ?
@@ -485,7 +485,7 @@ class FlaggedRevsHooks {
 	) {
 		global $wgRequest;
 		# Edit must be non-null, to a reviewable page, with $user set
-		$fa = FlaggedArticle::getArticleInstance( $article );
+		$fa = FlaggedPage::getArticleInstance( $article );
 		$fa->loadFromDB( FR_MASTER );
 		if ( !$rev || !$user || !$fa->isReviewable() ) {
 			return true;
@@ -661,7 +661,7 @@ class FlaggedRevsHooks {
 		if ( !$user || $rev !== null ) {
 			return true;
 		}
-		$fa = FlaggedArticle::getArticleInstance( $article );
+		$fa = FlaggedPage::getArticleInstance( $article );
 		$fa->loadFromDB( FR_MASTER );
 		if ( !$fa->isReviewable() ) {
 			return true; // page is not reviewable
@@ -726,7 +726,7 @@ class FlaggedRevsHooks {
 		if ( empty( $rc->mAttribs['rc_this_oldid'] ) ) {
 			return true;
 		}
-		$fa = FlaggedArticle::getTitleInstance( $rc->getTitle() );
+		$fa = FlaggedPage::getTitleInstance( $rc->getTitle() );
 		$fa->loadFromDB( FR_MASTER );
 		// Is the page reviewable?
 		if ( $fa->isReviewable() ) {
@@ -821,7 +821,7 @@ class FlaggedRevsHooks {
 	 * @param int $spacingReq days apart (of edit points)
 	 * @param int $pointsReq number of edit points
 	 * @param User $user
-	 * @returns mixed (true if passed, int seconds on failure)
+	 * @return mixed (true if passed, int seconds on failure)
 	 */
 	protected static function editSpacingCheck( $spacingReq, $pointsReq, $user ) {
 		$benchmarks = 0; // actual edit points
@@ -1197,7 +1197,7 @@ class FlaggedRevsHooks {
 	}
 
 	public static function onImagePageFindFile( $imagePage, &$normalFile, &$displayFile ) {
-		$view = FlaggedArticleView::singleton();
+		$view = FlaggedPageView::singleton();
 		$view->imagePageFindFile( $normalFile, $displayFile );
 		return true;
 	}
@@ -1210,8 +1210,8 @@ class FlaggedRevsHooks {
 			return true;
 		}
 		// Note: $wgArticle sometimes not set here
-		if ( FlaggedArticleView::globalArticleInstance() != null ) {
-			$view = FlaggedArticleView::singleton();
+		if ( FlaggedPageView::globalArticleInstance() != null ) {
+			$view = FlaggedPageView::singleton();
 			$view->setActionTabs( $skin, $contentActions );
 			$view->setViewTabs( $skin, $contentActions, 'flat' );
 		}
@@ -1221,8 +1221,8 @@ class FlaggedRevsHooks {
 	// Vector et al: $links is all the tabs (2 levels)
 	public static function onSkinTemplateNavigation( Skin $skin, array &$links ) {
 		// Note: $wgArticle sometimes not set here
-		if ( FlaggedArticleView::globalArticleInstance() != null ) {
-			$view = FlaggedArticleView::singleton();
+		if ( FlaggedPageView::globalArticleInstance() != null ) {
+			$view = FlaggedPageView::singleton();
 			$view->setActionTabs( $skin, $links['actions'] );
 			$view->setViewTabs( $skin, $links['views'], 'nav' );
 		}
@@ -1230,7 +1230,7 @@ class FlaggedRevsHooks {
 	}
 
 	public static function onArticleViewHeader( &$article, &$outputDone, &$useParserCache ) {
-		$view = FlaggedArticleView::singleton();
+		$view = FlaggedPageView::singleton();
 		$view->addStableLink( $outputDone, $useParserCache );
 		$view->setPageContent( $outputDone, $useParserCache );
 		return true;
@@ -1240,7 +1240,7 @@ class FlaggedRevsHooks {
 		Title $title, WebRequest $request, &$ignoreRedirect, &$target, Article &$article
 	) {
 		global $wgMemc, $wgParserCacheExpireTime;
-		$fa = FlaggedArticle::getTitleInstance( $title ); // on $wgTitle
+		$fa = FlaggedPage::getTitleInstance( $title ); // on $wgTitle
 		if ( !$fa->isReviewable() ) {
 			return true; // nothing to do
 		}
@@ -1250,7 +1250,7 @@ class FlaggedRevsHooks {
 			return true;
 		}
 		$srev = $fa->getStableRev();
-		$view = FlaggedArticleView::singleton();
+		$view = FlaggedPageView::singleton();
 		# Check if we are viewing an unsynced stable version...
 		if ( $srev && $view->showingStable() && $srev->getRevId() != $article->getLatest() ) {
 			# Check the stable redirect properties from the cache...
@@ -1282,31 +1282,31 @@ class FlaggedRevsHooks {
 	}
 
 	public static function addToEditView( &$editPage ) {
-		$view = FlaggedArticleView::singleton();
+		$view = FlaggedPageView::singleton();
 		$view->addToEditView( $editPage );
 		return true;
 	}
 
 	public static function onBeforeEditButtons( &$editPage, &$buttons ) {
-		$view = FlaggedArticleView::singleton();
+		$view = FlaggedPageView::singleton();
 		$view->changeSaveButton( $editPage, $buttons );
 		return true;
 	}
 
 	public static function onNoSuchSection( &$editPage, &$s ) {
-		$view = FlaggedArticleView::singleton();
+		$view = FlaggedPageView::singleton();
 		$view->addToNoSuchSection( $editPage, $s );
 		return true;
 	}
 
 	public static function addToHistView( &$article ) {
-		$view = FlaggedArticleView::singleton();
+		$view = FlaggedPageView::singleton();
 		$view->addToHistView();
 		return true;
 	}
 
 	public static function onCategoryPageView( &$category ) {
-		$view = FlaggedArticleView::singleton();
+		$view = FlaggedPageView::singleton();
 		$view->addToCategoryView();
 		return true;
 	}
@@ -1314,9 +1314,9 @@ class FlaggedRevsHooks {
 	public static function onSkinAfterContent( &$data ) {
 		global $wgOut;
 		if ( $wgOut->isArticleRelated()
-			&& FlaggedArticleView::globalArticleInstance() != null )
+			&& FlaggedPageView::globalArticleInstance() != null )
 		{
-			$view = FlaggedArticleView::singleton();
+			$view = FlaggedPageView::singleton();
 			$view->addReviewNotes( $data );
 			$view->addReviewForm( $data );
 			$view->addVisibilityLink( $data );
@@ -1325,7 +1325,7 @@ class FlaggedRevsHooks {
 	}
 
 	public static function addToHistQuery( HistoryPager $pager, array &$queryInfo ) {
-		$flaggedArticle = FlaggedArticle::getArticleInstance( $pager->getArticle() );
+		$flaggedArticle = FlaggedPage::getArticleInstance( $pager->getArticle() );
 		# Non-content pages cannot be validated. Stable version must exist.
 		if ( $flaggedArticle->isReviewable() && $flaggedArticle->getStableRev() ) {
 			# Highlight flaggedrevs
@@ -1351,7 +1351,7 @@ class FlaggedRevsHooks {
 		if ( !$file->isLocal() ) {
 			return true; // local files only
 		}
-		$flaggedArticle = FlaggedArticle::getTitleInstance( $file->getTitle() );
+		$flaggedArticle = FlaggedPage::getTitleInstance( $file->getTitle() );
 		# Non-content pages cannot be validated. Stable version must exist.
 		if ( $flaggedArticle->isReviewable() && $flaggedArticle->getStableRev() ) {
 			$tables[] = 'flaggedrevs';
@@ -1415,7 +1415,7 @@ class FlaggedRevsHooks {
 	}
 
 	public static function addToHistLine( HistoryPager $history, $row, &$s, &$liClasses ) {
-		$fa = FlaggedArticle::getArticleInstance( $history->getArticle() );
+		$fa = FlaggedPage::getArticleInstance( $history->getArticle() );
 		if ( !$fa->isReviewable() ) {
 			return true; // nothing to do here
 		}
@@ -1462,7 +1462,7 @@ class FlaggedRevsHooks {
 	 * Make stable version link and return the css
 	 * @param Title $title
 	 * @param Row $row, from history page
-	 * @returns array (string,string)
+	 * @return array (string,string)
 	 */
 	protected static function markHistoryRow( Title $title, $row ) {
 		if ( !isset( $row->fr_quality ) ) {
@@ -1570,8 +1570,8 @@ class FlaggedRevsHooks {
 
 	public static function injectPostEditURLParams( $article, &$sectionAnchor, &$extraQuery ) {
 		// Note: $wgArticle sometimes not set here
-		if ( FlaggedArticleView::globalArticleInstance() != null ) {
-			$view = FlaggedArticleView::singleton();
+		if ( FlaggedPageView::globalArticleInstance() != null ) {
+			$view = FlaggedPageView::singleton();
 			$view->injectPostEditURLParams( $sectionAnchor, $extraQuery );
 		}
 		return true;
@@ -1591,33 +1591,33 @@ class FlaggedRevsHooks {
 
 	public static function onDiffViewHeader( $diff, $oldRev, $newRev ) {
 		self::injectStyleAndJS();
-		$view = FlaggedArticleView::singleton();
+		$view = FlaggedPageView::singleton();
 		$view->setViewFlags( $diff, $oldRev, $newRev );
 		$view->addToDiffView( $diff, $oldRev, $newRev );
 		return true;
 	}
 	
 	/*
-	 * If an article is reviewable, get custom article contents from the FlaggedArticleView
+	 * If an article is reviewable, get custom article contents from the FlaggedPageView
 	 */
 	public static function onArticleContentOnDiff( $diffEngine, $out ) {
-		$fa = FlaggedArticle::getTitleInstance( $out->getTitle() );
+		$fa = FlaggedPage::getTitleInstance( $out->getTitle() );
 		if ( !$fa->isReviewable() ) {
 			return true; // nothing to do
 		}
-		$view = FlaggedArticleView::singleton();
+		$view = FlaggedPageView::singleton();
 		$view->addCustomContentHtml( $out, $diffEngine->getNewid() );
 		return false;
 	}
 
 	public static function addRevisionIDField( $editPage, $out ) {
-		$view = FlaggedArticleView::singleton();
+		$view = FlaggedPageView::singleton();
 		$view->addRevisionIDField( $editPage, $out );
 		return true;
 	}
 
 	public static function addReviewCheck( $editPage, &$checkboxes, &$tabindex ) {
-		$view = FlaggedArticleView::singleton();
+		$view = FlaggedPageView::singleton();
 		$view->addReviewCheck( $editPage, $checkboxes, $tabindex );
 		return true;
 	}

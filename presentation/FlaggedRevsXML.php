@@ -8,7 +8,7 @@ class FlaggedRevsXML {
 	 * Get a selector of reviewable namespaces
 	 * @param int $selected, namespace selected
 	 * @param $all Mixed: Value of an item denoting all namespaces, or null to omit
-	 * @returns string
+	 * @return string
 	 */
 	public static function getNamespaceMenu( $selected = null, $all = null ) {
 		global $wgContLang;
@@ -50,7 +50,7 @@ class FlaggedRevsXML {
 	 * @param int $selected, selected level
 	 * @param string $all, all selector msg?
 	 * @param int $max max level?
-	 * @returns string
+	 * @return string
 	 */
 	public static function getLevelMenu(
 		$selected = null, $all = 'revreview-filter-all', $max = 2
@@ -72,7 +72,7 @@ class FlaggedRevsXML {
 	/**
 	 * Get a <select> of default page version (stable or draft). Used for filters.
 	 * @param int $selected (0=draft, 1=stable, null=either )
-	 * @returns string
+	 * @return string
 	 */
 	public static function getDefaultFilterMenu( $selected = null ) {
 		if ( is_null( $selected ) ) {
@@ -91,7 +91,7 @@ class FlaggedRevsXML {
 	/**
 	 * Get a <select> of options of 'autoreview' restriction levels. Used for filters.
 	 * @param string $selected ('' for "any", 'none' for none)
-	 * @returns string
+	 * @return string
 	 */
 	public static function getRestrictionFilterMenu( $selected = '' ) {
 		if ( is_null( $selected ) ) {
@@ -121,7 +121,7 @@ class FlaggedRevsXML {
 	/**
 	 * Get a selector of "approved"/"unapproved". Used for filters.
 	 * @param int $selected, selected level
-	 * @returns string
+	 * @return string
 	 */
 	public static function getStatusFilterMenu( $selected = null ) {
 		$s = "<label for='wpStatus'>" . wfMsgHtml( 'revreview-statusfilter' ) . "</label>\n";
@@ -137,7 +137,7 @@ class FlaggedRevsXML {
 	/**
 	 * Get a selector of "auto"/"manual". Used for filters.
 	 * @param int $selected, selected level
-	 * @returns string
+	 * @return string
 	 */
 	public static function getAutoFilterMenu( $selected = null ) {
 		$s = "<label for='wpApproved'>" . wfMsgHtml( 'revreview-typefilter' ) . "</label>\n";
@@ -151,7 +151,7 @@ class FlaggedRevsXML {
 
 	/**
 	 * @param int $quality
-	 * @returns string, css color for this quality
+	 * @return string, css color for this quality
 	 */
 	public static function getQualityColor( $quality ) {
 		if ( $quality === false )
@@ -174,7 +174,7 @@ class FlaggedRevsXML {
 	 * @param array $flags
 	 * @param bool $prettybox
 	 * @param string $css, class to wrap box in
-	 * @returns string
+	 * @return string
 	 * Generates a review box/tag
 	 */
 	public static function addTagRatings( $flags, $prettyBox = false, $css = '' ) {
@@ -213,7 +213,7 @@ class FlaggedRevsXML {
 	 * @param string $type (stable/draft/oldstable)
 	 * @param bool $stable, are we referring to the stable revision?
 	 * @param bool $synced, does stable=current and this is one of them?
-	 * @returns string
+	 * @return string
 	 * Generates a review box using a table using FlaggedRevsXML::addTagRatings()
 	 */
 	public static function prettyRatingBox(
@@ -284,7 +284,7 @@ class FlaggedRevsXML {
 
 	/**
 	 * Generates JS toggle arrow icon
-	 * @returns string
+	 * @return string
 	 */
 	public static function ratingArrow() {
 		$encPath = htmlspecialchars( FlaggedRevs::styleUrlPath() . '/img' );
@@ -297,7 +297,7 @@ class FlaggedRevsXML {
 
 	/**
 	 * Generates (+/-) JS toggle HTML (monospace to keep things in place)
-	 * @returns string
+	 * @return string
 	 */
 	public static function ratingToggle() {
 		return '<a id="mw-fr-revisiontoggle" class="fr-toggle-symbol"' .
@@ -308,7 +308,7 @@ class FlaggedRevsXML {
 
 	/**
 	 * Generates (show/hide) JS toggle HTML
-	 * @returns string
+	 * @return string
 	 */
 	public static function diffToggle() {
 		$toggle = '<a class="fr-toggle-text" ' .
@@ -321,7 +321,7 @@ class FlaggedRevsXML {
 
 	/**
 	 * Generates (show/hide) JS toggle HTML
-	 * @returns string
+	 * @return string
 	 */
 	public static function logToggle() {
 		$toggle = '<a class="fr-toggle-text" ' .
@@ -334,7 +334,7 @@ class FlaggedRevsXML {
 
 	/**
 	 * Generates (show/hide) JS toggle HTML
-	 * @returns string
+	 * @return string
 	 */
 	public static function logDetailsToggle() {
 		$toggle = '<a class="fr-toggle-text" ' .
@@ -347,7 +347,7 @@ class FlaggedRevsXML {
 
 	/*
 	* Creates CSS draft page icon
-	* @returns string
+	* @return string
 	*/
 	public static function draftStatusIcon() {
 		$encPath = htmlspecialchars( FlaggedRevs::styleUrlPath() . '/img' );
@@ -359,7 +359,7 @@ class FlaggedRevsXML {
 	/*
 	* Creates CSS stable page icon
 	* @param bool $isQuality
-	* @returns string
+	* @return string
 	*/
 	public static function stableStatusIcon( $isQuality ) {
 		$encPath = htmlspecialchars( FlaggedRevs::styleUrlPath() . '/img' );
@@ -373,8 +373,8 @@ class FlaggedRevsXML {
 
 	/*
 	* Creates CSS lock icon if page is locked/unlocked
-	* @param FlaggedArticle $flaggedArticle
-	* @returns string
+	* @param FlaggedPage $flaggedArticle
+	* @return string
 	*/
 	public static function lockStatusIcon( $flaggedArticle ) {
 		$encPath = htmlspecialchars( FlaggedRevs::styleUrlPath() . '/img' );
@@ -390,10 +390,10 @@ class FlaggedRevsXML {
 	}
 
 	/*
-	* @param FlaggedArticle $flaggedArticle
+	* @param FlaggedPage $flaggedArticle
 	* @param FlaggedRevision $frev
 	* @param int $revsSince
-	* @returns string
+	* @return string
 	* Creates "stable rev reviewed on"/"x pending edits" message
 	*/
 	public static function pendingEditNotice( $flaggedArticle, $frev, $revsSince ) {
@@ -410,7 +410,7 @@ class FlaggedRevsXML {
 
 	/*
 	* @param Article $article
-	* @returns string
+	* @return string
 	* Creates a stability log excerpt
 	*/
 	public static function stabilityLogExcerpt( $article ) {

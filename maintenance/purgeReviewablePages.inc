@@ -33,7 +33,7 @@ function list_reviewable_pages( $db, $fileHandle ) {
 		# Go through and append each purgeable page...
 		foreach ( $res as $row ) {
 			$title = Title::newFromRow( $row );
-			$fa = FlaggedArticle::getTitleInstance( $title );
+			$fa = FlaggedPage::getTitleInstance( $title );
 			if ( $fa->isReviewable() ) {
 				# Need to purge this page - add to list
 				fwrite( $fileHandle, $title->getPrefixedDBKey() . "\n" );

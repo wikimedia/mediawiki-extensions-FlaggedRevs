@@ -66,7 +66,7 @@ class ApiReview extends ApiBase {
 			$form->setDim( $tag, (int)$params['flag_' . $tag] );
 		}
 		if ( $form->getAction() === 'approve' ) {
-			$article = new FlaggedArticle( $title );
+			$article = new FlaggedPage( $title );
 			// Now get the template and image parameters needed
 			list( $templateIds, $fileTimeKeys ) =
 				RevisionReviewForm::currentIncludeVersions( $article, $rev );

@@ -3,7 +3,7 @@
 class FlaggedRevsLog {
 	/**
 	* $action is a valid review log action
-	* @returns bool
+	* @return bool
 	*/
 	public static function isReviewAction( $action ) {
 		return preg_match( '/^(approve2?(-i|-a|-ia)?|unapprove2?)$/', $action );
@@ -11,7 +11,7 @@ class FlaggedRevsLog {
 
 	/**
 	* $action is a valid stability log action
-	* @returns bool
+	* @return bool
 	*/
 	public static function isStabilityAction( $action ) {
 		return preg_match( '/^(config|modify|reset)$/', $action );
@@ -19,7 +19,7 @@ class FlaggedRevsLog {
 
 	/**
 	* $action is a valid review log deprecate action
-	* @returns bool
+	* @return bool
 	*/
 	public static function isReviewDeapproval( $action ) {
 		return ( $action == 'unapprove' || $action == 'unapprove2' );
@@ -116,7 +116,7 @@ class FlaggedRevsLog {
 	/**
 	 * Get log params (associate array) from a stability config
 	 * @param array $config
-	 * @returns array (associative)
+	 * @return array (associative)
 	 */
 	public static function stabilityLogParams( array $config ) {
 		$params = $config;
@@ -129,9 +129,9 @@ class FlaggedRevsLog {
 	/**
 	 * Collapse an associate array into a string
 	 * @param array $pars
-	 * @returns string
+	 * @return string
 	 */
-	public static function collapseParams( Array $pars ) {
+	public static function collapseParams( array $pars ) {
 		$res = array();
 		foreach ( $pars as $param => $value ) {
 			// Sanity check...
@@ -148,9 +148,9 @@ class FlaggedRevsLog {
 	/**
 	 * Expand a list of log params into an associative array
 	 * @params array $pars
-	 * @returns array (associative)
+	 * @return array (associative)
 	 */
-	public static function expandParams( Array $pars ) {
+	public static function expandParams( array $pars ) {
 		$res = array();
 		foreach ( $pars as $paramAndValue ) {
 			list( $param, $value ) = explode( '=', $paramAndValue, 2 );

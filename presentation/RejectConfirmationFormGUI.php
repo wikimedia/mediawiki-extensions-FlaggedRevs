@@ -13,7 +13,7 @@ class RejectConfirmationFormGUI {
 
 	/**
 	 * Get the "are you sure you want to reject these changes?" form
-	 * @return Array (html string, error string or true)
+	 * @return array (html string, error string or true)
 	 */
 	public function getHtml() {
 		global $wgLang, $wgContLang;

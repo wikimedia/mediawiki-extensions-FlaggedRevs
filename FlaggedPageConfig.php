@@ -7,7 +7,7 @@ class FlaggedPageConfig {
 	 * Get visibility settings/restrictions for a page
 	 * @param Title $title, page title
 	 * @param int $flags, FR_MASTER
-	 * @returns array (associative) (select,override,autoreview,expiry)
+	 * @return array (associative) (select,override,autoreview,expiry)
 	 */
 	public static function getStabilitySettings( Title $title, $flags = 0 ) {
 		$db = ( $flags & FR_MASTER ) ?
@@ -21,7 +21,7 @@ class FlaggedPageConfig {
 	}
 
 	/**
-	 * @return Array basic select fields for FlaggedPageConfig DB row
+	 * @return array basic select fields for FlaggedPageConfig DB row
 	 */
 	public static function selectFields() {
 		return array( 'fpc_override', 'fpc_level', 'fpc_expiry' );
@@ -82,7 +82,7 @@ class FlaggedPageConfig {
 	/**
 	 * Set the stability configuration settings for a page
 	 * @param Title $title
-	 * @param Array $config
+	 * @param array $config
 	 * @return bool Row changed
 	 */
 	public static function setStabilitySettings( Title $title, array $config ) {
@@ -131,7 +131,7 @@ class FlaggedPageConfig {
 	/**
 	 * Does this config equal the default settings?
 	 * @param array $config
-	 * @returns bool
+	 * @return bool
 	 */
 	public static function configIsReset( array $config ) {
 		if ( FlaggedRevs::useOnlyIfProtected() ) {
@@ -145,7 +145,7 @@ class FlaggedPageConfig {
 	/**
 	 * Find what protection level a config is in
 	 * @param array $config
-	 * @returns string
+	 * @return string
 	 */
 	public static function getProtectionLevel( array $config ) {
 		if ( !FlaggedRevs::useProtectionLevels() ) {

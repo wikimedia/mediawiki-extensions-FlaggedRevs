@@ -258,7 +258,7 @@ $wgAutoloadClasses['FRExtraCacheUpdateJob'] = $dir . 'FRExtraCacheUpdate.php';
 $wgAutoloadClasses['FRSquidUpdate'] = $dir . 'FRExtraCacheUpdate.php';
 $wgAutoloadClasses['FRDependencyUpdate'] = $dir . 'FRDependencyUpdate.php';
 $wgAutoloadClasses['FRInclusionManager'] = $dir . 'FRInclusionManager.php';
-$wgAutoloadClasses['FlaggedArticle'] = $dir . 'FlaggedArticle.php';
+$wgAutoloadClasses['FlaggedPage'] = $dir . 'FlaggedPage.php';
 $wgAutoloadClasses['FlaggedRevision'] = $dir . 'FlaggedRevision.php';
 
 # Business object classes
@@ -269,7 +269,7 @@ $wgAutoloadClasses['PageStabilityGeneralForm'] = $dir . 'business/PageStabilityF
 $wgAutoloadClasses['PageStabilityProtectForm'] = $dir . 'business/PageStabilityForm.php';
 
 # Presentation classes...
-$wgAutoloadClasses['FlaggedArticleView'] = $dir . 'presentation/FlaggedArticleView.php';
+$wgAutoloadClasses['FlaggedPageView'] = $dir . 'presentation/FlaggedPageView.php';
 $wgAutoloadClasses['FlaggedRevsLogView'] = $dir . 'presentation/FlaggedRevsLogView.php';
 $wgAutoloadClasses['FlaggedRevsXML'] = $dir . 'presentation/FlaggedRevsXML.php';
 $wgAutoloadClasses['RevisionReviewFormGUI'] = $dir . 'presentation/RevisionReviewFormGUI.php';
@@ -626,7 +626,7 @@ $wgLogActionsHandlers['stable/reset'] = 'FlaggedRevsLogView::stabilityLogText'; 
 
 # AJAX functions
 $wgAjaxExportList[] = 'RevisionReview::AjaxReview';
-$wgAjaxExportList[] = 'FlaggedArticleView::AjaxBuildDiffHeaderItems';
+$wgAjaxExportList[] = 'FlaggedPageView::AjaxBuildDiffHeaderItems';
 
 # Cache update
 $wgSpecialPageCacheUpdates[] = 'efFlaggedRevsUnreviewedPagesUpdate';
