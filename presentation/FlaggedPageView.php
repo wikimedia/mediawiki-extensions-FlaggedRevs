@@ -1070,7 +1070,7 @@ class FlaggedPageView {
 		}
 		# Build the review form as needed
 		if ( $rev && ( !$this->diffRevs || $this->isReviewableDiff ) ) {
-			$form = new RevisionReviewFormGUI( $wgUser, $this->article, $rev );
+			$form = new RevisionReviewFormUI( $wgUser, $this->article, $rev );
 			# Default tags and existence of "reject" button depend on context
 			if ( $this->diffRevs ) {
 				$form->setDiffPriorRev( $this->diffRevs['old'] );

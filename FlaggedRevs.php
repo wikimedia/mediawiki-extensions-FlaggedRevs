@@ -249,6 +249,7 @@ $wgAutoloadClasses['FlaggedRevsLog'] = $dir . 'FlaggedRevsLog.php';
 
 # Event handler classes...
 $wgAutoloadClasses['FlaggedRevsHooks'] = $dir . 'FlaggedRevs.hooks.php';
+$wgAutoloadClasses['FlaggedRevsUIHooks'] = $dir . 'presentation/FlaggedRevsUI.hooks.php';
 $wgAutoloadClasses['FlaggedRevsApiHooks'] = $dir . 'api/FlaggedRevsApi.hooks.php';
 $wgAutoloadClasses['FlaggedRevsUpdaterHooks'] = $dir . 'updater/FlaggedRevsUpdater.hooks.php';
 
@@ -272,8 +273,8 @@ $wgAutoloadClasses['PageStabilityProtectForm'] = $dir . 'business/PageStabilityF
 $wgAutoloadClasses['FlaggedPageView'] = $dir . 'presentation/FlaggedPageView.php';
 $wgAutoloadClasses['FlaggedRevsLogView'] = $dir . 'presentation/FlaggedRevsLogView.php';
 $wgAutoloadClasses['FlaggedRevsXML'] = $dir . 'presentation/FlaggedRevsXML.php';
-$wgAutoloadClasses['RevisionReviewFormGUI'] = $dir . 'presentation/RevisionReviewFormGUI.php';
-$wgAutoloadClasses['RejectConfirmationFormGUI'] = $dir . 'presentation/RejectConfirmationFormGUI.php';
+$wgAutoloadClasses['RevisionReviewFormUI'] = $dir . 'presentation/RevisionReviewFormUI.php';
+$wgAutoloadClasses['RejectConfirmationFormUI'] = $dir . 'presentation/RejectConfirmationFormUI.php';
 
 $specialActionDir = $dir . 'presentation/specialpages/actions/';
 # Load revision review UI
@@ -393,52 +394,52 @@ $wgResourceModules['ext.flaggedRevs.review'] = array(
 
 # ######## User interface #########
 # Override current revision, add patrol links, set cache...
-$wgHooks['ArticleViewHeader'][] = 'FlaggedRevsHooks::onArticleViewHeader';
-$wgHooks['ImagePageFindFile'][] = 'FlaggedRevsHooks::onImagePageFindFile';
+$wgHooks['ArticleViewHeader'][] = 'FlaggedRevsUIHooks::onArticleViewHeader';
+$wgHooks['ImagePageFindFile'][] = 'FlaggedRevsUIHooks::onImagePageFindFile';
 # Override redirect behavior...
-$wgHooks['InitializeArticleMaybeRedirect'][] = 'FlaggedRevsHooks::overrideRedirect';
+$wgHooks['InitializeArticleMaybeRedirect'][] = 'FlaggedRevsUIHooks::overrideRedirect';
 # Set page view tabs
-$wgHooks['SkinTemplateTabs'][] = 'FlaggedRevsHooks::onSkinTemplateTabs'; // All skins
-$wgHooks['SkinTemplateNavigation'][] = 'FlaggedRevsHooks::onSkinTemplateNavigation'; // Vector
+$wgHooks['SkinTemplateTabs'][] = 'FlaggedRevsUIHooks::onSkinTemplateTabs'; // All skins
+$wgHooks['SkinTemplateNavigation'][] = 'FlaggedRevsUIHooks::onSkinTemplateNavigation'; // Vector
 # Add notice tags to edit view
-$wgHooks['EditPage::showEditForm:initial'][] = 'FlaggedRevsHooks::addToEditView';
+$wgHooks['EditPage::showEditForm:initial'][] = 'FlaggedRevsUIHooks::addToEditView';
 # Tweak submit button name/title
-$wgHooks['EditPageBeforeEditButtons'][] = 'FlaggedRevsHooks::onBeforeEditButtons';
+$wgHooks['EditPageBeforeEditButtons'][] = 'FlaggedRevsUIHooks::onBeforeEditButtons';
 # Autoreview information from form
-$wgHooks['EditPageBeforeEditChecks'][] = 'FlaggedRevsHooks::addReviewCheck';
-$wgHooks['EditPage::showEditForm:fields'][] = 'FlaggedRevsHooks::addRevisionIDField';
+$wgHooks['EditPageBeforeEditChecks'][] = 'FlaggedRevsUIHooks::addReviewCheck';
+$wgHooks['EditPage::showEditForm:fields'][] = 'FlaggedRevsUIHooks::addRevisionIDField';
 # Add draft link to section edit error
-$wgHooks['EditPageNoSuchSection'][] = 'FlaggedRevsHooks::onNoSuchSection';
+$wgHooks['EditPageNoSuchSection'][] = 'FlaggedRevsUIHooks::onNoSuchSection';
 # Add notice tags to history
-$wgHooks['PageHistoryBeforeList'][] = 'FlaggedRevsHooks::addToHistView';
+$wgHooks['PageHistoryBeforeList'][] = 'FlaggedRevsUIHooks::addToHistView';
 # Add review form and visiblity settings link
-$wgHooks['SkinAfterContent'][] = 'FlaggedRevsHooks::onSkinAfterContent';
+$wgHooks['SkinAfterContent'][] = 'FlaggedRevsUIHooks::onSkinAfterContent';
 # Mark items in page history
-$wgHooks['PageHistoryPager::getQueryInfo'][] = 'FlaggedRevsHooks::addToHistQuery';
-$wgHooks['PageHistoryLineEnding'][] = 'FlaggedRevsHooks::addToHistLine';
-$wgHooks['LocalFile::getHistory'][] = 'FlaggedRevsHooks::addToFileHistQuery';
-$wgHooks['ImagePageFileHistoryLine'][] = 'FlaggedRevsHooks::addToFileHistLine';
+$wgHooks['PageHistoryPager::getQueryInfo'][] = 'FlaggedRevsUIHooks::addToHistQuery';
+$wgHooks['PageHistoryLineEnding'][] = 'FlaggedRevsUIHooks::addToHistLine';
+$wgHooks['LocalFile::getHistory'][] = 'FlaggedRevsUIHooks::addToFileHistQuery';
+$wgHooks['ImagePageFileHistoryLine'][] = 'FlaggedRevsUIHooks::addToFileHistLine';
 # Mark items in RC
-$wgHooks['SpecialRecentChangesQuery'][] = 'FlaggedRevsHooks::addToRCQuery';
-$wgHooks['SpecialWatchlistQuery'][] = 'FlaggedRevsHooks::addToWatchlistQuery';
-$wgHooks['ChangesListInsertArticleLink'][] = 'FlaggedRevsHooks::addToChangeListLine';
+$wgHooks['SpecialRecentChangesQuery'][] = 'FlaggedRevsUIHooks::addToRCQuery';
+$wgHooks['SpecialWatchlistQuery'][] = 'FlaggedRevsUIHooks::addToWatchlistQuery';
+$wgHooks['ChangesListInsertArticleLink'][] = 'FlaggedRevsUIHooks::addToChangeListLine';
 # Page review on edit
-$wgHooks['ArticleUpdateBeforeRedirect'][] = 'FlaggedRevsHooks::injectPostEditURLParams';
+$wgHooks['ArticleUpdateBeforeRedirect'][] = 'FlaggedRevsUIHooks::injectPostEditURLParams';
 # Diff-to-stable
-$wgHooks['DiffViewHeader'][] = 'FlaggedRevsHooks::onDiffViewHeader';
+$wgHooks['DiffViewHeader'][] = 'FlaggedRevsUIHooks::onDiffViewHeader';
 # Add diff=review url param alias
-$wgHooks['NewDifferenceEngine'][] = 'FlaggedRevsHooks::checkDiffUrl';
+$wgHooks['NewDifferenceEngine'][] = 'FlaggedRevsUIHooks::checkDiffUrl';
 # Local user account preference
-$wgHooks['GetPreferences'][] = 'FlaggedRevsHooks::onGetPreferences';
+$wgHooks['GetPreferences'][] = 'FlaggedRevsUIHooks::onGetPreferences';
 # Show unreviewed pages links
-$wgHooks['CategoryPageView'][] = 'FlaggedRevsHooks::onCategoryPageView';
+$wgHooks['CategoryPageView'][] = 'FlaggedRevsUIHooks::onCategoryPageView';
 # Review/stability log links
-$wgHooks['LogLine'][] = 'FlaggedRevsHooks::logLineLinks';
+$wgHooks['LogLine'][] = 'FlaggedRevsUIHooks::logLineLinks';
 
 # Add review notice, backlog notices and CSS/JS and set robots
-$wgHooks['BeforePageDisplay'][] = 'FlaggedRevsHooks::onBeforePageDisplay';
+$wgHooks['BeforePageDisplay'][] = 'FlaggedRevsUIHooks::onBeforePageDisplay';
 # Add global JS vars
-$wgHooks['MakeGlobalVariablesScript'][] = 'FlaggedRevsHooks::injectGlobalJSVars';
+$wgHooks['MakeGlobalVariablesScript'][] = 'FlaggedRevsUIHooks::injectGlobalJSVars';
 
 # Add flagging data to ApiQueryRevisions
 $wgHooks['APIGetAllowedParams'][] = 'FlaggedRevsApiHooks::addApiRevisionParams';
@@ -489,10 +490,10 @@ $wgHooks['getUserPermissionsErrors'][] = 'FlaggedRevsHooks::onUserCan';
 $wgHooks['GetAutoPromoteGroups'][] = 'FlaggedRevsHooks::checkAutoPromote';
 
 # Check if a page is currently being reviewed
-$wgHooks['MediaWikiPerformAction'][] = 'FlaggedRevsHooks::onMediaWikiPerformAction';
+$wgHooks['MediaWikiPerformAction'][] = 'FlaggedRevsUIHooks::onMediaWikiPerformAction';
 
 # Actually register special pages
-$wgHooks['SpecialPage_initList'][] = 'FlaggedRevsHooks::defineSpecialPages';
+$wgHooks['SpecialPage_initList'][] = 'FlaggedRevsUIHooks::defineSpecialPages';
 
 # Stable dump hook
 $wgHooks['WikiExporter::dumpStableQuery'][] = 'FlaggedRevsHooks::stableDumpQuery';
@@ -506,7 +507,7 @@ $wgHooks['UnitTestsList'][] = 'FlaggedRevsHooks::getUnitTests';
 $wgHooks['LoadExtensionSchemaUpdates'][] = 'FlaggedRevsUpdaterHooks::addSchemaUpdates';
 
 # Performance Don't show content on diff
-$wgHooks['ArticleContentOnDiff'][] = 'FlaggedRevsHooks::onArticleContentOnDiff';
+$wgHooks['ArticleContentOnDiff'][] = 'FlaggedRevsUIHooks::onArticleContentOnDiff';
 
 # ########
 
@@ -514,15 +515,15 @@ function efSetFlaggedRevsConditionalHooks() {
 	global $wgHooks;
 	# Mark items in user contribs
 	if ( !FlaggedRevs::useOnlyIfProtected() ) {
-		$wgHooks['ContribsPager::getQueryInfo'][] = 'FlaggedRevsHooks::addToContribsQuery';
-		$wgHooks['ContributionsLineEnding'][] = 'FlaggedRevsHooks::addToContribsLine';
+		$wgHooks['ContribsPager::getQueryInfo'][] = 'FlaggedRevsUIHooks::addToContribsQuery';
+		$wgHooks['ContributionsLineEnding'][] = 'FlaggedRevsUIHooks::addToContribsLine';
 	}
 	if ( FlaggedRevs::useProtectionLevels() ) {
 		# Add protection form field
-		$wgHooks['ProtectionForm::buildForm'][] = 'FlaggedRevsHooks::onProtectionForm';
-		$wgHooks['ProtectionForm::showLogExtract'][] = 'FlaggedRevsHooks::insertStabilityLog';
+		$wgHooks['ProtectionForm::buildForm'][] = 'FlaggedRevsUIHooks::onProtectionForm';
+		$wgHooks['ProtectionForm::showLogExtract'][] = 'FlaggedRevsUIHooks::insertStabilityLog';
 		# Save stability settings
-		$wgHooks['ProtectionForm::save'][] = 'FlaggedRevsHooks::onProtectionSave';
+		$wgHooks['ProtectionForm::save'][] = 'FlaggedRevsUIHooks::onProtectionSave';
 		# Parser stuff
 		$wgHooks['ParserFirstCallInit'][] = 'FlaggedRevsHooks::onParserFirstCallInit';
 		$wgHooks['LanguageGetMagic'][] = 'FlaggedRevsHooks::onLanguageGetMagic';

@@ -4,7 +4,7 @@
  *
  * NOTE: use ONLY for diff-to-stable views and page version views
  */
-class RevisionReviewFormGUI {
+class RevisionReviewFormUI {
 	protected $user, $article, $rev;
 	protected $refRev = null;
 	protected $topNotice = '';

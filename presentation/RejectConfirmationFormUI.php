@@ -2,7 +2,7 @@
 /**
  * Reject confirmation review form UI
  */
-class RejectConfirmationFormGUI {
+class RejectConfirmationFormUI {
 	protected $form, $oldRev, $newRev;
 
 	public function __construct( RevisionReviewForm $form ) {
