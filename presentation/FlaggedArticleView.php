@@ -1597,8 +1597,9 @@ class FlaggedArticleView {
 	public function injectPostEditURLParams( &$sectionAnchor, &$extraQuery ) {
 		global $wgUser;
 		$this->load();
+		$this->article->loadFromDB( FR_MASTER );
 		# Get the stable version from the master
-		$frev = $this->article->getStableRev( FR_MASTER );
+		$frev = $this->article->getStableRev();
 		if ( !$frev || !$this->article->revsArePending() ) {
 			return true; // only for pages with pending edits
 		}

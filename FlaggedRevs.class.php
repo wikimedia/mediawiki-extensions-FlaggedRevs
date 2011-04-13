@@ -171,6 +171,20 @@ class FlaggedRevs {
 	}
 
 	/**
+	 * Get the highest review tier that is enabled
+	 * @returns int One of FR_PRISTINE,FR_QUALITY,FR_CHECKED
+	 */
+	public static function highestReviewTier() {
+		self::load();
+		if ( self::$pristineVersions ) {
+			return FR_PRISTINE;
+		} elseif ( self::$qualityVersions ) {
+			return FR_QUALITY;
+		}
+		return FR_CHECKED;
+	}
+
+	/**
 	 * Allow auto-review edits directly to the stable version by reviewers?
 	 * @returns bool
 	 */
@@ -720,19 +734,17 @@ class FlaggedRevs {
 		if ( $sv === null ) { // optional
 			$sv = FlaggedRevision::determineStable( $title, FR_MASTER );
 		}
+		$article = new FlaggedArticle( $title );
 		if ( !$sv ) {
 			# Empty flaggedrevs data for this page if there is no stable version
-			self::clearTrackingRows( $title->getArticleID() );
+			$article->clearStableVersion();
 			# Check if pages using this need to be refreshed...
 			if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_STABLE ) {
 				$changed = (bool)$oldSv;
 			}
 		} else {
-			$article = new Article( $title );
 			# Update flagged page related fields
-			FlaggedRevs::updateStableVersion( $article, $sv );
-			# Lazily rebuild dependancies on next parse (we invalidate below)
-			FlaggedRevs::clearStableOnlyDeps( $title );
+			$article->updateStableVersion( $sv );
 			# Check if pages using this need to be invalidated/purged...
 			if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_STABLE ) {
 				$changed = (
@@ -743,6 +755,8 @@ class FlaggedRevs {
 				);
 			}
 		}
+		# Lazily rebuild dependancies on next parse (we invalidate below)
+		FlaggedRevs::clearStableOnlyDeps( $title );
 		# Clear page cache
 		$title->invalidateCache();
 		self::purgeSquid( $title );
@@ -756,143 +770,6 @@ class FlaggedRevs {
 	public static function purgeSquid( Title $title ) {
 		global $wgDeferredUpdateList;
 		$wgDeferredUpdateList[] = new FRSquidUpdate( $title );
-	}
-
-	/**
-	* @param Article $article
-	* @param FlaggedRevision $srev, the new stable version
-	* @param mixed $latest, the latest rev ID (optional)
-	* Updates the tracking tables and pending edit count cache. Called on edit.
-	*/
-	public static function updateStableVersion(
-		Article $article, FlaggedRevision $srev, $latest = null
-	) {
-		$rev = $srev->getRevision();
-		if ( !$rev || !$article->getId() ) {
-			return true; // no bogus entries
-		}
-		# Get the latest revision ID if not set
-		if ( !$latest ) {
-			$latest = $article->getTitle()->getLatestRevID( Title::GAID_FOR_UPDATE );
-		}
-		# Get the highest quality revision (not necessarily this one)
-		$dbw = wfGetDB( DB_MASTER );
-		$maxQuality = $dbw->selectField( array( 'flaggedrevs', 'revision' ),
-			'fr_quality',
-			array( 'fr_page_id' => $article->getId(),
-				'rev_id = fr_rev_id',
-				'rev_page = fr_page_id',
-				'rev_deleted & ' . Revision::DELETED_TEXT => 0
-			),
-			__METHOD__,
-			array( 'ORDER BY' => 'fr_quality DESC', 'LIMIT' => 1 )
-		);
-		# Get the timestamp of the first edit after the stable version (if any)...
-		$nextTimestamp = null;
-		if ( $rev->getId() != $latest ) {
-			$timestamp = $dbw->timestamp( $rev->getTimestamp() );
-			$nextEditTS = $dbw->selectField( 'revision',
-				'rev_timestamp',
-				array(
-					'rev_page' => $article->getId(),
-					"rev_timestamp > " . $dbw->addQuotes( $timestamp ) ),
-				__METHOD__,
-				array( 'ORDER BY' => 'rev_timestamp ASC', 'LIMIT' => 1 )
-			);
-			if ( $nextEditTS ) { // sanity check
-				$nextTimestamp = $nextEditTS;
-			}
-		}
-		# Get the new page sync status...
-		$synced = !(
-			$nextTimestamp !== null || // edits pending
-			$srev->findPendingTemplateChanges() || // template changes pending
-			$srev->findPendingFileChanges( 'noForeign' ) // file changes pending
-		);
-		# Alter table metadata
-		$dbw->replace( 'flaggedpages',
-			array( 'fp_page_id' ),
-			array(
-				'fp_page_id'       => $article->getId(),
-				'fp_stable'        => $rev->getId(),
-				'fp_reviewed'      => $synced ? 1 : 0,
-				'fp_quality'       => ( $maxQuality === false ) ? null : $maxQuality,
-				'fp_pending_since' => $dbw->timestampOrNull( $nextTimestamp )
-			),
-			__METHOD__
-		);
-		# Update pending edit tracking table
-		self::updatePendingList( $article, $latest );
-		return true;
-	}
-
-	/**
-	* @param Article $article
-	* @param mixed $latest, the latest rev ID (optional)
-	* Updates the flaggedpage_pending table
-	*/
-	public static function updatePendingList( Article $article, $latest = null ) {
-		$data = array();
-		$level = self::pristineVersions() ? FR_PRISTINE : FR_QUALITY;
-		if ( !self::qualityVersions() ) {
-			$level = FR_CHECKED;
-		}
-		# Get the latest revision ID if not set
-		if ( !$latest ) {
-			$latest = $article->getTitle()->getLatestRevID( Title::GAID_FOR_UPDATE );
-		}
-		$pageId = $article->getId();
-		# Update pending times for each level, going from highest to lowest
-		$dbw = wfGetDB( DB_MASTER );
-		$higherLevelId = 0;
-		$higherLevelTS = '';
-		while ( $level >= 0 ) {
-			# Get the latest revision of this level...
-			$row = $dbw->selectRow( array( 'flaggedrevs', 'revision' ),
-				array( 'fr_rev_id', 'rev_timestamp' ),
-				array( 'fr_page_id' => $pageId,
-					'fr_quality' => $level,
-					'rev_id = fr_rev_id',
-					'rev_page = fr_page_id',
-					'rev_deleted & ' . Revision::DELETED_TEXT => 0,
-					'rev_id > ' . intval( $higherLevelId )
-				),
-				__METHOD__,
-				array( 'ORDER BY' => 'fr_rev_id DESC', 'LIMIT' => 1 )
-			);
-			# If there is a revision of this level, track it...
-			# Revisions reviewed to one level  count as reviewed
-			# at the lower levels (i.e. quality -> checked).
-			if ( $row ) {
-				$id = $row->fr_rev_id;
-				$ts = $row->rev_timestamp;
-			} else {
-				$id = $higherLevelId; // use previous (quality -> checked)
-				$ts = $higherLevelTS; // use previous (quality -> checked)
-			}
-			# Get edits that actually are pending...
-			if ( $id && $latest > $id ) {
-				# Get the timestamp of the edit after this version (if any)
-				$nextTimestamp = $dbw->selectField( 'revision',
-					'rev_timestamp',
-					array( 'rev_page' => $pageId, "rev_timestamp > " . $dbw->addQuotes( $ts ) ),
-					__METHOD__,
-					array( 'ORDER BY' => 'rev_timestamp ASC', 'LIMIT' => 1 )
-				);
-				$data[] = array(
-					'fpp_page_id'       => $pageId,
-					'fpp_quality'       => $level,
-					'fpp_rev_id'        => $id,
-					'fpp_pending_since' => $nextTimestamp
-				);
-				$higherLevelId = $id;
-				$higherLevelTS = $ts;
-			}
-			$level--;
-		}
-		# Clear any old junk, and insert new rows
-		$dbw->delete( 'flaggedpage_pending', array( 'fpp_page_id' => $pageId ), __METHOD__ );
-		$dbw->insert( 'flaggedpage_pending', $data, __METHOD__ );
 	}
 
 	/**

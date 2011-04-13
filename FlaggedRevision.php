@@ -26,7 +26,7 @@ class FlaggedRevision {
 	private $mStableFiles;
 
 	/**
-	 * @param mixed $row (DB row or array)
+	 * @param Row|array $row (DB row or array)
 	 * @return void
 	 */
 	public function __construct( $row ) {
@@ -38,6 +38,8 @@ class FlaggedRevision {
 			$this->mTags = self::expandRevisionTags( strval( $row->fr_tags ) );
 			$this->mFlags = explode( ',', $row->fr_flags );
 			$this->mUser = intval( $row->fr_user );
+			# Base Revision object
+			$this->mRevision = new Revision( $row );
 			# Image page revision relevant params
 			$this->mFileName = $row->fr_img_name ? $row->fr_img_name : null;
 			$this->mFileSha1 = $row->fr_img_sha1 ? $row->fr_img_sha1 : null;
@@ -76,7 +78,7 @@ class FlaggedRevision {
 	 * @param Title $title
 	 * @param int $revId
 	 * @param int $flags (FR_MASTER, FR_FOR_UPDATE)
-	 * @return mixed FlaggedRevision (null on failure)
+	 * @return FlaggedRevision|null (null on failure)
 	 */
 	public static function newFromTitle( Title $title, $revId, $flags = 0 ) {
 		if ( !FlaggedRevs::inReviewNamespace( $title ) ) {
@@ -92,13 +94,15 @@ class FlaggedRevision {
 			$db = wfGetDB( DB_SLAVE );
 			$pageId = $title->getArticleID();
 		}
-		if ( !$pageId ) {
+		if ( !$pageId || !$revId ) {
 			return null; // short-circuit query
 		}
 		# Skip deleted revisions
-		$row = $db->selectRow( array( 'flaggedrevs', 'revision' ),
+		$row = $db->selectRow(
+			array( 'flaggedrevs', 'revision' ),
 			self::selectFields(),
-			array( 'fr_page_id' => $pageId,
+			array(
+				'fr_page_id' => $pageId,
 				'fr_rev_id' => $revId,
 				'rev_id = fr_rev_id',
 				'rev_page = fr_page_id',
@@ -120,7 +124,7 @@ class FlaggedRevision {
 	 * Get a FlaggedRevision of the stable version of a title.
 	 * @param Title $title, page title
 	 * @param int $flags (FR_MASTER, FR_FOR_UPDATE)
-	 * @return mixed FlaggedRevision (null on failure)
+	 * @return FlaggedRevision|null (null on failure)
 	 */
 	public static function newFromStable( Title $title, $flags = 0 ) {
 		if ( !FlaggedRevs::inReviewNamespace( $title ) ) {
@@ -141,21 +145,23 @@ class FlaggedRevision {
 		}
 		# Check tracking tables
 		$row = $db->selectRow(
-			array( 'flaggedpages', 'flaggedrevs' ),
+			array( 'flaggedpages', 'flaggedrevs', 'revision' ),
 			self::selectFields(),
-			array( 'fp_page_id' => $pageId,
+			array(
+				'fp_page_id' => $pageId,
 				'fr_page_id = fp_page_id',
-				'fr_rev_id = fp_stable'
+				'fr_rev_id = fp_stable',
+				'rev_id = fr_rev_id'
 			),
 			__METHOD__,
 			$options
 		);
-		if ( !$row ) {
-			return null;
+		if ( $row ) {
+			$frev = new self( $row );
+			$frev->mTitle = $title;
+			return $frev;
 		}
-		$frev = new self( $row );
-		$frev->mTitle = $title;
-		return $frev;
+		return null;
 	}
 
 	/**
@@ -165,7 +171,7 @@ class FlaggedRevision {
 	 * @param int $flags (FR_MASTER, FR_FOR_UPDATE)
 	 * @param array $config, optional page config (use to skip queries)
 	 * @param string $precedence (latest,quality,pristine)
-	 * @return mixed FlaggedRevision (null on failure)
+	 * @return FlaggedRevision|null (null on failure)
 	 */
 	public static function determineStable(
 		Title $title, $flags = 0, $config = array(), $precedence = 'latest'
@@ -194,13 +200,12 @@ class FlaggedRevision {
 			return null; // page is not reviewable; no stable version
 		}
 		$row = null;
-		$columns = self::selectFields();
 		$options['ORDER BY'] = 'fr_rev_id DESC';
 		# Look for the latest pristine revision...
 		if ( FlaggedRevs::pristineVersions() && $precedence !== 'latest' ) {
 			$prow = $db->selectRow(
 				array( 'flaggedrevs', 'revision' ),
-				$columns,
+				self::selectFields(),
 				array( 'fr_page_id' => $pageId,
 					'fr_quality = ' . FR_PRISTINE,
 					'rev_id = fr_rev_id',
@@ -221,7 +226,7 @@ class FlaggedRevision {
 			$newerClause = $row ? "fr_rev_id > {$row->fr_rev_id}" : "1 = 1";
 			$qrow = $db->selectRow(
 				array( 'flaggedrevs', 'revision' ),
-				$columns,
+				self::selectFields(),
 				array( 'fr_page_id' => $pageId,
 					'fr_quality = ' . FR_QUALITY,
 					$newerClause,
@@ -238,7 +243,7 @@ class FlaggedRevision {
 		if ( !$row ) {
 			$row = $db->selectRow(
 				array( 'flaggedrevs', 'revision' ),
-				$columns,
+				self::selectFields(),
 				array( 'fr_page_id' => $pageId,
 					'rev_id = fr_rev_id',
 					'rev_page = fr_page_id',
@@ -321,12 +326,14 @@ class FlaggedRevision {
 	}
 
 	/**
-	 * @return Array basic select fields for FlaggedRevision DB row
+	 * Get select fields for FlaggedRevision DB row (flaggedrevs/revision tables)
+	 * @return Array
 	 */
 	public static function selectFields() {
-		return array(
-			'fr_rev_id', 'fr_page_id', 'fr_user', 'fr_timestamp', 'fr_quality',
-			'fr_tags', 'fr_flags', 'fr_img_name', 'fr_img_sha1', 'fr_img_timestamp',
+		return array_merge(
+			Revision::selectFields(),
+			array( 'fr_rev_id', 'fr_page_id', 'fr_user', 'fr_timestamp', 'fr_quality',
+				'fr_tags', 'fr_flags', 'fr_img_name', 'fr_img_sha1', 'fr_img_timestamp' )
 		);
 	}
 
@@ -730,7 +737,7 @@ class FlaggedRevision {
 
 	/**
 	 * Get text of the corresponding revision
-	 * @return mixed (string/false) revision timestamp in MW format
+	 * @return string|false revision timestamp in MW format
 	 */
 	public function getRevText() {
 		# Get corresponding revision

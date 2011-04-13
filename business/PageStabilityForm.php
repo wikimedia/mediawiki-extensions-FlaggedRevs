@@ -224,26 +224,36 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 		$changed = FlaggedPageConfig::setStabilitySettings( $this->page, $this->getNewConfig() );
 		# Log if this actually changed anything...
 		if ( $changed ) {
-			# Update logs and make a null edit
-			$nullRev = $this->updateLogsAndHistory();
-			if ( $this->reviewThis ) {
-				# Null edit may have been auto-reviewed already
-				$frev = FlaggedRevision::newFromTitle(
-					$this->page, $nullRev->getId(), FR_MASTER );
-				# Check if this null edit is to be reviewed...
-				if ( !$frev ) {
-					$flags = null;
-					$article = new Article( $this->page );
-					# Review this revision of the page...
-					$ok = FlaggedRevs::autoReviewEdit(
-						$article, $this->user, $nullRev, $flags, true );
-					if ( $ok ) {
-						FlaggedRevs::markRevisionPatrolled( $nullRev ); // reviewed -> patrolled
-					}
+			$article = new FlaggedArticle( $this->page );
+			if ( FlaggedRevs::useOnlyIfProtected() ) {
+				# Config may have changed to allow stable versions, so refresh
+				# the tracking table to account for any hidden reviewed versions...
+				$frev = FlaggedRevision::determineStable( $this->page, FR_MASTER );
+				if ( $frev ) {
+					$article->updateStableVersion( $frev );
+				} else {
+					$article->clearStableVersion();
 				}
 			}
-			# Update page and tracking tables and clear cache
-			FlaggedRevs::stableVersionUpdates( $this->page );
+			# Update logs and make a null edit
+			$nullRev = $this->updateLogsAndHistory( $article );
+			# Null edit may have been auto-reviewed already
+			$frev = FlaggedRevision::newFromTitle( $this->page, $nullRev->getId(), FR_MASTER );
+			$updatesDone = (bool)$frev; // stableVersionUpdates() already called?
+			# Check if this null edit is to be reviewed...
+			if ( $this->reviewThis && !$frev ) {
+				$flags = null;
+				# Review this revision of the page...
+				$ok = FlaggedRevs::autoReviewEdit( $article, $this->user, $nullRev, $flags, true );
+				if ( $ok ) {
+					FlaggedRevs::markRevisionPatrolled( $nullRev ); // reviewed -> patrolled
+					$updatesDone = true; // stableVersionUpdates() already called
+				}
+			}
+			# Update page and tracking tables and clear cache.
+			if ( !$updatesDone ) {
+				FlaggedRevs::stableVersionUpdates( $this->page );
+			}
 		}
 		# Apply watchlist checkbox value (may be NULL)
 		$this->updateWatchlist();
@@ -258,23 +268,11 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 	* (b) Add a null edit like the log entry
 	* @return Revision
 	*/
-	protected function updateLogsAndHistory() {
+	protected function updateLogsAndHistory( FlaggedArticle $article ) {
 		global $wgContLang;
-		$article = new Article( $this->page );
 		$newConfig = $this->getNewConfig();
 		$oldConfig = $this->getOldConfig();
 		$reason = $this->getReason();
-
-		if ( FlaggedRevs::useOnlyIfProtected() ) {
-			# Config may have changed to allow stable versions, so refresh
-			# the tracking table to account for any hidden reviewed versions...
-			$frev = FlaggedRevision::determineStable( $this->page, FR_MASTER );
-			if ( $frev ) {
-				FlaggedRevs::updateStableVersion( $article, $frev );
-			} else {
-				FlaggedRevs::clearTrackingRows( $article->getId() );
-			}
-		}
 
 		# Insert stability log entry...
 		FlaggedRevsLog::updateStabilityLog( $this->page, $newConfig, $oldConfig, $reason );

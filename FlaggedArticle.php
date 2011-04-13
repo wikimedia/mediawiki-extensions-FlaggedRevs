@@ -6,6 +6,7 @@
  */
 class FlaggedArticle extends Article {
 	/* Process cache variables */
+	protected $stable = 0;
 	protected $stableRev = null;
 	protected $revsArePending = null;
 	protected $pendingRevCount = null;
@@ -13,8 +14,6 @@ class FlaggedArticle extends Article {
 	protected $syncedInTracking = null;
 
 	protected $imagePage = null; // for file pages
-
-	protected $stabilityDataLoaded = false;
 
 	/**
 	 * Get a FlaggedArticle for a given title
@@ -43,14 +42,14 @@ class FlaggedArticle extends Article {
 	 * @return void
 	 */
 	public function clear() {
+		$this->stable = 0;
 		$this->stableRev = null;
 		$this->revsArePending = null;
 		$this->pendingRevCount = null;
 		$this->pageConfig = null;
+		$this->syncedInTracking = null;
 		$this->imagePage = null;
-
-		$this->stabilityDataLoaded = false;
-		parent::clear();
+		parent::clear(); // call super!
 	}
 
 	/**
@@ -59,11 +58,11 @@ class FlaggedArticle extends Article {
 	 * @return mixed (File/false)
 	 */
 	public function getFile() {
-		if ( $this->getTitle()->getNamespace() != NS_FILE ) {
+		if ( $this->mTitle->getNamespace() != NS_FILE ) {
 			return false; // not a file page
 		}
 		if ( is_null( $this->imagePage ) ) {
-			$this->imagePage = new ImagePage( $this->getTitle() );
+			$this->imagePage = new ImagePage( $this->mTitle );
 		}
 		return $this->imagePage->getFile();
 	}
@@ -74,22 +73,20 @@ class FlaggedArticle extends Article {
 	 * @return mixed (File/false)
 	 */
 	public function getDisplayedFile() {
-		if ( $this->getTitle()->getNamespace() != NS_FILE ) {
+		if ( $this->mTitle->getNamespace() != NS_FILE ) {
 			return false; // not a file page
 		}
 		if ( is_null( $this->imagePage ) ) {
-			$this->imagePage = new ImagePage( $this->getTitle() );
+			$this->imagePage = new ImagePage( $this->mTitle );
 		}
 		return $this->imagePage->getDisplayedFile();
 	}
 
 	 /**
 	 * Is the stable version shown by default for this page?
-	 * @param int $flags, FR_MASTER
 	 * @return bool
 	 */
-	public function isStableShownByDefault( $flags = 0 ) {
-		$this->loadFlaggedRevsData( $flags );
+	public function isStableShownByDefault() {
 		if ( !$this->isReviewable() ) {
 			return false; // no stable versions can exist
 		}
@@ -99,11 +96,9 @@ class FlaggedArticle extends Article {
 
 	/**
 	 * Do edits have to be reviewed before being shown by default (going live)?
-	 * @param int $flags, FR_MASTER
 	 * @return bool
 	 */
-	public function editsRequireReview( $flags = 0 ) {
-		$this->loadFlaggedRevsData( $flags );
+	public function editsRequireReview() {
 		return (
 			$this->isReviewable() && // reviewable page
 			$this->isStableShownByDefault() && // and stable versions override
@@ -113,24 +108,28 @@ class FlaggedArticle extends Article {
 
 	/**
 	 * Are edits to this page currently pending?
-	 * @param int $flags, FR_MASTER
 	 * @return bool
 	 */
-	public function revsArePending( $flags = 0 ) {
-		$this->loadFlaggedRevsData( $flags );
+	public function revsArePending() {
+		if ( !$this->mDataLoaded ) {
+			$this->loadPageData();
+		}
 		return $this->revsArePending;
 	}
 
 	/**
 	 * Get number of revs since the stable revision
 	 * Note: slower than revsArePending()
-	 * @param int $flags FR_MASTER
+	 * @param int $flags FR_MASTER (be sure to use loadFromDB( FR_MASTER ) if set)
 	 * @return int
 	 */
 	public function getPendingRevCount( $flags = 0 ) {
 		global $wgMemc, $wgParserCacheExpireTime;
-		$this->loadFlaggedRevsData( $flags );
-		if ( !( $flags & FR_MASTER ) && $this->pendingRevCount !== null ) {
+		if ( !$this->mDataLoaded ) {
+			$this->loadPageData();
+		}
+		# Pending count deferred even after page data load
+		if ( $this->pendingRevCount !== null ) {
 			return $this->pendingRevCount; // use process cache
 		}
 		$srev = $this->getStableRev();
@@ -185,7 +184,7 @@ class FlaggedArticle extends Article {
 		if ( $this->revsArePending() ) {
 			return false;
 		# Stable file revision must be the same as the current
-		} elseif ( $this->getTitle()->getNamespace() == NS_FILE ) {
+		} elseif ( $this->mTitle->getNamespace() == NS_FILE ) {
 			$file = $this->getFile(); // current upload version
 			if ( $file && $file->getTimestamp() > $srev->getFileTimestamp() ) {
 				return false;
@@ -251,11 +250,10 @@ class FlaggedArticle extends Article {
 
 	 /**
 	 * Is this article reviewable?
-	 * @param int $flags, FR_MASTER
 	 * @return bool
 	 */
-	public function isReviewable( $flags = 0 ) {
-		if ( !FlaggedRevs::inReviewNamespace( $this->getTitle() ) ) {
+	public function isReviewable() {
+		if ( !FlaggedRevs::inReviewNamespace( $this->mTitle ) ) {
 			return false;
 		}
 		# Check if flagging is disabled for this page via config
@@ -268,105 +266,276 @@ class FlaggedArticle extends Article {
 
 	/**
 	* Is this page in patrollable?
-	* @param int $flags, FR_MASTER
 	* @return bool
 	*/
-	public function isPatrollable( $flags = 0 ) {
-		if ( !FlaggedRevs::inPatrolNamespace( $this->getTitle() ) ) {
+	public function isPatrollable() {
+		if ( !FlaggedRevs::inPatrolNamespace( $this->mTitle ) ) {
 			return false;
 		}
-		return !$this->isReviewable( $flags ); // pages that are reviewable are not patrollable
+		return !$this->isReviewable(); // pages that are reviewable are not patrollable
 	}
 
 	/**
 	 * Get the stable revision ID
-	 * @param int $flags
 	 * @return int
 	 */
-	public function getStable( $flags = 0 ) {
-		$srev = $this->getStableRev( $flags );
-		return $srev ? $srev->getRevId() : 0;
+	public function getStable() {
+		if ( !$this->mDataLoaded ) {
+			$this->loadPageData();
+		}
+		return (int)$this->stable;
 	}
 
 	/**
 	 * Get the stable revision
-	 * @param int $flags
 	 * @return mixed (FlaggedRevision/null)
 	 */
-	public function getStableRev( $flags = 0 ) {
-		$this->loadFlaggedRevsData( $flags );
+	public function getStableRev() {
+		if ( !$this->mDataLoaded ) {
+			$this->loadPageData();
+		}
+		# Stable rev deferred even after page data load
+		if ( $this->stableRev === null ) {
+			$srev = FlaggedRevision::newFromTitle( $this->mTitle, $this->stable );
+			$this->stableRev = $srev ? $srev : false; // cache negative hits too
+		}
 		return $this->stableRev ? $this->stableRev : null; // false => null
 	}
 
 	/**
 	 * Get visiblity restrictions on page
-	 * @param int $flags, FR_MASTER
 	 * @return Array (select,override)
 	 */
-	public function getStabilitySettings( $flags = 0 ) {
-		$this->loadFlaggedRevsData( $flags );
+	public function getStabilitySettings() {
+		if ( !$this->mDataLoaded ) {
+			$this->loadPageData();
+		}
 		return $this->pageConfig;
-	}
-
-	/**
-	 * Get a DB row of the stable version and page config of a title.
-	 * @param Title $title, page title
-	 * @param int $flags FR_MASTER
-	 */
-	protected function loadFlaggedRevsData( $flags = 0 ) {
-		if ( $this->stabilityDataLoaded && !( $flags & FR_MASTER ) ) {
-			return; // no need to reload everything
-		}
-		$this->stabilityDataLoaded = true;
-
-		$this->pageConfig = FlaggedPageConfig::getDefaultVisibilitySettings(); // default
-		$this->stableRev = false; // false => "found nothing"
-		$this->revsArePending = false;
-		$this->pendingRevCount = null; // defer this one
-
-		if ( !FlaggedRevs::inReviewNamespace( $this->getTitle() ) ) {
-			return; // short-circuit
-		}
-		# User master/slave as appropriate...
-		$db = ( $flags & FR_MASTER ) ?
-			wfGetDB( DB_MASTER ) : wfGetDB( DB_SLAVE );
-		$row = $db->selectRow(
-			array( 'page', 'flaggedpages', 'flaggedrevs', 'flaggedpage_config' ),
-			array_merge( FlaggedRevision::selectFields(),
-				FlaggedPageConfig::selectFields(),
-				array( 'fp_pending_since', 'fp_reviewed' ) ),
-			array( 'page_id' => $this->getID() ),
-			__METHOD__,
-			array(),
-			array(
-				'flaggedpages' => array( 'LEFT JOIN', 'fp_page_id = page_id' ),
-				'flaggedrevs'  => array( 'LEFT JOIN',
-					'fr_page_id = fp_page_id AND fr_rev_id = fp_stable' ),
-				'flaggedpage_config' => array( 'LEFT JOIN', 'fpc_page_id = page_id' ) )
-		);
-		if ( !$row ) {
-			return; // no page found at all
-		}
-		if ( $row->fpc_override !== null ) { // page config row found
-			$this->pageConfig = FlaggedPageConfig::getVisibilitySettingsFromRow( $row );
-		}
-		if ( $row->fr_rev_id !== null ) { // stable rev row found		
-			// Page may not reviewable, which implies no stable version
-			if ( !FlaggedRevs::useOnlyIfProtected() || $this->pageConfig['override']  ) {
-				$this->stableRev = new FlaggedRevision( $row );
-			}
-		}
-		$this->revsArePending = ( $row->fp_pending_since !== null ); // revs await review
-		$this->syncedInTracking = (bool)$row->fp_reviewed;
 	}
 
 	/*
 	* Get the fp_reviewed value for this page
-	* @param int $flags FR_MASTER
 	* @return bool
 	*/
-	public function syncedInTracking( $flags = 0 ) {
-		$this->loadFlaggedRevsData( $flags );
+	public function syncedInTracking() {
+		if ( !$this->mDataLoaded ) {
+			$this->loadPageData();
+		}
 		return $this->syncedInTracking;
+	}
+
+	/**
+	 * Fetch a page record with the given conditions
+	 * @param $dbr Database object
+	 * @param $conditions Array
+	 * @return mixed Database result resource, or false on failure
+	 */
+	protected function pageData( $dbr, $conditions ) {
+		$row = $dbr->selectRow(
+			array( 'page', 'flaggedpages', 'flaggedpage_config' ),
+			array_merge(
+				Article::selectFields(),
+				FlaggedPageConfig::selectFields(),
+				array( 'fp_pending_since', 'fp_stable', 'fp_reviewed' ) ),
+			$conditions,
+			__METHOD__,
+			array(),
+			array(
+				'flaggedpages' 		 => array( 'LEFT JOIN', 'fp_page_id = page_id' ),
+				'flaggedpage_config' => array( 'LEFT JOIN', 'fpc_page_id = page_id' ) )
+		);
+		return $row;
+	}
+
+	/**
+	 * Set the page field data loaded from some source
+	 * @param $data Database row object or "fromdb"
+	 * @return void
+	 */
+	public function loadPageData( $data = 'fromdb' ) {
+		$this->mDataLoaded = true; // sanity
+		# Fetch data from DB as needed...
+		if ( $data === 'fromdb' ) {
+			$data = $this->pageDataFromTitle( wfGetDB( DB_SLAVE ), $this->mTitle );
+		}
+		# Load in primary page data...
+		parent::loadPageData( $data /* Row obj */ );
+		# Load in FlaggedRevs page data...
+		$this->stable = 0; // 0 => "found nothing"
+		$this->stableRev = null; // defer this one...
+		$this->revsArePending = false; // false => "found nothing" or "none pending"
+		$this->pendingRevCount = null; // defer this one...
+		$this->pageConfig = FlaggedPageConfig::getDefaultVisibilitySettings(); // default
+		$this->syncedInTracking = true; // false => "unreviewed" or "synced"
+		# Load in Row data if the page exists...
+		if ( $data ) {
+			if ( $data->fpc_override !== null ) { // page config row found
+				$this->pageConfig = FlaggedPageConfig::getVisibilitySettingsFromRow( $data );
+			}
+			if ( $data->fp_stable !== null ) { // stable rev found	
+				$this->stable = (int)$data->fp_stable;
+				$this->revsArePending = ( $data->fp_pending_since !== null ); // revs await review
+				$this->syncedInTracking = (bool)$data->fp_reviewed;
+			}
+		}
+	}
+
+	/**
+	 * Set the page field data loaded from the DB
+	 * @param int $flags FR_MASTER
+	 * @param $data Database row object or "fromdb"
+	 */
+	public function loadFromDB( $flags = 0 ) {
+		$db = ( $flags & FR_MASTER ) ?
+			wfGetDB( DB_MASTER ) : wfGetDB( DB_SLAVE );
+		$this->loadPageData( $this->pageDataFromTitle( $db, $this->mTitle ) );
+	}
+
+	/**
+	* Updates the flagging tracking tables for this page
+	* @param FlaggedRevision $srev The new stable version
+	* @param mixed $latest The latest rev ID (optional)
+	* @return bool Updates were done
+	*/
+	public function updateStableVersion( FlaggedRevision $srev, $latest = null ) {
+		$rev = $srev->getRevision();
+		if ( !$this->exists() || !$rev ) {
+			return false; // no bogus entries
+		}
+		# Get the latest revision ID if not set
+		if ( !$latest ) {
+			$latest = $this->mTitle->getLatestRevID( Title::GAID_FOR_UPDATE );
+		}
+		$dbw = wfGetDB( DB_MASTER );
+		# Get the highest quality revision (not necessarily this one)...
+		if ( $srev->getQuality() === FlaggedRevs::highestReviewTier() ) {
+			$maxQuality = $srev->getQuality(); // save a query
+		} else {
+			$maxQuality = $dbw->selectField( array( 'flaggedrevs', 'revision' ),
+				'fr_quality',
+				array( 'fr_page_id' => $this->getId(),
+					'rev_id = fr_rev_id',
+					'rev_page = fr_page_id',
+					'rev_deleted & ' . Revision::DELETED_TEXT => 0
+				),
+				__METHOD__,
+				array( 'ORDER BY' => 'fr_quality DESC', 'LIMIT' => 1 )
+			);
+			$maxQuality = max( $maxQuality, $srev->getQuality() ); // sanity
+		}
+		# Get the timestamp of the first edit after the stable version (if any)...
+		$nextTimestamp = null;
+		if ( $rev->getId() != $latest ) {
+			$timestamp = $dbw->timestamp( $rev->getTimestamp() );
+			$nextEditTS = $dbw->selectField( 'revision',
+				'rev_timestamp',
+				array(
+					'rev_page' => $this->getId(),
+					"rev_timestamp > " . $dbw->addQuotes( $timestamp ) ),
+				__METHOD__,
+				array( 'ORDER BY' => 'rev_timestamp ASC', 'LIMIT' => 1 )
+			);
+			if ( $nextEditTS ) { // sanity check
+				$nextTimestamp = $nextEditTS;
+			}
+		}
+		# Get the new page sync status...
+		$synced = !(
+			$nextTimestamp !== null || // edits pending
+			$srev->findPendingTemplateChanges() || // template changes pending
+			$srev->findPendingFileChanges( 'noForeign' ) // file changes pending
+		);
+		# Alter table metadata
+		$dbw->replace( 'flaggedpages',
+			array( 'fp_page_id' ),
+			array(
+				'fp_page_id'       => $this->getId(),
+				'fp_stable'        => $rev->getId(),
+				'fp_reviewed'      => $synced ? 1 : 0,
+				'fp_quality'       => ( $maxQuality === false ) ? null : $maxQuality,
+				'fp_pending_since' => $dbw->timestampOrNull( $nextTimestamp )
+			),
+			__METHOD__
+		);
+		# Update pending edit tracking table
+		self::updatePendingList( $this->getId(), $latest );
+		return true;
+	}
+
+	/**
+	* Updates the flagging tracking tables for this page
+	* @return void
+	*/
+	public function clearStableVersion() {
+		if ( !$this->exists() ) {
+			return; // nothing to do
+		}
+		$dbw = wfGetDB( DB_MASTER );
+		$dbw->delete( 'flaggedpages',
+			array( 'fp_page_id' => $this->getId() ), __METHOD__ );
+		$dbw->delete( 'flaggedpage_pending',
+			array( 'fpp_page_id' => $this->getId() ), __METHOD__ );
+	}
+
+	/**
+	* Updates the flaggedpage_pending table
+	* @param int $pageId Page ID
+	* @abstract int $latest Latest revision
+	* @return void
+	*/
+	protected static function updatePendingList( $pageId, $latest ) {
+		$data = array();
+		$level = FlaggedRevs::highestReviewTier();
+		# Update pending times for each level, going from highest to lowest
+		$dbw = wfGetDB( DB_MASTER );
+		$higherLevelId = 0;
+		$higherLevelTS = '';
+		while ( $level >= 0 ) {
+			# Get the latest revision of this level...
+			$row = $dbw->selectRow( array( 'flaggedrevs', 'revision' ),
+				array( 'fr_rev_id', 'rev_timestamp' ),
+				array( 'fr_page_id' => $pageId,
+					'fr_quality' => $level,
+					'rev_id = fr_rev_id',
+					'rev_page = fr_page_id',
+					'rev_deleted & ' . Revision::DELETED_TEXT => 0,
+					'rev_id > ' . intval( $higherLevelId )
+				),
+				__METHOD__,
+				array( 'ORDER BY' => 'fr_rev_id DESC', 'LIMIT' => 1 )
+			);
+			# If there is a revision of this level, track it...
+			# Revisions reviewed to one level  count as reviewed
+			# at the lower levels (i.e. quality -> checked).
+			if ( $row ) {
+				$id = $row->fr_rev_id;
+				$ts = $row->rev_timestamp;
+			} else {
+				$id = $higherLevelId; // use previous (quality -> checked)
+				$ts = $higherLevelTS; // use previous (quality -> checked)
+			}
+			# Get edits that actually are pending...
+			if ( $id && $latest > $id ) {
+				# Get the timestamp of the edit after this version (if any)
+				$nextTimestamp = $dbw->selectField( 'revision',
+					'rev_timestamp',
+					array( 'rev_page' => $pageId, "rev_timestamp > " . $dbw->addQuotes( $ts ) ),
+					__METHOD__,
+					array( 'ORDER BY' => 'rev_timestamp ASC', 'LIMIT' => 1 )
+				);
+				$data[] = array(
+					'fpp_page_id'       => $pageId,
+					'fpp_quality'       => $level,
+					'fpp_rev_id'        => $id,
+					'fpp_pending_since' => $nextTimestamp
+				);
+				$higherLevelId = $id;
+				$higherLevelTS = $ts;
+			}
+			$level--;
+		}
+		# Clear any old junk, and insert new rows
+		$dbw->delete( 'flaggedpage_pending', array( 'fpp_page_id' => $pageId ), __METHOD__ );
+		$dbw->insert( 'flaggedpage_pending', $data, __METHOD__ );
 	}
 }

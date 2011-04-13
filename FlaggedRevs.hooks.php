@@ -204,8 +204,9 @@ class FlaggedRevsHooks {
 		Title $otitle, Title $ntitle, $user, $pageId
 	) {
 		$fa = FlaggedArticle::getTitleInstance( $ntitle );
+		$fa->loadFromDB( FR_MASTER );
 		// Re-validate NS/config (new title may not be reviewable)
-		if ( $fa->isReviewable( FR_MASTER ) ) {
+		if ( $fa->isReviewable() ) {
 			// Moved from non-reviewable to reviewable NS?
 			// Auto-review such edits like new pages...
 			if ( !FlaggedRevs::inReviewNamespace( $otitle )
@@ -485,7 +486,8 @@ class FlaggedRevsHooks {
 		global $wgRequest;
 		# Edit must be non-null, to a reviewable page, with $user set
 		$fa = FlaggedArticle::getArticleInstance( $article );
-		if ( !$rev || !$user || !$fa->isReviewable( FR_MASTER ) ) {
+		$fa->loadFromDB( FR_MASTER );
+		if ( !$rev || !$user || !$fa->isReviewable() ) {
 			return true;
 		}
 		$title = $article->getTitle(); // convenience
@@ -556,7 +558,7 @@ class FlaggedRevsHooks {
 		# (a) this is a rollback to the stable version
 		# (b) this is a self-reversion to the stable version
 		# These are subcases of making a new revision based on an old, reviewed, revision.
-		} elseif ( FlaggedRevs::autoReviewEdits() && $fa->getStableRev( FR_MASTER ) ) {
+		} elseif ( FlaggedRevs::autoReviewEdits() && $fa->getStableRev() ) {
 			$srev = $fa->getStableRev();
 			# Check for rollbacks...
 			$reviewableChange = (
@@ -660,7 +662,8 @@ class FlaggedRevsHooks {
 			return true;
 		}
 		$fa = FlaggedArticle::getArticleInstance( $article );
-		if ( !$fa->isReviewable( FR_MASTER ) ) {
+		$fa->loadFromDB( FR_MASTER );
+		if ( !$fa->isReviewable() ) {
 			return true; // page is not reviewable
 		}
 		$title = $article->getTitle(); // convenience
@@ -724,8 +727,9 @@ class FlaggedRevsHooks {
 			return true;
 		}
 		$fa = FlaggedArticle::getTitleInstance( $rc->getTitle() );
+		$fa->loadFromDB( FR_MASTER );
 		// Is the page reviewable?
-		if ( $fa->isReviewable( FR_MASTER ) ) {
+		if ( $fa->isReviewable() ) {
 			$revId = $rc->mAttribs['rc_this_oldid'];
 			$quality = FlaggedRevs::getRevQuality(
 				$rc->mAttribs['rc_cur_id'], $revId, FR_MASTER );

@@ -7,11 +7,11 @@ function update_flaggedrevs( $start = null ) {
 	
 	$db = wfGetDB( DB_MASTER );
 	
-	if( $start === null ) {
+	if ( $start === null ) {
 		$start = $db->selectField( 'revision', 'MIN(rev_id)', false, __FUNCTION__ );
 	}
 	$end = $db->selectField( 'revision', 'MAX(rev_id)', false, __FUNCTION__ );
-	if( is_null( $start ) || is_null( $end ) ) {
+	if ( is_null( $start ) || is_null( $end ) ) {
 		echo "...revision table seems to be empty.\n";
 		return;
 	}
@@ -21,7 +21,7 @@ function update_flaggedrevs( $start = null ) {
 	$blockEnd = $start + $BATCH_SIZE - 1;
 	$count = 0;
 	$changed = 0;
-	while( $blockEnd <= $end ) {
+	while ( $blockEnd <= $end ) {
 		echo "...doing fr_rev_id from $blockStart to $blockEnd\n";
 		$cond = "rev_id BETWEEN $blockStart AND $blockEnd 
 			AND fr_page_id = rev_page AND fr_rev_id = rev_id AND page_id = rev_page";
@@ -32,17 +32,17 @@ function update_flaggedrevs( $start = null ) {
 		);
 		$db->begin();
 		# Go through and clean up missing items, as well as correct fr_quality...
-		foreach( $res as $row ) {
+		foreach ( $res as $row ) {
 			$tags = FlaggedRevision::expandRevisionTags( $row->fr_tags );
 			# Quality rating levels may have changed due to config tweaks...
-			if( FlaggedRevs::isPristine( $tags ) ) {
+			if ( FlaggedRevs::isPristine( $tags ) ) {
 				$quality = 2;
 			} else {
 				$quality = FlaggedRevs::isQuality( $tags ) ? 1 : 0;
 			}
 			$time = $sha1 = $file = null;
 			# Check for file version to see if it's stored the old way...
-			if( !$row->fr_img_name && $row->page_namespace == NS_IMAGE ) {
+			if ( !$row->fr_img_name && $row->page_namespace == NS_IMAGE ) {
 				$irow = $db->selectRow( 'flaggedimages',
 					array( 'fi_img_timestamp', 'fi_img_sha1' ),
 					array( 'fi_rev_id' => $row->fr_rev_id,
@@ -52,7 +52,7 @@ function update_flaggedrevs( $start = null ) {
 				$sha1 = $irow ? $irow->fi_img_sha1 : null;
 				$file = $irow ? $row->page_title : null;
 				# Fill in from current if broken
-				if( !$irow ) {
+				if ( !$irow ) {
 					$crow = $db->selectRow( 'image',
 						array( 'img_timestamp', 'img_sha1' ),
 						array( 'img_name' => $row->page_title ),
@@ -62,12 +62,12 @@ function update_flaggedrevs( $start = null ) {
 					$file = $crow ? $row->page_title : null;
 				}
 			# Leave it alone if already set
-			} elseif( $row->fr_img_name && $row->page_namespace == NS_IMAGE ) {
+			} elseif ( $row->fr_img_name && $row->page_namespace == NS_IMAGE ) {
 				$time = $row->fr_img_timestamp;
 				$sha1 = $row->fr_img_sha1;
 				$file = $row->fr_img_name;
 			}
-			if( $quality != $row->fr_quality
+			if ( $quality != $row->fr_quality
 				|| $file != $row->fr_img_name
 				|| $sha1 != $row->fr_img_sha1
 				|| $time != $row->fr_img_timestamp )
@@ -101,11 +101,11 @@ function update_flaggedpages( $start = null ) {
 	
 	$db = wfGetDB( DB_MASTER );
 	
-	if( $start === null ) {
+	if ( $start === null ) {
 		$start = $db->selectField( 'page', 'MIN(page_id)', false, __FUNCTION__ );
 	}
 	$end = $db->selectField( 'page', 'MAX(page_id)', false, __FUNCTION__ );
-	if( is_null( $start ) || is_null( $end ) ) {
+	if ( is_null( $start ) || is_null( $end ) ) {
 		echo "...flaggedpages table seems to be empty.\n";
 		return;
 	}
@@ -114,36 +114,43 @@ function update_flaggedpages( $start = null ) {
 	$blockStart = $start;
 	$blockEnd = $start + $BATCH_SIZE - 1;
 	$count = $deleted = $fixed = 0;
-	while( $blockEnd <= $end ) {
+	while ( $blockEnd <= $end ) {
 		echo "...doing page_id from $blockStart to $blockEnd\n";
 		$cond = "page_id BETWEEN $blockStart AND $blockEnd";
 		$res = $db->select( 'page', array('page_id','page_namespace','page_title','page_latest'),
 			$cond, __FUNCTION__ );
 		# Go through and update the de-normalized references...
 		$db->begin();
-		foreach( $res as $row ) {
+		foreach ( $res as $row ) {
 			$title = Title::newFromRow( $row );
-			$article = new Article( $title );
-			# Replaces new fields into flaggedpages
+			$article = new FlaggedArticle( $title );
+			$oldFrev = FlaggedRevision::newFromStable( $title, FR_MASTER );
 			$frev = FlaggedRevision::determineStable( $title, FR_MASTER );
 			# Update fp_stable, fp_quality, and fp_reviewed
-			if( $frev ) {
-				FlaggedRevs::updateStableVersion( $article, $frev, $row->page_latest );
+			if ( $frev ) {
+				$article->updateStableVersion( $frev, $row->page_latest );
+				$changed = ( !$oldFrev || $oldFrev->getRevId() != $frev->getRevId() );
 			# Somethings broke? Delete the row...
 			} else {
-				FlaggedRevs::clearTrackingRows( $row->page_id );
-				if( $db->affectedRows() > 0 ) $deleted++;
+				$article->clearStableVersion();
+				if ( $db->affectedRows() > 0 ) $deleted++;
+				$changed = (bool)$oldFrev;
 			}
 			# Get the latest revision
 			$revRow = $db->selectRow( 'revision', '*',
 				array('rev_page' => $row->page_id), __FUNCTION__,
 				array('ORDER BY' => 'rev_timestamp DESC') );
 			# Correct page_latest if needed (import/files made plenty of bad rows)
-			if( $revRow ) {
+			if ( $revRow ) {
 				$revision = new Revision( $revRow );
-				if( $article->updateIfNewerOn( $db, $revision ) ) {
+				if ( $article->updateIfNewerOn( $db, $revision ) ) {
 					$fixed++;
 				}
+			}
+			if ( $changed ) {
+				# Lazily rebuild dependancies on next parse (we invalidate below)
+				FlaggedRevs::clearStableOnlyDeps( $title );
+				$title->invalidateCache();
 			}
 			$count++;
 		}
@@ -172,11 +179,11 @@ function update_flaggedimages( $start = null ) {
 	
 	$db = wfGetDB( DB_MASTER );
 	
-	if( $start === null ) {
+	if ( $start === null ) {
 		$start = $db->selectField( 'flaggedimages', 'MIN(fi_rev_id)', false, __FUNCTION__ );
 	}
 	$end = $db->selectField( 'flaggedimages', 'MAX(fi_rev_id)', false, __FUNCTION__ );
-	if( is_null( $start ) || is_null( $end ) ) {
+	if ( is_null( $start ) || is_null( $end ) ) {
 		echo "...flaggedimages table seems to be empty.\n";
 		return;
 	}
@@ -185,7 +192,7 @@ function update_flaggedimages( $start = null ) {
 	$blockStart = $start;
 	$blockEnd = $start + $BATCH_SIZE - 1;
 	$nulled = 0;
-	while( $blockEnd <= $end ) {
+	while ( $blockEnd <= $end ) {
 		echo "...doing fi_rev_id from $blockStart to $blockEnd\n";
 		$cond = "fi_rev_id BETWEEN $blockStart AND $blockEnd";
 		$db->begin();
@@ -195,7 +202,7 @@ function update_flaggedimages( $start = null ) {
 			array( $cond, "fi_img_timestamp = '' OR LOCATE( '\\0', fi_img_timestamp )" ),
 			__FUNCTION__
 		);
-		if( $db->affectedRows() > 0 ) {
+		if ( $db->affectedRows() > 0 ) {
 			$nulled += $db->affectedRows();
 		}
 		$db->commit();
