@@ -251,7 +251,7 @@ $wgAutoloadClasses['FlaggedRevsLog'] = $dir . 'FlaggedRevsLog.php';
 $wgAutoloadClasses['FlaggedRevsHooks'] = $dir . 'FlaggedRevs.hooks.php';
 $wgAutoloadClasses['FlaggedRevsUIHooks'] = $dir . 'presentation/FlaggedRevsUI.hooks.php';
 $wgAutoloadClasses['FlaggedRevsApiHooks'] = $dir . 'api/FlaggedRevsApi.hooks.php';
-$wgAutoloadClasses['FlaggedRevsUpdaterHooks'] = $dir . 'updater/FlaggedRevsUpdater.hooks.php';
+$wgAutoloadClasses['FlaggedRevsUpdaterHooks'] = $dir . 'schema/FlaggedRevsUpdater.hooks.php';
 
 # Data object classes...
 $wgAutoloadClasses['FRExtraCacheUpdate'] = $dir . 'FRExtraCacheUpdate.php';
