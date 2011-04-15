@@ -1008,8 +1008,8 @@ class FlaggedRevsHooks {
 	}
 
 	public static function getUnitTests( &$files ) {
-		$files[] = dirname( __FILE__ ) . '/maintenance/tests/FRInclusionManagerTest.php';
-		$files[] = dirname( __FILE__ ) . '/maintenance/tests/FRUserCountersTest.php';
+		$files[] = dirname( __FILE__ ) . '/tests/FRInclusionManagerTest.php';
+		$files[] = dirname( __FILE__ ) . '/tests/FRUserCountersTest.php';
 		return true;
 	}
 

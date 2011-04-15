@@ -240,27 +240,27 @@ $langDir = $dir . 'presentation/language/';
 $wgExtensionMessagesFiles['FlaggedRevs'] = $langDir . 'FlaggedRevs.i18n.php';
 $wgExtensionAliasesFiles['FlaggedRevs'] = $langDir . 'FlaggedRevs.alias.php';
 
+$accessDir = $dir . 'dataclasses/';
 # Utility classes...
-$wgAutoloadClasses['FlaggedRevs'] = $dir . 'FlaggedRevs.class.php';
-$wgAutoloadClasses['FRUserCounters'] = $dir . 'FRUserCounters.php';
-$wgAutoloadClasses['FRUserActivity'] = $dir . 'FRUserActivity.php';
-$wgAutoloadClasses['FlaggedPageConfig'] = $dir . 'FlaggedPageConfig.php';
-$wgAutoloadClasses['FlaggedRevsLog'] = $dir . 'FlaggedRevsLog.php';
+$wgAutoloadClasses['FlaggedRevs'] = $accessDir . 'FlaggedRevs.class.php';
+$wgAutoloadClasses['FRUserCounters'] = $accessDir . 'FRUserCounters.php';
+$wgAutoloadClasses['FRUserActivity'] = $accessDir . 'FRUserActivity.php';
+$wgAutoloadClasses['FlaggedPageConfig'] = $accessDir . 'FlaggedPageConfig.php';
+$wgAutoloadClasses['FlaggedRevsLog'] = $accessDir . 'FlaggedRevsLog.php';
+# Data object classes...
+$wgAutoloadClasses['FRExtraCacheUpdate'] = $accessDir . 'FRExtraCacheUpdate.php';
+$wgAutoloadClasses['FRExtraCacheUpdateJob'] = $accessDir . 'FRExtraCacheUpdate.php';
+$wgAutoloadClasses['FRSquidUpdate'] = $accessDir . 'FRExtraCacheUpdate.php';
+$wgAutoloadClasses['FRDependencyUpdate'] = $accessDir . 'FRDependencyUpdate.php';
+$wgAutoloadClasses['FRInclusionManager'] = $accessDir . 'FRInclusionManager.php';
+$wgAutoloadClasses['FlaggedPage'] = $accessDir . 'FlaggedPage.php';
+$wgAutoloadClasses['FlaggedRevision'] = $accessDir . 'FlaggedRevision.php';
 
 # Event handler classes...
 $wgAutoloadClasses['FlaggedRevsHooks'] = $dir . 'FlaggedRevs.hooks.php';
 $wgAutoloadClasses['FlaggedRevsUIHooks'] = $dir . 'presentation/FlaggedRevsUI.hooks.php';
 $wgAutoloadClasses['FlaggedRevsApiHooks'] = $dir . 'api/FlaggedRevsApi.hooks.php';
 $wgAutoloadClasses['FlaggedRevsUpdaterHooks'] = $dir . 'schema/FlaggedRevsUpdater.hooks.php';
-
-# Data object classes...
-$wgAutoloadClasses['FRExtraCacheUpdate'] = $dir . 'FRExtraCacheUpdate.php';
-$wgAutoloadClasses['FRExtraCacheUpdateJob'] = $dir . 'FRExtraCacheUpdate.php';
-$wgAutoloadClasses['FRSquidUpdate'] = $dir . 'FRExtraCacheUpdate.php';
-$wgAutoloadClasses['FRDependencyUpdate'] = $dir . 'FRDependencyUpdate.php';
-$wgAutoloadClasses['FRInclusionManager'] = $dir . 'FRInclusionManager.php';
-$wgAutoloadClasses['FlaggedPage'] = $dir . 'FlaggedPage.php';
-$wgAutoloadClasses['FlaggedRevision'] = $dir . 'FlaggedRevision.php';
 
 # Business object classes
 $wgAutoloadClasses['FRGenericSubmitForm'] = $dir . 'business/FRGenericSubmitForm.php';
