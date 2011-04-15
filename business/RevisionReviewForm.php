@@ -172,7 +172,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 			return 'review_param_missing'; // user didn't say
 		}
 		# Get the revision's current flags, if any
-		$this->oflags = FlaggedRevs::getRevisionTags( $this->page, $this->oldid, FR_MASTER );
+		$this->oflags = FlaggedRevision::getRevisionTags( $this->page, $this->oldid, FR_MASTER );
 		# Set initial value for newLastChangeTime (if unchanged on submit)
 		$this->newLastChangeTime = $this->lastChangeTime;
 		# Fill in implicit tag data for binary flag case

@@ -748,6 +748,55 @@ class FlaggedRevision {
 
 	/**
 	 * Get flags for a revision
+	 * @param Title $title
+	 * @param int $rev_id
+	 * @param $flags, FR_MASTER
+	 * @return array
+	*/
+	public static function getRevisionTags( Title $title, $rev_id, $flags = 0 ) {
+		$db = ( $flags & FR_MASTER ) ?
+			wfGetDB( DB_MASTER ) : wfGetDB( DB_SLAVE );
+		$tags = (string)$db->selectField( 'flaggedrevs',
+			'fr_tags',
+			array( 'fr_rev_id' => $rev_id,
+				'fr_page_id' => $title->getArticleId() ),
+			__METHOD__
+		);
+		return FlaggedRevision::expandRevisionTags( strval( $tags ) );
+	}
+
+	/**
+	 * @param int $page_id
+	 * @param int $rev_id
+	 * @param $flags, FR_MASTER
+	 * @return mixed (int or false)
+	 * Get quality of a revision
+	 */
+	public static function getRevQuality( $page_id, $rev_id, $flags = 0 ) {
+		$db = ( $flags & FR_MASTER ) ?
+			wfGetDB( DB_MASTER ) : wfGetDB( DB_SLAVE );
+		return $db->selectField( 'flaggedrevs',
+			'fr_quality',
+			array( 'fr_page_id' => $page_id, 'fr_rev_id' => $rev_id ),
+			__METHOD__,
+			array( 'USE INDEX' => 'PRIMARY' )
+		);
+	}
+
+	/**
+	 * @param Title $title
+	 * @param int $rev_id
+	 * @param $flags, FR_MASTER
+	 * @return bool
+	 * Useful for quickly pinging to see if a revision is flagged
+	 */
+	public static function revIsFlagged( Title $title, $rev_id, $flags = 0 ) {
+		$quality = self::getRevQuality( $title->getArticleId(), $rev_id, $flags );
+		return ( $quality !== false );
+	}
+
+	/**
+	 * Get flags for a revision
 	 * @param string $tags
 	 * @return array
 	*/

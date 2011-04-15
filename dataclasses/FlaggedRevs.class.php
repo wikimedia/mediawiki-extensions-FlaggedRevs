@@ -681,24 +681,6 @@ class FlaggedRevs {
 		wfProfileOut( __METHOD__ );
 	}
 
-	/**
-	* @param Article $article
-	* @param bool $synced
-	* Updates the fp_reviewed field for this article
-	*/	
-	public static function updateSyncStatus( Article $article, $synced ) {
-		wfProfileIn( __METHOD__ );
-		if ( !wfReadOnly() ) {
-			$dbw = wfGetDB( DB_MASTER );
-			$dbw->update( 'flaggedpages',
-				array( 'fp_reviewed' => (int)$synced ),
-				array( 'fp_page_id'  => $article->getID() ),
-				__METHOD__
-			);
-		}
-		wfProfileOut( __METHOD__ );
-	}
-
 	# ################ Tracking/cache update update functions #################
 
 	/**
@@ -781,80 +763,6 @@ class FlaggedRevs {
 
 	# ################ Revision functions #################
 
-	/**
-	 * Get flags for a revision
-	 * @param Title $title
-	 * @param int $rev_id
-	 * @param $flags, FR_MASTER
-	 * @return array
-	*/
-	public static function getRevisionTags( Title $title, $rev_id, $flags = 0 ) {
-		$db = ( $flags & FR_MASTER ) ?
-			wfGetDB( DB_MASTER ) : wfGetDB( DB_SLAVE );
-		$tags = (string)$db->selectField( 'flaggedrevs',
-			'fr_tags',
-			array( 'fr_rev_id' => $rev_id,
-				'fr_page_id' => $title->getArticleId() ),
-			__METHOD__
-		);
-		return FlaggedRevision::expandRevisionTags( strval( $tags ) );
-	}
-
-	/**
-	 * @param int $page_id
-	 * @param int $rev_id
-	 * @param $flags, FR_MASTER
-	 * @return mixed (int or false)
-	 * Get quality of a revision
-	 */
-	public static function getRevQuality( $page_id, $rev_id, $flags = 0 ) {
-		$db = ( $flags & FR_MASTER ) ?
-			wfGetDB( DB_MASTER ) : wfGetDB( DB_SLAVE );
-		return $db->selectField( 'flaggedrevs',
-			'fr_quality',
-			array( 'fr_page_id' => $page_id, 'fr_rev_id' => $rev_id ),
-			__METHOD__,
-			array( 'USE INDEX' => 'PRIMARY' )
-		);
-	}
-
-	/**
-	 * @param Title $title
-	 * @param int $rev_id
-	 * @param $flags, FR_MASTER
-	 * @return bool
-	 * Useful for quickly pinging to see if a revision is flagged
-	 */
-	public static function revIsFlagged( Title $title, $rev_id, $flags = 0 ) {
-		$quality = self::getRevQuality( $title->getArticleId(), $rev_id, $flags );
-		return ( $quality !== false );
-	}
-	
-	/**
-	 * Get the "prime" flagged revision of a page
-	 * @param Article $article
-	 * @return mixed (integer/false)
-	 * Will not return a revision if deleted
-	 */
-	public static function getPrimeFlaggedRevId( Article $article ) {
-		$dbr = wfGetDB( DB_SLAVE );
-		# Get the highest quality revision (not necessarily this one).
-		$oldid = $dbr->selectField( array( 'flaggedrevs', 'revision' ),
-			'fr_rev_id',
-			array(
-				'fr_page_id' => $article->getId(),
-				'rev_page = fr_page_id',
-				'rev_id = fr_rev_id'
-			),
-			__METHOD__,
-			array(
-				'ORDER BY' => 'fr_quality DESC, fr_rev_id DESC',
-				'USE INDEX' => array( 'flaggedrevs' => 'page_qal_rev', 'revision' => 'PRIMARY' )
-			)
-		);
-		return $oldid;
-	}
-	
 	/**
 	 * Mark a revision as patrolled if needed
 	 * @param Revision $rev

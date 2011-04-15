@@ -459,7 +459,7 @@ class FlaggedRevsHooks {
 			# has content different than what the user expected. However, if
 			# the auto-merged edit was reviewed, then assume that it's OK.
 			if ( $editTimestamp != $prevTimestamp
-				&& !FlaggedRevs::revIsFlagged( $title, $prevRevId, FR_MASTER )
+				&& !FlaggedRevision::revIsFlagged( $title, $prevRevId, FR_MASTER )
 			) {
 				return false; // not flagged?
 			}
@@ -590,7 +590,7 @@ class FlaggedRevsHooks {
 		// Is the page reviewable?
 		if ( $fa->isReviewable() ) {
 			$revId = $rc->mAttribs['rc_this_oldid'];
-			$quality = FlaggedRevs::getRevQuality(
+			$quality = FlaggedRevision::getRevQuality(
 				$rc->mAttribs['rc_cur_id'], $revId, FR_MASTER );
 			// Reviewed => patrolled
 			if ( $quality !== false && $quality >= FR_CHECKED ) {

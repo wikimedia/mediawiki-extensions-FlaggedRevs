@@ -258,7 +258,7 @@ class FlaggedPageView {
 		}
 		return true;
 	}
-	
+
 	/**
 	* @return mixed int/false/null
 	*/
@@ -266,7 +266,7 @@ class FlaggedPageView {
 		global $wgRequest;
 		$reqId = $wgRequest->getVal( 'stableid' );
 		if ( $reqId === "best" ) {
-			$reqId = FlaggedRevs::getPrimeFlaggedRevId( $this->article );
+			$reqId = $this->article->getBestFlaggedRevId();
 		}
 		return $reqId;
 	}
@@ -700,7 +700,7 @@ class FlaggedPageView {
 		# NOTE: avoids master hits and doesn't have to be perfect for what it does
 		if ( $this->article->syncedInTracking() != $synced ) {
 			if ( wfGetDB( DB_SLAVE )->getLag() <= 5 ) { // avoid write-delay cycles
-				FlaggedRevs::updateSyncStatus( $this->article, $synced );
+				$this->article->updateSyncStatus( $synced );
 			}
 		}
 	}
@@ -1505,7 +1505,7 @@ class FlaggedPageView {
 	protected static function getDiffRevMsgAndClass(
 		Revision $rev, FlaggedRevision $srev = null
 	) {
-		$tier = FlaggedRevs::getRevQuality( $rev->getPage(), $rev->getId() );
+		$tier = FlaggedRevision::getRevQuality( $rev->getPage(), $rev->getId() );
 		if ( $tier !== false ) {
 			$msg = $tier
 				? 'revreview-hist-quality'

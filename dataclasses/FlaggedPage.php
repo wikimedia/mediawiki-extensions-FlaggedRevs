@@ -303,6 +303,31 @@ class FlaggedPage extends Article {
 	}
 
 	/**
+	 * Get the newest of the highest rated flagged revisions of this page
+	 * Note: will not return deleted revisions
+	 * @return int
+	 */
+	public function getBestFlaggedRevId() {
+		$dbr = wfGetDB( DB_SLAVE );
+		# Get the highest quality revision (not necessarily this one).
+		$oldid = $dbr->selectField( array( 'flaggedrevs', 'revision' ),
+			'fr_rev_id',
+			array(
+				'fr_page_id' => $this->getId(),
+				'rev_page = fr_page_id',
+				'rev_id = fr_rev_id',
+				'rev_deleted & ' . Revision::DELETED_TEXT => 0
+			),
+			__METHOD__,
+			array(
+				'ORDER BY' => 'fr_quality DESC, fr_rev_id DESC',
+				'USE INDEX' => array( 'flaggedrevs' => 'page_qal_rev', 'revision' => 'PRIMARY' )
+			)
+		);
+		return (int)$oldid;
+	}
+
+	/**
 	 * Get visiblity restrictions on page
 	 * @return array (select,override)
 	 */
@@ -322,6 +347,23 @@ class FlaggedPage extends Article {
 			$this->loadPageData();
 		}
 		return $this->syncedInTracking;
+	}
+
+	/**
+	* Updates the fp_reviewed field for this article
+	* @param bool $synced
+	*/	
+	public function updateSyncStatus( $synced ) {
+		wfProfileIn( __METHOD__ );
+		if ( !wfReadOnly() ) {
+			$dbw = wfGetDB( DB_MASTER );
+			$dbw->update( 'flaggedpages',
+				array( 'fp_reviewed' => $synced ? 1 : 0 ),
+				array( 'fp_page_id'  => $this->getID() ),
+				__METHOD__
+			);
+		}
+		wfProfileOut( __METHOD__ );
 	}
 
 	/**
