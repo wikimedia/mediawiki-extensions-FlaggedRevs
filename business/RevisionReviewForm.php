@@ -575,29 +575,29 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 	 * Get template and image versions from parsing a revision.
 	 * @param Article $article
 	 * @param Revision $rev
+	 * @param User $user
 	 * @return array( templateIds, fileSHA1Keys )
 	 * templateIds like ParserOutput->mTemplateIds
 	 * fileSHA1Keys like ParserOutput->mImageTimeKeys
 	 */
-	public static function currentIncludeVersions( Article $article, Revision $rev ) {
+	public static function getRevIncludes( Article $article, Revision $rev, User $user ) {
 		global $wgParser, $wgOut, $wgEnableParserCache;
 		wfProfileIn( __METHOD__ );
 		$pOutput = false;
+		$pOpts = $article->makeParserOptions( $user );
+		$parserCache = ParserCache::singleton();
 		# Current version: try parser cache
 		if ( $rev->isCurrent() ) {
-			$parserCache = ParserCache::singleton();
-			$pOutput = $parserCache->get( $article, $wgOut->parserOptions() );
+			$pOutput = $parserCache->get( $article, $pOpts );
 		}
 		# Otherwise (or on cache miss), parse the rev text...
 		if ( !$pOutput ) {
 			$text = $rev->getText();
 			$title = $article->getTitle();
-			$options = FlaggedRevs::makeParserOptions();
-			$pOutput = $wgParser->parse(
-				$text, $title, $options, true, true, $rev->getId() );
+			$pOutput = $wgParser->parse( $text, $title, $pOpts, true, true, $rev->getId() );
 			# Might as well save the cache while we're at it
 			if ( $rev->isCurrent() && $wgEnableParserCache ) {
-				$parserCache->save( $pOutput, $article, $options );
+				$parserCache->save( $pOutput, $article, $pOpts );
 			}
 		}
 		wfProfileOut( __METHOD__ );

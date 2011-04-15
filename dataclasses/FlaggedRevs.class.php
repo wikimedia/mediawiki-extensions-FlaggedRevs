@@ -513,9 +513,10 @@ class FlaggedRevs {
 	 * @param Title $title
 	 * @param string $text wikitext
 	 * @param int $id Source revision Id
+	 * @param ParserOptions $pOpts
 	 * @return array( string wikitext, array of template versions )
 	 */
-	public static function expandText( Title $title, $text, $id ) {
+	public static function expandText( Title $title, $text, $id, ParserOptions $pOpts ) {
 		global $wgParser;
 		# Notify Parser if includes should be stabilized
 		$resetManager = false;
@@ -531,8 +532,7 @@ class FlaggedRevs {
 				}
 			}
 		}
-		$options = self::makeParserOptions(); // default options
-		$outputText = $wgParser->preprocess( $text, $title, $options, $id );
+		$outputText = $wgParser->preprocess( $text, $title, $pOpts, $id );
 		$pOutput = $wgParser->getOutput();
 		# Stable parse done!
 		if ( $resetManager ) {
@@ -547,9 +547,10 @@ class FlaggedRevs {
 	 * @param Title $title
 	 * @param string $text
 	 * @param int $id Source revision Id
+	 * @param ParserOptions $pOpts
 	 * @return ParserOutput
 	 */
-	public static function parseStableText( Title $title, $text, $id, $parserOptions ) {
+	public static function parseStableText( Title $title, $text, $id, ParserOptions $pOpts ) {
 		global $wgParser;
 		# Notify Parser if includes should be stabilized
 		$resetManager = false;
@@ -566,7 +567,7 @@ class FlaggedRevs {
 			}
 		}
 		# Parse the new body, wikitext -> html
-		$parserOut = $wgParser->parse( $text, $title, $parserOptions, true, true, $id );
+		$parserOut = $wgParser->parse( $text, $title, $pOpts, true, true, $id );
 		# Stable parse done!
 		if ( $resetManager ) {
 			$incManager->clear(); // reset the FRInclusionManager as needed
@@ -575,28 +576,21 @@ class FlaggedRevs {
 	}
 
 	/**
-	* Get standard parser options
-	* @param User $user (optional)
-	* @return ParserOptions
-	*/
-	public static function makeParserOptions( $user = null ) {
-		global $wgUser;
-		$user = $user ? $user : $wgUser; // assume current
-		$options = ParserOptions::newFromUser( $user );
-		# Show inclusion/loop reports
-		$options->enableLimitReport();
-		# Fix bad HTML
-		$options->setTidy( true );
-		return $options;
+	 * Like ParserCache::getKey() with stable-pcache instead of pcache
+	 */
+	protected static function getCacheKey( ParserCache $parserCache, Article $article, $popts ) {
+		$key = $parserCache->getKey( $article, $popts );
+		$key = str_replace( ':pcache:', ':stable-pcache:', $key );
+		return $key;
 	}
 
 	/**
 	* Get the page cache for the stable version of an article
 	* @param Article $article
-	* @param User $user
+	* @param ParserOptions $opts
 	* @return mixed (ParserOutput/false)
 	*/
-	public static function getPageCache( Article $article, $user ) {
+	public static function getPageCache( Article $article, ParserOptions $popts ) {
 		global $parserMemc, $wgCacheEpoch;
 		wfProfileIn( __METHOD__ );
 		# Make sure it is valid
@@ -605,7 +599,7 @@ class FlaggedRevs {
 			return null;
 		}
 		$parserCache = ParserCache::singleton();
-		$key = self::getCacheKey( $parserCache, $article, $user );
+		$key = self::getCacheKey( $parserCache, $article, $popts );
 		# Get the cached HTML
 		wfDebug( "Trying parser cache $key\n" );
 		$value = $parserMemc->get( $key );
@@ -638,25 +632,13 @@ class FlaggedRevs {
 	}
 
 	/**
-	 * Like ParserCache::getKey() with stable-pcache instead of pcache
-	 */
-	protected static function getCacheKey( $parserCache, Article $article, $popts ) {
-		if( $popts instanceof User ) {
-			$popts = ParserOptions::newFromUser( $popts );
-		}
-		$key = $parserCache->getKey( $article, $popts );
-		$key = str_replace( ':pcache:', ':stable-pcache:', $key );
-		return $key;
-	}
-
-	/**
 	* @param Article $article
 	* @param ParserOptions $popts
 	* @param parserOutput $parserOut
 	* Updates the stable cache of a page with the given $parserOut
 	*/
-	public static function updatePageCache(
-		Article $article, $popts, ParserOutput $parserOut = null
+	public static function setPageCache(
+		Article $article, ParserOptions $popts, ParserOutput $parserOut = null
 	) {
 		global $parserMemc, $wgParserCacheExpireTime, $wgEnableParserCache;
 		wfProfileIn( __METHOD__ );

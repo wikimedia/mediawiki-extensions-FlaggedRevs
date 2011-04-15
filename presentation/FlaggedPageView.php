@@ -598,7 +598,7 @@ class FlaggedPageView {
 
 		# Parse and output HTML
 		if ( $redirHtml == '' ) {
-			$parserOptions = FlaggedRevs::makeParserOptions();
+			$parserOptions = $this->article->makeParserOptions( $wgUser );
 			$parserOut = FlaggedRevs::parseStableText(
 				$this->article->getTitle(), $text, $frev->getRevId(), $parserOptions );
 			$this->addParserOutput( $parserOut );
@@ -671,7 +671,8 @@ class FlaggedPageView {
 		}
 
 		# Get parsed stable version and output HTML
-		$parserOut = FlaggedRevs::getPageCache( $this->article, $wgUser );
+		$parserOptions = $this->article->makeParserOptions( $wgUser );
+		$parserOut = FlaggedRevs::getPageCache( $this->article, $parserOptions );
 		if ( $parserOut ) {
 			$this->addParserOutput( $parserOut );
 		} else {
@@ -681,11 +682,10 @@ class FlaggedPageView {
 			# Don't parse redirects, use separate handling...
 			if ( $redirHtml == '' ) {
 				# Get the new stable output
-				$parserOptions = FlaggedRevs::makeParserOptions();
 				$parserOut = FlaggedRevs::parseStableText(
 					$this->article->getTitle(), $text, $srev->getRevId(), $parserOptions );
 				# Update the stable version cache
-				FlaggedRevs::updatePageCache( $this->article, $parserOptions, $parserOut );
+				FlaggedRevs::setPageCache( $this->article, $parserOptions, $parserOut );
 				# Add the stable output to the page view
 				$this->addParserOutput( $parserOut );
 				
