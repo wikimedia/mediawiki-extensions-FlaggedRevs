@@ -8,7 +8,7 @@ http://www.mediawiki.org/wiki/Extension:FlaggedRevs
 
 == Setup ==
 * Run 'maintenance/populateSha1.php' if not already done.
-* Make sure '../extensions/FlaggedRevs/client' is readable (for CSS/JS)
+* Make sure '../FlaggedRevs/presentation/modules' is web readable (for CSS/JS)
 * Add the following line to 'LocalSettings.php':
 	include_once('extensions/FlaggedRevs/FlaggedRevs.php');
 * Run 'maintenance/update.php' to add the SQL tables
@@ -17,13 +17,9 @@ http://www.mediawiki.org/wiki/Extension:FlaggedRevs
 * To enable article validation statistics, $wgPhpCli must be set correctly. This is not necessary
   if you set a cron job to run /FlaggedRevs/maintenance/updateStats.php every so often, which is preferable.
 
-It is important that the sha1 column is populated. This allows for image injection via key 
-rather than the (name,timestamp) pair. In the future, image moves may be supported by MediaWiki, 
-breaking the later method.
-
 == Configuration ==
-There is a commented list of configurable variables in FlaggedRevs.php. The online documentation
-expains these further.
+* There is a well-commented list of configurable variables in FlaggedRevs.php.
+* The online documentation expains some of these further.
 
 == Uninstallation ==
 * Remove the FlaggedRevs include line from LocalSettings.php.
