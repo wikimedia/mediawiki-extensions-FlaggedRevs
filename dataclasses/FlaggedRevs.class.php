@@ -575,112 +575,6 @@ class FlaggedRevs {
 		return $parserOut;
 	}
 
-	/**
-	 * Like ParserCache::getKey() with stable-pcache instead of pcache
-	 */
-	protected static function getCacheKey( ParserCache $parserCache, Article $article, $popts ) {
-		$key = $parserCache->getKey( $article, $popts );
-		$key = str_replace( ':pcache:', ':stable-pcache:', $key );
-		return $key;
-	}
-
-	/**
-	* Get the page cache for the stable version of an article
-	* @param Article $article
-	* @param ParserOptions $opts
-	* @return mixed (ParserOutput/false)
-	*/
-	public static function getPageCache( Article $article, ParserOptions $popts ) {
-		global $parserMemc, $wgCacheEpoch;
-		wfProfileIn( __METHOD__ );
-		# Make sure it is valid
-		if ( !$article->getId() ) {
-			wfProfileOut( __METHOD__ );
-			return null;
-		}
-		$parserCache = ParserCache::singleton();
-		$key = self::getCacheKey( $parserCache, $article, $popts );
-		# Get the cached HTML
-		wfDebug( "Trying parser cache $key\n" );
-		$value = $parserMemc->get( $key );
-		if ( is_object( $value ) ) {
-			wfDebug( "Found.\n" );
-			# Delete if article has changed since the cache was made
-			$canCache = $article->checkTouched();
-			$cacheTime = $value->getCacheTime();
-			$touched = $article->mTouched;
-			if ( !$canCache || $value->expired( $touched ) ) {
-				if ( !$canCache ) {
-					wfIncrStats( "pcache_miss_invalid" );
-					wfDebug( "Invalid cached redirect, touched $touched, epoch $wgCacheEpoch, cached $cacheTime\n" );
-				} else {
-					wfIncrStats( "pcache_miss_expired" );
-					wfDebug( "Key expired, touched $touched, epoch $wgCacheEpoch, cached $cacheTime\n" );
-				}
-				$parserMemc->delete( $key );
-				$value = false;
-			} else {
-				wfIncrStats( "pcache_hit" );
-			}
-		} else {
-			wfDebug( "Parser cache miss.\n" );
-			wfIncrStats( "pcache_miss_absent" );
-			$value = false;
-		}
-		wfProfileOut( __METHOD__ );
-		return $value;
-	}
-
-	/**
-	* @param Article $article
-	* @param ParserOptions $popts
-	* @param parserOutput $parserOut
-	* Updates the stable cache of a page with the given $parserOut
-	*/
-	public static function setPageCache(
-		Article $article, ParserOptions $popts, ParserOutput $parserOut = null
-	) {
-		global $parserMemc, $wgParserCacheExpireTime, $wgEnableParserCache;
-		wfProfileIn( __METHOD__ );
-		# Make sure it is valid and $wgEnableParserCache is enabled
-		if ( !$wgEnableParserCache || !$parserOut ) {
-			wfProfileOut( __METHOD__ );
-			return false;
-		}
-		$parserCache = ParserCache::singleton();
-		$key = self::getCacheKey( $parserCache, $article, $popts );
-		# Add cache mark to HTML
-		$now = wfTimestampNow();
-		$parserOut->setCacheTime( $now );
-		# Save the timestamp so that we don't have to load the revision row on view
-		$parserOut->mTimestamp = $article->getTimestamp();
-		$parserOut->mText .= "\n<!-- Saved in stable version parser cache with key $key and timestamp $now -->";
-		# Set expire time
-		if ( $parserOut->containsOldMagic() ) {
-			$expire = 3600; // 1 hour
-		} else {
-			$expire = $wgParserCacheExpireTime;
-		}
-		# Save to objectcache
-		$parserMemc->set( $key, $parserOut, $expire );
-		wfProfileOut( __METHOD__ );
-		return true;
-	}
-
-	/**
-	* @param Article $article
-	* @param parserOutput $parserOut
-	* Updates the stable-only cache dependency table
-	*/
-	public static function updateCacheTracking( Article $article, ParserOutput $stableOut ) {
-		wfProfileIn( __METHOD__ );
-		if ( !wfReadOnly() ) {
-			$frDepUpdate = new FRDependencyUpdate( $article->getTitle(), $stableOut );
-			$frDepUpdate->doUpdate();
-		}
-		wfProfileOut( __METHOD__ );
-	}
-
 	# ################ Tracking/cache update update functions #################
 
 	/**
@@ -725,6 +619,40 @@ class FlaggedRevs {
 		$title->invalidateCache();
 		self::purgeSquid( $title );
 		return $changed;
+	}
+
+	/**
+	* Clear FlaggedRevs tracking tables for this page
+	* @param int|array $pageId (int or array)
+	*/
+	public static function clearTrackingRows( $pageId ) {
+		$dbw = wfGetDB( DB_MASTER );
+		$dbw->delete( 'flaggedpages', array( 'fp_page_id' => $pageId ), __METHOD__ );
+		$dbw->delete( 'flaggedrevs_tracking', array( 'ftr_from' => $pageId ), __METHOD__ );
+		$dbw->delete( 'flaggedpage_pending', array( 'fpp_page_id' => $pageId ), __METHOD__ );
+	}
+
+	/**
+	* @param Article $article
+	* @param parserOutput $parserOut
+	* Updates the stable-only cache dependency table
+	*/
+	public static function updateStableOnlyDeps( Article $article, ParserOutput $stableOut ) {
+		wfProfileIn( __METHOD__ );
+		if ( !wfReadOnly() ) {
+			$frDepUpdate = new FRDependencyUpdate( $article->getTitle(), $stableOut );
+			$frDepUpdate->doUpdate();
+		}
+		wfProfileOut( __METHOD__ );
+	}
+
+	/**
+	* Clear tracking table of stable-only links for this page
+	* @param int|array $pageId (int or array)
+	*/
+	public static function clearStableOnlyDeps( $pageId ) {
+		$dbw = wfGetDB( DB_MASTER );
+		$dbw->delete( 'flaggedrevs_tracking', array( 'ftr_from' => $pageId ), __METHOD__ );
 	}
 
 	/**
@@ -957,26 +885,6 @@ class FlaggedRevs {
 		$ns = ( $title->getNamespace() == NS_MEDIA ) ?
 			NS_FILE : $title->getNamespace(); // Treat NS_MEDIA as NS_FILE
 		return ( in_array( $ns, $namespaces ) );
-	}
-
-	/**
-	* Clear FlaggedRevs tracking tables for this page
-	* @param int|array $pageId (int or array)
-	*/
-	public static function clearTrackingRows( $pageId ) {
-		$dbw = wfGetDB( DB_MASTER );
-		$dbw->delete( 'flaggedpages', array( 'fp_page_id' => $pageId ), __METHOD__ );
-		$dbw->delete( 'flaggedrevs_tracking', array( 'ftr_from' => $pageId ), __METHOD__ );
-		$dbw->delete( 'flaggedpage_pending', array( 'fpp_page_id' => $pageId ), __METHOD__ );
-	}
-
-	/**
-	* Clear tracking table of stable-only links for this page
-	* @param int|array $pageId (int or array)
-	*/
-	public static function clearStableOnlyDeps( $pageId ) {
-		$dbw = wfGetDB( DB_MASTER );
-		$dbw->delete( 'flaggedrevs_tracking', array( 'ftr_from' => $pageId ), __METHOD__ );
 	}
 
 	# ################ Auto-review function #################

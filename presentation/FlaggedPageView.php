@@ -672,7 +672,8 @@ class FlaggedPageView {
 
 		# Get parsed stable version and output HTML
 		$parserOptions = $this->article->makeParserOptions( $wgUser );
-		$parserOut = FlaggedRevs::getPageCache( $this->article, $parserOptions );
+		$parserCache = FRParserCacheStable::singleton();
+		$parserOut = $parserCache->get( $this->article, $parserOptions );
 		if ( $parserOut ) {
 			$this->addParserOutput( $parserOut );
 		} else {
@@ -685,12 +686,12 @@ class FlaggedPageView {
 				$parserOut = FlaggedRevs::parseStableText(
 					$this->article->getTitle(), $text, $srev->getRevId(), $parserOptions );
 				# Update the stable version cache
-				FlaggedRevs::setPageCache( $this->article, $parserOptions, $parserOut );
+				$parserCache->save( $parserOut, $this->article, $parserOptions );
 				# Add the stable output to the page view
 				$this->addParserOutput( $parserOut );
 				
 				# Update the stable version dependancies
-				FlaggedRevs::updateCacheTracking( $this->article, $parserOut );
+				FlaggedRevs::updateStableOnlyDeps( $this->article, $parserOut );
 			} else {
 				$wgOut->addHtml( $redirHtml );
 			}

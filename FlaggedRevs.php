@@ -255,6 +255,7 @@ $wgAutoloadClasses['FRDependencyUpdate'] = $accessDir . 'FRDependencyUpdate.php'
 $wgAutoloadClasses['FRInclusionManager'] = $accessDir . 'FRInclusionManager.php';
 $wgAutoloadClasses['FlaggedPage'] = $accessDir . 'FlaggedPage.php';
 $wgAutoloadClasses['FlaggedRevision'] = $accessDir . 'FlaggedRevision.php';
+$wgAutoloadClasses['FRParserCacheStable'] = $accessDir . 'FRParserCacheStable.php';
 
 # Event handler classes...
 $wgAutoloadClasses['FlaggedRevsHooks'] = $dir . 'FlaggedRevs.hooks.php';
