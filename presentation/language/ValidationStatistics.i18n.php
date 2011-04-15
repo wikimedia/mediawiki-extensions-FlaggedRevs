@@ -651,14 +651,14 @@ Le retard moyen des [[Special:OldReviewedPages|pages contenant des modifications
 Ces pages sont considérées comme ''périmées''. De même, une page est considérée comme ''à jour'' si aucune modification n’est à relire.",
 	'validationstatistics-revtime' => "Le délai d’attente moyen pour la relecture des modifications faites par les ''utilisateurs non enregistrés'' est '''$1''' ; la médiane est '''$2'''.
 $3",
-	'validationstatistics-table' => "Les statistiques de relecture pour chaque espace de noms sont affichées ci-dessous, ''à l’exception'' des pages de redirection.",
+	'validationstatistics-table' => "Les statistiques de relecture pour chaque espace de noms sont affichées ci-dessous, ''à l’exception'' des pages de redirection. Les pages sont traitées comme ''périmées'' si elles ont des modifications en attente et comme ''synchronisées'' si elle n'ont pas de modifications en attente.",
 	'validationstatistics-ns' => 'Espace de noms',
 	'validationstatistics-total' => 'Pages',
 	'validationstatistics-stable' => 'Révisée',
 	'validationstatistics-latest' => 'Synchronisée',
 	'validationstatistics-synced' => 'Synchronisée/Révisée',
 	'validationstatistics-old' => 'Périmée',
-	'validationstatistics-utable' => 'Ci-dessous figure {{PLURAL:$1|le relecteur le plus actif|les $1 relecteurs les plus actifs}} dans la dernière heure.',
+	'validationstatistics-utable' => 'Ci-dessous figure {{PLURAL:$1|le relecteur le plus actif|les $1 relecteurs les plus actifs}} dans {{PLURAL:$2|la dernière heure|les $2 dernières heures}}.',
 	'validationstatistics-user' => 'Utilisateur',
 	'validationstatistics-reviews' => 'Relecteurs',
 );

@@ -2869,6 +2869,8 @@ Kuckt d'[[Special:Unreviewedpages|Lëscht vun den net nogekuckte Sàiten]].",
 	'revreview-submit-unreviewed' => 'Fäerdeg. Net méi nogekuckt!',
 	'revreview-successful' => "'''D'Versioun [[:$1|$1]] gouf nogekuckt. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} Déi nogekuckte Versioune weisen])'''",
 	'revreview-successful2' => "'''D'Markéierung vun der Versioun vu(n) [[:$1|$1]] gouf ewechgeholl.'''",
+	'revreview-poss-conflict-p' => "'''Opgepasst: [[User:$1|$1]] huet den $2 ëm $3 ugefaang dës Säit nozekucken.'''",
+	'revreview-poss-conflict-c' => "'''Opgepasst: [[User:$1|$1]] huet den $2 ëm $3 ugefaang dës Ännerungen nozekucken.'''",
 	'revreview-toolow' => "'''Dir musst fir all Attribut hei drënner eng Bewäertung ofginn déi besser ass wéi \"net adequat\" fir datt eng Versioun als nogekuckt betruecht ka ginn.'''
 
 Fir de Statut nogekuckt vun enger Versioun ewechzehuelen klickt op \"net akzeptéieren\".
@@ -2886,7 +2888,7 @@ Kuckt w.e.g. all d\'Ännerungen hei drënner no fir datt Är Ännerungen akzept�
 	'revreview-reject-header' => 'Ännerunge fir $1 rejetéieren',
 	'revreview-reject-text-list' => "Wann Dir dës Aktioun ofschléisst, da '''verwerft''' Dir dës {{PLURAL:$1|Ännerung|Ännerungen}}:",
 	'revreview-reject-text-revto' => "Dëst setzt d'Säit zréck op d'[{{fullurl:$1|oldid=$2}} Versioun vum $3].",
-	'revreview-reject-summary' => 'Resumé änneren',
+	'revreview-reject-summary' => 'Resumé:',
 	'revreview-reject-confirm' => 'Dës Ännerungen rejetéieren',
 	'revreview-reject-cancel' => 'Ofbriechen',
 	'revreview-reject-summary-cur' => "Déi lescht {{PLURAL:$1|Ännerung|$1 Ännerunge}} vum/vu(n) $2 {{PLURAL:$1|gouf|goufe}} refuséiert an d'Versioun $3 vum $4 gouf restauréiert",
