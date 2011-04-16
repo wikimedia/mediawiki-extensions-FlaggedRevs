@@ -1,5 +1,4 @@
--- (c) Aaron Schulz, 2007-2009, GPL
--- Table structure for table `Flagged Revisions`
+-- (c) Aaron Schulz, 2007-2011, GPL
 -- Replace /*_*/ with the proper prefix
 -- Replace /*$wgDBTableOptions*/ with the correct options
 
@@ -36,47 +35,46 @@ CREATE TABLE IF NOT EXISTS /*_*/flaggedpage_pending (
   PRIMARY KEY (fpp_page_id,fpp_quality)
 ) /*$wgDBTableOptions*/;
 
-CREATE INDEX /*i*/fpp_quality_pending ON /*_*/flaggedpage_pending (fpp_quality,fpp_pending_since);
+CREATE INDEX /*i*/fpp_quality_pending
+    ON /*_*/flaggedpage_pending (fpp_quality,fpp_pending_since);
 
 -- This stores all of our revision reviews; it is the main table
 -- The template/file version data is stored in the next two tables
 CREATE TABLE IF NOT EXISTS /*_*/flaggedrevs (
+  -- Foreign key to revision.rev_id
+  fr_rev_id integer unsigned NOT NULL PRIMARY KEY,
+  -- Timestamp of revision reviewed (revision.rev_timestamp)
+  fr_rev_timestamp varbinary(14) NOT NULL default '',
   -- Foreign key to page.page_id
   fr_page_id integer unsigned NOT NULL,
-  -- Foreign key to revision.rev_id
-  fr_rev_id integer unsigned NOT NULL,
   -- Foreign key to user.user_id
   fr_user integer unsigned NOT NULL,
   -- Timestamp of review
   fr_timestamp varbinary(14) NOT NULL,
-  -- Review notes
-  fr_comment mediumblob NOT NULL,
-  -- The quality tier (0=checked, 1=quality, 2=pristine)
+  -- Store the precedence level
   fr_quality tinyint(1) NOT NULL default 0,
   -- Store tag metadata as newline separated, 
   -- colon separated tag:value pairs
   fr_tags mediumblob NOT NULL,
-  -- Store the text with all transclusions resolved
-  -- This will trade space for speed
-  fr_text mediumblob NOT NULL,
   -- Comma-separated list of flags:
   -- dynamic: no text, templates must be fetched
-  -- auto: revision patrolled automatically
+  -- auto: revision reviewed automatically
   -- utf8: in UTF-8
   fr_flags tinyblob NOT NULL,
-  -- Parameters for revisions of Image pages:
+  -- Parameters for revisions of File pages:
   -- Name of included image (NULL if n/a)
   fr_img_name varchar(255) binary NULL default NULL,
   -- Timestamp of file (when uploaded) (NULL if n/a)
   fr_img_timestamp varbinary(14) NULL default NULL,
   -- Statistically unique SHA-1 key (NULL if n/a)
-  fr_img_sha1 varbinary(32) NULL default NULL,
-  
-  PRIMARY KEY (fr_page_id,fr_rev_id)
+  fr_img_sha1 varbinary(32) NULL default NULL
 ) /*$wgDBTableOptions*/;
 
-CREATE INDEX /*i*/fr_img_sha1 ON /*_*/flaggedrevs (fr_img_sha1);
+CREATE INDEX /*i*/page_rev ON /*_*/flaggedrevs (fr_page_id,fr_rev_id);
+CREATE INDEX /*i*/page_time ON /*_*/flaggedrevs (fr_page_id,fr_rev_timestamp);
 CREATE INDEX /*i*/page_qal_rev ON /*_*/flaggedrevs (fr_page_id,fr_quality,fr_rev_id);
+CREATE INDEX /*i*/page_qal_time ON /*_*/flaggedrevs (fr_page_id,fr_quality,fr_rev_timestamp);
+CREATE INDEX /*i*/fr_img_sha1 ON /*_*/flaggedrevs (fr_img_sha1);
 
 -- This stores all of our transclusion revision pointers
 CREATE TABLE IF NOT EXISTS /*_*/flaggedtemplates (
@@ -129,8 +127,10 @@ CREATE TABLE IF NOT EXISTS /*_*/flaggedrevs_tracking (
   ftr_title varchar(255) binary NOT NULL default ''
 ) /*$wgDBTableOptions*/;
 
-CREATE UNIQUE INDEX /*i*/from_namespace_title ON /*_*/flaggedrevs_tracking (ftr_from,ftr_namespace,ftr_title);
-CREATE INDEX /*i*/namespace_title_from ON /*_*/flaggedrevs_tracking (ftr_namespace,ftr_title,ftr_from);
+CREATE UNIQUE INDEX /*i*/from_namespace_title
+    ON /*_*/flaggedrevs_tracking (ftr_from,ftr_namespace,ftr_title);
+CREATE INDEX /*i*/namespace_title_from
+    ON /*_*/flaggedrevs_tracking (ftr_namespace,ftr_title,ftr_from);
 
 -- This stores user demotions and stats
 CREATE TABLE IF NOT EXISTS /*_*/flaggedrevs_promote (

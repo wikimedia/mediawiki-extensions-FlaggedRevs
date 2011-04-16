@@ -296,12 +296,11 @@ class FlaggedRevision {
 		$revRow = array(
 			'fr_page_id'       => $this->getPage(),
 			'fr_rev_id'	       => $this->getRevId(),
+			'fr_rev_timestamp' => $this->getRevTimestamp(),
 			'fr_user'	       => $this->getUser(),
 			'fr_timestamp'     => $dbw->timestamp( $this->getTimestamp() ),
-			'fr_comment'       => '', # not used anymore
 			'fr_quality'       => $this->getQuality(),
 			'fr_tags'	       => self::flattenRevisionTags( $this->getTags() ),
-			'fr_text'	       => '', # not used anymore
 			'fr_flags'	       => implode( ',', $this->mFlags ),
 			'fr_img_name'      => $this->getFileName(),
 			'fr_img_timestamp' => $dbw->timestampOrNull( $this->getFileTimestamp() ),

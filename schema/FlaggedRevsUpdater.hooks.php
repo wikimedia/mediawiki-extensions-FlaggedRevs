@@ -33,6 +33,8 @@ class FlaggedRevsUpdaterHooks {
 				'flaggedrevs_stats', "$base/patch-flaggedrevs_stats.sql", true ) );
 			$du->addExtensionUpdate( array( 'FlaggedRevsUpdaterHooks::doFlaggedImagesTimestampNULL',
 				"$base/patch-fi_img_timestamp.sql" ) );
+			$du->addExtensionUpdate( array( 'addIndex',
+				'flaggedrevs', 'page_rev', "$base/patch-fr_page_rev-index.sql", true ) );
 		} elseif ( $wgDBtype == 'postgres' ) {
 			$base = dirname( __FILE__ ) . '/postgres';
 			// Initial install tables (current schema)
@@ -60,6 +62,8 @@ class FlaggedRevsUpdaterHooks {
 			// @TODO: PG stats table???
 			$du->addExtensionUpdate( array( 'FlaggedRevsUpdaterHooks::doFlaggedImagesTimestampNULL',
 				"$base/patch-fi_img_timestamp.sql" ) );
+			$du->addExtensionUpdate( array( 'addIndex',
+				'flaggedrevs', 'page_rev', "$base/patch-fr_page_rev-index.sql", true ) );
 		} elseif ( $wgDBtype == 'sqlite' ) {
 			$base = dirname( __FILE__ ) . '/mysql';
 			$du->addExtensionUpdate( array( 'addTable',
