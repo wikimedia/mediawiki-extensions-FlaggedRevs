@@ -42,7 +42,7 @@ function update_flaggedrevs( $start = null ) {
 			}
 			$time = $sha1 = $file = null;
 			# Check for file version to see if it's stored the old way...
-			if ( !$row->fr_img_name && $row->page_namespace == NS_IMAGE ) {
+			if ( !$row->fr_img_name && $row->page_namespace == NS_FILE ) {
 				$irow = $db->selectRow( 'flaggedimages',
 					array( 'fi_img_timestamp', 'fi_img_sha1' ),
 					array( 'fi_rev_id' => $row->fr_rev_id,
@@ -62,7 +62,7 @@ function update_flaggedrevs( $start = null ) {
 					$file = $crow ? $row->page_title : null;
 				}
 			# Leave it alone if already set
-			} elseif ( $row->fr_img_name && $row->page_namespace == NS_IMAGE ) {
+			} elseif ( $row->fr_img_name && $row->page_namespace == NS_FILE ) {
 				$time = $row->fr_img_timestamp;
 				$sha1 = $row->fr_img_sha1;
 				$file = $row->fr_img_name;

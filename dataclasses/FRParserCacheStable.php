@@ -18,7 +18,7 @@ class FRParserCacheStable extends ParserCache {
 	/**
 	 * Like ParserCache::getParserOutputKey() with stable-pcache instead of pcache
 	 * @param $article Article
-	 * @param  $hash
+	 * @param $hash string
 	 * @return mixed|string
 	 */
 	protected function getParserOutputKey( $article, $hash ) {
