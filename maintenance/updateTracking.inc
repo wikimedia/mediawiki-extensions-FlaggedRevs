@@ -25,7 +25,8 @@ function update_flaggedrevs( $start = null ) {
 		echo "...doing fr_rev_id from $blockStart to $blockEnd\n";
 		$cond = "rev_id BETWEEN $blockStart AND $blockEnd 
 			AND fr_page_id = rev_page AND fr_rev_id = rev_id AND page_id = rev_page";
-		$res = $db->select( array('revision','flaggedrevs','page'),
+		$res = $db->select(
+			array('revision','flaggedrevs','page'),
 			array('fr_rev_id','fr_tags','fr_quality','page_namespace','page_title',
 				'fr_img_name','fr_img_timestamp','fr_img_sha1','rev_page'), 
 			$cond, __FUNCTION__
@@ -35,21 +36,19 @@ function update_flaggedrevs( $start = null ) {
 		foreach ( $res as $row ) {
 			$tags = FlaggedRevision::expandRevisionTags( $row->fr_tags );
 			# Quality rating levels may have changed due to config tweaks...
-			if ( FlaggedRevs::isPristine( $tags ) ) {
-				$quality = 2;
-			} else {
-				$quality = FlaggedRevs::isQuality( $tags ) ? 1 : 0;
-			}
-			$time = $sha1 = $file = null;
+			$quality = max( 0, FlaggedRevs::getLevelTier( $tags ) );
+
+			$file = $row->fr_img_name;
+			$fileTime = $row->fr_img_timestamp;
+			$fileSha1 = $row->fr_img_sha1;
 			# Check for file version to see if it's stored the old way...
-			if ( !$row->fr_img_name && $row->page_namespace == NS_FILE ) {
+			if ( $row->page_namespace == NS_FILE && !$file ) {
 				$irow = $db->selectRow( 'flaggedimages',
 					array( 'fi_img_timestamp', 'fi_img_sha1' ),
-					array( 'fi_rev_id' => $row->fr_rev_id,
-						'fi_name' => $row->page_title ),
+					array( 'fi_rev_id' => $row->fr_rev_id, 'fi_name' => $row->page_title ),
 					__METHOD__ );
-				$time = $irow ? $irow->fi_img_timestamp : null;
-				$sha1 = $irow ? $irow->fi_img_sha1 : null;
+				$fileTime = $irow ? $irow->fi_img_timestamp : null;
+				$fileSha1 = $irow ? $irow->fi_img_sha1 : null;
 				$file = $irow ? $row->page_title : null;
 				# Fill in from current if broken
 				if ( !$irow ) {
@@ -57,27 +56,26 @@ function update_flaggedrevs( $start = null ) {
 						array( 'img_timestamp', 'img_sha1' ),
 						array( 'img_name' => $row->page_title ),
 						__METHOD__ );
-					$time = $crow ? $crow->img_timestamp : null;
-					$sha1 = $crow ? $crow->img_sha1 : null;
+					$fileTime = $crow ? $crow->img_timestamp : null;
+					$fileSha1 = $crow ? $crow->img_sha1 : null;
 					$file = $crow ? $row->page_title : null;
 				}
-			# Leave it alone if already set
-			} elseif ( $row->fr_img_name && $row->page_namespace == NS_FILE ) {
-				$time = $row->fr_img_timestamp;
-				$sha1 = $row->fr_img_sha1;
-				$file = $row->fr_img_name;
 			}
+
+			# Check if anything needs updating
 			if ( $quality != $row->fr_quality
 				|| $file != $row->fr_img_name
-				|| $sha1 != $row->fr_img_sha1
-				|| $time != $row->fr_img_timestamp )
+				|| $fileSha1 != $row->fr_img_sha1
+				|| $fileTime != $row->fr_img_timestamp )
 			{
 				# Update the row...
 				$db->update( 'flaggedrevs',
-					array( 'fr_quality' => $quality,
-						'fr_img_name' => $file,
-						'fr_img_sha1' => $sha1,
-						'fr_img_timestamp' => $time ),
+					array(
+						'fr_quality' 		=> $quality,
+						'fr_img_name' 		=> $file,
+						'fr_img_sha1' 		=> $fileSha1,
+						'fr_img_timestamp' 	=> $fileTime
+					),
 					array( 'fr_rev_id' => $row->fr_rev_id, 'fr_page_id' => $row->rev_page ),
 					__FUNCTION__
 				);
