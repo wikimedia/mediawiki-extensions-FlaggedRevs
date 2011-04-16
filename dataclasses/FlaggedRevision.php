@@ -12,27 +12,22 @@ class FlaggedRevision {
 	private $mFileSha1;      	// file version sha-1 (for revisions of File pages)
 	private $mFileTimestamp;	// file version timestamp (for revisions of File pages)
 	/* Flagging metadata */
-	private $mTimestamp;
-	private $mQuality;
-	private $mTags;
-	private $mFlags;
+	private $mTimestamp;		// review timestamp
+	private $mQuality;			// review tier
+	private $mTags;				// review tags
+	private $mFlags;			// flags (for auto-review ect...)
 	private $mUser;				// reviewing user
 	private $mFileName;			// file name when reviewed
 	/* Redundant fields for lazy-loading */
 	private $mTitle;
-	private $mPageId;
-	private $mRevId;
-	private $mStableTemplates;
-	private $mStableFiles;
-
+	private $mStableTemplates;  // template version used
+	private $mStableFiles;		// file versions used
 	/**
 	 * @param Row|array $row (DB row or array)
 	 * @return void
 	 */
 	public function __construct( $row ) {
 		if ( is_object( $row ) ) {
-			$this->mRevId = intval( $row->fr_rev_id );
-			$this->mPageId = intval( $row->fr_page_id );
 			$this->mTimestamp = $row->fr_timestamp;
 			$this->mQuality = intval( $row->fr_quality );
 			$this->mTags = self::expandRevisionTags( strval( $row->fr_tags ) );
@@ -50,13 +45,13 @@ class FlaggedRevision {
 				? Title::makeTitleSafe( $row->page_namespace, $row->page_title )
 				: null;
 		} elseif ( is_array( $row ) ) {
-			$this->mRevId = intval( $row['rev_id'] );
-			$this->mPageId = intval( $row['page_id'] );
 			$this->mTimestamp = $row['timestamp'];
 			$this->mQuality = intval( $row['quality'] );
 			$this->mTags = self::expandRevisionTags( strval( $row['tags'] ) );
 			$this->mFlags = explode( ',', $row['flags'] );
-			$this->mUser = intval( $row['user'] );
+			$this->mUser = intval( $row['user_id'] );
+			# Base Revision object
+			$this->mRevision = $row['rev'];
 			# Image page revision relevant params
 			$this->mFileName = $row['img_name'] ? $row['img_name'] : null;
 			$this->mFileSha1 = $row['img_sha1'] ? $row['img_sha1'] : null;
@@ -69,6 +64,9 @@ class FlaggedRevision {
 				$row['fileVersions'] : null;
 		} else {
 			throw new MWException( 'FlaggedRevision constructor passed invalid row format.' );
+		}
+		if ( !( $this->mRevision instanceof Revision ) ) {
+			throw new MWException( 'FlaggedRevision constructor passed invalid Revision object.' );
 		}
 	}
 
@@ -290,7 +288,11 @@ class FlaggedRevision {
 					$dbw->timestamp( $timeSHA1['time'] ) : null
 			);
 		}
-		# Our review entry
+		# Sanity check for partial revisions
+		if ( !$this->getPage() || !$this->getRevId() ) {
+			return false; // bogus entry
+		}
+		# Our new review entry
 		$revRow = array(
 			'fr_page_id'       => $this->getPage(),
 			'fr_rev_id'	       => $this->getRevId(),
@@ -341,7 +343,14 @@ class FlaggedRevision {
 	 * @return integer revision ID
 	 */
 	public function getRevId() {
-		return $this->mRevId;
+		return $this->mRevision->getId();
+	}
+
+	/**
+	 * @return integer page ID
+	 */
+	public function getPage() {
+		return $this->mRevision->getPage();
 	}
 
 	/**
@@ -349,16 +358,9 @@ class FlaggedRevision {
 	 */
 	public function getTitle() {
 		if ( is_null( $this->mTitle ) ) {
-			$this->mTitle = Title::newFromId( $this->mPageId );
+			$this->mTitle = $this->mRevision->getTitle();
 		}
 		return $this->mTitle;
-	}
-
-	/**
-	 * @return integer page ID
-	 */
-	public function getPage() {
-		return $this->mPageId;
 	}
 
 	/**
@@ -370,16 +372,19 @@ class FlaggedRevision {
 	}
 
 	/**
+	 * Get timestamp of the corresponding revision
+	 * Note: here for convenience
+	 * @return string revision timestamp in MW format
+	 */
+	public function getRevTimestamp() {
+		return $this->mRevision->getTimestamp();
+	}
+
+	/**
 	 * Get the corresponding revision
 	 * @return Revision
 	 */
 	public function getRevision() {
-		if ( is_null( $this->mRevision ) ) {
-			# Get corresponding revision
-			$rev = Revision::newFromId( $this->mRevId );
-			# Save to cache
-			$this->mRevision = $rev ? $rev : false;
-		}
 		return $this->mRevision;
 	}
 
@@ -389,18 +394,16 @@ class FlaggedRevision {
 	 * @return bool
 	 */
 	public function revIsCurrent() {
-		$rev = $this->getRevision(); // corresponding revision
-		return ( $rev ? $rev->isCurrent() : false );
+		return $this->mRevision->isCurrent();
 	}
 
 	/**
-	 * Get timestamp of the corresponding revision
+	 * Get text of the corresponding revision
 	 * Note: here for convenience
-	 * @return string revision timestamp in MW format
+	 * @return string|false revision timestamp in MW format
 	 */
-	public function getRevTimestamp() {
-		$rev = $this->getRevision(); // corresponding revision
-		return ( $rev ? $rev->getTimestamp() : "0" );
+	public function getRevText() {
+		return $this->mRevision->getText();
 	}
 
 	/**
@@ -733,17 +736,6 @@ class FlaggedRevision {
 			}
 		}
 		return $fileChanges;
-	}
-
-	/**
-	 * Get text of the corresponding revision
-	 * @return string|false revision timestamp in MW format
-	 */
-	public function getRevText() {
-		# Get corresponding revision
-		$rev = $this->getRevision();
-		$text = $rev ? $rev->getText() : false;
-		return $text;
 	}
 
 	/**

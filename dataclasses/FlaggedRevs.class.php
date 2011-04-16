@@ -957,10 +957,9 @@ class FlaggedRevs {
 
 		# Our review entry
 		$flaggedRevision = new FlaggedRevision( array(
-			'page_id'       	=> $rev->getPage(),
-			'rev_id'	      	=> $rev->getId(),
-			'user'	       		=> $user->getId(),
-			'timestamp'     	=> $rev->getTimestamp(),
+			'rev'	      		=> $rev,
+			'user_id'	       	=> $user->getId(),
+			'timestamp'     	=> $rev->getTimestamp(), // same as edit time
 			'quality'      	 	=> $quality,
 			'tags'	       		=> FlaggedRevision::flattenRevisionTags( $flags ),
 			'img_name'      	=> $fileData['name'],

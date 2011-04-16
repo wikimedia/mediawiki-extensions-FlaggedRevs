@@ -363,9 +363,8 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 
 		# Insert the review entry...
  		$flaggedRevision = new FlaggedRevision( array(
-			'rev_id'        	=> $rev->getId(),
-			'page_id'       	=> $rev->getPage(),
-			'user'          	=> $this->user->getId(),
+			'rev'        		=> $rev,
+			'user_id'          	=> $this->user->getId(),
 			'timestamp'     	=> wfTimestampNow(),
 			'quality'       	=> $quality,
 			'tags'          	=> FlaggedRevision::flattenRevisionTags( $flags ),
