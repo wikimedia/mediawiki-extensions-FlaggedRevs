@@ -258,10 +258,11 @@ $wgAutoloadClasses['FlaggedRevision'] = $accessDir . 'FlaggedRevision.php';
 $wgAutoloadClasses['FRParserCacheStable'] = $accessDir . 'FRParserCacheStable.php';
 
 # Event handler classes...
-$wgAutoloadClasses['FlaggedRevsHooks'] = $dir . 'FlaggedRevs.hooks.php';
+$wgAutoloadClasses['FlaggedRevsHooks'] = $dir . 'dataclasses/FlaggedRevs.hooks.php';
 $wgAutoloadClasses['FlaggedRevsUIHooks'] = $dir . 'presentation/FlaggedRevsUI.hooks.php';
 $wgAutoloadClasses['FlaggedRevsApiHooks'] = $dir . 'api/FlaggedRevsApi.hooks.php';
 $wgAutoloadClasses['FlaggedRevsUpdaterHooks'] = $dir . 'schema/FlaggedRevsUpdater.hooks.php';
+$wgAutoloadClasses['FlaggedRevsTestHooks'] = $dir . 'tests/FlaggedRevsTest.hooks.php';
 
 # Business object classes
 $wgAutoloadClasses['FRGenericSubmitForm'] = $dir . 'business/FRGenericSubmitForm.php';
@@ -500,9 +501,9 @@ $wgHooks['SpecialPage_initList'][] = 'FlaggedRevsUIHooks::defineSpecialPages';
 $wgHooks['WikiExporter::dumpStableQuery'][] = 'FlaggedRevsHooks::stableDumpQuery';
 
 # Duplicate flagged* tables in parserTests.php
-$wgHooks['ParserTestTables'][] = 'FlaggedRevsHooks::onParserTestTables';
+$wgHooks['ParserTestTables'][] = 'FlaggedRevsTestHooks::onParserTestTables';
 # Integration tests
-$wgHooks['UnitTestsList'][] = 'FlaggedRevsHooks::getUnitTests';
+$wgHooks['UnitTestsList'][] = 'FlaggedRevsTestHooks::getUnitTests';
 
 # Database schema changes
 $wgHooks['LoadExtensionSchemaUpdates'][] = 'FlaggedRevsUpdaterHooks::addSchemaUpdates';
