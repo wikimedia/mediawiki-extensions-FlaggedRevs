@@ -2244,6 +2244,7 @@ $messages['mr'] = array(
 );
 
 /** Malay (Bahasa Melayu)
+ * @author Anakmalaysia
  * @author Aurora
  * @author Aviator
  * @author Kurniasan
@@ -2256,7 +2257,7 @@ $messages['ms'] = array(
 Yang berikut ialah tetapan bagi [[:$1|$1]]:',
 	'stabilization-page' => 'Nama laman:',
 	'stabilization-leg' => 'Sahkan tetapan versi stabil',
-	'stabilization-def' => 'Semakan yang dipaparkan ketika lalai',
+	'stabilization-def' => 'Semakan yang dipaparkan pada paparan laman sediakala',
 	'stabilization-def1' => 'Semakan stabil; jika tiada, semakan semasa',
 	'stabilization-def2' => 'Semakan semasa',
 	'stabilization-restrict' => 'Swa-semak pengehadan',
@@ -2270,7 +2271,7 @@ Tetapan tidak boleh dibuat.',
 	'stabilization-otherreason' => 'Sebab lain:',
 	'stabilization-expiry' => 'Tamat pada:',
 	'stabilization-othertime' => 'Waktu lain',
-	'stabilization-def-short' => 'Lalai',
+	'stabilization-def-short' => 'Tersedia',
 	'stabilization-def-short-0' => 'Semasa',
 	'stabilization-def-short-1' => 'Stabil',
 	'stabilize_expiry_invalid' => 'Tarikh tamat tidak sah.',

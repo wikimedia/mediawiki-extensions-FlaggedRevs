@@ -613,11 +613,13 @@ $messages['mr'] = array(
 );
 
 /** Malay (Bahasa Melayu)
+ * @author Anakmalaysia
  * @author Aviator
  */
 $messages['ms'] = array(
 	'stablepages' => 'Laman stabil',
-	'stablepages-list' => 'Yang berikut ialah senarai laman yang telah ditetapkan untuk memaparkan versi stabil sebagai kandungan lalai kepada para pengunjung.',
+	'stablepages-list' => 'Laman ini menyenaraikan laman-laman yang boleh disunting oleh pengguna-pengguna tertentu sahaja tanpa memerlukan penyemakan.
+Suntingan yang dilakukan oleh pengguna lain tidak dipaparkan kepara pembaca (mengikut tetapan sediakala) sehingga disemak oleh seorang pengguna yang dibenarkan.',
 	'stablepages-none' => 'Tiada laman dalam senarai ini',
 	'stablepages-config' => 'Konfigurasi',
 );
