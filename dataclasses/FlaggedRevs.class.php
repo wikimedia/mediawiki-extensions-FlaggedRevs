@@ -969,7 +969,7 @@ class FlaggedRevs {
 			'fileVersions'     	=> $poutput->getImageTimeKeys(),
 			'flags'				=> implode( ',', $propFlags ),
 		) );
-		$flaggedRevision->insertOn();
+		$flaggedRevision->insert();
 		# Update the article review log
 		FlaggedRevsLog::updateReviewLog( $title,
 			$flags, array(), '', $rev->getId(), $oldSvId, true, $auto );

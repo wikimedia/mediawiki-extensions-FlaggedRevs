@@ -19,9 +19,10 @@ class FlaggedRevision {
 	private $mUser;				// reviewing user
 	private $mFileName;			// file name when reviewed
 	/* Redundant fields for lazy-loading */
-	private $mTitle;
-	private $mStableTemplates;  // template version used
-	private $mStableFiles;		// file versions used
+	private $mTitle;			// page title
+	private $mStableTemplates;  // stable versions of template version used
+	private $mStableFiles;		// stable versions of file versions used
+
 	/**
 	 * @param Row|array $row (DB row or array)
 	 * @return void
@@ -262,7 +263,7 @@ class FlaggedRevision {
 	*
 	* @return bool success
 	*/
-	public function insertOn() {
+	public function insert() {
 		$dbw = wfGetDB( DB_MASTER );
 		# Set any flagged revision flags
 		$this->mFlags = array_merge( $this->mFlags, array( 'dynamic' ) ); // legacy
@@ -297,14 +298,14 @@ class FlaggedRevision {
 			'fr_page_id'       => $this->getPage(),
 			'fr_rev_id'	       => $this->getRevId(),
 			'fr_rev_timestamp' => $this->getRevTimestamp(),
-			'fr_user'	       => $this->getUser(),
-			'fr_timestamp'     => $dbw->timestamp( $this->getTimestamp() ),
-			'fr_quality'       => $this->getQuality(),
-			'fr_tags'	       => self::flattenRevisionTags( $this->getTags() ),
+			'fr_user'	       => $this->mUser,
+			'fr_timestamp'     => $dbw->timestamp( $this->mTimestamp ),
+			'fr_quality'       => $this->mQuality,
+			'fr_tags'	       => self::flattenRevisionTags( $this->mTags ),
 			'fr_flags'	       => implode( ',', $this->mFlags ),
-			'fr_img_name'      => $this->getFileName(),
-			'fr_img_timestamp' => $dbw->timestampOrNull( $this->getFileTimestamp() ),
-			'fr_img_sha1'      => $this->getFileSha1()
+			'fr_img_name'      => $this->mFileName,
+			'fr_img_timestamp' => $dbw->timestampOrNull( $this->mFileTimestamp ),
+			'fr_img_sha1'      => $this->mFileSha1
 		);
 		# Update flagged revisions table
 		$dbw->replace( 'flaggedrevs',
@@ -323,6 +324,25 @@ class FlaggedRevision {
 		if ( $fileInsertRows ) {
 			$dbw->insert( 'flaggedimages', $fileInsertRows, __METHOD__, 'IGNORE' );
 		}
+		return true;
+	}
+
+	/*
+	* Remove a FlaggedRevision object into the database
+	*
+	* @return bool success
+	*/
+	public function delete() {
+		$dbw = wfGetDB( DB_MASTER );
+		# Delete from flaggedrevs table
+		$dbw->delete( 'flaggedrevs',
+			array( 'fr_page_id' => $this->getPage(), 'fr_rev_id' => $this->getRevId() ),
+			__METHOD__ );
+		# Wipe versioning params...
+		$dbw->delete( 'flaggedtemplates',
+			array( 'ft_rev_id' => $this->getRevId() ), __METHOD__ );
+		$dbw->delete( 'flaggedimages',
+			array( 'fi_rev_id' => $this->getRevId() ), __METHOD__ );
 		return true;
 	}
 

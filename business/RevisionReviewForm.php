@@ -375,7 +375,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 			'fileVersions'     	=> $fileVersions,
 			'flags'				=> ''
 		) );
-		$flaggedRevision->insertOn();
+		$flaggedRevision->insert();
 		# Update recent changes...
 		$rcId = $rev->isUnpatrolled(); // int
 		self::updateRecentChanges( $this->page, $rev->getId(), $rcId, true );
@@ -410,13 +410,8 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 		# Get current stable version ID (for logging)
 		$oldSv = FlaggedRevision::newFromStable( $this->page, FR_MASTER );
 
-        $dbw = wfGetDB( DB_MASTER );
 		# Delete from flaggedrevs table
-		$dbw->delete( 'flaggedrevs',
-			array( 'fr_page_id' => $frev->getPage(), 'fr_rev_id' => $frev->getRevId() ) );
-		# Wipe versioning params
-		$dbw->delete( 'flaggedtemplates', array( 'ft_rev_id' => $frev->getRevId() ) );
-		$dbw->delete( 'flaggedimages', array( 'fi_rev_id' => $frev->getRevId() ) );
+		$frev->delete();
 		# Update recent changes
 		self::updateRecentChanges( $this->page, $frev->getRevId(), false, false );
 
@@ -426,7 +421,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 			$this->comment, $this->oldid, $oldSvId, false );
 
 		# Get the new stable version as of now
-		$sv = FlaggedRevision::determineStable( $this->page, FR_MASTER/*consistent*/ );
+		$sv = FlaggedRevision::determineStable( $this->page, FR_MASTER /*consistent*/ );
 		# Update page and tracking tables and clear cache
 		$changed = FlaggedRevs::stableVersionUpdates( $this->page, $sv, $oldSv );
 		if ( $changed ) {
