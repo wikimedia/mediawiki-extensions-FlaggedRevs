@@ -497,14 +497,6 @@ A group in [[Special:SpecialPages]] for all special pages of the Flagged Revs ex
 Link to the general help page. Do ''not'' translate the <tt><nowiki>{{ns:help}}:</nowiki></tt> part, including the colon.",
 );
 
-/** Dusun Bundu-liwan (Dusun Bundu-liwan)
- * @author FRANCIS5091
- */
-$messages['dtp'] = array(
-	'editor' => 'Mongi-ngidit',
-	'flaggedrevs' => 'Sinimakan Natandaan',
-);
-
 /** Afrikaans (Afrikaans)
  * @author Arnobarnard
  * @author Naudefj
@@ -3409,6 +3401,14 @@ Jo móžno, až nowe [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}}
 	'revreview-unlocked' => "'''Glědaj:''' Změny njetrjebaju [[{{MediaWiki:Validationpage}}|pśeglědanje]], pjerwjej až pokazuju se cytarjam na toś tom boku.",
 	'log-show-hide-review' => 'Protokol pśespytanjow $1',
 	'validationpage' => '{{ns:help}}:Wobwěsćenje bokow',
+);
+
+/** Dusun Bundu-liwan (Dusun Bundu-liwan)
+ * @author FRANCIS5091
+ */
+$messages['dtp'] = array(
+	'editor' => 'Mongi-ngidit',
+	'flaggedrevs' => 'Sinimakan Natandaan',
 );
 
 /** Ewe (Eʋegbe) */
@@ -12821,7 +12821,7 @@ $messages['te'] = array(
 	'revreview-depth-1' => 'ప్రాథమిక',
 	'revreview-depth-2' => 'మధ్యస్తం',
 	'revreview-depth-3' => 'ఉన్నత',
-	'revreview-depth-4' => 'విశేష్యం',
+	'revreview-depth-4' => 'విశేషం',
 	'revreview-draft-title' => 'డ్రాఫ్టు పేజి',
 	'revreview-edit' => 'మార్చు',
 	'revreview-editnotice' => "'''ఒక అధీకృత వాడుకరి  [[{{MediaWiki:Validationpage}}|సమీక్షించిన]] తర్వాత మీ మార్పులు [[{{MediaWiki:Validationpage}}|ప్రచురింప]]బడతాయి.'''",
