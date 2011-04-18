@@ -782,9 +782,10 @@ class FlaggedRevs {
 	/**
 	* Get the quality tier of review flags
 	* @param array $flags
+	* @param int $default Return value if one of the tags has value < 0
 	* @return int flagging tier (FR_PRISTINE,FR_QUALITY,FR_CHECKED,-1)
 	*/
-	public static function getLevelTier( array $flags ) {
+	public static function getQualityTier( array $flags, $default = -1 ) {
 		if ( self::isPristine( $flags ) ) {
 			return FR_PRISTINE; // 2
 		} elseif ( self::isQuality( $flags ) ) {
@@ -792,7 +793,7 @@ class FlaggedRevs {
 		} elseif ( self::isChecked( $flags ) ) {
 			return FR_CHECKED; // 0
 		}
-		return -1;
+		return (int)$default;
 	}
 
 	/**
@@ -930,11 +931,6 @@ class FlaggedRevs {
 				return false; // can't auto-review this revision
 			}
 		}
-		# Get quality tier from flags
-		$quality = 0;
-		if ( self::isQuality( $flags ) ) {
-			$quality = self::isPristine( $flags ) ? 2 : 1;
-		}
 		# Get review property flags
 		$propFlags = $auto ? array( 'auto' ) : array();
 
@@ -960,7 +956,7 @@ class FlaggedRevs {
 			'rev'	      		=> $rev,
 			'user_id'	       	=> $user->getId(),
 			'timestamp'     	=> $rev->getTimestamp(), // same as edit time
-			'quality'      	 	=> $quality,
+			'quality'      	 	=> FlaggedRevs::getQualityTier( $flags, 0 /* sanity */ ),
 			'tags'	       		=> FlaggedRevision::flattenRevisionTags( $flags ),
 			'img_name'      	=> $fileData['name'],
 			'img_timestamp' 	=> $fileData['timestamp'],

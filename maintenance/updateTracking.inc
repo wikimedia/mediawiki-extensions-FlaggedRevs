@@ -36,7 +36,7 @@ function update_flaggedrevs( $start = null ) {
 		foreach ( $res as $row ) {
 			$tags = FlaggedRevision::expandRevisionTags( $row->fr_tags );
 			# Quality rating levels may have changed due to config tweaks...
-			$quality = max( 0, FlaggedRevs::getLevelTier( $tags ) );
+			$quality = FlaggedRevs::getQualityTier( $tags, 0 /* sanity */ );
 
 			$file = $row->fr_img_name;
 			$fileTime = $row->fr_img_timestamp;

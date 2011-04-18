@@ -328,7 +328,7 @@ class FlaggedRevision {
 	}
 
 	/*
-	* Remove a FlaggedRevision object into the database
+	* Remove a FlaggedRevision object from the database
 	*
 	* @return bool success
 	*/
