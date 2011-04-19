@@ -856,8 +856,7 @@ class FlaggedRevs {
 		self::load(); // validates namespaces
 		return self::$patrolNamespaces;
 	}
-	
-	
+
 	/**
 	* Is this page in reviewable namespace?
 	* Note: this checks $wgFlaggedRevsWhitelist
@@ -866,16 +865,14 @@ class FlaggedRevs {
 	*/
 	public static function inReviewNamespace( Title $title ) {
 		global $wgFlaggedRevsWhitelist;
-		$namespaces = self::getReviewNamespaces();
-		$ns = ( $title->getNamespace() == NS_MEDIA ) ?
-			NS_FILE : $title->getNamespace(); // Treat NS_MEDIA as NS_FILE
-		# Check for MW: pages and whitelist for exempt pages
 		if ( in_array( $title->getPrefixedDBKey(), $wgFlaggedRevsWhitelist ) ) {
-			return false;
+			return false; // page is one exemption whitelist
 		}
-		return ( in_array( $ns, $namespaces ) );
+		$ns = ( $title->getNamespace() == NS_MEDIA ) ?
+			NS_FILE : $title->getNamespace(); // treat NS_MEDIA as NS_FILE
+		return in_array( $ns, self::getReviewNamespaces() );
 	}
-	
+
 	/**
 	* Is this page in patrollable namespace?
 	* @param Title, $title
