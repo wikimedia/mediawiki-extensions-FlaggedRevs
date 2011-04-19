@@ -306,6 +306,12 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 			}
 			$baseRevId = $newRev->isCurrent() ? $oldRev->getId() : 0;
 			$article->doEdit( $new_text, $this->getComment(), 0, $baseRevId, $this->user );
+			# If this undid one edit by another logged-in user, update user tallies
+			if ( $newRev->getParentId() == $oldRev->getId() && $newRev->getRawUser() ) {
+				if ( $newRev->getRawUser() != $this->user->getId() ) { // no self-reverts
+					FRUserCounters::incCount( $newRev->getRawUser(), 'revertedEdits' );
+				}
+			}
 		}
 		# Watch page if set to do so
 		if ( $status === true ) {

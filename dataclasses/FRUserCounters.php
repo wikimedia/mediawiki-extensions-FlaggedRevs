@@ -81,6 +81,21 @@ class FRUserCounters {
 	}
 
 	/**
+	* Increments a count for a user
+	* @param int $uid User id
+	* @param string $param Count name
+	* @return string
+	*/
+	public static function incCount( $uid, $param ) {
+		$p = self::getUserParams( $uid, FR_FOR_UPDATE );
+		if ( !isset( $p[$param] ) ) {
+			$p[$param] = 0;
+		}
+		$p[$param]++;
+		FRUserCounters::saveUserParams( $uid, $p );
+	}
+
+	/**
 	* Flatten params for a user for DB storage
 	* Note: param values must be integers
 	* @param array $params

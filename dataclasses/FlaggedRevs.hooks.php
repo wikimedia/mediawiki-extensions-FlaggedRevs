@@ -658,16 +658,10 @@ class FlaggedRevsHooks {
 		if ( $rev && $undid && $user->isAllowed( 'autoreview' ) ) {
 			// Note: $rev->getTitle() might be undefined (no rev id?)
 			$badRev = Revision::newFromTitle( $article->getTitle(), $undid );
-			# Don't count self-reverts
-			if ( $badRev && $badRev->getRawUser()
-				&& $badRev->getRawUser() != $rev->getRawUser() )
+			if ( $badRev && $badRev->getRawUser() // by logged-in user
+				&& $badRev->getRawUser() != $rev->getRawUser() ) // no self-reverts
 			{
-				$p = FRUserCounters::getUserParams( $badRev->getRawUser(), FR_FOR_UPDATE );
-				if ( !isset( $p['revertedEdits'] ) ) {
-					$p['revertedEdits'] = 0;
-				}
-				$p['revertedEdits']++;
-				FRUserCounters::saveUserParams( $badRev->getRawUser(), $p );
+				FRUserCounters::incCount( $badRev->getRawUser(), 'revertedEdits' );
 			}
 		}
 		return true;

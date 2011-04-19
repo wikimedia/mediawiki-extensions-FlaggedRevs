@@ -10,7 +10,7 @@ class FRParserCacheStable extends ParserCache {
 		static $instance;
 		if ( !isset( $instance ) ) {
 			global $parserMemc;
-			$instance = new FRParserCacheStable( $parserMemc );
+			$instance = new self( $parserMemc );
 		}
 		return $instance;
 	}
@@ -23,8 +23,7 @@ class FRParserCacheStable extends ParserCache {
 	 */
 	protected function getParserOutputKey( $article, $hash ) {
 		$key = parent::getParserOutputKey( $article, $hash ); // call super!
-		$key = str_replace( ':pcache:', ':stable-pcache:', $key );
-		return $key;
+		return str_replace( ':pcache:', ':stable-pcache:', $key );
 	}
 
 	/**
@@ -34,7 +33,6 @@ class FRParserCacheStable extends ParserCache {
 	 */
 	protected function getOptionsKey( $article ) {
 		$key = parent::getOptionsKey( $article ); // call super!
-		$key = str_replace( ':pcache:', ':stable-pcache:', $key );
-		return $key;
+		return str_replace( ':pcache:', ':stable-pcache:', $key );
 	}
 }
