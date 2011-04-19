@@ -280,6 +280,9 @@ class FlaggedPage extends Article {
 	 * @return int
 	 */
 	public function getStable() {
+		if ( !FlaggedRevs::inReviewNamespace( $this->mTitle ) ) {
+			return 0; // short-circuit
+		}
 		if ( !$this->mDataLoaded ) {
 			$this->loadPageData();
 		}
@@ -291,6 +294,9 @@ class FlaggedPage extends Article {
 	 * @return mixed (FlaggedRevision/null)
 	 */
 	public function getStableRev() {
+		if ( !FlaggedRevs::inReviewNamespace( $this->mTitle ) ) {
+			return null; // short-circuit
+		}
 		if ( !$this->mDataLoaded ) {
 			$this->loadPageData();
 		}
