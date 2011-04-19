@@ -1573,10 +1573,9 @@ $messages['pt-br'] = array(
 
 Editores são utilizadores estabelecidos que podem verificar detalhadamente revisões de páginas.",
 	'validationstatistics-lastupdate' => "''Os seguintes dados foram atualizados pela última vez em $1 às $2.''",
-	'validationstatistics-pndtime' => "As edições verificadas por utilizadores estabelecidos são consideras revistas.
+	'validationstatistics-pndtime' => "As edições verificadas por usuários estabelecidos são consideras ''revisadas''.
 
-O atraso médio para [[Special:OldReviewedPages|páginas com edições à espera de revisão]] é '''$1'''.
-Estas páginas são consideradas ''desatualizadas''. Da mesma forma, as páginas são consideradas ''sincronizadas'' se não tiverem edições em espera.",
+O atraso médio de revisão das [[Special:OldReviewedPages|páginas com edições à espera de revisão]] é '''$1'''; este atraso mede o tempo que a edição pendente mais antiga ficou à espera de revisão.",
 	'validationstatistics-revtime' => "O tempo médio de espera para revisão das edições de ''usuários não autenticados'' é '''$1'''; a mediana é '''$2'''. 
 $3",
 	'validationstatistics-table' => "São apresentadas abaixo estatísticas das revisões em cada espaço nominal, '''excluindo''' páginas de redirecionamento. As páginas são consideradas ''desatualizadas'' se tiverem edições à espera de revisão, e ''sincronizadas'' se não tiverem edições em espera.",
