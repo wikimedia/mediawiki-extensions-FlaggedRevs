@@ -329,7 +329,7 @@ class FlaggedRevsUIHooks {
 			$view = FlaggedPageView::singleton();
 			$view->addReviewNotes( $data );
 			$view->addReviewForm( $data );
-			$view->addVisibilityLink( $data );
+			$view->addStabilizationLink( $data );
 		}
 		return true;
 	}

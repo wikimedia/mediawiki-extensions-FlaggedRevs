@@ -1098,7 +1098,7 @@ class FlaggedPageView {
 	 /**
 	 * Add link to stable version setting to protection form
 	 */
-	public function addVisibilityLink( &$data ) {
+	public function addStabilizationLink( &$data ) {
 		global $wgRequest, $wgOut;
 		$this->load();
 		if ( FlaggedRevs::useProtectionLevels() ) {
@@ -1158,9 +1158,7 @@ class FlaggedPageView {
 			$actions['default'] = array(
 				'class' => false,
 				'text' => wfMsg( 'stabilization-tab' ),
-				'href' => $stableTitle->getLocalUrl(
-					'page=' . $title->getPrefixedUrl()
-				)
+				'href' => $stableTitle->getLocalUrl( 'page=' . $title->getPrefixedUrl() )
 			);
 		}
 		return true;
@@ -1171,13 +1169,15 @@ class FlaggedPageView {
 	 * @param string $type ('flat' for SkinTemplateTabs, 'nav' for SkinTemplateNavigation)
 	 */
 	public function setViewTabs( Skin $skin, array &$views, $type ) {
-		global $wgRequest;
 		$this->load();
-		if ( $this->article->getTitle()->isTalkPage() ) {
-			return true; // leave talk pages alone
+		if ( !FlaggedRevs::inReviewNamespace( $this->article->getTitle() ) ) {
+			return true; // short-circuit for non-reviewable pages
 		}
-		if ( !$this->article->isReviewable() ) {
-			return true; // Not a reviewable page or the UI is hidden
+		# Hack for bug 16734 (some actions update and view all at once)
+		if ( $this->pageWriteOpRequested() && wfGetDB( DB_MASTER )->doneWrites() ) {
+			# Tabs need to reflect the new stable version so users actually
+			# see the results of their action (i.e. "delete"/"rollback")
+			$this->article->loadFromDB( FR_MASTER );
 		}
 		$srev = $this->article->getStableRev();
 		if ( !$srev ) {
@@ -1281,6 +1281,22 @@ class FlaggedPageView {
 		}
 		// Replaces old tabs with new tabs
 		$views = $newViews;
+	}
+
+	/**
+	 * Check if a flaggedrevs relevant write op was done this page view
+	 * @return bool
+	 */
+	protected function pageWriteOpRequested() {
+		global $wgRequest, $mediaWiki;
+		# Hack for bug 16734 (some actions update and view all at once)
+		$action = $mediaWiki->getAction();
+		if ( $action === 'rollback' ) {
+			return true;
+		} elseif ( $action === 'delete' && $wgRequest->wasPosted() ) {
+			return true;
+		}
+		return false;
 	}
 
 	/**
