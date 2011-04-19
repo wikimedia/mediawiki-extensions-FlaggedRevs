@@ -303,6 +303,28 @@ class FlaggedPage extends Article {
 	}
 
 	/**
+	 * Get visiblity restrictions on page
+	 * @return array (select,override)
+	 */
+	public function getStabilitySettings() {
+		if ( !$this->mDataLoaded ) {
+			$this->loadPageData();
+		}
+		return $this->pageConfig;
+	}
+
+	/*
+	* Get the fp_reviewed value for this page
+	* @return bool
+	*/
+	public function syncedInTracking() {
+		if ( !$this->mDataLoaded ) {
+			$this->loadPageData();
+		}
+		return $this->syncedInTracking;
+	}
+
+	/**
 	 * Get the newest of the highest rated flagged revisions of this page
 	 * Note: will not return deleted revisions
 	 * @return int
@@ -325,28 +347,6 @@ class FlaggedPage extends Article {
 			)
 		);
 		return (int)$oldid;
-	}
-
-	/**
-	 * Get visiblity restrictions on page
-	 * @return array (select,override)
-	 */
-	public function getStabilitySettings() {
-		if ( !$this->mDataLoaded ) {
-			$this->loadPageData();
-		}
-		return $this->pageConfig;
-	}
-
-	/*
-	* Get the fp_reviewed value for this page
-	* @return bool
-	*/
-	public function syncedInTracking() {
-		if ( !$this->mDataLoaded ) {
-			$this->loadPageData();
-		}
-		return $this->syncedInTracking;
 	}
 
 	/**
@@ -409,8 +409,8 @@ class FlaggedPage extends Article {
 		$this->pendingRevCount = null; // defer this one...
 		$this->pageConfig = FlaggedPageConfig::getDefaultVisibilitySettings(); // default
 		$this->syncedInTracking = true; // false => "unreviewed" or "synced"
-		# Load in Row data if the page exists...
-		if ( $data ) {
+		# Load in flaggedrevs Row data if the page exists...(sanity check NS)
+		if ( $data && FlaggedRevs::inReviewNamespace( $this->mTitle ) ) {
 			if ( $data->fpc_override !== null ) { // page config row found
 				$this->pageConfig = FlaggedPageConfig::getVisibilitySettingsFromRow( $data );
 			}
