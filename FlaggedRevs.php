@@ -500,6 +500,9 @@ $wgHooks['SpecialPage_initList'][] = 'FlaggedRevsUIHooks::defineSpecialPages';
 # Stable dump hook
 $wgHooks['WikiExporter::dumpStableQuery'][] = 'FlaggedRevsHooks::stableDumpQuery';
 
+# GNSM category hooks
+$wgHooks['GoogleNewsSitemap::Query'][] = 'FlaggedRevsHooks::gnsmQueryModifier';
+
 # Duplicate flagged* tables in parserTests.php
 $wgHooks['ParserTestTables'][] = 'FlaggedRevsTestHooks::onParserTestTables';
 # Integration tests

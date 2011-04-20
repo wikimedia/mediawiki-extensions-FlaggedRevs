@@ -1000,4 +1000,32 @@ class FlaggedRevsHooks {
 		}
 		return false; // final
 	}
+
+	public static function gnsmQueryModifier( array $params, array &$joins, array &$conditions ) {
+		$filterSet = array( GoogleNewsSitemap::OPT_ONLY, GoogleNewsSitemap::OPT_EXCLUDE );
+		# Either involves the same JOIN here...
+		if ( isset( $filterSet[ $params['stable'] ] ) || isset( $filterSet[ $params['quality'] ] ) ) {
+			$joins['flaggedpages'] = array( 'LEFT JOIN', 'page_id = fp_page_id' );
+		}
+
+		switch( $params['stable'] ) {
+			case GoogleNewsSitemap::OPT_ONLY:
+				$conditions[] = 'fp_stable IS NOT NULL ';
+				break;
+			case GoogleNewsSitemap::OPT_EXCLUDE:
+				$conditions['fp_stable'] = null;
+				break;
+		}
+
+		switch( $params['quality'] ) {
+			case GoogleNewsSitemap::OPT_ONLY:
+				$conditions[] = 'fp_quality >= 1';
+				break;
+			case GoogleNewsSitemap::OPT_EXCLUDE:
+				$conditions['fp_quality'] = 0;
+				break;
+		}
+
+		return true;
+	}
 }
