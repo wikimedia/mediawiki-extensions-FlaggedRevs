@@ -375,6 +375,7 @@ $messages['arz'] = array(
 
 /** Asturian (Asturianu)
  * @author Esbardu
+ * @author Xuacu
  */
 $messages['ast'] = array(
 	'revisionreview' => 'Revisar revisiones',
@@ -384,7 +385,7 @@ $messages['ast'] = array(
 	'revreview-main' => "Tienes que seleicionar una revisión concreta d'una páxina de conteníos pa revisala.
 
 Vete a la [[Special:Unreviewedpages|llista de páxines ensin revisar]].",
-	'revreview-submit' => 'Grabar revisión',
+	'revreview-submit' => 'Unviar',
 	'revreview-toolow' => 'Tienes que calificar tolos atributos d\'embaxo percima de "non aprobáu" pa qu\'una revisión seya considerada como revisada. Pa despreciar una revisión, pon tolos campos como "non aprobáu".',
 	'revreview-update' => "Por favor [[{{MediaWiki:Validationpage}}|revisa]] tolos cambeos ''(amosaos embaxo)'' fechos dende que la revisión estable foi [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprobada].<br />
 '''Actualizáronse delles plantíes/imáxenes:'''",

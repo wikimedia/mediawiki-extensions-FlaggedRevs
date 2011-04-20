@@ -41,11 +41,12 @@ $messages['af'] = array(
 );
 
 /** Arabic (العربية)
+ * @author Ciphers
  * @author Meno25
  * @author OsamaK
  */
 $messages['ar'] = array(
-	'problemchanges' => 'راجع التغييرات الموسومة',
+	'problemchanges' => 'التغييرات بالانتظار الموسومة',
 	'problemchanges-legend' => 'اعرض الصفحات ذات التعديلات الموسومة التي تنتظر المراجعة',
 	'problemchanges-none' => 'لا توجد حاليًا صفحات توافق هذه المعايير',
 	'problemchanges-category' => 'التصنيف:',

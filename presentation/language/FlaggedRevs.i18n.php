@@ -247,6 +247,7 @@ Please check the URL you used to access this page.',
  * @author Tgr
  * @author The Evil IP address
  * @author Umherirrender
+ * @author Yekrats
  * @author Тест
  */
 $messages['qqq'] = array(
@@ -374,11 +375,8 @@ If an anonymous user edits a stable page, after saving the page he sees the draf
 {{Identical|Authorised user}}',
 	'revreview-edited-section' => '{{Flagged Revs}}',
 	'revreview-newest-basic' => '{{Flagged Revs}}',
-	'revreview-newest-basic-i' => '{{Flagged Revs-small}}
-Used in the "flagged revs box" when you are viewing the latest draft version, but when there is a checked revision, the stable version. 
-
-Example: [http://de.wikipedia.org/w/index.php?title=Deutsche_Sprache&stable=0 de.wikipedia].
-* Note, the example seems not to work, currently.',
+	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Ŝanĝoj de ŝablonoj aŭ dosieroj] en ĉi tiu versio estas [[{{MediaWiki:Validationpage}}|kontrolendaj]].
+La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} stabila versio] estis [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} kontrolita] je <i>$2</i>.',
 	'revreview-newest-quality' => '{{Flagged Revs}}',
 	'revreview-newest-quality-i' => '{{Flagged Revs}}',
 	'revreview-pending-basic' => '{{Flagged Revs}}',
@@ -822,7 +820,7 @@ $messages['ar'] = array(
 	'review-logpagetext' => 'هذا سجل بالتغييرات في حالة [[{{MediaWiki:Validationpage}}|الموافقة]] لصفحات المحتوى.',
 	'reviewer' => 'مراجع',
 	'revreview-accuracy' => 'الدقة',
-	'revreview-accuracy-0' => 'غير موافق',
+	'revreview-accuracy-0' => 'غير مقبول',
 	'revreview-accuracy-1' => 'منظورة',
 	'revreview-accuracy-2' => 'دقيقة',
 	'revreview-accuracy-3' => 'مصادرها جيدة',
@@ -899,6 +897,7 @@ $messages['ar'] = array(
 	'revreview-revnotfound' => 'لم يتم العثور على المراجعة القديمة من الصفحة التي طلبتها.
 من فضلك تأكد من المسار الذي دخلت به إلى هذه الصفحة.',
 	'right-autoreview' => 'التعليم على المراجعات تلقائيا كمتحقق منها',
+	'right-autoreviewrestore' => 'مراجعة تلقائية أثناء الاسترجاع',
 	'right-movestable' => 'نقل الصفحات المنشورة',
 	'right-review' => 'التعليم على المراجعات "كمتحقق منها"',
 	'right-stablesettings' => 'ضبط كيف يتم اختيار وعرض النسخة المنشورة',
@@ -906,7 +905,7 @@ $messages['ar'] = array(
 	'right-unreviewedpages' => 'رؤية [[Special:UnreviewedPages|قائمة الصفحات غير المراجعة]]',
 	'rights-editor-autosum' => 'ترقية تلقائية',
 	'rights-editor-revoke' => 'أزال حالة محرر من [[$1]]',
-	'specialpages-group-quality' => 'توكيد الجودة',
+	'specialpages-group-quality' => 'مراجعة التعديل',
 	'stable-logentry-config' => 'ضبط النسخة المستقرة ل$1',
 	'stable-logentry-modify' => '"تغيرت إعدادات النسخة المستقرة لـ  $1"',
 	'stable-logentry-reset' => 'أعاد ضبط النسخة المستقرة ل$1',
@@ -943,6 +942,7 @@ $messages['ar'] = array(
 	'tooltip-ca-default' => 'إعدادات توكيد الجودة',
 	'flaggedrevs-protect-legend' => 'نشر التعديلات',
 	'flaggedrevs-protect-none' => 'السماح لكل المستخدمين',
+	'flaggedrevs-categoryview' => '[{{fullurl:Special:UnreviewedPages|category=$1}} صفحات غير مراجعة]{{int:pipe-separator}}[{{fullurl:Special:PendingChanges|category=$1}} تعديلات بالانتظار]',
 	'revreview-locked-title' => 'التعديلات يجب أن تتم مراجعتها قبل أن يتم عرضها في هذه الصفحة!',
 	'revreview-unlocked-title' => 'التعديلات لا تتطلب مراجعة قبل عرضها على القراء في هذه الصفحة.',
 	'revreview-locked' => 'التعديلات يجب أن تتم مراجعتها قبل أن يتم عرضها في هذه الصفحة!',
@@ -1138,6 +1138,7 @@ $messages['arz'] = array(
 
 /** Asturian (Asturianu)
  * @author Esbardu
+ * @author Xuacu
  */
 $messages['ast'] = array(
 	'editor' => 'Editor',
@@ -1177,7 +1178,7 @@ pue ser [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} modificáu]; [{{fullurl:{{FUL
 	'revreview-depth-2' => 'Moderada',
 	'revreview-depth-3' => 'Alta',
 	'revreview-depth-4' => 'Destacada',
-	'revreview-edit' => 'Editar borrador',
+	'revreview-edit' => 'Editar',
 	'revreview-newest-basic' => "La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} cabera revisión vista]
 ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} llistar toes]) [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprobóse]'l
 <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|cambéu|cambeos}}] {{PLURAL:$3|necesita|necesiten}} revisión.",
@@ -3614,8 +3615,11 @@ Novaj [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} ŝanĝoj] eble
 
 Jen estas [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 {{PLURAL:$2|kontrolenda ŝanĝo|kontrolendaj ŝanĝoj}}].",
 	'revreview-edited-section' => 'Reiri al paĝa sekcio nomata "[[#$1|$2]]".',
-	'revreview-newest-basic' => 'La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} publikigita versio] estis [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} kontrolita] je <i>$2</i>. Estas [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|kontrolenda ŝanĝo|kontrolendaj ŝanĝoj}}].',
-	'revreview-newest-basic-i' => 'La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} publikigita versio] estis [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} kontrolita] je <i>$2</i>. Estas [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} kontrolendaj ŝanĝoj de ŝablonoj/dosieroj].',
+	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|ŝanĝo|ŝanĝoj}}] en ĉi tiu versio atendas [[{{MediaWiki:Validationpage}}|kontrolon]]. La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} stabila versio] estis [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} kontrolita] je <i>$2</i>.',
+	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} publikigita versio] estis [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} kontrolita] je <i>$2</i>. Estas [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} kontrolendaj ŝanĝoj de ŝablonoj/dosieroj].
+
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Ŝanĝoj al ŝablonoj aŭ dosieroj] en ĉi tiu versio estas [[{{MediaWiki:Validationpage}}|kontrolendaj]].
+La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} stabila versio] estis [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} kontrolita] je <i>$2</i>.',
 	'revreview-newest-quality' => 'La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} publikigita versio] estis [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprobita] je <i>$2</i>. Estas [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|kontrolenda ŝanĝo|kontrolendaj ŝanĝoj}}].',
 	'revreview-newest-quality-i' => 'La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} publikigita versio] estis [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprobita] je <i>$2</i>. Estas [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} ŝanĝoj de ŝablonoj/dosieroj].',
 	'revreview-pending-basic' => 'La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} publikigita versio] estis [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} kontrolita] je <i>$2</i>. Estas [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|kontrolenda ŝanĝo|kontrolendaj ŝanĝoj}}].',
@@ -7237,7 +7241,7 @@ $messages['ka'] = array(
 	'group-autoreview-member' => 'შემოწმებული',
 	'grouppage-autoreview' => '{{ns:project}}:შემოწმებული მომხმარებლები',
 	'revcontents-error' => 'შინაარსის მიღება შეუძლებელია.',
-	'revcontents-getcontents' => '[{{fullurl:$1|oldid=$2}} დააჭირე აქ] ამ ვერსიის სანახავად.',
+	'revcontents-getcontents' => '[{{fullurl:$1|oldid=$2}} დააჭირეთ აქ] ამ ვერსიის სანახავად.',
 	'revcontents-waiting' => 'დაელოდეთ შინაარსს',
 	'revreview-hist-draft' => 'შეუმოწმებელი ვერსია',
 	'revreview-hist-pending' => 'შემოწმების მოლოდინში',
@@ -8729,6 +8733,8 @@ $messages['mk'] = array(
 	'revreview-unlocked-title' => 'Уредувањата на оваа страница не бараат преглед.',
 	'revreview-locked' => "'''Напомена:''' Уредувањата мора да се [[{{MediaWiki:Validationpage}}|проверат]] пред да бидат видливи за читателите на оваа страница.",
 	'revreview-unlocked' => "'''Напомена:''' Уредувањата не бараат [[{{MediaWiki:Validationpage}}|проверка]] пред да бидат видливи за читателите на оваа страница.",
+	'revreview-ak-review' => 'п',
+	'accesskey-ca-current' => 'в',
 	'accesskey-ca-stable' => 'c',
 	'log-show-hide-review' => '$1 дневник на оценувања',
 	'validationpage' => '{{ns:help}}:Проверка на страница',
