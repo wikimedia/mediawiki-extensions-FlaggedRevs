@@ -3620,8 +3620,10 @@ Jen estas [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 {{PLURA
 
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Ŝanĝoj al ŝablonoj aŭ dosieroj] en ĉi tiu versio estas [[{{MediaWiki:Validationpage}}|kontrolendaj]].
 La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} stabila versio] estis [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} kontrolita] je <i>$2</i>.',
-	'revreview-newest-quality' => 'La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} publikigita versio] estis [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprobita] je <i>$2</i>. Estas [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|kontrolenda ŝanĝo|kontrolendaj ŝanĝoj}}].',
-	'revreview-newest-quality-i' => 'La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} publikigita versio] estis [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprobita] je <i>$2</i>. Estas [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} ŝanĝoj de ŝablonoj/dosieroj].',
+	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3  {{PLURAL:$3|ŝanĝo|ŝanĝoj}}] en ĉi tiu versio estas [[{{MediaWiki:Validationpage}}|kontrolenda]]{{PLURAL:$3||j}}.
+La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} stabila versio] estis [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprobita] je <i>$2</i>.',
+	'revreview-newest-quality-i' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} ŝanĝoj al ŝablonoj aŭ dosieroj] en ĉi tiu versio estas  [[{{MediaWiki:Validationpage}}|kontrolenda]]{{PLURAL:$3||j}}.
+La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} stabila versio] estis [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprobita] je <i>$2</i>. <i>$2</i>.',
 	'revreview-pending-basic' => 'La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} publikigita versio] estis [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} kontrolita] je <i>$2</i>. Estas [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|kontrolenda ŝanĝo|kontrolendaj ŝanĝoj}}].',
 	'revreview-pending-quality' => 'La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} publikigita versio] estis [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} kontrolita] je <i>$2</i>. Estas [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|kontrolenda ŝanĝo|kontrolendaj ŝanĝoj}}].',
 	'revreview-pending-nosection' => 'Provu vidi la [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} lastan revizion], kiu inkluzivas
