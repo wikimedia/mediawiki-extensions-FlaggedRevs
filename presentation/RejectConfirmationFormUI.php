@@ -132,7 +132,7 @@ class RejectConfirmationFormUI {
 		$form .= Html::hidden( 'wpEditToken', $this->form->getUser()->editToken() );
 		$form .= Html::hidden( 'changetime', $newRev->getTimestamp() );
 		$form .= Xml::inputLabel( wfMsg( 'revreview-reject-summary' ), 'wpReason',
-			'wpReason', 120, $defaultSummary ) . "<br />";
+			'wpReason', 120, $defaultSummary, array( 'maxlength' => 200 ) ) . "<br />";
 		$form .= Html::input( 'wpSubmit', wfMsg( 'revreview-reject-confirm' ), 'submit' );
 		$form .= ' ';
 		$form .= $skin->link( $this->form->getPage(), wfMsg( 'revreview-reject-cancel' ),

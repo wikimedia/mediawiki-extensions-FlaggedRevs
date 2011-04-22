@@ -157,7 +157,8 @@ class RevisionReviewFormUI {
 			}
 			$form .= "<span id='mw-fr-commentbox' style='clear:both'>" .
 				Xml::inputLabel( wfMsg( 'revreview-log' ), 'wpReason', 'wpReason', 40, '',
-					array( 'class' => 'fr-comment-box' ) ) . "&#160;&#160;&#160;</span>";
+					array( 'maxlength' => 255, 'class' => 'fr-comment-box' ) ) .
+				"&#160;&#160;&#160;</span>";
 		}
 		# Determine if there will be reject button
 		$rejectId = $this->rejectRefRevId();

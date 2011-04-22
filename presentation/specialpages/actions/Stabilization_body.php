@@ -215,7 +215,7 @@ class Stabilization extends UnlistedSpecialPage {
 					'</td>
 					<td class="mw-input">' .
 						Xml::input( 'wpReason', 70, $form->getReasonExtra(),
-							array( 'id' => 'wpReason' ) ) .
+							array( 'id' => 'wpReason', 'maxlength' => 255 ) ) .
 					'</td>
 				</tr>
 				<tr>
