@@ -644,10 +644,9 @@ $messages['fr'] = array(
 
 Les contributeurs et relecteurs sont des utilisateurs établis qui peuvent vérifier les révisions des pages.",
 	'validationstatistics-lastupdate' => "''Les données suivantes ont été mises à jour le $1 sur $2.''",
-	'validationstatistics-pndtime' => "Les modifications vérifiées par les utilisateurs enregistrés sont considérées comme relues.
+	'validationstatistics-pndtime' => "Les modifications vérifiées par les utilisateurs confirmés sont considérées comme ''relues''.
 
-Le retard moyen des [[Special:OldReviewedPages|pages contenant des modifications à relire]] est '''$1'''.
-Ces pages sont considérées comme ''périmées''. De même, une page est considérée comme ''à jour'' si aucune modification n’est à relire.",
+Le retard de relecture moyen des [[Special:OldReviewedPages|pages contenant des modifications à relire]] est '''$1''', le retard mesure combien de temps les modifications les plus anciennes en attente sont restées non relues.",
 	'validationstatistics-revtime' => "Le délai d’attente moyen pour la relecture des modifications faites par les ''utilisateurs non enregistrés'' est '''$1''' ; la médiane est '''$2'''.
 $3",
 	'validationstatistics-table' => "Les statistiques de relecture pour chaque espace de noms sont affichées ci-dessous, ''à l’exception'' des pages de redirection. Les pages sont traitées comme ''périmées'' si elles ont des modifications en attente et comme ''synchronisées'' si elle n'ont pas de modifications en attente.",
@@ -945,20 +944,19 @@ $messages['id'] = array(
 
 Penyunting adalah para pengguna tetap yang dapat melakukan pemeriksaan perbaikan di setiap halaman.",
 	'validationstatistics-lastupdate' => "''Data berikut terakhir dimutakhirkan pada tanggal $1 pukul $2.''",
-	'validationstatistics-pndtime' => "Suntingan yang telah diperiksa oleh pengguna terdaftar dipertimbangkan untuk ditinjau.
+	'validationstatistics-pndtime' => "Suntingan yang telah diperiksa oleh pengguna mapan dianggap ''tertinjau''.
 
-Lama tunda rata-rata untuk [[Special:OldReviewedPages|halaman dengan suntingan tertunda yang belum ditinjau]] adalah '''$1'''.
-Halaman-halaman ini dianggap ''kedaluwarsa''. Demikian juga, halaman dianggap ''disinkronisasikan'' bila tidak ada suntingan yang menunggu tinjauan.",
+Lama penundaan tinjauan rata-rata untuk [[Special:OldReviewedPages|halaman dengan penundaan tinjauan suntingan]] adalah '''$1'''; penundaan menunjukkan lama waktu suntingan tunda terlama belum ditinjau.",
 	'validationstatistics-revtime' => "Lama waktu rata-rata untuk suntingan oleh ''pengguna yang tidak masuk log'' agar ditinjau adalah '''$1'''; mediannya adalah '''$2'''.
 $3",
-	'validationstatistics-table' => "Statistik tinjauan halaman untuk setiap ruang nama ditampilkan di bawah ini, ''kecuali'' halaman pengalihan.",
+	'validationstatistics-table' => "Statistik tinjauan halaman untuk setiap ruang nama ditampilkan di bawah ini, ''kecuali'' halaman pengalihan. Halaman dianggap ''kedaluwarsa'' jika memiliki tinjauan suntingan tertunda; halaman dianggap ''sinkron'' jika tidak memiliki tinjauan suntingan tertunda.",
 	'validationstatistics-ns' => 'Ruang nama',
 	'validationstatistics-total' => 'Halaman',
 	'validationstatistics-stable' => 'Telah ditinjau',
 	'validationstatistics-latest' => 'Tersinkron',
 	'validationstatistics-synced' => 'Sinkron/Tertinjau',
 	'validationstatistics-old' => 'Usang',
-	'validationstatistics-utable' => 'Di bawah ini adalah daftar {{PLURAL:$1|peninjau|peninjau}} teraktif selama satu jam terakhir.',
+	'validationstatistics-utable' => 'Berikut adalah daftar {{PLURAL:$1|peninjau|peninjau}} teraktif selama {{PLURAL:$2|satu jam|$2 jam}} terakhir.',
 	'validationstatistics-user' => 'Pengguna',
 	'validationstatistics-reviews' => 'Tinjauan',
 );

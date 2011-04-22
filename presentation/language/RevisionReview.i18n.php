@@ -1608,6 +1608,7 @@ $messages['fr'] = array(
 	'review_not_flagged' => "La révision cible n'est actuellement pas marquée comme relue.",
 	'review_too_low' => 'La révision ne peut pas être relue avec des champs laissés à « insuffisant ».',
 	'review_bad_key' => "Clé de paramètre d'inclusion invalide.",
+	'review_bad_tags' => 'Certaines valeurs de balise spécifiées sont invalides.',
 	'review_denied' => 'Permission refusée.',
 	'review_param_missing' => 'Un paramètre est manquant ou invalide.',
 	'review_cannot_undo' => 'Impossible de défaire ces modifications parce que d’autres modifications en attente concernent les mêmes zones.',
@@ -1639,6 +1640,8 @@ Voir la [[Special:Unreviewedpages|liste des pages non relues]].",
 	'revreview-submit-unreviewed' => 'Fait. Désapprouvé !',
 	'revreview-successful' => "'''La version sélectionnée de [[:$1|$1]] a été marquée avec succès ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} voir les versions stables])'''",
 	'revreview-successful2' => "'''Version de [[:$1|$1]] invalidée.'''",
+	'revreview-poss-conflict-p' => "'''Attention : [[User:$1|$1]] a commencé à relire cette page le $2 à $3.'''",
+	'revreview-poss-conflict-c' => "'''Attention : [[User:$1|$1]] a commencé à relire ces modifications le $2 à $3.'''",
 	'revreview-toolow' => "'''Vous devez affecter à chacun des attributs une évaluation plus élevée que « inappropriée » pour que la relecture soit prise en compte comme acceptée.'''
 
 Pour enlever l’état de relecture d’une version, cliquez sur « Ne pas accepter ».
@@ -2348,6 +2351,7 @@ $messages['id'] = array(
 	'review_not_flagged' => 'Revisi yang dituju saat ini tidak ditandai sebagai tertinjau.',
 	'review_too_low' => 'Revisi tidak dapat ditinjau bila sejumlah kotak bertuliskan "tidak mencukupi".',
 	'review_bad_key' => 'Kunci parameter masukan tidak sah.',
+	'review_bad_tags' => 'Beberapa nilai tag yang diberikan tidak sah.',
 	'review_denied' => 'Izin ditolak.',
 	'review_param_missing' => 'Sebuah parameter hilang atau tidak sah.',
 	'review_cannot_undo' => 'Tidak dapat membatalkan perubahan ini karena suntingan tunda selanjutnya mengubah daerah yang sama.',
@@ -2378,6 +2382,8 @@ Lihat [[Special:Unreviewedpages]] untuk daftar halaman yang belum ditinjau.',
 	'revreview-submit-unreviewed' => 'Selesai. Tidak diterima!',
 	'revreview-successful' => "'''Revisi [[:$1|$1]] berhasil ditandai. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} lihat revisi stabil])'''",
 	'revreview-successful2' => "'''Penandaan revisi [[:$1|$1]] berhasil dibatalkan.'''",
+	'revreview-poss-conflict-p' => "'''Peringatan: [[User:$1|$1]] mulai meninjau halaman ini pada $2 $3.'''",
+	'revreview-poss-conflict-c' => "'''Peringatan: [[User:$1|$1]] mulai meninjau perubahan ini pada $2 $3.'''",
 	'revreview-toolow' => '\'\'\'Anda harus menilai setiap atribut lebih tinggi daripada "tidak memadai" agar revisi dianggap telah ditinjau.\'\'\' 
 
 Untuk menghapus status tinjauan revisi, klik "tolak". 
@@ -2395,7 +2401,7 @@ Harap tinjau semua perubahan yang ditunjukkan di bawah ini untuk membuat sunting
 	'revreview-reject-header' => 'Tolak perubahan untuk $1',
 	'revreview-reject-text-list' => "Dengan melakukan tindakan ini, Anda akan '''menolak''' {{PLURAL:$1|perubahan|perubahan}} berikut:",
 	'revreview-reject-text-revto' => 'Ini akan mengembalikan halaman kepada [{{fullurl:$1|oldid=$2}} versi per $3].',
-	'revreview-reject-summary' => 'Ringkasan suntingan:',
+	'revreview-reject-summary' => 'Ringkasan:',
 	'revreview-reject-confirm' => 'Tolak perubahan ini',
 	'revreview-reject-cancel' => 'Batalkan',
 	'revreview-reject-summary-cur' => 'Menolak {{PLURAL:$1|perubahan|$1 perubahan}} terakhir (oleh $2) dan mengembalikan revisi $3 oleh $4',
@@ -3115,7 +3121,7 @@ $messages['ml'] = array(
 	'revreview-reject-header' => '$1 എന്നതിനുള്ള മാറ്റങ്ങൾ നിരാകരിക്കുക',
 	'revreview-reject-text-list' => "ഈ പ്രവൃത്തി പൂർത്തിയാകുമ്പോൾ, താങ്കൾ താഴെ കൊടുത്തിരിക്കുന്ന {PLURAL:$1|മാറ്റം|മാറ്റങ്ങൾ}} '''നിരാകരിച്ചിരിക്കും''':",
 	'revreview-reject-text-revto' => 'ഇത് താളിനെ അതിന്റെ [{{fullurl:$1|oldid=$2}} $3 തീയതിയിലെ പതിപ്പിലേയ്ക്ക്] മുൻപ്രാപനം ചെയ്യും.',
-	'revreview-reject-summary' => 'തിരുത്തലിന്റെ സംഗ്രഹം:',
+	'revreview-reject-summary' => 'ചുരുക്കം:',
 	'revreview-reject-confirm' => 'ഈ മാറ്റങ്ങൾ നിരാകരിക്കുക',
 	'revreview-reject-cancel' => 'റദ്ദാക്കുക',
 	'revreview-reject-summary-cur' => 'അവസാന {{PLURAL:$1|മാറ്റം|$1 മാറ്റങ്ങൾ}} ($2 ചെയ്തത്) നിരാകാരിക്കുകയും $4 സൃഷ്ടിച്ച നാൾപ്പതിപ്പ് $3 പുനസ്ഥാപിക്കുകയും ചെയ്തിരിക്കുന്നു',
