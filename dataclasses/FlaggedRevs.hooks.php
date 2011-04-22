@@ -917,7 +917,7 @@ class FlaggedRevsHooks {
 			$res = $dbr->select( 'revision', '1',
 				array( 'rev_user' => $user->getId(), "rev_timestamp > $encCutoff" ),
 				__METHOD__,
-				array( 'USE INDEX' => 'user_timestamp', 'LIMIT' => $minDiffAll )
+				array( 'LIMIT' => $minDiffAll )
 			);
 			if ( $dbr->numRows( $res ) >= $minDiffAll ) {
 				return true; // delay promotion

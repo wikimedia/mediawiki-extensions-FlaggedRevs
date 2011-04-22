@@ -3,6 +3,7 @@
  * Class representing a web view of a MediaWiki page
  */
 class FlaggedPageView {
+	protected $out = null;
 	protected $article = null;
 
 	protected $diffRevs = null; // assoc array of old and new Revisions for diffs
@@ -42,12 +43,14 @@ class FlaggedPageView {
 	* Load the global FlaggedPage instance
 	*/
 	protected function load() {
+		global $wgOut;
 		if ( !$this->loaded ) {
 			$this->loaded = true;
 			$this->article = self::globalArticleInstance();
 			if ( $this->article == null ) {
 				throw new MWException( 'FlaggedPageView has no context article!' );
 			}
+			$this->out = $wgOut;
 		}
 	}
 
@@ -216,11 +219,10 @@ class FlaggedPageView {
 	 * Output review notice
 	 */
 	public function displayTag() {
-		global $wgOut;
 		$this->load();	
 		// Sanity check that this is a reviewable page
 		if ( $this->article->isReviewable() ) {		
-			$wgOut->appendSubtitle( $this->reviewNotice );
+			$this->out->appendSubtitle( $this->reviewNotice );
 		}
 		return true;
 	}
@@ -230,7 +232,7 @@ class FlaggedPageView {
 	 * have been reviewed. (e.g. for &oldid=x urls)
 	 */
 	public function addStableLink() {
-		global $wgRequest, $wgOut, $wgLang;
+		global $wgRequest, $wgLang;
 		$this->load();
 		if ( !$this->article->isReviewable() || !$wgRequest->getVal( 'oldid' ) ) {
 			return true;
@@ -254,7 +256,7 @@ class FlaggedPageView {
 			}
 			$css = 'flaggedrevs_notice plainlinks noprint';
 			$tag = "<div id='mw-fr-revisiontag-old' class='$css'>$tag</div>";
-			$wgOut->addHTML( $tag );
+			$this->out->addHTML( $tag );
 		}
 		return true;
 	}
@@ -277,7 +279,7 @@ class FlaggedPageView {
 	 * Adds a quick review form on the bottom if needed
 	 */
 	public function setPageContent( &$outputDone, &$useParserCache ) {
-		global $wgRequest, $wgOut, $wgContLang;
+		global $wgRequest, $wgContLang;
 		$this->load();
 		# Only trigger on page views with no oldid=x param
 		if ( !$this->isPageView( $wgRequest ) || $wgRequest->getVal( 'oldid' ) ) {
@@ -310,8 +312,8 @@ class FlaggedPageView {
 		}
 		// $reqId is null if nothing requested, false if invalid
 		if ( $reqId === false ) {
-			$wgOut->addWikiText( wfMsg( 'revreview-invalid' ) );
-			$wgOut->returnToMain( false, $this->article->getTitle() );
+			$this->out->addWikiText( wfMsg( 'revreview-invalid' ) );
+			$this->out->returnToMain( false, $this->article->getTitle() );
 			# Tell MW that parser output is done
 			$outputDone = true;
 			$useParserCache = false;
@@ -380,17 +382,17 @@ class FlaggedPageView {
 	* However, any URL with ?stableid=x should not be indexed (as with ?oldid=x).
 	*/
 	public function setRobotPolicy() {
-		global $wgRequest, $wgOut;
+		global $wgRequest;
 		if ( $this->article->getStableRev() && $this->article->isStableShownByDefault() ) {
 			if ( $this->showingStable() ) {
 				return; // stable version - index this
 			} elseif ( !$wgRequest->getVal( 'stableid' )
-				&& $wgOut->getRevisionId() == $this->article->getStable()
+				&& $this->out->getRevisionId() == $this->article->getStable()
 				&& $this->article->stableVersionIsSynced() )
 			{
 				return; // draft that is synced with the stable version - index this
 			}
-			$wgOut->setRobotPolicy( 'noindex,nofollow' ); // don't index this version
+			$this->out->setRobotPolicy( 'noindex,nofollow' ); // don't index this version
 		}
 	}
 
@@ -400,8 +402,8 @@ class FlaggedPageView {
 	* Tag output function must be called by caller
 	*/
 	protected function showUnreviewedPage( $tag, $prot ) {
-		global $wgOut, $wgContLang;
-		if ( $wgOut->isPrintable() ) {
+		global $wgContLang;
+		if ( $this->out->isPrintable() ) {
 			return; // all this function does is add notices; don't show them
 		}
 		$icon = FlaggedRevsXML::draftStatusIcon();
@@ -430,9 +432,9 @@ class FlaggedPageView {
 	* Parser cache control deferred to caller
 	*/
 	protected function showDraftVersion( FlaggedRevision $srev, &$tag, $prot ) {
-		global $wgUser, $wgOut, $wgLang, $wgRequest;
+		global $wgUser, $wgLang, $wgRequest;
 		$this->load();
-		if ( $wgOut->isPrintable() ) {
+		if ( $this->out->isPrintable() ) {
 			return; // all this function does is add notices; don't show them
 		}
 		$flags = $srev->getTags();
@@ -543,18 +545,18 @@ class FlaggedPageView {
 	protected function showOldReviewedVersion(
 		FlaggedRevision $srev, FlaggedRevision $frev, &$tag, $prot
 	) {
-		global $wgUser, $wgOut, $wgLang;
+		global $wgUser, $wgLang;
 		$this->load();
 		$flags = $frev->getTags();
 		$time = $wgLang->date( $frev->getTimestamp(), true );
 		# Set display revision ID
-		$wgOut->setRevisionId( $frev->getRevId() );
+		$this->out->setRevisionId( $frev->getRevId() );
 		# Get quality level
 		$quality = FlaggedRevs::isQuality( $flags );
 
 		# Construct some tagging for non-printable outputs. Note that the pending
 		# notice has all this info already, so don't do this if we added that already.
-		if ( !$wgOut->isPrintable() ) {
+		if ( !$this->out->isPrintable() ) {
 			// Simple icon-based UI
 			if ( $this->useSimpleUI() ) {
 				$icon = '';
@@ -603,7 +605,7 @@ class FlaggedPageView {
 				$this->article->getTitle(), $text, $frev->getRevId(), $parserOptions );
 			$this->addParserOutput( $parserOut );
 		} else {
-			$wgOut->addHtml( $redirHtml );
+			$this->out->addHtml( $redirHtml );
 		}
 	}
 
@@ -615,18 +617,18 @@ class FlaggedPageView {
 	* Parser cache control deferred to caller
 	*/
 	protected function showStableVersion( FlaggedRevision $srev, &$tag, $prot ) {
-		global $wgOut, $wgLang, $wgUser;
+		global $wgLang, $wgUser;
 		$this->load();
 		$flags = $srev->getTags();
 		$time = $wgLang->date( $srev->getTimestamp(), true );
 		# Set display revision ID
-		$wgOut->setRevisionId( $srev->getRevId() );
+		$this->out->setRevisionId( $srev->getRevId() );
 		# Get quality level
 		$quality = FlaggedRevs::isQuality( $flags );
 
 		$synced = $this->article->stableVersionIsSynced();
 		# Construct some tagging
-		if ( !$wgOut->isPrintable() && !( $this->article->lowProfileUI() && $synced ) ) {
+		if ( !$this->out->isPrintable() && !( $this->article->lowProfileUI() && $synced ) ) {
 			$revsSince = $this->article->getPendingRevCount();
 			// Simple icon-based UI
 			if ( $this->useSimpleUI() ) {
@@ -693,7 +695,7 @@ class FlaggedPageView {
 				# Update the stable version dependancies
 				FlaggedRevs::updateStableOnlyDeps( $this->article, $parserOut );
 			} else {
-				$wgOut->addHtml( $redirHtml );
+				$this->out->addHtml( $redirHtml );
 			}
 		}
 
@@ -709,12 +711,11 @@ class FlaggedPageView {
 	// Add parser output and update title
 	// @TODO: refactor MW core to move this back
 	protected function addParserOutput( ParserOutput $parserOut ) {
-		global $wgOut;
-		$wgOut->addParserOutput( $parserOut );
+		$this->out->addParserOutput( $parserOut );
 		# Adjust the title if it was set by displaytitle, -{T|}- or language conversion
 		$titleText = $parserOut->getTitleText();
 		if ( strval( $titleText ) !== '' ) {
-			$wgOut->setPageTitle( $titleText );
+			$this->out->setPageTitle( $titleText );
 		}
 	}
 
@@ -886,7 +887,6 @@ class FlaggedPageView {
 	 * Adds stable version tags to page when viewing history
 	 */
 	public function addToHistView() {
-		global $wgOut;
 		$this->load();
 		# Add a notice if there are pending edits...
 		$srev = $this->article->getStableRev();
@@ -895,7 +895,7 @@ class FlaggedPageView {
 			$tag = "<div id='mw-fr-revisiontag-edit' class='flaggedrevs_notice plainlinks'>" .
 				FlaggedRevsXML::lockStatusIcon( $this->article ) . # flag protection icon as needed
 				FlaggedRevsXML::pendingEditNotice( $this->article, $srev, $revsSince ) . "</div>";
-			$wgOut->addHTML( $tag );
+			$this->out->addHTML( $tag );
 		}
 		return true;
 	}
@@ -904,7 +904,7 @@ class FlaggedPageView {
 	 * Adds stable version tags to page when editing
 	 */
 	public function addToEditView( EditPage $editPage ) {
-		global $wgOut, $wgUser;
+		global $wgUser;
 		$this->load();
 		# Must be reviewable. UI may be limited to unobtrusive patrolling system.
 		if ( !$this->article->isReviewable() ) {
@@ -978,7 +978,7 @@ class FlaggedPageView {
 					$html .= '<tr><td>' . $item . '</td></tr>';
 				}
 				$html .= '</table>';
-				$wgOut->addHTML( $html );
+				$this->out->addHTML( $html );
 			}
 		}
 		return true;
@@ -1021,7 +1021,7 @@ class FlaggedPageView {
 	 * Add unreviewed pages links
 	 */
 	public function addToCategoryView() {
-		global $wgOut, $wgUser;
+		global $wgUser;
 		$this->load();
 		if ( !$wgUser->isAllowed( 'review' ) ) {
 			return true;
@@ -1029,7 +1029,7 @@ class FlaggedPageView {
 		if ( !FlaggedRevs::useOnlyIfProtected() ) {
 			# Add links to lists of unreviewed pages and pending changes in this category
 			$category = $this->article->getTitle()->getText();
-			$wgOut->appendSubtitle(
+			$this->out->appendSubtitle(
 				Html::rawElement(
 					'span',
 					array( 'class' => 'plainlinks', 'id' => 'mw-fr-category-oldreviewed' ), 
@@ -1045,9 +1045,9 @@ class FlaggedPageView {
 	 * on a regular page view (action=view)
 	 */
 	public function addReviewForm( &$data ) {
-		global $wgRequest, $wgUser, $wgOut;
+		global $wgRequest, $wgUser;
 		$this->load();
-		if ( $wgOut->isPrintable() ) {
+		if ( $this->out->isPrintable() ) {
 			return false; // Must be on non-printable output 
 		}
 		# User must have review rights
@@ -1066,8 +1066,8 @@ class FlaggedPageView {
 		$rev = false;
 		if ( $this->reviewFormRev ) {
 			$rev = $this->reviewFormRev; // $newRev for diffs stored here
-		} elseif ( $wgOut->getRevisionId() ) {
-			$rev = Revision::newFromId( $wgOut->getRevisionId() );
+		} elseif ( $this->out->getRevisionId() ) {
+			$rev = Revision::newFromId( $this->out->getRevisionId() );
 		}
 		# Build the review form as needed
 		if ( $rev && ( !$this->diffRevs || $this->isReviewableDiff ) ) {
@@ -1080,13 +1080,13 @@ class FlaggedPageView {
 			$form->setTopNotice( $this->diffNoticeBox );
 			# $wgOut may not already have the inclusion IDs, such as for diffonly=1.
 			# RevisionReviewForm will fetch them as needed however.
-			if ( $wgOut->getRevisionId() == $rev->getId() ) {
-				$form->setIncludeVersions( $wgOut->getTemplateIds(), $wgOut->getImageTimeKeys() );
+			if ( $this->out->getRevisionId() == $rev->getId() ) {
+				$form->setIncludeVersions( $this->out->getTemplateIds(), $this->out->getImageTimeKeys() );
 			}
 			list( $html, $status ) = $form->getHtml();
 			# Diff action: place the form at the top of the page
 			if ( $this->diffRevs ) {
-				$wgOut->prependHTML( $html );
+				$this->out->prependHTML( $html );
 			# View action: place the form at the bottom of the page
 			} else {
 				$data .= $html;
@@ -1099,7 +1099,7 @@ class FlaggedPageView {
 	 * Add link to stable version setting to protection form
 	 */
 	public function addStabilizationLink( &$data ) {
-		global $wgRequest, $wgOut;
+		global $wgRequest;
 		$this->load();
 		if ( FlaggedRevs::useProtectionLevels() ) {
 			return true; // simple custom levels set for action=protect
@@ -1114,15 +1114,15 @@ class FlaggedPageView {
 			# Give a link to the page to configure the stable version
 			$frev = $this->article->getStableRev();
 			if ( $frev && $frev->getRevId() == $this->article->getLatest() ) {
-				$wgOut->prependHTML( "<span class='plainlinks'>" .
+				$this->out->prependHTML( "<span class='plainlinks'>" .
 					wfMsgExt( 'revreview-visibility-synced', 'parseinline',
 						$title->getPrefixedText() ) . "</span>" );
 			} elseif ( $frev ) {
-				$wgOut->prependHTML( "<span class='plainlinks'>" .
+				$this->out->prependHTML( "<span class='plainlinks'>" .
 					wfMsgExt( 'revreview-visibility-outdated', 'parseinline',
 						$title->getPrefixedText() ) . "</span>" );
 			} else {
-				$wgOut->prependHTML( "<span class='plainlinks'>" .
+				$this->out->prependHTML( "<span class='plainlinks'>" .
 					wfMsgExt( 'revreview-visibility-nostable', 'parseinline',
 						$title->getPrefixedText() ) . "</span>" );
 			}
@@ -1203,7 +1203,7 @@ class FlaggedPageView {
 
 	// Add "pending changes" tab and set tab selection CSS
 	protected function addDraftTab( array &$views, FlaggedRevision $srev, $type ) {
-		global $wgRequest, $wgOut;
+		global $wgRequest;
 		$title = $this->article->getTitle(); // convenience
 		$tabs = array(
 			'read' => array( // view stable
@@ -1223,17 +1223,17 @@ class FlaggedPageView {
 			$tabs['read']['class'] = 'selected';
 		} elseif ( $this->isPageViewOrDiff( $wgRequest ) ) {
 			$ts = null;
-			if ( $wgOut->getRevisionId() ) { // @TODO: avoid same query in Skin.php
-				$ts = ( $wgOut->getRevisionId() == $this->article->getLatest() )
+			if ( $this->out->getRevisionId() ) { // @TODO: avoid same query in Skin.php
+				$ts = ( $this->out->getRevisionId() == $this->article->getLatest() )
 					? $this->article->getTimestamp() // skip query
-					: Revision::getTimestampFromId( $title, $wgOut->getRevisionId() );
+					: Revision::getTimestampFromId( $title, $this->out->getRevisionId() );
 			}
 			// Are we looking at a pending revision?
 			if ( $ts > $srev->getRevTimestamp() ) { // bug 15515
 				$tabs['draft']['class'] .= ' selected';
 			// Are there *just* pending template/file changes.
 			} elseif ( $this->article->onlyTemplatesOrFilesPending()
-				&& $wgOut->getRevisionId() == $this->article->getStable() )
+				&& $this->out->getRevisionId() == $this->article->getStable() )
 			{
 				$tabs['draft']['class'] .= ' selected';
 			// Otherwise, fallback to regular tab behavior
@@ -1330,10 +1330,10 @@ class FlaggedPageView {
 	*	(ii) List any template/file changes pending review
 	*/
 	public function addToDiffView( $diff, $oldRev, $newRev ) {
-		global $wgRequest, $wgUser, $wgOut, $wgMemc;
+		global $wgRequest, $wgUser, $wgMemc;
 		$this->load();
 		# Exempt printer-friendly output
-		if ( $wgOut->isPrintable() ) {
+		if ( $this->out->isPrintable() ) {
 			return true;
 		# Multi-page diffs are useless and misbehave (bug 19327). Sanity check $newRev.
 		} elseif ( $this->isMultiPageDiff || !$newRev ) {
@@ -1410,7 +1410,7 @@ class FlaggedPageView {
 					$this->diffNoticeBox = $changeDiv; // add as part of form
 				} else {
 					$css = 'flaggedrevs_diffnotice plainlinks';
-					$wgOut->addHTML(
+					$this->out->addHTML(
 						"<div id='mw-fr-difftostable' class='$css'>$changeDiv</div>\n"
 					);
 				}
@@ -1418,7 +1418,7 @@ class FlaggedPageView {
 		}
 		# Add a link to diff from stable to current as needed.
 		# Show review status of the diff revision(s). Uses a <table>.
-		$wgOut->addHTML(
+		$this->out->addHTML(
 			'<div id="mw-fr-diff-headeritems">' .
 			self::diffLinkAndMarkers( $this->article, $oldRev, $newRev ) .
 			'</div>'
