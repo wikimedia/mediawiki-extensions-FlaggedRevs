@@ -533,20 +533,19 @@ $messages['et'] = array(
 
 Toimetajad on kohale määratud kasutajad, kes saavad lehekülgel tehtud muudatused põgusalt üle vaadata.",
 	'validationstatistics-lastupdate' => "''Järgnevate andmete viimane uuendamisaeg: $1, kell $2.''",
-	'validationstatistics-pndtime' => "Kohale määratud kasutajate tehtud muudatused arvatakse ülevaadatuks.
+	'validationstatistics-pndtime' => "Kohale määratud kasutajate tehtud muudatused arvatakse ''ülevaadatuks''.
 
-Keskmine viitaeg [[Special:OldReviewedPages|ootel muudatustega lehekülgede ülevaatamiseks]] on '''$1'''.
-Need leheküljed arvatakse ''iganenuks''. Vastavalt, leheküljed arvatakse ''ühtivaks'', kui ükski muudatus ei oota ülevaatamist.",
+Keskmine viitaeg [[Special:OldReviewedPages|ootel muudatustega lehekülgede ülevaatamiseks]] on '''$1'''; viiteaeg näitab kui kaua on vanim ootel muudatus ülevaatamata olnud.",
 	'validationstatistics-revtime' => "''Sisselogimata kasutajate'' tehtud muudatuste ooteaeg ülevaatamiseks on keskmiselt '''$1'''; mediaan on '''$2'''.
 $3",
-	'validationstatistics-table' => "Allpool on toodud lehekülgede ülevaatamisarvandmed nimeruumiti, ''välja arvatud'' ümbersuunamisleheküljed.",
+	'validationstatistics-table' => "Allpool on toodud lehekülgede ülevaatamisarvandmed nimeruumiti, ''välja arvatud'' ümbersuunamisleheküljed. Lehekülg arvatakse ''iganenuks'', kui mõni sealne muudatus ootab ülevaatamist; lehekülg arvatakse ''ühtivaks'', kui ükski muudatus ei oota ülevaatamist.",
 	'validationstatistics-ns' => 'Nimeruum',
 	'validationstatistics-total' => 'Lehekülgi',
 	'validationstatistics-stable' => 'Ülevaadatud',
 	'validationstatistics-latest' => 'Ühtiv',
 	'validationstatistics-synced' => 'Ühtiv või ülevaadatud',
 	'validationstatistics-old' => 'Iganenud',
-	'validationstatistics-utable' => 'Allpool on toodud viimase tunni {{PLURAL:$1|aktiivseim ülevaataja|$1 aktiivsemat ülevaatajat}}.',
+	'validationstatistics-utable' => 'Allpool on toodud viimase {{PLURAL:$2|tunni|$2 tunni}} {{PLURAL:$1|aktiivseim ülevaataja|$1 aktiivsemat ülevaatajat}}.',
 	'validationstatistics-user' => 'Kasutaja',
 	'validationstatistics-reviews' => 'Ülevaatamisi',
 );
@@ -1479,7 +1478,7 @@ Redaktorzy są doświadczonymi użytkownikami, którzy mogą oznaczać dowolne w
 
 Średnie opóźnienie dla [[Special:OldReviewedPages|stron ze zamianami oczekującymi na oznaczenie]] wynosi '''$1'''. Jest to czas przez który najstarsze edycje pozostawały nieprzejrzane.",
 	'validationstatistics-revtime' => "Średni czas oczekiwania na oznaczenie edycji użytkowników niezalogowanych wynosi '''$1''', mediana – '''$2'''. $3",
-	'validationstatistics-table' => "Poniżej znajdują się statystyki dla każdej przestrzeni nazw, ''z wyłączeniem'' przekierowań.",
+	'validationstatistics-table' => "Poniżej znajdują się statystyki przeglądania stron dla każdej przestrzeni nazw, ''z wyłączeniem'' przekierowań. Strony uznawane są za ''przestarzałe'' jeśli są zmiany ich treści oczekujące na przejrzenie. Strony uznawane są za ''przejrzane'' jeśli żadne zmiany ich treści nie oczekują na przejrzenie.",
 	'validationstatistics-ns' => 'Przestrzeń nazw',
 	'validationstatistics-total' => 'Stron',
 	'validationstatistics-stable' => 'Przejrzanych',

@@ -322,7 +322,7 @@ $messages['ar'] = array(
 	'revreview-reject-text-revto' => 'هذا سوف يعيد الصفحة إلى [{{fullurl:$1|oldid=$2}} النسخة $3]',
 	'revreview-reject-summary' => 'ملخص التعديل:',
 	'revreview-reject-confirm' => 'رفض هذه التعديلات',
-	'revreview-reject-cancel' => 'إلغاء',
+	'revreview-reject-cancel' => 'ألغِ',
 	'revreview-reject-summary-cur' => '{{PLURAL:$1|رفض التغيير الأخير|رفضت التغييرات الـ$1 الأخيرة}} (من قبل $2) وتمت استعادة النسخة $3 من قبل $4',
 	'revreview-reject-summary-old' => '{{PLURAL:$1|رفض التغيير الأول|رفضت التغييرات الـ$1 الأولى}} (من قبل $2) وتمت استعادة النسخة $3 من قبل $4',
 	'revreview-reject-summary-cur-short' => '{{PLURAL:$1|رفض التغيير الأخير|رفضت التغييرات الـ$1 الأخيرة}} وتمت استعادة النسخة $2 من قبل $3',
@@ -1215,6 +1215,7 @@ $messages['eo'] = array(
 	'review_not_flagged' => 'La cela revizio ne estas nuntempe markita kiel reviziita.',
 	'review_too_low' => 'Revizio ne povas esti reviziita kun kelkaj kampoj lasita kiel "maladekvata".',
 	'review_bad_key' => 'Malvalida ŝlosilo de inkluziva parametro.',
+	'review_bad_tags' => 'Iom da la petitaj etikedvaloroj estas malvalida.',
 	'review_denied' => 'Malpermesita.',
 	'review_param_missing' => 'Parametro mankas aŭ estas malvalida.',
 	'review_cannot_undo' => 'Ne povas malfari ĉi tiujn ŝanĝojn ĉar aliaj forataj redaktoj ŝanĝis la samajn partojn.',
@@ -1245,6 +1246,8 @@ Vidu la [[Special:Unreviewedpages|liston de nereviziitaj paĝoj]] .',
 	'revreview-submit-unreviewed' => 'Farita. Malaprobita!',
 	'revreview-successful' => "'''Tiu ĉi versio de [[:$1|$1]] estas markita kiel reviziita. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} vidi ĉiujn markitajn versiojn])'''",
 	'revreview-successful2' => "'''Versio de [[:$1|$1]] sukcese malmarkita.'''",
+	'revreview-poss-conflict-p' => "'''Atentu: [[User:$1|$1]] komencis kontrolante ĉi tiun paĝon je $2 $3.'''",
+	'revreview-poss-conflict-c' => "'''Atentu: [[User:$1|$1]] komencis kontrolante ĉi tiujn paĝojn je $2 $3.'''",
 	'revreview-toolow' => '\'\'\'Vi devas taksi ĉiun el la jenaj atribuoj almenaŭ pli alta ol "adekvata" por revizio esti konsiderata kiel kontrolita.\'\'\'
 
 Forigi reviziatan statuson de revizio, klaku "malaprobi".
@@ -1260,6 +1263,7 @@ Bonvolu kontroli ĉiujn jenajn ŝanĝojn por aperigi viajn redaktojn en la stabi
 	'revreview-update-includes' => "'''Iuj ŝablonoj/bildoj estis ĝisdatigitaj:'''",
 	'revreview-update-use' => "'''NOTU:''' La publikigita versio de ĉiu el ĉi tiuj ŝablonoj/dosieroj estas uzata en la publikigita versio de ĉi tiu paĝo.",
 	'revreview-reject-header' => 'Malaprobi ŝanĝojn por $1',
+	'revreview-reject-text-list' => "Farante ĉi tiun agon, vi '''malaprobos''' la {{PLURAL:$1|jenan ŝanĝon|jenajn ŝanĝojn}}:",
 	'revreview-reject-text-revto' => 'Tio ĉi restarigos la paĝon al la [{{fullurl:$1|oldid=$2}} versio ekde $3].',
 	'revreview-reject-summary' => 'Resumo:',
 	'revreview-reject-confirm' => 'Malaprobi ĉi tiujn ŝanĝojn',
@@ -1411,6 +1415,7 @@ Oma muudatuste püsivas versioonis kuvamiseks vaata palun kõik allpool näidatu
 Oma muudatuste püsivas versioonis kuvamiseks vaata palun kõik allpool näidatud muudatused üle.',
 	'revreview-update-includes' => "'''Mõnd malli või faili on uuendatud:'''",
 	'revreview-update-use' => "'''Märkus:''' Selle lehekülje püsiv versioon kasutab kõigist neist mallidest või failidest püsivat versiooni.",
+	'revreview-reject-cancel' => 'Loobu',
 	'revreview-tt-flag' => 'Kiida see redaktsioon heaks, märkides selle kui "kord vaadatud"',
 	'revreview-tt-unflag' => 'Lükka see redaktsioon tagasi, märkides selle kui "kord vaatamata"',
 );

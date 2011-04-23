@@ -3664,6 +3664,7 @@ Novaj [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} ŝanĝoj] eble
 	'revreview-revnotfound' => 'Ne eblis trovi malnovan version de la artikolo kiun vi petis.
 Bonvolu kontroli la retadreson (URL) kiun vi uzis por atingi la paĝon.\\b',
 	'right-autoreview' => 'Aŭtomate marki versiojn kiel "kontrolitajn"',
+	'right-autoreviewrestore' => 'Aŭtomate kontroli dum malfarado',
 	'right-movestable' => 'Movi publikigitajn paĝojn',
 	'right-review' => 'Marki reviziojn kiel "kontrolita"',
 	'right-stablesettings' => 'Konfiguri kiel la publikigita versio estas elektita kaj montrita',
@@ -3949,8 +3950,8 @@ $messages['et'] = array(
 	'revreview-hist-pending' => 'ootel redaktsioon',
 	'revreview-hist-quality' => 'hea redaktsioon',
 	'revreview-hist-basic' => 'kord vaadatud redaktsioon',
-	'revreview-hist-quality-user' => 'heaks kiitnud]: [[User:$3|$3]]',
-	'revreview-hist-basic-user' => 'kord vaadanud]: [[User:$3|$3]]',
+	'revreview-hist-quality-user' => 'heaks kiitnud: [[User:$3|$3]]',
+	'revreview-hist-basic-user' => 'kord vaadanud: [[User:$3|$3]]',
 	'revreview-hist-quality-auto' => 'automaatselt heaks kiidetud',
 	'revreview-hist-basic-auto' => 'automaatselt kord vaadatud',
 	'revreview-hist-pending-difflink' => "'''[[{{fullurl:$1|oldid=$2&diff=$3}} ootab ülevaatamist]]'''",
@@ -4004,10 +4005,14 @@ $messages['et'] = array(
 
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 {{PLURAL:$2|muudatus|muudatust}}] ''(näidatud allpool)'' {{PLURAL:$2|ootab|ootavad}} ülevaatamist.",
 	'revreview-edited-section' => 'Naase alaosa "[[#$1|$2]]" juurde.',
-	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Püsiv versioon] on [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} kord vaadatud] (<i>$2</i>). [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|muudatus|muudatust}}] {{PLURAL:$3|ootab|ootavad}} ülevaatamist.',
-	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Püsiv versioon] on [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} kord vaadatud] (<i>$2</i>). [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Malli- või failimuudatused] ootavad ülevaatamist.',
-	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Püsiv versioon] on [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} heaks kiidetud] (<i>$2</i>). [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|muudatus|muudatust}}] {{PLURAL:$3|ootab|ootavad}} ülevaatamist.',
-	'revreview-newest-quality-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Püsiv versioon] on [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} heaks kiidetud] (<i>$2</i>). [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Malli- või failimuudatused] ootavad ülevaatamist.',
+	'revreview-newest-basic' => 'Selles redaktsioonis {{PLURAL:$3|ootab|ootavad}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|muudatus|muudatust}}] ülevaatamist.
+[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Püsiv versioon] on [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} kord vaadatud] (<i>$2</i>).',
+	'revreview-newest-basic-i' => 'Selles versioonis ootavad [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} malli- või failimuudatused] ülevaatamist.
+[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Püsiv versioon] on [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} kord vaadatud] (<i>$2</i>).',
+	'revreview-newest-quality' => 'Selles redaktsioonis {{PLURAL:$3|ootab|ootavad}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|muudatus|muudatust}}] ülevaatamist.
+[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Püsiv versioon] on [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} heaks kiidetud] (<i>$2</i>).',
+	'revreview-newest-quality-i' => 'Selles versioonis ootavad [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} malli- või failimuudatused] ülevaatamist.
+[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Püsiv versioon] on [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} heaks kiidetud] (<i>$2</i>).',
 	'revreview-pending-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Püsiv versioon] on [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} kord vaadatud] (<i>$2</i>). [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|muudatus|muudatust}}] {{PLURAL:$3|ootab|ootavad}} ülevaatamist.',
 	'revreview-pending-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Püsiv versioon] on [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} heaks kiidetud] (<i>$2</i>). [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|muudatus|muudatust}}] {{PLURAL:$3|ootab|ootavad}} ülevaatamist.',
 	'revreview-pending-nosection' => 'Proovi vaadata [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} viimast redaktsiooni], milles on 
