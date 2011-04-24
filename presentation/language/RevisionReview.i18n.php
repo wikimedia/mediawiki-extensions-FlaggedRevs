@@ -3202,6 +3202,7 @@ Sila tekan butang "back" pada pelayar anda dan cuba sekali lagi.',
 '''Beberapa templat/fail telah dikemaskinikan:'''",
 	'revreview-update-includes' => "'''Beberapa templat/imej telah dikemaskinikan:'''",
 	'revreview-update-use' => "'''CATATAN:''' Jika sebarang templat/imej ini mempunyai versi stabil, maka versi itu telah pun digunakan dalam versi stabil bagi laman ini.",
+	'revreview-reject-summary' => 'Ringkasan:',
 );
 
 /** Low German (Plattdüütsch)
