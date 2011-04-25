@@ -3343,6 +3343,7 @@ $messages['no'] = array(
 	'review_not_flagged' => 'Målrevisjonen er foreløpig ikke merket som revidert.',
 	'review_too_low' => 'Revisjonen kan ikke revideres med enkelte felt markert som «utilstrekkelig».',
 	'review_bad_key' => 'Ugyldig inkluderingsparameternøkkel.',
+	'review_bad_tags' => 'Enkelte av de angitte merkelappverdiene er ugyldige.',
 	'review_denied' => 'Ingen tillatelse.',
 	'review_param_missing' => 'En parameter mangler eller er ugyldig.',
 	'review_cannot_undo' => 'Kan ikke omgjøre disse endringene fordi ventende endringer endret i samme område.',
@@ -3392,7 +3393,7 @@ Revider alle endringene vist nedenfor for å gjøre redigeringene dine synlige i
 	'revreview-reject-header' => 'Avvis endringer for $1',
 	'revreview-reject-text-list' => "Ved å fullføre denne handlingen vil du '''avvise''' følgende {{PLURAL:$1|endring|endringer}}:",
 	'revreview-reject-text-revto' => 'Dette vil tilbakestille siden til [{{fullurl:$1|oldid=$2}} versjonen fra $3].',
-	'revreview-reject-summary' => 'Redigeringssammendrag:',
+	'revreview-reject-summary' => 'Sammendrag:',
 	'revreview-reject-confirm' => 'Avvis disse endringene',
 	'revreview-reject-cancel' => 'Avbryt',
 	'revreview-reject-summary-cur' => 'Forkastet {{PLURAL:$1|den siste endringen|de siste $1 endringene}} (av $2) og gjenopprettet revisjon $3 av $4.',
@@ -3541,6 +3542,7 @@ $messages['pms'] = array(
 	'review_not_flagged' => "La revision pontà a l'é pa al moment marcà com revisionàbil.",
 	'review_too_low' => 'La revision a peul pa esse revisionà con dij camp lassà coma "pa adeguà".',
 	'review_bad_key' => "Ciav dël paràmetr d'inclusion pa bon-a.",
+	'review_bad_tags' => 'Quaidun dij valor ëd tichëtta specificà a son pa bon.',
 	'review_denied' => 'Përmess arfudà.',
 	'review_param_missing' => "Un paràmetr a l'é mancant o pa bon.",
 	'review_cannot_undo' => "As peul pa butesse andré sti cambi a motiv d'àutre modìfiche ch'a speto e ch'a rësguardo j'istesse zòne.",
@@ -3590,7 +3592,7 @@ Për piasì ch'a revision-a tùit ij cambiament mostrà sì-sota përchè soe mo
 	'revreview-reject-header' => 'Cambi arfudà për $1',
 	'revreview-reject-text-list' => "An completand st'assion, a '''arfudrà''' {{PLURAL:$1|la modìfica|le modìfiche}} sì-dapress:",
 	'revreview-reject-text-revto' => 'Sòn a porterà andré la pàgina a la [{{fullurl:$1|oldid=$2}} version ëd $3].',
-	'revreview-reject-summary' => 'Resumé dla modìfica:',
+	'revreview-reject-summary' => 'Resumé:',
 	'revreview-reject-confirm' => 'Arfuda sti cambi',
 	'revreview-reject-cancel' => 'Scancela',
 	'revreview-reject-summary-cur' => "Arfudà {{PLURAL:$1|l'ùltim cambi|j'ùltim $1 cambi}} (da $2) e ripristinà la revision $3 ëd $4",
@@ -4423,6 +4425,9 @@ $messages['te'] = array(
 '''కొన్ని మూసలు/ఫైళ్లను  తాజాకరించారు:'''",
 	'revreview-update-includes' => "'''కొన్ని మూసలు/ఫైళ్లను తాజాకరించారు:'''",
 	'revreview-update-use' => "'''గమనిక:''' ఈ మూసలు/ఫైళ్ళకి సుస్థిర కూర్పు ఉంటే, అది ఈపాటికే ఈ పేజీ యొక్క సుస్థిర కూర్పులో ఉపయోగంలో ఉంది.",
+	'revreview-reject-summary' => 'సారాంశం:',
+	'revreview-reject-cancel' => 'రద్దుచేయి',
+	'revreview-reject-usercount' => '{{PLURAL:$1|ఒక వాడుకరి|$1 వాడుకరులు}}',
 );
 
 /** Tajik (Cyrillic) (Тоҷикӣ (Cyrillic))
