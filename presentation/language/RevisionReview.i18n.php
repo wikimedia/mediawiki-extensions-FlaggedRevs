@@ -392,6 +392,16 @@ Vete a la [[Special:Unreviewedpages|llista de páxines ensin revisar]].",
 	'revreview-update-includes' => "'''Actualizáronse dalgunes plantíes/imáxenes:'''",
 );
 
+/** Azerbaijani (Azərbaycanca)
+ * @author Vugar 1981
+ */
+$messages['az'] = array(
+	'revisionreview' => 'Redaktələri yoxlayar',
+	'revreview-log' => 'Şərh:',
+	'revreview-submit' => 'Yolla',
+	'revreview-submitting' => 'Yollamaq',
+);
+
 /** Bashkir (Башҡортса)
  * @author Haqmar
  */
@@ -3863,7 +3873,7 @@ Pe piacere cazze 'u buttone \"back\" d'u browser tune e pruève arrete.",
 	'revreview-update-use' => "'''VIDE BBUENE:''' 'A versiona secure de ognune de chiste template/file jè ausate jndr'à versiona secure de sta pàgene.",
 	'revreview-reject-header' => 'Scitte le cangaminde pe $1',
 	'revreview-reject-text-revto' => "Quiste annulle 'a pàgene turnanne a 'a [{{fullurl:$1|oldid=$2}} versione de $3].",
-	'revreview-reject-summary' => "Cange 'u riepileghe:",
+	'revreview-reject-summary' => 'Riepileghe:',
 	'revreview-reject-confirm' => 'Scitte ste cangiaminde',
 	'revreview-reject-cancel' => 'Annulle',
 	'revreview-reject-usercount' => "{{PLURAL:$1|'n'utende|$1 utinde}}",
