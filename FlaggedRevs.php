@@ -548,8 +548,8 @@ function efLoadFlaggedRevs() {
 		# If patrolling is already on, then we know that it 
 		# was intended to have all namespaces patrollable.
 		if ( $wgUseRCPatrol ) {
-			global $wgFlaggedRevsPatrolNamespaces, $wgCanonicalNamespaceNames;
-			$wgFlaggedRevsPatrolNamespaces = array_keys( $wgCanonicalNamespaceNames );
+			global $wgFlaggedRevsPatrolNamespaces;
+			$wgFlaggedRevsPatrolNamespaces = MWNamespace::getValidNamespaces();
 		}
 		/* TODO: decouple from rc patrol */
 		# Check if FlaggedRevs is enabled by default for pages...
