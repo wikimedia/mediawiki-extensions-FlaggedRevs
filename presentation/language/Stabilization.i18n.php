@@ -331,6 +331,16 @@ Esta ye la configuración de [[:$1|$1]]:',
 	'stabilize-expiring' => "caduca'l $1 (UTC)",
 );
 
+/** Azerbaijani (Azərbaycanca)
+ * @author Cekli829
+ */
+$messages['az'] = array(
+	'stabilization-submit' => 'Təsdiq et',
+	'stabilization-comment' => 'Səbəb:',
+	'stabilization-otherreason' => 'Digər səbəb:',
+	'stabilization-othertime' => 'Başqa vaxt:',
+);
+
 /** Bashkir (Башҡортса)
  * @author Assele
  * @author Haqmar

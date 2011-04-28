@@ -193,6 +193,13 @@ $messages['ast'] = array(
 	'pendingchanges-watched' => '($1 {{PLURAL:$1|usuariu|usuarios}} vixilando)',
 );
 
+/** Azerbaijani (Azərbaycanca)
+ * @author Cekli829
+ */
+$messages['az'] = array(
+	'pendingchanges-category' => 'Kateqoriya:',
+);
+
 /** Bavarian (Boarisch)
  * @author Man77
  * @author Mucalexx

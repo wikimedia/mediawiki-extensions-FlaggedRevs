@@ -393,6 +393,7 @@ Vete a la [[Special:Unreviewedpages|llista de páxines ensin revisar]].",
 );
 
 /** Azerbaijani (Azərbaycanca)
+ * @author Cekli829
  * @author Vugar 1981
  */
 $messages['az'] = array(
@@ -400,6 +401,8 @@ $messages['az'] = array(
 	'revreview-log' => 'Şərh:',
 	'revreview-submit' => 'Yolla',
 	'revreview-submitting' => 'Yollamaq',
+	'revreview-reject-summary' => 'Xülasə:',
+	'revreview-reject-cancel' => 'Ləğv et',
 );
 
 /** Bashkir (Башҡортса)

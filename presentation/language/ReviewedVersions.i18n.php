@@ -115,6 +115,13 @@ $messages['ast'] = array(
 	'reviewedversions-review' => "Revisada'l <i>$1</i> por $2",
 );
 
+/** Azerbaijani (Azərbaycanca)
+ * @author Cekli829
+ */
+$messages['az'] = array(
+	'reviewedversions-page' => 'Səhifə adı:',
+);
+
 /** Southern Balochi (بلوچی مکرانی)
  * @author Mostafadaneshvar
  */

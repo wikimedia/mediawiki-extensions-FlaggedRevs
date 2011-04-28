@@ -160,6 +160,13 @@ $messages['ast'] = array(
 	'unreviewedpages-list' => 'Esta páxina llista artículos que nun fueron revisaos o que tienen revisiones nueves o non revisaes.',
 );
 
+/** Azerbaijani (Azərbaycanca)
+ * @author Cekli829
+ */
+$messages['az'] = array(
+	'unreviewedpages-category' => 'Kateqoriya:',
+);
+
 /** Southern Balochi (بلوچی مکرانی)
  * @author Mostafadaneshvar
  */

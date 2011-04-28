@@ -148,6 +148,13 @@ $messages['ast'] = array(
 	'validationstatistics-total' => 'Páxines',
 );
 
+/** Azerbaijani (Azərbaycanca)
+ * @author Cekli829
+ */
+$messages['az'] = array(
+	'validationstatistics-user' => 'İstifadəçi',
+);
+
 /** Belarusian (Беларуская)
  * @author Хомелка
  */
