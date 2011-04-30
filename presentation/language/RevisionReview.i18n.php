@@ -885,6 +885,7 @@ $messages['ckb'] = array(
 $messages['cs'] = array(
 	'revisionreview' => 'Posouzení verzí',
 	'revreview-failed' => "'''Nelze posoudit tuto revizi.''' Zadané údaje jsou neúplné nebo nesprávné.",
+	'revreview-submission-invalid' => 'Příspěvek by nekompletní nebo jinak chybný.',
 	'review_page_invalid' => 'Cílová stránka je neplatná.',
 	'review_page_notexists' => 'Cílová stránka neexistuje.',
 	'review_page_unreviewable' => 'Cílová stránka není posouditená.',
@@ -934,6 +935,11 @@ Aby se tam mohly dostat, posuďte prosím nejdříve všechny změny zobrazené 
 Bude nutné tyto editace začlenit nebo zamítnout.',
 	'revreview-update-includes' => "'''Některé šablony/soubory se změnily:'''",
 	'revreview-update-use' => "'''POZNÁMKA:''' Pokud některé z těchto šablon/souborů mají stabilní verzi, pak je ta už použita na stabilní verzi této stránky.",
+	'revreview-reject-header' => 'Odmítnout změny pro $1',
+	'revreview-reject-text-list' => "Dokončením této akce, '''zamítnete''' následující {{PLURAL:$1|zmněnu|změny|změn}}:",
+	'revreview-reject-text-revto' => 'Toto se vrátí zpět stránku do [{{fullurl:$1|oldid = $2}} revize z $3].',
+	'revreview-reject-summary' => 'Shrnutí:',
+	'revreview-reject-confirm' => 'Odmítnout tyto změny',
 	'revreview-reject-cancel' => 'Zrušit',
 	'revreview-reject-usercount' => '{{plural:$1|jeden uživatel|$1 uživatelé|$1 uživatelů}}',
 	'revreview-tt-flag' => 'Schválit tuto verzi jejím označením za "zkontrolovanou"',
@@ -4414,6 +4420,7 @@ $messages['ta'] = array(
 );
 
 /** Telugu (తెలుగు)
+ * @author Chaduvari
  * @author Kiranmayee
  * @author Veeven
  * @author వైజాసత్య
@@ -4441,10 +4448,26 @@ $messages['te'] = array(
 
 '''కొన్ని మూసలు/ఫైళ్లను  తాజాకరించారు:'''",
 	'revreview-update-includes' => "'''కొన్ని మూసలు/ఫైళ్లను తాజాకరించారు:'''",
-	'revreview-update-use' => "'''గమనిక:''' ఈ మూసలు/ఫైళ్ళకి సుస్థిర కూర్పు ఉంటే, అది ఈపాటికే ఈ పేజీ యొక్క సుస్థిర కూర్పులో ఉపయోగంలో ఉంది.",
+	'revreview-update-use' => "'''గమనిక:''' ఈ మూసలు/ఫైళ్ళలో ప్రతీదాని సుస్థిర కూర్పూ, ఈ పేజీ యొక్క సుస్థిర కూర్పులో ఉపయోగించబడింది.",
+	'revreview-reject-header' => '$1 యొక్క మార్పులను తిరస్కరించు',
+	'revreview-reject-text-list' => 'ఈ చర్యను పూర్తి చేస్తే మీరు కింది {{PLURAL:$1|మార్పు|మార్పుల}}ను ’’’తిరస్కరిస్తున్నట్లే’’’:',
+	'revreview-reject-text-revto' => 'ఇది ఈ పేజీని తిరిగి [{{fullurl:$1|oldid=$2}} $3 నాటి వెర్షను]కు తీసుకెళ్తుంది.',
 	'revreview-reject-summary' => 'సారాంశం:',
+	'revreview-reject-confirm' => 'ఈ మార్పులను తిరస్కరించు',
 	'revreview-reject-cancel' => 'రద్దుచేయి',
+	'revreview-reject-summary-cur' => '{{PLURAL:$1|మార్పు|$1 మార్పుల}}ను  ($2 చేసినవి) తిరస్కరించి, $4 చేసిన  కూర్పు $3 ను పునస్థాపించాం.',
+	'revreview-reject-summary-old' => '$4 చేసిన  కూర్పు $3 తరువాత చేసిన మొదటి {{PLURAL:$1|మార్పు|$1 మార్పుల}}ను  ($2 చేసినవి) తిరస్కరించాం.',
+	'revreview-reject-summary-cur-short' => 'చివరి {{PLURAL:$1|మార్పు|$1 మార్పుల}}ను  తిరస్కరించి, $3 చేసిన  కూర్పు $2 ను పునస్థాపించాం.',
+	'revreview-reject-summary-old-short' => '$3 చేసిన కూర్పు $2 తరువాత చేసిన మొదటి {{PLURAL:$1|మార్పు|$1 మార్పుల}}ను తిరస్కరించాం.',
 	'revreview-reject-usercount' => '{{PLURAL:$1|ఒక వాడుకరి|$1 వాడుకరులు}}',
+	'revreview-tt-reject' => 'ఈ మార్పులను౮ వెనక్కి తీసుకుపోయి, వాటిని తిరస్కరించు',
+);
+
+/** Tetum (Tetun)
+ * @author MF-Warburg
+ */
+$messages['tet'] = array(
+	'revreview-reject-summary' => 'Rezumu:',
 );
 
 /** Tajik (Cyrillic) (Тоҷикӣ (Cyrillic))

@@ -802,6 +802,13 @@ $messages['te'] = array(
 	'problemchanges-category' => 'వర్గం:',
 );
 
+/** Tetum (Tetun)
+ * @author MF-Warburg
+ */
+$messages['tet'] = array(
+	'problemchanges-category' => 'Kategoria:',
+);
+
 /** Turkmen (Türkmençe)
  * @author Hanberke
  */

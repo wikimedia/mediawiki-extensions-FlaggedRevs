@@ -137,6 +137,13 @@ $messages['bg'] = array(
 	'stablepages-config' => 'Конфигурация',
 );
 
+/** Bengali (বাংলা)
+ * @author Wikitanvir
+ */
+$messages['bn'] = array(
+	'stablepages-config' => 'কনফিগারেশন',
+);
+
 /** Breton (Brezhoneg)
  * @author Fohanno
  * @author Fulup

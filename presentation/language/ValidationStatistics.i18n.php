@@ -152,6 +152,7 @@ $messages['ast'] = array(
  * @author Cekli829
  */
 $messages['az'] = array(
+	'validationstatistics-total' => 'Səhifələr',
 	'validationstatistics-user' => 'İstifadəçi',
 );
 
@@ -1902,6 +1903,7 @@ $messages['te'] = array(
  */
 $messages['tet'] = array(
 	'validationstatistics-ns' => 'Espasu pájina nian',
+	'validationstatistics-total' => 'Pájina sira',
 );
 
 /** Thai (ไทย)

@@ -101,9 +101,11 @@ $messages['bg'] = array(
 
 /** Bengali (বাংলা)
  * @author Bellayet
+ * @author Wikitanvir
  */
 $messages['bn'] = array(
 	'configuredpages-none' => 'তালিকায় কোন পাতা নাই।',
+	'configuredpages-config' => 'কনফিগারেশন',
 	'configuredpages-def-draft' => 'সাম্প্রতিকতম সংস্করণ',
 	'configuredpages-def-stable' => 'স্থিতিশীল সংস্করণ',
 );
