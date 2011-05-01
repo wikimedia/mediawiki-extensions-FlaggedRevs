@@ -249,7 +249,7 @@ $messages['bg'] = array(
  */
 $messages['bn'] = array(
 	'unreviewedpages-category' => 'বিষয়শ্রেণী:',
-	'unreviewedpages-diff' => 'পরিবর্তনসমূহ',
+	'unreviewedpages-diff' => 'পর্যালোচনা',
 );
 
 /** Breton (Brezhoneg)
@@ -599,7 +599,7 @@ $messages['frp'] = array(
 	'unreviewedpages-diff' => 'revêre',
 	'unreviewedpages-unwatched' => '(pas siuvua)',
 	'unreviewedpages-watched' => '($1 {{PLURAL:$1|utilisator actif siut|utilisators actifs siuvont}} ceta pâge)',
-	'unreviewedpages-list' => 'Ceta pâge liste les pâges de contegnu qu’ont pas étâ revues avouéc lo nivél spècefiâ.',
+	'unreviewedpages-list' => "Ceta pâge liste les pâges de contegnu qu’ont ''pas'' étâ [[{{MediaWiki:Validationpage}}|revues]] avouéc lo nivél spècefiâ.",
 	'unreviewedpages-none' => 'Ora, y at gins de pâge que corrèspond a cetos critèros',
 	'unreviewedpages-viewing' => '(en rèvision)',
 	'unreviewedpages-hours' => '($1 hor{{PLURAL:$1|a|es}})',
@@ -1343,8 +1343,10 @@ $messages['pms'] = array(
 $messages['ps'] = array(
 	'unreviewedpages-category' => 'وېشنيزه:',
 	'unreviewedpages-diff' => 'مخکتنه',
+	'unreviewedpages-watched' => '($1 فعاله {{PLURAL:$1|کارن|کارنان}} يې ګوري)',
 	'unreviewedpages-hours' => '($1 {{PLURAL:$1|ساعت|ساعتونه}})',
 	'unreviewedpages-days' => '($1 {{PLURAL:$1|ورځ|ورځې}})',
+	'unreviewedpages-recent' => '(له 1 ساعت نه لږ وخت)',
 );
 
 /** Portuguese (Português)

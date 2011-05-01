@@ -183,7 +183,7 @@ $messages['bg'] = array(
  * @author Bellayet
  */
 $messages['bn'] = array(
-	'reviewedversions' => 'সুদৃঢ় সংস্করণসমূহ',
+	'reviewedversions' => 'পর্যালোচিত সংস্করণ',
 	'reviewedversions-page' => 'পাতার নাম:',
 );
 

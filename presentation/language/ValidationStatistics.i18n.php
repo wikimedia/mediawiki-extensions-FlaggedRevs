@@ -228,6 +228,7 @@ $messages['bg'] = array(
 $messages['bn'] = array(
 	'validationstatistics-ns' => 'নামস্থান',
 	'validationstatistics-total' => 'পাতা',
+	'validationstatistics-stable' => 'পর্যালোচিত',
 	'validationstatistics-user' => 'ব্যবহারকারী',
 );
 
@@ -684,7 +685,7 @@ Los contributors sont des utilisators ètablis que pôvont controlar les vèrsio
 	'validationstatistics-latest' => 'Sincronisâ',
 	'validationstatistics-synced' => 'Sincronisâ / Revua',
 	'validationstatistics-old' => 'Dèpassâ',
-	'validationstatistics-utable' => 'Vê-que la lista des $1 rèvisors los ples bons dens l’hora passâ.',
+	'validationstatistics-utable' => 'Vê-que la lista {{PLURAL:$1|du rèvisor lo ples actif|des $1 rèvisors los ples actifs}} dens {{PLURAL:$2|l’hora passâ|les $2 hores passâs}}.',
 	'validationstatistics-user' => 'Utilisator',
 	'validationstatistics-reviews' => 'Rèvisions',
 );

@@ -306,6 +306,7 @@ $messages['bn'] = array(
 	'pendingchanges-hours' => '($1 {{PLURAL:$1|ঘন্টা|ঘন্টা}})',
 	'pendingchanges-days' => '($1 {{PLURAL:$1|দিন|দিন}})',
 	'pendingchanges-category' => 'বিষয়শ্রেণী:',
+	'pendingchanges-diff' => 'পর্যালোচনা',
 );
 
 /** Breton (Brezhoneg)
@@ -684,7 +685,7 @@ $messages['fr'] = array(
 $messages['frp'] = array(
 	'pendingchanges' => 'Pâges qu’ont des changements en atenta',
 	'pendingchanges-legend' => 'Listar les pâges revues avouéc des vèrsions a revêre',
-	'pendingchanges-list' => 'Ceta pâge liste {{PLURAL:$1|una pâge ja revua qu’at|des pâges ja revues qu’ont}} de novéls changements.',
+	'pendingchanges-list' => 'Ceta pâge liste les pâges ja [[{{MediaWiki:Validationpage}}|revues]] qu’ont yon ou ben un mouél de changements en atenta de rèvision.',
 	'pendingchanges-none' => 'Ora, y at gins de pâge que corrèspond a cetos critèros',
 	'pendingchanges-hours' => '($1 hor{{PLURAL:$1|a|es}})',
 	'pendingchanges-days' => '($1 jorn{{PLURAL:$1||s}})',
@@ -1399,6 +1400,7 @@ $messages['ps'] = array(
 	'pendingchanges-hours' => '($1 {{PLURAL:$1|ساعت|ساعتونه}})',
 	'pendingchanges-days' => '($1 {{PLURAL:$1|ورځ|ورځې}})',
 	'pendingchanges-category' => 'وېشنيزه:',
+	'pendingchanges-diff' => 'مخکتنه',
 );
 
 /** Portuguese (Português)

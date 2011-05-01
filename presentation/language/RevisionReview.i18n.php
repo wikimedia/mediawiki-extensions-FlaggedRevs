@@ -300,23 +300,27 @@ $messages['ar'] = array(
 	'revreview-stable2' => 'ربما ترغب في رؤية [{{fullurl:$1|stable=1}} النسخة المنشورة] لهذه الصفحة (لو كانت مازالت هناك واحدة).',
 	'revreview-submit' => 'أرسل',
 	'revreview-submitting' => 'يرسل...',
-	'revreview-submit-review' => 'علم كمراجعة',
-	'revreview-submit-unreview' => 'علم كغير مراجعة',
+	'revreview-submit-review' => 'اقبل المراجعة',
+	'revreview-submit-unreview' => 'لا تقبل المراجعة',
 	'revreview-submit-reject' => 'رفض التغييرات',
 	'revreview-submit-reviewed' => 'تم. قبلت!',
 	'revreview-submit-unreviewed' => 'تم. لم يتم القبول!',
 	'revreview-successful' => "'''عُلّمت مراجعة [[:$1|$1]] بنجاح. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} اعرض النسخ المستقرة])'''",
 	'revreview-successful2' => "'''مراجعة [[:$1|$1]] تمت إزالة علمها بنجاح.'''",
+	'revreview-poss-conflict-p' => "'''تحذير: بدأ [[User:$1|$1]] مراجعة هذه الصفحة في $2 عند $3.'''",
+	'revreview-poss-conflict-c' => "'''تحذير: بدأ [[User:$1|$1]] مراجعة هذه النغييرات في $2 عند $3.'''",
 	'revreview-toolow' => '\'\'\'يجب عليك تقييم كل من المحددات بالأسفل أعلى من "غير مقبولة" لكي تعتبر المراجعة مراجعة.\'\'\'
 لسحب تقييم مراجعة، اضبط كل الحقول ك"غير مقبولة".
 
 من فضلك اضغط زر "رجوع" في متصفحك وحاول مجددا.',
-	'revreview-update' => "من فضلك [[{{MediaWiki:Validationpage}}|راجع]] أية تغييرات ''(معروضة بالأسفل)'' تمت منذ [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} اعتماد] المراجعة المنشورة.<br />
-'''بعض القوالب/الملفات تم تحديثها:'''",
+	'revreview-update' => "'''من فضلك [[{{MediaWiki:Validationpage}}|راجع]] أية تغييرات موقفة ''(معروضة بالأسفل)'' أجريت منذ النسخة المستقرة.'''",
+	'revreview-update-edited' => '<span class="flaggedrevs_important">تغييراتك ليست إلى الآن في النسخة المستقرة.</span>
+
+من فضلك راجع كل الغييرات المعروضة أدناه لتظهر تعديلاتك في النسخة المستقرة.',
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important"> لم تضف تعديلات بعد إلى النسخة المستقرة. هناك تعديلات مسبقة تنتظر المراجعة. </span>
 رجاء راجع جميع التغييرات الظاهرة أدناه من أجل أن تظهر تعديلاتك في النسخة المستقرة.',
 	'revreview-update-includes' => "'''بعض القوالب/الملفات تم تحديثها:'''",
-	'revreview-update-use' => "'''ملاحظة:''' إذا كان  لأي من هذه القوالب/الملفات نسخة منشورة، فهي مستخدمة بالفعل في النسخة المنشورة لهذه الصفحة.",
+	'revreview-update-use' => "'''ملاحظة:''' النسخ المستقرة من هذه القوالب/الملفات مستخدمة في النسخة المستقرة من هذه الصفحة.",
 	'revreview-reject-header' => 'رفض التغييرات لـ$1',
 	'revreview-reject-text-list' => "بإتمام هذا الفعل، سوف يتم '''رفض''' {{PLURAL:$1|التعديل|التعديلات}} التالية :",
 	'revreview-reject-text-revto' => 'هذا سوف يعيد الصفحة إلى [{{fullurl:$1|oldid=$2}} النسخة $3]',
@@ -328,8 +332,8 @@ $messages['ar'] = array(
 	'revreview-reject-summary-cur-short' => '{{PLURAL:$1|رفض التغيير الأخير|رفضت التغييرات الـ$1 الأخيرة}} وتمت استعادة النسخة $2 من قبل $3',
 	'revreview-reject-summary-old-short' => '{{PLURAL:$1|رفض التغيير الأول|رفضت التغييرات الـ$1 الأولى}} وتمت استعادة النسخة $2 من قبل $3',
 	'revreview-reject-usercount' => '{{PLURAL:$1|مستخدم|$1 مستخدمين}}',
-	'revreview-tt-flag' => 'علّم هذه المراجعة مراجعة',
-	'revreview-tt-unflag' => 'علّم هذه المراجعة غير مراجعة',
+	'revreview-tt-flag' => 'اقبل هذه المراجعة بتعليمها "مفحوصة"',
+	'revreview-tt-unflag' => 'لا تقبل هذه المراجعة بتعليمها "مفحوصة"',
 	'revreview-tt-reject' => 'ارفض هذه التغييرات عن طريق استرجاعها',
 );
 
@@ -613,6 +617,7 @@ $messages['bg'] = array(
 $messages['bn'] = array(
 	'revisionreview' => 'সংশোধনগুলি পর্যালোচনা করুন',
 	'review_denied' => 'অনুমতি প্রত্যাখ্যাত হয়েছে।',
+	'revreview-check-flag-y' => 'আমার পরিবর্তনসমূহ গ্রহণ',
 	'revreview-flag' => 'এই সংশোধনটি পর্যালোচনা করুন',
 	'revreview-legend' => 'সংশোধনের বিষয়বস্তুর রেটিং দিন',
 	'revreview-log' => 'মন্তব্য:',
@@ -621,9 +626,11 @@ $messages['bn'] = array(
 পর্যালোচনা করা হয়নি এমন পাতাগুলির একটি তালিকার জন্য [[Special:Unreviewedpages]] দেখুন।',
 	'revreview-submit' => 'জমা দাও',
 	'revreview-submitting' => 'জমা হচ্ছে …',
-	'revreview-submit-review' => 'গ্রহণ',
-	'revreview-submit-unreview' => 'প্রত্যাখান',
+	'revreview-submit-review' => 'সংশোধন গ্রহণ',
+	'revreview-submit-unreview' => 'সংশোধন প্রত্যাখান',
 	'revreview-toolow' => 'কোন সংশোধনকে পর্যালোচিত গণ্য করতে চাইলে আপনাকে নিচের বৈশিষ্ট্যগুলির প্রতিটিকে কমপক্ষে "অননুমোদিত" থেকে উচ্চতর কোন রেটিং দিতে হবে। কোন সংশোধনকে অবনমিত করতে চাইলে, সবগুলি ক্ষেত্র "অননুমোদিত"-তে সেট করুন।',
+	'revreview-reject-summary' => 'সারাংশ:',
+	'revreview-reject-cancel' => 'বাতিল',
 );
 
 /** Breton (Brezhoneg)
@@ -1701,7 +1708,7 @@ Vous devez relire toutes les modifications affichées ci-dessous pour la votre a
  */
 $messages['frp'] = array(
 	'revisionreview' => 'Revêre les vèrsions',
-	'revreview-failed' => "'''La rèvision at pas reussia !''' La somission est encomplèta ou ben ôtrament envalida.",
+	'revreview-failed' => "'''Empossiblo de revêre ceta vèrsion.'''",
 	'review_page_invalid' => 'Lo titro de la pâge ciba est fôx.',
 	'review_page_notexists' => 'La pâge ciba ègziste pas.',
 	'review_page_unreviewable' => 'La pâge ciba pôt pas étre revua.',
@@ -3629,10 +3636,16 @@ Për piasì ch'a revision-a tùit ij cambiament mostrà sì-sota përchè soe mo
  * @author Ahmed-Najib-Biabani-Ibrahimkhel
  */
 $messages['ps'] = array(
+	'revreview-check-flag-y' => 'زما بدلونونه دې ومنل شي',
 	'revreview-log' => 'تبصره:',
 	'revreview-submit' => 'سپارل',
 	'revreview-submitting' => 'د سپارلو په حال کې ...',
 	'revreview-submit-review' => 'منل',
+	'revreview-submit-reject' => 'بدلونونه ردول',
+	'revreview-reject-summary' => 'لنډيز:',
+	'revreview-reject-confirm' => 'همدا بدلونونه ردول',
+	'revreview-reject-cancel' => 'ناګارل',
+	'revreview-reject-usercount' => '{{PLURAL:$1|يو کارن|$1 کارنان}}',
 );
 
 /** Portuguese (Português)
@@ -4778,7 +4791,7 @@ $messages['uk'] = array(
 	'revreview-reject-header' => 'Скасувати зміни для $1',
 	'revreview-reject-text-list' => "Виконуючи цю дію, ви '''відкидаєте''' {{PLURAL:$1|наступну зміну|наступні зміни}}:",
 	'revreview-reject-text-revto' => 'Відкидає сторінку назад до [{{fullurl:$1|oldid=$2}} версії від $3].',
-	'revreview-reject-summary' => 'Опис редагування:',
+	'revreview-reject-summary' => 'Опис:',
 	'revreview-reject-confirm' => 'Скасувати ці зміни',
 	'revreview-reject-cancel' => 'Скасувати',
 	'revreview-reject-summary-cur' => '{{PLURAL:$1|Скасовано останнє $1 редагування|Скасовані останні $1 редагування|Скасовано останні $1 редагувань}} ($2) і відновлена версія $3 $4',

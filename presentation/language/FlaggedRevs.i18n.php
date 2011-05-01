@@ -1981,7 +1981,7 @@ $messages['bn'] = array(
 ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} সমস্ত তালিকা])  [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} অনুমোদিত] হয়েছে
 <i>$2</i> এ। [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|পরিবর্তন|পরিবর্তনসমূহ}}] পর্যালোচনা {{PLURAL:$3|প্রয়োজন|প্রয়োজন}}।',
 	'revreview-oldrating' => 'পূর্বে মূল্যায়ন ছিল:',
-	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|দেখা হয়েছে]]''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} খসড়া দেখুন]]",
+	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|পরীক্ষিত]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} অমীমাংসিত পরিবর্তন পর্যালোচনা]]",
 	'revreview-quick-basic-old' => "'''[[{{MediaWiki:Validationpage}}|পরীক্ষিত]]'''",
 	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|পরীক্ষিত]]'''",
 	'revreview-quick-invalid' => "'''ভুল সংশোধন আইডি'''",
@@ -1994,7 +1994,7 @@ $messages['bn'] = array(
 	'revreview-source' => 'সোর্স দেখাও',
 	'revreview-basic-title' => 'এটি এই পাতার একটি পরীক্ষিত সংস্করণ',
 	'revreview-style' => 'পঠনযোগ্যতা',
-	'revreview-style-0' => 'অননুমদিত',
+	'revreview-style-0' => 'অনুপযুক্ত',
 	'revreview-style-1' => 'গ্রহণযোগ্য',
 	'revreview-style-2' => 'ভাল',
 	'revreview-style-3' => 'সংক্ষিপ্ত',
@@ -2014,6 +2014,7 @@ $messages['bn'] = array(
 	'revreview-filter-manual' => 'হাতে কলমে',
 	'revreview-levelfilter' => 'পর্যায়:',
 	'revreview-lev-all' => 'যেকোন',
+	'revreview-lev-basic' => 'পরীক্ষিত',
 	'revreview-lev-quality' => 'গুণ',
 	'revreview-defaultfilter' => 'প্রাথমিক সংস্করণ:',
 	'revreview-def-all' => 'যেকোন',
@@ -2021,9 +2022,12 @@ $messages['bn'] = array(
 	'revreview-def-stable' => 'গৃহীত',
 	'revreview-restriction-any' => 'যেকোন',
 	'revreview-restriction-none' => 'কিছু না',
+	'revreview-reviewlink' => 'অমীমাংসিত সম্পাদনা',
+	'revreview-unreviewedpage' => 'অপরীক্ষিত পাতা',
 	'tooltip-ca-current' => 'এই পাতাটির বর্তমান খসড়াটি দেখুন',
 	'tooltip-ca-stable' => 'এই পাতার স্থিতিশীল সংস্করণটি দেখাও',
 	'tooltip-ca-default' => 'গুণাগুল নিশ্চিতকরণ সেটিংস',
+	'flaggedrevs-protect-none' => 'সমস্ত ব্যবহারকারীর জন্য',
 	'validationpage' => '{{ns:help}}:নিবন্ধ বৈধকরণ',
 );
 
@@ -4956,14 +4960,14 @@ De novéls [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} changemen
 	'revreview-edited' => "'''Voutros changements seront montrâs ux liésors setout qu’un utilisator qu’at los drêts nècèssèros los arat revus. ([[{{MediaWiki:Validationpage}}|éde]])'''
 
 Y at [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 changement{{PLURAL:$2||s}}] ''(vêde ce-desot)'' en atenta de rèvision.",
-	'revreview-newest-basic' => 'La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} vèrsion stâbla] at étâ [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} controlâ] lo <i>$2</i>.
-Y at [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 changement{{PLURAL:$3||s}}] en atenta de rèvision.',
-	'revreview-newest-basic-i' => 'La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} vèrsion stâbla] at étâ [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} controlâ] lo <i>$2</i>.
-Y at des [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} changements de modèlos ou ben de fichiérs] en atenta de rèvision.',
-	'revreview-newest-quality' => 'La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} vèrsion stâbla] at étâ [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovâ] lo <i>$2</i>.
-Y at [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 changement{{PLURAL:$3||s}}] en atenta de rèvision.',
-	'revreview-newest-quality-i' => 'La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} vèrsion stâbla] at étâ [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovâ] lo <i>$2</i>.
-Y at des [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} changements de modèlos ou ben de fichiérs] en atenta de rèvision.',
+	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 changement{{PLURAL:$3||s}}] dens cela vèrsion {{PLURAL:$3|est|sont}} [[{{MediaWiki:Validationpage}}|en atenta de rèvision]].
+La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} vèrsion stâbla] at étâ [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} controlâ] lo <i>$2</i>.',
+	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Des changements dens los modèlos ou ben los fichiérs] de cela vèrsion sont [[{{MediaWiki:Validationpage}}|en atenta de rèvision]].
+La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} vèrsion stâbla] at étâ [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} controlâ] lo <i>$2</i>.',
+	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 changement{{PLURAL:$3||s}}] dens cela vèrsion {{PLURAL:$3|est|sont}} [[{{MediaWiki:Validationpage}}|en atenta de rèvision]].
+La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} vèrsion stâbla] at étâ [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovâ] lo <i>$2</i>.',
+	'revreview-newest-quality-i' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} Des changements dens los modèlos ou ben los fichiérs] de cela vèrsion sont [[{{MediaWiki:Validationpage}}|en atenta de rèvision]].
+La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} vèrsion stâbla] at étâ [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovâ] lo <i>$2</i>.',
 	'revreview-noflagged' => "Y at gins de [[{{MediaWiki:Validationpage}}|vèrsion revua]] de ceta pâge, o est vêr possiblo que sa qualitât èye '''pas''' étâ [[{{MediaWiki:Validationpage}}|controlâ]] por la conformitât a les nôrmes.",
 	'revreview-oldrating' => 'Son èstimacion :',
 	'revreview-quality' => 'O est la [[{{MediaWiki:Validationpage}}|vèrsion stâbla]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovâ] lo <i>$2</i>.
@@ -9060,6 +9064,7 @@ $messages['mn'] = array(
 );
 
 /** Marathi (मराठी)
+ * @author Htt
  * @author Kaustubh
  * @author Mahitgar
  */
@@ -9137,7 +9142,7 @@ $messages['mr'] = array(
 	'revreview-quality-same' => 'ही नवीनतम [[{{MediaWiki:Validationpage}}|गुणवत्तापूर्ण]] आवृत्ती आहे ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} सर्व यादी]), जी <i>$2</i> रोजी [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} प्रमाणित] केलेली आहे.',
 	'revreview-quality-source' => 'या पानाची एक [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} गुणवत्तापूर्ण आवृत्ती], जी <i>$2</i> ला[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} प्रमाणित] केलेली आहे, या आवृत्तीवर आधारित आहे.',
 	'revreview-quality-title' => 'गुणवत्तापूर्ण लेख',
-	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|निवडलेला लेख]]''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} कच्ची प्रत पहा]]",
+	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|निवडलेला लेख]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} कच्ची प्रत पहा]]",
 	'revreview-quick-basic-old' => "'''[[{{MediaWiki:Validationpage}}|निवडलेला लेख]]''' [ कच्ची प्रत पहा]]",
 	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|निवडलेला लेख]]'''",
 	'revreview-quick-invalid' => "'''चुकीचा आवृत्ती क्रमांक'''",
@@ -10572,11 +10577,14 @@ Che as controla për piasì l'adrëssa (URL) che a l'ha dovrà për rivé a sta 
  * @author Ahmed-Najib-Biabani-Ibrahimkhel
  */
 $messages['ps'] = array(
+	'group-editor' => 'سمونګران',
+	'group-editor-member' => 'سمونګر',
 	'group-reviewer' => 'مخکتونکي',
 	'group-reviewer-member' => 'مخکتونکی',
+	'grouppage-editor' => '{{ns:project}}:سمونګر',
 	'reviewer' => 'مخکتونکی',
 	'revreview-auto' => '(خپلسري)',
-	'revreview-current' => 'ګارلیک',
+	'revreview-current' => 'بدلونونو ته تم',
 	'revreview-depth' => 'ژورتيا',
 	'revreview-depth-1' => 'بنسټيز',
 	'revreview-depth-2' => 'منځوی',
@@ -10585,6 +10593,7 @@ $messages['ps'] = array(
 	'revreview-submitedit' => 'بدلونونه ورسپارل',
 	'revreview-source' => 'سرچينه کتل',
 	'revreview-style-1' => 'د منلو وړ',
+	'revreview-toggle-title' => 'څرګندونې ښکاره کول/پټول',
 	'revreview-filter-all' => 'ټول',
 	'revreview-statusfilter' => 'د مخليدنې کړنه:',
 	'revreview-filter-auto' => 'اتوماتيک',
