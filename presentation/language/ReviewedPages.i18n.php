@@ -107,17 +107,19 @@ $messages['arz'] = array(
 
 /** Asturian (Asturianu)
  * @author Esbardu
+ * @author Xuacu
  */
 $messages['ast'] = array(
 	'reviewedpages' => 'Páxines revisaes',
-	'reviewedpages-leg' => 'Llista de les páxines revisaes a un ciertu nivel',
-	'reviewedpages-list' => 'Les páxines siguientes foron revisaes al nivel especificáu',
+	'reviewedpages-leg' => 'Llista de les páxines que tan revisaes',
+	'reviewedpages-list' => "Esta llista contién páxines [[{{MediaWiki:Validationpage}}|revisaes]] pa les qu'el nivel de revisión ''más altu algamáu'' (pa una revisión) ye'l nivel especificáu.
+	Se da un enllaz a la cabera revisión d'esi nivel.",
 	'reviewedpages-none' => 'Nun hai páxines nesta llista',
 	'reviewedpages-lev-0' => 'Vistes',
 	'reviewedpages-lev-1' => 'Calidables',
 	'reviewedpages-lev-2' => 'Destacaes',
 	'reviewedpages-all' => 'versiones revisaes',
-	'reviewedpages-best' => 'cabera revisión meyor calificada',
+	'reviewedpages-best' => 'meyor revisión',
 );
 
 /** Southern Balochi (بلوچی مکرانی)

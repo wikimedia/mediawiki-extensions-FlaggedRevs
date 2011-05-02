@@ -105,13 +105,14 @@ $messages['arz'] = array(
 
 /** Asturian (Asturianu)
  * @author Esbardu
+ * @author Xuacu
  */
 $messages['ast'] = array(
-	'reviewedversions' => 'Ver les versiones estables',
+	'reviewedversions' => 'Versiones revisaes',
 	'reviewedversions-leg1' => "Llista de les revisiones revisaes d'una páxina",
 	'reviewedversions-page' => 'Nome de la páxina:',
 	'reviewedversions-none' => '"[[:$1]]" nun tien revisiones revisaes.',
-	'reviewedversions-list' => 'La siguiente ye una llista de revisiones de [[:$1]] que foron revisaes:',
+	'reviewedversions-list' => 'Darréu ta la llista de {{PLURAL:$2|la única revisión|les revisiones}} de [[:$1]] que se {{PLURAL:$2|revisó|revisaron}}:',
 	'reviewedversions-review' => "Revisada'l <i>$1</i> por $2",
 );
 

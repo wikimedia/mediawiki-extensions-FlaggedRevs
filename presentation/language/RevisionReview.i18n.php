@@ -2878,6 +2878,7 @@ $messages['lb'] = array(
 	'review_not_flagged' => "D'Zilversioun ass elo net als nogekuckt markéiert.",
 	'review_too_low' => 'D\'Versioun kann net nogekuckt ginn esoulaang wéi e puer Felder als "inadequat" markéiert sinn',
 	'review_bad_key' => 'De Wäert vum Préifparameter ass net valabel',
+	'review_bad_tags' => 'Et puer vun de Wäerter an de spezifizéierten Tagen sinn net valabel.',
 	'review_denied' => 'Erlaabnes refuséiert',
 	'review_param_missing' => 'E Paramter feelt oder en ass net valabel.',
 	'review_cannot_undo' => 'Dës Ännerunge kënnen net zeréckgesat ginn well aner Ännerungen déi am Suspens sinn de selwechte Beräich änneren.',
