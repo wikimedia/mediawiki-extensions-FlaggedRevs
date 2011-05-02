@@ -1001,10 +1001,13 @@ class FlaggedRevsHooks {
 		return false; // final
 	}
 
-	public static function gnsmQueryModifier( array $params, array &$joins, array &$conditions ) {
-		$filterSet = array( GoogleNewsSitemap::OPT_ONLY, GoogleNewsSitemap::OPT_EXCLUDE );
+	public static function gnsmQueryModifier( array $params, array &$joins, array &$conditions, array &$tables ) {
+		$filterSet = array( GoogleNewsSitemap::OPT_ONLY => true,
+				GoogleNewsSitemap::OPT_EXCLUDE => true
+		);
 		# Either involves the same JOIN here...
 		if ( isset( $filterSet[ $params['stable'] ] ) || isset( $filterSet[ $params['quality'] ] ) ) {
+			$tables[] = 'flaggedpages';
 			$joins['flaggedpages'] = array( 'LEFT JOIN', 'page_id = fp_page_id' );
 		}
 
@@ -1022,7 +1025,7 @@ class FlaggedRevsHooks {
 				$conditions[] = 'fp_quality >= 1';
 				break;
 			case GoogleNewsSitemap::OPT_EXCLUDE:
-				$conditions['fp_quality'] = 0;
+				$conditions[] = 'fp_quality = 0 OR fp_quality IS NULL';
 				break;
 		}
 
