@@ -2596,7 +2596,7 @@ $messages['ja'] = array(
 	'revreview-reject-header' => '$1の変更を拒否',
 	'revreview-reject-text-list' => "この操作を完了すると、以下の{{PLURAL:$1|変更}}を、次の理由で'''却下'''します：",
 	'revreview-reject-text-revto' => 'ページを[{{fullurl:$1|oldid=$2}} $3版]へ差し戻します。',
-	'revreview-reject-summary' => '編集の要約：',
+	'revreview-reject-summary' => '要約:',
 	'revreview-reject-confirm' => 'これらの変更を拒否',
 	'revreview-reject-cancel' => '中止',
 	'revreview-reject-summary-cur' => '最新の{{PLURAL:$1|$1の変更}}は$2によって却下され、$4による$3版が復旧されました。',
@@ -3176,6 +3176,7 @@ $messages['mn'] = array(
 );
 
 /** Marathi (मराठी)
+ * @author Htt
  * @author Kaustubh
  * @author Mahitgar
  */
@@ -3190,7 +3191,7 @@ $messages['mr'] = array(
 न तपासलेल्या पानांची यादी पहाण्यासाठी [[Special:Unreviewedpages]] इथे जा.',
 	'revreview-stable1' => 'तुम्ही कदाचित या पानाची [{{fullurl:$1|stableid=$2}} ही खूण केलेली आवृत्ती] आता [{{fullurl:$1|stable=1}} स्थिर आवृत्ती] झाली आहे किंवा नाही हे पाहू इच्छिता.',
 	'revreview-stable2' => 'तुम्ही या पानाची [{{fullurl:$1|stable=1}} स्थिर आवृत्ती] पाहू शकता (जर उपलब्ध असेल तर).',
-	'revreview-submit' => 'आपला रिव्ह्यू पाठवा',
+	'revreview-submit' => 'पाठवा',
 	'revreview-successful' => "'''[[:$1|$1]] च्या निवडलेल्या आवृत्तीवर यशस्वीरित्या तपासल्याची खूण केलेली आहे.
 ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} सर्व खूणा केलेल्या आवृत्त्या पहा])'''",
 	'revreview-successful2' => "'''[[:$1|$1]] च्या निवडलेल्या आवृत्तीची खूण काढली.'''",

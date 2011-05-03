@@ -1319,6 +1319,7 @@ $messages['pl'] = array(
 );
 
 /** Piedmontese (Piemontèis)
+ * @author Borichèt
  * @author Bèrto 'd Sèra
  * @author Dragonòt
  */
@@ -1329,7 +1330,7 @@ $messages['pms'] = array(
 	'unreviewedpages-diff' => 'revision',
 	'unreviewedpages-unwatched' => '(pa tùa sot euj)',
 	'unreviewedpages-watched' => '($1 {{PLURAL:$1|utent|utent}} ativ a la ten-o sot euj)',
-	'unreviewedpages-list' => 'Sta pàgina-sì a lista le pàgine ëd contnù che a son pa ancó stàite [[{{MediaWiki:Validationpage}}|revisionà]] al livel spessifià.',
+	'unreviewedpages-list' => 'Sta pàgina-sì a lista le pàgine ëd contnù che a son pa ancó stàite [[{{MediaWiki:Validationpage}}|revisionà]] al livel spessificà.',
 	'unreviewedpages-none' => 'Al moment a-i é pa gnun-e pàgine che a sodisfo sti criteri-sì',
 	'unreviewedpages-viewing' => '(sota revision)',
 	'unreviewedpages-hours' => '($1 {{PLURAL:$1|ora|ore}})',
