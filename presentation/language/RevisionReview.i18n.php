@@ -4330,6 +4330,7 @@ $messages['su'] = array(
  * @author Nghtwlkr
  * @author Rotsee
  * @author Tobulos1
+ * @author WikiPhoenix
  */
 $messages['sv'] = array(
 	'revisionreview' => 'Granska sidversioner',
@@ -4364,7 +4365,7 @@ Se [[Special:Unreviewedpages|listan över ogranskade sidor]].',
 	'revreview-submit' => 'Spara',
 	'revreview-submitting' => 'Levererar...',
 	'revreview-submit-review' => 'Godkänn revision',
-	'revreview-submit-unreview' => 'Acceptera inte',
+	'revreview-submit-unreview' => 'Acceptera inte revision',
 	'revreview-submit-reject' => 'Avvisa ändringar',
 	'revreview-submit-reviewed' => 'Klar. Godkänd!',
 	'revreview-submit-unreviewed' => 'Klar. Inte accepterad!',
@@ -4384,6 +4385,7 @@ Vänligen granska alla ändringar som visas nedan för att göra så att dina re
 Vänligen granska alla ändringar som visas nedan för att göra så att dina redigeringar visas i den stabila versionen.',
 	'revreview-update-includes' => "'''Vissa mallar eller filer har ändrats:'''",
 	'revreview-update-use' => "'''OBS:''' Den accepterade versionen för var och en av dessa mallar/filer används i den accepterade versionen av denna sida.",
+	'revreview-reject-summary' => 'Sammanfattning:',
 	'revreview-reject-cancel' => 'Avbryt',
 	'revreview-reject-usercount' => '{{PLURAL:$1|en användare|$1 användare}}',
 	'revreview-tt-flag' => 'Acceptera denna sidversion genom att markera den "kontrollerad"',

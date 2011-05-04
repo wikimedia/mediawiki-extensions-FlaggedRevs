@@ -12629,6 +12629,7 @@ Please check the URL you used to access this page.',
  * @author Per
  * @author Rotsee
  * @author Tobulos1
+ * @author WikiPhoenix
  */
 $messages['sv'] = array(
 	'action-review' => 'granska sidversioner',
@@ -12655,6 +12656,7 @@ $messages['sv'] = array(
 	'group-autoreview-member' => 'autogranskare',
 	'grouppage-autoreview' => '{{ns:project}}:Autogranskare',
 	'revcontents-error' => 'Det gick inte att hämta innehåll.',
+	'revcontents-waiting' => 'Väntar på innehåll',
 	'revreview-hist-draft' => 'okontrollerad version',
 	'revreview-hist-pending' => 'väntar granskning',
 	'revreview-hist-quality' => 'kvalitetsversion',
@@ -12662,7 +12664,7 @@ $messages['sv'] = array(
 	'revreview-hist-quality-user' => 'validerad av [[User:$3|$3]]',
 	'revreview-hist-basic-user' => 'kontrollerad av [[User:$3|$3]]',
 	'revreview-hist-quality-auto' => 'automatiskt godkänd',
-	'revreview-hist-basic-auto' => 'automatiskt synad',
+	'revreview-hist-basic-auto' => 'automatiskt kontrollerat',
 	'revreview-hist-pending-difflink' => "'''[[{{fullurl:$1|oldid=$2&diff=$3}} väntar granskning]]'''",
 	'review-edit-diff' => "'''OBS: Vissa av de väntande ändringarna påverkar den del av sidan som du redigerar.'''",
 	'revreview-diff-toggle-show' => 'visa ändringar',
