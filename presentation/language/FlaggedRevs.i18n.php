@@ -7413,7 +7413,7 @@ $messages['ka'] = array(
 შესაძლოა, განხორციელდა დამატებითი [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} რედაქტირებები].',
 	'revreview-basic-same' => 'ეს არის [[{{MediaWiki:Validationpage}}|გამოქვეყნებული ვერსია]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} შემოწმებული] <i>$2</i>.',
 	'revreview-basic-source' => '[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} გვერდის შემოწმებული ვერსია], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} რეცენზირებული] <i>$2</i>, იყო დაფუძნებული ამ ვერსიაზე.',
-	'revreview-current' => 'შავი ფურცელი',
+	'revreview-current' => 'შეუმოწმებელი ვერსია',
 	'revreview-depth' => 'სიღრმე',
 	'revreview-depth-0' => 'არასაკმარისი',
 	'revreview-depth-1' => 'საბაზისო',
@@ -7437,10 +7437,9 @@ $messages['ka'] = array(
 	'revreview-newest-quality-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} გამოქვეყნებული ვერსია] იყო [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} დამტკიცებული] <i>$2</i>. შავ ვერსიაში არის შემოწმების მომლოდინე [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} ცვლილებები თარგებში ან ფაილებში].',
 	'revreview-pending-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} გამოქვეყნებული ვერსია] იყო [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} შემოწმებული] <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}}შავი სია] შეიცავს   
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|შემოწმების მომლოდინე რედაქტირებას|შემოწმების მომლოდინე რედაქტირებებს|შემოწმებს მომლოდინე რედაქტირებას}}].',
-	'revreview-pending-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} გამოქვეყნებული ვერსია] იყო [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} დდამტკიცებული] <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} შავი ფურცელი] შეიცავს  
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $3 {{PLURAL:$3|შემოწმების მომლოდინე რედაქტირებას|შემოწმების მომლოდინე რედაქტირებებს|შემოწმებს მომლოდინე რედაქტირებას}}].',
-	'revreview-pending-nosection' => 'სცადეთ იხილოთ [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} შავი ფურცელი], რომელიც შეიცავს
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 {{PLURAL:$2|შემოწმების მომლოდინე რედაქტირებას|შემოწმების მომლოდინე რედაქტირებებს|შემოწმებს მომლოდინე რედაქტირებას}}]. სავარაუდოდ, განყოფილება წაიშალა ან გადაადგილდა.',
+	'revreview-pending-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} გამოქვეყნებული ვერსია] იყო [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} შემოწმებული] (<i>$2</i>). [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} შეუმოწმებელი ვერსია] შეიცავს  
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} შემოწმების $3 მომლოდინე რედაქტირებას].',
+	'revreview-pending-nosection' => 'გთხოვთ ყურადღება გაამახვილოთ [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} ბოლო ვერსიაზე], რომელშიც შემოწმების მოლოდინშია [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} $2 ცვლილება]. შესაძლებელია, რომ ეს დანაყოფი გადაადგილდა ან წაიშალა.',
 	'revreview-noflagged' => "ამ გვერდს არა აქვს [[{{MediaWiki:Validationpage}}|შემოწმებული]] ვერსია, სავარაუდოდ მისი ხარისხი '''არ იყო''' შეფასებული.",
 	'revreview-oldrating' => 'შეფასდა:',
 	'revreview-quality' => 'ეს [[{{MediaWiki:Validationpage}}|გამოქვეყნებული ვერსია]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} დამტკიცებული] <i>$2</i> მიერ.
