@@ -8935,7 +8935,7 @@ $messages['ml'] = array(
 	'revreview-accuracy-2' => 'സൂക്ഷ്മം',
 	'revreview-accuracy-3' => 'സ്രോതസ്സധിഷ്ഠിതം',
 	'revreview-accuracy-4' => 'തിരഞ്ഞെടുക്കപ്പെട്ടത്',
-	'revreview-auto' => '(യാന്ത്രികം)',
+	'revreview-auto' => '(സ്വയം)',
 	'revreview-basic' => 'ഇതൊരു [[{{MediaWiki:Validationpage}}|പ്രസിദ്ധീകരിക്കപ്പെട്ട പതിപ്പ്]] ആണ്. [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}}|പരിശോധിച്ച] പതിപ്പ്, <i>$2</i> തീയതിയിലുള്ളതാണ്.
 ഇതിൽ [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} അവശേഷിക്കുന്ന {{PLURAL:$3|ഒരു മാറ്റം|$3 മാറ്റങ്ങൾ}}] സംശോധനം പ്രതീക്ഷിക്കുന്നു.',
 	'revreview-basic-i' => 'ഇത് [[{{MediaWiki:Validationpage}}|പ്രസിദ്ധീകരിച്ച പതിപ്പ്]] ആണ്. <i>$2</i>-നു ഇത് [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} പരിശോധിച്ചിരിക്കുന്നു]. ഇതിൽ [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=0}} ഫലക/പ്രമാണ മാറ്റങ്ങൾ] സംശോധനം പ്രതീക്ഷിക്കുന്നു.',
