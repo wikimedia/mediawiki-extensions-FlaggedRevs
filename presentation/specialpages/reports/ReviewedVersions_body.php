@@ -93,15 +93,15 @@ class ReviewedVersionsPager extends ReverseChronologicalPager {
 		if ( !in_array( $this->namespace, $namespaces ) ) {
 			$conds[] = "1 = 0";
 		}
-		$conds["fr_page_id"] = $this->pageID;
-		$conds[] = "fr_rev_id = rev_id";
-		$conds[] = "fr_user = user_id";
+		$conds['fr_page_id'] = $this->pageID;
+		$conds[] = 'fr_rev_id = rev_id';
 		$conds[] = 'rev_deleted & ' . Revision::DELETED_TEXT . ' = 0';
+		$conds[] = 'fr_user = user_id';
 		return array(
 			'tables'  => array( 'flaggedrevs', 'revision', 'user' ),
 			'fields'  => 'fr_rev_id,fr_timestamp,rev_timestamp,fr_quality,fr_user,user_name',
 			'conds'   => $conds,
-			'options' => array( 'USE INDEX' => array( 'flaggedrevs' => 'PRIMARY' ) )
+			//'options' => array( 'USE INDEX' => array( 'flaggedrevs' => 'page_rev' ) )
 		);
 	}
 
