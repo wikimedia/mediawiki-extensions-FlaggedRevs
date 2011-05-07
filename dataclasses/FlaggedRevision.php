@@ -191,67 +191,67 @@ class FlaggedRevision {
 		if ( !$pageId ) {
 			return null; // short-circuit query
 		}
-		# Get visiblity settings...
-		if ( empty( $config ) ) {
-		   $config = FlaggedPageConfig::getStabilitySettings( $title, $flags );
+		# Get visiblity settings to see if page is reviewable...
+		if ( FlaggedRevs::useOnlyIfProtected() ) {
+			if ( empty( $config ) ) {
+			   $config = FlaggedPageConfig::getStabilitySettings( $title, $flags );
+			}
+			if ( !$config['override'] ) {
+				return null; // page is not reviewable; no stable version
+			}
 		}
-		if ( !$config['override'] && FlaggedRevs::useOnlyIfProtected() ) {
-			return null; // page is not reviewable; no stable version
-		}
+		$baseConds = array(
+			'fr_page_id' => $pageId,
+			'rev_id = fr_rev_id',
+			'rev_page = fr_page_id', // sanity
+			'rev_deleted & ' . Revision::DELETED_TEXT => 0
+		);
+		$options['ORDER BY'] = 'fr_rev_timestamp DESC';
+
 		$row = null;
-		$options['ORDER BY'] = 'fr_rev_id DESC';
-		# Look for the latest pristine revision...
-		if ( FlaggedRevs::pristineVersions() && $precedence !== 'latest' ) {
-			$prow = $db->selectRow(
-				array( 'flaggedrevs', 'revision' ),
-				self::selectFields(),
-				array( 'fr_page_id' => $pageId,
-					'fr_quality = ' . FR_PRISTINE,
-					'rev_id = fr_rev_id',
-					'rev_page = fr_page_id',
-					'rev_deleted & ' . Revision::DELETED_TEXT => 0
-				),
-				__METHOD__,
-				$options
-			);
-			# Looks like a plausible revision
-			$row = $prow ? $prow : $row;
-		}
-		if ( $row && $precedence === 'pristine' ) {
-			// we have what we want already
-		# Look for the latest quality revision...
-		} elseif ( FlaggedRevs::qualityVersions() && $precedence !== 'latest' ) {
-			// If we found a pristine rev above, this one must be newer...
-			$newerClause = $row ? "fr_rev_id > {$row->fr_rev_id}" : "1 = 1";
-			$qrow = $db->selectRow(
-				array( 'flaggedrevs', 'revision' ),
-				self::selectFields(),
-				array( 'fr_page_id' => $pageId,
-					'fr_quality = ' . FR_QUALITY,
-					$newerClause,
-					'rev_id = fr_rev_id',
-					'rev_page = fr_page_id',
-					'rev_deleted & ' . Revision::DELETED_TEXT => 0
-				),
-				__METHOD__,
-				$options
-			);
-			$row = $qrow ? $qrow : $row;
+		if ( $precedence !== 'latest' ) {
+			# Look for the latest pristine revision...
+			if ( FlaggedRevs::pristineVersions() ) {
+				$prow = $db->selectRow(
+					array( 'flaggedrevs', 'revision' ),
+					self::selectFields(),
+					array_merge( $baseConds, array( 'fr_quality' => FR_PRISTINE ) ),
+					__METHOD__,
+					$options
+				);
+				# Looks like a plausible revision
+				$row = $prow ? $prow : $row;
+			}
+			if ( $row && $precedence === 'pristine' ) {
+				// we have what we want already
+			# Look for the latest quality revision...
+			} elseif ( FlaggedRevs::qualityVersions() ) {
+				// If we found a pristine rev above, this one must be newer...
+				$newerClause = $row
+					? array( 'fr_rev_timestamp > '.$db->addQuotes( $row->fr_rev_timestamp ) )
+					: array();
+				$qrow = $db->selectRow(
+					array( 'flaggedrevs', 'revision' ),
+					self::selectFields(),
+					array_merge( $baseConds, array( 'fr_quality' => FR_QUALITY ), $newerClause ),
+					__METHOD__,
+					$options
+				);
+				$row = $qrow ? $qrow : $row;
+			}
 		}
 		# Do we have one? If not, try the latest reviewed revision...
 		if ( !$row ) {
 			$row = $db->selectRow(
 				array( 'flaggedrevs', 'revision' ),
 				self::selectFields(),
-				array( 'fr_page_id' => $pageId,
-					'rev_id = fr_rev_id',
-					'rev_page = fr_page_id',
-					'rev_deleted & ' . Revision::DELETED_TEXT => 0
-				),
+				$baseConds,
 				__METHOD__,
 				$options
 			);
-			if ( !$row ) return null;
+			if ( !$row ) {
+				return null;
+			}
 		}
 		$frev = new self( $row );
 		$frev->mTitle = $title;
@@ -309,7 +309,7 @@ class FlaggedRevision {
 		);
 		# Update flagged revisions table
 		$dbw->replace( 'flaggedrevs',
-			array( array( 'fr_page_id', 'fr_rev_id' ) ), $revRow, __METHOD__ );
+			array( array( 'fr_rev_id' ) ), $revRow, __METHOD__ );
 		# Clear out any previous garbage...
 		$dbw->delete( 'flaggedtemplates',
 			array( 'ft_rev_id' => $this->getRevId() ), __METHOD__ );
@@ -353,8 +353,9 @@ class FlaggedRevision {
 	public static function selectFields() {
 		return array_merge(
 			Revision::selectFields(),
-			array( 'fr_rev_id', 'fr_page_id', 'fr_user', 'fr_timestamp', 'fr_quality',
-				'fr_tags', 'fr_flags', 'fr_img_name', 'fr_img_sha1', 'fr_img_timestamp' )
+			array( 'fr_rev_id', 'fr_page_id', 'fr_rev_timestamp',
+				'fr_user', 'fr_timestamp', 'fr_quality', 'fr_tags', 'fr_flags',
+				'fr_img_name', 'fr_img_sha1', 'fr_img_timestamp' )
 		);
 	}
 

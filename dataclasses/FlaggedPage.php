@@ -342,14 +342,14 @@ class FlaggedPage extends Article {
 			'fr_rev_id',
 			array(
 				'fr_page_id' => $this->getId(),
-				'rev_page = fr_page_id',
+				'rev_page = fr_page_id', // sanity
 				'rev_id = fr_rev_id',
 				'rev_deleted & ' . Revision::DELETED_TEXT => 0
 			),
 			__METHOD__,
 			array(
-				'ORDER BY' => 'fr_quality DESC, fr_rev_id DESC',
-				'USE INDEX' => array( 'flaggedrevs' => 'page_qal_rev', 'revision' => 'PRIMARY' )
+				'ORDER BY' 	=> 'fr_quality DESC, fr_rev_timestamp DESC',
+				'USE INDEX' => array( 'flaggedrevs' => 'page_qal_time' )
 			)
 		);
 		return (int)$oldid;
