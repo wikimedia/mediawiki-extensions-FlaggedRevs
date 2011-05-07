@@ -390,10 +390,13 @@ $messages['ast'] = array(
 
 Vete a la [[Special:Unreviewedpages|llista de páxines ensin revisar]].",
 	'revreview-submit' => 'Unviar',
-	'revreview-toolow' => 'Tienes que calificar tolos atributos d\'embaxo percima de "non aprobáu" pa qu\'una revisión seya considerada como revisada. Pa despreciar una revisión, pon tolos campos como "non aprobáu".',
-	'revreview-update' => "Por favor [[{{MediaWiki:Validationpage}}|revisa]] tolos cambeos ''(amosaos embaxo)'' fechos dende que la revisión estable foi [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprobada].<br />
-'''Actualizáronse delles plantíes/imáxenes:'''",
-	'revreview-update-includes' => "'''Actualizáronse dalgunes plantíes/imáxenes:'''",
+	'revreview-toolow' => "'''Tienes de calificar caún de los atributos más alto que \"non afayadizu\" pa qu'una revisión se considere revisada.'''
+
+Pa desaniciar l'estáu d'una revisión, calca \"nun aceutar\".
+
+Calca nel botón \"atrás\" del restolador y téntalo otra vuelta.",
+	'revreview-update' => "'''Por favor [[{{MediaWiki:Validationpage}}|revisa]] tolos cambeos pendientes ''(que s'amuesen abaxo)'' fechos dende la versión estable.'''",
+	'revreview-update-includes' => "'''S'anovaron delles plantíes/ficheros:'''",
 );
 
 /** Azerbaijani (Azərbaycanca)

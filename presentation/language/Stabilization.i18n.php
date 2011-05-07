@@ -306,18 +306,19 @@ $messages['arz'] = array(
 
 /** Asturian (Asturianu)
  * @author Esbardu
+ * @author Xuacu
  */
 $messages['ast'] = array(
 	'stabilization-tab' => '(aq)',
 	'stabilization' => 'Estabilización de páxines',
-	'stabilization-text' => "'''Camudar la configuración d'embaxo p'axustar cómo se seleiciona y s'amuesa la versión estable de [[:$1|$1]].'''",
+	'stabilization-text' => "'''Camudar les preferencies d'embaxo p'axustar cómo se seleiciona y s'amuesa la versión estable de [[:$1|$1]].'''",
 	'stabilization-perm' => 'La to cuenta nun tienen permisos pa camudar la configuración de la versión estable.
-Esta ye la configuración de [[:$1|$1]]:',
+Esta ye la configuración actual de [[:$1|$1]]:',
 	'stabilization-page' => 'Nome de la páxina:',
 	'stabilization-leg' => 'Confirmar la configuración de la versión estable',
 	'stabilization-def' => 'Revisión amosada na vista de páxina por defeutu',
-	'stabilization-def1' => "La revisión estable; si nun la hai, entós l'actual",
-	'stabilization-def2' => 'La revisión actual',
+	'stabilization-def1' => 'La versión estable; si nun la hai, entós la cabera revisión',
+	'stabilization-def2' => 'La cabera revisión',
 	'stabilization-submit' => 'Confirmar',
 	'stabilization-notexists' => 'Nun esiste la páxina "[[:$1|$1]]". Nun ye posible la configuración.',
 	'stabilization-notcontent' => 'La páxina "[[:$1|$1]]" nun pue ser revisada. Nun ye posible la configuración.',

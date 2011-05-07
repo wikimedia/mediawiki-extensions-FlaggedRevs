@@ -152,12 +152,13 @@ $messages['arz'] = array(
 
 /** Asturian (Asturianu)
  * @author Esbardu
+ * @author Xuacu
  */
 $messages['ast'] = array(
 	'unreviewedpages' => 'Páxines non revisaes',
 	'unreviewedpages-category' => 'Categoría:',
-	'unreviewedpages-diff' => 'Cambeos',
-	'unreviewedpages-list' => 'Esta páxina llista artículos que nun fueron revisaos o que tienen revisiones nueves o non revisaes.',
+	'unreviewedpages-diff' => 'revisar',
+	'unreviewedpages-list' => "Esta páxina llista les páxines de conteníu qu'entá ''nun'' se [[{{MediaWiki:Validationpage}}|revisaron]] al nivel conseñáu.",
 );
 
 /** Azerbaijani (Azərbaycanca)

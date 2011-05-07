@@ -177,20 +177,21 @@ $messages['arz'] = array(
 
 /** Asturian (Asturianu)
  * @author Esbardu
+ * @author Xuacu
  */
 $messages['ast'] = array(
-	'pendingchanges' => 'Páxines revisaes caducaes',
+	'pendingchanges' => 'Páxines con cambeos pendientes',
 	'pendingchanges-legend' => 'Llistar páxines revisaes con revisiones non revisaes',
-	'pendingchanges-list' => 'Esta páxina llista páxines revisaes que tienen ediciones pendientes.',
+	'pendingchanges-list' => 'Esta páxina llista les páxines [[{{MediaWiki:Validationpage}}|revisaes]] que tienen una o más ediciones esperando revisión.',
 	'pendingchanges-none' => 'Nun hai páxines anguaño que concuayen con estos criterios',
 	'pendingchanges-hours' => '($1 {{PLURAL:$1|hora|hores}})',
 	'pendingchanges-days' => '($1 {{PLURAL:$1|día|díes}})',
 	'pendingchanges-recent' => "(menos d'una hora)",
 	'pendingchanges-category' => 'Categoría:',
-	'pendingchanges-stable' => 'vista',
+	'pendingchanges-stable' => 'La versión estable ye la predeterminada',
 	'pendingchanges-diff' => 'revisar',
 	'pendingchanges-unwatched' => '(non vixilada)',
-	'pendingchanges-watched' => '($1 {{PLURAL:$1|usuariu|usuarios}} vixilando)',
+	'pendingchanges-watched' => '($1 {{PLURAL:$1|usuariu activu|usuarios activos}} vixilando)',
 );
 
 /** Azerbaijani (Azərbaycanca)
