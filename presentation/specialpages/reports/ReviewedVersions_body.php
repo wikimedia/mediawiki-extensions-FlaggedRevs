@@ -76,7 +76,6 @@ class ReviewedVersionsPager extends ReverseChronologicalPager {
 	function __construct( $form, $conds = array(), $title ) {
 		$this->mForm = $form;
 		$this->mConds = $conds;
-		$this->namespace = $title->getNamespace();
 		$this->pageID = $title->getArticleID();
 
 		parent::__construct();
@@ -88,11 +87,6 @@ class ReviewedVersionsPager extends ReverseChronologicalPager {
 
 	function getQueryInfo() {
 		$conds = $this->mConds;
-		# Must be in a reviewable namespace
-		$namespaces = FlaggedRevs::getReviewNamespaces();
-		if ( !in_array( $this->namespace, $namespaces ) ) {
-			$conds[] = "1 = 0";
-		}
 		$conds['fr_page_id'] = $this->pageID;
 		$conds[] = 'fr_rev_id = rev_id';
 		$conds[] = 'rev_deleted & ' . Revision::DELETED_TEXT . ' = 0';
