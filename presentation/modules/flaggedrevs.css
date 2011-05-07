@@ -26,7 +26,7 @@ div.flaggedrevs_quality {
 	background-color: #f0fff0;
 }
 div.flaggedrevs_pristine {
-	background-color: #fffff0;
+	background-color: #ffffe3;
 }
 div.flaggedrevs_notice {
 	background-color: #f9f9f9;
@@ -201,7 +201,7 @@ div.flaggedrevs_short_details {
 	background-color: #f0fff0;
 }
 .flaggedrevs-color-3 {
-	background-color: #fffff0;
+	background-color: #ffffe3;
 }
 
 .flaggedrevs-pending {
@@ -322,7 +322,7 @@ span.fr-under-review {
 	background-color: #fef0db;
 }
 .fr-rating-option-4 {
-	background-color: #fffff0;
+	background-color: #ffffe3;
 }
 
 .fr-diff-patrollink {
