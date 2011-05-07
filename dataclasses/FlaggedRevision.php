@@ -336,7 +336,7 @@ class FlaggedRevision {
 		$dbw = wfGetDB( DB_MASTER );
 		# Delete from flaggedrevs table
 		$dbw->delete( 'flaggedrevs',
-			array( 'fr_page_id' => $this->getPage(), 'fr_rev_id' => $this->getRevId() ),
+			array( 'fr_rev_id' => $this->getRevId() ),
 			__METHOD__ );
 		# Wipe versioning params...
 		$dbw->delete( 'flaggedtemplates',
