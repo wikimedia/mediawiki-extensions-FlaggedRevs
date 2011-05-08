@@ -1546,7 +1546,7 @@ class FlaggedPageView {
 		foreach ( $changes as $tuple ) {
 			list( $title, $revIdStable ) = $tuple;
 			$diffLinks[] = $skin->makeLinkObj( $title,
-				$title->getPrefixedText(),
+				htmlspecialchars( $title->getPrefixedText() ),
 				'diff=cur&oldid=' . (int)$revIdStable );
 		}
 		return $diffLinks;
@@ -1562,7 +1562,7 @@ class FlaggedPageView {
 		foreach ( $changes as $tuple ) {
 			list( $title, $revIdStable ) = $tuple;
 			// @TODO: change when MW has file diffs
-			$diffLinks[] = $skin->makeLinkObj( $title, $title->getPrefixedText() );
+			$diffLinks[] = $skin->makeLinkObj( $title, htmlspecialchars( $title->getPrefixedText() ) );
 		}
 		return $diffLinks;
 	}
