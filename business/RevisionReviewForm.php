@@ -367,7 +367,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 			return true; // don't record if the same
 		}
 
-		# Insert the review entry...
+		# The new review entry...
  		$flaggedRevision = new FlaggedRevision( array(
 			'rev'        		=> $rev,
 			'user_id'          	=> $this->user->getId(),
@@ -381,6 +381,11 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 			'fileVersions'     	=> $fileVersions,
 			'flags'				=> ''
 		) );
+		# Delete the old review entry if it exists...
+		if ( $oldFrev ) {
+			$oldFrev->delete();
+		}
+		# Insert the new review entry...
 		$flaggedRevision->insert();
 		# Update recent changes...
 		$rcId = $rev->isUnpatrolled(); // int

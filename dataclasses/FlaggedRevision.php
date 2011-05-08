@@ -307,19 +307,15 @@ class FlaggedRevision {
 			'fr_img_timestamp' => $dbw->timestampOrNull( $this->mFileTimestamp ),
 			'fr_img_sha1'      => $this->mFileSha1
 		);
-		# Update flagged revisions table
-		$dbw->replace( 'flaggedrevs',
-			array( array( 'fr_rev_id' ) ), $revRow, __METHOD__ );
-		# Clear out any previous garbage...
-		$dbw->delete( 'flaggedtemplates',
-			array( 'ft_rev_id' => $this->getRevId() ), __METHOD__ );
+		# Update the main flagged revisions table...
+		$dbw->insert( 'flaggedrevs', $revRow, __METHOD__, 'IGNORE' );
+		if ( !$dbw->affectedRows() ) {
+			return false; // duplicate review
+		}
 		# ...and insert template version data
 		if ( $tmpInsertRows ) {
 			$dbw->insert( 'flaggedtemplates', $tmpInsertRows, __METHOD__, 'IGNORE' );
 		}
-		# Clear out any previous garbage...
-		$dbw->delete( 'flaggedimages',
-			array( 'fi_rev_id' => $this->getRevId() ), __METHOD__ );
 		# ...and insert file version data
 		if ( $fileInsertRows ) {
 			$dbw->insert( 'flaggedimages', $fileInsertRows, __METHOD__, 'IGNORE' );
