@@ -33,8 +33,8 @@ class FlaggedRevsUpdaterHooks {
 				'flaggedrevs_stats', "$base/patch-flaggedrevs_stats.sql", true ) );
 			$du->addExtensionUpdate( array( 'FlaggedRevsUpdaterHooks::doFlaggedImagesTimestampNULL',
 				"$base/patch-fi_img_timestamp.sql" ) );
-			$du->addExtensionUpdate( array( 'addIndex',
-				'flaggedrevs', 'page_rev', "$base/patch-fr_page_rev-index.sql", true ) );
+			$du->addExtensionUpdate( array( 'FlaggedRevsUpdaterHooks::doFlaggedRevsRevTimestamp',
+				"$base/patch-fr_page_rev-index.sql" ) );
 		} elseif ( $wgDBtype == 'postgres' ) {
 			$base = dirname( __FILE__ ) . '/postgres';
 			// Initial install tables (current schema)
@@ -62,8 +62,8 @@ class FlaggedRevsUpdaterHooks {
 			// @TODO: PG stats table???
 			$du->addExtensionUpdate( array( 'FlaggedRevsUpdaterHooks::doFlaggedImagesTimestampNULL',
 				"$base/patch-fi_img_timestamp.sql" ) );
-			$du->addExtensionUpdate( array( 'addIndex',
-				'flaggedrevs', 'page_rev', "$base/patch-fr_page_rev-index.sql", true ) );
+			$du->addExtensionUpdate( array( 'FlaggedRevsUpdaterHooks::doFlaggedRevsRevTimestamp',
+				"$base/patch-fr_page_rev-index.sql" ) );
 		} elseif ( $wgDBtype == 'sqlite' ) {
 			$base = dirname( __FILE__ ) . '/mysql';
 			$du->addExtensionUpdate( array( 'addTable',
@@ -80,6 +80,23 @@ class FlaggedRevsUpdaterHooks {
 		}
 		$du->output( "Making fi_img_timestamp nullable... " );
 		$du->getDB()->sourceFile( $patch );
+		$du->output( "done.\n" );
+	}
+
+	public static function doFlaggedRevsRevTimestamp( $du, $patch ) {
+		$exists = $du->getDB()->fieldInfo( 'flaggedrevs', 'fr_rev_timestamp' );
+		if ( $exists ) {
+			$du->output( "...fr_rev_timestamp already exists.\n" );
+			return;
+		}
+		include_once( dirname( __FILE__ ) . "/../maintenance/populateRevTimestamp.inc" );
+		if ( !function_exists( 'populate_fr_rev_timestamp' ) ) {
+			$du->output( "...populateRevTimestamp.inc missing! Aborting fr_rev_timestamp update.\n" );
+			return; // sanity
+		}
+		$du->output( "Adding fr_rev_timestamp and redoing flaggedrevs table indexes... " );
+		$du->getDB()->sourceFile( $patch );
+		populate_fr_rev_timestamp( 0 );
 		$du->output( "done.\n" );
 	}
 }
