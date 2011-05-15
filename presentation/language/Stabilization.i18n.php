@@ -2224,13 +2224,14 @@ $messages['mn'] = array(
 );
 
 /** Marathi (मराठी)
+ * @author Htt
  * @author Kaustubh
  * @author Mahitgar
  */
 $messages['mr'] = array(
 	'stabilization-tab' => 'व्हेट',
 	'stabilization' => 'पान स्थिर करा',
-	'stabilization-text' => "'''[[:$1|$1]] ची स्थिर आवृत्ती कशा प्रकारे निवडली अथवा दाखविली जाईल या साठी खालील सेटिंग बदला.'''",
+	'stabilization-text' => "[[:$1|$1]] ची स्थिर आवृत्ती कशा प्रकारे निवडली अथवा दाखविली जाईल या साठी खालील रुपरेषा बदला.'''",
 	'stabilization-perm' => 'तुम्हाला स्थिर आवृत्ती बदलण्याची परवानगी नाही.
 [[:$1|$1]]चे सध्याचे सेटींग खालीलप्रमाणे:',
 	'stabilization-page' => 'पृष्ठ नाव:',
