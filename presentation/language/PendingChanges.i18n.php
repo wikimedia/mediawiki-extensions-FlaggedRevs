@@ -962,11 +962,12 @@ $messages['is'] = array(
  * @author Gianfranco
  * @author Melos
  * @author Pietrodn
+ * @author Rippitippi
  */
 $messages['it'] = array(
 	'pendingchanges' => 'Pagine con modifiche non revisionate',
 	'pendingchanges-legend' => 'Elenco delle pagine revisionate ma con versioni non revisionate',
-	'pendingchanges-list' => 'Di seguito {{PLURAL:$1|è elencata una pagina revisionata ma che ha|sono elencate pagine revisionate ma che hanno}} delle modifiche ancora da revisionare.',
+	'pendingchanges-list' => 'In questa lista [[{{MediaWiki:Validationpage}}|reviewed]] ci sono pagine che hanno una o più modifiche in attesa di revisione',
 	'pendingchanges-none' => 'Al momento non ci sono pagine che soddisfino i criteri di ricerca.',
 	'pendingchanges-hours' => '($1 {{PLURAL:$1|ora|ore}})',
 	'pendingchanges-days' => '($1 {{PLURAL:$1|giorno|giorni}})',

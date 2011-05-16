@@ -2943,7 +2943,7 @@ $messages['de'] = array(
 	'editor' => 'Sichter',
 	'flaggedrevs' => 'Markierte Versionen',
 	'flaggedrevs-watched-pending' => "Es sind aktuell [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} ungesichtete Bearbeitungen] von gesichteten Seiten auf deiner Beobachtungsliste. '''Deine Aufmerksamkeit ist nötig!'''",
-	'flaggedrevs-desc' => 'Ermöglicht es Sichtern die Seitenversionen zu markieren sowie eine stabile Version festzulegen',
+	'flaggedrevs-desc' => 'Ermöglicht es Seitenversionen zu markieren sowie eine stabile Seitenversion festzulegen',
 	'flaggedrevs-pref-UI' => 'Einfache Benutzeroberfläche:',
 	'flaggedrevs-pref-UI-0' => 'Verwende die detaillierte Übersicht, um den Markierungstatus von Seiten anzuzeigen',
 	'flaggedrevs-pref-UI-1' => 'Verwende kleine Symbole und wenig Text, um den Markierungstatus von Seiten anzuzeigen',
