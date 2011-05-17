@@ -2429,7 +2429,7 @@ Silakan tekan tombol "back" pada peramban Anda dan coba lagi.',
 Harap tinjau semua perubahan yang ditunjukkan di bawah ini untuk membuat suntingan Anda muncul dalam versi stabil.',
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Perubahan Anda belum masuk versi stabil. Ada perubahan terdahulu yang menunggu tinjauan.</span> 
 
- Harap tinjau semua perubahan yang ditunjukkan di bawah ini untuk membuat suntingan Anda muncul dalam versi stabil.',
+Harap tinjau semua perubahan yang ditunjukkan di bawah ini untuk membuat suntingan Anda muncul dalam versi stabil.',
 	'revreview-update-includes' => "'''Beberapa templat/berkas telah diperbaharui:'''",
 	'revreview-update-use' => "'''CATATAN:''' Versi stabil dari setiap templat/berkas ini digunakan di versi stabil halaman ini.",
 	'revreview-reject-header' => 'Tolak perubahan untuk $1',

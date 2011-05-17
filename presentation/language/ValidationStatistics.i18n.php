@@ -568,7 +568,7 @@ $messages['eu'] = array(
 	'validationstatistics-ns' => 'Izen-tartea',
 	'validationstatistics-total' => 'Orrialdeak',
 	'validationstatistics-old' => 'Deseguneratua',
-	'validationstatistics-user' => 'Lankidea',
+	'validationstatistics-user' => 'Erabiltzailea',
 );
 
 /** Persian (فارسی)
