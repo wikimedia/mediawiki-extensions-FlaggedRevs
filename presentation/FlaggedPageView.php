@@ -55,7 +55,7 @@ class FlaggedPageView {
 	}
 
 	/**
-	 * Get the FlaggedPage instance associated with $wgArticle/$wgTitle,
+	 * Get the FlaggedPage instance associated with $wgTitle,
 	 * or false if there isn't such a title
 	 */
 	public static function globalArticleInstance() {

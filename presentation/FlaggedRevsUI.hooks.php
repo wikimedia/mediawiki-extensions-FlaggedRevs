@@ -219,7 +219,6 @@ class FlaggedRevsUIHooks {
 			// *sigh*...skip, dealt with in setNavigation()
 			return true;
 		}
-		// Note: $wgArticle sometimes not set here
 		if ( FlaggedPageView::globalArticleInstance() != null ) {
 			$view = FlaggedPageView::singleton();
 			$view->setActionTabs( $skin, $contentActions );
@@ -230,7 +229,6 @@ class FlaggedRevsUIHooks {
 
 	// Vector et al: $links is all the tabs (2 levels)
 	public static function onSkinTemplateNavigation( Skin $skin, array &$links ) {
-		// Note: $wgArticle sometimes not set here
 		if ( FlaggedPageView::globalArticleInstance() != null ) {
 			$view = FlaggedPageView::singleton();
 			$view->setActionTabs( $skin, $links['actions'] );
@@ -579,7 +577,6 @@ class FlaggedRevsUIHooks {
 	}
 
 	public static function injectPostEditURLParams( $article, &$sectionAnchor, &$extraQuery ) {
-		// Note: $wgArticle sometimes not set here
 		if ( FlaggedPageView::globalArticleInstance() != null ) {
 			$view = FlaggedPageView::singleton();
 			$view->injectPostEditURLParams( $sectionAnchor, $extraQuery );
