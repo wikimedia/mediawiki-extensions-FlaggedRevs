@@ -786,73 +786,60 @@ class FlaggedRevsHooks {
 	}
 
 	/**
-	* Grant implicit 'autoreview' group to users meeting the
-	* $wgFlaggedRevsAutoconfirm requirements. This lets people who
-	* opt-out as Editors still have their own edits automatically reviewed.
+	* Check an autopromote condition that is defined by FlaggedRevs
 	*
 	* Note: some unobtrusive caching is used to avoid DB hits.
 	*/
-	public static function checkAutoPromote( $user, array &$promote ) {
-		global $wgFlaggedRevsAutoconfirm, $wgMemc;
-		$conds = $wgFlaggedRevsAutoconfirm; // convenience
-		if ( !is_array( $conds ) || !$user->getId() ) {
-			return true; // $wgFlaggedRevsAutoconfirm not applicable
-		}
-		$p = FRUserCounters::getUserParams( $user->getId() );
-		$regTime = wfTimestampOrNull( TS_UNIX, $user->getRegistration() );
-		if (
-			# Check if user edited enough unique pages
-			$conds['uniqueContentPages'] > count( $p['uniqueContentPages'] ) ||
-			# Check edit comment use
-			$conds['editComments'] > $p['editComments'] ||
-			# Check user edit count
-			$conds['edits'] > $user->getEditCount() ||
-			# Check account age
-			( $regTime && $conds['days'] > ( ( time() - $regTime ) / 86400 ) ) ||
-			# Check user email
-			$conds['email'] && !$user->isEmailConfirmed() ||
-			# Don't grant to currently blocked users...
-			$user->isBlocked()
-		) {
-			return true;
-		}
-		# Check if user edited enough content pages
-		$failedContentEdits = ( $conds['totalContentEdits'] > $p['totalContentEdits'] );
-
-		# Check if results are cached to avoid DB queries.
-		# Checked basic, already available, promotion heuristics first...
-		$APSkipKey = wfMemcKey( 'flaggedrevs', 'autoreview-skip', $user->getId() );
-		if ( $wgMemc->get( $APSkipKey ) === 'true' ) {
-			return true;
-		}
-		# Check if user was ever blocked before
-		if ( $conds['neverBlocked'] && self::wasPreviouslyBlocked( $user ) ) {
-			$wgMemc->set( $APSkipKey, 'true', 3600 * 24 * 7 ); // cache results
-			return true;
-		}
-		# Check for edit spacing. This lets us know that the account has
-		# been used over N different days, rather than all in one lump.
-		if ( $conds['spacing'] > 0 && $conds['benchmarks'] > 1 ) {
-			$sTestKey = wfMemcKey( 'flaggedrevs', 'autoreview-spacing-ok', $user->getId() );
-			# Hit the DB only if the result is not cached...
-			if ( $wgMemc->get( $sTestKey ) !== 'true' ) {
-				$pass = self::editSpacingCheck( $conds['spacing'], $conds['benchmarks'], $user );
-				# Make a key to store the results
-				if ( $pass === true ) {
-					$wgMemc->set( $sTestKey, 'true', 7 * 24 * 3600 );
+	public static function checkAutoPromoteCond( $cond, array $params, User $user, &$result ) {
+		global $wgMemc;
+		switch( $cond ) {
+			case APCOND_FR_EDITSUMMARYCOUNT:
+				$p = FRUserCounters::getParams( $user );
+				$result = ( is_array( $p ) && $p['editComments'] >= $params[0] );
+				break;
+			case APCOND_FR_NEVERBOCKED:
+				$key = wfMemcKey( 'flaggedrevs', 'autopromote-blocked-ok', $user->getId() );
+				$val = $wgMemc->get( $key );
+				if ( $val === 'true' ) {
+					$result = true; // passed
+				} elseif ( $val === 'false' ) {
+					$result = false; // failed
 				} else {
-					$wgMemc->set( $APSkipKey, 'true', $pass /* wait time */ );
-					return true;
+					# Hit the DB only if the result is not cached...
+					$result = !self::wasPreviouslyBlocked( $user );
+					$wgMemc->set( $key, $result ? 'true' : 'false', 3600 * 24 * 7 ); // cache results
 				}
-			}
+				break;
+			case APCOND_FR_UNIQUEPAGECOUNT:
+				$p = FRUserCounters::getParams( $user );
+				$result = ( is_array( $p ) && $p['uniqueContentPages'] >= $params[0] );
+				break;
+			case APCOND_FR_EDITSPACING:
+				$key = wfMemcKey( 'flaggedrevs', 'autopromote-spacing-ok', $user->getId() );
+				$val = $wgMemc->get( $key );
+				if ( $val === 'true' ) {
+					$result = true; // passed
+				} elseif ( $val === 'false' ) {
+					$result = false; // failed
+				} else {
+					# Hit the DB only if the result is not cached...
+					$pass = self::editSpacingCheck( $params[0], $params[1], $user );
+					# Make a key to store the results
+					if ( $pass === true ) {
+						$wgMemc->set( $key, 'true', 14 * 24 * 3600 );
+					} else {
+						$wgMemc->set( $key, 'false', $pass /* wait time */ );
+					}
+				}
+				break;
+			case APCOND_FR_CONTENTEDITCOUNT:
+				$p = FRUserCounters::getParams( $user );
+				$result = ( is_array( $p ) && $p['totalContentEdits'] >= $params[0] );
+				break;
+			case APCOND_FR_CHECKEDEDITCOUNT:
+				$result = self::reviewedEditsCheck( $user, $params[0] );
+				break;
 		}
-		# Check implicitly checked edits
-		if ( $failedContentEdits && $conds['totalCheckedEdits'] > 0 ) {
-			if ( !self::reviewedEditsCheck( $user, $conds['totalCheckedEdits'] ) ) {
-				return true;
-			}
-		}
-		$promote[] = 'autoreview'; // add the group
 		return true;
 	}
 

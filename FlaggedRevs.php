@@ -489,7 +489,7 @@ $wgHooks['FileUpload'][] = 'FlaggedRevsHooks::onFileUpload';
 # Determine what pages can be moved and patrolled
 $wgHooks['getUserPermissionsErrors'][] = 'FlaggedRevsHooks::onUserCan';
 # Implicit autoreview rights group
-$wgHooks['GetAutoPromoteGroups'][] = 'FlaggedRevsHooks::checkAutoPromote';
+$wgHooks['AutopromoteCondition'][] = 'FlaggedRevsHooks::checkAutoPromoteCond';
 
 # Check if a page is currently being reviewed
 $wgHooks['MediaWikiPerformAction'][] = 'FlaggedRevsUIHooks::onMediaWikiPerformAction';
@@ -557,6 +557,28 @@ function efLoadFlaggedRevs() {
 			# Use RC Patrolling to check for vandalism.
 			# Edits to reviewable pages must be flagged to be patrolled.
 			$wgUseRCPatrol = true;
+		}
+	}
+	global $wgFlaggedRevsAutoconfirm, $wgAutopromote;
+	# $wgFlaggedRevsAutoconfirm is now a wrapper around $wgAutopromote
+	if ( is_array( $wgFlaggedRevsAutoconfirm ) ) {
+		$wgAutopromote['autoreview'] = array( '&', // AND
+			array( APCOND_AGE, $wgFlaggedRevsAutoconfirm['days']*86400 ),
+			array( APCOND_EDITCOUNT, $wgFlaggedRevsAutoconfirm['edits'] ),
+			array( APCOND_FR_EDITSUMMARYCOUNT, $wgFlaggedRevsAutoconfirm['editComments'] ),
+			array( APCOND_FR_UNIQUEPAGECOUNT, $wgFlaggedRevsAutoconfirm['uniqueContentPages'] ),
+			array( APCOND_FR_EDITSPACING,
+				$wgFlaggedRevsAutoconfirm['spacing'], $wgFlaggedRevsAutoconfirm['benchmarks'] ),
+			array( '|', // OR
+				array( APCOND_FR_CONTENTEDITCOUNT, $wgFlaggedRevsAutoconfirm['totalContentEdits'] ),
+				array( APCOND_FR_CHECKEDEDITCOUNT, $wgFlaggedRevsAutoconfirm['totalCheckedEdits'] )
+			)
+		);
+		if ( $wgFlaggedRevsAutoconfirm['email'] ) {
+			$wgAutopromote['autoreview'][] = array( APCOND_EMAILCONFIRMED );
+		}
+		if ( $wgFlaggedRevsAutoconfirm['neverBlocked'] ) {
+			$wgAutopromote['autoreview'][] = array( APCOND_FR_NEVERBOCKED );
 		}
 	}
 	# Conditional API modules

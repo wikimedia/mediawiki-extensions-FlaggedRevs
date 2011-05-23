@@ -4,7 +4,7 @@
  */
 class FRUserCounters {
 	/**
-	* Get params for a user
+	* Get params for a user ID
 	* @param int $uid
 	* @param int $flags FR_MASTER, FR_FOR_UPDATE
 	* @param string $dBName, optional wiki name
@@ -18,6 +18,21 @@ class FRUserCounters {
 		}
 		self::setUnitializedFields( $p );
 		return $p;
+	}
+
+	/**
+	* Get params for a user
+	* @param User $user
+	* @return array|null
+	*/
+	public static function getParams( User $user ) {
+		if ( $user->getId() ) {
+			if ( !isset( $user->fr_user_params ) ) { // process cache...
+				$user->fr_user_params = self::getUserParams( $user->getId() );
+			}
+			return $user->fr_user_params;
+		}
+		return null;
 	}
 
 	/**
