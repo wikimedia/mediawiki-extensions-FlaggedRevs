@@ -517,9 +517,6 @@ $wgHooks['UnitTestsList'][] = 'FlaggedRevsTestHooks::getUnitTests';
 # Database schema changes
 $wgHooks['LoadExtensionSchemaUpdates'][] = 'FlaggedRevsUpdaterHooks::addSchemaUpdates';
 
-# Performance Don't show content on diff
-$wgHooks['ArticleContentOnDiff'][] = 'FlaggedRevsUIHooks::onArticleContentOnDiff';
-
 # ########
 
 function efSetFlaggedRevsConditionalHooks() {

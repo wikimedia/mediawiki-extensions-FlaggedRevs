@@ -609,19 +609,6 @@ class FlaggedRevsUIHooks {
 		$view->addToDiffView( $diff, $oldRev, $newRev );
 		return true;
 	}
-	
-	/*
-	 * If an article is reviewable, get custom article contents from the FlaggedPageView
-	 */
-	public static function onArticleContentOnDiff( $diffEngine, $out ) {
-		$fa = FlaggedPage::getTitleInstance( $out->getTitle() );
-		if ( !$fa->isReviewable() ) {
-			return true; // nothing to do
-		}
-		$view = FlaggedPageView::singleton();
-		$view->addCustomContentHtml( $out, $diffEngine->getNewid() );
-		return false;
-	}
 
 	public static function addRevisionIDField( $editPage, $out ) {
 		$view = FlaggedPageView::singleton();
