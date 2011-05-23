@@ -75,7 +75,7 @@ Please review all the changes shown below to make your edits appear in the stabl
 	'revreview-update-edited-prev'  => '<span class="flaggedrevs_important">Your changes are not yet in the stable version. There are previous changes pending review.</span>
 
 Please review all the changes shown below to make your edits appear in the stable version.',
-	'revreview-update-includes'    => '\'\'\'Templates/files updated (unreviewed pages boldened):\'\'\'',
+	'revreview-update-includes'    => '\'\'\'Templates/files updated (unreviewed pages in bold):\'\'\'',
 	'revreview-update-includes-p'  => '\'\'\'Templates or files may have been updated. Please preview the page before accepting.\'\'\'',
 	'revreview-update-use'         => '\'\'\'NOTE:\'\'\' The stable version of each of these templates/files is used in the stable version of this page.',
 
