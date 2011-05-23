@@ -421,10 +421,16 @@ $wgHooks['PageHistoryPager::getQueryInfo'][] = 'FlaggedRevsUIHooks::addToHistQue
 $wgHooks['PageHistoryLineEnding'][] = 'FlaggedRevsUIHooks::addToHistLine';
 $wgHooks['LocalFile::getHistory'][] = 'FlaggedRevsUIHooks::addToFileHistQuery';
 $wgHooks['ImagePageFileHistoryLine'][] = 'FlaggedRevsUIHooks::addToFileHistLine';
+# Select extra info & filter items in RC
+$wgHooks['SpecialRecentChangesQuery'][] = 'FlaggedRevsUIHooks::modifyRecentChangesQuery';
+$wgHooks['SpecialNewpagesConditions'][] = 'FlaggedRevsUIHooks::modifyNewPagesQuery';
+$wgHooks['SpecialWatchlistQuery'][] = 'FlaggedRevsUIHooks::modifyChangesListQuery';
 # Mark items in RC
-$wgHooks['SpecialRecentChangesQuery'][] = 'FlaggedRevsUIHooks::addToRCQuery';
-$wgHooks['SpecialWatchlistQuery'][] = 'FlaggedRevsUIHooks::addToWatchlistQuery';
 $wgHooks['ChangesListInsertArticleLink'][] = 'FlaggedRevsUIHooks::addToChangeListLine';
+# RC filter UIs
+$wgHooks['SpecialNewPagesFilters'][] = 'FlaggedRevsUIHooks::addHideReviewedFilter';
+$wgHooks['SpecialRecentChangesFilters'][] = 'FlaggedRevsUIHooks::addHideReviewedFilter';
+$wgHooks['SpecialWatchlistFilters'][] = 'FlaggedRevsUIHooks::addHideReviewedFilter';
 # Page review on edit
 $wgHooks['ArticleUpdateBeforeRedirect'][] = 'FlaggedRevsUIHooks::injectPostEditURLParams';
 # Diff-to-stable

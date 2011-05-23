@@ -89,9 +89,6 @@ class FlaggedRevsUIHooks {
 	*/
 	protected static function injectStyleForSpecial( &$out ) {
 		$title = $out->getTitle();
-		if ( $title->getNamespace() !== NS_SPECIAL ) {
-			return true;
-		}
 		$spPages = array( 'UnreviewedPages', 'PendingChanges', 'ProblemChanges',
 			'Watchlist', 'Recentchanges', 'Contributions', 'Recentchangeslinked' );
 		foreach ( $spPages as $key ) {
@@ -107,7 +104,7 @@ class FlaggedRevsUIHooks {
 	* Add tag notice, CSS/JS, and set robots policy
 	*/
 	public static function onBeforePageDisplay( &$out, &$skin ) {
-		if ( $out->isArticleRelated() ) {
+		if ( $out->getTitle()->getNamespace() != NS_SPECIAL ) {
 			$view = FlaggedPageView::singleton();
 			$view->displayTag(); // show notice bar/icon in subtitle
 			$view->setRobotPolicy(); // set indexing policy
@@ -332,6 +329,11 @@ class FlaggedRevsUIHooks {
 		return true;
 	}
 
+	public static function addHideReviewedFilter( $specialPage, &$filters ) {
+		$filters['hideReviewed'] = array( 'msg' => 'flaggedrevs-hidereviewed', 'default' => false );
+		return true;
+	}
+
 	public static function addToHistQuery( HistoryPager $pager, array &$queryInfo ) {
 		$flaggedArticle = FlaggedPage::getArticleInstance( $pager->getArticle() );
 		# Non-content pages cannot be validated. Stable version must exist.
@@ -397,27 +399,28 @@ class FlaggedRevsUIHooks {
 		return true;
 	}
 
-	public static function addToRCQuery(
-		&$conds, array &$tables, array &$join_conds, $opts, &$query_opts, &$select
+	public static function modifyRecentChangesQuery(
+		&$conds, &$tables, &$join_conds, $opts, &$query_opts, &$fields
 	) {
-		$tables[] = 'flaggedpages';
-		$join_conds['flaggedpages'] = array( 'LEFT JOIN', 'fp_page_id = rc_cur_id' );
-		if ( is_array( $select ) ) { // RCL
-			$select[] = 'fp_stable';
-			$select[] = 'fp_pending_since';
-		}
-		return true;
+		return self::modifyChangesListQuery( $conds, $tables, $join_conds, $fields );
 	}
 
-	public static function addToWatchlistQuery(
-		&$conds, array &$tables, array &$join_conds, array &$fields
+	public static function modifyNewPagesQuery(
+		$specialPage, $opts, &$conds, &$tables, &$fields, &$join_conds
 	) {
-		global $wgUser;
-		if ( $wgUser->isAllowed( 'review' ) ) {
-			$fields[] = 'fp_stable';
-			$fields[] = 'fp_pending_since';
-			$tables[] = 'flaggedpages';
-			$join_conds['flaggedpages'] = array( 'LEFT JOIN', 'fp_page_id = rc_cur_id' );
+		return self::modifyChangesListQuery( $conds, $tables, $join_conds, $fields );
+	}
+
+	public static function modifyChangesListQuery(
+		array &$conds, array &$tables, array &$join_conds, array &$fields
+	) {
+		global $wgRequest;
+		$tables[] = 'flaggedpages';
+		$fields[] = 'fp_stable';
+		$fields[] = 'fp_pending_since';
+		$join_conds['flaggedpages'] = array( 'LEFT JOIN', 'fp_page_id = rc_cur_id' );
+		if ( $wgRequest->getBool( 'hidereviewed' ) ) {
+			$conds[] = 'rc_timestamp >= fp_pending_since OR fp_stable IS NULL';
 		}
 		return true;
 	}

@@ -32,6 +32,7 @@ $messages['en'] = array(
 	'flaggedrevs-prefs-watch'      => 'Add pages I review to my watchlist',
 	'flaggedrevs-prefs-editdiffs'  => 'Show the pending changes diff when editing pages',
 	'flaggedrevs-prefs-viewdiffs'  => 'Show the pending changes diff when viewing the latest pending revision',
+	'flaggedrevs-hidereviewed'	   => '$1 reviewed edits',
 	'group-editor'                 => 'Editors',
 	'group-editor-member'          => 'editor',
 	'group-reviewer'               => 'Reviewers',
