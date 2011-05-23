@@ -1531,6 +1531,13 @@ $messages['sl'] = array(
 	'unreviewedpages-recent' => '(manj kot 1 ura)',
 );
 
+/** Somali (Soomaaliga)
+ * @author Maax
+ */
+$messages['so'] = array(
+	'unreviewedpages-category' => 'Qeybta:',
+);
+
 /** Albanian (Shqip)
  * @author Puntori
  */
@@ -1604,6 +1611,7 @@ $messages['su'] = array(
  * @author Najami
  * @author Per
  * @author Rotsee
+ * @author WikiPhoenix
  */
 $messages['sv'] = array(
 	'unreviewedpages' => 'Ogranskade sidor',
@@ -1612,7 +1620,7 @@ $messages['sv'] = array(
 	'unreviewedpages-diff' => 'granska',
 	'unreviewedpages-unwatched' => '(obevakad)',
 	'unreviewedpages-watched' => '($1 {{PLURAL:$1|aktiv användare|aktiva användare}} bevakar)',
-	'unreviewedpages-list' => 'Den här sidan listar innehållssidor som inte har granskats till den angivna nivån.',
+	'unreviewedpages-list' => "Den här sidan listar innehållssidor som ''inte'' har [[{{MediaWiki:Validationpage}}|granskats]] till den angivna nivån.",
 	'unreviewedpages-none' => 'Det finns just nu inga sidor som matchar dessa kriterier',
 	'unreviewedpages-viewing' => '(granskas)',
 	'unreviewedpages-hours' => '($1 {{PLURAL:$1|timme|timmar}})',

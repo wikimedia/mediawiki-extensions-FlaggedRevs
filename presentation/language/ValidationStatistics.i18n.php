@@ -678,7 +678,7 @@ $messages['frp'] = array(
 
 Los contributors sont des utilisators ètablis que pôvont controlar les vèrsions de les pâges.",
 	'validationstatistics-lastupdate' => "''Cetes balyês ont étâ betâs a jorn lo $1 a $2.''",
-	'validationstatistics-table' => "Les statistiques de rèvision de les pâges por châque èspâço de noms sont montrâs ce-desot, ''mas pas'' les pâges de redirèccion.",
+	'validationstatistics-table' => "Les statistiques de rèvision de les pâges por châque èspâço de noms sont montrâs ce-desot, ''mas pas'' de les pâges de redirèccion. Les pâges sont trètâs coment ''dèpassâs'' s’els ont des changements en atenta de rèvision et coment ''sincronisâs'' s’els ont gins de changement en atenta de rèvision.",
 	'validationstatistics-ns' => 'Èspâço de noms',
 	'validationstatistics-total' => 'Pâges',
 	'validationstatistics-stable' => 'Revua',

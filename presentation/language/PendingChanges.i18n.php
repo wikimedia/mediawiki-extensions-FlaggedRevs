@@ -1615,6 +1615,13 @@ $messages['sl'] = array(
 	'pendingchanges-viewing' => '(v pregledu)',
 );
 
+/** Somali (Soomaaliga)
+ * @author Maax
+ */
+$messages['so'] = array(
+	'pendingchanges-category' => 'Qeybta:',
+);
+
 /** Albanian (Shqip)
  * @author Cradel
  */
@@ -1686,11 +1693,12 @@ $messages['sr-el'] = array(
  * @author Najami
  * @author Per
  * @author Rotsee
+ * @author WikiPhoenix
  */
 $messages['sv'] = array(
 	'pendingchanges' => 'Sidor med väntande ändringar',
 	'pendingchanges-legend' => 'Visa granskade sidor med ogranskade sidversioner',
-	'pendingchanges-list' => 'Den här sidan visar {{PLURAL:$1|en granskad sida|granskade sidor}} med väntande redigeringar.',
+	'pendingchanges-list' => 'Den här sidan visar [[{{MediaWiki:Validationpage}}|granskade]] sidor som har en eller fler redigeringar som väntar på granskning.',
 	'pendingchanges-none' => 'Det finns just nu inga sidor som matchar dessa kriterier',
 	'pendingchanges-hours' => '($1 {{PLURAL:$1|timme|timmar}})',
 	'pendingchanges-days' => '($1 {{PLURAL:$1|dag|dagar}})',

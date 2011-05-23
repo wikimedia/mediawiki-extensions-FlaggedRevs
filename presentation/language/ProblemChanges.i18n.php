@@ -743,6 +743,13 @@ $messages['sl'] = array(
 	'problemchanges-category' => 'Kategorija:',
 );
 
+/** Somali (Soomaaliga)
+ * @author Maax
+ */
+$messages['so'] = array(
+	'problemchanges-category' => 'Qeybta:',
+);
+
 /** Serbian Cyrillic ekavian (‪Српски (ћирилица)‬)
  * @author Charmed94
  */
@@ -774,9 +781,11 @@ $messages['su'] = array(
  * @author Boivie
  * @author Per
  * @author Rotsee
+ * @author WikiPhoenix
  */
 $messages['sv'] = array(
 	'problemchanges' => 'Taggade väntande ändringar',
+	'problemchanges-list' => 'Den här sidan visar [[{{MediaWiki:Validationpage}}|granskade]] sidor som har en eller fler redigeringar som väntar på granskning. En lista över [[Special:Tags|giltiga ändringstaggar]] finns tillgänglig.',
 	'problemchanges-legend' => 'Visa sidor med märkta ändringar som skall granskas',
 	'problemchanges-none' => 'Det finns just nu inga sidor som matchar dessa kriterier',
 	'problemchanges-category' => 'Kategori:',

@@ -1747,6 +1747,9 @@ Volyéd utilisar lo boton « retôrn » de voutron navigator et pués tornâd è
 	'revreview-update' => "'''Volyéd [[{{MediaWiki:Validationpage}}|revêre]] tôs los changements en atenta ''(vêde ce-desot)'' fêts a la vèrsion stâbla.'''",
 	'revreview-update-includes' => "'''Doux-três modèlos ou ben fichiérs ont étâ betâs a jorn :'''",
 	'revreview-update-use' => "'''Nota :''' la vèrsion stâbla de châque modèlo ou ben fichiér est utilisâ dens la vèrsion stâbla de cela pâge.",
+	'revreview-reject-summary' => 'Rèsumâ :',
+	'revreview-reject-cancel' => 'Anular',
+	'revreview-reject-usercount' => '{{PLURAL:$1|yon utilisator|$1 utilisators}}',
 );
 
 /** Western Frisian (Frysk)
@@ -2003,7 +2006,7 @@ $messages['he'] = array(
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">השינויים שלכם עדיין אינם בגרסה היציבה. יש שינויים קודמים שממתינים לסקירה.</span>
 
 נא לסקור את כל השינויים המופיעים להלן כדי שהעריכות שלכם תופענה בגרסה היציבה.',
-	'revreview-update-includes' => "'''עודכנו תבניות או קבצים:'''",
+	'revreview-update-includes' => "'''עודכנו תבניות או קבצים (הדפים שלא נסקרו מובלטים):'''",
 	'revreview-update-use' => "'''הערה''': הגרסאות היציבות של התבניות או הקבצים האלה משמשות בגרסה היציבה של הדף הזה.",
 	'revreview-reject-header' => 'דחיית השינויים עבור $1',
 	'revreview-reject-text-list' => "על ידי השלמת פעולה זו, {{PLURAL:$1|שינוי זה '''יידחה'''|שינויים אלה '''יידחו'''}}:",
@@ -3655,10 +3658,10 @@ $messages['ps'] = array(
 );
 
 /** Portuguese (Português)
+ * @author 555
  * @author Giro720
  * @author Hamilton Abreu
  * @author Waldir
- * @author 555
  */
 $messages['pt'] = array(
 	'revisionreview' => 'Rever edições',
@@ -4228,7 +4231,8 @@ Prosimo, preglejte vse spremembe prikazane podaj, da prikažete vaše spremembe 
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Vaše spremembe še niso v ustaljeni različici. Obstajajo pretekle spremembe, ki čakajo na pregled.</span>
 
 Prosimo, preglejte vse spremembe prikazane podaj, da prikažete vaše spremembe v ustaljeni različici.',
-	'revreview-update-includes' => "'''Nekatere predloge/datoteke so bile posodobljene:'''",
+	'revreview-update-includes' => "'''Predloge/datoteke so posodobljene (nepregledane strani so zapisane krepko):'''",
+	'revreview-update-includes-p' => "'''Predloge ali datoteke so morda posodobljene. Prosimo, preglejte stran pred sprejetjem:'''",
 	'revreview-update-use' => "'''OPOMBA:''' Ustaljena različica vsake od teh predlog/datotek je uporabljena v ustaljeni različici te strani.",
 	'revreview-reject-header' => 'Zavrni spremembe $1',
 	'revreview-reject-text-list' => "Z izvedbo tega dejanja boste '''zavrnili''' {{PLURAL:$1|naslednjo spremembo|naslednji spremembi|naslednje spremembe}}:",
