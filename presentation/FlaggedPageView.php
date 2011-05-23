@@ -1330,7 +1330,7 @@ class FlaggedPageView {
 	*	(ii) List any template/file changes pending review
 	*/
 	public function addToDiffView( $diff, $oldRev, $newRev ) {
-		global $wgRequest, $wgUser, $wgMemc;
+		global $wgRequest, $wgUser, $wgMemc, $wgParserCacheExpireTime;
 		$this->load();
 		# Exempt printer-friendly output
 		if ( $this->out->isPrintable() ) {
@@ -1361,7 +1361,6 @@ class FlaggedPageView {
 				$changeList = array_merge( $changeList, self::fetchFileChanges( $srev ) );
 				# Correct bad cache which said they were not synced...
 				if ( !count( $changeList ) ) {
-					global $wgParserCacheExpireTime;
 					$key = wfMemcKey( 'flaggedrevs', 'includesSynced', $this->article->getId() );
 					$data = FlaggedRevs::makeMemcObj( "true" );
 					$wgMemc->set( $key, $data, $wgParserCacheExpireTime );
@@ -1395,7 +1394,11 @@ class FlaggedPageView {
 					$changeDiv .= wfMsgExt( $msg, 'parse' );
 				}
 				# Add include change list...
-				if ( count( $changeList ) ) {
+				if ( $this->article->revsArePending() ) { // text changes
+					if ( FlaggedRevs::inclusionSetting() != FR_INCLUDES_CURRENT ) {
+						$changeDiv .= wfMsgExt( 'revreview-update-includes-p', 'parse' );
+					}
+				} elseif ( count( $changeList ) ) { // just inclusion changes
 					$changeDiv .= '<p>' .
 						wfMsgExt( 'revreview-update-includes', 'parseinline' ) .
 						'&#160;' . implode( ', ', $changeList ) . '</p>';
@@ -1544,10 +1547,14 @@ class FlaggedPageView {
 		$diffLinks = array();
 		$changes = $frev->findPendingTemplateChanges();
 		foreach ( $changes as $tuple ) {
-			list( $title, $revIdStable ) = $tuple;
-			$diffLinks[] = $skin->makeLinkObj( $title,
+			list( $title, $revIdStable, $hasStable ) = $tuple;
+			$link = $skin->makeLinkObj( $title,
 				htmlspecialchars( $title->getPrefixedText() ),
 				'diff=cur&oldid=' . (int)$revIdStable );
+			if ( !$hasStable ) {
+				$link = "<strong>$link</strong>";
+			}
+			$diffLinks[] = $link;
 		}
 		return $diffLinks;
 	}
@@ -1560,9 +1567,13 @@ class FlaggedPageView {
 		$diffLinks = array();
 		$changes = $frev->findPendingFileChanges( 'noForeign' );
 		foreach ( $changes as $tuple ) {
-			list( $title, $revIdStable ) = $tuple;
+			list( $title, $revIdStable, $hasStable ) = $tuple;
 			// @TODO: change when MW has file diffs
-			$diffLinks[] = $skin->makeLinkObj( $title, htmlspecialchars( $title->getPrefixedText() ) );
+			$link = $skin->makeLinkObj( $title, htmlspecialchars( $title->getPrefixedText() ) );
+			if ( !$hasStable ) {
+				$link = "<strong>$link</strong>";
+			}
+			$diffLinks[] = $link;
 		}
 		return $diffLinks;
 	}

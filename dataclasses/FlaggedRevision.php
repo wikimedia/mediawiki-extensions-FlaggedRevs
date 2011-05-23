@@ -616,7 +616,7 @@ class FlaggedRevision {
 	 *    (b) Current template exists and the "version used" was non-existing (created)
 	 *    (c) Current template doesn't exist and the "version used" existed (deleted)
 	 *
-	 * @return array of (template title, rev ID in reviewed version) tuples
+	 * @return array of (title, rev ID in reviewed version, has stable rev) tuples
 	 */
 	public function findPendingTemplateChanges() {
 		if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_CURRENT ) {
@@ -667,7 +667,7 @@ class FlaggedRevision {
 			}
 			$deleted = ( !$revIdDraft && $revIdStable ); // later deleted
 			if ( $deleted || $updated ) {
-				$tmpChanges[] = array( $title, $revIdStable );
+				$tmpChanges[] = array( $title, $revIdStable, (bool)$row->fp_stable );
 			}
 		}
 		return $tmpChanges;
@@ -686,7 +686,7 @@ class FlaggedRevision {
 	 *    (c) Current file doesn't exist and the "version used" existed (deleted)
 	 *
 	 * @param string $noForeign Using 'noForeign' skips foreign file updates (bug 15748)
-	 * @return array of (file title, MW file timestamp in reviewed version) tuples
+	 * @return array of (title, MW file timestamp in reviewed version, has stable rev) tuples
 	 */
 	public function findPendingFileChanges( $noForeign = false ) {
 		if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_CURRENT ) {
@@ -747,7 +747,7 @@ class FlaggedRevision {
 				$deleted = (bool)$tsStable; // included file deleted after review
 			}
 			if ( $deleted || $updated ) {
-				$fileChanges[] = array( $title, $tsStable );
+				$fileChanges[] = array( $title, $tsStable, (bool)$row->fr_img_timestamp );
 			}
 		}
 		return $fileChanges;
