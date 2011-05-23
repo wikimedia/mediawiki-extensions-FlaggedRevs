@@ -520,6 +520,11 @@ class FlaggedRevsHooks {
 		if ( !$user || $rev !== null ) {
 			return true;
 		}
+		# Rollback/undo or box checked
+		$reviewEdit = $wgRequest->getCheck( 'wpReviewEdit' );
+		if ( !$baseId && !$reviewEdit ) {
+			return true; // short-circuit
+		}
 		$fa = FlaggedPage::getArticleInstance( $article );
 		$fa->loadFromDB( FR_MASTER );
 		if ( !$fa->isReviewable() ) {
@@ -534,9 +539,12 @@ class FlaggedRevsHooks {
 		$flags = null;
 		# Is this a rollback/undo that didn't change anything?
 		if ( $baseId > 0 ) {
-			$frev = FlaggedRevision::newFromTitle( $title, $baseId );
+			$frev = FlaggedRevision::newFromTitle( $title, $baseId ); // base rev of null edit
+			$pRev = Revision::newFromId( $rev->getParentId() ); // current rev parent
+			$revIsNull = ( $pRev && $pRev->getTextId() == $rev->getTextId() );
 			# Was the edit that we tried to revert to reviewed?
-			if ( $frev ) {
+			# We avoid auto-reviewing null edits to avoid confusion (bug 28476).
+			if ( $frev && !$revIsNull ) {
 				# Review this revision of the page...
 				$ok = FlaggedRevs::autoReviewEdit( $article, $user, $rev, $flags );
 				if ( $ok ) {
@@ -549,10 +557,7 @@ class FlaggedRevsHooks {
 		# Get edit timestamp, it must exist.
 		$editTimestamp = $wgRequest->getVal( 'wpEdittime' );
 		# Is the page checked off to be reviewed?
-		if ( $editTimestamp
-			&& $wgRequest->getCheck( 'wpReviewEdit' )
-			&& $title->userCan( 'review' ) )
-		{
+		if ( $editTimestamp && $reviewEdit && $title->userCan( 'review' ) ) {
 			# Check wpEdittime against current revision's time.
 			# If an edit was auto-merged in between, review only up to what
 			# was the current rev when this user started editing the page.
