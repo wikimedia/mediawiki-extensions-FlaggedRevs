@@ -330,7 +330,10 @@ class FlaggedRevsUIHooks {
 	}
 
 	public static function addHideReviewedFilter( $specialPage, &$filters ) {
-		$filters['hideReviewed'] = array( 'msg' => 'flaggedrevs-hidereviewed', 'default' => false );
+		if ( !FlaggedRevs::useOnlyIfProtected() ) {
+			$filters['hideReviewed'] = array(
+				'msg' => 'flaggedrevs-hidereviewed', 'default' => false );
+		}
 		return true;
 	}
 
@@ -419,7 +422,7 @@ class FlaggedRevsUIHooks {
 		$fields[] = 'fp_stable';
 		$fields[] = 'fp_pending_since';
 		$join_conds['flaggedpages'] = array( 'LEFT JOIN', 'fp_page_id = rc_cur_id' );
-		if ( $wgRequest->getBool( 'hidereviewed' ) ) {
+		if ( $wgRequest->getBool( 'hideReviewed' ) && !FlaggedRevs::useOnlyIfProtected() ) {
 			$conds[] = 'rc_timestamp >= fp_pending_since OR fp_stable IS NULL';
 		}
 		return true;
