@@ -220,7 +220,7 @@ class PendingChanges extends SpecialPage {
 		$review = $this->skin->linkKnown( $title,
 			wfMsg( 'pendingchanges-diff' ),
 			array(),
-			'diff=cur&oldid='.intval($row->stable).'&diffonly=0' );
+			'diff=cur&oldid='.intval($row->stable).'&diffonly=1' );
 		# Show quality level if there are several
 		if ( FlaggedRevs::qualityVersions() ) {
 			$quality = $row->quality

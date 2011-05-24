@@ -1488,7 +1488,7 @@ class FlaggedPageView {
 			$review = $wgUser->getSkin()->makeKnownLinkObj(
 				$article->getTitle(),
 				wfMsgHtml( 'review-diff2stable' ),
-				'oldid=' . $srev->getRevId() . '&diff=cur&diffonly=0'
+				'oldid=' . $srev->getRevId() . '&diff=cur&diffonly=1'
 			);
 			$review = wfMsgHtml( 'parentheses', $review );
 			$review = "<div class='fr-diff-to-stable' align='center'>$review</div>";
@@ -1649,7 +1649,7 @@ class FlaggedPageView {
 		if ( $frev->userCanSetFlags( $wgUser ) ) {
 			$extraQuery .= $extraQuery ? '&' : '';
 			// Override diffonly setting to make sure the content is shown
-			$extraQuery .= 'oldid=' . $frev->getRevId() . '&diff=cur&diffonly=0&shownotice=1';
+			$extraQuery .= 'oldid=' . $frev->getRevId() . '&diff=cur&diffonly=1&shownotice=1';
 		// ...otherwise, go to the draft revision after completing an edit.
 		// This allows for users to immediately see their changes.
 		} else {
