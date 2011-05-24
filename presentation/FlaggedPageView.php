@@ -1365,6 +1365,13 @@ class FlaggedPageView {
 					$data = FlaggedRevs::makeMemcObj( "true" );
 					$wgMemc->set( $key, $data, $wgParserCacheExpireTime );
 				}
+			# Otherwise, check for includes pending on top of edits pending...
+			} else {
+				$incs = RevisionReviewForm::getRevIncludes( $this->article, $newRev, $wgUser );
+				# Add a list of links to each changed template...
+				$changeList = self::fetchTemplateChanges( $srev, $incs[0] );
+				# Add a list of links to each changed file...
+				$changeList = array_merge( $changeList, self::fetchFileChanges( $srev, $incs[1] ) );
 			}
 			# If there are pending revs or templates/files changes, notify the user...
 			if ( $this->article->revsArePending() || count( $changeList ) ) {
@@ -1394,18 +1401,16 @@ class FlaggedPageView {
 					$changeDiv .= wfMsgExt( $msg, 'parse' );
 				}
 				# Add include change list...
-				if ( $this->article->revsArePending() ) { // text changes
-					if ( FlaggedRevs::inclusionSetting() != FR_INCLUDES_CURRENT ) {
-						$changeDiv .= wfMsgExt( 'revreview-update-includes-p', 'parse' );
-					}
-				} elseif ( count( $changeList ) ) { // just inclusion changes
+				if ( count( $changeList ) ) { // just inclusion changes
 					$changeDiv .= '<p>' .
 						wfMsgExt( 'revreview-update-includes', 'parseinline' ) .
 						'&#160;' . implode( ', ', $changeList ) . '</p>';
 					# Add include usage notice...
+					/*
 					if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_STABLE ) {
 						$changeDiv .= wfMsgExt( 'revreview-update-use', 'parse' );
 					}
+					*/
 				}
 			}
 			if ( $changeDiv != '' ) {
@@ -1541,11 +1546,15 @@ class FlaggedPageView {
 
 	// Fetch template changes for a reviewed revision since review
 	// @return array
-	protected static function fetchTemplateChanges( FlaggedRevision $frev ) {
+	protected static function fetchTemplateChanges( FlaggedRevision $frev, $newTemplates = null ) {
 		global $wgUser;
 		$skin = $wgUser->getSkin();
 		$diffLinks = array();
-		$changes = $frev->findPendingTemplateChanges();
+		if ( $newTemplates === null ) {
+			$changes = $frev->findPendingTemplateChanges();
+		} else {
+			$changes = $frev->findTemplateChanges( $newTemplates );
+		}
 		foreach ( $changes as $tuple ) {
 			list( $title, $revIdStable, $hasStable ) = $tuple;
 			$link = $skin->makeLinkObj( $title,
@@ -1561,11 +1570,15 @@ class FlaggedPageView {
 
 	// Fetch file changes for a reviewed revision since review
 	// @return array
-	protected static function fetchFileChanges( FlaggedRevision $frev ) {
+	protected static function fetchFileChanges( FlaggedRevision $frev, $newFiles = null ) {
 		global $wgUser;
 		$skin = $wgUser->getSkin();
 		$diffLinks = array();
-		$changes = $frev->findPendingFileChanges( 'noForeign' );
+		if ( $newFiles === null ) {
+			$changes = $frev->findPendingFileChanges( 'noForeign' );
+		} else {
+			$changes = $frev->findFileChanges( $newFiles, 'noForeign' );
+		}
 		foreach ( $changes as $tuple ) {
 			list( $title, $revIdStable, $hasStable ) = $tuple;
 			// @TODO: change when MW has file diffs

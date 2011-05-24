@@ -76,7 +76,6 @@ Please review all the changes shown below to make your edits appear in the stabl
 
 Please review all the changes shown below to make your edits appear in the stable version.',
 	'revreview-update-includes'    => '\'\'\'Templates/files updated (unreviewed pages in bold):\'\'\'',
-	'revreview-update-includes-p'  => '\'\'\'Templates or files may have been updated. Please preview the page before accepting.\'\'\'',
 	'revreview-update-use'         => '\'\'\'NOTE:\'\'\' The stable version of each of these templates/files is used in the stable version of this page.',
 
 	'revreview-reject-header'      => 'Reject changes for $1',

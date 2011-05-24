@@ -164,6 +164,17 @@ class FlaggedRevision {
 	}
 
 	/**
+	 * Get the ID of the stable version of a title.
+	 * @param Title $title, page title
+	 * @param int $flags (FR_MASTER, FR_FOR_UPDATE)
+	 * @return int (0 on failure)
+	 */
+	public static function getStableRevId( Title $title, $flags = 0 ) {
+		$srev = self::newFromStable( $title, $flags );
+		return $srev ? $srev->getId() : 0;
+	}
+
+	/**
 	 * Get a FlaggedRevision of the stable version of a title.
 	 * Skips tracking tables to figure out new stable version.
 	 * @param Title $title, page title
@@ -646,31 +657,50 @@ class FlaggedRevision {
 			)
 		);
 		$tmpChanges = array();
-		foreach ( $ret as $row ) {
-			$title = Title::makeTitleSafe( $row->tl_namespace, $row->tl_title );
+		foreach ( $ret as $row ) { // each template
 			$revIdDraft = (int)$row->page_latest; // may be NULL
-			if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_STABLE ) {
-				# Select newest of (stable rev, rev when reviewed) as "version used"
-				$revIdStable = (int)max( $row->fp_stable, $row->ft_tmp_rev_id );
-			} else {
-				$revIdStable = (int)$row->ft_tmp_rev_id; // may be NULL
-			}
-			# Compare to current...
-			$updated = false; // edited/created
-			if ( $revIdDraft && $revIdDraft != $revIdStable ) {
-				$dRev = Revision::newFromId( $revIdDraft );
-				$sRev = Revision::newFromId( $revIdStable );
-				# Don't do this for null edits (like protection) (bug 25919)
-				if ( $dRev && $sRev && $dRev->getTextId() != $sRev->getTextId() ) {
-					$updated = true;
-				}
-			}
-			$deleted = ( !$revIdDraft && $revIdStable ); // later deleted
-			if ( $deleted || $updated ) {
-				$tmpChanges[] = array( $title, $revIdStable, (bool)$row->fp_stable );
+			$revIdStable = (int)$row->fp_stable; // may be NULL
+			$revIdReviewed = (int)$row->ft_tmp_rev_id; // review-time version
+			# Get template ID used in this FlaggedRevision when parsed
+			$revIdUsed = self::templateIdUsed( $revIdStable, $revIdReviewed );
+			# Check for edits/creations/deletions...
+			if ( self::templateChanged( $revIdDraft, $revIdUsed ) ) {
+				$title = Title::makeTitleSafe( $row->tl_namespace, $row->tl_title );
+				$tmpChanges[] = array( $title, $revIdUsed, (bool)$revIdStable );
 			}
 		}
 		return $tmpChanges;
+	}
+
+	protected function templateIdUsed( $revIdStable, $revIdReviewed ) {
+		if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_STABLE ) {
+			# Select newest of (stable rev, rev when reviewed) as "version used"
+			$revIdUsed = max( $revIdStable, $revIdReviewed );
+		} else {
+			$revIdUsed = $revIdReviewed; // may be NULL
+		}
+		return (int)$revIdUsed;
+	}
+
+	protected function templateChanged( $revIdDraft, $revIdUsed ) {
+		if ( $revIdDraft && !$revIdUsed ) {
+			return true; // later created
+		}
+		if ( !$revIdDraft && $revIdUsed ) {
+			return true; // later deleted
+		}
+		if ( $revIdDraft && $revIdUsed && $revIdDraft != $revIdUsed ) {
+			$dRev = Revision::newFromId( $revIdDraft );
+			$sRev = Revision::newFromId( $revIdUsed );
+			if ( !$sRev || $sRev->isDeleted( Revision::DELETED_TEXT ) ) {
+				return true; // rev deleted
+			}
+			# Don't do this for null edits (like protection) (bug 25919)
+			if ( $dRev && $sRev && $dRev->getTextId() != $sRev->getTextId() ) {
+				return true; // updated
+			}
+		}
+		return false;
 	}
 
 	/*
@@ -717,42 +747,106 @@ class FlaggedRevision {
 			)
 		);
 		$fileChanges = array();
-		foreach ( $ret as $row ) {
-			$title = Title::makeTitleSafe( NS_FILE, $row->il_to );
+		foreach ( $ret as $row ) { // each file
 			$reviewedTS = trim( $row->fi_img_timestamp ); // may have \0's
 			$reviewedTS = $reviewedTS ? wfTimestamp( TS_MW, $reviewedTS ) : null;
-			if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_STABLE ) {
-				$stableTS = wfTimestampOrNull( TS_MW, $row->fr_img_timestamp );
-				# Select newest of (stable rev, rev when reviewed) as "version used"
-				$tsStable = max( $stableTS, $reviewedTS );
-			} else {
-				$tsStable = $reviewedTS;
-			}
-			# Compare this version to the current version and check for things
-			# that would make the stable version unsynced with the draft...
-			$file = wfFindFile( $title ); // current file version
-			if ( $file ) { // file exists
-				if ( $noForeign === 'noForeign' && !$file->isLocal() ) {
-					# Avoid counting edits to Commons files, which can effect
-					# many pages, as there is no expedient way to review them.
-					$updated = !$tsStable; // created (ignore new versions)
-				} else {
-					$updated = ( $file->getTimestamp() > $tsStable ); // edited/created
-				}
-				$deleted = $tsStable // included file deleted after review
-					&& $file->getTimestamp() != $tsStable
-					&& !wfFindFile( $title, array( 'time' => $tsStable ) );
-			} else { // file doesn't exists
-				$updated = false;
-				$deleted = (bool)$tsStable; // included file deleted after review
-			}
-			if ( $deleted || $updated ) {
-				$fileChanges[] = array( $title, $tsStable, (bool)$row->fr_img_timestamp );
+			$stableTS = wfTimestampOrNull( TS_MW, $row->fr_img_timestamp );
+			# Get file timestamp used in this FlaggedRevision when parsed
+			$usedTS = self::fileTimestampUsed( $stableTS, $reviewedTS );
+			# Check for edits/creations/deletions...
+			$title = Title::makeTitleSafe( NS_FILE, $row->il_to );
+			if ( self::fileChanged( $title, $usedTS, $noForeign ) ) {
+				$fileChanges[] = array( $title, $usedTS, (bool)$stableTS );
 			}
 		}
 		return $fileChanges;
 	}
 
+	protected function fileTimestampUsed( $stableTS, $reviewedTS ) {
+		if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_STABLE ) {
+			# Select newest of (stable rev, rev when reviewed) as "version used"
+			$usedTS = max( $stableTS, $reviewedTS );
+		} else {
+			$usedTS = $reviewedTS;
+		}
+		return $usedTS;
+	}
+
+	protected function fileChanged( $title, $usedTS, $noForeign ) {
+		$file = wfFindFile( $title ); // current file version
+		# Compare this version to the current version and check for things
+		# that would make the stable version unsynced with the draft...
+		if ( $file instanceof File ) { // file exists
+			if ( $noForeign === 'noForeign' && !$file->isLocal() ) {
+				# Avoid counting edits to Commons files, which can effect
+				# many pages, as there is no expedient way to review them.
+				$updated = !$usedTS; // created (ignore new versions)
+			} else {
+				$updated = ( $file->getTimestamp() > $usedTS ); // edited/created
+			}
+			$deleted = $usedTS // included file deleted after review
+				&& $file->getTimestamp() != $usedTS
+				&& !wfFindFile( $title, array( 'time' => $usedTS ) );
+		} else { // file doesn't exists
+			$updated = false;
+			$deleted = (bool)$usedTS; // included file deleted after review
+		}
+		return ( $deleted || $updated );
+	}
+
+	public function findTemplateChanges( array $newTemplates ) {
+		if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_CURRENT ) {
+			return array(); // short-circuit
+		}
+		$tmpChanges = array();
+		$rTemplates = $this->getTemplateVersions();
+		$sTemplates = $this->getStableTemplateVersions();
+		foreach ( $newTemplates as $ns => $tmps ) {
+			foreach ( $tmps as $dbKey => $revIdDraft ) {
+				$title = Title::makeTitle( $ns, $dbKey );
+				$revIdDraft = (int)$revIdDraft;
+				$revIdStable = isset( $sTemplates[$ns][$dbKey] )
+					? (int)$sTemplates[$ns][$dbKey]
+					: self::getStableRevId( $title );
+				$revIdReviewed = isset( $rTemplates[$ns][$dbKey] )
+					? (int)$rTemplates[$ns][$dbKey]
+					: 0;
+				# Get template used in this FlaggedRevision when parsed
+				$revIdUsed = self::templateIdUsed( $revIdStable, $revIdReviewed );
+				# Check for edits/creations/deletions...
+				if ( self::templateChanged( $revIdDraft, $revIdUsed ) ) {
+					$tmpChanges[] = array( $title, $revIdUsed, (bool)$revIdStable );
+				}
+			}
+		}
+		return $tmpChanges;
+	}
+
+	public function findFileChanges( array $newFiles, $noForeign = false ) {
+		if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_CURRENT ) {
+			return array(); // short-circuit
+		}
+		$fileChanges = array();
+		$rFiles = $this->getFileVersions();
+		$sFiles = $this->getStableFileVersions();
+		foreach ( $newFiles as $dbKey => $sha1Time ) {
+			$reviewedTS = isset( $rFiles[$dbKey]['time'] )
+				? $rFiles[$dbKey]['time']
+				: null;
+			$stableTS = isset( $sFiles[$dbKey]['time'] )
+				? $sFiles[$dbKey]['time']
+				: null;
+			# Get file timestamp used in this FlaggedRevision when parsed
+			$usedTS = self::fileTimestampUsed( $stableTS, $reviewedTS );
+			# Check for edits/creations/deletions...
+			$title = Title::makeTitleSafe( NS_FILE, $dbKey );
+			if ( self::fileChanged( $title, $usedTS, $noForeign ) ) {
+				$fileChanges[] = array( $title, $usedTS, (bool)$stableTS );
+			}
+		}
+		return $fileChanges;
+	}
+		
 	/**
 	 * Get flags for a revision
 	 * @param Title $title

@@ -586,26 +586,40 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 	 * fileSHA1Keys like ParserOutput->mImageTimeKeys
 	 */
 	public static function getRevIncludes( Article $article, Revision $rev, User $user ) {
-		global $wgParser, $wgOut, $wgEnableParserCache;
+		global $wgParser, $wgMemc;
+		static $versionCache = array();
 		wfProfileIn( __METHOD__ );
-		$pOutput = false;
-		$pOpts = $article->makeParserOptions( $user );
-		$parserCache = ParserCache::singleton();
-		# Current version: try parser cache
-		if ( $rev->isCurrent() ) {
-			$pOutput = $parserCache->get( $article, $pOpts );
+		$hash = md5( $article->getTitle()->getPrefixedDBkey() );
+		# Check process cache first...
+		$vKey = $rev->getId()."-$hash";
+		if ( isset( $versionCache[$vKey] ) ) {
+			wfProfileOut( __METHOD__ );
+			return $versionCache[$vKey]; // hit
 		}
-		# Otherwise (or on cache miss), parse the rev text...
-		if ( !$pOutput ) {
-			$text = $rev->getText();
+		$key = wfMemcKey( 'flaggedrevs', 'revIncludes', $rev->getId(), $hash );
+		$val = FlaggedRevs::getMemcValue( $wgMemc->get( $key ), $article );
+		if ( is_array( $val ) ) {
+			$versions = $val; // cache hit
+		} else {
 			$title = $article->getTitle();
-			$pOutput = $wgParser->parse( $text, $title, $pOpts, true, true, $rev->getId() );
-			# Might as well save the cache while we're at it
-			if ( $rev->isCurrent() && $wgEnableParserCache ) {
-				$parserCache->save( $pOutput, $article, $pOpts );
-			}
+			$pOpts = ParserOptions::newFromUser( $user ); // Note: tidy off
+			# Disable slow crap that doesn't matter for getting templates/files...
+			$parser = clone $wgParser;
+			$parser->clearTagHook( 'ref' );
+			$parser->clearTagHook( 'references' );
+			$pOut = $parser->parse( $rev->getText(), $title, $pOpts, $rev->getId() );
+			# Get the template/file versions used...
+			$versions = array( $pOut->getTemplateIds(), $pOut->getImageTimeKeys() );
+			# Save to cache...
+			$data = FlaggedRevs::makeMemcObj( $versions );
+			$wgMemc->set( $key, $data, 3600 ); // inclusions may be dynamic
 		}
+		# Save to process cache...
+		if ( count( $versionCache ) > 100 ) {
+			$versionCache = array(); // sanity
+		}
+		$versionCache[$vKey] = $versions;
 		wfProfileOut( __METHOD__ );
-		return array( $pOutput->getTemplateIds(), $pOutput->getImageTimeKeys() );
+		return $versions;
 	}
 }
