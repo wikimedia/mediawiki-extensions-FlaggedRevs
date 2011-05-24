@@ -75,11 +75,6 @@ class FlaggedRevsUIHooks {
 			$stableId = null;
 		}
 		$globalVars['wgStableRevisionId'] = $stableId;
-		$revisionContents = (object) array(
-			'error'		=> wfMsgHtml( 'revcontents-error' ),
-			'waiting'	=> wfMsgHtml( 'revcontents-waiting' )
-		);
-		$globalVars['wgRevContents'] = $revisionContents;
 		return true;
 	}
 
