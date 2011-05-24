@@ -1022,7 +1022,7 @@ Bitte markiere alle unten angezeigten Änderungen, damit deine Bearbeitungen zur
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Deine Änderungen wurden bislang noch nicht als stabile Version gekennzeichnet. Es gibt ältere Bearbeitungen, die noch markiert werden müssen.</span>
 
 Bitte markiere alle unten angezeigten Änderungen, damit deine Bearbeitungen zur stabilen Version werden.',
-	'revreview-update-includes' => "'''Einige Vorlagen/Dateien wurden aktualisiert:'''",
+	'revreview-update-includes' => "'''Vorlagen/ Dateien wurden aktualisiert (nicht markierte Seiten sind in fett gekennzeichnet):'''",
 	'revreview-update-use' => "'''Hinweis:''' Die markierte Version jeder dieser Vorlagen / Dateien wird in der markierten Version dieser Seite verwendet.",
 	'revreview-reject-header' => 'Änderungen für $1 verwerfen',
 	'revreview-reject-text-list' => "Mit Abschluss dieser Aktion {{PLURAL:$1|wird die folgende Änderung|werden die folgenden Änderungen}} '''verworfen''':",
@@ -1688,7 +1688,7 @@ Veuillez vérifier toutes les modifications affichées ci-dessous pour que la v�
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Vos modifications ne sont pas encore dans la version stable. Il y a de précédentes modifications en attente de relecture.</span>
 
 Vous devez relire toutes les modifications affichées ci-dessous pour la votre apparaisse dans la version stable.',
-	'revreview-update-includes' => "'''Quelques modèles ou fichiers ont été mis à jour :'''",
+	'revreview-update-includes' => "'''Modèles/fichiers mis à jour (pages non relues en gras) :'''",
 	'revreview-update-use' => "'''Note :''' la version publiée de chaque modèle ou fichier est utilisée dans la version publiée de cette page.",
 	'revreview-reject-header' => 'Refuser les modifications pour $1',
 	'revreview-reject-text-list' => "En accomplissant cette action, vous allez '''rejeter''' {{PLURAL:$1|la modification suivante|les modifications suivantes}} :",
@@ -1744,7 +1744,7 @@ Por enlevar lo statut de rèvision d’una vèrsion, clicâd dessus « dèsaprov
 
 Volyéd utilisar lo boton « retôrn » de voutron navigator et pués tornâd èprovar.",
 	'revreview-update' => "'''Volyéd [[{{MediaWiki:Validationpage}}|revêre]] tôs los changements en atenta ''(vêde ce-desot)'' fêts a la vèrsion stâbla.'''",
-	'revreview-update-includes' => "'''Doux-três modèlos ou ben fichiérs ont étâ betâs a jorn :'''",
+	'revreview-update-includes' => "'''Modèlos/fichiérs betâs a jorn (pâges pas revues en grâs) :'''",
 	'revreview-update-use' => "'''Nota :''' la vèrsion stâbla de châque modèlo ou ben fichiér est utilisâ dens la vèrsion stâbla de cela pâge.",
 	'revreview-reject-summary' => 'Rèsumâ :',
 	'revreview-reject-cancel' => 'Anular',
@@ -1829,7 +1829,7 @@ Revise todos os cambios listados a continuación para que as súas edicións apa
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Os seus cambios aínda non se atopan na versión estable. Hai edicións previas pendentes de revisión.</span>
 
 Revise todos os cambios listados a continuación para que as súas edicións aparezan na versión estable.',
-	'revreview-update-includes' => "'''Actualizáronse algúns modelos ou ficheiros:'''",
+	'revreview-update-includes' => "'''Actualizáronse algúns modelos ou ficheiros (as páxinas non revisadas van en negra):'''",
 	'revreview-update-use' => "'''NOTA:''' a versión publicada de cada un destes modelos ou ficheiros úsase na versión publicada desta páxina.",
 	'revreview-reject-header' => 'Rexeitar os cambios de "$1"',
 	'revreview-reject-text-list' => "Ao completar esta acción, '''rexeitará''' {{PLURAL:$1|o seguinte cambio|os seguintes cambios}}:",
@@ -2348,7 +2348,7 @@ Per favor revide tote le modificationes monstrate hic infra pro facer tu modific
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Tu modificationes non es ancora in le version stabile. Il ha previe modificationes attendente revision.</span>
 
 Per favor revide tote le modificationes monstrate hic infra pro facer tu modificationes apparer in le version stabile.',
-	'revreview-update-includes' => "'''Alcun patronos/files ha essite actualisate:'''",
+	'revreview-update-includes' => "'''Patronos/files actualisate (paginas non revidite in grasse):'''",
 	'revreview-update-use' => "'''NOTA:''' Le version publicate de cata un de iste patronos/files es usate in le version publicate de iste pagina.",
 	'revreview-reject-header' => 'Rejectar modificationes pro $1',
 	'revreview-reject-text-list' => "Per exequer iste action, tu '''rejecta''' le sequente {{PLURAL:$1|modification|modificationes}}:",
@@ -2929,7 +2929,7 @@ Kuckt w.e.g. all d\'Ännerungen hei drënner no fir datt Är Ännerungen an der 
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Är Ännerunge sinn nach net an der stabiler Versioun. Et gëtt vireg Ännerungen déi drop waarde fir nogekuckt ze ginn.</span>
 
 Kuckt w.e.g. all d\'Ännerungen hei drënner no fir datt Är Ännerungen akzeptéiert ginn.',
-	'revreview-update-includes' => "'''Verschidde Schablounen/Fichiere goufen aktualiséiert:'''",
+	'revreview-update-includes' => "'''Schablounen/Fichiere aktualiséiert (net nogekuckte Säite si fettgegréckt):'''",
 	'revreview-update-use' => "'''Bemierkung:''' Déi publizéiert Versioun vu jidfer vun dëse Schablounen/Fichieren gëtt an der publizéiert Versioun vun dëser Säit benotzt.",
 	'revreview-reject-header' => 'Ännerunge fir $1 rejetéieren',
 	'revreview-reject-text-list' => "Wann Dir dës Aktioun ofschléisst, da '''verwerft''' Dir dës {{PLURAL:$1|Ännerung|Ännerungen}}:",
@@ -3074,7 +3074,7 @@ $messages['mk'] = array(
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Вашите измени сè уште не се вклучени во стабилната верзија.</span> Има претходни уредувања што чекаат проверка.</span>
 
 За да се појават во верзијата, најпрвин прегледате ги сите долунаведени промени.',
-	'revreview-update-includes' => "'''Некои шаблони/податотеки беа обновени:'''",
+	'revreview-update-includes' => "'''Подновени шаблони/податотеки (непроверените страници се задебелени):'''",
 	'revreview-update-use' => "'''НАПОМЕНА:''' Објавената верзија на секој од овие шаблони/податотеки се користи во објавената верзија на оваа страница.",
 	'revreview-reject-header' => 'Отфрли промени на $1',
 	'revreview-reject-text-list' => "Довршувајќи ја оваа постапка, ќе ги {{PLURAL:$1|ја '''отфрлите''' следнава промена|ги '''отфрлите''' следниве промени}}:",
@@ -3155,7 +3155,7 @@ $messages['ml'] = array(
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">താങ്കൾ വരുത്തിയ മാറ്റങ്ങൾ ഇതുവരെ സ്ഥിരപ്പെടുത്തിയ പതിപ്പിൽ ഉൾപ്പെട്ടിട്ടില്ല, പഴയ മാറ്റങ്ങൾ സംശോധനത്തിന് അവശേഷിക്കുന്നു.</span>
 
 താങ്കളുടെ തിരുത്തലുകൾ സ്ഥിരപ്പെടുത്താൻ, താഴെ കൊടുത്തിരിക്കുന്ന മാറ്റങ്ങൾ സംശോധനം ചെയ്യുക.',
-	'revreview-update-includes' => "'''ചില ഫലകങ്ങൾ/പ്രമാണങ്ങൾ പുതുക്കിയിരിക്കുന്നു:'''",
+	'revreview-update-includes' => "'''ചില ഫലകങ്ങൾ/പ്രമാണങ്ങൾ പുതുക്കിയിരിക്കുന്നു (സംശോധനം ചെയ്യാത്ത താളുകൾ കട്ടികൂട്ടി കാണിച്ചിരിക്കുന്നു):'''",
 	'revreview-update-use' => "'''ശ്രദ്ധിക്കുക:''' ഈ ഫലകങ്ങളുടേയും/പ്രമാണങ്ങളുടേയും പ്രസിദ്ധീകരിക്കപ്പെട്ട പതിപ്പായിരിക്കും, ഈ താളിന്റെ പ്രസിദ്ധീകരിക്കപ്പെട്ട പതിപ്പിൽ ഉപയോഗിക്കുക.",
 	'revreview-reject-header' => '$1 എന്നതിനുള്ള മാറ്റങ്ങൾ നിരാകരിക്കുക',
 	'revreview-reject-text-list' => "ഈ പ്രവൃത്തി പൂർത്തിയാകുമ്പോൾ, താങ്കൾ താഴെ കൊടുത്തിരിക്കുന്ന {PLURAL:$1|മാറ്റം|മാറ്റങ്ങൾ}} '''നിരാകരിച്ചിരിക്കും''':",
@@ -3721,7 +3721,7 @@ Para que as suas edições apareçam na versão publicada, reveja todas as alter
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">As suas alterações ainda não estão na versão publicada. Existem edições anteriores à espera de revisão.</span> 
 
 Para que as suas edições apareçam na versão publicada, reveja todas as alterações mostradas abaixo, por favor.',
-	'revreview-update-includes' => "'''Alguns ficheiros ou predefinições foram actualizados:'''",
+	'revreview-update-includes' => "'''Foram actualizados ficheiros ou predefinições (as páginas não revistas aparecem a negrito):'''",
 	'revreview-update-use' => "'''NOTA:''' A versão publicada de cada um destes ficheiros ou predefinições é usada na versão publicada desta página.",
 	'revreview-reject-header' => 'Rejeitar mudanças de $1',
 	'revreview-reject-text-list' => 'Ao executar esta operação, irá "rejeitar" {{PLURAL:$1|a seguinte mudança|as seguintes mudanças}}:',
@@ -3982,7 +3982,7 @@ $messages['ru'] = array(
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Ваши изменения ещё не включены в стабильную версию. Существуют более ранние правки, требующие проверки.</span>
 
 Чтобы включить ваши правки в стабильную версию, пожалуйста, проверьте все изменения, показанные ниже.',
-	'revreview-update-includes' => "'''Некоторые шаблоны или файлы были обновлены:'''",
+	'revreview-update-includes' => "'''Обновлённые шаблоны или файлы (непроверенные выделены жирным):'''",
 	'revreview-update-use' => "'''ЗАМЕЧАНИЕ.''' Опубликованные версии каждого из этих шаблонов или файлов используются в опубликованной версии этой страницы.",
 	'revreview-reject-header' => 'Отклонить изменения для $1',
 	'revreview-reject-text-list' => "Выполняя это действие, вы '''отвергаете''' {{PLURAL:$1|следующее изменение|следующие изменения}}:",
@@ -4231,7 +4231,6 @@ Prosimo, preglejte vse spremembe prikazane podaj, da prikažete vaše spremembe 
 
 Prosimo, preglejte vse spremembe prikazane podaj, da prikažete vaše spremembe v ustaljeni različici.',
 	'revreview-update-includes' => "'''Predloge/datoteke so posodobljene (nepregledane strani so zapisane krepko):'''",
-	'revreview-update-includes-p' => "'''Predloge ali datoteke so morda posodobljene. Prosimo, preglejte stran pred sprejetjem:'''",
 	'revreview-update-use' => "'''OPOMBA:''' Ustaljena različica vsake od teh predlog/datotek je uporabljena v ustaljeni različici te strani.",
 	'revreview-reject-header' => 'Zavrni spremembe $1',
 	'revreview-reject-text-list' => "Z izvedbo tega dejanja boste '''zavrnili''' {{PLURAL:$1|naslednjo spremembo|naslednji spremembi|naslednje spremembe}}:",
@@ -4975,7 +4974,7 @@ Xin hãy duyệt các thay đổi ở dưới để đưa các sửa đổi củ
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Các thay đổi của bạn chưa được đưa vào phiên bản ổn định. Hiện có những thay đổi từ trước đang chờ được duyệt.</span>
 
 Xin hãy duyệt các thay đổi ở dưới để đưa các sửa đổi của bạn vào phiên bản ổn định.',
-	'revreview-update-includes' => "'''Một số bản mẫu hay tập tin được cập nhật:'''",
+	'revreview-update-includes' => "'''Bản mẫu hay tập tin được cập nhật (các trang chưa duyệt được in đậm):'''",
 	'revreview-update-use' => "'''GHI CHÚ:''' Phiên bản ổn định của các bản mẫu hay tập tin này được sử dụng trong phiên bản ổn định của trang này.",
 	'revreview-reject-header' => 'Từ chối những thay đổi $1',
 	'revreview-reject-text-list' => "Bằng tác vụ này, bạn sẽ '''từ chối''' {{PLURAL:$1|thay đổi|những thay đổi}} sau:",
