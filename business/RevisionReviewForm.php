@@ -577,7 +577,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 	}
 
 	/**
-	 * Get template and image versions from parsing a revision.
+	 * Get template and image versions from parsing a revision
 	 * @param Article $article
 	 * @param Revision $rev
 	 * @param User $user
@@ -593,9 +593,8 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 		wfProfileIn( __METHOD__ );
 		$versions = false;
 		$hash = md5( $article->getTitle()->getPrefixedDBkey() );
-		# Check process cache first...
 		$key = wfMemcKey( 'flaggedrevs', 'revIncludes', $rev->getId(), $hash );
-		if ( $regen !== 'regen' ) {
+		if ( $regen !== 'regen' ) { // check cache
 			$versions = FlaggedRevs::getMemcValue( $wgMemc->get( $key ), $article, 'allowStale' );
 		}
 		if ( !is_array( $versions ) ) { // cache miss
@@ -644,5 +643,23 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 		}	
 		wfProfileOut( __METHOD__ );
 		return $versions;
+	}
+
+	/**
+	 * Set template and image versions from parsing a revision
+	 * @param Title $title
+	 * @param int $revId
+	 * @param ParserOutput $rev
+	 * @return void
+	 */
+	public static function setRevIncludes( Title $title, $revId, ParserOutput $pOut ) {
+		global $wgMemc;
+		$hash = md5( $title->getPrefixedDBkey() );
+		$key = wfMemcKey( 'flaggedrevs', 'revIncludes', $revId, $hash );
+		# Get the template/file versions used...
+		$versions = array( $pOut->getTemplateIds(), $pOut->getImageTimeKeys() );
+		# Save to cache...
+		$data = FlaggedRevs::makeMemcObj( $versions );
+		$wgMemc->set( $key, $data, 24*3600 ); // inclusions may be dynamic
 	}
 }
