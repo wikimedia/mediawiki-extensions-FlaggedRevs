@@ -1650,6 +1650,7 @@ $messages['be-tarask'] = array(
 	'flaggedrevs-prefs-watch' => 'Дадаваць правераныя мной старонкі ў мой сьпіс назіраньня',
 	'flaggedrevs-prefs-editdiffs' => 'Паказваць адрозьненьні паміж неправеранай і праверанай вэрсіямі пад час рэдагаваньня старонак',
 	'flaggedrevs-prefs-viewdiffs' => 'Паказваць неправераныя зьмены пад час прагляду апошняй неправеранай вэрсіі',
+	'flaggedrevs-hidereviewed' => '$1 рэцэнзаваныя рэдагаваньні',
 	'group-editor' => 'Рэдактары',
 	'group-editor-member' => 'рэдактар',
 	'group-reviewer' => 'Рэцэнзэнты',
@@ -1869,10 +1870,8 @@ $messages['bg'] = array(
 	'revreview-quality-same' => 'Това е [[{{MediaWiki:Validationpage}}|стабилната версия]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approved] на <i>$2</i>.',
 	'revreview-quick-invalid' => "'''Невалиден номер на версия'''",
 	'revreview-quick-none' => "'''Текуща''' (няма рецензирани версии)",
-	'revreview-quick-see-basic' => "'''Чернова''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} преглед на страницата]]
-[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=1}} сравняване]]",
-	'revreview-quick-see-quality' => "'''Чернова''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} преглед на страницата]]
-[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=1}} сравняване]]",
+	'revreview-quick-see-basic' => '[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=1}} преглед на чакащите за одобрение промени]]',
+	'revreview-quick-see-quality' => '[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=1}} преглед на чакащите за одобрение промени]]',
 	'revreview-source' => 'изходен код на черновата',
 	'revreview-style' => 'Четимост',
 	'revreview-style-0' => 'Неодобрена',
@@ -12052,7 +12051,7 @@ Storjene so morda bile že nove [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&d
 	'revreview-submitedit-title' => 'Pošljite svoje spremembe v pregled',
 	'revreview-edited' => "'''Vaše spremembe bodo prikazane bralcem, ko jih pooblaščen uporabnik enkrat pregleda. ([[{{MediaWiki:Validationpage}}|pomoč]])'''
 
-{{PLURAL:$2|Obstaja|Obstajata|Obstajajo|Obstaja}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=1}} $3 {{PLURAL:$2|sprememba|spremembi|spremembe|sprememb}} v teku], ki {{PLURAL:$2|čaka|čakata|čakajo}} na pregled.",
+{{PLURAL:$2|Obstaja|Obstajata|Obstajajo|Obstaja}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=1}} $2 {{PLURAL:$2|sprememba|spremembi|spremembe|sprememb}} v teku], ki {{PLURAL:$2|čaka|čakata|čakajo}} na pregled.",
 	'revreview-edited-section' => 'Nazaj na razdelek strani imenovan »[[#$1|$2]]«.',
 	'revreview-newest-basic' => 'V teku [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur&diffonly=1}} {{PLURAL:$3|je $3 sprememba|sta $3 spremembi|so $3 spremembe|je $3 sprememb}}], ki [[{{MediaWiki:Validationpage}}|{{PLURAL:$3|čaka|čakata|čakajo}} na pregled]].
 [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Ustaljena različica] je bila [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} preverjena] dne <i>$2</i>.',
