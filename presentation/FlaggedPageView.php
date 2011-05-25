@@ -7,6 +7,7 @@ class FlaggedPageView {
 	protected $article = null;
 
 	protected $diffRevs = null; // assoc array of old and new Revisions for diffs
+	protected $oldRevIncludes = null; // ( array of templates, array of file)
 	protected $isReviewableDiff = false;
 	protected $isDiffFromStable = false;
 	protected $isMultiPageDiff = false;
@@ -1082,6 +1083,8 @@ class FlaggedPageView {
 			# RevisionReviewForm will fetch them as needed however.
 			if ( $this->out->getRevisionId() == $rev->getId() ) {
 				$form->setIncludeVersions( $this->out->getTemplateIds(), $this->out->getImageTimeKeys() );
+			} elseif ( $this->oldRevIncludes ) {
+				$form->setIncludeVersions( $this->oldRevIncludes[0], $this->oldRevIncludes[1] );
 			}
 			list( $html, $status ) = $form->getHtml();
 			# Diff action: place the form at the top of the page
@@ -1372,6 +1375,7 @@ class FlaggedPageView {
 				$changeList = self::fetchTemplateChanges( $srev, $incs[0] );
 				# Add a list of links to each changed file...
 				$changeList = array_merge( $changeList, self::fetchFileChanges( $srev, $incs[1] ) );
+				$this->oldRevIncludes = $incs; // process cache
 			}
 			# If there are pending revs or templates/files changes, notify the user...
 			if ( $this->article->revsArePending() || count( $changeList ) ) {

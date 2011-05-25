@@ -714,9 +714,9 @@ class FlaggedRevs {
 	# ################ Other utility functions #################
 
 	/**
+	 * Get a memcache storage object
 	 * @param string $val
 	 * @return Object (val,time) tuple
-	 * Get a memcache storage object
 	 */
 	public static function makeMemcObj( $val ) {
 		$data = (object) array();
@@ -726,14 +726,17 @@ class FlaggedRevs {
 	}
 
 	/**
+	* Return memc value if not expired
 	* @param object|false $data makeMemcObj() tuple
 	* @param Article $article
+	* @param $allowStale Use 'allowStale' to skip page_touched check
 	* @return mixed
-	* Return memc value if not expired
 	*/
-	public static function getMemcValue( $data, Article $article ) {
-		if ( is_object( $data ) && $data->time >= $article->getTouched() ) {
-			return $data->value;
+	public static function getMemcValue( $data, Article $article, $allowStale = '' ) {
+		if ( is_object( $data ) ) {
+			if ( $allowStale === 'allowStale' || $data->time >= $article->getTouched() ) {
+				return $data->value;
+			}
 		}
 		return false;
 	}

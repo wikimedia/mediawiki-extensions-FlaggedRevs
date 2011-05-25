@@ -581,30 +581,33 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 	 * @param Article $article
 	 * @param Revision $rev
 	 * @param User $user
+	 * @param string $regen use 'regen' to force regeneration
 	 * @return array( templateIds, fileSHA1Keys )
 	 * templateIds like ParserOutput->mTemplateIds
 	 * fileSHA1Keys like ParserOutput->mImageTimeKeys
 	 */
-	public static function getRevIncludes( Article $article, Revision $rev, User $user ) {
+	public static function getRevIncludes(
+		Article $article, Revision $rev, User $user, $regen = ''
+	) {
 		global $wgParser, $wgMemc;
-		static $versionCache = array();
 		wfProfileIn( __METHOD__ );
+		$versions = false;
 		$hash = md5( $article->getTitle()->getPrefixedDBkey() );
 		# Check process cache first...
-		$vKey = $rev->getId()."-$hash";
-		if ( isset( $versionCache[$vKey] ) ) {
-			wfProfileOut( __METHOD__ );
-			return $versionCache[$vKey]; // hit
-		}
 		$key = wfMemcKey( 'flaggedrevs', 'revIncludes', $rev->getId(), $hash );
-		$val = FlaggedRevs::getMemcValue( $wgMemc->get( $key ), $article );
-		if ( is_array( $val ) ) {
-			$versions = $val; // cache hit
-		} else {
+		if ( $regen !== 'regen' ) {
+			$versions = FlaggedRevs::getMemcValue( $wgMemc->get( $key ), $article, 'allowStale' );
+		}
+		if ( !is_array( $versions ) ) { // cache miss
 			$pOut = false;
-			if ( $rev->isCurrent() ) { // try current version parser cache
+			if ( $rev->isCurrent() ) {
 				$parserCache = ParserCache::singleton();
+				# Try current version parser cache (as anon)...
 				$pOut = $parserCache->get( $article, $article->makeParserOptions( $user ) );
+				if ( $pOut == false && $rev->getUser() ) { // try the user who saved the change
+					$author = User::newFromId( $rev->getUser() );
+					$pOut = $parserCache->get( $article, $article->makeParserOptions( $author ) );
+				}
 			}
 			if ( $pOut == false ) {
 				$title = $article->getTitle();
@@ -620,13 +623,25 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 			$versions = array( $pOut->getTemplateIds(), $pOut->getImageTimeKeys() );
 			# Save to cache...
 			$data = FlaggedRevs::makeMemcObj( $versions );
-			$wgMemc->set( $key, $data, 3600 ); // inclusions may be dynamic
-		}
-		# Save to process cache...
-		if ( count( $versionCache ) > 100 ) {
-			$versionCache = array(); // sanity
-		}
-		$versionCache[$vKey] = $versions;
+			$wgMemc->set( $key, $data, 24*3600 ); // inclusions may be dynamic
+		} else {
+			# Do a link batch query for page_latest...
+			$lb = new LinkBatch();
+			foreach ( $versions as $ns => $tmps ) {
+				foreach ( $tmps as $dbKey => $revIdDraft ) {
+					$lb->add( $ns, $dbKey );
+				}
+			}
+			$lb->execute();
+			# Update array with the current page_latest values.
+			# This kludge is there since $newTemplates (thus $revIdDraft) is cached.
+			foreach ( $versions as $ns => $tmps ) {
+				foreach ( $tmps as $dbKey => &$revIdDraft ) {
+					$title = new Title( $ns, $dbKey );
+					$revIdDraft = (int)$title->getLatestRevID();
+				}
+			}
+		}	
 		wfProfileOut( __METHOD__ );
 		return $versions;
 	}
