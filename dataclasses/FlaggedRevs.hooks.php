@@ -835,6 +835,7 @@ class FlaggedRevsHooks {
 					} else {
 						$wgMemc->set( $key, 'false', $pass /* wait time */ );
 					}
+					$result = ( $pass === true );
 				}
 				break;
 			case APCOND_FR_CONTENTEDITCOUNT:
