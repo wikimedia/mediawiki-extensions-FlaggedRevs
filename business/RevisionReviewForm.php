@@ -601,13 +601,21 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 		if ( is_array( $val ) ) {
 			$versions = $val; // cache hit
 		} else {
-			$title = $article->getTitle();
-			$pOpts = ParserOptions::newFromUser( $user ); // Note: tidy off
-			# Disable slow crap that doesn't matter for getting templates/files...
-			$parser = clone $wgParser;
-			$parser->clearTagHook( 'ref' );
-			$parser->clearTagHook( 'references' );
-			$pOut = $parser->parse( $rev->getText(), $title, $pOpts, $rev->getId() );
+			$pOut = false;
+			if ( $rev->isCurrent() ) { // try current version parser cache
+				$parserCache = ParserCache::singleton();
+				$pOut = $parserCache->get( $article, $article->makeParserOptions( $user ) );
+			}
+			if ( $pOut == false ) {
+				$title = $article->getTitle();
+				$pOpts = ParserOptions::newFromUser( $user ); // Note: tidy off
+				# Disable slow crap that doesn't matter for getting templates/files...
+				$parser = clone $wgParser;
+				$parser->clearTagHook( 'ref' );
+				$parser->clearTagHook( 'references' );
+				$pOut = $parser->parse(
+					$rev->getText(), $title, $pOpts, true, true, $rev->getId() );
+			}
 			# Get the template/file versions used...
 			$versions = array( $pOut->getTemplateIds(), $pOut->getImageTimeKeys() );
 			# Save to cache...
