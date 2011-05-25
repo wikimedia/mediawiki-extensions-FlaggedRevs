@@ -30,7 +30,8 @@ class CachePendingRevs extends Maintenance {
 				'rev_page = fp_page_id',
 				'rev_timestamp >= fp_pending_since'
 			),
-			__METHOD__
+			__METHOD__,
+			array( 'ORDER BY' => 'fp_pending_since DESC' )
 		);
 		foreach ( $ret as $row ) {
 			$title = Title::newFromRow( $row );

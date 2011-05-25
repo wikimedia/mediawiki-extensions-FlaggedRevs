@@ -91,8 +91,8 @@ class FlaggedRevsHooks {
 	* (b) Pages with stable versions that use this page will be purged
 	* Note: pages with current versions that use this page should already be purged
 	*/
-	public static function onArticleEditUpdates( Article $article ) {
-		FlaggedRevs::stableVersionUpdates( $article->getTitle() );
+	public static function onArticleEditUpdates( Article $article, $editInfo ) {
+		FlaggedRevs::stableVersionUpdates( $article->getTitle(), null, null, $editInfo );
 		FlaggedRevs::extraHTMLCacheUpdate( $article->getTitle() );
 		return true;
 	}

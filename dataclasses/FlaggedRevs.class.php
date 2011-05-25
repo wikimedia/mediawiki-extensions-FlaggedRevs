@@ -582,9 +582,12 @@ class FlaggedRevs {
 	* @param Title $title
 	* @param FlaggedRevision|null $sv, the new stable version (optional)
 	* @param FlaggedRevision|null $oldSv, the old stable version (optional)
+	* @param Object editInfo Article edit info about the current revision (optional)
 	* @return bool stable version text/file changed and FR_INCLUDES_STABLE
 	*/
-	public static function stableVersionUpdates( Title $title, $sv = null, $oldSv = null ) {
+	public static function stableVersionUpdates(
+		Title $title, $sv = null, $oldSv = null, $editInfo = null
+	) {
 		$changed = false;
 		if ( $oldSv === null ) { // optional
 			$oldSv = FlaggedRevision::newFromStable( $title, FR_MASTER );
@@ -602,7 +605,7 @@ class FlaggedRevs {
 			}
 		} else {
 			# Update flagged page related fields
-			$article->updateStableVersion( $sv );
+			$article->updateStableVersion( $sv, $editInfo ? $editInfo->revid : null );
 			# Check if pages using this need to be invalidated/purged...
 			if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_STABLE ) {
 				$changed = (
@@ -611,6 +614,10 @@ class FlaggedRevs {
 					$sv->getFileTimestamp() != $oldSv->getFileTimestamp() ||
 					$sv->getFileSha1() != $oldSv->getFileSha1()
 				);
+			}
+			# Update template/file version cache...
+			if ( $sv->getRevId() != $editInfo->revid ) {
+				RevisionReviewForm::setRevIncludes( $title, $editInfo->revid, $editInfo->output );
 			}
 		}
 		# Lazily rebuild dependancies on next parse (we invalidate below)
