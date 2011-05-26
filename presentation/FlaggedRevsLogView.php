@@ -126,7 +126,7 @@ class FlaggedRevsLogView {
 			$links .= $wgUser->getSkin()->makeKnownLinkObj(
 				$title,
 				wfMsgHtml( 'review-logentry-id', $revId, $time ),
-				"oldid={$revId}&diff=prev&diffonly=1"
+				"oldid={$revId}&diff=prev" . FlaggedRevs::diffOnlyCGI()
 			);
 			$links .= ')';
 		}
