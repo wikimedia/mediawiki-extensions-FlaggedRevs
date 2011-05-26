@@ -576,7 +576,7 @@ $messages['be-tarask'] = array(
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Вашыя зьмены яшчэ не былі далучаныя да стабільнай вэрсіі. Існуюць зьмены, якія чакаюць рэцэнзаваньня.</span>
 
 Калі ласка, прарэцэнзуйце ўсе зьмены пададзеныя ніжэй, каб Вашыя рэдагаваньні былі далучаныя да стабільнай вэрсіі.',
-	'revreview-update-includes' => "'''Некаторыя шаблёны/файлы былі абноўленыя:'''",
+	'revreview-update-includes' => "'''Абноўленыя шаблёны/файлы (нерэцэнзаваныя старонкі выдзеленыя тлустым шрыфтам):'''",
 	'revreview-update-use' => "'''ЗАЎВАГА:''' Апублікаваныя вэрсіі гэтых шаблёнаў/файлаў выкарыстоўваюцца ў апублікаванай вэрсіі гэтай старонкі.",
 	'revreview-reject-header' => 'Адмяніць зьмены ў $1',
 	'revreview-reject-text-list' => "Выканаўшы гэтае дзеяньне, Вы '''адхіліце''' {{PLURAL:$1|наступную зьмену|наступныя зьмены}}:",
@@ -3312,7 +3312,7 @@ Controleer alle wijzigingen hieronder om uw bewerkingen zichtbaar te maken in de
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Uw wijzigingen zijn nog niet opgenomen in de stabiele versie. Er moeten nog bewerkingen gecontroleerd worden.</span>
 
 Controleer alle hieronder weergegeven wijzigingen om ook uw bewerking zichtbaar te maken in de stabiele versie.',
-	'revreview-update-includes' => "'''Sommige sjablonen/bestanden zijn bijgewerkt:'''",
+	'revreview-update-includes' => "'''Sommige sjablonen/bestanden zijn bijgewerkt (ongecontroleerde pagina's in vet):'''",
 	'revreview-update-use' => "'''Let op:''' de gepubliceerde versie van deze pagina bevat de gepubliceerde versies van sjablonen en bestanden die de pagina gebruikt.",
 	'revreview-reject-header' => 'Wijzigingen voor $1 afkeuren',
 	'revreview-reject-text-list' => "Door deze handeling uit te voeren, '''keurt u de volgende {{PLURAL:$1|wijziging|wijzigingen}} af''':",
@@ -4084,7 +4084,7 @@ $messages['sah'] = array(
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Эн уларытыыларыҥ бигэ барылга киирэ иликтэр. Ол иннинээҕи көннөрүүлэр тургутуллуохтаахтар.</span>
 
 Бука диэн, аллара көрдөрүллүбүт туох баар уларытыылары көрөн кинилэри ыстатыйа бигэ барылыгар киллэр.',
-	'revreview-update-includes' => "'''Сорох халыыптар/билэлэр саҥардыллан биэрбиттэр:'''",
+	'revreview-update-includes' => "'''Саҥардыллыбыт халыыптар/билэлэр (тургутуллубатахтар модьу бичигинэн):'''",
 	'revreview-update-use' => "'''БИЛЛЭРИИ:''' Манна көстөр халыыптар/билэлэр бигэ барыллара бу сирэй бигэ барылыгар туттуллаллар.",
 	'revreview-reject-header' => '$1 уларытыыларын суох гынарга',
 	'revreview-reject-text-list' => "Бу дьайыыны оҥорон Эн {{PLURAL:$1|бу уларытыыны|бу уларытыылары}} '''суох гынаҕын''':",
