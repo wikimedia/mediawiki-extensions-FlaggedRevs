@@ -1512,10 +1512,10 @@ J'Editor a son utent sicur che a peulo controlé le revision a le pàgine.",
 	'validationstatistics-pndtime' => "Modìfiche ch'a son ëstàite controlà da utent confermà a son considerà ''revisionà''.
 
 Ël ritard medi për [[Special:OldReviewedPages|pàgine con modìfiche pa revisionà ch'a speto]] a l'é '''$1''';
-ël ritard a misura vàire che le modìfiche spetante pi veje a son ëstàite pa rivisionà.",
+ël ritard a mzura vàire che le modìfiche pi veje ch'a speto a son restà sensa esse revisionà.",
 	'validationstatistics-revtime' => "L'atèisa pi àuta përchè le modìfiche dj'''utent anònim'' a sio revisionà a l'é '''$1''', la media a l'é '''$2'''.
 $3",
-	'validationstatistics-table' => "Le statìstiche ëd revision dle pàgine për minca spassi nominal a son mostrà sota, ''gavà'' le pàgine ëd ridiression. Le pàgine a son tratà com ''veje'' se a l'han modìfiche ch'a speto revision; le pàgine a son considrà ''sincronisà'' se a l'han pa ëd modìfiche ch'a speto revision.",
+	'validationstatistics-table' => "Le statìstiche ëd revision dle pàgine për minca spassi nominal a son mostrà sì-sota, ''gavà'' le pàgine ëd ridiression. Le pàgine a son tratà com ''veje'' se a l'han dle modìfiche ch'a speto na revision; le pàgine a son considerà ''sincronisà'' se a l'han pa ëd modìfiche ch'a speto na revision.",
 	'validationstatistics-ns' => 'Spassi nominal',
 	'validationstatistics-total' => 'Pàgine',
 	'validationstatistics-stable' => 'Revisionà',

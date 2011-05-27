@@ -5546,6 +5546,7 @@ $messages['he'] = array(
 	'flaggedrevs-prefs-watch' => 'מעקב אחרי דפים שסקרתי',
 	'flaggedrevs-prefs-editdiffs' => 'להציג את ההשוואה של השינויים הממתינים בעת עריכת דפים',
 	'flaggedrevs-prefs-viewdiffs' => 'להציג את ההשוואה של השינויים הממתינים בעת צפייה בגרסה הממתינה האחרונה',
+	'flaggedrevs-hidereviewed' => '$1 את העריכות שנסקרו',
 	'group-editor' => 'עורכים',
 	'group-editor-member' => 'עורך',
 	'group-reviewer' => 'סוקרים',
@@ -10122,6 +10123,7 @@ $messages['pl'] = array(
 	'flaggedrevs-prefs-watch' => 'Dodaj do obserwowanych strony oznaczane przeze mnie jako przejrzane',
 	'flaggedrevs-prefs-editdiffs' => 'Podczas edytowania pokazuj zmiany oczekujące na przejrzenie',
 	'flaggedrevs-prefs-viewdiffs' => 'Podczas wyświetlania najnowszej oczekującej wersji pokazuj wszystkie oczekujące zmiany',
+	'flaggedrevs-hidereviewed' => '$1 ukrytych edycji',
 	'group-editor' => 'Redaktorzy',
 	'group-editor-member' => 'redaktor',
 	'group-reviewer' => 'Weryfikatorzy',
@@ -10375,14 +10377,14 @@ Dle neuve [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-
 
 A-i {{PLURAL:$2|é|son}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|cangiament|cangiament}}] an cors '''(mostrà sì-sota)''' ch'a speto na revision.",
 	'revreview-edited-section' => 'Torné andré a la session ëd pàgina ciamà "[[#$1|$2]]".',
-	'revreview-newest-basic' => "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|cambe|cambe}}] an sta vërsion a {{PLURAL:$3|l'é|son}} [[{{MediaWiki:Validationpage}}|revision pendente]].
-La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} vërsion stabila] a l'era [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} cntrolà] su <i>$2</i>.",
-	'revreview-newest-basic-i' => "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Template/file changes] an sta vërsion a son [[{{MediaWiki:Validationpage}}|revision pendente]].
-La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} vërsion stabila] a l'era [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} controlà] su <i>$2</i>.",
-	'revreview-newest-quality' => "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3  {{PLURAL:$3|change|changes}}] an sta vërsion a {{PLURAL:$3|l'é|son}} [[{{MediaWiki:Validationpage}}|revision pendente]].
-La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} vërsion stabila] a l'era [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovà] su <i>$2</i>.",
-	'revreview-newest-quality-i' => "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Template/file changes] an sta vërsion a son [[{{MediaWiki:Validationpage}}|revision pendente]].
-La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} vërsion stabila] a l'era [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovà] su <i>$2</i>.",
+	'revreview-newest-basic' => "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|modìfica|modìfiche}}] an sa version a {{PLURAL:$3|l'é na|son dle}} [[{{MediaWiki:Validationpage}}|revision an atèisa]].
+La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} version stàbil] a l'era [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} controlà] su <i>$2</i>.",
+	'revreview-newest-basic-i' => "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Template/file modìfiche] an sa vërsion a son dle [[{{MediaWiki:Validationpage}}|revision ch'a speto]].
+La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} version stàbil] a l'era [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} controlà] su <i>$2</i>.",
+	'revreview-newest-quality' => "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3  {{PLURAL:$3|modìfica|modìfiche}}] an sa vërsion a {{PLURAL:$3|l'é na|son dle}} [[{{MediaWiki:Validationpage}}|revision an atèisa]].
+La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} version stàbil] a l'era [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovà] su <i>$2</i>.",
+	'revreview-newest-quality-i' => "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Template/file modìfiche] an sa version a son dle [[{{MediaWiki:Validationpage}}|revision ch'a speto]].
+La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} version stàbil] a l'era [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovà] su <i>$2</i>.",
 	'revreview-pending-basic' => "La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} version publicà] a l'é stàita [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} controlà] dël <i>$2</i>. A-i {{PLURAL:$3|é|son}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|cangiament|cangiament}}] pendent ch'a speto na revision.",
 	'revreview-pending-quality' => "La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} version publicà] a l'é stàita [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovà] dël <i>$2</i>. A-i {{PLURAL:$3|é|son}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|cangiament|cangiament}}] pendent ch'a speto na revision.",
 	'revreview-pending-nosection' => "Prové a vëdde l'[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} ùltima revision], ch'a anclud
@@ -10423,7 +10425,7 @@ Dij neuv [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-d
 	'revreview-revnotfound' => "La version prima dl'artìcol che a l'ha ciamà a l'é pa staita trovà.
 Che as controla për piasì l'adrëssa (URL) che a l'ha dovrà për rivé a sta pàgina-sì.",
 	'right-autoreview' => 'Avèj na pròpria modìfica marcà automaticament com "verificà"',
-	'right-autoreviewrestore' => 'Auto-revision su rollback',
+	'right-autoreviewrestore' => 'Revision automàtica an cas ëd révoca lesta',
 	'right-movestable' => 'Tramudé dle pàgine publicà',
 	'right-review' => 'Marché le revision \'me ch\'a fusso "controlà"',
 	'right-stablesettings' => "Configuré com la version publicà a l'é selessionà e visualisà",
@@ -10731,6 +10733,7 @@ $messages['pt-br'] = array(
 	'flaggedrevs-prefs-watch' => 'Adicionar páginas analisadas por mim à minha lista de artigos vigiados',
 	'flaggedrevs-prefs-editdiffs' => 'Mostrar diferenças das versões pendentes ao editar páginas',
 	'flaggedrevs-prefs-viewdiffs' => 'Mostrar as diferenças das alterações pendentes ao ver a última edição pendente',
+	'flaggedrevs-hidereviewed' => '$1 edições revistas',
 	'group-editor' => 'Editores',
 	'group-editor-member' => 'Editor',
 	'group-reviewer' => 'Revisores',

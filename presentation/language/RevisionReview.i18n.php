@@ -3541,7 +3541,7 @@ Przejrzyj wszystkie poniższe zmiany, a Twoje edycje zostaną zamieszczone w wer
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Wykonane przez Ciebie zmiany nie są widoczne w wersji oznaczonej, ponieważ inne wcześniejsze zmiany oczekują na przejrzenie.</span>
 
 Przejrzyj wszystkie poniższe zmiany, a Twoje edycje zostaną zamieszczone w wersji oznaczonej.',
-	'revreview-update-includes' => "'''Niektóre szablony lub pliki zostały uaktualnione:'''",
+	'revreview-update-includes' => "'''Niektóre szablony lub pliki zostały uaktualnione (nieprzejrzane strony są wytłuszczone):'''",
 	'revreview-update-use' => "'''UWAGA:''' Wersja oznaczona każdego z tych szablonów i plików jest używana w wersji oznaczonej tej strony.",
 	'revreview-reject-header' => 'Wycofanie zmian w $1',
 	'revreview-reject-text-list' => "Wykonując tę akcję '''wycofasz''' {{PLURAL:$1|poniższą zmianę|poniższe zmiany:}}",
@@ -3608,7 +3608,7 @@ Vardé la [[Special:Unreviewedpages|lista dle pàgine pa revisionà]].',
 	'revreview-submit-unreviewed' => "Fàit. Gavà l'aprovassion!",
 	'revreview-successful' => "'''Revision ëd [[:$1|$1]] signalà da bin. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} vardé le version revisionà])'''",
 	'revreview-successful2' => "'''Gavà për da bin la marca a la revision ëd [[:$1|$1]].'''",
-	'revreview-poss-conflict-p' => "'''Avis: [[User:$1|$1]] a l'ha ancaminà a revisioné sta pàgina ël $2 a $3.'''",
+	'revreview-poss-conflict-p' => "'''Avis: [[User:$1|$1]] a l'ha ancaminà a revisioné costa pàgina ël $2 a $3.'''",
 	'revreview-poss-conflict-c' => "'''Avis: [[User:$1|$1]] a l'ha ancaminà a revisioné sti cambiament ël $2 a $3.'''",
 	'revreview-toolow' => "'''A venta ch'a stima mincadun ëd j'atribù pi àut che \"pa adeguà\" përchè na revision a sia considerà revisionà.'''
 
@@ -3802,7 +3802,7 @@ Para que as suas edições apareçam na versão publicada, revise todas as alter
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">As suas alterações ainda não estão na versão publicada. Existem edições anteriores à espera de revisão.</span> 
 
 Para que as suas edições apareçam na versão publicada, revise todas as alterações mostradas abaixo, por favor.',
-	'revreview-update-includes' => "'''Algumas predefinições/arquivos foram atualizados:'''",
+	'revreview-update-includes' => "'''Foram atualizados arquivos ou predefinições (as páginas não revistas aparecem a negrito):'''",
 	'revreview-update-use' => "'''NOTA:''' A versão publicada de cada um destes arquivos ou predefinições é usada na versão publicada desta página.",
 	'revreview-reject-header' => 'Rejeitar mudanças de $1',
 	'revreview-reject-text-list' => 'Ao executar esta operação, irá "rejeitar" {{PLURAL:$1|a seguinte mudança|as seguintes mudanças}}:',
