@@ -386,7 +386,7 @@ class RevisionReviewFormUI {
 		# Do we need to get inclusion IDs from parser output?
 		if ( $this->templateIDs === null || $this->imageSHA1Keys === null ) {
 			list( $this->templateIDs, $this->imageSHA1Keys ) =
-				RevisionReviewForm::getRevIncludes( $this->article, $this->rev, $this->user );
+				FRInclusionCache::getRevIncludes( $this->article, $this->rev, $this->user );
 		}
 		return array( $this->templateIDs, $this->imageSHA1Keys );
 	}

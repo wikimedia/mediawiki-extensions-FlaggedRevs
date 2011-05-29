@@ -69,7 +69,7 @@ class ApiReview extends ApiBase {
 			$article = new FlaggedPage( $title );
 			// Now get the template and image parameters needed
 			list( $templateIds, $fileTimeKeys ) =
-				RevisionReviewForm::getRevIncludes( $article, $rev, $wgUser );
+				FRInclusionCache::getRevIncludes( $article, $rev, $wgUser );
 			// Get version parameters for review submission (flat strings)
 			list( $templateParams, $imageParams, $fileVersion ) =
 				RevisionReviewForm::getIncludeParams( $article, $templateIds, $fileTimeKeys );

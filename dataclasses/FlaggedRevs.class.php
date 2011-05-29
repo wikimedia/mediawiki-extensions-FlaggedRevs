@@ -397,7 +397,7 @@ class FlaggedRevs {
 	 */
 	public static function diffOnlyCGI() {
 		$val = trim( wfMsgForContent( 'flaggedrevs-diffonly' ) );
-		if ( $val === '' || $val === '&diffonly=1' || $val === '&diffonly=0' ) {
+		if ( $val === '&diffonly=1' || $val === '&diffonly=0' ) {
 			return $val;
 		}
 		return '';
@@ -629,7 +629,7 @@ class FlaggedRevs {
 			}
 			# Update template/file version cache...
 			if ( $sv->getRevId() != $editInfo->revid ) {
-				RevisionReviewForm::setRevIncludes( $title, $editInfo->revid, $editInfo->output );
+				FRInclusionCache::setRevIncludes( $title, $editInfo->revid, $editInfo->output );
 			}
 		}
 		# Lazily rebuild dependancies on next parse (we invalidate below)

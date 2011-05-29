@@ -2,9 +2,9 @@
 /**
  * Class containing template/file version usage requirements for
  * Parser based on the source text (being parsed) revision ID.
- * If no requirements are set, the page is parsed as normal.
  *
  * Parser hooks check this to determine what template/file version to use.
+ * If no requirements are set, the page is parsed as normal.
  */
 class FRInclusionManager {
 	protected $reviewedVersions = null; // files/templates at review time
