@@ -8176,6 +8176,7 @@ $messages['lb'] = array(
 	'flaggedrevs-prefs-watch' => 'Säiten déi ech nogekuckt hunn op meng Iwwerwaachungslëscht derbäisetzen',
 	'flaggedrevs-prefs-editdiffs' => 'Den Ënnerscheed mat der publizéierter Versioun während dem Ännere weisen',
 	'flaggedrevs-prefs-viewdiffs' => "D'Ännerungen am Suspens weise wann déi lescht Versioun vun der Säit gewise gëtt",
+	'flaggedrevs-hidereviewed' => "$1 huet d'Ännerungen nogekuckt",
 	'group-editor' => 'Editeuren',
 	'group-editor-member' => 'Editeur',
 	'group-reviewer' => 'Reviseuren',
