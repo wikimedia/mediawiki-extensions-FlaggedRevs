@@ -39,7 +39,7 @@ class CachePendingRevs extends Maintenance {
 			$rev = new Revision( $row );
 			// Trigger cache regeneration
 			$start = microtime( true );
-			RevisionReviewForm::getRevIncludes( $article, $rev, $wgUser, 'regen' );
+			FRInclusionCache::getRevIncludes( $article, $rev, $wgUser, 'regen' );
 			$elapsed = intval( ( microtime( true ) - $start ) * 1000 );
 			$this->cachePendingRevsLog(
 				$title->getPrefixedDBkey() . " rev:" . $rev->getId() . " {$elapsed}ms" );
