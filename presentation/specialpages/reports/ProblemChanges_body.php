@@ -188,7 +188,7 @@ class ProblemChanges extends SpecialPage {
 		$review = $this->skin->knownLink( $title,
 			wfMsg( 'pendingchanges-diff' ),
 			array(),
-			'diff=cur&oldid=' . intval($row->stable) . '&diffonly=0' );
+			'diff=cur&oldid=' . (int)$row->stable . FlaggedRevs::diffOnlyCGI() );
 		# Show quality level if there are several
 		if ( FlaggedRevs::qualityVersions() ) {
 			$quality = $row->quality
