@@ -794,6 +794,13 @@ class FlaggedRevision {
 		return ( $deleted || $updated );
 	}
 
+	/*
+	 * Fetch pending template changes for this reviewed page
+	 * version against a list of current versions of templates.
+	 * See findPendingTemplateChanges() for details.
+	 *
+	 * @return array of (title, rev ID in reviewed version, has stable rev) tuples
+	 */
 	public function findTemplateChanges( array $newTemplates ) {
 		if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_CURRENT ) {
 			return array(); // short-circuit
@@ -822,6 +829,14 @@ class FlaggedRevision {
 		return $tmpChanges;
 	}
 
+	/*
+	 * Fetch pending file changes for this reviewed page
+	 * version against a list of current versions of files.
+	 * See findPendingFileChanges() for details.
+	 *
+	 * @param string $noForeign Using 'noForeign' skips foreign file updates (bug 15748)
+	 * @return array of (title, MW file timestamp in reviewed version, has stable rev) tuples
+	 */
 	public function findFileChanges( array $newFiles, $noForeign = false ) {
 		if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_CURRENT ) {
 			return array(); // short-circuit
@@ -846,7 +861,7 @@ class FlaggedRevision {
 		}
 		return $fileChanges;
 	}
-		
+
 	/**
 	 * Get flags for a revision
 	 * @param Title $title
