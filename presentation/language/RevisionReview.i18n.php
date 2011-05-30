@@ -92,7 +92,7 @@ Please review all the changes shown below to make your edits appear in the stabl
 
 	'revreview-tt-flag'            => 'Accept this revision by marking it as "checked"',
 	'revreview-tt-unflag'		   => 'Unaccept this revision by marking it as "unchecked"',
-	'revreview-tt-reject'		   => 'Reject these changes by reverting them',
+	'revreview-tt-reject'		   => 'Reject these text changes by reverting them',
 );
 
 /** Message documentation (Message documentation)

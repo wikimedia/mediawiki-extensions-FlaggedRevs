@@ -183,7 +183,7 @@ class RevisionReviewFormUI {
 		$form .= Html::hidden( 'action', 'submit' ) . "\n";
 		$form .= Html::hidden( 'wpEditToken', $this->user->editToken() ) . "\n";
 		$form .= Html::hidden( 'changetime', $reviewTime,
-			array( 'id' => 'mw-fr-input-changetime' ) ); // id for JS
+			array( 'id' => 'mw-fr-input-changetime' ) ) . "\n";; // id for JS
 		# Add review parameters
 		$form .= Html::hidden( 'templateParams', $templateParams ) . "\n";
 		$form .= Html::hidden( 'imageParams', $imageParams ) . "\n";
