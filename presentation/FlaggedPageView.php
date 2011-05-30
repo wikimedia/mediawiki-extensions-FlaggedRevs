@@ -1489,9 +1489,10 @@ class FlaggedPageView {
 		# Make a link to the full diff-to-stable if:
 		# (a) Actual revs are pending and (b) We are not viewing the full diff-to-stable
 		if ( $article->revsArePending() && !$fullStableDiff ) {
-			$review = $wgUser->getSkin()->makeKnownLinkObj(
+			$review = $wgUser->getSkin()->linkKnown(
 				$article->getTitle(),
 				wfMsgHtml( 'review-diff2stable' ),
+				array(),
 				array( 'oldid' => $srev->getRevId(), 'diff' => 'cur' ) + FlaggedRevs::diffOnlyCGI()
 			);
 			$review = wfMsgHtml( 'parentheses', $review );
@@ -1561,9 +1562,11 @@ class FlaggedPageView {
 		}
 		foreach ( $changes as $tuple ) {
 			list( $title, $revIdStable, $hasStable ) = $tuple;
-			$link = $skin->makeLinkObj( $title,
+			$link = $skin->linkKnown(
+				$title,
 				htmlspecialchars( $title->getPrefixedText() ),
-				'diff=cur&oldid=' . (int)$revIdStable );
+				array(),
+				array( 'diff' => 'cur', 'oldid' => $revIdStable ) );
 			if ( !$hasStable ) {
 				$link = "<strong>$link</strong>";
 			}
@@ -1586,7 +1589,7 @@ class FlaggedPageView {
 		foreach ( $changes as $tuple ) {
 			list( $title, $revIdStable, $hasStable ) = $tuple;
 			// @TODO: change when MW has file diffs
-			$link = $skin->makeLinkObj( $title, htmlspecialchars( $title->getPrefixedText() ) );
+			$link = $skin->link( $title, htmlspecialchars( $title->getPrefixedText() ) );
 			if ( !$hasStable ) {
 				$link = "<strong>$link</strong>";
 			}
