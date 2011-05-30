@@ -1492,7 +1492,7 @@ class FlaggedPageView {
 			$review = $wgUser->getSkin()->makeKnownLinkObj(
 				$article->getTitle(),
 				wfMsgHtml( 'review-diff2stable' ),
-				'oldid=' . $srev->getRevId() . '&diff=cur' . FlaggedRevs::diffOnlyCGI()
+				array( 'oldid' => $srev->getRevId(), 'diff' => 'cur' ) + FlaggedRevs::diffOnlyCGI()
 			);
 			$review = wfMsgHtml( 'parentheses', $review );
 			$review = "<div class='fr-diff-to-stable' align='center'>$review</div>";
@@ -1648,21 +1648,19 @@ class FlaggedPageView {
 		if ( !$frev || !$this->article->revsArePending() ) {
 			return true; // only for pages with pending edits
 		}
+		$params = array();
 		// If the edit was not autoreviewed, and the user can actually make a
 		// new stable version, then go to the diff...
 		if ( $frev->userCanSetFlags( $wgUser ) ) {
-			$extraQuery .= $extraQuery ? '&' : '';
-			// Override diffonly setting to make sure the content is shown
-			$extraQuery .= 'oldid=' . $frev->getRevId() .
-				'&diff=cur' . FlaggedRevs::diffOnlyCGI() . '&shownotice=1';
+			$params += array( 'oldid' => $frev->getRevId(), 'diff' => 'cur', 'shownotice' => 1 );
+			$params += FlaggedRevs::diffOnlyCGI();
 		// ...otherwise, go to the draft revision after completing an edit.
 		// This allows for users to immediately see their changes.
 		} else {
-			$extraQuery .= $extraQuery ? '&' : '';
-			$extraQuery .= 'stable=0';
+			$params += array( 'stable' => 0 );
 			// Show a notice at the top of the page for non-reviewers...
 			if ( !$wgUser->isAllowed( 'review' ) && $this->article->isStableShownByDefault() ) {
-				$extraQuery .= '&shownotice=1';
+				$params += array( 'shownotice' => 1 );
 				if ( $sectionAnchor ) {
 					// Pass a section parameter in the URL as needed to add a link to
 					// the "your changes are pending" box on the top of the page...
@@ -1670,11 +1668,12 @@ class FlaggedPageView {
 						array( ':' , '.' ), array( '%3A', '%' ), // hack: reverse encoding
 						substr( $sectionAnchor, 1 ) // remove the '#'
 					);
-					$extraQuery .= '&fromsection=' . $section;
+					$params += array('fromsection' => $section );
 					$sectionAnchor = ''; // go to the top of the page to see notice
 				}
 			}
 		}
+		$extraQuery = wfAppendQuery( $extraQuery, $params );
 		return true;
 	}
 

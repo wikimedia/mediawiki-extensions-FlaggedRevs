@@ -393,14 +393,16 @@ class FlaggedRevs {
 
 	/**
 	 * Get the 'diffonly=' value for diff URLs. Either ('1','0','')
-	 * @return string
+	 * @return array
 	 */
 	public static function diffOnlyCGI() {
 		$val = trim( wfMsgForContent( 'flaggedrevs-diffonly' ) );
-		if ( $val === '&diffonly=1' || $val === '&diffonly=0' ) {
-			return $val;
-		}
-		return '';
+		if ( strpos( $val, '&diffonly=1' ) !== false ) {
+			return array( 'diffonly' => 1 );
+		} elseif ( strpos( $val, '&diffonly=0' ) !== false ) {
+			return array( 'diffonly' => 0);
+		} 
+		return array();
 	}
 
 	# ################ Permission functions #################	

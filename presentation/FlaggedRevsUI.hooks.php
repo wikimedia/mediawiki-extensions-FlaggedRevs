@@ -567,7 +567,8 @@ class FlaggedRevsUIHooks {
 				$title,
 				wfMsgHtml( 'revreview-reviewlink' ),
 				array( 'title' => wfMsg( 'revreview-reviewlink-title' ) ),
-				array( 'oldid' => $rc->mAttribs['fp_stable'], 'diff' => 'cur' )
+				array( 'oldid' => $rc->mAttribs['fp_stable'], 'diff' => 'cur' ) +
+					FlaggedRevs::diffOnlyCGI()
 			);
 			$css = 'flaggedrevs-pending';
 		}
