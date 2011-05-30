@@ -171,7 +171,7 @@ class FlaggedRevision {
 	 */
 	public static function getStableRevId( Title $title, $flags = 0 ) {
 		$srev = self::newFromStable( $title, $flags );
-		return $srev ? $srev->getId() : 0;
+		return $srev ? $srev->getRevId() : 0;
 	}
 
 	/**
