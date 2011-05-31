@@ -1037,7 +1037,7 @@ Bitte markiere alle unten angezeigten Änderungen, damit deine Bearbeitungen zur
 	'revreview-reject-usercount' => '{{PLURAL:$1|Ein Benutzer|$1 Benutzer}}',
 	'revreview-tt-flag' => 'Diese Version anzeigen, indem du die Änderungen markierst',
 	'revreview-tt-unflag' => 'Diese Version nicht mehr anzeigen lassen, indem du die Markierung entfernst',
-	'revreview-tt-reject' => 'Diese Änderungen verwerfen, indem man sie zurückgesetzt',
+	'revreview-tt-reject' => 'Diese Textänderungen durch Zurücksetzen verwerfen',
 );
 
 /** German (formal address) (‪Deutsch (Sie-Form)‬)
@@ -2363,7 +2363,7 @@ Per favor revide tote le modificationes monstrate hic infra pro facer tu modific
 	'revreview-reject-usercount' => '{{PLURAL:$1|un usator|$1 usatores}}',
 	'revreview-tt-flag' => 'Approbar iste version per marcar lo como verificate',
 	'revreview-tt-unflag' => 'Cessar de acceptar iste version per marcar lo como como "non verificate"',
-	'revreview-tt-reject' => 'Rejectar iste modificationes per reverter los',
+	'revreview-tt-reject' => 'Rejectar iste modificationes de texto per reverter los',
 );
 
 /** Indonesian (Bahasa Indonesia)
@@ -3089,7 +3089,7 @@ $messages['mk'] = array(
 	'revreview-reject-usercount' => '{{PLURAL:$1|еден корисник|$1 корисници}}',
 	'revreview-tt-flag' => 'Одобри ја оваа верзија означувајќи ја како проверена',
 	'revreview-tt-unflag' => 'Направете ја оваа верзија неприфатлива означувајќи ја како „непроверена“',
-	'revreview-tt-reject' => 'Одбијте ги овие промени, враќајќи ги',
+	'revreview-tt-reject' => 'Одбијте ги овие промени во текстот, враќајќи ги',
 );
 
 /** Malayalam (മലയാളം)
@@ -3170,7 +3170,7 @@ $messages['ml'] = array(
 	'revreview-reject-usercount' => '{{PLURAL:$1|ഒരുപയോക്താവ്|$1 ഉപയോക്താക്കൾ}}',
 	'revreview-tt-flag' => 'ഈ നാൾപ്പതിപ്പ് പരിശോധിച്ചതായി അടയാളപ്പെടുത്തി അംഗീകരിക്കുക',
 	'revreview-tt-unflag' => 'ഈ നാൾപ്പതിപ്പ് "പരിശോധിച്ചതല്ല" എന്നടയാളപ്പെടുത്തി അംഗീകാരം നീക്കുക',
-	'revreview-tt-reject' => 'ഈ മാറ്റങ്ങൾ പുനഃപ്രാപനം ചെയ്ത് നിരാകരിക്കുക',
+	'revreview-tt-reject' => 'എഴുത്തിൽ വന്ന ഈ മാറ്റങ്ങൾ പുനഃപ്രാപനം ചെയ്ത് നിരാകരിക്കുക',
 );
 
 /** Mongolian (Монгол)
@@ -3736,7 +3736,7 @@ Para que as suas edições apareçam na versão publicada, reveja todas as alter
 	'revreview-reject-usercount' => '{{PLURAL:$1|um utilizador|$1 utilizadores}}',
 	'revreview-tt-flag' => 'Aprovar esta edição, marcando-a como "verificada"',
 	'revreview-tt-unflag' => 'Anular a aprovação desta edição, marcando-a como "não verificada"',
-	'revreview-tt-reject' => 'Rejeitar estas alterações, revertendo-as',
+	'revreview-tt-reject' => 'Rejeitar estas alterações ao texto, revertendo-as',
 );
 
 /** Brazilian Portuguese (Português do Brasil)
@@ -3837,7 +3837,7 @@ $messages['qu'] = array(
  */
 $messages['ro'] = array(
 	'review_denied' => 'Permisiune refuzată.',
-	'review_param_missing' => 'Un parametru lipseşte sau este invalid.',
+	'review_param_missing' => 'Un parametru lipsește sau este invalid.',
 	'revreview-check-flag-u' => 'Acceptă această pagină nerevizuită',
 	'revreview-check-flag-u-title' => 'Acceptă această versiune a paginii. Folosiţi asta doar dacă aţi văzut deja întreaga pagină.',
 	'revreview-check-flag-y' => 'Acceptă aceste schimbări',
@@ -3854,9 +3854,10 @@ $messages['ro'] = array(
 	'revreview-reject-summary' => 'Rezumat:',
 	'revreview-reject-confirm' => 'Respinge aceste modificări',
 	'revreview-reject-cancel' => 'Revocare',
+	'revreview-reject-usercount' => '{{PLURAL:$1|un utilizator|$1 utilizatori}}',
 	'revreview-tt-flag' => 'Acceptă această revizie marcând-o ca „verificată”',
 	'revreview-tt-unflag' => 'Dezaprobă această revizie marcând-o ca „neverificată”',
-	'revreview-tt-reject' => 'Respinde aceste schimbări prin revenirea lor',
+	'revreview-tt-reject' => 'Respinge aceste schimbări ale textului prin restaurarea versiunii anterioare lor',
 );
 
 /** Tarandíne (Tarandíne)
@@ -3997,7 +3998,7 @@ $messages['ru'] = array(
 	'revreview-reject-usercount' => '{{PLURAL:$1|$1 участника|$1 участников|$1 участников}}',
 	'revreview-tt-flag' => 'Подтвердите эту версию, отметив её как проверенную',
 	'revreview-tt-unflag' => 'Снять подтверждение с этой версии, отметив её как непроверенную',
-	'revreview-tt-reject' => 'Отклонить эти изменения, откатить их',
+	'revreview-tt-reject' => 'Отклонить эти текстовые изменения, откатить их',
 );
 
 /** Rusyn (Русиньскый)
@@ -4245,7 +4246,7 @@ Prosimo, preglejte vse spremembe prikazane podaj, da prikažete vaše spremembe 
 	'revreview-reject-usercount' => '$1 {{PLURAL:$1|uporabnik|uporabnika|uporabniki|uporabnikov}}',
 	'revreview-tt-flag' => 'Sprejmite to redakcijo tako, da jo označite kot »preverjeno«',
 	'revreview-tt-unflag' => 'Odsprejmite to redakcijo tako, da jo označite kot »nepreverjeno«',
-	'revreview-tt-reject' => 'Zavrnite te spremembe tako, da jih vrnete',
+	'revreview-tt-reject' => 'Zavrnite te spremembe besedila tako, da jih vrnete',
 );
 
 /** Serbian Cyrillic ekavian (‪Српски (ћирилица)‬)

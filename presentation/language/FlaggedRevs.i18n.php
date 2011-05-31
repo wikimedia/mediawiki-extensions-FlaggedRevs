@@ -4911,6 +4911,8 @@ De novéls [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs
 	'revreview-draft-title' => 'Los changements en atenta sont montrâs sur ceta pâge',
 	'revreview-edit' => 'Changiér',
 	'revreview-editnotice' => "'''Voutros changements seront montrâs ux liésors setout qu’un utilisator qu’at los drêts nècèssèros los arat revus. ([[{{MediaWiki:Validationpage}}|éde]])'''",
+	'revreview-submitedit' => 'Sometre los changements',
+	'revreview-submitedit-title' => 'Sometre voutros changements por rèvision',
 	'revreview-edited' => "'''Voutros changements seront montrâs ux liésors setout qu’un utilisator qu’at los drêts nècèssèros los arat revus. ([[{{MediaWiki:Validationpage}}|éde]])'''
 
 Y at [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 changement{{PLURAL:$2||s}}] ''(vêde ce-desot)'' en atenta de rèvision.",
