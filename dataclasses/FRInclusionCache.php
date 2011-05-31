@@ -20,8 +20,7 @@ class FRInclusionCache {
 		global $wgParser, $wgMemc;
 		wfProfileIn( __METHOD__ );
 		$versions = false;
-		$hash = md5( $article->getTitle()->getPrefixedDBkey() );
-		$key = wfMemcKey( 'flaggedrevs', 'revIncludes', $rev->getId(), $hash );
+		$key = self::getCacheKey( $article->getTitle(), $rev->getId() );
 		if ( $regen !== 'regen' ) { // check cache
 			$versions = FlaggedRevs::getMemcValue( $wgMemc->get( $key ), $article, 'allowStale' );
 		}
@@ -48,13 +47,14 @@ class FRInclusionCache {
 			}
 			# Get the template/file versions used...
 			$versions = array( $pOut->getTemplateIds(), $pOut->getImageTimeKeys() );
-			# Save to cache...
+			# Save to cache (check cache expiry for dynamic elements)...
 			$data = FlaggedRevs::makeMemcObj( $versions );
-			$wgMemc->set( $key, $data, 24*3600 ); // inclusions may be dynamic
+			$wgMemc->set( $key, $data, $pOut->getCacheExpiry() );
 		} else {
+			$tVersions =& $versions[0]; // templates
 			# Do a link batch query for page_latest...
 			$lb = new LinkBatch();
-			foreach ( $versions as $ns => $tmps ) {
+			foreach ( $tVersions as $ns => $tmps ) {
 				foreach ( $tmps as $dbKey => $revIdDraft ) {
 					$lb->add( $ns, $dbKey );
 				}
@@ -62,9 +62,9 @@ class FRInclusionCache {
 			$lb->execute();
 			# Update array with the current page_latest values.
 			# This kludge is there since $newTemplates (thus $revIdDraft) is cached.
-			foreach ( $versions as $ns => $tmps ) {
+			foreach ( $tVersions as $ns => &$tmps ) {
 				foreach ( $tmps as $dbKey => &$revIdDraft ) {
-					$title = new Title( $ns, $dbKey );
+					$title = Title::makeTitle( $ns, $dbKey );
 					$revIdDraft = (int)$title->getLatestRevID();
 				}
 			}
@@ -82,12 +82,16 @@ class FRInclusionCache {
 	 */
 	public static function setRevIncludes( Title $title, $revId, ParserOutput $pOut ) {
 		global $wgMemc;
-		$hash = md5( $title->getPrefixedDBkey() );
-		$key = wfMemcKey( 'flaggedrevs', 'revIncludes', $revId, $hash );
+		$key = self::getCacheKey( $title, $revId );
 		# Get the template/file versions used...
 		$versions = array( $pOut->getTemplateIds(), $pOut->getImageTimeKeys() );
-		# Save to cache...
+		# Save to cache (check cache expiry for dynamic elements)...
 		$data = FlaggedRevs::makeMemcObj( $versions );
-		$wgMemc->set( $key, $data, 24*3600 ); // inclusions may be dynamic
+		$wgMemc->set( $key, $data, $pOut->getCacheExpiry() );
+	}
+
+	protected static function getCacheKey( Title $title, $revId ) {
+		$hash = md5( $title->getPrefixedDBkey() );
+		return wfMemcKey( 'flaggedrevs', 'revIncludes', $revId, $hash );
 	}
 }
