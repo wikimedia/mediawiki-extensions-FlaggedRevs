@@ -3327,7 +3327,7 @@ Controleer alle hieronder weergegeven wijzigingen om ook uw bewerking zichtbaar 
 	'revreview-reject-usercount' => '{{PLURAL:$1|één gebruiker|$1 gebruikers}}',
 	'revreview-tt-flag' => 'Deze versie goedkeuren door haar als gecontroleerd te markeren',
 	'revreview-tt-unflag' => "Keur deze versie af door haar als '''ongecontroleerd''' te markeren",
-	'revreview-tt-reject' => 'Deze wijzigingen afkeuren door te terug te draaien',
+	'revreview-tt-reject' => 'Deze tekstwijzigingen afkeuren door te terug te draaien',
 );
 
 /** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
@@ -3556,7 +3556,7 @@ Przejrzyj wszystkie poniższe zmiany, a Twoje edycje zostaną zamieszczone w wer
 	'revreview-reject-usercount' => '{{PLURAL:$1|jeden użytkownik|$1 użytkowników}}',
 	'revreview-tt-flag' => 'Zaakceptuj tę wersję poprzez oznaczenie jej jako „przejrzaną”',
 	'revreview-tt-unflag' => 'Wycofaj akceptację tej wersji poprzez oznaczenie jej jako „nieprzejrzaną”',
-	'revreview-tt-reject' => 'Wycofaj te zmiany poprzez przywrócenie ostatniej wersji przejrzanej',
+	'revreview-tt-reject' => 'Odrzuć te zmiany w tekście poprzez ich wycofanie',
 );
 
 /** Piedmontese (Piemontèis)
@@ -3817,7 +3817,7 @@ Para que as suas edições apareçam na versão publicada, revise todas as alter
 	'revreview-reject-usercount' => '{{PLURAL:$1|um usuário|$1 usuários}}',
 	'revreview-tt-flag' => 'Aprovar esta edição, marcando-a como "verificada"',
 	'revreview-tt-unflag' => 'Anular a aprovação desta edição, marcando-a como "não verificada"',
-	'revreview-tt-reject' => 'Rejeitar estas alterações, revertendo-as',
+	'revreview-tt-reject' => 'Rejeitar estas alterações do texto, revertendo-as',
 );
 
 /** Quechua (Runa Simi)
@@ -4990,7 +4990,7 @@ Xin hãy duyệt các thay đổi ở dưới để đưa các sửa đổi củ
 	'revreview-reject-usercount' => '{{PLURAL:$1|một người dùng|$1 người dùng}}',
 	'revreview-tt-flag' => 'Chấp nhận thay đổi này bằng cách đánh dấu nó là “đã xem qua”',
 	'revreview-tt-unflag' => 'Rút chấp nhận phiên bản này bằng cách đánh dấu nó là “chưa xem qua”',
-	'revreview-tt-reject' => 'Từ chối các thay đổi này bằng cách lùi lại',
+	'revreview-tt-reject' => 'Từ chối các thay đổi văn bản này bằng cách lùi lại chúng',
 );
 
 /** Volapük (Volapük)
