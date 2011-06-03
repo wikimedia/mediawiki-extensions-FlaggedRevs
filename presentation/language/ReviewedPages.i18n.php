@@ -457,9 +457,9 @@ $messages['gl'] = array(
 	'reviewedpages-list' => "Estas listas conteñen as páxinas [[{{MediaWiki:Validationpage}}|revisadas]] cuxo nivel de revisión ''máis alto'' (dunha revisión) é o nivel especificado.
 Dáse unha ligazón cara á última revisión dese nivel.",
 	'reviewedpages-none' => 'Non hai páxinas nesta lista',
-	'reviewedpages-lev-0' => 'Revisado',
-	'reviewedpages-lev-1' => 'Calidade',
-	'reviewedpages-lev-2' => 'Destacado',
+	'reviewedpages-lev-0' => '{{int:revreview-lev-basic}}',
+	'reviewedpages-lev-1' => '{{int:revreview-lev-quality}}',
+	'reviewedpages-lev-2' => '{{int:revreview-lev-pristine}}',
 	'reviewedpages-all' => 'versións revisadas',
 	'reviewedpages-best' => 'mellor revisión',
 );

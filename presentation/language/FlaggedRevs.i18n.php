@@ -6637,6 +6637,7 @@ $messages['id'] = array(
 	'flaggedrevs-prefs-watch' => 'Tambahkan halaman yang saya tinjau ke daftar pantauan',
 	'flaggedrevs-prefs-editdiffs' => 'Tampilkan perbedaan perubahan tertunda ketika menyunting halaman',
 	'flaggedrevs-prefs-viewdiffs' => 'Tampilkan perbedaan perubahan tertunda ketika melihat revisi tertunda terkini',
+	'flaggedrevs-hidereviewed' => '$1 suntingan diperiksa',
 	'group-editor' => 'Editor',
 	'group-editor-member' => 'penyunting',
 	'group-reviewer' => 'Peninjau',

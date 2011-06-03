@@ -516,6 +516,7 @@ $messages['be'] = array(
 /** Belarusian (Taraškievica orthography) (‪Беларуская (тарашкевіца)‬)
  * @author EugeneZelenko
  * @author Jim-by
+ * @author Wizardist
  */
 $messages['be-tarask'] = array(
 	'revisionreview' => 'Рэцэнзаваць вэрсіі',
@@ -591,7 +592,7 @@ $messages['be-tarask'] = array(
 	'revreview-reject-usercount' => '$1 {{PLURAL:$1|удзельнік|удзельнікі|удзельнікаў}}',
 	'revreview-tt-flag' => 'Зацьвердзіць гэтую вэрсію пазначыўшы як правераную',
 	'revreview-tt-unflag' => 'Зьняць зацьверджаньне вэрсіі, пазначыўшы яе як «неправеранаю»',
-	'revreview-tt-reject' => 'Адмяніць гэтыя зьмены скасаваўшы іх',
+	'revreview-tt-reject' => 'Адхіліць гэтыя зьмены, скасаваўшы іх',
 );
 
 /** Bulgarian (Български)
@@ -1844,7 +1845,7 @@ Revise todos os cambios listados a continuación para que as súas edicións apa
 	'revreview-reject-usercount' => '{{PLURAL:$1|un usuario|$1 usuarios}}',
 	'revreview-tt-flag' => 'Aprobar esta revisión marcándoa como comprobada',
 	'revreview-tt-unflag' => 'Suspender esta revisión marcándoa como non comprobada',
-	'revreview-tt-reject' => 'Rexeitar estes cambios reverténdoos',
+	'revreview-tt-reject' => 'Rexeitar estes cambios no texto reverténdoos',
 );
 
 /** Ancient Greek (Ἀρχαία ἑλληνικὴ)
@@ -3327,7 +3328,7 @@ Controleer alle hieronder weergegeven wijzigingen om ook uw bewerking zichtbaar 
 	'revreview-reject-usercount' => '{{PLURAL:$1|één gebruiker|$1 gebruikers}}',
 	'revreview-tt-flag' => 'Deze versie goedkeuren door haar als gecontroleerd te markeren',
 	'revreview-tt-unflag' => "Keur deze versie af door haar als '''ongecontroleerd''' te markeren",
-	'revreview-tt-reject' => 'Deze tekstwijzigingen afkeuren door te terug te draaien',
+	'revreview-tt-reject' => 'Deze wijzigingen afkeuren door te terug te draaien',
 );
 
 /** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
