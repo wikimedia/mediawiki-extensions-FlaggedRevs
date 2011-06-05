@@ -2945,7 +2945,7 @@ Kuckt w.e.g. all d\'Ännerungen hei drënner no fir datt Är Ännerungen akzept�
 	'revreview-reject-usercount' => '{{PLURAL:$1|Ee Benotzer|$1 Benotzer}}',
 	'revreview-tt-flag' => 'Dës Versioun als nogekuckt markéieren',
 	'revreview-tt-unflag' => 'Dës Versioun net akzeptéieren andeem se als "net méi nogekuckt" markéiert gëtt',
-	'revreview-tt-reject' => 'Dës Ännerungen zréckweisen an deem ze zréckgesat ginn',
+	'revreview-tt-reject' => 'Dës Ännerungen vum Quelltext zeréckweisen an deem ze zréckgesat ginn',
 );
 
 /** Limburgish (Limburgs)
