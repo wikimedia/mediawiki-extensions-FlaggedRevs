@@ -3898,10 +3898,14 @@ Puede que se hayan realizado [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{Med
 
 {{PLURAL:$2|Hay|Hay}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|cambio|cambios}}] {{PLURAL:$2|pendiente|pendientes}} ''({{PLURAL:$2|mostrado|mostrados}} abajo)'' esperando revisión.",
 	'revreview-edited-section' => 'Volver a la sección de la página llamada "[[#$1|$2]]".',
-	'revreview-newest-basic' => 'La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} versión publicada] fue [{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} verificada] en <i>$2</i>. {{PLURAL:$3|Hay|Hay}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|cambio|cambios}}] esperando revisión.',
-	'revreview-newest-basic-i' => 'La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} versión publicada] fue [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} verificada] el <i>$2</i>. Hay  [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} cambios de plantilla/archivo] esperando revisión.',
-	'revreview-newest-quality' => 'La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} versión publicada] fue [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprobada] el <i>$2</i>. {{PLURAL:$3|Hay|Hay}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|cambio|cambios}}] esperando revisión.',
-	'revreview-newest-quality-i' => 'La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} versión publicada] fue [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprobada] el <i>$2</i>. Hay [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} cambios de plantilla/archivo] esperando revisión.',
+	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|cambio|cambios}}] en esta versión {{PLURAL:$3|está|están}} [[{{MediaWiki:Validationpage}}|pendientes de revisión]].
+La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} versión estable] fue [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} verificada] el <i>$2</i>.',
+	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Plantilla/cambios de archivo] en esta versión están [[{{MediaWiki:Validationpage}}|pendientes de revisión]].
+La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} versión estable] fue [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} verificada] el <i>$2</i>.',
+	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3  {{PLURAL:$3|cambio|cambios}}] en esta versión {{PLURAL:$3|está|están}} [[{{MediaWiki:Validationpage}}|pendientes de revisión]].
+La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} versión estable] fue [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprobada] el <i>$2</i>.',
+	'revreview-newest-quality-i' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Plantilla/cambios de archivo] en esta versión están [[{{MediaWiki:Validationpage}}|pendientes de revisión]].
+La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} versión estable] fue [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprobada] el <i>$2</i>.',
 	'revreview-pending-basic' => 'La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} versión publicada] fue [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} verificada] el <i>$2</i>. {{PLURAL:$3|Hay|Hay}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|cambio|cambios}}] pendientes esperando revisión.',
 	'revreview-pending-quality' => 'La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} versión publicada] fue [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprobada] el <i>$2</i>. {{PLURAL:$3|Hay|Hay}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|cambio|cambios}}] pendientes esperando revisión.',
 	'revreview-pending-nosection' => 'Trata viendo la [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} última revisión], la cual incluye
@@ -9274,10 +9278,11 @@ $messages['mzn'] = array(
 
 /** Nahuatl (Nāhuatl)
  * @author Fluence
+ * @author Ricardo gs
  */
 $messages['nah'] = array(
 	'revreview-style-2' => 'Cualli',
-	'tooltip-ca-current' => 'Xiquitta āxcān zāzanilli ītzīmpēhualiz',
+	'tooltip-ca-current' => 'Xiquitta inīn āmatl īca in yancuīc tlapatlaliztli',
 );
 
 /** Low German (Plattdüütsch)

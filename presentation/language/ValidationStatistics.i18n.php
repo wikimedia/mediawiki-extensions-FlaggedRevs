@@ -514,19 +514,19 @@ $messages['es'] = array(
 	'validationstatistics-users' => "En '''{{SITENAME}}''' actualmente hay '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|usuario|usuarios}} con derechos de [[{{MediaWiki:Validationpage}}|Editor]].
 Los editores son usuarios establecidos que pueden verificar las revisiones de las páginas.",
 	'validationstatistics-lastupdate' => "''Los siguientes datos fueron actualizados por última vez el $1 a las $2.''",
-	'validationstatistics-pndtime' => "Ediciones que han sido verificadas por usuarios establecidos son consideradas revisadas.
+	'validationstatistics-pndtime' => "Ediciones que han sido verificadas por usuarios establecidos son consideradas ''revisadas''.
 
-La demora promedio para [[Special:OldReviewedPages|páginas con ediciones pendientes no revisadas]] es '''$1'''.
-Estas páginas son consideradas ''desactualizadas''. Del mismo modo, las páginas son consideradas ''sincronizadas'' si no hay revisiones de edición pendientes.",
+La demora promedio para [[Special:OldReviewedPages|páginas con ediciones pendientes no revisadas]] es '''$1''';
+La demora mide cuanto la edición pendiente más antigua ha estado sin revisar.",
 	'validationstatistics-revtime' => "La espera promedio para las ediciones  hechas por ''usuarios que no han iniciado sesión'' a ser revisadas es '''$1'''; la media es '''$2'''. $3",
-	'validationstatistics-table' => "Las estadísiticas de la revisión de páginas para cada espacio de nombres están mostradas debajo, ''excluyendo'' redirecciones.",
+	'validationstatistics-table' => "Las estadísiticas de la revisión de páginas para cada espacio de nombres están mostradas debajo, ''excluyendo'' redirecciones. Las páginas son tratadas como ''desactualizadas'' si tiene ediciones pendientes de revisión; la páginas son consideradas ''sincronizadas'' si no tiene ediciones pendientes de revisión.",
 	'validationstatistics-ns' => 'Espacio de nombres',
 	'validationstatistics-total' => 'Páginas',
 	'validationstatistics-stable' => 'Revisado',
 	'validationstatistics-latest' => 'Sincronizado',
 	'validationstatistics-synced' => 'Sincronizado/Revisado',
 	'validationstatistics-old' => 'desactualizado',
-	'validationstatistics-utable' => 'Debajo hay un lista de {{PLURAL:$1|el revisor más activo|los $1 revisores más activos}} en la última hora.',
+	'validationstatistics-utable' => 'Debajo hay un lista de {{PLURAL:$1|el revisor más activo|los $1 revisores más activos}} en las {{PLURAL:$2|hora|$2 horas}}.',
 	'validationstatistics-user' => 'Usuario',
 	'validationstatistics-reviews' => 'Revisiones',
 );

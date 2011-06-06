@@ -1373,12 +1373,12 @@ Por favor revisa todos los cambios mostrados debajo para hacer que tus ediciones
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Tus cambios no está en la versión estable aún. Hay ediciones previas pendientes de ser revisadas.</span>
 
 Por favor, revisa todos los cambios mostrados a continuación para que se acepten tus ediciones.',
-	'revreview-update-includes' => "'''Algunas plantillas/archivos fueron actualizados:'''",
+	'revreview-update-includes' => "'''Plantilla/archivos actualizados (páginas sin revisar en negrita):'''",
 	'revreview-update-use' => "'''Nota:''' La versión publicada de cada una de estas plantillas / archivos se utiliza en la versión publicada de esta página.",
 	'revreview-reject-header' => 'Rechazar los cambios para $1',
 	'revreview-reject-text-list' => "Al ejecutar esta acción, estarás '''rechazando''' {{PLURAL:$1|el siguiente cambio|los siguientes cambios}}:",
 	'revreview-reject-text-revto' => 'La página será revertida a su [{{*fullurl:$1|*oldid=$2}} versión de $3].',
-	'revreview-reject-summary' => 'Resumen de edición:',
+	'revreview-reject-summary' => 'Resumen:',
 	'revreview-reject-confirm' => 'Rechazar estos cambios',
 	'revreview-reject-cancel' => 'Cancelar',
 	'revreview-reject-summary-cur' => '{{PLURAL:$1|Rechazado el último cambio|Rechazados los últimos $1 cambios}} (por $2) y restaurada la revisión $3 de $4.',
@@ -1388,7 +1388,7 @@ Por favor, revisa todos los cambios mostrados a continuación para que se acepte
 	'revreview-reject-usercount' => '{{PLURAL:$1|un usuario|$1 usuarios}}',
 	'revreview-tt-flag' => 'Aprobar esta revisión marcándola como revisada',
 	'revreview-tt-unflag' => 'Desaprobar esta revisión marcándola como "no-verificada"',
-	'revreview-tt-reject' => 'Rechazar estos cambios revirtiendolos',
+	'revreview-tt-reject' => 'Rechazar estos cambios del texto fuente revirtiendolos',
 );
 
 /** Estonian (Eesti)
