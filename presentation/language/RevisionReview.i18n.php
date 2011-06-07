@@ -779,7 +779,7 @@ Molimo provjerite sve izmjene prikazane ispod da bi se vaše izmjene prikazale u
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Vaše izmjene još uvijek nisu u stabilnoj verziji. Postoje ranije izmjene koje su na čekanju za provjeru</span>
 
 Molimo provjerite sve izmjene prikazane ispod da bi se vaše izmjene prikazale u stabilnoj verziji.',
-	'revreview-update-includes' => "'''Neki šabloni/datoteke su ažurirani:'''",
+	'revreview-update-includes' => "''Šabloni/datoteke su ažurirani (nepregledane stranice su bodirane):'''",
 	'revreview-update-use' => "'''NAPOMENA:''' Stabilna verzija svake od ovih šablona/datoteka je korištena u stabilnoj verziji ove stranice.",
 	'revreview-reject-header' => 'Odbij promjene za $1',
 	'revreview-reject-text-list' => "Dovršavanjem ove akcije, vi ćete '''odbiti''' {{PLURAL:$1|slijedeću promjenu|slijedeće promjene}}:",
@@ -794,7 +794,7 @@ Molimo provjerite sve izmjene prikazane ispod da bi se vaše izmjene prikazale u
 	'revreview-reject-usercount' => '{{PLURAL:$1|jedan korisnik|$1 korisnika}}',
 	'revreview-tt-flag' => "Prihvati ovu reviziju označavajući je ''provjerenom''",
 	'revreview-tt-unflag' => "Ne prihvati ovu reviziju označavajući je ''neprovjerenom''",
-	'revreview-tt-reject' => 'Odbij ove promjene tako što ćete ih vratiti',
+	'revreview-tt-reject' => 'Odbij promjene ovog izvornog teksta tako što ćete ih vratiti',
 );
 
 /** Catalan (Català)

@@ -2248,6 +2248,7 @@ $messages['bs'] = array(
 	'flaggedrevs-prefs-watch' => 'Dodaj stranice koje sam pregledao na moj spisak praćenja',
 	'flaggedrevs-prefs-editdiffs' => 'Prikaži razlike na čekanju pri uređivanju stranice',
 	'flaggedrevs-prefs-viewdiffs' => 'Pokaži razlike izmjena na čekanju pri prikazivanju posljednje revizije na čekanju',
+	'flaggedrevs-hidereviewed' => '$1 pregledanih izmjena',
 	'group-editor' => 'Urednici',
 	'group-editor-member' => 'uređivač',
 	'group-reviewer' => 'Provjerivači',
