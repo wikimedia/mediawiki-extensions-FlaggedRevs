@@ -1704,7 +1704,7 @@ Vous devez relire toutes les modifications affichées ci-dessous pour la votre a
 	'revreview-reject-usercount' => '{{PLURAL:$1|un utilisateur|$1 utilisateurs}}',
 	'revreview-tt-flag' => 'Approuver cette version en la marquant comme vérifiée',
 	'revreview-tt-unflag' => 'Désapprouver cette version en la marquant comme non-vérifiée',
-	'revreview-tt-reject' => 'Rejeter ces modifications en les révoquant',
+	'revreview-tt-reject' => 'Rejeter ces modifications dans le texte source en les révoquant',
 );
 
 /** Franco-Provençal (Arpetan)
