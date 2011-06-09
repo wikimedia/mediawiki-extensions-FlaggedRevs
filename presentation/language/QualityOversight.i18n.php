@@ -421,14 +421,15 @@ $messages['mr'] = array(
 );
 
 /** Malay (Bahasa Melayu)
+ * @author Anakmalaysia
  * @author Aviator
  * @author Kurniasan
  * @author Putera Luqman Tunku Andre
  */
 $messages['ms'] = array(
-	'qualityoversight' => 'Kawalan mutu',
+	'qualityoversight' => 'Log semakan lanjutan',
 	'qualityoversight-list' => 'Yang berikut ialah senarai terkini pengesahan dan pengguguran semakan.',
-	'qualityoversight-legend' => 'Gelintar log pemeriksaan terkini',
+	'qualityoversight-legend' => 'Cari log semakan terkini',
 );
 
 /** Dutch (Nederlands)
