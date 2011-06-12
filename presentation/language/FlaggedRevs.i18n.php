@@ -14742,6 +14742,7 @@ $messages['zh-hans'] = array(
 	'flaggedrevs-prefs-watch' => '将我评审的页面添加到我的监视列表中',
 	'flaggedrevs-prefs-editdiffs' => '在编辑时显示与稳定版本的差异',
 	'flaggedrevs-prefs-viewdiffs' => '在显示页面草稿时显示与稳定版本的差异',
+	'flaggedrevs-hidereviewed' => '$1 检讨的编辑',
 	'group-editor' => '编辑',
 	'group-editor-member' => '编辑',
 	'group-reviewer' => '评论家',
