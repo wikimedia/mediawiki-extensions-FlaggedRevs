@@ -323,7 +323,7 @@ window.FlaggedRevsReview = {
 	*/
 	'deadvertiseReviewing': function() {
 		var form = document.getElementById('mw-fr-reviewform');
-		if( form ) {
+		if( form && jsReviewingStatus ) {
 			var oRevId = document.getElementById('mw-fr-input-refid').value;
 			var nRevId = document.getElementById('mw-fr-input-oldid').value;
 		} else if( location.href.indexOf('&reviewing=1') != -1 ) {

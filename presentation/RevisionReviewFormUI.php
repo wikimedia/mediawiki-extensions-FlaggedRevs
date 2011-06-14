@@ -168,12 +168,15 @@ class RevisionReviewFormUI {
 			$form .= "<span id='mw-fr-commentbox' style='clear:both'>" .
 				Xml::inputLabel( wfMsg( 'revreview-log' ), 'wpReason', 'wpReason', 40, '',
 					array( 'maxlength' => 255, 'class' => 'fr-comment-box' ) ) .
-				"&#160;&#160;&#160;</span>";
+				"&#160;&#160;&#160;</span>\n";
 		}
 		# Determine if there will be reject button
 		$rejectId = $this->rejectRefRevId();
 		# Add the submit buttons
 		$form .= self::submitButtons( $rejectId, $frev, (bool)$disabled, $reviewIncludes );
+		# Untoggle "reviewing" status on exit
+		$form .= '<script type="text/javascript">var jsReviewingStatus = ' .
+			(int)( $u == $this->user->getName() ) . "</script>\n";
 		# Show stability log if there is anything interesting...
 		if ( $article->isPageLocked() ) {
 			$form .= ' ' . FlaggedRevsXML::logToggle( 'revreview-log-toggle-show' );
@@ -190,7 +193,6 @@ class RevisionReviewFormUI {
 		$form .= Html::hidden( 'target', $article->getTitle()->getPrefixedDBKey() ) . "\n";
 		$form .= Html::hidden( 'refid', $priorRevId, array( 'id' => 'mw-fr-input-refid' ) ) . "\n";
 		$form .= Html::hidden( 'oldid', $revId, array( 'id' => 'mw-fr-input-oldid' ) ) . "\n";
-		$form .= Html::hidden( 'action', 'submit' ) . "\n";
 		$form .= Html::hidden( 'wpEditToken', $this->user->editToken() ) . "\n";
 		$form .= Html::hidden( 'changetime', $reviewTime,
 			array( 'id' => 'mw-fr-input-changetime' ) ) . "\n";; // id for JS
@@ -385,10 +387,10 @@ class RevisionReviewFormUI {
 				'title' => wfMsg( 'revreview-tt-unflag' ),
 				'style' => $frev ? '' : 'display:none'
 			) + ( $disabled ? $disAttrib : array() )
-		);
+		) . "\n";
 		// Disable buttons unless state changes in some cases (non-JS compatible)
-		$s .= "<script type=\"text/javascript\">
-			var jsReviewNeedsChange = " . (int)$needsChange . "</script>";
+		$s .= '<script type="text/javascript">var jsReviewNeedsChange = ' .
+			(int)$needsChange . "</script>\n";
 		return $s;
 	}
 
