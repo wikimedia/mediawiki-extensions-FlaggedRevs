@@ -702,7 +702,7 @@ Adlennit an holl gemmoù diskouezet a-is evit ma teufe war wel ho kemmoù er stu
 	'revreview-update-edited-prev' => "<span class=\"flaggedrevs_important\">N'emañ ket ho kemmoù er stumm stabil c'hoazh. Kemmoù all a c'hortoz bezañ aprouet.</span>
 
 Adlennit an holl gemmoù diskouezet a-is evit ma teufe war wel ho kemmoù er stumm stabil.",
-	'revreview-update-includes' => "'''Hizivaet eo bet patromoù/restroù 'zo:'''",
+	'revreview-update-includes' => "'''patromoù/restroù bet hizivaet (e tev ar pajennoù n'int ket bet adwelet) :'''",
 	'revreview-update-use' => "'''NOTENN :''' Implijet eo stumm embannet pep patromoù/restroù er stumm embannet eus ar bajenn-se.",
 	'revreview-reject-header' => "Disteuler ar c'hemmoù evit $1",
 	'revreview-reject-text-list' => "Ma rit se e '''tistaolot''' ar {{PLURAL:$1|c'hemm|c'hemmoù}} da-heul :",
@@ -717,7 +717,7 @@ Adlennit an holl gemmoù diskouezet a-is evit ma teufe war wel ho kemmoù er stu
 	'revreview-reject-usercount' => '{{PLURAL:$1|un implijer|$1 implijer}}',
 	'revreview-tt-flag' => 'Aprouiñ ar stumm-mañ en ur merkañ anezhañ evel gwiriekaet',
 	'revreview-tt-unflag' => 'Diaprouiñ ar stumm-mañ en ur merkañ anezhañ evel "nann-gwiriekaet"',
-	'revreview-tt-reject' => "Disteurel ar c'hemmoù-se dre zizober",
+	'revreview-tt-reject' => "Dizober ar c'hemmoù-se en destenn orin en ur zisteurel anezho",
 );
 
 /** Bosnian (Bosanski)
@@ -769,6 +769,8 @@ Pogledajte [[Special:Unreviewedpages|spisak nepregledanih stranica]].',
 	'revreview-successful2' => "'''Reviziji od [[:$1|$1]] je uspješno uklonjena oznaka.'''",
 	'revreview-poss-conflict-p' => "'''Upozorenje: [[User:$1|$1]] je započeo pregled ove stranice dana $2 u $3.'''",
 	'revreview-poss-conflict-c' => "'''Upozorenje: [[User:$1|$1]] je započeo pregled ovih izmjena dana $2 u $3.'''",
+	'revreview-adv-reviewing-p' => "'''Napomena: Savjetuje vam se da započnete pregled ove stranice na $1 u $2.'''",
+	'revreview-adv-reviewing-c' => "'''Napomena: Savjetuje vam se da započnete pregled ovih izmjena na $1 u $2.'''",
 	'revreview-toolow' => "'''Morate ocijeniti svaku od ispod navedenih ocjena više od ''neadekvatno'' da bi se revizija smatrala pregledanom.'''
 
 Da bi uklonili status ocjene revizije, kliknite na ''odbij''.
@@ -1013,6 +1015,8 @@ Siehe die [[Special:Unreviewedpages|Liste unmarkierter Versionen]].',
 	'revreview-successful2' => "'''Die Markierung der Version von [[:$1|$1]] wurde erfolgreich aufgehoben.'''",
 	'revreview-poss-conflict-p' => "'''Warnung: Ein anderer Benutzer ([[User:$1|$1]]) hat am $2 um $3 Uhr damit begonnen, diese Seite zu überprüfen.'''",
 	'revreview-poss-conflict-c' => "'''Warnung: Ein anderer Benutzer ([[User:$1|$1]]) hat am $2 um $3 Uhr damit begonnen, diese Änderungen zu überprüfen.'''",
+	'revreview-adv-reviewing-p' => "'''Hinweis: Andere Benutzer werden nun darauf hingewiesen, dass du am $1um $2 Uhr damit begonnen hast diese Seite zu überprüfen.'''",
+	'revreview-adv-reviewing-c' => "'''Hinweis: Andere Benutzer werden nun darauf hingewiesen, dass du am $1 um $2 Uhr damit begonnen hast diese Änderungen zu überprüfen.'''",
 	'revreview-toolow' => "'''Du musst jedes der Attribute besser als „unzureichend“ einstufen, damit eine Version als markiert angesehen werden kann.'''
 
 Um den Markierungstatus einer Version aufzuheben, muss auf „Markierung entfernen“ geklickt werden.
@@ -1056,6 +1060,8 @@ $messages['de-formal'] = array(
 Siehe die [[Special:Unreviewedpages|Liste unmarkierter Versionen]].',
 	'revreview-stable1' => 'Vielleicht möchten Sie [{{fullurl:$1|stableid=$2}} die markierte Version] aufrufen, um zu sehen, ob es nunmehr die [{{fullurl:$1|stable=1}} freigegebene Version] dieser Seite ist?',
 	'revreview-stable2' => 'Vielleicht möchten Sie die [{{fullurl:$1|stable=1}} freigegebene Version] dieser Seite sehen?',
+	'revreview-adv-reviewing-p' => "'''Hinweis: Andere Benutzer werden nun darauf hingewiesen, dass Sie am $1um $2 Uhr damit begonnen haben diese Seite zu überprüfen.'''",
+	'revreview-adv-reviewing-c' => "'''Hinweis: Andere Benutzer werden nun darauf hingewiesen, dass Sie am $1 um $2 Uhr damit begonnen haben diese Änderungen zu überprüfen.'''",
 	'revreview-toolow' => "'''Sie müssen jedes der Attribute besser als „unzureichend“ einstufen, damit eine Version als markiert angesehen werden kann.'''
 
 Um den Markierungstatus einer Version aufzuheben, muss auf „Markierung entfernen“ geklickt werden.
@@ -1820,6 +1826,8 @@ Vexa a [[Special:Unreviewedpages|lista de páxinas sen revisar]].',
 	'revreview-successful2' => "'''Retiouse con éxito o exame da revisión de \"[[:\$1|\$1]]\".'''",
 	'revreview-poss-conflict-p' => "'''Atención: [[User:$1|$1]] comezou a revisar este artigo o $2 ás $3.'''",
 	'revreview-poss-conflict-c' => "'''Atención: [[User:$1|$1]] comezou a revisar estes cambios o $2 ás $3.'''",
+	'revreview-adv-reviewing-p' => "'''Aviso: Comezou a revisar esta páxina o $1 ás $2.'''",
+	'revreview-adv-reviewing-c' => "'''Aviso: Comezou a revisar estes cambios o $1 ás $2.'''",
 	'revreview-toolow' => '\'\'\'Debe, polo menos, valorar cada un dos atributos cunha puntuación maior que "inadecuado" para que unha revisión sexa considerada como revisada.\'\'\'
 
 Para retirar o estado de aprobación dunha revisión, prema sobre "suspender".
@@ -1996,6 +2004,8 @@ $messages['he'] = array(
 	'revreview-successful2' => "'''סימון הגרסה [[:$1|$1]] הוסר בהצלחה.'''",
 	'revreview-poss-conflict-p' => "'''אזהרה: [[User:$1|$1]] התחיל לסקור את הדף הזה ב־$2 בשעה $3.'''",
 	'revreview-poss-conflict-c' => "'''אזהרה: [[User:$1|$1]] התחיל לסקור את השינויים האלה ב־$2 בשעה $3.'''",
+	'revreview-adv-reviewing-p' => "'''לתשומת לבכם: למשתמשים אחרים תוצג הודעה כי התחלתם לסקור את הדף הזה ב־$1 ב־$2.'''",
+	'revreview-adv-reviewing-c' => "'''לתשומת לבכם: למשתמשים אחרים תוצג הודעה כי התחלתם לסקור את השינויים האלה ב־$1 ב־$2.'''",
 	'revreview-toolow' => 'יש לדרג כל אחת מהתכונות הבאות גבוה יותר מ"בלתי קבילה" כדי שהגרסה תיחשב לגרסה שנסקרה.
 
 כדי להסיר מגרסה את הגדרת מצב הסקירה שלה, יש ללחוץ על "דחיית הגרסה".
@@ -3065,6 +3075,8 @@ $messages['mk'] = array(
 	'revreview-successful2' => "'''Успешно отстранета ознака од ревизијата на [[:$1|$1]].'''",
 	'revreview-poss-conflict-p' => "'''Предупредување: [[User:$1|$1]] почна да ја проверува страницава на $2 во $3 ч.'''",
 	'revreview-poss-conflict-c' => "'''Предупредување: [[User:$1|$1]] почна да ги проверува промениве на $2 во $3.'''",
+	'revreview-adv-reviewing-p' => "'''Напомена: Се објавува дека сте почнале да ја проверувате страницава на $1 во $2.'''",
+	'revreview-adv-reviewing-c' => "'''Напомена: Се објавува дека сте почнале да ги проверувате овие измени на $1 во $2.'''",
 	'revreview-toolow' => "'''Атрибутите мора да ги оцените со нешто повисоко од „недоволно“ за ревизијата да се смета за проверена.'''
 
 За да го отстраните статусот на ревизијата, поставете ги сите полиња како „неприфатливо“.
@@ -3712,6 +3724,8 @@ Veja a [[Special:Unreviewedpages|lista de páginas não revistas]].',
 	'revreview-successful2' => "'''A edição de [[:$1|$1]] foi desmarcada com sucesso.'''",
 	'revreview-poss-conflict-p' => "'''Aviso: O utilizador [[User:$1|$1]] começou a rever esta página às $3 de $2.'''",
 	'revreview-poss-conflict-c' => "'''Aviso: O utilizador [[User:$1|$1]] começou a rever estas alterações às $3 de $2.'''",
+	'revreview-adv-reviewing-p' => "'''Aviso: Será anunciado que começou a rever esta página em $1 às $2.'''",
+	'revreview-adv-reviewing-c' => "'''Aviso: Será anunciado que começou a rever estas alterações em $1 às $2.'''",
 	'revreview-toolow' => '\'\'\'Para uma edição ser considerada revista, tem de avaliar cada atributo com valores acima de "inadequada".\'\'\'
 
 Para anular a revisão de uma edição, clique "anular revisão".

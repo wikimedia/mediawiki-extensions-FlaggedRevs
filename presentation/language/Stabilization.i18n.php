@@ -2303,10 +2303,11 @@ $messages['myv'] = array(
 
 /** Nahuatl (Nāhuatl)
  * @author Fluence
+ * @author Ricardo gs
  */
 $messages['nah'] = array(
 	'stabilization-page' => 'Zāzanilli ītōcā:',
-	'stabilization-def2' => 'Āxcān in tlachiyaliztli',
+	'stabilization-def2' => 'In yancuīc tlachiyaliztli',
 	'stabilization-expiry' => 'Tlamiliztli:',
 	'stabilization-def-short' => 'Ic default',
 	'stabilization-def-short-0' => 'Āxcān',

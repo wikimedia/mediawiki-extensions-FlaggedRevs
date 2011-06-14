@@ -236,6 +236,7 @@ Please check the URL you used to access this page.',
  * @author Huji
  * @author IAlex
  * @author Jon Harald Søby
+ * @author Kghbln
  * @author Liangent
  * @author Lloffiwr
  * @author McDutchie
@@ -280,7 +281,12 @@ This appears in [[Special:Preferences]]:
 * as an additional ''section header'', when JavaScript is disabled",
 	'prefs-flaggedrevs-ui' => '{{Flagged Revs}}',
 	'flaggedrevs-prefs-stable' => '{{Flagged Revs}}
-{{Identical|Content page}}',
+{{Identical|Content page}}
+
+The user is to select one of the following options:
+* {{msg-mw|Flaggedrevs-pref-stable-0}}
+* {{msg-mw|Flaggedrevs-pref-stable-1}}
+* {{msg-mw|Flaggedrevs-pref-stable-2}}',
 	'flaggedrevs-prefs-watch' => '{{Flagged Revs}}
 
 The wording of this message is supposed to be similar to {{msg-mw|Tog-watchdefault}}.',
@@ -2068,6 +2074,7 @@ $messages['br'] = array(
 	'flaggedrevs-prefs-watch' => "Ouzhpennañ ar pajennoù a adwelan da'm roll evezhiañ.",
 	'flaggedrevs-prefs-editdiffs' => "Diskouez difoc'h ar c'hemmoù o c'hortoz pa vezoc'h o kemm ar bajennoù",
 	'flaggedrevs-prefs-viewdiffs' => "Diskwel difoc'hoù ar c'hemmoù o c'hortoz p'emañ stumm diwezhañ ur bajenn o c'hortoz gwelet",
+	'flaggedrevs-hidereviewed' => "Adwelet eo bet ar c'hemmoù gant $1",
 	'group-editor' => 'Skridaozerien',
 	'group-editor-member' => 'Skridaozer',
 	'group-reviewer' => 'Reizherien',
@@ -2248,6 +2255,9 @@ $messages['bs'] = array(
 	'prefs-flaggedrevs' => 'Pregled izmjena',
 	'prefs-flaggedrevs-ui' => 'Pregled izmjena',
 	'flaggedrevs-prefs-stable' => 'Uvijek prikaži objavljenu verziju stranica sadržaja po pretpostavljenom (ako je samo jedna)',
+	'flaggedrevs-pref-stable-0' => 'Koristi osnovne postavke za svaku stranicu',
+	'flaggedrevs-pref-stable-1' => 'Uvijek prikazuj stabilnu verziju (ako postoji)',
+	'flaggedrevs-pref-stable-2' => 'Uvijek prikazuj najnoviju verziju',
 	'flaggedrevs-prefs-watch' => 'Dodaj stranice koje sam pregledao na moj spisak praćenja',
 	'flaggedrevs-prefs-editdiffs' => 'Prikaži razlike na čekanju pri uređivanju stranice',
 	'flaggedrevs-prefs-viewdiffs' => 'Pokaži razlike izmjena na čekanju pri prikazivanju posljednje revizije na čekanju',
@@ -2932,7 +2942,10 @@ $messages['de'] = array(
 	'flaggedrevs-pref-UI-1' => 'Verwende kleine Symbole und wenig Text, um den Markierungstatus von Seiten anzuzeigen',
 	'prefs-flaggedrevs' => 'Seitenanzeige',
 	'prefs-flaggedrevs-ui' => 'Seitenanzeige',
-	'flaggedrevs-prefs-stable' => 'Zeige standardmäßig die stabile Version einer Seite (falls vorhanden)',
+	'flaggedrevs-prefs-stable' => 'Welche Version einer Seite soll standardmäßig angezeigt werden?',
+	'flaggedrevs-pref-stable-0' => 'Stets die Standardeinstellungen für jede Seite verwenden',
+	'flaggedrevs-pref-stable-1' => 'Stets die markierte Version anzeigen, sofern eine vorhanden ist',
+	'flaggedrevs-pref-stable-2' => 'Stets die neueste Version anzeigen',
 	'flaggedrevs-prefs-watch' => 'Selbst markierte Seiten automatisch beobachten',
 	'flaggedrevs-prefs-editdiffs' => 'Zeige beim Bearbeiten auch den Unterschied zur letzten stabilen Version im Versionsvergleich',
 	'flaggedrevs-prefs-viewdiffs' => 'Zeige einen Versionsvergleich zur stabilen Version, wenn die neueste unmarkierte Version angezeigt wird',
@@ -5074,6 +5087,9 @@ $messages['gl'] = array(
 	'prefs-flaggedrevs' => 'Aprobación de edicións',
 	'prefs-flaggedrevs-ui' => 'Aprobación de edicións',
 	'flaggedrevs-prefs-stable' => 'Mostrar sempre a versión publicada das páxinas de contido por defecto (se houbese unha)',
+	'flaggedrevs-pref-stable-0' => 'Usar a configuración por defecto para cada páxina',
+	'flaggedrevs-pref-stable-1' => 'Mostrar sempre a versión estable (se houbese unha)',
+	'flaggedrevs-pref-stable-2' => 'Mostrar sempre a última versión',
 	'flaggedrevs-prefs-watch' => 'Engadir as páxinas que revise á miña páxina de vixilancia',
 	'flaggedrevs-prefs-editdiffs' => 'Mostrar as diferenzas cos cambios pendentes ao editar as páxinas',
 	'flaggedrevs-prefs-viewdiffs' => 'Mostrar as diferenzas cos cambios pendentes ao ver a última revisión pendente',
@@ -5552,7 +5568,9 @@ $messages['he'] = array(
 	'flaggedrevs-pref-UI-1' => 'להציג את מצב הסקירה של הדפים בסמלים קטנים עם הסבר קצר',
 	'prefs-flaggedrevs' => 'סקירת עריכות',
 	'prefs-flaggedrevs-ui' => '{{int:Prefs-flaggedrevs}}',
-	'flaggedrevs-prefs-stable' => 'תמיד להציג תחילה את הגרסה היציבה של דפי תוכן (אם היא קיימת)',
+	'flaggedrevs-prefs-stable' => 'מתי להציג תחילה את הגרסה היציבה של דפי תוכן',
+	'flaggedrevs-pref-stable-1' => 'תמיד להציג את הגרסה היציבה (אם יש כזאת)',
+	'flaggedrevs-pref-stable-2' => 'תמיד להציג את הגרסה האחרונה',
 	'flaggedrevs-prefs-watch' => 'מעקב אחרי דפים שסקרתי',
 	'flaggedrevs-prefs-editdiffs' => 'להציג את ההשוואה של השינויים הממתינים בעת עריכת דפים',
 	'flaggedrevs-prefs-viewdiffs' => 'להציג את ההשוואה של השינויים הממתינים בעת צפייה בגרסה הממתינה האחרונה',
@@ -8623,6 +8641,9 @@ $messages['mk'] = array(
 	'prefs-flaggedrevs' => 'Одобрување на уредувања',
 	'prefs-flaggedrevs-ui' => 'Одобрување на уредувања',
 	'flaggedrevs-prefs-stable' => 'Секогаш прикажувај ја објавената верзија на страниците по основно (ако има таква)',
+	'flaggedrevs-pref-stable-0' => 'Користи ги основните поставки на секоја страница',
+	'flaggedrevs-pref-stable-1' => 'Секогаш прикажувај ја стабилната верзија (ако има)',
+	'flaggedrevs-pref-stable-2' => 'Секогаш покажувај ја најновата верзија',
 	'flaggedrevs-prefs-watch' => 'Додавај ги страниците што ги проверувам во списокот на набљудувања',
 	'flaggedrevs-prefs-editdiffs' => 'Прикажи ги разликите со верзијата во исчекување при уредување на страници',
 	'flaggedrevs-prefs-viewdiffs' => 'Прикажи ги разликите во промените при приказ на најновата ревизија во исчекување',
@@ -8817,7 +8838,10 @@ $messages['ml'] = array(
 	'flaggedrevs-pref-UI-1' => 'താളുകളുടെ അംഗീകരണ സ്ഥിതി പ്രദർശിപ്പിക്കൻ ചെറിയ ഐകോണുകളും കുറച്ച് എഴുത്തും ഉപയോഗിക്കുക',
 	'prefs-flaggedrevs' => 'തിരുത്തൽ അംഗീകരണം',
 	'prefs-flaggedrevs-ui' => 'തിരുത്തൽ അംഗീകരണം',
-	'flaggedrevs-prefs-stable' => 'ഉള്ളടക്ക താളിന്റെ പ്രസിദ്ധപ്പെടുത്തിയ പതിപ്പ് എപ്പോഴും സ്വതേ പ്രദർശിപ്പിക്കുക (ഒന്നുണ്ടെങ്കിൽ)',
+	'flaggedrevs-prefs-stable' => 'ഉള്ളടക്ക താളിന്റെ പ്രസിദ്ധപ്പെടുത്തിയ പതിപ്പ് സ്വയം പ്രദർശിപ്പിക്കേണ്ടത് എപ്പോഴാണ്',
+	'flaggedrevs-pref-stable-0' => 'സ്വതേയുള്ള സജ്ജീകരണങ്ങൾ ഓരോ താളിലും ഉപയോഗിക്കുക',
+	'flaggedrevs-pref-stable-1' => 'സ്ഥിരപ്പെടുത്തിയ പതിപ്പ് എല്ലായ്പോഴും പ്രദർശിപ്പിക്കുക (ഒന്നുണ്ടെങ്കിൽ)',
+	'flaggedrevs-pref-stable-2' => 'എറ്റവും പുതിയ പതിപ്പ് എല്ലായ്പോഴും പ്രദർശിപ്പിക്കുക',
 	'flaggedrevs-prefs-watch' => 'ഞാൻ സം‌ശോധം ചെയ്യുന്ന താളുകൾ ശ്രദ്ധിക്കുന്ന താളുകളുടെ പട്ടികയിലേക്ക് ചേർക്കുക',
 	'flaggedrevs-prefs-editdiffs' => 'താളുകൾ തിരുത്തുമ്പോൾ അവശേഷിക്കുന്ന വ്യത്യാസങ്ങൾ പ്രദർശിപ്പിക്കുക',
 	'flaggedrevs-prefs-viewdiffs' => 'സംശോധനം പ്രതീക്ഷിക്കുന്ന ഏറ്റവും പുതിയ നാൾപ്പതിപ്പുകൾ എടുത്തുനോക്കുമ്പോൾ അവശേഷിക്കുന്ന മാറ്റങ്ങളുമായുള്ള വ്യത്യാസം പ്രദർശിപ്പിക്കുക',
@@ -9362,6 +9386,7 @@ $messages['ne'] = array(
  * @author McDutchie
  * @author SPQRobin
  * @author Siebrand
+ * @author Tjcool007
  * @author Tvdm
  */
 $messages['nl'] = array(
@@ -9377,6 +9402,9 @@ $messages['nl'] = array(
 	'prefs-flaggedrevs' => 'Bewerkingscontrole',
 	'prefs-flaggedrevs-ui' => 'Bewerkingscontrole',
 	'flaggedrevs-prefs-stable' => "Altijd de gepubliceerde versies van pagina's weergeven (als die bestaan)",
+	'flaggedrevs-pref-stable-0' => 'Gebruik de standaard instellingen voor elke pagina',
+	'flaggedrevs-pref-stable-1' => 'Toon altijd de stabiele versie (indien aanwezig)',
+	'flaggedrevs-pref-stable-2' => 'Toon altijd de laatste versie',
 	'flaggedrevs-prefs-watch' => "Pagina's die ik controleer aan mijn volglijst toevoegen",
 	'flaggedrevs-prefs-editdiffs' => "Bij het bewerken van pagina's de ongecontroleerde verschillen met de gepubliceerde versie weergeven",
 	'flaggedrevs-prefs-viewdiffs' => 'Bij het bekijken van laatste versie verschillen met gecontroleerde versie weergeven',
@@ -10547,6 +10575,9 @@ $messages['pt'] = array(
 	'prefs-flaggedrevs' => 'Aprovação de edições',
 	'prefs-flaggedrevs-ui' => 'Aprovação de edições',
 	'flaggedrevs-prefs-stable' => 'Por omissão, apresentar sempre a versão publicada das páginas de conteúdo (caso exista uma)',
+	'flaggedrevs-pref-stable-0' => 'Usar as configurações padrão para cada página',
+	'flaggedrevs-pref-stable-1' => 'Mostrar sempre a versão estável (se existir)',
+	'flaggedrevs-pref-stable-2' => 'Mostrar sempre a última versão',
 	'flaggedrevs-prefs-watch' => 'Adicionar às minhas páginas vigiadas as páginas que eu reveja',
 	'flaggedrevs-prefs-editdiffs' => 'Mostrar diferenças das versões pendentes ao editar páginas',
 	'flaggedrevs-prefs-viewdiffs' => 'Mostrar as diferenças das alterações pendentes ao ver a última edição pendente',
@@ -11282,7 +11313,10 @@ $messages['ru'] = array(
 	'flaggedrevs-pref-UI-1' => 'Небольшие значки и минимум текста для информации о состоянии подтверждения страницы',
 	'prefs-flaggedrevs' => 'Подтверждение правок',
 	'prefs-flaggedrevs-ui' => 'Подтверждение правок',
-	'flaggedrevs-prefs-stable' => 'Всегда показывать по умолчанию опубликованную версию статьи (если такая существует)',
+	'flaggedrevs-prefs-stable' => 'Когда показывать опубликованную версию статьи по умолчанию',
+	'flaggedrevs-pref-stable-0' => 'Использовать параметры по умолчанию для всех страниц',
+	'flaggedrevs-pref-stable-1' => 'Всегда показывать стабильную версию (если она есть)',
+	'flaggedrevs-pref-stable-2' => 'Всегда показывать последнюю версию',
 	'flaggedrevs-prefs-watch' => 'Добавлять проверенные мною страницы в список наблюдения',
 	'flaggedrevs-prefs-editdiffs' => 'Показывать разницу между проверенной и непроверенной версиями при редактировании страниц',
 	'flaggedrevs-prefs-viewdiffs' => 'Показывать непроверенные изменения при просмотре последней непроверенной версии страницы',
