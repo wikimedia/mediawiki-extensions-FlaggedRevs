@@ -43,7 +43,7 @@ class ApiReviewActivity extends ApiBase {
 			$this->dieUsageMsg( array( 'blockedtext' ) );
 		}
 
-		$newRev = Revision::newFromId( $params['newid'] );
+		$newRev = Revision::newFromId( $params['oldid'] );
 		if ( !$newRev || !$newRev->getTitle() ) {
 			$this->dieUsage( "Cannot find a revision with the specified ID.", 'notarget' );
 		}
@@ -55,19 +55,19 @@ class ApiReviewActivity extends ApiBase {
 		}
 
 		$status = false;
-		if ( $params['oldid'] ) { // changes
-			$oldRev = Revision::newFromId( $params['oldid'] );
+		if ( $params['previd'] ) { // changes
+			$oldRev = Revision::newFromId( $params['previd'] );
 			if ( !$oldRev || $oldRev->getPage() != $newRev->getPage() ) {
 				$this->dieUsage( "Revisions do not belong to the same page.", 'notarget' );
 			}
 			// Mark as reviewing...
 			if ( $params['reviewing'] ) {
 				$status = FRUserActivity::setUserReviewingDiff(
-					$wgUser, $params['oldid'], $params['newid'] );
+					$wgUser, $params['previd'], $params['oldid'] );
 			// Unmark as reviewing...
 			} else {
 				$status = FRUserActivity::clearUserReviewingDiff(
-					$wgUser, $params['oldid'], $params['newid'] );
+					$wgUser, $params['previd'], $params['oldid'] );
 			}
 		} else {
 			// Mark as reviewing...
@@ -100,16 +100,16 @@ class ApiReviewActivity extends ApiBase {
 
 	public function getAllowedParams() {
 		return array(
-			'oldid'   	=> null,
-			'newid' 	=> null,
+			'previd'   	=> null,
+			'oldid' 	=> null,
 			'reviewing' => array( ApiBase::PARAM_TYPE => array( 0, 1 ) )
 		);
 	}
 
 	public function getParamDescription() {
 		return array(
-			'oldid'  	=> 'The old revision ID (for reviewing changes or pages)',
-			'newid'  	=> 'The new revision ID (for reviewing changes only)',
+			'previd'  	=> 'The prior revision ID (for reviewing changes only)',
+			'oldid'  	=> 'The ID of the revision being reviewed',
 			'reviewing' => 'Whether to advertising as reviewing or no longer reviewing',
 		);
 	}

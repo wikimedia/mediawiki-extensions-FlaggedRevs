@@ -336,13 +336,13 @@ window.FlaggedRevsReview = {
 				url		: wgScriptPath + '/api.php',
 				data	: {
 					action		: 'reviewactivity',
-					oldid		: oRevId,
-					newid		: nRevId,
+					previd		: oRevId,
+					oldid		: nRevId,
 					reviewing	: 0
 				},
 				type	: "POST",
 				dataType: "html", // response type
-				timeout : 2500, // don't delay user exiting
+				timeout : 2000, // don't delay user exiting
 				async	: false
 			});
 		}
