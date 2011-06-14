@@ -85,8 +85,11 @@ class FlaggedPageView {
 			return false;
 		}
 		# Check user preferences ("show stable by default?")
-		if ( $wgUser->getOption( 'flaggedrevsstable' ) ) {
+		$pref = (int)$wgUser->getOption( 'flaggedrevsstable' );
+		if ( $pref == FR_SHOW_STABLE_ALWAYS ) {
 			return true;
+		} elseif ( $pref == FR_SHOW_STABLE_NEVER ) {
+			return false;
 		}
 		# Viewer may be in a group that sees the draft by default
 		if ( $this->userViewsDraftByDefault( $wgUser ) ) {

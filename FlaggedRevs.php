@@ -359,7 +359,7 @@ $wgJobClasses['flaggedrevs_CacheUpdate'] = 'FRExtraCacheUpdateJob';
 
 # New user preferences
 $wgDefaultUserOptions['flaggedrevssimpleui'] = (int)$wgSimpleFlaggedRevsUI;
-$wgDefaultUserOptions['flaggedrevsstable'] = false;
+$wgDefaultUserOptions['flaggedrevsstable'] = FR_SHOW_STABLE_DEFAULT;
 $wgDefaultUserOptions['flaggedrevseditdiffs'] = true;
 $wgDefaultUserOptions['flaggedrevsviewdiffs'] = false;
 

@@ -151,9 +151,14 @@ class FlaggedRevsUIHooks {
 		// Default versions...
 		$preferences['flaggedrevsstable'] =
 			array(
-				'type' => 'toggle',
+				'type' => 'radio',
 				'section' => 'flaggedrevs/flaggedrevs-ui',
 				'label-message' => 'flaggedrevs-prefs-stable',
+				'options' => array(
+					wfMsg( 'flaggedrevs-pref-stable-0' ) => FR_SHOW_STABLE_DEFAULT,
+					wfMsg( 'flaggedrevs-pref-stable-1' ) => FR_SHOW_STABLE_ALWAYS,
+					wfMsg( 'flaggedrevs-pref-stable-2' ) => FR_SHOW_STABLE_NEVER,
+				),
 			);
 		// Review-related rights...
 		if ( $user->isAllowed( 'review' ) ) {

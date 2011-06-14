@@ -23,6 +23,11 @@ define( 'FR_AUTOREVIEW_CHANGES', 1 );
 define( 'FR_AUTOREVIEW_CREATION', 2 );
 define( 'FR_AUTOREVIEW_CREATION_AND_CHANGES', FR_AUTOREVIEW_CHANGES | FR_AUTOREVIEW_CREATION );
 
+# User preference for showing stable versions
+define( 'FR_SHOW_STABLE_DEFAULT', 0 ); // b/c with "false"
+define( 'FR_SHOW_STABLE_ALWAYS', 1 ); // b/c with "true"
+define( 'FR_SHOW_STABLE_NEVER', 2 );
+
 # Autopromote conds (F=70,R=82)
 # @TODO: move these 5 to core
 define( 'APCOND_FR_EDITSUMMARYCOUNT', 70821 );
