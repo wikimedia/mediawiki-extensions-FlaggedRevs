@@ -102,7 +102,7 @@ class FRUserActivity {
 				$wgMemc->delete( $key );
 			}
 		}
-		$this->unlock();
+		$wgMemc->unlock( $key );
 	}
 
 	/*
