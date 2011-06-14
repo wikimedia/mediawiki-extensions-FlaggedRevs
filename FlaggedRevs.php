@@ -329,6 +329,9 @@ $apiActionDir = $dir . 'api/actions/';
 # Page review module for API
 $wgAutoloadClasses['ApiReview'] = $apiActionDir . 'ApiReview.php';
 $wgAPIModules['review'] = 'ApiReview';
+# Page review activity module for API
+$wgAutoloadClasses['ApiReviewActivity'] = $apiActionDir . 'ApiReviewActivity.php';
+$wgAPIModules['reviewactivity'] = 'ApiReviewActivity';
 # Stability config module for API
 $wgAutoloadClasses['ApiStabilize'] = $apiActionDir . 'ApiStabilize.php';
 $wgAutoloadClasses['ApiStabilizeGeneral'] = $apiActionDir . 'ApiStabilize.php';

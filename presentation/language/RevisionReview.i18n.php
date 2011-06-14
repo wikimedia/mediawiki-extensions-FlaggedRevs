@@ -63,6 +63,8 @@ See the [[Special:Unreviewedpages|list of unreviewed pages]].',
 	'revreview-successful2'        => '\'\'\'Revision of [[:$1|$1]] successfully unflagged.\'\'\'',
 	'revreview-poss-conflict-p'    => '\'\'\'Warning: [[User:$1|$1]] started reviewing this page on $2 at $3.\'\'\'',
 	'revreview-poss-conflict-c'    => '\'\'\'Warning: [[User:$1|$1]] started reviewing these changes on $2 at $3.\'\'\'',
+	'revreview-adv-reviewing-p'    => '\'\'\'Notice: You are being advertised as having started reviewing this page on $1 at $2.\'\'\'',
+	'revreview-adv-reviewing-c'    => '\'\'\'Notice: You are being advertised as having started reviewing these changes on $1 at $2.\'\'\'',
 	'revreview-toolow'             => '\'\'\'You must rate each of the attributes higher than "inadequate" in order for a revision to be considered reviewed.\'\'\'
 
 To remove the review status of a revision, click "unaccept".

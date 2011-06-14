@@ -217,6 +217,9 @@ window.FlaggedRevsReview = {
 		return false; // don't do normal non-AJAX submit
 	},
 	
+	/*
+	* Update form elements after AJAX review.
+	*/
 	'updateReviewForm': function( form, response ) {
 		var msg = response.substr(6); // remove <err#> or <suc#>
 		// Read new "last change time" timestamp for conflict handling
@@ -313,6 +316,37 @@ window.FlaggedRevsReview = {
 		if( diffHeaderItems && response != '' ) {
 			diffHeaderItems.innerHTML = response;
 		}
+	},
+	
+	/*
+	* Flag users as "no longer reviewing"
+	*/
+	'deadvertiseReviewing': function() {
+		var form = document.getElementById('mw-fr-reviewform');
+		if( form ) {
+			var oRevId = document.getElementById('mw-fr-input-refid').value;
+			var nRevId = document.getElementById('mw-fr-input-oldid').value;
+		} else if( location.href.indexOf('&reviewing=1') != -1 ) {
+			var oRevId = 0;
+			var nRevId = mw.config.get('wgCurRevisionId');
+		}
+		if ( nRevId > 0 ) {
+			// Send GET request via AJAX!
+			var call = jQuery.ajax({
+				url		: wgScriptPath + '/api.php',
+				data	: {
+					action		: 'reviewactivity',
+					oldid		: oRevId,
+					newid		: nRevId,
+					reviewing	: 0
+				},
+				type	: "POST",
+				dataType: "html", // response type
+				timeout : 2500, // don't delay user exiting
+				async	: false
+			});
+		}
+		return;
 	}
 };
 
@@ -320,3 +354,8 @@ window.FlaggedRevsReview = {
 FlaggedRevsReview.maybeDisableAcceptButton();
 FlaggedRevsReview.updateRatingFormColors();
 FlaggedRevsReview.enableAjaxReview();
+
+// Flag users as "no longer reviewing" on navigate-away
+// @TODO: This doesn't handle a user having the same diff open twice,
+// closing one, but reviewing in the other very well...
+window.onbeforeunload = FlaggedRevsReview.deadvertiseReviewing;

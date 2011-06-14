@@ -90,19 +90,25 @@ class FRUserActivity {
 	* Clear the flag for who is reviewing a page
 	* @param User $user
 	* @param int $pageId
+	* @return bool flag unset
 	*/
 	public static function clearUserReviewingPage( $user, $pageId ) {
 		global $wgMemc;
 		$key = wfMemcKey( 'flaggedrevs', 'userReviewingPage', $pageId );
 		$wgMemc->lock( $key, 4 ); // 4 sec timeout
 		$val = $wgMemc->get( $key );
+		$wasSet = false;
+
 		if ( is_array( $val ) && count( $val ) == 2 ) { // flag set
 			list( $u, $ts ) = $val;
 			if ( $u === $user->getName() ) {
 				$wgMemc->delete( $key );
+				$wasSet = true;
 			}
 		}
 		$wgMemc->unlock( $key );
+
+		return $wasSet;
 	}
 
 	/*
@@ -159,18 +165,24 @@ class FRUserActivity {
 	* @param User $user
 	* @param int $oldId
 	* @param int $newId
+	* @return bool flag unset
 	*/
 	public static function clearUserReviewingDiff( $user, $oldId, $newId ) {
 		global $wgMemc;
 		$key = wfMemcKey( 'flaggedrevs', 'userReviewingDiff', $oldId, $newId );
 		$wgMemc->lock( $key, 4 ); // 4 sec timeout
 		$val = $wgMemc->get( $key );
+		$wasSet = false;
+
 		if ( is_array( $val ) && count( $val ) == 2 ) { // flag set
 			list( $u, $ts ) = $val;
 			if ( $u === $user->getName() ) {
 				$wgMemc->delete( $key );
+				$wasSet = true;
 			}
 		}
 		$wgMemc->unlock( $key );
+		
+		return $wasSet;
 	}
 }

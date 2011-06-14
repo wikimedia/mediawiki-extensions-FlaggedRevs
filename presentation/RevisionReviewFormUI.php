@@ -121,12 +121,22 @@ class RevisionReviewFormUI {
 		} else {
 			list( $u, $ts ) = FRUserActivity::getUserReviewingPage( $this->rev->getPage() );
 		}
-		if ( $u !== null && $u != $this->user->getName() ) {
-			$msg = $priorRevId ? 'revreview-poss-conflict-c' : 'revreview-poss-conflict-p';
-			$form .= '<p><span class="fr-under-review">' .
-				wfMsgExt( $msg, 'parseinline',
-					$u, $wgLang->date( $ts, true ), $wgLang->time( $ts, true ) ) .
-				'</span></p>';
+		if ( $u !== null ) { // page under review...
+			$form .= '<p><span class="fr-under-review">';
+			if ( $u != $this->user->getName() ) { // by another user...
+				$msg = $priorRevId
+					? 'revreview-poss-conflict-c'
+					: 'revreview-poss-conflict-p';
+				$form .= wfMsgExt( $msg, 'parseinline',
+					$u, $wgLang->date( $ts, true ), $wgLang->time( $ts, true ) );
+			} else { // by this user...
+				$msg = $priorRevId
+					? 'revreview-adv-reviewing-c'
+					: 'revreview-adv-reviewing-p';
+				$form .= wfMsgExt( $msg, 'parseinline',
+					$wgLang->date( $ts, true ), $wgLang->time( $ts, true ) );
+			}
+			$form .= '</span></p>';
 		}
 
 		if ( $disabled ) {
@@ -178,8 +188,8 @@ class RevisionReviewFormUI {
 		# Hidden params
 		$form .= Html::hidden( 'title', $reviewTitle->getPrefixedText() ) . "\n";
 		$form .= Html::hidden( 'target', $article->getTitle()->getPrefixedDBKey() ) . "\n";
-		$form .= Html::hidden( 'refid', $priorRevId ) . "\n";
-		$form .= Html::hidden( 'oldid', $revId ) . "\n";
+		$form .= Html::hidden( 'refid', $priorRevId, array( 'id' => 'mw-fr-input-refid' ) ) . "\n";
+		$form .= Html::hidden( 'oldid', $revId, array( 'id' => 'mw-fr-input-oldid' ) ) . "\n";
 		$form .= Html::hidden( 'action', 'submit' ) . "\n";
 		$form .= Html::hidden( 'wpEditToken', $this->user->editToken() ) . "\n";
 		$form .= Html::hidden( 'changetime', $reviewTime,
