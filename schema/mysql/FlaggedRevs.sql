@@ -139,16 +139,14 @@ CREATE TABLE IF NOT EXISTS /*_*/flaggedrevs_promote (
   frp_user_params mediumblob NOT NULL
 ) /*$wgDBTableOptions*/;
 
-CREATE TABLE /*_*/flaggedrevs_stats (
-	namespace int unsigned NOT NULL DEFAULT 0 PRIMARY KEY,
-	total     int unsigned NOT NULL DEFAULT 0,
-	reviewed  int unsigned NOT NULL DEFAULT 0,
-	synced    int unsigned NOT NULL DEFAULT 0
+-- This stores overall stats
+CREATE TABLE /*_*/flaggedrevs_statistics (
+    -- Timestamp stat was recorded
+	frs_timestamp varbinary(14) NOT NULL,
+    -- Stat key name, colons separate paramaters
+    frs_stat_key varchar(255) NOT NULL,
+    -- Stat value as an integer
+    frs_stat_val integer unsigned NOT NULL,
+    PRIMARY KEY(frs_stat_key,frs_timestamp)
 ) /*$wgDBTableOptions*/;
-
-CREATE TABLE /*_*/flaggedrevs_stats2 (
-	stat_id          int unsigned NOT NULL DEFAULT 1 PRIMARY KEY,
-	ave_review_time  int unsigned NOT NULL DEFAULT 0,
-	med_review_time  int unsigned NOT NULL DEFAULT 0,
-	ave_pending_time int unsigned NOT NULL DEFAULT 0
-) /*$wgDBTableOptions*/;
+CREATE INDEX /*i*/frs_timestamp ON /*_*/flaggedrevs_statistics (frs_timestamp);

@@ -29,12 +29,12 @@ class FlaggedRevsUpdaterHooks {
 				'flaggedpage_config', 'fpc_level', "$base/patch-fpc_level.sql", true ) );
 			$du->addExtensionUpdate( array( 'addTable',
 				'flaggedpage_pending', "$base/patch-flaggedpage_pending.sql", true ) );
-			$du->addExtensionUpdate( array( 'addTable',
-				'flaggedrevs_stats', "$base/patch-flaggedrevs_stats.sql", true ) );
 			$du->addExtensionUpdate( array( 'FlaggedRevsUpdaterHooks::doFlaggedImagesTimestampNULL',
 				"$base/patch-fi_img_timestamp.sql" ) );
 			$du->addExtensionUpdate( array( 'FlaggedRevsUpdaterHooks::doFlaggedRevsRevTimestamp',
 				"$base/patch-fr_page_rev-index.sql" ) );
+			$du->addExtensionUpdate( array( 'addTable',
+				'flaggedrevs_statistics', "$base/patch-flaggedrevs_statistics.sql", true ) );
 		} elseif ( $wgDBtype == 'postgres' ) {
 			$base = dirname( __FILE__ ) . '/postgres';
 			// Initial install tables (current schema)
@@ -59,11 +59,12 @@ class FlaggedRevsUpdaterHooks {
 				'flaggedpage_config', 'fpc_level', "TEXT NULL" ) );
 			$du->addExtensionUpdate( array( 'addTable',
 				'flaggedpage_pending', "$base/patch-flaggedpage_pending.sql", true ) );
-			// @TODO: PG stats table???
 			$du->addExtensionUpdate( array( 'FlaggedRevsUpdaterHooks::doFlaggedImagesTimestampNULL',
 				"$base/patch-fi_img_timestamp.sql" ) );
 			$du->addExtensionUpdate( array( 'FlaggedRevsUpdaterHooks::doFlaggedRevsRevTimestamp',
 				"$base/patch-fr_page_rev-index.sql" ) );
+			$du->addExtensionUpdate( array( 'addTable',
+				'flaggedrevs_statistics', "$base/patch-flaggedrevs_statistics.sql", true ) );
 		} elseif ( $wgDBtype == 'sqlite' ) {
 			$base = dirname( __FILE__ ) . '/mysql';
 			$du->addExtensionUpdate( array( 'addTable',

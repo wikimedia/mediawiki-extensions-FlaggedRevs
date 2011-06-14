@@ -248,6 +248,7 @@ $wgAutoloadClasses['FRUserActivity'] = $accessDir . 'FRUserActivity.php';
 $wgAutoloadClasses['FlaggedPageConfig'] = $accessDir . 'FlaggedPageConfig.php';
 $wgAutoloadClasses['FlaggedRevsLog'] = $accessDir . 'FlaggedRevsLog.php';
 $wgAutoloadClasses['FRInclusionCache'] = $accessDir . 'FRInclusionCache.php';
+$wgAutoloadClasses['FlaggedRevsStats'] = $accessDir . 'FlaggedRevsStats.php';
 # Data object classes...
 $wgAutoloadClasses['FRExtraCacheUpdate'] = $accessDir . 'FRExtraCacheUpdate.php';
 $wgAutoloadClasses['FRExtraCacheUpdateJob'] = $accessDir . 'FRExtraCacheUpdate.php';

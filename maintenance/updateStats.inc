@@ -52,51 +52,62 @@ function update_flaggedrevs_stats() {
 		array( 'USE INDEX' => array('flaggedpages' => 'fp_pending_since') )
 	);
 	# Get wait times for anon edits...
-	list( $aveRT, $medianRT, $rPerTable ) = getAveReviewTimesAnons( $dbr, $dbCache );
+	list( $aveRT, $medianRT, $rPerTable, $rSize ) = getAveReviewTimesAnons( $dbr, $dbCache );
 
 	// Save the data...
-	// @TODO: new permanent schema
 	#echo "\nAve=".($aveRT/3600)." Med=".($medianRT/3600)."\n";
 	$dbw = wfGetDB( DB_MASTER );
-	// Make sure the master has flaggedrevs_stats and _stats2
-	if ( !$dbw->tableExists( 'flaggedrevs_stats' ) ||
-		!$dbw->tableExists( 'flaggedrevs_stats2' ) )
-	{
-		print( "Need to run update.php to create flaggedrevs_stats and flaggedrevs_stats2. Stopping." );
-		die( 1 );
+	// The timestamp to identify this whole batch of data
+	$encDataTimestamp = $dbw->timestamp();
+
+	$dataSet = array();
+	// All-namespace percentiles...
+	foreach( $rPerTable as $percentile => $seconds ) {
+		$dataSet[] = array(
+			'frs_stat_key' => 'reviewLag-percentile:'.(int)$percentile,
+			'frs_stat_val'  => $seconds,
+			'frs_timestamp' => $encDataTimestamp );
 	}
-	$dbw->begin();
-	// Save/cache percentiles
-	$key = wfMemcKey( 'flaggedrevs', 'reviewPercentiles' );
-	$dbCache->set( $key, $rPerTable, 30*24*3600 );
-	// Per-namespace stats...
+	// Sample size...
+	$dataSet[] = array(
+		'frs_stat_key' => 'reviewLag-sampleSize',
+		'frs_stat_val'  => $rSize,
+		'frs_timestamp' => $encDataTimestamp );
+
+	// All-namespace ave/med review lag & ave pending lag stats...
+	$dataSet[] = array(
+		'frs_stat_key' => 'reviewLag-average',
+		'frs_stat_val'  => $aveRT,
+		'frs_timestamp' => $encDataTimestamp );
+	$dataSet[] = array(
+		'frs_stat_key' => 'reviewLag-median',
+		'frs_stat_val'  => $medianRT,
+		'frs_timestamp' => $encDataTimestamp );
+	$dataSet[] = array(
+		'frs_stat_key' => 'pendingLag-average',
+		'frs_stat_val'  => $avePET,
+		'frs_timestamp' => $encDataTimestamp );
+
+	// Per-namespace total/reviewed/synced stats...
 	foreach( $wgFlaggedRevsNamespaces as $namespace ) {
-		$dbw->replace( 'flaggedrevs_stats',
-			array( 'namespace' ),
-			array( 'namespace' => intval($namespace),
-				'total'    => isset($ns_total[$namespace]) ? $ns_total[$namespace] : 0,
-				'reviewed' => isset($ns_reviewed[$namespace]) ? $ns_reviewed[$namespace] : 0,
-				'synced'   => isset($ns_synced[$namespace]) ? $ns_synced[$namespace] : 0
-			),
-			__METHOD__
-		);
+		$dataSet[] = array(
+			'frs_stat_key' => 'totalPages-NS:'.(int)$namespace,
+			'frs_stat_val'  => isset($ns_total[$namespace]) ? $ns_total[$namespace] : 0,
+			'frs_timestamp' => $encDataTimestamp );
+		$dataSet[] = array(
+			'frs_stat_key' => 'reviewedPages-NS:'.(int)$namespace,
+			'frs_stat_val'  => isset($ns_reviewed[$namespace]) ? $ns_reviewed[$namespace] : 0,
+			'frs_timestamp' => $encDataTimestamp );
+		$dataSet[] = array(
+			'frs_stat_key' => 'syncedPages-NS:'.(int)$namespace,
+			'frs_stat_val'  => isset($ns_synced[$namespace]) ? $ns_synced[$namespace] : 0,
+			'frs_timestamp' => $encDataTimestamp );
 	}
-	// Overall stats...
-	$dbw->replace( 'flaggedrevs_stats2',
-		array( 'stat_id' ),
-		array( 'stat_id' => 1,
-			'ave_review_time' => $aveRT,
-			'med_review_time' => $medianRT,
-			'ave_pending_time' => $avePET
-		),
-		__METHOD__
-	);
-	// Update timestamp
-	$dbw->replace( 'querycache_info', array('qci_type'),
-		array('qci_type' => 'validationstats', 'qci_timestamp' => $dbw->timestamp()),
-		__METHOD__
-	);
+
+	$dbw->begin();
+	$dbw->insert( 'flaggedrevs_statistics', $dataSet, __FUNCTION__, array( 'IGNORE' ) );
 	$dbw->commit();
+
 	// Stats are now up to date!
 	$key = wfMemcKey( 'flaggedrevs', 'statsUpdated' );
 	$dbCache->set( $key, '1', $wgFlaggedRevsStatsAge );
@@ -252,5 +263,5 @@ function getAveReviewTimesAnons( $dbr, $dbCache ) {
 		}
 		echo "(sampled ".count($times)." edits)...";
 	}
-	return array($aveRT,$medianRT,$rPerTable);
+	return array($aveRT,$medianRT,$rPerTable,count($times));
 }

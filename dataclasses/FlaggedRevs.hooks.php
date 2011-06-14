@@ -261,12 +261,12 @@ class FlaggedRevsHooks {
 
 		static $pcCounts = null;
 		if ( !$pcCounts ) {
-			$dbr = wfGetDB( DB_SLAVE );
-			$res = $dbr->select( 'flaggedrevs_stats', '*', array(), __METHOD__ );
+			$stats = FlaggedRevsStats::getLatestStats();
+			$reviewedPerNS = $stats['reviewedPages-NS'];
 			$totalCount = 0;
-			foreach( $res as $row ) {
-				$nsList[ "ns-{$row->namespace}" ] = $row->reviewed;
-				$totalCount += $row->reviewed;
+			foreach ( $reviewedPerNS as $ns => $reviewed ) {
+				$nsList[ "ns-{$ns}" ] = $reviewed;
+				$totalCount += $reviewed;
 			}
 			$nsList[ 'all' ] = $totalCount;
 		}

@@ -1,6 +1,8 @@
 <?php
 
 class ValidationStatistics extends IncludableSpecialPage {
+	protected $latestData = null;
+
 	public function __construct() {
 		parent::__construct( 'ValidationStatistics' );
 	}
@@ -18,6 +20,7 @@ class ValidationStatistics extends IncludableSpecialPage {
 		$mt = $this->getMeanReviewWait();
 		$mdt = $this->getMedianReviewWait();
 		$pt = $this->getMeanPendingWait();
+		$pData = $this->getPercentiles();
 		$timestamp = $this->getLastUpdate();
 
 		$wgOut->addWikiMsg( 'validationstatistics-users',
@@ -28,13 +31,10 @@ class ValidationStatistics extends IncludableSpecialPage {
 			return false;
 		}
 
-		$key = wfMemcKey( 'flaggedrevs', 'reviewPercentiles' );
-		$dbCache = wfGetCache( CACHE_DB );
-		$data = $dbCache->get( $key );
 		# Is there a review time table available?
-		if ( is_array( $data ) && count( $data ) ) {
+		if ( is_array( $pData ) && count( $pData ) ) {
 			$headerRows = $dataRows = '';
-			foreach ( $data as $percentile => $perValue ) {
+			foreach ( $pData as $percentile => $perValue ) {
 				$headerRows .= "<th>P<sub>" . intval( $percentile ) . "</sub></th>";
 				$dataRows .= '<td>' . $wgLang->formatTimePeriod( $perValue ) . '</td>';
 			}
@@ -82,36 +82,39 @@ class ValidationStatistics extends IncludableSpecialPage {
 		$wgOut->addHTML( "</tr>\n" );
 		$namespaces = FlaggedRevs::getReviewNamespaces();
 		foreach ( $namespaces as $namespace ) {
-			$row = $this->db->selectRow( 'flaggedrevs_stats', '*',
-				array( 'namespace' => $namespace ) );
-			if( !$row ) continue; // NS added to config recently?
+			$total = $this->getTotalPages( $namespace );
+			$reviewed = $this->getReviewedPages( $namespace );
+			$synced = $this->getSyncedPages( $namespace );
+			if ( $total === '-' || $reviewed === '-' || $synced === '-' ) {
+				continue; // NS added to config recently?
+			}
 
-			$NsText = $wgContLang->getFormattedNsText( $row->namespace );
+			$NsText = $wgContLang->getFormattedNsText( $namespace );
 			$NsText = $NsText ? $NsText : wfMsgHTML( 'blanknamespace' );
 
-			$percRev = intval( $row->total ) == 0
+			$percRev = intval( $total ) == 0
 				? '-' // devision by zero
 				: wfMsg( 'parentheses',
 					wfMsgExt( 'percent', array( 'escapenoentities' ),
 						$wgLang->formatnum( sprintf( '%4.2f',
-							100 * intval( $row->reviewed ) / intval( $row->total ) ) )
+							100 * intval( $reviewed ) / intval( $total ) ) )
 					)
 				);
-			$percLatest = intval( $row->total ) == 0
+			$percLatest = intval( $total ) == 0
 				? '-' // devision by zero
 				: wfMsg( 'parentheses', 
 					wfMsgExt( 'percent', array( 'escapenoentities' ),
 						$wgLang->formatnum( sprintf( '%4.2f',
-							100 * intval( $row->synced ) / intval( $row->total ) ) )
+							100 * intval( $synced ) / intval( $total ) ) )
 					)
 				);
-			$percSynced = intval( $row->reviewed ) == 0
+			$percSynced = intval( $reviewed ) == 0
 				? '-' // devision by zero
 				: wfMsgExt( 'percent', array( 'escapenoentities' ),
 					$wgLang->formatnum( sprintf( '%4.2f',
-						100 * intval( $row->synced ) / intval( $row->reviewed ) ) )
+						100 * intval( $synced ) / intval( $reviewed ) ) )
 				);
-			$outdated = intval( $row->reviewed ) - intval( $row->synced );
+			$outdated = intval( $reviewed ) - intval( $synced );
 			$outdated = $wgLang->formatnum( max( 0, $outdated ) ); // lag between queries
 
 			$wgOut->addHTML(
@@ -120,14 +123,14 @@ class ValidationStatistics extends IncludableSpecialPage {
 						htmlspecialchars( $NsText ) .
 					"</td>
 					<td>" .
-						htmlspecialchars( $wgLang->formatnum( $row->total ) ) .
+						htmlspecialchars( $wgLang->formatnum( $total ) ) .
 					"</td>
 					<td>" .
-						htmlspecialchars( $wgLang->formatnum( $row->reviewed ) .
+						htmlspecialchars( $wgLang->formatnum( $reviewed ) .
 							$wgContLang->getDirMark() ) . " <i>$percRev</i>
 					</td>
 					<td>" .
-						htmlspecialchars( $wgLang->formatnum( $row->synced ) .
+						htmlspecialchars( $wgLang->formatnum( $synced ) .
 							$wgContLang->getDirMark() ) . " <i>$percLatest</i>
 					</td>
 					<td>" .
@@ -193,10 +196,10 @@ class ValidationStatistics extends IncludableSpecialPage {
 	}
 	
 	protected function readyForQuery() {
-		if ( !$this->db->tableExists( 'flaggedrevs_stats' ) ) {
+		if ( !$this->db->tableExists( 'flaggedrevs_statistics' ) ) {
 			return false;
 		} else {
-			return ( 0 != $this->db->selectField( 'flaggedrevs_stats', 'COUNT(*)' ) );
+			return ( 0 != $this->db->selectField( 'flaggedrevs_statistics', 'COUNT(*)' ) );
 		}
 	}
 	
@@ -211,30 +214,59 @@ class ValidationStatistics extends IncludableSpecialPage {
 			array( 'ug_group' => 'reviewer' ),
 			__METHOD__ );
 	}
-	
+
+	protected function getLatestStats() {
+		if ( $this->latestData !== null ) {
+			return $this->latestData;
+		}
+		$this->latestData = FlaggedRevsStats::getLatestStats();
+		return $this->latestData;
+	}
+
 	protected function getMeanReviewWait() {
-		if ( !$this->db->tableExists( 'flaggedrevs_stats2' ) ) return '-';
-		$val = $this->db->selectField( 'flaggedrevs_stats2', 'ave_review_time' );
-		return ( $val == false ? '-' : $val );
+		$stats = $this->getLatestStats();
+		return $stats['reviewLag-average'];
 	}
 	
 	protected function getMedianReviewWait() {
-		if ( !$this->db->tableExists( 'flaggedrevs_stats2' ) ) return '-';
-		$val = $this->db->selectField( 'flaggedrevs_stats2', 'med_review_time' );
-		return ( $val == false ? '-' : $val );
+		$stats = $this->getLatestStats();
+		return $stats['reviewLag-median'];
 	}
 	
 	protected function getMeanPendingWait() {
-		if ( !$this->db->tableExists( 'flaggedrevs_stats2' ) ) return '-';
-		$val = $this->db->selectField( 'flaggedrevs_stats2', 'ave_pending_time' );
-		return ( $val == false ? '-' : $val );
+		$stats = $this->getLatestStats();
+		return $stats['pendingLag-average'];
+	}
+
+	protected function getTotalPages( $ns ) {
+		$stats = $this->getLatestStats();
+		return isset( $stats['totalPages-NS'][$ns] )
+			? $stats['totalPages-NS'][$ns]
+			: '-';
 	}
 	
+	protected function getReviewedPages( $ns ) {
+		$stats = $this->getLatestStats();
+		return isset( $stats['reviewedPages-NS'][$ns] )
+			? $stats['reviewedPages-NS'][$ns]
+			: '-';
+	}
+
+	protected function getSyncedPages( $ns ) {
+		$stats = $this->getLatestStats();
+		return isset( $stats['syncedPages-NS'][$ns] )
+			? $stats['syncedPages-NS'][$ns]
+			: '-';
+	}
+
+	protected function getPercentiles() {
+		$stats = $this->getLatestStats();
+		return $stats['reviewLag-percentile'];
+	}
+
 	protected function getLastUpdate() {
-		if ( !$this->db->tableExists( 'querycache_info' ) ) return '-';
-		$val = $this->db->selectField( 'querycache_info', 'qci_timestamp',
-			array( 'qci_type' => 'validationstats' ) );
-		return ( $val == false ? '-' : $val );
+		$stats = $this->getLatestStats();
+		return $stats['statTimestamp'];
 	}
 	
 	// top X reviewers in the last Y hours
