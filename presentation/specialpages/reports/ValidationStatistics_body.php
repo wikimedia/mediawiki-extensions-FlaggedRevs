@@ -216,10 +216,9 @@ class ValidationStatistics extends IncludableSpecialPage {
 	}
 
 	protected function getLatestStats() {
-		if ( $this->latestData !== null ) {
-			return $this->latestData;
+		if ( $this->latestData === null ) {
+			$this->latestData = FlaggedRevsStats::getLatestStats();
 		}
-		$this->latestData = FlaggedRevsStats::getLatestStats();
 		return $this->latestData;
 	}
 
