@@ -630,7 +630,7 @@ class FlaggedRevs {
 				);
 			}
 			# Update template/file version cache...
-			if ( $sv->getRevId() != $editInfo->revid ) {
+			if ( $editInfo && $sv->getRevId() != $editInfo->revid ) {
 				FRInclusionCache::setRevIncludes( $title, $editInfo->revid, $editInfo->output );
 			}
 		}
