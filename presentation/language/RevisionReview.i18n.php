@@ -567,6 +567,7 @@ $messages['be-tarask'] = array(
 	'revreview-successful2' => "'''З вэрсіі [[:$1|$1]] было пасьпяхова зьнятае пазначэньне.'''",
 	'revreview-poss-conflict-p' => "'''Папярэджаньне: [[User:$1|$1]] пачаў рэцэнзаваньне гэтай старонкі $2 у $3.'''",
 	'revreview-poss-conflict-c' => "'''Папярэджаньне: [[User:$1|$1]] пачаў рэцэнзаваньне гэтых зьменаў $2 у $3.'''",
+	'revreview-adv-reviewing-p' => "'''Заўвага: Вам ўзгаданы, як пачаўшы рэцэнзаваньне гэтай старонкі $1 у $2.'''",
 	'revreview-toolow' => "'''Вам неабходна адзначыць кожны атрыбут адзнакай вышэй за «недастатковая», каб вэрсія старонкі лічылася рэцэнзаванай.'''
 
 Каб зьняць адзнаку з вэрсіі, націсьніце «зьняць зацьверджаньне».
@@ -4980,6 +4981,8 @@ Mời xem [[Special:Unreviewedpages|danh sách các trang chưa được duyệt
 	'revreview-successful2' => "'''Phiên bản của [[:$1|$1]] đã được bỏ cờ thành công.'''",
 	'revreview-poss-conflict-p' => "'''Cảnh báo: [[User:$1|$1]] đã bắt đầu duyệt trang này vào $2 lúc $3.'''",
 	'revreview-poss-conflict-c' => "'''Cảnh báo: [[User:$1|$1]] đã bắt đầu duyệt các thay đổi này vào $2 lúc $3.'''",
+	'revreview-adv-reviewing-p' => "'''Chú ý: Phiên duyệt trang này đang được liệt kê là đã bắt đầu vào $1 lúc $2.'''",
+	'revreview-adv-reviewing-c' => "'''Chú ý: Phiên duyệt các thay đổi này đang được liệt kê là đã bắt đầu vào $1 lúc $2.'''",
 	'revreview-toolow' => "'''Mỗi thuộc tính cần phải cao hơn “kém” để cho phiên bản có thể được xem là được duyệt.'''
 
 Để rút cờ được duyệt của một phiên bản, hãy bấm “Rút chấp nhận”.
