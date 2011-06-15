@@ -356,6 +356,4 @@ FlaggedRevsReview.updateRatingFormColors();
 FlaggedRevsReview.enableAjaxReview();
 
 // Flag users as "no longer reviewing" on navigate-away
-// @TODO: This doesn't handle a user having the same diff open twice,
-// closing one, but reviewing in the other very well...
 window.onbeforeunload = FlaggedRevsReview.deadvertiseReviewing;

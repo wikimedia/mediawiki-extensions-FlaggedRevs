@@ -3,6 +3,9 @@
 * Class of utility functions for getting/tracking user activity
 */
 class FRUserActivity {
+	const PAGE_REVIEW_MS = 1200; // 20*60
+	const CHANGE_REVIEW_MS = 360; // 6*60
+
 	/**
 	 * Get number of active users watching a page
 	 * @param Title $title
@@ -48,14 +51,13 @@ class FRUserActivity {
 		global $wgMemc;
 		$key = wfMemcKey( 'flaggedrevs', 'userReviewingPage', $pageId );
 		$val = $wgMemc->get( $key );
-		if ( is_array( $val ) && count( $val ) == 2 ) {
-			return $val;
-		}
-		return array( null, null );
+		return ( count( $val ) == 3 )
+			? array( $val[0], $val[1] )
+			: array( null, null );
 	}
 
 	/*
-	* Check is someone is currently reviewing a page
+	* Check if someone is currently reviewing a page
 	* @param int $pageId
 	* @return bool
 	*/
@@ -65,50 +67,28 @@ class FRUserActivity {
 	}
 
 	/*
-	* Set the flag for who is reviewing a page if not already set by someone
+	* Set the flag for who is reviewing a page if not already set by someone.
+	* If already set, then increment the instance counter (multiple windows)
+	* and add on time to the expiry.
+	*
 	* @param User $user
 	* @param int $pageId
 	* @return bool flag set
 	*/
-	public static function setUserReviewingPage( $user, $pageId ) {
-		global $wgMemc;
+	public static function setUserReviewingPage( User $user, $pageId ) {
 		$key = wfMemcKey( 'flaggedrevs', 'userReviewingPage', $pageId );
-		$val = array( $user->getName(), wfTimestampNow() );
-		$wasSet = false;
-
-		$wgMemc->lock( $key, 4 ); // 4 sec timeout
-		if ( !$wgMemc->get( $key ) ) { // no flag set
-			$wgMemc->set( $key, $val, 20*60 ); // 20 min
-			$wasSet = true;
-		}
-		$wgMemc->unlock( $key );
-
-		return $wasSet;
+		return self::incUserReviewingItem( $key, $user, self::PAGE_REVIEW_MS );
 	}
 
 	/*
-	* Clear the flag for who is reviewing a page
+	* Decrement/clear the flag for who is reviewing a page
 	* @param User $user
 	* @param int $pageId
 	* @return bool flag unset
 	*/
-	public static function clearUserReviewingPage( $user, $pageId ) {
-		global $wgMemc;
+	public static function clearUserReviewingPage( User $user, $pageId ) {
 		$key = wfMemcKey( 'flaggedrevs', 'userReviewingPage', $pageId );
-		$wgMemc->lock( $key, 4 ); // 4 sec timeout
-		$val = $wgMemc->get( $key );
-		$wasSet = false;
-
-		if ( is_array( $val ) && count( $val ) == 2 ) { // flag set
-			list( $u, $ts ) = $val;
-			if ( $u === $user->getName() ) {
-				$wgMemc->delete( $key );
-				$wasSet = true;
-			}
-		}
-		$wgMemc->unlock( $key );
-
-		return $wasSet;
+		return self::decUserReviewingItem( $key, $user, self::PAGE_REVIEW_MS );
 	}
 
 	/*
@@ -121,14 +101,13 @@ class FRUserActivity {
 		global $wgMemc;
 		$key = wfMemcKey( 'flaggedrevs', 'userReviewingDiff', $oldId, $newId );
 		$val = $wgMemc->get( $key );
-		if ( is_array( $val ) && count( $val ) == 2 ) {
-			return $val;
-		}
-		return array( null, null );
+		return ( count( $val ) == 3 )
+			? array( $val[0], $val[1] )
+			: array( null, null );
 	}
 
 	/*
-	* Check is someone is currently reviewing a diff
+	* Check if someone is currently reviewing a diff
 	* @param int $oldId
 	* @param int $newId
 	* @return bool
@@ -139,20 +118,46 @@ class FRUserActivity {
 	}
 
 	/*
-	* Set the flag for who is reviewing a diff if not already set by someone
+	* Set the flag for who is reviewing a diff if not already set by someone.
+	* If already set, then increment the instance counter (multiple windows)
+	* and add on time to the expiry.
 	* @param User $user
 	* @param int $pageId
 	* @return bool flag set
 	*/
-	public static function setUserReviewingDiff( $user, $oldId, $newId ) {
-		global $wgMemc;
+	public static function setUserReviewingDiff( User $user, $oldId, $newId ) {
 		$key = wfMemcKey( 'flaggedrevs', 'userReviewingDiff', $oldId, $newId );
-		$val = array( $user->getName(), wfTimestampNow() );
-		$wasSet = false;
+		return self::incUserReviewingItem( $key, $user, self::CHANGE_REVIEW_MS );
+	}
+
+	/*
+	* Decrement/clear the flag for who is reviewing a diff
+	* @param User $user
+	* @param int $oldId
+	* @param int $newId
+	* @return bool flag unset
+	*/
+	public static function clearUserReviewingDiff( User $user, $oldId, $newId ) {
+		$key = wfMemcKey( 'flaggedrevs', 'userReviewingDiff', $oldId, $newId );
+		return self::decUserReviewingItem( $key, $user, self::CHANGE_REVIEW_MS );
+	}
+
+	protected static function incUserReviewingItem( $key, User $user, $ttlMs ) {
+		global $wgMemc;
+		$wasSet = false; // was changed?
 
 		$wgMemc->lock( $key, 4 ); // 4 sec timeout
-		if ( !$wgMemc->get( $key ) ) { // no flag set
-			$wgMemc->set( $key, $val, 6*20 ); // 6 min
+		$oldVal = $wgMemc->get( $key );
+		if ( count( $oldVal ) == 3 ) { // flag set
+			list( $u, $ts, $cnt ) = $oldVal;
+			if ( $u === $user->getName() ) { // by this user
+				$newVal = array( $u, $ts, $cnt+1 ); // inc counter
+				$wgMemc->set( $key, $newVal, $ttlMs );
+				$wasSet = true;
+			}
+		} else { // no flag set
+			$newVal = array( $user->getName(), wfTimestampNow(), 1 );
+			$wgMemc->set( $key, $newVal, $ttlMs );
 			$wasSet = true;
 		}
 		$wgMemc->unlock( $key );
@@ -160,29 +165,26 @@ class FRUserActivity {
 		return $wasSet;
 	}
 
-	/*
-	* Clear the flag for who is reviewing a diff
-	* @param User $user
-	* @param int $oldId
-	* @param int $newId
-	* @return bool flag unset
-	*/
-	public static function clearUserReviewingDiff( $user, $oldId, $newId ) {
+	protected static function decUserReviewingItem( $key, User $user, $ttlMs ) {
 		global $wgMemc;
-		$key = wfMemcKey( 'flaggedrevs', 'userReviewingDiff', $oldId, $newId );
-		$wgMemc->lock( $key, 4 ); // 4 sec timeout
-		$val = $wgMemc->get( $key );
-		$wasSet = false;
+		$wasSet = false; // was changed?
 
-		if ( is_array( $val ) && count( $val ) == 2 ) { // flag set
-			list( $u, $ts ) = $val;
+		$wgMemc->lock( $key, 4 ); // 4 sec timeout
+		$oldVal = $wgMemc->get( $key );
+		if ( count( $oldVal ) == 3 ) { // flag set
+			list( $u, $ts, $cnt ) = $oldVal;
 			if ( $u === $user->getName() ) {
-				$wgMemc->delete( $key );
+				if ( $cnt <= 1 ) {
+					$wgMemc->delete( $key );
+				} else {
+					$newVal = array( $u, $ts, $cnt-1 ); // dec counter
+					$wgMemc->set( $key, $newVal );
+				}
 				$wasSet = true;
 			}
 		}
 		$wgMemc->unlock( $key );
-		
+
 		return $wasSet;
 	}
 }
