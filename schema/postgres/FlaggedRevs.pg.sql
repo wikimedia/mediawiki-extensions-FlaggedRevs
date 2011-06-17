@@ -82,4 +82,12 @@ CREATE TABLE flaggedrevs_promote (
   frp_user_params TEXT     NOT NULL default ''
 );
 
+CREATE TABLE flaggedrevs_statistics (
+	frs_timestamp TIMESTAMPTZ NOT NULL,
+    frs_stat_key TEXT NOT NULL,
+    frs_stat_val BIGINT NOT NULL,
+    PRIMARY KEY(frs_stat_key,frs_timestamp)
+) /*$wgDBTableOptions*/;
+CREATE INDEX frs_timestamp ON flaggedrevs_statistics (frs_timestamp);
+
 COMMIT;
