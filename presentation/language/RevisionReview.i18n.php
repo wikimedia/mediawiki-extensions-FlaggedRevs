@@ -4237,6 +4237,8 @@ Oglejte si [[Special:Unreviewedpages|seznam nepregledanih strani]].',
 	'revreview-successful2' => "'''Redakcija [[:$1|$1]] je uspešno odznačena.'''",
 	'revreview-poss-conflict-p' => "'''Opozorilo: [[User:$1|$1]] je pričel(-a) pregledovati to stran dne $2 ob $3.'''",
 	'revreview-poss-conflict-c' => "'''Opozorilo: [[User:$1|$1]] je pričel(-a) pregledovati te spremembe dne $2 ob $3.'''",
+	'revreview-adv-reviewing-p' => "'''Obvestilo: Označeni ste kot pregledovalec, ki je začel pregledovati to stran dne $1 ob $2.'''",
+	'revreview-adv-reviewing-c' => "'''Obvestilo: Označeni ste kot pregledovalec, ki je začel pregledovati te spremembe dne $1 ob $2.'''",
 	'revreview-toolow' => "'''Vse atribute morate oceniti višje od »neustrezno«, če želite redakcijo označiti kot pregledano.'''
 
 Za odstranitev stanja pregleda redakcije kliknite »ne sprejmi«.
