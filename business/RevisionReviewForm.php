@@ -222,7 +222,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 		if ( $tag ) {
 			if ( $this->approve ) {
 				return array( $tag => 1 );
-			} else if ( $this->unapprove ) {
+			} elseif ( $this->unapprove ) {
 				return array( $tag => 0 );
 			}
 		}
@@ -246,7 +246,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 
 	/**
 	* Submit the form parameters for the page config to the DB.
-	* 
+	*
 	* @return mixed (true on success, error string on failure)
 	*/
 	public function doSubmit() {

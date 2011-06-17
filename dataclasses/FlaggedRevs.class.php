@@ -21,7 +21,7 @@ class FlaggedRevs {
 	protected static $restrictionLevels = array();
 	# Autoreview config
 	protected static $autoReviewConfig = 0;
-	
+
 	protected static $loaded = false;
 
 	public static function load() {
@@ -103,7 +103,7 @@ class FlaggedRevs {
 		foreach ( $wgFlaggedRevsNamespaces as $ns ) {
 			if ( MWNamespace::isTalk( $ns ) ) {
 				throw new MWException( 'FlaggedRevs given talk namespace in $wgFlaggedRevsNamespaces!' );
-			} else if ( $ns == NS_MEDIAWIKI ) {
+			} elseif ( $ns == NS_MEDIAWIKI ) {
 				throw new MWException( 'FlaggedRevs given NS_MEDIAWIKI in $wgFlaggedRevsNamespaces!' );
 			}
 		}
@@ -127,7 +127,7 @@ class FlaggedRevs {
 			wfWarn( '$wgFlaggedRevsAutoReviewNew is deprecated; use $wgFlaggedRevsAutoReview.' );
 		}
 	}
-	
+
 	# ################ Basic config accessors #################
 
 	/**
@@ -138,7 +138,7 @@ class FlaggedRevs {
 		self::load();
 		return self::$binaryFlagging;
 	}
-	
+
 	/**
 	 * If there only one tag and it has only one level, return it
 	 * @return string
@@ -151,7 +151,7 @@ class FlaggedRevs {
 		$tags = array_keys( self::$dimensions );
 		return empty( $tags ) ? null : $tags[0];
 	}
-	
+
 	/**
 	 * Are quality versions enabled?
 	 * @return bool
@@ -160,7 +160,7 @@ class FlaggedRevs {
 		self::load();
 		return self::$qualityVersions;
 	}
-	
+
 	/**
 	 * Are pristine versions enabled?
 	 * @return bool
@@ -315,7 +315,7 @@ class FlaggedRevs {
 		self::load();
 		return self::$tagRestrictions;
 	}
-	
+
 	/**
 	 * Get the UI name for a tag
 	 * @param string $tag
@@ -324,7 +324,7 @@ class FlaggedRevs {
 	public static function getTagMsg( $tag ) {
 		return wfMsgExt( "revreview-$tag", array( 'escapenoentities' ) );
 	}
-	
+
 	/**
 	 * Get the levels for a tag. Gives map of level to message name.
 	 * @param string $tag
@@ -335,7 +335,7 @@ class FlaggedRevs {
 		return isset( self::$dimensions[$tag] ) ?
 			self::$dimensions[$tag] : array();
 	}
-	
+
 	/**
 	 * Get the the UI name for a value of a tag
 	 * @param string $tag
@@ -353,7 +353,7 @@ class FlaggedRevs {
 		return wfMsgExt( 'revreview-' . self::$dimensions[$tag][$value],
 			array( 'escapenoentities' ) );
 	}
-	
+
 	/**
 	 * Are there no actual dimensions?
 	 * @return bool
@@ -401,11 +401,11 @@ class FlaggedRevs {
 			return array( 'diffonly' => 1 );
 		} elseif ( strpos( $val, '&diffonly=0' ) !== false ) {
 			return array( 'diffonly' => 0);
-		} 
+		}
 		return array();
 	}
 
-	# ################ Permission functions #################	
+	# ################ Permission functions #################
 
 	/*
 	* Sanity check a (tag,value) pair
@@ -522,7 +522,7 @@ class FlaggedRevs {
 
 	# ################ Parsing functions #################
 
-	/** 
+	/**
 	 * All templates and arguments in $text are expanded out
 	 * @param Title $title
 	 * @param string $text wikitext
@@ -788,7 +788,7 @@ class FlaggedRevs {
 		self::load();
 		return self::tagsAtLevel( $flags, self::$minPL );
 	}
-	
+
 	// Checks if $flags meets $reqFlagLevels
 	protected static function tagsAtLevel( array $flags, $reqFlagLevels ) {
 		self::load();
@@ -861,7 +861,7 @@ class FlaggedRevs {
 			$flags[$tag] = $val;
 		}
 		return $flags;
-	}	
+	}
 
 	/**
 	* Get the list of reviewable namespaces
@@ -871,7 +871,7 @@ class FlaggedRevs {
 		self::load(); // validates namespaces
 		return self::$reviewNamespaces;
 	}
-	
+
 	/**
 	* Get the list of patrollable namespaces
 	* @return array

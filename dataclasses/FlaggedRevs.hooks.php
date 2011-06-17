@@ -302,7 +302,7 @@ class FlaggedRevsHooks {
 				return false;
 			}
 		# Don't let users patrol pages not in $wgFlaggedRevsPatrolNamespaces
-		} else if ( $action === 'patrol' || $action === 'autopatrol' ) {
+		} elseif ( $action === 'patrol' || $action === 'autopatrol' ) {
 			$flaggedArticle = FlaggedPage::getTitleInstance( $title );
 			# For a page to be patrollable it must not be reviewable.
 			# Note: normally, edits to non-reviewable, non-patrollable, pages are
@@ -313,7 +313,7 @@ class FlaggedRevsHooks {
 				return false;
 			}
 		# Enforce autoreview/review restrictions
-		} else if ( $action === 'autoreview' || $action === 'review' ) {
+		} elseif ( $action === 'autoreview' || $action === 'review' ) {
 			# Get autoreview restriction settings...
 			$fa = FlaggedPage::getTitleInstance( $title );
 			$config = $fa->getStabilitySettings();

@@ -63,7 +63,7 @@ class UnreviewedPages extends SpecialPage {
 		if ( FlaggedRevs::qualityVersions() ) {
 			$form .= FlaggedRevsXML::getLevelMenu( $this->level, false, 1 ) . '&#160;';
 		}
-		$form .= 
+		$form .=
 			"<span style='white-space: nowrap;'>" .
 			Xml::label( wfMsg( "unreviewedpages-category" ), 'category' ) . '&#160;' .
 			Xml::input( 'category', 30, $this->category, array( 'id' => 'category' ) ) .
@@ -161,9 +161,9 @@ class UnreviewedPages extends SpecialPage {
 	protected static function getLineClass( $hours, $uw ) {
 		if ( $uw == 0 )
 			return 'fr-unreviewed-unwatched';
-		else if ( $hours > 20 * 24 )
+		elseif ( $hours > 20 * 24 )
 			return 'fr-pending-long2';
-		else if ( $hours > 7 * 24 )
+		elseif ( $hours > 7 * 24 )
 			return 'fr-pending-long';
 		else
 			return "";
@@ -284,7 +284,7 @@ class UnreviewedPagesPager extends AlphabeticPager {
 			)
 		);
 	}
-	
+
 	function getQueryCacheInfo() {
 		$conds = $this->mConds;
 		$fields = array( 'page_namespace', 'page_title', 'page_len', 'page_id',
@@ -342,7 +342,7 @@ class UnreviewedPagesPager extends AlphabeticPager {
 	function getIndexField() {
 		return $this->mIndexField;
 	}
-	
+
 	function getStartBody() {
 		wfProfileIn( __METHOD__ );
 		# Do a link batch query
@@ -354,7 +354,7 @@ class UnreviewedPagesPager extends AlphabeticPager {
 		wfProfileOut( __METHOD__ );
 		return '<ul>';
 	}
-	
+
 	function getEndBody() {
 		return '</ul>';
 	}

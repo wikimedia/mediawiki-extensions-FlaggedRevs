@@ -3,8 +3,8 @@
  * Class containing hooked functions for a FlaggedRevs environment
  */
 class FlaggedRevsUIHooks {
-	/* 
-	 * Register FlaggedRevs special pages as needed. 
+	/*
+	 * Register FlaggedRevs special pages as needed.
 	 * Also sets $wgSpecialPages just to be consistent.
 	 */
 	public static function defineSpecialPages( array &$list ) {
@@ -669,11 +669,11 @@ class FlaggedRevsUIHooks {
 		$isAllowed = $form->isAllowed();
 		$disabledAttrib = $isAllowed ?
 			array() : array( 'disabled' => 'disabled' );
-		
+
 		# Get the current config/expiry
 		$config = FlaggedPageConfig::getStabilitySettings( $article->getTitle(), FR_MASTER );
 		$oldExpirySelect = ( $config['expiry'] == 'infinity' ) ? 'infinite' : 'existing';
-		
+
 		# Load requested restriction level, default to current level...
 		$restriction = $wgRequest->getVal( 'mwStabilityLevel',
 			FlaggedPageConfig::getProtectionLevel( $config ) );
@@ -796,7 +796,7 @@ class FlaggedRevsUIHooks {
 	public static function insertStabilityLog( Article $article, OutputPage $out ) {
 		if ( !$article->exists() ) {
 			return true; // nothing to do
-		} else if ( !FlaggedRevs::inReviewNamespace( $article->getTitle() ) ) {
+		} elseif ( !FlaggedRevs::inReviewNamespace( $article->getTitle() ) ) {
 			return true; // not a reviewable page
 		}
 		# Show relevant lines from the stability log:

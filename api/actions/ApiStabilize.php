@@ -59,7 +59,7 @@ abstract class ApiStabilize extends ApiBase {
 	public function mustBePosted() {
 		return true;
 	}
-	
+
 	public function isWriteMode() {
  		return true;
  	}
@@ -122,7 +122,7 @@ class ApiStabilizeGeneral extends ApiStabilize {
 	protected function defaultFromKey( $key ) {
 		if ( $key == 'stable' ) {
 			return 1;
-		} else if ( $key == 'latest' ) {
+		} elseif ( $key == 'latest' ) {
 			return 0;
 		}
 		return null; // bad key?
@@ -194,7 +194,7 @@ class ApiStabilizeProtect extends ApiStabilize {
 	public function doExecute() {
 		global $wgUser;
 		$params = $this->extractRequestParams();
-		
+
 		$form = new PageStabilityProtectForm( $wgUser );
 		$form->setPage( $this->title ); # Our target page
 		$form->setWatchThis( $params['watch'] ); # Watch this page

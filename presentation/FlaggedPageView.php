@@ -223,9 +223,9 @@ class FlaggedPageView {
 	 * Output review notice
 	 */
 	public function displayTag() {
-		$this->load();	
+		$this->load();
 		// Sanity check that this is a reviewable page
-		if ( $this->article->isReviewable() ) {		
+		if ( $this->article->isReviewable() ) {
 			$this->out->appendSubtitle( $this->reviewNotice );
 		}
 		return true;
@@ -304,7 +304,7 @@ class FlaggedPageView {
 			if ( !$stableId ) {
 				$reqId = false; // must be invalid
 			# Treat requesting the stable version by ID as &stable=1
-			} else if ( $reqId != $stableId ) {
+			} elseif ( $reqId != $stableId ) {
 				$old = true; // old reviewed version requested by ID
 				$frev = FlaggedRevision::newFromTitle( $this->article->getTitle(), $reqId );
 				if ( !$frev ) {
@@ -346,7 +346,7 @@ class FlaggedPageView {
 			$useParserCache = false;
 		// Stable version requested by ID or relevant conditions met to
 		// to override page view with the stable version.
-		} else if ( $stable || $this->showingStable() ) {
+		} elseif ( $stable || $this->showingStable() ) {
 			$this->showStableVersion( $srev, $tag, $prot );
 			$outputDone = true; # Tell MW that parser output is done
 			$useParserCache = false;
@@ -427,7 +427,7 @@ class FlaggedPageView {
 			$this->reviewNotice .= $tag;
 		}
 	}
-	
+
 	/**
 	* @param $srev stable version
 	* @param $tag review box/bar info
@@ -483,13 +483,13 @@ class FlaggedPageView {
 		# Otherwise, construct some tagging info for non-printable outputs.
 		# Also, if low profile UI is enabled and the page is synced, skip the tag.
 		# Note: the "your edit is pending" notice has all this info, so we never add both.
-		} else if ( !( $this->article->lowProfileUI() && $synced ) ) {
+		} elseif ( !( $this->article->lowProfileUI() && $synced ) ) {
 			$revsSince = $this->article->getPendingRevCount();
 			// Simple icon-based UI
 			if ( $this->useSimpleUI() ) {
 				if ( !$wgUser->getId() ) {
 					$msgHTML = ''; // Anons just see simple icons
-				} else if ( $synced ) {
+				} elseif ( $synced ) {
 					$msg = $quality
 						? 'revreview-quick-quality-same'
 						: 'revreview-quick-basic-same';
@@ -537,7 +537,7 @@ class FlaggedPageView {
 			}
 		}
 	}
-	
+
 	/**
 	* @param $srev stable version
 	* @param $frev selected flagged revision
@@ -695,7 +695,7 @@ class FlaggedPageView {
 				$parserCache->save( $parserOut, $this->article, $parserOptions );
 				# Add the stable output to the page view
 				$this->addParserOutput( $parserOut );
-				
+
 				# Update the stable version dependancies
 				FlaggedRevs::updateStableOnlyDeps( $this->article, $parserOut );
 			} else {
@@ -987,7 +987,7 @@ class FlaggedPageView {
 		}
 		return true;
 	}
-	
+
 	protected function stabilityLogNotice() {
 		$this->load();
 		$s = '';
@@ -1004,7 +1004,7 @@ class FlaggedPageView {
 		}
 		return $s;
 	}
-	
+
 	public function addToNoSuchSection( EditPage $editPage, &$s ) {
 		$this->load();
 		$srev = $this->article->getStableRev();
@@ -1036,7 +1036,7 @@ class FlaggedPageView {
 			$this->out->appendSubtitle(
 				Html::rawElement(
 					'span',
-					array( 'class' => 'plainlinks', 'id' => 'mw-fr-category-oldreviewed' ), 
+					array( 'class' => 'plainlinks', 'id' => 'mw-fr-category-oldreviewed' ),
 					wfMsgExt( 'flaggedrevs-categoryview', 'parseinline', urlencode( $category ) )
 				)
 			);
@@ -1052,7 +1052,7 @@ class FlaggedPageView {
 		global $wgRequest, $wgUser;
 		$this->load();
 		if ( $this->out->isPrintable() ) {
-			return false; // Must be on non-printable output 
+			return false; // Must be on non-printable output
 		}
 		# User must have review rights
 		if ( !$wgUser->isAllowed( 'review' ) ) {
@@ -1323,7 +1323,7 @@ class FlaggedPageView {
 		# Add bar msg to the top of the page...
 		$css = 'flaggedrevs_preview plainlinks';
 		$msgHTML = wfMsgExt( $msg, 'parseinline', $srev->getRevId(), $time, $revsSince );
-		$this->reviewNotice .= "<div id='mw-fr-reviewnotice' class='$css'>" . 
+		$this->reviewNotice .= "<div id='mw-fr-reviewnotice' class='$css'>" .
 			"$msgHTML$diffToggle</div>";
 	}
 

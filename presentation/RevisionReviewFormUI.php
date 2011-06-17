@@ -293,7 +293,7 @@ class RevisionReviewFormUI {
 							$i,	"wp$quality" . $i, ( $i == $selected ), $attribs ) . "\n";
 					}
 				# Otherwise make checkboxes (two levels available for current user)
-				} else if ( $numLevels == 2 ) {
+				} elseif ( $numLevels == 2 ) {
 					$i = $minLevel;
 					$attribs = array( 'class' => "fr-rating-option-$i",
 						'onchange' => "FlaggedRevsReview.updateRatingForm()" );
@@ -323,7 +323,7 @@ class RevisionReviewFormUI {
 				# Some levels may be restricted or not applicable...
 				if ( !FlaggedRevs::userCanSetTag( $user, $tag, $i ) ) {
 					continue; // skip this level
-				} else if ( $i > 0 && !$minLevels[$tag] ) {
+				} elseif ( $i > 0 && !$minLevels[$tag] ) {
 					$minLevels[$tag] = $i; // first non-zero level number
 				}
 				$labels[$tag][$i] = $msg; // set label
