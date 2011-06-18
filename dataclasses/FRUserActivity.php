@@ -81,7 +81,8 @@ class FRUserActivity {
 	}
 
 	/*
-	* Decrement/clear the flag for who is reviewing a page
+	* Clear an instance of a user reviewing a page by decrementing the counter.
+	* If it reaches 0 instances, then clear the flag for who is reviewing the page.
 	* @param User $user
 	* @param int $pageId
 	* @return bool flag unset
@@ -89,6 +90,17 @@ class FRUserActivity {
 	public static function clearUserReviewingPage( User $user, $pageId ) {
 		$key = wfMemcKey( 'flaggedrevs', 'userReviewingPage', $pageId );
 		return self::decUserReviewingItem( $key, $user, self::PAGE_REVIEW_MS );
+	}
+
+	/*
+	* Totally clear the flag for who is reviewing a page.
+	* @param int $pageId
+	* @return void
+	*/
+	public static function clearAllReviewingPage( $pageId ) {
+		global $wgMemc;
+		$key = wfMemcKey( 'flaggedrevs', 'userReviewingPage', $pageId );
+		$wgMemc->delete( $key );
 	}
 
 	/*
@@ -131,7 +143,8 @@ class FRUserActivity {
 	}
 
 	/*
-	* Decrement/clear the flag for who is reviewing a diff
+	* Clear an instance of a user reviewing a diff by decrementing the counter.
+	* If it reaches 0 instances, then clear the flag for who is reviewing the diff.
 	* @param User $user
 	* @param int $oldId
 	* @param int $newId
@@ -140,6 +153,18 @@ class FRUserActivity {
 	public static function clearUserReviewingDiff( User $user, $oldId, $newId ) {
 		$key = wfMemcKey( 'flaggedrevs', 'userReviewingDiff', $oldId, $newId );
 		return self::decUserReviewingItem( $key, $user, self::CHANGE_REVIEW_MS );
+	}
+
+	/*
+	* Totally clear the flag for who is reviewing a diff.
+	* @param int $oldId
+	* @param int $newId
+	* @return void
+	*/
+	public static function clearAllReviewingDiff( $oldId, $newId ) {
+		global $wgMemc;
+		$key = wfMemcKey( 'flaggedrevs', 'userReviewingDiff', $oldId, $newId );
+		$wgMemc->delete( $key );
 	}
 
 	protected static function incUserReviewingItem( $key, User $user, $ttlMs ) {

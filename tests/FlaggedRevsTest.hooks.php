@@ -6,6 +6,7 @@ class FlaggedRevsTestHooks {
 	public static function getUnitTests( &$files ) {
 		$files[] = dirname( __FILE__ ) . '/FRInclusionManagerTest.php';
 		$files[] = dirname( __FILE__ ) . '/FRUserCountersTest.php';
+		$files[] = dirname( __FILE__ ) . '/FRUserActivityTest.php';
 		$files[] = dirname( __FILE__ ) . '/FRParserCacheStableTest.php';
 		return true;
 	}
