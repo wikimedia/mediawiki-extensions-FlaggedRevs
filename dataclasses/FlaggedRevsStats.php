@@ -15,7 +15,7 @@ class FlaggedRevsStats {
 		$data['reviewLag-sampleSize'] = '-';
 		$data['reviewLag-average'] = '-';
 		$data['reviewLag-median'] = '-';
-		$data['reviewLag-percentiles'] = array();
+		$data['reviewLag-percentile'] = array();
 		$data['totalPages-NS'] = array();
 		$data['reviewedPages-NS'] = array();
 		$data['syncedPages-NS'] = array();
