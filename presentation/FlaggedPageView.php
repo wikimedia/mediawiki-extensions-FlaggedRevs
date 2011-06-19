@@ -1674,12 +1674,15 @@ class FlaggedPageView {
 						array( ':' , '.' ), array( '%3A', '%' ), // hack: reverse encoding
 						substr( $sectionAnchor, 1 ) // remove the '#'
 					);
-					$params += array('fromsection' => $section );
+					$params += array( 'fromsection' => $section );
 					$sectionAnchor = ''; // go to the top of the page to see notice
 				}
 			}
 		}
-		$extraQuery = wfAppendQuery( $extraQuery, $params );
+		if ( $extraQuery !== '' ) {
+			$extraQuery .= '&';
+		}
+		$extraQuery .= wfArrayToCGI( $params ); // note: EditPage will add initial "&"
 		return true;
 	}
 
