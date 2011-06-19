@@ -23,7 +23,7 @@ div.flaggedrevs_basic {
 	background-color: #f0f8ff;
 }
 div.flaggedrevs_quality {
-	background-color: #f0fff0;
+	background-color: #e1ffe1;
 }
 div.flaggedrevs_pristine {
 	background-color: #ffffe3;
@@ -198,7 +198,7 @@ div.flaggedrevs_short_details {
 	background-color: #f0f8ff;
 }
 .flaggedrevs-color-2 {
-	background-color: #f0fff0;
+	background-color: #e1ffe1;
 }
 .flaggedrevs-color-3 {
 	background-color: #ffffe3;
@@ -316,7 +316,7 @@ span.fr-under-review {
 	background-color: #f0f8ff;
 }
 .fr-rating-option-2 {
-	background-color: #f0fff0;
+	background-color: #e1ffe1;
 }
 .fr-rating-option-3 {
 	background-color: #fef0db;
