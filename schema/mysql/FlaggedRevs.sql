@@ -146,7 +146,7 @@ CREATE TABLE /*_*/flaggedrevs_statistics (
     -- Stat key name, colons separate paramaters
     frs_stat_key varchar(255) NOT NULL,
     -- Stat value as an integer
-    frs_stat_val integer unsigned NOT NULL,
+    frs_stat_val bigint NOT NULL,
     PRIMARY KEY(frs_stat_key,frs_timestamp)
 ) /*$wgDBTableOptions*/;
 CREATE INDEX /*i*/frs_timestamp ON /*_*/flaggedrevs_statistics (frs_timestamp);
