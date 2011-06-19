@@ -85,52 +85,64 @@ class FlaggedRevsStats {
 		$avePET = self::getMeanPendingEditTime();
 
 		# Get wait (till review) time samples for anon edits...
-		list( $aveRT, $medianRT, $rPerTable, $rSize ) = self::getReviewTimesAnons( $dbCache );
+		$reviewData = self::getReviewTimesAnons( $dbCache );
+		$aveRT = $reviewData['average'];
+		$medianRT = $reviewData['median'];
+		$rPerTable = $reviewData['percTable'];
+		$rSize = $reviewData['sampleSize'];
 
 		$dbw = wfGetDB( DB_MASTER );
 		// The timestamp to identify this whole batch of data
 		$encDataTimestamp = $dbw->timestamp();
 
 		$dataSet = array();
+		$dataSet[] = array(
+				'frs_stat_key' 	=> 'reviewLag-sampleStartTimestamp',
+				'frs_stat_val'  => wfTimestamp( TS_MW, $reviewData['sampleStartTS'] ),
+				'frs_timestamp' => $encDataTimestamp );
+		$dataSet[] = array(
+				'frs_stat_key' 	=> 'reviewLag-sampleEndTimestamp',
+				'frs_stat_val'  => wfTimestamp( TS_MW, $reviewData['sampleEndTS'] ),
+				'frs_timestamp' => $encDataTimestamp );
 		// All-namespace percentiles...
 		foreach( $rPerTable as $percentile => $seconds ) {
 			$dataSet[] = array(
-				'frs_stat_key' => 'reviewLag-percentile:'.(int)$percentile,
+				'frs_stat_key' 	=> 'reviewLag-percentile:'.(int)$percentile,
 				'frs_stat_val'  => $seconds,
 				'frs_timestamp' => $encDataTimestamp );
 		}
 		// Sample size...
 		$dataSet[] = array(
-			'frs_stat_key' => 'reviewLag-sampleSize',
+			'frs_stat_key' 	=> 'reviewLag-sampleSize',
 			'frs_stat_val'  => $rSize,
 			'frs_timestamp' => $encDataTimestamp );
 
 		// All-namespace ave/med review lag & ave pending lag stats...
 		$dataSet[] = array(
-			'frs_stat_key' => 'reviewLag-average',
+			'frs_stat_key' 	=> 'reviewLag-average',
 			'frs_stat_val'  => $aveRT,
 			'frs_timestamp' => $encDataTimestamp );
 		$dataSet[] = array(
-			'frs_stat_key' => 'reviewLag-median',
+			'frs_stat_key' 	=> 'reviewLag-median',
 			'frs_stat_val'  => $medianRT,
 			'frs_timestamp' => $encDataTimestamp );
 		$dataSet[] = array(
-			'frs_stat_key' => 'pendingLag-average',
+			'frs_stat_key' 	=> 'pendingLag-average',
 			'frs_stat_val'  => $avePET,
 			'frs_timestamp' => $encDataTimestamp );
 
 		// Per-namespace total/reviewed/synced stats...
 		foreach( $rNamespaces as $namespace ) {
 			$dataSet[] = array(
-				'frs_stat_key' => 'totalPages-NS:'.(int)$namespace,
+				'frs_stat_key' 	=> 'totalPages-NS:'.(int)$namespace,
 				'frs_stat_val'  => isset($ns_total[$namespace]) ? $ns_total[$namespace] : 0,
 				'frs_timestamp' => $encDataTimestamp );
 			$dataSet[] = array(
-				'frs_stat_key' => 'reviewedPages-NS:'.(int)$namespace,
+				'frs_stat_key' 	=> 'reviewedPages-NS:'.(int)$namespace,
 				'frs_stat_val'  => isset($ns_reviewed[$namespace]) ? $ns_reviewed[$namespace] : 0,
 				'frs_timestamp' => $encDataTimestamp );
 			$dataSet[] = array(
-				'frs_stat_key' => 'syncedPages-NS:'.(int)$namespace,
+				'frs_stat_key' 	=> 'syncedPages-NS:'.(int)$namespace,
 				'frs_stat_val'  => isset($ns_synced[$namespace]) ? $ns_synced[$namespace] : 0,
 				'frs_timestamp' => $encDataTimestamp );
 		}
@@ -332,6 +344,14 @@ class FlaggedRevsStats {
 			}
 			#echo "(sampled ".count($times)." edits)...";
 		}
-		return array($aveRT,$medianRT,$rPerTable,count($times));
+
+		return array(
+			'average'		=> $aveRT,
+			'median'		=> $medianRT,
+			'percTable'		=> $rPerTable,
+			'sampleSize'	=> count( $times ),
+			'sampleStartTS'	=> $minTSUnix,
+			'sampleEndTS'	=> $maxTSUnix
+		);
 	}
 }
