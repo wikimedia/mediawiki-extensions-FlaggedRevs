@@ -78,10 +78,9 @@ Please review all the changes shown below to make your edits appear in the stabl
 
 Please review all the changes shown below to make your edits appear in the stable version.',
 	'revreview-update-includes'    => '\'\'\'Templates/files updated (unreviewed pages in bold):\'\'\'',
-	'revreview-update-use'         => '\'\'\'NOTE:\'\'\' The stable version of each of these templates/files is used in the stable version of this page.',
 
 	'revreview-reject-header'      => 'Reject changes for $1',
-	'revreview-reject-text-list'   => 'By completing this action, you will be \'\'\'rejecting\'\'\' the following {{PLURAL:$1|change|changes}}:',
+	'revreview-reject-text-list'   => 'By completing this action you will be \'\'\'rejecting\'\'\' the source text changes from the following {{PLURAL:$1|revision|revisions}} of [[:$2|$2]]:',
 	'revreview-reject-text-revto'  => 'This will revert the page back to the [{{fullurl:$1|oldid=$2}} version as of $3].',
 	'revreview-reject-summary'     => 'Summary:',
 	'revreview-reject-confirm'     => 'Reject these changes',

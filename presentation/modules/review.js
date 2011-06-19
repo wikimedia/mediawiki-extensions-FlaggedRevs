@@ -78,6 +78,9 @@ window.FlaggedRevsReview = {
 				selectedlevel = levels[0].selectedIndex;
 				value = levels[0].getElementsByTagName('option')[selectedlevel].value;
 				levels[0].className = 'fr-rating-option-' + value;
+				// Fix FF one-time jitter bug of changing an <option>
+				levels[0].selectedIndex = null;
+				levels[0].selectedIndex = selectedlevel;
 			}
 		}
 	},

@@ -1409,15 +1409,9 @@ class FlaggedPageView {
 				}
 				# Add include change list...
 				if ( count( $changeList ) ) { // just inclusion changes
-					$changeDiv .= '<p>' .
+					$changeDiv .= "<p>" .
 						wfMsgExt( 'revreview-update-includes', 'parseinline' ) .
-						'&#160;' . implode( ', ', $changeList ) . '</p>';
-					# Add include usage notice...
-					/*
-					if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_STABLE ) {
-						$changeDiv .= wfMsgExt( 'revreview-update-use', 'parse' );
-					}
-					*/
+						'&#160;' . implode( ', ', $changeList ) . "</p>\n";
 				}
 			}
 			if ( $changeDiv != '' ) {

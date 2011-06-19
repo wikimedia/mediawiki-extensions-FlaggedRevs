@@ -104,9 +104,9 @@ class RevisionReviewFormUI {
 		$reviewTitle = SpecialPage::getTitleFor( 'RevisionReview' );
 		$action = $reviewTitle->getLocalUrl( 'action=submit' );
 		$params = array( 'method' => 'post', 'action' => $action, 'id' => 'mw-fr-reviewform' );
-		$form = Xml::openElement( 'form', $params );
+		$form = Xml::openElement( 'form', $params ) . "\n";
 		$form .= Xml::openElement( 'fieldset',
-			array( 'class' => 'flaggedrevs_reviewform noprint' ) );
+			array( 'class' => 'flaggedrevs_reviewform noprint' ) ) . "\n";
 		# Add appropriate legend text
 		$legendMsg = $frev ? 'revreview-reflag' : 'revreview-flag';
 		$form .= Xml::openElement( 'legend', array( 'id' => 'mw-fr-reviewformlegend' ) );
@@ -136,22 +136,22 @@ class RevisionReviewFormUI {
 				$form .= wfMsgExt( $msg, 'parseinline',
 					$wgLang->date( $ts, true ), $wgLang->time( $ts, true ) );
 			}
-			$form .= '</span></p>';
+			$form .= "</span></p>\n";
 		}
 
 		if ( $disabled ) {
 			$form .= Xml::openElement( 'div', array( 'class' => 'fr-rating-controls-disabled',
-				'id' => 'fr-rating-controls-disabled' ) );
+				'id' => 'fr-rating-controls-disabled' ) ) . "\n";
 		} else {
 			$form .= Xml::openElement( 'div', array( 'class' => 'fr-rating-controls',
-				'id' => 'fr-rating-controls' ) );
+				'id' => 'fr-rating-controls' ) ) . "\n";
 		}
 
 		# Add main checkboxes/selects
 		$form .= Xml::openElement( 'span',
-			array( 'id' => 'mw-fr-ratingselects', 'class' => 'fr-rating-options' ) );
+			array( 'id' => 'mw-fr-ratingselects', 'class' => 'fr-rating-options' ) ) . "\n";
 		$form .= self::ratingInputs( $this->user, $flags, (bool)$disabled, (bool)$frev );
-		$form .= Xml::closeElement( 'span' );
+		$form .= Xml::closeElement( 'span' ) . "\n";
 
 		# Get template/file version info as needed
 		list( $templateIDs, $imageSHA1Keys ) = $this->getIncludeVersions();
@@ -159,7 +159,8 @@ class RevisionReviewFormUI {
 		list( $templateParams, $imageParams, $fileVersion ) =
 			RevisionReviewForm::getIncludeParams( $article, $templateIDs, $imageSHA1Keys );
 
-		$form .= Xml::openElement( 'span', array( 'style' => 'white-space: nowrap;' ) );
+		$form .= Xml::openElement( 'span',
+			array( 'style' => 'white-space: nowrap;' ) ) . "\n";
 		# Hide comment input if needed
 		if ( !$disabled ) {
 			if ( count( FlaggedRevs::getTags() ) > 1 ) {
@@ -181,7 +182,7 @@ class RevisionReviewFormUI {
 		if ( $article->isPageLocked() ) {
 			$form .= ' ' . FlaggedRevsXML::logToggle( 'revreview-log-toggle-show' );
 		}
-		$form .= Xml::closeElement( 'span' );
+		$form .= Xml::closeElement( 'span' ) . "\n";;
 		# ..add the actual stability log body here
 	    if ( $article->isPageLocked() ) {
 			$form .= FlaggedRevsXML::stabilityLogExcerpt( $article );
@@ -206,8 +207,8 @@ class RevisionReviewFormUI {
 		);
 		$form .= Html::hidden( 'validatedParams', $checkCode ) . "\n";
 
-		$form .= Xml::closeElement( 'fieldset' );
-		$form .= Xml::closeElement( 'form' );
+		$form .= Xml::closeElement( 'fieldset' ) . "\n";
+		$form .= Xml::closeElement( 'form' ) . "\n";
 
 		return array( $form, true /* ok */ );
 	}

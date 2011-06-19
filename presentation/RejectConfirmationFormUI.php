@@ -62,7 +62,7 @@ class RejectConfirmationFormUI {
 
 		// List of revisions being undone...
 		$form .= wfMsgExt( 'revreview-reject-text-list', 'parseinline',
-			$wgLang->formatNum( count( $rejectIds ) ) );
+			$wgLang->formatNum( count( $rejectIds ) ), $oldRev->getTitle()->getPrefixedText() );
 		$form .= '<ul>';
 		// FIXME: we need a generic revision list class...this is bullshit
 		$spRevDelete = SpecialPage::getPage( 'RevisionReview' );
