@@ -97,13 +97,13 @@ class FlaggedRevsStats {
 
 		$dataSet = array();
 		$dataSet[] = array(
-				'frs_stat_key' 	=> 'reviewLag-sampleStartTimestamp',
-				'frs_stat_val'  => $reviewData['sampleStartTS'], // unix
-				'frs_timestamp' => $encDataTimestamp );
+			'frs_stat_key' 	=> 'reviewLag-sampleStartTimestamp',
+			'frs_stat_val'  => $reviewData['sampleStartTS'], // unix
+			'frs_timestamp' => $encDataTimestamp );
 		$dataSet[] = array(
-				'frs_stat_key' 	=> 'reviewLag-sampleEndTimestamp',
-				'frs_stat_val'  => $reviewData['sampleEndTS'], // unix
-				'frs_timestamp' => $encDataTimestamp );
+			'frs_stat_key' 	=> 'reviewLag-sampleEndTimestamp',
+			'frs_stat_val'  => $reviewData['sampleEndTS'], // unix
+			'frs_timestamp' => $encDataTimestamp );
 		// All-namespace percentiles...
 		foreach( $rPerTable as $percentile => $seconds ) {
 			$dataSet[] = array(

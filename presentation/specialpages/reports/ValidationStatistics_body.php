@@ -32,11 +32,12 @@ class ValidationStatistics extends IncludableSpecialPage {
 		}
 
 		# Is there a review time table available?
-		if ( is_array( $pData ) && count( $pData ) ) {
+		if ( count( $pData ) ) {
 			$headerRows = $dataRows = '';
 			foreach ( $pData as $percentile => $perValue ) {
 				$headerRows .= "<th>P<sub>" . intval( $percentile ) . "</sub></th>";
-				$dataRows .= '<td>' . $wgLang->formatTimePeriod( $perValue ) . '</td>';
+				$dataRows .= '<td>' .
+					$wgLang->formatTimePeriod( $perValue, 'avoidminutes' ) . '</td>';
 			}
 			$css = 'wikitable flaggedrevs_stats_table';
 			$reviewChart = "<table class='$css' style='white-space: nowrap;'>\n";
@@ -50,18 +51,19 @@ class ValidationStatistics extends IncludableSpecialPage {
 		if ( $timestamp != '-' ) {
 			# Show "last updated"...
 			$wgOut->addWikiMsg( 'validationstatistics-lastupdate',
-				 $wgLang->date( $timestamp, true ),
-				 $wgLang->time( $timestamp, true )
+				$wgLang->date( $timestamp, true ),
+				$wgLang->time( $timestamp, true )
 			);
 		}
 		$wgOut->addHtml( '<hr/>' );
 		# Show pending time stats...
-		$wgOut->addWikiMsg( 'validationstatistics-pndtime', $wgLang->formatTimePeriod( $pt ) );
+		$wgOut->addWikiMsg( 'validationstatistics-pndtime',
+			$wgLang->formatTimePeriod( $pt, 'avoidminutes' ) );
 		# Show review time stats...
 		if ( !FlaggedRevs::useOnlyIfProtected() ) {
 			$wgOut->addWikiMsg( 'validationstatistics-revtime',
-				$wgLang->formatTimePeriod( $mt ),
-				$wgLang->formatTimePeriod( $mdt ),
+				$wgLang->formatTimePeriod( $mt, 'avoidminutes' ),
+				$wgLang->formatTimePeriod( $mdt, 'avoidminutes' ),
 				$reviewChart
 			);
 		}
