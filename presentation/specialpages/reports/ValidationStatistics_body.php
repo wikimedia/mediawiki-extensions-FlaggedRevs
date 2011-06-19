@@ -215,56 +215,56 @@ class ValidationStatistics extends IncludableSpecialPage {
 			__METHOD__ );
 	}
 
-	protected function getLatestStats() {
+	protected function getStats() {
 		if ( $this->latestData === null ) {
-			$this->latestData = FlaggedRevsStats::getLatestStats();
+			$this->latestData = FlaggedRevsStats::getStats();
 		}
 		return $this->latestData;
 	}
 
 	protected function getMeanReviewWait() {
-		$stats = $this->getLatestStats();
+		$stats = $this->getStats();
 		return $stats['reviewLag-average'];
 	}
 	
 	protected function getMedianReviewWait() {
-		$stats = $this->getLatestStats();
+		$stats = $this->getStats();
 		return $stats['reviewLag-median'];
 	}
 	
 	protected function getMeanPendingWait() {
-		$stats = $this->getLatestStats();
+		$stats = $this->getStats();
 		return $stats['pendingLag-average'];
 	}
 
 	protected function getTotalPages( $ns ) {
-		$stats = $this->getLatestStats();
+		$stats = $this->getStats();
 		return isset( $stats['totalPages-NS'][$ns] )
 			? $stats['totalPages-NS'][$ns]
 			: '-';
 	}
 	
 	protected function getReviewedPages( $ns ) {
-		$stats = $this->getLatestStats();
+		$stats = $this->getStats();
 		return isset( $stats['reviewedPages-NS'][$ns] )
 			? $stats['reviewedPages-NS'][$ns]
 			: '-';
 	}
 
 	protected function getSyncedPages( $ns ) {
-		$stats = $this->getLatestStats();
+		$stats = $this->getStats();
 		return isset( $stats['syncedPages-NS'][$ns] )
 			? $stats['syncedPages-NS'][$ns]
 			: '-';
 	}
 
 	protected function getPercentiles() {
-		$stats = $this->getLatestStats();
+		$stats = $this->getStats();
 		return $stats['reviewLag-percentile'];
 	}
 
 	protected function getLastUpdate() {
-		$stats = $this->getLatestStats();
+		$stats = $this->getStats();
 		return $stats['statTimestamp'];
 	}
 	

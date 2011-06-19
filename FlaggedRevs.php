@@ -665,15 +665,8 @@ $wgAjaxExportList[] = 'RevisionReview::AjaxReview';
 $wgAjaxExportList[] = 'FlaggedPageView::AjaxBuildDiffHeaderItems';
 
 # Cache update
-$wgSpecialPageCacheUpdates[] = 'efFlaggedRevsUnreviewedPagesUpdate';
-
-function efFlaggedRevsUnreviewedPagesUpdate() {
-	$base = dirname( __FILE__ );
-	require_once( "$base/maintenance/updateQueryCache.inc" );
-	update_flaggedrevs_querycache();
-	require_once( "$base/maintenance/updateStats.inc" );
-	update_flaggedrevs_stats();
-}
+$wgSpecialPageCacheUpdates['UnreviewedPages'] = 'UnreviewedPages::updateQueryCache';
+$wgSpecialPageCacheUpdates['ValidationStatistics'] = 'FlaggedRevsStats::updateCache';
 
 # B/C ...
 $wgLogActions['rights/erevoke']  = 'rights-editor-revoke';

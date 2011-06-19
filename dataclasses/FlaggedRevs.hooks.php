@@ -261,7 +261,7 @@ class FlaggedRevsHooks {
 
 		static $pcCounts = null;
 		if ( !$pcCounts ) {
-			$stats = FlaggedRevsStats::getLatestStats();
+			$stats = FlaggedRevsStats::getStats();
 			$reviewedPerNS = $stats['reviewedPages-NS'];
 			$totalCount = 0;
 			foreach ( $reviewedPerNS as $ns => $reviewed ) {
