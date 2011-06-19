@@ -600,6 +600,7 @@ $messages['be-tarask'] = array(
 
 /** Bulgarian (Български)
  * @author Borislav
+ * @author DCLXVI
  * @author Turin
  */
 $messages['bg'] = array(
@@ -615,6 +616,8 @@ $messages['bg'] = array(
 	'revreview-submit-reviewed' => 'Готово. Прието!',
 	'revreview-submit-unreviewed' => 'Готово. Неприето!',
 	'revreview-update-includes' => "'''Някои шаблони или файлове бяха обновени:'''",
+	'revreview-reject-summary' => 'Резюме:',
+	'revreview-reject-cancel' => 'Отказване',
 );
 
 /** Bengali (বাংলা)
@@ -2350,6 +2353,8 @@ Vide le [[Special:Unreviewedpages|lista de paginas non revidite]].',
 	'revreview-successful2' => "'''Le version de [[:$1|$1]] ha essite dismarcate con successo.'''",
 	'revreview-poss-conflict-p' => "'''Attention: [[User:$1|$1]] comenciava a revider iste pagina le $2 a $3.'''",
 	'revreview-poss-conflict-c' => "'''Attention: [[User:$1|$1]] comenciava a revider iste modificationes le $2 a $3.'''",
+	'revreview-adv-reviewing-p' => "'''Nota: Es annunciate que tu comenciava a revider iste pagina le $1 a $2.'''",
+	'revreview-adv-reviewing-c' => "'''Nota: Es annunciate que tu comenciava a revider iste modificationes le $1 a $2.'''",
 	'revreview-toolow' => '\'\'\'Tu debe evalutar cata un del attributos como plus alte que "inadequate" a fin que un version sia considerate como revidite.\'\'\'
 
 Pro remover le stato de revision de un version, clicca super "non plus acceptar".

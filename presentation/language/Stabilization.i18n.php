@@ -497,10 +497,12 @@ $messages['bg'] = array(
 	'stabilization-def-short' => 'По подразбиране',
 	'stabilization-def-short-0' => 'Текуща',
 	'stabilization-def-short-1' => 'Устойчива',
+	'stabilize_invalid_level' => 'Невалидно ниво на защита.',
 	'stabilize_expiry_invalid' => 'Невалидна дата на изтичане.',
 	'stabilize_expiry_old' => 'Дата на изтичане вече е отминала.',
 	'stabilize_denied' => 'Достъпът е отказан.',
 	'stabilize-expiring' => 'изтича на $1 (UTC)',
+	'stabilization-review' => 'Отбелязване на текущата версия като проверена',
 );
 
 /** Bengali (বাংলা)
