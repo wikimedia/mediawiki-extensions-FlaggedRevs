@@ -321,7 +321,6 @@ $messages['ar'] = array(
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important"> لم تضف تعديلات بعد إلى النسخة المستقرة. هناك تعديلات مسبقة تنتظر المراجعة. </span>
 رجاء راجع جميع التغييرات الظاهرة أدناه من أجل أن تظهر تعديلاتك في النسخة المستقرة.',
 	'revreview-update-includes' => "'''بعض القوالب/الملفات تم تحديثها:'''",
-	'revreview-update-use' => "'''ملاحظة:''' النسخ المستقرة من هذه القوالب/الملفات مستخدمة في النسخة المستقرة من هذه الصفحة.",
 	'revreview-reject-header' => 'رفض التغييرات لـ$1',
 	'revreview-reject-text-list' => "بإتمام هذا الفعل، سوف يتم '''رفض''' {{PLURAL:$1|التعديل|التعديلات}} التالية :",
 	'revreview-reject-text-revto' => 'هذا سوف يعيد الصفحة إلى [{{fullurl:$1|oldid=$2}} النسخة $3]',
@@ -500,7 +499,6 @@ $messages['be'] = array(
 Каб уключыць вашы праўкі ў стабільную версію, калі ласка, праверце ўсе змены, паказаныя ніжэй.
 Магчыма, вам спатрэбіцца спачатку прайсці па праўках ці адмяніць іх.',
 	'revreview-update-includes' => "'''Некаторыя шаблоны ці файлы былі абноўленыя:'''",
-	'revreview-update-use' => "'''ЗАЎВАГА.''' Апублікаваныя версіі кожнага з гэтых шаблонаў або файлаў выкарыстоўваюцца ў апублікаванай версіі гэтай старонкі.",
 	'revreview-reject-header' => '	Адхіліць змены для $1',
 	'revreview-reject-text-list' => "Выконваючы гэта дзеянне, вы '''адхіляеце''' {{PLURAL:$1|наступную змену|наступныя змены}}:",
 	'revreview-reject-text-revto' => 'Вяртае старонку назад да [{{fullurl:$1|oldid=$2}} версіі ад $3].',
@@ -580,9 +578,8 @@ $messages['be-tarask'] = array(
 
 Калі ласка, прарэцэнзуйце ўсе зьмены пададзеныя ніжэй, каб Вашыя рэдагаваньні былі далучаныя да стабільнай вэрсіі.',
 	'revreview-update-includes' => "'''Абноўленыя шаблёны/файлы (нерэцэнзаваныя старонкі выдзеленыя тлустым шрыфтам):'''",
-	'revreview-update-use' => "'''ЗАЎВАГА:''' Апублікаваныя вэрсіі гэтых шаблёнаў/файлаў выкарыстоўваюцца ў апублікаванай вэрсіі гэтай старонкі.",
 	'revreview-reject-header' => 'Адмяніць зьмены ў $1',
-	'revreview-reject-text-list' => "Выканаўшы гэтае дзеяньне, Вы '''адхіліце''' {{PLURAL:$1|наступную зьмену|наступныя зьмены}}:",
+	'revreview-reject-text-list' => "Выканаўшы гэтае дзеяньне, Вы '''адхіліце''' зьмены крынічнага тэксту ў {{PLURAL:$1|наступнай зьмене|наступных зьменах}} [[:$2|$2]]:",
 	'revreview-reject-text-revto' => 'Гэта адкаціць назад старонку да [{{fullurl:$1|oldid=$2}} вэрсіі $3].',
 	'revreview-reject-summary' => 'Апісаньне:',
 	'revreview-reject-confirm' => 'Адмяніць гэтыя зьмены',
@@ -706,7 +703,6 @@ Adlennit an holl gemmoù diskouezet a-is evit ma teufe war wel ho kemmoù er stu
 
 Adlennit an holl gemmoù diskouezet a-is evit ma teufe war wel ho kemmoù er stumm stabil.",
 	'revreview-update-includes' => "'''patromoù/restroù bet hizivaet (e tev ar pajennoù n'int ket bet adwelet) :'''",
-	'revreview-update-use' => "'''NOTENN :''' Implijet eo stumm embannet pep patromoù/restroù er stumm embannet eus ar bajenn-se.",
 	'revreview-reject-header' => "Disteuler ar c'hemmoù evit $1",
 	'revreview-reject-text-list' => "Ma rit se e '''tistaolot''' ar {{PLURAL:$1|c'hemm|c'hemmoù}} da-heul :",
 	'revreview-reject-text-revto' => 'Kement-mañ a adlakao ar bajenn en he [{{fullurl:$1|oldid=$2}} stumm eus an $3].',
@@ -787,7 +783,6 @@ Molimo provjerite sve izmjene prikazane ispod da bi se vaše izmjene prikazale u
 
 Molimo provjerite sve izmjene prikazane ispod da bi se vaše izmjene prikazale u stabilnoj verziji.',
 	'revreview-update-includes' => "''Šabloni/datoteke su ažurirani (nepregledane stranice su bodirane):'''",
-	'revreview-update-use' => "'''NAPOMENA:''' Stabilna verzija svake od ovih šablona/datoteka je korištena u stabilnoj verziji ove stranice.",
 	'revreview-reject-header' => 'Odbij promjene za $1',
 	'revreview-reject-text-list' => "Dovršavanjem ove akcije, vi ćete '''odbiti''' {{PLURAL:$1|slijedeću promjenu|slijedeće promjene}}:",
 	'revreview-reject-text-revto' => 'Ovim ćete vratiti nazad stranicu na [{{fullurl:$1|oldid=$2}} verziju od $3].',
@@ -952,7 +947,6 @@ Bude nutné tyto editace začlenit nebo zamítnout.',
 Aby se tam mohly dostat, posuďte prosím nejdříve všechny změny zobrazené níže.
 Bude nutné tyto editace začlenit nebo zamítnout.',
 	'revreview-update-includes' => "'''Některé šablony/soubory se změnily:'''",
-	'revreview-update-use' => "'''POZNÁMKA:''' Pokud některé z těchto šablon/souborů mají stabilní verzi, pak je ta už použita na stabilní verzi této stránky.",
 	'revreview-reject-header' => 'Odmítnout změny pro $1',
 	'revreview-reject-text-list' => "Dokončením této akce, '''zamítnete''' následující {{PLURAL:$1|zmněnu|změny|změn}}:",
 	'revreview-reject-text-revto' => 'Toto se vrátí zpět stránku do [{{fullurl:$1|oldid = $2}} revize z $3].',
@@ -1033,9 +1027,8 @@ Bitte markiere alle unten angezeigten Änderungen, damit deine Bearbeitungen zur
 
 Bitte markiere alle unten angezeigten Änderungen, damit deine Bearbeitungen zur stabilen Version werden.',
 	'revreview-update-includes' => "'''Vorlagen/ Dateien wurden aktualisiert (nicht markierte Seiten sind in fett gekennzeichnet):'''",
-	'revreview-update-use' => "'''Hinweis:''' Die markierte Version jeder dieser Vorlagen / Dateien wird in der markierten Version dieser Seite verwendet.",
 	'revreview-reject-header' => 'Änderungen für $1 verwerfen',
-	'revreview-reject-text-list' => "Mit Abschluss dieser Aktion {{PLURAL:$1|wird die folgende Änderung|werden die folgenden Änderungen}} '''verworfen''':",
+	'revreview-reject-text-list' => "Mit Abschluss dieser Aktion {{PLURAL:$1|wird die folgende Änderung|werden die folgenden Änderungen}} an [[:$2|$2]] '''verworfen''':",
 	'revreview-reject-text-revto' => 'Dies wird die Seite auf die [{{fullurl:$1|oldid=$2}} Version vom $3] zurücksetzen.',
 	'revreview-reject-summary' => 'Zusammenfassung:',
 	'revreview-reject-confirm' => 'Diese Änderungen verwerfen',
@@ -1202,7 +1195,6 @@ Pšosym pśeglědaj wšykne slědujuce změny, aby se twóje změny w stabilnej 
 
 Pšosym pśeglědaj wšykne slědujuce změny, aby je w stabilnej wersiji pokazali.',
 	'revreview-update-includes' => "'''Někotare pśedłogi/dataje su se zaktualizěrowali:'''",
-	'revreview-update-use' => "'''GLĚDAJ:''' Wózjawjona wersija kuždeje z toś tych pśedłogow/datajow wužywa se we wózjawjonej wersiji toś togo boka.",
 	'revreview-reject-header' => 'Změny za $1 wótpokazaś',
 	'revreview-reject-text-list' => "Jolic pśewjeźoš toś tu akciju, buźoš {{PLURAL:$1|slědujucu změnu|slědujucej změnje|slědujuce změny|slědujuce změny}} '''wótpokazowaś''':",
 	'revreview-reject-text-revto' => 'To buźo bok na [{{fullurl:$1|oldid=$2}} wersiju dnja $3] slědk stajaś.',
@@ -1302,7 +1294,6 @@ Bonvolu kontroli ĉiujn jenajn ŝanĝojn por aperigi viajn redaktojn en la stabi
 
 Bonvolu kontroli ĉiujn jenajn ŝanĝojn por aperigi viajn redaktojn en la stabila versio.',
 	'revreview-update-includes' => "'''Iuj ŝablonoj/bildoj estis ĝisdatigitaj:'''",
-	'revreview-update-use' => "'''NOTU:''' La publikigita versio de ĉiu el ĉi tiuj ŝablonoj/dosieroj estas uzata en la publikigita versio de ĉi tiu paĝo.",
 	'revreview-reject-header' => 'Malaprobi ŝanĝojn por $1',
 	'revreview-reject-text-list' => "Farante ĉi tiun agon, vi '''malaprobos''' la {{PLURAL:$1|jenan ŝanĝon|jenajn ŝanĝojn}}:",
 	'revreview-reject-text-revto' => 'Tio ĉi restarigos la paĝon al la [{{fullurl:$1|oldid=$2}} versio ekde $3].',
@@ -1385,7 +1376,6 @@ Por favor revisa todos los cambios mostrados debajo para hacer que tus ediciones
 
 Por favor, revisa todos los cambios mostrados a continuación para que se acepten tus ediciones.',
 	'revreview-update-includes' => "'''Plantilla/archivos actualizados (páginas sin revisar en negrita):'''",
-	'revreview-update-use' => "'''Nota:''' La versión publicada de cada una de estas plantillas / archivos se utiliza en la versión publicada de esta página.",
 	'revreview-reject-header' => 'Rechazar los cambios para $1',
 	'revreview-reject-text-list' => "Al ejecutar esta acción, estarás '''rechazando''' {{PLURAL:$1|el siguiente cambio|los siguientes cambios}}:",
 	'revreview-reject-text-revto' => 'La página será revertida a su [{{*fullurl:$1|*oldid=$2}} versión de $3].',
@@ -1535,7 +1525,6 @@ $messages['fa'] = array(
 
 لطفاً همهٔ تغییرات نشان‌داده‌شده در زیر را به‌منظور نمایاندن ویرایش‌هایتان در نسخهٔ پایدار بازبینی کنید.',
 	'revreview-update-includes' => "'''برخی الگوها/پرونده‌ها به روز شده‌اند:'''",
-	'revreview-update-use' => "'''توجه:''' نسخهٔ پایدار هر یک از این الگوها/پرونده‌ها در نسخهٔ پایدار این صفحه استفاده می‌شود.",
 	'revreview-reject-header' => 'نپذیرفتن تغییرات برای $1',
 	'revreview-reject-text-list' => "با تکمیل این اقدام، شما {{PLURAL:$1|تغییر|تغییرات}} مقابل را '''رد خواهید کرد''':",
 	'revreview-reject-text-revto' => 'این صفحه را برمی‌گرداند به [{{fullurl:$1|oldid=$2}} نسخه $3].',
@@ -1701,7 +1690,6 @@ Veuillez vérifier toutes les modifications affichées ci-dessous pour que la v�
 
 Vous devez relire toutes les modifications affichées ci-dessous pour la votre apparaisse dans la version stable.',
 	'revreview-update-includes' => "'''Modèles/fichiers mis à jour (pages non relues en gras) :'''",
-	'revreview-update-use' => "'''Note :''' la version publiée de chaque modèle ou fichier est utilisée dans la version publiée de cette page.",
 	'revreview-reject-header' => 'Refuser les modifications pour $1',
 	'revreview-reject-text-list' => "En accomplissant cette action, vous allez '''rejeter''' {{PLURAL:$1|la modification suivante|les modifications suivantes}} :",
 	'revreview-reject-text-revto' => 'Ceci remettra cette page dans sa [{{fullurl:$1|oldid=$2}} version du $3].',
@@ -1844,9 +1832,8 @@ Revise todos os cambios listados a continuación para que as súas edicións apa
 
 Revise todos os cambios listados a continuación para que as súas edicións aparezan na versión estable.',
 	'revreview-update-includes' => "'''Actualizáronse algúns modelos ou ficheiros (as páxinas non revisadas van en negra):'''",
-	'revreview-update-use' => "'''NOTA:''' a versión publicada de cada un destes modelos ou ficheiros úsase na versión publicada desta páxina.",
 	'revreview-reject-header' => 'Rexeitar os cambios de "$1"',
-	'revreview-reject-text-list' => "Ao completar esta acción, '''rexeitará''' {{PLURAL:$1|o seguinte cambio|os seguintes cambios}}:",
+	'revreview-reject-text-list' => "Ao completar esta acción, '''rexeitará''' os cambios no texto fonte {{PLURAL:\$1|da seguinte revisión|das seguintes revisións}} de \"[[:\$2|\$2]]\":",
 	'revreview-reject-text-revto' => 'Isto reverterá a páxina ata a [{{fullurl:$1|oldid=$2}} versión do $3].',
 	'revreview-reject-summary' => 'Resumo:',
 	'revreview-reject-confirm' => 'Rexeitar estes cambios',
@@ -1933,7 +1920,6 @@ Bitte iberprief alli unte aazeigte Änderige, ass Dyyni Bearbeite chenne ibernuu
 
 Bitte iberprief alli unte aazeigte Änderige, ass Dyyni Bearbeite chenne ibernuu wäre.',
 	'revreview-update-includes' => "'''E paar Vorlage/Dateie sin aktualisiert wore:'''",
-	'revreview-update-use' => "'''Obacht:''' Wänn eini vu däne Vorlage/Dateie e vereffetligti Version het, no wird die in dr vereffetligte Version vu däre Syte aazeigt.",
 	'revreview-reject-header' => 'Änderige fir $1 furtgheje',
 	'revreview-reject-text-list' => "Mit Abschluss vu däre Aktion {{PLURAL:$1|wird die Änderig|wäre die Änderige}} '''furtghejt''':",
 	'revreview-reject-text-revto' => 'Des setzt d Syte uf d [{{fullurl:$1|oldid=$2}} Version vum $3] zruck.',
@@ -2022,9 +2008,8 @@ $messages['he'] = array(
 
 נא לסקור את כל השינויים המופיעים להלן כדי שהעריכות שלכם תופענה בגרסה היציבה.',
 	'revreview-update-includes' => "'''עודכנו תבניות או קבצים (הדפים שלא נסקרו מובלטים):'''",
-	'revreview-update-use' => "'''הערה''': הגרסאות היציבות של התבניות או הקבצים האלה משמשות בגרסה היציבה של הדף הזה.",
 	'revreview-reject-header' => 'דחיית השינויים עבור $1',
-	'revreview-reject-text-list' => "על ידי השלמת פעולה זו, {{PLURAL:$1|שינוי זה '''יידחה'''|שינויים אלה '''יידחו'''}}:",
+	'revreview-reject-text-list' => "השלמת פעולה זו '''תדחה''' את השינויים בקוד המקור של {{PLURAL:$1|הגרסה הבאה|הגרסאות הבאות}} של [[:$2|$2]]:",
 	'revreview-reject-text-revto' => 'פעולה זו תשחזר את העמוד בחזרה לגרסה [{{fullurl:$1|oldid=$2}} מתאריך $3].',
 	'revreview-reject-summary' => 'תקציר העריכה:',
 	'revreview-reject-confirm' => 'דחיית שינויים אלה',
@@ -2127,7 +2112,6 @@ Molimo provjerite sve izmjene prikazane ispod da bi se vaše izmjene prikazale u
 
 Molimo provjerite sve izmjene prikazane ispod da bi se vaše izmjene prikazale u stabilnoj inačici.',
 	'revreview-update-includes' => "'''Neki predlošci/datoteke su ažurirane:'''",
-	'revreview-update-use' => "'''NAPOMENA:''' Ako bilo koji od ovih predložaka/datoteka imaju važeću inačicu, tada se rabe u važećoj inačici ove stranice.",
 	'revreview-reject-header' => 'Odbij promjene za $1',
 	'revreview-reject-text-list' => "Dovršavanjem ove akcije, vi ćete '''odbiti''' {{PLURAL:$1|sljedeću promjenu|sljedeće promjene|sljedeće promjene}}:",
 	'revreview-reject-text-revto' => 'Ovime ćete vratiti stranicu natrag na [{{fullurl:$1|oldid=$2}} inačicu od $3].',
@@ -2206,7 +2190,6 @@ Prošu přepruwuj wšě slědowace změny, zo bychu so twoje změny w stabilnej 
 
 Přepruwuj prošu wšě změny, kotrež so deleka pokazuja, zo bychu so twoje změny w stabilnej wersiji jewili.',
 	'revreview-update-includes' => "'''Někotre předłohi/dataje su so zaktualizowali:'''",
-	'revreview-update-use' => "'''KEDŹBU:''' Wozjewjena wersija kóždeje z tutych předłohow/datajow wužiwa so we wozjewjenej wersiji tuteje strony.",
 	'revreview-reject-header' => 'Změny za $1 wotpokazać',
 	'revreview-reject-text-list' => "Přewjedujo tutu akciju, budźeš {{PLURAL:$1|slědowacu změnu|slědowacej změnje|slědowace změny|slědowace změny}} '''wotpokazować''':",
 	'revreview-reject-text-revto' => 'To stronu na [{{fullurl:$1|oldid=$2}} wersiju wot dnja $3] wróćo staji.',
@@ -2287,7 +2270,6 @@ Kérlek ellenőrizd az alább látható változtatásokat, hogy a szerkesztései
 
 Kérlek ellenőrizd az alább látható változtatásokat, hogy a szerkesztéseid megjelenhessenek a közzétett változatban.',
 	'revreview-update-includes' => "'''Néhány sablon vagy fájl megváltozott:'''",
-	'revreview-update-use' => "'''Megjegyzés:''' ha a fájlok vagy a sablonok közül bármelyiknek van közzétett változata, akkor a lap közzétett változatán az fog megjelenni.",
 	'revreview-reject-text-list' => "A művelet végrehajtásával '''visszavonod''' az alábbi {{PLURAL:$1|változtatást|változtatásokat}}:",
 	'revreview-reject-text-revto' => 'Ezzel visszaállítod a lapot a [{{fullurl:$1|oldid=$2}} $3-i változatra].',
 	'revreview-reject-summary' => 'Szerkesztési összefoglaló:',
@@ -2367,9 +2349,8 @@ Per favor revide tote le modificationes monstrate hic infra pro facer tu modific
 
 Per favor revide tote le modificationes monstrate hic infra pro facer tu modificationes apparer in le version stabile.',
 	'revreview-update-includes' => "'''Patronos/files actualisate (paginas non revidite in grasse):'''",
-	'revreview-update-use' => "'''NOTA:''' Le version publicate de cata un de iste patronos/files es usate in le version publicate de iste pagina.",
 	'revreview-reject-header' => 'Rejectar modificationes pro $1',
-	'revreview-reject-text-list' => "Per exequer iste action, tu '''rejecta''' le sequente {{PLURAL:$1|modification|modificationes}}:",
+	'revreview-reject-text-list' => "Per exequer iste action, tu '''rejecta''' le modificationes in le texto-fonte del sequente {{PLURAL:$1|version|versiones}} de [[:$2|$2]]:",
 	'revreview-reject-text-revto' => 'Isto revertera le pagina al [{{fullurl:$1|oldid=$2}} version del $3].',
 	'revreview-reject-summary' => 'Summario:',
 	'revreview-reject-confirm' => 'Rejectar iste modificationes',
@@ -2452,7 +2433,6 @@ Harap tinjau semua perubahan yang ditunjukkan di bawah ini untuk membuat sunting
 
 Harap tinjau semua perubahan yang ditunjukkan di bawah ini untuk membuat suntingan Anda muncul dalam versi stabil.',
 	'revreview-update-includes' => "'''Beberapa templat/berkas telah diperbaharui:'''",
-	'revreview-update-use' => "'''CATATAN:''' Versi stabil dari setiap templat/berkas ini digunakan di versi stabil halaman ini.",
 	'revreview-reject-header' => 'Tolak perubahan untuk $1',
 	'revreview-reject-text-list' => "Dengan melakukan tindakan ini, Anda akan '''menolak''' {{PLURAL:$1|perubahan|perubahan}} berikut:",
 	'revreview-reject-text-revto' => 'Ini akan mengembalikan halaman kepada [{{fullurl:$1|oldid=$2}} versi per $3].',
@@ -2616,7 +2596,6 @@ $messages['ja'] = array(
 
 変更を安定版に反映するには、下記の変更をすべて査読してください。',
 	'revreview-update-includes' => "'''更新されたテンプレートやファイルがあります:'''",
-	'revreview-update-use' => "'''注:''' このページの公開版では、これらのテンプレートやファイルの公開版が利用されています。",
 	'revreview-reject-header' => '$1の変更を拒否',
 	'revreview-reject-text-list' => "この操作を完了すると、以下の{{PLURAL:$1|変更}}を、次の理由で'''却下'''します：",
 	'revreview-reject-text-revto' => 'ページを[{{fullurl:$1|oldid=$2}} $3版]へ差し戻します。',
@@ -2948,7 +2927,6 @@ Kuckt w.e.g. all d\'Ännerungen hei drënner no fir datt Är Ännerungen an der 
 
 Kuckt w.e.g. all d\'Ännerungen hei drënner no fir datt Är Ännerungen akzeptéiert ginn.',
 	'revreview-update-includes' => "'''Schablounen/Fichiere aktualiséiert (net nogekuckte Säite si fettgegréckt):'''",
-	'revreview-update-use' => "'''Bemierkung:''' Déi publizéiert Versioun vu jidfer vun dëse Schablounen/Fichieren gëtt an der publizéiert Versioun vun dëser Säit benotzt.",
 	'revreview-reject-header' => 'Ännerunge fir $1 rejetéieren',
 	'revreview-reject-text-list' => "Wann Dir dës Aktioun ofschléisst, da '''verwerft''' Dir dës {{PLURAL:$1|Ännerung|Ännerungen}}:",
 	'revreview-reject-text-revto' => "Dëst setzt d'Säit zréck op d'[{{fullurl:$1|oldid=$2}} Versioun vum $3].",
@@ -3095,9 +3073,8 @@ $messages['mk'] = array(
 
 За да се појават во верзијата, најпрвин прегледате ги сите долунаведени промени.',
 	'revreview-update-includes' => "'''Подновени шаблони/податотеки (непроверените страници се задебелени):'''",
-	'revreview-update-use' => "'''НАПОМЕНА:''' Објавената верзија на секој од овие шаблони/податотеки се користи во објавената верзија на оваа страница.",
 	'revreview-reject-header' => 'Отфрли промени на $1',
-	'revreview-reject-text-list' => "Довршувајќи ја оваа постапка, ќе ги {{PLURAL:$1|ја '''отфрлите''' следнава промена|ги '''отфрлите''' следниве промени}}:",
+	'revreview-reject-text-list' => "Довршувајќи ја оваа постапка, ќе ги  '''отфрлите''' измените во изворниот текст на {{PLURAL:$1|скеднава ревизија|следниве ревизии}} на [[:$2|$2]]:",
 	'revreview-reject-text-revto' => 'Ова ќе ја врати страницата на [{{fullurl:$1|oldid=$2}} верзијата од $3].',
 	'revreview-reject-summary' => 'Опис:',
 	'revreview-reject-confirm' => 'Отфрли ги промениве',
@@ -3176,7 +3153,6 @@ $messages['ml'] = array(
 
 താങ്കളുടെ തിരുത്തലുകൾ സ്ഥിരപ്പെടുത്താൻ, താഴെ കൊടുത്തിരിക്കുന്ന മാറ്റങ്ങൾ സംശോധനം ചെയ്യുക.',
 	'revreview-update-includes' => "'''ചില ഫലകങ്ങൾ/പ്രമാണങ്ങൾ പുതുക്കിയിരിക്കുന്നു (സംശോധനം ചെയ്യാത്ത താളുകൾ കട്ടികൂട്ടി കാണിച്ചിരിക്കുന്നു):'''",
-	'revreview-update-use' => "'''ശ്രദ്ധിക്കുക:''' ഈ ഫലകങ്ങളുടേയും/പ്രമാണങ്ങളുടേയും പ്രസിദ്ധീകരിക്കപ്പെട്ട പതിപ്പായിരിക്കും, ഈ താളിന്റെ പ്രസിദ്ധീകരിക്കപ്പെട്ട പതിപ്പിൽ ഉപയോഗിക്കുക.",
 	'revreview-reject-header' => '$1 എന്നതിനുള്ള മാറ്റങ്ങൾ നിരാകരിക്കുക',
 	'revreview-reject-text-list' => "ഈ പ്രവൃത്തി പൂർത്തിയാകുമ്പോൾ, താങ്കൾ താഴെ കൊടുത്തിരിക്കുന്ന {PLURAL:$1|മാറ്റം|മാറ്റങ്ങൾ}} '''നിരാകരിച്ചിരിക്കും''':",
 	'revreview-reject-text-revto' => 'ഇത് താളിനെ അതിന്റെ [{{fullurl:$1|oldid=$2}} $3 തീയതിയിലെ പതിപ്പിലേയ്ക്ക്] മുൻപ്രാപനം ചെയ്യും.',
@@ -3333,7 +3309,6 @@ Controleer alle wijzigingen hieronder om uw bewerkingen zichtbaar te maken in de
 
 Controleer alle hieronder weergegeven wijzigingen om ook uw bewerking zichtbaar te maken in de stabiele versie.',
 	'revreview-update-includes' => "'''Sommige sjablonen/bestanden zijn bijgewerkt (ongecontroleerde pagina's in vet):'''",
-	'revreview-update-use' => "'''Let op:''' de gepubliceerde versie van deze pagina bevat de gepubliceerde versies van sjablonen en bestanden die de pagina gebruikt.",
 	'revreview-reject-header' => 'Wijzigingen voor $1 afkeuren',
 	'revreview-reject-text-list' => "Door deze handeling uit te voeren, '''keurt u de volgende {{PLURAL:$1|wijziging|wijzigingen}} af''':",
 	'revreview-reject-text-revto' => 'Hiermee wordt de [{{fullurl:$1|oldid=$2}} versie per $3] teruggeplaatst.',
@@ -3444,7 +3419,6 @@ Revider alle endringene vist nedenfor for å gjøre redigeringene dine synlige i
 
 Revider alle endringene vist nedenfor for å gjøre redigeringene dine synlige i den stabile versjonen.',
 	'revreview-update-includes' => "'''Noen maler eller filer ble oppdatert:'''",
-	'revreview-update-use' => "'''MERK:''' Den publiserte versjonen av hver av disse malene eller filene er brukt i den publiserte versjonen av denne siden.",
 	'revreview-reject-header' => 'Avvis endringer for $1',
 	'revreview-reject-text-list' => "Ved å fullføre denne handlingen vil du '''avvise''' følgende {{PLURAL:$1|endring|endringer}}:",
 	'revreview-reject-text-revto' => 'Dette vil tilbakestille siden til [{{fullurl:$1|oldid=$2}} versjonen fra $3].',
@@ -3562,7 +3536,6 @@ Przejrzyj wszystkie poniższe zmiany, a Twoje edycje zostaną zamieszczone w wer
 
 Przejrzyj wszystkie poniższe zmiany, a Twoje edycje zostaną zamieszczone w wersji oznaczonej.',
 	'revreview-update-includes' => "'''Niektóre szablony lub pliki zostały uaktualnione (nieprzejrzane strony są wytłuszczone):'''",
-	'revreview-update-use' => "'''UWAGA:''' Wersja oznaczona każdego z tych szablonów i plików jest używana w wersji oznaczonej tej strony.",
 	'revreview-reject-header' => 'Wycofanie zmian w $1',
 	'revreview-reject-text-list' => "Wykonując tę akcję '''wycofasz''' {{PLURAL:$1|poniższą zmianę|poniższe zmiany:}}",
 	'revreview-reject-text-revto' => 'Ta akcja spowoduje przywrócenie strony do [{{fullurl:$1|oldid=$2}} wersji z $3].',
@@ -3643,7 +3616,6 @@ Për piasì ch\'a revision-a tùit ij cambi smonù sì-sota përchè soe modìfi
 
 Për piasì ch'a revision-a tùit ij cambiament mostrà sì-sota përchè soe modìfiche a intro ant la version stàbil.",
 	'revreview-update-includes' => "'''Chèich stamp o archivi a son ëstàit cangià:'''",
-	'revreview-update-use' => "'''NOTA:''' La version publicà ëd mincadun ëd costi stamp/archivi a l'é dovrà ant la version publicà ëd costa pàgina.",
 	'revreview-reject-header' => 'Cambi arfudà për $1',
 	'revreview-reject-text-list' => "An completand st'assion, a '''arfudrà''' {{PLURAL:$1|la modìfica|le modìfiche}} sì-dapress:",
 	'revreview-reject-text-revto' => 'Sòn a porterà andré la pàgina a la [{{fullurl:$1|oldid=$2}} version ëd $3].',
@@ -3744,9 +3716,8 @@ Para que as suas edições apareçam na versão publicada, reveja todas as alter
 
 Para que as suas edições apareçam na versão publicada, reveja todas as alterações mostradas abaixo, por favor.',
 	'revreview-update-includes' => "'''Foram actualizados ficheiros ou predefinições (as páginas não revistas aparecem a negrito):'''",
-	'revreview-update-use' => "'''NOTA:''' A versão publicada de cada um destes ficheiros ou predefinições é usada na versão publicada desta página.",
 	'revreview-reject-header' => 'Rejeitar mudanças de $1',
-	'revreview-reject-text-list' => 'Ao executar esta operação, irá "rejeitar" {{PLURAL:$1|a seguinte mudança|as seguintes mudanças}}:',
+	'revreview-reject-text-list' => 'Ao executar esta operação, irá "rejeitar" {{PLURAL:$1|a seguinte mudança|as seguintes mudanças}} a [[:$2|$2]]:',
 	'revreview-reject-text-revto' => 'A página será revertida para a [{{fullurl:$1|oldid=$2}} versão de $3].',
 	'revreview-reject-summary' => 'Resumo:',
 	'revreview-reject-confirm' => 'Rejeitar estas mudanças',
@@ -3825,7 +3796,6 @@ Para que as suas edições apareçam na versão publicada, revise todas as alter
 
 Para que as suas edições apareçam na versão publicada, revise todas as alterações mostradas abaixo, por favor.',
 	'revreview-update-includes' => "'''Foram atualizados arquivos ou predefinições (as páginas não revistas aparecem a negrito):'''",
-	'revreview-update-use' => "'''NOTA:''' A versão publicada de cada um destes arquivos ou predefinições é usada na versão publicada desta página.",
 	'revreview-reject-header' => 'Rejeitar mudanças de $1',
 	'revreview-reject-text-list' => 'Ao executar esta operação, irá "rejeitar" {{PLURAL:$1|a seguinte mudança|as seguintes mudanças}}:',
 	'revreview-reject-text-revto' => 'Isto irá reverter a página para a [{{fullurl:$1|oldid=$2}} versão de $3].',
@@ -4006,9 +3976,8 @@ $messages['ru'] = array(
 
 Чтобы включить ваши правки в стабильную версию, пожалуйста, проверьте все изменения, показанные ниже.',
 	'revreview-update-includes' => "'''Обновлённые шаблоны или файлы (непроверенные выделены жирным):'''",
-	'revreview-update-use' => "'''ЗАМЕЧАНИЕ.''' Опубликованные версии каждого из этих шаблонов или файлов используются в опубликованной версии этой страницы.",
 	'revreview-reject-header' => 'Отклонить изменения для $1',
-	'revreview-reject-text-list' => "Выполняя это действие, вы '''отвергаете''' {{PLURAL:$1|следующее изменение|следующие изменения}}:",
+	'revreview-reject-text-list' => "Выполняя это действие, вы '''отвергаете''' изменение исходного кода в {{PLURAL:$1|следующей версии|следующих версиях}}:",
 	'revreview-reject-text-revto' => 'Возвращает страницу назад к [{{fullurl:$1|oldid=$2}} версии от $3].',
 	'revreview-reject-summary' => 'Описание:',
 	'revreview-reject-confirm' => 'Отклонить эти изменения',
@@ -4108,7 +4077,6 @@ $messages['sah'] = array(
 
 Бука диэн, аллара көрдөрүллүбүт туох баар уларытыылары көрөн кинилэри ыстатыйа бигэ барылыгар киллэр.',
 	'revreview-update-includes' => "'''Саҥардыллыбыт халыыптар/билэлэр (тургутуллубатахтар модьу бичигинэн):'''",
-	'revreview-update-use' => "'''БИЛЛЭРИИ:''' Манна көстөр халыыптар/билэлэр бигэ барыллара бу сирэй бигэ барылыгар туттуллаллар.",
 	'revreview-reject-header' => '$1 уларытыыларын суох гынарга',
 	'revreview-reject-text-list' => "Бу дьайыыны оҥорон Эн {{PLURAL:$1|бу уларытыыны|бу уларытыылары}} '''суох гынаҕын''':",
 	'revreview-reject-text-revto' => 'Сирэйи бу барылга [{{fullurl:$1|oldid=$2}} ($3) төннөрөҕүн].',
@@ -4256,7 +4224,6 @@ Prosimo, preglejte vse spremembe prikazane podaj, da prikažete vaše spremembe 
 
 Prosimo, preglejte vse spremembe prikazane podaj, da prikažete vaše spremembe v ustaljeni različici.',
 	'revreview-update-includes' => "'''Predloge/datoteke so posodobljene (nepregledane strani so zapisane krepko):'''",
-	'revreview-update-use' => "'''OPOMBA:''' Ustaljena različica vsake od teh predlog/datotek je uporabljena v ustaljeni različici te strani.",
 	'revreview-reject-header' => 'Zavrni spremembe $1',
 	'revreview-reject-text-list' => "Z izvedbo tega dejanja boste '''zavrnili''' {{PLURAL:$1|naslednjo spremembo|naslednji spremembi|naslednje spremembe}}:",
 	'revreview-reject-text-revto' => 'To bo povrnilo stran nazaj na [{{fullurl:$1|oldid=$2}} različico dne $3].',
@@ -4496,7 +4463,6 @@ $messages['te'] = array(
 
 '''కొన్ని మూసలు/ఫైళ్లను  తాజాకరించారు:'''",
 	'revreview-update-includes' => "'''కొన్ని మూసలు/ఫైళ్లను తాజాకరించారు:'''",
-	'revreview-update-use' => "'''గమనిక:''' ఈ మూసలు/ఫైళ్ళలో ప్రతీదాని సుస్థిర కూర్పూ, ఈ పేజీ యొక్క సుస్థిర కూర్పులో ఉపయోగించబడింది.",
 	'revreview-reject-header' => '$1 యొక్క మార్పులను తిరస్కరించు',
 	'revreview-reject-text-list' => 'ఈ చర్యను పూర్తి చేస్తే మీరు కింది {{PLURAL:$1|మార్పు|మార్పుల}}ను ’’’తిరస్కరిస్తున్నట్లే’’’:',
 	'revreview-reject-text-revto' => 'ఇది ఈ పేజీని తిరిగి [{{fullurl:$1|oldid=$2}} $3 నాటి వెర్షను]కు తీసుకెళ్తుంది.',
@@ -4668,7 +4634,6 @@ Pakisuri ang lahat ng mga pagbabagong ipinakikita sa ibaba upang magawang lumita
 
 Pakisuri ang lahat ng mga pagbabagong ipinapakita sa ibaba upang magawang lumitaw ng mga binago mo sa loob ng matatag na bersyon.',
 	'revreview-update-includes' => "'''Naisapanahon na ang ilang mga suleras/talaksan:'''",
-	'revreview-update-use' => "'''PAUNAWA:''' Ang matatag na bersyon ng bawat isa ng mga suleras/talaksang ito ay ginamit sa bersyong matatag ng pahinang ito.",
 	'revreview-reject-header' => 'Tanggihan ang mga pagbabago para sa $1',
 	'revreview-reject-text-list' => "Sa pamamagitan ng pagbuo sa galaw na ito, '''tatanggihan''' mo ang sumusunod na {{PLURAL:$1|pagbabago|mga pagbabago}}:",
 	'revreview-reject-text-revto' => 'Magpapabalik ito ng pahina sa dati papunta sa [{{fullurl:$1|oldid=$2}} bersyon ng $3].',
@@ -4747,7 +4712,6 @@ Değişikliklerinizin kararlı sürümde yer alması için lütfen aşağıda g�
 
 Değişikliklerinizin kararlı sürümde yer alması için, lütfen aşağıda gösterilen tüm değişiklikleri inceleyin.',
 	'revreview-update-includes' => "'''Bazı şablonlar/dosyalar güncellenmiş:'''",
-	'revreview-update-use' => "'''NOT:''' Bu şablon/dosyaların kararlı sürümleri, bu sayfanın kararlı sürümünde kullanılmıştır.",
 	'revreview-reject-header' => '$1 için değişiklikleri reddet',
 	'revreview-reject-text-list' => "Bu eylemi tamamlayarak, aşağıdaki {{PLURAL:$1|değişiklik|değişiklikleri}} '''reddetmiş''' olacaksınız:",
 	'revreview-reject-summary' => 'Değişiklik özeti:',
@@ -4822,7 +4786,6 @@ $messages['uk'] = array(
 
 Будь ласка, перевірте усі зміни, наведені нижче, щоб включити ваші редагування до стабільної версії.',
 	'revreview-update-includes' => "'''Деякі шаблони або файли були оновлені:'''",
-	'revreview-update-use' => "'''ЗАУВАЖЕННЯ:''' Опублікована версія кожного з цих шаблонів/файлів використовується в опублікованій версії цієї сторінки.",
 	'revreview-reject-header' => 'Скасувати зміни для $1',
 	'revreview-reject-text-list' => "Виконуючи цю дію, ви '''відкидаєте''' {{PLURAL:$1|наступну зміну|наступні зміни}}:",
 	'revreview-reject-text-revto' => 'Відкидає сторінку назад до [{{fullurl:$1|oldid=$2}} версії від $3].',
@@ -5002,9 +4965,8 @@ Xin hãy duyệt các thay đổi ở dưới để đưa các sửa đổi củ
 
 Xin hãy duyệt các thay đổi ở dưới để đưa các sửa đổi của bạn vào phiên bản ổn định.',
 	'revreview-update-includes' => "'''Bản mẫu hay tập tin được cập nhật (các trang chưa duyệt được in đậm):'''",
-	'revreview-update-use' => "'''GHI CHÚ:''' Phiên bản ổn định của các bản mẫu hay tập tin này được sử dụng trong phiên bản ổn định của trang này.",
 	'revreview-reject-header' => 'Từ chối những thay đổi $1',
-	'revreview-reject-text-list' => "Bằng tác vụ này, bạn sẽ '''từ chối''' {{PLURAL:$1|thay đổi|những thay đổi}} sau:",
+	'revreview-reject-text-list' => "Bằng tác vụ này, bạn sẽ '''từ chối''' {{PLURAL:$1|thay đổi|những thay đổi}} văn bản tại [[:$2|$2]] sau:",
 	'revreview-reject-text-revto' => 'Trang sẽ được quay về [{{fullurl:$1|oldid=$2}} phiên bản lúc $3].',
 	'revreview-reject-summary' => 'Tóm lược:',
 	'revreview-reject-confirm' => 'Từ chối những thay đổi này',
@@ -5135,7 +5097,6 @@ $messages['zh-hans'] = array(
 
 请检查如下所示，使您的编辑在稳定版本中出现的所有更改。',
 	'revreview-update-includes' => "'''一些模板/文件已被更新：'''",
-	'revreview-update-use' => "'''注意：'''发布的版本每个这些模板/文件是用于发布的版本的这一页。",
 	'revreview-reject-header' => '拒绝更改为$1',
 	'revreview-reject-text-list' => "通过完成此项操作，你会'''拒绝'''以下{{PLURAL:$1|更改|更改}}：",
 	'revreview-reject-text-revto' => '这将恢复页面回[{{fullurl:$1|oldid=$2}}$3的版本]。',
@@ -5213,7 +5174,6 @@ $messages['zh-hant'] = array(
 
 請檢查以下所有的修訂，以令你的編輯出現在穩定版本中。',
 	'revreview-update-includes' => "'''一些模板/檔案已被更新：'''",
-	'revreview-update-use' => "'''注意：'''發布的版本每個這些模板/檔案是用於發布的版本的這一頁。",
 	'revreview-reject-header' => '拒絕更改為$1',
 	'revreview-reject-text-list' => "通過完成此項操作，你會'''拒絕'''以下{{PLURAL:$1|更改|多項更改}}：",
 	'revreview-reject-text-revto' => '這將恢復頁面回[{{fullurl:$1|oldid=$2}} $3的版本]。',

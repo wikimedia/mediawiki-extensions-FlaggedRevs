@@ -10533,6 +10533,7 @@ Che as controla për piasì l'adrëssa (URL) che a l'ha dovrà për rivé a sta 
  * @author Ahmed-Najib-Biabani-Ibrahimkhel
  */
 $messages['ps'] = array(
+	'editor' => 'سمونګر',
 	'group-editor' => 'سمونګران',
 	'group-editor-member' => 'سمونګر',
 	'group-reviewer' => 'مخکتونکي',
