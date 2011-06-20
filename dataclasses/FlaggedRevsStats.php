@@ -303,27 +303,34 @@ class FlaggedRevsStats {
 		# For edits that started off pending, how long do they take to get reviewed?
 		# Edits started off pending if made when a flagged rev of the page already existed.
 		# Get the *first* reviewed rev *after* each edit and get the time difference.
-		list( $revision, $flaggedrevs ) = $dbr->tableNamesN( 'revision', 'flaggedrevs' );
-		$sql = "
-			SELECT
-				MIN(rev_timestamp) AS rt, MIN(n.fr_timestamp) AS nft, MAX(p.fr_rev_id) 
-			FROM $revision
-			INNER JOIN $flaggedrevs AS p FORCE INDEX (PRIMARY) ON
-				(p.fr_page_id = rev_page AND p.fr_rev_id < rev_id AND p.fr_timestamp < rev_timestamp)
-			INNER JOIN $flaggedrevs AS n FORCE INDEX (PRIMARY) ON
-				(n.fr_page_id = rev_page AND n.fr_rev_id >= rev_id AND n.fr_timestamp >= rev_timestamp)
-			WHERE
-				((rev_user = 0) AND ($timeCondition) AND ((rev_id % $mod) = 0))
-			GROUP BY rev_id";
-		# Actually run the query...
-		$res = $dbr->query( $sql, __METHOD__ );
+		$res = $dbr->select(
+			array( 'revision', 'p' => 'flaggedrevs', 'n' => 'flaggedrevs' ),
+			array( 'MIN(rev_timestamp) AS rt', 'MIN(n.fr_timestamp) AS nft', 'MAX(p.fr_rev_id)' ),
+			array( 'rev_user' => 0, $timeCondition, "(rev_id % $mod) = 0" ),
+			__METHOD__,
+			array(
+				'GROUP BY' 	=> 'rev_id',
+				'USE INDEX' => array( 'p' => 'PRIMARY', 'n' => 'PRIMARY' )
+			),
+			array(
+				'p' => array( 'INNER JOIN', array( // last review
+					'p.fr_page_id = rev_page',
+					'p.fr_rev_id < rev_id',
+					'p.fr_timestamp < rev_timestamp' ) ),
+				'n'	=> array( 'INNER JOIN', array( // next review
+					'n.fr_page_id = rev_page',
+					'n.fr_rev_id >= rev_id',
+					'n.fr_timestamp >= rev_timestamp' ) )
+			)
+		);
+
 		$secondsR = 0; // total wait seconds for edits later reviewed
 		$secondsP = 0; // total wait seconds for edits still pending
 		$aveRT = $medianRT = 0;
 		if ( $dbr->numRows( $res ) ) {
 			$times = array();
 			# Get the elapsed times revs were pending (flagged time - edit time)
-			foreach( $res as $row ) {
+			foreach ( $res as $row ) {
 				$time = wfTimestamp(TS_UNIX,$row->nft) - wfTimestamp(TS_UNIX,$row->rt);
 				$time = max( $time, 0 ); // sanity
 				$secondsR += $time;
