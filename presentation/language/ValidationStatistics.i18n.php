@@ -1194,7 +1194,7 @@ $messages['ku-latn'] = array(
  * @author Kw-Moon
  */
 $messages['kw'] = array(
-	'validationstatistics-total' => 'Folennow',
+	'validationstatistics-total' => 'Folednow',
 );
 
 /** Luxembourgish (Lëtzebuergesch)

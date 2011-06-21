@@ -14629,7 +14629,10 @@ $messages['wo'] = array(
  */
 $messages['yi'] = array(
 	'editor' => 'רעדאַקטאָר',
-	'flaggedrevs-prefs-stable' => "שטענדיק ווייַזן די סטאַבילע ווערסיע פון אינהאַלט בלעטער (אויב ס'איז פֿאַראַן)",
+	'flaggedrevs-prefs-stable' => "ווען צו ווייַזן די סטאַבילע ווערסיע פון אינהאַלט בלעטער (אויב ס'איז פֿאַראַן)",
+	'group-editor' => 'רעדאַקטאָרן',
+	'group-editor-member' => 'רעדאַקטאָר',
+	'group-reviewer' => 'רעצענזענטן',
 	'revreview-depth-3' => 'הויך',
 	'revreview-edit' => 'רעדאַקטירן',
 	'revreview-revnotfound' => 'די אלטע רעוויזיע איר האט געבעטן קען נישט געפינען ווערן.
