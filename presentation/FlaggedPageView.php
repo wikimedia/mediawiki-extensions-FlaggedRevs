@@ -960,7 +960,7 @@ class FlaggedPageView {
 				$section = ( $editPage->section == "" ) ?
 					false : intval( $editPage->section );
 				if ( $section !== false ) {
-					$wgParser->getSection( $text, $section );
+					$text = $wgParser->getSection( $text, $section );
 				}
 				if ( $text !== false && strcmp( $text, $editPage->textbox1 ) !== 0 ) {
 					$diffEngine = new DifferenceEngine( $this->article->getTitle() );
