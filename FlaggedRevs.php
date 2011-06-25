@@ -567,27 +567,28 @@ function efLoadFlaggedRevs() {
 			$wgUseRCPatrol = true;
 		}
 	}
-	global $wgFlaggedRevsAutoconfirm, $wgAutopromote;
-	# $wgFlaggedRevsAutoconfirm is now a wrapper around $wgAutopromote
-	if ( is_array( $wgFlaggedRevsAutoconfirm ) ) {
-		$wgAutopromote['autoreview'] = array( '&', // AND
-			array( APCOND_AGE, $wgFlaggedRevsAutoconfirm['days']*86400 ),
-			array( APCOND_EDITCOUNT, $wgFlaggedRevsAutoconfirm['edits'] ),
-			array( APCOND_FR_EDITSUMMARYCOUNT, $wgFlaggedRevsAutoconfirm['editComments'] ),
-			array( APCOND_FR_UNIQUEPAGECOUNT, $wgFlaggedRevsAutoconfirm['uniqueContentPages'] ),
-			array( APCOND_FR_EDITSPACING,
-				$wgFlaggedRevsAutoconfirm['spacing'], $wgFlaggedRevsAutoconfirm['benchmarks'] ),
+	global $wgFlaggedRevsAutoconfirm, $wgAutopromoteOnce;
+	# $wgFlaggedRevsAutoconfirm is now a wrapper around $wgAutopromoteOnce
+	$req = $wgFlaggedRevsAutoconfirm; // convenience
+	if ( is_array( $req ) ) {
+		$criteria = array( '&', // AND
+			array( APCOND_AGE, $req['days']*86400 ),
+			array( APCOND_EDITCOUNT, $req['edits'] ),
+			array( APCOND_FR_EDITSUMMARYCOUNT, $req['editComments'] ),
+			array( APCOND_FR_UNIQUEPAGECOUNT, $req['uniqueContentPages'] ),
+			array( APCOND_FR_EDITSPACING, $req['spacing'], $req['benchmarks'] ),
 			array( '|', // OR
-				array( APCOND_FR_CONTENTEDITCOUNT, $wgFlaggedRevsAutoconfirm['totalContentEdits'] ),
-				array( APCOND_FR_CHECKEDEDITCOUNT, $wgFlaggedRevsAutoconfirm['totalCheckedEdits'] )
+				array( APCOND_FR_CONTENTEDITCOUNT, $req['totalContentEdits'] ),
+				array( APCOND_FR_CHECKEDEDITCOUNT, $req['totalCheckedEdits'] )
 			)
 		);
-		if ( $wgFlaggedRevsAutoconfirm['email'] ) {
-			$wgAutopromote['autoreview'][] = array( APCOND_EMAILCONFIRMED );
+		if ( $req['email'] ) {
+			$criteria[] = array( APCOND_EMAILCONFIRMED );
 		}
-		if ( $wgFlaggedRevsAutoconfirm['neverBlocked'] ) {
-			$wgAutopromote['autoreview'][] = array( APCOND_FR_NEVERBOCKED );
+		if ( $req['neverBlocked'] ) {
+			$criteria[] = array( APCOND_FR_NEVERBOCKED );
 		}
+		$wgAutopromoteOnce['onEdit']['autoreview'] = $criteria;
 	}
 	# Conditional API modules
 	efSetFlaggedRevsConditionalAPIModules();
@@ -612,7 +613,7 @@ function efSetFlaggedRevsConditionalAPIModules() {
 }
 
 function efSetFlaggedRevsConditionalRights() {
-	global $wgGroupPermissions, $wgImplicitGroups, $wgFlaggedRevsAutoconfirm;
+	global $wgGroupPermissions, $wgFlaggedRevsAutoconfirm;
 	if ( FlaggedRevs::useOnlyIfProtected() ) {
 		// Removes sp:ListGroupRights cruft
 		if ( isset( $wgGroupPermissions['editor'] ) ) {
@@ -625,8 +626,6 @@ function efSetFlaggedRevsConditionalRights() {
 	if ( !empty( $wgFlaggedRevsAutoconfirm ) ) {
 		# Implicit autoreview group
 		$wgGroupPermissions['autoreview']['autoreview'] = true;
-		# Don't show the 'autoreview' group everywhere
-		$wgImplicitGroups[] = 'autoreview';
 	}
 }
 
