@@ -704,7 +704,7 @@ Adlennit an holl gemmoù diskouezet a-is evit ma teufe war wel ho kemmoù er stu
 Adlennit an holl gemmoù diskouezet a-is evit ma teufe war wel ho kemmoù er stumm stabil.",
 	'revreview-update-includes' => "'''patromoù/restroù bet hizivaet (e tev ar pajennoù n'int ket bet adwelet) :'''",
 	'revreview-reject-header' => "Disteuler ar c'hemmoù evit $1",
-	'revreview-reject-text-list' => "Ma rit se e '''tistaolot''' ar {{PLURAL:$1|c'hemm|c'hemmoù}} da-heul :",
+	'revreview-reject-text-list' => "Ma rit se e '''tistaolot''' ar c'hemmoù an destenn orin evit an {{PLURAL:$1|adweladenn|adweladenn}} da-heul eus [[:$2|$2]] :",
 	'revreview-reject-text-revto' => 'Kement-mañ a adlakao ar bajenn en he [{{fullurl:$1|oldid=$2}} stumm eus an $3].',
 	'revreview-reject-summary' => 'Diverrañ :',
 	'revreview-reject-confirm' => "Disteuler ar c'hemmoù-mañ",
@@ -3896,8 +3896,7 @@ Pe luà 'u state de reviste de 'na revisione, cazze sus a \"none accettà\".
 
 Pe piacere cazze 'u buttone \"back\" d'u browser tune e pruève arrete.",
 	'revreview-update' => "'''Pe piacere [[{{MediaWiki:Validationpage}}|revide]] ogne cangiamende pendende ''(le vide aqquà sotte)'' fatte da 'a versiona secure.'''",
-	'revreview-update-includes' => "'''Certe template/file onne state aggiornate:'''",
-	'revreview-update-use' => "'''VIDE BBUENE:''' 'A versiona secure de ognune de chiste template/file jè ausate jndr'à versiona secure de sta pàgene.",
+	'revreview-update-includes' => "''Certe template/file onne state aggiornate (pàggene none reviste in grascette):'''",
 	'revreview-reject-header' => 'Scitte le cangaminde pe $1',
 	'revreview-reject-text-revto' => "Quiste annulle 'a pàgene turnanne a 'a [{{fullurl:$1|oldid=$2}} versione de $3].",
 	'revreview-reject-summary' => 'Riepileghe:',
@@ -3906,7 +3905,7 @@ Pe piacere cazze 'u buttone \"back\" d'u browser tune e pruève arrete.",
 	'revreview-reject-usercount' => "{{PLURAL:$1|'n'utende|$1 utinde}}",
 	'revreview-tt-flag' => 'Appruève sta revisione marcannele cumme verificate',
 	'revreview-tt-unflag' => 'Non accettà sta revisione marcannele cumme "none verificate"',
-	'revreview-tt-reject' => 'Refiute ste cangiaminde annullannele',
+	'revreview-tt-reject' => 'Refiute ste cangiaminde de sorgende de teste annullannele',
 );
 
 /** Russian (Русский)
