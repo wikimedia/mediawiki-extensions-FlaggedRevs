@@ -146,8 +146,11 @@ class FlaggedRevsHooks {
 	* Note: $parser can be false
 	*/
 	public static function parserFetchStableTemplate( $parser, Title $title, &$skip, &$id ) {
-		if ( !( $parser instanceof Parser ) || $title->getNamespace() < 0 ) {
+		if ( !( $parser instanceof Parser ) ) {
 			return true; // nothing to do
+		}
+		if ( $title->getNamespace() < 0 || $title->getNamespace() == NS_MEDIAWIKI ) {
+			return true; // nothing to do (bug 29579 for NS_MEDIAWIKI)
 		}
 		$incManager = FRInclusionManager::singleton();
 		if ( !$incManager->parserOutputIsStabilized() ) {
