@@ -908,7 +908,7 @@ class FlaggedPageView {
 	 * Adds stable version tags to page when editing
 	 */
 	public function addToEditView( EditPage $editPage ) {
-		global $wgUser;
+		global $wgUser, $wgParser;
 		$this->load();
 		# Must be reviewable. UI may be limited to unobtrusive patrolling system.
 		if ( !$this->article->isReviewable() ) {
@@ -960,7 +960,7 @@ class FlaggedPageView {
 				$section = ( $editPage->section == "" ) ?
 					false : intval( $editPage->section );
 				if ( $section !== false ) {
-					$text = $this->article->getSection( $text, $section );
+					$wgParser->getSection( $text, $section );
 				}
 				if ( $text !== false && strcmp( $text, $editPage->textbox1 ) !== 0 ) {
 					$diffEngine = new DifferenceEngine( $this->article->getTitle() );
