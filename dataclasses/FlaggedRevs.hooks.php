@@ -729,7 +729,8 @@ class FlaggedRevsHooks {
 		$dbr = wfGetDB( DB_SLAVE );
 		$encCutoff = $dbr->addQuotes( $dbr->timestamp( $cutoff_unixtime ) );
 		$res = $dbr->select( array( 'revision', 'flaggedpages' ), '1',
-			array( 'rev_user' => $user->getId(),
+			array(
+				'rev_user' => $user->getId(),
 				"rev_timestamp < $encCutoff",
 				'fp_page_id = rev_page',
 				'fp_pending_since IS NULL OR fp_pending_since > rev_timestamp' // bug 15515
@@ -741,19 +742,23 @@ class FlaggedRevsHooks {
 	}
 
 	/**
-	* Checks if $user was previously blocked
+	* Checks if $user was previously blocked since $cutoff_unixtime
 	*/
-	protected static function wasPreviouslyBlocked( $user ) {
+	protected static function wasPreviouslyBlocked( User $user, $cutoff_unixtime = 0 ) {
 		$dbr = wfGetDB( DB_SLAVE );
-		return (bool)$dbr->selectField( 'logging', '1',
-			array(
-				'log_namespace' => NS_USER,
-				'log_title'     => $user->getUserPage()->getDBkey(),
-				'log_type'      => 'block',
-				'log_action'    => 'block' ),
-			__METHOD__,
-			array( 'USE INDEX' => 'page_time' )
+		$conds = array(
+			'log_namespace' => NS_USER,
+			'log_title'     => $user->getUserPage()->getDBkey(),
+			'log_type'      => 'block',
+			'log_action'    => 'block'
 		);
+		if ( $cutoff_unixtime > 0 ) {
+			# Hint to improve NS,title,timestamp INDEX use
+			$encCutoff = $dbr->addQuotes( $dbr->timestamp( $cutoff_unixtime ) );
+			$conds[] = "log_timestamp >= $encCutoff";
+		}
+		return (bool)$dbr->selectField( 'logging', '1', $conds,
+			__METHOD__, array( 'USE INDEX' => 'page_time' ) );
 	}
 
 	protected static function recentEditCount( $uid, $seconds, $limit ) {
@@ -836,16 +841,17 @@ class FlaggedRevsHooks {
 				if ( $user->isBlocked() ) {
 					$result = false; // failed
 				} else {
-					$key = wfMemcKey( 'flaggedrevs', 'autopromote-blocked', $user->getId() );
+					$key = wfMemcKey( 'flaggedrevs', 'autopromote-notblocked', $user->getId() );
 					$val = $wgMemc->get( $key );
-					if ( $val === 'true' ) {
-						$result = true; // passed
-					} elseif ( $val === 'false' ) {
+					if ( $val === 'false' ) {
 						$result = false; // failed
 					} else {
-						# Hit the DB only if the result is not cached...
-						$result = !self::wasPreviouslyBlocked( $user );
-						$wgMemc->set( $key, $result ? 'true' : 'false', 3600 * 24 * 7 );
+						# Hit the DB if the result is not cached or if we need
+						# to check if the user was blocked since the last check...
+						$now_unix = time();
+						$last_checked = is_int( $val ) ? $val : 0; // TS_UNIX
+						$result = !self::wasPreviouslyBlocked( $user, $last_checked );
+						$wgMemc->set( $key, $result ? $now_unix : 'false', 7 * 86400 );
 					}
 				}
 				break;
@@ -866,7 +872,7 @@ class FlaggedRevsHooks {
 					$pass = self::editSpacingCheck( $user, $params[0], $params[1] );
 					# Make a key to store the results
 					if ( $pass === true ) {
-						$wgMemc->set( $key, 'true', 14 * 24 * 3600 );
+						$wgMemc->set( $key, 'true', 14 * 86400 );
 					} else {
 						$wgMemc->set( $key, 'false', $pass /* wait time */ );
 					}
@@ -905,7 +911,22 @@ class FlaggedRevsHooks {
 				}
 				break;
 			case APCOND_FR_CHECKEDEDITCOUNT:
-				$result = self::reviewedEditsCheck( $user, $params[0], $params[1] );
+				$key = wfMemcKey( 'flaggedrevs', 'autopromote-reviewededits',
+					$user->getId(), $params[0], $params[1] );
+				$val = $wgMemc->get( $key );
+				if ( $val === 'true' ) {
+					$result = true; // passed
+				} elseif ( $val === 'false' ) {
+					$result = false; // failed
+				} else {
+					# Hit the DB only if the result is not cached...
+					$result = self::reviewedEditsCheck( $user, $params[0], $params[1] );
+					if ( $result ) {
+						$wgMemc->set( $key, 'true', 7 * 86400 );
+					} else {
+						$wgMemc->set( $key, 'false', 3600 ); // briefly cache
+					}
+				}
 				break;
 			case APCOND_FR_USERPAGEBYTES:
 				$result = ( !$params[0] || $user->getUserPage()->getLength() >= $params[0] );
