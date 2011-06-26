@@ -3310,7 +3310,7 @@ Controleer alle wijzigingen hieronder om uw bewerkingen zichtbaar te maken in de
 Controleer alle hieronder weergegeven wijzigingen om ook uw bewerking zichtbaar te maken in de stabiele versie.',
 	'revreview-update-includes' => "'''Sommige sjablonen/bestanden zijn bijgewerkt (ongecontroleerde pagina's in vet):'''",
 	'revreview-reject-header' => 'Wijzigingen voor $1 afkeuren',
-	'revreview-reject-text-list' => "Door deze handeling uit te voeren, '''keurt u de volgende {{PLURAL:$1|wijziging|wijzigingen}} af''':",
+	'revreview-reject-text-list' => "Door deze handeling uit te voeren, '''keurt u de brontekstwijzingen af''' van de volgende {{PLURAL:$1|versie|versies}} van [[:$2|$2]]:",
 	'revreview-reject-text-revto' => 'Hiermee wordt de [{{fullurl:$1|oldid=$2}} versie per $3] teruggeplaatst.',
 	'revreview-reject-summary' => 'Samenvatting:',
 	'revreview-reject-confirm' => 'Deze wijzigingen afkeuren',
