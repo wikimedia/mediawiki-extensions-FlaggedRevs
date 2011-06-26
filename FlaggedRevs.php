@@ -473,8 +473,6 @@ $wgHooks['RecentChange_save'][] = 'FlaggedRevsHooks::autoMarkPatrolled';
 $wgHooks['NewRevisionFromEditComplete'][] = 'FlaggedRevsHooks::maybeMakeEditReviewed';
 # Null edit review via checkbox
 $wgHooks['ArticleSaveComplete'][] = 'FlaggedRevsHooks::maybeNullEditReview';
-# Disable auto-promotion for demoted users
-$wgHooks['UserRights'][] = 'FlaggedRevsHooks::recordDemote';
 # User edit tallies
 $wgHooks['ArticleRollbackComplete'][] = 'FlaggedRevsHooks::incrementRollbacks';
 $wgHooks['NewRevisionFromEditComplete'][] = 'FlaggedRevsHooks::incrementReverts';
@@ -525,13 +523,12 @@ $wgHooks['LoadExtensionSchemaUpdates'][] = 'FlaggedRevsUpdaterHooks::addSchemaUp
 # ########
 
 function efSetFlaggedRevsConditionalHooks() {
-	global $wgHooks;
+	global $wgHooks, $wgFlaggedRevsProtection;
 	# Mark items in user contribs
-	if ( !FlaggedRevs::useOnlyIfProtected() ) {
+	if ( !$wgFlaggedRevsProtection ) {
 		$wgHooks['ContribsPager::getQueryInfo'][] = 'FlaggedRevsUIHooks::addToContribsQuery';
 		$wgHooks['ContributionsLineEnding'][] = 'FlaggedRevsUIHooks::addToContribsLine';
-	}
-	if ( FlaggedRevs::useProtectionLevels() ) {
+	} else {
 		# Add protection form field
 		$wgHooks['ProtectionForm::buildForm'][] = 'FlaggedRevsUIHooks::onProtectionForm';
 		$wgHooks['ProtectionForm::showLogExtract'][] = 'FlaggedRevsUIHooks::insertStabilityLog';
@@ -550,8 +547,10 @@ function efSetFlaggedRevsConditionalHooks() {
 
 # ####### END HOOK TRIGGERED FUNCTIONS  #########
 
+// Note: avoid calls to FlaggedRevs class here for performance
 function efLoadFlaggedRevs() {
-	global $wgFlaggedRevsRCCrap, $wgUseRCPatrol, $wgFlaggedRevsNamespaces;
+	global $wgFlaggedRevsRCCrap, $wgUseRCPatrol;
+	global $wgFlaggedRevsNamespaces, $wgFlaggedRevsProtection;
 	if ( $wgFlaggedRevsRCCrap ) {
 		# If patrolling is already on, then we know that it 
 		# was intended to have all namespaces patrollable.
@@ -561,13 +560,29 @@ function efLoadFlaggedRevs() {
 		}
 		/* TODO: decouple from rc patrol */
 		# Check if FlaggedRevs is enabled by default for pages...
-		if ( $wgFlaggedRevsNamespaces && !FlaggedRevs::useOnlyIfProtected() ) {
+		if ( $wgFlaggedRevsNamespaces && !$wgFlaggedRevsProtection ) {
 			# Use RC Patrolling to check for vandalism.
 			# Edits to reviewable pages must be flagged to be patrolled.
 			$wgUseRCPatrol = true;
 		}
 	}
-	global $wgFlaggedRevsAutoconfirm, $wgAutopromoteOnce;
+
+	# Conditional autopromote groups
+	efSetFlaggedRevsAutopromoteConfig();
+
+	# Conditional API modules
+	efSetFlaggedRevsConditionalAPIModules();
+	# Load hooks that aren't always set
+	efSetFlaggedRevsConditionalHooks();
+	# Remove conditionally applicable rights
+	efSetFlaggedRevsConditionalRights();
+	# Defaults for user preferences
+	efSetFlaggedRevsConditionalPreferences();
+}
+
+function efSetFlaggedRevsAutopromoteConfig() {
+	global $wgFlaggedRevsAutoconfirm, $wgFlaggedRevsAutopromote;
+	global $wgAutopromoteOnce, $wgGroupPermissions;
 	# $wgFlaggedRevsAutoconfirm is now a wrapper around $wgAutopromoteOnce
 	$req = $wgFlaggedRevsAutoconfirm; // convenience
 	if ( is_array( $req ) ) {
@@ -589,20 +604,39 @@ function efLoadFlaggedRevs() {
 			$criteria[] = array( APCOND_FR_NEVERBOCKED );
 		}
 		$wgAutopromoteOnce['onEdit']['autoreview'] = $criteria;
+		$wgGroupPermissions['autoreview']['autoreview'] = true;
 	}
-	# Conditional API modules
-	efSetFlaggedRevsConditionalAPIModules();
-	# Load hooks that aren't always set
-	efSetFlaggedRevsConditionalHooks();
-	# Remove conditionally applicable rights
-	efSetFlaggedRevsConditionalRights();
-	# Defaults for user preferences
-	efSetFlaggedRevsConditionalPreferences();
+
+	# $wgFlaggedRevsAutoconfirm is now a wrapper around $wgAutopromoteOnce
+	$req = $wgFlaggedRevsAutopromote; // convenience
+	if ( is_array( $req ) ) {
+		$criteria = array( '&', // AND
+			array( APCOND_AGE, $req['days']*86400 ),
+			array( APCOND_FR_EDITCOUNT, $req['edits'], $req['excludeLastDays']*86400 ),
+			array( APCOND_FR_EDITSUMMARYCOUNT, $req['editComments'] ),
+			array( APCOND_FR_UNIQUEPAGECOUNT, $req['uniqueContentPages'] ),
+			array( APCOND_FR_USERPAGEBYTES, $req['userpageBytes'] ),
+			array( APCOND_FR_NEVERDEMOTED ), // for b/c
+			array( APCOND_FR_EDITSPACING, $req['spacing'], $req['benchmarks'] ),
+			array( '|', // OR
+				array( APCOND_FR_CONTENTEDITCOUNT,
+					$req['totalContentEdits'], $req['excludeLastDays']*86400 ),
+				array( APCOND_FR_CHECKEDEDITCOUNT,
+					$req['totalCheckedEdits'], $req['excludeLastDays']*86400 )
+			),
+			array( APCOND_FR_MAXREVERTEDEDITRATIO, $req['maxRevertedEditRatio'] ),
+			array( '!', APCOND_ISBOT )
+		);
+		if ( $req['neverBlocked'] ) {
+			$criteria[] = array( APCOND_FR_NEVERBOCKED );
+		}
+		$wgAutopromoteOnce['onEdit']['editor'] = $criteria;
+	}
 }
 
 function efSetFlaggedRevsConditionalAPIModules() {
-	global $wgAPIModules, $wgAPIListModules;
-	if ( FlaggedRevs::useOnlyIfProtected() ) {
+	global $wgAPIModules, $wgAPIListModules, $wgFlaggedRevsProtection;
+	if ( $wgFlaggedRevsProtection ) {
 		$wgAPIModules['stabilize'] = 'ApiStabilizeProtect';
 	} else {
 		$wgAPIModules['stabilize'] = 'ApiStabilizeGeneral';
@@ -613,8 +647,8 @@ function efSetFlaggedRevsConditionalAPIModules() {
 }
 
 function efSetFlaggedRevsConditionalRights() {
-	global $wgGroupPermissions, $wgFlaggedRevsAutoconfirm;
-	if ( FlaggedRevs::useOnlyIfProtected() ) {
+	global $wgGroupPermissions, $wgFlaggedRevsProtection;
+	if ( $wgFlaggedRevsProtection ) {
 		// Removes sp:ListGroupRights cruft
 		if ( isset( $wgGroupPermissions['editor'] ) ) {
 			unset( $wgGroupPermissions['editor']['unreviewedpages'] );
@@ -622,10 +656,6 @@ function efSetFlaggedRevsConditionalRights() {
 		if ( isset( $wgGroupPermissions['reviewer'] ) ) {
 			unset( $wgGroupPermissions['reviewer']['unreviewedpages'] );
 		}
-	}
-	if ( !empty( $wgFlaggedRevsAutoconfirm ) ) {
-		# Implicit autoreview group
-		$wgGroupPermissions['autoreview']['autoreview'] = true;
 	}
 }
 

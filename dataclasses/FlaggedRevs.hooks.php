@@ -679,12 +679,12 @@ class FlaggedRevsHooks {
 	 * Check if a user meets the edit spacing requirements.
 	 * If the user does not, return a *lower bound* number of seconds
 	 * that must elapse for it to be possible for the user to meet them.
+	 * @param User $user
 	 * @param int $spacingReq days apart (of edit points)
 	 * @param int $pointsReq number of edit points
-	 * @param User $user
 	 * @return mixed (true if passed, int seconds on failure)
 	 */
-	protected static function editSpacingCheck( $spacingReq, $pointsReq, $user ) {
+	protected static function editSpacingCheck( User $user, $spacingReq, $pointsReq ) {
 		$benchmarks = 0; // actual edit points
 		# Convert days to seconds...
 		$spacingReq = $spacingReq * 24 * 3600;
@@ -743,7 +743,7 @@ class FlaggedRevsHooks {
 	/**
 	* Checks if $user was previously blocked
 	*/
-	public static function wasPreviouslyBlocked( $user ) {
+	protected static function wasPreviouslyBlocked( $user ) {
 		$dbr = wfGetDB( DB_SLAVE );
 		return (bool)$dbr->selectField( 'logging', '1',
 			array(
@@ -754,6 +754,36 @@ class FlaggedRevsHooks {
 			__METHOD__,
 			array( 'USE INDEX' => 'page_time' )
 		);
+	}
+
+	protected static function recentEditCount( $uid, $seconds, $limit ) {
+		$dbr = wfGetDB( DB_SLAVE );
+		# Get cutoff timestamp (edits that are too recent)
+		$encCutoff = $dbr->addQuotes( $dbr->timestamp( time() - $seconds ) );
+		# Check all recent edits...
+		$res = $dbr->select( 'revision', '1',
+			array( 'rev_user' => $uid, "rev_timestamp > $encCutoff" ),
+			__METHOD__,
+			array( 'LIMIT' => $limit + 1 ) // hit as few rows as possible
+		);
+		return $dbr->numRows( $res );
+	}
+
+	protected static function recentContentEditCount( $uid, $seconds, $limit ) {
+		$dbr = wfGetDB( DB_SLAVE );
+		# Get cutoff timestamp (edits that are too recent)
+		$encCutoff = $dbr->addQuotes( $dbr->timestamp( time() - $seconds ) );
+		# Check all recent content edits...
+		$res = $dbr->select( array( 'revision', 'page' ), '1',
+			array( 'rev_user' => $uid,
+				"rev_timestamp > $encCutoff",
+				'rev_page = page_id',
+				'page_namespace' => MWNamespace::getContentNamespaces() ),
+			__METHOD__,
+			array( 'LIMIT' => $limit + 1,
+				'USE INDEX' => array( 'revision' => 'user_timestamp' ) )
+		);
+		return $dbr->numRows( $res );
 	}
 
 	/**
@@ -787,9 +817,6 @@ class FlaggedRevsHooks {
 		if ( $changed ) {
 			FRUserCounters::saveUserParams( $user->getId(), $p ); // save any updates
 		}
-		if ( is_array( $wgFlaggedRevsAutopromote ) ) {
-			self::maybeMakeEditor( $user, $p, $wgFlaggedRevsAutopromote );
-		}
 		return true;
 	}
 
@@ -803,27 +830,32 @@ class FlaggedRevsHooks {
 		switch( $cond ) {
 			case APCOND_FR_EDITSUMMARYCOUNT:
 				$p = FRUserCounters::getParams( $user );
-				$result = ( is_array( $p ) && $p['editComments'] >= $params[0] );
+				$result = ( $p && $p['editComments'] >= $params[0] );
 				break;
 			case APCOND_FR_NEVERBOCKED:
-				$key = wfMemcKey( 'flaggedrevs', 'autopromote-blocked-ok', $user->getId() );
-				$val = $wgMemc->get( $key );
-				if ( $val === 'true' ) {
-					$result = true; // passed
-				} elseif ( $val === 'false' ) {
+				if ( $user->isBlocked() ) {
 					$result = false; // failed
 				} else {
-					# Hit the DB only if the result is not cached...
-					$result = !self::wasPreviouslyBlocked( $user );
-					$wgMemc->set( $key, $result ? 'true' : 'false', 3600 * 24 * 7 ); // cache results
+					$key = wfMemcKey( 'flaggedrevs', 'autopromote-blocked', $user->getId() );
+					$val = $wgMemc->get( $key );
+					if ( $val === 'true' ) {
+						$result = true; // passed
+					} elseif ( $val === 'false' ) {
+						$result = false; // failed
+					} else {
+						# Hit the DB only if the result is not cached...
+						$result = !self::wasPreviouslyBlocked( $user );
+						$wgMemc->set( $key, $result ? 'true' : 'false', 3600 * 24 * 7 );
+					}
 				}
 				break;
 			case APCOND_FR_UNIQUEPAGECOUNT:
 				$p = FRUserCounters::getParams( $user );
-				$result = ( is_array( $p ) && $p['uniqueContentPages'] >= $params[0] );
+				$result = ( $p && $p['uniqueContentPages'] >= $params[0] );
 				break;
 			case APCOND_FR_EDITSPACING:
-				$key = wfMemcKey( 'flaggedrevs', 'autopromote-spacing-ok', $user->getId() );
+				$key = wfMemcKey( 'flaggedrevs', 'autopromote-editspacing',
+					$user->getId(), $params[0], $params[1] );
 				$val = $wgMemc->get( $key );
 				if ( $val === 'true' ) {
 					$result = true; // passed
@@ -831,7 +863,7 @@ class FlaggedRevsHooks {
 					$result = false; // failed
 				} else {
 					# Hit the DB only if the result is not cached...
-					$pass = self::editSpacingCheck( $params[0], $params[1], $user );
+					$pass = self::editSpacingCheck( $user, $params[0], $params[1] );
 					# Make a key to store the results
 					if ( $pass === true ) {
 						$wgMemc->set( $key, 'true', 14 * 24 * 3600 );
@@ -841,143 +873,51 @@ class FlaggedRevsHooks {
 					$result = ( $pass === true );
 				}
 				break;
+			case APCOND_FR_EDITCOUNT:
+				# $maxNew is the *most* edits that can be too recent
+				$maxNew = $user->getEditCount() - $params[0];
+				if ( $maxNew < 0 ) {
+					$result = false; // doesn't meet count even *with* recent edits
+				} elseif ( $params[1] <= 0 ) {
+					$result = true; // passed; we aren't excluding any recent edits
+				} else {
+					# Check all recent edits...
+					$n = self::recentEditCount( $user->getId(), $params[1], $maxNew );
+					$result = ( $n <= $maxNew );
+				}
+				break;
 			case APCOND_FR_CONTENTEDITCOUNT:
 				$p = FRUserCounters::getParams( $user );
-				$result = ( is_array( $p ) && $p['totalContentEdits'] >= $params[0] );
+				if ( !$p ) {
+					$result = false;
+				} else {
+					# $maxNew is the *most* edits that can be too recent
+					$maxNew = $p['totalContentEdits'] - $params[0];
+					if ( $maxNew < 0 ) {
+						$result = false; // doesn't meet count even *with* recent edits
+					} elseif ( $params[1] <= 0 ) {
+						$result = true; // passed; we aren't excluding any recent edits
+					} else {
+						# Check all recent content edits...
+						$n = self::recentContentEditCount( $user->getId(), $params[1], $maxNew );
+						$result = ( $n <= $maxNew );
+					}
+				}
 				break;
 			case APCOND_FR_CHECKEDEDITCOUNT:
-				$result = self::reviewedEditsCheck( $user, $params[0] );
+				$result = self::reviewedEditsCheck( $user, $params[0], $params[1] );
 				break;
-		}
-		return true;
-	}
-
-	/**
-	* Autopromotes user according to the setting in $wgFlaggedRevsAutopromote.
-	* @param $user User
-	* @param $p array user tallies
-	* @param $conds array $wgFlaggedRevsAutopromote
-	*/
-	protected static function maybeMakeEditor( User $user, array $p, array $conds ) {
-		global $wgMemc, $wgContentNamespaces;
-		$groups = $user->getGroups(); // current groups
-		$regTime = wfTimestampOrNull( TS_UNIX, $user->getRegistration() );
-		if (
-			!$user->getId() ||
-			# Do not give this to current holders
-			in_array( 'editor', $groups ) ||
-			# Do not give this right to bots
-			$user->isAllowed( 'bot' ) ||
-			# Do not re-add status if it was previously removed!
-			( isset( $p['demoted'] ) && $p['demoted'] ) ||
-			# Check if user edited enough unique pages
-			$conds['uniqueContentPages'] > count( $p['uniqueContentPages'] ) ||
-			# Check edit summary usage
-			$conds['editComments'] > $p['editComments'] ||
-			# Check reverted edits
-			$conds['maxRevertedEditRatio']*$user->getEditCount() < $p['revertedEdits'] ||
-			# Check user edit count
-			$conds['edits'] > $user->getEditCount() ||
-			# Check account age
-			( $regTime && $conds['days'] > ( ( time() - $regTime ) / 86400 ) ) ||
-			# See if the page actually has sufficient content...
-			$conds['userpageBytes'] > $user->getUserPage()->getLength() ||
-			# Don't grant to currently blocked users...
-			$user->isBlocked()
-		) {
-			return true; // not ready
-		}
-		# User needs to meet 'totalContentEdits' OR 'totalCheckedEdits'
-		$failedContentEdits = ( $conds['totalContentEdits'] > $p['totalContentEdits'] );
-
-		# More expensive checks below...
-		# Check if results are cached to avoid DB queries
-		$APSkipKey = wfMemcKey( 'flaggedrevs', 'autopromote-skip', $user->getId() );
-		if ( $wgMemc->get( $APSkipKey ) === 'true' ) {
-			return true;
-		}
-		# Check if user was ever blocked before
-		if ( $conds['neverBlocked'] && self::wasPreviouslyBlocked( $user ) ) {
-			$wgMemc->set( $APSkipKey, 'true', 3600 * 24 * 7 ); // cache results
-			return true;
-		}
-		$dbr = wfGetDB( DB_SLAVE );
-		$cutoff_ts = 0;
-		# Check to see if the user has enough non-"last minute" edits.
-		if ( $conds['excludeLastDays'] > 0 ) {
-			$minDiffAll = $user->getEditCount() - $conds['edits'] + 1;
-			# Get cutoff timestamp
-			$cutoff_ts = time() - 86400*$conds['excludeLastDays'];
-			$encCutoff = $dbr->addQuotes( $dbr->timestamp( $cutoff_ts ) );
-			# Check all recent edits...
-			$res = $dbr->select( 'revision', '1',
-				array( 'rev_user' => $user->getId(), "rev_timestamp > $encCutoff" ),
-				__METHOD__,
-				array( 'LIMIT' => $minDiffAll )
-			);
-			if ( $dbr->numRows( $res ) >= $minDiffAll ) {
-				return true; // delay promotion
-			}
-			# Check recent content edits...
-			if ( !$failedContentEdits && $wgContentNamespaces ) {
-				$minDiffContent = $p['totalContentEdits'] - $conds['totalContentEdits'] + 1;
-				$res = $dbr->select( array( 'revision', 'page' ), '1',
-					array( 'rev_user' => $user->getId(),
-						"rev_timestamp > $encCutoff",
-						'rev_page = page_id',
-						'page_namespace' => $wgContentNamespaces ),
-					__METHOD__,
-					array( 'USE INDEX' => array( 'revision' => 'user_timestamp' ),
-						'LIMIT' => $minDiffContent )
-				);
-				if ( $dbr->numRows( $res ) >= $minDiffContent ) {
-					$failedContentEdits = true; // totalCheckedEdits needed
-				}
-			}
-		}
-		# Check for edit spacing. This lets us know that the account has
-		# been used over N different days, rather than all in one lump.
-		if ( $conds['spacing'] > 0 && $conds['benchmarks'] > 1 ) {
-			$pass = self::editSpacingCheck( $conds['spacing'], $conds['benchmarks'], $user );
-			if ( $pass !== true ) {
-				$wgMemc->set( $APSkipKey, 'true', $pass /* wait time */ ); // cache results
-				return true;
-			}
-		}
-		# Check if there are enough implicitly reviewed edits
-		if ( $failedContentEdits && $conds['totalCheckedEdits'] > 0 ) {
-			if ( !self::reviewedEditsCheck( $user, $conds['totalCheckedEdits'], $cutoff_ts ) ) {
-				return true;
-			}
-		}
-
-		# Add editor rights...
-		$newGroups = $groups;
-		array_push( $newGroups, 'editor' );
-		$log = new LogPage( 'rights', false /* $rc */ );
-		$log->addEntry( 'rights',
-			$user->getUserPage(),
-			wfMsgForContent( 'rights-editor-autosum' ),
-			array( implode( ', ', $groups ), implode( ', ', $newGroups ) )
-		);
-		$user->addGroup( 'editor' );
-
-		return true;
-	}
-
-	/**
-	* Record demotion so that auto-promote will be disabled
-	*/
-	public static function recordDemote( $user, array $addgroup, array $removegroup ) {
-		if ( $removegroup && in_array( 'editor', $removegroup ) ) {
-			$dbName = false; // this wiki
-			// Cross-wiki rights changes...
-			if ( $user instanceof UserRightsProxy ) {
-				$dbName = $user->getDBName(); // use foreign DB of the user
-			}
-			$p = FRUserCounters::getUserParams( $user->getId(), FR_FOR_UPDATE, $dbName );
-			$p['demoted'] = 1;
-			FRUserCounters::saveUserParams( $user->getId(), $p, $dbName );
+			case APCOND_FR_USERPAGEBYTES:
+				$result = ( !$params[0] || $user->getUserPage()->getLength() >= $params[0] );
+				break;
+			case APCOND_FR_MAXREVERTEDEDITRATIO:
+				$p = FRUserCounters::getParams( $user );
+				$result = ( $p && $params[0]*$user->getEditCount() >= $p['revertedEdits'] );
+				break;
+			case APCOND_FR_NEVERDEMOTED: // b/c
+				$p = FRUserCounters::getParams( $user );
+				$result = ( $p && !$p['demoted'] );
+				break;
 		}
 		return true;
 	}
@@ -997,9 +937,11 @@ class FlaggedRevsHooks {
 		return false; // final
 	}
 
-	public static function gnsmQueryModifier( array $params, array &$joins, array &$conditions, array &$tables ) {
+	public static function gnsmQueryModifier(
+		array $params, array &$joins, array &$conditions, array &$tables
+	) {
 		$filterSet = array( GoogleNewsSitemap::OPT_ONLY => true,
-				GoogleNewsSitemap::OPT_EXCLUDE => true
+			GoogleNewsSitemap::OPT_EXCLUDE => true
 		);
 		# Either involves the same JOIN here...
 		if ( isset( $filterSet[ $params['stable'] ] ) || isset( $filterSet[ $params['quality'] ] ) ) {
