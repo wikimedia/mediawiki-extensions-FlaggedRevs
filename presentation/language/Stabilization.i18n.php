@@ -2291,7 +2291,7 @@ Tetapan tidak boleh dibuat.',
 	'stabilize_expiry_invalid' => 'Tarikh tamat tidak sah.',
 	'stabilize_expiry_old' => 'Waktu tamat telah pun berlalu.',
 	'stabilize-expiring' => 'tamat pada $1 (UTC)',
-	'stabilization-review' => 'Semak versi terkini',
+	'stabilization-review' => 'Tandai semakan semasa sebagai diperiksa',
 );
 
 /** Erzya (Эрзянь)

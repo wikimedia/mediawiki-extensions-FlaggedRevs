@@ -1150,6 +1150,7 @@ $messages['mr'] = array(
 );
 
 /** Malay (Bahasa Melayu)
+ * @author Anakmalaysia
  * @author Aviator
  * @author Kurniasan
  */
@@ -1162,7 +1163,7 @@ $messages['ms'] = array(
 	'unreviewedpages-watched' => '(dipantau oleh {{PLURAL:$1|seorang|$1 orang}} pengguna aktif)',
 	'unreviewedpages-list' => 'Halaman ini menyenaraikan halaman kandungan yang tidak lagi disemak kepada tahap yang dinyatakan.',
 	'unreviewedpages-none' => 'Tiada laman yang memenuhi kriteria ini',
-	'unreviewedpages-viewing' => '(dalam semakan)',
+	'unreviewedpages-viewing' => '(sedang dikaji semula)',
 	'unreviewedpages-hours' => '({{PLURAL:$1|sejam|$1 jam}})',
 	'unreviewedpages-days' => '($1 hari)',
 	'unreviewedpages-recent' => '(kurang drpd. 1 jam)',

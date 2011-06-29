@@ -427,9 +427,9 @@ $messages['mr'] = array(
  * @author Putera Luqman Tunku Andre
  */
 $messages['ms'] = array(
-	'qualityoversight' => 'Log semakan lanjutan',
+	'qualityoversight' => 'Log kaji semula lanjutan',
 	'qualityoversight-list' => 'Yang berikut ialah senarai terkini pengesahan dan pengguguran semakan.',
-	'qualityoversight-legend' => 'Cari log semakan terkini',
+	'qualityoversight-legend' => 'Cari log kaji semula terkini',
 );
 
 /** Dutch (Nederlands)

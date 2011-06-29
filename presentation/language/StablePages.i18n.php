@@ -624,7 +624,7 @@ $messages['mr'] = array(
  * @author Aviator
  */
 $messages['ms'] = array(
-	'stablepages' => 'Laman stabil',
+	'stablepages' => 'Laman-laman yang menggunakan kelulusan penyuntingan',
 	'stablepages-list' => 'Laman ini menyenaraikan laman-laman yang boleh disunting oleh pengguna-pengguna tertentu sahaja tanpa memerlukan penyemakan.
 Suntingan yang dilakukan oleh pengguna lain tidak dipaparkan kepara pembaca (mengikut tetapan sediakala) sehingga disemak oleh seorang pengguna yang dibenarkan.',
 	'stablepages-none' => 'Tiada laman dalam senarai ini',

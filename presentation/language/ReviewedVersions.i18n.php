@@ -781,15 +781,16 @@ $messages['mr'] = array(
 );
 
 /** Malay (Bahasa Melayu)
+ * @author Anakmalaysia
  * @author Aviator
  * @author Kurniasan
  */
 $messages['ms'] = array(
-	'reviewedversions' => 'Lihat versi-versi stabil',
+	'reviewedversions' => 'Versi-versi dikaji semula',
 	'reviewedversions-leg1' => 'Senaraikan semakan tersemak bagi sesebuah halaman',
 	'reviewedversions-page' => 'Nama halaman:',
-	'reviewedversions-none' => '"[[:$1]]" tidak mempunyai semakan tersemak.',
-	'reviewedversions-list' => 'Yang berikut ialah senarai semakan yang telah diperiksa bagi laman [[:$1]]',
+	'reviewedversions-none' => '"[[:$1]]" tiada versi dikaji semula.',
+	'reviewedversions-list' => 'Berikut ialah {{PLURAL:$2|satu-satunya semakan|senarai semakan}} [[:$1]] yang telah dikaji semula:',
 	'reviewedversions-review' => 'Diperiksa pada <i>$1</i> oleh $2',
 );
 

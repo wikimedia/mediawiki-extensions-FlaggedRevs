@@ -3211,30 +3211,30 @@ $messages['mr'] = array(
  * @author Aviator
  */
 $messages['ms'] = array(
-	'revisionreview' => 'Periksa semakan',
-	'revreview-failed' => 'Semakan gagal!',
-	'revreview-flag' => 'Periksa semakan ini',
-	'revreview-invalid' => "'''Sasaran tidak sah:''' tiada semakan [[{{MediaWiki:Validationpage}}|diperiksa]] dengan ID yang diberikan.",
+	'revisionreview' => 'Kaji semula semakan',
+	'revreview-failed' => "'''Semakan ini tidak dapat dikaji semula.'''",
+	'revreview-flag' => 'Kaji semula semakan ini',
+	'revreview-invalid' => "'''Sasaran tidak sah:''' tiada semakan [[{{MediaWiki:Validationpage}}|dikaji semula]] yang berpadan dengan ID yang diberikan.",
 	'revreview-legend' => 'Beri penilaian untuk kandungan semakan',
-	'revreview-log' => 'Ulasan:',
+	'revreview-log' => 'Komen:',
 	'revreview-main' => 'Anda hendaklah memilih sebuah semakan tertentu daripada sesebuah laman kandungan untuk diperiksa.
 
 Sila lihat [[Special:Unreviewedpages|senarai laman yang belum diperiksa]].',
 	'revreview-stable1' => 'Anda boleh melihat [{{fullurl:$1|stableid=$2}} versi bertanda ini] untuk melihat sama ada ia sudah menjadi [{{fullurl:$1|stable=1}} versi stabil] bagi laman ini.',
-	'revreview-stable2' => 'Anda boleh melihat [{{fullurl:$1|stable=1}} versi stabil] bagi laman ini (jika masih ada).',
+	'revreview-stable2' => 'Mungkin anda ingin melihat [{{fullurl:$1|stable=1}} versi stabil] laman ini.',
 	'revreview-submit' => 'Hantar',
-	'revreview-submitting' => 'Menyerah...',
+	'revreview-submitting' => 'Sedang menyerahkan...',
 	'revreview-successful' => "'''Semakan bagi [[:$1|$1]] berjaya ditanda. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} lihat semua versi stabil])'''",
 	'revreview-successful2' => "'''Tanda semakan bagi [[:$1|$1]] berjaya dibuang.'''",
 	'revreview-toolow' => '\'\'\'Anda hendaklah memberi penilaian yang lebih tinggi daripada "tidak disahkan" kepada setiap kriteria di bawah untuk semakan dianggap telah ditinjau.\'\'\'
 Untuk menggugurkan semakan ini, sila tukar semua kriteria kepada "tidak disahkan".
 
 Sila tekan butang "back" pada pelayar anda dan cuba sekali lagi.',
-	'revreview-update' => "Sila [[{{MediaWiki:Validationpage}}|semak]] sebarang perubahan ''(ditunjukkan di bawah)'' yang telah dibuat sejak semakan stabil [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} disahkan].<br />
-'''Beberapa templat/fail telah dikemaskinikan:'''",
+	'revreview-update' => "'''Sila [[{{MediaWiki:Validationpage}}|kaji semula]] sebarang perubahan menunggu ''(ditunjukkan di bawah)'' yang dilakukan sejak versi stabil.'''",
 	'revreview-update-includes' => "'''Beberapa templat/imej telah dikemaskinikan:'''",
-	'revreview-update-use' => "'''CATATAN:''' Jika sebarang templat/imej ini mempunyai versi stabil, maka versi itu telah pun digunakan dalam versi stabil bagi laman ini.",
 	'revreview-reject-summary' => 'Ringkasan:',
+	'revreview-reject-cancel' => 'Batalkan',
+	'revreview-reject-usercount' => '{{PLURAL:$1|seorang pengguna|$1 orang pengguna}}',
 );
 
 /** Low German (Plattdüütsch)

@@ -846,18 +846,20 @@ $messages['mr'] = array(
 );
 
 /** Malay (Bahasa Melayu)
+ * @author Anakmalaysia
  * @author Aviator
  * @author Kurniasan
  */
 $messages['ms'] = array(
 	'reviewedpages' => 'Laman diperiksa',
-	'reviewedpages-leg' => 'Senaraikan halaman mengikut tahap tertinggi',
-	'reviewedpages-list' => 'Halaman ini menyenaraikan halaman yang telah disemak (yang tertinggi) kepada tahap yang dinyatakan.',
+	'reviewedpages-leg' => 'Senaraikan halaman yang telah dikaji semula',
+	'reviewedpages-list' => "Halaman ini mengandungi laman-laman [[{{MediaWiki:Validationpage}}|dikaji semula]] yang tahap kajian semula (semakan) ''tertinggi yang dicapai'' merupakan tahap yang dinyatakan.
+	Satu pautan diberikan kepada semakan terkini pada tahap itu.",
 	'reviewedpages-none' => 'Tiada laman dalam senarai ini',
-	'reviewedpages-lev-0' => 'Dijenguk',
-	'reviewedpages-lev-1' => 'Bermutu',
-	'reviewedpages-lev-2' => 'Terpilih',
-	'reviewedpages-all' => 'semakan-semakan diperiksa',
+	'reviewedpages-lev-0' => '{{Int: revreview-Lev-asas}}',
+	'reviewedpages-lev-1' => '{{int:revreview-lev-quality}}',
+	'reviewedpages-lev-2' => '{{int:revreview-lev-pristine}}',
+	'reviewedpages-all' => 'versi-versi dikaji semula',
 	'reviewedpages-best' => 'semakan terbaik',
 );
 

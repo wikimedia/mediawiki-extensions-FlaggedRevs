@@ -551,6 +551,13 @@ $messages['ml'] = array(
 	'configuredpages-def-stable' => 'പ്രസിദ്ധീകരിച്ച പതിപ്പ്',
 );
 
+/** Malay (Bahasa Melayu)
+ * @author Anakmalaysia
+ */
+$messages['ms'] = array(
+	'configuredpages' => 'Laman dengan konfigurasi kaji semula',
+);
+
 /** Dutch (Nederlands)
  * @author Siebrand
  */

@@ -1214,24 +1214,26 @@ $messages['mr'] = array(
 );
 
 /** Malay (Bahasa Melayu)
+ * @author Anakmalaysia
  * @author Aviator
  * @author Kurniasan
  */
 $messages['ms'] = array(
 	'pendingchanges' => 'Laman diperiksa lapuk',
-	'pendingchanges-legend' => 'Senarai laman diperiksa dengan semakan baru',
-	'pendingchanges-list' => 'Yang berikut ialah senarai laman yang telah diperiksa tetapi mempunyai suntingan baru.',
+	'pendingchanges-legend' => 'Senarai laman diperiksa dengan perubahan yang menunggu',
+	'pendingchanges-list' => 'Laman ini menyenaraikan laman-laman [[{{MediaWiki:Validationpage}}|dikaji semula]] yang ada satu atau lebih suntingan yang menunggu untuk dikaji semula.',
 	'pendingchanges-none' => 'Tiada laman yang memenuhi kriteria ini',
 	'pendingchanges-hours' => '($1 jam)',
 	'pendingchanges-days' => '($1 hari)',
 	'pendingchanges-recent' => '(kurang dari sejam)',
 	'pendingchanges-category' => 'Kategori:',
-	'pendingchanges-stable' => 'dijenguk',
+	'pendingchanges-onwatchlist' => 'Laman-laman dalam senarai pantau saya',
+	'pendingchanges-stable' => 'Versi stabil adalah tersedia',
 	'pendingchanges-diff' => 'periksa',
 	'pendingchanges-size' => 'Perubahan maks. (bait):',
 	'pendingchanges-unwatched' => '(tidak dipantau)',
 	'pendingchanges-watched' => '(dipantau {{PLURAL:$1|seorang|$1 orang}} pengguna aktif)',
-	'pendingchanges-viewing' => '(dalam semakan)',
+	'pendingchanges-viewing' => '(sedang dikaji semula)',
 );
 
 /** Nahuatl (Nāhuatl)
