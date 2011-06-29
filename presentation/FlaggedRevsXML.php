@@ -409,7 +409,7 @@ class FlaggedRevsXML {
 	}
 
 	/*
-	* @param Article $article
+	* @param Page $article
 	* @return string
 	* Creates a stability log excerpt
 	*/

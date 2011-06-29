@@ -656,7 +656,7 @@ class FlaggedRevsUIHooks {
 
 	// Add selector of review "protection" options
 	// Code stolen from Stabilization (which was stolen from ProtectionForm)
-	public static function onProtectionForm( Article $article, &$output ) {
+	public static function onProtectionForm( Page $article, &$output ) {
 		global $wgUser, $wgOut, $wgRequest, $wgLang;
 		if ( !$article->exists() ) {
 			return true; // nothing to do
@@ -793,7 +793,7 @@ class FlaggedRevsUIHooks {
 	}
 
 	// Add stability log extract to protection form
-	public static function insertStabilityLog( Article $article, OutputPage $out ) {
+	public static function insertStabilityLog( Page $article, OutputPage $out ) {
 		if ( !$article->exists() ) {
 			return true; // nothing to do
 		} elseif ( !FlaggedRevs::inReviewNamespace( $article->getTitle() ) ) {
@@ -806,7 +806,7 @@ class FlaggedRevsUIHooks {
 	}
 
 	// Update stability config from request
-	public static function onProtectionSave( Article $article, &$errorMsg ) {
+	public static function onProtectionSave( Page $article, &$errorMsg ) {
 		global $wgUser, $wgRequest;
 		if ( !$article->exists() ) {
 			return true; // simple custom levels set for action=protect

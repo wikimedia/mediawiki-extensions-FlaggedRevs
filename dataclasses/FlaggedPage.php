@@ -4,7 +4,7 @@
  *
  * FlaggedPage::getTitleInstance() is preferred over constructor calls
  */
-class FlaggedPage extends Article {
+class FlaggedPage extends WikiPage {
 	/* Process cache variables */
 	protected $stable = 0;
 	protected $stableRev = null;
@@ -33,8 +33,8 @@ class FlaggedPage extends Article {
 	 * @param Article
 	 * @return FlaggedPage
 	 */
-	public static function getArticleInstance( Article $article ) {
-		return self::getTitleInstance( $article->mTitle );
+	public static function getArticleInstance( Page $article ) {
+		return self::getTitleInstance( $article->getTitle() );
 	}
 
 	/**
@@ -382,7 +382,7 @@ class FlaggedPage extends Article {
 		$row = $dbr->selectRow(
 			array( 'page', 'flaggedpages', 'flaggedpage_config' ),
 			array_merge(
-				Article::selectFields(),
+				WikiPage::selectFields(),
 				FlaggedPageConfig::selectFields(),
 				array( 'fp_pending_since', 'fp_stable', 'fp_reviewed' ) ),
 			$conditions,

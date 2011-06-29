@@ -6,7 +6,7 @@
 class FRInclusionCache {
 	/**
 	 * Get template and image versions from parsing a revision
-	 * @param Article $article
+	 * @param Page $article
 	 * @param Revision $rev
 	 * @param User $user
 	 * @param string $regen use 'regen' to force regeneration
@@ -15,7 +15,7 @@ class FRInclusionCache {
 	 * fileSHA1Keys like ParserOutput->mImageTimeKeys
 	 */
 	public static function getRevIncludes(
-		Article $article, Revision $rev, User $user, $regen = ''
+		Page $article, Revision $rev, User $user, $regen = ''
 	) {
 		global $wgParser, $wgMemc;
 		wfProfileIn( __METHOD__ );

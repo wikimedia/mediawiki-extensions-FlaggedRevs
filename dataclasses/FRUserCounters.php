@@ -159,11 +159,11 @@ class FRUserCounters {
 	/**
 	* Update users params array for a user on edit
 	* @param &array $p user params
-	* @param Article $article the article just edited
+	* @param Page $article the article just edited
 	* @param string $summary edit summary
 	* @return bool anything changed
 	*/
-	public static function updateUserParams( array &$p, Article $article, $summary ) {
+	public static function updateUserParams( array &$p, Page $article, $summary ) {
 		global $wgFlaggedRevsAutoconfirm, $wgFlaggedRevsAutopromote;
 		# Update any special counters for non-null revisions
 		$changed = false;

@@ -654,11 +654,11 @@ class FlaggedRevs {
 	}
 
 	/**
-	* @param Article $article
+	* @param Page $article
 	* @param parserOutput $parserOut
 	* Updates the stable-only cache dependency table
 	*/
-	public static function updateStableOnlyDeps( Article $article, ParserOutput $stableOut ) {
+	public static function updateStableOnlyDeps( Page $article, ParserOutput $stableOut ) {
 		wfProfileIn( __METHOD__ );
 		if ( !wfReadOnly() ) {
 			$frDepUpdate = new FRDependencyUpdate( $article->getTitle(), $stableOut );
@@ -749,11 +749,11 @@ class FlaggedRevs {
 	/**
 	* Return memc value if not expired
 	* @param object|false $data makeMemcObj() tuple
-	* @param Article $article
+	* @param Page $article
 	* @param $allowStale Use 'allowStale' to skip page_touched check
 	* @return mixed
 	*/
-	public static function getMemcValue( $data, Article $article, $allowStale = '' ) {
+	public static function getMemcValue( $data, Page $article, $allowStale = '' ) {
 		if ( is_object( $data ) ) {
 			if ( $allowStale === 'allowStale' || $data->time >= $article->getTouched() ) {
 				return $data->value;
@@ -926,7 +926,7 @@ class FlaggedRevs {
 	* If no appropriate tags can be found, then the review will abort.
 	*/
 	public static function autoReviewEdit(
-		Article $article, $user, Revision $rev, array $flags = null, $auto = true
+		Page $article, $user, Revision $rev, array $flags = null, $auto = true
 	) {
 		wfProfileIn( __METHOD__ );
 		$title = $article->getTitle(); // convenience

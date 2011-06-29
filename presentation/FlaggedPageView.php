@@ -242,7 +242,7 @@ class FlaggedPageView {
 			return true;
 		}
 		# We may have nav links like "direction=prev&oldid=x"
-		$revID = $this->article->getOldIDFromRequest();
+		$revID = $this->getOldIDFromRequest();
 		$frev = FlaggedRevision::newFromTitle( $this->article->getTitle(), $revID );
 		# Give a notice if this rev ID corresponds to a reviewed version...
 		if ( $frev ) {
@@ -755,7 +755,7 @@ class FlaggedPageView {
 			return false; // nothing to do here
 		}
 		# Diff should only show for the draft
-		$oldid = $this->article->getOldIDFromRequest();
+		$oldid = $this->getOldIDFromRequest();
 		$latest = $this->article->getLatest();
 		if ( $oldid && $oldid != $latest ) {
 			return false; // not viewing the draft
@@ -1303,6 +1303,11 @@ class FlaggedPageView {
 			return true;
 		}
 		return false;
+	}
+
+	protected function getOldIDFromRequest() {
+		$article = new Article( $this->article->getTitle() );
+		return $article->getOldIDFromRequest();
 	}
 
 	/**

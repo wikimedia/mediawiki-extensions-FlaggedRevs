@@ -91,7 +91,7 @@ class FlaggedRevsHooks {
 	* (b) Pages with stable versions that use this page will be purged
 	* Note: pages with current versions that use this page should already be purged
 	*/
-	public static function onArticleEditUpdates( Article $article, $editInfo ) {
+	public static function onArticleEditUpdates( Page $article, $editInfo ) {
 		FlaggedRevs::stableVersionUpdates( $article->getTitle(), null, null, $editInfo );
 		FlaggedRevs::extraHTMLCacheUpdate( $article->getTitle() );
 		return true;
@@ -102,7 +102,7 @@ class FlaggedRevsHooks {
 	* (b) Pages with stable versions that use this page will be purged
 	* Note: pages with current versions that use this page should already be purged
 	*/
-	public static function onArticleDelete( Article $article, $user, $reason, $id ) {
+	public static function onArticleDelete( Page $article, $user, $reason, $id ) {
 		FlaggedRevs::clearTrackingRows( $id );
 		FlaggedRevs::extraHTMLCacheUpdate( $article->getTitle() );
 		return true;
@@ -343,7 +343,7 @@ class FlaggedRevsHooks {
 	* Note: $article one of Article, ImagePage, Category page as appropriate.
 	*/
 	public static function maybeMakeEditReviewed(
-		Article $article, $rev, $baseRevId = false, $user = null
+		Page $article, $rev, $baseRevId = false, $user = null
 	) {
 		global $wgRequest;
 		# Edit must be non-null, to a reviewable page, with $user set
@@ -446,7 +446,7 @@ class FlaggedRevsHooks {
 	// Review $rev if $editTimestamp matches the previous revision's timestamp.
 	// Otherwise, review the revision that has $editTimestamp as its timestamp value.
 	protected static function editCheckReview(
-		Article $article, $rev, $user, $editTimestamp
+		Page $article, $rev, $user, $editTimestamp
 	) {
 		$prevTimestamp = $flags = null;
 		$prevRevId = $rev->getParentId(); // revision before $rev
@@ -516,7 +516,7 @@ class FlaggedRevsHooks {
 	* Note: called after edit ops are finished
 	*/
 	public static function maybeNullEditReview(
-		Article $article, $user, $text, $s, $m, $a, $b, $flags, $rev, &$status, $baseId
+		Page $article, $user, $text, $s, $m, $a, $b, $flags, $rev, &$status, $baseId
 	) {
 		global $wgRequest;
 		# Revision must *be* null (null edit). We also need the user who made the edit.
@@ -642,7 +642,7 @@ class FlaggedRevsHooks {
 	}
 
 	public static function incrementRollbacks(
-		Article $article, $user, $goodRev, Revision $badRev
+		Page $article, $user, $goodRev, Revision $badRev
 	) {
 		# Mark when a user reverts another user, but not self-reverts
 		$badUserId = $badRev->getRawUser();
@@ -658,7 +658,7 @@ class FlaggedRevsHooks {
 	}
 
 	public static function incrementReverts(
-		Article $article, $rev, $baseRevId = false, $user = null
+		Page $article, $rev, $baseRevId = false, $user = null
 	) {
 		global $wgRequest;
 		# Was this an edit by an auto-sighter that undid another edit?
@@ -807,7 +807,7 @@ class FlaggedRevsHooks {
 	* $wgFlaggedRevsAutopromote. This also handles user stats tallies.
 	*/
 	public static function onArticleSaveComplete(
-		Article $article, $user, $text, $summary, $m, $a, $b, &$f, $rev
+		Page $article, $user, $text, $summary, $m, $a, $b, &$f, $rev
 	) {
 		global $wgFlaggedRevsAutopromote, $wgFlaggedRevsAutoconfirm;
 		# Ignore NULL edits or edits by anon users
