@@ -2622,6 +2622,7 @@ $messages['jut'] = array(
 
 /** Georgian (ქართული)
  * @author BRUTE
+ * @author David1010
  * @author Dawid Deutschland
  * @author გიორგიმელა
  */
@@ -2669,7 +2670,6 @@ $messages['ka'] = array(
 	'revreview-successful2' => "'''არჩეული ვერსიისგან [[:$1|$1]] მონიშვნა მოხსნილია.'''",
 	'revreview-update' => "'''გთხოვთ [[{{MediaWiki:Validationpage}}|შეამოწმოთ]] ცვლილებები ''(ნაჩვენებია ქვემოთ)'', შეტანილი მიღებულ ვერსიაში.'''",
 	'revreview-update-includes' => "'''ზოგი თარგი ან ფაილი განახლდა:'''",
-	'revreview-update-use' => "'''ყურადღება:''' ყოველი ამ თარგის / ფაილის შემოწმებული ვერსია გამოყენებული იქნება ამ გვერდის შემოწმებულ ვერსიაში.",
 	'revreview-reject-header' => 'ცვლილებების გაუქმება $1-თვის',
 	'revreview-reject-summary' => 'რეზიუმე:',
 	'revreview-reject-confirm' => 'ამ ცვლილების გაუქმება',
@@ -2679,7 +2679,7 @@ $messages['ka'] = array(
 	'revreview-reject-summary-cur-short' => '{{PLURAL:$1|ბოლო ცვლილება|$1 ბოლო ცვლილებები}} გაუქმდება და $2 ვერსია დაბრუნდება $3 ვერსიაზე',
 	'revreview-reject-summary-old-short' => '{{PLURAL:$1|პირველი ცვლილება|$1 ცვლილება}}, ვერსია $2, რომელიც ვერსია $3-ს მოსდევდა, გაუქმდება',
 	'revreview-reject-usercount' => '{{PLURAL:$1|მომხმარებელი|$1 მომხმარებელი}}',
-	'revreview-tt-flag' => 'მონიშნეთ ეს გვერდი როგორც შემოწმებული',
+	'revreview-tt-flag' => 'მონიშნეთ როგორც შემოწმებული',
 	'revreview-tt-unflag' => 'აღარ მაჩვენო ის ვერსია, რომელშიც მე მონიშვნა უარვყავი',
 );
 
