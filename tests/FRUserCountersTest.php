@@ -86,8 +86,8 @@ class FRUserCountersTest extends PHPUnit_Framework_TestCase {
 		$copyP = $p;
 		FRUserCounters::updateUserParams( $copyP, $article, "/* section */" );
 		$this->assertEquals( $p['editComments'], $copyP['editComments'], "Auto summary" );
-		
-		$title = Title::makeTitleSafe( 4, 'helloworld' );
+
+		$title = Title::makeTitleSafe( NS_USER, 'helloworld' );
 		$article = new Article( $title );
 
 		$copyP = $p;
