@@ -37,11 +37,13 @@ class RejectConfirmationFormUI {
 			Revision::selectFields(),
 			array(
 				'rev_page' => $oldRev->getPage(),
-				'rev_id > ' . $dbr->addQuotes( $oldRev->getId() ),
-				'rev_id <= ' . $dbr->addQuotes( $newRev->getId() )
+				'rev_timestamp > ' . $dbr->addQuotes(
+					$dbr->timestamp( $oldRev->getTimestamp() ) ),
+				'rev_timestamp <= ' . $dbr->addQuotes(
+					$dbr->timestamp( $newRev->getTimestamp() ) )
 			),
 			__METHOD__,
-			array( 'LIMIT' => 251 ) // sanity check
+			array( 'ORDER BY' => 'rev_timestamp ASC', 'LIMIT' => 251 ) // sanity check
 		);
 		if ( !$dbr->numRows( $res ) ) {
 			return array( '', 'review_bad_oldid' );
@@ -49,16 +51,25 @@ class RejectConfirmationFormUI {
 			return array( '', 'review_reject_excessive' );
 		}
 
-		$rejectIds = $rejectAuthors = array();
 		$contribs = SpecialPage::getTitleFor( 'Contributions' )->getPrefixedText();
+
+		$lastTextId = 0;
+		$rejectIds = $rejectAuthors = array();
 		foreach ( $res as $row ) {
 			$rev = new Revision( $row );
-			$rejectIds[] = $rev->getId();
-			$rejectAuthors[] = $rev->isDeleted( Revision::DELETED_USER )
-				? wfMsg( 'rev-deleted-user' )
-				: "[[{$contribs}/{$rev->getUserText()}|{$rev->getUserText()}]]";
+			if ( $rev->getTextId() != $lastTextId ) { // skip null edits
+				$rejectIds[] = $rev->getId();
+				$rejectAuthors[] = $rev->isDeleted( Revision::DELETED_USER )
+					? wfMsg( 'rev-deleted-user' )
+					: "[[{$contribs}/{$rev->getUserText()}|{$rev->getUserText()}]]";
+			}
+			$lastTextId = $rev->getTextId();
 		}
 		$rejectAuthors = array_values( array_unique( $rejectAuthors ) );
+
+		if ( !$rejectIds ) { // all null edits? (this shouldn't happen)
+			return array( '', 'review_reject_nulledits' );
+		}
 
 		// List of revisions being undone...
 		$form .= wfMsgExt( 'revreview-reject-text-list', 'parseinline',

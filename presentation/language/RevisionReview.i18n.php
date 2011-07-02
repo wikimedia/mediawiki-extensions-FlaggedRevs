@@ -34,6 +34,7 @@ $messages['en'] = array(
 	'review_cannot_undo'       => 'Cannot undo these changes because further pending edits changed the same areas.',
 	'review_cannot_reject'     => 'Cannot reject these changes because someone already accepted some (or all) of the edits.',
 	'review_reject_excessive'  => 'Cannot reject this many edits at once.',
+	'review_reject_nulledits'  => 'Cannot reject these changes because all the revisions are all null edits.',
 
 	'revreview-check-flag-p'       => 'Accept this version (includes $1 pending {{PLURAL:$1|change|changes}})',
 	'revreview-check-flag-p-title' => 'Accept the result of the pending changes and the changes you made here. Use this only if you have already seen the entire pending changes diff.',
@@ -85,10 +86,10 @@ Please review all the changes shown below to make your edits appear in the stabl
 	'revreview-reject-summary'     => 'Summary:',
 	'revreview-reject-confirm'     => 'Reject these changes',
 	'revreview-reject-cancel'      => 'Cancel',
-	'revreview-reject-summary-cur' => 'Rejected the last {{PLURAL:$1|change|$1 changes}} (by $2) and restored revision $3 by $4',
-	'revreview-reject-summary-old' => 'Rejected the first {{PLURAL:$1|change|$1 changes}} (by $2) that followed revision $3 by $4',
-	'revreview-reject-summary-cur-short' => 'Rejected the last {{PLURAL:$1|change|$1 changes}} and restored revision $2 by $3',
-	'revreview-reject-summary-old-short' => 'Rejected the first {{PLURAL:$1|change|$1 changes}} that followed revision $2 by $3',
+	'revreview-reject-summary-cur' => 'Rejected the last {{PLURAL:$1|text change|$1 text changes}} (by $2) and restored revision $3 by $4',
+	'revreview-reject-summary-old' => 'Rejected the first {{PLURAL:$1|text change|$1 text changes}} (by $2) that followed revision $3 by $4',
+	'revreview-reject-summary-cur-short' => 'Rejected the last {{PLURAL:$1|text change|$1 text changes}} and restored revision $2 by $3',
+	'revreview-reject-summary-old-short' => 'Rejected the first {{PLURAL:$1|text change|$1 text changes}} that followed revision $2 by $3',
 	'revreview-reject-usercount'    => '{{PLURAL:$1|one user|$1 users}}',
 
 	'revreview-tt-flag'            => 'Accept this revision by marking it as "checked"',
