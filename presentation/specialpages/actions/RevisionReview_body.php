@@ -3,7 +3,7 @@
 class RevisionReview extends UnlistedSpecialPage {
 	protected $form;
 	protected $page;
-	var $skin; // FIXME: with RevDel_RevisionList stuff
+	protected $skin;
 
 	public function __construct() {
 		global $wgUser;
