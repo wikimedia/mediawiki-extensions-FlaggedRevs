@@ -305,9 +305,14 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 				return 'review_cannot_undo';
 			}
 			$baseRevId = $newRev->isCurrent() ? $oldRev->getId() : 0;
-			$article->doEdit( $new_text, $this->getComment(), 0, $baseRevId, $this->user );
+
+			# Actually make the edit...
+			$editStatus = $article->doEdit(
+				$new_text, $this->getComment(), 0, $baseRevId, $this->user );
+
+			$status = $editStatus->isOK();
 			# If this undid one edit by another logged-in user, update user tallies
-			if ( $newRev->getParentId() == $oldRev->getId() && $newRev->getRawUser() ) {
+			if ( $status && $newRev->getParentId() == $oldRev->getId() && $newRev->getRawUser() ) {
 				if ( $newRev->getRawUser() != $this->user->getId() ) { // no self-reverts
 					FRUserCounters::incCount( $newRev->getRawUser(), 'revertedEdits' );
 				}
