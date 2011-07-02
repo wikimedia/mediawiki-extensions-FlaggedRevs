@@ -65,8 +65,9 @@ class RejectConfirmationFormUI {
 			$wgLang->formatNum( count( $rejectIds ) ), $oldRev->getTitle()->getPrefixedText() );
 		$form .= '<ul>';
 
-		$context = RequestContext::getMain();
-		$list = new RevisionList( $context, $oldRev->getTitle(), $rejectIds );
+		$list = new RevisionList( RequestContext::getMain(), $oldRev->getTitle() );
+		$list->filterByIds( $rejectIds );
+
 		for ( $list->reset(); $list->current(); $list->next() ) {
 			$item = $list->current();
 			if ( $item->canView() ) {
