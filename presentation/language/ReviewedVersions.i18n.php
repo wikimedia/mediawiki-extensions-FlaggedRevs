@@ -787,7 +787,7 @@ $messages['mr'] = array(
  */
 $messages['ms'] = array(
 	'reviewedversions' => 'Versi-versi dikaji semula',
-	'reviewedversions-leg1' => 'Senaraikan semakan tersemak bagi sesebuah halaman',
+	'reviewedversions-leg1' => 'Senaraikan semakan yang dikaji semula bagi satu halaman',
 	'reviewedversions-page' => 'Nama halaman:',
 	'reviewedversions-none' => '"[[:$1]]" tiada versi dikaji semula.',
 	'reviewedversions-list' => 'Berikut ialah {{PLURAL:$2|satu-satunya semakan|senarai semakan}} [[:$1]] yang telah dikaji semula:',

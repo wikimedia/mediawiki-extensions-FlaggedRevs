@@ -3214,28 +3214,78 @@ $messages['mr'] = array(
 $messages['ms'] = array(
 	'revisionreview' => 'Kaji semula semakan',
 	'revreview-failed' => "'''Semakan ini tidak dapat dikaji semula.'''",
+	'revreview-submission-invalid' => 'Penyerahan ini tidak lengkap atau tidak sah atas sebab-sebab tertentu.',
+	'review_page_invalid' => 'Tajuk laman sasaran tidak sah.',
+	'review_page_notexists' => 'Laman sasaran tidak wujud.',
+	'review_page_unreviewable' => 'Laman sasaran tidak boleh dikaji semula.',
+	'review_no_oldid' => 'ID semakan tidak dinyatakan.',
+	'review_bad_oldid' => 'Semakan sasaran tidak wujud.',
+	'review_conflict_oldid' => 'Semakan ini telah diterima atau ditarik balik penerimaannya oleh pihak lain semasa anda melihatnya.',
+	'review_not_flagged' => 'Semakan sasaran kini tidak ditandai sebagai sudah dikaji semula.',
+	'review_too_low' => 'Semakan tidak boleh dikaji semula kerana sesetengah ruangan dibiarkan "tidak memadai".',
+	'review_bad_key' => 'Kunci parameter penyertaan tidak sah.',
+	'review_bad_tags' => 'Sesetengah nilai tag yang dinyatakan adalah tidak sah.',
+	'review_denied' => 'Kebenaran ditolak.',
+	'review_param_missing' => 'Kekurangan parameter, atau adanya parameter yang tidak sah.',
+	'review_cannot_undo' => 'Perubahan ini tidak boleh dibatalkan kerana suntingan tergantung yang selanjutnya telah mengubah bahagian-bahagian yang sama.',
+	'review_cannot_reject' => 'Perubahan ini tidak boleh ditolak kerana sesetengah (atau semua) suntingan telah diterima oleh seseorang.',
+	'review_reject_excessive' => 'Tidak boleh menolak begini banyak suntingan dalam sekali.',
+	'revreview-check-flag-p' => 'Terima versi ini (termasuk $1 perubahan tergantung)',
+	'revreview-check-flag-p-title' => 'Terima hasil perubahan tergantung dan perubahan yang anda lakukan di sini. Gunakan yang ini hanya jika anda sudah melihat seluruh laman perbezaan semakan tergantung.',
+	'revreview-check-flag-u' => 'Terima laman yang belum dikaji semula ini',
+	'revreview-check-flag-u-title' => 'Terima versi laman yang ini. Gunakannya hanya jika anda sudah menyemak seluruh laman.',
+	'revreview-check-flag-y' => 'Terima perubahan saya',
+	'revreview-check-flag-y-title' => 'Terima segala perubahan yang anda telah buat di sini.',
 	'revreview-flag' => 'Kaji semula semakan ini',
+	'revreview-reflag' => 'Kaji semula semakan ini sekali lagi',
 	'revreview-invalid' => "'''Sasaran tidak sah:''' tiada semakan [[{{MediaWiki:Validationpage}}|dikaji semula]] yang berpadan dengan ID yang diberikan.",
 	'revreview-legend' => 'Beri penilaian untuk kandungan semakan',
 	'revreview-log' => 'Komen:',
 	'revreview-main' => 'Anda hendaklah memilih sebuah semakan tertentu daripada sesebuah laman kandungan untuk diperiksa.
 
 Sila lihat [[Special:Unreviewedpages|senarai laman yang belum diperiksa]].',
-	'revreview-stable1' => 'Anda boleh melihat [{{fullurl:$1|stableid=$2}} versi bertanda ini] untuk melihat sama ada ia sudah menjadi [{{fullurl:$1|stable=1}} versi stabil] bagi laman ini.',
+	'revreview-stable1' => 'Anda boleh melihat [{{fullurl:$1|stableid=$2}} versi bertanda ini] dan melihat sama ada ia sekarang [{{fullurl:$1|stable=1}} versi stabil] bagi laman ini.',
 	'revreview-stable2' => 'Mungkin anda ingin melihat [{{fullurl:$1|stable=1}} versi stabil] laman ini.',
 	'revreview-submit' => 'Hantar',
 	'revreview-submitting' => 'Sedang menyerahkan...',
+	'revreview-submit-review' => 'Terima semakan',
+	'revreview-submit-unreview' => 'Tarik balik penerimaan semakan',
+	'revreview-submit-reject' => 'Tolak perubahan',
+	'revreview-submit-reviewed' => 'Selesai. Diterima!',
+	'revreview-submit-unreviewed' => 'Selesai. Penerimaan ditarik balik!',
 	'revreview-successful' => "'''Semakan bagi [[:$1|$1]] berjaya ditanda. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} lihat semua versi stabil])'''",
 	'revreview-successful2' => "'''Tanda semakan bagi [[:$1|$1]] berjaya dibuang.'''",
-	'revreview-toolow' => '\'\'\'Anda hendaklah memberi penilaian yang lebih tinggi daripada "tidak disahkan" kepada setiap kriteria di bawah untuk semakan dianggap telah ditinjau.\'\'\'
-Untuk menggugurkan semakan ini, sila tukar semua kriteria kepada "tidak disahkan".
+	'revreview-poss-conflict-p' => "'''Amaran: [[User:$1|$1]] mula mengkaji semula laman ini pada $2, $3.'''",
+	'revreview-poss-conflict-c' => "'''Amaran: [[User:$1|$1]] mula mengkaji semula perubahan-perubahan ini pada $2, $3.'''",
+	'revreview-adv-reviewing-p' => "'''Peringatkan: Anda dihebahkan kerana telah mulai mengkaji semula laman ini pada $1, $2.'''",
+	'revreview-adv-reviewing-c' => "'''Peringatkan: Anda dihebahkan kerana telah mulai mengkaji semula perubahan-perubahan ini pada $1, $2.'''",
+	'revreview-toolow' => '\'\'\'Anda mesti menilai setiap satu atribut itu sebagai lebih tinggi daripada "tidak memadai" supaya semakan itu dianggap sudah dikaji semula.\'\'\'
 
-Sila tekan butang "back" pada pelayar anda dan cuba sekali lagi.',
-	'revreview-update' => "'''Sila [[{{MediaWiki:Validationpage}}|kaji semula]] sebarang perubahan menunggu ''(ditunjukkan di bawah)'' yang dilakukan sejak versi stabil.'''",
-	'revreview-update-includes' => "'''Beberapa templat/imej telah dikemaskinikan:'''",
+Untuk membatalkan status kaji semula semakan itu, klik "tarik balik penerimaan".
+
+Sila tekan butang "←" pada pelayar anda dan cuba lagi.',
+	'revreview-update' => "'''Sila [[{{MediaWiki:Validationpage}}|kaji semula]] sebarang perubahan tergantung ''(ditunjukkan di bawah)'' yang dilakukan sejak versi stabil.'''",
+	'revreview-update-edited' => '<span class="flaggedrevs_important">Perubahan anda belum lagi dalam versi stabil.</span>
+
+Sila kaji semula segala perubahan yang ditunjukkan di bawah untuk memastikan agar suntingan anda muncul dalam versi stabil.',
+	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Perubahan anda belum lagi dalam versi stabil. Terdapat perubahan terdahulu yang masih menunggu untuk dikaji semula.</span>
+
+Sila kaji semula segala perubahan yang ditunjukkan di bawah untuk memastikan agar suntingan anda muncul dalam versi stabil.',
+	'revreview-update-includes' => "'''Templat/fail dikemaskini (laman yang belum dikaji semula berhuruf tebal):'''",
+	'revreview-reject-header' => 'Tolak perubahan untuk $1',
+	'revreview-reject-text-list' => "Dengan melengkapkan tindakan ini, anda akan '''menolak''' perubahan teks sumber daripada {{PLURAL:$1|semakan|semakan-semakan}} [[:$2|$2]] yang berikut:",
+	'revreview-reject-text-revto' => 'Ini akan membalikkan laman ini kepada [versi {{fullurl:$1|oldid=$2}} seperti pada $3].',
 	'revreview-reject-summary' => 'Ringkasan:',
+	'revreview-reject-confirm' => 'Tolak perubahan ini',
 	'revreview-reject-cancel' => 'Batalkan',
+	'revreview-reject-summary-cur' => 'Menolak {{PLURAL:$1|perubahan|$1 perubahan}} terbaru (oleh $2) dan memulihkan semakan $3 oleh $4',
+	'revreview-reject-summary-old' => 'Menolak {{PLURAL:$1|perubahan|$1 perubahan}} pertama (oleh $2) yang menyusuli semakan $3 oleh $4',
+	'revreview-reject-summary-cur-short' => 'Menolak {{PLURAL:$1|perubahan|$1 perubahan}} terbaru dan memulihkan semakan $2 oleh $3',
+	'revreview-reject-summary-old-short' => 'Menolak {{PLURAL:$1|perubahan|$1 perubahan}} pertama yang menyusuli semakan $2 oleh $3',
 	'revreview-reject-usercount' => '{{PLURAL:$1|seorang pengguna|$1 orang pengguna}}',
+	'revreview-tt-flag' => 'Terima semakan ini dengan menandainya sebagai "diperiksa"',
+	'revreview-tt-unflag' => 'Tarik balik penerimaan semakan ini dengan menandainya sebagai "tidak diperiksa"',
+	'revreview-tt-reject' => 'Tolak perubahan teks sumber ini dengan membalikkannya',
 );
 
 /** Low German (Plattdüütsch)

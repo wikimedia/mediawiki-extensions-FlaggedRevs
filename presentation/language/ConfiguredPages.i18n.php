@@ -556,6 +556,12 @@ $messages['ml'] = array(
  */
 $messages['ms'] = array(
 	'configuredpages' => 'Laman dengan konfigurasi kaji semula',
+	'configuredpages-list' => 'Laman ini menyenaraikan laman-laman yang dikonfigurasi dengan tetapan kelulusan yang berbeza dengan tetapan sediaan asal laman.
+Sesetengah tetapan mungkin mengubah versi mana yang dipaparkan kepada pembaca, atau memperketat keizinan menyunting tanpa perlu kajian semula.',
+	'configuredpages-none' => 'Tiada laman dalam senarai ini',
+	'configuredpages-config' => 'Konfigurasi',
+	'configuredpages-def-draft' => 'versi terkini',
+	'configuredpages-def-stable' => 'versi stabil',
 );
 
 /** Dutch (Nederlands)

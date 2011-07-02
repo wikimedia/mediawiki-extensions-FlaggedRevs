@@ -1322,24 +1322,31 @@ $messages['mn'] = array(
 );
 
 /** Malay (Bahasa Melayu)
+ * @author Anakmalaysia
  * @author Aviator
  * @author Kurniasan
  */
 $messages['ms'] = array(
-	'validationstatistics' => 'Statistik pengesahan',
-	'validationstatistics-users' => "'''{{SITENAME}}''' kini mempunyai {{PLURAL:$1|seorang|'''[[Special:ListUsers/editor|$1]]''' orang}} pengguna dengan hak [[{{MediaWiki:Validationpage}}|Penyunting]] dan {{PLURAL:$2|seorang|'''$2''' orang}} pengguna '''[[Special:ListUsers/reviewer|$2]]''' dengan hak [[{{MediaWiki:Validationpage}}|Penyemak]].
+	'validationstatistics' => 'Statistik kajian semula laman',
+	'validationstatistics-users' => "'''{{SITENAME}}''' kini mempunyai '''[[Special:ListUsers/editor|$1]]''' orang pengguna yang mempunyai hak [[{{MediaWiki:Validationpage}}|Penyunting]].
 
-Penyunting dan Penyemak adalah pengguna-pengguna berhak yang boleh memeriksa semakan-semakan kepada laman-laman.",
-	'validationstatistics-table' => "Statistik bagi setiap ruang nama ditunjukkan di bawah, ''melainkan'' halaman lencongan.",
+Penyunting merupakan pengguna berpengalaman yang boleh membuat pemeriksaan mengejut pada laman-laman.",
+	'validationstatistics-lastupdate' => "''Data berikut kali terakhir dikemas kini pada $1, $2.''",
+	'validationstatistics-pndtime' => "Suntingan yang telah diperiksa oleh pengguna-pengguna yang mantap dianggap ''dikaji semula''.
+
+Purata masa tangguhan kaji semula untuk [[Special:OldReviewedPages|laman-laman yang mempunyai suntingan yang menunggu untuk dikaji semula]] ialah '''$1'''; masa tangguhan diukur berdasarkan berapa lama suntingan tergantung yang terlama dibiarkan tanpa kaji semula.",
+	'validationstatistics-revtime' => "Purata masa menunggu untuk suntingan oleh ''pengguna yang tidak log masuk'' untuk dikaji semula ialah '''$1'''; mediannya ialah '''$2'''. 
+$3",
+	'validationstatistics-table' => "Statistik kaji semula laman untuk setiap ruang nama ditunjukkan di bawah, ''tidak termasuk'' laman lencongan. Laman yang ada suntingan yang menunggu untuk dikaji semula dikira ''lapuk''; laman yang tiada suntingan yang menunggu untuk dikaji semula dikira ''diselaras''.",
 	'validationstatistics-ns' => 'Ruang nama',
 	'validationstatistics-total' => 'Laman',
-	'validationstatistics-stable' => 'Diperiksa',
+	'validationstatistics-stable' => 'Dikaji semula',
 	'validationstatistics-latest' => 'Diselaras',
-	'validationstatistics-synced' => 'Diselaras/Disemak',
+	'validationstatistics-synced' => 'Diselaras/Dikaji Semula',
 	'validationstatistics-old' => 'Lapuk',
-	'validationstatistics-utable' => 'Di bawah adalah senarai $1 penyemak teratas dalam jam terakhir.',
+	'validationstatistics-utable' => 'Berikut ialah {{PLURAL:$1|pengkaji semula paling aktif|senarai $1 pengkaji semula paling aktif}} dalam {{PLURAL:$2|sejam|$2 jam}} yang lalu.',
 	'validationstatistics-user' => 'Pengguna',
-	'validationstatistics-reviews' => 'Semakan',
+	'validationstatistics-reviews' => 'Kajian semula',
 );
 
 /** Maltese (Malti)

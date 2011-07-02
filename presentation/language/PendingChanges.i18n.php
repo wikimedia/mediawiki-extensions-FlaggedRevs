@@ -1219,8 +1219,8 @@ $messages['mr'] = array(
  * @author Kurniasan
  */
 $messages['ms'] = array(
-	'pendingchanges' => 'Laman diperiksa lapuk',
-	'pendingchanges-legend' => 'Senarai laman diperiksa dengan perubahan yang menunggu',
+	'pendingchanges' => 'Laman yang mempunyai perubahan tergantung',
+	'pendingchanges-legend' => 'Senarai laman diperiksa dengan perubahan tergantung',
 	'pendingchanges-list' => 'Laman ini menyenaraikan laman-laman [[{{MediaWiki:Validationpage}}|dikaji semula]] yang ada satu atau lebih suntingan yang menunggu untuk dikaji semula.',
 	'pendingchanges-none' => 'Tiada laman yang memenuhi kriteria ini',
 	'pendingchanges-hours' => '($1 jam)',

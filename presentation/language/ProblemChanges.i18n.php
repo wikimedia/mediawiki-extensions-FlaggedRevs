@@ -552,9 +552,14 @@ $messages['ml'] = array(
 );
 
 /** Malay (Bahasa Melayu)
+ * @author Anakmalaysia
  * @author Aurora
  */
 $messages['ms'] = array(
+	'problemchanges' => 'Perubahan tergantung bertag',
+	'problemchanges-list' => 'Laman ini menyenaraikan laman-laman [[{{MediaWiki:Validationpage}}|dikaji semula]] yang mempunyai satu atau lebih suntingan bertag yang menunggu untuk dikaji semula. Terdapat satu senarai [[Special:Tags|tag perubahan yang sah]].',
+	'problemchanges-legend' => 'Senaraikan laman dengan suntingan bertag yang menunggu untuk dikaji semula',
+	'problemchanges-none' => 'Tiada laman yang memenuhi kriteria ini',
 	'problemchanges-category' => 'Kategori:',
 );
 
