@@ -110,10 +110,11 @@ class FlaggedRevsLogView {
 					? 'review-logentry-diff2' // unreviewed
 					: 'review-logentry-diff'; // reviewed
 				$links .= '(';
-				$links .= $wgUser->getSkin()->makeKnownLinkObj(
+				$links .= $wgUser->getSkin()->linkKnown(
 					$title,
 					wfMsgHtml( $msg ),
-					"oldid={$oldStable}&diff={$revId}"
+					array(),
+					array( 'oldid' => $oldStable, 'diff' => $revId )
 				);
 				$links .= ')';
 			}
@@ -123,9 +124,10 @@ class FlaggedRevsLogView {
 				: $params[2];
 			$time = $wgLang->timeanddate( $ts, true );
 			$links .= ' (';
-			$links .= $wgUser->getSkin()->makeKnownLinkObj(
+			$links .= $wgUser->getSkin()->linkKnown(
 				$title,
 				wfMsgHtml( 'review-logentry-id', $revId, $time ),
+				array(),
 				array( 'oldid' => $revId, 'diff' => 'prev' ) + FlaggedRevs::diffOnlyCGI()
 			);
 			$links .= ')';
