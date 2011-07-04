@@ -34,7 +34,7 @@ $messages['en'] = array(
 	'review_cannot_undo'       => 'Cannot undo these changes because further pending edits changed the same areas.',
 	'review_cannot_reject'     => 'Cannot reject these changes because someone already accepted some (or all) of the edits.',
 	'review_reject_excessive'  => 'Cannot reject this many edits at once.',
-	'review_reject_nulledits'  => 'Cannot reject these changes because all the revisions are all null edits.',
+	'review_reject_nulledits'  => 'Cannot reject these changes because all the revisions are null edits.',
 
 	'revreview-check-flag-p'       => 'Accept this version (includes $1 pending {{PLURAL:$1|change|changes}})',
 	'revreview-check-flag-p-title' => 'Accept the result of the pending changes and the changes you made here. Use this only if you have already seen the entire pending changes diff.',
