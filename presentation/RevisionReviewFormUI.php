@@ -8,7 +8,9 @@ class RevisionReviewFormUI {
 	protected $user, $article, $rev;
 	protected $refRev = null;
 	protected $topNotice = '';
-	protected $templateIDs = null, $imageSHA1Keys = null;
+	protected $fileVersion = null;
+	protected $templateIDs = null;
+	protected $imageSHA1Keys = null;
 
 	 /**
 	 * Generates a brief review form for a page
@@ -41,7 +43,15 @@ class RevisionReviewFormUI {
 	}
 
 	/*
-	 * Set the template/file version parameters corresponding to what the user is viewing
+	 * Set the file version parameters of what the user is viewing
+	 * @param Array|null $version ('time' => MW timestamp, 'sha1' => sha1)
+	 */
+	public function setFileVersion( $version ) {
+		$this->fileVersion = is_array( $version ) ? $version : false;
+	}
+
+	/*
+	 * Set the template/file version parameters of what the user is viewing
 	 * @param string $topNotice Text to
 	 */
 	public function setIncludeVersions( array $templateIDs, array $imageSHA1Keys ) {
@@ -153,11 +163,13 @@ class RevisionReviewFormUI {
 		$form .= self::ratingInputs( $this->user, $flags, (bool)$disabled, (bool)$frev );
 		$form .= Xml::closeElement( 'span' ) . "\n";
 
+		# Get the file version used for File: pages as needed
+		$fileKey = $this->getFileVersion();
 		# Get template/file version info as needed
 		list( $templateIDs, $imageSHA1Keys ) = $this->getIncludeVersions();
 		# Convert these into flat string params
 		list( $templateParams, $imageParams, $fileVersion ) =
-			RevisionReviewForm::getIncludeParams( $article, $templateIDs, $imageSHA1Keys );
+			RevisionReviewForm::getIncludeParams( $templateIDs, $imageSHA1Keys, $fileKey );
 
 		$form .= Xml::openElement( 'span',
 			array( 'style' => 'white-space: nowrap;' ) ) . "\n";
@@ -395,11 +407,16 @@ class RevisionReviewFormUI {
 		return $s;
 	}
 
+	protected function getFileVersion() {
+		if ( $this->fileVersion === null ) {
+			throw new MWException( "File page file version not provided to review form; call setFileVersion()." );
+		}
+		return $this->fileVersion;
+	}
+
 	protected function getIncludeVersions() {
-		# Do we need to get inclusion IDs from parser output?
 		if ( $this->templateIDs === null || $this->imageSHA1Keys === null ) {
-			list( $this->templateIDs, $this->imageSHA1Keys ) =
-				FRInclusionCache::getRevIncludes( $this->article, $this->rev, $this->user );
+			throw new MWException( "Template or file versions not provided to review form; call setIncludeVersions()." );
 		}
 		return array( $this->templateIDs, $this->imageSHA1Keys );
 	}

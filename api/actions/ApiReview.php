@@ -67,18 +67,25 @@ class ApiReview extends ApiBase {
 		}
 		if ( $form->getAction() === 'approve' ) {
 			$article = new FlaggedPage( $title );
+			// Get the file version used for File: pages
+			$file = $article->getFile();
+			if ( $file ) {
+				$fileVer = array( 'time' => $file->getTimestamp(), 'sha1' => $file->getSha1() );
+			} else {
+				$fileVer = null;
+			}
 			// Now get the template and image parameters needed
 			list( $templateIds, $fileTimeKeys ) =
 				FRInclusionCache::getRevIncludes( $article, $rev, $wgUser );
 			// Get version parameters for review submission (flat strings)
-			list( $templateParams, $imageParams, $fileVersion ) =
-				RevisionReviewForm::getIncludeParams( $article, $templateIds, $fileTimeKeys );
+			list( $templateParams, $imageParams, $fileParam ) =
+				RevisionReviewForm::getIncludeParams( $templateIds, $fileTimeKeys, $fileVer );
 			// Set the version parameters...
 			$form->setTemplateParams( $templateParams );
 			$form->setFileParams( $imageParams );
-			$form->setFileVersion( $fileVersion );
+			$form->setFileVersion( $fileParam );
 			$key = RevisionReviewForm::validationKey(
-				$templateParams, $imageParams, $fileVersion, $revid );
+				$templateParams, $imageParams, $fileParam, $revid );
 			$form->setValidatedParams( $key ); # always OK
 		}
 		$status = $form->ready(); // all params set

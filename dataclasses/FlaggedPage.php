@@ -13,7 +13,7 @@ class FlaggedPage extends WikiPage {
 	protected $pageConfig = null;
 	protected $syncedInTracking = null;
 
-	protected $imagePage = null; // for file pages
+	protected $file = null; // for file pages
 
 	/**
 	 * Get a FlaggedPage for a given title
@@ -48,38 +48,20 @@ class FlaggedPage extends WikiPage {
 		$this->pendingRevCount = null;
 		$this->pageConfig = null;
 		$this->syncedInTracking = null;
-		$this->imagePage = null;
+		$this->file = null;
 		parent::clear(); // call super!
 	}
 
 	/**
-	 * Get the current file version of this file page
-	 * @TODO: kind of hacky
-	 * @return mixed (File/false)
+	 * Get the current file version (null if this not a File page)
+	 *
+	 * @return File|null|false
 	 */
 	public function getFile() {
-		if ( $this->mTitle->getNamespace() != NS_FILE ) {
-			return false; // not a file page
+		if ( $this->file === null && $this->mTitle->getNamespace() == NS_FILE ) {
+			$this->file = wfFindFile( $this->mTitle );
 		}
-		if ( is_null( $this->imagePage ) ) {
-			$this->imagePage = new ImagePage( $this->mTitle );
-		}
-		return $this->imagePage->getFile();
-	}
-
-	/**
-	 * Get the displayed file version of this file page
-	 * @TODO: kind of hacky
-	 * @return mixed (File/false)
-	 */
-	public function getDisplayedFile() {
-		if ( $this->mTitle->getNamespace() != NS_FILE ) {
-			return false; // not a file page
-		}
-		if ( is_null( $this->imagePage ) ) {
-			$this->imagePage = new ImagePage( $this->mTitle );
-		}
-		return $this->imagePage->getDisplayedFile();
+		return $this->file;
 	}
 
 	 /**

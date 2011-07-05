@@ -68,7 +68,7 @@ class FRInclusionCache {
 					$revIdDraft = (int)$title->getLatestRevID();
 				}
 			}
-		}	
+		}
 		wfProfileOut( __METHOD__ );
 		return $versions;
 	}

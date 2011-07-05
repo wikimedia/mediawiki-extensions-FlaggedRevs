@@ -963,8 +963,10 @@ class FlaggedRevs {
 		# If this is an image page, store corresponding file info
 		$fileData = array( 'name' => null, 'timestamp' => null, 'sha1' => null );
 		if ( $title->getNamespace() == NS_FILE ) {
-			$file = $article instanceof ImagePage ?
-				$article->getFile() : wfFindFile( $title );
+			# We must use ImagePage process cache on upload or get bitten by slave lag
+			$file = $article instanceof ImagePage
+				? $article->getFile()
+				: wfFindFile( $title );
 			if ( is_object( $file ) && $file->exists() ) {
 				$fileData['name'] = $title->getDBkey();
 				$fileData['timestamp'] = $file->getTimestamp();

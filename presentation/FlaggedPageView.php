@@ -1082,13 +1082,22 @@ class FlaggedPageView {
 			}
 			# Review notice box goes in top of form
 			$form->setTopNotice( $this->diffNoticeBox );
+
+			# Set the file version we are viewing (for File: pages)
+			$form->setFileVersion( $this->out->getFileVersion() );
 			# $wgOut may not already have the inclusion IDs, such as for diffonly=1.
 			# RevisionReviewForm will fetch them as needed however.
 			if ( $this->out->getRevisionId() == $rev->getId() ) {
-				$form->setIncludeVersions( $this->out->getTemplateIds(), $this->out->getImageTimeKeys() );
-			} elseif ( $this->oldRevIncludes ) {
-				$form->setIncludeVersions( $this->oldRevIncludes[0], $this->oldRevIncludes[1] );
+				$tmpVers = $this->out->getTemplateIds();
+				$fileVers = $this->out->getImageTimeKeys();
+			} elseif ( $this->oldRevIncludes ) { // e.g. diffonly=1, stable diff
+				list( $tmpVers, $fileVers ) = $this->oldRevIncludes;
+			} else { // e.g. diffonly=1, other diffs
+				list( $tmpVers, $fileVers ) =
+					FRInclusionCache::getRevIncludes( $this->article, $rev, $wgUser );
 			}
+			$form->setIncludeVersions( $tmpVers, $fileVers );
+
 			list( $html, $status ) = $form->getHtml();
 			# Diff action: place the form at the top of the page
 			if ( $this->diffRevs ) {
@@ -1379,11 +1388,11 @@ class FlaggedPageView {
 			# Otherwise, check for includes pending on top of edits pending...
 			} else {
 				$incs = FRInclusionCache::getRevIncludes( $this->article, $newRev, $wgUser );
+				$this->oldRevIncludes = $incs; // process cache
 				# Add a list of links to each changed template...
 				$changeList = self::fetchTemplateChanges( $srev, $incs[0] );
 				# Add a list of links to each changed file...
 				$changeList = array_merge( $changeList, self::fetchFileChanges( $srev, $incs[1] ) );
-				$this->oldRevIncludes = $incs; // process cache
 			}
 			# If there are pending revs or templates/files changes, notify the user...
 			if ( $this->article->revsArePending() || count( $changeList ) ) {

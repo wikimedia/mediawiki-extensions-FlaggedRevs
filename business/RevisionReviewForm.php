@@ -499,15 +499,15 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 
 	/**
 	 * Get template and image parameters from parser output to use on forms.
-	 * @param FlaggedPage $article
-	 * @param array $templateIDs (from ParserOutput/OutputPage->mTemplateIds)
-	 * @param array $imageSHA1Keys (from ParserOutput/OutputPage->mImageTimeKeys)
+	 * @param $templateIDs Array (from ParserOutput/OutputPage->mTemplateIds)
+	 * @param $imageSHA1Keys Array (from ParserOutput/OutputPage->mImageTimeKeys)
+	 * @param $fileVersion Array|null version of file for File: pages (time,sha1)
 	 * @return array( templateParams, imageParams, fileVersion )
 	 */
 	public static function getIncludeParams(
-		FlaggedPage $article, array $templateIDs, array $imageSHA1Keys
+		array $templateIDs, array $imageSHA1Keys, $fileVersion
 	) {
-		$templateParams = $imageParams = $fileVersion = '';
+		$templateParams = $imageParams = $fileParam = '';
 		# NS -> title -> rev ID mapping
 		foreach ( $templateIDs as $namespace => $t ) {
 			foreach ( $t as $dbKey => $revId ) {
@@ -519,14 +519,11 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 		foreach ( $imageSHA1Keys as $dbKey => $timeAndSHA1 ) {
 			$imageParams .= $dbKey . "|" . $timeAndSHA1['time'] . "|" . $timeAndSHA1['sha1'] . "#";
 		}
-		# For image pages, note the displayed image version
-		if ( $article->getTitle()->getNamespace() == NS_FILE ) {
-			$file = $article->getDisplayedFile(); // File obj
-			if ( $file ) {
-				$fileVersion = $file->getTimestamp() . "#" . $file->getSha1();
-			}
+		# For File: pages, note the displayed image version
+		if ( is_array( $fileVersion ) ) {
+			$fileParam = $fileVersion['time'] . "#" . $fileVersion['sha1'];
 		}
-		return array( $templateParams, $imageParams, $fileVersion );
+		return array( $templateParams, $imageParams, $fileParam );
 	}
 
 	/**
