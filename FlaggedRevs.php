@@ -23,11 +23,6 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 	exit( 1 );
 }
 
-# This messes with dump HTML...
-if ( defined( 'MW_HTML_FOR_DUMP' ) ) {
-	return;
-}
-
 $wgExtensionCredits['specialpage'][] = array(
 	'path'           => __FILE__,
 	'name'           => 'Flagged Revisions',
@@ -212,6 +207,11 @@ $wgFlaggedRevsHandleIncludes = FR_INCLUDES_STABLE;
 
 # End of configuration variables.
 # ########
+
+# This messes with dump HTML...
+if ( defined( 'MW_HTML_FOR_DUMP' ) ) {
+	return;
+}
 
 # Temp var
 $wgFlaggedRevsRCCrap = true;
