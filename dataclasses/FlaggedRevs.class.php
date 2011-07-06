@@ -635,7 +635,7 @@ class FlaggedRevs {
 			}
 		}
 		# Lazily rebuild dependancies on next parse (we invalidate below)
-		FlaggedRevs::clearStableOnlyDeps( $title );
+		FlaggedRevs::clearStableOnlyDeps( $title->getArticleID() );
 		# Clear page cache
 		$title->invalidateCache();
 		self::purgeSquid( $title );
