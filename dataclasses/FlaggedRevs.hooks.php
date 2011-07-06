@@ -304,7 +304,7 @@ class FlaggedRevsHooks {
 				$result = false;
 				return false;
 			}
-		# Don't let users patrol pages not in $wgFlaggedRevsPatrolNamespaces
+		# Don't let users patrol reviewable pages (where reviewed <=> patrolled)
 		} elseif ( $action === 'patrol' || $action === 'autopatrol' ) {
 			$flaggedArticle = FlaggedPage::getTitleInstance( $title );
 			# For a page to be patrollable it must not be reviewable.

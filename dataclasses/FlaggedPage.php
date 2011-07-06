@@ -247,17 +247,6 @@ class FlaggedPage extends WikiPage {
 	}
 
 	/**
-	* Is this page in patrollable?
-	* @return bool
-	*/
-	public function isPatrollable() {
-		if ( !FlaggedRevs::inPatrolNamespace( $this->mTitle ) ) {
-			return false;
-		}
-		return !$this->isReviewable(); // pages that are reviewable are not patrollable
-	}
-
-	/**
 	 * Get the stable revision ID
 	 * @return int
 	 */
