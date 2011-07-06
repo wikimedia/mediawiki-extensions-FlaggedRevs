@@ -341,7 +341,7 @@ class FlaggedPageView {
 		// requesting the stable revision ("&stableid=x"), defer to override
 		// behavior below, since it is the same as ("&stable=1").
 		if ( $old ) {
-			$this->showOldReviewedVersion( $srev, $frev, $tag, $prot );
+			$this->showOldReviewedVersion( $frev, $tag, $prot );
 			$outputDone = true; # Tell MW that parser output is done
 			$useParserCache = false;
 		// Stable version requested by ID or relevant conditions met to
@@ -546,9 +546,7 @@ class FlaggedPageView {
 	* Tag output function must be called by caller
 	* Parser cache control deferred to caller
 	*/
-	protected function showOldReviewedVersion(
-		FlaggedRevision $srev, FlaggedRevision $frev, &$tag, $prot
-	) {
+	protected function showOldReviewedVersion( FlaggedRevision $frev, &$tag, $prot ) {
 		global $wgUser, $wgLang;
 		$this->load();
 		$flags = $frev->getTags();
