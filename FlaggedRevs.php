@@ -214,7 +214,7 @@ if ( defined( 'MW_HTML_FOR_DUMP' ) ) {
 }
 
 # Temp var
-$wgFlaggedRevsRCCrap = true;
+$wgFlaggedRevsRCCrap = false;
 # Patrollable namespaces (overridden by reviewable namespaces) (don't use)
 $wgFlaggedRevsPatrolNamespaces = array(); // @TODO: remove when ready
 
