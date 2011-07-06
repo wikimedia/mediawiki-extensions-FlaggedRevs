@@ -796,7 +796,7 @@ class FlaggedPageView {
 				FlaggedRevsXML::diffToggle() .
 				"<div id='mw-fr-stablediff'>\n" .
 				self::getFormattedDiff( $diffBody, $multiNotice, $leftNote, $rightNote ) .
-				"</div>\n";;
+				"</div>\n";
 		}
 		return '';
 	}
