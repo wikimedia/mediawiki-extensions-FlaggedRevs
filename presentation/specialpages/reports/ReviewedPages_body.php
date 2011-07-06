@@ -86,6 +86,8 @@ class ReviewedPages extends SpecialPage {
 		$title = Title::newFromRow( $row );
 		# Link to page
 		$link = $this->skin->link( $title );
+		# Direction mark
+		$dirmark = wfUILang()->getDirMark();
 		# Size (bytes)
 		$stxt = '';
 		if ( !is_null( $size = $row->page_len ) ) {
@@ -116,7 +118,7 @@ class ReviewedPages extends SpecialPage {
 			$best = " [$best]";
 		}
 
-		return "<li>$link $stxt ($list)$best</li>";
+		return "<li>$link $dirmark $stxt ($list)$best</li>";
 	}
 }
 

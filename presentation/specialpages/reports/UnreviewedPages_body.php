@@ -109,6 +109,7 @@ class UnreviewedPages extends SpecialPage {
 
 		$stxt = $underReview = $watching = '';
 		$link = $this->skin->link( $title, null, array(), 'redirect=no&reviewing=1' );
+		$dirmark = wfUILang()->getDirMark();
 		$hist = $this->skin->linkKnown( $title, wfMsgHtml( 'hist' ),
 			array(), 'action=history&reviewing=1' );
 		if ( !is_null( $size = $row->page_len ) ) {
@@ -154,7 +155,7 @@ class UnreviewedPages extends SpecialPage {
 				wfMsgHtml( 'unreviewedpages-viewing' ) . '</span>';
 		}
 
-		return( "<li{$css}>{$link} {$stxt} ({$hist})" .
+		return( "<li{$css}>{$link} $dirmark {$stxt} ({$hist})" .
 			"{$age}{$watching}{$underReview}</li>" );
 	}
 
