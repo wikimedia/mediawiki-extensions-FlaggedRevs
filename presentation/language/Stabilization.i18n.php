@@ -1682,7 +1682,7 @@ $messages['ig'] = array(
 	'stabilization-expiry' => 'Gbá okà:',
 	'stabilization-othertime' => 'Ógẹ ozor',
 	'stabilization-def-short' => 'Nke éjị bịdó',
-	'stabilization-def-short-0' => 'Nká Í nọr',
+	'stabilization-def-short-0' => 'Nká Í nọ',
 	'stabilization-def-short-1' => 'Chịm',
 	'stabilize-expiring' => 'nà gbá ókà na $1 (UTC)',
 );
