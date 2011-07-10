@@ -366,3 +366,7 @@ div.langlinks {
 	padding: 5px;
 	border: 1px solid #aaa;
 }
+
+#mw-fr-diff-headeritems {
+	direction: ltr;
+}
