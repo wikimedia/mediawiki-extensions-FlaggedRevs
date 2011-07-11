@@ -10319,7 +10319,7 @@ Na przejrzenie oczekują [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWi
 	'revreview-basic-old' => 'To jest [[{{MediaWiki:Validationpage}}|wersja przejrzana]] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} pokaż wszystkie]), która została [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} oznaczona] <i>$2</i>.
 Później mogły zostać wykonane następne [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} zmiany].',
 	'revreview-basic-same' => 'To jest [[{{MediaWiki:Validationpage}}|wersja przejrzana]], która została [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} oznaczona] <i>$2</i>.',
-	'revreview-basic-source' => 'Następująca [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} wersja przejrzana] tej strony, którą [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} oznaczono] <i>$2</i>, była oparta o tę wersję.',
+	'revreview-basic-source' => 'Następująca [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} wersja przejrzana] tej strony, którą [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} oznaczono] <i>$2</i>, była oparta na tej wersji.',
 	'revreview-current' => 'Oczekuje na przejrzenie',
 	'revreview-depth' => 'Wyczerpanie tematu',
 	'revreview-depth-0' => 'Nieakceptowalne',
