@@ -121,6 +121,12 @@ div.flaggedrevs_short {
 }
 
 /* @noflip */
+.sitedir-ltr div.flaggedrevs_short {
+	float: right;
+	margin: 0 0 0 1em;
+}
+
+/* @noflip */
 .sitedir-rtl div.flaggedrevs_short {
 	float: left;
 	margin: 0 1em 0 0;
@@ -141,9 +147,15 @@ div.flaggedrevs_short_details {
 }
 
 /* @noflip */
-.rtl div.flaggedrevs_short_details {
-	right: auto;
+.sitedir-ltr div.flaggedrevs_short_details {
+	right: -2px;
+	left: auto;
+}
+
+/* @noflip */
+.sitedir-rtl div.flaggedrevs_short_details {
 	left: -2px;
+	right: auto;
 }
 
 .fr-text {

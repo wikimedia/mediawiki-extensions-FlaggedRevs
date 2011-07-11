@@ -283,7 +283,7 @@ class FlaggedPageView {
 	 * Adds a quick review form on the bottom if needed
 	 */
 	public function setPageContent( &$outputDone, &$useParserCache ) {
-		global $wgRequest, $wgContLang;
+		global $wgRequest;
 		$this->load();
 		# Only trigger on page views with no oldid=x param
 		if ( !$this->isPageView( $wgRequest ) || $wgRequest->getVal( 'oldid' ) ) {
@@ -371,8 +371,7 @@ class FlaggedPageView {
 		}
 		# Wrap tag contents in a div
 		if ( $tag != '' ) {
-			$rtl = $wgContLang->isRTL() ? " rtl" : ""; // RTL langauges
-			$css = "{$tagClass}{$rtl} plainlinks noprint";
+			$css = "{$tagClass} plainlinks noprint";
 			$notice = "<div id=\"mw-fr-revisiontag\" class=\"{$css}\"{$encJS}>{$tag}</div>\n";
 			$this->reviewNotice .= $notice;
 		}
@@ -406,17 +405,14 @@ class FlaggedPageView {
 	* Tag output function must be called by caller
 	*/
 	protected function showUnreviewedPage( $tag, $prot ) {
-		global $wgContLang;
 		if ( $this->out->isPrintable() ) {
 			return; // all this function does is add notices; don't show them
 		}
 		$icon = FlaggedRevsXML::draftStatusIcon();
 		// Simple icon-based UI
 		if ( $this->useSimpleUI() ) {
-			// RTL langauges
-			$rtl = $wgContLang->isRTL() ? " rtl" : "";
 			$tag .= $prot . $icon . wfMsgExt( 'revreview-quick-none', 'parseinline' );
-			$css = "flaggedrevs_short{$rtl} plainlinks noprint";
+			$css = "flaggedrevs_short plainlinks noprint";
 			$this->reviewNotice .= "<div id='mw-fr-revisiontag' class='$css'>$tag</div>";
 		// Standard UI
 		} else {
