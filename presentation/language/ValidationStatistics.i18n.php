@@ -2128,6 +2128,7 @@ $messages['yi'] = array(
  * @author Bencmq
  * @author Gaoxuewei
  * @author Hydra
+ * @author Xiaomingyan
  * @author 阿pp
  */
 $messages['zh-hans'] = array(
@@ -2143,7 +2144,7 @@ $messages['zh-hans'] = array(
 	'validationstatistics-revtime' => "平均等待''没有登录的用户''的编辑审查是'''$1'''；中值是'''$2'''。
 $3",
 	'validationstatistics-table' => "每个命名空间的页审查统计信息如下所示，'''不包括'''重定向页。等待审查的页面会标为“已过期”，不存在待审查版本的页面则被标为“同步”。",
-	'validationstatistics-ns' => '名字空间',
+	'validationstatistics-ns' => '名称空间',
 	'validationstatistics-total' => '页',
 	'validationstatistics-stable' => '已复审',
 	'validationstatistics-latest' => '已同步',
