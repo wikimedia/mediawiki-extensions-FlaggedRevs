@@ -1322,6 +1322,7 @@ Bonvolu kontroli ĉiujn jenajn ŝanĝojn por aperigi viajn redaktojn en la stabi
  * @author Imre
  * @author Jurock
  * @author Locos epraix
+ * @author Mor
  * @author Translationista
  */
 $messages['es'] = array(
@@ -1370,9 +1371,9 @@ Mira la [[Special:Unreviewedpages|lista de páginas no revisadas]].',
 	'revreview-successful2' => "'''Se ha desmarcado la revisión de [[:$1|$1]]'''",
 	'revreview-toolow' => "'''Debes valorar cada uno de los atributos más alto que \"inadecuado\" para que la revisión sea considerada verificada.'''
 
-Para remover el status de una revisión, clic \"no aceptar\".
+Para quitar el estado de verificación de una revisión, clic \"no aceptar\".
 
-Por favor presiona el botón ''atrás'' en tu navegador e intenta de nuevo.",
+Por favor presiona el botón ''atrás'' en tu navegador e intentalo de nuevo.",
 	'revreview-update' => "'''Por favor,[[{{MediaWiki:Validationpage}}|revisa]] los cambios pendientes ''(que se muestran a continuación)'' hechos en la versión aceptada.'''",
 	'revreview-update-edited' => '<span class="flaggedrevs_important">Tus cambios aún no han sido incorporados en la versión estable.</span>
 
