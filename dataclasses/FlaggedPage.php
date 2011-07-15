@@ -400,17 +400,6 @@ class FlaggedPage extends WikiPage {
 	}
 
 	/**
-	 * Set the page field data loaded from the DB
-	 * @param int $flags FR_MASTER
-	 * @param $data Database row object or "fromdb"
-	 */
-	public function loadFromDB( $flags = 0 ) {
-		$db = ( $flags & FR_MASTER ) ?
-			wfGetDB( DB_MASTER ) : wfGetDB( DB_SLAVE );
-		$this->loadPageData( $this->pageDataFromTitle( $db, $this->mTitle ) );
-	}
-
-	/**
 	* Updates the flagging tracking tables for this page
 	* @param FlaggedRevision $srev The new stable version
 	* @param int|null $latest The latest rev ID (optional)

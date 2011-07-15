@@ -1191,7 +1191,7 @@ class FlaggedPageView {
 		if ( $this->pageWriteOpRequested() && wfGetDB( DB_MASTER )->doneWrites() ) {
 			# Tabs need to reflect the new stable version so users actually
 			# see the results of their action (i.e. "delete"/"rollback")
-			$this->article->loadFromDB( FR_MASTER );
+			$this->article->loadPageData( 'fromdbmaster' );
 		}
 		$srev = $this->article->getStableRev();
 		if ( !$srev ) {
@@ -1655,7 +1655,7 @@ class FlaggedPageView {
 	public function injectPostEditURLParams( &$sectionAnchor, &$extraQuery ) {
 		global $wgUser;
 		$this->load();
-		$this->article->loadFromDB( FR_MASTER );
+		$this->article->loadPageData( 'fromdbmaster' );
 		# Get the stable version from the master
 		$frev = $this->article->getStableRev();
 		if ( !$frev || !$this->article->revsArePending() ) {

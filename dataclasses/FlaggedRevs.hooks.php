@@ -63,7 +63,7 @@ class FlaggedRevsHooks {
 		Title $otitle, Title $ntitle, $user, $pageId
 	) {
 		$fa = FlaggedPage::getTitleInstance( $ntitle );
-		$fa->loadFromDB( FR_MASTER );
+		$fa->loadPageData( 'fromdbmaster' );
 		// Re-validate NS/config (new title may not be reviewable)
 		if ( $fa->isReviewable() ) {
 			// Moved from non-reviewable to reviewable NS?
@@ -348,7 +348,7 @@ class FlaggedRevsHooks {
 		global $wgRequest;
 		# Edit must be non-null, to a reviewable page, with $user set
 		$fa = FlaggedPage::getArticleInstance( $article );
-		$fa->loadFromDB( FR_MASTER );
+		$fa->loadPageData( 'fromdbmaster' );
 		if ( !$rev || !$user || !$fa->isReviewable() ) {
 			return true;
 		}
@@ -529,7 +529,7 @@ class FlaggedRevsHooks {
 			return true; // short-circuit
 		}
 		$fa = FlaggedPage::getArticleInstance( $article );
-		$fa->loadFromDB( FR_MASTER );
+		$fa->loadPageData( 'fromdbmaster' );
 		if ( !$fa->isReviewable() ) {
 			return true; // page is not reviewable
 		}
@@ -594,7 +594,7 @@ class FlaggedRevsHooks {
 			return true;
 		}
 		$fa = FlaggedPage::getTitleInstance( $rc->getTitle() );
-		$fa->loadFromDB( FR_MASTER );
+		$fa->loadPageData( 'fromdbmaster' );
 		// Is the page reviewable?
 		if ( $fa->isReviewable() ) {
 			$revId = $rc->mAttribs['rc_this_oldid'];
