@@ -374,8 +374,11 @@ class FlaggedPage extends WikiPage {
 	public function loadPageData( $data = 'fromdb' ) {
 		$this->mDataLoaded = true; // sanity
 		# Fetch data from DB as needed...
-		if ( $data === 'fromdb' ) {
-			$data = $this->pageDataFromTitle( wfGetDB( DB_SLAVE ), $this->mTitle );
+		if ( $data === 'fromdb' || $data === 'fromdbmaster' ) {
+			$db = ( $data == 'fromdbmaster' )
+				? wfGetDB( DB_MASTER )
+				: wfGetDB( DB_SLAVE );
+			$data = $this->pageDataFromTitle( $db, $this->mTitle );
 		}
 		# Load in primary page data...
 		parent::loadPageData( $data /* Row obj */ );

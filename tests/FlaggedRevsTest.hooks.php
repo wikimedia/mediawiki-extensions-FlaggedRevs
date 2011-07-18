@@ -8,6 +8,7 @@ class FlaggedRevsTestHooks {
 		$files[] = dirname( __FILE__ ) . '/FRUserCountersTest.php';
 		$files[] = dirname( __FILE__ ) . '/FRUserActivityTest.php';
 		$files[] = dirname( __FILE__ ) . '/FRParserCacheStableTest.php';
+		$files[] = dirname( __FILE__ ) . '/FlaggedPageTest.php';
 		return true;
 	}
 
