@@ -669,6 +669,13 @@ $3",
 	'validationstatistics-reviews' => 'Relecteurs',
 );
 
+/** Cajun French (Français cadien)
+ * @author Ebe123
+ */
+$messages['frc'] = array(
+	'validationstatistics-user' => 'Useur',
+);
+
 /** Franco-Provençal (Arpetan)
  * @author ChrisPtDe
  */
