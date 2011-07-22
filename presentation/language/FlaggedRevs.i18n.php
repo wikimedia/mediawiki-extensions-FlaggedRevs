@@ -9831,6 +9831,7 @@ Nye [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffon
 
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
  * @author EivindJ
+ * @author Event
  * @author H92
  * @author Harald Khan
  * @author Jon Harald Søby
@@ -9851,10 +9852,14 @@ $messages['no'] = array(
 	'flaggedrevs-pref-UI-1' => 'Bruk små ikoner og minimal tekst for å vise godkjenningsstatusen til sider',
 	'prefs-flaggedrevs' => 'Redigeringsgodkjennelse',
 	'prefs-flaggedrevs-ui' => 'Redigeringsgodkjennelse',
-	'flaggedrevs-prefs-stable' => 'Vis alltid den publiserte versjonen av innholdssider som standard (om en slik finnes)',
+	'flaggedrevs-prefs-stable' => 'Når den stabile versjonen av innholdssider skal vises som standard',
+	'flaggedrevs-pref-stable-0' => 'Bruk standard innstillinger for hver side',
+	'flaggedrevs-pref-stable-1' => 'Bruk alltid den stabile versjonen (om den fins)',
+	'flaggedrevs-pref-stable-2' => 'Vis alltid den seneste versjonen',
 	'flaggedrevs-prefs-watch' => 'Legg til sider jeg anmelder i overvåkningslisten min',
 	'flaggedrevs-prefs-editdiffs' => 'Vis forskjellen mellom de ventende endringene når sidene redigeres',
 	'flaggedrevs-prefs-viewdiffs' => 'Vis forskjellen mellom ventende endringer når du viser den siste ventende revisjonen',
+	'flaggedrevs-hidereviewed' => '$1 gjennomgåtte redigeringer',
 	'group-editor' => 'Skribenter',
 	'group-editor-member' => 'Skribent',
 	'group-reviewer' => 'Anmeldere',

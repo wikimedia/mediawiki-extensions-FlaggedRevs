@@ -3422,6 +3422,7 @@ Sjå [[Special:Unreviewedpages|lista over sider som manglar vurdering]].',
 
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
  * @author EivindJ
+ * @author Event
  * @author Jon Harald Søby
  * @author Laaknor
  * @author Nghtwlkr
@@ -3445,6 +3446,7 @@ $messages['no'] = array(
 	'review_cannot_undo' => 'Kan ikke omgjøre disse endringene fordi ventende endringer endret i samme område.',
 	'review_cannot_reject' => 'Kunne ikke forkaste endringene fordi noen allerede har godkjent noen av (eller alle) redigeringene.',
 	'review_reject_excessive' => 'Kan ikke forkaste så mange endringer på en gang.',
+	'review_reject_nulledits' => 'Kan ikke avvise disse endringene fordi alle revisjoner er tomme.',
 	'revreview-check-flag-p' => 'Godta denne versjonen (inkluderer $1 ventende {{PLURAL:$1|endring|endringer}})',
 	'revreview-check-flag-p-title' => 'Godta alle nåværende ventende endringer sammen med din egen endring. Bare bruk denne om du allerede har sett på hele diffen for ventende endringer.',
 	'revreview-check-flag-u' => 'Godta denne ureviderte siden',
@@ -3472,6 +3474,7 @@ Se [[Special:Unreviewedpages|listen over ikke-anmeldte sider]].',
 	'revreview-successful2' => "'''Valgt versjon av [[:$1|$1]] ble degradert.'''",
 	'revreview-poss-conflict-p' => "'''Advarsel: [[User:$1|$1]] begynte å revidere denne siden den $2, $3.'''",
 	'revreview-poss-conflict-c' => "'''Advarsel: [[User:$1|$1]] begynte å revidere disse endringene den $2, $3.'''",
+	'revreview-adv-reviewing-p' => "'''Merk: Du har nå startet gjennomgang av denne siden på  $1 ved $2.'''",
 	'revreview-toolow' => "'''Du må vurdere hver av egenskapene til høyere enn «utilstrekkelig» for at revisjonen skal bli vurdert som revidert.'''
 
 For å fjerne vurderingsstatusen til en revisjon, klikk på «underkjenn».
@@ -3639,7 +3642,7 @@ $messages['pms'] = array(
 	'review_not_flagged' => "La revision pontà a l'é pa al moment marcà com revisionàbil.",
 	'review_too_low' => 'La revision a peul pa esse revisionà con dij camp lassà coma "pa adeguà".',
 	'review_bad_key' => "Ciav dël paràmetr d'inclusion pa bon-a.",
-	'review_bad_tags' => 'Quaidun dij valor ëd tichëtta specificà a son pa bon.',
+	'review_bad_tags' => 'Quaidun dij valor ëd tichëtta spessificà a son pa bon.',
 	'review_denied' => 'Përmess arfudà.',
 	'review_param_missing' => "Un paràmetr a l'é mancant o pa bon.",
 	'review_cannot_undo' => "As peul pa butesse andré sti cambi a motiv d'àutre modìfiche ch'a speto e ch'a rësguardo j'istesse zòne.",
