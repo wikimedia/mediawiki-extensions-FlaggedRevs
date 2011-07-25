@@ -1,12 +1,12 @@
 <?php
 
 function populate_fr_rev_timestamp( $start = null ) {
-	echo "Populating and correcting flaggedrevs columns\n";
-	
+	echo "Populating and correcting flaggedrevs columns from $start\n";
+
 	$BATCH_SIZE = 1000;
-	
+
 	$db = wfGetDB( DB_MASTER );
-	
+
 	if ( $start === null ) {
 		$start = $db->selectField( 'flaggedrevs', 'MIN(fr_rev_id)', false, __FUNCTION__ );
 	}
@@ -26,7 +26,7 @@ function populate_fr_rev_timestamp( $start = null ) {
 		$cond = "fr_rev_id BETWEEN $blockStart AND $blockEnd AND fr_rev_timestamp = ''";
 		$res = $db->select(
 			array( 'flaggedrevs', 'revision', 'archive' ),
-			array( 'fr_rev_id', 'rev_timestamp', 'ar_timestamp' ), 
+			array( 'fr_rev_id', 'rev_timestamp', 'ar_timestamp' ),
 			$cond,
 			__FUNCTION__,
 			array(),
@@ -59,5 +59,10 @@ function populate_fr_rev_timestamp( $start = null ) {
 		$blockEnd += $BATCH_SIZE;
 		wfWaitForSlaves( 5 );
 	}
+	file_put_contents( last_pos_file(), $end );
 	echo "fr_rev_timestamp columns update complete ... {$count} rows [{$changed} changed]\n";
+}
+
+function last_pos_file() {
+	return dirname( __FILE__ ) . "/popRevTimestampLast-" . wfWikiID();
 }

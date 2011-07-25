@@ -19,7 +19,7 @@ Usage:
     php populateRevTimestamp.php [--startrev <ID>]
 
     --help             : This help message
-    --<ID>             : The ID of the starting rev
+    --<ID>             : The ID of the starting rev or 'prev' (from last run)
 
 TEXT;
 	exit(0);
@@ -27,7 +27,13 @@ TEXT;
 
 error_reporting( E_ALL );
 
-$startRev = isset( $options['startrev'] ) ?
-	(int)$options['startrev'] : null;
+$startRev = null;
+if ( isset( $options['startrev'] ) ) {
+	if ( $options['startrev'] === 'prev' ) {
+		$startRev = (int)file_get_contents( last_pos_file() );
+	} else {
+		$startRev = (int)$options['startrev'];
+	}
+}
 
 populate_fr_rev_timestamp( $startRev );
