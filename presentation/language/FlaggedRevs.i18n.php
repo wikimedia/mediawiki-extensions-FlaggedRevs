@@ -9438,8 +9438,8 @@ $messages['nds'] = array(
  * @author Servien
  */
 $messages['nds-nl'] = array(
-	'revreview-revnotfound' => 'De ouwe versie van disse pagina kon neet evunnen wönnen. 
-Kiek de URL nao dee-j gebruken um naor disse pagina te gaon.',
+	'revreview-revnotfound' => "De ouwe versie van disse pagina kon niet evunnen wörden. 
+Kiek de URL nao die'j gebruken um naor disse pagina te gaon.",
 );
 
 /** Nepali (नेपाली)
