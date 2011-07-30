@@ -4695,6 +4695,7 @@ Uusia [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diff
  * @author PieRRoMaN
  * @author Sherbrooke
  * @author The RedBurn
+ * @author Tpt
  * @author Urhixidur
  * @author Verdy p
  * @author Zetud
@@ -4711,6 +4712,9 @@ $messages['fr'] = array(
 	'prefs-flaggedrevs' => 'Approbation des modifications',
 	'prefs-flaggedrevs-ui' => 'Approbation des modifications',
 	'flaggedrevs-prefs-stable' => 'Quand afficher la version stable des pages des contenu par défaut',
+	'flaggedrevs-pref-stable-0' => 'Utiliser les paramètres par défaut pour chaque page',
+	'flaggedrevs-pref-stable-1' => "Toujours afficher la version stable (s'il y en a une)",
+	'flaggedrevs-pref-stable-2' => 'Toujours afficher la dernière version',
 	'flaggedrevs-prefs-watch' => 'Ajouter les pages que je relis à ma liste de suivi.',
 	'flaggedrevs-prefs-editdiffs' => 'Montrer le diff des modifications en attente lorsque vous modifiez des pages',
 	'flaggedrevs-prefs-viewdiffs' => "Montrer le diff des modifications en attente lorsque la dernière version en attente d'une page est consultée",
