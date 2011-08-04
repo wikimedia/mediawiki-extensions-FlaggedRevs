@@ -985,15 +985,15 @@ $messages['yue'] = array(
 /** Simplified Chinese (‪中文(简体)‬)
  * @author Gaoxuewei
  * @author Hydra
+ * @author PhiLiP
  * @author Shinjiman
  * @author Xiaomingyan
  */
 $messages['zh-hans'] = array(
-	'stablepages' => '页面已经通过审核',
-	'stablepages-list' => '下面是，只有某些用户可以进行编辑，不需要审查的页的列表。
-由其他用户所做的编辑读者在默认情况下才显示授权的用户审查他们。',
-	'stablepages-none' => '没有页面在这个列表中',
-	'stablepages-config' => '设置',
+	'stablepages' => '使用了编辑审阅的页面',
+	'stablepages-list' => '此页面列出了特定用户可以作出编辑且无须复审的页面。其他用户对这些页面作出的编辑，将在已授权用户复审后才展示给读者。',
+	'stablepages-none' => '此列表中没有页面。',
+	'stablepages-config' => '配置',
 	'stablepages-indef' => '只限永久到期',
 );
 

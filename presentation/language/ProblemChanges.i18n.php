@@ -915,11 +915,12 @@ $messages['yi'] = array(
  * @author Gaoxuewei
  * @author Hydra
  * @author Jimmy xu wrk
+ * @author PhiLiP
  */
 $messages['zh-hans'] = array(
-	'problemchanges' => '标记审核',
-	'problemchanges-list' => '本页面列出了[[{{MediaWiki:Validationpage}}|被审查过]]的页具有一个或多个标记的编辑等待审查。[[Special:Tags|有效更改标记]] 列表中是可用的。',
-	'problemchanges-legend' => '列出页面正等待审核',
+	'problemchanges' => '已标记待复审的更改',
+	'problemchanges-list' => '此页面列出了含有一至多个已标记待复审编辑的[[{{MediaWiki:Validationpage}}|已复审]]页面。你可以查看[[Special:Tags|合法的更改标记]]列表。',
+	'problemchanges-legend' => '列出含有已标记待复审编辑的页面',
 	'problemchanges-none' => '目前没有页面符合这些条件',
 	'problemchanges-category' => '分类：',
 );

@@ -1864,21 +1864,22 @@ $messages['yue'] = array(
 /** Simplified Chinese (‪中文(简体)‬)
  * @author Bencmq
  * @author Gaoxuewei
+ * @author PhiLiP
  * @author 阿pp
  */
 $messages['zh-hans'] = array(
 	'unreviewedpages' => '未复审页面',
 	'unreviewedpages-legend' => '未复审内容页面列表',
 	'unreviewedpages-category' => '分类：',
-	'unreviewedpages-diff' => '审核',
+	'unreviewedpages-diff' => '复审',
 	'unreviewedpages-unwatched' => '（未被监视）',
 	'unreviewedpages-watched' => '（$1位活跃{{PLURAL:$1|用户|用户}}正在监视）',
-	'unreviewedpages-list' => '本页列出还未达到一定[[{{MediaWiki:Validationpage}}|复审]]水平的内容页面。',
-	'unreviewedpages-none' => '目前没有页面合乎这些条件',
-	'unreviewedpages-viewing' => '（正在审核）',
+	'unreviewedpages-list' => "本页面列出了'''尚未'''达到指定[[{{MediaWiki:Validationpage}}|复审]]级别的内容页面。",
+	'unreviewedpages-none' => '目前没有页面符合这些条件',
+	'unreviewedpages-viewing' => '（正在复审）',
 	'unreviewedpages-hours' => '（$1 {{PLURAL:$1|小时|小时}}）',
 	'unreviewedpages-days' => '（$1 {{PLURAL:$1|天|天}}）',
-	'unreviewedpages-recent' => '（小于1小时）',
+	'unreviewedpages-recent' => '（少于1小时）',
 );
 
 /** Traditional Chinese (‪中文(繁體)‬)

@@ -672,12 +672,13 @@ $messages['yue'] = array(
 
 /** Simplified Chinese (‪中文(简体)‬)
  * @author Gaoxuewei
+ * @author PhiLiP
  * @author Shinjiman
  */
 $messages['zh-hans'] = array(
-	'qualityoversight' => '品质管理日志',
-	'qualityoversight-list' => '这个页面列示出最近核准修订以及最近品质修订之折旧。',
-	'qualityoversight-legend' => '搜索最近审核记录',
+	'qualityoversight' => '高级复审日志',
+	'qualityoversight-list' => '此页面列出了最近通过和废弃的修订。',
+	'qualityoversight-legend' => '搜索最近复审日志',
 );
 
 /** Traditional Chinese (‪中文(繁體)‬)

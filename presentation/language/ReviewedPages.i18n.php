@@ -1394,17 +1394,18 @@ $messages['yue'] = array(
 );
 
 /** Simplified Chinese (‪中文(简体)‬)
+ * @author PhiLiP
  * @author Shinjiman
  */
 $messages['zh-hans'] = array(
-	'reviewedpages' => '复审过的页面',
-	'reviewedpages-leg' => '列示复审过到指定级数之页面',
-	'reviewedpages-list' => '以下的页面[[{{MediaWiki:Validationpage}}|已经复审]]到一个指定的级数',
-	'reviewedpages-none' => '没有页面在这个列表中',
+	'reviewedpages' => '已复审页面',
+	'reviewedpages-leg' => '列出已被复审的页面',
+	'reviewedpages-list' => "此列表列出了（单个修订）的''最高''复审级别为指定级别的[[{{MediaWiki:Validationpage}}|已复审]]页面。已给出该级别最新修订的链接。",
+	'reviewedpages-none' => '此列表中没有页面。',
 	'reviewedpages-lev-0' => '视察过',
 	'reviewedpages-lev-1' => '质素',
 	'reviewedpages-lev-2' => '特色',
-	'reviewedpages-all' => '复审版',
+	'reviewedpages-all' => '已复审版本',
 	'reviewedpages-best' => '最佳修订',
 );
 

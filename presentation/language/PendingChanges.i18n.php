@@ -1953,24 +1953,25 @@ $messages['yue'] = array(
  * @author Hydra
  * @author Jimmy xu wrk
  * @author Liangent
+ * @author PhiLiP
  * @author Shinjiman
  */
 $messages['zh-hans'] = array(
-	'pendingchanges' => '已过时复审过的页面',
-	'pendingchanges-legend' => '列示有未复审修订之复审过的页面',
-	'pendingchanges-list' => '本页面列出了[[{{MediaWiki:Validationpage}}|被审查]]页具有一个或多个等待审查的编辑。',
-	'pendingchanges-none' => '这里现时没有页面系合乎这些条件',
-	'pendingchanges-hours' => '（$1小时）',
-	'pendingchanges-days' => '（$1日）',
+	'pendingchanges' => '有待复审更改的页面',
+	'pendingchanges-legend' => '列出含有待复审更改的已复审页面',
+	'pendingchanges-list' => '此页面列出了含有一至多个待复审编辑的[[{{MediaWiki:Validationpage}}|已复审]]页面。',
+	'pendingchanges-none' => '目前没有页面符合这些条件',
+	'pendingchanges-hours' => '（$1 {{PLURAL:$1|小时|小时}}）',
+	'pendingchanges-days' => '（$1 {{PLURAL:$1|天|天}}）',
 	'pendingchanges-recent' => '（少于1小时）',
 	'pendingchanges-category' => '分类：',
 	'pendingchanges-onwatchlist' => '我的监视列表中的页面',
-	'pendingchanges-stable' => '稳定版本是默认值',
+	'pendingchanges-stable' => '默认为稳定版本',
 	'pendingchanges-diff' => '复审',
-	'pendingchanges-size' => '最大变更（字节）：',
-	'pendingchanges-unwatched' => '（未看）',
-	'pendingchanges-watched' => '（在$1位活跃用户的监视列表中）',
-	'pendingchanges-viewing' => '（等待审核）',
+	'pendingchanges-size' => '最大更改（字节）：',
+	'pendingchanges-unwatched' => '（未被监视）',
+	'pendingchanges-watched' => '（$1位活跃{{PLURAL:$1|用户|用户}}正在监视）',
+	'pendingchanges-viewing' => '（正在复审）',
 );
 
 /** Traditional Chinese (‪中文(繁體)‬)

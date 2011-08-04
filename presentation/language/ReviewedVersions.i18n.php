@@ -1282,14 +1282,15 @@ $messages['yue'] = array(
  * @author Gaoxuewei
  * @author Hydra
  * @author Liangent
+ * @author PhiLiP
  */
 $messages['zh-hans'] = array(
-	'reviewedversions' => '稳定版本',
-	'reviewedversions-leg1' => '列示一版已复审的修订',
-	'reviewedversions-page' => '页面名',
-	'reviewedversions-none' => '[[:$1]]没有已复审过的修订。',
-	'reviewedversions-list' => '以下是列表的{{PLURAL:$2|唯一被审查过|被审查过}}的[[:$1]]已被审查：',
-	'reviewedversions-review' => '由$2于<i>$1</i>进行了复审',
+	'reviewedversions' => '已复审版本',
+	'reviewedversions-leg1' => '列出一个页面的已复审修订',
+	'reviewedversions-page' => '页面名称：',
+	'reviewedversions-none' => '“[[:$1]]”没有已复审的修订。',
+	'reviewedversions-list' => '下面列出了[[:$1]]的{{PLURAL:$2|已|已}}复审{{PLURAL:$2|修订|修订}}：',
+	'reviewedversions-review' => '由$2在$1时复审',
 );
 
 /** Traditional Chinese (‪中文(繁體)‬)

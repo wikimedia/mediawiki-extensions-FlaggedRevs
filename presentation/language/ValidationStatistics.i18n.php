@@ -2137,31 +2137,30 @@ $messages['yi'] = array(
  * @author Bencmq
  * @author Gaoxuewei
  * @author Hydra
+ * @author PhiLiP
  * @author Xiaomingyan
  * @author 阿pp
  */
 $messages['zh-hans'] = array(
-	'validationstatistics' => '审核统计',
-	'validationstatistics-users' => "'''{{SITENAME}}'''现时有'''[[Special:ListUsers/editor|$1]]'''{{PLURAL:$1|个|个}}用户具有[[{{MediaWiki:Validationpage}}|编辑]]的权限。
+	'validationstatistics' => '页面复审统计信息',
+	'validationstatistics-users' => "'''{{SITENAME}}'''目前有'''[[Special:ListUsers/editor|$1]]'''{{PLURAL:$1|个|个}}用户具有[[{{MediaWiki:Validationpage}}|编者]]权限。
 
-编辑及审定皆为已确认的用户，并可以检查各页面的修定。",
-	'validationstatistics-lastupdate' => "''以下数据最后更新于$1在$2。''",
-	'validationstatistics-pndtime' => "已被用户被认为是审查的编辑。 
+编者是可以对页面修订作抽样检查的已确认用户。",
+	'validationstatistics-lastupdate' => "''下列数据最后更新于$1$2。''",
+	'validationstatistics-pndtime' => "已确认用户已经检查这些编辑，并认为它们是''已复审''的。
 
-平均延迟 [[Special:OldReviewedPages|页面编辑是未审核]]的等待时间是'''$1'''。 
-这些网页被认为是''过时''的。同样，网页被认为是''最新''，如果没有修改等待审核的话。",
-	'validationstatistics-revtime' => "平均等待''没有登录的用户''的编辑审查是'''$1'''；中值是'''$2'''。
-$3",
-	'validationstatistics-table' => "每个命名空间的页审查统计信息如下所示，'''不包括'''重定向页。等待审查的页面会标为“已过期”，不存在待审查版本的页面则被标为“同步”。",
+[[Special:OldReviewedPages|含有待复审编辑页面]]的平均复审延迟是'''$1'''；这一延迟可以确定最早待复审编辑会有多久处于未复审状态。",
+	'validationstatistics-revtime' => "未登录用户等待编辑复审的平均时间为'''$1'''，中位数为'''$2'''。$3",
+	'validationstatistics-table' => "每个名称空间的页面复审统计信息如下所示，其中''不包括''重定向页。含有待复审编辑的页面会被标记为''已过期''，不存在待复审编辑的页面会被标记为“已同步”。",
 	'validationstatistics-ns' => '名称空间',
-	'validationstatistics-total' => '页',
+	'validationstatistics-total' => '页面',
 	'validationstatistics-stable' => '已复审',
 	'validationstatistics-latest' => '已同步',
-	'validationstatistics-synced' => '已同步/已复审',
+	'validationstatistics-synced' => '已同步／已复审',
 	'validationstatistics-old' => '已过期',
-	'validationstatistics-utable' => '下面是一个列表，在最后一个小时{{PLURAL:$1|最活跃的审查家|最活跃的$1审查家}}。',
+	'validationstatistics-utable' => '下面列出了最近{{PLURAL:$2|一小时|$2小时}}内{{PLURAL:$1|最活跃的复审员|最活跃的$1位复审员}}。',
 	'validationstatistics-user' => '用户',
-	'validationstatistics-reviews' => '审核者',
+	'validationstatistics-reviews' => '复审',
 );
 
 /** Traditional Chinese (‪中文(繁體)‬)

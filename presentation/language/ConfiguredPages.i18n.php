@@ -888,15 +888,15 @@ Một số tùy chọn có thể có ảnh hưởng đến phiên bản được
 
 /** Simplified Chinese (‪中文(简体)‬)
  * @author Onecountry
+ * @author PhiLiP
  */
 $messages['zh-hans'] = array(
-	'configuredpages' => '已设定审核的页面',
-	'configuredpages-list' => '下面是使用非站点默认审核设置的页面列表。
-一些设置可能改变读者显示版本，也可能进一步限制哪些用户的编辑无需审核。',
-	'configuredpages-none' => '本页面清单为空。',
-	'configuredpages-config' => '设置',
+	'configuredpages' => '已设置复审的页面',
+	'configuredpages-list' => '此页面列出了其复审设置与站点默认设置不同的页面。部分设置可能会改变向读者展示的版本，或进一步限定在作出编辑时无须复审的用户。',
+	'configuredpages-none' => '此列表中没有页面。',
+	'configuredpages-config' => '配置',
 	'configuredpages-def-draft' => '最新版本',
-	'configuredpages-def-stable' => '已出版的内容',
+	'configuredpages-def-stable' => '稳定版本',
 );
 
 /** Traditional Chinese (‪中文(繁體)‬)

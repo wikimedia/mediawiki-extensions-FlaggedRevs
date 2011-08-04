@@ -1864,6 +1864,7 @@ $messages['grc'] = array(
 	'revreview-log' => 'Σχόλιον:',
 	'revreview-submit' => 'Ὑποβάλλειν',
 	'revreview-submitting' => 'Ὑποβἀλλειν...',
+	'revreview-reject-cancel' => 'Ἀκυροῦν',
 );
 
 /** Swiss German (Alemannisch)
@@ -3828,6 +3829,7 @@ $messages['pt-br'] = array(
 	'review_cannot_undo' => 'Não é possível desfazer estas alterações porque outras alterações pendentes alteraram as mesmas áreas.',
 	'review_cannot_reject' => 'Não pode rejeitar estas mudanças porque alguém já aceitou algumas (ou todas) as edições.',
 	'review_reject_excessive' => 'Não pode rejeitar esta quantidade de edições de uma só vez.',
+	'review_reject_nulledits' => 'Não pode rejeitar estas alterações porque todas as edições são nulas.',
 	'revreview-check-flag-p' => 'Aceitar esta versão (inclui $1 {{PLURAL:$1|alteração pendente|alterações pendentes}})',
 	'revreview-check-flag-p-title' => 'Aceitar todas as alterações pendentes em conjunto com a sua própria edição.
 Faça-o só se já viu a lista completa de diferenças das alterações pendentes.',
@@ -3856,6 +3858,8 @@ Veja a [[Special:Unreviewedpages|lista de páginas não revisadas]].',
 	'revreview-successful2' => "'''A edição de [[:$1|$1]] foi desmarcada com sucesso.'''",
 	'revreview-poss-conflict-p' => "'''Aviso: O usuário [[User:$1|$1]] começou a revisar esta página às $3 de $2.'''",
 	'revreview-poss-conflict-c' => "'''Aviso: O usuário [[User:$1|$1]] começou a revisar estas alterações às $3 de $2.'''",
+	'revreview-adv-reviewing-p' => "'''Aviso: Você será avisado que começou a rever esta página em $1 às $2.'''",
+	'revreview-adv-reviewing-c' => "'''Aviso: Você será avisado que começou a rever estas alterações em $1 às $2.'''",
 	'revreview-toolow' => '\'\'\'Para uma edição ser considerada revisada, você deve avaliar cada atributo com valores acima de "inadequada".\'\'\'
 
 Para anular a revisão de uma edição, clique "anular revisão".
@@ -3870,15 +3874,15 @@ Para que as suas edições apareçam na versão publicada, revise todas as alter
 Para que as suas edições apareçam na versão publicada, revise todas as alterações mostradas abaixo, por favor.',
 	'revreview-update-includes' => "'''Foram atualizados arquivos ou predefinições (as páginas não revistas aparecem a negrito):'''",
 	'revreview-reject-header' => 'Rejeitar mudanças de $1',
-	'revreview-reject-text-list' => 'Ao executar esta operação, irá "rejeitar" {{PLURAL:$1|a seguinte mudança|as seguintes mudanças}}:',
+	'revreview-reject-text-list' => "Ao executar esta operação, você irá '''rejeitar''' {{PLURAL:$1|a seguinte mudança|as seguintes mudanças}} de [[:$2|$2]]:",
 	'revreview-reject-text-revto' => 'Isto irá reverter a página para a [{{fullurl:$1|oldid=$2}} versão de $3].',
 	'revreview-reject-summary' => 'Resumo:',
 	'revreview-reject-confirm' => 'Rejeitar estas mudanças',
 	'revreview-reject-cancel' => 'Cancelar',
-	'revreview-reject-summary-cur' => 'Rejeitou {{PLURAL:$1|a última mudança|as últimas $1 mudanças}} (de $2) e reverteu para a edição $3 de $4',
-	'revreview-reject-summary-old' => 'Rejeitou {{PLURAL:$1|a primeira mudança|as primeiras $1 mudanças}} (de $2) {{PLURAL:$1|feita|feitas}} após a edição $3 de $4',
-	'revreview-reject-summary-cur-short' => 'Rejeitou {{PLURAL:$1|a última mudança|as últimas $1 mudanças}} e reverteu para a edição $2 de $3',
-	'revreview-reject-summary-old-short' => 'Rejeitou {{PLURAL:$1|a primeira mudança feita|as primeiras $1 mudanças feitas}} após a edição $2 de $3',
+	'revreview-reject-summary-cur' => 'Rejeitou {{PLURAL:$1|a última alteração|as últimas $1 alterações}} do texto (de $2) e reverteu para a edição $3 de $4',
+	'revreview-reject-summary-old' => 'Rejeitou {{PLURAL:$1|a primeira alteração|as primeiras $1 alterações}} do texto (de $2) {{PLURAL:$1|feita|feitas}} após a edição $3 de $4',
+	'revreview-reject-summary-cur-short' => 'Rejeitou {{PLURAL:$1|a última alteração|as últimas $1 alterações}} do texto e reverteu para a edição $2 de $3',
+	'revreview-reject-summary-old-short' => 'Rejeitou {{PLURAL:$1|a primeira alteração do texto feita|as primeiras $1 mudanças do texto feitas}} após a edição $2 de $3',
 	'revreview-reject-usercount' => '{{PLURAL:$1|um usuário|$1 usuários}}',
 	'revreview-tt-flag' => 'Aprovar esta edição, marcando-a como "verificada"',
 	'revreview-tt-unflag' => 'Anular a aprovação desta edição, marcando-a como "não verificada"',
@@ -5112,82 +5116,86 @@ $messages['yue'] = array(
  * @author Chenxiaoqino
  * @author Gaoxuewei
  * @author Hydra
+ * @author PhiLiP
  * @author Waihorace
  * @author 阿pp
  */
 $messages['zh-hans'] = array(
 	'revisionreview' => '复审修订',
 	'revreview-failed' => "'''无法查看此修订。'''",
-	'revreview-submission-invalid' => '提交是不完整的或以其它方式无效。',
-	'review_page_invalid' => '目标页面名称是无效的',
-	'review_page_notexists' => '目标页面不存在',
-	'review_page_unreviewable' => '目标网页无法复审。',
-	'review_no_oldid' => '没有指定修改ID。',
-	'review_bad_oldid' => '没有这样的目标修订。',
-	'review_conflict_oldid' => '有人已经在您正在读此版本时接受或拒绝它了。',
-	'review_not_flagged' => '该目标修订目前没有标记为已审查。',
-	'review_too_low' => '修订不能进行审查，因为部份内容是未经批准。',
-	'review_bad_key' => '错误参数。',
-	'review_bad_tags' => '某些指定的标记值是无效的。',
+	'revreview-submission-invalid' => '提交的表单不完整或非法。',
+	'review_page_invalid' => '目标页面名称无效。',
+	'review_page_notexists' => '目标页面不存在。',
+	'review_page_unreviewable' => '目标页面无法复审。',
+	'review_no_oldid' => '没有指定修订ID。',
+	'review_bad_oldid' => '目标修订不存在。',
+	'review_conflict_oldid' => '在您审阅时，其他人已经接受或拒绝了该修订。',
+	'review_not_flagged' => '目标修订当前未被标记为已复审。',
+	'review_too_low' => '当部分字段为“不足”时无法将修订标记为已复审。',
+	'review_bad_key' => '非法包含参数键。',
+	'review_bad_tags' => '部分指定的标记值是无效的。',
 	'review_denied' => '权限错误',
-	'review_param_missing' => '一个参数丢失或无效。',
-	'review_cannot_undo' => '不能撤消这些更改，因为进一步挂起编辑更改同一地区。',
-	'review_cannot_reject' => '不能拒绝这些更改，因为有人已经接受一些（或所有）所做的编辑。',
-	'review_reject_excessive' => '不能一次拒绝这么多的编辑。',
-	'revreview-check-flag-p' => '接受此版本（包括之前$1的{{复数：$1|改变|改变}}）',
-	'revreview-check-flag-p-title' => '接受所有目前正等待审核的编辑 (包括自己的编辑)，只能在你已检视差异的情况之下使用此项。',
-	'revreview-check-flag-u' => '接受这个尚未经过审核的页面',
-	'revreview-check-flag-u-title' => '接受此页面的这个版本。请看过整个页面后再使用。',
-	'revreview-check-flag-y' => '接受这些更改',
-	'revreview-check-flag-y-title' => '接受这次编辑中的所有更改',
-	'revreview-flag' => '复审这次修订',
-	'revreview-reflag' => '重新复审这次修订',
-	'revreview-invalid' => "'''无效的目标：'''没有 [[{{MediaWiki:Validationpage}}|审核]]修改对应于指定的ID。",
+	'review_param_missing' => '参数丢失或无效。',
+	'review_cannot_undo' => '无法撤消这些更改，因为有其他待复审的编辑修改了相同区域。',
+	'review_cannot_reject' => '无法拒绝这些更改，因为其他人已经接受了一些（或所有）的编辑。',
+	'review_reject_excessive' => '无法一次拒绝过多编辑。',
+	'review_reject_nulledits' => '无法拒绝这些更改，因为所有修订都是空编辑。',
+	'revreview-check-flag-p' => '接受此版本（包括$1个待复审的{{PLURAL:$1|更改|更改}}）',
+	'revreview-check-flag-p-title' => '接受此页面的所有待复审更改以及你的更改。请只在完整审阅了所有复审更改差异后，才使用此功能。',
+	'revreview-check-flag-u' => '接受此未复审页面',
+	'revreview-check-flag-u-title' => '接受此页面的该版本。请只在审阅了整个页面后才使用此功能。',
+	'revreview-check-flag-y' => '接受我的更改',
+	'revreview-check-flag-y-title' => '接受你在此页面的所有更改',
+	'revreview-flag' => '复审此修订',
+	'revreview-reflag' => '重新复审此修订',
+	'revreview-invalid' => "'''无效的目标：'''没有与指定ID对应的[[{{MediaWiki:Validationpage}}|已复审]]修订。",
 	'revreview-legend' => '评定修订内容',
-	'revreview-log' => '记录注解:',
-	'revreview-main' => '您一定要在一页的内容页中选择一个个别的修订去复审。
+	'revreview-log' => '注释：',
+	'revreview-main' => '您必须选择内容页的特定修订以复审。
 
-	参看[[Special:Unreviewedpages]]去撷取未复审的页面。',
-	'revreview-stable1' => '您可能要查看[{{fullurl:$1|stableid=$2}} 此标记的版本]，看看是否现在，[{{fullurl:$1|stable=1}} 稳定版本]的此页。',
-	'revreview-stable2' => '你可能想使用本页的[{{fullurl:$1|stable=1}} 已审核版本]。',
+参见[[Special:Unreviewedpages|未复审页面列表]]。',
+	'revreview-stable1' => '您可能想要查看[{{fullurl:$1|stableid=$2}} 此已标记的版本]，并检查现在是否已有该页面的[{{fullurl:$1|stable=1}} 稳定版本]。',
+	'revreview-stable2' => '你可能想要查看该页面的[{{fullurl:$1|stable=1}} 稳定版本]。',
 	'revreview-submit' => '提交',
-	'revreview-submitting' => '正在提交…',
+	'revreview-submitting' => '提交中……',
 	'revreview-submit-review' => '接受修订',
-	'revreview-submit-unreview' => '拒绝修订',
+	'revreview-submit-unreview' => '不接受修订',
 	'revreview-submit-reject' => '拒绝更改',
-	'revreview-submit-reviewed' => '完成。批准！',
-	'revreview-submit-unreviewed' => '完成。已取消批准！',
-	'revreview-successful' => "'''[[:$1|$1]]的指定版本已被标记。 ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} 检视已审核版本])'''",
-	'revreview-successful2' => "'''[[:$1|$1]]的指定版本已成功移除标记。'''",
-	'revreview-poss-conflict-p' => "'''警告：[[User:$1|$1]]在$2$3开始审查此页。'''",
-	'revreview-poss-conflict-c' => "'''警告：[[User:$1|$1]]于$2$3起开始审查这些更改'''",
-	'revreview-toolow' => "'''你必须率每个属性高于''不足\"，以便考虑修订审查。'''
+	'revreview-submit-reviewed' => '完成。接受！',
+	'revreview-submit-unreviewed' => '完成。不接受！',
+	'revreview-successful' => "'''已成功标记[[:$1|$1]]的修订。（[{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} 查看已复审版本]）'''",
+	'revreview-successful2' => "'''已成功去掉[[:$1|$1]]修订的标记。'''",
+	'revreview-poss-conflict-p' => "'''警告：[[User:$1|$1]]在$2$3时开始审阅此页面。'''",
+	'revreview-poss-conflict-c' => "'''警告：[[User:$1|$1]]在$2$3时开始审阅这些更改。'''",
+	'revreview-adv-reviewing-p' => "'''注意：您在$1$2时开始审阅页面后，收到了通知。'''",
+	'revreview-adv-reviewing-c' => "'''注意：您在$1$2时开始审阅这些更改后，收到了通知。'''",
+	'revreview-toolow' => "'''您必须将所有字段标记为“不足”以上才能将修订标记为已复审。'''
 
-要修订的审阅状态中删除，请单击\"拒绝\"。
+要去掉修订的复审状态，请点击“不接受”。
 
-请打在浏览器中的\"后退\"按钮，然后再试。",
-	'revreview-update' => "'''请 [[{{MediaWiki:Validationpage}}|审查]]挂起的更改（如下所示）稳定版本以来所做的任何。'''",
-	'revreview-update-edited' => '<span class="flaggedrevs_important">所做的更改不是尚未稳定版本。</span>
+请点击您浏览器中的“后退”按钮后重试。",
+	'revreview-update' => "'''请[[{{MediaWiki:Validationpage}}|复审]]自稳定版本后的所有待复审更改（如下所示）。'''",
+	'revreview-update-edited' => '<span class="flaggedrevs_important">您的更改尚未成为稳定版本。</span>
 
-请检查如下所示，使您的编辑在稳定版本中出现的所有更改。',
-	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">所做的更改还没有在稳定版本中。有以前的更改之前审查。</span>
+请审阅如下所有更改，以使您的编辑出现在稳定版本中。',
+	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">您的更改尚未成为稳定版本。还有更早的更改正在等待复审。</span>
 
-请检查如下所示，使您的编辑在稳定版本中出现的所有更改。',
-	'revreview-update-includes' => "'''一些模板/文件已被更新：'''",
-	'revreview-reject-header' => '拒绝更改为$1',
-	'revreview-reject-text-list' => "通过完成此项操作，你会'''拒绝'''以下{{PLURAL:$1|更改|更改}}：",
-	'revreview-reject-text-revto' => '这将恢复页面回[{{fullurl:$1|oldid=$2}}$3的版本]。',
+请审阅如下所有更改，以使您的编辑出现在稳定版本中。',
+	'revreview-update-includes' => "'''模板或文件已更新（未复审页面以粗体显示）：'''",
+	'revreview-reject-header' => '拒绝对$1的更改',
+	'revreview-reject-text-list' => "完成此操作后，您将'''拒绝'''在[[:$2|$2]]的{{PLURAL:$1|修订|修订}}中对源文本的更改：",
+	'revreview-reject-text-revto' => '此操作将把页面恢复到[{{fullurl:$1|oldid=$2}} $3时的版本]。',
 	'revreview-reject-summary' => '摘要：',
 	'revreview-reject-confirm' => '拒绝这些更改',
 	'revreview-reject-cancel' => '取消',
-	'revreview-reject-summary-cur' => '拒绝最后{{PLURAL:$1|更改|$1更改}}（由 $2）和恢复修订$3（由$4）',
-	'revreview-reject-summary-old' => '拒绝第一{{PLURAL:$1|更改|$1更改}}（由 $2）跟修订$3（由$4）',
-	'revreview-reject-summary-cur-short' => '拒绝最后{{PLURAL:$1|更改|$1更改}}和恢复修订$2（由$3）',
-	'revreview-reject-summary-old-short' => '拒绝最后{{PLURAL:$1|更改|$1更改}}随后修订$2（由$3）',
+	'revreview-reject-summary-cur' => '拒绝由$2作出的后{{PLURAL:$1|次文字更改|$1次文字更改}}，并由$4恢复到修订$3',
+	'revreview-reject-summary-old' => '拒绝由$2作出的前{{PLURAL:$1|次文字更改|$1次文字更改}}，并由$4恢复到修订$3',
+	'revreview-reject-summary-cur-short' => '拒绝后{{PLURAL:$1|次文字更改|$1次文字更改}}，并由$3恢复到修订$2',
+	'revreview-reject-summary-old-short' => '拒绝前{{PLURAL:$1|次文字更改|$1次文字更改}}，并由$3恢复到修订$2',
 	'revreview-reject-usercount' => '{{PLURAL:$1|一个用户|$1个用户}}',
-	'revreview-tt-flag' => '通过这项修订通过标记它作为已审核',
-	'revreview-tt-unflag' => '通过将其标记为"\'未选中\'"拒绝此版本',
-	'revreview-tt-reject' => '通过还原拒绝这些更改它们',
+	'revreview-tt-flag' => '接受该修订并将其标记为“已检查”',
+	'revreview-tt-unflag' => '不接受该修订并将其标记为“未检查”',
+	'revreview-tt-reject' => '拒绝这些对源文本的修改并撤消它们',
 );
 
 /** Traditional Chinese (‪中文(繁體)‬)
