@@ -2151,8 +2151,8 @@ $messages['zh-hans'] = array(
 
 [[Special:OldReviewedPages|含有待复审编辑页面]]的平均复审延迟是'''$1'''；这一延迟可以确定最早待复审编辑会有多久处于未复审状态。",
 	'validationstatistics-revtime' => "未登录用户等待编辑复审的平均时间为'''$1'''，中位数为'''$2'''。$3",
-	'validationstatistics-table' => "每个名称空间的页面复审统计信息如下所示，其中''不包括''重定向页。含有待复审编辑的页面会被标记为''已过期''，不存在待复审编辑的页面会被标记为“已同步”。",
-	'validationstatistics-ns' => '名称空间',
+	'validationstatistics-table' => "每个名字空间的页面复审统计信息如下所示，其中'''不包括'''重定向页。含有待复审编辑的页面会被标记为“已过期”，不存在待复审编辑的页面会被标记为“已同步”。",
+	'validationstatistics-ns' => '名字空间',
 	'validationstatistics-total' => '页面',
 	'validationstatistics-stable' => '已复审',
 	'validationstatistics-latest' => '已同步',
