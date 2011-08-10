@@ -1,7 +1,7 @@
 <?php
 /*
  (c) Aaron Schulz, Joerg Baach, 2007-2008 GPL
- 
+
  This program is free software; you can redistribute it and/or modify
  it under the terms of the GNU General Public License as published by
  the Free Software Foundation; either version 2 of the License, or
@@ -114,7 +114,6 @@ $wgGroupPermissions['editor']['review']          = true;
 $wgGroupPermissions['editor']['autoreview']      = true;
 $wgGroupPermissions['editor']['autoconfirmed']   = true;
 $wgGroupPermissions['editor']['unreviewedpages'] = true;
-$wgGroupPermissions['editor']['patrolmarks']     = true;
 
 # Define when users get automatically promoted to Editors. Set as false to disable.
 # Once users meet these requirements they will be promoted, unless previously demoted.
@@ -161,7 +160,6 @@ $wgGroupPermissions['reviewer']['review']          = true;
 $wgGroupPermissions['reviewer']['autoreview']      = true;
 $wgGroupPermissions['reviewer']['autoconfirmed']   = true;
 $wgGroupPermissions['reviewer']['unreviewedpages'] = true;
-$wgGroupPermissions['reviewer']['patrolmarks']     = true;
 
 # Sysops have their edits autoreviewed
 $wgGroupPermissions['sysop']['autoreview'] = true;
@@ -218,7 +216,7 @@ $wgFlaggedRevsRCCrap = false;
 # Patrollable namespaces (overridden by reviewable namespaces) (don't use)
 $wgFlaggedRevsPatrolNamespaces = array(); // @TODO: remove when ready
 
-# Bots are granted autoreview via hooks, mark in rights 
+# Bots are granted autoreview via hooks, mark in rights
 # array so that it shows up in sp:ListGroupRights...
 $wgGroupPermissions['bot']['autoreview'] = true;
 
@@ -549,10 +547,10 @@ function efSetFlaggedRevsConditionalHooks() {
 
 // Note: avoid calls to FlaggedRevs class here for performance
 function efLoadFlaggedRevs() {
-	global $wgFlaggedRevsRCCrap, $wgUseRCPatrol;
+	global $wgFlaggedRevsRCCrap, $wgUseRCPatrol, $wgGroupPermissions;
 	global $wgFlaggedRevsNamespaces, $wgFlaggedRevsProtection;
 	if ( $wgFlaggedRevsRCCrap ) {
-		# If patrolling is already on, then we know that it 
+		# If patrolling is already on, then we know that it
 		# was intended to have all namespaces patrollable.
 		if ( $wgUseRCPatrol ) {
 			global $wgFlaggedRevsPatrolNamespaces;
@@ -564,6 +562,16 @@ function efLoadFlaggedRevs() {
 			# Use RC Patrolling to check for vandalism.
 			# Edits to reviewable pages must be flagged to be patrolled.
 			$wgUseRCPatrol = true;
+		}
+		if ( isset( $wgGroupPermissions['editor'] )
+			&& !isset( $wgGroupPermissions['editor']['patrolmarks'] ) )
+		{
+			$wgGroupPermissions['editor']['patrolmarks'] = true;
+		}
+		if ( isset( $wgGroupPermissions['reviewer'] )
+			&& !isset( $wgGroupPermissions['reviewer']['patrolmarks'] ) )
+		{
+			$wgGroupPermissions['reviewer']['patrolmarks'] = true;
 		}
 	}
 
