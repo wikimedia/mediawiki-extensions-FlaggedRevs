@@ -153,14 +153,17 @@ Shown when a reviewer/editor has marked a stable/checked/... revision as unstabl
 * $1 is a username
 * $2 is a date
 * $3 is a time',
+	'revreview-adv-reviewing-p' => 'Parameters:
+* $1 is a date
+* $2 is a time',
+	'revreview-adv-reviewing-c' => 'Parameters:
+* $1 is a date
+* $2 is a time',
 	'revreview-toolow' => '{{Flagged Revs-small}}
 A kind of error shown when trying to review a revision with all settings on "unapproved".',
 	'revreview-update' => '{{Flagged Revs}}',
 	'revreview-update-edited-prev' => 'This message is shown after a user saves a version after another user made changes that were not reviewed yet.',
 	'revreview-update-includes' => '{{Flagged Revs}}',
-	'revreview-update-use' => '{{Flagged Revs}}
-
-This message appears in the review page after the list of templates or files with pending changes.',
 	'revreview-reject-summary' => '{{Identical|Summary}}',
 	'revreview-reject-cancel' => '{{Identical|Cancel}}',
 	'revreview-reject-summary-cur' => '{{Flagged Revs-small}}
@@ -223,7 +226,6 @@ $messages['aln'] = array(
 	'revreview-update' => "Ju lutem [[{{MediaWiki:Validationpage}}|rishikim]] ndonjë ndryshim në pritje''(treguar më poshtë),''e bëra në versionin e botuar.",
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Ndryshimet juaja ende nuk janë botuar.</span> Ka redaktimet e mëparshme në pritje të shqyrtimit. Për të publikojë ndryshimet tuaj, ju lutemi shqyrtimin e të gjitha ndryshimet e treguar më poshtë.',
 	'revreview-update-includes' => "'''Disa templates / Fotografi të ishin më të azhornuara:'''",
-	'revreview-update-use' => "'''Shënim:''' Versioni i publikuar të secilit prej këtyre templates / fotografi është përdorur në versionin e publikuar të kësaj faqeje.",
 );
 
 /** Amharic (አማርኛ)
@@ -257,7 +259,6 @@ Ta sacar o status de revisato d'una versión, faiga click en \"no acceptar\".
 Por favor, prete o botón de \"enta zaga\" d'o suyo navegador y torne a intentar-lo.",
 	'revreview-update' => "Por favor [[{{MediaWiki:Validationpage}}|revise]] os cambios pendients ''(que s'amuestran en o cobaixo)'' feitos sobre a versión acceptata.",
 	'revreview-update-includes' => "'''S'han esviellato bellas plantillas u fichers:'''",
-	'revreview-update-use' => "'''PARE CUENTA:''' En a versión acceptata d'ista pachina s'emplega a versión acceptata de cadaguna d'istas plantillas u fichers.",
 );
 
 /** Arabic (العربية)
@@ -375,7 +376,6 @@ $messages['arz'] = array(
 	'revreview-update' => "لو سمحت [[{{MediaWiki:Validationpage}}|راجع]] اى تغييرات ''(باينه تحت)'' معموله من وقت النسخه المنشوره ما [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} اتأكد عليها].<br />
 '''شوية قوالب/فايلات اتجددت:'''",
 	'revreview-update-includes' => "'''بعض القوالب/الملفات تم تحديثها:'''",
-	'revreview-update-use' => "'''ملاحظه:''' لو اى قوالب/فايلات من دول عندهم نسخه منشوره, يبقى هى اساساً مستعمله فى النسخه المنشوره بتاعة الصفحه دى.",
 );
 
 /** Asturian (Asturianu)
@@ -436,7 +436,6 @@ $messages['bcc'] = array(
 	'revreview-toolow' => 'شما بایدن حداقل هر یکی چه جهلگین نشانانء درجه بللیت گیشتر چه "unapproved" تا یک بازبینیء په داب چارتگین بیت.
 په نسخ کتن یک بازبینی کل فیلدانء په داب "unapproved" نشان کن.',
 	'revreview-update-includes' => "'''لهتی تمپلتان/تصاویر په روچ بیتگین:'''",
-	'revreview-update-use' => "'''توجه:''' اگر هر یکی چه ای تمپلتان/تصاویر یک ثابتین نسخه ای هست،اچه آیی الان ته نسخه ثابت ای صفحه کامرز بیت.",
 );
 
 /** Belarusian (Беларуская)
@@ -537,6 +536,7 @@ $messages['be-tarask'] = array(
 	'review_cannot_undo' => 'Немагчыма адмяніць гэтыя зьмены, таму што чакаючыя рэцэнзіі рэдагаваньні закранаюць гэтыя ж фрагмэнты.',
 	'review_cannot_reject' => 'Немагчыма адхіліць зьмены, таму што нехта ўжо прарэцэнзаваў некаторыя зь іх (ці ўсе).',
 	'review_reject_excessive' => 'Немагчыма адхіліць так шмат зьменаў адразу.',
+	'review_reject_nulledits' => 'Немагчыма адхіліць гэтыя зьмены, таму што ўсе вэрсіі ня маюць рэдагаваньняў.',
 	'revreview-check-flag-p' => 'Прыняць гэтую вэрсію (утрымлівае $1 {{PLURAL:$1|непрынятую зьмену|непрынятыя зьмены|непрынятых зьменаў}})',
 	'revreview-check-flag-p-title' => 'Прыняць усе цяперашнія зьмены, якія чакаюць рэцэнзіі разам з Вашым рэдагаваньнем.
 Выкарыстоўвайце толькі калі Вы ўжо праглядзелі зьмены, якія чакаюць праверкі.',
@@ -586,10 +586,10 @@ $messages['be-tarask'] = array(
 	'revreview-reject-summary' => 'Апісаньне:',
 	'revreview-reject-confirm' => 'Адмяніць гэтыя зьмены',
 	'revreview-reject-cancel' => 'Адмяніць',
-	'revreview-reject-summary-cur' => '{{PLURAL:$1|Адхіленая $1 апошняя зьмена зробленая|Адхіленыя $1 апошнія зьмены зробленыя|Адхіленыя $1 апошніх зьменаў зробленых}} $2 і адноўленая вэрсія $3 зробленая $4',
-	'revreview-reject-summary-old' => '{{PLURAL:$1|Адхіленая $1 першая зьмена зробленая|Адхіленыя $1 першыя зьмены зробленыя|Адхіленыя $1 першых зьменаў зробленыя}} $2 наступных пасьля вэрсіі $3 зробленай $4',
-	'revreview-reject-summary-cur-short' => '{{PLURAL:$1|Адхіленая $1 апошняя зьмена|Адхіленыя $1 апошнія зьмены|Адхіленыя $1 апошніх зьменаў}} і адноўленая вэрсія $2 зробленая $3',
-	'revreview-reject-summary-old-short' => '{{PLURAL:$1|Адхіленая $1 першая зьмена наступная|Адхіленыя $1 першыя зьмены наступных|Адхіленыя $1 першых зьменаў наступных}} пасьля вэрсіі $2 зробленай $3',
+	'revreview-reject-summary-cur' => '{{PLURAL:$1|Адхіленая $1 апошняя тэкставая зьмена зробленая|Адхіленыя $1 апошнія тэкставыя зьмены зробленыя|Адхіленыя $1 апошніх тэкставых зьменаў зробленых}} ($2) і адноўленая вэрсія $3 зробленая $4',
+	'revreview-reject-summary-old' => '{{PLURAL:$1|Адхіленая $1 першая тэкставая зьмена зробленая|Адхіленыя $1 першыя тэкставыя зьмены зробленыя|Адхіленыя $1 першых тэкставых зьменаў зробленыя}} ($2) наступных пасьля вэрсіі $3 зробленай $4',
+	'revreview-reject-summary-cur-short' => '{{PLURAL:$1|Адхіленая $1 апошняя тэкставая зьмена|Адхіленыя $1 апошнія тэкставыя зьмены|Адхіленыя $1 апошніх тэкставых зьменаў}} і адноўленая вэрсія $2 зробленая $3',
+	'revreview-reject-summary-old-short' => '{{PLURAL:$1|Адхіленая $1 першая тэкставая зьмена наступная|Адхіленыя $1 першыя тэкставыя зьмены наступных|Адхіленыя $1 першых тэкставых зьменаў наступных}} пасьля вэрсіі $2 зробленай $3',
 	'revreview-reject-usercount' => '$1 {{PLURAL:$1|удзельнік|удзельнікі|удзельнікаў}}',
 	'revreview-tt-flag' => 'Зацьвердзіць гэтую вэрсію пазначыўшы як правераную',
 	'revreview-tt-unflag' => 'Зьняць зацьверджаньне вэрсіі, пазначыўшы яе як «неправеранаю»',
@@ -1134,7 +1134,6 @@ Ti belki tewr verni de vurnayişan teqib biki ya zi "peyser biyeri".',
 Ma rica keni vurnayişanê xo peran versiyonê sebit biki bade kontrolê vurnayişi.
 Ti belki tewr verni de vurnayişan teqib biki ya zi "peyser biyeri".',
 	'revreview-update-includes' => "'''Tay Templatan/dosyayan biyo rocaniye:'''",
-	'revreview-update-use' => "'''DIQET:''' Eka ena tempelatan/dosyayan ser yew versiyonê stableyî esto, ey sero zaten versiyonê stable de kar beno.",
 	'revreview-tt-flag' => '"Qontrol" nişan bike ke ena revizyon qebul bike',
 	'revreview-tt-unflag' => '"Qontrol nibiyo" nişan bike ke ena revizyon qebul meke',
 );
@@ -1614,7 +1613,6 @@ Tarkista kaikki alla olevat muutokset, jotta muutoksesi näkyisivät vakaassa ve
 
 Arvioi kaikki alla olevat muutokset, jotta muokkauksesi näkyisivät vakaassa versiossa.',
 	'revreview-update-includes' => "'''Joitakin mallineita tai tiedostoja on päivitetty:'''",
-	'revreview-update-use' => "'''Huomaa:''' Tämän sivun vakaassa versiossa käytetään vakaata versiota mallineista ja tiedostoista.",
 	'revreview-reject-header' => 'Hylkää version $1 muutokset',
 	'revreview-reject-summary' => 'Yhteenveto:',
 	'revreview-reject-confirm' => 'Hylkää nämä muutokset',
@@ -2056,7 +2054,6 @@ $messages['hi'] = array(
 	'revreview-update' => "कृपया किये हुए बदलाव ''(नीचे दिये हुए)'' [[{{MediaWiki:Validationpage}}|जाँचे]] क्योंकी स्थिर अवतरण [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} प्रमाणित] कर दिया गया हैं।<br />
 '''कुछ साँचा/चित्र बदले हैं:'''",
 	'revreview-update-includes' => "'''कुछ साँचा/चित्र बदले हैं:'''",
-	'revreview-update-use' => "'''सूचना:''' अगर इसमें से किसी साँचा/चित्रका स्थिर अवतरण हैं, तो वह इस पन्नेके स्थिर अवतरण में पहले से इस्तेमाल किया हुआ हैं।",
 );
 
 /** Croatian (Hrvatski)
@@ -2535,7 +2532,6 @@ Vedi l'[[Special:Unreviewedpages|elenco delle pagine non revisionate]].",
  Si prega di rivedere tutte le modifiche di seguito riportate perché le tue modifiche vengano visualizzate nella versione stabile. 
  Potrebbe essere necessario prima proseguire o "annullare" modifiche.',
 	'revreview-update-includes' => "'''Alcuni template/file sono stati aggiornati:'''",
-	'revreview-update-use' => "'''NOTA:''' Se qualcuno di questi template/file ha una versione stabile, allora è già usato nella versione stabile di questa pagina.",
 	'revreview-tt-flag' => 'Accetta questa versione marcandola come "verificata"',
 );
 
@@ -2808,7 +2804,6 @@ $messages['ko'] = array(
 당신의 편집을 승인하려면 아래에 보이는 모든 편집 사항을 검토해주십시오.
 필요하다면 내용을 보충하거나 편집을 되돌리십시오.',
 	'revreview-update-includes' => "'''일부 틀이나 파일이 수정되었습니다:'''",
-	'revreview-update-use' => "'''참고:''' 틀과 파일 각각의 배포판이 이 문서의 배포판에 사용되고 있습니다.",
 	'revreview-tt-flag' => '이 판을 검토하기',
 	'revreview-tt-unflag' => '이 판에 대한 검토 취소하기',
 	'revreview-tt-reject' => '편집을 되돌려 편집 승인을 거부',
@@ -3217,7 +3212,6 @@ $messages['mr'] = array(
 	'revreview-update' => "कृपया केलेले बदल ''(खाली दिलेले)'' [[{{MediaWiki:Validationpage}}|तपासा]] कारण स्थिर आवृत्ती [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} प्रमाणित] करण्यात आलेली आहे.<br />
 '''काही साचे/चित्रे बदललेली आहेत:'''",
 	'revreview-update-includes' => "'''काही साचे/चित्र बदलण्यात आलेले आहेत:'''",
-	'revreview-update-use' => "'''सूचना:''' जर यापैकी एका साचा/चित्राची स्थिर आवृत्ती असेल, तर ती या पानाच्या स्थिर आवृत्ती मध्ये अगोदरच वापरलेली असेल.",
 );
 
 /** Malay (Bahasa Melayu)
@@ -3363,6 +3357,8 @@ Zie  de [[Special:Unreviewedpages|lijst met ongecontroleerde pagina's]].",
 	'revreview-successful2' => "'''De versie van [[:$1|$1]] is als niet gepubliceerd aangemerkt.'''",
 	'revreview-poss-conflict-p' => "'''Waarschuwing: [[User:$1|$1]] is begonnen met de controle van deze pagina op $2 om $3.'''",
 	'revreview-poss-conflict-c' => "'''Waarschuwing: [[User:$1|$1]] is begonnen met de controle van deze wijzigingen op $2 om $3.'''",
+	'revreview-adv-reviewing-p' => "'''Let op: andere gebruikers wordt aangegeven dat u bent begonnen met de controle van deze pagina op $2 om $1.'''",
+	'revreview-adv-reviewing-c' => "'''Let op: andere gebruikers wordt aangegeven dat u bent begonnen met de controle van deze wijzigingen op $2 om $1.'''",
 	'revreview-toolow' => '\'\'\'U moet tenminste alle eigenschappen hoger instellen dan "{{int:Revreview-accuracy-0}}" om voor een versie aan te geven dat deze is gecontroleerd.\'\'\'
 
 Klik op "Versie afkeuren" om de waardering van een versie te verwijderen.
@@ -3418,7 +3414,6 @@ Sjå [[Special:Unreviewedpages|lista over sider som manglar vurdering]].',
 	'revreview-update' => "[[{{MediaWiki:Validationpage}}|Vurder]] endringar ''(synte nedanfor)'' som er vortne gjort sidan den stabile versjonen vart [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} godkjend].<br />
 '''Nokre malar eller bilete vart oppdaterte:'''",
 	'revreview-update-includes' => "'''Nokre malar/bilete vart oppdaterte:'''",
-	'revreview-update-use' => "'''MERK:''' Om einkvan av desse malane og/eller eitkvart av desse bileta har ein stabil versjon, er han alt nytta i den stabile versjonen av denne sida.",
 );
 
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
@@ -3530,7 +3525,6 @@ $messages['oc'] = array(
 	'revreview-update' => "[[{{MediaWiki:Validationpage}}|Relegissètz]] totas las modificacions ''(vejatz çaijós)'' efectuadas dempuèi l’[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovacion] de la version establa.
 '''Qualques fichièrs o modèls son estats meses a jorn :'''",
 	'revreview-update-includes' => "'''Qualques modèls o fichièrs son estats meses a jorn :'''",
-	'revreview-update-use' => "'''NÒTA : ''' se aquestes modèls o fichièrs compòrtan una version establa, alara aquesta ja es utilizada dins la version establa d'aquesta pagina.",
 );
 
 /** Deitsch (Deitsch)
@@ -4098,7 +4092,7 @@ $messages['rue'] = array(
 	'revreview-submit-unreviewed' => 'Выконано. Не підтверджена!',
 );
 
-/** Yakut (Саха тыла)
+/** Sakha (Саха тыла)
  * @author HalanTul
  */
 $messages['sah'] = array(
@@ -4233,7 +4227,6 @@ Možno budete musieť pokračovať alebo „vrátiť“ úpravy.',
 Prosím, prečítajte si všetky nižšie uvedené zmeny, aby sa vaše úpravy sa objaví v stabilnej verzii. 
 Možno budete musieť pokračovať alebo „vrátiť“ úpravy.',
 	'revreview-update-includes' => "'''Niektoré šablóny/súbory sa zmenili:'''",
-	'revreview-update-use' => "'''POZN.:''' Ak nejaká z týchto šablón/súborov má stabilnú verziu, potom je už použitá v stabilnej verzii tohto článku.",
 	'revreview-tt-flag' => 'Označiť túto revíziu ako skontrolovanú',
 	'revreview-tt-unflag' => 'Označiť túto revíziu ako neskontrolovanú',
 	'revreview-tt-reject' => 'Odmietnuť tieto zmeny ich vrátením',
@@ -4462,7 +4455,6 @@ Vänligen granska alla ändringar som visas nedan för att göra så att dina re
 
 Vänligen granska alla ändringar som visas nedan för att göra så att dina redigeringar visas i den stabila versionen.',
 	'revreview-update-includes' => "'''Vissa mallar eller filer har ändrats:'''",
-	'revreview-update-use' => "'''OBS:''' Den accepterade versionen för var och en av dessa mallar/filer används i den accepterade versionen av denna sida.",
 	'revreview-reject-summary' => 'Sammanfattning:',
 	'revreview-reject-cancel' => 'Avbryt',
 	'revreview-reject-usercount' => '{{PLURAL:$1|en användare|$1 användare}}',
@@ -4646,7 +4638,6 @@ Brauzeriňizde "yza" düwmesine basyň we gaýtadan synanyşyň.',
 	'revreview-update' => "Durnukly wersiýa [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} tassyklanandan] bäri edilen islendik üýtgeşmäni ''(aşakda görkezilen)'' [[{{MediaWiki:Validationpage}}|gözden geçiriň]].<br />
 '''Käbir şablonlar/faýllar täzelenilipdir:'''",
 	'revreview-update-includes' => "'''Käbir şablonlar/faýllar täzelendi:'''",
-	'revreview-update-use' => "'''BELLIK:''' Eger bu şablonlaryň/faýllaryň haýsydyr biriniň durnukly wersiýasy bar bolsa, onda ol eýýäm bu sahypanyň durnukly wersiýasynda ulanylandyr.",
 	'revreview-tt-flag' => 'Bu wersiýany gözden geçirilen diýip belle',
 	'revreview-tt-unflag' => 'Bu wersiýany gözden geçirilmedik diýip belle',
 );
@@ -4939,7 +4930,6 @@ Podarìa esser necessario proseguire o "anulare" modifiche.',
 Par piaser rivarda tute le modifiche qua soto parché le to modifiche le vegna mostrà ne la version stabile. 
 Podarìa esser necessario proseguire o "anulare" modifiche.',
 	'revreview-update-includes' => "'''Alcuni modèi o file i xe stà agiornà:'''",
-	'revreview-update-use' => "'''OCIO:''' La version stabile de sta pagina la dopara la version stabile de ognuno de sti modèi/file.",
 	'revreview-tt-flag' => 'Aceta sta revision segnandola come "controlà"',
 	'revreview-tt-unflag' => 'Disaprova sta revision segnandola come "mia controlà"',
 	'revreview-tt-reject' => 'Rifiuta ste modifiche tirandole indrio',
@@ -4974,7 +4964,6 @@ Miše heitta kodvindan znam, kirjutagat kaikjal "ei ole znamoitud".',
 [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} seižutamišt].<br />
 '''Erased šablonad vai failad oma udištadud:'''",
 	'revreview-update-includes' => "'''Erased šablonad/failad oma udištadud:'''",
-	'revreview-update-use' => "'''HOMAIČEND.''' Ku miččel-ni neniš šablonoišpäi vai failoišpäi om stabiline versii, ka sidä kävutadas jo necen lehtpolen stabiližes versijas.",
 	'revreview-tt-flag' => 'Znamoita nece versii kut kodvdud',
 	'revreview-tt-unflag' => 'Znamoita nece versii kut kodvmatoi',
 );
@@ -5108,7 +5097,6 @@ $messages['yue'] = array(
 	要捨棄一個修訂，設定全部格做"未批准"。',
 	'revreview-update' => '請複審自從響呢版嘅穩定版以來嘅任何更改 (響下面度顯示) 。模同圖亦可能同時更改。',
 	'revreview-update-includes' => "'''有啲模/圖更新咗:'''",
-	'revreview-update-use' => "'''留意:''' 如果任何嘅模/圖有穩定版，噉呢一版就已經用咗響穩定版度。",
 );
 
 /** Simplified Chinese (‪中文(简体)‬)

@@ -1709,7 +1709,7 @@ $messages['rue'] = array(
 	'validationstatistics-reviews' => 'Посуджіня',
 );
 
-/** Yakut (Саха тыла)
+/** Sakha (Саха тыла)
  * @author HalanTul
  */
 $messages['sah'] = array(

@@ -3540,7 +3540,7 @@ Jo móžno, až nowe [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:f
 	'validationpage' => '{{ns:help}}:Wobwěsćenje bokow',
 );
 
-/** Dusun Bundu-liwan (Dusun Bundu-liwan)
+/** Central Dusun (Dusun Bundu-liwan)
  * @author FRANCIS5091
  */
 $messages['dtp'] = array(
@@ -10212,7 +10212,7 @@ De [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonl
 	'validationpage' => '{{ns:help}}:Validacion de la pagina',
 );
 
-/** Ossetic (Иронау)
+/** Ossetic (Ирон)
  * @author Amikeco
  */
 $messages['os'] = array(
@@ -11722,7 +11722,7 @@ $messages['rue'] = array(
 	'validationpage' => '{{ns:help}}:Перевірка сторінкы',
 );
 
-/** Yakut (Саха тыла)
+/** Sakha (Саха тыла)
  * @author HalanTul
  * @author Meno25
  */

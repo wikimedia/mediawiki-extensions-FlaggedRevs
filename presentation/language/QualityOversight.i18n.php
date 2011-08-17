@@ -534,7 +534,7 @@ $messages['ru'] = array(
 	'qualityoversight-legend' => 'Поиск по журналу проверок',
 );
 
-/** Yakut (Саха тыла)
+/** Sakha (Саха тыла)
  * @author HalanTul
  */
 $messages['sah'] = array(

@@ -789,7 +789,7 @@ $messages['rue'] = array(
 	'stablepages-config' => 'Конфіґурація',
 );
 
-/** Yakut (Саха тыла)
+/** Sakha (Саха тыла)
  * @author HalanTul
  */
 $messages['sah'] = array(

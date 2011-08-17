@@ -1545,7 +1545,7 @@ $messages['rue'] = array(
 	'pendingchanges-viewing' => '(перевірює ся)',
 );
 
-/** Yakut (Саха тыла)
+/** Sakha (Саха тыла)
  * @author HalanTul
  */
 $messages['sah'] = array(

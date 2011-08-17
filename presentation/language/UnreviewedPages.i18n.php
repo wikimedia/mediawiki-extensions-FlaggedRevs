@@ -1281,7 +1281,7 @@ $messages['oc'] = array(
 	'unreviewedpages-recent' => "(mens d'una ora)",
 );
 
-/** Ossetic (Иронау)
+/** Ossetic (Ирон)
  * @author Amikeco
  */
 $messages['os'] = array(
@@ -1467,7 +1467,7 @@ $messages['rue'] = array(
 	'unreviewedpages-recent' => '(менше 1 годины)',
 );
 
-/** Yakut (Саха тыла)
+/** Sakha (Саха тыла)
  * @author HalanTul
  */
 $messages['sah'] = array(

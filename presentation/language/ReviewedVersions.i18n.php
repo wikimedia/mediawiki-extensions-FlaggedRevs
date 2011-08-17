@@ -991,7 +991,7 @@ $messages['rue'] = array(
 	'reviewedversions-review' => 'Перевірена <i>$1</i> хоснователём $2',
 );
 
-/** Yakut (Саха тыла)
+/** Sakha (Саха тыла)
  * @author HalanTul
  */
 $messages['sah'] = array(

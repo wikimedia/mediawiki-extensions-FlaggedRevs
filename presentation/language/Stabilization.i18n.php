@@ -2859,7 +2859,7 @@ $messages['rue'] = array(
 	'stabilize-expiring' => 'кінчіть $1 (UTC)',
 );
 
-/** Yakut (Саха тыла)
+/** Sakha (Саха тыла)
  * @author HalanTul
  */
 $messages['sah'] = array(

@@ -1080,7 +1080,7 @@ $messages['rue'] = array(
 	'reviewedpages-best' => 'найлїпша верзія',
 );
 
-/** Yakut (Саха тыла)
+/** Sakha (Саха тыла)
  * @author HalanTul
  */
 $messages['sah'] = array(

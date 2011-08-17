@@ -710,7 +710,7 @@ $messages['rue'] = array(
 	'problemchanges-category' => 'Катеґорія:',
 );
 
-/** Yakut (Саха тыла)
+/** Sakha (Саха тыла)
  * @author HalanTul
  */
 $messages['sah'] = array(
