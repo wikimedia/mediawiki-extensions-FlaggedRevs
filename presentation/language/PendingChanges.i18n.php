@@ -1693,6 +1693,7 @@ $messages['sr-el'] = array(
  * @author Boivie
  * @author Cohan
  * @author M.M.S.
+ * @author MagnusA
  * @author Najami
  * @author Per
  * @author Rotsee
@@ -1704,7 +1705,7 @@ $messages['sv'] = array(
 	'pendingchanges-list' => 'Den här sidan visar [[{{MediaWiki:Validationpage}}|granskade]] sidor som har en eller fler redigeringar som väntar på granskning.',
 	'pendingchanges-none' => 'Det finns just nu inga sidor som matchar dessa kriterier',
 	'pendingchanges-hours' => '($1 {{PLURAL:$1|timme|timmar}})',
-	'pendingchanges-days' => '($1 {{PLURAL:$1|dag|dagar}})',
+	'pendingchanges-days' => '($1 {{PLURAL:$1|dygn|dygn}})',
 	'pendingchanges-recent' => '(mindre än 1 timme)',
 	'pendingchanges-category' => 'Kategori:',
 	'pendingchanges-onwatchlist' => 'Sidor på min bevakningslista',

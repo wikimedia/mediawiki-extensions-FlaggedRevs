@@ -1609,6 +1609,7 @@ $messages['su'] = array(
  * @author Jon Harald Søby
  * @author Lejonel
  * @author M.M.S.
+ * @author MagnusA
  * @author Najami
  * @author Per
  * @author Rotsee
@@ -1625,7 +1626,7 @@ $messages['sv'] = array(
 	'unreviewedpages-none' => 'Det finns just nu inga sidor som matchar dessa kriterier',
 	'unreviewedpages-viewing' => '(granskas)',
 	'unreviewedpages-hours' => '($1 {{PLURAL:$1|timme|timmar}})',
-	'unreviewedpages-days' => '($1 {{PLURAL:$1|dag|dagar}})',
+	'unreviewedpages-days' => '($1 {{PLURAL:$1|dygn|dygn}})',
 	'unreviewedpages-recent' => '(mindre än en timme)',
 );
 
