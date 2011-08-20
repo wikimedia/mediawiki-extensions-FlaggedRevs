@@ -10261,6 +10261,7 @@ $messages['pfl'] = array(
  * @author Sp5uhe
  * @author ToSter
  * @author Wpedzich
+ * @author Žekřil71pl
  */
 $messages['pl'] = array(
 	'action-review' => 'przeglądania wersji',
@@ -10318,11 +10319,11 @@ $messages['pl'] = array(
 	'review-logpage' => 'Rejestr oznaczania',
 	'review-logpagetext' => 'To jest rejestr zmian w [[{{MediaWiki:Validationpage}}|oznaczaniu]] wersji stron.',
 	'reviewer' => 'Weryfikator',
-	'revreview-accuracy' => 'Status',
+	'revreview-accuracy' => 'Wiarygodność',
 	'revreview-accuracy-0' => 'nieadekwatna',
 	'revreview-accuracy-1' => 'przejrzana',
 	'revreview-accuracy-2' => 'zweryfikowana',
-	'revreview-accuracy-3' => 'dobrze uźródłowione',
+	'revreview-accuracy-3' => 'oparte na źródłach',
 	'revreview-accuracy-4' => 'na medal',
 	'revreview-auto' => '(automatycznie)',
 	'revreview-basic' => 'To jest najnowsza [[{{MediaWiki:Validationpage}}|wersja przejrzana]], która została [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} oznaczona] <i>$2</i>.
@@ -10334,11 +10335,11 @@ Później mogły zostać wykonane następne [{{fullurl:{{FULLPAGENAMEE}}|oldid=$
 	'revreview-basic-same' => 'To jest [[{{MediaWiki:Validationpage}}|wersja przejrzana]], która została [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} oznaczona] <i>$2</i>.',
 	'revreview-basic-source' => 'Następująca [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} wersja przejrzana] tej strony, którą [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} oznaczono] <i>$2</i>, była oparta na tej wersji.',
 	'revreview-current' => 'Oczekuje na przejrzenie',
-	'revreview-depth' => 'Wyczerpanie tematu',
-	'revreview-depth-0' => 'Nieakceptowalne',
-	'revreview-depth-1' => 'podstawowe',
-	'revreview-depth-2' => 'średnie',
-	'revreview-depth-3' => 'wysokie',
+	'revreview-depth' => 'Wnikliwość',
+	'revreview-depth-0' => 'nieakceptowalna',
+	'revreview-depth-1' => 'podstawowa',
+	'revreview-depth-2' => 'średnia',
+	'revreview-depth-3' => 'wysoka',
 	'revreview-depth-4' => 'na medal',
 	'revreview-draft-title' => 'Na tej stronie wyświetlane są oczekujące zmiany',
 	'revreview-edit' => 'Edytuj',
