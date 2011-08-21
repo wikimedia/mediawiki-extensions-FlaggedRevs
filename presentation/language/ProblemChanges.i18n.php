@@ -47,6 +47,7 @@ $messages['af'] = array(
  */
 $messages['ar'] = array(
 	'problemchanges' => 'التغييرات بالانتظار الموسومة',
+	'problemchanges-list' => 'تسرد هذه الصفحة الصفحات [[{{MediaWiki:Validationpage}}|المراجعة]] التي أجري عليها تعديل موسوم واحد أو أكثر بانتظار المراجعة. تتوفر قائمة ب[[Special:Tags|وسوم التعديلات الصالحة]].',
 	'problemchanges-legend' => 'اعرض الصفحات ذات التعديلات الموسومة التي تنتظر المراجعة',
 	'problemchanges-none' => 'لا توجد حاليًا صفحات توافق هذه المعايير',
 	'problemchanges-category' => 'التصنيف:',

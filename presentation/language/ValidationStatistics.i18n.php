@@ -92,18 +92,20 @@ $messages['ar'] = array(
 	'validationstatistics-users' => "'''{{SITENAME}}''' بها حاليا '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|مستخدم|مستخدمون}} بصلاحية [[{{MediaWiki:Validationpage}}|محرر]].
 
 المحررون هم مستخدمون موثوقون يمكنهم التحقق من المراجعات للصفحات.",
-	'validationstatistics-pndtime' => "تعتبر التعديلات التي تم فحصها من قبل مستخدمين معتمدين على أنها ''تعديلات مراجعة''.
-إن متوسط التأخير في المراجعة لل​​[[خاص:OldReviewedPages|صفحات التي هي في انتظار مراجعة]] هو ''' $1 '''، إن التأخير يعبر عن مدى قدم أقدم تعديل لم تتم مراجعته.",
+	'validationstatistics-lastupdate' => "''حدثت البيانات التالية آخر مرة يوم $1 عند $2.''",
+	'validationstatistics-pndtime' => "تعتبر التعديلات التي فحصها مستخدمون معتمدون ''مراجعة''.
+
+إن متوسط التأخير في المراجعة لل​​[[Special:OldReviewedPages|صفحات التي هي في انتظار مراجعة]] هو ''' $1 '''، إن التأخير يعبر عن مدى قدم أقدم تعديل لم تتم مراجعته.",
 	'validationstatistics-revtime' => "معدل الانتظار للتعديل من قبل ''المستخدمين غير المسجلين'' ليتم مراجعتها هو '''$1'''، والوسيط هو '''$2'''. 
 $3",
-	'validationstatistics-table' => 'احصاءات تحرير الصفحات لكل اسم معروضة ادناه، باستثناء صفحات التحويل.',
+	'validationstatistics-table' => "إحصاءات مراجعة الصفحات لكل نطاق معروضة بالأسفل، ''باستثناء'' صفحات التحويل. تعتبر الصفحات ''غير محدثة'' إذا كان لها تعديلات معلقة للمراجعة؛ تعتبر الصفحات ''متزامنة'' إذا لم يكن لها تعديلات معلقة للمراجعة.",
 	'validationstatistics-ns' => 'النطاق',
 	'validationstatistics-total' => 'الصفحات',
 	'validationstatistics-stable' => 'مراجع',
 	'validationstatistics-latest' => 'محدث',
 	'validationstatistics-synced' => 'تم تحديثه/تمت مراجعته',
 	'validationstatistics-old' => 'قديمة',
-	'validationstatistics-utable' => 'بالأسفل قائمة  {{PLURAL:$1|أكثر مراجع نشاطا|$1 أكثر المراجعين نشاطا}} في الساعة الأخيرة.',
+	'validationstatistics-utable' => 'بالأسفل قائمة بأكثر {{PLURAL:$1||مراجع نشاطا|مراجعين نشاطا|$1 مراجعين نشاطا|$1 مراجع نشاطا|$1 مراجعا نشاطا}} في {{PLURAL:$2||الساعة الأخيرة|الساعتين الأخيرتين|ال$2 ساعات الأخيرة|ال$2 ساعة الأخيرة}}.',
 	'validationstatistics-user' => 'المستخدم',
 	'validationstatistics-reviews' => 'مراجعات',
 );

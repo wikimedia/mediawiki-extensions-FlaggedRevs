@@ -269,7 +269,7 @@ Por favor, prete o botón de \"enta zaga\" d'o suyo navegador y torne a intentar
  */
 $messages['ar'] = array(
 	'revisionreview' => 'مراجعة المراجعات',
-	'revreview-failed' => "'''غير قادر على مراجعة هذه المراجعة.''' الإرسال غير مكتمل أو غير هذا غير صحيح.",
+	'revreview-failed' => "'''تعذرت مراجعة هذه المراجعة.'''",
 	'revreview-submission-invalid' => 'لم يتم الإرسال أو بالتالي لم يقبل',
 	'review_page_invalid' => 'عنوان الصفحة الهدف غير صالح.',
 	'review_page_notexists' => 'الصفحة الهدف غير موجودة.',
@@ -285,9 +285,9 @@ $messages['ar'] = array(
 	'review_cannot_undo' => 'لا يمكن الرجوع عن هذه التغييرات بسب وجود تغييرات في الانتظار على ذات المقاطع.',
 	'review_cannot_reject' => 'لا يمكن رفض هذه التعديلات بسبب أن أحدهم قبل بعض (أو جميع) هذه التعديلات.',
 	'review_reject_excessive' => 'لا يمكن رفض جميع هذه التعديلات في وقت واحد.',
-	'revreview-check-flag-p' => 'انشر التعديلات الموقفة حاليًا',
+	'revreview-check-flag-p' => 'اقبل هذه النسخة (تتضمن {{PLURAL:$1||تعديلا واحدا معلقا|تعديلان معلقان|$1 تعديلات معلقة|$1 تعديل معلق|$1 تعديلا معلقا}})',
 	'revreview-check-flag-p-title' => 'قبول كل التغييرات المعلقة حاليا بالإضافة إلى التحرير الخاص بك. استخدم هذا فقط إذا كنت قد سبق و رأيت فرق التغييرات المعلقة.',
-	'revreview-check-flag-u' => 'قبول هذه الصفحة غير المراجعة',
+	'revreview-check-flag-u' => 'اقبل هذه الصفحة غير المراجعة',
 	'revreview-check-flag-u-title' => 'قبول هذه النسخة من الصفحة. يستخدم فقط إن كنت قد استعرضت كامل الصفحة.',
 	'revreview-check-flag-y' => 'قبول هذه التغييرات',
 	'revreview-check-flag-y-title' => 'قبول كل التغييرات التي قمت بها في هذا التعديل',
@@ -300,7 +300,7 @@ $messages['ar'] = array(
 
 انظر [[Special:Unreviewedpages|قائمة الصفحات غير المراجعة]].',
 	'revreview-stable1' => 'ربما ترغب في رؤية [{{fullurl:$1|stableid=$2}} هذه النسخة المعلمة] لترى ما إذا كانت [{{fullurl:$1|stable=1}} النسخة المنشورة] لهذه الصفحة.',
-	'revreview-stable2' => 'ربما ترغب في رؤية [{{fullurl:$1|stable=1}} النسخة المنشورة] لهذه الصفحة (لو كانت مازالت هناك واحدة).',
+	'revreview-stable2' => 'قد ترغب في مشاهدة [{{fullurl:$1|stable=1}} النسخة المستقرة] لهذه الصفحة.',
 	'revreview-submit' => 'أرسل',
 	'revreview-submitting' => 'يرسل...',
 	'revreview-submit-review' => 'اقبل المراجعة',
@@ -322,21 +322,21 @@ $messages['ar'] = array(
 من فضلك راجع كل الغييرات المعروضة أدناه لتظهر تعديلاتك في النسخة المستقرة.',
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important"> لم تضف تعديلات بعد إلى النسخة المستقرة. هناك تعديلات مسبقة تنتظر المراجعة. </span>
 رجاء راجع جميع التغييرات الظاهرة أدناه من أجل أن تظهر تعديلاتك في النسخة المستقرة.',
-	'revreview-update-includes' => "'''بعض القوالب/الملفات تم تحديثها:'''",
+	'revreview-update-includes' => "'''تم تحديث بعض القوالب/الملفات (الصفحات غير المراجعة مكتوبة بالعريض):'''",
 	'revreview-reject-header' => 'رفض التغييرات لـ$1',
-	'revreview-reject-text-list' => "بإتمام هذا الفعل، سوف يتم '''رفض''' {{PLURAL:$1|التعديل|التعديلات}} التالية :",
+	'revreview-reject-text-list' => "بإتمام هذا الفعل، سوف يتم '''رفض''' التعديلات النصية على المصدر من {{PLURAL:$1||المراجعة التالية|المراجعتين التاليتين|المراجعات التالية}} ل[[:$2|$2]]:",
 	'revreview-reject-text-revto' => 'هذا سوف يعيد الصفحة إلى [{{fullurl:$1|oldid=$2}} النسخة $3]',
 	'revreview-reject-summary' => 'ملخص التعديل:',
 	'revreview-reject-confirm' => 'رفض هذه التعديلات',
 	'revreview-reject-cancel' => 'ألغِ',
-	'revreview-reject-summary-cur' => '{{PLURAL:$1|رفض التغيير الأخير|رفضت التغييرات الـ$1 الأخيرة}} (من قبل $2) وتمت استعادة النسخة $3 من قبل $4',
-	'revreview-reject-summary-old' => '{{PLURAL:$1|رفض التغيير الأول|رفضت التغييرات الـ$1 الأولى}} (من قبل $2) وتمت استعادة النسخة $3 من قبل $4',
-	'revreview-reject-summary-cur-short' => '{{PLURAL:$1|رفض التغيير الأخير|رفضت التغييرات الـ$1 الأخيرة}} وتمت استعادة النسخة $2 من قبل $3',
-	'revreview-reject-summary-old-short' => '{{PLURAL:$1|رفض التغيير الأول|رفضت التغييرات الـ$1 الأولى}} وتمت استعادة النسخة $2 من قبل $3',
+	'revreview-reject-summary-cur' => 'رفضت {{PLURAL:$1||التغيير النصي الأخير|التغييران النصيان الأخيران|ال$1 تغييرات نصية الأخيرة|ال$1 تغيير نصي أخير|ال$1 تغييرا نصيا أخيرا}} (ل$2) واستعدت المراجعة $3 ل$4',
+	'revreview-reject-summary-old' => 'رفضت أول {{PLURAL:$1||تغيير نصي|تغييرين نصيين|$1 تغييرات نصية|$1 تغيير نصي|$1 تغييرا نصيا}} (ل$2) {{PLURAL:$1||تلى|تليا|تلت|تلى}} المراجعة $3 ل$4',
+	'revreview-reject-summary-cur-short' => 'رفضت {{PLURAL:$1||التغيير النصي الأخير|التغييران النصيان الأخيران|ال$1 تغييرات نصية الأخيرة|ال$1 تغيير نصي أخير|ال$1 تغييرا نصيا أخيرا}} واستعدت المراجعة $2 ل$3',
+	'revreview-reject-summary-old-short' => 'رفضت أول {{PLURAL:$1||تغيير نصي تلى|تغييرين نصيين تليا|$1 تغييرات نصية تلت|$1 تغيير نصي تلى|$1 تغييرا نصيا تلى}} المراجعة $2 ل$3',
 	'revreview-reject-usercount' => '{{PLURAL:$1|مستخدم|$1 مستخدمين}}',
 	'revreview-tt-flag' => 'اقبل هذه المراجعة بتعليمها "مفحوصة"',
 	'revreview-tt-unflag' => 'لا تقبل هذه المراجعة بتعليمها "مفحوصة"',
-	'revreview-tt-reject' => 'ارفض هذه التغييرات عن طريق استرجاعها',
+	'revreview-tt-reject' => 'ارفض التغييرات النصية على المصدر باسترجاعها',
 );
 
 /** Aramaic (ܐܪܡܝܐ)
@@ -384,6 +384,11 @@ $messages['arz'] = array(
  */
 $messages['ast'] = array(
 	'revisionreview' => 'Revisar revisiones',
+	'revreview-failed' => "'''Nun se pudo revisar esta revisión.'''",
+	'revreview-submission-invalid' => "L'unviu taba incompletu o era inválidu",
+	'review_page_invalid' => 'El títulu de la páxina de destín nun ye válidu.',
+	'review_page_notexists' => 'La páxina de destín nun esiste.',
+	'review_page_unreviewable' => 'Nun se puede revisar la páxina de destín.',
 	'revreview-flag' => 'Revisar esta revisión',
 	'revreview-legend' => 'Calificar el conteníu de la revisión',
 	'revreview-log' => 'Comentariu:',
@@ -397,7 +402,9 @@ Pa desaniciar l'estáu d'una revisión, calca \"nun aceutar\".
 
 Calca nel botón \"atrás\" del restolador y téntalo otra vuelta.",
 	'revreview-update' => "'''Por favor [[{{MediaWiki:Validationpage}}|revisa]] tolos cambeos pendientes ''(que s'amuesen abaxo)'' fechos dende la versión estable.'''",
-	'revreview-update-includes' => "'''S'anovaron delles plantíes/ficheros:'''",
+	'revreview-update-includes' => "'''S'anovaron delles plantíes/ficheros (páxines ensin revisar en negrina):'''",
+	'revreview-reject-summary' => 'Resume:',
+	'revreview-reject-cancel' => 'Encaboxar',
 );
 
 /** Azerbaijani (Azərbaycanca)
@@ -1959,16 +1966,16 @@ $messages['he'] = array(
 	'revreview-submission-invalid' => 'המידע שנשלח היה לא שלם או לא תקין בצורה כלשהי.',
 	'review_page_invalid' => 'כותרת דף היעד אינה תקינה.',
 	'review_page_notexists' => 'דף היעד אינו קיים.',
-	'review_page_unreviewable' => 'דף היעד אינו ניתן לסקירה.',
+	'review_page_unreviewable' => 'לא ניתן לסקור את דף היעד.',
 	'review_no_oldid' => 'לא צוין מספר גרסה.',
 	'review_bad_oldid' => 'גרסת היעד אינה קיימת.',
-	'review_conflict_oldid' => 'מישהו כבר קיבל או דחה את הגרסה הזאת בזמן שהצגתם אותה.',
+	'review_conflict_oldid' => 'מישהו כבר קיבל או דחה את הגרסה הזאת בזמן שהצגת אותה.',
 	'review_not_flagged' => 'גרסת היעד אינה מסומנת כעת כגרסה שנסקרה.',
 	'review_too_low' => 'לא ניתן לסמן גרסה של דף כ"נסקרת" כשהדף אינו קביל לפי מדד כלשהו.',
-	'review_bad_key' => 'מפתח פרמטר שגוי להכללה.',
+	'review_bad_key' => 'מפתח פרמטר הכללה שגוי.',
 	'review_bad_tags' => 'חלק מתערכי התגים שניתנו אינם תקינים.',
 	'review_denied' => 'ההרשאה נדחתה.',
-	'review_param_missing' => 'פרמטר חסר או שגוי.',
+	'review_param_missing' => 'פרמטר חסר או בלתי־תקין.',
 	'review_cannot_undo' => 'לא ניתן לבטל שינויים אלה כי עריכות ממתינות נוספות שינו את אותם האזורים.',
 	'review_cannot_reject' => 'לא ניתן לדחות שינויים אלה כי מישהו כבר קיבל חלק מהעריכות (או את כולן).',
 	'review_reject_excessive' => 'לא ניתן לדחות כמות כזאת של עריכות בבת אחת.',
