@@ -410,11 +410,12 @@ Calca nel botón \"atrás\" del restolador y téntalo otra vuelta.",
 /** Azerbaijani (Azərbaycanca)
  * @author Cekli829
  * @author Vugar 1981
+ * @author Wertuose
  */
 $messages['az'] = array(
 	'revisionreview' => 'Redaktələri yoxlayar',
 	'revreview-log' => 'Şərh:',
-	'revreview-submit' => 'Yolla',
+	'revreview-submit' => 'Təsdiq et',
 	'revreview-submitting' => 'Yollamaq',
 	'revreview-reject-summary' => 'Xülasə:',
 	'revreview-reject-cancel' => 'Ləğv et',
