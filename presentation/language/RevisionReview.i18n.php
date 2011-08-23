@@ -305,7 +305,7 @@ $messages['ar'] = array(
 	'revreview-submitting' => 'يرسل...',
 	'revreview-submit-review' => 'اقبل المراجعة',
 	'revreview-submit-unreview' => 'لا تقبل المراجعة',
-	'revreview-submit-reject' => 'رفض التغييرات',
+	'revreview-submit-reject' => 'ارفض التغييرات',
 	'revreview-submit-reviewed' => 'تم. قبلت!',
 	'revreview-submit-unreviewed' => 'تم. لم يتم القبول!',
 	'revreview-successful' => "'''عُلّمت مراجعة [[:$1|$1]] بنجاح. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} اعرض النسخ المستقرة])'''",
@@ -327,13 +327,13 @@ $messages['ar'] = array(
 	'revreview-reject-text-list' => "بإتمام هذا الفعل، سوف يتم '''رفض''' التعديلات النصية على المصدر من {{PLURAL:$1||المراجعة التالية|المراجعتين التاليتين|المراجعات التالية}} ل[[:$2|$2]]:",
 	'revreview-reject-text-revto' => 'هذا سوف يعيد الصفحة إلى [{{fullurl:$1|oldid=$2}} النسخة $3]',
 	'revreview-reject-summary' => 'ملخص التعديل:',
-	'revreview-reject-confirm' => 'رفض هذه التعديلات',
+	'revreview-reject-confirm' => 'ارفض هذه التعديلات',
 	'revreview-reject-cancel' => 'ألغِ',
 	'revreview-reject-summary-cur' => 'رفضت {{PLURAL:$1||التغيير النصي الأخير|التغييران النصيان الأخيران|ال$1 تغييرات نصية الأخيرة|ال$1 تغيير نصي أخير|ال$1 تغييرا نصيا أخيرا}} (ل$2) واستعدت المراجعة $3 ل$4',
 	'revreview-reject-summary-old' => 'رفضت أول {{PLURAL:$1||تغيير نصي|تغييرين نصيين|$1 تغييرات نصية|$1 تغيير نصي|$1 تغييرا نصيا}} (ل$2) {{PLURAL:$1||تلى|تليا|تلت|تلى}} المراجعة $3 ل$4',
 	'revreview-reject-summary-cur-short' => 'رفضت {{PLURAL:$1||التغيير النصي الأخير|التغييران النصيان الأخيران|ال$1 تغييرات نصية الأخيرة|ال$1 تغيير نصي أخير|ال$1 تغييرا نصيا أخيرا}} واستعدت المراجعة $2 ل$3',
-	'revreview-reject-summary-old-short' => 'رفضت أول {{PLURAL:$1||تغيير نصي تلى|تغييرين نصيين تليا|$1 تغييرات نصية تلت|$1 تغيير نصي تلى|$1 تغييرا نصيا تلى}} المراجعة $2 ل$3',
-	'revreview-reject-usercount' => '{{PLURAL:$1|مستخدم|$1 مستخدمين}}',
+	'revreview-reject-summary-old-short' => 'رفضت أول {{PLURAL:$1||تغيير نصي تلا|تغييرين نصيين تليا|$1 تغييرات نصية تلت|$1 تغيير نصي تلا|$1 تغييرا نصيا تلا}} المراجعة $2 ل$3',
+	'revreview-reject-usercount' => '{{PLURAL:$1||مستخدم واحد|مستخدمان|$1 مستخدمين|$1 مستخدم|$1 مستخدما}}',
 	'revreview-tt-flag' => 'اقبل هذه المراجعة بتعليمها "مفحوصة"',
 	'revreview-tt-unflag' => 'لا تقبل هذه المراجعة بتعليمها "مفحوصة"',
 	'revreview-tt-reject' => 'ارفض التغييرات النصية على المصدر باسترجاعها',
@@ -4413,7 +4413,7 @@ $messages['su'] = array(
  */
 $messages['sv'] = array(
 	'revisionreview' => 'Granska sidversioner',
-	'revreview-failed' => "''Kunde inte granska denna sidversion.''' Insändningen var ofullständig eller på annat sätt ogiltig.",
+	'revreview-failed' => "'''Kunde inte granska denna sidversion.'''",
 	'review_page_invalid' => 'Målsidans titel är ogiltig.',
 	'review_page_notexists' => 'Målsidan existerar inte.',
 	'review_page_unreviewable' => 'Målsidan är inte granskningsbar.',
@@ -4425,6 +4425,7 @@ $messages['sv'] = array(
 	'review_denied' => 'Tillstånd nekat.',
 	'review_param_missing' => 'En parameter saknas eller är ogiltig.',
 	'review_cannot_undo' => 'Kan inte ångra dessa ändringar eftersom ytterligare väntande redigeringar har ändrat i samma områden.',
+	'review_reject_excessive' => 'Kan inte avvisa så många ändringar på en gång.',
 	'revreview-check-flag-p' => 'Accept this version (includes $1 pending {{PLURAL:$1|change|changes}})',
 	'revreview-check-flag-p-title' => 'Acceptera alla nuvarande väntande ändringar tillsammans med din egen redigering. Använd endast detta om du redan har sett hela diffen för väntande ändringar.',
 	'revreview-check-flag-u' => 'Acceptera denna ogranskade sida',
@@ -4450,11 +4451,11 @@ Se [[Special:Unreviewedpages|listan över ogranskade sidor]].',
 	'revreview-submit-unreviewed' => 'Klar. Inte accepterad!',
 	'revreview-successful' => "'''Vald sidversion av [[:$1|$1]] har flaggats. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} visa alla stabila sidversioner])'''",
 	'revreview-successful2' => "'''Vald sidversion av [[:$1|$1]] har avflaggats.'''",
-	'revreview-toolow' => "'''Du måste bedöma varje attribut högre än \"otillräcklig\" för att en sidversion ska anses granskad.'''
+	'revreview-toolow' => '\'\'\'Du måste bedöma varje attribut högre än "otillräcklig" för att en sidversion ska anses som granskad.\'\'\'
 
-För att ta bort granskningsstatusen för en version, sätt \"otillräckligt\" på ''alla'' fält.
+För att ta bort granskningsstatusen för en version, klicka på "oacceptera".
 
-Klicka på \"tillbaka\"-knappen i din webbläsare och försök igen.",
+Klicka på "tillbaka"-knappen i din webbläsare och försök igen.',
 	'revreview-update' => "'''Vänligen [[{{MediaWiki:Validationpage}}|granska]] några väntande ändringar ''(visas nedan)'' på den accepterade versionen.'''",
 	'revreview-update-edited' => '<span class="flaggedrevs_important">Dina ändringar är ännu inte i den stabila versionen.</span>
 
@@ -4462,13 +4463,20 @@ Vänligen granska alla ändringar som visas nedan för att göra så att dina re
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Dina ändringar är ännu inte i den stabila versionen. Det finns tidigare ändringar som väntar på granskning</span>
 
 Vänligen granska alla ändringar som visas nedan för att göra så att dina redigeringar visas i den stabila versionen.',
-	'revreview-update-includes' => "'''Vissa mallar eller filer har ändrats:'''",
+	'revreview-update-includes' => "'''Mallar/filer har uppdaterats (ogranskade sidor i fet text):'''",
+	'revreview-reject-header' => 'Avvisa ändringar för $1',
+	'revreview-reject-text-revto' => 'Detta kommer att återställa sidan tillbaka till [{{fullurl:$1|oldid=$2}} versionen från $3].',
 	'revreview-reject-summary' => 'Sammanfattning:',
+	'revreview-reject-confirm' => 'Avvisa dessa ändringar',
 	'revreview-reject-cancel' => 'Avbryt',
+	'revreview-reject-summary-cur' => 'Avvisade {{PLURAL:$1|den senaste textändringen|de $1 senaste textändringarna}} (av $2) och återställd sidversion $3 av $4',
+	'revreview-reject-summary-old' => 'Avvisade {{PLURAL:$1|den första textändringen|de $1 första textändringarna}} (av $2) som följde sidversion $3 av $4',
+	'revreview-reject-summary-cur-short' => 'Avvisade {{PLURAL:$1|den senaste textändringen|de $1 senaste textändringarna}} och återställd sidversion $2 av $3',
+	'revreview-reject-summary-old-short' => 'Avvisade {{PLURAL:$1|den första textändringen|de $1 första textändringarna}} som följde sidversion $2 av $3',
 	'revreview-reject-usercount' => '{{PLURAL:$1|en användare|$1 användare}}',
 	'revreview-tt-flag' => 'Acceptera denna sidversion genom att markera den "kontrollerad"',
 	'revreview-tt-unflag' => 'Oacceptera denna sidversion genom att markera den som "okontrollerad"',
-	'revreview-tt-reject' => 'Avslå dessa ändringar genom att återställa dem',
+	'revreview-tt-reject' => 'Avslå dessa källtext-ändringar genom att återställa dem',
 );
 
 /** Swahili (Kiswahili)

@@ -128,7 +128,7 @@ $messages['an'] = array(
  * @author Ouda
  */
 $messages['ar'] = array(
-	'pendingchanges' => 'صفحات مع تغييرات معلقة',
+	'pendingchanges' => 'صفحات لها تغييرات معلقة',
 	'pendingchanges-legend' => 'عرض الصفحات المراجعة ذات المراجعات غير المراجعة',
 	'pendingchanges-list' => 'تسرد هذه الصفحة الصفحات [[{{MediaWiki:Validationpage}}|المراجعة]] التي أجري عليها تعديل واحد أو أكثر بانتظار المراجعة.',
 	'pendingchanges-none' => 'لا توجد حاليا صفحات تطابق هذه المواصفات',
