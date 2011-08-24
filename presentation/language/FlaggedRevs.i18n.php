@@ -12726,6 +12726,7 @@ Please check the URL you used to access this page.',
  * @author GameOn
  * @author Jon Harald Søby
  * @author Lejonel
+ * @author Lokal Profil
  * @author M.M.S.
  * @author Najami
  * @author Nghtwlkr
@@ -12746,6 +12747,8 @@ $messages['sv'] = array(
 	'prefs-flaggedrevs' => 'Redigeringsgranskning',
 	'prefs-flaggedrevs-ui' => 'Redigeringsgranskning',
 	'flaggedrevs-prefs-stable' => 'Visa som standard alltid den accepterade versionen av innehållssidor (om en sådan finns)',
+	'flaggedrevs-pref-stable-1' => 'Visa alltid den stabila versionen (om det finns någon)',
+	'flaggedrevs-pref-stable-2' => 'Visa alltid den senaste versionen',
 	'flaggedrevs-prefs-watch' => 'Lägg till sidor jag granskar i min bevakningslista',
 	'flaggedrevs-prefs-editdiffs' => 'Visa diffen för väntande ändringar vid redigering av sidor',
 	'flaggedrevs-prefs-viewdiffs' => 'Visa diffen för väntande ändringar vid visning av senaste väntande ändring',
