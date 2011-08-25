@@ -1633,6 +1633,7 @@ Arvioi kaikki alla olevat muutokset, jotta muokkauksesi näkyisivät vakaassa ve
 
 /** French (Français)
  * @author Crochet.david
+ * @author Gomoko
  * @author Grondin
  * @author IAlex
  * @author Jean-Frédéric
@@ -1660,6 +1661,7 @@ $messages['fr'] = array(
 	'review_cannot_undo' => 'Impossible de défaire ces modifications parce que d’autres modifications en attente concernent les mêmes zones.',
 	'review_cannot_reject' => 'Impossible de rejeter ces changements car quelqu’un a déjà accepté tout ou partie des modifications.',
 	'review_reject_excessive' => 'Impossible de rejeter autant de modifications en une seule fois.',
+	'review_reject_nulledits' => 'Impossible de rejeter ces changements car toutes les révisions sont des modifications vides.',
 	'revreview-check-flag-p' => 'Accepter cette version (inclut $1 {{PLURAL:$1|modification|modifications}} en attente)',
 	'revreview-check-flag-p-title' => "Accepter toutes les modifications en attente en même temps que votre propre modification.
 Ne l'utilisez que si vous avez déjà vu le diff de l'ensemble des modifications en attente.",
@@ -1688,6 +1690,8 @@ Voir la [[Special:Unreviewedpages|liste des pages non relues]].",
 	'revreview-successful2' => "'''Version de [[:$1|$1]] invalidée.'''",
 	'revreview-poss-conflict-p' => "'''Attention : [[User:$1|$1]] a commencé à relire cette page le $2 à $3.'''",
 	'revreview-poss-conflict-c' => "'''Attention : [[User:$1|$1]] a commencé à relire ces modifications le $2 à $3.'''",
+	'revreview-adv-reviewing-p' => "'''Remarque: Vous êtes notifié comme ayant commencé l'examen de cette page le $1 à $2.'''",
+	'revreview-adv-reviewing-c' => "'''Remarque: Vous êtes notifié comme ayant commencé l'examen de ces changements le $1 à $2.'''",
 	'revreview-toolow' => "'''Vous devez affecter à chacun des attributs une évaluation plus élevée que « inappropriée » pour que la relecture soit prise en compte comme acceptée.'''
 
 Pour enlever l’état de relecture d’une version, cliquez sur « Ne pas accepter ».
@@ -1702,15 +1706,15 @@ Veuillez vérifier toutes les modifications affichées ci-dessous pour que la v�
 Vous devez relire toutes les modifications affichées ci-dessous pour la votre apparaisse dans la version stable.',
 	'revreview-update-includes' => "'''Modèles/fichiers mis à jour (pages non relues en gras) :'''",
 	'revreview-reject-header' => 'Refuser les modifications pour $1',
-	'revreview-reject-text-list' => "En accomplissant cette action, vous allez '''rejeter''' {{PLURAL:$1|la modification suivante|les modifications suivantes}} :",
+	'revreview-reject-text-list' => "En effectuant cette action, vous allez '''rejeter''' les modifications sur le texte source {{PLURAL:$1|de la révision suivante|des révisions suivantes}} de [[:$2|$2]]:",
 	'revreview-reject-text-revto' => 'Ceci remettra cette page dans sa [{{fullurl:$1|oldid=$2}} version du $3].',
 	'revreview-reject-summary' => 'Résumé :',
 	'revreview-reject-confirm' => 'Rejeter ces changements',
 	'revreview-reject-cancel' => 'Annuler',
-	'revreview-reject-summary-cur' => 'A rejeté {{PLURAL:$1|la dernière modification|les $1 dernières modifications}} (par $2) et restauré la version $3 par $4',
-	'revreview-reject-summary-old' => 'A rejeté {{PLURAL:$1|la première modification|les $1 premières modifications}} (par $2) et restauré la version $3 par $4',
-	'revreview-reject-summary-cur-short' => 'A rejeté {{PLURAL:$1|la dernière modification|les $1 dernières modifications}} et restauré la version $2 par $3',
-	'revreview-reject-summary-old-short' => 'A rejeté {{PLURAL:$1|la première modification|les $1 premières modifications}} et restauré la version $2 par $3',
+	'revreview-reject-summary-cur' => '{{PLURAL:$1|La dernière modification du texte|Les dernières modifications du texte}} (par $2) ont été rejetées et la version $3 a été restaurée par $4',
+	'revreview-reject-summary-old' => '{{PLURAL:$1|La première modification du texte|Les premières modifications du texte}} (par $2) qui suivaient la révision $3 ont été rejetées par $4',
+	'revreview-reject-summary-cur-short' => '{{PLURAL:$1|La dernière modification du texte|Les $1 dernières modifications du texte}} ont été rejetées et la version $2 a été restaurée par $3',
+	'revreview-reject-summary-old-short' => '{{PLURAL:$1|La première modification du texte|Les $1 premières modifications du texte}} qui suivaient la révision $2 ont été rejetées par $3',
 	'revreview-reject-usercount' => '{{PLURAL:$1|un utilisateur|$1 utilisateurs}}',
 	'revreview-tt-flag' => 'Approuver cette version en la marquant comme vérifiée',
 	'revreview-tt-unflag' => 'Désapprouver cette version en la marquant comme non-vérifiée',

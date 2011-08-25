@@ -10355,11 +10355,11 @@ $messages['pl'] = array(
 	'review-logpage' => 'Rejestr oznaczania',
 	'review-logpagetext' => 'To jest rejestr zmian w [[{{MediaWiki:Validationpage}}|oznaczaniu]] wersji stron.',
 	'reviewer' => 'Weryfikator',
-	'revreview-accuracy' => 'Wiarygodność',
+	'revreview-accuracy' => 'Precyzja',
 	'revreview-accuracy-0' => 'nieadekwatna',
 	'revreview-accuracy-1' => 'przejrzana',
 	'revreview-accuracy-2' => 'zweryfikowana',
-	'revreview-accuracy-3' => 'oparte na źródłach',
+	'revreview-accuracy-3' => 'Dobrze opatrzone źródłami',
 	'revreview-accuracy-4' => 'na medal',
 	'revreview-auto' => '(automatycznie)',
 	'revreview-basic' => 'To jest najnowsza [[{{MediaWiki:Validationpage}}|wersja przejrzana]], która została [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} oznaczona] <i>$2</i>.
