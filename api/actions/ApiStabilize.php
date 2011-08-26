@@ -180,7 +180,7 @@ class ApiStabilizeGeneral extends ApiStabilize {
 		) );
 	}
 
-	protected function getExamples() {
+	public function getExamples() {
 		return 'api.php?action=stabilize&title=Test&default=stable&reason=Test&token=123ABC';
 	}
 
@@ -266,7 +266,7 @@ class ApiStabilizeProtect extends ApiStabilize {
 		) );
 	}
 
-	protected function getExamples() {
+	public function getExamples() {
 		return 'api.php?action=stabilize&title=Test&protectlevel=none&reason=Test&token=123ABC';
 	}
 

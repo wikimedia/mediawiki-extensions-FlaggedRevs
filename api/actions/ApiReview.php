@@ -204,7 +204,7 @@ class ApiReview extends ApiBase {
 		return '';
 	}
 
-	protected function getExamples() {
+	public function getExamples() {
 		return 'api.php?action=review&revid=12345&token=123AB&flag_accuracy=1&comment=Ok';
 	}
 

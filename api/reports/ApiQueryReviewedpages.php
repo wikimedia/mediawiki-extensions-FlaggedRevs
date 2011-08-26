@@ -190,7 +190,7 @@ class ApiQueryReviewedpages extends ApiQueryGeneratorBase {
 		return 'Enumerates pages that have a reviewed version';
 	}
 
-	protected function getExamples() {
+	public function getExamples() {
 		return array (
 			'Show a list of reviewed pages',
 			' api.php?action=query&list=reviewedpages&rpnamespace=0&rpfilterlevel=0',

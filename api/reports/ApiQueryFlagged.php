@@ -76,7 +76,7 @@ class ApiQueryFlagged extends ApiQueryBase {
 		);
 	}
 
-	protected function getExamples() {
+	public function getExamples() {
 		return array (
 			'api.php?action=query&prop=info|flagged&titles=Main%20Page',
 			'api.php?action=query&generator=allpages&gapfrom=K&prop=flagged'

@@ -232,7 +232,7 @@ class ApiQueryOldreviewedpages extends ApiQueryGeneratorBase {
 		) );
 	}
 
-	protected function getExamples() {
+	public function getExamples() {
 		return array(
 			'Show a list of pages with pending unreviewed changes',
 			' api.php?action=query&list=oldreviewedpages&ornamespace=0',

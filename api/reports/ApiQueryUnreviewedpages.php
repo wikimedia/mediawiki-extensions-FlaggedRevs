@@ -174,7 +174,7 @@ class ApiQueryUnreviewedpages extends ApiQueryGeneratorBase {
 		return 'Enumerates pages that have not been reviewed to a given quality level ("filterlevel")';
 	}
 
-	protected function getExamples() {
+	public function getExamples() {
 		return array (
 			'Show a list of unreviewed pages',
 			' api.php?action=query&list=unreviewedpages&urnamespace=0&urfilterlevel=0',

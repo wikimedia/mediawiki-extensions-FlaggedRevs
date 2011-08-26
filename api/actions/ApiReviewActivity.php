@@ -137,7 +137,7 @@ class ApiReviewActivity extends ApiBase {
 		return false;
 	}
 
-	protected function getExamples() {
+	public function getExamples() {
 		return 'api.php?action=reviewactivity&pageid=12345&reviewing=1';
 	}
 

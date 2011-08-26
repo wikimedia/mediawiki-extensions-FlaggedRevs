@@ -76,7 +76,7 @@ class ApiFlagConfig extends ApiBase {
 		);
 	}
 
-	protected function getExamples() {
+	public function getExamples() {
 		return 'api.php?action=flagconfig';
 	}
 	

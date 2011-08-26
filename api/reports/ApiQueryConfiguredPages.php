@@ -194,7 +194,7 @@ class ApiQueryConfiguredpages extends ApiQueryGeneratorBase {
 		return 'Enumerate all pages that have custom review configurations';
 	}
 
-	protected function getExamples() {
+	public function getExamples() {
 		return array(
 			'Show a list of pages with custom review configurations',
 			' api.php?action=query&list=configuredpages&cpnamespace=0',
