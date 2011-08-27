@@ -89,9 +89,9 @@ $messages['an'] = array(
  */
 $messages['ar'] = array(
 	'validationstatistics' => 'إحصاءات مراجعة الصفحة',
-	'validationstatistics-users' => "'''{{SITENAME}}''' بها حاليا '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|مستخدم|مستخدمون}} بصلاحية [[{{MediaWiki:Validationpage}}|محرر]].
+	'validationstatistics-users' => "على '''{{SITENAME}}''' حاليا {{PLURAL:$1||'''[[Special:ListUsers/editor|مستخدم واحد]]'''|'''[[Special:ListUsers/editor|مستخدمان]]'''|'''[[Special:ListUsers/editor|$1]]''' مستخدمين|'''[[Special:ListUsers/editor|$1]]''' مستخدمًا|'''[[Special:ListUsers/editor|$1]]''' مستخدم}} بصلاحية [[{{MediaWiki:Validationpage}}|محرر]].
 
-المحررون هم مستخدمون موثوقون يمكنهم التحقق من المراجعات للصفحات.",
+المحررون هم مستخدمون موثوقون يمكنهم اعتماد مراجعات الصفحات.",
 	'validationstatistics-lastupdate' => "''حدثت البيانات التالية آخر مرة يوم $1 عند $2.''",
 	'validationstatistics-pndtime' => "تعتبر التعديلات التي فحصها مستخدمون معتمدون ''مراجعة''.
 

@@ -322,6 +322,7 @@ Certains paramètres peuvent faire apparaître une version différente pour les 
  * @author ChrisPtDe
  */
 $messages['frp'] = array(
+	'configuredpages' => 'Pâges avouéc des configuracions de rèvision',
 	'configuredpages-none' => 'Y at gins de pâge dens ceta lista.',
 	'configuredpages-config' => 'Configuracion',
 	'configuredpages-def-draft' => 'dèrriére vèrsion',

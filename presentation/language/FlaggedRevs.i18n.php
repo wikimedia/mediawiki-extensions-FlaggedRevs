@@ -836,7 +836,7 @@ $messages['ar'] = array(
 	'revreview-accuracy-4' => 'مميزة',
 	'revreview-auto' => '(تلقائيا)',
 	'revreview-basic' => 'هذه هي [[{{MediaWiki:Validationpage}}|النسخة المستقرة]]، [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} المفحوصة] في <i>$2</i>.
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$3||تغيير واحد معلق|تغييران معلقان|$3 تغييرات معلقة|$3 تغيير معلق|$3 تغييرا معلقا}}] {{PLURAL:$3||ينتظر|ينتظران|تنتظر|ينتظر}} المراجعة.',
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$3||تغيير واحد معلق|تغييران معلقان|$3 تغييرات معلقة|$3 تغييرا معلقا|$3 تغيير معلق}}] {{PLURAL:$3||ينتظر|ينتظران|تنتظر|ينتظر}} المراجعة.',
 	'revreview-basic-i' => 'هذه هي [[{{MediaWiki:Validationpage}}|النسخة المستقرة]]، [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} المفحوصة] في <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} تغييرات قوالب/ملفات] تنتظر المراجعة.',
 	'revreview-basic-old' => 'هذه نسخة [[{{MediaWiki:Validationpage}}|مفحوصة]] ([{{fullurl:{{#Special:Stableversions}}|page={{FULLPAGENAMEE}}}} اسرد الكل]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} اعتمدت] في <i>$2</i>.
@@ -857,19 +857,19 @@ $messages['ar'] = array(
 	'revreview-submitedit-title' => 'أرسل تعديلاتك للمراجعة',
 	'revreview-edited' => "''''ستظهر تغييراتك للقراء متى ما راجعها مستخدم مخول. ([[{{MediaWiki:Validationpage}}|مساعدة]])'''
 
-{{PLURAL:$2||يوجد|يوجد|توجد}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$2||تغيير واحد معلق|تغييران معلقان|$2 تغييرات معلقة|$2 تغيير معلق|$2 تغييرا معلقا}}] ''({{PLURAL:$2||معروض|معروضان|معروضة|معروض}} في الأسفل)'' بانتظار المراجعة.",
+{{PLURAL:$2||يوجد|يوجد|توجد}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$2||تغيير واحد معلق|تغييران معلقان|$2 تغييرات معلقة|$2 تغييرا معلقا|$2 تغيير معلق}}] ''({{PLURAL:$2||معروض|معروضان|معروضة|معروض}} في الأسفل)'' بانتظار المراجعة.",
 	'revreview-edited-section' => 'العودة إلى القسم المسمى "[[#$1|$2]]".',
-	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$3||تغيير واحد|تغييران|$3 تغييرات|$3 تغير|$3 تغييرا}}] في هذه النسخة [[{{MediaWiki:Validationpage}}|{{PLURAL:$3||معلق|معلقان|معلقة|معلق}} للمراجعة]].
+	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$3||تغيير واحد|تغييران|$3 تغييرات|$3 تغيرا|$3 تغيير}}] في هذه النسخة [[{{MediaWiki:Validationpage}}|{{PLURAL:$3||معلق|معلقان|معلقة|معلق}} للمراجعة]].
 [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} فحصت] [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} النسخة المستقرة] في <i>$2</i>.',
 	'revreview-newest-basic-i' => 'توجد [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} تغييرات لقوالب/ملفات] في هذه النسخة [[{{MediaWiki:Validationpage}}|معلقة للمراجعة]].
 [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} فحصت] [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} النسخة المستقرة] في <i>$2</i>.',
-	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$3||تغيير واحد|تغييران|$3 تغييرات|$3 تغير|$3 تغييرا}}] في هذه النسخة [[{{MediaWiki:Validationpage}}|{{PLURAL:$3||معلق|معلقان|معلقة|معلق}} للمراجعة]].
+	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$3||تغيير واحد|تغييران|$3 تغييرات|$3 تغيرا|$3 تغيير}}] في هذه النسخة [[{{MediaWiki:Validationpage}}|{{PLURAL:$3||معلق|معلقان|معلقة|معلق}} للمراجعة]].
 [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} أعتمدت] [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} النسخة المستقرة] في <i>$2</i>.',
 	'revreview-newest-quality-i' => 'توجد [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} تغييرات لقوالب وملفات] في هذه النسخة [[{{MediaWiki:Validationpage}}|معلقة للمراجعة]].
 [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} أقرت] [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} النسخة المستقرة] في <i>$2</i>.',
-	'revreview-pending-basic' => '[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} فحصت] [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} النسخة المستقرة] في <i>$2</i>. {{PLURAL:$3||يوجد|يوجد|توجد}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$3||تغيير واحد معلق|تغييران معلقان|$3 تغييرات معلقة|$3 تغيير معلق|$3 تغييرا معلقا}}] بانتظار المراجعة.',
-	'revreview-pending-quality' => '[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} أعتمدت] [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} النسخة المستقرة] في <i>$2</i>. {{PLURAL:$3||يوجد|يوجد|توجد}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$3||تغيير واحد معلق|تغييران معلقان|$3 تغييرات معلقة|$3 تغيير معلق|$3 تغييرا معلقا}}] بانتظار المراجعة.',
-	'revreview-pending-nosection' => 'جرب مشاهدة [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} آخر مراجعة] والتي تتضمن [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$2||تعديلا واحدا معلقا|تعديلان معلقان|$2 تعديلات معلقة|$2 تعديل معلق|$2 تعديلا معلقا}}] لترى إن كان القسم قد نقل أو حذف.',
+	'revreview-pending-basic' => '[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} فحصت] [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} النسخة المستقرة] في <i>$2</i>. {{PLURAL:$3||يوجد|يوجد|توجد}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$3||تغيير واحد معلق|تغييران معلقان|$3 تغييرات معلقة|$3 تغييرا معلقا|$3 تغيير معلق}}] بانتظار المراجعة.',
+	'revreview-pending-quality' => '[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} أعتمدت] [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} النسخة المستقرة] في <i>$2</i>. {{PLURAL:$3||يوجد|يوجد|توجد}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$3||تغيير واحد معلق|تغييران معلقان|$3 تغييرات معلقة|$3 تغييرا معلقا|$3 تغيير معلق}}] بانتظار المراجعة.',
+	'revreview-pending-nosection' => 'جرب مشاهدة [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} آخر مراجعة] والتي تتضمن [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$2||تغيير واحد معلق|تغييران معلقان|$2 تغييرات معلقة|$2 تغييرا معلقا|$2 تغيير معلق}}] لترى إن كان القسم قد نقل أو حذف.',
 	'revreview-noflagged' => "لا توجد نسخ [[{{MediaWiki:Validationpage}}|مراجعة]] لهذه الصفحة، لذا فقد '''لا''' يكون التزامها بالمعايير مفحوصا.",
 	'revreview-oldrating' => 'تم تقييمها ك:',
 	'revreview-quality' => 'هذه هي [[{{MediaWiki:Validationpage}}|النسخة المستقرة]]، [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} أقرت] في <i>$2</i>.
@@ -4946,6 +4946,9 @@ $messages['frp'] = array(
 	'prefs-flaggedrevs' => 'Aprobacion des changements',
 	'prefs-flaggedrevs-ui' => 'Aprobacion des changements',
 	'flaggedrevs-prefs-stable' => 'Quand fâre vêre per dèfôt la vèrsion stâbla de les pâges de contegnu',
+	'flaggedrevs-pref-stable-0' => 'Utilisar los paramètres per dèfôt por châque pâge',
+	'flaggedrevs-pref-stable-1' => 'Tojorn fâre vêre la vèrsion stâbla (s’y en at yona)',
+	'flaggedrevs-pref-stable-2' => 'Tojorn fâre vêre la dèrriére vèrsion',
 	'flaggedrevs-prefs-watch' => 'Apondre les pâges que revèyo a ma lista de survelyence',
 	'flaggedrevs-prefs-editdiffs' => 'Montrar lo dif des changements en atenta quand vos changiéd des pâges',
 	'flaggedrevs-prefs-viewdiffs' => 'Montrar lo dif des changements en atenta quand la dèrriére vèrsion en atenta est vua',
