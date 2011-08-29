@@ -950,7 +950,7 @@ $messages['ar'] = array(
 	'tooltip-ca-stable' => 'رؤية النسخة المنشورة من هذه الصفحة',
 	'tooltip-ca-default' => 'إعدادات توكيد الجودة',
 	'flaggedrevs-protect-legend' => 'مراجعة تلقائية للتعديلات ([[{{MediaWiki:Validationpage}}|مساعدة]])',
-	'flaggedrevs-protect-none' => 'السماح لكل المستخدمين',
+	'flaggedrevs-protect-none' => 'اسمح لكل المستخدمين',
 	'flaggedrevs-categoryview' => '[{{fullurl:Special:UnreviewedPages|category=$1}} صفحات غير مراجعة]{{int:pipe-separator}}[{{fullurl:Special:PendingChanges|category=$1}} تعديلات بالانتظار]',
 	'revreview-locked-title' => 'يتطلب تعديل هذه الصفحة أن تراجع.',
 	'revreview-unlocked-title' => 'لا يتطلب تعديل هذه الصفحة أن تراجع.',

@@ -92,6 +92,18 @@ $messages['arz'] = array(
 	'stablepages-config' => 'ضبط',
 );
 
+/** Asturian (Asturianu)
+ * @author Xuacu
+ */
+$messages['ast'] = array(
+	'stablepages' => "Páxines qu'usen aprobación d'ediciones",
+	'stablepages-list' => "Esta páxina llista les páxines nes que sólo ciertos usuarios pueden facer ediciones que no necesiten revisión.
+Les ediciones feches por otros usuarios nun s'amuesen a los llectores de mou predetermináu mentanto qu'un usuariu autorizáu nun les revise.",
+	'stablepages-none' => 'Nun hai páxines nesta llista.',
+	'stablepages-config' => 'Configuración',
+	'stablepages-indef' => 'Sólo caducidá indefinida',
+);
+
 /** Southern Balochi (بلوچی مکرانی)
  * @author Mostafadaneshvar
  */

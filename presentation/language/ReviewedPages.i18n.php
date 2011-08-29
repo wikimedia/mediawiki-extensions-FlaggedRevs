@@ -114,7 +114,7 @@ $messages['ast'] = array(
 	'reviewedpages-leg' => 'Llista de les páxines que tan revisaes',
 	'reviewedpages-list' => "Esta llista contién páxines [[{{MediaWiki:Validationpage}}|revisaes]] pa les qu'el nivel de revisión ''más altu algamáu'' (pa una revisión) ye'l nivel especificáu.
 	Se da un enllaz a la cabera revisión d'esi nivel.",
-	'reviewedpages-none' => 'Nun hai páxines nesta llista',
+	'reviewedpages-none' => 'Nun hai páxines nesta llista.',
 	'reviewedpages-lev-0' => 'Vistes',
 	'reviewedpages-lev-1' => 'Calidables',
 	'reviewedpages-lev-2' => 'Destacaes',
