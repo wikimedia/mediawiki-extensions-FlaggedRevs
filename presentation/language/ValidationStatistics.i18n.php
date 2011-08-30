@@ -1084,14 +1084,15 @@ Editor lan Pamriksa iku panganggo mapan sing bisa mriksa langsung owah-owahan ka
 /** Georgian (ქართული)
  * @author BRUTE
  * @author ITshnik
+ * @author Nodar Kherkheulidze
  * @author გიორგიმელა
  */
 $messages['ka'] = array(
 	'validationstatistics' => 'გვერდების შემოწმების სტატისტიკა',
-	'validationstatistics-users' => "პროექტ {{SITENAME}} ამ მომენტისთვის '''[[Special:ListUsers/editor|$1]]''' {{plural:$1|მომხმარებელს აქვს|მომხმარებლებს აქვთ}} [[{{MediaWiki:Validationpage}}|«შემმოწმებლის»]] სტატუსი.
+	'validationstatistics-users' => "პროექტ {{SITENAME}} ამ მომენტისთვის '''[[Special:ListUsers/editor|$1]]''' {{plural:$1|მომხმარებელს აქვს|მომხმარებლებს აქვთ}} [[{{MediaWiki:Validationpage}}|„შემმოწმებლის“]] სტატუსი.
 
 
-«შემმოწმებლები» — არიან მომხმარებლები, რომლებსაც შეუძლიათ სტატიის კონკრეტული ვერსიების შემოწმება.",
+„შემმოწმებლები“ არიან მომხმარებლები, რომლებსაც შეუძლიათ სტატიის კონკრეტული ვერსიების შემოწმება.",
 	'validationstatistics-table' => " ქვემოთ ნაჩვენებია სტატისტიკა თითოეული სახელთა სივრცისათვის, ''გარდა'' გადამისამართების გვერდებისა.",
 	'validationstatistics-ns' => 'სახელთა სივრცე',
 	'validationstatistics-total' => 'გვერდები',
