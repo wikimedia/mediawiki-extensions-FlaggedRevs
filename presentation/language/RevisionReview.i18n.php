@@ -1305,7 +1305,7 @@ Bonvolu kontroli ĉiujn jenajn ŝanĝojn por aperigi viajn redaktojn en la stabi
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Viaj ŝanĝoj ankoraŭ ne estas en la stabila versio. Ekzistas antaŭaj kontrolendaj ŝanĝoj.</span>
 
 Bonvolu kontroli ĉiujn jenajn ŝanĝojn por aperigi viajn redaktojn en la stabila versio.',
-	'revreview-update-includes' => "'''Iuj ŝablonoj/bildoj estis ĝisdatigitaj:'''",
+	'revreview-update-includes' => "'''Ŝablonoj/dosieroj estis ĝisdatigitaj (nekontrolitaj paĝoj estas dikigitaj):'''",
 	'revreview-reject-header' => 'Malaprobi ŝanĝojn por $1',
 	'revreview-reject-text-list' => "Farante ĉi tiun agon, vi '''malaprobos''' la {{PLURAL:$1|jenan ŝanĝon|jenajn ŝanĝojn}}:",
 	'revreview-reject-text-revto' => 'Tio ĉi restarigos la paĝon al la [{{fullurl:$1|oldid=$2}} versio ekde $3].',
@@ -1319,7 +1319,7 @@ Bonvolu kontroli ĉiujn jenajn ŝanĝojn por aperigi viajn redaktojn en la stabi
 	'revreview-reject-usercount' => '{{PLURAL:$1|unu uzanto|$1 uzantoj}}',
 	'revreview-tt-flag' => 'Aprobi ĉi tiun revizion per markado kontrolita',
 	'revreview-tt-unflag' => 'Malaprobi ĉi tiun revizion per markado "ne-kontrolita"',
-	'revreview-tt-reject' => 'Malaprobi ĉi tiujn ŝanĝojn malfarante ilin',
+	'revreview-tt-reject' => 'Malaprobi ĉi tiujn ŝanĝojn de informo-fontoj, malfarante ilin',
 );
 
 /** Spanish (Español)
@@ -1493,11 +1493,13 @@ $messages['fa'] = array(
 	'review_not_flagged' => 'نسخهٔ مقصد تاکنون به عنوان بازبینی‌شده علامت‌گذاری نشده است.',
 	'review_too_low' => 'در حالی که برخی فیلدها «نابسنده» رها شده‌اند، نمی‌توان نسخه را بازبینی کرد.',
 	'review_bad_key' => 'کلید پارامتر گنجایش نامعتبر.',
+	'review_bad_tags' => 'برخی از مقادیر مشخص شده برچسب نامعتبر هستند.',
 	'review_denied' => 'اجازه داده نشد.',
 	'review_param_missing' => 'یک پارامتر وارد نشده یا نادرست وارد شده‌است',
 	'review_cannot_undo' => 'نمی‌توان این تغییرات را خنثی کرد چرا که ویرایش‌های دیگری در انتظار است که نواحی مشابهی را تغییر می‌دهد.',
 	'review_cannot_reject' => 'نمی‌توان این تغییرات را رد کرد، زیرا در حال حاضر شخص دیگری تمام یا بخشی از این تغییرات را پذیرفته است.',
 	'review_reject_excessive' => 'چند ویرایش را نمی‌توان یک جا رد کرد.',
+	'review_reject_nulledits' => 'نمی‌توان این تغییرات را رد کرد، زیرا تمامی نسخه‌ها ویرایش‌های خالی هستند.',
 	'revreview-check-flag-p' => 'پذیرفتن این نسخه (شامل $1 {{PLURAL:$1|تغییر|تغییرات}} در حال انتظار)',
 	'revreview-check-flag-p-title' => 'پذیرش همهٔ تغییرات در حال انتظار کنونی بعلاوهٔ ویرایش خودتان. تنها در صورتی از این استفاده کنید که همهٔ تفاوت‌های تغییرات در حال انتظار را دیده باشید.',
 	'revreview-check-flag-u' => 'این صفحهٔ بازبینی‌نشده را بپذیر',
@@ -1536,21 +1538,21 @@ $messages['fa'] = array(
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">تغییرات شما هنوز در نسخهٔ پایدار نیستند. تغییرات پیشین در انتظار بازبینی هستند.</span>
 
 لطفاً همهٔ تغییرات نشان‌داده‌شده در زیر را به‌منظور نمایاندن ویرایش‌هایتان در نسخهٔ پایدار بازبینی کنید.',
-	'revreview-update-includes' => "'''برخی الگوها/پرونده‌ها به روز شده‌اند:'''",
-	'revreview-reject-header' => 'نپذیرفتن تغییرات برای $1',
+	'revreview-update-includes' => "'''الگوها/پرونده‌ها به روز رسانی شدند (صفحات بازبینی نشده به صورت پررنگ نمایش داده شده‌اند):'''",
+	'revreview-reject-header' => 'رد کردن تغییرات برای $1',
 	'revreview-reject-text-list' => "با تکمیل این اقدام، شما {{PLURAL:$1|نسخه|نسخه‌های}} مقابل از [[:$2|$2]] را '''رد خواهید کرد''':",
 	'revreview-reject-text-revto' => 'این صفحه را برمی‌گرداند به [{{fullurl:$1|oldid=$2}} نسخه $3].',
 	'revreview-reject-summary' => 'ْخلاصه ویرایش:',
 	'revreview-reject-confirm' => 'رد کردن این تغییرات',
 	'revreview-reject-cancel' => 'انصراف',
-	'revreview-reject-summary-cur' => 'آخرین {{PLURAL:$1|تغییر|$1 تغییرات}} رد شد (توسط $2) و برگردانده شد به نسخه مرور شده $3 توسط $4',
-	'revreview-reject-summary-old' => 'اولین {{PLURAL:$1|تغییر|$1 تغییرات}} رد شد (توسط $2) که در ادامه نسخه مرور شده $3 توسط $4',
-	'revreview-reject-summary-cur-short' => 'آخرین {{PLURAL:$1|تغییر|$1 تغییرات}} رد شد و برگردانده شد به نسخه مرور شده $2 توسط $3',
-	'revreview-reject-summary-old-short' => 'اولین {{PLURAL:$1|تغییر|$1 تغییرات}} رد شد که ادامه نسخه مرور شده $2 توسط $3',
+	'revreview-reject-summary-cur' => 'آخرین {{PLURAL:$1|تغییر متن|$1 تغییرات متن}} رد شد (توسط $2) و برگردانده شد به نسخه مرور شده $3 توسط $4',
+	'revreview-reject-summary-old' => 'اولین {{PLURAL:$1|تغییر متن|$1 تغییرات متن}} رد شد (توسط $2) که در ادامه نسخه مرور شده $3 توسط $4',
+	'revreview-reject-summary-cur-short' => 'آخرین {{PLURAL:$1|تغییر متن|$1 تغییرات متن}} رد شد و برگردانده شد به نسخه مرور شده $2 توسط $3',
+	'revreview-reject-summary-old-short' => 'اولین {{PLURAL:$1|تغییر متن|$1 تغییرات متن}} رد شد که ادامه نسخه مرور شده $2 توسط $3 بود',
 	'revreview-reject-usercount' => '{{PLURAL:$1|یک کاربر|$1 کاربر}}',
 	'revreview-tt-flag' => 'با برچسب‌زده به این نسخه به‌عنوان «بررسی‌شده» آن را بپذیر',
 	'revreview-tt-unflag' => 'با برچسب زدن به این نسخه به‌عنوان «بررسی‌نشده» آن را نپذیر',
-	'revreview-tt-reject' => 'این تغییرات را با واگردانی مردود کنید',
+	'revreview-tt-reject' => 'این تغییرات متن مبدأ را با واگردانی مردود کنید',
 );
 
 /** Finnish (Suomi)

@@ -601,7 +601,7 @@ $3",
 	'validationstatistics-latest' => 'آخرین بازبینی',
 	'validationstatistics-synced' => 'به روز شده/بازبینی شده',
 	'validationstatistics-old' => 'تاریخ گذشته',
-	'validationstatistics-utable' => 'در زیر فهرست فعال‌ترین {{PLURAL:$1|بازبین|$1 بازبینان}} در یک ساعت گذشته آمده است.',
+	'validationstatistics-utable' => 'در زیر فهرست {{PLURAL:$1|فعال‌ترین بازبین|$1 تا از فعال‌ترین بازبینان}} در آخرین {{PLURAL:$2|ساعت|$2 ساعات}} آمده است.',
 	'validationstatistics-user' => 'کاربر',
 	'validationstatistics-reviews' => 'بازبینی‌ها',
 );

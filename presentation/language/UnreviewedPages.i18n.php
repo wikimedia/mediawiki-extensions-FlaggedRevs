@@ -528,6 +528,7 @@ $messages['ext'] = array(
 /** Persian (فارسی)
  * @author Huji
  * @author Mardetanha
+ * @author Mjbmr
  */
 $messages['fa'] = array(
 	'unreviewedpages' => 'صفحه‌های بررسی نشده',
@@ -536,7 +537,7 @@ $messages['fa'] = array(
 	'unreviewedpages-diff' => 'بازبینی',
 	'unreviewedpages-unwatched' => '(پیگیری نشده)',
 	'unreviewedpages-watched' => '(پیگیری فعال توسط $1 {{PLURAL:$1|کاربر|کاربر}})',
-	'unreviewedpages-list' => 'این صفحه فهرستی از مقاله‌هایی را نشان می‌دهد که تا سطح مورد نظر بررسی نشده‌اند.',
+	'unreviewedpages-list' => 'این صفحه فهرستی از صفحاتی را نشان می‌دهد که هنوز تا سطح مشخص شده [[{{MediaWiki:Validationpage}}|بازبینی]] نشده‌اند.',
 	'unreviewedpages-none' => 'در حال حاضر صفحه‌ای که با این معیارها سازگار باشد وجود ندارد',
 	'unreviewedpages-viewing' => '(در حال بررسی)',
 	'unreviewedpages-hours' => '($1 {{PLURAL:$1|ساعت|ساعت}})',

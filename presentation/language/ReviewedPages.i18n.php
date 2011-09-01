@@ -81,7 +81,8 @@ Se da un vinclo t'a zaguera versión d'iste livel.",
 $messages['ar'] = array(
 	'reviewedpages' => 'صفحات مراجعة',
 	'reviewedpages-leg' => 'عرض الصفحات التي تمت مراجعتها',
-	'reviewedpages-list' => 'هذه الصفحة تعرض الصفحات التي تمت مراجعتها (على أقصى تقدير) للمستوى المحدد.',
+	'reviewedpages-list' => "هذه القائمة تحتوي على الصفحات [[{{MediaWiki:Validationpage}}|المراجعة]] التي مستوى المراجعة ''الأعلى'' (لمراجعة) هو المستوى المحدد.
+	وصلة معطاة لآخر مراجعة لهذا المستوى.",
 	'reviewedpages-none' => 'لا توجد صفحات في هذه القائمة',
 	'reviewedpages-lev-0' => 'منظورة',
 	'reviewedpages-lev-1' => 'جودة',
