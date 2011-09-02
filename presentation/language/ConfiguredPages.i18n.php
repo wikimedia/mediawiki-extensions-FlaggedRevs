@@ -526,6 +526,15 @@ $messages['li'] = array(
 	'configuredpages-def-stable' => 'gepubliceerde versie',
 );
 
+/** Lithuanian (Lietuvių)
+ * @author Eitvys200
+ */
+$messages['lt'] = array(
+	'configuredpages-none' => 'Šiame sąraše nėra puslapių.',
+	'configuredpages-config' => 'Konfigūracija',
+	'configuredpages-def-draft' => 'naujausia versija',
+);
+
 /** Macedonian (Македонски)
  * @author Bjankuloski06
  */

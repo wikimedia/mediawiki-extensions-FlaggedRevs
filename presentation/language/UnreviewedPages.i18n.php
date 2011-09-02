@@ -1395,6 +1395,7 @@ $messages['pt-br'] = array(
 );
 
 /** Romanian (Română)
+ * @author Firilacroco
  * @author KlaudiuMihaila
  * @author Mihai
  */
@@ -1405,6 +1406,7 @@ $messages['ro'] = array(
 	'unreviewedpages-diff' => 'recenzie',
 	'unreviewedpages-unwatched' => '(neurmărit)',
 	'unreviewedpages-watched' => '($1 {{PLURAL:$1|utilizator activ  care urmărește|utilizatori activi care urmăresc}})',
+	'unreviewedpages-viewing' => '(în curs de revizuire)',
 	'unreviewedpages-hours' => '($1 {{PLURAL:$1|oră|ore}})',
 	'unreviewedpages-days' => '($1 {{PLURAL:$1|zi|zile}})',
 	'unreviewedpages-recent' => '(mai puțin de 1 oră)',

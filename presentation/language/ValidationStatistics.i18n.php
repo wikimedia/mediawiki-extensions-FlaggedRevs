@@ -1255,6 +1255,14 @@ $3",
 	'validationstatistics-reviews' => 'Beoeardeilinge',
 );
 
+/** Lithuanian (Lietuvių)
+ * @author Eitvys200
+ */
+$messages['lt'] = array(
+	'validationstatistics-total' => 'Puslapiai',
+	'validationstatistics-user' => 'Naudotojas',
+);
+
 /** Latgalian (Latgaļu)
  * @author Dark Eagle
  */
@@ -1623,6 +1631,7 @@ $3",
  * @author Stelistcristi
  */
 $messages['ro'] = array(
+	'validationstatistics' => 'Statistici revizuire pagină',
 	'validationstatistics-users' => "'''{{SITENAME}}''' are în prezent '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|utilizator|utilizatori}} cu drepturi de [[{{MediaWiki:Validationpage}}|editare]].
 
 Editorii și recenzorii sunt utilizatori stabiliți care pot verifica modificările din pagini.",

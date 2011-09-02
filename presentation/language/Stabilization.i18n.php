@@ -136,6 +136,7 @@ Geen konfigurasie is moontlik nie.',
 	'stabilization-def-short-1' => 'Gepubliseer',
 	'stabilize_expiry_invalid' => 'Ongeldige vervaldatum.',
 	'stabilize_expiry_old' => 'Die vervaldatum is reeds verby.',
+	'stabilize_denied' => 'Toestemming geweier.',
 	'stabilize-expiring' => 'verval $1 (UTC)',
 );
 
@@ -222,7 +223,7 @@ No ye posible confegurar-la.',
 $messages['ar'] = array(
 	'stabilization-tab' => 'تج',
 	'stabilization' => 'تثبيت الصفحة',
-	'stabilization-text' => "'''غير الإعدادات بالأسفل لضبط الكيفية التي بها النسخة المنشورة من [[:$1|$1]] يتم اختيارها وعرضها.'''",
+	'stabilization-text' => "'''غير الإعدادات بالأسفل لضبط الكيفية التي بها النسخة المستقرة من [[:$1|$1]] يتم اختيارها وعرضها.'''",
 	'stabilization-perm' => 'حسابك لا يمتلك الصلاحية لتغيير إعدادات النسخة المنشورة.
 هنا الإعدادات الحالية ل[[:$1|$1]]:',
 	'stabilization-page' => 'اسم الصفحة:',
@@ -2119,12 +2120,16 @@ Dit zeen de hudige instellinge veur [[:$1|$1]]:',
 );
 
 /** Lithuanian (Lietuvių)
+ * @author Eitvys200
  * @author Matasg
  */
 $messages['lt'] = array(
 	'stabilization-page' => 'Puslapio pavadinimas:',
 	'stabilization-submit' => 'Patvirtinti',
 	'stabilization-comment' => 'Priežastis:',
+	'stabilization-otherreason' => 'Kitos priežastys:',
+	'stabilization-expiry' => 'Baigiasi:',
+	'stabilization-othertime' => 'Kitas laikas:',
 	'stabilization-def-short' => 'Standartinis',
 	'stabilization-def-short-0' => 'Esamas',
 );
@@ -2734,6 +2739,10 @@ Iată configurația curentă pentru [[:$1|$1]]:',
 	'stabilization-restrict' => 'Restricții pentru revizualizarea automată',
 	'stabilization-restrict-none' => 'Nicio restricție suplimentară',
 	'stabilization-submit' => 'Confirmă',
+	'stabilization-notexists' => 'Nu există nicio pagină numită „[[:$1|$1]]”.
+Configurarea nu este posibilă.',
+	'stabilization-notcontent' => 'Pagina „[[:$1|$1]]” nu poate fi revizuită.
+Configurarea nu este posibilă.',
 	'stabilization-comment' => 'Motiv:',
 	'stabilization-otherreason' => 'Alte motive:',
 	'stabilization-expiry' => 'Expiră:',
@@ -2743,6 +2752,7 @@ Iată configurația curentă pentru [[:$1|$1]]:',
 	'stabilization-def-short-1' => 'Stabil',
 	'stabilize_page_invalid' => 'Titlul paginii ţintă este invalid.',
 	'stabilize_page_notexists' => 'Pagina-ţintă nu există.',
+	'stabilize_invalid_level' => 'Nivel de protecție nevalid.',
 	'stabilize_expiry_invalid' => 'Data expirării incorectă.',
 	'stabilize_expiry_old' => 'Această dată de expirare a trecut deja.',
 	'stabilize_denied' => 'Permisiune refuzată.',

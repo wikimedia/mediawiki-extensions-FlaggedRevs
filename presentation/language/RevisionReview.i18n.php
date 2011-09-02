@@ -266,6 +266,7 @@ Por favor, prete o botón de \"enta zaga\" d'o suyo navegador y torne a intentar
  * @author Ciphers
  * @author Meno25
  * @author OsamaK
+ * @author زكريا
  */
 $messages['ar'] = array(
 	'revisionreview' => 'مراجعة المراجعات',
@@ -280,11 +281,13 @@ $messages['ar'] = array(
 	'review_not_flagged' => 'لم يتم التعليم على المراجعة الهدف على أنها مراجعة.',
 	'review_too_low' => 'لا يمكن مراجعة التعديلات بوجود بعض الحقول "غير كافية".',
 	'review_bad_key' => 'مفتاح مؤشر إدراج غير صالح.',
+	'review_bad_tags' => 'بعض قيم الوسوم المحددة غير صالحة.',
 	'review_denied' => 'تم رفض الإذن.',
 	'review_param_missing' => 'المؤشر مفقود أو غير صالح.',
 	'review_cannot_undo' => 'لا يمكن الرجوع عن هذه التغييرات بسب وجود تغييرات في الانتظار على ذات المقاطع.',
 	'review_cannot_reject' => 'لا يمكن رفض هذه التعديلات بسبب أن أحدهم قبل بعض (أو جميع) هذه التعديلات.',
 	'review_reject_excessive' => 'لا يمكن رفض جميع هذه التعديلات في وقت واحد.',
+	'review_reject_nulledits' => 'لا يمكن رفض هذه التغييرات لأن كل مراجعاتك ليست فيها أي تعديل.',
 	'revreview-check-flag-p' => 'اقبل هذه النسخة (تتضمن {{PLURAL:$1||تعديلا واحدا معلقا|تعديلان معلقان|$1 تعديلات معلقة|$1 تعديل معلق|$1 تعديلا معلقا}})',
 	'revreview-check-flag-p-title' => 'قبول كل التغييرات المعلقة حاليا بالإضافة إلى التحرير الخاص بك. استخدم هذا فقط إذا كنت قد سبق و رأيت فرق التغييرات المعلقة.',
 	'revreview-check-flag-u' => 'اقبل هذه الصفحة غير المراجعة',
@@ -312,8 +315,11 @@ $messages['ar'] = array(
 	'revreview-successful2' => "'''مراجعة [[:$1|$1]] تمت إزالة علمها بنجاح.'''",
 	'revreview-poss-conflict-p' => "'''تحذير: بدأ [[User:$1|$1]] مراجعة هذه الصفحة في $2 عند $3.'''",
 	'revreview-poss-conflict-c' => "'''تحذير: بدأ [[User:$1|$1]] مراجعة هذه النغييرات في $2 عند $3.'''",
+	'revreview-adv-reviewing-p' => "'''تنبيه: لقد أعلمت بأنك بدأت بتنقيح هذه الصفحة في $1 عند $2.'''",
+	'revreview-adv-reviewing-c' => "'''تنبيه: لقد أعلمت بأنك بدأت بتنقيح هذه الصفحة في $1 عند $2.'''",
 	'revreview-toolow' => '\'\'\'يجب عليك تقييم كل من المحددات بالأسفل أعلى من "غير مقبولة" لكي تعتبر المراجعة مراجعة.\'\'\'
-لسحب تقييم مراجعة، اضبط كل الحقول ك"غير مقبولة".
+
+لسحب حالة المراجعة لمراجعة، اضغط "غير موافق".
 
 من فضلك اضغط زر "رجوع" في متصفحك وحاول مجددا.',
 	'revreview-update' => "'''من فضلك [[{{MediaWiki:Validationpage}}|راجع]] أية تغييرات موقفة ''(معروضة بالأسفل)'' أجريت منذ النسخة المستقرة.'''",
@@ -1227,10 +1233,13 @@ Pšosym pśeglědaj wšykne slědujuce změny, aby je w stabilnej wersiji pokaza
  * @author Consta
  * @author Dead3y3
  * @author Omnipaedista
+ * @author ZaDiak
  */
 $messages['el'] = array(
 	'revisionreview' => 'Κριτική αναθεωρήσεων',
 	'revreview-failed' => 'Η επιθεώρηση απέτυχε!',
+	'review_denied' => 'Δεν έχετε δικαίωμα πρόσβασης.',
+	'revreview-check-flag-y' => 'Αποδοχή των αλλαγών μου',
 	'revreview-flag' => 'Επιθεώρησε αυτή την τροποποίηση',
 	'revreview-reflag' => 'Αναίρεση επισκόπησης αυτής της έκδοσης',
 	'revreview-legend' => 'Βαθμολόγησε το περιεχόμενο της τροποποίησης',
@@ -1239,6 +1248,8 @@ $messages['el'] = array(
 	'revreview-submitting' => 'Υποβολή ...',
 	'revreview-submit-review' => 'Σήμανση ως επισκοπημένο',
 	'revreview-submit-unreview' => 'Σήμανση ως μη επισκοπημένο',
+	'revreview-submit-reject' => 'Απόρριψη αλλαγών',
+	'revreview-submit-reviewed' => 'Έγινε. Αποδεκτή!',
 );
 
 /** Esperanto (Esperanto)
@@ -1293,6 +1304,8 @@ Vidu la [[Special:Unreviewedpages|liston de nereviziitaj paĝoj]] .',
 	'revreview-successful2' => "'''Versio de [[:$1|$1]] sukcese malmarkita.'''",
 	'revreview-poss-conflict-p' => "'''Atentu: [[User:$1|$1]] ekkontrolis ĉi tiun paĝon je $2 $3.'''",
 	'revreview-poss-conflict-c' => "'''Atentu: [[User:$1|$1]] ekkontrolis ĉi tiujn paĝojn je $2 $3.'''",
+	'revreview-adv-reviewing-p' => "'''Notu: Vi estas notita kiel kontrolante ĉi tiun paĝon ekde $1, $2.'''",
+	'revreview-adv-reviewing-c' => "'''Notu: Vi estas notita kiel kontrolante ĉi tiujn ŝanĝojn ekde $1, $2.'''",
 	'revreview-toolow' => '\'\'\'Vi devas taksi ĉiun el la jenaj atribuoj almenaŭ pli alta ol "adekvata" por revizio esti konsiderata kiel kontrolita.\'\'\'
 
 Forigi reviziatan statuson de revizio, klaku "malaprobi".
@@ -1307,15 +1320,15 @@ Bonvolu kontroli ĉiujn jenajn ŝanĝojn por aperigi viajn redaktojn en la stabi
 Bonvolu kontroli ĉiujn jenajn ŝanĝojn por aperigi viajn redaktojn en la stabila versio.',
 	'revreview-update-includes' => "'''Ŝablonoj/dosieroj estis ĝisdatigitaj (nekontrolitaj paĝoj estas dikigitaj):'''",
 	'revreview-reject-header' => 'Malaprobi ŝanĝojn por $1',
-	'revreview-reject-text-list' => "Farante ĉi tiun agon, vi '''malaprobos''' la {{PLURAL:$1|jenan ŝanĝon|jenajn ŝanĝojn}}:",
+	'revreview-reject-text-list' => "Farante ĉi tiun agon, vi '''malaprobos''' la informofontaj ŝanĝoj de la {{PLURAL:$1|jenan revizion|jenajn reviziojn}} de [[:$2|$2]]:",
 	'revreview-reject-text-revto' => 'Tio ĉi restarigos la paĝon al la [{{fullurl:$1|oldid=$2}} versio ekde $3].',
 	'revreview-reject-summary' => 'Resumo:',
 	'revreview-reject-confirm' => 'Malaprobi ĉi tiujn ŝanĝojn',
 	'revreview-reject-cancel' => 'Nuligi',
-	'revreview-reject-summary-cur' => 'Malaprobis la {{PLURAL:$1|lastan ŝanĝon|$1 lastajn ŝanĝojn}} (de $2) kaj restarigis revizion $3 de $4',
-	'revreview-reject-summary-old' => 'Malaprobis la {{PLURAL:$1|unuan ŝanĝon, kiu|unuajn $1 ŝanĝojn, kiuj}} (de $2) sekvis revizion $3 de $4',
-	'revreview-reject-summary-cur-short' => 'Malaprobis la {{PLURAL:$1|lastan ŝanĝon|$1 lastajn ŝanĝojn}} kaj restarigis revizion $2 de $3',
-	'revreview-reject-summary-old-short' => 'Malaprobis la {{PLURAL:$1|unuan ŝanĝon, kiu|unuajn $1 ŝanĝojn, kiuj}} sekvis revizion $2 de $3',
+	'revreview-reject-summary-cur' => 'Malaprobis la {{PLURAL:$1|lastan tekstan ŝanĝon|$1 lastajn tekstajn ŝanĝojn}} (de $2) kaj restarigis revizion $3 de $4',
+	'revreview-reject-summary-old' => 'Malaprobis la {{PLURAL:$1|unuan tekstan ŝanĝon, kiu|unuajn $1 tekstajn ŝanĝojn, kiuj}} (de $2) sekvante revizion $3 de $4',
+	'revreview-reject-summary-cur-short' => 'Malaprobis la {{PLURAL:$1|lastan tekstan ŝanĝon|$1 lastajn tekstajn ŝanĝojn}} kaj restarigis revizion $2 de $3',
+	'revreview-reject-summary-old-short' => 'Malaprobis la {{PLURAL:$1|unuan tekstan ŝanĝon, kiu|unuajn tekstajn $1 ŝanĝojn, kiuj}} sekvante revizion $2 de $3',
 	'revreview-reject-usercount' => '{{PLURAL:$1|unu uzanto|$1 uzantoj}}',
 	'revreview-tt-flag' => 'Aprobi ĉi tiun revizion per markado kontrolita',
 	'revreview-tt-unflag' => 'Malaprobi ĉi tiun revizion per markado "ne-kontrolita"',
@@ -1526,6 +1539,10 @@ $messages['fa'] = array(
 	'revreview-successful' => "'''نسخهٔ انتخابی از [[:$1|$1]] با موفقیت علامت زده شد.
 ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} مشاهدهٔ تمام نسخه‌های علامت‌دار])'''",
 	'revreview-successful2' => "'''پرچم نسخه‌های انتخابی از [[:$1|$1]] با موفقیت برداشته شد.'''",
+	'revreview-poss-conflict-p' => "'''هشدار: [[User:$1|$1]] شروع به بازبینی این صفحه در تاریخ $2، ساعت $3 کرده است.'''",
+	'revreview-poss-conflict-c' => "'''هشدار: [[User:$1|$1]] شروع به بازبینی این تغییرات در تاریخ $2، ساعت $3 کرده است.'''",
+	'revreview-adv-reviewing-p' => "'''توجه: اعلام می‌شود که شما در تاریخ $1، ساعت $2 شروع به بازبینی این صفحه کرده‌اید.'''",
+	'revreview-adv-reviewing-c' => "'''توجه: اعلام می‌شود که شما در تاریخ $1، ساعت $2 شروع به بازبینی این تغییرات کرده‌اید.'''",
 	'revreview-toolow' => "'''برای درنظرگرفته‌شدن یک نسخه به‌عنوان بازبینی‌شده، باید هر یک از موارد بالاتر از «نابسنده» را امتیازدهی کنید.'''
 
 به منظور حذف وضعیت بازبینی یک نسخه، روی «نپذیرفتن» کلیک کنید.
@@ -1764,7 +1781,9 @@ Por enlevar lo statut de rèvision d’una vèrsion, clicâd dessus « dèsaprov
 Volyéd utilisar lo boton « retôrn » de voutron navigator et pués tornâd èprovar.",
 	'revreview-update' => "'''Volyéd [[{{MediaWiki:Validationpage}}|revêre]] tôs los changements en atenta ''(vêde ce-desot)'' fêts a la vèrsion stâbla.'''",
 	'revreview-update-includes' => "'''Modèlos/fichiérs betâs a jorn (pâges pas revues en grâs) :'''",
+	'revreview-reject-header' => 'Refusar los changements por $1',
 	'revreview-reject-summary' => 'Rèsumâ :',
+	'revreview-reject-confirm' => 'Refusar celos changements',
 	'revreview-reject-cancel' => 'Anular',
 	'revreview-reject-usercount' => '{{PLURAL:$1|yon utilisator|$1 utilisators}}',
 );
@@ -3014,10 +3033,16 @@ Klik op de knoep \"Trök\" in diene browser en probeer  t opnúuj.",
 );
 
 /** Lithuanian (Lietuvių)
+ * @author Eitvys200
  * @author Matasg
  */
 $messages['lt'] = array(
 	'revreview-log' => 'Komentaras:',
+	'revreview-submit' => 'Siųsti',
+	'revreview-submitting' => 'Siunčiama...',
+	'revreview-submit-review' => 'Priimti peržiūrą',
+	'revreview-submit-unreview' => 'nepriimti peržiūros',
+	'revreview-reject-cancel' => 'Atšaukti',
 );
 
 /** Literary Chinese (文言)
@@ -3913,11 +3938,30 @@ $messages['qu'] = array(
  * @author Stelistcristi
  */
 $messages['ro'] = array(
+	'revisionreview' => 'Revizuire revizii',
+	'revreview-failed' => "'''Imposibil de revizuit această revizie.'''",
+	'revreview-submission-invalid' => 'Trimiterea a fost incompletă sau nevalidă.',
+	'review_page_invalid' => 'Titlul paginii țintă este nevalid.',
+	'review_page_notexists' => 'Pagina țintă nu există.',
+	'review_page_unreviewable' => 'Pagina țintă nu se poate revizui.',
+	'review_no_oldid' => 'Niciun ID de revizie specificat.',
+	'review_bad_oldid' => 'Revizia țintă nu există.',
+	'review_conflict_oldid' => 'Cineva a acceptat sau a respins deja acestă revizie în timp ce dumneavoastră o vizualizați.',
+	'review_not_flagged' => 'Revizia țintă nu este marcată în prezent ca revizuită.',
+	'review_too_low' => 'Revizia nu poate fi revizuită cu unele cîmpuri lăsate ca „insuficient”.',
+	'review_bad_key' => 'Cheie de parametru de includere nevalidă.',
+	'review_bad_tags' => 'Unele valori de etichetă specificate sunt nevalide.',
 	'review_denied' => 'Permisiune refuzată.',
 	'review_param_missing' => 'Un parametru lipsește sau este invalid.',
+	'review_cannot_undo' => 'Nu se pot anula aceste modificări deoarece modificări ulterioare au schimbat aceleași zone.',
+	'review_cannot_reject' => 'Imposibil de respins aceste modificări deoarece cineva a acceptat deja unele modificări (sau toate).',
+	'review_reject_excessive' => 'Nu se pot respinge atât de multe modificări deodată.',
+	'review_reject_nulledits' => 'Imposibil de respins aceste schimbări deoarece toate reviziile sunt modificări nule.',
+	'revreview-check-flag-p' => 'Acceptă această versiune (include $1 {{PLURAL:$1|modificare|modificări|de modificări}} în așteptare)',
 	'revreview-check-flag-u' => 'Acceptă această pagină nerevizuită',
 	'revreview-check-flag-u-title' => 'Acceptă această versiune a paginii. Folosiţi asta doar dacă aţi văzut deja întreaga pagină.',
 	'revreview-check-flag-y' => 'Acceptă aceste schimbări',
+	'revreview-check-flag-y-title' => 'Acceptați toate modificările pe care le-ați efectuat aici.',
 	'revreview-flag' => 'Recenzează această versiune',
 	'revreview-legend' => 'Evaluează conţinutul reviziei',
 	'revreview-log' => 'Comentariu:',
@@ -3928,6 +3972,9 @@ $messages['ro'] = array(
 	'revreview-submit-reject' => 'Respinge modificările',
 	'revreview-submit-reviewed' => 'Gata. Acceptat!',
 	'revreview-submit-unreviewed' => 'Gata. Neacceptat!',
+	'revreview-successful' => "'''Versiunea [[:$1|$1]] marcată cu succes. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} vedeți versiunile revizuite])'''",
+	'revreview-successful2' => "'''Revizuirea [[:$1|$1]] invalidată cu succes.'''",
+	'revreview-reject-header' => 'Respinge modificările pentru $1',
 	'revreview-reject-summary' => 'Rezumat:',
 	'revreview-reject-confirm' => 'Respinge aceste modificări',
 	'revreview-reject-cancel' => 'Revocare',

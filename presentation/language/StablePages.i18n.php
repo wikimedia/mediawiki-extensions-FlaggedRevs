@@ -71,6 +71,7 @@ $messages['an'] = array(
 /** Arabic (العربية)
  * @author Ciphers
  * @author Meno25
+ * @author زكريا
  */
 $messages['ar'] = array(
 	'stablepages' => 'صفحات تستخدم الموافقة على التعديل',
@@ -78,6 +79,7 @@ $messages['ar'] = array(
  لا يتم عرض التعديلات التي أجريت من قبل مستخدمين آخرين للقراء بشكل افتراضي حتى يأذن مستخدم مفوض بذلك باستعراضها.',
 	'stablepages-none' => 'لا توجد صفحات في هذه القائمة',
 	'stablepages-config' => 'ضبط',
+	'stablepages-indef' => 'أجل غير مسمى فقط',
 );
 
 /** Egyptian Spoken Arabic (مصرى)
@@ -369,6 +371,7 @@ $messages['frp'] = array(
 Los changements fêts per los ôtros utilisators sont pas montrâs per dèfôt ux liésors tant qu’un utilisator ôtorisâ los èye revus.',
 	'stablepages-none' => 'Y at gins de pâge dens ceta lista.',
 	'stablepages-config' => 'Configuracion',
+	'stablepages-indef' => 'Ren que l’èxpiracion sen fin',
 );
 
 /** Galician (Galego)
@@ -594,6 +597,13 @@ Bewerkinge door anger gebroekers waere neet weergegaeve toetdet daotoe gerechtig
 	'stablepages-none' => "Gein pagina's op dees lies.",
 	'stablepages-config' => 'Instelling',
 	'stablepages-indef' => 'Allein zonger vervaldatum',
+);
+
+/** Lithuanian (Lietuvių)
+ * @author Eitvys200
+ */
+$messages['lt'] = array(
+	'stablepages-config' => 'Konfigūracija',
 );
 
 /** Macedonian (Македонски)

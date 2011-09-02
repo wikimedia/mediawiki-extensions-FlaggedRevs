@@ -1151,6 +1151,18 @@ $messages['li'] = array(
 	'pendingchanges-viewing' => '(wörd bekeke)',
 );
 
+/** Lithuanian (Lietuvių)
+ * @author Eitvys200
+ */
+$messages['lt'] = array(
+	'pendingchanges-recent' => '(mažiau kaip 1 valandą)',
+	'pendingchanges-category' => 'Kategorija:',
+	'pendingchanges-onwatchlist' => 'Puslapiai iš mano stebimų sąrašo',
+	'pendingchanges-diff' => 'peržiūrėti',
+	'pendingchanges-size' => 'Max keisti (baitais):',
+	'pendingchanges-viewing' => '(peržiūrima)',
+);
+
 /** Macedonian (Македонски)
  * @author Bjankuloski06
  * @author Brest
