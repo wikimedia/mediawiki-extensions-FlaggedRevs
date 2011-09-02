@@ -589,6 +589,15 @@ class FlaggedRevs {
 		return $parserOut;
 	}
 
+	/**
+	 * Check that ParserOutput object has file/template versions
+	 * Note that ParserOutput::mImageTimeKeys wasn't always there
+	 * @return bool
+	 */
+	public static function parserOutputIsVersioned( ParserOutput $pOut ) {
+		return ( $pOut->getTemplateIds() !== null && $pOut->getImageTimeKeys() !== null );
+	}
+
 	# ################ Tracking/cache update update functions #################
 
 	/**

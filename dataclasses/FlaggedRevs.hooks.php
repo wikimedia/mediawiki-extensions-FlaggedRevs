@@ -282,6 +282,17 @@ class FlaggedRevsHooks {
 	}
 
 	/**
+	* Detect if a ParserOutput object was added without mImageTimeKeys set.
+	* This is needed for older, cached, ParserOutput objects.
+	*/
+	public static function outputSetVersioningFlag( OutputPage $out, ParserOutput $parserOut ) {
+		if ( !FlaggedRevs::parserOutputIsVersioned( $parserOut ) ) {
+			$out->fr_unversionedIncludes = true;
+		}
+		return true;
+	}
+
+	/**
 	* Check page move and patrol permissions for FlaggedRevs
 	*/
 	public static function onUserCan( Title $title, $user, $action, &$result ) {

@@ -677,7 +677,11 @@ class FlaggedPageView {
 		$pOpts = $this->article->makeParserOptions( $wgUser );
 		$parserCache = FRParserCacheStable::singleton();
 		$parserOut = $parserCache->get( $this->article, $pOpts );
-		if ( $parserOut ) {
+
+		# Do not use the parser cache if it lacks mImageTimeKeys and there is a
+		# chance that a review form will be added to this page (which requires the versions).
+		$canReview = $this->article->getTitle()->userCan( 'review' );
+		if ( $parserOut && ( !$canReview || FlaggedRevs::parserOutputIsVersioned( $parserOut ) ) ) {
 			# Cache hit. Note that redirects are not cached.
 			$this->addParserOutput( $parserOut );
 		} else {
@@ -1085,13 +1089,18 @@ class FlaggedPageView {
 			# Set the file version we are viewing (for File: pages)
 			$form->setFileVersion( $this->out->getFileVersion() );
 			# $wgOut may not already have the inclusion IDs, such as for diffonly=1.
-			# RevisionReviewForm will fetch them as needed however.
-			if ( $this->out->getRevisionId() == $rev->getId() ) {
+			# fr_unversionedIncludes indicates that ParserOutput added to $wgOut lacked inclusion IDs.
+			# If they're lacking, then we use getRevIncludes() to get the draft inclusion versions.
+			# Note: showStableVersion() already makes sure that $wgOut has the stable inclusion versions.
+			if ( $this->out->getRevisionId() == $rev->getId() && empty( $this->out->fr_unversionedIncludes ) ) {
 				$tmpVers = $this->out->getTemplateIds();
 				$fileVers = $this->out->getImageTimeKeys();
 			} elseif ( $this->oldRevIncludes ) { // e.g. diffonly=1, stable diff
-				list( $tmpVers, $fileVers ) = $this->oldRevIncludes;
+				# We may have already fetched the inclusion IDs to get the template/file changes.
+				list( $tmpVers, $fileVers ) = $this->oldRevIncludes; // reuse
 			} else { // e.g. diffonly=1, other diffs
+				# $wgOut may not already have the inclusion IDs, such as for diffonly=1.
+				# RevisionReviewForm will fetch them as needed however. 
 				list( $tmpVers, $fileVers ) =
 					FRInclusionCache::getRevIncludes( $this->article, $rev, $wgUser );
 			}

@@ -35,7 +35,8 @@ class FRInclusionCache {
 					$pOut = $parserCache->get( $article, $article->makeParserOptions( $author ) );
 				}
 			}
-			if ( $pOut == false ) {
+			// ParserOutput::mImageTimeKeys wasn't always there
+			if ( $pOut == false || !FlaggedRevs::parserOutputIsVersioned( $pOut ) ) {
 				$title = $article->getTitle();
 				$pOpts = ParserOptions::newFromUser( $user ); // Note: tidy off
 				# Disable slow crap that doesn't matter for getting templates/files...
