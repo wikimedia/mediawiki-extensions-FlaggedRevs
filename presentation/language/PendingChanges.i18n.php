@@ -484,6 +484,7 @@ $messages['dsb'] = array(
  * @author Consta
  * @author Crazymadlover
  * @author Omnipaedista
+ * @author ZaDiak
  */
 $messages['el'] = array(
 	'pendingchanges' => 'Μη ενημερωμένες επιθεωρημένες σελίδες',
@@ -494,6 +495,7 @@ $messages['el'] = array(
 	'pendingchanges-days' => '($1 {{PLURAL:$1|ημέρα|ημέρες}})',
 	'pendingchanges-recent' => '(λιγότερο από 1 ώρα)',
 	'pendingchanges-category' => 'Κατηγορία:',
+	'pendingchanges-onwatchlist' => 'Σελίδες στη λίστα παρακολούθησής μου',
 	'pendingchanges-stable' => 'Σταθεροποιημένος',
 	'pendingchanges-diff' => 'επιθεώρηση',
 	'pendingchanges-size' => 'Μέγιστη αλλαγή (μπάιτς):',

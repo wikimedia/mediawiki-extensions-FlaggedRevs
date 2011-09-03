@@ -219,10 +219,14 @@ Někotare nastajenja by mógli se změniś, kótara wersija zwobraznja se cytarj
 /** Greek (Ελληνικά)
  * @author Crazymadlover
  * @author Omnipaedista
+ * @author ZaDiak
  */
 $messages['el'] = array(
+	'configuredpages' => 'Σελίδες με διαμορφώσεις αναθεώρησης',
+	'configuredpages-none' => 'Δεν υπάρχουν σελίδες σε αυτή τη λίστα.',
 	'configuredpages-config' => 'Διαμόρφωση',
 	'configuredpages-def-draft' => 'τελευταία έκδοση',
+	'configuredpages-def-stable' => 'σταθερή έκδοση',
 );
 
 /** Esperanto (Esperanto)

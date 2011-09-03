@@ -259,12 +259,14 @@ $messages['dsb'] = array(
 /** Greek (Ελληνικά)
  * @author Consta
  * @author Dead3y3
+ * @author ZaDiak
  */
 $messages['el'] = array(
 	'stablepages' => 'Σταθερές σελίδες',
 	'stablepages-list' => 'Παρακάτω είναι ένας κατάλογος σελίδων χειροκίνητα ρυθμισμένων να εμφανίζουν την σταθερή έκδοση ως το προεπιλεγμένο περιεχόμενο σελίδας για τους αναγνώστες.',
 	'stablepages-none' => 'Δεν υπάρχουν σελίδες σε αυτή την λίστα',
 	'stablepages-config' => 'Ρύθμιση',
+	'stablepages-indef' => 'Μόνο λήξη αορίστου χρόνου',
 );
 
 /** Esperanto (Esperanto)

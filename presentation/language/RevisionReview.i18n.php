@@ -1238,8 +1238,18 @@ Pšosym pśeglědaj wšykne slědujuce změny, aby je w stabilnej wersiji pokaza
 $messages['el'] = array(
 	'revisionreview' => 'Κριτική αναθεωρήσεων',
 	'revreview-failed' => 'Η επιθεώρηση απέτυχε!',
+	'review_page_invalid' => 'Ο τίτλος της σελίδας προορισμού δεν είναι έγκυρος.',
+	'review_page_notexists' => 'Η σελίδα προορισμού δεν υπάρχουν.',
+	'review_page_unreviewable' => 'Η σελίδα προορισμού δεν είναι επανεξετάσιμη.',
+	'review_no_oldid' => 'Δεν καθορίστηκε Ταυτότητα έκδοσης.',
+	'review_bad_oldid' => 'Ο στόχος έκδοσης δεν υπάρχει.',
+	'review_conflict_oldid' => 'Κάποιος έχει ήδη κάνει αποδεκτή ή μη αποδεκτή αυτή την αναθεώρηση, ενώ τη βλέπατε.',
 	'review_denied' => 'Δεν έχετε δικαίωμα πρόσβασης.',
+	'review_param_missing' => 'Μια παράμετρος λείπει ή δεν είναι έγκυρη.',
+	'review_reject_excessive' => 'Δεν είναι δυνατό να απορριφθούν τόσο πολλές επεξεργασίες με τη μια.',
+	'revreview-check-flag-u' => 'Αποδοχή αυτής της μη ελεγμένης σελίδας',
 	'revreview-check-flag-y' => 'Αποδοχή των αλλαγών μου',
+	'revreview-check-flag-y-title' => 'Αποδοχή όλων των αλλαγών που έχετε κάνει εδώ.',
 	'revreview-flag' => 'Επιθεώρησε αυτή την τροποποίηση',
 	'revreview-reflag' => 'Αναίρεση επισκόπησης αυτής της έκδοσης',
 	'revreview-legend' => 'Βαθμολόγησε το περιεχόμενο της τροποποίησης',
@@ -1250,6 +1260,12 @@ $messages['el'] = array(
 	'revreview-submit-unreview' => 'Σήμανση ως μη επισκοπημένο',
 	'revreview-submit-reject' => 'Απόρριψη αλλαγών',
 	'revreview-submit-reviewed' => 'Έγινε. Αποδεκτή!',
+	'revreview-submit-unreviewed' => 'Έγινε. Μη αποδεκτή!',
+	'revreview-reject-header' => 'Απόρριψη αλλαγών για $1',
+	'revreview-reject-summary' => 'Σύνοψη:',
+	'revreview-reject-confirm' => 'Απόρριψη αυτών των αλλαγών',
+	'revreview-reject-cancel' => 'Ακύρωση',
+	'revreview-reject-usercount' => '{{PLURAL:$1|ένας χρήστης|$1 χρήστες}}',
 );
 
 /** Esperanto (Esperanto)
@@ -3974,7 +3990,10 @@ $messages['ro'] = array(
 	'revreview-submit-unreviewed' => 'Gata. Neacceptat!',
 	'revreview-successful' => "'''Versiunea [[:$1|$1]] marcată cu succes. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} vedeți versiunile revizuite])'''",
 	'revreview-successful2' => "'''Revizuirea [[:$1|$1]] invalidată cu succes.'''",
+	'revreview-poss-conflict-p' => "'''Avertisment: [[User:$1|$1]] a început revizuirea acestei pagini pe $2 la $3.'''",
+	'revreview-poss-conflict-c' => "'''Avertisment: [[User:$1|$1]] a început revizuirea acestor schimbări pe $2 la $3.'''",
 	'revreview-reject-header' => 'Respinge modificările pentru $1',
+	'revreview-reject-text-revto' => 'Acesta va reveni pagina înapoi la [{{fullurl:$1|oldid=$2}} versiunea din $3].',
 	'revreview-reject-summary' => 'Rezumat:',
 	'revreview-reject-confirm' => 'Respinge aceste modificări',
 	'revreview-reject-cancel' => 'Revocare',
@@ -4865,6 +4884,7 @@ Değişikliklerinizin kararlı sürümde yer alması için, lütfen aşağıda g
 
 /** Ukrainian (Українська)
  * @author Ahonc
+ * @author Dim Grits
  * @author JenVan
  * @author NickK
  * @author Prima klasy4na
@@ -4883,6 +4903,7 @@ $messages['uk'] = array(
 	'review_not_flagged' => 'Цільова версія сторінки зараз не позначена перевіреною.',
 	'review_too_low' => 'Версію не може бути рецензовано через невстановлені значення деяких полів.',
 	'review_bad_key' => 'неприпустимий ключ параметра включення.',
+	'review_bad_tags' => 'Деякі значення вказаного тега неприпустимі.',
 	'review_denied' => 'Доступ заборонено.',
 	'review_param_missing' => 'Параметр не зазначено або зазначено невірно.',
 	'review_cannot_undo' => 'Не можна скасувати ці зміни, тому що подальші редагування, що очікують перевірки, змінили ці фрагменти.',
@@ -4913,6 +4934,7 @@ $messages['uk'] = array(
 	'revreview-submit-unreviewed' => 'Виконано. Не затверджена!',
 	'revreview-successful' => "'''Обрана версія [[:$1|$1]] успішно позначена. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} перегляд усіх стабільних версій])'''",
 	'revreview-successful2' => "'''Із обраної версії [[:$1|$1]] успішно знята позначка.'''",
+	'revreview-poss-conflict-p' => "'''Попередження: [[User:$1|$1]] почав перевіряти цю сторінку $2 о $3.'''",
 	'revreview-toolow' => "'''Ви повинні встановити кожен з атрибутів у значення вище, ніж \"недостатній\", відповідно до процедури позначення версії рецензованою.'''
 
 Щоб зняти статус рецензування, натисніть \"зняти\".
@@ -4939,7 +4961,7 @@ $messages['uk'] = array(
 	'revreview-reject-usercount' => '{{PLURAL:$1|$1 користувача|$1 користувачів|$1 користувачів}}',
 	'revreview-tt-flag' => 'Затвердити цю версію з позначенням її перевіреною',
 	'revreview-tt-unflag' => 'Зняти затвердження цієї версії шляхом позначення її як "неперевірена"',
-	'revreview-tt-reject' => 'Відхилити ці зміни шляхом їх скасування',
+	'revreview-tt-reject' => 'Відхилити ці зміни вихідного тексту, повернувшись до попередньої версії',
 );
 
 /** Vèneto (Vèneto)

@@ -898,8 +898,12 @@ $messages['el'] = array(
 	'stabilization-def-short' => 'Προεπιλογή',
 	'stabilization-def-short-0' => 'Τρέχουσα',
 	'stabilization-def-short-1' => 'Σταθερή',
+	'stabilize_page_invalid' => 'Ο τίτλος της σελίδας προορισμού δεν είναι έγκυρος.',
+	'stabilize_page_notexists' => 'Η σελίδα προορισμού δεν υπάρχει.',
+	'stabilize_invalid_level' => 'Άκυρο επίπεδο προστασίας.',
 	'stabilize_expiry_invalid' => 'Άκυρη ημερομηνία λήξης.',
 	'stabilize_expiry_old' => 'Η ημερομηνία λήξης έχει ήδη περάσει.',
+	'stabilize_denied' => 'Δεν έχετε δικαίωμα πρόσβασης.',
 	'stabilize-expiring' => 'λήγει στις $1 (UTC)',
 	'stabilization-review' => 'Επιθεωρήστε τη τρέχουσα έκδοση',
 );

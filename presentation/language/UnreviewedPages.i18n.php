@@ -1406,6 +1406,7 @@ $messages['ro'] = array(
 	'unreviewedpages-diff' => 'recenzie',
 	'unreviewedpages-unwatched' => '(neurmărit)',
 	'unreviewedpages-watched' => '($1 {{PLURAL:$1|utilizator activ  care urmărește|utilizatori activi care urmăresc}})',
+	'unreviewedpages-none' => 'Nu există pagini în acest moment care să îndeplinească criteriile',
 	'unreviewedpages-viewing' => '(în curs de revizuire)',
 	'unreviewedpages-hours' => '($1 {{PLURAL:$1|oră|ore}})',
 	'unreviewedpages-days' => '($1 {{PLURAL:$1|zi|zile}})',

@@ -1635,6 +1635,7 @@ $messages['ro'] = array(
 	'validationstatistics-users' => "'''{{SITENAME}}''' are în prezent '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|utilizator|utilizatori}} cu drepturi de [[{{MediaWiki:Validationpage}}|editare]].
 
 Editorii și recenzorii sunt utilizatori stabiliți care pot verifica modificările din pagini.",
+	'validationstatistics-lastupdate' => "''Următoarele date au fost ultima dată actualizate pe $1 la $2.''",
 	'validationstatistics-ns' => 'Spațiu de nume',
 	'validationstatistics-total' => 'Pagini',
 	'validationstatistics-stable' => 'Revizualizată',
