@@ -308,10 +308,11 @@ $messages['dsb'] = array(
 /** Greek (Ελληνικά)
  * @author Consta
  * @author Dead3y3
+ * @author Glavkos
  * @author Omnipaedista
  */
 $messages['el'] = array(
-	'reviewedversions' => 'Εμφάνιση σταθερών εκδόσεων',
+	'reviewedversions' => 'Αναθεωρημένες εκδόσεις',
 	'reviewedversions-leg1' => 'Απαρίθμηση κριθέντων αναθεωρήσεων για μια σελίδα',
 	'reviewedversions-page' => 'Όνομα σελίδας:',
 	'reviewedversions-none' => 'Η "[[:$1]]" δεν έχει αναθεωρήσεις που να έχουν κριθεί.',

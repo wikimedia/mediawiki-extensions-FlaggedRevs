@@ -306,17 +306,18 @@ Wótkaz k nejnowšej wersiji teje rowniny jo pódany.",
 /** Greek (Ελληνικά)
  * @author Badseed
  * @author Crazymadlover
+ * @author Glavkos
  * @author Omnipaedista
  * @author ZaDiak
  */
 $messages['el'] = array(
 	'reviewedpages' => 'Επιθεωρημένες σελίδες',
-	'reviewedpages-leg' => 'Λίστα σελίδων κατά υψηλότερο επίπεδο',
+	'reviewedpages-leg' => 'Λίστα σελίδων που έχουν εξεταστεί',
 	'reviewedpages-list' => 'Αυτή η σελίδα απαριθμεί σελίδες που επιθεωρήθηκαν (το περισσότερο) στο καθορισμένο επίπεδο.',
 	'reviewedpages-none' => 'Δεν υπάρχουν σελίδες σε αυτήν τη λίστα',
 	'reviewedpages-lev-1' => 'Ποιότητα',
 	'reviewedpages-all' => 'αναθεωρημένες εκδόσεις',
-	'reviewedpages-best' => 'πρωταρχική αναθεώρηση',
+	'reviewedpages-best' => 'καλύτερη αναθεώρηση',
 );
 
 /** Esperanto (Esperanto)

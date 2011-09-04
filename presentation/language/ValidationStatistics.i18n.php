@@ -459,6 +459,7 @@ Toś te boki maju se za \"zestarjone\".  Mimo togo boki maju se za \"synchroniz�
 /** Greek (Ελληνικά)
  * @author Crazymadlover
  * @author Dead3y3
+ * @author Glavkos
  * @author Omnipaedista
  */
 $messages['el'] = array(
@@ -467,6 +468,7 @@ $messages['el'] = array(
 και '''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$2|χρήστη|χρήστες}} με δικαιώματα [[{{MediaWiki:Validationpage}}|Κριτικού]].
 
 Οι Συντάκτες και οι Κριτικοί είναι καθιερωμένοι χρήστες που μπορούν να ελέγχουν τις αναθεωρήσεις μίας σελίδας.",
+	'validationstatistics-lastupdate' => "''Τα παρακάτω στοιχεία ενημερώθηκαν  τελευταία φορά στις $1 του $2 .''",
 	'validationstatistics-table' => "Τα στατιστικά για κάθε περιοχή ονομάτων εμφανίζονται παρακάτω, των σελίδων ανακατεύθυνσης ''εξαιρουμένων''.",
 	'validationstatistics-ns' => 'Περιοχή ονομάτων',
 	'validationstatistics-total' => 'Σελίδες',
@@ -474,7 +476,7 @@ $messages['el'] = array(
 	'validationstatistics-latest' => 'Συγχρονισμένος',
 	'validationstatistics-synced' => 'Συγχρονισμένες/Κρίθηκαν',
 	'validationstatistics-old' => 'Παρωχημένες',
-	'validationstatistics-utable' => 'Παρακάτω βρίσκεται η λίστα με τους $1 κορυφαίους επιθεωρητές κατά την τελευταία μία ώρα.',
+	'validationstatistics-utable' => 'Παρακάτω είναι μια λίστα με τα  {{PLURAL:$1|most active reviewer|$1 most active reviewers}} στις τελευταίες   {{PLURAL:$2| hour| $2 hours}}.',
 	'validationstatistics-user' => 'Χρήστης',
 	'validationstatistics-reviews' => 'Επιθεωρήσεις',
 );
@@ -689,6 +691,11 @@ $messages['frp'] = array(
 
 Los contributors sont des utilisators ètablis que pôvont controlar les vèrsions de les pâges.",
 	'validationstatistics-lastupdate' => "''Cetes balyês ont étâ betâs a jorn lo $1 a $2.''",
+	'validationstatistics-pndtime' => "Los changements controlâs per los utilisators confirmâs sont considèrâs coment ''revus''.
+
+Lo retârd de rèvision moyen de les [[Special:OldReviewedPages|pâges que contegnont des changements en atenta de rèvision]] est '''$1''' ; lo retârd mesere comben de temps los changements los ples vielys en atenta sont réstâs pas revus.",
+	'validationstatistics-revtime' => "Lo dèlê d’atenta moyen por la rèvision des changements fêts per los ''utilisators pas encartâs'' est '''$1''' ; la moyena est'''$2'''. 
+$3",
 	'validationstatistics-table' => "Les statistiques de rèvision de les pâges por châque èspâço de noms sont montrâs ce-desot, ''mas pas'' de les pâges de redirèccion. Les pâges sont trètâs coment ''dèpassâs'' s’els ont des changements en atenta de rèvision et coment ''sincronisâs'' s’els ont gins de changement en atenta de rèvision.",
 	'validationstatistics-ns' => 'Èspâço de noms',
 	'validationstatistics-total' => 'Pâges',
@@ -1260,7 +1267,9 @@ $3",
  */
 $messages['lt'] = array(
 	'validationstatistics-total' => 'Puslapiai',
+	'validationstatistics-old' => 'Pasenęs',
 	'validationstatistics-user' => 'Naudotojas',
+	'validationstatistics-reviews' => 'Peržiūros',
 );
 
 /** Latgalian (Latgaļu)

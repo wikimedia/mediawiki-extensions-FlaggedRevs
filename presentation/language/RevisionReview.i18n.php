@@ -976,6 +976,14 @@ Bude nutné tyto editace začlenit nebo zamítnout.',
 	'revreview-tt-reject' => 'Odmítnout tyto změny jejich vrácením',
 );
 
+/** Danish (Dansk)
+ * @author Peter Alberti
+ */
+$messages['da'] = array(
+	'revreview-submit' => 'Indsend',
+	'revreview-submitting' => 'Indsender…',
+);
+
 /** German (Deutsch)
  * @author ChrisiPK
  * @author Kghbln
@@ -1232,12 +1240,14 @@ Pšosym pśeglědaj wšykne slědujuce změny, aby je w stabilnej wersiji pokaza
  * @author Badseed
  * @author Consta
  * @author Dead3y3
+ * @author Glavkos
  * @author Omnipaedista
  * @author ZaDiak
  */
 $messages['el'] = array(
 	'revisionreview' => 'Κριτική αναθεωρήσεων',
 	'revreview-failed' => 'Η επιθεώρηση απέτυχε!',
+	'revreview-submission-invalid' => 'Η υποβολή ήταν ελλιπής  ή άλλως άκυρη.',
 	'review_page_invalid' => 'Ο τίτλος της σελίδας προορισμού δεν είναι έγκυρος.',
 	'review_page_notexists' => 'Η σελίδα προορισμού δεν υπάρχουν.',
 	'review_page_unreviewable' => 'Η σελίδα προορισμού δεν είναι επανεξετάσιμη.',
@@ -1615,6 +1625,7 @@ $messages['fi'] = array(
 	'review_cannot_undo' => 'Muutoksia ei voitu kumota, koska myöhemmät arviointia odottavat muokkaukset ovat muuttaneet samoja alueita.',
 	'review_cannot_reject' => 'Näitä muutoksia ei voida nyt hylätä, koska joku muu on jo hyväksynyt osan muutoksista tai ne kaikki.',
 	'review_reject_excessive' => 'Näin monta muokkausta ei voida hylätä samalla kertaa.',
+	'review_reject_nulledits' => 'Näitä muutoksia ei voitu hylätä, sillä kaikki muutokset olivat nollamuokkauksia.',
 	'revreview-check-flag-p' => 'Hyväksy tämä versio (sisältää {{PLURAL:$1|odottavan muutoksen|$1 odottavaa muutosta}})',
 	'revreview-check-flag-p-title' => 'Hyväksy kaikki arviointia odottavat muutokset oman muokkauksesi yhteydessä. 
 Käytä tätä vain, jos olet jo käynyt läpi kaikki muokkaukset.',
@@ -1655,11 +1666,13 @@ Tarkista kaikki alla olevat muutokset, jotta muutoksesi näkyisivät vakaassa ve
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Muutoksesi eivät ole vielä näkyvissä vakaassa versiossa. Edelliset muutokset odottavat arviointia.</span>
 
 Arvioi kaikki alla olevat muutokset, jotta muokkauksesi näkyisivät vakaassa versiossa.',
-	'revreview-update-includes' => "'''Joitakin mallineita tai tiedostoja on päivitetty:'''",
+	'revreview-update-includes' => "'''Joitakin mallineita tai tiedostoja on päivitetty (tarkastamattomat sivut lihavoinnilla):'''",
 	'revreview-reject-header' => 'Hylkää version $1 muutokset',
+	'revreview-reject-text-revto' => 'Tämä palauttaa sivun takaisin [{{fullurl:$1|oldid=$2}} ajankohdan $3 versioon].',
 	'revreview-reject-summary' => 'Yhteenveto:',
 	'revreview-reject-confirm' => 'Hylkää nämä muutokset',
 	'revreview-reject-cancel' => 'Peruuta',
+	'revreview-reject-summary-cur' => 'Hylättiin {{PLURAL:$1|viimeisin tekstimuutos|viimeisimmät $1 tekstimuutosta}} (käyttäjältä $2) ja palautettiin versio $3 käyttäjältä $4',
 	'revreview-reject-usercount' => '{{PLURAL:$1|yksi käyttäjä|$1 käyttäjää}}',
 	'revreview-tt-flag' => 'Hyväksy tämä versio merkitsemällä se ”silmäillyksi”',
 	'revreview-tt-unflag' => 'Peruuta tämän version arviointi merkitsemällä se ”arvioimattomaksi”',
@@ -1762,15 +1775,29 @@ Vous devez relire toutes les modifications affichées ci-dessous pour la votre a
 $messages['frp'] = array(
 	'revisionreview' => 'Revêre les vèrsions',
 	'revreview-failed' => "'''Empossiblo de revêre ceta vèrsion.'''",
+	'revreview-submission-invalid' => 'L’èxpèdicion ére encomplèta ou ben envalida.',
 	'review_page_invalid' => 'Lo titro de la pâge ciba est fôx.',
 	'review_page_notexists' => 'La pâge ciba ègziste pas.',
 	'review_page_unreviewable' => 'La pâge ciba pôt pas étre revua.',
 	'review_no_oldid' => 'Nion numerô de la vèrsion at étâ spècefiâ.',
 	'review_bad_oldid' => 'La vèrsion ciba ègziste pas.',
+	'review_conflict_oldid' => 'Quârqu’un at ja accèptâ ou ben refusâ cela vèrsion pendent que vos la reveyévâd.',
 	'review_not_flagged' => 'Ora, la vèrsion ciba est pas marcâ coment revua.',
+	'review_too_low' => 'La vèrsion pôt pas étre revua avouéc des champs lèssiês a « ensufisent ».',
+	'review_bad_key' => 'Cllâf de paramètre d’encllusion envalida.',
+	'review_bad_tags' => 'Quârques valors de balisa spècefiâs sont envalides.',
 	'review_denied' => 'Pèrmission refusâ.',
 	'review_param_missing' => 'Un paramètre est manquent ou ben envalido.',
+	'review_cannot_undo' => 'Empossiblo de dèfâre celos changements perce que d’ôtros changements en atenta regârdont les mémes zones.',
+	'review_cannot_reject' => 'Empossiblo de refusar celos changements perce que quârqu’un at ja accèptâ tot ou ben partia des changements.',
+	'review_reject_excessive' => 'Empossiblo de refusar atant de changements en un solèt côp.',
+	'review_reject_nulledits' => 'Empossiblo de refusar celos changements perce que totes les vèrsions sont des changements vouedos.',
+	'revreview-check-flag-p' => 'Accèptar cela vèrsion ($1 changement{{PLURAL:$1||s}} en atenta avouéc)',
+	'revreview-check-flag-p-title' => 'Accèptar tôs los changements en atenta en mémo temps que voutron prôpro changement. L’utilisâd ren que se vos éd ja vu lo dif de l’ensemblo des changements en atenta.',
+	'revreview-check-flag-u' => 'Accèptar cela pâge pas revua',
+	'revreview-check-flag-u-title' => 'Accèptar cela vèrsion de la pâge. Utilisâd cen ren que se vos éd ja vu la pâge tot entiér.',
 	'revreview-check-flag-y' => 'Accèptar celos changements',
+	'revreview-check-flag-y-title' => 'Accèptar tôs los changements que vos éd fêts dens ceti changement.',
 	'revreview-flag' => 'Revêre ceta vèrsion',
 	'revreview-reflag' => 'Tornar revêre ceta vèrsion',
 	'revreview-invalid' => "'''Ciba fôssa :''' niona vèrsion [[{{MediaWiki:Validationpage}}|revua]] corrèspond u numerô balyê.",
@@ -1790,18 +1817,37 @@ Vêde la [[Special:Unreviewedpages|lista de les pâges pas revues]].',
 	'revreview-submit-unreviewed' => 'Fât. Dèsaprovâ !',
 	'revreview-successful' => "'''La vèrsion chouèsia de [[:$1|$1]] at étâ marcâ avouéc reusséta ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} vêde totes les vèrsions stâbles]).'''",
 	'revreview-successful2' => "'''La vèrsion chouèsia de [[:$1|$1]] at étâ envalidâ avouéc reusséta.'''",
+	'revreview-poss-conflict-p' => "'''Atencion : [[User:$1|$1]] s’at betâ a revêre cela pâge lo $2 a $3.'''",
+	'revreview-poss-conflict-c' => "'''Atencion : [[User:$1|$1]] s’at betâ a revêre celos changements lo $2 a $3.'''",
+	'revreview-adv-reviewing-p' => "'''Nota : vos éte notifiâ coment èyent comenciê l’ègzâmen de cela pâge lo $1 a $2.'''",
+	'revreview-adv-reviewing-c' => "'''Nota : vos éte notifiâ coment èyent comenciê l’ègzâmen de celos changements lo $1 a $2.'''",
 	'revreview-toolow' => "'''Vos dête afèctar una èstimacion ples hôta que « ensufisent » por que la vèrsion seye considèrâ coment revua.'''
 
 Por enlevar lo statut de rèvision d’una vèrsion, clicâd dessus « dèsaprovar ».
 
 Volyéd utilisar lo boton « retôrn » de voutron navigator et pués tornâd èprovar.",
 	'revreview-update' => "'''Volyéd [[{{MediaWiki:Validationpage}}|revêre]] tôs los changements en atenta ''(vêde ce-desot)'' fêts a la vèrsion stâbla.'''",
+	'revreview-update-edited' => '<span class="flaggedrevs_important">Voutros changements sont p’oncor dens la vèrsion stâbla.</span>
+
+Volyéd controlar tôs los changements montrâs ce-desot por que los voutros aparéssont dens la vèrsion stâbla.',
+	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Voutros changements sont p’oncor dens la vèrsion stâbla. Y at de vielys changements en atenta de rèvision.</span>
+
+Volyéd controlar tôs los changements montrâs ce-desot por que los voutros aparéssont dens la vèrsion stâbla.',
 	'revreview-update-includes' => "'''Modèlos/fichiérs betâs a jorn (pâges pas revues en grâs) :'''",
 	'revreview-reject-header' => 'Refusar los changements por $1',
+	'revreview-reject-text-list' => "En fassent cela accion, vos voléd '''refusar''' los changements sur lo tèxto sôrsa {{PLURAL:$1|de ceta vèrsion|de cetes vèrsions}} de [[:$2|$2]] :",
+	'revreview-reject-text-revto' => 'Cen remetrat cela pâge dens sa [{{fullurl:$1|oldid=$2}} vèrsion du $3].',
 	'revreview-reject-summary' => 'Rèsumâ :',
 	'revreview-reject-confirm' => 'Refusar celos changements',
 	'revreview-reject-cancel' => 'Anular',
+	'revreview-reject-summary-cur' => '{{PLURAL:$1|Lo dèrriér changement|Los dèrriérs changements}} du tèxto (per $2) ont étâ refusâs et pués la vèrsion $3 at étâ refêta per $4',
+	'revreview-reject-summary-old' => '{{PLURAL:$1|Lo dèrriér changement|Los dèrriérs changements}} du tèxto (per $2) que siuvévont la vèrsion $3 ont étâ refusâs per $4',
+	'revreview-reject-summary-cur-short' => '{{PLURAL:$1|Lo dèrriér changement|Los dèrriérs changements}} du tèxto ont étâ refusâs et pués la vèrsion $2 at étâ refêta per $3',
+	'revreview-reject-summary-old-short' => '{{PLURAL:$1|Lo dèrriér changement|Los dèrriérs changements}} du tèxto que siuvévont la vèrsion $2 ont étâ refusâs per $3',
 	'revreview-reject-usercount' => '{{PLURAL:$1|yon utilisator|$1 utilisators}}',
+	'revreview-tt-flag' => 'Aprovar ceta vèrsion en la marquent coment « controlâ »',
+	'revreview-tt-unflag' => 'Dèsaprovar ceta vèrsion en la marquent coment « pas controlâ »',
+	'revreview-tt-reject' => 'Refusar celos changements dens lo tèxto sôrsa en los rèvoquent',
 );
 
 /** Western Frisian (Frysk)
@@ -3053,11 +3099,15 @@ Klik op de knoep \"Trök\" in diene browser en probeer  t opnúuj.",
  * @author Matasg
  */
 $messages['lt'] = array(
+	'review_page_invalid' => 'Taikinio puslapio pavadinimas yra neteisingas.',
+	'review_page_notexists' => 'Taikinio puslapis neegzistuoja.',
 	'revreview-log' => 'Komentaras:',
 	'revreview-submit' => 'Siųsti',
 	'revreview-submitting' => 'Siunčiama...',
 	'revreview-submit-review' => 'Priimti peržiūrą',
 	'revreview-submit-unreview' => 'nepriimti peržiūros',
+	'revreview-submit-reviewed' => 'Atlikta. Priimta!',
+	'revreview-submit-unreviewed' => 'Atlikta. Nepriimta!',
 	'revreview-reject-cancel' => 'Atšaukti',
 );
 
@@ -3964,7 +4014,7 @@ $messages['ro'] = array(
 	'review_bad_oldid' => 'Revizia țintă nu există.',
 	'review_conflict_oldid' => 'Cineva a acceptat sau a respins deja acestă revizie în timp ce dumneavoastră o vizualizați.',
 	'review_not_flagged' => 'Revizia țintă nu este marcată în prezent ca revizuită.',
-	'review_too_low' => 'Revizia nu poate fi revizuită cu unele cîmpuri lăsate ca „insuficient”.',
+	'review_too_low' => 'Revizia nu poate fi revizuită cu unele câmpuri lăsate ca „insuficient”.',
 	'review_bad_key' => 'Cheie de parametru de includere nevalidă.',
 	'review_bad_tags' => 'Unele valori de etichetă specificate sunt nevalide.',
 	'review_denied' => 'Permisiune refuzată.',
@@ -3975,7 +4025,7 @@ $messages['ro'] = array(
 	'review_reject_nulledits' => 'Imposibil de respins aceste schimbări deoarece toate reviziile sunt modificări nule.',
 	'revreview-check-flag-p' => 'Acceptă această versiune (include $1 {{PLURAL:$1|modificare|modificări|de modificări}} în așteptare)',
 	'revreview-check-flag-u' => 'Acceptă această pagină nerevizuită',
-	'revreview-check-flag-u-title' => 'Acceptă această versiune a paginii. Folosiţi asta doar dacă aţi văzut deja întreaga pagină.',
+	'revreview-check-flag-u-title' => 'Acceptă această versiune a paginii. Folosiți asta doar dacă ați văzut deja întreaga pagină.',
 	'revreview-check-flag-y' => 'Acceptă aceste schimbări',
 	'revreview-check-flag-y-title' => 'Acceptați toate modificările pe care le-ați efectuat aici.',
 	'revreview-flag' => 'Recenzează această versiune',
@@ -4157,6 +4207,11 @@ $messages['rue'] = array(
 	'review_denied' => 'Приступ забороненый.',
 	'review_param_missing' => 'Параметер хыбить або є неправилный.',
 	'revreview-check-flag-p' => 'Акцептовати чекаючі зміны',
+	'revreview-check-flag-p-title' => 'Потвердити вшыткы зміны, якы в даный час чекають на перевірку, вєдно з вашов властнов змінов, Хоснуйте лем в припадї, кідь сьте уж попозерали зміны, внесены тыма змінами.',
+	'revreview-check-flag-u' => 'Прияти тоту неперевірену сторінку',
+	'revreview-check-flag-u-title' => 'Прияти тоту верзію сторінкы. Хоснуйте лем кідь сьте уж відїли цалу сторінку.',
+	'revreview-check-flag-y' => 'Прияти тоты зміны',
+	'revreview-check-flag-y-title' => 'Прияти вшыткы зміны вашого едітованя.',
 	'revreview-flag' => 'Перевірити тоту ревізію',
 	'revreview-reflag' => 'Перевірити тоту ревізію',
 	'revreview-invalid' => "'''Неправилный ціль:''' жадна [[{{MediaWiki:Validationpage}}|посуджена]] ревізія не одповідать заданому ID.",
@@ -4164,12 +4219,21 @@ $messages['rue'] = array(
 	'revreview-log' => 'Коментарь:',
 	'revreview-main' => 'Про посуджіня мусите выбрати єдну із верзій сторінкы.
 Відь [[Special:Unreviewedpages|список неперевіреных сторінок]].',
+	'revreview-stable1' => 'Може хочете відїти [{{fullurl:$1|stableid=$2}} тоту позначену верзію] і дізнати ся, ці она є теперь [{{fullurl:$1|stable=1}} опублікованов верзіёв] той сторінкы.',
+	'revreview-stable2' => 'Може хочете відїти [{{fullurl:$1|stable=1}} опубліковану верзію] той сторінкы.',
 	'revreview-submit' => 'Одослати',
 	'revreview-submitting' => 'Одосылать ся...',
 	'revreview-submit-review' => 'Акцептовати ревізію',
 	'revreview-submit-unreview' => 'Зняти акцептованя ревізії',
+	'revreview-submit-reject' => 'Не прияти зміны',
 	'revreview-submit-reviewed' => 'Выконано. Підтверджена!',
 	'revreview-submit-unreviewed' => 'Выконано. Не підтверджена!',
+	'revreview-successful' => "'''Выбрана верзія [[:$1|$1]] успішно позначена. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} перегляд вшыткых стабілных верзій])'''",
+	'revreview-successful2' => "'''Позначіня ревізії сторінкы [[:$1|$1]] было успішно зняте.'''",
+	'revreview-poss-conflict-p' => "'''Варованя: [[User:$1|$1]] почав перевіряти тоту сторінку $2 о $3.'''",
+	'revreview-poss-conflict-c' => "'''Варованя: [[User:$1|$1]] почав перевіряти тоты зміны $2 о $3.'''",
+	'revreview-reject-summary' => 'Згорнутя:',
+	'revreview-reject-cancel' => 'Сторно',
 );
 
 /** Sakha (Саха тыла)
@@ -4494,6 +4558,7 @@ $messages['sv'] = array(
 	'review_not_flagged' => 'Målrevisionen är inte markerad som granskad.',
 	'review_too_low' => 'Sidversion kan inte granskas med några kvarvarande fält "otillräckliga".',
 	'review_bad_key' => 'Ogiltig nyckel för inkluderingsparameter.',
+	'review_bad_tags' => 'Några av de angivna taggvärdena är ogiltiga.',
 	'review_denied' => 'Tillstånd nekat.',
 	'review_param_missing' => 'En parameter saknas eller är ogiltig.',
 	'review_cannot_undo' => 'Kan inte ångra dessa ändringar eftersom ytterligare väntande redigeringar har ändrat i samma områden.',
@@ -4523,6 +4588,10 @@ Se [[Special:Unreviewedpages|listan över ogranskade sidor]].',
 	'revreview-submit-unreviewed' => 'Klar. Inte accepterad!',
 	'revreview-successful' => "'''Vald sidversion av [[:$1|$1]] har flaggats. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} visa alla stabila sidversioner])'''",
 	'revreview-successful2' => "'''Vald sidversion av [[:$1|$1]] har avflaggats.'''",
+	'revreview-poss-conflict-p' => "'''Varning: [[User:$1|$1]] började granska denna sida den $2 kl. $3.'''",
+	'revreview-poss-conflict-c' => "'''Varning: [[User:$1|$1]] började granska dessa ändringar den $2 kl. $3.'''",
+	'revreview-adv-reviewing-p' => "'''OBS: Du har blivit underrättad för att ha börjat granska denna sida den $1 kl. $2.'''",
+	'revreview-adv-reviewing-c' => "'''OBS: Du har blivit underrättad för att ha börjat granska dessa ändringar den $1 kl. $2.'''",
 	'revreview-toolow' => '\'\'\'Du måste bedöma varje attribut högre än "otillräcklig" för att en sidversion ska anses som granskad.\'\'\'
 
 För att ta bort granskningsstatusen för en version, klicka på "oacceptera".
@@ -4947,7 +5016,7 @@ $messages['uk'] = array(
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Ваші зміни ще не включені до стабільної версії. Попередні зміни очікують на перевірку.</span>
 
 Будь ласка, перевірте усі зміни, наведені нижче, щоб включити ваші редагування до стабільної версії.',
-	'revreview-update-includes' => "'''Деякі шаблони або файли були оновлені:'''",
+	'revreview-update-includes' => "'''Деякі шаблони або файли були оновлені (неперевірені виділені жирним шрифтом):'''",
 	'revreview-reject-header' => 'Скасувати зміни для $1',
 	'revreview-reject-text-list' => "Виконуючи цю дію, ви '''відкидаєте''' {{PLURAL:$1|наступну зміну|наступні зміни}}:",
 	'revreview-reject-text-revto' => 'Відкидає сторінку назад до [{{fullurl:$1|oldid=$2}} версії від $3].',

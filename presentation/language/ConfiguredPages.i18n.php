@@ -327,6 +327,8 @@ Certains paramètres peuvent faire apparaître une version différente pour les 
  */
 $messages['frp'] = array(
 	'configuredpages' => 'Pâges avouéc des configuracions de rèvision',
+	'configuredpages-list' => 'La lista ce-desot contint les pâges qu’ont des paramètres d’aprobacion difèrents de celos per dèfôt por cél seto.
+Quârques paramètres pôvont fâre aparêtre una vèrsion difèrenta por los liésors ou ben rètrendre la lista ux contributors que los changements ont pas fôta d’étre controlâs.',
 	'configuredpages-none' => 'Y at gins de pâge dens ceta lista.',
 	'configuredpages-config' => 'Configuracion',
 	'configuredpages-def-draft' => 'dèrriére vèrsion',
@@ -720,6 +722,7 @@ $messages['ru'] = array(
  * @author Gazeb
  */
 $messages['rue'] = array(
+	'configuredpages' => 'Сторінкы з наставлїнём рецензованя',
 	'configuredpages-none' => 'У тім списку не суть жадны сторінкы.',
 	'configuredpages-config' => 'Конфіґурація',
 	'configuredpages-def-draft' => 'остатня верзія',

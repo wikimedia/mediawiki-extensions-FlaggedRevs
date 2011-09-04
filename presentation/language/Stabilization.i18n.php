@@ -870,6 +870,7 @@ $messages['dsb'] = array(
  * @author Consta
  * @author Crazymadlover
  * @author Dead3y3
+ * @author Glavkos
  * @author Omnipaedista
  * @author ZaDiak
  */
@@ -880,7 +881,7 @@ $messages['el'] = array(
 	'stabilization-perm' => 'Ο λογαριασμός σας δεν έχει δικαίωμα να αλλάξει την ρύθμιση σταθερής έκδοσης.
 Εδώ είναι οι τρέχουσες ρυθμίσεις για τη σελίδα [[:$1|$1]]:',
 	'stabilization-page' => 'Όνομα σελίδας:',
-	'stabilization-leg' => 'Επιβεβαιώστε ρυθμίσεις σταθερής έκδοσης',
+	'stabilization-leg' => 'Επιβεβαιώστε τις ρυθμίσεις της  σταθερής έκδοσης',
 	'stabilization-def' => 'Αναθεώρηση εμφανιζόμενη στην προεπιλεγμένη εμφάνιση σελίδας',
 	'stabilization-def1' => 'Η σταθερή αναθεώρηση· αν δεν είναι παρούσα, τότε η τρέχουσα/πρόχειρη',
 	'stabilization-def2' => 'Η τρέχουσα/πρόχειρη αναθεώρηση',

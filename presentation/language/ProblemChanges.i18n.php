@@ -210,10 +210,11 @@ Lisćina [[Special:Tags|płaśiwych změnowych markow]] stoj k dispoziciji.',
 /** Greek (Ελληνικά)
  * @author Consta
  * @author Crazymadlover
+ * @author Glavkos
  * @author Omnipaedista
  */
 $messages['el'] = array(
-	'problemchanges' => 'Επιθεώρηση αλλαγών με ετικέτα',
+	'problemchanges' => 'Εκκρεμείς αλλαγές με ετικέτα',
 	'problemchanges-legend' => 'Προβολή επιθεωρημένων σελίδων με επεξεργασίες που φέρουν την ετικέτα ότι εκκρεμεί για αυτές επιθεώρηση',
 	'problemchanges-none' => 'Προς το παρόν δεν υπάρχουν σελίδες που πληρούν αυτά τα κριτήρια',
 	'problemchanges-category' => 'Κατηγορία:',
@@ -281,6 +282,7 @@ $messages['fa'] = array(
  */
 $messages['fi'] = array(
 	'problemchanges' => 'Merkityt odottavat muutokset',
+	'problemchanges-list' => 'Tämä sivu listaa [[{{MediaWiki:Validationpage}}|tarkistetut]] sivut joilla on yksi tai useampi merkittyä muutosta odottamassa arviointia. Luettelo [[Special:Tags|kelvollisista muutostageista]] on saatavissa.',
 	'problemchanges-legend' => 'Lista sivuista, joilla on odottavia muokkauksia, jotka ovat merkittyjä',
 	'problemchanges-none' => 'Tällä hetkellä ei ole sivuja, jotka täyttävät nämä ehdot',
 	'problemchanges-category' => 'Luokka',
@@ -304,6 +306,7 @@ $messages['fr'] = array(
  */
 $messages['frp'] = array(
 	'problemchanges' => 'Changements balisâs en atenta',
+	'problemchanges-list' => 'Ceta pâge liste les pâges [[{{MediaWiki:Validationpage}}|revues]] qu’ont yon ou ben un mouél de changements en atenta d’una rèvision. Una lista de les [[Special:Tags|balises de changement valides]] est disponibla.',
 	'problemchanges-legend' => 'Listar les pâges avouéc des changements balisâs en atenta de rèvision',
 	'problemchanges-none' => 'Ora, y at gins de pâge que corrèspond a cetos critèros',
 	'problemchanges-category' => 'Catègorie :',

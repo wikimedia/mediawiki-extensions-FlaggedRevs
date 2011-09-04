@@ -1081,11 +1081,12 @@ $messages['li'] = array(
 );
 
 /** Lithuanian (Lietuvių)
+ * @author Eitvys200
  * @author Matasg
  */
 $messages['lt'] = array(
 	'unreviewedpages-category' => 'Kategorija:',
-	'unreviewedpages-diff' => 'Pakeitimai',
+	'unreviewedpages-diff' => 'peržiūrėti',
 );
 
 /** Literary Chinese (文言)

@@ -483,11 +483,12 @@ $messages['dsb'] = array(
 /** Greek (Ελληνικά)
  * @author Consta
  * @author Crazymadlover
+ * @author Glavkos
  * @author Omnipaedista
  * @author ZaDiak
  */
 $messages['el'] = array(
-	'pendingchanges' => 'Μη ενημερωμένες επιθεωρημένες σελίδες',
+	'pendingchanges' => 'Σελίδες με αλλαγές σε εκκρεμότητα',
 	'pendingchanges-legend' => 'Δημιουργία λίστας σελίδων με αναθεωρήσεις για τις οποίες εκκρεμεί επιθεώρηση',
 	'pendingchanges-list' => 'Αυτή η σελίδα περιλαμβάνει {{PLURAL:$1|μία επιθεωρημένη σελίδα για την οποίαν|επιθεωρημένες σελίδες για τις οποίες}} εκκρεμούν επεξεργασίες.',
 	'pendingchanges-none' => 'Προς το παρόν δεν υπάρχουν σελίδες που να πληρούν αυτά τα κριτήρια.',
@@ -496,7 +497,7 @@ $messages['el'] = array(
 	'pendingchanges-recent' => '(λιγότερο από 1 ώρα)',
 	'pendingchanges-category' => 'Κατηγορία:',
 	'pendingchanges-onwatchlist' => 'Σελίδες στη λίστα παρακολούθησής μου',
-	'pendingchanges-stable' => 'Σταθεροποιημένος',
+	'pendingchanges-stable' => 'Η σταθερή έκδοση είναι η προεπιλεγμένη',
 	'pendingchanges-diff' => 'επιθεώρηση',
 	'pendingchanges-size' => 'Μέγιστη αλλαγή (μπάιτς):',
 	'pendingchanges-unwatched' => '(δεν παρακολουθείται)',
@@ -1547,11 +1548,13 @@ $messages['ru'] = array(
 $messages['rue'] = array(
 	'pendingchanges' => 'Сторінкы з нерецензованыма змінами',
 	'pendingchanges-legend' => 'Список перевіреных сторінок з неперевіреныма ревізіями',
+	'pendingchanges-none' => 'Теперь нїт сторінок одповідаючіх тым крітеріям',
 	'pendingchanges-hours' => '($1 {{PLURAL:$1|година|годины|годин}})',
 	'pendingchanges-days' => '($1 {{PLURAL:$1|день|днї|днів}})',
 	'pendingchanges-recent' => '(менше 1 годины)',
 	'pendingchanges-category' => 'Катеґорія:',
 	'pendingchanges-onwatchlist' => 'Сторінкы з мого списку слїдованых',
+	'pendingchanges-stable' => 'Стабілна верзія є імпліцітна',
 	'pendingchanges-diff' => 'перевірити',
 	'pendingchanges-size' => 'Максімална зміна розміру в байтах:',
 	'pendingchanges-unwatched' => '(неслїдованы)',
