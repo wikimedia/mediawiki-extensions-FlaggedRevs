@@ -335,12 +335,14 @@ Esta ye la configuración actual de [[:$1|$1]]:',
 
 /** Azerbaijani (Azərbaycanca)
  * @author Cekli829
+ * @author Vago
  */
 $messages['az'] = array(
 	'stabilization-submit' => 'Təsdiq et',
 	'stabilization-comment' => 'Səbəb:',
 	'stabilization-otherreason' => 'Digər səbəb:',
 	'stabilization-othertime' => 'Başqa vaxt:',
+	'stabilization-def-short' => 'Susmaya görə',
 );
 
 /** Bashkir (Башҡортса)

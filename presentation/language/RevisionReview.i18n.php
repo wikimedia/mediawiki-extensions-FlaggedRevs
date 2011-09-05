@@ -3748,6 +3748,7 @@ $messages['pms'] = array(
 	'review_cannot_undo' => "As peul pa butesse andré sti cambi a motiv d'àutre modìfiche ch'a speto e ch'a rësguardo j'istesse zòne.",
 	'review_cannot_reject' => "As peul pa arfudesse sti cambi përchè quaidun a l'ha già acetà quaidun-e (o tute) dle modìfiche.",
 	'review_reject_excessive' => 'As peul pa arfudesse tute ste modìfiche ant na vira.',
+	'review_reject_nulledits' => 'As peulo pa arfudé costi cangiament përchè tute le revision a son dle modìfiche veujde.',
 	'revreview-check-flag-p' => "Aceté costa version (a comprend $1 {{PLURAL:$1|modìfica ch'a speta|modìfiche ch'a speto}})",
 	'revreview-check-flag-p-title' => "Aceté tùit ij cambi ch'a speto al moment ansema con soa modìfica. Ch'a Deuvra sossì mach s'a l'ha già vardà tute le diferense dij cambi ch'a speto.",
 	'revreview-check-flag-u' => 'Aceta sta pàgina pa revisionà',
@@ -3775,6 +3776,8 @@ Vardé la [[Special:Unreviewedpages|lista dle pàgine pa revisionà]].',
 	'revreview-successful2' => "'''Gavà për da bin la marca a la revision ëd [[:$1|$1]].'''",
 	'revreview-poss-conflict-p' => "'''Avis: [[User:$1|$1]] a l'ha ancaminà a revisioné costa pàgina ël $2 a $3.'''",
 	'revreview-poss-conflict-c' => "'''Avis: [[User:$1|$1]] a l'ha ancaminà a revisioné sti cambiament ël $2 a $3.'''",
+	'revreview-adv-reviewing-p' => "'''Nòta: It ses stàit avertì përché it ses partì a revisioné sta pagina-sì ël $1 a $2.'''",
+	'revreview-adv-reviewing-c' => "'''Nòta: It ses stàit avertì përché it ses partì a revisioné sti cambi-sì ël $1 a $2.'''",
 	'revreview-toolow' => "'''A venta ch'a stima mincadun ëd j'atribù pi àut che \"pa adeguà\" përchè na revision a sia considerà revisionà.'''
 
 Për gavé lë stat ëd revision ëd na revision, sgnaca \"pa acetà\".
@@ -3787,21 +3790,21 @@ Për piasì ch\'a revision-a tùit ij cambi smonù sì-sota përchè soe modìfi
 	'revreview-update-edited-prev' => "<span class=\"flaggedrevs_important\">Soe modìfiche a son anco' pa ant la version stàbil. A-i é dle modìfiche precedente ch'a speto na revision.</span>
 
 Për piasì ch'a revision-a tùit ij cambiament mostrà sì-sota përchè soe modìfiche a intro ant la version stàbil.",
-	'revreview-update-includes' => "'''Chèich stamp o archivi a son ëstàit cangià:'''",
+	'revreview-update-includes' => "'''Stamp/archivi agiornàà (pàgine nen revisionà an grassèt):'''",
 	'revreview-reject-header' => 'Cambi arfudà për $1',
-	'revreview-reject-text-list' => "An completand st'assion, a '''arfudrà''' {{PLURAL:$1|la modìfica|le modìfiche}} sì-dapress:",
+	'revreview-reject-text-list' => "An completand st'assion it '''arfudras''' la sorziss dij cambi ëd test da {{PLURAL:$1|la modìfica|le modìfiche}} sì-dapress ëd [[:$2|$2]]:",
 	'revreview-reject-text-revto' => 'Sòn a porterà andré la pàgina a la [{{fullurl:$1|oldid=$2}} version ëd $3].',
 	'revreview-reject-summary' => 'Resumé:',
 	'revreview-reject-confirm' => 'Arfuda sti cambi',
 	'revreview-reject-cancel' => 'Scancela',
-	'revreview-reject-summary-cur' => "Arfudà {{PLURAL:$1|l'ùltim cambi|j'ùltim $1 cambi}} (da $2) e ripristinà la revision $3 ëd $4",
-	'revreview-reject-summary-old' => "A l'ha arfudà {{PLURAL:$1|la prima modìfica|le prime $1 modìfiche}} (ëd $2) ch'a son ëvnùire apress la revision $3 ëd $4",
-	'revreview-reject-summary-cur-short' => "Arfudà {{PLURAL:$1|l'ùltim cambi|j'ùltim $1 cambi}} e ripristinà la revision $2 ëd $3",
-	'revreview-reject-summary-old-short' => "A l'ha arfudà {{PLURAL:$1|la prima modìfica|le prime $1 modìfiche}} ch'a son ëvnùite apress la revision $2 ëd $3",
+	'revreview-reject-summary-cur' => "Arfudà {{PLURAL:$1|l'ùltim cambi ëd test|j'ùltim $1 cambi ëd test}} (da $2) e ripristinà la revision $3 da $4",
+	'revreview-reject-summary-old' => "Arfudà {{PLURAL:$1|la prima modìfica ëd test|le prime $1 modìfiche ëd test}} (ëd $2) ch'a son ëvnùite apress la revision $3 da $4",
+	'revreview-reject-summary-cur-short' => "Arfudà {{PLURAL:$1|l'ùltim cambi ëd test|j'ùltim $1 cambi ëd test}} e ripristinà la revision $2 da $3",
+	'revreview-reject-summary-old-short' => "Arfudà {{PLURAL:$1|la prima modìfica ëd test|le prime $1 modìfiche ëd test}} ch'a son ëvnùite apress la revision $2 da $3",
 	'revreview-reject-usercount' => "{{PLURAL:$1|n'utent|$1 utent}}",
 	'revreview-tt-flag' => 'Apreuva sta revision-sì an marcandla com revisionà',
 	'revreview-tt-unflag' => 'Gava da aprovà sta revision-sì an marcandla com pa controlà',
-	'revreview-tt-reject' => 'Arfuda sti cambi an butandje andré',
+	'revreview-tt-reject' => 'Arfuda sti cambi ëd test sorziss an butandje andré',
 );
 
 /** Pashto (پښتو)
