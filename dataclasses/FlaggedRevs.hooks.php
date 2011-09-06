@@ -180,7 +180,7 @@ class FlaggedRevsHooks {
 	/**
 	* Select the desired images based on the selected stable version time/SHA-1
 	*/
-	public static function parserFetchStableFile( $parser, Title $title, &$time, &$sha1, &$query ) {
+	public static function parserFetchStableFile( $parser, Title $title, &$options, &$query ) {
 		if ( !( $parser instanceof Parser ) ) {
 			return true; // nothing to do
 		}
@@ -216,6 +216,12 @@ class FlaggedRevsHooks {
 			if ( $query != '' ) $query .= '&';
 			$query = "filetimestamp=" . urlencode( wfTimestamp( TS_MW, $time ) );
 		}
+		$options['time'] = $time;
+		$options['sha1'] = $sha1;
+		if ( $time === '0' ) {
+			$options['broken'] = true;
+		}
+
 		return true;
 	}
 
