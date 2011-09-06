@@ -534,6 +534,15 @@ $messages['ru'] = array(
 	'qualityoversight-legend' => 'Поиск по журналу проверок',
 );
 
+/** Rusyn (Русиньскый)
+ * @author Gazeb
+ */
+$messages['rue'] = array(
+	'qualityoversight' => 'Лоґ росшыреных перевірок',
+	'qualityoversight-list' => 'Тота стотінка обсягує список вшыткых недавных схваленых верзій і застарілых ревізій.',
+	'qualityoversight-legend' => 'Глядати в недавных записах перевірок',
+);
+
 /** Sakha (Саха тыла)
  * @author HalanTul
  */

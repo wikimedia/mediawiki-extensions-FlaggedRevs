@@ -111,6 +111,7 @@ Please review all the changes shown below to make your edits appear in the stabl
  * @author SPQRobin
  * @author Siebrand
  * @author Umherirrender
+ * @author Yekrats
  */
 $messages['qqq'] = array(
 	'revisionreview' => '{{Flagged Revs}}',
@@ -139,6 +140,8 @@ The text on the submit button in the form used to review pages.
 {{identical|submitting}}',
 	'revreview-submit-review' => '{{Flagged Revs}}',
 	'revreview-submit-unreview' => '{{Flagged Revs}}',
+	'revreview-submit-reject' => '{{Flagged Revs}}
+{{Identical|Reject changes}}',
 	'revreview-submit-reviewed' => '{{Flagged Revs}}',
 	'revreview-submit-unreviewed' => '{{Flagged Revs}}',
 	'revreview-successful' => '{{Flagged Revs-small}}
@@ -162,6 +165,7 @@ Shown when a reviewer/editor has marked a stable/checked/... revision as unstabl
 	'revreview-toolow' => '{{Flagged Revs-small}}
 A kind of error shown when trying to review a revision with all settings on "unapproved".',
 	'revreview-update' => '{{Flagged Revs}}',
+	'revreview-update-edited' => '{{Flagged Revs}}',
 	'revreview-update-edited-prev' => 'This message is shown after a user saves a version after another user made changes that were not reviewed yet.',
 	'revreview-update-includes' => '{{Flagged Revs}}',
 	'revreview-reject-summary' => '{{Identical|Summary}}',
@@ -201,13 +205,16 @@ $messages['af'] = array(
 	'revreview-log' => 'Opmerking:',
 	'revreview-submit' => 'Dien in',
 	'revreview-submitting' => 'Besig om in te stuur...',
-	'revreview-submit-review' => 'Aanvaar',
+	'revreview-submit-review' => 'Aanvaar hersiening',
 	'revreview-submit-reject' => 'Verwerp veranderinge',
 	'revreview-submit-reviewed' => 'Gedoen. Is aanvaar!',
 	'revreview-submit-unreviewed' => 'Gedoen. Nie aanvaar nie!',
 	'revreview-update-includes' => "'''Sommige sjablone/lêers is bygewerk:'''",
+	'revreview-reject-header' => 'Keur veranderinge vir $1 af',
 	'revreview-reject-summary' => 'Opsomming:',
+	'revreview-reject-confirm' => 'Keur hierdie veranderinge af',
 	'revreview-reject-cancel' => 'Kanselleer',
+	'revreview-reject-usercount' => '{{PLURAL:$1|een gebruiker|$1 gebruikers}}',
 );
 
 /** Gheg Albanian (Gegë)
@@ -1368,6 +1375,7 @@ Bonvolu kontroli ĉiujn jenajn ŝanĝojn por aperigi viajn redaktojn en la stabi
  * @author Imre
  * @author Jurock
  * @author Locos epraix
+ * @author MetalBrasil
  * @author Mor
  * @author Translationista
  */
@@ -1384,11 +1392,13 @@ $messages['es'] = array(
 	'review_not_flagged' => 'La revisión de destino no está marcada como revisada.',
 	'review_too_low' => 'La revisión no puede ser revisada con algunos campos dejados "inadecuados".',
 	'review_bad_key' => 'Clave de parámetro de inclusión inválido.',
+	'review_bad_tags' => 'Algunos de los valores de las variables especificadas son válidas.',
 	'review_denied' => 'Permiso denegado.',
 	'review_param_missing' => 'Un parámetro está perdido o es inválido.',
 	'review_cannot_undo' => 'No es posible deshacer estos cambio, ya que otras ediciones pendientes han cambiado estas áreas.',
 	'review_cannot_reject' => 'No se pudo rechazar estos cambios porque alguien aceptó algunas (o todas) las modificaciones.',
 	'review_reject_excessive' => 'No se puede rechazar esta cantidad de modificaciones a la vez.',
+	'review_reject_nulledits' => 'No se puede rechazar estos cambios, porque todas las revisiones son nulas modificaciones.',
 	'revreview-check-flag-p' => 'Aceptar esta versión (incluye {{PLURAL:$1|un cambio pendiente|$1 cambios pendientes}})',
 	'revreview-check-flag-p-title' => 'Aceptar todos los cambios actualmente pendientesjunto con tu propia edición.
 Solamente usar esto si ya has visto por completo las diferencias de los cambios pendientes.',
@@ -1415,6 +1425,10 @@ Mira la [[Special:Unreviewedpages|lista de páginas no revisadas]].',
 	'revreview-submit-unreviewed' => 'Hecho. Desaprobado!',
 	'revreview-successful' => "'''La revisión de [[:$1|$1]] ha sido exitósamente marcada. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} ver versiones estables])'''",
 	'revreview-successful2' => "'''Se ha desmarcado la revisión de [[:$1|$1]]'''",
+	'revreview-poss-conflict-p' => '"Advertencia: [[Usuario:\'\' $1 | $1 ]] comenzó a revisar esta página en $2 a $3 .\'\'\'',
+	'revreview-poss-conflict-c' => "''' Advertencia: [[usuario: $1 | $1 ]] comenzó a revisar estos cambios en  $2  en  $3 .'' '",
+	'revreview-adv-reviewing-p' => "''' Aviso: usted se que se anuncian como comenzó a revisar esta página sobre  $1  en  $2 .'' '",
+	'revreview-adv-reviewing-c' => "''' Aviso: usted se que se anuncian como habiendo empezado revisar estos cambios en  $1  en  $2 .'' '",
 	'revreview-toolow' => "'''Debes valorar cada uno de los atributos más alto que \"inadecuado\" para que la revisión sea considerada verificada.'''
 
 Para quitar el estado de verificación de una revisión, clic \"no aceptar\".
@@ -3792,7 +3806,7 @@ Për piasì ch\'a revision-a tùit ij cambi smonù sì-sota përchè soe modìfi
 Për piasì ch'a revision-a tùit ij cambiament mostrà sì-sota përchè soe modìfiche a intro ant la version stàbil.",
 	'revreview-update-includes' => "'''Stamp/archivi agiornàà (pàgine nen revisionà an grassèt):'''",
 	'revreview-reject-header' => 'Cambi arfudà për $1',
-	'revreview-reject-text-list' => "An completand st'assion it '''arfudras''' la sorziss dij cambi ëd test da {{PLURAL:$1|la modìfica|le modìfiche}} sì-dapress ëd [[:$2|$2]]:",
+	'revreview-reject-text-list' => "An completand cost'assion a '''arfudrà''' le modìfiche an sël test sorgiss ëd {{PLURAL:$1|la modìfica|le modìfiche}} sì-dapress ëd [[:$2|$2]]:",
 	'revreview-reject-text-revto' => 'Sòn a porterà andré la pàgina a la [{{fullurl:$1|oldid=$2}} version ëd $3].',
 	'revreview-reject-summary' => 'Resumé:',
 	'revreview-reject-confirm' => 'Arfuda sti cambi',
@@ -3804,7 +3818,7 @@ Për piasì ch'a revision-a tùit ij cambiament mostrà sì-sota përchè soe mo
 	'revreview-reject-usercount' => "{{PLURAL:$1|n'utent|$1 utent}}",
 	'revreview-tt-flag' => 'Apreuva sta revision-sì an marcandla com revisionà',
 	'revreview-tt-unflag' => 'Gava da aprovà sta revision-sì an marcandla com pa controlà',
-	'revreview-tt-reject' => 'Arfuda sti cambi ëd test sorziss an butandje andré',
+	'revreview-tt-reject' => 'Arfudé coste modìfiche ant ël test sorgiss an tirandje andré',
 );
 
 /** Pashto (پښتو)
@@ -4203,13 +4217,25 @@ $messages['ru'] = array(
  */
 $messages['rue'] = array(
 	'revisionreview' => 'Перевірка верзій',
+	'revreview-failed' => "'''Не годен перевірити тоту верзію.'''",
+	'revreview-submission-invalid' => 'Приспевок быв некомплетный або інакше хыбный.',
 	'review_page_invalid' => 'Назва цілёвой сторінкы не є платна',
 	'review_page_notexists' => 'Цілёвой сторінкы не є.',
+	'review_page_unreviewable' => 'Цілёва сторінка не є рецензовательна.',
 	'review_no_oldid' => 'Незазначеный ідентіфікатор ревізії.',
 	'review_bad_oldid' => 'Цілёвой ревізії не є.',
+	'review_conflict_oldid' => 'Хтось уж потвердив або зняв потверджіня з той ревізії, покы вы єй перезерали.',
+	'review_not_flagged' => 'Цілёва верзія сторінкы теперь не є означена як перевірена.',
+	'review_too_low' => 'Ревізія не може быти рецензована, покы дакотры поля суть охаблены "неадекватны".',
+	'review_bad_key' => 'Неприпустный ключ параметра включіня.',
+	'review_bad_tags' => 'Даякы значіня вказаного таґу суть неприпустны.',
 	'review_denied' => 'Приступ забороненый.',
 	'review_param_missing' => 'Параметер хыбить або є неправилный.',
-	'revreview-check-flag-p' => 'Акцептовати чекаючі зміны',
+	'review_cannot_undo' => 'Не може вернути тоты зміны, зато же далшы чекаючі едітованя змінили тоты  фраґменты.',
+	'review_cannot_reject' => 'Не може вернути тоты зміны, зато же дахто уж акцептовав дакотры з них.',
+	'review_reject_excessive' => 'Не може нараз вернути тілько велё едітовань.',
+	'review_reject_nulledits' => 'Не може вернути тоты зміны, бо вшыткы ревізії мають нуловы едітованя.',
+	'revreview-check-flag-p' => 'Акцептовати тоту верзію (обсягує $1 чекаючіх {{PLURAL:$1|зміна|змін}})',
 	'revreview-check-flag-p-title' => 'Потвердити вшыткы зміны, якы в даный час чекають на перевірку, вєдно з вашов властнов змінов, Хоснуйте лем в припадї, кідь сьте уж попозерали зміны, внесены тыма змінами.',
 	'revreview-check-flag-u' => 'Прияти тоту неперевірену сторінку',
 	'revreview-check-flag-u-title' => 'Прияти тоту верзію сторінкы. Хоснуйте лем кідь сьте уж відїли цалу сторінку.',
@@ -4235,8 +4261,17 @@ $messages['rue'] = array(
 	'revreview-successful2' => "'''Позначіня ревізії сторінкы [[:$1|$1]] было успішно зняте.'''",
 	'revreview-poss-conflict-p' => "'''Варованя: [[User:$1|$1]] почав перевіряти тоту сторінку $2 о $3.'''",
 	'revreview-poss-conflict-c' => "'''Варованя: [[User:$1|$1]] почав перевіряти тоты зміны $2 о $3.'''",
+	'revreview-update' => "Просиме, [[{{MediaWiki:Validationpage}}|перевірьте]] вшыткы нерецензованы зміны ''(указаны ниже)'', зроблены з моменту встановлїня стабілной верзії.",
 	'revreview-reject-summary' => 'Згорнутя:',
+	'revreview-reject-confirm' => 'Вернути тоты зміны',
 	'revreview-reject-cancel' => 'Сторно',
+	'revreview-reject-summary-cur' => 'Зрушена остатня {{PLURAL:$1|зміна тексту|$1 змін тексту}} (з $2) і обновлена ревізія $3 од $4',
+	'revreview-reject-summary-old' => 'Зрушена перша {{PLURAL:$1|зміна тексту|$1 змін тексту}} (з $2) і обновлена ревізія $3 од $4',
+	'revreview-reject-summary-cur-short' => 'Зрушена остатня {{PLURAL:$1|зміна тексту|$1 змін тексту}} (з $2) і обновлена ревізія $2 од $3',
+	'revreview-reject-summary-old-short' => 'Зрушена перша {{PLURAL:$1|зміна тексту|$1 змін тексту}} (з $2) котра была по ревізії $2 од $3',
+	'revreview-reject-usercount' => '$1 {{PLURAL:$1|єден хоснователь|$1 хоснователї|$1 хоснователїв}}',
+	'revreview-tt-flag' => 'Схвалити тоту верзію єй означінём за "перевірену"',
+	'revreview-tt-unflag' => 'Неакцептовати тоту верзію єй означінём за "неперевірену"',
 );
 
 /** Sakha (Саха тыла)
@@ -5350,6 +5385,7 @@ $messages['zh-hans'] = array(
 );
 
 /** Traditional Chinese (‪中文(繁體)‬)
+ * @author Anakmalaysia
  * @author Liangent
  * @author Mark85296341
  * @author Waihorace
@@ -5367,11 +5403,13 @@ $messages['zh-hant'] = array(
 	'review_not_flagged' => '該目標修訂目前沒有標記為已審查。',
 	'review_too_low' => '修訂不能進行審查，因為部份內容是未經批准。',
 	'review_bad_key' => '錯誤參數。',
+	'review_bad_tags' => '部分指定的標記值是無效的。',
 	'review_denied' => '權限錯誤',
 	'review_param_missing' => '一個參數遺失或無效。',
 	'review_cannot_undo' => '無法取消這些更改，因為在其他待審核的編輯對這些地方更改了。',
 	'review_cannot_reject' => '由於有人已經接受部份或所有更改，因此無法拒絕。',
 	'review_reject_excessive' => '不能一次拒絕過多編輯。',
+	'review_reject_nulledits' => '這些更改無法拒絕，因為所有修訂都是空編輯。',
 	'revreview-check-flag-p' => '接受此版本（包括$1個正在待審核的{{PLURAL:$1|編輯|編輯}}）',
 	'revreview-check-flag-p-title' => '接受所有目前正等待審核的編輯 (包括自己的編輯)，只能在你已檢視差異的情況之下使用此項。',
 	'revreview-check-flag-u' => '接受這個未經審查的頁面',
@@ -5397,6 +5435,10 @@ $messages['zh-hant'] = array(
 	'revreview-submit-unreviewed' => '完成。已取消批准！',
 	'revreview-successful' => "'''[[:$1|$1]]的指定版本已被標記。 ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} 檢視已審核版本])'''",
 	'revreview-successful2' => "'''[[:$1|$1]]的指定版本已成功移除標記。'''",
+	'revreview-poss-conflict-p' => "'''警告：[[User:$1|$1]]在$2$3時開始審閱此頁面。 '''",
+	'revreview-poss-conflict-c' => "'''警告：[[User:$1|$1]]在$2$3時開始審閱這些更改。 '''",
+	'revreview-adv-reviewing-p' => "'''注意：您在$1$2時開始審閱頁面後，收到了通知。 '''",
+	'revreview-adv-reviewing-c' => "'''注意：您在$1$2時開始審閱這些更改後，收到了通知。 '''",
 	'revreview-toolow' => '您一定要最少將下面每一項的屬性評定高於「不足」，才可將一個修訂設定為已複審。
 
 要捨棄一個修訂，請點選「拒絕」。
@@ -5409,20 +5451,20 @@ $messages['zh-hant'] = array(
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">您的變更尚未發佈。在你的編輯之前還有未審核的版本。</span>
 
 請檢查以下所有的修訂，以令你的編輯出現在穩定版本中。',
-	'revreview-update-includes' => "'''一些模板/檔案已被更新：'''",
+	'revreview-update-includes' => "'''模板或文件已更新（未復審頁面以粗體顯示）：'''",
 	'revreview-reject-header' => '拒絕更改為$1',
-	'revreview-reject-text-list' => "通過完成此項操作，你會'''拒絕'''以下{{PLURAL:$1|更改|多項更改}}：",
+	'revreview-reject-text-list' => "完成此操作後，您將'''拒絕'''在[[:$2|$2]]的{{PLURAL:$1|修訂|修訂}}中對源文本的更改：",
 	'revreview-reject-text-revto' => '這將恢復頁面回[{{fullurl:$1|oldid=$2}} $3的版本]。',
-	'revreview-reject-summary' => '編輯摘要：',
+	'revreview-reject-summary' => '摘要：',
 	'revreview-reject-confirm' => '拒絕這些更改',
 	'revreview-reject-cancel' => '取消',
-	'revreview-reject-summary-cur' => '拒絕最後的{{PLURAL:$1|更改|$1個更改}}（由$2）和恢復修訂$3（由$4）',
-	'revreview-reject-summary-old' => '拒絕首{{PLURAL:$1|個更改|$1更改}}（由$2）跟隨修訂$3（由$4）',
-	'revreview-reject-summary-cur-short' => '拒絕最後{{PLURAL:$1|的更改|$1更改}}並恢復修訂$2（由$3）',
-	'revreview-reject-summary-old-short' => '拒絕首{{PLURAL:$1|個更改|$1更改}}随後由$3作出的修訂$2',
+	'revreview-reject-summary-cur' => '拒絕由$2作出的後{{PLURAL:$1|次文字更改|$1次文字更改}}，並由$4恢復到修訂$3',
+	'revreview-reject-summary-old' => '拒絕由$2作出的前{{PLURAL:$1|次文字更改|$1次文字更改}}，並由$4恢復到修訂$3',
+	'revreview-reject-summary-cur-short' => '拒絕後{{PLURAL:$1|次文字更改|$1次文字更改}}，並由$3恢復到修訂$2',
+	'revreview-reject-summary-old-short' => '拒絕前{{PLURAL:$1|次文字更改|$1次文字更改}}，並由$3恢復到修訂$2',
 	'revreview-reject-usercount' => '{{PLURAL:$1|一個用户|$1個用戶}}',
 	'revreview-tt-flag' => '透過這項修訂通過標記它作為已審核',
 	'revreview-tt-unflag' => '將這個修訂標記為「未檢查」以取消批准這一修正。',
-	'revreview-tt-reject' => '透過回退以取消這些修訂。',
+	'revreview-tt-reject' => '拒絕這些對源文本的修改並撤消它們',
 );
 

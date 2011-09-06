@@ -62,6 +62,7 @@ Parameters:
  */
 $messages['af'] = array(
 	'unreviewedpages-category' => 'Kategorie:',
+	'unreviewedpages-diff' => 'kontrole',
 	'unreviewedpages-unwatched' => '(op geen dophoulys nie)',
 	'unreviewedpages-watched' => '($1 aktiewe {{PLURAL:$1|gebruiker het|gebruikers het}} hierdie bladsy op {{PLURAL:$1|sy|hul}} dophoulys)',
 	'unreviewedpages-none' => 'Daar is tans geen bladsye wat aan die kriteria voldoen nie',
@@ -1889,6 +1890,7 @@ $messages['zh-hans'] = array(
 );
 
 /** Traditional Chinese (‪中文(繁體)‬)
+ * @author Anakmalaysia
  * @author Gaoxuewei
  */
 $messages['zh-hant'] = array(
@@ -1898,7 +1900,7 @@ $messages['zh-hant'] = array(
 	'unreviewedpages-diff' => '審核',
 	'unreviewedpages-unwatched' => '（未被監視）',
 	'unreviewedpages-watched' => '（$1位活躍{{PLURAL:$1|用戶|用戶}}正在監視）',
-	'unreviewedpages-list' => '本頁列出還未達到一定複審水平的內容頁面。',
+	'unreviewedpages-list' => "本頁面列出了'''尚未'''達到指定[[{{MediaWiki:Validationpage}}|複審]]級別的內容頁面。",
 	'unreviewedpages-none' => '目前沒有頁面合乎這些條件',
 	'unreviewedpages-viewing' => '（正在審核）',
 	'unreviewedpages-hours' => '（$1 {{PLURAL:$1|小時|小時}}）',

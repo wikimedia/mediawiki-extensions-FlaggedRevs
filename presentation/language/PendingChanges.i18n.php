@@ -33,6 +33,7 @@ $messages['en'] = array(
  * @author Purodha
  * @author Raymond
  * @author SPQRobin
+ * @author Yekrats
  */
 $messages['qqq'] = array(
 	'pendingchanges' => '{{Flagged Revs}}
@@ -55,6 +56,7 @@ Used on [http://en.labs.wikimedia.org/wiki/Special:OldReviewedPages Special:OldR
 {{Identical|Category}}
 
 Used on [http://en.labs.wikimedia.org/wiki/Special:OldReviewedPages Special:OldReviewedPages] as a label for an input field in the form.',
+	'pendingchanges-onwatchlist' => '{{Flagged Revs}}',
 	'pendingchanges-stable' => '{{Flagged Revs}}',
 	'pendingchanges-diff' => '{{Flagged Revs}}
 

@@ -22,6 +22,7 @@ Some settings might change which version is displayed to readers or further rest
  * @author EugeneZelenko
  * @author Purodha
  * @author Raymond
+ * @author Yekrats
  */
 $messages['qqq'] = array(
 	'configuredpages-list' => '{{Flagged Revs}}
@@ -29,6 +30,10 @@ $messages['qqq'] = array(
 Parameters:
 * $1 - (optional) Number of items in the list, to be used with PLURAL, when unavoidable.',
 	'configuredpages-config' => '{{Identical|Configuration}}',
+	'configuredpages-def-draft' => '{{Flagged Revs}}
+{{identical|latest version}}',
+	'configuredpages-def-stable' => '{{Flagged Revs}}
+{{identical|stable version}}',
 );
 
 /** Afrikaans (Afrikaans) */

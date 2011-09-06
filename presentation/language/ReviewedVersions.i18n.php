@@ -989,6 +989,7 @@ $messages['rue'] = array(
 	'reviewedversions-leg1' => 'Список перевіреных ревізій сторінкы',
 	'reviewedversions-page' => 'Назва сторінкы:',
 	'reviewedversions-none' => '«[[:$1]]» не має перевіреных ревізій.',
+	'reviewedversions-list' => 'Тото є список {{PLURAL:$2|єдина ревізія|ревізій}} сторінкы [[:$1]], {{PLURAL:$2|котра не была|котры не были}} перевірены:',
 	'reviewedversions-review' => 'Перевірена <i>$1</i> хоснователём $2',
 );
 

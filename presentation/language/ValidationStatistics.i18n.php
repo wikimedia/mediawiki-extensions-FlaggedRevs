@@ -2186,6 +2186,7 @@ $messages['zh-hans'] = array(
 );
 
 /** Traditional Chinese (‪中文(繁體)‬)
+ * @author Anakmalaysia
  * @author Gaoxuewei
  * @author Horacewai2
  * @author Mark85296341
@@ -2198,20 +2199,19 @@ $messages['zh-hant'] = array(
 
 編輯及審定皆為已確認的用戶，並可以檢查各頁面的修定。",
 	'validationstatistics-lastupdate' => "''以下數據最後更新於$1在$2。''",
-	'validationstatistics-pndtime' => "已被用戶被認為是審查的編輯。 
+	'validationstatistics-pndtime' => "已確認用戶已經檢查這些編輯，並認為它們是''已復審''的。
 
-平均延遲 [[Special:OldReviewedPages|頁面編輯是未審核]]的等待時間是'''$1'''。 
-這些網頁被認為是''過時''的。同樣，網頁被認為是''最新''，如果沒有修改等待審核的話。",
+[[Special:OldReviewedPages|含有待複審編輯頁面]]的平均複審延遲是'''$1'''；這一延遲可以確定最早待複審編輯會有多久處於未復審狀態。",
 	'validationstatistics-revtime' => "平均等待''未登入用戶''的編輯審核是'''$1'''；中位數是'''$2 '''。 
 $3",
-	'validationstatistics-table' => "各名稱空間的統計資訊顯示如下，''不包含''重定向頁面。",
+	'validationstatistics-table' => "每個名字空間的頁面複審統計信息如下所示，其中'''不包括'''重定向頁。含有待複審編輯的頁面會被標記為“已過期”，不存在待複審編輯的頁面會被標記為“已同步”。",
 	'validationstatistics-ns' => '名稱空間',
 	'validationstatistics-total' => '頁面',
 	'validationstatistics-stable' => '已復審',
 	'validationstatistics-latest' => '已同步',
 	'validationstatistics-synced' => '已同步/已復審',
 	'validationstatistics-old' => '已過期',
-	'validationstatistics-utable' => '如下列表是過去一小時內{{PLURAL:$1|最活躍的|$1位活躍的}}審核者。',
+	'validationstatistics-utable' => '下面列出了最近{{PLURAL:$2|一小時|$2小時}}內{{PLURAL:$1|最活躍的複審員|最活躍的$1位複審員}}。',
 	'validationstatistics-user' => '用戶',
 	'validationstatistics-reviews' => '審核者',
 );

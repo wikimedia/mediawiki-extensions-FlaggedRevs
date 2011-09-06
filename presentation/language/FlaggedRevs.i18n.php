@@ -322,7 +322,12 @@ The accuracy "checked", as displayed on the page history after a revision with t
 
 This message is shown above the edit box. Clicking it displays a diff of changes.',
 	'revreview-log-toggle-show' => '{{Flagged Revs}}',
+	'revreview-log-toggle-hide' => '{{Flagged Revs}}',
+	'revreview-log-toggle-title' => '{{Flagged Revs}}',
 	'revreview-log-details-show' => '{{Flagged Revs}}',
+	'revreview-log-details-hide' => '{{Flagged Revs}}
+{{Identical|hide details}}',
+	'revreview-log-details-title' => '{{Flagged Revs}}',
 	'review-diff2stable' => '{{Flagged Revs}}',
 	'review-logentry-app' => '{{Flagged Revs}}
 Parameters:
@@ -485,8 +490,14 @@ A group in [[Special:SpecialPages]] for all special pages of the Flagged Revs ex
 	'revreview-lev-basic' => '{{Flagged Revs}}',
 	'revreview-lev-quality' => '{{Flagged Revs}}',
 	'revreview-lev-pristine' => '{{Flagged Revs}}',
+	'revreview-defaultfilter' => '{{Flagged Revs}}
+{{Identical|Default version:}}',
 	'revreview-def-all' => '{{Identical|Any}}',
+	'revreview-def-stable' => '{{Flagged Revs}}
+{{Identical|stable}}',
 	'revreview-restriction-any' => '{{Identical|Any}}',
+	'revreview-restriction-none' => '{{Flagged Revs}}
+{{Identical|none}}',
 	'revreview-reviewlink' => '{{Flagged Revs}}',
 	'tooltip-ca-current' => '{{Flagged Revs}}',
 	'tooltip-ca-stable' => '{{Flagged Revs}}',
@@ -556,6 +567,7 @@ $messages['af'] = array(
 [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} vergelyk]]",
 	'revreview-quick-see-quality' => "'''[[{{MediaWiki:Validationpage}}|Werkweergawe]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} gepubliseerde weergawe]]
 [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} vergelyk]]",
+	'revreview-source' => 'Wys bronteks',
 	'revreview-style' => 'Leesbaarheid',
 	'revreview-style-0' => 'Onvoldoende',
 	'revreview-style-1' => 'Aanvaarbaar',
@@ -579,6 +591,7 @@ $messages['af'] = array(
 	'revreview-lev-all' => 'enige',
 	'revreview-lev-quality' => 'kwaliteit',
 	'revreview-lev-pristine' => 'onaangeroerd',
+	'revreview-defaultfilter' => 'Standaardweergawe:',
 	'revreview-def-all' => 'enige',
 	'revreview-def-draft' => 'nuutste',
 	'revreview-def-stable' => 'gepubliseerde',
@@ -3939,6 +3952,7 @@ Bonvolu kontroli la retadreson (URL) kiun vi uzis por atingi la paĝon.\\b',
  * @author Locos epraix
  * @author Manuelt15
  * @author McDutchie
+ * @author MetalBrasil
  * @author Muro de Aguas
  * @author Pertile
  * @author Sanbec
@@ -3956,9 +3970,13 @@ $messages['es'] = array(
 	'prefs-flaggedrevs' => 'Aprobación de edición',
 	'prefs-flaggedrevs-ui' => 'Aprobación de edición',
 	'flaggedrevs-prefs-stable' => 'Cuendo mostrar la versión estable de las páginas de contenido por defecto',
+	'flaggedrevs-pref-stable-0' => 'Utilice la configuración predeterminada para cada página',
+	'flaggedrevs-pref-stable-1' => 'Siempre se muestra la versión estable (si es que existe)',
+	'flaggedrevs-pref-stable-2' => 'Mostrar siempre la versión más reciente',
 	'flaggedrevs-prefs-watch' => 'Añadir a mi lista de seguimiento las páginas que revise.',
 	'flaggedrevs-prefs-editdiffs' => 'Mostrar las diferencias de cambios pendientes al editar páginas',
 	'flaggedrevs-prefs-viewdiffs' => 'Mostrar la diferencia de los cambios pendientes al ver la última revisión pendiente',
+	'flaggedrevs-hidereviewed' => '$1examinó las modificaciones',
 	'group-editor' => 'Editores',
 	'group-editor-member' => 'editor',
 	'group-reviewer' => 'Revisores',
@@ -4075,6 +4093,7 @@ Nuevos [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-dif
 	'revreview-revnotfound' => 'No se pudo encontrar la revisión antigua de la página que ha solicitado.
 Por favor, revise la dirección que usó para acceder a esta página.',
 	'right-autoreview' => 'Marcar automáticamente las versiones como verificadas',
+	'right-autoreviewrestore' => 'Auto-examen de rollback',
 	'right-movestable' => 'Mover páginas publicadas',
 	'right-review' => 'Marcar revisiones como "verificadas"',
 	'right-stablesettings' => 'Configurar la forma de seleccionar y mostrar la versión publicada',
@@ -15295,6 +15314,7 @@ $messages['zh-hans'] = array(
 
 /** Traditional Chinese (‪中文(繁體)‬)
  * @author Alexsh
+ * @author Anakmalaysia
  * @author Gaoxuewei
  * @author Horacewai2
  * @author Liangent
@@ -15313,10 +15333,14 @@ $messages['zh-hant'] = array(
 	'flaggedrevs-pref-UI-1' => '使用小圖示和顯示最小的文字來表示頁面的審批狀態',
 	'prefs-flaggedrevs' => '編輯審核',
 	'prefs-flaggedrevs-ui' => '編輯審批',
-	'flaggedrevs-prefs-stable' => '始終顯示已發布的版本的內容（如果有）',
+	'flaggedrevs-prefs-stable' => '默認情況下顯示內容頁的穩定版本',
+	'flaggedrevs-pref-stable-0' => '為每個頁面使用默認設置',
+	'flaggedrevs-pref-stable-1' => '（如果有的話）始終顯示穩定版本',
+	'flaggedrevs-pref-stable-2' => '始終顯示最新版本',
 	'flaggedrevs-prefs-watch' => '將我評審的頁面添加到我的監視列表中',
 	'flaggedrevs-prefs-editdiffs' => '在編輯時顯示與穩定版本的差異',
 	'flaggedrevs-prefs-viewdiffs' => '在顯示頁面草稿時顯示與穩定版本的差異',
+	'flaggedrevs-hidereviewed' => '$1已複審的編輯',
 	'group-editor' => '編輯',
 	'group-editor-member' => '編輯',
 	'group-reviewer' => '評論家',
@@ -15330,8 +15354,8 @@ $messages['zh-hant'] = array(
 	'revreview-hist-pending' => '等待審核',
 	'revreview-hist-quality' => '[質素]',
 	'revreview-hist-basic' => '已察版本',
-	'revreview-hist-quality-user' => '已由[[User:$3|$3]]驗證]',
-	'revreview-hist-basic-user' => '已由[[User:$3|$3]]複查]',
+	'revreview-hist-quality-user' => '由[[User:$3|$3]]通過',
+	'revreview-hist-basic-user' => '由[[User:$3|$3]]檢查',
 	'revreview-hist-quality-auto' => '已自動複查',
 	'revreview-hist-basic-auto' => '已自動複查',
 	'revreview-hist-pending-difflink' => "''[[{{fullurl:$1|oldid=$2&diff=$3{{MediaWiki:flaggedrevs-diffonly}}}} 等待審核]]'''",
@@ -15385,14 +15409,14 @@ $messages['zh-hant'] = array(
 
 有{{PLURAL:$2|一|多}}個 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} ($2個)未審核的{{PLURAL:$2|版本|版本}}]  ''（如下所示）''等待審查。",
 	'revreview-edited-section' => '回到「[[#$1|$2]]」章節。',
-	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 最後視察過的修訂][{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 審核] 於<i>$2</i>。
-
-{{PLURAL:$3|有|有}}[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3次更改]需要複審。',
-	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 穩定版本][{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 審核]於<i>$2</i>。
-
-這裡有[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 模板或檔案]等待審查。',
-	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 最後有質素的修訂]是於<i>$2</i>[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 被審查]。這裡有[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3{{PLURAL:$3|次|次}}{{PLURAL:$3|更改|更改}}]需要複審。',
-	'revreview-newest-quality-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 穩定版本]是在<i>$2</i>[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 批准] 。還有 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 模板/文件更改] 等待審查。',
+	'revreview-newest-basic' => '該版本中有[{{fullurl:{{​​FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3個{{PLURAL:$3|更改|更改}}]{{PLURAL: $3|正在|正在}}[[{{MediaWiki:Validationpage}}|等待複審]]。
+當前[{{fullurl:{{​​FULLPAGENAMEE}}|stable=1}} 穩定版本][{{fullurl:{{​​#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 檢查]於$2。',
+	'revreview-newest-basic-i' => '該版本中有[{{fullurl:{{​​FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 對模板或文件的更改]正在[[{{MediaWiki:Validationpage}}|等待複審]]。
+當前[{{fullurl:{{​​FULLPAGENAMEE}}|stable=1}} 穩定版本][{{fullurl:{{​​#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 檢查]於$2。',
+	'revreview-newest-quality' => '該版本中有[{{fullurl:{{​​FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3個{{PLURAL:$3|更改|更改}}]{{PLURAL: $3|正在|正在}}[[{{MediaWiki:Validationpage}}|等待複審]]。
+當前[{{fullurl:{{​​FULLPAGENAMEE}}|stable=1}} 穩定版本][{{fullurl:{{​​#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 通過]於$2。',
+	'revreview-newest-quality-i' => '該版本中有[{{fullurl:{{​​FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 對模板或文件的更改]正在[[{{MediaWiki:Validationpage}}|等待複審]]。
+當前[{{fullurl:{{​​FULLPAGENAMEE}}|stable=1}} 穩定版本][{{fullurl:{{​​#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 通過]於$2。',
 	'revreview-pending-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 穩定版本]是在<i>$2</i>[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 檢查]的。那裡還有[{{fullurl:{{FULLPAGENAMEE}}|oldid =$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}}$3未決定變化]等待審查。',
 	'revreview-pending-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 穩定版本]是在<i>$2</i>[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 批准]。還有[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}}$3未決定的變更]等待審查。',
 	'revreview-pending-nosection' => '嘗試查看[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} 最新的版本]，其中包括
@@ -15433,6 +15457,7 @@ $messages['zh-hant'] = array(
 	'revreview-revnotfound' => '您請求的更早版本的修訂記錄沒有找到。
 請檢查您請求本頁面用的 URL 是否正確。',
 	'right-autoreview' => '將自己的編輯自動標示為已審核的',
+	'right-autoreviewrestore' => '自動自動複審',
 	'right-movestable' => '移動穩定頁面',
 	'right-review' => '將修改標記為已檢查',
 	'right-stablesettings' => '設定如何發布及顯示穩定版本選擇',
