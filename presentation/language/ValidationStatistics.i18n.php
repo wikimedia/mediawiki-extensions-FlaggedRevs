@@ -36,10 +36,16 @@ $3',
  * @author Jon Harald Søby
  * @author Raymond
  * @author Umherirrender
+ * @author Yekrats
  */
 $messages['qqq'] = array(
 	'validationstatistics' => '{{Flagged Revs}}',
 	'validationstatistics-users' => '{{Flagged Revs}}',
+	'validationstatistics-lastupdate' => 'Shown on the page [[Special:ValidationStatistics]].
+* $1 = Date
+* $2 = Time',
+	'validationstatistics-pndtime' => 'Provides the first informative paragraph in [[Special:ValidationStatistics]].
+* $1 is the average wait time for page reviews at [[Special:PendingChanges]].',
 	'validationstatistics-table' => '{{Flagged Revs}}',
 	'validationstatistics-ns' => '{{Flagged Revs}}
 {{Identical|Namespace}}',

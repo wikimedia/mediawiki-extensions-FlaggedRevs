@@ -287,6 +287,10 @@ The user is to select one of the following options:
 * {{msg-mw|Flaggedrevs-pref-stable-0}}
 * {{msg-mw|Flaggedrevs-pref-stable-1}}
 * {{msg-mw|Flaggedrevs-pref-stable-2}}',
+	'flaggedrevs-pref-stable-1' => '{{Flagged Revs}}
+Checkbox option used in [[Special:Preferences]].',
+	'flaggedrevs-pref-stable-2' => '{{Flagged Revs}}
+Checkbox option used in [[Special:Preferences]].',
 	'flaggedrevs-prefs-watch' => '{{Flagged Revs}}
 
 The wording of this message is supposed to be similar to {{msg-mw|Tog-watchdefault}}.',
@@ -381,7 +385,8 @@ Users who see the stable version and not the draft version as page, have this me
 {{Identical|Edit}}',
 	'revreview-editnotice' => '{{Flagged Revs}}
 {{Identical|Authorised user}}',
-	'revreview-submitedit-title' => '{{Gender}}',
+	'revreview-submitedit-title' => '{{Flagged Revs}}
+{{Gender}}',
 	'revreview-edited' => '{{Flagged Revs-small}}
 If an anonymous user edits a stable page, after saving the page he sees the draft version (<tt>stable=0</tt> in page title) he has made.
 
@@ -448,6 +453,9 @@ Appears on top of the protection form when the page has no stable version at all
 	'right-autoreview' => '{{Flagged Revs}}
 
 {{doc-right|autoreview}}',
+	'right-autoreviewrestore' => '{{Flagged Revs}}
+
+{{doc-right|autoreviewrestore}}',
 	'right-movestable' => '{{Flagged Revs}}
 
 {{doc-right|movestable}}',
@@ -492,7 +500,8 @@ A group in [[Special:SpecialPages]] for all special pages of the Flagged Revs ex
 	'revreview-lev-pristine' => '{{Flagged Revs}}',
 	'revreview-defaultfilter' => '{{Flagged Revs}}
 {{Identical|Default version:}}',
-	'revreview-def-all' => '{{Identical|Any}}',
+	'revreview-def-all' => '{{Flagged Revs}}
+{{Identical|Any}}',
 	'revreview-def-stable' => '{{Flagged Revs}}
 {{Identical|stable}}',
 	'revreview-restriction-any' => '{{Identical|Any}}',
@@ -502,7 +511,7 @@ A group in [[Special:SpecialPages]] for all special pages of the Flagged Revs ex
 	'tooltip-ca-current' => '{{Flagged Revs}}',
 	'tooltip-ca-stable' => '{{Flagged Revs}}',
 	'tooltip-ca-default' => '{{Flagged Revs}}',
-	'flaggedrevs-protect-legend' => '{{FlaggedRevs}}',
+	'flaggedrevs-protect-legend' => '{{Flagged Revs}}',
 	'flaggedrevs-protect-none' => '{{Flagged Revs}}',
 	'revreview-locked-title' => '{{Flagged Revs}}',
 	'revreview-unlocked-title' => '{{Flagged Revs}}',
@@ -11855,6 +11864,8 @@ $messages['rue'] = array(
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|нерецензована зміна|нерецензованы зміны|нерецензованых змін}}] {{PLURAL:$3|чекать|чекають|чекають}} перевірку.',
 	'revreview-basic-i' => 'Тото є [[{{MediaWiki:Validationpage}}|публікована верзія]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} перевірена] <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} зміны в шаблонах/файлах], якы чекають перевірку.',
+	'revreview-basic-old' => 'Тото є [[{{MediaWiki:Validationpage}}|перевірена]] верзія ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} список вшыткых]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} потверджена] <i>$2</i>.
+Могли быти зроблены новы [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} едітованя].',
 	'revreview-current' => 'Нерецензованы зміны',
 	'revreview-depth' => 'Глубка',
 	'revreview-depth-0' => 'Недостачуюча',

@@ -2625,6 +2625,7 @@ Ambelessì a-i son le regolassion corente për [[:$1|$1]]:",
  */
 $messages['ps'] = array(
 	'stabilization-page' => 'د مخ نوم:',
+	'stabilization-submit' => 'تاييد',
 	'stabilization-comment' => 'سبب:',
 	'stabilization-otherreason' => 'بل سبب:',
 	'stabilization-expiry' => 'د پای نېټه:',

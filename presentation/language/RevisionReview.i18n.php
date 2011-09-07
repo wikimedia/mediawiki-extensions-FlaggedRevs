@@ -140,8 +140,7 @@ The text on the submit button in the form used to review pages.
 {{identical|submitting}}',
 	'revreview-submit-review' => '{{Flagged Revs}}',
 	'revreview-submit-unreview' => '{{Flagged Revs}}',
-	'revreview-submit-reject' => '{{Flagged Revs}}
-{{Identical|Reject changes}}',
+	'revreview-submit-reject' => '{{Flagged Revs}}',
 	'revreview-submit-reviewed' => '{{Flagged Revs}}',
 	'revreview-submit-unreviewed' => '{{Flagged Revs}}',
 	'revreview-successful' => '{{Flagged Revs-small}}
@@ -1839,7 +1838,7 @@ Vêde la [[Special:Unreviewedpages|lista de les pâges pas revues]].',
 
 Por enlevar lo statut de rèvision d’una vèrsion, clicâd dessus « dèsaprovar ».
 
-Volyéd utilisar lo boton « retôrn » de voutron navigator et pués tornâd èprovar.",
+Volyéd utilisar lo boton « Devant » de voutron navigator et pués tornâd èprovar.",
 	'revreview-update' => "'''Volyéd [[{{MediaWiki:Validationpage}}|revêre]] tôs los changements en atenta ''(vêde ce-desot)'' fêts a la vèrsion stâbla.'''",
 	'revreview-update-edited' => '<span class="flaggedrevs_important">Voutros changements sont p’oncor dens la vèrsion stâbla.</span>
 
@@ -3829,7 +3828,7 @@ $messages['ps'] = array(
 	'revreview-log' => 'تبصره:',
 	'revreview-submit' => 'سپارل',
 	'revreview-submitting' => 'د سپارلو په حال کې ...',
-	'revreview-submit-review' => 'منل',
+	'revreview-submit-review' => 'مخکتنه منل',
 	'revreview-submit-reject' => 'بدلونونه ردول',
 	'revreview-reject-summary' => 'لنډيز:',
 	'revreview-reject-confirm' => 'همدا بدلونونه ردول',
@@ -4261,6 +4260,7 @@ $messages['rue'] = array(
 	'revreview-successful2' => "'''Позначіня ревізії сторінкы [[:$1|$1]] было успішно зняте.'''",
 	'revreview-poss-conflict-p' => "'''Варованя: [[User:$1|$1]] почав перевіряти тоту сторінку $2 о $3.'''",
 	'revreview-poss-conflict-c' => "'''Варованя: [[User:$1|$1]] почав перевіряти тоты зміны $2 о $3.'''",
+	'revreview-adv-reviewing-p' => "'''Позначка: Сьте оголошеный, же сьте зачали перевірёвати тоту сторінку дня $1 о $2.'''",
 	'revreview-update' => "Просиме, [[{{MediaWiki:Validationpage}}|перевірьте]] вшыткы нерецензованы зміны ''(указаны ниже)'', зроблены з моменту встановлїня стабілной верзії.",
 	'revreview-reject-summary' => 'Згорнутя:',
 	'revreview-reject-confirm' => 'Вернути тоты зміны',
