@@ -809,6 +809,7 @@ $messages['ru'] = array(
  * @author Gazeb
  */
 $messages['rue'] = array(
+	'stablepages' => 'Сторінкы, котры хоснують схвалїня едітовань',
 	'stablepages-none' => 'І тім списку не суть жадны сторінкы.',
 	'stablepages-config' => 'Конфіґурація',
 );

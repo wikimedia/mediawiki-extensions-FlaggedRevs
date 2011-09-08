@@ -296,6 +296,7 @@ Checkbox option used in [[Special:Preferences]].',
 The wording of this message is supposed to be similar to {{msg-mw|Tog-watchdefault}}.',
 	'flaggedrevs-prefs-editdiffs' => '{{Flagged Revs}}',
 	'flaggedrevs-prefs-viewdiffs' => '{{Flagged Revs}}',
+	'flaggedrevs-hidereviewed' => '{{Flagged Revs}}',
 	'group-editor' => '{{Flagged Revs}}
 {{Identical|Editor}}',
 	'group-editor-member' => '{{Flagged Revs}}
@@ -9610,6 +9611,7 @@ Kiek de URL nao die'j gebruken um naor disse pagina te gaon.",
 /** Nepali (नेपाली)
  * @author Bhawani Gautam
  * @author Bhawani Gautam Rhk
+ * @author सरोज कुमार ढकाल
  */
 $messages['ne'] = array(
 	'action-review' => 'समीक्षा संशोधन',
@@ -9641,7 +9643,7 @@ $messages['ne'] = array(
 	'revreview-hist-quality-user' => '[[User:$3|$3]] द्वारा स्वीकृत',
 	'revreview-hist-basic-user' => '[[User:$3|$3]] द्वारा परीक्षित',
 	'revreview-hist-quality-auto' => 'स्वतः स्वीकृत',
-	'revreview-hist-basic-auto' => '[{{fullurl:$1|stableid=$2}}स्वतः परीक्षित',
+	'revreview-hist-basic-auto' => 'स्वतः परीक्षित',
 	'revreview-hist-pending-difflink' => "'''[[{{fullurl:$1|oldid=$2&diff=$3{{MediaWiki:flaggedrevs-diffonly}}}} लंबित समीक्षा]]'''",
 	'review-edit-diff' => "'''सूचना: ''केहि'' लंबित परिवर्तनले तपाईंले परिवर्तन गरेको भागलाई असर गर्नेछ ।'''",
 	'revreview-diff-toggle-show' => 'ती परिवर्तनहरु हेर्ने',
@@ -11840,10 +11842,13 @@ $messages['rue'] = array(
 	'review-edit-diff' => "'''УВАГА: Часть сторінкы, котру едітуєте, обсягує зміны чекаючі на схвалїня'''",
 	'revreview-diff-toggle-show' => 'указати зміны',
 	'revreview-diff-toggle-hide' => 'сховати зміны',
+	'revreview-diff-toggle-title' => 'Переключіти зображіня чекаючіх змін стабілной верзії',
 	'revreview-log-toggle-show' => 'указати лоґ стабіліты',
 	'revreview-log-toggle-hide' => 'сховати лоґ стабіліты',
+	'revreview-log-toggle-title' => 'Указати/сховати лоґ наставлїнь стабілізації',
 	'revreview-log-details-show' => 'указати детайлы',
 	'revreview-log-details-hide' => 'сховати детайлы',
+	'revreview-log-details-title' => 'Указати/сховати лоґ наставлїнь стабілізації',
 	'review-diff2stable' => 'Зобразити вшыткы зміны што чекають на перевірку',
 	'review-logentry-app' => 'перевірив верзію [[$1]]',
 	'review-logentry-dis' => 'позначив верзію [[$1]] як застарілу',
@@ -11866,6 +11871,8 @@ $messages['rue'] = array(
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} зміны в шаблонах/файлах], якы чекають перевірку.',
 	'revreview-basic-old' => 'Тото є [[{{MediaWiki:Validationpage}}|перевірена]] верзія ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} список вшыткых]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} потверджена] <i>$2</i>.
 Могли быти зроблены новы [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} едітованя].',
+	'revreview-basic-same' => 'Тото є [[{{MediaWiki:Validationpage}}|опублікована верзія]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} перевірена] <i>$2</i>.',
+	'revreview-basic-source' => '[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} Перевірена верзія] той сторінкы, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} схвалена] <i>$2</i>, выходить на тій ревізії.',
 	'revreview-current' => 'Нерецензованы зміны',
 	'revreview-depth' => 'Глубка',
 	'revreview-depth-0' => 'Недостачуюча',
@@ -11875,13 +11882,44 @@ $messages['rue'] = array(
 	'revreview-depth-4' => 'Вызначна',
 	'revreview-draft-title' => 'На тій сторінцї суть указаны зміны чекаючі на контролю',
 	'revreview-edit' => 'Едітовати',
+	'revreview-editnotice' => "'''Вашы зміны будуть указаны чітателям, як їх авторізованый хоснователь перевірить.
+([[{{MediaWiki:Validationpage}}|поміч]])'''",
 	'revreview-submitedit' => 'Одослати зміны',
+	'revreview-submitedit-title' => 'Одослати зміны про посуджіня',
+	'revreview-edited' => "'''Вашы зміны будуть указаны чітателям, аж їх авторізованый хоснователь перевірить.
+([[{{MediaWiki:Validationpage}}|поміч]])'''
+
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|нерецензована зміна|нерецензованы зміны|нерецензованых змін}}] ''(указаны ниже)'' {{PLURAL:$2|чекать|чекають|чекають}} на перевірку.",
 	'revreview-edited-section' => 'Вернути ся до секції сторінкы "[[#$1|$2]]".',
+	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|зміна|змін}}] в тій верзії [[{{MediaWiki:Validationpage}}|{{PLURAL:$3|чекать|чекають}} на перевірку]].
+[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Стабілна верзія] була [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} перевірена] <i>$2</i>.',
+	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} змін шаблон/файлів] в тій верзії [[{{MediaWiki:Validationpage}}| чекають на перевірку]].
+[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Стабілна верзія] была [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} перевірена] <i>$2</i>.',
+	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|зміна|змін}}] в тій верзії [[{{MediaWiki:Validationpage}}|{{PLURAL:$3|чекать|чекають}} на перевірку]].
+[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Стабілна верзія] была [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} схвалена] <i>$2</i>.',
+	'revreview-newest-quality-i' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} змін шаблон/файлів] в тій верзії [[{{MediaWiki:Validationpage}}| чекають на перевірку]].
+[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Стабілна верзія] была [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} схвалена] <i>$2</i>.',
+	'revreview-pending-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Опублікована верзія] была [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} перевірена] <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|нерецензована зміна|нерецензованы зміны|нерецензованых змін}}] {{PLURAL:$3|чекать|чекають|чекають}} на перевірку.',
+	'revreview-pending-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Опублікована верзія] была [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} схвалена] <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|нерецензована зміна|нерецензованы зміны|нерецензованых змін}}] {{PLURAL:$3|чекать|чекають|чекають}} на перевірку.',
+	'revreview-pending-nosection' => 'Спробуйте перегляднути [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} остатню верзію], котра обсягує
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|нерецензовану зміну|нерецензованы зміны|нерецензованых змін}}], жебы ся дізнати, ці не была секція переменована або змазана.',
+	'revreview-noflagged' => "Нїт [[{{MediaWiki:Validationpage}}|рецензованых верзій]] той сторінкы, также она ся '''не''' перевіряла на  одповідность штандартам.",
 	'revreview-oldrating' => 'Была оцінена:',
+	'revreview-quality' => 'Тото є [[{{MediaWiki:Validationpage}}|стабілна верзія]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} перевірена] <i>$2</i>.
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|нерецензована зміна|нерецензованы зміны|нерецензованых змін}}] {{PLURAL:$3|чекать|чекають|чекають}} перевірку.',
+	'revreview-quality-i' => 'Тото є [[{{MediaWiki:Validationpage}}|стабілна верзія]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} перевірена] <i>$2</i>.
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} зміны в шаблонах/файлах], якы чекають перевірку.',
+	'revreview-quality-old' => 'Тото є [[{{MediaWiki:Validationpage}}|квалітна]] верзія ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} список вшыткых]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} потверджена] <i>$2</i>.
+Могли быти зроблены новы [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} едітованя].',
+	'revreview-quality-same' => 'Тото є [[{{MediaWiki:Validationpage}}|стабілна верзія]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} схвалена] <i>$2</i>.',
+	'revreview-quality-source' => '[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} Квалітна верзія] той сторінкы, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} схвалена] <i>$2</i>, выходить з той ревізії.',
 	'revreview-quality-title' => 'Тото якостна верзія той сторінкы',
+	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|Перевірена верзія]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} перевірити нерецензованы зміны]]",
 	'revreview-quick-basic-old' => "'''[[{{MediaWiki:Validationpage}}|Перевірена верзія]]'''",
 	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|Перевірена верзія]]'''",
+	'revreview-quick-invalid' => "'''Неправилный ідентіфікатор ревізії'''",
 	'revreview-quick-none' => "'''[[{{MediaWiki:Validationpage}}|Неревірена верзія]]'''",
+	'revreview-quick-quality' => "'''[[{{MediaWiki:Validationpage}}|Квалітна верзія]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} перевірити нерецензованы зміны]]",
 	'revreview-quick-quality-old' => "'''[[{{MediaWiki:Validationpage}}|Якость]]'''",
 	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|Якость]]'''",
 	'revreview-quick-see-basic' => '[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} перевірити нерецензованы зміны]]',
@@ -11895,11 +11933,17 @@ $messages['rue'] = array(
 	'revreview-style-3' => 'Точна',
 	'revreview-style-4' => 'Вызначна',
 	'revreview-toggle-title' => 'вказати/сховати детайлы',
+	'revreview-visibility-synced' => "'''Тота сторінка мать обновену [[{{MediaWiki:Validationpage}}|опубліковану верзію]]; наставлїня стабілізації сторінкы можуть быти [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} змінены].'''",
+	'revreview-visibility-outdated' => "'''Тота сторінка мать застарілу [[{{MediaWiki:Validationpage}}|опубліковану верзію]]; наставлїня стабілізації сторінкы можуть быти [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} змінены].'''",
+	'revreview-visibility-nostable' => "'''Тота сторінка не мать [[{{MediaWiki:Validationpage}}|опубліковану верзію]]; наставлїня стабілізації сторінкы можуть быти [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} змінены].'''",
 	'revreview-revnotfound' => 'Не годен найти стару верзію, котру жадате. Спробуйте перевірити правилность URL гляданой сторінкы.',
 	'right-autoreview' => 'Автоматічне означованя едітовань як перевіреных',
+	'right-autoreviewrestore' => 'Автоперевірка при зрушіню змін',
 	'right-movestable' => 'Переменовати опублікованых сторінок',
 	'right-review' => 'Позначіня верзій сторінок як "перевіреных"',
+	'right-stablesettings' => 'Наставлїня як стабілна верзія є выбрана і зображена',
 	'right-validate' => 'Позначіня верзій сторінок як "перевіреных"',
+	'right-unreviewedpages' => 'Перегляд списку [[Special:UnreviewedPages|непосудженых сторінок]]',
 	'rights-editor-autosum' => 'автоматічно повышеный',
 	'rights-editor-revoke' => 'зняв статус редактора з [[$1]]',
 	'specialpages-group-quality' => 'Прегляд едітовань',
@@ -11908,6 +11952,7 @@ $messages['rue'] = array(
 	'stable-logentry-reset' => 'ресетнув параметры стабілной верзїї про "$1"',
 	'stable-log-restriction' => 'Автоматічне рецензованя: потребує права "$1"',
 	'stable-logpage' => 'Лоґ стабіліты',
+	'stable-logpagetext' => 'Тото є лоґ змін наставлїнь [[{{MediaWiki:Validationpage}}|опублікованой верзії]] сторінок.',
 	'revreview-filter-all' => 'вшыткы',
 	'revreview-filter-stable' => 'стабілна',
 	'revreview-statusfilter' => 'Дїя про потверджіня:',

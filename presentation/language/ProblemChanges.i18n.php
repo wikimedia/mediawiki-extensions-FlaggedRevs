@@ -720,6 +720,10 @@ $messages['ru'] = array(
  * @author Gazeb
  */
 $messages['rue'] = array(
+	'problemchanges' => 'Означены нерецензованы зміны',
+	'problemchanges-list' => 'Тота сторінка обсягує [[{{MediaWiki:Validationpage}}|рецензованы]] сторінкы, котры мають єдну або веце означеных едітовань чекаючіх рецензоцаня. Список [[Special:Tags|платных значок змін]] є доступный.',
+	'problemchanges-legend' => 'Список сторінок з означеным едітованями, котры чекають зміны',
+	'problemchanges-none' => 'Теперь нїт сторінок одповідаючіх тым крітеріям',
 	'problemchanges-category' => 'Катеґорія:',
 );
 

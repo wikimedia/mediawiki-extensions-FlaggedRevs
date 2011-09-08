@@ -1550,6 +1550,7 @@ $messages['ru'] = array(
 $messages['rue'] = array(
 	'pendingchanges' => 'Сторінкы з нерецензованыма змінами',
 	'pendingchanges-legend' => 'Список перевіреных сторінок з неперевіреныма ревізіями',
+	'pendingchanges-list' => 'Тота сторінка обсягує список [[{{MediaWiki:Validationpage}}|рецензованых]] сторінок, якы мають єдно або веце нерецензованых едітовань.',
 	'pendingchanges-none' => 'Теперь нїт сторінок одповідаючіх тым крітеріям',
 	'pendingchanges-hours' => '($1 {{PLURAL:$1|година|годины|годин}})',
 	'pendingchanges-days' => '($1 {{PLURAL:$1|день|днї|днів}})',

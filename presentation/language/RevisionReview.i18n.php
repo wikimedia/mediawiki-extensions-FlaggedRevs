@@ -4085,9 +4085,11 @@ $messages['roa-tara'] = array(
 	'review_bad_key' => "Inglusione invalide d'u parametre chiave.",
 	'review_denied' => 'Permesse vietate.',
 	'review_param_missing' => "'Nu parametre ha state zumbate o jè invalide.",
+	'review_reject_excessive' => "Non ge pozze refiutà troppe cangiaminde tutte 'na vote.",
 	'revreview-check-flag-p' => 'Accette sta versione (inglude $1 {{PLURAL:$1|cangiamende|cangiaminde}} appese)',
 	'revreview-check-flag-u' => 'Accette sta pàgene none reviste',
 	'revreview-check-flag-y' => 'Accette ste cangiaminde',
+	'revreview-check-flag-y-title' => 'Accette tutte le cangiaminde ca tu è fatte aqquà.',
 	'revreview-flag' => 'Revide sta revisione',
 	'revreview-reflag' => 'Revide arrete sta revisione',
 	'revreview-invalid' => "'''Destinazione invalide:''' nisciuna revisiona  [[{{MediaWiki:Validationpage}}|reviste]] corresponne a 'u codece (ID) inzerite.",
@@ -4119,6 +4121,10 @@ Pe piacere cazze 'u buttone \"back\" d'u browser tune e pruève arrete.",
 	'revreview-reject-summary' => 'Riepileghe:',
 	'revreview-reject-confirm' => 'Scitte ste cangiaminde',
 	'revreview-reject-cancel' => 'Annulle',
+	'revreview-reject-summary-cur' => "Scettate l'urteme {{PLURAL:$1|cangiamende d'u teste|$1 cangiaminde d'u teste}} (by $2) e repristinate 'a revisione $3 da $4",
+	'revreview-reject-summary-old' => "Scettate {{PLURAL:$1|'a prime cangiamende d'u teste|le prime $1 cangiaminde d'u teste}} (by $2) apprisse 'a revisione $3 da $4",
+	'revreview-reject-summary-cur-short' => "Scettate l'urteme {{PLURAL:$1|cangiamende d'u teste|$1 cangiaminde d'u teste}} e repristinate 'a revisione $2 da $3",
+	'revreview-reject-summary-old-short' => "Scettate {{PLURAL:$1|'a prime cangiamende d'u teste|le prime $1 cangiaminde d'u teste}} apprisse 'a revisione $2 da $3",
 	'revreview-reject-usercount' => "{{PLURAL:$1|'n'utende|$1 utinde}}",
 	'revreview-tt-flag' => 'Appruève sta revisione marcannele cumme verificate',
 	'revreview-tt-unflag' => 'Non accettà sta revisione marcannele cumme "none verificate"',
@@ -4261,7 +4267,23 @@ $messages['rue'] = array(
 	'revreview-poss-conflict-p' => "'''Варованя: [[User:$1|$1]] почав перевіряти тоту сторінку $2 о $3.'''",
 	'revreview-poss-conflict-c' => "'''Варованя: [[User:$1|$1]] почав перевіряти тоты зміны $2 о $3.'''",
 	'revreview-adv-reviewing-p' => "'''Позначка: Сьте оголошеный, же сьте зачали перевірёвати тоту сторінку дня $1 о $2.'''",
+	'revreview-adv-reviewing-c' => "'''Позначка: Сьте оголошеный, же сьте зачали перевірёвати тоты зміны дня $1 о $2.'''",
+	'revreview-toolow' => "'''Мусите становити каждый з атрібутів у значіня высше, як \"недостаточный\", одповідно до процедуры позначіня верзії рецензованов.'''
+
+Жебы зняти статус рецензованя, стисните \"зняти\".
+
+Просиме, стисните клапку «Назад» у перезерачі і спробуйте щі раз.",
 	'revreview-update' => "Просиме, [[{{MediaWiki:Validationpage}}|перевірьте]] вшыткы нерецензованы зміны ''(указаны ниже)'', зроблены з моменту встановлїня стабілной верзії.",
+	'revreview-update-edited' => '<span class="flaggedrevs_important">Вашы зміны іщі не включены до стабілной верзії.</span> 
+
+Просиме, перевіртье вшыткы зміны, указаны ниже, жебы включіти вашы едітованя до стабілной верзії.',
+	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Вашы зміны іщі не включены до стабілной верзії. Опереднї зміны чекають на перевірку</span> 
+
+Просиме, перевіртье вшыткы зміны, указаны ниже, жебы включіти вашы едітованя до стабілной верзії.',
+	'revreview-update-includes' => "'''Дакотры шаблоны або файлы были обновены (неперевірены суть тучным писмом):'''",
+	'revreview-reject-header' => 'Зрушыти зміны про $1',
+	'revreview-reject-text-list' => "Докончінём той дїї '''рушыте''' зміны жрідлового тексту з наслїдных {{PLURAL:$1|ревізія|ревізій}} [[:$2|$2]]:",
+	'revreview-reject-text-revto' => 'Тото верне сторінку назад до [{{fullurl:$1|oldid = $2}} ревізії $3].',
 	'revreview-reject-summary' => 'Згорнутя:',
 	'revreview-reject-confirm' => 'Вернути тоты зміны',
 	'revreview-reject-cancel' => 'Сторно',
@@ -4272,6 +4294,7 @@ $messages['rue'] = array(
 	'revreview-reject-usercount' => '$1 {{PLURAL:$1|єден хоснователь|$1 хоснователї|$1 хоснователїв}}',
 	'revreview-tt-flag' => 'Схвалити тоту верзію єй означінём за "перевірену"',
 	'revreview-tt-unflag' => 'Неакцептовати тоту верзію єй означінём за "неперевірену"',
+	'revreview-tt-reject' => 'Зрушыти тоты зміны жрідлового тексту їх навернутём',
 );
 
 /** Sakha (Саха тыла)

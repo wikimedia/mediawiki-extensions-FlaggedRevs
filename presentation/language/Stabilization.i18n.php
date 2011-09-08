@@ -2860,11 +2860,20 @@ $messages['ru'] = array(
  * @author Gazeb
  */
 $messages['rue'] = array(
+	'stabilization-tab' => '(кя)',
 	'stabilization' => 'Стабілізація сторінкы',
+	'stabilization-text' => "'''Змінити наставлїня долов про приспособлїня того, як ся выберать стабілна верзія сторінкы [[:$1|$1]] і як ся зобразить.'''",
+	'stabilization-perm' => 'Ваше конто не мать права змінити стабілну конфіґурацію верзії.
+Ту є актуалне наставлїня [[:$1|$1]]:',
 	'stabilization-page' => 'Назва сторінкы:',
+	'stabilization-leg' => 'Потвердити наставлїня стабілной верзії',
+	'stabilization-def' => 'Ревізія зобразена як імпліцітна',
+	'stabilization-def1' => 'Стабілна верзія; кідь такой нїт так послїдня верзія',
 	'stabilization-def2' => 'Послїдня ревізія',
+	'stabilization-restrict' => 'Обмеджіня резензованя/автоедітованя',
 	'stabilization-restrict-none' => 'Без далшых обмеджінь',
 	'stabilization-submit' => 'Підтвердити',
+	'stabilization-notexists' => 'Не екзістує сторінка "[[:$1|$1]]". Наставлїня не є можне.',
 	'stabilization-notcontent' => 'Сторінка «[[:$1|$1]]» не може быти перевірена.
 Наставлїня не є можне.',
 	'stabilization-comment' => 'Причіна:',
@@ -2876,8 +2885,14 @@ $messages['rue'] = array(
 	'stabilization-def-short-1' => 'Публікована',
 	'stabilize_page_invalid' => 'Назва цілёвой сторінкы не є платна',
 	'stabilize_page_notexists' => 'Цілёвой сторінкы не є.',
+	'stabilize_page_unreviewable' => 'Цілёва сторінка не є в просторї назв, котры ся можуть рецензовати.',
+	'stabilize_invalid_autoreview' => 'Неправилне обмеджіня авторецензованя.',
+	'stabilize_invalid_level' => 'Неправилна уровень охраны.',
+	'stabilize_expiry_invalid' => 'Хыбный датум експірації.',
+	'stabilize_expiry_old' => 'Час закінчіня експіровав.',
 	'stabilize_denied' => 'Приступ забороненый.',
 	'stabilize-expiring' => 'кінчіть $1 (UTC)',
+	'stabilization-review' => 'Позначіти актуалну верзію',
 );
 
 /** Sakha (Саха тыла)
