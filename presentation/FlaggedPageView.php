@@ -12,7 +12,6 @@ class FlaggedPageView {
 	protected $isDiffFromStable = false;
 	protected $isMultiPageDiff = false;
 	protected $reviewNotice = '';
-	protected $reviewNotes = '';
 	protected $diffNoticeBox = '';
 	protected $reviewFormRev = false;
 
@@ -44,20 +43,20 @@ class FlaggedPageView {
 	* Load the global FlaggedPage instance
 	*/
 	protected function load() {
-		global $wgOut;
 		if ( !$this->loaded ) {
 			$this->loaded = true;
 			$this->article = self::globalArticleInstance();
 			if ( $this->article == null ) {
 				throw new MWException( 'FlaggedPageView has no context article!' );
 			}
-			$this->out = $wgOut;
+			$this->out = RequestContext::getMain()->getOutput();
 		}
 	}
 
 	/**
 	 * Get the FlaggedPage instance associated with $wgTitle,
 	 * or false if there isn't such a title
+	 * @return FlaggedPage|null
 	 */
 	public static function globalArticleInstance() {
 		$title = RequestContext::getMain()->getTitle();
@@ -65,6 +64,14 @@ class FlaggedPageView {
 			return FlaggedPage::getTitleInstance( $title );
 		}
 		return null;
+	}
+
+	/*
+	 * Check if the old and new diff revs are set for this page view
+	 * @return bool
+	 */
+	public function diffRevsAreSet() {
+		return (bool)$this->diffRevs;
 	}
 
 	/**
@@ -1048,10 +1055,12 @@ class FlaggedPageView {
 	}
 
 	 /**
-	 * Add review form to pages when necessary
-	 * on a regular page view (action=view)
+	 * Add review form to pages when necessary on a regular page view (action=view).
+	 * If $output is an OutputPage then this prepends the form onto it.
+	 * If $output is a string then this appends the review form to it.
+	 * @param mixed string|OutputPage
 	 */
-	public function addReviewForm( &$data ) {
+	public function addReviewForm( &$output ) {
 		global $wgRequest, $wgUser;
 		$this->load();
 		if ( $this->out->isPrintable() ) {
@@ -1108,11 +1117,11 @@ class FlaggedPageView {
 
 			list( $html, $status ) = $form->getHtml();
 			# Diff action: place the form at the top of the page
-			if ( $this->diffRevs ) {
-				$this->out->prependHTML( $html );
+			if ( $output instanceof OutputPage ) {
+				$output->prependHTML( $html );
 			# View action: place the form at the bottom of the page
 			} else {
-				$data .= $html;
+				$output .= $html;
 			}
 		}
 		return true;
@@ -1121,7 +1130,7 @@ class FlaggedPageView {
 	 /**
 	 * Add link to stable version setting to protection form
 	 */
-	public function addStabilizationLink( &$data ) {
+	public function addStabilizationLink() {
 		global $wgRequest;
 		$this->load();
 		if ( FlaggedRevs::useProtectionLevels() ) {
@@ -1884,17 +1893,5 @@ class FlaggedPageView {
 			$editPage->fr_baseRevId = $revId;
 		}
 		return $editPage->fr_baseRevId;
-	}
-
-	 /**
-	 * Adds brief review notes to a page.
-	 * @param OutputPage $out
-	 */
-	public function addReviewNotes( &$data ) {
-		$this->load();
-		if ( $this->reviewNotes ) {
-			$data .= $this->reviewNotes;
-		}
-		return true;
 	}
 }

@@ -101,7 +101,15 @@ class FlaggedRevsUIHooks {
 	public static function onBeforePageDisplay( &$out, &$skin ) {
 		if ( $out->getTitle()->getNamespace() != NS_SPECIAL ) {
 			$view = FlaggedPageView::singleton();
+			$view->addStabilizationLink(); // link on protect form
 			$view->displayTag(); // show notice bar/icon in subtitle
+			if ( $out->isArticleRelated() ) {
+				// Only use this hook if we want to prepend the form.
+				// We prepend the form for diffs, so only handle that case here.
+				if ( $view->diffRevsAreSet() ) {
+					$view->addReviewForm( $out ); // form to be prepended
+				}
+			}
 			$view->setRobotPolicy(); // set indexing policy
 			self::injectStyleAndJS(); // full CSS/JS
 		} else {
@@ -323,9 +331,11 @@ class FlaggedRevsUIHooks {
 			&& FlaggedPageView::globalArticleInstance() != null )
 		{
 			$view = FlaggedPageView::singleton();
-			$view->addReviewNotes( $data );
-			$view->addReviewForm( $data );
-			$view->addStabilizationLink( $data );
+			// Only use this hook if we want to append the form.
+			// We *prepend* the form for diffs, so skip that case here.
+			if ( !$view->diffRevsAreSet() ) {
+				$view->addReviewForm( $data ); // form to be appended
+			}
 		}
 		return true;
 	}
