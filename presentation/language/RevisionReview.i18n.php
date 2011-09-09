@@ -619,9 +619,15 @@ $messages['be-tarask'] = array(
 /** Bulgarian (Български)
  * @author Borislav
  * @author DCLXVI
+ * @author Spiritia
  * @author Turin
  */
 $messages['bg'] = array(
+	'review_page_invalid' => 'Заглавието на целевата страница е невалидно.',
+	'review_page_notexists' => 'Целевата страница не съществува.',
+	'review_no_oldid' => 'Не е указан идентификатор на версията.',
+	'review_bad_oldid' => 'Целевата версия не съществува.',
+	'review_conflict_oldid' => 'Някой вече е приел или отхвърлил тази версия, докато вие я преглеждахте.',
 	'review_denied' => 'Достъпът е отказан.',
 	'review_param_missing' => 'Липсващ или неправилен параметър.',
 	'revreview-legend' => 'Оценка на съдържанието на версията',
@@ -633,9 +639,10 @@ $messages['bg'] = array(
 	'revreview-submit-reject' => 'Отхвърляне на промените',
 	'revreview-submit-reviewed' => 'Готово. Прието!',
 	'revreview-submit-unreviewed' => 'Готово. Неприето!',
-	'revreview-update-includes' => "'''Някои шаблони или файлове бяха обновени:'''",
+	'revreview-update-includes' => "Актуализирани шаблони/файлове (непрегледаните страници са в получер шрифт):'''",
 	'revreview-reject-summary' => 'Резюме:',
 	'revreview-reject-cancel' => 'Отказване',
+	'revreview-tt-flag' => 'Приемете тази версия, като я отбележите като "проверена"',
 );
 
 /** Bengali (বাংলা)

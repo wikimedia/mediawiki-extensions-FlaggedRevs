@@ -101,9 +101,12 @@ $messages['be-tarask'] = array(
 );
 
 /** Bulgarian (Български)
+ * @author Spiritia
  * @author Turin
  */
 $messages['bg'] = array(
+	'problemchanges-legend' => 'Списък на страниците с отбелязани редакции, очакващи преглед',
+	'problemchanges-none' => 'В момента няма страници, които да отговарят на критериите.',
 	'problemchanges-category' => 'Категория:',
 );
 

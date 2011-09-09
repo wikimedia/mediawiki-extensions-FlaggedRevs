@@ -289,14 +289,18 @@ $messages['be-tarask'] = array(
 
 /** Bulgarian (Български)
  * @author DCLXVI
+ * @author Spiritia
  * @author Turin
  */
 $messages['bg'] = array(
+	'pendingchanges' => 'Страници с промени, очакващи проверка',
 	'pendingchanges-none' => 'В момента не съществуватр страници, които да отговарят на тези критерии',
 	'pendingchanges-hours' => '($1 {{PLURAL:$1|час|часа}})',
 	'pendingchanges-days' => '($1 {{PLURAL:$1|ден|дни}})',
 	'pendingchanges-recent' => '(по-малко от 1 час)',
 	'pendingchanges-category' => 'Категория:',
+	'pendingchanges-onwatchlist' => 'Страници в списъка ми за наблюдение',
+	'pendingchanges-stable' => 'Стабилната версия е версията по подразбиране',
 	'pendingchanges-size' => 'Макс. промяна (в байтове):',
 	'pendingchanges-unwatched' => '(ненаблюдавано)',
 	'pendingchanges-watched' => '($1 {{PLURAL:$1|активен наблюдаващ потребител|активни наблюдаващи потребители}})',

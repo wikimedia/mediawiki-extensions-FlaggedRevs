@@ -223,12 +223,15 @@ $3",
 
 /** Bulgarian (Български)
  * @author DCLXVI
+ * @author Spiritia
  * @author Turin
  */
 $messages['bg'] = array(
+	'validationstatistics-lastupdate' => "''Следните данни за последно са актуализирани на $1 в $2.''",
 	'validationstatistics-ns' => 'Именно пространство',
 	'validationstatistics-total' => 'Страници',
 	'validationstatistics-stable' => 'Рецензирани',
+	'validationstatistics-utable' => 'По-долу е даден списък на {{PLURAL:$1|най-активния рецензент|най-активните $1 рецензенти}} през {{PLURAL:$2|последния един час|последните $2 часа}}.',
 	'validationstatistics-user' => 'Потребител',
 );
 

@@ -485,17 +485,21 @@ $messages['be-tarask'] = array(
 /** Bulgarian (Български)
  * @author Borislav
  * @author DCLXVI
+ * @author Spiritia
  * @author Turin
  */
 $messages['bg'] = array(
 	'stabilization' => 'Устойчивост на страницата',
 	'stabilization-page' => 'Име на страницата:',
 	'stabilization-leg' => 'Потвърждение на настройките за устойчива версия',
+	'stabilization-def' => 'Версия, показвана по подразбиране',
 	'stabilization-def1' => 'Устойчивата версия; ако няма такава, тогава текущата',
 	'stabilization-def2' => 'Текущата версия или чернова',
 	'stabilization-restrict-none' => 'Няма допълнителни ограничения',
 	'stabilization-submit' => 'Потвърждаване',
 	'stabilization-notexists' => 'Не съществува страница „[[:$1|$1]]“. Не е възможно конфигуриране.',
+	'stabilization-notcontent' => 'Страницата "[[:$1|$1]]" не може да бъде рецензирана.
+Невъзможно конфигурирането.',
 	'stabilization-comment' => 'Причина:',
 	'stabilization-otherreason' => 'Друга причина:',
 	'stabilization-expiry' => 'Изтича на:',
@@ -503,6 +507,9 @@ $messages['bg'] = array(
 	'stabilization-def-short' => 'По подразбиране',
 	'stabilization-def-short-0' => 'Текуща',
 	'stabilization-def-short-1' => 'Устойчива',
+	'stabilize_page_invalid' => 'Заглавието на целевата страница е невалидно.',
+	'stabilize_page_notexists' => 'Целевата страница не съществува.',
+	'stabilize_page_unreviewable' => 'Целевата страница не е от именно пространство, подлежащо на рецензия',
 	'stabilize_invalid_level' => 'Невалидно ниво на защита.',
 	'stabilize_expiry_invalid' => 'Невалидна дата на изтичане.',
 	'stabilize_expiry_old' => 'Дата на изтичане вече е отминала.',
