@@ -54,6 +54,15 @@ $messages['arz'] = array(
 	'qualityoversight-legend' => 'ابحث فى سجلات المراجعه الحديثة',
 );
 
+/** Asturian (Asturianu)
+ * @author Xuacu
+ */
+$messages['ast'] = array(
+	'qualityoversight' => 'Rexistru de revisiones avanzáu',
+	'qualityoversight-list' => 'Esta páxina llista les aprobaciones y refugos más recientes de les revisiones.',
+	'qualityoversight-legend' => 'Guetar los rexistros de revisiones recientes',
+);
+
 /** Southern Balochi (بلوچی مکرانی)
  * @author Mostafadaneshvar
  */

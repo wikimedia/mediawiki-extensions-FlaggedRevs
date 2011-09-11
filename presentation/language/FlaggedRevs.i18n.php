@@ -11616,6 +11616,7 @@ Pe piacere condrolle l'URL ca tu è ausete pe trasè jndr'à sta pagene.",
  * @author Ahonc
  * @author AlexSm
  * @author Claymore
+ * @author Dim Grits
  * @author Ferrer
  * @author Haffman
  * @author Ivan Pozdeev
@@ -11756,6 +11757,8 @@ $messages['ru'] = array(
 	'revreview-style-2' => 'хорошая',
 	'revreview-style-3' => 'немногословно',
 	'revreview-style-4' => 'избранная',
+	'revreview-toggle-show' => '(+)',
+	'revreview-toggle-hide' => '(-)',
 	'revreview-toggle-title' => 'показать/скрыть подробности',
 	'revreview-visibility-synced' => "'''У этой страницы имеется обновлённая [[{{MediaWiki:Validationpage}}|опубликованная версия]]; настройки отображения опубликованных версий можно [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} изменить].'''",
 	'revreview-visibility-outdated' => "'''У этой страницы имеется устаревшая [[{{MediaWiki:Validationpage}}|опубликованная версия]]; настройки отображения опубликованных версий можно [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} изменить].'''",
@@ -11811,6 +11814,9 @@ $messages['ru'] = array(
 	'revreview-unlocked-title' => 'Правки этой страницы не требуют проверки.',
 	'revreview-locked' => "'''Замечание.''' Правки должны быть [[{{MediaWiki:Validationpage}}|проверены]], прежде чем они будут показаны читателям этой страницы.",
 	'revreview-unlocked' => "'''ЗАмечание.''' Правки не требуют предварительной [[{{MediaWiki:Validationpage}}|проверки]] для отображения читателям этой страницы.",
+	'revreview-ak-review' => 's',
+	'accesskey-ca-current' => 'v',
+	'accesskey-ca-stable' => 'c',
 	'log-show-hide-review' => '$1 журнал проверок',
 	'validationpage' => '{{ns:help}}:Проверка страниц',
 );
@@ -14330,6 +14336,8 @@ $messages['uk'] = array(
 	'revreview-style-2' => 'добра',
 	'revreview-style-3' => 'стисла',
 	'revreview-style-4' => 'вибрана',
+	'revreview-toggle-show' => '(+)',
+	'revreview-toggle-hide' => '(-)',
 	'revreview-toggle-title' => 'показати/приховати подробиці',
 	'revreview-visibility-synced' => "'''Ця сторінка має оновлену [[{{MediaWiki:Validationpage}}|опубліковану версію]]; налаштування стабілізації сторінки можуть бути [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} зміненні].'''",
 	'revreview-visibility-outdated' => "'''Ця сторінка має застарілу [[{{MediaWiki:Validationpage}}|опубліковану версію]]; налаштування стабілізації сторінки можуть бути [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} змінені].'''",
@@ -14337,6 +14345,7 @@ $messages['uk'] = array(
 	'revreview-revnotfound' => 'Неможливо знайти необхідну вам версію статті.
 Будь-ласка, перевірте правильність посилання, яке ви використовували для доступу до цієї статті.',
 	'right-autoreview' => 'Автоматичне позначення версій сторінок як перевірених',
+	'right-autoreviewrestore' => 'Автоперевірка при відкоті',
 	'right-movestable' => 'Перейменування опублікованих сторінок',
 	'right-review' => 'Позначення версій сторінок як "перевірених"',
 	'right-stablesettings' => 'Налаштування вибору і відображення опублікованої версії',
@@ -14385,6 +14394,9 @@ $messages['uk'] = array(
 	'revreview-unlocked-title' => 'Зміни цієї сторінки не потребують рецензування.',
 	'revreview-locked' => "'''Примітка:''' Редагування повинні бути [[{{MediaWiki:Validationpage}}|перевірені]] перед тим, як будуть показані читачам на цій сторінці.",
 	'revreview-unlocked' => "'''Примітка:''' Редагування не потребують [[{{MediaWiki:Validationpage}}|рецензування]] перед тим, як будуть показані читачам на цій сторінці.",
+	'revreview-ak-review' => 's',
+	'accesskey-ca-current' => 'v',
+	'accesskey-ca-stable' => 'c',
 	'log-show-hide-review' => '$1 журнал перевірок',
 	'validationpage' => '{{ns:help}}:Перевірка сторінки',
 );
