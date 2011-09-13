@@ -1055,6 +1055,7 @@ Gli editori sono utenti stabili che possono convalidare le revisioni nelle pagin
  * @author Fryed-peach
  * @author Hosiryuhosi
  * @author Ohgi
+ * @author Schu
  * @author 青子守歌
  */
 $messages['ja'] = array(
@@ -1063,7 +1064,7 @@ $messages['ja'] = array(
 
 編集者とはページの各版に対して抜き取り検査を行うことを認められた利用者です。",
 	'validationstatistics-lastupdate' => "''以下のデータは、$1の$2に最後に更新されました。''",
-	'validationstatistics-pndtime' => "信頼されている利用者により確認された編集は、''査読された''とみなされます。
+	'validationstatistics-pndtime' => "信頼されている利用者により確認された編集は、''査読済''とみなされます。
 
 [[Special:OldReviewedPages|未査読の編集が保留となっているページ]]の平均遅延時間は'''$1'''です。この遅延時間は、保留中の最古の編集が査読待ちの状態を脱するのにかかった時間から測定されます。",
 	'validationstatistics-revtime' => "''非ログイン利用者''による編集が査読されるまでの平均待ち時間は'''$1'''で、中央値は'''$2'''です。

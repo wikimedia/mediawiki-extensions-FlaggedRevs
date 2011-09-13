@@ -2689,7 +2689,7 @@ $messages['ja'] = array(
 	'revreview-check-flag-y' => 'これらの変更を受理',
 	'revreview-check-flag-y-title' => 'この編集で行った変更をすべて受理します。',
 	'revreview-flag' => 'この特定版の査読',
-	'revreview-reflag' => 'この版を再査読する',
+	'revreview-reflag' => 'この版を再査読',
 	'revreview-invalid' => "'''無効な対象:''' 指定されたIDに対応する[[{{MediaWiki:Validationpage}}|査読済み]]版はありません。",
 	'revreview-legend' => '特定版に対する判定',
 	'revreview-log' => '査読内容の要約:',
@@ -2707,8 +2707,8 @@ $messages['ja'] = array(
 	'revreview-submit-unreviewed' => '完了。未承認になりました！',
 	'revreview-successful' => "'''[[:$1|$1]] の特定版の判定に成功しました。([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} 固定版を閲覧])'''",
 	'revreview-successful2' => "'''[[:$1|$1]] の特定版の判定取り消しに成功しました。'''",
-	'revreview-poss-conflict-p' => "'''警告: [[User:$1|$1]]がこのページの査読を$2 $3に開始しました。'''",
-	'revreview-poss-conflict-c' => "'''警告: [[User:$1|$1]]がこの変更の査読を$2 $3に開始しました。'''",
+	'revreview-poss-conflict-p' => "'''警告：[[User:$1|$1]]がこのページの査読を $2 $3 に開始しました。'''",
+	'revreview-poss-conflict-c' => "'''警告：[[User:$1|$1]]がこの変更の査読を $2 $3 に開始しました。'''",
 	'revreview-toolow' => "'''版を査読済みとするには、すべての判定要素を「不十分」より高い評価にする必要があります。'''
 
 版の査読評価を消す場合は、「未承認」をクリックしてください。
@@ -2728,14 +2728,14 @@ $messages['ja'] = array(
 	'revreview-reject-summary' => '要約:',
 	'revreview-reject-confirm' => 'これらの変更を拒否',
 	'revreview-reject-cancel' => '中止',
-	'revreview-reject-summary-cur' => '最新の{{PLURAL:$1|$1の変更}}は$2によって却下され、$4による$3版が復旧されました。',
-	'revreview-reject-summary-old' => '最新の{{PLURAL:$1|$1の変更}}は$2によって却下され、$4による$3版となりました',
-	'revreview-reject-summary-cur-short' => '最新の{{PLURAL:$1|$1の変更}}却下され、$3による$2版へ復旧されました',
-	'revreview-reject-summary-old-short' => '最新の{{PLURAL:$1|$1の変更}}却下され、$3による$2版となりました',
+	'revreview-reject-summary-cur' => '最新の{{PLURAL:$1|テキストの変更| $1 のテキストの変更}}は $2 によって却下され、$4 による $3 版が復旧されました。',
+	'revreview-reject-summary-old' => '最新の{{PLURAL:$1|テキストの変更| $1 のテキストの変更}}は $2 によって却下され、$4 による $3 版となりました',
+	'revreview-reject-summary-cur-short' => '最新の{{PLURAL:$1|テキストの変更| $1 のテキストの変更}}は却下され、$3 による $2 版へ復旧されました',
+	'revreview-reject-summary-old-short' => '最新の{{PLURAL:$1|テキストの変更| $1 のテキストの変更}}は却下され、$3 による $2 版となりました',
 	'revreview-reject-usercount' => '{{PLURAL:$1|$1人の利用者}}',
 	'revreview-tt-flag' => 'この版に確認済みの印を付けて承認する',
 	'revreview-tt-unflag' => 'この版に「未確認」の印を付けて未承認とする',
-	'revreview-tt-reject' => 'これらの変更を差し戻して却下する',
+	'revreview-tt-reject' => 'ソーステキストへの変更を差し戻して却下する',
 );
 
 /** Jutish (Jysk)

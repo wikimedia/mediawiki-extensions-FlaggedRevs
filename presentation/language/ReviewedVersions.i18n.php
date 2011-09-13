@@ -602,11 +602,12 @@ $messages['it'] = array(
  * @author Aotake
  * @author Fryed-peach
  * @author JtFuruhata
+ * @author Schu
  */
 $messages['ja'] = array(
 	'reviewedversions' => '査読済みの版',
 	'reviewedversions-leg1' => 'ページの査読済み版を一覧表示する',
-	'reviewedversions-page' => 'ページ名:',
+	'reviewedversions-page' => 'ページ名：',
 	'reviewedversions-none' => '「[[:$1]]」には査読済みの版がありません。',
 	'reviewedversions-list' => '以下は「[[:$1]]」の査読済みの{{PLURAL:$2|唯一の版|版の一覧}}です:',
 	'reviewedversions-review' => '査読日: <i>$1</i>、査読者: $2',

@@ -1775,6 +1775,7 @@ Non è possibile effettuare la configurazione.',
  * @author Fryed-peach
  * @author Hosiryuhosi
  * @author JtFuruhata
+ * @author Schu
  * @author Whym
  * @author 青子守歌
  */
@@ -1782,8 +1783,9 @@ $messages['ja'] = array(
 	'stabilization-tab' => '固定',
 	'stabilization' => '表示ページの固定',
 	'stabilization-text' => "'''以下で [[:$1|$1]] の公開版の選択方法と表示方法を変更できます。'''",
-	'stabilization-perm' => 'あなたのアカウントには公開版の設定を変更する権限がありません。現在の [[:$1|$1]] における設定は以下の通りです:',
-	'stabilization-page' => 'ページ名:',
+	'stabilization-perm' => 'あなたのアカウントには公開版の設定を変更する権限がありません。
+現在の [[:$1|$1]] における設定は以下の通りです：',
+	'stabilization-page' => 'ページ名：',
 	'stabilization-leg' => '公開版の設定確認',
 	'stabilization-def' => 'ページに既定で表示する版',
 	'stabilization-def1' => '公開版、それがない場合は、最新版',
@@ -1794,9 +1796,9 @@ $messages['ja'] = array(
 	'stabilization-notexists' => '「[[:$1|$1]]」というページは存在しないため、設定できません。',
 	'stabilization-notcontent' => 'ページ「[[:$1|$1]]」は査読対象ではないため、設定できません。',
 	'stabilization-comment' => '理由：',
-	'stabilization-otherreason' => 'その他の理由:',
+	'stabilization-otherreason' => 'その他の理由：',
 	'stabilization-expiry' => '有効期限：',
-	'stabilization-othertime' => 'その他の日時:',
+	'stabilization-othertime' => 'その他の日時：',
 	'stabilization-def-short' => '既定表示',
 	'stabilization-def-short-0' => '最新版',
 	'stabilization-def-short-1' => '公開済み',
