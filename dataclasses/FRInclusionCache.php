@@ -39,11 +39,7 @@ class FRInclusionCache {
 			if ( $pOut == false || !FlaggedRevs::parserOutputIsVersioned( $pOut ) ) {
 				$title = $article->getTitle();
 				$pOpts = ParserOptions::newFromUser( $user ); // Note: tidy off
-				# Disable slow crap that doesn't matter for getting templates/files...
-				$parser = clone $wgParser;
-				$parser->clearTagHook( 'ref' );
-				$parser->clearTagHook( 'references' );
-				$pOut = $parser->parse(
+				$pOut = $wgParser->parse(
 					$rev->getText(), $title, $pOpts, true, true, $rev->getId() );
 			}
 			# Get the template/file versions used...
