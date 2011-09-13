@@ -175,7 +175,7 @@ $specialPageAliases['fr'] = array(
 
 /** Franco-Provençal (Arpetan) */
 $specialPageAliases['frp'] = array(
-	'PendingChanges' => array( 'Pâges que les vèrsions sont dèpassâs', 'PâgesQueLesVèrsionsSontDèpassâs' ),
+	'PendingChanges' => array( 'Pâges_que_les_vèrsions_sont_dèpassâs', 'PâgesQueLesVèrsionsSontDèpassâs' ),
 	'QualityOversight' => array( 'Supèrvision_de_qualitât', 'SupèrvisionDeQualitât' ),
 	'ReviewedPages' => array( 'Pâges_revues', 'PâgesRevues' ),
 	'RevisionReview' => array( 'Rèvision_de_les_vèrsions', 'RèvisionDeLesVèrsions' ),
@@ -342,10 +342,12 @@ $specialPageAliases['lad'] = array(
 $specialPageAliases['lb'] = array(
 	'PendingChanges' => array( 'Säite_mat_Versiounen_déi_net_iwwerpréift_sinn' ),
 	'ProblemChanges' => array( 'Problematesch_Ännerungen' ),
+	'QualityOversight' => array( 'Qualitéitsiwwersiicht' ),
 	'ReviewedPages' => array( 'Säiten_déi_iwwerkuckt_goufen' ),
 	'RevisionReview' => array( 'Versioun_iwwerpréifen' ),
 	'Stabilization' => array( 'Stabilisatioun' ),
 	'StablePages' => array( 'Stabil_Säiten' ),
+	'ConfiguredPages' => array( 'Agestallte_Säiten' ),
 	'ReviewedVersions' => array( 'Stabil_Versiounen' ),
 	'UnreviewedPages' => array( 'Net_iwwerpréifte_Säiten' ),
 	'ValidationStatistics' => array( 'Statistik_vun_den_iwwerpréifte_Säiten' ),
@@ -403,15 +405,17 @@ $specialPageAliases['ms'] = array(
 
 /** Nedersaksisch (Nedersaksisch) */
 $specialPageAliases['nds-nl'] = array(
-	'PendingChanges' => array( 'Pagina\'s_verouwerde_eindredactie' ),
-	'ProblemChanges' => array( 'Preblematische_wiezigingen' ),
-	'QualityOversight' => array( 'Kwaliteitscontrole' ),
-	'ReviewedPages' => array( 'Pagina_mit_eindredactie' ),
-	'RevisionReview' => array( 'Eindredactie_versies' ),
+	'PendingChanges' => array( 'Wiezigingen_in_wachtrie' ),
+	'ProblemChanges' => array( 'Problematiese_wiezigingen' ),
+	'QualityOversight' => array( 'Kwaliteitskontrole' ),
+	'ReviewedPages' => array( 'Pagina\'s_mit_eindredaksie' ),
+	'RevisionReview' => array( 'Eindredaksie_versies' ),
 	'Stabilization' => array( 'Stabilisasie' ),
-	'StablePages' => array( 'Stebiele_pagina\'s' ),
-	'UnreviewedPages' => array( 'Pagina\'s_zonder_eindredactie' ),
-	'ValidationStatistics' => array( 'Eindredactiestaotestieken' ),
+	'StablePages' => array( 'Stabiele_pagina\'s' ),
+	'ConfiguredPages' => array( 'In-estelden_pagina\'s' ),
+	'ReviewedVersions' => array( 'Nao-ekeken_versies' ),
+	'UnreviewedPages' => array( 'Pagina\'s_zonder_eindredaksie' ),
+	'ValidationStatistics' => array( 'Eindredaksiestaotistieken' ),
 );
 
 /** Dutch (Nederlands) */
@@ -538,7 +542,7 @@ $specialPageAliases['sq'] = array(
 	'StablePages' => array( 'FaqetStabile' ),
 );
 
-/** Serbian Cyrillic ekavian (‪Српски (ћирилица)‬) */
+/** Serbian (Cyrillic script) (‪Српски (ћирилица)‬) */
 $specialPageAliases['sr-ec'] = array(
 	'PendingChanges' => array( 'СтареПрегледанеСтране' ),
 	'ProblemChanges' => array( 'Проблематичне_измене' ),
@@ -555,6 +559,7 @@ $specialPageAliases['sr-ec'] = array(
 /** Swedish (Svenska) */
 $specialPageAliases['sv'] = array(
 	'PendingChanges' => array( 'Gamla_granskade_sidor' ),
+	'ProblemChanges' => array( 'Problemändringar' ),
 	'QualityOversight' => array( 'Kvalitetsöversikt' ),
 	'ReviewedPages' => array( 'Granskade_sidor' ),
 	'RevisionReview' => array( 'Versionsgranskning' ),
@@ -601,7 +606,7 @@ $specialPageAliases['tr'] = array(
 	'ValidationStatistics' => array( 'Doğrulamaİstatistikleri' ),
 );
 
-/** Татарча (Татарча) */
+/** Tatar (Cyrillic script) (Татарча) */
 $specialPageAliases['tt-cyrl'] = array(
 	'StablePages' => array( 'Тотрыклы_битләр' ),
 );
@@ -626,16 +631,34 @@ $specialPageAliases['vi'] = array(
 	'ValidationStatistics' => array( 'Thống_kê_duyệt' ),
 );
 
+/** Simplified Chinese (‪中文(简体)‬) */
+$specialPageAliases['zh-hans'] = array(
+	'PendingChanges' => array( '待复审的更改' ),
+	'ProblemChanges' => array( '有问题的更改' ),
+	'QualityOversight' => array( '高级复审日志' ),
+	'ReviewedPages' => array( '已复审页面' ),
+	'RevisionReview' => array( '修订复审' ),
+	'Stabilization' => array( '稳定化' ),
+	'StablePages' => array( '稳定页面' ),
+	'ConfiguredPages' => array( '配置页面' ),
+	'ReviewedVersions' => array( '已复审版本' ),
+	'UnreviewedPages' => array( '未复审页面' ),
+	'ValidationStatistics' => array( '复审统计信息' ),
+);
+
 /** Traditional Chinese (‪中文(繁體)‬) */
 $specialPageAliases['zh-hant'] = array(
+	'PendingChanges' => array( '等待審核的更改' ),
 	'ProblemChanges' => array( '問題改變' ),
 	'QualityOversight' => array( '進階審閱日誌' ),
 	'ReviewedPages' => array( '已審閱頁面' ),
 	'RevisionReview' => array( '版本審核' ),
+	'Stabilization' => array( '穩定性' ),
 	'StablePages' => array( '穩定頁面' ),
 	'ConfiguredPages' => array( '頁面審核設定' ),
 	'ReviewedVersions' => array( '穩定版本' ),
 	'UnreviewedPages' => array( '未審閱頁面' ),
+	'ValidationStatistics' => array( '驗證數據' ),
 );
 
 /**
