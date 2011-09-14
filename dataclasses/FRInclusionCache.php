@@ -43,7 +43,7 @@ class FRInclusionCache {
 					$rev->getText(), $title, $pOpts, true, true, $rev->getId() );
 			}
 			# Get the template/file versions used...
-			$versions = array( $pOut->getTemplateIds(), $pOut->getImageTimeKeys() );
+			$versions = array( $pOut->getTemplateIds(), $pOut->getFileSearchOptions() );
 			# Save to cache (check cache expiry for dynamic elements)...
 			$data = FlaggedRevs::makeMemcObj( $versions );
 			$wgMemc->set( $key, $data, $pOut->getCacheExpiry() );
@@ -81,7 +81,7 @@ class FRInclusionCache {
 		global $wgMemc;
 		$key = self::getCacheKey( $title, $revId );
 		# Get the template/file versions used...
-		$versions = array( $pOut->getTemplateIds(), $pOut->getImageTimeKeys() );
+		$versions = array( $pOut->getTemplateIds(), $pOut->getFileSearchOptions() );
 		# Save to cache (check cache expiry for dynamic elements)...
 		$data = FlaggedRevs::makeMemcObj( $versions );
 		$wgMemc->set( $key, $data, $pOut->getCacheExpiry() );

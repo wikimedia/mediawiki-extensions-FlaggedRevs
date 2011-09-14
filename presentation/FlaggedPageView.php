@@ -1103,7 +1103,7 @@ class FlaggedPageView {
 			# Note: showStableVersion() already makes sure that $wgOut has the stable inclusion versions.
 			if ( $this->out->getRevisionId() == $rev->getId() && empty( $this->out->fr_unversionedIncludes ) ) {
 				$tmpVers = $this->out->getTemplateIds();
-				$fileVers = $this->out->getImageTimeKeys();
+				$fileVers = $this->out->getFileSearchOptions();
 			} elseif ( $this->oldRevIncludes ) { // e.g. diffonly=1, stable diff
 				# We may have already fetched the inclusion IDs to get the template/file changes.
 				list( $tmpVers, $fileVers ) = $this->oldRevIncludes; // reuse

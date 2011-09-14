@@ -595,7 +595,7 @@ class FlaggedRevs {
 	 * @return bool
 	 */
 	public static function parserOutputIsVersioned( ParserOutput $pOut ) {
-		return ( $pOut->getTemplateIds() !== null && $pOut->getImageTimeKeys() !== null );
+		return ( $pOut->getTemplateIds() !== null && $pOut->getFileSearchOptions() !== null );
 	}
 
 	# ################ Tracking/cache update update functions #################
@@ -994,7 +994,7 @@ class FlaggedRevs {
 			'img_timestamp' 	=> $fileData['timestamp'],
 			'img_sha1'      	=> $fileData['sha1'],
 			'templateVersions' 	=> $poutput->getTemplateIds(),
-			'fileVersions'     	=> $poutput->getImageTimeKeys(),
+			'fileVersions'     	=> $poutput->getFileSearchOptions(),
 			'flags'				=> implode( ',', $propFlags ),
 		) );
 		$flaggedRevision->insert();
