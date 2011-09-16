@@ -8864,7 +8864,7 @@ Hamarino azafady ny URL nampiasainao hahatongavana eto amin'ity pejy ity.",
  */
 $messages['mk'] = array(
 	'action-review' => 'оцени ревизии',
-	'editor' => 'Уредувач',
+	'editor' => 'Уредник',
 	'flaggedrevs' => 'Означени ревизии',
 	'flaggedrevs-watched-pending' => "На Вашиот список на набљудувања има [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} уредувања во исчекување] да бидат прегледани. '''Се бара Вашето внимание!'''",
 	'flaggedrevs-desc' => 'Им овозможува на уредниците да ги проверуваат ревизиите и да ги стабилизираат страниците',
@@ -8881,7 +8881,7 @@ $messages['mk'] = array(
 	'flaggedrevs-prefs-editdiffs' => 'Прикажи ги разликите со верзијата во исчекување при уредување на страници',
 	'flaggedrevs-prefs-viewdiffs' => 'Прикажи ги разликите во промените при приказ на најновата ревизија во исчекување',
 	'flaggedrevs-hidereviewed' => '$1 проверени уредувања',
-	'group-editor' => 'Уредувачи',
+	'group-editor' => 'Уредници',
 	'group-editor-member' => 'уредувач',
 	'group-reviewer' => 'Прегледувачи',
 	'group-reviewer-member' => 'прегледувач',
