@@ -3186,7 +3186,7 @@ $messages['mk'] = array(
 Погледајте го [[Special:Unreviewedpages|списокот на неоценети страници]].',
 	'revreview-stable1' => 'Препорачуваме да ја погледате [{{fullurl:$1|stableid=$2}} оваа означена верзија] и да проверите дали таа сега е [{{fullurl:$1|stable=1}} објавената верзија] на оваа страница.',
 	'revreview-stable2' => 'Ви препорачуваме да ја погледате [{{fullurl:$1|stable=1}} објавената верзија] на оваа страница.',
-	'revreview-submit' => 'Зачувај',
+	'revreview-submit' => 'Поднеси',
 	'revreview-submitting' => 'Поднесувам ...',
 	'revreview-submit-review' => 'Прифати',
 	'revreview-submit-unreview' => 'Неприфатливо',
