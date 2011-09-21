@@ -972,10 +972,11 @@ class FlaggedRevs {
 		# If this is an image page, store corresponding file info
 		$fileData = array( 'name' => null, 'timestamp' => null, 'sha1' => null );
 		if ( $title->getNamespace() == NS_FILE ) {
-			# We must use ImagePage process cache on upload or get bitten by slave lag
-			$file = $article instanceof ImagePage
-				? $article->getFile()
-				: wfFindFile( $title );
+			# We must use WikiFilePage process cache on upload or get bitten by slave lag
+			$file = ( $article instanceof WikiFilePage || $article instanceof ImagePage )
+				? $article->getFile() // uses up-to-date process cache on new uploads
+				: wfFindFile( $title, array( 'bypassCache' => true ) ); // skip cache; bug 31056
+			#var_dump( $title ); var_dump( $file ); moo();
 			if ( is_object( $file ) && $file->exists() ) {
 				$fileData['name'] = $title->getDBkey();
 				$fileData['timestamp'] = $file->getTimestamp();
