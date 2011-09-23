@@ -53,6 +53,7 @@ $messages['en'] = array(
 See the [[Special:Unreviewedpages|list of unreviewed pages]].',
 	'revreview-stable1'            => 'You may want to view [{{fullurl:$1|stableid=$2}} this flagged version] and see if it is now the [{{fullurl:$1|stable=1}} stable version] of this page.',
 	'revreview-stable2'            => 'You may want to view the [{{fullurl:$1|stable=1}} stable version] of this page.',
+	'revreview-cancel'             => 'Cancel',
 	'revreview-submit'             => 'Submit',
 	'revreview-submitting'         => 'Submitting...',
 	'revreview-submit-review'      => 'Accept revision',
@@ -64,8 +65,12 @@ See the [[Special:Unreviewedpages|list of unreviewed pages]].',
 	'revreview-successful2'        => '\'\'\'Revision of [[:$1|$1]] successfully unflagged.\'\'\'',
 	'revreview-poss-conflict-p'    => '\'\'\'Warning: [[User:$1|$1]] started reviewing this page on $2 at $3.\'\'\'',
 	'revreview-poss-conflict-c'    => '\'\'\'Warning: [[User:$1|$1]] started reviewing these changes on $2 at $3.\'\'\'',
-	'revreview-adv-reviewing-p'    => '\'\'\'Notice: You are being advertised as having started reviewing this page on $1 at $2.\'\'\'',
-	'revreview-adv-reviewing-c'    => '\'\'\'Notice: You are being advertised as having started reviewing these changes on $1 at $2.\'\'\'',
+	'revreview-adv-reviewing-p'    => 'Notice: Other reviewers can see that you are reviewing this page.',
+	'revreview-adv-reviewing-c'    => 'Notice: Other reviewers can see that you are reviewing these changes.',
+	'revreview-sadv-reviewing-p'   => 'Notice: Please advertise yourself as reviewing this page.',
+	'revreview-sadv-reviewing-c'   => 'Notice: Please advertise yourself as reviewing these changes.',
+	'revreview-advertise-start'    => 'Advertise',
+	'revreview-advertise-stop'     => 'De-advertise',
 	'revreview-toolow'             => '\'\'\'You must rate each of the attributes higher than "inadequate" in order for a revision to be considered reviewed.\'\'\'
 
 To remove the review status of a revision, click "unaccept".
@@ -78,7 +83,7 @@ Please review all the changes shown below to make your edits appear in the stabl
 	'revreview-update-edited-prev'  => '<span class="flaggedrevs_important">Your changes are not yet in the stable version. There are previous changes pending review.</span>
 
 Please review all the changes shown below to make your edits appear in the stable version.',
-	'revreview-update-includes'    => '\'\'\'Templates/files updated (unreviewed pages in bold):\'\'\'',
+	'revreview-update-includes'    => 'Templates/files updated (unreviewed pages in bold):',
 
 	'revreview-reject-header'      => 'Reject changes for $1',
 	'revreview-reject-text-list'   => 'By completing this action you will be \'\'\'rejecting\'\'\' the source text changes from the following {{PLURAL:$1|revision|revisions}} of [[:$2|$2]]:',

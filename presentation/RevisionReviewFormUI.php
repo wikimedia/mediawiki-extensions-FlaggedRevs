@@ -124,15 +124,18 @@ class RevisionReviewFormUI {
 		$form .= Xml::closeElement( 'legend' ) . "\n";
 		# Show explanatory text
 		$form .= $this->topNotice;
-		# Show possible conflict warning msg...
+
+		# Check if anyone is reviewing this already and
+		# show a conflict warning message as needed...
 		if ( $priorRevId ) {
 			list( $u, $ts ) =
 				FRUserActivity::getUserReviewingDiff( $priorRevId, $this->rev->getId() );
 		} else {
 			list( $u, $ts ) = FRUserActivity::getUserReviewingPage( $this->rev->getPage() );
 		}
+		$form .= "<p>";
 		if ( $u !== null ) { // page under review...
-			$form .= '<p><span class="fr-under-review">';
+			$form .= '<span class="fr-under-review">';
 			if ( $u != $this->user->getName() ) { // by another user...
 				$msg = $priorRevId
 					? 'revreview-poss-conflict-c'
@@ -143,11 +146,19 @@ class RevisionReviewFormUI {
 				$msg = $priorRevId
 					? 'revreview-adv-reviewing-c'
 					: 'revreview-adv-reviewing-p';
-				$form .= wfMsgExt( $msg, 'parseinline',
-					$wgLang->date( $ts, true ), $wgLang->time( $ts, true ) );
+				$form .= wfMsgHtml( $msg );
 			}
-			$form .= "</span></p>\n";
+			$form .= "</span>";
+		} else { // page not under review; add JS button
+			$form .= '<span id="mw-fr-reviewing-status" style="display:none;"></span>';
 		}
+		# Let user toggle advertising that they are reviewing this
+		if ( $u === null || $u === $this->user->getName()  ) {
+			$form .= '<span id="mw-fr-reviewing-toggle" style="display:none;">';
+			$form .= ' (<a href="javascript:void()"></a>)'; // JS activated
+			$form .= '</span>';
+		}
+		$form .= "</p>\n";
 
 		if ( $disabled ) {
 			$form .= Xml::openElement( 'div', array( 'class' => 'fr-rating-controls-disabled',
@@ -185,11 +196,14 @@ class RevisionReviewFormUI {
 		}
 		# Determine if there will be reject button
 		$rejectId = $this->rejectRefRevId();
+
 		# Add the submit buttons
 		$form .= self::submitButtons( $rejectId, $frev, (bool)$disabled, $reviewIncludes );
-		# Untoggle "reviewing" status on exit
-		$form .= '<script type="text/javascript">var jsReviewingStatus = ' .
-			(int)( $u == $this->user->getName() ) . "</script>\n";
+		# Add "cancel" link
+		$form .= Linker::link( $article->getTitle(),
+			wfMsg( 'revreview-cancel' ),
+			array( 'onClick' => 'history.back(); return !history.length;' ) );
+
 		# Show stability log if there is anything interesting...
 		if ( $article->isPageLocked() ) {
 			$form .= ' ' . FlaggedRevsXML::logToggle( 'revreview-log-toggle-show' );
@@ -208,7 +222,9 @@ class RevisionReviewFormUI {
 		$form .= Html::hidden( 'oldid', $revId, array( 'id' => 'mw-fr-input-oldid' ) ) . "\n";
 		$form .= Html::hidden( 'wpEditToken', $this->user->editToken() ) . "\n";
 		$form .= Html::hidden( 'changetime', $reviewTime,
-			array( 'id' => 'mw-fr-input-changetime' ) ) . "\n";; // id for JS
+			array( 'id' => 'mw-fr-input-changetime' ) ) . "\n"; // id for JS
+		$form .= Html::hidden( 'userreviewing', (int)($u === $this->user->getName()),
+			array( 'id' => 'mw-fr-user-reviewing' ) ) . "\n"; // id for JS
 		# Add review parameters
 		$form .= Html::hidden( 'templateParams', $templateParams ) . "\n";
 		$form .= Html::hidden( 'imageParams', $imageParams ) . "\n";

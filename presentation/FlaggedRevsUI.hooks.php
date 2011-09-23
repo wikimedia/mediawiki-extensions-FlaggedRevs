@@ -119,30 +119,6 @@ class FlaggedRevsUIHooks {
 		return true;
 	}
 
-	public static function onMediaWikiPerformAction(
-		$output, $article, Title $title, $user, $request
-	) {
-		$fa = FlaggedPage::getTitleInstance( $title );
-		self::maybeMarkUnderReview( $fa, $request );
-		return true;
-	}
-
-	// Mark when an unreviewed page is being reviewed
-	protected static function maybeMarkUnderReview( FlaggedPage $fa, WebRequest $request ) {
-		global $wgUser;
-		if ( !$request->getInt( 'reviewing' ) && !$request->getInt( 'rcid' ) ) {
-			return true; // not implied by URL
-		}
-		# Set a key to note when someone is reviewing this.
-		# NOTE: diff-to-stable views already handled elsewhere.
-		if ( $fa->isReviewable() && !$fa->getStable() // not reviewed yet
-			&& $fa->getTitle()->userCan( 'review' ) )
-		{
-			FRUserActivity::setUserReviewingPage( $wgUser, $fa->getID() );
-		}
-		return true;
-	}
-
 	/** Add user preferences */
 	public static function onGetPreferences( $user, array &$preferences ) {
 		// Box or bar UI

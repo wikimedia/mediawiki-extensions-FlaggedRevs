@@ -5,6 +5,7 @@
  */
 
 window.FlaggedRevsReview = {
+	'isUserReviewing': 0, // user reviewing this page?
 	/*
 	* Updates for radios/checkboxes on patch by Daniel Arnold (bug 13744).
 	* Visually update the revision rating form on change.
@@ -322,17 +323,79 @@ window.FlaggedRevsReview = {
 	},
 	
 	/*
+	* Enable AJAX-based functionality to set that a user is reviewing a page/diff
+	*/
+	'enableAjaxReviewActivity': function() {
+		// User is already reviewing in another tab...
+		if ( $('#mw-fr-user-reviewing').val() == 1 ) {
+			var msgkey = $('#mw-fr-input-refid')
+				? 'revreview-adv-reviewing-c'
+				: 'revreview-adv-reviewing-p';
+			$('#mw-fr-reviewing-status').html(
+				mw.msg( msgkey, [mw.config.get('wgUserName')] ) // advertised notice
+			);
+			$('#mw-fr-reviewing-toggle a').html(
+				mw.msg('revreview-advertise-stop')
+			).click( FlaggedRevsReview.deadvertiseReviewing );
+		// User is not already reviewing this....
+		} else {
+			var msgkey = $('#mw-fr-input-refid')
+				? 'revreview-sadv-reviewing-c'
+				: 'revreview-sadv-reviewing-p';
+			$('#mw-fr-reviewing-status').html(
+				mw.msg( msgkey, [mw.config.get('wgUserName')] ) // suggest to advertise
+			);
+			
+			$('#mw-fr-reviewing-toggle a').html(
+				mw.msg('revreview-advertise-start')
+			).click( FlaggedRevsReview.advertiseReviewing );
+		}
+		$('#mw-fr-reviewing-status').addClass('fr-under-review').show();
+		$('#mw-fr-reviewing-toggle').show();
+	},
+	
+	/*
+	* Flag users as "now reviewing"
+	*/
+	'advertiseReviewing': function() {
+		FlaggedRevsReview.setReviewingStatus( 1 );
+		var msgkey = $('#mw-fr-input-refid')
+			? 'revreview-adv-reviewing-c' // diff
+			: 'revreview-adv-reviewing-p' // page
+		$('#mw-fr-reviewing-status').html(
+			mw.msg( msgkey, [mw.config.get('wgUserName')] )
+		);
+		// Invert toggle text/function...
+		$('#mw-fr-reviewing-toggle a').html(
+			mw.msg('revreview-advertise-stop')
+		).unbind('click').click( FlaggedRevsReview.deadvertiseReviewing );
+	},
+	
+	/*
 	* Flag users as "no longer reviewing"
 	*/
 	'deadvertiseReviewing': function() {
-		var form = document.getElementById('mw-fr-reviewform');
-		if( form && jsReviewingStatus ) {
-			var oRevId = document.getElementById('mw-fr-input-refid').value;
-			var nRevId = document.getElementById('mw-fr-input-oldid').value;
-		} else if( location.href.indexOf('&reviewing=1') != -1 ) {
-			var oRevId = 0;
-			var nRevId = mw.config.get('wgCurRevisionId');
-		}
+		FlaggedRevsReview.setReviewingStatus( 0 );
+		var msgkey = $('#mw-fr-input-refid')
+			? 'revreview-sadv-reviewing-c' // diff
+			: 'revreview-sadv-reviewing-p' // page
+		$('#mw-fr-reviewing-status').html(
+			mw.msg( msgkey, [mw.config.get('wgUserName')] )
+		);
+		// Invert toggle text/function...
+		$('#mw-fr-reviewing-toggle a').html(
+			mw.msg('revreview-advertise-start')
+		).unbind('click').click( FlaggedRevsReview.advertiseReviewing );
+	},
+	
+	/*
+	* Set reviewing status for this page/diff
+	*/
+	'setReviewingStatus': function( value ) {
+		// Get {previd,oldid} array for this page view.
+		// The previd value will be 0 if this is not a diff view.
+		var oRevId = $('#mw-fr-input-refid') ? $('#mw-fr-input-refid').val() : 0;
+		var nRevId = $('#mw-fr-input-oldid') ? $('#mw-fr-input-oldid').val() : 0;
 		if ( nRevId > 0 ) {
 			// Send GET request via AJAX!
 			var call = jQuery.ajax({
@@ -341,15 +404,16 @@ window.FlaggedRevsReview = {
 					action		: 'reviewactivity',
 					previd		: oRevId,
 					oldid		: nRevId,
-					reviewing	: 0
+					reviewing	: value
 				},
 				type	: "POST",
 				dataType: "html", // response type
-				timeout : 2000, // don't delay user exiting
+				timeout : 1700, // don't delay user exiting
 				async	: false
 			});
 		}
-		return;
+		FlaggedRevsReview.isUserReviewing = value;
+		return ( call.status == 200 );
 	}
 };
 
@@ -357,6 +421,11 @@ window.FlaggedRevsReview = {
 FlaggedRevsReview.maybeDisableAcceptButton();
 FlaggedRevsReview.updateRatingFormColors();
 FlaggedRevsReview.enableAjaxReview();
+FlaggedRevsReview.enableAjaxReviewActivity();
 
 // Flag users as "no longer reviewing" on navigate-away
-window.onbeforeunload = FlaggedRevsReview.deadvertiseReviewing;
+window.onbeforeunload = function( e ) {
+	if ( FlaggedRevsReview.isUserReviewing == 1 ) {
+		FlaggedRevsReview.deadvertiseReviewing;
+	}
+};

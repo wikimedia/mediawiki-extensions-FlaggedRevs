@@ -388,7 +388,10 @@ $wgResourceModules['ext.flaggedRevs.review'] = array(
 		'revreview-submitedit', 'revreview-submitedit-title',
 		'revreview-submit-review', 'revreview-submit-unreview',
 		'revreview-submit-reviewed', 'revreview-submit-unreviewed',
-		'revreview-submitting', 'actioncomplete', 'actionfailed'
+		'revreview-submitting', 'actioncomplete', 'actionfailed',
+		'revreview-adv-reviewing-p', 'revreview-adv-reviewing-c',
+		'revreview-sadv-reviewing-p', 'revreview-sadv-reviewing-c',
+		'revreview-advertise-start', 'revreview-advertise-stop'
 	),
 	'dependencies' 	=> array( 'mediawiki.util' ),
 	'localBasePath' => $localModulePath,
@@ -499,9 +502,6 @@ $wgHooks['FileUpload'][] = 'FlaggedRevsHooks::onFileUpload';
 $wgHooks['getUserPermissionsErrors'][] = 'FlaggedRevsHooks::onUserCan';
 # Implicit autoreview rights group
 $wgHooks['AutopromoteCondition'][] = 'FlaggedRevsHooks::checkAutoPromoteCond';
-
-# Check if a page is currently being reviewed
-$wgHooks['MediaWikiPerformAction'][] = 'FlaggedRevsUIHooks::onMediaWikiPerformAction';
 
 # Actually register special pages
 $wgHooks['SpecialPage_initList'][] = 'FlaggedRevsUIHooks::defineSpecialPages';
