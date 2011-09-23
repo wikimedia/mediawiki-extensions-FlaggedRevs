@@ -426,6 +426,6 @@ FlaggedRevsReview.enableAjaxReviewActivity();
 // Flag users as "no longer reviewing" on navigate-away
 window.onbeforeunload = function( e ) {
 	if ( FlaggedRevsReview.isUserReviewing == 1 ) {
-		FlaggedRevsReview.deadvertiseReviewing;
+		FlaggedRevsReview.deadvertiseReviewing();
 	}
 };
