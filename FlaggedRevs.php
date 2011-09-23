@@ -390,8 +390,7 @@ $wgResourceModules['ext.flaggedRevs.review'] = array(
 		'revreview-submit-reviewed', 'revreview-submit-unreviewed',
 		'revreview-submitting', 'actioncomplete', 'actionfailed',
 		'revreview-adv-reviewing-p', 'revreview-adv-reviewing-c',
-		'revreview-sadv-reviewing-p', 'revreview-sadv-reviewing-c',
-		'revreview-advertise-start', 'revreview-advertise-stop'
+		'revreview-sadv-reviewing-p', 'revreview-sadv-reviewing-c'
 	),
 	'dependencies' 	=> array( 'mediawiki.util' ),
 	'localBasePath' => $localModulePath,

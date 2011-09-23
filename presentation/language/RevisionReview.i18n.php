@@ -69,8 +69,6 @@ See the [[Special:Unreviewedpages|list of unreviewed pages]].',
 	'revreview-adv-reviewing-c'    => '<span class="fr-under-review">Notice: Other reviewers can see that you are reviewing these changes.</span> (<a id="mw-fr-reviewing-stop" href="javascript:void(0)">de-advertise</a>)',
 	'revreview-sadv-reviewing-p'   => 'You can <a id="mw-fr-reviewing-start" href="javascript:void(0)">advertise</a> yourself as reviewing this page to other users.',
 	'revreview-sadv-reviewing-c'   => 'You can <a id="mw-fr-reviewing-start" href="javascript:void(0)">advertise</a> yourself as reviewing these changes to other users.',
-	'revreview-advertise-start'    => 'Advertise',
-	'revreview-advertise-stop'     => 'De-advertise',
 	'revreview-toolow'             => '\'\'\'You must rate each of the attributes higher than "inadequate" in order for a revision to be considered reviewed.\'\'\'
 
 To remove the review status of a revision, click "unaccept".
