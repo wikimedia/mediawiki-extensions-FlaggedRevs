@@ -3,8 +3,8 @@
 * Class of utility functions for getting/tracking user activity
 */
 class FRUserActivity {
-	const PAGE_REVIEW_MS = 1200; // 20*60
-	const CHANGE_REVIEW_MS = 360; // 6*60
+	const PAGE_REVIEW_SEC = 1200; // 20*60
+	const CHANGE_REVIEW_SEC = 360; // 6*60
 
 	/**
 	 * Get number of active users watching a page
@@ -77,7 +77,7 @@ class FRUserActivity {
 	*/
 	public static function setUserReviewingPage( User $user, $pageId ) {
 		$key = wfMemcKey( 'flaggedrevs', 'userReviewingPage', $pageId );
-		return self::incUserReviewingItem( $key, $user, self::PAGE_REVIEW_MS );
+		return self::incUserReviewingItem( $key, $user, self::PAGE_REVIEW_SEC );
 	}
 
 	/*
@@ -89,7 +89,7 @@ class FRUserActivity {
 	*/
 	public static function clearUserReviewingPage( User $user, $pageId ) {
 		$key = wfMemcKey( 'flaggedrevs', 'userReviewingPage', $pageId );
-		return self::decUserReviewingItem( $key, $user, self::PAGE_REVIEW_MS );
+		return self::decUserReviewingItem( $key, $user, self::PAGE_REVIEW_SEC );
 	}
 
 	/*
@@ -139,7 +139,7 @@ class FRUserActivity {
 	*/
 	public static function setUserReviewingDiff( User $user, $oldId, $newId ) {
 		$key = wfMemcKey( 'flaggedrevs', 'userReviewingDiff', $oldId, $newId );
-		return self::incUserReviewingItem( $key, $user, self::CHANGE_REVIEW_MS );
+		return self::incUserReviewingItem( $key, $user, self::CHANGE_REVIEW_SEC );
 	}
 
 	/*
@@ -152,7 +152,7 @@ class FRUserActivity {
 	*/
 	public static function clearUserReviewingDiff( User $user, $oldId, $newId ) {
 		$key = wfMemcKey( 'flaggedrevs', 'userReviewingDiff', $oldId, $newId );
-		return self::decUserReviewingItem( $key, $user, self::CHANGE_REVIEW_MS );
+		return self::decUserReviewingItem( $key, $user, self::CHANGE_REVIEW_SEC );
 	}
 
 	/*
@@ -167,7 +167,7 @@ class FRUserActivity {
 		$wgMemc->delete( $key );
 	}
 
-	protected static function incUserReviewingItem( $key, User $user, $ttlMs ) {
+	protected static function incUserReviewingItem( $key, User $user, $ttlSec ) {
 		global $wgMemc;
 		$wasSet = false; // was changed?
 
@@ -177,12 +177,12 @@ class FRUserActivity {
 			list( $u, $ts, $cnt ) = $oldVal;
 			if ( $u === $user->getName() ) { // by this user
 				$newVal = array( $u, $ts, $cnt+1 ); // inc counter
-				$wgMemc->set( $key, $newVal, $ttlMs );
+				$wgMemc->set( $key, $newVal, $ttlSec );
 				$wasSet = true;
 			}
 		} else { // no flag set
 			$newVal = array( $user->getName(), wfTimestampNow(), 1 );
-			$wgMemc->set( $key, $newVal, $ttlMs );
+			$wgMemc->set( $key, $newVal, $ttlSec );
 			$wasSet = true;
 		}
 		$wgMemc->unlock( $key );
@@ -190,7 +190,7 @@ class FRUserActivity {
 		return $wasSet;
 	}
 
-	protected static function decUserReviewingItem( $key, User $user, $ttlMs ) {
+	protected static function decUserReviewingItem( $key, User $user, $ttlSec ) {
 		global $wgMemc;
 		$wasSet = false; // was changed?
 
