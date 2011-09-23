@@ -8,6 +8,7 @@ class RevisionReviewFormUI {
 	protected $user, $article, $rev;
 	protected $refRev = null;
 	protected $topNotice = '';
+	protected $bottomNotice = '';
 	protected $fileVersion = null;
 	protected $templateIDs = null;
 	protected $imageSHA1Keys = null;
@@ -36,10 +37,18 @@ class RevisionReviewFormUI {
 
 	/*
 	 * Add on a notice inside the review box at the top
-	 * @param string $topNotice Text to
+	 * @param string $notice HTML to show
 	 */
-	public function setTopNotice( $topNotice ) {
-		$this->topNotice = (string)$topNotice;
+	public function setTopNotice( $notice ) {
+		$this->topNotice = (string)$notice;
+	}
+
+	/*
+	 * Add on a notice inside the review box at the top
+	 * @param string $notice HTML to show
+	 */
+	public function setBottomNotice( $notice ) {
+		$this->bottomNotice = (string)$notice;
 	}
 
 	/*
@@ -214,6 +223,9 @@ class RevisionReviewFormUI {
 			$form .= FlaggedRevsXML::stabilityLogExcerpt( $article );
 		}
 		$form .= Xml::closeElement( 'div' ) . "\n";
+
+		# Show explanatory text
+		$form .= $this->bottomNotice;
 
 		# Hidden params
 		$form .= Html::hidden( 'title', $reviewTitle->getPrefixedText() ) . "\n";

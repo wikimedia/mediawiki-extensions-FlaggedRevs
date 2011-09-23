@@ -13,6 +13,7 @@ class FlaggedPageView {
 	protected $isMultiPageDiff = false;
 	protected $reviewNotice = '';
 	protected $diffNoticeBox = '';
+	protected $diffIncChangeBox = '';
 	protected $reviewFormRev = false;
 
 	protected $loaded = false;
@@ -1094,6 +1095,7 @@ class FlaggedPageView {
 			}
 			# Review notice box goes in top of form
 			$form->setTopNotice( $this->diffNoticeBox );
+			$form->setBottomNotice( $this->diffIncChangeBox );
 
 			# Set the file version we are viewing (for File: pages)
 			$form->setFileVersion( $this->out->getFileVersion() );
@@ -1387,7 +1389,7 @@ class FlaggedPageView {
 			&& $this->isDiffFromStable
 			&& !$this->article->stableVersionIsSynced() ) // pending changes
 		{
-			$changeDiv = '';
+			$changeText = '';
 			$this->reviewFormRev = $newRev;
 			$changeList = array();
 			# Page not synced only due to includes?
@@ -1413,7 +1415,6 @@ class FlaggedPageView {
 			}
 			# If there are pending revs or templates/files changes, notify the user...
 			if ( $this->article->revsArePending() || count( $changeList ) ) {
-				$changeDiv = '';
 				# If the user can review then prompt them to review them...
 				if ( $wgUser->isAllowed( 'review' ) ) {
 					// Reviewer just edited...
@@ -1433,22 +1434,23 @@ class FlaggedPageView {
 					} else {
 						$msg = 'revreview-update'; // generic "please review" notice...
 					}
-					$changeDiv .= wfMsgExt( $msg, 'parse' );
+					$this->diffNoticeBox = wfMsgExt( $msg, 'parse' ); // add as part of form
 				}
 				# Add include change list...
 				if ( count( $changeList ) ) { // just inclusion changes
-					$changeDiv .= "<p>" .
+					$changeText .= "<p>" .
 						wfMsgExt( 'revreview-update-includes', 'parseinline' ) .
 						'&#160;' . implode( ', ', $changeList ) . "</p>\n";
 				}
 			}
-			if ( $changeDiv != '' ) {
+			# template/file change list
+			if ( $changeText != '' ) {
 				if ( $wgUser->isAllowed( 'review' ) ) {
-					$this->diffNoticeBox = $changeDiv; // add as part of form
+					$this->diffIncChangeBox = "<p>$changeText</p>";
 				} else {
 					$css = 'flaggedrevs_diffnotice plainlinks';
 					$this->out->addHTML(
-						"<div id='mw-fr-difftostable' class='$css'>$changeDiv</div>\n"
+						"<div id='mw-fr-difftostable' class='$css'>$changeText</div>\n"
 					);
 				}
 			}
