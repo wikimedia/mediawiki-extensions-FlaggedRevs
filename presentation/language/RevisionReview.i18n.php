@@ -213,7 +213,7 @@ $messages['af'] = array(
 	'revreview-submit-reject' => 'Verwerp veranderinge',
 	'revreview-submit-reviewed' => 'Gedoen. Is aanvaar!',
 	'revreview-submit-unreviewed' => 'Gedoen. Nie aanvaar nie!',
-	'revreview-update-includes' => "'''Sommige sjablone/lêers is bygewerk:'''",
+	'revreview-update-includes' => 'Sommige sjablone/lêers is bygewerk:',
 	'revreview-reject-header' => 'Keur veranderinge vir $1 af',
 	'revreview-reject-summary' => 'Opsomming:',
 	'revreview-reject-confirm' => 'Keur hierdie veranderinge af',
@@ -236,7 +236,7 @@ $messages['aln'] = array(
 	'revreview-toolow' => '\'\'\'Ju duhet të kursit të secilit prej atributeve më të larta se "paaprovuar" në mënyrë që për një rishikim të merren parasysh rishikohet.\'\'\' Për të hequr statusin shqyrtimin e rishikimit, i vendosur të gjitha fushat për të "paaprovuar". Ju lutem goditi "mbrapa "butonin e shfletuesit tuaj dhe provoni përsëri.',
 	'revreview-update' => "Ju lutem [[{{MediaWiki:Validationpage}}|rishikim]] ndonjë ndryshim në pritje''(treguar më poshtë),''e bëra në versionin e botuar.",
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Ndryshimet juaja ende nuk janë botuar.</span> Ka redaktimet e mëparshme në pritje të shqyrtimit. Për të publikojë ndryshimet tuaj, ju lutemi shqyrtimin e të gjitha ndryshimet e treguar më poshtë.',
-	'revreview-update-includes' => "'''Disa templates / Fotografi të ishin më të azhornuara:'''",
+	'revreview-update-includes' => 'Disa templates / Fotografi të ishin më të azhornuara:',
 );
 
 /** Amharic (አማርኛ)
@@ -269,7 +269,7 @@ Ta sacar o status de revisato d'una versión, faiga click en \"no acceptar\".
 
 Por favor, prete o botón de \"enta zaga\" d'o suyo navegador y torne a intentar-lo.",
 	'revreview-update' => "Por favor [[{{MediaWiki:Validationpage}}|revise]] os cambios pendients ''(que s'amuestran en o cobaixo)'' feitos sobre a versión acceptata.",
-	'revreview-update-includes' => "'''S'han esviellato bellas plantillas u fichers:'''",
+	'revreview-update-includes' => "S'han esviellato bellas plantillas u fichers:",
 );
 
 /** Arabic (العربية)
@@ -340,7 +340,7 @@ $messages['ar'] = array(
 من فضلك راجع كل الغييرات المعروضة أدناه لتظهر تعديلاتك في النسخة المستقرة.',
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important"> لم تضف تعديلات بعد إلى النسخة المستقرة. هناك تعديلات مسبقة تنتظر المراجعة. </span>
 رجاء راجع جميع التغييرات الظاهرة أدناه من أجل أن تظهر تعديلاتك في النسخة المستقرة.',
-	'revreview-update-includes' => "'''تم تحديث بعض القوالب/الملفات (الصفحات غير المراجعة مكتوبة بالعريض):'''",
+	'revreview-update-includes' => 'تم تحديث بعض القوالب/الملفات (الصفحات غير المراجعة مكتوبة بالعريض):',
 	'revreview-reject-header' => 'رفض التغييرات لـ$1',
 	'revreview-reject-text-list' => "بإتمام هذا الفعل، سوف يتم '''رفض''' التعديلات النصية على المصدر من {{PLURAL:$1||المراجعة التالية|المراجعتين التاليتين|المراجعات التالية}} ل‍[[:$2|$2]]:",
 	'revreview-reject-text-revto' => 'هذا سوف يعيد الصفحة إلى [{{fullurl:$1|oldid=$2}} النسخة $3]',
@@ -393,7 +393,7 @@ $messages['arz'] = array(
 لو سمحت دوس على زرار "back" فى البراوزر بتاعتك و جرّب تانى.',
 	'revreview-update' => "لو سمحت [[{{MediaWiki:Validationpage}}|راجع]] اى تغييرات ''(باينه تحت)'' معموله من وقت النسخه المنشوره ما [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} اتأكد عليها].<br />
 '''شوية قوالب/فايلات اتجددت:'''",
-	'revreview-update-includes' => "'''بعض القوالب/الملفات تم تحديثها:'''",
+	'revreview-update-includes' => 'بعض القوالب/الملفات تم تحديثها:',
 );
 
 /** Asturian (Asturianu)
@@ -420,7 +420,7 @@ Pa desaniciar l'estáu d'una revisión, calca \"nun aceutar\".
 
 Calca nel botón \"atrás\" del restolador y téntalo otra vuelta.",
 	'revreview-update' => "'''Por favor [[{{MediaWiki:Validationpage}}|revisa]] tolos cambeos pendientes ''(que s'amuesen abaxo)'' fechos dende la versión estable.'''",
-	'revreview-update-includes' => "'''S'anovaron delles plantíes/ficheros (páxines ensin revisar en negrina):'''",
+	'revreview-update-includes' => "S'anovaron delles plantíes/ficheros (páxines ensin revisar en negrina):",
 	'revreview-reject-summary' => 'Resume:',
 	'revreview-reject-cancel' => 'Encaboxar',
 );
@@ -461,7 +461,7 @@ $messages['bcc'] = array(
 	'revreview-successful2' => "'''انتخاب بوتگین باز بینی [[:$1|$1]] گون موفقیت بی نشان بوت.'''",
 	'revreview-toolow' => 'شما بایدن حداقل هر یکی چه جهلگین نشانانء درجه بللیت گیشتر چه "unapproved" تا یک بازبینیء په داب چارتگین بیت.
 په نسخ کتن یک بازبینی کل فیلدانء په داب "unapproved" نشان کن.',
-	'revreview-update-includes' => "'''لهتی تمپلتان/تصاویر په روچ بیتگین:'''",
+	'revreview-update-includes' => 'لهتی تمپلتان/تصاویر په روچ بیتگین:',
 );
 
 /** Belarusian (Беларуская)
@@ -524,7 +524,7 @@ $messages['be'] = array(
 
 Каб уключыць вашы праўкі ў стабільную версію, калі ласка, праверце ўсе змены, паказаныя ніжэй.
 Магчыма, вам спатрэбіцца спачатку прайсці па праўках ці адмяніць іх.',
-	'revreview-update-includes' => "'''Некаторыя шаблоны ці файлы былі абноўленыя:'''",
+	'revreview-update-includes' => 'Некаторыя шаблоны ці файлы былі абноўленыя:',
 	'revreview-reject-header' => '	Адхіліць змены для $1',
 	'revreview-reject-text-list' => "Выконваючы гэта дзеянне, вы '''адхіляеце''' {{PLURAL:$1|наступную змену|наступныя змены}}:",
 	'revreview-reject-text-revto' => 'Вяртае старонку назад да [{{fullurl:$1|oldid=$2}} версіі ад $3].',
@@ -605,7 +605,7 @@ $messages['be-tarask'] = array(
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Вашыя зьмены яшчэ не былі далучаныя да стабільнай вэрсіі. Існуюць зьмены, якія чакаюць рэцэнзаваньня.</span>
 
 Калі ласка, прарэцэнзуйце ўсе зьмены пададзеныя ніжэй, каб Вашыя рэдагаваньні былі далучаныя да стабільнай вэрсіі.',
-	'revreview-update-includes' => "'''Абноўленыя шаблёны/файлы (нерэцэнзаваныя старонкі выдзеленыя тлустым шрыфтам):'''",
+	'revreview-update-includes' => 'Абноўленыя шаблёны/файлы (нерэцэнзаваныя старонкі выдзеленыя тлустым шрыфтам):',
 	'revreview-reject-header' => 'Адмяніць зьмены ў $1',
 	'revreview-reject-text-list' => "Выканаўшы гэтае дзеяньне, Вы '''адхіліце''' зьмены крынічнага тэксту ў {{PLURAL:$1|наступнай зьмене|наступных зьменах}} [[:$2|$2]]:",
 	'revreview-reject-text-revto' => 'Гэта адкаціць назад старонку да [{{fullurl:$1|oldid=$2}} вэрсіі $3].',
@@ -646,7 +646,7 @@ $messages['bg'] = array(
 	'revreview-submit-reject' => 'Отхвърляне на промените',
 	'revreview-submit-reviewed' => 'Готово. Прието!',
 	'revreview-submit-unreviewed' => 'Готово. Неприето!',
-	'revreview-update-includes' => "Актуализирани шаблони/файлове (непрегледаните страници са в получер шрифт):'''",
+	'revreview-update-includes' => 'Актуализирани шаблони/файлове (непрегледаните страници са в получер шрифт):',
 	'revreview-reject-summary' => 'Резюме:',
 	'revreview-reject-cancel' => 'Отказване',
 	'revreview-tt-flag' => 'Приемете тази версия, като я отбележите като "проверена"',
@@ -738,7 +738,7 @@ Adlennit an holl gemmoù diskouezet a-is evit ma teufe war wel ho kemmoù er stu
 	'revreview-update-edited-prev' => "<span class=\"flaggedrevs_important\">N'emañ ket ho kemmoù er stumm stabil c'hoazh. Kemmoù all a c'hortoz bezañ aprouet.</span>
 
 Adlennit an holl gemmoù diskouezet a-is evit ma teufe war wel ho kemmoù er stumm stabil.",
-	'revreview-update-includes' => "'''patromoù/restroù bet hizivaet (e tev ar pajennoù n'int ket bet adwelet) :'''",
+	'revreview-update-includes' => "patromoù/restroù bet hizivaet (e tev ar pajennoù n'int ket bet adwelet) :",
 	'revreview-reject-header' => "Disteuler ar c'hemmoù evit $1",
 	'revreview-reject-text-list' => "Ma rit se e '''tistaolot''' ar c'hemmoù an destenn orin evit an {{PLURAL:$1|adweladenn|adweladenn}} da-heul eus [[:$2|$2]] :",
 	'revreview-reject-text-revto' => 'Kement-mañ a adlakao ar bajenn en he [{{fullurl:$1|oldid=$2}} stumm eus an $3].',
@@ -819,7 +819,7 @@ Molimo provjerite sve izmjene prikazane ispod da bi se vaše izmjene prikazale u
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Vaše izmjene još uvijek nisu u stabilnoj verziji. Postoje ranije izmjene koje su na čekanju za provjeru</span>
 
 Molimo provjerite sve izmjene prikazane ispod da bi se vaše izmjene prikazale u stabilnoj verziji.',
-	'revreview-update-includes' => "''Šabloni/datoteke su ažurirani (nepregledane stranice su bodirane):'''",
+	'revreview-update-includes' => "''Šabloni/datoteke su ažurirani (nepregledane stranice su bodirane):",
 	'revreview-reject-header' => 'Odbij promjene za $1',
 	'revreview-reject-text-list' => "Dovršavanjem ove akcije, vi ćete '''odbiti'''  izmjene izvornog teksta od {{PLURAL:$1|slijedeće revizije|slijedećih revizija}} od [[:$2|$2]]:",
 	'revreview-reject-text-revto' => 'Ovim ćete vratiti nazad stranicu na [{{fullurl:$1|oldid=$2}} verziju od $3].',
@@ -849,7 +849,7 @@ $messages['ca'] = array(
 	'revreview-update' => "Si us plau, [[{{MediaWiki:Validationpage}}|reviseu]] els canvis ''(indicats a sota)'' fets des que la versió estable va ser [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovada].
 
 '''Algunes plantilles o imatges han canviat:'''",
-	'revreview-update-includes' => "'''S'han actualitzat algunes plantilles o fitxers:'''",
+	'revreview-update-includes' => "S'han actualitzat algunes plantilles o fitxers:",
 );
 
 /** Chechen (Нохчийн)
@@ -910,7 +910,7 @@ $messages['ce'] = array(
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Хьан хийцамаш хlинца ца латийна цхьан эшара йолу варсийн. Кхий хьалхара хийцамаш бу, хьажа дезаш.</span>
 
 Шу хийцамаш латаба, цхьан эшар йолучу варсийца, дехар до, хьовсийша массо хийцамашка, гойтуш болу лахахьа.',
-	'revreview-update-includes' => "'''Цхьа долу куцкепаш йа хlумнаш а карла даьхна:'''",
+	'revreview-update-includes' => 'Цхьа долу куцкепаш йа хlумнаш а карла даьхна:',
 	'revreview-reject-header' => 'Йуха баха хийцамаш оцу $1',
 	'revreview-reject-summary' => 'Хийцамех лаьцна:',
 	'revreview-reject-confirm' => 'Йуха баха иза хийцамаш',
@@ -983,7 +983,7 @@ Bude nutné tyto editace začlenit nebo zamítnout.',
 
 Aby se tam mohly dostat, posuďte prosím nejdříve všechny změny zobrazené níže.
 Bude nutné tyto editace začlenit nebo zamítnout.',
-	'revreview-update-includes' => "'''Některé šablony/soubory se změnily:'''",
+	'revreview-update-includes' => 'Některé šablony/soubory se změnily:',
 	'revreview-reject-header' => 'Odmítnout změny pro $1',
 	'revreview-reject-text-list' => "Dokončením této akce, '''zamítnete''' následující {{PLURAL:$1|zmněnu|změny|změn}}:",
 	'revreview-reject-text-revto' => 'Toto se vrátí zpět stránku do [{{fullurl:$1|oldid = $2}} revize z $3].',
@@ -1047,6 +1047,7 @@ $messages['de'] = array(
 Siehe die [[Special:Unreviewedpages|Liste unmarkierter Versionen]].',
 	'revreview-stable1' => 'Vielleicht möchtest du [{{fullurl:$1|stableid=$2}} die markierte Version] aufrufen, um zu sehen, ob es nunmehr die [{{fullurl:$1|stable=1}} stabile Version] dieser Seite ist?',
 	'revreview-stable2' => 'Vielleicht möchtest du die [{{fullurl:$1|stable=1}} stabile Version] dieser Seite sehen?',
+	'revreview-cancel' => 'Abbrechen',
 	'revreview-submit' => 'Speichern',
 	'revreview-submitting' => 'Übertragung …',
 	'revreview-submit-review' => 'Markiere Version',
@@ -1058,8 +1059,12 @@ Siehe die [[Special:Unreviewedpages|Liste unmarkierter Versionen]].',
 	'revreview-successful2' => "'''Die Markierung der Version von [[:$1|$1]] wurde erfolgreich aufgehoben.'''",
 	'revreview-poss-conflict-p' => "'''Warnung: Ein anderer Benutzer ([[User:$1|$1]]) hat am $2 um $3 Uhr damit begonnen, diese Seite zu überprüfen.'''",
 	'revreview-poss-conflict-c' => "'''Warnung: Ein anderer Benutzer ([[User:$1|$1]]) hat am $2 um $3 Uhr damit begonnen, diese Änderungen zu überprüfen.'''",
-	'revreview-adv-reviewing-p' => "'''Hinweis: Andere Benutzer werden nun darauf hingewiesen, dass du am $1um $2 Uhr damit begonnen hast diese Seite zu überprüfen.'''",
-	'revreview-adv-reviewing-c' => "'''Hinweis: Andere Benutzer werden nun darauf hingewiesen, dass du am $1 um $2 Uhr damit begonnen hast diese Änderungen zu überprüfen.'''",
+	'revreview-adv-reviewing-p' => 'Hinweis: Andere Benutzer werden nun darauf hingewiesen, dass du diese Seite überprüfst.',
+	'revreview-adv-reviewing-c' => 'Hinweis: Andere Benutzer werden nun darauf hingewiesen, dass du diese Änderungen überprüfst.',
+	'revreview-sadv-reviewing-p' => 'Hinweis: Bitte weise darauf hin, dass du diese Seite überprüfst.',
+	'revreview-sadv-reviewing-c' => 'Hinweis: Bitte weise darauf hin, dass du diese Änderungen überprüfst.',
+	'revreview-advertise-start' => 'Hinweisen',
+	'revreview-advertise-stop' => 'Hinweis zurücknehmen',
 	'revreview-toolow' => "'''Du musst jedes der Attribute besser als „unzureichend“ einstufen, damit eine Version als markiert angesehen werden kann.'''
 
 Um den Markierungstatus einer Version aufzuheben, muss auf „Markierung entfernen“ geklickt werden.
@@ -1072,7 +1077,7 @@ Bitte markiere alle unten angezeigten Änderungen, damit deine Bearbeitungen zur
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Deine Änderungen wurden bislang noch nicht als stabile Version gekennzeichnet. Es gibt ältere Bearbeitungen, die noch markiert werden müssen.</span>
 
 Bitte markiere alle unten angezeigten Änderungen, damit deine Bearbeitungen zur stabilen Version werden.',
-	'revreview-update-includes' => "'''Vorlagen/ Dateien wurden aktualisiert (nicht markierte Seiten sind in fett gekennzeichnet):'''",
+	'revreview-update-includes' => 'Vorlagen/ Dateien wurden aktualisiert (nicht markierte Seiten sind in fett gekennzeichnet):',
 	'revreview-reject-header' => 'Änderungen für $1 verwerfen',
 	'revreview-reject-text-list' => "Mit Abschluss dieser Aktion {{PLURAL:$1|wird die folgende Änderung|werden die folgenden Änderungen}} an [[:$2|$2]] '''verworfen''':",
 	'revreview-reject-text-revto' => 'Dies wird die Seite auf die [{{fullurl:$1|oldid=$2}} Version vom $3] zurücksetzen.',
@@ -1175,7 +1180,7 @@ Ti belki tewr verni de vurnayişan teqib biki ya zi "peyser biyeri".',
 
 Ma rica keni vurnayişanê xo peran versiyonê sebit biki bade kontrolê vurnayişi.
 Ti belki tewr verni de vurnayişan teqib biki ya zi "peyser biyeri".',
-	'revreview-update-includes' => "'''Tay Templatan/dosyayan biyo rocaniye:'''",
+	'revreview-update-includes' => 'Tay Templatan/dosyayan biyo rocaniye:',
 	'revreview-tt-flag' => '"Qontrol" nişan bike ke ena revizyon qebul bike',
 	'revreview-tt-unflag' => '"Qontrol nibiyo" nişan bike ke ena revizyon qebul meke',
 );
@@ -1239,7 +1244,7 @@ Pšosym pśeglědaj wšykne slědujuce změny, aby se twóje změny w stabilnej 
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Twóje změny hyšći njejsu w stabilnej wersiji. Su hyšći njepśeglědane změny.</span>
 
 Pšosym pśeglědaj wšykne slědujuce změny, aby je w stabilnej wersiji pokazali.',
-	'revreview-update-includes' => "'''Někotare pśedłogi/dataje su se zaktualizěrowali:'''",
+	'revreview-update-includes' => 'Někotare pśedłogi/dataje su se zaktualizěrowali:',
 	'revreview-reject-header' => 'Změny za $1 wótpokazaś',
 	'revreview-reject-text-list' => "Jolic pśewjeźoš toś tu akciju, buźoš {{PLURAL:$1|slědujucu změnu|slědujucej změnje|slědujuce změny|slědujuce změny}} '''wótpokazowaś''':",
 	'revreview-reject-text-revto' => 'To buźo bok na [{{fullurl:$1|oldid=$2}} wersiju dnja $3] slědk stajaś.',
@@ -1364,7 +1369,7 @@ Bonvolu kontroli ĉiujn jenajn ŝanĝojn por aperigi viajn redaktojn en la stabi
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Viaj ŝanĝoj ankoraŭ ne estas en la stabila versio. Ekzistas antaŭaj kontrolendaj ŝanĝoj.</span>
 
 Bonvolu kontroli ĉiujn jenajn ŝanĝojn por aperigi viajn redaktojn en la stabila versio.',
-	'revreview-update-includes' => "'''Ŝablonoj/dosieroj estis ĝisdatigitaj (nekontrolitaj paĝoj estas dikigitaj):'''",
+	'revreview-update-includes' => 'Ŝablonoj/dosieroj estis ĝisdatigitaj (nekontrolitaj paĝoj estas dikigitaj):',
 	'revreview-reject-header' => 'Malaprobi ŝanĝojn por $1',
 	'revreview-reject-text-list' => "Farante ĉi tiun agon, vi '''malaprobos''' la informofontaj ŝanĝoj de la {{PLURAL:$1|jenan revizion|jenajn reviziojn}} de [[:$2|$2]]:",
 	'revreview-reject-text-revto' => 'Tio ĉi restarigos la paĝon al la [{{fullurl:$1|oldid=$2}} versio ekde $3].',
@@ -1454,7 +1459,7 @@ Por favor revisa todos los cambios mostrados debajo para hacer que tus ediciones
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Tus cambios no está en la versión estable aún. Hay ediciones previas pendientes de ser revisadas.</span>
 
 Por favor, revisa todos los cambios mostrados a continuación para que se acepten tus ediciones.',
-	'revreview-update-includes' => "'''Plantilla/archivos actualizados (páginas sin revisar en negrita):'''",
+	'revreview-update-includes' => 'Plantilla/archivos actualizados (páginas sin revisar en negrita):',
 	'revreview-reject-header' => 'Rechazar los cambios para $1',
 	'revreview-reject-text-list' => "Al completar esta acción, estarás '''rechazando''' los cambios del texto fuente de las siguientes {{PLURAL:$1|revisión|revisiones}} de [[:$2|$2]]:",
 	'revreview-reject-text-revto' => 'La página será revertida a su [{{*fullurl:$1|*oldid=$2}} versión de $3].',
@@ -1523,7 +1528,7 @@ Oma muudatuste püsivas versioonis kuvamiseks vaata palun kõik allpool näidatu
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Sinu muudatused pole veel püsivas versioonis. Osa varasemaid muudatusi ootab ülevaatamist.</span>
 
 Oma muudatuste püsivas versioonis kuvamiseks vaata palun kõik allpool näidatud muudatused üle.',
-	'revreview-update-includes' => "'''Malle või faile on uuendatud (ülevaatamata leheküljed rasvaselt):'''",
+	'revreview-update-includes' => 'Malle või faile on uuendatud (ülevaatamata leheküljed rasvaselt):',
 	'revreview-reject-cancel' => 'Loobu',
 	'revreview-tt-flag' => 'Kiida see redaktsioon heaks, märkides selle kui "kord vaadatud"',
 	'revreview-tt-unflag' => 'Lükka see redaktsioon tagasi, märkides selle kui "kord vaatamata"',
@@ -1608,7 +1613,7 @@ $messages['fa'] = array(
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">تغییرات شما هنوز در نسخهٔ پایدار نیستند. تغییرات پیشین در انتظار بازبینی هستند.</span>
 
 لطفاً همهٔ تغییرات نشان‌داده‌شده در زیر را به‌منظور نمایاندن ویرایش‌هایتان در نسخهٔ پایدار بازبینی کنید.',
-	'revreview-update-includes' => "'''الگوها/پرونده‌ها به روز رسانی شدند (صفحات بازبینی نشده به صورت پررنگ نمایش داده شده‌اند):'''",
+	'revreview-update-includes' => 'الگوها/پرونده‌ها به روز رسانی شدند (صفحات بازبینی نشده به صورت پررنگ نمایش داده شده‌اند):',
 	'revreview-reject-header' => 'رد کردن تغییرات برای $1',
 	'revreview-reject-text-list' => "با تکمیل این اقدام، شما {{PLURAL:$1|نسخه|نسخه‌های}} مقابل از [[:$2|$2]] را '''رد خواهید کرد''':",
 	'revreview-reject-text-revto' => 'این صفحه را برمی‌گرداند به [{{fullurl:$1|oldid=$2}} نسخه $3].',
@@ -1693,7 +1698,7 @@ Tarkista kaikki alla olevat muutokset, jotta muutoksesi näkyisivät vakaassa ve
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Muutoksesi eivät ole vielä näkyvissä vakaassa versiossa. Edelliset muutokset odottavat arviointia.</span>
 
 Arvioi kaikki alla olevat muutokset, jotta muokkauksesi näkyisivät vakaassa versiossa.',
-	'revreview-update-includes' => "'''Joitakin mallineita tai tiedostoja on päivitetty (tarkastamattomat sivut lihavoinnilla):'''",
+	'revreview-update-includes' => 'Joitakin mallineita tai tiedostoja on päivitetty (tarkastamattomat sivut lihavoinnilla):',
 	'revreview-reject-header' => 'Hylkää version $1 muutokset',
 	'revreview-reject-text-revto' => 'Tämä palauttaa sivun takaisin [{{fullurl:$1|oldid=$2}} ajankohdan $3 versioon].',
 	'revreview-reject-summary' => 'Yhteenveto:',
@@ -1779,7 +1784,7 @@ Veuillez vérifier toutes les modifications affichées ci-dessous pour que la v�
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Vos modifications ne sont pas encore dans la version stable. Il y a de précédentes modifications en attente de relecture.</span>
 
 Vous devez relire toutes les modifications affichées ci-dessous pour la votre apparaisse dans la version stable.',
-	'revreview-update-includes' => "'''Modèles/fichiers mis à jour (pages non relues en gras) :'''",
+	'revreview-update-includes' => 'Modèles/fichiers mis à jour (pages non relues en gras) :',
 	'revreview-reject-header' => 'Refuser les modifications pour $1',
 	'revreview-reject-text-list' => "En effectuant cette action, vous allez '''rejeter''' les modifications sur le texte source {{PLURAL:$1|de la révision suivante|des révisions suivantes}} de [[:$2|$2]]:",
 	'revreview-reject-text-revto' => 'Ceci remettra cette page dans sa [{{fullurl:$1|oldid=$2}} version du $3].',
@@ -1835,6 +1840,7 @@ $messages['frp'] = array(
 Vêde la [[Special:Unreviewedpages|lista de les pâges pas revues]].',
 	'revreview-stable1' => 'Vos souhètâd pôt-étre vêre ceta [{{fullurl:$1|stableid=$2}} vèrsion marcâ] por vêre s’o est ora la [{{fullurl:$1|stable=1}} vèrsion stâbla] de cela pâge.',
 	'revreview-stable2' => 'Vos souhètâd pôt-étre vêre la [{{fullurl:$1|stable=1}} vèrsion stâbla] de ceta pâge.',
+	'revreview-cancel' => 'Anular',
 	'revreview-submit' => 'Sometre',
 	'revreview-submitting' => 'Somission...',
 	'revreview-submit-review' => 'Aprovar la vèrsion',
@@ -1860,7 +1866,7 @@ Volyéd controlar tôs los changements montrâs ce-desot por que los voutros apa
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Voutros changements sont p’oncor dens la vèrsion stâbla. Y at de vielys changements en atenta de rèvision.</span>
 
 Volyéd controlar tôs los changements montrâs ce-desot por que los voutros aparéssont dens la vèrsion stâbla.',
-	'revreview-update-includes' => "'''Modèlos/fichiérs betâs a jorn (pâges pas revues en grâs) :'''",
+	'revreview-update-includes' => 'Modèlos/fichiérs betâs a jorn (pâges pas revues en grâs) :',
 	'revreview-reject-header' => 'Refusar los changements por $1',
 	'revreview-reject-text-list' => "En fassent cela accion, vos voléd '''refusar''' los changements sur lo tèxto sôrsa {{PLURAL:$1|de ceta vèrsion|de cetes vèrsions}} de [[:$2|$2]] :",
 	'revreview-reject-text-revto' => 'Cen remetrat cela pâge dens sa [{{fullurl:$1|oldid=$2}} vèrsion du $3].',
@@ -1958,7 +1964,7 @@ Revise todos os cambios listados a continuación para que as súas edicións apa
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Os seus cambios aínda non se atopan na versión estable. Hai edicións previas pendentes de revisión.</span>
 
 Revise todos os cambios listados a continuación para que as súas edicións aparezan na versión estable.',
-	'revreview-update-includes' => "'''Actualizáronse algúns modelos ou ficheiros (as páxinas non revisadas van en negra):'''",
+	'revreview-update-includes' => 'Actualizáronse algúns modelos ou ficheiros (as páxinas non revisadas van en negra):',
 	'revreview-reject-header' => 'Rexeitar os cambios de "$1"',
 	'revreview-reject-text-list' => "Ao completar esta acción, '''rexeitará''' os cambios no texto fonte {{PLURAL:\$1|da seguinte revisión|das seguintes revisións}} de \"[[:\$2|\$2]]\":",
 	'revreview-reject-text-revto' => 'Isto reverterá a páxina ata a [{{fullurl:$1|oldid=$2}} versión do $3].',
@@ -2047,7 +2053,7 @@ Bitte iberprief alli unte aazeigte Änderige, ass Dyyni Bearbeite chenne ibernuu
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Dyy Änderige sin nonig in di stabil Version ibernuu wore. S het no vorigi Änderige, wu hängig sin. </span>
 
 Bitte iberprief alli unte aazeigte Änderige, ass Dyyni Bearbeite chenne ibernuu wäre.',
-	'revreview-update-includes' => "'''E paar Vorlage/Dateie sin aktualisiert wore:'''",
+	'revreview-update-includes' => 'E paar Vorlage/Dateie sin aktualisiert wore:',
 	'revreview-reject-header' => 'Änderige fir $1 furtgheje',
 	'revreview-reject-text-list' => "Mit Abschluss vu däre Aktion {{PLURAL:$1|wird die Änderig|wäre die Änderige}} '''furtghejt''':",
 	'revreview-reject-text-revto' => 'Des setzt d Syte uf d [{{fullurl:$1|oldid=$2}} Version vum $3] zruck.',
@@ -2122,8 +2128,8 @@ $messages['he'] = array(
 	'revreview-successful2' => "'''סימון הגרסה [[:$1|$1]] הוסר בהצלחה.'''",
 	'revreview-poss-conflict-p' => "'''אזהרה: [[User:$1|$1]] התחיל לסקור את הדף הזה ב־$2 בשעה $3.'''",
 	'revreview-poss-conflict-c' => "'''אזהרה: [[User:$1|$1]] התחיל לסקור את השינויים האלה ב־$2 בשעה $3.'''",
-	'revreview-adv-reviewing-p' => "'''לתשומת לבכם: למשתמשים אחרים תוצג הודעה כי התחלתם לסקור את הדף הזה ב־$1 ב־$2.'''",
-	'revreview-adv-reviewing-c' => "'''לתשומת לבכם: למשתמשים אחרים תוצג הודעה כי התחלתם לסקור את השינויים האלה ב־$1 ב־$2.'''",
+	'revreview-adv-reviewing-p' => 'לתשומת לבכם: סוקרים אחרים יכולים לראות שהתחלתם לסקור את הדף הזה.',
+	'revreview-adv-reviewing-c' => 'לתשומת לבכם: סוקרים אחרים יכולים לראות שהתחלתם לסקור את השינויים האלה.',
 	'revreview-toolow' => 'יש לדרג כל אחת מהתכונות הבאות גבוה יותר מ"בלתי קבילה" כדי שהגרסה תיחשב לגרסה שנסקרה.
 
 כדי להסיר מגרסה את הגדרת מצב הסקירה שלה, יש ללחוץ על "דחיית הגרסה".
@@ -2136,7 +2142,7 @@ $messages['he'] = array(
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">השינויים שלכם עדיין אינם בגרסה היציבה. יש שינויים קודמים שממתינים לסקירה.</span>
 
 נא לסקור את כל השינויים המופיעים להלן כדי שהעריכות שלכם תופענה בגרסה היציבה.',
-	'revreview-update-includes' => "'''עודכנו תבניות או קבצים (הדפים שלא נסקרו מובלטים):'''",
+	'revreview-update-includes' => 'עודכנו תבניות או קבצים (הדפים שלא נסקרו מובלטים):',
 	'revreview-reject-header' => 'דחיית השינויים עבור $1',
 	'revreview-reject-text-list' => "השלמת פעולה זו '''תדחה''' את השינויים בקוד המקור של {{PLURAL:$1|הגרסה הבאה|הגרסאות הבאות}} של [[:$2|$2]]:",
 	'revreview-reject-text-revto' => 'פעולה זו תשחזר את העמוד בחזרה לגרסה [{{fullurl:$1|oldid=$2}} מתאריך $3].',
@@ -2175,7 +2181,7 @@ $messages['hi'] = array(
 एक अवतरणका गुणांकन कम करने के लिये, निम्नलिखित सभी कॉलममें "अप्रमाणित" चुनें।',
 	'revreview-update' => "कृपया किये हुए बदलाव ''(नीचे दिये हुए)'' [[{{MediaWiki:Validationpage}}|जाँचे]] क्योंकी स्थिर अवतरण [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} प्रमाणित] कर दिया गया हैं।<br />
 '''कुछ साँचा/चित्र बदले हैं:'''",
-	'revreview-update-includes' => "'''कुछ साँचा/चित्र बदले हैं:'''",
+	'revreview-update-includes' => 'कुछ साँचा/चित्र बदले हैं:',
 );
 
 /** Croatian (Hrvatski)
@@ -2239,7 +2245,7 @@ Molimo provjerite sve izmjene prikazane ispod da bi se vaše izmjene prikazale u
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Vaše izmjene još uvijek nisu u stabilnoj inačici. Postoje ranije izmjene koje su na čekanju za provjeru</span>
 
 Molimo provjerite sve izmjene prikazane ispod da bi se vaše izmjene prikazale u stabilnoj inačici.',
-	'revreview-update-includes' => "'''Neki predlošci/datoteke su ažurirane:'''",
+	'revreview-update-includes' => 'Neki predlošci/datoteke su ažurirane:',
 	'revreview-reject-header' => 'Odbij promjene za $1',
 	'revreview-reject-text-list' => "Dovršavanjem ove akcije, vi ćete '''odbiti''' {{PLURAL:$1|sljedeću promjenu|sljedeće promjene|sljedeće promjene}}:",
 	'revreview-reject-text-revto' => 'Ovime ćete vratiti stranicu natrag na [{{fullurl:$1|oldid=$2}} inačicu od $3].',
@@ -2317,7 +2323,7 @@ Prošu přepruwuj wšě slědowace změny, zo bychu so twoje změny w stabilnej 
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Twoje změny hišće w stabilnej wersiji njeje. Su hišće njepřepruwowane změny.</span>
 
 Přepruwuj prošu wšě změny, kotrež so deleka pokazuja, zo bychu so twoje změny w stabilnej wersiji jewili.',
-	'revreview-update-includes' => "'''Někotre předłohi/dataje su so zaktualizowali:'''",
+	'revreview-update-includes' => 'Někotre předłohi/dataje su so zaktualizowali:',
 	'revreview-reject-header' => 'Změny za $1 wotpokazać',
 	'revreview-reject-text-list' => "Přewjedujo tutu akciju, budźeš {{PLURAL:$1|slědowacu změnu|slědowacej změnje|slědowace změny|slědowace změny}} '''wotpokazować''':",
 	'revreview-reject-text-revto' => 'To stronu na [{{fullurl:$1|oldid=$2}} wersiju wot dnja $3] wróćo staji.',
@@ -2397,7 +2403,7 @@ Kérlek ellenőrizd az alább látható változtatásokat, hogy a szerkesztései
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">A változtatásaid még nincsenek közzétéve. Korábbi változtatások várnak ellenőrzésre.</span>
 
 Kérlek ellenőrizd az alább látható változtatásokat, hogy a szerkesztéseid megjelenhessenek a közzétett változatban.',
-	'revreview-update-includes' => "'''Néhány sablon vagy fájl megváltozott:'''",
+	'revreview-update-includes' => 'Néhány sablon vagy fájl megváltozott:',
 	'revreview-reject-text-list' => "A művelet végrehajtásával '''visszavonod''' az alábbi {{PLURAL:$1|változtatást|változtatásokat}}:",
 	'revreview-reject-text-revto' => 'Ezzel visszaállítod a lapot a [{{fullurl:$1|oldid=$2}} $3-i változatra].',
 	'revreview-reject-summary' => 'Szerkesztési összefoglaló:',
@@ -2452,6 +2458,7 @@ $messages['ia'] = array(
 Vide le [[Special:Unreviewedpages|lista de paginas non revidite]].',
 	'revreview-stable1' => 'Es suggerite vider [{{fullurl:$1|stableid=$2}} iste version marcate] pro determinar si illo es ora le [{{fullurl:$1|stable=1}} version publicate] de iste pagina.',
 	'revreview-stable2' => 'Tu pote vider le [{{fullurl:$1|stable=1}} version publicate] de iste pagina.',
+	'revreview-cancel' => 'Cancellar',
 	'revreview-submit' => 'Submitter',
 	'revreview-submitting' => 'Invio in curso…',
 	'revreview-submit-review' => 'Acceptar version',
@@ -2463,8 +2470,12 @@ Vide le [[Special:Unreviewedpages|lista de paginas non revidite]].',
 	'revreview-successful2' => "'''Le version de [[:$1|$1]] ha essite dismarcate con successo.'''",
 	'revreview-poss-conflict-p' => "'''Attention: [[User:$1|$1]] comenciava a revider iste pagina le $2 a $3.'''",
 	'revreview-poss-conflict-c' => "'''Attention: [[User:$1|$1]] comenciava a revider iste modificationes le $2 a $3.'''",
-	'revreview-adv-reviewing-p' => "'''Nota: Es annunciate que tu comenciava a revider iste pagina le $1 a $2.'''",
-	'revreview-adv-reviewing-c' => "'''Nota: Es annunciate que tu comenciava a revider iste modificationes le $1 a $2.'''",
+	'revreview-adv-reviewing-p' => 'Nota: Altere revisores pote vider que tu revide iste pagina.',
+	'revreview-adv-reviewing-c' => 'Nota: Altere revisores pote vider que tu revide iste cambiamentos.',
+	'revreview-sadv-reviewing-p' => 'Nota: Per favor annuncia que tu revide iste pagina.',
+	'revreview-sadv-reviewing-c' => 'Nota: Per favor annuncia que tu revide iste cambiamentos.',
+	'revreview-advertise-start' => 'Annunciar',
+	'revreview-advertise-stop' => 'Non plus annunciar',
 	'revreview-toolow' => '\'\'\'Tu debe evalutar cata un del attributos como plus alte que "inadequate" a fin que un version sia considerate como revidite.\'\'\'
 
 Pro remover le stato de revision de un version, clicca super "non plus acceptar".
@@ -2477,7 +2488,7 @@ Per favor revide tote le modificationes monstrate hic infra pro facer tu modific
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Tu modificationes non es ancora in le version stabile. Il ha previe modificationes attendente revision.</span>
 
 Per favor revide tote le modificationes monstrate hic infra pro facer tu modificationes apparer in le version stabile.',
-	'revreview-update-includes' => "'''Patronos/files actualisate (paginas non revidite in grasse):'''",
+	'revreview-update-includes' => 'Patronos/files actualisate (paginas non revidite in grasse):',
 	'revreview-reject-header' => 'Rejectar modificationes pro $1',
 	'revreview-reject-text-list' => "Per exequer iste action, tu '''rejecta''' le modificationes in le texto-fonte del sequente {{PLURAL:$1|version|versiones}} de [[:$2|$2]]:",
 	'revreview-reject-text-revto' => 'Isto revertera le pagina al [{{fullurl:$1|oldid=$2}} version del $3].',
@@ -2561,7 +2572,7 @@ Harap tinjau semua perubahan yang ditunjukkan di bawah ini untuk membuat sunting
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Perubahan Anda belum masuk versi stabil. Ada perubahan terdahulu yang menunggu tinjauan.</span> 
 
 Harap tinjau semua perubahan yang ditunjukkan di bawah ini untuk membuat suntingan Anda muncul dalam versi stabil.',
-	'revreview-update-includes' => "'''Beberapa templat/berkas telah diperbaharui:'''",
+	'revreview-update-includes' => 'Beberapa templat/berkas telah diperbaharui:',
 	'revreview-reject-header' => 'Tolak perubahan untuk $1',
 	'revreview-reject-text-list' => "Dengan melakukan tindakan ini, Anda akan '''menolak''' {{PLURAL:$1|perubahan|perubahan}} berikut:",
 	'revreview-reject-text-revto' => 'Ini akan mengembalikan halaman kepada [{{fullurl:$1|oldid=$2}} versi per $3].',
@@ -2653,7 +2664,7 @@ Vedi l'[[Special:Unreviewedpages|elenco delle pagine non revisionate]].",
 
  Si prega di rivedere tutte le modifiche di seguito riportate perché le tue modifiche vengano visualizzate nella versione stabile. 
  Potrebbe essere necessario prima proseguire o "annullare" modifiche.',
-	'revreview-update-includes' => "'''Alcuni template/file sono stati aggiornati:'''",
+	'revreview-update-includes' => 'Alcuni template/file sono stati aggiornati:',
 	'revreview-tt-flag' => 'Accetta questa versione marcandola come "verificata"',
 );
 
@@ -2726,7 +2737,7 @@ $messages['ja'] = array(
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">変更はまだ安定版に反映されていません。この編集よりも前になされた査読待ちの編集があります。</span>
 
 変更を安定版に反映するには、下記の変更をすべて査読してください。',
-	'revreview-update-includes' => "'''更新されたテンプレートやファイルがあります:'''",
+	'revreview-update-includes' => '更新されたテンプレートやファイルがあります:',
 	'revreview-reject-header' => '$1の変更を拒否',
 	'revreview-reject-text-list' => "この操作を完了すると、以下の{{PLURAL:$1|変更}}を、次の理由で'''却下'''します：",
 	'revreview-reject-text-revto' => 'ページを[{{fullurl:$1|oldid=$2}} $3版]へ差し戻します。',
@@ -2799,7 +2810,7 @@ $messages['ka'] = array(
 	'revreview-successful' => "'''არჩეული ვერსია [[:$1|$1]] წარმატებით მოინიშნა. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} სტაბილური ვერსიების ხილვა])'''",
 	'revreview-successful2' => "'''არჩეული ვერსიისგან [[:$1|$1]] მონიშვნა მოხსნილია.'''",
 	'revreview-update' => "'''გთხოვთ [[{{MediaWiki:Validationpage}}|შეამოწმოთ]] ცვლილებები ''(ნაჩვენებია ქვემოთ)'', შეტანილი მიღებულ ვერსიაში.'''",
-	'revreview-update-includes' => "'''ზოგი თარგი ან ფაილი განახლდა:'''",
+	'revreview-update-includes' => 'ზოგი თარგი ან ფაილი განახლდა:',
 	'revreview-reject-header' => 'ცვლილებების გაუქმება $1-თვის',
 	'revreview-reject-summary' => 'რეზიუმე:',
 	'revreview-reject-confirm' => 'ამ ცვლილების გაუქმება',
@@ -2868,7 +2879,7 @@ $messages['km'] = array(
 	'revreview-log' => 'យោបល់៖',
 	'revreview-submit' => 'ដាក់ស្នើ',
 	'revreview-submitting' => 'កំពុង​ដាក់ស្នើ...',
-	'revreview-update-includes' => "'''ទំព័រគំរូ/រូបភាពមួយចំនួនត្រូវបានបន្ទាន់សម័យរួចហើយ៖'''",
+	'revreview-update-includes' => 'ទំព័រគំរូ/រូបភាពមួយចំនួនត្រូវបានបន្ទាន់សម័យរួចហើយ៖',
 );
 
 /** Korean (한국어)
@@ -2928,7 +2939,7 @@ $messages['ko'] = array(
 
 당신의 편집을 승인하려면 아래에 보이는 모든 편집 사항을 검토해주십시오.
 필요하다면 내용을 보충하거나 편집을 되돌리십시오.',
-	'revreview-update-includes' => "'''일부 틀이나 파일이 수정되었습니다:'''",
+	'revreview-update-includes' => '일부 틀이나 파일이 수정되었습니다:',
 	'revreview-tt-flag' => '이 판을 검토하기',
 	'revreview-tt-unflag' => '이 판에 대한 검토 취소하기',
 	'revreview-tt-reject' => '편집을 되돌려 편집 승인을 거부',
@@ -2980,7 +2991,7 @@ Looer noh de [[Special:Unreviewedpages|Leß met de nit nohjekikte Sigge]].',
 	'revreview-toolow' => 'Do moß för jeede vun dä Eijeschaffte unge en Not udder Präddikaat jävve, wat bäßer wi „{{lcfirst:{{int:revreview-style-0}}}}“ es, domet di Version als nohjekik jeldt. Öm en Version widder zeröckzeshtoofe, donn alle Präddikaate op „{{lcfirst:{{int:revreview-style-0}}}}“ säze.',
 	'revreview-update' => "Bes esu joot, un donn all de Änderunge ''(unge sin se opjeliß)'' [[{{MediaWiki:Validationpage}}|nohkike]], di jemaat woodte, zick däm de {{int:stablepages-stable}} et letz [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} {{lcfirst:{{int:revreview-approved}}}}] woode es.<br />
 '''E paa Schablohne, Datteije, udder beeds, sin jeändert woode:'''",
-	'revreview-update-includes' => "'''E paa Schabloone udder Dateije udder beeds sin jeändert woode:'''",
+	'revreview-update-includes' => 'E paa Schabloone udder Dateije udder beeds sin jeändert woode:',
 	'revreview-reject-header' => 'Donn de Änderonge aan $1 aflehne',
 	'revreview-reject-summary' => 'Koot Zosammejefass, Quell:',
 	'revreview-reject-confirm' => 'Donn heh di Änderonge aflehne',
@@ -3045,8 +3056,8 @@ Kuckt d'[[Special:Unreviewedpages|Lëscht vun den net nogekuckte Sàiten]].",
 	'revreview-successful2' => "'''D'Markéierung vun der Versioun vu(n) [[:$1|$1]] gouf ewechgeholl.'''",
 	'revreview-poss-conflict-p' => "'''Opgepasst: [[User:$1|$1]] huet den $2 ëm $3 ugefaang dës Säit nozekucken.'''",
 	'revreview-poss-conflict-c' => "'''Opgepasst: [[User:$1|$1]] huet den $2 ëm $3 ugefaang dës Ännerungen nozekucken.'''",
-	'revreview-adv-reviewing-p' => "'''Notiz: Aner Benotzer gesinn datt Dir den $1 ëm $2 Auer ugefaang hutt dës Säit nozekucken.'''",
-	'revreview-adv-reviewing-c' => "'''Notiz: Aner Benotzer gesinn datt Dir den $1 ëm $2 Auer ugefaang hutt dës Ännerungen nozekucken.'''",
+	'revreview-adv-reviewing-p' => "'''Notiz: Aner Benotzer gesinn datt Dir dës Säit nokuckt.'''",
+	'revreview-adv-reviewing-c' => "'''Notiz: Aner Benotzer gesinn datt Dir dës Ännerungen nokuckt.'''",
 	'revreview-toolow' => "'''Dir musst fir all Attribut hei drënner eng Bewäertung ofginn déi besser ass wéi \"net adequat\" fir datt eng Versioun als nogekuckt betruecht ka ginn.'''
 
 Fir de Statut nogekuckt vun enger Versioun ewechzehuelen klickt op \"net akzeptéieren\".
@@ -3059,7 +3070,7 @@ Kuckt w.e.g. all d\'Ännerungen hei drënner no fir datt Är Ännerungen an der 
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Är Ännerunge sinn nach net an der stabiler Versioun. Et gëtt vireg Ännerungen déi drop waarde fir nogekuckt ze ginn.</span>
 
 Kuckt w.e.g. all d\'Ännerungen hei drënner no fir datt Är Ännerungen akzeptéiert ginn.',
-	'revreview-update-includes' => "'''Schablounen/Fichiere aktualiséiert (net nogekuckte Säite si fettgegréckt):'''",
+	'revreview-update-includes' => 'Schablounen/Fichiere aktualiséiert (net nogekuckte Säite si fettgegréckt):',
 	'revreview-reject-header' => 'Ännerunge fir $1 rejetéieren',
 	'revreview-reject-text-list' => "Wann Dir dës Aktioun ofschléisst, da '''verwerft''' Dir d'Ännerunge vum Quelltext vun {{PLURAL:$1|der Versioun|de Versioune}} vum [[:$2|$2]]:",
 	'revreview-reject-text-revto' => "Dëst setzt d'Säit zréck op d'[{{fullurl:$1|oldid=$2}} Versioun vum $3].",
@@ -3191,6 +3202,7 @@ $messages['mk'] = array(
 Погледајте го [[Special:Unreviewedpages|списокот на неоценети страници]].',
 	'revreview-stable1' => 'Препорачуваме да ја погледате [{{fullurl:$1|stableid=$2}} оваа означена верзија] и да проверите дали таа сега е [{{fullurl:$1|stable=1}} објавената верзија] на оваа страница.',
 	'revreview-stable2' => 'Ви препорачуваме да ја погледате [{{fullurl:$1|stable=1}} објавената верзија] на оваа страница.',
+	'revreview-cancel' => 'Откажи',
 	'revreview-submit' => 'Поднеси',
 	'revreview-submitting' => 'Поднесувам ...',
 	'revreview-submit-review' => 'Прифати',
@@ -3202,8 +3214,12 @@ $messages['mk'] = array(
 	'revreview-successful2' => "'''Успешно отстранета ознака од ревизијата на [[:$1|$1]].'''",
 	'revreview-poss-conflict-p' => "'''Предупредување: [[User:$1|$1]] почна да ја проверува страницава на $2 во $3 ч.'''",
 	'revreview-poss-conflict-c' => "'''Предупредување: [[User:$1|$1]] почна да ги проверува промениве на $2 во $3.'''",
-	'revreview-adv-reviewing-p' => "'''Напомена: Се објавува дека сте почнале да ја проверувате страницава на $1 во $2.'''",
-	'revreview-adv-reviewing-c' => "'''Напомена: Се објавува дека сте почнале да ги проверувате овие измени на $1 во $2.'''",
+	'revreview-adv-reviewing-p' => 'Напомена: Другите прегледувачи можат да видат дека ја прегледувате страницава.',
+	'revreview-adv-reviewing-c' => 'Напомена: Другите прегледувачи можат да видат дека ги прегледувате овие промени.',
+	'revreview-sadv-reviewing-p' => 'Напомена: Разгласете дека ја прегледувате страницава.',
+	'revreview-sadv-reviewing-c' => 'Напомена: Разгласете дека ги прегледувате промениве.',
+	'revreview-advertise-start' => 'Разгласи',
+	'revreview-advertise-stop' => 'Повлечи го разгласувањето',
 	'revreview-toolow' => "'''Атрибутите мора да ги оцените со нешто повисоко од „недоволно“ за ревизијата да се смета за проверена.'''
 
 За да го отстраните статусот на ревизијата, поставете ги сите полиња како „неприфатливо“.
@@ -3216,7 +3232,7 @@ $messages['mk'] = array(
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Вашите измени сè уште не се вклучени во стабилната верзија.</span> Има претходни уредувања што чекаат проверка.</span>
 
 За да се појават во верзијата, најпрвин прегледате ги сите долунаведени промени.',
-	'revreview-update-includes' => "'''Подновени шаблони/податотеки (непроверените страници се задебелени):'''",
+	'revreview-update-includes' => 'Подновени шаблони/податотеки (непроверените страници се задебелени):',
 	'revreview-reject-header' => 'Отфрли промени на $1',
 	'revreview-reject-text-list' => "Довршувајќи ја оваа постапка, ќе ги  '''отфрлите''' измените во изворниот текст на {{PLURAL:$1|скеднава ревизија|следниве ревизии}} на [[:$2|$2]]:",
 	'revreview-reject-text-revto' => 'Ова ќе ја врати страницата на [{{fullurl:$1|oldid=$2}} верзијата од $3].',
@@ -3297,7 +3313,7 @@ $messages['ml'] = array(
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">താങ്കൾ വരുത്തിയ മാറ്റങ്ങൾ ഇതുവരെ സ്ഥിരപ്പെടുത്തിയ പതിപ്പിൽ ഉൾപ്പെട്ടിട്ടില്ല, പഴയ മാറ്റങ്ങൾ സംശോധനത്തിന് അവശേഷിക്കുന്നു.</span>
 
 താങ്കളുടെ തിരുത്തലുകൾ സ്ഥിരപ്പെടുത്താൻ, താഴെ കൊടുത്തിരിക്കുന്ന മാറ്റങ്ങൾ സംശോധനം ചെയ്യുക.',
-	'revreview-update-includes' => "'''ചില ഫലകങ്ങൾ/പ്രമാണങ്ങൾ പുതുക്കിയിരിക്കുന്നു (സംശോധനം ചെയ്യാത്ത താളുകൾ കട്ടികൂട്ടി കാണിച്ചിരിക്കുന്നു):'''",
+	'revreview-update-includes' => 'ചില ഫലകങ്ങൾ/പ്രമാണങ്ങൾ പുതുക്കിയിരിക്കുന്നു (സംശോധനം ചെയ്യാത്ത താളുകൾ കട്ടികൂട്ടി കാണിച്ചിരിക്കുന്നു):',
 	'revreview-reject-header' => '$1 എന്നതിനുള്ള മാറ്റങ്ങൾ നിരാകരിക്കുക',
 	'revreview-reject-text-list' => "ഈ പ്രവൃത്തി പൂർത്തിയാകുമ്പോൾ, താങ്കൾ താഴെ കൊടുത്തിരിക്കുന്ന {PLURAL:$1|നാൾപ്പതിപ്പിൽ|നാൾപ്പതിപ്പുകളിൽ}} സ്രോതസ്സ് എഴുത്തിനു [[:$2|$2]]-ൽ ഉണ്ടായ മാറ്റങ്ങൾ '''നിരാകരിച്ചിരിക്കും''':",
 	'revreview-reject-text-revto' => 'ഇത് താളിനെ അതിന്റെ [{{fullurl:$1|oldid=$2}} $3 തീയതിയിലെ പതിപ്പിലേയ്ക്ക്] മുൻപ്രാപനം ചെയ്യും.',
@@ -3346,7 +3362,7 @@ $messages['mr'] = array(
 एखाद्या आवृत्तीचे गुणांकन कमी करण्यासाठी, खालील सर्व रकान्यांमध्ये "अप्रमाणित" भरा.',
 	'revreview-update' => "कृपया केलेले बदल ''(खाली दिलेले)'' [[{{MediaWiki:Validationpage}}|तपासा]] कारण स्थिर आवृत्ती [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} प्रमाणित] करण्यात आलेली आहे.<br />
 '''काही साचे/चित्रे बदललेली आहेत:'''",
-	'revreview-update-includes' => "'''काही साचे/चित्र बदलण्यात आलेले आहेत:'''",
+	'revreview-update-includes' => 'काही साचे/चित्र बदलण्यात आलेले आहेत:',
 );
 
 /** Malay (Bahasa Melayu)
@@ -3414,7 +3430,7 @@ Sila kaji semula segala perubahan yang ditunjukkan di bawah untuk memastikan aga
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Perubahan anda belum lagi dalam versi stabil. Terdapat perubahan terdahulu yang masih menunggu untuk dikaji semula.</span>
 
 Sila kaji semula segala perubahan yang ditunjukkan di bawah untuk memastikan agar suntingan anda muncul dalam versi stabil.',
-	'revreview-update-includes' => "'''Templat/fail dikemaskini (laman yang belum dikaji semula berhuruf tebal):'''",
+	'revreview-update-includes' => 'Templat/fail dikemaskini (laman yang belum dikaji semula berhuruf tebal):',
 	'revreview-reject-header' => 'Tolak perubahan untuk $1',
 	'revreview-reject-text-list' => "Dengan melengkapkan tindakan ini, anda akan '''menolak''' perubahan teks sumber daripada {{PLURAL:$1|semakan|semakan-semakan}} [[:$2|$2]] yang berikut:",
 	'revreview-reject-text-revto' => 'Ini akan membalikkan laman ini kepada [versi {{fullurl:$1|oldid=$2}} seperti pada $3].',
@@ -3506,7 +3522,7 @@ Controleer alle wijzigingen hieronder om uw bewerkingen zichtbaar te maken in de
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Uw wijzigingen zijn nog niet opgenomen in de stabiele versie. Er moeten nog bewerkingen gecontroleerd worden.</span>
 
 Controleer alle hieronder weergegeven wijzigingen om ook uw bewerking zichtbaar te maken in de stabiele versie.',
-	'revreview-update-includes' => "'''Sommige sjablonen/bestanden zijn bijgewerkt (ongecontroleerde pagina's in vet):'''",
+	'revreview-update-includes' => "Sommige sjablonen/bestanden zijn bijgewerkt (ongecontroleerde pagina's in vet):",
 	'revreview-reject-header' => 'Wijzigingen voor $1 afkeuren',
 	'revreview-reject-text-list' => "Door deze handeling uit te voeren, '''keurt u de brontekstwijzingen af''' van de volgende {{PLURAL:$1|versie|versies}} van [[:$2|$2]]:",
 	'revreview-reject-text-revto' => 'Hiermee wordt de [{{fullurl:$1|oldid=$2}} versie per $3] teruggeplaatst.',
@@ -3548,7 +3564,7 @@ Sjå [[Special:Unreviewedpages|lista over sider som manglar vurdering]].',
 	'revreview-toolow' => 'Vurderinga di av sida lyt minst vera over «ikkje godkjend» for alle eigenskapane nedanfor for at versjonen skal kunna vera vurdert. For å degradera ein versjon, oppgje «ikkje godkjend» for alle eigenskapane.',
 	'revreview-update' => "[[{{MediaWiki:Validationpage}}|Vurder]] endringar ''(synte nedanfor)'' som er vortne gjort sidan den stabile versjonen vart [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} godkjend].<br />
 '''Nokre malar eller bilete vart oppdaterte:'''",
-	'revreview-update-includes' => "'''Nokre malar/bilete vart oppdaterte:'''",
+	'revreview-update-includes' => 'Nokre malar/bilete vart oppdaterte:',
 );
 
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
@@ -3618,7 +3634,7 @@ Revider alle endringene vist nedenfor for å gjøre redigeringene dine synlige i
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Endringene dine er ikke i den stabile versjonen ennå. Det finnes tidligere endringer som venter på revidering.</span>
 
 Revider alle endringene vist nedenfor for å gjøre redigeringene dine synlige i den stabile versjonen.',
-	'revreview-update-includes' => "'''Noen maler eller filer ble oppdatert:'''",
+	'revreview-update-includes' => 'Noen maler eller filer ble oppdatert:',
 	'revreview-reject-header' => 'Avvis endringer for $1',
 	'revreview-reject-text-list' => "Ved å fullføre denne handlingen vil du '''avvise''' følgende {{PLURAL:$1|endring|endringer}}:",
 	'revreview-reject-text-revto' => 'Dette vil tilbakestille siden til [{{fullurl:$1|oldid=$2}} versjonen fra $3].',
@@ -3659,7 +3675,7 @@ $messages['oc'] = array(
 	'revreview-toolow' => 'Pels atributs çaijós, vos cal donar un puntatge mai elevat que « non aprobat » per que la version siá considerada coma revista. Per depreciar una version, metètz totes los camps a « non aprobat ».',
 	'revreview-update' => "[[{{MediaWiki:Validationpage}}|Relegissètz]] totas las modificacions ''(vejatz çaijós)'' efectuadas dempuèi l’[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovacion] de la version establa.
 '''Qualques fichièrs o modèls son estats meses a jorn :'''",
-	'revreview-update-includes' => "'''Qualques modèls o fichièrs son estats meses a jorn :'''",
+	'revreview-update-includes' => 'Qualques modèls o fichièrs son estats meses a jorn :',
 );
 
 /** Deitsch (Deitsch)
@@ -3737,7 +3753,7 @@ Przejrzyj wszystkie poniższe zmiany, a Twoje edycje zostaną zamieszczone w wer
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Wykonane przez Ciebie zmiany nie są widoczne w wersji oznaczonej, ponieważ inne wcześniejsze zmiany oczekują na przejrzenie.</span>
 
 Przejrzyj wszystkie poniższe zmiany, a Twoje edycje zostaną zamieszczone w wersji oznaczonej.',
-	'revreview-update-includes' => "'''Niektóre szablony lub pliki zostały uaktualnione (nieprzejrzane strony są wytłuszczone):'''",
+	'revreview-update-includes' => 'Niektóre szablony lub pliki zostały uaktualnione (nieprzejrzane strony są wytłuszczone):',
 	'revreview-reject-header' => 'Wycofanie zmian w $1',
 	'revreview-reject-text-list' => "Zatwierdzając tę akcję '''wycofasz''' zmiany zrobione w {{PLURAL:$1|wersji|wersjach}} [[:$2|$2]]:",
 	'revreview-reject-text-revto' => 'Ta akcja spowoduje przywrócenie strony do [{{fullurl:$1|oldid=$2}} wersji z $3].',
@@ -3820,7 +3836,7 @@ Për piasì ch\'a revision-a tùit ij cambi smonù sì-sota përchè soe modìfi
 	'revreview-update-edited-prev' => "<span class=\"flaggedrevs_important\">Soe modìfiche a son anco' pa ant la version stàbil. A-i é dle modìfiche precedente ch'a speto na revision.</span>
 
 Për piasì ch'a revision-a tùit ij cambiament mostrà sì-sota përchè soe modìfiche a intro ant la version stàbil.",
-	'revreview-update-includes' => "'''Stamp/archivi agiornàà (pàgine nen revisionà an grassèt):'''",
+	'revreview-update-includes' => 'Stamp/archivi agiornàà (pàgine nen revisionà an grassèt):',
 	'revreview-reject-header' => 'Cambi arfudà për $1',
 	'revreview-reject-text-list' => "An completand cost'assion a '''arfudrà''' le modìfiche an sël test sorgiss ëd {{PLURAL:$1|la modìfica|le modìfiche}} sì-dapress ëd [[:$2|$2]]:",
 	'revreview-reject-text-revto' => 'Sòn a porterà andré la pàgina a la [{{fullurl:$1|oldid=$2}} version ëd $3].',
@@ -3921,7 +3937,7 @@ Para que as suas edições apareçam na versão publicada, reveja todas as alter
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">As suas alterações ainda não estão na versão publicada. Existem edições anteriores à espera de revisão.</span> 
 
 Para que as suas edições apareçam na versão publicada, reveja todas as alterações mostradas abaixo, por favor.',
-	'revreview-update-includes' => "'''Foram actualizados ficheiros ou predefinições (as páginas não revistas aparecem a negrito):'''",
+	'revreview-update-includes' => 'Foram actualizados ficheiros ou predefinições (as páginas não revistas aparecem a negrito):',
 	'revreview-reject-header' => 'Rejeitar mudanças de $1',
 	'revreview-reject-text-list' => 'Ao executar esta operação, irá "rejeitar" {{PLURAL:$1|a seguinte mudança|as seguintes mudanças}} a [[:$2|$2]]:',
 	'revreview-reject-text-revto' => 'A página será revertida para a [{{fullurl:$1|oldid=$2}} versão de $3].',
@@ -4004,7 +4020,7 @@ Para que as suas edições apareçam na versão publicada, revise todas as alter
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">As suas alterações ainda não estão na versão publicada. Existem edições anteriores à espera de revisão.</span> 
 
 Para que as suas edições apareçam na versão publicada, revise todas as alterações mostradas abaixo, por favor.',
-	'revreview-update-includes' => "'''Foram atualizados arquivos ou predefinições (as páginas não revistas aparecem a negrito):'''",
+	'revreview-update-includes' => 'Foram atualizados arquivos ou predefinições (as páginas não revistas aparecem a negrito):',
 	'revreview-reject-header' => 'Rejeitar mudanças de $1',
 	'revreview-reject-text-list' => "Ao executar esta operação, você irá '''rejeitar''' {{PLURAL:$1|a seguinte mudança|as seguintes mudanças}} de [[:$2|$2]]:",
 	'revreview-reject-text-revto' => 'Isto irá reverter a página para a [{{fullurl:$1|oldid=$2}} versão de $3].',
@@ -4132,7 +4148,7 @@ Pe luà 'u state de reviste de 'na revisione, cazze sus a \"none accettà\".
 
 Pe piacere cazze 'u buttone \"back\" d'u browser tune e pruève arrete.",
 	'revreview-update' => "'''Pe piacere [[{{MediaWiki:Validationpage}}|revide]] ogne cangiamende pendende ''(le vide aqquà sotte)'' fatte da 'a versiona secure.'''",
-	'revreview-update-includes' => "''Certe template/file onne state aggiornate (pàggene none reviste in grascette):'''",
+	'revreview-update-includes' => "''Certe template/file onne state aggiornate (pàggene none reviste in grascette):",
 	'revreview-reject-header' => 'Scitte le cangaminde pe $1',
 	'revreview-reject-text-revto' => "Quiste annulle 'a pàgene turnanne a 'a [{{fullurl:$1|oldid=$2}} versione de $3].",
 	'revreview-reject-summary' => 'Riepileghe:',
@@ -4192,6 +4208,7 @@ $messages['ru'] = array(
 См. [[Special:Unreviewedpages|список непроверенных страниц]].',
 	'revreview-stable1' => 'Возможно, вы хотите просмотреть [{{fullurl:$1|stableid=$2}} эту отмеченную версию] или [{{fullurl:$1|stable=1}} опубликованную версию] этой страницы, если такая существует.',
 	'revreview-stable2' => 'Вы можете просмотреть [{{fullurl:$1|stable=1}} опубликованную версию] этой страницы.',
+	'revreview-cancel' => 'Отмена',
 	'revreview-submit' => 'Отправить',
 	'revreview-submitting' => 'Отправка…',
 	'revreview-submit-review' => 'Подтвердить версию',
@@ -4203,8 +4220,12 @@ $messages['ru'] = array(
 	'revreview-successful2' => "'''С выбранной версии [[:$1|$1]] снята пометка.'''",
 	'revreview-poss-conflict-p' => "'''Предупреждение. [[User:$1|$1]] приступил к проверке этой страницы $2 в $3.'''",
 	'revreview-poss-conflict-c' => "'''Предупреждение. [[User:$1|$1]] приступил к проверке этих изменений $2 в $3.'''",
-	'revreview-adv-reviewing-p' => "'''Примечание. Объявлено, что вы начали проверку этой страницы $1 $2'''.",
-	'revreview-adv-reviewing-c' => "'''Примечание. Объявлено, что вы начали проверку этих изменений $1 $2'''.",
+	'revreview-adv-reviewing-p' => 'Примечание. Другие рецензенты могут видеть, что вы проверяете эту страницы.',
+	'revreview-adv-reviewing-c' => 'Примечание. Другие рецензенты могут видеть, что вы проверяете эти изменения.',
+	'revreview-sadv-reviewing-p' => 'Примечание. Пожалуйста, объявите, что вы проверяете эту страницу.',
+	'revreview-sadv-reviewing-c' => 'Примечание. Пожалуйста, объявите, что вы проверяете эти изменения.',
+	'revreview-advertise-start' => 'Объявить',
+	'revreview-advertise-stop' => 'Снять объявление',
 	'revreview-toolow' => "'''Вы должны указать для всех значений уровень выше, чем «недостаточный», чтобы версия страницы считалась проверенной.'''
 
 Чтобы сбросить признак проверки этой версии, нажмите «Снять подтверждение».
@@ -4217,7 +4238,7 @@ $messages['ru'] = array(
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Ваши изменения ещё не включены в стабильную версию. Существуют более ранние правки, требующие проверки.</span>
 
 Чтобы включить ваши правки в стабильную версию, пожалуйста, проверьте все изменения, показанные ниже.',
-	'revreview-update-includes' => "'''Обновлённые шаблоны или файлы (непроверенные выделены жирным):'''",
+	'revreview-update-includes' => 'Обновлённые шаблоны или файлы (непроверенные выделены жирным):',
 	'revreview-reject-header' => 'Отклонить изменения для $1',
 	'revreview-reject-text-list' => "Выполняя это действие, вы '''отвергаете''' изменение исходного кода в {{PLURAL:$1|следующей версии|следующих версиях}}:",
 	'revreview-reject-text-revto' => 'Возвращает страницу назад к [{{fullurl:$1|oldid=$2}} версии от $3].',
@@ -4297,7 +4318,7 @@ $messages['rue'] = array(
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Вашы зміны іщі не включены до стабілной верзії. Опереднї зміны чекають на перевірку</span> 
 
 Просиме, перевіртье вшыткы зміны, указаны ниже, жебы включіти вашы едітованя до стабілной верзії.',
-	'revreview-update-includes' => "'''Дакотры шаблоны або файлы были обновены (неперевірены суть тучным писмом):'''",
+	'revreview-update-includes' => 'Дакотры шаблоны або файлы были обновены (неперевірены суть тучным писмом):',
 	'revreview-reject-header' => 'Зрушыти зміны про $1',
 	'revreview-reject-text-list' => "Докончінём той дїї '''рушыте''' зміны жрідлового тексту з наслїдных {{PLURAL:$1|ревізія|ревізій}} [[:$2|$2]]:",
 	'revreview-reject-text-revto' => 'Тото верне сторінку назад до [{{fullurl:$1|oldid = $2}} ревізії $3].',
@@ -4371,7 +4392,7 @@ $messages['sah'] = array(
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Эн уларытыыларыҥ бигэ барылга киирэ иликтэр. Ол иннинээҕи көннөрүүлэр тургутуллуохтаахтар.</span>
 
 Бука диэн, аллара көрдөрүллүбүт туох баар уларытыылары көрөн кинилэри ыстатыйа бигэ барылыгар киллэр.',
-	'revreview-update-includes' => "'''Саҥардыллыбыт халыыптар/билэлэр (тургутуллубатахтар модьу бичигинэн):'''",
+	'revreview-update-includes' => 'Саҥардыллыбыт халыыптар/билэлэр (тургутуллубатахтар модьу бичигинэн):',
 	'revreview-reject-header' => '$1 уларытыыларын суох гынарга',
 	'revreview-reject-text-list' => "Бу дьайыыны оҥорон Эн {{PLURAL:$1|бу уларытыыны|бу уларытыылары}} '''суох гынаҕын''':",
 	'revreview-reject-text-revto' => 'Сирэйи бу барылга [{{fullurl:$1|oldid=$2}} ($3) төннөрөҕүн].',
@@ -4448,7 +4469,7 @@ Možno budete musieť pokračovať alebo „vrátiť“ úpravy.',
 
 Prosím, prečítajte si všetky nižšie uvedené zmeny, aby sa vaše úpravy sa objaví v stabilnej verzii. 
 Možno budete musieť pokračovať alebo „vrátiť“ úpravy.',
-	'revreview-update-includes' => "'''Niektoré šablóny/súbory sa zmenili:'''",
+	'revreview-update-includes' => 'Niektoré šablóny/súbory sa zmenili:',
 	'revreview-tt-flag' => 'Označiť túto revíziu ako skontrolovanú',
 	'revreview-tt-unflag' => 'Označiť túto revíziu ako neskontrolovanú',
 	'revreview-tt-reject' => 'Odmietnuť tieto zmeny ich vrátením',
@@ -4518,7 +4539,7 @@ Prosimo, preglejte vse spremembe prikazane podaj, da prikažete vaše spremembe 
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Vaše spremembe še niso v ustaljeni različici. Obstajajo pretekle spremembe, ki čakajo na pregled.</span>
 
 Prosimo, preglejte vse spremembe prikazane podaj, da prikažete vaše spremembe v ustaljeni različici.',
-	'revreview-update-includes' => "'''Predloge/datoteke so posodobljene (nepregledane strani so zapisane krepko):'''",
+	'revreview-update-includes' => 'Predloge/datoteke so posodobljene (nepregledane strani so zapisane krepko):',
 	'revreview-reject-header' => 'Zavrni spremembe $1',
 	'revreview-reject-text-list' => "Z izvedbo tega dejanja boste '''zavrnili''' spremembe izvornega besedila od {{PLURAL:$1|naslednje redakcije|naslednjih redakcij}} [[:$2|$2]]:",
 	'revreview-reject-text-revto' => 'To bo povrnilo stran nazaj na [{{fullurl:$1|oldid=$2}} različico dne $3].',
@@ -4535,7 +4556,7 @@ Prosimo, preglejte vse spremembe prikazane podaj, da prikažete vaše spremembe 
 	'revreview-tt-reject' => 'Zavrnite te spremembe besedila tako, da jih vrnete',
 );
 
-/** Serbian Cyrillic ekavian (‪Српски (ћирилица)‬)
+/** Serbian (Cyrillic script) (‪Српски (ћирилица)‬)
  * @author Millosh
  * @author Rancher
  * @author Sasa Stefanovic
@@ -4560,10 +4581,10 @@ $messages['sr-ec'] = array(
 	'revreview-submit-reviewed' => 'Готово. Усвојено!',
 	'revreview-submit-unreviewed' => 'Готово. Није усвојено!',
 	'revreview-successful2' => "'''Успешно је скинута ознака са означене верзије стране [[:$1|$1]].'''",
-	'revreview-update-includes' => "'''Неки шаблони и/или фајлови су ажурирани:'''",
+	'revreview-update-includes' => 'Неки шаблони и/или фајлови су ажурирани:',
 );
 
-/** Serbian Latin ekavian (‪Srpski (latinica)‬)
+/** Serbian (Latin script) (‪Srpski (latinica)‬)
  * @author Michaello
  */
 $messages['sr-el'] = array(
@@ -4583,7 +4604,7 @@ $messages['sr-el'] = array(
 	'revreview-submit-reviewed' => 'Gotovo. Usvojeno!',
 	'revreview-submit-unreviewed' => 'Gotovo. Nije usvojeno!',
 	'revreview-successful2' => "'''Uspešno je skinuta oznaka sa označene verzije strane [[:$1|$1]].'''",
-	'revreview-update-includes' => "'''Neki šabloni i/ili fajlovi su ažurirani:'''",
+	'revreview-update-includes' => 'Neki šabloni i/ili fajlovi su ažurirani:',
 );
 
 /** Seeltersk (Seeltersk)
@@ -4682,7 +4703,7 @@ Vänligen granska alla ändringar som visas nedan för att göra så att dina re
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Dina ändringar är ännu inte i den stabila versionen. Det finns tidigare ändringar som väntar på granskning</span>
 
 Vänligen granska alla ändringar som visas nedan för att göra så att dina redigeringar visas i den stabila versionen.',
-	'revreview-update-includes' => "'''Mallar/filer har uppdaterats (ogranskade sidor i fet text):'''",
+	'revreview-update-includes' => 'Mallar/filer har uppdaterats (ogranskade sidor i fet text):',
 	'revreview-reject-header' => 'Avvisa ändringar för $1',
 	'revreview-reject-text-revto' => 'Detta kommer att återställa sidan tillbaka till [{{fullurl:$1|oldid=$2}} versionen från $3].',
 	'revreview-reject-summary' => 'Sammanfattning:',
@@ -4769,7 +4790,7 @@ $messages['te'] = array(
 	'revreview-update' => "సుస్థిర కూర్పుని [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} అనుమతించిన] తర్వాత జరిగిన ''(క్రింద చూపించిన)'' మార్పులను [[{{MediaWiki:Validationpage}}|సమీక్షించండి]].
 
 '''కొన్ని మూసలు/ఫైళ్లను  తాజాకరించారు:'''",
-	'revreview-update-includes' => "'''కొన్ని మూసలు/ఫైళ్లను తాజాకరించారు:'''",
+	'revreview-update-includes' => 'కొన్ని మూసలు/ఫైళ్లను తాజాకరించారు:',
 	'revreview-reject-header' => '$1 యొక్క మార్పులను తిరస్కరించు',
 	'revreview-reject-text-list' => 'ఈ చర్యను పూర్తి చేస్తే మీరు కింది {{PLURAL:$1|మార్పు|మార్పుల}}ను ’’’తిరస్కరిస్తున్నట్లే’’’:',
 	'revreview-reject-text-revto' => 'ఇది ఈ పేజీని తిరిగి [{{fullurl:$1|oldid=$2}} $3 నాటి వెర్షను]కు తీసుకెళ్తుంది.',
@@ -4872,7 +4893,7 @@ Bir wersiýany köneltmek üçin ähli meýdançalary "tassyklanmadyk" diýip be
 Brauzeriňizde "yza" düwmesine basyň we gaýtadan synanyşyň.',
 	'revreview-update' => "Durnukly wersiýa [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} tassyklanandan] bäri edilen islendik üýtgeşmäni ''(aşakda görkezilen)'' [[{{MediaWiki:Validationpage}}|gözden geçiriň]].<br />
 '''Käbir şablonlar/faýllar täzelenilipdir:'''",
-	'revreview-update-includes' => "'''Käbir şablonlar/faýllar täzelendi:'''",
+	'revreview-update-includes' => 'Käbir şablonlar/faýllar täzelendi:',
 	'revreview-tt-flag' => 'Bu wersiýany gözden geçirilen diýip belle',
 	'revreview-tt-unflag' => 'Bu wersiýany gözden geçirilmedik diýip belle',
 );
@@ -4939,7 +4960,7 @@ Pakisuri ang lahat ng mga pagbabagong ipinakikita sa ibaba upang magawang lumita
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Ang mga binago mo ay hindi pa nasa loob ng matatag na bersyon.  May mga naunang mga pagbabago naghihintay ng pagsusuri.</span>
 
 Pakisuri ang lahat ng mga pagbabagong ipinapakita sa ibaba upang magawang lumitaw ng mga binago mo sa loob ng matatag na bersyon.',
-	'revreview-update-includes' => "'''Naisapanahon na ang ilang mga suleras/talaksan:'''",
+	'revreview-update-includes' => 'Naisapanahon na ang ilang mga suleras/talaksan:',
 	'revreview-reject-header' => 'Tanggihan ang mga pagbabago para sa $1',
 	'revreview-reject-text-list' => "Sa pamamagitan ng pagbuo sa galaw na ito, '''tatanggihan''' mo ang sumusunod na {{PLURAL:$1|pagbabago|mga pagbabago}}:",
 	'revreview-reject-text-revto' => 'Magpapabalik ito ng pahina sa dati papunta sa [{{fullurl:$1|oldid=$2}} bersyon ng $3].',
@@ -5017,7 +5038,7 @@ Değişikliklerinizin kararlı sürümde yer alması için lütfen aşağıda g�
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Değişiklikleriniz henüz kararlı sürüm için değildir. İnceleme bekleyen eski değişiklikler bulunmaktadır.</span>
 
 Değişikliklerinizin kararlı sürümde yer alması için, lütfen aşağıda gösterilen tüm değişiklikleri inceleyin.',
-	'revreview-update-includes' => "'''Bazı şablonlar/dosyalar güncellenmiş:'''",
+	'revreview-update-includes' => 'Bazı şablonlar/dosyalar güncellenmiş:',
 	'revreview-reject-header' => '$1 için değişiklikleri reddet',
 	'revreview-reject-text-list' => "Bu eylemi tamamlayarak, aşağıdaki {{PLURAL:$1|değişiklik|değişiklikleri}} '''reddetmiş''' olacaksınız:",
 	'revreview-reject-summary' => 'Değişiklik özeti:',
@@ -5098,7 +5119,7 @@ $messages['uk'] = array(
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Ваші зміни ще не включені до стабільної версії. Попередні зміни очікують на перевірку.</span>
 
 Будь ласка, перевірте усі зміни, наведені нижче, щоб включити ваші редагування до стабільної версії.',
-	'revreview-update-includes' => "'''Деякі шаблони або файли були оновлені (неперевірені виділені жирним шрифтом):'''",
+	'revreview-update-includes' => 'Деякі шаблони або файли були оновлені (неперевірені виділені жирним шрифтом):',
 	'revreview-reject-header' => 'Скасувати зміни для $1',
 	'revreview-reject-text-list' => "Виконуючи цю дію, ви '''відкидаєте''' зміну вихідного коду в {{PLURAL:$1|наступній редакції|наступних редакціях}} [[:$2|$2]] :",
 	'revreview-reject-text-revto' => 'Відкидає сторінку назад до [{{fullurl:$1|oldid=$2}} версії від $3].',
@@ -5171,7 +5192,7 @@ Podarìa esser necessario proseguire o "anulare" modifiche.',
 
 Par piaser rivarda tute le modifiche qua soto parché le to modifiche le vegna mostrà ne la version stabile. 
 Podarìa esser necessario proseguire o "anulare" modifiche.',
-	'revreview-update-includes' => "'''Alcuni modèi o file i xe stà agiornà:'''",
+	'revreview-update-includes' => 'Alcuni modèi o file i xe stà agiornà:',
 	'revreview-tt-flag' => 'Aceta sta revision segnandola come "controlà"',
 	'revreview-tt-unflag' => 'Disaprova sta revision segnandola come "mia controlà"',
 	'revreview-tt-reject' => 'Rifiuta ste modifiche tirandole indrio',
@@ -5205,7 +5226,7 @@ Miše heitta kodvindan znam, kirjutagat kaikjal "ei ole znamoitud".',
 	'revreview-update' => "Olgat hüväd, [[{{MediaWiki:Validationpage}}|kodvgat]] toižetused'' (ned ozutadas alemba)'', kudambid tehtihe jäl'ges stabiližen versijan
 [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} seižutamišt].<br />
 '''Erased šablonad vai failad oma udištadud:'''",
-	'revreview-update-includes' => "'''Erased šablonad/failad oma udištadud:'''",
+	'revreview-update-includes' => 'Erased šablonad/failad oma udištadud:',
 	'revreview-tt-flag' => 'Znamoita nece versii kut kodvdud',
 	'revreview-tt-unflag' => 'Znamoita nece versii kut kodvmatoi',
 );
@@ -5251,6 +5272,7 @@ $messages['vi'] = array(
 Mời xem [[Special:Unreviewedpages|danh sách các trang chưa được duyệt]].',
 	'revreview-stable1' => 'Bạn có thể muốn xem [{{fullurl:$1|stableid=$2}} phiên bản có cờ này] để xem nó mới có phải là [{{fullurl:$1|stable=1}} phiên bản ổn định] của trang này hay chưa.',
 	'revreview-stable2' => 'Bạn có thể muốn xem [{{fullurl:$1|stable=1}} phiên bản ổn định] của trang này.',
+	'revreview-cancel' => 'Hủy bỏ',
 	'revreview-submit' => 'Đăng bản duyệt',
 	'revreview-submitting' => 'Đang gửi thông tin…',
 	'revreview-submit-review' => 'Chấp nhận phiên bản',
@@ -5262,8 +5284,12 @@ Mời xem [[Special:Unreviewedpages|danh sách các trang chưa được duyệt
 	'revreview-successful2' => "'''Phiên bản của [[:$1|$1]] đã được bỏ cờ thành công.'''",
 	'revreview-poss-conflict-p' => "'''Cảnh báo: [[User:$1|$1]] đã bắt đầu duyệt trang này vào $2 lúc $3.'''",
 	'revreview-poss-conflict-c' => "'''Cảnh báo: [[User:$1|$1]] đã bắt đầu duyệt các thay đổi này vào $2 lúc $3.'''",
-	'revreview-adv-reviewing-p' => "'''Chú ý: Phiên duyệt trang này đang được liệt kê là đã bắt đầu vào $1 lúc $2.'''",
-	'revreview-adv-reviewing-c' => "'''Chú ý: Phiên duyệt các thay đổi này đang được liệt kê là đã bắt đầu vào $1 lúc $2.'''",
+	'revreview-adv-reviewing-p' => 'Chú ý: Những người duyệt bài khác có thể xem rằng bạn đang duyệt trang này.',
+	'revreview-adv-reviewing-c' => 'Chú ý: Những người duyệt bài khác có thể xem rằng bạn đang duyệt các thay đổi này.',
+	'revreview-sadv-reviewing-p' => 'Chú ý: Xin vui lòng báo cho người ta biết rằng bạn đang duyệt trang này.',
+	'revreview-sadv-reviewing-c' => 'Chú ý: Xin vui lòng báo cho người ta biết rằng bạn đang duyệt các thay đổi này.',
+	'revreview-advertise-start' => 'Báo',
+	'revreview-advertise-stop' => 'Ngừng báo',
 	'revreview-toolow' => "'''Mỗi thuộc tính cần phải cao hơn “kém” để cho phiên bản có thể được xem là được duyệt.'''
 
 Để rút cờ được duyệt của một phiên bản, hãy bấm “Rút chấp nhận”.
@@ -5276,7 +5302,7 @@ Xin hãy duyệt các thay đổi ở dưới để đưa các sửa đổi củ
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Các thay đổi của bạn chưa được đưa vào phiên bản ổn định. Hiện có những thay đổi từ trước đang chờ được duyệt.</span>
 
 Xin hãy duyệt các thay đổi ở dưới để đưa các sửa đổi của bạn vào phiên bản ổn định.',
-	'revreview-update-includes' => "'''Bản mẫu hay tập tin được cập nhật (các trang chưa duyệt được in đậm):'''",
+	'revreview-update-includes' => 'Bản mẫu hay tập tin được cập nhật (các trang chưa duyệt được in đậm):',
 	'revreview-reject-header' => 'Từ chối những thay đổi $1',
 	'revreview-reject-text-list' => "Bằng tác vụ này, bạn sẽ '''từ chối''' {{PLURAL:$1|thay đổi|những thay đổi}} văn bản tại [[:$2|$2]] sau:",
 	'revreview-reject-text-revto' => 'Trang sẽ được quay về [{{fullurl:$1|oldid=$2}} phiên bản lúc $3].',
@@ -5338,7 +5364,7 @@ $messages['yue'] = array(
 	'revreview-toolow' => '你一定要最少將下面每一項嘅屬性評定高過"未批准"，去將一個修訂複審。
 	要捨棄一個修訂，設定全部格做"未批准"。',
 	'revreview-update' => '請複審自從響呢版嘅穩定版以來嘅任何更改 (響下面度顯示) 。模同圖亦可能同時更改。',
-	'revreview-update-includes' => "'''有啲模/圖更新咗:'''",
+	'revreview-update-includes' => '有啲模/圖更新咗:',
 );
 
 /** Simplified Chinese (‪中文(简体)‬)
@@ -5411,7 +5437,7 @@ $messages['zh-hans'] = array(
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">您的更改尚未成为稳定版本。还有更早的更改正在等待复审。</span>
 
 请审阅如下所有更改，以使您的编辑出现在稳定版本中。',
-	'revreview-update-includes' => "'''模板或文件已更新（未复审页面以粗体显示）：'''",
+	'revreview-update-includes' => '模板或文件已更新（未复审页面以粗体显示）：',
 	'revreview-reject-header' => '拒绝对$1的更改',
 	'revreview-reject-text-list' => "完成此操作后，您将'''拒绝'''在[[:$2|$2]]的{{PLURAL:$1|修订|修订}}中对源文本的更改：",
 	'revreview-reject-text-revto' => '此操作将把页面恢复到[{{fullurl:$1|oldid=$2}} $3时的版本]。',
@@ -5495,7 +5521,7 @@ $messages['zh-hant'] = array(
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">您的變更尚未發佈。在你的編輯之前還有未審核的版本。</span>
 
 請檢查以下所有的修訂，以令你的編輯出現在穩定版本中。',
-	'revreview-update-includes' => "'''模板或文件已更新（未復審頁面以粗體顯示）：'''",
+	'revreview-update-includes' => '模板或文件已更新（未復審頁面以粗體顯示）：',
 	'revreview-reject-header' => '拒絕更改為$1',
 	'revreview-reject-text-list' => "完成此操作後，您將'''拒絕'''在[[:$2|$2]]的{{PLURAL:$1|修訂|修訂}}中對源文本的更改：",
 	'revreview-reject-text-revto' => '這將恢復頁面回[{{fullurl:$1|oldid=$2}} $3的版本]。',
