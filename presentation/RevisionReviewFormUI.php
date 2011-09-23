@@ -211,7 +211,7 @@ class RevisionReviewFormUI {
 		# Add "cancel" link
 		$form .= Linker::link( $article->getTitle(),
 			wfMsg( 'revreview-cancel' ),
-			array( 'onClick' => 'history.back(); return !history.length;' ) );
+			array( 'onClick' => 'history.back(); return history.length <= 1;' ) );
 
 		# Show stability log if there is anything interesting...
 		if ( $article->isPageLocked() ) {
