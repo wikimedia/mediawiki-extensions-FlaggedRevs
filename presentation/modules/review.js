@@ -328,64 +328,47 @@ window.FlaggedRevsReview = {
 	'enableAjaxReviewActivity': function() {
 		// User is already reviewing in another tab...
 		if ( $('#mw-fr-user-reviewing').val() == 1 ) {
-			var msgkey = $('#mw-fr-input-refid')
-				? 'revreview-adv-reviewing-c'
-				: 'revreview-adv-reviewing-p';
-			$('#mw-fr-reviewing-status').html(
-				mw.msg( msgkey, [mw.config.get('wgUserName')] ) // advertised notice
-			);
-			$('#mw-fr-reviewing-toggle a').html(
-				mw.msg('revreview-advertise-stop')
-			).click( FlaggedRevsReview.deadvertiseReviewing );
+			FlaggedRevsReview.isUserReviewing = 1;
+			FlaggedRevsReview.advertiseReviewing( null, true );
 		// User is not already reviewing this....
 		} else {
-			var msgkey = $('#mw-fr-input-refid')
-				? 'revreview-sadv-reviewing-c'
-				: 'revreview-sadv-reviewing-p';
-			$('#mw-fr-reviewing-status').html(
-				mw.msg( msgkey, [mw.config.get('wgUserName')] ) // suggest to advertise
-			);
-			
-			$('#mw-fr-reviewing-toggle a').html(
-				mw.msg('revreview-advertise-start')
-			).click( FlaggedRevsReview.advertiseReviewing );
+			FlaggedRevsReview.deadvertiseReviewing( null, true );
 		}
-		$('#mw-fr-reviewing-status').addClass('fr-under-review').show();
-		$('#mw-fr-reviewing-toggle').show();
+		$('#mw-fr-reviewing-status').show();
 	},
 	
 	/*
 	* Flag users as "now reviewing"
 	*/
-	'advertiseReviewing': function() {
-		FlaggedRevsReview.setReviewingStatus( 1 );
+	'advertiseReviewing': function( e, isInitial ) {
+		if ( isInitial !== true ) { // don't send if just setting up form
+			if ( !FlaggedRevsReview.setReviewingStatus( 1 ) ) {
+				return; // failed
+			}
+		}
+		// Update notice to say that user is advertising...
 		var msgkey = $('#mw-fr-input-refid')
 			? 'revreview-adv-reviewing-c' // diff
 			: 'revreview-adv-reviewing-p' // page
-		$('#mw-fr-reviewing-status').html(
-			mw.msg( msgkey, [mw.config.get('wgUserName')] )
-		);
-		// Invert toggle text/function...
-		$('#mw-fr-reviewing-toggle a').html(
-			mw.msg('revreview-advertise-stop')
-		).unbind('click').click( FlaggedRevsReview.deadvertiseReviewing );
+		$('#mw-fr-reviewing-status').html( mw.msg( msgkey, [mw.config.get('wgUserName')] ) );
+		$('#mw-fr-reviewing-stop').click( FlaggedRevsReview.deadvertiseReviewing );
 	},
 	
 	/*
 	* Flag users as "no longer reviewing"
 	*/
-	'deadvertiseReviewing': function() {
-		FlaggedRevsReview.setReviewingStatus( 0 );
+	'deadvertiseReviewing': function( e, isInitial ) {
+		if ( isInitial !== true ) { // don't send if just setting up form
+			if ( !FlaggedRevsReview.setReviewingStatus( 0 ) ) {
+				return; // failed
+			}
+		}
+		// Update notice to say that user is not advertising...
 		var msgkey = $('#mw-fr-input-refid')
 			? 'revreview-sadv-reviewing-c' // diff
 			: 'revreview-sadv-reviewing-p' // page
-		$('#mw-fr-reviewing-status').html(
-			mw.msg( msgkey, [mw.config.get('wgUserName')] )
-		);
-		// Invert toggle text/function...
-		$('#mw-fr-reviewing-toggle a').html(
-			mw.msg('revreview-advertise-start')
-		).unbind('click').click( FlaggedRevsReview.advertiseReviewing );
+		$('#mw-fr-reviewing-status').html( mw.msg( msgkey, [mw.config.get('wgUserName')] ) );
+		$('#mw-fr-reviewing-start').click( FlaggedRevsReview.advertiseReviewing );
 	},
 	
 	/*
@@ -412,8 +395,12 @@ window.FlaggedRevsReview = {
 				async	: false
 			});
 		}
-		FlaggedRevsReview.isUserReviewing = value;
-		return ( call.status == 200 );
+		if ( call.status == 200 ) {
+			FlaggedRevsReview.isUserReviewing = value;
+			return true;
+		} else {
+			return false;
+		}
 	}
 };
 

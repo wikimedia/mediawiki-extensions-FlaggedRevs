@@ -144,28 +144,24 @@ class RevisionReviewFormUI {
 		}
 		$form .= "<p>";
 		if ( $u !== null ) { // page under review...
-			$form .= '<span class="fr-under-review">';
 			if ( $u != $this->user->getName() ) { // by another user...
+				$form .= '<span class="fr-under-review">';
 				$msg = $priorRevId
 					? 'revreview-poss-conflict-c'
 					: 'revreview-poss-conflict-p';
 				$form .= wfMsgExt( $msg, 'parseinline',
 					$u, $wgLang->date( $ts, true ), $wgLang->time( $ts, true ) );
+				$form .= "</span>";
 			} else { // by this user...
+				$form .= '<span id="mw-fr-reviewing-status">'; // JS widget
 				$msg = $priorRevId
 					? 'revreview-adv-reviewing-c'
 					: 'revreview-adv-reviewing-p';
-				$form .= wfMsgHtml( $msg );
+				$form .= wfMsg( $msg ); // don't escape
+				$form .= "</span>";
 			}
-			$form .= "</span>";
-		} else { // page not under review; add JS button
+		} else { // page not under review; add JS widget
 			$form .= '<span id="mw-fr-reviewing-status" style="display:none;"></span>';
-		}
-		# Let user toggle advertising that they are reviewing this
-		if ( $u === null || $u === $this->user->getName()  ) {
-			$form .= '<span id="mw-fr-reviewing-toggle" style="display:none;">';
-			$form .= ' (<a href="javascript:void()"></a>)'; // JS activated
-			$form .= '</span>';
 		}
 		$form .= "</p>\n";
 
