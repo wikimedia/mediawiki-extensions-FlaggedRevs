@@ -349,14 +349,14 @@ class FlaggedPageView {
 		// requesting the stable revision ("&stableid=x"), defer to override
 		// behavior below, since it is the same as ("&stable=1").
 		if ( $old ) {
-			$this->showOldReviewedVersion( $frev, $tag, $prot );
-			$outputDone = true; # Tell MW that parser output is done
+			# Tell MW that parser output is done by setting $outputDone
+			$outputDone = $this->showOldReviewedVersion( $frev, $tag, $prot );
 			$useParserCache = false;
 		// Stable version requested by ID or relevant conditions met to
 		// to override page view with the stable version.
 		} elseif ( $stable || $this->showingStable() ) {
-			$this->showStableVersion( $srev, $tag, $prot );
-			$outputDone = true; # Tell MW that parser output is done
+			# Tell MW that parser output is done by setting $outputDone
+			$outputDone = $this->showStableVersion( $srev, $tag, $prot );
 			$useParserCache = false;
 		// Looking at some specific old revision (&oldid=x) or if FlaggedRevs is not
 		// set to override given the relevant conditions (like &stable=0) or there
@@ -433,11 +433,12 @@ class FlaggedPageView {
 	}
 
 	/**
+	* Tag output function must be called by caller
+	* Parser cache control deferred to caller
 	* @param $srev stable version
 	* @param $tag review box/bar info
 	* @param $prot protection notice icon
-	* Tag output function must be called by caller
-	* Parser cache control deferred to caller
+	* @return void
 	*/
 	protected function showDraftVersion( FlaggedRevision $srev, &$tag, $prot ) {
 		global $wgUser, $wgLang, $wgRequest;
@@ -543,12 +544,13 @@ class FlaggedPageView {
 	}
 
 	/**
+	* Tag output function must be called by caller
+	* Parser cache control deferred to caller
 	* @param $srev stable version
 	* @param $frev selected flagged revision
 	* @param $tag review box/bar info
 	* @param $prot protection notice icon
-	* Tag output function must be called by caller
-	* Parser cache control deferred to caller
+	* @return ParserOutput
 	*/
 	protected function showOldReviewedVersion( FlaggedRevision $frev, &$tag, $prot ) {
 		global $wgUser, $wgLang;
@@ -610,20 +612,23 @@ class FlaggedPageView {
 		$redirHtml = $this->getRedirectHtml( $text );
 		if ( $redirHtml == '' ) { // page is not a redirect...
 			# Add the stable output to the page view
-			$this->addParserOutput( $parserOut );
+			$this->out->addParserOutput( $parserOut );
 		} else { // page is a redirect...
 			$this->out->addHtml( $redirHtml );
 			# Add output to set categories, displaytitle, etc.
 			$this->out->addParserOutputNoText( $parserOut );
 		}
+
+		return $parserOut;
 	}
 
 	/**
+	* Tag output function must be called by caller
+	* Parser cache control deferred to caller
 	* @param $srev stable version
 	* @param $tag review box/bar info
 	* @param $prot protection notice
-	* Tag output function must be called by caller
-	* Parser cache control deferred to caller
+	* @return ParserOutput
 	*/
 	protected function showStableVersion( FlaggedRevision $srev, &$tag, $prot ) {
 		global $wgLang, $wgUser;
@@ -691,7 +696,7 @@ class FlaggedPageView {
 		$canReview = $this->article->getTitle()->userCan( 'review' );
 		if ( $parserOut && ( !$canReview || FlaggedRevs::parserOutputIsVersioned( $parserOut ) ) ) {
 			# Cache hit. Note that redirects are not cached.
-			$this->addParserOutput( $parserOut );
+			$this->out->addParserOutput( $parserOut );
 		} else {
 			$text = $srev->getRevText();
 			# Get the new stable parser output...
@@ -703,7 +708,7 @@ class FlaggedPageView {
 				# Update the stable version cache
 				$parserCache->save( $parserOut, $this->article, $pOpts );
 				# Add the stable output to the page view
-				$this->addParserOutput( $parserOut );
+				$this->out->addParserOutput( $parserOut );
 			} else { // page is a redirect...
 				$this->out->addHtml( $redirHtml );
 				# Add output to set categories, displaytitle, etc.
@@ -720,17 +725,8 @@ class FlaggedPageView {
 				$this->article->updateSyncStatus( $synced );
 			}
 		}
-	}
 
-	// Add parser output and update title
-	// @TODO: refactor MW core to move this back
-	protected function addParserOutput( ParserOutput $parserOut ) {
-		$this->out->addParserOutput( $parserOut );
-		# Adjust the title if it was set by displaytitle, -{T|}- or language conversion
-		$titleText = $parserOut->getTitleText();
-		if ( strval( $titleText ) !== '' ) {
-			$this->out->setPageTitle( $titleText );
-		}
+		return $parserOut;
 	}
 
 	// Get fancy redirect arrow and link HTML
