@@ -3190,7 +3190,7 @@ Neue [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffo
 	'stable-log-restriction' => 'Automatische Markierung: Erfordert das Recht „$1“',
 	'stable-logpage' => 'Seitenkonfigurations-Logbuch',
 	'stable-logpagetext' => 'Dies ist das Änderungslogbuch der Seitenkonfigurationen der [[{{MediaWiki:Validationpage}}|markierten Versionen]].',
-	'revreview-filter-all' => 'Alle',
+	'revreview-filter-all' => 'alle',
 	'revreview-filter-stable' => 'stabile Version',
 	'revreview-statusfilter' => 'Markierungsaktivität:',
 	'revreview-filter-approved' => 'Markiert',

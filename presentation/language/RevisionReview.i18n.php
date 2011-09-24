@@ -713,6 +713,7 @@ $messages['br'] = array(
 Gwelet [[Special:Unreviewedpages|roll ar pajennoù nann-adlennet]].',
 	'revreview-stable1' => "Marteze hoc'h eus c'hoant gwelet [{{fullurl:$1|stableid=$2}} ar stumm merket] a-benn gouzout ma 'z eo bremañ [{{fullurl:$1|stable=1}} ar stumm embannet] eus ar bajenn-mañ.",
 	'revreview-stable2' => "Marteze hoc'h eus c'hoant gwelet [{{fullurl:$1|stable=1}} ar stumm embannet] eus ar bajenn-mañ.",
+	'revreview-cancel' => 'Nullañ',
 	'revreview-submit' => 'Kas',
 	'revreview-submitting' => 'O kas...',
 	'revreview-submit-review' => 'Aprouiñ ar stumm',
@@ -1057,12 +1058,10 @@ Siehe die [[Special:Unreviewedpages|Liste unmarkierter Versionen]].',
 	'revreview-successful2' => "'''Die Markierung der Version von [[:$1|$1]] wurde erfolgreich aufgehoben.'''",
 	'revreview-poss-conflict-p' => "'''Warnung: Ein anderer Benutzer ([[User:$1|$1]]) hat am $2 um $3 Uhr damit begonnen, diese Seite zu überprüfen.'''",
 	'revreview-poss-conflict-c' => "'''Warnung: Ein anderer Benutzer ([[User:$1|$1]]) hat am $2 um $3 Uhr damit begonnen, diese Änderungen zu überprüfen.'''",
-	'revreview-adv-reviewing-p' => 'Hinweis: Andere Benutzer werden nun darauf hingewiesen, dass du diese Seite überprüfst.',
-	'revreview-adv-reviewing-c' => 'Hinweis: Andere Benutzer werden nun darauf hingewiesen, dass du diese Änderungen überprüfst.',
-	'revreview-sadv-reviewing-p' => 'Hinweis: Bitte weise darauf hin, dass du diese Seite überprüfst.',
-	'revreview-sadv-reviewing-c' => 'Hinweis: Bitte weise darauf hin, dass du diese Änderungen überprüfst.',
-	'revreview-advertise-start' => 'Hinweisen',
-	'revreview-advertise-stop' => 'Hinweis zurücknehmen',
+	'revreview-adv-reviewing-p' => '<span class="fr-under-review">Hinweis: Andere Benutzer werden nun darauf hingewiesen, dass du diese Seite überprüfst.</span> (<a id="mw-fr-reviewing-stop" href="javascript:void(0)">verstecken</a>)',
+	'revreview-adv-reviewing-c' => '<span class="fr-under-review">Hinweis: Andere Benutzer werden nun darauf hingewiesen, dass du diese Änderungen überprüfst.</span> (<a id="mw-fr-reviewing-stop" href="javascript:void(0)">verstecken</a>)',
+	'revreview-sadv-reviewing-p' => 'Bitte <a id="mw-fr-reviewing-start" href="javascript:void(0)">weise</a> darauf hin, dass du diese Seite überprüfst.',
+	'revreview-sadv-reviewing-c' => 'Bitte <a id="mw-fr-reviewing-start" href="javascript:void(0)">weise</a> darauf hin, dass du diese Änderungen überprüfst.',
 	'revreview-toolow' => "'''Du musst jedes der Attribute besser als „unzureichend“ einstufen, damit eine Version als markiert angesehen werden kann.'''
 
 Um den Markierungstatus einer Version aufzuheben, muss auf „Markierung entfernen“ geklickt werden.
@@ -1075,7 +1074,7 @@ Bitte markiere alle unten angezeigten Änderungen, damit deine Bearbeitungen zur
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Deine Änderungen wurden bislang noch nicht als stabile Version gekennzeichnet. Es gibt ältere Bearbeitungen, die noch markiert werden müssen.</span>
 
 Bitte markiere alle unten angezeigten Änderungen, damit deine Bearbeitungen zur stabilen Version werden.',
-	'revreview-update-includes' => 'Vorlagen/ Dateien wurden aktualisiert (nicht markierte Seiten sind in fett gekennzeichnet):',
+	'revreview-update-includes' => 'Vorlagen/Dateien wurden aktualisiert (nicht markierte Seiten sind in fett gekennzeichnet):',
 	'revreview-reject-header' => 'Änderungen für $1 verwerfen',
 	'revreview-reject-text-list' => "Mit Abschluss dieser Aktion {{PLURAL:$1|wird die folgende Änderung|werden die folgenden Änderungen}} an [[:$2|$2]] '''verworfen''':",
 	'revreview-reject-text-revto' => 'Dies wird die Seite auf die [{{fullurl:$1|oldid=$2}} Version vom $3] zurücksetzen.',
@@ -1696,7 +1695,7 @@ Tarkista kaikki alla olevat muutokset, jotta muutoksesi näkyisivät vakaassa ve
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Muutoksesi eivät ole vielä näkyvissä vakaassa versiossa. Edelliset muutokset odottavat arviointia.</span>
 
 Arvioi kaikki alla olevat muutokset, jotta muokkauksesi näkyisivät vakaassa versiossa.',
-	'revreview-update-includes' => 'Joitakin mallineita tai tiedostoja on päivitetty (tarkastamattomat sivut lihavoinnilla):',
+	'revreview-update-includes' => 'Mallineita tai tiedostoja on päivitetty (tarkastamattomat sivut lihavoinnilla):',
 	'revreview-reject-header' => 'Hylkää version $1 muutokset',
 	'revreview-reject-text-revto' => 'Tämä palauttaa sivun takaisin [{{fullurl:$1|oldid=$2}} ajankohdan $3 versioon].',
 	'revreview-reject-summary' => 'Yhteenveto:',
@@ -1937,6 +1936,7 @@ Use isto soamente en canto olle o conxunto de todas as diferenzas dos cambios pe
 Vexa a [[Special:Unreviewedpages|lista de páxinas sen revisar]].',
 	'revreview-stable1' => 'Pode que queira ver [{{fullurl:$1|stableid=$2}} esta versión analizada] para comprobar se agora é [{{fullurl:$1|stable=1}} a versión publicada] desta páxina.',
 	'revreview-stable2' => 'Quizais queira ver a [{{fullurl:$1|stable=1}} versión publicada] desta páxina.',
+	'revreview-cancel' => 'Cancelar',
 	'revreview-submit' => 'Enviar',
 	'revreview-submitting' => 'Enviando...',
 	'revreview-submit-review' => 'Aprobar a revisión',
@@ -2115,6 +2115,7 @@ $messages['he'] = array(
 ראו את [[Special:Unreviewedpages|רשימת הדפים שלא נסקרו]].',
 	'revreview-stable1' => 'ייתכן שתרצו לצפות ב[{{fullurl:$1|stableid=$2}} גרסה מסומנת זו] ולראות האם היא עכשיו [{{fullurl:$1|stable=1}} הגרסה היציבה] של הדף הזה.',
 	'revreview-stable2' => 'ייתכן שתרצו לצפות ב[{{fullurl:$1|stable=1}} גרסה היציבה] של הדף הזה.',
+	'revreview-cancel' => 'ביטול',
 	'revreview-submit' => 'שליחה',
 	'revreview-submitting' => 'נשלח...',
 	'revreview-submit-review' => 'קבלת הגרסה',
@@ -2126,8 +2127,10 @@ $messages['he'] = array(
 	'revreview-successful2' => "'''סימון הגרסה [[:$1|$1]] הוסר בהצלחה.'''",
 	'revreview-poss-conflict-p' => "'''אזהרה: [[User:$1|$1]] התחיל לסקור את הדף הזה ב־$2 בשעה $3.'''",
 	'revreview-poss-conflict-c' => "'''אזהרה: [[User:$1|$1]] התחיל לסקור את השינויים האלה ב־$2 בשעה $3.'''",
-	'revreview-adv-reviewing-p' => 'לתשומת לבכם: סוקרים אחרים יכולים לראות שהתחלתם לסקור את הדף הזה.',
-	'revreview-adv-reviewing-c' => 'לתשומת לבכם: סוקרים אחרים יכולים לראות שהתחלתם לסקור את השינויים האלה.',
+	'revreview-adv-reviewing-p' => 'לתשומת לבכם: סוקרים אחרים יכולים לראות שאתם סוקרים את הדף הזה.',
+	'revreview-adv-reviewing-c' => 'לתשומת לבכם: סוקרים אחרים יכולים לראות שאתם סוקרים את השינויים האלה.',
+	'revreview-sadv-reviewing-p' => 'לתשומת לבך: נא לפרסם את עצמך בתור סוקר הדף הזה.',
+	'revreview-sadv-reviewing-c' => 'לתשומת לבך: נא לפרסם את עצמך בתור סוקר השינויים האלה.',
 	'revreview-toolow' => 'יש לדרג כל אחת מהתכונות הבאות גבוה יותר מ"בלתי קבילה" כדי שהגרסה תיחשב לגרסה שנסקרה.
 
 כדי להסיר מגרסה את הגדרת מצב הסקירה שלה, יש ללחוץ על "דחיית הגרסה".
@@ -2472,8 +2475,6 @@ Vide le [[Special:Unreviewedpages|lista de paginas non revidite]].',
 	'revreview-adv-reviewing-c' => 'Nota: Altere revisores pote vider que tu revide iste cambiamentos.',
 	'revreview-sadv-reviewing-p' => 'Nota: Per favor annuncia que tu revide iste pagina.',
 	'revreview-sadv-reviewing-c' => 'Nota: Per favor annuncia que tu revide iste cambiamentos.',
-	'revreview-advertise-start' => 'Annunciar',
-	'revreview-advertise-stop' => 'Non plus annunciar',
 	'revreview-toolow' => '\'\'\'Tu debe evalutar cata un del attributos como plus alte que "inadequate" a fin que un version sia considerate como revidite.\'\'\'
 
 Pro remover le stato de revision de un version, clicca super "non plus acceptar".
@@ -3043,6 +3044,7 @@ $messages['lb'] = array(
 Kuckt d'[[Special:Unreviewedpages|Lëscht vun den net nogekuckte Sàiten]].",
 	'revreview-stable1' => 'Dir wëllt eventuel [{{fullurl:$1|stableid=$2}} dës markéiert Versioun] gesinn a kucken ob et elo déi [{{fullurl:$1|stable=1}} publizéiert Versioun] vun dëser Säit ass.',
 	'revreview-stable2' => 'Dir wëllt vläicht déi [{{fullurl:$1|stable=1}} publizéiert Versioun] vun dëser Säit gesinn.',
+	'revreview-cancel' => 'Ofbriechen',
 	'revreview-submit' => 'Späicheren',
 	'revreview-submitting' => 'Iwwerdroen …',
 	'revreview-submit-review' => 'Versioun akzeptéieren',
@@ -3054,8 +3056,9 @@ Kuckt d'[[Special:Unreviewedpages|Lëscht vun den net nogekuckte Sàiten]].",
 	'revreview-successful2' => "'''D'Markéierung vun der Versioun vu(n) [[:$1|$1]] gouf ewechgeholl.'''",
 	'revreview-poss-conflict-p' => "'''Opgepasst: [[User:$1|$1]] huet den $2 ëm $3 ugefaang dës Säit nozekucken.'''",
 	'revreview-poss-conflict-c' => "'''Opgepasst: [[User:$1|$1]] huet den $2 ëm $3 ugefaang dës Ännerungen nozekucken.'''",
-	'revreview-adv-reviewing-p' => "'''Notiz: Aner Benotzer gesinn datt Dir dës Säit nokuckt.'''",
-	'revreview-adv-reviewing-c' => "'''Notiz: Aner Benotzer gesinn datt Dir dës Ännerungen nokuckt.'''",
+	'revreview-adv-reviewing-p' => '<span class="fr-under-review">Notiz: Aner Benotzer gesinn datt Dir dës Säit nokuckt.\'\'\'</span> (<a id="mw-fr-reviewing-stop" href="javascript:void(0)">verstoppen</a>)',
+	'revreview-adv-reviewing-c' => '<span class="fr-under-review">Notiz: Aner Benotzer gesinn datt Dir dës Ännerungen nokuckt.\'\'\'</span> (<a id="mw-fr-reviewing-stop" href="javascript:void(0)">verstoppen</a>)
+Fettge',
 	'revreview-toolow' => "'''Dir musst fir all Attribut hei drënner eng Bewäertung ofginn déi besser ass wéi \"net adequat\" fir datt eng Versioun als nogekuckt betruecht ka ginn.'''
 
 Fir de Statut nogekuckt vun enger Versioun ewechzehuelen klickt op \"net akzeptéieren\".
@@ -3216,8 +3219,6 @@ $messages['mk'] = array(
 	'revreview-adv-reviewing-c' => 'Напомена: Другите прегледувачи можат да видат дека ги прегледувате овие промени.',
 	'revreview-sadv-reviewing-p' => 'Напомена: Разгласете дека ја прегледувате страницава.',
 	'revreview-sadv-reviewing-c' => 'Напомена: Разгласете дека ги прегледувате промениве.',
-	'revreview-advertise-start' => 'Разгласи',
-	'revreview-advertise-stop' => 'Повлечи го разгласувањето',
 	'revreview-toolow' => "'''Атрибутите мора да ги оцените со нешто повисоко од „недоволно“ за ревизијата да се смета за проверена.'''
 
 За да го отстраните статусот на ревизијата, поставете ги сите полиња како „неприфатливо“.
@@ -3403,6 +3404,7 @@ $messages['ms'] = array(
 Sila lihat [[Special:Unreviewedpages|senarai laman yang belum diperiksa]].',
 	'revreview-stable1' => 'Anda boleh melihat [{{fullurl:$1|stableid=$2}} versi bertanda ini] dan melihat sama ada ia sekarang [{{fullurl:$1|stable=1}} versi stabil] bagi laman ini.',
 	'revreview-stable2' => 'Mungkin anda ingin melihat [{{fullurl:$1|stable=1}} versi stabil] laman ini.',
+	'revreview-cancel' => 'Batalkan',
 	'revreview-submit' => 'Hantar',
 	'revreview-submitting' => 'Sedang menyerahkan...',
 	'revreview-submit-review' => 'Terima semakan',
@@ -3414,8 +3416,10 @@ Sila lihat [[Special:Unreviewedpages|senarai laman yang belum diperiksa]].',
 	'revreview-successful2' => "'''Tanda semakan bagi [[:$1|$1]] berjaya dibuang.'''",
 	'revreview-poss-conflict-p' => "'''Amaran: [[User:$1|$1]] mula mengkaji semula laman ini pada $2, $3.'''",
 	'revreview-poss-conflict-c' => "'''Amaran: [[User:$1|$1]] mula mengkaji semula perubahan-perubahan ini pada $2, $3.'''",
-	'revreview-adv-reviewing-p' => "'''Peringatkan: Anda dihebahkan kerana telah mulai mengkaji semula laman ini pada $1, $2.'''",
-	'revreview-adv-reviewing-c' => "'''Peringatkan: Anda dihebahkan kerana telah mulai mengkaji semula perubahan-perubahan ini pada $1, $2.'''",
+	'revreview-adv-reviewing-p' => '<span class="fr-under-review">Peringatan: Peninjau lain boleh melihat anda mengkaji semula laman ini.</span> (<a id="mw-fr-reviewing-stop" href="javascript:void(0)">jangan hebahkan</a>)',
+	'revreview-adv-reviewing-c' => '<span class="fr-under-review">Peringatan: Peninjau lain boleh melihat anda mengkaji semula perubahan ini.</span> (<a id="mw-fr-reviewing-stop" href="javascript:void(0)">jangan hebahkan</a>)',
+	'revreview-sadv-reviewing-p' => 'Anda boleh <a id="mw-fr-reviewing-start" href="javascript:void(0)">menghebahkan</a> diri anda mengkaji semula laman ini kepada para pengguna lain.',
+	'revreview-sadv-reviewing-c' => 'Anda boleh <a id="mw-fr-reviewing-start" href="javascript:void(0)">menghebahkan</a> diri anda mengkaji semula perubahan ini kepada para pengguna lain.',
 	'revreview-toolow' => '\'\'\'Anda mesti menilai setiap satu atribut itu sebagai lebih tinggi daripada "tidak memadai" supaya semakan itu dianggap sudah dikaji semula.\'\'\'
 
 Untuk membatalkan status kaji semula semakan itu, klik "tarik balik penerimaan".
@@ -3495,6 +3499,7 @@ Gebruik dit alleen als u de hele pagina al gezien hebt.',
 Zie  de [[Special:Unreviewedpages|lijst met ongecontroleerde pagina's]].",
 	'revreview-stable1' => 'U kunt van deze pagina [{{fullurl:$1|stableid=$2}} deze gecontroleerde versie] bekijken om te beoordelen of dit nu de [{{fullurl:$1|stable=1}} gepubliceerde versie] is.',
 	'revreview-stable2' => 'Wellicht wilt u de [{{fullurl:$1|stable=1}} gepubliceerde versie] van deze pagina bekijken.',
+	'revreview-cancel' => 'Annuleren',
 	'revreview-submit' => 'Opslaan',
 	'revreview-submitting' => 'Bezig met opslaan…',
 	'revreview-submit-review' => 'Versie accepteren',
@@ -4222,8 +4227,6 @@ $messages['ru'] = array(
 	'revreview-adv-reviewing-c' => 'Примечание. Другие рецензенты могут видеть, что вы проверяете эти изменения.',
 	'revreview-sadv-reviewing-p' => 'Примечание. Пожалуйста, объявите, что вы проверяете эту страницу.',
 	'revreview-sadv-reviewing-c' => 'Примечание. Пожалуйста, объявите, что вы проверяете эти изменения.',
-	'revreview-advertise-start' => 'Объявить',
-	'revreview-advertise-stop' => 'Снять объявление',
 	'revreview-toolow' => "'''Вы должны указать для всех значений уровень выше, чем «недостаточный», чтобы версия страницы считалась проверенной.'''
 
 Чтобы сбросить признак проверки этой версии, нажмите «Снять подтверждение».
@@ -5286,8 +5289,6 @@ Mời xem [[Special:Unreviewedpages|danh sách các trang chưa được duyệt
 	'revreview-adv-reviewing-c' => 'Chú ý: Những người duyệt bài khác có thể xem rằng bạn đang duyệt các thay đổi này.',
 	'revreview-sadv-reviewing-p' => 'Chú ý: Xin vui lòng báo cho người ta biết rằng bạn đang duyệt trang này.',
 	'revreview-sadv-reviewing-c' => 'Chú ý: Xin vui lòng báo cho người ta biết rằng bạn đang duyệt các thay đổi này.',
-	'revreview-advertise-start' => 'Báo',
-	'revreview-advertise-stop' => 'Ngừng báo',
 	'revreview-toolow' => "'''Mỗi thuộc tính cần phải cao hơn “kém” để cho phiên bản có thể được xem là được duyệt.'''
 
 Để rút cờ được duyệt của một phiên bản, hãy bấm “Rút chấp nhận”.
