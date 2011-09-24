@@ -387,7 +387,9 @@ window.FlaggedRevsReview = {
 					action		: 'reviewactivity',
 					previd		: oRevId,
 					oldid		: nRevId,
-					reviewing	: value
+					reviewing	: value,
+					token		: mw.user.tokens.get('editToken'),
+					format		: 'json'
 				},
 				type	: "POST",
 				dataType: "html", // response type
@@ -396,11 +398,13 @@ window.FlaggedRevsReview = {
 			});
 		}
 		if ( call.status == 200 ) {
-			FlaggedRevsReview.isUserReviewing = value;
-			return true;
-		} else {
-			return false;
+			var s = jQuery.parseJSON( call.responseText );
+			if ( s && s.reviewactivity && s.reviewactivity.result == "Success" ) {
+				FlaggedRevsReview.isUserReviewing = value;
+				return true;
+			}
 		}
+		return false;
 	}
 };
 

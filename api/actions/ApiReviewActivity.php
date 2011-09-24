@@ -102,7 +102,8 @@ class ApiReviewActivity extends ApiBase {
 		return array(
 			'previd'   	=> null,
 			'oldid' 	=> null,
-			'reviewing' => array( ApiBase::PARAM_TYPE => array( 0, 1 ) )
+			'reviewing' => array( ApiBase::PARAM_TYPE => array( 0, 1 ) ),
+			'token' 	=> null,
 		);
 	}
 
@@ -111,6 +112,7 @@ class ApiReviewActivity extends ApiBase {
 			'previd'  	=> 'The prior revision ID (for reviewing changes only)',
 			'oldid'  	=> 'The ID of the revision being reviewed',
 			'reviewing' => 'Whether to advertising as reviewing or no longer reviewing',
+			'token' 	=> 'A token previously obtained through the gettoken parameter or prop=info',
 		);
 	}
 
@@ -130,11 +132,11 @@ class ApiReviewActivity extends ApiBase {
 	}
 
 	public function needsToken() {
-		return false;
+		return true;
 	}
 
-    public function getTokenSalt() {
-		return false;
+	public function getTokenSalt() {
+		return '';
 	}
 
 	public function getExamples() {
