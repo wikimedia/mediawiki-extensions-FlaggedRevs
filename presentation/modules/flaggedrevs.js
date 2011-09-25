@@ -8,68 +8,54 @@ window.FlaggedRevs = {
 	/* Dropdown collapse timer */
 	'boxCollapseTimer': null,
 
-	/* Enables rating/diff clutter via show/hide */
-	'enableShowhide': function() {
-		// Rating detail box
-		var toggle = document.getElementById('mw-fr-revisiontoggle');
-		if ( toggle ) {
-			toggle.style.display = 'inline'; /* show toggle control */
+	/* Startup function */
+	'init': function() {
+		// Enables rating detail box
+		var toggle = $('#mw-fr-revisiontoggle');
+		if ( toggle.length ) {
+			toggle.css('display','inline'); /* show toggle control */
 			this.hideBoxDetails(); /* hide the initially displayed ratings */
 		}
-		// Diff detail box
-		toggle = document.getElementById('mw-fr-difftoggle');
-		if ( toggle ) {
-			toggle.style.display = 'inline'; /* show toggle control */
-			var diff = document.getElementById('mw-fr-stablediff');
-			if ( diff ) {
-				diff.style.display = 'none';
-			}
+		// Enables diff detail box
+		toggle = $('#mw-fr-difftoggle');
+		if ( toggle.length ) {
+			toggle.css('display','inline'); /* show toggle control */
+			$('#mw-fr-stablediff').hide();
 		}
-		// Log detail box
-		toggle = document.getElementById('mw-fr-logtoggle');
-		if ( toggle ) {
-			toggle.style.display = 'inline'; /* show toggle control */
-			var log = document.getElementById('mw-fr-logexcerpt');
-			if ( log ) {
-				log.style.display = 'none';
-			}
+		// Enables log detail box
+		toggle = $('#mw-fr-logtoggle');
+		if ( toggle.length ) {
+			toggle.css('display','inline'); /* show toggle control */
+			$('#mw-fr-logexcerpt').hide();
 		}
+		// Enables changing of save button when "review this" checkbox changes */
+		$('#wpReviewEdit').click( FlaggedRevs.updateSaveButton );
 	},
 
 	/* Expands flag info box details */
 	'showBoxDetails': function() {
-		var ratings = document.getElementById('mw-fr-revisiondetails');
-		if ( ratings ) {
-			ratings.style.display = 'block';
-		}
+		$('#mw-fr-revisiondetails').css('display','block');
 	},
 
 	/* Collapses flag info box details */
 	'hideBoxDetails': function( event ) {
-		var ratings = document.getElementById('mw-fr-revisiondetails');
-		if ( ratings ) {
-			ratings.style.display = 'none';
-		}
+		$('#mw-fr-revisiondetails').css('display','none');
 	},
 
 	/* Toggles flag info box details for (+/-) control */
 	'toggleBoxDetails': function() {
-		var toggle = document.getElementById('mw-fr-revisiontoggle');
-		if ( !toggle ) {
-			return;
-		}
-		var ratings = document.getElementById('mw-fr-revisiondetails');
-		if ( !ratings ) {
-			return;
-		}
-		// Collapsed -> expand
-		if ( ratings.style.display == 'none' ) {
-			this.showBoxDetails();
-			toggle.innerHTML = mw.msg('revreview-toggle-hide');
-		// Expanded -> collapse
-		} else {
-			this.hideBoxDetails();
-			toggle.innerHTML = mw.msg('revreview-toggle-show');
+		var toggle = $('#mw-fr-revisiontoggle');
+		var ratings = $('#mw-fr-revisiondetails');
+		if ( toggle.length && ratings.length ) {
+			// Collapsed -> expand
+			if ( ratings.css('display') == 'none' ) {
+				this.showBoxDetails();
+				toggle.text( mw.msg('revreview-toggle-hide') );
+			// Expanded -> collapse
+			} else {
+				this.hideBoxDetails();
+				toggle.text( mw.msg('revreview-toggle-show') );
+			}
 		}
 	},
 
@@ -87,7 +73,7 @@ window.FlaggedRevs = {
 		}
 	},
 
-	/* Checks is mouseOut event is for a child of parentId */
+	/* Checks if mouseOut event is for a child of parentId */
 	'isMouseOutBubble': function( event, parentId ) {
 		var toNode = null;
 		if ( event.relatedTarget !== undefined ) {
@@ -109,88 +95,64 @@ window.FlaggedRevs = {
 
 	/* Toggles diffs */
 	'toggleDiff': function() {
-		var diff = document.getElementById('mw-fr-stablediff');
-		if ( !diff ) {
-			return;
-		}
-		var toggle = document.getElementById('mw-fr-difftoggle');
-		if ( !toggle ) {
-			return;
-		}
-		if ( diff.style.display == 'none' ) {
-			diff.style.display = 'block';
-			toggle.getElementsByTagName('a')[0].innerHTML =
-				mw.msg('revreview-diff-toggle-hide');
-		} else {
-			diff.style.display = 'none';
-			toggle.getElementsByTagName('a')[0].innerHTML =
-				mw.msg('revreview-diff-toggle-show');
+		var diff = $('#mw-fr-stablediff');
+		var toggle = $('#mw-fr-difftoggle');
+		if ( diff.length && toggle.length ) {
+			if ( diff.css('display') == 'none' ) {
+				diff.show( 'slow' );
+				toggle.children('a').text( mw.msg('revreview-diff-toggle-hide') );
+			} else {
+				diff.hide( 'slow' );
+				toggle.children('a').text( mw.msg('revreview-diff-toggle-show') );
+			}
 		}
 	},
 
 	/* Toggles log excerpts */
 	'toggleLog': function() {
-		var log = document.getElementById('mw-fr-logexcerpt');
-		if ( !log ) {
-			return;
-		}
-		var toggle = document.getElementById('mw-fr-logtoggle');
-		if ( !toggle ) {
-			return;
-		}
-		if ( log.style.display == 'none' ) {
-			log.style.display = 'block';
-			toggle.getElementsByTagName('a')[0].innerHTML =
-				mw.msg('revreview-log-toggle-hide');
-		} else {
-			log.style.display = 'none';
-			toggle.getElementsByTagName('a')[0].innerHTML =
-				mw.msg('revreview-log-toggle-show');
+		var log = $('#mw-fr-logexcerpt');
+		var toggle = $('#mw-fr-logtoggle');
+		if ( log.length && toggle.length ) {
+			if ( log.css('display') == 'none' ) {
+				log.show();
+				toggle.children('a').text( mw.msg('revreview-log-toggle-hide') );
+			} else {
+				log.hide();
+				toggle.children('a').text( mw.msg('revreview-log-toggle-show') );
+			}
 		}
 	},
 
 	/* Toggles log excerpts */
 	'toggleLogDetails': function() {
-		var log = document.getElementById('mw-fr-logexcerpt');
-		if ( !log ) {
-			return;
-		}
-		var toggle = document.getElementById('mw-fr-logtoggle');
-		if ( !toggle ) {
-			return;
-		}
-		if ( log.style.display == 'none' ) {
-			log.style.display = 'block';
-			toggle.getElementsByTagName('a')[0].innerHTML = mw.msg('revreview-log-details-hide');
-		} else {
-			log.style.display = 'none';
-			toggle.getElementsByTagName('a')[0].innerHTML = mw.msg('revreview-log-details-show');
-		}
-	},
-
-	/* Enables changing of save button when "review this" checkbox changes */
-	'setCheckTrigger': function() {
-		var checkbox = document.getElementById('wpReviewEdit');
-		if ( checkbox ) {
-			checkbox.onclick = FlaggedRevs.updateSaveButton;
+		var log = $('#mw-fr-logexcerpt');
+		var toggle = $('#mw-fr-logtoggle');
+		if ( log.length && toggle.length ) {
+			if ( log.css('display') == 'none' ) {
+				log.show();
+				toggle.children('a').text( mw.msg('revreview-log-details-hide') );
+			} else {
+				log.hide();
+				toggle.children('a').text( mw.msg('revreview-log-details-show') );
+			}
 		}
 	},
 
 	/* Update save button when "review this" checkbox changes */
 	'updateSaveButton': function() {
-		var checkbox = document.getElementById('wpReviewEdit');
-		var save = document.getElementById('wpSave');
-		if ( checkbox && save ) {
+		var save = $('#wpSave');
+		var checkbox = $('#wpReviewEdit');
+		if ( save.length && checkbox.length ) {
 			// Review pending changes
-			if ( checkbox.checked ) {
-				save.value = mw.msg('savearticle');
-				save.title = mw.msg('tooltip-save') +
-					' [' + mw.msg('accesskey-save') + ']';
+			if ( checkbox.attr('checked') ) {
+				save.val( mw.msg('savearticle') );
+				save.attr( 'title',
+					mw.msg('tooltip-save') + ' [' + mw.msg('accesskey-save') + ']' );
 			// Submit for review
 			} else {
-				save.value = mw.msg('revreview-submitedit');
-				save.title = mw.msg('revreview-submitedit-title')
-					+ ' [' + mw.msg('accesskey-save') + ']';
+				save.val( mw.msg('revreview-submitedit') );
+				save.attr( 'title',
+					mw.msg('revreview-submitedit-title') + ' [' + mw.msg('accesskey-save') + ']' );
 			}
 		}
 		mw.util.updateTooltipAccessKeys( [ save ] ); // update accesskey in save.title
@@ -198,5 +160,4 @@ window.FlaggedRevs = {
 };
 
 // Perform some onload (which is when this script is included) events:
-FlaggedRevs.enableShowhide();
-FlaggedRevs.setCheckTrigger();
+FlaggedRevs.init();
