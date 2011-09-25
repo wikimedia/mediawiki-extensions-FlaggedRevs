@@ -3059,6 +3059,8 @@ Kuckt d'[[Special:Unreviewedpages|Lëscht vun den net nogekuckte Sàiten]].",
 	'revreview-adv-reviewing-p' => '<span class="fr-under-review">Notiz: Aner Benotzer gesinn datt Dir dës Säit nokuckt.\'\'\'</span> (<a id="mw-fr-reviewing-stop" href="javascript:void(0)">verstoppen</a>)',
 	'revreview-adv-reviewing-c' => '<span class="fr-under-review">Notiz: Aner Benotzer gesinn datt Dir dës Ännerungen nokuckt.\'\'\'</span> (<a id="mw-fr-reviewing-stop" href="javascript:void(0)">verstoppen</a>)
 Fettge',
+	'revreview-sadv-reviewing-p' => 'Dir kënnt <a id="mw-fr-reviewing-start" href="javascript:void(0)">bekanntginn</a> datt Dir dës Säit nokuckt.',
+	'revreview-sadv-reviewing-c' => 'Dir kënnt <a id="mw-fr-reviewing-start" href="javascript:void(0)">bekanntginn</a> datt Dir dës Ännerungen nokuckt.',
 	'revreview-toolow' => "'''Dir musst fir all Attribut hei drënner eng Bewäertung ofginn déi besser ass wéi \"net adequat\" fir datt eng Versioun als nogekuckt betruecht ka ginn.'''
 
 Fir de Statut nogekuckt vun enger Versioun ewechzehuelen klickt op \"net akzeptéieren\".
@@ -3122,10 +3124,12 @@ Gebroek dit slechs wen se de ganse pagina al gezeen hes.',
 	'revreview-main' => "De mós 'n specifieke versie van 'n pagina keze die se wils controlere.
 
 Zuuch de [[Special:Unreviewedpages|lies mit ongecontroleerde pagina's]].",
+	'revreview-cancel' => 'Braek aaf',
 	'revreview-submit' => 'Slaon óp',
 	'revreview-submitting' => 'Ópslaondje...',
-	'revreview-submit-review' => 'Goodkäöre',
-	'revreview-submit-unreview' => 'Aafkäöre',
+	'revreview-submit-review' => 'Käör good',
+	'revreview-submit-unreview' => 'Käör aaf',
+	'revreview-submit-reject' => 'Wèrp aaf',
 	'revreview-submit-reviewed' => 'Klaor. Gedaon!',
 	'revreview-submit-unreviewed' => 'Gedaon. Neet gecontroleerd!',
 	'revreview-successful2' => "'''De versie van [[:$1|$1]] is es neet gepubliceerd aangemerk.'''",
@@ -3215,10 +3219,10 @@ $messages['mk'] = array(
 	'revreview-successful2' => "'''Успешно отстранета ознака од ревизијата на [[:$1|$1]].'''",
 	'revreview-poss-conflict-p' => "'''Предупредување: [[User:$1|$1]] почна да ја проверува страницава на $2 во $3 ч.'''",
 	'revreview-poss-conflict-c' => "'''Предупредување: [[User:$1|$1]] почна да ги проверува промениве на $2 во $3.'''",
-	'revreview-adv-reviewing-p' => 'Напомена: Другите прегледувачи можат да видат дека ја прегледувате страницава.',
-	'revreview-adv-reviewing-c' => 'Напомена: Другите прегледувачи можат да видат дека ги прегледувате овие промени.',
-	'revreview-sadv-reviewing-p' => 'Напомена: Разгласете дека ја прегледувате страницава.',
-	'revreview-sadv-reviewing-c' => 'Напомена: Разгласете дека ги прегледувате промениве.',
+	'revreview-adv-reviewing-p' => '<span class="fr-under-review">Напомена: Другите прегледувачи можат да видат дека ја прегледувате страницава.</span> (<a id="mw-fr-reviewing-stop" href="javascript:void(0)">отстрани разгласување</a>)',
+	'revreview-adv-reviewing-c' => '<span class="fr-under-review">Напомена: Другите прегледувачи можат да видат дека ги прегледувате овие промени..</span> (<a id="mw-fr-reviewing-stop" href="javascript:void(0)">отстрани го разгласувањето</a>)',
+	'revreview-sadv-reviewing-p' => 'Можете да <a id="mw-fr-reviewing-start" href="javascript:void(0)">разгласите</a> дека ја проверувате страницава, за да знаат другите.',
+	'revreview-sadv-reviewing-c' => 'Можете да <a id="mw-fr-reviewing-start" href="javascript:void(0)">разгласите</a> дека ги проверувате промениве, за да знаат другите.',
 	'revreview-toolow' => "'''Атрибутите мора да ги оцените со нешто повисоко од „недоволно“ за ревизијата да се смета за проверена.'''
 
 За да го отстраните статусот на ревизијата, поставете ги сите полиња како „неприфатливо“.
@@ -4515,6 +4519,7 @@ $messages['sl'] = array(
 Oglejte si [[Special:Unreviewedpages|seznam nepregledanih strani]].',
 	'revreview-stable1' => 'Morda si želite ogledati [{{fullurl:$1|stableid=$2}} to označeno različico] in videti, če je zdaj [{{fullurl:$1|stable=1}} ustaljena različica] strani.',
 	'revreview-stable2' => 'Morda si želite ogledati [{{fullurl:$1|stable=1}} ustaljeno različico] strani.',
+	'revreview-cancel' => 'Prekliči',
 	'revreview-submit' => 'Potrdi',
 	'revreview-submitting' => 'Potrjevanje ...',
 	'revreview-submit-review' => 'Sprejmi redakcijo',
@@ -5285,10 +5290,10 @@ Mời xem [[Special:Unreviewedpages|danh sách các trang chưa được duyệt
 	'revreview-successful2' => "'''Phiên bản của [[:$1|$1]] đã được bỏ cờ thành công.'''",
 	'revreview-poss-conflict-p' => "'''Cảnh báo: [[User:$1|$1]] đã bắt đầu duyệt trang này vào $2 lúc $3.'''",
 	'revreview-poss-conflict-c' => "'''Cảnh báo: [[User:$1|$1]] đã bắt đầu duyệt các thay đổi này vào $2 lúc $3.'''",
-	'revreview-adv-reviewing-p' => 'Chú ý: Những người duyệt bài khác có thể xem rằng bạn đang duyệt trang này.',
-	'revreview-adv-reviewing-c' => 'Chú ý: Những người duyệt bài khác có thể xem rằng bạn đang duyệt các thay đổi này.',
-	'revreview-sadv-reviewing-p' => 'Chú ý: Xin vui lòng báo cho người ta biết rằng bạn đang duyệt trang này.',
-	'revreview-sadv-reviewing-c' => 'Chú ý: Xin vui lòng báo cho người ta biết rằng bạn đang duyệt các thay đổi này.',
+	'revreview-adv-reviewing-p' => '<span class="fr-under-review">Chú ý: Những người duyệt bài khác có thể xem rằng bạn đang duyệt trang này.</span> (<a id="mw-fr-reviewing-stop" href="javascript:void(0)">ngừng báo</a>)',
+	'revreview-adv-reviewing-c' => '<span class="fr-under-review">Chú ý: Những người duyệt bài khác có thể xem rằng bạn đang duyệt các thay đổi này.</span> (<a id="mw-fr-reviewing-stop" href="javascript:void(0)">ngừng báo</a>)',
+	'revreview-sadv-reviewing-p' => 'Bạn có thể <a id="mw-fr-reviewing-start" href="javascript:void(0)">báo</a> cho người ta biết rằng bạn đang duyệt trang này.',
+	'revreview-sadv-reviewing-c' => 'Bạn có thể <a id="mw-fr-reviewing-start" href="javascript:void(0)">báo</a> cho người ta biết rằng bạn đang duyệt các thay đổi này.',
 	'revreview-toolow' => "'''Mỗi thuộc tính cần phải cao hơn “kém” để cho phiên bản có thể được xem là được duyệt.'''
 
 Để rút cờ được duyệt của một phiên bản, hãy bấm “Rút chấp nhận”.

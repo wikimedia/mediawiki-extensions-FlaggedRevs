@@ -518,6 +518,8 @@ A group in [[Special:SpecialPages]] for all special pages of the Flagged Revs ex
 	'revreview-unlocked-title' => '{{Flagged Revs}}',
 	'revreview-locked' => '{{Flagged Revs}}',
 	'revreview-unlocked' => '{{Flagged Revs}}',
+	'accesskey-ca-current' => '{{doc-accesskey}}',
+	'accesskey-ca-stable' => '{{doc-accesskey}}',
 	'log-show-hide-review' => '{{Flagged Revs}}
 * $1 is one of {{msg|show}} or {{msg|hide}}',
 	'validationpage' => "{{Flagged Revs-small}}
@@ -8590,10 +8592,14 @@ $messages['li'] = array(
 	'flaggedrevs-pref-UI-1' => "Gebroek klein icone en weinig teks veur 't tuine vanne controlestatus van pagina's",
 	'prefs-flaggedrevs' => 'Bewèrkingskóntraol',
 	'prefs-flaggedrevs-ui' => 'Bewèrkingskóntraol',
-	'flaggedrevs-prefs-stable' => "Tuin ömmer de gepubliceerde versies van pagina's (es die d'r zeen)",
+	'flaggedrevs-prefs-stable' => "Wen de gepubliceerde versies van pagina's tuine",
+	'flaggedrevs-pref-stable-0' => 'Gebroek de standerdinstellinge veur edere pagina',
+	'flaggedrevs-pref-stable-1' => "Gaef ömmer de stebiel versie waer (es t'r d'r is)",
+	'flaggedrevs-pref-stable-2' => 'Tuin ömmer de lèste versie',
 	'flaggedrevs-prefs-watch' => "Voog pagina's die ich controleer aan mien volglies toe",
 	'flaggedrevs-prefs-editdiffs' => "Tuin bie 't bewirke van pagina's de ongecontroleerde versjille mit de gepubliceerde versie",
 	'flaggedrevs-prefs-viewdiffs' => "Tuin bie 't bekieke van leste versie versjille mit gecontroleerde versie",
+	'flaggedrevs-hidereviewed' => '$1 gecontroleerde bewerkinge',
 	'group-editor' => 'Bewèrkers',
 	'group-editor-member' => 'Bewèrker',
 	'group-reviewer' => 'Bekiekers',
@@ -8661,14 +8667,14 @@ d'r Kinne nuuj [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flagged
 
 d'r {{PLURAL:$2|Is|zeen}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 ongecontroleerde {{PLURAL:$2|wieziging|wieziginge}}]; dees waeren hieonger weergegaeve.",
 	'revreview-edited-section' => 'Trök nao de paragraaf "[[#$1|$2]]".',
-	'revreview-newest-basic' => "De [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} gepubliceerde versie] is [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} gecontroleerd] op <i>$2</i>.
-d'r {{PLURAL:$3|Is|Zeen}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 ongecontroleerde {{PLURAL:$3|wieziging|wieziginge}}].",
-	'revreview-newest-basic-i' => "De [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} gepubliceerde versie ] is [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} gecontroleerd] op <i>$2</i>.
-d'r Zeen ongecontroleerde [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} wieziginge in gebroekde sjablone en bestenj].",
-	'revreview-newest-quality' => "De [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} gepubliceerde versie] is [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} goodgekeurd] op <i>$2</i>.
-d'r {{PLURAL:$3|Is|zeen}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 ongecontroleerde {{PLURAL:$3|wieziging|wieziginge}}].",
-	'revreview-newest-quality-i' => "De [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} gepubliceerde versie] is [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} geoedgekeurd] op <i>$2</i>.
-d'r Zeen ongecontroleerde [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} wieziginge in gebroekde sjablone en bestenj].",
+	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|wijziging|wijzigingen}}] in dees versie {{PLURAL:$3|wach|wachten}} op [[{{MediaWiki:Validationpage}}|controle]].
+De [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} stabiele versie] is [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} gecontroleerd] op <i>$2</i>.',
+	'revreview-newest-basic-i' => "d'rr Zeen [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} wiezigingen in sjablonen of bestenj] veur dees versie die wachten op [[{{MediaWiki:Validationpage}}|controle]].
+De [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} stabiele versie] is [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} gecontroleerd] op <i>$2</i>.",
+	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|wieziging|wiezigingen}}] in dees versie {{PLURAL:$3|wach|wachten}} op [[{{MediaWiki:Validationpage}}|controle]].
+De [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} stabiel versie] is [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} goodgekeurd] op <i>$2</i>.',
+	'revreview-newest-quality-i' => "d'r Zeen [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} wiezigingen in sjablonen of bestenj] veur dees versie die wachten op [[{{MediaWiki:Validationpage}}|controle]].
+De [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} stabiel versie] is [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} goodgekeurd] op <i>$2</i>.",
 	'revreview-pending-basic' => "De [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} gepubliceerde versie] is [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} gecontroleerd] op <i>$2</i>.
 d'r {{PLURAL:$3|Is|Zeen}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 óngecontroleerde {{PLURAL:$3|wieziging|wieziginge}}].",
 	'revreview-pending-quality' => "De [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} gepubliceerde versie] is [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} goodgekeurd] op <i>$2</i>.
@@ -8678,6 +8684,8 @@ d'r {{PLURAL:$3|Is|Zeen}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaW
 	'revreview-oldrating' => 'Woor gewardeerd es:',
 	'revreview-quality' => "Dit is de [[{{MediaWiki:Validationpage}}|gepubliceerde versie]] die is [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} goodgekeurd] op <i>$2</i>.
 d'r {{PLURAL:$3|Is|zeen}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 ongecontroleerde {{PLURAL:$3|wieziging|wieziginge}}].",
+	'revreview-quality-i' => "Dit is de [[{{MediaWiki:Validationpage}}|gepubliceerde versie]] die is [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} goodgekeurd] op <i>$2</i>.
+d'r Zeen ongecontroleerde [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} wiezigingen in sjablonen en bestenj].",
 	'revreview-quality-old' => "Dit is 'n [[{{MediaWiki:Validationpage}}|kwaliteitsversie]] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} bekiek alles]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} goodgekeurd] op <i>$2</i>.
 d'r Kinne ongecontroleerde [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} wieziginge] gemaak zeen.",
 	'revreview-quality-same' => 'Dit is de [[{{MediaWiki:Validationpage}}|gepubliceerde versie]] die is [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} goodgekeurd] op <i>$2</i>.',
@@ -8703,6 +8711,9 @@ d'r Kinne ongecontroleerde [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{Media
 	'revreview-style-4' => 'Oetgelich',
 	'revreview-toggle-title' => 'tuin/verberg details',
 	'revreview-visibility-synced' => '!Dees pazjena haet een [[{{MediaWiki:Validationpage}}|stabiele versie]]. Die [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} aangepas] kan waere.',
+	'revreview-visibility-outdated' => "Dees pazjena haet 'n aaj [[{{MediaWiki:Validationpage}}|stabiel versie]]. Die [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} aangepas] kan waere.",
+	'revreview-visibility-nostable' => "'''Dees pagina haet gein [[{{MediaWiki:Validationpage}}|gepubliceerde versie]].
+De kins hieveur [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} instellinge make].'''",
 	'revreview-revnotfound' => 'De opgevraogde aw versie van dees pazjena is verdwene. Controleer estebleef de URL dies doe gebroek höbs óm nao dees pagina te gaon.',
 	'right-autoreview' => 'Markeer versies autematis es geconterleerd',
 	'right-movestable' => "Verplaats gepubliceerde pagina's",

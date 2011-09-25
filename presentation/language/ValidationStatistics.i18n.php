@@ -1267,7 +1267,7 @@ $3",
 	'validationstatistics-latest' => 'Synchroniseerd',
 	'validationstatistics-synced' => 'Synchroniseerd/bekeke',
 	'validationstatistics-old' => 'Verajerd',
-	'validationstatistics-utable' => 'Inne óngestaonde lieste staon de vief actiefste eindredactäöre.',
+	'validationstatistics-utable' => "In de ongerstaonde lies {{PLURAL:$1|weurt de meis actieve eindredacteur|waere de $1 meis actieve eindredacteure}} getuind in {{PLURAL:$2|'t aafgeloupen oer|de afgeloupe $2 oer}}.",
 	'validationstatistics-user' => 'Gebroeker',
 	'validationstatistics-reviews' => 'Beoeardeilinge',
 );
