@@ -364,12 +364,9 @@ class FlaggedPageView {
 		} else {
 			$this->showDraftVersion( $srev, $tag, $prot );
 		}
-		$encJS = ''; // JS events to use
 		# Some checks for which tag CSS to use
 		if ( $this->useSimpleUI() ) {
 			$tagClass = 'flaggedrevs_short';
-			# Collapse the box details on mouseOut
-			$encJS .= ' onmouseout="FlaggedRevs.onBoxMouseOut(event)"';
 		} elseif ( $pristine ) {
 			$tagClass = 'flaggedrevs_pristine';
 		} elseif ( $quality ) {
@@ -380,7 +377,7 @@ class FlaggedPageView {
 		# Wrap tag contents in a div
 		if ( $tag != '' ) {
 			$css = "{$tagClass} plainlinks noprint";
-			$notice = "<div id=\"mw-fr-revisiontag\" class=\"{$css}\"{$encJS}>{$tag}</div>\n";
+			$notice = "<div id=\"mw-fr-revisiontag\" class=\"{$css}\">{$tag}</div>\n";
 			$this->reviewNotice .= $notice;
 		}
 		return true;

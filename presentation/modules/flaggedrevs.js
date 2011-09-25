@@ -14,21 +14,31 @@ window.FlaggedRevs = {
 		var toggle = $('#mw-fr-revisiontoggle');
 		if ( toggle.length ) {
 			toggle.css('display','inline'); /* show toggle control */
-			this.hideBoxDetails(); /* hide the initially displayed ratings */
+			FlaggedRevs.hideBoxDetails(); /* hide the initially displayed ratings */
 		}
-		// Enables diff detail box
+		// Bar UI: Toggle the box when the toggle is clicked
+		$('.fr-toggle-symbol#mw-fr-revisiontoggle').click( FlaggedRevs.toggleBoxDetails );
+		// Simple UI: Show the box on mouseOver
+		$('.fr-toggle-arrow#mw-fr-revisiontoggle').mouseover( FlaggedRevs.onBoxMouseOver );
+		$('.flaggedrevs_short#mw-fr-revisiontag').mouseout( FlaggedRevs.onBoxMouseOut );
+		
+		// Enables diff detail box and toggle
 		toggle = $('#mw-fr-difftoggle');
 		if ( toggle.length ) {
 			toggle.css('display','inline'); /* show toggle control */
 			$('#mw-fr-stablediff').hide();
 		}
-		// Enables log detail box
+		toggle.children('a').click( FlaggedRevs.toggleDiff );
+		
+		// Enables log detail box and toggle
 		toggle = $('#mw-fr-logtoggle');
 		if ( toggle.length ) {
 			toggle.css('display','inline'); /* show toggle control */
 			$('#mw-fr-logexcerpt').hide();
 		}
-		// Enables changing of save button when "review this" checkbox changes */
+		toggle.children('a').click( FlaggedRevs.toggleLog );
+		
+		// Enables changing of save button when "review this" checkbox changes
 		$('#wpReviewEdit').click( FlaggedRevs.updateSaveButton );
 	},
 
@@ -49,11 +59,11 @@ window.FlaggedRevs = {
 		if ( toggle.length && ratings.length ) {
 			// Collapsed -> expand
 			if ( ratings.css('display') == 'none' ) {
-				this.showBoxDetails();
+				FlaggedRevs.showBoxDetails();
 				toggle.text( mw.msg('revreview-toggle-hide') );
 			// Expanded -> collapse
 			} else {
-				this.hideBoxDetails();
+				FlaggedRevs.hideBoxDetails();
 				toggle.text( mw.msg('revreview-toggle-show') );
 			}
 		}
@@ -61,15 +71,15 @@ window.FlaggedRevs = {
 
 	/* Expands flag info box details on mouseOver */
 	'onBoxMouseOver': function( event ) {
-		window.clearTimeout( this.boxCollapseTimer );
-		this.boxCollapseTimer = null;
-		this.showBoxDetails();
+		window.clearTimeout( FlaggedRevs.boxCollapseTimer );
+		FlaggedRevs.boxCollapseTimer = null;
+		FlaggedRevs.showBoxDetails();
 	},
 
 	/* Hides flag info box details on mouseOut *except* for event bubbling */
 	'onBoxMouseOut': function( event ) {
-		if ( !this.isMouseOutBubble( event, 'mw-fr-revisiontag' ) ) {
-			this.boxCollapseTimer = window.setTimeout( this.hideBoxDetails, 150 );
+		if ( !FlaggedRevs.isMouseOutBubble( event, 'mw-fr-revisiontag' ) ) {
+			FlaggedRevs.boxCollapseTimer = window.setTimeout( FlaggedRevs.hideBoxDetails, 150 );
 		}
 	},
 
@@ -113,27 +123,20 @@ window.FlaggedRevs = {
 		var log = $('#mw-fr-logexcerpt');
 		var toggle = $('#mw-fr-logtoggle');
 		if ( log.length && toggle.length ) {
-			if ( log.css('display') == 'none' ) {
-				log.show();
-				toggle.children('a').text( mw.msg('revreview-log-toggle-hide') );
+			// Two different message sets used here...
+			if ( toggle.hasClass('fr-logtoggle-details') ) {
+				var hideMsg = mw.msg('revreview-log-details-hide');
+				var showMsg = mw.msg('revreview-log-details-show');
 			} else {
-				log.hide();
-				toggle.children('a').text( mw.msg('revreview-log-toggle-show') );
+				var hideMsg = mw.msg('revreview-log-toggle-hide');
+				var showMsg = mw.msg('revreview-log-toggle-show');
 			}
-		}
-	},
-
-	/* Toggles log excerpts */
-	'toggleLogDetails': function() {
-		var log = $('#mw-fr-logexcerpt');
-		var toggle = $('#mw-fr-logtoggle');
-		if ( log.length && toggle.length ) {
 			if ( log.css('display') == 'none' ) {
 				log.show();
-				toggle.children('a').text( mw.msg('revreview-log-details-hide') );
+				toggle.children('a').text( hideMsg );
 			} else {
 				log.hide();
-				toggle.children('a').text( mw.msg('revreview-log-details-show') );
+				toggle.children('a').text( showMsg );
 			}
 		}
 	},

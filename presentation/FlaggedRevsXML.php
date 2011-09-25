@@ -290,7 +290,6 @@ class FlaggedRevsXML {
 		$encPath = htmlspecialchars( FlaggedRevs::styleUrlPath() . '/img' );
 		$img = '<img id="mw-fr-revisiontoggle" class="fr-toggle-arrow"';
 		$img .= " src=\"{$encPath}/arrow-down.png\" style=\"display:none;\"";
-		$img .= ' onmouseover="FlaggedRevs.onBoxMouseOver()"';
 		$img .= ' alt="' . wfMsgHtml( 'revreview-toggle-title' ) . '" />';
 		return $img;
 	}
@@ -301,8 +300,7 @@ class FlaggedRevsXML {
 	 */
 	public static function ratingToggle() {
 		return '<a id="mw-fr-revisiontoggle" class="fr-toggle-symbol"' .
-			' style="display:none;" onclick="FlaggedRevs.toggleBoxDetails()" title="' .
-			wfMsgHtml( 'revreview-toggle-title' ) . '" >' .
+			' style="display:none;" title="' . wfMsgHtml( 'revreview-toggle-title' ) . '" >' .
 			wfMsgHtml( 'revreview-toggle-show' ) . '</a>';
 	}
 
@@ -311,8 +309,7 @@ class FlaggedRevsXML {
 	 * @return string
 	 */
 	public static function diffToggle() {
-		$toggle = '<a class="fr-toggle-text" ' .
-			' onclick="FlaggedRevs.toggleDiff()" title="' .
+		$toggle = '<a class="fr-toggle-text" title="' .
 			wfMsgHtml( 'revreview-diff-toggle-title' ) . '" >' .
 			wfMsgHtml( 'revreview-diff-toggle-show' ) . '</a>';
 		return '<span id="mw-fr-difftoggle" style="display:none;">' .
@@ -324,11 +321,10 @@ class FlaggedRevsXML {
 	 * @return string
 	 */
 	public static function logToggle() {
-		$toggle = '<a class="fr-toggle-text" ' .
-			' onclick="FlaggedRevs.toggleLog()" title="' .
+		$toggle = '<a class="fr-toggle-text" title="' .
 			wfMsgHtml( 'revreview-log-toggle-title' ) . '" >' .
 			wfMsgHtml( 'revreview-log-toggle-show' ) . '</a>';
-		return '<span id="mw-fr-logtoggle" style="display:none;">' .
+		return '<span id="mw-fr-logtoggle" class="fr-logtoggle-excerpt" style="display:none;">' .
 			wfMsgHtml( 'parentheses', $toggle ) . '</span>';
 	}
 
@@ -337,11 +333,10 @@ class FlaggedRevsXML {
 	 * @return string
 	 */
 	public static function logDetailsToggle() {
-		$toggle = '<a class="fr-toggle-text" ' .
-			' onclick="FlaggedRevs.toggleLogDetails()" title="' .
+		$toggle = '<a class="fr-toggle-text" title="' .
 			wfMsgHtml( 'revreview-log-details-title' ) . '" >' .
 			wfMsgHtml( 'revreview-log-details-show' ) . '</a>';
-		return '<span id="mw-fr-logtoggle" style="display:none;">' .
+		return '<span id="mw-fr-logtoggle" class="fr-logtoggle-details" style="display:none;">' .
 			wfMsgHtml( 'parentheses', $toggle ) . '</span>';
 	}
 
