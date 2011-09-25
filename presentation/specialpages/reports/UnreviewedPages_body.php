@@ -108,10 +108,9 @@ class UnreviewedPages extends SpecialPage {
 		$title = Title::newFromRow( $row );
 
 		$stxt = $underReview = $watching = '';
-		$link = $this->skin->link( $title, null, array(), 'redirect=no&reviewing=1' );
+		$link = $this->skin->link( $title, null, array(), 'redirect=no' );
 		$dirmark = wfUILang()->getDirMark();
-		$hist = $this->skin->linkKnown( $title, wfMsgHtml( 'hist' ),
-			array(), 'action=history&reviewing=1' );
+		$hist = $this->skin->linkKnown( $title, wfMsgHtml( 'hist' ), array(), 'action=history' );
 		if ( !is_null( $size = $row->page_len ) ) {
 			$stxt = ( $size == 0 )
 				? wfMsgHtml( 'historyempty' )
