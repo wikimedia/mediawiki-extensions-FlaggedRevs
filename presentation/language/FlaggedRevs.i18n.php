@@ -3156,7 +3156,7 @@ Neue [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffo
 	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|Gesichtet]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Markiere weitere Änderungen]]",
 	'revreview-quick-basic-old' => "'''[[{{MediaWiki:Validationpage}}|Gesichtet]]'''",
 	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|Gesichtet]]'''",
-	'revreview-quick-invalid' => "'''Ungültige Versionskennung'''",
+	'revreview-quick-invalid' => "'''Ungültige Versionsnummer'''",
 	'revreview-quick-none' => "'''[[{{MediaWiki:Validationpage}}|Nicht markiert]]'''",
 	'revreview-quick-quality' => "'''[[{{MediaWiki:Validationpage}}|Gesichtet]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} markiere weitere Änderungen]]",
 	'revreview-quick-quality-old' => "'''[[{{MediaWiki:Validationpage}}|Geprüft]]'''",

@@ -135,6 +135,7 @@ $messages['qqq'] = array(
 {{Identical|Content page}}',
 	'revreview-stable1' => '{{Flagged Revs}}',
 	'revreview-stable2' => '{{Flagged Revs}}',
+	'revreview-cancel' => '{{Identical|Cancel}}',
 	'revreview-submit' => '{{Flagged Revs-small}}
 The text on the submit button in the form used to review pages.
 
@@ -578,6 +579,7 @@ $messages['be-tarask'] = array(
 Глядзіце [[Special:Unreviewedpages|сьпіс нерэцэнзаваных старонак]].',
 	'revreview-stable1' => 'Верагодна, Вы жадаеце праглядзець [{{fullurl:$1|stableid=$2}} гэтую пазначаную вэрсію] і праверыць, ці зьяўляецца яна [{{fullurl:$1|stable=1}} апублікаванай вэрсіяй] гэтай старонкі.',
 	'revreview-stable2' => 'Верагодна, Вы жадаеце праглядзець [{{fullurl:$1|stable=1}} апублікаваную вэрсію] гэтай старонкі.',
+	'revreview-cancel' => 'Скасаваць',
 	'revreview-submit' => 'Даслаць',
 	'revreview-submitting' => 'Адпраўка…',
 	'revreview-submit-review' => 'Зацьвердзіць вэрсію',
@@ -589,8 +591,10 @@ $messages['be-tarask'] = array(
 	'revreview-successful2' => "'''З вэрсіі [[:$1|$1]] было пасьпяхова зьнятае пазначэньне.'''",
 	'revreview-poss-conflict-p' => "'''Папярэджаньне: [[User:$1|$1]] пачаў рэцэнзаваньне гэтай старонкі $2 у $3.'''",
 	'revreview-poss-conflict-c' => "'''Папярэджаньне: [[User:$1|$1]] пачаў рэцэнзаваньне гэтых зьменаў $2 у $3.'''",
-	'revreview-adv-reviewing-p' => "'''Заўвага: Вам ўзгаданы, як пачаўшы рэцэнзаваньне гэтай старонкі $1 у $2.'''",
-	'revreview-adv-reviewing-c' => "'''Заўвага: Вы ўзгаданы, як пачаўшы рэцэнзаваньне гэтых зьменаў $1 у $2.'''",
+	'revreview-adv-reviewing-p' => '<span class="fr-under-review">Заўвага: Іншыя рэцэнзэнты могуць бачыць, што Вы рэцэнзуеце гэтую старонку.</span> (<a id="mw-fr-reviewing-stop" href="javascript:void(0)">выключыць</a>)',
+	'revreview-adv-reviewing-c' => '<span class="fr-under-review">Заўвага: Іншыя рэцэнзэнты могуць бачыць, што Вы рэцэнзуеце гэтыя зьмены.</span> (<a id="mw-fr-reviewing-stop" href="javascript:void(0)">выключыць</a>)',
+	'revreview-sadv-reviewing-p' => 'Вы можаце <a id="mw-fr-reviewing-start" href="javascript:void(0)">абвясьціць</a> усім, што Вы рэцэнзуеце гэтую старонку.',
+	'revreview-sadv-reviewing-c' => 'Вы можаце <a id="mw-fr-reviewing-start" href="javascript:void(0)">абвясьціць</a> усім, што Вы рэцэнзуеце гэтыя зьмены.',
 	'revreview-toolow' => "'''Вам неабходна адзначыць кожны атрыбут адзнакай вышэй за «недастатковая», каб вэрсія старонкі лічылася рэцэнзаванай.'''
 
 Каб зьняць адзнаку з вэрсіі, націсьніце «зьняць зацьверджаньне».
@@ -1017,7 +1021,7 @@ $messages['de'] = array(
 	'review_page_invalid' => 'Der Zielseitentitel ist ungültig.',
 	'review_page_notexists' => 'Die Zielseite existiert nicht.',
 	'review_page_unreviewable' => 'Die Zielseite ist nicht prüfbar.',
-	'review_no_oldid' => 'Keine Versionskennung angegeben.',
+	'review_no_oldid' => 'Keine Versionsnummer angegeben.',
 	'review_bad_oldid' => 'Die angegebene Zielversionskennung existiert nicht.',
 	'review_conflict_oldid' => 'Jemand hat bereits diese Version akzeptiert oder verworfen während du sie gelesen hast.',
 	'review_not_flagged' => 'Die Zielversion ist derzeit nicht markiert.',
@@ -1038,7 +1042,7 @@ $messages['de'] = array(
 	'revreview-check-flag-y-title' => 'Markieren alle Änderungen, die du mit dieser Bearbeitung gemacht hast.',
 	'revreview-flag' => 'Markiere Version',
 	'revreview-reflag' => 'Diese Version erneut markieren',
-	'revreview-invalid' => "'''Ungültiges Ziel:''' keine [[{{MediaWiki:Validationpage}}|markierte]] Version zur angegebenen Kennung gefunden.",
+	'revreview-invalid' => "'''Ungültiges Ziel:''' keine [[{{MediaWiki:Validationpage}}|markierte]] Version zur angegebenen Versionsnummer gefunden.",
 	'revreview-legend' => 'Inhalt der Version bewerten',
 	'revreview-log' => 'Kommentar:',
 	'revreview-main' => 'Du musst eine Version zur Markierung auswählen.
@@ -1948,8 +1952,10 @@ Vexa a [[Special:Unreviewedpages|lista de páxinas sen revisar]].',
 	'revreview-successful2' => "'''Retiouse con éxito o exame da revisión de \"[[:\$1|\$1]]\".'''",
 	'revreview-poss-conflict-p' => "'''Atención: [[User:$1|$1]] comezou a revisar este artigo o $2 ás $3.'''",
 	'revreview-poss-conflict-c' => "'''Atención: [[User:$1|$1]] comezou a revisar estes cambios o $2 ás $3.'''",
-	'revreview-adv-reviewing-p' => "'''Aviso: Comezou a revisar esta páxina o $1 ás $2.'''",
-	'revreview-adv-reviewing-c' => "'''Aviso: Comezou a revisar estes cambios o $1 ás $2.'''",
+	'revreview-adv-reviewing-p' => '<span class="fr-under-review">Aviso: Os outros revisores poden ver que está a revisar esta páxina.</span> (<a id="mw-fr-reviewing-stop" href="javascript:void(0)">retirar a advertencia</a>)',
+	'revreview-adv-reviewing-c' => '<span class="fr-under-review">Aviso: Os outros revisores poden ver que está a revisar estes cambios.</span> (<a id="mw-fr-reviewing-stop" href="javascript:void(0)">retirar a advertencia</a>)',
+	'revreview-sadv-reviewing-p' => 'Pode <a id="mw-fr-reviewing-start" href="javascript:void(0)">advertir</a> aos demais usuarios de que está a revisar esta páxina.',
+	'revreview-sadv-reviewing-c' => 'Pode <a id="mw-fr-reviewing-start" href="javascript:void(0)">advertir</a> aos demais usuarios de que está a revisar estes cambios.',
 	'revreview-toolow' => '\'\'\'Debe, polo menos, valorar cada un dos atributos cunha puntuación maior que "inadecuado" para que unha revisión sexa considerada como revisada.\'\'\'
 
 Para retirar o estado de aprobación dunha revisión, prema sobre "suspender".
@@ -2471,10 +2477,10 @@ Vide le [[Special:Unreviewedpages|lista de paginas non revidite]].',
 	'revreview-successful2' => "'''Le version de [[:$1|$1]] ha essite dismarcate con successo.'''",
 	'revreview-poss-conflict-p' => "'''Attention: [[User:$1|$1]] comenciava a revider iste pagina le $2 a $3.'''",
 	'revreview-poss-conflict-c' => "'''Attention: [[User:$1|$1]] comenciava a revider iste modificationes le $2 a $3.'''",
-	'revreview-adv-reviewing-p' => 'Nota: Altere revisores pote vider que tu revide iste pagina.',
-	'revreview-adv-reviewing-c' => 'Nota: Altere revisores pote vider que tu revide iste cambiamentos.',
-	'revreview-sadv-reviewing-p' => 'Nota: Per favor annuncia que tu revide iste pagina.',
-	'revreview-sadv-reviewing-c' => 'Nota: Per favor annuncia que tu revide iste cambiamentos.',
+	'revreview-adv-reviewing-p' => '<span class="fr-under-review">Nota: Altere revisores pote vider que tu revide iste pagina.</span> (<a id="mw-fr-reviewing-stop" href="javascript:void(0)">non plus annunciar</a>)',
+	'revreview-adv-reviewing-c' => '<span class="fr-under-review">Nota: Altere revisores pote vider que tu revide iste cambiamentos.</span> (<a id="mw-fr-reviewing-stop" href="javascript:void(0)">non plus annunciar</a>)',
+	'revreview-sadv-reviewing-p' => 'Tu pote <a id="mw-fr-reviewing-start" href="javascript:void(0)">annunciar</a> al altere usatores que tu revide iste pagina.',
+	'revreview-sadv-reviewing-c' => 'Tu pote <a id="mw-fr-reviewing-start" href="javascript:void(0)">annunciar</a> al altere usatores que tu revide iste cambiamentos.',
 	'revreview-toolow' => '\'\'\'Tu debe evalutar cata un del attributos como plus alte que "inadequate" a fin que un version sia considerate como revidite.\'\'\'
 
 Pro remover le stato de revision de un version, clicca super "non plus acceptar".
@@ -4531,8 +4537,10 @@ Oglejte si [[Special:Unreviewedpages|seznam nepregledanih strani]].',
 	'revreview-successful2' => "'''Redakcija [[:$1|$1]] je uspešno odznačena.'''",
 	'revreview-poss-conflict-p' => "'''Opozorilo: [[User:$1|$1]] je pričel(-a) pregledovati to stran dne $2 ob $3.'''",
 	'revreview-poss-conflict-c' => "'''Opozorilo: [[User:$1|$1]] je pričel(-a) pregledovati te spremembe dne $2 ob $3.'''",
-	'revreview-adv-reviewing-p' => "'''Obvestilo: Označeni ste kot pregledovalec, ki je začel pregledovati to stran dne $1 ob $2.'''",
-	'revreview-adv-reviewing-c' => "'''Obvestilo: Označeni ste kot pregledovalec, ki je začel pregledovati te spremembe dne $1 ob $2.'''",
+	'revreview-adv-reviewing-p' => '<span class="fr-under-review">Obvestilo: Drugi pregledovalci lahko vidijo, da pregledujete to stran.</span> (<a id="mw-fr-reviewing-stop" href="javascript:void(0)">prenehaj razglaševati</a>)',
+	'revreview-adv-reviewing-c' => '<span class="fr-under-review">Obvestilo: Drugi pregledovalci lahko vidijo, da pregledujete te spremembe.</span> (<a id="mw-fr-reviewing-stop" href="javascript:void(0)">prenehaj razglaševati</a>)',
+	'revreview-sadv-reviewing-p' => 'Drugim uporabnikom lahko <a id="mw-fr-reviewing-start" href="javascript:void(0)">razglasite</a>, da pregledujete to stran.',
+	'revreview-sadv-reviewing-c' => 'Drugim uporabnikom lahko <a id="mw-fr-reviewing-start" href="javascript:void(0)">razglasite</a>, da pregledujete te spremembe.',
 	'revreview-toolow' => "'''Vse atribute morate oceniti višje od »neustrezno«, če želite redakcijo označiti kot pregledano.'''
 
 Za odstranitev stanja pregleda redakcije kliknite »ne sprejmi«.
