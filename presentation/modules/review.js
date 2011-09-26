@@ -346,12 +346,21 @@ window.FlaggedRevsReview = {
 				return; // failed
 			}
 		}
-		// Update notice to say that user is advertising...
-		var msgkey = $('#mw-fr-input-refid')
+		// Build notice to say that user is advertising...
+		var msgkey = $('#mw-fr-input-refid').length
 			? 'revreview-adv-reviewing-c' // diff
 			: 'revreview-adv-reviewing-p' // page
-		$('#mw-fr-reviewing-status').html( mw.msg( msgkey, [mw.config.get('wgUserName')] ) );
-		$('#mw-fr-reviewing-stop').click( FlaggedRevsReview.deadvertiseReviewing );
+		var $underReview = $(
+			'<span class="fr-under-review">' + mw.message( msgkey ).escaped() + '</span>' );
+		// Update notice to say that user is advertising...
+		$('#mw-fr-reviewing-status')
+			.empty()
+			.append( $underReview )
+			.append( ' ('  + mw.html.element( 'a',
+				{ id: 'mw-fr-reviewing-stop' }, mw.msg( 'revreview-adv-stop-link' ) ) + ')' )
+			.find( '#mw-fr-reviewing-stop')
+			.css( 'cursor', 'pointer' )
+			.click( FlaggedRevsReview.deadvertiseReviewing );
 	},
 	
 	/*
@@ -363,12 +372,23 @@ window.FlaggedRevsReview = {
 				return; // failed
 			}
 		}
-		// Update notice to say that user is not advertising...
-		var msgkey = $('#mw-fr-input-refid')
+		// Build notice to say that user is not advertising...
+		var msgkey = $('#mw-fr-input-refid').length
 			? 'revreview-sadv-reviewing-c' // diff
 			: 'revreview-sadv-reviewing-p' // page
-		$('#mw-fr-reviewing-status').html( mw.msg( msgkey, [mw.config.get('wgUserName')] ) );
-		$('#mw-fr-reviewing-start').click( FlaggedRevsReview.advertiseReviewing );
+		var $underReview = $(
+			'<span class="fr-make-under-review">' +
+			mw.message( msgkey )
+				.escaped()
+				.replace( /\$1/, mw.html.element( 'a',
+					{ id: 'mw-fr-reviewing-start' }, mw.msg( 'revreview-adv-start-link' ) ) ) +
+			'</span>'
+		);
+		$underReview.find( '#mw-fr-reviewing-start')
+			.css( 'cursor', 'pointer' )
+			.click( FlaggedRevsReview.advertiseReviewing );
+		// Update notice to say that user is not advertising...
+		$('#mw-fr-reviewing-status').empty().append( $underReview );
 	},
 	
 	/*
@@ -415,8 +435,8 @@ FlaggedRevsReview.enableAjaxReview();
 FlaggedRevsReview.enableAjaxReviewActivity();
 
 // Flag users as "no longer reviewing" on navigate-away
-window.onbeforeunload = function( e ) {
+$( window ).bind( 'beforeunload', function( e ) {
 	if ( FlaggedRevsReview.isUserReviewing == 1 ) {
 		FlaggedRevsReview.deadvertiseReviewing();
 	}
-};
+} );

@@ -143,25 +143,18 @@ class RevisionReviewFormUI {
 			list( $u, $ts ) = FRUserActivity::getUserReviewingPage( $this->rev->getPage() );
 		}
 		$form .= "<p>";
-		if ( $u !== null ) { // page under review...
-			if ( $u != $this->user->getName() ) { // by another user...
-				$form .= '<span class="fr-under-review">';
-				$msg = $priorRevId
-					? 'revreview-poss-conflict-c'
-					: 'revreview-poss-conflict-p';
-				$form .= wfMsgExt( $msg, 'parseinline',
-					$u, $wgLang->date( $ts, true ), $wgLang->time( $ts, true ) );
-				$form .= "</span>";
-			} else { // by this user...
-				$form .= '<span id="mw-fr-reviewing-status">'; // JS widget
-				$msg = $priorRevId
-					? 'revreview-adv-reviewing-c'
-					: 'revreview-adv-reviewing-p';
-				$form .= wfMsg( $msg ); // don't escape
-				$form .= "</span>";
-			}
-		} else { // page not under review; add JS widget
-			$form .= '<span id="mw-fr-reviewing-status" style="display:none;"></span>';
+		// Page under review (and not by this user)...
+		if ( $u !== null && $u != $this->user->getName() ) {
+			$form .= '<span class="fr-under-review">';
+			$msg = $priorRevId
+				? 'revreview-poss-conflict-c'
+				: 'revreview-poss-conflict-p';
+			$form .= wfMsgExt( $msg, 'parseinline',
+				$u, $wgLang->date( $ts, true ), $wgLang->time( $ts, true ) );
+			$form .= "</span>";
+		// Page not under review or under review by this user...
+		} else {
+			$form .= '<span id="mw-fr-reviewing-status" style="display:none;"></span>'; // JS widget
 		}
 		$form .= "</p>\n";
 

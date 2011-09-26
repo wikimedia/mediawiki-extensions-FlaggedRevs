@@ -65,10 +65,12 @@ See the [[Special:Unreviewedpages|list of unreviewed pages]].',
 	'revreview-successful2'        => '\'\'\'Revision of [[:$1|$1]] successfully unflagged.\'\'\'',
 	'revreview-poss-conflict-p'    => '\'\'\'Warning: [[User:$1|$1]] started reviewing this page on $2 at $3.\'\'\'',
 	'revreview-poss-conflict-c'    => '\'\'\'Warning: [[User:$1|$1]] started reviewing these changes on $2 at $3.\'\'\'',
-	'revreview-adv-reviewing-p'    => '<span class="fr-under-review">Notice: Other reviewers can see that you are reviewing this page.</span> (<a id="mw-fr-reviewing-stop" href="javascript:void(0)">de-advertise</a>)',
-	'revreview-adv-reviewing-c'    => '<span class="fr-under-review">Notice: Other reviewers can see that you are reviewing these changes.</span> (<a id="mw-fr-reviewing-stop" href="javascript:void(0)">de-advertise</a>)',
-	'revreview-sadv-reviewing-p'   => 'You can <a id="mw-fr-reviewing-start" href="javascript:void(0)">advertise</a> yourself as reviewing this page to other users.',
-	'revreview-sadv-reviewing-c'   => 'You can <a id="mw-fr-reviewing-start" href="javascript:void(0)">advertise</a> yourself as reviewing these changes to other users.',
+	'revreview-adv-reviewing-p'    => 'Notice: Other reviewers can see that you are reviewing this page.',
+	'revreview-adv-reviewing-c'    => 'Notice: Other reviewers can see that you are reviewing these changes.',
+	'revreview-sadv-reviewing-p'   => 'You can $1 yourself as reviewing this page to other users.',
+	'revreview-sadv-reviewing-c'   => 'You can $1 yourself as reviewing these changes to other users.',
+	'revreview-adv-start-link'     => 'advertise',
+	'revreview-adv-stop-link' 	   => 'de-advertise',
 	'revreview-toolow'             => '\'\'\'You must rate each of the attributes higher than "inadequate" in order for a revision to be considered reviewed.\'\'\'
 
 To remove the review status of a revision, click "unaccept".
