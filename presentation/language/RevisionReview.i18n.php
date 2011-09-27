@@ -161,12 +161,8 @@ Shown when a reviewer/editor has marked a stable/checked/... revision as unstabl
 * $1 is a username
 * $2 is a date
 * $3 is a time',
-	'revreview-adv-reviewing-p' => 'Parameters:
-* $1 is a date
-* $2 is a time',
-	'revreview-adv-reviewing-c' => 'Parameters:
-* $1 is a date
-* $2 is a time',
+	'revreview-adv-reviewing-p' => '(no parameters)',
+	'revreview-adv-reviewing-c' => '(No parameters)',
 	'revreview-toolow' => '{{Flagged Revs-small}}
 A kind of error shown when trying to review a revision with all settings on "unapproved".',
 	'revreview-update' => '{{Flagged Revs}}',
@@ -593,10 +589,10 @@ $messages['be-tarask'] = array(
 	'revreview-successful2' => "'''З вэрсіі [[:$1|$1]] было пасьпяхова зьнятае пазначэньне.'''",
 	'revreview-poss-conflict-p' => "'''Папярэджаньне: [[User:$1|$1]] пачаў рэцэнзаваньне гэтай старонкі $2 у $3.'''",
 	'revreview-poss-conflict-c' => "'''Папярэджаньне: [[User:$1|$1]] пачаў рэцэнзаваньне гэтых зьменаў $2 у $3.'''",
-	'revreview-adv-reviewing-p' => '<span class="fr-under-review">Заўвага: Іншыя рэцэнзэнты могуць бачыць, што Вы рэцэнзуеце гэтую старонку.</span> (<a id="mw-fr-reviewing-stop" href="javascript:void(0)">выключыць</a>)',
-	'revreview-adv-reviewing-c' => '<span class="fr-under-review">Заўвага: Іншыя рэцэнзэнты могуць бачыць, што Вы рэцэнзуеце гэтыя зьмены.</span> (<a id="mw-fr-reviewing-stop" href="javascript:void(0)">выключыць</a>)',
-	'revreview-sadv-reviewing-p' => 'Вы можаце <a id="mw-fr-reviewing-start" href="javascript:void(0)">абвясьціць</a> усім, што Вы рэцэнзуеце гэтую старонку.',
-	'revreview-sadv-reviewing-c' => 'Вы можаце <a id="mw-fr-reviewing-start" href="javascript:void(0)">абвясьціць</a> усім, што Вы рэцэнзуеце гэтыя зьмены.',
+	'revreview-adv-reviewing-p' => 'Заўвага: Іншыя рэцэнзэнты могуць бачыць, што Вы рэцэнзуеце гэтую старонку.',
+	'revreview-adv-reviewing-c' => 'Заўвага: Іншыя рэцэнзэнты могуць бачыць, што Вы рэцэнзуеце гэтыя зьмены.',
+	'revreview-sadv-reviewing-p' => 'Вы можаце $1 усім, што Вы рэцэнзуеце гэтую старонку.',
+	'revreview-sadv-reviewing-c' => 'Вы можаце $1 усім, што Вы рэцэнзуеце гэтыя зьмены.',
 	'revreview-toolow' => "'''Вам неабходна адзначыць кожны атрыбут адзнакай вышэй за «недастатковая», каб вэрсія старонкі лічылася рэцэнзаванай.'''
 
 Каб зьняць адзнаку з вэрсіі, націсьніце «зьняць зацьверджаньне».
@@ -1064,10 +1060,12 @@ Siehe die [[Special:Unreviewedpages|Liste unmarkierter Versionen]].',
 	'revreview-successful2' => "'''Die Markierung der Version von [[:$1|$1]] wurde erfolgreich aufgehoben.'''",
 	'revreview-poss-conflict-p' => "'''Warnung: Ein anderer Benutzer ([[User:$1|$1]]) hat am $2 um $3 Uhr damit begonnen, diese Seite zu überprüfen.'''",
 	'revreview-poss-conflict-c' => "'''Warnung: Ein anderer Benutzer ([[User:$1|$1]]) hat am $2 um $3 Uhr damit begonnen, diese Änderungen zu überprüfen.'''",
-	'revreview-adv-reviewing-p' => '<span class="fr-under-review">Hinweis: Andere Benutzer werden nun darauf hingewiesen, dass du diese Seite überprüfst.</span> (<a id="mw-fr-reviewing-stop" href="javascript:void(0)">verstecken</a>)',
-	'revreview-adv-reviewing-c' => '<span class="fr-under-review">Hinweis: Andere Benutzer werden nun darauf hingewiesen, dass du diese Änderungen überprüfst.</span> (<a id="mw-fr-reviewing-stop" href="javascript:void(0)">verstecken</a>)',
-	'revreview-sadv-reviewing-p' => 'Bitte <a id="mw-fr-reviewing-start" href="javascript:void(0)">weise</a> darauf hin, dass du diese Seite überprüfst.',
-	'revreview-sadv-reviewing-c' => 'Bitte <a id="mw-fr-reviewing-start" href="javascript:void(0)">weise</a> darauf hin, dass du diese Änderungen überprüfst.',
+	'revreview-adv-reviewing-p' => 'Hinweis: Andere Benutzer werden nun darauf hingewiesen, dass du diese Seite überprüfst.',
+	'revreview-adv-reviewing-c' => 'Hinweis: Andere Benutzer werden nun darauf hingewiesen, dass du diese Änderungen überprüfst.',
+	'revreview-sadv-reviewing-p' => 'Bitte $1 darauf hin, dass du diese Seite überprüfst.',
+	'revreview-sadv-reviewing-c' => 'Bitte $1 darauf hin, dass du diese Änderungen überprüfst.',
+	'revreview-adv-start-link' => 'hinweisen',
+	'revreview-adv-stop-link' => 'Hinweis zurücknehmen',
 	'revreview-toolow' => "'''Du musst jedes der Attribute besser als „unzureichend“ einstufen, damit eine Version als markiert angesehen werden kann.'''
 
 Um den Markierungstatus einer Version aufzuheben, muss auf „Markierung entfernen“ geklickt werden.
@@ -1954,10 +1952,10 @@ Vexa a [[Special:Unreviewedpages|lista de páxinas sen revisar]].',
 	'revreview-successful2' => "'''Retiouse con éxito o exame da revisión de \"[[:\$1|\$1]]\".'''",
 	'revreview-poss-conflict-p' => "'''Atención: [[User:$1|$1]] comezou a revisar este artigo o $2 ás $3.'''",
 	'revreview-poss-conflict-c' => "'''Atención: [[User:$1|$1]] comezou a revisar estes cambios o $2 ás $3.'''",
-	'revreview-adv-reviewing-p' => '<span class="fr-under-review">Aviso: Os outros revisores poden ver que está a revisar esta páxina.</span> (<a id="mw-fr-reviewing-stop" href="javascript:void(0)">retirar a advertencia</a>)',
-	'revreview-adv-reviewing-c' => '<span class="fr-under-review">Aviso: Os outros revisores poden ver que está a revisar estes cambios.</span> (<a id="mw-fr-reviewing-stop" href="javascript:void(0)">retirar a advertencia</a>)',
-	'revreview-sadv-reviewing-p' => 'Pode <a id="mw-fr-reviewing-start" href="javascript:void(0)">advertir</a> aos demais usuarios de que está a revisar esta páxina.',
-	'revreview-sadv-reviewing-c' => 'Pode <a id="mw-fr-reviewing-start" href="javascript:void(0)">advertir</a> aos demais usuarios de que está a revisar estes cambios.',
+	'revreview-adv-reviewing-p' => 'Aviso: Os outros revisores poden ver que está a revisar esta páxina.',
+	'revreview-adv-reviewing-c' => 'Aviso: Os outros revisores poden ver que está a revisar estes cambios.',
+	'revreview-sadv-reviewing-p' => 'Pode $1 aos demais usuarios de que está a revisar esta páxina.',
+	'revreview-sadv-reviewing-c' => 'Pode $1 aos demais usuarios de que está a revisar estes cambios.',
 	'revreview-toolow' => '\'\'\'Debe, polo menos, valorar cada un dos atributos cunha puntuación maior que "inadecuado" para que unha revisión sexa considerada como revisada.\'\'\'
 
 Para retirar o estado de aprobación dunha revisión, prema sobre "suspender".
@@ -2138,7 +2136,7 @@ $messages['he'] = array(
 	'revreview-adv-reviewing-p' => 'לתשומת לבכם: סוקרים אחרים יכולים לראות שאתם סוקרים את הדף הזה.',
 	'revreview-adv-reviewing-c' => 'לתשומת לבכם: סוקרים אחרים יכולים לראות שאתם סוקרים את השינויים האלה.',
 	'revreview-sadv-reviewing-p' => 'לתשומת לבך: נא לפרסם את עצמך בתור סוקר הדף הזה.',
-	'revreview-sadv-reviewing-c' => 'לתשומת לבך: נא לפרסם את עצמך בתור סוקר השינויים האלה.',
+	'revreview-sadv-reviewing-c' => '	לתשומת לבך: נא לפרסם את עצמך בתור סוקר השינויים האלה.',
 	'revreview-toolow' => 'יש לדרג כל אחת מהתכונות הבאות גבוה יותר מ"בלתי קבילה" כדי שהגרסה תיחשב לגרסה שנסקרה.
 
 כדי להסיר מגרסה את הגדרת מצב הסקירה שלה, יש ללחוץ על "דחיית הגרסה".
@@ -2479,10 +2477,12 @@ Vide le [[Special:Unreviewedpages|lista de paginas non revidite]].',
 	'revreview-successful2' => "'''Le version de [[:$1|$1]] ha essite dismarcate con successo.'''",
 	'revreview-poss-conflict-p' => "'''Attention: [[User:$1|$1]] comenciava a revider iste pagina le $2 a $3.'''",
 	'revreview-poss-conflict-c' => "'''Attention: [[User:$1|$1]] comenciava a revider iste modificationes le $2 a $3.'''",
-	'revreview-adv-reviewing-p' => '<span class="fr-under-review">Nota: Altere revisores pote vider que tu revide iste pagina.</span> (<a id="mw-fr-reviewing-stop" href="javascript:void(0)">non plus annunciar</a>)',
-	'revreview-adv-reviewing-c' => '<span class="fr-under-review">Nota: Altere revisores pote vider que tu revide iste cambiamentos.</span> (<a id="mw-fr-reviewing-stop" href="javascript:void(0)">non plus annunciar</a>)',
-	'revreview-sadv-reviewing-p' => 'Tu pote <a id="mw-fr-reviewing-start" href="javascript:void(0)">annunciar</a> al altere usatores que tu revide iste pagina.',
-	'revreview-sadv-reviewing-c' => 'Tu pote <a id="mw-fr-reviewing-start" href="javascript:void(0)">annunciar</a> al altere usatores que tu revide iste cambiamentos.',
+	'revreview-adv-reviewing-p' => 'Nota: Altere revisores pote vider que tu revide iste pagina.',
+	'revreview-adv-reviewing-c' => 'Nota: Altere revisores pote vider que tu revide iste cambiamentos.',
+	'revreview-sadv-reviewing-p' => 'Tu pote $1 al altere usatores que tu revide iste pagina.',
+	'revreview-sadv-reviewing-c' => 'Tu pote $1 al altere usatores que tu revide iste cambiamentos.',
+	'revreview-adv-start-link' => 'annunciar',
+	'revreview-adv-stop-link' => 'non plus annunciar',
 	'revreview-toolow' => '\'\'\'Tu debe evalutar cata un del attributos como plus alte que "inadequate" a fin que un version sia considerate como revidite.\'\'\'
 
 Pro remover le stato de revision de un version, clicca super "non plus acceptar".
@@ -3064,11 +3064,10 @@ Kuckt d'[[Special:Unreviewedpages|Lëscht vun den net nogekuckte Sàiten]].",
 	'revreview-successful2' => "'''D'Markéierung vun der Versioun vu(n) [[:$1|$1]] gouf ewechgeholl.'''",
 	'revreview-poss-conflict-p' => "'''Opgepasst: [[User:$1|$1]] huet den $2 ëm $3 ugefaang dës Säit nozekucken.'''",
 	'revreview-poss-conflict-c' => "'''Opgepasst: [[User:$1|$1]] huet den $2 ëm $3 ugefaang dës Ännerungen nozekucken.'''",
-	'revreview-adv-reviewing-p' => '<span class="fr-under-review">Notiz: Aner Benotzer gesinn datt Dir dës Säit nokuckt.\'\'\'</span> (<a id="mw-fr-reviewing-stop" href="javascript:void(0)">verstoppen</a>)',
-	'revreview-adv-reviewing-c' => '<span class="fr-under-review">Notiz: Aner Benotzer gesinn datt Dir dës Ännerungen nokuckt.\'\'\'</span> (<a id="mw-fr-reviewing-stop" href="javascript:void(0)">verstoppen</a>)
-Fettge',
-	'revreview-sadv-reviewing-p' => 'Dir kënnt <a id="mw-fr-reviewing-start" href="javascript:void(0)">bekanntginn</a> datt Dir dës Säit nokuckt.',
-	'revreview-sadv-reviewing-c' => 'Dir kënnt <a id="mw-fr-reviewing-start" href="javascript:void(0)">bekanntginn</a> datt Dir dës Ännerungen nokuckt.',
+	'revreview-adv-reviewing-p' => 'Notiz: Aner Benotzer gesinn datt Dir dës Säit nokuckt.',
+	'revreview-adv-reviewing-c' => 'Notiz: Aner Benotzer gesinn datt Dir dës Ännerungen nokuckt',
+	'revreview-sadv-reviewing-p' => 'Dir kënnt $1 datt Dir dës Säit nokuckt.',
+	'revreview-sadv-reviewing-c' => 'Dir kënnt $1 bekanntginn</a> datt Dir dës Ännerungen nokuckt.',
 	'revreview-toolow' => "'''Dir musst fir all Attribut hei drënner eng Bewäertung ofginn déi besser ass wéi \"net adequat\" fir datt eng Versioun als nogekuckt betruecht ka ginn.'''
 
 Fir de Statut nogekuckt vun enger Versioun ewechzehuelen klickt op \"net akzeptéieren\".
@@ -3227,10 +3226,12 @@ $messages['mk'] = array(
 	'revreview-successful2' => "'''Успешно отстранета ознака од ревизијата на [[:$1|$1]].'''",
 	'revreview-poss-conflict-p' => "'''Предупредување: [[User:$1|$1]] почна да ја проверува страницава на $2 во $3 ч.'''",
 	'revreview-poss-conflict-c' => "'''Предупредување: [[User:$1|$1]] почна да ги проверува промениве на $2 во $3.'''",
-	'revreview-adv-reviewing-p' => '<span class="fr-under-review">Напомена: Другите прегледувачи можат да видат дека ја прегледувате страницава.</span> (<a id="mw-fr-reviewing-stop" href="javascript:void(0)">отстрани разгласување</a>)',
-	'revreview-adv-reviewing-c' => '<span class="fr-under-review">Напомена: Другите прегледувачи можат да видат дека ги прегледувате овие промени..</span> (<a id="mw-fr-reviewing-stop" href="javascript:void(0)">отстрани го разгласувањето</a>)',
-	'revreview-sadv-reviewing-p' => 'Можете да <a id="mw-fr-reviewing-start" href="javascript:void(0)">разгласите</a> дека ја проверувате страницава, за да знаат другите.',
-	'revreview-sadv-reviewing-c' => 'Можете да <a id="mw-fr-reviewing-start" href="javascript:void(0)">разгласите</a> дека ги проверувате промениве, за да знаат другите.',
+	'revreview-adv-reviewing-p' => 'Напомена: Другите прегледувачи можат да видат дека ја прегледувате страницава.',
+	'revreview-adv-reviewing-c' => 'Напомена: Другите прегледувачи можат да видат дека ги прегледувате овие промени..',
+	'revreview-sadv-reviewing-p' => 'Можете да $1 дека ја проверувате страницава, за да знаат другите.',
+	'revreview-sadv-reviewing-c' => 'Можете да $1 дека ги проверувате промениве, за да знаат другите.',
+	'revreview-adv-start-link' => 'разгласи',
+	'revreview-adv-stop-link' => 'повлечи разглас',
 	'revreview-toolow' => "'''Атрибутите мора да ги оцените со нешто повисоко од „недоволно“ за ревизијата да се смета за проверена.'''
 
 За да го отстраните статусот на ревизијата, поставете ги сите полиња како „неприфатливо“.
@@ -3428,10 +3429,10 @@ Sila lihat [[Special:Unreviewedpages|senarai laman yang belum diperiksa]].',
 	'revreview-successful2' => "'''Tanda semakan bagi [[:$1|$1]] berjaya dibuang.'''",
 	'revreview-poss-conflict-p' => "'''Amaran: [[User:$1|$1]] mula mengkaji semula laman ini pada $2, $3.'''",
 	'revreview-poss-conflict-c' => "'''Amaran: [[User:$1|$1]] mula mengkaji semula perubahan-perubahan ini pada $2, $3.'''",
-	'revreview-adv-reviewing-p' => '<span class="fr-under-review">Peringatan: Peninjau lain boleh melihat anda mengkaji semula laman ini.</span> (<a id="mw-fr-reviewing-stop" href="javascript:void(0)">jangan hebahkan</a>)',
-	'revreview-adv-reviewing-c' => '<span class="fr-under-review">Peringatan: Peninjau lain boleh melihat anda mengkaji semula perubahan ini.</span> (<a id="mw-fr-reviewing-stop" href="javascript:void(0)">jangan hebahkan</a>)',
-	'revreview-sadv-reviewing-p' => 'Anda boleh <a id="mw-fr-reviewing-start" href="javascript:void(0)">menghebahkan</a> diri anda mengkaji semula laman ini kepada para pengguna lain.',
-	'revreview-sadv-reviewing-c' => 'Anda boleh <a id="mw-fr-reviewing-start" href="javascript:void(0)">menghebahkan</a> diri anda mengkaji semula perubahan ini kepada para pengguna lain.',
+	'revreview-adv-reviewing-p' => 'Peringatan: Peninjau lain boleh melihat anda mengkaji semula laman ini.',
+	'revreview-adv-reviewing-c' => 'Peringatan: Peninjau lain boleh melihat anda mengkaji semula perubahan ini.',
+	'revreview-sadv-reviewing-p' => 'Anda boleh $1 diri anda mengkaji semula laman ini kepada para pengguna lain.',
+	'revreview-sadv-reviewing-c' => 'Anda boleh $1 diri anda mengkaji semula perubahan ini kepada para pengguna lain.',
 	'revreview-toolow' => '\'\'\'Anda mesti menilai setiap satu atribut itu sebagai lebih tinggi daripada "tidak memadai" supaya semakan itu dianggap sudah dikaji semula.\'\'\'
 
 Untuk membatalkan status kaji semula semakan itu, klik "tarik balik penerimaan".
@@ -4539,10 +4540,12 @@ Oglejte si [[Special:Unreviewedpages|seznam nepregledanih strani]].',
 	'revreview-successful2' => "'''Redakcija [[:$1|$1]] je uspešno odznačena.'''",
 	'revreview-poss-conflict-p' => "'''Opozorilo: [[User:$1|$1]] je pričel(-a) pregledovati to stran dne $2 ob $3.'''",
 	'revreview-poss-conflict-c' => "'''Opozorilo: [[User:$1|$1]] je pričel(-a) pregledovati te spremembe dne $2 ob $3.'''",
-	'revreview-adv-reviewing-p' => '<span class="fr-under-review">Obvestilo: Drugi pregledovalci lahko vidijo, da pregledujete to stran.</span> (<a id="mw-fr-reviewing-stop" href="javascript:void(0)">prenehaj razglaševati</a>)',
-	'revreview-adv-reviewing-c' => '<span class="fr-under-review">Obvestilo: Drugi pregledovalci lahko vidijo, da pregledujete te spremembe.</span> (<a id="mw-fr-reviewing-stop" href="javascript:void(0)">prenehaj razglaševati</a>)',
-	'revreview-sadv-reviewing-p' => 'Drugim uporabnikom lahko <a id="mw-fr-reviewing-start" href="javascript:void(0)">razglasite</a>, da pregledujete to stran.',
-	'revreview-sadv-reviewing-c' => 'Drugim uporabnikom lahko <a id="mw-fr-reviewing-start" href="javascript:void(0)">razglasite</a>, da pregledujete te spremembe.',
+	'revreview-adv-reviewing-p' => 'Obvestilo: Drugi pregledovalci lahko vidijo, da pregledujete to stran.',
+	'revreview-adv-reviewing-c' => 'Obvestilo: Drugi pregledovalci lahko vidijo, da pregledujete te spremembe.',
+	'revreview-sadv-reviewing-p' => 'Drugim uporabnikom lahko $1, da pregledujete to stran.',
+	'revreview-sadv-reviewing-c' => 'Drugim uporabnikom lahko $1, da pregledujete te spremembe.',
+	'revreview-adv-start-link' => 'razglasi',
+	'revreview-adv-stop-link' => 'prenehaj razglaševati',
 	'revreview-toolow' => "'''Vse atribute morate oceniti višje od »neustrezno«, če želite redakcijo označiti kot pregledano.'''
 
 Za odstranitev stanja pregleda redakcije kliknite »ne sprejmi«.
@@ -5300,10 +5303,10 @@ Mời xem [[Special:Unreviewedpages|danh sách các trang chưa được duyệt
 	'revreview-successful2' => "'''Phiên bản của [[:$1|$1]] đã được bỏ cờ thành công.'''",
 	'revreview-poss-conflict-p' => "'''Cảnh báo: [[User:$1|$1]] đã bắt đầu duyệt trang này vào $2 lúc $3.'''",
 	'revreview-poss-conflict-c' => "'''Cảnh báo: [[User:$1|$1]] đã bắt đầu duyệt các thay đổi này vào $2 lúc $3.'''",
-	'revreview-adv-reviewing-p' => '<span class="fr-under-review">Chú ý: Những người duyệt bài khác có thể xem rằng bạn đang duyệt trang này.</span> (<a id="mw-fr-reviewing-stop" href="javascript:void(0)">ngừng báo</a>)',
-	'revreview-adv-reviewing-c' => '<span class="fr-under-review">Chú ý: Những người duyệt bài khác có thể xem rằng bạn đang duyệt các thay đổi này.</span> (<a id="mw-fr-reviewing-stop" href="javascript:void(0)">ngừng báo</a>)',
-	'revreview-sadv-reviewing-p' => 'Bạn có thể <a id="mw-fr-reviewing-start" href="javascript:void(0)">báo</a> cho người ta biết rằng bạn đang duyệt trang này.',
-	'revreview-sadv-reviewing-c' => 'Bạn có thể <a id="mw-fr-reviewing-start" href="javascript:void(0)">báo</a> cho người ta biết rằng bạn đang duyệt các thay đổi này.',
+	'revreview-adv-reviewing-p' => 'Chú ý: Những người duyệt bài khác có thể xem rằng bạn đang duyệt trang này.',
+	'revreview-adv-reviewing-c' => 'Chú ý: Những người duyệt bài khác có thể xem rằng bạn đang duyệt các thay đổi này.',
+	'revreview-sadv-reviewing-p' => 'Bạn có thể $1 cho người ta biết rằng bạn đang duyệt trang này.',
+	'revreview-sadv-reviewing-c' => 'Bạn có thể $1 cho người ta biết rằng bạn đang duyệt các thay đổi này.',
 	'revreview-toolow' => "'''Mỗi thuộc tính cần phải cao hơn “kém” để cho phiên bản có thể được xem là được duyệt.'''
 
 Để rút cờ được duyệt của một phiên bản, hãy bấm “Rút chấp nhận”.
