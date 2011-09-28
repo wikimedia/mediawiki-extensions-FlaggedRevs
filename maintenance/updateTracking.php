@@ -17,8 +17,8 @@ Purpose:
 	Update the quality tier of revisions based on their rating tags.
 	Migrate flagged revision file version data to proper table.
 Usage:
-    php updateLinks.php --help
-    php updateLinks.php [--startpage <ID> | --startrev <ID> | --updateonly <CALL> ]
+    php updateTracking.php --help
+    php updateTracking.php [--startpage <ID> | --startrev <ID> | --updateonly <CALL> ]
 
     --help             : This help message
     --<ID>             : The ID of the starting rev/page
