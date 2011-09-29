@@ -24,7 +24,7 @@ window.FlaggedRevsReview = {
 		var somezero = false;
 		
 		// Determine if this is a "quality" or "incomplete" review
-		for( tag in wgFlaggedRevsParams.tags ) {
+		for( var tag in wgFlaggedRevsParams.tags ) {
 			var controlName = "wp" + tag;
 			var levels = document.getElementsByName(controlName);
 			if( !levels.length ) continue;
@@ -33,7 +33,7 @@ window.FlaggedRevsReview = {
 			if( levels[0].nodeName == 'SELECT' ) {
 				selectedlevel = levels[0].selectedIndex;
 			} else if( levels[0].type == 'radio' ) {
-				for( i = 0; i < levels.length; i++ ) {
+				for( var i = 0; i < levels.length; i++ ) {
 					if( levels[i].checked ) {
 						selectedlevel = i;
 						break;
@@ -46,7 +46,7 @@ window.FlaggedRevsReview = {
 			}
 			
 			// Get quality level for this tag
-			qualityLevel = wgFlaggedRevsParams.tags[tag]['quality'];
+			var qualityLevel = wgFlaggedRevsParams.tags[tag]['quality'];
 			
 			if( selectedlevel < qualityLevel ) {
 				quality = false; // not a quality review
@@ -72,12 +72,12 @@ window.FlaggedRevsReview = {
 	* Update <select> color for the selected item
 	*/
 	'updateRatingFormColors': function() {
-		for( tag in wgFlaggedRevsParams.tags ) {
+		for( var tag in wgFlaggedRevsParams.tags ) {
 			var controlName = "wp" + tag;
 			var levels = document.getElementsByName(controlName);
 			if( levels.length && levels[0].nodeName == 'SELECT' ) {
-				selectedlevel = levels[0].selectedIndex;
-				value = levels[0].getElementsByTagName('option')[selectedlevel].value;
+				var selectedlevel = levels[0].selectedIndex;
+				var value = levels[0].getElementsByTagName('option')[selectedlevel].value;
 				levels[0].className = 'fr-rating-option-' + value;
 				// Fix FF one-time jitter bug of changing an <option>
 				levels[0].selectedIndex = null;
@@ -203,7 +203,7 @@ window.FlaggedRevsReview = {
 			}
 		}
 		// Send encoded function plus all arguments...
-		post_data = 'action=ajax&rs=RevisionReview::AjaxReview';
+		var post_data = 'action=ajax&rs=RevisionReview::AjaxReview';
 		for( var i=0; i<requestArgs.length; i++ ) {
 			post_data += '&rsargs[]=' + encodeURIComponent( requestArgs[i] );
 		}
@@ -272,7 +272,7 @@ window.FlaggedRevsReview = {
 				requestArgs.push( diffUIParams.getElementsByTagName('input')[0].value );
 				requestArgs.push( diffUIParams.getElementsByTagName('input')[1].value );
 				// Send encoded function plus all arguments...
-				url_pars = '?action=ajax&rs=FlaggedPageView::AjaxBuildDiffHeaderItems';
+				var url_pars = '?action=ajax&rs=FlaggedPageView::AjaxBuildDiffHeaderItems';
 				for( var i=0; i<requestArgs.length; i++ ) {
 					url_pars += '&rsargs[]=' + encodeURIComponent(requestArgs[i]);
 				}
@@ -349,7 +349,7 @@ window.FlaggedRevsReview = {
 		// Build notice to say that user is advertising...
 		var msgkey = $('#mw-fr-input-refid').length
 			? 'revreview-adv-reviewing-c' // diff
-			: 'revreview-adv-reviewing-p' // page
+			: 'revreview-adv-reviewing-p'; // page
 		var $underReview = $(
 			'<span class="fr-under-review">' + mw.message( msgkey ).escaped() + '</span>' );
 		// Update notice to say that user is advertising...
@@ -375,7 +375,7 @@ window.FlaggedRevsReview = {
 		// Build notice to say that user is not advertising...
 		var msgkey = $('#mw-fr-input-refid').length
 			? 'revreview-sadv-reviewing-c' // diff
-			: 'revreview-sadv-reviewing-p' // page
+			: 'revreview-sadv-reviewing-p'; // page
 		var $underReview = $(
 			'<span class="fr-make-under-review">' +
 			mw.message( msgkey )

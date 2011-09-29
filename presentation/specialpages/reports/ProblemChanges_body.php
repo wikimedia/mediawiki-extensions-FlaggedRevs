@@ -19,6 +19,8 @@ class ProblemChanges extends SpecialPage {
 		$catTitle = Title::newFromText( $category );
 		$this->category = is_null( $catTitle ) ? '' : $catTitle->getText();
 		$feedType = $wgRequest->getVal( 'feed' );
+
+		$incLimit = 0;
 		if ( $this->including() ) {
 			$incLimit = $this->parseParams( $par ); // apply non-URL params
 		}
@@ -254,6 +256,7 @@ class ProblemChanges extends SpecialPage {
 	 * Get the tags of the revisions of a page after a certain rev
 	 * @param integer $pageId, page ID
 	 * @param integer $revId, rev ID
+	 * @return Array
 	 */
 	protected static function getRevisionTags( $pageId, $revId ) {
 		$tags = array();

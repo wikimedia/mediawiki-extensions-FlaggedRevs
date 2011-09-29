@@ -202,7 +202,6 @@ class FlaggedRevsStats {
 		if ( FlaggedRevs::useOnlyIfProtected() ) {
 			return array( $aveRT, $medianRT, $rPerTable ); // disabled
 		}
-		$nowUnix = wfTimestamp( TS_UNIX ); // current time in UNIX TS
 		# Only go so far back...otherwise we will get garbage values due to 
 		# the fact that FlaggedRevs wasn't enabled until after a while.
 		$dbr = wfGetDB( DB_SLAVE );
@@ -327,8 +326,8 @@ class FlaggedRevsStats {
 		$secondsR = 0; // total wait seconds for edits later reviewed
 		$secondsP = 0; // total wait seconds for edits still pending
 		$aveRT = $medianRT = 0;
+		$times = array();
 		if ( $dbr->numRows( $res ) ) {
-			$times = array();
 			# Get the elapsed times revs were pending (flagged time - edit time)
 			foreach ( $res as $row ) {
 				$time = wfTimestamp(TS_UNIX,$row->nft) - wfTimestamp(TS_UNIX,$row->rt);

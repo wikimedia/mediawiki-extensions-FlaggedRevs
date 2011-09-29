@@ -4,7 +4,8 @@
  */
 class RevisionReviewForm extends FRGenericSubmitForm {
 	/* Form parameters which can be user given */
-	protected $page = null;					# Target page obj
+	protected $page = null;					# Target Title obj
+	protected $article = null;              # Target Page obj
 	protected $approve = false;				# Approval requested
 	protected $unapprove = false;			# De-approval requested
 	protected $reject = false;				# Rejection requested
@@ -258,7 +259,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 		if ( $this->getAction() === 'approve' ) {
 			$rev = Revision::newFromTitle( $this->page, $this->oldid );
 			# Check for archived/deleted revisions...
-			if ( !$rev || $rev->mDeleted ) {
+			if ( !$rev || $rev->getVisibility() ) {
 				return 'review_bad_oldid';
 			}
 			$oldFrev = FlaggedRevision::newFromTitle( $this->page, $this->oldid, FR_MASTER );
@@ -376,7 +377,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 		}
 
 		# The new review entry...
- 		$flaggedRevision = new FlaggedRevision( array(
+		$flaggedRevision = new FlaggedRevision( array(
 			'rev'        		=> $rev,
 			'user_id'          	=> $this->user->getId(),
 			'timestamp'     	=> wfTimestampNow(),
@@ -416,8 +417,8 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 		$this->newLastChangeTime = $flaggedRevision->getTimestamp();
 
 		wfProfileOut( __METHOD__ );
-        return true;
-    }
+		return true;
+	}
 
 	/**
 	 * @param FlaggedRevision $frev
@@ -451,8 +452,8 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 		$this->newLastChangeTime = '';
 
 		wfProfileOut( __METHOD__ );
-        return true;
-    }
+		return true;
+	}
 
 	/**
 	* Get a validation key from versioning metadata

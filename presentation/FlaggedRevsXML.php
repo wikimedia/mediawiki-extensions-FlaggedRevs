@@ -154,8 +154,9 @@ class FlaggedRevsXML {
 	 * @return string, css color for this quality
 	 */
 	public static function getQualityColor( $quality ) {
-		if ( $quality === false )
+		if ( $quality === false ) {
 			return 'flaggedrevs-color-0';
+		}
 		switch( $quality ) {
 			case 2:
 				$css = 'flaggedrevs-color-3';
@@ -166,6 +167,8 @@ class FlaggedRevsXML {
 			case 0:
 				$css = 'flaggedrevs-color-1';
 				break;
+			default:
+				$css = '';
 		}
 		return $css;
 	}
