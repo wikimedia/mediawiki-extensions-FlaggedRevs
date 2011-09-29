@@ -50,6 +50,7 @@ class FlaggedPageView {
 			if ( $this->article == null ) {
 				throw new MWException( 'FlaggedPageView has no context article!' );
 			}
+			// @TODO: store whole request context
 			$this->out = RequestContext::getMain()->getOutput();
 		}
 	}
@@ -1315,9 +1316,9 @@ class FlaggedPageView {
 	 * @return bool
 	 */
 	protected function pageWriteOpRequested() {
-		global $wgRequest, $mediaWiki;
+		global $wgRequest;
 		# Hack for bug 16734 (some actions update and view all at once)
-		$action = $mediaWiki->getAction();
+		$action = $wgRequest->getVal( 'action' );
 		if ( $action === 'rollback' ) {
 			return true;
 		} elseif ( $action === 'delete' && $wgRequest->wasPosted() ) {
