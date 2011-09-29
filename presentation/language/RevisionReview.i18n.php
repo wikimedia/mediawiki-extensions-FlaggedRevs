@@ -3302,6 +3302,7 @@ $messages['ml'] = array(
 [[Special:Unreviewedpages|സംശോധനം ചെയ്യാത്ത താളുകളുടെ പട്ടിക]] കാണുക.',
 	'revreview-stable1' => '[{{fullurl:$1|stableid=$2}} പതാക ചേർത്ത ഈ പതിപ്പ്] ആയിരിക്കാം താങ്കൾക്ക് കാണേണ്ടത് ഒപ്പം അത് ഇപ്പോൾ [{{fullurl:$1|stable=1}} പ്രസിദ്ധീകരിക്കപ്പെട്ട പതിപ്പ്] ആയോ എന്നും കാണുക.',
 	'revreview-stable2' => 'ഈ താളിന്റെ [{{fullurl:$1|stable=1}} പ്രസിദ്ധീകരിക്കപ്പെട്ട പതിപ്പ്] താങ്കൾക്ക് കാണാവുന്നതാണ്.',
+	'revreview-cancel' => 'റദ്ദാക്കുക',
 	'revreview-submit' => 'സമർപ്പിക്കുക',
 	'revreview-submitting' => 'സമർപ്പിക്കുന്നു...',
 	'revreview-submit-review' => 'നാൾപ്പതിപ്പ് അംഗീകരിക്കുക',
@@ -3313,6 +3314,8 @@ $messages['ml'] = array(
 	'revreview-successful2' => "'''[[:$1|$1]] താളിന്റെ നാൾപ്പതിപ്പിൽ നിന്നും പതാക വിജയകരമായി നീക്കിയിരിക്കുന്നു.'''",
 	'revreview-poss-conflict-p' => "'''ശ്രദ്ധിക്കുക: $2, $3-നു ഈ താൾ സംശോധനം ചെയ്യാൻ [[User:$1|$1]] ആരംഭിച്ചിരിക്കുന്നു.'''",
 	'revreview-poss-conflict-c' => "'''ശ്രദ്ധിക്കുക: $2, $3-നു ഈ മാറ്റങ്ങൾ സംശോധനം ചെയ്യാൻ [[User:$1|$1]] ആരംഭിച്ചിരിക്കുന്നു.'''",
+	'revreview-adv-start-link' => 'പരസ്യമിടുക',
+	'revreview-adv-stop-link' => 'പരസ്യം കളയുക',
 	'revreview-toolow' => '\'\'\'നാൾപ്പതിപ്പ് സംശോധനം ചെയ്തതാണെന്ന് കണക്കാക്കാൻ താഴെ കൊടുത്തിരിക്കുന്ന ഓരോന്നിലും താങ്കൾ "അപര്യാപ്തം" എന്ന നിലയ്ക്ക് മുകളിലുള്ള ഒരു നിലവാരമിടേണ്ടതാണ്.\'\'\'
 
 ഒരു നാൾപ്പതിപ്പിന്റെ സംശോധിത പദവി ഒഴിവാക്കാൻ എല്ലാ മണ്ഡലങ്ങളും "അസ്വീകാര്യം" എന്നു കുറിക്കുക.
@@ -3524,8 +3527,8 @@ Zie  de [[Special:Unreviewedpages|lijst met ongecontroleerde pagina's]].",
 	'revreview-successful2' => "'''De versie van [[:$1|$1]] is als niet gepubliceerd aangemerkt.'''",
 	'revreview-poss-conflict-p' => "'''Waarschuwing: [[User:$1|$1]] is begonnen met de controle van deze pagina op $2 om $3.'''",
 	'revreview-poss-conflict-c' => "'''Waarschuwing: [[User:$1|$1]] is begonnen met de controle van deze wijzigingen op $2 om $3.'''",
-	'revreview-adv-reviewing-p' => "'''Let op: andere gebruikers wordt aangegeven dat u bent begonnen met de controle van deze pagina op $2 om $1.'''",
-	'revreview-adv-reviewing-c' => "'''Let op: andere gebruikers wordt aangegeven dat u bent begonnen met de controle van deze wijzigingen op $2 om $1.'''",
+	'revreview-adv-reviewing-p' => 'Let op: andere gebruikers zien dat u bezig bent met het beoordelen van deze pagina.',
+	'revreview-adv-reviewing-c' => 'Let op: andere gebruikers zien dat u bezig bent met het beoordelen van deze wijzigingen.',
 	'revreview-toolow' => '\'\'\'U moet tenminste alle eigenschappen hoger instellen dan "{{int:Revreview-accuracy-0}}" om voor een versie aan te geven dat deze is gecontroleerd.\'\'\'
 
 Klik op "Versie afkeuren" om de waardering van een versie te verwijderen.
@@ -3755,8 +3758,8 @@ Zobacz [[Special:Unreviewedpages|listę nieprzejrzanych stron]].',
 	'revreview-successful2' => "'''Wersja [[:$1|$1]] została pomyślnie odznaczona.'''",
 	'revreview-poss-conflict-p' => "'''Uwaga – [[User:$1|$1]] rozpoczął przeglądanie tej strony $2 o $3.'''",
 	'revreview-poss-conflict-c' => "'''Uwaga – [[User:$1|$1]] rozpoczął przeglądanie tych zmian $2 o $3.'''",
-	'revreview-adv-reviewing-p' => "'''Uwaga – inni widzą, że rozpocząłeś przeglądanie tej strony dnia $1 o $2.'''",
-	'revreview-adv-reviewing-c' => "'''Uwaga – inni widzą, że rozpocząłeś przeglądanie tych zmian dnia $1 o $2.'''",
+	'revreview-adv-reviewing-p' => 'Uwaga – inni redaktorzy mogą zobaczyć, że rozpocząłeś przeglądanie tej strony.',
+	'revreview-adv-reviewing-c' => 'Uwaga – inni redaktorzy mogą zobaczyć, że rozpocząłeś przeglądanie tych zmian.',
 	'revreview-toolow' => "'''Musisz ocenić każdy z atrybutów wyżej niż „nieakceptowalny“, aby oznaczyć wersję jako zweryfikowaną.'''
 
 Aby wycofać zweryfikowanie kliknij na „Cofnij akceptację wersji”.
