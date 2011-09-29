@@ -325,7 +325,7 @@ class FlaggedRevsUIHooks {
 	}
 
 	public static function addToHistQuery( HistoryPager $pager, array &$queryInfo ) {
-		$flaggedArticle = FlaggedPage::getArticleInstance( $pager->getArticle() );
+		$flaggedArticle = FlaggedPage::getTitleInstance( $pager->getTitle() );
 		# Non-content pages cannot be validated. Stable version must exist.
 		if ( $flaggedArticle->isReviewable() && $flaggedArticle->getStableRev() ) {
 			# Highlight flaggedrevs
@@ -416,7 +416,7 @@ class FlaggedRevsUIHooks {
 	}
 
 	public static function addToHistLine( HistoryPager $history, $row, &$s, &$liClasses ) {
-		$fa = FlaggedPage::getArticleInstance( $history->getArticle() );
+		$fa = FlaggedPage::getTitleInstance( $history->getTitle() );
 		if ( !$fa->isReviewable() ) {
 			return true; // nothing to do here
 		}
@@ -431,7 +431,7 @@ class FlaggedRevsUIHooks {
 		if ( !$history->fr_stableRevId ) {
 			return true; // nothing to do here
 		}
-		$title = $history->getArticle()->getTitle();
+		$title = $history->getTitle();
 		$revId = (int)$row->rev_id;
 		// Pending revision: highlight and add diff link
 		$link = $class = '';
