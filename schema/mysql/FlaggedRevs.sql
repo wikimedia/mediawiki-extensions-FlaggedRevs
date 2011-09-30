@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS /*_*/flaggedpage_pending (
 ) /*$wgDBTableOptions*/;
 
 CREATE INDEX /*i*/fpp_quality_pending
-    ON /*_*/flaggedpage_pending (fpp_quality,fpp_pending_since);
+	ON /*_*/flaggedpage_pending (fpp_quality,fpp_pending_since);
 
 -- This stores all of our revision reviews; it is the main table
 -- The template/file version data is stored in the next two tables
@@ -128,9 +128,9 @@ CREATE TABLE IF NOT EXISTS /*_*/flaggedrevs_tracking (
 ) /*$wgDBTableOptions*/;
 
 CREATE UNIQUE INDEX /*i*/from_namespace_title
-    ON /*_*/flaggedrevs_tracking (ftr_from,ftr_namespace,ftr_title);
+	ON /*_*/flaggedrevs_tracking (ftr_from,ftr_namespace,ftr_title);
 CREATE INDEX /*i*/namespace_title_from
-    ON /*_*/flaggedrevs_tracking (ftr_namespace,ftr_title,ftr_from);
+	ON /*_*/flaggedrevs_tracking (ftr_namespace,ftr_title,ftr_from);
 
 -- This stores user demotions and stats
 CREATE TABLE IF NOT EXISTS /*_*/flaggedrevs_promote (
@@ -141,12 +141,12 @@ CREATE TABLE IF NOT EXISTS /*_*/flaggedrevs_promote (
 
 -- This stores overall stats
 CREATE TABLE /*_*/flaggedrevs_statistics (
-    -- Timestamp stat was recorded
-	frs_timestamp varbinary(14) NOT NULL,
-    -- Stat key name, colons separate paramaters
-    frs_stat_key varchar(255) NOT NULL,
-    -- Stat value as an integer
-    frs_stat_val bigint NOT NULL,
-    PRIMARY KEY(frs_stat_key,frs_timestamp)
+  -- Timestamp stat was recorded
+  frs_timestamp varbinary(14) NOT NULL,
+  -- Stat key name, colons separate paramaters
+  frs_stat_key varchar(255) NOT NULL,
+  -- Stat value as an integer
+  frs_stat_val bigint NOT NULL,
+  PRIMARY KEY(frs_stat_key,frs_timestamp)
 ) /*$wgDBTableOptions*/;
 CREATE INDEX /*i*/frs_timestamp ON /*_*/flaggedrevs_statistics (frs_timestamp);
