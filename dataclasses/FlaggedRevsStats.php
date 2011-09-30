@@ -308,13 +308,14 @@ class FlaggedRevsStats {
 			array( 'rev_user' => 0, $timeCondition, "(rev_id % $mod) = 0" ),
 			__METHOD__,
 			array(
-				'GROUP BY' 	=> 'rev_id',
-				'USE INDEX' => array( 'p' => 'PRIMARY', 'n' => 'PRIMARY' )
+				'GROUP BY'  => array( 'rev_timestamp', 'rev_id' ), // user_timestamp INDEX used
+				'USE INDEX' => array( 'revision' => 'user_timestamp' ), // sanity; mysql picks this
+				'STRAIGHT_JOIN'
 			),
 			array(
 				'p' => array( 'INNER JOIN', array( // last review
 					'p.fr_page_id = rev_page',
-					'p.fr_rev_id < rev_id',
+					'p.fr_rev_id < rev_id', // not imported later
 					'p.fr_timestamp < rev_timestamp' ) ),
 				'n'	=> array( 'INNER JOIN', array( // next review
 					'n.fr_page_id = rev_page',
