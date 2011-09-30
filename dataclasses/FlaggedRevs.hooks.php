@@ -192,8 +192,6 @@ class FlaggedRevsHooks {
 		if ( $title->getNamespace() == NS_MEDIA ) {
 			$title = Title::makeTitle( NS_FILE, $title->getDBkey() );
 			$title->resetArticleId( $title->getArticleId() ); // avoid extra queries
-		} else {
-			$title =& $title;
 		}
 		$time = $sha1 = false; // current version
 		# Check for the version of this file used when reviewed...

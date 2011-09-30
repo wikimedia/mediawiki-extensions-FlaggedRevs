@@ -24,6 +24,8 @@ class PendingChanges extends SpecialPage {
 		$this->watched = $wgRequest->getCheck( 'watched' );
 		$this->stable = $wgRequest->getCheck( 'stable' );
 		$feedType = $wgRequest->getVal( 'feed' );
+
+		$incLimit = 0;
 		if ( $this->including() ) {
 			$incLimit = $this->parseParams( $par ); // apply non-URL params
 		}

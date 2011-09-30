@@ -542,7 +542,7 @@ class FlaggedRevsUIHooks {
 		{
 			return true; // confirm that page is in reviewable namespace
 		}
-		$rlink = '';
+		$rlink = $css = '';
 		// page is not reviewed
 		if ( $rc->mAttribs['fp_stable'] == null ) {
 			// Is this a config were pages start off reviewable?

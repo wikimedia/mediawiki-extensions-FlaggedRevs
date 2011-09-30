@@ -55,6 +55,7 @@ abstract class FlaggedRevsApiHooks extends ApiQueryBase {
 		) );
 		$module->addWhere( 'fr_user=user_id' );
 
+		$where = array();
 		// Construct WHERE-clause to avoid multiplying the number of scanned rows
 		// as flaggedrevs table has composite primary key (fr_page_id,fr_rev_id)
 		foreach ( $pageids as $pageid => $revids ) {
