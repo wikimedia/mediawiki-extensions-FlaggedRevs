@@ -46,7 +46,6 @@ $messages['en'] = array(
 	'revreview-flag'               => 'Review this revision',
 	'revreview-reflag'             => 'Re-review this revision',
 	'revreview-invalid'            => '\'\'\'Invalid target:\'\'\' no [[{{MediaWiki:Validationpage}}|reviewed]] revision corresponds to the given ID.',
-	'revreview-legend'             => 'Rate revision content',
 	'revreview-log'                => 'Comment:',
 	'revreview-main'               => 'You must select a particular revision of a content page in order to review.
 
