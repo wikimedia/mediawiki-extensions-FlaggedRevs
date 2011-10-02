@@ -153,7 +153,7 @@ class RevisionReviewFormUI {
 				$u, $wgLang->date( $ts, true ), $wgLang->time( $ts, true ) );
 			$form .= "</span>";
 		// Page not under review or under review by this user...
-		} else {
+		} elseif ( !$frev ) { // rev not already reviewed
 			$form .= '<span id="mw-fr-reviewing-status" style="display:none;"></span>'; // JS widget
 		}
 		$form .= "</p>\n";
@@ -198,9 +198,7 @@ class RevisionReviewFormUI {
 		# Add the submit buttons
 		$form .= self::submitButtons( $rejectId, $frev, (bool)$disabled, $reviewIncludes );
 		# Add "cancel" link
-		$form .= Linker::link( $article->getTitle(),
-			wfMsg( 'revreview-cancel' ),
-			array( 'onClick' => 'history.back(); return history.length <= 1;' ) );
+		$form .= Linker::link( $article->getTitle(), wfMsg( 'revreview-cancel' ) );
 
 		# Show stability log if there is anything interesting...
 		if ( $article->isPageLocked() ) {
