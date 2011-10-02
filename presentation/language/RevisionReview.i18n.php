@@ -93,7 +93,6 @@ Please review all the changes shown below to make your edits appear in the stabl
 	'revreview-reject-summary-old' => 'Rejected the first {{PLURAL:$1|text change|$1 text changes}} (by $2) that followed revision $3 by $4',
 	'revreview-reject-summary-cur-short' => 'Rejected the last {{PLURAL:$1|text change|$1 text changes}} and restored revision $2 by $3',
 	'revreview-reject-summary-old-short' => 'Rejected the first {{PLURAL:$1|text change|$1 text changes}} that followed revision $2 by $3',
-	'revreview-reject-usercount'    => '{{PLURAL:$1|one user|$1 users}}',
 
 	'revreview-tt-flag'            => 'Accept this revision by marking it as "checked"',
 	'revreview-tt-unflag'		   => 'Unaccept this revision by marking it as "unchecked"',
