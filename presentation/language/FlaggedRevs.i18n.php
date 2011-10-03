@@ -161,7 +161,6 @@ Please check the URL you used to access this page.',
 	'right-stablesettings'         => 'Configure how the stable version is selected and displayed',
 	'right-validate'               => 'Mark revisions as being "quality"',
 	'right-unreviewedpages'        => 'View the [[Special:UnreviewedPages|list of unreviewed pages]]',
-	'rights-editor-autosum'        => 'autopromoted',
 	'rights-editor-revoke'         => 'removed editor status from [[$1]]', # B/C
 	'specialpages-group-quality'   => 'Edit review',
 	'stable-logentry-config'       => 'set stable version settings for "$1"',
