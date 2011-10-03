@@ -119,7 +119,9 @@ class FlaggedRevsUIHooks {
 		return true;
 	}
 
-	/** Add user preferences */
+	/**
+	 * Add user preferences (uses prefs-flaggedrevs, prefs-flaggedrevs-ui msgs)
+	 */
 	public static function onGetPreferences( $user, array &$preferences ) {
 		// Box or bar UI
 		$preferences['flaggedrevssimpleui'] =
