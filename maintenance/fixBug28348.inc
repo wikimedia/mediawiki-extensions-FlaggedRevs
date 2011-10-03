@@ -46,7 +46,7 @@ function update_images_bug_28348( $start = null ) {
 					echo "fixed file {$row->fi_name} reference in rev ID {$row->fi_rev_id}\n";
 					# Fix the fi_img_timestamp value...
 					$db->update( 'flaggedimages',
-						array( 'fi_img_timestamp' => $dbw->timestamp( $time ) ),
+						array( 'fi_img_timestamp' => $db->timestamp( $time ) ),
 						array( 'fi_rev_id' => $row->fi_rev_id, 'fi_name' => $row->fi_name ),
 						__METHOD__
 					);
