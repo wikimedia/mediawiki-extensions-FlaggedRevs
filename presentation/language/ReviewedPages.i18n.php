@@ -22,22 +22,30 @@ $messages['en'] = array(
 );
 
 /** Message documentation (Message documentation)
+ * @author Aaron Schulz
  * @author Jon Harald Søby
  * @author SPQRobin
  */
 $messages['qqq'] = array(
-	'reviewedpages' => '{{Flagged Revs}}',
-	'reviewedpages-leg' => '{{Flagged Revs}}',
+	'reviewedpages' => '{{Flagged Revs}}
+Name of the Special:ReviewedPages page, which lists out pages that have a stable version.',
+	'reviewedpages-leg' => '{{Flagged Revs}}
+Shown on Special:ReviewedPages.',
 	'reviewedpages-list' => '{{Flagged Revs}}
+Shown on Special:ReviewedPages.
+Note that the "highest attained" language is key. If the user viewing the special page specifies "checked", then "quality" pages will not appear.
 Parameter $1 is the number of reviewed pages for use with PLURAL.',
 	'reviewedpages-none' => '{{Flagged Revs}}
+Shown on Special:ReviewedPages.
 {{Identical|There are no pages in this list}}',
 	'reviewedpages-lev-0' => '{{Flagged Revs}}',
 	'reviewedpages-lev-1' => '{{Flagged Revs}}',
 	'reviewedpages-lev-2' => '{{Flagged Revs}}
 {{Identical|Featured}}',
-	'reviewedpages-all' => '{{Flagged Revs}}',
-	'reviewedpages-best' => '{{Flagged Revs}}',
+	'reviewedpages-all' => '{{Flagged Revs}}
+Shown on Special:ReviewedPages. Links to Special:ReviewedVersions for a particular page.',
+	'reviewedpages-best' => '{{Flagged Revs}}
+Shown on Special:ReviewedPages. Links to ?stableid=best for a particular page. This gives the newest of the highest rated page revision.',
 );
 
 /** Afrikaans (Afrikaans)

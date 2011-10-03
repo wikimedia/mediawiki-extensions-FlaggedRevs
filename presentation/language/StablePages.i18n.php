@@ -18,6 +18,7 @@ Edits made by other users are not displayed to readers by default until an autho
 );
 
 /** Message documentation (Message documentation)
+ * @author Aaron Schulz
  * @author EugeneZelenko
  * @author Jon Harald Søby
  * @author Purodha
@@ -25,16 +26,23 @@ Edits made by other users are not displayed to readers by default until an autho
  * @author Umherirrender
  */
 $messages['qqq'] = array(
-	'stablepages' => '{{Flagged Revs}}',
+	'stablepages' => '{{Flagged Revs}}
+Special page name for [[Special:StablePages]], which lists pages where edits require review before being displayed to readers',
 	'stablepages-list' => '{{Flagged Revs}}
+Shown on the page [[Special:StablePages]].
 This text is shown on [http://flaggedrevs.labs.wikimedia.org/wiki/Special:StablePages Special:StablePages].
 
 Parameters:
 * $1 - (optional) Number of items in the list, to be used with PLURAL, when unavoidable.',
 	'stablepages-none' => '{{Flagged Revs}}
-{{Identical|There are no pages in this list}}',
+{{Identical|There are no pages in this list}}
+Shown on the page [[Special:StablePages]].',
 	'stablepages-config' => '{{Flagged Revs}}
-{{Identical|Configuration}}',
+{{Identical|Configuration}}
+Shown on the page [[Special:StablePages]].
+Text for the link to change the FlaggedRevs configuration for a specific page. Links to [[Special:Stabilization]].',
+	'stablepages-indef' => 'Shown on the page [[Special:StablePages]].
+Label use on checkbox filter to only show pages where edits will require review indefinetely',
 );
 
 /** Afrikaans (Afrikaans)

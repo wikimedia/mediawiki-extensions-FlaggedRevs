@@ -226,6 +226,7 @@ Please check the URL you used to access this page.',
 );
 
 /** Message documentation (Message documentation)
+ * @author Aaron Schulz
  * @author Amire80
  * @author Bennylin
  * @author Dani
@@ -261,7 +262,7 @@ $messages['qqq'] = array(
 General title for the [[Translating:Flagged Revs extension|Flagged Revs]] extension.
 * "flagged" in the sense of "has been seen, has been checked"',
 	'flaggedrevs-watched-pending' => '{{FlaggedRevs}}
-Appears on top of watchlist and recent changes.',
+Appears on top of user watchlist (Special:Watchlist).',
 	'flaggedrevs-desc' => '{{Flagged Revs}}
 
 {{desc}}',
@@ -278,25 +279,37 @@ Option in [[Special:Preferences]], under {{msg-mw|prefs-flaggedrevs}}. See {{msg
 
 This appears in [[Special:Preferences]]:
 * as an additional ''tab'', when JavaScript is enabled, or
-* as an additional ''section header'', when JavaScript is disabled",
-	'prefs-flaggedrevs-ui' => '{{Flagged Revs}}',
+* as an additional ''section header'', when JavaScript is disabled
+The tab is for review-related preferences.",
+	'prefs-flaggedrevs-ui' => '{{Flagged Revs-small}}
+
+This appears in [[Special:Preferences]], under the tab that using the name {{Prefs-flaggedrevs}}.',
 	'flaggedrevs-prefs-stable' => '{{Flagged Revs}}
 {{Identical|Content page}}
 
+Show on [[Special:Preferences]].
 The user is to select one of the following options:
 * {{msg-mw|Flaggedrevs-pref-stable-0}}
 * {{msg-mw|Flaggedrevs-pref-stable-1}}
 * {{msg-mw|Flaggedrevs-pref-stable-2}}',
+	'flaggedrevs-pref-stable-0' => 'Show on [[Special:Preferences]] as an option for how to use stable versions.
+This option make pages display the stable version either as the default or not as the default based on page and site settings, *rather* than any user settings. In other words, it removes any custom user-specified behavior.',
 	'flaggedrevs-pref-stable-1' => '{{Flagged Revs}}
-Checkbox option used in [[Special:Preferences]].',
+Show on [[Special:Preferences]] as an option for how to use stable versions. Note that if a page has no stable version, the current one will be displayed.',
 	'flaggedrevs-pref-stable-2' => '{{Flagged Revs}}
-Checkbox option used in [[Special:Preferences]].',
+Show on [[Special:Preferences]] as an option for how to use stable versions. This will show the newest version of pages, ignoring any stable versions.
+This is useful for users who do a lot of editing.',
 	'flaggedrevs-prefs-watch' => '{{Flagged Revs}}
-
+Show on [[Special:Preferences]]. This causes any pages reviewed by the user to be added to their watchlist.
+Unlike "add pages I edit to my watchlist", there is no checkbox on the review form, so the user cannot override this each time they review.
 The wording of this message is supposed to be similar to {{msg-mw|Tog-watchdefault}}.',
-	'flaggedrevs-prefs-editdiffs' => '{{Flagged Revs}}',
-	'flaggedrevs-prefs-viewdiffs' => '{{Flagged Revs}}',
-	'flaggedrevs-hidereviewed' => '{{Flagged Revs}}',
+	'flaggedrevs-prefs-editdiffs' => '{{Flagged Revs}}
+Show on [[Special:Preferences]]. This is for a setting to add an initially collapsed diff to the top of the edit form for pags with pending changes.',
+	'flaggedrevs-prefs-viewdiffs' => '{{Flagged Revs}}
+Show on [[Special:Preferences]]. This is for a setting to add an initially collapsed diff to the top of pages with pending changes. This is only added when the latest revision of the page is reviewed.',
+	'flaggedrevs-hidereviewed' => '{{Flagged Revs}}
+Shown within parenthesis on Special:Recentchanges, SpecialNewPages, and Special:Watchlist. This refers to a toggle to hide or show edits (revisions) that have been reviewed. If set to "hide", it also hides edits to pages that are not reviewable (like Talk pages).
+* $1 A link with the text {{show}} or {{hide}}',
 	'group-editor' => '{{Flagged Revs}}
 {{Identical|Editor}}',
 	'group-editor-member' => '{{Flagged Revs}}
@@ -306,35 +319,57 @@ The wording of this message is supposed to be similar to {{msg-mw|Tog-watchdefau
 {{Identical|Reviewer}}',
 	'grouppage-editor' => '{{Flagged Revs}}',
 	'grouppage-reviewer' => '{{Flagged Revs}}',
-	'group-autoreview' => '{{Flagged Revs}}',
-	'group-autoreview-member' => '{{Flagged Revs}}',
-	'grouppage-autoreview' => '{{Flagged Revs}}',
-	'revreview-hist-draft' => '{{Flagged Revs}}',
-	'revreview-hist-pending' => '{{Flagged Revs}}',
+	'group-autoreview' => '{{Flagged Revs}}
+Users in this group have their edits automatically reviewed.',
+	'group-autoreview-member' => '{{Flagged Revs}}
+See {{Group-autoreview}}',
+	'grouppage-autoreview' => '{{Flagged Revs}}
+See {{Group-autoreview}}',
+	'revreview-hist-draft' => '{{Flagged Revs}}
+Shown on history and diff pages to refer to revision that has not been specifically marked as "accepted".',
+	'revreview-hist-pending' => '{{Flagged Revs}}
+Shown on history and diff pages to refer to revision that is after the latest revision that was specifically marked "accepted".',
 	'revreview-hist-quality' => '{{Flagged Revs-small}}
-The accuracy "quality", as displayed on the page history after a revision with this setting.',
+The accuracy "quality", as displayed on the page history after a revision with this setting. This implies that the revision was accepted.',
 	'revreview-hist-basic' => '{{Flagged Revs-small}}
-The accuracy "checked", as displayed on the page history after a revision with this setting.',
-	'revreview-hist-quality-user' => '{{Flagged Revs}}',
-	'revreview-hist-basic-user' => '{{Flagged Revs}}',
-	'revreview-hist-quality-auto' => '{{Flagged Revs}}',
-	'revreview-hist-basic-auto' => '{{Flagged Revs}}',
-	'revreview-hist-pending-difflink' => '{{Flagged Revs}}',
-	'review-edit-diff' => '{{Flagged Revs}}',
-	'revreview-diff-toggle-show' => '{{Flagged Revs}}',
-	'revreview-diff-toggle-hide' => '{{Flagged Revs}}',
+The accuracy "checked", as displayed on the page history after a revision with this setting. This implies that the revision was accepted.',
+	'revreview-hist-quality-user' => '{{Flagged Revs}}
+Shown on history pages next to revisions that were marked as "quality".',
+	'revreview-hist-basic-user' => '{{Flagged Revs}}
+Shown on history pages next to revisions marked as "checked".',
+	'revreview-hist-quality-auto' => '{{Flagged Revs}}
+Shown on history pages for revisions that were automatically marked as "quality".',
+	'revreview-hist-basic-auto' => '{{Flagged Revs}}
+Shown on history pages for revisions that were automatically marked as "checked".',
+	'revreview-hist-pending-difflink' => '{{Flagged Revs}}
+Shown on history pages for revisions that were made *after* the latest accepted revision.
+* $1 The page name
+* $2 Number, stable revision ID
+* $3 Number, revision ID',
+	'review-edit-diff' => '{{Flagged Revs}}
+Shown on the edit form on pages with pending changes where the section the user is editing is effected by pending changes (unaccepted edits).',
+	'revreview-diff-toggle-show' => '{{Flagged Revs}}
+Used as a the name of a toggle to uncollapse a pending changes diff.',
+	'revreview-diff-toggle-hide' => '{{Flagged Revs}}
+Used as a the name of a toggle to collapse a pending changes diff.',
 	'revreview-diff-toggle-title' => '{{Flagged Revs}}
-
-This message is shown above the edit box. Clicking it displays a diff of changes.',
-	'revreview-log-toggle-show' => '{{Flagged Revs}}',
-	'revreview-log-toggle-hide' => '{{Flagged Revs}}',
-	'revreview-log-toggle-title' => '{{Flagged Revs}}',
-	'revreview-log-details-show' => '{{Flagged Revs}}',
+This message is shown above the edit box as an attribute title to a toggle (see {{Revreview-diff-toggle-show}} and {{Revreview-diff-toggle-hide}}).',
+	'revreview-log-toggle-show' => '{{Flagged Revs}}
+Used as the name of a toggle to uncollapse the stability log (see Special:Log/stable)',
+	'revreview-log-toggle-hide' => '{{Flagged Revs}}
+Used as the name of a toggle to collapse the stability log (see Special:Log/stable)',
+	'revreview-log-toggle-title' => '{{Flagged Revs}}
+Used as the title attribute of a toggle to collapse or uncollapse the stability log (see Special:Log/stable)',
+	'revreview-log-details-show' => '{{Flagged Revs}}
+Used as the name of a toggle to uncollapse the stability log (see Special:Log/stable). Shown on edit form for pages that show the stable version by default *but* only for wikis were normally the latest revision is shown by default.',
 	'revreview-log-details-hide' => '{{Flagged Revs}}
-{{Identical|hide details}}',
-	'revreview-log-details-title' => '{{Flagged Revs}}',
-	'review-diff2stable' => '{{Flagged Revs}}',
+Used as the name of a toggle to collapse or collapse the stability log (see Special:Log/stable). Shown on edit form for pages that show the stable version by default *but* only for wikis were normally the latest revision is shown by default.',
+	'revreview-log-details-title' => '{{Flagged Revs}}
+Used as the attribute title of a toggle to collapse or uncollapse the stability log (see Special:Log/stable)',
+	'review-diff2stable' => '{{Flagged Revs}}
+Shown at the top of diff forms (in parenthesis) for pages with pending changes where the diff being viewed is *not* the diff of the stable revision against the latest version.',
 	'review-logentry-app' => '{{Flagged Revs}}
+Shown for review log entries on [[Special:Log/review]]
 Parameters:
 * $1 is a page title',
 	'review-logentry-dis' => '{{Flagged Revs}}
@@ -344,20 +379,29 @@ Parameters:
 {{Identical|Revision}}',
 	'review-logentry-diff' => 'Appears at [[Special:Log/review]] and is used for diff link text of log entries. The diff is between a revision that had been accepted and the previous accepted revision.',
 	'review-logentry-diff2' => 'Appears at [[Special:Log/review]] and is used for diff link text of log entries. The diff is between a revision that had its acceptance revoked and the previous accepted revision.',
-	'review-logpage' => '{{Flagged Revs}}',
+	'review-logpage' => '{{Flagged Revs}}
+Name of review log Special:Log/review',
 	'review-logpagetext' => '{{Flagged Revs}}
-{{Identical|Content page}}',
+{{Identical|Content page}}
+Explanation text at Special:Log/review.',
 	'reviewer' => '{{Flagged Revs}}
 {{Identical|Reviewer}}',
-	'revreview-accuracy' => '{{Flagged Revs}}',
+	'revreview-accuracy' => '{{Flagged Revs}}
+Used on the review form for the tag with this name. It is the label for the currently selected value (such as "basic" or "well sourced").
+Also used in the box shown on page view, that gives information about the acceptance status of a revision.',
 	'revreview-accuracy-0' => '{{Flagged Revs-small}}
-This is the default configuration, i.e. the revision has not (yet) been reviewed.',
+Possible value of the \'accuracy\' tag for a revision. All accepted revisions must have ratings for each tag type.
+The value name of any review tag indicating that the revision fails to meet basic standards for that tag type. For example, "accuracy" can be "inadequate".',
 	'revreview-accuracy-1' => '{{Flagged Revs-small}}
+Possible value of the \'accuracy\' tag for a revision. All accepted revisions must have ratings for each tag type.
 A basic check on vandalism ("checked" as "has been seen/checked"). This configuration is considered as "flagged".',
-	'revreview-accuracy-2' => '{{Flagged Revs}}',
-	'revreview-accuracy-3' => '{{Flagged Revs}}',
-	'revreview-accuracy-4' => '{{Flagged Revs}}
-{{Identical|Featured}}',
+	'revreview-accuracy-2' => "{{Flagged Revs}}
+Possible value of the 'accuracy' tag for a revision. All accepted revisions must have ratings for each tag type.",
+	'revreview-accuracy-3' => "{{Flagged Revs}}
+Possible value of the 'accuracy' tag for a revision. All accepted revisions must have ratings for each tag type.",
+	'revreview-accuracy-4' => "{{Flagged Revs}}
+{{Identical|Featured}}
+Possible value of the 'accuracy' tag for a revision. All accepted revisions must have ratings for each tag type.",
 	'revreview-auto' => '{{Flagged Revs}}
 {{Identical|Automatic}}',
 	'revreview-basic' => '{{Flagged Revs}}
@@ -10515,7 +10559,7 @@ $messages['pl'] = array(
 	'review-logpagetext' => 'To jest rejestr zmian w [[{{MediaWiki:Validationpage}}|oznaczaniu]] wersji stron.',
 	'reviewer' => 'Weryfikator',
 	'revreview-accuracy' => 'Precyzja',
-	'revreview-accuracy-0' => 'nieadekwatna',
+	'revreview-accuracy-0' => 'nieakceptowalna',
 	'revreview-accuracy-1' => 'przejrzana',
 	'revreview-accuracy-2' => 'zweryfikowana',
 	'revreview-accuracy-3' => 'Dobrze opatrzone źródłami',
@@ -10581,7 +10625,7 @@ Później mogły zostać wykonane następne [{{fullurl:{{FULLPAGENAMEE}}|oldid=$
 	'revreview-source' => 'Pokaż źródło',
 	'revreview-basic-title' => 'To jest wersja przejrzana tej strony',
 	'revreview-style' => 'Czytelność',
-	'revreview-style-0' => 'nieadekwatna',
+	'revreview-style-0' => 'nieakceptowalna',
 	'revreview-style-1' => 'akceptowalna',
 	'revreview-style-2' => 'dobra',
 	'revreview-style-3' => 'zwięźle',
@@ -15277,7 +15321,7 @@ $messages['zh-hans'] = array(
 	'review-diff2stable' => '查看所有待复审更改',
 	'review-logentry-app' => '已复审[[$1]]的版本',
 	'review-logentry-dis' => '已废弃[[$1]]的版本',
-	'review-logentry-id' => '修订：$2',
+	'review-logentry-id' => '版本：$2',
 	'review-logentry-diff' => '更改已复审',
 	'review-logentry-diff2' => '更改已废弃',
 	'review-logpage' => '复审日志',

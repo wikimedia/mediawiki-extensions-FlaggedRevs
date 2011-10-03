@@ -15,16 +15,19 @@ $messages['en'] = array(
 );
 
 /** Message documentation (Message documentation)
+ * @author Aaron Schulz
  * @author Jon Harald Søby
  * @author Purodha
  */
 $messages['qqq'] = array(
-	'qualityoversight' => '{{Flagged Revs}}',
+	'qualityoversight' => '{{Flagged Revs}}
+Name of the Special:QualityOversight page. This is basically Special:Log/review with some extra filtering ability and only includes recent reviews.',
 	'qualityoversight-list' => '{{Flagged Revs}}
-
+Name of the Special:QualityOversight page.
 Parameters:
 * $1 - (optional) Number of items in the list, to be used with PLURAL, when unavoidable.',
-	'qualityoversight-legend' => '{{Flagged Revs}}',
+	'qualityoversight-legend' => '{{Flagged Revs}}
+Name of the Special:QualityOversight page.',
 );
 
 /** Aragonese (Aragonés)

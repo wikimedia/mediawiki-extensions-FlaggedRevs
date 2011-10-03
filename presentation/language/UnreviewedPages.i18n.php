@@ -24,6 +24,7 @@ $messages['en'] = array(
 );
 
 /** Message documentation (Message documentation)
+ * @author Aaron Schulz
  * @author Darth Kule
  * @author Fryed-peach
  * @author Jon Harald Søby
@@ -33,27 +34,42 @@ $messages['en'] = array(
  * @author Umherirrender
  */
 $messages['qqq'] = array(
-	'unreviewedpages' => '{{Flagged Revs}}',
+	'unreviewedpages' => '{{Flagged Revs}}
+Name of the [[Special:UnreviewedPages]] page, which lists out pages lacking a stable version.',
 	'unreviewedpages-legend' => '{{Flagged Revs}}
-{{Identical|Content page}}',
+{{Identical|Content page}}
+Used on the page [[Special:UnreviewedPages]].
+Note that "content pages" are any page that *can* be reviewed.',
 	'unreviewedpages-category' => '{{Flagged Revs}}
-{{Identical|Category}}',
+{{Identical|Category}}
+Used on the page [[Special:UnreviewedPages]].',
 	'unreviewedpages-diff' => '{{Flagged Revs}}
-
-{{Identical|Review}}',
-	'unreviewedpages-unwatched' => '{{Flagged Revs}}',
+{{Identical|Review}}
+Used on the page [[Special:UnreviewedPages]].',
+	'unreviewedpages-unwatched' => '{{Flagged Revs}}
+Used on the page [[Special:UnreviewedPages]].',
 	'unreviewedpages-watched' => '{{Flagged Revs}}
-* $1 is the number of active users that have the page on their watchlist',
+Used on the page [[Special:UnreviewedPages]].
+* $1 is the number of active users that have the page on their watchlist
+Note that "active" is based roughly on logging in and out',
 	'unreviewedpages-list' => '{{Flagged Revs}}
 {{Identical|Content page}}
 
 Parameters:
 * $1 - (optional) Number of items in the list, to be used with PLURAL, when unavoidable.',
-	'unreviewedpages-none' => '{{Flagged Revs}}',
-	'unreviewedpages-viewing' => '{{Flagged Revs}}',
-	'unreviewedpages-hours' => '{{Flagged Revs}}',
-	'unreviewedpages-days' => '{{Flagged Revs}}',
-	'unreviewedpages-recent' => '{{Flagged Revs}}',
+	'unreviewedpages-none' => '{{Flagged Revs}}
+Used on the page [[Special:UnreviewedPages]].',
+	'unreviewedpages-viewing' => '{{Flagged Revs}}
+Used on the page [[Special:UnreviewedPages]].
+Message indicates that someone is looking at this pages for review right now.',
+	'unreviewedpages-hours' => '{{Flagged Revs}}
+Used on the page [[Special:UnreviewedPages]].
+*$1 Number of hours',
+	'unreviewedpages-days' => '{{Flagged Revs}}
+Used on the page [[Special:UnreviewedPages]].
+* $1 Number of days',
+	'unreviewedpages-recent' => '{{Flagged Revs}}
+Used on the page [[Special:UnreviewedPages]].',
 );
 
 /** Afrikaans (Afrikaans)

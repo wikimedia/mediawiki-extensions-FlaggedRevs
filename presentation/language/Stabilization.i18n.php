@@ -47,6 +47,7 @@ No configuration is possible.',
 );
 
 /** Message documentation (Message documentation)
+ * @author Aaron Schulz
  * @author EugeneZelenko
  * @author Fryed-peach
  * @author Jon Harald Søby
@@ -60,20 +61,26 @@ No configuration is possible.',
 $messages['qqq'] = array(
 	'stabilization-tab' => '{{Flagged Revs-small}}
 
-Some skins (e.g. standard/classic) display an additional tab to control visibility of the page revisions, e.g. whether last revision should be included or perhaps the last checked or published version.',
-	'stabilization' => '{{Flagged Revs-small}}
-Page title of Special:Stabilization.',
+Some skins (e.g. standard/classic) display an additional tab to control visibility of the page revisions, e.g. whether last revision should be included or perhaps the last checked or published version. Links to [[Special:Stabilization]].',
+	'stabilization' => '{{Flagged Revs}}
+Page title of Special:Stabilization, which lets admins change how the stable version is used for a page and who can review it.',
 	'stabilization-text' => '{{Flagged Revs-small}}
 
 Information displayed on Special:Stabilization.
 
-"stable version selection" is the same as {{msg-mw|Stabilization-select}}.',
+"stable version selection" is the same as {{msg-mw|Stabilization-select}}.
+*$1 The page name',
 	'stabilization-perm' => '{{Flagged Revs-small}}
-Used on Special:Stabilization when the user has not the permission to change the settings.',
+Used on Special:Stabilization when the user has not the permission to change the settings.
+* $1 The page name',
 	'stabilization-page' => '{{Flagged Revs}}
-{{Identical|Page name}}',
-	'stabilization-leg' => '{{Flagged Revs}}',
-	'stabilization-def' => '{{Flagged Revs}}',
+{{Identical|Page name}}
+Used on Special:Stabilization.',
+	'stabilization-leg' => '{{Flagged Revs}}
+Used on Special:Stabilization.',
+	'stabilization-def' => '{{Flagged Revs}}
+Used on Special:Stabilization.
+This is referring to the revision of the page that most users will see unless the specify a different revision (e.g. ?oldid=X or ?stable=0)',
 	'stabilization-def1' => '{{Flagged Revs-small}}
 Used on Special:Stabilization as an option for "Revision displayed on default page view".
 
@@ -81,38 +88,72 @@ This option has sub-options, see "How the published version is selected".',
 	'stabilization-def2' => '{{Flagged Revs-small}}
 Used on Special:Stabilization as an option for "Revision displayed on default page view".',
 	'stabilization-restrict' => '{{Flagged Revs}}
+Used on Special:Stabilization.
 This means: "restrictions on automatic reviews" (\'\'it does not mean: 
 "automatically review the restrictions")
 
+Note that this restricts not just auto-reviewing, but manual reviewing as well.
 See http://en.labs.wikimedia.org/wiki/Special:Stabilization/Main_Page for more information (you can give yourself review rights)',
-	'stabilization-restrict-none' => '{{Flagged Revs}}',
+	'stabilization-restrict-none' => "{{Flagged Revs}}
+Used on Special:Stabilization.
+Message wording is a bit vague due to the fact that wikis can restrict the 'review' and 'autoreview' rights site-wide to any extent. It should *not* say \"allow all users\" or such.",
 	'stabilization-submit' => '{{Flagged Revs}}
+Used on Special:Stabilization.
 {{Identical|Confirm}}',
-	'stabilization-notexists' => '{{Flagged Revs}}',
-	'stabilization-notcontent' => '{{Flagged Revs}}',
+	'stabilization-notexists' => '{{Flagged Revs}}
+Used on Special:Stabilization.
+* $1 The page name',
+	'stabilization-notcontent' => '{{Flagged Revs}}
+Used on Special:Stabilization.
+* $1 The page name',
 	'stabilization-comment' => '{{Flagged Revs}}
+Used on Special:Stabilization.
 {{Identical|Reason}}',
 	'stabilization-otherreason' => '{{Flagged Revs}}
+Used on Special:Stabilization.
 {{Identical|Other reason}}',
 	'stabilization-expiry' => '{{Flagged Revs}}
+Used on Special:Stabilization.
 {{Identical|Expires}}',
-	'stabilization-othertime' => '{{Flagged Revs}}',
+	'stabilization-othertime' => '{{Flagged Revs}}
+Used on Special:Stabilization.',
 	'stabilization-def-short' => '{{Flagged Revs}}
-{{Identical|Default}}',
+{{Identical|Default}}
+Used at Special:Log for entries made by Special:Stabilization. It is displayed as in log entries that have text like "[Default: Stable, autoreview=sysop]".',
 	'stabilization-def-short-0' => '{{Flagged Revs}}
-{{Identical|Current}}',
+{{Identical|Current}}
+Used at Special:Log for entries made by Special:Stabilization. It is displayed as in log entries that have text like "[Default: Stable, autoreview=sysop]".',
 	'stabilization-def-short-1' => '{{Flagged Revs}}
-{{Identical|Stable}}',
-	'stabilize_expiry_invalid' => '{{Flagged Revs}}',
-	'stabilize_expiry_old' => '{{Flagged Revs}}',
+{{Identical|Stable}}
+Used at Special:Log for entries made by Special:Stabilization. It is displayed as in log entries that have text like "[Default: Stable, autoreview=sysop]".',
+	'stabilize_page_invalid' => '{{Flagged Revs}}
+Used on Special:Stabilization.',
+	'stabilize_page_notexists' => '{{Flagged Revs}}
+Used on Special:Stabilization.',
+	'stabilize_page_unreviewable' => '{{Flagged Revs}}
+Used on Special:Stabilization.',
+	'stabilize_invalid_autoreview' => '{{Flagged Revs}}
+Used on Special:Stabilization.',
+	'stabilize_invalid_level' => '{{Flagged Revs}}
+Used on Special:Stabilization.',
+	'stabilize_expiry_invalid' => '{{Flagged Revs}}
+Used on Special:Stabilization.',
+	'stabilize_expiry_old' => '{{Flagged Revs}}
+Used on Special:Stabilization.',
+	'stabilize_denied' => '{{Flagged Revs}}
+Used on Special:Stabilization. Generic permission error.',
 	'stabilize-expiring' => "{{Flagged Revs}}
+Used on Special:Stabilization.
+
 Used to indicate when something expires.
 $1 is a time stamp in the wiki's content language.
 $2 is the corresponding date in the wiki's content language.
 $3 is the corresponding time in the wiki's content language.
 
 {{Identical|Expires $1 (UTC)}}",
-	'stabilization-review' => '{{Flagged Revs}}',
+	'stabilization-review' => '{{Flagged Revs}}
+Used on Special:Stabilization.
+This refers to an option that reviews the current revision of the page when the user changes the FlaggedRevs settings for the page.',
 );
 
 /** Afrikaans (Afrikaans)

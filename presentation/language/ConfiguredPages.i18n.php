@@ -19,21 +19,28 @@ Some settings might change which version is displayed to readers or further rest
 );
 
 /** Message documentation (Message documentation)
+ * @author Aaron Schulz
  * @author EugeneZelenko
  * @author Purodha
  * @author Raymond
  * @author Yekrats
  */
 $messages['qqq'] = array(
+	'configuredpages' => 'Name for the Special:ConfiguredPages page, which lists pages with FlaggedRevs settings different than the site defaults. Settings include restricting the review and autoreview permission and how the stable version is used.',
 	'configuredpages-list' => '{{Flagged Revs}}
+Used on Special:ConfiguredPages.
 
 Parameters:
 * $1 - (optional) Number of items in the list, to be used with PLURAL, when unavoidable.',
-	'configuredpages-config' => '{{Identical|Configuration}}',
+	'configuredpages-none' => 'Used on Special:ConfiguredPages.',
+	'configuredpages-config' => '{{Identical|Configuration}}
+Used on Special:ConfiguredPages. Refers to the combination of settings of how the stable version is used and who can review the page.',
 	'configuredpages-def-draft' => '{{Flagged Revs}}
-{{identical|latest version}}',
+{{identical|latest version}}
+Used on Special:ConfiguredPages.',
 	'configuredpages-def-stable' => '{{Flagged Revs}}
-{{identical|stable version}}',
+{{identical|stable version}}
+Used on Special:ConfiguredPages.',
 );
 
 /** Afrikaans (Afrikaans) */

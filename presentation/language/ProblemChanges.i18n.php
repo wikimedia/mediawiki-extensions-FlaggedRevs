@@ -17,20 +17,25 @@ $messages['en'] = array(
 );
 
 /** Message documentation (Message documentation)
+ * @author Aaron Schulz
  * @author EugeneZelenko
  * @author IAlex
  * @author Purodha
  */
 $messages['qqq'] = array(
-	'problemchanges' => '{{Flagged Revs}}',
+	'problemchanges' => '{{Flagged Revs}}
+Name of Special:ProblemChanges, which lists out tagged (via recent changes change tags) pending changes.',
 	'problemchanges-list' => '{{Flagged Revs}}
-
+Used on the Special:ProblemPages page.
 Parameters:
 * $1 - (optional) Number of items in the list, to be used with PLURAL, when unavoidable.',
-	'problemchanges-legend' => '{{Flagged Revs}}',
-	'problemchanges-none' => '{{Flagged Revs}}',
+	'problemchanges-legend' => '{{Flagged Revs}}
+Used on the Special:ProblemPages page.',
+	'problemchanges-none' => '{{Flagged Revs}}
+Used on the Special:ProblemPages page.',
 	'problemchanges-category' => '{{Flagged Revs}}
-{{Identical|Category}}',
+{{Identical|Category}}
+Used on the Special:ProblemPages page.',
 );
 
 /** Afrikaans (Afrikaans)

@@ -18,18 +18,24 @@ $messages['en'] = array(
 );
 
 /** Message documentation (Message documentation)
+ * @author Aaron Schulz
  * @author Jon Harald Søby
  * @author Siebrand
  */
 $messages['qqq'] = array(
-	'reviewedversions' => '{{Flagged Revs}}',
+	'reviewedversions' => '{{Flagged Revs}}
+Name of the Special:ReviewedVersions page, which lists all reviewed versions for specific pages.',
 	'reviewedversions-leg1' => '{{Flagged Revs}}
+Used on Special:ReviewedVersions.
 The legend of the form used to select a page on Special:ReviewedVersions.',
 	'reviewedversions-page' => '{{Flagged Revs}}
-{{Identical|Page name}}',
+{{Identical|Page name}}
+Used on Special:ReviewedVersions.',
 	'reviewedversions-none' => '{{Flagged Revs}}
-Message is displayed on Special:ReviewedVersions for pages that has no reviewed revisions. Parameter $1 is the pagename.',
+Message is displayed on Special:ReviewedVersions for pages that has no reviewed revisions.
+* $1 The page name.',
 	'reviewedversions-list' => '{{Flagged Revs}}
+Used on Special:ReviewedVersions.
 Parameter $1 is a page title,
 Parameter $2 is the count of revisions following, to be used with PLURAL.',
 	'reviewedversions-review' => '{{Flagged Revs}}

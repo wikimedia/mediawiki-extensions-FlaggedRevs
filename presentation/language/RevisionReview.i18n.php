@@ -100,6 +100,7 @@ Please review all the changes shown below to make your edits appear in the stabl
 );
 
 /** Message documentation (Message documentation)
+ * @author Aaron Schulz
  * @author Amire80
  * @author Bennylin
  * @author Darth Kule
@@ -116,58 +117,157 @@ Please review all the changes shown below to make your edits appear in the stabl
  * @author Yekrats
  */
 $messages['qqq'] = array(
-	'revisionreview' => '{{Flagged Revs}}',
-	'revreview-failed' => '{{Flagged Revs}}',
-	'review_bad_key' => 'When you review, you specify the template/file versions to use. The key given by the user must match a special hash salted with those parameters. This makes it so users can only use the template/file versions as shown on the form they submitted on, rather than sending their own arbitrary values.',
-	'review_denied' => '{{Identical|Permission denied}}',
-	'revreview-check-flag-p' => '{{Flagged Revs}}',
-	'revreview-check-flag-u' => 'This is a label for the  checkbox that appears under the edit box next to "This is a minor edit" and "Watch this page".',
-	'revreview-check-flag-y-title' => '{{Gender}}',
+	'revisionreview' => '{{Flagged Revs}}
+Name of the Special:RevisionReview page.',
+	'revreview-failed' => '{{Flagged Revs}}
+Used on Special:RevisionReview.',
+	'revreview-submission-invalid' => 'Used on Special:RevisionReview.',
+	'review_page_invalid' => '{{Flagged Revs}}
+Used when reviewing a revision.',
+	'review_page_notexists' => '{{Flagged Revs}}
+Used when reviewing a revision.',
+	'review_page_unreviewable' => '{{Flagged Revs}}
+Used when reviewing a revision.',
+	'review_no_oldid' => '{{Flagged Revs}}
+Used when reviewing a revision.',
+	'review_bad_oldid' => '{{Flagged Revs}}
+Used when reviewing a revision.',
+	'review_conflict_oldid' => '{{Flagged Revs}}
+Used when reviewing a revision where someone else already accepted or removed acceptance status from that revision.',
+	'review_not_flagged' => '{{Flagged Revs}}
+Used when removing acceptance status from a revision were it was already removed (or was never there).',
+	'review_too_low' => '{{Flagged Revs}}
+Used when reviewing a revision.',
+	'review_bad_key' => '{{Flagged Revs}}
+Used when reviewing a revision.
+When you review, you specify the template/file versions to use. The key given by the user must match a special hash salted with those parameters. This makes it so users can only use the template/file versions as shown on the form they submitted on, rather than sending their own arbitrary values.',
+	'review_bad_tags' => '{{Flagged Revs}}
+Used when reviewing a revision.
+Error message given if tag values are missing or out of range.',
+	'review_denied' => '{{Identical|Permission denied}}
+{{Flagged Revs}}
+Used when reviewing a revision.',
+	'review_param_missing' => '{{Flagged Revs}}
+Used when reviewing a revision.
+A mostly generic error message.',
+	'review_cannot_undo' => '{{Flagged Revs}}
+Used when edit conflict occurs with the "reject" feature',
+	'review_cannot_reject' => '{{Flagged Revs}}
+Used when using the "reject" feature on a (set) of revisions where someone else already accepted some of them.',
+	'review_reject_excessive' => '{{Flagged Revs}}
+Used when using the "reject" feature.',
+	'review_reject_nulledits' => '{{Flagged Revs}}
+Used when using the "reject" feature.',
+	'revreview-check-flag-p' => '{{Flagged Revs}}
+Label of a checkbox shown on the edit form of a page that already has pending changes.
+* $1 The number of pending changes.',
+	'revreview-check-flag-p-title' => '{{Flagged Revs}}
+Title of a checkbox shown on the edit form of a page that already has pending changes.',
+	'revreview-check-flag-u' => '{{Flagged Revs}}
+This is a label for the  checkbox that appears under the edit box next to "This is a minor edit" and "Watch this page". This shown on pages with no stable version.',
+	'revreview-check-flag-u-title' => '{{Flagged Revs}}
+Title of a checkbox on the edit form that shows on pages with no stable version.',
+	'revreview-check-flag-y' => '{{Flagged Revs}}
+Label of a checkbox that shows on the edit form of pages with no stable version.',
+	'revreview-check-flag-y-title' => '{{Gender}}
+{{Flagged Revs}}',
 	'revreview-flag' => '{{Flagged Revs-small}}
-* Title of the review box shown below a page (when you have the permission to review pages).',
-	'revreview-reflag' => '{{Flagged Revs}}',
-	'revreview-invalid' => '{{Flagged Revs}}',
-	'revreview-legend' => '{{Flagged Revs}}',
+* Title of the review box shown below a page (when you have the permission to review pages). This is used for un-accepted revisions.',
+	'revreview-reflag' => '{{Flagged Revs-small}}
+* Title of the review box shown below a page (when you have the permission to review pages). This is used for already accepted revisions.',
+	'revreview-invalid' => '{{Flagged Revs}}
+Used when viewing a page with a bad ?stableid=x parameter (similar to ?oldid= parameter)',
 	'revreview-log' => '{{Flagged Revs}}
-{{Identical|Comment}}',
+{{Identical|Comment}}
+Shown on review form.',
 	'revreview-main' => '{{Flagged Revs}}
-{{Identical|Content page}}',
-	'revreview-stable1' => '{{Flagged Revs}}',
-	'revreview-stable2' => '{{Flagged Revs}}',
-	'revreview-cancel' => '{{Identical|Cancel}}',
+{{Identical|Content page}}
+Shown on Special:RevisionReview.',
+	'revreview-stable1' => '{{Flagged Revs}}
+Shown after accepting a revision of a page.
+* $1 Name of the page
+* $2 Number, revision ID just reviewed',
+	'revreview-stable2' => '{{Flagged Revs}}
+Shown after de-accepting a revision of a page.',
+	'revreview-cancel' => '{{Identical|Cancel}}
+Shown on review form.',
 	'revreview-submit' => '{{Flagged Revs-small}}
 The text on the submit button in the form used to review pages.
 
 {{Identical|Submit}}',
 	'revreview-submitting' => '{{flaggedrevs}}
 {{identical|submitting}}',
-	'revreview-submit-review' => '{{Flagged Revs}}',
-	'revreview-submit-unreview' => '{{Flagged Revs}}',
-	'revreview-submit-reject' => '{{Flagged Revs}}',
-	'revreview-submit-reviewed' => '{{Flagged Revs}}',
-	'revreview-submit-unreviewed' => '{{Flagged Revs}}',
+	'revreview-submit-review' => '{{Flagged Revs}}
+Shown on the form to review pages.',
+	'revreview-submit-unreview' => '{{Flagged Revs}}
+Shown on the form to review pages.',
+	'revreview-submit-reject' => '{{Flagged Revs}}
+Shown on the form to review pages, but only on diff pages. This is the text of a button that acts similar to undo.',
+	'revreview-submit-reviewed' => '{{Flagged Revs}}
+Shown on the form to review pages.',
+	'revreview-submit-unreviewed' => '{{Flagged Revs}}
+Shown on the form to review pages.',
 	'revreview-successful' => '{{Flagged Revs-small}}
-Shown when a reviewer/editor has marked a revision as stable/checked/... See also {{msg|revreview-successful2|pl=yes}}.',
+Shown when a reviewer/editor has marked a revision as stable/checked/... See also {{msg|revreview-successful2|pl=yes}}.
+* $1 The page name
+* $2 The page name (url escaped)',
 	'revreview-successful2' => '{{Flagged Revs-small}}
-Shown when a reviewer/editor has marked a stable/checked/... revision as unstable/unchecked/... After that, it can normally be reviewed again. See also {{msg|revreview-successful|pl=yes}}.',
-	'revreview-poss-conflict-p' => 'Parameters:
+Shown when a reviewer/editor has marked a stable/checked/... revision as unstable/unchecked/... After that, it can normally be reviewed again. See also {{msg|revreview-successful|pl=yes}}.
+* $1 The page name',
+	'revreview-poss-conflict-p' => '{{Flagged Revs}}
+Shown on the form to review pages. Not shown on diffs.
+Parameters:
 * $1 is a username
 * $2 is a date
 * $3 is a time',
-	'revreview-poss-conflict-c' => 'Parameters:
+	'revreview-poss-conflict-c' => '{{Flagged Revs}}
+Shown on the form to review pages. Only shown on diffs.
+Parameters:
 * $1 is a username
 * $2 is a date
 * $3 is a time',
-	'revreview-adv-reviewing-p' => '(no parameters)',
-	'revreview-adv-reviewing-c' => '(No parameters)',
+	'revreview-adv-reviewing-p' => '{{Flagged Revs}}
+Shown on the form to review pages. Indicates that other reviewers will get a notice that this user is already reviewing this revision of the page. Not shown on diffs.',
+	'revreview-adv-reviewing-c' => '{{Flagged Revs}}
+Shown on the form to review pages. Indicates that other reviewers will get a notice that this user is already reviewing this revision of the page. Shown on diffs.',
+	'revreview-sadv-reviewing-p' => '{{Flagged Revs}}
+Shown on the form to review pages. Not shown on diffs.
+$1 is {{msg-mw|revreview-adv-start-link}} or {{msg-mw|revreview-adv-stop-link}}. It displays as "advertise".',
+	'revreview-sadv-reviewing-c' => '{{Flagged Revs}}
+Shown on the form to review pages on diffs.
+$1 is {{msg-mw|revreview-adv-start-link}} or {{msg-mw|revreview-adv-stop-link}}. It displays as "advertise".',
+	'revreview-adv-start-link' => '{{Flagged Revs}}
+Shown on the form to review pages. This is the text of a link, which is enclosed in parenthesis itself.
+Used as parameter in {{msg-mw|Revreview-sadv-reviewing-c}} or {{msg-mw|Revreview-sadv-reviewing-p}}',
+	'revreview-adv-stop-link' => '{{Flagged Revs}}
+Shown on the form to review pages. This is the text of a link, which is enclosed in parenthesis itself.
+Used as parameter in {{msg-mw|Revreview-sadv-reviewing-c}} or {{msg-mw|Revreview-sadv-reviewing-p}}',
 	'revreview-toolow' => '{{Flagged Revs-small}}
-A kind of error shown when trying to review a revision with all settings on "unapproved".',
-	'revreview-update' => '{{Flagged Revs}}',
-	'revreview-update-edited' => '{{Flagged Revs}}',
-	'revreview-update-edited-prev' => 'This message is shown after a user saves a version after another user made changes that were not reviewed yet.',
-	'revreview-update-includes' => '{{Flagged Revs}}',
-	'revreview-reject-summary' => '{{Identical|Summary}}',
-	'revreview-reject-cancel' => '{{Identical|Cancel}}',
+A kind of error shown when trying to review a revision with some settings on "unapproved".',
+	'revreview-update' => '{{Flagged Revs}}
+Shown on the form to review pages, on diffs.',
+	'revreview-update-edited' => '{{Flagged Revs}}
+Shown on the form to review pages, on diffs.',
+	'revreview-update-edited-prev' => '{{Flagged Revs}}
+Shown on the form to review pages, on diffs.
+This message is shown after a user saves a version after another user made changes that were not reviewed yet.',
+	'revreview-update-includes' => '{{Flagged Revs}}
+Shown on the form to review pages, on diffs.',
+	'revreview-reject-text-list' => '{{Flagged Revs}}
+Shown on the change reject form (after the review form).
+* $1 Number of revisions
+* $2 The page name',
+	'revreview-reject-text-revto' => '{{Flagged Revs}}
+Shown on the reject form (user clicked "reject" on review form).
+* $1 Page name
+* $2 Number, revisions ID that would be restored
+* $3 Timestamp of that revision',
+	'revreview-reject-summary' => '{{Identical|Summary}}
+Shown on the reject form.',
+	'revreview-reject-confirm' => '{{Flagged Revs}}
+Shown on the reject form. Confirmation button.',
+	'revreview-reject-cancel' => '{{Identical|Cancel}}
+Shown on the reject form.',
 	'revreview-reject-summary-cur' => '{{Flagged Revs-small}}
 Default summary shown when rejecting pending changes, and they are the latest revisions to a page
 * $1 is the number of rejected revisions
@@ -190,9 +290,12 @@ Default summary shown when rejecting pending changes.
 Alternative sentences which mean the same as the above message are:
 * Rejected the next {{PLURAL:$1|change|$1 changes}} that followed revision $2 by $3
 * Rejected the {{PLURAL:$1|change|$1 changes}} that immediately followed revision $2 by $3',
-	'revreview-reject-usercount' => '{{Identical|User}}',
-	'revreview-tt-flag' => '{{Flagged Revs}}',
-	'revreview-tt-unflag' => '{{Flagged Revs}}',
+	'revreview-tt-flag' => '{{Flagged Revs}}
+Title attribute of the accept button on the review form.',
+	'revreview-tt-unflag' => '{{Flagged Revs}}
+Title attribute of the un-accept button on the review form.',
+	'revreview-tt-reject' => '{{Flagged Revs}}
+Title attribute of the reject button on the review form.',
 );
 
 /** Afrikaans (Afrikaans)
@@ -567,7 +670,6 @@ $messages['be-tarask'] = array(
 	'revreview-flag' => 'Праверыць гэту вэрсію',
 	'revreview-reflag' => 'Пераправерыць гэтую вэрсію',
 	'revreview-invalid' => "'''Няслушная мэта:''' няма [[{{MediaWiki:Validationpage}}|рэцэнзаванай]] вэрсіі, якая адпавядае пададзенаму ідэнтыфікатару.",
-	'revreview-legend' => 'Адзнака зьместу вэрсіі',
 	'revreview-log' => 'Камэнтар:',
 	'revreview-main' => 'Вам неабходна выбраць адну з вэрсіяў старонкі для рэцэнзаваньня.
 
@@ -590,6 +692,8 @@ $messages['be-tarask'] = array(
 	'revreview-adv-reviewing-c' => 'Заўвага: Іншыя рэцэнзэнты могуць бачыць, што Вы рэцэнзуеце гэтыя зьмены.',
 	'revreview-sadv-reviewing-p' => 'Вы можаце $1 усім, што Вы рэцэнзуеце гэтую старонку.',
 	'revreview-sadv-reviewing-c' => 'Вы можаце $1 усім, што Вы рэцэнзуеце гэтыя зьмены.',
+	'revreview-adv-start-link' => 'рэклямаваць',
+	'revreview-adv-stop-link' => 'прыбраць рэкляму',
 	'revreview-toolow' => "'''Вам неабходна адзначыць кожны атрыбут адзнакай вышэй за «недастатковая», каб вэрсія старонкі лічылася рэцэнзаванай.'''
 
 Каб зьняць адзнаку з вэрсіі, націсьніце «зьняць зацьверджаньне».
@@ -603,7 +707,6 @@ $messages['be-tarask'] = array(
 
 Калі ласка, прарэцэнзуйце ўсе зьмены пададзеныя ніжэй, каб Вашыя рэдагаваньні былі далучаныя да стабільнай вэрсіі.',
 	'revreview-update-includes' => 'Абноўленыя шаблёны/файлы (нерэцэнзаваныя старонкі выдзеленыя тлустым шрыфтам):',
-	'revreview-reject-header' => 'Адмяніць зьмены ў $1',
 	'revreview-reject-text-list' => "Выканаўшы гэтае дзеяньне, Вы '''адхіліце''' зьмены крынічнага тэксту ў {{PLURAL:$1|наступнай зьмене|наступных зьменах}} [[:$2|$2]]:",
 	'revreview-reject-text-revto' => 'Гэта адкаціць назад старонку да [{{fullurl:$1|oldid=$2}} вэрсіі $3].',
 	'revreview-reject-summary' => 'Апісаньне:',
@@ -613,7 +716,6 @@ $messages['be-tarask'] = array(
 	'revreview-reject-summary-old' => '{{PLURAL:$1|Адхіленая $1 першая тэкставая зьмена зробленая|Адхіленыя $1 першыя тэкставыя зьмены зробленыя|Адхіленыя $1 першых тэкставых зьменаў зробленыя}} ($2) наступных пасьля вэрсіі $3 зробленай $4',
 	'revreview-reject-summary-cur-short' => '{{PLURAL:$1|Адхіленая $1 апошняя тэкставая зьмена|Адхіленыя $1 апошнія тэкставыя зьмены|Адхіленыя $1 апошніх тэкставых зьменаў}} і адноўленая вэрсія $2 зробленая $3',
 	'revreview-reject-summary-old-short' => '{{PLURAL:$1|Адхіленая $1 першая тэкставая зьмена наступная|Адхіленыя $1 першыя тэкставыя зьмены наступных|Адхіленыя $1 першых тэкставых зьменаў наступных}} пасьля вэрсіі $2 зробленай $3',
-	'revreview-reject-usercount' => '$1 {{PLURAL:$1|удзельнік|удзельнікі|удзельнікаў}}',
 	'revreview-tt-flag' => 'Зацьвердзіць гэтую вэрсію пазначыўшы як правераную',
 	'revreview-tt-unflag' => 'Зьняць зацьверджаньне вэрсіі, пазначыўшы яе як «неправеранаю»',
 	'revreview-tt-reject' => 'Адхіліць гэтыя зьмены, скасаваўшы іх',
@@ -1038,7 +1140,6 @@ $messages['de'] = array(
 	'revreview-flag' => 'Markiere Version',
 	'revreview-reflag' => 'Diese Version erneut markieren',
 	'revreview-invalid' => "'''Ungültiges Ziel:''' keine [[{{MediaWiki:Validationpage}}|markierte]] Version zur angegebenen Versionsnummer gefunden.",
-	'revreview-legend' => 'Inhalt der Version bewerten',
 	'revreview-log' => 'Kommentar:',
 	'revreview-main' => 'Du musst eine Version zur Markierung auswählen.
 
@@ -1076,7 +1177,6 @@ Bitte markiere alle unten angezeigten Änderungen, damit deine Bearbeitungen zur
 
 Bitte markiere alle unten angezeigten Änderungen, damit deine Bearbeitungen zur stabilen Version werden.',
 	'revreview-update-includes' => 'Vorlagen/Dateien wurden aktualisiert (nicht markierte Seiten sind in fett gekennzeichnet):',
-	'revreview-reject-header' => 'Änderungen für $1 verwerfen',
 	'revreview-reject-text-list' => "Mit Abschluss dieser Aktion {{PLURAL:$1|wird die folgende Änderung|werden die folgenden Änderungen}} an [[:$2|$2]] '''verworfen''':",
 	'revreview-reject-text-revto' => 'Dies wird die Seite auf die [{{fullurl:$1|oldid=$2}} Version vom $3] zurücksetzen.',
 	'revreview-reject-summary' => 'Zusammenfassung:',
@@ -1086,7 +1186,6 @@ Bitte markiere alle unten angezeigten Änderungen, damit deine Bearbeitungen zur
 	'revreview-reject-summary-old' => 'Die {{PLURAL:$1|erste Textänderung|$1 ersten Textänderungen}} von $2, die auf die Version $3 von $4  {{PLURAL:$1|folgte, wurde|folgten, wurden}} verworfen',
 	'revreview-reject-summary-cur-short' => 'Die {{PLURAL:$1|letzte Textänderung wurde|$1 letzten Textänderungen wurden}} verworfen und die Version $2 von $3 wiederhergestellt',
 	'revreview-reject-summary-old-short' => '{{PLURAL:$1|Die erste Textänderung|ersten $1 Textänderungen}}, die auf die Version $2 von $3 {{PLURAL:$1|folgte, wurde|folgten, wurden}} verworfen',
-	'revreview-reject-usercount' => '{{PLURAL:$1|Ein Benutzer|$1 Benutzer}}',
 	'revreview-tt-flag' => 'Diese Version anzeigen, indem du die Änderungen markierst',
 	'revreview-tt-unflag' => 'Diese Version nicht mehr anzeigen lassen, indem du die Markierung entfernst',
 	'revreview-tt-reject' => 'Diese Textänderungen durch Zurücksetzen verwerfen',
@@ -1149,7 +1248,6 @@ $messages['diq'] = array(
 	'revreview-flag' => 'nop revizyon ser çım bıçarn',
 	'revreview-reflag' => 'Enê çımraviyarnayışi qontrol ke',
 	'revreview-invalid' => "'''hedefo nemeqbul:''' yew revizyono [[{{MediaWiki:Validationpage}}|konrol biyaye]] zi ID de pê nêgıneni.",
-	'revreview-legend' => "muhtewayê revizyoni bıd' reydayiş",
 	'revreview-log' => 'beyanat:',
 	'revreview-main' => 'qey çım ser çarnayişi, şıma gani pelê muhtewayi ra yew revizyon bıvıcini.
 
@@ -1178,7 +1276,7 @@ Ti belki tewr verni de vurnayişan teqib biki ya zi "peyser biyeri".',
 
 Ma rica keni vurnayişanê xo peran versiyonê sebit biki bade kontrolê vurnayişi.
 Ti belki tewr verni de vurnayişan teqib biki ya zi "peyser biyeri".',
-	'revreview-update-includes' => 'Tay Templatan/dosyayan biyo rocaniye:',
+	'revreview-update-includes' => 'Şabloni/dosyey biy rocaney (pelê etudkerdey qalındê):',
 	'revreview-tt-flag' => '"Qontrol" nişan bike ke ena revizyon qebul bike',
 	'revreview-tt-unflag' => '"Qontrol nibiyo" nişan bike ke ena revizyon qebul meke',
 );
@@ -1750,13 +1848,13 @@ Ne l'utilisez que si vous avez déjà vu le diff de l'ensemble des modifications
 	'revreview-flag' => 'Relire cette version',
 	'revreview-reflag' => 'Relire cette révision de nouveau',
 	'revreview-invalid' => "'''Cible incorrecte :''' aucune version [[{{MediaWiki:Validationpage}}|relue]] ne correspond au numéro indiqué.",
-	'revreview-legend' => 'Évaluer le contenu de la version',
 	'revreview-log' => 'Commentaire :',
 	'revreview-main' => "Vous devez choisir une version précise d'une page pour effectuer une relecture.
 
 Voir la [[Special:Unreviewedpages|liste des pages non relues]].",
 	'revreview-stable1' => 'Vous souhaitez peut-être consulter [{{fullurl:$1|stableid=$2}} cette version marquée] pour voir si c’est maintenant la [{{fullurl:$1|stable=1}} version publiée] de cette page.',
 	'revreview-stable2' => 'Vous souhaitez peut-être consulter [{{fullurl:$1|stable=1}} la version publiée] de cette page.',
+	'revreview-cancel' => 'Annuler',
 	'revreview-submit' => 'Soumettre',
 	'revreview-submitting' => 'Soumission…',
 	'revreview-submit-review' => 'Accepter la version',
@@ -1768,8 +1866,8 @@ Voir la [[Special:Unreviewedpages|liste des pages non relues]].",
 	'revreview-successful2' => "'''Version de [[:$1|$1]] invalidée.'''",
 	'revreview-poss-conflict-p' => "'''Attention : [[User:$1|$1]] a commencé à relire cette page le $2 à $3.'''",
 	'revreview-poss-conflict-c' => "'''Attention : [[User:$1|$1]] a commencé à relire ces modifications le $2 à $3.'''",
-	'revreview-adv-reviewing-p' => "'''Remarque: Vous êtes notifié comme ayant commencé l'examen de cette page le $1 à $2.'''",
-	'revreview-adv-reviewing-c' => "'''Remarque: Vous êtes notifié comme ayant commencé l'examen de ces changements le $1 à $2.'''",
+	'revreview-adv-reviewing-p' => "Remarque: D'autres relecteurs peuvent voir que vous examinez cette page.",
+	'revreview-adv-reviewing-c' => "Remarque: D'autres relecteurs peuvent voir que vous examinez ces modifications.",
 	'revreview-toolow' => "'''Vous devez affecter à chacun des attributs une évaluation plus élevée que « inappropriée » pour que la relecture soit prise en compte comme acceptée.'''
 
 Pour enlever l’état de relecture d’une version, cliquez sur « Ne pas accepter ».
@@ -1783,7 +1881,6 @@ Veuillez vérifier toutes les modifications affichées ci-dessous pour que la v�
 
 Vous devez relire toutes les modifications affichées ci-dessous pour la votre apparaisse dans la version stable.',
 	'revreview-update-includes' => 'Modèles/fichiers mis à jour (pages non relues en gras) :',
-	'revreview-reject-header' => 'Refuser les modifications pour $1',
 	'revreview-reject-text-list' => "En effectuant cette action, vous allez '''rejeter''' les modifications sur le texte source {{PLURAL:$1|de la révision suivante|des révisions suivantes}} de [[:$2|$2]]:",
 	'revreview-reject-text-revto' => 'Ceci remettra cette page dans sa [{{fullurl:$1|oldid=$2}} version du $3].',
 	'revreview-reject-summary' => 'Résumé :',
@@ -1793,7 +1890,6 @@ Vous devez relire toutes les modifications affichées ci-dessous pour la votre a
 	'revreview-reject-summary-old' => '{{PLURAL:$1|La première modification du texte|Les premières modifications du texte}} (par $2) qui suivaient la révision $3 ont été rejetées par $4',
 	'revreview-reject-summary-cur-short' => '{{PLURAL:$1|La dernière modification du texte|Les $1 dernières modifications du texte}} ont été rejetées et la version $2 a été restaurée par $3',
 	'revreview-reject-summary-old-short' => '{{PLURAL:$1|La première modification du texte|Les $1 premières modifications du texte}} qui suivaient la révision $2 ont été rejetées par $3',
-	'revreview-reject-usercount' => '{{PLURAL:$1|un utilisateur|$1 utilisateurs}}',
 	'revreview-tt-flag' => 'Approuver cette version en la marquant comme vérifiée',
 	'revreview-tt-unflag' => 'Désapprouver cette version en la marquant comme non-vérifiée',
 	'revreview-tt-reject' => 'Rejeter ces modifications dans le texte source en les révoquant',
@@ -1930,7 +2026,6 @@ Use isto soamente en canto olle o conxunto de todas as diferenzas dos cambios pe
 	'revreview-flag' => 'Revisar esta revisión',
 	'revreview-reflag' => 'Volver revisar esta revisión',
 	'revreview-invalid' => "'''Obxectivo inválido:''' ningunha revisión [[{{MediaWiki:Validationpage}}|revisada]] se corresponde co ID dado.",
-	'revreview-legend' => 'Valorar o contido da revisión',
 	'revreview-log' => 'Comentario para o rexistro:',
 	'revreview-main' => 'Debe seleccionar unha revisión particular dunha páxina de contido de cara á revisión.
 
@@ -1953,12 +2048,14 @@ Vexa a [[Special:Unreviewedpages|lista de páxinas sen revisar]].',
 	'revreview-adv-reviewing-c' => 'Aviso: Os outros revisores poden ver que está a revisar estes cambios.',
 	'revreview-sadv-reviewing-p' => 'Pode $1 aos demais usuarios de que está a revisar esta páxina.',
 	'revreview-sadv-reviewing-c' => 'Pode $1 aos demais usuarios de que está a revisar estes cambios.',
+	'revreview-adv-start-link' => 'advertir',
+	'revreview-adv-stop-link' => 'retirar a advertencia',
 	'revreview-toolow' => '\'\'\'Debe, polo menos, valorar cada un dos atributos cunha puntuación maior que "inadecuado" para que unha revisión sexa considerada como revisada.\'\'\'
 
 Para retirar o estado de aprobación dunha revisión, prema sobre "suspender".
 
 Por favor, prema sobre o botón "Volver" do seu navegador e inténteo de novo.',
-	'revreview-update' => "'''[[{{MediaWiki:Validationpage}}|Revise]] os cambios pendentes ''(amósanse a continuación)'' feitos á versión aceptada.'''",
+	'revreview-update' => "'''[[{{MediaWiki:Validationpage}}|Revise]] os cambios pendentes ''(móstranse a continuación)'' feitos á versión aceptada.'''",
 	'revreview-update-edited' => '<span class="flaggedrevs_important">Os seus cambios aínda non se atopan na versión estable.</span>
 
 Revise todos os cambios listados a continuación para que as súas edicións aparezan na versión estable.',
@@ -1966,7 +2063,6 @@ Revise todos os cambios listados a continuación para que as súas edicións apa
 
 Revise todos os cambios listados a continuación para que as súas edicións aparezan na versión estable.',
 	'revreview-update-includes' => 'Actualizáronse algúns modelos ou ficheiros (as páxinas non revisadas van en negra):',
-	'revreview-reject-header' => 'Rexeitar os cambios de "$1"',
 	'revreview-reject-text-list' => "Ao completar esta acción, '''rexeitará''' os cambios no texto fonte {{PLURAL:\$1|da seguinte revisión|das seguintes revisións}} de \"[[:\$2|\$2]]\":",
 	'revreview-reject-text-revto' => 'Isto reverterá a páxina ata a [{{fullurl:$1|oldid=$2}} versión do $3].',
 	'revreview-reject-summary' => 'Resumo:',
@@ -1976,7 +2072,6 @@ Revise todos os cambios listados a continuación para que as súas edicións apa
 	'revreview-reject-summary-old' => 'Rexeitou {{PLURAL:$1|o primeiro cambio|os primeiros $1 cambios}} no texto (de $2) que seguen á revisión $3 de $4',
 	'revreview-reject-summary-cur-short' => 'Rexeitou {{PLURAL:$1|o último cambio|os últimos $1 cambios}} no texto e recuperou a revisión $2 de $3',
 	'revreview-reject-summary-old-short' => 'Rexeitou {{PLURAL:$1|o primeiro cambio|os primeiros $1 cambios}} no texto que seguen á revisión $2 de $3',
-	'revreview-reject-usercount' => '{{PLURAL:$1|un usuario|$1 usuarios}}',
 	'revreview-tt-flag' => 'Aprobar esta revisión marcándoa como comprobada',
 	'revreview-tt-unflag' => 'Suspender esta revisión marcándoa como non comprobada',
 	'revreview-tt-reject' => 'Rexeitar estes cambios no texto reverténdoos',
@@ -2111,7 +2206,6 @@ $messages['he'] = array(
 	'revreview-flag' => 'סקירה של גרסה זו',
 	'revreview-reflag' => 'סקירה חוזרת של גרסה זו',
 	'revreview-invalid' => "'''יעד בלתי תקין:''' מספר הגרסה שניתן אינו מצביע לגרסה [[{{MediaWiki:Validationpage}}|שנסקרה]].",
-	'revreview-legend' => 'דירוג תוכן הגרסה',
 	'revreview-log' => 'הערה:',
 	'revreview-main' => 'כדי לסקור, יש לבחור גרסה מסוימת של דף תוכן.
 
@@ -2132,8 +2226,10 @@ $messages['he'] = array(
 	'revreview-poss-conflict-c' => "'''אזהרה: [[User:$1|$1]] התחיל לסקור את השינויים האלה ב־$2 בשעה $3.'''",
 	'revreview-adv-reviewing-p' => 'לתשומת לבכם: סוקרים אחרים יכולים לראות שאתם סוקרים את הדף הזה.',
 	'revreview-adv-reviewing-c' => 'לתשומת לבכם: סוקרים אחרים יכולים לראות שאתם סוקרים את השינויים האלה.',
-	'revreview-sadv-reviewing-p' => 'לתשומת לבך: נא לפרסם את עצמך בתור סוקר הדף הזה.',
-	'revreview-sadv-reviewing-c' => '	לתשומת לבך: נא לפרסם את עצמך בתור סוקר השינויים האלה.',
+	'revreview-sadv-reviewing-p' => 'לתשומת לבך: אפשר $1 על עצמך למשתמשים אחרים בתור סוקר הדף הזה.',
+	'revreview-sadv-reviewing-c' => 'לתשומת לבך: נא $1 את עצמך למשתמשים אחרים בתור סוקר השינויים האלה.',
+	'revreview-adv-start-link' => 'להודיע',
+	'revreview-adv-stop-link' => 'לבטל את ההודעה',
 	'revreview-toolow' => 'יש לדרג כל אחת מהתכונות הבאות גבוה יותר מ"בלתי קבילה" כדי שהגרסה תיחשב לגרסה שנסקרה.
 
 כדי להסיר מגרסה את הגדרת מצב הסקירה שלה, יש ללחוץ על "דחיית הגרסה".
@@ -2147,7 +2243,6 @@ $messages['he'] = array(
 
 נא לסקור את כל השינויים המופיעים להלן כדי שהעריכות שלכם תופענה בגרסה היציבה.',
 	'revreview-update-includes' => 'עודכנו תבניות או קבצים (הדפים שלא נסקרו מובלטים):',
-	'revreview-reject-header' => 'דחיית השינויים עבור $1',
 	'revreview-reject-text-list' => "השלמת פעולה זו '''תדחה''' את השינויים בקוד המקור של {{PLURAL:$1|הגרסה הבאה|הגרסאות הבאות}} של [[:$2|$2]]:",
 	'revreview-reject-text-revto' => 'פעולה זו תשחזר את העמוד בחזרה לגרסה [{{fullurl:$1|oldid=$2}} מתאריך $3].',
 	'revreview-reject-summary' => 'תקציר העריכה:',
@@ -2157,7 +2252,6 @@ $messages['he'] = array(
 	'revreview-reject-summary-old' => '{{PLURAL:$1|נדחה שינוי הטקסט הראשון|נדחו $1 שינוי הטקסט הראשונים}} (מאת $2) אחרי גרסה $3 מאת $4',
 	'revreview-reject-summary-cur-short' => '{{PLURAL:$1|נדחה שינוי הטקסט האחרון|נדחו $1 שינויי הטקסט האחרונים}} ושוחזרה גרסה $2 מאת $3',
 	'revreview-reject-summary-old-short' => '{{PLURAL:$1|נדחה שינוי הטקסט הראשון|נדחו $1 שינויי הטקסט הראשונים}} אחרי גרסה $2 מאת $3',
-	'revreview-reject-usercount' => '{{PLURAL:$1|משתמש אחד|$1 משתמשים}}',
 	'revreview-tt-flag' => 'קבלת גרסה זו באמצעות סימונה כ"בדוקה"',
 	'revreview-tt-unflag' => 'דחיית הגרסה הזאת באמצעות סימונה כ"לא בדוקה"',
 	'revreview-tt-reject' => 'דחיית שינויים אלה על ידי שחזורם',
@@ -2455,7 +2549,6 @@ $messages['ia'] = array(
 	'revreview-flag' => 'Revider iste version',
 	'revreview-reflag' => 'Re-revider iste version',
 	'revreview-invalid' => "'''Destination invalide:''' nulle version [[{{MediaWiki:Validationpage}}|revidite]] corresponde al ID specificate.",
-	'revreview-legend' => 'Evalutar le contento del version',
 	'revreview-log' => 'Commento:',
 	'revreview-main' => 'Tu debe seliger un version particular de un pagina de contento pro poter revider lo.
 
@@ -2493,7 +2586,6 @@ Per favor revide tote le modificationes monstrate hic infra pro facer tu modific
 
 Per favor revide tote le modificationes monstrate hic infra pro facer tu modificationes apparer in le version stabile.',
 	'revreview-update-includes' => 'Patronos/files actualisate (paginas non revidite in grasse):',
-	'revreview-reject-header' => 'Rejectar modificationes pro $1',
 	'revreview-reject-text-list' => "Per exequer iste action, tu '''rejecta''' le modificationes in le texto-fonte del sequente {{PLURAL:$1|version|versiones}} de [[:$2|$2]]:",
 	'revreview-reject-text-revto' => 'Isto revertera le pagina al [{{fullurl:$1|oldid=$2}} version del $3].',
 	'revreview-reject-summary' => 'Summario:',
@@ -2503,7 +2595,6 @@ Per favor revide tote le modificationes monstrate hic infra pro facer tu modific
 	'revreview-reject-summary-old' => 'Rejectava le prime {{PLURAL:$1|modification|$1 modificationes}} de texto (per $2) que sequeva le version $3 per $4',
 	'revreview-reject-summary-cur-short' => 'Rejectava le ultime {{PLURAL:$1|modification|$1 modificationes}} de texto e restaurava le version $2 per $3',
 	'revreview-reject-summary-old-short' => 'Rejectava le prime {{PLURAL:$1|modification|$1 modificationes}} de texto que sequeva le version $2 per $3',
-	'revreview-reject-usercount' => '{{PLURAL:$1|un usator|$1 usatores}}',
 	'revreview-tt-flag' => 'Approbar iste version per marcar lo como verificate',
 	'revreview-tt-unflag' => 'Cessar de acceptar iste version per marcar lo como como "non verificate"',
 	'revreview-tt-reject' => 'Rejectar iste modificationes de texto per reverter los',
@@ -3042,7 +3133,6 @@ $messages['lb'] = array(
 	'revreview-flag' => 'Dës Versioun nokucken',
 	'revreview-reflag' => 'Dës Versioun nach emol nokucken oder als net nogekuckt markéieren',
 	'revreview-invalid' => "'''Zil ass net valabel:''' keng [[{{MediaWiki:Validationpage}}|nogekuckte]] Versioun entsprécht der ID déi Dir uginn hutt.",
-	'revreview-legend' => 'Contenu vun der Versioun bewerten',
 	'revreview-log' => 'Bemierkung:',
 	'revreview-main' => "Dir musst eng prezis Versioun vun enger Inhaltssäit eraussichen fir se nokucken ze kënnen.
 
@@ -3065,6 +3155,8 @@ Kuckt d'[[Special:Unreviewedpages|Lëscht vun den net nogekuckte Sàiten]].",
 	'revreview-adv-reviewing-c' => 'Notiz: Aner Benotzer gesinn datt Dir dës Ännerungen nokuckt',
 	'revreview-sadv-reviewing-p' => 'Dir kënnt $1 datt Dir dës Säit nokuckt.',
 	'revreview-sadv-reviewing-c' => 'Dir kënnt $1 bekanntginn</a> datt Dir dës Ännerungen nokuckt.',
+	'revreview-adv-start-link' => 'bekanntginn',
+	'revreview-adv-stop-link' => 'bekanntginn zréckzéien',
 	'revreview-toolow' => "'''Dir musst fir all Attribut hei drënner eng Bewäertung ofginn déi besser ass wéi \"net adequat\" fir datt eng Versioun als nogekuckt betruecht ka ginn.'''
 
 Fir de Statut nogekuckt vun enger Versioun ewechzehuelen klickt op \"net akzeptéieren\".
@@ -3078,7 +3170,6 @@ Kuckt w.e.g. all d\'Ännerungen hei drënner no fir datt Är Ännerungen an der 
 
 Kuckt w.e.g. all d\'Ännerungen hei drënner no fir datt Är Ännerungen akzeptéiert ginn.',
 	'revreview-update-includes' => 'Schablounen/Fichiere aktualiséiert (net nogekuckte Säite si fettgegréckt):',
-	'revreview-reject-header' => 'Ännerunge fir $1 rejetéieren',
 	'revreview-reject-text-list' => "Wann Dir dës Aktioun ofschléisst, da '''verwerft''' Dir d'Ännerunge vum Quelltext vun {{PLURAL:$1|der Versioun|de Versioune}} vum [[:$2|$2]]:",
 	'revreview-reject-text-revto' => "Dëst setzt d'Säit zréck op d'[{{fullurl:$1|oldid=$2}} Versioun vum $3].",
 	'revreview-reject-summary' => 'Resumé:',
@@ -3088,7 +3179,6 @@ Kuckt w.e.g. all d\'Ännerungen hei drënner no fir datt Är Ännerungen akzept�
 	'revreview-reject-summary-old' => 'Déi lescht {{PLURAL:$1|Textännerung|$1 Textännerunge}} (vum $2) déi no der Versioun $3 vum $4 koum {{PLURAL:$1|gouf|goufe}} refuséiert',
 	'revreview-reject-summary-cur-short' => "Déi lescht {{PLURAL:$1|Textännerung gouf|$1 Textännerunge goufe}} refuséiert an d'Versioun $2 vum $3 gouf restauréiert",
 	'revreview-reject-summary-old-short' => 'Déi éischt {{PLURAL:$1|Textännerung|$1 Textännerungen}} déi no der Versioun $2 vum $3 {{PLURAL:$1|koum, gouf|koumen, goufe}} refuséiert',
-	'revreview-reject-usercount' => '{{PLURAL:$1|Ee Benotzer|$1 Benotzer}}',
 	'revreview-tt-flag' => 'Dës Versioun als nogekuckt markéieren',
 	'revreview-tt-unflag' => 'Dës Versioun net akzeptéieren andeem se als "net méi nogekuckt" markéiert gëtt',
 	'revreview-tt-reject' => 'Dës Ännerungen vum Quelltext zeréckweisen an deem ze zréckgesat ginn',
@@ -3123,7 +3213,6 @@ Gebroek dit slechs wen se de ganse pagina al gezeen hes.',
 	'revreview-flag' => 'Deze versie beoordeile',
 	'revreview-reflag' => 'Hèrcontroleer dees versie',
 	'revreview-invalid' => "'''Óngeljig bestömming:''' d'r is gein [[{{MediaWiki:Validationpage}}|gecontroleerde]] versie die euvereinkump mit 't ópgegaeve nómmer.",
-	'revreview-legend' => 'Versieinhoud wardere',
 	'revreview-log' => 'Opmerking:',
 	'revreview-main' => "De mós 'n specifieke versie van 'n pagina keze die se wils controlere.
 
@@ -3204,7 +3293,6 @@ $messages['mk'] = array(
 	'revreview-flag' => 'Оценка на оваа ревизија',
 	'revreview-reflag' => 'Преоцени ја оваа ревизија',
 	'revreview-invalid' => "'''Погрешна цел:''' нема [[{{MediaWiki:Validationpage}}|оценети]] ревизии кои соодветствуваат на наведениот ид. бр.",
-	'revreview-legend' => 'Оценка за содржината на ревизијата',
 	'revreview-log' => 'Забелешка:',
 	'revreview-main' => 'Мора да изберете конкретна ревизија на страницата за проверка.
 
@@ -3242,7 +3330,6 @@ $messages['mk'] = array(
 
 За да се појават во верзијата, најпрвин прегледате ги сите долунаведени промени.',
 	'revreview-update-includes' => 'Подновени шаблони/податотеки (непроверените страници се задебелени):',
-	'revreview-reject-header' => 'Отфрли промени на $1',
 	'revreview-reject-text-list' => "Довршувајќи ја оваа постапка, ќе ги  '''отфрлите''' измените во изворниот текст на {{PLURAL:$1|скеднава ревизија|следниве ревизии}} на [[:$2|$2]]:",
 	'revreview-reject-text-revto' => 'Ова ќе ја врати страницата на [{{fullurl:$1|oldid=$2}} верзијата од $3].',
 	'revreview-reject-summary' => 'Опис:',
@@ -3252,7 +3339,6 @@ $messages['mk'] = array(
 	'revreview-reject-summary-old' => '{{PLURAL:$1|Одбиена првата промена во текстот (од $2), извршена|Одбиени првите $1 промени во текстот (од $2), извршени}} по ревизијата $3 на $4',
 	'revreview-reject-summary-cur-short' => '{{PLURAL:$1|Одбиена последната промена|Одбиени последните $1 промени}} во текстот и вратена ревизијата $2 на $3',
 	'revreview-reject-summary-old-short' => '{{PLURAL:$1|Одбиена првата промена во текстот (од $2), извршена|Одбиени првите $1 промени во во текстот (од $2), извршена}} по ревизијата $2 на $3',
-	'revreview-reject-usercount' => '{{PLURAL:$1|еден корисник|$1 корисници}}',
 	'revreview-tt-flag' => 'Одобри ја оваа верзија означувајќи ја како проверена',
 	'revreview-tt-unflag' => 'Направете ја оваа верзија неприфатлива означувајќи ја како „непроверена“',
 	'revreview-tt-reject' => 'Одбијте ги овие промени во текстот, враќајќи ги',
@@ -3292,7 +3378,6 @@ $messages['ml'] = array(
 	'revreview-flag' => 'ഈ പതിപ്പ് സംശോധനം ചെയ്യുക',
 	'revreview-reflag' => 'ഈ നാൾപ്പതിപ്പ് പുനർസംശോധനം ചെയ്യുക',
 	'revreview-invalid' => "'''അസാധുവായ ലക്ഷ്യം:''' തന്ന IDക്കു ചേരുന്ന [[{{MediaWiki:Validationpage}}|സംശോധനം ചെയ്ത പതിപ്പുകൾ]] ഒന്നും തന്നെയില്ല.",
-	'revreview-legend' => 'പതിപ്പിന്റെ ഉള്ളടക്കം വിലയിരുത്തുക',
 	'revreview-log' => 'അഭിപ്രായം:',
 	'revreview-main' => 'സംശോധനം ചെയ്യാനായി ഉള്ളടക്ക താളിന്റെ ഒരു പ്രത്യേക നാൾപ്പതിപ്പ് താങ്കൾ തിരഞ്ഞെടുക്കേണ്ടതാണ്.
 
@@ -3326,7 +3411,6 @@ $messages['ml'] = array(
 
 താങ്കളുടെ തിരുത്തലുകൾ സ്ഥിരപ്പെടുത്താൻ, താഴെ കൊടുത്തിരിക്കുന്ന മാറ്റങ്ങൾ സംശോധനം ചെയ്യുക.',
 	'revreview-update-includes' => 'ചില ഫലകങ്ങൾ/പ്രമാണങ്ങൾ പുതുക്കിയിരിക്കുന്നു (സംശോധനം ചെയ്യാത്ത താളുകൾ കട്ടികൂട്ടി കാണിച്ചിരിക്കുന്നു):',
-	'revreview-reject-header' => '$1 എന്നതിനുള്ള മാറ്റങ്ങൾ നിരാകരിക്കുക',
 	'revreview-reject-text-list' => "ഈ പ്രവൃത്തി പൂർത്തിയാകുമ്പോൾ, താങ്കൾ താഴെ കൊടുത്തിരിക്കുന്ന {PLURAL:$1|നാൾപ്പതിപ്പിൽ|നാൾപ്പതിപ്പുകളിൽ}} സ്രോതസ്സ് എഴുത്തിനു [[:$2|$2]]-ൽ ഉണ്ടായ മാറ്റങ്ങൾ '''നിരാകരിച്ചിരിക്കും''':",
 	'revreview-reject-text-revto' => 'ഇത് താളിനെ അതിന്റെ [{{fullurl:$1|oldid=$2}} $3 തീയതിയിലെ പതിപ്പിലേയ്ക്ക്] മുൻപ്രാപനം ചെയ്യും.',
 	'revreview-reject-summary' => 'ചുരുക്കം:',
@@ -3336,7 +3420,6 @@ $messages['ml'] = array(
 	'revreview-reject-summary-old' => '$4 സൃഷ്ടിച്ച $3 എന്ന നാൾപ്പതിപ്പിനെ തുടർന്ന് ചെയ്ത ആദ്യഎഴുത്ത്  {{PLURAL:$1|മാറ്റം|$1 മാറ്റങ്ങൾ}} ($2 ചെയ്തത്) നിരാകരിച്ചിരിക്കുന്നു',
 	'revreview-reject-summary-cur-short' => 'എഴുത്തിലെ അവസാന {{PLURAL:$1|മാറ്റം|$1 മാറ്റങ്ങൾ}} നിരാകരിക്കുകയും $3 സൃഷ്ടിച്ച നാൾപ്പതിപ്പ് $2 പുനഃസ്ഥാപിക്കുകയും ചെയ്തിരിക്കുന്നു',
 	'revreview-reject-summary-old-short' => '$3 സൃഷ്ടിച്ച $2 എന്ന നാൾപ്പതിപ്പിനെ തുടർന്ന് എഴുത്തിൽ ചെയ്ത ആദ്യ {{PLURAL:$1|മാറ്റം|$1 മാറ്റങ്ങൾ}} നിരാകരിച്ചിരിക്കുന്നു',
-	'revreview-reject-usercount' => '{{PLURAL:$1|ഒരുപയോക്താവ്|$1 ഉപയോക്താക്കൾ}}',
 	'revreview-tt-flag' => 'ഈ നാൾപ്പതിപ്പ് പരിശോധിച്ചതായി അടയാളപ്പെടുത്തി അംഗീകരിക്കുക',
 	'revreview-tt-unflag' => 'ഈ നാൾപ്പതിപ്പ് "പരിശോധിച്ചതല്ല" എന്നടയാളപ്പെടുത്തി അംഗീകാരം നീക്കുക',
 	'revreview-tt-reject' => 'എഴുത്തിൽ വന്ന ഈ മാറ്റങ്ങൾ പുനഃപ്രാപനം ചെയ്ത് നിരാകരിക്കുക',
@@ -3410,7 +3493,6 @@ $messages['ms'] = array(
 	'revreview-flag' => 'Kaji semula semakan ini',
 	'revreview-reflag' => 'Kaji semula semakan ini sekali lagi',
 	'revreview-invalid' => "'''Sasaran tidak sah:''' tiada semakan [[{{MediaWiki:Validationpage}}|dikaji semula]] yang berpadan dengan ID yang diberikan.",
-	'revreview-legend' => 'Beri penilaian untuk kandungan semakan',
 	'revreview-log' => 'Komen:',
 	'revreview-main' => 'Anda hendaklah memilih sebuah semakan tertentu daripada sesebuah laman kandungan untuk diperiksa.
 
@@ -3433,6 +3515,8 @@ Sila lihat [[Special:Unreviewedpages|senarai laman yang belum diperiksa]].',
 	'revreview-adv-reviewing-c' => 'Peringatan: Peninjau lain boleh melihat anda mengkaji semula perubahan ini.',
 	'revreview-sadv-reviewing-p' => 'Anda boleh $1 diri anda mengkaji semula laman ini kepada para pengguna lain.',
 	'revreview-sadv-reviewing-c' => 'Anda boleh $1 diri anda mengkaji semula perubahan ini kepada para pengguna lain.',
+	'revreview-adv-start-link' => 'hebahkan',
+	'revreview-adv-stop-link' => 'jangan hebahkan',
 	'revreview-toolow' => '\'\'\'Anda mesti menilai setiap satu atribut itu sebagai lebih tinggi daripada "tidak memadai" supaya semakan itu dianggap sudah dikaji semula.\'\'\'
 
 Untuk membatalkan status kaji semula semakan itu, klik "tarik balik penerimaan".
@@ -3446,7 +3530,6 @@ Sila kaji semula segala perubahan yang ditunjukkan di bawah untuk memastikan aga
 
 Sila kaji semula segala perubahan yang ditunjukkan di bawah untuk memastikan agar suntingan anda muncul dalam versi stabil.',
 	'revreview-update-includes' => 'Templat/fail dikemaskini (laman yang belum dikaji semula berhuruf tebal):',
-	'revreview-reject-header' => 'Tolak perubahan untuk $1',
 	'revreview-reject-text-list' => "Dengan melengkapkan tindakan ini, anda akan '''menolak''' perubahan teks sumber daripada {{PLURAL:$1|semakan|semakan-semakan}} [[:$2|$2]] yang berikut:",
 	'revreview-reject-text-revto' => 'Ini akan membalikkan laman ini kepada [versi {{fullurl:$1|oldid=$2}} seperti pada $3].',
 	'revreview-reject-summary' => 'Ringkasan:',
@@ -3456,7 +3539,6 @@ Sila kaji semula segala perubahan yang ditunjukkan di bawah untuk memastikan aga
 	'revreview-reject-summary-old' => 'Menolak {{PLURAL:$1|perubahan|$1 perubahan}} teks pertama (oleh $2) yang menyusuli semakan $3 oleh $4',
 	'revreview-reject-summary-cur-short' => 'Menolak {{PLURAL:$1|perubahan|$1 perubahan}} teks terbaru dan memulihkan semakan $2 oleh $3',
 	'revreview-reject-summary-old-short' => 'Menolak {{PLURAL:$1|perubahan|$1 perubahan}} teks pertama yang menyusuli semakan $2 oleh $3',
-	'revreview-reject-usercount' => '{{PLURAL:$1|seorang pengguna|$1 orang pengguna}}',
 	'revreview-tt-flag' => 'Terima semakan ini dengan menandainya sebagai "diperiksa"',
 	'revreview-tt-unflag' => 'Tarik balik penerimaan semakan ini dengan menandainya sebagai "tidak diperiksa"',
 	'revreview-tt-reject' => 'Tolak perubahan teks sumber ini dengan membalikkannya',
@@ -3505,7 +3587,6 @@ Gebruik dit alleen als u de hele pagina al gezien hebt.',
 	'revreview-flag' => 'Versie controleren',
 	'revreview-reflag' => 'Versie opnieuw controleren',
 	'revreview-invalid' => "'''Ongeldige bestemming:''' er is geen [[{{MediaWiki:Validationpage}}|gecontroleerde]] versie die overeenkomt met het opgegeven nummer.",
-	'revreview-legend' => 'Versieinhoud waarderen',
 	'revreview-log' => 'Opmerking:',
 	'revreview-main' => "U moet een specifieke versie van een pagina kiezen die u wilt controleren.
 
@@ -3539,7 +3620,6 @@ Controleer alle wijzigingen hieronder om uw bewerkingen zichtbaar te maken in de
 
 Controleer alle hieronder weergegeven wijzigingen om ook uw bewerking zichtbaar te maken in de stabiele versie.',
 	'revreview-update-includes' => "Sommige sjablonen/bestanden zijn bijgewerkt (ongecontroleerde pagina's in vet):",
-	'revreview-reject-header' => 'Wijzigingen voor $1 afkeuren',
 	'revreview-reject-text-list' => "Door deze handeling uit te voeren, '''keurt u de brontekstwijzingen af''' van de volgende {{PLURAL:$1|versie|versies}} van [[:$2|$2]]:",
 	'revreview-reject-text-revto' => 'Hiermee wordt de [{{fullurl:$1|oldid=$2}} versie per $3] teruggeplaatst.',
 	'revreview-reject-summary' => 'Samenvatting:',
@@ -3549,7 +3629,6 @@ Controleer alle hieronder weergegeven wijzigingen om ook uw bewerking zichtbaar 
 	'revreview-reject-summary-old' => 'Heeft de eerste {{PLURAL:$1|tekstwijziging|$1 |tekstwijzigingen}} (door $2) na versie $3 door $4 afgekeurd',
 	'revreview-reject-summary-cur-short' => 'Heeft de laatste {{PLURAL:$1||tekstwijziging|$1 |tekstwijzigingen}} afgekeurd en versie $2 door $3 teruggeplaatst',
 	'revreview-reject-summary-old-short' => 'Heeft de eerste {{PLURAL:$1||tekstwijziging|$1 |tekstwijzigingen}} na versie $2 door $3 afgekeurd',
-	'revreview-reject-usercount' => '{{PLURAL:$1|één gebruiker|$1 gebruikers}}',
 	'revreview-tt-flag' => 'Deze versie goedkeuren door haar als gecontroleerd te markeren',
 	'revreview-tt-unflag' => "Keur deze versie af door haar als '''ongecontroleerd''' te markeren",
 	'revreview-tt-reject' => 'Deze wijzigingen afkeuren door te terug te draaien',
@@ -3737,7 +3816,6 @@ $messages['pl'] = array(
 	'revreview-flag' => 'Oznacz tę wersję',
 	'revreview-reflag' => 'Ponownie przejrzyj tę wersję',
 	'revreview-invalid' => "'''Niewłaściwy obiekt:''' brak [[{{MediaWiki:Validationpage}}|wersji przejrzanej]] odpowiadającej podanemu ID.",
-	'revreview-legend' => 'Oceń treść zmiany',
 	'revreview-log' => 'Komentarz:',
 	'revreview-main' => 'Musisz wybrać konkretną wersję strony w celu przejrzenia.
 
@@ -3770,7 +3848,6 @@ Przejrzyj wszystkie poniższe zmiany, a Twoje edycje zostaną zamieszczone w wer
 
 Przejrzyj wszystkie poniższe zmiany, a Twoje edycje zostaną zamieszczone w wersji oznaczonej.',
 	'revreview-update-includes' => 'Niektóre szablony lub pliki zostały uaktualnione (nieprzejrzane strony są wytłuszczone):',
-	'revreview-reject-header' => 'Wycofanie zmian w $1',
 	'revreview-reject-text-list' => "Zatwierdzając tę akcję '''wycofasz''' zmiany zrobione w {{PLURAL:$1|wersji|wersjach}} [[:$2|$2]]:",
 	'revreview-reject-text-revto' => 'Ta akcja spowoduje przywrócenie strony do [{{fullurl:$1|oldid=$2}} wersji z $3].',
 	'revreview-reject-summary' => 'Podsumowanie',
@@ -3780,7 +3857,6 @@ Przejrzyj wszystkie poniższe zmiany, a Twoje edycje zostaną zamieszczone w wer
 	'revreview-reject-summary-old' => 'Wycofano {{PLURAL:$1|pierwszą zmianę|pierwsze $1 zmiany|pierwszych $1 zmian}} treści ({{PLURAL:$1|zrobioną|zrobione|zrobionych}} przez $2), {{PLURAL:$1|którą wykonano|które wykonano}} po wersji $3 autorstwa $4',
 	'revreview-reject-summary-cur-short' => 'Wycofano {{PLURAL:$1|ostatnią zmianę|ostatnie $1 zmiany|ostatnich $1 zmian}} treści i przywrócono wersję $2 autorstwa $3',
 	'revreview-reject-summary-old-short' => 'Wycofano {{PLURAL:$1|pierwszą zmianę|pierwsze $1 zmiany|pierwszych $1 zmian}} treści, {{PLURAL:$1|którą wykonano|które wykonano}} po wersji $2 autorstwa $3',
-	'revreview-reject-usercount' => '{{PLURAL:$1|jeden użytkownik|$1 użytkowników}}',
 	'revreview-tt-flag' => 'Zaakceptuj tę wersję poprzez oznaczenie jej jako „przejrzaną”',
 	'revreview-tt-unflag' => 'Wycofaj akceptację tej wersji poprzez oznaczenie jej jako „nieprzejrzaną”',
 	'revreview-tt-reject' => 'Odrzuć te zmiany w tekście poprzez ich wycofanie',
@@ -3820,7 +3896,6 @@ $messages['pms'] = array(
 	'revreview-flag' => 'Revisioné sta version',
 	'revreview-reflag' => 'Revision-a torna sta revision-sì',
 	'revreview-invalid' => "'''Obietiv pa bon:000 pa gnun-e revision [[{{MediaWiki:Validationpage}}|revisionà]] a corispondo a l'ID dàit.",
-	'revreview-legend' => "Deje 'l vot al contnù dla version:",
 	'revreview-log' => 'Coment për ël registr:',
 	'revreview-main' => 'A deuv selessioné na revision particolar ëd na pàgina ëd contnù për revisionela.
 
@@ -3852,8 +3927,7 @@ Për piasì ch\'a revision-a tùit ij cambi smonù sì-sota përchè soe modìfi
 	'revreview-update-edited-prev' => "<span class=\"flaggedrevs_important\">Soe modìfiche a son anco' pa ant la version stàbil. A-i é dle modìfiche precedente ch'a speto na revision.</span>
 
 Për piasì ch'a revision-a tùit ij cambiament mostrà sì-sota përchè soe modìfiche a intro ant la version stàbil.",
-	'revreview-update-includes' => 'Stamp/archivi agiornàà (pàgine nen revisionà an grassèt):',
-	'revreview-reject-header' => 'Cambi arfudà për $1',
+	'revreview-update-includes' => 'Stamp/archivi agiornà (pàgine nen revisionà an grassèt):',
 	'revreview-reject-text-list' => "An completand cost'assion a '''arfudrà''' le modìfiche an sël test sorgiss ëd {{PLURAL:$1|la modìfica|le modìfiche}} sì-dapress ëd [[:$2|$2]]:",
 	'revreview-reject-text-revto' => 'Sòn a porterà andré la pàgina a la [{{fullurl:$1|oldid=$2}} version ëd $3].',
 	'revreview-reject-summary' => 'Resumé:',
@@ -3863,7 +3937,6 @@ Për piasì ch'a revision-a tùit ij cambiament mostrà sì-sota përchè soe mo
 	'revreview-reject-summary-old' => "Arfudà {{PLURAL:$1|la prima modìfica ëd test|le prime $1 modìfiche ëd test}} (ëd $2) ch'a son ëvnùite apress la revision $3 da $4",
 	'revreview-reject-summary-cur-short' => "Arfudà {{PLURAL:$1|l'ùltim cambi ëd test|j'ùltim $1 cambi ëd test}} e ripristinà la revision $2 da $3",
 	'revreview-reject-summary-old-short' => "Arfudà {{PLURAL:$1|la prima modìfica ëd test|le prime $1 modìfiche ëd test}} ch'a son ëvnùite apress la revision $2 da $3",
-	'revreview-reject-usercount' => "{{PLURAL:$1|n'utent|$1 utent}}",
 	'revreview-tt-flag' => 'Apreuva sta revision-sì an marcandla com revisionà',
 	'revreview-tt-unflag' => 'Gava da aprovà sta revision-sì an marcandla com pa controlà',
 	'revreview-tt-reject' => 'Arfudé coste modìfiche ant ël test sorgiss an tirandje andré',
@@ -4217,7 +4290,6 @@ $messages['ru'] = array(
 	'revreview-flag' => 'Проверить эту версию',
 	'revreview-reflag' => 'Перепроверить эту версию',
 	'revreview-invalid' => "'''Ошибочная цель:''' не существует [[{{MediaWiki:Validationpage}}|проверенной]] версии страницы, соответствующей указанному идентификатору.",
-	'revreview-legend' => 'Оценки содержания версии',
 	'revreview-log' => 'Примечание:',
 	'revreview-main' => 'Вы должны выбрать одну из версий страницы для проверки.
 
@@ -4238,8 +4310,10 @@ $messages['ru'] = array(
 	'revreview-poss-conflict-c' => "'''Предупреждение. [[User:$1|$1]] приступил к проверке этих изменений $2 в $3.'''",
 	'revreview-adv-reviewing-p' => 'Примечание. Другие рецензенты могут видеть, что вы проверяете эту страницы.',
 	'revreview-adv-reviewing-c' => 'Примечание. Другие рецензенты могут видеть, что вы проверяете эти изменения.',
-	'revreview-sadv-reviewing-p' => 'Примечание. Пожалуйста, объявите, что вы проверяете эту страницу.',
-	'revreview-sadv-reviewing-c' => 'Примечание. Пожалуйста, объявите, что вы проверяете эти изменения.',
+	'revreview-sadv-reviewing-p' => 'Вы можете $1, что вы проверяете эту страницу.',
+	'revreview-sadv-reviewing-c' => 'Вы можете $1, что вы проверяете эти изменения.',
+	'revreview-adv-start-link' => 'объявить',
+	'revreview-adv-stop-link' => 'снять объявление',
 	'revreview-toolow' => "'''Вы должны указать для всех значений уровень выше, чем «недостаточный», чтобы версия страницы считалась проверенной.'''
 
 Чтобы сбросить признак проверки этой версии, нажмите «Снять подтверждение».
@@ -4253,7 +4327,6 @@ $messages['ru'] = array(
 
 Чтобы включить ваши правки в стабильную версию, пожалуйста, проверьте все изменения, показанные ниже.',
 	'revreview-update-includes' => 'Обновлённые шаблоны или файлы (непроверенные выделены жирным):',
-	'revreview-reject-header' => 'Отклонить изменения для $1',
 	'revreview-reject-text-list' => "Выполняя это действие, вы '''отвергаете''' изменение исходного кода в {{PLURAL:$1|следующей версии|следующих версиях}}:",
 	'revreview-reject-text-revto' => 'Возвращает страницу назад к [{{fullurl:$1|oldid=$2}} версии от $3].',
 	'revreview-reject-summary' => 'Описание:',
@@ -4263,7 +4336,6 @@ $messages['ru'] = array(
 	'revreview-reject-summary-old' => '{{PLURAL:$1|Отклонено первое $1 текстовое изменение|Отклонены первые $1 текстовых изменения|Отклонены первые $1 текстовых изменений}} ($2), {{PLURAL:$1|следовавшее|следовавшие}} за версией $3 $4',
 	'revreview-reject-summary-cur-short' => '{{PLURAL:$1|Отклонено последнее $1 текстовое изменение|Отклонены последние $1 текстовых изменения|Отклонены последние $1 текстовых изменений}} и восстановлена версия $2 $3',
 	'revreview-reject-summary-old-short' => '{{PLURAL:$1|Отклонено первое $1 текстовое изменение|Отклонены первые $1 текстовых изменения|Отклонены первые $1 текстовых изменений}}, {{PLURAL:$1|следовавшее|следовавшие}} за версией $2 $3',
-	'revreview-reject-usercount' => '{{PLURAL:$1|$1 участника|$1 участников|$1 участников}}',
 	'revreview-tt-flag' => 'Подтвердите эту версию, отметив её как проверенную',
 	'revreview-tt-unflag' => 'Снять подтверждение с этой версии, отметив её как непроверенную',
 	'revreview-tt-reject' => 'Отклонить эти текстовые изменения, откатить их',
@@ -4521,7 +4593,6 @@ $messages['sl'] = array(
 	'revreview-flag' => 'Ocenite to redakcijo',
 	'revreview-reflag' => 'Ponovno ocenite to redakcijo',
 	'revreview-invalid' => "'''Neveljavni cilj:''' nobena [[{{MediaWiki:Validationpage}}|pregledana]] redakcija ne ustreza danemu ID-ju.",
-	'revreview-legend' => 'Oceni vsebino redakcije',
 	'revreview-log' => 'Komentar:',
 	'revreview-main' => 'Izbrati morate določeno redakcijo vsebinske strani, če jo želite pregledati.
 
@@ -4559,7 +4630,6 @@ Prosimo, preglejte vse spremembe prikazane podaj, da prikažete vaše spremembe 
 
 Prosimo, preglejte vse spremembe prikazane podaj, da prikažete vaše spremembe v ustaljeni različici.',
 	'revreview-update-includes' => 'Predloge/datoteke so posodobljene (nepregledane strani so zapisane krepko):',
-	'revreview-reject-header' => 'Zavrni spremembe $1',
 	'revreview-reject-text-list' => "Z izvedbo tega dejanja boste '''zavrnili''' spremembe izvornega besedila od {{PLURAL:$1|naslednje redakcije|naslednjih redakcij}} [[:$2|$2]]:",
 	'revreview-reject-text-revto' => 'To bo povrnilo stran nazaj na [{{fullurl:$1|oldid=$2}} različico dne $3].',
 	'revreview-reject-summary' => 'Povzetek:',
@@ -4569,7 +4639,6 @@ Prosimo, preglejte vse spremembe prikazane podaj, da prikažete vaše spremembe 
 	'revreview-reject-summary-old' => 'Zavrnil {{PLURAL:$1|prvo spremembo besedila, ki je sledila|prvi $1 spremembi besedila, ki sta sledili|prve $1 spremembe besedila, ki so sledile|prvih $1 sprememb besedila, ki so sledile}} (od $2) redakciji $3 do $4',
 	'revreview-reject-summary-cur-short' => 'Zavrnil {{PLURAL:$1|zadnjo spremembo|zadnji $1 spremembi|zadnje $1 spremembe|zadnjih $1 sprememb}} besedila in obnovil redakcije $2 do $3',
 	'revreview-reject-summary-old-short' => 'Zavrnil {{PLURAL:$1|prvo spremembo besedila, ki je sledila|prvi $1 spremembi besedila, ki sta sledili|prve $1 spremembe besedila, ki so sledile|prvih $1 sprememb besedila, ki so sledile}} redakciji $2 do $3',
-	'revreview-reject-usercount' => '$1 {{PLURAL:$1|uporabnik|uporabnika|uporabniki|uporabnikov}}',
 	'revreview-tt-flag' => 'Sprejmite to redakcijo tako, da jo označite kot »preverjeno«',
 	'revreview-tt-unflag' => 'Odsprejmite to redakcijo tako, da jo označite kot »nepreverjeno«',
 	'revreview-tt-reject' => 'Zavrnite te spremembe besedila tako, da jih vrnete',
@@ -5284,7 +5353,6 @@ $messages['vi'] = array(
 	'revreview-flag' => 'Duyệt phiên bản này',
 	'revreview-reflag' => 'Duyệt lại phiên bản này',
 	'revreview-invalid' => "'''Không hợp lệ:''' không có bản [[{{MediaWiki:Validationpage}}|đã duyệt]] tương ứng với ID được cung cấp.",
-	'revreview-legend' => 'Xếp hạng nội dung phiên bản',
 	'revreview-log' => 'Nhận xét:',
 	'revreview-main' => 'Bạn phải chọn một phiên bản cụ thể từ một trang nội dung để duyệt.
 
@@ -5307,6 +5375,8 @@ Mời xem [[Special:Unreviewedpages|danh sách các trang chưa được duyệt
 	'revreview-adv-reviewing-c' => 'Chú ý: Những người duyệt bài khác có thể xem rằng bạn đang duyệt các thay đổi này.',
 	'revreview-sadv-reviewing-p' => 'Bạn có thể $1 cho người ta biết rằng bạn đang duyệt trang này.',
 	'revreview-sadv-reviewing-c' => 'Bạn có thể $1 cho người ta biết rằng bạn đang duyệt các thay đổi này.',
+	'revreview-adv-start-link' => 'báo',
+	'revreview-adv-stop-link' => 'ngừng báo',
 	'revreview-toolow' => "'''Mỗi thuộc tính cần phải cao hơn “kém” để cho phiên bản có thể được xem là được duyệt.'''
 
 Để rút cờ được duyệt của một phiên bản, hãy bấm “Rút chấp nhận”.
@@ -5320,7 +5390,6 @@ Xin hãy duyệt các thay đổi ở dưới để đưa các sửa đổi củ
 
 Xin hãy duyệt các thay đổi ở dưới để đưa các sửa đổi của bạn vào phiên bản ổn định.',
 	'revreview-update-includes' => 'Bản mẫu hay tập tin được cập nhật (các trang chưa duyệt được in đậm):',
-	'revreview-reject-header' => 'Từ chối những thay đổi $1',
 	'revreview-reject-text-list' => "Bằng tác vụ này, bạn sẽ '''từ chối''' {{PLURAL:$1|thay đổi|những thay đổi}} văn bản tại [[:$2|$2]] sau:",
 	'revreview-reject-text-revto' => 'Trang sẽ được quay về [{{fullurl:$1|oldid=$2}} phiên bản lúc $3].',
 	'revreview-reject-summary' => 'Tóm lược:',
@@ -5330,7 +5399,6 @@ Xin hãy duyệt các thay đổi ở dưới để đưa các sửa đổi củ
 	'revreview-reject-summary-old' => 'Đã từ chối {{PLURAL:$1|thay đổi|$1 thay đổi}} văn bản đầu tiên (của $2) tiếp theo phiên bản $3 của $4',
 	'revreview-reject-summary-cur-short' => 'Đã từ chối {{PLURAL:$1|thay đổi|$1 thay đổi}} văn bản cuối cùng quay về phiên bản $2 của $3',
 	'revreview-reject-summary-old-short' => 'Đã từ chối {{PLURAL:$1|thay đổi|$1 thay đổi}} văn bản đầu tiên tiếp theo phiên bản $2 của $3',
-	'revreview-reject-usercount' => '{{PLURAL:$1|một người dùng|$1 người dùng}}',
 	'revreview-tt-flag' => 'Chấp nhận thay đổi này bằng cách đánh dấu nó là “đã xem qua”',
 	'revreview-tt-unflag' => 'Rút chấp nhận phiên bản này bằng cách đánh dấu nó là “chưa xem qua”',
 	'revreview-tt-reject' => 'Từ chối các thay đổi văn bản này bằng cách lùi lại chúng',
