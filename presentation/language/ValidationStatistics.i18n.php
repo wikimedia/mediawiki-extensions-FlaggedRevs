@@ -412,7 +412,7 @@ $messages['da'] = array(
  * @author Umherirrender
  */
 $messages['de'] = array(
-	'validationstatistics' => 'Versionsmarkierungsstatistiken',
+	'validationstatistics' => 'Statistiken zu Versionsmarkierungen',
 	'validationstatistics-users' => "'''{{SITENAME}}''' hat momentan '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|Benutzer|Benutzer}} mit [[{{MediaWiki:Validationpage}}|Sichterrecht]].
 
 Sichter sind anerkannte Benutzer, die Versionen einer Seite markieren können.",
@@ -422,7 +422,7 @@ Sichter sind anerkannte Benutzer, die Versionen einer Seite markieren können.",
 Die durchschnittliche Wartezeit der [[Special:OldReviewedPages|Seiten mit unmarkierten Änderungen]] beträgt '''$1'''. Die Verzögerung misst wie lang die älteste unmarkierte Änderung unbestätigt blieb.",
 	'validationstatistics-revtime' => "Die durchschnittliche Wartezeit bis zur Markierung, bei Bearbeitungen ''durch Benutzer, die nicht angemeldet waren''  beträgt '''$1'''; der Median ist '''$2'''. 
 $3",
-	'validationstatistics-table' => 'Die Versionsmarkierungsstatistiken aller Seiten, mit Ausnahme von Weiterleitungsseiten, werden unten für jeden Namensraum angezeigt. Seiten werden als veraltet eingestuft, sofern sie unmarkierte Änderungen enthalten. Alle anderen Seiten werden als markiert und somit aktuell eingestuft.',
+	'validationstatistics-table' => 'Die Statistiken zu den Versionsmarkierungen aller Seiten, mit Ausnahme von Weiterleitungsseiten, werden unten für jeden Namensraum angezeigt. Seiten werden als veraltet eingestuft, sofern sie unmarkierte Änderungen enthalten. Alle anderen Seiten werden als markiert und somit aktuell eingestuft.',
 	'validationstatistics-ns' => 'Namensraum',
 	'validationstatistics-total' => 'Seiten gesamt',
 	'validationstatistics-stable' => 'Mindestens eine Version markiert',
@@ -764,7 +764,7 @@ Os editores son usuarios autoconfirmados que poden comprobar revisións de páxi
 A media de atraso para as [[Special:OldReviewedPages|páxinas con edicións sen revisión]] é de '''$1'''; isto mide o tempo que as edicións pendentes levan á espera dunha revisión.",
 	'validationstatistics-revtime' => "A media de espera de revisión para as edicións feitas polos ''usuarios que non accederon ao sistema'' é de '''$1'''; o valor medio é de '''$2'''.
 $3",
-	'validationstatistics-table' => "A continuación amósanse as estatísticas das revisións das páxinas para cada espazo de nomes, ''excluíndo'' as páxinas de redirección. As páxinas considéranse ''obsoletas'' se teñen edicións á espera dunha revisión; as páxinas atópanse ''sincronizadas'' se non hai edicións agardando por unha revisión.",
+	'validationstatistics-table' => "A continuación móstranse as estatísticas das revisións das páxinas para cada espazo de nomes, ''excluíndo'' as páxinas de redirección. As páxinas considéranse ''obsoletas'' se teñen edicións á espera dunha revisión; as páxinas atópanse ''sincronizadas'' se non hai edicións agardando por unha revisión.",
 	'validationstatistics-ns' => 'Espazo de nomes',
 	'validationstatistics-total' => 'Páxinas',
 	'validationstatistics-stable' => 'Revisado',

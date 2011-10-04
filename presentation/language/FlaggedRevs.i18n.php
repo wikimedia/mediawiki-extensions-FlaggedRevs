@@ -391,9 +391,8 @@ Also used in the box shown on page view, that gives information about the accept
 	'revreview-accuracy-0' => '{{Flagged Revs-small}}
 Possible value of the \'accuracy\' tag for a revision. All accepted revisions must have ratings for each tag type.
 The value name of any review tag indicating that the revision fails to meet basic standards for that tag type. For example, "accuracy" can be "inadequate".',
-	'revreview-accuracy-1' => '{{Flagged Revs-small}}
-Possible value of the \'accuracy\' tag for a revision. All accepted revisions must have ratings for each tag type.
-A basic check on vandalism ("checked" as "has been seen/checked"). This configuration is considered as "flagged".',
+	'revreview-accuracy-1' => "{{Flagged Revs-small}}
+Possible value of the 'accuracy' tag for a revision. All accepted revisions must have ratings for each tag type.",
 	'revreview-accuracy-2' => "{{Flagged Revs}}
 Possible value of the 'accuracy' tag for a revision. All accepted revisions must have ratings for each tag type.",
 	'revreview-accuracy-3' => "{{Flagged Revs}}
@@ -404,83 +403,150 @@ Possible value of the 'accuracy' tag for a revision. All accepted revisions must
 	'revreview-auto' => '{{Flagged Revs}}
 {{Identical|Automatic}}',
 	'revreview-basic' => '{{Flagged Revs}}
-* Parameter $2 is the date of the approval',
+Shown when viewing the stable version of a "checked" page when there are pending revisions.
+* $2 is the date of the approval
+* $3 is the number of pending edits (revisions)',
 	'revreview-basic-i' => '{{Flagged Revs}}
+Shown when viewing the stable version of a "checked" page when only templates or files used in it have pending revisions.
 * Parameter $2 is the date of the approval',
 	'revreview-basic-old' => '{{Flagged Revs}}
+Shown when viewing an old "checked" version of a page.
 * Parameter $2 is the date of the approval',
 	'revreview-basic-same' => '{{Flagged Revs}}
+Shown when viewing the stable version of a "checked" page when there are no pending changes.
 * Parameter $2 is the date of the approval',
 	'revreview-basic-source' => '{{Flagged Revs-small}}
-Displayed on the top of a page when you are viewing an old checked version. 
+Displayed on the top of a page when you are viewing an old checked revision. The link goes to the reviewed *version* of this revision (e.g. templates/files are stabilized). 
 * Example: [http://de.wikipedia.org/w/index.php?title=Deutsche_Sprache&oldid=46894374 de.wikipedia].
 * Parameter $2 is the date of the approval',
-	'revreview-current' => '{{Flagged Revs}}',
-	'revreview-depth' => '{{Flagged Revs}}',
-	'revreview-depth-0' => '{{Flagged Revs}}',
-	'revreview-depth-1' => '{{Flagged Revs}}',
-	'revreview-depth-2' => '{{Flagged Revs}}',
-	'revreview-depth-3' => '{{Flagged Revs}}',
-	'revreview-depth-4' => '{{Flagged Revs}}
-{{Identical|Featured}}',
-	'revreview-draft-title' => '{{Flagged Revs}}',
+	'revreview-current' => '{{Flagged Revs}}
+Used for the name of the tab on a page to view the latest version when there are pending changes.',
+	'revreview-depth' => "{{Flagged Revs}}
+Name of the 'depth' tag. Shown on review form and in review status box.",
+	'revreview-depth-0' => "{{Flagged Revs}}
+Possible value of the 'depth' tag for a revision. All accepted revisions must have ratings for each tag type.",
+	'revreview-depth-1' => "{{Flagged Revs}}
+Possible value of the 'depth' tag for a revision. All accepted revisions must have ratings for each tag type.",
+	'revreview-depth-2' => "{{Flagged Revs}}
+Possible value of the 'depth' tag for a revision. All accepted revisions must have ratings for each tag type.",
+	'revreview-depth-3' => "{{Flagged Revs}}
+Possible value of the 'depth' tag for a revision. All accepted revisions must have ratings for each tag type.",
+	'revreview-depth-4' => "{{Flagged Revs}}
+{{Identical|Featured}}
+Possible value of the 'depth' tag for a revision. All accepted revisions must have ratings for each tag type.",
+	'revreview-draft-title' => '{{Flagged Revs}}
+Attribute title of the "pending changes" tab on pages with pending changes. See {{Revreview-current}}.',
 	'revreview-edit' => '{{Flagged Revs-small}}
 Users who see the stable version and not the draft version as page, have this message in the "edit" tab.
 {{Identical|Edit}}',
 	'revreview-editnotice' => '{{Flagged Revs}}
-{{Identical|Authorised user}}',
+{{Identical|Authorised user}}
+Shown on the edit form to users who lack review and automatic review rights.',
+	'revreview-submitedit' => 'Shows as the "save page" button on pages with a stable version where the user lacks review and automatic review rights.',
 	'revreview-submitedit-title' => '{{Flagged Revs}}
-{{Gender}}',
+{{Gender}}
+Attribute title for the "save page" button for pages with a stable version where the user lacks review and automatic review rights.',
 	'revreview-edited' => '{{Flagged Revs-small}}
 If an anonymous user edits a stable page, after saving the page he sees the draft version (<tt>stable=0</tt> in page title) he has made.
 
 {{Identical|Authorised user}}',
-	'revreview-edited-section' => '{{Flagged Revs}}',
-	'revreview-newest-basic' => '{{Flagged Revs}}',
-	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Ŝanĝoj de ŝablonoj aŭ dosieroj] en ĉi tiu versio estas [[{{MediaWiki:Validationpage}}|kontrolendaj]].
-La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} stabila versio] estis [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} kontrolita] je <i>$2</i>.',
-	'revreview-newest-quality' => '{{Flagged Revs}}',
-	'revreview-newest-quality-i' => '{{Flagged Revs}}',
-	'revreview-pending-basic' => '{{Flagged Revs}}',
-	'revreview-pending-quality' => '{{Flagged Revs}}',
-	'revreview-pending-nosection' => '{{Flagged Revs}}',
+	'revreview-edited-section' => '{{Flagged Revs}}
+Shown in a box at the top of the page after a user (without any review rights) makes an edit that is now pending review. This is below a "your edits are pending review" message.',
+	'revreview-newest-basic' => '{{Flagged Revs}}
+Shown when viewing a the latest version of a "checked" page with pending changes.
+* $2 Date of review
+* $3 Number of pending revisions',
+	'revreview-newest-basic-i' => 'Shown when viewing the latest version of a "checked" page with only template or file changes pending review.
+* $1 Number, stable version ID
+* $2 The time the stable version was reviewed',
+	'revreview-newest-quality' => '{{Flagged Revs}}
+Shown when viewing the latest version of a "quality" page when there are pending revisions.
+* $2 Date of stable version review
+* $3 The number of pending revisions',
+	'revreview-newest-quality-i' => '{{Flagged Revs}}
+Shown when viewing the latest version of a "quality" page when only template or file changes are pending review.
+* $1 Stable version ID number
+* $2 Date of stable version review',
+	'revreview-pending-basic' => '{{Flagged Revs}}
+Shown on page histories for "checked" pages with pending changes.
+* $1 Stable version ID
+* $2 Date the stable version was accepted
+* $3 Number of pending changes',
+	'revreview-pending-quality' => '{{Flagged Revs}}
+Shown on page histories for "quality" pages with pending changes.
+* $1 Stable version ID
+* $2 Date the stable version was accepted
+* $3 Number of pending changes',
+	'revreview-pending-nosection' => '{{Flagged Revs}}
+Shown below the error message a user gets when trying to edit a non-existent page section.
+* $1 The stable version ID
+* $2 The number of pending revisions',
 	'revreview-noflagged' => '{{Flagged Revs-small}}
-Shown above a page, when there are no reviewed revisions of that page.',
+Shown above a page, when there are no accepted revisions of that page.',
 	'revreview-oldrating' => '{{Flagged Revs-small}}
 Used in the detailed version as label text for the ratings, see [http://translatewiki.net/w/images/8/84/FlaggedRevs.jpg this image] for an example.',
-	'revreview-quality' => '{{Flagged Revs}}',
-	'revreview-quality-i' => '{{Flagged Revs}}',
-	'revreview-quality-old' => '{{Flagged Revs}}',
+	'revreview-quality' => '{{Flagged Revs}}
+Shown when viewing a "quality" page with pending changes.
+* $1 The stable version ID
+* $2 The date the stable version was accepted
+* $3 The number of pending revisions',
+	'revreview-quality-i' => '{{Flagged Revs}}
+Shown when viewing a "quality" page were only template or files changes are pending.
+* $1 The stable version ID
+* $2 The date the stable version was accepted',
+	'revreview-quality-old' => '{{Flagged Revs}}
+Shown when viewing a old "quality" version of a page.
+* Parameter $2 is the date of the approval',
 	'revreview-quality-same' => '{{Flagged Revs}}',
 	'revreview-quality-source' => "{{Flagged Revs-small}}
-Displayed on the top of a page when you are viewing an old quality version. 
+Displayed on the top of a page when you are viewing an old quality revision. The link goes to the reviewed *version* of this revision (e.g. templates/files are stabilized). 
 * Example: [http://de.wikipedia.org/w/index.php?title=Deutsche_Sprache&oldid=46894374 de.wikipedia] (this is a checked version, but it's the same for a quality version).
 * Parameter $2 is the date of the approval",
-	'revreview-quality-title' => '{{Flagged Revs}}',
-	'revreview-quick-basic' => '{{Flagged Revs}}',
-	'revreview-quick-basic-old' => '{{Flagged Revs}}',
-	'revreview-quick-basic-same' => '{{Flagged Revs}}',
-	'revreview-quick-invalid' => '{{Flagged Revs}}',
+	'revreview-quality-title' => '{{Flagged Revs}}
+Shown as the attribute title to the checkmark icon on the "flagged revs box" shown on "quality" pages.',
+	'revreview-quick-basic' => '{{Flagged Revs}}
+Used in "flagged revs box" when viewing a "checked" page with pending changes.
+* $1 Stable version ID',
+	'revreview-quick-basic-old' => '{{Flagged Revs}}
+Used in "flagged revs box" when viewing an old "checked" version of a page.',
+	'revreview-quick-basic-same' => '{{Flagged Revs}}
+Used in "flagged revs box" when viewing a "checked" page and there are no pending changes.
+* $1 Stable version ID',
+	'revreview-quick-invalid' => '{{Flagged Revs}}
+Used in "flagged revs box" when viewing a bogus reviewed version was requested (via ?stableid=x).',
 	'revreview-quick-none' => '{{Flagged Revs-small}}
 Shown in the "flagged revs box" on the content page when there isn\'t any checked or quality revision yet.',
 	'revreview-quick-quality' => '{{Flagged Revs-small}}
-Used in the "flagged revs box" when viewing a quality version, while there are new changes (in a draft version) to be reviewed.',
-	'revreview-quick-quality-old' => '{{Flagged Revs}}',
-	'revreview-quick-quality-same' => '{{Flagged Revs}}',
+Used in the "flagged revs box" when viewing a quality version, while there are pending changes.',
+	'revreview-quick-quality-old' => '{{Flagged Revs}}
+Used in "flagged revs box" when viewing an old "quality" version of a page.',
+	'revreview-quick-quality-same' => '{{Flagged Revs}}
+Used in "flagged revs box" when viewing a "quality" page and there are no pending changes.',
 	'revreview-quick-see-basic' => '{{Flagged Revs}}
-{{Identical|Draft view article compare}}',
+{{Identical|Draft view article compare}}
+Used in "flagged revs box" when viewing the latest version of a "checked" page with pending changes.
+* $1 Stable version ID',
 	'revreview-quick-see-quality' => '{{Flagged Revs}}
-{{Identical|Draft view article compare}}',
+{{Identical|Draft view article compare}}
+Used in "flagged revs box" when viewing the latest version of a "quality" page with pending changes.
+* $1 Stable version ID',
 	'revreview-source' => '{{Flagged Revs}}
 {{Identical|View source}}',
-	'revreview-basic-title' => '{{Flagged Revs}}',
-	'revreview-style' => '{{Flagged Revs}}',
-	'revreview-style-0' => '{{Flagged Revs}}',
-	'revreview-style-1' => '{{Flagged Revs}}',
-	'revreview-style-2' => '{{Flagged Revs}}',
-	'revreview-style-3' => '{{Flagged Revs}}',
-	'revreview-style-4' => '{{Flagged Revs}}
-{{Identical|Featured}}',
+	'revreview-basic-title' => '{{Flagged Revs}}
+Shown as the attribute title to the checkmark icon on the flag box shown on "checked" pages.',
+	'revreview-style' => "{{Flagged Revs}}
+Name of the 'style' tag. Shown on review form and in review status box.",
+	'revreview-style-0' => "{{Flagged Revs}}
+Possible value of the 'style' tag for a revision. All accepted revisions must have ratings for each tag type.",
+	'revreview-style-1' => "{{Flagged Revs}}
+Possible value of the 'style' tag for a revision. All accepted revisions must have ratings for each tag type.",
+	'revreview-style-2' => "{{Flagged Revs}}
+Possible value of the 'style' tag for a revision. All accepted revisions must have ratings for each tag type.",
+	'revreview-style-3' => "{{Flagged Revs}}
+Possible value of the 'style' tag for a revision. All accepted revisions must have ratings for each tag type.",
+	'revreview-style-4' => "{{Flagged Revs}}
+{{Identical|Featured}}
+Possible value of the 'style' tag for a revision. All accepted revisions must have ratings for each tag type.",
 	'revreview-toggle-show' => '{{Optional}}
 {{FlaggedRevs}}',
 	'revreview-toggle-hide' => '{{Optional}}
@@ -493,7 +559,8 @@ Appears above the protection form when the current version of the page is the st
 Appears on top of the protection form when the current version is not the stable version; otherwise {{msg-mw|revreview-visibility}} or {{msg-mw|revreview-visibility3}} is shown.',
 	'revreview-visibility-nostable' => '{{Flagged Revs-small}}
 Appears on top of the protection form when the page has no stable version at all; otherwise {{msg-mw|revreview-visibility}} or {{msg-mw|revreview-visibility2}} is shown.',
-	'revreview-revnotfound' => '{{Flagged Revs}}',
+	'revreview-revnotfound' => '{{Flagged Revs}}
+Shown when a bad old reviewed version ID is requested for a page view (via ?stableid=x).',
 	'right-autoreview' => '{{Flagged Revs}}
 
 {{doc-right|autoreview}}',
@@ -515,52 +582,100 @@ Appears on top of the protection form when the page has no stable version at all
 	'right-unreviewedpages' => '{{Flagged Revs}}
 
 {{doc-right}}',
-	'rights-editor-autosum' => '{{Flagged Revs}}',
-	'rights-editor-revoke' => '{{Flagged Revs}}',
+	'rights-editor-revoke' => "{{Flagged Revs}}
+* $1 User's user page title",
 	'specialpages-group-quality' => '{{Flagged Revs-small}}
 A group in [[Special:SpecialPages]] for all special pages of the Flagged Revs extension.',
-	'stable-logentry-config' => '{{Flagged Revs}}',
-	'stable-logentry-reset' => '{{Flagged Revs}}',
-	'stable-logpage' => '{{Flagged Revs}}',
+	'stable-logentry-config' => '{{Flagged Revs}}
+Shown on the stability log (Special:Log/stability).
+* $1 Link to the effected page',
+	'stable-logentry-modify' => '{{Flagged Revs}}
+Shown on the stability log (Special:Log/stability).',
+	'stable-logentry-reset' => '{{Flagged Revs}}
+Shown on the stability log (Special:Log/stability).
+* $1 Link to the effected page',
+	'stable-log-restriction' => '{{Flagged Revs}}
+Shown on the stability log (Special:Log/stability).
+* $1 Name of the permission that is required to review and autoreview in addition to any required rights',
+	'stable-logpage' => '{{Flagged Revs}}
+Same of the stability log at Special:Log/stability',
 	'stable-logpagetext' => '{{Flagged Revs}}
-{{Identical|Content pages}}',
+{{Identical|Content pages}}
+Shown on the stability log (Special:Log/stability).',
 	'revreview-filter-all' => '{{Flagged Revs}}
-{{Identical|All}}',
-	'revreview-filter-stable' => '{{Flagged Revs}}',
-	'revreview-statusfilter' => '{{Flagged Revs}}',
-	'revreview-filter-approved' => '{{Flagged Revs}}',
-	'revreview-filter-reapproved' => '{{Flagged Revs}}',
-	'revreview-filter-unapproved' => '{{Flagged Revs}}',
+{{Identical|All}}
+Shown as dropdown option on lists or log pages.',
+	'revreview-filter-stable' => '{{Flagged Revs}}
+Shown as dropdown option on lists or log pages.',
+	'revreview-statusfilter' => '{{Flagged Revs}}
+Shown as dropdown option on lists or log pages.',
+	'revreview-filter-approved' => '{{Flagged Revs}}
+Shown as dropdown option on lists or log pages to filter results.',
+	'revreview-filter-reapproved' => '{{Flagged Revs}}
+Shown as dropdown option on lists or log pages to filter results.',
+	'revreview-filter-unapproved' => '{{Flagged Revs}}
+Shown as dropdown option on lists or log pages to filter results.',
 	'revreview-typefilter' => '{{Flagged Revs}}
-
-{{Identical|Type}}',
-	'revreview-filter-auto' => '{{Flagged Revs}}',
-	'revreview-filter-manual' => '{{Flagged Revs}}',
-	'revreview-levelfilter' => '{{Flagged Revs}}',
+{{Identical|Type}}
+Shown as dropdown option on lists or log pages to filter results.',
+	'revreview-filter-auto' => '{{Flagged Revs}}
+Shown as dropdown option on lists or log pages to filter results.',
+	'revreview-filter-manual' => '{{Flagged Revs}}
+Shown as dropdown option on lists or log pages to filter results.',
+	'revreview-levelfilter' => '{{Flagged Revs}}
+Shown as dropdown option on lists or log pages to filter results.',
 	'revreview-lev-all' => '{{Flagged Revs}}
-{{Identical|Any}}',
-	'revreview-lev-basic' => '{{Flagged Revs}}',
-	'revreview-lev-quality' => '{{Flagged Revs}}',
-	'revreview-lev-pristine' => '{{Flagged Revs}}',
+{{Identical|Any}}
+Shown as dropdown option on lists or log pages to filter results.',
+	'revreview-lev-basic' => '{{Flagged Revs}}
+Shown as dropdown option on lists or log pages to filter results.',
+	'revreview-lev-quality' => '{{Flagged Revs}}
+Shown as dropdown option on lists or log pages to filter results.',
+	'revreview-lev-pristine' => '{{Flagged Revs}}
+Shown as dropdown option on lists or log pages to filter results.',
 	'revreview-defaultfilter' => '{{Flagged Revs}}
-{{Identical|Default version:}}',
+{{Identical|Default version:}}
+Shown as dropdown option on lists or log pages to filter results.',
 	'revreview-def-all' => '{{Flagged Revs}}
-{{Identical|Any}}',
+{{Identical|Any}}
+Shown as dropdown option on lists or log pages to filter results.',
+	'revreview-def-draft' => '{{Flagged Revs}}
+Shown as dropdown option on lists or log pages to filter results.',
 	'revreview-def-stable' => '{{Flagged Revs}}
-{{Identical|stable}}',
-	'revreview-restriction-any' => '{{Identical|Any}}',
+{{Identical|stable}}
+Shown as dropdown option on lists or log pages to filter results.',
+	'revreview-restrictfilter' => '{{Flagged Revs}}
+Shown as dropdown option on lists or log pages to filter results.',
+	'revreview-restriction-any' => '{{Identical|Any}}
+Shown as dropdown option on lists or log pages to filter results.',
 	'revreview-restriction-none' => '{{Flagged Revs}}
-{{Identical|none}}',
-	'revreview-reviewlink' => '{{Flagged Revs}}',
-	'tooltip-ca-current' => '{{Flagged Revs}}',
-	'tooltip-ca-stable' => '{{Flagged Revs}}',
-	'tooltip-ca-default' => '{{Flagged Revs}}',
-	'flaggedrevs-protect-legend' => '{{Flagged Revs}}',
-	'flaggedrevs-protect-none' => '{{Flagged Revs}}',
-	'revreview-locked-title' => '{{Flagged Revs}}',
-	'revreview-unlocked-title' => '{{Flagged Revs}}',
-	'revreview-locked' => '{{Flagged Revs}}',
-	'revreview-unlocked' => '{{Flagged Revs}}',
+{{Identical|none}}
+Shown as dropdown option on lists or log pages to filter results.',
+	'revreview-reviewlink' => '{{Flagged Revs}}
+Text of link to diff of the stable version against the latest version. "Edits" means "revisions" here.',
+	'revreview-reviewlink-title' => 'Attribute title to diff-to-stable review links. See {{Revreview-reviewlink}}.',
+	'revreview-unreviewedpage' => 'Text shown on RecentChanges and Watchlists to denote reviewable pages that have no stable version.',
+	'tooltip-ca-current' => '{{Flagged Revs}}
+Title attribute to the "pending changes" tab. See {{Revreview-current}}. Appears on pages with pending changes.',
+	'tooltip-ca-stable' => '{{Flagged Revs}}
+Title attribute to the "stable version" (or "read") tab of a page. Appears on pages with pending changes.',
+	'tooltip-ca-default' => '{{Flagged Revs}}
+Text of the "vet" tab that shows to users with the ability to access Special:Stabilization but cannot protect pages. Links to Special:Stabilization. See {{Stabilization-tab}}.',
+	'flaggedrevs-protect-legend' => '{{Flagged Revs}}
+Shown on on Protection form if $wgFlaggedRevsProtection is enabled. It is the legend for a set of options for restricting who\'s edits are automatically reviewed.',
+	'flaggedrevs-protect-none' => '{{Flagged Revs}}
+Shown on on Protection form if $wgFlaggedRevsProtection is enabled.',
+	'flaggedrevs-categoryview' => '{{Flagged Revs}}
+Shown on category pages to users who can review pages.
+* $1 Category name',
+	'revreview-locked-title' => '{{Flagged Revs}}
+Shown as the attribute title to the lock icon in the "flagged revs box". This shows on pages were edits require review and only when this is not the case by default.',
+	'revreview-unlocked-title' => '{{Flagged Revs}}
+Shown as the attribute title to the lock icon in the "flagged revs box". This shows on pages were edits don\'t require review and only when this is not the case by default.',
+	'revreview-locked' => '{{Flagged Revs}}
+Shown in the "flagged revs box". This shows on pages were edits require review and only when this is not the case by default.',
+	'revreview-unlocked' => '{{Flagged Revs}}
+Shown in the "flagged revs box". This shows on pages were edits don\'t require review and only when this is not the case by default.',
 	'accesskey-ca-current' => '{{doc-accesskey}}',
 	'accesskey-ca-stable' => '{{doc-accesskey}}',
 	'log-show-hide-review' => '{{Flagged Revs}}
@@ -3069,6 +3184,7 @@ ikke findes. Kontrollér den URL du brugte til at få adgang til denne side.',
 /** German (Deutsch)
  * @author Als-Holder
  * @author ChrisiPK
+ * @author DaSch
  * @author Giftpflanze
  * @author Imre
  * @author Jens Liebenau
@@ -3144,7 +3260,7 @@ $messages['de'] = array(
 	'review-logpagetext' => 'In diesem Logbuch werden die [[{{MediaWiki:Validationpage}}|Versionsmarkierungen]] protokolliert.',
 	'reviewer' => 'Prüfer',
 	'revreview-accuracy' => 'Status',
-	'revreview-accuracy-0' => 'Unzureichend',
+	'revreview-accuracy-0' => 'unzureichend',
 	'revreview-accuracy-1' => 'gesichtet',
 	'revreview-accuracy-2' => 'geprüft',
 	'revreview-accuracy-3' => 'Quellen geprüft',
@@ -3226,7 +3342,6 @@ Neue [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffo
 	'right-stablesettings' => 'Konfigurieren, wie die stabile Version ausgewählt und angezeigt werden soll',
 	'right-validate' => 'Versionen als geprüft markieren',
 	'right-unreviewedpages' => '[[Special:UnreviewedPages|Liste der ungesichteten Seiten]] ansehen',
-	'rights-editor-autosum' => 'automatisch erteilt',
 	'rights-editor-revoke' => 'entfernte Sichter-Status von „[[$1]]“',
 	'specialpages-group-quality' => 'Bearbeitung prüfen',
 	'stable-logentry-config' => 'hat die stabile Version von „$1“ konfiguriert',

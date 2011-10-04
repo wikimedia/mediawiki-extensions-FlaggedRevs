@@ -1433,7 +1433,6 @@ $messages['eo'] = array(
 	'revreview-flag' => 'Marki ĉi tiun version',
 	'revreview-reflag' => 'Rekontroli ĉi tiun redakton',
 	'revreview-invalid' => "'''Malvalida celo:''' neniu [[{{MediaWiki:Validationpage}}|kontrolita]] versio kongruas la enigitan identigon.",
-	'revreview-legend' => 'Taksi enhavon de versio',
 	'revreview-log' => 'Komento:',
 	'revreview-main' => 'Vi devas elekti apartan version de enhava paĝo por revizii.
 
@@ -1452,7 +1451,7 @@ Vidu la [[Special:Unreviewedpages|liston de nereviziitaj paĝoj]] .',
 	'revreview-poss-conflict-p' => "'''Atentu: [[User:$1|$1]] ekkontrolis ĉi tiun paĝon je $2 $3.'''",
 	'revreview-poss-conflict-c' => "'''Atentu: [[User:$1|$1]] ekkontrolis ĉi tiujn paĝojn je $2 $3.'''",
 	'revreview-adv-reviewing-p' => "'''Notu: Vi estas notita kiel kontrolante ĉi tiun paĝon ekde $1, $2.'''",
-	'revreview-adv-reviewing-c' => "'''Notu: Vi estas notita kiel kontrolante ĉi tiujn ŝanĝojn ekde $1, $2.'''",
+	'revreview-adv-reviewing-c' => "'''Notu: aliaj reviziantoj povas vidi ke via estas revizianta ĉi tiujn ŝanĝojn.'''",
 	'revreview-toolow' => '\'\'\'Vi devas taksi ĉiun el la jenaj atribuoj almenaŭ pli alta ol "adekvata" por revizio esti konsiderata kiel kontrolita.\'\'\'
 
 Forigi reviziatan statuson de revizio, klaku "malaprobi".
@@ -1466,7 +1465,6 @@ Bonvolu kontroli ĉiujn jenajn ŝanĝojn por aperigi viajn redaktojn en la stabi
 
 Bonvolu kontroli ĉiujn jenajn ŝanĝojn por aperigi viajn redaktojn en la stabila versio.',
 	'revreview-update-includes' => 'Ŝablonoj/dosieroj estis ĝisdatigitaj (nekontrolitaj paĝoj estas dikigitaj):',
-	'revreview-reject-header' => 'Malaprobi ŝanĝojn por $1',
 	'revreview-reject-text-list' => "Farante ĉi tiun agon, vi '''malaprobos''' la informofontaj ŝanĝoj de la {{PLURAL:$1|jenan revizion|jenajn reviziojn}} de [[:$2|$2]]:",
 	'revreview-reject-text-revto' => 'Tio ĉi restarigos la paĝon al la [{{fullurl:$1|oldid=$2}} versio ekde $3].',
 	'revreview-reject-summary' => 'Resumo:',
@@ -1476,7 +1474,6 @@ Bonvolu kontroli ĉiujn jenajn ŝanĝojn por aperigi viajn redaktojn en la stabi
 	'revreview-reject-summary-old' => 'Malaprobis la {{PLURAL:$1|unuan tekstan ŝanĝon, kiu|unuajn $1 tekstajn ŝanĝojn, kiuj}} (de $2) sekvante revizion $3 de $4',
 	'revreview-reject-summary-cur-short' => 'Malaprobis la {{PLURAL:$1|lastan tekstan ŝanĝon|$1 lastajn tekstajn ŝanĝojn}} kaj restarigis revizion $2 de $3',
 	'revreview-reject-summary-old-short' => 'Malaprobis la {{PLURAL:$1|unuan tekstan ŝanĝon, kiu|unuajn tekstajn $1 ŝanĝojn, kiuj}} sekvante revizion $2 de $3',
-	'revreview-reject-usercount' => '{{PLURAL:$1|unu uzanto|$1 uzantoj}}',
 	'revreview-tt-flag' => 'Aprobi ĉi tiun revizion per markado kontrolita',
 	'revreview-tt-unflag' => 'Malaprobi ĉi tiun revizion per markado "ne-kontrolita"',
 	'revreview-tt-reject' => 'Malaprobi ĉi tiujn ŝanĝojn de informo-fontoj, malfarante ilin',
@@ -2362,6 +2359,7 @@ Molimo provjerite sve izmjene prikazane ispod da bi se vaše izmjene prikazale u
 
 /** Upper Sorbian (Hornjoserbsce)
  * @author Michawiki
+ * @author Tlustulimu
  */
 $messages['hsb'] = array(
 	'revisionreview' => 'Wersije přepruwować',
@@ -2376,11 +2374,13 @@ $messages['hsb'] = array(
 	'review_not_flagged' => 'Cilowa wersija njeje tuchwilu jako přepruwowana markěrowana.',
 	'review_too_low' => 'Wersija njeda so přepruwować, hdyž někotre pola su hišće "njepřiměrjene".',
 	'review_bad_key' => 'Njepłaćiwy kluč za zapřijimowanski parameter.',
+	'review_bad_tags' => 'Někotre podawanych znamjenjow su njepłaćiwe.',
 	'review_denied' => 'Prawo zapowědźene.',
 	'review_param_missing' => 'Parameter faluje abo je njepłaćiwy.',
 	'review_cannot_undo' => 'Tute změny njehodźa so cofnyć, dokelž dalše njesčinjene změny su samsne městna změnili.',
 	'review_cannot_reject' => 'Tute změny njedadźa so wotpokazać, dokelž něchtó je někotre z nich abo wšě akceptował.',
 	'review_reject_excessive' => 'Tute wjele změnow njedadźo so naraz wotpokazać.',
+	'review_reject_nulledits' => 'Tute změny so njemóžeja wotpokazować, dokelž wšě tute wersije žane změny njewobsahuja.',
 	'revreview-check-flag-p' => 'Tutu wersiju akceptować (zapřijima $1 njesčinjene {{PLURAL:$1|změna|změnje|změny|změnow}})',
 	'revreview-check-flag-p-title' => 'Akceptowanje wšěch tuchwilu njepřepruwowanych změnow hromadźe z twojej swójskej změnu.
 Wužij to jenož, jeli sy hižo wšě hišće njepřepruwowane změny widźał.',
@@ -2391,13 +2391,13 @@ Wužij to jenož, jeli sy hižo wšě hišće njepřepruwowane změny widźał.'
 	'revreview-flag' => 'Tutu wersiju přepruwować',
 	'revreview-reflag' => 'Tutu wersiju znowa přepruwować',
 	'revreview-invalid' => "'''Njepłaćiwy cil:''' žana [[{{MediaWiki:Validationpage}}|skontrolowana]] wersija podatemu ID njewotpowěduje.",
-	'revreview-legend' => 'Wobsah wersije pohódnoćić',
 	'revreview-log' => 'Protokolowy zapisk:',
 	'revreview-main' => 'Dyrbiš wěstu wersiju nastawka za přepruwowanje wubrać.
 
 Hlej [[Special:Unreviewedpages|za lisćinu njepřepruwowanych stronow]].',
 	'revreview-stable1' => 'Snano chceš sej [{{fullurl:$1|stableid=$2}} tutu woznamjenjenu wersiju] wobhladać a widźeć, hač je wona nětko [{{fullurl:$1|stable=1}} wozjewjena wersija] tuteje strony.',
 	'revreview-stable2' => 'Snano chceš sej [{{fullurl:$1|stable=1}} wozjewjenu wersiju] tuteje strony wobhladać.',
+	'revreview-cancel' => 'Přetorhnyć',
 	'revreview-submit' => 'Wotpósłać',
 	'revreview-submitting' => 'Sćele so...',
 	'revreview-submit-review' => 'Wersiju akceptować',
@@ -2422,7 +2422,6 @@ Prošu přepruwuj wšě slědowace změny, zo bychu so twoje změny w stabilnej 
 
 Přepruwuj prošu wšě změny, kotrež so deleka pokazuja, zo bychu so twoje změny w stabilnej wersiji jewili.',
 	'revreview-update-includes' => 'Někotre předłohi/dataje su so zaktualizowali:',
-	'revreview-reject-header' => 'Změny za $1 wotpokazać',
 	'revreview-reject-text-list' => "Přewjedujo tutu akciju, budźeš {{PLURAL:$1|slědowacu změnu|slědowacej změnje|slědowace změny|slědowace změny}} '''wotpokazować''':",
 	'revreview-reject-text-revto' => 'To stronu na [{{fullurl:$1|oldid=$2}} wersiju wot dnja $3] wróćo staji.',
 	'revreview-reject-summary' => 'Zjeće wobdźěłać',
@@ -2432,7 +2431,6 @@ Přepruwuj prošu wšě změny, kotrež so deleka pokazuja, zo bychu so twoje zm
 	'revreview-reject-summary-old' => '{{PLURAL:$1|Prěnja změna|Prěnjej změnje|Prěnje změny|Prěnje změny}} wot $2, {{PLURAL:$1|kotraž|kotrejž|kontrež|kotrež}} wersiji $3 wot $4 {{PLURAL:$1|slědowaše|slědowaštej|slědowachu|slědowachu}}, {{PLURAL:$1|je so wotpokazała|stej so wotpokazałoj|su so wotpokazali|su so wotpokazali}}.',
 	'revreview-reject-summary-cur-short' => '{{PLURAL:$1|Poslednja změna|Poslednjej změnje|Poslednje změny|Poslednje změny}}  {{PLURAL:$1|bu wotpokazana|buštej wotpokazanej|buchu wotpokazane|buchu wotpokazane}} a wersija $2 wot $3 je so wobnowiła.',
 	'revreview-reject-summary-old-short' => '{{PLURAL:$1|Prěnja změna|Prěnjej změnje|Prěnje změny|Prěnje změny}}  {{PLURAL:$1|bu wotpokazana|buštej wotpokazanej|buchu wotpokazane|buchu wotpokazane}}, {{PLURAL:$1|kotraž|kotrejž|kontrež|kotrež}} wersiji $2 wot $3 {{PLURAL:$1|slědowaše|slědowaštej|slědowachu|slědowachu}},',
-	'revreview-reject-usercount' => '{{PLURAL:$1|jedyn wužiwar|j$1 wužiwarjej|$1 wužiwarjo|$1 wužiwarjow}}',
 	'revreview-tt-flag' => 'Tutu wersiju přez markěrowanje jako skontrolowanu schwalić',
 	'revreview-tt-unflag' => 'Tutu wersiju přez markěrowanje jako njeskontrolowanu zakazać',
 	'revreview-tt-reject' => 'Tute změny přez cofnjenje wotpokazać',
@@ -3607,6 +3605,10 @@ Zie  de [[Special:Unreviewedpages|lijst met ongecontroleerde pagina's]].",
 	'revreview-poss-conflict-c' => "'''Waarschuwing: [[User:$1|$1]] is begonnen met de controle van deze wijzigingen op $2 om $3.'''",
 	'revreview-adv-reviewing-p' => 'Let op: andere gebruikers zien dat u bezig bent met het beoordelen van deze pagina.',
 	'revreview-adv-reviewing-c' => 'Let op: andere gebruikers zien dat u bezig bent met het beoordelen van deze wijzigingen.',
+	'revreview-sadv-reviewing-p' => 'U kunt aan andere gebruikers aangeven dat u deze pagina $1.',
+	'revreview-sadv-reviewing-c' => 'U kunt aan andere gebruikers aangeven dat u deze wijzigingen $1.',
+	'revreview-adv-start-link' => 'aan het controleren bent',
+	'revreview-adv-stop-link' => 'niet aan het controleren bent',
 	'revreview-toolow' => '\'\'\'U moet tenminste alle eigenschappen hoger instellen dan "{{int:Revreview-accuracy-0}}" om voor een versie aan te geven dat deze is gecontroleerd.\'\'\'
 
 Klik op "Versie afkeuren" om de waardering van een versie te verwijderen.
@@ -5490,13 +5492,13 @@ $messages['zh-hans'] = array(
 	'revreview-flag' => '复审此修订',
 	'revreview-reflag' => '重新复审此修订',
 	'revreview-invalid' => "'''无效的目标：'''没有与指定ID对应的[[{{MediaWiki:Validationpage}}|已复审]]修订。",
-	'revreview-legend' => '评定修订内容',
 	'revreview-log' => '注释：',
 	'revreview-main' => '您必须选择内容页的特定修订以复审。
 
 参见[[Special:Unreviewedpages|未复审页面列表]]。',
 	'revreview-stable1' => '您可能想要查看[{{fullurl:$1|stableid=$2}} 此已标记的版本]，并检查现在是否已有该页面的[{{fullurl:$1|stable=1}} 稳定版本]。',
 	'revreview-stable2' => '你可能想要查看该页面的[{{fullurl:$1|stable=1}} 稳定版本]。',
+	'revreview-cancel' => '取消',
 	'revreview-submit' => '提交',
 	'revreview-submitting' => '提交中……',
 	'revreview-submit-review' => '接受修订',
@@ -5508,8 +5510,12 @@ $messages['zh-hans'] = array(
 	'revreview-successful2' => "'''已成功去掉[[:$1|$1]]修订的标记。'''",
 	'revreview-poss-conflict-p' => "'''警告：[[User:$1|$1]]在$2$3时开始审阅此页面。'''",
 	'revreview-poss-conflict-c' => "'''警告：[[User:$1|$1]]在$2$3时开始审阅这些更改。'''",
-	'revreview-adv-reviewing-p' => "'''注意：您在$1$2时开始审阅页面后，收到了通知。'''",
-	'revreview-adv-reviewing-c' => "'''注意：您在$1$2时开始审阅这些更改后，收到了通知。'''",
+	'revreview-adv-reviewing-p' => '注意：其他复审员可以看到您正在审阅本页。',
+	'revreview-adv-reviewing-c' => '注意：其他复审员可以看到您正在审阅这些更改。',
+	'revreview-sadv-reviewing-p' => '您可以$1您正在审阅本页面。',
+	'revreview-sadv-reviewing-c' => '您可以$1您正在审阅这些更改。',
+	'revreview-adv-start-link' => '告知其他用户',
+	'revreview-adv-stop-link' => '取消告知其他用户',
 	'revreview-toolow' => "'''您必须将所有字段标记为“不足”以上才能将修订标记为已复审。'''
 
 要去掉修订的复审状态，请点击“不接受”。
@@ -5523,7 +5529,6 @@ $messages['zh-hans'] = array(
 
 请审阅如下所有更改，以使您的编辑出现在稳定版本中。',
 	'revreview-update-includes' => '模板或文件已更新（未复审页面以粗体显示）：',
-	'revreview-reject-header' => '拒绝对$1的更改',
 	'revreview-reject-text-list' => "完成此操作后，您将'''拒绝'''在[[:$2|$2]]的{{PLURAL:$1|修订|修订}}中对源文本的更改：",
 	'revreview-reject-text-revto' => '此操作将把页面恢复到[{{fullurl:$1|oldid=$2}} $3时的版本]。',
 	'revreview-reject-summary' => '摘要：',
@@ -5533,7 +5538,6 @@ $messages['zh-hans'] = array(
 	'revreview-reject-summary-old' => '拒绝由$2作出的前{{PLURAL:$1|次文字更改|$1次文字更改}}，并由$4恢复到修订$3',
 	'revreview-reject-summary-cur-short' => '拒绝后{{PLURAL:$1|次文字更改|$1次文字更改}}，并由$3恢复到修订$2',
 	'revreview-reject-summary-old-short' => '拒绝前{{PLURAL:$1|次文字更改|$1次文字更改}}，并由$3恢复到修订$2',
-	'revreview-reject-usercount' => '{{PLURAL:$1|一个用户|$1个用户}}',
 	'revreview-tt-flag' => '接受该修订并将其标记为“已检查”',
 	'revreview-tt-unflag' => '不接受该修订并将其标记为“未检查”',
 	'revreview-tt-reject' => '拒绝这些对源文本的修改并撤消它们',
