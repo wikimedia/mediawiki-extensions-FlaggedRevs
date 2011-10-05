@@ -16,6 +16,7 @@ class UnreviewedPages extends SpecialPage {
 			return;
 		}
 		$this->skin = $wgUser->getSkin();
+		$this->currentUnixTS = wfTimestamp( TS_UNIX ); // now
 
 		# Get default namespace
 		$namespaces = FlaggedRevs::getReviewNamespaces();
@@ -118,10 +119,8 @@ class UnreviewedPages extends SpecialPage {
 			$stxt = " <small>$stxt</small>";
 		}
 		# Get how long the first unreviewed edit has been waiting...
-		static $currentTime;
-		$currentTime = wfTimestamp( TS_UNIX ); // now
 		$firstPendingTime = wfTimestamp( TS_UNIX, $row->creation );
-		$hours = ( $currentTime - $firstPendingTime ) / 3600;
+		$hours = ( $this->currentUnixTS - $firstPendingTime ) / 3600;
 		// After three days, just use days
 		if ( $hours > ( 3 * 24 ) ) {
 			$days = round( $hours / 24, 0 );
