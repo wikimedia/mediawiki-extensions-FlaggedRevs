@@ -13,6 +13,8 @@ class ProblemChanges extends SpecialPage {
 
 		$this->setHeaders();
 		$this->skin = $wgUser->getSkin();
+		$this->currentUnixTS = wfTimestamp( TS_UNIX ); // now
+
 		$this->level = $wgRequest->getInt( 'level', - 1 );
 		$this->tag = trim( $wgRequest->getVal( 'tagfilter' ) );
 		$category = trim( $wgRequest->getVal( 'category' ) );
@@ -218,10 +220,8 @@ class ProblemChanges extends SpecialPage {
 		}
 		# Get how long the first unreviewed edit has been waiting...
 		if ( $row->pending_since ) {
-			static $currentTime;
-			$currentTime = wfTimestamp( TS_UNIX ); // now
 			$firstPendingTime = wfTimestamp( TS_UNIX, $row->pending_since );
-			$hours = ( $currentTime - $firstPendingTime ) / 3600;
+			$hours = ( $this->currentUnixTS - $firstPendingTime ) / 3600;
 			// After three days, just use days
 			if ( $hours > ( 3 * 24 ) ) {
 				$days = round( $hours / 24, 0 );
