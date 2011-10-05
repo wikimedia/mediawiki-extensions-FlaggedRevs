@@ -1856,7 +1856,7 @@ class FlaggedPageView extends ContextSource {
 	* @return int
 	*/
 	protected static function getBaseRevId( EditPage $editPage ) {
-		$request = $this->getRequest();
+		$request = FlaggedPageView::singleton()->getRequest();
 		if ( !isset( $editPage->fr_baseRevId ) ) {
 			$article = $editPage->getArticle(); // convenience
 			$latestId = $article->getLatest(); // current rev
