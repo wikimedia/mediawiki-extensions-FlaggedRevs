@@ -1450,8 +1450,8 @@ Vidu la [[Special:Unreviewedpages|liston de nereviziitaj paĝoj]] .',
 	'revreview-successful2' => "'''Versio de [[:$1|$1]] sukcese malmarkita.'''",
 	'revreview-poss-conflict-p' => "'''Atentu: [[User:$1|$1]] ekkontrolis ĉi tiun paĝon je $2 $3.'''",
 	'revreview-poss-conflict-c' => "'''Atentu: [[User:$1|$1]] ekkontrolis ĉi tiujn paĝojn je $2 $3.'''",
-	'revreview-adv-reviewing-p' => "'''Notu: Vi estas notita kiel kontrolante ĉi tiun paĝon ekde $1, $2.'''",
-	'revreview-adv-reviewing-c' => "'''Notu: aliaj reviziantoj povas vidi ke via estas revizianta ĉi tiujn ŝanĝojn.'''",
+	'revreview-adv-reviewing-p' => 'Notu: aliaj reviziantoj povas vidi ke vi revizias ĉi tiun paĝon.',
+	'revreview-adv-reviewing-c' => 'Notu: aliaj reviziantoj povas vidi ke vi revizias ĉi tiujn ŝanĝojn.',
 	'revreview-toolow' => '\'\'\'Vi devas taksi ĉiun el la jenaj atribuoj almenaŭ pli alta ol "adekvata" por revizio esti konsiderata kiel kontrolita.\'\'\'
 
 Forigi reviziatan statuson de revizio, klaku "malaprobi".
@@ -1865,6 +1865,10 @@ Voir la [[Special:Unreviewedpages|liste des pages non relues]].",
 	'revreview-poss-conflict-c' => "'''Attention : [[User:$1|$1]] a commencé à relire ces modifications le $2 à $3.'''",
 	'revreview-adv-reviewing-p' => "Remarque: D'autres relecteurs peuvent voir que vous examinez cette page.",
 	'revreview-adv-reviewing-c' => "Remarque: D'autres relecteurs peuvent voir que vous examinez ces modifications.",
+	'revreview-sadv-reviewing-p' => 'Vous pouvez vous $1 vous-mêmes comme relecteur de cette page pour les autres utilisateurs.',
+	'revreview-sadv-reviewing-c' => 'Vous pouvez vous $1 vous-mêmes comme relecteur de ces changements aux autres utilisateurs.',
+	'revreview-adv-start-link' => 'faire de la publicité',
+	'revreview-adv-stop-link' => 'annuler la publicité',
 	'revreview-toolow' => "'''Vous devez affecter à chacun des attributs une évaluation plus élevée que « inappropriée » pour que la relecture soit prise en compte comme acceptée.'''
 
 Pour enlever l’état de relecture d’une version, cliquez sur « Ne pas accepter ».
@@ -3786,6 +3790,7 @@ $messages['pdc'] = array(
  * @author Fizykaa
  * @author Holek
  * @author Leinad
+ * @author Masti
  * @author McMonster
  * @author Sp5uhe
  */
@@ -3824,6 +3829,7 @@ $messages['pl'] = array(
 Zobacz [[Special:Unreviewedpages|listę nieprzejrzanych stron]].',
 	'revreview-stable1' => 'Możesz zobaczyć [{{fullurl:$1|stableid=$2}} wersję oznaczoną] i sprawdzić, czy jest ona [{{fullurl:$1|stable=1}} wersją zweryfikowaną] tej strony.',
 	'revreview-stable2' => 'Możesz zobaczyć [{{fullurl:$1|stable=1}} wersję zweryfikowaną] tej strony.',
+	'revreview-cancel' => 'Anuluj',
 	'revreview-submit' => 'Oznacz wersję',
 	'revreview-submitting' => 'Zapisywanie...',
 	'revreview-submit-review' => 'Zaakceptuj wersję',
@@ -3837,6 +3843,10 @@ Zobacz [[Special:Unreviewedpages|listę nieprzejrzanych stron]].',
 	'revreview-poss-conflict-c' => "'''Uwaga – [[User:$1|$1]] rozpoczął przeglądanie tych zmian $2 o $3.'''",
 	'revreview-adv-reviewing-p' => 'Uwaga – inni redaktorzy mogą zobaczyć, że rozpocząłeś przeglądanie tej strony.',
 	'revreview-adv-reviewing-c' => 'Uwaga – inni redaktorzy mogą zobaczyć, że rozpocząłeś przeglądanie tych zmian.',
+	'revreview-sadv-reviewing-p' => 'Możesz $1 innych użytkowników, o tym że jesteś w trakcie przeglądania tej strony.',
+	'revreview-sadv-reviewing-c' => 'Możesz $1 innych użytkowników, o tym że jesteś w trakcie przeglądania tych zmian.',
+	'revreview-adv-start-link' => 'poinformować',
+	'revreview-adv-stop-link' => 'wycofać informowanie',
 	'revreview-toolow' => "'''Musisz ocenić każdy z atrybutów wyżej niż „nieakceptowalny“, aby oznaczyć wersję jako zweryfikowaną.'''
 
 Aby wycofać zweryfikowanie kliknij na „Cofnij akceptację wersji”.
