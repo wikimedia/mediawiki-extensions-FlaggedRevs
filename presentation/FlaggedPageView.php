@@ -1503,7 +1503,6 @@ class FlaggedPageView extends ContextSource {
 	protected static function diffToStableLink(
 		FlaggedPage $article, $oldRev, Revision $newRev
 	) {
-		$reqUser = $this->getUser();
 		$srev = $article->getStableRev();
 		if ( !$srev ) {
 			return ''; // nothing to do
@@ -1515,7 +1514,7 @@ class FlaggedPageView extends ContextSource {
 		# Make a link to the full diff-to-stable if:
 		# (a) Actual revs are pending and (b) We are not viewing the full diff-to-stable
 		if ( $article->revsArePending() && !$fullStableDiff ) {
-			$review = $reqUser->getSkin()->linkKnown(
+			$review = Linker::linkKnown(
 				$article->getTitle(),
 				wfMsgHtml( 'review-diff2stable' ),
 				array(),
@@ -1578,8 +1577,6 @@ class FlaggedPageView extends ContextSource {
 	// Fetch template changes for a reviewed revision since review
 	// @return array
 	protected static function fetchTemplateChanges( FlaggedRevision $frev, $newTemplates = null ) {
-		$reqUser = $this->getUser();
-		$skin = $reqUser->getSkin();
 		$diffLinks = array();
 		if ( $newTemplates === null ) {
 			$changes = $frev->findPendingTemplateChanges();
@@ -1588,7 +1585,7 @@ class FlaggedPageView extends ContextSource {
 		}
 		foreach ( $changes as $tuple ) {
 			list( $title, $revIdStable, $hasStable ) = $tuple;
-			$link = $skin->linkKnown(
+			$link = Linker::linkKnown(
 				$title,
 				htmlspecialchars( $title->getPrefixedText() ),
 				array(),
@@ -1604,8 +1601,6 @@ class FlaggedPageView extends ContextSource {
 	// Fetch file changes for a reviewed revision since review
 	// @return array
 	protected static function fetchFileChanges( FlaggedRevision $frev, $newFiles = null ) {
-		$reqUser = $this->getUser();
-		$skin = $reqUser->getSkin();
 		$diffLinks = array();
 		if ( $newFiles === null ) {
 			$changes = $frev->findPendingFileChanges( 'noForeign' );
@@ -1615,7 +1610,7 @@ class FlaggedPageView extends ContextSource {
 		foreach ( $changes as $tuple ) {
 			list( $title, $revIdStable, $hasStable ) = $tuple;
 			// @TODO: change when MW has file diffs
-			$link = $skin->link( $title, htmlspecialchars( $title->getPrefixedText() ) );
+			$link = Linker::link( $title, htmlspecialchars( $title->getPrefixedText() ) );
 			if ( !$hasStable ) {
 				$link = "<strong>$link</strong>";
 			}
