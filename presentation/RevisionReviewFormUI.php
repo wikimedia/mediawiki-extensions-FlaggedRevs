@@ -15,12 +15,13 @@ class RevisionReviewFormUI {
 
 	 /**
 	 * Generates a brief review form for a page
-	 * @param User $user
+	 * @param RequestContext $context
 	 * @param FlaggedPage $article
 	 * @param Revision $rev
 	 */
-	public function __construct( User $user, FlaggedPage $article, Revision $rev ) {
-		$this->user = $user;
+	public function __construct( IContextSource $context, FlaggedPage $article, Revision $rev ) {
+		$this->user = $context->getUser();
+		$this->request = $context->getRequest();
 		$this->article = $article;
 		$this->rev = $rev;
 	}
@@ -142,7 +143,7 @@ class RevisionReviewFormUI {
 		} else {
 			list( $u, $ts ) = FRUserActivity::getUserReviewingPage( $this->rev->getPage() );
 		}
-		$form .= "<p>";
+		$form .= Xml::openElement( 'p' );
 		// Page under review (and not by this user)...
 		if ( $u !== null && $u != $this->user->getName() ) {
 			$form .= '<span class="fr-under-review">';
@@ -156,21 +157,60 @@ class RevisionReviewFormUI {
 		} elseif ( !$frev ) { // rev not already reviewed
 			$form .= '<span id="mw-fr-reviewing-status" style="display:none;"></span>'; // JS widget
 		}
-		$form .= "</p>\n";
+		$form .= Xml::closeElement( 'p' ) . "\n";
 
-		if ( $disabled ) {
-			$form .= Xml::openElement( 'div', array( 'class' => 'fr-rating-controls-disabled',
-				'id' => 'fr-rating-controls-disabled' ) ) . "\n";
-		} else {
-			$form .= Xml::openElement( 'div', array( 'class' => 'fr-rating-controls',
-				'id' => 'fr-rating-controls' ) ) . "\n";
-		}
+		# Start rating controls
+		$css = $disabled ? 'fr-rating-controls-disabled' : 'fr-rating-controls';
+		$form .= Xml::openElement( 'p', array( 'class' => $css, 'id' => 'fr-rating-controls') ) . "\n";
 
 		# Add main checkboxes/selects
 		$form .= Xml::openElement( 'span',
 			array( 'id' => 'mw-fr-ratingselects', 'class' => 'fr-rating-options' ) ) . "\n";
-		$form .= self::ratingInputs( $this->user, $flags, (bool)$disabled, (bool)$frev );
+		$form .= self::ratingInputs( $this->user, $flags, (bool)$disabled, (bool)$frev ) . "\n";
 		$form .= Xml::closeElement( 'span' ) . "\n";
+
+		# Don't put buttons & comment field on the same line as tag inputs.
+		if ( !$disabled && !FlaggedRevs::binaryFlagging() ) { // $disabled => no comment/buttons
+			$form .= "<br />";
+		}
+
+		# Start comment & buttons
+		$form .= Xml::openElement( 'span', array( 'id' => 'mw-fr-confirmreview' ) ) . "\n";
+
+		# Hide comment input if needed
+		if ( !$disabled ) {
+			$form .= Xml::inputLabel(
+				wfMsg( 'revreview-log' ), 'wpReason', 'wpReason', 40, '',
+				array( 'maxlength' => 255, 'id' => 'mw-fr-commentbox', 'class' => 'fr-comment-box' )
+			);
+			$form .= "&#160;&#160;&#160;" . "\n";
+		}
+
+		# Add the submit buttons...
+		$rejectId = $this->rejectRefRevId(); // determine if there will be reject button
+		$form .= self::submitButtons( $rejectId, $frev, (bool)$disabled, $reviewIncludes );
+		if ( $this->request->getVal( 'diff' ) ) {
+			$form .= Linker::link( $this->article->getTitle(), wfMsg( 'revreview-cancel' ) );
+		}
+
+		# Show stability log if there is anything interesting...
+		if ( $article->isPageLocked() ) {
+			$form .= ' ' . FlaggedRevsXML::logToggle( 'revreview-log-toggle-show' );
+		}
+
+		# End comment & buttons
+		$form .= Xml::closeElement( 'span' ) . "\n";
+
+		# ..add the actual stability log body here
+		if ( $article->isPageLocked() ) {
+			$form .= FlaggedRevsXML::stabilityLogExcerpt( $article );
+		}
+
+		# End rating controls
+		$form .= Xml::closeElement( 'p' ) . "\n";
+
+		# Show explanatory text
+		$form .= $this->bottomNotice;
 
 		# Get the file version used for File: pages as needed
 		$fileKey = $this->getFileVersion();
@@ -179,40 +219,6 @@ class RevisionReviewFormUI {
 		# Convert these into flat string params
 		list( $templateParams, $imageParams, $fileVersion ) =
 			RevisionReviewForm::getIncludeParams( $templateIDs, $imageSHA1Keys, $fileKey );
-
-		$form .= Xml::openElement( 'span',
-			array( 'style' => 'white-space: nowrap;' ) ) . "\n";
-		# Hide comment input if needed
-		if ( !$disabled ) {
-			if ( count( FlaggedRevs::getTags() ) > 1 ) {
-				$form .= "<br />"; // Don't put too much on one line
-			}
-			$form .= "<span id='mw-fr-commentbox' style='clear:both'>" .
-				Xml::inputLabel( wfMsg( 'revreview-log' ), 'wpReason', 'wpReason', 40, '',
-					array( 'maxlength' => 255, 'class' => 'fr-comment-box' ) ) .
-				"&#160;&#160;&#160;</span>\n";
-		}
-		# Determine if there will be reject button
-		$rejectId = $this->rejectRefRevId();
-
-		# Add the submit buttons
-		$form .= self::submitButtons( $rejectId, $frev, (bool)$disabled, $reviewIncludes );
-		# Add "cancel" link
-		$form .= Linker::link( $article->getTitle(), wfMsg( 'revreview-cancel' ) );
-
-		# Show stability log if there is anything interesting...
-		if ( $article->isPageLocked() ) {
-			$form .= ' ' . FlaggedRevsXML::logToggle( 'revreview-log-toggle-show' );
-		}
-		$form .= Xml::closeElement( 'span' ) . "\n";;
-		# ..add the actual stability log body here
-	    if ( $article->isPageLocked() ) {
-			$form .= FlaggedRevsXML::stabilityLogExcerpt( $article );
-		}
-		$form .= Xml::closeElement( 'div' ) . "\n";
-
-		# Show explanatory text
-		$form .= $this->bottomNotice;
 
 		# Hidden params
 		$form .= Html::hidden( 'title', $reviewTitle->getPrefixedText() ) . "\n";

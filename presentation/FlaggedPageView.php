@@ -1086,7 +1086,7 @@ class FlaggedPageView extends ContextSource {
 		}
 		# Build the review form as needed
 		if ( $rev && ( !$this->diffRevs || $this->isReviewableDiff ) ) {
-			$form = new RevisionReviewFormUI( $reqUser, $this->article, $rev );
+			$form = new RevisionReviewFormUI( $this->getContext(), $this->article, $rev );
 			# Default tags and existence of "reject" button depend on context
 			if ( $this->diffRevs ) {
 				$form->setDiffPriorRev( $this->diffRevs['old'] );

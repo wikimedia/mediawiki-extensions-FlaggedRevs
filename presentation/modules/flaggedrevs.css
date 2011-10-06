@@ -317,8 +317,12 @@ span.fr-under-review {
 	color: GrayText;
 }
 
+#mw-fr-confirmreview {
+	white-space: nowrap;
+}
 .fr-rating-options {
 	margin-right: 1.5em;
+	white-space: nowrap;
 }
 
 .fr-rating-option-0 {
