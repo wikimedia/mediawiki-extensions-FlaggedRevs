@@ -7740,16 +7740,17 @@ $messages['ka'] = array(
 	'revreview-edited-section' => 'დაბრუნება სტატიის სექციასთან სახელად «[[#$1|$2]]».',
 	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} გამოქვეყნებული ვერსია] იყო [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} შემოწმებული] <i>$2</i>. შავ ვერსიაში არის
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}}  $3 {{PLURAL:$3|ცვლილება|ცვლილებები|ცვლილებების}}].',
-	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} გამოქვეყნებული ვერსია] იყო [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} შემოწმებულიа] <i>$2</i>. შავ ფურცელში არის შემოწმების მომლოდინე [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} ფაილები ან თარგები.',
-	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} გამოქვეყნებული ვერსია] იყო [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}}დამტკიცებული] <i>$2</i>. შავ ვერსიაში არის  
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}}  $3 {{PLURAL:$3|ცვლილება|ცვლილებები|ცვლილებების}}].',
-	'revreview-newest-quality-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} გამოქვეყნებული ვერსია] იყო [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} დამტკიცებული] <i>$2</i>. შავ ვერსიაში არის შემოწმების მომლოდინე [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} ცვლილებები თარგებში ან ფაილებში].',
+	'revreview-newest-basic-i' => 'ამ [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} თარგის/ფაილის ცვლილებები] [[{{MediaWiki:Validationpage}}|შეუმოწმებელია]].
+[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} ბოლო სტაბილური ვერსია] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} შემოწმდა] <i>$2</i>-ში.',
+	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} ამ გვერდის უკანასკნელი $3 {{PLURAL:$3|ცვლილება|ცვლილება}}] {{PLURAL:$3|ჯერ კიდევ|ჯერ კიდევ}} [[{{MediaWiki:Validationpage}}|შეუმოწმებელია]].
+[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} გამოქვეყნებული ვერსიის] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} შემოწმების] თარიღია: <i>$2</i> .',
+	'revreview-newest-quality-i' => 'ამ [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} თარგის/ფაილის ცვლილებები] [[{{MediaWiki:Validationpage}}|შეუმოწმებელია]].
+[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} ბოლო სტაბილური ვერსია] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} შემოწმდა] <i>$2</i>-ში.',
 	'revreview-pending-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} გამოქვეყნებული ვერსია] იყო [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} შემოწმებული] <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}}შავი სია] შეიცავს   
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|შემოწმების მომლოდინე რედაქტირებას|შემოწმების მომლოდინე რედაქტირებებს|შემოწმებს მომლოდინე რედაქტირებას}}].',
-	'revreview-pending-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} გამოქვეყნებული ვერსია] იყო [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} შემოწმებული] (<i>$2</i>). [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} შეუმოწმებელი ვერსია] შეიცავს  
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} შემოწმების $3 მომლოდინე რედაქტირებას].',
+	'revreview-pending-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} ბოლო სტაბილური ვერსია] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} შემოწმდა] <i>$2</i>-ში. შავი ფურცელი შეიცავს შემოწმების მომლოდინე [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 ცვლილებას].',
 	'revreview-pending-nosection' => 'გთხოვთ ყურადღება გაამახვილოთ [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} ბოლო ვერსიაზე], რომელშიც შემოწმების მოლოდინშია [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 ცვლილება]. შესაძლებელია, რომ ეს დანაყოფი გადაადგილდა ან წაიშალა.',
-	'revreview-noflagged' => "ამ გვერდს არა აქვს [[{{MediaWiki:Validationpage}}|შემოწმებული]] ვერსია, სავარაუდოდ მისი ხარისხი '''არ იყო''' შეფასებული.",
+	'revreview-noflagged' => "ამ გვერდს არა აქვს [[{{MediaWiki:Validationpage}}|შემოწმებული]] ვერსია, სავარაუდოდ მისი ხარისხი '''არ შეესაბამებოდა''' პროექტის სტანდარტებს.",
 	'revreview-oldrating' => 'შეფასდა:',
 	'revreview-quality' => 'ეს [[{{MediaWiki:Validationpage}}|გამოქვეყნებული ვერსია]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} დამტკიცებული] <i>$2</i> მიერ.
 [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} შავ ვერსიაში არის] {{PLURAL:$3|შემოწმების მომლოდინე}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|ცვლილება|ცვლილებები|ცვლილებების}}].',
@@ -7789,7 +7790,6 @@ $messages['ka'] = array(
 	'right-stablesettings' => 'გამოშვებული ვერსიის არჩევისა და ჩვენების კონფიგურაციის მართვა',
 	'right-validate' => 'გვერდების ვერსიების მონიშვნა როგორც რეცენზირებული',
 	'right-unreviewedpages' => '[[Special:UnreviewedPages|შეუმოწმებელი გვერდების სიის]] ნახვა',
-	'rights-editor-autosum' => 'ავტოდანიშვნა',
 	'rights-editor-revoke' => 'მოხსნა შემმოწმებლის სტატუსი -  [[$1]]',
 	'specialpages-group-quality' => 'რედაქტირების შემოწმება',
 	'stable-logentry-config' => 'დააყენა სტაბულურობის კონფიგურაცია გვერდისთვის «$1»',
@@ -11025,7 +11025,7 @@ $messages['ps'] = array(
 	'revreview-restriction-any' => 'هر يو',
 	'revreview-restriction-none' => 'هېڅ',
 	'revreview-reviewlink' => 'pending edits',
-	'tooltip-ca-current' => 'د همدې مخ اوسنی ګارليک ښکاره کول',
+	'tooltip-ca-current' => 'دا مخ د بدلونونو د رامنځ ته کېدو د انتظار په حال کې کتل',
 	'flaggedrevs-protect-none' => 'ټول کارنان پرېښودل',
 );
 
@@ -14183,6 +14183,7 @@ $messages['tr'] = array(
 	'prefs-flaggedrevs' => 'Değişiklik incelemesi',
 	'prefs-flaggedrevs-ui' => 'Değişiklik incelemesi',
 	'flaggedrevs-prefs-stable' => 'Her zaman varsayılan olarak içerik sayfalarının kararlı sürümünü göster (eğer varsa)',
+	'flaggedrevs-pref-stable-0' => 'Her sayfa için varsayılan ayarları kullan',
 	'flaggedrevs-prefs-watch' => 'İncelediğim sayfaları izleme listeme ekle',
 	'flaggedrevs-prefs-editdiffs' => 'Sayfaları değiştirirken bekleyen değişiklikler farkını göster',
 	'flaggedrevs-prefs-viewdiffs' => 'Son bekleyen revizyonu görüntülerken bekleyen değişiklik farkını göster',
@@ -14306,7 +14307,6 @@ Lütfen bu sayfaya erişmek için kullandığınız URL'yi kontrol edin.",
 	'right-stablesettings' => 'Kararlı sürümün nasıl seçilip görüntüleneceğini ayarlar',
 	'right-validate' => 'Revizyonları "kaliteli" olarak işaretler',
 	'right-unreviewedpages' => '[[Special:UnreviewedPages|İncelenmemiş sayfalar listesini]] görür',
-	'rights-editor-autosum' => 'otomatik olarak terfi etmiş',
 	'rights-editor-revoke' => '[[$1]] adlı kullanıcının editör statüsü geri alındı',
 	'specialpages-group-quality' => 'Düzenleme incelemesi',
 	'stable-logentry-config' => '"$1" için kararlı sürüm ayarlarını belirledi',

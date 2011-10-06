@@ -406,13 +406,13 @@ $messages['ar'] = array(
 	'revreview-flag' => 'راجع هذه المراجعة',
 	'revreview-reflag' => 'أعد مراجعة هذه المراجعة',
 	'revreview-invalid' => "'''هدف غير صحيح:''' لا مراجعة [[{{MediaWiki:Validationpage}}|مراجعة]] تتطابق مع الرقم المعطى.",
-	'revreview-legend' => 'قيم محتوى المراجعة',
 	'revreview-log' => 'تعليق:',
 	'revreview-main' => 'يجب أن تختار مراجعة معينة من صفحة محتوى لمراجعتها.
 
 انظر [[Special:Unreviewedpages|قائمة الصفحات غير المراجعة]].',
 	'revreview-stable1' => 'ربما ترغب في رؤية [{{fullurl:$1|stableid=$2}} هذه النسخة المعلمة] لترى ما إذا كانت [{{fullurl:$1|stable=1}} النسخة المنشورة] لهذه الصفحة.',
 	'revreview-stable2' => 'قد ترغب في مشاهدة [{{fullurl:$1|stable=1}} النسخة المستقرة] لهذه الصفحة.',
+	'revreview-cancel' => 'إلغاء',
 	'revreview-submit' => 'أرسل',
 	'revreview-submitting' => 'يرسل...',
 	'revreview-submit-review' => 'اقبل المراجعة',
@@ -424,8 +424,12 @@ $messages['ar'] = array(
 	'revreview-successful2' => "'''مراجعة [[:$1|$1]] تمت إزالة علمها بنجاح.'''",
 	'revreview-poss-conflict-p' => "'''تحذير: بدأ [[User:$1|$1]] مراجعة هذه الصفحة في $2 عند $3.'''",
 	'revreview-poss-conflict-c' => "'''تحذير: بدأ [[User:$1|$1]] مراجعة هذه النغييرات في $2 عند $3.'''",
-	'revreview-adv-reviewing-p' => "'''تنبيه: لقد أعلمت بأنك بدأت بتنقيح هذه الصفحة في $1 عند $2.'''",
-	'revreview-adv-reviewing-c' => "'''تنبيه: لقد أعلمت بأنك بدأت بتنقيح هذه الصفحة في $1 عند $2.'''",
+	'revreview-adv-reviewing-p' => 'تنبيه: المحررين الآخرين قادرين على ملاحظة بأنك تقوم بمراجعة هذه الصفحة.',
+	'revreview-adv-reviewing-c' => 'تنبيه: المحررين الآخرين قادرين على ملاحظة بأنك تقوم بمراجعة هذه الصفحة.',
+	'revreview-sadv-reviewing-p' => 'يمكنك $1 نفسك على أنك تراجع هذه الصفحة للمستخدمين الآخرين.',
+	'revreview-sadv-reviewing-c' => 'يمكنك $1 نفسك للمستخدمين الآخرين على أنك تراجع هذه التعديلات.',
+	'revreview-adv-start-link' => 'تعلن',
+	'revreview-adv-stop-link' => 'توقف إعلان',
 	'revreview-toolow' => '\'\'\'يجب عليك تقييم كل من المحددات بالأسفل أعلى من "غير مقبولة" لكي تعتبر المراجعة مراجعة.\'\'\'
 
 لسحب حالة المراجعة لمراجعة، اضغط "غير موافق".
@@ -438,7 +442,6 @@ $messages['ar'] = array(
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important"> لم تضف تعديلات بعد إلى النسخة المستقرة. هناك تعديلات مسبقة تنتظر المراجعة. </span>
 رجاء راجع جميع التغييرات الظاهرة أدناه من أجل أن تظهر تعديلاتك في النسخة المستقرة.',
 	'revreview-update-includes' => 'تم تحديث بعض القوالب/الملفات (الصفحات غير المراجعة مكتوبة بالعريض):',
-	'revreview-reject-header' => 'رفض التغييرات لـ$1',
 	'revreview-reject-text-list' => "بإتمام هذا الفعل، سوف يتم '''رفض''' التعديلات النصية على المصدر من {{PLURAL:$1||المراجعة التالية|المراجعتين التاليتين|المراجعات التالية}} ل‍[[:$2|$2]]:",
 	'revreview-reject-text-revto' => 'هذا سوف يعيد الصفحة إلى [{{fullurl:$1|oldid=$2}} النسخة $3]',
 	'revreview-reject-summary' => 'ملخص التعديل:',
@@ -448,7 +451,6 @@ $messages['ar'] = array(
 	'revreview-reject-summary-old' => 'رفض أول {{PLURAL:$1||تغيير نصي|تغييرين نصيين|$1 تغييرات نصية|$1 تغييرا نصيا|$1 تغيير نصي}} (ل‍$2) {{PLURAL:$1||تلى|تليا|تلت|تلى}} المراجعة $3 ل‍$4',
 	'revreview-reject-summary-cur-short' => 'رفض {{PLURAL:$1||التغيير النصي الأخير|التغييران النصيان الأخيران|ال‍$1 تغييرات نصية الأخيرة|ال‍$1 تغييرا نصيا أخيرا|ال‍$1 تغيير نصي أخير}} واستعدت المراجعة $2 ل‍$3',
 	'revreview-reject-summary-old-short' => 'رفض أول {{PLURAL:$1||تغيير نصي تلا|تغييرين نصيين تليا|$1 تغييرات نصية تلت|$1 تغييرا نصيا تلا|$1 تغيير نصي تلا}} المراجعة $2 ل‍$3',
-	'revreview-reject-usercount' => '{{PLURAL:$1||مستخدم واحد|مستخدمان|$1 مستخدمين|$1 مستخدما|$1 مستخدم}}',
 	'revreview-tt-flag' => 'اقبل هذه المراجعة بتعليمها "مفحوصة"',
 	'revreview-tt-unflag' => 'لا تقبل هذه المراجعة بتعليمها "مفحوصة"',
 	'revreview-tt-reject' => 'ارفض التغييرات النصية على المصدر باسترجاعها',
@@ -1160,10 +1162,10 @@ Siehe die [[Special:Unreviewedpages|Liste unmarkierter Versionen]].',
 	'revreview-poss-conflict-c' => "'''Warnung: Ein anderer Benutzer ([[User:$1|$1]]) hat am $2 um $3 Uhr damit begonnen, diese Änderungen zu überprüfen.'''",
 	'revreview-adv-reviewing-p' => 'Hinweis: Andere Benutzer werden nun darauf hingewiesen, dass du diese Seite überprüfst.',
 	'revreview-adv-reviewing-c' => 'Hinweis: Andere Benutzer werden nun darauf hingewiesen, dass du diese Änderungen überprüfst.',
-	'revreview-sadv-reviewing-p' => 'Bitte $1 darauf hin, dass du diese Seite überprüfst.',
-	'revreview-sadv-reviewing-c' => 'Bitte $1 darauf hin, dass du diese Änderungen überprüfst.',
-	'revreview-adv-start-link' => 'hinweisen',
-	'revreview-adv-stop-link' => 'Hinweis zurücknehmen',
+	'revreview-sadv-reviewing-p' => 'Du kannst andere Benutzer darauf hinweisen, dass du diese Seite $1.',
+	'revreview-sadv-reviewing-c' => 'Du kannst andere Benutzer darauf hinweisen, dass du diese Änderung $1.',
+	'revreview-adv-start-link' => 'überprüfst',
+	'revreview-adv-stop-link' => 'nicht überprüfst',
 	'revreview-toolow' => "'''Du musst jedes der Attribute besser als „unzureichend“ einstufen, damit eine Version als markiert angesehen werden kann.'''
 
 Um den Markierungstatus einer Version aufzuheben, muss auf „Markierung entfernen“ geklickt werden.
@@ -5081,6 +5083,7 @@ Pakisuri ang lahat ng mga pagbabagong ipinapakita sa ibaba upang magawang lumita
  * @author Emperyan
  * @author Joseph
  * @author Srhat
+ * @author Szoszv
  * @author Vito Genovese
  */
 $messages['tr'] = array(
@@ -5110,13 +5113,13 @@ $messages['tr'] = array(
 	'revreview-flag' => 'Bu revizyonu incele',
 	'revreview-reflag' => 'Bu revizyonu tekrar incele',
 	'revreview-invalid' => "'''Geçersiz hedef:''' hiçbir [[{{MediaWiki:Validationpage}}|incelenmiş]] revizyon verilen no.ya uymuyor.",
-	'revreview-legend' => 'Revizyon içeriğini değerlendir',
 	'revreview-log' => 'Yorum:',
 	'revreview-main' => 'İncelemek için içerik sayfasından belirli bir revizyon seçmelisiniz.
 
 [[Special:Unreviewedpages|İncelenmemiş sayfalar listesine]] göz atın.',
 	'revreview-stable1' => '[{{fullurl:$1|stableid=$2}} Bu bayraklanmış sürümü] görerek bu sayfanın [{{fullurl:$1|stable=1}} kararlı sürümü] olup olmadığını görmek isteyebilirsiniz.',
 	'revreview-stable2' => 'Bu sayfanın [{{fullurl:$1|stable=1}} kararlı sürümünü] görmek isteyebilirsiniz.',
+	'revreview-cancel' => 'İptal',
 	'revreview-submit' => 'Gönder',
 	'revreview-submitting' => 'Gönderiliyor...',
 	'revreview-submit-review' => 'Revizyonu kabul et',
@@ -5126,6 +5129,8 @@ $messages['tr'] = array(
 	'revreview-submit-unreviewed' => 'Tamam. Kabul edilmedi!',
 	'revreview-successful' => "'''[[:$1|$1]] sayfasının revizyonu başarıyla bayraklandı. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} kararlı sürümleri gör])'''",
 	'revreview-successful2' => "'''[[:$1|$1]] sayfasının revizyon bayrağı başarıyla kaldırıldı.'''",
+	'revreview-adv-start-link' => 'reklam',
+	'revreview-adv-stop-link' => 'reklamsız',
 	'revreview-toolow' => '\'\'\'Bir revizyonun incelenmiş sayılabilmesi için özniteliklerin hepsini "yetersiz" düzeyden yüksek derecelendirmelisiniz.\'\'\'
 
 Bir revizyonun inceleme durumunu kaldırmak için, "kabul etme" seçeneğine tıklayın.
@@ -5139,12 +5144,10 @@ Değişikliklerinizin kararlı sürümde yer alması için lütfen aşağıda g�
 
 Değişikliklerinizin kararlı sürümde yer alması için, lütfen aşağıda gösterilen tüm değişiklikleri inceleyin.',
 	'revreview-update-includes' => 'Bazı şablonlar/dosyalar güncellenmiş:',
-	'revreview-reject-header' => '$1 için değişiklikleri reddet',
 	'revreview-reject-text-list' => "Bu eylemi tamamlayarak, aşağıdaki {{PLURAL:$1|değişiklik|değişiklikleri}} '''reddetmiş''' olacaksınız:",
 	'revreview-reject-summary' => 'Değişiklik özeti:',
 	'revreview-reject-confirm' => 'Bu değişiklikleri reddet',
 	'revreview-reject-cancel' => 'İptal',
-	'revreview-reject-usercount' => '{{PLURAL:$1|bir kullanıcı|$1 kullanıcı}}',
 	'revreview-tt-flag' => 'Bu revizyonu kontrol edilmiş olarak işaretleyerek onayla',
 	'revreview-tt-unflag' => 'Bu revizyonu "kontrol edilmemiş" olarak işaretleyerek kabul etme',
 	'revreview-tt-reject' => 'Değişiklikleri geri alarak reddet',
