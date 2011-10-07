@@ -180,7 +180,7 @@ class RevisionReviewFormUI {
 		# Hide comment input if needed
 		if ( !$disabled ) {
 			$form .= Xml::inputLabel(
-				wfMsg( 'revreview-log' ), 'wpReason', 'mw-fr-comment-box', 40, '',
+				wfMsg( 'revreview-log' ), 'wpReason', 'mw-fr-commentbox', 40, '',
 				array( 'maxlength' => 255, 'class' => 'fr-comment-box' )
 			);
 		}
