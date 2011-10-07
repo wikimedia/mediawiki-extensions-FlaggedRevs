@@ -224,21 +224,25 @@ Parameters:
 * $2 is a date
 * $3 is a time',
 	'revreview-adv-reviewing-p' => '{{Flagged Revs}}
-Shown on the form to review pages. Indicates that other reviewers will get a notice that this user is already reviewing this revision of the page. Not shown on diffs.',
+Shown on the form to review pages. Indicates that other reviewers will get a notice that this user is already reviewing this revision of the page. Not shown on diffs.
+
+This message is followed by {{msg-mw|revreview-adv-stop-link}} as link in parenthesis.',
 	'revreview-adv-reviewing-c' => '{{Flagged Revs}}
-Shown on the form to review pages. Indicates that other reviewers will get a notice that this user is already reviewing this revision of the page. Shown on diffs.',
+Shown on the form to review pages. Indicates that other reviewers will get a notice that this user is already reviewing this revision of the page. Shown on diffs.
+
+This message is followed by {{msg-mw|revreview-adv-stop-link}} as link in parenthesis.',
 	'revreview-sadv-reviewing-p' => '{{Flagged Revs}}
 Shown on the form to review pages. Not shown on diffs.
-$1 is {{msg-mw|revreview-adv-start-link}} or {{msg-mw|revreview-adv-stop-link}}. It displays as "advertise".',
+$1 is {{msg-mw|revreview-adv-start-link}} as a link. It displays as "advertise".',
 	'revreview-sadv-reviewing-c' => '{{Flagged Revs}}
 Shown on the form to review pages on diffs.
-$1 is {{msg-mw|revreview-adv-start-link}} or {{msg-mw|revreview-adv-stop-link}}. It displays as "advertise".',
+$1 is {{msg-mw|revreview-adv-start-link}} as a link. It displays as "advertise".',
 	'revreview-adv-start-link' => '{{Flagged Revs}}
-Shown on the form to review pages. This is the text of a link, which is enclosed in parenthesis itself.
+Shown on the form to review pages. This is the text of a link.
 Used as parameter in {{msg-mw|Revreview-sadv-reviewing-c}} or {{msg-mw|Revreview-sadv-reviewing-p}}',
 	'revreview-adv-stop-link' => '{{Flagged Revs}}
 Shown on the form to review pages. This is the text of a link, which is enclosed in parenthesis itself.
-Used as parameter in {{msg-mw|Revreview-sadv-reviewing-c}} or {{msg-mw|Revreview-sadv-reviewing-p}}',
+It stands behind {{msg-mw|Revreview-adv-reviewing-c}} or {{msg-mw|Revreview-adv-reviewing-p}}.',
 	'revreview-toolow' => '{{Flagged Revs-small}}
 A kind of error shown when trying to review a revision with some settings on "unapproved".',
 	'revreview-update' => '{{Flagged Revs}}
@@ -1158,7 +1162,7 @@ Siehe die [[Special:Unreviewedpages|Liste unmarkierter Versionen]].',
 	'revreview-sadv-reviewing-p' => 'Du kannst andere Benutzer darauf hinweisen, dass du diese Seite $1.',
 	'revreview-sadv-reviewing-c' => 'Du kannst andere Benutzer darauf hinweisen, dass du diese Änderung $1.',
 	'revreview-adv-start-link' => 'überprüfst',
-	'revreview-adv-stop-link' => 'nicht überprüfst',
+	'revreview-adv-stop-link' => 'Hinweis zurücknehmen',
 	'revreview-toolow' => "'''Du musst jedes der Attribute besser als „unzureichend“ einstufen, damit eine Version als markiert angesehen werden kann.'''
 
 Um den Markierungstatus einer Version aufzuheben, muss auf „Markierung entfernen“ geklickt werden.
@@ -1199,8 +1203,8 @@ $messages['de-formal'] = array(
 Siehe die [[Special:Unreviewedpages|Liste unmarkierter Versionen]].',
 	'revreview-stable1' => 'Vielleicht möchten Sie [{{fullurl:$1|stableid=$2}} die markierte Version] aufrufen, um zu sehen, ob es nunmehr die [{{fullurl:$1|stable=1}} freigegebene Version] dieser Seite ist?',
 	'revreview-stable2' => 'Vielleicht möchten Sie die [{{fullurl:$1|stable=1}} freigegebene Version] dieser Seite sehen?',
-	'revreview-adv-reviewing-p' => "'''Hinweis: Andere Benutzer werden nun darauf hingewiesen, dass Sie am $1um $2 Uhr damit begonnen haben diese Seite zu überprüfen.'''",
-	'revreview-adv-reviewing-c' => "'''Hinweis: Andere Benutzer werden nun darauf hingewiesen, dass Sie am $1 um $2 Uhr damit begonnen haben diese Änderungen zu überprüfen.'''",
+	'revreview-adv-reviewing-p' => 'Hinweis: Andere Benutzer werden nun darauf hingewiesen, dass Sie diese Seite überprüfen.',
+	'revreview-adv-reviewing-c' => 'Hinweis: Andere Benutzer werden nun darauf hingewiesen, dass Sie diese Änderungen überprüfen.',
 	'revreview-toolow' => "'''Sie müssen jedes der Attribute besser als „unzureichend“ einstufen, damit eine Version als markiert angesehen werden kann.'''
 
 Um den Markierungstatus einer Version aufzuheben, muss auf „Markierung entfernen“ geklickt werden.
@@ -1478,6 +1482,7 @@ Bonvolu kontroli ĉiujn jenajn ŝanĝojn por aperigi viajn redaktojn en la stabi
  * @author Crazymadlover
  * @author Dferg
  * @author Drini
+ * @author Fitoschido
  * @author Imre
  * @author Jurock
  * @author Locos epraix
@@ -1486,8 +1491,8 @@ Bonvolu kontroli ĉiujn jenajn ŝanĝojn por aperigi viajn redaktojn en la stabi
  * @author Translationista
  */
 $messages['es'] = array(
-	'revisionreview' => 'Verificar revisiones',
-	'revreview-failed' => "'''No se pudo revisar esta revisión.'''",
+	'revisionreview' => 'Revisar versiones',
+	'revreview-failed' => "'''No se pudo revisar esta versión.'''",
 	'revreview-submission-invalid' => 'El envío estaba incompleto o era inválido',
 	'review_page_invalid' => 'El título de página destino es inválida.',
 	'review_page_notexists' => 'La página destino no existe.',
@@ -1515,7 +1520,6 @@ Solamente usar esto si ya has visto por completo las diferencias de los cambios 
 	'revreview-flag' => 'Verificar esta revisión',
 	'revreview-reflag' => 'Volver a verificar esta revisión',
 	'revreview-invalid' => "'''Destino inválido:''' no hay  [[{{MediaWiki:Validationpage}}|versión revisada]] que corresponda a tal ID.",
-	'revreview-legend' => 'Valorar contenido de revisión',
 	'revreview-log' => 'Comentario:',
 	'revreview-main' => 'Debes seleccionar una revisión particular de una página de contenido para verificar.
 
@@ -1524,15 +1528,15 @@ Mira la [[Special:Unreviewedpages|lista de páginas no revisadas]].',
 	'revreview-stable2' => 'Puedes desear ver la [{{fullurl:$1|stable=1}} versión publicada] de esta página.',
 	'revreview-submit' => 'Enviar',
 	'revreview-submitting' => 'Enviando...',
-	'revreview-submit-review' => 'Aceptar revisión',
-	'revreview-submit-unreview' => 'Desaprobar revisión',
+	'revreview-submit-review' => 'Aceptar versión',
+	'revreview-submit-unreview' => 'Desaprobar versión',
 	'revreview-submit-reject' => 'Rechazar cambios',
-	'revreview-submit-reviewed' => 'Hecho. Aprobado!',
-	'revreview-submit-unreviewed' => 'Hecho. Desaprobado!',
-	'revreview-successful' => "'''La revisión de [[:$1|$1]] ha sido exitósamente marcada. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} ver versiones estables])'''",
-	'revreview-successful2' => "'''Se ha desmarcado la revisión de [[:$1|$1]]'''",
-	'revreview-poss-conflict-p' => '"Advertencia: [[Usuario:\'\' $1 | $1 ]] comenzó a revisar esta página en $2 a $3 .\'\'\'',
-	'revreview-poss-conflict-c' => "''' Advertencia: [[usuario: $1 | $1 ]] comenzó a revisar estos cambios en  $2  en  $3 .'' '",
+	'revreview-submit-reviewed' => 'Hecho. Aceptado.',
+	'revreview-submit-unreviewed' => 'Hecho. Desaprobado.',
+	'revreview-successful' => "'''La versión de [[:$1|$1]] ha sido marcada correctamente. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} ver versiones estables])'''",
+	'revreview-successful2' => "'''Se ha desmarcado la revisión de [[:$1|$1]] correctamente.'''",
+	'revreview-poss-conflict-p' => "'''Aviso: [[User:$1|$1]] empezó a revisar esta página el $2 a las $3.'''",
+	'revreview-poss-conflict-c' => "'''Aviso: [[User:$1|$1]] empezó a revisar estos cambios el $2 a las $3.'''",
 	'revreview-adv-reviewing-p' => "''' Aviso: usted se que se anuncian como comenzó a revisar esta página sobre  $1  en  $2 .'' '",
 	'revreview-adv-reviewing-c' => "''' Aviso: usted se que se anuncian como habiendo empezado revisar estos cambios en  $1  en  $2 .'' '",
 	'revreview-toolow' => "'''Debes valorar cada uno de los atributos más alto que \"inadecuado\" para que la revisión sea considerada verificada.'''
@@ -1548,7 +1552,6 @@ Por favor revisa todos los cambios mostrados debajo para hacer que tus ediciones
 
 Por favor, revisa todos los cambios mostrados a continuación para que se acepten tus ediciones.',
 	'revreview-update-includes' => 'Plantilla/archivos actualizados (páginas sin revisar en negrita):',
-	'revreview-reject-header' => 'Rechazar los cambios para $1',
 	'revreview-reject-text-list' => "Al completar esta acción, estarás '''rechazando''' los cambios del texto fuente de las siguientes {{PLURAL:$1|revisión|revisiones}} de [[:$2|$2]]:",
 	'revreview-reject-text-revto' => 'La página será revertida a su [{{*fullurl:$1|*oldid=$2}} versión de $3].',
 	'revreview-reject-summary' => 'Resumen:',
@@ -1558,7 +1561,6 @@ Por favor, revisa todos los cambios mostrados a continuación para que se acepte
 	'revreview-reject-summary-old' => 'Rechazados los primeros {{PLURAL:$1|cambio de texto|$1 cambios de texto}} (de $2) que seguían a la revisión $3 de $4.',
 	'revreview-reject-summary-cur-short' => 'Rechazados los últimos {{PLURAL:$1|cambio de texto|$1 cambios de texto}} y restaurada la revisión $2 de $3',
 	'revreview-reject-summary-old-short' => 'Rechazados los primeros {{PLURAL:$1|cambio de texto|$1 cambios de texto}} que seguían la revisión $2 de $3',
-	'revreview-reject-usercount' => '{{PLURAL:$1|un usuario|$1 usuarios}}',
 	'revreview-tt-flag' => 'Aprobar esta revisión marcándola como revisada',
 	'revreview-tt-unflag' => 'Desaprobar esta revisión marcándola como "no-verificada"',
 	'revreview-tt-reject' => 'Rechazar estos cambios del texto fuente revirtiendolos',
@@ -3828,7 +3830,7 @@ Zobacz [[Special:Unreviewedpages|listę nieprzejrzanych stron]].',
 	'revreview-sadv-reviewing-p' => 'Możesz $1 innych użytkowników, o tym że jesteś w trakcie przeglądania tej strony.',
 	'revreview-sadv-reviewing-c' => 'Możesz $1 innych użytkowników, o tym że jesteś w trakcie przeglądania tych zmian.',
 	'revreview-adv-start-link' => 'poinformować',
-	'revreview-adv-stop-link' => 'wycofać informowanie',
+	'revreview-adv-stop-link' => 'wycofaj informowanie',
 	'revreview-toolow' => "'''Musisz ocenić każdy z atrybutów wyżej niż „nieakceptowalny“, aby oznaczyć wersję jako zweryfikowaną.'''
 
 Aby wycofać zweryfikowanie kliknij na „Cofnij akceptację wersji”.

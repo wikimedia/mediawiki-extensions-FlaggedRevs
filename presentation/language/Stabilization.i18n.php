@@ -380,13 +380,25 @@ Esta ye la configuración actual de [[:$1|$1]]:',
 /** Azerbaijani (Azərbaycanca)
  * @author Cekli829
  * @author Vago
+ * @author Vugar 1981
  */
 $messages['az'] = array(
+	'stabilization-tab' => 'vet',
+	'stabilization' => 'Səhifənin stabilləşdirilməsi',
+	'stabilization-text' => '[[:$1|$1]]  üçün yoxlanılmış versiyanın seçilib görüntülənməsini nizamlamaq üçün nizamlamaları dəyişin',
+	'stabilization-page' => 'Səhifə adı:',
+	'stabilization-def2' => 'Son yoxlama',
 	'stabilization-submit' => 'Təsdiq et',
 	'stabilization-comment' => 'Səbəb:',
 	'stabilization-otherreason' => 'Digər səbəb:',
+	'stabilization-expiry' => 'Vaxtı bitib:',
 	'stabilization-othertime' => 'Başqa vaxt:',
 	'stabilization-def-short' => 'Susmaya görə',
+	'stabilization-def-short-0' => 'Hazırki',
+	'stabilize_invalid_level' => 'Keçərsiz mühafizə səviyyəsi',
+	'stabilize_expiry_invalid' => 'Yanlış bitmə tarixi.',
+	'stabilize_denied' => 'İcazə yoxdur.',
+	'stabilize-expiring' => '$1 (UTC)-da bitir',
 );
 
 /** Bashkir (Башҡортса)

@@ -131,6 +131,19 @@ $messages['ast'] = array(
 	'reviewedpages-best' => 'meyor revisión',
 );
 
+/** Azerbaijani (Azərbaycanca)
+ * @author Vugar 1981
+ */
+$messages['az'] = array(
+	'reviewedpages' => 'Səhifələrin yoxlanması',
+	'reviewedpages-leg' => 'Yoxlanılmış səhifələri sadala',
+	'reviewedpages-list' => "Bu siyahı, (bir yoxlamanın) ''ən yüksək qazanılmış'' yoxlama səviyyəsi,müəyyən edilmiş səviyyə olan [[{{MediaWiki:Validationpage}}|yoxlanmış]] səhifələri ehtiva edir.
+O seviyedeki en son revizyona bağlantı verilmiştir.",
+	'reviewedpages-none' => 'Bu siyahıda səhifə yoxdur.',
+	'reviewedpages-all' => 'Yoxlanılmış versiyalar',
+	'reviewedpages-best' => 'ən yaxşı versiya',
+);
+
 /** Southern Balochi (بلوچی مکرانی)
  * @author Mostafadaneshvar
  */

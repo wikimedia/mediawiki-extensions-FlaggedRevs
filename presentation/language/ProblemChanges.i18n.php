@@ -241,9 +241,11 @@ $messages['eo'] = array(
 
 /** Spanish (Español)
  * @author Crazymadlover
+ * @author Fitoschido
  */
 $messages['es'] = array(
 	'problemchanges' => 'Cambios pendientes etiquetados',
+	'problemchanges-list' => 'Esta página lista las páginas [[{{MediaWiki:Validationpage}}|revisadas]] que tienen una o más ediciones esperando revisión. Está disponible una lista de [[Special:Tags|etiquetas de cambio válidas]].',
 	'problemchanges-legend' => 'Listar páginas con ediciones etiquetadas pendientes de revisión',
 	'problemchanges-none' => 'No hay actualmente páginas que cumplan estos criterios',
 	'problemchanges-category' => 'Categoría:',
