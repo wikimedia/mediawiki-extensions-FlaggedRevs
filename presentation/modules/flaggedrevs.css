@@ -301,6 +301,15 @@ span.fr-under-review {
 	font-weight: bold;
 }
 
+/* Diff items */
+#mw-fr-diff-headeritems {
+	direction: ltr;
+}
+
+#mw-fr-stablediff {
+	background-color: white;
+}
+
 /* Review form */
 .flaggedrevs_reviewform {
 	background-color: #f9f9f9;
@@ -341,52 +350,6 @@ span.fr-under-review {
 	background-color: #ffffe3;
 }
 
-.fr-diff-patrollink {
-	text-align: center;
-}
-
-.fr-notes-box {
-	width: 95%;
-	margin: 0em 1em 0em .5em;
-}
-
 #mw-fr-commentbox {
 	margin-right: 1.5em;
-}
-
-.fr-rating-dave {
-	background-color: #E0ECF8;
-}
-
-.fr-rating-rave {
-	background-color: #E0F8EC;
-}
-
-.fr-hiddenform {
-	display: none;
-}
-
-.loading {	display: block;
-	color: #666666;	padding-left: 40px;
-	height: 32px;
-}
-.spinner {
-	background-position: left center;
-	margin-left: 1em;
-	margin-top: -1.3em;
-	float: left;
-}
-
-div.langlinks {
-	margin-top: 1em;
-	padding: 5px;
-	border: 1px solid #aaa;
-}
-
-#mw-fr-diff-headeritems {
-	direction: ltr;
-}
-
-#mw-fr-stablediff {
-	background-color: white;
 }
