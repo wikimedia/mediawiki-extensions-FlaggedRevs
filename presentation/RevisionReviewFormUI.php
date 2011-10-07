@@ -188,9 +188,6 @@ class RevisionReviewFormUI {
 		# Add the submit buttons...
 		$rejectId = $this->rejectRefRevId(); // determine if there will be reject button
 		$form .= self::submitButtons( $rejectId, $frev, (bool)$disabled, $reviewIncludes );
-		if ( $this->request->getVal( 'diff' ) ) {
-			$form .= Linker::link( $this->article->getTitle(), wfMsg( 'revreview-cancel' ) );
-		}
 
 		# Show stability log if there is anything interesting...
 		if ( $article->isPageLocked() ) {
