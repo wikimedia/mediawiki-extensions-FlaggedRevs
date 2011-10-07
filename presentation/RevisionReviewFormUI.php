@@ -180,10 +180,9 @@ class RevisionReviewFormUI {
 		# Hide comment input if needed
 		if ( !$disabled ) {
 			$form .= Xml::inputLabel(
-				wfMsg( 'revreview-log' ), 'wpReason', 'wpReason', 40, '',
-				array( 'maxlength' => 255, 'id' => 'mw-fr-commentbox', 'class' => 'fr-comment-box' )
+				wfMsg( 'revreview-log' ), 'wpReason', 'mw-fr-comment-box', 40, '',
+				array( 'maxlength' => 255, 'class' => 'fr-comment-box' )
 			);
-			$form .= "&#160;&#160;&#160;" . "\n";
 		}
 
 		# Add the submit buttons...
