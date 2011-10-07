@@ -6,6 +6,7 @@ class FlaggedRevsUIHooks {
 	/*
 	 * Register FlaggedRevs special pages as needed.
 	 * Also sets $wgSpecialPages just to be consistent.
+	 * @param $list Array List of special pages
 	 */
 	public static function defineSpecialPages( array &$list ) {
 		global $wgSpecialPages, $wgUseTagFilter;
@@ -34,6 +35,88 @@ class FlaggedRevsUIHooks {
 			$list['Stabilization'] = $wgSpecialPages['Stabilization'] = 'Stabilization';
 		}
 		return true;
+	}
+
+	/**
+	 * Append FlaggedRevs resource module definitions
+	 * @param $modules Array $wgResourceModules
+	 */
+	public static function defineResourceModules( &$modules ) {
+		$localModulePath = dirname( __FILE__ ) . '/modules/';
+		$remoteModulePath = 'FlaggedRevs/presentation/modules';
+		$modules['ext.flaggedRevs.basic'] = array(
+			'styles' 		=> array( 'flaggedrevs.css' ),
+			'localBasePath' => $localModulePath,
+			'remoteExtPath' => $remoteModulePath,
+		);
+		$modules['ext.flaggedRevs.advanced'] = array(
+			'scripts' 		=> array( 'flaggedrevs.js' ),
+			'messages'		=> array(
+				'revreview-toggle-show', 'revreview-toggle-hide',
+				'revreview-diff-toggle-show', 'revreview-diff-toggle-hide',
+				'revreview-log-toggle-show', 'revreview-log-toggle-hide',
+				'revreview-log-details-show', 'revreview-log-details-hide'
+			),
+			'dependencies' 	=> array( 'mediawiki.util' ),
+			'localBasePath'	=> $localModulePath,
+			'remoteExtPath'	=> $remoteModulePath,
+		);
+		$modules['ext.flaggedRevs.review'] = array(
+			'scripts' 		=> array( 'review.js' ),
+			'styles' 		=> array( 'review.css' ),
+			'messages'		=> array(
+				'savearticle', 'tooltip-save', 'accesskey-save',
+				'revreview-submitedit', 'revreview-submitedit-title',
+				'revreview-submit-review', 'revreview-submit-unreview',
+				'revreview-submit-reviewed', 'revreview-submit-unreviewed',
+				'revreview-submitting', 'actioncomplete', 'actionfailed',
+				'revreview-adv-reviewing-p', 'revreview-adv-reviewing-c',
+				'revreview-sadv-reviewing-p', 'revreview-sadv-reviewing-c',
+				'revreview-adv-start-link', 'revreview-adv-stop-link'
+			),
+			'dependencies'	=> array( 'mediawiki.util' ),
+			'localBasePath'	=> $localModulePath,
+			'remoteExtPath'	=> $remoteModulePath,
+		);
+	}
+
+	/**
+	 * Append FlaggedRevs log names and set filterable logs
+	 * @param $logNames Array $wgLogNames
+	 * @param $logHeaders Array $wgLogHeaders
+	 * @param $filterLogTypes Array $wgFilterLogTypes
+	 */
+	public static function defineBasicLogUI( &$logNames, &$logHeaders, &$filterLogTypes ) {
+		$logNames['review'] = 'review-logpage';
+		$logHeaders['review'] = 'review-logpagetext';
+
+		$logNames['stable'] = 'stable-logpage';
+		$logHeaders['stable'] = 'stable-logpagetext';
+
+		$filterLogTypes['review'] = true;
+	}
+
+	/**
+	 * Append FlaggedRevs log action handlers
+	 * @param $logActions Array $wgLogActions
+	 * @param $logActionsHandlers Array $wgLogActionsHandlers
+	 */
+	public static function defineLogActionHanders( &$logActions, &$logActionsHandlers ) {
+		# Various actions are used for log filtering ...
+		$logActions['review/approve']  = 'review-logentry-app'; // checked (again)
+		$logActions['review/approve2']  = 'review-logentry-app'; // quality (again)
+		$logActions['review/approve-i']  = 'review-logentry-app'; // checked (first time)
+		$logActions['review/approve2-i']  = 'review-logentry-app'; // quality (first time)
+		$logActions['review/approve-a']  = 'review-logentry-app'; // checked (auto)
+		$logActions['review/approve2-a']  = 'review-logentry-app'; // quality (auto)
+		$logActions['review/approve-ia']  = 'review-logentry-app'; // checked (initial & auto)
+		$logActions['review/approve2-ia']  = 'review-logentry-app'; // quality (initial & auto)
+		$logActions['review/unapprove'] = 'review-logentry-dis'; // was checked
+		$logActions['review/unapprove2'] = 'review-logentry-dis'; // was quality
+
+		$logActionsHandlers['stable/config'] = 'FlaggedRevsLogView::stabilityLogText'; // customize
+		$logActionsHandlers['stable/modify'] = 'FlaggedRevsLogView::stabilityLogText'; // re-customize
+		$logActionsHandlers['stable/reset'] = 'FlaggedRevsLogView::stabilityLogText'; // reset
 	}
 
 	/**
