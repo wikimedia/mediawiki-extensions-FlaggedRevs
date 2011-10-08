@@ -129,7 +129,7 @@ class FlaggedRevsUIHooks {
 			return true; // don't double-load
 		}
 		$loadedModules = true;
-		$fa = FlaggedPageView::globalArticleInstance();
+		$fa = FlaggablePageView::globalArticleInstance();
 		# Try to only add to relevant pages
 		if ( !$fa || !$fa->isReviewable() ) {
 			return true;
@@ -149,7 +149,7 @@ class FlaggedRevsUIHooks {
 		$rTags = FlaggedRevs::getJSTagParams();
 		$globalVars['wgFlaggedRevsParams'] = $rTags;
 		# Get page-specific meta-data
-		$fa = FlaggedPageView::globalArticleInstance();
+		$fa = FlaggablePageView::globalArticleInstance();
 		# Try to only add to relevant pages
 		if ( $fa && $fa->isReviewable() ) {
 			$frev = $fa->getStableRev();
@@ -183,7 +183,7 @@ class FlaggedRevsUIHooks {
 	*/
 	public static function onBeforePageDisplay( &$out, &$skin ) {
 		if ( $out->getTitle()->getNamespace() != NS_SPECIAL ) {
-			$view = FlaggedPageView::singleton();
+			$view = FlaggablePageView::singleton();
 			$view->addStabilizationLink(); // link on protect form
 			$view->displayTag(); // show notice bar/icon in subtitle
 			if ( $out->isArticleRelated() ) {
@@ -273,7 +273,7 @@ class FlaggedRevsUIHooks {
 	}
 
 	public static function onImagePageFindFile( $imagePage, &$normalFile, &$displayFile ) {
-		$view = FlaggedPageView::singleton();
+		$view = FlaggablePageView::singleton();
 		$view->imagePageFindFile( $normalFile, $displayFile );
 		return true;
 	}
@@ -285,8 +285,8 @@ class FlaggedRevsUIHooks {
 			// *sigh*...skip, dealt with in setNavigation()
 			return true;
 		}
-		if ( FlaggedPageView::globalArticleInstance() != null ) {
-			$view = FlaggedPageView::singleton();
+		if ( FlaggablePageView::globalArticleInstance() != null ) {
+			$view = FlaggablePageView::singleton();
 			$view->setActionTabs( $skin, $contentActions );
 			$view->setViewTabs( $skin, $contentActions, 'flat' );
 		}
@@ -295,8 +295,8 @@ class FlaggedRevsUIHooks {
 
 	// Vector et al: $links is all the tabs (2 levels)
 	public static function onSkinTemplateNavigation( Skin $skin, array &$links ) {
-		if ( FlaggedPageView::globalArticleInstance() != null ) {
-			$view = FlaggedPageView::singleton();
+		if ( FlaggablePageView::globalArticleInstance() != null ) {
+			$view = FlaggablePageView::singleton();
 			$view->setActionTabs( $skin, $links['actions'] );
 			$view->setViewTabs( $skin, $links['views'], 'nav' );
 		}
@@ -304,7 +304,7 @@ class FlaggedRevsUIHooks {
 	}
 
 	public static function onArticleViewHeader( &$article, &$outputDone, &$useParserCache ) {
-		$view = FlaggedPageView::singleton();
+		$view = FlaggablePageView::singleton();
 		$view->addStableLink( $outputDone, $useParserCache );
 		$view->setPageContent( $outputDone, $useParserCache );
 		return true;
@@ -314,7 +314,7 @@ class FlaggedRevsUIHooks {
 		Title $title, WebRequest $request, &$ignoreRedirect, &$target, Article &$article
 	) {
 		global $wgMemc, $wgParserCacheExpireTime;
-		$fa = FlaggedPage::getTitleInstance( $title ); // on $wgTitle
+		$fa = FlaggableWikiPage::getTitleInstance( $title ); // on $wgTitle
 		if ( !$fa->isReviewable() ) {
 			return true; // nothing to do
 		}
@@ -324,7 +324,7 @@ class FlaggedRevsUIHooks {
 			return true;
 		}
 		$srev = $fa->getStableRev();
-		$view = FlaggedPageView::singleton();
+		$view = FlaggablePageView::singleton();
 		# Check if we are viewing an unsynced stable version...
 		if ( $srev && $view->showingStable() && $srev->getRevId() != $article->getLatest() ) {
 			# Check the stable redirect properties from the cache...
@@ -357,31 +357,31 @@ class FlaggedRevsUIHooks {
 	}
 
 	public static function addToEditView( &$editPage ) {
-		$view = FlaggedPageView::singleton();
+		$view = FlaggablePageView::singleton();
 		$view->addToEditView( $editPage );
 		return true;
 	}
 
 	public static function onBeforeEditButtons( &$editPage, &$buttons ) {
-		$view = FlaggedPageView::singleton();
+		$view = FlaggablePageView::singleton();
 		$view->changeSaveButton( $editPage, $buttons );
 		return true;
 	}
 
 	public static function onNoSuchSection( &$editPage, &$s ) {
-		$view = FlaggedPageView::singleton();
+		$view = FlaggablePageView::singleton();
 		$view->addToNoSuchSection( $editPage, $s );
 		return true;
 	}
 
 	public static function addToHistView( &$article ) {
-		$view = FlaggedPageView::singleton();
+		$view = FlaggablePageView::singleton();
 		$view->addToHistView();
 		return true;
 	}
 
 	public static function onCategoryPageView( &$category ) {
-		$view = FlaggedPageView::singleton();
+		$view = FlaggablePageView::singleton();
 		$view->addToCategoryView();
 		return true;
 	}
@@ -389,9 +389,9 @@ class FlaggedRevsUIHooks {
 	public static function onSkinAfterContent( &$data ) {
 		global $wgOut;
 		if ( $wgOut->isArticleRelated()
-			&& FlaggedPageView::globalArticleInstance() != null )
+			&& FlaggablePageView::globalArticleInstance() != null )
 		{
-			$view = FlaggedPageView::singleton();
+			$view = FlaggablePageView::singleton();
 			// Only use this hook if we want to append the form.
 			// We *prepend* the form for diffs, so skip that case here.
 			if ( !$view->diffRevsAreSet() ) {
@@ -410,7 +410,7 @@ class FlaggedRevsUIHooks {
 	}
 
 	public static function addToHistQuery( HistoryPager $pager, array &$queryInfo ) {
-		$flaggedArticle = FlaggedPage::getTitleInstance( $pager->getTitle() );
+		$flaggedArticle = FlaggableWikiPage::getTitleInstance( $pager->getTitle() );
 		# Non-content pages cannot be validated. Stable version must exist.
 		if ( $flaggedArticle->isReviewable() && $flaggedArticle->getStableRev() ) {
 			# Highlight flaggedrevs
@@ -436,7 +436,7 @@ class FlaggedRevsUIHooks {
 		if ( !$file->isLocal() ) {
 			return true; // local files only
 		}
-		$flaggedArticle = FlaggedPage::getTitleInstance( $file->getTitle() );
+		$flaggedArticle = FlaggableWikiPage::getTitleInstance( $file->getTitle() );
 		# Non-content pages cannot be validated. Stable version must exist.
 		if ( $flaggedArticle->isReviewable() && $flaggedArticle->getStableRev() ) {
 			$tables[] = 'flaggedrevs';
@@ -501,7 +501,7 @@ class FlaggedRevsUIHooks {
 	}
 
 	public static function addToHistLine( HistoryPager $history, $row, &$s, &$liClasses ) {
-		$fa = FlaggedPage::getTitleInstance( $history->getTitle() );
+		$fa = FlaggableWikiPage::getTitleInstance( $history->getTitle() );
 		if ( !$fa->isReviewable() ) {
 			return true; // nothing to do here
 		}
@@ -656,8 +656,8 @@ class FlaggedRevsUIHooks {
 	}
 
 	public static function injectPostEditURLParams( $article, &$sectionAnchor, &$extraQuery ) {
-		if ( FlaggedPageView::globalArticleInstance() != null ) {
-			$view = FlaggedPageView::singleton();
+		if ( FlaggablePageView::globalArticleInstance() != null ) {
+			$view = FlaggablePageView::singleton();
 			$view->injectPostEditURLParams( $sectionAnchor, $extraQuery );
 		}
 		return true;
@@ -677,20 +677,20 @@ class FlaggedRevsUIHooks {
 
 	public static function onDiffViewHeader( $diff, $oldRev, $newRev ) {
 		self::injectStyleAndJS();
-		$view = FlaggedPageView::singleton();
+		$view = FlaggablePageView::singleton();
 		$view->setViewFlags( $diff, $oldRev, $newRev );
 		$view->addToDiffView( $diff, $oldRev, $newRev );
 		return true;
 	}
 
 	public static function addRevisionIDField( $editPage, $out ) {
-		$view = FlaggedPageView::singleton();
+		$view = FlaggablePageView::singleton();
 		$view->addRevisionIDField( $editPage, $out );
 		return true;
 	}
 
 	public static function addReviewCheck( $editPage, &$checkboxes, &$tabindex ) {
-		$view = FlaggedPageView::singleton();
+		$view = FlaggablePageView::singleton();
 		$view->addReviewCheck( $editPage, $checkboxes, $tabindex );
 		return true;
 	}
@@ -743,12 +743,12 @@ class FlaggedRevsUIHooks {
 			array() : array( 'disabled' => 'disabled' );
 
 		# Get the current config/expiry
-		$config = FlaggedPageConfig::getStabilitySettings( $article->getTitle(), FR_MASTER );
+		$config = FRPageConfig::getStabilitySettings( $article->getTitle(), FR_MASTER );
 		$oldExpirySelect = ( $config['expiry'] == 'infinity' ) ? 'infinite' : 'existing';
 
 		# Load requested restriction level, default to current level...
 		$restriction = $wgRequest->getVal( 'mwStabilityLevel',
-			FlaggedPageConfig::getProtectionLevel( $config ) );
+			FRPageConfig::getProtectionLevel( $config ) );
 		# Load the requested expiry time (dropdown)
 		$expirySelect = $wgRequest->getVal( 'mwStabilizeExpirySelection', $oldExpirySelect );
 		# Load the requested expiry time (field)

@@ -49,7 +49,7 @@ class ApiReviewActivity extends ApiBase {
 		}
 		$title = $newRev->getTitle();
 
-		$fa = FlaggedPage::getTitleInstance( $title );
+		$fa = FlaggableWikiPage::getTitleInstance( $title );
 		if ( !$fa->isReviewable() ) {
 			$this->dieUsage( "Provided page is not reviewable.", 'notreviewable' );
 		}

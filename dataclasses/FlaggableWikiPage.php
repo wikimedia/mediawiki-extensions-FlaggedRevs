@@ -2,9 +2,9 @@
 /**
  * Class representing a MediaWiki article and history
  *
- * FlaggedPage::getTitleInstance() is preferred over constructor calls
+ * FlaggableWikiPage::getTitleInstance() is preferred over constructor calls
  */
-class FlaggedPage extends WikiPage {
+class FlaggableWikiPage extends WikiPage {
 	/* Process cache variables */
 	protected $stable = 0;
 	protected $stableRev = null;
@@ -16,9 +16,9 @@ class FlaggedPage extends WikiPage {
 	protected $file = null; // for file pages
 
 	/**
-	 * Get a FlaggedPage for a given title
+	 * Get a FlaggableWikiPage for a given title
 	 * @param Title
-	 * @return FlaggedPage
+	 * @return FlaggableWikiPage
 	 */
 	public static function getTitleInstance( Title $title ) {
 		// Check if there is already an instance on this title
@@ -29,9 +29,9 @@ class FlaggedPage extends WikiPage {
 	}
 
 	/**
-	 * Get a FlaggedPage for a given article
+	 * Get a FlaggableWikiPage for a given article
 	 * @param Article
-	 * @return FlaggedPage
+	 * @return FlaggableWikiPage
 	 */
 	public static function getArticleInstance( Page $article ) {
 		return self::getTitleInstance( $article->getTitle() );
@@ -354,7 +354,7 @@ class FlaggedPage extends WikiPage {
 			array( 'page', 'flaggedpages', 'flaggedpage_config' ),
 			array_merge(
 				WikiPage::selectFields(),
-				FlaggedPageConfig::selectFields(),
+				FRPageConfig::selectFields(),
 				array( 'fp_pending_since', 'fp_stable', 'fp_reviewed' ) ),
 			$conditions,
 			__METHOD__,
@@ -387,12 +387,12 @@ class FlaggedPage extends WikiPage {
 		$this->stableRev = null; // defer this one...
 		$this->revsArePending = false; // false => "found nothing" or "none pending"
 		$this->pendingRevCount = null; // defer this one...
-		$this->pageConfig = FlaggedPageConfig::getDefaultVisibilitySettings(); // default
+		$this->pageConfig = FRPageConfig::getDefaultVisibilitySettings(); // default
 		$this->syncedInTracking = true; // false => "unreviewed" or "synced"
 		# Load in flaggedrevs Row data if the page exists...(sanity check NS)
 		if ( $data && FlaggedRevs::inReviewNamespace( $this->mTitle ) ) {
 			if ( $data->fpc_override !== null ) { // page config row found
-				$this->pageConfig = FlaggedPageConfig::getVisibilitySettingsFromRow( $data );
+				$this->pageConfig = FRPageConfig::getVisibilitySettingsFromRow( $data );
 			}
 			if ( $data->fp_stable !== null ) { // stable rev found	
 				$this->stable = (int)$data->fp_stable;

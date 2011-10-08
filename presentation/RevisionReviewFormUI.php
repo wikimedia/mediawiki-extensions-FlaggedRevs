@@ -16,10 +16,10 @@ class RevisionReviewFormUI {
 	 /**
 	 * Generates a brief review form for a page
 	 * @param RequestContext $context
-	 * @param FlaggedPage $article
+	 * @param FlaggableWikiPage $article
 	 * @param Revision $rev
 	 */
-	public function __construct( IContextSource $context, FlaggedPage $article, Revision $rev ) {
+	public function __construct( IContextSource $context, FlaggableWikiPage $article, Revision $rev ) {
 		$this->user = $context->getUser();
 		$this->request = $context->getRequest();
 		$this->article = $article;

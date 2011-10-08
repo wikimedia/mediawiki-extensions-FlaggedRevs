@@ -371,7 +371,7 @@ class FlaggedRevsXML {
 
 	/*
 	* Creates CSS lock icon if page is locked/unlocked
-	* @param FlaggedPage $flaggedArticle
+	* @param FlaggableWikiPage $flaggedArticle
 	* @return string
 	*/
 	public static function lockStatusIcon( $flaggedArticle ) {
@@ -388,7 +388,7 @@ class FlaggedRevsXML {
 	}
 
 	/*
-	* @param FlaggedPage $flaggedArticle
+	* @param FlaggableWikiPage $flaggedArticle
 	* @param FlaggedRevision $frev
 	* @param int $revsSince
 	* @return string

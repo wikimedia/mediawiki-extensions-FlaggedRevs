@@ -100,12 +100,12 @@ class FlaggedRevsLog {
 		Title $title, array $config, array $oldConfig, $reason
 	) {
 		$log = new LogPage( 'stable' );
-		if ( FlaggedPageConfig::configIsReset( $config ) ) {
+		if ( FRPageConfig::configIsReset( $config ) ) {
 			# We are going back to default settings
 			$log->addEntry( 'reset', $title, $reason );
 		} else {
 			# We are changing to non-default settings
-			$action = ( $oldConfig === FlaggedPageConfig::getDefaultVisibilitySettings() )
+			$action = ( $oldConfig === FRPageConfig::getDefaultVisibilitySettings() )
 				? 'config' // set a custom configuration
 				: 'modify'; // modified an existing custom configuration
 			$log->addEntry( $action, $title, $reason,

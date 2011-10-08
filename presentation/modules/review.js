@@ -272,7 +272,7 @@ window.FlaggedRevsReview = {
 				requestArgs.push( diffUIParams.getElementsByTagName('input')[0].value );
 				requestArgs.push( diffUIParams.getElementsByTagName('input')[1].value );
 				// Send encoded function plus all arguments...
-				var url_pars = '?action=ajax&rs=FlaggedPageView::AjaxBuildDiffHeaderItems';
+				var url_pars = '?action=ajax&rs=FlaggablePageView::AjaxBuildDiffHeaderItems';
 				for( var i=0; i<requestArgs.length; i++ ) {
 					url_pars += '&rsargs[]=' + encodeURIComponent(requestArgs[i]);
 				}

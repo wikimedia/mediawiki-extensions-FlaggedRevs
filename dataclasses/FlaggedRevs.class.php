@@ -615,7 +615,7 @@ class FlaggedRevs {
 		if ( $sv === null ) { // optional
 			$sv = FlaggedRevision::determineStable( $title, FR_MASTER );
 		}
-		$article = new FlaggedPage( $title );
+		$article = new FlaggableWikiPage( $title );
 		if ( !$sv ) {
 			# Empty flaggedrevs data for this page if there is no stable version
 			$article->clearStableVersion();

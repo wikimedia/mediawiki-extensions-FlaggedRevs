@@ -238,7 +238,7 @@ $accessDir = $dir . 'dataclasses/';
 $wgAutoloadClasses['FlaggedRevs'] = $accessDir . 'FlaggedRevs.class.php';
 $wgAutoloadClasses['FRUserCounters'] = $accessDir . 'FRUserCounters.php';
 $wgAutoloadClasses['FRUserActivity'] = $accessDir . 'FRUserActivity.php';
-$wgAutoloadClasses['FlaggedPageConfig'] = $accessDir . 'FlaggedPageConfig.php';
+$wgAutoloadClasses['FRPageConfig'] = $accessDir . 'FRPageConfig.php';
 $wgAutoloadClasses['FlaggedRevsLog'] = $accessDir . 'FlaggedRevsLog.php';
 $wgAutoloadClasses['FRInclusionCache'] = $accessDir . 'FRInclusionCache.php';
 $wgAutoloadClasses['FlaggedRevsStats'] = $accessDir . 'FlaggedRevsStats.php';
@@ -248,7 +248,7 @@ $wgAutoloadClasses['FRExtraCacheUpdateJob'] = $accessDir . 'FRExtraCacheUpdate.p
 $wgAutoloadClasses['FRSquidUpdate'] = $accessDir . 'FRExtraCacheUpdate.php';
 $wgAutoloadClasses['FRDependencyUpdate'] = $accessDir . 'FRDependencyUpdate.php';
 $wgAutoloadClasses['FRInclusionManager'] = $accessDir . 'FRInclusionManager.php';
-$wgAutoloadClasses['FlaggedPage'] = $accessDir . 'FlaggedPage.php';
+$wgAutoloadClasses['FlaggableWikiPage'] = $accessDir . 'FlaggableWikiPage.php';
 $wgAutoloadClasses['FlaggedRevision'] = $accessDir . 'FlaggedRevision.php';
 $wgAutoloadClasses['FRParserCacheStable'] = $accessDir . 'FRParserCacheStable.php';
 
@@ -267,7 +267,7 @@ $wgAutoloadClasses['PageStabilityGeneralForm'] = $dir . 'business/PageStabilityF
 $wgAutoloadClasses['PageStabilityProtectForm'] = $dir . 'business/PageStabilityForm.php';
 
 # Presentation classes...
-$wgAutoloadClasses['FlaggedPageView'] = $dir . 'presentation/FlaggedPageView.php';
+$wgAutoloadClasses['FlaggablePageView'] = $dir . 'presentation/FlaggablePageView.php';
 $wgAutoloadClasses['FlaggedRevsLogView'] = $dir . 'presentation/FlaggedRevsLogView.php';
 $wgAutoloadClasses['FlaggedRevsXML'] = $dir . 'presentation/FlaggedRevsXML.php';
 $wgAutoloadClasses['RevisionReviewFormUI'] = $dir . 'presentation/RevisionReviewFormUI.php';
@@ -618,7 +618,7 @@ function efSetFlaggedRevsConditionalPreferences() {
 
 # AJAX functions
 $wgAjaxExportList[] = 'RevisionReview::AjaxReview';
-$wgAjaxExportList[] = 'FlaggedPageView::AjaxBuildDiffHeaderItems';
+$wgAjaxExportList[] = 'FlaggablePageView::AjaxBuildDiffHeaderItems';
 
 # Cache update
 $wgSpecialPageCacheUpdates['UnreviewedPages'] = 'UnreviewedPages::updateQueryCache';

@@ -151,7 +151,7 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 	*/
 	protected function doCheckParameters() {
 		# Load old config settings from the master
-		$this->oldConfig = FlaggedPageConfig::getStabilitySettings( $this->page, FR_MASTER );
+		$this->oldConfig = FRPageConfig::getStabilitySettings( $this->page, FR_MASTER );
 		if ( $this->expiryCustom != '' ) {
 			// Custom expiry takes precedence
 			$this->expirySelection = 'othertime';
@@ -221,10 +221,10 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 			return 'stabilize_expiry_old';
 		}
 		# Update the DB row with the new config...
-		$changed = FlaggedPageConfig::setStabilitySettings( $this->page, $this->getNewConfig() );
+		$changed = FRPageConfig::setStabilitySettings( $this->page, $this->getNewConfig() );
 		# Log if this actually changed anything...
 		if ( $changed ) {
-			$article = new FlaggedPage( $this->page );
+			$article = new FlaggableWikiPage( $this->page );
 			if ( FlaggedRevs::useOnlyIfProtected() ) {
 				# Config may have changed to allow stable versions, so refresh
 				# the tracking table to account for any hidden reviewed versions...
@@ -258,7 +258,7 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 		# Apply watchlist checkbox value (may be NULL)
 		$this->updateWatchlist();
 		# Take this opportunity to purge out expired configurations
-		FlaggedPageConfig::purgeExpiredConfigurations();
+		FRPageConfig::purgeExpiredConfigurations();
 		return true;
 	}
 
@@ -268,7 +268,7 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 	* (b) Add a null edit like the log entry
 	* @return Revision
 	*/
-	protected function updateLogsAndHistory( FlaggedPage $article ) {
+	protected function updateLogsAndHistory( FlaggableWikiPage $article ) {
 		global $wgContLang;
 		$newConfig = $this->getNewConfig();
 		$oldConfig = $this->getOldConfig();
@@ -278,7 +278,7 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 		FlaggedRevsLog::updateStabilityLog( $this->page, $newConfig, $oldConfig, $reason );
 
 		# Build null-edit comment...<action: reason [settings] (expiry)>
-		if ( FlaggedPageConfig::configIsReset( $newConfig ) ) {
+		if ( FRPageConfig::configIsReset( $newConfig ) ) {
 			$type = "stable-logentry-reset";
 			$settings = ''; // no level, expiry info
 		} else {
@@ -319,7 +319,7 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 			throw new MWException( __CLASS__ . " input fields not set yet.\n");
 		}
 		if ( $this->oldConfig === array() && $this->page ) {
-			$this->oldConfig = FlaggedPageConfig::getStabilitySettings( $this->page );
+			$this->oldConfig = FRPageConfig::getStabilitySettings( $this->page );
 		}
 		return $this->oldConfig;
 	}
@@ -406,7 +406,7 @@ class PageStabilityProtectForm extends PageStabilityForm {
 		$oldConfig = $this->getOldConfig();
 		if ( isset( $wgFlaggedRevsProtectQuota ) // quota exists
 			&& $this->autoreview != '' // and we are protecting
-			&& FlaggedPageConfig::getProtectionLevel( $oldConfig ) == 'none' ) // unprotected
+			&& FRPageConfig::getProtectionLevel( $oldConfig ) == 'none' ) // unprotected
 		{
 			$dbw = wfGetDB( DB_MASTER );
 			$count = $dbw->selectField( 'flaggedpage_config', 'COUNT(*)', '', __METHOD__ );
@@ -415,7 +415,7 @@ class PageStabilityProtectForm extends PageStabilityForm {
 			}
 		}
 		# Autoreview only when protecting currently unprotected pages
-		$this->reviewThis = ( FlaggedPageConfig::getProtectionLevel( $oldConfig ) == 'none' );
+		$this->reviewThis = ( FRPageConfig::getProtectionLevel( $oldConfig ) == 'none' );
 		# Autoreview restriction => use stable
 		# No autoreview restriction => site default
 		$this->override = ( $this->autoreview != '' )
@@ -426,7 +426,7 @@ class PageStabilityProtectForm extends PageStabilityForm {
 			'override'   => $this->override,
 			'autoreview' => $this->autoreview
 		);
-		if ( FlaggedPageConfig::getProtectionLevel( $newConfig ) == 'invalid' ) {
+		if ( FRPageConfig::getProtectionLevel( $newConfig ) == 'invalid' ) {
 			return 'stabilize_invalid_level'; // double-check configuration
 		}
 		# Check autoreview restriction setting

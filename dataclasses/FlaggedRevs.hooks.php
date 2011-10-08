@@ -62,7 +62,7 @@ class FlaggedRevsHooks {
 	public static function onTitleMoveComplete(
 		Title $otitle, Title $ntitle, $user, $pageId
 	) {
-		$fa = FlaggedPage::getTitleInstance( $ntitle );
+		$fa = FlaggableWikiPage::getTitleInstance( $ntitle );
 		$fa->loadPageData( 'fromdbmaster' );
 		// Re-validate NS/config (new title may not be reviewable)
 		if ( $fa->isReviewable() ) {
@@ -241,7 +241,7 @@ class FlaggedRevsHooks {
 			if ( !FlaggedRevs::inReviewNamespace( $title ) ) {
 				$ret = '';
 			} else {
-				$config = FlaggedPageConfig::getStabilitySettings( $title );
+				$config = FRPageConfig::getStabilitySettings( $title );
 				$ret = $config['autoreview'];
 			}
 		}
@@ -308,7 +308,7 @@ class FlaggedRevsHooks {
 			if ( !FlaggedRevs::inReviewNamespace( $title ) || !$title->exists() ) {
 				return true; // extra short-circuit
 			}
-			$flaggedArticle = FlaggedPage::getTitleInstance( $title );
+			$flaggedArticle = FlaggableWikiPage::getTitleInstance( $title );
 			# If the draft shows by default anyway, nothing to do...
 			if ( !$flaggedArticle->isStableShownByDefault() ) {
 				return true;
@@ -321,7 +321,7 @@ class FlaggedRevsHooks {
 			}
 		# Don't let users patrol reviewable pages (where reviewed <=> patrolled)
 		} elseif ( $action === 'patrol' || $action === 'autopatrol' ) {
-			$flaggedArticle = FlaggedPage::getTitleInstance( $title );
+			$flaggedArticle = FlaggableWikiPage::getTitleInstance( $title );
 			# For a page to be patrollable it must not be reviewable.
 			# Note: normally, edits to non-reviewable, non-patrollable, pages are
 			# silently marked patrolled automatically. With $wgUseNPPatrol on, the
@@ -333,7 +333,7 @@ class FlaggedRevsHooks {
 		# Enforce autoreview/review restrictions
 		} elseif ( $action === 'autoreview' || $action === 'review' ) {
 			# Get autoreview restriction settings...
-			$fa = FlaggedPage::getTitleInstance( $title );
+			$fa = FlaggableWikiPage::getTitleInstance( $title );
 			$config = $fa->getStabilitySettings();
 			# Convert Sysop -> protect
 			$right = ( $config['autoreview'] === 'sysop' ) ?
@@ -362,7 +362,7 @@ class FlaggedRevsHooks {
 	) {
 		global $wgRequest;
 		# Edit must be non-null, to a reviewable page, with $user set
-		$fa = FlaggedPage::getArticleInstance( $article );
+		$fa = FlaggableWikiPage::getArticleInstance( $article );
 		$fa->loadPageData( 'fromdbmaster' );
 		if ( !$rev || !$user || !$fa->isReviewable() ) {
 			return true;
@@ -543,7 +543,7 @@ class FlaggedRevsHooks {
 		if ( !$baseId && !$reviewEdit ) {
 			return true; // short-circuit
 		}
-		$fa = FlaggedPage::getArticleInstance( $article );
+		$fa = FlaggableWikiPage::getArticleInstance( $article );
 		$fa->loadPageData( 'fromdbmaster' );
 		if ( !$fa->isReviewable() ) {
 			return true; // page is not reviewable
@@ -608,7 +608,7 @@ class FlaggedRevsHooks {
 		if ( empty( $rc->mAttribs['rc_this_oldid'] ) ) {
 			return true;
 		}
-		$fa = FlaggedPage::getTitleInstance( $rc->getTitle() );
+		$fa = FlaggableWikiPage::getTitleInstance( $rc->getTitle() );
 		$fa->loadPageData( 'fromdbmaster' );
 		// Is the page reviewable?
 		if ( $fa->isReviewable() ) {

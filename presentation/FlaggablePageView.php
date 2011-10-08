@@ -2,7 +2,7 @@
 /**
  * Class representing a web view of a MediaWiki page
  */
-class FlaggedPageView extends ContextSource {
+class FlaggablePageView extends ContextSource {
 	protected $out = null;
 	protected $article = null;
 
@@ -21,7 +21,7 @@ class FlaggedPageView extends ContextSource {
 	protected static $instance = null;
 
 	/*
-	* Get the FlaggedPageView for this request
+	* Get the FlaggablePageView for this request
 	*/
 	public static function singleton() {
 		if ( self::$instance == null ) {
@@ -33,7 +33,7 @@ class FlaggedPageView extends ContextSource {
 	protected function __clone() { }
 
 	/*
-	* Clear the FlaggedPageView for this request.
+	* Clear the FlaggablePageView for this request.
 	* Only needed when page redirection changes the environment.
 	*/
 	public function clear() {
@@ -41,28 +41,28 @@ class FlaggedPageView extends ContextSource {
 	}
 
 	/*
-	* Load the global FlaggedPage instance
+	* Load the global FlaggableWikiPage instance
 	*/
 	protected function load() {
 		if ( !$this->loaded ) {
 			$this->loaded = true;
 			$this->article = self::globalArticleInstance();
 			if ( $this->article == null ) {
-				throw new MWException( 'FlaggedPageView has no context article!' );
+				throw new MWException( 'FlaggablePageView has no context article!' );
 			}
 			$this->out = $this->getOutput(); // convenience
 		}
 	}
 
 	/**
-	 * Get the FlaggedPage instance associated with $wgTitle,
+	 * Get the FlaggableWikiPage instance associated with $wgTitle,
 	 * or false if there isn't such a title
-	 * @return FlaggedPage|null
+	 * @return FlaggableWikiPage|null
 	 */
 	public static function globalArticleInstance() {
 		$title = RequestContext::getMain()->getTitle();
 		if ( $title ) {
-			return FlaggedPage::getTitleInstance( $title );
+			return FlaggableWikiPage::getTitleInstance( $title );
 		}
 		return null;
 	}
@@ -1473,7 +1473,7 @@ class FlaggedPageView extends ContextSource {
 			$oldRev = Revision::newFromId( $oldid );
 			$newRev = Revision::newFromId( $newid );
 			if ( $newRev && $newRev->getTitle() ) {
-				$fa = FlaggedPage::getTitleInstance( $newRev->getTitle() );
+				$fa = FlaggableWikiPage::getTitleInstance( $newRev->getTitle() );
 				return self::diffLinkAndMarkers( $fa, $oldRev, $newRev );
 			}
 		}
@@ -1485,7 +1485,7 @@ class FlaggedPageView extends ContextSource {
 	* (b) Show review status of the diff revision(s). Uses a <table>.
 	* Note: used by ajax function to rebuild diff page
 	*/
-	public static function diffLinkAndMarkers( FlaggedPage $article, $oldRev, $newRev ) {
+	public static function diffLinkAndMarkers( FlaggableWikiPage $article, $oldRev, $newRev ) {
 		$s = '<form id="mw-fr-diff-dataform">';
 		$s .= Html::hidden( 'oldid', $oldRev ? $oldRev->getId() : 0 );
 		$s .= Html::hidden( 'newid', $newRev ? $newRev->getId() : 0 );
@@ -1501,7 +1501,7 @@ class FlaggedPageView extends ContextSource {
 	* Add a link to diff-to-stable for reviewable pages
 	*/
 	protected static function diffToStableLink(
-		FlaggedPage $article, $oldRev, Revision $newRev
+		FlaggableWikiPage $article, $oldRev, Revision $newRev
 	) {
 		$srev = $article->getStableRev();
 		if ( !$srev ) {
@@ -1529,7 +1529,7 @@ class FlaggedPageView extends ContextSource {
 	/**
 	* Add [checked version] and such to left and right side of diff
 	*/
-	protected static function diffReviewMarkers( FlaggedPage $article, $oldRev, $newRev ) {
+	protected static function diffReviewMarkers( FlaggableWikiPage $article, $oldRev, $newRev ) {
 		$table = '';
 		$srev = $article->getStableRev();
 		# Diff between two revisions
@@ -1856,7 +1856,7 @@ class FlaggedPageView extends ContextSource {
 	* @return int
 	*/
 	protected static function getBaseRevId( EditPage $editPage ) {
-		$request = FlaggedPageView::singleton()->getRequest();
+		$request = FlaggablePageView::singleton()->getRequest();
 		if ( !isset( $editPage->fr_baseRevId ) ) {
 			$article = $editPage->getArticle(); // convenience
 			$latestId = $article->getLatest(); // current rev

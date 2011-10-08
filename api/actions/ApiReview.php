@@ -66,7 +66,7 @@ class ApiReview extends ApiBase {
 			$form->setDim( $tag, (int)$params['flag_' . $tag] );
 		}
 		if ( $form->getAction() === 'approve' ) {
-			$article = new FlaggedPage( $title );
+			$article = new FlaggableWikiPage( $title );
 			// Get the file version used for File: pages
 			$file = $article->getFile();
 			if ( $file ) {

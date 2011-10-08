@@ -64,7 +64,7 @@ class StablePages extends SpecialPage {
 		}
 		# Purge expired entries on one in every 10 queries
 		if ( !mt_rand( 0, 10 ) ) {
-			FlaggedPageConfig::purgeExpiredConfigurations();
+			FRPageConfig::purgeExpiredConfigurations();
 		}
 	}
 

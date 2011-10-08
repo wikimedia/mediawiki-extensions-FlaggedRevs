@@ -139,7 +139,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 	* @return mixed (true on success, error string on failure)
 	*/
 	protected function doBuildOnReady() {
-		$this->article = FlaggedPage::getTitleInstance( $this->page );
+		$this->article = FlaggableWikiPage::getTitleInstance( $this->page );
 		return true;
 	}
 

@@ -2,7 +2,7 @@
 /*
 * Page stability configuration functions
 */
-class FlaggedPageConfig {
+class FRPageConfig {
 	/**
 	 * Get visibility settings/restrictions for a page
 	 * @param Title $title, page title
@@ -21,7 +21,7 @@ class FlaggedPageConfig {
 	}
 
 	/**
-	 * @return array basic select fields for FlaggedPageConfig DB row
+	 * @return array basic select fields for FRPageConfig DB row
 	 */
 	public static function selectFields() {
 		return array( 'fpc_override', 'fpc_level', 'fpc_expiry' );
