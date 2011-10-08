@@ -16,7 +16,6 @@ class FlaggedRevs {
 	protected static $binaryFlagging = true;
 	# Namespace config
 	protected static $reviewNamespaces = array();
-	protected static $patrolNamespaces = array();
 	# Restriction levels/config
 	protected static $restrictionLevels = array();
 	# Autoreview config
@@ -108,8 +107,6 @@ class FlaggedRevs {
 			}
 		}
 		self::$reviewNamespaces = $wgFlaggedRevsNamespaces;
-		# Note: reviewable *pages* override patrollable ones
-		self::$patrolNamespaces = $wgFlaggedRevsPatrolNamespaces;
 		# Handle $wgFlaggedRevsAutoReview settings
 		global $wgFlaggedRevsAutoReview, $wgFlaggedRevsAutoReviewNew;
 		if ( is_int( $wgFlaggedRevsAutoReview ) ) {
@@ -882,15 +879,6 @@ class FlaggedRevs {
 	}
 
 	/**
-	* Get the list of patrollable namespaces
-	* @return array
-	*/
-	public static function getPatrolNamespaces() {
-		self::load(); // validates namespaces
-		return self::$patrolNamespaces;
-	}
-
-	/**
 	* Is this page in reviewable namespace?
 	* Note: this checks $wgFlaggedRevsWhitelist
 	* @param Title, $title
@@ -904,18 +892,6 @@ class FlaggedRevs {
 		$ns = ( $title->getNamespace() == NS_MEDIA ) ?
 			NS_FILE : $title->getNamespace(); // treat NS_MEDIA as NS_FILE
 		return in_array( $ns, self::getReviewNamespaces() );
-	}
-
-	/**
-	* Is this page in patrollable namespace?
-	* @param Title, $title
-	* @return bool
-	*/
-	public static function inPatrolNamespace( Title $title ) {
-		$namespaces = self::getPatrolNamespaces();
-		$ns = ( $title->getNamespace() == NS_MEDIA ) ?
-			NS_FILE : $title->getNamespace(); // Treat NS_MEDIA as NS_FILE
-		return ( in_array( $ns, $namespaces ) );
 	}
 
 	# ################ Auto-review function #################

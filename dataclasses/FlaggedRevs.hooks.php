@@ -622,37 +622,6 @@ class FlaggedRevsHooks {
 			}
 			return true;
 		}
-		global $wgFlaggedRevsRCCrap;
-		if ( $wgFlaggedRevsRCCrap ) {
-			// Is this page in patrollable namespace?
-			if ( FlaggedRevs::inPatrolNamespace( $rc->getTitle() ) ) {
-				# Bots and users with 'autopatrol' have edits to patrollable
-				# pages marked automatically on edit.
-				$patrol = $wgUser->isAllowed( 'autopatrol' ) || $wgUser->isAllowed( 'bot' );
-				$record = true; // record if patrolled
-			} else {
-				global $wgUseNPPatrol;
-				// Is this is a new page edit and $wgUseNPPatrol is enabled?
-				if ( $wgUseNPPatrol && !empty( $rc->mAttribs['rc_new'] ) ) {
-					# Automatically mark it patrolled if the user can do so
-					$patrol = $wgUser->isAllowed( 'autopatrol' );
-					$record = true;
-				// Otherwise, this edit is not patrollable
-				} else {
-					# Silently mark it "patrolled" so that it doesn't show up as being unpatrolled
-					$patrol = true;
-					$record = false;
-				}
-			}
-			// Set rc_patrolled flag and add log entry as needed
-			if ( $patrol ) {
-				$rc->reallyMarkPatrolled();
-				$rc->mAttribs['rc_patrolled'] = 1; // make sure irc/email notifs now status
-				if ( $record ) {
-					PatrolLog::record( $rc->mAttribs['rc_id'], true );
-				}
-			}
-		}
 		return true;
 	}
 

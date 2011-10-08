@@ -86,7 +86,7 @@ class FlaggedRevsUIHooks {
 	 * @param $logHeaders Array $wgLogHeaders
 	 * @param $filterLogTypes Array $wgFilterLogTypes
 	 */
-	public static function defineBasicLogUI( &$logNames, &$logHeaders, &$filterLogTypes ) {
+	public static function defineLogBasicDesc( &$logNames, &$logHeaders, &$filterLogTypes ) {
 		$logNames['review'] = 'review-logpage';
 		$logHeaders['review'] = 'review-logpagetext';
 

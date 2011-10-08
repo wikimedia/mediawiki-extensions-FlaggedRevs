@@ -211,11 +211,6 @@ if ( defined( 'MW_HTML_FOR_DUMP' ) ) {
 	return;
 }
 
-# Temp var
-$wgFlaggedRevsRCCrap = false;
-# Patrollable namespaces (overridden by reviewable namespaces) (don't use)
-$wgFlaggedRevsPatrolNamespaces = array(); // @TODO: remove when ready
-
 # Bots are granted autoreview via hooks, mark in rights
 # array so that it shows up in sp:ListGroupRights...
 $wgGroupPermissions['bot']['autoreview'] = true;
@@ -367,7 +362,7 @@ $wgLogTypes[] = 'review';
 $wgLogTypes[] = 'stable';
 
 # Log action handlers
-FlaggedRevsUIHooks::defineBasicLogUI( $wgLogNames, $wgLogHeaders, $wgFilterLogTypes );
+FlaggedRevsUIHooks::defineLogBasicDesc( $wgLogNames, $wgLogHeaders, $wgFilterLogTypes );
 FlaggedRevsUIHooks::defineLogActionHanders( $wgLogActions, $wgLogActionsHandlers );
 
 # JS/CSS modules and message bundles used by JS scripts
@@ -524,34 +519,6 @@ function efSetFlaggedRevsConditionalHooks() {
 
 // Note: avoid calls to FlaggedRevs class here for performance
 function efLoadFlaggedRevs() {
-	global $wgFlaggedRevsRCCrap, $wgUseRCPatrol, $wgGroupPermissions;
-	global $wgFlaggedRevsNamespaces, $wgFlaggedRevsProtection;
-	if ( $wgFlaggedRevsRCCrap ) {
-		# If patrolling is already on, then we know that it
-		# was intended to have all namespaces patrollable.
-		if ( $wgUseRCPatrol ) {
-			global $wgFlaggedRevsPatrolNamespaces;
-			$wgFlaggedRevsPatrolNamespaces = MWNamespace::getValidNamespaces();
-		}
-		/* TODO: decouple from rc patrol */
-		# Check if FlaggedRevs is enabled by default for pages...
-		if ( $wgFlaggedRevsNamespaces && !$wgFlaggedRevsProtection ) {
-			# Use RC Patrolling to check for vandalism.
-			# Edits to reviewable pages must be flagged to be patrolled.
-			$wgUseRCPatrol = true;
-		}
-		if ( isset( $wgGroupPermissions['editor'] )
-			&& !isset( $wgGroupPermissions['editor']['patrolmarks'] ) )
-		{
-			$wgGroupPermissions['editor']['patrolmarks'] = true;
-		}
-		if ( isset( $wgGroupPermissions['reviewer'] )
-			&& !isset( $wgGroupPermissions['reviewer']['patrolmarks'] ) )
-		{
-			$wgGroupPermissions['reviewer']['patrolmarks'] = true;
-		}
-	}
-
 	# Conditional autopromote groups
 	efSetFlaggedRevsAutopromoteConfig();
 
