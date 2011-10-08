@@ -7,47 +7,47 @@ class FlaggedRevsUISetup {
 	 * Register FlaggedRevs special pages as needed.
 	 * @param $pages Array $wgSpecialPages (list of special pages)
 	 * @param $groups Array $wgSpecialPageGroups (assoc array of special page groups)
+	 * @return void
 	 */
 	public static function defineSpecialPages( array &$pages, array &$groups ) {
 		global $wgUseTagFilter;
 		// Show special pages only if FlaggedRevs is enabled on some namespaces
-		if ( !FlaggedRevs::getReviewNamespaces() ) {
-			return true;
+		if ( FlaggedRevs::getReviewNamespaces() ) {
+			$pages['RevisionReview'] = 'RevisionReview'; // unlisted
+			$pages['ReviewedVersions'] = 'ReviewedVersions'; // unlisted
+			$pages['PendingChanges'] = 'PendingChanges';
+			$groups['PendingChanges'] = 'quality';
+			// Show tag filtered pending edit page if there are tags
+			if ( $wgUseTagFilter ) {
+				$pages['ProblemChanges'] = 'ProblemChanges';
+				$groups['ProblemChanges'] = 'quality';
+			}
+			if ( !FlaggedRevs::useOnlyIfProtected() ) {
+				$pages['ReviewedPages'] = 'ReviewedPages';
+				$groups['ReviewedPages'] = 'quality';
+				$pages['UnreviewedPages'] = 'UnreviewedPages';
+				$groups['UnreviewedPages'] = 'quality';
+			}
+			$pages['QualityOversight'] = 'QualityOversight';
+			$groups['QualityOversight'] = 'quality';
+			$pages['ValidationStatistics'] = 'ValidationStatistics';
+			$groups['ValidationStatistics'] = 'quality';
+			// Protect levels define allowed stability settings
+			if ( FlaggedRevs::useProtectionLevels() ) {
+				$pages['StablePages'] = 'StablePages';
+				$groups['StablePages'] = 'quality';
+			} else {
+				$pages['ConfiguredPages'] = 'ConfiguredPages';
+				$groups['ConfiguredPages'] = 'quality';
+				$pages['Stabilization'] = 'Stabilization'; // unlisted
+			}
 		}
-		$pages['RevisionReview'] = 'RevisionReview'; // unlisted
-		$pages['ReviewedVersions'] = 'ReviewedVersions'; // unlisted
-		$pages['PendingChanges'] = 'PendingChanges';
-		$groups['PendingChanges'] = 'quality';
-		// Show tag filtered pending edit page if there are tags
-		if ( $wgUseTagFilter ) {
-			$pages['ProblemChanges'] = 'ProblemChanges';
-			$groups['ProblemChanges'] = 'quality';
-		}
-		if ( !FlaggedRevs::useOnlyIfProtected() ) {
-			$pages['ReviewedPages'] = 'ReviewedPages';
-			$groups['ReviewedPages'] = 'quality';
-			$pages['UnreviewedPages'] = 'UnreviewedPages';
-			$groups['UnreviewedPages'] = 'quality';
-		}
-		$pages['QualityOversight'] = 'QualityOversight';
-		$groups['QualityOversight'] = 'quality';
-		$pages['ValidationStatistics'] = 'ValidationStatistics';
-		$groups['ValidationStatistics'] = 'quality';
-		// Protect levels define allowed stability settings
-		if ( FlaggedRevs::useProtectionLevels() ) {
-			$pages['StablePages'] = 'StablePages';
-			$groups['StablePages'] = 'quality';
-		} else {
-			$pages['ConfiguredPages'] = 'ConfiguredPages';
-			$groups['ConfiguredPages'] = 'quality';
-			$pages['Stabilization'] = 'Stabilization'; // unlisted
-		}
-		return true;
 	}
 
 	/**
 	 * Append FlaggedRevs resource module definitions
-	 * @param $modules Array $wgResourceModules
+	 * @param $modules Array $wgResourceModules (list of modules)
+	 * @return void
 	 */
 	public static function defineResourceModules( &$modules ) {
 		$localModulePath = dirname( __FILE__ ) . '/modules/';
@@ -90,8 +90,8 @@ class FlaggedRevsUISetup {
 
 	/**
 	 * Append FlaggedRevs log names and set filterable logs
-	 * @param $logNames Array $wgLogNames
-	 * @param $logHeaders Array $wgLogHeaders
+	 * @param $logNames Array $wgLogNames (assoc array of log name message keys)
+	 * @param $logHeaders Array $wgLogHeaders (assoc array of log header message keys)
 	 * @param $filterLogTypes Array $wgFilterLogTypes
 	 */
 	public static function defineLogBasicDescription( &$logNames, &$logHeaders, &$filterLogTypes ) {
@@ -106,8 +106,9 @@ class FlaggedRevsUISetup {
 
 	/**
 	 * Append FlaggedRevs log action handlers
-	 * @param $logActions Array $wgLogActions
-	 * @param $logActionsHandlers Array $wgLogActionsHandlers
+	 * @param $logActions Array $wgLogActions (assoc array of log action message keys)
+	 * @param $logActionsHandlers Array $wgLogActionsHandlers (assoc array of log handlers)
+	 * @return void
 	 */
 	public static function defineLogActionHanders( &$logActions, &$logActionsHandlers ) {
 		# Various actions are used for log filtering ...
