@@ -206,7 +206,4 @@ var fr = {
 // Perform some onload (which is when this script is included) events:
 fr.init();
 
-// Expose globally
-window.FlaggedRevs = fr;
-
 })( jQuery );
