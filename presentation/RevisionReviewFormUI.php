@@ -320,7 +320,7 @@ class RevisionReviewFormUI {
 						$attribs = array( 'class' => "fr-rating-option-$i",
 							'onchange' => "FlaggedRevsReview.updateRatingForm()" );
 						$item .= Xml::radioLabel( FlaggedRevs::getTagMsg( $name ), "wp$quality",
-							$i,	"wp$quality" . $i, ( $i == $selected ), $attribs ) . "\n";
+							$i, "wp$quality" . $i, ( $i == $selected ), $attribs ) . "\n";
 					}
 				# Otherwise make checkboxes (two levels available for current user)
 				} elseif ( $numLevels == 2 ) {
@@ -389,10 +389,10 @@ class RevisionReviewFormUI {
 		}
 		$s = Xml::submitButton( wfMsgHtml( 'revreview-submit-review' ),
 			array(
-				'name'  	=> 'wpApprove',
-				'id' 		=> 'mw-fr-submit-accept',
+				'name'      => 'wpApprove',
+				'id'        => 'mw-fr-submit-accept',
 				'accesskey' => wfMsg( 'revreview-ak-review' ),
-				'title' 	=> wfMsg( 'revreview-tt-flag' ) . ' [' .
+				'title'     => wfMsg( 'revreview-tt-flag' ) . ' [' .
 					wfMsg( 'revreview-ak-review' ) . ']'
 			) + ( ( $disabled || !$applicable ) ? $disAttrib : array() )
 		);
@@ -402,7 +402,7 @@ class RevisionReviewFormUI {
 			$s .= Xml::submitButton( wfMsgHtml( 'revreview-submit-reject' ),
 				array(
 					'name'  => 'wpReject',
-					'id' 	=> 'mw-fr-submit-reject',
+					'id'    => 'mw-fr-submit-reject',
 					'title' => wfMsg( 'revreview-tt-reject' ),
 				) + ( $disabled ? $disAttrib : array() )
 			);
@@ -413,7 +413,7 @@ class RevisionReviewFormUI {
 		$s .= Xml::submitButton( wfMsgHtml( 'revreview-submit-unreview' ),
 			array(
 				'name'  => 'wpUnapprove',
-				'id' 	=> 'mw-fr-submit-unaccept',
+				'id'    => 'mw-fr-submit-unaccept',
 				'title' => wfMsg( 'revreview-tt-unflag' ),
 				'style' => $frev ? '' : 'display:none'
 			) + ( $disabled ? $disAttrib : array() )

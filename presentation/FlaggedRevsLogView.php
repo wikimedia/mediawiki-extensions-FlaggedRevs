@@ -1,7 +1,7 @@
 <?php
 
 class FlaggedRevsLogView {
-	/**	
+	/** 
 	* Add setting change description to log line
 	* @return string
 	*/

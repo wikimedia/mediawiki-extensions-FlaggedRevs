@@ -45,26 +45,26 @@ class FlaggedRevsUIHooks {
 		$localModulePath = dirname( __FILE__ ) . '/modules/';
 		$remoteModulePath = 'FlaggedRevs/presentation/modules';
 		$modules['ext.flaggedRevs.basic'] = array(
-			'styles' 		=> array( 'flaggedrevs.css' ),
+			'styles'        => array( 'flaggedrevs.css' ),
 			'localBasePath' => $localModulePath,
 			'remoteExtPath' => $remoteModulePath,
 		);
 		$modules['ext.flaggedRevs.advanced'] = array(
-			'scripts' 		=> array( 'flaggedrevs.js' ),
-			'messages'		=> array(
+			'scripts'       => array( 'flaggedrevs.js' ),
+			'messages'      => array(
 				'revreview-toggle-show', 'revreview-toggle-hide',
 				'revreview-diff-toggle-show', 'revreview-diff-toggle-hide',
 				'revreview-log-toggle-show', 'revreview-log-toggle-hide',
 				'revreview-log-details-show', 'revreview-log-details-hide'
 			),
-			'dependencies' 	=> array( 'mediawiki.util' ),
-			'localBasePath'	=> $localModulePath,
-			'remoteExtPath'	=> $remoteModulePath,
+			'dependencies'  => array( 'mediawiki.util' ),
+			'localBasePath' => $localModulePath,
+			'remoteExtPath' => $remoteModulePath,
 		);
 		$modules['ext.flaggedRevs.review'] = array(
-			'scripts' 		=> array( 'review.js' ),
-			'styles' 		=> array( 'review.css' ),
-			'messages'		=> array(
+			'scripts'       => array( 'review.js' ),
+			'styles'        => array( 'review.css' ),
+			'messages'      => array(
 				'savearticle', 'tooltip-save', 'accesskey-save',
 				'revreview-submitedit', 'revreview-submitedit-title',
 				'revreview-submit-review', 'revreview-submit-unreview',
@@ -74,9 +74,9 @@ class FlaggedRevsUIHooks {
 				'revreview-sadv-reviewing-p', 'revreview-sadv-reviewing-c',
 				'revreview-adv-start-link', 'revreview-adv-stop-link'
 			),
-			'dependencies'	=> array( 'mediawiki.util' ),
-			'localBasePath'	=> $localModulePath,
-			'remoteExtPath'	=> $remoteModulePath,
+			'dependencies'  => array( 'mediawiki.util' ),
+			'localBasePath' => $localModulePath,
+			'remoteExtPath' => $remoteModulePath,
 		);
 	}
 
@@ -766,7 +766,7 @@ class FlaggedRevsUIHooks {
 		array_unshift( $effectiveLevels, "none" );
 		# Show all restriction levels in a <select>...
 		$attribs = array(
-			'id' 	=> 'mwStabilityLevel',
+			'id'    => 'mwStabilityLevel',
 			'name'  => 'mwStabilityLevel',
 			'size'  => count( $effectiveLevels ),
 		) + $disabledAttrib;
@@ -825,8 +825,8 @@ class FlaggedRevsUIHooks {
 					<td class='mw-input'>" .
 						Xml::tags( 'select',
 							array(
-								'id' 		=> 'mwStabilizeExpirySelection',
-								'name' 		=> 'mwStabilizeExpirySelection',
+								'id'        => 'mwStabilizeExpirySelection',
+								'name'      => 'mwStabilizeExpirySelection',
 								'onchange'  => 'onFRChangeExpiryDropdown()',
 							) + $disabledAttrib,
 							$expiryFormOptions ) .

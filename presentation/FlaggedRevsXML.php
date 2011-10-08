@@ -268,7 +268,7 @@ class FlaggedRevsXML {
 		$box .= '<div id="mw-fr-revisiondetails-wrapper" style="position:relative;">';
 		$box .= Xml::openElement( 'div',
 			array(
-				'id' 	=> 'mw-fr-revisiondetails',
+				'id'    => 'mw-fr-revisiondetails',
 				'class' => 'flaggedrevs_short_details',
 				'style' => 'display:none' )
 		);

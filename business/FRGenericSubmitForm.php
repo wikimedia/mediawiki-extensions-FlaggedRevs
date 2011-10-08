@@ -3,19 +3,19 @@
  * Class containing generic form business logic
  * Note: edit tokens are the responsibility of the caller
  * Usage: (a) set ALL form params before doing anything else
- *		  (b) call ready() when all params are set
- *		  (c) call preload() OR submit() as needed
+ *        (b) call ready() when all params are set
+ *        (c) call preload() OR submit() as needed
  */
 abstract class FRGenericSubmitForm {
-	const FOR_SUBMISSION = 1; 				# Notify functions when we are submitting
+	const FOR_SUBMISSION = 1;               # Notify functions when we are submitting
 	/* Internal form state */
-	const FORM_UNREADY = 0;					# Params not given yet
-	const FORM_READY = 1;					# Params given and ready to submit
-	const FORM_PRELOADED = 2;				# Params pre-loaded (likely from slave DB)
-	const FORM_SUBMITTED = 3;				# Form submitted
-	private $state = self::FORM_UNREADY; 	# Form state (disallows bad operations)
+	const FORM_UNREADY = 0;                 # Params not given yet
+	const FORM_READY = 1;                   # Params given and ready to submit
+	const FORM_PRELOADED = 2;               # Params pre-loaded (likely from slave DB)
+	const FORM_SUBMITTED = 3;               # Form submitted
+	private $state = self::FORM_UNREADY;    # Form state (disallows bad operations)
 
-	protected $user = null; 		 		# User performing the action
+	protected $user = null;                 # User performing the action
 
 	final public function __construct( User $user ) {
 		$this->user = $user;

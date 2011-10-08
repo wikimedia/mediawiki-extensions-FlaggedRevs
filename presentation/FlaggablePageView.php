@@ -1362,8 +1362,8 @@ class FlaggablePageView extends ContextSource {
 	* (a) Add the review form to the top of the page
 	* (b) Mark off which versions are checked or not
 	* (c) When comparing the stable revision to the current:
-	* 	(i)  Show a tag with some explanation for the diff
-	*	(ii) List any template/file changes pending review
+	*   (i)  Show a tag with some explanation for the diff
+	*   (ii) List any template/file changes pending review
 	*/
 	public function addToDiffView( $diff, $oldRev, $newRev ) {
 		global $wgMemc, $wgParserCacheExpireTime;

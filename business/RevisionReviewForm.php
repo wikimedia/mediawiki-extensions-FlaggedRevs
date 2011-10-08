@@ -4,23 +4,23 @@
  */
 class RevisionReviewForm extends FRGenericSubmitForm {
 	/* Form parameters which can be user given */
-	protected $page = null;					# Target Title obj
+	protected $page = null;                 # Target Title obj
 	protected $article = null;              # Target Page obj
-	protected $approve = false;				# Approval requested
-	protected $unapprove = false;			# De-approval requested
-	protected $reject = false;				# Rejection requested
-	protected $oldid = 0;					# ID being reviewed (last "bad" ID for rejection)
-	protected $refid = 0;					# Old, "last good", ID (used for rejection)
-	protected $templateParams = '';			# Included template versions (flat string)
-	protected $imageParams = '';			# Included file versions (flat string)
-	protected $fileVersion = '';			# File page file version (flat string)
-	protected $validatedParams = '';		# Parameter key
-	protected $comment = '';				# Review comments
-	protected $dims = array();				# Review flags (for approval)
-	protected $lastChangeTime = null; 		# Conflict handling
-	protected $newLastChangeTime = null; 	# Conflict handling
+	protected $approve = false;             # Approval requested
+	protected $unapprove = false;           # De-approval requested
+	protected $reject = false;              # Rejection requested
+	protected $oldid = 0;                   # ID being reviewed (last "bad" ID for rejection)
+	protected $refid = 0;                   # Old, "last good", ID (used for rejection)
+	protected $templateParams = '';         # Included template versions (flat string)
+	protected $imageParams = '';            # Included file versions (flat string)
+	protected $fileVersion = '';            # File page file version (flat string)
+	protected $validatedParams = '';        # Parameter key
+	protected $comment = '';                # Review comments
+	protected $dims = array();              # Review flags (for approval)
+	protected $lastChangeTime = null;       # Conflict handling
+	protected $newLastChangeTime = null;    # Conflict handling
 
-	protected $oflags = array();			# Prior flags for Rev with ID $oldid
+	protected $oflags = array();            # Prior flags for Rev with ID $oldid
 
 	protected function initialize() {
 		foreach ( FlaggedRevs::getTags() as $tag ) {
@@ -378,17 +378,17 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 
 		# The new review entry...
 		$flaggedRevision = new FlaggedRevision( array(
-			'rev'        		=> $rev,
-			'user_id'          	=> $this->user->getId(),
-			'timestamp'     	=> wfTimestampNow(),
-			'quality'       	=> $quality,
-			'tags'          	=> FlaggedRevision::flattenRevisionTags( $flags ),
-			'img_name'      	=> $fileData['name'],
-			'img_timestamp' 	=> $fileData['timestamp'],
-			'img_sha1'      	=> $fileData['sha1'],
-			'templateVersions' 	=> $tmpVersions,
-			'fileVersions'     	=> $fileVersions,
-			'flags'				=> ''
+			'rev'               => $rev,
+			'user_id'           => $this->user->getId(),
+			'timestamp'         => wfTimestampNow(),
+			'quality'           => $quality,
+			'tags'              => FlaggedRevision::flattenRevisionTags( $flags ),
+			'img_name'          => $fileData['name'],
+			'img_timestamp'     => $fileData['timestamp'],
+			'img_sha1'          => $fileData['sha1'],
+			'templateVersions'  => $tmpVersions,
+			'fileVersions'      => $fileVersions,
+			'flags'             => ''
 		) );
 		# Delete the old review entry if it exists...
 		if ( $oldFrev ) {

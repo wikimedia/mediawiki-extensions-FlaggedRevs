@@ -4,15 +4,15 @@
  */
 abstract class PageStabilityForm extends FRGenericSubmitForm {
 	/* Form parameters which can be user given */
-	protected $page = false; 			# Target page obj
-	protected $watchThis = null; 		# Watch checkbox
-	protected $reviewThis = null; 		# Auto-review option...
-	protected $reasonExtra = ''; 		# Custom/extra reason
-	protected $reasonSelection = '';	# Reason dropdown key
-	protected $expiryCustom = ''; 		# Custom expiry
-	protected $expirySelection = '';	# Expiry dropdown key
-	protected $override = -1; 			# Default version
-	protected $autoreview = ''; 		# Autoreview restrictions...
+	protected $page = false;            # Target page obj
+	protected $watchThis = null;        # Watch checkbox
+	protected $reviewThis = null;       # Auto-review option...
+	protected $reasonExtra = '';        # Custom/extra reason
+	protected $reasonSelection = '';    # Reason dropdown key
+	protected $expiryCustom = '';       # Custom expiry
+	protected $expirySelection = '';    # Expiry dropdown key
+	protected $override = -1;           # Default version
+	protected $autoreview = '';         # Autoreview restrictions...
 
 	protected $oldConfig = array(); # Old page config
 
@@ -170,7 +170,7 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 	/*
 	* Can the user change the settings for this page?
 	* Note: if the current autoreview restriction is too high for this user
-	*		then this will return false. Useful for form selectors.
+	*       then this will return false. Useful for form selectors.
 	* @return bool
 	*/
 	public function isAllowed() {
@@ -198,7 +198,7 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 
 	/*
 	* @return mixed (true on success, error string on failure)
-	*/	
+	*/  
 	protected function reallyDoPreloadParameters() {
 		return true;
 	}
