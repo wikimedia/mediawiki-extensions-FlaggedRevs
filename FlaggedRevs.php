@@ -320,7 +320,6 @@ $wgHooks['UnitTestsList'][] = 'FlaggedRevsTestHooks::getUnitTests';
 
 # Database schema changes
 $wgHooks['LoadExtensionSchemaUpdates'][] = 'FlaggedRevsUpdaterHooks::addSchemaUpdates';
-
 # ########
 
 function efSetFlaggedRevsConditionalHooks() {

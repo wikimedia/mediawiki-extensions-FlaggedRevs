@@ -45,12 +45,12 @@ class FlaggedRevsUIHooks {
 		$localModulePath = dirname( __FILE__ ) . '/modules/';
 		$remoteModulePath = 'FlaggedRevs/presentation/modules';
 		$modules['ext.flaggedRevs.basic'] = array(
-			'styles'        => array( 'flaggedrevs.css' ),
+			'styles'        => array( 'ext.flaggedRevs.basic.css' ),
 			'localBasePath' => $localModulePath,
 			'remoteExtPath' => $remoteModulePath,
 		);
 		$modules['ext.flaggedRevs.advanced'] = array(
-			'scripts'       => array( 'flaggedrevs.js' ),
+			'scripts'       => array( 'ext.flaggedRevs.advanced.js' ),
 			'messages'      => array(
 				'revreview-toggle-show', 'revreview-toggle-hide',
 				'revreview-diff-toggle-show', 'revreview-diff-toggle-hide',
@@ -62,8 +62,8 @@ class FlaggedRevsUIHooks {
 			'remoteExtPath' => $remoteModulePath,
 		);
 		$modules['ext.flaggedRevs.review'] = array(
-			'scripts'       => array( 'review.js' ),
-			'styles'        => array( 'review.css' ),
+			'scripts'       => array( 'ext.flaggedRevs.review.js' ),
+			'styles'        => array( 'ext.flaggedRevs.review.css' ),
 			'messages'      => array(
 				'savearticle', 'tooltip-save', 'accesskey-save',
 				'revreview-submitedit', 'revreview-submitedit-title',
