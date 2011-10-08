@@ -305,8 +305,7 @@ class RevisionReviewFormUI {
 				# If the sum of qualities of all flags is above 6, use drop down boxes.
 				# 6 is an arbitrary value choosen according to screen space and usability.
 				if ( $size > 6 ) {
-					$attribs = array( 'name' => "wp$quality", 'id' => "wp$quality",
-						'onchange' => "FlaggedRevsReview.updateRatingForm()" );
+					$attribs = array( 'name' => "wp$quality", 'id' => "wp$quality" );
 					$item .= Xml::openElement( 'select', $attribs ) . "\n";
 					foreach ( $levels as $i => $name ) {
 						$optionClass = array( 'class' => "fr-rating-option-$i" );
@@ -317,16 +316,14 @@ class RevisionReviewFormUI {
 				# If there are more than two levels, current user gets radio buttons
 				} elseif ( $numLevels > 2 ) {
 					foreach ( $levels as $i => $name ) {
-						$attribs = array( 'class' => "fr-rating-option-$i",
-							'onchange' => "FlaggedRevsReview.updateRatingForm()" );
+						$attribs = array( 'class' => "fr-rating-option-$i" );
 						$item .= Xml::radioLabel( FlaggedRevs::getTagMsg( $name ), "wp$quality",
 							$i, "wp$quality" . $i, ( $i == $selected ), $attribs ) . "\n";
 					}
 				# Otherwise make checkboxes (two levels available for current user)
 				} elseif ( $numLevels == 2 ) {
 					$i = $minLevel;
-					$attribs = array( 'class' => "fr-rating-option-$i",
-						'onchange' => "FlaggedRevsReview.updateRatingForm()" );
+					$attribs = array( 'class' => "fr-rating-option-$i" );
 					$attribs = $attribs + array( 'value' => $i );
 					$item .= Xml::checkLabel( wfMsg( 'revreview-' . $levels[$i] ),
 						"wp$quality", "wp$quality", ( $selected == $i ), $attribs ) . "\n";
