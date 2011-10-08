@@ -98,6 +98,7 @@ $wgAutoloadClasses['PageStabilityGeneralForm'] = $dir . 'business/PageStabilityF
 $wgAutoloadClasses['PageStabilityProtectForm'] = $dir . 'business/PageStabilityForm.php';
 
 # Presentation classes...
+$wgAutoloadClasses['FlaggedRevsUISetup'] = $dir . 'presentation/FlaggedRevsUI.setup.php';
 $wgAutoloadClasses['FlaggablePageView'] = $dir . 'presentation/FlaggablePageView.php';
 $wgAutoloadClasses['FlaggedRevsLogView'] = $dir . 'presentation/FlaggedRevsLogView.php';
 $wgAutoloadClasses['FlaggedRevsXML'] = $dir . 'presentation/FlaggedRevsXML.php';
@@ -119,35 +120,27 @@ $wgExtensionMessagesFiles['ReviewedVersions'] = $langDir . 'ReviewedVersions.i18
 # Unreviewed pages list
 $wgAutoloadClasses['UnreviewedPages'] = $specialReportDir . 'UnreviewedPages_body.php';
 $wgExtensionMessagesFiles['UnreviewedPages'] = $langDir . 'UnreviewedPages.i18n.php';
-$wgSpecialPageGroups['UnreviewedPages'] = 'quality';
 # Pages with pending changes list
 $wgAutoloadClasses['PendingChanges'] = $specialReportDir . 'PendingChanges_body.php';
 $wgExtensionMessagesFiles['PendingChanges'] = $langDir . 'PendingChanges.i18n.php';
-$wgSpecialPageGroups['PendingChanges'] = 'quality';
 # Pages with tagged pending changes list
 $wgAutoloadClasses['ProblemChanges'] = $specialReportDir . 'ProblemChanges_body.php';
 $wgExtensionMessagesFiles['ProblemChanges'] = $langDir . 'ProblemChanges.i18n.php';
-$wgSpecialPageGroups['ProblemChanges'] = 'quality';
 # Reviewed pages list
 $wgAutoloadClasses['ReviewedPages'] = $specialReportDir . 'ReviewedPages_body.php';
 $wgExtensionMessagesFiles['ReviewedPages'] = $langDir . 'ReviewedPages.i18n.php';
-$wgSpecialPageGroups['ReviewedPages'] = 'quality';
 # Stable pages list (for protection config)
 $wgAutoloadClasses['StablePages'] = $specialReportDir . 'StablePages_body.php';
 $wgExtensionMessagesFiles['StablePages'] = $langDir . 'StablePages.i18n.php';
-$wgSpecialPageGroups['StablePages'] = 'quality';
 # Configured pages list (non-protection config)
 $wgAutoloadClasses['ConfiguredPages'] = $specialReportDir . 'ConfiguredPages_body.php';
 $wgExtensionMessagesFiles['ConfiguredPages'] = $langDir . 'ConfiguredPages.i18n.php';
-$wgSpecialPageGroups['ConfiguredPages'] = 'quality';
 # Filterable review log page to oversee reviews
 $wgAutoloadClasses['QualityOversight'] = $specialReportDir . 'QualityOversight_body.php';
 $wgExtensionMessagesFiles['QualityOversight'] = $langDir . 'QualityOversight.i18n.php';
-$wgSpecialPageGroups['QualityOversight'] = 'quality';
 # Review statistics
 $wgAutoloadClasses['ValidationStatistics'] = $specialReportDir . 'ValidationStatistics_body.php';
 $wgExtensionMessagesFiles['ValidationStatistics'] = $langDir . 'ValidationStatistics.i18n.php';
-$wgSpecialPageGroups['ValidationStatistics'] = 'quality';
 
 $apiActionDir = $dir . 'api/actions/';
 # Page review module for API
@@ -192,12 +185,15 @@ $wgLogTypes[] = 'review';
 # Add stable version log
 $wgLogTypes[] = 'stable';
 
-# Log action handlers
-FlaggedRevsUIHooks::defineLogBasicDesc( $wgLogNames, $wgLogHeaders, $wgFilterLogTypes );
-FlaggedRevsUIHooks::defineLogActionHanders( $wgLogActions, $wgLogActionsHandlers );
+# Log name and description as well as action handlers
+FlaggedRevsUISetup::defineLogBasicDescription( $wgLogNames, $wgLogHeaders, $wgFilterLogTypes );
+FlaggedRevsUISetup::defineLogActionHanders( $wgLogActions, $wgLogActionsHandlers );
+
+# Actually register special pages
+FlaggedRevsUISetup::defineSpecialPages( $wgSpecialPages, $wgSpecialPageGroups );
 
 # JS/CSS modules and message bundles used by JS scripts
-FlaggedRevsUIHooks::defineResourceModules( $wgResourceModules );
+FlaggedRevsUISetup::defineResourceModules( $wgResourceModules );
 
 # ####### EVENT-HANDLER FUNCTIONS  #########
 
@@ -303,9 +299,6 @@ $wgHooks['FileUpload'][] = 'FlaggedRevsHooks::onFileUpload';
 $wgHooks['getUserPermissionsErrors'][] = 'FlaggedRevsHooks::onUserCan';
 # Implicit autoreview rights group
 $wgHooks['AutopromoteCondition'][] = 'FlaggedRevsHooks::checkAutoPromoteCond';
-
-# Actually register special pages
-$wgHooks['SpecialPage_initList'][] = 'FlaggedRevsUIHooks::defineSpecialPages';
 
 # Stable dump hook
 $wgHooks['WikiExporter::dumpStableQuery'][] = 'FlaggedRevsHooks::stableDumpQuery';
