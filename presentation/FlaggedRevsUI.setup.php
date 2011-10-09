@@ -1,6 +1,8 @@
 <?php
 /**
- * Class containing hooked functions for a FlaggedRevs environment
+ * Class containing UI setup functions for a FlaggedRevs environment.
+ * This depends on config variables in LocalSettings.php.
+ * Note: avoid  FlaggedRevs class calls here for performance (like load.php).
  */
 class FlaggedRevsUISetup {
 	/**
@@ -89,9 +91,10 @@ class FlaggedRevsUISetup {
 	 * @return void
 	 */
 	public static function defineSpecialPages( array &$pages, array &$groups ) {
-		global $wgUseTagFilter;
+		global $wgFlaggedRevsProtection, $wgFlaggedRevsNamespaces, $wgUseTagFilter;
+
 		// Show special pages only if FlaggedRevs is enabled on some namespaces
-		if ( FlaggedRevs::getReviewNamespaces() ) {
+		if ( count( $wgFlaggedRevsNamespaces ) ) {
 			$pages['RevisionReview'] = 'RevisionReview'; // unlisted
 			$pages['ReviewedVersions'] = 'ReviewedVersions'; // unlisted
 			$pages['PendingChanges'] = 'PendingChanges';
@@ -101,7 +104,7 @@ class FlaggedRevsUISetup {
 				$pages['ProblemChanges'] = 'ProblemChanges';
 				$groups['ProblemChanges'] = 'quality';
 			}
-			if ( !FlaggedRevs::useOnlyIfProtected() ) {
+			if ( !$wgFlaggedRevsProtection ) {
 				$pages['ReviewedPages'] = 'ReviewedPages';
 				$groups['ReviewedPages'] = 'quality';
 				$pages['UnreviewedPages'] = 'UnreviewedPages';
@@ -112,7 +115,7 @@ class FlaggedRevsUISetup {
 			$pages['ValidationStatistics'] = 'ValidationStatistics';
 			$groups['ValidationStatistics'] = 'quality';
 			// Protect levels define allowed stability settings
-			if ( FlaggedRevs::useProtectionLevels() ) {
+			if ( $wgFlaggedRevsProtection ) {
 				$pages['StablePages'] = 'StablePages';
 				$groups['StablePages'] = 'quality';
 			} else {

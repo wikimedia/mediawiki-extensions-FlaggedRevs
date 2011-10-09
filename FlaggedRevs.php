@@ -189,13 +189,10 @@ $wgLogTypes[] = 'stable';
 FlaggedRevsUISetup::defineLogBasicDescription( $wgLogNames, $wgLogHeaders, $wgFilterLogTypes );
 FlaggedRevsUISetup::defineLogActionHanders( $wgLogActions, $wgLogActionsHandlers );
 
-# Actually register special pages
-FlaggedRevsUISetup::defineSpecialPages( $wgSpecialPages, $wgSpecialPageGroups );
-
 # JS/CSS modules and message bundles used by JS scripts
 FlaggedRevsUISetup::defineResourceModules( $wgResourceModules );
 
-# ####### EVENT-HANDLER FUNCTIONS #########
+# ####### HOOK CALLBACK FUNCTIONS #########
 
 # ######## API ########
 # Add flagging data to ApiQueryRevisions
@@ -273,13 +270,18 @@ function efSetFlaggedRevsConditionalHooks() {
 	$wgHooks['UserGetRights'][] = 'FlaggedRevsHooks::onUserGetRights';
 }
 
-# ####### END HOOK TRIGGERED FUNCTIONS #########
+# ####### END HOOK CALLBACK FUNCTIONS #########
 
 // Note: avoid calls to FlaggedRevs class here for performance
 function efLoadFlaggedRevs() {
+	# LocalSettings.php loaded, safe to load config
+	FlaggedRevs::ready();
+
 	# Conditional autopromote groups
 	efSetFlaggedRevsAutopromoteConfig();
 
+	# Register special pages (some are conditional)
+	efSetFlaggedRevsSpecialPages();
 	# Conditional API modules
 	efSetFlaggedRevsConditionalAPIModules();
 	# Load hooks that aren't always set
@@ -354,6 +356,11 @@ function efSetFlaggedRevsConditionalAPIModules() {
 		$wgAPIListModules['unreviewedpages'] = 'ApiQueryUnreviewedpages';
 		$wgAPIListModules['configuredpages'] = 'ApiQueryConfiguredpages';
 	}
+}
+
+function efSetFlaggedRevsSpecialPages() {
+	global $wgSpecialPages, $wgSpecialPageGroups;
+	FlaggedRevsUISetup::defineSpecialPages( $wgSpecialPages, $wgSpecialPageGroups );
 }
 
 function efSetFlaggedRevsConditionalRights() {

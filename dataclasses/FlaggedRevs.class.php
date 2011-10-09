@@ -21,12 +21,23 @@ class FlaggedRevs {
 	# Autoreview config
 	protected static $autoReviewConfig = 0;
 
+	protected static $canLoad = false;
 	protected static $loaded = false;
 
-	public static function load() {
+	/**
+	 * Signal that LocalSettings.php is loaded
+	 */
+	public static function ready() {
+		self::$canLoad = true;
+	}
+
+	protected static function load() {
 		global $wgFlaggedRevsTags, $wgFlaggedRevTags;
 		if ( self::$loaded ) {
 			return true;
+		}
+		if ( !self::$canLoad ) { // sanity
+			wfDebugDieBacktrace( 'FlaggedRevs config loaded too soon! Possibly before LocalSettings.php!' );
 		}
 		self::$loaded = true;
 		$flaggedRevsTags = null;
@@ -46,7 +57,7 @@ class FlaggedRevs {
 			# Sanity checks
 			$safeTag = htmlspecialchars( $tag );
 			if ( !preg_match( '/^[a-zA-Z]{1,20}$/', $tag ) || $safeTag !== $tag ) {
-				throw new MWException( 'FlaggedRevs given invalid tag name!' );
+				die( 'FlaggedRevs given invalid tag name!' );
 			}
 			# Define "quality" and "pristine" reqs
 			if ( is_array( $levels ) ) {
@@ -73,7 +84,7 @@ class FlaggedRevs {
 			}
 			# Sanity checks
 			if ( !is_integer( $minQL ) || !is_integer( $minPL ) ) {
-				throw new MWException( 'FlaggedRevs given invalid tag value!' );
+				die( 'FlaggedRevs given invalid tag value!' );
 			}
 			if ( $minQL > $ratingLevels ) {
 				self::$qualityVersions = false;
@@ -101,9 +112,9 @@ class FlaggedRevs {
 		global $wgFlaggedRevsNamespaces, $wgFlaggedRevsPatrolNamespaces;
 		foreach ( $wgFlaggedRevsNamespaces as $ns ) {
 			if ( MWNamespace::isTalk( $ns ) ) {
-				throw new MWException( 'FlaggedRevs given talk namespace in $wgFlaggedRevsNamespaces!' );
+				die( 'FlaggedRevs given talk namespace in $wgFlaggedRevsNamespaces!' );
 			} elseif ( $ns == NS_MEDIAWIKI ) {
-				throw new MWException( 'FlaggedRevs given NS_MEDIAWIKI in $wgFlaggedRevsNamespaces!' );
+				die( 'FlaggedRevs given NS_MEDIAWIKI in $wgFlaggedRevsNamespaces!' );
 			}
 		}
 		self::$reviewNamespaces = $wgFlaggedRevsNamespaces;
