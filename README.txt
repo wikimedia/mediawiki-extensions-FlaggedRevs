@@ -3,7 +3,7 @@ http://www.mediawiki.org/wiki/Extension:FlaggedRevs
 
 ==Prerequisites==
 * Downloaded the extension from SVN
-* MediaWiki 1.18+
+* MediaWiki 1.19+
 * Shell access
 
 == Setup ==
@@ -18,7 +18,8 @@ http://www.mediawiki.org/wiki/Extension:FlaggedRevs
   if you set a cron job to run /FlaggedRevs/maintenance/updateStats.php every so often, which is preferable.
 
 == Configuration ==
-* There is a well-commented list of configurable variables in FlaggedRevs.php.
+* There is a well-commented list of configurable variables in FlaggedRevs.config.php.
+* Change settings by adding them to LocalSettings.php.
 * The online documentation expains some of these further.
 
 == Uninstallation ==
@@ -35,6 +36,7 @@ http://www.mediawiki.org/wiki/Extension:FlaggedRevs
 	DROP TABLE IF EXISTS /*_*/flaggedpage_config;
 	DROP TABLE IF EXISTS /*_*/flaggedrevs_tracking;
 	DROP TABLE IF EXISTS /*_*/flaggedrevs_promote;
+	DROP TABLE IF EXISTS /*_*/flaggedrevs_statistics;
 
 * If they exist, drop the columns 'page_ext_reviewed', 'page_ext_quality', 'page_ext_stable', 
 and the index 'ext_namespace_reviewed' from the page table. You can use the following query:
