@@ -214,6 +214,7 @@ var fr = {
 		// Review form elements
 		var asubmit = $( '#mw-fr-submit-accept' ); // ACCEPT
 		var usubmit = $( '#mw-fr-submit-unaccept' ); // UNACCEPT
+		var rsubmit = $( '#mw-fr-submit-reject' ); // REJECT
 		var diffNotice = $( '#mw-fr-difftostable' );
 		// FlaggedRevs rating box
 		var tagBox = $( '#mw-fr-revisiontag' );
@@ -233,6 +234,7 @@ var fr = {
 					usubmit.css( 'fontWeight', '' ); // back to normal
 					usubmit.show(); // now available
 					usubmit.prop( 'disabled', '' ); // unlock
+					rsubmit.prop( 'disabled', 'disabled' ); // lock if present
 				// Revision was unflagged
 				} else if ( usubmit.val() === mw.msg( 'revreview-submitting' ) ) {
 					usubmit.val( mw.msg( 'revreview-submit-unreviewed' ) ); // done!
@@ -241,6 +243,7 @@ var fr = {
 					asubmit.val( mw.msg( 'revreview-submit-review' ) );
 					asubmit.css( 'fontWeight', '' ); // back to normal
 					asubmit.prop( 'disabled', '' ); // unlock
+					rsubmit.prop( 'disabled', '' ); // unlock if present
 				}
 			}
 			// (b) Remove review tag from drafts
