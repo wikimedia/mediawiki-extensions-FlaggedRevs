@@ -3,6 +3,85 @@
  * Class containing hooked functions for a FlaggedRevs environment
  */
 class FlaggedRevsUISetup {
+	/**
+	 * Register FlaggedRevs hooks.
+	 * @param $hooks Array $wgHooks (assoc array of hooks and handlers)
+	 * @return void
+	 */
+	public static function defineHookHandlers( &$hooks ) {
+		global $wgFlaggedRevsProtection;
+
+		# Override current revision, add patrol links, set cache...
+		$hooks['ArticleViewHeader'][] = 'FlaggedRevsUIHooks::onArticleViewHeader';
+		$hooks['ImagePageFindFile'][] = 'FlaggedRevsUIHooks::onImagePageFindFile';
+		# Override redirect behavior...
+		$hooks['InitializeArticleMaybeRedirect'][] = 'FlaggedRevsUIHooks::overrideRedirect';
+		# Set page view tabs
+		$hooks['SkinTemplateTabs'][] = 'FlaggedRevsUIHooks::onSkinTemplateTabs'; // All skins
+		$hooks['SkinTemplateNavigation'][] = 'FlaggedRevsUIHooks::onSkinTemplateNavigation'; // Vector
+		# Add notice tags to edit view
+		$hooks['EditPage::showEditForm:initial'][] = 'FlaggedRevsUIHooks::addToEditView';
+		# Tweak submit button name/title
+		$hooks['EditPageBeforeEditButtons'][] = 'FlaggedRevsUIHooks::onBeforeEditButtons';
+		# Autoreview information from form
+		$hooks['EditPageBeforeEditChecks'][] = 'FlaggedRevsUIHooks::addReviewCheck';
+		$hooks['EditPage::showEditForm:fields'][] = 'FlaggedRevsUIHooks::addRevisionIDField';
+		# Add draft link to section edit error
+		$hooks['EditPageNoSuchSection'][] = 'FlaggedRevsUIHooks::onNoSuchSection';
+		# Add notice tags to history
+		$hooks['PageHistoryBeforeList'][] = 'FlaggedRevsUIHooks::addToHistView';
+		# Add review form and visiblity settings link
+		$hooks['SkinAfterContent'][] = 'FlaggedRevsUIHooks::onSkinAfterContent';
+		# Mark items in page history
+		$hooks['PageHistoryPager::getQueryInfo'][] = 'FlaggedRevsUIHooks::addToHistQuery';
+		$hooks['PageHistoryLineEnding'][] = 'FlaggedRevsUIHooks::addToHistLine';
+		$hooks['LocalFile::getHistory'][] = 'FlaggedRevsUIHooks::addToFileHistQuery';
+		$hooks['ImagePageFileHistoryLine'][] = 'FlaggedRevsUIHooks::addToFileHistLine';
+		# Select extra info & filter items in RC
+		$hooks['SpecialRecentChangesQuery'][] = 'FlaggedRevsUIHooks::modifyRecentChangesQuery';
+		$hooks['SpecialNewpagesConditions'][] = 'FlaggedRevsUIHooks::modifyNewPagesQuery';
+		$hooks['SpecialWatchlistQuery'][] = 'FlaggedRevsUIHooks::modifyChangesListQuery';
+		# Mark items in RC
+		$hooks['ChangesListInsertArticleLink'][] = 'FlaggedRevsUIHooks::addToChangeListLine';
+		# RC filter UIs
+		$hooks['SpecialNewPagesFilters'][] = 'FlaggedRevsUIHooks::addHideReviewedFilter';
+		$hooks['SpecialRecentChangesFilters'][] = 'FlaggedRevsUIHooks::addHideReviewedFilter';
+		$hooks['SpecialWatchlistFilters'][] = 'FlaggedRevsUIHooks::addHideReviewedFilter';
+		# Page review on edit
+		$hooks['ArticleUpdateBeforeRedirect'][] = 'FlaggedRevsUIHooks::injectPostEditURLParams';
+		# Diff-to-stable
+		$hooks['DiffViewHeader'][] = 'FlaggedRevsUIHooks::onDiffViewHeader';
+		# Add diff=review url param alias
+		$hooks['NewDifferenceEngine'][] = 'FlaggedRevsUIHooks::checkDiffUrl';
+		# Local user account preference
+		$hooks['GetPreferences'][] = 'FlaggedRevsUIHooks::onGetPreferences';
+		# Show unreviewed pages links
+		$hooks['CategoryPageView'][] = 'FlaggedRevsUIHooks::onCategoryPageView';
+		# Review/stability log links
+		$hooks['LogLine'][] = 'FlaggedRevsUIHooks::logLineLinks';
+		# Add review notice, backlog notices and CSS/JS and set robots
+		$hooks['BeforePageDisplay'][] = 'FlaggedRevsUIHooks::onBeforePageDisplay';
+		# Add global JS vars
+		$hooks['MakeGlobalVariablesScript'][] = 'FlaggedRevsUIHooks::injectGlobalJSVars';
+
+		if ( !$wgFlaggedRevsProtection ) {
+			# Mark items in user contribs
+			$hooks['ContribsPager::getQueryInfo'][] = 'FlaggedRevsUIHooks::addToContribsQuery';
+			$hooks['ContributionsLineEnding'][] = 'FlaggedRevsUIHooks::addToContribsLine';
+		} else {
+			# Add protection form field
+			$hooks['ProtectionForm::buildForm'][] = 'FlaggedRevsUIHooks::onProtectionForm';
+			$hooks['ProtectionForm::showLogExtract'][] = 'FlaggedRevsUIHooks::insertStabilityLog';
+			# Save stability settings
+			$hooks['ProtectionForm::save'][] = 'FlaggedRevsUIHooks::onProtectionSave';
+			# Parser stuff
+			$hooks['ParserFirstCallInit'][] = 'FlaggedRevsHooks::onParserFirstCallInit';
+			$hooks['LanguageGetMagic'][] = 'FlaggedRevsHooks::onLanguageGetMagic';
+			$hooks['ParserGetVariableValueSwitch'][] = 'FlaggedRevsHooks::onParserGetVariableValueSwitch';
+			$hooks['MagicWordwgVariableIDs'][] = 'FlaggedRevsHooks::onMagicWordwgVariableIDs';
+		}
+	}
+
 	/*
 	 * Register FlaggedRevs special pages as needed.
 	 * @param $pages Array $wgSpecialPages (list of special pages)
@@ -93,6 +172,7 @@ class FlaggedRevsUISetup {
 	 * @param $logNames Array $wgLogNames (assoc array of log name message keys)
 	 * @param $logHeaders Array $wgLogHeaders (assoc array of log header message keys)
 	 * @param $filterLogTypes Array $wgFilterLogTypes
+	 * @return void
 	 */
 	public static function defineLogBasicDescription( &$logNames, &$logHeaders, &$filterLogTypes ) {
 		$logNames['review'] = 'review-logpage';
