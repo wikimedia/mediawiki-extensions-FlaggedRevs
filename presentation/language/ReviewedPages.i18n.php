@@ -1157,7 +1157,7 @@ $messages['sq'] = array(
 	'reviewedpages-lev-1' => 'Kualiteti',
 );
 
-/** Serbian Cyrillic ekavian (‪Српски (ћирилица)‬)
+/** Serbian (Cyrillic script) (‪Српски (ћирилица)‬)
  * @author Charmed94
  * @author Millosh
  * @author Rancher
@@ -1167,13 +1167,13 @@ $messages['sq'] = array(
  */
 $messages['sr-ec'] = array(
 	'reviewedpages' => 'Прегледане странице',
-	'reviewedpages-leg' => 'Сврстај стране које су прегледане',
+	'reviewedpages-leg' => 'Списак проверених страница',
 	'reviewedpages-list' => "Ови спискови садрже [[{{MediaWiki:Validationpage}}|прегледане]] странице чији ''највиши достигнут'' ниво прегледа (ревизије) је одређени ниво.
 Веза је дата најновијој ревизији тог нивоа.",
 	'reviewedpages-none' => 'Нема страница у овом списку.',
-	'reviewedpages-lev-0' => 'Прегледано',
-	'reviewedpages-lev-1' => 'Квалитет',
-	'reviewedpages-lev-2' => 'Изабрани',
+	'reviewedpages-lev-0' => '{{int:revreview-lev-basic}}',
+	'reviewedpages-lev-1' => '{{int:revreview-lev-quality}}',
+	'reviewedpages-lev-2' => '{{int:revreview-lev-pristine}}',
 	'reviewedpages-all' => 'прегледана издања',
 	'reviewedpages-best' => 'најбоља измена',
 );

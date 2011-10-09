@@ -3110,7 +3110,7 @@ Asnjë konfigurim nuk është i mundshëm.',
 	'stabilize-expiring' => 'skadon $1 (UTC)',
 );
 
-/** Serbian Cyrillic ekavian (‪Српски (ћирилица)‬)
+/** Serbian (Cyrillic script) (‪Српски (ћирилица)‬)
  * @author Millosh
  * @author Rancher
  * @author Sasa Stefanovic
@@ -3118,7 +3118,7 @@ Asnjë konfigurim nuk është i mundshëm.',
  * @author Михајло Анђелковић
  */
 $messages['sr-ec'] = array(
-	'stabilization-tab' => 'ветеран',
+	'stabilization-tab' => 'конфиг.',
 	'stabilization' => 'Стабилизација стране',
 	'stabilization-text' => "'''Измени подешавања испод у циљу намешатања како ће стабилне верзије стране [[:$1|$1]] бити означене и приказане.'''",
 	'stabilization-perm' => 'Ваш налог нема дозволу за измену подешавања за стабилне верзије.
@@ -3127,7 +3127,7 @@ $messages['sr-ec'] = array(
 	'stabilization-leg' => 'Потврди подешавања за стабилне верзије',
 	'stabilization-def' => 'Верзија приказана на подразумеваном приказу стране.',
 	'stabilization-def1' => 'Стабилна верзија; ако не постоји, биће приказана тренутна или нацрт',
-	'stabilization-def2' => 'Последња ревизија',
+	'stabilization-def2' => 'Последња измена',
 	'stabilization-restrict' => 'Ограничења за прегледање и аутоматско прегледање',
 	'stabilization-restrict-none' => 'Без додатних ограничења',
 	'stabilization-submit' => 'Прихвати',

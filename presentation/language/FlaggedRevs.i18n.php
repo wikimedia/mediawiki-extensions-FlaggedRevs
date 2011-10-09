@@ -310,20 +310,27 @@ Show on [[Special:Preferences]]. This is for a setting to add an initially colla
 Shown within parenthesis on Special:Recentchanges, SpecialNewPages, and Special:Watchlist. This refers to a toggle to hide or show edits (revisions) that have been reviewed. If set to "hide", it also hides edits to pages that are not reviewable (like Talk pages).
 * $1 A link with the text {{msg-mw|show}} or {{msg-mw|hide}}',
 	'group-editor' => '{{Flagged Revs}}
+{{doc-group|editor}}
 {{Identical|Editor}}',
 	'group-editor-member' => '{{Flagged Revs}}
+{{doc-group|editor|member}}
 {{Identical|Editor}}',
-	'group-reviewer' => '{{Flagged Revs}}',
+	'group-reviewer' => '{{Flagged Revs}}
+{{doc-group|reviewer}}',
 	'group-reviewer-member' => '{{Flagged Revs}}
+{{doc-group|reviewer|member}}
 {{Identical|Reviewer}}',
-	'grouppage-editor' => '{{Flagged Revs}}',
-	'grouppage-reviewer' => '{{Flagged Revs}}',
+	'grouppage-editor' => '{{Flagged Revs}}
+{{doc-group|editor|page}}',
+	'grouppage-reviewer' => '{{Flagged Revs}}
+{{doc-group|reviewer|page}}',
 	'group-autoreview' => '{{Flagged Revs}}
+{{doc-group|autoreview}}
 Users in this group have their edits automatically reviewed.',
 	'group-autoreview-member' => '{{Flagged Revs}}
-See {{Group-autoreview}}',
+{{doc-group|autoreview|member}}',
 	'grouppage-autoreview' => '{{Flagged Revs}}
-See {{Group-autoreview}}',
+{{doc-group|autoreview|page}}',
 	'revreview-hist-draft' => '{{Flagged Revs}}
 Shown on history and diff pages to refer to revision that has not been specifically marked as "accepted".',
 	'revreview-hist-pending' => '{{Flagged Revs}}
@@ -578,10 +585,10 @@ Shown when a bad old reviewed version ID is requested for a page view (via ?stab
 {{doc-right|stablesettings}}',
 	'right-validate' => '{{Flagged Revs}}
 
-{{doc-right}}',
+{{doc-right|validate}}',
 	'right-unreviewedpages' => '{{Flagged Revs}}
 
-{{doc-right}}',
+{{doc-right|unreviewedpages}}',
 	'rights-editor-revoke' => "{{Flagged Revs}}
 * $1 User's user page title",
 	'specialpages-group-quality' => '{{Flagged Revs-small}}
@@ -3185,6 +3192,7 @@ ikke findes. Kontrollér den URL du brugte til at få adgang til denne side.',
  * @author Als-Holder
  * @author ChrisiPK
  * @author DaSch
+ * @author Dawid Deutschland
  * @author Giftpflanze
  * @author Imre
  * @author Jens Liebenau
@@ -7740,16 +7748,15 @@ $messages['ka'] = array(
 
 ქვემოთ {{PLURAL:$2|მოცემულია|მოცემულია}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} ჯერ კიდევ შეუმოწმებელი $2 {{PLURAL:$2|ცვლილება|ცვლილება}}].",
 	'revreview-edited-section' => 'დაბრუნება სტატიის სექციასთან სახელად «[[#$1|$2]]».',
-	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} გამოქვეყნებული ვერსია] იყო [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} შემოწმებული] <i>$2</i>. შავ ვერსიაში არის
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}}  $3 {{PLURAL:$3|ცვლილება|ცვლილებები|ცვლილებების}}].',
+	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} ამ გვერდის უკანასკნელი $3 {{PLURAL:$3|ცვლილება|ცვლილება}}] {{PLURAL:$3|ჯერ კიდევ|ჯერ კიდევ}} [[{{MediaWiki:Validationpage}}|შეუმოწმებელია]].
+[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} გამოქვეყნებული ვერსიის] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} შემოწმების] თარიღია: <i>$2</i> .',
 	'revreview-newest-basic-i' => 'ამ [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} თარგის/ფაილის ცვლილებები] [[{{MediaWiki:Validationpage}}|შეუმოწმებელია]].
 [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} ბოლო სტაბილური ვერსია] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} შემოწმდა] <i>$2</i>-ში.',
 	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} ამ გვერდის უკანასკნელი $3 {{PLURAL:$3|ცვლილება|ცვლილება}}] {{PLURAL:$3|ჯერ კიდევ|ჯერ კიდევ}} [[{{MediaWiki:Validationpage}}|შეუმოწმებელია]].
 [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} გამოქვეყნებული ვერსიის] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} შემოწმების] თარიღია: <i>$2</i> .',
 	'revreview-newest-quality-i' => 'ამ [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} თარგის/ფაილის ცვლილებები] [[{{MediaWiki:Validationpage}}|შეუმოწმებელია]].
 [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} ბოლო სტაბილური ვერსია] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} შემოწმდა] <i>$2</i>-ში.',
-	'revreview-pending-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} გამოქვეყნებული ვერსია] იყო [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} შემოწმებული] <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}}შავი სია] შეიცავს   
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|შემოწმების მომლოდინე რედაქტირებას|შემოწმების მომლოდინე რედაქტირებებს|შემოწმებს მომლოდინე რედაქტირებას}}].',
+	'revreview-pending-basic' => 'ამ გვერდის [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} უკანასკნელი $3 ცვლილება {{PLURAL:$3|ცვლილება|ცვლილება}}] ჯერ კიდევ შეუმოწმებელია. [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} გამოქვეყნებული ვერსიის] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}}  შემოწმების] თარიღია: <i>$2</i>.',
 	'revreview-pending-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} ბოლო სტაბილური ვერსია] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} შემოწმდა] <i>$2</i>-ში. შავი ფურცელი შეიცავს შემოწმების მომლოდინე [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 ცვლილებას].',
 	'revreview-pending-nosection' => 'გთხოვთ ყურადღება გაამახვილოთ [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} ბოლო ვერსიაზე], რომელშიც შემოწმების მოლოდინშია [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 ცვლილება]. შესაძლებელია, რომ ეს დანაყოფი გადაადგილდა ან წაიშალა.',
 	'revreview-noflagged' => "ამ გვერდს არა აქვს [[{{MediaWiki:Validationpage}}|შემოწმებული]] ვერსია, სავარაუდოდ მისი ხარისხი '''არ შეესაბამებოდა''' პროექტის სტანდარტებს.",
@@ -11789,6 +11796,7 @@ Pe piacere condrolle l'URL ca tu è ausete pe trasè jndr'à sta pagene.",
 );
 
 /** Russian (Русский)
+ * @author AVRS
  * @author Ahonc
  * @author AlexSm
  * @author Claymore
@@ -11824,7 +11832,7 @@ $messages['ru'] = array(
 	'flaggedrevs-prefs-watch' => 'Добавлять проверенные мною страницы в список наблюдения',
 	'flaggedrevs-prefs-editdiffs' => 'Показывать разницу между проверенной и непроверенной версиями при редактировании страниц',
 	'flaggedrevs-prefs-viewdiffs' => 'Показывать непроверенные изменения при просмотре последней непроверенной версии страницы',
-	'flaggedrevs-hidereviewed' => '$1 проверенных правок',
+	'flaggedrevs-hidereviewed' => '$1 проверенные (reviewed) правки',
 	'group-editor' => 'Досматривающие',
 	'group-editor-member' => 'досматривающий',
 	'group-reviewer' => 'Выверяющие',
@@ -11947,7 +11955,6 @@ $messages['ru'] = array(
 	'right-stablesettings' => 'настройка выбора и показа опубликованной версии',
 	'right-validate' => 'отметка версий страниц как выверенных',
 	'right-unreviewedpages' => 'просмотр [[Special:UnreviewedPages|списка непроверенных страниц]]',
-	'rights-editor-autosum' => 'автоназначение',
 	'rights-editor-revoke' => 'снял статус досматривающего с [[$1]]',
 	'specialpages-group-quality' => 'Подтверждение правок',
 	'stable-logentry-config' => 'установил настройки стабильной версии для «$1»',
@@ -12813,7 +12820,7 @@ $messages['sq'] = array(
 	'revreview-revnotfound' => 'Versioni i vjetër i faqes së kërkuar nuk mund të gjindej. Ju lutem kontrolloni URL-n që përdorët për të ardhur tek kjo faqe.',
 );
 
-/** Serbian Cyrillic ekavian (‪Српски (ћирилица)‬)
+/** Serbian (Cyrillic script) (‪Српски (ћирилица)‬)
  * @author Millosh
  * @author Rancher
  * @author Sasa Stefanovic
@@ -12883,6 +12890,8 @@ $messages['sr-ec'] = array(
 	'revreview-style-2' => 'Добар',
 	'revreview-style-3' => 'Тачан',
 	'revreview-style-4' => 'Изабрани',
+	'revreview-toggle-show' => '(+)',
+	'revreview-toggle-hide' => '(-)',
 	'revreview-toggle-title' => 'прикажи/сакриј детаље',
 	'revreview-revnotfound' => 'Старија ревизија ове странице коју сте затражили није нађена.
 Молимо вас да проверите УРЛ који сте употребили да бисте приступили овој страници.',
@@ -12892,7 +12901,6 @@ $messages['sr-ec'] = array(
 	'right-stablesettings' => 'Намести означавање и приказ стабилних верзија.',
 	'right-validate' => 'Означи верзије овереним.',
 	'right-unreviewedpages' => 'Види [[Special:UnreviewedPages|списак непрегледаних страница]]',
-	'rights-editor-autosum' => 'аутоматски напредовано',
 	'rights-editor-revoke' => 'уклоњен статус уређивача кориснику [[$1]]',
 	'specialpages-group-quality' => 'Обезбеђење квалитета',
 	'stable-logentry-config' => 'омогућене стабилне верзије за корисника $1',
@@ -12919,7 +12927,9 @@ $messages['sr-ec'] = array(
 	'tooltip-ca-current' => 'Прегледај текући нацрт ове стране.',
 	'tooltip-ca-stable' => 'Погледајте стабилну верзију ове странице',
 	'tooltip-ca-default' => 'Подешавања обезбеђивања квалитета.',
-	'revreview-ak-review' => 'с',
+	'revreview-ak-review' => 's',
+	'accesskey-ca-current' => 'v',
+	'accesskey-ca-stable' => 'c',
 	'validationpage' => '{{ns:help}}:Валидација чланка',
 );
 
