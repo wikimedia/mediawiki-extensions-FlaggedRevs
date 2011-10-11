@@ -1924,7 +1924,6 @@ $messages['frp'] = array(
 	'revreview-flag' => 'Revêre ceta vèrsion',
 	'revreview-reflag' => 'Tornar revêre ceta vèrsion',
 	'revreview-invalid' => "'''Ciba fôssa :''' niona vèrsion [[{{MediaWiki:Validationpage}}|revua]] corrèspond u numerô balyê.",
-	'revreview-legend' => 'Èstimar lo contegnu de la vèrsion',
 	'revreview-log' => 'Comentèro :',
 	'revreview-main' => 'Vos dête chouèsir una vèrsion spècefica d’una pâge de contegnu por fâre una rèvision.
 
@@ -1942,8 +1941,10 @@ Vêde la [[Special:Unreviewedpages|lista de les pâges pas revues]].',
 	'revreview-successful2' => "'''La vèrsion chouèsia de [[:$1|$1]] at étâ envalidâ avouéc reusséta.'''",
 	'revreview-poss-conflict-p' => "'''Atencion : [[User:$1|$1]] s’at betâ a revêre cela pâge lo $2 a $3.'''",
 	'revreview-poss-conflict-c' => "'''Atencion : [[User:$1|$1]] s’at betâ a revêre celos changements lo $2 a $3.'''",
-	'revreview-adv-reviewing-p' => "'''Nota : vos éte notifiâ coment èyent comenciê l’ègzâmen de cela pâge lo $1 a $2.'''",
-	'revreview-adv-reviewing-c' => "'''Nota : vos éte notifiâ coment èyent comenciê l’ègzâmen de celos changements lo $1 a $2.'''",
+	'revreview-adv-reviewing-p' => 'Nota : d’ôtros rèvisors pôvont vêre que vos ègzamenâd cela pâge.',
+	'revreview-adv-reviewing-c' => 'Nota : d’ôtros rèvisors pôvont vêre que vos ègzamenâd celos changements.',
+	'revreview-adv-start-link' => 'fâre de recllâma',
+	'revreview-adv-stop-link' => 'anular la recllâma',
 	'revreview-toolow' => "'''Vos dête afèctar una èstimacion ples hôta que « ensufisent » por que la vèrsion seye considèrâ coment revua.'''
 
 Por enlevar lo statut de rèvision d’una vèrsion, clicâd dessus « dèsaprovar ».
@@ -1957,7 +1958,6 @@ Volyéd controlar tôs los changements montrâs ce-desot por que los voutros apa
 
 Volyéd controlar tôs los changements montrâs ce-desot por que los voutros aparéssont dens la vèrsion stâbla.',
 	'revreview-update-includes' => 'Modèlos/fichiérs betâs a jorn (pâges pas revues en grâs) :',
-	'revreview-reject-header' => 'Refusar los changements por $1',
 	'revreview-reject-text-list' => "En fassent cela accion, vos voléd '''refusar''' los changements sur lo tèxto sôrsa {{PLURAL:$1|de ceta vèrsion|de cetes vèrsions}} de [[:$2|$2]] :",
 	'revreview-reject-text-revto' => 'Cen remetrat cela pâge dens sa [{{fullurl:$1|oldid=$2}} vèrsion du $3].',
 	'revreview-reject-summary' => 'Rèsumâ :',
@@ -1967,7 +1967,6 @@ Volyéd controlar tôs los changements montrâs ce-desot por que los voutros apa
 	'revreview-reject-summary-old' => '{{PLURAL:$1|Lo dèrriér changement|Los dèrriérs changements}} du tèxto (per $2) que siuvévont la vèrsion $3 ont étâ refusâs per $4',
 	'revreview-reject-summary-cur-short' => '{{PLURAL:$1|Lo dèrriér changement|Los dèrriérs changements}} du tèxto ont étâ refusâs et pués la vèrsion $2 at étâ refêta per $3',
 	'revreview-reject-summary-old-short' => '{{PLURAL:$1|Lo dèrriér changement|Los dèrriérs changements}} du tèxto que siuvévont la vèrsion $2 ont étâ refusâs per $3',
-	'revreview-reject-usercount' => '{{PLURAL:$1|yon utilisator|$1 utilisators}}',
 	'revreview-tt-flag' => 'Aprovar ceta vèrsion en la marquent coment « controlâ »',
 	'revreview-tt-unflag' => 'Dèsaprovar ceta vèrsion en la marquent coment « pas controlâ »',
 	'revreview-tt-reject' => 'Refusar celos changements dens lo tèxto sôrsa en los rèvoquent',
