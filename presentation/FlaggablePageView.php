@@ -1221,9 +1221,15 @@ class FlaggablePageView extends ContextSource {
 		if ( $pendingEdits ) {
 			if ( isset( $views['edit'] ) ) {
 				$views['edit']['text'] = wfMsg( 'revreview-edit' );
+				if ( $this->showingStable() ) { // bug 31489; direct user to current
+					$views['edit']['href'] = $skin->getTitle()->getFullURL( 'action=edit' );
+				}
 			}
 			if ( isset( $views['viewsource'] ) ) {
 				$views['viewsource']['text'] = wfMsg( 'revreview-source' );
+				if ( $this->showingStable() ) { // bug 31489; direct user to current
+					$views['viewsource']['href'] = $skin->getTitle()->getFullURL( 'action=edit' );
+				}
 			}
 		}
 		# Add "pending changes" tab if the page is not synced
