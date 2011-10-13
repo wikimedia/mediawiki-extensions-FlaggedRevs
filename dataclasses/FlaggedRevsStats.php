@@ -85,11 +85,7 @@ class FlaggedRevsStats {
 		$avePET = self::getMeanPendingEditTime();
 
 		# Get wait (till review) time samples for anon edits...
-		$reviewData = self::getReviewTimesAnons( $dbCache );
-		$aveRT = $reviewData['average'];
-		$medianRT = $reviewData['median'];
-		$rPerTable = $reviewData['percTable'];
-		$rSize = $reviewData['sampleSize'];
+		$reviewData = self::getEditReviewTimes( $dbCache, 'anons' );
 
 		$dbw = wfGetDB( DB_MASTER );
 		// The timestamp to identify this whole batch of data
@@ -105,7 +101,7 @@ class FlaggedRevsStats {
 			'frs_stat_val'  => $reviewData['sampleEndTS'], // unix
 			'frs_timestamp' => $encDataTimestamp );
 		// All-namespace percentiles...
-		foreach( $rPerTable as $percentile => $seconds ) {
+		foreach( $reviewData['percTable'] as $percentile => $seconds ) {
 			$dataSet[] = array(
 				'frs_stat_key' 	=> 'reviewLag-percentile:'.(int)$percentile,
 				'frs_stat_val'  => $seconds,
@@ -114,17 +110,17 @@ class FlaggedRevsStats {
 		// Sample size...
 		$dataSet[] = array(
 			'frs_stat_key' 	=> 'reviewLag-sampleSize',
-			'frs_stat_val'  => $rSize,
+			'frs_stat_val'  => $reviewData['sampleSize'],
 			'frs_timestamp' => $encDataTimestamp );
 
 		// All-namespace ave/med review lag & ave pending lag stats...
 		$dataSet[] = array(
 			'frs_stat_key' 	=> 'reviewLag-average',
-			'frs_stat_val'  => $aveRT,
+			'frs_stat_val'  => $reviewData['average'],
 			'frs_timestamp' => $encDataTimestamp );
 		$dataSet[] = array(
 			'frs_stat_key' 	=> 'reviewLag-median',
-			'frs_stat_val'  => $medianRT,
+			'frs_stat_val'  => $reviewData['median'],
 			'frs_timestamp' => $encDataTimestamp );
 		$dataSet[] = array(
 			'frs_stat_key' 	=> 'pendingLag-average',
@@ -196,7 +192,13 @@ class FlaggedRevsStats {
 		);
 	}
 
-	private function getReviewTimesAnons( $dbCache ) {
+	/**
+	 * Get edit review time statistics (as recent as possible)
+	 * @param $dbcache Database cache object
+	 * @param $users string "anons" or "users"
+	 * @return Array associative
+	 */
+	private function getEditReviewTimes( $dbCache, $users = 'anons' ) {
 		$result = array(
 			'average'       => 0,
 			'median'        => 0,
@@ -259,6 +261,14 @@ class FlaggedRevsStats {
 				$last = $row->fpp_pending_since; // next iteration
 			}
 		}
+		# User condition (anons/users)
+		if ( $users === 'anons' ) {
+			$userCondition = 'rev_user = 0';
+		} elseif ( $users === 'users' ) {
+			$userCondition = 'rev_user = 1';
+		} else {
+			throw new MWException( 'Invalid $users param given.' );
+		}
 		# Avoid having to censor data
 		# Note: if no edits pending, $worstLagTS is the cur time just before we checked
 		# for the worst lag. Thus, new edits *right* after the check are properly excluded.
@@ -270,7 +280,7 @@ class FlaggedRevsStats {
 		$encMinTS = $dbr->addQuotes( $dbr->timestamp( $minTSUnix ) );
 		# Approximate the number rows to scan
 		$rows = $dbr->estimateRowCount( 'revision', '1',
-			"rev_user=0 AND rev_timestamp BETWEEN $encMinTS AND $encMaxTS" );
+			array( $userCondition, "rev_timestamp BETWEEN $encMinTS AND $encMaxTS" ) );
 		# If the range doesn't have many rows (like on small wikis), use 30 days
 		if ( $rows < 500 ) {
 			$days = 30;
@@ -278,7 +288,7 @@ class FlaggedRevsStats {
 			$encMinTS = $dbr->addQuotes( $dbr->timestamp( $minTSUnix ) );
 			# Approximate rows to scan
 			$rows = $dbr->estimateRowCount( 'revision', '1',
-				"rev_user=0 AND rev_timestamp BETWEEN $encMinTS AND $encMaxTS" );
+				array( $userCondition, "rev_timestamp BETWEEN $encMinTS AND $encMaxTS" ) );
 			# If the range doesn't have many rows (like on really tiny wikis), use 90 days
 			if ( $rows < 500 ) {
 				$days = 90;
@@ -298,7 +308,7 @@ class FlaggedRevsStats {
 			$edits = (int)$dbr->selectField( array('page','revision'),
 				'COUNT(*)',
 				array(
-					'rev_user = 0', // IP edits (should start off unreviewed)
+					$userCondition, // IP edits (should start off unreviewed)
 					$timeCondition, // in time range
 					'page_id = rev_page',
 					'page_namespace' => FlaggedRevs::getReviewNamespaces()
@@ -313,7 +323,7 @@ class FlaggedRevsStats {
 		$res = $dbr->select(
 			array( 'revision', 'p' => 'flaggedrevs', 'n' => 'flaggedrevs' ),
 			array( 'MIN(rev_timestamp) AS rt', 'MIN(n.fr_timestamp) AS nft', 'MAX(p.fr_rev_id)' ),
-			array( 'rev_user' => 0, $timeCondition, "(rev_id % $mod) = 0" ),
+			array( $userCondition, $timeCondition, "(rev_id % $mod) = 0" ),
 			__METHOD__,
 			array(
 				'GROUP BY'  => array( 'rev_timestamp', 'rev_id' ), // user_timestamp INDEX used
