@@ -197,11 +197,19 @@ class FlaggedRevsStats {
 	}
 
 	private function getReviewTimesAnons( $dbCache ) {
+		$result = array(
+			'average'       => 0,
+			'median'        => 0,
+			'percTable'     => array(),
+			'sampleSize'    => 0,
+			'sampleStartTS' => null,
+			'sampleEndTS'   => null
+		);
+		if ( FlaggedRevs::useOnlyIfProtected() ) {
+			return $result; // disabled
+		}
 		$aveRT = $medianRT = 0;
 		$rPerTable = array(); // review wait percentiles
-		if ( FlaggedRevs::useOnlyIfProtected() ) {
-			return array( $aveRT, $medianRT, $rPerTable ); // disabled
-		}
 		# Only go so far back...otherwise we will get garbage values due to 
 		# the fact that FlaggedRevs wasn't enabled until after a while.
 		$dbr = wfGetDB( DB_SLAVE );
@@ -350,15 +358,14 @@ class FlaggedRevsStats {
 				$rPerTable[$percentile] = $times[$rank];
 			}
 			#echo "(sampled ".count($times)." edits)...";
+			$result['average']       = $aveRT;
+			$result['median']        = $medianRT;
+			$result['percTable']     = $rPerTable;
+			$result['sampleSize']    = count( $times );
+			$result['sampleStartTS'] = $minTSUnix;
+			$result['sampleEndTS']   = $maxTSUnix;
 		}
 
-		return array(
-			'average'		=> $aveRT,
-			'median'		=> $medianRT,
-			'percTable'		=> $rPerTable,
-			'sampleSize'	=> count( $times ),
-			'sampleStartTS'	=> $minTSUnix,
-			'sampleEndTS'	=> $maxTSUnix
-		);
+		return $result;
 	}
 }
