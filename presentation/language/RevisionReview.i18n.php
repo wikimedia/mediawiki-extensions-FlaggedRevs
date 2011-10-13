@@ -1451,6 +1451,10 @@ Vidu la [[Special:Unreviewedpages|liston de nereviziitaj paĝoj]] .',
 	'revreview-poss-conflict-c' => "'''Atentu: [[User:$1|$1]] ekkontrolis ĉi tiujn paĝojn je $2 $3.'''",
 	'revreview-adv-reviewing-p' => 'Notu: aliaj reviziantoj povas vidi ke vi revizias ĉi tiun paĝon.',
 	'revreview-adv-reviewing-c' => 'Notu: aliaj reviziantoj povas vidi ke vi revizias ĉi tiujn ŝanĝojn.',
+	'revreview-sadv-reviewing-p' => 'Vi povas $1 al aliaj uzantoj ke vi revizias ĉi tiun paĝon.',
+	'revreview-sadv-reviewing-c' => 'Vi povas $1 al aliaj uzantoj ke vi revizias ĉi tiujn ŝanĝojn.',
+	'revreview-adv-start-link' => 'anonci',
+	'revreview-adv-stop-link' => 'malanonci',
 	'revreview-toolow' => '\'\'\'Vi devas taksi ĉiun el la jenaj atribuoj almenaŭ pli alta ol "adekvata" por revizio esti konsiderata kiel kontrolita.\'\'\'
 
 Forigi reviziatan statuson de revizio, klaku "malaprobi".
