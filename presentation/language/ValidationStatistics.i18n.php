@@ -2050,6 +2050,7 @@ $3",
  * @author Joseph
  * @author Manco Capac
  * @author Srhat
+ * @author Szoszv
  * @author Vito Genovese
  */
 $messages['tr'] = array(
@@ -2065,7 +2066,7 @@ Bu sayfalar zaman aşımına uğramış olarak kabul edilir. Likewise, pages are
 	'validationstatistics-revtime' => "''Giriş yapmamış anonim kullanıcılar'' tarafından yapılmış girişler için ortalama bekleme süresi '''$1'''; medyanı ise '''$2''' biçimindedir.
 $3",
 	'validationstatistics-table' => "İsim alanları için sayfa inceleme istatistikleri, yönlendirme sayfaları ''dahil olmadan''  aşağıda gösterilmiştir.",
-	'validationstatistics-ns' => 'Ad alanı',
+	'validationstatistics-ns' => 'İsim alanı',
 	'validationstatistics-total' => 'Sayfalar',
 	'validationstatistics-stable' => 'Gözden geçirilmiş',
 	'validationstatistics-latest' => 'Senkronize edildi',
