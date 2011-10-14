@@ -1,6 +1,6 @@
 <?php
 
-/*
+/**
  * Created on June 29, 2009
  *
  * API module for MediaWiki's FlaggedRevs extension
@@ -182,7 +182,7 @@ class ApiQueryUnreviewedpages extends ApiQueryGeneratorBase {
 			' api.php?action=query&generator=unreviewedpages&urnamespace=0&gurlimit=4&prop=info',
 		);
 	}
-	
+
 	public function getVersion() {
 		return __CLASS__ . ': $Id$';
 	}

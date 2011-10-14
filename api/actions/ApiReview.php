@@ -1,6 +1,6 @@
 <?php
 
-/*
+/**
  * Created on Dec 20, 2008
  *
  * API module for MediaWiki's FlaggedRevs extension
@@ -132,14 +132,14 @@ class ApiReview extends ApiBase {
 				$this->dieUsage( "Provided page is not reviewable.", 'notreviewable' );
 			} elseif ( $status === 'review_page_notexists' ) {
 				$this->dieUsage( "Provided page does not exist.", 'notarget' );
-			} 
+			}
 		}
 	}
 
 	public function mustBePosted() {
 		return true;
 	}
-	
+
 	public function isWriteMode() {
  		return true;
  	}

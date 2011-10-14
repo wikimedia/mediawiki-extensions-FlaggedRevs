@@ -1,6 +1,6 @@
 <?php
 
-/*
+/**
  * Created on November 6, 2009
  *
  * API module for MediaWiki's FlaggedRevs extension
@@ -50,7 +50,7 @@ class ApiFlagConfig extends ApiBase {
 	public function mustBePosted() {
 		return false;
 	}
-	
+
 	public function isWriteMode() {
  		return false;
  	}
@@ -58,7 +58,7 @@ class ApiFlagConfig extends ApiBase {
 	public function getAllowedParams() {
 		return array();
 	}
-	
+
 	public function getParamDescription() {
 		return array();
 	}
@@ -79,7 +79,7 @@ class ApiFlagConfig extends ApiBase {
 	public function getExamples() {
 		return 'api.php?action=flagconfig';
 	}
-	
+
 	public function getVersion() {
 		return __CLASS__ . ': $Id$';
 	}

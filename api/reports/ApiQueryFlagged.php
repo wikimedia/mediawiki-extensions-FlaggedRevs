@@ -1,6 +1,6 @@
 <?php
 
-/*
+/**
  * Created on Sep 17, 2008
  *
  * API module for MediaWiki's FlaggedRevs extension
@@ -34,7 +34,7 @@ class ApiQueryFlagged extends ApiQueryBase {
 		if ( !$pageids ) {
 			return true;
 		}
-		
+
 		// Construct SQL Query
 		$this->addTables( 'flaggedpages' );
 		$this->addFields( array(
@@ -82,7 +82,7 @@ class ApiQueryFlagged extends ApiQueryBase {
 			'api.php?action=query&generator=allpages&gapfrom=K&prop=flagged'
 		);
 	}
-	
+
 	public function getVersion() {
 		return __CLASS__ . ': $Id$';
 	}

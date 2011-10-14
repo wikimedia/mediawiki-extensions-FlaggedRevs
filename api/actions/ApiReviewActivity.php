@@ -1,6 +1,6 @@
 <?php
 
-/*
+/**
  * Created on June 13, 2011
  *
  * API module for MediaWiki's FlaggedRevs extension
