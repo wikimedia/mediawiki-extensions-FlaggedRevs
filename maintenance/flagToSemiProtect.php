@@ -30,7 +30,7 @@ if ( !$wgUser || !$wgUser->getID() ) {
 }
 
 echo "Protecter username: \"".$wgUser->getName()."\"\n";
-echo "Running in 5 seconds...\n";
+echo "Running in 5 seconds...Press ctrl-c to abort.\n";
 sleep( 5 );
 
 if ( isset( $args[1] ) ) {

@@ -6,14 +6,15 @@
  */
 
 if ( getenv( 'MW_INSTALL_PATH' ) ) {
-    $IP = getenv( 'MW_INSTALL_PATH' );
+	$IP = getenv( 'MW_INSTALL_PATH' );
 } else {
-    $IP = dirname(__FILE__).'/../../..';
+	$IP = dirname(__FILE__).'/../../..';
 }
 
 require_once( "$IP/maintenance/Maintenance.php" );
 
 class CachePendingRevs extends Maintenance {
+
 	public function __construct() {
 		parent::__construct();
 		$this->mDescription = "Cache pending revision data";
