@@ -1674,7 +1674,6 @@ $messages['fa'] = array(
 	'revreview-flag' => 'بررسی این نسخه',
 	'revreview-reflag' => 'این نسخه را دوباره بازبینی کن',
 	'revreview-invalid' => "'''هدف غیر مجاز:''' نسخهٔ [[{{MediaWiki:Validationpage}}|بازبینی شده‌ای]] با این شناسه وجود ندارد.",
-	'revreview-legend' => 'نمره دادن به محتوای بررسی شده',
 	'revreview-log' => 'توضیح:',
 	'revreview-main' => 'شما باید یک نسخه خاص از یک صفحه را برگزینید تا بررسی کنید.
 
@@ -1693,8 +1692,12 @@ $messages['fa'] = array(
 	'revreview-successful2' => "'''پرچم نسخه‌های انتخابی از [[:$1|$1]] با موفقیت برداشته شد.'''",
 	'revreview-poss-conflict-p' => "'''هشدار: [[User:$1|$1]] شروع به بازبینی این صفحه در تاریخ $2، ساعت $3 کرده است.'''",
 	'revreview-poss-conflict-c' => "'''هشدار: [[User:$1|$1]] شروع به بازبینی این تغییرات در تاریخ $2، ساعت $3 کرده است.'''",
-	'revreview-adv-reviewing-p' => "'''توجه: اعلام می‌شود که شما در تاریخ $1، ساعت $2 شروع به بازبینی این صفحه کرده‌اید.'''",
-	'revreview-adv-reviewing-c' => "'''توجه: اعلام می‌شود که شما در تاریخ $1، ساعت $2 شروع به بازبینی این تغییرات کرده‌اید.'''",
+	'revreview-adv-reviewing-p' => 'توجه: دیگر بازبینان می‌توانند ببینند که شما در حال بازبینی این صفحه هستید.',
+	'revreview-adv-reviewing-c' => 'توجه: دیگر بازبینان می‌توانند ببینند که شما در حال بازبینی این تغییرات هستید.',
+	'revreview-sadv-reviewing-p' => 'شما می‌توانید خودتان را به عنوان بازبین این صفحه به دیگر کاربران، $1.',
+	'revreview-sadv-reviewing-c' => 'شما می‌توانید خودتان را به عنوان بازبین این تغییرات به دیگر کاربران، $1.',
+	'revreview-adv-start-link' => 'اعلان کنید',
+	'revreview-adv-stop-link' => 'از حالت اعلان بدر آورید',
 	'revreview-toolow' => "'''برای درنظرگرفته‌شدن یک نسخه به‌عنوان بازبینی‌شده، باید هر یک از موارد بالاتر از «نابسنده» را امتیازدهی کنید.'''
 
 به منظور حذف وضعیت بازبینی یک نسخه، روی «نپذیرفتن» کلیک کنید.
@@ -1708,7 +1711,6 @@ $messages['fa'] = array(
 
 لطفاً همهٔ تغییرات نشان‌داده‌شده در زیر را به‌منظور نمایاندن ویرایش‌هایتان در نسخهٔ پایدار بازبینی کنید.',
 	'revreview-update-includes' => 'الگوها/پرونده‌ها به روز رسانی شدند (صفحات بازبینی نشده به صورت پررنگ نمایش داده شده‌اند):',
-	'revreview-reject-header' => 'رد کردن تغییرات برای $1',
 	'revreview-reject-text-list' => "با تکمیل این اقدام، شما {{PLURAL:$1|نسخه|نسخه‌های}} مقابل از [[:$2|$2]] را '''رد خواهید کرد''':",
 	'revreview-reject-text-revto' => 'این صفحه را برمی‌گرداند به [{{fullurl:$1|oldid=$2}} نسخه $3].',
 	'revreview-reject-summary' => 'ْخلاصه ویرایش:',
@@ -1718,7 +1720,6 @@ $messages['fa'] = array(
 	'revreview-reject-summary-old' => 'اولین {{PLURAL:$1|تغییر متن|$1 تغییرات متن}} رد شد (توسط $2) که در ادامه نسخه مرور شده $3 توسط $4',
 	'revreview-reject-summary-cur-short' => 'آخرین {{PLURAL:$1|تغییر متن|$1 تغییرات متن}} رد شد و برگردانده شد به نسخه مرور شده $2 توسط $3',
 	'revreview-reject-summary-old-short' => 'اولین {{PLURAL:$1|تغییر متن|$1 تغییرات متن}} رد شد که ادامه نسخه مرور شده $2 توسط $3 بود',
-	'revreview-reject-usercount' => '{{PLURAL:$1|یک کاربر|$1 کاربر}}',
 	'revreview-tt-flag' => 'با برچسب‌زده به این نسخه به‌عنوان «بررسی‌شده» آن را بپذیر',
 	'revreview-tt-unflag' => 'با برچسب زدن به این نسخه به‌عنوان «بررسی‌نشده» آن را نپذیر',
 	'revreview-tt-reject' => 'این تغییرات متن مبدأ را با واگردانی مردود کنید',
@@ -2088,6 +2089,7 @@ $messages['grc'] = array(
 );
 
 /** Swiss German (Alemannisch)
+ * @author Als-Chlämens
  * @author Als-Holder
  * @author Melancholie
  */
@@ -2104,11 +2106,13 @@ $messages['gsw'] = array(
 	'review_not_flagged' => 'D Ziilversion isch zurzyt nit markiert.',
 	'review_too_low' => 'Version cha nit prieft wäre, solang Fälder no as „längt nit“ gchännzeichnet sin.',
 	'review_bad_key' => 'Dr Wärt vum Priefparameter isch not giltig.',
+	'review_bad_tags' => 'Mangi vo de Kennzeiche, wo aagee worde sin, sin nit gültig',
 	'review_denied' => 'Zuegriff verweigeret.',
 	'review_param_missing' => 'E Parameter fählt oder isch nit giltig.',
 	'review_cannot_undo' => 'Die Änderige chenne nit ruckgängig gmacht wäre, wel no meh hängigi Änderige in dr nämlige Beryych gmacht wore sin.',
 	'review_cannot_reject' => 'Die Änderige chenne nit furtghejt wäre, wel e andere Benutzer scho ne paar oder alli Bearbeitige akzeptiert het.',
 	'review_reject_excessive' => 'Eso vil Bearbeitige chenne nit uf eimol furtghejt wäre.',
+	'review_reject_nulledits' => 'Die Bearbeitige chönne nit furtgheit worde, wyl keini devo Änderige het.',
 	'revreview-check-flag-p' => 'Die Version akzeptiere (mitsamt dr $1 hängige {{PLURAL:$1|Änderig|Änderige}})',
 	'revreview-check-flag-p-title' => 'Alli hängige Änderige akzeptiere zämme mit Dyyre eigene Bearbeitig.
 Mache des nume, wänn Du dir alli hängige Änderige aagluegt hesch.',
@@ -2119,7 +2123,6 @@ Mache des nume, wänn Du dir alli hängige Änderige aagluegt hesch.',
 	'revreview-flag' => 'Die Version priefe',
 	'revreview-reflag' => 'Die Version nomol priefe',
 	'revreview-invalid' => "'''Nit giltig Ziil:''' kei [[{{MediaWiki:Validationpage}}|gsichteti]] Artikelversion vu dr Versions-ID wu aagee isch.",
-	'revreview-legend' => 'Inhalt vu dr Version bewärte',
 	'revreview-log' => 'Kommentar:',
 	'revreview-main' => 'Du muesch e Artikelversion uswehle go si markiere.
 
@@ -2135,6 +2138,14 @@ Lueg au d [[Special:Unreviewedpages|Lischt vu nit markierte Versione]].',
 	'revreview-submit-unreviewed' => 'Erledigt. Nit aagluegt!',
 	'revreview-successful' => "'''Di usgwehlt Version vum Artikel ''[[:\$1|\$1]]'' isch as \"vum Fäldhieter gsäh\" markiert wore ([{{fullurl:{{#Special:ReviewedVersions}}|page=\$2}} alli aagluegte Versione vu däm Artikel])'''.",
 	'revreview-successful2' => "'''D Markierig vu dr Version vu [[:$1|$1]] isch ufghobe wore.'''",
+	'revreview-poss-conflict-p' => "'''Obacht: De Benutzer [[User:$1|$1]] het am $2 um $3 Uhr demit aagfange die Syte z überpriefe.'''",
+	'revreview-poss-conflict-c' => "'''Obacht: De Benutzer [[User:$1|$1]] het am $2 um $3 Uhr demit aagfange die Änderige z überpriefe.'''",
+	'revreview-adv-reviewing-p' => 'Hyywys: Andri Bentzer wärde ab jetz druf hyygwyse, dass du die Syte überpriefe duesch.',
+	'revreview-adv-reviewing-c' => 'Hyywys: Andri Bentzer wärde ab jetz druf hyygwyse, dass du die Änderige überpriefe duesch.',
+	'revreview-sadv-reviewing-p' => 'Du chasch andri Benutzer $1 dass du die Syte überpriefe duesch.',
+	'revreview-sadv-reviewing-c' => 'Du chasch andri Benutzer $1 dass du die Änderige überpriefe duesch.',
+	'revreview-adv-start-link' => 'druff hyywyse',
+	'revreview-adv-stop-link' => 'nümm druff hyywyse',
 	'revreview-toolow' => "'''Du muesch fir e jedes vu däne Attribut e Wärt yystelle, wu hecher isch wie „längt nit“, ass e Version as \"prieft\" giltet.''' 
 
 Zum dr Priefigsstatus vun ere Version z ändere, durkc uf „Versionsmarkierig uuseneh“.
@@ -2147,21 +2158,19 @@ Bitte iberprief alli unte aazeigte Änderige, ass Dyyni Bearbeite chenne ibernuu
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Dyy Änderige sin nonig in di stabil Version ibernuu wore. S het no vorigi Änderige, wu hängig sin. </span>
 
 Bitte iberprief alli unte aazeigte Änderige, ass Dyyni Bearbeite chenne ibernuu wäre.',
-	'revreview-update-includes' => 'E paar Vorlage/Dateie sin aktualisiert wore:',
-	'revreview-reject-header' => 'Änderige fir $1 furtgheje',
-	'revreview-reject-text-list' => "Mit Abschluss vu däre Aktion {{PLURAL:$1|wird die Änderig|wäre die Änderige}} '''furtghejt''':",
+	'revreview-update-includes' => 'Vorlage/Dateie sin aktualisiert worde (nit markierti Syte sin fett gkennzeichnet):',
+	'revreview-reject-text-list' => "Mit Abschluss vu däre Aktion {{PLURAL:$1|wird die Änderig|wäre die Änderige}} aa [[:$2|$2]]  '''furtghejt''':",
 	'revreview-reject-text-revto' => 'Des setzt d Syte uf d [{{fullurl:$1|oldid=$2}} Version vum $3] zruck.',
-	'revreview-reject-summary' => 'Zämmefassig:',
+	'revreview-reject-summary' => 'Zämefassig:',
 	'revreview-reject-confirm' => 'Die Änderige furtgheje',
 	'revreview-reject-cancel' => 'Abbräche',
-	'revreview-reject-summary-cur' => 'Di {{PLURAL:$1|letscht Änderig|$1 letschten Änderige}} vu $2 {{PLURAL:$1|isch|sin}} furtghejt wore un d Version $3 vu $4 widerhärgstellt',
-	'revreview-reject-summary-old' => 'Di {{PLURAL:$1|erscht Änderig|$1 erschten Änderige}} vu $2, wu uf d Version $3 vu $4  {{PLURAL:$1|chuu isch, isch|chuu sin, sin}} furtghejt wore',
-	'revreview-reject-summary-cur-short' => 'Di {{PLURAL:$1|letscht Änderig isch|$1 letschten Änderige sin}} furtgehjt wore un d Version $2 vu $3 widerhärgstellt',
-	'revreview-reject-summary-old-short' => 'Di {{PLURAL:$1|erscht Änderig|$1 erschten Änderige}}, wu uf d Version $2 vu $3 {{PLURAL:$1|chuu isch, isch|chuu sin, sin}} furtghejt wore',
-	'revreview-reject-usercount' => '{{PLURAL:$1|Ei Benutzer|$1 Benutzer}}',
+	'revreview-reject-summary-cur' => 'Di {{PLURAL:$1|letscht Teggständerig|$1 letschten Teggständerige}} vu $2 {{PLURAL:$1|isch|sin}} furtghejt wore un d Version $3 vu $4 widerhärgstellt',
+	'revreview-reject-summary-old' => 'Di {{PLURAL:$1|erscht Teggständerig|$1 erschten Teggständerige}} vu $2, wu uf d Version $3 vu $4  {{PLURAL:$1|chuu isch, isch|chuu sin, sin}} furtghejt wore',
+	'revreview-reject-summary-cur-short' => 'Di {{PLURAL:$1|letscht Teggständerig isch|$1 letschten Teggständerig sin}} furtgehjt wore un d Version $2 vu $3 widerhärgstellt',
+	'revreview-reject-summary-old-short' => 'Di {{PLURAL:$1|erscht Teggständerig|$1 erschten Teggständerig}}, wu uf d Version $2 vu $3 {{PLURAL:$1|chuu isch, isch|chuu sin, sin}} furtghejt wore',
 	'revreview-tt-flag' => "Die Version zueloo dur Markiere as ''aagluegt''",
 	'revreview-tt-unflag' => "Die Version ablähne dur Markiere as ''nit aagluegt''",
-	'revreview-tt-reject' => 'Die Änderige zruckwyse dur zrucksetze',
+	'revreview-tt-reject' => 'Die Teggtsänderige dur zruggsetze zruggwyse',
 );
 
 /** Hausa (هَوُسَ) */
