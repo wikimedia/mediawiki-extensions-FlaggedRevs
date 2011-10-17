@@ -954,6 +954,7 @@ Por favor, revise l'adreza que fació servir t'acceder a ista pachina.",
 /** Arabic (العربية)
  * @author ;Hiba;1
  * @author Antime
+ * @author AwamerT
  * @author Ciphers
  * @author Meno25
  * @author Mohamed Ouda
@@ -982,9 +983,9 @@ $messages['ar'] = array(
 	'flaggedrevs-prefs-viewdiffs' => 'عرض مقارنة التغييرات بالانتظار عند عرض أحدث مراجعة بالانتظار',
 	'flaggedrevs-hidereviewed' => '$1 تعديلات مراجعة',
 	'group-editor' => 'محررون',
-	'group-editor-member' => 'محرر',
+	'group-editor-member' => '{{GENDER:$1|محرر}}',
 	'group-reviewer' => 'مراجعون',
-	'group-reviewer-member' => 'مراجع',
+	'group-reviewer-member' => '{{GENDER:$1|مراجع}}',
 	'grouppage-editor' => '{{ns:project}}:محرر',
 	'grouppage-reviewer' => '{{ns:project}}:مراجع',
 	'group-autoreview' => 'مراجعون تلقائيون',
