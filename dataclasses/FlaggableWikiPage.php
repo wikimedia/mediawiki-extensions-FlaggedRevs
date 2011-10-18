@@ -496,34 +496,42 @@ class FlaggableWikiPage extends WikiPage {
 	*/
 	protected static function updatePendingList( $pageId, $latest ) {
 		$data = array();
+		# Get the highest tier used on this wiki
 		$level = FlaggedRevs::highestReviewTier();
-		# Update pending times for each level, going from highest to lowest
+
 		$dbw = wfGetDB( DB_MASTER );
+		# Update pending times for each level, going from highest to lowest
 		$higherLevelId = 0;
 		$higherLevelTS = '';
 		while ( $level >= 0 ) {
 			# Get the latest revision of this level...
-			$row = $dbw->selectRow( array( 'flaggedrevs', 'revision' ),
+			# Any revision of one tier is also a revision of lower tiers.
+			# Instead of doing fr_quality > X queries we do exact comparisons
+			# for better INDEX usage. However, in order to treat a rev as the
+			# latest tier X rev, we make sure it is newer than all tier (X+1) revs.
+			$row = $dbw->selectRow(
+				array( 'flaggedrevs', 'revision' ),
 				array( 'fr_rev_id', 'rev_timestamp' ),
-				array( 'fr_page_id' => $pageId,
-					'fr_quality' => $level,
-					'rev_id = fr_rev_id',
-					'rev_page = fr_page_id',
-					'rev_deleted & ' . Revision::DELETED_TEXT => 0,
-					'rev_id > ' . intval( $higherLevelId )
+				array(
+					'fr_page_id' => $pageId,
+					'fr_quality' => $level, // this level
+					'fr_rev_timestamp > ' . $dbw->addQuotes( $higherLevelTS ),
+					'rev_id = fr_rev_id', // rev exists
+					'rev_page = fr_page_id', // sanity
+					'rev_deleted & ' . Revision::DELETED_TEXT => 0
 				),
 				__METHOD__,
-				array( 'ORDER BY' => 'fr_rev_id DESC', 'LIMIT' => 1 )
+				array( 'ORDER BY' => 'fr_rev_timestamp DESC', 'LIMIT' => 1 )
 			);
 			# If there is a revision of this level, track it...
-			# Revisions reviewed to one level  count as reviewed
-			# at the lower levels (i.e. quality -> checked).
+			# Revisions accepted to one tier count as accepted
+			# at the lower tiers (i.e. quality -> checked).
 			if ( $row ) {
 				$id = $row->fr_rev_id;
 				$ts = $row->rev_timestamp;
-			} else {
-				$id = $higherLevelId; // use previous (quality -> checked)
-				$ts = $higherLevelTS; // use previous (quality -> checked)
+			} else { // use previous rev of higher tier (if any)
+				$id = $higherLevelId;
+				$ts = $higherLevelTS;
 			}
 			# Get edits that actually are pending...
 			if ( $id && $latest > $id ) {
