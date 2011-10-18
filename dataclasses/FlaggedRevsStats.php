@@ -93,52 +93,52 @@ class FlaggedRevsStats {
 
 		$dataSet = array();
 		$dataSet[] = array(
-			'frs_stat_key' 	=> 'reviewLag-sampleStartTimestamp',
+			'frs_stat_key'  => 'reviewLag-sampleStartTimestamp',
 			'frs_stat_val'  => $reviewData['sampleStartTS'], // unix
 			'frs_timestamp' => $encDataTimestamp );
 		$dataSet[] = array(
-			'frs_stat_key' 	=> 'reviewLag-sampleEndTimestamp',
+			'frs_stat_key'  => 'reviewLag-sampleEndTimestamp',
 			'frs_stat_val'  => $reviewData['sampleEndTS'], // unix
 			'frs_timestamp' => $encDataTimestamp );
 		// All-namespace percentiles...
 		foreach( $reviewData['percTable'] as $percentile => $seconds ) {
 			$dataSet[] = array(
-				'frs_stat_key' 	=> 'reviewLag-percentile:'.(int)$percentile,
+				'frs_stat_key'  => 'reviewLag-percentile:'.(int)$percentile,
 				'frs_stat_val'  => $seconds,
 				'frs_timestamp' => $encDataTimestamp );
 		}
 		// Sample size...
 		$dataSet[] = array(
-			'frs_stat_key' 	=> 'reviewLag-sampleSize',
+			'frs_stat_key'  => 'reviewLag-sampleSize',
 			'frs_stat_val'  => $reviewData['sampleSize'],
 			'frs_timestamp' => $encDataTimestamp );
 
 		// All-namespace ave/med review lag & ave pending lag stats...
 		$dataSet[] = array(
-			'frs_stat_key' 	=> 'reviewLag-average',
+			'frs_stat_key'  => 'reviewLag-average',
 			'frs_stat_val'  => $reviewData['average'],
 			'frs_timestamp' => $encDataTimestamp );
 		$dataSet[] = array(
-			'frs_stat_key' 	=> 'reviewLag-median',
+			'frs_stat_key'  => 'reviewLag-median',
 			'frs_stat_val'  => $reviewData['median'],
 			'frs_timestamp' => $encDataTimestamp );
 		$dataSet[] = array(
-			'frs_stat_key' 	=> 'pendingLag-average',
+			'frs_stat_key'  => 'pendingLag-average',
 			'frs_stat_val'  => $avePET,
 			'frs_timestamp' => $encDataTimestamp );
 
 		// Per-namespace total/reviewed/synced stats...
 		foreach( $rNamespaces as $namespace ) {
 			$dataSet[] = array(
-				'frs_stat_key' 	=> 'totalPages-NS:'.(int)$namespace,
+				'frs_stat_key'  => 'totalPages-NS:'.(int)$namespace,
 				'frs_stat_val'  => isset($ns_total[$namespace]) ? $ns_total[$namespace] : 0,
 				'frs_timestamp' => $encDataTimestamp );
 			$dataSet[] = array(
-				'frs_stat_key' 	=> 'reviewedPages-NS:'.(int)$namespace,
+				'frs_stat_key'  => 'reviewedPages-NS:'.(int)$namespace,
 				'frs_stat_val'  => isset($ns_reviewed[$namespace]) ? $ns_reviewed[$namespace] : 0,
 				'frs_timestamp' => $encDataTimestamp );
 			$dataSet[] = array(
-				'frs_stat_key' 	=> 'syncedPages-NS:'.(int)$namespace,
+				'frs_stat_key'  => 'syncedPages-NS:'.(int)$namespace,
 				'frs_stat_val'  => isset($ns_synced[$namespace]) ? $ns_synced[$namespace] : 0,
 				'frs_timestamp' => $encDataTimestamp );
 		}
@@ -335,7 +335,7 @@ class FlaggedRevsStats {
 					'p.fr_page_id = rev_page',
 					'p.fr_rev_id < rev_id', // not imported later
 					'p.fr_timestamp < rev_timestamp' ) ),
-				'n'	=> array( 'INNER JOIN', array( // next review
+				'n' => array( 'INNER JOIN', array( // next review
 					'n.fr_page_id = rev_page',
 					'n.fr_rev_id >= rev_id',
 					'n.fr_timestamp >= rev_timestamp' ) )
@@ -353,7 +353,6 @@ class FlaggedRevsStats {
 				$time = max( $time, 0 ); // sanity
 				$secondsR += $time;
 				$times[] = $time;
-				#echo( "\nedit:".$row->rt . "\twait:" . $time );
 			}
 			$sampleSize = count($times);
 			$aveRT = ($secondsR + $secondsP)/$sampleSize; // sample mean
@@ -367,7 +366,6 @@ class FlaggedRevsStats {
 				$rank = round( $percentile*count($times)/100 + .5 ) - 1;
 				$rPerTable[$percentile] = $times[$rank];
 			}
-			#echo "(sampled ".count($times)." edits)...";
 			$result['average']       = $aveRT;
 			$result['median']        = $medianRT;
 			$result['percTable']     = $rPerTable;
