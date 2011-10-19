@@ -302,8 +302,7 @@ class FlaggedRevsUIHooks {
 			$queryInfo['fields'][] = 'fr_quality';
 			$queryInfo['fields'][] = 'fr_user';
 			$queryInfo['fields'][] = 'fr_flags';
-			$queryInfo['join_conds']['flaggedrevs'] = array( 'LEFT JOIN',
-				"fr_page_id = rev_page AND fr_rev_id = rev_id" );
+			$queryInfo['join_conds']['flaggedrevs'] = array( 'LEFT JOIN', "fr_rev_id = rev_id" );
 			# Find reviewer name. Sanity check that no extensions added a `user` query.
 			if ( !in_array( 'user', $queryInfo['tables'] ) ) {
 				$queryInfo['tables'][] = 'user';
@@ -348,8 +347,7 @@ class FlaggedRevsUIHooks {
 		# Highlight flaggedrevs
 		$queryInfo['tables'][] = 'flaggedrevs';
 		$queryInfo['fields'][] = 'fr_quality';
-		$queryInfo['join_conds']['flaggedrevs'] = array( 'LEFT JOIN',
-			"fr_page_id = rev_page AND fr_rev_id = rev_id" );
+		$queryInfo['join_conds']['flaggedrevs'] = array( 'LEFT JOIN', "fr_rev_id = rev_id" );
 		# Highlight unchecked content
 		$queryInfo['tables'][] = 'flaggedpages';
 		$queryInfo['fields'][] = 'fp_stable';
