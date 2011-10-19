@@ -10976,9 +10976,9 @@ Che as controla për piasì l'adrëssa (URL) che a l'ha dovrà për rivé a sta 
 $messages['ps'] = array(
 	'editor' => 'سمونګر',
 	'group-editor' => 'سمونګران',
-	'group-editor-member' => 'سمونګر',
+	'group-editor-member' => '{{GENDER:$1|سمونګر}}',
 	'group-reviewer' => 'مخکتونکي',
-	'group-reviewer-member' => 'مخکتونکی',
+	'group-reviewer-member' => '{{GENDER:$1|مخکتونکی}}',
 	'grouppage-editor' => '{{ns:project}}:سمونګر',
 	'reviewer' => 'مخکتونکی',
 	'revreview-auto' => '(خپلسري)',

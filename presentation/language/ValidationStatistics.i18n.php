@@ -2061,18 +2061,17 @@ Editörler, sayfalara kontrol revizyonu atayabilen belirli kullanıcılardır.",
 	'validationstatistics-lastupdate' => '"Aşağıdaki veri en son $1, $2 tarihinde güncellendi"',
 	'validationstatistics-pndtime' => "Belirlenmiş kullanıcılar tarafından kontrol edilmiş değişiklikler gözden geçirilmiş olarak kabul edilir.
 
-[[Special:OldReviewedPages|Gözden geçirilmemiş girişleri bekleyen sayfalar]] için ortalama gecikme süresi: '''$1'''.
-Bu sayfalar zaman aşımına uğramış olarak kabul edilir. Likewise, pages are considered ''synced'' if there are no edits pending review.",
+[[Special:OldReviewedPages|Gözden geçirilmeyi bekleyen sayfalar]] için ortalama gecikme süresi: '''$1'''.",
 	'validationstatistics-revtime' => "''Giriş yapmamış anonim kullanıcılar'' tarafından yapılmış girişler için ortalama bekleme süresi '''$1'''; medyanı ise '''$2''' biçimindedir.
 $3",
-	'validationstatistics-table' => "İsim alanları için sayfa inceleme istatistikleri, yönlendirme sayfaları ''dahil olmadan''  aşağıda gösterilmiştir.",
+	'validationstatistics-table' => "İsim alanları için sayfa inceleme istatistikleri, yönlendirme sayfaları ''dahil olmadan''  aşağıda gösterilmiştir. Bekleyen değişiklik içeren sayfalar ''güncelliğini yitirmiş'', bekleyen değişiklik içermeyen sayfalar ''senkronize'' kabul edilir.",
 	'validationstatistics-ns' => 'İsim alanı',
 	'validationstatistics-total' => 'Sayfalar',
 	'validationstatistics-stable' => 'Gözden geçirilmiş',
 	'validationstatistics-latest' => 'Senkronize edildi',
 	'validationstatistics-synced' => 'Eşitlenmiş/Gözden geçirilmiş',
 	'validationstatistics-old' => 'Eski',
-	'validationstatistics-utable' => 'Aşağıda son bir saatte en çok inceleme yapan $1 kullanıcı listelenmektedir.',
+	'validationstatistics-utable' => 'Aşağıda {{PLURAL:$2|saatte|$2 saatte}} en çok inceleme yapan $1 kullanıcı listelenmektedir.',
 	'validationstatistics-user' => 'Kullanıcı',
 	'validationstatistics-reviews' => 'İncelemeler',
 );
