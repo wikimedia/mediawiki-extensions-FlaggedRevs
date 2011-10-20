@@ -136,11 +136,13 @@ $wgGroupPermissions['sysop']['movestable'] = true;
 
 # Special:Userrights settings
 # # Basic rights for Sysops
-$wgAddGroups['sysop'][] = 'editor';
-$wgRemoveGroups['sysop'][] = 'editor';
-# # Extra ones for Bureaucrats (@TODO: remove this)
-$wgAddGroups['bureaucrat'][] = 'reviewer';
-$wgRemoveGroups['bureaucrat'][] = 'reviewer';
+$wgAddGroups['sysop'][] = 'editor'; // promote to basic reviewer (established editors)
+$wgRemoveGroups['sysop'][] = 'editor'; // demote from basic reviewer (established editors)
+$wgAddGroups['sysop'][] = 'autoreview'; // promote to basic auto-reviewer (semi-trusted users)
+$wgRemoveGroups['sysop'][] = 'autoreview'; // demote from basic auto-reviewer (semi-trusted users)
+# # Extra ones for Bureaucrats
+$wgAddGroups['bureaucrat'][] = 'reviewer'; // promote to full reviewers
+$wgRemoveGroups['bureaucrat'][] = 'reviewer'; // demote from full reviewers
 
 # How far the logs for overseeing quality revisions and depreciations go
 $wgFlaggedRevsOversightAge = 30 * 24 * 3600;

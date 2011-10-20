@@ -46,11 +46,10 @@ if ( defined( 'MW_HTML_FOR_DUMP' ) ) {
 # array so that it shows up in sp:ListGroupRights...
 $wgGroupPermissions['bot']['autoreview'] = true;
 
-# Lets some users access the review UI and set some flags
-$wgAvailableRights[] = 'review'; # review pages to basic levels
-$wgAvailableRights[] = 'validate'; # review pages to all levels
-$wgAvailableRights[] = 'autoreview'; # auto-review pages on edit (including rollback)
-$wgAvailableRights[] = 'autoreviewrestore'; # auto-review on rollback
+$wgAvailableRights[] = 'review'; # review pages to basic quality levels
+$wgAvailableRights[] = 'validate'; # review pages to all quality levels
+$wgAvailableRights[] = 'autoreview'; # auto-review one's own edits (including rollback)
+$wgAvailableRights[] = 'autoreviewrestore'; # auto-review one's own rollbacks
 $wgAvailableRights[] = 'unreviewedpages'; # view the list of unreviewed pages
 $wgAvailableRights[] = 'movestable'; # move pages with stable versions
 $wgAvailableRights[] = 'stablesettings'; # change page stability settings
