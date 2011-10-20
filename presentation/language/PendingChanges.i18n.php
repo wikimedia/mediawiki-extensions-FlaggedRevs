@@ -1671,23 +1671,24 @@ $messages['sq'] = array(
 	'pendingchanges-viewing' => '(duke u shqyrtuar)',
 );
 
-/** Serbian Cyrillic ekavian (‪Српски (ћирилица)‬)
+/** Serbian (Cyrillic script) (‪Српски (ћирилица)‬)
  * @author Millosh
+ * @author Rancher
  * @author Жељко Тодоровић
  * @author Михајло Анђелковић
  */
 $messages['sr-ec'] = array(
-	'pendingchanges' => 'Стране са променама за преглед',
+	'pendingchanges' => 'Странице с изменама на чекању',
 	'pendingchanges-legend' => 'Списак прегледаних страница са непрегледаним верзијама.',
-	'pendingchanges-list' => 'Ово је {{PLURAL:$1|прегледана страница|списак прегледаних страница}} са изменама за преглед.',
+	'pendingchanges-list' => 'Ова страница наводи [[{{MediaWiki:Validationpage}}|прегледане]] странице које имају једну или више измена на чекању.',
 	'pendingchanges-none' => 'Тренутно нема страница које испуњавају ове критеријуме',
 	'pendingchanges-hours' => '($1 {{PLURAL:$1|сат|сати}})',
 	'pendingchanges-days' => '($1 {{PLURAL:$1|дан|дана}})',
-	'pendingchanges-recent' => '(мање од једног часа)',
+	'pendingchanges-recent' => '(мање од једног сата)',
 	'pendingchanges-category' => 'Категорија:',
-	'pendingchanges-stable' => 'прегледано',
+	'pendingchanges-stable' => 'Подразумевано је стабилно издање',
 	'pendingchanges-diff' => 'преглед',
-	'pendingchanges-size' => 'Највећа измена (бајтови):',
+	'pendingchanges-size' => 'Највећа измена (у бајтовима):',
 	'pendingchanges-unwatched' => '(ненадгледано)',
 	'pendingchanges-watched' => '($1 {{PLURAL:$1|активан корисник|активна корисника|активна корисника|активна корисника|активних корисника}} гледа)',
 	'pendingchanges-viewing' => '(под прегледом)',

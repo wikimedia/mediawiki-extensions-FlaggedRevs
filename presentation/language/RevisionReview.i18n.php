@@ -2445,6 +2445,7 @@ Přepruwuj prošu wšě změny, kotrež so deleka pokazuja, zo bychu so twoje zm
 );
 
 /** Hungarian (Magyar)
+ * @author Bean49
  * @author BáthoryPéter
  * @author Dani
  * @author Glanthor Reviol
@@ -2479,7 +2480,6 @@ $messages['hu'] = array(
 	'revreview-flag' => 'Változat ellenőrzése',
 	'revreview-reflag' => 'Változat újraellenőrzése',
 	'revreview-invalid' => "'''Érvénytelen cél:''' a megadott azonosító nem egy [[{{MediaWiki:Validationpage}}|ellenőrzött]] változat.",
-	'revreview-legend' => 'A változat tartalmának értékelése',
 	'revreview-log' => 'Megjegyzés:',
 	'revreview-main' => 'Ki kell választanod egy lap adott változatát az ellenőrzéshez.
 
@@ -2495,6 +2495,9 @@ Lásd az [[Special:Unreviewedpages|ellenőrizetlen lapok listáját]].',
 	'revreview-submit-unreviewed' => 'Kész. A változat nem ellenőrzött!',
 	'revreview-successful' => "'''A(z) [[:$1|$1]] változatát sikeresen megjelölted. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} ellenőrzött változatok megjelenítése])'''",
 	'revreview-successful2' => "'''A(z) [[:$1|$1]] változatáról sikeresen eltávolítottad a jelölést.'''",
+	'revreview-adv-reviewing-c' => 'Figyelem: A többi szerkesztő láthatja, hogy te ellenőrzöd ezeket a változásokat.',
+	'revreview-sadv-reviewing-c' => '$1 a szerkesztőnevedet a többi szerkesztő számára mint aki ellenőrzi ezeket a változásokat.',
+	'revreview-adv-start-link' => 'Közzéteheted',
 	'revreview-toolow' => "'''Ahhoz, hogy egy változat ellenőrzöttnek tekinthető legyen, minden tulajdonságot magasabbra kell értékelned a „nem ellenőrzött” szintnél.'''
 
 Nem ellenőrzöttnek való visszaminősítéshez állítsd az összes mezőt „nem ellenőrzött” értékre.
@@ -2517,7 +2520,6 @@ Kérlek ellenőrizd az alább látható változtatásokat, hogy a szerkesztései
 	'revreview-reject-summary-old' => 'Visszavontam az első {{PLURAL:$1||$1&#32;}}változtatást (szerkesztette $2); következő változat: $3 ($4)',
 	'revreview-reject-summary-cur-short' => 'Visszavontam az utolsó {{PLURAL:$1||$1}} változtatást; előző változat: $2 ($3)',
 	'revreview-reject-summary-old-short' => 'Visszavontam az első {{PLURAL:$1||$1&#32;}}változtatást; következő változat: $2 ($3)',
-	'revreview-reject-usercount' => '{{PLURAL:$1|egy felhasználó|$1 felhasználó}}',
 	'revreview-tt-flag' => 'Változat elfogadása (ellenőrzöttnek jelölés)',
 	'revreview-tt-unflag' => 'Változat elfogadásának visszavonása ellenőrizetlennek jelöléssel.',
 	'revreview-tt-reject' => 'Változtatások elutasítása visszaállítással',
@@ -2908,6 +2910,7 @@ $messages['ka'] = array(
 	'revreview-submit-unreviewed' => 'გაკეთდა. უარყოფილ იქნა!',
 	'revreview-successful' => "'''არჩეული ვერსია [[:$1|$1]] წარმატებით მოინიშნა. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} სტაბილური ვერსიების ხილვა])'''",
 	'revreview-successful2' => "'''არჩეული ვერსიისგან [[:$1|$1]] მონიშვნა მოხსნილია.'''",
+	'revreview-sadv-reviewing-p' => 'თქვენ შეგიძლაით $1, რომ ამოწმებთ ამ სტატიას.',
 	'revreview-update' => "'''გთხოვთ [[{{MediaWiki:Validationpage}}|შეამოწმოთ]] ცვლილებები ''(ნაჩვენებია ქვემოთ)'', შეტანილი მიღებულ ვერსიაში.'''",
 	'revreview-update-includes' => 'ზოგი თარგი ან ფაილი განახლდა:',
 	'revreview-reject-summary' => 'რეზიუმე:',
@@ -4662,7 +4665,8 @@ $messages['sr-ec'] = array(
 	'revreview-flag' => 'Преглед ове верзије',
 	'revreview-invalid' => "'''Лош циљ:''' ниједна [[{{MediaWiki:Validationpage}}|прегледана]] верзије не поседује дати редни број.",
 	'revreview-log' => 'Коментар:',
-	'revreview-main' => 'Види [[Special:Unreviewedpages|списак непрегледаних страница]].',
+	'revreview-main' => 'Морате изабрати одређену измену странице са садржајем да бисте је проверили.
+Погледајте [[Special:Unreviewedpages|списак непрегледаних страница]].',
 	'revreview-stable2' => 'Можда бисте хтели да видите [{{fullurl:$1|stable=1}} прихваћену верзију] ове стране.',
 	'revreview-submit' => 'Пошаљи',
 	'revreview-submitting' => 'Шаљем…',

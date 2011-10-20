@@ -1570,8 +1570,9 @@ $messages['sq'] = array(
 	'unreviewedpages-category' => 'Kategoria:',
 );
 
-/** Serbian Cyrillic ekavian (‪Српски (ћирилица)‬)
+/** Serbian (Cyrillic script) (‪Српски (ћирилица)‬)
  * @author Millosh
+ * @author Rancher
  * @author Sasa Stefanovic
  * @author Жељко Тодоровић
  * @author Михајло Анђелковић
@@ -1583,12 +1584,12 @@ $messages['sr-ec'] = array(
 	'unreviewedpages-diff' => 'преглед',
 	'unreviewedpages-unwatched' => '(ненадзирано)',
 	'unreviewedpages-watched' => '($1 {{PLURAL:$1|активан корисник надгледа|акхивних корисника надгледају}})',
-	'unreviewedpages-list' => 'Ово је списак страница са садржајем које још нису прегледане до наведеног нивоа.',
+	'unreviewedpages-list' => "На овој страници су наведене странице са садржајем које још ''нису'' [[{{MediaWiki:Validationpage}}|прегледане]] до одређеног нивоа.",
 	'unreviewedpages-none' => 'Не постоји ниједна страница која се поклапа са овим критеријумима.',
 	'unreviewedpages-viewing' => '(под прегледом)',
 	'unreviewedpages-hours' => '($1 {{PLURAL:$1|сат|сати}})',
 	'unreviewedpages-days' => '($1 {{PLURAL:$1|дан|дана}})',
-	'unreviewedpages-recent' => '(мање од сата)',
+	'unreviewedpages-recent' => '(мање од једног сата)',
 );
 
 /** Serbian Latin ekavian (‪Srpski (latinica)‬)
