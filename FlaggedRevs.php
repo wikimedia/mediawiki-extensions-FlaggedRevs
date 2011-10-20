@@ -299,14 +299,16 @@ function efSetFlaggedRevsAutopromoteConfig() {
 	if ( is_array( $req ) ) {
 		$criteria = array( '&', // AND
 			array( APCOND_AGE, $req['days']*86400 ),
-			array( APCOND_EDITCOUNT, $req['edits'] ),
+			array( APCOND_EDITCOUNT, $req['edits'], $req['excludeLastDays']*86400 ),
 			array( APCOND_FR_EDITSUMMARYCOUNT, $req['editComments'] ),
 			array( APCOND_FR_UNIQUEPAGECOUNT, $req['uniqueContentPages'] ),
 			array( APCOND_FR_EDITSPACING, $req['spacing'], $req['benchmarks'] ),
 			array( '|', // OR
-				array( APCOND_FR_CONTENTEDITCOUNT, $req['totalContentEdits'] ),
-				array( APCOND_FR_CHECKEDEDITCOUNT, $req['totalCheckedEdits'] )
-			)
+				array( APCOND_FR_CONTENTEDITCOUNT,
+					$req['totalContentEdits'], $req['excludeLastDays']*86400 ),
+				array( APCOND_FR_CHECKEDEDITCOUNT,
+					$req['totalCheckedEdits'], $req['excludeLastDays']*86400 )
+			),
 		);
 		if ( $req['email'] ) {
 			$criteria[] = array( APCOND_EMAILCONFIRMED );

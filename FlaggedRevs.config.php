@@ -107,6 +107,7 @@ $wgFlaggedRevsAutoconfirm = false;
 $wgFlaggedRevsAutoconfirm = array(
 	'days'                  => 30, # days since registration
 	'edits'                 => 50, # total edit count
+	'excludeLastDays'       => 2, # exclude the last X days of edits from edit counts
 	'benchmarks'            => 7, # number of "spread out" edits
 	'spacing'               => 3, # number of days between these edits (the "spread")
 	// Either totalContentEdits reqs OR totalCheckedEdits requirements needed
