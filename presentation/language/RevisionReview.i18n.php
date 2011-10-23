@@ -2498,6 +2498,7 @@ Lásd az [[Special:Unreviewedpages|ellenőrizetlen lapok listáját]].',
 	'revreview-adv-reviewing-c' => 'Figyelem: A többi szerkesztő láthatja, hogy te ellenőrzöd ezeket a változásokat.',
 	'revreview-sadv-reviewing-c' => '$1 a szerkesztőnevedet a többi szerkesztő számára mint aki ellenőrzi ezeket a változásokat.',
 	'revreview-adv-start-link' => 'Közzéteheted',
+	'revreview-adv-stop-link' => 'hirdetés visszavonása',
 	'revreview-toolow' => "'''Ahhoz, hogy egy változat ellenőrzöttnek tekinthető legyen, minden tulajdonságot magasabbra kell értékelned a „nem ellenőrzött” szintnél.'''
 
 Nem ellenőrzöttnek való visszaminősítéshez állítsd az összes mezőt „nem ellenőrzött” értékre.
@@ -5074,6 +5075,7 @@ Pakisuri ang lahat ng mga pagbabagong ipinapakita sa ibaba upang magawang lumita
 /** Turkish (Türkçe)
  * @author Emperyan
  * @author Joseph
+ * @author Khutuck
  * @author Srhat
  * @author Szoszv
  * @author Vito Genovese
@@ -5122,8 +5124,14 @@ $messages['tr'] = array(
 	'revreview-submit-unreviewed' => 'Tamam. Kabul edilmedi!',
 	'revreview-successful' => "'''[[:$1|$1]] sayfasının revizyonu başarıyla bayraklandı. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} kararlı sürümleri gör])'''",
 	'revreview-successful2' => "'''[[:$1|$1]] sayfasının revizyon bayrağı başarıyla kaldırıldı.'''",
-	'revreview-adv-start-link' => 'reklam',
-	'revreview-adv-stop-link' => 'reklamsız',
+	'revreview-poss-conflict-p' => "''' Uyarı: [[User:$1|$1]] Bu sayfa üzerinde inceleme başlattı: $2 $3 .'' '",
+	'revreview-poss-conflict-c' => "''' Uyarı: [[User:$1|$1]] Bu değişiklikler üzerinde inceleme başlattı: $2 $3 .'' '",
+	'revreview-adv-reviewing-p' => 'Bilgi: Diğer kullanıcılar bu değişikliği incelediğinizi görebilirler.',
+	'revreview-adv-reviewing-c' => 'Bilgi: Diğer kullanıcılar bu değişiklikleri incelediğinizi görebilirler.',
+	'revreview-sadv-reviewing-p' => 'Bu sayfayı incelemekte olduğunuzu diğer kullanıcılara $1bilirsiniz.',
+	'revreview-sadv-reviewing-c' => 'Bu değişiklikleri incelemekte olduğunuzu diğer kullanıcılara $1bilirsiniz.',
+	'revreview-adv-start-link' => 'bildire',
+	'revreview-adv-stop-link' => 'bildirmeye',
 	'revreview-toolow' => '\'\'\'Bir revizyonun incelenmiş sayılabilmesi için özniteliklerin hepsini "yetersiz" düzeyden yüksek derecelendirmelisiniz.\'\'\'
 
 Bir revizyonun inceleme durumunu kaldırmak için, "kabul etme" seçeneğine tıklayın.
