@@ -4139,6 +4139,7 @@ Bonvolu kontroli la retadreson (URL) kiun vi uzis por atingi la paĝon.\\b',
  * @author Pertile
  * @author Sanbec
  * @author Translationista
+ * @author XalD
  */
 $messages['es'] = array(
 	'action-review' => 'verificar ediciones',
@@ -4158,7 +4159,7 @@ $messages['es'] = array(
 	'flaggedrevs-prefs-watch' => 'Añadir a mi lista de seguimiento las páginas que revise',
 	'flaggedrevs-prefs-editdiffs' => 'Mostrar las diferencias de cambios pendientes al editar páginas',
 	'flaggedrevs-prefs-viewdiffs' => 'Mostrar la diferencia de los cambios pendientes al ver la última revisión pendiente',
-	'flaggedrevs-hidereviewed' => '$1 revisó las ediciones',
+	'flaggedrevs-hidereviewed' => '$1 ediciones revisadas',
 	'group-editor' => 'Editores',
 	'group-editor-member' => 'editor',
 	'group-reviewer' => 'Revisores',
