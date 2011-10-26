@@ -40,13 +40,25 @@ class FixBug28348 extends Maintenance {
 		$end += $this->mBatchSize - 1;
 		$blockStart = $start;
 		$blockEnd = $start + $this->mBatchSize - 1;
-		
+	
 		$count = $changed = 0;
 		while ( $blockEnd <= $end ) {
 			$this->output( "...doing fi_rev_id from $blockStart to $blockEnd\n" );
-			$cond = "fi_rev_id BETWEEN $blockStart AND $blockEnd";
-			$res = $db->select( 'flaggedimages', '*', $cond, __METHOD__ );
-			
+			$cond = "fi_rev_id BETWEEN $blockStart AND $blockEnd AND fi_img_timestamp IS NOT NULL" .
+				" AND img_name IS NULL AND oi_name IS NULL"; // optimize
+			$res = $db->select( array( 'flaggedimages', 'image', 'oldimage' ),
+				'*',
+				$cond,
+				__FUNCTION__,
+				array(),
+				array( // skip OK references to local files
+					'image'    => array( 'LEFT JOIN',
+						'img_sha1 = fi_img_sha1 AND img_timestamp = fi_img_timestamp' ),
+					'oldimage' => array( 'LEFT JOIN',
+						'oi_sha1 = fi_img_sha1 AND oi_timestamp = fi_img_timestamp' )
+				)
+			);
+
 			$db->begin();
 			# Go through and clean up missing items, as well as correct fr_quality...
 			foreach ( $res as $row ) {
