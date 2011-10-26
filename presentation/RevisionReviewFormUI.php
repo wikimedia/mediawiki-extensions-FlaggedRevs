@@ -26,7 +26,7 @@ class RevisionReviewFormUI {
 		$this->rev = $rev;
 	}
 
-	/*
+	/**
 	 * Call this only when the form is shown on a diff:
 	 * (a) Shows the "reject" button
 	 * (b) Default the rating tags to those of $this->rev (if flagged)
@@ -36,7 +36,7 @@ class RevisionReviewFormUI {
 		$this->refRev = $refRev;
 	}
 
-	/*
+	/**
 	 * Add on a notice inside the review box at the top
 	 * @param string $notice HTML to show
 	 */
@@ -44,7 +44,7 @@ class RevisionReviewFormUI {
 		$this->topNotice = (string)$notice;
 	}
 
-	/*
+	/**
 	 * Add on a notice inside the review box at the top
 	 * @param string $notice HTML to show
 	 */
@@ -52,7 +52,7 @@ class RevisionReviewFormUI {
 		$this->bottomNotice = (string)$notice;
 	}
 
-	/*
+	/**
 	 * Set the file version parameters of what the user is viewing
 	 * @param Array|null $version ('time' => MW timestamp, 'sha1' => sha1)
 	 */
@@ -60,7 +60,7 @@ class RevisionReviewFormUI {
 		$this->fileVersion = is_array( $version ) ? $version : false;
 	}
 
-	/*
+	/**
 	 * Set the template/file version parameters of what the user is viewing
 	 * @param string $topNotice Text to
 	 */

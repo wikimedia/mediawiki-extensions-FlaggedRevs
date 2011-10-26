@@ -84,7 +84,7 @@ class FlaggedRevsUISetup {
 		}
 	}
 
-	/*
+	/**
 	 * Register FlaggedRevs special pages as needed.
 	 * @param $pages Array $wgSpecialPages (list of special pages)
 	 * @param $groups Array $wgSpecialPageGroups (assoc array of special page groups)

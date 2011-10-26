@@ -659,7 +659,7 @@ class FlaggedRevsHooks {
 		return true;
 	}
 
-	/*
+	/**
 	 * Check if a user meets the edit spacing requirements.
 	 * If the user does not, return a *lower bound* number of seconds
 	 * that must elapse for it to be possible for the user to meet them.

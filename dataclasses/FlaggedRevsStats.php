@@ -3,7 +3,7 @@
  * FlaggedRevs stats functions
  */
 class FlaggedRevsStats {
-	/*
+	/**
 	 * Get FR-related stats at a designated snapshot in time.
 	 * If no $timestamp is specified, then the latest will be used.
 	 *
@@ -183,7 +183,7 @@ class FlaggedRevsStats {
 		return (int)$dbr->selectField(
 			array( 'flaggedpages', 'page' ),
 			"AVG( $nowUnix - UNIX_TIMESTAMP(fp_pending_since) )",
-			array( 'fp_pending_since IS NOT NULL', 
+			array( 'fp_pending_since IS NOT NULL',
 				'fp_page_id = page_id',
 				'page_namespace' => FlaggedRevs::getReviewNamespaces() // sanity
 			),
@@ -212,7 +212,7 @@ class FlaggedRevsStats {
 		}
 		$aveRT = $medianRT = 0;
 		$rPerTable = array(); // review wait percentiles
-		# Only go so far back...otherwise we will get garbage values due to 
+		# Only go so far back...otherwise we will get garbage values due to
 		# the fact that FlaggedRevs wasn't enabled until after a while.
 		$dbr = wfGetDB( DB_SLAVE );
 		$installedUnix = (int)$dbr->selectField( 'logging',
@@ -223,7 +223,7 @@ class FlaggedRevsStats {
 			$installedUnix = wfTimestamp( TS_UNIX ); // now
 		}
 		$encInstalled = $dbr->addQuotes( $dbr->timestamp( $installedUnix ) );
-		# Skip the most recent recent revs as they are likely to just 
+		# Skip the most recent recent revs as they are likely to just
 		# be WHERE condition misses. This also gives us more data to use.
 		# Lastly, we want to avoid bias that would make the time too low
 		# since new revisions could not have "took a long time to sight".
@@ -246,8 +246,8 @@ class FlaggedRevsStats {
 			if ( !$row ) break;
 			# Find the newest revision at the time the page was reviewed,
 			# this is the one that *should* have been reviewed.
-			$idealRev = (int)$dbr->selectField( 'revision', 'rev_id', 
-				array( 'rev_page' => $row->fpp_page_id, 
+			$idealRev = (int)$dbr->selectField( 'revision', 'rev_id',
+				array( 'rev_page' => $row->fpp_page_id,
 					'rev_timestamp < '.$dbr->addQuotes( $row->fr_timestamp ) ),
 				__METHOD__,
 				array( 'ORDER BY' => 'rev_timestamp DESC', 'LIMIT' => 1 )

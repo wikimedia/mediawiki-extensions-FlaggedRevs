@@ -1,7 +1,7 @@
 <?php
 /**
  * Class representing a stable version of a MediaWiki revision
- * 
+ *
  * This contains a page revision, a file version, and versions
  * of templates and files (to determine template inclusion and thumbnails)
  */
@@ -615,7 +615,7 @@ class FlaggedRevision {
 		return $this->mStableFiles;
 	}
 
-	/*
+	/**
 	 * Fetch pending template changes for this reviewed page version.
 	 * For each template, the "version used" (for stable parsing) is:
 	 *    (a) (the latest rev) if FR_INCLUDES_CURRENT. Might be non-existing.
@@ -703,7 +703,7 @@ class FlaggedRevision {
 		return false;
 	}
 
-	/*
+	/**
 	 * Fetch pending file changes for this reviewed page version.
 	 * For each file, the "version used" (for stable parsing) is:
 	 *    (a) (the latest rev) if FR_INCLUDES_CURRENT. Might be non-existing.
@@ -794,7 +794,7 @@ class FlaggedRevision {
 		return ( $deleted || $updated );
 	}
 
-	/*
+	/**
 	 * Fetch pending template changes for this reviewed page
 	 * version against a list of current versions of templates.
 	 * See findPendingTemplateChanges() for details.
@@ -829,7 +829,7 @@ class FlaggedRevision {
 		return $tmpChanges;
 	}
 
-	/*
+	/**
 	 * Fetch pending file changes for this reviewed page
 	 * version against a list of current versions of files.
 	 * See findPendingFileChanges() for details.

@@ -67,7 +67,7 @@ class FlaggablePageView extends ContextSource {
 		return null;
 	}
 
-	/*
+	/**
 	 * Check if the old and new diff revs are set for this page view
 	 * @return bool
 	 */
@@ -1109,7 +1109,7 @@ class FlaggablePageView extends ContextSource {
 				list( $tmpVers, $fileVers ) = $this->oldRevIncludes; // reuse
 			} else { // e.g. diffonly=1, other diffs
 				# $wgOut may not already have the inclusion IDs, such as for diffonly=1.
-				# RevisionReviewForm will fetch them as needed however. 
+				# RevisionReviewForm will fetch them as needed however.
 				list( $tmpVers, $fileVers ) =
 					FRInclusionCache::getRevIncludes( $this->article, $rev, $reqUser );
 			}
