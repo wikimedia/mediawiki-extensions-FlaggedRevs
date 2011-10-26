@@ -1785,7 +1785,7 @@ class FlaggablePageView extends ContextSource {
 				return true; // edit will be autoreviewed
 			}
 			if ( !isset( $editPage->fr_baseFRev ) ) {
-				$baseRevId = self::getBaseRevId( $editPage );
+				$baseRevId = self::getBaseRevId( $editPage, $this->getRequest() );
 				$editPage->fr_baseFRev = FlaggedRevision::newFromTitle( $title, $baseRevId );
 			}
 			if ( $editPage->fr_baseFRev ) {
@@ -1808,7 +1808,7 @@ class FlaggablePageView extends ContextSource {
 		} elseif ( $this->editWillBeAutoreviewed( $editPage ) ) {
 			return true; // edit will be auto-reviewed
 		}
-		if ( self::getBaseRevId( $editPage ) == $this->article->getLatest() ) {
+		if ( self::getBaseRevId( $editPage, $request ) == $this->article->getLatest() ) {
 			# For pages with either no stable version, or an outdated one, let
 			# the user decide if he/she wants it reviewed on the spot. One might
 			# do this if he/she just saw the diff-to-stable and *then* decided to edit.
@@ -1849,13 +1849,11 @@ class FlaggablePageView extends ContextSource {
 	* Note: baseRevId trusted for Reviewers - text checked for others.
 	*/
 	public function addRevisionIDField( EditPage $editPage, OutputPage $out ) {
-		$this->load();
-		$revId = self::getBaseRevId( $editPage );
+		$revId = self::getBaseRevId( $editPage, $this->getRequest() );
 		$out->addHTML( "\n" . Html::hidden( 'baseRevId', $revId ) );
 		$out->addHTML( "\n" . Html::hidden( 'undidRev',
 			empty( $editPage->undidRev ) ? 0 : $editPage->undidRev )
 		);
-		return true;
 	}
 
 	/**
@@ -1863,8 +1861,7 @@ class FlaggablePageView extends ContextSource {
 	* Note: baseRevId trusted for Reviewers - check text for others.
 	* @return int
 	*/
-	protected static function getBaseRevId( EditPage $editPage ) {
-		$request = FlaggablePageView::singleton()->getRequest();
+	protected static function getBaseRevId( EditPage $editPage, WebRequest $request ) {
 		if ( !isset( $editPage->fr_baseRevId ) ) {
 			$article = $editPage->getArticle(); // convenience
 			$latestId = $article->getLatest(); // current rev
