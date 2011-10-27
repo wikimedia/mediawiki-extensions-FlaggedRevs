@@ -1021,9 +1021,12 @@ $messages['ja'] = array(
 /** Georgian (ქართული)
  * @author BRUTE
  * @author ITshnik
+ * @author Nodar Kherkheulidze
  * @author გიორგიმელა
  */
 $messages['ka'] = array(
+	'pendingchanges' => 'შემოწმების მომლოდინე გვერდები',
+	'pendingchanges-list' => 'გვერდები, რომლებიც ერთხელ [[{{MediaWiki:Validationpage}}|შემოწმდნენ]], მაგრამ ითხოვენ დამატებით შემოწმებას.',
 	'pendingchanges-none' => 'ამ დროისათვის არ არსებობს სტატიები ასეთი კრიტერიუმებით',
 	'pendingchanges-hours' => '($1 {{PLURAL:$1|საათი|საათი}})',
 	'pendingchanges-days' => '($1 {{PLURAL:$1|დღე|დღე}})',

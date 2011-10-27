@@ -2432,7 +2432,7 @@ Přepruwuj prošu wšě změny, kotrež so deleka pokazuja, zo bychu so twoje zm
 	'revreview-update-includes' => 'Někotre předłohi/dataje su so zaktualizowali:',
 	'revreview-reject-text-list' => "Přewjedujo tutu akciju, budźeš {{PLURAL:$1|slědowacu změnu|slědowacej změnje|slědowace změny|slědowace změny}} '''wotpokazować''':",
 	'revreview-reject-text-revto' => 'To stronu na [{{fullurl:$1|oldid=$2}} wersiju wot dnja $3] wróćo staji.',
-	'revreview-reject-summary' => 'Zjeće wobdźěłać',
+	'revreview-reject-summary' => 'Zjeće:',
 	'revreview-reject-confirm' => 'Tute změny wotpokazać',
 	'revreview-reject-cancel' => 'Přetorhnyć',
 	'revreview-reject-summary-cur' => '{{PLURAL:$1|Poslednja změna|Poslednjej změnje|Poslednje změny|Poslednje změny}} wot $2 {{PLURAL:$1|bu wotpokazana|buštej wotpokazanej|buchu wotpokazane|buchu wotpokazane}} a wersija $3 wot $4 je so wobnowiła.',

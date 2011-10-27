@@ -629,8 +629,10 @@ $messages['jut'] = array(
 
 /** Georgian (ქართული)
  * @author BRUTE
+ * @author Nodar Kherkheulidze
  */
 $messages['ka'] = array(
+	'reviewedversions' => 'შემოწმებული ვერსიები',
 	'reviewedversions-page' => 'გვერდის სახელი:',
 );
 
