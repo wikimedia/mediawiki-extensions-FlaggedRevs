@@ -38,7 +38,9 @@ class PendingChanges extends SpecialPage {
 			$this->feed( $feedType );
 		} else {
 			if ( $this->including() ) {
-				$this->pager->setLimit( $incLimit ); // apply non-URL limit
+				if ( $incLimit ) { // limit provided
+					$this->pager->setLimit( $incLimit ); // apply non-URL limit
+				}
 			} else {
 				$this->setSyndicated();
 				$this->showForm();
