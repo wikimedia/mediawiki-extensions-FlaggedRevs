@@ -2429,19 +2429,19 @@ Prošu přepruwuj wšě slědowace změny, zo bychu so twoje změny w stabilnej 
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Twoje změny hišće w stabilnej wersiji njeje. Su hišće njepřepruwowane změny.</span>
 
 Přepruwuj prošu wšě změny, kotrež so deleka pokazuja, zo bychu so twoje změny w stabilnej wersiji jewili.',
-	'revreview-update-includes' => 'Někotre předłohi/dataje su so zaktualizowali:',
-	'revreview-reject-text-list' => "Přewjedujo tutu akciju, budźeš {{PLURAL:$1|slědowacu změnu|slědowacej změnje|slědowace změny|slědowace změny}} '''wotpokazować''':",
+	'revreview-update-includes' => 'Předłohi/dataje su so zaktualizowali (njepřepruwowane strony su tučnje woznamjenjene):',
+	'revreview-reject-text-list' => "Při kónčenju tuteje akcije, budźeš změny žórłoweho teksta ze {{PLURAL:$1|slědowaceje wersije|slědowaceju wersijow|slědowacych wersijow|slědowacych wersijow}} strony [[:$2|$2]] '''wotpokazować''':",
 	'revreview-reject-text-revto' => 'To stronu na [{{fullurl:$1|oldid=$2}} wersiju wot dnja $3] wróćo staji.',
 	'revreview-reject-summary' => 'Zjeće:',
 	'revreview-reject-confirm' => 'Tute změny wotpokazać',
 	'revreview-reject-cancel' => 'Přetorhnyć',
-	'revreview-reject-summary-cur' => '{{PLURAL:$1|Poslednja změna|Poslednjej změnje|Poslednje změny|Poslednje změny}} wot $2 {{PLURAL:$1|bu wotpokazana|buštej wotpokazanej|buchu wotpokazane|buchu wotpokazane}} a wersija $3 wot $4 je so wobnowiła.',
-	'revreview-reject-summary-old' => '{{PLURAL:$1|Prěnja změna|Prěnjej změnje|Prěnje změny|Prěnje změny}} wot $2, {{PLURAL:$1|kotraž|kotrejž|kontrež|kotrež}} wersiji $3 wot $4 {{PLURAL:$1|slědowaše|slědowaštej|slědowachu|slědowachu}}, {{PLURAL:$1|je so wotpokazała|stej so wotpokazałoj|su so wotpokazali|su so wotpokazali}}.',
-	'revreview-reject-summary-cur-short' => '{{PLURAL:$1|Poslednja změna|Poslednjej změnje|Poslednje změny|Poslednje změny}}  {{PLURAL:$1|bu wotpokazana|buštej wotpokazanej|buchu wotpokazane|buchu wotpokazane}} a wersija $2 wot $3 je so wobnowiła.',
-	'revreview-reject-summary-old-short' => '{{PLURAL:$1|Prěnja změna|Prěnjej změnje|Prěnje změny|Prěnje změny}}  {{PLURAL:$1|bu wotpokazana|buštej wotpokazanej|buchu wotpokazane|buchu wotpokazane}}, {{PLURAL:$1|kotraž|kotrejž|kontrež|kotrež}} wersiji $2 wot $3 {{PLURAL:$1|slědowaše|slědowaštej|slědowachu|slědowachu}},',
+	'revreview-reject-summary-cur' => '{{PLURAL:$1|Poslednja tekstowa změna|$1 poslednjej tekstowej změnje|$1 poslednje tekstowe změny|$1 poslednich tekstowych změnow}} wot $2 {{PLURAL:$1|bu wotpokazana|buštej wotpokazanej|buchu wotpokazane|bu wotpokazane}} a wersija $3 wot $4 je so wobnowiła.',
+	'revreview-reject-summary-old' => '{{PLURAL:$1|Prěnja tekstowa změna|$1 prěnjej tekstowej změnje|$1 prěnje tekstowe změny|$1 prěnich tekstowych změnow}} wot $2, {{PLURAL:$1|kotraž|kotrejž|kontrež|kotrež}} wersiji $3 wot $4 {{PLURAL:$1|slědowaše|slědowaštej|slědowachu|slědowachu}}, {{PLURAL:$1|je so wotpokazała|stej so wotpokazałoj|su so wotpokazali|je so wotpokazało}}.',
+	'revreview-reject-summary-cur-short' => '{{PLURAL:$1|Poslednja tekstowa změna|$1 poslednjej tekstowej změnje|$1 poslednje tekstowe změny|$1 poslednich tekstowych změnow}} {{PLURAL:$1|bu wotpokazana|buštej wotpokazanej|buchu wotpokazane|bu wotpokazane}} a wersija $2 wot $3 je so wobnowiła.',
+	'revreview-reject-summary-old-short' => '{{PLURAL:$1|Prěnja tekstowa změna|$1 prěnjej tekstowej změnje|$1 prěnje tekstowe změny|$1 prěnich tekstowych změnow}} {{PLURAL:$1|bu wotpokazana|buštej wotpokazanej|buchu wotpokazane|bu wotpokazane}}, {{PLURAL:$1|kotraž|kotrejž|kontrež|kotrež}} wersiji $2 wot $3 {{PLURAL:$1|slědowaše|slědowaštej|slědowachu|slědowaše}},',
 	'revreview-tt-flag' => 'Tutu wersiju přez markěrowanje jako skontrolowanu schwalić',
 	'revreview-tt-unflag' => 'Tutu wersiju přez markěrowanje jako njeskontrolowanu zakazać',
-	'revreview-tt-reject' => 'Tute změny přez cofnjenje wotpokazać',
+	'revreview-tt-reject' => 'Tute změny žórłoweho teksta přez wróćostajenje wotpokazać',
 );
 
 /** Hungarian (Magyar)
