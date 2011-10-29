@@ -59,21 +59,27 @@ var fr = {
 		var somezero = false;
 		// Determine if this is a "quality" or "incomplete" review
 		for ( var tag in wgFlaggedRevsParams.tags ) {
-			var levels = form.find( "[name='wp" + tag + "']" ).eq( 0 );
-			if ( !levels.length ) continue;
+			// Get the element or elements for selecting the tag level.
+			// We might get back a select, a checkbox, or *several* radios.
+			var tagLevelSelects = form.find( "[name='wp" + tag + "']" );
+			if ( !tagLevelSelects.length ) {
+				continue; // none found; binary flagging?
+			}
+			var tagLevelSelect = tagLevelSelects.eq( 0 ); // convenient for select and checkbox
 
 			var selectedlevel = 0; // default
-			if ( levels.prop( 'nodeName' ) === 'SELECT' ) {
-				selectedlevel = levels.prop( 'selectedIndex' );
-			} else if ( levelsprop( 'type' ) === 'radio' ) {
-				for ( var i = 0; i < levels.length; i++ ) {
-					if ( levels.eq( i ).prop( 'checked' ) ) {
+			if ( tagLevelSelect.prop( 'nodeName' ) === 'SELECT' ) {
+				selectedlevel = tagLevelSelect.prop( 'selectedIndex' );
+			} else if ( tagLevelSelect.prop( 'type' ) == 'checkbox' ) {
+				selectedlevel = tagLevelSelect.prop( 'checked' ) ? 1 : 0;
+			} else if ( tagLevelSelect.prop( 'type' ) === 'radio' ) {
+				// Go through each radio option and find the selected one...
+				for ( var i = 0; i < tagLevelSelects.length; i++ ) {
+					if ( tagLevelSelects.eq( i ).prop( 'checked' ) ) {
 						selectedlevel = i;
 						break;
 					}
 				}
-			} else if ( levels.prop( 'type' ) == 'checkbox' ) {
-				selectedlevel = levels.prop( 'checked' ) ? 1 : 0;
 			} else {
 				return; // error: should not happen
 			}
@@ -281,7 +287,7 @@ var fr = {
 					asubmit.val( mw.msg( 'revreview-submit-review' ) ); // back to normal
 					asubmit.prop( 'disabled', '' ); // unlock
 				// Revision was unflagged
-				} else if ( usubmit.value === mw.msg( 'revreview-submitting' ) ) {
+				} else if ( usubmit.val() === mw.msg( 'revreview-submitting' ) ) {
 					usubmit.val( mw.msg( 'revreview-submit-unreview' ) ); // back to normal
 					usubmit.prop( 'disabled', '' ); // unlock
 				}
