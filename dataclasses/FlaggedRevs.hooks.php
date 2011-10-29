@@ -323,12 +323,9 @@ class FlaggedRevsHooks {
 		} elseif ( $action === 'patrol' || $action === 'autopatrol' ) {
 			$flaggedArticle = FlaggableWikiPage::getTitleInstance( $title );
 			# For a page to be patrollable it must not be reviewable.
-			# Note: normally, edits to non-reviewable, non-patrollable, pages are
-			# silently marked patrolled automatically. With $wgUseNPPatrol on, the
-			# first edit to those pages is left as being unpatrolled.
 			if ( $flaggedArticle->isReviewable() ) {
 				$result = false;
-				return false;
+				return false; // patrol by "accepting"
 			}
 		# Enforce autoreview/review restrictions
 		} elseif ( $action === 'autoreview' || $action === 'review' ) {
@@ -617,7 +614,7 @@ class FlaggedRevsHooks {
 				$rc->mAttribs['rc_cur_id'], $revId, FR_MASTER );
 			// Reviewed => patrolled
 			if ( $quality !== false && $quality >= FR_CHECKED ) {
-				RevisionReviewForm::updateRecentChanges( $rc->getTitle(), $revId );
+				RevisionReviewForm::updateRecentChanges( $rc, 'patrol', $fa->getStableRev() );
 				$rc->mAttribs['rc_patrolled'] = 1; // make sure irc/email notifs know status
 			}
 			return true;

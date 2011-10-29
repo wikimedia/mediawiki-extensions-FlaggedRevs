@@ -395,10 +395,10 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 			$oldFrev->delete();
 		}
 		# Insert the new review entry...
-		$flaggedRevision->insert();
-		# Update recent changes...
-		$rcId = $rev->isUnpatrolled(); // int
-		self::updateRecentChanges( $this->page, $rev->getId(), $rcId, true );
+		if ( !$flaggedRevision->insert() ) {
+			throw new MWException(
+				"Flagged revision with ID {$rev->getId()} exists with unexpected fr_page_id" );
+		}
 
 		# Update the article review log...
 		$oldSvId = $oldSv ? $oldSv->getRevId() : 0;
@@ -406,7 +406,9 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 			$this->comment, $this->oldid, $oldSvId, true );
 
 		# Get the new stable version as of now
-		$sv = FlaggedRevision::determineStable( $this->page, FR_MASTER/*consistent*/ );
+		$sv = FlaggedRevision::determineStable( $this->page, FR_MASTER /*consistent*/ );
+		# Update recent changes...
+		self::updateRecentChanges( $rev, 'patrol', $sv );
 		# Update page and tracking tables and clear cache
 		$changed = FlaggedRevs::stableVersionUpdates( $this->page, $sv, $oldSv );
 		if ( $changed ) {
@@ -432,8 +434,6 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 
 		# Delete from flaggedrevs table
 		$frev->delete();
-		# Update recent changes
-		self::updateRecentChanges( $this->page, $frev->getRevId(), false, false );
 
 		# Update the article review log
 		$oldSvId = $oldSv ? $oldSv->getRevId() : 0;
@@ -442,6 +442,8 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 
 		# Get the new stable version as of now
 		$sv = FlaggedRevision::determineStable( $this->page, FR_MASTER /*consistent*/ );
+		# Update recent changes
+		self::updateRecentChanges( $frev->getRevision(), 'unpatrol', $sv );
 		# Update page and tracking tables and clear cache
 		$changed = FlaggedRevs::stableVersionUpdates( $this->page, $sv, $oldSv );
 		if ( $changed ) {
@@ -470,32 +472,55 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 		return $p;
 	}
 
-	public static function updateRecentChanges(
-		Title $title, $revId, $rcId = false, $patrol = true
-	) {
-		wfProfileIn( __METHOD__ );
-		$revId = intval( $revId );
+	/**
+	* Update rc_patrolled fields in recent changes after (un)accepting a rev.
+	* This maintains the patrolled <=> reviewed relationship for reviewable namespaces.
+	* @param $rev Revision|RecentChange
+	* @param $patrol string "patrol" or "unpatrol"
+	* @param $srev FlaggedRevsion|null The new stable version
+	* @return void
+	*/
+	public static function updateRecentChanges( $rev, $patrol, $srev ) {
+		global $wgUseRCPatrol;
+
+		if ( $rev instanceof RecentChange ) {
+			$pageId = $rc->mAttribs['rc_cur_id'];
+		} else {
+			$pageId = $rev->getPage();
+		}
+		$sTimestamp = $srev ? $srev->getRevTimestamp() : null;
+
 		$dbw = wfGetDB( DB_MASTER );
-		# Olders edits be marked as patrolled now...
-		$dbw->update( 'recentchanges',
-			array( 'rc_patrolled' => $patrol ? 1 : 0 ),
-			array( 'rc_cur_id' => $title->getArticleId(),
-				$patrol ? "rc_this_oldid <= $revId" : "rc_this_oldid = $revId" ),
-			__METHOD__,
-			// Performance
-			array( 'USE INDEX' => 'rc_cur_id', 'LIMIT' => 50 )
-		);
-		# New page patrol may be enabled. If so, the rc_id may be the first
-		# edit and not this one. If it is different, mark it too.
-		if ( $rcId && $rcId != $revId ) {
+		$limit = 100; // sanity limit to avoid slave lag (most useful when FR is first enabled)
+		$conds = array( 'rc_cur_id' => $pageId );
+		if ( !$wgUseRCPatrol ) {
+			# No sense in updating all the rows, only the new page one is used.
+			# If $wgUseNPPatrol is off, then not even those are used.
+			$conds['rc_type'] = RC_NEW; // reduce rows to UPDATE
+		}
+		# If we accepted this rev, then mark prior revs as patrolled...
+		if ( $patrol === 'patrol' ) {
+			if ( $sTimestamp ) { // sanity check; should always be set
+				$conds[] = 'rc_timestamp <= ' . $dbw->addQuotes( $dbw->timestamp( $sTimestamp ) );
+				$dbw->update( 'recentchanges',
+					array( 'rc_patrolled' => 1 ),
+					$conds,
+					__METHOD__,
+					array( 'USE INDEX' => 'rc_cur_id', 'LIMIT' => $limit ) // performance
+				);
+			}
+		# If we un-accepted this rev, then mark now-pending revs as unpatrolled...
+		} elseif ( $patrol === 'unpatrol' ) {
+			if ( $sTimestamp ) {
+				$conds[] = 'rc_timestamp > ' . $dbw->addQuotes( $dbw->timestamp( $sTimestamp ) );
+			}
 			$dbw->update( 'recentchanges',
-				array( 'rc_patrolled' => 1 ),
-				array( 'rc_id' => $rcId,
-					'rc_type' => RC_NEW ),
-				__METHOD__
+				array( 'rc_patrolled' => 0 ),
+				$conds,
+				__METHOD__,
+				array( 'USE INDEX' => 'rc_cur_id', 'LIMIT' => $limit ) // performance
 			);
 		}
-		wfProfileOut( __METHOD__ );
 	}
 
 	/**

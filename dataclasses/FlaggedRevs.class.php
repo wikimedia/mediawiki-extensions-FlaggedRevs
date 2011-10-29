@@ -109,7 +109,7 @@ class FlaggedRevs {
 		self::$restrictionLevels = array_unique( $wgFlaggedRevsRestrictionLevels );
 		self::$restrictionLevels = array_filter( self::$restrictionLevels, 'strlen' );
 		# Make sure no talk namespaces are in review namespace
-		global $wgFlaggedRevsNamespaces, $wgFlaggedRevsPatrolNamespaces;
+		global $wgFlaggedRevsNamespaces;
 		foreach ( $wgFlaggedRevsNamespaces as $ns ) {
 			if ( MWNamespace::isTalk( $ns ) ) {
 				die( 'FlaggedRevs given talk namespace in $wgFlaggedRevsNamespaces!' );
