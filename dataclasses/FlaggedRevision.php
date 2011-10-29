@@ -6,22 +6,22 @@
  * of templates and files (to determine template inclusion and thumbnails)
  */
 class FlaggedRevision {
-	private $mRevision;			// base revision
-	private $mTemplates; 		// included template versions
-	private $mFiles;     		// included file versions
-	private $mFileSha1;      	// file version sha-1 (for revisions of File pages)
-	private $mFileTimestamp;	// file version timestamp (for revisions of File pages)
-	/* Flagging metadata */
-	private $mTimestamp;		// review timestamp
-	private $mQuality;			// review tier
-	private $mTags;				// review tags
-	private $mFlags;			// flags (for auto-review ect...)
-	private $mUser;				// reviewing user
-	private $mFileName;			// file name when reviewed
-	/* Redundant fields for lazy-loading */
-	private $mTitle;			// page title
-	private $mStableTemplates;  // stable versions of template version used
-	private $mStableFiles;		// stable versions of file versions used
+    private $mRevision;         // base revision
+    private $mTemplates;        // included template versions
+    private $mFiles;            // included file versions
+    private $mFileSha1;         // file version sha-1 (for revisions of File pages)
+    private $mFileTimestamp;    // file version timestamp (for revisions of File pages)
+    /* Flagging metadata */
+    private $mTimestamp;        // review timestamp
+    private $mQuality;          // review tier
+    private $mTags;             // review tags
+    private $mFlags;            // flags (for auto-review ect...)
+    private $mUser;             // reviewing user
+    private $mFileName;         // file name when reviewed
+    /* Redundant fields for lazy-loading */
+    private $mTitle;            // page title
+    private $mStableTemplates;  // stable versions of template version used
+    private $mStableFiles;      // stable versions of file versions used
 
 	/**
 	 * @param Row|array $row (DB row or array)
@@ -102,10 +102,10 @@ class FlaggedRevision {
 			self::selectFields(),
 			array(
 				'fr_page_id' => $pageId,
-				'fr_rev_id' => $revId,
+				'fr_rev_id'  => $revId,
 				'rev_id = fr_rev_id',
-				'rev_page = fr_page_id',
-				'rev_deleted & ' . Revision::DELETED_TEXT => 0
+				'rev_page = fr_page_id', // sanity
+				$db->bitAnd( 'rev_deleted', Revision::DELETED_TEXT ) . ' = 0'
 			),
 			__METHOD__,
 			$options
@@ -121,6 +121,8 @@ class FlaggedRevision {
 
 	/**
 	 * Get a FlaggedRevision of the stable version of a title.
+	 * Note: will return NULL if the revision is deleted, though this
+	 * should never happen as fp_stable is updated as revs are deleted.
 	 * @param Title $title, page title
 	 * @param int $flags (FR_MASTER, FR_FOR_UPDATE)
 	 * @return FlaggedRevision|null (null on failure)
@@ -148,9 +150,10 @@ class FlaggedRevision {
 			self::selectFields(),
 			array(
 				'fp_page_id' => $pageId,
-				'fr_page_id = fp_page_id',
 				'fr_rev_id = fp_stable',
-				'rev_id = fr_rev_id'
+				'rev_id = fr_rev_id',
+				'rev_page = fr_page_id', // sanity
+				$db->bitAnd( 'rev_deleted', Revision::DELETED_TEXT ) . ' = 0', // sanity
 			),
 			__METHOD__,
 			$options
@@ -158,6 +161,47 @@ class FlaggedRevision {
 		if ( $row ) {
 			$frev = new self( $row );
 			$frev->mTitle = $title;
+			return $frev;
+		}
+		return null;
+	}
+
+	/**
+	 * Get a FlaggedRevision for a rev ID.
+	 * Note: will return NULL if the revision is deleted.
+	 * @param int $revId
+	 * @param int $flags (FR_MASTER, FR_FOR_UPDATE)
+	 * @return FlaggedRevision|null (null on failure)
+	 */
+	public static function newFromId( $revId, $flags = 0 ) {
+		$options = array();
+		# User master/slave as appropriate...
+		if ( $flags & FR_FOR_UPDATE || $flags & FR_MASTER ) {
+			$db = wfGetDB( DB_MASTER );
+			if ( $flags & FR_FOR_UPDATE ) $options[] = 'FOR UPDATE';
+		} else {
+			$db = wfGetDB( DB_SLAVE );
+		}
+		if ( !$revId ) {
+			return null; // short-circuit query
+		}
+		# Skip deleted revisions
+		$row = $db->selectRow(
+			array( 'flaggedrevs', 'revision', 'page' ),
+			self::selectFields(),
+			array(
+				'fr_rev_id' => $revId,
+				'rev_id = fr_rev_id',
+				'rev_page = fr_page_id', // sanity
+				'page_id = rev_page',
+				$db->bitAnd( 'rev_deleted', Revision::DELETED_TEXT ) . ' = 0',
+			),
+			__METHOD__,
+			$options
+		);
+		if ( $row ) {
+			$frev = new self( $row );
+			$frev->mTitle = Title::newFromRow( $row );
 			return $frev;
 		}
 		return null;
