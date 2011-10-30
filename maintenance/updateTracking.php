@@ -71,7 +71,7 @@ class UpdateFRTracking extends Maintenance {
 		while ( $blockEnd <= $end ) {
 			$this->output( "...doing fr_rev_id from $blockStart to $blockEnd\n" );
 			$cond = "rev_id BETWEEN $blockStart AND $blockEnd 
-				AND fr_page_id = rev_page AND fr_rev_id = rev_id AND page_id = rev_page";
+				AND fr_rev_id = rev_id AND page_id = rev_page";
 			$res = $db->select(
 				array( 'revision', 'flaggedrevs', 'page' ),
 				array( 'fr_rev_id', 'fr_tags', 'fr_quality', 'page_namespace', 'page_title',
@@ -124,7 +124,7 @@ class UpdateFRTracking extends Maintenance {
 							'fr_img_sha1'       => $fileSha1,
 							'fr_img_timestamp'  => $fileTime
 						),
-						array( 'fr_rev_id' => $row->fr_rev_id, 'fr_page_id' => $row->rev_page ),
+						array( 'fr_rev_id' => $row->fr_rev_id ),
 						__METHOD__
 					);
 					$changed++;

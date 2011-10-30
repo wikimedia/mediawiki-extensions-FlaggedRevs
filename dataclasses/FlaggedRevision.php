@@ -6,22 +6,22 @@
  * of templates and files (to determine template inclusion and thumbnails)
  */
 class FlaggedRevision {
-    private $mRevision;         // base revision
-    private $mTemplates;        // included template versions
-    private $mFiles;            // included file versions
-    private $mFileSha1;         // file version sha-1 (for revisions of File pages)
-    private $mFileTimestamp;    // file version timestamp (for revisions of File pages)
-    /* Flagging metadata */
-    private $mTimestamp;        // review timestamp
-    private $mQuality;          // review tier
-    private $mTags;             // review tags
-    private $mFlags;            // flags (for auto-review ect...)
-    private $mUser;             // reviewing user
-    private $mFileName;         // file name when reviewed
-    /* Redundant fields for lazy-loading */
-    private $mTitle;            // page title
-    private $mStableTemplates;  // stable versions of template version used
-    private $mStableFiles;      // stable versions of file versions used
+	private $mRevision;         // base revision
+	private $mTemplates;        // included template versions
+	private $mFiles;            // included file versions
+	private $mFileSha1;         // file version sha-1 (for revisions of File pages)
+	private $mFileTimestamp;    // file version timestamp (for revisions of File pages)
+	/* Flagging metadata */
+	private $mTimestamp;        // review timestamp
+	private $mQuality;          // review tier
+	private $mTags;             // review tags
+	private $mFlags;            // flags (for auto-review ect...)
+	private $mUser;             // reviewing user
+	private $mFileName;         // file name when reviewed
+	/* Redundant fields for lazy-loading */
+	private $mTitle;            // page title
+	private $mStableTemplates;  // stable versions of template version used
+	private $mStableFiles;      // stable versions of file versions used
 
 	/**
 	 * @param Row|array $row (DB row or array)
@@ -327,9 +327,9 @@ class FlaggedRevision {
 		foreach ( (array)$this->mTemplates as $namespace => $titleAndID ) {
 			foreach ( $titleAndID as $dbkey => $id ) {
 				$tmpInsertRows[] = array(
-					'ft_rev_id' 	=> $this->getRevId(),
+					'ft_rev_id'     => $this->getRevId(),
 					'ft_namespace'  => (int)$namespace,
-					'ft_title' 		=> $dbkey,
+					'ft_title'      => $dbkey,
 					'ft_tmp_rev_id' => (int)$id
 				);
 			}
@@ -337,9 +337,9 @@ class FlaggedRevision {
 		$fileInsertRows = array();
 		foreach ( (array)$this->mFiles as $dbkey => $timeSHA1 ) {
 			$fileInsertRows[] = array(
-				'fi_rev_id' 		=> $this->getRevId(),
-				'fi_name' 			=> $dbkey,
-				'fi_img_sha1' 		=> strval( $timeSHA1['sha1'] ),
+				'fi_rev_id'         => $this->getRevId(),
+				'fi_name'           => $dbkey,
+				'fi_img_sha1'       => strval( $timeSHA1['sha1'] ),
 				'fi_img_timestamp'  => $timeSHA1['time'] ? // false => NULL
 					$dbw->timestamp( $timeSHA1['time'] ) : null
 			);
@@ -351,13 +351,13 @@ class FlaggedRevision {
 		# Our new review entry
 		$revRow = array(
 			'fr_page_id'       => $this->getPage(),
-			'fr_rev_id'	       => $this->getRevId(),
+			'fr_rev_id'        => $this->getRevId(),
 			'fr_rev_timestamp' => $dbw->timestamp( $this->getRevTimestamp() ),
-			'fr_user'	       => $this->mUser,
+			'fr_user'          => $this->mUser,
 			'fr_timestamp'     => $dbw->timestamp( $this->mTimestamp ),
 			'fr_quality'       => $this->mQuality,
-			'fr_tags'	       => self::flattenRevisionTags( $this->mTags ),
-			'fr_flags'	       => implode( ',', $this->mFlags ),
+			'fr_tags'          => self::flattenRevisionTags( $this->mTags ),
+			'fr_flags'         => implode( ',', $this->mFlags ),
 			'fr_img_name'      => $this->mFileName,
 			'fr_img_timestamp' => $dbw->timestampOrNull( $this->mFileTimestamp ),
 			'fr_img_sha1'      => $this->mFileSha1
@@ -638,11 +638,10 @@ class FlaggedRevision {
 				__METHOD__,
 				array(),
 				array(
-					'page' 			=> array( 'LEFT JOIN',
+					'page'          => array( 'LEFT JOIN',
 					'page_namespace = ' . NS_FILE . ' AND page_title = fi_name' ),
-					'flaggedpages' 	=> array( 'LEFT JOIN', 'fp_page_id = page_id' ),
-					'flaggedrevs' 	=> array( 'LEFT JOIN',
-						'fr_page_id = fp_page_id AND fr_rev_id = fp_stable' )
+					'flaggedpages'  => array( 'LEFT JOIN', 'fp_page_id = page_id' ),
+					'flaggedrevs'   => array( 'LEFT JOIN', 'fr_rev_id = fp_stable' )
 				)
 			);
 			foreach ( $res as $row ) {
@@ -695,9 +694,9 @@ class FlaggedRevision {
 				'flaggedtemplates'  => array( 'LEFT JOIN',
 					array( 'ft_rev_id' => $this->getRevId(),
 						'ft_namespace = tl_namespace AND ft_title = tl_title' ) ),
-				'page' 			    => array( 'LEFT JOIN',
+				'page'              => array( 'LEFT JOIN',
 					'page_namespace = tl_namespace AND page_title = tl_title' ),
-				'flaggedpages' 	    => array( 'LEFT JOIN', 'fp_page_id = page_id' )
+				'flaggedpages'      => array( 'LEFT JOIN', 'fp_page_id = page_id' )
 			)
 		);
 		$tmpChanges = array();
@@ -783,11 +782,10 @@ class FlaggedRevision {
 			array(
 				'flaggedimages' => array( 'LEFT JOIN',
 					array( 'fi_rev_id' => $this->getRevId(), 'fi_name = il_to' ) ),
-				'page' 			=> array( 'LEFT JOIN',
+				'page'          => array( 'LEFT JOIN',
 					'page_namespace = ' . NS_FILE . ' AND page_title = il_to' ),
-				'flaggedpages' 	=> array( 'LEFT JOIN', 'fp_page_id = page_id' ),
-				'flaggedrevs' 	=> array( 'LEFT JOIN',
-					'fr_page_id = fp_page_id AND fr_rev_id = fp_stable' )
+				'flaggedpages'  => array( 'LEFT JOIN', 'fp_page_id = page_id' ),
+				'flaggedrevs'   => array( 'LEFT JOIN', 'fr_rev_id = fp_stable' )
 			)
 		);
 		$fileChanges = array();
@@ -910,7 +908,7 @@ class FlaggedRevision {
 	 * Get flags for a revision
 	 * @param Title $title
 	 * @param int $rev_id
-	 * @param $flags, FR_MASTER
+	 * @param $flags FR_MASTER
 	 * @return array
 	*/
 	public static function getRevisionTags( Title $title, $rev_id, $flags = 0 ) {
@@ -927,7 +925,7 @@ class FlaggedRevision {
 
 	/**
 	 * @param int $rev_id
-	 * @param $flags, FR_MASTER
+	 * @param $flags FR_MASTER
 	 * @return mixed (int or false)
 	 * Get quality of a revision
 	 */
@@ -943,13 +941,12 @@ class FlaggedRevision {
 
 	/**
 	 * @param int $rev_id
-	 * @param $flags, FR_MASTER
+	 * @param $flags FR_MASTER
 	 * @return bool
 	 * Useful for quickly pinging to see if a revision is flagged
 	 */
 	public static function revIsFlagged( $rev_id, $flags = 0 ) {
-		$quality = self::getRevQuality( $rev_id, $flags );
-		return ( $quality !== false );
+		return ( self::getRevQuality( $rev_id, $flags ) !== false );
 	}
 
 	/**
