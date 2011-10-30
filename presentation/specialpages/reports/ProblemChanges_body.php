@@ -108,7 +108,7 @@ class ProblemChanges extends SpecialPage {
 		}
 	}
 
-	// set pager parameters from $par, return pager limit	
+	// set pager parameters from $par, return pager limit
 	protected function parseParams( $par ) {
 		$bits = preg_split( '/\s*,\s*/', trim( $par ) );
 		$limit = false;
@@ -202,7 +202,7 @@ class ProblemChanges extends SpecialPage {
 			$quality = " <b>[{$quality}]</b>";
 		}
 		# What are the tags?
-		$dbTags = self::getRevisionTags( $title->getArticleID(), $row->stable );
+		$dbTags = self::getChangeTags( $title->getArticleID(), $row->stable );
 		if ( $dbTags ) {
 			$tags = htmlspecialchars( implode( ', ', $dbTags ) );
 			$tags = ' <b>' . wfMsgHtml( 'parentheses', $tags ) . '</b>';
@@ -258,13 +258,14 @@ class ProblemChanges extends SpecialPage {
 	 * @param integer $revId, rev ID
 	 * @return Array
 	 */
-	protected static function getRevisionTags( $pageId, $revId ) {
+	protected static function getChangeTags( $pageId, $revId ) {
 		$tags = array();
 		$dbr = wfGetDB( DB_SLAVE );
 		$res = $dbr->select(
 			array( 'revision', 'change_tag' ),
 			'DISTINCT(ct_tag)', // unique tags
-			array( 'rev_page' => $pageId, 'rev_id > ' . intval($revId),
+			array( 'rev_page' => $pageId,
+				'rev_id > ' . intval( $revId ),
 				'rev_id = ct_rev_id' ),
 			__METHOD__
 		);
