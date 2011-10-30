@@ -20,7 +20,8 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 	protected $lastChangeTime = null;       # Conflict handling
 	protected $newLastChangeTime = null;    # Conflict handling
 
-	protected $oflags = array();            # Prior flags for Rev with ID $oldid
+	protected $oldFrev = null;              # Prior FlaggedRevision for Rev with ID $oldid
+	protected $oldFlags = array();          # Prior flags for Rev with ID $oldid
 
 	protected function initialize() {
 		foreach ( FlaggedRevs::getTags() as $tag ) {
@@ -123,7 +124,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 		$this->trySet( $this->dims[$tag], (int)$value );
 	}
 
-	/*
+	/**
 	* Check that a target is given (e.g. from GET/POST request)
 	* @return mixed (true on success, error string on failure)
 	*/
@@ -143,7 +144,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 		return true;
 	}
 
-	/*
+	/**
 	* Check that the target is valid (e.g. from GET/POST request)
 	* @param int $flags FOR_SUBMISSION (set on submit)
 	* @return mixed (true on success, error string on failure)
@@ -160,20 +161,22 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 		return true;
 	}
 
-	/*
+	/**
 	* Validate and clean up parameters (e.g. from POST request).
 	* @return mixed (true on success, error string on failure)
 	*/
 	protected function doCheckParameters() {
-		if ( !$this->oldid ) {
-			return 'review_no_oldid'; // bad revision target
+		$action = $this->getAction();
+		if ( $action === null ) {
+			return 'review_param_missing'; // no action specified (approve, reject, de-approve)
+		} elseif ( !$this->oldid ) {
+			return 'review_no_oldid'; // no revision target
 		}
-		# Check that an action is specified (approve, reject, de-approve)
-		if ( $this->getAction() === null ) {
-			return 'review_param_missing'; // user didn't say
-		}
-		# Get the revision's current flags, if any
-		$this->oflags = FlaggedRevision::getRevisionTags( $this->page, $this->oldid, FR_MASTER );
+		# Get the revision's current flags (if any)
+		$this->oldFrev = FlaggedRevision::newFromTitle( $this->page, $this->oldid, FR_MASTER );
+		$this->oldFlags = ( $this->oldFrev )
+			? $this->oldFrev->getTags()
+			: FlaggedRevision::expandRevisionTags( '' ); // default
 		# Set initial value for newLastChangeTime (if unchanged on submit)
 		$this->newLastChangeTime = $this->lastChangeTime;
 		# Fill in implicit tag data for binary flag case
@@ -181,7 +184,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 		if ( $iDims ) {
 			$this->dims = $iDims; // binary flag case
 		}
-		if ( $this->getAction() === 'approve' ) {
+		if ( $action === 'approve' ) {
 			# We must at least rate each category as 1, the minimum
 			if ( in_array( 0, $this->dims, true ) ) {
 				return 'review_too_low';
@@ -197,12 +200,12 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 				return 'review_bad_tags';
 			}
 			# Check permissions with tags
-			if ( !FlaggedRevs::userCanSetFlags( $this->user, $this->dims, $this->oflags ) ) {
+			if ( !FlaggedRevs::userCanSetFlags( $this->user, $this->dims, $this->oldFlags ) ) {
 				return 'review_denied';
 			}
-		} elseif ( $this->getAction() === 'unapprove' ) {
+		} elseif ( $action === 'unapprove' ) {
 			# Check permissions with old tags
-			if ( !FlaggedRevs::userCanSetFlags( $this->user, $this->oflags ) ) {
+			if ( !FlaggedRevs::userCanSetFlags( $this->user, $this->oldFlags ) ) {
 				return 'review_denied';
 			}
 		}
@@ -230,8 +233,8 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 		return null;
 	}
 
-	/*
-	* What are we doing?
+	/**
+	* Get the action this submission is requesting
 	* @return string (approve,unapprove,reject)
 	*/
 	public function getAction() {
@@ -262,30 +265,28 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 			if ( !$rev || $rev->getVisibility() ) {
 				return 'review_bad_oldid';
 			}
-			$oldFrev = FlaggedRevision::newFromTitle( $this->page, $this->oldid, FR_MASTER );
 			# Check for review conflicts...
 			if ( $this->lastChangeTime !== null ) { // API uses null
-				$lastChange = $oldFrev ? $oldFrev->getTimestamp() : '';
+				$lastChange = $this->oldFrev ? $this->oldFrev->getTimestamp() : '';
 				if ( $lastChange !== $this->lastChangeTime ) {
 					return 'review_conflict_oldid';
 				}
 			}
-			$status = $this->approveRevision( $rev, $oldFrev );
+			$status = $this->approveRevision( $rev, $this->oldFrev );
 		# We can only unapprove approved revisions...
 		} elseif ( $this->getAction() === 'unapprove' ) {
-			$oldFrev = FlaggedRevision::newFromTitle( $this->page, $this->oldid, FR_MASTER );
 			# Check for review conflicts...
 			if ( $this->lastChangeTime !== null ) { // API uses null
-				$lastChange = $oldFrev ? $oldFrev->getTimestamp() : '';
+				$lastChange = $this->oldFrev ? $this->oldFrev->getTimestamp() : '';
 				if ( $lastChange !== $this->lastChangeTime ) {
 					return 'review_conflict_oldid';
 				}
 			}
 			# Check if we can find this flagged rev...
-			if ( !$oldFrev ) {
+			if ( !$this->oldFrev ) {
 				return 'review_not_flagged';
 			}
-			$status = $this->unapproveRevision( $oldFrev );
+			$status = $this->unapproveRevision( $this->oldFrev );
 		} elseif ( $this->getAction() === 'reject' ) {
 			$newRev = Revision::newFromTitle( $this->page, $this->oldid );
 			$oldRev = Revision::newFromTitle( $this->page, $this->refid );
@@ -402,7 +403,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 
 		# Update the article review log...
 		$oldSvId = $oldSv ? $oldSv->getRevId() : 0;
-		FlaggedRevsLog::updateReviewLog( $this->page, $this->dims, $this->oflags,
+		FlaggedRevsLog::updateReviewLog( $this->page, $this->dims, $this->oldFlags,
 			$this->comment, $this->oldid, $oldSvId, true );
 
 		# Get the new stable version as of now
@@ -437,7 +438,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 
 		# Update the article review log
 		$oldSvId = $oldSv ? $oldSv->getRevId() : 0;
-		FlaggedRevsLog::updateReviewLog( $this->page, $this->dims, $this->oflags,
+		FlaggedRevsLog::updateReviewLog( $this->page, $this->dims, $this->oldFlags,
 			$this->comment, $this->oldid, $oldSvId, false );
 
 		# Get the new stable version as of now
