@@ -197,7 +197,7 @@ $messages['da'] = array(
  * @author Merlissimo
  */
 $messages['de'] = array(
-	'configuredpages' => 'Seiten die hinsichtlich der Versionsmarkierung konfiguriert wurden',
+	'configuredpages' => 'Bezüglich Versionsmarkierungen konfigurierte Seiten',
 	'configuredpages-list' => 'Es folgt eine Liste der Seiten, deren Konfiguration zur Versionsmarkierung vom Standard der Website abweicht.
 Einige Einstellungen können eine Abweichung hinsichtlich der Version bewirken, die dem Leser angezeigt wird. Sie können auch den Kreis derjenigen weiter einschränken, deren Bearbeitungen keine weitere Durchsicht erfordert.',
 	'configuredpages-none' => 'Diese Liste enthält keine Seiten.',
