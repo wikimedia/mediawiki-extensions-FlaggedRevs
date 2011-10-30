@@ -474,7 +474,7 @@ class FlaggedRevsHooks {
 			# has content different than what the user expected. However, if
 			# the auto-merged edit was reviewed, then assume that it's OK.
 			if ( $editTimestamp != $prevTimestamp
-				&& !FlaggedRevision::revIsFlagged( $title, $prevRevId, FR_MASTER )
+				&& !FlaggedRevision::revIsFlagged( $prevRevId, FR_MASTER )
 			) {
 				return false; // not flagged?
 			}
@@ -601,7 +601,6 @@ class FlaggedRevsHooks {
 	* (d) If the edit is neither reviewable nor patrolleable, silently mark it patrolled
 	*/
 	public static function autoMarkPatrolled( RecentChange &$rc ) {
-		global $wgUser;
 		if ( empty( $rc->mAttribs['rc_this_oldid'] ) ) {
 			return true;
 		}
@@ -610,8 +609,7 @@ class FlaggedRevsHooks {
 		// Is the page reviewable?
 		if ( $fa->isReviewable() ) {
 			$revId = $rc->mAttribs['rc_this_oldid'];
-			$quality = FlaggedRevision::getRevQuality(
-				$rc->mAttribs['rc_cur_id'], $revId, FR_MASTER );
+			$quality = FlaggedRevision::getRevQuality( $revId, FR_MASTER );
 			// Reviewed => patrolled
 			if ( $quality !== false && $quality >= FR_CHECKED ) {
 				RevisionReviewForm::updateRecentChanges( $rc, 'patrol', $fa->getStableRev() );

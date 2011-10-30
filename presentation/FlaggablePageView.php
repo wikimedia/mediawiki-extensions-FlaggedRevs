@@ -1568,7 +1568,7 @@ class FlaggablePageView extends ContextSource {
 	protected static function getDiffRevMsgAndClass(
 		Revision $rev, FlaggedRevision $srev = null
 	) {
-		$tier = FlaggedRevision::getRevQuality( $rev->getPage(), $rev->getId() );
+		$tier = FlaggedRevision::getRevQuality( $rev->getId() );
 		if ( $tier !== false ) {
 			$msg = $tier
 				? 'revreview-hist-quality'

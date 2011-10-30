@@ -475,6 +475,9 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 	/**
 	* Update rc_patrolled fields in recent changes after (un)accepting a rev.
 	* This maintains the patrolled <=> reviewed relationship for reviewable namespaces.
+	*
+	* RecentChange should only be passed in when an RC item is saved.
+	*
 	* @param $rev Revision|RecentChange
 	* @param $patrol string "patrol" or "unpatrol"
 	* @param $srev FlaggedRevsion|null The new stable version
@@ -484,7 +487,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 		global $wgUseRCPatrol;
 
 		if ( $rev instanceof RecentChange ) {
-			$pageId = $rc->mAttribs['rc_cur_id'];
+			$pageId = $rev->mAttribs['rc_cur_id'];
 		} else {
 			$pageId = $rev->getPage();
 		}
