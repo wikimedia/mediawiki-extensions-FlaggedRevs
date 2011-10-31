@@ -1026,6 +1026,7 @@ $messages['ja'] = array(
  */
 $messages['ka'] = array(
 	'pendingchanges' => 'შემოწმების მომლოდინე გვერდები',
+	'pendingchanges-legend' => 'შემოწმების მომლოდინე გვერდების სია',
 	'pendingchanges-list' => 'გვერდები, რომლებიც ერთხელ [[{{MediaWiki:Validationpage}}|შემოწმდნენ]], მაგრამ ითხოვენ დამატებით შემოწმებას.',
 	'pendingchanges-none' => 'ამ დროისათვის არ არსებობს სტატიები ასეთი კრიტერიუმებით',
 	'pendingchanges-hours' => '($1 {{PLURAL:$1|საათი|საათი}})',
@@ -1035,8 +1036,10 @@ $messages['ka'] = array(
 	'pendingchanges-onwatchlist' => 'ჩემი კონტროლის სიის გვერდები',
 	'pendingchanges-stable' => 'სტაბილური გვერდები',
 	'pendingchanges-diff' => 'შემოწმება',
+	'pendingchanges-size' => 'მაქსიმალური ცვლილება (ბაიტები)',
 	'pendingchanges-unwatched' => '(არავის კონტროლის სიაში არ არის)',
 	'pendingchanges-watched' => 'ჩემი კონტროლის სიის გვერდები',
+	'pendingchanges-viewing' => 'მოწმდება',
 );
 
 /** Khmer (ភាសាខ្មែរ)

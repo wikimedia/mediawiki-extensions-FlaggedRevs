@@ -2868,6 +2868,7 @@ $messages['jut'] = array(
  * @author BRUTE
  * @author David1010
  * @author Dawid Deutschland
+ * @author Nodar Kherkheulidze
  * @author გიორგიმელა
  */
 $messages['ka'] = array(
@@ -2911,7 +2912,12 @@ $messages['ka'] = array(
 	'revreview-submit-unreviewed' => 'გაკეთდა. უარყოფილ იქნა!',
 	'revreview-successful' => "'''არჩეული ვერსია [[:$1|$1]] წარმატებით მოინიშნა. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} სტაბილური ვერსიების ხილვა])'''",
 	'revreview-successful2' => "'''არჩეული ვერსიისგან [[:$1|$1]] მონიშვნა მოხსნილია.'''",
+	'revreview-adv-reviewing-p' => 'შენიშვნა: სხვა შემმოწმებლები ხედავენ, რომ თქვენ ამოწმებთ ამ გვერდს.',
+	'revreview-adv-reviewing-c' => 'შენიშვნა: სხვა შემმოწმებლები ხედავენ, რომ თქვენ ამოწმებთ ამ ცვლილებებს.',
 	'revreview-sadv-reviewing-p' => 'თქვენ შეგიძლაით $1, რომ ამოწმებთ ამ სტატიას.',
+	'revreview-sadv-reviewing-c' => 'თქვენ შეგიძლიათ $1, რომ ამოწმებთ ამ ცვლილებებს.',
+	'revreview-adv-start-link' => 'გამოცხადება',
+	'revreview-adv-stop-link' => 'გამოცხადების გაუქმება',
 	'revreview-update' => "'''გთხოვთ [[{{MediaWiki:Validationpage}}|შეამოწმოთ]] ცვლილებები ''(ნაჩვენებია ქვემოთ)'', შეტანილი მიღებულ ვერსიაში.'''",
 	'revreview-update-includes' => 'ზოგი თარგი ან ფაილი განახლდა:',
 	'revreview-reject-summary' => 'რეზიუმე:',
@@ -5133,7 +5139,7 @@ $messages['tr'] = array(
 	'revreview-sadv-reviewing-p' => 'Bu sayfayı incelemekte olduğunuzu diğer kullanıcılara $1bilirsiniz.',
 	'revreview-sadv-reviewing-c' => 'Bu değişiklikleri incelemekte olduğunuzu diğer kullanıcılara $1bilirsiniz.',
 	'revreview-adv-start-link' => 'bildire',
-	'revreview-adv-stop-link' => 'bildirmeye',
+	'revreview-adv-stop-link' => 'Bildirme!',
 	'revreview-toolow' => '\'\'\'Bir revizyonun incelenmiş sayılabilmesi için özniteliklerin hepsini "yetersiz" düzeyden yüksek derecelendirmelisiniz.\'\'\'
 
 Bir revizyonun inceleme durumunu kaldırmak için, "kabul etme" seçeneğine tıklayın.
