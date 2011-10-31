@@ -296,11 +296,16 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 			} elseif ( !$newRev || $newRev->isDeleted( Revision::DELETED_TEXT ) ) {
 				return 'review_bad_oldid';
 			}
+			# Check that the revs are in order
+			if ( $oldRev->getTimestamp() > $newRev->getTimestamp() ) {
+				return 'review_cannot_undo';
+			}
+			# Make sure we are only rejecting pending changes
 			$srev = FlaggedRevision::newFromStable( $this->page, FR_MASTER );
-			if ( $srev && $srev->getRevId() > $oldRev->getId() ) {
+			if ( $srev && $oldRev->getTimestamp() < $srev->getRevTimestamp() ) {
 				return 'review_cannot_reject'; // not really a use case
 			}
-			$article = new Article( $this->page );
+			$article = new WikiPage( $this->page );
 			# Get text with changes after $oldRev up to and including $newRev removed
 			$new_text = $article->getUndoText( $newRev, $oldRev );
 			if ( $new_text === false ) {

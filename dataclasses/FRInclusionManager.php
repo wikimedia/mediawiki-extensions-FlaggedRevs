@@ -170,8 +170,7 @@ class FRInclusionManager {
 			$id = $this->stableVersions['templates'][$namespace][$dbKey];
 		}
 		if ( $id === null ) { // cache miss
-			$srev = FlaggedRevision::newFromStable( $title );
-			$id = $srev ? $srev->getRevId() : 0;
+			$id = FlaggedRevision::getStableRevId( $title );
 		}
 		$this->stableVersions['templates'][$namespace][$dbKey] = $id; // cache
 		return $id;

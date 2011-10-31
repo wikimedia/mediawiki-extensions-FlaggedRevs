@@ -548,9 +548,9 @@ class FlaggedRevsUIHooks {
 	// diff=review param (bug 16923)
 	public static function checkDiffUrl( $titleObj, &$mOldid, &$mNewid, $old, $new ) {
 		if ( $new === 'review' && isset( $titleObj ) ) {
-			$frev = FlaggedRevision::newFromStable( $titleObj );
-			if ( $frev ) {
-				$mOldid = $frev->getRevId(); // stable
+			$sRevId = FlaggedRevision::getStableRevId( $titleObj );
+			if ( $sRevId ) {
+				$mOldid = $sRevId; // stable
 				$mNewid = 0; // cur
 			}
 		}
