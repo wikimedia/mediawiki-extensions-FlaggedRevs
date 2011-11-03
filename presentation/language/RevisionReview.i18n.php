@@ -1339,7 +1339,7 @@ Pšosym pśeglědaj wšykne slědujuce změny, aby se twóje změny w stabilnej 
 
 Pšosym pśeglědaj wšykne slědujuce změny, aby je w stabilnej wersiji pokazali.',
 	'revreview-update-includes' => 'Pśedłogi/dataje su se zaktualizěrowali (njepśeglědane boki su tucnje wóznamjenjone):',
-	'revreview-reject-text-list' => "Jolic pśewjeźoš toś tu akciju, buźoš {{PLURAL:$1|slědujucu změnu|slědujucej změnje|slědujuce změny|slědujuce změny}} '''wótpokazowaś''':",
+	'revreview-reject-text-list' => "Jolic pśewjeźoš toś tu akciju, buźoš {{PLURAL:$1|slědujucu wersiju|slědujucej wersiju|slědujuce wersije|slědujuce wersije}} [[:$2|$2]] '''wótpokazowaś''':",
 	'revreview-reject-text-revto' => 'To buźo bok na [{{fullurl:$1|oldid=$2}} wersiju dnja $3] slědk stajaś.',
 	'revreview-reject-summary' => 'Zespominanje:',
 	'revreview-reject-confirm' => 'Toś te změny wótpokazaś',
@@ -1350,7 +1350,7 @@ Pšosym pśeglědaj wšykne slědujuce změny, aby je w stabilnej wersiji pokaza
 	'revreview-reject-summary-old-short' => '{{PLURAL:$1|Prědna změna|Prědnej změnje|Prědne změny|Prědne změny}}  {{PLURAL:$1|jo se wótpokazała|stej se wótpokazałej|su se wótpokazali|su se wótpokazali}}, {{PLURAL:$1|kótaraž|kótarejž|kótarež|kótarež}} {{PLURAL:$1|jo slědowała|stej slědowałej|su slědowali|su slědowali}} wersiji $2 wót $3',
 	'revreview-tt-flag' => 'Toś tu wersiju pśez markěrowanje ako pśekontrolěrowanu pśizwóliś',
 	'revreview-tt-unflag' => 'Toś tu wersiju pśez jeje markěrowanje ako "njepśekontrolěrowanu" wótpokazaś',
-	'revreview-tt-reject' => 'Toś te změny pśez slědkstajanje wótpokazaś',
+	'revreview-tt-reject' => 'Toś te změny žrědłowego teksta pśez slědkstajanje wótpokazaś',
 );
 
 /** Greek (Ελληνικά)
