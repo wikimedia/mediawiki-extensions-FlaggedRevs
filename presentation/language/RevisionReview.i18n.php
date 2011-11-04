@@ -1344,7 +1344,7 @@ Pšosym pśeglědaj wšykne slědujuce změny, aby je w stabilnej wersiji pokaza
 	'revreview-reject-summary' => 'Zespominanje:',
 	'revreview-reject-confirm' => 'Toś te změny wótpokazaś',
 	'revreview-reject-cancel' => 'Pśetergnuś',
-	'revreview-reject-summary-cur' => '{{PLURAL:$1|Slědna změna|Slědnej změnje|Slědne změny|Slědne změny}} wót $2 {{PLURAL:$1|jo se wótpokazała|stej se wótpokazałej|su se wótpokazali|su se wótpokazali}} a wersija $3 wót $4 jo se wótnowiła.',
+	'revreview-reject-summary-cur' => '{{PLURAL:$1|Slědna tekstowa změna|$1 slědnej tekstowej změnje|$1 slědne tekstowe změny|$1 slědnych změnow}} (wót $2) {{PLURAL:$1|jo se wótpokazała|stej se wótpokazałej|su se wótpokazali|jo se wótpokazało}} a wersija $3 wót $4 jo se wótnowiła.',
 	'revreview-reject-summary-old' => '{{PLURAL:$1|Prědna změna|Prědnej změnje|Prědne změny|Prědne změny}} wót $2, {{PLURAL:$1|kótaraž|kótarejž|kótarež|kótarež}} {{PLURAL:$1|jo slědowała|stej slědowałej|su slědowali|su slědowali}} wersiji $3 wót $4, {{PLURAL:$1|jo se wótpokazała|stej se wótpokazałej|su se wótpokazali|su se wótpokazali}}.',
 	'revreview-reject-summary-cur-short' => '{{PLURAL:$1|Sledna změna|Slědnej změnje|Slědne změny|Slědne změny}}  {{PLURAL:$1|jo se wótpokazała|stej se wótpokazałej|su se wótpokazali|su se wótpokazali}} a wersija $2 wót $3 jo se wótnowiła.',
 	'revreview-reject-summary-old-short' => '{{PLURAL:$1|Prědna změna|Prědnej změnje|Prědne změny|Prědne změny}}  {{PLURAL:$1|jo se wótpokazała|stej se wótpokazałej|su se wótpokazali|su se wótpokazali}}, {{PLURAL:$1|kótaraž|kótarejž|kótarež|kótarež}} {{PLURAL:$1|jo slědowała|stej slědowałej|su slědowali|su slědowali}} wersiji $2 wót $3',

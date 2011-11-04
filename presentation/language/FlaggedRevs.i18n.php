@@ -6586,6 +6586,7 @@ Je móžno, zo su so hižo nowe [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{
 /** Hungarian (Magyar)
  * @author Adam78
  * @author Bdamokos
+ * @author Bean49
  * @author Bennó
  * @author BáthoryPéter
  * @author Dani
@@ -6614,6 +6615,7 @@ $messages['hu'] = array(
 	'flaggedrevs-prefs-watch' => 'Az általam ellenőrzött lapok hozzáadása a figyelőlistámhoz',
 	'flaggedrevs-prefs-editdiffs' => 'Lap szerkesztésekor mutassa az utolsó ellenőrzött változattól való eltéréseket',
 	'flaggedrevs-prefs-viewdiffs' => 'A legfrissebb még ellenőrizetlen lapváltozatnál mutassa az utolsó ellenőrzött változattól való eltéréseket',
+	'flaggedrevs-hidereviewed' => 'ellenőrzött szerkesztések $1',
 	'group-editor' => 'járőrök',
 	'group-editor-member' => 'járőr',
 	'group-reviewer' => 'lektorok',
@@ -9657,6 +9659,8 @@ Mungkin ada [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrev
 	'revreview-style-2' => 'Baik',
 	'revreview-style-3' => 'Padat',
 	'revreview-style-4' => 'Terpilih',
+	'revreview-toggle-show' => '(+)',
+	'revreview-toggle-hide' => '(-)',
 	'revreview-toggle-title' => 'paparkan/sorokkan butiran',
 	'revreview-visibility-synced' => "'''Laman ini ada [[{{MediaWiki:Validationpage}}|versi stabil]] yang dikemas kini; tetapan kestabilan laman boleh [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} dikonfigurasi].'''",
 	'revreview-visibility-outdated' => "'''Laman ini ada [[{{MediaWiki:Validationpage}}|versi stabil]] yang lapuk; tetapan kestabilan laman boleh [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} dikonfigurasi].'''",
