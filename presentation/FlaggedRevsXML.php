@@ -57,13 +57,16 @@ class FlaggedRevsXML {
 	) {
 		$s = "<label for='wpLevel'>" . wfMsgHtml( 'revreview-levelfilter' ) . "</label>\n";
 		$s .= Xml::openElement( 'select', array( 'name' => 'level', 'id' => 'wpLevel' ) );
-		if ( $all !== false )
+		if ( $all !== false ) {
 			$s .= Xml::option( wfMsg( $all ), - 1, $selected === - 1 );
+		}
 		$s .= Xml::option( wfMsg( 'revreview-lev-basic' ), 0, $selected === 0 );
-		if ( FlaggedRevs::qualityVersions() )
+		if ( FlaggedRevs::qualityVersions() ) {
 			$s .= Xml::option( wfMsg( 'revreview-lev-quality' ), 1, $selected === 1 );
-		if ( $max >= 2 && FlaggedRevs::pristineVersions() )
+		}
+		if ( $max >= 2 && FlaggedRevs::pristineVersions() ) {
 			$s .= Xml::option( wfMsg( 'revreview-lev-pristine' ), 2, $selected === 2 );
+		}
 		# Note: Pristine not tracked at sp:QualityOversight (counts as quality)
 		$s .= Xml::closeElement( 'select' ) . "\n";
 		return $s;

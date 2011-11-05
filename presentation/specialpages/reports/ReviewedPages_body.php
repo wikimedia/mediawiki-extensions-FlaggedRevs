@@ -166,27 +166,30 @@ class ReviewedPagesPager extends AlphabeticPager {
 			'tables' => array( 'flaggedpages', 'page' ),
 			'fields' => 'page_namespace,page_title,page_len,fp_page_id',
 			'conds'  => $conds,
-			'options' => array( 'USE INDEX' => array( 'flaggedpages' => $index,
-				'page' => 'PRIMARY' ) )
+			'options' => array(
+				'USE INDEX' => array( 'flaggedpages' => $index, 'page' => 'PRIMARY' )
+			)
 		);
 	}
 
 	function getIndexField() {
 		return 'fp_page_id';
 	}
-	
-	function getStartBody() {
+
+	function doBatchLookups() {
 		wfProfileIn( __METHOD__ );
-		# Do a link batch query
 		$lb = new LinkBatch();
 		foreach ( $this->mResult as $row ) {
 			$lb->add( $row->page_namespace, $row->page_title );
 		}
 		$lb->execute();
 		wfProfileOut( __METHOD__ );
+	}
+
+	function getStartBody() {
 		return '<ul>';
 	}
-	
+
 	function getEndBody() {
 		return '</ul>';
 	}

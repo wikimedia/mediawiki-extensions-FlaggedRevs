@@ -339,13 +339,12 @@ class PendingChangesPager extends AlphabeticPager {
 		$query['category'] = $this->category;
 		return $query;
 	}
-	
+
 	function getDefaultDirections() {
 		return false;
 	}
 
 	function getQueryInfo() {
-		global $wgUser;
 		$tables = array( 'page', 'revision' );
 		$fields = array( 'page_namespace', 'page_title', 'page_len', 'rev_len', 'page_latest' );
 		# Show outdated "stable" versions
@@ -401,11 +400,14 @@ class PendingChangesPager extends AlphabeticPager {
 			$conds['page_namespace'] = $this->namespace;
 		}
 		# Filter by watchlist
-		if ( $this->watched && ( $uid = $wgUser->getId() ) ) {
-			$tables[] = 'watchlist';
-			$conds[] = "wl_user = '$uid'";
-			$conds[] = 'page_namespace = wl_namespace';
-			$conds[] = 'page_title = wl_title';
+		if ( $this->watched ) {
+			$uid = (int)$this->getUser()->getId();
+			if ( $uid ) {
+				$tables[] = 'watchlist';
+				$conds[] = "wl_user = '$uid'";
+				$conds[] = 'page_namespace = wl_namespace';
+				$conds[] = 'page_title = wl_title';
+			}
 		}
 		# Filter by bytes changed
 		if ( $this->size !== null && $this->size >= 0 ) {
@@ -423,19 +425,21 @@ class PendingChangesPager extends AlphabeticPager {
 	function getIndexField() {
 		return $this->mIndexField;
 	}
-	
-	function getStartBody() {
+
+	function doBatchLookups() {
 		wfProfileIn( __METHOD__ );
-		# Do a link batch query
 		$lb = new LinkBatch();
 		foreach ( $this->mResult as $row ) {
 			$lb->add( $row->page_namespace, $row->page_title );
 		}
 		$lb->execute();
 		wfProfileOut( __METHOD__ );
+	}
+
+	function getStartBody() {
 		return '<ul>';
 	}
-	
+
 	function getEndBody() {
 		return '</ul>';
 	}

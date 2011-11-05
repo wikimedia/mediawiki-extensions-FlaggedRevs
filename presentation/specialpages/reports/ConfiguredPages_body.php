@@ -177,18 +177,20 @@ class ConfiguredPagesPager extends AlphabeticPager {
 		return 'fpc_page_id';
 	}
 
-	function getStartBody() {
+	function doBatchLookups() {
 		wfProfileIn( __METHOD__ );
-		# Do a link batch query
 		$lb = new LinkBatch();
 		foreach ( $this->mResult as $row ) {
 			$lb->add( $row->page_namespace, $row->page_title );
 		}
 		$lb->execute();
 		wfProfileOut( __METHOD__ );
+	}
+
+	function getStartBody() {
 		return '<ul>';
 	}
-	
+
 	function getEndBody() {
 		return '</ul>';
 	}

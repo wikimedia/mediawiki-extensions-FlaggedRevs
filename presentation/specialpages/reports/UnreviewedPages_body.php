@@ -432,15 +432,17 @@ class UnreviewedPagesPager extends AlphabeticPager {
 		return $this->mIndexField;
 	}
 
-	function getStartBody() {
+	function doBatchLookups() {
 		wfProfileIn( __METHOD__ );
-		# Do a link batch query
 		$lb = new LinkBatch();
 		foreach ( $this->mResult as $row ) {
 			$lb->add( $row->page_namespace, $row->page_title );
 		}
 		$lb->execute();
 		wfProfileOut( __METHOD__ );
+	}
+
+	function getStartBody() {
 		return '<ul>';
 	}
 
