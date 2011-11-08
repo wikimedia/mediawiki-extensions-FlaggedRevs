@@ -15535,6 +15535,7 @@ $messages['zh-hans'] = array(
 /** Traditional Chinese (‪中文(繁體)‬)
  * @author Alexsh
  * @author Anakmalaysia
+ * @author Bencmq
  * @author Gaoxuewei
  * @author Horacewai2
  * @author Liangent
@@ -15563,10 +15564,10 @@ $messages['zh-hant'] = array(
 	'flaggedrevs-hidereviewed' => '$1已複審的編輯',
 	'group-editor' => '編輯',
 	'group-editor-member' => '編輯',
-	'group-reviewer' => '評論家',
-	'group-reviewer-member' => '評論家',
+	'group-reviewer' => '復審員',
+	'group-reviewer-member' => '復審員',
 	'grouppage-editor' => '{{ns:project}}：編者',
-	'grouppage-reviewer' => '{{ns:project}}：評論家',
+	'grouppage-reviewer' => '{{ns:project}}:復審員',
 	'group-autoreview' => '自動複查員',
 	'group-autoreview-member' => '自動複查員',
 	'grouppage-autoreview' => '{{ns:project}}：自動複審',
