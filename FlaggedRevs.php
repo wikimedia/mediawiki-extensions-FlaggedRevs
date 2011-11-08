@@ -23,6 +23,9 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 	exit( 1 );
 }
 
+# Stable constant to let extensions be aware that this is enabled
+define( 'FLAGGED_REVISIONS', true );
+
 $wgExtensionCredits['specialpage'][] = array(
 	'path'           => __FILE__,
 	'name'           => 'Flagged Revisions',
