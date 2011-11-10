@@ -1153,7 +1153,7 @@ $messages['ka'] = array(
  * @author វ័ណថារិទ្ធ
  */
 $messages['km'] = array(
-	'validationstatistics-ns' => 'ប្រភេទ',
+	'validationstatistics-ns' => 'លំហឈ្មោះ',
 	'validationstatistics-total' => 'ទំព័រ',
 	'validationstatistics-old' => 'ហួសសម័យ',
 	'validationstatistics-user' => 'អ្នកប្រើប្រាស់​',
