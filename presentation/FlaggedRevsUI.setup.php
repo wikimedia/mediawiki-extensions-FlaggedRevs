@@ -206,7 +206,7 @@ class FlaggedRevsUISetup {
 	 * @param $logActionsHandlers Array $wgLogActionsHandlers (assoc array of log handlers)
 	 * @return void
 	 */
-	public static function defineLogActionHanders( &$logActions, &$logActionsHandlers ) {
+	public static function defineLogActionHandlers( &$logActions, &$logActionsHandlers ) {
 		# Various actions are used for log filtering ...
 		$logActions['review/approve']  = 'review-logentry-app'; // checked (again)
 		$logActions['review/approve2']  = 'review-logentry-app'; // quality (again)

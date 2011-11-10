@@ -85,7 +85,7 @@ $wgLogTypes[] = 'stable';
 
 # Log name and description as well as action handlers
 FlaggedRevsUISetup::defineLogBasicDescription( $wgLogNames, $wgLogHeaders, $wgFilterLogTypes );
-FlaggedRevsUISetup::defineLogActionHanders( $wgLogActions, $wgLogActionsHandlers );
+FlaggedRevsUISetup::defineLogActionHandlers( $wgLogActions, $wgLogActionsHandlers );
 
 # JS/CSS modules and message bundles used by JS scripts
 FlaggedRevsUISetup::defineResourceModules( $wgResourceModules );
