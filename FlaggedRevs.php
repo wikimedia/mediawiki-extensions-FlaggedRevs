@@ -40,11 +40,6 @@ require( "FlaggedRevs.defines.php" );
 # Load default configuration variables
 require( "FlaggedRevs.config.php" );
 
-# XXX: Don't mess with dump HTML...
-if ( defined( 'MW_HTML_FOR_DUMP' ) ) {
-	return; // done after default config set to avoid LocalSettings errors
-}
-
 # Define were classes and i18n files are located
 require( "FlaggedRevs.setup.php" );
 FlaggedRevsSetup::defineSourcePaths(
@@ -96,7 +91,7 @@ FlaggedRevsUISetup::defineAjaxFunctions( $wgAjaxExportList );
 # Load the extension after setup is finished
 $wgExtensionFunctions[] = 'efLoadFlaggedRevs';
 
-/*
+/**
  * This function is for setup that has to happen in Setup.php
  * when the functions in $wgExtensionFunctions get executed.
  * Note: avoid calls to FlaggedRevs class here for performance.

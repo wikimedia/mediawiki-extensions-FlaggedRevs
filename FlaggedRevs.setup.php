@@ -9,6 +9,8 @@ class FlaggedRevsSetup {
 
 	/**
 	 * Signal that LocalSettings.php is loaded.
+	 
+	 * @return void
 	 */
 	public static function setReady() {
 		self::$canLoad = true;
@@ -16,6 +18,7 @@ class FlaggedRevsSetup {
 
 	/*
 	 * The FlaggedRevs class uses this as a sanity check.
+	 
 	 * @return bool
 	 */
 	public static function isReady() {
@@ -31,7 +34,9 @@ class FlaggedRevsSetup {
 	 * @param $aliasesFiles Array $wgExtensionAliasesFiles
 	 * @return void
 	 */
-	public static function defineSourcePaths( &$classes, &$messagesFiles, &$aliasesFiles ) {
+	public static function defineSourcePaths(
+		array &$classes, array &$messagesFiles, array &$aliasesFiles
+	) {
 		$dir = dirname( __FILE__ );
 
 		# Basic directory layout
@@ -233,15 +238,23 @@ class FlaggedRevsSetup {
 	 * @return void
 	 */
 	public static function setConditionalHooks() {
-		global $wgHooks;
-
-		# ######## User interface #########
-		FlaggedRevsUISetup::defineHookHandlers( $wgHooks );
-		# ########
+		global $wgHooks, $wgFlaggedRevsProtection;
 
 		# Give bots the 'autoreview' right (here so it triggers after CentralAuth)
 		# @TODO: better way to ensure hook order
 		$wgHooks['UserGetRights'][] = 'FlaggedRevsHooks::onUserGetRights';
+
+		if ( $wgFlaggedRevsProtection ) {
+			# Add pending changes related magic words
+			$wgHooks['ParserFirstCallInit'][] = 'FlaggedRevsHooks::onParserFirstCallInit';
+			$wgHooks['LanguageGetMagic'][] = 'FlaggedRevsHooks::onLanguageGetMagic';
+			$wgHooks['ParserGetVariableValueSwitch'][] = 'FlaggedRevsHooks::onParserGetVariableValueSwitch';
+			$wgHooks['MagicWordwgVariableIDs'][] = 'FlaggedRevsHooks::onMagicWordwgVariableIDs';
+		}
+
+		# ######## User interface #########
+		FlaggedRevsUISetup::defineHookHandlers( $wgHooks );
+		# ########
 	}
 
 	/**
@@ -252,6 +265,7 @@ class FlaggedRevsSetup {
 	public static function setAutopromoteConfig() {
 		global $wgFlaggedRevsAutoconfirm, $wgFlaggedRevsAutopromote;
 		global $wgAutopromoteOnce, $wgGroupPermissions;
+
 		# $wgFlaggedRevsAutoconfirm is now a wrapper around $wgAutopromoteOnce
 		$req = $wgFlaggedRevsAutoconfirm; // convenience
 		if ( is_array( $req ) ) {
@@ -312,6 +326,7 @@ class FlaggedRevsSetup {
 	 */
 	public static function setSpecialPages() {
 		global $wgSpecialPages, $wgSpecialPageGroups, $wgSpecialPageCacheUpdates;
+
 		FlaggedRevsUISetup::defineSpecialPages(
 			$wgSpecialPages, $wgSpecialPageGroups, $wgSpecialPageCacheUpdates );
 	}
@@ -324,6 +339,7 @@ class FlaggedRevsSetup {
 	public static function setAPIModules() {
 		global $wgAPIModules, $wgAPIListModules, $wgAPIPropModules;
 		global $wgFlaggedRevsProtection;
+
 		if ( $wgFlaggedRevsProtection ) {
 			$wgAPIModules['stabilize'] = 'ApiStabilizeProtect';
 		} else {
@@ -351,6 +367,7 @@ class FlaggedRevsSetup {
 	 */
 	public static function setConditionalRights() {
 		global $wgGroupPermissions, $wgFlaggedRevsProtection;
+
 		if ( $wgFlaggedRevsProtection ) {
 			// XXX: Removes sp:ListGroupRights cruft
 			if ( isset( $wgGroupPermissions['editor'] ) ) {
@@ -369,6 +386,7 @@ class FlaggedRevsSetup {
 	 */
 	public static function setConditionalPreferences() {
 		global $wgDefaultUserOptions, $wgSimpleFlaggedRevsUI;
+
 		$wgDefaultUserOptions['flaggedrevssimpleui'] = (int)$wgSimpleFlaggedRevsUI;
 	}
 }

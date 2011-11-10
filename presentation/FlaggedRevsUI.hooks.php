@@ -63,7 +63,7 @@ class FlaggedRevsUIHooks {
 	}
 
 	/*
-	* Add tag notice, CSS/JS, and set robots policy
+	* Add tag notice, CSS/JS, protect form link, and set robots policy
 	*/
 	public static function onBeforePageDisplay( &$out, &$skin ) {
 		if ( $out->getTitle()->getNamespace() != NS_SPECIAL ) {
