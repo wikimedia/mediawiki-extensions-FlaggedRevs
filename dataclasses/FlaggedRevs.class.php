@@ -21,22 +21,14 @@ class FlaggedRevs {
 	# Autoreview config
 	protected static $autoReviewConfig = 0;
 
-	protected static $canLoad = false;
 	protected static $loaded = false;
-
-	/**
-	 * Signal that LocalSettings.php is loaded
-	 */
-	public static function ready() {
-		self::$canLoad = true;
-	}
 
 	protected static function load() {
 		global $wgFlaggedRevsTags, $wgFlaggedRevTags;
 		if ( self::$loaded ) {
 			return true;
 		}
-		if ( !self::$canLoad ) { // sanity
+		if ( !FlaggedRevsSetup::isReady() ) { // sanity
 			wfDebugDieBacktrace( 'FlaggedRevs config loaded too soon! Possibly before LocalSettings.php!' );
 		}
 		self::$loaded = true;

@@ -5,6 +5,23 @@
  * Note: avoid  FlaggedRevs class calls here for performance (like load.php).
  */
 class FlaggedRevsSetup {
+	protected static $canLoad = false;
+
+	/**
+	 * Signal that LocalSettings.php is loaded.
+	 */
+	public static function setReady() {
+		self::$canLoad = true;
+	}
+
+	/*
+	 * The FlaggedRevs class uses this as a sanity check.
+	 * @return bool
+	 */
+	public static function isReady() {
+		return self::$canLoad;
+	}
+
 	/**
 	 * Register FlaggedRevs source code paths.
 	 * This function must NOT depend on any config vars.
@@ -289,13 +306,14 @@ class FlaggedRevsSetup {
 	}
 
 	/**
-	 * Set $wgSpecialPages and $wgSpecialPageGroups
+	 * Set special pages
 	 * 
 	 * @return void
 	 */
 	public static function setSpecialPages() {
-		global $wgSpecialPages, $wgSpecialPageGroups;
-		FlaggedRevsUISetup::defineSpecialPages( $wgSpecialPages, $wgSpecialPageGroups );
+		global $wgSpecialPages, $wgSpecialPageGroups, $wgSpecialPageCacheUpdates;
+		FlaggedRevsUISetup::defineSpecialPages(
+			$wgSpecialPages, $wgSpecialPageGroups, $wgSpecialPageCacheUpdates );
 	}
 
 	/**

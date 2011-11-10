@@ -88,9 +88,10 @@ class FlaggedRevsUISetup {
 	 * Register FlaggedRevs special pages as needed.
 	 * @param $pages Array $wgSpecialPages (list of special pages)
 	 * @param $groups Array $wgSpecialPageGroups (assoc array of special page groups)
+	 * @param $updates Array $wgSpecialPageCacheUpdates (assoc array of special page updaters)
 	 * @return void
 	 */
-	public static function defineSpecialPages( array &$pages, array &$groups ) {
+	public static function defineSpecialPages( array &$pages, array &$groups, array &$updates ) {
 		global $wgFlaggedRevsProtection, $wgFlaggedRevsNamespaces, $wgUseTagFilter;
 
 		// Show special pages only if FlaggedRevs is enabled on some namespaces
@@ -109,11 +110,13 @@ class FlaggedRevsUISetup {
 				$groups['ReviewedPages'] = 'quality';
 				$pages['UnreviewedPages'] = 'UnreviewedPages';
 				$groups['UnreviewedPages'] = 'quality';
+				$updates['UnreviewedPages'] = 'UnreviewedPages::updateQueryCache';
 			}
 			$pages['QualityOversight'] = 'QualityOversight';
 			$groups['QualityOversight'] = 'quality';
 			$pages['ValidationStatistics'] = 'ValidationStatistics';
 			$groups['ValidationStatistics'] = 'quality';
+			$updates['ValidationStatistics'] = 'FlaggedRevsStats::updateCache';
 			// Protect levels define allowed stability settings
 			if ( $wgFlaggedRevsProtection ) {
 				$pages['StablePages'] = 'StablePages';
@@ -168,6 +171,16 @@ class FlaggedRevsUISetup {
 			'localBasePath' => $localModulePath,
 			'remoteExtPath' => $remoteModulePath,
 		);
+	}
+
+	/**
+	 * Define AJAX dispatcher functions
+	 * @param $ajaxExportList Array $wgAjaxExportList
+	 * @return void
+	 */
+	public static function defineAjaxFunctions( &$ajaxExportList ) {
+		$ajaxExportList[] = 'RevisionReview::AjaxReview';
+		$ajaxExportList[] = 'FlaggablePageView::AjaxBuildDiffHeaderItems';
 	}
 
 	/**

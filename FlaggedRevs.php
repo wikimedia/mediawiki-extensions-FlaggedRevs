@@ -90,6 +90,9 @@ FlaggedRevsUISetup::defineLogActionHanders( $wgLogActions, $wgLogActionsHandlers
 # JS/CSS modules and message bundles used by JS scripts
 FlaggedRevsUISetup::defineResourceModules( $wgResourceModules );
 
+# AJAX functions
+FlaggedRevsUISetup::defineAjaxFunctions( $wgAjaxExportList );
+
 # Load the extension after setup is finished
 $wgExtensionFunctions[] = 'efLoadFlaggedRevs';
 
@@ -100,7 +103,7 @@ $wgExtensionFunctions[] = 'efLoadFlaggedRevs';
  */
 function efLoadFlaggedRevs() {
 	# LocalSettings.php loaded, safe to load config
-	FlaggedRevs::ready();
+	FlaggedRevsSetup::setReady();
 
 	# Conditional autopromote groups
 	FlaggedRevsSetup::setAutopromoteConfig();
@@ -116,14 +119,6 @@ function efLoadFlaggedRevs() {
 	# Defaults for user preferences
 	FlaggedRevsSetup::setConditionalPreferences();
 }
-
-# AJAX functions
-$wgAjaxExportList[] = 'RevisionReview::AjaxReview';
-$wgAjaxExportList[] = 'FlaggablePageView::AjaxBuildDiffHeaderItems';
-
-# Cache update
-$wgSpecialPageCacheUpdates['UnreviewedPages'] = 'UnreviewedPages::updateQueryCache';
-$wgSpecialPageCacheUpdates['ValidationStatistics'] = 'FlaggedRevsStats::updateCache';
 
 # B/C ...
 $wgLogActions['rights/erevoke']  = 'rights-editor-revoke';
