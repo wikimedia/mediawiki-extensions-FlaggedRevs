@@ -21,8 +21,8 @@ class FlaggablePageView extends ContextSource {
 	protected static $instance = null;
 
 	/*
-	* Get the FlaggablePageView for this request
-	*/
+	 * Get the FlaggablePageView for this request
+	 */
 	public static function singleton() {
 		if ( self::$instance == null ) {
 			self::$instance = new self();
@@ -33,16 +33,16 @@ class FlaggablePageView extends ContextSource {
 	protected function __clone() { }
 
 	/*
-	* Clear the FlaggablePageView for this request.
-	* Only needed when page redirection changes the environment.
-	*/
+	 * Clear the FlaggablePageView for this request.
+	 * Only needed when page redirection changes the environment.
+	 */
 	public function clear() {
 		self::$instance = null;
 	}
 
 	/*
-	* Load the global FlaggableWikiPage instance
-	*/
+	 * Load the global FlaggableWikiPage instance
+	 */
 	protected function load() {
 		if ( !$this->loaded ) {
 			$this->loaded = true;
@@ -179,7 +179,7 @@ class FlaggablePageView extends ContextSource {
 		return false;
 	}
 
-	 /**
+	/**
 	 * Is this a view page action (including diffs)?
 	 * @param $request WebRequest
 	 * @return bool
@@ -192,7 +192,7 @@ class FlaggablePageView extends ContextSource {
 		return self::isViewAction( $action );
 	}
 
-	 /**
+	/**
 	 * Is this a view page action (not including diffs)?
 	 * @param $request WebRequest
 	 * @return bool
@@ -202,7 +202,7 @@ class FlaggablePageView extends ContextSource {
 			&& $request->getVal( 'diff' ) === null;
 	}
 
-	 /**
+	/**
 	 * Is this a web request to just *view* the *default* version of a page?
 	 * @param $request WebRequest
 	 * @return bool
@@ -220,7 +220,7 @@ class FlaggablePageView extends ContextSource {
 		);
 	}
 
-	 /**
+	/**
 	 * Is this a view page action?
 	 * @param $action string from MediaWiki::getAction()
 	 * @return bool
@@ -229,7 +229,7 @@ class FlaggablePageView extends ContextSource {
 		return ( $action == 'view' || $action == 'purge' || $action == 'render' );
 	}
 
-	 /**
+	/**
 	 * Output review notice
 	 */
 	public function displayTag() {
@@ -241,7 +241,7 @@ class FlaggablePageView extends ContextSource {
 		return true;
 	}
 
-	 /**
+	/**
 	 * Add a stable link when viewing old versions of an article that
 	 * have been reviewed. (e.g. for &oldid=x urls)
 	 */
@@ -276,8 +276,8 @@ class FlaggablePageView extends ContextSource {
 	}
 
 	/**
-	* @return mixed int/false/null
-	*/
+	 * @return mixed int/false/null
+	 */
 	protected function getRequestedStableId() {
 		$request = $this->getRequest();
 		$reqId = $request->getVal( 'stableid' );
@@ -287,7 +287,7 @@ class FlaggablePageView extends ContextSource {
 		return $reqId;
 	}
 
-	 /**
+	/**
 	 * Replaces a page with the last stable version if possible
 	 * Adds stable version status/info tags and notes
 	 * Adds a quick review form on the bottom if needed
@@ -386,11 +386,11 @@ class FlaggablePageView extends ContextSource {
 	}
 
 	/**
-	* If the page has a stable version and it shows by default,
-	* tell search crawlers to index only that version of the page.
-	* Also index the draft as well if they are synced (bug 27173).
-	* However, any URL with ?stableid=x should not be indexed (as with ?oldid=x).
-	*/
+	 * If the page has a stable version and it shows by default,
+	 * tell search crawlers to index only that version of the page.
+	 * Also index the draft as well if they are synced (bug 27173).
+	 * However, any URL with ?stableid=x should not be indexed (as with ?oldid=x).
+	 */
 	public function setRobotPolicy() {
 		$request = $this->getRequest();
 		if ( $this->article->getStableRev() && $this->article->isStableShownByDefault() ) {
@@ -407,10 +407,10 @@ class FlaggablePageView extends ContextSource {
 	}
 
 	/**
-	* @param $tag review box/bar info
-	* @param $prot protection notice
-	* Tag output function must be called by caller
-	*/
+	 * @param $tag review box/bar info
+	 * @param $prot protection notice
+	 * Tag output function must be called by caller
+	 */
 	protected function showUnreviewedPage( $tag, $prot ) {
 		if ( $this->out->isPrintable() ) {
 			return; // all this function does is add notices; don't show them
@@ -432,13 +432,13 @@ class FlaggablePageView extends ContextSource {
 	}
 
 	/**
-	* Tag output function must be called by caller
-	* Parser cache control deferred to caller
-	* @param $srev stable version
-	* @param $tag review box/bar info
-	* @param $prot protection notice icon
-	* @return void
-	*/
+	 * Tag output function must be called by caller
+	 * Parser cache control deferred to caller
+	 * @param $srev stable version
+	 * @param $tag review box/bar info
+	 * @param $prot protection notice icon
+	 * @return void
+	 */
 	protected function showDraftVersion( FlaggedRevision $srev, &$tag, $prot ) {
 		$request = $this->getRequest();
 		$reqUser = $this->getUser();
@@ -544,14 +544,14 @@ class FlaggablePageView extends ContextSource {
 	}
 
 	/**
-	* Tag output function must be called by caller
-	* Parser cache control deferred to caller
-	* @param $srev stable version
-	* @param $frev selected flagged revision
-	* @param $tag review box/bar info
-	* @param $prot protection notice icon
-	* @return ParserOutput
-	*/
+	 * Tag output function must be called by caller
+	 * Parser cache control deferred to caller
+	 * @param $srev stable version
+	 * @param $frev selected flagged revision
+	 * @param $tag review box/bar info
+	 * @param $prot protection notice icon
+	 * @return ParserOutput
+	 */
 	protected function showOldReviewedVersion( FlaggedRevision $frev, &$tag, $prot ) {
 		$reqUser = $this->getUser();
 		$this->load();
@@ -623,13 +623,13 @@ class FlaggablePageView extends ContextSource {
 	}
 
 	/**
-	* Tag output function must be called by caller
-	* Parser cache control deferred to caller
-	* @param $srev stable version
-	* @param $tag review box/bar info
-	* @param $prot protection notice
-	* @return ParserOutput
-	*/
+	 * Tag output function must be called by caller
+	 * Parser cache control deferred to caller
+	 * @param $srev stable version
+	 * @param $tag review box/bar info
+	 * @param $prot protection notice
+	 * @return ParserOutput
+	 */
 	protected function showStableVersion( FlaggedRevision $srev, &$tag, $prot ) {
 		$reqUser = $this->getUser();
 		$this->load();
@@ -750,11 +750,11 @@ class FlaggablePageView extends ContextSource {
 	}
 
 	/**
-	* Get collapsible diff-to-stable html to add to the review notice as needed
-	* @param FlaggedRevision $srev, stable version
-	* @param bool $quality, revision is quality
-	* @return string, the html line (either "" or "<diff toggle><diff div>")
-	*/
+	 * Get collapsible diff-to-stable html to add to the review notice as needed
+	 * @param FlaggedRevision $srev, stable version
+	 * @param bool $quality, revision is quality
+	 * @return string, the html line (either "" or "<diff toggle><diff div>")
+	 */
 	protected function getTopDiffToggle( FlaggedRevision $srev, $quality ) {
 		$reqUser = $this->getUser();
 		$this->load();
@@ -1052,7 +1052,7 @@ class FlaggablePageView extends ContextSource {
 		return true;
 	}
 
-	 /**
+	/**
 	 * Add review form to pages when necessary on a regular page view (action=view).
 	 * If $output is an OutputPage then this prepends the form onto it.
 	 * If $output is a string then this appends the review form to it.
@@ -1127,7 +1127,7 @@ class FlaggablePageView extends ContextSource {
 		return true;
 	}
 
-	 /**
+	/**
 	 * Add link to stable version setting to protection form
 	 */
 	public function addStabilizationLink() {
@@ -1364,13 +1364,13 @@ class FlaggablePageView extends ContextSource {
 	}
 
 	/**
-	* When viewing a diff:
-	* (a) Add the review form to the top of the page
-	* (b) Mark off which versions are checked or not
-	* (c) When comparing the stable revision to the current:
-	*   (i)  Show a tag with some explanation for the diff
-	*   (ii) List any template/file changes pending review
-	*/
+	 * When viewing a diff:
+	 * (a) Add the review form to the top of the page
+	 * (b) Mark off which versions are checked or not
+	 * (c) When comparing the stable revision to the current:
+	 *   (i)  Show a tag with some explanation for the diff
+	 *   (ii) List any template/file changes pending review
+	 */
 	public function addToDiffView( $diff, $oldRev, $newRev ) {
 		global $wgMemc, $wgParserCacheExpireTime;
 		$request = $this->getRequest();
@@ -1489,10 +1489,10 @@ class FlaggablePageView extends ContextSource {
 	}
 
 	/**
-	* (a) Add a link to diff from stable to current as needed
-	* (b) Show review status of the diff revision(s). Uses a <table>.
-	* Note: used by ajax function to rebuild diff page
-	*/
+	 * (a) Add a link to diff from stable to current as needed
+	 * (b) Show review status of the diff revision(s). Uses a <table>.
+	 * Note: used by ajax function to rebuild diff page
+	 */
 	public static function diffLinkAndMarkers( FlaggableWikiPage $article, $oldRev, $newRev ) {
 		$s = '<form id="mw-fr-diff-dataform">';
 		$s .= Html::hidden( 'oldid', $oldRev ? $oldRev->getId() : 0 );
@@ -1506,8 +1506,8 @@ class FlaggablePageView extends ContextSource {
 	}
 
 	/**
-	* Add a link to diff-to-stable for reviewable pages
-	*/
+	 * Add a link to diff-to-stable for reviewable pages
+	 */
 	protected static function diffToStableLink(
 		FlaggableWikiPage $article, $oldRev, Revision $newRev
 	) {
@@ -1535,8 +1535,8 @@ class FlaggablePageView extends ContextSource {
 	}
 
 	/**
-	* Add [checked version] and such to left and right side of diff
-	*/
+	 * Add [checked version] and such to left and right side of diff
+	 */
 	protected static function diffReviewMarkers( FlaggableWikiPage $article, $oldRev, $newRev ) {
 		$table = '';
 		$srev = $article->getStableRev();
@@ -1628,9 +1628,9 @@ class FlaggablePageView extends ContextSource {
 	}
 
 	/**
-	* Set $this->isDiffFromStable and $this->isMultiPageDiff fields
-	* Note: $oldRev could be false
-	*/
+	 * Set $this->isDiffFromStable and $this->isMultiPageDiff fields
+	 * Note: $oldRev could be false
+	 */
 	public function setViewFlags( $diff, $oldRev, $newRev ) {
 		$this->load();
 		// We only want valid diffs that actually make sense...
@@ -1668,9 +1668,9 @@ class FlaggablePageView extends ContextSource {
 	}
 
 	/**
-	* Redirect users out to review the changes to the stable version.
-	* Only for people who can review and for pages that have a stable version.
-	*/
+	 * Redirect users out to review the changes to the stable version.
+	 * Only for people who can review and for pages that have a stable version.
+	 */
 	public function injectPostEditURLParams( &$sectionAnchor, &$extraQuery ) {
 		$reqUser = $this->getUser();
 		$this->load();
@@ -1713,10 +1713,10 @@ class FlaggablePageView extends ContextSource {
 	}
 
 	/**
-	* If submitting the edit will leave it pending, then change the button text
-	* Note: interacts with 'review pending changes' checkbox
-	* @TODO: would be nice if hook passed in button attribs, not XML
-	*/
+	 * If submitting the edit will leave it pending, then change the button text
+	 * Note: interacts with 'review pending changes' checkbox
+	 * @TODO: would be nice if hook passed in button attribs, not XML
+	 */
 	public function changeSaveButton( EditPage $editPage, array &$buttons ) {
 		if ( !$this->editWillRequireReview( $editPage ) ) {
 			return true; // edit will go live or be reviewed on save
@@ -1740,10 +1740,10 @@ class FlaggablePageView extends ContextSource {
 	}
 
 	/**
-	* If this edit will not go live on submit (accounting for wpReviewEdit)
-	* @param EditPage $editPage
-	* @return bool
-	*/
+	 * If this edit will not go live on submit (accounting for wpReviewEdit)
+	 * @param EditPage $editPage
+	 * @return bool
+	 */
 	protected function editWillRequireReview( EditPage $editPage ) {
 		$request = $this->getRequest();
 		$title = $this->article->getTitle(); // convenience
@@ -1756,10 +1756,10 @@ class FlaggablePageView extends ContextSource {
 	}
 
 	/**
-	* If this edit will not go live on submit unless wpReviewEdit is checked
-	* @param EditPage $editPage
-	* @return bool
-	*/
+	 * If this edit will not go live on submit unless wpReviewEdit is checked
+	 * @param EditPage $editPage
+	 * @return bool
+	 */
 	protected function editRequiresReview( EditPage $editPage ) {
 		if ( !$this->article->editsRequireReview() ) {
 			return false; // edits go live immediatly
@@ -1770,11 +1770,11 @@ class FlaggablePageView extends ContextSource {
 	}
 
 	/**
-	* If this edit will be auto-reviewed on submit
-	* Note: checking wpReviewEdit does not count as auto-reviewed
-	* @param EditPage $editPage
-	* @return bool
-	*/
+	 * If this edit will be auto-reviewed on submit
+	 * Note: checking wpReviewEdit does not count as auto-reviewed
+	 * @param EditPage $editPage
+	 * @return bool
+	 */
 	protected function editWillBeAutoreviewed( EditPage $editPage ) {
 		$title = $this->article->getTitle(); // convenience
 		if ( !$this->article->isReviewable() ) {
@@ -1796,10 +1796,10 @@ class FlaggablePageView extends ContextSource {
 	}
 
 	/**
-	* Add a "review pending changes" checkbox to the edit form iff:
-	* (a) there are currently any revisions pending (bug 16713)
-	* (b) this is an unreviewed page (bug 23970)
-	*/
+	 * Add a "review pending changes" checkbox to the edit form iff:
+	 * (a) there are currently any revisions pending (bug 16713)
+	 * (b) this is an unreviewed page (bug 23970)
+	 */
 	public function addReviewCheck( EditPage $editPage, array &$checkboxes, &$tabindex ) {
 		$request = $this->getRequest();
 		$title = $this->article->getTitle(); // convenience
@@ -1843,11 +1843,11 @@ class FlaggablePageView extends ContextSource {
 	}
 
 	/**
-	* (a) Add a hidden field that has the rev ID the text is based off.
-	* (b) If an edit was undone, add a hidden field that has the rev ID of that edit.
-	* Needed for autoreview and user stats (for autopromote).
-	* Note: baseRevId trusted for Reviewers - text checked for others.
-	*/
+	 * (a) Add a hidden field that has the rev ID the text is based off.
+	 * (b) If an edit was undone, add a hidden field that has the rev ID of that edit.
+	 * Needed for autoreview and user stats (for autopromote).
+	 * Note: baseRevId trusted for Reviewers - text checked for others.
+	 */
 	public function addRevisionIDField( EditPage $editPage, OutputPage $out ) {
 		$revId = self::getBaseRevId( $editPage, $this->getRequest() );
 		$out->addHTML( "\n" . Html::hidden( 'baseRevId', $revId ) );
@@ -1857,10 +1857,10 @@ class FlaggablePageView extends ContextSource {
 	}
 
 	/**
-	* Guess the rev ID the text of this form is based off
-	* Note: baseRevId trusted for Reviewers - check text for others.
-	* @return int
-	*/
+	 * Guess the rev ID the text of this form is based off
+	 * Note: baseRevId trusted for Reviewers - check text for others.
+	 * @return int
+	 */
 	protected static function getBaseRevId( EditPage $editPage, WebRequest $request ) {
 		if ( !isset( $editPage->fr_baseRevId ) ) {
 			$article = $editPage->getArticle(); // convenience

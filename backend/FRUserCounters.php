@@ -4,12 +4,12 @@
  */
 class FRUserCounters {
 	/**
-	* Get params for a user ID
-	* @param int $uid
-	* @param int $flags FR_MASTER, FR_FOR_UPDATE
-	* @param string $dBName, optional wiki name
-	* @return array
-	*/
+	 * Get params for a user ID
+	 * @param int $uid
+	 * @param int $flags FR_MASTER, FR_FOR_UPDATE
+	 * @param string $dBName, optional wiki name
+	 * @return array
+	 */
 	public static function getUserParams( $uid, $flags = 0, $dBName = false ) {
 		$p = array();
 		$row = self::fetchParamsRow( $uid, $flags, $dBName );
@@ -21,10 +21,10 @@ class FRUserCounters {
 	}
 
 	/**
-	* Get params for a user
-	* @param User $user
-	* @return array|null
-	*/
+	 * Get params for a user
+	 * @param User $user
+	 * @return array|null
+	 */
 	public static function getParams( User $user ) {
 		if ( $user->getId() ) {
 			if ( !isset( $user->fr_user_params ) ) { // process cache...
@@ -36,9 +36,9 @@ class FRUserCounters {
 	}
 
 	/**
-	* Initializes unset param fields to their starting values
-	* @param &array $p
-	*/
+	 * Initializes unset param fields to their starting values
+	 * @param &array $p
+	 */
 	protected static function setUnitializedFields( array &$p ) {
 		if ( !isset( $p['uniqueContentPages'] ) ) {
 			$p['uniqueContentPages'] = array();
@@ -55,12 +55,12 @@ class FRUserCounters {
 	}
 
 	/**
-	* Get the params row for a user
-	* @param int $uid
-	* @param int $flags FR_MASTER, FR_FOR_UPDATE
-	* @param string $dBName, optional wiki name
-	* @return mixed (false or Row)
-	*/
+	 * Get the params row for a user
+	 * @param int $uid
+	 * @param int $flags FR_MASTER, FR_FOR_UPDATE
+	 * @param string $dBName, optional wiki name
+	 * @return mixed (false or Row)
+	 */
 	protected static function fetchParamsRow( $uid, $flags = 0, $dBName = false ) {
 		$options = array();
 		if ( $flags & FR_MASTER || $flags & FR_FOR_UPDATE ) {
@@ -78,12 +78,12 @@ class FRUserCounters {
 	}
 
 	/**
-	* Save params for a user
-	* @param int $uid
-	* @param array $params
-	* @param string $dBName, optional wiki name
-	* @return bool success
-	*/
+	 * Save params for a user
+	 * @param int $uid
+	 * @param array $params
+	 * @param string $dBName, optional wiki name
+	 * @return bool success
+	 */
 	public static function saveUserParams( $uid, array $params, $dBName = false ) {
 		$dbw = wfGetDB( DB_MASTER, array(), $dBName );
 		$dbw->replace( 'flaggedrevs_promote',
@@ -96,11 +96,11 @@ class FRUserCounters {
 	}
 
 	/**
-	* Increments a count for a user
-	* @param int $uid User id
-	* @param string $param Count name
-	* @return string
-	*/
+	 * Increments a count for a user
+	 * @param int $uid User id
+	 * @param string $param Count name
+	 * @return string
+	 */
 	public static function incCount( $uid, $param ) {
 		$p = self::getUserParams( $uid, FR_FOR_UPDATE );
 		if ( !isset( $p[$param] ) ) {
@@ -111,11 +111,11 @@ class FRUserCounters {
 	}
 
 	/**
-	* Flatten params for a user for DB storage
-	* Note: param values must be integers
-	* @param array $params
-	* @return string
-	*/
+	 * Flatten params for a user for DB storage
+	 * Note: param values must be integers
+	 * @param array $params
+	 * @return string
+	 */
 	protected static function flattenParams( array $params ) {
 		$flatRows = array();
 		foreach ( $params as $key => $value ) {
@@ -133,10 +133,10 @@ class FRUserCounters {
 	}
 
 	/**
-	* Expand params for a user from DB storage
-	* @param string $flatPars
-	* @return array
-	*/
+	 * Expand params for a user from DB storage
+	 * @param string $flatPars
+	 * @return array
+	 */
 	protected static function expandParams( $flatPars ) {
 		$p = array(); // init
 		$flatPars = explode( "\n", trim( $flatPars ) );
@@ -157,12 +157,12 @@ class FRUserCounters {
 	}
 
 	/**
-	* Update users params array for a user on edit
-	* @param &array $p user params
-	* @param Page $article the article just edited
-	* @param string $summary edit summary
-	* @return bool anything changed
-	*/
+	 * Update users params array for a user on edit
+	 * @param &array $p user params
+	 * @param Page $article the article just edited
+	 * @param string $summary edit summary
+	 * @return bool anything changed
+	 */
 	public static function updateUserParams( array &$p, Page $article, $summary ) {
 		global $wgFlaggedRevsAutoconfirm, $wgFlaggedRevsAutopromote;
 		# Update any special counters for non-null revisions

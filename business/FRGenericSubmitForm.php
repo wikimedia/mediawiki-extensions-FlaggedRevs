@@ -23,31 +23,31 @@ abstract class FRGenericSubmitForm {
 	}
 
 	/**
-	* Initialize any parameters on construction
-	* @return void
-	*/
+	 * Initialize any parameters on construction
+	 * @return void
+	 */
 	protected function initialize() {}
 
 	/**
-	* Get the submitting user
-	* @return User
-	*/
+	 * Get the submitting user
+	 * @return User
+	 */
 	final public function getUser() {
 		return $this->user;
 	}
 
 	/**
-	* Get the internal form state
-	* @return int
-	*/
+	 * Get the internal form state
+	 * @return int
+	 */
 	final protected function getState() {
 		return $this->state;
 	}
 
 	/**
-	* Signal that inputs are all given (via accessors)
-	* @return mixed (true on success, error string on target failure)
-	*/
+	 * Signal that inputs are all given (via accessors)
+	 * @return mixed (true on success, error string on target failure)
+	 */
 	final public function ready() {
 		if ( $this->state != self::FORM_UNREADY ) {
 			throw new MWException( __CLASS__ . " ready() already called.\n");
@@ -61,20 +61,20 @@ abstract class FRGenericSubmitForm {
 	}
 
 	/**
-	* Load any objects after ready() called
-	* NOTE: do not do any DB hits here, just build objects
-	* @return mixed (true on success, error string on failure)
-	*/
+	 * Load any objects after ready() called
+	 * NOTE: do not do any DB hits here, just build objects
+	 * @return mixed (true on success, error string on failure)
+	 */
 	protected function doBuildOnReady() {
 		return true;
 	}
 
 	/**
-	* Set a member field to a value if the fields are unlocked
-	* @param mixed &$field Field of this form
-	* @param mixed $value Value to set the field to
-	* @return void
-	*/
+	 * Set a member field to a value if the fields are unlocked
+	 * @param mixed &$field Field of this form
+	 * @param mixed $value Value to set the field to
+	 * @return void
+	 */
 	final protected function trySet( &$field, $value ) {
 		if ( $this->state != self::FORM_UNREADY ) {
 			throw new MWException( __CLASS__ . " fields cannot be set anymore.\n");
@@ -84,28 +84,28 @@ abstract class FRGenericSubmitForm {
 	}
 
 	/*
-	* Check that a target is given (e.g. from GET/POST request)
-	* NOTE: do not do any DB hits here, just check if there is a target
-	* @return mixed (true on success, error string on failure)
-	*/
+	 * Check that a target is given (e.g. from GET/POST request)
+	 * NOTE: do not do any DB hits here, just check if there is a target
+	 * @return mixed (true on success, error string on failure)
+	 */
 	protected function doCheckTargetGiven() {
 		return true;
 	}
 
 	/*
-	* Check that the target is valid (e.g. from GET/POST request)
-	* @param int $flags FOR_SUBMISSION (set on submit)
-	* @return mixed (true on success, error string on failure)
-	*/
+	 * Check that the target is valid (e.g. from GET/POST request)
+	 * @param int $flags FOR_SUBMISSION (set on submit)
+	 * @return mixed (true on success, error string on failure)
+	 */
 	protected function doCheckTarget( $flags = 0 ) {
 		return true;
 	}
 
 	/*
-	* Check that a target is and it is valid (e.g. from GET/POST request)
-	* NOTE: do not do any DB hits here, just check if there is a target
-	* @return mixed (true on success, error string on failure)
-	*/
+	 * Check that a target is and it is valid (e.g. from GET/POST request)
+	 * NOTE: do not do any DB hits here, just check if there is a target
+	 * @return mixed (true on success, error string on failure)
+	 */
 	final public function checkTarget() {
 		if ( $this->state != self::FORM_READY ) {
 			throw new MWException( __CLASS__ . " input fields not set yet.\n");
@@ -118,9 +118,9 @@ abstract class FRGenericSubmitForm {
 	}
 
 	/*
-	* Validate and clean up target/parameters (e.g. from POST request)
-	* @return mixed (true on success, error string on failure)
-	*/
+	 * Validate and clean up target/parameters (e.g. from POST request)
+	 * @return mixed (true on success, error string on failure)
+	 */
 	final protected function checkParameters() {
 		$status = $this->checkTarget( self::FOR_SUBMISSION );
 		if ( $status !== true ) {
@@ -130,18 +130,18 @@ abstract class FRGenericSubmitForm {
 	}
 
 	/*
-	* Verify and clean up parameters (e.g. from POST request)
-	* @return mixed (true on success, error string on failure)
-	*/
+	 * Verify and clean up parameters (e.g. from POST request)
+	 * @return mixed (true on success, error string on failure)
+	 */
 	protected function doCheckParameters() {
 		return true;
 	}
 
 	/*
-	* Preload existing params for the target from the DB (e.g. for GET request)
-	* NOTE: do not call this and then submit()
-	* @return mixed (true on success, error string on failure)
-	*/
+	 * Preload existing params for the target from the DB (e.g. for GET request)
+	 * NOTE: do not call this and then submit()
+	 * @return mixed (true on success, error string on failure)
+	 */
 	final public function preload() {
 		if ( $this->state != self::FORM_READY ) {
 			throw new MWException( __CLASS__ . " input fields not set yet.\n");
@@ -159,17 +159,17 @@ abstract class FRGenericSubmitForm {
 	}
 
 	/*
-	* Preload existing params for the target from the DB (e.g. for GET request)
-	* @return mixed (true on success, error string on failure)
-	*/
+	 * Preload existing params for the target from the DB (e.g. for GET request)
+	 * @return mixed (true on success, error string on failure)
+	 */
 	protected function doPreloadParameters() {
 		return true;
 	}
 
 	/**
-	* Submit the form parameters for the page config to the DB
-	* @return mixed (true on success, error string on failure)
-	*/
+	 * Submit the form parameters for the page config to the DB
+	 * @return mixed (true on success, error string on failure)
+	 */
 	final public function submit() {
 		if ( $this->state != self::FORM_READY ) {
 			throw new MWException( __CLASS__ . " input fields preloaded or not set yet.\n");
@@ -187,9 +187,9 @@ abstract class FRGenericSubmitForm {
 	}
 
 	/**
-	* Submit the form parameters for the page config to the DB
-	* @return mixed (true on success, error string on failure)
-	*/
+	 * Submit the form parameters for the page config to the DB
+	 * @return mixed (true on success, error string on failure)
+	 */
 	protected function doSubmit() {
 		return true;
 	}

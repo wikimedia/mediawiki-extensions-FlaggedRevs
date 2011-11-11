@@ -4,8 +4,8 @@
  */
 class FlaggedRevsHooks {
 	/**
-	* Update flaggedrevs table on revision restore
-	*/
+	 * Update flaggedrevs table on revision restore
+	 */
 	public static function onRevisionRestore( $title, Revision $revision, $oldPageID ) {
 		$dbw = wfGetDB( DB_MASTER );
 		# Some revisions may have had null rev_id values stored when deleted.
@@ -20,8 +20,8 @@ class FlaggedRevsHooks {
 	}
 
 	/**
-	* Update flaggedrevs page/tracking tables (revision moving)
-	*/
+	 * Update flaggedrevs page/tracking tables (revision moving)
+	 */
 	public static function onArticleMergeComplete( Title $sourceTitle, Title $destTitle ) {
 		$oldPageID = $sourceTitle->getArticleID();
 		$newPageID = $destTitle->getArticleID();
@@ -56,9 +56,9 @@ class FlaggedRevsHooks {
 	}
 
 	/**
-	* (a) Update flaggedrevs page/tracking tables
-	* (b) Autoreview pages moved into content NS
-	*/
+	 * (a) Update flaggedrevs page/tracking tables
+	 * (b) Autoreview pages moved into content NS
+	 */
 	public static function onTitleMoveComplete(
 		Title $otitle, Title $ntitle, $user, $pageId
 	) {
@@ -87,10 +87,10 @@ class FlaggedRevsHooks {
 	}
 
 	/**
-	* (a) Update flaggedrevs page/tracking tables
-	* (b) Pages with stable versions that use this page will be purged
-	* Note: pages with current versions that use this page should already be purged
-	*/
+	 * (a) Update flaggedrevs page/tracking tables
+	 * (b) Pages with stable versions that use this page will be purged
+	 * Note: pages with current versions that use this page should already be purged
+	 */
 	public static function onArticleEditUpdates( Page $article, $editInfo ) {
 		FlaggedRevs::stableVersionUpdates( $article->getTitle(), null, null, $editInfo );
 		FlaggedRevs::extraHTMLCacheUpdate( $article->getTitle() );
@@ -98,10 +98,10 @@ class FlaggedRevsHooks {
 	}
 
 	/**
-	* (a) Update flaggedrevs page/tracking tables
-	* (b) Pages with stable versions that use this page will be purged
-	* Note: pages with current versions that use this page should already be purged
-	*/
+	 * (a) Update flaggedrevs page/tracking tables
+	 * (b) Pages with stable versions that use this page will be purged
+	 * Note: pages with current versions that use this page should already be purged
+	 */
 	public static function onArticleDelete( Page $article, $user, $reason, $id ) {
 		FlaggedRevs::clearTrackingRows( $id );
 		FlaggedRevs::extraHTMLCacheUpdate( $article->getTitle() );
@@ -109,10 +109,10 @@ class FlaggedRevsHooks {
 	}
 
 	/**
-	* (a) Update flaggedrevs page/tracking tables
-	* (b) Pages with stable versions that use this page will be purged
-	* Note: pages with current versions that use this page should already be purged
-	*/
+	 * (a) Update flaggedrevs page/tracking tables
+	 * (b) Pages with stable versions that use this page will be purged
+	 * Note: pages with current versions that use this page should already be purged
+	 */
 	public static function onArticleUndelete( Title $title ) {
 		FlaggedRevs::stableVersionUpdates( $title );
 		FlaggedRevs::HTMLCacheUpdates( $title );
@@ -120,10 +120,10 @@ class FlaggedRevsHooks {
 	}
 
 	/**
-	* (a) Update flaggedrevs page/tracking tables
-	* (b) Pages with stable versions that use this page will be purged
-	* Note: pages with current versions that use this page should already be purged
-	*/
+	 * (a) Update flaggedrevs page/tracking tables
+	 * (b) Pages with stable versions that use this page will be purged
+	 * Note: pages with current versions that use this page should already be purged
+	 */
 	public static function onFileUpload( File $file ) {
 		FlaggedRevs::stableVersionUpdates( $file->getTitle() );
 		FlaggedRevs::extraHTMLCacheUpdate( $file->getTitle() );
@@ -131,8 +131,8 @@ class FlaggedRevsHooks {
 	}
 
 	/**
-	* Update flaggedrevs page/tracking tables
-	*/
+	 * Update flaggedrevs page/tracking tables
+	 */
 	public static function onRevisionDelete( Title $title ) {
 		$changed = FlaggedRevs::stableVersionUpdates( $title );
 		if ( $changed ) {
@@ -142,9 +142,9 @@ class FlaggedRevsHooks {
 	}
 
 	/**
-	* Select the desired templates based on the selected stable revision IDs
-	* Note: $parser can be false
-	*/
+	 * Select the desired templates based on the selected stable revision IDs
+	 * Note: $parser can be false
+	 */
 	public static function parserFetchStableTemplate( $parser, Title $title, &$skip, &$id ) {
 		if ( !( $parser instanceof Parser ) ) {
 			return true; // nothing to do
@@ -178,8 +178,8 @@ class FlaggedRevsHooks {
 	}
 
 	/**
-	* Select the desired images based on the selected stable version time/SHA-1
-	*/
+	 * Select the desired images based on the selected stable version time/SHA-1
+	 */
 	public static function parserFetchStableFile( $parser, Title $title, &$options, &$query ) {
 		if ( !( $parser instanceof Parser ) ) {
 			return true; // nothing to do
@@ -286,9 +286,9 @@ class FlaggedRevsHooks {
 	}
 
 	/**
-	* Detect if a ParserOutput object was added without mImageTimeKeys set.
-	* This is needed for older, cached, ParserOutput objects.
-	*/
+	 * Detect if a ParserOutput object was added without mImageTimeKeys set.
+	 * This is needed for older, cached, ParserOutput objects.
+	 */
 	public static function outputSetVersioningFlag( OutputPage $out, ParserOutput $parserOut ) {
 		if ( !FlaggedRevs::parserOutputIsVersioned( $parserOut ) ) {
 			$out->fr_unversionedIncludes = true;
@@ -297,8 +297,8 @@ class FlaggedRevsHooks {
 	}
 
 	/**
-	* Check page move and patrol permissions for FlaggedRevs
-	*/
+	 * Check page move and patrol permissions for FlaggedRevs
+	 */
 	public static function onUserCan( Title $title, $user, $action, &$result ) {
 		if ( $result === false ) {
 			return true; // nothing to do
@@ -345,15 +345,15 @@ class FlaggedRevsHooks {
 	}
 
 	/**
-	* When an edit is made by a user, review it if either:
-	* (a) The user can 'autoreview' and the edit's base revision is a checked
-	* (b) The edit is a self-revert to the stable version (by anyone)
-	* (c) The user can 'autoreview' new pages and this edit is a new page
-	* (d) The user can 'review' and the "review pending edits" checkbox was checked
+	 * When an edit is made by a user, review it if either:
+	 * (a) The user can 'autoreview' and the edit's base revision is a checked
+	 * (b) The edit is a self-revert to the stable version (by anyone)
+	 * (c) The user can 'autoreview' new pages and this edit is a new page
+	 * (d) The user can 'review' and the "review pending edits" checkbox was checked
 	*
-	* Note: RC items not inserted yet, RecentChange_save hook does rc_patrolled bit...
-	* Note: $article one of Article, ImagePage, Category page as appropriate.
-	*/
+	 * Note: RC items not inserted yet, RecentChange_save hook does rc_patrolled bit...
+	 * Note: $article one of Article, ImagePage, Category page as appropriate.
+	 */
 	public static function maybeMakeEditReviewed(
 		Page $article, $rev, $baseRevId = false, $user = null
 	) {
@@ -485,8 +485,8 @@ class FlaggedRevsHooks {
 	}
 
 	/**
-	* Check if a user reverted himself to the stable version
-	*/
+	 * Check if a user reverted himself to the stable version
+	 */
 	protected static function isSelfRevertToStable(
 		Revision $rev, $srev, $baseRevId, $user
 	) {
@@ -522,11 +522,11 @@ class FlaggedRevsHooks {
 	}
 
 	/**
-	* When an user makes a null-edit we sometimes want to review it...
-	* (a) Null undo or rollback
-	* (b) Null edit with review box checked
-	* Note: called after edit ops are finished
-	*/
+	 * When an user makes a null-edit we sometimes want to review it...
+	 * (a) Null undo or rollback
+	 * (b) Null edit with review box checked
+	 * Note: called after edit ops are finished
+	 */
 	public static function maybeNullEditReview(
 		Page $article, $user, $text, $s, $m, $a, $b, $flags, $rev, &$status, $baseId
 	) {
@@ -594,12 +594,12 @@ class FlaggedRevsHooks {
 	}
 
 	/**
-	* When an edit is made to a page:
-	* (a) If the page is reviewable, silently mark the edit patrolled if it was auto-reviewed
-	* (b) If the page can be patrolled, auto-patrol the edit patrolled as normal
-	* (c) If the page is new and $wgUseNPPatrol is on, auto-patrol the edit patrolled as normal
-	* (d) If the edit is neither reviewable nor patrolleable, silently mark it patrolled
-	*/
+	 * When an edit is made to a page:
+	 * (a) If the page is reviewable, silently mark the edit patrolled if it was auto-reviewed
+	 * (b) If the page can be patrolled, auto-patrol the edit patrolled as normal
+	 * (c) If the page is new and $wgUseNPPatrol is on, auto-patrol the edit patrolled as normal
+	 * (d) If the edit is neither reviewable nor patrolleable, silently mark it patrolled
+	 */
 	public static function autoMarkPatrolled( RecentChange &$rc ) {
 		if ( empty( $rc->mAttribs['rc_this_oldid'] ) ) {
 			return true;
@@ -698,12 +698,12 @@ class FlaggedRevsHooks {
 	}
 
 	/**
-	* Check if a user has enough implicitly reviewed edits (before stable version)
-	* @param $user User
-	* @param $editsReq int
-	* @param $cutoff_unixtime int exclude edits after this timestamp
-	* @return bool
-	*/
+	 * Check if a user has enough implicitly reviewed edits (before stable version)
+	 * @param $user User
+	 * @param $editsReq int
+	 * @param $cutoff_unixtime int exclude edits after this timestamp
+	 * @return bool
+	 */
 	protected static function reviewedEditsCheck( $user, $editsReq, $cutoff_unixtime = 0 ) {
 		$dbr = wfGetDB( DB_SLAVE );
 		$encCutoff = $dbr->addQuotes( $dbr->timestamp( $cutoff_unixtime ) );
@@ -721,8 +721,8 @@ class FlaggedRevsHooks {
 	}
 
 	/**
-	* Checks if $user was previously blocked since $cutoff_unixtime
-	*/
+	 * Checks if $user was previously blocked since $cutoff_unixtime
+	 */
 	protected static function wasPreviouslyBlocked( User $user, $cutoff_unixtime = 0 ) {
 		$dbr = wfGetDB( DB_SLAVE );
 		$conds = array(
@@ -771,8 +771,8 @@ class FlaggedRevsHooks {
 	}
 
 	/**
-	* Grant 'autoreview' rights to users with the 'bot' right
-	*/
+	 * Grant 'autoreview' rights to users with the 'bot' right
+	 */
 	public static function onUserGetRights( $user, array &$rights ) {
 		# Make sure bots always have the 'autoreview' right
 		if ( in_array( 'bot', $rights ) && !in_array( 'autoreview', $rights ) ) {
@@ -782,9 +782,9 @@ class FlaggedRevsHooks {
 	}
 
 	/**
-	* Callback that autopromotes user according to the setting in
-	* $wgFlaggedRevsAutopromote. This also handles user stats tallies.
-	*/
+	 * Callback that autopromotes user according to the setting in
+	 * $wgFlaggedRevsAutopromote. This also handles user stats tallies.
+	 */
 	public static function onArticleSaveComplete(
 		Page $article, $user, $text, $summary, $m, $a, $b, &$f, $rev
 	) {
@@ -805,10 +805,10 @@ class FlaggedRevsHooks {
 	}
 
 	/**
-	* Check an autopromote condition that is defined by FlaggedRevs
+	 * Check an autopromote condition that is defined by FlaggedRevs
 	*
-	* Note: some unobtrusive caching is used to avoid DB hits.
-	*/
+	 * Note: some unobtrusive caching is used to avoid DB hits.
+	 */
 	public static function checkAutoPromoteCond( $cond, array $params, User $user, &$result ) {
 		global $wgMemc;
 		switch( $cond ) {

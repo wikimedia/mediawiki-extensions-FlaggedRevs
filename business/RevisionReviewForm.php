@@ -125,9 +125,9 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 	}
 
 	/**
-	* Check that a target is given (e.g. from GET/POST request)
-	* @return mixed (true on success, error string on failure)
-	*/
+	 * Check that a target is given (e.g. from GET/POST request)
+	 * @return mixed (true on success, error string on failure)
+	 */
 	public function doCheckTargetGiven() {
 		if ( is_null( $this->page ) ) {
 			return 'review_page_invalid';
@@ -136,19 +136,19 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 	}
 
 	/**
-	* Load any objects after ready() called
-	* @return mixed (true on success, error string on failure)
-	*/
+	 * Load any objects after ready() called
+	 * @return mixed (true on success, error string on failure)
+	 */
 	protected function doBuildOnReady() {
 		$this->article = FlaggableWikiPage::getTitleInstance( $this->page );
 		return true;
 	}
 
 	/**
-	* Check that the target is valid (e.g. from GET/POST request)
-	* @param int $flags FOR_SUBMISSION (set on submit)
-	* @return mixed (true on success, error string on failure)
-	*/
+	 * Check that the target is valid (e.g. from GET/POST request)
+	 * @param int $flags FOR_SUBMISSION (set on submit)
+	 * @return mixed (true on success, error string on failure)
+	 */
 	protected function doCheckTarget( $flags = 0 ) {
 		$flgs = ( $flags & self::FOR_SUBMISSION ) ? Title::GAID_FOR_UPDATE : 0;
 		if ( !$this->page->getArticleId( $flgs ) ) {
@@ -162,9 +162,9 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 	}
 
 	/**
-	* Validate and clean up parameters (e.g. from POST request).
-	* @return mixed (true on success, error string on failure)
-	*/
+	 * Validate and clean up parameters (e.g. from POST request).
+	 * @return mixed (true on success, error string on failure)
+	 */
 	protected function doCheckParameters() {
 		$action = $this->getAction();
 		if ( $action === null ) {
@@ -234,9 +234,9 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 	}
 
 	/**
-	* Get the action this submission is requesting
-	* @return string (approve,unapprove,reject)
-	*/
+	 * Get the action this submission is requesting
+	 * @return string (approve,unapprove,reject)
+	 */
 	public function getAction() {
 		if ( !$this->reject && !$this->unapprove && $this->approve ) {
 			return 'approve';
@@ -249,10 +249,10 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 	}
 
 	/**
-	* Submit the form parameters for the page config to the DB.
+	 * Submit the form parameters for the page config to the DB.
 	*
-	* @return mixed (true on success, error string on failure)
-	*/
+	 * @return mixed (true on success, error string on failure)
+	 */
 	public function doSubmit() {
 		# Double-check permissions
 		if ( !$this->isAllowed() ) {
@@ -464,13 +464,13 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 	}
 
 	/**
-	* Get a validation key from versioning metadata
-	* @param string $tmpP
-	* @param string $imgP
-	* @param string $imgV
-	* @param integer $rid rev ID
-	* @return string
-	*/
+	 * Get a validation key from versioning metadata
+	 * @param string $tmpP
+	 * @param string $imgP
+	 * @param string $imgV
+	 * @param integer $rid rev ID
+	 * @return string
+	 */
 	public static function validationKey( $tmpP, $imgP, $imgV, $rid ) {
 		global $wgSecretKey, $wgProxyKey;
 		$key = $wgSecretKey ? $wgSecretKey : $wgProxyKey; // fall back to $wgProxyKey
@@ -479,16 +479,16 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 	}
 
 	/**
-	* Update rc_patrolled fields in recent changes after (un)accepting a rev.
-	* This maintains the patrolled <=> reviewed relationship for reviewable namespaces.
+	 * Update rc_patrolled fields in recent changes after (un)accepting a rev.
+	 * This maintains the patrolled <=> reviewed relationship for reviewable namespaces.
 	*
-	* RecentChange should only be passed in when an RC item is saved.
+	 * RecentChange should only be passed in when an RC item is saved.
 	*
-	* @param $rev Revision|RecentChange
-	* @param $patrol string "patrol" or "unpatrol"
-	* @param $srev FlaggedRevsion|null The new stable version
-	* @return void
-	*/
+	 * @param $rev Revision|RecentChange
+	 * @param $patrol string "patrol" or "unpatrol"
+	 * @param $srev FlaggedRevsion|null The new stable version
+	 * @return void
+	 */
 	public static function updateRecentChanges( $rev, $patrol, $srev ) {
 		global $wgUseRCPatrol;
 

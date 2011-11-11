@@ -43,10 +43,10 @@ class FRUserActivity {
 	}
 
 	/*
-	* Get who is currently reviewing a page
-	* @param int $pageId
-	* @return array (username or null, MW timestamp or null)
-	*/
+	 * Get who is currently reviewing a page
+	 * @param int $pageId
+	 * @return array (username or null, MW timestamp or null)
+	 */
 	public static function getUserReviewingPage( $pageId ) {
 		global $wgMemc;
 		$key = wfMemcKey( 'flaggedrevs', 'userReviewingPage', $pageId );
@@ -57,46 +57,46 @@ class FRUserActivity {
 	}
 
 	/*
-	* Check if someone is currently reviewing a page
-	* @param int $pageId
-	* @return bool
-	*/
+	 * Check if someone is currently reviewing a page
+	 * @param int $pageId
+	 * @return bool
+	 */
 	public static function pageIsUnderReview( $pageId ) {
 		$m = self::getUserReviewingPage( $pageId );
 		return ( $m[0] !== null );
 	}
 
 	/*
-	* Set the flag for who is reviewing a page if not already set by someone.
-	* If already set, then increment the instance counter (multiple windows)
-	* and add on time to the expiry.
+	 * Set the flag for who is reviewing a page if not already set by someone.
+	 * If already set, then increment the instance counter (multiple windows)
+	 * and add on time to the expiry.
 	*
-	* @param User $user
-	* @param int $pageId
-	* @return bool flag set
-	*/
+	 * @param User $user
+	 * @param int $pageId
+	 * @return bool flag set
+	 */
 	public static function setUserReviewingPage( User $user, $pageId ) {
 		$key = wfMemcKey( 'flaggedrevs', 'userReviewingPage', $pageId );
 		return self::incUserReviewingItem( $key, $user, self::PAGE_REVIEW_SEC );
 	}
 
 	/*
-	* Clear an instance of a user reviewing a page by decrementing the counter.
-	* If it reaches 0 instances, then clear the flag for who is reviewing the page.
-	* @param User $user
-	* @param int $pageId
-	* @return bool flag unset
-	*/
+	 * Clear an instance of a user reviewing a page by decrementing the counter.
+	 * If it reaches 0 instances, then clear the flag for who is reviewing the page.
+	 * @param User $user
+	 * @param int $pageId
+	 * @return bool flag unset
+	 */
 	public static function clearUserReviewingPage( User $user, $pageId ) {
 		$key = wfMemcKey( 'flaggedrevs', 'userReviewingPage', $pageId );
 		return self::decUserReviewingItem( $key, $user, self::PAGE_REVIEW_SEC );
 	}
 
 	/*
-	* Totally clear the flag for who is reviewing a page.
-	* @param int $pageId
-	* @return void
-	*/
+	 * Totally clear the flag for who is reviewing a page.
+	 * @param int $pageId
+	 * @return void
+	 */
 	public static function clearAllReviewingPage( $pageId ) {
 		global $wgMemc;
 		$key = wfMemcKey( 'flaggedrevs', 'userReviewingPage', $pageId );
@@ -104,11 +104,11 @@ class FRUserActivity {
 	}
 
 	/*
-	* Get who is currently reviewing a diff
-	* @param int $oldId
-	* @param int $newId
-	* @return array (username or null, MW timestamp or null)
-	*/
+	 * Get who is currently reviewing a diff
+	 * @param int $oldId
+	 * @param int $newId
+	 * @return array (username or null, MW timestamp or null)
+	 */
 	public static function getUserReviewingDiff( $oldId, $newId ) {
 		global $wgMemc;
 		$key = wfMemcKey( 'flaggedrevs', 'userReviewingDiff', $oldId, $newId );
@@ -119,48 +119,48 @@ class FRUserActivity {
 	}
 
 	/*
-	* Check if someone is currently reviewing a diff
-	* @param int $oldId
-	* @param int $newId
-	* @return bool
-	*/
+	 * Check if someone is currently reviewing a diff
+	 * @param int $oldId
+	 * @param int $newId
+	 * @return bool
+	 */
 	public static function diffIsUnderReview( $oldId, $newId ) {
 		$m = self::getUserReviewingDiff( $oldId, $newId );
 		return ( $m[0] !== null );
 	}
 
 	/*
-	* Set the flag for who is reviewing a diff if not already set by someone.
-	* If already set, then increment the instance counter (multiple windows)
-	* and add on time to the expiry.
-	* @param User $user
-	* @param int $pageId
-	* @return bool flag set
-	*/
+	 * Set the flag for who is reviewing a diff if not already set by someone.
+	 * If already set, then increment the instance counter (multiple windows)
+	 * and add on time to the expiry.
+	 * @param User $user
+	 * @param int $pageId
+	 * @return bool flag set
+	 */
 	public static function setUserReviewingDiff( User $user, $oldId, $newId ) {
 		$key = wfMemcKey( 'flaggedrevs', 'userReviewingDiff', $oldId, $newId );
 		return self::incUserReviewingItem( $key, $user, self::CHANGE_REVIEW_SEC );
 	}
 
 	/*
-	* Clear an instance of a user reviewing a diff by decrementing the counter.
-	* If it reaches 0 instances, then clear the flag for who is reviewing the diff.
-	* @param User $user
-	* @param int $oldId
-	* @param int $newId
-	* @return bool flag unset
-	*/
+	 * Clear an instance of a user reviewing a diff by decrementing the counter.
+	 * If it reaches 0 instances, then clear the flag for who is reviewing the diff.
+	 * @param User $user
+	 * @param int $oldId
+	 * @param int $newId
+	 * @return bool flag unset
+	 */
 	public static function clearUserReviewingDiff( User $user, $oldId, $newId ) {
 		$key = wfMemcKey( 'flaggedrevs', 'userReviewingDiff', $oldId, $newId );
 		return self::decUserReviewingItem( $key, $user, self::CHANGE_REVIEW_SEC );
 	}
 
 	/*
-	* Totally clear the flag for who is reviewing a diff.
-	* @param int $oldId
-	* @param int $newId
-	* @return void
-	*/
+	 * Totally clear the flag for who is reviewing a diff.
+	 * @param int $oldId
+	 * @param int $newId
+	 * @return void
+	 */
 	public static function clearAllReviewingDiff( $oldId, $newId ) {
 		global $wgMemc;
 		$key = wfMemcKey( 'flaggedrevs', 'userReviewingDiff', $oldId, $newId );

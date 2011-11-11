@@ -54,7 +54,7 @@ class FlaggableWikiPage extends WikiPage {
 		return $this->file;
 	}
 
-	 /**
+	/**
 	 * Is the stable version shown by default for this page?
 	 * @return bool
 	 */
@@ -142,10 +142,10 @@ class FlaggableWikiPage extends WikiPage {
 	}
 
 	/**
-	* Checks if the stable version is synced with the current revision
-	* Note: slower than getPendingRevCount()
-	* @return bool
-	*/
+	 * Checks if the stable version is synced with the current revision
+	 * Note: slower than getPendingRevCount()
+	 * @return bool
+	 */
 	public function stableVersionIsSynced() {
 		global $wgMemc, $wgParserCacheExpireTime;
 		$srev = $this->getStableRev();
@@ -220,7 +220,7 @@ class FlaggableWikiPage extends WikiPage {
 			FlaggedRevs::isStableShownByDefault() == $this->isStableShownByDefault();
 	}
 
-	 /**
+	/**
 	 * Is this article reviewable?
 	 * @return bool
 	 */
@@ -281,9 +281,9 @@ class FlaggableWikiPage extends WikiPage {
 	}
 
 	/*
-	* Get the fp_reviewed value for this page
-	* @return bool
-	*/
+	 * Get the fp_reviewed value for this page
+	 * @return bool
+	 */
 	public function syncedInTracking() {
 		if ( !$this->mDataLoaded ) {
 			$this->loadPageData();
@@ -317,9 +317,9 @@ class FlaggableWikiPage extends WikiPage {
 	}
 
 	/**
-	* Updates the fp_reviewed field for this article
-	* @param bool $synced
-	*/	
+	 * Updates the fp_reviewed field for this article
+	 * @param bool $synced
+	 */
 	public function updateSyncStatus( $synced ) {
 		wfProfileIn( __METHOD__ );
 		if ( !wfReadOnly() ) {
@@ -393,11 +393,11 @@ class FlaggableWikiPage extends WikiPage {
 	}
 
 	/**
-	* Updates the flagging tracking tables for this page
-	* @param FlaggedRevision $srev The new stable version
-	* @param int|null $latest The latest rev ID (optional)
-	* @return bool Updates were done
-	*/
+	 * Updates the flagging tracking tables for this page
+	 * @param FlaggedRevision $srev The new stable version
+	 * @param int|null $latest The latest rev ID (optional)
+	 * @return bool Updates were done
+	 */
 	public function updateStableVersion( FlaggedRevision $srev, $latest = null ) {
 		$rev = $srev->getRevision();
 		if ( !$this->exists() || !$rev ) {
@@ -464,9 +464,9 @@ class FlaggableWikiPage extends WikiPage {
 	}
 
 	/**
-	* Updates the flagging tracking tables for this page
-	* @return void
-	*/
+	 * Updates the flagging tracking tables for this page
+	 * @return void
+	 */
 	public function clearStableVersion() {
 		if ( !$this->exists() ) {
 			return; // nothing to do
@@ -479,11 +479,11 @@ class FlaggableWikiPage extends WikiPage {
 	}
 
 	/**
-	* Updates the flaggedpage_pending table
-	* @param int $pageId Page ID
-	* @abstract int $latest Latest revision
-	* @return void
-	*/
+	 * Updates the flaggedpage_pending table
+	 * @param int $pageId Page ID
+	 * @abstract int $latest Latest revision
+	 * @return void
+	 */
 	protected static function updatePendingList( $pageId, $latest ) {
 		$data = array();
 		# Get the highest tier used on this wiki

@@ -2,25 +2,25 @@
 
 class FlaggedRevsLog {
 	/**
-	* $action is a valid review log action
-	* @return bool
-	*/
+	 * $action is a valid review log action
+	 * @return bool
+	 */
 	public static function isReviewAction( $action ) {
 		return preg_match( '/^(approve2?(-i|-a|-ia)?|unapprove2?)$/', $action );
 	}
 
 	/**
-	* $action is a valid stability log action
-	* @return bool
-	*/
+	 * $action is a valid stability log action
+	 * @return bool
+	 */
 	public static function isStabilityAction( $action ) {
 		return preg_match( '/^(config|modify|reset)$/', $action );
 	}
 
 	/**
-	* $action is a valid review log deprecate action
-	* @return bool
-	*/
+	 * $action is a valid review log deprecate action
+	 * @return bool
+	 */
 	public static function isReviewDeapproval( $action ) {
 		return ( $action == 'unapprove' || $action == 'unapprove2' );
 	}

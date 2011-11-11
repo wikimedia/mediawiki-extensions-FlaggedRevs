@@ -408,11 +408,11 @@ class FlaggedRevs {
 	# ################ Permission functions #################
 
 	/*
-	* Sanity check a (tag,value) pair
-	* @param string $tag
-	* @param int $value
-	* @return bool
-	*/
+	 * Sanity check a (tag,value) pair
+	 * @param string $tag
+	 * @param int $value
+	 * @return bool
+	 */
 	public static function tagIsValid( $tag, $value ) {
 		$levels = self::getTagLevels( $tag );
 		$highest = count( $levels ) - 1;
@@ -496,11 +496,11 @@ class FlaggedRevs {
 	}
 
 	/**
-	* Check if a user can set the autoreview restiction level to $right
-	* @param User $user
-	* @param string $right the level
-	* @return bool
-	*/
+	 * Check if a user can set the autoreview restiction level to $right
+	 * @param User $user
+	 * @param string $right the level
+	 * @return bool
+	 */
 	public static function userCanSetAutoreviewLevel( $user, $right ) {
 		if ( $right == '' ) {
 			return true; // no restrictions (none)
@@ -601,13 +601,13 @@ class FlaggedRevs {
 	# ################ Tracking/cache update update functions #################
 
 	/**
-	* Update the page tables with a new stable version.
-	* @param Title $title
-	* @param FlaggedRevision|null $sv, the new stable version (optional)
-	* @param FlaggedRevision|null $oldSv, the old stable version (optional)
-	* @param Object editInfo Article edit info about the current revision (optional)
-	* @return bool stable version text/file changed and FR_INCLUDES_STABLE
-	*/
+	 * Update the page tables with a new stable version.
+	 * @param Title $title
+	 * @param FlaggedRevision|null $sv, the new stable version (optional)
+	 * @param FlaggedRevision|null $oldSv, the old stable version (optional)
+	 * @param Object editInfo Article edit info about the current revision (optional)
+	 * @return bool stable version text/file changed and FR_INCLUDES_STABLE
+	 */
 	public static function stableVersionUpdates(
 		Title $title, $sv = null, $oldSv = null, $editInfo = null
 	) {
@@ -652,9 +652,9 @@ class FlaggedRevs {
 	}
 
 	/**
-	* Clear FlaggedRevs tracking tables for this page
-	* @param int|array $pageId (int or array)
-	*/
+	 * Clear FlaggedRevs tracking tables for this page
+	 * @param int|array $pageId (int or array)
+	 */
 	public static function clearTrackingRows( $pageId ) {
 		$dbw = wfGetDB( DB_MASTER );
 		$dbw->delete( 'flaggedpages', array( 'fp_page_id' => $pageId ), __METHOD__ );
@@ -663,10 +663,10 @@ class FlaggedRevs {
 	}
 
 	/**
-	* @param Page $article
-	* @param parserOutput $parserOut
-	* Updates the stable-only cache dependency table
-	*/
+	 * @param Page $article
+	 * @param parserOutput $parserOut
+	 * Updates the stable-only cache dependency table
+	 */
 	public static function updateStableOnlyDeps( Page $article, ParserOutput $stableOut ) {
 		wfProfileIn( __METHOD__ );
 		if ( !wfReadOnly() ) {
@@ -677,29 +677,29 @@ class FlaggedRevs {
 	}
 
 	/**
-	* Clear tracking table of stable-only links for this page
-	* @param int|array $pageId (int or array)
-	*/
+	 * Clear tracking table of stable-only links for this page
+	 * @param int|array $pageId (int or array)
+	 */
 	public static function clearStableOnlyDeps( $pageId ) {
 		$dbw = wfGetDB( DB_MASTER );
 		$dbw->delete( 'flaggedrevs_tracking', array( 'ftr_from' => $pageId ), __METHOD__ );
 	}
 
 	/**
-	* @param Title $title
-	* Updates squid cache for a title. Defers till after main commit().
-	*/
+	 * @param Title $title
+	 * Updates squid cache for a title. Defers till after main commit().
+	 */
 	public static function purgeSquid( Title $title ) {
 		global $wgDeferredUpdateList;
 		$wgDeferredUpdateList[] = new FRSquidUpdate( $title );
 	}
 
 	/**
-	* Do cache updates for when the stable version of a page changed.
-	* Invalidates/purges pages that include the given page.
-	* @param Title $title
-	* @param bool $recursive
-	*/
+	 * Do cache updates for when the stable version of a page changed.
+	 * Invalidates/purges pages that include the given page.
+	 * @param Title $title
+	 * @param bool $recursive
+	 */
 	public static function HTMLCacheUpdates( Title $title ) {
 		global $wgDeferredUpdateList;
 		# Invalidate caches of articles which include this page...
@@ -711,9 +711,9 @@ class FlaggedRevs {
 	}
 
 	/**
-	* Invalidates/purges pages where only stable version includes this page.
-	* @param Title $title
-	*/
+	 * Invalidates/purges pages where only stable version includes this page.
+	 * @param Title $title
+	 */
 	public static function extraHTMLCacheUpdate( Title $title ) {
 		global $wgDeferredUpdateList;
 		$wgDeferredUpdateList[] = new FRExtraCacheUpdate( $title );
@@ -756,12 +756,12 @@ class FlaggedRevs {
 	}
 
 	/**
-	* Return memc value if not expired
-	* @param object|false $data makeMemcObj() tuple
-	* @param Page $article
-	* @param $allowStale Use 'allowStale' to skip page_touched check
-	* @return mixed
-	*/
+	 * Return memc value if not expired
+	 * @param object|false $data makeMemcObj() tuple
+	 * @param Page $article
+	 * @param $allowStale Use 'allowStale' to skip page_touched check
+	 * @return mixed
+	 */
 	public static function getMemcValue( $data, Page $article, $allowStale = '' ) {
 		if ( is_object( $data ) ) {
 			if ( $allowStale === 'allowStale' || $data->time >= $article->getTouched() ) {
@@ -772,27 +772,27 @@ class FlaggedRevs {
 	}
 
 	/**
-	* @param array $flags
-	* @return bool, is this revision at basic review condition?
-	*/
+	 * @param array $flags
+	 * @return bool, is this revision at basic review condition?
+	 */
 	public static function isChecked( array $flags ) {
 		self::load();
 		return self::tagsAtLevel( $flags, self::$minSL );
 	}
 
 	/**
-	* @param array $flags
-	* @return bool, is this revision at quality review condition?
-	*/
+	 * @param array $flags
+	 * @return bool, is this revision at quality review condition?
+	 */
 	public static function isQuality( array $flags ) {
 		self::load();
 		return self::tagsAtLevel( $flags, self::$minQL );
 	}
 
 	/**
-	* @param array $flags
-	* @return bool, is this revision at pristine review condition?
-	*/
+	 * @param array $flags
+	 * @return bool, is this revision at pristine review condition?
+	 */
 	public static function isPristine( array $flags ) {
 		self::load();
 		return self::tagsAtLevel( $flags, self::$minPL );
@@ -813,11 +813,11 @@ class FlaggedRevs {
 	}
 
 	/**
-	* Get the quality tier of review flags
-	* @param array $flags
-	* @param int $default Return value if one of the tags has value < 0
-	* @return int flagging tier (FR_PRISTINE,FR_QUALITY,FR_CHECKED,-1)
-	*/
+	 * Get the quality tier of review flags
+	 * @param array $flags
+	 * @param int $default Return value if one of the tags has value < 0
+	 * @return int flagging tier (FR_PRISTINE,FR_QUALITY,FR_CHECKED,-1)
+	 */
 	public static function getQualityTier( array $flags, $default = -1 ) {
 		if ( self::isPristine( $flags ) ) {
 			return FR_PRISTINE; // 2
@@ -873,20 +873,20 @@ class FlaggedRevs {
 	}
 
 	/**
-	* Get the list of reviewable namespaces
-	* @return array
-	*/
+	 * Get the list of reviewable namespaces
+	 * @return array
+	 */
 	public static function getReviewNamespaces() {
 		self::load(); // validates namespaces
 		return self::$reviewNamespaces;
 	}
 
 	/**
-	* Is this page in reviewable namespace?
-	* Note: this checks $wgFlaggedRevsWhitelist
-	* @param Title, $title
-	* @return bool
-	*/
+	 * Is this page in reviewable namespace?
+	 * Note: this checks $wgFlaggedRevsWhitelist
+	 * @param Title, $title
+	 * @return bool
+	 */
 	public static function inReviewNamespace( Title $title ) {
 		global $wgFlaggedRevsWhitelist;
 		if ( in_array( $title->getPrefixedDBKey(), $wgFlaggedRevsWhitelist ) ) {
@@ -900,19 +900,19 @@ class FlaggedRevs {
 	# ################ Auto-review function #################
 
 	/**
-	* Automatically review an revision and add a log entry in the review log.
+	 * Automatically review an revision and add a log entry in the review log.
 	*
-	* This is called during edit operations after the new revision is added
-	* and the page tables updated, but before LinksUpdate is called.
+	 * This is called during edit operations after the new revision is added
+	 * and the page tables updated, but before LinksUpdate is called.
 	*
-	* $auto is here for revisions checked off to be reviewed. Auto-review
-	* triggers on edit, but we don't want those to count as just automatic.
-	* This also makes it so the user's name shows up in the page history.
+	 * $auto is here for revisions checked off to be reviewed. Auto-review
+	 * triggers on edit, but we don't want those to count as just automatic.
+	 * This also makes it so the user's name shows up in the page history.
 	*
-	* If $flags is given, then they will be the review tags. If not, the one
-	* from the stable version will be used or minimal tags if that's not possible.
-	* If no appropriate tags can be found, then the review will abort.
-	*/
+	 * If $flags is given, then they will be the review tags. If not, the one
+	 * from the stable version will be used or minimal tags if that's not possible.
+	 * If no appropriate tags can be found, then the review will abort.
+	 */
 	public static function autoReviewEdit(
 		Page $article, $user, Revision $rev, array $flags = null, $auto = true
 	) {

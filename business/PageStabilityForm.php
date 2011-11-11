@@ -73,10 +73,10 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 	}
 
 	/*
-	* Get the final expiry, all inputs considered
-	* Note: does not check if the expiration is less than wfTimestampNow()
-	* @return 14-char timestamp or "infinity", or false if the input was invalid
-	*/
+	 * Get the final expiry, all inputs considered
+	 * Note: does not check if the expiration is less than wfTimestampNow()
+	 * @return 14-char timestamp or "infinity", or false if the input was invalid
+	 */
 	public function getExpiry() {
 		$oldConfig = $this->getOldConfig();
 		if ( $this->expirySelection == 'existing' ) {
@@ -102,9 +102,9 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 	}
 
 	/*
-	* Get the final reason, all inputs considered
-	* @return string
-	*/
+	 * Get the final reason, all inputs considered
+	 * @return string
+	 */
 	public function getReason() {
 		# Custom reason replaces dropdown
 		if ( $this->reasonSelection != 'other' ) {
@@ -120,9 +120,9 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 	}
 
 	/*
-	* Check that a target is given (e.g. from GET/POST request)
-	* @return mixed (true on success, error string on failure)
-	*/
+	 * Check that a target is given (e.g. from GET/POST request)
+	 * @return mixed (true on success, error string on failure)
+	 */
 	protected function doCheckTargetGiven() {
 		if ( is_null( $this->page ) ) {
 			return 'stabilize_page_invalid';
@@ -131,10 +131,10 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 	}
 
 	/*
-	* Check that the target page is valid
-	* @param int $flags FOR_SUBMISSION (set on submit)
-	* @return mixed (true on success, error string on failure)
-	*/
+	 * Check that the target page is valid
+	 * @param int $flags FOR_SUBMISSION (set on submit)
+	 * @return mixed (true on success, error string on failure)
+	 */
 	protected function doCheckTarget( $flags = 0 ) {
 		$flgs = ( $flags & self::FOR_SUBMISSION ) ? Title::GAID_FOR_UPDATE : 0;
 		if ( !$this->page->getArticleId( $flgs ) ) {
@@ -146,9 +146,9 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 	}
 
 	/*
-	* Verify and clean up parameters (e.g. from POST request)
-	* @return mixed (true on success, error string on failure)
-	*/
+	 * Verify and clean up parameters (e.g. from POST request)
+	 * @return mixed (true on success, error string on failure)
+	 */
 	protected function doCheckParameters() {
 		# Load old config settings from the master
 		$this->oldConfig = FRPageConfig::getStabilitySettings( $this->page, FR_MASTER );
@@ -161,18 +161,18 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 	}
 
 	/*
-	* @return mixed (true on success, error string on failure)
-	*/
+	 * @return mixed (true on success, error string on failure)
+	 */
 	protected function reallyDoCheckParameters() {
 		return true;
 	}
 
 	/*
-	* Can the user change the settings for this page?
-	* Note: if the current autoreview restriction is too high for this user
-	*       then this will return false. Useful for form selectors.
-	* @return bool
-	*/
+	 * Can the user change the settings for this page?
+	 * Note: if the current autoreview restriction is too high for this user
+	 *       then this will return false. Useful for form selectors.
+	 * @return bool
+	 */
 	public function isAllowed() {
 		# Users who cannot edit or review the page cannot set this
 		return ( $this->page
@@ -183,9 +183,9 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 	}
 
 	/*
-	* Preload existing page settings (e.g. from GET request).
-	* @return mixed (true on success, error string on failure)
-	*/
+	 * Preload existing page settings (e.g. from GET request).
+	 * @return mixed (true on success, error string on failure)
+	 */
 	public function doPreloadParameters() {
 		$oldConfig = $this->getOldConfig();
 		if ( $oldConfig['expiry'] == Block::infinity() ) {
@@ -197,17 +197,17 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 	}
 
 	/*
-	* @return mixed (true on success, error string on failure)
-	*/  
+	 * @return mixed (true on success, error string on failure)
+	 */  
 	protected function reallyDoPreloadParameters() {
 		return true;
 	}
 
 	/**
-	* Submit the form parameters for the page config to the DB.
-	* 
-	* @return mixed (true on success, error string on failure)
-	*/
+	 * Submit the form parameters for the page config to the DB.
+	 * 
+	 * @return mixed (true on success, error string on failure)
+	 */
 	public function doSubmit() {
 		# Double-check permissions
 		if ( !$this->isAllowed() ) {
@@ -263,11 +263,11 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 	}
 
 	/*
-	* Do history & log updates:
-	* (a) Add a new stability log entry
-	* (b) Add a null edit like the log entry
-	* @return Revision
-	*/
+	 * Do history & log updates:
+	 * (a) Add a new stability log entry
+	 * (b) Add a null edit like the log entry
+	 * @return Revision
+	 */
 	protected function updateLogsAndHistory( FlaggableWikiPage $article ) {
 		global $wgContLang;
 		$newConfig = $this->getNewConfig();
@@ -311,9 +311,9 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 	}
 
 	/*
-	* Get current stability config array
-	* @return array
-	*/
+	 * Get current stability config array
+	 * @return array
+	 */
 	public function getOldConfig() {
 		if ( $this->getState() == self::FORM_UNREADY ) {
 			throw new MWException( __CLASS__ . " input fields not set yet.\n");
@@ -325,9 +325,9 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 	}
 
 	/*
-	* Get proposed stability config array
-	* @return array
-	*/
+	 * Get proposed stability config array
+	 * @return array
+	 */
 	public function getNewConfig() {
 		return array(
 			'override'   => $this->override,
@@ -337,9 +337,9 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 	}
 
 	/*
-	* (a) Watch page if $watchThis is true
-	* (b) Unwatch if $watchThis is false
-	*/
+	 * (a) Watch page if $watchThis is true
+	 * (b) Unwatch if $watchThis is false
+	 */
 	protected function updateWatchlist() {
 		# Apply watchlist checkbox value (may be NULL)
 		if ( $this->watchThis === true ) {

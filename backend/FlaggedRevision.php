@@ -314,10 +314,10 @@ class FlaggedRevision {
 	}
 
 	/*
-	* Insert a FlaggedRevision object into the database
+	 * Insert a FlaggedRevision object into the database
 	*
-	* @return bool success
-	*/
+	 * @return bool success
+	 */
 	public function insert() {
 		$dbw = wfGetDB( DB_MASTER );
 		# Set any flagged revision flags
@@ -379,10 +379,10 @@ class FlaggedRevision {
 	}
 
 	/*
-	* Remove a FlaggedRevision object from the database
+	 * Remove a FlaggedRevision object from the database
 	*
-	* @return bool success
-	*/
+	 * @return bool success
+	 */
 	public function delete() {
 		$dbw = wfGetDB( DB_MASTER );
 		# Delete from flaggedrevs table
@@ -934,7 +934,7 @@ class FlaggedRevision {
 	 * Get flags for a revision
 	 * @param string $tags
 	 * @return array
-	*/
+	 */
 	public static function expandRevisionTags( $tags ) {
 		$flags = array();
 		foreach ( FlaggedRevs::getTags() as $tag ) {
@@ -963,7 +963,7 @@ class FlaggedRevision {
 	 * Get flags for a revision
 	 * @param array $tags
 	 * @return string
-	*/
+	 */
 	public static function flattenRevisionTags( array $tags ) {
 		$flags = '';
 		foreach ( $tags as $tag => $value ) {

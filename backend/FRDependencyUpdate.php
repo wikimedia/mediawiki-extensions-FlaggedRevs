@@ -74,10 +74,10 @@ class FRDependencyUpdate {
 	}
 
 	/*
-	* Get existing cache dependancies
-	* @param int $flags FR_MASTER
-	* @return array (ns => dbKey => 1)
-	*/
+	 * Get existing cache dependancies
+	 * @param int $flags FR_MASTER
+	 * @return array (ns => dbKey => 1)
+	 */
 	protected function getExistingDeps( $flags = 0 ) {
 		$db = ( $flags & FR_MASTER ) ?
 			wfGetDB( DB_MASTER ) : wfGetDB( DB_SLAVE );
@@ -97,9 +97,9 @@ class FRDependencyUpdate {
 	}
 
 	/*
-	* Get INSERT rows for cache dependancies in $new but not in $existing
-	* @return array
-	*/
+	 * Get INSERT rows for cache dependancies in $new but not in $existing
+	 * @return array
+	 */
 	protected function getDepInsertions( array $existing, array $new ) {
 		$arr = array();
 		foreach ( $new as $ns => $dbkeys ) {
@@ -120,9 +120,9 @@ class FRDependencyUpdate {
 	}
 
 	/*
-	* Get WHERE clause to delete items in $existing but not in $new
-	* @return mixed (array/false)
-	*/
+	 * Get WHERE clause to delete items in $existing but not in $new
+	 * @return mixed (array/false)
+	 */
 	protected function getDepDeletions( array $existing, array $new ) {
 		$del = array();
 		foreach ( $existing as $ns => $dbkeys ) {

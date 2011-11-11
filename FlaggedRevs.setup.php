@@ -5,7 +5,7 @@
  * Note: avoid  FlaggedRevs class calls here for performance (like load.php).
  */
 class FlaggedRevsSetup {
-	/* Variable checked by FlaggedRevs::load() */
+	/* Status of whether FlaggedRevs::load() can be called */
 	protected static $canLoad = false;
 
 	/**

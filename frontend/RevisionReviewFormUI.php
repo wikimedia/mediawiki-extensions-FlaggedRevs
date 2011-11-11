@@ -13,7 +13,7 @@ class RevisionReviewFormUI {
 	protected $templateIDs = null;
 	protected $imageSHA1Keys = null;
 
-	 /**
+	/**
 	 * Generates a brief review form for a page
 	 * @param RequestContext $context
 	 * @param FlaggableWikiPage $article
@@ -69,7 +69,7 @@ class RevisionReviewFormUI {
 		$this->imageSHA1Keys = $imageSHA1Keys;
 	}
 
-	 /**
+	/**
 	 * Generates a brief review form for a page
 	 * @return array (html string, error string or true)
 	 */
@@ -243,9 +243,9 @@ class RevisionReviewFormUI {
 	}
 
 	/*
-	* If the REJECT button should show then get the ID of the last good rev
-	* @return int
-	*/
+	 * If the REJECT button should show then get the ID of the last good rev
+	 * @return int
+	 */
 	protected function rejectRefRevId() {
 		if ( $this->refRev ) {
 			$priorId = $this->refRev->getId();

@@ -2,9 +2,9 @@
 
 class FlaggedRevsLogView {
 	/** 
-	* Add setting change description to log line
-	* @return string
-	*/
+	 * Add setting change description to log line
+	 * @return string
+	 */
 	public static function stabilityLogText(
 		$type, $action, $title = null, $skin = null, $params = array()
 	) {
@@ -26,13 +26,13 @@ class FlaggedRevsLogView {
 	}
 
 	/**
-	* Add history page link to log line
+	 * Add history page link to log line
 	*
-	* @param Title $title
-	* @param string $timestamp
-	* @param array $params
-	* @return string
-	*/
+	 * @param Title $title
+	 * @param string $timestamp
+	 * @param array $params
+	 * @return string
+	 */
 	public static function stabilityLogLinks( $title, $timestamp, $params ) {
 		global $wgUser;
 		# Add history link showing edits right before the config change
@@ -47,12 +47,12 @@ class FlaggedRevsLogView {
 	}
 
 	/**
-	* Make a list of stability settings for display
+	 * Make a list of stability settings for display
 	*
-	* @param array $pars assoc array
-	* @param bool $forContent
-	* @return string
-	*/
+	 * @param array $pars assoc array
+	 * @param bool $forContent
+	 * @return string
+	 */
 	public static function stabilitySettings( array $pars, $forContent ) {
 		global $wgLang, $wgContLang;
 		$set = array();
@@ -94,8 +94,8 @@ class FlaggedRevsLogView {
 	}
 
 	/**
-	* Create revision, diff, and history links for log line entry
-	*/
+	 * Create revision, diff, and history links for log line entry
+	 */
 	public static function reviewLogLinks( $action, $title, $params ) {
 		global $wgUser, $wgLang;
 		$links = '';

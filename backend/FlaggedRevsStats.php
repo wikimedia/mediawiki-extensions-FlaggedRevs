@@ -60,11 +60,11 @@ class FlaggedRevsStats {
 	}
 
 	/*
-	* Run a stats update and update the DB
-	* Note: this can easily be too expensive to run live
+	 * Run a stats update and update the DB
+	 * Note: this can easily be too expensive to run live
 	*
-	* @return void
-	*/
+	 * @return void
+	 */
 	public function updateCache() {
 		global $wgFlaggedRevsStatsAge;
 		$rNamespaces = FlaggedRevs::getReviewNamespaces();

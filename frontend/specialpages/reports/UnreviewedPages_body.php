@@ -189,9 +189,9 @@ class UnreviewedPages extends SpecialPage {
 	}
 
 	/*
-	* Run an update to the cached query rows
-	* @return void
-	*/
+	 * Run an update to the cached query rows
+	 * @return void
+	 */
 	public static function updateQueryCache() {
 		$rNamespaces = FlaggedRevs::getReviewNamespaces();
 		if ( empty( $rNamespaces ) ) {

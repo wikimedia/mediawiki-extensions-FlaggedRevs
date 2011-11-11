@@ -347,9 +347,9 @@ class FlaggedRevsXML {
 	}
 
 	/*
-	* Creates CSS draft page icon
-	* @return string
-	*/
+	 * Creates CSS draft page icon
+	 * @return string
+	 */
 	public static function draftStatusIcon() {
 		$encPath = htmlspecialchars( FlaggedRevs::styleUrlPath() . '/img' );
 		$encTitle = wfMsgHtml( 'revreview-draft-title' );
@@ -358,10 +358,10 @@ class FlaggedRevsXML {
 	}
 	
 	/*
-	* Creates CSS stable page icon
-	* @param bool $isQuality
-	* @return string
-	*/
+	 * Creates CSS stable page icon
+	 * @param bool $isQuality
+	 * @return string
+	 */
 	public static function stableStatusIcon( $isQuality ) {
 		$encPath = htmlspecialchars( FlaggedRevs::styleUrlPath() . '/img' );
 		$file = $isQuality ? '3.png' : '2.png';
@@ -373,10 +373,10 @@ class FlaggedRevsXML {
 	}
 
 	/*
-	* Creates CSS lock icon if page is locked/unlocked
-	* @param FlaggableWikiPage $flaggedArticle
-	* @return string
-	*/
+	 * Creates CSS lock icon if page is locked/unlocked
+	 * @param FlaggableWikiPage $flaggedArticle
+	 * @return string
+	 */
 	public static function lockStatusIcon( $flaggedArticle ) {
 		$encPath = htmlspecialchars( FlaggedRevs::styleUrlPath() . '/img' );
 		if ( $flaggedArticle->isPageLocked() ) {
@@ -391,12 +391,12 @@ class FlaggedRevsXML {
 	}
 
 	/*
-	* @param FlaggableWikiPage $flaggedArticle
-	* @param FlaggedRevision $frev
-	* @param int $revsSince
-	* @return string
-	* Creates "stable rev reviewed on"/"x pending edits" message
-	*/
+	 * @param FlaggableWikiPage $flaggedArticle
+	 * @param FlaggedRevision $frev
+	 * @param int $revsSince
+	 * @return string
+	 * Creates "stable rev reviewed on"/"x pending edits" message
+	 */
 	public static function pendingEditNotice( $flaggedArticle, $frev, $revsSince ) {
 		global $wgLang;
 		$flags = $frev->getTags();
@@ -410,10 +410,10 @@ class FlaggedRevsXML {
 	}
 
 	/*
-	* @param Page $article
-	* @return string
-	* Creates a stability log excerpt
-	*/
+	 * @param Page $article
+	 * @return string
+	 * Creates a stability log excerpt
+	 */
 	public static function stabilityLogExcerpt( $article ) {
 		$logHtml = '';
 		$params = array(

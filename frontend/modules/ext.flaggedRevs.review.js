@@ -43,13 +43,13 @@ var fr = {
 	},
 
 	/*
-	* Updates for radios/checkboxes on patch by Daniel Arnold (bug 13744).
-	* Visually update the revision rating form on change.
-	* - Disable submit in case of invalid input.
-	* - Update colors when <select> changes.
-	* - Also remove comment box clutter in case of invalid input.
-	* NOTE: all buttons should exist (perhaps hidden though)
-	*/
+	 * Updates for radios/checkboxes on patch by Daniel Arnold (bug 13744).
+	 * Visually update the revision rating form on change.
+	 * - Disable submit in case of invalid input.
+	 * - Update colors when <select> changes.
+	 * - Also remove comment box clutter in case of invalid input.
+	 * NOTE: all buttons should exist (perhaps hidden though)
+	 */
 	'updateReviewForm': function( form ) {
 		if ( form.prop( 'disabled' ) ) {
 			return;
@@ -105,8 +105,8 @@ var fr = {
 	},
 
 	/*
-	* Update <select> color for the selected item/option
-	*/
+	 * Update <select> color for the selected item/option
+	 */
 	'updateReviewFormColors': function( form ) {
 		for ( var tag in wgFlaggedRevsParams.tags ) { // for each tag
 			var select = form.find( "[name='wp" + tag + "']" ).eq( 0 );
@@ -123,15 +123,15 @@ var fr = {
 	},
 
 	/*
-	* Lock review form from submissions (using during AJAX requests)
-	*/
+	 * Lock review form from submissions (using during AJAX requests)
+	 */
 	'lockReviewForm': function( form ) {
 		form.find( 'input,textarea,select' ).prop( 'disabled', 'disabled' );
 	},
 
 	/*
-	* Unlock review form from submissions (using after AJAX requests)
-	*/  
+	 * Unlock review form from submissions (using after AJAX requests)
+	 */  
 	'unlockReviewForm': function( form ) {
 		var inputs = form.find( 'input' );
 		for ( var i=0; i < inputs.length; i++ ) {
@@ -145,11 +145,11 @@ var fr = {
 	},
 
 	/*
-	* Submit a revision review via AJAX and update form elements.
+	 * Submit a revision review via AJAX and update form elements.
 	*
-	* Note: requestArgs build-up from radios/checkboxes
-	* based on patch by Daniel Arnold (bug 13744)
-	*/
+	 * Note: requestArgs build-up from radios/checkboxes
+	 * based on patch by Daniel Arnold (bug 13744)
+	 */
 	'submitRevisionReview': function( button, form ) {
 		fr.lockReviewForm( form ); // disallow submissions
 		// Build up arguments array and update submit button text...
@@ -207,8 +207,8 @@ var fr = {
 	},
 	
 	/*
-	* Update form elements after AJAX review.
-	*/
+	 * Update form elements after AJAX review.
+	 */
 	'postSubmitRevisionReview': function( form, response ) {
 		var msg = response.substr(6); // remove <err#> or <suc#>
 		// Read new "last change time" timestamp for conflict handling
@@ -308,8 +308,8 @@ var fr = {
 	},
 
 	/*
-	* Enable AJAX-based functionality to set that a user is reviewing a page/diff
-	*/
+	 * Enable AJAX-based functionality to set that a user is reviewing a page/diff
+	 */
 	'enableAjaxReviewActivity': function() {
 		// User is already reviewing in another tab...
 		if ( $('#mw-fr-user-reviewing').val() === 1 ) {
@@ -323,8 +323,8 @@ var fr = {
 	},
 	
 	/*
-	* Flag users as "now reviewing"
-	*/
+	 * Flag users as "now reviewing"
+	 */
 	'advertiseReviewing': function( e, isInitial ) {
 		if ( isInitial !== true ) { // don't send if just setting up form
 			if ( !fr.setReviewingStatus( 1 ) ) {
@@ -349,8 +349,8 @@ var fr = {
 	},
 	
 	/*
-	* Flag users as "no longer reviewing"
-	*/
+	 * Flag users as "no longer reviewing"
+	 */
 	'deadvertiseReviewing': function( e, isInitial ) {
 		if ( isInitial !== true ) { // don't send if just setting up form
 			if ( !fr.setReviewingStatus( 0 ) ) {
@@ -377,8 +377,8 @@ var fr = {
 	},
 	
 	/*
-	* Set reviewing status for this page/diff
-	*/
+	 * Set reviewing status for this page/diff
+	 */
 	'setReviewingStatus': function( value ) {
 		var res = false;
 		// Get {previd,oldid} array for this page view.

@@ -117,10 +117,10 @@ class ConfiguredPagesPager extends AlphabeticPager {
 	public $mForm, $mConds, $namespace, $override, $autoreview;
 
 	/*
-	* @param int $namespace (null for "all")
-	* @param int $override (null for "either")
-	* @param string $autoreview ('' for "all", 'none' for no restriction)
-	*/
+	 * @param int $namespace (null for "all")
+	 * @param int $override (null for "either")
+	 * @param string $autoreview ('' for "all", 'none' for no restriction)
+	 */
 	function __construct( $form, $conds = array(), $namespace, $override, $autoreview ) {
 		$this->mForm = $form;
 		$this->mConds = $conds;

@@ -4,8 +4,8 @@
  */
 class FlaggedRevsUIHooks {
 	/**
-	* Add FlaggedRevs css/js.
-	*/
+	 * Add FlaggedRevs css/js.
+	 */
 	protected static function injectStyleAndJS() {
 		global $wgOut, $wgUser;
 		static $loadedModules = false;
@@ -46,9 +46,9 @@ class FlaggedRevsUIHooks {
 	}
 
 	/**
-	* Add FlaggedRevs css for relevant special pages.
-	* @param OutputPage $out
-	*/
+	 * Add FlaggedRevs css for relevant special pages.
+	 * @param OutputPage $out
+	 */
 	protected static function injectStyleForSpecial( &$out ) {
 		$title = $out->getTitle();
 		$spPages = array( 'UnreviewedPages', 'PendingChanges', 'ProblemChanges',
@@ -63,8 +63,8 @@ class FlaggedRevsUIHooks {
 	}
 
 	/*
-	* Add tag notice, CSS/JS, protect form link, and set robots policy
-	*/
+	 * Add tag notice, CSS/JS, protect form link, and set robots policy
+	 */
 	public static function onBeforePageDisplay( &$out, &$skin ) {
 		if ( $out->getTitle()->getNamespace() != NS_SPECIAL ) {
 			$view = FlaggablePageView::singleton();
