@@ -359,7 +359,7 @@ class FlaggedRevsHooks {
 	) {
 		global $wgRequest;
 		# Edit must be non-null, to a reviewable page, with $user set
-		$fa = FlaggableWikiPage::getArticleInstance( $article );
+		$fa = FlaggableWikiPage::getTitleInstance( $article->getTitle() );
 		$fa->loadPageData( 'fromdbmaster' );
 		if ( !$rev || !$user || !$fa->isReviewable() ) {
 			return true;
@@ -540,7 +540,7 @@ class FlaggedRevsHooks {
 		if ( !$baseId && !$reviewEdit ) {
 			return true; // short-circuit
 		}
-		$fa = FlaggableWikiPage::getArticleInstance( $article );
+		$fa = FlaggableWikiPage::getTitleInstance( $article->getTitle() );
 		$fa->loadPageData( 'fromdbmaster' );
 		if ( !$fa->isReviewable() ) {
 			return true; // page is not reviewable

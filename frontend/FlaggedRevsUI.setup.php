@@ -227,6 +227,9 @@ class FlaggedRevsUISetup {
 		$logActions['review/unapprove'] = 'review-logentry-dis'; // was checked
 		$logActions['review/unapprove2'] = 'review-logentry-dis'; // was quality
 
+		# B/C ...
+		$logActions['rights/erevoke']  = 'rights-editor-revoke';
+
 		$logActionsHandlers['stable/config'] = 'FlaggedRevsLogView::stabilityLogText'; // customize
 		$logActionsHandlers['stable/modify'] = 'FlaggedRevsLogView::stabilityLogText'; // re-customize
 		$logActionsHandlers['stable/reset'] = 'FlaggedRevsLogView::stabilityLogText'; // reset

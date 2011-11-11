@@ -17,7 +17,7 @@ class FlaggableWikiPage extends WikiPage {
 
 	/**
 	 * Get a FlaggableWikiPage for a given title
-	 * @param Title
+	 * @param $title Title
 	 * @return FlaggableWikiPage
 	 */
 	public static function getTitleInstance( Title $title ) {
@@ -26,15 +26,6 @@ class FlaggableWikiPage extends WikiPage {
 			$title->flaggedRevsArticle = new self( $title );
 		}
 		return $title->flaggedRevsArticle;
-	}
-
-	/**
-	 * Get a FlaggableWikiPage for a given article
-	 * @param Article
-	 * @return FlaggableWikiPage
-	 */
-	public static function getArticleInstance( Page $article ) {
-		return self::getTitleInstance( $article->getTitle() );
 	}
 
 	/**
@@ -54,7 +45,6 @@ class FlaggableWikiPage extends WikiPage {
 
 	/**
 	 * Get the current file version (null if this not a File page)
-	 *
 	 * @return File|null|false
 	 */
 	public function getFile() {

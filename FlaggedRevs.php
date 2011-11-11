@@ -48,10 +48,7 @@ FlaggedRevsSetup::defineSourcePaths(
 	$wgExtensionAliasesFiles
 );
 
-# Load hooks that are always set
-FlaggedRevsSetup::setUnconditionalHooks();
-
-# Define new rights that FlaggedRevs creates
+# Define user rights
 $wgAvailableRights[] = 'review'; # review pages to basic quality levels
 $wgAvailableRights[] = 'validate'; # review pages to all quality levels
 $wgAvailableRights[] = 'autoreview'; # auto-review one's own edits (including rollback)
@@ -64,10 +61,7 @@ $wgAvailableRights[] = 'stablesettings'; # change page stability settings
 # array so that it shows up in sp:ListGroupRights...
 $wgGroupPermissions['bot']['autoreview'] = true;
 
-# Special case cache invalidations
-$wgJobClasses['flaggedrevs_CacheUpdate'] = 'FRExtraCacheUpdateJob';
-
-# New user preferences
+# Define user preferences
 $wgDefaultUserOptions['flaggedrevssimpleui'] = (int)$wgSimpleFlaggedRevsUI;
 $wgDefaultUserOptions['flaggedrevsstable'] = FR_SHOW_STABLE_DEFAULT;
 $wgDefaultUserOptions['flaggedrevseditdiffs'] = true;
@@ -88,6 +82,12 @@ FlaggedRevsUISetup::defineResourceModules( $wgResourceModules );
 # AJAX functions
 FlaggedRevsUISetup::defineAjaxFunctions( $wgAjaxExportList );
 
+# Special case page cache invalidations
+$wgJobClasses['flaggedrevs_CacheUpdate'] = 'FRExtraCacheUpdateJob';
+
+# Load hooks that are always set
+FlaggedRevsSetup::setUnconditionalHooks();
+
 # Load the extension after setup is finished
 $wgExtensionFunctions[] = 'efLoadFlaggedRevs';
 
@@ -95,6 +95,7 @@ $wgExtensionFunctions[] = 'efLoadFlaggedRevs';
  * This function is for setup that has to happen in Setup.php
  * when the functions in $wgExtensionFunctions get executed.
  * Note: avoid calls to FlaggedRevs class here for performance.
+ * @return void
  */
 function efLoadFlaggedRevs() {
 	# LocalSettings.php loaded, safe to load config
@@ -114,6 +115,3 @@ function efLoadFlaggedRevs() {
 	# Defaults for user preferences
 	FlaggedRevsSetup::setConditionalPreferences();
 }
-
-# B/C ...
-$wgLogActions['rights/erevoke']  = 'rights-editor-revoke';
