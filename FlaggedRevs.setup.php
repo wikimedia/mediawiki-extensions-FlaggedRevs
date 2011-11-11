@@ -40,16 +40,16 @@ class FlaggedRevsSetup {
 		$dir = dirname( __FILE__ );
 
 		# Basic directory layout
-		$schemaDir        = "$dir/schema";
-		$backendDir       = "$dir/dataclasses";
+		$backendDir       = "$dir/backend";
+		$schemaDir        = "$dir/backend/schema";
 		$businessDir      = "$dir/business";
 		$apiDir           = "$dir/api";
 		$apiActionDir     = "$dir/api/actions";
 		$apiReportDir     = "$dir/api/reports";
-		$frontendDir      = "$dir/presentation";
-		$langDir          = "$dir/presentation/language";
-		$spActionDir      = "$dir/presentation/specialpages/actions";
-		$spReportDir      = "$dir/presentation/specialpages/reports";
+		$frontendDir      = "$dir/frontend";
+		$langDir          = "$dir/frontend/language";
+		$spActionDir      = "$dir/frontend/specialpages/actions";
+		$spReportDir      = "$dir/frontend/specialpages/reports";
 		$testDir          = "$dir/tests";
 
 		### Backend classes ###
