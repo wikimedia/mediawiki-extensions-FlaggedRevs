@@ -809,7 +809,6 @@ $messages['br'] = array(
 	'revreview-flag' => 'Adwelet an adweladenn',
 	'revreview-reflag' => 'Adlenn adarre an adweladenn-mañ',
 	'revreview-invalid' => "'''Pal direizh :''' n'eus [[{{MediaWiki:Validationpage}}|stumm adwelet ebet]] o klotañ gant an niverenn merket.",
-	'revreview-legend' => 'Priziañ danvez ar stumm',
 	'revreview-log' => 'Notenn :',
 	'revreview-main' => 'Rankout a rit diuzañ ur stumm resis eus ar bajenn evit ober un adlenn.
 Gwelet [[Special:Unreviewedpages|roll ar pajennoù nann-adlennet]].',
@@ -826,6 +825,8 @@ Gwelet [[Special:Unreviewedpages|roll ar pajennoù nann-adlennet]].',
 	'revreview-successful2' => "'''Stumm eus [[:$1|$1]] diwiriekaat.'''",
 	'revreview-poss-conflict-p' => "'''Diwallit : kroget en doa [[User:$1|$1]] da adwelet ar bajenn-mañ d'an $2 da $3.'''",
 	'revreview-poss-conflict-c' => "'''Diwallit : kroget en doa [[User:$1|$1]] da adwelet ar c'hemmoù-mañ d'an $2 da $3.'''",
+	'revreview-adv-start-link' => 'Ober bruderezh',
+	'revreview-adv-stop-link' => 'Paouez gant ar bruderezh',
 	'revreview-toolow' => "'''Rankout a rit reiñ ur briziadenn uheloc'h eget \"ket aprouet\" evit ma 'vefe dalc'het kont eus an adweladenn.'''
 
 Evit tennañ kuit statud adlenn ur stumm, klikit war \"diaprouiñ\".
@@ -839,17 +840,15 @@ Adlennit an holl gemmoù diskouezet a-is evit ma teufe war wel ho kemmoù er stu
 
 Adlennit an holl gemmoù diskouezet a-is evit ma teufe war wel ho kemmoù er stumm stabil.",
 	'revreview-update-includes' => "patromoù/restroù bet hizivaet (e tev ar pajennoù n'int ket bet adwelet) :",
-	'revreview-reject-header' => "Disteuler ar c'hemmoù evit $1",
 	'revreview-reject-text-list' => "Ma rit se e '''tistaolot''' ar c'hemmoù an destenn orin evit an {{PLURAL:$1|adweladenn|adweladenn}} da-heul eus [[:$2|$2]] :",
 	'revreview-reject-text-revto' => 'Kement-mañ a adlakao ar bajenn en he [{{fullurl:$1|oldid=$2}} stumm eus an $3].',
 	'revreview-reject-summary' => 'Diverrañ :',
 	'revreview-reject-confirm' => "Disteuler ar c'hemmoù-mañ",
 	'revreview-reject-cancel' => 'Nullañ',
-	'revreview-reject-summary-cur' => "Distaolet {{PLURAL:$1|ar c'hemm|an $1 kemm}} diwezhañ (gant $2) hag assavet ar stumm $3 gant $4",
-	'revreview-reject-summary-old' => "Distaolet {{PLURAL:$1|ar c'hemm|an $1 kemm}} kentañ (gant $2) a heulie ar stumm adwelet $3 gant $4",
-	'revreview-reject-summary-cur-short' => "Distaolet {{PLURAL:$1|ar c'hemm|an $1 kemm}} diwezhañ (gant $2) hag assavet ar stumm $2 gant $3",
-	'revreview-reject-summary-old-short' => "Distaolet {{PLURAL:$1|ar c'hemm|an $1 kemm}} kentañ a heulie ar stumm adwelet $2 gant $3",
-	'revreview-reject-usercount' => '{{PLURAL:$1|un implijer|$1 implijer}}',
+	'revreview-reject-summary-cur' => "Distaolet {{PLURAL:$1|ar c'hemm testenn|an $1 kemm testenn}} diwezhañ (gant $2) hag assavet ar stumm $3 gant $4",
+	'revreview-reject-summary-old' => "Distaolet {{PLURAL:$1|ar c'hemm testenn|an $1 kemm testenn}} kentañ (gant $2) a heulie ar stumm adwelet $3 gant $4",
+	'revreview-reject-summary-cur-short' => "Distaolet {{PLURAL:$1|ar c'hemm testenn|an $1 kemm testenn}} diwezhañ (gant $2) hag assavet ar stumm $2 gant $3",
+	'revreview-reject-summary-old-short' => "Distaolet {{PLURAL:$1|ar c'hemm testenn|an $1 kemm testenn}} kentañ a heulie ar stumm adwelet $2 gant $3",
 	'revreview-tt-flag' => 'Aprouiñ ar stumm-mañ en ur merkañ anezhañ evel gwiriekaet',
 	'revreview-tt-unflag' => 'Diaprouiñ ar stumm-mañ en ur merkañ anezhañ evel "nann-gwiriekaet"',
 	'revreview-tt-reject' => "Dizober ar c'hemmoù-se en destenn orin en ur zisteurel anezho",

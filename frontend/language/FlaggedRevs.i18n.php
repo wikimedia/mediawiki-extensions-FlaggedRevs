@@ -10567,11 +10567,12 @@ $messages['pam'] = array(
 $messages['pdc'] = array(
 	'editor' => 'Schreiwer',
 	'group-editor' => 'Schreiwer',
-	'group-editor-member' => 'Schreiwer',
+	'group-editor-member' => '{{GENDER:$1|Schreiwer}}',
 	'grouppage-editor' => '{{ns:project}}:Schreiwer',
 	'revreview-depth-1' => 'eefach',
 	'revreview-style-2' => 'gans guud',
 	'revreview-filter-all' => 'All',
+	'revreview-restriction-none' => 'ken',
 );
 
 /** Pälzisch (Pälzisch)
