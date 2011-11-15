@@ -8,9 +8,12 @@ class ValidationStatistics extends IncludableSpecialPage {
 	}
 
 	public function execute( $par ) {
-		global $wgUser, $wgOut, $wgLang, $wgContLang, $wgFlaggedRevsStats;
+		global $wgContLang, $wgFlaggedRevsStats;
+
+		$out = $this->getOutput();
+		$lang = $this->getLang();
+
 		$this->setHeaders();
-		$this->skin = $wgUser->getSkin();
 		$this->db = wfGetDB( DB_SLAVE );
 
 		$this->maybeUpdate();
@@ -23,8 +26,8 @@ class ValidationStatistics extends IncludableSpecialPage {
 		$pData = $this->getPercentiles();
 		$timestamp = $this->getLastUpdate();
 
-		$wgOut->addWikiMsg( 'validationstatistics-users',
-			$wgLang->formatnum( $ec ), $wgLang->formatnum( $rc )
+		$out->addWikiMsg( 'validationstatistics-users',
+			$lang->formatnum( $ec ), $lang->formatnum( $rc )
 		);
 		# Most of the output depends on background queries
 		if ( !$this->readyForQuery() ) {
@@ -37,7 +40,7 @@ class ValidationStatistics extends IncludableSpecialPage {
 			foreach ( $pData as $percentile => $perValue ) {
 				$headerRows .= "<th>P<sub>" . intval( $percentile ) . "</sub></th>";
 				$dataRows .= '<td>' .
-					$wgLang->formatTimePeriod( $perValue, 'avoidminutes' ) . '</td>';
+					$lang->formatTimePeriod( $perValue, 'avoidminutes' ) . '</td>';
 			}
 			$css = 'wikitable flaggedrevs_stats_table';
 			$reviewChart = "<table class='$css' style='white-space: nowrap;'>\n";
@@ -50,38 +53,38 @@ class ValidationStatistics extends IncludableSpecialPage {
 
 		if ( $timestamp != '-' ) {
 			# Show "last updated"...
-			$wgOut->addWikiMsg( 'validationstatistics-lastupdate',
-				$wgLang->date( $timestamp, true ),
-				$wgLang->time( $timestamp, true )
+			$out->addWikiMsg( 'validationstatistics-lastupdate',
+				$lang->date( $timestamp, true ),
+				$lang->time( $timestamp, true )
 			);
 		}
-		$wgOut->addHtml( '<hr/>' );
+		$out->addHtml( '<hr/>' );
 		# Show pending time stats...
-		$wgOut->addWikiMsg( 'validationstatistics-pndtime',
-			$wgLang->formatTimePeriod( $pt, 'avoidminutes' ) );
+		$out->addWikiMsg( 'validationstatistics-pndtime',
+			$lang->formatTimePeriod( $pt, 'avoidminutes' ) );
 		# Show review time stats...
 		if ( !FlaggedRevs::useOnlyIfProtected() ) {
-			$wgOut->addWikiMsg( 'validationstatistics-revtime',
-				$wgLang->formatTimePeriod( $mt, 'avoidminutes' ),
-				$wgLang->formatTimePeriod( $mdt, 'avoidminutes' ),
+			$out->addWikiMsg( 'validationstatistics-revtime',
+				$lang->formatTimePeriod( $mt, 'avoidminutes' ),
+				$lang->formatTimePeriod( $mdt, 'avoidminutes' ),
 				$reviewChart
 			);
 		}
 		# Show per-namespace stats table...
-		$wgOut->addWikiMsg( 'validationstatistics-table' );
-		$wgOut->addHTML(
+		$out->addWikiMsg( 'validationstatistics-table' );
+		$out->addHTML(
 			Xml::openElement( 'table', array( 'class' => 'wikitable flaggedrevs_stats_table' ) )
 		);
-		$wgOut->addHTML( "<tr>\n" );
+		$out->addHTML( "<tr>\n" );
 		// Headings (for a positive grep result):
 		// validationstatistics-ns, validationstatistics-total, validationstatistics-stable,
 		// validationstatistics-latest, validationstatistics-synced, validationstatistics-old
 		$msgs = array( 'ns', 'total', 'stable', 'latest', 'synced', 'old' ); // our headings
 		foreach ( $msgs as $msg ) {
-			$wgOut->addHTML( '<th>' .
+			$out->addHTML( '<th>' .
 				wfMsgExt( "validationstatistics-$msg", 'parseinline' ) . '</th>' );
 		}
-		$wgOut->addHTML( "</tr>\n" );
+		$out->addHTML( "</tr>\n" );
 		$namespaces = FlaggedRevs::getReviewNamespaces();
 		foreach ( $namespaces as $namespace ) {
 			$total = $this->getTotalPages( $namespace );
@@ -98,7 +101,7 @@ class ValidationStatistics extends IncludableSpecialPage {
 				? '-' // devision by zero
 				: wfMsg( 'parentheses',
 					wfMsgExt( 'percent', array( 'escapenoentities' ),
-						$wgLang->formatnum( sprintf( '%4.2f',
+						$lang->formatnum( sprintf( '%4.2f',
 							100 * intval( $reviewed ) / intval( $total ) ) )
 					)
 				);
@@ -106,40 +109,40 @@ class ValidationStatistics extends IncludableSpecialPage {
 				? '-' // devision by zero
 				: wfMsg( 'parentheses', 
 					wfMsgExt( 'percent', array( 'escapenoentities' ),
-						$wgLang->formatnum( sprintf( '%4.2f',
+						$lang->formatnum( sprintf( '%4.2f',
 							100 * intval( $synced ) / intval( $total ) ) )
 					)
 				);
 			$percSynced = intval( $reviewed ) == 0
 				? '-' // devision by zero
 				: wfMsgExt( 'percent', array( 'escapenoentities' ),
-					$wgLang->formatnum( sprintf( '%4.2f',
+					$lang->formatnum( sprintf( '%4.2f',
 						100 * intval( $synced ) / intval( $reviewed ) ) )
 				);
 			$outdated = intval( $reviewed ) - intval( $synced );
-			$outdated = $wgLang->formatnum( max( 0, $outdated ) ); // lag between queries
+			$outdated = $lang->formatnum( max( 0, $outdated ) ); // lag between queries
 
-			$wgOut->addHTML(
+			$out->addHTML(
 				"<tr align='center'>
 					<td>" .
 						htmlspecialchars( $NsText ) .
 					"</td>
 					<td>" .
-						htmlspecialchars( $wgLang->formatnum( $total ) ) .
+						htmlspecialchars( $lang->formatnum( $total ) ) .
 					"</td>
 					<td>" .
-						htmlspecialchars( $wgLang->formatnum( $reviewed ) .
+						htmlspecialchars( $lang->formatnum( $reviewed ) .
 							$wgContLang->getDirMark() ) . " <i>$percRev</i>
 					</td>
 					<td>" .
-						htmlspecialchars( $wgLang->formatnum( $synced ) .
+						htmlspecialchars( $lang->formatnum( $synced ) .
 							$wgContLang->getDirMark() ) . " <i>$percLatest</i>
 					</td>
 					<td>" .
 						$percSynced .
 					"</td>
 					<td>" .
-						$this->skin->linkKnown( SpecialPage::getTitleFor( 'PendingChanges' ),
+						Linker::linkKnown( SpecialPage::getTitleFor( 'PendingChanges' ),
 							htmlspecialchars( $outdated ),
 							array(),
 							array( 'namespace' => $namespace )
@@ -148,13 +151,13 @@ class ValidationStatistics extends IncludableSpecialPage {
 				</tr>"
 			);
 		}
-		$wgOut->addHTML( Xml::closeElement( 'table' ) );
+		$out->addHTML( Xml::closeElement( 'table' ) );
 		# Is there a top X user list? If so, then show it...
 		$data = $this->getTopReviewers();
 		if ( is_array( $data ) && count( $data ) ) {
-			$wgOut->addWikiMsg( 'validationstatistics-utable',
-				$wgLang->formatNum( $wgFlaggedRevsStats['topReviewersCount'] ),
-				$wgLang->formatNum( $wgFlaggedRevsStats['topReviewersHours'] )
+			$out->addWikiMsg( 'validationstatistics-utable',
+				$lang->formatNum( $wgFlaggedRevsStats['topReviewersCount'] ),
+				$lang->formatNum( $wgFlaggedRevsStats['topReviewersHours'] )
 			);
 			$css = 'wikitable flaggedrevs_stats_table';
 			$reviewChart = "<table class='$css' style='white-space: nowrap;'>\n";
@@ -162,18 +165,20 @@ class ValidationStatistics extends IncludableSpecialPage {
 				'</th><th>' . wfMsgHtml( 'validationstatistics-reviews' ) . '</th></tr>';
 			foreach ( $data as $userId => $reviews ) {
 				$reviewChart .= '<tr><td>' . htmlspecialchars( User::whois( $userId ) ) .
-					'</td><td>' . $wgLang->formatNum( $reviews ) . '</td></tr>';
+					'</td><td>' . $lang->formatNum( $reviews ) . '</td></tr>';
 			}
 			$reviewChart .= "</table>\n";
-			$wgOut->addHTML( $reviewChart );
+			$out->addHTML( $reviewChart );
 		}
 	}
 
 	protected function maybeUpdate() {
 		global $wgFlaggedRevsStatsAge;
+
 		if ( !$wgFlaggedRevsStatsAge ) {
 			return false;
 		}
+
 		$dbCache = wfGetCache( CACHE_DB );
 		$key = wfMemcKey( 'flaggedrevs', 'statsUpdated' );
 		$keySQL = wfMemcKey( 'flaggedrevs', 'statsUpdating' );
@@ -302,6 +307,7 @@ class ValidationStatistics extends IncludableSpecialPage {
 		}
 		// Save/cache users
 		$dbCache->set( $key, $data, 3600 );
+
 		return $data;
 	}
 }

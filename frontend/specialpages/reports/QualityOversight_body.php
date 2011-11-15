@@ -6,15 +6,18 @@ class QualityOversight extends SpecialPage {
 	}
 
 	public function execute( $par ) {
-		global $wgOut, $wgUser, $wgRequest, $wgLang, $wgFlaggedRevsOversightAge;
-		
+		global $wgFlaggedRevsOversightAge;
+
+		$out = $this->getOutput();
+		$request = $this->getRequest();
+
 		$this->setHeaders();
-		
-		$this->namespace = $wgRequest->getInt( 'namespace' );
-		$this->level = $wgRequest->getIntOrNull( 'level' );
-		$this->status = $wgRequest->getIntOrNull( 'status' );
-		$this->automatic = $wgRequest->getIntOrNull( 'automatic' );
-		$this->user = $wgRequest->getVal( 'user' );
+
+		$this->namespace = $request->getInt( 'namespace' );
+		$this->level = $request->getIntOrNull( 'level' );
+		$this->status = $request->getIntOrNull( 'status' );
+		$this->automatic = $request->getIntOrNull( 'automatic' );
+		$this->user = $request->getVal( 'user' );
 		# Check if the user exists
 		$usertitle = Title::makeTitleSafe( NS_USER, $this->user );
 		$u = $usertitle ? User::idFromName( $this->user ) : false;
@@ -22,8 +25,8 @@ class QualityOversight extends SpecialPage {
 		# Are the dropdown params given even valid?
 		$actions = $this->getActions();
 		if ( empty( $actions ) ) {
-			$wgOut->addWikiMsg( 'qualityoversight-list', 0 );
-			$wgOut->addWikiMsg( 'logempty' );
+			$out->addWikiMsg( 'qualityoversight-list', 0 );
+			$out->addWikiMsg( 'logempty' );
 			return;
 		}
 
@@ -38,19 +41,19 @@ class QualityOversight extends SpecialPage {
 		}
 
 		# Create a LogPager item to get the results and a LogEventsList item to format them...
-		$loglist = new LogEventsList( $wgUser->getSkin(), $wgOut, 0 );
+		$loglist = new LogEventsList( $this->getUser()->getSkin(), $out, 0 );
 		$pager = new LogPager( $loglist, 'review', $this->user, '', '', $conds );
 
 		# Explanatory text
-		$wgOut->addWikiMsg( 'qualityoversight-list',
-			$wgLang->formatNum( $pager->getNumRows() ) );
+		$out->addWikiMsg( 'qualityoversight-list',
+			$this->getLang()->formatNum( $pager->getNumRows() ) );
 		# Show form options
 		$this->showForm();
 
 		# Insert list
 		$logBody = $pager->getBody();
 		if ( $logBody ) {
-			$wgOut->addHTML(
+			$out->addHTML(
 				$pager->getNavigationBar() .
 				$loglist->beginLogEventsList() .
 				$logBody .
@@ -58,13 +61,14 @@ class QualityOversight extends SpecialPage {
 				$pager->getNavigationBar()
 			);
 		} else {
-			$wgOut->addWikiMsg( 'logempty' );
+			$out->addWikiMsg( 'logempty' );
 		}
 	}
 	
 	private function showForm() {
-		global $wgOut, $wgScript;
-		$wgOut->addHTML(
+		global $wgScript;
+
+		$this->getOutput()->addHTML(
 			Xml::openElement( 'form', array( 'name' => 'qualityoversight',
 				'action' => $wgScript, 'method' => 'get' ) ) .
 			'<fieldset><legend>' . wfMsgHtml( 'qualityoversight-legend' ) . '</legend><p>' .

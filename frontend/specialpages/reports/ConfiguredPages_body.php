@@ -9,14 +9,13 @@ class ConfiguredPages extends SpecialPage {
 	}
 
 	public function execute( $par ) {
-		global $wgRequest, $wgUser;
+		$request = $this->getRequest();
 
 		$this->setHeaders();
-		$this->skin = $wgUser->getSkin();
 
-		$this->namespace = $wgRequest->getIntOrNull( 'namespace' );
-		$this->override = $wgRequest->getIntOrNull( 'stable' );
-		$this->autoreview = $wgRequest->getVal( 'restriction', '' );
+		$this->namespace = $request->getIntOrNull( 'namespace' );
+		$this->override = $request->getIntOrNull( 'stable' );
+		$this->autoreview = $request->getVal( 'restriction', '' );
 
 		$this->pager = new ConfiguredPagesPager(
 			$this, array(), $this->namespace, $this->override, $this->autoreview );
@@ -26,10 +25,11 @@ class ConfiguredPages extends SpecialPage {
 	}
 
 	protected function showForm() {
-		global $wgOut, $wgScript, $wgLang;
+		global $wgScript;
+
 		# Explanatory text
-		$wgOut->addWikiMsg( 'configuredpages-list',
-			$wgLang->formatNum( $this->pager->getNumRows() ) );
+		$this->getOutput()->addWikiMsg( 'configuredpages-list',
+			$this->getLang()->formatNum( $this->pager->getNumRows() ) );
 
 		$fields = array();
 		# Namespace selector
@@ -52,17 +52,16 @@ class ConfiguredPages extends SpecialPage {
 		$form .= "</fieldset>\n";
 		$form .= Html::closeElement( 'form' ) . "\n";
 
-		$wgOut->addHTML( $form );
+		$this->getOutput()->addHTML( $form );
 	}
 
 	protected function showPageList() {
-		global $wgOut;
 		if ( $this->pager->getNumRows() ) {
-			$wgOut->addHTML( $this->pager->getNavigationBar() );
-			$wgOut->addHTML( $this->pager->getBody() );
-			$wgOut->addHTML( $this->pager->getNavigationBar() );
+			$this->getOutput()->addHTML( $this->pager->getNavigationBar() );
+			$this->getOutput()->addHTML( $this->pager->getBody() );
+			$this->getOutput()->addHTML( $this->pager->getNavigationBar() );
 		} else {
-			$wgOut->addWikiMsg( 'configuredpages-none' );
+			$this->getOutput()->addWikiMsg( 'configuredpages-none' );
 		}
 		# Purge expired entries on one in every 10 queries
 		if ( !mt_rand( 0, 10 ) ) {
@@ -71,12 +70,11 @@ class ConfiguredPages extends SpecialPage {
 	}
 
 	public function formatRow( $row ) {
-		global $wgLang;
 		$title = Title::newFromRow( $row );
 		# Link to page
-		$link = $this->skin->link( $title );
+		$link = Linker::link( $title );
 		# Link to page configuration
-		$config = $this->skin->linkKnown(
+		$config = Linker::linkKnown(
 			SpecialPage::getTitleFor( 'Stabilization' ),
 			wfMsgHtml( 'configuredpages-config' ),
 			array(),
@@ -98,9 +96,9 @@ class ConfiguredPages extends SpecialPage {
 		if ( $row->fpc_expiry != 'infinity' && strlen( $row->fpc_expiry ) ) {
 			$expiry_description = " (" . wfMsgForContent(
 				'protect-expiring',
-				$wgLang->timeanddate( $row->fpc_expiry ),
-				$wgLang->date( $row->fpc_expiry ),
-				$wgLang->time( $row->fpc_expiry )
+				$this->getLang()->timeanddate( $row->fpc_expiry ),
+				$this->getLang()->date( $row->fpc_expiry ),
+				$this->getLang()->time( $row->fpc_expiry )
 			) . ")";
 		} else {
 			$expiry_description = "";

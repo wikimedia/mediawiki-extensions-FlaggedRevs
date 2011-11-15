@@ -3,76 +3,74 @@
 // Assumes $wgFlaggedRevsProtection is off
 class Stabilization extends UnlistedSpecialPage {
 	protected $form = null;
-	protected $skin;
 
 	public function __construct() {
-		global $wgUser;
 		parent::__construct( 'Stabilization', 'stablesettings' );
-		$this->skin = $wgUser->getSkin();
 	}
 
 	public function execute( $par ) {
-		global $wgRequest, $wgUser, $wgOut;
-		# Check user token
-		$confirmed = false;
+		$out = $this->getOutput();
+		$user = $this->getUser();
+		$request = $this->getRequest();
+
+		$confirmed = $user->matchEditToken( $request->getVal( 'wpEditToken' ) );
+
 		# Let anyone view, but not submit...
-		if ( $wgRequest->wasPosted() ) {
-			# Check user token
-			$confirmed = $wgUser->matchEditToken( $wgRequest->getVal( 'wpEditToken' ) );
-			if ( $wgUser->isBlocked( !$confirmed ) ) {
-				$wgOut->blockedPage();
-				return;
-			} elseif ( !$wgUser->isAllowed( 'stablesettings' ) ) {
-				$wgOut->permissionRequired( 'stablesettings' );
-				return;
+		if ( $request->wasPosted() ) {
+			if ( !$user->isAllowed( 'stablesettings' ) ) {
+				throw new PermissionsError( 'stablesettings' );
+			}
+			$block = $user->getBlock( !$confirmed );
+			if ( $block ) {
+				throw new UserBlockedError( $block );
 			} elseif ( wfReadOnly() ) {
-				$wgOut->readOnlyPage();
-				return;
+				throw new ReadOnlyError();
 			}
 		}
 		# Set page title
 		$this->setHeaders();
 
 		# Target page
-		$title = Title::newFromURL( $wgRequest->getVal( 'page', $par ) );
+		$title = Title::newFromURL( $request->getVal( 'page', $par ) );
 		if ( !$title ) {
-			$wgOut->showErrorPage( 'notargettitle', 'notargettext' );
+			$out->showErrorPage( 'notargettitle', 'notargettext' );
 			return;
 		}
 	
-		$this->form = new PageStabilityGeneralForm( $wgUser );
+		$this->form = new PageStabilityGeneralForm( $user );
 		$form = $this->form; // convenience
 
 		$form->setPage( $title );
 		# Watch checkbox
-		$form->setWatchThis( (bool)$wgRequest->getCheck( 'wpWatchthis' ) );
+		$form->setWatchThis( (bool)$request->getCheck( 'wpWatchthis' ) );
 		# Get auto-review option...
-		$form->setReviewThis( $wgRequest->getBool( 'wpReviewthis', true ) );
+		$form->setReviewThis( $request->getBool( 'wpReviewthis', true ) );
 		# Reason
-		$form->setReasonExtra( $wgRequest->getText( 'wpReason' ) );
-		$form->setReasonSelection( $wgRequest->getVal( 'wpReasonSelection' ) );
+		$form->setReasonExtra( $request->getText( 'wpReason' ) );
+		$form->setReasonSelection( $request->getVal( 'wpReasonSelection' ) );
 		# Expiry
-		$form->setExpiryCustom( $wgRequest->getText( 'mwStabilize-expiry' ) );
-		$form->setExpirySelection( $wgRequest->getVal( 'wpExpirySelection' ) );
+		$form->setExpiryCustom( $request->getText( 'mwStabilize-expiry' ) );
+		$form->setExpirySelection( $request->getVal( 'wpExpirySelection' ) );
 		# Default version
-		$form->setOverride( (int)$wgRequest->getBool( 'wpStableconfig-override' ) );
+		$form->setOverride( (int)$request->getBool( 'wpStableconfig-override' ) );
 		# Get autoreview restrictions...
-		$form->setAutoreview( $wgRequest->getVal( 'mwProtect-level-autoreview' ) );
+		$form->setAutoreview( $request->getVal( 'mwProtect-level-autoreview' ) );
 		$form->ready(); // params all set
 
 		$status = $form->checkTarget();
 		if ( $status === 'stabilize_page_notexists' ) {
-			$wgOut->addWikiMsg( 'stabilization-notexists', $title->getPrefixedText() );
+			$out->addWikiMsg( 'stabilization-notexists', $title->getPrefixedText() );
 			return;
 		} elseif ( $status === 'stabilize_page_unreviewable' ) {
-			$wgOut->addWikiMsg( 'stabilization-notcontent', $title->getPrefixedText() );
+			$out->addWikiMsg( 'stabilization-notcontent', $title->getPrefixedText() );
 			return;
 		}
+
 		# Form POST request...
-		if ( $confirmed && $form->isAllowed() ) {
+		if ( $request->wasPosted() && $confirmed && $form->isAllowed() ) {
 			$status = $form->submit();
 			if ( $status === true ) {
-				$wgOut->redirect( $title->getFullUrl() );
+				$out->redirect( $title->getFullUrl() );
 			} else {
 				$this->showForm( wfMsg( $status ) );
 			}
@@ -84,7 +82,8 @@ class Stabilization extends UnlistedSpecialPage {
 	}
 
 	public function showForm( $err = null ) {
-		global $wgOut, $wgLang, $wgUser;
+		$out = $this->getOutput();
+
 		$form = $this->form; // convenience
 		$title = $this->form->getPage();
 		$oldConfig = $form->getOldConfig();
@@ -92,8 +91,8 @@ class Stabilization extends UnlistedSpecialPage {
 		$s = ''; // form HTML string
 		# Add any error messages
 		if ( "" != $err ) {
-			$wgOut->setSubtitle( wfMsgHtml( 'formerror' ) );
-			$wgOut->addHTML( "<p class='error'>{$err}</p>\n" );
+			$out->setSubtitle( wfMsgHtml( 'formerror' ) );
+			$out->addHTML( "<p class='error'>{$err}</p>\n" );
 		}
 		# Add header text
 		if ( !$form->isAllowed() ) {
@@ -115,9 +114,9 @@ class Stabilization extends UnlistedSpecialPage {
 		$dropdownOptions = array(); // array of <label,value>
 		# Add the current expiry as a dropdown option
 		if ( $oldConfig['expiry'] && $oldConfig['expiry'] != Block::infinity() ) {
-			$timestamp = $wgLang->timeanddate( $oldConfig['expiry'] );
-			$d = $wgLang->date( $oldConfig['expiry'] );
-			$t = $wgLang->time( $oldConfig['expiry'] );
+			$timestamp = $this->getLang()->timeanddate( $oldConfig['expiry'] );
+			$d = $this->getLang()->date( $oldConfig['expiry'] );
+			$t = $this->getLang()->time( $oldConfig['expiry'] );
 			$dropdownOptions[] = array(
 				wfMsg( 'protect-existing-expiry', $timestamp, $d, $t ), 'existing' );
 		}
@@ -172,8 +171,8 @@ class Stabilization extends UnlistedSpecialPage {
 					<td class='mw-input'>" .
 						Xml::tags( 'select',
 							array(
-								'id' 		=> 'mwStabilizeExpirySelection',
-								'name' 		=> 'wpExpirySelection',
+								'id'        => 'mwStabilizeExpirySelection',
+								'name'      => 'wpExpirySelection',
 								'onchange'  => 'onFRChangeExpiryDropdown()',
 							) + $this->disabledAttr(),
 							$expiryFormOptions ) .
@@ -197,7 +196,7 @@ class Stabilization extends UnlistedSpecialPage {
 			$watchLabel = wfMsgExt( 'watchthis', 'parseinline' );
 			$watchAttribs = array( 'accesskey' => wfMsg( 'accesskey-watch' ),
 				'id' => 'wpWatchthis' );
-			$watchChecked = ( $wgUser->getOption( 'watchdefault' )
+			$watchChecked = ( $this->getUser()->getOption( 'watchdefault' )
 				|| $title->userIsWatching() );
 			$reviewLabel = wfMsgExt( 'stabilization-review', 'parseinline' );
 
@@ -228,7 +227,7 @@ class Stabilization extends UnlistedSpecialPage {
 						Xml::check( 'wpWatchthis', $watchChecked, $watchAttribs ) .
 						"&#160;<label for='wpWatchthis' " .
 						Xml::expandAttributes(
-							array( 'title' => $this->skin->titleAttrib( 'watch', 'withaccess' ) ) ) .
+							array( 'title' => Linker::titleAttrib( 'watch', 'withaccess' ) ) ) .
 						">{$watchLabel}</label>" .
 					'</td>
 				</tr>
@@ -240,21 +239,21 @@ class Stabilization extends UnlistedSpecialPage {
 				</tr>' . Xml::closeElement( 'table' ) .
 				Html::hidden( 'title', $this->getTitle()->getPrefixedDBKey() ) .
 				Html::hidden( 'page', $title->getPrefixedText() ) .
-				Html::hidden( 'wpEditToken', $wgUser->editToken() );
+				Html::hidden( 'wpEditToken', $this->getUser()->editToken() );
 		} else {
 			$s .= Xml::closeElement( 'table' );
 		}
 		$s .= Xml::closeElement( 'fieldset' ) . Xml::closeElement( 'form' );
 
-		$wgOut->addHTML( $s );
+		$out->addHTML( $s );
 
-		$wgOut->addHTML( Xml::element( 'h2', null,
+		$out->addHTML( Xml::element( 'h2', null,
 			htmlspecialchars( LogPage::logName( 'stable' ) ) ) );
-		LogEventsList::showLogExtract( $wgOut, 'stable',
+		LogEventsList::showLogExtract( $out, 'stable',
 			$title->getPrefixedText(), '', array( 'lim' => 25 ) );
 
 		# Add some javascript for expiry dropdowns
-		$wgOut->addScript(
+		$out->addScript(
 			"<script type=\"text/javascript\">
 				function onFRChangeExpiryDropdown() {
 					document.getElementById('mwStabilizeExpiryOther').value = '';
@@ -267,7 +266,6 @@ class Stabilization extends UnlistedSpecialPage {
 	}
 
 	protected function buildSelector( $selected ) {
-		global $wgUser;
 		$allowedLevels = array();
 		$levels = FlaggedRevs::getRestrictionLevels();
 		array_unshift( $levels, '' ); // Add a "none" level
@@ -275,7 +273,7 @@ class Stabilization extends UnlistedSpecialPage {
 			# Don't let them choose levels they can't set, 
 			# but *show* them all when the form is disabled.
 			if ( $this->form->isAllowed()
-				&& !FlaggedRevs::userCanSetAutoreviewLevel( $wgUser, $key ) )
+				&& !FlaggedRevs::userCanSetAutoreviewLevel( $this->getUser(), $key ) )
 			{
 				continue;
 			}

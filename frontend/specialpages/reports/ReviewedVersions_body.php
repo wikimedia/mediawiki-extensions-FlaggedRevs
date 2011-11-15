@@ -6,19 +6,18 @@ class ReviewedVersions extends UnlistedSpecialPage {
 	}
 
 	public function execute( $par ) {
-		global $wgRequest, $wgUser, $wgOut;
+		$request = $this->getRequest();
 
 		$this->setHeaders();
-		$this->skin = $wgUser->getSkin();
 		# Our target page
-		$this->target = $wgRequest->getText( 'page' );
+		$this->target = $request->getText( 'page' );
 		$this->page = Title::newFromURL( $this->target );
 		# Revision ID
-		$this->oldid = $wgRequest->getVal( 'oldid' );
+		$this->oldid = $request->getVal( 'oldid' );
 		$this->oldid = ( $this->oldid == 'best' ) ? 'best' : intval( $this->oldid );
 		# We need a page...
 		if ( is_null( $this->page ) ) {
-			$wgOut->showErrorPage( 'notargettitle', 'notargettext' );
+			$this->getOutput()->showErrorPage( 'notargettitle', 'notargettext' );
 			return;
 		}
 
@@ -26,42 +25,41 @@ class ReviewedVersions extends UnlistedSpecialPage {
 	}
 
 	protected function showStableList() {
-		global $wgOut, $wgLang;
+		$out = $this->getOutput();
 		# Must be a content page
 		if ( !FlaggedRevs::inReviewNamespace( $this->page ) ) {
-			$wgOut->addWikiMsg( 'reviewedversions-none', $this->page->getPrefixedText() );
+			$out->addWikiMsg( 'reviewedversions-none', $this->page->getPrefixedText() );
 			return;
 		}
 		$pager = new ReviewedVersionsPager( $this, array(), $this->page );
 		$num = $pager->getNumRows();
 		if ( $num ) {
-			$wgOut->addWikiMsg( 'reviewedversions-list',
-				$this->page->getPrefixedText(), $wgLang->formatNum( $num ) );
-			$wgOut->addHTML( $pager->getNavigationBar() );
-			$wgOut->addHTML( "<ul>" . $pager->getBody() . "</ul>" );
-			$wgOut->addHTML( $pager->getNavigationBar() );
+			$out->addWikiMsg( 'reviewedversions-list',
+				$this->page->getPrefixedText(), $this->getLang()->formatNum( $num ) );
+			$out->addHTML( $pager->getNavigationBar() );
+			$out->addHTML( "<ul>" . $pager->getBody() . "</ul>" );
+			$out->addHTML( $pager->getNavigationBar() );
 		} else {
-			$wgOut->addHTML( wfMsgExt( 'reviewedversions-none', array( 'parse' ),
+			$out->addHTML( wfMsgExt( 'reviewedversions-none', array( 'parse' ),
 				$this->page->getPrefixedText() ) );
 		}
 	}
 
 	public function formatRow( $row ) {
-		global $wgLang;
-		$rdatim = $wgLang->timeanddate( wfTimestamp( TS_MW, $row->rev_timestamp ), true );
-		$fdatim = $wgLang->timeanddate( wfTimestamp( TS_MW, $row->fr_timestamp ), true );
-		$fdate = $wgLang->date( wfTimestamp( TS_MW, $row->fr_timestamp ), true );
-		$ftime = $wgLang->time( wfTimestamp( TS_MW, $row->fr_timestamp ), true );
+		$rdatim = $this->getLang()->timeanddate( wfTimestamp( TS_MW, $row->rev_timestamp ), true );
+		$fdatim = $this->getLang()->timeanddate( wfTimestamp( TS_MW, $row->fr_timestamp ), true );
+		$fdate = $this->getLang()->date( wfTimestamp( TS_MW, $row->fr_timestamp ), true );
+		$ftime = $this->getLang()->time( wfTimestamp( TS_MW, $row->fr_timestamp ), true );
 		$review = wfMsgExt( 'reviewedversions-review', array( 'parseinline', 'replaceafter' ),
 			$fdatim,
-			$this->skin->userLink( $row->fr_user, $row->user_name ) .
-			' ' . $this->skin->userToolLinks( $row->fr_user, $row->user_name ),
+			Linker::userLink( $row->fr_user, $row->user_name ) .
+			' ' . Linker::userToolLinks( $row->fr_user, $row->user_name ),
 			$fdate, $ftime, $row->user_name
 		);
 		$lev = ( $row->fr_quality >= 1 )
 			? wfMsgHtml( 'revreview-hist-quality' )
 			: wfMsgHtml( 'revreview-hist-basic' );
-		$link = $this->skin->makeKnownLinkObj( $this->page, $rdatim,
+		$link = Linker::makeKnownLinkObj( $this->page, $rdatim,
 			'stableid=' . $row->fr_rev_id );
 		return '<li>' . $link . ' (' . $review . ') <strong>[' . $lev . ']</strong></li>';
 	}

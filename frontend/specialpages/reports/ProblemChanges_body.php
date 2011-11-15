@@ -9,18 +9,17 @@ class ProblemChanges extends SpecialPage {
 	}
 
 	public function execute( $par ) {
-		global $wgRequest, $wgUser;
+		$request = $this->getRequest();
 
 		$this->setHeaders();
-		$this->skin = $wgUser->getSkin();
 		$this->currentUnixTS = wfTimestamp( TS_UNIX ); // now
 
-		$this->level = $wgRequest->getInt( 'level', - 1 );
-		$this->tag = trim( $wgRequest->getVal( 'tagfilter' ) );
-		$category = trim( $wgRequest->getVal( 'category' ) );
+		$this->level = $request->getInt( 'level', - 1 );
+		$this->tag = trim( $request->getVal( 'tagfilter' ) );
+		$category = trim( $request->getVal( 'category' ) );
 		$catTitle = Title::newFromText( $category );
 		$this->category = is_null( $catTitle ) ? '' : $catTitle->getText();
-		$feedType = $wgRequest->getVal( 'feed' );
+		$feedType = $request->getVal( 'feed' );
 
 		$incLimit = 0;
 		if ( $this->including() ) {
@@ -45,21 +44,22 @@ class ProblemChanges extends SpecialPage {
 	}
 	
 	protected function setSyndicated() {
-		global $wgOut, $wgRequest;
+		$request = $this->getRequest();
 		$queryParams = array(
-			'level'     => $wgRequest->getIntOrNull( 'level' ),
-			'tag'       => $wgRequest->getVal( 'tag' ),
-			'category'  => $wgRequest->getVal( 'category' ),
+			'level'     => $request->getIntOrNull( 'level' ),
+			'tag'       => $request->getVal( 'tag' ),
+			'category'  => $request->getVal( 'category' ),
 		);
-		$wgOut->setSyndicated( true );
-		$wgOut->setFeedAppendQuery( wfArrayToCGI( $queryParams ) );
+		$this->getOutput()->setSyndicated( true );
+		$this->getOutput()->setFeedAppendQuery( wfArrayToCGI( $queryParams ) );
 	}
 
 	public function showForm() {
-		global $wgOut, $wgScript, $wgLang;
+		global $wgScript;
+
 		// Add explanatory text
-		$wgOut->addWikiMsg( 'problemchanges-list',
-			$wgLang->formatNum( $this->pager->getNumRows() ) );
+		$this->getOutput()->addWikiMsg( 'problemchanges-list',
+			$this->getLang()->formatNum( $this->pager->getNumRows() ) );
 
 		$form = Html::openElement( 'form', array( 'name' => 'problemchanges',
 			'action' => $wgScript, 'method' => 'get' ) ) . "\n";
@@ -84,26 +84,26 @@ class ProblemChanges extends SpecialPage {
 		$form .= '</fieldset>';
 		$form .= Html::closeElement( 'form' ) . "\n";
 
-		$wgOut->addHTML( $form );
+		$this->getOutput()->addHTML( $form );
 	}
 
 	public function showPageList() {
-		global $wgOut;
+		$out = $this->getOutput();
 		// Viewing the page normally...
 		if ( !$this->including() ) {
 			if ( $this->pager->getNumRows() ) {
-				$wgOut->addHTML( $this->pager->getNavigationBar() );
-				$wgOut->addHTML( $this->pager->getBody() );
-				$wgOut->addHTML( $this->pager->getNavigationBar() );
+				$out->addHTML( $this->pager->getNavigationBar() );
+				$out->addHTML( $this->pager->getBody() );
+				$out->addHTML( $this->pager->getNavigationBar() );
 			} else {
-				$wgOut->addWikiMsg( 'problemchanges-none' );
+				$out->addWikiMsg( 'problemchanges-none' );
 			}
 		// If this page is transcluded...
 		} else {
 			if ( $this->pager->getNumRows() ) {
-				$wgOut->addHTML( $this->pager->getBody() );
+				$out->addHTML( $this->pager->getBody() );
 			} else {
-				$wgOut->addWikiMsg( 'problemchanges-none' );
+				$out->addWikiMsg( 'problemchanges-none' );
 			}
 		}
 	}
@@ -131,13 +131,14 @@ class ProblemChanges extends SpecialPage {
 	 * @param string $type
 	 */
 	protected function feed( $type ) {
-		global $wgFeed, $wgFeedClasses, $wgFeedLimit, $wgOut;
+		global $wgFeed, $wgFeedClasses, $wgFeedLimit;
+
 		if ( !$wgFeed ) {
-			$wgOut->addWikiMsg( 'feed-unavailable' );
+			$this->getOutput()->addWikiMsg( 'feed-unavailable' );
 			return;
 		}
 		if ( !isset( $wgFeedClasses[$type] ) ) {
-			$wgOut->addWikiMsg( 'feed-invalid' );
+			$this->getOutput()->addWikiMsg( 'feed-invalid' );
 			return;
 		}
 		$feed = new $wgFeedClasses[$type](
@@ -158,6 +159,7 @@ class ProblemChanges extends SpecialPage {
 	
 	protected function feedTitle() {
 		global $wgContLanguageCode, $wgSitename;
+
 		$page = SpecialPage::getPage( 'ProblemChanges' );
 		$desc = $page->getDescription();
 		return "$wgSitename - $desc [$wgContLanguageCode]";
@@ -184,12 +186,11 @@ class ProblemChanges extends SpecialPage {
 	}
 	
 	public function formatRow( $row ) {
-		global $wgLang, $wgUser;
 		$css = $quality = $tags = $underReview = '';
 		
 		$title = Title::newFromRow( $row );
-		$link = $this->skin->link( $title );
-		$review = $this->skin->linkKnown( $title,
+		$link = Linker::link( $title );
+		$review = Linker::linkKnown( $title,
 			wfMsg( 'pendingchanges-diff' ),
 			array(),
 			array( 'diff' => 'cur', 'oldid' => $row->stable ) + FlaggedRevs::diffOnlyCGI()
@@ -208,10 +209,10 @@ class ProblemChanges extends SpecialPage {
 			$tags = ' <b>' . wfMsgHtml( 'parentheses', $tags ) . '</b>';
 		}
 		# Is anybody watching?
-		if ( !$this->including() && $wgUser->isAllowed( 'unreviewedpages' ) ) {
+		if ( !$this->including() && $this->getUser()->isAllowed( 'unreviewedpages' ) ) {
 			$uw = FRUserActivity::numUsersWatchingPage( $title );
 			$watching = $uw
-				? wfMsgExt( 'pendingchanges-watched', 'parsemag', $wgLang->formatNum( $uw ) )
+				? wfMsgExt( 'pendingchanges-watched', 'parsemag', $this->getLang()->formatNum( $uw ) )
 				: wfMsgHtml( 'pendingchanges-unwatched' );
 			$watching = " {$watching}";
 		} else {
@@ -226,12 +227,12 @@ class ProblemChanges extends SpecialPage {
 			if ( $hours > ( 3 * 24 ) ) {
 				$days = round( $hours / 24, 0 );
 				$age = wfMsgExt( 'pendingchanges-days',
-					'parsemag', $wgLang->formatNum( $days ) );
+					'parsemag', $this->getLang()->formatNum( $days ) );
 			// If one or more hours, use hours
 			} elseif ( $hours >= 1 ) {
 				$hours = round( $hours, 0 );
 				$age = wfMsgExt( 'pendingchanges-hours',
-					'parsemag', $wgLang->formatNum( $hours ) );
+					'parsemag', $this->getLang()->formatNum( $hours ) );
 			} else {
 				$age = wfMsg( 'pendingchanges-recent' ); // hot off the press :)
 			}

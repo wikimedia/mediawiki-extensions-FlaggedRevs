@@ -9,21 +9,20 @@ class PendingChanges extends SpecialPage {
 	}
 
 	public function execute( $par ) {
-		global $wgRequest, $wgUser;
+		$request = $this->getRequest();
 
 		$this->setHeaders();
-		$this->skin = $wgUser->getSkin();
 		$this->currentUnixTS = wfTimestamp( TS_UNIX ); // now
 
-		$this->namespace = $wgRequest->getIntOrNull( 'namespace' );
-		$this->level = $wgRequest->getInt( 'level', - 1 );
-		$category = trim( $wgRequest->getVal( 'category' ) );
+		$this->namespace = $request->getIntOrNull( 'namespace' );
+		$this->level = $request->getInt( 'level', - 1 );
+		$category = trim( $request->getVal( 'category' ) );
 		$catTitle = Title::makeTitleSafe( NS_CATEGORY, $category );
 		$this->category = is_null( $catTitle ) ? '' : $catTitle->getText();
-		$this->size = $wgRequest->getIntOrNull( 'size' );
-		$this->watched = $wgRequest->getCheck( 'watched' );
-		$this->stable = $wgRequest->getCheck( 'stable' );
-		$feedType = $wgRequest->getVal( 'feed' );
+		$this->size = $request->getIntOrNull( 'size' );
+		$this->watched = $request->getCheck( 'watched' );
+		$this->stable = $request->getCheck( 'stable' );
+		$feedType = $request->getVal( 'feed' );
 
 		$incLimit = 0;
 		if ( $this->including() ) {
@@ -50,21 +49,22 @@ class PendingChanges extends SpecialPage {
 	}
 
 	protected function setSyndicated() {
-		global $wgOut, $wgRequest;
+		$request = $this->getRequest();
 		$queryParams = array(
-			'namespace' => $wgRequest->getIntOrNull( 'namespace' ),
-			'level'     => $wgRequest->getIntOrNull( 'level' ),
-			'category'  => $wgRequest->getVal( 'category' ),
+			'namespace' => $request->getIntOrNull( 'namespace' ),
+			'level'     => $request->getIntOrNull( 'level' ),
+			'category'  => $request->getVal( 'category' ),
 		);
-		$wgOut->setSyndicated( true );
-		$wgOut->setFeedAppendQuery( wfArrayToCGI( $queryParams ) );
+		$this->getOutput()->setSyndicated( true );
+		$this->getOutput()->setFeedAppendQuery( wfArrayToCGI( $queryParams ) );
 	}
 
 	public function showForm() {
-		global $wgUser, $wgOut, $wgScript, $wgLang;
+		global $wgScript;
+
 		# Explanatory text
-		$wgOut->addWikiMsg( 'pendingchanges-list',
-			$wgLang->formatNum( $this->pager->getNumRows() ) );
+		$this->getOutput()->addWikiMsg( 'pendingchanges-list',
+			$this->getLang()->formatNum( $this->pager->getNumRows() ) );
 
 		$form = Html::openElement( 'form', array( 'name' => 'pendingchanges',
 			'action' => $wgScript, 'method' => 'get' ) ) . "\n";
@@ -94,7 +94,7 @@ class PendingChanges extends SpecialPage {
 		$items[] =
 			Xml::label( wfMsg( "pendingchanges-category" ), 'wpCategory' ) . '&#160;' .
 			Xml::input( 'category', 30, $this->category, array( 'id' => 'wpCategory' ) );
-		if ( $wgUser->getId() ) {
+		if ( $this->getUser()->getId() ) {
 			$items[] = Xml::check( 'watched', $this->watched, array( 'id' => 'wpWatched' ) ) .
 				Xml::label( wfMsg( 'pendingchanges-onwatchlist' ), 'wpWatched' );
 		}
@@ -106,33 +106,32 @@ class PendingChanges extends SpecialPage {
 		$form .= "</fieldset>";
 		$form .= Html::closeElement( 'form' ) . "\n";
 
-		$wgOut->addHTML( $form );
+		$this->getOutput()->addHTML( $form );
 	}
 
 	public function showPageList() {
-		global $wgOut;
+		$out = $this->getOutput();
 		// Viewing the list normally...
 		if ( !$this->including() ) {
 			if ( $this->pager->getNumRows() ) {
-				$wgOut->addHTML( $this->pager->getNavigationBar() );
-				$wgOut->addHTML( $this->pager->getBody() );
-				$wgOut->addHTML( $this->pager->getNavigationBar() );
+				$out->addHTML( $this->pager->getNavigationBar() );
+				$out->addHTML( $this->pager->getBody() );
+				$out->addHTML( $this->pager->getNavigationBar() );
 			} else {
-				$wgOut->addWikiMsg( 'pendingchanges-none' );
+				$out->addWikiMsg( 'pendingchanges-none' );
 			}
 		// If this list is transcluded...
 		} else {
 			if ( $this->pager->getNumRows() ) {
-				$wgOut->addHTML( $this->pager->getBody() );
+				$out->addHTML( $this->pager->getBody() );
 			} else {
-				$wgOut->addWikiMsg( 'pendingchanges-none' );
+				$out->addWikiMsg( 'pendingchanges-none' );
 			}
 		}
 	}
 
 	// set pager parameters from $par, return pager limit
 	protected function parseParams( $par ) {
-		global $wgLang;
 		$bits = preg_split( '/\s*,\s*/', trim( $par ) );
 		$limit = false;
 		foreach ( $bits as $bit ) {
@@ -144,7 +143,7 @@ class PendingChanges extends SpecialPage {
 				$limit = intval( $m[1] );
 			}
 			if ( preg_match( '/^namespace=(.*)$/', $bit, $m ) ) {
-				$ns = $wgLang->getNsIndex( $m[1] );
+				$ns = $this->getLang()->getNsIndex( $m[1] );
 				if ( $ns !== false ) {
 					$this->namespace = $ns;
 				}
@@ -161,13 +160,14 @@ class PendingChanges extends SpecialPage {
 	 * @param string $type
 	 */
 	protected function feed( $type ) {
-		global $wgFeed, $wgFeedClasses, $wgFeedLimit, $wgOut;
+		global $wgFeed, $wgFeedClasses, $wgFeedLimit;
+
 		if ( !$wgFeed ) {
-			$wgOut->addWikiMsg( 'feed-unavailable' );
+			$this->getOutput()->addWikiMsg( 'feed-unavailable' );
 			return;
 		}
 		if ( !isset( $wgFeedClasses[$type] ) ) {
-			$wgOut->addWikiMsg( 'feed-invalid' );
+			$this->getOutput()->addWikiMsg( 'feed-invalid' );
 			return;
 		}
 		$feed = new $wgFeedClasses[$type](
@@ -188,6 +188,7 @@ class PendingChanges extends SpecialPage {
 
 	protected function feedTitle() {
 		global $wgContLanguageCode, $wgSitename;
+
 		$page = SpecialPage::getPage( 'PendingChanges' );
 		$desc = $page->getDescription();
 		return "$wgSitename - $desc [$wgContLanguageCode]";
@@ -213,15 +214,14 @@ class PendingChanges extends SpecialPage {
 	}
 
 	public function formatRow( $row ) {
-		global $wgLang, $wgUser;
 		$css = $quality = $underReview = '';
 		$title = Title::newFromRow( $row );
 		$stxt = ChangesList::showCharacterDifference( $row->rev_len, $row->page_len );
 		# Page links...
-		$link = $this->skin->link( $title );
-		$hist = $this->skin->linkKnown( $title,
+		$link = Linker::link( $title );
+		$hist = Linker::linkKnown( $title,
 			wfMsgHtml( 'hist' ), array(), 'action=history' );
-		$review = $this->skin->linkKnown( $title,
+		$review = Linker::linkKnown( $title,
 			wfMsg( 'pendingchanges-diff' ),
 			array(),
 			array( 'diff' => 'cur', 'oldid' => $row->stable ) + FlaggedRevs::diffOnlyCGI()
@@ -234,10 +234,10 @@ class PendingChanges extends SpecialPage {
 			$quality = " <b>[{$quality}]</b>";
 		}
 		# Is anybody watching?
-		if ( !$this->including() && $wgUser->isAllowed( 'unreviewedpages' ) ) {
+		if ( !$this->including() && $this->getUser()->isAllowed( 'unreviewedpages' ) ) {
 			$uw = FRUserActivity::numUsersWatchingPage( $title );
 			$watching = $uw
-				? wfMsgExt( 'pendingchanges-watched', 'parsemag', $wgLang->formatNum( $uw ) )
+				? wfMsgExt( 'pendingchanges-watched', 'parsemag', $this->getLang()->formatNum( $uw ) )
 				: wfMsgHtml( 'pendingchanges-unwatched' );
 			$watching = " {$watching}";
 		} else {
@@ -252,12 +252,12 @@ class PendingChanges extends SpecialPage {
 			if ( $hours > ( 3 * 24 ) ) {
 				$days = round( $hours / 24, 0 );
 				$age = wfMsgExt( 'pendingchanges-days',
-					'parsemag', $wgLang->formatNum( $days ) );
+					'parsemag', $this->getLang()->formatNum( $days ) );
 			// If one or more hours, use hours
 			} elseif ( $hours >= 1 ) {
 				$hours = round( $hours, 0 );
 				$age = wfMsgExt( 'pendingchanges-hours',
-					'parsemag', $wgLang->formatNum( $hours ) );
+					'parsemag', $this->getLang()->formatNum( $hours ) );
 			} else {
 				$age = wfMsg( 'pendingchanges-recent' ); // hot off the press :)
 			}

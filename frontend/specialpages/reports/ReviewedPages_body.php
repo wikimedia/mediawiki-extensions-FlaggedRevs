@@ -8,18 +8,17 @@ class ReviewedPages extends SpecialPage {
 	}
 
 	public function execute( $par ) {
-		global $wgRequest, $wgUser;
+		$request = $this->getRequest();
 
 		$this->setHeaders();
-		$this->skin = $wgUser->getSkin();
 
 		# Check if there is a featured level
 		$maxType = FlaggedRevs::pristineVersions() ? 2 : 1;
 
-		$this->namespace = $wgRequest->getInt( 'namespace' );
-		$this->type = $wgRequest->getInt( 'level', - 1 );
+		$this->namespace = $request->getInt( 'namespace' );
+		$this->type = $request->getInt( 'level', - 1 );
 		$this->type = min( $this->type, $maxType );
-		$this->hideRedirs = $wgRequest->getBool( 'hideredirs', true );
+		$this->hideRedirs = $request->getBool( 'hideredirs', true );
 
 		$this->pager = new ReviewedPagesPager(
 			$this, array(), $this->type, $this->namespace, $this->hideRedirs );
@@ -29,12 +28,12 @@ class ReviewedPages extends SpecialPage {
 	}
 
 	public function showForm() {
-		global $wgOut, $wgScript, $wgLang;
+		global $wgScript;
 
 		// Text to explain level select (if there are several levels)
 		if ( FlaggedRevs::qualityVersions() ) {
-			$wgOut->addWikiMsg( 'reviewedpages-list',
-				$wgLang->formatNum( $this->pager->getNumRows() ) );
+			$this->getOutput()->addWikiMsg( 'reviewedpages-list',
+				$this->getLang()->formatNum( $this->pager->getNumRows() ) );
 		}
 		$form = Html::openElement( 'form',
 			array( 'name' => 'reviewedpages', 'action' => $wgScript, 'method' => 'get' ) );
@@ -43,7 +42,7 @@ class ReviewedPages extends SpecialPage {
 		// show/hide links
 		$showhide = array( wfMsgHtml( 'show' ), wfMsgHtml( 'hide' ) );
 		$onoff = 1 - $this->hideRedirs;
-		$link = $this->skin->link( $this->getTitle(), $showhide[$onoff], array(),
+		$link = Linker::link( $this->getTitle(), $showhide[$onoff], array(),
 			 array( 'hideredirs' => $onoff, 'namespace' => $this->namespace )
 		);
 		$showhideredirs = wfMsgHtml( 'whatlinkshere-hideredirs', $link );
@@ -66,26 +65,25 @@ class ReviewedPages extends SpecialPage {
 		$form .= "</fieldset>";
 		$form .= Html::closeElement( 'form ' ) . "\n";
 
-		$wgOut->addHTML( $form );
+		$this->getOutput()->addHTML( $form );
 	}
 
 	protected function showPageList() {
-		global $wgOut;
+		$out = $this->getOutput();
 		$num = $this->pager->getNumRows();
 		if ( $num ) {
-			$wgOut->addHTML( $this->pager->getNavigationBar() );
-			$wgOut->addHTML( $this->pager->getBody() );
-			$wgOut->addHTML( $this->pager->getNavigationBar() );
+			$out->addHTML( $this->pager->getNavigationBar() );
+			$out->addHTML( $this->pager->getBody() );
+			$out->addHTML( $this->pager->getNavigationBar() );
 		} else {
-			$wgOut->addHTML( wfMsgExt( 'reviewedpages-none', array( 'parse' ) ) );
+			$out->addHTML( wfMsgExt( 'reviewedpages-none', array( 'parse' ) ) );
 		}
 	}
 
 	public function formatRow( $row ) {
-		global $wgLang;
 		$title = Title::newFromRow( $row );
 		# Link to page
-		$link = $this->skin->link( $title );
+		$link = Linker::link( $title );
 		# Direction mark
 		$dirmark = wfUILang()->getDirMark();
 		# Size (bytes)
@@ -95,12 +93,12 @@ class ReviewedPages extends SpecialPage {
 				$stxt = ' <small>' . wfMsgHtml( 'historyempty' ) . '</small>';
 			} else {
 				$stxt = ' <small>' .
-					wfMsgExt( 'historysize', 'parsemag', $wgLang->formatNum( $size ) ) .
+					wfMsgExt( 'historysize', 'parsemag', $this->getLang()->formatNum( $size ) ) .
 					'</small>';
 			}
 		}
 		# Link to list of reviewed versions for page
-		$list = $this->skin->linkKnown(
+		$list = Linker::linkKnown(
 			SpecialPage::getTitleFor( 'ReviewedVersions' ),
 			wfMsgHtml( 'reviewedpages-all' ),
 			array(),
@@ -109,7 +107,7 @@ class ReviewedPages extends SpecialPage {
 		# Link to highest tier rev
 		$best = '';
 		if ( FlaggedRevs::qualityVersions() ) {
-			$best = $this->skin->linkKnown(
+			$best = Linker::linkKnown(
 				$title,
 				wfMsgHtml( 'reviewedpages-best' ),
 				array(),

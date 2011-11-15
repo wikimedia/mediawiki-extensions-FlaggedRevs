@@ -8,26 +8,25 @@ class UnreviewedPages extends SpecialPage {
 	}
 
 	public function execute( $par ) {
-		global $wgRequest, $wgUser, $wgOut;
+		$request = $this->getRequest();
 
 		$this->setHeaders();
-		if ( !$wgUser->isAllowed( 'unreviewedpages' ) ) {
-			$wgOut->permissionRequired( 'unreviewedpages' );
+		if ( !$this->getUser()->isAllowed( 'unreviewedpages' ) ) {
+			$this->getOutput()->permissionRequired( 'unreviewedpages' );
 			return;
 		}
-		$this->skin = $wgUser->getSkin();
 		$this->currentUnixTS = wfTimestamp( TS_UNIX ); // now
 
 		# Get default namespace
 		$namespaces = FlaggedRevs::getReviewNamespaces();
 		$defaultNS = !$namespaces ? NS_MAIN : $namespaces[0];
 
-		$this->namespace = $wgRequest->getIntOrNull( 'namespace', $defaultNS );
-		$category = trim( $wgRequest->getVal( 'category' ) );
+		$this->namespace = $request->getIntOrNull( 'namespace', $defaultNS );
+		$category = trim( $request->getVal( 'category' ) );
 		$catTitle = Title::makeTitleSafe( NS_CATEGORY, $category );
 		$this->category = is_null( $catTitle ) ? '' : $catTitle->getText();
-		$this->level = $wgRequest->getInt( 'level' );
-		$this->hideRedirs = $wgRequest->getBool( 'hideredirs', true );
+		$this->level = $request->getInt( 'level' );
+		$this->hideRedirs = $request->getBool( 'hideredirs', true );
 		$this->live = self::generalQueryOK();
 
 		$this->pager = new UnreviewedPagesPager( $this, $this->live,
@@ -38,15 +37,16 @@ class UnreviewedPages extends SpecialPage {
 	}
 
 	protected function showForm() {
-		global $wgOut, $wgLang, $wgScript;
+		global $wgScript;
+
 		# Add explanatory text
-		$wgOut->addWikiMsg( 'unreviewedpages-list',
-			$wgLang->formatNum( $this->pager->getNumRows() ) );
+		$this->getOutput()->addWikiMsg( 'unreviewedpages-list',
+			$this->getLang()->formatNum( $this->pager->getNumRows() ) );
 
 		# show/hide links
 		$showhide = array( wfMsgHtml( 'show' ), wfMsgHtml( 'hide' ) );
 		$onoff = 1 - $this->hideRedirs;
-		$link = $this->skin->link( $this->getTitle(), $showhide[$onoff], array(),
+		$link = Linker::link( $this->getTitle(), $showhide[$onoff], array(),
 			array( 'hideredirs' => $onoff, 'category' => $this->category,
 				'namespace' => $this->namespace )
 		);
@@ -81,41 +81,40 @@ class UnreviewedPages extends SpecialPage {
 				array( 'qci_type' => 'fr_unreviewedpages' ), __METHOD__ );
 			if ( $ts ) {
 				$ts = wfTimestamp( TS_MW, $ts );
-				$td = $wgLang->timeanddate( $ts );
-				$d = $wgLang->date( $ts );
-				$t = $wgLang->time( $ts );
+				$td = $this->getLang()->timeanddate( $ts );
+				$d = $this->getLang()->date( $ts );
+				$t = $this->getLang()->time( $ts );
 				$form .= wfMsgExt( 'perfcachedts', 'parse', $td, $d, $t );
 			} else {
 				$form .= wfMsgExt( 'perfcached', 'parse' );
 			}
 		}
 
-		$wgOut->addHTML( $form );
+		$this->getOutput()->addHTML( $form );
 	}
 
 	protected function showPageList() {
-		global $wgOut;
+		$out = $this->getOutput();
 		if ( $this->pager->getNumRows() ) {
-			$wgOut->addHTML( $this->pager->getNavigationBar() );
-			$wgOut->addHTML( $this->pager->getBody() );
-			$wgOut->addHTML( $this->pager->getNavigationBar() );
+			$out->addHTML( $this->pager->getNavigationBar() );
+			$out->addHTML( $this->pager->getBody() );
+			$out->addHTML( $this->pager->getNavigationBar() );
 		} else {
-			$wgOut->addWikiMsg( 'unreviewedpages-none' );
+			$out->addWikiMsg( 'unreviewedpages-none' );
 		}
 	}
 
 	public function formatRow( $row ) {
-		global $wgLang, $wgUser;
 		$title = Title::newFromRow( $row );
 
 		$stxt = $underReview = $watching = '';
-		$link = $this->skin->link( $title, null, array(), 'redirect=no' );
+		$link = Linker::link( $title, null, array(), 'redirect=no' );
 		$dirmark = wfUILang()->getDirMark();
-		$hist = $this->skin->linkKnown( $title, wfMsgHtml( 'hist' ), array(), 'action=history' );
+		$hist = Linker::linkKnown( $title, wfMsgHtml( 'hist' ), array(), 'action=history' );
 		if ( !is_null( $size = $row->page_len ) ) {
 			$stxt = ( $size == 0 )
 				? wfMsgHtml( 'historyempty' )
-				: wfMsgExt( 'historysize', 'parsemag', $wgLang->formatNum( $size ) );
+				: wfMsgExt( 'historysize', 'parsemag', $this->getLang()->formatNum( $size ) );
 			$stxt = " <small>$stxt</small>";
 		}
 		# Get how long the first unreviewed edit has been waiting...
@@ -125,19 +124,19 @@ class UnreviewedPages extends SpecialPage {
 		if ( $hours > ( 3 * 24 ) ) {
 			$days = round( $hours / 24, 0 );
 			$age = ' ' . wfMsgExt( 'unreviewedpages-days',
-				'parsemag', $wgLang->formatNum( $days ) );
+				'parsemag', $this->getLang()->formatNum( $days ) );
 		// If one or more hours, use hours
 		} elseif ( $hours >= 1 ) {
 			$hours = round( $hours, 0 );
 			$age = ' ' . wfMsgExt( 'unreviewedpages-hours',
-				'parsemag', $wgLang->formatNum( $hours ) );
+				'parsemag', $this->getLang()->formatNum( $hours ) );
 		} else {
 			$age = ' ' . wfMsg( 'unreviewedpages-recent' ); // hot off the press :)
 		}
-		if ( $wgUser->isAllowed( 'unwatchedpages' ) ) {
+		if ( $this->getUser()->isAllowed( 'unwatchedpages' ) ) {
 			$uw = FRUserActivity::numUsersWatchingPage( $title );
 			$watching = $uw
-				? wfMsgExt( 'unreviewedpages-watched', 'parsemag', $wgLang->formatNum( $uw ) )
+				? wfMsgExt( 'unreviewedpages-watched', 'parsemag', $this->getLang()->formatNum( $uw ) )
 				: wfMsgHtml( 'unreviewedpages-unwatched' );
 			$watching = " $watching"; // Oh-noes!
 		} else {
@@ -213,10 +212,10 @@ class UnreviewedPages extends SpecialPage {
 		);
 		foreach ( $res as $row ) {
 			$insertRows[] = array(
-				'qc_type'		=> 'fr_unreviewedpages',
-				'qc_namespace' 	=> $row->page_namespace,
-				'qc_title'		=> $row->page_title,
-				'qc_value'		=> $row->page_id
+				'qc_type'       => 'fr_unreviewedpages',
+				'qc_namespace'  => $row->page_namespace,
+				'qc_title'      => $row->page_title,
+				'qc_value'      => $row->page_id
 			);
 		}
 		$dbr->freeResult( $res );
@@ -253,10 +252,10 @@ class UnreviewedPages extends SpecialPage {
 		);
 		foreach ( $res as $row ) {
 			$insertRows[] = array(
-				'qc_type'		=> 'fr_unreviewedpages_q',
-				'qc_namespace' 	=> $row->page_namespace,
-				'qc_title'		=> $row->page_title,
-				'qc_value'		=> $row->page_id
+				'qc_type'       => 'fr_unreviewedpages_q',
+				'qc_namespace'  => $row->page_namespace,
+				'qc_title'      => $row->page_title,
+				'qc_value'      => $row->page_id
 			);
 		}
 		$dbr->freeResult( $res );
