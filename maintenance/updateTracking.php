@@ -38,7 +38,7 @@ class UpdateFRTracking extends Maintenance {
 					$this->update_flaggedimages( $startRev );
 					break;
 				default:
-					echo "Invalidate operation specified.\n";
+					$this->error( "Invalidate operation specified.\n", true );
 			}
 		} else {
 			$this->update_flaggedrevs( $startRev );

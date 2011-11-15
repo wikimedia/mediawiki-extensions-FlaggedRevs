@@ -43,7 +43,7 @@ class PruneFRIncludeData extends Maintenance {
 		}
 		$end = $db->selectField( 'flaggedpages', 'MAX(fp_page_id)', false, __METHOD__ );
 		if ( is_null( $start ) || is_null( $end ) ) {
-			echo "...flaggedpages table seems to be empty.\n";
+			$this->output( "...flaggedpages table seems to be empty.\n" );
 			return;
 		}
 		$end += $this->mBatchSize - 1; # Do remaining chunk

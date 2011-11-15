@@ -119,7 +119,6 @@ class FlagProtectToSemiProtect extends Maintenance {
 				$article = new WikiPage( $title );
 				$ok = $article->updateRestrictions( $limit, $reason, $cascade, $expiry, $user );
 				if ( $ok ) {
-					#echo $title->getPrefixedText() . "\n\t[" . implode( ', ', $desc ) . "]\n";
 					$count++;
 				} else {
 					$this->output( "Could not protect: " . $title->getPrefixedText() . "\n" );
