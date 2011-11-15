@@ -383,15 +383,6 @@ class FlaggedRevs {
 	}
 
 	/**
-	 * Get the URL path to where the client side resources are (JS, CSS, images..)
-	 * @return string
-	 */
-	public static function styleUrlPath() {
-		global $wgExtensionAssetsPath;
-		return "$wgExtensionAssetsPath/FlaggedRevs/presentation/modules";
-	}
-
-	/**
 	 * Get the 'diffonly=' value for diff URLs. Either ('1','0','')
 	 * @return array
 	 */

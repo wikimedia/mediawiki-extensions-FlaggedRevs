@@ -5,6 +5,15 @@
  */
 class FlaggedRevsXML {
 	/**
+	 * Get the URL path to where the client side resources are (JS, CSS, images..)
+	 * @return string
+	 */
+	public static function styleUrlPath() {
+		global $wgExtensionAssetsPath;
+		return "$wgExtensionAssetsPath/FlaggedRevs/frontend/modules";
+	}
+
+	/**
 	 * Get a selector of reviewable namespaces
 	 * @param int $selected, namespace selected
 	 * @param $all Mixed: Value of an item denoting all namespaces, or null to omit
@@ -293,7 +302,7 @@ class FlaggedRevsXML {
 	 * @return string
 	 */
 	public static function ratingArrow() {
-		$encPath = htmlspecialchars( FlaggedRevs::styleUrlPath() . '/img' );
+		$encPath = htmlspecialchars( self::styleUrlPath() . '/img' );
 		$img = '<img id="mw-fr-revisiontoggle" class="fr-toggle-arrow"';
 		$img .= " src=\"{$encPath}/arrow-down.png\" style=\"display:none;\"";
 		$img .= ' alt="' . wfMsgHtml( 'revreview-toggle-title' ) . '" />';
@@ -351,7 +360,7 @@ class FlaggedRevsXML {
 	 * @return string
 	 */
 	public static function draftStatusIcon() {
-		$encPath = htmlspecialchars( FlaggedRevs::styleUrlPath() . '/img' );
+		$encPath = htmlspecialchars( self::styleUrlPath() . '/img' );
 		$encTitle = wfMsgHtml( 'revreview-draft-title' );
 		return "<img class=\"flaggedrevs-icon\" src=\"$encPath/1.png\"" .
 			" alt=\"$encTitle\" title=\"$encTitle\" />";
@@ -363,7 +372,7 @@ class FlaggedRevsXML {
 	 * @return string
 	 */
 	public static function stableStatusIcon( $isQuality ) {
-		$encPath = htmlspecialchars( FlaggedRevs::styleUrlPath() . '/img' );
+		$encPath = htmlspecialchars( self::styleUrlPath() . '/img' );
 		$file = $isQuality ? '3.png' : '2.png';
 		$encTitle = $isQuality
 			? wfMsgHtml( 'revreview-quality-title' )
@@ -378,7 +387,7 @@ class FlaggedRevsXML {
 	 * @return string
 	 */
 	public static function lockStatusIcon( $flaggedArticle ) {
-		$encPath = htmlspecialchars( FlaggedRevs::styleUrlPath() . '/img' );
+		$encPath = htmlspecialchars( self::styleUrlPath() . '/img' );
 		if ( $flaggedArticle->isPageLocked() ) {
 			$encTitle = wfMsgHtml( 'revreview-locked-title' );
 			return "<img class=\"flaggedrevs-icon\" src=\"$encPath/doc-magnify.png\"" .
