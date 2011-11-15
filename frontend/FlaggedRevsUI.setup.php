@@ -140,7 +140,7 @@ class FlaggedRevsUISetup {
 	 */
 	public static function defineResourceModules( array &$modules ) {
 		$localModulePath = dirname( __FILE__ ) . '/modules/';
-		$remoteModulePath = 'FlaggedRevs/presentation/modules';
+		$remoteModulePath = 'FlaggedRevs/frontend/modules';
 		$modules['ext.flaggedRevs.basic'] = array(
 			'styles'        => array( 'ext.flaggedRevs.basic.css' ),
 			'localBasePath' => $localModulePath,
