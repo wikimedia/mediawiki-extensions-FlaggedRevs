@@ -1,6 +1,6 @@
 <?php
 
- Assumes $wgFlaggedRevsProtection is on
+// Assumes $wgFlaggedRevsProtection is on
 class StablePages extends SpecialPage {
 	protected $pager = null;
 
@@ -31,15 +31,15 @@ class StablePages extends SpecialPage {
 			$this->getLang()->formatNum( $this->pager->getNumRows() ) );
 
 		$fields = array();
-		 Namespace selector
+		// Namespace selector
 		if ( count( FlaggedRevs::getReviewNamespaces() ) > 1 ) {
 			$fields[] = FlaggedRevsXML::getNamespaceMenu( $this->namespace, '' );
 		}
-		 Restriction level selector
+		// Restriction level selector
 		if ( FlaggedRevs::getRestrictionLevels() ) {
 			$fields[] = FlaggedRevsXML::getRestrictionFilterMenu( $this->autoreview );
 		}
-		$fields[] = Xml::checkLabel( wfMsg( 'stablepages-indef' ), 'indef', 
+		$fields[] = Xml::checkLabel( wfMsg( 'stablepages-indef' ), 'indef',
 			'stablepages-indef', $this->indef );
 
 		$form = Html::openElement( 'form',
@@ -63,7 +63,7 @@ class StablePages extends SpecialPage {
 		} else {
 			$out->addWikiMsg( 'stablepages-none' );
 		}
-		 Purge expired entries on one in every 10 queries
+		// Purge expired entries on one in every 10 queries
 		if ( !mt_rand( 0, 10 ) ) {
 			FRPageConfig::purgeExpiredConfigurations();
 		}
@@ -71,9 +71,9 @@ class StablePages extends SpecialPage {
 
 	public function formatRow( $row ) {
 		$title = Title::makeTitle( $row->page_namespace, $row->page_title );
-		 Link to page
+		// Link to page
 		$link = Linker::link( $title );
-		 Helpful utility links
+		// Helpful utility links
 		$utilLinks = array();
 		$utilLinks[] = Linker::link( $title,
 			wfMsgHtml( 'stablepages-config' ),
@@ -84,13 +84,13 @@ class StablePages extends SpecialPage {
 		$utilLinks[] = Linker::link( SpecialPage::getTitleFor( 'Log', 'stable' ),
 			wfMsgHtml( 'stable-logpage' ),
 			array(), array( 'page' => $title->getPrefixedText() ), 'known' );
-		 Autoreview/review restriction level
+		// Autoreview/review restriction level
 		$restr = '';
 		if ( $row->fpc_level != '' ) {
 			$restr = 'autoreview=' . htmlspecialchars( $row->fpc_level );
 			$restr = "[$restr]";
 		}
-		 When these configuration settings expire
+		// When these configuration settings expire
 		if ( $row->fpc_expiry != 'infinity' && strlen( $row->fpc_expiry ) ) {
 			$expiry_description = " (" . wfMsgForContent(
 				'protect-expiring',
@@ -112,13 +112,15 @@ class StablePages extends SpecialPage {
 class StablePagesPager extends AlphabeticPager {
 	public $mForm, $mConds, $namespace, $override;
 
-	 @param int $namespace (null for "all")
-	 @param string $autoreview ('' for "all", 'none' for no restriction)
+	/**
+	* @param int $namespace (null for "all")
+	* @param string $autoreview ('' for "all", 'none' for no restriction)
+	*/
 	function __construct( $form, $conds = array(), $namespace, $autoreview, $indef ) {
 		$this->mForm = $form;
 		$this->mConds = $conds;
 		$this->indef = $indef;
-		 Must be content pages...
+		// Must be content pages...
 		$validNS = FlaggedRevs::getReviewNamespaces();
 		if ( is_integer( $namespace ) ) {
 			if ( !in_array( $namespace, $validNS ) ) {
@@ -149,7 +151,7 @@ class StablePagesPager extends AlphabeticPager {
 			$conds['fpc_level'] = $this->autoreview;
 		}
 		$conds['page_namespace'] = $this->namespace;
-		 Be sure not to include expired items
+		// Be sure not to include expired items
 		if( $this->indef ) {
 			$conds['fpc_expiry'] = Block::infinity();
 		} else {
