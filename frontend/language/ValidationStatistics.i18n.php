@@ -1876,19 +1876,21 @@ $messages['sq'] = array(
 	'validationstatistics-total' => 'Faqet',
 );
 
-/** Serbian Cyrillic ekavian (‪Српски (ћирилица)‬)
+/** Serbian (Cyrillic script) (‪Српски (ћирилица)‬)
+ * @author Rancher
  * @author Sasa Stefanovic
  * @author Михајло Анђелковић
  * @author Обрадовић Горан
  */
 $messages['sr-ec'] = array(
-	'validationstatistics-table' => "Статистике за сваки именски простор су приказане испод, ''искључујући'' странице преусмерења.",
+	'validationstatistics-table' => "Доле су приказане статистике за прегледање сваког именског простора, ''осим'' страница за преусмеравање. Странице се сматрају као „застареле“ ако имају измене које чекају на проверу. За „усклађене“ се сматрају оне странице које немају измене на чекању.",
 	'validationstatistics-ns' => 'Именски простор',
 	'validationstatistics-total' => 'Странице',
+	'validationstatistics-stable' => 'Прегледано',
 	'validationstatistics-latest' => 'Синхронизовано',
-	'validationstatistics-synced' => 'Синхронизован/Прегледан',
+	'validationstatistics-synced' => 'Усклађено/прегледано',
 	'validationstatistics-old' => 'Застарело',
-	'validationstatistics-utable' => 'Испод се налази списак од топ $1 прегледача у последњих сат времена',
+	'validationstatistics-utable' => 'Испод је списак {{PLURAL:$1|најактивнијег|$1 најактивнија|$1 најактивнијих}} прегледача {{PLURAL:$2|у последњих сат времена|у последња $2 сата|у последњих $2 сати}}.',
 	'validationstatistics-user' => 'Корисник',
 	'validationstatistics-reviews' => 'Прегледи',
 );
