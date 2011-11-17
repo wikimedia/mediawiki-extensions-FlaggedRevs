@@ -1489,6 +1489,7 @@ Bonvolu kontroli ĉiujn jenajn ŝanĝojn por aperigi viajn redaktojn en la stabi
  * @author MetalBrasil
  * @author Mor
  * @author Translationista
+ * @author Vivaelcelta
  */
 $messages['es'] = array(
 	'revisionreview' => 'Revisar versiones',
@@ -1530,7 +1531,7 @@ Mira la [[Special:Unreviewedpages|lista de páginas no revisadas]].',
 	'revreview-submitting' => 'Enviando...',
 	'revreview-submit-review' => 'Aceptar versión',
 	'revreview-submit-unreview' => 'Desaprobar versión',
-	'revreview-submit-reject' => 'Rechazar cambios',
+	'revreview-submit-reject' => 'Rechazar los cambios',
 	'revreview-submit-reviewed' => 'Hecho. Aceptado.',
 	'revreview-submit-unreviewed' => 'Hecho. Desaprobado.',
 	'revreview-successful' => "'''La versión de [[:$1|$1]] ha sido marcada correctamente. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} ver versiones estables])'''",
@@ -2444,6 +2445,7 @@ Přepruwuj prošu wšě změny, kotrež so deleka pokazuja, zo bychu so twoje zm
  * @author Bean49
  * @author BáthoryPéter
  * @author Dani
+ * @author Dj
  * @author Glanthor Reviol
  * @author Hunyadym
  * @author Misibacsi

@@ -861,13 +861,14 @@ $messages['hsb'] = array(
 
 /** Hungarian (Magyar)
  * @author Dani
+ * @author Dj
  * @author Glanthor Reviol
  * @author Gondnok
  */
 $messages['hu'] = array(
 	'pendingchanges' => 'Ellenőrizetlen szerkesztésekkel rendelkező lapok',
 	'pendingchanges-legend' => 'Ellenőrizetlen változatokkal rendelkező ellenőrzött lapok listája',
-	'pendingchanges-list' => 'Az alábbi lista az ellenőrizetlen szerkesztésekkel rendelkező {{PLURAL:$1|lapot|lapokat}} tartalmazza',
+	'pendingchanges-list' => 'Az alábbi lista az egy vagy több ellenőrizetlen szerkesztésekkel rendelkező [[{{MediaWiki:Validationpage}}|ellenőrzött]] {{PLURAL:$1|lapot|lapokat}} tartalmazza.',
 	'pendingchanges-none' => 'Jelenleg nincs a feltételeknek megfelelő lap.',
 	'pendingchanges-hours' => '({{PLURAL:$1|Egy|$1}} órája)',
 	'pendingchanges-days' => '({{PLURAL:$1|Egy|$1}} napja)',

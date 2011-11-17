@@ -779,6 +779,7 @@ $messages['hsb'] = array(
 
 /** Hungarian (Magyar)
  * @author Dani
+ * @author Dj
  * @author Dorgan
  * @author Glanthor Reviol
  * @author Gondnok
@@ -792,7 +793,7 @@ $messages['hu'] = array(
 	'unreviewedpages-diff' => 'ellenőrzés',
 	'unreviewedpages-unwatched' => '(nem figyelt)',
 	'unreviewedpages-watched' => '({{PLURAL:$1|egy|$1}} aktív szerkesztő figyeli)',
-	'unreviewedpages-list' => 'Azon lapok, amelyek még nem lettek ellenőrizve a megadott szinten.',
+	'unreviewedpages-list' => "Azon lapok, amelyek még ''nem'' lettek [[{{MediaWiki:Validationpage}}| ellenőrizve]] a megadott szinten.",
 	'unreviewedpages-none' => 'Jelenleg nincs ezeknek a feltételeknek megfelelő oldal.',
 	'unreviewedpages-viewing' => '(ellenőrzés alatt)',
 	'unreviewedpages-hours' => '({{PLURAL:$1|egy|$1}} óra)',

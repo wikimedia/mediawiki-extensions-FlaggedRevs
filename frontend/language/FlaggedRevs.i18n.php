@@ -6590,6 +6590,7 @@ Je móžno, zo su so hižo nowe [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{
  * @author Bennó
  * @author BáthoryPéter
  * @author Dani
+ * @author Dj
  * @author Dorgan
  * @author Enbéká
  * @author Glanthor Reviol
@@ -6629,7 +6630,7 @@ $messages['hu'] = array(
 	'revreview-hist-pending' => 'ellenőrzés folyamatban',
 	'revreview-hist-quality' => 'minőségi változat',
 	'revreview-hist-basic' => 'ellenőrzött változat',
-	'revreview-hist-quality-user' => '[[User:$3|$3]] minőséginek jelölte',
+	'revreview-hist-quality-user' => '[[User:$3|$3]] ellenőrízte',
 	'revreview-hist-basic-user' => '[[User:$3|$3]] ellenőrizte',
 	'revreview-hist-quality-auto' => 'automatikusan minőséginek jelölve',
 	'revreview-hist-basic-auto' => 'automatikusan ellenőrzöttnek jelölve',
@@ -7644,6 +7645,7 @@ $messages['jv'] = array(
  * @author BRUTE
  * @author Dawid Deutschland
  * @author ITshnik
+ * @author Nodar Kherkheulidze
  * @author გიორგიმელა
  */
 $messages['ka'] = array(
@@ -7723,10 +7725,10 @@ $messages['ka'] = array(
 	'revreview-depth-4' => 'რჩეული',
 	'revreview-draft-title' => 'ამ სტატიის უკანასკნელი ვერსია შეუმოწმებელია',
 	'revreview-edit' => 'რედაქტირება',
-	'revreview-editnotice' => "თქვენ მიერ განხორციელებული ცვლილებები გამოქვეყნდება უფლებამოსილი მომხმარებლის მიერ მონიშვნის შემდეგ. ([[{{MediaWiki:Validationpage}}|დახმარება]])'''",
+	'revreview-editnotice' => "თქვენ მიერ განხორციელებული ცვლილებები გამოქვეყნდება უფლებამოსილი მომხმარებლის მიერ შემოწმების შემდეგ. ([[{{MediaWiki:Validationpage}}|დახმარება]])'''",
 	'revreview-submitedit' => 'ცვლილებების შენახვა',
 	'revreview-submitedit-title' => 'გამოგვიგზავნეთ თქვენი ცვლილებები განხილვისთვის',
-	'revreview-edited' => "'''რედაქტირებები გამოჩნდება, როგორც კი მათ უფლებამოსილი რედაქტორი შეამოწმებს. ([[{{MediaWiki:Validationpage}}|დახმარება]])'''
+	'revreview-edited' => "'''რედაქტირებები გამოჩნდება, როგორც კი მათ უფლებამოსილი მომხმარებელი შეამოწმებს. ([[{{MediaWiki:Validationpage}}|დახმარება]])'''
 
 ქვემოთ {{PLURAL:$2|მოცემულია|მოცემულია}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} ჯერ კიდევ შეუმოწმებელი $2 {{PLURAL:$2|ცვლილება|ცვლილება}}].",
 	'revreview-edited-section' => 'დაბრუნება სტატიის სექციასთან სახელად «[[#$1|$2]]».',
@@ -7781,11 +7783,11 @@ $messages['ka'] = array(
 	'right-stablesettings' => 'გამოშვებული ვერსიის არჩევისა და ჩვენების კონფიგურაციის მართვა',
 	'right-validate' => 'გვერდების ვერსიების მონიშვნა როგორც რეცენზირებული',
 	'right-unreviewedpages' => '[[Special:UnreviewedPages|შეუმოწმებელი გვერდების სიის]] ნახვა',
-	'rights-editor-revoke' => 'მოხსნა შემმოწმებლის სტატუსი -  [[$1]]',
+	'rights-editor-revoke' => 'მოხსნა შემმოწმებლის სტატუსი – [[$1]]',
 	'specialpages-group-quality' => 'რედაქტირების შემოწმება',
-	'stable-logentry-config' => 'დააყენა სტაბულურობის კონფიგურაცია გვერდისთვის «$1»',
-	'stable-logentry-modify' => 'დააყენა სტაბულურობის კონფიგურაცია გვერდისთვის «$1»',
-	'stable-logentry-reset' => 'გააუქმა სტაბულურობის კონფიგურაცია გვერდისთვის «$1»',
+	'stable-logentry-config' => 'დააყენა სტაბულურობის კონფიგურაცია გვერდისთვის „$1“',
+	'stable-logentry-modify' => 'დააყენა სტაბულურობის კონფიგურაცია გვერდისთვის „$1“',
+	'stable-logentry-reset' => 'გააუქმა სტაბულურობის კონფიგურაცია გვერდისთვის „$1“',
 	'stable-log-restriction' => 'ავტომატური შემოწმება: საჭიროა „$1“ ნებართვა',
 	'stable-logpage' => 'სტაბილიზაციის ჟურნალი',
 	'stable-logpagetext' => 'ეს არის [[{{MediaWiki:Validationpage}}|გამოქვეყნებული ვერსიების]] კონფიგურაციის შეცვლის ჟურნალი.',
