@@ -18,14 +18,14 @@ class UpdateFlaggedRevsStats extends Maintenance {
 	}
 
 	public function execute() {
-		print sprintf( '%-30s ', 'ValidationStatistics' );
+		$this->output( sprintf( '%-30s ', 'ValidationStatistics' ) );
 
 		$time1 = microtime( true );
 		FlaggedRevsStats::updateCache();
 		$time2 = microtime( true );
 
 		$ellapsed = ( $time2 - $time1 );
-		print sprintf( "completed in %.2fs\n", $ellapsed );
+		$this->output( sprintf( "completed in %.2fs\n", $ellapsed ) );
 	}
 }
 

@@ -18,14 +18,14 @@ class UpdateFlaggedRevsQueryCache extends Maintenance {
 	}
 
 	public function execute() {
-		print sprintf( '%-30s ', 'UnreviewedPages' );
+		$this->output( sprintf( '%-30s ', 'UnreviewedPages' ) );
 
 		$time1 = microtime( true );
 		UnreviewedPages::updateQueryCache();
 		$time2 = microtime( true );
 
 		$ellapsed = ( $time2 - $time1 );
-		print sprintf( "completed in %.2fs\n", $ellapsed );
+		$this->output( sprintf( "completed in %.2fs\n", $ellapsed ) );
 	}
 }
 
