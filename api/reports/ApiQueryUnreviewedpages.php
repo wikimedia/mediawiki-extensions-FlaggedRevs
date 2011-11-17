@@ -54,9 +54,10 @@ class ApiQueryUnreviewedpages extends ApiQueryGeneratorBase {
 			$this->addWhereFld( 'page_is_redirect', 0 );
 		}
 
+		$dir = ( $params['dir'] == 'descending' ? 'older' : 'newer' );
 		$this->addWhereRange(
 			'page_title',
-			'newer',
+			$dir,
 			$params['start'],
 			$params['end']
 		);
@@ -99,10 +100,10 @@ class ApiQueryUnreviewedpages extends ApiQueryGeneratorBase {
 			if ( is_null( $resultPageSet ) ) {
 				$title = Title::newFromRow( $row );
 				$data[] = array(
-					'pageid' 		=> intval( $row->page_id ),
-					'ns'     		=> intval( $title->getNamespace() ),
-					'title'  		=> $title->getPrefixedText(),
-					'revid'  	  	=> intval( $row->page_latest ),
+					'pageid'        => intval( $row->page_id ),
+					'ns'            => intval( $title->getNamespace() ),
+					'title'         => $title->getPrefixedText(),
+					'revid'         => intval( $row->page_latest ),
 					'under_review'  => FRUserActivity::pageIsUnderReview( $row->page_id )
 				);
 			} else {
@@ -129,6 +130,10 @@ class ApiQueryUnreviewedpages extends ApiQueryGeneratorBase {
 			),
 			'end' => array (
 				ApiBase::PARAM_TYPE => 'string'
+			),
+			'dir' => array(
+				ApiBase::PARAM_DFLT => 'ascending',
+				ApiBase::PARAM_TYPE => array( 'ascending', 'descending' ),
 			),
 			'namespace' => array (
 				ApiBase::PARAM_DFLT => !$namespaces ? NS_MAIN : $namespaces[0],
@@ -161,12 +166,13 @@ class ApiQueryUnreviewedpages extends ApiQueryGeneratorBase {
 
 	public function getParamDescription() {
 		return array (
-			'start' 		=> 'Start listing at this page title.',
-			'end' 			=> 'Stop listing at this page title.',
-			'namespace' 	=> 'The namespaces to enumerate.',
-			'filterredir' 	=> 'How to filter for redirects',
-			'filterlevel' 	=> 'How to filter by quality (0=checked,1=quality)',
-			'limit' 		=> 'How many total pages to return.',
+			'start'         => 'Start listing at this page title.',
+			'end'           => 'Stop listing at this page title.',
+			'dir'           => 'Direction to sort in',
+			'namespace'     => 'The namespaces to enumerate.',
+			'filterredir'   => 'How to filter for redirects',
+			'filterlevel'   => 'How to filter by quality (0=checked,1=quality)',
+			'limit'         => 'How many total pages to return.',
 		);
 	}
 
