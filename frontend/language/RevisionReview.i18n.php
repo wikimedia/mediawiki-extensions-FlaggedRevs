@@ -2414,6 +2414,12 @@ Hlej [[Special:Unreviewedpages|za lisćinu njepřepruwowanych stronow]].',
 	'revreview-successful2' => "'''Woznamjenjenje wersije [[:$1|$1]] je so wuspěšnje wotstroniło.'''",
 	'revreview-poss-conflict-p' => "'''Warnowanje: [[User:$1|$1]] započa tutu stronu $2, $3 přepruwować.'''",
 	'revreview-poss-conflict-c' => "'''Warnowanje: [[User:$1|$1]] započa tute změny $2, $3 přepruwować.'''",
+	'revreview-adv-reviewing-p' => 'Kedźbu: Druzy přepruwowarjo móža widźeć, zo tutu stronu přepruwuješ.',
+	'revreview-adv-reviewing-c' => 'Kedźbu: Druzy přepruwowarjo móža widźeć, zo tute změny přepruwuješ.',
+	'revreview-sadv-reviewing-p' => 'Móžeš druhich wužiwarjow na to $1, zo tutu stronu přepruwuješ.',
+	'revreview-sadv-reviewing-c' => 'Móžeš druhich wužiwarjow na to $1, zo tute změny přepruwuješ.',
+	'revreview-adv-start-link' => 'skedźbnić',
+	'revreview-adv-stop-link' => 'wjace njeskedźbnić',
 	'revreview-toolow' => '\'\'\'Dyrbiš kóždy z atributow wyše hač "njepřiměrjeny" pohódnoćić, zo by so wersija jako přepruwowana wobkedźbowała.\'\'\'
 
 Zo by přepruwowanski status wersije wotstronił, klikń na "njeakceptować".
