@@ -3411,6 +3411,7 @@ $messages['tg-latn'] = array(
 );
 
 /** Thai (ไทย)
+ * @author Horus
  * @author Octahedron80
  * @author Passawuth
  */
@@ -3418,6 +3419,8 @@ $messages['th'] = array(
 	'stabilization-page' => 'ชื่อหน้า:',
 	'stabilization-submit' => 'ยืนยัน',
 	'stabilization-comment' => 'เหตุผล:',
+	'stabilization-def-short-0' => 'ปัจจุบัน',
+	'stabilization-def-short-1' => 'เสถียร',
 );
 
 /** Turkmen (Türkmençe)

@@ -1737,7 +1737,7 @@ $messages['fi'] = array(
 	'review_page_invalid' => 'Kohdesivun nimi ei kelpaa.',
 	'review_page_notexists' => 'Kohdesivua ei ole olemassa.',
 	'review_page_unreviewable' => 'Kohdesivua ei voi arvioida.',
-	'review_no_oldid' => 'Muokkauksen tunnusnumeroa ei määritelty.',
+	'review_no_oldid' => 'Muokkauksen tunnistenumeroa ei määritelty.',
 	'review_bad_oldid' => 'Kohdemuokkausta ei löydy.',
 	'review_conflict_oldid' => 'Joku on jo ehtinyt hyväksyä tai hylätä tämän version sillä aikaa, kun katselit sitä.',
 	'review_not_flagged' => 'Kohteena olevaa versiota ei ole tällä hetkellä merkitty arvioiduksi.',
@@ -1760,7 +1760,6 @@ Käytä tätä vain, jos olet jo käynyt läpi kaikki muokkaukset.',
 	'revreview-flag' => 'Arvioi tämä versio',
 	'revreview-reflag' => 'Arvioi uudelleen tämä versio',
 	'revreview-invalid' => "'''Kelpaamaton kohde:''' mikään [[{{MediaWiki:Validationpage}}|arvioitu]] muokkaus ei vastaa annettua tunnusnumeroa.",
-	'revreview-legend' => 'Anna arvosana version sisällöstä',
 	'revreview-log' => 'Kommentti:',
 	'revreview-main' => 'Sinun täytyy valita tietty versio sivusta, jotta voit arvioida sen.
 
@@ -1791,13 +1790,11 @@ Tarkista kaikki alla olevat muutokset, jotta muutoksesi näkyisivät vakaassa ve
 
 Arvioi kaikki alla olevat muutokset, jotta muokkauksesi näkyisivät vakaassa versiossa.',
 	'revreview-update-includes' => 'Mallineita tai tiedostoja on päivitetty (tarkastamattomat sivut lihavoinnilla):',
-	'revreview-reject-header' => 'Hylkää version $1 muutokset',
 	'revreview-reject-text-revto' => 'Tämä palauttaa sivun takaisin [{{fullurl:$1|oldid=$2}} ajankohdan $3 versioon].',
 	'revreview-reject-summary' => 'Yhteenveto:',
 	'revreview-reject-confirm' => 'Hylkää nämä muutokset',
 	'revreview-reject-cancel' => 'Peruuta',
 	'revreview-reject-summary-cur' => 'Hylättiin {{PLURAL:$1|viimeisin tekstimuutos|viimeisimmät $1 tekstimuutosta}} (käyttäjältä $2) ja palautettiin versio $3 käyttäjältä $4',
-	'revreview-reject-usercount' => '{{PLURAL:$1|yksi käyttäjä|$1 käyttäjää}}',
 	'revreview-tt-flag' => 'Hyväksy tämä versio merkitsemällä se ”silmäillyksi”',
 	'revreview-tt-unflag' => 'Peruuta tämän version arviointi merkitsemällä se ”arvioimattomaksi”',
 	'revreview-tt-reject' => 'Peruuta nämä muokkaukset kumoamalla ne',
@@ -4949,9 +4946,12 @@ $messages['tg-latn'] = array(
 );
 
 /** Thai (ไทย)
+ * @author Horus
  * @author Woraponboonkerd
  */
 $messages['th'] = array(
+	'review_page_notexists' => 'ไม่มีหน้าเป้าหมาย',
+	'revreview-check-flag-y' => 'ยอมรับการเปลี่ยนแปลงของฉัน',
 	'revreview-submit' => 'ส่ง',
 	'revreview-submitting' => 'กำลังส่ง...',
 );

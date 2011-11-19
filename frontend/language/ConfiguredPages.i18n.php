@@ -845,6 +845,14 @@ $messages['te'] = array(
 	'configuredpages-def-stable' => 'ప్రచురిత కూర్పు',
 );
 
+/** Thai (ไทย)
+ * @author Horus
+ */
+$messages['th'] = array(
+	'configuredpages-def-draft' => 'รุ่นล่าสุด',
+	'configuredpages-def-stable' => 'รุ่นเสถียร',
+);
+
 /** Turkmen (Türkmençe)
  * @author Hanberke
  */

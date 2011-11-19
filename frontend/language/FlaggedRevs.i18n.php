@@ -5478,7 +5478,7 @@ $messages['gl'] = array(
 Hai [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|cambio pendente|cambios pendentes}}].',
 	'revreview-basic-i' => 'Esta é a [[{{MediaWiki:Validationpage}}|versión publicada]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} comprobada] o <i>$2</i>.
 Hai [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} cambios de modelos ou ficheiros] agardando por unha revisión.',
-	'revreview-basic-old' => 'Esta é unha revisión [[{{MediaWiki:Validationpage}}|comprobada]] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} amosar todas]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprobada] o <i>$2</i>.
+	'revreview-basic-old' => 'Esta é unha revisión [[{{MediaWiki:Validationpage}}|comprobada]] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} mostrar todas]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprobada] o <i>$2</i>.
 Fixéronse novos [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} cambios].',
 	'revreview-basic-same' => 'Esta é a [[{{MediaWiki:Validationpage}}|versión publicada]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} comprobada] o <i>$2</i>.',
 	'revreview-basic-source' => 'Unha [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} versión comprobada] desta páxina, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprobada] o <i>$2</i>, baseouse nesta revisión.',
@@ -5515,7 +5515,7 @@ A [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} versión publicada] foi [{{fullurl:{{#
 Hai [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|cambio pendente|cambios pendentes}}] agardando por unha revisión.',
 	'revreview-quality-i' => 'Esta é a [[{{MediaWiki:Validationpage}}|versión publicada]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprobada] o <i>$2</i>.
 Hai [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} cambios de modelos ou ficheiros] agardando por unha revisión.',
-	'revreview-quality-old' => 'Esta é unha revisión [[{{MediaWiki:Validationpage}}|de calidade]] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} amosar todas]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprobada] o <i>$2</i>.
+	'revreview-quality-old' => 'Esta é unha revisión [[{{MediaWiki:Validationpage}}|de calidade]] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} mostrar todas]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprobada] o <i>$2</i>.
 Fixéronse novos [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} cambios].',
 	'revreview-quality-same' => 'Esta é a [[{{MediaWiki:Validationpage}}|versión publicada]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprobada] o <i>$2</i>.',
 	'revreview-quality-source' => 'Unha [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} versión de calidade] desta páxina, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprobada] o <i>$2</i>, baseouse nesta revisión.',
@@ -5538,7 +5538,7 @@ Fixéronse novos [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flagg
 	'revreview-style-2' => 'Boa',
 	'revreview-style-3' => 'Concisa',
 	'revreview-style-4' => 'Destacada',
-	'revreview-toggle-title' => 'amosar/agochar os detalles',
+	'revreview-toggle-title' => 'mostrar/agochar os detalles',
 	'revreview-visibility-synced' => "'''Esta páxina ten unha [[{{MediaWiki:Validationpage}}|versión publicada]] actualizada; os parámetros de estabilidade desta páxina poden ser [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} configurados].'''",
 	'revreview-visibility-outdated' => "'''Esta páxina ten unha [[{{MediaWiki:Validationpage}}|versión publicada]] obsoleta; os parámetros de estabilidade desta páxina poden ser [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} configurados].'''",
 	'revreview-visibility-nostable' => "'''Esta páxina non ten ningunha [[{{MediaWiki:Validationpage}}|versión publicada]]; os parámetros de estabilidade desta páxina poden ser [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} configurados].'''",
@@ -5591,8 +5591,8 @@ Por favor verifique o URL que utilizou para acceder a esta páxina.',
 	'flaggedrevs-categoryview' => '[{{fullurl:Special:UnreviewedPages|category=$1}} Páxinas non revisadas]{{int:pipe-separator}}[{{fullurl:Special:PendingChanges|category=$1}} Cambios pendentes]',
 	'revreview-locked-title' => 'As edicións feitas nesta páxina necesitan revisión.',
 	'revreview-unlocked-title' => 'As edicións feitas nesta páxina non necesitan revisión.',
-	'revreview-locked' => "'''Nota:''' As edicións deben ser [[{{MediaWiki:Validationpage}}|revisadas]] antes de se amosaren aos lectores nesta páxina.",
-	'revreview-unlocked' => "'''Nota:''' As edicións non necesitan [[{{MediaWiki:Validationpage}}|revisión]] antes de se amosaren aos lectores nesta páxina.",
+	'revreview-locked' => "'''Nota:''' As edicións deben ser [[{{MediaWiki:Validationpage}}|revisadas]] antes de se mostraren aos lectores nesta páxina.",
+	'revreview-unlocked' => "'''Nota:''' As edicións non necesitan [[{{MediaWiki:Validationpage}}|revisión]] antes de se mostraren aos lectores nesta páxina.",
 	'log-show-hide-review' => '$1 o rexistro de revisións',
 	'validationpage' => '{{ns:help}}:Validación da páxina',
 );
@@ -13739,6 +13739,7 @@ $messages['tg-latn'] = array(
 );
 
 /** Thai (ไทย)
+ * @author Horus
  * @author Korrawit
  * @author Octahedron80
  * @author Passawuth
@@ -13747,6 +13748,10 @@ $messages['tg-latn'] = array(
 $messages['th'] = array(
 	'editor' => 'ผู้แก้ไข',
 	'group-editor-member' => 'ผู้แก้ไข',
+	'revreview-diff-toggle-show' => 'แสดงการเปลี่ยนแปลงเหล่านั้น',
+	'revreview-diff-toggle-hide' => 'ซ่อนการเปลี่ยนแปลงเหล่านั้น',
+	'revreview-log-details-show' => 'แสดงรายละเอียด',
+	'revreview-log-details-hide' => 'ซ่อนรายละเอียด',
 	'revreview-accuracy' => 'ความถูกต้อง',
 	'revreview-accuracy-0' => 'ยังไม่ได้ตรวจสอบ',
 	'revreview-accuracy-1' => 'ตรวจสอบแล้ว',
@@ -13754,6 +13759,7 @@ $messages['th'] = array(
 	'revreview-accuracy-3' => 'มีแหล่งที่มาที่ดี',
 	'revreview-accuracy-4' => 'แนะนำ',
 	'revreview-auto' => '(อัตโนมัติ)',
+	'revreview-source' => 'ดูโค้ด',
 	'revreview-style' => 'การจัดเรียงให้อ่านง่าย',
 	'revreview-style-0' => 'ไม่ผ่าน',
 	'revreview-style-1' => 'ยอมรับได้',

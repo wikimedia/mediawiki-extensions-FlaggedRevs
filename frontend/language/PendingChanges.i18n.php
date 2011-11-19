@@ -1798,6 +1798,15 @@ $messages['tet'] = array(
 	'pendingchanges-category' => 'Kategoria:',
 );
 
+/** Thai (ไทย)
+ * @author Horus
+ */
+$messages['th'] = array(
+	'pendingchanges-hours' => '($1 {{PLURAL:$1|ชั่วโมง|ชั่วโมง}})',
+	'pendingchanges-days' => '($1 {{PLURAL:$1|วัน|วัน}})',
+	'pendingchanges-recent' => '(น้อยกว่า 1 ชั่วโมง)',
+);
+
 /** Turkmen (Türkmençe)
  * @author Hanberke
  */
