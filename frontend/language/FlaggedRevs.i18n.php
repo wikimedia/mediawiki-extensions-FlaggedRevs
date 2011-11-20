@@ -11224,6 +11224,7 @@ Verifique a URL que usou para aceder a esta página.',
  * @author Helder.wiki
  * @author Heldergeovane
  * @author Luckas Blade
+ * @author Pedroca cerebral
  * @author Rafael Vargas
  */
 $messages['pt-br'] = array(
@@ -11246,13 +11247,13 @@ $messages['pt-br'] = array(
 	'flaggedrevs-prefs-viewdiffs' => 'Mostrar as diferenças das alterações pendentes ao ver a última edição pendente',
 	'flaggedrevs-hidereviewed' => '$1 edições revistas',
 	'group-editor' => 'Editores',
-	'group-editor-member' => 'Editor',
+	'group-editor-member' => '{{GENDER:$1|editor|editora}}',
 	'group-reviewer' => 'Revisores',
-	'group-reviewer-member' => 'revisor',
+	'group-reviewer-member' => '{{GENDER:$1|revisor|revisora}}',
 	'grouppage-editor' => '{{ns:project}}:Editor',
 	'grouppage-reviewer' => '{{ns:project}}:Revisor',
 	'group-autoreview' => 'Autorrevisores',
-	'group-autoreview-member' => 'autorevisor',
+	'group-autoreview-member' => '{{GENDER:$1|usuário autorrevisor|usuária autorrevisora}}',
 	'grouppage-autoreview' => '{{ns:project}}:Autorrevisor',
 	'revreview-hist-draft' => 'edição não verificada',
 	'revreview-hist-pending' => 'revisão pendente',
