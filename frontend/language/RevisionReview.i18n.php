@@ -4668,7 +4668,7 @@ Prosimo, preglejte vse spremembe prikazane podaj, da prikažete vaše spremembe 
  * @author Михајло Анђелковић
  */
 $messages['sr-ec'] = array(
-	'revisionreview' => 'Претпреглед измена',
+	'revisionreview' => 'Преглед измена',
 	'review_page_invalid' => 'Наслов циљане стране је неисправан.',
 	'review_page_notexists' => 'Циљана страна не постоји.',
 	'review_page_unreviewable' => 'Циљана страна се не може прегледати.',
