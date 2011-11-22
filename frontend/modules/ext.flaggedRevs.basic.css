@@ -301,6 +301,11 @@ span.fr-under-review {
 	font-weight: bold;
 }
 
+/* History items */
+.mw-fr-hist-difflink {
+	font-size: 85%;
+}
+
 /* Diff items */
 #mw-fr-diff-headeritems {
 	direction: ltr;

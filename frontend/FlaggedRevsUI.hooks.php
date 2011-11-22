@@ -406,7 +406,7 @@ class FlaggedRevsUIHooks {
 			$class = 'flaggedrevs-pending';
 			$link = wfMsgExt( 'revreview-hist-pending-difflink', 'parseinline',
 				$title->getPrefixedText(), $history->fr_stableRevId, $revId );
-			$link = '<span class="plainlinks">' . $link . '</span>';
+			$link = '<span class="plainlinks mw-fr-hist-difflink">' . $link . '</span>';
 			$history->fr_pendingRevs = true; // pending rev shown above stable
 		// Reviewed revision: highlight and add link
 		} elseif ( isset( $row->fr_quality ) ) {
@@ -422,7 +422,7 @@ class FlaggedRevsUIHooks {
 		# Style the row as needed
 		if ( $class ) $s = "<span class='$class'>$s</span>";
 		# Add stable old version link
-		if ( $link ) $s .= " <small>$link</small>";
+		if ( $link ) $s .= " $link";
 		return true;
 	}
 
