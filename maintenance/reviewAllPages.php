@@ -29,10 +29,10 @@ class ReviewAllPages extends Maintenance {
 	protected function autoreview_current( User $user ) {
 		$this->output( "Auto-reviewing all current page versions...\n" );
 		if ( !$user->getID() ) {
-			$this->output( "Invalid user specified." );
+			$this->output( "Invalid user specified.\n" );
 			return;
 		} elseif ( !$user->isAllowed( 'review' ) ) {
-			$this->output( "User specified does not have \"review\" rights." );
+			$this->output( "User specified (id: {$user->getID()}) does not have \"review\" rights.\n" );
 			return;
 		}
 
