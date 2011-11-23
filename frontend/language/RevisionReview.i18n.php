@@ -312,11 +312,9 @@ $messages['af'] = array(
 	'revreview-submit-reviewed' => 'Gedoen. Is aanvaar!',
 	'revreview-submit-unreviewed' => 'Gedoen. Nie aanvaar nie!',
 	'revreview-update-includes' => 'Sommige sjablone/lêers is bygewerk:',
-	'revreview-reject-header' => 'Keur veranderinge vir $1 af',
 	'revreview-reject-summary' => 'Opsomming:',
 	'revreview-reject-confirm' => 'Keur hierdie veranderinge af',
 	'revreview-reject-cancel' => 'Kanselleer',
-	'revreview-reject-usercount' => '{{PLURAL:$1|een gebruiker|$1 gebruikers}}',
 );
 
 /** Gheg Albanian (Gegë)
@@ -351,7 +349,6 @@ $messages['an'] = array(
 	'revisionreview' => 'Revisar versions',
 	'revreview-flag' => 'Revisar ista versión',
 	'revreview-invalid' => "'''Destín no conforme:''' no bi ha garra [[{{MediaWiki:Validationpage}}|versión revisata]] que corresponda con ixe ID.",
-	'revreview-legend' => "Valure o conteniu d'a revisión",
 	'revreview-log' => 'Comentario:',
 	'revreview-main' => "Ha de trigar una versión particular d'una pachina de conteniu ta poder revisar-la.
 
@@ -473,7 +470,6 @@ $messages['arz'] = array(
 	'revreview-flag' => 'راجع هذه المراجعة',
 	'revreview-reflag' => 'راجع تانى المراجعه دى',
 	'revreview-invalid' => "'''هدف غير صحيح:''' لا مراجعه [[{{MediaWiki:Validationpage}}|مراجعة]] تتطابق مع الرقم المعطى.",
-	'revreview-legend' => 'قيم محتوى المراجعة',
 	'revreview-log' => 'تعليق:',
 	'revreview-main' => 'يجب أن تختار مراجعه معينه من صفحه محتوى لمراجعتها.
 
@@ -507,7 +503,6 @@ $messages['ast'] = array(
 	'review_page_notexists' => 'La páxina de destín nun esiste.',
 	'review_page_unreviewable' => 'Nun se puede revisar la páxina de destín.',
 	'revreview-flag' => 'Revisar esta revisión',
-	'revreview-legend' => 'Calificar el conteníu de la revisión',
 	'revreview-log' => 'Comentariu:',
 	'revreview-main' => "Tienes que seleicionar una revisión concreta d'una páxina de conteníos pa revisala.
 
@@ -552,7 +547,6 @@ $messages['bcc'] = array(
 	'revisionreview' => 'بازبینی اصلاحات',
 	'revreview-flag' => 'ای بازبینی اصلاح کن',
 	'revreview-invalid' => "'''نامعتبراین هدف:''' هچ [[{{MediaWiki:Validationpage}}|بازبینی بوتگین]] نسخه مطابق انت گون داتگین شناسگ.",
-	'revreview-legend' => 'محتوا بازبینی رده بندی کن',
 	'revreview-log' => 'نظر:',
 	'revreview-stable2' => 'شما شاید بلوٹیت بگندیت [{{fullurl:$1|stable=1}} نسخه ثابتی]چه ای صفحه (اگر که هستن).',
 	'revreview-submit' => 'بازبینی دیم دی',
@@ -593,7 +587,6 @@ $messages['be'] = array(
 	'revreview-flag' => 'Праверыць гэтую версію',
 	'revreview-reflag' => 'Пераправерыць гэтую версію',
 	'revreview-invalid' => "'''Памылковая мэта:''' не існуе [[{{MediaWiki:Validationpage}}|праверанай]] версіі старонкі, якая адпавядае паказанаму ідэнтыфікатару.",
-	'revreview-legend' => 'Ацэнкі зместу версіі',
 	'revreview-log' => 'Заўвага:',
 	'revreview-main' => 'Вы павінны выбраць адну з версій старонкі для праверкі.
 
@@ -624,7 +617,6 @@ $messages['be'] = array(
 Каб уключыць вашы праўкі ў стабільную версію, калі ласка, праверце ўсе змены, паказаныя ніжэй.
 Магчыма, вам спатрэбіцца спачатку прайсці па праўках ці адмяніць іх.',
 	'revreview-update-includes' => 'Некаторыя шаблоны ці файлы былі абноўленыя:',
-	'revreview-reject-header' => '	Адхіліць змены для $1',
 	'revreview-reject-text-list' => "Выконваючы гэта дзеянне, вы '''адхіляеце''' {{PLURAL:$1|наступную змену|наступныя змены}}:",
 	'revreview-reject-text-revto' => 'Вяртае старонку назад да [{{fullurl:$1|oldid=$2}} версіі ад $3].',
 	'revreview-reject-summary' => 'Апісанне праўкі',
@@ -737,7 +729,6 @@ $messages['bg'] = array(
 	'review_denied' => 'Достъпът е отказан.',
 	'review_param_missing' => 'Липсващ или неправилен параметър.',
 	'review_reject_excessive' => 'Не могат да се отхвърлят толкова много редакции наведнъж.',
-	'revreview-legend' => 'Оценка на съдържанието на версията',
 	'revreview-log' => 'Коментар:',
 	'revreview-submit' => 'Изпращане',
 	'revreview-submitting' => 'Изпращане...',
@@ -761,7 +752,6 @@ $messages['bn'] = array(
 	'review_denied' => 'অনুমতি প্রত্যাখ্যাত হয়েছে।',
 	'revreview-check-flag-y' => 'আমার পরিবর্তনসমূহ গ্রহণ',
 	'revreview-flag' => 'এই সংশোধনটি পর্যালোচনা করুন',
-	'revreview-legend' => 'সংশোধনের বিষয়বস্তুর রেটিং দিন',
 	'revreview-log' => 'মন্তব্য:',
 	'revreview-main' => 'আপনাকে অবশ্যই কোন একটি বিষয়বস্তু পাতা থেকে একটি নির্দিষ্ট সংশোধন পর্যালোচনা করার জন্য বাছাই করতে হবে।
 
@@ -886,7 +876,6 @@ $messages['bs'] = array(
 	'revreview-flag' => 'Provjerite ovu reviziju',
 	'revreview-reflag' => 'Ponovo provjeri ovu reviziju',
 	'revreview-invalid' => "'''Nevaljan cilj:''' nijedna [[{{MediaWiki:Validationpage}}|pregledana]] revizija ne odgovara navedenom ID.",
-	'revreview-legend' => 'Ocijeni sadržaj revizije',
 	'revreview-log' => 'Komentar:',
 	'revreview-main' => 'Morate odabrati određenu reviziju stranice sadržaja da biste je provjerili.
 
@@ -919,7 +908,6 @@ Molimo provjerite sve izmjene prikazane ispod da bi se vaše izmjene prikazale u
 
 Molimo provjerite sve izmjene prikazane ispod da bi se vaše izmjene prikazale u stabilnoj verziji.',
 	'revreview-update-includes' => "''Šabloni/datoteke su ažurirani (nepregledane stranice su bodirane):",
-	'revreview-reject-header' => 'Odbij promjene za $1',
 	'revreview-reject-text-list' => "Dovršavanjem ove akcije, vi ćete '''odbiti'''  izmjene izvornog teksta od {{PLURAL:$1|slijedeće revizije|slijedećih revizija}} od [[:$2|$2]]:",
 	'revreview-reject-text-revto' => 'Ovim ćete vratiti nazad stranicu na [{{fullurl:$1|oldid=$2}} verziju od $3].',
 	'revreview-reject-summary' => 'Sažetak:',
@@ -929,7 +917,6 @@ Molimo provjerite sve izmjene prikazane ispod da bi se vaše izmjene prikazale u
 	'revreview-reject-summary-old' => '{{PLURAL:$1|Odbijena prva izmjena|Odbijene prve $1 izmjene|Odbijeno prvih $1 izmjena}} teksta (od strane $2) koje su načinjene nakon revizije $3 od $4',
 	'revreview-reject-summary-cur-short' => '{{PLURAL:$1|Odbijena zadnja izmjena|Odbijene zadnje $1 izmjene|Odbijeno zadnjih $1 izmjena}} teksta i vraćena revizija $2 od $3',
 	'revreview-reject-summary-old-short' => '{{PLURAL:$1|Odbijena prva izmjena|Odbijene prve $1 izmjene|Odbijeno prvih $1 izmjena}} teksta koje su načinjene nakon revizije $2 od $3',
-	'revreview-reject-usercount' => '{{PLURAL:$1|jedan korisnik|$1 korisnika}}',
 	'revreview-tt-flag' => "Prihvati ovu reviziju označavajući je ''provjerenom''",
 	'revreview-tt-unflag' => "Ne prihvati ovu reviziju označavajući je ''neprovjerenom''",
 	'revreview-tt-reject' => 'Odbij promjene ovog izvornog teksta tako što ćete ih vratiti',
@@ -981,7 +968,6 @@ $messages['ce'] = array(
 	'revreview-flag' => 'Хьажа оцу варсига',
 	'revreview-reflag' => 'Йуха хьажа оцу варсига',
 	'revreview-invalid' => "'''Гlалатца хьажор:''' йоцуш йу [[{{MediaWiki:Validationpage}}|хьаьжна]] йогlуш йолу оцу цlарца агlонан варси.",
-	'revreview-legend' => 'Варсийшна хиттийна мехаллаш',
 	'revreview-log' => 'Билгалдар:',
 	'revreview-main' => 'Ахьа харжа церах цхьа варсийн агlо, нийса йуй хьажарна.
 
@@ -1010,14 +996,12 @@ $messages['ce'] = array(
 
 Шу хийцамаш латаба, цхьан эшар йолучу варсийца, дехар до, хьовсийша массо хийцамашка, гойтуш болу лахахьа.',
 	'revreview-update-includes' => 'Цхьа долу куцкепаш йа хlумнаш а карла даьхна:',
-	'revreview-reject-header' => 'Йуха баха хийцамаш оцу $1',
 	'revreview-reject-summary' => 'Хийцамех лаьцна:',
 	'revreview-reject-confirm' => 'Йуха баха иза хийцамаш',
 	'revreview-reject-cancel' => 'Цаоьшу',
 	'revreview-reject-summary-cur' => '{{PLURAL:$1|Йуха баькхина тlаьххьара $1 хийцам|Йуха баькхина тlаьххьара $1 хийцамаш}} ($2) а, варсий метта хlоттош $3 $4',
 	'revreview-reject-summary-old' => '{{PLURAL:$1|Йуха баькхина дуьхьаралера $1 хийцам|Йуха баькхина дуьхьаралера $1 хийцамаш}} ($2), {{PLURAL:$1|тlехьа богlаш|тlехьа богlаш}} болу оцу варсийн $3 $4',
 	'revreview-reject-summary-cur-short' => '{{PLURAL:$1|Йуха баькхина тlаьххьара $1 хийцам|Йуха баькхина тlаьххьара $1 хийцамаш}} а, варсий метта хlоттош $2 $3',
-	'revreview-reject-usercount' => '{{PLURAL:$1|$1 декъашхо|$1 декъашхой}}',
 );
 
 /** Sorani (کوردی) */
@@ -1055,7 +1039,6 @@ $messages['cs'] = array(
 	'revreview-flag' => 'Posoudit tuto verzi',
 	'revreview-reflag' => 'Označit tuto revizi za neposouzenou',
 	'revreview-invalid' => "'''Neplatný cíl:''' žádná [[{{MediaWiki:Validationpage}}|posouzená]] verze neodpovídá zadanému ID.",
-	'revreview-legend' => 'Ohodnoťte obsah verze',
 	'revreview-log' => 'Komentář:',
 	'revreview-main' => 'Pro posouzení musíte vybrat určitou verzi stránky. 
 
@@ -1083,13 +1066,11 @@ Bude nutné tyto editace začlenit nebo zamítnout.',
 Aby se tam mohly dostat, posuďte prosím nejdříve všechny změny zobrazené níže.
 Bude nutné tyto editace začlenit nebo zamítnout.',
 	'revreview-update-includes' => 'Některé šablony/soubory se změnily:',
-	'revreview-reject-header' => 'Odmítnout změny pro $1',
 	'revreview-reject-text-list' => "Dokončením této akce, '''zamítnete''' následující {{PLURAL:$1|zmněnu|změny|změn}}:",
 	'revreview-reject-text-revto' => 'Toto se vrátí zpět stránku do [{{fullurl:$1|oldid = $2}} revize z $3].',
 	'revreview-reject-summary' => 'Shrnutí:',
 	'revreview-reject-confirm' => 'Odmítnout tyto změny',
 	'revreview-reject-cancel' => 'Zrušit',
-	'revreview-reject-usercount' => '{{plural:$1|jeden uživatel|$1 uživatelé|$1 uživatelů}}',
 	'revreview-tt-flag' => 'Schválit tuto verzi jejím označením za "zkontrolovanou"',
 	'revreview-tt-unflag' => 'Zamítnout tuto verzi jejím označením za "nezkontrolovanou"',
 	'revreview-tt-reject' => 'Odmítnout tyto změny jejich vrácením',
@@ -1378,7 +1359,6 @@ $messages['el'] = array(
 	'revreview-check-flag-y-title' => 'Αποδοχή όλων των αλλαγών που έχετε κάνει εδώ.',
 	'revreview-flag' => 'Επιθεώρησε αυτή την τροποποίηση',
 	'revreview-reflag' => 'Αναίρεση επισκόπησης αυτής της έκδοσης',
-	'revreview-legend' => 'Βαθμολόγησε το περιεχόμενο της τροποποίησης',
 	'revreview-log' => 'Σχόλιο:',
 	'revreview-submit' => 'Υποβολή',
 	'revreview-submitting' => 'Υποβολή ...',
@@ -1387,11 +1367,9 @@ $messages['el'] = array(
 	'revreview-submit-reject' => 'Απόρριψη αλλαγών',
 	'revreview-submit-reviewed' => 'Έγινε. Αποδεκτή!',
 	'revreview-submit-unreviewed' => 'Έγινε. Μη αποδεκτή!',
-	'revreview-reject-header' => 'Απόρριψη αλλαγών για $1',
 	'revreview-reject-summary' => 'Σύνοψη:',
 	'revreview-reject-confirm' => 'Απόρριψη αυτών των αλλαγών',
 	'revreview-reject-cancel' => 'Ακύρωση',
-	'revreview-reject-usercount' => '{{PLURAL:$1|ένας χρήστης|$1 χρήστες}}',
 );
 
 /** Esperanto (Esperanto)
@@ -1592,7 +1570,6 @@ $messages['et'] = array(
 	'revreview-check-flag-y-title' => 'Kiida kõik enda tehtud muudatused selles redaktsioonis heaks.',
 	'revreview-flag' => 'Redaktsiooni ülevaatamine',
 	'revreview-invalid' => "'''Vigane sihtkoht:''' antud ID-le ei vasta ükski [[{{MediaWiki:Validationpage}}|ülevaadatud]] redaktsioon.",
-	'revreview-legend' => 'Redaktsiooni sisu hindamine',
 	'revreview-log' => 'Kommentaar:',
 	'revreview-main' => 'Selleks üle vaadata, pead valima sisulehekülje kindla redaktsiooni.
 
@@ -2264,7 +2241,6 @@ $messages['hi'] = array(
 	'revisionreview' => 'अवतरण परखें',
 	'revreview-flag' => 'यह अवतरण परखें',
 	'revreview-invalid' => "'''गलत लक्ष्य:''' कोईभी [[{{MediaWiki:Validationpage}}|परिक्षण]] हुआ अवतरण दिये हुए क्रमांक से मिलता नहीं।",
-	'revreview-legend' => 'इस अवतरण के पाठ का गुणांकन करें',
 	'revreview-log' => 'टिप्पणी:',
 	'revreview-main' => 'परिक्षण के लिये एक अवतरण चुनना अनिवार्य हैं।
 
@@ -2315,7 +2291,6 @@ $messages['hr'] = array(
 	'revreview-flag' => 'Ocijeni izmjenu',
 	'revreview-reflag' => 'Ponovo ocijeni ovu inačicu',
 	'revreview-invalid' => "'''Nevaljani cilj:''' nema [[{{MediaWiki:Validationpage}}|ocijenjene]] izmjene koja odgovara danom ID-u.",
-	'revreview-legend' => 'Ocijeni sadržaj inačice',
 	'revreview-log' => 'Komentar:',
 	'revreview-main' => 'Morate odabrati neku izmjenu stranice sa sadržajem za ocjenjivanje.
 
@@ -2344,7 +2319,6 @@ Molimo provjerite sve izmjene prikazane ispod da bi se vaše izmjene prikazale u
 
 Molimo provjerite sve izmjene prikazane ispod da bi se vaše izmjene prikazale u stabilnoj inačici.',
 	'revreview-update-includes' => 'Neki predlošci/datoteke su ažurirane:',
-	'revreview-reject-header' => 'Odbij promjene za $1',
 	'revreview-reject-text-list' => "Dovršavanjem ove akcije, vi ćete '''odbiti''' {{PLURAL:$1|sljedeću promjenu|sljedeće promjene|sljedeće promjene}}:",
 	'revreview-reject-text-revto' => 'Ovime ćete vratiti stranicu natrag na [{{fullurl:$1|oldid=$2}} inačicu od $3].',
 	'revreview-reject-summary' => 'Uredi sažetak:',
@@ -2354,7 +2328,6 @@ Molimo provjerite sve izmjene prikazane ispod da bi se vaše izmjene prikazale u
 	'revreview-reject-summary-old' => '{{PLURAL:$1|Odbijena prva izmjena|Odbijene prve $1 izmjene|Odbijeno prvih $1 izmjena}} (od strane $2) koje su načinjene nakon inačice $3 suradnika $4',
 	'revreview-reject-summary-cur-short' => '{{PLURAL:$1|Odbijena zadnja izmjena|Odbijene zadnje $1 izmjene|Odbijeno zadnjih $1 izmjena}} i vraćena inačica $2 suradnika $3',
 	'revreview-reject-summary-old-short' => '{{PLURAL:$1|Odbijena prva izmjena|Odbijene prve $1 izmjene|Odbijeno prvih $1 izmjena}} koje su načinjene nakon inačice $2 suradnika $3',
-	'revreview-reject-usercount' => '{{PLURAL:$1|jedan suradnik|$1 suradnika|$1 suradnika}}',
 	'revreview-tt-flag' => "Prihvati ovu inačicu označavajući je ''provjerenom''",
 	'revreview-tt-unflag' => "Poništi ovu inačicu označavajući je ''neprovjerenom''",
 	'revreview-tt-reject' => 'Odbaci ove promjene tako što ćete ih ukloniti',
@@ -2646,7 +2619,6 @@ $messages['id'] = array(
 	'revreview-flag' => 'Tinjau revisi ini',
 	'revreview-reflag' => 'Tinjau kembali revisi ini',
 	'revreview-invalid' => "'''Tujuan tidak ditemukan:''' tidak ada revisi [[{{MediaWiki:Validationpage}}|tertinjau]] yang cocok dengan nomor revisi yang diminta.",
-	'revreview-legend' => 'Beri peringkat untuk isi revisi',
 	'revreview-log' => 'Komentar:',
 	'revreview-main' => 'Anda harus memilih suatu revisi tertentu dari halaman isi untuk ditinjau.
 
@@ -2677,7 +2649,6 @@ Harap tinjau semua perubahan yang ditunjukkan di bawah ini untuk membuat sunting
 
 Harap tinjau semua perubahan yang ditunjukkan di bawah ini untuk membuat suntingan Anda muncul dalam versi stabil.',
 	'revreview-update-includes' => 'Beberapa templat/berkas telah diperbaharui:',
-	'revreview-reject-header' => 'Tolak perubahan untuk $1',
 	'revreview-reject-text-list' => "Dengan melakukan tindakan ini, Anda akan '''menolak''' {{PLURAL:$1|perubahan|perubahan}} berikut:",
 	'revreview-reject-text-revto' => 'Ini akan mengembalikan halaman kepada [{{fullurl:$1|oldid=$2}} versi per $3].',
 	'revreview-reject-summary' => 'Ringkasan:',
@@ -2687,7 +2658,6 @@ Harap tinjau semua perubahan yang ditunjukkan di bawah ini untuk membuat sunting
 	'revreview-reject-summary-old' => 'Menolak {{PLURAL:$1|perubahan|$1 perubahan}} pertama (oleh $2) setelah revisi $3 oleh $4',
 	'revreview-reject-summary-cur-short' => 'Menolak {{PLURAL:$1|perubahan|$1 perubahan}} terakhir dan mengembalikan revisi $2 oleh $3',
 	'revreview-reject-summary-old-short' => 'Menolak {{PLURAL:$1|perubahan|$1 perubahan}} pertama setelah revisi $2 oleh $3',
-	'revreview-reject-usercount' => '{{PLURAL:$1|satu pengguna|$1 pengguna}}',
 	'revreview-tt-flag' => 'Terima revisi dengan status "terperiksa"',
 	'revreview-tt-unflag' => 'Tolak revisi ini dengan status "belum diperiksa"',
 	'revreview-tt-reject' => 'Tolak perubahan dengan mengembalikan perubahan',
@@ -2745,7 +2715,6 @@ $messages['it'] = array(
 	'revreview-check-flag-y-title' => 'Accetta tutti i cambiamenti che hai fatto in questa modifica.',
 	'revreview-flag' => 'Revisiona questa versione',
 	'revreview-invalid' => "'''Errore:''' nessuna versione [[{{MediaWiki:Validationpage}}|revisionata]] corrisponde all'ID fornito.",
-	'revreview-legend' => 'Valuta il contenuto della versione',
 	'revreview-log' => 'Commento:',
 	'revreview-main' => "Devi selezionare una particolare revisione di una pagina di contenuti per revisionarla.
 
@@ -2811,7 +2780,6 @@ $messages['ja'] = array(
 	'revreview-flag' => 'この特定版の査読',
 	'revreview-reflag' => 'この版を再査読',
 	'revreview-invalid' => "'''無効な対象:''' 指定されたIDに対応する[[{{MediaWiki:Validationpage}}|査読済み]]版はありません。",
-	'revreview-legend' => '特定版に対する判定',
 	'revreview-log' => '査読内容の要約:',
 	'revreview-main' => '査読のためには対象記事から特定の版を選択する必要があります。
 
@@ -2842,7 +2810,6 @@ $messages['ja'] = array(
 
 変更を安定版に反映するには、下記の変更をすべて査読してください。',
 	'revreview-update-includes' => '更新されたテンプレートやファイルがあります:',
-	'revreview-reject-header' => '$1の変更を拒否',
 	'revreview-reject-text-list' => "この操作を完了すると、以下の{{PLURAL:$1|変更}}を、次の理由で'''却下'''します：",
 	'revreview-reject-text-revto' => 'ページを[{{fullurl:$1|oldid=$2}} $3版]へ差し戻します。',
 	'revreview-reject-summary' => '要約:',
@@ -2852,7 +2819,6 @@ $messages['ja'] = array(
 	'revreview-reject-summary-old' => '最新の{{PLURAL:$1|テキストの変更| $1 のテキストの変更}}は $2 によって却下され、$4 による $3 版となりました',
 	'revreview-reject-summary-cur-short' => '最新の{{PLURAL:$1|テキストの変更| $1 のテキストの変更}}は却下され、$3 による $2 版へ復旧されました',
 	'revreview-reject-summary-old-short' => '最新の{{PLURAL:$1|テキストの変更| $1 のテキストの変更}}は却下され、$3 による $2 版となりました',
-	'revreview-reject-usercount' => '{{PLURAL:$1|$1人の利用者}}',
 	'revreview-tt-flag' => 'この版に確認済みの印を付けて承認する',
 	'revreview-tt-unflag' => 'この版に「未確認」の印を付けて未承認とする',
 	'revreview-tt-reject' => 'ソーステキストへの変更を差し戻して却下する',
@@ -2936,7 +2902,6 @@ $messages['ka'] = array(
 $messages['kk-arab'] = array(
 	'revisionreview' => 'نۇسقالارعا سىن بەرۋ',
 	'revreview-flag' => 'بۇل نۇسقاعا (#$1) سىن بەرۋ',
-	'revreview-legend' => 'نۇسقا ماعلۇماتىنا دەڭگەي بەرۋ',
 	'revreview-log' => 'ماندەمەسى:',
 	'revreview-main' => 'سىن بەرۋ ٴۇشىن ماعلۇمات بەتىنىڭ ەرەكشە نۇسقاسىن بولەكتەۋىڭىز كەرەك.
 
@@ -2948,11 +2913,10 @@ $messages['kk-arab'] = array(
 كەيبىر جاڭارتىلعان ۇلگىلەر/سۋرەتتەر:',
 );
 
-/** Kazakh (Cyrillic) (Қазақша (Cyrillic)) */
+/** Kazakh (Cyrillic script) (‪Қазақша (кирил)‬) */
 $messages['kk-cyrl'] = array(
 	'revisionreview' => 'Нұсқаларға сын беру',
 	'revreview-flag' => 'Бұл нұсқаға сын беру',
-	'revreview-legend' => 'Нұсқа мағлұматына деңгей беру',
 	'revreview-log' => 'Мәндемесі:',
 	'revreview-main' => 'Сын беру үшін мағлұмат бетінің ерекше нұсқасын бөлектеуіңіз керек.
 
@@ -2963,11 +2927,10 @@ $messages['kk-cyrl'] = array(
 	'revreview-update' => 'Тиянақты нұсқа бекітілгеннен бері жасалған өзгерістерге (төменде көрсетілген) сын беріп шығыңыз.',
 );
 
-/** Kazakh (Latin) (Қазақша (Latin)) */
+/** Kazakh (Latin script) (‪Qazaqşa (latın)‬) */
 $messages['kk-latn'] = array(
 	'revisionreview' => 'Nusqalarğa sın berw',
 	'revreview-flag' => 'Bul nusqağa sın berw',
-	'revreview-legend' => 'Nusqa mağlumatına deñgeý berw',
 	'revreview-log' => 'Mändemesi:',
 	'revreview-main' => 'Sın berw üşin mağlumat betiniñ erekşe nusqasın bölektewiñiz kerek.
 
@@ -3017,7 +2980,6 @@ $messages['ko'] = array(
 	'revreview-flag' => '이 판을 검토하기',
 	'revreview-reflag' => '이 판을 다시 검토하기',
 	'revreview-invalid' => "'''대상이 잘못됨:''' 주어진 ID와 대응되는 [[{{MediaWiki:Validationpage}}|검토된 판]]이 없습니다.",
-	'revreview-legend' => '편집 내용 평가하기',
 	'revreview-log' => '의견:',
 	'revreview-main' => '검토하려면 문서의 특정 판을 선택해야 합니다.
 
@@ -3077,7 +3039,6 @@ $messages['ksh'] = array(
 	'revreview-flag' => 'Donn heh di Version nohkike!',
 	'revreview-reflag' => 'Donn heh di Version norr_ens nohkike',
 	'revreview-invalid' => "Dat es e '''onjöltesch Ziihl:''' kei [[{{MediaWiki:Validationpage}}|nohjekik]] Version paß met dä aanjejovve Kännong zesamme.",
-	'revreview-legend' => 'Noote för der Ennhalt jävve',
 	'revreview-log' => 'Koot zosamme jefaß:',
 	'revreview-main' => 'Do moß en beschtemmpte Version vun en Enhalts_Sigg ußsöhke, öm se ze
 nohzekike.
@@ -3100,7 +3061,6 @@ Looer noh de [[Special:Unreviewedpages|Leß met de nit nohjekikte Sigge]].',
 	'revreview-update' => "Bes esu joot, un donn all de Änderunge ''(unge sin se opjeliß)'' [[{{MediaWiki:Validationpage}}|nohkike]], di jemaat woodte, zick däm de {{int:stablepages-stable}} et letz [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} {{lcfirst:{{int:revreview-approved}}}}] woode es.<br />
 '''E paa Schablohne, Datteije, udder beeds, sin jeändert woode:'''",
 	'revreview-update-includes' => 'E paa Schabloone udder Dateije udder beeds sin jeändert woode:',
-	'revreview-reject-header' => 'Donn de Änderonge aan $1 aflehne',
 	'revreview-reject-summary' => 'Koot Zosammejefass, Quell:',
 	'revreview-reject-confirm' => 'Donn heh di Änderonge aflehne',
 	'revreview-reject-cancel' => 'Stopp! Avbreche!',
@@ -3453,7 +3413,6 @@ $messages['mr'] = array(
 	'revisionreview' => 'आवृत्त्या तपासा',
 	'revreview-flag' => 'ही आवृत्ती तपासा',
 	'revreview-invalid' => "'''चुकीचे टारगेट:''' कुठलीही [[{{MediaWiki:Validationpage}}|तपासलेली]] आवृत्ती दिलेल्या क्रमांकाशी जुळत नाही.",
-	'revreview-legend' => 'या आवृत्तीचे गुणांकन करा',
 	'revreview-log' => 'प्रतिक्रीया:',
 	'revreview-main' => 'तपासण्यासाठी एखादी आवृत्ती निवडणे गरजेचे आहे.
 
@@ -3658,7 +3617,6 @@ $messages['nn'] = array(
 	'review_page_notexists' => 'Målsida finst ikkje.',
 	'revreview-flag' => 'Vurder denne versjonen',
 	'revreview-invalid' => "'''Ugyldig mål:''' ingen [[{{MediaWiki:Validationpage}}|vurderte]] versjonar svarer til den oppgjevne ID-en.",
-	'revreview-legend' => 'Vurder versjonsinnhald',
 	'revreview-log' => 'Kommentar:',
 	'revreview-main' => 'Du lyt velja ein viss versjon av ei innhaldssida for å kunna gjera ei vurdering.
 
@@ -3711,7 +3669,6 @@ $messages['no'] = array(
 	'revreview-flag' => 'Anmeld denne sideversjonen',
 	'revreview-reflag' => 'Revider denne revisjonen på nytt',
 	'revreview-invalid' => "'''Ugyldig mål:''' ingen [[{{MediaWiki:Validationpage}}|anmeldte]] versjoner tilsvarer den angitte ID-en.",
-	'revreview-legend' => 'Vurder versjonens innhold',
 	'revreview-log' => 'Kommentar:',
 	'revreview-main' => 'Du må velge en viss revisjon av en innholdsside for å anmelde den.
 
@@ -3743,7 +3700,6 @@ Revider alle endringene vist nedenfor for å gjøre redigeringene dine synlige i
 
 Revider alle endringene vist nedenfor for å gjøre redigeringene dine synlige i den stabile versjonen.',
 	'revreview-update-includes' => 'Noen maler eller filer ble oppdatert:',
-	'revreview-reject-header' => 'Avvis endringer for $1',
 	'revreview-reject-text-list' => "Ved å fullføre denne handlingen vil du '''avvise''' følgende {{PLURAL:$1|endring|endringer}}:",
 	'revreview-reject-text-revto' => 'Dette vil tilbakestille siden til [{{fullurl:$1|oldid=$2}} versjonen fra $3].',
 	'revreview-reject-summary' => 'Sammendrag:',
@@ -3753,7 +3709,6 @@ Revider alle endringene vist nedenfor for å gjøre redigeringene dine synlige i
 	'revreview-reject-summary-old' => 'Forkastet {{PLURAL:$1|den første endringen|de første $1 endringene}} (av $2) som fulgte revisjon $3 av $4',
 	'revreview-reject-summary-cur-short' => 'Forkastet {{PLURAL:$1|den siste endringen|de siste $1 endringene}} og gjenopprettet revisjon $2 av $3',
 	'revreview-reject-summary-old-short' => 'Forkastet {{PLURAL:$1|den første endringen|de første $1 endringene}} som fulgte revisjon $2 av $3',
-	'revreview-reject-usercount' => '{{PLURAL:$1|én burker|$1 brukere}}',
 	'revreview-tt-flag' => 'Godkjenn denne revisjonen ved å merke den som kontrollert',
 	'revreview-tt-unflag' => 'Underkjenn denne revisjonen ved å merke den som «ukontrollert»',
 	'revreview-tt-reject' => 'Avvis disse endringene ved å tilbakestille dem',
@@ -3767,7 +3722,6 @@ $messages['oc'] = array(
 	'revreview-failed' => 'La relectura a fracassat !',
 	'revreview-flag' => 'Avalorar aquesta version',
 	'revreview-invalid' => "'''Cibla incorrècta :''' cap de version [[{{MediaWiki:Validationpage}}|relegida]] correspond pas al numèro indicat.",
-	'revreview-legend' => 'Avalorar lo contengut de la version',
 	'revreview-log' => 'Comentari al jornal :',
 	'revreview-main' => 'Vos cal causir una version precisa a partir del contengut en règla de la pagina per revisar. Vejatz [[Special:Unreviewedpages|Versions pas revisadas]] per una tièra de paginas.',
 	'revreview-stable1' => "Podètz voler visionar aquesta [{{fullurl:$1|stableid=$2}} version marcada] o veire se es ara la [{{fullurl:$1|stable=1}} version establa] d'aquesta pagina.",
@@ -3973,7 +3927,6 @@ $messages['ps'] = array(
 	'revreview-reject-summary' => 'لنډيز:',
 	'revreview-reject-confirm' => 'همدا بدلونونه ردول',
 	'revreview-reject-cancel' => 'ناګارل',
-	'revreview-reject-usercount' => '{{PLURAL:$1|يو کارن|$1 کارنان}}',
 );
 
 /** Portuguese (Português)
@@ -4012,7 +3965,6 @@ Faça-o só se já viu a lista completa de diferenças das alterações pendente
 	'revreview-flag' => 'Rever esta edição',
 	'revreview-reflag' => 'Voltar a rever esta edição',
 	'revreview-invalid' => "'''Destino inválido:''' não há [[{{MediaWiki:Validationpage}}|edições revistas]] que correspondam ao ID fornecido.",
-	'revreview-legend' => 'Avaliar o conteúdo da edição',
 	'revreview-log' => 'Comentário:',
 	'revreview-main' => 'Tem de seleccionar uma edição específica de uma página, para revê-la.
 
@@ -4045,7 +3997,6 @@ Para que as suas edições apareçam na versão publicada, reveja todas as alter
 
 Para que as suas edições apareçam na versão publicada, reveja todas as alterações mostradas abaixo, por favor.',
 	'revreview-update-includes' => 'Foram actualizados ficheiros ou predefinições (as páginas não revistas aparecem a negrito):',
-	'revreview-reject-header' => 'Rejeitar mudanças de $1',
 	'revreview-reject-text-list' => 'Ao executar esta operação, irá "rejeitar" {{PLURAL:$1|a seguinte mudança|as seguintes mudanças}} a [[:$2|$2]]:',
 	'revreview-reject-text-revto' => 'A página será revertida para a [{{fullurl:$1|oldid=$2}} versão de $3].',
 	'revreview-reject-summary' => 'Resumo:',
@@ -4055,7 +4006,6 @@ Para que as suas edições apareçam na versão publicada, reveja todas as alter
 	'revreview-reject-summary-old' => 'Rejeitou {{PLURAL:$1|a primeira alteração|as primeiras $1 alterações}} do texto (de $2) {{PLURAL:$1|feita|feitas}} após a edição $3 de $4',
 	'revreview-reject-summary-cur-short' => 'Rejeitou {{PLURAL:$1|a última alteração|as últimas $1 alterações}} do texto e reverteu para a edição $2 de $3',
 	'revreview-reject-summary-old-short' => 'Rejeitou {{PLURAL:$1|a primeira alteração do texto feita|as primeiras $1 mudanças do texto feitas}} após a edição $2 de $3',
-	'revreview-reject-usercount' => '{{PLURAL:$1|um utilizador|$1 utilizadores}}',
 	'revreview-tt-flag' => 'Aprovar esta edição, marcando-a como "verificada"',
 	'revreview-tt-unflag' => 'Anular a aprovação desta edição, marcando-a como "não verificada"',
 	'revreview-tt-reject' => 'Rejeitar estas alterações ao texto, revertendo-as',
@@ -4095,7 +4045,6 @@ Faça-o só se já viu a lista completa de diferenças das alterações pendente
 	'revreview-flag' => 'Rever esta edição',
 	'revreview-reflag' => 'Voltar a revisar esta edição',
 	'revreview-invalid' => "'''Destino inválido:''' não há [[{{MediaWiki:Validationpage}}|edições revisadas]] que correspondam ao ID fornecido.",
-	'revreview-legend' => 'Avaliar conteúdo da edição',
 	'revreview-log' => 'Comentário:',
 	'revreview-main' => 'Você tem de selecionar uma edição específica de uma página, para revisá-la.
 
@@ -4128,7 +4077,6 @@ Para que as suas edições apareçam na versão publicada, revise todas as alter
 
 Para que as suas edições apareçam na versão publicada, revise todas as alterações mostradas abaixo, por favor.',
 	'revreview-update-includes' => 'Foram atualizados arquivos ou predefinições (as páginas não revistas aparecem a negrito):',
-	'revreview-reject-header' => 'Rejeitar mudanças de $1',
 	'revreview-reject-text-list' => "Ao executar esta operação, você irá '''rejeitar''' {{PLURAL:$1|a seguinte mudança|as seguintes mudanças}} de [[:$2|$2]]:",
 	'revreview-reject-text-revto' => 'Isto irá reverter a página para a [{{fullurl:$1|oldid=$2}} versão de $3].',
 	'revreview-reject-summary' => 'Resumo:',
@@ -4138,7 +4086,6 @@ Para que as suas edições apareçam na versão publicada, revise todas as alter
 	'revreview-reject-summary-old' => 'Rejeitou {{PLURAL:$1|a primeira alteração|as primeiras $1 alterações}} do texto (de $2) {{PLURAL:$1|feita|feitas}} após a edição $3 de $4',
 	'revreview-reject-summary-cur-short' => 'Rejeitou {{PLURAL:$1|a última alteração|as últimas $1 alterações}} do texto e reverteu para a edição $2 de $3',
 	'revreview-reject-summary-old-short' => 'Rejeitou {{PLURAL:$1|a primeira alteração do texto feita|as primeiras $1 mudanças do texto feitas}} após a edição $2 de $3',
-	'revreview-reject-usercount' => '{{PLURAL:$1|um usuário|$1 usuários}}',
 	'revreview-tt-flag' => 'Aprovar esta edição, marcando-a como "verificada"',
 	'revreview-tt-unflag' => 'Anular a aprovação desta edição, marcando-a como "não verificada"',
 	'revreview-tt-reject' => 'Rejeitar estas alterações do texto, revertendo-as',
@@ -4185,7 +4132,6 @@ $messages['ro'] = array(
 	'revreview-check-flag-y' => 'Acceptă aceste schimbări',
 	'revreview-check-flag-y-title' => 'Acceptați toate modificările pe care le-ați efectuat aici.',
 	'revreview-flag' => 'Recenzează această versiune',
-	'revreview-legend' => 'Evaluează conţinutul reviziei',
 	'revreview-log' => 'Comentariu:',
 	'revreview-submit' => 'Trimite',
 	'revreview-submitting' => 'Se trimite...',
@@ -4198,12 +4144,10 @@ $messages['ro'] = array(
 	'revreview-successful2' => "'''Revizuirea [[:$1|$1]] invalidată cu succes.'''",
 	'revreview-poss-conflict-p' => "'''Avertisment: [[User:$1|$1]] a început revizuirea acestei pagini pe $2 la $3.'''",
 	'revreview-poss-conflict-c' => "'''Avertisment: [[User:$1|$1]] a început revizuirea acestor schimbări pe $2 la $3.'''",
-	'revreview-reject-header' => 'Respinge modificările pentru $1',
 	'revreview-reject-text-revto' => 'Acesta va reveni pagina înapoi la [{{fullurl:$1|oldid=$2}} versiunea din $3].',
 	'revreview-reject-summary' => 'Rezumat:',
 	'revreview-reject-confirm' => 'Respinge aceste modificări',
 	'revreview-reject-cancel' => 'Revocare',
-	'revreview-reject-usercount' => '{{PLURAL:$1|un utilizator|$1 utilizatori}}',
 	'revreview-tt-flag' => 'Acceptă această revizie marcând-o ca „verificată”',
 	'revreview-tt-unflag' => 'Dezaprobă această revizie marcând-o ca „neverificată”',
 	'revreview-tt-reject' => 'Respinge aceste schimbări ale textului prin restaurarea versiunii anterioare lor',
@@ -4233,7 +4177,6 @@ $messages['roa-tara'] = array(
 	'revreview-flag' => 'Revide sta revisione',
 	'revreview-reflag' => 'Revide arrete sta revisione',
 	'revreview-invalid' => "'''Destinazione invalide:''' nisciuna revisiona  [[{{MediaWiki:Validationpage}}|reviste]] corresponne a 'u codece (ID) inzerite.",
-	'revreview-legend' => "D'a 'nu pundegge a 'u condenute d'a revisione",
 	'revreview-log' => 'Commende:',
 	'revreview-main' => "Tu a selezionà ìna particolera revisione da 'na vosce pe fà 'na revisitazione.
 
@@ -4256,7 +4199,6 @@ Pe luà 'u state de reviste de 'na revisione, cazze sus a \"none accettà\".
 Pe piacere cazze 'u buttone \"back\" d'u browser tune e pruève arrete.",
 	'revreview-update' => "'''Pe piacere [[{{MediaWiki:Validationpage}}|revide]] ogne cangiamende pendende ''(le vide aqquà sotte)'' fatte da 'a versiona secure.'''",
 	'revreview-update-includes' => "''Certe template/file onne state aggiornate (pàggene none reviste in grascette):",
-	'revreview-reject-header' => 'Scitte le cangaminde pe $1',
 	'revreview-reject-text-revto' => "Quiste annulle 'a pàgene turnanne a 'a [{{fullurl:$1|oldid=$2}} versione de $3].",
 	'revreview-reject-summary' => 'Riepileghe:',
 	'revreview-reject-confirm' => 'Scitte ste cangiaminde',
@@ -4265,7 +4207,6 @@ Pe piacere cazze 'u buttone \"back\" d'u browser tune e pruève arrete.",
 	'revreview-reject-summary-old' => "Scettate {{PLURAL:$1|'a prime cangiamende d'u teste|le prime $1 cangiaminde d'u teste}} (by $2) apprisse 'a revisione $3 da $4",
 	'revreview-reject-summary-cur-short' => "Scettate l'urteme {{PLURAL:$1|cangiamende d'u teste|$1 cangiaminde d'u teste}} e repristinate 'a revisione $2 da $3",
 	'revreview-reject-summary-old-short' => "Scettate {{PLURAL:$1|'a prime cangiamende d'u teste|le prime $1 cangiaminde d'u teste}} apprisse 'a revisione $2 da $3",
-	'revreview-reject-usercount' => "{{PLURAL:$1|'n'utende|$1 utinde}}",
 	'revreview-tt-flag' => 'Appruève sta revisione marcannele cumme verificate',
 	'revreview-tt-unflag' => 'Non accettà sta revisione marcannele cumme "none verificate"',
 	'revreview-tt-reject' => 'Refiute ste cangiaminde de sorgende de teste annullannele',
@@ -4390,7 +4331,6 @@ $messages['rue'] = array(
 	'revreview-flag' => 'Перевірити тоту ревізію',
 	'revreview-reflag' => 'Перевірити тоту ревізію',
 	'revreview-invalid' => "'''Неправилный ціль:''' жадна [[{{MediaWiki:Validationpage}}|посуджена]] ревізія не одповідать заданому ID.",
-	'revreview-legend' => 'Оціньте обсяг ревізії',
 	'revreview-log' => 'Коментарь:',
 	'revreview-main' => 'Про посуджіня мусите выбрати єдну із верзій сторінкы.
 Відь [[Special:Unreviewedpages|список неперевіреных сторінок]].',
@@ -4422,7 +4362,6 @@ $messages['rue'] = array(
 
 Просиме, перевіртье вшыткы зміны, указаны ниже, жебы включіти вашы едітованя до стабілной верзії.',
 	'revreview-update-includes' => 'Дакотры шаблоны або файлы были обновены (неперевірены суть тучным писмом):',
-	'revreview-reject-header' => 'Зрушыти зміны про $1',
 	'revreview-reject-text-list' => "Докончінём той дїї '''рушыте''' зміны жрідлового тексту з наслїдных {{PLURAL:$1|ревізія|ревізій}} [[:$2|$2]]:",
 	'revreview-reject-text-revto' => 'Тото верне сторінку назад до [{{fullurl:$1|oldid = $2}} ревізії $3].',
 	'revreview-reject-summary' => 'Згорнутя:',
@@ -4432,7 +4371,6 @@ $messages['rue'] = array(
 	'revreview-reject-summary-old' => 'Зрушена перша {{PLURAL:$1|зміна тексту|$1 змін тексту}} (з $2) і обновлена ревізія $3 од $4',
 	'revreview-reject-summary-cur-short' => 'Зрушена остатня {{PLURAL:$1|зміна тексту|$1 змін тексту}} (з $2) і обновлена ревізія $2 од $3',
 	'revreview-reject-summary-old-short' => 'Зрушена перша {{PLURAL:$1|зміна тексту|$1 змін тексту}} (з $2) котра была по ревізії $2 од $3',
-	'revreview-reject-usercount' => '$1 {{PLURAL:$1|єден хоснователь|$1 хоснователї|$1 хоснователїв}}',
 	'revreview-tt-flag' => 'Схвалити тоту верзію єй означінём за "перевірену"',
 	'revreview-tt-unflag' => 'Неакцептовати тоту верзію єй означінём за "неперевірену"',
 	'revreview-tt-reject' => 'Зрушыти тоты зміны жрідлового тексту їх навернутём',
@@ -4467,7 +4405,6 @@ $messages['sah'] = array(
 	'revreview-flag' => 'торуму ырытыы',
 	'revreview-reflag' => 'Барылы хат көрүү',
 	'revreview-invalid' => "'''Алҕас сорук:''' Бу ID-га сөп түбэһэр сирэй [[{{MediaWiki:Validationpage}}|бигэ]] барыла суох эбит.",
-	'revreview-legend' => 'Торум ис хоһоонун сыаналааһын',
 	'revreview-log' => 'Ырытыы:',
 	'revreview-main' => 'Бэрэбиэркэлииргэ сирэй биир эмит барылын талыахтааххын. 
 
@@ -4496,14 +4433,12 @@ $messages['sah'] = array(
 
 Бука диэн, аллара көрдөрүллүбүт туох баар уларытыылары көрөн кинилэри ыстатыйа бигэ барылыгар киллэр.',
 	'revreview-update-includes' => 'Саҥардыллыбыт халыыптар/билэлэр (тургутуллубатахтар модьу бичигинэн):',
-	'revreview-reject-header' => '$1 уларытыыларын суох гынарга',
 	'revreview-reject-text-list' => "Бу дьайыыны оҥорон Эн {{PLURAL:$1|бу уларытыыны|бу уларытыылары}} '''суох гынаҕын''':",
 	'revreview-reject-text-revto' => 'Сирэйи бу барылга [{{fullurl:$1|oldid=$2}} ($3) төннөрөҕүн].',
 	'revreview-reject-summary' => 'Түмүк:',
 	'revreview-reject-confirm' => 'Бу уларытыылары суох гынарга',
 	'revreview-reject-cancel' => 'Салҕаама',
 	'revreview-reject-summary-cur' => '{{PLURAL:$1|Бүтэһик $1 уларытыы суох оҥоһуллан|Бүтэһик $1 уларытыылар суох оҥоһулланнар}} ($2) бу $3 $4 барыл төннөрүлүннэ.',
-	'revreview-reject-usercount' => '{{PLURAL:$1|биир кыттааччы|$1 кыттааччылар}}',
 	'revreview-tt-flag' => 'Бу барылы бигэргэтэн тургутуллубут курдук бэлиэтээ',
 	'revreview-tt-unflag' => 'Бу барыл бигэргэтиитин устан тургутуллубатах курдук бэлиэтээ',
 	'revreview-tt-reject' => 'Бу уларытыылары суох гынан ыстатыйаны урукку барылыгар төннөр',
@@ -4542,7 +4477,6 @@ $messages['sk'] = array(
 	'revreview-flag' => 'Skontrolovať túto verziu',
 	'revreview-reflag' => 'Znova skontrolovať/zrušiť skontrolovanie tejto revízie',
 	'revreview-invalid' => "'''Neplatný cieľ:''' zadanému ID nezodpovedá žiadna [[{{MediaWiki:Validationpage}}|skontrolovaná]] revízia.",
-	'revreview-legend' => 'Ohodnotiť obsah verzie:',
 	'revreview-log' => 'Komentár záznamu:',
 	'revreview-main' => 'Musíte vybrať konkrétnu verziu stránky s obsahom, aby ste ju mohli skontrolovať. 
 
@@ -4698,7 +4632,6 @@ $messages['sr-el'] = array(
 	'review_page_unreviewable' => 'Ciljana strana se ne može pregledati.',
 	'revreview-flag' => 'Pregled ove verzije',
 	'revreview-invalid' => "'''Loš cilj:''' nijedna [[{{MediaWiki:Validationpage}}|pregledana]] verzije ne poseduje dati redni broj.",
-	'revreview-legend' => 'Oceni verziju sadržaja',
 	'revreview-log' => 'Komentar:',
 	'revreview-stable2' => 'Možda biste hteli da vidite [{{fullurl:$1|stable=1}} prihvaćenu verziju] ove strane.',
 	'revreview-submit' => 'Pošalji',
@@ -4717,7 +4650,6 @@ $messages['sr-el'] = array(
 $messages['stq'] = array(
 	'revisionreview' => 'Versionswröigenge',
 	'revreview-flag' => 'Wröig Version',
-	'revreview-legend' => 'Inhoold fon ju Version wäidierje',
 	'revreview-log' => 'Logbouk-Iendraach:',
 	'revreview-main' => 'Du moast ne Artikkelversion tou Wröigenge uutwääle.
 
@@ -4775,7 +4707,6 @@ $messages['sv'] = array(
 	'revreview-flag' => 'Granska denna sidversion',
 	'revreview-reflag' => 'Återgranska denna sidversion',
 	'revreview-invalid' => "'''Ogiltigt mål:''' inga [[{{MediaWiki:Validationpage}}|granskade]] versioner motsvarar den angivna IDn.",
-	'revreview-legend' => 'Bedöm versionens innehåll',
 	'revreview-log' => 'Kommentar:',
 	'revreview-main' => 'Du måste välja en viss version av en innehållssida för att kunna granska den.
 
@@ -4808,7 +4739,6 @@ Vänligen granska alla ändringar som visas nedan för att göra så att dina re
 
 Vänligen granska alla ändringar som visas nedan för att göra så att dina redigeringar visas i den stabila versionen.',
 	'revreview-update-includes' => 'Mallar/filer har uppdaterats (ogranskade sidor i fet text):',
-	'revreview-reject-header' => 'Avvisa ändringar för $1',
 	'revreview-reject-text-revto' => 'Detta kommer att återställa sidan tillbaka till [{{fullurl:$1|oldid=$2}} versionen från $3].',
 	'revreview-reject-summary' => 'Sammanfattning:',
 	'revreview-reject-confirm' => 'Avvisa dessa ändringar',
@@ -4817,7 +4747,6 @@ Vänligen granska alla ändringar som visas nedan för att göra så att dina re
 	'revreview-reject-summary-old' => 'Avvisade {{PLURAL:$1|den första textändringen|de $1 första textändringarna}} (av $2) som följde sidversion $3 av $4',
 	'revreview-reject-summary-cur-short' => 'Avvisade {{PLURAL:$1|den senaste textändringen|de $1 senaste textändringarna}} och återställd sidversion $2 av $3',
 	'revreview-reject-summary-old-short' => 'Avvisade {{PLURAL:$1|den första textändringen|de $1 första textändringarna}} som följde sidversion $2 av $3',
-	'revreview-reject-usercount' => '{{PLURAL:$1|en användare|$1 användare}}',
 	'revreview-tt-flag' => 'Acceptera denna sidversion genom att markera den "kontrollerad"',
 	'revreview-tt-unflag' => 'Oacceptera denna sidversion genom att markera den som "okontrollerad"',
 	'revreview-tt-reject' => 'Avslå dessa källtext-ändringar genom att återställa dem',
@@ -4879,7 +4808,6 @@ $messages['te'] = array(
 	'review_page_notexists' => 'లక్ష్యిత పుట లేనే లేదు.',
 	'review_denied' => 'అనుమతిని నిరాకరించారు.',
 	'revreview-flag' => 'ఈ కూర్పుని సమీక్షించండి',
-	'revreview-legend' => 'ఈ కూర్పు యొక్క సారాన్ని వెలకట్టండి',
 	'revreview-log' => 'వ్యాఖ్య:',
 	'revreview-main' => 'సమీక్షించడానికి మీరు విషయపు పేజీ యొక్క ఓ నిర్ధిష్ట కూర్పుని ఎంచుకోవాలి.
 
@@ -4895,7 +4823,6 @@ $messages['te'] = array(
 
 '''కొన్ని మూసలు/ఫైళ్లను  తాజాకరించారు:'''",
 	'revreview-update-includes' => 'కొన్ని మూసలు/ఫైళ్లను తాజాకరించారు:',
-	'revreview-reject-header' => '$1 యొక్క మార్పులను తిరస్కరించు',
 	'revreview-reject-text-list' => 'ఈ చర్యను పూర్తి చేస్తే మీరు కింది {{PLURAL:$1|మార్పు|మార్పుల}}ను ’’’తిరస్కరిస్తున్నట్లే’’’:',
 	'revreview-reject-text-revto' => 'ఇది ఈ పేజీని తిరిగి [{{fullurl:$1|oldid=$2}} $3 నాటి వెర్షను]కు తీసుకెళ్తుంది.',
 	'revreview-reject-summary' => 'సారాంశం:',
@@ -4905,7 +4832,6 @@ $messages['te'] = array(
 	'revreview-reject-summary-old' => '$4 చేసిన  కూర్పు $3 తరువాత చేసిన మొదటి {{PLURAL:$1|మార్పు|$1 మార్పుల}}ను  ($2 చేసినవి) తిరస్కరించాం.',
 	'revreview-reject-summary-cur-short' => 'చివరి {{PLURAL:$1|మార్పు|$1 మార్పుల}}ను  తిరస్కరించి, $3 చేసిన  కూర్పు $2 ను పునస్థాపించాం.',
 	'revreview-reject-summary-old-short' => '$3 చేసిన కూర్పు $2 తరువాత చేసిన మొదటి {{PLURAL:$1|మార్పు|$1 మార్పుల}}ను తిరస్కరించాం.',
-	'revreview-reject-usercount' => '{{PLURAL:$1|ఒక వాడుకరి|$1 వాడుకరులు}}',
 	'revreview-tt-reject' => 'ఈ మార్పులను౮ వెనక్కి తీసుకుపోయి, వాటిని తిరస్కరించు',
 );
 
@@ -4916,13 +4842,12 @@ $messages['tet'] = array(
 	'revreview-reject-summary' => 'Rezumu:',
 );
 
-/** Tajik (Cyrillic) (Тоҷикӣ (Cyrillic))
+/** Tajik (Cyrillic script) (Тоҷикӣ)
  * @author Ibrahim
  */
 $messages['tg-cyrl'] = array(
 	'revisionreview' => 'Нусхаҳои баррасӣ',
 	'revreview-flag' => 'Ин нусхаро барраси кунед',
-	'revreview-legend' => 'Баҳо додан ба мӯҳтавои баррасишуда',
 	'revreview-log' => 'Тавзеҳ:',
 	'revreview-main' => 'Шумо бояд як нусхаи хосро аз саҳифаи мӯҳтаво барои баррасӣ кардан, интихоб кунед.
 
@@ -4934,13 +4859,12 @@ $messages['tg-cyrl'] = array(
 '''Бархе аз шаблонҳо/аксҳо барӯз шудаанд:'''",
 );
 
-/** Tajik (Latin) (Тоҷикӣ (Latin))
+/** Tajik (Latin script) (tojikī)
  * @author Liangent
  */
 $messages['tg-latn'] = array(
 	'revisionreview' => 'Nusxahoi barrasī',
 	'revreview-flag' => 'In nusxaro barrasi kuned',
-	'revreview-legend' => 'Baho dodan ba mūhtavoi barrasişuda',
 	'revreview-log' => 'Tavzeh:',
 	'revreview-toolow' => 'Şumo bojad har jak az mavoridi zerinro ba daraçai beş az  "ta\'jidnaşuda" alomat bizaned, to on nusxa barrasişuda ba hisob ravad. Baroi bebaho kardani jak nusxa, tamomi mavoridro "ta\'jidnaşuda" alomat bizaned.',
 );
@@ -4978,7 +4902,6 @@ $messages['tk'] = array(
 	'revreview-flag' => 'Bu wersiýany gözden geçir',
 	'revreview-reflag' => 'Bu wersiýany gaýtadan gözden geçir/gözden geçirme',
 	'revreview-invalid' => "'''Nädogry niýetlenilýän:''' hiç bir [[{{MediaWiki:Validationpage}}|gözden geçirilen]] wersiýa berlen ID-ä laýyk gelmeýär.",
-	'revreview-legend' => 'Wersiýa mazmunyny derejelendir',
 	'revreview-log' => 'Teswir:',
 	'revreview-main' => 'Gözden geçirmek üçin, mazmunly sahypanyň belli bir wersiýasyny saýlamaly.
 
@@ -5037,7 +4960,6 @@ Gamitin lamang ito kapag nakita mo na ang buong pagkakaiba ng mga pagbabagong na
 	'revreview-flag' => 'Suriing muli ang pagbabagong ito',
 	'revreview-reflag' => 'Muling suriin ang rebisyong ito.',
 	'revreview-invalid' => "'''Hindi tanggap na puntirya:''' walang [[{{MediaWiki:Validationpage}}|muling nasuring]] pagbabagong tumutugma sa ibinigay na ID.",
-	'revreview-legend' => 'Bigyan ng halaga/kaantasan ang nilalaman ng pagbabago',
 	'revreview-log' => 'Kumento/puna:',
 	'revreview-main' => 'Dapat kang pumili ng isang partikular na pagbabago mula sa isang pahinan ng nilalaman upang makapagsuri.
 
@@ -5068,7 +4990,6 @@ Pakisuri ang lahat ng mga pagbabagong ipinakikita sa ibaba upang magawang lumita
 
 Pakisuri ang lahat ng mga pagbabagong ipinapakita sa ibaba upang magawang lumitaw ng mga binago mo sa loob ng matatag na bersyon.',
 	'revreview-update-includes' => 'Naisapanahon na ang ilang mga suleras/talaksan:',
-	'revreview-reject-header' => 'Tanggihan ang mga pagbabago para sa $1',
 	'revreview-reject-text-list' => "Sa pamamagitan ng pagbuo sa galaw na ito, '''tatanggihan''' mo ang sumusunod na {{PLURAL:$1|pagbabago|mga pagbabago}}:",
 	'revreview-reject-text-revto' => 'Magpapabalik ito ng pahina sa dati papunta sa [{{fullurl:$1|oldid=$2}} bersyon ng $3].',
 	'revreview-reject-summary' => 'Buod:',
@@ -5078,7 +4999,6 @@ Pakisuri ang lahat ng mga pagbabagong ipinapakita sa ibaba upang magawang lumita
 	'revreview-reject-summary-old' => 'Tinanggihan ang unang {{PLURAL:$1|pagbabago|$1 mga pagbabago}} (ni $2) na sinundan ng rebisyong $3 ni $4',
 	'revreview-reject-summary-cur-short' => 'Tinanggihan ang huling {{PLURAL:$1|pagbabago|$1 mga pagbabago}} at naibalik ang rebisyong $2 ni $3',
 	'revreview-reject-summary-old-short' => 'Tinanggihana ng unang {{PLURAL:$1|pagbabago|$1 mga pagbabago}} na sumundo sa rebisyong $2 ni $3',
-	'revreview-reject-usercount' => '{{PLURAL:$1|isang tagagamit|$1 mga tagagamit}}',
 	'revreview-tt-flag' => 'Tanggapin ang rebisyong ito sa pamamagitan ng pagtatatak dito bilang "nasuri"',
 	'revreview-tt-unflag' => 'Huwag tanggapin ang rebisyong ito sa pamamagitan ng pagtatatak dito bilang "hindi nasuri"',
 	'revreview-tt-reject' => 'Tanggihan ang mga pagbabagong ito sa pamamagitan ng pagpapabalik sa mga ito',
@@ -5204,7 +5124,6 @@ $messages['uk'] = array(
 	'revreview-flag' => 'Перевірити цю версію',
 	'revreview-reflag' => 'Переперевірити цю версію',
 	'revreview-invalid' => "'''Неправильна ціль:''' нема [[{{MediaWiki:Validationpage}}|перевіреної]] версії сторінки, яка відповідає даному ідентифікатору.",
-	'revreview-legend' => 'Оцінки вмісту версій',
 	'revreview-log' => 'Коментар:',
 	'revreview-main' => 'Ви повинні обрати одну з версій сторінки для перевірки.
 
@@ -5237,7 +5156,6 @@ $messages['uk'] = array(
 
 Будь ласка, перевірте усі зміни, наведені нижче, щоб включити ваші редагування до стабільної версії.',
 	'revreview-update-includes' => 'Деякі шаблони або файли були оновлені (неперевірені виділені жирним шрифтом):',
-	'revreview-reject-header' => 'Скасувати зміни для $1',
 	'revreview-reject-text-list' => "Виконуючи цю дію, ви '''відкидаєте''' зміну вихідного коду в {{PLURAL:$1|наступній редакції|наступних редакціях}} [[:$2|$2]] :",
 	'revreview-reject-text-revto' => 'Відкидає сторінку назад до [{{fullurl:$1|oldid=$2}} версії від $3].',
 	'revreview-reject-summary' => 'Опис:',
@@ -5247,7 +5165,6 @@ $messages['uk'] = array(
 	'revreview-reject-summary-old' => '{{PLURAL:$1|Скасовано перше редагування|Скасовані перші $1 редагування|Скасовані перші $1 редагувань}} ($2), {{PLURAL:$1|слідуюче|слідуючі}} за версією $3 $4',
 	'revreview-reject-summary-cur-short' => '{{PLURAL:$1|Скасовано останнє редагування|Скасовані останні $1 редагування|Скасовано останні $1 редагувань}} і відновлена версія $2 $3',
 	'revreview-reject-summary-old-short' => '{{PLURAL:$1|Скасовано перше редагування|Скасовані перші $1 редагування|Скасовані перші $1 редагувань}}, {{PLURAL:$1|наступне|наступні}} за версією $2 $3',
-	'revreview-reject-usercount' => '{{PLURAL:$1|$1 користувача|$1 користувачів|$1 користувачів}}',
 	'revreview-tt-flag' => 'Затвердити цю версію з позначенням її перевіреною',
 	'revreview-tt-unflag' => 'Зняти затвердження цієї версії шляхом позначення її як "неперевірена"',
 	'revreview-tt-reject' => 'Відхилити ці зміни вихідного тексту, повернувшись до попередньої версії',
@@ -5279,7 +5196,6 @@ $messages['vec'] = array(
 	'revreview-flag' => 'Riesamina sta version',
 	'revreview-reflag' => 'Ricontrola da novo sta revision',
 	'revreview-invalid' => "'''Destinassion mìa valida:''' el nùmaro fornìo no'l corisponde a nissuna version [[{{MediaWiki:Validationpage}}|riesaminà]].",
-	'revreview-legend' => 'Valuta el contenuto de la version',
 	'revreview-log' => 'Comento:',
 	'revreview-main' => 'Ti gà da selessionar na version in particolare de la pagina par esaminarla.
 
@@ -5325,7 +5241,6 @@ $messages['vep'] = array(
 	'revreview-flag' => 'Kodvda nece versii',
 	'revreview-reflag' => 'Kodvda nece versii udes',
 	'revreview-invalid' => "'''Petuzline met:''' ei ole lehtpolen [[{{MediaWiki:Validationpage}}|kodvdud]] versijad, kudamb sättub ozutadud identifikatoranke.",
-	'revreview-legend' => 'Versijan südäimišton arvsanad',
 	'revreview-log' => 'Homaičend:',
 	'revreview-main' => 'Pidab valita lehtpolen versii arvostelendan täht.
 
@@ -5439,7 +5354,6 @@ Xin hãy duyệt các thay đổi ở dưới để đưa các sửa đổi củ
 $messages['vo'] = array(
 	'revisionreview' => 'Logön krütamis',
 	'revreview-flag' => 'Krütön fomami at',
-	'revreview-legend' => 'Dadilädön ninädi',
 	'revreview-log' => 'Küpet:',
 	'revreview-main' => 'Mutol välön fomami semik pada ninädilabik ad krütön oni.
 
@@ -5464,7 +5378,6 @@ $messages['yue'] = array(
 	'revisionreview' => '複審修訂',
 	'revreview-flag' => '複審呢次修訂',
 	'revreview-invalid' => "'''無效嘅目標:''' 無[[{{MediaWiki:Validationpage}}|複審過]]嘅修訂跟仕已經畀咗嘅ID。",
-	'revreview-legend' => '評定修訂內容',
 	'revreview-log' => '記錄註解:',
 	'revreview-main' => '你一定要響一版內容頁度揀一個個別嘅修訂去複審。
 
@@ -5603,7 +5516,6 @@ $messages['zh-hant'] = array(
 	'revreview-flag' => '複審這次修訂',
 	'revreview-reflag' => '重新複審這次修訂',
 	'revreview-invalid' => "'''無效的目標：'''沒有 [[{{MediaWiki:Validationpage}}|審核]]修改對應於指定的ID。",
-	'revreview-legend' => '評定修訂內容',
 	'revreview-log' => '記錄註解:',
 	'revreview-main' => '您一定要在一頁的內容頁中選擇一個個別的修訂去複審。
 
@@ -5636,7 +5548,6 @@ $messages['zh-hant'] = array(
 
 請檢查以下所有的修訂，以令你的編輯出現在穩定版本中。',
 	'revreview-update-includes' => '模板或文件已更新（未復審頁面以粗體顯示）：',
-	'revreview-reject-header' => '拒絕更改為$1',
 	'revreview-reject-text-list' => "完成此操作後，您將'''拒絕'''在[[:$2|$2]]的{{PLURAL:$1|修訂|修訂}}中對源文本的更改：",
 	'revreview-reject-text-revto' => '這將恢復頁面回[{{fullurl:$1|oldid=$2}} $3的版本]。',
 	'revreview-reject-summary' => '摘要：',
@@ -5646,7 +5557,6 @@ $messages['zh-hant'] = array(
 	'revreview-reject-summary-old' => '拒絕由$2作出的前{{PLURAL:$1|次文字更改|$1次文字更改}}，並由$4恢復到修訂$3',
 	'revreview-reject-summary-cur-short' => '拒絕後{{PLURAL:$1|次文字更改|$1次文字更改}}，並由$3恢復到修訂$2',
 	'revreview-reject-summary-old-short' => '拒絕前{{PLURAL:$1|次文字更改|$1次文字更改}}，並由$3恢復到修訂$2',
-	'revreview-reject-usercount' => '{{PLURAL:$1|一個用户|$1個用戶}}',
 	'revreview-tt-flag' => '透過這項修訂通過標記它作為已審核',
 	'revreview-tt-unflag' => '將這個修訂標記為「未檢查」以取消批准這一修正。',
 	'revreview-tt-reject' => '拒絕這些對源文本的修改並撤消它們',

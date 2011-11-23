@@ -582,7 +582,7 @@ $messages['sl'] = array(
 	'qualityoversight-legend' => 'Iskanje nedavnih dnevnikov pregledov',
 );
 
-/** Serbian Cyrillic ekavian (‪Српски (ћирилица)‬)
+/** Serbian (Cyrillic script) (‪Српски (ћирилица)‬)
  * @author Charmed94
  * @author Millosh
  */
@@ -592,7 +592,7 @@ $messages['sr-ec'] = array(
 	'qualityoversight-legend' => 'Претрага извештаја недавних прегледа',
 );
 
-/** Serbian Latin ekavian (‪Srpski (latinica)‬)
+/** Serbian (Latin script) (‪Srpski (latinica)‬)
  * @author Michaello
  */
 $messages['sr-el'] = array(

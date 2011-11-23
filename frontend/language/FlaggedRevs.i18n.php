@@ -800,7 +800,6 @@ $messages['aln'] = array(
 	'right-stablesettings' => 'Konfiguro si versioni i publikuar është e zgjedhur dhe të shfaqet',
 	'right-validate' => 'Mark shqyrtime si "cilësi"',
 	'right-unreviewedpages' => 'Shikoni [[Special:UnreviewedPages|Lista e faqeve unreviewed]]',
-	'rights-editor-autosum' => 'autopromoted',
 	'rights-editor-revoke' => 'hequr statusin e redaktor nga [[$1]]',
 	'specialpages-group-quality' => 'miratim Edit',
 	'stable-logentry-config' => 'Paneli i konfiguruar publikim për $1',
@@ -2950,14 +2949,14 @@ $messages['ch'] = array(
 	'revreview-revnotfound' => "Ti siña masodda' i tinilaika i påhina ni finaisen-mu. Pot fabot chek i URL ni un usa para i finatto-mu gi påhina.",
 );
 
-/** Crimean Turkish (Latin) (Qırımtatarca (Latin))
+/** Crimean Turkish (Latin script) (‪Qırımtatarca (Latin)‬)
  * @author Don Alessandro
  */
 $messages['crh-latn'] = array(
 	'revreview-revnotfound' => 'Saifeniñ eski versiyası tapılmadı. Lütfen, bu saifege kirmek içün qullanğan bağlantıñıznıñ doğrulığını teşkeriñiz.',
 );
 
-/** Crimean Turkish (Cyrillic) (Qırımtatarca (Cyrillic))
+/** Crimean Turkish (Cyrillic script) (‪Къырымтатарджа (Кирилл)‬)
  * @author Don Alessandro
  */
 $messages['crh-cyrl'] = array(
@@ -6198,7 +6197,7 @@ $messages['hi'] = array(
 	'validationpage' => '{{ns:help}}:लेख प्रमाणिकरण',
 );
 
-/** Fiji Hindi (Latin) (Fiji Hindi (Latin))
+/** Fiji Hindi (Latin script) (Fiji Hindi)
  * @author Girmitya
  */
 $messages['hif-latn'] = array(
@@ -6616,7 +6615,10 @@ $messages['hu'] = array(
 	'flaggedrevs-pref-UI-1' => 'Kis ikonok és minimális szöveg megjelenítése a lapok ellenőrzési állapotáról',
 	'prefs-flaggedrevs' => 'Jelölt lapváltozatok',
 	'prefs-flaggedrevs-ui' => 'Jelölt lapváltozatok',
-	'flaggedrevs-prefs-stable' => 'Mindig a lapok közzétett változatának megjelenítése alapértelmezettként (ha létezik ilyen)',
+	'flaggedrevs-prefs-stable' => 'Mikor jelenítse meg alapértelmezetten a jelölt lapváltozatot?',
+	'flaggedrevs-pref-stable-0' => 'Minden lapnál alkalmazza az alapértelmezett beállításokat',
+	'flaggedrevs-pref-stable-1' => 'Mindig a lapok közzétett változatának megjelenítése (ha létezik ilyen)',
+	'flaggedrevs-pref-stable-2' => 'Mindig a legújabb változat megjelenítése',
 	'flaggedrevs-prefs-watch' => 'Az általam ellenőrzött lapok hozzáadása a figyelőlistámhoz',
 	'flaggedrevs-prefs-editdiffs' => 'Lap szerkesztésekor mutassa az utolsó ellenőrzött változattól való eltéréseket',
 	'flaggedrevs-prefs-viewdiffs' => 'A legfrissebb még ellenőrizetlen lapváltozatnál mutassa az utolsó ellenőrzött változattól való eltéréseket',
@@ -6689,10 +6691,13 @@ Azóta történhettek új [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaW
 
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$2|Egy|$2}} változtatás vár ellenőrzésre] ''(lásd alább)''.",
 	'revreview-edited-section' => 'Vissza a(z) „[[#$1|$2]]” című alfejezetre.',
-	'revreview-newest-basic' => 'A [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} közzétett változat] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} ellenőrizve] ekkor: <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 változtatás] vár ellenőrzésre.',
-	'revreview-newest-basic-i' => 'A [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} közzétett változat] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} ellenőrizve] ekkor: <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Sablon- vagy fájlváltoztatások] várnak ellenőrzésre.',
-	'revreview-newest-quality' => 'A [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} közzétett változat] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} minőséginek jelölve]: <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 változtatás] vár ellenőrzésre.',
-	'revreview-newest-quality-i' => 'A [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} közzétett változat] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} minőséginek jelölve]: <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Sablon- vagy fájlváltoztatások] várnak ellenőrzésre.',
+	'revreview-newest-basic' => 'Ebben a változatban [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 változtatás] vár [[{{MediaWiki:Validationpage}}|ellenőrzésre]].
+A [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} közzétett változat] ekkor volt [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} ellenőrizve]: <i>$2</i>.',
+	'revreview-newest-basic-i' => 'Ebben a változatban [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Sablon- vagy fájlváltoztatások] várnak [[{{MediaWiki:Validationpage}}|ellenőrzésre]].
+A [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} közzétett változat] ekkora volt [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} ellenőrizve]: <i>$2</i>.',
+	'revreview-newest-quality' => 'Ebben a változatban [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 változtatás] vár [[{{MediaWiki:Validationpage}}|ellenőrzésre]].
+A [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} közzétett változat] ekkora volt [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} minőséginek jelölve]: <i>$2</i>.',
+	'revreview-newest-quality-i' => 'Ebben a változatban [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Sablon- vagy fájlváltoztatások] várnak [[{{MediaWiki:Validationpage}}|ellenőrzésre]]. A [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} közzétett változat] ekkora volt [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} minőséginek jelölve]: <i>$2</i>.',
 	'revreview-pending-basic' => 'A [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} közzétett változat] ekkor lett [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} ellenőrizve]: <i>$2</i> Azóta [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 változtatás vár] ellenőrzésre.',
 	'revreview-pending-quality' => 'A [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} közzétett változat] ekkor lett [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} minőséginek jelölve]: <i>$2</i> Azóta [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 változtatás vár] ellenőrzésre.',
 	'revreview-pending-nosection' => 'Próbáld megnézni a [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} legutolsó változatot] (ami [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 ellenőrzésre váró változtatást] tartalmaz), hogy meglásd a szakaszt átmozgatták vagy törölték-e.',
@@ -6732,6 +6737,7 @@ Azóta történhettek új [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaW
 	'revreview-revnotfound' => 'A kért régi lapváltozat nem található.
 Kérlek, ellenőrizd az URL-t, amivel erre a lapra jutottál.',
 	'right-autoreview' => 'saját szerkesztések automatikusan ellenőrzöttnek jelöltek',
+	'right-autoreviewrestore' => 'automatikus jóváhagyás visszavonáskor',
 	'right-movestable' => 'közzétett lapok átnevezése',
 	'right-review' => 'lapváltozatok ellenőrzöttnek jelölése',
 	'right-stablesettings' => 'A közzétett változatok kiválasztásának és megjelenítésének beállítása',
@@ -8501,7 +8507,7 @@ fottjeschmesse hät?',
 	'validationpage' => '{{ns:help}}:Nohjeloorte, jeprööfte un beschtäteschte Versione vun Sigge',
 );
 
-/** Kurdish (Latin) (Kurdî (Latin))
+/** Kurdish (Latin script) (‪Kurdî (latînî)‬)
  * @author George Animal
  */
 $messages['ku-latn'] = array(
@@ -12391,7 +12397,7 @@ $messages['sgs'] = array(
 	'revreview-revnotfound' => 'Nuorima poslapė versėjė narasta. Patėkrėnkėt URL, katro patekuot i šėta poslapi.',
 );
 
-/** Tachelhit (Tašlḥiyt)
+/** Tachelhit (Tašlḥiyt/ⵜⴰⵛⵍⵃⵉⵜ)
  * @author Dalinanir
  */
 $messages['shi'] = array(
@@ -14334,7 +14340,7 @@ Lütfen bu sayfaya erişmek için kullandığınız URL'yi kontrol edin.",
 	'validationpage' => '{{ns:help}}:Sayfa doğrulaması',
 );
 
-/** Tatar (Cyrillic) (Татарча/Tatarça (Cyrillic))
+/** Tatar (Cyrillic script) (Татарча)
  * @author Ильнар
  */
 $messages['tt-cyrl'] = array(

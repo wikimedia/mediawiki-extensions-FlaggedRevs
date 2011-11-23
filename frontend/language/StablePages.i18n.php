@@ -870,7 +870,7 @@ $messages['sr-ec'] = array(
 	'stablepages-config' => 'Поставке',
 );
 
-/** Serbian Latin ekavian (‪Srpski (latinica)‬)
+/** Serbian (Latin script) (‪Srpski (latinica)‬)
  * @author Michaello
  * @author Жељко Тодоровић
  */

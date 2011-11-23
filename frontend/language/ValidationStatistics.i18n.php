@@ -1235,7 +1235,7 @@ Sigge sen als övverhollt enjeschtoof, wann Änderonge doh sen, di noch nit nohj
 	'validationstatistics-reviews' => 'Mohlde en Sigg beshtätesh',
 );
 
-/** Kurdish (Latin) (Kurdî (Latin))
+/** Kurdish (Latin script) (‪Kurdî (latînî)‬)
  * @author George Animal
  */
 $messages['ku-latn'] = array(
@@ -1895,7 +1895,7 @@ $messages['sr-ec'] = array(
 	'validationstatistics-reviews' => 'Прегледи',
 );
 
-/** Serbian Latin ekavian (‪Srpski (latinica)‬)
+/** Serbian (Latin script) (‪Srpski (latinica)‬)
  * @author Michaello
  */
 $messages['sr-el'] = array(

@@ -722,7 +722,7 @@ $messages['kk-arab'] = array(
 	'reviewedpages-best' => 'ەڭ سوڭعى ەڭ جوعارى دەڭگەي بەرىلگەن نۇسقاسى',
 );
 
-/** Kazakh (Cyrillic) (Қазақша (Cyrillic)) */
+/** Kazakh (Cyrillic script) (‪Қазақша (кирил)‬) */
 $messages['kk-cyrl'] = array(
 	'reviewedpages' => 'Сын берілген беттер',
 	'reviewedpages-leg' => 'Анық деңгейде сын берілген беттерді тізімдеу',
@@ -735,7 +735,7 @@ $messages['kk-cyrl'] = array(
 	'reviewedpages-best' => 'ең соңғы ең жоғары деңгей берілген нұсқасы',
 );
 
-/** Kazakh (Latin) (Қазақша (Latin)) */
+/** Kazakh (Latin script) (‪Qazaqşa (latın)‬) */
 $messages['kk-latn'] = array(
 	'reviewedpages' => 'Sın berilgen better',
 	'reviewedpages-leg' => 'Anıq deñgeýde sın berilgen betterdi tizimdew',
@@ -1178,7 +1178,7 @@ $messages['sr-ec'] = array(
 	'reviewedpages-best' => 'најбоља измена',
 );
 
-/** Serbian Latin ekavian (‪Srpski (latinica)‬)
+/** Serbian (Latin script) (‪Srpski (latinica)‬)
  * @author Michaello
  * @author Михајло Анђелковић
  */
@@ -1257,7 +1257,7 @@ $messages['te'] = array(
 	'reviewedpages-best' => 'ఉత్తమ కూర్పు',
 );
 
-/** Tajik (Cyrillic) (Тоҷикӣ (Cyrillic))
+/** Tajik (Cyrillic script) (Тоҷикӣ)
  * @author Ibrahim
  */
 $messages['tg-cyrl'] = array(
@@ -1272,7 +1272,7 @@ $messages['tg-cyrl'] = array(
 	'reviewedpages-best' => 'нусхаи беҳтарин',
 );
 
-/** Tajik (Latin) (Тоҷикӣ (Latin))
+/** Tajik (Latin script) (tojikī)
  * @author Liangent
  */
 $messages['tg-latn'] = array(

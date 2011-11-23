@@ -958,7 +958,7 @@ $messages['kk-arab'] = array(
 	'unreviewedpages-list' => 'بۇل بەتتە سىن بەرىلمەگەن ماقالالار نە جاڭادان جاسالعان, سىن بەرىلمەگەن, نۇسقالارى بار ماقالار تىزىمدەلىنەدى.',
 );
 
-/** Kazakh (Cyrillic) (Қазақша (Cyrillic)) */
+/** Kazakh (Cyrillic script) (‪Қазақша (кирил)‬) */
 $messages['kk-cyrl'] = array(
 	'unreviewedpages' => 'Сын берілмеген беттер',
 	'unreviewedpages-category' => 'Санат:',
@@ -966,7 +966,7 @@ $messages['kk-cyrl'] = array(
 	'unreviewedpages-list' => 'Бұл бетте сын берілмеген мақалалар не жаңадан жасалған, сын берілмеген, нұсқалары бар мақалар тізімделінеді.',
 );
 
-/** Kazakh (Latin) (Қазақша (Latin)) */
+/** Kazakh (Latin script) (‪Qazaqşa (latın)‬) */
 $messages['kk-latn'] = array(
 	'unreviewedpages' => 'Sın berilmegen better',
 	'unreviewedpages-category' => 'Sanat:',
@@ -1037,7 +1037,7 @@ $messages['ksh'] = array(
 	'unreviewedpages-recent' => '(winnijer wie en Shtund)',
 );
 
-/** Kurdish (Latin) (Kurdî (Latin))
+/** Kurdish (Latin script) (‪Kurdî (latînî)‬)
  * @author George Animal
  */
 $messages['ku-latn'] = array(
@@ -1593,7 +1593,7 @@ $messages['sr-ec'] = array(
 	'unreviewedpages-recent' => '(мање од једног сата)',
 );
 
-/** Serbian Latin ekavian (‪Srpski (latinica)‬)
+/** Serbian (Latin script) (‪Srpski (latinica)‬)
  * @author Michaello
  */
 $messages['sr-el'] = array(
@@ -1707,7 +1707,7 @@ $messages['tet'] = array(
 	'unreviewedpages-category' => 'Kategoria:',
 );
 
-/** Tajik (Cyrillic) (Тоҷикӣ (Cyrillic))
+/** Tajik (Cyrillic script) (Тоҷикӣ)
  * @author Ibrahim
  */
 $messages['tg-cyrl'] = array(
@@ -1717,7 +1717,7 @@ $messages['tg-cyrl'] = array(
 	'unreviewedpages-list' => 'Ин саҳифа мақолаҳои баррасинашуда, мақолаҳои ҷадид, нусхаҳои ҷадид ё баррасинашударо феҳрист мекунад.',
 );
 
-/** Tajik (Latin) (Тоҷикӣ (Latin))
+/** Tajik (Latin script) (tojikī)
  * @author Liangent
  */
 $messages['tg-latn'] = array(

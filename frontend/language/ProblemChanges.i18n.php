@@ -516,7 +516,7 @@ En Leß met de [[Special:Tags|jöltejje Makeeronge för Änderonge]] ham_mer och
 	'problemchanges-category' => 'Zoot:',
 );
 
-/** Kurdish (Latin) (Kurdî (Latin))
+/** Kurdish (Latin script) (‪Kurdî (latînî)‬)
  * @author George Animal
  */
 $messages['ku-latn'] = array(
@@ -782,7 +782,7 @@ $messages['so'] = array(
 	'problemchanges-category' => 'Qeybta:',
 );
 
-/** Serbian Cyrillic ekavian (‪Српски (ћирилица)‬)
+/** Serbian (Cyrillic script) (‪Српски (ћирилица)‬)
  * @author Charmed94
  */
 $messages['sr-ec'] = array(
@@ -792,7 +792,7 @@ $messages['sr-ec'] = array(
 	'problemchanges-category' => 'Категорија:',
 );
 
-/** Serbian Latin ekavian (‪Srpski (latinica)‬) */
+/** Serbian (Latin script) (‪Srpski (latinica)‬) */
 $messages['sr-el'] = array(
 	'problemchanges' => 'Označene izmene na čekanju',
 	'problemchanges-legend' => 'Prelistaj stranice na čekanju s označenim izmenama za pregled',

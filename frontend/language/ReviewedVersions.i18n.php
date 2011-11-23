@@ -646,7 +646,7 @@ $messages['kk-arab'] = array(
 	'reviewedversions-review' => '$2 <i>$1</i> كەزىندە سىن بەردى',
 );
 
-/** Kazakh (Cyrillic) (Қазақша (Cyrillic)) */
+/** Kazakh (Cyrillic script) (‪Қазақша (кирил)‬) */
 $messages['kk-cyrl'] = array(
 	'reviewedversions' => 'Тиянақты нұсқалар',
 	'reviewedversions-leg1' => 'Сын берілген беттің нұсқа тізімі',
@@ -656,7 +656,7 @@ $messages['kk-cyrl'] = array(
 	'reviewedversions-review' => '$2 <i>$1</i> кезінде сын берді',
 );
 
-/** Kazakh (Latin) (Қазақша (Latin)) */
+/** Kazakh (Latin script) (‪Qazaqşa (latın)‬) */
 $messages['kk-latn'] = array(
 	'reviewedversions' => 'Tïyanaqtı nusqalar',
 	'reviewedversions-leg1' => 'Sın berilgen bettiñ nusqa tizimi',
@@ -698,7 +698,7 @@ $messages['ksh'] = array(
 	'reviewedversions-review' => 'Nohjekik {{GENDER:$5|vum|vum|vun däm Metmaacher|vun däm|vun dä}} $2 aam $3 öm $4 Uhr.',
 );
 
-/** Kurdish (Latin) (Kurdî (Latin))
+/** Kurdish (Latin script) (‪Kurdî (latînî)‬)
  * @author George Animal
  */
 $messages['ku-latn'] = array(
@@ -1052,7 +1052,7 @@ $messages['sl'] = array(
 	'reviewedversions-review' => 'Pregledano <i>$1</i> s strani $2',
 );
 
-/** Serbian Cyrillic ekavian (‪Српски (ћирилица)‬)
+/** Serbian (Cyrillic script) (‪Српски (ћирилица)‬)
  * @author Charmed94
  * @author Millosh
  * @author Sasa Stefanovic
@@ -1067,7 +1067,7 @@ $messages['sr-ec'] = array(
 	'reviewedversions-review' => 'Прегледано на <i>$1</i> од стране $2',
 );
 
-/** Serbian Latin ekavian (‪Srpski (latinica)‬)
+/** Serbian (Latin script) (‪Srpski (latinica)‬)
  * @author Michaello
  */
 $messages['sr-el'] = array(
@@ -1141,7 +1141,7 @@ $messages['tet'] = array(
 	'reviewedversions-page' => 'Naran pájina nian:',
 );
 
-/** Tajik (Cyrillic) (Тоҷикӣ (Cyrillic))
+/** Tajik (Cyrillic script) (Тоҷикӣ)
  * @author Ibrahim
  */
 $messages['tg-cyrl'] = array(
@@ -1153,7 +1153,7 @@ $messages['tg-cyrl'] = array(
 	'reviewedversions-review' => 'Дар <i>$1</i> аз тарафи $2 барраси шудааст',
 );
 
-/** Tajik (Latin) (Тоҷикӣ (Latin))
+/** Tajik (Latin script) (tojikī)
  * @author Liangent
  */
 $messages['tg-latn'] = array(

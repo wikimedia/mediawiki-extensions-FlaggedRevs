@@ -792,7 +792,7 @@ Nekatere nastavitve morda spremenijo, katera različica je prikazana bralcem, al
 	'configuredpages-def-stable' => 'stabilna različica',
 );
 
-/** Serbian Cyrillic ekavian (‪Српски (ћирилица)‬)
+/** Serbian (Cyrillic script) (‪Српски (ћирилица)‬)
  * @author Жељко Тодоровић
  * @author Михајло Анђелковић
  */
@@ -800,7 +800,7 @@ $messages['sr-ec'] = array(
 	'configuredpages-config' => 'Подешавања',
 );
 
-/** Serbian Latin ekavian (‪Srpski (latinica)‬)
+/** Serbian (Latin script) (‪Srpski (latinica)‬)
  * @author Жељко Тодоровић
  */
 $messages['sr-el'] = array(

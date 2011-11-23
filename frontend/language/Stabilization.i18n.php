@@ -1941,7 +1941,7 @@ $messages['kk-arab'] = array(
 	'stabilization-def-short-1' => 'تىياناقتى',
 );
 
-/** Kazakh (Cyrillic) (Қазақша (Cyrillic)) */
+/** Kazakh (Cyrillic script) (‪Қазақша (кирил)‬) */
 $messages['kk-cyrl'] = array(
 	'stabilization-tab' => '(сқ)',
 	'stabilization' => 'Бетті тиянақтау',
@@ -1962,7 +1962,7 @@ $messages['kk-cyrl'] = array(
 	'stabilization-def-short-1' => 'Тиянақты',
 );
 
-/** Kazakh (Latin) (Қазақша (Latin)) */
+/** Kazakh (Latin script) (‪Qazaqşa (latın)‬) */
 $messages['kk-latn'] = array(
 	'stabilization-tab' => '(sq)',
 	'stabilization' => 'Betti tïyanaqtaw',
@@ -2096,7 +2096,7 @@ Et jidd och nix ennzeshtelle.',
 	'stabilization-review' => 'Donn faßhallde, dat de aktoälle Version nohjekik es',
 );
 
-/** Kurdish (Latin) (Kurdî (Latin))
+/** Kurdish (Latin script) (‪Kurdî (latînî)‬)
  * @author George Animal
  */
 $messages['ku-latn'] = array(
@@ -3151,7 +3151,7 @@ $messages['sr-ec'] = array(
 	'stabilization-review' => 'Означи тренутну ревизику као прегледану',
 );
 
-/** Serbian Latin ekavian (‪Srpski (latinica)‬)
+/** Serbian (Latin script) (‪Srpski (latinica)‬)
  * @author Michaello
  * @author Жељко Тодоровић
  * @author Михајло Анђелковић
@@ -3361,7 +3361,7 @@ $messages['tet'] = array(
 	'stabilization-page' => 'Naran pájina nian:',
 );
 
-/** Tajik (Cyrillic) (Тоҷикӣ (Cyrillic))
+/** Tajik (Cyrillic script) (Тоҷикӣ)
  * @author Ibrahim
  */
 $messages['tg-cyrl'] = array(
@@ -3387,7 +3387,7 @@ $messages['tg-cyrl'] = array(
 	'stabilize-expiring' => 'Дар $1 (UTC) ба интиҳо мерасад',
 );
 
-/** Tajik (Latin) (Тоҷикӣ (Latin))
+/** Tajik (Latin script) (tojikī)
  * @author Liangent
  */
 $messages['tg-latn'] = array(
@@ -3545,7 +3545,7 @@ Yapılandırma mümkün değil.',
 	'stabilization-review' => 'Geçerli sürümü kontrol edilmiş olarak işaretle',
 );
 
-/** Tatar (Cyrillic) (Татарча/Tatarça (Cyrillic))
+/** Tatar (Cyrillic script) (Татарча)
  * @author Ерней
  */
 $messages['tt-cyrl'] = array(
