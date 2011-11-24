@@ -25,6 +25,7 @@ $messages['en'] = array(
  * @author Aaron Schulz
  * @author Jon Harald Søby
  * @author SPQRobin
+ * @author Umherirrender
  */
 $messages['qqq'] = array(
 	'reviewedpages' => '{{Flagged Revs}}
@@ -38,9 +39,12 @@ Parameter $1 is the number of reviewed pages for use with PLURAL.',
 	'reviewedpages-none' => '{{Flagged Revs}}
 Shown on Special:ReviewedPages.
 {{Identical|There are no pages in this list}}',
-	'reviewedpages-lev-0' => '{{Flagged Revs}}',
-	'reviewedpages-lev-1' => '{{Flagged Revs}}',
+	'reviewedpages-lev-0' => '{{Flagged Revs}}
+{{optional}}',
+	'reviewedpages-lev-1' => '{{Flagged Revs}}
+{{optional}}',
 	'reviewedpages-lev-2' => '{{Flagged Revs}}
+{{optional}}
 {{Identical|Featured}}',
 	'reviewedpages-all' => '{{Flagged Revs}}
 Shown on Special:ReviewedPages. Links to Special:ReviewedVersions for a particular page.',

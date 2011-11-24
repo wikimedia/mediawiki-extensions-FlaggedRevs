@@ -254,7 +254,8 @@ Please check the URL you used to access this page.',
  * @author Тест
  */
 $messages['qqq'] = array(
-	'action-review' => '{{doc-action|review}}',
+	'action-review' => '{{Flagged Revs}}
+{{doc-action|review}}',
 	'editor' => '{{Flagged Revs}}
 {{Identical|Editor}}',
 	'flaggedrevs' => '{{Flagged Revs}}
@@ -291,7 +292,8 @@ The user is to select one of the following options:
 * {{msg-mw|Flaggedrevs-pref-stable-0}}
 * {{msg-mw|Flaggedrevs-pref-stable-1}}
 * {{msg-mw|Flaggedrevs-pref-stable-2}}',
-	'flaggedrevs-pref-stable-0' => 'Show on [[Special:Preferences]] as an option for how to use stable versions.
+	'flaggedrevs-pref-stable-0' => '{{Flagged Revs}}
+Show on [[Special:Preferences]] as an option for how to use stable versions.
 This option make pages display the stable version either as the default or not as the default based on page and site settings, *rather* than any user settings. In other words, it removes any custom user-specified behavior.',
 	'flaggedrevs-pref-stable-1' => '{{Flagged Revs}}
 Show on [[Special:Preferences]] as an option for how to use stable versions. Note that if a page has no stable version, the current one will be displayed.',
@@ -383,8 +385,10 @@ Parameters:
 * $1 is a page title',
 	'review-logentry-id' => '{{Flagged Revs}}
 {{Identical|Revision}}',
-	'review-logentry-diff' => 'Appears at [[Special:Log/review]] and is used for diff link text of log entries. The diff is between a revision that had been accepted and the previous accepted revision.',
-	'review-logentry-diff2' => 'Appears at [[Special:Log/review]] and is used for diff link text of log entries. The diff is between a revision that had its acceptance revoked and the previous accepted revision.',
+	'review-logentry-diff' => '{{Flagged Revs}}
+Appears at [[Special:Log/review]] and is used for diff link text of log entries. The diff is between a revision that had been accepted and the previous accepted revision.',
+	'review-logentry-diff2' => '{{Flagged Revs}}
+Appears at [[Special:Log/review]] and is used for diff link text of log entries. The diff is between a revision that had its acceptance revoked and the previous accepted revision.',
 	'review-logpage' => '{{Flagged Revs}}
 Name of review log Special:Log/review',
 	'review-logpagetext' => '{{Flagged Revs}}
@@ -449,7 +453,8 @@ Users who see the stable version and not the draft version as page, have this me
 	'revreview-editnotice' => '{{Flagged Revs}}
 {{Identical|Authorised user}}
 Shown on the edit form to users who lack review and automatic review rights.',
-	'revreview-submitedit' => 'Shows as the "save page" button on pages with a stable version where the user lacks review and automatic review rights.',
+	'revreview-submitedit' => '{{Flagged Revs}}
+Shows as the "save page" button on pages with a stable version where the user lacks review and automatic review rights.',
 	'revreview-submitedit-title' => '{{Flagged Revs}}
 {{Gender}}
 Attribute title for the "save page" button for pages with a stable version where the user lacks review and automatic review rights.',
@@ -463,7 +468,8 @@ Shown in a box at the top of the page after a user (without any review rights) m
 Shown when viewing a the latest version of a "checked" page with pending changes.
 * $2 Date of review
 * $3 Number of pending revisions',
-	'revreview-newest-basic-i' => 'Shown when viewing the latest version of a "checked" page with only template or file changes pending review.
+	'revreview-newest-basic-i' => '{{Flagged Revs}}
+Shown when viewing the latest version of a "checked" page with only template or file changes pending review.
 * $1 Number, stable version ID
 * $2 The time the stable version was reviewed',
 	'revreview-newest-quality' => '{{Flagged Revs}}
@@ -554,10 +560,10 @@ Possible value of the 'style' tag for a revision. All accepted revisions must ha
 	'revreview-style-4' => "{{Flagged Revs}}
 {{Identical|Featured}}
 Possible value of the 'style' tag for a revision. All accepted revisions must have ratings for each tag type.",
-	'revreview-toggle-show' => '{{Optional}}
-{{FlaggedRevs}}',
-	'revreview-toggle-hide' => '{{Optional}}
-{{FlaggedRevs}}',
+	'revreview-toggle-show' => '{{FlaggedRevs}}
+{{Optional}}',
+	'revreview-toggle-hide' => '{{FlaggedRevs}}
+{{Optional}}',
 	'revreview-toggle-title' => '{{Flagged Revs-small}}
 Tooltip shown when hovering over <span style="color:blue;">(-/+)</span>.',
 	'revreview-visibility-synced' => '{{Flagged Revs-small}}
@@ -653,15 +659,18 @@ Shown as dropdown option on lists or log pages to filter results.',
 Shown as dropdown option on lists or log pages to filter results.',
 	'revreview-restrictfilter' => '{{Flagged Revs}}
 Shown as dropdown option on lists or log pages to filter results.',
-	'revreview-restriction-any' => '{{Identical|Any}}
+	'revreview-restriction-any' => '{{Flagged Revs}}
+{{Identical|Any}}
 Shown as dropdown option on lists or log pages to filter results.',
 	'revreview-restriction-none' => '{{Flagged Revs}}
 {{Identical|none}}
 Shown as dropdown option on lists or log pages to filter results.',
 	'revreview-reviewlink' => '{{Flagged Revs}}
 Text of link to diff of the stable version against the latest version. "Edits" means "revisions" here.',
-	'revreview-reviewlink-title' => 'Attribute title to diff-to-stable review links. See {{Revreview-reviewlink}}.',
-	'revreview-unreviewedpage' => 'Text shown on RecentChanges and Watchlists to denote reviewable pages that have no stable version.',
+	'revreview-reviewlink-title' => '{{Flagged Revs}}
+Attribute title to diff-to-stable review links. See {{Revreview-reviewlink}}.',
+	'revreview-unreviewedpage' => '{{Flagged Revs}}
+Text shown on RecentChanges and Watchlists to denote reviewable pages that have no stable version.',
 	'tooltip-ca-current' => '{{Flagged Revs}}
 Title attribute to the "pending changes" tab. See {{Revreview-current}}. Appears on pages with pending changes.',
 	'tooltip-ca-stable' => '{{Flagged Revs}}
@@ -683,8 +692,12 @@ Shown as the attribute title to the lock icon in the "flagged revs box". This sh
 Shown in the "flagged revs box". This shows on pages were edits require review and only when this is not the case by default.',
 	'revreview-unlocked' => '{{Flagged Revs}}
 Shown in the "flagged revs box". This shows on pages were edits don\'t require review and only when this is not the case by default.',
-	'accesskey-ca-current' => '{{doc-accesskey}}',
-	'accesskey-ca-stable' => '{{doc-accesskey}}',
+	'revreview-ak-review' => '{{FlaggedRevs}}
+{{optional}}',
+	'accesskey-ca-current' => '{{FlaggedRevs}}
+{{doc-accesskey}}',
+	'accesskey-ca-stable' => '{{FlaggedRevs}}
+{{doc-accesskey}}',
 	'log-show-hide-review' => '{{Flagged Revs}}
 * $1 is one of {{msg|show}} or {{msg|hide}}',
 	'validationpage' => "{{Flagged Revs-small}}
@@ -971,8 +984,8 @@ $messages['ar'] = array(
 	'flaggedrevs-pref-UI' => 'الواجهة الأساسية:',
 	'flaggedrevs-pref-UI-0' => 'استخدم صناديق تفصيلية لعرض حالة الموافقة للصفحات',
 	'flaggedrevs-pref-UI-1' => 'استخدم أيقونات صغيرة ونصوص قليلة لعرض حالة الموافقة للصفحات',
-	'prefs-flaggedrevs' => 'عرض التعديل',
-	'prefs-flaggedrevs-ui' => 'عرض التعديل',
+	'prefs-flaggedrevs' => 'مراجعة التعديلات',
+	'prefs-flaggedrevs-ui' => 'مراجعة التعديلات',
 	'flaggedrevs-prefs-stable' => 'متى أعرض النسخة المستقرة من محتويات الصفحة افتراضيا',
 	'flaggedrevs-pref-stable-0' => 'استخدم الإعدادات الافتراضية لكل صفحة',
 	'flaggedrevs-pref-stable-1' => 'أظهر النسخة المستقرة دائما (إن وجدت)',
@@ -1007,7 +1020,7 @@ $messages['ar'] = array(
 	'revreview-log-toggle-hide' => 'أخفِ سجل الاستقرار',
 	'revreview-log-toggle-title' => 'بدّل عرض سجل إعدادات الاستقرار',
 	'revreview-log-details-show' => 'اعرض التفاصيل',
-	'revreview-log-details-hide' => 'إخفاء التفاصيل',
+	'revreview-log-details-hide' => 'أخفِ التفاصيل',
 	'revreview-log-details-title' => 'بدّل عرض سجل إعدادات الاستقرار',
 	'review-diff2stable' => 'عرض التغييرات قيد الانتظار للنسخة المنشورة',
 	'review-logentry-app' => 'راجع نسخة من [[$1]]',

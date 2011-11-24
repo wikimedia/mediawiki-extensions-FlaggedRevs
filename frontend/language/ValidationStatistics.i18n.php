@@ -46,7 +46,8 @@ Name of the [[Special:ValidationStatistics]] page, which contains review statist
 Shown on the page [[Special:ValidationStatistics]].
 *$1 Number of users in the Editor group.
 This message is likely customized per wiki as (a) some don't use an 'editor' group or (b) it called something else",
-	'validationstatistics-lastupdate' => 'Shown on the page [[Special:ValidationStatistics]].
+	'validationstatistics-lastupdate' => '{{Flagged Revs}}
+Shown on the page [[Special:ValidationStatistics]].
 * $1 = Date
 * $2 = Time',
 	'validationstatistics-pndtime' => '{{Flagged Revs}}
@@ -65,13 +66,17 @@ Shown on the page [[Special:ValidationStatistics]].',
 {{Identical|Pages}}
 Shown on the page [[Special:ValidationStatistics]].
 Table header for all pages in a certain namespace.',
-	'validationstatistics-stable' => 'Shown on the page [[Special:ValidationStatistics]].
+	'validationstatistics-stable' => '{{Flagged Revs}}
+Shown on the page [[Special:ValidationStatistics]].
 Table header for pages that that have a stable version',
-	'validationstatistics-latest' => 'Shown on the page [[Special:ValidationStatistics]].
+	'validationstatistics-latest' => '{{Flagged Revs}}
+Shown on the page [[Special:ValidationStatistics]].
 Table header for pages that that have a stable version and no pending changes.',
-	'validationstatistics-synced' => 'Shown on the page [[Special:ValidationStatistics]].
+	'validationstatistics-synced' => '{{Flagged Revs}}
+Shown on the page [[Special:ValidationStatistics]].
 Table header for the ratio of pages that that have a stable version and no pending changes *over* all pages with a stable version.',
-	'validationstatistics-old' => 'Shown on the page [[Special:ValidationStatistics]].
+	'validationstatistics-old' => '{{Flagged Revs}}
+Shown on the page [[Special:ValidationStatistics]].
 Table header for pages that have pending changes (edits newer than the stable version).',
 	'validationstatistics-utable' => '{{Flagged Revs}}
 Shown on the page [[Special:ValidationStatistics]].

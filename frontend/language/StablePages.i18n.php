@@ -41,7 +41,8 @@ Shown on the page [[Special:StablePages]].',
 {{Identical|Configuration}}
 Shown on the page [[Special:StablePages]].
 Text for the link to change the FlaggedRevs configuration for a specific page. Links to [[Special:Stabilization]].',
-	'stablepages-indef' => 'Shown on the page [[Special:StablePages]].
+	'stablepages-indef' => '{{Flagged Revs}}
+Shown on the page [[Special:StablePages]].
 Label use on checkbox filter to only show pages where edits will require review indefinetely',
 );
 

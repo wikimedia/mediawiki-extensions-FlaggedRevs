@@ -120,7 +120,8 @@ $messages['qqq'] = array(
 Name of the Special:RevisionReview page.',
 	'revreview-failed' => '{{Flagged Revs}}
 Used on Special:RevisionReview.',
-	'revreview-submission-invalid' => 'Used on Special:RevisionReview.',
+	'revreview-submission-invalid' => '{{Flagged Revs}}
+Used on Special:RevisionReview.',
 	'review_page_invalid' => '{{Flagged Revs}}
 Used when reviewing a revision.',
 	'review_page_notexists' => '{{Flagged Revs}}
@@ -143,8 +144,8 @@ When you review, you specify the template/file versions to use. The key given by
 	'review_bad_tags' => '{{Flagged Revs}}
 Used when reviewing a revision.
 Error message given if tag values are missing or out of range.',
-	'review_denied' => '{{Identical|Permission denied}}
-{{Flagged Revs}}
+	'review_denied' => '{{Flagged Revs}}
+{{Identical|Permission denied}}
 Used when reviewing a revision.',
 	'review_param_missing' => '{{Flagged Revs}}
 Used when reviewing a revision.
@@ -168,8 +169,8 @@ This is a label for the  checkbox that appears under the edit box next to "This 
 Title of a checkbox on the edit form that shows on pages with no stable version.',
 	'revreview-check-flag-y' => '{{Flagged Revs}}
 Label of a checkbox that shows on the edit form of pages with no stable version.',
-	'revreview-check-flag-y-title' => '{{Gender}}
-{{Flagged Revs}}',
+	'revreview-check-flag-y-title' => '{{Flagged Revs}}
+{{Gender}}',
 	'revreview-flag' => '{{Flagged Revs-small}}
 * Title of the review box shown below a page (when you have the permission to review pages). This is used for un-accepted revisions.',
 	'revreview-reflag' => '{{Flagged Revs-small}}
@@ -263,11 +264,13 @@ Shown on the reject form (user clicked "reject" on review form).
 * $1 Page name
 * $2 Number, revisions ID that would be restored
 * $3 Timestamp of that revision',
-	'revreview-reject-summary' => '{{Identical|Summary}}
+	'revreview-reject-summary' => '{{Flagged Revs}}
+{{Identical|Summary}}
 Shown on the reject form.',
 	'revreview-reject-confirm' => '{{Flagged Revs}}
 Shown on the reject form. Confirmation button.',
-	'revreview-reject-cancel' => '{{Identical|Cancel}}
+	'revreview-reject-cancel' => '{{Flagged Revs}}
+{{Identical|Cancel}}
 Shown on the reject form.',
 	'revreview-reject-summary-cur' => '{{Flagged Revs-small}}
 Default summary shown when rejecting pending changes, and they are the latest revisions to a page
