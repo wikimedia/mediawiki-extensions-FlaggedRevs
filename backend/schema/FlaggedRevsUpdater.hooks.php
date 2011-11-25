@@ -90,14 +90,17 @@ class FlaggedRevsUpdaterHooks {
 			$du->output( "...fr_rev_timestamp already exists.\n" );
 			return;
 		}
-		include_once( dirname( __FILE__ ) . "/../maintenance/populateRevTimestamp.inc" );
-		if ( !function_exists( 'populate_fr_rev_timestamp' ) ) {
-			$du->output( "...populateRevTimestamp.inc missing! Aborting fr_rev_timestamp update.\n" );
-			return; // sanity
+		$scriptDir = dirname( __FILE__ ) . "/../../maintenance/populateRevTimestamp.php";
+		if ( !file_exists( $scriptDir ) ) {
+			$du->output( "...populateRevTimestamp.php missing! Aborting fr_rev_timestamp update.\n" );
+			return; // sanity; all or nothing
 		}
 		$du->output( "Adding fr_rev_timestamp and redoing flaggedrevs table indexes... " );
+		// Change the schema
 		$du->getDB()->sourceFile( $patch );
-		populate_fr_rev_timestamp( 0 );
+		// Populate columns
+		$task = $du->maintenance->runChild( 'PopulateFRRevTimestamp', $scriptDir );
+		$task->execute();
 		$du->output( "done.\n" );
 	}
 }
