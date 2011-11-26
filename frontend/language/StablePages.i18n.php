@@ -659,7 +659,7 @@ $messages['mr'] = array(
 $messages['ms'] = array(
 	'stablepages' => 'Laman-laman yang menggunakan kelulusan penyuntingan',
 	'stablepages-list' => 'Laman ini menyenaraikan laman-laman yang boleh disunting oleh pengguna-pengguna tertentu sahaja tanpa memerlukan penyemakan.
-Suntingan yang dilakukan oleh pengguna lain tidak dipaparkan kepara pembaca (mengikut tetapan sediakala) sehingga dikaji semula oleh seorang pengguna yang berizin.',
+Suntingan yang dilakukan oleh pengguna lain tidak dipaparkan kepara pembaca (mengikut tetapan asali) sehingga dikaji semula oleh seorang pengguna yang berizin.',
 	'stablepages-none' => 'Tiada laman dalam senarai ini',
 	'stablepages-config' => 'Konfigurasi',
 	'stablepages-indef' => 'Tamat tempoh tak tentu sahaja',
