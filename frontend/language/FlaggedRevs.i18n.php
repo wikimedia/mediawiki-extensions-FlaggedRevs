@@ -692,12 +692,6 @@ Shown as the attribute title to the lock icon in the "flagged revs box". This sh
 Shown in the "flagged revs box". This shows on pages were edits require review and only when this is not the case by default.',
 	'revreview-unlocked' => '{{Flagged Revs}}
 Shown in the "flagged revs box". This shows on pages were edits don\'t require review and only when this is not the case by default.',
-	'revreview-ak-review' => '{{FlaggedRevs}}
-{{optional}}',
-	'accesskey-ca-current' => '{{FlaggedRevs}}
-{{doc-accesskey}}',
-	'accesskey-ca-stable' => '{{FlaggedRevs}}
-{{doc-accesskey}}',
 	'log-show-hide-review' => '{{Flagged Revs}}
 * $1 is one of {{msg|show}} or {{msg|hide}}',
 	'validationpage' => "{{Flagged Revs-small}}
@@ -9229,9 +9223,6 @@ $messages['mk'] = array(
 	'revreview-unlocked-title' => 'Уредувањата на оваа страница не бараат преглед.',
 	'revreview-locked' => "'''Напомена:''' Уредувањата мора да се [[{{MediaWiki:Validationpage}}|проверат]] пред да бидат видливи за читателите на оваа страница.",
 	'revreview-unlocked' => "'''Напомена:''' Уредувањата не бараат [[{{MediaWiki:Validationpage}}|проверка]] пред да бидат видливи за читателите на оваа страница.",
-	'revreview-ak-review' => 'п',
-	'accesskey-ca-current' => 'в',
-	'accesskey-ca-stable' => 'c',
 	'log-show-hide-review' => '$1 дневник на оценувања',
 	'validationpage' => '{{ns:help}}:Проверка на страница',
 );
@@ -11991,9 +11982,6 @@ $messages['ru'] = array(
 	'revreview-unlocked-title' => 'Правки этой страницы не требуют проверки.',
 	'revreview-locked' => "'''Замечание.''' Правки должны быть [[{{MediaWiki:Validationpage}}|проверены]], прежде чем они будут показаны читателям этой страницы.",
 	'revreview-unlocked' => "'''ЗАмечание.''' Правки не требуют предварительной [[{{MediaWiki:Validationpage}}|проверки]] для отображения читателям этой страницы.",
-	'revreview-ak-review' => 's',
-	'accesskey-ca-current' => 'v',
-	'accesskey-ca-stable' => 'c',
 	'log-show-hide-review' => '$1 журнал проверок',
 	'validationpage' => '{{ns:help}}:Проверка страниц',
 );
@@ -12917,9 +12905,6 @@ $messages['sr-ec'] = array(
 	'tooltip-ca-current' => 'Преглед странице с изменама на чекању',
 	'tooltip-ca-stable' => 'Преглед објављеног издања ове странице',
 	'tooltip-ca-default' => 'Поставке за контролу квалитета',
-	'revreview-ak-review' => 's',
-	'accesskey-ca-current' => 'v',
-	'accesskey-ca-stable' => 'c',
 	'validationpage' => '{{ns:help}}:Провера странице',
 );
 
@@ -13021,7 +13006,6 @@ Molimo vas da proverite URL koji ste upotrebili da biste pristupili ovoj stranic
 	'tooltip-ca-current' => 'Pregledaj tekući nacrt ove strane.',
 	'tooltip-ca-stable' => 'Pogledajte stabilnu verziju ove stranice',
 	'tooltip-ca-default' => 'Podešavanja obezbeđivanja kvaliteta.',
-	'revreview-ak-review' => 's',
 	'validationpage' => '{{ns:help}}:Validacija članka',
 );
 
@@ -14566,9 +14550,6 @@ $messages['uk'] = array(
 	'revreview-unlocked-title' => 'Зміни цієї сторінки не потребують рецензування.',
 	'revreview-locked' => "'''Примітка:''' Редагування повинні бути [[{{MediaWiki:Validationpage}}|перевірені]] перед тим, як будуть показані читачам на цій сторінці.",
 	'revreview-unlocked' => "'''Примітка:''' Редагування не потребують [[{{MediaWiki:Validationpage}}|рецензування]] перед тим, як будуть показані читачам на цій сторінці.",
-	'revreview-ak-review' => 's',
-	'accesskey-ca-current' => 'v',
-	'accesskey-ca-stable' => 'c',
 	'log-show-hide-review' => '$1 журнал перевірок',
 	'validationpage' => '{{ns:help}}:Перевірка сторінки',
 );
