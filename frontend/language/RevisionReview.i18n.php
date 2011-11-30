@@ -1092,6 +1092,7 @@ $messages['da'] = array(
  * @author Kghbln
  * @author Merlissimo
  * @author Metalhead64
+ * @author Purodha
  * @author Umherirrender
  */
 $messages['de'] = array(
@@ -1114,7 +1115,7 @@ $messages['de'] = array(
 	'review_cannot_reject' => 'Diese Änderungen können nicht verworfen werden, da ein anderer Benutzer bereits ein paar oder alle Bearbeitungen akzeptiert hat.',
 	'review_reject_excessive' => 'So viele Bearbeitungen können nicht auf einmal verworfen werden.',
 	'review_reject_nulledits' => 'Diese Änderungen können nicht verworfen werden, da all diese Versionen keine Änderungsbearbeitungen enthielten.',
-	'revreview-check-flag-p' => 'Diese Version akzeptieren (inklusive $1 ausstehenden {{PLURAL:$1|Änderung|Änderungen}})',
+	'revreview-check-flag-p' => 'Diese Version akzeptieren (inklusive {{PLURAL:$1|einer ausstehenden Änderung|$1 ausstehender Änderungen}})',
 	'revreview-check-flag-p-title' => 'Alle noch nicht markierten Änderungen, zusammen mit deiner Bearbeitung, akzeptieren. Dies sollte nur gemacht werden, sofern bereits alle bislang noch nicht markierten Änderungen angesehen wurden.',
 	'revreview-check-flag-u' => 'Diese unmarkierte Seite akzeptieren',
 	'revreview-check-flag-u-title' => 'Diese Seitenversion akzeptieren. Dies sollte nur gemacht werden, wenn vorher die gesamte Seite angeschaut wurde.',
@@ -1168,7 +1169,7 @@ Bitte markiere alle unten angezeigten Änderungen, damit deine Bearbeitungen zur
 	'revreview-reject-summary-old' => 'Die {{PLURAL:$1|erste Textänderung|$1 ersten Textänderungen}} von $2, die auf die Version $3 von $4  {{PLURAL:$1|folgte, wurde|folgten, wurden}} verworfen',
 	'revreview-reject-summary-cur-short' => 'Die {{PLURAL:$1|letzte Textänderung wurde|$1 letzten Textänderungen wurden}} verworfen und die Version $2 von $3 wiederhergestellt',
 	'revreview-reject-summary-old-short' => '{{PLURAL:$1|Die erste Textänderung|ersten $1 Textänderungen}}, die auf die Version $2 von $3 {{PLURAL:$1|folgte, wurde|folgten, wurden}} verworfen',
-	'revreview-tt-flag' => 'Diese Version anzeigen, indem du die Änderungen markierst',
+	'revreview-tt-flag' => 'Diese Version akzeptieren, indem du die Änderungen als „überprüft“ markierst',
 	'revreview-tt-unflag' => 'Diese Version nicht mehr anzeigen lassen, indem du die Markierung entfernst',
 	'revreview-tt-reject' => 'Diese Textänderungen durch Zurücksetzen verwerfen',
 );
@@ -1735,7 +1736,7 @@ $messages['fi'] = array(
 Käytä tätä vain, jos olet jo käynyt läpi kaikki muokkaukset.',
 	'revreview-check-flag-u' => 'Hyväksy tämä arvioimaton sivu',
 	'revreview-check-flag-u-title' => 'Hyväksy tämä versio tästä sivusta. Käytä tätä vain, jos olet jo nähnyt koko sivun.',
-	'revreview-check-flag-y' => 'Hyväksy nämä muutokset',
+	'revreview-check-flag-y' => 'Hyväksy omat muutokset',
 	'revreview-check-flag-y-title' => 'Hyväksy kaikki muutokset, jotka teit tässä muokkauksessa.',
 	'revreview-flag' => 'Arvioi tämä versio',
 	'revreview-reflag' => 'Arvioi uudelleen tämä versio',
@@ -1749,35 +1750,45 @@ Katso [[Special:Unreviewedpages|lista sivuista, joita ei ole arvioitu]].',
 	'revreview-submit' => 'Tallenna',
 	'revreview-submitting' => 'Lähetetään...',
 	'revreview-submit-review' => 'Hyväksy versio',
-	'revreview-submit-unreview' => 'Peruuta version arviointi',
+	'revreview-submit-unreview' => 'Poista version aiempi arviointi',
 	'revreview-submit-reject' => 'Hylkää muutokset',
 	'revreview-submit-reviewed' => 'Valmis. Hyväksytty!',
-	'revreview-submit-unreviewed' => 'Valmis. Arviointi peruutettu!',
+	'revreview-submit-unreviewed' => 'Valmis. Arviointi poistettu!',
 	'revreview-successful' => "'''Sivun [[:$1|$1]] versio on arvioitu onnistuneesti. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} näytä arvioidut versiot])'''",
 	'revreview-successful2' => "'''Sivun [[:$1|$1]] version arviointimerkintä on nyt poistettu.'''",
 	'revreview-poss-conflict-p' => "'''Varoitus: Käyttäjä [[User:$1|$1]] on aloittanut tämän sivun arvioinnin $2 kello $3.'''",
 	'revreview-poss-conflict-c' => "'''Varoitus: Käyttäjä [[User:$1|$1]] on aloittanut näiden muutosten arvioinnin $2 kello $3.'''",
+	'revreview-adv-reviewing-p' => 'Huomautus! Muut seulojat näkevät nyt, että arvioit tätä sivua.',
+	'revreview-adv-reviewing-c' => 'Huomautus! Muut seulojat näkevät nyt, että arvioit näitä muutoksia.',
+	'revreview-sadv-reviewing-p' => 'Voit $1 muille käyttäjille, että arvioit tätä sivua.',
+	'revreview-sadv-reviewing-c' => 'Voit $1 muille käyttäjille, että olet arvioimassa näitä muutoksia.',
+	'revreview-adv-start-link' => 'ilmoittaa',
+	'revreview-adv-stop-link' => 'Älä ilmoita',
 	'revreview-toolow' => "'''Sinun tulee arvioida kaikki alla olevat kohdat paremmalla arvolla kuin ”puutteellinen”, jotta versio katsottaisiin arvioiduksi.'''
 
 Poistaaksesi version arviointitilan, napsauta \"Älä hyväksy\".
 
 Palaa selaimen takaisin-painikkeella ja yritä uudelleen.",
-	'revreview-update' => "'''[[{{MediaWiki:Validationpage}}|Arvioi]] kaikki odottavat muutokset, ''(näytetään alla)'' jotka on tehty vakaan version jälkeen.'''",
+	'revreview-update' => "'''Ole hyvä ja [[{{MediaWiki:Validationpage}}|arvioi]] kaikki odottavat muutokset ''(näytetään alla)'', jotka on tehty vakaan version jälkeen.'''",
 	'revreview-update-edited' => '<span class="flaggedrevs_important">Muutoksesi eivät ole vielä näkyvissä vakaassa versiossa.</span>
 
-Tarkista kaikki alla olevat muutokset, jotta muutoksesi näkyisivät vakaassa versiossa.',
+Arvioi kaikki alla olevat muutokset, jotta muutoksesi näkyisivät vakaassa versiossa.',
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Muutoksesi eivät ole vielä näkyvissä vakaassa versiossa. Edelliset muutokset odottavat arviointia.</span>
 
 Arvioi kaikki alla olevat muutokset, jotta muokkauksesi näkyisivät vakaassa versiossa.',
-	'revreview-update-includes' => 'Mallineita tai tiedostoja on päivitetty (tarkastamattomat sivut lihavoinnilla):',
+	'revreview-update-includes' => 'Mallineita tai tiedostoja on päivitetty (arvioimattomat sivut on lihavoitu):',
+	'revreview-reject-text-list' => "Suorittamalla tämän toiminnon alla {{PLURAL:$1|oleva versio, joka|olevat versiot, jotka}} on tehty sivun [[:$2|$2]] lähdetekstiin, '''hylätään''':",
 	'revreview-reject-text-revto' => 'Tämä palauttaa sivun takaisin [{{fullurl:$1|oldid=$2}} ajankohdan $3 versioon].',
 	'revreview-reject-summary' => 'Yhteenveto:',
-	'revreview-reject-confirm' => 'Hylkää nämä muutokset',
+	'revreview-reject-confirm' => 'Vahvista muutosten hylkääminen',
 	'revreview-reject-cancel' => 'Peruuta',
 	'revreview-reject-summary-cur' => 'Hylättiin {{PLURAL:$1|viimeisin tekstimuutos|viimeisimmät $1 tekstimuutosta}} (käyttäjältä $2) ja palautettiin versio $3 käyttäjältä $4',
+	'revreview-reject-summary-old' => 'Hylättiin {{PLURAL:$1|ensimmäinen tekstimuutos|ensimmäiset $1 tekstimuutosta}} (käyttäjältä $2), jotka tehtiin versioon $3 käyttäjältä $4',
+	'revreview-reject-summary-cur-short' => 'Hylättiin {{PLURAL:$1|viimeinen tekstimuutos|viimeiset $1 tekstimuutosta}} ja palautettiin versio $2, jonka on tehnyt käyttäjä $3.',
+	'revreview-reject-summary-old-short' => 'Hylättiin {{PLURAL:$1|ensimmäinen tekstimuutos, joka|ensimmäiset $1 tekstimuutosta, jotka}} tehtiin versioon $2 käyttäjältä $3',
 	'revreview-tt-flag' => 'Hyväksy tämä versio merkitsemällä se ”silmäillyksi”',
 	'revreview-tt-unflag' => 'Peruuta tämän version arviointi merkitsemällä se ”arvioimattomaksi”',
-	'revreview-tt-reject' => 'Peruuta nämä muokkaukset kumoamalla ne',
+	'revreview-tt-reject' => 'Hylkää nämä lähdetekstiin tehdyt muokkaukset kumoamalla ne',
 );
 
 /** French (Français)
@@ -3037,6 +3048,8 @@ $messages['ksh'] = array(
 	'review_cannot_reject' => 'Do kanns di Änderonge nit mieh aflehne, weil Eine alld ene Aandeil udder alle dovun joodjeheiße hät.',
 	'review_reject_excessive' => 'Esu vill Änderonge op eijmohl kam_mer nit aflehne.',
 	'review_reject_nulledits' => 'Heh di Änderonge künne nit retuur jemaat wääde, weil domet jaa nix verändert woode es.',
+	'revreview-check-flag-p' => 'Don heh di Version aanämme, {{PLURAL:$1|ein noh_nit aanjenumme Änderong|$1 noh_nit aanjenumme Änderonge}}
+enjeschloßße',
 	'revreview-check-flag-y' => 'Donn ming Änderonge aannämme',
 	'revreview-check-flag-y-title' => 'Donn all de Änderonge aannämme, di De heh jemaat häs.',
 	'revreview-flag' => 'Donn heh di Version nohkike!',
@@ -3067,6 +3080,7 @@ Looer noh de [[Special:Unreviewedpages|Leß met de nit nohjekikte Sigge]].',
 	'revreview-reject-summary' => 'Koot Zosammejefass, Quell:',
 	'revreview-reject-confirm' => 'Donn heh di Änderonge aflehne',
 	'revreview-reject-cancel' => 'Stopp! Avbreche!',
+	'revreview-tt-flag' => 'Donn heh di Versino aannämme, endämm dat De sähß, dat De se jeprööv häß.',
 	'revreview-tt-reject' => 'Donn heh di Änderonge aflehne un uß dä Sigg widder eruß nämme',
 );
 

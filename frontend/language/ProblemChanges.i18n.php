@@ -292,7 +292,7 @@ $messages['fa'] = array(
  */
 $messages['fi'] = array(
 	'problemchanges' => 'Merkityt odottavat muutokset',
-	'problemchanges-list' => 'Tämä sivu listaa [[{{MediaWiki:Validationpage}}|tarkistetut]] sivut joilla on yksi tai useampi merkittyä muutosta odottamassa arviointia. Luettelo [[Special:Tags|kelvollisista muutostageista]] on saatavissa.',
+	'problemchanges-list' => 'Tämä sivu luettelee [[{{MediaWiki:Validationpage}}|arvioidut]] sivut, joilla on yksi tai useampi merkitty muutos odottamassa arviointia. Luettelo [[Special:Tags|kelvollisista muutostageista]] on saatavissa.',
 	'problemchanges-legend' => 'Lista sivuista, joilla on odottavia muokkauksia, jotka ovat merkittyjä',
 	'problemchanges-none' => 'Tällä hetkellä ei ole sivuja, jotka täyttävät nämä ehdot',
 	'problemchanges-category' => 'Luokka',

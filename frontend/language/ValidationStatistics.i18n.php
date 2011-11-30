@@ -651,24 +651,24 @@ $3",
  * @author Crt
  * @author Nedergard
  * @author Olli
+ * @author Pxos
  * @author Silvonen
  * @author Str4nd
  * @author Vililikku
  * @author ZeiP
  */
 $messages['fi'] = array(
-	'validationstatistics' => 'Sivun tarkistustilastot',
-	'validationstatistics-users' => "Sivustolla '''{{SITENAME}}''' on tällä hetkellä '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|käyttäjä, jolla|käyttäjää, joilla}} on [[{{MediaWiki:Validationpage}}|tarkistajan]] oikeudet.
+	'validationstatistics' => 'Sivun arvioinnin tilastot',
+	'validationstatistics-users' => "Sivustolla '''{{SITENAME}}''' on tällä hetkellä '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|käyttäjä, jolla|käyttäjää, joilla}} on [[{{MediaWiki:Validationpage}}|seulojan]] oikeudet.
 
-Tarkistajat ovat käyttäjiä, jotka voivat tarkistaa sivuille tehtyjä muutoksia.",
+Seulojat ovat luotettavia käyttäjiä, jotka voivat arvioida sivuille tehtyjä muutoksia ja merkitä ne hyväksytyiksi.",
 	'validationstatistics-lastupdate' => "''Seuraavat tiedot päivitettiin viimeksi $1 kello $2.''",
-	'validationstatistics-pndtime' => "Oikeutettujen käyttäjien tarkistamat muokkaukset ovat tarkistettuja.
+	'validationstatistics-pndtime' => "Oikeutettujen käyttäjien (seulojien) silmäilemät muokkaukset ovat ''arvioituja''.
 
-Keskimääräinen tarkistusaika [[Special:OldReviewedPages|sivuille, joilla on odottavia muokkauksia]] on '''$1'''.
-Nämä sivut tulkitaan ''vanhentuneiksi''. Sivut taas tulkitaan ''ajantasaisiksi'', jos odottavia muutoksia ei ole.",
+Keskimääräinen arviointiaika [[Special:OldReviewedPages|sivuilla, joilla on odottavia muokkauksia]] on '''$1'''. Tämä aika eli viive kertoo sen, kuinka kauan sarjassa vanhin arviointia odottava muutos odottaa edelleen arviointia.",
 	'validationstatistics-revtime' => "Keskimääräinen odotusaika ''sisäänkirjautumattomien käyttäjien'' muokkauksille on '''$1'''; tilasto on '''$2'''.
 $3",
-	'validationstatistics-table' => "Alla on tilastot kaikkien nimiavaruuksien tarkistuksille ''lukuun ottamatta'' ohjaussivuja.",
+	'validationstatistics-table' => "Alla on kaikkien nimiavaruuksien arvioinnin tilastot ''lukuun ottamatta'' ohjaussivuja. Sivuja kohdellaan ''vanhentuneina'', jos niissä on arviointia odottavia muokkauksia, ja ne ovat ''synkronoituja'', mikäli niihin ei ole tehty arviointia vaativia muokkauksia.",
 	'validationstatistics-ns' => 'Nimiavaruus',
 	'validationstatistics-total' => 'Sivut',
 	'validationstatistics-stable' => 'Arvioitu',

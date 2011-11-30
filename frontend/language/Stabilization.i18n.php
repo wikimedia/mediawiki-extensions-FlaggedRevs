@@ -1150,6 +1150,7 @@ $messages['ext'] = array(
  * @author Momeni
  * @author Sahim
  * @author Wayiran
+ * @author ZxxZxxZ
  */
 $messages['fa'] = array(
 	'stabilization-tab' => '(کک)',
@@ -1164,7 +1165,7 @@ $messages['fa'] = array(
 	'stabilization-def2' => 'آخرین نسخه',
 	'stabilization-restrict' => 'بازبینی/بازبینی خودکار محدودیت‌ها',
 	'stabilization-restrict-none' => 'بدون هرگونه محدودیت اضافی',
-	'stabilization-submit' => 'تائید',
+	'stabilization-submit' => 'تأیید',
 	'stabilization-notexists' => 'صفحه‌ای با عنوان «[[:$1|$1]]» وجود ندارد. تنظیمات ممکن نیست.',
 	'stabilization-notcontent' => 'صفحه «[[:$1|$1]]» قابل بررسی نیست. تنظیمات ممکن نیست.',
 	'stabilization-comment' => 'دلیل:',
