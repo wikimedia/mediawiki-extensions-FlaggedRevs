@@ -218,11 +218,12 @@ $messages['fa'] = array(
 
 /** Finnish (Suomi)
  * @author Olli
+ * @author Pxos
  * @author ZeiP
  */
 $messages['fi'] = array(
 	'qualityoversight' => 'Kehittynyt arviointiloki',
-	'qualityoversight-list' => 'Tämä sivu listaa versioiden tuoreimmat hyväksynnät ja vanhenemiset.',
+	'qualityoversight-list' => 'Tämä sivu listaa versioiden tuoreimmat hyväksynnät ja ja arviointien poistot.',
 	'qualityoversight-legend' => 'Hae tuoreista arviointilokeista',
 );
 

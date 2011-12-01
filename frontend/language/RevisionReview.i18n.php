@@ -1777,10 +1777,10 @@ Arvioi kaikki alla olevat muutokset, jotta muutoksesi näkyisivät vakaassa vers
 
 Arvioi kaikki alla olevat muutokset, jotta muokkauksesi näkyisivät vakaassa versiossa.',
 	'revreview-update-includes' => 'Mallineita tai tiedostoja on päivitetty (arvioimattomat sivut on lihavoitu):',
-	'revreview-reject-text-list' => "Suorittamalla tämän toiminnon alla {{PLURAL:$1|oleva versio, joka|olevat versiot, jotka}} on tehty sivun [[:$2|$2]] lähdetekstiin, '''hylätään''':",
+	'revreview-reject-text-list' => "Suorittamalla tämän toiminnon '''hylkäät''' alla {{PLURAL:$1|olevan version, joka|olevat versiot, jotka}} on tehty sivun [[:$2|$2]] lähdetekstiin:",
 	'revreview-reject-text-revto' => 'Tämä palauttaa sivun takaisin [{{fullurl:$1|oldid=$2}} ajankohdan $3 versioon].',
 	'revreview-reject-summary' => 'Yhteenveto:',
-	'revreview-reject-confirm' => 'Vahvista muutosten hylkääminen',
+	'revreview-reject-confirm' => 'Vahvista näiden muutosten hylkääminen',
 	'revreview-reject-cancel' => 'Peruuta',
 	'revreview-reject-summary-cur' => 'Hylättiin {{PLURAL:$1|viimeisin tekstimuutos|viimeisimmät $1 tekstimuutosta}} (käyttäjältä $2) ja palautettiin versio $3 käyttäjältä $4',
 	'revreview-reject-summary-old' => 'Hylättiin {{PLURAL:$1|ensimmäinen tekstimuutos|ensimmäiset $1 tekstimuutosta}} (käyttäjältä $2), jotka tehtiin versioon $3 käyttäjältä $4',
@@ -3950,6 +3950,7 @@ $messages['ps'] = array(
  * @author 555
  * @author Giro720
  * @author Hamilton Abreu
+ * @author Helder.wiki
  * @author Waldir
  */
 $messages['pt'] = array(
@@ -3999,8 +4000,12 @@ Veja a [[Special:Unreviewedpages|lista de páginas não revistas]].',
 	'revreview-successful2' => "'''A edição de [[:$1|$1]] foi desmarcada com sucesso.'''",
 	'revreview-poss-conflict-p' => "'''Aviso: O utilizador [[User:$1|$1]] começou a rever esta página às $3 de $2.'''",
 	'revreview-poss-conflict-c' => "'''Aviso: O utilizador [[User:$1|$1]] começou a rever estas alterações às $3 de $2.'''",
-	'revreview-adv-reviewing-p' => "'''Aviso: Será anunciado que começou a rever esta página em $1 às $2.'''",
-	'revreview-adv-reviewing-c' => "'''Aviso: Será anunciado que começou a rever estas alterações em $1 às $2.'''",
+	'revreview-adv-reviewing-p' => 'Aviso: Os outros revisores podem ver que está a revisar esta página.',
+	'revreview-adv-reviewing-c' => 'Aviso: Os outros revisores podem ver que está a revisar estas alterações.',
+	'revreview-sadv-reviewing-p' => 'Você pode $1 aos outros utilizadores que está a revisar esta página.',
+	'revreview-sadv-reviewing-c' => 'Você pode $1 aos outros usuários que está a revisar estas alterações.',
+	'revreview-adv-start-link' => 'informar',
+	'revreview-adv-stop-link' => 'parar de informar',
 	'revreview-toolow' => '\'\'\'Para uma edição ser considerada revista, tem de avaliar cada atributo com valores acima de "inadequada".\'\'\'
 
 Para anular a revisão de uma edição, clique "anular revisão".
@@ -4030,6 +4035,7 @@ Para que as suas edições apareçam na versão publicada, reveja todas as alter
 
 /** Brazilian Portuguese (Português do Brasil)
  * @author Giro720
+ * @author Helder.wiki
  * @author Luckas Blade
  */
 $messages['pt-br'] = array(
@@ -4079,8 +4085,12 @@ Veja a [[Special:Unreviewedpages|lista de páginas não revisadas]].',
 	'revreview-successful2' => "'''A edição de [[:$1|$1]] foi desmarcada com sucesso.'''",
 	'revreview-poss-conflict-p' => "'''Aviso: O usuário [[User:$1|$1]] começou a revisar esta página às $3 de $2.'''",
 	'revreview-poss-conflict-c' => "'''Aviso: O usuário [[User:$1|$1]] começou a revisar estas alterações às $3 de $2.'''",
-	'revreview-adv-reviewing-p' => "'''Aviso: Você será avisado que começou a rever esta página em $1 às $2.'''",
-	'revreview-adv-reviewing-c' => "'''Aviso: Você será avisado que começou a rever estas alterações em $1 às $2.'''",
+	'revreview-adv-reviewing-p' => 'Aviso: Os outros revisores podem ver que está revisando esta página.',
+	'revreview-adv-reviewing-c' => 'Aviso: Os outros revisores podem ver que está revisando estas alterações.',
+	'revreview-sadv-reviewing-p' => 'Você pode $1 aos outros usuários que está revisando esta página.',
+	'revreview-sadv-reviewing-c' => 'Você pode $1 aos outros usuários que está revisando estas alterações.',
+	'revreview-adv-start-link' => 'informar',
+	'revreview-adv-stop-link' => 'parar de informar',
 	'revreview-toolow' => '\'\'\'Para uma edição ser considerada revisada, você deve avaliar cada atributo com valores acima de "inadequada".\'\'\'
 
 Para anular a revisão de uma edição, clique "anular revisão".

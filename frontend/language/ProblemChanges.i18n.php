@@ -291,11 +291,11 @@ $messages['fa'] = array(
  * @author Str4nd
  */
 $messages['fi'] = array(
-	'problemchanges' => 'Merkityt odottavat muutokset',
-	'problemchanges-list' => 'Tämä sivu luettelee [[{{MediaWiki:Validationpage}}|arvioidut]] sivut, joilla on yksi tai useampi merkitty muutos odottamassa arviointia. Luettelo [[Special:Tags|kelvollisista muutostageista]] on saatavissa.',
-	'problemchanges-legend' => 'Lista sivuista, joilla on odottavia muokkauksia, jotka ovat merkittyjä',
+	'problemchanges' => 'Ongelmallisiksi merkityt odottavat muutokset',
+	'problemchanges-list' => 'Tämä sivu luettelee [[{{MediaWiki:Validationpage}}|arvioidut]] sivut, joilla on yksi tai useampi ongelmalliseksi merkitty muutos odottamassa arviointia. Luettelo [[Special:Tags|kelvollisista muutosmerkinnöistä]] on saatavissa.',
+	'problemchanges-legend' => 'Luettelo sivuista, joilla on sellaisia odottavia muutoksia, jotka on merkitty ongelmallisiksi.',
 	'problemchanges-none' => 'Tällä hetkellä ei ole sivuja, jotka täyttävät nämä ehdot',
-	'problemchanges-category' => 'Luokka',
+	'problemchanges-category' => 'Luokka:',
 );
 
 /** French (Français)

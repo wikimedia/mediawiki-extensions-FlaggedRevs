@@ -4847,7 +4847,7 @@ $messages['fi'] = array(
 	'revreview-accuracy' => 'Paikkansapitävyys',
 	'revreview-accuracy-0' => 'Puutteellinen',
 	'revreview-accuracy-1' => 'Silmäilty',
-	'revreview-accuracy-2' => 'Tarkastettu',
+	'revreview-accuracy-2' => 'Tarkistettu',
 	'revreview-accuracy-3' => 'Hyvin lähteistetty',
 	'revreview-accuracy-4' => 'Kiitettävä',
 	'revreview-auto' => '(automaattinen)',
@@ -4875,10 +4875,14 @@ Uusia [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diff
 	'revreview-edited' => "'''Muutoksesi näytetään lukijoille, kun valtuutettu käyttäjä on arvioinut ne. ([[{{MediaWiki:Validationpage}}|ohjeet]])'''
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|muokkaus|muokkausta}}] ''(näytetään alla)'' odottaa arviointia.",
 	'revreview-edited-section' => 'Palaa sivun kohtaan nimeltään [[#$1|$2]].',
-	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Vakaa versio] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} arvioitiin] <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|muokkaus|muokkausta}}] odottaa arviointia.',
-	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Vakaa versio] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} arvioitiin] <i>$2</i>. On myös [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} malline- tai tiedostomuutoksia, jotka odottavat arviointia].',
-	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Vakaa versio] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} hyväksyttiin] <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|muokkaus|muokkausta}}] odottaa tarkistusta.',
-	'revreview-newest-quality-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Vakaa versio] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} hyväksyttiin] <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Malline-ja tiedostomuokkauksia] odottaa myös arviointia.',
+	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|muutos|muutosta}}] tässä versiossa [[{{MediaWiki:Validationpage}}|odottaa arviointia]].
+Sivun [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} vakaa versio] on [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} silmäilty] <i>$2</i>.',
+	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Malline- tai tiedostomuutokset] tässä versiossa [[{{MediaWiki:Validationpage}}|odottavat arviointia]].
+Sivun [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} vakaa versio] on [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} silmäilty] <i>$2</i>.',
+	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3  {{PLURAL:$3|muutos|muutosta}}] tässä versiossa [[{{MediaWiki:Validationpage}}|odottaa arviointia]].
+Sivun [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} vakaa versio] on [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} hyväksytty] <i>$2</i>.',
+	'revreview-newest-quality-i' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Malline- tai tiedostomuutokset] tässä versiossa [[{{MediaWiki:Validationpage}}|odottavat arviointia]].
+Sivun [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} vakaa versio] on [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} hyväksytty] <i>$2</i>.',
 	'revreview-pending-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Vakaa versio] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} arvioitiin] <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|muokkaus|muokkausta}}] odottaa arviointia.',
 	'revreview-pending-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Vakaa versio] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} hyväksyttiin] <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|muokkaus|muokkausta}}] odottaa arviointia.',
 	'revreview-pending-nosection' => 'Voit katsoa siirrettiinkö sivun osa vai poistettiinko se kokeilemalla [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} viimeisimmän muutoksen katselua], joka sisältää
@@ -4919,7 +4923,7 @@ Uusia [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diff
 	'revreview-revnotfound' => 'Pyytämääsi versiota ei löydy. Tarkista URL-osoite, jolla hait tätä sivua.',
 	'right-autoreview' => 'Omat muokkaukset merkitään automaattisesti katsotuiksi',
 	'right-autoreviewrestore' => 'Palauttamalla aiempi versio muutos merkitään automaattisesti katsotuksi',
-	'right-movestable' => 'Siirtää julkaistuja sivuja',
+	'right-movestable' => 'Siirtää sivuja, joista on olemassa vakaa versio',
 	'right-review' => 'Merkitä versiot silmäillyiksi',
 	'right-stablesettings' => 'Määrittää miten vakaat versiot valitaan ja näytetään',
 	'right-validate' => 'Merkitä versioiden sisältö tarkastetuksi',
@@ -4954,9 +4958,9 @@ Uusia [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diff
 	'revreview-restriction-any' => 'mikä tahansa',
 	'revreview-restriction-none' => 'ei mikään',
 	'revreview-reviewlink' => 'odottavat muokkaukset',
-	'revreview-reviewlink-title' => 'Näytä odottavien muokkausten eroavuudet',
+	'revreview-reviewlink-title' => 'Näytä kaikkien odottavien muutosten ero',
 	'revreview-unreviewedpage' => 'arvioimaton sivu',
-	'tooltip-ca-current' => 'Näytä tämä sivu odottavien muutosten kanssa',
+	'tooltip-ca-current' => 'Näytä arviointia odottavat muutokset',
 	'tooltip-ca-stable' => 'Näytä vakaa versio tästä sivusta',
 	'tooltip-ca-default' => 'Laadunvarmistusasetukset',
 	'flaggedrevs-protect-legend' => 'Automaattinen muokkauksen arviointi ([[{{MediaWiki:Validationpage}}|ohjeet]])',
@@ -11295,7 +11299,7 @@ $messages['pt-br'] = array(
 	'reviewer' => 'Revisor',
 	'revreview-accuracy' => 'Precisão',
 	'revreview-accuracy-0' => 'Inadequada',
-	'revreview-accuracy-1' => 'Objetiva',
+	'revreview-accuracy-1' => 'Vista',
 	'revreview-accuracy-2' => 'Precisa',
 	'revreview-accuracy-3' => 'Bem referenciada',
 	'revreview-accuracy-4' => 'Exemplar',
