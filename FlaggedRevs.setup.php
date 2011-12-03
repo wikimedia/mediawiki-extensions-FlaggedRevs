@@ -1,6 +1,6 @@
 <?php
 /**
- * Class containing basic setup functions for a FlaggedRevs environment.
+ * Class containing basic setup functions.
  * This class depends on config variables in LocalSettings.php.
  * Note: avoid  FlaggedRevs class calls here for performance (like load.php).
  */
@@ -27,17 +27,14 @@ class FlaggedRevsSetup {
 	}
 
 	/**
-	 * Register FlaggedRevs source code paths.
+	 * Register source code paths.
 	 * This function must NOT depend on any config vars.
 	 * 
 	 * @param $classes Array $wgAutoloadClasses
 	 * @param $messagesFiles Array $wgExtensionMessagesFiles
-	 * @param $aliasesFiles Array $wgExtensionAliasesFiles
 	 * @return void
 	 */
-	public static function defineSourcePaths(
-		array &$classes, array &$messagesFiles, array &$aliasesFiles
-	) {
+	public static function defineSourcePaths( array &$classes, array &$messagesFiles ) {
 		$dir = dirname( __FILE__ );
 
 		# Basic directory layout
@@ -84,7 +81,7 @@ class FlaggedRevsSetup {
 		### Presentation classes ###
 		# Main i18n file and special page alias file
 		$messagesFiles['FlaggedRevs'] = "$langDir/FlaggedRevs.i18n.php";
-		$aliasesFiles['FlaggedRevs'] = "$langDir/FlaggedRevs.alias.php";
+		$messagesFiles['FlaggedRevsAliases'] = "$langDir/FlaggedRevs.alias.php";
 		# UI setup, forms, and HTML elements
 		$classes['FlaggedRevsUISetup'] = "$frontendDir/FlaggedRevsUI.setup.php";
 		$classes['FlaggablePageView'] = "$frontendDir/FlaggablePageView.php";

@@ -35,18 +35,17 @@ $wgExtensionCredits['specialpage'][] = array(
 );
 
 # Load global constants
-require( "FlaggedRevs.defines.php" );
+require( dirname( __FILE__ ) . '/FlaggedRevs.defines.php' );
 
 # Load default configuration variables
-require( "FlaggedRevs.config.php" );
+require( dirname( __FILE__ ) . '/FlaggedRevs.config.php' );
 
-# Define were classes and i18n files are located
-require( "FlaggedRevs.setup.php" );
-FlaggedRevsSetup::defineSourcePaths(
-	$wgAutoloadClasses,
-	$wgExtensionMessagesFiles,
-	$wgExtensionAliasesFiles
-);
+# Define were PHP files and i18n files are located
+require( dirname( __FILE__ ) . '/FlaggedRevs.setup.php' );
+FlaggedRevsSetup::defineSourcePaths( $wgAutoloadClasses, $wgExtensionMessagesFiles );
+
+# Define JS/CSS modules and file locations
+FlaggedRevsUISetup::defineResourceModules( $wgResourceModules );
 
 # Define user rights
 $wgAvailableRights[] = 'review'; # review pages to basic quality levels
@@ -75,9 +74,6 @@ $wgLogTypes[] = 'stable';
 # Log name and description as well as action handlers
 FlaggedRevsUISetup::defineLogBasicDescription( $wgLogNames, $wgLogHeaders, $wgFilterLogTypes );
 FlaggedRevsUISetup::defineLogActionHandlers( $wgLogActions, $wgLogActionsHandlers );
-
-# JS/CSS modules and message bundles used by JS scripts
-FlaggedRevsUISetup::defineResourceModules( $wgResourceModules );
 
 # AJAX functions
 FlaggedRevsUISetup::defineAjaxFunctions( $wgAjaxExportList );
