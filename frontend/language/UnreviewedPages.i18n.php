@@ -617,7 +617,7 @@ $messages['frp'] = array(
 	'unreviewedpages-category' => 'Catègorie :',
 	'unreviewedpages-diff' => 'revêre',
 	'unreviewedpages-unwatched' => '(pas siuvua)',
-	'unreviewedpages-watched' => '($1 {{PLURAL:$1|utilisator actif siut|utilisators actifs siuvont}} ceta pâge)',
+	'unreviewedpages-watched' => '($1 {{PLURAL:$1|usanciér actif siut|usanciérs actifs siuvont}} cela pâge)',
 	'unreviewedpages-list' => "Ceta pâge liste les pâges de contegnu qu’ont ''pas'' étâ [[{{MediaWiki:Validationpage}}|revues]] avouéc lo nivél spècefiâ.",
 	'unreviewedpages-none' => 'Ora, y at gins de pâge que corrèspond a cetos critèros',
 	'unreviewedpages-viewing' => '(en rèvision)',
@@ -784,6 +784,7 @@ $messages['hsb'] = array(
  * @author Glanthor Reviol
  * @author Gondnok
  * @author KossuthRad
+ * @author Misibacsi
  * @author Samat
  */
 $messages['hu'] = array(
@@ -798,7 +799,7 @@ $messages['hu'] = array(
 	'unreviewedpages-viewing' => '(ellenőrzés alatt)',
 	'unreviewedpages-hours' => '({{PLURAL:$1|egy|$1}} óra)',
 	'unreviewedpages-days' => '({{PLURAL:$1|egy|$1}} nap)',
-	'unreviewedpages-recent' => '(kevesebb, mint egy órája)',
+	'unreviewedpages-recent' => '(kevesebb mint egy órája)',
 );
 
 /** Interlingua (Interlingua)

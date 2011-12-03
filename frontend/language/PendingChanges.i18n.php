@@ -649,9 +649,9 @@ $messages['fi'] = array(
 	'pendingchanges-none' => 'Ehdot täyttäviä sivuja ei ole',
 	'pendingchanges-hours' => '($1 {{PLURAL:$1|tunti|tuntia}})',
 	'pendingchanges-days' => '($1 {{PLURAL:$1|päivä|päivää}})',
-	'pendingchanges-recent' => '(alle 1 tunti)',
+	'pendingchanges-recent' => '(alle 1 tuntia)',
 	'pendingchanges-category' => 'Luokka:',
-	'pendingchanges-onwatchlist' => 'Tarkkailulistan sivut',
+	'pendingchanges-onwatchlist' => 'Tarkkailulistallani olevat sivut',
 	'pendingchanges-stable' => 'Vakaa versio oletukseksi',
 	'pendingchanges-diff' => 'arvioi',
 	'pendingchanges-size' => 'Enimmäismuutos (tavua):',
@@ -706,7 +706,7 @@ $messages['frp'] = array(
 	'pendingchanges-diff' => 'revêre',
 	'pendingchanges-size' => 'Difèrence de talye la ples grôssa (en octèts) :',
 	'pendingchanges-unwatched' => '(pas siuvua)',
-	'pendingchanges-watched' => '($1 {{PLURAL:$1|utilisator actif siut|utilisators actifs siuvont}} ceta pâge)',
+	'pendingchanges-watched' => '($1 {{PLURAL:$1|usanciér actif siut|usanciérs actifs siuvont}} cela pâge)',
 	'pendingchanges-viewing' => '(en rèvision)',
 );
 

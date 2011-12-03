@@ -658,14 +658,14 @@ $3",
  * @author ZeiP
  */
 $messages['fi'] = array(
-	'validationstatistics' => 'Sivujen arvioinnin tilastot',
+	'validationstatistics' => 'Tilastosivu arvioinneista',
 	'validationstatistics-users' => "Sivustolla '''{{SITENAME}}''' on tällä hetkellä '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|käyttäjä, jolla|käyttäjää, joilla}} on [[{{MediaWiki:Validationpage}}|seulojan]] oikeudet.
 
 Seulojat ovat luotettavia käyttäjiä, jotka voivat arvioida sivuille tehtyjä muutoksia ja merkitä ne hyväksytyiksi.",
 	'validationstatistics-lastupdate' => "''Seuraavat tiedot päivitettiin viimeksi $1 kello $2.''",
 	'validationstatistics-pndtime' => "Oikeutettujen käyttäjien (seulojien) silmäilemät muokkaukset ovat ''arvioituja''.
 
-Keskimääräinen arviointiaika [[Special:OldReviewedPages|sivuilla, joilla on odottavia muokkauksia]] on '''$1'''. Tämä aika eli viive kertoo sen, kuinka kauan sarjassa vanhin arviointia odottava muutos odottaa edelleen arviointia.",
+Keskimääräinen arviointiaika [[Special:OldReviewedPages|sivuilla, joilla on odottavia muutoksia]] on '''$1'''. Tämä aika eli viive kertoo sen, kuinka kauan sarjassa vanhin arviointia odottava muutos odottaa edelleen arviointia.",
 	'validationstatistics-revtime' => "Keskimääräinen odotusaika ''sisäänkirjautumattomien käyttäjien'' muokkausten arviointiin on '''$1'''; mediaani on '''$2'''.
 $3",
 	'validationstatistics-table' => "Alla on kaikkien nimiavaruuksien arvioinnin tilastot ''lukuun ottamatta'' ohjaussivuja. Sivuja kohdellaan ''vanhentuneina'', jos niissä on arviointia odottavia muokkauksia, ja ne ovat ''synkronoituja'', mikäli niissä ei ole arviointia odottavia muokkauksia.",
@@ -725,9 +725,9 @@ $messages['frc'] = array(
  */
 $messages['frp'] = array(
 	'validationstatistics' => 'Statistiques de rèvision de les pâges',
-	'validationstatistics-users' => "'''{{SITENAME}}''' at ora '''[[Special:ListUsers/editor|$1]]''' utilisator{{PLURAL:$1||s}} avouéc los drêts de [[{{MediaWiki:Validationpage}}|contributor]].
+	'validationstatistics-users' => "'''{{SITENAME}}''' at ora '''[[Special:ListUsers/editor|$1]]''' usanciér{{PLURAL:$1||s}} avouéc los drêts de [[{{MediaWiki:Validationpage}}|contributor]].
 
-Los contributors sont des utilisators ètablis que pôvont controlar les vèrsions de les pâges.",
+Los contributors sont des usanciérs ètablis que pôvont controlar les vèrsions de les pâges.",
 	'validationstatistics-lastupdate' => "''Cetes balyês ont étâ betâs a jorn lo $1 a $2.''",
 	'validationstatistics-pndtime' => "Los changements controlâs per los utilisators confirmâs sont considèrâs coment ''revus''.
 
@@ -742,7 +742,7 @@ $3",
 	'validationstatistics-synced' => 'Sincronisâ / Revua',
 	'validationstatistics-old' => 'Dèpassâ',
 	'validationstatistics-utable' => 'Vê-que la lista {{PLURAL:$1|du rèvisor lo ples actif|des $1 rèvisors los ples actifs}} dens {{PLURAL:$2|l’hora passâ|les $2 hores passâs}}.',
-	'validationstatistics-user' => 'Utilisator',
+	'validationstatistics-user' => 'Usanciér',
 	'validationstatistics-reviews' => 'Rèvisions',
 );
 
@@ -941,6 +941,7 @@ Přerězny komdźenje za [[Special:OldReviewedPages|strony z njepřepruwowane zm
  * @author Dorgan
  * @author Glanthor Reviol
  * @author Hunyadym
+ * @author Misibacsi
  * @author Samat
  */
 $messages['hu'] = array(
@@ -949,20 +950,19 @@ $messages['hu'] = array(
 
 A járőrök olyan tapasztalt szerkesztők, akik ellenőrizhetik a lapok változatait.",
 	'validationstatistics-lastupdate' => "''Az alábbi adatokat legutóbb $1 $2-kor frissítették.''",
-	'validationstatistics-pndtime' => "Azok a szerkesztések, melyeket a gyakorlottabb szerkesztők végeznek, ellenőrzöttnek minősülnek.
+	'validationstatistics-pndtime' => "Azok a szerkesztések, amiket megerősített szerkesztők végeznek, ellenőrzöttnek minősülnek.
 
-[[Special:OldReviewedPages|A nem ellenőrzött szerkesztésekkel rendelkező lapok]] átlagos késleltetési ideje '''$1'''.
-Ezek a lapok ''elavultnak'' számítanak. A lapok akkor számítanak „frissnek”, ha nincsenek ellenőrzésre váró szerkesztéseik.",
+[[Special:OldReviewedPages|A nem ellenőrzött szerkesztésekkel rendelkező lapok]] átlagos várakozási ideje '''$1'''. A várakozási idő az ellenőrzésre váró legrégebbi módosítás óta értendő.",
 	'validationstatistics-revtime' => "A ''nem bejelentkezett szerkesztőknek'' '''$1''' az átlagos várakozási idő az ellenőrzésig; a medián '''$2'''.
 $3",
-	'validationstatistics-table' => "Ezen az oldalon a névterekre bontott ellenőrzési statisztika látható, az átirányítások ''nélkül''.",
+	'validationstatistics-table' => "Ezen az oldalon a névterekre bontott ellenőrzési statisztika látható, az átirányítások ''nélkül''. Egy oldal ''elavult'' lesz, ha ellenőrzésre váró módosítás történt rajta. ''Szinkronban van'', ha nincs ellenőrzésre váró módosítás.",
 	'validationstatistics-ns' => 'Névtér',
 	'validationstatistics-total' => 'Lapok',
 	'validationstatistics-stable' => 'Ellenőrizve',
 	'validationstatistics-latest' => 'Szinkronizálva',
 	'validationstatistics-synced' => 'Szinkronizálva/ellenőrizve',
 	'validationstatistics-old' => 'Elavult',
-	'validationstatistics-utable' => 'Az alábbi lista az elmúlt óra {{PLURAL:$1| legtöbbet ellenőrző felhasználóját|$1 legtöbbet ellenőrző felhasználóit}} mutatja.',
+	'validationstatistics-utable' => 'A lista a(z) {{PLURAL:$1|legaktívabb járőrt|$1 legaktívabb járőrt}} mutatja az elmúlt {{PLURAL:$2|órában|$2 órában}}.',
 	'validationstatistics-user' => 'Felhasználó',
 	'validationstatistics-reviews' => 'Ellenőrzések',
 );

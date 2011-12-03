@@ -321,9 +321,9 @@ $messages['fa'] = array(
  * @author Pxos
  */
 $messages['fi'] = array(
-	'configuredpages' => 'Sivut, joilla on arviointiasetuksia',
-	'configuredpages-list' => 'Alla on lista sivuista, joilla on sivun oletusasetuksista poikkeavat hyväksymisasetukset.
-Jotkut asetukset saattavat muuttaa sitä, mikä versio näytetään lukijoille tai rajoittaa tulevia muokkauksia siltä osin, kuka voi tehdä muokkauksia, joita ei tarvitse arvioida.',
+	'configuredpages' => 'Sivut, joilla on oletusarvoista poikkeavia arviointiasetuksia.',
+	'configuredpages-list' => 'Alla on luettelo sivuista, joilla on oletusasetuksista poikkeavat arvioinnin hyväksymisasetukset.
+Jotkut asetukset saattavat vaikuttaa siihen, mikä versio näytetään lukijoille tai rajoittaa sitä, kuka voi tehdä sellaisia muokkauksia, jotka eivät vaadi arviointia.',
 	'configuredpages-none' => 'Tällä listalla ei ole sivuja.',
 	'configuredpages-config' => 'Asetukset',
 	'configuredpages-def-draft' => 'viimeisin versio',

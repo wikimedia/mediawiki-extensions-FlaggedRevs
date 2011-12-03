@@ -223,7 +223,7 @@ $messages['fa'] = array(
  */
 $messages['fi'] = array(
 	'qualityoversight' => 'Kehittynyt arviointiloki',
-	'qualityoversight-list' => 'Tämä sivu listaa versioiden tuoreimmat hyväksynnät ja ja arviointien poistot.',
+	'qualityoversight-list' => 'Tässä luettelossa ovat tuoreimmat arvioinnit ja arviointien poistot.',
 	'qualityoversight-legend' => 'Hae tuoreista arviointilokeista',
 );
 

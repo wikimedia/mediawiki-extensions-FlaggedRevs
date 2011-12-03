@@ -4786,6 +4786,7 @@ $3  [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffon
  * @author Pxos
  * @author Silvonen
  * @author Str4nd
+ * @author Zache
  * @author ZeiP
  */
 $messages['fi'] = array(
@@ -4811,18 +4812,18 @@ $messages['fi'] = array(
 	'group-editor-member' => '{{GENDER:$1|seuloja}}',
 	'group-reviewer' => 'sisällöntarkastajat',
 	'group-reviewer-member' => '{{GENDER:$1|sisällöntarkastaja}}',
-	'grouppage-editor' => '{{ns:project}}:Seuloja',
-	'grouppage-reviewer' => '{{ns:project}}:Sisällöntarkastaja',
+	'grouppage-editor' => '{{ns:project}}:Seulojat',
+	'grouppage-reviewer' => '{{ns:project}}:Sisällöntarkastajat',
 	'group-autoreview' => 'automaattiseulojat',
 	'group-autoreview-member' => '{{GENDER:$1|automaattiseuloja}}',
-	'grouppage-autoreview' => '{{ns:project}}:Automaattiset seulojat',
+	'grouppage-autoreview' => '{{ns:project}}:Automaattiseulojat',
 	'revreview-hist-draft' => 'katsastamaton versio',
 	'revreview-hist-pending' => 'odottaa arviointia',
-	'revreview-hist-quality' => 'vahvistettu versio',
+	'revreview-hist-quality' => 'version sisältö on tarkastettu',
 	'revreview-hist-basic' => 'silmäilty versio',
-	'revreview-hist-quality-user' => 'hyväksynyt [[User:$3|$3]]',
+	'revreview-hist-quality-user' => 'sisällön tarkastanut [[User:$3|$3]]',
 	'revreview-hist-basic-user' => 'katsonut [[User:$3|$3]]',
-	'revreview-hist-quality-auto' => 'automaattisesti hyväksytty',
+	'revreview-hist-quality-auto' => 'sisältö automaattisesti tarkastettu',
 	'revreview-hist-basic-auto' => 'automaattisesti katsottu',
 	'revreview-hist-pending-difflink' => "'''[[{{fullurl:$1|oldid=$2&diff=$3{{MediaWiki:flaggedrevs-diffonly}}}} odottaa arviointia]]'''",
 	'review-edit-diff' => "'''HUOMAUTUS: Jotkut arviointia odottavista muutoksista kohdistuvat samalle alueelle, jota olet parhaillaan muokkaamassa.'''",
@@ -4839,7 +4840,7 @@ $messages['fi'] = array(
 	'review-logentry-app' => 'arvioi version sivusta [[$1]]',
 	'review-logentry-dis' => 'poisti version arvioinnin sivusta [[$1]]',
 	'review-logentry-id' => 'versio: $2',
-	'review-logentry-diff' => 'arvioidut muutokset',
+	'review-logentry-diff' => 'muutosten ero',
 	'review-logentry-diff2' => 'vanhentuneet muutokset',
 	'review-logpage' => 'Arviointiloki',
 	'review-logpagetext' => 'Tämä on loki sisältösivujen niistä versioista, jotka on [[{{MediaWiki:Validationpage}}|arvioitu]].',
@@ -4860,7 +4861,7 @@ type=review&page={{FULLPAGENAMEE}}}} arvioitiin] <i>$2</i>.
 Uusia [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} muutoksia] on voitu tehdä.',
 	'revreview-basic-same' => 'Tämä on [[{{MediaWiki:Validationpage}}|vakaa versio]], joka on [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} katsottu] <i>$2</i>.',
 	'revreview-basic-source' => '[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} Silmäilty versio] tästä sivusta, joka [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} hyväksyttiin] <i>$2</i>, perustui tähän versioon.',
-	'revreview-current' => 'Odottavat muutokset',
+	'revreview-current' => 'Luonnos',
 	'revreview-depth' => 'Laajuus',
 	'revreview-depth-0' => 'Puutteellinen',
 	'revreview-depth-1' => 'Perustasoa',
@@ -4887,7 +4888,7 @@ Sivun [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} vakaa versio] on [{{fullurl:{{#Spe
 	'revreview-pending-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Vakaa versio] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} hyväksyttiin] <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|muokkaus|muokkausta}}] odottaa arviointia.',
 	'revreview-pending-nosection' => 'Voit katsoa siirrettiinkö sivun osa vai poistettiinko se kokeilemalla [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} viimeisimmän muutoksen katselua], joka sisältää
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|odottavan muutoksen|odottavaa muutosta}}].',
-	'revreview-noflagged' => "Tästä sivusta ei ole yhtään [[{{MediaWiki:Validationpage}}|arvioitua versiota]], joten sen laatua '''ei''' ehkä ole [[{{MediaWiki:Validationpage}}|arvioitu]].",
+	'revreview-noflagged' => "Tästä sivusta ei ole yhtään [[{{MediaWiki:Validationpage}}|arvioitua versiota]], joten sen laatua '''ei''' ole [[{{MediaWiki:Validationpage}}|arvioitu]].",
 	'revreview-oldrating' => 'Arvio oli:',
 	'revreview-quality' => 'Tämä on [[{{MediaWiki:Validationpage}}|vakaa versio]], joka [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} hyväksyttiin] <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|muutos|muutosta}}] odottaa arviointia.',
@@ -4906,8 +4907,8 @@ Uusia [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diff
 	'revreview-quick-quality' => "'''[[{{MediaWiki:Validationpage}}|Sisältö tarkastettu]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} arvioi odottavat muutokset]]",
 	'revreview-quick-quality-old' => "'''[[{{MediaWiki:Validationpage}}|Sisältö tarkastettu]]'''",
 	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|Sisältö tarkastettu]]'''",
-	'revreview-quick-see-basic' => '[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} arvioi odottavat muutokset]]',
-	'revreview-quick-see-quality' => '[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} arvioi odottavat muutokset]]',
+	'revreview-quick-see-basic' => '[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} näytä odottavat muutokset]]',
+	'revreview-quick-see-quality' => '[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} näytä odottavat muutokset]]',
 	'revreview-source' => 'Näytä lähde',
 	'revreview-basic-title' => 'Tämä on silmäilty versio tästä sivusta',
 	'revreview-style' => 'Luettavuus',
@@ -4939,9 +4940,9 @@ Uusia [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diff
 	'revreview-filter-all' => 'kaikki',
 	'revreview-filter-stable' => 'vakaa',
 	'revreview-statusfilter' => 'Arviointitila:',
-	'revreview-filter-approved' => 'Hyväksytty',
-	'revreview-filter-reapproved' => 'Hyväksytty uudelleen',
-	'revreview-filter-unapproved' => 'Hyväksyntä poistettu',
+	'revreview-filter-approved' => 'Arvioitu',
+	'revreview-filter-reapproved' => 'Arvioitu uudelleen',
+	'revreview-filter-unapproved' => 'Arviointi poistettu',
 	'revreview-typefilter' => 'Tyyppi:',
 	'revreview-filter-auto' => 'Automaattinen',
 	'revreview-filter-manual' => 'Manuaalinen',
@@ -4966,7 +4967,7 @@ Uusia [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diff
 	'flaggedrevs-protect-legend' => 'Automaattinen muokkauksen arviointi ([[{{MediaWiki:Validationpage}}|ohjeet]])',
 	'flaggedrevs-protect-none' => 'Salli kaikki käyttäjät',
 	'flaggedrevs-categoryview' => '[{{fullurl:Special:UnreviewedPages|category=$1}} Arvioimattomat sivut]{{MediaWiki:pipe-separator}}[{{fullurl:Special:PendingChanges|category=$1}} Odottavat muutokset]',
-	'revreview-locked-title' => 'Tälle sivulle tehtävät muokkaukset vaativat arviointia.',
+	'revreview-locked-title' => 'Tälle sivulle tehtävät muutokset vaativat arviointia.',
 	'revreview-unlocked-title' => 'Tälle sivulle tehtäviä muutoksia ei tarvitse arvioida.',
 	'revreview-locked' => "'''Huomautus:''' Muokkaukset näkyvät tällä sivulla vasta [[{{MediaWiki:Validationpage}}|arvioinnin]] jälkeen.",
 	'revreview-unlocked' => "'''Huomautus:''' Muokkaukset eivät vaadi [[{{MediaWiki:Validationpage}}|arviointia]] näkyäkseen tällä sivulla.",
@@ -5273,12 +5274,12 @@ De novéls [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs
 	'revreview-depth-4' => 'Remarcâbla',
 	'revreview-draft-title' => 'Los changements en atenta sont montrâs sur ceta pâge',
 	'revreview-edit' => 'Changiér',
-	'revreview-editnotice' => "'''Voutros changements seront montrâs ux liésors setout qu’un utilisator qu’at los drêts nècèssèros los arat revus. ([[{{MediaWiki:Validationpage}}|éde]])'''",
+	'revreview-editnotice' => "'''Voutros changements seront montrâs ux liésors setout qu’un usanciér qu’at los drêts nècèssèros los arat revus. ([[{{MediaWiki:Validationpage}}|éde]])'''",
 	'revreview-submitedit' => 'Sometre los changements',
 	'revreview-submitedit-title' => 'Sometre voutros changements por rèvision',
-	'revreview-edited' => "'''Voutros changements seront montrâs ux liésors setout qu’un utilisator qu’at los drêts nècèssèros los arat revus. ([[{{MediaWiki:Validationpage}}|éde]])'''
+	'revreview-edited' => "'''Voutros changements seront montrâs ux liésors setout qu’un usanciér qu’at los drêts nècèssèros los arat revus. ([[{{MediaWiki:Validationpage}}|éde]])'''
 
-Y at [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 changement{{PLURAL:$2||s}}] ''(vêde ce-desot)'' en atenta de rèvision.",
+Ora, y at [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 changement{{PLURAL:$2||s}} en atenta de rèvision] ''(vêde ce-desot)''.",
 	'revreview-edited-section' => 'Tornar a la sèccion de la pâge apelâ « [[#$1|$2]] ».',
 	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 changement{{PLURAL:$3||s}}] dens cela vèrsion {{PLURAL:$3|est|sont}} [[{{MediaWiki:Validationpage}}|en atenta de rèvision]].
 La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} vèrsion stâbla] at étâ [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} controlâ] lo <i>$2</i>.',

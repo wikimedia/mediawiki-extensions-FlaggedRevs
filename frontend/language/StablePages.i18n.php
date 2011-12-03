@@ -378,8 +378,8 @@ Les modifications faites par les autres utilisateurs ne sont pas affichées par 
  */
 $messages['frp'] = array(
 	'stablepages' => 'Pâges qu’utilisont la validacion des changements',
-	'stablepages-list' => 'Vê-que una lista de les pâges que sont rètrentes de façon que solament quârques utilisators la pôvont changiér sen qu’una rèvision seye nècèssèra.
-Los changements fêts per los ôtros utilisators sont pas montrâs per dèfôt ux liésors tant qu’un utilisator ôtorisâ los èye revus.',
+	'stablepages-list' => 'Vê-que una lista de les pâges que sont rètrentes de façon que solament quârques usanciérs la pôvont changiér sen qu’una rèvision seye nècèssèra.
+Los changements fêts per los ôtros usanciérs sont pas montrâs per dèfôt ux liésors tant qu’un usanciér ôtorisâ los èye revus.',
 	'stablepages-none' => 'Y at gins de pâge dens ceta lista.',
 	'stablepages-config' => 'Configuracion',
 	'stablepages-indef' => 'Ren que l’èxpiracion sen fin',
@@ -472,11 +472,12 @@ $messages['hsb'] = array(
 /** Hungarian (Magyar)
  * @author Dani
  * @author Glanthor Reviol
+ * @author Misibacsi
  * @author Samat
  */
 $messages['hu'] = array(
 	'stablepages' => 'Szerkesztések ellenőrzését megkövetelő',
-	'stablepages-list' => 'Ez a lista azokat a korlátozott lapokat tartalmazza, amelyeknél csak meghatározott felhasználók szerkeszthetnek ellenőrzés nélkül. Az ilyen szerkesztések nincsenek közzétéve, amíg egy járőr nem ellenőrzi őket.',
+	'stablepages-list' => 'Ez a lista azokat a lapokat tartalmazza, melyeket csak meghatározott felhasználók szerkeszthetnek ellenőrzés nélkül. Más szerkesztők által végzett szerkesztések nincsenek közzétéve, amíg egy járőr nem ellenőrzi őket.',
 	'stablepages-none' => 'Nem található egyetlen lap sem a listában',
 	'stablepages-config' => 'beállítás',
 	'stablepages-indef' => 'Csak határozatlan lejárat',
