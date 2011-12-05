@@ -427,7 +427,7 @@ $messages['fa'] = array(
  */
 $messages['fi'] = array(
 	'reviewedpages' => 'Arvioidut sivut',
-	'reviewedpages-leg' => 'Luettele sivut, jotka on arvioitu',
+	'reviewedpages-leg' => 'Luettelo sivuista, jotka on arvioitu',
 	'reviewedpages-list' => "Tässä luetellaan sivut, joiden versio on [[{{MediaWiki:Validationpage}}|arvioitu]] ''parhaalle laatutasolle'' valitulla tasolla.
 Linkki viittaa tämän tason viimeisimpään versioon.",
 	'reviewedpages-none' => 'Tässä luettelossa ei ole yhtään sivua.',

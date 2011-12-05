@@ -1198,7 +1198,7 @@ $messages['fa'] = array(
  * @author ZeiP
  */
 $messages['fi'] = array(
-	'stabilization-tab' => 'konfiguroi',
+	'stabilization-tab' => 'vakautus',
 	'stabilization' => 'Sivun vakauttaminen',
 	'stabilization-text' => "'''Muuta alla olevia asetuksia jotka määrittävät, kuinka sivun [[:$1|$1]] vakaa versio valitaan ja näytetään.'''",
 	'stabilization-perm' => 'Tunnuksellasi ei ole oikeutta muuttaa vakaiden versioiden asetuksia.
@@ -1206,7 +1206,7 @@ Tässä ovat nykyiset asetukset kohteelle [[:$1|$1]]:',
 	'stabilization-page' => 'Sivun nimi:',
 	'stabilization-leg' => 'Vahvista vakaiden versioiden asetukset',
 	'stabilization-def' => 'Versio, joka näytetään oletusarvoisesti',
-	'stabilization-def1' => 'Vakaa versio; jos sellaista ei ole, viimeisin versio',
+	'stabilization-def1' => 'Vakaa versio, tai viimeisin versio, jos vakaata versiota ei ole',
 	'stabilization-def2' => 'Viimeisin versio',
 	'stabilization-restrict' => 'Seulonnan/automaattiseulonnan rajoitukset',
 	'stabilization-restrict-none' => 'Ei erityisiä rajoituksia',
@@ -1214,7 +1214,7 @@ Tässä ovat nykyiset asetukset kohteelle [[:$1|$1]]:',
 	'stabilization-notexists' => 'Sivua [[:$1|$1]] ei ole olemassa.
 Asetusten määrittäminen ei ole mahdollista.',
 	'stabilization-notcontent' => 'Sivua "[[:$1|$1]]" ei voi merkitä arvioiduksi.
-Asetuksia ei voi tehdä.',
+Asetusten määrittäminen ei ole mahdollista.',
 	'stabilization-comment' => 'Syy:',
 	'stabilization-otherreason' => 'Muu syy',
 	'stabilization-expiry' => 'Vanhenee:',
@@ -1227,7 +1227,7 @@ Asetuksia ei voi tehdä.',
 	'stabilize_page_unreviewable' => 'Kohdesivu ei ole nimiavaruudessa, jonka sivuja voitaisiin arvioida.',
 	'stabilize_invalid_autoreview' => 'Automaattisen seulonnan rajoitus ei kelpaa.',
 	'stabilize_invalid_level' => 'Suojaustaso on virheellinen.',
-	'stabilize_expiry_invalid' => 'Virheellinen erääntymispäivä.',
+	'stabilize_expiry_invalid' => 'Virheellinen päättymispäivä.',
 	'stabilize_expiry_old' => 'Tämä erääntymisaika on jo mennyt.',
 	'stabilize_denied' => 'Ei oikeutta.',
 	'stabilize-expiring' => 'vanhenee $1 (UTC)',

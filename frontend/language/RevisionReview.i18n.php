@@ -795,7 +795,7 @@ $messages['br'] = array(
 	'review_reject_excessive' => "N'haller ket disteuler kement a gemmoù war un dro.",
 	'revreview-check-flag-p' => "Degemer ar stumm-mañ (e-barzh $1 {{PLURAL:$1|c'hemm|kemm}} da zont)",
 	'revreview-check-flag-p-title' => "Asantiñ pep kemm o c'hortoz gant ho kemmoù deoc'h. Implijit an dra-se nemet m'ho peus gwelet an difoc'h eus hollad ar c'hemmoù o c'hortoz.",
-	'revreview-check-flag-u' => 'Asantiñ ar bajenn nann-adwelet-mañ',
+	'revreview-check-flag-u' => "Degemer ar bajenn-mañ n'eo ket bet adlennet",
 	'revreview-check-flag-u-title' => "Degemer ar stumm-mañ eus ar bajenn. Na implijit an kement-mañ nemet m'hoc'h eus gwelet dija ar bajenn en he fezh.",
 	'revreview-check-flag-y' => "Degemer ar c'hemmoù-mañ",
 	'revreview-check-flag-y-title' => "Degemer an holl gemmoù hoc'h eus graet er c'hemm-mañ.",
@@ -1712,13 +1712,13 @@ $messages['fa'] = array(
  * @author Str4nd
  */
 $messages['fi'] = array(
-	'revisionreview' => 'Arvioi versioita',
+	'revisionreview' => 'Versioiden arviointi',
 	'revreview-failed' => "'''Tätä versiota ei voitu arvioida.'''",
-	'revreview-submission-invalid' => 'Lisäys oli puutteellinen tai muutoin epäkelpo.',
+	'revreview-submission-invalid' => 'Lisäys oli puutteellinen tai muutoin kelvoton.',
 	'review_page_invalid' => 'Kohdesivun nimi ei kelpaa.',
 	'review_page_notexists' => 'Kohdesivua ei ole olemassa.',
 	'review_page_unreviewable' => 'Kohdesivua ei voi arvioida.',
-	'review_no_oldid' => 'Muokkauksen tunnistenumeroa ei määritelty.',
+	'review_no_oldid' => 'Versiotunnistetta ei määritelty.',
 	'review_bad_oldid' => 'Kohdemuokkausta ei löydy.',
 	'review_conflict_oldid' => 'Joku on jo ehtinyt hyväksyä tai hylätä tämän version sillä aikaa, kun katselit sitä.',
 	'review_not_flagged' => 'Kohteena olevaa versiota ei ole tällä hetkellä merkitty arvioiduksi.',
@@ -1763,10 +1763,10 @@ Katso [[Special:Unreviewedpages|lista sivuista, joita ei ole arvioitu]].',
 	'revreview-sadv-reviewing-p' => 'Voit $1 muille käyttäjille, että arvioit tätä sivua.',
 	'revreview-sadv-reviewing-c' => 'Voit $1 muille käyttäjille, että olet arvioimassa näitä muutoksia.',
 	'revreview-adv-start-link' => 'ilmoittaa',
-	'revreview-adv-stop-link' => 'Älä ilmoita',
+	'revreview-adv-stop-link' => 'Älä ilmoita muille',
 	'revreview-toolow' => "'''Sinun tulee arvioida kaikki alla olevat kohdat paremmalla arvolla kuin ”puutteellinen”, jotta versio katsottaisiin arvioiduksi.'''
 
-Poistaaksesi version arviointitilan, napsauta \"Älä hyväksy\".
+Poistaaksesi version arviointitilan napsauta \"Poista version arviointi\".
 
 Palaa selaimen takaisin-painikkeella ja yritä uudelleen.",
 	'revreview-update' => "'''Ole hyvä ja [[{{MediaWiki:Validationpage}}|arvioi]] kaikki odottavat muutokset '''(näytetään alla)''', jotka on tehty vakaan version jälkeen.'''",
@@ -1786,9 +1786,9 @@ Arvioi kaikki alla olevat muutokset, jotta muokkauksesi näkyisivät vakaassa ve
 	'revreview-reject-summary-old' => 'Hylättiin {{PLURAL:$1|ensimmäinen tekstimuutos|ensimmäiset $1 tekstimuutosta}} (käyttäjältä $2), jotka tehtiin versioon $3 käyttäjältä $4',
 	'revreview-reject-summary-cur-short' => 'Hylättiin {{PLURAL:$1|viimeinen tekstimuutos|viimeiset $1 tekstimuutosta}} ja palautettiin versio $2, jonka on tehnyt käyttäjä $3.',
 	'revreview-reject-summary-old-short' => 'Hylättiin {{PLURAL:$1|ensimmäinen tekstimuutos, joka|ensimmäiset $1 tekstimuutosta, jotka}} tehtiin versioon $2 käyttäjältä $3',
-	'revreview-tt-flag' => 'Hyväksy tämä versio merkitsemällä se ”silmäillyksi”',
-	'revreview-tt-unflag' => 'Peruuta tämän version arviointi merkitsemällä se ”arvioimattomaksi”',
-	'revreview-tt-reject' => 'Hylkää nämä lähdetekstiin tehdyt muokkaukset kumoamalla ne',
+	'revreview-tt-flag' => 'Hyväksy tämä versio merkitsemällä se ”silmäillyksi”. Huomaa, että hyväksyt samalla kaikki muutokset, jotka on tehty nykyisen version ja edellisen vakaan version välillä.',
+	'revreview-tt-unflag' => "Poista tämän version arviointi merkitsemällä se ”katsastamattomaksi''. Tämä toiminto ei vaikuta muiden versioiden arviointimerkintöihin.",
+	'revreview-tt-reject' => 'Hylkää nämä lähdetekstiin tehdyt muutokset kumoamalla ne. Tämä toiminto avaa erillisen sivun, jossa luetellaan ne muutokset, jotka haluat hylätä.',
 );
 
 /** French (Français)

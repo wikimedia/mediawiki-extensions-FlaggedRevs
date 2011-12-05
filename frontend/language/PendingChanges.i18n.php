@@ -644,12 +644,12 @@ $messages['fa'] = array(
  */
 $messages['fi'] = array(
 	'pendingchanges' => 'Sivut, joilla on arviointia odottavia muutoksia',
-	'pendingchanges-legend' => 'Luettelo arvioiduista sivuista, joilla on arviointia odottavia muutoksia.',
+	'pendingchanges-legend' => 'Luettele arvioidut sivut, joissa on arviointia odottavia muutoksia.',
 	'pendingchanges-list' => 'Tämä sivu näyttää [[{{MediaWiki:Validationpage}}|arvioidut]] sivut, joilla on odottavia muutoksia.',
 	'pendingchanges-none' => 'Ehdot täyttäviä sivuja ei ole',
 	'pendingchanges-hours' => '($1 {{PLURAL:$1|tunti|tuntia}})',
 	'pendingchanges-days' => '($1 {{PLURAL:$1|päivä|päivää}})',
-	'pendingchanges-recent' => '(alle 1 tuntia)',
+	'pendingchanges-recent' => '(alle yksi tunti)',
 	'pendingchanges-category' => 'Luokka:',
 	'pendingchanges-onwatchlist' => 'Tarkkailulistallani olevat sivut',
 	'pendingchanges-stable' => 'Vakaa versio oletukseksi',
