@@ -1135,7 +1135,7 @@ Editor lan Pamriksa iku panganggo mapan sing bisa mriksa langsung owah-owahan ka
  */
 $messages['ka'] = array(
 	'validationstatistics' => 'გვერდების შემოწმების სტატისტიკა',
-	'validationstatistics-users' => "პროექტ {{SITENAME}} ამ მომენტისთვის '''[[Special:ListUsers/editor|$1]]''' {{plural:$1|მომხმარებელს აქვს|მომხმარებელს აქვს}} [[{{MediaWiki:Validationpage}}|„შემმოწმებლის“]] სტატუსი.
+	'validationstatistics-users' => "პროექტ {{SITENAME}}ში ამ მომენტისთვის '''[[Special:ListUsers/editor|$1]]''' {{plural:$1|მომხმარებელი|მომხმარებელს}} აქვს [[{{MediaWiki:Validationpage}}|„შემმოწმებლის“]] სტატუსი.
 
 
 „შემმოწმებლები“ არიან მომხმარებლები, რომლებსაც შეუძლიათ სტატიის კონკრეტული ვერსიების შემოწმება.",

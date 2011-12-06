@@ -1758,18 +1758,18 @@ Katso [[Special:Unreviewedpages|lista sivuista, joita ei ole arvioitu]].',
 	'revreview-successful2' => "'''Sivun [[:$1|$1]] version arviointimerkintä on nyt poistettu.'''",
 	'revreview-poss-conflict-p' => "'''Varoitus: Käyttäjä [[User:$1|$1]] on aloittanut tämän sivun arvioinnin $2 kello $3.'''",
 	'revreview-poss-conflict-c' => "'''Varoitus: Käyttäjä [[User:$1|$1]] on aloittanut näiden muutosten arvioinnin $2 kello $3.'''",
-	'revreview-adv-reviewing-p' => 'Huomautus! Muut seulojat näkevät nyt, että arvioit tätä sivua.',
-	'revreview-adv-reviewing-c' => 'Huomautus! Muut seulojat näkevät nyt, että arvioit näitä muutoksia.',
+	'revreview-adv-reviewing-p' => 'Huomautus: Muut seulojat näkevät, että arvioit tätä sivua.',
+	'revreview-adv-reviewing-c' => 'Huomautus: Muut seulojat näkevät, että arvioit näitä muutoksia.',
 	'revreview-sadv-reviewing-p' => 'Voit $1 muille käyttäjille, että arvioit tätä sivua.',
 	'revreview-sadv-reviewing-c' => 'Voit $1 muille käyttäjille, että olet arvioimassa näitä muutoksia.',
 	'revreview-adv-start-link' => 'ilmoittaa',
-	'revreview-adv-stop-link' => 'Älä ilmoita muille',
+	'revreview-adv-stop-link' => 'älä ilmoita muille',
 	'revreview-toolow' => "'''Sinun tulee arvioida kaikki alla olevat kohdat paremmalla arvolla kuin ”puutteellinen”, jotta versio katsottaisiin arvioiduksi.'''
 
 Poistaaksesi version arviointitilan napsauta \"Poista version arviointi\".
 
 Palaa selaimen takaisin-painikkeella ja yritä uudelleen.",
-	'revreview-update' => "'''Ole hyvä ja [[{{MediaWiki:Validationpage}}|arvioi]] kaikki odottavat muutokset '''(näytetään alla)''', jotka on tehty vakaan version jälkeen.'''",
+	'revreview-update' => "'''[[{{MediaWiki:Validationpage}}|Arvioi]] kaikki odottavat muutokset (näytetään alla), jotka on tehty vakaan version jälkeen.'''",
 	'revreview-update-edited' => '<span class="flaggedrevs_important">Muutoksesi eivät ole vielä näkyvissä vakaassa versiossa.</span>
 
 Arvioi kaikki alla olevat muutokset, jotta muutoksesi näkyisivät vakaassa versiossa.',
@@ -1777,17 +1777,17 @@ Arvioi kaikki alla olevat muutokset, jotta muutoksesi näkyisivät vakaassa vers
 
 Arvioi kaikki alla olevat muutokset, jotta muokkauksesi näkyisivät vakaassa versiossa.',
 	'revreview-update-includes' => 'Mallineita tai tiedostoja on päivitetty (arvioimattomat sivut on lihavoitu):',
-	'revreview-reject-text-list' => "Suorittamalla tämän toiminnon '''hylkäät''' alla {{PLURAL:$1|olevan version, joka|olevat versiot, jotka}} on tehty sivun [[:$2|$2]] lähdetekstiin:",
+	'revreview-reject-text-list' => "Suorittamalla tämän toiminnon '''hylkäät''' alla {{PLURAL:$1|olevan muutoksen, joka|olevat muutokset, jotka}} on tehty sivun [[:$2|$2]] lähdetekstiin:",
 	'revreview-reject-text-revto' => 'Tämä palauttaa sivun takaisin [{{fullurl:$1|oldid=$2}} ajankohdan $3 versioon].',
 	'revreview-reject-summary' => 'Yhteenveto:',
 	'revreview-reject-confirm' => 'Vahvista näiden muutosten hylkääminen',
 	'revreview-reject-cancel' => 'Peruuta',
 	'revreview-reject-summary-cur' => 'Hylättiin {{PLURAL:$1|viimeisin tekstimuutos|viimeisimmät $1 tekstimuutosta}} (käyttäjältä $2) ja palautettiin versio $3 käyttäjältä $4',
-	'revreview-reject-summary-old' => 'Hylättiin {{PLURAL:$1|ensimmäinen tekstimuutos|ensimmäiset $1 tekstimuutosta}} (käyttäjältä $2), jotka tehtiin versioon $3 käyttäjältä $4',
+	'revreview-reject-summary-old' => 'Hylättiin {{PLURAL:$1|ensimmäinen tekstimuutos (käyttäjältä $2), joka|ensimmäiset $1 tekstimuutosta (käyttäjältä $2), jotka}} tehtiin versioon $3 käyttäjältä $4',
 	'revreview-reject-summary-cur-short' => 'Hylättiin {{PLURAL:$1|viimeinen tekstimuutos|viimeiset $1 tekstimuutosta}} ja palautettiin versio $2, jonka on tehnyt käyttäjä $3.',
 	'revreview-reject-summary-old-short' => 'Hylättiin {{PLURAL:$1|ensimmäinen tekstimuutos, joka|ensimmäiset $1 tekstimuutosta, jotka}} tehtiin versioon $2 käyttäjältä $3',
 	'revreview-tt-flag' => 'Hyväksy tämä versio merkitsemällä se ”silmäillyksi”. Huomaa, että hyväksyt samalla kaikki muutokset, jotka on tehty nykyisen version ja edellisen vakaan version välillä.',
-	'revreview-tt-unflag' => "Poista tämän version arviointi merkitsemällä se ”katsastamattomaksi''. Tämä toiminto ei vaikuta muiden versioiden arviointimerkintöihin.",
+	'revreview-tt-unflag' => "Poista tämän version arviointi merkitsemällä se ''arvioimattomaksi''. Tämä toiminto ei vaikuta muiden versioiden arviointimerkintöihin.",
 	'revreview-tt-reject' => 'Hylkää nämä lähdetekstiin tehdyt muutokset kumoamalla ne. Tämä toiminto avaa erillisen sivun, jossa luetellaan ne muutokset, jotka haluat hylätä.',
 );
 
