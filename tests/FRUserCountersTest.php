@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * @group Database
+ */
 class FRUserCountersTest extends PHPUnit_Framework_TestCase {
 	/**
 	 * Prepares the environment before running a test.
@@ -21,6 +24,7 @@ class FRUserCountersTest extends PHPUnit_Framework_TestCase {
 	public function __construct() {}
 
 	public function testGetAndSaveUserParams() {
+		$this->tablesUsed[] = 'flaggedrevs_autopromote';
 		$p = FRUserCounters::getUserParams( -1 );
 		$expected = array(
 			'uniqueContentPages' 	=> array(),
