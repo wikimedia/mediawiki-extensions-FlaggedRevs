@@ -295,7 +295,7 @@ $messages['fi'] = array(
 	'problemchanges-list' => 'Tämä sivu luettelee [[{{MediaWiki:Validationpage}}|arvioidut]] sivut, joilla on yksi tai useampi ongelmalliseksi merkitty muutos odottamassa arviointia. Luettelo [[Special:Tags|kelvollisista muutosmerkinnöistä]] on saatavissa.',
 	'problemchanges-legend' => 'Luettelo sivuista, joilla on sellaisia odottavia muutoksia, jotka on merkitty ongelmallisiksi.',
 	'problemchanges-none' => 'Tällä hetkellä ei ole sivuja, jotka täyttävät nämä ehdot',
-	'problemchanges-category' => 'Luokka:',
+	'problemchanges-category' => 'Luokka',
 );
 
 /** French (Français)

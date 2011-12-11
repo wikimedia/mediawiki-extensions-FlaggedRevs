@@ -1374,6 +1374,7 @@ $messages['el'] = array(
 	'revreview-reject-summary' => 'Σύνοψη:',
 	'revreview-reject-confirm' => 'Απόρριψη αυτών των αλλαγών',
 	'revreview-reject-cancel' => 'Ακύρωση',
+	'revreview-tt-reject' => 'Απορρίψετε αυτές τις αλλαγές κειμένου πηγής  με αναστροφή τους',
 );
 
 /** Esperanto (Esperanto)
@@ -1707,6 +1708,7 @@ $messages['fa'] = array(
  * @author Cimon Avaro
  * @author Crt
  * @author Nedergard
+ * @author Nike
  * @author Olli
  * @author Pxos
  * @author Str4nd
@@ -1777,7 +1779,7 @@ Arvioi kaikki alla olevat muutokset, jotta muutoksesi näkyisivät vakaassa vers
 
 Arvioi kaikki alla olevat muutokset, jotta muokkauksesi näkyisivät vakaassa versiossa.',
 	'revreview-update-includes' => 'Mallineita tai tiedostoja on päivitetty (arvioimattomat sivut on lihavoitu):',
-	'revreview-reject-text-list' => "Suorittamalla tämän toiminnon '''hylkäät''' alla {{PLURAL:$1|olevan muutoksen, joka|olevat muutokset, jotka}} on tehty sivun [[:$2|$2]] lähdetekstiin:",
+	'revreview-reject-text-list' => "Suorittamalla tämän toiminnon '''hylkäät''' alla {{PLURAL:$1|olevan muutoksen|olevat muutokset}} sivun [[:$2|$2]] lähdetekstiin:",
 	'revreview-reject-text-revto' => 'Tämä palauttaa sivun takaisin [{{fullurl:$1|oldid=$2}} ajankohdan $3 versioon].',
 	'revreview-reject-summary' => 'Yhteenveto:',
 	'revreview-reject-confirm' => 'Vahvista näiden muutosten hylkääminen',
@@ -5108,10 +5110,10 @@ Değişikliklerinizin kararlı sürümde yer alması için lütfen aşağıda g�
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Değişiklikleriniz henüz kararlı sürüm için değildir. İnceleme bekleyen eski değişiklikler bulunmaktadır.</span>
 
 Değişikliklerinizin kararlı sürümde yer alması için, lütfen aşağıda gösterilen tüm değişiklikleri inceleyin.',
-	'revreview-update-includes' => 'Bazı şablonlar/dosyalar güncellenmiş:',
+	'revreview-update-includes' => 'Sablonlar/dosyalar güncellenmiş (gözden geçirilmemiş sayfalar koyu renkli):',
 	'revreview-reject-text-list' => "Bu eylemi tamamlayarak, aşağıdaki {{PLURAL:$1|değişiklik|değişiklikleri}} '''reddetmiş''' olacaksınız:",
 	'revreview-reject-text-revto' => 'Bu sayfa [{{fullurl:$1|oldid=$2}} $3 tarihli] revizyona geri dönecektir.',
-	'revreview-reject-summary' => 'Değişiklik özeti:',
+	'revreview-reject-summary' => 'Özet:',
 	'revreview-reject-confirm' => 'Bu değişiklikleri reddet',
 	'revreview-reject-cancel' => 'İptal',
 	'revreview-tt-flag' => 'Bu revizyonu kontrol edilmiş olarak işaretleyerek onayla',
