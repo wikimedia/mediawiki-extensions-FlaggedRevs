@@ -135,6 +135,9 @@ $wgGroupPermissions['sysop']['stablesettings'] = true;
 # Sysops can always move stable pages
 $wgGroupPermissions['sysop']['movestable'] = true;
 
+# "Auto-checked"/semi-trusted user group
+$wgGroupPermissions['autoreview']['autoreview'] = true;
+
 # Special:Userrights settings
 # # Basic rights for Sysops
 $wgAddGroups['sysop'][] = 'editor'; // promote to basic reviewer (established editors)
