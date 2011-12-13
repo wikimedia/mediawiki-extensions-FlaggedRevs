@@ -1234,11 +1234,11 @@ $messages['vec'] = array(
 	'reviewedversions-review' => 'Riesaminà el <i>$1</i> da $2',
 );
 
-/** Veps (Vepsan kel')
+/** Veps (Vepsän kel')
  * @author Игорь Бродский
  */
 $messages['vep'] = array(
-	'reviewedversions' => 'Ozutada stabiližed versijad',
+	'reviewedversions' => 'kodvdud versijad',
 	'reviewedversions-leg1' => 'Lehtpolen kodvdud versijoiden nimikirjutez',
 	'reviewedversions-page' => 'Lehtpolen nimi:',
 	'reviewedversions-none' => '"[[:$1]]"-lehtpolel ei ole kodvdud versijoid',
