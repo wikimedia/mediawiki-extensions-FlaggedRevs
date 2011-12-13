@@ -30,7 +30,7 @@ $wgExtensionCredits['specialpage'][] = array(
 	'path'           => __FILE__,
 	'name'           => 'Flagged Revisions',
 	'author'         => array( 'Aaron Schulz', 'Joerg Baach' ),
-	'url'            => 'http://www.mediawiki.org/wiki/Extension:FlaggedRevs',
+	'url'            => 'https://www.mediawiki.org/wiki/Extension:FlaggedRevs',
 	'descriptionmsg' => 'flaggedrevs-desc',
 );
 
