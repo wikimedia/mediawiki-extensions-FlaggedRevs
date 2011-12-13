@@ -5,7 +5,7 @@ class ProblemChanges extends SpecialPage {
 
 	public function __construct() {
 		parent::__construct( 'ProblemChanges' );
-		$this->includable( true );
+		$this->mIncludable = true;
 	}
 
 	public function execute( $par ) {
