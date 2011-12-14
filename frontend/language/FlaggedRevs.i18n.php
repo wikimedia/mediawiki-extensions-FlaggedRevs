@@ -11047,6 +11047,7 @@ $messages['ps'] = array(
  * @author Alchimista
  * @author Giro720
  * @author Hamilton Abreu
+ * @author Helder.wiki
  * @author Lijealso
  * @author Luckas Blade
  * @author Malafaya
@@ -11073,13 +11074,13 @@ $messages['pt'] = array(
 	'flaggedrevs-prefs-viewdiffs' => 'Mostrar as diferenças das alterações pendentes ao ver a última edição pendente',
 	'flaggedrevs-hidereviewed' => '$1 edições revistas',
 	'group-editor' => 'Editores',
-	'group-editor-member' => 'editor',
+	'group-editor-member' => '{{GENDER:$1|editor|editora}}',
 	'group-reviewer' => 'Revisores',
-	'group-reviewer-member' => 'revisor',
+	'group-reviewer-member' => '{{GENDER:$1|revisor|revisora}}',
 	'grouppage-editor' => '{{ns:project}}:Editor',
 	'grouppage-reviewer' => '{{ns:project}}:Revisor',
 	'group-autoreview' => 'Autorrevisores',
-	'group-autoreview-member' => 'autorevisor',
+	'group-autoreview-member' => '{{GENDER:$1|utilizador autorrevisor|utilizadora autorrevisora}}',
 	'grouppage-autoreview' => '{{ns:project}}:Auto-revisores',
 	'revreview-hist-draft' => 'edição não verificada',
 	'revreview-hist-pending' => 'revisão pendente',

@@ -5206,6 +5206,7 @@ $messages['uk'] = array(
 
 /** Vèneto (Vèneto)
  * @author Candalua
+ * @author Frigotoni
  */
 $messages['vec'] = array(
 	'revisionreview' => 'Riesamina versioni',
@@ -5260,6 +5261,11 @@ Podarìa esser necessario proseguire o "anulare" modifiche.',
 Par piaser rivarda tute le modifiche qua soto parché le to modifiche le vegna mostrà ne la version stabile. 
 Podarìa esser necessario proseguire o "anulare" modifiche.',
 	'revreview-update-includes' => 'Alcuni modèi o file i xe stà agiornà:',
+	'revreview-reject-text-revto' => 'Questo riporterà ła pajina ała [{{fullurl:$1|oldid=$2}} version de $3]',
+	'revreview-reject-summary' => 'Comento:',
+	'revreview-reject-cancel' => 'Lascia stare',
+	'revreview-reject-summary-cur' => 'Rifiutae {{PLURAL:$1|łe modifeghe|$1 text changes}} (aportà da $2) e confermà ła version $3 de $4',
+	'revreview-reject-summary-old' => 'Rifiutà {{PLURAL:$1|ła prima modifegà|$1 text changes}} (aportà da $2) e confermà ła version $3 de $4',
 	'revreview-tt-flag' => 'Aceta sta revision segnandola come "controlà"',
 	'revreview-tt-unflag' => 'Disaprova sta revision segnandola come "mia controlà"',
 	'revreview-tt-reject' => 'Rifiuta ste modifiche tirandole indrio',
