@@ -5246,6 +5246,8 @@ Varda la [[Special:Unreviewedpages|lista de pagine da riesaminar]].',
 	'revreview-submit-unreviewed' => 'Finìo. Rifiutà!',
 	'revreview-successful' => "'''La revision de [[:$1|$1]] la xe stà verificà. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} varda tute le version stabili])'''",
 	'revreview-successful2' => "'''Cavà el contrassegno a la version selessionà de [[:$1|$1]].'''",
+	'revreview-adv-reviewing-p' => 'Ocio: Altri contribudori i pol vedare che sito drio riesaminare sta pajina.',
+	'revreview-adv-reviewing-c' => 'Ocio: Altri contribudori i pol vedare che sito drio riesaminare sti canbiamenti.',
 	'revreview-toolow' => '\'\'\'Ti gà da segnar ognuno dei atributi qua soto piessè alto de "Non aprovà" parché la revision la sia considerà verificà.\'\'\'
 
 Par anular el stato de na revision, struca "disaprova".
@@ -5263,6 +5265,7 @@ Podarìa esser necessario proseguire o "anulare" modifiche.',
 	'revreview-update-includes' => 'Alcuni modèi o file i xe stà agiornà:',
 	'revreview-reject-text-revto' => 'Questo riporterà ła pajina ała [{{fullurl:$1|oldid=$2}} version de $3]',
 	'revreview-reject-summary' => 'Comento:',
+	'revreview-reject-confirm' => 'Rifiuta sti canbiamenti',
 	'revreview-reject-cancel' => 'Lascia stare',
 	'revreview-reject-summary-cur' => 'Rifiutae {{PLURAL:$1|łe modifeghe|$1 text changes}} (aportà da $2) e confermà ła version $3 de $4',
 	'revreview-reject-summary-old' => 'Rifiutà {{PLURAL:$1|ła prima modifegà|$1 text changes}} (aportà da $2) e confermà ła version $3 de $4',
