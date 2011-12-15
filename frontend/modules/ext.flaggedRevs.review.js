@@ -35,7 +35,7 @@ var fr = {
 		// Display "advertise" notice
 		fr.enableAjaxReviewActivity();
 		// "De-advertise" user as "no longer reviewing" on navigate-away
-		$( window ).bind( 'beforeunload', function( e ) {
+		$( window ).unload( function( e ) {
 			if ( fr.isUserReviewing === 1 ) {
 				fr.deadvertiseReviewing();
 			}
