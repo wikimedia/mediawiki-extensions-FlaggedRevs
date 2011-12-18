@@ -424,12 +424,12 @@ $messages['ar'] = array(
 	'revreview-successful2' => "'''مراجعة [[:$1|$1]] تمت إزالة علمها بنجاح.'''",
 	'revreview-poss-conflict-p' => "'''تحذير: بدأ [[User:$1|$1]] مراجعة هذه الصفحة في $2 عند $3.'''",
 	'revreview-poss-conflict-c' => "'''تحذير: بدأ [[User:$1|$1]] مراجعة هذه النغييرات في $2 عند $3.'''",
-	'revreview-adv-reviewing-p' => 'تنبيه: المحررين الآخرين قادرين على ملاحظة بأنك تقوم بمراجعة هذه الصفحة.',
-	'revreview-adv-reviewing-c' => 'تنبيه: المحررين الآخرين قادرين على ملاحظة بأنك تقوم بمراجعة هذه الصفحة.',
-	'revreview-sadv-reviewing-p' => 'يمكنك $1 نفسك على أنك تراجع هذه الصفحة للمستخدمين الآخرين.',
-	'revreview-sadv-reviewing-c' => 'يمكنك $1 نفسك للمستخدمين الآخرين على أنك تراجع هذه التعديلات.',
-	'revreview-adv-start-link' => 'تعلن',
-	'revreview-adv-stop-link' => 'توقف إعلان',
+	'revreview-adv-reviewing-p' => 'تبصرة: سيكون المراجعون الآخرون على علم بمراجعتك لهذه الصفحة.',
+	'revreview-adv-reviewing-c' => 'تبصرة: سيكون المراجعون الآخرون على علم بمراجعتك لهذه التعديلات.',
+	'revreview-sadv-reviewing-p' => '$1 للمستخدمين الآخرين مراجعتك لهذه الصفحة.',
+	'revreview-sadv-reviewing-c' => '$1 للمستخدمين الآخرين مراجعتك لهذه التعديلات.',
+	'revreview-adv-start-link' => 'أعلن',
+	'revreview-adv-stop-link' => 'لا تعلن',
 	'revreview-toolow' => '\'\'\'يجب عليك تقييم كل من المحددات بالأسفل أعلى من "غير مقبولة" لكي تعتبر المراجعة مراجعة.\'\'\'
 
 لسحب حالة المراجعة لمراجعة، اضغط "غير موافق".
@@ -4249,6 +4249,8 @@ Pe piacere cazze 'u buttone \"back\" d'u browser tune e pruève arrete.",
 /** Russian (Русский)
  * @author AlexSm
  * @author Ferrer
+ * @author Jackie
+ * @author KPu3uC B Poccuu
  * @author Kaganer
  * @author Lockal
  * @author MaxSem
@@ -4300,11 +4302,11 @@ $messages['ru'] = array(
 	'revreview-successful2' => "'''С выбранной версии [[:$1|$1]] снята пометка.'''",
 	'revreview-poss-conflict-p' => "'''Предупреждение. [[User:$1|$1]] приступил к проверке этой страницы $2 в $3.'''",
 	'revreview-poss-conflict-c' => "'''Предупреждение. [[User:$1|$1]] приступил к проверке этих изменений $2 в $3.'''",
-	'revreview-adv-reviewing-p' => 'Примечание. Другие рецензенты могут видеть, что вы проверяете эту страницы.',
+	'revreview-adv-reviewing-p' => 'Примечание. Другие рецензенты могут видеть, что вы проверяете эту страницу.',
 	'revreview-adv-reviewing-c' => 'Примечание. Другие рецензенты могут видеть, что вы проверяете эти изменения.',
 	'revreview-sadv-reviewing-p' => 'Вы можете $1, что вы проверяете эту страницу.',
-	'revreview-sadv-reviewing-c' => 'Вы можете $1, что вы проверяете эти изменения.',
-	'revreview-adv-start-link' => 'объявить',
+	'revreview-sadv-reviewing-c' => 'Вы можете $1 других пользователей, что проверяете эти изменения.',
+	'revreview-adv-start-link' => 'уведомить',
 	'revreview-adv-stop-link' => 'снять объявление',
 	'revreview-toolow' => "'''Вы должны указать для всех значений уровень выше, чем «недостаточный», чтобы версия страницы считалась проверенной.'''
 

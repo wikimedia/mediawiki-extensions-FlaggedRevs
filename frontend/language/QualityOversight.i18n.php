@@ -340,6 +340,15 @@ $messages['id'] = array(
 	'qualityoversight-legend' => 'Cari log peninjauan terkini',
 );
 
+/** Icelandic (Íslenska)
+ * @author Snævar
+ */
+$messages['is'] = array(
+	'qualityoversight' => 'Yfirfars skrá',
+	'qualityoversight-list' => 'Þetta er skrá yfir síðustu samþykktu og ósamþykktu breytingarnar.',
+	'qualityoversight-legend' => 'Leita í nýlegum yfirferðar skrám',
+);
+
 /** Italian (Italiano)
  * @author Beta16
  * @author Darth Kule
