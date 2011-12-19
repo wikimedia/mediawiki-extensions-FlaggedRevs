@@ -23,6 +23,9 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 	protected $oldFrev = null;              # Prior FlaggedRevision for Rev with ID $oldid
 	protected $oldFlags = array();          # Prior flags for Rev with ID $oldid
 
+	protected $sessionKey = '';             # User session key
+	protected $skipValidationKey = false;   # Skip validatedParams check
+
 	protected function initialize() {
 		foreach ( FlaggedRevs::getTags() as $tag ) {
 			$this->dims[$tag] = 0; // default to "inadequate"
@@ -124,6 +127,14 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 		$this->trySet( $this->dims[$tag], (int)$value );
 	}
 
+	public function setSessionKey( $sessionId ) {
+		$this->sessionKey = $sessionId;
+	}
+
+	public function bypassValidationKey() {
+		$this->skipValidationKey = true;
+	}
+
 	/**
 	 * Check that a target is given (e.g. from GET/POST request)
 	 * @return mixed (true on success, error string on failure)
@@ -190,10 +201,13 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 				return 'review_too_low';
 			}
 			# Special token to discourage fiddling with templates/files...
-			$k = self::validationKey(
-				$this->templateParams, $this->imageParams, $this->fileVersion, $this->oldid );
-			if ( $this->validatedParams !== $k ) {
-				return 'review_bad_key';
+			if ( !$this->skipValidationKey ) {
+				$k = self::validationKey(
+					$this->templateParams, $this->imageParams, $this->fileVersion,
+					$this->oldid, $this->sessionKey );
+				if ( $this->validatedParams !== $k ) {
+					return 'review_bad_key';
+				}
 			}
 			# Sanity check tags
 			if ( !FlaggedRevs::flagsAreValid( $this->dims ) ) {
@@ -464,26 +478,27 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 	}
 
 	/**
-	 * Get a validation key from versioning metadata
+	 * Get a validation key from template/file versioning metadata
 	 * @param string $tmpP
 	 * @param string $imgP
 	 * @param string $imgV
 	 * @param integer $rid rev ID
+	 * @param string $sessKey Session key
 	 * @return string
 	 */
-	public static function validationKey( $tmpP, $imgP, $imgV, $rid ) {
+	public static function validationKey( $tmpP, $imgP, $imgV, $rid, $sessKey ) {
 		global $wgSecretKey, $wgProxyKey;
-		$key = $wgSecretKey ? $wgSecretKey : $wgProxyKey; // fall back to $wgProxyKey
-		$p = md5( $key . $imgP . $tmpP . $rid . $imgV );
-		return $p;
+		$key = md5( $wgSecretKey ? $wgSecretKey : $wgProxyKey ); // fall back to $wgProxyKey
+		$keyBits = $key[3] . $key[9] . $key[13] . $key[19] . $key[26];
+		return md5( "{$imgP}{$tmpP}{$imgV}{$rid}{$sessKey}{$keyBits}" );
 	}
 
 	/**
 	 * Update rc_patrolled fields in recent changes after (un)accepting a rev.
 	 * This maintains the patrolled <=> reviewed relationship for reviewable namespaces.
-	*
+	 *
 	 * RecentChange should only be passed in when an RC item is saved.
-	*
+	 *
 	 * @param $rev Revision|RecentChange
 	 * @param $patrol string "patrol" or "unpatrol"
 	 * @param $srev FlaggedRevsion|null The new stable version

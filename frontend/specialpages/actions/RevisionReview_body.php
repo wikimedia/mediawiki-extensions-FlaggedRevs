@@ -62,6 +62,8 @@ class RevisionReview extends UnlistedSpecialPage {
 		$form->setValidatedParams( $request->getVal( 'validatedParams' ) );
 		# Conflict handling
 		$form->setLastChangeTime( $request->getVal( 'changetime' ) );
+		# Session key
+		$form->setSessionKey( $request->getSessionData( 'wsFlaggedRevsKey' ) );
 		# Tag values
 		foreach ( FlaggedRevs::getTags() as $tag ) {
 			# This can be NULL if we uncheck a checkbox
@@ -188,7 +190,7 @@ class RevisionReview extends UnlistedSpecialPage {
 	}
 
 	public static function AjaxReview( /*$args...*/ ) {
-		global $wgUser, $wgOut;
+		global $wgUser, $wgOut, $wgRequest;
 
 		$args = func_get_args();
 		if ( wfReadOnly() ) {
@@ -263,6 +265,7 @@ class RevisionReview extends UnlistedSpecialPage {
 			return '<err#>' . wfMsgExt( 'notargettext', 'parseinline' );
 		}
 		$form->setPage( $title );
+		$form->setSessionKey( $wgRequest->getSessionData( 'wsFlaggedRevsKey' ) );
 
 		$status = $form->ready(); // all params loaded
 		# Check session via user token

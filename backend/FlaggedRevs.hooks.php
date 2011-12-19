@@ -922,6 +922,19 @@ class FlaggedRevsHooks {
 		return true;
 	}
 
+	public static function setSessionKey( User $user ) {
+		global $wgRequest;
+		if ( $user->isAllowed( 'review' ) ) {
+			$key = $wgRequest->getSessionData( 'wsFlaggedRevsKey' );
+			if ( $key === null ) { // should catch login
+				$key = User::generateToken( $user->getId() );
+				// Temporary secret key attached to this session
+				$this->request->setSessionData( 'wsFlaggedRevsKey', $key );
+			}
+		}
+		return true;
+	}
+
 	public static function stableDumpQuery( array &$tables, array &$opts, array &$join ) {
 		$namespaces = FlaggedRevs::getReviewNamespaces();
 		if ( $namespaces ) {

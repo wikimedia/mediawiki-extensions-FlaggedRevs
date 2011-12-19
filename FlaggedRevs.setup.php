@@ -213,6 +213,7 @@ class FlaggedRevsSetup {
 		$wgHooks['getUserPermissionsErrors'][] = 'FlaggedRevsHooks::onUserCan';
 		# Implicit autoreview rights group
 		$wgHooks['AutopromoteCondition'][] = 'FlaggedRevsHooks::checkAutoPromoteCond';
+		$wgHooks['UserLoadAfterLoadFromSession'][] = 'FlaggedRevsHooks::setSessionKey';
 
 		# Stable dump hook
 		$wgHooks['WikiExporter::dumpStableQuery'][] = 'FlaggedRevsHooks::stableDumpQuery';

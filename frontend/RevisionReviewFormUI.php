@@ -231,8 +231,9 @@ class RevisionReviewFormUI {
 		$form .= Html::hidden( 'imageParams', $imageParams ) . "\n";
 		$form .= Html::hidden( 'fileVersion', $fileVersion ) . "\n";
 		# Special token to discourage fiddling...
+		$key = $this->request->getSessionData( 'wsFlaggedRevsKey' );
 		$checkCode = RevisionReviewForm::validationKey(
-			$templateParams, $imageParams, $fileVersion, $revId
+			$templateParams, $imageParams, $fileVersion, $revId, $key
 		);
 		$form .= Html::hidden( 'validatedParams', $checkCode ) . "\n";
 
