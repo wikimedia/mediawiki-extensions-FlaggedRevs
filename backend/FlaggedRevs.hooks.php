@@ -929,7 +929,7 @@ class FlaggedRevsHooks {
 			if ( $key === null ) { // should catch login
 				$key = User::generateToken( $user->getId() );
 				// Temporary secret key attached to this session
-				$this->request->setSessionData( 'wsFlaggedRevsKey', $key );
+				$wgRequest->setSessionData( 'wsFlaggedRevsKey', $key );
 			}
 		}
 		return true;
