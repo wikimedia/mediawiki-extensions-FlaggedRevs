@@ -1920,19 +1920,20 @@ $messages['vec'] = array(
 	'pendingchanges-viewing' => '(in corso de revision)',
 );
 
-/** Veps (Vepsan kel')
+/** Veps (Vepsän kel')
  * @author Игорь Бродский
  */
 $messages['vep'] = array(
-	'pendingchanges' => 'Vanhtunuded kodvdud lehtpoled',
+	'pendingchanges' => 'Lehtpoled kodvmatomiden toižetusidenke',
 	'pendingchanges-legend' => 'Kodvdud lehtpoled kodvmatomiden versijoidenke - nimikirjutez',
-	'pendingchanges-list' => "Necil lehtpolel {{PLURAL:$1|om se kodvdud lehtpol', kudamb|om niiden kodvdud lehtpoliden nimikirjutez, kudambid}} toižetadihe jäl'glopul.",
+	'pendingchanges-list' => '!Necil lehtpolel om [[{{MediaWiki:Validationpage}}|kodvdud]] lehtpolid toižetusidenke, kudambad varastadas kodvad.',
 	'pendingchanges-none' => "Nügüd' ei ole lehtpolid, kudambad sättudas neniden arvoimižidenke.",
 	'pendingchanges-hours' => '($1 {{PLURAL:$1|čas|časud}})',
 	'pendingchanges-days' => '($1 {{PLURAL:$1|päiv|päiväd}})',
 	'pendingchanges-recent' => '(vähemb 1 časud)',
 	'pendingchanges-category' => 'Kategorii:',
-	'pendingchanges-stable' => 'arvosteldud',
+	'pendingchanges-onwatchlist' => 'Lehtpoled minun kaclendnimikirjutesespäi',
+	'pendingchanges-stable' => 'Stabiline versii järgendusen mödhe',
 	'pendingchanges-diff' => 'kodvda',
 	'pendingchanges-size' => 'Maksimaline toižetuz (baitoiš):',
 	'pendingchanges-unwatched' => '(kaclematoi)',
