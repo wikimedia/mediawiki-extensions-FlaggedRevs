@@ -4879,7 +4879,7 @@ Uusia [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diff
 	'revreview-depth-3' => 'Korkeatasoinen',
 	'revreview-depth-4' => 'Kiitettävä',
 	'revreview-draft-title' => 'Arviointia odottavat muutokset näytetään tällä sivulla',
-	'revreview-edit' => 'muokkaa',
+	'revreview-edit' => 'Muokkaa',
 	'revreview-editnotice' => "'''Muutoksesi näytetään kaikille, kun valtuutettu käyttäjä on arvioinut ne. ([[{{MediaWiki:Validationpage}}|ohjeet]])'''",
 	'revreview-submitedit' => 'Tallenna muutokset',
 	'revreview-submitedit-title' => 'Lähetä muokkauksesi arvioitavaksi',
