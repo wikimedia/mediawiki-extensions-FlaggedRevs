@@ -1904,13 +1904,14 @@ $messages['sr-ec'] = array(
  * @author Michaello
  */
 $messages['sr-el'] = array(
-	'validationstatistics-table' => "Statistike za svaki imenski prostor su prikazane ispod, ''isključujući'' stranice preusmerenja.",
+	'validationstatistics-table' => "Dole su prikazane statistike za pregledanje svakog imenskog prostora, ''osim'' stranica za preusmeravanje. Stranice se smatraju kao „zastarele“ ako imaju izmene koje čekaju na proveru. Za „usklađene“ se smatraju one stranice koje nemaju izmene na čekanju.",
 	'validationstatistics-ns' => 'Imenski prostor',
 	'validationstatistics-total' => 'Stranice',
+	'validationstatistics-stable' => 'Pregledano',
 	'validationstatistics-latest' => 'Sinhronizovano',
 	'validationstatistics-synced' => 'Sinhronizovan/Pregledan',
 	'validationstatistics-old' => 'Zastarelo',
-	'validationstatistics-utable' => 'Ispod se nalazi spisak od top $1 pregledača u poslednjih sat vremena',
+	'validationstatistics-utable' => 'Ispod je spisak {{PLURAL:$1|najaktivnijeg|$1 najaktivnija|$1 najaktivnijih}} pregledača {{PLURAL:$2|u poslednjih sat vremena|u poslednja $2 sata|u poslednjih $2 sati}}.',
 	'validationstatistics-user' => 'Korisnik',
 	'validationstatistics-reviews' => 'Pregledi',
 );

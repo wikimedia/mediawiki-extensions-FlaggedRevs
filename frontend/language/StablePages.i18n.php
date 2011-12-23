@@ -878,8 +878,8 @@ $messages['sr-ec'] = array(
  */
 $messages['sr-el'] = array(
 	'stablepages' => 'Stranice koje koriste potvrdu izmena',
-	'stablepages-list' => 'Ispod se nalazi spisak stranica koje su ograničene tako da samo određeni korisnici mogu da ih urede.
-Takve izmene nisu prihvaćene dok ih ovlašćeni korisnik ne pregleda.',
+	'stablepages-list' => 'Dole je naveden spisak stranica koje samo određeni korisnici mogu menjati. Te izmene ne zahtevaju proveru.
+Izmene drugih korisnika po podrazumevanom nisu prikazane čitaocima dok ih ne proveri ovlašćeni korisnik.',
 	'stablepages-none' => 'Ne postoje strane u spisku.',
 	'stablepages-config' => 'Podešavanje',
 );

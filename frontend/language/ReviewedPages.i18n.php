@@ -1282,6 +1282,9 @@ $messages['tg-cyrl'] = array(
 $messages['tg-latn'] = array(
 	'reviewedpages' => 'Sahifahoi barrasī naşuda',
 	'reviewedpages-none' => 'Sahifahoe dar in fehrist nest',
+	'reviewedpages-lev-0' => 'Barrasişuda',
+	'reviewedpages-lev-1' => 'Bo kajfijat',
+	'reviewedpages-lev-2' => 'Barguzida',
 	'reviewedpages-all' => 'nusxahoi barrasī şuda',
 	'reviewedpages-best' => 'nusxai behtarin',
 );

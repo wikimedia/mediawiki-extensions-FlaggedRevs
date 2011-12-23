@@ -4669,15 +4669,17 @@ $messages['sr-el'] = array(
 	'revreview-flag' => 'Pregled ove verzije',
 	'revreview-invalid' => "'''Loš cilj:''' nijedna [[{{MediaWiki:Validationpage}}|pregledana]] verzije ne poseduje dati redni broj.",
 	'revreview-log' => 'Komentar:',
+	'revreview-main' => 'Morate izabrati određenu izmenu stranice sa sadržajem da biste je proverili.
+Pogledajte [[Special:Unreviewedpages|spisak nepregledanih stranica]].',
 	'revreview-stable2' => 'Možda biste hteli da vidite [{{fullurl:$1|stable=1}} prihvaćenu verziju] ove strane.',
 	'revreview-submit' => 'Pošalji',
 	'revreview-submitting' => 'Slanje...',
-	'revreview-submit-review' => 'Usvoji',
-	'revreview-submit-unreview' => 'Poništi usvajanje',
+	'revreview-submit-review' => 'Prihvati izmenu',
+	'revreview-submit-unreview' => 'Poništi izmenu',
 	'revreview-submit-reviewed' => 'Gotovo. Usvojeno!',
 	'revreview-submit-unreviewed' => 'Gotovo. Nije usvojeno!',
 	'revreview-successful2' => "'''Uspešno je skinuta oznaka sa označene verzije strane [[:$1|$1]].'''",
-	'revreview-update-includes' => 'Neki šabloni i/ili fajlovi su ažurirani:',
+	'revreview-update-includes' => 'Ažurirani šabloni/datoteke (nepregledane stranice su podebljane):',
 );
 
 /** Seeltersk (Seeltersk)
@@ -5578,8 +5580,12 @@ $messages['zh-hant'] = array(
 	'revreview-successful2' => "'''[[:$1|$1]]的指定版本已成功移除標記。'''",
 	'revreview-poss-conflict-p' => "'''警告：[[User:$1|$1]]在$2$3時開始審閱此頁面。 '''",
 	'revreview-poss-conflict-c' => "'''警告：[[User:$1|$1]]在$2$3時開始審閱這些更改。 '''",
-	'revreview-adv-reviewing-p' => "'''注意：您在$1$2時開始審閱頁面後，收到了通知。 '''",
-	'revreview-adv-reviewing-c' => "'''注意：您在$1$2時開始審閱這些更改後，收到了通知。 '''",
+	'revreview-adv-reviewing-p' => '注意：其他複審員可以看到您正在審閱本頁。',
+	'revreview-adv-reviewing-c' => '注意：其他複審員可以看到您正在審閱這些更改。',
+	'revreview-sadv-reviewing-p' => '您可以$1您正在審閱本頁面。',
+	'revreview-sadv-reviewing-c' => '您可以$1您正在審閱這些更改。',
+	'revreview-adv-start-link' => '告知其他用戶',
+	'revreview-adv-stop-link' => '取消告知其他用戶',
 	'revreview-toolow' => '您一定要最少將下面每一項的屬性評定高於「不足」，才可將一個修訂設定為已複審。
 
 要捨棄一個修訂，請點選「拒絕」。

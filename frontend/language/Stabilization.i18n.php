@@ -3161,12 +3161,13 @@ $messages['sr-ec'] = array(
 $messages['sr-el'] = array(
 	'stabilization-tab' => 'veteran',
 	'stabilization' => 'Stabilizacija strane',
+	'stabilization-text' => "'''Promenite postavke ispod da biste podesili kako se izabira i prikazuje objavljeno izdanje stranice [[:$1|$1]].'''",
 	'stabilization-perm' => 'Vaš nalog nema dozvolu za izmenu podešavanja za stabilne verzije.
 Ovde su trenutna podešavanja za [[:$1|$1]]:',
 	'stabilization-page' => 'Ime stranice:',
 	'stabilization-leg' => 'Potvrdi podešavanja za stabilne verzije',
 	'stabilization-def' => 'Verzija prikazana na podrazumevanom prikazu strane.',
-	'stabilization-def1' => 'Stabilna verzija; ako ne postoji, biće prikazana trenutna ili nacrt',
+	'stabilization-def1' => 'Stabilno izdanje; ako ne postoji, onda poslednja izmena',
 	'stabilization-def2' => 'Poslednja revizija',
 	'stabilization-restrict' => 'Ograničenja za pregledanje i automatsko pregledanje',
 	'stabilization-restrict-none' => 'Bez dodatnih ograničenja',
