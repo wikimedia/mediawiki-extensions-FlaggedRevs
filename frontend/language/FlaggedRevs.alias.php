@@ -100,7 +100,9 @@ $specialPageAliases['de'] = array(
 	'ReviewedPages' => array( 'Gesichtete_Seiten' ),
 	'RevisionReview' => array( 'Versionsprüfung' ),
 	'Stabilization' => array( 'Seitenkonfiguration', 'Stabilisierung' ),
-	'StablePages' => array( 'Konfigurierte_Seiten' ),
+	'StablePages' => array( 'Markierte_Seiten' ),
+	'ConfiguredPages' => array( 'Konfigurierte_Seiten' ),
+	'ReviewedVersions' => array( 'Gesichtete_Versionen' ),
 	'UnreviewedPages' => array( 'Ungesichtete_Seiten' ),
 	'ValidationStatistics' => array( 'Markierungsstatistik' ),
 );
@@ -188,11 +190,14 @@ $specialPageAliases['frp'] = array(
 /** Galician (Galego) */
 $specialPageAliases['gl'] = array(
 	'PendingChanges' => array( 'Páxinas_revisadas_hai_tempo' ),
+	'ProblemChanges' => array( 'Cambios_nun_problema' ),
 	'QualityOversight' => array( 'Revisión_de_calidade' ),
 	'ReviewedPages' => array( 'Páxinas_revisadas' ),
 	'RevisionReview' => array( 'Revisión_da_revisión' ),
 	'Stabilization' => array( 'Estabilización' ),
 	'StablePages' => array( 'Páxinas_estábeis' ),
+	'ConfiguredPages' => array( 'Páxinas_configuradas' ),
+	'ReviewedVersions' => array( 'Versións_revisadas', 'Versións_estables' ),
 	'UnreviewedPages' => array( 'Páxinas_non_revisadas' ),
 	'ValidationStatistics' => array( 'Estatísticas_de_validación' ),
 );
@@ -403,6 +408,21 @@ $specialPageAliases['ms'] = array(
 	'UnreviewedPages' => array( 'Laman_tidak_diperiksa' ),
 );
 
+/** Norwegian Bokmål (‪Norsk (bokmål)‬) */
+$specialPageAliases['nb'] = array(
+	'PendingChanges' => array( 'Gamle_anmeldte_sider' ),
+	'ProblemChanges' => array( 'Problemendringer' ),
+	'QualityOversight' => array( 'Kvalitetsoversikt' ),
+	'ReviewedPages' => array( 'Anmeldte_sider' ),
+	'RevisionReview' => array( 'Revisjonsgjennomgang' ),
+	'Stabilization' => array( 'Stabilisering' ),
+	'StablePages' => array( 'Stabile_sider' ),
+	'ConfiguredPages' => array( 'Konfigurerte_sider' ),
+	'ReviewedVersions' => array( 'Gjennomgåtte_sider' ),
+	'UnreviewedPages' => array( 'Ikke-gjennomgåtte_sider' ),
+	'ValidationStatistics' => array( 'Valideringsstatistikk' ),
+);
+
 /** Nedersaksisch (Nedersaksisch) */
 $specialPageAliases['nds-nl'] = array(
 	'PendingChanges' => array( 'Wiezigingen_in_wachtrie' ),
@@ -445,21 +465,6 @@ $specialPageAliases['nn'] = array(
 	'ValidationStatistics' => array( 'Valideringsstatistikk' ),
 );
 
-/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬) */
-$specialPageAliases['nb'] = array(
-	'PendingChanges' => array( 'Gamle_anmeldte_sider' ),
-	'ProblemChanges' => array( 'Problemendringer' ),
-	'QualityOversight' => array( 'Kvalitetsoversikt' ),
-	'ReviewedPages' => array( 'Anmeldte_sider' ),
-	'RevisionReview' => array( 'Revisjonsgjennomgang' ),
-	'Stabilization' => array( 'Stabilisering' ),
-	'StablePages' => array( 'Stabile_sider' ),
-	'ConfiguredPages' => array( 'Konfigurerte_sider' ),
-	'ReviewedVersions' => array( 'Gjennomgåtte_sider' ),
-	'UnreviewedPages' => array( 'Ikke-gjennomgåtte_sider' ),
-	'ValidationStatistics' => array( 'Valideringsstatistikk' ),
-);
-
 /** Occitan (Occitan) */
 $specialPageAliases['oc'] = array(
 	'PendingChanges' => array( 'PaginasAncianasRelegidas' ),
@@ -487,7 +492,7 @@ $specialPageAliases['pl'] = array(
 
 /** Portuguese (Português) */
 $specialPageAliases['pt'] = array(
-	'PendingChanges' => array( 'Páginas analisadas antigas' ),
+	'PendingChanges' => array( 'Páginas_analisadas_antigas' ),
 	'QualityOversight' => array( 'Controlo_de_qualidade' ),
 	'ReviewedPages' => array( 'Páginas_analisadas' ),
 	'RevisionReview' => array( 'Revisão_de_versões' ),
@@ -511,7 +516,7 @@ $specialPageAliases['pt-br'] = array(
 	'ValidationStatistics' => array( 'Estatísticas_de_validação' ),
 );
 
-/** Sanskrit (संस्कृत) */
+/** Sanskrit (संस्कृतम्) */
 $specialPageAliases['sa'] = array(
 	'PendingChanges' => array( 'पूर्वतनआवलोकीतपृष्ठ:' ),
 	'QualityOversight' => array( 'गुणपूर्णवृजावलोकन' ),
@@ -660,8 +665,3 @@ $specialPageAliases['zh-hant'] = array(
 	'UnreviewedPages' => array( '未審閱頁面' ),
 	'ValidationStatistics' => array( '驗證數據' ),
 );
-
-/**
- * For backwards compatibility with MediaWiki 1.15 and earlier.
- */
-$aliases =& $specialPageAliases;
