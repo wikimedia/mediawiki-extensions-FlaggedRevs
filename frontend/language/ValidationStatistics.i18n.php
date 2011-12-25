@@ -1442,6 +1442,33 @@ $messages['nah'] = array(
 	'validationstatistics-total' => 'Tlaìxtlapaltìn',
 );
 
+/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
+ * @author Jon Harald Søby
+ * @author Nghtwlkr
+ */
+$messages['nb'] = array(
+	'validationstatistics' => 'Siderevideringsstatistikk',
+	'validationstatistics-users' => "'''{{SITENAME}}''' har på nåværende tidspunkt '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|bruker|brukere}} med [[{{MediaWiki:Validationpage}}|skribentrettigheter]].
+
+Skribenter er etablerte brukere som kan punktsjekke siderevisjoner.",
+	'validationstatistics-lastupdate' => "''Følgende data ble sist oppdatert $1, $2.''",
+	'validationstatistics-pndtime' => "Redigeringer som har blitt kontrollert av etablerte brukere anses å være ''revidert''.
+
+Gjennomsnittsforsinkelsen for [[Special:OldReviewedPages|sider med ureviderte ventende endringer]] er '''$1'''; forsinkelsen måler hvor lenge den eldste ventende endringer har vært uvurdert.",
+	'validationstatistics-revtime' => "Gjennomsnittsventetiden for endringer av ''brukere som ikke har logget inn'' å bli revidert er '''$1'''; medianen er '''$2'''.
+$3",
+	'validationstatistics-table' => "Siderevideringsstatistikk for hvert navnerom vises nedenfor, ''utenom'' omdirigeringssider. Sider behandles som ''utdaterte'' om de har uvurderte ventende endringer; sider anses å være ''synket'' dersom de har ingen uvurderte ventende endringer.",
+	'validationstatistics-ns' => 'Navnerom',
+	'validationstatistics-total' => 'Sider',
+	'validationstatistics-stable' => 'Anmeldt',
+	'validationstatistics-latest' => 'Synkronisert',
+	'validationstatistics-synced' => 'Synkronisert/Anmeldt',
+	'validationstatistics-old' => 'Foreldet',
+	'validationstatistics-utable' => 'Under er en liste over {{PLURAL:$1|den mest aktive anmelderen|de $1 mest aktive anmelderne}} {{PLURAL:$2|den siste timen|de siste $2 timene}}.',
+	'validationstatistics-user' => 'Bruker',
+	'validationstatistics-reviews' => 'Anmeldelser',
+);
+
 /** Dutch (Nederlands)
  * @author Ooswesthoesbes
  * @author Siebrand
@@ -1488,33 +1515,6 @@ $messages['nn'] = array(
 	'validationstatistics-user' => 'Brukar',
 );
 
-/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
- * @author Jon Harald Søby
- * @author Nghtwlkr
- */
-$messages['nb'] = array(
-	'validationstatistics' => 'Siderevideringsstatistikk',
-	'validationstatistics-users' => "'''{{SITENAME}}''' har på nåværende tidspunkt '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|bruker|brukere}} med [[{{MediaWiki:Validationpage}}|skribentrettigheter]].
-
-Skribenter er etablerte brukere som kan punktsjekke siderevisjoner.",
-	'validationstatistics-lastupdate' => "''Følgende data ble sist oppdatert $1, $2.''",
-	'validationstatistics-pndtime' => "Redigeringer som har blitt kontrollert av etablerte brukere anses å være ''revidert''.
-
-Gjennomsnittsforsinkelsen for [[Special:OldReviewedPages|sider med ureviderte ventende endringer]] er '''$1'''; forsinkelsen måler hvor lenge den eldste ventende endringer har vært uvurdert.",
-	'validationstatistics-revtime' => "Gjennomsnittsventetiden for endringer av ''brukere som ikke har logget inn'' å bli revidert er '''$1'''; medianen er '''$2'''.
-$3",
-	'validationstatistics-table' => "Siderevideringsstatistikk for hvert navnerom vises nedenfor, ''utenom'' omdirigeringssider. Sider behandles som ''utdaterte'' om de har uvurderte ventende endringer; sider anses å være ''synket'' dersom de har ingen uvurderte ventende endringer.",
-	'validationstatistics-ns' => 'Navnerom',
-	'validationstatistics-total' => 'Sider',
-	'validationstatistics-stable' => 'Anmeldt',
-	'validationstatistics-latest' => 'Synkronisert',
-	'validationstatistics-synced' => 'Synkronisert/Anmeldt',
-	'validationstatistics-old' => 'Foreldet',
-	'validationstatistics-utable' => 'Under er en liste over {{PLURAL:$1|den mest aktive anmelderen|de $1 mest aktive anmelderne}} {{PLURAL:$2|den siste timen|de siste $2 timene}}.',
-	'validationstatistics-user' => 'Bruker',
-	'validationstatistics-reviews' => 'Anmeldelser',
-);
-
 /** Occitan (Occitan)
  * @author Cedric31
  */
@@ -1533,6 +1533,16 @@ Los contributors e relectors son d'utilizaires establits que pòdon verificar la
 	'validationstatistics-utable' => 'Çaijós figuran los $1 melhors relectors dins la darrièra ora.',
 	'validationstatistics-user' => 'Utilizaire',
 	'validationstatistics-reviews' => 'Relectors',
+);
+
+/** Oriya (ଓଡ଼ିଆ)
+ * @author Ansumang
+ */
+$messages['or'] = array(
+	'validationstatistics-ns' => 'ନେମସ୍ପେସ',
+	'validationstatistics-total' => 'ପୃଷ୍ଠା',
+	'validationstatistics-latest' => 'ସଜଡ଼ାହେବା',
+	'validationstatistics-user' => 'ବ୍ୟବହାରକାରୀ',
 );
 
 /** Deitsch (Deitsch)
@@ -2141,11 +2151,11 @@ Ste pagine le xe considerà ''obsolete''. Le se considera ''agiornà'' se no ghe
 	'validationstatistics-reviews' => 'Revisioni',
 );
 
-/** Veps (Vepsan kel')
+/** Veps (Vepsän kel')
  * @author Игорь Бродский
  */
 $messages['vep'] = array(
-	'validationstatistics' => 'Kodvindoiden statistik',
+	'validationstatistics' => 'Lehtpoliden kodvindoiden statistik',
 	'validationstatistics-users' => "{{SITENAME}}-projektas nügüd' '''[[Special:ListUsers/editor|$1]]''' {{plural:$1|kävutajal|kävutajil}} 
 oma [[{{MediaWiki:Validationpage}}|«redaktoran»]] oiktused.
 
@@ -2161,7 +2171,7 @@ Ku stabiline versii om jäl'gmäine, ka se kucuse ''sinhroniziruidud''.
 	'validationstatistics-latest' => 'Tantoi kodvdud',
 	'validationstatistics-synced' => 'Kodvdud udes',
 	'validationstatistics-old' => 'Vanhtunuded',
-	'validationstatistics-utable' => "Alemba oma ozutadud $1 päarvostelijad jäl'gmäižes časus",
+	'validationstatistics-utable' => "Alemba om anttud nimikirjutez, kus {{PLURAL:$1|om $1 kaikiš aktivižemb arvostelii|oma $1 kaikiš aktivižembad arvostelijad}} {{PLURAL:$2|jäl'gmäižes časus|$2 jäl'gmäižiš časuiš}}.",
 	'validationstatistics-user' => 'Kävutai',
 	'validationstatistics-reviews' => 'Redakcijad',
 );

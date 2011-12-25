@@ -1276,6 +1276,29 @@ $messages['nah'] = array(
 	'pendingchanges-watched' => '($1 āyini  {{PLURAL:$1|tlatequitiltilīlli quichiya|tlatequitiltilīltin quichiyah}})',
 );
 
+/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
+ * @author EivindJ
+ * @author Jon Harald Søby
+ * @author Nghtwlkr
+ */
+$messages['nb'] = array(
+	'pendingchanges' => 'Sider med ventende endringer',
+	'pendingchanges-legend' => 'Vis anmeldte sider med uanmeldte sideversjoner',
+	'pendingchanges-list' => 'Denne siden lister opp [[{{MediaWiki:Validationpage}}|reviderte]] sider som har en eller flere ventende endringer.',
+	'pendingchanges-none' => 'Det er for tiden ingen sider som passer med disse kriteriene',
+	'pendingchanges-hours' => '($1 {{PLURAL:$1|time|timer}})',
+	'pendingchanges-days' => '($1 {{PLURAL:$1|dag|dager}})',
+	'pendingchanges-recent' => '(under én time)',
+	'pendingchanges-category' => 'Kategori:',
+	'pendingchanges-onwatchlist' => 'Sider på min overvåkningsliste',
+	'pendingchanges-stable' => 'Stabil versjon er standard',
+	'pendingchanges-diff' => 'anmeld',
+	'pendingchanges-size' => 'Maksimal endring (byte):',
+	'pendingchanges-unwatched' => '(ikke overvåket)',
+	'pendingchanges-watched' => '({{PLURAL:$1|én aktiv bruker|$1 aktive brukere}} overvåker)',
+	'pendingchanges-viewing' => '(under vurdering)',
+);
+
 /** Low German (Plattdüütsch)
  * @author Slomox
  */
@@ -1328,29 +1351,6 @@ $messages['nn'] = array(
 	'pendingchanges-viewing' => '(under vurdering)',
 );
 
-/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
- * @author EivindJ
- * @author Jon Harald Søby
- * @author Nghtwlkr
- */
-$messages['nb'] = array(
-	'pendingchanges' => 'Sider med ventende endringer',
-	'pendingchanges-legend' => 'Vis anmeldte sider med uanmeldte sideversjoner',
-	'pendingchanges-list' => 'Denne siden lister opp [[{{MediaWiki:Validationpage}}|reviderte]] sider som har en eller flere ventende endringer.',
-	'pendingchanges-none' => 'Det er for tiden ingen sider som passer med disse kriteriene',
-	'pendingchanges-hours' => '($1 {{PLURAL:$1|time|timer}})',
-	'pendingchanges-days' => '($1 {{PLURAL:$1|dag|dager}})',
-	'pendingchanges-recent' => '(under én time)',
-	'pendingchanges-category' => 'Kategori:',
-	'pendingchanges-onwatchlist' => 'Sider på min overvåkningsliste',
-	'pendingchanges-stable' => 'Stabil versjon er standard',
-	'pendingchanges-diff' => 'anmeld',
-	'pendingchanges-size' => 'Maksimal endring (byte):',
-	'pendingchanges-unwatched' => '(ikke overvåket)',
-	'pendingchanges-watched' => '({{PLURAL:$1|én aktiv bruker|$1 aktive brukere}} overvåker)',
-	'pendingchanges-viewing' => '(under vurdering)',
-);
-
 /** Occitan (Occitan)
  * @author Cedric31
  */
@@ -1369,6 +1369,13 @@ $messages['oc'] = array(
 	'pendingchanges-unwatched' => '(pas observat)',
 	'pendingchanges-watched' => '($1 {{PLURAL:$1|utilizaire actiu|utilizaires actius}} a observar)',
 	'pendingchanges-viewing' => '(en revision)',
+);
+
+/** Oriya (ଓଡ଼ିଆ)
+ * @author Ansumang
+ */
+$messages['or'] = array(
+	'pendingchanges-category' => 'ଶ୍ରେଣୀ:',
 );
 
 /** Deitsch (Deitsch)

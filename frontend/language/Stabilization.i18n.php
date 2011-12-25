@@ -2208,6 +2208,16 @@ $messages['lt'] = array(
 	'stabilization-def-short-0' => 'Esamas',
 );
 
+/** Latvian (Latviešu)
+ * @author GreenZeb
+ */
+$messages['lv'] = array(
+	'stabilization-comment' => 'Iemesls:',
+	'stabilization-otherreason' => 'Cits iemesls:',
+	'stabilization-expiry' => 'Beidzas:',
+	'stabilization-othertime' => 'Cits laiks:',
+);
+
 /** Eastern Mari (Олык Марий)
  * @author Сай
  */
@@ -2401,6 +2411,47 @@ $messages['nah'] = array(
 	'stabilize-expiring' => 'motlamīz $1 (UTC)',
 );
 
+/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
+ * @author H92
+ * @author Jon Harald Søby
+ * @author Laaknor
+ * @author Nghtwlkr
+ */
+$messages['nb'] = array(
+	'stabilization-tab' => 'kvalitet',
+	'stabilization' => 'Sidestabilisering',
+	'stabilization-text' => "'''Endre innstillingene nedenfor for å bestemme hvordan den publiserte versjonen av [[:$1|$1]] skal velges og vises.'''",
+	'stabilization-perm' => 'Din brukerkonto har ikke tillatelse til å endre innstillinger for publiserte versjoner.
+Her er de nåværende innstillingene for [[:$1|$1]]:',
+	'stabilization-page' => 'Sidenavn:',
+	'stabilization-leg' => 'Bekreft innstillinger for publiserte versjoner',
+	'stabilization-def' => 'Sideversjonen som skal brukes som standardvisning',
+	'stabilization-def1' => 'Den stabile versjonen; om den ikke finnes, den siste revisjon',
+	'stabilization-def2' => 'Den siste revisjonen',
+	'stabilization-restrict' => 'Begrensninger av revidering/auto-revidering',
+	'stabilization-restrict-none' => 'Ingen ekstra begrensinger',
+	'stabilization-submit' => 'Bekreft',
+	'stabilization-notexists' => 'Det er ingen side med tittelen «[[:$1|$1]]». Ingen innstillinger kan gjøres.',
+	'stabilization-notcontent' => 'Siden «[[:$1|$1]]» kan ikke bli undersøkt. Ingen innstillinger kan gjøres.',
+	'stabilization-comment' => 'Årsak:',
+	'stabilization-otherreason' => 'Annen årsak:',
+	'stabilization-expiry' => 'Utgår:',
+	'stabilization-othertime' => 'Annen tid:',
+	'stabilization-def-short' => 'Standard',
+	'stabilization-def-short-0' => 'Nåværende',
+	'stabilization-def-short-1' => 'Publisert',
+	'stabilize_page_invalid' => 'Målsidetittelen er ugyldig.',
+	'stabilize_page_notexists' => 'Målsiden finnes ikke.',
+	'stabilize_page_unreviewable' => 'Målsiden er ikke i et reviderbart navnerom.',
+	'stabilize_invalid_autoreview' => 'Ugyldig autorevideringsbegrensning',
+	'stabilize_invalid_level' => 'Ugyldig beskyttelsesnivå.',
+	'stabilize_expiry_invalid' => 'Ugyldig varighet.',
+	'stabilize_expiry_old' => 'Varigheten har allerede utløpt.',
+	'stabilize_denied' => 'Tilgang nektet.',
+	'stabilize-expiring' => 'utgår $1 (UTC)',
+	'stabilization-review' => 'Merk den nåværende revisjonen som kontrollert',
+);
+
 /** Low German (Plattdüütsch)
  * @author Slomox
  */
@@ -2492,47 +2543,6 @@ Ingen innstillingar kan verta gjorde.',
 	'stabilization-review' => 'Vurder den noverande versjonen',
 );
 
-/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
- * @author H92
- * @author Jon Harald Søby
- * @author Laaknor
- * @author Nghtwlkr
- */
-$messages['nb'] = array(
-	'stabilization-tab' => 'kvalitet',
-	'stabilization' => 'Sidestabilisering',
-	'stabilization-text' => "'''Endre innstillingene nedenfor for å bestemme hvordan den publiserte versjonen av [[:$1|$1]] skal velges og vises.'''",
-	'stabilization-perm' => 'Din brukerkonto har ikke tillatelse til å endre innstillinger for publiserte versjoner.
-Her er de nåværende innstillingene for [[:$1|$1]]:',
-	'stabilization-page' => 'Sidenavn:',
-	'stabilization-leg' => 'Bekreft innstillinger for publiserte versjoner',
-	'stabilization-def' => 'Sideversjonen som skal brukes som standardvisning',
-	'stabilization-def1' => 'Den stabile versjonen; om den ikke finnes, den siste revisjon',
-	'stabilization-def2' => 'Den siste revisjonen',
-	'stabilization-restrict' => 'Begrensninger av revidering/auto-revidering',
-	'stabilization-restrict-none' => 'Ingen ekstra begrensinger',
-	'stabilization-submit' => 'Bekreft',
-	'stabilization-notexists' => 'Det er ingen side med tittelen «[[:$1|$1]]». Ingen innstillinger kan gjøres.',
-	'stabilization-notcontent' => 'Siden «[[:$1|$1]]» kan ikke bli undersøkt. Ingen innstillinger kan gjøres.',
-	'stabilization-comment' => 'Årsak:',
-	'stabilization-otherreason' => 'Annen årsak:',
-	'stabilization-expiry' => 'Utgår:',
-	'stabilization-othertime' => 'Annen tid:',
-	'stabilization-def-short' => 'Standard',
-	'stabilization-def-short-0' => 'Nåværende',
-	'stabilization-def-short-1' => 'Publisert',
-	'stabilize_page_invalid' => 'Målsidetittelen er ugyldig.',
-	'stabilize_page_notexists' => 'Målsiden finnes ikke.',
-	'stabilize_page_unreviewable' => 'Målsiden er ikke i et reviderbart navnerom.',
-	'stabilize_invalid_autoreview' => 'Ugyldig autorevideringsbegrensning',
-	'stabilize_invalid_level' => 'Ugyldig beskyttelsesnivå.',
-	'stabilize_expiry_invalid' => 'Ugyldig varighet.',
-	'stabilize_expiry_old' => 'Varigheten har allerede utløpt.',
-	'stabilize_denied' => 'Tilgang nektet.',
-	'stabilize-expiring' => 'utgår $1 (UTC)',
-	'stabilization-review' => 'Merk den nåværende revisjonen som kontrollert',
-);
-
 /** Novial (Novial)
  * @author Malafaya
  */
@@ -2580,6 +2590,20 @@ Aquí los paramètres actuals de [[:$1|$1]] :',
 	'stabilize_expiry_old' => "Lo temps d'expiracion ja es passat.",
 	'stabilize-expiring' => 'expira $1 (UTC)',
 	'stabilization-review' => 'Tornar veire la version correnta',
+);
+
+/** Oriya (ଓଡ଼ିଆ)
+ * @author Ansumang
+ */
+$messages['or'] = array(
+	'stabilization-page' => 'ପୃଷ୍ଠା ନାମ:',
+	'stabilization-submit' => 'ଥୟ କରିବେ',
+	'stabilization-comment' => 'କାରଣ:',
+	'stabilization-otherreason' => 'ଅନ୍ୟ କାରଣ:',
+	'stabilization-expiry' => 'ଅଚଳ ହେବ:',
+	'stabilization-othertime' => 'ବାକି ସମୟ:',
+	'stabilization-def-short-0' => 'ଏବେକାର',
+	'stabilization-def-short-1' => 'ସ୍ଥିର',
 );
 
 /** Deitsch (Deitsch)

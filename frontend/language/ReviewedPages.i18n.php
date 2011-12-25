@@ -898,6 +898,24 @@ $messages['nah'] = array(
 	'reviewedpages-lev-1' => 'Cuallōtl',
 );
 
+/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
+ * @author EivindJ
+ * @author Jon Harald Søby
+ * @author Nghtwlkr
+ */
+$messages['nb'] = array(
+	'reviewedpages' => 'Anmeldte sider',
+	'reviewedpages-leg' => 'List opp sider som har blitt revidert',
+	'reviewedpages-list' => "Denne listen inneholder [[{{MediaWiki:Validationpage}}|reviderte]] sider som ''på det meste''  har hatt et revisjonsnivå på et oppgitt nivå.
+En lenke er oppgitt til den siste revisjonen med det nivået.",
+	'reviewedpages-none' => 'Det er ingen sider i denne listen',
+	'reviewedpages-lev-0' => 'Sjekket',
+	'reviewedpages-lev-1' => 'Kvalitet',
+	'reviewedpages-lev-2' => 'Utmerket',
+	'reviewedpages-all' => 'anmeldte sideversjoner',
+	'reviewedpages-best' => 'beste revisjon',
+);
+
 /** Dutch (Nederlands)
  * @author McDutchie
  * @author SPQRobin
@@ -929,24 +947,6 @@ $messages['nn'] = array(
 	'reviewedpages-lev-2' => 'Utmerka',
 	'reviewedpages-all' => 'vurderte versjonar',
 	'reviewedpages-best' => 'beste versjon',
-);
-
-/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
- * @author EivindJ
- * @author Jon Harald Søby
- * @author Nghtwlkr
- */
-$messages['nb'] = array(
-	'reviewedpages' => 'Anmeldte sider',
-	'reviewedpages-leg' => 'List opp sider som har blitt revidert',
-	'reviewedpages-list' => "Denne listen inneholder [[{{MediaWiki:Validationpage}}|reviderte]] sider som ''på det meste''  har hatt et revisjonsnivå på et oppgitt nivå.
-En lenke er oppgitt til den siste revisjonen med det nivået.",
-	'reviewedpages-none' => 'Det er ingen sider i denne listen',
-	'reviewedpages-lev-0' => 'Sjekket',
-	'reviewedpages-lev-1' => 'Kvalitet',
-	'reviewedpages-lev-2' => 'Utmerket',
-	'reviewedpages-all' => 'anmeldte sideversjoner',
-	'reviewedpages-best' => 'beste revisjon',
 );
 
 /** Northern Sotho (Sesotho sa Leboa)
@@ -1369,13 +1369,14 @@ Xe fornìo un link a l'ultima revision par quel livèl.",
 	'reviewedpages-best' => 'revision mejo',
 );
 
-/** Veps (Vepsan kel')
+/** Veps (Vepsän kel')
  * @author Игорь Бродский
  */
 $messages['vep'] = array(
 	'reviewedpages' => 'Kodvdud lehtpoled',
-	'reviewedpages-leg' => 'Lehtpoled, kudambad oma sanuded ülembaižen arvsanan (nimikirjutez)',
-	'reviewedpages-list' => "{{PLURAL:$1|Nece lehtpol' om|Nened lehtpoled oma}} arvosteldud ozutadud pindhasai",
+	'reviewedpages-leg' => 'Kodvdud lehtpoliden nimikirjutez',
+	'reviewedpages-list' => 'Necil lehtpolel om [[{{MediaWiki:Validationpage}}|kodvdud]] lehtpoliden nimed; niiden "parahim arvsana" sättub märitud tazopindale.
+Kosketuz ozutab necen lehtpolen jäl\'gmäižhe versijaha ningoižen arvsananke.',
 	'reviewedpages-none' => 'Neciš nimikirjuteses ei ole lehtpolid',
 	'reviewedpages-lev-0' => 'Arvosteldud',
 	'reviewedpages-lev-1' => 'Lopuližikš kodvdud',

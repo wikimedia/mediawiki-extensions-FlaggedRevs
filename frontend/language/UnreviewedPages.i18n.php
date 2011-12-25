@@ -1205,6 +1205,27 @@ $messages['nah'] = array(
 	'unreviewedpages-category' => 'Tlaìxmatkàtlàlilòtl:',
 );
 
+/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
+ * @author Harald Khan
+ * @author Jon Harald Søby
+ * @author Nghtwlkr
+ * @author Simny
+ */
+$messages['nb'] = array(
+	'unreviewedpages' => 'Uanmeldte sider',
+	'unreviewedpages-legend' => 'List uanmeldte innholdssider',
+	'unreviewedpages-category' => 'Kategori:',
+	'unreviewedpages-diff' => 'anmeld',
+	'unreviewedpages-unwatched' => '(uovervåket)',
+	'unreviewedpages-watched' => '({{PLURAL:$1|én aktiv bruker|$1 aktive brukere}} overvåker)',
+	'unreviewedpages-list' => "Denne siden lister opp innholdssider som ''ikke'' har blitt [[{{MediaWiki:Validationpage}}|vurdert]] til det spesifiserte nivået.",
+	'unreviewedpages-none' => 'Det er ingen sider som passer med disse kriteriene',
+	'unreviewedpages-viewing' => '(under vurdering)',
+	'unreviewedpages-hours' => '($1 {{PLURAL:$1|time|timer}})',
+	'unreviewedpages-days' => '($1 {{PLURAL:$1|dag|dager}})',
+	'unreviewedpages-recent' => '(under én time)',
+);
+
 /** Low German (Plattdüütsch)
  * @author Slomox
  */
@@ -1253,27 +1274,6 @@ $messages['nn'] = array(
 	'unreviewedpages-recent' => '(mindre enn éin time)',
 );
 
-/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
- * @author Harald Khan
- * @author Jon Harald Søby
- * @author Nghtwlkr
- * @author Simny
- */
-$messages['nb'] = array(
-	'unreviewedpages' => 'Uanmeldte sider',
-	'unreviewedpages-legend' => 'List uanmeldte innholdssider',
-	'unreviewedpages-category' => 'Kategori:',
-	'unreviewedpages-diff' => 'anmeld',
-	'unreviewedpages-unwatched' => '(uovervåket)',
-	'unreviewedpages-watched' => '({{PLURAL:$1|én aktiv bruker|$1 aktive brukere}} overvåker)',
-	'unreviewedpages-list' => "Denne siden lister opp innholdssider som ''ikke'' har blitt [[{{MediaWiki:Validationpage}}|vurdert]] til det spesifiserte nivået.",
-	'unreviewedpages-none' => 'Det er ingen sider som passer med disse kriteriene',
-	'unreviewedpages-viewing' => '(under vurdering)',
-	'unreviewedpages-hours' => '($1 {{PLURAL:$1|time|timer}})',
-	'unreviewedpages-days' => '($1 {{PLURAL:$1|dag|dager}})',
-	'unreviewedpages-recent' => '(under én time)',
-);
-
 /** Northern Sotho (Sesotho sa Leboa)
  * @author Mohau
  */
@@ -1300,6 +1300,13 @@ $messages['oc'] = array(
 	'unreviewedpages-hours' => '($1 {{PLURAL:$1|ora|oras}})',
 	'unreviewedpages-days' => '($1 {{PLURAL:$1|jorn|jorns}})',
 	'unreviewedpages-recent' => "(mens d'una ora)",
+);
+
+/** Oriya (ଓଡ଼ିଆ)
+ * @author Ansumang
+ */
+$messages['or'] = array(
+	'unreviewedpages-category' => 'ଶ୍ରେଣୀ:',
 );
 
 /** Ossetic (Ирон)

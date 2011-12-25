@@ -678,6 +678,19 @@ Modifiki magħmula minn utenti oħra ma jidhrux awtomatikament lill-qarrejja sak
 	'stablepages-indef' => 'Skadenza indefinita biss',
 );
 
+/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
+ * @author Jon Harald Søby
+ * @author Nghtwlkr
+ */
+$messages['nb'] = array(
+	'stablepages' => 'Sider som bruker redigeringsgodkjenning',
+	'stablepages-list' => 'Nedenfor er en liste over sider som kun enkelte brukere kan redigere uten krav om revidering.
+Endringer utført av andre brukere vises ikke til lesere som standard før en autorisert bruker reviderer dem.',
+	'stablepages-none' => 'Det er ingen sider i denne listen',
+	'stablepages-config' => 'Konfigurering',
+	'stablepages-indef' => 'Kun ubestemt utløpstid',
+);
+
 /** Dutch (Nederlands)
  * @author McDutchie
  * @author Siebrand
@@ -699,19 +712,6 @@ $messages['nn'] = array(
 	'stablepages-list' => 'Under er ei lista over sider manuelt innstilte til å syna den stabile versjonen som standardinnhald for lesarar.',
 	'stablepages-none' => 'Det finst ingen sider i denne lista',
 	'stablepages-config' => 'Konfigurering',
-);
-
-/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
- * @author Jon Harald Søby
- * @author Nghtwlkr
- */
-$messages['nb'] = array(
-	'stablepages' => 'Sider som bruker redigeringsgodkjenning',
-	'stablepages-list' => 'Nedenfor er en liste over sider som kun enkelte brukere kan redigere uten krav om revidering.
-Endringer utført av andre brukere vises ikke til lesere som standard før en autorisert bruker reviderer dem.',
-	'stablepages-none' => 'Det er ingen sider i denne listen',
-	'stablepages-config' => 'Konfigurering',
-	'stablepages-indef' => 'Kun ubestemt utløpstid',
 );
 
 /** Occitan (Occitan)
@@ -980,14 +980,16 @@ $messages['vec'] = array(
 	'stablepages-indef' => 'Solo scadensa indefinìa',
 );
 
-/** Veps (Vepsan kel')
+/** Veps (Vepsän kel')
  * @author Игорь Бродский
  */
 $messages['vep'] = array(
-	'stablepages' => 'Stabiližed lehtpoled',
-	'stablepages-list' => 'Lehtpoled, kudambad oma käzil järgetud muga, miše ozutada lugijoile stabiližid versijoid augotižjärgendusen mödhe - nimikirjutez.',
+	'stablepages' => 'Lehtpoled, kudambad kävutadas kodviden vahvištoitandan.',
+	'stablepages-list' => 'Lehtpoled, kudambid sab koheta vaiše märitud ühtnijoile; nenid kohendusid ei sa kodvda.
+Toižiden ühtnijoiden kohendusid ei ozutadas lugijoile järgendusen mödhe, kuni avtorizuidud ühtnii ei arvoi niid.',
 	'stablepages-none' => 'Neciš nimikirjuteses ei ole lehtpolid',
 	'stablepages-config' => 'Järgendused',
+	'stablepages-indef' => 'Vaiše märhapanmatoman strokunke',
 );
 
 /** Vietnamese (Tiếng Việt)

@@ -586,6 +586,20 @@ $messages['ms'] = array(
 	'problemchanges-category' => 'Kategori:',
 );
 
+/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
+ * @author Jon Harald Søby
+ * @author Laaknor
+ * @author Nghtwlkr
+ * @author Simny
+ */
+$messages['nb'] = array(
+	'problemchanges' => 'Merket ventende endringer',
+	'problemchanges-list' => 'Denne siden lister opp [[{{MediaWiki:Validationpage}}|reviderte]] sider med en eller flere merkede ventende endringer. En liste over [[Special:Tags|gyldige endringsmerkelapper]] er tilgjengelig.',
+	'problemchanges-legend' => 'Vis sider som inneholder merkede redigeringer som trenger gjennomsyn',
+	'problemchanges-none' => 'Det er for øyeblikket ingen sider som passer med disse kjennetegnene',
+	'problemchanges-category' => 'Kategori:',
+);
+
 /** Dutch (Nederlands)
  * @author Siebrand
  */
@@ -604,20 +618,6 @@ $messages['nn'] = array(
 	'problemchanges-category' => 'Kategori:',
 );
 
-/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
- * @author Jon Harald Søby
- * @author Laaknor
- * @author Nghtwlkr
- * @author Simny
- */
-$messages['nb'] = array(
-	'problemchanges' => 'Merket ventende endringer',
-	'problemchanges-list' => 'Denne siden lister opp [[{{MediaWiki:Validationpage}}|reviderte]] sider med en eller flere merkede ventende endringer. En liste over [[Special:Tags|gyldige endringsmerkelapper]] er tilgjengelig.',
-	'problemchanges-legend' => 'Vis sider som inneholder merkede redigeringer som trenger gjennomsyn',
-	'problemchanges-none' => 'Det er for øyeblikket ingen sider som passer med disse kjennetegnene',
-	'problemchanges-category' => 'Kategori:',
-);
-
 /** Occitan (Occitan)
  * @author Cedric31
  */
@@ -626,6 +626,13 @@ $messages['oc'] = array(
 	'problemchanges-legend' => 'Listar las paginas amb de modificacions balisadas en espèra de relectura',
 	'problemchanges-none' => 'Pel moment, i a pas cap de pagina que satisfasca aqueles critèris',
 	'problemchanges-category' => 'Categoria :',
+);
+
+/** Oriya (ଓଡ଼ିଆ)
+ * @author Ansumang
+ */
+$messages['or'] = array(
+	'problemchanges-category' => 'ଶ୍ରେଣୀ:',
 );
 
 /** Deitsch (Deitsch)
@@ -905,11 +912,12 @@ $messages['vec'] = array(
 	'problemchanges-category' => 'Categoria:',
 );
 
-/** Veps (Vepsan kel')
+/** Veps (Vepsän kel')
  * @author Игорь Бродский
  */
 $messages['vep'] = array(
-	'problemchanges' => 'Znamoitud toižetusiden arvostelend',
+	'problemchanges' => 'Znamoitud kodvmatonad toižetused',
+	'problemchanges-list' => 'Necil lehtpolel om [[{{MediaWiki:Validationpage}}|kodvdud]] lehtpoliden nimed; nened lehtpoled varastadas völ kodvindad. Kc. [[Special:Tags|lasktud virgoiden]] nimikirjutez.',
 	'problemchanges-legend' => 'Lehtpoled znamoitud toižetusidenke, kudambad varastadas arvostelendad - nimikirjutez',
 	'problemchanges-none' => "Nügüd' ei ole sättujid nenid kriterijoidme lehtpolid",
 	'problemchanges-category' => 'Kategorii:',

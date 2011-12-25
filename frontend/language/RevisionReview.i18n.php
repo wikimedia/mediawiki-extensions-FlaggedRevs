@@ -1589,6 +1589,14 @@ Vaata [[Special:Unreviewedpages|ülevaatamata lehekülgede loendit]].',
 	'revreview-submit-unreviewed' => 'Tehtud ja tagasi lükatud!',
 	'revreview-successful' => "'''Lehekülje [[:$1|$1]] redaktsioon edukalt vaadatud. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} vaata ülevaadatud versioone])'''",
 	'revreview-successful2' => "'''Lehekülje [[:$1|$1]] redaktsioonilt vaatamismärkus edukalt eemaldatud.'''",
+	'revreview-poss-conflict-p' => "'''Hoiatus: [[User:$1|$1]] hakkas seda lehekülge üle vaatama ($2, kell $3).'''",
+	'revreview-poss-conflict-c' => "'''Hoiatus: [[User:$1|$1]] hakkas neid muudatusi üle vaatama ($2, kell $3).'''",
+	'revreview-adv-reviewing-p' => 'Märkus: Teised ülevaatajad näevad, et seda lehekülge üle vaatad.',
+	'revreview-adv-reviewing-c' => 'Märkus: Teised ülevaatajad näevad, et neid muudatusi üle vaatad.',
+	'revreview-sadv-reviewing-p' => 'Saad teistele kasutajatele $1, et vaatad seda lehekülge üle.',
+	'revreview-sadv-reviewing-c' => 'Saad teistele kasutajatele $1, et vaatad neid muudatusi üle.',
+	'revreview-adv-start-link' => 'teatada',
+	'revreview-adv-stop-link' => 'jäta teatamata',
 	'revreview-toolow' => '\'\'\'Lehekülje ülevaadatuks arvamiseks pead hindama kõiki tunnuseid kõrgemini kui "ebarahuldav".\'\'\'
 
 Redaktsioonilt ülevaadatu seisundi eemaldamiseks klõpsa "lükka tagasi".
@@ -1602,6 +1610,7 @@ Oma muudatuste püsivas versioonis kuvamiseks vaata palun kõik allpool näidatu
 
 Oma muudatuste püsivas versioonis kuvamiseks vaata palun kõik allpool näidatud muudatused üle.',
 	'revreview-update-includes' => 'Malle või faile on uuendatud (ülevaatamata leheküljed rasvaselt):',
+	'revreview-reject-summary' => 'Resümee:',
 	'revreview-reject-cancel' => 'Loobu',
 	'revreview-tt-flag' => 'Kiida see redaktsioon heaks, märkides selle kui "kord vaadatud"',
 	'revreview-tt-unflag' => 'Lükka see redaktsioon tagasi, märkides selle kui "kord vaatamata"',
@@ -2490,7 +2499,7 @@ Lásd az [[Special:Unreviewedpages|ellenőrizetlen lapok listáját]].',
 	'revreview-poss-conflict-c' => "'''Figyelem: [[User:$1|$1]] elkezdte ellenőrizni a lapon történt változásokat ekkor: $2   $3'''",
 	'revreview-adv-reviewing-p' => 'Figyelem: A többi szerkesztő láthatja, hogy te ellenőrzöd ezeket a változásokat.',
 	'revreview-adv-reviewing-c' => 'Figyelem: A többi szerkesztő láthatja, hogy te ellenőrzöd ezeket a változásokat.',
-	'revreview-sadv-reviewing-p' => '$1 szerkesztőnévvel végzel ellenőrzést, a többi szerkesztő ezt láthatja.',
+	'revreview-sadv-reviewing-p' => '$1 az ellenőrzést, a többi szerkesztő ezt láthatja.',
 	'revreview-sadv-reviewing-c' => '$1 a szerkesztőnevedet a többi szerkesztő számára mint aki ellenőrzi ezeket a változásokat.',
 	'revreview-adv-start-link' => 'Közzéteheted',
 	'revreview-adv-stop-link' => 'hirdetés visszavonása',
@@ -2745,6 +2754,7 @@ Vedi l'[[Special:Unreviewedpages|elenco delle pagine non revisionate]].",
 	'revreview-submit' => 'Invia',
 	'revreview-submitting' => 'Invio in corso...',
 	'revreview-submit-review' => 'Accetta',
+	'revreview-submit-reject' => 'Rifiuta modifiche',
 	'revreview-submit-reviewed' => 'Fatto. Accettata!',
 	'revreview-submit-unreviewed' => 'Fatto. Non accettata!',
 	'revreview-successful' => "'''Versione di [[:$1|$1]] verificata con successo. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} visualizza versione stabile])'''",
@@ -2759,6 +2769,8 @@ Vedi l'[[Special:Unreviewedpages|elenco delle pagine non revisionate]].",
  Si prega di rivedere tutte le modifiche di seguito riportate perché le tue modifiche vengano visualizzate nella versione stabile. 
  Potrebbe essere necessario prima proseguire o "annullare" modifiche.',
 	'revreview-update-includes' => 'Alcuni template/file sono stati aggiornati:',
+	'revreview-reject-summary' => 'Sommario:',
+	'revreview-reject-cancel' => 'Annulla',
 	'revreview-tt-flag' => 'Accetta questa versione marcandola come "verificata"',
 );
 
@@ -3537,6 +3549,87 @@ Sila kaji semula segala perubahan yang ditunjukkan di bawah untuk memastikan aga
 	'revreview-tt-reject' => 'Tolak perubahan teks sumber ini dengan membalikkannya',
 );
 
+/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
+ * @author EivindJ
+ * @author Event
+ * @author Jon Harald Søby
+ * @author Laaknor
+ * @author Nghtwlkr
+ */
+$messages['nb'] = array(
+	'revisionreview' => 'Anmeld sideversjoner',
+	'revreview-failed' => "'''Kunne ikke revidere denne revisjonen.'''",
+	'revreview-submission-invalid' => 'Innsendingen var ufullstendig eller på en annen måte ugyldig.',
+	'review_page_invalid' => 'Målsidetittelen er ugyldig.',
+	'review_page_notexists' => 'Målsiden finnes ikke.',
+	'review_page_unreviewable' => 'Målsiden er ikke reviderbar.',
+	'review_no_oldid' => 'Ingen revisjons-ID spesifisert.',
+	'review_bad_oldid' => 'Det er ingen slik målrevisjon.',
+	'review_conflict_oldid' => 'Noen har allerede godkjent eller ikke godkjent denne revisjonen mens du så på den.',
+	'review_not_flagged' => 'Målrevisjonen er foreløpig ikke merket som revidert.',
+	'review_too_low' => 'Revisjonen kan ikke revideres med enkelte felt markert som «utilstrekkelig».',
+	'review_bad_key' => 'Ugyldig inkluderingsparameternøkkel.',
+	'review_bad_tags' => 'Enkelte av de angitte merkelappverdiene er ugyldige.',
+	'review_denied' => 'Ingen tillatelse.',
+	'review_param_missing' => 'En parameter mangler eller er ugyldig.',
+	'review_cannot_undo' => 'Kan ikke omgjøre disse endringene fordi ventende endringer endret i samme område.',
+	'review_cannot_reject' => 'Kunne ikke forkaste endringene fordi noen allerede har godkjent noen av (eller alle) redigeringene.',
+	'review_reject_excessive' => 'Kan ikke forkaste så mange endringer på en gang.',
+	'review_reject_nulledits' => 'Kan ikke avvise disse endringene fordi alle revisjoner er tomme.',
+	'revreview-check-flag-p' => 'Godta denne versjonen (inkluderer $1 ventende {{PLURAL:$1|endring|endringer}})',
+	'revreview-check-flag-p-title' => 'Godta alle nåværende ventende endringer sammen med din egen endring. Bare bruk denne om du allerede har sett på hele diffen for ventende endringer.',
+	'revreview-check-flag-u' => 'Godta denne ureviderte siden',
+	'revreview-check-flag-u-title' => 'Godta denne versjonen av siden. Bare bruk denne om du allerede har sett hele siden.',
+	'revreview-check-flag-y' => 'Godta disse endringene',
+	'revreview-check-flag-y-title' => 'Godta alle endringene som du har gjort i denne redigeringen.',
+	'revreview-flag' => 'Anmeld denne sideversjonen',
+	'revreview-reflag' => 'Revider denne revisjonen på nytt',
+	'revreview-invalid' => "'''Ugyldig mål:''' ingen [[{{MediaWiki:Validationpage}}|anmeldte]] versjoner tilsvarer den angitte ID-en.",
+	'revreview-log' => 'Kommentar:',
+	'revreview-main' => 'Du må velge en viss revisjon av en innholdsside for å anmelde den.
+
+Se [[Special:Unreviewedpages|listen over ikke-anmeldte sider]].',
+	'revreview-stable1' => 'Du vil kanskje se [{{fullurl:$1|stableid=$2}} denne flaggede versjonen] og se om den nå er den [{{fullurl:$1|stable=1}} publiserte versjonen] av denne siden.',
+	'revreview-stable2' => 'Du vil kanskje se den [{{fullurl:$1|stable=1}} publiserte versjonen] av denne siden.',
+	'revreview-submit' => 'Send',
+	'revreview-submitting' => 'Leverer …',
+	'revreview-submit-review' => 'Godkjenn revisjon',
+	'revreview-submit-unreview' => 'Ikke godkjenn revisjon',
+	'revreview-submit-reject' => 'Avvis endringer',
+	'revreview-submit-reviewed' => 'Ferdig. Godkjent.',
+	'revreview-submit-unreviewed' => 'Ferdig. Ikke godkjent.',
+	'revreview-successful' => "'''Valgt versjon av [[:$1|$1]] har blitt merket. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} se alle stabile versjoner])'''",
+	'revreview-successful2' => "'''Valgt versjon av [[:$1|$1]] ble degradert.'''",
+	'revreview-poss-conflict-p' => "'''Advarsel: [[User:$1|$1]] begynte å revidere denne siden den $2, $3.'''",
+	'revreview-poss-conflict-c' => "'''Advarsel: [[User:$1|$1]] begynte å revidere disse endringene den $2, $3.'''",
+	'revreview-adv-reviewing-p' => "'''Merk: Du har nå startet gjennomgang av denne siden på  $1 ved $2.'''",
+	'revreview-toolow' => "'''Du må vurdere hver av egenskapene til høyere enn «utilstrekkelig» for at revisjonen skal bli vurdert som revidert.'''
+
+For å fjerne vurderingsstatusen til en revisjon, klikk på «underkjenn».
+
+Klikk på «tilbake»-knappen i nettleseren din og prøv igjen.",
+	'revreview-update' => "'''[[{{MediaWiki:Validationpage}}|Revider]] ventende endringer ''(vist nedenfor)'' som har blitt gjort på den aksepterte versjonen.'''",
+	'revreview-update-edited' => '<span class="flaggedrevs_important">Endringene dine er ikke i den stabile versjonen ennå.</span>
+
+Revider alle endringene vist nedenfor for å gjøre redigeringene dine synlige i den stabile versjonen.',
+	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Endringene dine er ikke i den stabile versjonen ennå. Det finnes tidligere endringer som venter på revidering.</span>
+
+Revider alle endringene vist nedenfor for å gjøre redigeringene dine synlige i den stabile versjonen.',
+	'revreview-update-includes' => 'Noen maler eller filer ble oppdatert:',
+	'revreview-reject-text-list' => "Ved å fullføre denne handlingen vil du '''avvise''' følgende {{PLURAL:$1|endring|endringer}}:",
+	'revreview-reject-text-revto' => 'Dette vil tilbakestille siden til [{{fullurl:$1|oldid=$2}} versjonen fra $3].',
+	'revreview-reject-summary' => 'Sammendrag:',
+	'revreview-reject-confirm' => 'Avvis disse endringene',
+	'revreview-reject-cancel' => 'Avbryt',
+	'revreview-reject-summary-cur' => 'Forkastet {{PLURAL:$1|den siste endringen|de siste $1 endringene}} (av $2) og gjenopprettet revisjon $3 av $4.',
+	'revreview-reject-summary-old' => 'Forkastet {{PLURAL:$1|den første endringen|de første $1 endringene}} (av $2) som fulgte revisjon $3 av $4',
+	'revreview-reject-summary-cur-short' => 'Forkastet {{PLURAL:$1|den siste endringen|de siste $1 endringene}} og gjenopprettet revisjon $2 av $3',
+	'revreview-reject-summary-old-short' => 'Forkastet {{PLURAL:$1|den første endringen|de første $1 endringene}} som fulgte revisjon $2 av $3',
+	'revreview-tt-flag' => 'Godkjenn denne revisjonen ved å merke den som kontrollert',
+	'revreview-tt-unflag' => 'Underkjenn denne revisjonen ved å merke den som «ukontrollert»',
+	'revreview-tt-reject' => 'Avvis disse endringene ved å tilbakestille dem',
+);
+
 /** Low German (Plattdüütsch)
  * @author Slomox
  */
@@ -3657,87 +3750,6 @@ Sjå [[Special:Unreviewedpages|lista over sider som manglar vurdering]].',
 	'revreview-update-includes' => 'Nokre malar/bilete vart oppdaterte:',
 );
 
-/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
- * @author EivindJ
- * @author Event
- * @author Jon Harald Søby
- * @author Laaknor
- * @author Nghtwlkr
- */
-$messages['nb'] = array(
-	'revisionreview' => 'Anmeld sideversjoner',
-	'revreview-failed' => "'''Kunne ikke revidere denne revisjonen.'''",
-	'revreview-submission-invalid' => 'Innsendingen var ufullstendig eller på en annen måte ugyldig.',
-	'review_page_invalid' => 'Målsidetittelen er ugyldig.',
-	'review_page_notexists' => 'Målsiden finnes ikke.',
-	'review_page_unreviewable' => 'Målsiden er ikke reviderbar.',
-	'review_no_oldid' => 'Ingen revisjons-ID spesifisert.',
-	'review_bad_oldid' => 'Det er ingen slik målrevisjon.',
-	'review_conflict_oldid' => 'Noen har allerede godkjent eller ikke godkjent denne revisjonen mens du så på den.',
-	'review_not_flagged' => 'Målrevisjonen er foreløpig ikke merket som revidert.',
-	'review_too_low' => 'Revisjonen kan ikke revideres med enkelte felt markert som «utilstrekkelig».',
-	'review_bad_key' => 'Ugyldig inkluderingsparameternøkkel.',
-	'review_bad_tags' => 'Enkelte av de angitte merkelappverdiene er ugyldige.',
-	'review_denied' => 'Ingen tillatelse.',
-	'review_param_missing' => 'En parameter mangler eller er ugyldig.',
-	'review_cannot_undo' => 'Kan ikke omgjøre disse endringene fordi ventende endringer endret i samme område.',
-	'review_cannot_reject' => 'Kunne ikke forkaste endringene fordi noen allerede har godkjent noen av (eller alle) redigeringene.',
-	'review_reject_excessive' => 'Kan ikke forkaste så mange endringer på en gang.',
-	'review_reject_nulledits' => 'Kan ikke avvise disse endringene fordi alle revisjoner er tomme.',
-	'revreview-check-flag-p' => 'Godta denne versjonen (inkluderer $1 ventende {{PLURAL:$1|endring|endringer}})',
-	'revreview-check-flag-p-title' => 'Godta alle nåværende ventende endringer sammen med din egen endring. Bare bruk denne om du allerede har sett på hele diffen for ventende endringer.',
-	'revreview-check-flag-u' => 'Godta denne ureviderte siden',
-	'revreview-check-flag-u-title' => 'Godta denne versjonen av siden. Bare bruk denne om du allerede har sett hele siden.',
-	'revreview-check-flag-y' => 'Godta disse endringene',
-	'revreview-check-flag-y-title' => 'Godta alle endringene som du har gjort i denne redigeringen.',
-	'revreview-flag' => 'Anmeld denne sideversjonen',
-	'revreview-reflag' => 'Revider denne revisjonen på nytt',
-	'revreview-invalid' => "'''Ugyldig mål:''' ingen [[{{MediaWiki:Validationpage}}|anmeldte]] versjoner tilsvarer den angitte ID-en.",
-	'revreview-log' => 'Kommentar:',
-	'revreview-main' => 'Du må velge en viss revisjon av en innholdsside for å anmelde den.
-
-Se [[Special:Unreviewedpages|listen over ikke-anmeldte sider]].',
-	'revreview-stable1' => 'Du vil kanskje se [{{fullurl:$1|stableid=$2}} denne flaggede versjonen] og se om den nå er den [{{fullurl:$1|stable=1}} publiserte versjonen] av denne siden.',
-	'revreview-stable2' => 'Du vil kanskje se den [{{fullurl:$1|stable=1}} publiserte versjonen] av denne siden.',
-	'revreview-submit' => 'Send',
-	'revreview-submitting' => 'Leverer …',
-	'revreview-submit-review' => 'Godkjenn revisjon',
-	'revreview-submit-unreview' => 'Ikke godkjenn revisjon',
-	'revreview-submit-reject' => 'Avvis endringer',
-	'revreview-submit-reviewed' => 'Ferdig. Godkjent.',
-	'revreview-submit-unreviewed' => 'Ferdig. Ikke godkjent.',
-	'revreview-successful' => "'''Valgt versjon av [[:$1|$1]] har blitt merket. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} se alle stabile versjoner])'''",
-	'revreview-successful2' => "'''Valgt versjon av [[:$1|$1]] ble degradert.'''",
-	'revreview-poss-conflict-p' => "'''Advarsel: [[User:$1|$1]] begynte å revidere denne siden den $2, $3.'''",
-	'revreview-poss-conflict-c' => "'''Advarsel: [[User:$1|$1]] begynte å revidere disse endringene den $2, $3.'''",
-	'revreview-adv-reviewing-p' => "'''Merk: Du har nå startet gjennomgang av denne siden på  $1 ved $2.'''",
-	'revreview-toolow' => "'''Du må vurdere hver av egenskapene til høyere enn «utilstrekkelig» for at revisjonen skal bli vurdert som revidert.'''
-
-For å fjerne vurderingsstatusen til en revisjon, klikk på «underkjenn».
-
-Klikk på «tilbake»-knappen i nettleseren din og prøv igjen.",
-	'revreview-update' => "'''[[{{MediaWiki:Validationpage}}|Revider]] ventende endringer ''(vist nedenfor)'' som har blitt gjort på den aksepterte versjonen.'''",
-	'revreview-update-edited' => '<span class="flaggedrevs_important">Endringene dine er ikke i den stabile versjonen ennå.</span>
-
-Revider alle endringene vist nedenfor for å gjøre redigeringene dine synlige i den stabile versjonen.',
-	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Endringene dine er ikke i den stabile versjonen ennå. Det finnes tidligere endringer som venter på revidering.</span>
-
-Revider alle endringene vist nedenfor for å gjøre redigeringene dine synlige i den stabile versjonen.',
-	'revreview-update-includes' => 'Noen maler eller filer ble oppdatert:',
-	'revreview-reject-text-list' => "Ved å fullføre denne handlingen vil du '''avvise''' følgende {{PLURAL:$1|endring|endringer}}:",
-	'revreview-reject-text-revto' => 'Dette vil tilbakestille siden til [{{fullurl:$1|oldid=$2}} versjonen fra $3].',
-	'revreview-reject-summary' => 'Sammendrag:',
-	'revreview-reject-confirm' => 'Avvis disse endringene',
-	'revreview-reject-cancel' => 'Avbryt',
-	'revreview-reject-summary-cur' => 'Forkastet {{PLURAL:$1|den siste endringen|de siste $1 endringene}} (av $2) og gjenopprettet revisjon $3 av $4.',
-	'revreview-reject-summary-old' => 'Forkastet {{PLURAL:$1|den første endringen|de første $1 endringene}} (av $2) som fulgte revisjon $3 av $4',
-	'revreview-reject-summary-cur-short' => 'Forkastet {{PLURAL:$1|den siste endringen|de siste $1 endringene}} og gjenopprettet revisjon $2 av $3',
-	'revreview-reject-summary-old-short' => 'Forkastet {{PLURAL:$1|den første endringen|de første $1 endringene}} som fulgte revisjon $2 av $3',
-	'revreview-tt-flag' => 'Godkjenn denne revisjonen ved å merke den som kontrollert',
-	'revreview-tt-unflag' => 'Underkjenn denne revisjonen ved å merke den som «ukontrollert»',
-	'revreview-tt-reject' => 'Avvis disse endringene ved å tilbakestille dem',
-);
-
 /** Occitan (Occitan)
  * @author Cedric31
  */
@@ -3762,6 +3774,18 @@ $messages['oc'] = array(
 	'revreview-update' => "[[{{MediaWiki:Validationpage}}|Relegissètz]] totas las modificacions ''(vejatz çaijós)'' efectuadas dempuèi l’[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovacion] de la version establa.
 '''Qualques fichièrs o modèls son estats meses a jorn :'''",
 	'revreview-update-includes' => 'Qualques modèls o fichièrs son estats meses a jorn :',
+);
+
+/** Oriya (ଓଡ଼ିଆ)
+ * @author Ansumang
+ */
+$messages['or'] = array(
+	'revreview-submit' => 'ଦାଖଲ କରିବା',
+	'revreview-submitting' => 'ଦାଖଲ ହେଉଛି...',
+	'revreview-submit-reject' => 'ଅସ୍ଵୀକାର ବଦଳଗୁଡ଼ିକ',
+	'revreview-adv-start-link' => 'ବିଜ୍ଞାପନ',
+	'revreview-reject-summary' => 'ସାରକଥା:',
+	'revreview-reject-cancel' => 'ବାତିଲ',
 );
 
 /** Deitsch (Deitsch)
