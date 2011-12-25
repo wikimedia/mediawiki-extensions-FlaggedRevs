@@ -856,7 +856,7 @@ $messages['nn'] = array(
  * @author Jon Harald Søby
  * @author Nghtwlkr
  */
-$messages['no'] = array(
+$messages['nb'] = array(
 	'reviewedversions' => 'Reviderte versjoner',
 	'reviewedversions-leg1' => 'List anmeldte versjoner av en side',
 	'reviewedversions-page' => 'Sidenavn:',

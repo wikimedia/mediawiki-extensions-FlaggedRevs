@@ -936,7 +936,7 @@ $messages['nn'] = array(
  * @author Jon Harald Søby
  * @author Nghtwlkr
  */
-$messages['no'] = array(
+$messages['nb'] = array(
 	'reviewedpages' => 'Anmeldte sider',
 	'reviewedpages-leg' => 'List opp sider som har blitt revidert',
 	'reviewedpages-list' => "Denne listen inneholder [[{{MediaWiki:Validationpage}}|reviderte]] sider som ''på det meste''  har hatt et revisjonsnivå på et oppgitt nivå.

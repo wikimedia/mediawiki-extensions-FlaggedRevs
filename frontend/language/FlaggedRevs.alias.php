@@ -446,7 +446,7 @@ $specialPageAliases['nn'] = array(
 );
 
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬) */
-$specialPageAliases['no'] = array(
+$specialPageAliases['nb'] = array(
 	'PendingChanges' => array( 'Gamle_anmeldte_sider' ),
 	'ProblemChanges' => array( 'Problemendringer' ),
 	'QualityOversight' => array( 'Kvalitetsoversikt' ),

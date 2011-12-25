@@ -610,7 +610,7 @@ $messages['nn'] = array(
  * @author Nghtwlkr
  * @author Simny
  */
-$messages['no'] = array(
+$messages['nb'] = array(
 	'problemchanges' => 'Merket ventende endringer',
 	'problemchanges-list' => 'Denne siden lister opp [[{{MediaWiki:Validationpage}}|reviderte]] sider med en eller flere merkede ventende endringer. En liste over [[Special:Tags|gyldige endringsmerkelapper]] er tilgjengelig.',
 	'problemchanges-legend' => 'Vis sider som inneholder merkede redigeringer som trenger gjennomsyn',

@@ -705,7 +705,7 @@ $messages['nn'] = array(
  * @author Jon Harald Søby
  * @author Nghtwlkr
  */
-$messages['no'] = array(
+$messages['nb'] = array(
 	'stablepages' => 'Sider som bruker redigeringsgodkjenning',
 	'stablepages-list' => 'Nedenfor er en liste over sider som kun enkelte brukere kan redigere uten krav om revidering.
 Endringer utført av andre brukere vises ikke til lesere som standard før en autorisert bruker reviderer dem.',

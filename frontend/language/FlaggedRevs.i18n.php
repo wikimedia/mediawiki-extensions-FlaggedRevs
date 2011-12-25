@@ -10279,7 +10279,7 @@ Nye [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffon
  * @author Nghtwlkr
  * @author Stigmj
  */
-$messages['no'] = array(
+$messages['nb'] = array(
 	'action-review' => 'revidere revisjoner',
 	'editor' => 'Skribent',
 	'flaggedrevs' => 'Stabile versjoner',

@@ -1259,7 +1259,7 @@ $messages['nn'] = array(
  * @author Nghtwlkr
  * @author Simny
  */
-$messages['no'] = array(
+$messages['nb'] = array(
 	'unreviewedpages' => 'Uanmeldte sider',
 	'unreviewedpages-legend' => 'List uanmeldte innholdssider',
 	'unreviewedpages-category' => 'Kategori:',

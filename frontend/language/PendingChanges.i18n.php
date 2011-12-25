@@ -1333,7 +1333,7 @@ $messages['nn'] = array(
  * @author Jon Harald Søby
  * @author Nghtwlkr
  */
-$messages['no'] = array(
+$messages['nb'] = array(
 	'pendingchanges' => 'Sider med ventende endringer',
 	'pendingchanges-legend' => 'Vis anmeldte sider med uanmeldte sideversjoner',
 	'pendingchanges-list' => 'Denne siden lister opp [[{{MediaWiki:Validationpage}}|reviderte]] sider som har en eller flere ventende endringer.',

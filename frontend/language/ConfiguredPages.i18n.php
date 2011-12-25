@@ -625,7 +625,7 @@ $messages['nn'] = array(
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
  * @author Nghtwlkr
  */
-$messages['no'] = array(
+$messages['nb'] = array(
 	'configuredpages' => 'Sider med revisjonsinnstillinger',
 	'configuredpages-list' => 'Nedenfor er en liste over sider som er satt opp med godkjenningsinnstillinger som er forskjellig fra nettstedsstandarden.
 Enkelte innstillinger kan endre hvilken versjon som vises til lesere eller ytterligere begrense hvem som kan gjøre endringer som ikke krever revidering.',

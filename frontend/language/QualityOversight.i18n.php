@@ -476,7 +476,7 @@ $messages['nn'] = array(
  * @author Jon Harald Søby
  * @author Nghtwlkr
  */
-$messages['no'] = array(
+$messages['nb'] = array(
 	'qualityoversight' => 'Avansert revisjonslogg',
 	'qualityoversight-list' => 'Denne siden viser de siste godkjenninger og degraderinger av sideversjoner.',
 	'qualityoversight-legend' => 'Søk logger etter de siste anmeldelsene',

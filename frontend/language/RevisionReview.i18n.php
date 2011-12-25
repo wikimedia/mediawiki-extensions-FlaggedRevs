@@ -3664,7 +3664,7 @@ Sjå [[Special:Unreviewedpages|lista over sider som manglar vurdering]].',
  * @author Laaknor
  * @author Nghtwlkr
  */
-$messages['no'] = array(
+$messages['nb'] = array(
 	'revisionreview' => 'Anmeld sideversjoner',
 	'revreview-failed' => "'''Kunne ikke revidere denne revisjonen.'''",
 	'revreview-submission-invalid' => 'Innsendingen var ufullstendig eller på en annen måte ugyldig.',
