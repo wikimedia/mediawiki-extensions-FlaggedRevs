@@ -65,7 +65,7 @@ class FlaggedRevsStats {
 	*
 	 * @return void
 	 */
-	public function updateCache() {
+	public static function updateCache() {
 		global $wgFlaggedRevsStatsAge;
 		$rNamespaces = FlaggedRevs::getReviewNamespaces();
 		if ( empty( $rNamespaces ) ) {
@@ -154,7 +154,7 @@ class FlaggedRevsStats {
 		$dbCache->delete( $keySQL );
 	}
 
-	private function getPerNamespaceTotals() {
+	private static function getPerNamespaceTotals() {
 		$ns_total = $ns_reviewed = $ns_synced = array();
 		// Get total, reviewed, and synced page count for each namespace
 		$dbr = wfGetDB( DB_SLAVE );
@@ -177,7 +177,7 @@ class FlaggedRevsStats {
 		return array( $ns_total, $ns_reviewed, $ns_synced );
 	}
 
-	private function getMeanPendingEditTime() {
+	private static function getMeanPendingEditTime() {
 		$dbr = wfGetDB( DB_SLAVE );
 		$nowUnix = wfTimestamp( TS_UNIX ); // current time in UNIX TS
 		return (int)$dbr->selectField(
@@ -198,7 +198,7 @@ class FlaggedRevsStats {
 	 * @param $users string "anons" or "users"
 	 * @return Array associative
 	 */
-	private function getEditReviewTimes( $dbCache, $users = 'anons' ) {
+	private static function getEditReviewTimes( $dbCache, $users = 'anons' ) {
 		$result = array(
 			'average'       => 0,
 			'median'        => 0,
