@@ -761,6 +761,13 @@ $messages['sc'] = array(
 	'problemchanges-category' => 'Categoria:',
 );
 
+/** Sinhala (සිංහල)
+ * @author පසිඳු කාවින්ද
+ */
+$messages['si'] = array(
+	'problemchanges-category' => 'ප්‍රවර්ගය:',
+);
+
 /** Slovak (Slovenčina)
  * @author Helix84
  */

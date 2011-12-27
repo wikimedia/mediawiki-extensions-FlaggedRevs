@@ -601,6 +601,19 @@ Sesetengah tetapan mungkin mengubah versi mana yang dipaparkan kepada pembaca, a
 	'configuredpages-def-stable' => 'versi stabil',
 );
 
+/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
+ * @author Nghtwlkr
+ */
+$messages['nb'] = array(
+	'configuredpages' => 'Sider med revisjonsinnstillinger',
+	'configuredpages-list' => 'Nedenfor er en liste over sider som er satt opp med godkjenningsinnstillinger som er forskjellig fra nettstedsstandarden.
+Enkelte innstillinger kan endre hvilken versjon som vises til lesere eller ytterligere begrense hvem som kan gjøre endringer som ikke krever revidering.',
+	'configuredpages-none' => 'Det er ingen sider i denne listen.',
+	'configuredpages-config' => 'Oppsett',
+	'configuredpages-def-draft' => 'siste versjon',
+	'configuredpages-def-stable' => 'publisert versjon',
+);
+
 /** Dutch (Nederlands)
  * @author Siebrand
  */
@@ -618,19 +631,6 @@ Instellingen wijzigen welke versie wordt weergegeven aan lezers of beperken wie 
  * @author Nghtwlkr
  */
 $messages['nn'] = array(
-	'configuredpages-def-draft' => 'siste versjon',
-	'configuredpages-def-stable' => 'publisert versjon',
-);
-
-/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
- * @author Nghtwlkr
- */
-$messages['nb'] = array(
-	'configuredpages' => 'Sider med revisjonsinnstillinger',
-	'configuredpages-list' => 'Nedenfor er en liste over sider som er satt opp med godkjenningsinnstillinger som er forskjellig fra nettstedsstandarden.
-Enkelte innstillinger kan endre hvilken versjon som vises til lesere eller ytterligere begrense hvem som kan gjøre endringer som ikke krever revidering.',
-	'configuredpages-none' => 'Det er ingen sider i denne listen.',
-	'configuredpages-config' => 'Oppsett',
 	'configuredpages-def-draft' => 'siste versjon',
 	'configuredpages-def-stable' => 'publisert versjon',
 );
@@ -768,6 +768,15 @@ $messages['sah'] = array(
  */
 $messages['sc'] = array(
 	'configuredpages-config' => 'Configuratzione',
+);
+
+/** Sinhala (සිංහල)
+ * @author පසිඳු කාවින්ද
+ */
+$messages['si'] = array(
+	'configuredpages-config' => 'වින්‍යාසගතකිරීම',
+	'configuredpages-def-draft' => 'නවතම අනුවාදය',
+	'configuredpages-def-stable' => 'ස්ථාවර අනුවාදය',
 );
 
 /** Slovak (Slovenčina)

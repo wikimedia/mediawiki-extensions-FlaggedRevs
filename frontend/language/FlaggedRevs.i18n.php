@@ -7397,6 +7397,7 @@ $messages['it'] = array(
 	'flaggedrevs-pref-stable-2' => "Mostra sempre l'ultima versione",
 	'flaggedrevs-prefs-watch' => 'Aggiungi le pagine che revisiono agli osservati speciali',
 	'flaggedrevs-prefs-editdiffs' => 'Mostra il diff delle modifiche in sospeso quando si modificano pagine',
+	'flaggedrevs-prefs-viewdiffs' => "Mostra il diff delle modifiche in sospeso quando si visualizza l'ultima revisione in sospeso",
 	'flaggedrevs-hidereviewed' => '$1 modifiche revisionate',
 	'group-editor' => 'Editori',
 	'group-editor-member' => 'Editore',
@@ -7414,6 +7415,8 @@ $messages['it'] = array(
 	'revreview-hist-quality-user' => 'convalidata da [[User:$3|$3]]',
 	'revreview-hist-basic-user' => 'visionata da [[User:$3|$3]]',
 	'revreview-hist-quality-auto' => 'approvato automaticamente',
+	'revreview-hist-pending-difflink' => "'''[[{{fullurl:$1|oldid=$2&diff=$3{{MediaWiki:flaggedrevs-diffonly}}}} da revisionare]]'''",
+	'review-edit-diff' => "'''NOTA: Ci sono modifiche in attesa di revisione che interessano la zona della pagina in cui stai intervenendo.'''",
 	'revreview-diff-toggle-show' => 'mostra le modifiche',
 	'revreview-diff-toggle-hide' => 'nascondi le modifiche',
 	'revreview-log-details-show' => 'mostra dettagli',
@@ -7463,6 +7466,7 @@ Potrebbero essere stati apportati nuove [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&di
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|modifica|modifiche}}] {{PLURAL:$3|ha bisogno|hanno bisogno}} di una revisione.",
 	'revreview-newest-quality-i' => "L'[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} ultima versione di qualità] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} elenca tutte]) è stata [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approvata] il <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Modifiche a template o file] hanno bisogno di una revisione.",
+	'revreview-pending-quality' => 'La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} versione stabile] è stata [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approvata] il <i>$2</i>. {{PLURAL:$3|È presente|Sono presenti}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|modifica|modifiche}}] in attesa di revisione.',
 	'revreview-noflagged' => "Non ci sono versioni revisionate di questa pagina, perciò potrebbe '''non''' essere stata [[{{MediaWiki:Validationpage}}|controllata]] la sua qualità.",
 	'revreview-oldrating' => 'È stata giudicata:',
 	'revreview-quality' => "Questa è l'ultima versione di [[{{MediaWiki:Validationpage}}|qualità]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approvata] il <i>$2</i>.
@@ -7500,7 +7504,7 @@ Verificare la URL usata per accedere a questa pagina.',
 	'right-validate' => 'Segna revisioni come convalidate',
 	'right-unreviewedpages' => "Visualizza [[Special:UnreviewedPages|l'elenco delle pagine non revisionate]]",
 	'specialpages-group-quality' => 'Qualità delle pagine',
-	'stable-logpage' => 'Registro di stabilità',
+	'stable-logpage' => 'Registro stabilità',
 	'stable-logpagetext' => 'Questo è un registro delle modifiche alla configurazione della [[{{MediaWiki:Validationpage}}|versione stabile]] delle pagine di contenuto.',
 	'revreview-filter-all' => 'Tutte',
 	'revreview-filter-stable' => 'stabile',
@@ -10985,13 +10989,13 @@ $messages['pms'] = array(
 	'flaggedrevs-prefs-viewdiffs' => "Smon-e le diferense dij cangiament an cors quand as visualisa l'ùltima revision an cors",
 	'flaggedrevs-hidereviewed' => '$1 modìfiche revisionà',
 	'group-editor' => 'Redator',
-	'group-editor-member' => 'Redator',
+	'group-editor-member' => '{{GENDER:$1|editor}}',
 	'group-reviewer' => 'Revisor',
-	'group-reviewer-member' => 'Revisor',
+	'group-reviewer-member' => '{{GENDER:$1|revisor}}',
 	'grouppage-editor' => '{{ns:project}}:Redator',
 	'grouppage-reviewer' => '{{ns:project}}:Revisor',
 	'group-autoreview' => 'Utent autocontrolà',
-	'group-autoreview-member' => 'utent autocontrolà',
+	'group-autoreview-member' => '{{GENDER:$1|utent autocontrolà}}',
 	'grouppage-autoreview' => '{{ns:project}}:Utent autocontrolà',
 	'revreview-hist-draft' => 'revision pa controlà',
 	'revreview-hist-pending' => 'revision an cors',
@@ -11173,12 +11177,20 @@ $messages['ps'] = array(
 	'revreview-submitedit' => 'بدلونونه ورسپارل',
 	'revreview-source' => 'سرچينه کتل',
 	'revreview-style-1' => 'د منلو وړ',
+	'revreview-style-2' => 'ښه',
 	'revreview-toggle-title' => 'څرګندونې ښکاره کول/پټول',
 	'revreview-filter-all' => 'ټول',
+	'revreview-filter-stable' => 'ثابت',
 	'revreview-statusfilter' => 'د مخليدنې کړنه:',
+	'revreview-typefilter' => 'ډول:',
 	'revreview-filter-auto' => 'اتوماتيک',
+	'revreview-levelfilter' => 'کچه:',
 	'revreview-lev-all' => 'هر يو',
+	'revreview-lev-quality' => 'کيفيت',
+	'revreview-defaultfilter' => 'تلواليزه بڼه:',
 	'revreview-def-all' => 'هر يو',
+	'revreview-def-draft' => 'تازه',
+	'revreview-def-stable' => 'ثابت',
 	'revreview-restriction-any' => 'هر يو',
 	'revreview-restriction-none' => 'هېڅ',
 	'revreview-reviewlink' => 'pending edits',
@@ -12568,6 +12580,35 @@ $messages['shi'] = array(
 	'flaggedrevs-prefs-stable' => 'Ml dima lqm lli ibidn n tisniwin ( iɣ llant)',
 	'flaggedrevs-prefs-watch' => 'Zayd tisniwin lli ttasɣ i umuɣ n tilli n tfur.',
 	'flaggedrevs-prefs-editdiffs' => 'Ml inaḥyatn gr imbdln lli zul iqln ɣ tizi lliɣ at sbadlt tisniwin',
+);
+
+/** Sinhala (සිංහල)
+ * @author පසිඳු කාවින්ද
+ */
+$messages['si'] = array(
+	'editor' => 'සංස්කාරක',
+	'flaggedrevs-pref-UI' => 'සාමන්‍ය අතුරුමුහුණත:',
+	'group-editor' => 'සංස්කාරකයන්',
+	'revreview-depth-1' => 'මූලික',
+	'revreview-depth-2' => 'මධ්‍යම',
+	'revreview-depth-3' => 'ඉහළ',
+	'revreview-edit' => 'සංස්කරණය',
+	'revreview-submitedit' => 'වෙනස්කම් යොමන්න',
+	'revreview-style-2' => 'හොඳයි',
+	'revreview-filter-all' => 'සියල්ල',
+	'revreview-filter-stable' => 'ස්ථාවර',
+	'revreview-typefilter' => 'වර්ගය:',
+	'revreview-filter-auto' => 'ස්වයංක්‍රීය',
+	'revreview-filter-manual' => 'හස්තීය',
+	'revreview-levelfilter' => 'මට්ටම:',
+	'revreview-lev-all' => 'ඕනෑම දෙයක්',
+	'revreview-lev-quality' => 'ගුණාත්මකභාවය',
+	'revreview-defaultfilter' => 'සාමාන්‍ය අනුවාදය:',
+	'revreview-def-all' => 'ඕනෑම දෙයක්',
+	'revreview-def-draft' => 'නවතම',
+	'revreview-def-stable' => 'ස්ථාවර',
+	'revreview-restriction-any' => 'ඕනෑම දෙයක්',
+	'revreview-restriction-none' => 'කිසිවක් නොමැත',
 );
 
 /** Slovak (Slovenčina)
@@ -15393,6 +15434,7 @@ $messages['wo'] = array(
 );
 
 /** Yiddish (ייִדיש)
+ * @author Imre
  * @author Yidel
  * @author פוילישער
  */
@@ -15407,6 +15449,7 @@ $messages['yi'] = array(
 	'grouppage-reviewer' => '{{ns:project}}:רעצענזענט',
 	'revreview-depth-3' => 'הויך',
 	'revreview-edit' => 'רעדאַקטירן',
+	'revreview-style-2' => 'גוט',
 	'revreview-revnotfound' => 'די אלטע רעוויזיע איר האט געבעטן קען נישט געפינען ווערן.
 ביטע טשעקט די URL וואס ברויכט אריינצוגיין אין דעם בלאט.',
 	'revreview-filter-all' => 'אַלע',

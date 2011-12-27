@@ -1268,7 +1268,7 @@ Voici les paramètres actuels de [[:$1|$1]] :",
 	'stabilization-otherreason' => 'Autre raison :',
 	'stabilization-expiry' => 'Expire :',
 	'stabilization-othertime' => 'Autre temps :',
-	'stabilization-def-short' => 'Défaut',
+	'stabilization-def-short' => 'Par défaut',
 	'stabilization-def-short-0' => 'Courante',
 	'stabilization-def-short-1' => 'Publié',
 	'stabilize_page_invalid' => 'Le titre de la page cible est incorrect',
@@ -1786,6 +1786,7 @@ $messages['is'] = array(
  * @author Beta16
  * @author Blaisorblade
  * @author Darth Kule
+ * @author F. Cosoleto
  * @author Gianfranco
  * @author Melos
  * @author Nemo bis
@@ -1817,6 +1818,7 @@ Non è possibile effettuare la configurazione.',
 	'stabilization-def-short-1' => 'Stabile',
 	'stabilize_page_invalid' => 'Il titolo della pagina di destinazione non è valido.',
 	'stabilize_page_notexists' => 'La pagina di destinazione non esiste.',
+	'stabilize_page_unreviewable' => 'La pagina di destinazione non è in un namespace revisionabile.',
 	'stabilize_invalid_level' => 'Livello di protezione non valido.',
 	'stabilize_expiry_invalid' => 'Data di scadenza non valida.',
 	'stabilize_expiry_old' => 'La data di scadenza è già passata.',
@@ -2720,6 +2722,7 @@ $messages['ps'] = array(
 	'stabilization-othertime' => 'بل وخت:',
 	'stabilization-def-short' => 'تلواليز',
 	'stabilization-def-short-0' => 'اوسنی',
+	'stabilization-def-short-1' => 'ثابت',
 	'stabilize-expiring' => 'په $1 (UTC) پای ته رسېږي',
 );
 
@@ -3036,6 +3039,19 @@ $messages['scn'] = array(
 	'stabilization-page' => 'Nnomu dâ pàggina:',
 	'stabilization-comment' => 'Mutivu:',
 	'stabilization-otherreason' => 'Àutru mutivu:',
+);
+
+/** Sinhala (සිංහල)
+ * @author පසිඳු කාවින්ද
+ */
+$messages['si'] = array(
+	'stabilization-page' => 'පිටු නාමය:',
+	'stabilization-submit' => 'තහවුරු කරන්න',
+	'stabilization-comment' => 'හේතුව:',
+	'stabilization-otherreason' => 'වෙනත් හේතු:',
+	'stabilization-def-short' => 'පෙරනිමි',
+	'stabilization-def-short-0' => 'වත්මන්',
+	'stabilization-def-short-1' => 'ස්ථාවර',
 );
 
 /** Slovak (Slovenčina)

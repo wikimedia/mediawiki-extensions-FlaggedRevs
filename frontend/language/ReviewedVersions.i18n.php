@@ -818,6 +818,19 @@ $messages['nah'] = array(
 	'reviewedversions-page' => 'Zāzanilli ītōcā:',
 );
 
+/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
+ * @author Jon Harald Søby
+ * @author Nghtwlkr
+ */
+$messages['nb'] = array(
+	'reviewedversions' => 'Reviderte versjoner',
+	'reviewedversions-leg1' => 'List anmeldte versjoner av en side',
+	'reviewedversions-page' => 'Sidenavn:',
+	'reviewedversions-none' => '«[[:$1]]» har ingen anmeldte versjoner.',
+	'reviewedversions-list' => 'Følgende er en liste over {{PLURAL:$2|den eneste versjonen|versjonene}} av [[:$1]] som har blitt gjennomgått:',
+	'reviewedversions-review' => 'Anmeldt <i>$1</i> av $2',
+);
+
 /** Low German (Plattdüütsch)
  * @author Slomox
  */
@@ -850,19 +863,6 @@ $messages['nn'] = array(
 	'reviewedversions-none' => '«[[:$1]]» har ingen vurderte versjonar.',
 	'reviewedversions-list' => 'Fylgjande er ei lista over vurderte versjonar av [[:$1]]:',
 	'reviewedversions-review' => 'Vurdert den <i>$1</i> av $2',
-);
-
-/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
- * @author Jon Harald Søby
- * @author Nghtwlkr
- */
-$messages['nb'] = array(
-	'reviewedversions' => 'Reviderte versjoner',
-	'reviewedversions-leg1' => 'List anmeldte versjoner av en side',
-	'reviewedversions-page' => 'Sidenavn:',
-	'reviewedversions-none' => '«[[:$1]]» har ingen anmeldte versjoner.',
-	'reviewedversions-list' => 'Følgende er en liste over {{PLURAL:$2|den eneste versjonen|versjonene}} av [[:$1]] som har blitt gjennomgått:',
-	'reviewedversions-review' => 'Anmeldt <i>$1</i> av $2',
 );
 
 /** Northern Sotho (Sesotho sa Leboa)
@@ -1026,6 +1026,13 @@ $messages['sc'] = array(
  */
 $messages['scn'] = array(
 	'reviewedversions-page' => 'Nnomu dâ pàggina:',
+);
+
+/** Sinhala (සිංහල)
+ * @author පසිඳු කාවින්ද
+ */
+$messages['si'] = array(
+	'reviewedversions-page' => 'පිටු නාමය:',
 );
 
 /** Slovak (Slovenčina)

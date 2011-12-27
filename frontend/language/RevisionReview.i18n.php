@@ -763,6 +763,7 @@ $messages['bn'] = array(
 	'revreview-submitting' => 'জমা হচ্ছে …',
 	'revreview-submit-review' => 'সংশোধন গ্রহণ',
 	'revreview-submit-unreview' => 'সংশোধন প্রত্যাখান',
+	'revreview-submit-reject' => 'পরিবর্তন প্রত্যাখান',
 	'revreview-toolow' => 'কোন সংশোধনকে পর্যালোচিত গণ্য করতে চাইলে আপনাকে নিচের বৈশিষ্ট্যগুলির প্রতিটিকে কমপক্ষে "অননুমোদিত" থেকে উচ্চতর কোন রেটিং দিতে হবে। কোন সংশোধনকে অবনমিত করতে চাইলে, সবগুলি ক্ষেত্র "অননুমোদিত"-তে সেট করুন।',
 	'revreview-reject-summary' => 'সারাংশ:',
 	'revreview-reject-cancel' => 'বাতিল',
@@ -1175,6 +1176,7 @@ Bitte markiere alle unten angezeigten Änderungen, damit deine Bearbeitungen zur
 );
 
 /** German (formal address) (‪Deutsch (Sie-Form)‬)
+ * @author Imre
  * @author Kghbln
  * @author Umherirrender
  */
@@ -1189,6 +1191,8 @@ Siehe die [[Special:Unreviewedpages|Liste unmarkierter Versionen]].',
 	'revreview-stable2' => 'Vielleicht möchten Sie die [{{fullurl:$1|stable=1}} freigegebene Version] dieser Seite sehen?',
 	'revreview-adv-reviewing-p' => 'Hinweis: Andere Benutzer werden nun darauf hingewiesen, dass Sie diese Seite überprüfen.',
 	'revreview-adv-reviewing-c' => 'Hinweis: Andere Benutzer werden nun darauf hingewiesen, dass Sie diese Änderungen überprüfen.',
+	'revreview-sadv-reviewing-p' => 'Sie können andere Benutzer darauf hinweisen, dass Sie diese Seite $1.',
+	'revreview-sadv-reviewing-c' => 'Sie können andere Benutzer darauf hinweisen, dass Sie diese Änderungen $1.',
 	'revreview-toolow' => "'''Sie müssen jedes der Attribute besser als „unzureichend“ einstufen, damit eine Version als markiert angesehen werden kann.'''
 
 Um den Markierungstatus einer Version aufzuheben, muss auf „Markierung entfernen“ geklickt werden.
@@ -2732,18 +2736,21 @@ $messages['is'] = array(
  */
 $messages['it'] = array(
 	'revisionreview' => 'Revisiona versioni',
-	'revreview-failed' => "'''Non è possibile esaminare questa revisione.''' La presentazione è incompleta o comunque non valida.",
+	'revreview-failed' => "'''Non è possibile esaminare questa revisione.'''",
 	'review_page_invalid' => 'Il titolo della pagina di destinazione non è valido.',
 	'review_page_notexists' => 'La pagina di destinazione non esiste.',
+	'review_page_unreviewable' => 'La pagina di destinazione non è revisionabile.',
 	'review_no_oldid' => 'ID di revisione non specificato.',
+	'review_bad_oldid' => 'La revisione di destinazione non esiste.',
 	'review_conflict_oldid' => 'Qualcuno ha già accettato o respinto questa revisione mentre la stavi esaminando.',
+	'review_not_flagged' => 'La revisione di destinazione non è attualmente segnata come revisionata.',
 	'review_denied' => 'Permesso negato.',
 	'review_param_missing' => 'Un parametro è mancante o non valido.',
 	'review_cannot_undo' => 'Questi cambiamenti non possono essere annullati perché susseguenti modifiche in sospeso hanno cambiato le stesse parti.',
 	'review_cannot_reject' => 'Questi cambiamenti non sono stati respinti perché qualcuno ha già accettato alcune o tutte le modifiche in esame.',
 	'review_reject_excessive' => 'Non è possibile rifiutare tutte queste modifiche in una volta.',
 	'review_reject_nulledits' => 'Non è possibile rifiutare questi cambiamenti perché tali revisioni risultano essere senza un contenuto.',
-	'revreview-check-flag-p' => 'Accettare le modifiche in sospeso',
+	'revreview-check-flag-p' => 'Accetta questa versione ({{PLURAL:$1|inclusa una modifica|incluse $1 modifiche}} in sospeso)',
 	'revreview-check-flag-p-title' => "Accettare tutte le modifiche attualmente in sospeso assieme con le vostre. Utilizzare solo se hai già visto l'intera diff delle modifiche in sospeso.",
 	'revreview-check-flag-u' => 'Accetta questa pagina non revisionata',
 	'revreview-check-flag-u-title' => "Accettare questa versione della pagina. Utilizzare solo se hai già visto l'intera pagina.",
@@ -2759,15 +2766,21 @@ Vedi l'[[Special:Unreviewedpages|elenco delle pagine non revisionate]].",
 	'revreview-stable2' => 'Puoi visualizzare la [{{fullurl:$1|stable=1}} versione stabile] di questa pagina.',
 	'revreview-submit' => 'Invia',
 	'revreview-submitting' => 'Invio in corso...',
-	'revreview-submit-review' => 'Accetta',
+	'revreview-submit-review' => 'Accetta revisione',
+	'revreview-submit-unreview' => 'Non accetta versione',
 	'revreview-submit-reject' => 'Rifiuta modifiche',
 	'revreview-submit-reviewed' => 'Fatto. Accettata!',
 	'revreview-submit-unreviewed' => 'Fatto. Non accettata!',
 	'revreview-successful' => "'''Versione di [[:$1|$1]] verificata con successo. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} visualizza versione stabile])'''",
 	'revreview-successful2' => "'''Versione di [[:$1|$1]] marcata come non verificata con successo.'''",
 	'revreview-poss-conflict-p' => "'''Attenzione: [[User:$1|$1]] ha iniziato a revisionare questa pagina in data $2 alle $3.'''",
+	'revreview-poss-conflict-c' => "'''Attenzione: [[User:$1|$1]] ha iniziato a revisionare queste modifiche in data $2 alle $3.'''",
 	'revreview-adv-reviewing-p' => 'Nota: altri revisori sono in grado di vedere che esamini questa pagina.',
 	'revreview-adv-reviewing-c' => 'Nota: altri revisori sono in grado di vedere che esamini questi cambiamenti.',
+	'revreview-sadv-reviewing-p' => 'Puoi $1 che stai revisionando questa pagina agli altri utenti.',
+	'revreview-sadv-reviewing-c' => 'Puoi $1 che stai revisionando queste modifiche agli altri utenti.',
+	'revreview-adv-start-link' => 'segnalare',
+	'revreview-adv-stop-link' => 'annulla',
 	'revreview-update' => "'''[[{{MediaWiki:Validationpage}}|Revisiona]] le modifiche in sospeso ''(mostrate di seguito)'' apportate dalla versione stabile.'''",
 	'revreview-update-edited' => '<span class="flaggedrevs_important">Le tue modifiche non sono ancora nella versione stabile.</span> 
 
@@ -2778,6 +2791,8 @@ Vedi l'[[Special:Unreviewedpages|elenco delle pagine non revisionate]].",
  Si prega di rivedere tutte le modifiche di seguito riportate perché le tue modifiche vengano visualizzate nella versione stabile. 
  Potrebbe essere necessario prima proseguire o "annullare" modifiche.',
 	'revreview-update-includes' => 'Alcuni template/file sono stati aggiornati:',
+	'revreview-reject-text-list' => "Confermando quest'azione verranno '''respinte''' le modifiche testuali {{PLURAL:$1|dalla seguente versione|dalle seguenti versioni}} di [[:$2|$2]]:",
+	'revreview-reject-text-revto' => 'Questo ripristinerà la pagina alla [{{fullurl:$1|oldid=$2}} versione datata $3].',
 	'revreview-reject-summary' => 'Sommario:',
 	'revreview-reject-confirm' => 'Rifiuta queste modifiche',
 	'revreview-reject-cancel' => 'Annulla',
@@ -3944,8 +3959,12 @@ Vardé la [[Special:Unreviewedpages|lista dle pàgine pa revisionà]].',
 	'revreview-successful2' => "'''Gavà për da bin la marca a la revision ëd [[:$1|$1]].'''",
 	'revreview-poss-conflict-p' => "'''Avis: [[User:$1|$1]] a l'ha ancaminà a revisioné costa pàgina ël $2 a $3.'''",
 	'revreview-poss-conflict-c' => "'''Avis: [[User:$1|$1]] a l'ha ancaminà a revisioné sti cambiament ël $2 a $3.'''",
-	'revreview-adv-reviewing-p' => "'''Nòta: It ses stàit avertì përché it ses partì a revisioné sta pagina-sì ël $1 a $2.'''",
-	'revreview-adv-reviewing-c' => "'''Nòta: It ses stàit avertì përché it ses partì a revisioné sti cambi-sì ël $1 a $2.'''",
+	'revreview-adv-reviewing-p' => "Nòta: Autr revisor a peule vëdde ch'it të stas revisionand sta pagina.",
+	'revreview-adv-reviewing-c' => "Nòta: Autr revisor a peule vëdde ch'it të stas revisionand sti cangiament.",
+	'revreview-sadv-reviewing-p' => 'It peule $1 ti midem com revisionand sta pagina a autr utent.',
+	'revreview-sadv-reviewing-c' => 'It peule $1 ti midem com revisionand sti cangiament a autr utent.',
+	'revreview-adv-start-link' => 'publicisa',
+	'revreview-adv-stop-link' => 'publicisa nen',
 	'revreview-toolow' => "'''A venta ch'a stima mincadun ëd j'atribù pi àut che \"pa adeguà\" përchè na revision a sia considerà revisionà.'''
 
 Për gavé lë stat ëd revision ëd na revision, sgnaca \"pa acetà\".
@@ -4520,6 +4539,18 @@ $messages['sah'] = array(
  */
 $messages['sc'] = array(
 	'revreview-log' => 'Cummentu:',
+);
+
+/** Sinhala (සිංහල)
+ * @author පසිඳු කාවින්ද
+ */
+$messages['si'] = array(
+	'review_denied' => 'අවසරදීමට නොහැක.',
+	'revreview-check-flag-y' => 'මගේ වෙනස්කම් බාරගන්න',
+	'revreview-log' => 'පරිකථනය:',
+	'revreview-submit' => 'යොමන්න',
+	'revreview-submitting' => 'යොමු කරමින් …',
+	'revreview-submit-reviewed' => 'හරි. බාරගත්තා!',
 );
 
 /** Slovak (Slovenčina)

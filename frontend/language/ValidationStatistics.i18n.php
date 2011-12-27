@@ -191,6 +191,7 @@ $messages['ast'] = array(
  * @author Cekli829
  */
 $messages['az'] = array(
+	'validationstatistics-ns' => 'Adlar fəzası',
 	'validationstatistics-total' => 'Səhifələr',
 	'validationstatistics-user' => 'İstifadəçi',
 );
