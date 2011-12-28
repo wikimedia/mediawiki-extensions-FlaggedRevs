@@ -835,6 +835,13 @@ $messages['sah'] = array(
 	'stablepages-config' => 'Туруоруута',
 );
 
+/** Sinhala (සිංහල)
+ * @author පසිඳු කාවින්ද
+ */
+$messages['si'] = array(
+	'stablepages-config' => 'වින්‍යාසගතකිරීම',
+);
+
 /** Slovak (Slovenčina)
  * @author Helix84
  */

@@ -321,7 +321,7 @@ $messages['fa'] = array(
  * @author Pxos
  */
 $messages['fi'] = array(
-	'configuredpages' => 'Sivut, joilla on oletusarvoista poikkeavia arviointiasetuksia.',
+	'configuredpages' => 'Sivut, joilla on oletusarvoista poikkeavia arviointiasetuksia',
 	'configuredpages-list' => 'Alla on luettelo sivuista, joilla on oletusasetuksista poikkeavat arvioinnin hyväksymisasetukset.
 Jotkut asetukset saattavat vaikuttaa siihen, mikä versio näytetään lukijoille tai rajoittaa sitä, kuka voi tehdä sellaisia muokkauksia, jotka eivät vaadi arviointia.',
 	'configuredpages-none' => 'Tällä listalla ei ole sivuja.',
@@ -396,6 +396,15 @@ $messages['he'] = array(
 	'configuredpages-config' => 'הגדרות',
 	'configuredpages-def-draft' => 'הגרסה האחרונה',
 	'configuredpages-def-stable' => 'גרסה יציבה',
+);
+
+/** Hindi (हिन्दी)
+ * @author Ansumang
+ */
+$messages['hi'] = array(
+	'configuredpages-config' => 'कॉन्फिगरेशन',
+	'configuredpages-def-draft' => 'नवीनतम रूपांतर',
+	'configuredpages-def-stable' => 'स्थिर रूपांतर',
 );
 
 /** Croatian (Hrvatski)

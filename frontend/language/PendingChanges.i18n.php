@@ -1615,6 +1615,21 @@ $messages['sc'] = array(
 	'pendingchanges-category' => 'Categoria:',
 );
 
+/** Sinhala (සිංහල)
+ * @author පසිඳු කාවින්ද
+ */
+$messages['si'] = array(
+	'pendingchanges' => 'බලාපොරොත්තු වෙන වෙනස්කම් සහිත පිටු',
+	'pendingchanges-recent' => '(පැයකටත් වඩා අඩුවෙන්)',
+	'pendingchanges-category' => 'ප්‍රවර්ගය:',
+	'pendingchanges-onwatchlist' => 'මගේ මුර ලැයිස්තුවේ ඇති පිටු',
+	'pendingchanges-stable' => 'ස්ථාවර සංස්කරණය සාමාන්‍යයි',
+	'pendingchanges-diff' => 'නිරීක්ෂණය',
+	'pendingchanges-size' => 'උපරිම වෙනස (බයිට):',
+	'pendingchanges-unwatched' => '(මුරනොකළ)',
+	'pendingchanges-viewing' => '(නිරීක්ෂණය යටතේ)',
+);
+
 /** Slovak (Slovenčina)
  * @author Helix84
  */

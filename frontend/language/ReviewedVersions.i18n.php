@@ -1032,6 +1032,7 @@ $messages['scn'] = array(
  * @author පසිඳු කාවින්ද
  */
 $messages['si'] = array(
+	'reviewedversions' => 'නිරීක්ෂණය කෙරූ අනුවාද',
 	'reviewedversions-page' => 'පිටු නාමය:',
 );
 

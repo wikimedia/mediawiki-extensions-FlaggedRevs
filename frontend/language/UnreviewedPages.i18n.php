@@ -1529,6 +1529,17 @@ $messages['sc'] = array(
 	'unreviewedpages-recent' => '(nemmancu 1 ora)',
 );
 
+/** Sinhala (සිංහල)
+ * @author පසිඳු කාවින්ද
+ */
+$messages['si'] = array(
+	'unreviewedpages' => 'නිරීක්ෂණය නොකළ පිටු',
+	'unreviewedpages-category' => 'ප්‍රවර්ගය:',
+	'unreviewedpages-diff' => 'නිරීක්ෂණය',
+	'unreviewedpages-viewing' => '(නිරීක්ෂණය යටතේ)',
+	'unreviewedpages-recent' => '(පැයකටත් වඩා අඩුවෙන්)',
+);
+
 /** Slovak (Slovenčina)
  * @author Helix84
  */

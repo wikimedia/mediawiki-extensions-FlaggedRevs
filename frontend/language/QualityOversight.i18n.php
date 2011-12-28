@@ -454,6 +454,16 @@ $messages['ms'] = array(
 	'qualityoversight-legend' => 'Cari log kaji semula terkini',
 );
 
+/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
+ * @author Jon Harald Søby
+ * @author Nghtwlkr
+ */
+$messages['nb'] = array(
+	'qualityoversight' => 'Avansert revisjonslogg',
+	'qualityoversight-list' => 'Denne siden viser de siste godkjenninger og degraderinger av sideversjoner.',
+	'qualityoversight-legend' => 'Søk logger etter de siste anmeldelsene',
+);
+
 /** Dutch (Nederlands)
  * @author Siebrand
  */
@@ -470,16 +480,6 @@ $messages['nn'] = array(
 	'qualityoversight' => 'Kvalitetsoversikt',
 	'qualityoversight-list' => 'Denne sida syner dei siste godkjende og degraderte sideversjonane.',
 	'qualityoversight-legend' => 'Søk i loggen over dei siste vurderingane',
-);
-
-/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
- * @author Jon Harald Søby
- * @author Nghtwlkr
- */
-$messages['nb'] = array(
-	'qualityoversight' => 'Avansert revisjonslogg',
-	'qualityoversight-list' => 'Denne siden viser de siste godkjenninger og degraderinger av sideversjoner.',
-	'qualityoversight-legend' => 'Søk logger etter de siste anmeldelsene',
 );
 
 /** Occitan (Occitan)
@@ -572,6 +572,13 @@ $messages['sah'] = array(
 	'qualityoversight' => 'Дириҥник ырытыы сурунаала',
 	'qualityoversight-list' => 'Бу сирэйгэ соторутааҕыта бигэргэммит уонна таһыма уларытыллыбыт барыллар тиһиктэрэ көстөр.',
 	'qualityoversight-legend' => 'Тургутуу сурунаалыттан булан ылыы',
+);
+
+/** Sinhala (සිංහල)
+ * @author පසිඳු කාවින්ද
+ */
+$messages['si'] = array(
+	'qualityoversight' => 'උසස් නිරීක්ෂණ ලඝු සටහන',
 );
 
 /** Slovak (Slovenčina)

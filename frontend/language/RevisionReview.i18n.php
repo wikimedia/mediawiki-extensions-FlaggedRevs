@@ -2264,6 +2264,7 @@ $messages['he'] = array(
 );
 
 /** Hindi (हिन्दी)
+ * @author Ansumang
  * @author Kaustubh
  */
 $messages['hi'] = array(
@@ -2276,7 +2277,7 @@ $messages['hi'] = array(
 परिक्षण ना हुए अवतरणोंकी सूची के लिये [[Special:Unreviewedpages]] देखें।',
 	'revreview-stable1' => 'आप शायद इस पन्नेका [{{fullurl:$1|stableid=$2}} यह मार्क किया हुआ अवतरण] अब [{{fullurl:$1|stable=1}} स्थिर अवतरण] बन चुका हैं या नहीं यह देखना चाहतें हैं।',
 	'revreview-stable2' => 'आप इस पन्नेका [{{fullurl:$1|stable=1}} स्थिर अवतरण] देख सकतें हैं (अगर उपलब्ध है तो)।',
-	'revreview-submit' => 'रिव्ह्यू भेजें',
+	'revreview-submit' => 'जमा करें',
 	'revreview-successful' => "[[:$1|$1]] के चुने हुए अवतरणको मार्क किया गया हैं।
 ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} सभी मार्क किये हुए अवतरण देखें])'''",
 	'revreview-successful2' => "'''[[:$1|$1]] के चुने हुए अवतरण का मार्क हटाया।'''",
@@ -2790,7 +2791,7 @@ Vedi l'[[Special:Unreviewedpages|elenco delle pagine non revisionate]].",
 
  Si prega di rivedere tutte le modifiche di seguito riportate perché le tue modifiche vengano visualizzate nella versione stabile. 
  Potrebbe essere necessario prima proseguire o "annullare" modifiche.',
-	'revreview-update-includes' => 'Alcuni template/file sono stati aggiornati:',
+	'revreview-update-includes' => 'Alcuni Template/file sono stati aggiornati (pagine non revisionate in grassetto):',
 	'revreview-reject-text-list' => "Confermando quest'azione verranno '''respinte''' le modifiche testuali {{PLURAL:$1|dalla seguente versione|dalle seguenti versioni}} di [[:$2|$2]]:",
 	'revreview-reject-text-revto' => 'Questo ripristinerà la pagina alla [{{fullurl:$1|oldid=$2}} versione datata $3].',
 	'revreview-reject-summary' => 'Sommario:',
@@ -3959,11 +3960,11 @@ Vardé la [[Special:Unreviewedpages|lista dle pàgine pa revisionà]].',
 	'revreview-successful2' => "'''Gavà për da bin la marca a la revision ëd [[:$1|$1]].'''",
 	'revreview-poss-conflict-p' => "'''Avis: [[User:$1|$1]] a l'ha ancaminà a revisioné costa pàgina ël $2 a $3.'''",
 	'revreview-poss-conflict-c' => "'''Avis: [[User:$1|$1]] a l'ha ancaminà a revisioné sti cambiament ël $2 a $3.'''",
-	'revreview-adv-reviewing-p' => "Nòta: Autr revisor a peule vëdde ch'it të stas revisionand sta pagina.",
-	'revreview-adv-reviewing-c' => "Nòta: Autr revisor a peule vëdde ch'it të stas revisionand sti cangiament.",
-	'revreview-sadv-reviewing-p' => 'It peule $1 ti midem com revisionand sta pagina a autr utent.',
-	'revreview-sadv-reviewing-c' => 'It peule $1 ti midem com revisionand sti cangiament a autr utent.',
-	'revreview-adv-start-link' => 'publicisa',
+	'revreview-adv-reviewing-p' => "Nòta: D'àutri revisor a peulo vëdde che chiel a l'é an camin ch'a revision-a sta pàgina.",
+	'revreview-adv-reviewing-c' => "Nòta: D'àutri revisor a peulo vëdde ch'a l'é an camin ch'a revision-a coste modìfiche.",
+	'revreview-sadv-reviewing-p' => "A peul $1 chiel-midem com revisor ëd costa pàgina për j'àutri utent.",
+	'revreview-sadv-reviewing-c' => "A peul $1 chiel-midem com revisor ëd se modìfiche a d'àutri utent.",
+	'revreview-adv-start-link' => 'propon-se',
 	'revreview-adv-stop-link' => 'publicisa nen',
 	'revreview-toolow' => "'''A venta ch'a stima mincadun ëd j'atribù pi àut che \"pa adeguà\" përchè na revision a sia considerà revisionà.'''
 
@@ -4280,6 +4281,8 @@ Vide 'a [[Special:Unreviewedpages|liste de le pàggene ca non g'onne state rivis
 	'revreview-submit-unreviewed' => 'Apposte. None accettate!',
 	'revreview-successful' => "'''Revisione de [[:$1|$1]] ha state mise 'u flag.''' ([{{fullurl:{{#Special:ReviewedVersions}}|pàgene=$2}} vide le versiune secure])'''",
 	'revreview-successful2' => "'''Revisione de [[:$1|$1]] ha state luete 'u flag.'''",
+	'revreview-adv-start-link' => 'pubblecizze',
+	'revreview-adv-stop-link' => 'no-pubblecezzà',
 	'revreview-toolow' => "'''Tu ninde ninde a valutà ognedune de le attrebbute cchiù ierte de ''inadeguate'' purcé 'na revisione pò essere considerate reviste.'''
 
 Pe luà 'u state de reviste de 'na revisione, cazze sus a \"none accettà\".
@@ -4545,12 +4548,23 @@ $messages['sc'] = array(
  * @author පසිඳු කාවින්ද
  */
 $messages['si'] = array(
+	'revisionreview' => 'සංශෝධන නිරීක්ෂණය කරන්න',
 	'review_denied' => 'අවසරදීමට නොහැක.',
+	'revreview-check-flag-u' => 'මෙම නිරීක්ෂණය නොකළ පිටුව පිළිගන්න',
 	'revreview-check-flag-y' => 'මගේ වෙනස්කම් බාරගන්න',
+	'revreview-flag' => 'මෙම සංශෝධනය නිරීක්ෂණය කරන්න',
+	'revreview-reflag' => 'මෙම සංශෝධනය නැවත-නිරීක්ෂණය කරන්න',
 	'revreview-log' => 'පරිකථනය:',
 	'revreview-submit' => 'යොමන්න',
 	'revreview-submitting' => 'යොමු කරමින් …',
+	'revreview-submit-review' => 'සංශෝධනය පිළිගන්න',
+	'revreview-submit-unreview' => 'සංශෝධනය පිළිනොගන්න',
+	'revreview-submit-reject' => 'වෙනස්කම් ප්‍රතික්ෂේප කරන්න',
 	'revreview-submit-reviewed' => 'හරි. බාරගත්තා!',
+	'revreview-submit-unreviewed' => 'හරි. බාරගත්තේ නෑ!',
+	'revreview-reject-summary' => 'සාරාංශය:',
+	'revreview-reject-confirm' => 'මෙම වෙනස්කම් ප්‍රතික්ෂේප කරන්න',
+	'revreview-reject-cancel' => 'අවලංගු කරන්න',
 );
 
 /** Slovak (Slovenčina)
@@ -4789,6 +4803,7 @@ $messages['su'] = array(
 $messages['sv'] = array(
 	'revisionreview' => 'Granska sidversioner',
 	'revreview-failed' => "'''Kunde inte granska denna sidversion.'''",
+	'revreview-submission-invalid' => 'Inlämningen var ofullständig eller på annat sätt ogiltig.',
 	'review_page_invalid' => 'Målsidans titel är ogiltig.',
 	'review_page_notexists' => 'Målsidan existerar inte.',
 	'review_page_unreviewable' => 'Målsidan är inte granskningsbar.',
@@ -4828,8 +4843,11 @@ Se [[Special:Unreviewedpages|listan över ogranskade sidor]].',
 	'revreview-successful2' => "'''Vald sidversion av [[:$1|$1]] har avflaggats.'''",
 	'revreview-poss-conflict-p' => "'''Varning: [[User:$1|$1]] började granska denna sida den $2 kl. $3.'''",
 	'revreview-poss-conflict-c' => "'''Varning: [[User:$1|$1]] började granska dessa ändringar den $2 kl. $3.'''",
-	'revreview-adv-reviewing-p' => "'''OBS: Du har blivit underrättad för att ha börjat granska denna sida den $1 kl. $2.'''",
-	'revreview-adv-reviewing-c' => "'''OBS: Du har blivit underrättad för att ha börjat granska dessa ändringar den $1 kl. $2.'''",
+	'revreview-adv-reviewing-p' => 'OBS: Andra granskare kan se att du granskar denna sida.',
+	'revreview-adv-reviewing-c' => 'OBS: Andra granskare kan se att du granskar dessa ändringar.',
+	'revreview-sadv-reviewing-p' => 'Du kan $1 dig själv som att du granskar denna sida till andra användare.',
+	'revreview-adv-start-link' => 'annonsera',
+	'revreview-adv-stop-link' => 'av-annonsera',
 	'revreview-toolow' => '\'\'\'Du måste bedöma varje attribut högre än "otillräcklig" för att en sidversion ska anses som granskad.\'\'\'
 
 För att ta bort granskningsstatusen för en version, klicka på "oacceptera".
@@ -5344,13 +5362,14 @@ Podarìa esser necessario proseguire o "anulare" modifiche.',
 	'revreview-tt-reject' => 'Rifiuta ste modifiche tirandole indrio',
 );
 
-/** Veps (Vepsan kel')
+/** Veps (Vepsän kel')
  * @author Игорь Бродский
  */
 $messages['vep'] = array(
 	'revisionreview' => 'Versijoiden kodvind',
-	'revreview-failed' => 'Redakcii ei ole lopnus petusen tagut!',
-	'revreview-check-flag-p' => 'Kodvindad varastajiden toižetusiden publikoičend',
+	'revreview-failed' => "'''Ei voi kodvda versijad.'''",
+	'review_denied' => 'Ei sa tulda.',
+	'revreview-check-flag-p' => 'Kodvda nece versii ($1 {{PLURAL:$1|kodvmatoi toižetuz|$1 kodvmatont toižetust}})',
 	'revreview-flag' => 'Kodvda nece versii',
 	'revreview-reflag' => 'Kodvda nece versii udes',
 	'revreview-invalid' => "'''Petuzline met:''' ei ole lehtpolen [[{{MediaWiki:Validationpage}}|kodvdud]] versijad, kudamb sättub ozutadud identifikatoranke.",
@@ -5359,21 +5378,22 @@ $messages['vep'] = array(
 
 Kc. [[Special:Unreviewedpages|kodvmatomiden lehtpoliden nimikirjutez]].',
 	'revreview-stable1' => 'Voib olda, teil linneb taht lugeda necen lehtpolen [{{fullurl:$1|stableid=$2}} znamoitud versijad] vai [{{fullurl:$1|stable=1}} publikoitud versijad], ku se om wikiš.',
-	'revreview-stable2' => 'Voib olda, teil linneb taht lugeda necen lehtpolen [{{fullurl:$1|stable=1}} publikoitud versijad], ku se om wikiš.',
+	'revreview-stable2' => 'Sab kacta necen lehtpolen [{{fullurl:$1|stable=1}} publikuidud versii].',
 	'revreview-submit' => 'Oigeta',
 	'revreview-submitting' => 'Oigendamine...',
-	'revreview-submit-review' => 'Znamoita kut kodvdud',
-	'revreview-submit-unreview' => 'Znamoita kut kodvmatoi',
+	'revreview-submit-review' => 'Vahvištoitta versii',
+	'revreview-submit-unreview' => 'Heitta vahvištoitand',
 	'revreview-successful' => "'''Valitud [[:$1|$1]]-versii om znamoitud satusekahas. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} stabiližiden versijoiden kacund])'''",
 	'revreview-successful2' => "'''Virg om heittud [[:$1|$1]]-versijaspäi.'''",
-	'revreview-toolow' => 'Pidab kirjutada kaikuččiden znamoičedoiden täht korktemb tazopind, mi "ei ole znamoitud", miše versii oliži vahvištadud kut kodvdud.
-Miše heitta kodvindan znam, kirjutagat kaikjal "ei ole znamoitud".',
-	'revreview-update' => "Olgat hüväd, [[{{MediaWiki:Validationpage}}|kodvgat]] toižetused'' (ned ozutadas alemba)'', kudambid tehtihe jäl'ges stabiližen versijan
-[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} seižutamišt].<br />
-'''Erased šablonad vai failad oma udištadud:'''",
-	'revreview-update-includes' => 'Erased šablonad/failad oma udištadud:',
-	'revreview-tt-flag' => 'Znamoita nece versii kut kodvdud',
-	'revreview-tt-unflag' => 'Znamoita nece versii kut kodvmatoi',
+	'revreview-adv-start-link' => 'reklamiruida',
+	'revreview-toolow' => 'Pidab kirjutada kaikuččiden znamoičedoiden täht korktemb tazopind, mi "vähehk", miše versii lugetihe kodvdud.
+Miše heitta necen versijan kodvindan tunduz, paingat "ei ole znamoitud".
+Olgat hüväd, paingat kaclimes "Tagaze"-painim, miše kirjutada znamoičendad udes.',
+	'revreview-update' => 'Olgat hüväd, [[{{MediaWiki:Validationpage}}|kodvgat]] toižetused "(alemba ozutadud)" vahvištoittud versijaha.',
+	'revreview-update-includes' => 'Udištadud šablonad/failad (kodvmatomad oma anttud sanktal šriftal):',
+	'revreview-reject-cancel' => 'Heitta pätand',
+	'revreview-tt-flag' => 'Vahvištoitkat nece versii i znamoikat se kut kodvdud',
+	'revreview-tt-unflag' => 'Heitkat poiš necen versijan vahvištoitand  i znamoikat se kut kodvmatoi',
 );
 
 /** Vietnamese (Tiếng Việt)

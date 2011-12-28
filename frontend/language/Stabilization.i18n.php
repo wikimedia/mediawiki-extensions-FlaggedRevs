@@ -1207,7 +1207,7 @@ Tässä ovat nykyiset asetukset kohteelle [[:$1|$1]]:',
 	'stabilization-page' => 'Sivun nimi:',
 	'stabilization-leg' => 'Vahvista vakaiden versioiden asetukset',
 	'stabilization-def' => 'Versio, joka näytetään oletusarvoisesti',
-	'stabilization-def1' => 'Vakaa versio, tai viimeisin versio, jos vakaata versiota ei ole',
+	'stabilization-def1' => 'Vakaa versio. Jos vakaata versiota ei ole, viimeisin versio.',
 	'stabilization-def2' => 'Viimeisin versio',
 	'stabilization-restrict' => 'Seulonnan/automaattiseulonnan rajoitukset',
 	'stabilization-restrict-none' => 'Ei erityisiä rajoituksia',
@@ -1501,6 +1501,7 @@ $messages['he'] = array(
 );
 
 /** Hindi (हिन्दी)
+ * @author Ansumang
  * @author Kaustubh
  */
 $messages['hi'] = array(
@@ -3049,9 +3050,12 @@ $messages['si'] = array(
 	'stabilization-submit' => 'තහවුරු කරන්න',
 	'stabilization-comment' => 'හේතුව:',
 	'stabilization-otherreason' => 'වෙනත් හේතු:',
+	'stabilization-othertime' => 'අනෙකුත් වේලාව:',
 	'stabilization-def-short' => 'පෙරනිමි',
 	'stabilization-def-short-0' => 'වත්මන්',
 	'stabilization-def-short-1' => 'ස්ථාවර',
+	'stabilize_invalid_level' => 'වලංගු නොවන ආරක්ෂණ මට්ටම.',
+	'stabilize_denied' => 'අවසරය ලබා නොදේ.',
 );
 
 /** Slovak (Slovenčina)
@@ -3684,21 +3688,21 @@ No se pode canbiar le inpostassion.',
 	'stabilization-review' => 'Segna la revision atuale come controlà',
 );
 
-/** Veps (Vepsan kel')
+/** Veps (Vepsän kel')
  * @author Игорь Бродский
  */
 $messages['vep'] = array(
 	'stabilization-tab' => 'vet',
 	'stabilization' => 'Lehtpolen stabilizacii',
-	'stabilization-text' => "'''Toižetagat järgendused, miše pätta, kut pidab valita da ozutelda [[:$1|$1]]-lehtpolen stabiline versii.'''",
-	'stabilization-perm' => 'Teile ei ulotu oiktusid, miše toižetada stabiližen versijan ozutamižen järgendused.
+	'stabilization-text' => "Alemba anttud järgendused pättas, kut sab valita da ozutelda [[:$1|$1]]-lehtpolen publikuidud versii.'''",
+	'stabilization-perm' => 'Teile ei ulotu oiktusid, miše toižetada publikuidud versijoiden järgendused.
 Naku oma nügüdläižed järgendused [[:$1|$1]]-lehtpolen täht:',
 	'stabilization-page' => 'Lehtpolen nimi:',
-	'stabilization-leg' => 'Stabiližen versijan järgendusiden vahvištoitand',
+	'stabilization-leg' => 'Publikuidud versijan järgendusiden vahvištoitand',
 	'stabilization-def' => 'Versii, kudambad ozutadas augotižjärgendusen mödhe',
-	'stabilization-def1' => 'Stabiline versii; ku mugošt ei ole, ka nügüdläine (kodvversii)',
-	'stabilization-def2' => 'Nügüdläine versii (kodvversii)',
-	'stabilization-restrict' => 'Avtoarvostelendan kaidendused',
+	'stabilization-def1' => "Stabiline versii; ku mugošt ei ole, ka jäl'gmäine (kodvversii)",
+	'stabilization-def2' => "Jäl'gmäine versii (kodvversii)",
+	'stabilization-restrict' => 'Kodvindan/avtokodvindan kaidendused',
 	'stabilization-restrict-none' => 'Ei ole ližakaidendusid',
 	'stabilization-submit' => 'Vahvištoitta',
 	'stabilization-notexists' => 'Ei ole "[[:$1|$1]]"-nimitadud lehtpolen versijad. Ei voi järgeta.',
@@ -3711,10 +3715,16 @@ Ei voi järgeta.',
 	'stabilization-def-short' => 'Augotižjärgendusen mödhe',
 	'stabilization-def-short-0' => 'Nügüdläine',
 	'stabilization-def-short-1' => 'Publikoitud',
+	'stabilize_page_invalid' => 'Metlehtpolen nimi om vär',
+	'stabilize_page_notexists' => "Metlehtpol't ei ole olemas",
+	'stabilize_page_unreviewable' => "Metlehtpol't ei ole kodvdud nimiavarudes.",
+	'stabilize_invalid_autoreview' => 'Avtokodvindan petuzližed kaidendused',
+	'stabilize_invalid_level' => 'Petuzline kaičendtazopind.',
 	'stabilize_expiry_invalid' => 'Petuzline lopstrok.',
 	'stabilize_expiry_old' => 'Nece tegendan lopmižen aig om jo männu.',
+	'stabilize_denied' => 'Ei sa tulda.',
 	'stabilize-expiring' => 'lopiše aigal $1 (UTC)',
-	'stabilization-review' => 'Arvostelda nügüdläine versii',
+	'stabilization-review' => 'Tühjitada nügüdläine versii, sikš miše se om kodvmatoi',
 );
 
 /** Vietnamese (Tiếng Việt)

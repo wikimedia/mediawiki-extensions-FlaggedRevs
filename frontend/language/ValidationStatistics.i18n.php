@@ -1828,11 +1828,16 @@ $messages['scn'] = array(
 );
 
 /** Sinhala (සිංහල)
+ * @author පසිඳු කාවින්ද
  * @author බිඟුවා
  */
 $messages['si'] = array(
 	'validationstatistics-ns' => 'නාම අවකාශය',
 	'validationstatistics-total' => 'පිටු',
+	'validationstatistics-stable' => 'නිරීක්ෂණය කෙරූ',
+	'validationstatistics-old' => 'යල් පැන ගිය',
+	'validationstatistics-user' => 'පරිශීලක',
+	'validationstatistics-reviews' => 'නිරීක්ෂණ',
 );
 
 /** Slovak (Slovenčina)
@@ -2161,11 +2166,15 @@ $messages['vep'] = array(
 oma [[{{MediaWiki:Validationpage}}|«redaktoran»]] oiktused.
 
 Redaktorad oma mugomad kävutajad, kudambil om oiktuz kodvda valitud lehtseiden konkretižed versijad.",
-	'validationstatistics-table' => "Alemba om anttud statistikad kaikuččen nimiavarusen täht. Läbioigendad oma heittud neciš statistikaspäi.
-''Vanhtunuzikš'' kuctas lehtpolid, kudambad oma redaktiruidud jäl'ges stabilišt versijad.
-Ku stabiline versii om jäl'gmäine, ka se kucuse ''sinhroniziruidud''.
+	'validationstatistics-lastupdate' => '"Mugoižed andmused udestadihe $1, aig om $2."',
+	'validationstatistics-pndtime' => "Toižetused, kudambad oma znamoinu märitud ühtnijad, lugedas \"kodvdud\".
 
-'''Homičend.''' Nece lehtpol' keširuiše. Andmusiden nägu voib olda vanhtunuden.",
+Keskmäine pidestuz [[Special:OldReviewedPages|lehtpoliden kodvmatomiden toižetusidenke täht]] om '''\$1'''. Nece parametr ozutab, min aikte jäl'gmäine kodvmatoi versii jäb kodvijoiden tarkuseta.",
+	'validationstatistics-revtime' => "Keiskmäine kodvindanaig \"tundmatomiden ühtnijoiden\" toižetusiden täht om '''\$1'''; median om '''\$2'''.
+\$3",
+	'validationstatistics-table' => "Alemba om kodvindan statistikad kaikuččen nimiavarusen täht. Läbioigendad oma heittud neciš statistikaspäi.
+''Vanhtunuzikš'' kuctas lehtpolid, kudambiš om kodvmatomid toižetusid.
+Ku lehtpolil ei ole kodvmatomid toižetusid, ka ne kucuse ''sinhroniziruidud''.",
 	'validationstatistics-ns' => 'Nimiavaruz',
 	'validationstatistics-total' => "Lehtpol't",
 	'validationstatistics-stable' => 'Kodvdud',

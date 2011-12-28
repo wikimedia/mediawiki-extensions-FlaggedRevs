@@ -427,7 +427,7 @@ $messages['fa'] = array(
  */
 $messages['fi'] = array(
 	'reviewedpages' => 'Arvioidut sivut',
-	'reviewedpages-leg' => 'Luettelo sivuista, jotka on arvioitu',
+	'reviewedpages-leg' => 'Luettele sivut, jotka on arvioitu',
 	'reviewedpages-list' => "Tässä luetellaan sivut, joiden versio on [[{{MediaWiki:Validationpage}}|arvioitu]] ''parhaalle laatutasolle'' valitulla tasolla.
 Linkki viittaa tämän tason viimeisimpään versioon.",
 	'reviewedpages-none' => 'Tässä luettelossa ei ole yhtään sivua.',
@@ -1075,7 +1075,7 @@ $messages['roa-tara'] = array(
 	'reviewedpages-none' => "Non ge stonne pàggene jndr'à sta liste",
 	'reviewedpages-lev-0' => 'Viste',
 	'reviewedpages-lev-1' => 'Qualità',
-	'reviewedpages-lev-2' => 'Dettagliete',
+	'reviewedpages-lev-2' => '{{int:revreview-lev-pristine}}',
 	'reviewedpages-all' => 'versiune reviste',
 	'reviewedpages-best' => 'megghia revisione',
 );
@@ -1124,6 +1124,16 @@ $messages['sah'] = array(
 	'reviewedpages-lev-2' => 'Талыы-талба',
 	'reviewedpages-all' => 'ырытыллыбыт торумнар',
 	'reviewedpages-best' => 'бастыҥ барыла',
+);
+
+/** Sinhala (සිංහල)
+ * @author පසිඳු කාවින්ද
+ */
+$messages['si'] = array(
+	'reviewedpages' => 'නිරීක්ෂණය කෙරූ පිටු',
+	'reviewedpages-leg' => 'නිරීක්ෂණය කෙරූ පිටු ලැයිස්තුගත කරන්න',
+	'reviewedpages-all' => 'නිරීක්ෂණය කෙරූ අනුවාද',
+	'reviewedpages-best' => 'හොඳම සංශෝධනය',
 );
 
 /** Slovak (Slovenčina)
