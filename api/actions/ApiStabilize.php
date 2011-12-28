@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Created on Sep 19, 2009
  *
@@ -27,7 +26,6 @@
  * @ingroup FlaggedRevs
  */
 abstract class ApiStabilize extends ApiBase {
-
 	// Title param
 	protected $title;
 
@@ -45,6 +43,7 @@ abstract class ApiStabilize extends ApiBase {
 		if ( $this->title == null ) {
 			$this->dieUsage( "Invalid title given.", "invalidtitle" );
 		}
+
 		$errors = $this->title->getUserPermissionsErrors( 'stablesettings', $wgUser );
 		if ( $errors ) {
 			// We don't care about multiple errors, just report one of them
@@ -81,6 +80,7 @@ abstract class ApiStabilize extends ApiBase {
 class ApiStabilizeGeneral extends ApiStabilize {
 	public function doExecute() {
 		global $wgUser;
+
 		$params = $this->extractRequestParams();
 
 		$form = new PageStabilityGeneralForm( $wgUser );
@@ -91,6 +91,7 @@ class ApiStabilizeGeneral extends ApiStabilize {
 		$form->setExpiry( $params['expiry'] ); # Expiry
 		$form->setExpirySelection( 'other' ); # Expiry dropdown
 		$restriction = $params['autoreview'];
+
 		// Fill in config fields from URL params
 		if ( $params['default'] === null ) {
 			// Default version setting not optional
@@ -98,10 +99,13 @@ class ApiStabilizeGeneral extends ApiStabilize {
 		} else {
 			$form->setOverride( $this->defaultFromKey( $params['default'] ) );
 		}
+
 		$form->setReviewThis( $params['review'] ); # Auto-review option
+
 		if ( $restriction == 'none' ) {
 			$restriction = ''; // 'none' => ''
 		}
+
 		$form->setAutoreview( $restriction ); # Autoreview restriction
 		$form->ready();
 
@@ -125,6 +129,7 @@ class ApiStabilizeGeneral extends ApiStabilize {
 		} elseif ( $key == 'latest' ) {
 			return 0;
 		}
+
 		return null; // bad key?
 	}
 
@@ -141,26 +146,26 @@ class ApiStabilizeGeneral extends ApiStabilize {
 				ApiBase :: PARAM_TYPE => $autoreviewLevels,
 				ApiBase :: PARAM_DFLT => 'none',
 			),
-			'expiry' 	  => 'infinite',
-			'reason'	  => '',
-			'review' 	  => false,
-			'watch'  	  => null,
-			'token' 	  => null,
-			'title' 	  => null,
+			'expiry'      => 'infinite',
+			'reason'      => '',
+			'review'      => false,
+			'watch'       => null,
+			'token'       => null,
+			'title'       => null,
 		);
 		return $pars;
 	}
 
 	public function getParamDescription() {
 		return array(
-			'default' 		=> 'Default revision to show',
-			'autoreview' 	=> 'Auto-review restriction',
-			'expiry' 		=> 'Expiry for these settings',
-			'title' 		=> 'Title of page to be stabilized',
-			'reason' 		=> 'Reason',
+			'default'       => 'Default revision to show',
+			'autoreview'    => 'Auto-review restriction',
+			'expiry'        => 'Expiry for these settings',
+			'title'         => 'Title of page to be stabilized',
+			'reason'        => 'Reason',
 			'review'        => 'Review this page',
 			'watch'         => 'Watch this page',
-			'token' 		=> 'An edit token retrieved through prop=info'
+			'token'         => 'An edit token retrieved through prop=info'
 		);
 	}
 
@@ -202,10 +207,12 @@ class ApiStabilizeProtect extends ApiStabilize {
 		$form->setReasonSelection( 'other' ); # Reason dropdown
 		$form->setExpiry( $params['expiry'] ); # Expiry
 		$form->setExpirySelection( 'other' ); # Expiry dropdown
+
 		$restriction = $params['protectlevel'];
 		if ( $restriction == 'none' ) {
 			$restriction = ''; // 'none' => ''
 		}
+
 		$form->setAutoreview( $restriction ); # Autoreview restriction
 		$form->ready();
 
@@ -231,22 +238,22 @@ class ApiStabilizeProtect extends ApiStabilize {
 				ApiBase :: PARAM_TYPE => $autoreviewLevels,
 				ApiBase :: PARAM_DFLT => 'none',
 			),
-			'expiry' 	   => 'infinite',
-			'reason' 	   => '',
-			'watch'  	   => null,
-			'token'  	   => null,
-			'title'  	   => null,
+			'expiry'    => 'infinite',
+			'reason'    => '',
+			'watch'     => null,
+			'token'     => null,
+			'title'     => null,
 		);
 	}
 
 	public function getParamDescription() {
 		return array(
 			'protectlevel'  => 'The review-protection level',
-			'expiry' 		=> 'Review-protection expiry',
-			'title' 		=> 'Title of page to be review-protected',
-			'reason' 		=> 'Reason',
+			'expiry'        => 'Review-protection expiry',
+			'title'         => 'Title of page to be review-protected',
+			'reason'        => 'Reason',
 			'watch'         => 'Watch this page',
-			'token' 		=> 'An edit token retrieved through prop=info',
+			'token'         => 'An edit token retrieved through prop=info',
 		);
 	}
 
