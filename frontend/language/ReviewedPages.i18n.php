@@ -971,6 +971,13 @@ $messages['oc'] = array(
 	'reviewedpages-best' => 'Melhor revision',
 );
 
+/** Oriya (ଓଡ଼ିଆ)
+ * @author Ansumang
+ */
+$messages['or'] = array(
+	'reviewedpages' => 'ସମୀକ୍ଷା ପୃଷ୍ଠା',
+);
+
 /** Polish (Polski)
  * @author Leinad
  * @author Sp5uhe
@@ -1132,6 +1139,7 @@ $messages['sah'] = array(
 $messages['si'] = array(
 	'reviewedpages' => 'නිරීක්ෂණය කෙරූ පිටු',
 	'reviewedpages-leg' => 'නිරීක්ෂණය කෙරූ පිටු ලැයිස්තුගත කරන්න',
+	'reviewedpages-none' => 'මෙම ලයිස්තුවේ පිටු කිසිවක් නොමැත.',
 	'reviewedpages-all' => 'නිරීක්ෂණය කෙරූ අනුවාද',
 	'reviewedpages-best' => 'හොඳම සංශෝධනය',
 );

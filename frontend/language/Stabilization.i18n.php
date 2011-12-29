@@ -2605,6 +2605,7 @@ $messages['or'] = array(
 	'stabilization-otherreason' => 'ଅନ୍ୟ କାରଣ:',
 	'stabilization-expiry' => 'ଅଚଳ ହେବ:',
 	'stabilization-othertime' => 'ବାକି ସମୟ:',
+	'stabilization-def-short' => 'ପୂର୍ବ ନିର୍ଦ୍ଧାରିତ',
 	'stabilization-def-short-0' => 'ଏବେକାର',
 	'stabilization-def-short-1' => 'ସ୍ଥିର',
 );
@@ -3050,6 +3051,7 @@ $messages['si'] = array(
 	'stabilization-submit' => 'තහවුරු කරන්න',
 	'stabilization-comment' => 'හේතුව:',
 	'stabilization-otherreason' => 'වෙනත් හේතු:',
+	'stabilization-expiry' => 'කල් ඉකුත් වන්නේ:',
 	'stabilization-othertime' => 'අනෙකුත් වේලාව:',
 	'stabilization-def-short' => 'පෙරනිමි',
 	'stabilization-def-short-0' => 'වත්මන්',

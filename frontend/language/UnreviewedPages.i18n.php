@@ -1307,6 +1307,7 @@ $messages['oc'] = array(
  */
 $messages['or'] = array(
 	'unreviewedpages-category' => 'ଶ୍ରେଣୀ:',
+	'unreviewedpages-diff' => 'ସମୀକ୍ଷା',
 );
 
 /** Ossetic (Ирон)
@@ -1537,6 +1538,8 @@ $messages['si'] = array(
 	'unreviewedpages-category' => 'ප්‍රවර්ගය:',
 	'unreviewedpages-diff' => 'නිරීක්ෂණය',
 	'unreviewedpages-viewing' => '(නිරීක්ෂණය යටතේ)',
+	'unreviewedpages-hours' => '({{PLURAL:$1|පැය|පැය}} $1 ක්)',
+	'unreviewedpages-days' => '({{PLURAL:$1|දින|දින}} $1 ක්)',
 	'unreviewedpages-recent' => '(පැයකටත් වඩා අඩුවෙන්)',
 );
 

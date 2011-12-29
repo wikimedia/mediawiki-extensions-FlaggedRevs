@@ -1540,10 +1540,12 @@ Los contributors e relectors son d'utilizaires establits que pòdon verificar la
  * @author Ansumang
  */
 $messages['or'] = array(
+	'validationstatistics' => 'ପୃଷ୍ଠା ସମୀକ୍ଷା ଆକଳନ',
 	'validationstatistics-ns' => 'ନେମସ୍ପେସ',
 	'validationstatistics-total' => 'ପୃଷ୍ଠା',
 	'validationstatistics-latest' => 'ସଜଡ଼ାହେବା',
 	'validationstatistics-user' => 'ବ୍ୟବହାରକାରୀ',
+	'validationstatistics-reviews' => 'ସମୀକ୍ଷାସବୁ',
 );
 
 /** Deitsch (Deitsch)

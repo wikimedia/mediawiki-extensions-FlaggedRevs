@@ -884,6 +884,13 @@ $messages['oc'] = array(
 	'reviewedversions-review' => "Revisada lo ''$1'' per $2",
 );
 
+/** Oriya (ଓଡ଼ିଆ)
+ * @author Ansumang
+ */
+$messages['or'] = array(
+	'reviewedversions-page' => 'ପୃଷ୍ଠା ନାମ:',
+);
+
 /** Deitsch (Deitsch)
  * @author Xqt
  */

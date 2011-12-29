@@ -653,6 +653,13 @@ $messages['oc'] = array(
 	'configuredpages-def-stable' => 'version publicada',
 );
 
+/** Oriya (ଓଡ଼ିଆ)
+ * @author Ansumang
+ */
+$messages['or'] = array(
+	'configuredpages-def-stable' => 'ସ୍ଥିର ସଂସ୍କରଣ',
+);
+
 /** Polish (Polski)
  * @author Sp5uhe
  */
@@ -783,6 +790,8 @@ $messages['sc'] = array(
  * @author පසිඳු කාවින්ද
  */
 $messages['si'] = array(
+	'configuredpages' => 'නිරීක්ෂණ වින්‍යාසගතකිරීම් සහිත පිටු',
+	'configuredpages-none' => 'මෙම ලයිස්තුවේ පිටු කිසිවක් නොමැත.',
 	'configuredpages-config' => 'වින්‍යාසගතකිරීම',
 	'configuredpages-def-draft' => 'නවතම අනුවාදය',
 	'configuredpages-def-stable' => 'ස්ථාවර අනුවාදය',

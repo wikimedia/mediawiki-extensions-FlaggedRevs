@@ -1375,7 +1375,10 @@ $messages['oc'] = array(
  * @author Ansumang
  */
 $messages['or'] = array(
+	'pendingchanges-hours' => '($1 {{PLURAL:$1|ଘଣ୍ଟା|ଘଣ୍ଟା}})',
+	'pendingchanges-days' => '($1 {{PLURAL:$1|ଦିନ|ଦିନ}})',
 	'pendingchanges-category' => 'ଶ୍ରେଣୀ:',
+	'pendingchanges-viewing' => '(ସମୀକ୍ଷା ଚାଲିଛି)',
 );
 
 /** Deitsch (Deitsch)
@@ -1620,6 +1623,9 @@ $messages['sc'] = array(
  */
 $messages['si'] = array(
 	'pendingchanges' => 'බලාපොරොත්තු වෙන වෙනස්කම් සහිත පිටු',
+	'pendingchanges-legend' => 'බලාපොරොත්තු වෙන වෙනස්කම් සහිත නිරීක්ෂණය කෙරූ පිටු ලැයිස්තුව',
+	'pendingchanges-hours' => '({{PLURAL:$1|පැය|පැය}} $1 ක්)',
+	'pendingchanges-days' => '({{PLURAL:$1|දින|දින}} $1 ක්)',
 	'pendingchanges-recent' => '(පැයකටත් වඩා අඩුවෙන්)',
 	'pendingchanges-category' => 'ප්‍රවර්ගය:',
 	'pendingchanges-onwatchlist' => 'මගේ මුර ලැයිස්තුවේ ඇති පිටු',
