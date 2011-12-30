@@ -3804,12 +3804,15 @@ $messages['wuu'] = array(
 );
 
 /** Yiddish (ייִדיש)
+ * @author Imre
  * @author פוילישער
  */
 $messages['yi'] = array(
 	'stabilization-page' => 'בלאט נאמען:',
+	'stabilization-submit' => 'באַשטעטיקן',
 	'stabilization-comment' => 'אורזאַך:',
 	'stabilization-otherreason' => 'אַנדער אורזאַך',
+	'stabilization-def-short-0' => 'לויפֿיקע',
 );
 
 /** Cantonese (粵語)

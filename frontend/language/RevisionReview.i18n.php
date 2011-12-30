@@ -4847,6 +4847,7 @@ Se [[Special:Unreviewedpages|listan över ogranskade sidor]].',
 	'revreview-adv-reviewing-p' => 'OBS: Andra granskare kan se att du granskar denna sida.',
 	'revreview-adv-reviewing-c' => 'OBS: Andra granskare kan se att du granskar dessa ändringar.',
 	'revreview-sadv-reviewing-p' => 'Du kan $1 dig själv som att du granskar denna sida till andra användare.',
+	'revreview-sadv-reviewing-c' => 'Du kan $1 dig själv som att du granskar dessa ändringar till andra användare.',
 	'revreview-adv-start-link' => 'annonsera',
 	'revreview-adv-stop-link' => 'av-annonsera',
 	'revreview-toolow' => '\'\'\'Du måste bedöma varje attribut högre än "otillräcklig" för att en sidversion ska anses som granskad.\'\'\'
@@ -5265,7 +5266,11 @@ $messages['uk'] = array(
 	'revreview-poss-conflict-p' => "'''Попередження: [[User:$1|$1]] почав перевіряти цю сторінку $2 о $3.'''",
 	'revreview-poss-conflict-c' => "'''Попередження: [[User:$1|$1]] почав перевіряти цю сторінку $2 о $3.'''",
 	'revreview-adv-reviewing-p' => 'Примітка: Інші рецензенти можуть бачити, що ви рецензуєте цю сторінку.',
-	'revreview-adv-reviewing-c' => "'''Примітка: Оголошено, що ви почали перевірку цих змін $1 о $2.'''",
+	'revreview-adv-reviewing-c' => 'Примітка: Інші рецензенти можуть бачити, що ви рецензуєте ці редагування.',
+	'revreview-sadv-reviewing-p' => 'Ви можете $1 для інших користувачів, що рецензуєте цю сторінку.',
+	'revreview-sadv-reviewing-c' => 'Ви можете $1 для інших користувачів, що рецензуєте ці редагування.',
+	'revreview-adv-start-link' => 'показувати',
+	'revreview-adv-stop-link' => 'не показувати',
 	'revreview-toolow' => "'''Ви повинні встановити кожен з атрибутів у значення вище, ніж \"недостатній\", відповідно до процедури позначення версії рецензованою.'''
 
 Щоб зняти статус рецензування, натисніть \"зняти\".
@@ -5499,12 +5504,14 @@ Logolös padi: [[Special:Unreviewedpages]], su kel dabinon lised padas no nog pe
 );
 
 /** Yiddish (ייִדיש)
+ * @author Imre
  * @author פוילישער
  */
 $messages['yi'] = array(
 	'revreview-main' => 'איר מוזט אויסקלויבן א געוויסע ווערסיע פֿון אַן אינהאַלט בלאַט צו רעוויזירן.
 
 זעט די  [[Special:Unreviewedpages|ליסטע פֿון אומרעוויזירטע בלעטער]].',
+	'revreview-submit' => 'אײַנגעבן',
 );
 
 /** Cantonese (粵語) */

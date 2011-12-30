@@ -15531,6 +15531,7 @@ $messages['yi'] = array(
 	'revreview-revnotfound' => 'די אלטע רעוויזיע איר האט געבעטן קען נישט געפינען ווערן.
 ביטע טשעקט די URL וואס ברויכט אריינצוגיין אין דעם בלאט.',
 	'revreview-filter-all' => 'אַלע',
+	'revreview-restriction-none' => 'קיין',
 );
 
 /** Cantonese (粵語) */
