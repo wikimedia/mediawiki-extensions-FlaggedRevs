@@ -370,6 +370,13 @@ $messages['he'] = array(
 	'problemchanges-category' => 'קטגוריה:',
 );
 
+/** Hindi (हिन्दी)
+ * @author Ansumang
+ */
+$messages['hi'] = array(
+	'problemchanges-category' => 'श्रेणी:',
+);
+
 /** Croatian (Hrvatski)
  * @author Ex13
  * @author SpeedyGonsales

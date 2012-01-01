@@ -724,6 +724,7 @@ $messages['he'] = array(
 );
 
 /** Hindi (हिन्दी)
+ * @author Ansumang
  * @author Kaustubh
  */
 $messages['hi'] = array(
@@ -735,6 +736,8 @@ $messages['hi'] = array(
 	'unreviewedpages-watched' => '($1 {{PLURAL:$1|सदस्यने|सदस्योंने}} ध्यान रखा हैं)',
 	'unreviewedpages-list' => 'यह पन्ना ऐसे लेख दर्शाता हैं जिन्हें जाँचा नहीं गया हैं।',
 	'unreviewedpages-none' => 'इस क्राइटेरिआ से मिलने वाले पन्ने नहीं हैं',
+	'unreviewedpages-hours' => '($1 {{PLURAL:$1|घंटा|घंटे}})',
+	'unreviewedpages-days' => '($1 {{PLURAL:$1|दिन|दिन}})',
 );
 
 /** Croatian (Hrvatski)

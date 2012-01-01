@@ -1800,7 +1800,7 @@ Arvioi kaikki alla olevat muutokset, jotta muokkauksesi näkyisivät vakaassa ve
 	'revreview-reject-summary-cur' => 'Hylättiin {{PLURAL:$1|viimeisin tekstimuutos|viimeisimmät $1 tekstimuutosta}} (käyttäjältä $2) ja palautettiin versio $3 käyttäjältä $4',
 	'revreview-reject-summary-old' => 'Hylättiin {{PLURAL:$1|ensimmäinen tekstimuutos (käyttäjältä $2), joka|ensimmäiset $1 tekstimuutosta (käyttäjältä $2), jotka}} tehtiin versioon $3 käyttäjältä $4',
 	'revreview-reject-summary-cur-short' => 'Hylättiin {{PLURAL:$1|viimeinen tekstimuutos|viimeiset $1 tekstimuutosta}} ja palautettiin versio $2, jonka on tehnyt käyttäjä $3.',
-	'revreview-reject-summary-old-short' => 'Hylättiin {{PLURAL:$1|ensimmäinen tekstimuutos, joka|ensimmäiset $1 tekstimuutosta, jotka}} tehtiin versioon $2 käyttäjältä $3',
+	'revreview-reject-summary-old-short' => 'Hylättiin {{PLURAL:$1|ensimmäinen tekstimuutos, jonka|ensimmäiset $1 tekstimuutosta, jotka}} käyttäjä $3 teki version $2 jälkeen',
 	'revreview-tt-flag' => 'Hyväksy tämä versio merkitsemällä se ”silmäillyksi”. Huomaa, että hyväksyt samalla kaikki muutokset, jotka on tehty nykyisen version ja edellisen vakaan version välillä.',
 	'revreview-tt-unflag' => "Poista tämän version arviointi merkitsemällä se ''arvioimattomaksi''. Tämä toiminto ei vaikuta muiden versioiden arviointimerkintöihin.",
 	'revreview-tt-reject' => 'Hylkää nämä lähdetekstiin tehdyt muutokset kumoamalla ne. Tämä toiminto avaa erillisen sivun, jossa luetellaan ne muutokset, jotka haluat hylätä.',
@@ -2281,11 +2281,14 @@ $messages['hi'] = array(
 	'revreview-successful' => "[[:$1|$1]] के चुने हुए अवतरणको मार्क किया गया हैं।
 ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} सभी मार्क किये हुए अवतरण देखें])'''",
 	'revreview-successful2' => "'''[[:$1|$1]] के चुने हुए अवतरण का मार्क हटाया।'''",
+	'revreview-adv-start-link' => 'विज्ञापन',
 	'revreview-toolow' => 'एक अवतरण को जाँचने का मार्क करने के लिये आपको नीचे लिखे हर पॅरॅमीटरको "अप्रमाणित" से उपरी दर्जा देना आवश्यक हैं।
 एक अवतरणका गुणांकन कम करने के लिये, निम्नलिखित सभी कॉलममें "अप्रमाणित" चुनें।',
 	'revreview-update' => "कृपया किये हुए बदलाव ''(नीचे दिये हुए)'' [[{{MediaWiki:Validationpage}}|जाँचे]] क्योंकी स्थिर अवतरण [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} प्रमाणित] कर दिया गया हैं।<br />
 '''कुछ साँचा/चित्र बदले हैं:'''",
 	'revreview-update-includes' => 'कुछ साँचा/चित्र बदले हैं:',
+	'revreview-reject-summary' => 'सारांश:',
+	'revreview-reject-cancel' => 'रद्द करें',
 );
 
 /** Croatian (Hrvatski)
@@ -4550,9 +4553,11 @@ $messages['sc'] = array(
  */
 $messages['si'] = array(
 	'revisionreview' => 'සංශෝධන නිරීක්ෂණය කරන්න',
+	'review_bad_oldid' => 'ඉලක්කගත සංශෝධනය නොපවතියි.',
 	'review_denied' => 'අවසරදීමට නොහැක.',
 	'revreview-check-flag-u' => 'මෙම නිරීක්ෂණය නොකළ පිටුව පිළිගන්න',
 	'revreview-check-flag-y' => 'මගේ වෙනස්කම් බාරගන්න',
+	'revreview-check-flag-y-title' => 'ඔබ මෙතැනදී සිදුකල සියලුම වෙනස්කම් පිළිගන්න.',
 	'revreview-flag' => 'මෙම සංශෝධනය නිරීක්ෂණය කරන්න',
 	'revreview-reflag' => 'මෙම සංශෝධනය නැවත-නිරීක්ෂණය කරන්න',
 	'revreview-log' => 'පරිකථනය:',

@@ -382,7 +382,7 @@ $messages['frp'] = array(
 Los changements fêts per los ôtros usanciérs sont pas montrâs per dèfôt ux liésors tant qu’un usanciér ôtorisâ los èye revus.',
 	'stablepages-none' => 'Y at gins de pâge dens ceta lista.',
 	'stablepages-config' => 'Configuracion',
-	'stablepages-indef' => 'Ren que l’èxpiracion sen fin',
+	'stablepages-indef' => 'Solament l’èxpiracion sen fin',
 );
 
 /** Galician (Galego)

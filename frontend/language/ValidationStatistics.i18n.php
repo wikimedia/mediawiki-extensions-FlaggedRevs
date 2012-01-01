@@ -872,6 +872,15 @@ $3",
 	'validationstatistics-reviews' => 'סקירות',
 );
 
+/** Hindi (हिन्दी)
+ * @author Ansumang
+ */
+$messages['hi'] = array(
+	'validationstatistics-ns' => 'नामस्थान',
+	'validationstatistics-total' => 'पृष्ठों',
+	'validationstatistics-user' => 'सदस्य',
+);
+
 /** Hiligaynon (Ilonggo)
  * @author Tagimata
  */

@@ -1221,7 +1221,7 @@ Asetusten määrittäminen ei ole mahdollista.',
 	'stabilization-expiry' => 'Vanhenee:',
 	'stabilization-othertime' => 'Muu aika',
 	'stabilization-def-short' => 'Oletusarvo',
-	'stabilization-def-short-0' => 'Uusin',
+	'stabilization-def-short-0' => 'Viimeisin versio',
 	'stabilization-def-short-1' => 'Vakaa versio',
 	'stabilize_page_invalid' => 'Kohdesivun nimi ei kelpaa.',
 	'stabilize_page_notexists' => 'Kohdesivua ei ole olemassa.',
@@ -1232,7 +1232,7 @@ Asetusten määrittäminen ei ole mahdollista.',
 	'stabilize_expiry_old' => 'Tämä erääntymisaika on jo mennyt.',
 	'stabilize_denied' => 'Ei oikeutta.',
 	'stabilize-expiring' => 'vanhenee $1 (UTC)',
-	'stabilization-review' => 'Merkitse nykyinen versio silmäillyksi',
+	'stabilization-review' => 'Merkitse viimeisin versio silmäillyksi',
 );
 
 /** French (Français)
@@ -1522,7 +1522,9 @@ $messages['hi'] = array(
 	'stabilization-notcontent' => '"[[:$1|$1]]" यह पृष्ठ जाँचा नहीं जा सकता।
 बदलाव नहीं किये जा सकतें।',
 	'stabilization-comment' => 'कारण:',
+	'stabilization-otherreason' => 'अन्य कारण:',
 	'stabilization-expiry' => 'समाप्ति:',
+	'stabilization-othertime' => 'अन्य समय:',
 	'stabilization-def-short' => 'डिफॉल्ट',
 	'stabilization-def-short-0' => 'सद्य',
 	'stabilization-def-short-1' => 'स्थिर',
