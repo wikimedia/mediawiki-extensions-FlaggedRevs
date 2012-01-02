@@ -1540,6 +1540,7 @@ $messages['si'] = array(
 	'unreviewedpages' => 'නිරීක්ෂණය නොකළ පිටු',
 	'unreviewedpages-category' => 'ප්‍රවර්ගය:',
 	'unreviewedpages-diff' => 'නිරීක්ෂණය',
+	'unreviewedpages-unwatched' => '(මුරනොකළ)',
 	'unreviewedpages-viewing' => '(නිරීක්ෂණය යටතේ)',
 	'unreviewedpages-hours' => '({{PLURAL:$1|පැය|පැය}} $1 ක්)',
 	'unreviewedpages-days' => '({{PLURAL:$1|දින|දින}} $1 ක්)',

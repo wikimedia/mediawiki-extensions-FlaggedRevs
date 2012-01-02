@@ -4553,6 +4553,7 @@ $messages['sc'] = array(
  */
 $messages['si'] = array(
 	'revisionreview' => 'සංශෝධන නිරීක්ෂණය කරන්න',
+	'review_page_notexists' => 'ඉලක්කගත පිටුව නොපවතියි.',
 	'review_bad_oldid' => 'ඉලක්කගත සංශෝධනය නොපවතියි.',
 	'review_denied' => 'අවසරදීමට නොහැක.',
 	'revreview-check-flag-u' => 'මෙම නිරීක්ෂණය නොකළ පිටුව පිළිගන්න',
@@ -4568,6 +4569,7 @@ $messages['si'] = array(
 	'revreview-submit-reject' => 'වෙනස්කම් ප්‍රතික්ෂේප කරන්න',
 	'revreview-submit-reviewed' => 'හරි. බාරගත්තා!',
 	'revreview-submit-unreviewed' => 'හරි. බාරගත්තේ නෑ!',
+	'revreview-adv-start-link' => 'ප්‍රචාරණය කරන්න',
 	'revreview-reject-summary' => 'සාරාංශය:',
 	'revreview-reject-confirm' => 'මෙම වෙනස්කම් ප්‍රතික්ෂේප කරන්න',
 	'revreview-reject-cancel' => 'අවලංගු කරන්න',
@@ -5513,10 +5515,13 @@ Logolös padi: [[Special:Unreviewedpages]], su kel dabinon lised padas no nog pe
  * @author פוילישער
  */
 $messages['yi'] = array(
+	'revreview-log' => 'הערה:',
 	'revreview-main' => 'איר מוזט אויסקלויבן א געוויסע ווערסיע פֿון אַן אינהאַלט בלאַט צו רעוויזירן.
 
 זעט די  [[Special:Unreviewedpages|ליסטע פֿון אומרעוויזירטע בלעטער]].',
 	'revreview-submit' => 'אײַנגעבן',
+	'revreview-reject-summary' => 'רעזומע',
+	'revreview-reject-cancel' => 'אַנולירן',
 );
 
 /** Cantonese (粵語) */

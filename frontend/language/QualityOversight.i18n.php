@@ -628,6 +628,13 @@ $messages['sv'] = array(
 	'qualityoversight-legend' => 'Sök loggar för senaste granskningar',
 );
 
+/** Tamil (தமிழ்)
+ * @author Shanmugamp7
+ */
+$messages['ta'] = array(
+	'qualityoversight' => 'மேம்பட்ட பரிசீலனை குறிப்பேடு',
+);
+
 /** Telugu (తెలుగు)
  * @author Kiranmayee
  */

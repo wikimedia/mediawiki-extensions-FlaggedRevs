@@ -2000,6 +2000,13 @@ $messages['vo'] = array(
 	'pendingchanges-category' => 'Klad:',
 );
 
+/** Yiddish (ייִדיש)
+ * @author Imre
+ */
+$messages['yi'] = array(
+	'pendingchanges-category' => 'קאַטעגאריע:',
+);
+
 /** Cantonese (粵語)
  * @author Shinjiman
  */

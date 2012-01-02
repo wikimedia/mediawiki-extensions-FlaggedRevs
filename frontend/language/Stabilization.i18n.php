@@ -3050,6 +3050,7 @@ $messages['scn'] = array(
  */
 $messages['si'] = array(
 	'stabilization-page' => 'පිටු නාමය:',
+	'stabilization-def2' => 'අවසාන සංශෝධනය',
 	'stabilization-submit' => 'තහවුරු කරන්න',
 	'stabilization-comment' => 'හේතුව:',
 	'stabilization-otherreason' => 'වෙනත් හේතු:',
@@ -3058,6 +3059,7 @@ $messages['si'] = array(
 	'stabilization-def-short' => 'පෙරනිමි',
 	'stabilization-def-short-0' => 'වත්මන්',
 	'stabilization-def-short-1' => 'ස්ථාවර',
+	'stabilize_page_notexists' => 'ඉලක්කගත පිටුව නොපවතියි.',
 	'stabilize_invalid_level' => 'වලංගු නොවන ආරක්ෂණ මට්ටම.',
 	'stabilize_denied' => 'අවසරය ලබා නොදේ.',
 );
@@ -3814,6 +3816,8 @@ $messages['yi'] = array(
 	'stabilization-submit' => 'באַשטעטיקן',
 	'stabilization-comment' => 'אורזאַך:',
 	'stabilization-otherreason' => 'אַנדער אורזאַך',
+	'stabilization-expiry' => 'גייט אויס:',
+	'stabilization-def-short' => 'גרונטלעך',
 	'stabilization-def-short-0' => 'לויפֿיקע',
 );
 

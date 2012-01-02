@@ -1262,6 +1262,13 @@ En länk ges till den senaste versionen av denna nivå.",
 	'reviewedpages-best' => 'bästa versionen',
 );
 
+/** Tamil (தமிழ்)
+ * @author Shanmugamp7
+ */
+$messages['ta'] = array(
+	'reviewedpages-best' => 'சிறந்த பரிசீலனை',
+);
+
 /** Telugu (తెలుగు)
  * @author Chaduvari
  * @author Kiranmayee

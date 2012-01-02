@@ -2233,11 +2233,13 @@ $messages['vo'] = array(
 );
 
 /** Yiddish (ייִדיש)
+ * @author Imre
  * @author פוילישער
  */
 $messages['yi'] = array(
 	'validationstatistics-ns' => 'נאמענטייל',
 	'validationstatistics-total' => 'בלעטער',
+	'validationstatistics-old' => 'פֿאַרעלטערט',
 	'validationstatistics-user' => 'באַניצער',
 );
 
