@@ -159,10 +159,13 @@ This refers to an option that reviews the current revision of the page when the 
 /** Afrikaans (Afrikaans)
  * @author Arnobarnard
  * @author Naudefj
+ * @author පසිඳු කාවින්ද
  */
 $messages['af'] = array(
 	'stabilization' => 'Bladsy-stabilisasie',
 	'stabilization-page' => 'Bladsynaam:',
+	'stabilization-leg' => 'Bevestig stabiele weergawe instellings',
+	'stabilization-def1' => 'Die stabiele weergawe, indien nie teenwoordig is nie, dan is die jongste hersiening',
 	'stabilization-def2' => 'Die nuutste weergawe',
 	'stabilization-restrict-none' => 'Geen addisionele beperkinge',
 	'stabilization-submit' => 'Bevestig',
@@ -178,10 +181,13 @@ Geen konfigurasie is moontlik nie.',
 	'stabilize_page_invalid' => 'De naam van die teikenbladsy is ongeldig.',
 	'stabilize_page_notexists' => 'Die teikenbladsy bestaan ​​nie.',
 	'stabilize_page_unreviewable' => "Die teikenbladsy is nie in 'n hersienbare naamspasie nie.",
+	'stabilize_invalid_autoreview' => 'Ongeldige autoreview beperking.',
+	'stabilize_invalid_level' => 'Ongeldige beskerming vlak.',
 	'stabilize_expiry_invalid' => 'Ongeldige vervaldatum.',
 	'stabilize_expiry_old' => 'Die vervaldatum is reeds verby.',
 	'stabilize_denied' => 'Toestemming geweier.',
 	'stabilize-expiring' => 'verval $1 (UTC)',
+	'stabilization-review' => 'Merk die huidige weergawe nagegaan',
 );
 
 /** Gheg Albanian (Gegë)
@@ -2990,6 +2996,16 @@ $messages['rue'] = array(
 	'stabilization-review' => 'Позначіти актуалну верзію',
 );
 
+/** Sanskrit (संस्कृतम्)
+ * @author Ansumang
+ */
+$messages['sa'] = array(
+	'stabilization-page' => 'पृष्ठ नाम:',
+	'stabilization-submit' => 'स्थिरीकरोतु',
+	'stabilization-comment' => 'कारणम् :',
+	'stabilization-def-short' => 'यदभावे',
+);
+
 /** Sakha (Саха тыла)
  * @author HalanTul
  */
@@ -3049,8 +3065,10 @@ $messages['scn'] = array(
  * @author පසිඳු කාවින්ද
  */
 $messages['si'] = array(
+	'stabilization' => 'පිටුවේ ස්ථාවරත්වය',
 	'stabilization-page' => 'පිටු නාමය:',
 	'stabilization-def2' => 'අවසාන සංශෝධනය',
+	'stabilization-restrict-none' => 'අමතර සීමා නොමැත',
 	'stabilization-submit' => 'තහවුරු කරන්න',
 	'stabilization-comment' => 'හේතුව:',
 	'stabilization-otherreason' => 'වෙනත් හේතු:',
@@ -3059,9 +3077,15 @@ $messages['si'] = array(
 	'stabilization-def-short' => 'පෙරනිමි',
 	'stabilization-def-short-0' => 'වත්මන්',
 	'stabilization-def-short-1' => 'ස්ථාවර',
+	'stabilize_page_invalid' => 'ඉලක්කගත පිටුවේ මාතෘකාව අනීතිකයි.',
 	'stabilize_page_notexists' => 'ඉලක්කගත පිටුව නොපවතියි.',
+	'stabilize_page_unreviewable' => 'ඉලක්කගත පිටුව ඇත්තේ නිරික්ෂණමය නාමඅවකාශයක නොවේ.',
+	'stabilize_invalid_autoreview' => 'වලංගු නොවන ස්වයංනිරීක්ෂණ සීමාව.',
 	'stabilize_invalid_level' => 'වලංගු නොවන ආරක්ෂණ මට්ටම.',
+	'stabilize_expiry_invalid' => 'වලංගු නොවන කල් ඉකුත් වීමේ දිනය.',
 	'stabilize_denied' => 'අවසරය ලබා නොදේ.',
+	'stabilize-expiring' => 'ඉකුත් වේ  $1 (යූටීසි)',
+	'stabilization-review' => 'වත්මන් සංශෝධනය සලකුණු කළා යයි සලකුණු කරන්න',
 );
 
 /** Slovak (Slovenčina)

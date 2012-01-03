@@ -40,8 +40,11 @@ Used on the Special:ProblemPages page.',
 
 /** Afrikaans (Afrikaans)
  * @author Naudefj
+ * @author පසිඳු කාවින්ද
  */
 $messages['af'] = array(
+	'problemchanges' => 'Tagged hangende veranderinge',
+	'problemchanges-legend' => 'Lys bladsye met tagged wysigings hangende hersiening',
 	'problemchanges-category' => 'Kategorie:',
 );
 
@@ -751,6 +754,13 @@ $messages['rue'] = array(
 	'problemchanges-category' => 'Катеґорія:',
 );
 
+/** Sanskrit (संस्कृतम्)
+ * @author Ansumang
+ */
+$messages['sa'] = array(
+	'problemchanges-category' => 'वर्गः',
+);
+
 /** Sakha (Саха тыла)
  * @author HalanTul
  */
@@ -772,6 +782,7 @@ $messages['sc'] = array(
  * @author පසිඳු කාවින්ද
  */
 $messages['si'] = array(
+	'problemchanges' => 'ටැගීකරණය කෙරූ බලාපොරොත්තුවන වෙනස්කම්',
 	'problemchanges-category' => 'ප්‍රවර්ගය:',
 );
 

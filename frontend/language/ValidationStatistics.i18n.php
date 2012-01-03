@@ -92,8 +92,10 @@ Used as the "number of reviews" table column header for the "users who made the 
 
 /** Afrikaans (Afrikaans)
  * @author Naudefj
+ * @author පසිඳු කාවින්ද
  */
 $messages['af'] = array(
+	'validationstatistics' => 'Die statistiek van die bladsy oordeel',
 	'validationstatistics-ns' => 'Naamruimte',
 	'validationstatistics-total' => 'Bladsye',
 	'validationstatistics-latest' => 'Gesinchroniseerd',
@@ -1804,6 +1806,13 @@ $3",
 	'validationstatistics-reviews' => 'Посуджіня',
 );
 
+/** Sanskrit (संस्कृतम्)
+ * @author Ansumang
+ */
+$messages['sa'] = array(
+	'validationstatistics-user' => 'योजक',
+);
+
 /** Sakha (Саха тыла)
  * @author HalanTul
  */
@@ -1843,6 +1852,8 @@ $messages['scn'] = array(
  * @author බිඟුවා
  */
 $messages['si'] = array(
+	'validationstatistics' => 'පිටු නිරීක්ෂණ සංඛ්‍යා ලේඛන',
+	'validationstatistics-lastupdate' => "''පහත දැක්වෙන දත්ත $1 දින $2 දිනදී අන්තිම වරට යාවත්කාලීන කර ඇත.''",
 	'validationstatistics-ns' => 'නාම අවකාශය',
 	'validationstatistics-total' => 'පිටු',
 	'validationstatistics-stable' => 'නිරීක්ෂණය කෙරූ',

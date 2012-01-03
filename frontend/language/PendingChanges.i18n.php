@@ -84,12 +84,17 @@ $messages['ab'] = array(
 /** Afrikaans (Afrikaans)
  * @author Arnobarnard
  * @author Naudefj
+ * @author පසිඳු කාවින්ද
  */
 $messages['af'] = array(
+	'pendingchanges' => 'Pages met hangende veranderinge',
+	'pendingchanges-legend' => 'Lys hersien bladsye met hangende veranderinge',
+	'pendingchanges-none' => 'Daar is tans geen bladsye wat hierdie kriteria',
 	'pendingchanges-hours' => '($1 {{PLURAL:$1|uur|ure}})',
 	'pendingchanges-days' => '($1 {{PLURAL:$1|dag|dae}})',
 	'pendingchanges-recent' => '(minder as een uur)',
 	'pendingchanges-category' => 'Kategorie:',
+	'pendingchanges-onwatchlist' => 'Bladsye op my dophoulys',
 	'pendingchanges-stable' => 'Stabiele weergawe is standaard',
 	'pendingchanges-diff' => 'kontroleer',
 	'pendingchanges-unwatched' => '(op geen dophoulys nie)',
@@ -799,6 +804,7 @@ $messages['he'] = array(
 );
 
 /** Hindi (हिन्दी)
+ * @author Ansumang
  * @author Kaustubh
  */
 $messages['hi'] = array(
@@ -810,10 +816,13 @@ $messages['hi'] = array(
 	'pendingchanges-days' => '($1 {{PLURAL:$1|दिन|दिन}})',
 	'pendingchanges-recent' => '(१ घंटेसे कम समय)',
 	'pendingchanges-category' => 'श्रेणी:',
+	'pendingchanges-onwatchlist' => 'मेरी ध्यानसूची में पृष्ठों',
 	'pendingchanges-stable' => 'चुना हुआ',
 	'pendingchanges-diff' => 'जाँच',
+	'pendingchanges-size' => 'ज़्यादा से ज़्यादा बदलाव (बाइटस) :',
 	'pendingchanges-unwatched' => '(न देखे हुए)',
 	'pendingchanges-watched' => '($1 {{PLURAL:$1|सदस्यने|सदस्योंने}} ध्यान रखा हैं)',
+	'pendingchanges-viewing' => '(समिक्षा अंतर्गत)',
 );
 
 /** Croatian (Hrvatski)
@@ -1587,6 +1596,13 @@ $messages['rue'] = array(
 	'pendingchanges-viewing' => '(перевірює ся)',
 );
 
+/** Sanskrit (संस्कृतम्)
+ * @author Ansumang
+ */
+$messages['sa'] = array(
+	'pendingchanges-category' => 'वर्गः',
+);
+
 /** Sakha (Саха тыла)
  * @author HalanTul
  */
@@ -1624,6 +1640,7 @@ $messages['sc'] = array(
 $messages['si'] = array(
 	'pendingchanges' => 'බලාපොරොත්තු වෙන වෙනස්කම් සහිත පිටු',
 	'pendingchanges-legend' => 'බලාපොරොත්තු වෙන වෙනස්කම් සහිත නිරීක්ෂණය කෙරූ පිටු ලැයිස්තුව',
+	'pendingchanges-none' => 'මෙම උපමානය සඳහා තවමත් ගැලපෙන පිටු කිසිවක් නොමැත',
 	'pendingchanges-hours' => '({{PLURAL:$1|පැය|පැය}} $1 ක්)',
 	'pendingchanges-days' => '({{PLURAL:$1|දින|දින}} $1 ක්)',
 	'pendingchanges-recent' => '(පැයකටත් වඩා අඩුවෙන්)',

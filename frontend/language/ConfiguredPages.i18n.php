@@ -47,11 +47,15 @@ Used on Special:ConfiguredPages.',
 Used on Special:ConfiguredPages.',
 );
 
-/** Afrikaans (Afrikaans) */
+/** Afrikaans (Afrikaans)
+ * @author පසිඳු කාවින්ද
+ */
 $messages['af'] = array(
+	'configuredpages' => 'Pages met die hersiening konfigurasies',
 	'configuredpages-none' => 'Daar is geen bladsye in hierdie lys nie.',
 	'configuredpages-config' => 'Voorkeure',
 	'configuredpages-def-draft' => 'nuutste weergawe',
+	'configuredpages-def-stable' => 'stabiele weergawe',
 );
 
 /** Arabic (العربية)
@@ -402,6 +406,7 @@ $messages['he'] = array(
  * @author Ansumang
  */
 $messages['hi'] = array(
+	'configuredpages-none' => 'इस सूची में कोई पृष्ठ नहीं हैं ।',
 	'configuredpages-config' => 'कॉन्फिगरेशन',
 	'configuredpages-def-draft' => 'नवीनतम रूपांतर',
 	'configuredpages-def-stable' => 'स्थिर रूपांतर',

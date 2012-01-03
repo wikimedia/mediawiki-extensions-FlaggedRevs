@@ -30,6 +30,13 @@ Parameters:
 Name of the Special:QualityOversight page.',
 );
 
+/** Afrikaans (Afrikaans)
+ * @author පසිඳු කාවින්ද
+ */
+$messages['af'] = array(
+	'qualityoversight-legend' => 'Soek onlangse hersiening logs',
+);
+
 /** Aragonese (Aragonés)
  * @author Juanpabl
  */
@@ -285,11 +292,13 @@ $messages['he'] = array(
 );
 
 /** Hindi (हिन्दी)
+ * @author Ansumang
  * @author Kaustubh
  */
 $messages['hi'] = array(
 	'qualityoversight' => 'गुणवत्ता ओवरसाईट',
 	'qualityoversight-list' => 'यह पन्ना नवीनतम गुणवत्तापूर्ण अवतरणोंके प्रमाणिकरण की सूची दर्शाता हैं तथा गुणवत्तापूर्ण अवतरणोंका डिप्रिसिएशन दर्शाता हैं।',
+	'qualityoversight-legend' => 'बर्त्तमान की समिक्षा लॉग ढूंदे',
 );
 
 /** Croatian (Hrvatski)
@@ -579,6 +588,7 @@ $messages['sah'] = array(
  */
 $messages['si'] = array(
 	'qualityoversight' => 'උසස් නිරීක්ෂණ ලඝු සටහන',
+	'qualityoversight-legend' => 'මෑත නිරීක්ෂණ ලඝු සටහන් ගවේෂණය කරන්න',
 );
 
 /** Slovak (Slovenčina)

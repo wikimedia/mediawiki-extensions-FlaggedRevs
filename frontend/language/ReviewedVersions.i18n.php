@@ -50,9 +50,11 @@ This message is used in the list of reviewed versions of a page (Special:Reviewe
 /** Afrikaans (Afrikaans)
  * @author Arnobarnard
  * @author Naudefj
+ * @author පසිඳු කාවින්ද
  */
 $messages['af'] = array(
 	'reviewedversions' => 'Bekyk stabiele weergawes',
+	'reviewedversions-leg1' => "Lys hersien hersienings vir 'n bladsy",
 	'reviewedversions-page' => 'Bladsynaam:',
 );
 
@@ -1009,6 +1011,13 @@ $messages['rue'] = array(
 	'reviewedversions-review' => 'Перевірена <i>$1</i> хоснователём $2',
 );
 
+/** Sanskrit (संस्कृतम्)
+ * @author Ansumang
+ */
+$messages['sa'] = array(
+	'reviewedversions-page' => 'पृष्ठ-नाम :',
+);
+
 /** Sakha (Саха тыла)
  * @author HalanTul
  */
@@ -1040,7 +1049,10 @@ $messages['scn'] = array(
  */
 $messages['si'] = array(
 	'reviewedversions' => 'නිරීක්ෂණය කෙරූ අනුවාද',
+	'reviewedversions-leg1' => 'පිටුවක් සඳහා නිරීක්ෂණය කෙරූ සංශෝධන ලැයිස්තුගත කරන්න',
 	'reviewedversions-page' => 'පිටු නාමය:',
+	'reviewedversions-none' => '"[[:$1]]" සතුව නිරීක්ෂණය කෙරූ සංශෝධන නොමැත.',
+	'reviewedversions-review' => '<i>$1</i>හීදී $2 විසින් නිරීක්ෂණය කරන ලදී',
 );
 
 /** Slovak (Slovenčina)

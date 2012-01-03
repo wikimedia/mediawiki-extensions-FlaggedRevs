@@ -49,12 +49,14 @@ Label use on checkbox filter to only show pages where edits will require review 
 /** Afrikaans (Afrikaans)
  * @author Arnobarnard
  * @author Naudefj
+ * @author පසිඳු කාවින්ද
  */
 $messages['af'] = array(
 	'stablepages' => 'Bladsye onderhewig aan goedkeuring van bywerkings',
 	'stablepages-list' => "Hier is 'n lys van bladsye wat handmatig gestel is om die gepubliseerde weergawe as standaard inhoud vir lesers te wys.",
 	'stablepages-none' => 'Daar is geen bladsye in hierdie lys nie.',
 	'stablepages-config' => 'Voorkeure',
+	'stablepages-indef' => 'Slegs onbepaald verstryking',
 );
 
 /** Gheg Albanian (Gegë)
@@ -839,7 +841,10 @@ $messages['sah'] = array(
  * @author පසිඳු කාවින්ද
  */
 $messages['si'] = array(
+	'stablepages' => 'සංස්කරණ අනුමත කිරීම් භාවිතා කරන පිටු',
+	'stablepages-none' => 'මෙම ලයිස්තුවේ පිටු කිසිවක් නොමැත.',
 	'stablepages-config' => 'වින්‍යාසගතකිරීම',
+	'stablepages-indef' => 'අනිශ්චිත කල් ඉකුත් වීම පමණි',
 );
 
 /** Slovak (Slovenčina)

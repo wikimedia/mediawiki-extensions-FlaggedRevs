@@ -304,20 +304,26 @@ Title attribute of the reject button on the review form.',
 
 /** Afrikaans (Afrikaans)
  * @author Naudefj
+ * @author පසිඳු කාවින්ද
  */
 $messages['af'] = array(
 	'review_denied' => 'Geen toegang.',
+	'revreview-flag' => 'Hersien hierdie revisie',
+	'revreview-reflag' => 'Re-hersiening van hierdie hersiening',
 	'revreview-log' => 'Opmerking:',
 	'revreview-submit' => 'Dien in',
 	'revreview-submitting' => 'Besig om in te stuur...',
 	'revreview-submit-review' => 'Aanvaar hersiening',
+	'revreview-submit-unreview' => 'onaanvaardbare hersiening',
 	'revreview-submit-reject' => 'Verwerp veranderinge',
 	'revreview-submit-reviewed' => 'Gedoen. Is aanvaar!',
 	'revreview-submit-unreviewed' => 'Gedoen. Nie aanvaar nie!',
+	'revreview-adv-start-link' => 'adverteer',
 	'revreview-update-includes' => 'Sommige sjablone/lêers is bygewerk:',
 	'revreview-reject-summary' => 'Opsomming:',
 	'revreview-reject-confirm' => 'Keur hierdie veranderinge af',
 	'revreview-reject-cancel' => 'Kanselleer',
+	'revreview-tt-reject' => 'Verwerp hierdie bron teks verander deur reverting hulle',
 );
 
 /** Gheg Albanian (Gegë)
@@ -2269,7 +2275,18 @@ $messages['he'] = array(
  */
 $messages['hi'] = array(
 	'revisionreview' => 'अवतरण परखें',
+	'revreview-failed' => "'''इस संशोधन की समिक्षा संभव नहीं ।'''",
+	'review_page_invalid' => 'लक्ष्य पृष्ठ की शीर्षक अमान्य है ।',
+	'review_page_notexists' => 'लक्ष्य पृष्ठ मौजूद नहीं है ।',
+	'review_page_unreviewable' => 'लक्ष्य पृष्ठ समिक्षायोग्य नहीं है ।',
+	'review_no_oldid' => 'कोई संशोधन आईड़ि विनिर्दिष्ट नहीं है ।',
+	'review_bad_oldid' => 'लक्ष्य संशोधन मौजूद नहीं है ।',
+	'review_denied' => 'अनुमति नहीं मिली ।',
+	'review_param_missing' => 'प्राचल लापता या अमान्य है ।',
+	'review_reject_excessive' => 'इतने सारे सम्पादन एक ही बार में अस्वीकार नहीं हो सकता ।',
+	'revreview-check-flag-y' => 'मेरी बदलाव स्वीकार करें',
 	'revreview-flag' => 'यह अवतरण परखें',
+	'revreview-reflag' => 'इस संशोधन को पुनःसमिक्षा करें',
 	'revreview-invalid' => "'''गलत लक्ष्य:''' कोईभी [[{{MediaWiki:Validationpage}}|परिक्षण]] हुआ अवतरण दिये हुए क्रमांक से मिलता नहीं।",
 	'revreview-log' => 'टिप्पणी:',
 	'revreview-main' => 'परिक्षण के लिये एक अवतरण चुनना अनिवार्य हैं।
@@ -2278,6 +2295,12 @@ $messages['hi'] = array(
 	'revreview-stable1' => 'आप शायद इस पन्नेका [{{fullurl:$1|stableid=$2}} यह मार्क किया हुआ अवतरण] अब [{{fullurl:$1|stable=1}} स्थिर अवतरण] बन चुका हैं या नहीं यह देखना चाहतें हैं।',
 	'revreview-stable2' => 'आप इस पन्नेका [{{fullurl:$1|stable=1}} स्थिर अवतरण] देख सकतें हैं (अगर उपलब्ध है तो)।',
 	'revreview-submit' => 'जमा करें',
+	'revreview-submitting' => 'दाखिला...',
+	'revreview-submit-review' => 'संशोधन स्वीकार',
+	'revreview-submit-unreview' => 'संशोधन अस्वीकार',
+	'revreview-submit-reject' => 'बदलाव असीकृत',
+	'revreview-submit-reviewed' => 'पूर्ण हुई । स्वीकृत!',
+	'revreview-submit-unreviewed' => 'पूर्ण हुई । अस्वीकृत!',
 	'revreview-successful' => "[[:$1|$1]] के चुने हुए अवतरणको मार्क किया गया हैं।
 ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} सभी मार्क किये हुए अवतरण देखें])'''",
 	'revreview-successful2' => "'''[[:$1|$1]] के चुने हुए अवतरण का मार्क हटाया।'''",
@@ -2288,6 +2311,7 @@ $messages['hi'] = array(
 '''कुछ साँचा/चित्र बदले हैं:'''",
 	'revreview-update-includes' => 'कुछ साँचा/चित्र बदले हैं:',
 	'revreview-reject-summary' => 'सारांश:',
+	'revreview-reject-confirm' => 'ये संशोधन अस्वीकार करें',
 	'revreview-reject-cancel' => 'रद्द करें',
 );
 
@@ -4473,6 +4497,14 @@ $messages['rue'] = array(
 	'revreview-tt-reject' => 'Зрушыти тоты зміны жрідлового тексту їх навернутём',
 );
 
+/** Sanskrit (संस्कृतम्)
+ * @author Ansumang
+ */
+$messages['sa'] = array(
+	'revreview-reject-summary' => 'सारांश:',
+	'revreview-reject-cancel' => 'निवर्तयते',
+);
+
 /** Sakha (Саха тыла)
  * @author HalanTul
  */
@@ -4553,9 +4585,16 @@ $messages['sc'] = array(
  */
 $messages['si'] = array(
 	'revisionreview' => 'සංශෝධන නිරීක්ෂණය කරන්න',
+	'revreview-failed' => "'''මෙම සංශෝධනය නිරීක්ෂණය කල නොහැක.'''",
+	'review_page_invalid' => 'ඉලක්කගත පිටුවේ මාතෘකාව අනීතිකයි.',
 	'review_page_notexists' => 'ඉලක්කගත පිටුව නොපවතියි.',
+	'review_page_unreviewable' => 'ඉලක්කගත පිටුව නිරික්ෂණමය නොවේ.',
+	'review_no_oldid' => 'සංශෝධන හැඳුනුමක් විශේෂණය කර නොමැත.',
 	'review_bad_oldid' => 'ඉලක්කගත සංශෝධනය නොපවතියි.',
+	'review_bad_key' => 'වලංගු නොවන අන්තහ්කරණ පරාමිති යතුර.',
 	'review_denied' => 'අවසරදීමට නොහැක.',
+	'review_param_missing' => 'පරාමිතිය මඟහැරී ඇත හෝ වලංගු නොවේ.',
+	'review_reject_excessive' => 'එක් වතාවකට මෙවැනි සංස්කරණ රාශියක් ප්‍රතික්ෂේප කල නොහැක.',
 	'revreview-check-flag-u' => 'මෙම නිරීක්ෂණය නොකළ පිටුව පිළිගන්න',
 	'revreview-check-flag-y' => 'මගේ වෙනස්කම් බාරගන්න',
 	'revreview-check-flag-y-title' => 'ඔබ මෙතැනදී සිදුකල සියලුම වෙනස්කම් පිළිගන්න.',
@@ -4570,6 +4609,7 @@ $messages['si'] = array(
 	'revreview-submit-reviewed' => 'හරි. බාරගත්තා!',
 	'revreview-submit-unreviewed' => 'හරි. බාරගත්තේ නෑ!',
 	'revreview-adv-start-link' => 'ප්‍රචාරණය කරන්න',
+	'revreview-adv-stop-link' => 'ප්‍රචාරණය නොකිරීම',
 	'revreview-reject-summary' => 'සාරාංශය:',
 	'revreview-reject-confirm' => 'මෙම වෙනස්කම් ප්‍රතික්ෂේප කරන්න',
 	'revreview-reject-cancel' => 'අවලංගු කරන්න',

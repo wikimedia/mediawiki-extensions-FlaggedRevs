@@ -75,13 +75,17 @@ Used on the page [[Special:UnreviewedPages]].',
 /** Afrikaans (Afrikaans)
  * @author Arnobarnard
  * @author Naudefj
+ * @author පසිඳු කාවින්ද
  */
 $messages['af'] = array(
+	'unreviewedpages' => 'Nie-beoordeelde bladsye',
+	'unreviewedpages-legend' => 'Lys beoordeelde inhoud bladsye',
 	'unreviewedpages-category' => 'Kategorie:',
 	'unreviewedpages-diff' => 'kontrole',
 	'unreviewedpages-unwatched' => '(op geen dophoulys nie)',
 	'unreviewedpages-watched' => '($1 aktiewe {{PLURAL:$1|gebruiker het|gebruikers het}} hierdie bladsy op {{PLURAL:$1|sy|hul}} dophoulys)',
 	'unreviewedpages-none' => 'Daar is tans geen bladsye wat aan die kriteria voldoen nie',
+	'unreviewedpages-viewing' => '(onder hersiening)',
 	'unreviewedpages-hours' => '({{PLURAL:$1|een uur|$1 ure}})',
 	'unreviewedpages-days' => '({{PLURAL:$1|een dag|$1 dae}})',
 	'unreviewedpages-recent' => '(minder as 1 uur)',
@@ -1504,6 +1508,13 @@ $messages['rue'] = array(
 	'unreviewedpages-recent' => '(менше 1 годины)',
 );
 
+/** Sanskrit (संस्कृतम्)
+ * @author Ansumang
+ */
+$messages['sa'] = array(
+	'unreviewedpages-category' => 'वर्गः',
+);
+
 /** Sakha (Саха тыла)
  * @author HalanTul
  */
@@ -1538,6 +1549,7 @@ $messages['sc'] = array(
  */
 $messages['si'] = array(
 	'unreviewedpages' => 'නිරීක්ෂණය නොකළ පිටු',
+	'unreviewedpages-legend' => 'නිරීක්ෂණය නොකළ අන්තර්ගතය සහිත පිටු ලැයිස්තුගත කරන්න',
 	'unreviewedpages-category' => 'ප්‍රවර්ගය:',
 	'unreviewedpages-diff' => 'නිරීක්ෂණය',
 	'unreviewedpages-unwatched' => '(මුරනොකළ)',
