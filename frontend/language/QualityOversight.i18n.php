@@ -34,6 +34,7 @@ Name of the Special:QualityOversight page.',
  * @author පසිඳු කාවින්ද
  */
 $messages['af'] = array(
+	'qualityoversight-list' => "Hierdie bladsy bevat 'n lys van die mees onlangse goedkeuring en deprecations revisies.",
 	'qualityoversight-legend' => 'Soek onlangse hersiening logs',
 );
 

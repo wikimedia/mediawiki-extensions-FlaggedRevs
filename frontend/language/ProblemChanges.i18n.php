@@ -45,6 +45,7 @@ Used on the Special:ProblemPages page.',
 $messages['af'] = array(
 	'problemchanges' => 'Tagged hangende veranderinge',
 	'problemchanges-legend' => 'Lys bladsye met tagged wysigings hangende hersiening',
+	'problemchanges-none' => 'Daar is tans geen bladsye wat hierdie kriteria',
 	'problemchanges-category' => 'Kategorie:',
 );
 
@@ -377,6 +378,8 @@ $messages['he'] = array(
  * @author Ansumang
  */
 $messages['hi'] = array(
+	'problemchanges' => 'बाकी बदलाव टैग हुए',
+	'problemchanges-none' => 'अभी वहाँ कोई पृष्ठ नहीं है जो इस मापदंड से मैच हो',
 	'problemchanges-category' => 'श्रेणी:',
 );
 

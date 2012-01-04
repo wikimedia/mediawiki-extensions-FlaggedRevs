@@ -437,6 +437,7 @@ $messages['he'] = array(
 );
 
 /** Hindi (हिन्दी)
+ * @author Ansumang
  * @author Kaustubh
  */
 $messages['hi'] = array(
@@ -444,6 +445,7 @@ $messages['hi'] = array(
 	'stablepages-list' => 'नीचे स्थिर अवतरण अविचल दिखाने वाले पन्नोंकी सूची हैं जो हाथसे तैयार की गई हैं।',
 	'stablepages-none' => 'इस सूची में पन्ने नहीं हैं',
 	'stablepages-config' => 'कॉन्फिगरेशन',
+	'stablepages-indef' => 'केबल असीमित अबसान',
 );
 
 /** Croatian (Hrvatski)

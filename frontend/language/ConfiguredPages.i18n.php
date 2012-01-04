@@ -52,6 +52,8 @@ Used on Special:ConfiguredPages.',
  */
 $messages['af'] = array(
 	'configuredpages' => 'Pages met die hersiening konfigurasies',
+	'configuredpages-list' => "Hierdie bladsy bevat 'n lys van bladsye wat ingestel om verskillende goedkeuring instellings as die webwerf standaard te hê.
+Sommige instellings kan verander wat weergawe vertoon word aan die lesers of verder beperk wat kan maak wysigings wat nie vereis dat review nie.",
 	'configuredpages-none' => 'Daar is geen bladsye in hierdie lys nie.',
 	'configuredpages-config' => 'Voorkeure',
 	'configuredpages-def-draft' => 'nuutste weergawe',

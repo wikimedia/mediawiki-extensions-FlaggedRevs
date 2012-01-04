@@ -740,8 +740,10 @@ $messages['hi'] = array(
 	'unreviewedpages-watched' => '($1 {{PLURAL:$1|सदस्यने|सदस्योंने}} ध्यान रखा हैं)',
 	'unreviewedpages-list' => 'यह पन्ना ऐसे लेख दर्शाता हैं जिन्हें जाँचा नहीं गया हैं।',
 	'unreviewedpages-none' => 'इस क्राइटेरिआ से मिलने वाले पन्ने नहीं हैं',
+	'unreviewedpages-viewing' => '(समिक्षा अंतर्गत)',
 	'unreviewedpages-hours' => '($1 {{PLURAL:$1|घंटा|घंटे}})',
 	'unreviewedpages-days' => '($1 {{PLURAL:$1|दिन|दिन}})',
+	'unreviewedpages-recent' => '(१ घंटेसे कम समय)',
 );
 
 /** Croatian (Hrvatski)

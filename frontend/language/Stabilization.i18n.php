@@ -1522,6 +1522,8 @@ $messages['hi'] = array(
 	'stabilization-def1' => 'स्थिर अवतरण;
 अगर नहीं हैं, तो सद्य',
 	'stabilization-def2' => 'सद्य अवतरण',
+	'stabilization-restrict' => 'समिक्षा/स्व-समिक्षा प्रतिबंध',
+	'stabilization-restrict-none' => 'कोई अतिरिक्त प्रतिबंध नहीं',
 	'stabilization-submit' => 'निश्चित करें',
 	'stabilization-notexists' => '"[[:$1|$1]]" इस नामका पृष्ठ अस्तित्वमें नहीं हैं।
 बदलाव नहीं किये जा सकतें।',
@@ -1534,9 +1536,16 @@ $messages['hi'] = array(
 	'stabilization-def-short' => 'डिफॉल्ट',
 	'stabilization-def-short-0' => 'सद्य',
 	'stabilization-def-short-1' => 'स्थिर',
+	'stabilize_page_invalid' => 'लक्ष्य पृष्ठ की शीर्षक अमान्य है ।',
+	'stabilize_page_notexists' => 'लक्ष्य पृष्ठ मौजूद नहीं है ।',
+	'stabilize_page_unreviewable' => 'लख्य पृष्ठ समिक्षायोग्य नेमस्पेस में नहीं है ।',
+	'stabilize_invalid_autoreview' => 'अमान्य स्वसमिक्षा प्रतिबंध ।',
+	'stabilize_invalid_level' => 'अमान्य सुरक्षा सस्तर ।',
 	'stabilize_expiry_invalid' => 'गलत समाप्ति तिथी।',
 	'stabilize_expiry_old' => 'यह समाप्ति तिथी गुजर चुकी हैं।',
+	'stabilize_denied' => 'अनुमति नहीं मिली ।',
 	'stabilize-expiring' => '$1 (UTC) को समाप्ति',
+	'stabilization-review' => 'बर्त्तमान की संशोधन को चिन्हित करें',
 );
 
 /** Croatian (Hrvatski)

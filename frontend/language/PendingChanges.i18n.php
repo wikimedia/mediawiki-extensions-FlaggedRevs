@@ -97,6 +97,7 @@ $messages['af'] = array(
 	'pendingchanges-onwatchlist' => 'Bladsye op my dophoulys',
 	'pendingchanges-stable' => 'Stabiele weergawe is standaard',
 	'pendingchanges-diff' => 'kontroleer',
+	'pendingchanges-size' => 'Max verandering (grepe):',
 	'pendingchanges-unwatched' => '(op geen dophoulys nie)',
 	'pendingchanges-watched' => '($1 aktiewe {{PLURAL:$1|gebruiker het|gebruikers het}} hierdie bladsy op {{PLURAL:$1|sy|hul}} dophoulys)',
 	'pendingchanges-viewing' => '(word gekontroleer)',
