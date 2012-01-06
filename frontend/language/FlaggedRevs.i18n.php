@@ -1958,7 +1958,7 @@ $messages['be-tarask'] = array(
 	'flaggedrevs-prefs-viewdiffs' => 'Паказваць неправераныя зьмены пад час прагляду апошняй неправеранай вэрсіі',
 	'flaggedrevs-hidereviewed' => '$1 рэцэнзаваныя рэдагаваньні',
 	'group-editor' => 'Рэдактары',
-	'group-editor-member' => 'рэдактар',
+	'group-editor-member' => '{{GENDER:$1|рэдактар|рэдактарка}}',
 	'group-reviewer' => 'Рэцэнзэнты',
 	'group-reviewer-member' => 'рэцэнзэнт',
 	'grouppage-editor' => '{{ns:project}}:Рэдактар',
@@ -3348,10 +3348,10 @@ Neue [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffo
 	'revreview-depth-4' => 'exzellent',
 	'revreview-draft-title' => 'Unmarkierte Änderungen werden auf dieser Seite angezeigt',
 	'revreview-edit' => 'Bearbeiten',
-	'revreview-editnotice' => "'''Deine Änderungen werden angezeigt, sobald ein dazu berechtigter Benutzer sie markiert hat. ([[{{MediaWiki:Validationpage}}|Hilfe]])'''",
+	'revreview-editnotice' => "'''Deine Änderungen werden angezeigt, sobald ein dazu berechtigter Benutzer sie akzeptiert hat. ([[{{MediaWiki:Validationpage}}|Hilfe]])'''",
 	'revreview-submitedit' => 'Änderungen speichern',
 	'revreview-submitedit-title' => 'Deine Änderungen zur Markierung vorschlagen',
-	'revreview-edited' => "'''Deine Änderungen werden angezeigt, sobald ein dazu berechtigter Benutzer sie markiert hat. ([[{{MediaWiki:Validationpage}}|Hilfe]])'''
+	'revreview-edited' => "'''Deine Änderungen werden angezeigt, sobald ein dazu berechtigter Benutzer sie akzeptiert hat. ([[{{MediaWiki:Validationpage}}|Hilfe]])'''
 
 Momentan {{PLURAL:$2|gibt|gibt}} es [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 unmarkierte {{PLURAL:$2|Änderung|Änderungen}}], die noch markiert werden {{PLURAL:$2|muss|müssen}}.",
 	'revreview-edited-section' => 'Zurück zum Seitenabschnitt „[[#$1|$2]]“.',
@@ -3462,9 +3462,9 @@ Neue [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffo
 $messages['de-formal'] = array(
 	'flaggedrevs-watched-pending' => "Es gibt momentan [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} ungesichtete Bearbeitungen] gesichteter Seiten, die sich auf Ihrer Beobachtungsliste befinden. '''Ihre Aufmerksamkeit wird daher benötigt!'''",
 	'review-edit-diff' => "'''Hinweis: Einige der noch nicht überprüften Änderungen betreffen den Abschnitt des Textes, den Sie gerade bearbeiten.'''",
-	'revreview-editnotice' => "'''Ihre Änderungen werden veröffentlicht, sobald ein dazu berechtigter Benutzer sie überprüft hat. ([[{{MediaWiki:Validationpage}}|Hilfe]])'''",
+	'revreview-editnotice' => "'''Ihre Änderungen werden veröffentlicht, sobald ein dazu berechtigter Benutzer sie akzeptiert hat. ([[{{MediaWiki:Validationpage}}|Hilfe]])'''",
 	'revreview-submitedit-title' => 'Ihre Änderungen zum Überprüfen übertragen',
-	'revreview-edited' => "'''Ihre Änderungen werden veröffentlicht, sobald ein dazu berechtigter Benutzer sie überprüft hat. ([[{{MediaWiki:Validationpage}}|Hilfe]])'''
+	'revreview-edited' => "'''Ihre Änderungen werden veröffentlicht, sobald ein dazu berechtigter Benutzer sie akzeptiert hat. ([[{{MediaWiki:Validationpage}}|Hilfe]])'''
 
 Momentan {{PLURAL:$2|gibt|gibt}} es [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 ungeprüfte {{PLURAL:$2|Änderung|Änderungen}}], die noch überprüft werden müssen.",
 	'revreview-pending-nosection' => 'Versuchen Sie die [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} neueste Version], die [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 zu überprüfende {{PLURAL:$2|Änderung|Änderungen}}] enthält, anzusehen, um festzustellen, ob der Abschnitt verschoben oder gelöscht wurde.',
@@ -3672,9 +3672,13 @@ $messages['dsb'] = array(
 	'prefs-flaggedrevs' => 'Pśizwólenje wobźěłaś',
 	'prefs-flaggedrevs-ui' => 'Pśizwólenje wobźěłaś',
 	'flaggedrevs-prefs-stable' => 'Gdy stabilna wersija bokow ma se standardnje pokazaś',
+	'flaggedrevs-pref-stable-0' => 'Standardne nastajenja za kuždy bok wužywaś',
+	'flaggedrevs-pref-stable-1' => 'Pśecej stabilnu wersiju pokazaś (jolic taka eksistěrujo)',
+	'flaggedrevs-pref-stable-2' => 'Pśecej nejnowšu wersiju pokazaś',
 	'flaggedrevs-prefs-watch' => 'Boki, kótarež pśeglědujom, wobglědowańkam pśidaś',
 	'flaggedrevs-prefs-editdiffs' => 'Pśi wobźěłowanju bokow rozdźěl njepséglědanych změnow pokazaś',
 	'flaggedrevs-prefs-viewdiffs' => 'Rozdźěl njepśeglědanych změnow pokazaś, gaž woglědujo se nejnowša njepśeglědana wersija',
+	'flaggedrevs-hidereviewed' => 'Pśeglědane změny $1',
 	'group-editor' => 'Editory',
 	'group-editor-member' => '{{GENDER:$1|wobźěłaŕ|wobźěłarka}}',
 	'group-reviewer' => 'Pśespytowarje',
@@ -3736,10 +3740,10 @@ Jo móžno, až nowe [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:f
 	'revreview-depth-4' => 'Nabejny',
 	'revreview-draft-title' => 'Njepśeglědane změny zwobraznjuju se na toś tom boku',
 	'revreview-edit' => 'Wobźěłaś',
-	'revreview-editnotice' => "'''Twóje změny budu se cytarjam pokazowaś, gaž awtorizěrowany wužywaŕ je pśeglědujo.  ([[{{MediaWiki:Validationpage}}|pomoc]]).'''",
+	'revreview-editnotice' => "'''Twóje změny budu se cytarjam pokazowaś, gaž awtorizěrowany wužywaŕ je akceptěrujo.  ([[{{MediaWiki:Validationpage}}|pomoc]]).'''",
 	'revreview-submitedit' => 'Změny wótpósłaś',
 	'revreview-submitedit-title' => 'Twóje změny za pśeglědanje wótpósłaś',
-	'revreview-edited' => "'''Změny budu se wócytarjam pokazowaś, gaž awtorizěrowany wužywaŕ je pśeglědujo.([[{{MediaWiki:Validationpage}}|pomoc]]).'''
+	'revreview-edited' => "'''Změny budu se wócytarjam pokazowaś, gaž awtorizěrowany wužywaŕ je akceptěrujo.([[{{MediaWiki:Validationpage}}|pomoc]]).'''
 
 {{PLURAL:$2|Jo|Stej|Su|Jo}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|njepśeglědna změna|njepśeglědanej změnje|njepśeglědane změny|njepśeglědanych změnow}}], {{PLURAL:$2|kótaraž caka|kótarejž cakatej|kótarež cakaju|kótarež cakaju}} na pśeglědanje.",
 	'revreview-edited-section' => 'Slědk k bokoju z mjenim "[[#$1|$2]]".',
@@ -3788,6 +3792,7 @@ Jo móžno, až nowe [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:f
 	'revreview-visibility-nostable' => "'''Toś ten bok njama [[{{MediaWiki:Validationpage}}|wózjawjona wersiju]]; nastajenja stabilnosći boka daju se [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} konfigurěrowaś].'''",
 	'revreview-revnotfound' => 'Njejo móžno było, wersiju togo boka namakaś, za kótaremž sy pytał. Pšosym kontrolěruj zapódanu URL.',
 	'right-autoreview' => 'Někogo swójske změny ako "psékontrolěrowane" markěrowaś daś',
+	'right-autoreviewrestore' => 'Pśi wótnowjenju změnow awtomatiski pśekontrolěrowaś',
 	'right-movestable' => 'Wózjawjone boki pśesunuś',
 	'right-review' => 'Wersije ako "pśekontrolěrowane" markěrowaś',
 	'right-stablesettings' => 'Konfigurěrowaś, kak wózjawjona wersija se wuběra a pokazujo',
@@ -5054,6 +5059,7 @@ Uusia [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diff
  * @author Crochet.david
  * @author Dereckson
  * @author Dodoïste
+ * @author Gomoko
  * @author Grondin
  * @author IAlex
  * @author Jean-Frédéric
@@ -5151,10 +5157,12 @@ De nouvelles [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedre
 	'revreview-depth-4' => 'Remarquable',
 	'revreview-draft-title' => 'Les modifications en attente sont affichées sur cette page',
 	'revreview-edit' => 'Modifier',
-	'revreview-editnotice' => "'''Vos modifications seront affichées aux lecteurs une fois qu’un utilisateur disposant des droits nécessaires les aura relues. [[{{MediaWiki:Validationpage}}|aide]]'''",
+	'revreview-editnotice' => "'''Vos modifications seront affichées aux lecteurs une fois qu’un utilisateur disposant des droits nécessaires les aura acceptées.
+([[{{MediaWiki:Validationpage}}|aide]])'''",
 	'revreview-submitedit' => 'Soumettez vos modifications',
 	'revreview-submitedit-title' => 'Soumettez vos modifications pour relecture',
-	'revreview-edited' => "'''Les modifications seront affichées aux lecteurs dès qu'un utilisateur disposant des droits suffisants les aura relues. [[{{MediaWiki:Validationpage}}|aide]]'''
+	'revreview-edited' => "'''Les modifications seront affichées aux lecteurs dès qu'un utilisateur disposant des droits suffisants les aura acceptées.
+([[{{MediaWiki:Validationpage}}|aide]])'''
 
 Il y a actuellement [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|modification|modifications}} en attente de relecture], affichées ci-dessous.",
 	'revreview-edited-section' => 'Revenir à la section de la page nommée « [[#$1|$2]] ».',
@@ -5444,7 +5452,7 @@ Volyéd controlar l’URL que vos éd utilisâ por arrevar a ceta pâge.',
 	'tooltip-ca-stable' => 'Vêre la vèrsion stâbla de ceta pâge',
 	'tooltip-ca-default' => 'Paramètres por l’assurence de qualitât',
 	'flaggedrevs-protect-legend' => 'Rèvision ôtomatica des changements ([[{{MediaWiki:Validationpage}}|éde]])',
-	'flaggedrevs-protect-none' => 'Ôtorisar tôs los utilisators',
+	'flaggedrevs-protect-none' => 'Ôtorisar tôs los usanciérs',
 	'flaggedrevs-categoryview' => '[{{fullurl:Special:UnreviewedPages|category=$1}} Pâges pas revues]{{MediaWiki:pipe-separator}}[{{fullurl:Special:PendingChanges|category=$1}} Changements en atenta]',
 	'revreview-locked-title' => 'Los changements sur ceta pâge ont fôta d’una rèvision.',
 	'revreview-unlocked-title' => 'Los changements sur ceta pâge ont pas fôta d’una rèvision.',
@@ -5576,10 +5584,10 @@ Fixéronse novos [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flagg
 	'revreview-depth-4' => 'Destacado',
 	'revreview-draft-title' => 'Nesta páxina móstranse os cambios pendentes',
 	'revreview-edit' => 'Editar',
-	'revreview-editnotice' => "'''Os seus cambios publicaranse unha vez que un usuario autorizado os revise. ([[{{MediaWiki:Validationpage}}|axuda]])'''",
+	'revreview-editnotice' => "'''Os seus cambios publicaranse unha vez que un usuario autorizado os acepte. ([[{{MediaWiki:Validationpage}}|axuda]])'''",
 	'revreview-submitedit' => 'Enviar os cambios',
 	'revreview-submitedit-title' => 'Enviar os cambios á revisión',
-	'revreview-edited' => "'''Os cambios publicaranse unha vez que un usuario autorizado os revise. ([[{{MediaWiki:Validationpage}}|axuda]])'''
+	'revreview-edited' => "'''Os cambios publicaranse unha vez que un usuario autorizado os acepte. ([[{{MediaWiki:Validationpage}}|axuda]])'''
 
 Hai [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|cambio|cambios}}], {{PLURAL:$2|mostrado|mostrados}} a continuación, agardando por unha revisión.",
 	'revreview-edited-section' => 'Volver á sección da páxina chamada "[[#$1|$2]]".',
@@ -6062,7 +6070,7 @@ $messages['he'] = array(
 	'revreview-depth-4' => 'מומלץ',
 	'revreview-draft-title' => 'בדף זה מוצגים שינויים ממתינים',
 	'revreview-edit' => 'עריכה',
-	'revreview-editnotice' => "'''השינויים שלכם יוצגו לקוראים לאחר שמשתמש מורשה יסקור אותם. ([[{{MediaWiki:Validationpage}}|עזרה]])'''",
+	'revreview-editnotice' => "השינויים שלכם יוצגו לקוראים לאחר שמשתמש מורשה יקבל אותם. ([[{{MediaWiki:Validationpage}}|עזרה]])'''",
 	'revreview-submitedit' => 'שליחת השינויים',
 	'revreview-submitedit-title' => 'שליחת השינויים שלכם לסקירה',
 	'revreview-edited' => "'''השינויים שלכם יוצגו לקוראים לאחר שמשתמש מורשה יסקור אותם. ([[{{MediaWiki:Validationpage}}|עזרה]])'''
@@ -6624,10 +6632,10 @@ Je móžno, zo su so nowe [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaW
 	'revreview-depth-4' => 'wuběrna',
 	'revreview-draft-title' => 'Nječinjene změny so na tutej stronje zwobraznjeja',
 	'revreview-edit' => 'Wobdźěłać',
-	'revreview-editnotice' => "'''Twoje změny budu so čitarjam pokazować, tak ruče kaž awtorizowany wužiwar je přepruwuje. ([[{{MediaWiki:Validationpage}}|pomoc]])'''",
+	'revreview-editnotice' => "'''Twoje změny budu so čitarjam pokazować, tak ruče kaž awtorizowany wužiwar je akceptuje ([[{{MediaWiki:Validationpage}}|pomoc]])'''",
 	'revreview-submitedit' => 'Změny wotpósłać',
 	'revreview-submitedit-title' => 'Twoje změny za přepruwowanje wotpósłać',
-	'revreview-edited' => "'''Změny budu so čitarjam pokazować, tak ruče kaž awtorizowany wužiwar je přepruwuje. ([[{{MediaWiki:Validationpage}}|pomoc]])'''
+	'revreview-edited' => "'''Změny budu so čitarjam pokazować, tak ruče kaž awtorizowany wužiwar je akceptuje. ([[{{MediaWiki:Validationpage}}|pomoc]])'''
 
 {{PLURAL:$2|Je|Stej|Su|Je}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|njepřepruwowana změna|njepřepruwowanej změnje|njepřepruwowane změny|njepřepruwowanych změnow}}] ''(hlej deleka)'', {{PLURAL:$2|kotrež čaka|kotrejž čakatej|kotrež čakaja|kotrež čaka}} na přepruwowanje.",
 	'revreview-edited-section' => 'Wróćo k wotrězkej strony z mjenom "[[#$1|$2]]".',
@@ -7155,19 +7163,22 @@ $messages['id'] = array(
 	'flaggedrevs-pref-UI-1' => 'Gunakan ikon kecil dan sedikit teks untuk menampilkan status tinjauan halaman',
 	'prefs-flaggedrevs' => 'Peninjauan',
 	'prefs-flaggedrevs-ui' => 'Peninjauan suntingan',
-	'flaggedrevs-prefs-stable' => 'Selalu tampilkan halaman versi stabil sebagai tampilan baku (jika ada)',
+	'flaggedrevs-prefs-stable' => 'Kapan tampilkan halaman versi stabil sebagai tampilan baku',
+	'flaggedrevs-pref-stable-0' => 'Gunakan setelan baku untuk setiap halaman',
+	'flaggedrevs-pref-stable-1' => 'Selalu tampilkan versi stabil (jika ada)',
+	'flaggedrevs-pref-stable-2' => 'Selalu tampilkan versi terakhir',
 	'flaggedrevs-prefs-watch' => 'Tambahkan halaman yang saya tinjau ke daftar pantauan',
 	'flaggedrevs-prefs-editdiffs' => 'Tampilkan perbedaan perubahan tertunda ketika menyunting halaman',
 	'flaggedrevs-prefs-viewdiffs' => 'Tampilkan perbedaan perubahan tertunda ketika melihat revisi tertunda terkini',
 	'flaggedrevs-hidereviewed' => '$1 suntingan diperiksa',
 	'group-editor' => 'Editor',
-	'group-editor-member' => 'penyunting',
+	'group-editor-member' => '{{GENDER:$1|penyunting}}',
 	'group-reviewer' => 'Peninjau',
-	'group-reviewer-member' => 'peninjau',
+	'group-reviewer-member' => '{{GENDER:$1|peninjau}}',
 	'grouppage-editor' => '{{ns:project}}:Editor',
 	'grouppage-reviewer' => '{{ns:project}}:Peninjau',
 	'group-autoreview' => 'Autopeninjau',
-	'group-autoreview-member' => 'autopeninjau',
+	'group-autoreview-member' => '{{GENDER:$1|pengguna autopeninjau}}',
 	'grouppage-autoreview' => '{{ns:project}}:Autotinjau',
 	'revreview-hist-draft' => 'revisi tidak terperiksa',
 	'revreview-hist-pending' => 'revisi tertunda',
@@ -9336,11 +9347,10 @@ $messages['mk'] = array(
 	'revreview-depth-4' => 'Одлично',
 	'revreview-draft-title' => 'На оваа страница се прикажуваат промените во исчекување',
 	'revreview-edit' => 'Уреди',
-	'revreview-editnotice' => "'''Вашите промени ќе бидат видливи за корисниците откако ќе ги провери овластен корисник. ([[{{MediaWiki:Validationpage}}|помош]])'''",
+	'revreview-editnotice' => "Вашите промени ќе бидат видливи за корисниците откако ќе ги прифати овластен корисник. ([[{{MediaWiki:Validationpage}}|помош]])'''",
 	'revreview-submitedit' => 'Зачувај',
 	'revreview-submitedit-title' => 'Поднесете ги вашите промени за проверка',
-	'revreview-edited' => "'''Вашите промени ќе бидат видливи за читателите штом ќе ги прегледа надлежен корисник.
-([[{{MediaWiki:Validationpage}}|помош]])'''
+	'revreview-edited' => "Вашите промени ќе бидат видливи за читателите штом ќе ги прифати овластен корисник. ([[{{MediaWiki:Validationpage}}|помош]])'''
 
 Има [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|промена|промени}}] ''({{PLURAL:$2|прикажана подолу|прикажани подолу}})'' што {{PLURAL:$2|чека проверка|чекаат проверка}}.",
 	'revreview-edited-section' => 'Назад на заглавието со име „[[#$1|$2]]“.',
@@ -9845,10 +9855,10 @@ $messages['ms'] = array(
 	'revreview-depth-4' => 'Terpilih',
 	'revreview-draft-title' => 'Perubahan tergantung dipaparkan di laman ini',
 	'revreview-edit' => 'Sunting',
-	'revreview-editnotice' => "'''Perubahan anda akan dipaparkan selepas dikaji semula oleh pengguna yang berizin. ([[{{MediaWiki:Validationpage}}|bantuan]])'''",
+	'revreview-editnotice' => "'''Pengubahan anda akan dipaparkan kepada pembaca setelah diterima oleh pengguna yang berizin. ([[{{MediaWiki:Validationpage}}|bantuan]])'''",
 	'revreview-submitedit' => 'Serahkan perubahan',
 	'revreview-submitedit-title' => 'Serahkan perubahan untuk dikaji semula',
-	'revreview-edited' => "'''Perubahan anda akan dipaparkan selepas dikaji semula oleh pengguna yang berizin. ([[{{MediaWiki:Validationpage}}|bantuan]])'''
+	'revreview-edited' => "'''Pengubahan anda akan dipaparkan kepada pembaca setelah diterima oleh pengguna yang berizin. ([[{{MediaWiki:Validationpage}}|bantuan]])'''
 
 Terdapat [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 perubahan tergantung] ''(ditunjukkan di bawah)'' yang sedang menunggu untuk dikaji semula.",
 	'revreview-edited-section' => 'Kembali ke bahagian laman bernama "[[#$1|$2]]".',
@@ -10264,6 +10274,7 @@ $messages['ne'] = array(
  * @author Annabel
  * @author McDutchie
  * @author SPQRobin
+ * @author Saruman
  * @author Siebrand
  * @author Tjcool007
  * @author Tvdm
@@ -10349,12 +10360,12 @@ Er kunnen nieuwe [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flagg
 	'revreview-depth-4' => 'Uitgelicht',
 	'revreview-draft-title' => 'Deze pagina bevat ongecontroleerde wijzigingen',
 	'revreview-edit' => 'Bewerken',
-	'revreview-editnotice' => "'''Uw wijzigingen worden weergegeven nadat een daartoe bevoegde gebruiker deze heeft gecontroleerd. ([[{{MediaWiki:Validationpage}}|?]])'''",
+	'revreview-editnotice' => "'''Uw wijzigingen worden aan lezers weergegeven als ze zijn gecontroleerd ([[{{MediaWiki:Validationpage}}|hulp]]).'''",
 	'revreview-submitedit' => 'Wijzigingen opslaan',
 	'revreview-submitedit-title' => 'Wijzigingen voor controle opslaan',
-	'revreview-edited' => "'''Wijzigingen worden weergegeven als een gerechtigde gebruiker ze gecontroleerd heeft. ([[{{MediaWiki:Validationpage}}|?]])'''
+	'revreview-edited' => "'''Uw wijzigingen zullen aan lezers worden getoond zodra een gemachtigde gebruiker hen accepteert. ([[{{MediaWiki:Validationpage}}|?]])'''
 
-Er {{PLURAL:$2|is|zijn}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 ongecontroleerde {{PLURAL:$2|wijziging|wijzigingen}}]; deze worden hieronder weergegeven.",
+Er {{PLURAL:$2|is|zijn}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 ongecontroleerde {{PLURAL:$2|wijziging|wijzigingen}}] (zie hieronder) in afwachting van controle.",
 	'revreview-edited-section' => 'Terug naar de paragraaf "[[#$1|$2]]".',
 	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|wijziging|wijzigingen}}] in deze versie {{PLURAL:$3|wacht|wachten}} op [[{{MediaWiki:Validationpage}}|controle]].
 De [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} stabiele versie] is [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} gecontroleerd] op <i>$2</i>.',
@@ -10465,6 +10476,7 @@ Controleer de URL die u gebruikte om naar deze pagina te gaan.',
  * @author Harald Khan
  * @author Jon Harald Søby
  * @author Nghtwlkr
+ * @author Njardarlogar
  */
 $messages['nn'] = array(
 	'action-review' => 'vurdere sideversjonar',
