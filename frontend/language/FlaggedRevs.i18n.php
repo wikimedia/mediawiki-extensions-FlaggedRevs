@@ -98,10 +98,10 @@ $messages['en'] = array(
 	'revreview-depth-4'            => 'Featured',
 	'revreview-draft-title'        => 'Pending changes are displayed on this page',
 	'revreview-edit'               => 'Edit',
-	'revreview-editnotice'         => '\'\'\'Your changes will be displayed to readers once an authorized user reviews them. ([[{{MediaWiki:Validationpage}}|help]])\'\'\'',
+	'revreview-editnotice'         => '\'\'\'Your changes will be displayed to readers once an authorized user accepts them. ([[{{MediaWiki:Validationpage}}|help]])\'\'\'',
 	'revreview-submitedit'         => 'Submit changes',
 	'revreview-submitedit-title'   => 'Submit your changes for review',
-	'revreview-edited'             => '\'\'\'Your changes will be displayed to readers once an authorized user reviews them. ([[{{MediaWiki:Validationpage}}|help]])\'\'\'
+	'revreview-edited'             => '\'\'\'Your changes will be displayed to readers once an authorized user accepts them. ([[{{MediaWiki:Validationpage}}|help]])\'\'\'
 
 There {{PLURAL:$2|is|are}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 pending {{PLURAL:$2|change|changes}}] \'\'(shown below)\'\' awaiting review.',
 	'revreview-edited-section'     => 'Return to page section named "[[#$1|$2]]".',

@@ -933,9 +933,9 @@ class FlaggablePageView extends ContextSource {
 			# Find out revision id of base version
 			$latestId = $this->article->getLatest();
 			$revId = $editPage->oldid ? $editPage->oldid : $latestId;
-			# Let new users know about review procedure a tag.
-			# If the log excerpt was shown this is redundant.
-			if ( !$log && !$reqUser->getId() && $this->article->isStableShownByDefault() ) {
+			# Let users know if their edit will have to be reviewed.
+			# Note: if the log excerpt was shown then this is redundant.
+			if ( !$log && $this->editWillRequireReview( $editPage ) ) {
 				$items[] = wfMsgExt( 'revreview-editnotice', 'parseinline' );
 			}
 			# Add a notice if there are pending edits...
@@ -1745,10 +1745,10 @@ class FlaggablePageView extends ContextSource {
 	 * @return bool
 	 */
 	protected function editWillRequireReview( EditPage $editPage ) {
-		$request = $this->getRequest();
+		$request = $this->getRequest(); // convenience
 		$title = $this->article->getTitle(); // convenience
 		if ( !$this->editRequiresReview( $editPage ) ) {
-			return false; // edit will go live immediatly
+			return false; // edit will go live immediately
 		} elseif ( $request->getCheck( 'wpReviewEdit' ) && $title->userCan( 'review' ) ) {
 			return false; // edit checked off to be reviewed on save
 		}
@@ -1780,7 +1780,7 @@ class FlaggablePageView extends ContextSource {
 		if ( !$this->article->isReviewable() ) {
 			return false;
 		}
-		if ( $title->userCan( 'autoreview' ) ) {
+		if ( $title->quickUserCan( 'autoreview' ) ) {
 			if ( FlaggedRevs::autoReviewNewPages() && !$this->article->exists() ) {
 				return true; // edit will be autoreviewed
 			}
