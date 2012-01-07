@@ -8863,10 +8863,10 @@ Nei [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffon
 	'revreview-depth-4' => 'Exzellent',
 	'revreview-draft-title' => "D'Ännerungen, déi am Suspens sinnn, stinn op op dëser Säit",
 	'revreview-edit' => 'Änneren',
-	'revreview-editnotice' => "'''Är Ännerungen ginn deLieser gewisen esoubal wéi en autoriséierte Benotzer se nogekuckt huet. ([[{{MediaWiki:Validationpage}}|Hëllef]])'''",
+	'revreview-editnotice' => "'''Är Ännerungen ginn de Lieser gewisen esoubal wéi en autoriséierte Benotzer se akzeptéiert huet. ([[{{MediaWiki:Validationpage}}|Hëllef]])'''",
 	'revreview-submitedit' => 'Ännerunge schécken',
 	'revreview-submitedit-title' => 'Är Ännerunge fir nozekucke schécken',
-	'revreview-edited' => "'''Äer Ännerunge ginn de Lieser gewisen esoubal wéi en autoriséierte Benotzer se nogekuckt huet. ([[{{MediaWiki:Validationpage}}|Hëllef]]).'''
+	'revreview-edited' => "'''Äer Ännerunge ginn de Lieser gewisen esoubal wéi en autoriséierte Benotzer se akzeptéiert huet. ([[{{MediaWiki:Validationpage}}|Hëllef]]).'''
 
 Et gëtt [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|Ännerung|Ännerungen}} ''(hei drënner)''  déi drop {{PLURAL:$2|waart|waarde}}] fir nogekuckt ze ginn.",
 	'revreview-edited-section' => 'Zréck op den Säitenabschnitt mam Numm "[[#$1|$2]]".',
@@ -11160,10 +11160,10 @@ Dle neuve [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-
 	'revreview-depth-4' => 'Premià',
 	'revreview-draft-title' => "Ij cangiament ch'a speto a son ësmonù su sta pàgina-sì",
 	'revreview-edit' => 'Modìfica',
-	'revreview-editnotice' => "''Soe modìfiche a saran ësmonùe ai letor na vira che n'utent autorisà a-j revision-a. ([[{{MediaWiki:Validationpage}}|agiut]])'''",
+	'revreview-editnotice' => "''Soe modìfiche a saran ësmonùe ai letor na vira che n'utent autorisà a j'aceta. ([[{{MediaWiki:Validationpage}}|agiut]])'''",
 	'revreview-submitedit' => 'Mandé le modìfiche',
 	'revreview-submitedit-title' => 'Spediss ij tò cambi për revision',
-	'revreview-edited' => "'''Le modìfiche a saran ësmonùe ai letor na vira che n'utent autorisà a-j revision-a. ([[{{MediaWiki:Validationpage}}|agiut]])'''
+	'revreview-edited' => "'''Le modìfiche a saran ësmonùe ai letor na vira che n'utent autorisà a j'aceta. ([[{{MediaWiki:Validationpage}}|agiut]])'''
 
 A-i {{PLURAL:$2|é|son}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|cangiament|cangiament}}] an cors '''(mostrà sì-sota)''' ch'a speto na revision.",
 	'revreview-edited-section' => 'Torné andré a la session ëd pàgina ciamà "[[#$1|$2]]".',
@@ -13791,6 +13791,7 @@ $messages['szl'] = array(
 /** Tamil (தமிழ்)
  * @author Kanags
  * @author Mahir78
+ * @author Shanmugamp7
  * @author TRYPPN
  * @author Trengarasu
  * @author செல்வா
@@ -13851,7 +13852,7 @@ $messages['ta'] = array(
 	'revreview-depth-4' => 'முதன்மை',
 	'revreview-draft-title' => 'நிலுவையில் உள்ள மாற்றங்கள் இந்தப் பக்கத்தில் உள்ளன',
 	'revreview-edit' => 'தொகு',
-	'revreview-editnotice' => "'''அனுமதி பெற்ற பயனரின் மதிப்பீட்டிற்குப் பின் உங்களது மாற்றங்கள் வாசகர்களின் பார்வைக்கு வரும். ([[{{MediaWiki:Validationpage}}|help]])'''",
+	'revreview-editnotice' => "அனுமதி பெற்ற பயனர் ஏற்றுக்கொண்ட பின் உங்களது மாற்றங்கள் வாசகர்களின் பார்வைக்கு வரும். ([[{{MediaWiki:Validationpage}}|help]])'''",
 	'revreview-submitedit' => 'மாற்றங்களை அனுப்புக',
 	'revreview-submitedit-title' => 'உங்களது மாற்றங்களை மதிப்பீட்டிற்கு அனுப்புக',
 	'revreview-edited-section' => '"[[#$1|$2]]" பிரிவின் பக்கத்திற்குத் திரும்புக.',
@@ -15826,6 +15827,7 @@ Controleer asjeblieft de URL die  a je hebruken om ni deêze pagina te haene.',
  * @author Gzdavidwong
  * @author Horacewai2
  * @author Hydra
+ * @author Hzy980512
  * @author Jimmy xu wrk
  * @author Liangent
  * @author PhiLiP

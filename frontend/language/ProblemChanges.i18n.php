@@ -782,10 +782,11 @@ $messages['sc'] = array(
 );
 
 /** Sinhala (සිංහල)
+ * @author Singhalawap
  * @author පසිඳු කාවින්ද
  */
 $messages['si'] = array(
-	'problemchanges' => 'ටැගීකරණය කෙරූ බලාපොරොත්තුවන වෙනස්කම්',
+	'problemchanges' => 'ටැග් කෙරූ බලාපොරොත්තුවන වෙනස්කම්',
 	'problemchanges-category' => 'ප්‍රවර්ගය:',
 );
 
