@@ -4009,6 +4009,7 @@ $messages['en-gb'] = array(
  * @author AVRS
  * @author ArnoLagrange
  * @author Castelobranco
+ * @author Michawiki
  * @author Yekrats
  */
 $messages['eo'] = array(
@@ -4091,10 +4092,10 @@ Novaj [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diff
 	'revreview-depth-4' => 'Elstara',
 	'revreview-draft-title' => 'Kontrolendaj ŝanĝoj estas montritaj en ĉi tiu paĝo',
 	'revreview-edit' => 'Redakti',
-	'revreview-editnotice' => "'''Viaj ŝanĝoj estos publikigita al legantoj kiam aŭtoritata uzanto kontrolis ili. ([[{{MediaWiki:Validationpage}}|helpo]])'''",
+	'revreview-editnotice' => "'''Viaj ŝanĝoj estos publikigataj al legantoj kiam aŭtoritata uzanto akceptas ilin. ([[{{MediaWiki:Validationpage}}|helpo]])'''",
 	'revreview-submitedit' => 'Sendi ŝanĝojn',
 	'revreview-submitedit-title' => 'Sendi viajn ŝanĝojn por kontrolado',
-	'revreview-edited' => "'''Viaj ŝanĝoj estos publikigitaj al legantoj post kiam aŭtorita uzanto kontrolas ilin. ([[{{MediaWiki:Validationpage}}|helpo]])'''
+	'revreview-edited' => "'''Viaj ŝanĝoj estos publikigataj al legantoj post kiam aŭtorita uzanto akceptas ilin. ([[{{MediaWiki:Validationpage}}|helpo]])'''
 
 Jen estas [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|kontrolenda ŝanĝo|kontrolendaj ŝanĝoj}}].",
 	'revreview-edited-section' => 'Reiri al paĝa sekcio nomata "[[#$1|$2]]".',
@@ -6073,7 +6074,7 @@ $messages['he'] = array(
 	'revreview-editnotice' => "השינויים שלכם יוצגו לקוראים לאחר שמשתמש מורשה יקבל אותם. ([[{{MediaWiki:Validationpage}}|עזרה]])'''",
 	'revreview-submitedit' => 'שליחת השינויים',
 	'revreview-submitedit-title' => 'שליחת השינויים שלכם לסקירה',
-	'revreview-edited' => "'''השינויים שלכם יוצגו לקוראים לאחר שמשתמש מורשה יסקור אותם. ([[{{MediaWiki:Validationpage}}|עזרה]])'''
+	'revreview-edited' => "'''השינויים שלכם יוצגו לקוראים לאחר שמשתמש מורשה יקבל אותם. ([[{{MediaWiki:Validationpage}}|עזרה]])'''
 
 יש [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$2|שינוי אחד|$2 שינויים}}] ''(מוצג{{PLURAL:$2||ים}} בהמשך)'' {{PLURAL:$2|שממתין|שממתינים}} לסקירה.",
 	'revreview-edited-section' => 'חזרה לפסקה "[[#$1|$2]]".',
@@ -7033,10 +7034,10 @@ Es possibile que nove [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:
 	'revreview-depth-4' => 'Eminente',
 	'revreview-draft-title' => 'Le modificationes pendente es presentate in iste pagina',
 	'revreview-edit' => 'Modificar',
-	'revreview-editnotice' => "'''Tu modificationes essera monstrate a lectores quando un usator autorisate los habera revidite. ([[{{MediaWiki:Validationpage}}|adjuta]])'''",
+	'revreview-editnotice' => "'''Tu modificationes essera monstrate a lectores quando un usator autorisate los accepta. ([[{{MediaWiki:Validationpage}}|adjuta]])'''",
 	'revreview-submitedit' => 'Submitter modificationes',
 	'revreview-submitedit-title' => 'Submitter tu modificationes pro revision',
-	'revreview-edited' => "'''Le modificationes essera monstrate al lectores quando un usator autorisate los habera revidite. ([[{{MediaWiki:Validationpage}}|adjuta]])'''
+	'revreview-edited' => "'''Le modificationes essera monstrate al lectores quando un usator autorisate los accepta. ([[{{MediaWiki:Validationpage}}|adjuta]])'''
 
 Il ha [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|modification|modificationes}}] attendente revision ''(monstrate hic infra)''.",
 	'revreview-edited-section' => 'Retornar al section "[[#$1|$2]]" del pagina.',
@@ -11955,10 +11956,10 @@ Nuève [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-dif
 	'revreview-depth-4' => 'Dettagliete',
 	'revreview-draft-title' => 'Le cangiaminde pendende avènene fatte vedè sus a sta pàgene',
 	'revreview-edit' => 'Cange',
-	'revreview-editnotice' => "'''Le cangiaminde tune avènene fatte vedè a le letture 'na vote ca 'n'utende autorizzate l'ave reviste. ([[{{MediaWiki:Validationpage}}|ajute]])'''",
+	'revreview-editnotice' => "'''Le cangiaminde tune avènene fatte vedè a le letture 'na vote ca 'n'utende autorizzate l'ave accettate. ([[{{MediaWiki:Validationpage}}|ajute]])'''",
 	'revreview-submitedit' => 'Conferme le cangiaminde',
 	'revreview-submitedit-title' => 'Conferme le cangiaminde tune pe revisione',
-	'revreview-edited' => "'''Le cangiaminde tune avènene fatte vedè a le letture 'na vote ca 'n'utende autorizzate l'ha reviste. ([[{{MediaWiki:Validationpage}}|ajute]])'''
+	'revreview-edited' => "'''Le cangiaminde tune avènene fatte vedè a le letture 'na vote ca 'n'utende autorizzate l'ave accettate. ([[{{MediaWiki:Validationpage}}|ajute]])'''
 
 {{PLURAL:$2|Ste|Stonne}}  [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|cangiamende ca ste aspette|cangiaminde ca stonne aspettane}}] (vide sotte) 'a revisione.",
 	'revreview-edited-section' => 'Tuèrne a \'a sezione d\'a pàgene ca se chiame "[[#$1|$2]]".',
@@ -13102,10 +13103,10 @@ Storjene so morda bile že nove [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{
 	'revreview-depth-4' => 'Izbrano',
 	'revreview-draft-title' => 'Spremembe v teku so prikazane na tej strani',
 	'revreview-edit' => 'Uredi',
-	'revreview-editnotice' => "'''Vaše spremembe bodo prikazane bralcem, ko jih pooblaščen uporabnik enkrat pregleda. ([[{{MediaWiki:Validationpage}}|pomoč]])'''",
+	'revreview-editnotice' => "'''Vaše spremembe bodo prikazane bralcem, ko jih pooblaščen uporabnik enkrat sprejme. ([[{{MediaWiki:Validationpage}}|pomoč]])'''",
 	'revreview-submitedit' => 'Pošlji spremembe',
 	'revreview-submitedit-title' => 'Pošljite svoje spremembe v pregled',
-	'revreview-edited' => "'''Vaše spremembe bodo prikazane bralcem, ko jih pooblaščen uporabnik enkrat pregleda. ([[{{MediaWiki:Validationpage}}|pomoč]])'''
+	'revreview-edited' => "'''Vaše spremembe bodo prikazane bralcem, ko jih pooblaščen uporabnik enkrat sprejme. ([[{{MediaWiki:Validationpage}}|pomoč]])'''
 
 {{PLURAL:$2|Obstaja|Obstajata|Obstajajo|Obstaja}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|sprememba|spremembi|spremembe|sprememb}} v teku], ki {{PLURAL:$2|čaka|čakata|čakajo}} na pregled.",
 	'revreview-edited-section' => 'Nazaj na razdelek strani imenovan »[[#$1|$2]]«.',
@@ -14797,6 +14798,7 @@ $messages['tt-cyrl'] = array(
 /** Ukrainian (Українська)
  * @author AS
  * @author Ahonc
+ * @author Andygol
  * @author Dim Grits
  * @author JenVan
  * @author NickK
@@ -14884,11 +14886,11 @@ $messages['uk'] = array(
 	'revreview-depth-4' => 'вибрана',
 	'revreview-draft-title' => 'На цій сторінці показані нерецензовані зміни',
 	'revreview-edit' => 'Редагувати',
-	'revreview-editnotice' => "'''Ваші зміни будуть показані читачам, як тільки уповноважений користувач перевірить їх.
+	'revreview-editnotice' => "'''Ваші зміни будуть показані читачам, як тільки уповноважений користувач схвалить їх.
 ([[{{MediaWiki:Validationpage}}|допомога]])'''",
 	'revreview-submitedit' => 'Записати зміни',
 	'revreview-submitedit-title' => 'Надіслати ваші зміни на розгляд',
-	'revreview-edited' => "'''Ваші зміни будуть показані читачам, як тільки уповноважений користувач перевірить їх.
+	'revreview-edited' => "'''Ваші зміни будуть показані читачам, як тільки уповноважений користувач схвалить їх.
 ([[{{MediaWiki:Validationpage}}|допомога]])'''
 
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|нерецензована зміна|нерецензовані зміни|нерецензованих змін}}] ''(показані нижче)'' {{PLURAL:$2|очікує|очікують|очікують}} на перевірку.",

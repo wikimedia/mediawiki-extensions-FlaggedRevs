@@ -2523,6 +2523,7 @@ $messages['hu'] = array(
 	'review_cannot_undo' => 'A változtatások nem vonhatóak vissza, mert további függőben lévő szerkesztések történtek ugyanezen a területen.',
 	'review_cannot_reject' => 'Nem lehet elutasítani a változtatásokat, mert valaki közben elfogadott egy szerkesztést (vagy mindet).',
 	'review_reject_excessive' => 'Nem utasíthatsz el egyszerre ennyi szerkesztést.',
+	'review_reject_nulledits' => 'Ezeket a változtatásokat nem tudod visszavonni, mert valamennyi változtatás üres szerkesztés.',
 	'revreview-check-flag-p' => 'Változat közzététele ({{PLURAL:$1|Egy|$1}} függő változtatást tartalmaz)',
 	'revreview-check-flag-p-title' => 'Az összes ellenőrzésre váró változtatás megtekintettnek jelölése, beleértve ezt a szerkesztésedet is. Csak akkor használd ezt, ha végignézted az utolsó ellenőrzött változathoz képest az összes eltérést.',
 	'revreview-check-flag-u' => 'Ellenőrizetlen lap közzététele',

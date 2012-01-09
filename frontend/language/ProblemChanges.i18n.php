@@ -729,6 +729,7 @@ $messages['ro'] = array(
  */
 $messages['roa-tara'] = array(
 	'problemchanges' => 'Tagghe le cangiaminde pendende',
+	'problemchanges-list' => "Sta pàgene elenghe le pàggene [[{{MediaWiki:Validationpage}}|revisitate]] ca onne une o cchiù cangiaminde signate cumme in attese de revisione. 'N'elenghe de le [[Special:Tags|tag de le cangiaminde valide]] jè disponibbile.",
 	'problemchanges-legend' => "Liste de le pàggene riviste cu le cangiaminde taggate aspettane 'na riviste",
 	'problemchanges-none' => 'Non ge stonne pàggene ca ingontrene chiste criterie',
 	'problemchanges-category' => 'Categorije:',
