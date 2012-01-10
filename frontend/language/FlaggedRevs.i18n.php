@@ -10364,9 +10364,9 @@ Er kunnen nieuwe [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flagg
 	'revreview-editnotice' => "'''Uw wijzigingen worden aan lezers weergegeven als ze zijn gecontroleerd ([[{{MediaWiki:Validationpage}}|hulp]]).'''",
 	'revreview-submitedit' => 'Wijzigingen opslaan',
 	'revreview-submitedit-title' => 'Wijzigingen voor controle opslaan',
-	'revreview-edited' => "'''Uw wijzigingen zullen aan lezers worden getoond zodra een gemachtigde gebruiker hen accepteert. ([[{{MediaWiki:Validationpage}}|?]])'''
+	'revreview-edited' => "'''Uw wijzigingen worden aan lezers worden weergegeven zodra die zijn gecontroleerd. ([[{{MediaWiki:Validationpage}}|?]])'''
 
-Er {{PLURAL:$2|is|zijn}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 ongecontroleerde {{PLURAL:$2|wijziging|wijzigingen}}] (zie hieronder) in afwachting van controle.",
+Er {{PLURAL:$2|is|zijn}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 ongecontroleerde {{PLURAL:$2|wijziging|wijzigingen}}] (zie hieronder) die nog gecontroleerd moeten worden.",
 	'revreview-edited-section' => 'Terug naar de paragraaf "[[#$1|$2]]".',
 	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|wijziging|wijzigingen}}] in deze versie {{PLURAL:$3|wacht|wachten}} op [[{{MediaWiki:Validationpage}}|controle]].
 De [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} stabiele versie] is [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} gecontroleerd] op <i>$2</i>.',
