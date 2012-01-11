@@ -15266,10 +15266,10 @@ Täs voib olda uzid [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:fl
 	'revreview-depth-4' => 'Valitud',
 	'revreview-draft-title' => 'Necil lehtpolel ozutadas kovmatomad toižetused',
 	'revreview-edit' => 'Redaktiruida',
-	'revreview-editnotice' => "'''Teil tehtud toižetused ozutadas lugijoile siloi, konz niid kodvib avtorizuidud ühtnii. ([[{{MediaWiki:Validationpage}}|ližainformacii]])'''",
+	'revreview-editnotice' => "'''Teil tehtud toižetused ozutadas lugijoile siloi, konz niid vahvištoitab avtorizuidud ühtnii. ([[{{MediaWiki:Validationpage}}|ližainformacii]])'''",
 	'revreview-submitedit' => 'Kirjutada toižetused',
 	'revreview-submitedit-title' => 'Oigeta teiden toižetused kodvdes',
-	'revreview-edited' => "'''Toižetused ozutadas lugijoile jäl'ges sidä, kut niid kodvib avtorizuidud ühtnii. ([[{{MediaWiki:Validationpage}}|ližainformacii]])'''
+	'revreview-edited' => "'''Toižetused ozutadas lugijoile jäl'ges sidä, kut niid vahvištoitab avtorizuidud ühtnii. ([[{{MediaWiki:Validationpage}}|ližainformacii]])'''
 
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|toižetuz|toižetust}}] {{PLURAL:$2|varastab}} kodvindad (ozutadud alemba).",
 	'revreview-edited-section' => 'Pörttas "[[#$1|$2]]"-nimitadud lehtpolen jagusennoks.',
