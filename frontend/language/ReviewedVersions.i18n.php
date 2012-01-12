@@ -407,7 +407,7 @@ $messages['fi'] = array(
 	'reviewedversions' => 'Arvioidut versiot',
 	'reviewedversions-leg1' => 'Näytä luettelona sivun arvioidut versiot',
 	'reviewedversions-page' => 'Sivun nimi',
-	'reviewedversions-none' => 'Sivusta "[[:$1]]" ei ole arvioituja versioita.',
+	'reviewedversions-none' => 'Sivusta [[:$1]] ei ole arvioituja versioita.',
 	'reviewedversions-list' => 'Tämä on {{PLURAL:$2|ainoa versio, joka|luettelo versioista, jotka}} on arvioitu kohteesta [[:$1]]:',
 	'reviewedversions-review' => '$2 arvioi sivun <i>$1</i>',
 );

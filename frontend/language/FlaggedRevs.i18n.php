@@ -4950,11 +4950,12 @@ Uusia [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diff
 	'revreview-depth-4' => 'Kiitettävä',
 	'revreview-draft-title' => 'Arviointia odottavat muutokset näytetään tällä sivulla',
 	'revreview-edit' => 'Muokkaa',
-	'revreview-editnotice' => "'''Muutoksesi näytetään kaikille, kun valtuutettu käyttäjä on arvioinut ne. ([[{{MediaWiki:Validationpage}}|ohjeet]])'''",
+	'revreview-editnotice' => "'''Muutoksesi näytetään kaikille, kun valtuutettu käyttäjä on hyväksynyt ne. ([[{{MediaWiki:Validationpage}}|näytä ohje]])'''",
 	'revreview-submitedit' => 'Tallenna muutokset',
 	'revreview-submitedit-title' => 'Lähetä muokkauksesi arvioitavaksi',
-	'revreview-edited' => "'''Muutoksesi näytetään lukijoille, kun valtuutettu käyttäjä on arvioinut ne. ([[{{MediaWiki:Validationpage}}|ohjeet]])'''
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|muokkaus|muokkausta}}] ''(näytetään alla)'' odottaa arviointia.",
+	'revreview-edited' => "'''Muutoksesi näytetään lukijoille, kun valtuutettu käyttäjä on hyväksynyt ne. ([[{{MediaWiki:Validationpage}}|ohje]])'''
+
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|muutos|muutosta}}] (näytetään alla) odottaa arviointia.",
 	'revreview-edited-section' => 'Palaa sivun kohtaan nimeltään [[#$1|$2]].',
 	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|muutos|muutosta}}] tässä versiossa odottaa arviointia [[{{MediaWiki:Validationpage}}|(näytä ohje)]].
 Sivun [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} vakaa versio] on [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} silmäilty] <i>$2</i>.',

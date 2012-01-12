@@ -1823,7 +1823,7 @@ Arvioi kaikki alla olevat muutokset, jotta muokkauksesi näkyisivät vakaassa ve
 	'revreview-reject-summary-cur' => 'Hylättiin {{PLURAL:$1|viimeisin tekstimuutos|viimeisimmät $1 tekstimuutosta}} (käyttäjältä $2) ja palautettiin versio $3 käyttäjältä $4',
 	'revreview-reject-summary-old' => 'Hylättiin {{PLURAL:$1|ensimmäinen tekstimuutos (käyttäjältä $2), joka|ensimmäiset $1 tekstimuutosta (käyttäjältä $2), jotka}} tehtiin versioon $3 käyttäjältä $4',
 	'revreview-reject-summary-cur-short' => 'Hylättiin {{PLURAL:$1|viimeinen tekstimuutos|viimeiset $1 tekstimuutosta}} ja palautettiin versio $2, jonka on tehnyt käyttäjä $3.',
-	'revreview-reject-summary-old-short' => 'Hylättiin {{PLURAL:$1|ensimmäinen tekstimuutos, jonka|ensimmäiset $1 tekstimuutosta, jotka}} käyttäjä $3 teki version $2 jälkeen',
+	'revreview-reject-summary-old-short' => 'Hylättiin {{PLURAL:$1|ensimmäinen tekstimuutos, joka|ensimmäiset $1 tekstimuutosta, jotka}} tehtiin käyttäjän $3 versioon $2.',
 	'revreview-tt-flag' => 'Hyväksy tämä versio merkitsemällä se ”silmäillyksi”. Huomaa, että hyväksyt samalla kaikki muutokset, jotka on tehty nykyisen version ja edellisen vakaan version välillä.',
 	'revreview-tt-unflag' => "Poista tämän version arviointi merkitsemällä se ''arvioimattomaksi''. Tämä toiminto ei vaikuta muiden versioiden arviointimerkintöihin.",
 	'revreview-tt-reject' => 'Hylkää nämä lähdetekstiin tehdyt muutokset kumoamalla ne. Tämä toiminto avaa erillisen sivun, jossa luetellaan ne muutokset, jotka haluat hylätä.',

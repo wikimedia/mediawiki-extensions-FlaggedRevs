@@ -1220,7 +1220,7 @@ Tässä ovat nykyiset asetukset kohteelle [[:$1|$1]]:',
 	'stabilization-submit' => 'Vahvista',
 	'stabilization-notexists' => 'Sivua [[:$1|$1]] ei ole olemassa.
 Asetusten määrittäminen ei ole mahdollista.',
-	'stabilization-notcontent' => 'Sivua "[[:$1|$1]]" ei voi merkitä arvioiduksi.
+	'stabilization-notcontent' => 'Sivua [[:$1|$1]] ei voi merkitä arvioiduksi.
 Asetusten määrittäminen ei ole mahdollista.',
 	'stabilization-comment' => 'Syy:',
 	'stabilization-otherreason' => 'Muu syy',
