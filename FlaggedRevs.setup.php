@@ -246,6 +246,7 @@ class FlaggedRevsSetup {
 		if ( $wgFlaggedRevsProtection ) {
 			# Add pending changes related magic words
 			$wgHooks['ParserFirstCallInit'][] = 'FlaggedRevsHooks::onParserFirstCallInit';
+			// @todo FIXME: Use $wgExtensionMessagesFiles instead of LanguageGetMagic hook.
 			$wgHooks['LanguageGetMagic'][] = 'FlaggedRevsHooks::onLanguageGetMagic';
 			$wgHooks['ParserGetVariableValueSwitch'][] = 'FlaggedRevsHooks::onParserGetVariableValueSwitch';
 			$wgHooks['MagicWordwgVariableIDs'][] = 'FlaggedRevsHooks::onMagicWordwgVariableIDs';
