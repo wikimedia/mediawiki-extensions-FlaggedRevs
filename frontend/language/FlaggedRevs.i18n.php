@@ -14675,10 +14675,10 @@ Yeni [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffo
 	'revreview-depth-4' => 'Seçkin',
 	'revreview-draft-title' => 'Bekleyen değişiklikler bu sayfada görüntülenmektedir',
 	'revreview-edit' => 'Düzenle',
-	'revreview-editnotice' => "'''Değişiklikleriniz, yetkili bir kullanıcı inceledikten sonra görüntülenecektir. ([[{{MediaWiki:Validationpage}}|yardım]])'''",
+	'revreview-editnotice' => "'''Değişiklikleriniz, yetkili bir kullanıcı kabul ettikten sonra görüntülenecektir. ([[{{MediaWiki:Validationpage}}|yardım]])'''",
 	'revreview-submitedit' => 'Değişiklikleri gönder',
 	'revreview-submitedit-title' => 'Değişikliklerini incelenmesi için gönder',
-	'revreview-edited' => "'''Değişiklikleriniz, yetkili bir kullanıcı inceledikten sonra görüntülenecek. ([[{{MediaWiki:Validationpage}}|yardım]])'''
+	'revreview-edited' => "'''Değişiklikleriniz, yetkili bir kullanıcı kabul ettikten sonra görüntülenecek. ([[{{MediaWiki:Validationpage}}|yardım]])'''
 
 İnceleme bekleyen [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 değişiklik] ''(aşağıda gösterilmiştir)'' bulunmaktadır.",
 	'revreview-edited-section' => '"[[#$1|$2]]" adlı sayfa bölümüne geri dön.',
