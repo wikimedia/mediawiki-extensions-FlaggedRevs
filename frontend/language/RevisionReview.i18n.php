@@ -1216,6 +1216,7 @@ Siehe die [[Special:Unreviewedpages|Liste unmarkierter Versionen]].',
 	'revreview-adv-reviewing-c' => 'Hinweis: Andere Benutzer werden nun darauf hingewiesen, dass Sie diese Änderungen überprüfen.',
 	'revreview-sadv-reviewing-p' => 'Sie können andere Benutzer darauf hinweisen, dass Sie diese Seite $1.',
 	'revreview-sadv-reviewing-c' => 'Sie können andere Benutzer darauf hinweisen, dass Sie diese Änderungen $1.',
+	'revreview-adv-start-link' => 'überprüfen',
 	'revreview-toolow' => "'''Sie müssen jedes der Attribute besser als „unzureichend“ einstufen, damit eine Version als markiert angesehen werden kann.'''
 
 Um den Markierungstatus einer Version aufzuheben, muss auf „Markierung entfernen“ geklickt werden.
@@ -1778,8 +1779,8 @@ Käytä tätä vain, jos olet jo käynyt läpi kaikki muokkaukset.',
 	'revreview-check-flag-y-title' => 'Hyväksy kaikki muutokset, jotka teit tässä muokkauksessa.',
 	'revreview-flag' => 'Arvioi tämä versio',
 	'revreview-reflag' => 'Arvioi uudelleen tämä versio',
-	'revreview-invalid' => "'''Kelpaamaton kohde:''' mikään [[{{MediaWiki:Validationpage}}|arvioitu]] muokkaus ei vastaa annettua tunnusnumeroa.",
-	'revreview-log' => 'Kommentti:',
+	'revreview-invalid' => "'''Kelpaamaton kohde:''' mikään [[{{MediaWiki:Validationpage}}|arvioitu]] versio ei vastaa annettua tunnistenumeroa.",
+	'revreview-log' => 'Kommentti',
 	'revreview-main' => 'Sinun täytyy valita tietty versio sivusta, jotta voit arvioida sen.
 
 Katso [[Special:Unreviewedpages|lista sivuista, joita ei ole arvioitu]].',
