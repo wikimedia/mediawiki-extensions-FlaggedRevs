@@ -1308,11 +1308,13 @@ $messages['dsb'] = array(
 	'review_not_flagged' => 'Celowa wersija njejo tuchylu ako pśeglědana markěrowana.',
 	'review_too_low' => 'Wersija njedajo se pśeglědowaś, tak dłujko ako někotare póla su hyšći "njepśiměrjone".',
 	'review_bad_key' => 'Njepłaśiwy kluc zapśimjeśowego parametra.',
+	'review_bad_tags' => 'Někotare pódanych znamjenjow su njepłaśiwe.',
 	'review_denied' => 'Pšawo wótpokazane.',
 	'review_param_missing' => 'Parameter felujo abo jo njepłaśiwy.',
 	'review_cannot_undo' => 'Toś te změny njedaje so anulěrowaś, dokulaž dalšne njedocynjone změny su te same wobcerki změnili.',
 	'review_cannot_reject' => 'Toś te změny njedaju se wótpokazaś, dokulaž něchten jo južo akceptěrował někotare (abo wšykne) změny.',
 	'review_reject_excessive' => 'Tak wjele změnow njedajo se naraz wótpokazaś.',
+	'review_reject_nulledits' => 'Toś te změny njamógu se wótpokazaś, dokulaž wšykne toś te wersije njewopśimuju žedne změny.',
 	'revreview-check-flag-p' => 'Toś tu wersiju akceptěrowaś (wopśimujo $1 {{PLURaL:$1|njedocynjonu změnu|njedocynjonej změnje|njedocynjone změny|njedocynjonych změnow}})',
 	'revreview-check-flag-p-title' => 'Wšykne tuchylu njepśeglědane změny gromaźe ze swójsku změnu akceptěrowaś.
 Wužywaj to jano, jolic sy južo wšykne njepśeglědane změny wiźeł.',
@@ -1338,6 +1340,14 @@ Glědaj [[Special:Unreviewedpages|lisćinu njepśeglědanych bokow]].',
 	'revreview-submit-unreviewed' => 'Gótowo. Pśizwólenje zajmjone!',
 	'revreview-successful' => "'''Wersija nastawka [[:$1|$1]] jo se wuspěšnje markěrowała. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} stabilne wersije se woglědaś])'''",
 	'revreview-successful2' => "'''Markěrowanje [[:$1|$1]] jo se wuspěšnje wótpórało.'''",
+	'revreview-poss-conflict-p' => "'''Warnowanje: [[User:$1|$1]] jo zachopił toś ten bok $2, $3 pśeglědaś.'''",
+	'revreview-poss-conflict-c' => "'''Warnowanje: [[User:$1|$1]] jo zachopił toś te změny $2, $3 pśeglědaś.'''",
+	'revreview-adv-reviewing-p' => 'Glědaj: Druge pśeglědarje mógu wiźeś, až pśeglědujoš toś ten bok.',
+	'revreview-adv-reviewing-c' => 'Glědaj: Druge pśeglědarje mógu wiźeś, až pśeglědujoš toś te změny.',
+	'revreview-sadv-reviewing-p' => 'Móžoš drugich wužywarjow na to $1, až pśeglědujoš toś ten bok.',
+	'revreview-sadv-reviewing-c' => 'Móžoš sam drugich wužywarjow $1, až pśeglědujoš toś te změny.',
+	'revreview-adv-start-link' => 'dopomnjeś',
+	'revreview-adv-stop-link' => 'wěcej njedopomnjeś',
 	'revreview-toolow' => '\'\'\'Musyš nanejmjenjej kuždy z atributow wušej ako "njepśiměrjony" pógódnośiś, aby wersija płaśeła ako pśeglědana.\'\'\'
 
 Aby pśeglědowański status wersije wótpórał, klikni na  "wótpokazaś".
