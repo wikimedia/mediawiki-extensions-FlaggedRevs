@@ -81,6 +81,7 @@ class FlaggedRevsSetup {
 		### Presentation classes ###
 		# Main i18n file and special page alias file
 		$messagesFiles['FlaggedRevs'] = "$langDir/FlaggedRevs.i18n.php";
+		$messagesFiles['FlaggedRevsMagic'] = "$langDir/FlaggedRevs.i18n.magic.php";
 		$messagesFiles['FlaggedRevsAliases'] = "$langDir/FlaggedRevs.alias.php";
 		# UI setup, forms, and HTML elements
 		$classes['FlaggedRevsUISetup'] = "$frontendDir/FlaggedRevsUI.setup.php";
@@ -246,8 +247,6 @@ class FlaggedRevsSetup {
 		if ( $wgFlaggedRevsProtection ) {
 			# Add pending changes related magic words
 			$wgHooks['ParserFirstCallInit'][] = 'FlaggedRevsHooks::onParserFirstCallInit';
-			// @todo FIXME: Use $wgExtensionMessagesFiles instead of LanguageGetMagic hook.
-			$wgHooks['LanguageGetMagic'][] = 'FlaggedRevsHooks::onLanguageGetMagic';
 			$wgHooks['ParserGetVariableValueSwitch'][] = 'FlaggedRevsHooks::onParserGetVariableValueSwitch';
 			$wgHooks['MagicWordwgVariableIDs'][] = 'FlaggedRevsHooks::onMagicWordwgVariableIDs';
 		}

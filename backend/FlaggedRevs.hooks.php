@@ -229,12 +229,6 @@ class FlaggedRevsHooks {
 		return true;
 	}
 
-	public static function onLanguageGetMagic( &$magicWords, $langCode ) {
-		$magicWords['pagesusingpendingchanges'] = array( 0, 'pagesusingpendingchanges' );
-		$magicWords['pendingchangelevel'] = array( 0, 'pendingchangelevel' );
-		return true;
-	}
-
 	public static function onParserGetVariableValueSwitch( &$parser, &$cache, &$word, &$ret ) {
 		if ( $word == 'pendingchangelevel' ) {
 			$title = $parser->getTitle();
