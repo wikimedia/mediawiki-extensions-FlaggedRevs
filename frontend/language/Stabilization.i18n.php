@@ -3216,7 +3216,8 @@ $messages['sr-ec'] = array(
 	'stabilization-restrict' => 'Ограничења за прегледање и аутоматско прегледање',
 	'stabilization-restrict-none' => 'Без додатних ограничења',
 	'stabilization-submit' => 'Прихвати',
-	'stabilization-notexists' => 'Не постоји страница под именом „[[:$1|$1]]“. Подешавање није могуће.',
+	'stabilization-notexists' => 'Нема странице под називом „[[:$1|$1]]“.
+Подешавање није могуће.',
 	'stabilization-notcontent' => 'Страница „[[:$1|$1]]“ не може бити прегледана. Подешавање није могуће.',
 	'stabilization-comment' => 'Разлог:',
 	'stabilization-otherreason' => 'Други разлог:',

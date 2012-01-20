@@ -13315,7 +13315,7 @@ $messages['sr-ec'] = array(
 	'specialpages-group-quality' => 'Одобравање измена',
 	'stable-logentry-config' => 'постави поставке стабилног издања за „$1“',
 	'stable-logentry-reset' => 'поништи поставке стабилног издања за „$1“',
-	'stable-logpage' => 'Извештај стабилности',
+	'stable-logpage' => 'Дневник стабилних измена',
 	'revreview-filter-all' => 'све',
 	'revreview-filter-stable' => 'објављено',
 	'revreview-statusfilter' => 'Одобравање:',
@@ -15459,10 +15459,10 @@ Có thể đã có [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:fla
 	'revreview-depth-4' => 'Rất tốt',
 	'revreview-draft-title' => 'Trang này có các thay đổi đang chờ',
 	'revreview-edit' => 'Sửa đổi',
-	'revreview-editnotice' => "'''Các thay đổi của bạn sẽ được trình bày cho độc giả sau khi một thành viên được quyền duyệt nó. ([[{{MediaWiki:Validationpage}}|Trợ giúp]])'''",
+	'revreview-editnotice' => "'''Các thay đổi của bạn sẽ được trình bày cho độc giả sau khi một thành viên được quyền chấp nhận chúng nó. ([[{{MediaWiki:Validationpage}}|Trợ giúp]])'''",
 	'revreview-submitedit' => 'Gửi thay đổi',
 	'revreview-submitedit-title' => 'Đệ trình các thay đổi của bạn để duyệt',
-	'revreview-edited' => "'''Những sửa đổi sẽ được trình bày cho độc giả ngay khi được một thành viên được chỉ định duyệt qua. ([[{{MediaWiki:Validationpage}}|Trợ giúp]])'''
+	'revreview-edited' => "'''Những sửa đổi sẽ được trình bày cho độc giả ngay khi được một thành viên được chỉ định chấp nhận chúng nó. ([[{{MediaWiki:Validationpage}}|Trợ giúp]])'''
 
 Hiện có [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 thay đổi] ''(ở dưới)'' đang chờ được duyệt.",
 	'revreview-edited-section' => 'Trở về phần “[[#$1|$2]]”.',
