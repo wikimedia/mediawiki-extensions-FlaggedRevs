@@ -4859,6 +4859,7 @@ $3  [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffon
  * @author Cimon Avaro
  * @author Crt
  * @author Jaakonam
+ * @author Mies
  * @author Nedergard
  * @author Nike
  * @author Olli
@@ -4899,10 +4900,10 @@ $messages['fi'] = array(
 	'grouppage-autoreview' => '{{ns:project}}:Automaattiseulojat',
 	'revreview-hist-draft' => 'arvioimaton versio',
 	'revreview-hist-pending' => 'odottaa arviointia',
-	'revreview-hist-quality' => 'version sisältö on tarkastettu',
+	'revreview-hist-quality' => 'laadukas versio',
 	'revreview-hist-basic' => 'silmäilty versio',
-	'revreview-hist-quality-user' => 'sisällön tarkastanut [[User:$3|$3]]',
-	'revreview-hist-basic-user' => 'version katsonut [[User:$3|$3]]',
+	'revreview-hist-quality-user' => 'hyväksynyt [[User:$3|$3]]',
+	'revreview-hist-basic-user' => 'silmäillyt [[User:$3|$3]]',
 	'revreview-hist-quality-auto' => 'automaattisesti hyväksytty',
 	'revreview-hist-basic-auto' => 'automaattisesti katsottu',
 	'revreview-hist-pending-difflink' => "'''[[{{fullurl:$1|oldid=$2&diff=$3{{MediaWiki:flaggedrevs-diffonly}}}} odottaa arviointia]]'''",
@@ -4965,29 +4966,29 @@ Sivun [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} vakaa versio] on [{{fullurl:{{#Spe
 Sivun [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} vakaa versio] on [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} hyväksytty] <i>$2</i>.',
 	'revreview-newest-quality-i' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Malline- tai tiedostomuutokset] tässä versiossa odottavat arviointia [[{{MediaWiki:Validationpage}}|(näytä ohje)]].
 Sivun [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} vakaa versio] on [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} hyväksytty] <i>$2</i>.',
-	'revreview-pending-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Vakaa versio] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} arvioitiin] <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|muokkaus|muokkausta}}] odottaa arviointia.',
-	'revreview-pending-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Vakaa versio] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} hyväksyttiin] <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|muokkaus|muokkausta}}] odottaa arviointia.',
+	'revreview-pending-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Vakaa versio] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} arvioitiin] <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|muutos|muutosta}}] odottaa arviointia.',
+	'revreview-pending-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Vakaa versio] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} hyväksyttiin] <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|muutos|muutosta}}] odottaa arviointia.',
 	'revreview-pending-nosection' => 'Voit katsoa siirrettiinkö sivun osa vai poistettiinko se kokeilemalla [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} viimeisimmän muutoksen katselua], joka sisältää
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|odottavan muutoksen|odottavaa muutosta}}].',
 	'revreview-noflagged' => "Tätä sivua ei ole [[{{MediaWiki:Validationpage}}|arvioitu]] kertaakaan, joten se '''ei''' välttämättä vastaa laatuvaatimuksia.",
 	'revreview-oldrating' => 'Arvio oli:',
-	'revreview-quality' => 'Tämä on [[{{MediaWiki:Validationpage}}|vakaa versio]], jonka [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} sisältö on tarkastettu] <i>$2</i>.
+	'revreview-quality' => 'Tämä on [[{{MediaWiki:Validationpage}}|vakaa versio]], jonka [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} sisältö hyväksyttiin] <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|muutos|muutosta}}] odottaa arviointia.',
-	'revreview-quality-i' => 'Tämä on [[{{MediaWiki:Validationpage}}|vakaa versio]], jonka [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} sisältö on tarkastettu] <i>$2</i>.
+	'revreview-quality-i' => 'Tämä on [[{{MediaWiki:Validationpage}}|vakaa versio]], jonka [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} sisältö hyväksyttiin] <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Malline- tai tiedostomuutokset] odottavat arviointia.',
-	'revreview-quality-old' => 'Tämä on [[{{MediaWiki:Validationpage}}|tarkastettu versio]] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} näytä kaikki]), jonka [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} sisältö tarkastettiin] <i>$2</i>.
+	'revreview-quality-old' => 'Tämä on [[{{MediaWiki:Validationpage}}|laadukas versio]] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} näytä kaikki]), jonka [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} sisältö hyväksyttiin] <i>$2</i>.
 Uusia [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} muutoksia] on saatettu tehdä.',
-	'revreview-quality-same' => 'Tämä on [[{{MediaWiki:Validationpage}}|vakaa versio]], jonka [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} sisältö tarkastettiin] <i>$2</i>.',
-	'revreview-quality-source' => '[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} Tarkastettu versio] tästä sivusta, joka [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} hyväksyttiin] <i>$2</i>, perustui tähän versioon.',
-	'revreview-quality-title' => 'Tämän version sisältö on tarkastettu.',
+	'revreview-quality-same' => 'Tämä on [[{{MediaWiki:Validationpage}}|vakaa versio]], jonka [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} sisältö hyväksyttiin] <i>$2</i>.',
+	'revreview-quality-source' => '[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} Laadukas versio] tästä sivusta, joka [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} hyväksyttiin] <i>$2</i>, perustui tähän versioon.',
+	'revreview-quality-title' => 'Tämä on laadukas versio tästä sivusta.',
 	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|Silmäilty]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} arvioi odottavat muutokset]]",
 	'revreview-quick-basic-old' => "'''[[{{MediaWiki:Validationpage}}|Silmäilty]]'''",
 	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|Silmäilty]]'''",
 	'revreview-quick-invalid' => "'''Virheellinen versiotunniste'''",
 	'revreview-quick-none' => "'''[[{{MediaWiki:Validationpage}}|Arvioimaton]]'''",
-	'revreview-quick-quality' => "'''[[{{MediaWiki:Validationpage}}|Sisältö tarkastettu]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} arvioi odottavat muutokset]]",
-	'revreview-quick-quality-old' => "'''[[{{MediaWiki:Validationpage}}|Sisältö tarkastettu]]'''",
-	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|Sisältö tarkastettu]]'''",
+	'revreview-quick-quality' => "'''[[{{MediaWiki:Validationpage}}|Laadukas]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} arvioi odottavat muutokset]]",
+	'revreview-quick-quality-old' => "'''[[{{MediaWiki:Validationpage}}|Laadukas]]'''",
+	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|Laadukas]]'''",
 	'revreview-quick-see-basic' => '[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} näytä odottavat muutokset]]',
 	'revreview-quick-see-quality' => '[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} näytä odottavat muutokset]]',
 	'revreview-source' => 'Näytä lähdeteksti',
@@ -5008,7 +5009,7 @@ Uusia [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diff
 	'right-movestable' => 'Siirtää sivuja, joista on olemassa vakaa versio',
 	'right-review' => 'Merkitä versiot silmäillyiksi',
 	'right-stablesettings' => 'Määrittää miten vakaat versiot valitaan ja näytetään',
-	'right-validate' => 'Merkitä versioiden sisältö tarkastetuksi',
+	'right-validate' => 'Merkitä versiot laadukkaaksi',
 	'right-unreviewedpages' => 'Tarkastella [[Special:UnreviewedPages|luetteloa arvioimattomista sivuista]]',
 	'rights-editor-revoke' => 'poisti seulojan oikeudet käyttäjältä [[$1]]',
 	'specialpages-group-quality' => 'Muutosten arviointi',
@@ -5030,7 +5031,7 @@ Uusia [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diff
 	'revreview-levelfilter' => 'Taso',
 	'revreview-lev-all' => 'mikä tahansa',
 	'revreview-lev-basic' => 'silmäilty',
-	'revreview-lev-quality' => 'sisältö tarkastettu',
+	'revreview-lev-quality' => 'laadukas',
 	'revreview-lev-pristine' => 'huippuluokkaa',
 	'revreview-defaultfilter' => 'Oletusversio:',
 	'revreview-def-all' => 'mikä tahansa',
