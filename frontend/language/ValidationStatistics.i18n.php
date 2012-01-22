@@ -652,6 +652,7 @@ $3",
 /** Finnish (Suomi)
  * @author Cimon Avaro
  * @author Crt
+ * @author Mies
  * @author Nedergard
  * @author Olli
  * @author Pxos
@@ -661,14 +662,14 @@ $3",
  * @author ZeiP
  */
 $messages['fi'] = array(
-	'validationstatistics' => 'Tilastosivu arvioinneista',
+	'validationstatistics' => 'Sivujen arviointitilastot',
 	'validationstatistics-users' => "Sivustolla '''{{SITENAME}}''' on tällä hetkellä '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|käyttäjä, jolla|käyttäjää, joilla}} on [[{{MediaWiki:Validationpage}}|seulojan]] oikeudet.
 
 Seulojat ovat luotettavia käyttäjiä, jotka voivat arvioida sivuille tehtyjä muutoksia ja merkitä ne hyväksytyiksi.",
 	'validationstatistics-lastupdate' => "''Seuraavat tiedot päivitettiin viimeksi $1 kello $2.''",
 	'validationstatistics-pndtime' => "Oikeutettujen käyttäjien (seulojien) silmäilemät muokkaukset ovat ''arvioituja''.
 
-Keskimääräinen arviointiaika [[Special:OldReviewedPages|sivuilla, joilla on odottavia muutoksia]] on '''$1'''. Tämä aika eli viive kertoo sen, kuinka kauan sarjassa vanhin arviointia odottava muutos odottaa edelleen arviointia.",
+Keskimääräinen arviointiaika [[Special:OldReviewedPages|sivuilla, joilla on odottavia muutoksia]] on '''$1'''. Tämä viive kertoo sen, kuinka kauan sarjassa vanhin arviointia odottava muutos odottaa edelleen arviointia.",
 	'validationstatistics-revtime' => "Keskimääräinen odotusaika ''sisäänkirjautumattomien käyttäjien'' muokkausten arviointiin on '''$1'''; mediaani on '''$2'''.
 $3",
 	'validationstatistics-table' => "Alla on kaikkien nimiavaruuksien arvioinnin tilastot ''lukuun ottamatta'' ohjaussivuja. Sivuja kohdellaan ''vanhentuneina'', jos niissä on arviointia odottavia muokkauksia, ja ne ovat ''synkronoituja'', mikäli niissä ei ole arviointia odottavia muokkauksia.",
@@ -680,7 +681,7 @@ $3",
 	'validationstatistics-old' => 'Vanhentunut',
 	'validationstatistics-utable' => 'Alla on lueteltu {{PLURAL:$1|aktiivisin arvioija|$1 aktiivisinta arvioijaa}} edellisen {{PLURAL:$2|tunnin|$2 tunnin}} ajalta.',
 	'validationstatistics-user' => 'Käyttäjä',
-	'validationstatistics-reviews' => 'Arviointimerkintöjä',
+	'validationstatistics-reviews' => 'Arviointeja',
 );
 
 /** French (Français)

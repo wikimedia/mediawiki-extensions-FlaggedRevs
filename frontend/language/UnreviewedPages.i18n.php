@@ -570,6 +570,7 @@ $messages['fa'] = array(
  * @author Cimon Avaro
  * @author Crt
  * @author Jaakonam
+ * @author Mies
  * @author Nike
  * @author Pxos
  * @author Str4nd
@@ -577,7 +578,7 @@ $messages['fa'] = array(
  */
 $messages['fi'] = array(
 	'unreviewedpages' => 'Arvioimattomat sivut',
-	'unreviewedpages-legend' => 'Luettelo sisältösivuista, joita ei ole arvioitu',
+	'unreviewedpages-legend' => 'Luettelo arvioimattomista sisältösivuista',
 	'unreviewedpages-category' => 'Luokka',
 	'unreviewedpages-diff' => 'arvioi',
 	'unreviewedpages-unwatched' => '(tarkkailematon)',

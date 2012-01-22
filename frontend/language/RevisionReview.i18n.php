@@ -1771,8 +1771,8 @@ $messages['fi'] = array(
 	'review_no_oldid' => 'Versiotunnistetta ei määritelty.',
 	'review_bad_oldid' => 'Kohdemuokkausta ei löydy.',
 	'review_conflict_oldid' => 'Joku on jo ehtinyt hyväksyä tai hylätä tämän version sillä aikaa, kun katselit sitä.',
-	'review_not_flagged' => 'Kohteena olevaa versiota ei ole tällä hetkellä merkitty arvioiduksi.',
-	'review_too_low' => 'Muokkausta ei voida arvioida, koska jotkut kentät on jätetty "vajavaisiksi".',
+	'review_not_flagged' => 'Kohdeversiota ei ole tällä hetkellä merkitty arvioiduksi.',
+	'review_too_low' => 'Versiota ei voida arvioida, koska joitakin kenttiä on jätetty tasolle ”puutteellinen”.',
 	'review_bad_key' => 'Kelpaamaton säilytysparametrin avain.',
 	'review_bad_tags' => 'Jotkut määritetyistä tunnusarvoista ovat virheellisiä.',
 	'review_denied' => 'Ei oikeutta.',
@@ -1780,7 +1780,7 @@ $messages['fi'] = array(
 	'review_cannot_undo' => 'Muutoksia ei voitu kumota, koska myöhemmät arviointia odottavat muokkaukset ovat muuttaneet samoja alueita.',
 	'review_cannot_reject' => 'Näitä muutoksia ei voida nyt hylätä, koska joku muu on jo hyväksynyt osan muutoksista tai ne kaikki.',
 	'review_reject_excessive' => 'Näin monta muokkausta ei voida hylätä kerralla.',
-	'review_reject_nulledits' => 'Näitä muutoksia ei voitu hylätä, sillä kaikki muutokset olivat nollamuokkauksia.',
+	'review_reject_nulledits' => 'Näitä muutoksia ei voitu hylätä, koska kaikki versiot ovat nollamuokkauksia.',
 	'revreview-check-flag-p' => 'Hyväksy tämä versio (sisältää {{PLURAL:$1|odottavan muutoksen|$1 odottavaa muutosta}})',
 	'revreview-check-flag-p-title' => 'Hyväksy kaikki arviointia odottavat muutokset oman muokkauksesi yhteydessä. 
 Käytä tätä vain, jos olet jo käynyt läpi kaikki muokkaukset.',
@@ -1814,9 +1814,9 @@ Katso [[Special:Unreviewedpages|lista sivuista, joita ei ole arvioitu]].',
 	'revreview-sadv-reviewing-c' => 'Voit $1 muille käyttäjille, että olet arvioimassa näitä muutoksia.',
 	'revreview-adv-start-link' => 'ilmoittaa',
 	'revreview-adv-stop-link' => 'älä ilmoita muille',
-	'revreview-toolow' => "'''Sinun tulee arvioida kaikki alla olevat kohdat paremmalla arvolla kuin ”puutteellinen”, jotta versio katsottaisiin arvioiduksi.'''
+	'revreview-toolow' => "'''Sinun täytyy arvioida kaikki alla olevat kohdat paremmalla arvolla kuin ”puutteellinen”, jotta versio katsottaisiin arvioiduksi.'''
 
-Poistaaksesi version arviointitilan napsauta \"Poista version arviointi\".
+Poistaaksesi version arviointitilan napsauta ”Poista version arviointi”.
 
 Palaa selaimen takaisin-painikkeella ja yritä uudelleen.",
 	'revreview-update' => "'''[[{{MediaWiki:Validationpage}}|Arvioi]] kaikki odottavat muutokset (näytetään alla), jotka on tehty vakaan version jälkeen.'''",
@@ -1837,7 +1837,7 @@ Arvioi kaikki alla olevat muutokset, jotta muokkauksesi näkyisivät vakaassa ve
 	'revreview-reject-summary-cur-short' => 'Hylättiin {{PLURAL:$1|viimeinen tekstimuutos|viimeiset $1 tekstimuutosta}} ja palautettiin versio $2, jonka on tehnyt käyttäjä $3.',
 	'revreview-reject-summary-old-short' => 'Hylättiin {{PLURAL:$1|ensimmäinen tekstimuutos, joka|ensimmäiset $1 tekstimuutosta, jotka}} tehtiin käyttäjän $3 versioon $2.',
 	'revreview-tt-flag' => 'Hyväksy tämä versio merkitsemällä se silmäillyksi.',
-	'revreview-tt-unflag' => 'Poista tämän version arviointi merkitsemällä se arvioimattomaksi.',
+	'revreview-tt-unflag' => 'Poista tämän version hyväksyntä merkitsemällä se arvioimattomaksi.',
 	'revreview-tt-reject' => 'Hylkää nämä lähdetekstiin tehdyt muutokset kumoamalla ne.',
 );
 

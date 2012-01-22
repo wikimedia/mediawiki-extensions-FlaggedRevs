@@ -1197,6 +1197,7 @@ $messages['fa'] = array(
 /** Finnish (Suomi)
  * @author Cimon Avaro
  * @author Crt
+ * @author Mies
  * @author Nike
  * @author Olli
  * @author Pxos
@@ -1207,7 +1208,7 @@ $messages['fa'] = array(
 $messages['fi'] = array(
 	'stabilization-tab' => 'vakautus',
 	'stabilization' => 'Sivun vakauttaminen',
-	'stabilization-text' => "'''Muuta alla olevia asetuksia jotka määrittävät, kuinka sivun [[:$1|$1]] vakaa versio valitaan ja näytetään.'''",
+	'stabilization-text' => "'''Muuta alla olevia asetuksia, jotka määrittävät, kuinka sivun [[:$1|$1]] vakaa versio valitaan ja näytetään.'''",
 	'stabilization-perm' => 'Tunnuksellasi ei ole oikeutta muuttaa vakaiden versioiden asetuksia.
 Tässä ovat nykyiset asetukset kohteelle [[:$1|$1]]:',
 	'stabilization-page' => 'Sivun nimi:',
@@ -1215,20 +1216,20 @@ Tässä ovat nykyiset asetukset kohteelle [[:$1|$1]]:',
 	'stabilization-def' => 'Versio, joka näytetään oletusarvoisesti',
 	'stabilization-def1' => 'Vakaa versio. Jos vakaata versiota ei ole, viimeisin versio.',
 	'stabilization-def2' => 'Viimeisin versio',
-	'stabilization-restrict' => 'Seulonnan/automaattiseulonnan rajoitukset',
+	'stabilization-restrict' => 'Seulonnan ja automaattiseulonnan rajoitukset',
 	'stabilization-restrict-none' => 'Ei erityisiä rajoituksia',
 	'stabilization-submit' => 'Vahvista',
 	'stabilization-notexists' => 'Sivua [[:$1|$1]] ei ole olemassa.
 Asetusten määrittäminen ei ole mahdollista.',
 	'stabilization-notcontent' => 'Sivua [[:$1|$1]] ei voi merkitä arvioiduksi.
 Asetusten määrittäminen ei ole mahdollista.',
-	'stabilization-comment' => 'Syy:',
+	'stabilization-comment' => 'Syy',
 	'stabilization-otherreason' => 'Muu syy',
-	'stabilization-expiry' => 'Vanhenee:',
+	'stabilization-expiry' => 'Vanhenee',
 	'stabilization-othertime' => 'Muu aika',
-	'stabilization-def-short' => 'Oletusarvo',
-	'stabilization-def-short-0' => 'Viimeisin versio',
-	'stabilization-def-short-1' => 'Vakaa versio',
+	'stabilization-def-short' => 'Oletus',
+	'stabilization-def-short-0' => 'Viimeisin',
+	'stabilization-def-short-1' => 'Vakaa',
 	'stabilize_page_invalid' => 'Kohdesivun nimi ei kelpaa.',
 	'stabilize_page_notexists' => 'Kohdesivua ei ole olemassa.',
 	'stabilize_page_unreviewable' => 'Kohdesivu ei ole nimiavaruudessa, jonka sivuja voitaisiin arvioida.',

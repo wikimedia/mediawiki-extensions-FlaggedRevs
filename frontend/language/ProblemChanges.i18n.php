@@ -289,6 +289,7 @@ $messages['fa'] = array(
 /** Finnish (Suomi)
  * @author Cimon Avaro
  * @author Crt
+ * @author Mies
  * @author Nike
  * @author Olli
  * @author Pxos
@@ -297,7 +298,7 @@ $messages['fa'] = array(
 $messages['fi'] = array(
 	'problemchanges' => 'Ongelmallisiksi merkityt odottavat muutokset',
 	'problemchanges-list' => 'Tämä sivu luettelee [[{{MediaWiki:Validationpage}}|arvioidut]] sivut, joilla on yksi tai useampi ongelmalliseksi merkitty muutos odottamassa arviointia. Luettelo [[Special:Tags|kelvollisista muutosmerkinnöistä]] on saatavissa.',
-	'problemchanges-legend' => 'Luettelo sivuista, joilla on sellaisia odottavia muutoksia, jotka on merkitty ongelmallisiksi.',
+	'problemchanges-legend' => 'Luettelo sivuista, joilla on ongelmallisiksi merkittyjä odottavia muutoksia.',
 	'problemchanges-none' => 'Tällä hetkellä ei ole sivuja, jotka täyttävät nämä ehdot',
 	'problemchanges-category' => 'Luokka',
 );
