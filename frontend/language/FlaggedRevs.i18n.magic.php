@@ -7,5 +7,5 @@ $magicWords = array();
 
 $magicWords['en'] = array(
 	'pagesusingpendingchanges' => array( 0, 'pagesusingpendingchanges' ),
-	'pagesusingpendingchanges' => array( 0, 'pendingchangelevel' ),
+	'pendingchangelevel' => array( 0, 'pendingchangelevel' ),
 );
