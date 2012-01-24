@@ -2285,6 +2285,7 @@ $messages['bn'] = array(
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3টি অমিমাংসীত {{PLURAL:$3|পরিবর্তন|পরিবর্তন}}] পর্যবেক্ষণের জন্য {{PLURAL:$3|অপেক্ষমান|অপেক্ষমান}}।',
 	'revreview-basic-i' => 'এই সংস্করণটি একটি [[{{MediaWiki:Validationpage}}|পর্যবেক্ষণকৃত সংস্করণ]], যা <i>$2</i> তারিখে [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} পরিক্ষীত হয়েছে]।
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} টেমপ্লেট/চিত্র পরিবর্তন] পর্যবেক্ষণের জন্য অপেক্ষমান।',
+	'revreview-basic-same' => 'এটি একটি [[{{MediaWiki:Validationpage}}|পরীক্ষিত সংস্করণ]], যা [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} পরীক্ষিত] হয়েছিলো <i>$2</i> তারিখে।',
 	'revreview-current' => 'অমীমাংসিত পরিবর্তন',
 	'revreview-depth' => 'গভীরতা',
 	'revreview-depth-0' => 'অনুপযুক্ত',
@@ -6841,10 +6842,10 @@ Azóta történhettek új [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaW
 	'revreview-depth-4' => 'kiemelt',
 	'revreview-draft-title' => 'Az ellenőrzésre váró változtatások is láthatóak az oldalon',
 	'revreview-edit' => 'Szerkesztés',
-	'revreview-editnotice' => "'''A változtatásaid akkor lesznek közzétéve, ha egy erre jogosult felhasználó ellenőrizte őket. [[{{MediaWiki:Validationpage}}|(?)]]'''",
+	'revreview-editnotice' => "A változtatásaid akkor lesznek közzétéve, ha egy erre jogosult felhasználó jóváhagyta őket. [[{{MediaWiki:Validationpage}}|(?)]]'''",
 	'revreview-submitedit' => 'Lap mentése',
 	'revreview-submitedit-title' => 'Változtatásaid elküldése ellenőrzésre',
-	'revreview-edited' => "'''A változtatások akkor lesznek közzétéve, ha egy erre jogosult felhasználó ellenőrizte őket. [[{{MediaWiki:Validationpage}}|(?)]]'''
+	'revreview-edited' => "A változtatások akkor lesznek közzétéve, ha egy erre jogosult felhasználó jóváhagyta őket. [[{{MediaWiki:Validationpage}}|(?)]]'''
 
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$2|Egy|$2}} változtatás vár ellenőrzésre] ''(lásd alább)''.",
 	'revreview-edited-section' => 'Vissza a(z) „[[#$1|$2]]” című alfejezetre.',
