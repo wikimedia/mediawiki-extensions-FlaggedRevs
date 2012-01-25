@@ -2474,12 +2474,12 @@ $messages['br'] = array(
 	'revreview-depth-4' => 'Heverk',
 	'revreview-draft-title' => "Ar c'hemmoù o c'hortoz a zo diskouezet er bajenn-mañ",
 	'revreview-edit' => 'Kemmañ',
-	'revreview-editnotice' => "'''Ho kemmoù a vo embannet d'al lennerien pa 'vo bet adlennet gant un implijer en deus ar gwirioù a zere. ([[{{MediaWiki:Validationpage}}|sikour]])'''",
+	'revreview-editnotice' => "'''Embannet e vo ho kemmoù d'al lennerien pa vint bet aprouet gant un implijer aotreet evit se. ([[{{MediaWiki:Validationpage}}|skoazell]])'''",
 	'revreview-submitedit' => 'Kinnigit ho kemmoù',
 	'revreview-submitedit-title' => 'Kinnig ho kemmoù evit bezañ adlennet',
-	'revreview-edited' => "'''Embannet e vo ar c'hemmoù d'al lennerien ur wech bet adlennet gant un implijer aotreet. ([[{{MediaWiki:Validationpage}}|sikour]])'''
+	'revreview-edited' => "'''Embannet e vo ar c'hemmoù d'al lennerien ur wech bet aprouet gant un implijer aotreet evit se. ([[{{MediaWiki:Validationpage}}|skoazell]])'''
 
-Bez ez eus [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|kemm|kemm}}] ''(diskouezet a-is)'' o c'hortoz da vezañ bet adwelet.",
+Bez' ez eus [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|kemm|kemm}}] ''(diskouezet a-is)'' o c'hortoz bezañ bet aprouet.",
 	'revreview-edited-section' => 'Distreiñ da rann "[[#$1|$2]]" ar bajenn.',
 	'revreview-newest-basic' => "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|c'hemm|kemm}}] eus ar stumm-mañ {{PLURAL:$3|a c'hortoz|a c'hortoz}} [[{{MediaWiki:Validationpage}}|bezañ aprouet]].
 [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} Gwirie] e oa bet [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} ar stumm stabil]  d'an <i>$2</i>.",
@@ -4494,10 +4494,10 @@ $messages['et'] = array(
 	'revreview-depth-4' => 'Esile tõstetud',
 	'revreview-draft-title' => 'Sellel leheküljel kuvatakse ootel muudatused',
 	'revreview-edit' => 'Redigeeri',
-	'revreview-editnotice' => "'''Sinu muudatused kuvatakse lugejatele, kui volitatud kasutaja on need üle vaadanud. ([[{{MediaWiki:Validationpage}}|abi]])'''",
+	'revreview-editnotice' => "'''Sinu muudatused kuvatakse lugejatele, kui volitatud kasutaja on need heaks kiitnud. ([[{{MediaWiki:Validationpage}}|abi]])'''",
 	'revreview-submitedit' => 'Salvesta muudatused',
 	'revreview-submitedit-title' => 'Esita oma muudatused ülevaatamiseks',
-	'revreview-edited' => "'''Sinu muudatused kuvatakse lugejatele, kui volitatud kasutaja on need üle vaadanud. ([[{{MediaWiki:Validationpage}}|abi]])'''
+	'revreview-edited' => "'''Sinu muudatused kuvatakse lugejatele, kui volitatud kasutaja on need heaks kiitnud. ([[{{MediaWiki:Validationpage}}|abi]])'''
 
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|muudatus|muudatust}}] ''(näidatud allpool)'' {{PLURAL:$2|ootab|ootavad}} ülevaatamist.",
 	'revreview-edited-section' => 'Naase alaosa "[[#$1|$2]]" juurde.',
@@ -5015,9 +5015,9 @@ Tarkista URL-osoite, jolla hait tätä sivua.',
 	'right-unreviewedpages' => 'Tarkastella [[Special:UnreviewedPages|luetteloa arvioimattomista sivuista]]',
 	'rights-editor-revoke' => 'poisti seulojan oikeudet käyttäjältä [[$1]]',
 	'specialpages-group-quality' => 'Muutosten arviointi',
-	'stable-logentry-config' => 'asetti vakaan version asetukset sivulle ”$1”',
-	'stable-logentry-modify' => 'muutti vakaan version asetuksia sivulle ”$1”',
-	'stable-logentry-reset' => 'palautti vakaan version asetukset sivulle ”$1”',
+	'stable-logentry-config' => 'määritti vakautusasetukset sivulle ”$1”',
+	'stable-logentry-modify' => 'muutti vakautusasetuksia sivulla ”$1”',
+	'stable-logentry-reset' => 'poisti vakautusasetukset sivulta ”$1”',
 	'stable-log-restriction' => 'Automaattinen arviointi: vaatii oikeuden ”$1”',
 	'stable-logpage' => 'Vakautusloki',
 	'stable-logpagetext' => 'Tämä on loki sisältösivujen [[{{MediaWiki:Validationpage}}|vakaiden versioiden]] asetusten muutoksista.',
@@ -12079,6 +12079,7 @@ Pe piacere condrolle l'URL ca tu è ausete pe trasè jndr'à sta pagene.",
  * @author Ferrer
  * @author Haffman
  * @author Ivan Pozdeev
+ * @author KPu3uC B Poccuu
  * @author Kaganer
  * @author Kalan
  * @author Kv75
@@ -12101,12 +12102,12 @@ $messages['ru'] = array(
 	'prefs-flaggedrevs' => 'Подтверждение правок',
 	'prefs-flaggedrevs-ui' => 'Подтверждение правок',
 	'flaggedrevs-prefs-stable' => 'Когда показывать опубликованную версию статьи по умолчанию',
-	'flaggedrevs-pref-stable-0' => 'Использовать параметры по умолчанию для всех страниц',
-	'flaggedrevs-pref-stable-1' => 'Всегда показывать стабильную версию (если она есть)',
-	'flaggedrevs-pref-stable-2' => 'Всегда показывать последнюю версию',
-	'flaggedrevs-prefs-watch' => 'Добавлять проверенные мною страницы в список наблюдения',
-	'flaggedrevs-prefs-editdiffs' => 'Показывать разницу между проверенной и непроверенной версиями при редактировании страниц',
-	'flaggedrevs-prefs-viewdiffs' => 'Показывать непроверенные изменения при просмотре последней непроверенной версии страницы',
+	'flaggedrevs-pref-stable-0' => 'Использовать параметры по умолчанию для всех страниц.',
+	'flaggedrevs-pref-stable-1' => 'Всегда показывать стабильную версию, если она есть.',
+	'flaggedrevs-pref-stable-2' => 'Всегда показывать последнюю версию.',
+	'flaggedrevs-prefs-watch' => 'Добавлять проверенные мною страницы в список наблюдения.',
+	'flaggedrevs-prefs-editdiffs' => 'Показывать разницу между проверенной и непроверенной версиями при редактировании страниц.',
+	'flaggedrevs-prefs-viewdiffs' => 'Показывать непроверенные изменения при просмотре последней непроверенной версии страницы.',
 	'flaggedrevs-hidereviewed' => '$1 проверенные правки',
 	'group-editor' => 'Досматривающие',
 	'group-editor-member' => '{{GENDER:$1|досматривающий|досматривающая}}',
@@ -12121,24 +12122,24 @@ $messages['ru'] = array(
 	'revreview-hist-pending' => 'ожидает проверки',
 	'revreview-hist-quality' => 'выверенная версия',
 	'revreview-hist-basic' => 'досмотренная версия',
-	'revreview-hist-quality-user' => 'подтверждена участником [[User:$3|$3]]',
-	'revreview-hist-basic-user' => 'досмотрена участником [[User:$3|$3]]',
+	'revreview-hist-quality-user' => 'подтверждена {{GENDER:$3|участником|участницей}} [[User:$3|$3]]',
+	'revreview-hist-basic-user' => 'проверена {{GENDER:$3|участником|участницей}} [[User:$3|$3]]',
 	'revreview-hist-quality-auto' => 'подтверждена автоматически',
 	'revreview-hist-basic-auto' => 'автоматически досмотрена',
 	'revreview-hist-pending-difflink' => "'''[[{{fullurl:$1|oldid=$2&diff=$3{{MediaWiki:flaggedrevs-diffonly}}}} ожидает проверки]]'''",
-	'review-edit-diff' => "'''ЗАМЕЧАНИЕ. К области страницы, которую вы редактируете, относятся некоторые ожидающие проверки правки.'''",
+	'review-edit-diff' => "'''Примечание: к области страницы, которую Вы редактируете, относятся некоторые ожидающие проверки правки.'''",
 	'revreview-diff-toggle-show' => 'показать изменения',
 	'revreview-diff-toggle-hide' => 'скрыть изменения',
 	'revreview-diff-toggle-title' => 'Переключить отображение непроверенных изменений к опубликованной версии',
 	'revreview-log-toggle-show' => 'показать журнал стабилизации',
-	'revreview-log-toggle-hide' => 'скрыть журнал стабильности',
+	'revreview-log-toggle-hide' => 'скрыть журнал стабилизации',
 	'revreview-log-toggle-title' => 'Включить отображение журнала настроек стабилизации',
 	'revreview-log-details-show' => 'показать подробности',
 	'revreview-log-details-hide' => 'скрыть подробности',
 	'revreview-log-details-title' => 'Включить отображение журнала настроек стабилизации',
 	'review-diff2stable' => 'Показать все непроверенные изменения',
 	'review-logentry-app' => 'проверил версию [[$1]]',
-	'review-logentry-dis' => 'отметил устаревшую версию [[$1]]',
+	'review-logentry-dis' => 'отметил устаревшей версию [[$1]]',
 	'review-logentry-id' => 'версия: $2',
 	'review-logentry-diff' => 'проверенные изменения',
 	'review-logentry-diff2' => 'устаревшие изменения',
@@ -12152,8 +12153,8 @@ $messages['ru'] = array(
 	'revreview-accuracy-3' => 'с источниками',
 	'revreview-accuracy-4' => 'избранная',
 	'revreview-auto' => '(автоматически)',
-	'revreview-basic' => 'Это [[{{MediaWiki:Validationpage}}|опубликованная версия]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} проверенная] <i>$2</i>.
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|изменение|изменения|изменений}}] {{PLURAL:$3|ожидает|ожидают|ожидают}} проверки.',
+	'revreview-basic' => '<span class="plainlinks">Это [[{{MediaWiki:Validationpage}}|опубликованная версия]], [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} проверенная] \'\'$2\'\'.
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|изменение ожидает|изменения ожидают|изменений ожидают}}] проверки.</span>',
 	'revreview-basic-i' => 'Это [[{{MediaWiki:Validationpage}}|опубликованная версия]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} проверенная] <i>$2</i>.
 Имеются непроверенные [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} изменения в шаблонах или файлах].',
 	'revreview-basic-old' => 'Это [[{{MediaWiki:Validationpage}}|досмотренная]] версия ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} список всех]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} подтверждена] <i>$2</i>.
@@ -12169,15 +12170,15 @@ $messages['ru'] = array(
 	'revreview-depth-4' => 'избранная',
 	'revreview-draft-title' => 'На этой странице показываются непроверенные изменения',
 	'revreview-edit' => 'Править',
-	'revreview-editnotice' => "'''Сделанные вами изменения будут показаны читателям после проверки уполномоченным участником. ([[{{MediaWiki:Validationpage}}|подробнее]])'''",
+	'revreview-editnotice' => "'''Сделанные Вами изменения будут показаны читателям после их принятия уполномоченным участником''' ([[{{MediaWiki:Validationpage}}|подробнее]]).",
 	'revreview-submitedit' => 'Записать изменения',
 	'revreview-submitedit-title' => 'Отправить ваши исправления для проверки',
-	'revreview-edited' => "'''Изменения будут показаны читателям после их проверки уполномоченным участником. ([[{{MediaWiki:Validationpage}}|подробнее]])'''
+	'revreview-edited' => "'''Изменения будут показаны читателям после их принятия уполномоченным участником''' ([[{{MediaWiki:Validationpage}}|подробнее]]).
 
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|изменение|изменения|изменений}}] {{PLURAL:$2|ожидает|ожидают|ожидают}} проверки (показаны ниже).",
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|изменение ожидает|изменения ожидают|изменений ожидают}}] проверки (показаны ниже).",
 	'revreview-edited-section' => 'Вернуться к разделу страницы под названием «[[#$1|$2]]».',
-	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|изменение|изменения|изменений}}] в этой версии [[{{MediaWiki:Validationpage}}|{{PLURAL:$3|ожидает|ожидают|ожидают}} проверки]].
-[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Стабильная версия] была [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} проверена] <i>$2</i>.',
+	'revreview-newest-basic' => '<span class="plainlinks">[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|изменение ожидает|изменения ожидают|изменений ожидают}}] в этой версии [[{{MediaWiki:Validationpage}}|проверки]].
+[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Стабильная версия] была [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} проверена] \'\'$2\'\'.</span>',
 	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Изменения шаблонов/файлов] этой версии [[{{MediaWiki:Validationpage}}|ожидают проверки]].
 [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Стабильная версия] была [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} проверена] <i>$2</i>.',
 	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|изменение|изменения|изменений}}] в этой версии [[{{MediaWiki:Validationpage}}|{{PLURAL:$3|ожидает|ожидают|ожидают}} проверки]].
@@ -12208,7 +12209,7 @@ $messages['ru'] = array(
 	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|Выверенная]]'''",
 	'revreview-quick-see-basic' => '[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} показать непроверенные изменения]]',
 	'revreview-quick-see-quality' => '[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} показать непроверенные изменения]]',
-	'revreview-source' => 'Просмотр исходника',
+	'revreview-source' => 'Просмотр разметки',
 	'revreview-basic-title' => 'Это досмотренная версия страницы',
 	'revreview-style' => 'Читаемость',
 	'revreview-style-0' => 'Не указано',
