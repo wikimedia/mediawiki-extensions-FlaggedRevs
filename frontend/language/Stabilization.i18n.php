@@ -1365,8 +1365,10 @@ Velaquí está a configuración actual de "[[:$1|$1]]":',
 	'stabilization-restrict' => 'Restricións de revisión/revisión automática',
 	'stabilization-restrict-none' => 'Sen restricións extra',
 	'stabilization-submit' => 'Confirmar',
-	'stabilization-notexists' => 'Non hai unha páxina chamada "[[:$1|$1]]". A non configuración é posíbel.',
-	'stabilization-notcontent' => 'A páxina "[[:$1|$1]]" non pode ser revisada. A non configuración é posíbel.',
+	'stabilization-notexists' => 'Non hai páxina ningunha chamada "[[:$1|$1]]".
+Non é posible a configuración.',
+	'stabilization-notcontent' => 'Non se pode revisar a páxina "[[:$1|$1]]" .
+Non é posible a configuración.',
 	'stabilization-comment' => 'Motivo:',
 	'stabilization-otherreason' => 'Outro motivo:',
 	'stabilization-expiry' => 'Caducidade:',
