@@ -559,10 +559,11 @@ $messages['roa-tara'] = array(
 
 /** Russian (Русский)
  * @author KPu3uC B Poccuu
+ * @author Kaganer
  * @author Александр Сигачёв
  */
 $messages['ru'] = array(
-	'qualityoversight' => 'Расширенный журнал проверок версий',
+	'qualityoversight' => 'Подробный журнал патрулирования',
 	'qualityoversight-list' => 'Эта страница содержит список недавних подтверждений и снятий уровней качества версий.',
 	'qualityoversight-legend' => 'Поиск по журналу проверок',
 );
