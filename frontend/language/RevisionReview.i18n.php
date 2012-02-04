@@ -1836,7 +1836,7 @@ Arvioi kaikki alla olevat muutokset, jotta muokkauksesi näkyisivät vakaassa ve
 	'revreview-reject-summary-old' => 'Hylättiin {{PLURAL:$1|ensimmäinen tekstimuutos (käyttäjältä $2), joka|ensimmäiset $1 tekstimuutosta (käyttäjältä $2), jotka}} tehtiin versioon $3 käyttäjältä $4',
 	'revreview-reject-summary-cur-short' => 'Hylättiin {{PLURAL:$1|viimeinen tekstimuutos|viimeiset $1 tekstimuutosta}} ja palautettiin versio $2, jonka on tehnyt käyttäjä $3.',
 	'revreview-reject-summary-old-short' => 'Hylättiin {{PLURAL:$1|ensimmäinen tekstimuutos, joka|ensimmäiset $1 tekstimuutosta, jotka}} tehtiin käyttäjän $3 versioon $2.',
-	'revreview-tt-flag' => 'Hyväksy tämä versio merkitsemällä se silmäillyksi.',
+	'revreview-tt-flag' => 'Hyväksy tämä versio merkitsemällä se katsotuksi.',
 	'revreview-tt-unflag' => 'Poista tämän version hyväksyntä merkitsemällä se arvioimattomaksi.',
 	'revreview-tt-reject' => 'Hylkää nämä lähdetekstiin tehdyt muutokset kumoamalla ne.',
 );

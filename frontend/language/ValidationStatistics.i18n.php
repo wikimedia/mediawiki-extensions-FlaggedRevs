@@ -667,7 +667,7 @@ $messages['fi'] = array(
 
 Seulojat ovat luotettavia käyttäjiä, jotka voivat arvioida sivuille tehtyjä muutoksia ja merkitä ne hyväksytyiksi.",
 	'validationstatistics-lastupdate' => "''Seuraavat tiedot päivitettiin viimeksi $1 kello $2.''",
-	'validationstatistics-pndtime' => "Oikeutettujen käyttäjien (seulojien) silmäilemät muokkaukset ovat ''arvioituja''.
+	'validationstatistics-pndtime' => "Oikeutettujen käyttäjien (seulojien) katsomat muokkaukset ovat ''arvioituja''.
 
 Keskimääräinen arviointiaika [[Special:OldReviewedPages|sivuilla, joilla on odottavia muutoksia]] on '''$1'''. Tämä viive kertoo sen, kuinka kauan sarjassa vanhin arviointia odottava muutos odottaa edelleen arviointia.",
 	'validationstatistics-revtime' => "Keskimääräinen odotusaika ''sisäänkirjautumattomien käyttäjien'' muokkausten arviointiin on '''$1'''; mediaani on '''$2'''.

@@ -1239,7 +1239,7 @@ Asetusten määrittäminen ei ole mahdollista.',
 	'stabilize_expiry_old' => 'Tämä erääntymisaika on jo mennyt.',
 	'stabilize_denied' => 'Ei oikeutta.',
 	'stabilize-expiring' => 'vanhenee $1 (UTC)',
-	'stabilization-review' => 'Merkitse viimeisin versio silmäillyksi',
+	'stabilization-review' => 'Merkitse viimeisin versio katsotuksi',
 );
 
 /** French (Français)
