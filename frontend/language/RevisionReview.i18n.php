@@ -1500,6 +1500,7 @@ Bonvolu kontroli ĉiujn jenajn ŝanĝojn por aperigi viajn redaktojn en la stabi
 );
 
 /** Spanish (Español)
+ * @author Armando-Martin
  * @author Crazymadlover
  * @author Dferg
  * @author Drini
@@ -1559,8 +1560,12 @@ Mira la [[Special:Unreviewedpages|lista de páginas no revisadas]].',
 	'revreview-successful2' => "'''Se ha desmarcado la revisión de [[:$1|$1]] correctamente.'''",
 	'revreview-poss-conflict-p' => "'''Aviso: [[User:$1|$1]] empezó a revisar esta página el $2 a las $3.'''",
 	'revreview-poss-conflict-c' => "'''Aviso: [[User:$1|$1]] empezó a revisar estos cambios el $2 a las $3.'''",
-	'revreview-adv-reviewing-p' => "''' Aviso: usted se que se anuncian como comenzó a revisar esta página sobre  $1  en  $2 .'' '",
-	'revreview-adv-reviewing-c' => "''' Aviso: usted se que se anuncian como habiendo empezado revisar estos cambios en  $1  en  $2 .'' '",
+	'revreview-adv-reviewing-p' => 'Aviso: Otros revisores pueden ver que usted está revisando esta página.',
+	'revreview-adv-reviewing-c' => 'Aviso: Otros revisores pueden ver que usted está revisando estos cambios.',
+	'revreview-sadv-reviewing-p' => 'Usted puede $1 a usted mismo como revisor de esta página a otros usuarios.',
+	'revreview-sadv-reviewing-c' => 'Usted puede $1 a usted mismo como revisor de esta página a otros usuarios.',
+	'revreview-adv-start-link' => 'anunciar',
+	'revreview-adv-stop-link' => 'anular la publicidad',
 	'revreview-toolow' => "'''Debes valorar cada uno de los atributos más alto que \"inadecuado\" para que la revisión sea considerada verificada.'''
 
 Para quitar el estado de verificación de una revisión, clic \"no aceptar\".

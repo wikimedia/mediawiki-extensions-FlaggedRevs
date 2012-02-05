@@ -4203,6 +4203,7 @@ Bonvolu kontroli la retadreson (URL) kiun vi uzis por atingi la paĝon.\\b',
 
 /** Spanish (Español)
  * @author AlimanRuna
+ * @author Armando-Martin
  * @author Bola
  * @author Crazymadlover
  * @author Dferg
@@ -4242,13 +4243,13 @@ $messages['es'] = array(
 	'flaggedrevs-prefs-viewdiffs' => 'Mostrar la diferencia de los cambios pendientes al ver la última revisión pendiente',
 	'flaggedrevs-hidereviewed' => '$1 ediciones revisadas',
 	'group-editor' => 'Editores',
-	'group-editor-member' => 'editor',
+	'group-editor-member' => '{{GENDER:$1|Editor|Editora}}',
 	'group-reviewer' => 'Revisores',
-	'group-reviewer-member' => 'revisor',
+	'group-reviewer-member' => '{{GENDER:$1|revisor|revisora}}',
 	'grouppage-editor' => '{{ns:project}}:Editor',
 	'grouppage-reviewer' => '{{ns:project}}:Revisor',
 	'group-autoreview' => 'Usuarios autorevisados',
-	'group-autoreview-member' => 'usuarios autorevisados',
+	'group-autoreview-member' => '{{GENDER:$1|usuario autoconfirmado|usuaria autoconfirmada}}',
 	'grouppage-autoreview' => '{{ns:project}}:Usuarios autorevisados',
 	'revreview-hist-draft' => 'versión sin revisar',
 	'revreview-hist-pending' => 'a espera de revisión',
@@ -4302,10 +4303,10 @@ Puede que se hayan realizado [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{Med
 	'revreview-depth-4' => 'Destacado',
 	'revreview-draft-title' => 'Los cambios pendientes se muestran en esta página',
 	'revreview-edit' => 'Editar',
-	'revreview-editnotice' => "'''Tus cambios serán publicados una vez que un usuario autorizado los revise. ([[{{MediaWiki:Validationpage}}|ayuda]])'''",
+	'revreview-editnotice' => "'''Sus cambios serán publicados una vez que un usuario autorizado los revise. ([[{{MediaWiki:Validationpage}}|ayuda]])'''",
 	'revreview-submitedit' => 'Guardar cambios',
 	'revreview-submitedit-title' => 'Enviar tus cambios para revisión',
-	'revreview-edited' => "'''Tus cambios serán publicados una vez que un usuario autorizado los revise. ([[{{MediaWiki:Validationpage}}|ayuda]])'''
+	'revreview-edited' => "'''Sus cambios serán publicados una vez que un usuario autorizado los revise. ([[{{MediaWiki:Validationpage}}|ayuda]])'''
 
 {{PLURAL:$2|Hay|Hay}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|cambio|cambios}}] {{PLURAL:$2|pendiente|pendientes}} ''({{PLURAL:$2|mostrado|mostrados}} abajo)'' esperando revisión.",
 	'revreview-edited-section' => 'Volver a la sección de la página llamada "[[#$1|$2]]".',
