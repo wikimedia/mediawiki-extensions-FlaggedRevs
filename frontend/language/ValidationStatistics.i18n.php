@@ -1589,7 +1589,7 @@ Redaktorzy są doświadczonymi użytkownikami, którzy mogą oznaczać dowolne w
 	'validationstatistics-lastupdate' => "''Poniższe dane uaktualnione zostały $1 o $2.''",
 	'validationstatistics-pndtime' => "Zmiany, które zostały sprawdzone przez uprawnionych użytkowników są uznawane za ''oznaczone''.
 
-Średnie opóźnienie dla [[Special:OldReviewedPages|stron ze zamianami oczekującymi na oznaczenie]] wynosi '''$1'''. Jest to czas przez który najstarsze edycje pozostawały nieprzejrzane.",
+Średnie opóźnienie dla [[Special:OldReviewedPages|stron ze zmianami oczekującymi na oznaczenie]] wynosi '''$1'''. Jest to czas przez który najstarsze edycje pozostawały nieprzejrzane.",
 	'validationstatistics-revtime' => "Średni czas oczekiwania na oznaczenie edycji ''niezalogowanych użytkowników'' wynosi '''$1''', mediana – '''$2'''.
 $3",
 	'validationstatistics-table' => "Poniżej znajdują się statystyki przeglądania stron dla każdej przestrzeni nazw, ''z wyłączeniem'' przekierowań. Strony uznawane są za ''przestarzałe'' jeśli są zmiany ich treści oczekujące na przejrzenie. Strony uznawane są za ''przejrzane'' jeśli żadne zmiany ich treści nie oczekują na przejrzenie.",
