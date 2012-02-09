@@ -4797,6 +4797,13 @@ Prosimo, preglejte vse spremembe prikazane podaj, da prikažete vaše spremembe 
 	'revreview-tt-reject' => 'Zavrnite te spremembe besedila tako, da jih vrnete',
 );
 
+/** Albanian (Shqip)
+ * @author Tëfcí
+ */
+$messages['sq'] = array(
+	'revreview-successful' => "'''Shqyrtimi i faqesë ''[[:$1|$1]]'' u shënua me sukses ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} shiko të gjithë versionet të shqyrtuara]).'''",
+);
+
 /** Serbian (Cyrillic script) (‪Српски (ћирилица)‬)
  * @author Millosh
  * @author Rancher

@@ -1174,9 +1174,11 @@ Podana je tudi povezava do najnovejše redakcije te stopnje.",
 
 /** Albanian (Shqip)
  * @author Puntori
+ * @author Tëfcí
  */
 $messages['sq'] = array(
 	'reviewedpages-lev-1' => 'Kualiteti',
+	'reviewedpages-all' => 'versione të shqyrtuara',
 );
 
 /** Serbian (Cyrillic script) (‪Српски (ћирилица)‬)

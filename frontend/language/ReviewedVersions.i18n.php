@@ -1079,6 +1079,14 @@ $messages['sl'] = array(
 	'reviewedversions-review' => 'Pregledano <i>$1</i> s strani $2',
 );
 
+/** Albanian (Shqip)
+ * @author Tëfcí
+ */
+$messages['sq'] = array(
+	'reviewedversions' => 'versione të shqyrtuara',
+	'reviewedversions-review' => 'Shqyrtuar më <i>$1</i> nga $2',
+);
+
 /** Serbian (Cyrillic script) (‪Српски (ћирилица)‬)
  * @author Charmed94
  * @author Millosh

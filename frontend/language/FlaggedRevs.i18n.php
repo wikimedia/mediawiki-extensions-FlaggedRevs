@@ -4303,10 +4303,10 @@ Puede que se hayan realizado [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{Med
 	'revreview-depth-4' => 'Destacado',
 	'revreview-draft-title' => 'Los cambios pendientes se muestran en esta página',
 	'revreview-edit' => 'Editar',
-	'revreview-editnotice' => "'''Sus cambios serán publicados una vez que un usuario autorizado los revise. ([[{{MediaWiki:Validationpage}}|ayuda]])'''",
+	'revreview-editnotice' => "'''Sus cambios serán mostrados a los lectores una vez que un usuario autorizado los acepte. ([[{{MediaWiki:Validationpage}}|ayuda]])'''",
 	'revreview-submitedit' => 'Guardar cambios',
 	'revreview-submitedit-title' => 'Enviar tus cambios para revisión',
-	'revreview-edited' => "'''Sus cambios serán publicados una vez que un usuario autorizado los revise. ([[{{MediaWiki:Validationpage}}|ayuda]])'''
+	'revreview-edited' => "'''Sus cambios serán mostrados a los lectores una vez que un usuario autorizado los acepte. ([[{{MediaWiki:Validationpage}}|ayuda]])'''
 
 {{PLURAL:$2|Hay|Hay}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|cambio|cambios}}] {{PLURAL:$2|pendiente|pendientes}} ''({{PLURAL:$2|mostrado|mostrados}} abajo)'' esperando revisión.",
 	'revreview-edited-section' => 'Volver a la sección de la página llamada "[[#$1|$2]]".',
@@ -4932,7 +4932,7 @@ $messages['fi'] = array(
 	'revreview-accuracy-0' => 'Puutteellinen',
 	'revreview-accuracy-1' => 'Silmäilty',
 	'revreview-accuracy-2' => 'Katsastettu',
-	'revreview-accuracy-3' => 'Hyvin lähteistetty',
+	'revreview-accuracy-3' => 'Laatu arvioitu',
 	'revreview-accuracy-4' => 'Kiitettävä',
 	'revreview-auto' => '(automaattinen)',
 	'revreview-basic' => 'Tämä on [[{{MediaWiki:Validationpage}}|vakaa versio]], joka on [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} arvioitu] <i>$2</i>.
@@ -13227,12 +13227,14 @@ Obstajajo [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-
 
 /** Albanian (Shqip)
  * @author Cradel
+ * @author Tëfcí
  */
 $messages['sq'] = array(
 	'action-review' => 'redaktimet e shqyrtuara',
 	'editor' => 'Redaktuesi',
 	'flaggedrevs-desc' => 'I jep përdoruesve të drejtën e shqyrtimit të redaktimeve dhe stabilizimit të faqeve',
 	'flaggedrevs-pref-UI' => 'Ndërfaqe e thjeshtë:',
+	'revreview-noflagged' => "Nuk ekzistojnë [[{{MediaWiki:Validationpage}}|versione të shqyrtuara]] e kësaj faqe, kështu që '''nuk''' mund të jetë konfirmuar në standartet e tij të cilësisë.",
 	'revreview-revnotfound' => 'Versioni i vjetër i faqes së kërkuar nuk mund të gjindej. Ju lutem kontrolloni URL-n që përdorët për të ardhur tek kjo faqe.',
 );
 
