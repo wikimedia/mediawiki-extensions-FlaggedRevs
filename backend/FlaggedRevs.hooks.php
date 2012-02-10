@@ -344,7 +344,7 @@ class FlaggedRevsHooks {
 	 * (b) The edit is a self-revert to the stable version (by anyone)
 	 * (c) The user can 'autoreview' new pages and this edit is a new page
 	 * (d) The user can 'review' and the "review pending edits" checkbox was checked
-	*
+	 *
 	 * Note: RC items not inserted yet, RecentChange_save hook does rc_patrolled bit...
 	 * Note: $article one of Article, ImagePage, Category page as appropriate.
 	 */
@@ -386,8 +386,8 @@ class FlaggedRevsHooks {
 			# been the current version. If not reflected in wpEdittime, an
 			# edit may have been auto-merged in between, in that case, discard
 			# the baseRevId given from the client.
-			if ( !$editTimestamp || $prevTimestamp == $editTimestamp ) {
-				$baseRevId = intval( trim( $wgRequest->getVal( 'baseRevId' ) ) );
+			if ( $editTimestamp && $prevTimestamp === $editTimestamp ) {
+				$baseRevId = $wgRequest->getInt( 'baseRevId' );
 			}
 			# If baseRevId not given, assume the previous revision ID (for bots).
 			# For auto-merges, this also occurs since the given ID is ignored.
@@ -401,12 +401,10 @@ class FlaggedRevsHooks {
 		# (a) this new revision creates a new page and new page autoreview is enabled
 		# (b) this new revision is based on an old, reviewed, revision
 		if ( $title->getUserPermissionsErrors( 'autoreview', $user ) === array() ) {
-			// New pages
-			if ( !$prevRevId ) {
+			if ( !$prevRevId ) { // New pages
 				$reviewableNewPage = FlaggedRevs::autoReviewNewPages();
 				$reviewableChange = false;
-			// Edits to existing pages
-			} elseif ( $baseRevId ) {
+			} else { // Edits to existing pages
 				$reviewableNewPage = false; // had previous rev
 				# Check if the base revision was reviewed...
 				if ( FlaggedRevs::autoReviewEdits() ) {
