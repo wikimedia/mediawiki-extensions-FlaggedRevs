@@ -109,6 +109,7 @@ Please review all the changes shown below to make your edits appear in the stabl
  * @author IAlex
  * @author Jon Harald Søby
  * @author Lloffiwr
+ * @author Pxos
  * @author Raymond
  * @author SPQRobin
  * @author Siebrand
@@ -153,7 +154,7 @@ A mostly generic error message.',
 	'review_cannot_undo' => '{{Flagged Revs}}
 Used when edit conflict occurs with the "reject" feature',
 	'review_cannot_reject' => '{{Flagged Revs}}
-Used when using the "reject" feature on a (set) of revisions where someone else already accepted some of them.',
+Used when using the "reject" feature on a (set) of revisions where someone else has already accepted or rejected some of them.',
 	'review_reject_excessive' => '{{Flagged Revs}}
 Used when using the "reject" feature.',
 	'review_reject_nulledits' => '{{Flagged Revs}}
@@ -1783,7 +1784,7 @@ $messages['fi'] = array(
 	'review_denied' => 'Ei oikeutta.',
 	'review_param_missing' => 'Parametri puuttuu tai on kelpaamaton.',
 	'review_cannot_undo' => 'Muutoksia ei voitu kumota, koska myöhemmät arviointia odottavat muokkaukset ovat muuttaneet samoja alueita.',
-	'review_cannot_reject' => 'Näitä muutoksia ei voida nyt hylätä, koska joku muu on jo hyväksynyt osan muutoksista tai ne kaikki.',
+	'review_cannot_reject' => 'Näiden muutosten hylkääminen ei ole mahdollista, koska joku muu on jo hyväksynyt tai hylännyt muutokset.',
 	'review_reject_excessive' => 'Näin monta muokkausta ei voida hylätä kerralla.',
 	'review_reject_nulledits' => 'Näitä muutoksia ei voitu hylätä, koska kaikki versiot ovat nollamuokkauksia.',
 	'revreview-check-flag-p' => 'Hyväksy tämä versio (sisältää {{PLURAL:$1|odottavan muutoksen|$1 odottavaa muutosta}})',
@@ -5722,6 +5723,7 @@ $messages['zh-hans'] = array(
  * @author Anakmalaysia
  * @author Liangent
  * @author Mark85296341
+ * @author Oapbtommy
  * @author Waihorace
  */
 $messages['zh-hant'] = array(
@@ -5759,7 +5761,7 @@ $messages['zh-hant'] = array(
 	參看[[Special:Unreviewedpages]]去擷取未複審的頁面。',
 	'revreview-stable1' => '您可能要查看[{{fullurl:$1|stableid=$2}} 此標記的版本]，看看是否現在此頁的[{{fullurl:$1|stable=1}} 穩定版本]。',
 	'revreview-stable2' => '你可能想使用本頁的[{{fullurl:$1|stable=1}} 已審核版本]。',
-	'revreview-submit' => '遞交',
+	'revreview-submit' => '提交',
 	'revreview-submitting' => '正在提交…',
 	'revreview-submit-review' => '接受修訂',
 	'revreview-submit-unreview' => '拒絕修訂',

@@ -2076,6 +2076,7 @@ $messages['zh-hans'] = array(
  * @author Gzdavidwong
  * @author Horacewai2
  * @author Liangent
+ * @author Oapbtommy
  * @author Shinjiman
  * @author Waihorace
  * @author Wrightbus
@@ -2088,7 +2089,7 @@ $messages['zh-hant'] = array(
 	'pendingchanges-hours' => '（$1小時）',
 	'pendingchanges-days' => '（$1日）',
 	'pendingchanges-recent' => '（少於1小時）',
-	'pendingchanges-category' => '分類：',
+	'pendingchanges-category' => '類別：',
 	'pendingchanges-onwatchlist' => '在我的監視列表中的頁面',
 	'pendingchanges-stable' => '預設顯示穩定版本',
 	'pendingchanges-diff' => '複審',

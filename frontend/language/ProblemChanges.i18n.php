@@ -996,6 +996,7 @@ $messages['zh-hans'] = array(
 /** Traditional Chinese (‪中文(繁體)‬)
  * @author Horacewai2
  * @author Liangent
+ * @author Oapbtommy
  * @author Waihorace
  */
 $messages['zh-hant'] = array(
@@ -1003,6 +1004,6 @@ $messages['zh-hant'] = array(
 	'problemchanges-list' => '本頁面列出了[[{{MediaWiki:Validationpage}}|被審查過]]的頁面具有一個或多个標記的編輯等待審查。[[Special:Tags|有效更改標記]]列表可以提供的。',
 	'problemchanges-legend' => '列出頁面正等待審核',
 	'problemchanges-none' => '目前沒有頁面符合這些條件',
-	'problemchanges-category' => '分類：',
+	'problemchanges-category' => '類別：',
 );
 

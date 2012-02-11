@@ -1953,11 +1953,12 @@ $messages['zh-hans'] = array(
 /** Traditional Chinese (‪中文(繁體)‬)
  * @author Anakmalaysia
  * @author Gaoxuewei
+ * @author Oapbtommy
  */
 $messages['zh-hant'] = array(
 	'unreviewedpages' => '未複審頁面',
 	'unreviewedpages-legend' => '未復審內容頁面列表',
-	'unreviewedpages-category' => '分類：',
+	'unreviewedpages-category' => '類別：',
 	'unreviewedpages-diff' => '審核',
 	'unreviewedpages-unwatched' => '（未被監視）',
 	'unreviewedpages-watched' => '（$1位活躍{{PLURAL:$1|用戶|用戶}}正在監視）',
