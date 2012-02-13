@@ -109,7 +109,7 @@ class UnreviewedPages extends SpecialPage {
 
 		$stxt = $underReview = $watching = '';
 		$link = Linker::link( $title, null, array(), 'redirect=no' );
-		$dirmark = wfUILang()->getDirMark();
+		$dirmark = $this->getLang()->getDirMark();
 		$hist = Linker::linkKnown( $title, wfMsgHtml( 'hist' ), array(), 'action=history' );
 		if ( !is_null( $size = $row->page_len ) ) {
 			$stxt = ( $size == 0 )

@@ -82,12 +82,9 @@ class ReviewedPages extends SpecialPage {
 
 	public function formatRow( $row ) {
 		$title = Title::newFromRow( $row );
-		# Link to page
-		$link = Linker::link( $title );
-		# Direction mark
-		$dirmark = wfUILang()->getDirMark();
-		# Size (bytes)
-		$stxt = '';
+		$link = Linker::link( $title ); # Link to page
+		$dirmark = $this->getLang()->getDirMark(); # Direction mark
+		$stxt = ''; # Size (bytes)
 		if ( !is_null( $size = $row->page_len ) ) {
 			if ( $size == 0 ) {
 				$stxt = ' <small>' . wfMsgHtml( 'historyempty' ) . '</small>';
