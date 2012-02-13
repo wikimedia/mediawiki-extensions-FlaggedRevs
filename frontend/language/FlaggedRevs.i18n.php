@@ -4932,7 +4932,7 @@ $messages['fi'] = array(
 	'revreview-accuracy-0' => 'Puutteellinen',
 	'revreview-accuracy-1' => 'Silmäilty',
 	'revreview-accuracy-2' => 'Katsastettu',
-	'revreview-accuracy-3' => 'Laatu arvioitu',
+	'revreview-accuracy-3' => 'Hyvin lähteistetty',
 	'revreview-accuracy-4' => 'Kiitettävä',
 	'revreview-auto' => '(automaattinen)',
 	'revreview-basic' => 'Tämä on [[{{MediaWiki:Validationpage}}|vakaa versio]], joka on [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} arvioitu] <i>$2</i>.
@@ -5054,7 +5054,7 @@ Tarkista URL-osoite, jolla hait tätä sivua.',
 	'flaggedrevs-categoryview' => '[{{fullurl:Special:UnreviewedPages|category=$1}} Arvioimattomat sivut]{{MediaWiki:pipe-separator}}[{{fullurl:Special:PendingChanges|category=$1}} Odottavat muutokset]',
 	'revreview-locked-title' => 'Tälle sivulle tehtävät muutokset vaativat arviointia.',
 	'revreview-unlocked-title' => 'Tälle sivulle tehtävät muutokset eivät edellytä arviointia.',
-	'revreview-locked' => "'''Huomautus:''' Muokkaukset näkyvät tällä sivulla vasta [[{{MediaWiki:Validationpage}}|arvioinnin]] jälkeen.",
+	'revreview-locked' => "'''Huomautus:''' Tähän sivuun tehdyt muokkaukset näkyvät lukijoille vasta niiden [[{{MediaWiki:Validationpage}}|arvioinnin]] jälkeen.",
 	'revreview-unlocked' => "'''Huomautus:''' Muokkaukset eivät vaadi [[{{MediaWiki:Validationpage}}|arviointia]] näkyäkseen tällä sivulla.",
 	'log-show-hide-review' => '$1 arviointiloki',
 	'validationpage' => '{{ns:help}}:Sivujen arviointi',
@@ -10890,6 +10890,7 @@ $messages['pfl'] = array(
 
 /** Polish (Polski)
  * @author Beau
+ * @author BeginaFelicysym
  * @author Derbeth
  * @author Fizykaa
  * @author Holek
@@ -10985,12 +10986,12 @@ Później mogły zostać wykonane następne [{{fullurl:{{FULLPAGENAMEE}}|oldid=$
 	'revreview-depth-4' => 'na medal',
 	'revreview-draft-title' => 'Na tej stronie wyświetlane są oczekujące zmiany',
 	'revreview-edit' => 'Edytuj',
-	'revreview-editnotice' => "'''Dokonane przez Ciebie zmiany zostaną pokazane natychmiast po przejrzeniu przez uprawnionego użytkownika ([[{{MediaWiki:Validationpage}}|pomoc]]).'''",
+	'revreview-editnotice' => "!'''Dokonane przez Ciebie zmiany zostaną pokazane natychmiast po przejrzeniu przez uprawnionego użytkownika. ([[{{MediaWiki:Validationpage}}|pomoc]])'''",
 	'revreview-submitedit' => 'Zapisz zmiany',
 	'revreview-submitedit-title' => 'Zapisz swoją edycję i dołącz ją do zmian oczekujących na przejrzenie',
-	'revreview-edited' => "'''Dokonane przez Ciebie zmiany zostaną pokazane natychmiast po przejrzeniu ich przez uprawnionego użytkownika ([[{{MediaWiki:Validationpage}}|pomoc]]).'''
+	'revreview-edited' => "'''Dokonane przez Ciebie zmiany zostaną pokazane natychmiast po przejrzeniu ich przez uprawnionego użytkownika. ([[{{MediaWiki:Validationpage}}|pomoc]]).'''
 
-Obecnie [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|zmiana|zmiany|zmian}}] {{PLURAL:$2|oczekuje|oczekują|oczekuje}} na przejrzenie.",
+Obecnie [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|zmiana ''(wyświetlona poniżej)''|zmiany ''(wyświetlone poniżej)''|zmian ''(wyświetlonych poniżej)''}}] {{PLURAL:$2|oczekuje|oczekują|oczekuje}} na przejrzenie.",
 	'revreview-edited-section' => 'Wróć do sekcji „[[#$1|$2]]“.',
 	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|zmiana oczekuje|zmiany oczekują|zmian oczekuje}}] w tej wersji [[{{MediaWiki:Validationpage}}|na przejrzenie]].
 [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Wersja przejrzana] została [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} oznaczona] <i>$2</i>.',
@@ -14631,6 +14632,7 @@ $messages['tr'] = array(
 	'flaggedrevs-prefs-watch' => 'İncelediğim sayfaları izleme listeme ekle',
 	'flaggedrevs-prefs-editdiffs' => 'Sayfaları değiştirirken bekleyen değişiklikler farkını göster',
 	'flaggedrevs-prefs-viewdiffs' => 'Son bekleyen revizyonu görüntülerken bekleyen değişiklik farkını göster',
+	'flaggedrevs-hidereviewed' => 'İncelenmiş değişiklikleri $1',
 	'group-editor' => 'Editörler',
 	'group-editor-member' => '{{GENDER:$1|editör}}',
 	'group-reviewer' => 'İnceleyiciler',

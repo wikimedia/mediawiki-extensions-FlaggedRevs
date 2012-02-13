@@ -3135,11 +3135,11 @@ $messages['ko'] = array(
 
 당신의 편집을 승인하려면 아래에 보이는 모든 편집 사항을 검토해주십시오.
 필요하다면 내용을 보충하거나 편집을 되돌리십시오.',
-	'revreview-update-includes' => '일부 틀이나 파일이 수정되었습니다:',
+	'revreview-update-includes' => '일부 틀이나 파일이 수정되었습니다 (검토되지 않은 문서는 굵게 표시):',
 	'revreview-reject-cancel' => '취소',
 	'revreview-tt-flag' => '이 판을 검토하기',
 	'revreview-tt-unflag' => '이 판에 대한 검토 취소하기',
-	'revreview-tt-reject' => '편집을 되돌려 편집 승인을 거부',
+	'revreview-tt-reject' => '편집을 되돌려 이 내용 변경 사항을 거부',
 );
 
 /** Colognian (Ripoarisch)
