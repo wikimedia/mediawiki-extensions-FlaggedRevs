@@ -228,7 +228,7 @@ class FlaggedRevsStats {
 		# Lastly, we want to avoid bias that would make the time too low
 		# since new revisions could not have "took a long time to sight".
 		$worstLagTS = $dbr->timestamp(); // now
-		$last = '0';
+		$encLastTS = $encInstalled;
 		while ( true ) { // should almost always be ~1 pass
 			# Get the page with the worst pending lag...
 			$row = $dbr->selectRow( array( 'flaggedpage_pending', 'flaggedrevs' ),
@@ -237,7 +237,7 @@ class FlaggedRevsStats {
 					'fpp_quality' => 0, // "checked"
 					'fpp_pending_since > '.$encInstalled, // needs actual display lag
 					'fr_page_id = fpp_page_id AND fr_rev_id = fpp_rev_id',
-					'fpp_pending_since > '.$dbr->addQuotes($last), // skip failed rows
+					'fpp_pending_since > '.$encLastTS, // skip failed rows
 				),
 				__METHOD__,
 				array( 'ORDER BY' => 'fpp_pending_since ASC',
@@ -258,7 +258,7 @@ class FlaggedRevsStats {
 			# Fudge factor to prevent deliberate reviewing of non-current revisions
 			# from squeezing the range. Shouldn't effect anything otherwise.
 			} else {
-				$last = $row->fpp_pending_since; // next iteration
+				$encLastTS = $dbr->addQuotes( $row->fpp_pending_since ); // next iteration
 			}
 		}
 		# User condition (anons/users)
