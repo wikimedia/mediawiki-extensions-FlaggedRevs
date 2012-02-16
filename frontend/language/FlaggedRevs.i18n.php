@@ -4974,13 +4974,13 @@ Sivun [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} vakaa versio] on [{{fullurl:{{#Spe
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|odottavan muutoksen|odottavaa muutosta}}].',
 	'revreview-noflagged' => "Tätä sivua ei ole [[{{MediaWiki:Validationpage}}|arvioitu]] kertaakaan, joten se '''ei''' välttämättä vastaa laatuvaatimuksia.",
 	'revreview-oldrating' => 'Arvio oli:',
-	'revreview-quality' => 'Tämä on [[{{MediaWiki:Validationpage}}|vakaa versio]], jonka [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} sisältö hyväksyttiin] <i>$2</i>.
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|muutos|muutosta}}] odottaa arviointia.',
-	'revreview-quality-i' => 'Tämä on [[{{MediaWiki:Validationpage}}|vakaa versio]], jonka [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} sisältö hyväksyttiin] <i>$2</i>.
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Malline- tai tiedostomuutokset] odottavat arviointia.',
-	'revreview-quality-old' => 'Tämä on [[{{MediaWiki:Validationpage}}|laadukas versio]] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} näytä kaikki]), jonka [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} sisältö hyväksyttiin] <i>$2</i>.
-Uusia [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} muutoksia] on saatettu tehdä.',
-	'revreview-quality-same' => 'Tämä on [[{{MediaWiki:Validationpage}}|vakaa versio]], jonka [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} sisältö hyväksyttiin] <i>$2</i>.',
+	'revreview-quality' => "Tämä on ''vakaa versio'', jonka [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} sisältö hyväksyttiin] <i>$2</i>.
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|muutos|muutosta}}] odottaa arviointia. ([[{{MediaWiki:Validationpage}}|Ohje]])",
+	'revreview-quality-i' => "Tämä on ''vakaa versio, jonka [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} sisältö hyväksyttiin] <i>$2</i>.
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Malline- tai tiedostomuutokset] odottavat arviointia. ([[{{MediaWiki:Validationpage}}|Ohje]])",
+	'revreview-quality-old' => "Tämä on ''laadukas versio'' ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} näytä kaikki]), jonka [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} sisältö hyväksyttiin] <i>$2</i>.
+Uusia [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} muutoksia] on saatettu tehdä. ([[{{MediaWiki:Validationpage}}|Ohje]])",
+	'revreview-quality-same' => "Tämä on ''vakaa versio'', jonka [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} sisältö hyväksyttiin] <i>$2</i>. ([[{{MediaWiki:Validationpage}}|Ohje]])",
 	'revreview-quality-source' => '[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} Laadukas versio] tästä sivusta, joka [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} hyväksyttiin] <i>$2</i>, perustui tähän versioon.',
 	'revreview-quality-title' => 'Tämä on laadukas versio tästä sivusta.',
 	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|Katsottu]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} arvioi odottavat muutokset]]",
