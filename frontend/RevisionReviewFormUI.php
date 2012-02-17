@@ -221,7 +221,7 @@ class RevisionReviewFormUI {
 		$form .= Html::hidden( 'target', $article->getTitle()->getPrefixedDBKey() ) . "\n";
 		$form .= Html::hidden( 'refid', $priorRevId, array( 'id' => 'mw-fr-input-refid' ) ) . "\n";
 		$form .= Html::hidden( 'oldid', $revId, array( 'id' => 'mw-fr-input-oldid' ) ) . "\n";
-		$form .= Html::hidden( 'wpEditToken', $this->user->editToken() ) . "\n";
+		$form .= Html::hidden( 'wpEditToken', $this->user->getEditToken() ) . "\n";
 		$form .= Html::hidden( 'changetime', $reviewTime,
 			array( 'id' => 'mw-fr-input-changetime' ) ) . "\n"; // id for JS
 		$form .= Html::hidden( 'userreviewing', (int)($u === $this->user->getName()),
