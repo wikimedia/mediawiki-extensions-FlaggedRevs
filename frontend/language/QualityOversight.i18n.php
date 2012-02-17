@@ -563,7 +563,7 @@ $messages['roa-tara'] = array(
  * @author Александр Сигачёв
  */
 $messages['ru'] = array(
-	'qualityoversight' => 'Расширенный журнал проверки версий',
+	'qualityoversight' => 'Расширенный журнал проверок версий',
 	'qualityoversight-list' => 'Эта страница содержит список недавних подтверждений и снятий уровней качества версий.',
 	'qualityoversight-legend' => 'Поиск по журналу проверок',
 );
