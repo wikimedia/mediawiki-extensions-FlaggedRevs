@@ -275,12 +275,13 @@ $messages['eu'] = array(
 
 /** Persian (فارسی)
  * @author Ebraminio
+ * @author Huji
  * @author Mjbmr
  * @author Wayiran
  */
 $messages['fa'] = array(
 	'problemchanges' => 'ویرایش‌های برچسب‌خوردهٔ در انتظار',
-	'problemchanges-list' => 'این صفحه، فهرست صفحات [[{{MediaWiki:Validationpage}}|بازبینی شده]] است که یک یا چند ویرایش در انتطار بازبینی دارند. فهرست [[Special:Tags|برچسب‌های مجاز تغییر]] در دسترس است.',
+	'problemchanges-list' => 'این صفحه، فهرست صفحه‌های [[{{MediaWiki:Validationpage}}|بازبینی شده]] است که یک یا چند ویرایش در انتطار بازبینی دارند. فهرست [[Special:Tags|برچسب‌های مجاز تغییر]] در دسترس است.',
 	'problemchanges-legend' => 'صفحه‌های با ویرایش‌های برچسب‌خوردهٔ در انتظار بازبینی را فهرست کن.',
 	'problemchanges-none' => 'در حال حاضر صفحه‌ای که با این معیارها سازگار باشد وجود ندارد',
 	'problemchanges-category' => 'رده:',

@@ -620,7 +620,7 @@ $messages['eu'] = array(
  * @author Wayiran
  */
 $messages['fa'] = array(
-	'pendingchanges' => 'صفحات دارای تغییرات در حال انتظار',
+	'pendingchanges' => 'صفحه‌های دارای تغییرات در حال انتظار',
 	'pendingchanges-legend' => 'فهرست صفحه‌های بازبینی شده با ویرایش‌های بازبینی نشده',
 	'pendingchanges-list' => 'این صفحه فهرستی از صفحه‌های [[{{MediaWiki:Validationpage}}|بازبینی شده]] دارای یک یا چند تغییر در حال انتظار می‌باشد.',
 	'pendingchanges-none' => 'در حال حاضر صفحه‌ای که با این معیارها سازگار باشد وجود ندارد',
@@ -628,7 +628,7 @@ $messages['fa'] = array(
 	'pendingchanges-days' => '($1 {{PLURAL:$1|روز|روز}})',
 	'pendingchanges-recent' => '(کمتر از ۱ ساعت)',
 	'pendingchanges-category' => 'رده:',
-	'pendingchanges-onwatchlist' => 'صفحات موجود در فهرست پی‌گیری‌های من',
+	'pendingchanges-onwatchlist' => 'صفحه‌های موجود در فهرست پی‌گیری‌های من',
 	'pendingchanges-stable' => 'نسخهٔ پایدار پیش‌فرض است',
 	'pendingchanges-diff' => 'بازبینی',
 	'pendingchanges-size' => 'بزرگترین تغییر (بایت):',

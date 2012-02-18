@@ -308,12 +308,13 @@ $messages['eu'] = array(
 
 /** Persian (فارسی)
  * @author Ebraminio
+ * @author Huji
  * @author Ladsgroup
  * @author Mjbmr
  * @author Wayiran
  */
 $messages['fa'] = array(
-	'configuredpages' => 'صفحات با تنظیمات بازبینی',
+	'configuredpages' => 'صفحه‌های دارای تنظیمات بازبینی',
 	'configuredpages-list' => 'این صفحه فهرستی از صفحه‌های تنظیم شده‌ای وجود دارد که تاییدهٔ متفاوتی از پیش‌فرض تارنما دارند.
 تعدادی از تنظیمات ممکن است اینکه کدام نسخه برای خواننده نمایش داده شود یا محدودیت بیشتری که نیازی به بازبینی ندارند را تغییر دهند.',
 	'configuredpages-none' => 'هیچ صفحه در این فهرست وجود دارد.',

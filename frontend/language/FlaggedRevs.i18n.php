@@ -4673,17 +4673,18 @@ $messages['fa'] = array(
 	'action-review' => 'بازبینی بازبینی‌ها',
 	'editor' => 'ویرایشگر',
 	'flaggedrevs' => 'نسخه‌های علامت‌دار',
-	'flaggedrevs-watched-pending' => "هم‌اکنون در فهرست پی‌گیری‌های شما، [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} تغییرات درحال‌انتظار] به صفحات بازبینی‌شده وجود دارند. '''به توجه شما نیاز است!'''",
-	'flaggedrevs-desc' => 'به ویرایش‌گران، توانایی بازبینی نسخه‌ها و تثبیت صفحات را می‌دهد',
+	'flaggedrevs-watched-pending' => "هم‌اکنون [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} تغییرات درحال‌انتظار] در صفحه‌های بازبینی‌شده  در فهرست پی‌گیری‌های شما وجود دارند.
+'''به توجه شما نیاز است!'''",
+	'flaggedrevs-desc' => 'به ویرایش‌گران، توانایی بازبینی نسخه‌ها و تثبیت صفحه‌ها را می‌دهد',
 	'flaggedrevs-pref-UI' => 'رابط پایه:',
 	'flaggedrevs-pref-UI-0' => 'برای نمایش وضعیت بازبینی صفحات، از جعبه‌های دارای جزئیات استفاده کن',
 	'flaggedrevs-pref-UI-1' => 'برای نشان دادن وضعیت بازبینی صفحات، از نقشک‌های (آیکون‌های) کوچک و کوتاه‌ترین متون استفاده کن',
 	'prefs-flaggedrevs' => 'ویرایش بازبینی',
 	'prefs-flaggedrevs-ui' => 'ویرایش بازبینی',
-	'flaggedrevs-prefs-stable' => 'چه زمانی همواره به صورت پیش‌فرض، نسخهٔ پایدار صفحات محتویات را نشان دهد',
-	'flaggedrevs-pref-stable-0' => 'استفاده از تنظیمات پیش‌فرض برای هر صفحه',
-	'flaggedrevs-pref-stable-1' => 'همیشه نسخهٔ پایدار صفحه را در صورت وجود نشان دهد',
-	'flaggedrevs-pref-stable-2' => 'همیشه آخرین نسخه را نشان دهد',
+	'flaggedrevs-prefs-stable' => 'چه زمانی نسخهٔ پایدار صفحه‌های محتوایی به صورت پیش‌فرض نمایش داده شود',
+	'flaggedrevs-pref-stable-0' => 'برای هر صفحه از تنظیمات پیش‌فرض استفاده شود',
+	'flaggedrevs-pref-stable-1' => 'همیشه نسخهٔ پایدار صفحه (در صورت وجود) نمایش داده شود',
+	'flaggedrevs-pref-stable-2' => 'همیشه آخرین نسخه نمایش داده شود',
 	'flaggedrevs-prefs-watch' => 'صفحه‌هایی که بازبینی می‌کنم را به فهرست پیگیری‌هایم اضافه کن',
 	'flaggedrevs-prefs-editdiffs' => 'نمایش تفاوت تغییرات در زمان ویرایش صفحه‌ها',
 	'flaggedrevs-prefs-viewdiffs' => 'نمایش در مدت اختلاف تغییرات در هنگام ویرایش اخیر و مدت بازبینی',
@@ -4750,11 +4751,11 @@ $3  [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffon
 	'revreview-depth-4' => 'برگزیده',
 	'revreview-draft-title' => 'تغییرات در حال انتظار در این صفحه نمایش داده می‌شوند',
 	'revreview-edit' => 'ویرایش',
-	'revreview-editnotice' => "'''تغییرات شما همین که یک کاربر مجاز بازبینی‌شان کند، نمایش داده خواهند شد.
+	'revreview-editnotice' => "'''تغییرات شما همین که یک کاربر مجاز تأییدشان کند، به خوانندگان نمایش داده خواهند شد.
 ([[{{MediaWiki:Validationpage}}|راهنما]])'''",
 	'revreview-submitedit' => 'ثبت تغییرات',
 	'revreview-submitedit-title' => 'تغییرات خود را برای بازبینی ثبت کنید',
-	'revreview-edited' => "'''تغییرات شما به محض اینکه توسط یک کاربر تائیدشده بازبینی شوند، نمایش داده خواهند شد. ([[{{MediaWiki:Validationpage}}|راهنما]])'''
+	'revreview-edited' => "'''تغییرات شما به محض اینکه توسط یک کاربر مجاز تأیید شوند، به خوانندگان نمایش داده خواهند شد. ([[{{MediaWiki:Validationpage}}|راهنما]])'''
 
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 تغییر درحال‌انتظار] ''(نشان‌داده‌شده در زیر)'' منتظر بازبینی {{PLURAL:$2|است|هستند}}.",
 	'revreview-edited-section' => 'به بخش صفحه تحت نام «[[#$1|$2]]» باز گرد.',
@@ -4763,21 +4764,21 @@ $3  [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffon
 	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} تغییرات الگو/پرونده] منتظر [[{{MediaWiki:Validationpage}}|بازبینی]] هستند.
 [{{fullurl:{{FULLPAGENAMEE}}|stable=1}}نسخهٔ پایدار] در <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} بررسی شد].',
 	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 تغییر] در این نسخه منتظر [[{{MediaWiki:Validationpage}}|بازبینی]] {{PLURAL:$3|است|هستند}}.
-[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} نسخهٔ پایدار] در <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} تائید شد].',
+[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} نسخهٔ پایدار] در <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} تأیید شد].',
 	'revreview-newest-quality-i' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} تغییرات الگو/پرونده] منتظر [[{{MediaWiki:Validationpage}}|بازبینی]] هستند.
-[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} نسخهٔ پایدار] در <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} تائید شد].',
+[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} نسخهٔ پایدار] در <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} تأیید شد].',
 	'revreview-pending-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} نسخهٔ پایدار] در <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} بررسی شده‌است]. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 تغییر درحال‌انتظار] منتظر بازبینی {{PLURAL:$3|است|هستند}}.',
-	'revreview-pending-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} نسخهٔ پایدار] در <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} تائید شده‌است]. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 تغییر درحال‌انتظار] منتظر بازبینی {{PLURAL:$3|است|هستند}}.',
+	'revreview-pending-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} نسخهٔ پایدار] در <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} تأیید شده‌است]. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 تغییر درحال‌انتظار] منتظر بازبینی {{PLURAL:$3|است|هستند}}.',
 	'revreview-pending-nosection' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} واپسین نسخه] را که شامل [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 تغییر درحال‌انتظار] است مشاهده کنید تا ببینید که آیا بخش منتقل یا حذف شده است.',
 	'revreview-noflagged' => "هیچ [[{{MediaWiki:Validationpage}}|نسخهٔ بازبینی‌شده‌ای]] از این صفحه وجود ندارد، بنابراین برای تبعیت از سنجه‌ها ممکن است بررسی '''نشده''' باشد.",
 	'revreview-oldrating' => 'نمره داده شده:',
-	'revreview-quality' => 'این [[{{MediaWiki:Validationpage}}|نسخهٔ پایداری]] است که در <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} تائید شده‌است].
+	'revreview-quality' => 'این [[{{MediaWiki:Validationpage}}|نسخهٔ پایداری]] است که در <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} تأیید شده‌است].
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 تغییر درحال‌انتظار] منتظر بازبینی {{PLURAL:$3|است|هستند}}.',
-	'revreview-quality-i' => 'این [[{{MediaWiki:Validationpage}}|نسخهٔ پایداری]] است که در <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} تائید شد].
+	'revreview-quality-i' => 'این [[{{MediaWiki:Validationpage}}|نسخهٔ پایداری]] است که در <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} تأیید شد].
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} تغییرات الگو/پروندهٔ] منتظر بازبینی وجود دارند.',
 	'revreview-quality-old' => 'این یک نسخهٔ [[{{MediaWiki:Validationpage}}|باکیفیت]] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} همه را فهرست کن]) [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} تائیدشده] در <i>$2</i> است.
 ممکن است [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} تغییرات] جدیدی صورت گرفته باشد.',
-	'revreview-quality-same' => 'این [[{{MediaWiki:Validationpage}}|نسخهٔ پایداری]] است که در تاریخ <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} تائید شده است].',
+	'revreview-quality-same' => 'این [[{{MediaWiki:Validationpage}}|نسخهٔ پایداری]] است که در تاریخ <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} تأیید شده است].',
 	'revreview-quality-source' => 'یک [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} نسخهٔ باکیفیت] از این صفحه، [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} تأیید شده] در <i>$2</i>، بر مبنای این نسخه ایجاد شده‌است.',
 	'revreview-quality-title' => 'این نسخهٔ با کیفیت این صفحه است.',
 	'revreview-quick-basic' => "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} تغییرات درانتظار بازبینی]] '''[[{{MediaWiki:Validationpage}}|بررسی‌شده]]'''",
@@ -4806,7 +4807,7 @@ $3  [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffon
 لطفاً URLی را که برای دسترسی به این صفحه استفاده کرده‌اید، بررسی کنید.',
 	'right-autoreview' => 'علامت زدن خودکار نسخه‌ها به عنوان «بررسی شده»',
 	'right-autoreviewrestore' => 'بازبینی خودکار در واگردانی',
-	'right-movestable' => 'انتقال صفحات با نسخه‌های پایدار',
+	'right-movestable' => 'انتقال صفحه‌های دارای نسخهٔ پایدار',
 	'right-review' => 'علامت زدن نسخه‌ها به عنوان «بررسی شده»',
 	'right-stablesettings' => 'نحوهٔ انتخاب و نمایش نسخهٔ پایدار را پیکربندی کنید',
 	'right-validate' => 'علامت زدن نسخه‌های «با کیفیت» به عنوان تأیید شده',
@@ -4848,7 +4849,7 @@ $3  [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffon
 	'tooltip-ca-default' => 'تنظیمات کنترل کیفیت',
 	'flaggedrevs-protect-legend' => 'بازبینی خودکار ویرایش ([[{{MediaWiki:Validationpage}}|کمک]])',
 	'flaggedrevs-protect-none' => 'به همهٔ کاربران اجازه بده',
-	'flaggedrevs-categoryview' => '[{{fullurl:Special:UnreviewedPages|category=$1}} صفحات بازبینی نشده]{{int:pipe-separator}}[{{fullurl:Special:PendingChanges|category=$1}} تغییرات در حال انتظار]',
+	'flaggedrevs-categoryview' => '[{{fullurl:Special:UnreviewedPages|category=$1}} صفحه‌های بازبینی نشده]{{int:pipe-separator}}[{{fullurl:Special:PendingChanges|category=$1}} تغییرات در حال انتظار]',
 	'revreview-locked-title' => 'لزوم بازبینی برای تغییرات صورت گرفته در این صفحه.',
 	'revreview-unlocked-title' => 'ویرایش‌های این صفحه نیازی به بازبینی ندارند.',
 	'revreview-locked' => "'''توجه:''' ویرایش‌ها باید پیش از نمایش به خوانندگان در این صفحه، [[{{MediaWiki:Validationpage}}|بازبینی]] شوند.",
