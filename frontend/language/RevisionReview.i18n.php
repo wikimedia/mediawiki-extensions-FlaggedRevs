@@ -1745,7 +1745,7 @@ $messages['fa'] = array(
 	'revreview-update-includes' => 'الگوها/پرونده‌ها به روز رسانی شدند (صفحه‌های بازبینی نشده به صورت پررنگ نمایش داده شده‌اند):',
 	'revreview-reject-text-list' => "با تکمیل این اقدام، شما {{PLURAL:$1|نسخه|نسخه‌های}} مقابل از [[:$2|$2]] را '''رد خواهید کرد''':",
 	'revreview-reject-text-revto' => 'این صفحه را برمی‌گرداند به [{{fullurl:$1|oldid=$2}} نسخه $3].',
-	'revreview-reject-summary' => 'ْخلاصه ویرایش:',
+	'revreview-reject-summary' => 'ْخلاصه:',
 	'revreview-reject-confirm' => 'رد کردن این تغییرات',
 	'revreview-reject-cancel' => 'انصراف',
 	'revreview-reject-summary-cur' => 'آخرین {{PLURAL:$1|تغییر متن|$1 تغییرات متن}} رد شد (توسط $2) و برگردانده شد به نسخه مرور شده $3 توسط $4',
