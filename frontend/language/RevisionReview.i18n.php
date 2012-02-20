@@ -874,6 +874,7 @@ Adlennit an holl gemmoù diskouezet a-is evit ma teufe war wel ho kemmoù er stu
 
 /** Bosnian (Bosanski)
  * @author CERminator
+ * @author Edinwiki
  */
 $messages['bs'] = array(
 	'revisionreview' => 'Pregledaj revizije',
@@ -921,8 +922,12 @@ Pogledajte [[Special:Unreviewedpages|spisak nepregledanih stranica]].',
 	'revreview-successful2' => "'''Reviziji od [[:$1|$1]] je uspješno uklonjena oznaka.'''",
 	'revreview-poss-conflict-p' => "'''Upozorenje: [[User:$1|$1]] je započeo pregled ove stranice dana $2 u $3.'''",
 	'revreview-poss-conflict-c' => "'''Upozorenje: [[User:$1|$1]] je započeo pregled ovih izmjena dana $2 u $3.'''",
-	'revreview-adv-reviewing-p' => "'''Napomena: Savjetuje vam se da započnete pregled ove stranice na $1 u $2.'''",
-	'revreview-adv-reviewing-c' => "'''Napomena: Savjetuje vam se da započnete pregled ovih izmjena na $1 u $2.'''",
+	'revreview-adv-reviewing-p' => "'''Napomena: Drugi korisnici mogu vidjeti da vi pregledavate ovu stranicu.'''",
+	'revreview-adv-reviewing-c' => "'''Napomena: Drugi korisnici mogu vidjeti da vi pregledavate ove izmjene.'''",
+	'revreview-sadv-reviewing-p' => 'Možete se $1 za pregledanje ove stranice od drugih korisnika.',
+	'revreview-sadv-reviewing-c' => 'Možete se $1 za pregledanje ovih izmjena od drugih korisnika.',
+	'revreview-adv-start-link' => 'prijaviti',
+	'revreview-adv-stop-link' => 'odjaviti',
 	'revreview-toolow' => "'''Morate ocijeniti svaku od ispod navedenih ocjena više od ''neadekvatno'' da bi se revizija smatrala pregledanom.'''
 
 Da bi uklonili status ocjene revizije, kliknite na ''odbij''.
@@ -2879,7 +2884,7 @@ Vedi l'[[Special:Unreviewedpages|elenco delle pagine non revisionate]].",
 $messages['ja'] = array(
 	'revisionreview' => '特定版の査読',
 	'revreview-failed' => "'''この版を査読できません。'''",
-	'revreview-submission-invalid' => '送信内容は不完全か、もしくは不正なものでした。',
+	'revreview-submission-invalid' => '送信は完了しなかったか、もしくは不正なものでした。',
 	'review_page_invalid' => '指定されたページ名は無効です。',
 	'review_page_notexists' => '指定されたページは存在していません。',
 	'review_page_unreviewable' => '指定されたページは閲覧できません。',

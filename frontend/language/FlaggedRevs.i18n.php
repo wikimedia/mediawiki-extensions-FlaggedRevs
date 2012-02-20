@@ -9372,7 +9372,7 @@ $messages['mk'] = array(
 Има [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|промена|промени}}] ''({{PLURAL:$2|прикажана подолу|прикажани подолу}})'' што {{PLURAL:$2|чека проверка|чекаат проверка}}.",
 	'revreview-edited-section' => 'Назад на заглавието со име „[[#$1|$2]]“.',
 	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|промена|промени}}] во оваа верзија {{PLURAL:$3|чека|чекаат}} на [[{{MediaWiki:Validationpage}}|проверка]].
-[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Стабилната верзија] е [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} проеврена] на <i>$2</i>.',
+[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Стабилната верзија] е [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} проверена] на <i>$2</i>.',
 	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Промените во шаблоните/податотеките] во оваа верзија чекаат на [[{{MediaWiki:Validationpage}}|проверка]].
 [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Стабилната верзија] е [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} проверена] на <i>$2</i>.',
 	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3  {{PLURAL:$3|промена|промени}}] во оваа верзија {{PLURAL:$3|чека|чекаат}} на [[{{MediaWiki:Validationpage}}|проверка]].

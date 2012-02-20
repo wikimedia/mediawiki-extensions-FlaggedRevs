@@ -183,10 +183,30 @@ $messages['arz'] = array(
 
 /** Asturian (Asturianu)
  * @author Esbardu
+ * @author Xuacu
  */
 $messages['ast'] = array(
+	'validationstatistics' => 'Estadístiques de revisión de les páxines',
+	'validationstatistics-users' => "'''{{SITENAME}}''' tien anguaño '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|usuariu|usuarios}} con permisos d'[[{{MediaWiki:Validationpage}}|Editor]].
+
+Los editores son usuarios espertos que puen comprobar les revisiones de les páxines.",
+	'validationstatistics-lastupdate' => "''Los siguientes datos s'anovaron el $1 a les $2.''",
+	'validationstatistics-pndtime' => "Les ediciones comprobaes por usuarios establecíos se consideren ''revisaes''.
+
+L'atrasu mediu pa les [[Special:OldReviewedPages|páxines con ediciones pendientes de revisar]] ye de '''$1''';
+l'atrasu mide cuanto lleva pendiente de revisar la edición más antigua.",
+	'validationstatistics-revtime' => "El promediu d'espera de revisión pa les ediciones d'''usuarios que nun s'identificaron'' ye de '''$1'''; la mediana ye de '''$2'''.
+$3",
+	'validationstatistics-table' => "Abaxo s'amuesen les estadístiques de revisiones de páxines pa cada espaciu de nomes, ''sacante'' les páxines de redireición. Les páxines se consideren ''anticuaes'' si tienen ediciones esperando por una revisión; les páxines se consideren ''sincronizaes'' si nun hai ediciones esperando por una revisión.",
 	'validationstatistics-ns' => 'Espaciu de nomes',
 	'validationstatistics-total' => 'Páxines',
+	'validationstatistics-stable' => 'Revisada',
+	'validationstatistics-latest' => 'Sincronizada',
+	'validationstatistics-synced' => 'Sincronizada/Revisada',
+	'validationstatistics-old' => 'Anticuada',
+	'validationstatistics-utable' => 'Abaxo ta la llista {{PLURAL:$1|del revisor más activu|de los $1 revisores más activos}} de {{PLURAL:$2|la cabera hora|les caberes $2 hores}}.',
+	'validationstatistics-user' => 'Usuariu',
+	'validationstatistics-reviews' => 'Revisiones',
 );
 
 /** Azerbaijani (Azərbaycanca)
