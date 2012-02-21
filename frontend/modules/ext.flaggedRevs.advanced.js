@@ -203,7 +203,9 @@ var fr = {
 	}
 };
 
-// Perform some onload (which is when this script is included) events:
-fr.init();
+// Perform some onload events:
+$(document).ready( function() {
+	fr.init();
+} );
 
 })( jQuery );
