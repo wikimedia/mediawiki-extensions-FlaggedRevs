@@ -182,7 +182,7 @@ class FlaggedRevsUISetup {
 	 * @param $ajaxExportList Array $wgAjaxExportList
 	 * @return void
 	 */
-	public static function defineAjaxFunctions( array &$ajaxExportList ) {
+	public static function defineAjaxFunctions( &$ajaxExportList ) {
 		$ajaxExportList[] = 'RevisionReview::AjaxReview';
 		$ajaxExportList[] = 'FlaggablePageView::AjaxBuildDiffHeaderItems';
 	}
@@ -195,7 +195,7 @@ class FlaggedRevsUISetup {
 	 * @return void
 	 */
 	public static function defineLogBasicDescription(
-		array &$logNames, array &$logHeaders, array &$filterLogTypes
+		&$logNames, &$logHeaders, &$filterLogTypes
 	) {
 		$logNames['review'] = 'review-logpage';
 		$logHeaders['review'] = 'review-logpagetext';
@@ -213,7 +213,7 @@ class FlaggedRevsUISetup {
 	 * @return void
 	 */
 	public static function defineLogActionHandlers(
-		array &$logActions, array &$logActionsHandlers
+		&$logActions, &$logActionsHandlers
 	) {
 		# Various actions are used for log filtering ...
 		$logActions['review/approve']  = 'review-logentry-app'; // checked (again)
