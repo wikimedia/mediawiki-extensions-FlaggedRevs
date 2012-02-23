@@ -8838,7 +8838,7 @@ $messages['lb'] = array(
 	'revreview-hist-basic-auto' => 'automatesch nogekuckt',
 	'revreview-hist-pending-difflink' => "'''[[{{fullurl:$1|oldid=$2&diff=$3{{MediaWiki:flaggedrevs-diffonly}}}} muss nach nogekuckt ginn]]'''",
 	'review-edit-diff' => "'''INFORMATIOUN: E puer Ännerunge déi drop waarde fir verëffentlecht ze ginn betreffen deen Deel vun Der Säit, deen dir am gaang sidd z'änneren.'''",
-	'revreview-diff-toggle-show' => 'Ännerunge weisen',
+	'revreview-diff-toggle-show' => 'Déi Ännerunge weisen',
 	'revreview-diff-toggle-hide' => 'Ännerunge verstoppen',
 	'revreview-diff-toggle-title' => 'Tëschent den Ännerungen déi nach am Suspens sinn an der verëffentlechter Versioun ëmschalten',
 	'revreview-log-toggle-show' => 'Stabilitéits-Logbuch weisen',
