@@ -193,7 +193,7 @@ class FlaggedRevsHooks {
 			$title = Title::makeTitle( NS_FILE, $title->getDBkey() );
 			$title->resetArticleId( $title->getArticleId() ); // avoid extra queries
 		}
-		$time = $sha1 = false; // current version
+		$time = $sha1 = false; // unspecified (defaults to current version)
 		# Check for the version of this file used when reviewed...
 		list( $maybeTS, $maybeSha1 ) = $incManager->getReviewedFileVersion( $title );
 		if ( $maybeTS !== null ) {
@@ -209,15 +209,17 @@ class FlaggedRevsHooks {
 				$sha1 = $maybeSha1;
 			}
 		}
-		# Stabilize the file link
-		if ( $time ) {
-			if ( $query != '' ) $query .= '&';
-			$query = "filetimestamp=" . urlencode( wfTimestamp( TS_MW, $time ) );
-		}
-		$options['time'] = $time;
-		$options['sha1'] = $sha1;
+		# Tell Parser what file version to use
 		if ( $time === '0' ) {
 			$options['broken'] = true;
+		} elseif ( $time !== false ) {
+			$options['time'] = $time;
+			$options['sha1'] = $sha1;
+			# Stabilize the file link
+			if ( $query != '' ) {
+				$query .= '&';
+			}
+			$query .= "filetimestamp=" . urlencode( wfTimestamp( TS_MW, $time ) );
 		}
 
 		return true;
