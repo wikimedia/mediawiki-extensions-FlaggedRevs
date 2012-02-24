@@ -1130,7 +1130,7 @@ $messages['lzh'] = array(
  * @author Brest
  */
 $messages['mk'] = array(
-	'unreviewedpages' => 'Непрегледани страници',
+	'unreviewedpages' => 'Непроверени страници',
 	'unreviewedpages-legend' => 'Список на непрегледани статии',
 	'unreviewedpages-category' => 'Категорија:',
 	'unreviewedpages-diff' => 'преглед',
