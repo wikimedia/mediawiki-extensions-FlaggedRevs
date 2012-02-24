@@ -22,7 +22,7 @@ var fr = {
 		// Disable 'accept' button if the revision was already reviewed.
 		// This is used so that they can be re-enabled if a rating changes.
 		if ( typeof( jsReviewNeedsChange ) != 'undefined' && jsReviewNeedsChange === 1 ) {
-			$( 'mw-fr-submit-accept' ).prop( 'disabled', 'disabled' );
+			$( '#mw-fr-submit-accept' ).prop( 'disabled', 'disabled' );
 		}
 
 		// Setup <select> form option colors
