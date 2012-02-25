@@ -79,6 +79,13 @@ $messages['arz'] = array(
 	'problemchanges-category' => 'التصنيف:',
 );
 
+/** Asturian (Asturianu)
+ * @author Xuacu
+ */
+$messages['ast'] = array(
+	'problemchanges-category' => 'Categoría:',
+);
+
 /** Azerbaijani (Azərbaycanca)
  * @author Cekli829
  */

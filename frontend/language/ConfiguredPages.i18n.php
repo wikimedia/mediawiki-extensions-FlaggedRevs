@@ -83,6 +83,14 @@ $messages['arc'] = array(
 	'configuredpages-def-draft' => 'ܨܚܚܐ ܚܕܬ ܡܢ ܟܠ',
 );
 
+/** Asturian (Asturianu)
+ * @author Xuacu
+ */
+$messages['ast'] = array(
+	'configuredpages-none' => 'Nun hai páxines nesta llista.',
+	'configuredpages-config' => 'Configuración',
+);
+
 /** Belarusian (Беларуская)
  * @author Yury Tarasievich
  * @author Хомелка

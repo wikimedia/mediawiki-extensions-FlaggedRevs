@@ -179,7 +179,13 @@ $messages['ast'] = array(
 	'unreviewedpages' => 'Páxines non revisaes',
 	'unreviewedpages-category' => 'Categoría:',
 	'unreviewedpages-diff' => 'revisar',
+	'unreviewedpages-watched' => '($1 {{PLURAL:$1|usuariu activu|usuarios activos}} vixilando)',
 	'unreviewedpages-list' => "Esta páxina llista les páxines de conteníu qu'entá ''nun'' se [[{{MediaWiki:Validationpage}}|revisaron]] al nivel conseñáu.",
+	'unreviewedpages-none' => 'Nun hai páxines anguaño que concuayen con estos criterios',
+	'unreviewedpages-viewing' => '(en revisión)',
+	'unreviewedpages-hours' => '($1 {{PLURAL:$1|hora|hores}})',
+	'unreviewedpages-days' => '($1 {{PLURAL:$1|día|díes}})',
+	'unreviewedpages-recent' => "(menos d'una hora)",
 );
 
 /** Azerbaijani (Azərbaycanca)

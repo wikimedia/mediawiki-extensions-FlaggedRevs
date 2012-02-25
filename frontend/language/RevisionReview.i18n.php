@@ -540,7 +540,7 @@ Vete a la [[Special:Unreviewedpages|llista de páxines ensin revisar]].",
 Pa desaniciar l'estáu d'una revisión, calca \"nun aceutar\".
 
 Calca nel botón \"atrás\" del restolador y téntalo otra vuelta.",
-	'revreview-update' => "'''Por favor [[{{MediaWiki:Validationpage}}|revisa]] tolos cambeos pendientes ''(que s'amuesen abaxo)'' fechos dende la versión estable.'''",
+	'revreview-update' => "'''Por favor [[{{MediaWiki:Validationpage}}|revisa]] tolos cambios pendientes que ''(s'amuesen abaxo)'' fechos dende la versión estable.'''",
 	'revreview-update-includes' => "S'anovaron delles plantíes/ficheros (páxines ensin revisar en negrina):",
 	'revreview-reject-summary' => 'Resume:',
 	'revreview-reject-cancel' => 'Encaboxar',
