@@ -1941,6 +1941,7 @@ $messages['be'] = array(
  * @author EugeneZelenko
  * @author Jim-by
  * @author Red Winged Duck
+ * @author Renessaince
  * @author Wizardist
  * @author Zedlik
  */
@@ -2127,7 +2128,7 @@ $messages['be-tarask'] = array(
 	'flaggedrevs-categoryview' => '[{{fullurl:Special:UnreviewedPages|category=$1}} Нерэцэнзаваныя старонкі]{{int:pipe-separator}}[{{fullurl:Special:PendingChanges|category=$1}} Зьмены, якія чакаюць рэцэнзіі]',
 	'revreview-locked-title' => 'Зьмены гэтай старонкі патрабуюць рэцэнзаваньня.',
 	'revreview-unlocked-title' => 'Зьмены гэтай старонкі не патрабуюць рэцэнзаваньня.',
-	'revreview-locked' => "'''Заўчага:''' Зьмены павінны быць [[{{MediaWiki:Validationpage}}|рэцэнзаваныя]] перад тым, як будуць паказаныя чытачам на гэтай старонцы.",
+	'revreview-locked' => "'''Заўвага:''' Зьмены павінны быць [[{{MediaWiki:Validationpage}}|рэцэнзаваныя]] перад тым, як будуць паказаныя чытачам на гэтай старонцы.",
 	'revreview-unlocked' => "'''Заўвага:''' Зьмены не патрабуюць [[{{MediaWiki:Validationpage}}|рэцэнзаваньня]] перад паказам чытачам на гэтай старонцы.",
 	'log-show-hide-review' => '$1 журнал рэцэнзаваньняў',
 	'validationpage' => '{{ns:help}}:Праверка старонак',
