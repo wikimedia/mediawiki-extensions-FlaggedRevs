@@ -599,10 +599,11 @@ class FlaggedRevsHooks {
 		// Is the page reviewable?
 		if ( $fa->isReviewable() ) {
 			$revId = $rc->mAttribs['rc_this_oldid'];
-			$quality = FlaggedRevision::getRevQuality( $revId, FR_MASTER );
+			// If the edit we just made was reviewed, then it's the stable rev
+			$frev = FlaggedRevision::newFromTitle( $rc->getTitle(), $revId, FR_MASTER );
 			// Reviewed => patrolled
-			if ( $quality !== false && $quality >= FR_CHECKED ) {
-				RevisionReviewForm::updateRecentChanges( $rc, 'patrol', $fa->getStableRev() );
+			if ( $frev ) {
+				RevisionReviewForm::updateRecentChanges( $rc, 'patrol', $frev );
 				$rc->mAttribs['rc_patrolled'] = 1; // make sure irc/email notifs know status
 			}
 			return true;
