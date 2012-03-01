@@ -262,13 +262,6 @@ img.flaggedrevs-icon {
 	line-height: 1em;
 }
 
-.fr-hist-basic-user,
-.fr-hist-quality-user,
-.fr-hist-basic-auto,
-.fr-hist-quality-auto {
-	font-weight: bold;
-}
-
 /* RC pending changes notice */
 .fr-watchlist-pending-notice {
 	padding: 3px;
