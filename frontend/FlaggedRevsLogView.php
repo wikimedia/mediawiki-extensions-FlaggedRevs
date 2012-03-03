@@ -34,9 +34,8 @@ class FlaggedRevsLogView {
 	 * @return string
 	 */
 	public static function stabilityLogLinks( $title, $timestamp, $params ) {
-		global $wgUser;
 		# Add history link showing edits right before the config change
-		$hist = $wgUser->getSkin()->link(
+		$hist = Linker::link(
 			$title,
 			wfMsgHtml( 'hist' ),
 			array(),
@@ -97,7 +96,7 @@ class FlaggedRevsLogView {
 	 * Create revision, diff, and history links for log line entry
 	 */
 	public static function reviewLogLinks( $action, $title, $params ) {
-		global $wgUser, $wgLang;
+		global $wgLang;
 		$links = '';
 		# Show link to page with oldid=x as well as the diff to the former stable rev.
 		# Param format is <rev id, last stable id, rev timestamp>.
@@ -110,7 +109,7 @@ class FlaggedRevsLogView {
 					? 'review-logentry-diff2' // unreviewed
 					: 'review-logentry-diff'; // reviewed
 				$links .= '(';
-				$links .= $wgUser->getSkin()->linkKnown(
+				$links .= Linker::linkKnown(
 					$title,
 					wfMsgHtml( $msg ),
 					array(),
@@ -124,7 +123,7 @@ class FlaggedRevsLogView {
 				: $params[2];
 			$time = $wgLang->timeanddate( $ts, true );
 			$links .= ' (';
-			$links .= $wgUser->getSkin()->linkKnown(
+			$links .= Linker::linkKnown(
 				$title,
 				wfMsgHtml( 'review-logentry-id', $revId, $time ),
 				array(),
