@@ -36,7 +36,8 @@ class Stabilization extends UnlistedSpecialPage {
 			$out->showErrorPage( 'notargettitle', 'notargettext' );
 			return;
 		}
-	
+		$this->getSkin()->setRelevantTitle( $title );
+
 		$this->form = new PageStabilityGeneralForm( $user );
 		$form = $this->form; // convenience
 
