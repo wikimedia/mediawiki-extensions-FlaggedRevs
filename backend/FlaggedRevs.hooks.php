@@ -57,27 +57,27 @@ class FlaggedRevsHooks {
 
 	/**
 	 * (a) Update flaggedrevs page/tracking tables
-	 * (b) Autoreview pages moved into content NS
+	 * (b) Autoreview pages moved into reviewable namespaces (bug 19379)
 	 */
 	public static function onTitleMoveComplete(
 		Title $otitle, Title $ntitle, $user, $pageId
 	) {
-		$fa = FlaggableWikiPage::getTitleInstance( $ntitle );
-		$fa->loadPageData( 'fromdbmaster' );
-		// Re-validate NS/config (new title may not be reviewable)
-		if ( $fa->isReviewable() ) {
-			// Moved from non-reviewable to reviewable NS?
-			// Auto-review such edits like new pages...
-			if ( !FlaggedRevs::inReviewNamespace( $otitle )
-				&& FlaggedRevs::autoReviewNewPages()
-				&& $ntitle->userCan( 'autoreview' ) )
-			{
+		if ( !FlaggedRevs::inReviewNamespace( $otitle )
+			&& FlaggedRevs::inReviewNamespace( $ntitle )
+			&& FlaggedRevs::autoReviewNewPages() 
+		) {
+			$fa = FlaggableWikiPage::getTitleInstance( $ntitle );
+			$fa->loadPageData( 'fromdbmaster' );
+			// Re-validate NS/config (new title may not be reviewable)
+			if ( $fa->isReviewable() && $ntitle->userCan( 'autoreview' ) ) {
+				// Auto-review such edits like new pages...
 				$rev = Revision::newFromTitle( $ntitle );
 				if ( $rev ) { // sanity
 					FlaggedRevs::autoReviewEdit( $fa, $user, $rev );
 				}
 			}
 		}
+
 		# Update page and tracking tables and clear cache
 		FlaggedRevs::stableVersionUpdates( $otitle );
 		FlaggedRevs::HTMLCacheUpdates( $otitle );
