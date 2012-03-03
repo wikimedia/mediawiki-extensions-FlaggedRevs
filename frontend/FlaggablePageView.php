@@ -256,7 +256,7 @@ class FlaggablePageView extends ContextSource {
 		$frev = FlaggedRevision::newFromTitle( $this->article->getTitle(), $revID );
 		# Give a notice if this rev ID corresponds to a reviewed version...
 		if ( $frev ) {
-			$time = $this->getLang()->date( $frev->getTimestamp(), true );
+			$time = $this->getLanguage()->date( $frev->getTimestamp(), true );
 			$flags = $frev->getTags();
 			$quality = FlaggedRevs::isQuality( $flags );
 			$msg = $quality ? 'revreview-quality-source' : 'revreview-basic-source';
@@ -447,7 +447,7 @@ class FlaggablePageView extends ContextSource {
 			return; // all this function does is add notices; don't show them
 		}
 		$flags = $srev->getTags();
-		$time = $this->getLang()->date( $srev->getTimestamp(), true );
+		$time = $this->getLanguage()->date( $srev->getTimestamp(), true );
 		# Get quality level
 		$quality = FlaggedRevs::isQuality( $flags );
 		# Get stable version sync status
@@ -556,7 +556,7 @@ class FlaggablePageView extends ContextSource {
 		$reqUser = $this->getUser();
 		$this->load();
 		$flags = $frev->getTags();
-		$time = $this->getLang()->date( $frev->getTimestamp(), true );
+		$time = $this->getLanguage()->date( $frev->getTimestamp(), true );
 		# Set display revision ID
 		$this->out->setRevisionId( $frev->getRevId() );
 		# Get quality level
@@ -634,7 +634,7 @@ class FlaggablePageView extends ContextSource {
 		$reqUser = $this->getUser();
 		$this->load();
 		$flags = $srev->getTags();
-		$time = $this->getLang()->date( $srev->getTimestamp(), true );
+		$time = $this->getLanguage()->date( $srev->getTimestamp(), true );
 		# Set display revision ID
 		$this->out->setRevisionId( $srev->getRevId() );
 		# Get quality level
@@ -1350,7 +1350,7 @@ class FlaggablePageView extends ContextSource {
 	 */
 	public function setPendingNotice( FlaggedRevision $srev, $diffToggle = '' ) {
 		$this->load();
-		$time = $this->getLang()->date( $srev->getTimestamp(), true );
+		$time = $this->getLanguage()->date( $srev->getTimestamp(), true );
 		$revsSince = $this->article->getPendingRevCount();
 		$msg = $srev->getQuality()
 			? 'revreview-newest-quality'
