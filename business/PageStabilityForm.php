@@ -87,7 +87,7 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 			$value = $this->expirySelection;
 		}
 		if ( $value == 'infinite' || $value == 'indefinite' || $value == 'infinity' ) {
-			$time = Block::infinity();
+			$time = 'infinity';
 		} else {
 			$unix = strtotime( $value );
 			# On error returns -1 for PHP <5.1 and false for PHP >=5.1
@@ -188,7 +188,7 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 	 */
 	public function doPreloadParameters() {
 		$oldConfig = $this->getOldConfig();
-		if ( $oldConfig['expiry'] == Block::infinity() ) {
+		if ( $oldConfig['expiry'] == 'infinity' ) {
 			$this->expirySelection = 'infinite'; // no settings set OR indefinite
 		} else {
 			$this->expirySelection = 'existing'; // settings set and NOT indefinite
@@ -217,7 +217,7 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 		$expiry = $this->getExpiry();
 		if ( $expiry === false ) {
 			return 'stabilize_expiry_invalid';
-		} elseif ( $expiry !== Block::infinity() && $expiry < wfTimestampNow() ) {
+		} elseif ( $expiry !== 'infinity' && $expiry < wfTimestampNow() ) {
 			return 'stabilize_expiry_old';
 		}
 		# Update the DB row with the new config...
