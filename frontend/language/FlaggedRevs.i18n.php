@@ -7680,7 +7680,7 @@ $messages['ja'] = array(
 	'flaggedrevs-prefs-watch' => '自分が査読したページをウォッチリストに追加',
 	'flaggedrevs-prefs-editdiffs' => 'ページ編集中に保留中の編集の差分を表示',
 	'flaggedrevs-prefs-viewdiffs' => '最新の保留中の版を表示する際に保留中の編集の差分を表示',
-	'flaggedrevs-hidereviewed' => '$1 により査読済',
+	'flaggedrevs-hidereviewed' => '査読済編集を$1',
 	'group-editor' => '編集者',
 	'group-editor-member' => '編集者',
 	'group-reviewer' => '査読者',
@@ -7903,6 +7903,7 @@ $messages['jv'] = array(
 
 /** Georgian (ქართული)
  * @author BRUTE
+ * @author David1010
  * @author Dawid Deutschland
  * @author ITshnik
  * @author Nodar Kherkheulidze
@@ -7915,11 +7916,12 @@ $messages['ka'] = array(
 	'flaggedrevs-watched-pending' => "თქვენს კონტროლის სიაში არსებობს შეუმოწმებელი ცვლილებები. გთხოვთ, '''ყურადღება მიაქციოთ!'''",
 	'flaggedrevs-desc' => 'აძელვს შემმოწმებლებსა და რეცენზისტებს უფლებას შეამოწმონ გვერდების ვერსიები და მონიშნონ სტაბილური ვერსიები.',
 	'flaggedrevs-pref-UI' => 'მარტივი ინტერფეისი:',
-	'flaggedrevs-pref-UI-0' => 'დამატებითი ინფორმაცი გვერდის სტატუსთან დაკავშირებით.',
+	'flaggedrevs-pref-UI-0' => 'დამატებითი ინფორმაცია გვერდის სტატუსთან დაკავშირებით.',
 	'flaggedrevs-pref-UI-1' => 'გამოიყენეთ პატარა ფაილები და მინიმალური ტექსტი გვერდების სტატუსის მოსანიშნად',
 	'prefs-flaggedrevs' => 'შესწორებათა დადასტურება',
 	'prefs-flaggedrevs-ui' => 'შესწორებათა დადასტურება',
 	'flaggedrevs-prefs-stable' => 'ყოველთვის აჩვენეთ სტატიის გამოქვეყნებული ვერსია (თუ იგი არსებობს)',
+	'flaggedrevs-pref-stable-0' => 'საწყისი პარამეტრების გამოყენება ყველა გვერდისათვის',
 	'flaggedrevs-pref-stable-1' => 'ყოველთვის მაჩვენე სტაბილური ვერსია (თუ არსებობს)',
 	'flaggedrevs-pref-stable-2' => 'ყოველთვის მაჩვენე უკანასკნელი ვერსია',
 	'flaggedrevs-prefs-watch' => 'ჩაამატეთ შემოწმებული გვერდები ჩემს კონტროლის სიაში',
@@ -9336,7 +9338,7 @@ $messages['mk'] = array(
 	'revreview-log-toggle-hide' => 'скриј дневник на стабилност',
 	'revreview-log-toggle-title' => 'Превклучување на приказ на дневник на поставки за стабилност',
 	'revreview-log-details-show' => 'покажи подробности',
-	'revreview-log-details-hide' => 'скриј детали',
+	'revreview-log-details-hide' => 'скриј подробности',
 	'revreview-log-details-title' => 'Превклучување на приказ на дневник на поставки за стабилност',
 	'review-diff2stable' => 'Прикажи ги сите промени во исчекување',
 	'review-logentry-app' => 'оценета верзија на [[$1]]',
@@ -9420,7 +9422,7 @@ $messages['mk'] = array(
 	'revreview-style-2' => 'Добро',
 	'revreview-style-3' => 'Концизно',
 	'revreview-style-4' => 'Одлично',
-	'revreview-toggle-title' => 'прикажи/скриј детали',
+	'revreview-toggle-title' => 'прикажи/скриј подробности',
 	'revreview-visibility-synced' => "'''Оваа страница има понова [[{{MediaWiki:Validationpage}}|објавена верзија]]; нагодувањата на стабилноста на страницата може да се [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} прилагодат].'''",
 	'revreview-visibility-outdated' => "'''Оваа страница има застарена [[{{MediaWiki:Validationpage}}|објавена верзија]]; наодувањата на стабилноста на страницата може да се [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} прилагодат].'''",
 	'revreview-visibility-nostable' => "'''Оваа страница нема [[{{MediaWiki:Validationpage}}|објавена верзија]]; нагодувањата за стабилностата на страницата може да се [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} прилагодат].'''",
