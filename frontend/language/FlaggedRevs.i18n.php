@@ -4509,7 +4509,7 @@ $messages['et'] = array(
 
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|muudatus|muudatust}}] ''(näidatud allpool)'' {{PLURAL:$2|ootab|ootavad}} ülevaatamist.",
 	'revreview-edited-section' => 'Naase alaosa "[[#$1|$2]]" juurde.',
-	'revreview-newest-basic' => 'Selles versioonis [[{{MediaWiki:Validationpage}}|{{PLURAL:$3|ootab|ootavad}} ülevaatamist]] [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|muudatus|muudatust}}]t.
+	'revreview-newest-basic' => 'Selles versioonis [[{{MediaWiki:Validationpage}}|{{PLURAL:$3|ootab|ootavad}} ülevaatamist]] [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|muudatus|muudatust}}].
 [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Püsiv versioon] on [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} kord vaadatud] (<i>$2</i>).',
 	'revreview-newest-basic-i' => 'Selles versioonis [[{{MediaWiki:Validationpage}}|ootavad ülevaatamist]] [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} malli- või failimuudatused].
 [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Püsiv versioon] on [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} kord vaadatud] (<i>$2</i>).',

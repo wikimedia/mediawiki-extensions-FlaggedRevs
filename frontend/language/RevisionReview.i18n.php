@@ -843,6 +843,7 @@ Gwelet [[Special:Unreviewedpages|roll ar pajennoù nann-adlennet]].',
 	'revreview-successful2' => "'''Stumm eus [[:$1|$1]] diwiriekaat.'''",
 	'revreview-poss-conflict-p' => "'''Diwallit : kroget en doa [[User:$1|$1]] da adwelet ar bajenn-mañ d'an $2 da $3.'''",
 	'revreview-poss-conflict-c' => "'''Diwallit : kroget en doa [[User:$1|$1]] da adwelet ar c'hemmoù-mañ d'an $2 da $3.'''",
+	'revreview-sadv-reviewing-p' => "Gallout a rit $1 hoc'h-unan evel adlenner eus ar bajenn-mañ evit an implijerien all.",
 	'revreview-adv-start-link' => 'Ober bruderezh',
 	'revreview-adv-stop-link' => 'Paouez gant ar bruderezh',
 	'revreview-toolow' => "'''Rankout a rit reiñ ur briziadenn uheloc'h eget \"ket aprouet\" evit ma 'vefe dalc'het kont eus an adweladenn.'''
