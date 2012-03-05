@@ -295,8 +295,12 @@ span.fr-under-review {
 }
 
 /* History items */
-.mw-fr-hist-difflink {
-	font-size: 85%;
+.fr-hist-quality-auto,
+.fr-hist-basic-auto,
+.fr-hist-quality-user,
+.fr-hist-basic-user,
+.mw-fr-hist-difflink { 
+	font-size: 85%; 
 }
 
 /* Diff items */
