@@ -211,11 +211,14 @@ $3",
 
 /** Azerbaijani (Azərbaycanca)
  * @author Cekli829
+ * @author Vugar 1981
  */
 $messages['az'] = array(
 	'validationstatistics-ns' => 'Adlar fəzası',
 	'validationstatistics-total' => 'Səhifələr',
+	'validationstatistics-stable' => 'Yoxlanıldı',
 	'validationstatistics-user' => 'İstifadəçi',
+	'validationstatistics-reviews' => 'Yoxlamalar',
 );
 
 /** Belarusian (Беларуская)

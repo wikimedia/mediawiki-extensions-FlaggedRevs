@@ -91,6 +91,17 @@ $messages['ast'] = array(
 	'configuredpages-config' => 'Configuración',
 );
 
+/** Azerbaijani (Azərbaycanca)
+ * @author Vugar 1981
+ */
+$messages['az'] = array(
+	'configuredpages' => 'Yoxlama nizamlaması olan səhifələr',
+	'configuredpages-none' => 'Bu siyahıda səhifə yoxdur.',
+	'configuredpages-config' => 'Nizamlamalar',
+	'configuredpages-def-draft' => 'son versiya',
+	'configuredpages-def-stable' => 'qərarlı versiya',
+);
+
 /** Belarusian (Беларуская)
  * @author Yury Tarasievich
  * @author Хомелка

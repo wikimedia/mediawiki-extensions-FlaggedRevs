@@ -556,7 +556,13 @@ $messages['az'] = array(
 	'revreview-log' => 'Şərh:',
 	'revreview-submit' => 'Təsdiq et',
 	'revreview-submitting' => 'Yollamaq',
+	'revreview-submit-review' => 'Versiyanı qəbul et',
+	'revreview-submit-unreview' => 'Qəbul etməni ləğv et',
+	'revreview-submit-reject' => 'Dəyişiklikləri rədd et',
+	'revreview-submit-reviewed' => 'Hazırdır. Qəbul edildi!',
+	'revreview-submit-unreviewed' => 'Hazırdır. Qəbul edilmə ləğv edildi!',
 	'revreview-reject-summary' => 'Xülasə:',
+	'revreview-reject-confirm' => 'Bu dəyişiklikləri rədd et',
 	'revreview-reject-cancel' => 'Ləğv et',
 );
 

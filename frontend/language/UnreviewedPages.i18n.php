@@ -190,9 +190,13 @@ $messages['ast'] = array(
 
 /** Azerbaijani (Azərbaycanca)
  * @author Cekli829
+ * @author Vugar 1981
  */
 $messages['az'] = array(
 	'unreviewedpages-category' => 'Kateqoriya:',
+	'unreviewedpages-diff' => 'yoxlama',
+	'unreviewedpages-hours' => '$1 {{PLURAL:$1|saat|saat}}',
+	'unreviewedpages-days' => '$1 {{PLURAL:$1|gün|gün}}',
 );
 
 /** Southern Balochi (بلوچی مکرانی)

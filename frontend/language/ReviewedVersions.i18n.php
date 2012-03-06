@@ -126,8 +126,10 @@ $messages['ast'] = array(
 
 /** Azerbaijani (Azərbaycanca)
  * @author Cekli829
+ * @author Vugar 1981
  */
 $messages['az'] = array(
+	'reviewedversions' => 'Yoxlanılmış versiyalar',
 	'reviewedversions-page' => 'Səhifə adı:',
 );
 

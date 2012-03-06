@@ -2617,10 +2617,11 @@ Aquí los paramètres actuals de [[:$1|$1]] :',
 
 /** Oriya (ଓଡ଼ିଆ)
  * @author Ansumang
+ * @author Psubhashish
  */
 $messages['or'] = array(
 	'stabilization-page' => 'ପୃଷ୍ଠା ନାମ:',
-	'stabilization-submit' => 'ଥୟ କରିବେ',
+	'stabilization-submit' => 'ନିଶ୍ଚିତ କରନ୍ତୁ',
 	'stabilization-comment' => 'କାରଣ:',
 	'stabilization-otherreason' => 'ଅନ୍ୟ କାରଣ:',
 	'stabilization-expiry' => 'ଅଚଳ ହେବ:',
