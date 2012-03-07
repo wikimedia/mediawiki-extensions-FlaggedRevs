@@ -7922,7 +7922,7 @@ $messages['ka'] = array(
 	'editor' => 'შემმოწმებელი',
 	'flaggedrevs' => 'შემოწმებული რედაქტირებები',
 	'flaggedrevs-watched-pending' => "თქვენს კონტროლის სიაში არსებობს შეუმოწმებელი ცვლილებები. გთხოვთ, '''ყურადღება მიაქციოთ!'''",
-	'flaggedrevs-desc' => 'აძელვს შემმოწმებლებსა და რეცენზისტებს უფლებას შეამოწმონ გვერდების ვერსიები და მონიშნონ სტაბილური ვერსიები.',
+	'flaggedrevs-desc' => 'რედაქტორებს აძლევს გვერდის ვერსიების შემოწმებისა და სტაბილური ვერსიების დაყენების უფლებას',
 	'flaggedrevs-pref-UI' => 'მარტივი ინტერფეისი:',
 	'flaggedrevs-pref-UI-0' => 'დამატებითი ინფორმაცია გვერდის სტატუსთან დაკავშირებით.',
 	'flaggedrevs-pref-UI-1' => 'გამოიყენეთ პატარა ფაილები და მინიმალური ტექსტი გვერდების სტატუსის მოსანიშნად',
@@ -10829,6 +10829,7 @@ De [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonl
 
 /** Oriya (ଓଡ଼ିଆ)
  * @author Ansumang
+ * @author Psubhashish
  */
 $messages['or'] = array(
 	'editor' => 'ସମ୍ପାଦକ',
@@ -10844,7 +10845,7 @@ $messages['or'] = array(
 	'revreview-depth' => 'ଗଭୀରତା',
 	'revreview-depth-0' => 'ଅପର୍ଜ୍ୟାପ୍ତ',
 	'revreview-depth-1' => 'ମୌଳିକ',
-	'revreview-edit' => 'ବଦଳାଇବେ',
+	'revreview-edit' => 'ଏହାକୁ ବଦଳାନ୍ତୁ',
 	'revreview-submitedit' => 'ବଦଳ ଦାଖଲ କରନ୍ତୁ',
 	'revreview-quick-basic-old' => "'''[[{{MediaWiki:Validationpage}}|ପରଖିଲେ]]'''",
 	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|ପରଖିଲେ]]'''",
