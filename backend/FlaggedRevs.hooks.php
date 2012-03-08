@@ -295,7 +295,7 @@ class FlaggedRevsHooks {
 	/**
 	 * Check page move and patrol permissions for FlaggedRevs
 	 */
-	public static function onUserCan( Title $title, $user, $action, &$result ) {
+	public static function onGetUserPermissionsErrors( Title $title, $user, $action, &$result ) {
 		if ( $result === false ) {
 			return true; // nothing to do
 		}
@@ -335,6 +335,20 @@ class FlaggedRevsHooks {
 			if ( $right != '' && !$user->isAllowed( $right ) ) {
 				$result = false;
 				return false;
+			}
+			# Respect page protection to handle cases of "review wars".
+			# If a page is restricted from editing such that a user cannot
+			# edit it, then said user should not be able to review it.
+			foreach ( $title->getRestrictions( 'edit' ) as $right ) {
+				// Backwards compatibility, rewrite sysop -> protect
+				$right = ( $right === 'sysop' ) ? 'protect' : $right;
+				if ( $right != '' && !$user->isAllowed( $right ) ) {
+					// 'editprotected' bypasses this restriction
+					if ( !$user->isAllowed( 'editprotected' ) ) {
+						$result = false;
+						return false;
+					}
+				}
 			}
 		}
 		return true;
