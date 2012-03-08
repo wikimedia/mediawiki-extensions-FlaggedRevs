@@ -228,10 +228,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 
 	public function isAllowed() {
 		// Basic permission check
-		return ( $this->page
-			&& $this->page->userCan( 'review' )
-			&& $this->page->userCan( 'edit' )
-		);
+		return ( $this->page && $this->page->userCan( 'review' ) );
 	}
 
 	// implicit dims for binary flag case
