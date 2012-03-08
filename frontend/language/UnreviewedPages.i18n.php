@@ -954,6 +954,7 @@ $messages['jv'] = array(
 
 /** Georgian (ქართული)
  * @author BRUTE
+ * @author David1010
  * @author გიორგიმელა
  */
 $messages['ka'] = array(
@@ -963,7 +964,7 @@ $messages['ka'] = array(
 	'unreviewedpages-diff' => 'შემოწმება',
 	'unreviewedpages-unwatched' => '(არავის კონტროლის სიაში არ არის)',
 	'unreviewedpages-watched' => '({{PLURAL:$1|აკონტროლებს $1 აქტიური მომხმარებელი|აკონტროლებენ $1 აქტიური მომხმარებლები}})',
-	'unreviewedpages-list' => 'ამ გვერდებზე მოყვანილია შეუფასებელი სტატიევბი.',
+	'unreviewedpages-list' => 'ამ გვერდზე მოყვანილია სტატიების სია რომლებიც ჯერ არ [[{{MediaWiki:Validationpage}}|შეფასებულა]] მითითებულ დონეზე.',
 	'unreviewedpages-none' => 'ამჟამად არ არის გვერდი, რომელიც შეესაბამება ამ კრიტერიუმებს',
 	'unreviewedpages-viewing' => '(მიმდინარეობს შემოწმება)',
 	'unreviewedpages-hours' => '($1 {{PLURAL:$1|საათი|საათი}})',

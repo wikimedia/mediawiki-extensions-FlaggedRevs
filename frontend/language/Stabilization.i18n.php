@@ -1206,7 +1206,7 @@ $messages['fa'] = array(
  * @author ZeiP
  */
 $messages['fi'] = array(
-	'stabilization-tab' => 'vakautus',
+	'stabilization-tab' => 'vakauta',
 	'stabilization' => 'Sivun vakauttaminen',
 	'stabilization-text' => "'''Muuta alla olevia asetuksia, jotka määrittävät, kuinka sivun [[:$1|$1]] vakaa versio valitaan ja näytetään.'''",
 	'stabilization-perm' => 'Tunnuksellasi ei ole oikeutta muuttaa vakaiden versioiden asetuksia.

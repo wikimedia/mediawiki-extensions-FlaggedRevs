@@ -1169,6 +1169,7 @@ Editor lan Pamriksa iku panganggo mapan sing bisa mriksa langsung owah-owahan ka
 
 /** Georgian (ქართული)
  * @author BRUTE
+ * @author David1010
  * @author ITshnik
  * @author Nodar Kherkheulidze
  * @author გიორგიმელა
@@ -1179,14 +1180,14 @@ $messages['ka'] = array(
 
 
 „შემმოწმებლები“ არიან მომხმარებლები, რომლებსაც შეუძლიათ სტატიის კონკრეტული ვერსიების შემოწმება.",
-	'validationstatistics-table' => " ქვემოთ ნაჩვენებია სტატისტიკა თითოეული სახელთა სივრცისათვის, ''გარდა'' გადამისამართების გვერდებისა.",
+	'validationstatistics-table' => 'ქვემოთ ნაჩვენებია სტატისტიკა თითოეული სახელთა სივრცისათვის, \'\'გარდა\'\' გადამისამართების გვერდებისა. გვერდები "მოძველებულად" ითვლება, თუ ისინი შეიცავენ შეუმოწმებელ ცვლილებებს; გვერდები ითვლება "სინქრონიზირებულად", თუ მათ არ გააჩნიათ შემოწმების მომლოდინე ცვლილებები.',
 	'validationstatistics-ns' => 'სახელთა სივრცე',
 	'validationstatistics-total' => 'გვერდები',
 	'validationstatistics-stable' => 'შემოწმებული',
 	'validationstatistics-latest' => 'გადამოწმებული',
 	'validationstatistics-synced' => 'გადამოწმებულებისა და შემოწმებულების რაოდენობა',
 	'validationstatistics-old' => 'მოძველებული',
-	'validationstatistics-utable' => 'ქვემოთ მოყვანილია ბოლო საათის განმავლობაში ტოპ $1 გადამმოწმებლის  ჩამონათვალი.',
+	'validationstatistics-utable' => 'ქვემოთ მოყვანილია {{PLURAL:$1|ყველაზე აქტიური გადამმოწმებლის|$1 ყველაზე აქტიური გადამმოწმებლის}} სია ბოლო {{PLURAL:$2|საათის|$2 საათის}} მიხედვით.',
 	'validationstatistics-user' => 'მომხმარებელი',
 	'validationstatistics-reviews' => 'გადამოწმებები',
 );

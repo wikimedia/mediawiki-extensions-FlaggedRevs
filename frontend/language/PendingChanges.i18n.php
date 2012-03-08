@@ -1031,6 +1031,7 @@ $messages['ja'] = array(
 
 /** Georgian (ქართული)
  * @author BRUTE
+ * @author David1010
  * @author ITshnik
  * @author Nodar Kherkheulidze
  * @author გიორგიმელა
@@ -1045,11 +1046,11 @@ $messages['ka'] = array(
 	'pendingchanges-recent' => '(1 საათზე ნაკლები)',
 	'pendingchanges-category' => 'კატეგორია:',
 	'pendingchanges-onwatchlist' => 'ჩემი კონტროლის სიის გვერდები',
-	'pendingchanges-stable' => 'სტაბილური გვერდები',
+	'pendingchanges-stable' => 'სტაბილური ვერსია',
 	'pendingchanges-diff' => 'შემოწმება',
 	'pendingchanges-size' => 'მაქსიმალური ცვლილება (ბაიტები)',
 	'pendingchanges-unwatched' => '(არავის კონტროლის სიაში არ არის)',
-	'pendingchanges-watched' => 'ჩემი კონტროლის სიის გვერდები',
+	'pendingchanges-watched' => '({{PLURAL:$1|აკონტროლებს $1 აქტიური მომხმარებელი|აკონტროლებენ $1 აქტიური მომხმარებლები}})',
 	'pendingchanges-viewing' => 'მოწმდება',
 );
 

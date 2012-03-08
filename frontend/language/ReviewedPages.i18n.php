@@ -706,11 +706,14 @@ $messages['jut'] = array(
 
 /** Georgian (ქართული)
  * @author BRUTE
+ * @author David1010
  * @author ITshnik
  */
 $messages['ka'] = array(
 	'reviewedpages' => 'შემოწმებული გვერდები',
 	'reviewedpages-none' => 'ამ სიაში გვერდები არ არის',
+	'reviewedpages-all' => 'შემოწმებული ვერსიები',
+	'reviewedpages-best' => 'საუკეთესო ვერსია',
 );
 
 /** Kazakh (Arabic script) (‫قازاقشا (تٴوتە)‬) */

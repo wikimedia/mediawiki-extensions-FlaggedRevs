@@ -7995,12 +7995,12 @@ $messages['ka'] = array(
 	'revreview-depth-4' => 'რჩეული',
 	'revreview-draft-title' => 'ამ სტატიის უკანასკნელი ვერსია შეუმოწმებელია',
 	'revreview-edit' => 'რედაქტირება',
-	'revreview-editnotice' => "თქვენ მიერ განხორციელებული ცვლილებები გამოქვეყნდება უფლებამოსილი მომხმარებლის მიერ შემოწმების შემდეგ. ([[{{MediaWiki:Validationpage}}|დახმარება]])'''",
+	'revreview-editnotice' => "'''თქვენ მიერ განხორციელებული ცვლილებები გამოქვეყნდება უფლებამოსილი მომხმარებლის მიერ შემოწმების შემდეგ. ([[{{MediaWiki:Validationpage}}|დახმარება]])'''",
 	'revreview-submitedit' => 'ცვლილებების შენახვა',
 	'revreview-submitedit-title' => 'გამოგვიგზავნეთ თქვენი ცვლილებები განხილვისთვის',
-	'revreview-edited' => "'''რედაქტირებები გამოჩნდება, როგორც კი მათ უფლებამოსილი მომხმარებელი შეამოწმებს. ([[{{MediaWiki:Validationpage}}|დახმარება]])'''
+	'revreview-edited' => "'''თქვენი ცვლილებები მკითხველთათვის გამოჩნდება მას შემდეგ, რაც მათ უფლებამოსილი მომხმარებელი დაამოწმებს. ([[{{MediaWiki:Validationpage}}|დახმარება]])'''
 
-ქვემოთ {{PLURAL:$2|მოცემულია|მოცემულია}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} ჯერ კიდევ შეუმოწმებელი $2 {{PLURAL:$2|ცვლილება|ცვლილება}}].",
+აქ {{PLURAL:$2|მოცემულია|მოცემულია}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} შემოწმების მომლოდინე $2 {{PLURAL:$2|ცვლილება|ცვლილებები}}] ''(ნაჩვენებია ქვევით)''.",
 	'revreview-edited-section' => 'დაბრუნება სტატიის სექციასთან სახელად «[[#$1|$2]]».',
 	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} ამ გვერდის უკანასკნელი $3 {{PLURAL:$3|ცვლილება|ცვლილება}}] {{PLURAL:$3|ჯერ კიდევ|ჯერ კიდევ}} [[{{MediaWiki:Validationpage}}|შეუმოწმებელია]].
 [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} გამოქვეყნებული ვერსიის] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} შემოწმების] თარიღია: <i>$2</i> .',
@@ -8013,7 +8013,7 @@ $messages['ka'] = array(
 	'revreview-pending-basic' => 'ამ გვერდის [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} უკანასკნელი $3 ცვლილება {{PLURAL:$3|ცვლილება|ცვლილება}}] ჯერ კიდევ შეუმოწმებელია. [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} გამოქვეყნებული ვერსიის] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}}  შემოწმების] თარიღია: <i>$2</i>.',
 	'revreview-pending-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} ბოლო სტაბილური ვერსია] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} შემოწმდა] <i>$2</i>-ში. შავი ფურცელი შეიცავს შემოწმების მომლოდინე [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 ცვლილებას].',
 	'revreview-pending-nosection' => 'გთხოვთ ყურადღება გაამახვილოთ [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} ბოლო ვერსიაზე], რომელშიც შემოწმების მოლოდინშია [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 ცვლილება]. შესაძლებელია, რომ ეს დანაყოფი გადაადგილდა ან წაიშალა.',
-	'revreview-noflagged' => "ამ გვერდს არა აქვს [[{{MediaWiki:Validationpage}}|შემოწმებული]] ვერსია, სავარაუდოდ მისი ხარისხი '''არ შეესაბამებოდა''' პროექტის სტანდარტებს.",
+	'revreview-noflagged' => "ამ გვერდს არა აქვს [[{{MediaWiki:Validationpage}}|შემოწმებული ვერსია]], სავარაუდოდ მისი ხარისხი '''არ შეესაბამებოდა''' პროექტის სტანდარტებს.",
 	'revreview-oldrating' => 'შეფასდა:',
 	'revreview-quality' => 'ეს [[{{MediaWiki:Validationpage}}|გამოქვეყნებული ვერსია]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} დამტკიცებული] <i>$2</i> მიერ.
 [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} შავ ვერსიაში არის] {{PLURAL:$3|შემოწმების მომლოდინე}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|ცვლილება|ცვლილებები|ცვლილებების}}].',
@@ -8024,12 +8024,12 @@ $messages['ka'] = array(
 	'revreview-quality-same' => 'ეს [[{{MediaWiki:Validationpage}}|გამოქვეყნებული ვერსია]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} დამტკიცებული] <i>$2</i>.',
 	'revreview-quality-source' => 'ამ გვერდის [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} რეცენზირებული  ვერსია], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} შემოწმებული] <i>$2</i>, იყო დაფუძნებული ამ ვერსიაზე.',
 	'revreview-quality-title' => 'ეს არის გვერდის რეცენზირებული გვერდი',
-	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|შემოწმებული გვერდი]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} შავი ფურცლის ჩვენება]]",
+	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|შემოწმებული]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} შეუმოწმებელი ცვლილებების ჩვენება]]",
 	'revreview-quick-basic-old' => "'''[[{{MediaWiki:Validationpage}}|შემოწმებული გვერდი]]'''",
 	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|შემოწმებული გვერდი]]'''",
 	'revreview-quick-invalid' => "'''გვერდის ვერსიის არასწორი იდენტიფიკატორი'''",
 	'revreview-quick-none' => "'''სტატიის [[{{MediaWiki:Validationpage}}|შეუმოწმებელი]] ვერსია'''",
-	'revreview-quick-quality' => "'''[[{{MediaWiki:Validationpage}}|რეცენზირებული გვერდი]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} შავი ფურცლის ჩვენება]]",
+	'revreview-quick-quality' => "'''[[{{MediaWiki:Validationpage}}|რეცენზირებული]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} შეუმოწმებელი ცვლილებების ჩვენება]]",
 	'revreview-quick-quality-old' => "'''[[{{MediaWiki:Validationpage}}|შემოწმდა]]'''",
 	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|შემოწმდა]]'''",
 	'revreview-quick-see-basic' => '[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} შეუმოწმებელი ცვლილებების ჩვენება]]',
@@ -8085,7 +8085,7 @@ $messages['ka'] = array(
 	'revreview-reviewlink' => 'მონიშვნა',
 	'revreview-reviewlink-title' => 'განსხვავების ჩვენება ყველა შეუმოწმებელი ცვლილებებში',
 	'revreview-unreviewedpage' => 'შეუმოწმებელი გვერდი',
-	'tooltip-ca-current' => 'იხილეთ გვერდის შავი ვერსია',
+	'tooltip-ca-current' => 'ამ გვერდის ხილვა შეუმოწმებელი ცვლილებებით',
 	'tooltip-ca-stable' => 'იხილეთ გვერდის გამოქვეყნებული ვერსიები',
 	'tooltip-ca-default' => 'ხარისხის კონტროლის მართვა',
 	'flaggedrevs-protect-legend' => 'რედაქტირებების ავტომატური მონიშვნა ([[{{MediaWiki:Validationpage}}|დახმარება]])',
