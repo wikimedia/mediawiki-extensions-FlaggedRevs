@@ -340,6 +340,18 @@ Users in this group have their edits automatically reviewed.',
 {{doc-group|autoreview|member}}',
 	'grouppage-autoreview' => '{{Flagged Revs}}
 {{doc-group|autoreview|page}}',
+	'group-editor.css' => '{{FlaggedRevs}}
+{{doc-group|editor|css}}',
+	'group-editor.js' => '{{FlaggedRevs}}
+{{doc-group|editor|js}}',
+	'group-reviewer.css' => '{{FlaggedRevs}}
+{{doc-group|reviewer|css}}',
+	'group-reviewer.js' => '{{FlaggedRevs}}
+{{doc-group|reviewer|js}}',
+	'group-autoreview.css' => '{{FlaggedRevs}}
+{{doc-group|autoreview|css}}',
+	'group-autoreview.js' => '{{FlaggedRevs}}
+{{doc-group|autoreview|js}}',
 	'revreview-hist-draft' => '{{Flagged Revs}}
 Shown on history and diff pages to refer to revision that has not been specifically marked as "accepted".',
 	'revreview-hist-pending' => '{{Flagged Revs}}
@@ -9692,6 +9704,7 @@ $messages['mn'] = array(
  * @author Htt
  * @author Kaustubh
  * @author Mahitgar
+ * @author Shantanoo
  */
 $messages['mr'] = array(
 	'editor' => 'संपादक',
@@ -9700,7 +9713,7 @@ $messages['mr'] = array(
 	'flaggedrevs-pref-UI-0' => 'इंटरफेस मध्ये वाढीव स्थिर आवृत्ती वापरा',
 	'flaggedrevs-pref-UI-1' => 'इंटरफेस मध्ये साधी स्थिर आवृत्ती वापरा',
 	'flaggedrevs-prefs-stable' => 'कायम स्थिर आवृत्ती अविचलपणे दर्शवा (जर उपलब्ध असेल तर)',
-	'flaggedrevs-prefs-watch' => 'मी तपासलेली पाने माझ्या पहार्‍याच्या सूचीत टाका',
+	'flaggedrevs-prefs-watch' => 'मी तपासलेली पाने माझ्या पहाऱ्याच्या सूचीमध्ये टाका',
 	'group-editor' => 'संपादक',
 	'group-editor-member' => 'संपादक',
 	'group-reviewer' => 'तपासनीस',
