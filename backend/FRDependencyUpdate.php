@@ -83,7 +83,7 @@ class FRDependencyUpdate {
 			wfGetDB( DB_MASTER ) : wfGetDB( DB_SLAVE );
 		$res = $db->select( 'flaggedrevs_tracking',
 			array( 'ftr_namespace', 'ftr_title' ),
-			array( 'ftr_from' => $this->title->getArticleId() ),
+			array( 'ftr_from' => $this->title->getArticleID() ),
 			__METHOD__
 		);
 		$arr = array();
@@ -110,7 +110,7 @@ class FRDependencyUpdate {
 			}
 			foreach ( $diffs as $dbk => $id ) {
 				$arr[] = array(
-					'ftr_from'      => $this->title->getArticleId(),
+					'ftr_from'      => $this->title->getArticleID(),
 					'ftr_namespace' => $ns,
 					'ftr_title'     => $dbk
 				);
@@ -135,7 +135,7 @@ class FRDependencyUpdate {
 		if ( $del ) {
 			$clause = self::makeWhereFrom2d( $del, wfGetDB( DB_MASTER ) );
 			if ( $clause ) {
-				return array( $clause, 'ftr_from' => $this->title->getArticleId() );
+				return array( $clause, 'ftr_from' => $this->title->getArticleID() );
 			}
 		}
 		return false;
@@ -163,7 +163,7 @@ class FRDependencyUpdate {
 		$dbr = wfGetDB( DB_SLAVE );
 		$res = $dbr->select( 'pagelinks',
 			array( 'pl_namespace', 'pl_title' ),
-			array( 'pl_from' => $this->title->getArticleId() ),
+			array( 'pl_from' => $this->title->getArticleID() ),
 			__METHOD__
 		);
 		$arr = array();
@@ -184,7 +184,7 @@ class FRDependencyUpdate {
 		$dbr = wfGetDB( DB_SLAVE );
 		$res = $dbr->select( 'templatelinks',
 			array( 'tl_namespace', 'tl_title' ),
-			array( 'tl_from' => $this->title->getArticleId() ),
+			array( 'tl_from' => $this->title->getArticleID() ),
 			__METHOD__
 		);
 		$arr = array();
@@ -205,7 +205,7 @@ class FRDependencyUpdate {
 		$dbr = wfGetDB( DB_SLAVE );
 		$res = $dbr->select( 'imagelinks',
 			array( 'il_to' ),
-			array( 'il_from' => $this->title->getArticleId() ),
+			array( 'il_from' => $this->title->getArticleID() ),
 			__METHOD__
 		);
 		$arr = array();
@@ -223,7 +223,7 @@ class FRDependencyUpdate {
 		$dbr = wfGetDB( DB_SLAVE );
 		$res = $dbr->select( 'categorylinks',
 			array( 'cl_to', 'cl_sortkey' ),
-			array( 'cl_from' => $this->title->getArticleId() ),
+			array( 'cl_from' => $this->title->getArticleID() ),
 			__METHOD__
 		);
 		$arr = array();

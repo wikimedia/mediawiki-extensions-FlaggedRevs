@@ -162,7 +162,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 	 */
 	protected function doCheckTarget( $flags = 0 ) {
 		$flgs = ( $flags & self::FOR_SUBMISSION ) ? Title::GAID_FOR_UPDATE : 0;
-		if ( !$this->page->getArticleId( $flgs ) ) {
+		if ( !$this->page->getArticleID( $flgs ) ) {
 			return 'review_page_notexists';
 		}
 		$flgs = ( $flags & self::FOR_SUBMISSION ) ? FR_MASTER : 0;
