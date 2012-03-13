@@ -87,8 +87,13 @@ $messages['arc'] = array(
  * @author Xuacu
  */
 $messages['ast'] = array(
+	'configuredpages' => 'Páxines con configuraciones de revisión',
+	'configuredpages-list' => "Esta páxina tien una llista de páxines configuraes pa tener opciones d'aprobación distintes de les predeterminaes del sitiu.
+Dalgunes preferencies puen camudar la versión que s'amuesa a los llectores o torgar inda más quién pue facer ediciones que nun necesiten revisión.",
 	'configuredpages-none' => 'Nun hai páxines nesta llista.',
 	'configuredpages-config' => 'Configuración',
+	'configuredpages-def-draft' => 'cabera versión',
+	'configuredpages-def-stable' => 'versión estable',
 );
 
 /** Azerbaijani (Azərbaycanca)

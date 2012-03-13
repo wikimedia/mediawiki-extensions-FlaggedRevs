@@ -177,8 +177,10 @@ $messages['arz'] = array(
  */
 $messages['ast'] = array(
 	'unreviewedpages' => 'Páxines non revisaes',
+	'unreviewedpages-legend' => 'Llista de páxines con conteníu ensin revisar',
 	'unreviewedpages-category' => 'Categoría:',
 	'unreviewedpages-diff' => 'revisar',
+	'unreviewedpages-unwatched' => '(non vixilada)',
 	'unreviewedpages-watched' => '($1 {{PLURAL:$1|usuariu activu|usuarios activos}} vixilando)',
 	'unreviewedpages-list' => "Esta páxina llista les páxines de conteníu qu'entá ''nun'' se [[{{MediaWiki:Validationpage}}|revisaron]] al nivel conseñáu.",
 	'unreviewedpages-none' => 'Nun hai páxines anguaño que concuayen con estos criterios',

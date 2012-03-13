@@ -83,6 +83,10 @@ $messages['arz'] = array(
  * @author Xuacu
  */
 $messages['ast'] = array(
+	'problemchanges' => 'Cambios pendientes etiquetaos',
+	'problemchanges-list' => "Esta páxina llista les páxines [[{{MediaWiki:Validationpage}}|revisaes]] que tienen una o más ediciones marcaes esperando revisión. Ta disponible una llista d'[[Special:Tags|etiquetes de cambiu válides]].",
+	'problemchanges-legend' => 'Llista de páxines con ediciones etiquetaes pendientes de revisión',
+	'problemchanges-none' => 'Nun hai páxines anguaño que concuayen con estos criterios',
 	'problemchanges-category' => 'Categoría:',
 );
 
