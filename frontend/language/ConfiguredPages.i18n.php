@@ -596,11 +596,16 @@ $messages['li'] = array(
 
 /** Lithuanian (Lietuvių)
  * @author Eitvys200
+ * @author Vpovilaitis
  */
 $messages['lt'] = array(
+	'configuredpages' => 'Puslapiai su peržiūros konfigūracijomis',
+	'configuredpages-list' => 'Šiame interneto puslapyje pateikiamas puslapių sąrašas sukonfigūruotas pagal skirtingus patvirtinimo parametrus kaip svetainėje yra numatyta.
+Kai kuriuos parametrus gali keisti, kurių versija yra rodoma skaitytojams arba labiau apriboti, nurodant kas galėtų redaguoti be peržiūros.',
 	'configuredpages-none' => 'Šiame sąraše nėra puslapių.',
 	'configuredpages-config' => 'Konfigūracija',
 	'configuredpages-def-draft' => 'naujausia versija',
+	'configuredpages-def-stable' => 'stabili versija',
 );
 
 /** Macedonian (Македонски)
