@@ -3349,17 +3349,24 @@ Klik op de knoep \"Trök\" in diene browser en probeer  t opnúuj.",
 /** Lithuanian (Lietuvių)
  * @author Eitvys200
  * @author Matasg
+ * @author Vpovilaitis
  */
 $messages['lt'] = array(
+	'revisionreview' => 'Versijų tvirtinimas',
 	'review_page_invalid' => 'Taikinio puslapio pavadinimas yra neteisingas.',
 	'review_page_notexists' => 'Taikinio puslapis neegzistuoja.',
+	'revreview-flag' => 'Įvertinti šią versiją',
+	'revreview-reflag' => 'Iš naujo įvertinti šią versiją',
 	'revreview-log' => 'Komentaras:',
-	'revreview-submit' => 'Siųsti',
-	'revreview-submitting' => 'Siunčiama...',
-	'revreview-submit-review' => 'Priimti peržiūrą',
-	'revreview-submit-unreview' => 'nepriimti peržiūros',
-	'revreview-submit-reviewed' => 'Atlikta. Priimta!',
-	'revreview-submit-unreviewed' => 'Atlikta. Nepriimta!',
+	'revreview-submit' => 'Išsaugoti',
+	'revreview-submitting' => 'Saugoma...',
+	'revreview-submit-review' => 'Patvirtinti versiją',
+	'revreview-submit-unreview' => 'Nepatvirtinti versijos',
+	'revreview-submit-reject' => 'Atmesti keitimus',
+	'revreview-submit-reviewed' => 'Atlikta. Patvirtinta!',
+	'revreview-submit-unreviewed' => 'Atlikta. Nepatvirtinta!',
+	'revreview-reject-summary' => 'Apibendrinimas:',
+	'revreview-reject-confirm' => 'Atmesti šiuos pakeitimus',
 	'revreview-reject-cancel' => 'Atšaukti',
 );
 

@@ -1181,13 +1181,22 @@ $messages['li'] = array(
 
 /** Lithuanian (Lietuvių)
  * @author Eitvys200
+ * @author Vpovilaitis
  */
 $messages['lt'] = array(
+	'pendingchanges' => 'Puslapiai su nepatvirtintais pakeitimais',
+	'pendingchanges-legend' => 'Sąrašas jau ankščiau patikrintų puslapių su dar nepatvirtintais pakeitimais',
+	'pendingchanges-list' => 'Sąrašas anksčiau [[{{MediaWiki:Validationpage}}|patvirtintų]] puslapių turinčių vieną ar daugiau laukiančių patvirtinimo pakeitimų.',
+	'pendingchanges-none' => 'Šiuo metu nėra puslapių tenkinančių šiuos kriterijus',
+	'pendingchanges-hours' => '($1 {{PLURAL:$1|valanda|valandos|valandų}})',
+	'pendingchanges-days' => '($1 {{PLURAL:$1|diena|dienas|dienų}})',
 	'pendingchanges-recent' => '(mažiau kaip 1 valandą)',
 	'pendingchanges-category' => 'Kategorija:',
 	'pendingchanges-onwatchlist' => 'Puslapiai iš mano stebimų sąrašo',
+	'pendingchanges-stable' => 'Pagal nutylėjimą yra stabili versija',
 	'pendingchanges-diff' => 'peržiūrėti',
-	'pendingchanges-size' => 'Max keisti (baitais):',
+	'pendingchanges-size' => 'Max. keisti (baitais):',
+	'pendingchanges-unwatched' => '(nepatikrintas)',
 	'pendingchanges-viewing' => '(peržiūrima)',
 );
 
