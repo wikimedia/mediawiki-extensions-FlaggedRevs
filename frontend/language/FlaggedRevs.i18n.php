@@ -15135,6 +15135,7 @@ $messages['uk'] = array(
 
 /** Vèneto (Vèneto)
  * @author Candalua
+ * @author Frigotoni
  */
 $messages['vec'] = array(
 	'action-review' => 'verificar le revision',
@@ -15151,6 +15152,7 @@ $messages['vec'] = array(
 	'flaggedrevs-prefs-watch' => "Tien d'ocio le pagine che riesamino",
 	'flaggedrevs-prefs-editdiffs' => 'Mostra le difarense dei canbiamenti in atesa quando te sì drio modificar le pagine',
 	'flaggedrevs-prefs-viewdiffs' => 'Mostra le difarense dei canbiamenti in atesa quando te sì drio vardar le ultime revision',
+	'flaggedrevs-hidereviewed' => '$1 modifighe revixionae',
 	'group-editor' => 'Contributori',
 	'group-editor-member' => 'Contributor',
 	'group-reviewer' => 'Revisori',
