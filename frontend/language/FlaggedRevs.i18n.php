@@ -7485,11 +7485,11 @@ $messages['is'] = array(
 	'revreview-current' => 'Uppkast',
 	'revreview-depth-0' => 'ótækt',
 	'revreview-draft-title' => 'Óyfirfarnar breytingar eru birtar á þessari síðu',
-	'revreview-edit' => 'Breyta uppkasti',
+	'revreview-edit' => 'Breyta',
 	'revreview-editnotice' => "'''Breyting þín verður birt þegar notandi með ritstjóra réttindi hefur farið yfir hana. ([[{{MediaWiki:Validationpage}}|hjálp]])'''",
 	'revreview-submitedit' => 'Vista breytingar',
 	'revreview-submitedit-title' => 'Vista breytingar fyrir yfirferð',
-	'revreview-edited' => "'''Breyting þín verður birt þegar notandi með ritstjóra réttindi fer yfir hana. ([[{{MediaWiki:Validationpage}}|hjálp]])'''
+	'revreview-edited' => "'''Breyting þín verður birt þegar notandi með ritstjóra réttindi samþykkir hana. ([[{{MediaWiki:Validationpage}}|hjálp]])'''
 
 Það {{PLURAL:$2|er|eru}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2  {{PLURAL:$2|óyfirfarin breyting|óyfirfarnar breytingar}}] hér fyrir neðan, sem þyrfti að skoða.",
 	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|breyting|breytingar}}] í þessari útgáfu {{PLURAL:$3|er|eru}} [[{{MediaWiki:Validationpage}}|{{PLURAL:$3|óyfirfarin|óyfirfarnar}}]].
