@@ -130,6 +130,7 @@ class RejectConfirmationFormUI {
 
 		$form .= '</div>';
 
+		$skin = $this->form->getUser()->getSkin();
 		$reviewTitle = SpecialPage::getTitleFor( 'RevisionReview' );
 		$form .= Xml::openElement( 'form',
 			array( 'method' => 'POST', 'action' => $reviewTitle->getFullUrl() ) );
@@ -145,7 +146,7 @@ class RejectConfirmationFormUI {
 			'wpReason', 120, $defaultSummary, array( 'maxlength' => 200 ) ) . "<br />";
 		$form .= Html::input( 'wpSubmit', wfMsg( 'revreview-reject-confirm' ), 'submit' );
 		$form .= ' ';
-		$form .= Linker::link( $this->form->getPage(), wfMsg( 'revreview-reject-cancel' ),
+		$form .= $skin->link( $this->form->getPage(), wfMsg( 'revreview-reject-cancel' ),
 			array( 'onClick' => 'history.back(); return history.length <= 1;' ),
 			array( 'oldid' => $this->form->getRefId(), 'diff' => $this->form->getOldId() ) );
 		$form .= Xml::closeElement( 'form' );

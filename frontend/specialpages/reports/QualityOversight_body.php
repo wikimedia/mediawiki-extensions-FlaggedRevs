@@ -41,7 +41,7 @@ class QualityOversight extends SpecialPage {
 		}
 
 		# Create a LogPager item to get the results and a LogEventsList item to format them...
-		$loglist = new LogEventsList( $this->getContext()->getSkin(), $out, 0 );
+		$loglist = new LogEventsList( $this->getUser()->getSkin(), $out, 0 );
 		$pager = new LogPager( $loglist, 'review', $this->user, '', '', $conds );
 
 		# Explanatory text

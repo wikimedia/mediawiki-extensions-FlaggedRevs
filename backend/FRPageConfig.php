@@ -32,7 +32,8 @@ class FRPageConfig {
 	 */
 	public static function getVisibilitySettingsFromRow( $row ) {
 		if ( $row ) {
-			$expiry = wfGetDB( DB_SLAVE )->decodeExpiry( $row->fpc_expiry );
+			# This code should be refactored, now that it's being used more generally.
+			$expiry = Block::decodeExpiry( $row->fpc_expiry );
 			# Only apply the settings if they haven't expired
 			if ( !$expiry || $expiry < wfTimestampNow() ) {
 				$row = null; // expired
@@ -48,7 +49,7 @@ class FRPageConfig {
 			$config = array(
 				'override'   => $row->fpc_override ? 1 : 0,
 				'autoreview' => $level,
-				'expiry'	 => $expiry // TS_MW
+				'expiry'	 => Block::decodeExpiry( $row->fpc_expiry ) // TS_MW
 			);
 			# If there are protection levels defined check if this is valid...
 			if ( FlaggedRevs::useProtectionLevels() ) {
@@ -95,7 +96,7 @@ class FRPageConfig {
 			$changed = ( $dbw->affectedRows() != 0 ); // did this do anything?
 		# Otherwise, add/replace row if we are not just setting it to the site default
 		} else {
-			$dbExpiry = $dbw->encodeExpiry( $config['expiry'] );
+			$dbExpiry = Block::encodeExpiry( $config['expiry'], $dbw );
 			# Get current config...
 			$oldRow = $dbw->selectRow( 'flaggedpage_config',
 				array( 'fpc_override', 'fpc_level', 'fpc_expiry' ),

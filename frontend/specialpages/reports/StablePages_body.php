@@ -153,7 +153,7 @@ class StablePagesPager extends AlphabeticPager {
 		$conds['page_namespace'] = $this->namespace;
 		// Be sure not to include expired items
 		if( $this->indef ) {
-			$conds['fpc_expiry'] = $this->mDb->getInfinity();
+			$conds['fpc_expiry'] = Block::infinity();
 		} else {
 			$encCutoff = $this->mDb->addQuotes( $this->mDb->timestamp() );
 			$conds[] = "fpc_expiry > {$encCutoff}";
