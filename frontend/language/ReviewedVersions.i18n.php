@@ -589,10 +589,15 @@ $messages['ig'] = array(
 
 /** Icelandic (Íslenska)
  * @author S.Örvarr.S
+ * @author Snævar
  */
 $messages['is'] = array(
-	'reviewedversions' => 'Stöðugar útgáfur',
+	'reviewedversions' => 'Yfirfarnar útgáfur',
+	'reviewedversions-leg1' => 'Listi yfir yfirfarnar útgáfur síðu',
 	'reviewedversions-page' => 'Titill síðu:',
+	'reviewedversions-none' => '"[[:$1]]" hefur engar yfirfarnar útgáfur.',
+	'reviewedversions-list' => 'Hér á eftir er listi yfir {{PLURAL:$2|einu útgáfu|útgáfur}} [[:$1]] sem {{PLURAL:$2|hefur|hafa}} verið {{PLURAL:$2|yfirfarin|yfirfarnar}}:',
+	'reviewedversions-review' => 'Yfirfarið <i>$1</i> af $2',
 );
 
 /** Italian (Italiano)

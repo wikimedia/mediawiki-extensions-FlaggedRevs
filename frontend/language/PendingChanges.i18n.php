@@ -963,15 +963,25 @@ $messages['io'] = array(
 );
 
 /** Icelandic (Íslenska)
+ * @author Snævar
  * @author Spacebirdy
  */
 $messages['is'] = array(
+	'pendingchanges' => 'Síður með óskoðaðar breytingar',
+	'pendingchanges-legend' => 'Sýnir lista yfir síður með óskoðaðar breytingar',
+	'pendingchanges-list' => 'Þessi síða er listi yfir [[{{MediaWiki:Validationpage}}|yfirfarnar]] síður með einni eða fleiri breytingu sem bíða eftir skoðun.',
+	'pendingchanges-none' => 'Eins og er upfyllir engin síða þessi leitarskilyrði.',
 	'pendingchanges-hours' => '($1 {{PLURAL:$1|klukkustund|klukkustundir}})',
 	'pendingchanges-days' => '($1 {{PLURAL:$1|dagur|dagar}})',
+	'pendingchanges-recent' => '(minna en einn klukkutími)',
 	'pendingchanges-category' => 'Flokkur:',
-	'pendingchanges-stable' => 'yfirfarið',
-	'pendingchanges-diff' => 'endurskóða',
+	'pendingchanges-onwatchlist' => 'Síður á vaktlistanum mínum',
+	'pendingchanges-stable' => 'Yfirfarnar síður',
+	'pendingchanges-diff' => 'yfirfara',
+	'pendingchanges-size' => 'Hámarks breyting (bæti):',
 	'pendingchanges-unwatched' => '(án eftirlits)',
+	'pendingchanges-watched' => '($1 {{PLURAL:$1|virkur notandi|virkir notendur}} vakta síðuna)',
+	'pendingchanges-viewing' => '(í skoðun)',
 );
 
 /** Italian (Italiano)

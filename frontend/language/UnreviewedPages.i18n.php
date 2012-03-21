@@ -886,13 +886,15 @@ $messages['io'] = array(
 
 /** Icelandic (Íslenska)
  * @author S.Örvarr.S
+ * @author Snævar
  * @author Spacebirdy
  */
 $messages['is'] = array(
-	'unreviewedpages' => 'Óendurskoðaðar síður',
+	'unreviewedpages' => 'Óskoðaðar síður',
 	'unreviewedpages-category' => 'Flokkur:',
 	'unreviewedpages-diff' => 'endurskoða',
 	'unreviewedpages-unwatched' => '(án eftirlits)',
+	'unreviewedpages-viewing' => '(í skoðun)',
 	'unreviewedpages-hours' => '($1 {{PLURAL:$1|klukkustund|klukkustundir}})',
 	'unreviewedpages-days' => '($1 {{PLURAL:$1|dagur|dagar}})',
 );

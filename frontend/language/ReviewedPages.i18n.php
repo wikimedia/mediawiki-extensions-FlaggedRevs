@@ -644,11 +644,17 @@ Sebuah pranala diberikan pada perbaikan terakhir level tersebut.",
 
 /** Icelandic (Íslenska)
  * @author S.Örvarr.S
+ * @author Snævar
  * @author Spacebirdy
  */
 $messages['is'] = array(
+	'reviewedpages' => 'Yfirfarnar síður',
+	'reviewedpages-leg' => 'Listi yfir síður sem hafa verið yfirfarnar',
+	'reviewedpages-none' => 'Engar útgáfur eru í þessum lista.',
 	'reviewedpages-lev-0' => 'Yfirfarið',
 	'reviewedpages-lev-1' => 'Gæði',
+	'reviewedpages-all' => 'yfirfarnar útgáfur',
+	'reviewedpages-best' => 'besta útgáfan',
 );
 
 /** Italian (Italiano)

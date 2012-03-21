@@ -1087,10 +1087,27 @@ $messages['io'] = array(
 );
 
 /** Icelandic (Íslenska)
+ * @author Snævar
  * @author Spacebirdy
  */
 $messages['is'] = array(
+	'validationstatistics' => 'Tölfræði yfirfarinna síðna',
+	'validationstatistics-users' => "'''{{SITENAME}}''' hefur í augnablikinu '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|notanda|notendur}} með [[{{MediaWiki:Validationpage}}|ritstjóra]] réttindi.
+
+Ritstjórar eru traustir notendur sem yfirfara breytingar á síðum.",
+	'validationstatistics-lastupdate' => "''Eftirfarandi tölfræði var síðast uppfærð $1 kl. $2.''",
+	'validationstatistics-pndtime' => "Breytingar sem hafa verið skoðaðar af traustum notendum eru taldar ''yfirfarnar''.
+
+Mesti biðtími fyrir [[Special:OldReviewedPages|óskoðaðar síður]] er '''$1'''; biðtíminn segir til um hversu lengi elsta breytingin var óskoðuð.",
+	'validationstatistics-revtime' => "Mesti biðtími á óskoðuðum breytingum eftir ''notendur sem hafa ekki skráð sig innn'' er '''$1'''; meðaltalið er '''$2'''. 
+$3",
+	'validationstatistics-table' => "Tölfræði fyrir yfirfarnar síður eftir nafnrýmum eru sýndar hér fyrir neðan, ''að frátöldum'' tílvísunar síðum. Síður teljast ''úreldar'' ef þær hafa breytingar sem bíða eftir skoðun. Síður teljast ''samræmdar'' ef engar breytingar bíða eftir skoðun.",
 	'validationstatistics-ns' => 'Nafnrými',
+	'validationstatistics-total' => 'Síður',
+	'validationstatistics-stable' => 'Yfirfarnar',
+	'validationstatistics-latest' => 'samræmdar',
+	'validationstatistics-synced' => 'Samræmdar/Yfirfarnar',
+	'validationstatistics-old' => 'Úreldar',
 );
 
 /** Italian (Italiano)

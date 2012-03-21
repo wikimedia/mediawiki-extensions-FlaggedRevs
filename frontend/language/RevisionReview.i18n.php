@@ -2794,13 +2794,51 @@ $messages['io'] = array(
 );
 
 /** Icelandic (Íslenska)
+ * @author Snævar
  * @author Spacebirdy
  */
 $messages['is'] = array(
+	'review_denied' => 'Heimild hafnað.',
+	'review_cannot_undo' => 'Mistókst að taka aftur þessar breytingar því aðrar óskoðaðar útgáfur breyttu sama hluta síðunnar.',
+	'review_cannot_reject' => 'Höfnun breytingana mistókst því einhver hefur þegar samþykkt sumar (eða allar) breytingarnar.',
+	'review_reject_excessive' => 'Ekki er mögulegt að hafna svona mörgum breytingum í einu.',
+	'review_reject_nulledits' => 'Höfnun útgáfanna mistókst því engar breytingar áttu sér stað.',
+	'revreview-check-flag-p' => 'Samþykkja þessa útgáfu (innifelur $1 {{PLURAL:$1|óskoðaða breytingu|óskoðaðar breytingar}})',
+	'revreview-check-flag-u' => 'Samþykkja þessa óskoðuðu síðu',
+	'revreview-check-flag-u-title' => 'Samþykkja þessa útgáfu síðunnar. Notaðu eingöngu þennan möguleika ef þú hefur séð síðuna í heild sinni.',
+	'revreview-check-flag-y' => 'Samþykkja breytingarnar mínar',
+	'revreview-check-flag-y-title' => 'Samþykkja allar breytingar sem þú hefur gert.',
 	'revreview-flag' => 'Endurskoða þessa útgáfu',
+	'revreview-reflag' => 'Endurskoða þessa breytingu',
 	'revreview-log' => 'Athugasemd:',
+	'revreview-main' => 'Skoðun mistókst því engin útgáfa var valin.
+
+Sjá nánar á [[Special:Unreviewedpages|lista yfir óskoðaðar síður]].',
+	'revreview-stable2' => 'Þú gætir viljað sjá [{{fullurl:$1|stable=1}} stöðuga útgáfu] síðunnar.',
 	'revreview-submit' => 'Staðfesta',
 	'revreview-submitting' => 'Staðfesta …',
+	'revreview-submit-review' => 'Samþykkja útgáfu',
+	'revreview-submit-reject' => 'Hafna breytingu',
+	'revreview-submit-reviewed' => 'Búið. Samþykkt!',
+	'revreview-poss-conflict-p' => "'''Viðvörun: [[User:$1|$1]] hóf að yfirfara síðuna $2 kl. $3.'''",
+	'revreview-poss-conflict-c' => "'''Viðvörun: [[User:$1|$1]] hóf að yfirfara þessar breytingar $2 kl. $3.'''",
+	'revreview-adv-reviewing-p' => 'Tilkynning: Aðrir ritstjórar geta séð að þú sért að yfirfara þessa síðu.',
+	'revreview-adv-reviewing-c' => 'Tilkynning: Aðrir ritsjórar geta séð að þú sért að yfirfara þessar breytingar.',
+	'revreview-sadv-reviewing-p' => 'Þú getur $1 að þú sért að yfirfara þessa síðu.',
+	'revreview-sadv-reviewing-c' => 'Þú getur $1 að þú sért að yfirfara þessar breytingar.',
+	'revreview-adv-start-link' => 'tilkynnt',
+	'revreview-update' => "'''Vinsamlegast [[{{MediaWiki:Validationpage}}|farðu yfir]] allar óskoðaðar breytingar ''(sýndar hér fyrir neðan)'' síðan að síðasta breytingin var gerð.'''",
+	'revreview-update-includes' => 'Snið/skrár uppfærð (óskoðaðar síður eru feitletraðar):',
+	'revreview-reject-text-list' => "Með þessari aðgerð munt þú '''hafna''' frumtexta eftirfarandi {{PLURAL:$1|útgáfu|útgáfna}} [[:$2|$2]]:",
+	'revreview-reject-text-revto' => 'Þessi aðgerð mun breyta síðunni aftur til [{{fullurl:$1|oldid=$2}} útgáfu síðunnar $3]',
+	'revreview-reject-summary' => 'Ágrip:',
+	'revreview-reject-confirm' => 'Hafna þessum breytingum',
+	'revreview-reject-cancel' => 'Hætta við',
+	'revreview-reject-summary-cur' => 'Hafnaði síðustu {{PLURAL:$1|breytingu|$1 breytingum}} (eftir $2) og breytti aftur til útgáfu $3 eftir $4',
+	'revreview-reject-summary-cur-short' => 'Hafnaði síðustu {{PLURAL:$1|breytingu|$1 breytingum}} og breytti aftur til útgáfu $2 eftir $3',
+	'revreview-tt-flag' => 'Samþykkja þessa útgáfu með því að merkja hana sem „skoðaða"',
+	'revreview-tt-unflag' => 'Hafna þessari útgáfu með því að merkja hana sem „óskoðaða"',
+	'revreview-tt-reject' => 'Hafna breytingu á texta með því að taka breytinguna aftur',
 );
 
 /** Italian (Italiano)
