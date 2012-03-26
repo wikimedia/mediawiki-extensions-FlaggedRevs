@@ -36,7 +36,8 @@ class Stabilization extends UnlistedSpecialPage {
 			$out->showErrorPage( 'notargettitle', 'notargettext' );
 			return;
 		}
-	
+		$this->getSkin()->setRelevantTitle( $title );
+
 		$this->form = new PageStabilityGeneralForm( $user );
 		$form = $this->form; // convenience
 
@@ -113,10 +114,10 @@ class Stabilization extends UnlistedSpecialPage {
 		$showProtectOptions = ( $scExpiryOptions !== '-' && $form->isAllowed() );
 		$dropdownOptions = array(); // array of <label,value>
 		# Add the current expiry as a dropdown option
-		if ( $oldConfig['expiry'] && $oldConfig['expiry'] != Block::infinity() ) {
-			$timestamp = $this->getLang()->timeanddate( $oldConfig['expiry'] );
-			$d = $this->getLang()->date( $oldConfig['expiry'] );
-			$t = $this->getLang()->time( $oldConfig['expiry'] );
+		if ( $oldConfig['expiry'] && $oldConfig['expiry'] != 'infinity' ) {
+			$timestamp = $this->getLanguage()->timeanddate( $oldConfig['expiry'] );
+			$d = $this->getLanguage()->date( $oldConfig['expiry'] );
+			$t = $this->getLanguage()->time( $oldConfig['expiry'] );
 			$dropdownOptions[] = array(
 				wfMsg( 'protect-existing-expiry', $timestamp, $d, $t ), 'existing' );
 		}
@@ -239,7 +240,7 @@ class Stabilization extends UnlistedSpecialPage {
 				</tr>' . Xml::closeElement( 'table' ) .
 				Html::hidden( 'title', $this->getTitle()->getPrefixedDBKey() ) .
 				Html::hidden( 'page', $title->getPrefixedText() ) .
-				Html::hidden( 'wpEditToken', $this->getUser()->editToken() );
+				Html::hidden( 'wpEditToken', $this->getUser()->getEditToken() );
 		} else {
 			$s .= Xml::closeElement( 'table' );
 		}

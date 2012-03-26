@@ -211,7 +211,7 @@ class FlaggedRevsSetup {
 
 		# ######## Other #########
 		# Determine what pages can be moved and patrolled
-		$wgHooks['getUserPermissionsErrors'][] = 'FlaggedRevsHooks::onUserCan';
+		$wgHooks['getUserPermissionsErrors'][] = 'FlaggedRevsHooks::onGetUserPermissionsErrors';
 		# Implicit autoreview rights group
 		$wgHooks['AutopromoteCondition'][] = 'FlaggedRevsHooks::checkAutoPromoteCond';
 		$wgHooks['UserLoadAfterLoadFromSession'][] = 'FlaggedRevsHooks::setSessionKey';
