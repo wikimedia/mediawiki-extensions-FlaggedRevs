@@ -479,7 +479,11 @@ class FlaggablePageView extends ContextSource {
 				'parseinline', $srev->getRevId(), $revsSince );
 			$anchor = $request->getVal( 'fromsection' );
 			if ( $anchor != null ) {
-				$section = str_replace( '_', ' ', $anchor ); // prettify
+				// Hack: reverse some of the Sanitizer::escapeId() encoding
+				$section = urldecode( str_replace( // bug 35661
+					array( ':' , '.' ), array( '%3A', '%' ), $anchor
+				) );
+				$section = str_replace( '_', ' ', $section ); // prettify
 				$pending .= wfMsgExt( 'revreview-edited-section', 'parse', $anchor, $section );
 			}
 			# Notice should always use subtitle
@@ -1696,11 +1700,7 @@ class FlaggablePageView extends ContextSource {
 				if ( $sectionAnchor ) {
 					// Pass a section parameter in the URL as needed to add a link to
 					// the "your changes are pending" box on the top of the page...
-					$section = str_replace(
-						array( ':' , '.' ), array( '%3A', '%' ), // hack: reverse encoding
-						substr( $sectionAnchor, 1 ) // remove the '#'
-					);
-					$params += array( 'fromsection' => $section );
+					$params += array( 'fromsection' => substr( $sectionAnchor, 1 ) ); // strip #
 					$sectionAnchor = ''; // go to the top of the page to see notice
 				}
 			}
