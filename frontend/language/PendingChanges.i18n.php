@@ -1916,6 +1916,7 @@ $messages['tl'] = array(
 );
 
 /** Turkish (Türkçe)
+ * @author Bilalokms
  * @author Erkan Yilmaz
  * @author Joseph
  * @author Karduelis
@@ -1926,7 +1927,7 @@ $messages['tl'] = array(
 $messages['tr'] = array(
 	'pendingchanges' => 'İnceleme bekleyen sayfalar',
 	'pendingchanges-legend' => 'Gözden geçirilme bekleyen revizyonu olan gözden geçirilmiş sayfaları listele',
-	'pendingchanges-list' => 'Bu sayfa, bekleyen değişikliğe sahip gözden geçirilmiş {{PLURAL:$1|bir sayfayı|sayfaları}} listeler.',
+	'pendingchanges-list' => 'Bu sayfa, bir veya daha fazla bekleyen değişikliğe sahip [[{{MediaWiki:Validationpage}}|gözden geçirilmiş]] {{PLURAL:$1|bir sayfayı|sayfaları}} listeler.',
 	'pendingchanges-none' => 'Şimdilik bu kriterlere uyan sayfa yoktur',
 	'pendingchanges-hours' => '($1 {{PLURAL:$1|saat|saat}})',
 	'pendingchanges-days' => '($1 {{PLURAL:$1|gün|gün}})',

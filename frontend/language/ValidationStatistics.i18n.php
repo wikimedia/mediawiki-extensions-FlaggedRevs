@@ -420,7 +420,7 @@ $3",
  * @author ОйЛ
  */
 $messages['cu'] = array(
-	'validationstatistics-total' => 'страни́цѧ',
+	'validationstatistics-total' => 'страницѧ',
 );
 
 /** Danish (Dansk)
