@@ -364,6 +364,7 @@ $messages['ckb'] = array(
 
 /** Czech (Česky)
  * @author Danny B.
+ * @author Jezevec
  * @author Li-sung
  * @author Matěj Grabovský
  * @author Mormegil
@@ -375,7 +376,7 @@ $messages['cs'] = array(
 	'unreviewedpages-diff' => 'kontrola',
 	'unreviewedpages-unwatched' => '(nesledované)',
 	'unreviewedpages-watched' => '({{PLURAL:$1|sleduje|sledují|sleduje}} $1 {{PLURAL:$1|aktivní uživatel|aktivní uživatelé|aktivních uživatelů}})',
-	'unreviewedpages-list' => 'Tato stránka obsahuje články, které nebyly posouzeny do určené úrovně.',
+	'unreviewedpages-list' => 'Tato stránka obsahuje články, které nebyly [[{{MediaWiki:Validationpage}}|posouzeny]] do určené úrovně.',
 	'unreviewedpages-none' => 'Momentálně neexistují žádné stránky splňující tato kritéria.',
 	'unreviewedpages-viewing' => '(kontroluje se)',
 	'unreviewedpages-hours' => '($1 {{PLURAL:$1|hodina|hodiny|hodin}})',

@@ -208,11 +208,13 @@ $messages['ca'] = array(
 
 /** Czech (Česky)
  * @author Danny B.
+ * @author Jezevec
  * @author Matěj Grabovský
  */
 $messages['cs'] = array(
-	'stablepages' => 'Stabilní stránky',
-	'stablepages-list' => 'Níže je seznam stránek, které byly ručně nastaveny, aby se jako jejich výchozí obash zobrazovala jejich stabilní verze.',
+	'stablepages' => 'Stránky používající schvalování úprav',
+	'stablepages-list' => 'Toto je seznam stránek, které mohou být upravovány bez schvalování pouze vybranými uživateli.
+Úpravy jiných uživatelů nebudou standardně čtenářům zobrazeny dokud neprojdou schválením autorizovaných uživatelů.',
 	'stablepages-none' => 'V tomto seznamu nejsou žádné stránky.',
 	'stablepages-config' => 'Konfigurace',
 	'stablepages-indef' => 'Pouze neurčitá expirace',

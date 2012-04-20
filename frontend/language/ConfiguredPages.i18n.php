@@ -205,12 +205,13 @@ $messages['ce'] = array(
 );
 
 /** Czech (Česky)
+ * @author Jezevec
  * @author Jkjk
  */
 $messages['cs'] = array(
-	'configuredpages' => 'Stránk s nastavením pousuzování',
-	'configuredpages-list' => 'Níže je seznam stránek nakonfigurovaných tak, že mají odlišné nastavení schvalování než standadní nastevení.
-Taková nastavení mohou, jaká verze bude zobrazena čtenářům nebo více omezit, kdo může editovat bez následného posuzování.',
+	'configuredpages' => 'Stránky s nastavením posuzování',
+	'configuredpages-list' => 'Toto je seznam stránek s jiným než standardnín nastavením schvalování.
+Některá nstavení mohou změnit verzi zobrazenou čtenářům nebo omezit skupinu lidí s oprávněním upravovat stránku bez nutnosti následného posouzení.',
 	'configuredpages-none' => 'V tomto seznamu nejsou žádné stránky.',
 	'configuredpages-config' => 'Nastavení',
 	'configuredpages-def-draft' => 'poslední verze',

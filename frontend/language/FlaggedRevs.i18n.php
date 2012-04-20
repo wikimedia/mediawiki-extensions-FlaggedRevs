@@ -3065,6 +3065,7 @@ $messages['crh-cyrl'] = array(
 
 /** Czech (Česky)
  * @author Danny B.
+ * @author Jezevec
  * @author Jkjk
  * @author Li-sung
  * @author Matěj Grabovský
@@ -3086,9 +3087,9 @@ $messages['cs'] = array(
 	'flaggedrevs-prefs-editdiffs' => 'Při editování stránek zobrazovat rozdíly proti stabilní verzi',
 	'flaggedrevs-prefs-viewdiffs' => 'Při zobrazování navrhů stránek zobrazovat rozdíly proti stabilní verzi.',
 	'group-editor' => 'Editoři',
-	'group-editor-member' => 'editor',
+	'group-editor-member' => '{{GENDER:$1|editor|editorka|editor}}',
 	'group-reviewer' => 'Posuzovatelé',
-	'group-reviewer-member' => 'posuzovatel',
+	'group-reviewer-member' => '{{GENDER:$1|posuzovatel|posuzovatelka|posuzovatel}}',
 	'grouppage-editor' => '{{ns:project}}:Editor',
 	'grouppage-reviewer' => '{{ns:project}}:Posuzovatel',
 	'group-autoreview' => 'Automatičtí posuzovatelé',
@@ -3217,7 +3218,7 @@ Možná byly provedeny nové [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{Med
 	'revreview-statusfilter' => 'Změna stavu:',
 	'revreview-filter-approved' => 'Schválené',
 	'revreview-filter-reapproved' => 'Znovu schválené',
-	'revreview-filter-unapproved' => 'Neschválené',
+	'revreview-filter-unapproved' => 'Zamítnuté',
 	'revreview-typefilter' => 'Typ:',
 	'revreview-filter-auto' => 'Automatické',
 	'revreview-filter-manual' => 'Ruční',

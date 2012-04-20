@@ -181,11 +181,12 @@ $messages['ckb'] = array(
 );
 
 /** Czech (Česky)
+ * @author Jezevec
  * @author Kuvaly
  * @author Matěj Grabovský
  */
 $messages['cs'] = array(
-	'problemchanges' => 'Posoudit označené změny',
+	'problemchanges' => 'Označené čekající změny',
 	'problemchanges-legend' => 'Zobrazit seznam stránek s označenými úpravami čekajícími na posouzení',
 	'problemchanges-none' => 'Momentálně neexistují žádné stránky odpovídájící těmto požadavkům',
 	'problemchanges-category' => 'Kategorie:',

@@ -1051,6 +1051,7 @@ $messages['ckb'] = array(
 
 /** Czech (Česky)
  * @author Danny B.
+ * @author Jezevec
  * @author Jkjk
  * @author Li-sung
  * @author Matěj Grabovský
@@ -1067,9 +1068,13 @@ $messages['cs'] = array(
 	'review_not_flagged' => 'Cílová revize nyní není označena jako posouzená.',
 	'review_too_low' => 'Revizi nelze posoudit, pokud některá pole ponechaná "neadekvátní".',
 	'review_bad_key' => 'Neplatný klíč parametru zařazení',
+	'review_bad_tags' => 'Některé z hodnot zadaného tagu jsou neplatné.',
 	'review_denied' => 'Přístup odmítnut.',
 	'review_param_missing' => 'Parametr chybí nebo je nesprávný',
 	'review_cannot_undo' => 'Nelze vrátit tyto změny protože čekající editace změnily stejnou oblast.',
+	'review_cannot_reject' => 'Tyto změny nelze odmítnout, protože někdo již přijal některé (nebo všechny) úpravy.',
+	'review_reject_excessive' => 'Nelze odmítnout tolik změn najednou.',
+	'review_reject_nulledits' => 'Tyto změny nelze odmítnout, protože jde o prázdné úpravy.',
 	'revreview-check-flag-p' => 'Akceptovat čekající změny',
 	'revreview-check-flag-p-title' => 'Přijmout všechny čekající změny spolu vaší editací. Použijte, jen pokud jste již viděli rozdíl čekajících změn.',
 	'revreview-check-flag-u' => 'Přimout tuto neposouzenou stránku',
@@ -1105,7 +1110,7 @@ Bude nutné tyto editace začlenit nebo zamítnout.',
 
 Aby se tam mohly dostat, posuďte prosím nejdříve všechny změny zobrazené níže.
 Bude nutné tyto editace začlenit nebo zamítnout.',
-	'revreview-update-includes' => 'Některé šablony/soubory se změnily:',
+	'revreview-update-includes' => 'Šablony/soubory byly aktualizovány (nezkontrolované stránky jsou tučně):',
 	'revreview-reject-text-list' => "Dokončením této akce, '''zamítnete''' následující {{PLURAL:$1|zmněnu|změny|změn}}:",
 	'revreview-reject-text-revto' => 'Toto se vrátí zpět stránku do [{{fullurl:$1|oldid = $2}} revize z $3].',
 	'revreview-reject-summary' => 'Shrnutí:',

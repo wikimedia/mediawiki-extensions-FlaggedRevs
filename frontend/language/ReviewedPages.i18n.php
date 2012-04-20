@@ -264,6 +264,7 @@ $messages['ce'] = array(
 );
 
 /** Czech (Česky)
+ * @author Jezevec
  * @author Li-sung
  * @author Matěj Grabovský
  */

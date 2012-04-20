@@ -249,11 +249,12 @@ $messages['ce'] = array(
 );
 
 /** Czech (Česky)
+ * @author Jezevec
  * @author Li-sung
  * @author Matěj Grabovský
  */
 $messages['cs'] = array(
-	'reviewedversions' => 'Zobrazit stabilní verze',
+	'reviewedversions' => 'Posouzené verze',
 	'reviewedversions-leg1' => 'Přehled posouzených verzí stránky',
 	'reviewedversions-page' => 'Jméno stránky',
 	'reviewedversions-none' => '[[:$1]] nemá žádné posouzené verze.',

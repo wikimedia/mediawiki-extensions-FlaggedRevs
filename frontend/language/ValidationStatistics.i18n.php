@@ -390,28 +390,30 @@ $messages['ckb'] = array(
 );
 
 /** Czech (Česky)
+ * @author Jezevec
  * @author Jkjk
  * @author Kuvaly
  * @author Matěj Grabovský
  */
 $messages['cs'] = array(
 	'validationstatistics' => 'Statistiky ověřování',
-	'validationstatistics-users' => "'''{{SITENAME}}''' má práve teď '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|uživatele|uživatele|uživatelů}} s právy [[{{MediaWiki:Validationpage}}|editora]] a '''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$1|uživatele|uživatele|uživatelů}} s právy [[{{MediaWiki:Validationpage}}|posuzovatele]].",
-	'validationstatistics-lastupdate' => "''Následující údaje byly aktualizovány $1 $2.''",
-	'validationstatistics-pndtime' => "Editace, který byly zkontrolovány důvěryhodnými uživateli se považují za posouzené.
+	'validationstatistics-users' => "'''{{SITENAME}}''' má práve teď '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|uživatele|uživatele|uživatelů}} s právy [[{{MediaWiki:Validationpage}}|editora]].
 
-Průměrné zpoždění [[Special:OldReviewedPages|stránek s čekajícími editacemi]] je '''$1'''.
-Tyto stránky jsou považovány za ''zastaralé''. Podobně stránky jsou považovány za ''synchronizované'', pokud nemají žádné čekající změny.",
+Editoři jsou zavedení uživatelé s oprávněním kontrolovat úpravy stránek.",
+	'validationstatistics-lastupdate' => "''Následující údaje byly aktualizovány dne $1 v $2.''",
+	'validationstatistics-pndtime' => "Editace, které byly zkontrolovány důvěryhodnými uživateli se považují za ''posouzené''.
+
+Průměrné zpoždění [[Special:OldReviewedPages|stránek s čekajícími editacemi]] je '''$1'''; měření vychází z nejstarších nezkontrolovaných editací.",
 	'validationstatistics-revtime' => "Průměrná čekací doba editací od ''nepřihlášených uživatelů'' na posouzení je '''$1'''; medián je '''$2'''.
 $3",
-	'validationstatistics-table' => "Níže jsou zobrazeny statistiky pro každý jmenný prostor ''kromě'' přesměrování.",
+	'validationstatistics-table' => "Níže jsou zobrazeny statistiky kontrol pro každý jmenný prostor ''kromě'' přesměrování. Stránky jsou považovány za ''zastaralé'', pokud obsahují neschválené úpravy, případně za ''synchronizované'', pokud nemají žádné neschválené úpravy.",
 	'validationstatistics-ns' => 'Jmenný prostor',
 	'validationstatistics-total' => 'Stránky',
 	'validationstatistics-stable' => 'Prověřeno',
 	'validationstatistics-latest' => 'Synchronizováno',
 	'validationstatistics-synced' => 'Synchronizováno/prověřeno',
 	'validationstatistics-old' => 'Zastaralé',
-	'validationstatistics-utable' => 'Níže je seznam $1 největších posuzovatelů za poslední hodinu.',
+	'validationstatistics-utable' => 'Níže {{PLURAL:$1|je uveden $1 nejaktivnější posuzovatel|jsou uvedeni $1 nejaktivnější posuzovatelé|je uvedeno $1 nejaktivnějších posuzovatelů}} za poslední{{PLURAL:$2| hodinu| $2 hodiny|ch $2 hodin}}.',
 	'validationstatistics-user' => 'Uživatel',
 	'validationstatistics-reviews' => 'Posouzení',
 );
