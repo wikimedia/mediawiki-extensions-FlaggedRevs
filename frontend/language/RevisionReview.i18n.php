@@ -2928,6 +2928,7 @@ Vedi l'[[Special:Unreviewedpages|elenco delle pagine non revisionate]].",
  * @author JtFuruhata
  * @author Ohgi
  * @author Schu
+ * @author Shirayuki
  * @author Whym
  * @author 青子守歌
  */
@@ -2958,7 +2959,7 @@ $messages['ja'] = array(
 	'revreview-check-flag-u-title' => 'ページのこの版を受理する。この機能は既にページ全体を確認し終わった場合にのみ使用してください。',
 	'revreview-check-flag-y' => 'これらの変更を受理',
 	'revreview-check-flag-y-title' => 'この編集で行った変更をすべて受理します。',
-	'revreview-flag' => 'この特定版の査読',
+	'revreview-flag' => 'この特定版を査読',
 	'revreview-reflag' => 'この版を再査読',
 	'revreview-invalid' => "'''無効な対象:''' 指定されたIDに対応する[[{{MediaWiki:Validationpage}}|査読済み]]版はありません。",
 	'revreview-log' => '査読内容の要約:',
@@ -4877,7 +4878,7 @@ $messages['sq'] = array(
 $messages['sr-ec'] = array(
 	'revisionreview' => 'Преглед измена',
 	'review_page_invalid' => 'Наслов циљане стране је неисправан.',
-	'review_page_notexists' => 'Циљана страна не постоји.',
+	'review_page_notexists' => 'Циљна страница не постоји.',
 	'review_page_unreviewable' => 'Циљана страна се не може прегледати.',
 	'revreview-flag' => 'Преглед ове верзије',
 	'revreview-invalid' => "'''Лош циљ:''' ниједна [[{{MediaWiki:Validationpage}}|прегледана]] верзије не поседује дати редни број.",
