@@ -5889,10 +5889,10 @@ S cha syy, ass es neiji [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWik
 	'revreview-depth-4' => 'bsunders glunge',
 	'revreview-draft-title' => 'Hängigi Änderige wäre uf däre Syte aazeigt',
 	'revreview-edit' => 'Bearbeite',
-	'revreview-editnotice' => "'''Dyyni Bearbeitige vu däre Syte wäre vereffentligt, wänn si vun eme autorisierte Benutzer prieft wore sin. ([[{{MediaWiki:Validationpage}}|Hilf]])'''",
+	'revreview-editnotice' => "'''Dyyni Bearbeitige vu däre Syte wäre aazeigt, wänn si vun eme autorisierte Benutzer prieft wore sin. ([[{{MediaWiki:Validationpage}}|Hilf]])'''",
 	'revreview-submitedit' => 'Änderige ibertrage',
 	'revreview-submitedit-title' => 'Dyyni Änderige zum Iberpriefe ibertrage',
-	'revreview-edited' => "'''Änderige wäre vereffentligt, wänn si vun eme autorisierte Benutzer prieft wore sin. ([[{{MediaWiki:Validationpage}}|Hilf]])'''
+	'revreview-edited' => "'''Dyni Änderige wäre vereffentligt, wänn si vun eme autorisierte Benutzer prieft wore sin. ([[{{MediaWiki:Validationpage}}|Hilf]])'''
 
 S het [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 hängigi {{PLURAL:$2|Änderig|Änderige}}] (lueg do unte).",
 	'revreview-edited-section' => 'Zruck zum Syteabschnitt „[[#$1|$2]]“.',
