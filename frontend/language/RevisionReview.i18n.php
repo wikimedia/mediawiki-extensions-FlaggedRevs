@@ -2992,7 +2992,7 @@ $messages['ja'] = array(
 
 変更を安定版に反映するには、下記の変更をすべて査読してください。',
 	'revreview-update-includes' => '更新されたテンプレートやファイルがあります:',
-	'revreview-reject-text-list' => "この操作を完了すると、以下の{{PLURAL:$1|変更}}を、次の理由で'''却下'''します：",
+	'revreview-reject-text-list' => "この操作を完了すると、以下の{{PLURAL:$1|版}}の元の文章の変更を以下の理由で'''却下'''します：",
 	'revreview-reject-text-revto' => 'ページを[{{fullurl:$1|oldid=$2}} $3版]へ差し戻します。',
 	'revreview-reject-summary' => '要約:',
 	'revreview-reject-confirm' => 'これらの変更を拒否',
@@ -5369,6 +5369,7 @@ Değişikliklerinizin kararlı sürümde yer alması için, lütfen aşağıda g
 );
 
 /** Ukrainian (Українська)
+ * @author AS
  * @author Ahonc
  * @author Dim Grits
  * @author JenVan
@@ -5403,7 +5404,7 @@ $messages['uk'] = array(
 	'revreview-check-flag-y' => 'Прийняти ці зміни',
 	'revreview-check-flag-y-title' => 'Підтвердити всі зміни, які ви зробили в цьому редагуванні.',
 	'revreview-flag' => 'Перевірити цю версію',
-	'revreview-reflag' => 'Переперевірити цю версію',
+	'revreview-reflag' => 'Перевірити цю версію повторно',
 	'revreview-invalid' => "'''Неправильна ціль:''' нема [[{{MediaWiki:Validationpage}}|перевіреної]] версії сторінки, яка відповідає даному ідентифікатору.",
 	'revreview-log' => 'Коментар:',
 	'revreview-main' => 'Ви повинні обрати одну з версій сторінки для перевірки.
