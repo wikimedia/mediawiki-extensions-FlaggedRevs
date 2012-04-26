@@ -4966,7 +4966,7 @@ $messages['fi'] = array(
 	'revreview-accuracy' => 'Paikkansapitävyys',
 	'revreview-accuracy-0' => 'Puutteellinen',
 	'revreview-accuracy-1' => 'Silmäilty',
-	'revreview-accuracy-2' => 'Katsastettu',
+	'revreview-accuracy-2' => 'Kunnossa',
 	'revreview-accuracy-3' => 'Hyvin lähteistetty',
 	'revreview-accuracy-4' => 'Kiitettävä',
 	'revreview-auto' => '(automaattinen)',
@@ -5556,7 +5556,7 @@ $messages['gl'] = array(
 	'flaggedrevs-pref-UI-1' => 'Usar pequenas iconas e un texto mínimo para mostrar o estado de aprobación das páxinas',
 	'prefs-flaggedrevs' => 'Aprobación de edicións',
 	'prefs-flaggedrevs-ui' => 'Aprobación de edicións',
-	'flaggedrevs-prefs-stable' => 'Cando mostrar a versión estable dos contidos das páxinas por defecto',
+	'flaggedrevs-prefs-stable' => 'Cando mostrar a versión estable das páxinas de contido por defecto',
 	'flaggedrevs-pref-stable-0' => 'Usar a configuración por defecto para cada páxina',
 	'flaggedrevs-pref-stable-1' => 'Mostrar sempre a versión estable (se houbese unha)',
 	'flaggedrevs-pref-stable-2' => 'Mostrar sempre a última versión',
@@ -15025,7 +15025,7 @@ $messages['uk'] = array(
 	'flaggedrevs-prefs-watch' => 'Додавати перевірені мною сторінки до списку спостереження',
 	'flaggedrevs-prefs-editdiffs' => 'Показувати неперевірені зміни в режимі редагування',
 	'flaggedrevs-prefs-viewdiffs' => 'Показувати нерецензовані зміни при перегляді останньої нерецензованої версії сторінки',
-	'flaggedrevs-hidereviewed' => '$1 перевірених редагувань',
+	'flaggedrevs-hidereviewed' => '$1 перевірені редагування',
 	'group-editor' => 'Редактори',
 	'group-editor-member' => '{{GENDER:$1|редактор|редакторка}}',
 	'group-reviewer' => 'Рецензенти',
@@ -15096,7 +15096,7 @@ $messages['uk'] = array(
 
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|нерецензована зміна|нерецензовані зміни|нерецензованих змін}}] ''(показані нижче)'' {{PLURAL:$2|очікує|очікують|очікують}} на перевірку.",
 	'revreview-edited-section' => 'Повернутися до розділу під назвою "[[#$1|$2]]".',
-	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|зміна|змін}}] в цій версії [[{{MediaWiki:Validationpage}}|{{PLURAL:$3|очукує|очикують}} на перевірку]].
+	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|зміна|змін}}] в цій версії [[{{MediaWiki:Validationpage}}|{{PLURAL:$3|очікує|очікують}} на перевірку]].
 [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Стабільна версія] була [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} перевірена] <i>$2</i>.',
 	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Зміни шаблонів/файлів] цієї версії [[{{MediaWiki:Validationpage}}|очікують перевірки]].
 [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Стабільна версія] була [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} перевірена] <i>$2</i>.',
