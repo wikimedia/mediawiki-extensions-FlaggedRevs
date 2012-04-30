@@ -2991,7 +2991,7 @@ $messages['ja'] = array(
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">変更はまだ安定版に反映されていません。この編集よりも前になされた査読待ちの編集があります。</span>
 
 変更を安定版に反映するには、下記の変更をすべて査読してください。',
-	'revreview-update-includes' => '更新されたテンプレートやファイルがあります:',
+	'revreview-update-includes' => '更新されたテンプレート/ファイルがあります（未査読のページは太字）：',
 	'revreview-reject-text-list' => "この操作を完了すると、以下の{{PLURAL:$1|版}}の元の文章の変更を以下の理由で'''却下'''します：",
 	'revreview-reject-text-revto' => 'ページを[{{fullurl:$1|oldid=$2}} $3版]へ差し戻します。',
 	'revreview-reject-summary' => '要約:',
