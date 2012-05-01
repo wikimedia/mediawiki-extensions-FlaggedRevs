@@ -11710,6 +11710,7 @@ Verifique a URL que usou para aceder a esta página.',
 );
 
 /** Brazilian Portuguese (Português do Brasil)
+ * @author 555
  * @author Eduardo.mps
  * @author Giro720
  * @author Hamilton Abreu
@@ -11718,7 +11719,6 @@ Verifique a URL que usou para aceder a esta página.',
  * @author Luckas Blade
  * @author Pedroca cerebral
  * @author Rafael Vargas
- * @author 555
  */
 $messages['pt-br'] = array(
 	'action-review' => 'rever edições',
