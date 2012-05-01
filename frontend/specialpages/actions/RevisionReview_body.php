@@ -35,9 +35,6 @@ class RevisionReview extends UnlistedSpecialPage {
 		}
 		# Basic page permission checks...
 		$permErrors = $this->page->getUserPermissionsErrors( 'review', $user, false );
-		if ( !$permErrors ) {
-			$permErrors = $this->page->getUserPermissionsErrors( 'edit', $user, false );
-		}
 		if ( $permErrors ) {
 			$out->showPermissionsErrorPage( $permErrors, 'review' );
 			return;
@@ -274,9 +271,6 @@ class RevisionReview extends UnlistedSpecialPage {
 		}
 		# Basic permission checks...
 		$permErrors = $title->getUserPermissionsErrors( 'review', $wgUser, false );
-		if ( !$permErrors ) {
-			$permErrors = $title->getUserPermissionsErrors( 'edit', $wgUser, false );
-		}
 		if ( $permErrors ) {
 			return '<err#>' . $wgOut->parse(
 				$wgOut->formatPermissionsErrorMessage( $permErrors, 'review' )
