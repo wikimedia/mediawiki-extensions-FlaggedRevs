@@ -114,7 +114,6 @@ class RevisionReviewFormUI {
 		# Disable form for unprivileged users
 		$disabled = array();
 		if ( !$article->getTitle()->quickUserCan( 'review' ) ||
-			!$article->getTitle()->quickUserCan( 'edit' ) ||
 			!FlaggedRevs::userCanSetFlags( $this->user, $flags ) )
 		{
 			$disabled = array( 'disabled' => 'disabled' );

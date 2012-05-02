@@ -177,7 +177,6 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 		# Users who cannot edit or review the page cannot set this
 		return ( $this->page
 			&& $this->page->userCan( 'stablesettings' )
-			&& $this->page->userCan( 'edit' )
 			&& $this->page->userCan( 'review' )
 		);
 	}
@@ -198,14 +197,14 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 
 	/*
 	 * @return mixed (true on success, error string on failure)
-	 */  
+	 */
 	protected function reallyDoPreloadParameters() {
 		return true;
 	}
 
 	/**
 	 * Submit the form parameters for the page config to the DB.
-	 * 
+	 *
 	 * @return mixed (true on success, error string on failure)
 	 */
 	public function doSubmit() {
