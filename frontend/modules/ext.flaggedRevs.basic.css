@@ -299,8 +299,8 @@ span.fr-under-review {
 .fr-hist-basic-auto,
 .fr-hist-quality-user,
 .fr-hist-basic-user,
-.mw-fr-hist-difflink { 
-	font-size: 85%; 
+.mw-fr-hist-difflink {
+	font-size: 85%;
 }
 
 /* Diff items */
@@ -308,6 +308,8 @@ span.fr-under-review {
 	direction: ltr;
 }
 
+/* @noflip */
 #mw-fr-stablediff {
 	background-color: white;
+	text-align: left; /* bug 35202 */
 }
