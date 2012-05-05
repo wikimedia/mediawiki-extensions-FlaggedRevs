@@ -1010,6 +1010,7 @@ Por favor, revise l'adreza que fació servir t'acceder a ista pachina.",
  * @author Antime
  * @author AwamerT
  * @author Ciphers
+ * @author DRIHEM
  * @author Meno25
  * @author Mohamed Ouda
  * @author OsamaK
@@ -1043,7 +1044,7 @@ $messages['ar'] = array(
 	'grouppage-editor' => '{{ns:project}}:محرر',
 	'grouppage-reviewer' => '{{ns:project}}:مراجع',
 	'group-autoreview' => 'مراجعون تلقائيون',
-	'group-autoreview-member' => 'مراجع تلقائي',
+	'group-autoreview-member' => '{{GENDER:$1|مستخدم مؤكد تلقائيا}}',
 	'grouppage-autoreview' => '{{ns:project}}:مراجع تلقائي',
 	'revreview-hist-draft' => 'مراجعة غير مفحوصة',
 	'revreview-hist-pending' => 'مراجعة موقفة',
@@ -1097,12 +1098,12 @@ $messages['ar'] = array(
 	'revreview-depth-4' => 'مميز',
 	'revreview-draft-title' => 'التعديلات المعلقة معروضة في هذه الصفحة',
 	'revreview-edit' => 'عدل',
-	'revreview-editnotice' => "'''ستظهر تغييراتك للقراء متى ما راجعها مستخدم مخول. ([[{{MediaWiki:Validationpage}}|مساعدة]])'''",
+	'revreview-editnotice' => "'''ستظهر تغييراتك للقراء متى ما قبلها مستخدم مخول. ([[{{MediaWiki:Validationpage}}|مساعدة]])'''",
 	'revreview-submitedit' => 'أرسل التغييرات',
 	'revreview-submitedit-title' => 'أرسل تعديلاتك للمراجعة',
-	'revreview-edited' => "'''ستظهر تغييراتك للقراء متى ما راجعها مستخدم مخول. ([[{{MediaWiki:Validationpage}}|مساعدة]])'''
+	'revreview-edited' => "'''ستظهر تغييراتك للقراء متى ما قبلها مستخدم مخول. ([[{{MediaWiki:Validationpage}}|مساعدة]])'''
 
-{{PLURAL:$2||يوجد|يوجد|توجد}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$2||تغيير واحد معلق|تغييران معلقان|$2 تغييرات معلقة|$2 تغييرا معلقا|$2 تغيير معلق}}] ''({{PLURAL:$2||معروض|معروضان|معروضة|معروض}} في الأسفل)'' بانتظار المراجعة.",
+{{PLURAL:$2|يوجد|يوجد}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|تغيير معلق|تغييرات معلقة}}] ''(ظاهرة في الأسفل)'' بأنتظار المراجعة.",
 	'revreview-edited-section' => 'العودة إلى القسم المسمى "[[#$1|$2]]".',
 	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$3||تغيير واحد|تغييران|$3 تغييرات|$3 تغيرا|$3 تغيير}}] في هذه النسخة [[{{MediaWiki:Validationpage}}|{{PLURAL:$3||معلق|معلقان|معلقة|معلق}} للمراجعة]].
 [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} فحصت] [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} النسخة المستقرة] في <i>$2</i>.',
@@ -9731,10 +9732,10 @@ $messages['ml'] = array(
 	'revreview-depth-4' => 'തിരഞ്ഞെടുക്കപ്പെട്ടത്',
 	'revreview-draft-title' => 'ഈ താളിൽ അവശേഷിക്കുന്ന മാറ്റങ്ങൾ കാണാം',
 	'revreview-edit' => 'തിരുത്തുക',
-	'revreview-editnotice' => "'''താങ്കളുടെ തിരുത്തലുകൾ അംഗീകരിക്കപ്പെട്ട ഒരുപയോക്താവ് സംശോധനം ചെയ്ത ശേഷം എല്ലാവർക്കും കാണാനാവുന്നതാണ്. ([[{{MediaWiki:Validationpage}}|സഹായം]])'''",
+	'revreview-editnotice' => "'''താങ്കളുടെ നടത്തിയ തിരുത്തലുകൾ അംഗീകരിക്കപ്പെട്ട ഒരുപയോക്താവ് സ്വീകരിച്ച ചെയ്ത ശേഷം എല്ലാവർക്കും കാണാനാവുന്നതാണ്. ([[{{MediaWiki:Validationpage}}|സഹായം]])'''",
 	'revreview-submitedit' => 'മാറ്റങ്ങൾ സമർപ്പിക്കുക',
 	'revreview-submitedit-title' => 'താങ്കൾ വരുത്തിയ മാറ്റങ്ങൾ സംശോധനത്തിന് സമർപ്പിക്കുക',
-	'revreview-edited' => "'''അംഗീകരിക്കപ്പെട്ട ഒരു ഉപയോക്താവ് ഒരിക്കൽ സം‌ശോധനം നിർവഹിച്ചു കഴിഞ്ഞാൽ താങ്കളുടെ തിരുത്തലുകൾ എല്ലാ വായനക്കാർക്കും കാണാനാവും. ([[{{MediaWiki:Validationpage}}|സഹായം]])'''
+	'revreview-edited' => "'''അംഗീകരിക്കപ്പെട്ട ഒരു ഉപയോക്താവ് ഒരിക്കൽ സ്വീകരിച്ചു കഴിഞ്ഞാൽ താങ്കളുടെ തിരുത്തലുകൾ എല്ലാ വായനക്കാർക്കും കാണാനാവും. ([[{{MediaWiki:Validationpage}}|സഹായം]])'''
 
 അതിൽ [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} അവശേഷിക്കുന്ന {{PLURAL:$2|ഒരു മാറ്റം|$2 മാറ്റങ്ങൾ}}] ''(താഴെ കൊടുത്തിരിക്കുന്നു)'' സം‌ശോധനം പ്രതീക്ഷിക്കുന്നു.",
 	'revreview-edited-section' => 'താളിലെ "[[#$1|$2]]" എന്ന ഉപവിഭാഗത്തിലേയ്ക്ക് തിരിച്ചുപോവുക.',
