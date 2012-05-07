@@ -469,6 +469,7 @@ $3",
 
 /** Zazaki (Zazaki)
  * @author Aspar
+ * @author Erdemaslancan
  * @author Xoser
  */
 $messages['diq'] = array(
@@ -489,7 +490,7 @@ $3",
 	'validationstatistics-stable' => 'Kontrol biyo',
 	'validationstatistics-latest' => 'Rocaniye biyo',
 	'validationstatistics-synced' => 'Rocaniye biyo/Kontrol biyo',
-	'validationstatistics-old' => 'Hin nihebitiyeno',
+	'validationstatistics-old' => 'Verên',
 	'validationstatistics-utable' => 'Cor de yew liste est ke seatê penî de panc kontrol kerdoğî mucneno.',
 	'validationstatistics-user' => 'Karber',
 	'validationstatistics-reviews' => 'Revizyonî',
