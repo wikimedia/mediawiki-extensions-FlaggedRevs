@@ -2230,7 +2230,7 @@ Ste pagine le xe considerà ''obsolete''. Le se considera ''agiornà'' se no ghe
 	'validationstatistics-reviews' => 'Revisioni',
 );
 
-/** Veps (Vepsän kel')
+/** Veps (Vepsän kel’)
  * @author Игорь Бродский
  */
 $messages['vep'] = array(
