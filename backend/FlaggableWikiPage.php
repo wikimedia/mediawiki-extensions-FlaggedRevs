@@ -337,9 +337,10 @@ class FlaggableWikiPage extends WikiPage {
 	 * Fetch a page record with the given conditions
 	 * @param $dbr Database object
 	 * @param $conditions Array
+	 * @params $options Array
 	 * @return mixed Database result resource, or false on failure
 	 */
-	protected function pageData( $dbr, $conditions ) {
+	protected function pageData( $dbr, $conditions, $options = array() ) {
 		$row = $dbr->selectRow(
 			array( 'page', 'flaggedpages', 'flaggedpage_config' ),
 			array_merge(
@@ -348,7 +349,7 @@ class FlaggableWikiPage extends WikiPage {
 				array( 'fp_pending_since', 'fp_stable', 'fp_reviewed' ) ),
 			$conditions,
 			__METHOD__,
-			array(),
+			$options,
 			array(
 				'flaggedpages' 		 => array( 'LEFT JOIN', 'fp_page_id = page_id' ),
 				'flaggedpage_config' => array( 'LEFT JOIN', 'fpc_page_id = page_id' ) )
@@ -384,7 +385,7 @@ class FlaggableWikiPage extends WikiPage {
 			if ( $data->fpc_override !== null ) { // page config row found
 				$this->pageConfig = FRPageConfig::getVisibilitySettingsFromRow( $data );
 			}
-			if ( $data->fp_stable !== null ) { // stable rev found	
+			if ( $data->fp_stable !== null ) { // stable rev found
 				$this->stable = (int)$data->fp_stable;
 				$this->revsArePending = ( $data->fp_pending_since !== null ); // revs await review
 				$this->syncedInTracking = (bool)$data->fp_reviewed;
