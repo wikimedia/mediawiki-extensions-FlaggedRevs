@@ -485,6 +485,7 @@ $messages['nl'] = array(
 
 /** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
  * @author Harald Khan
+ * @author Njardarlogar
  */
 $messages['nn'] = array(
 	'qualityoversight' => 'Kvalitetsoversikt',
@@ -701,7 +702,7 @@ $messages['vec'] = array(
 	'qualityoversight-legend' => 'Serca i registri de le revision reçenti',
 );
 
-/** Veps (Vepsan kel')
+/** Veps (Vepsän kel’)
  * @author Игорь Бродский
  */
 $messages['vep'] = array(

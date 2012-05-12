@@ -340,7 +340,7 @@ Urednici su potvrđeni korisnici koji mogu izvršavati provjere revizija stranic
 	'validationstatistics-pndtime' => "Izmjene koje su pregledali potvrđeni korisnici se smatraju ''pregledane''.
 
 Prosječno čekanje za [[Special:OldReviewedPages|stranice sa nepregledanim izmjenama na čekanju]] je '''$1'''; čekanje mjeri koliko dugo najstarija izmjena na čekanju stoji nepregledana.",
-	'validationstatistics-revtime' => "Prosječno čekanje izmjena od strane ''korisnika koji nisu prijavljeni'' za pregled je '''$1''';medijan je '''$2'''.
+	'validationstatistics-revtime' => "Prosječno čekanje izmjena od strane ''korisnika koji nisu prijavljeni'' za pregled je '''$1''';medijan je '''$2'''. 
 $3",
 	'validationstatistics-table' => "Statistike pregleda stranica za svaki imenski prostor su prikazane ispod, ''isključujući'' stranice preusmjeravanja. Stranice se smatraju ''neažurnim'' ako imaju izmjene na čekanju; stranice se smatraju ''ažurnim'' ako nemaju izmjena koje čekaju.",
 	'validationstatistics-ns' => 'Imenski prostor',
@@ -1561,6 +1561,7 @@ $3",
 /** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
  * @author Gunnernett
  * @author Harald Khan
+ * @author Njardarlogar
  * @author Ranveig
  */
 $messages['nn'] = array(

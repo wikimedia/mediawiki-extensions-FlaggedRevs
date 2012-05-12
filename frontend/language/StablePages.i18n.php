@@ -713,6 +713,7 @@ Bewerkingen door andere gebruikers worden niet weergegeven totdat daartoe gerech
 
 /** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
  * @author Harald Khan
+ * @author Njardarlogar
  */
 $messages['nn'] = array(
 	'stablepages' => 'Stabile sider',
@@ -997,7 +998,7 @@ $messages['vec'] = array(
 	'stablepages-indef' => 'Solo scadensa indefinìa',
 );
 
-/** Veps (Vepsän kel')
+/** Veps (Vepsän kel’)
  * @author Игорь Бродский
  */
 $messages['vep'] = array(

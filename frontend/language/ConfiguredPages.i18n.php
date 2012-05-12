@@ -761,8 +761,10 @@ Alguns parâmetros podem alterar a versão que é apresentada aos usuários, ou 
 /** Romanian (Română)
  * @author Cin
  * @author Firilacroco
+ * @author Minisarm
  */
 $messages['ro'] = array(
+	'configuredpages-none' => 'Nu există pagini în această listă.',
 	'configuredpages-config' => 'Configurație',
 	'configuredpages-def-draft' => 'ultima versiune',
 	'configuredpages-def-stable' => 'versiune stabilă',

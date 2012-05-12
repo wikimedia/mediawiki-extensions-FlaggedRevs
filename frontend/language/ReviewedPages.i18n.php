@@ -505,6 +505,7 @@ $messages['grc'] = array(
 );
 
 /** Swiss German (Alemannisch)
+ * @author Als-Chlämens
  * @author Als-Holder
  */
 $messages['gsw'] = array(
@@ -512,7 +513,7 @@ $messages['gsw'] = array(
 	'reviewedpages-leg' => 'Priefti Syte uflischte',
 	'reviewedpages-list' => "Die Lischte zeigt [[{{MediaWiki:Validationpage}}|priefti]] Syte, wu uf em ''hegschte Nivo'' prieft sin (vun ere Version).
 
-E Gleich isch aagee zue dr letschte Version uf däm Nivo.",
+E Link isch aagee zue dr letschte Version uf däm Nivo.",
 	'reviewedpages-none' => 'Die Lischt isch läär.',
 	'reviewedpages-lev-0' => 'Vum Fäldhieter gsäh',
 	'reviewedpages-lev-1' => 'Prieft',
@@ -946,6 +947,7 @@ Er wordt een verwijzing gegeven naar de laatste versie voor dat niveau.",
 
 /** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
  * @author Harald Khan
+ * @author Njardarlogar
  */
 $messages['nn'] = array(
 	'reviewedpages' => 'Vurderte sider',
@@ -1313,7 +1315,7 @@ $messages['tg-cyrl'] = array(
 	'reviewedpages-best' => 'нусхаи беҳтарин',
 );
 
-/** Tajik (Latin script) (tojikī)
+/** Tajik (Latin script) (Tojikī)
  * @author Liangent
  */
 $messages['tg-latn'] = array(
@@ -1406,7 +1408,7 @@ Xe fornìo un link a l'ultima revision par quel livèl.",
 	'reviewedpages-best' => 'revision mejo',
 );
 
-/** Veps (Vepsän kel')
+/** Veps (Vepsän kel’)
  * @author Игорь Бродский
  */
 $messages['vep'] = array(

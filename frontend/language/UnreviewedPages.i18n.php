@@ -1074,9 +1074,10 @@ $messages['ku-latn'] = array(
 /** Cornish (Kernowek)
  * @author Kernoweger
  * @author Kw-Moon
+ * @author Nrowe
  */
 $messages['kw'] = array(
-	'unreviewedpages-category' => 'Class:',
+	'unreviewedpages-category' => 'Klass:',
 );
 
 /** Latin (Latina)
@@ -1284,6 +1285,7 @@ $messages['nl'] = array(
  * @author Harald Khan
  * @author Jon Harald Søby
  * @author Nghtwlkr
+ * @author Njardarlogar
  */
 $messages['nn'] = array(
 	'unreviewedpages' => 'Sider som ikkje er vortne vurderte',
@@ -1774,7 +1776,7 @@ $messages['tg-cyrl'] = array(
 	'unreviewedpages-list' => 'Ин саҳифа мақолаҳои баррасинашуда, мақолаҳои ҷадид, нусхаҳои ҷадид ё баррасинашударо феҳрист мекунад.',
 );
 
-/** Tajik (Latin script) (tojikī)
+/** Tajik (Latin script) (Tojikī)
  * @author Liangent
  */
 $messages['tg-latn'] = array(
@@ -1876,7 +1878,7 @@ $messages['vec'] = array(
 	'unreviewedpages-recent' => "(manco de un'ora)",
 );
 
-/** Veps (Vepsan kel')
+/** Veps (Vepsän kel’)
  * @author Игорь Бродский
  */
 $messages['vep'] = array(
@@ -1886,7 +1888,7 @@ $messages['vep'] = array(
 	'unreviewedpages-diff' => 'kodvda',
 	'unreviewedpages-unwatched' => '(ei ole kaceltud)',
 	'unreviewedpages-watched' => '($1 {{PLURAL:$1|aktivine kävutai|aktivišt kävutajad}} kaceltas)',
-	'unreviewedpages-list' => 'Necil lehtpolel om kodvmatomiden märitud pindhasai lehtpoliden nimikirjutez.',
+	'unreviewedpages-list' => 'Necil lehtpolel om kodvmatomiden kirjutusiden nimid; nenid kirjutusid ei völ [[{{MediaWiki:Validationpage}}|arvostelgoi]] märitud pindad samas.',
 	'unreviewedpages-none' => "Nügüd' ei ole lehtpolid, kudambad sättudas ningoižiden arvoimižidenke.",
 	'unreviewedpages-viewing' => "(lehtpoled, kudambad nügüd' kodvdas)",
 	'unreviewedpages-hours' => '($1 {{PLURAL:$1|čas|časud}})',

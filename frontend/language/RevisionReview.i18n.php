@@ -2729,6 +2729,7 @@ $messages['id'] = array(
 	'review_cannot_undo' => 'Tidak dapat membatalkan perubahan ini karena suntingan tunda selanjutnya mengubah daerah yang sama.',
 	'review_cannot_reject' => 'Tidak dapat menolak perubahan ini karena seseorang telah menerima sebagian (atau semua) suntingan.',
 	'review_reject_excessive' => 'Tidak bisa menolak begitu banyak suntingan sekaligus.',
+	'review_reject_nulledits' => 'Tidak dapat menolak perubahan ini karena semua revisi adalah suntingan kosong.',
 	'revreview-check-flag-p' => 'Terima versi ini (termasuk $1 {{PLURAL:$1|perubahan|perubahan}} tunda)',
 	'revreview-check-flag-p-title' => 'Terima semua perubahan tertunda saat ini bersama suntingan Anda. Gunakan ini hanya bila Anda telah meliaht keseluruhan perbedaan perubahan tertunda.',
 	'revreview-check-flag-u' => 'Terima halaman yang belum diperiksa ini',
@@ -2755,6 +2756,12 @@ Lihat [[Special:Unreviewedpages]] untuk daftar halaman yang belum ditinjau.',
 	'revreview-successful2' => "'''Penandaan revisi [[:$1|$1]] berhasil dibatalkan.'''",
 	'revreview-poss-conflict-p' => "'''Peringatan: [[User:$1|$1]] mulai meninjau halaman ini pada $2 $3.'''",
 	'revreview-poss-conflict-c' => "'''Peringatan: [[User:$1|$1]] mulai meninjau perubahan ini pada $2 $3.'''",
+	'revreview-adv-reviewing-p' => 'Perhatian: Peninjau lainnya dapat melihat bahwa Anda sedang meninjau halaman ini.',
+	'revreview-adv-reviewing-c' => 'Perhatian: Peninjau lainnya dapat melihat bahwa Anda sedang meninjau perubahan ini.',
+	'revreview-sadv-reviewing-p' => 'Anda dapat $1 diri sedang meninjau halaman ini kepada pengguna lainnya.',
+	'revreview-sadv-reviewing-c' => 'Anda dapat $1 diri sedang meninjau perubahan ini kepada pengguna lainnya.',
+	'revreview-adv-start-link' => 'mengiklankan',
+	'revreview-adv-stop-link' => 'menghentikan pengiklanan',
 	'revreview-toolow' => '\'\'\'Anda harus menilai setiap atribut lebih tinggi daripada "tidak memadai" agar revisi dianggap telah ditinjau.\'\'\' 
 
 Untuk menghapus status tinjauan revisi, klik "tolak". 
@@ -2767,19 +2774,19 @@ Harap tinjau semua perubahan yang ditunjukkan di bawah ini untuk membuat sunting
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Perubahan Anda belum masuk versi stabil. Ada perubahan terdahulu yang menunggu tinjauan.</span> 
 
 Harap tinjau semua perubahan yang ditunjukkan di bawah ini untuk membuat suntingan Anda muncul dalam versi stabil.',
-	'revreview-update-includes' => 'Beberapa templat/berkas telah diperbaharui:',
-	'revreview-reject-text-list' => "Dengan melakukan tindakan ini, Anda akan '''menolak''' {{PLURAL:$1|perubahan|perubahan}} berikut:",
+	'revreview-update-includes' => 'Templat/berkas diperbarui (halaman belum tertinjau bercetak tebal):',
+	'revreview-reject-text-list' => "Dengan melakukan tindakan ini, Anda akan '''menolak''' sumber teks dari {{PLURAL:$1|perubahan|perubahan}} dari [[:$2|$2]] berikut:",
 	'revreview-reject-text-revto' => 'Ini akan mengembalikan halaman kepada [{{fullurl:$1|oldid=$2}} versi per $3].',
 	'revreview-reject-summary' => 'Ringkasan:',
 	'revreview-reject-confirm' => 'Tolak perubahan ini',
 	'revreview-reject-cancel' => 'Batalkan',
-	'revreview-reject-summary-cur' => 'Menolak {{PLURAL:$1|perubahan|$1 perubahan}} terakhir (oleh $2) dan mengembalikan revisi $3 oleh $4',
-	'revreview-reject-summary-old' => 'Menolak {{PLURAL:$1|perubahan|$1 perubahan}} pertama (oleh $2) setelah revisi $3 oleh $4',
-	'revreview-reject-summary-cur-short' => 'Menolak {{PLURAL:$1|perubahan|$1 perubahan}} terakhir dan mengembalikan revisi $2 oleh $3',
-	'revreview-reject-summary-old-short' => 'Menolak {{PLURAL:$1|perubahan|$1 perubahan}} pertama setelah revisi $2 oleh $3',
+	'revreview-reject-summary-cur' => 'Menolak {{PLURAL:$1|perubahan teks|$1 perubahan teks}} terakhir (oleh $2) dan mengembalikan revisi $3 oleh $4',
+	'revreview-reject-summary-old' => 'Menolak {{PLURAL:$1|perubahan teks|$1 perubahan teks}} pertama (oleh $2) setelah revisi $3 oleh $4',
+	'revreview-reject-summary-cur-short' => 'Menolak {{PLURAL:$1|perubahan teks|$1 perubahan teks}} terakhir dan mengembalikan revisi $2 oleh $3',
+	'revreview-reject-summary-old-short' => 'Menolak {{PLURAL:$1|perubahan teks|$1 perubahan teks}} pertama setelah revisi $2 oleh $3',
 	'revreview-tt-flag' => 'Terima revisi dengan status "terperiksa"',
 	'revreview-tt-unflag' => 'Tolak revisi ini dengan status "belum diperiksa"',
-	'revreview-tt-reject' => 'Tolak perubahan dengan mengembalikan perubahan',
+	'revreview-tt-reject' => 'Tolak perubahan teks sumber dengan mengembalikan perubahan',
 );
 
 /** Igbo (Igbo)
@@ -3887,6 +3894,7 @@ Controleer alle hieronder weergegeven wijzigingen om ook uw bewerking zichtbaar 
  * @author Harald Khan
  * @author Jon Harald Søby
  * @author Nghtwlkr
+ * @author Njardarlogar
  */
 $messages['nn'] = array(
 	'revisionreview' => 'Vurder sideversjonar',
@@ -5143,7 +5151,7 @@ $messages['tg-cyrl'] = array(
 '''Бархе аз шаблонҳо/аксҳо барӯз шудаанд:'''",
 );
 
-/** Tajik (Latin script) (tojikī)
+/** Tajik (Latin script) (Tojikī)
  * @author Liangent
  */
 $messages['tg-latn'] = array(
@@ -5529,7 +5537,7 @@ Podarìa esser necessario proseguire o "anulare" modifiche.',
 	'revreview-tt-reject' => 'Rifiuta ste modifiche tirandole indrio',
 );
 
-/** Veps (Vepsän kel')
+/** Veps (Vepsän kel’)
  * @author Игорь Бродский
  */
 $messages['vep'] = array(

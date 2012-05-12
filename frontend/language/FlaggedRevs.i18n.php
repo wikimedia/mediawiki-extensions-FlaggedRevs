@@ -11084,6 +11084,7 @@ $messages['pfl'] = array(
  * @author McMonster
  * @author Pimke
  * @author Soeb
+ * @author Sovq
  * @author Sp5uhe
  * @author ToSter
  * @author Wpedzich
@@ -11169,7 +11170,7 @@ Później mogły zostać wykonane następne [{{fullurl:{{FULLPAGENAMEE}}|oldid=$
 	'revreview-depth-4' => 'na medal',
 	'revreview-draft-title' => 'Na tej stronie wyświetlane są oczekujące zmiany',
 	'revreview-edit' => 'Edytuj',
-	'revreview-editnotice' => "!'''Dokonane przez Ciebie zmiany zostaną pokazane natychmiast po przejrzeniu przez uprawnionego użytkownika. ([[{{MediaWiki:Validationpage}}|pomoc]])'''",
+	'revreview-editnotice' => "'''Dokonane przez Ciebie zmiany zostaną pokazane natychmiast po przejrzeniu przez uprawnionego użytkownika. ([[{{MediaWiki:Validationpage}}|pomoc]])'''",
 	'revreview-submitedit' => 'Zapisz zmiany',
 	'revreview-submitedit-title' => 'Zapisz swoją edycję i dołącz ją do zmian oczekujących na przejrzenie',
 	'revreview-edited' => "'''Dokonane przez Ciebie zmiany zostaną pokazane natychmiast po przejrzeniu ich przez uprawnionego użytkownika. ([[{{MediaWiki:Validationpage}}|pomoc]]).'''
@@ -11231,7 +11232,7 @@ Później mogły zostać wykonane następne [{{fullurl:{{FULLPAGENAMEE}}|oldid=$
 	'right-unreviewedpages' => 'Przeglądanie [[Special:UnreviewedPages|listy nieprzejrzanych stron]]',
 	'rights-editor-revoke' => 'odebrał uprawnienia redaktora [[$1]]',
 	'specialpages-group-quality' => 'Oznaczanie edycji',
-	'stable-logentry-config' => 'ustanowił konfigurację strony $1',
+	'stable-logentry-config' => 'zmienił konfigurację strony $1',
 	'stable-logentry-modify' => 'zmienił konfigurację strony $1',
 	'stable-logentry-reset' => 'przywrócił domyślną konfigurację strony $1',
 	'stable-log-restriction' => 'Automatyczne oznaczanie: wymagane uprawnienie „$1”',
@@ -14324,7 +14325,7 @@ $messages['tg-cyrl'] = array(
 	'validationpage' => '{{ns:help}}:Таъйиди эътибори мақолаҳо',
 );
 
-/** Tajik (Latin script) (tojikī)
+/** Tajik (Latin script) (Tojikī)
  * @author Liangent
  */
 $messages['tg-latn'] = array(
@@ -15389,7 +15390,7 @@ Verifica l'URL che te doparà par açedere a sta pàxena.",
 	'validationpage' => '{{ns:help}}:Validassion dele pàxene',
 );
 
-/** Veps (Vepsän kel')
+/** Veps (Vepsän kel’)
  * @author Игорь Бродский
  */
 $messages['vep'] = array(

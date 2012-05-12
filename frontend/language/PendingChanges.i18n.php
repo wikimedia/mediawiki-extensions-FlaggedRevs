@@ -74,7 +74,7 @@ Used on [http://en.labs.wikimedia.org/wiki/Special:OldReviewedPages Special:OldR
 Used on [http://en.labs.wikimedia.org/wiki/Special:OldReviewedPages Special:OldReviewedPages] when someone has recently requested the sighting page for a listed page.',
 );
 
-/** Abkhazian (Аҧсуа)
+/** Abkhazian (Аҧсшәа)
  * @author Temuri rajavi
  */
 $messages['ab'] = array(
@@ -196,10 +196,13 @@ $messages['ast'] = array(
 	'pendingchanges-days' => '($1 {{PLURAL:$1|día|díes}})',
 	'pendingchanges-recent' => "(menos d'una hora)",
 	'pendingchanges-category' => 'Categoría:',
+	'pendingchanges-onwatchlist' => 'Páxines na mio llista de vixilancia',
 	'pendingchanges-stable' => 'La versión estable ye la predeterminada',
 	'pendingchanges-diff' => 'revisar',
+	'pendingchanges-size' => 'Cambiu máximu (bytes):',
 	'pendingchanges-unwatched' => '(non vixilada)',
 	'pendingchanges-watched' => '($1 {{PLURAL:$1|usuariu activu|usuarios activos}} vixilando)',
+	'pendingchanges-viewing' => '(en revisión)',
 );
 
 /** Azerbaijani (Azərbaycanca)
@@ -1141,10 +1144,11 @@ $messages['ku-latn'] = array(
 /** Cornish (Kernowek)
  * @author Kernoweger
  * @author Kw-Moon
+ * @author Nrowe
  */
 $messages['kw'] = array(
-	'pendingchanges-days' => '($1 {{PLURAL:$1|dedh|dedh}})',
-	'pendingchanges-category' => 'Class:',
+	'pendingchanges-days' => '($1 {{PLURAL:$1|dydh|dydh}})',
+	'pendingchanges-category' => 'Klass:',
 );
 
 /** Luxembourgish (Lëtzebuergesch)
@@ -1987,7 +1991,7 @@ $messages['vec'] = array(
 	'pendingchanges-viewing' => '(in corso de revision)',
 );
 
-/** Veps (Vepsän kel')
+/** Veps (Vepsän kel’)
  * @author Игорь Бродский
  */
 $messages['vep'] = array(

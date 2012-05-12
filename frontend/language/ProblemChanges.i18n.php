@@ -957,7 +957,7 @@ $messages['vec'] = array(
 	'problemchanges-category' => 'Categoria:',
 );
 
-/** Veps (Vepsän kel')
+/** Veps (Vepsän kel’)
  * @author Игорь Бродский
  */
 $messages['vep'] = array(

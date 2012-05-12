@@ -1196,7 +1196,7 @@ $messages['tg-cyrl'] = array(
 	'reviewedversions-review' => 'Дар <i>$1</i> аз тарафи $2 барраси шудааст',
 );
 
-/** Tajik (Latin script) (tojikī)
+/** Tajik (Latin script) (Tojikī)
  * @author Liangent
  */
 $messages['tg-latn'] = array(
@@ -1277,7 +1277,7 @@ $messages['vec'] = array(
 	'reviewedversions-review' => 'Riesaminà el <i>$1</i> da $2',
 );
 
-/** Veps (Vepsän kel')
+/** Veps (Vepsän kel’)
  * @author Игорь Бродский
  */
 $messages['vep'] = array(

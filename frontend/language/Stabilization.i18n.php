@@ -2532,6 +2532,7 @@ Instellen is niet mogelijk.',
  * @author Harald Khan
  * @author Jon Harald Søby
  * @author Nghtwlkr
+ * @author Njardarlogar
  */
 $messages['nn'] = array(
 	'stabilization-tab' => 'kvalitet',
@@ -3478,7 +3479,7 @@ $messages['tg-cyrl'] = array(
 	'stabilize-expiring' => 'Дар $1 (UTC) ба интиҳо мерасад',
 );
 
-/** Tajik (Latin script) (tojikī)
+/** Tajik (Latin script) (Tojikī)
  * @author Liangent
  */
 $messages['tg-latn'] = array(
@@ -3732,7 +3733,7 @@ No se pode canbiar le inpostassion.',
 	'stabilization-review' => 'Segna la revision atuale come controlà',
 );
 
-/** Veps (Vepsän kel')
+/** Veps (Vepsän kel’)
  * @author Игорь Бродский
  */
 $messages['vep'] = array(
