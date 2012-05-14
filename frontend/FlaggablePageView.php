@@ -803,22 +803,24 @@ class FlaggablePageView extends ContextSource {
 			return
 				FlaggedRevsXML::diffToggle() .
 				"<div id='mw-fr-stablediff'>\n" .
-				self::getFormattedDiff( $diffBody, $multiNotice, $leftNote, $rightNote ) .
+				$this->getFormattedDiff( $diffBody, $multiNotice, $leftNote, $rightNote ) .
 				"</div>\n";
 		}
 		return '';
 	}
 
 	// $n number of in-between revs
-	protected static function getFormattedDiff(
+	protected function getFormattedDiff(
 		$diffBody, $multiNotice, $leftStatus, $rightStatus
 	) {
+		$tableClass = 'diff diff-contentalign-' .
+			htmlspecialchars( $this->getTitle()->getPageLanguage()->alignStart() );
 		if ( $multiNotice != '' ) {
 			$multiNotice = "<tr><td colspan='4' align='center' class='diff-multi'>" .
 				$multiNotice . "</td></tr>";
 		}
 		return
-			"<table border='0' width='98%' cellpadding='0' cellspacing='4' class='diff'>" .
+			"<table border='0' width='98%' cellpadding='0' cellspacing='4' class='$tableClass'>" .
 				"<col class='diff-marker' />" .
 				"<col class='diff-content' />" .
 				"<col class='diff-marker' />" .
@@ -981,7 +983,7 @@ class FlaggablePageView extends ContextSource {
 						wfMsgExt( 'review-edit-diff', 'parseinline' ) . ' ' .
 						FlaggedRevsXML::diffToggle() .
 						"<div id='mw-fr-stablediff'>" .
-						self::getFormattedDiff( $diffBody, '', $leftNote, $rightNote ) .
+						$this->getFormattedDiff( $diffBody, '', $leftNote, $rightNote ) .
 						"</div>\n";
 					$items[] = $diffHtml;
 					$diffEngine->showDiffStyle(); // add CSS
