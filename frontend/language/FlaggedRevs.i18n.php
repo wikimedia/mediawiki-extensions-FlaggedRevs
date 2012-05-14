@@ -1788,6 +1788,7 @@ $messages['bcl'] = array(
 
 /** Belarusian (Беларуская)
  * @author Хомелка
+ * @author Чаховіч Уладзіслаў
  */
 $messages['be'] = array(
 	'action-review' => 'Праверка версій старонак',
@@ -1804,6 +1805,7 @@ $messages['be'] = array(
 	'flaggedrevs-prefs-watch' => 'Дадаваць правераныя мною старонкі ў спіс назірання',
 	'flaggedrevs-prefs-editdiffs' => 'Паказваць розніцу паміж праверанай і неправеранай версіямі пры рэдагаванні старонак',
 	'flaggedrevs-prefs-viewdiffs' => 'Паказваць неправераныя змены пры праглядзе апошняй неправеранай версіі старонкі',
+	'flaggedrevs-hidereviewed' => '$1  {{PLURAL:$1|правераную праўку|правераныя праўкі|правераных правак}}',
 	'group-editor' => 'Даглядальнікі',
 	'group-editor-member' => 'Даглядальнік',
 	'group-reviewer' => 'Вывяраючыя',
@@ -1956,6 +1958,7 @@ $messages['be'] = array(
 	'tooltip-ca-default' => 'Наладкі кантролю якасці',
 	'flaggedrevs-protect-legend' => 'Аўтаматычная праверка праўкі ([[{{MediaWiki:Validationpage}}|даведка]])',
 	'flaggedrevs-protect-none' => 'Дазволена ўсім удзельнікам',
+	'flaggedrevs-categoryview' => '[{{fullurl:Special:UnreviewedPages|category=$1}} Неправераныя старонкі]{{int:pipe-separator}}[{{fullurl:Special:PendingChanges|category=$1}} Старонкі з неправеранымі зменамі]',
 	'revreview-locked-title' => 'Праўкі старонкі патрабуюць праверкі.',
 	'revreview-unlocked-title' => 'Праўкі старонкі не патрабуюць праверкі.',
 	'revreview-locked' => "'''Заўвага.''' Праўкі павінны быць [[{{MediaWiki:Validationpage}}|правераны]], перш чым яны будуць паказаны чытачам гэтай старонкі.",
