@@ -308,7 +308,6 @@ span.fr-under-review {
 	direction: ltr;
 }
 
-/* @noflip */
 #mw-fr-stablediff {
 	background-color: white;
 	text-align: left; /* bug 35202 */
