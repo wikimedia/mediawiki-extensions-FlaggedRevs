@@ -1124,17 +1124,20 @@ $3",
  */
 $messages['it'] = array(
 	'validationstatistics' => 'Statistiche di revisione',
-	'validationstatistics-users' => "{{SITENAME}}''' ha attualmente '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|utente|utenti}} con diritti di [[{{MediaWiki:Validationpage}}|Editore]] e '''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$2|utente|utenti}} con diritti di [[{{MediaWiki:Validationpage}}|Revisore]].
+	'validationstatistics-users' => "'''{{SITENAME}}''' ha attualmente '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|utente|utenti}} con diritti di [[{{MediaWiki:Validationpage}}|Editore]].
 
 Gli editori sono utenti stabili che possono convalidare le revisioni nelle pagine",
-	'validationstatistics-table' => "Le statistiche di revisione per ciascun namespace sono mostrate di seguito, ''a esclusione'' delle pagine di redirect.",
+	'validationstatistics-lastupdate' => "''I seguenti dati sono stati aggiornati il $1 alle $2.''",
+	'validationstatistics-revtime' => "L'attesa media per le modifiche di ''utenti che non hanno eseguito l'accesso'' prima che siano revisionate è di '''$1'''; la mediana di '''$2'''.
+$3",
+	'validationstatistics-table' => "Le statistiche di revisione per ciascun namespace sono mostrate di seguito, ''a esclusione'' dei redirect. Le pagine sono considerate ''obsolete'' se hanno modifiche in sospeso; sono considerate ''sincronizzate'' se non hanno modifiche in attesa di revisione.",
 	'validationstatistics-ns' => 'Namespace',
 	'validationstatistics-total' => 'Pagine',
 	'validationstatistics-stable' => 'Revisionate',
 	'validationstatistics-latest' => 'Sincronizzate',
 	'validationstatistics-synced' => 'Sincronizzate/Revisionate',
 	'validationstatistics-old' => 'Non aggiornate',
-	'validationstatistics-utable' => "Di seguito è riportato l'elenco dei primi $1 revisori nell'ultima ora.",
+	'validationstatistics-utable' => "Di seguito è riportato l'elenco {{PLURAL:$1|del revisore più attivo|dei $1 revisori più attivi}} {{PLURAL:$2|nell'ultima ora|nelle ultime $2 ore}}.",
 	'validationstatistics-user' => 'Utente',
 	'validationstatistics-reviews' => 'Revisioni',
 );

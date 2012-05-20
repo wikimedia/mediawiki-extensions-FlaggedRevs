@@ -901,6 +901,7 @@ $messages['is'] = array(
 );
 
 /** Italian (Italiano)
+ * @author Beta16
  * @author Darth Kule
  * @author Melos
  * @author Pietrodn
@@ -912,7 +913,7 @@ $messages['it'] = array(
 	'unreviewedpages-diff' => 'revisiona',
 	'unreviewedpages-unwatched' => '(non osservata)',
 	'unreviewedpages-watched' => '(osservata da $1 {{PLURAL:$1|utente attivo|utenti attivi}})',
-	'unreviewedpages-list' => 'Di seguito sono riportate le pagine che non sono state revisionate al livello specificato.',
+	'unreviewedpages-list' => "Di seguito sono riportate le pagine che '''non''' sono state ancora [[{{MediaWiki:Validationpage}}|revisionate]] al livello specificato.",
 	'unreviewedpages-none' => 'Al momento non ci sono pagine che soddisfino i criteri di ricerca.',
 	'unreviewedpages-viewing' => '(sotto revisione)',
 	'unreviewedpages-hours' => '($1 {{PLURAL:$1|ora|ore}})',

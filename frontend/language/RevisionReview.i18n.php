@@ -2887,6 +2887,7 @@ $messages['it'] = array(
 	'revreview-check-flag-y' => 'Accettare queste modifiche',
 	'revreview-check-flag-y-title' => 'Accetta tutti i cambiamenti che hai fatto in questa modifica.',
 	'revreview-flag' => 'Revisiona questa versione',
+	'revreview-reflag' => 'Ri-revisiona questa versione',
 	'revreview-invalid' => "'''Errore:''' nessuna versione [[{{MediaWiki:Validationpage}}|revisionata]] corrisponde all'ID fornito.",
 	'revreview-log' => 'Commento:',
 	'revreview-main' => "Devi selezionare una particolare revisione di una pagina di contenuti per revisionarla.
@@ -2914,19 +2915,20 @@ Vedi l'[[Special:Unreviewedpages|elenco delle pagine non revisionate]].",
 	'revreview-update' => "'''[[{{MediaWiki:Validationpage}}|Revisiona]] le modifiche in sospeso ''(mostrate di seguito)'' apportate dalla versione stabile.'''",
 	'revreview-update-edited' => '<span class="flaggedrevs_important">Le tue modifiche non sono ancora nella versione stabile.</span> 
 
- Si prega di rivedere tutte le modifiche di seguito riportate perché le tue modifiche vengano visualizzate nella versione stabile. 
- Potrebbe essere necessario prima proseguire o "annullare" modifiche.',
+Si prega di rivedere tutte le modifiche riportate di seguito perché le tue modifiche vengano visualizzate nella versione stabile.',
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Le tue modifiche non sono ancora nella versione stabile. Ci sono precedenti modifiche che aspettano una revisione.</span> 
 
- Si prega di rivedere tutte le modifiche di seguito riportate perché le tue modifiche vengano visualizzate nella versione stabile. 
- Potrebbe essere necessario prima proseguire o "annullare" modifiche.',
+Si prega di rivedere tutte le modifiche riportate di seguito perché le tue modifiche vengano visualizzate nella versione stabile.',
 	'revreview-update-includes' => 'Alcuni Template/file sono stati aggiornati (pagine non revisionate in grassetto):',
 	'revreview-reject-text-list' => "Confermando quest'azione verranno '''respinte''' le modifiche testuali {{PLURAL:$1|dalla seguente versione|dalle seguenti versioni}} di [[:$2|$2]]:",
 	'revreview-reject-text-revto' => 'Questo ripristinerà la pagina alla [{{fullurl:$1|oldid=$2}} versione datata $3].',
 	'revreview-reject-summary' => 'Sommario:',
 	'revreview-reject-confirm' => 'Rifiuta queste modifiche',
 	'revreview-reject-cancel' => 'Annulla',
-	'revreview-reject-summary-cur' => "{{PLURAL:$1|Respinta l'ultima modifica al|Respinte le ultime $1 modifiche al}} testo (di $2) e ripristinata la versione $3 di $4",
+	'revreview-reject-summary-cur' => "{{PLURAL:$1|Respinta l'ultima modifica|Respinte le ultime $1 modifiche}} al testo (da $2) e ripristinata la versione $3 di $4",
+	'revreview-reject-summary-old' => '{{PLURAL:$1|Respinta la prima modifica|Respinte le prime $1 modifiche}} al testo (da $2) che seguono la versione $3 di $4',
+	'revreview-reject-summary-cur-short' => "{{PLURAL:$1|Respinta l'ultima modifica|Respinte le ultime $1 modifiche}} al testo e ripristinata la versione $2 di $3",
+	'revreview-reject-summary-old-short' => '{{PLURAL:$1|Respinta la prima modifica|Respinte le prime $1 modifiche}} al testo che seguono la versione $2 di $3',
 	'revreview-tt-flag' => 'Accetta questa versione marcandola come "verificata"',
 );
 

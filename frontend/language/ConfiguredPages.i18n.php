@@ -510,12 +510,16 @@ $messages['id'] = array(
 /** Italian (Italiano)
  * @author Aushulz
  * @author Beta16
+ * @author Ximo17
  */
 $messages['it'] = array(
+	'configuredpages' => 'Pagine con configurazioni di revisione',
+	'configuredpages-list' => 'Questa pagina elenca le pagine configurate in modo da avere impostazioni di approvazione diverse da quello predefinite.
+Alcune impostazioni potrebbero cambiare quale versione viene visualizzata ai lettori o limitare ulteriormente chi può apportare le modifiche che non richiedono revisione.',
 	'configuredpages-none' => 'Non ci sono pagine in questa lista.',
 	'configuredpages-config' => 'Configurazione',
 	'configuredpages-def-draft' => 'ultima versione',
-	'configuredpages-def-stable' => 'Versione stabile',
+	'configuredpages-def-stable' => 'versione stabile',
 );
 
 /** Japanese (日本語)
