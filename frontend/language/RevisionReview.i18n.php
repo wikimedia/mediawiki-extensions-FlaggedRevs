@@ -2867,6 +2867,7 @@ Sjá nánar á [[Special:Unreviewedpages|lista yfir óskoðaðar síður]].',
 $messages['it'] = array(
 	'revisionreview' => 'Revisiona versioni',
 	'revreview-failed' => "'''Non è possibile esaminare questa revisione.'''",
+	'revreview-submission-invalid' => 'I dati inviati sono incompleti o comunque non validi.',
 	'review_page_invalid' => 'Il titolo della pagina di destinazione non è valido.',
 	'review_page_notexists' => 'La pagina di destinazione non esiste.',
 	'review_page_unreviewable' => 'La pagina di destinazione non è revisionabile.',
@@ -2874,6 +2875,8 @@ $messages['it'] = array(
 	'review_bad_oldid' => 'La revisione di destinazione non esiste.',
 	'review_conflict_oldid' => 'Qualcuno ha già accettato o respinto questa revisione mentre la stavi esaminando.',
 	'review_not_flagged' => 'La revisione di destinazione non è attualmente segnata come revisionata.',
+	'review_too_low' => 'La versione non può essere revisionata con alcuni campi lasciati "inadeguati".',
+	'review_bad_tags' => 'Alcune delle etichette indicate non sono valide.',
 	'review_denied' => 'Permesso negato.',
 	'review_param_missing' => 'Un parametro è mancante o non valido.',
 	'review_cannot_undo' => 'Questi cambiamenti non possono essere annullati perché susseguenti modifiche in sospeso hanno cambiato le stesse parti.',
@@ -2930,6 +2933,7 @@ Si prega di rivedere tutte le modifiche riportate di seguito perché le tue modi
 	'revreview-reject-summary-cur-short' => "{{PLURAL:$1|Respinta l'ultima modifica|Respinte le ultime $1 modifiche}} al testo e ripristinata la versione $2 di $3",
 	'revreview-reject-summary-old-short' => '{{PLURAL:$1|Respinta la prima modifica|Respinte le prime $1 modifiche}} al testo che seguono la versione $2 di $3',
 	'revreview-tt-flag' => 'Accetta questa versione marcandola come "verificata"',
+	'revreview-tt-unflag' => 'Non accetta questa versione marcandola come "non verificata"',
 );
 
 /** Japanese (日本語)

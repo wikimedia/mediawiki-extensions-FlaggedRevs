@@ -7719,14 +7719,15 @@ Verificare la URL usata per accedere a questa pagina.',
 	'stable-logentry-config' => 'configurato le impostazioni per la versione stabile di "$1"',
 	'stable-logentry-modify' => 'modificato le impostazioni per la versione stabile di "$1"',
 	'stable-logentry-reset' => 'cancellato le impostazioni per la versione stabile di "$1"',
+	'stable-log-restriction' => 'Auto-revisione: richiede l\'autorizzazione "$1"',
 	'stable-logpage' => 'Registro stabilità',
 	'stable-logpagetext' => 'Questo è un registro delle modifiche alla configurazione della [[{{MediaWiki:Validationpage}}|versione stabile]] delle pagine di contenuto.',
 	'revreview-filter-all' => 'Tutte',
 	'revreview-filter-stable' => 'stabile',
-	'revreview-statusfilter' => 'Cambia stato:',
+	'revreview-statusfilter' => 'Azione di revisione:',
 	'revreview-filter-approved' => 'Approvata',
 	'revreview-filter-reapproved' => 'Ri-approvato',
-	'revreview-filter-unapproved' => 'Non approvato',
+	'revreview-filter-unapproved' => 'De-approvato',
 	'revreview-typefilter' => 'Tipo:',
 	'revreview-filter-auto' => 'Automatico',
 	'revreview-filter-manual' => 'Manuale',
@@ -7738,10 +7739,12 @@ Verificare la URL usata per accedere a questa pagina.',
 	'revreview-def-all' => 'qualsiasi',
 	'revreview-def-draft' => 'ultima',
 	'revreview-def-stable' => 'stabile',
+	'revreview-restrictfilter' => 'Limitazioni per auto-revisione:',
 	'revreview-restriction-any' => 'qualsiasi',
 	'revreview-restriction-none' => 'nessuna',
 	'revreview-reviewlink' => 'revisiona modifiche',
 	'revreview-reviewlink-title' => 'Mostra differenze di tutte le modifiche in sospeso',
+	'revreview-unreviewedpage' => 'pagina non cotrollata',
 	'tooltip-ca-current' => 'Vedi la bozza di questa pagina con le modifiche in sospeso',
 	'tooltip-ca-stable' => 'Vedi la versione stabile di questa pagina',
 	'flaggedrevs-protect-legend' => 'Revisione automatica delle modifiche ([[{{MediaWiki:Validationpage}}|aiuto]])',
@@ -15035,6 +15038,7 @@ $messages['tt-cyrl'] = array(
  * @author Andygol
  * @author Dim Grits
  * @author JenVan
+ * @author Microcell
  * @author NickK
  * @author Prima klasy4na
  * @author Test
@@ -15173,7 +15177,7 @@ $messages['uk'] = array(
 	'revreview-toggle-show' => '(+)',
 	'revreview-toggle-hide' => '(-)',
 	'revreview-toggle-title' => 'показати/приховати подробиці',
-	'revreview-visibility-synced' => "'''Ця сторінка має оновлену [[{{MediaWiki:Validationpage}}|опубліковану версію]]; налаштування стабілізації сторінки можуть бути [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} зміненні].'''",
+	'revreview-visibility-synced' => "'''Ця сторінка має оновлену [[{{MediaWiki:Validationpage}}|опубліковану версію]]; налаштування стабілізації сторінки можуть бути [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} змінені].'''",
 	'revreview-visibility-outdated' => "'''Ця сторінка має застарілу [[{{MediaWiki:Validationpage}}|опубліковану версію]]; налаштування стабілізації сторінки можуть бути [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} змінені].'''",
 	'revreview-visibility-nostable' => "'''Ця сторінка не має [[{{MediaWiki:Validationpage}}|опублікованої версії]]; налаштування стабілізації сторінки можуть бути [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} змінені].'''",
 	'revreview-revnotfound' => 'Неможливо знайти необхідну вам версію статті.
