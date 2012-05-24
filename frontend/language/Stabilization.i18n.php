@@ -48,6 +48,7 @@ No configuration is possible.',
 
 /** Message documentation (Message documentation)
  * @author Aaron Schulz
+ * @author Beta16
  * @author EugeneZelenko
  * @author Fryed-peach
  * @author Jon Harald Søby
@@ -59,9 +60,11 @@ No configuration is possible.',
  * @author Umherirrender
  */
 $messages['qqq'] = array(
-	'stabilization-tab' => '{{Flagged Revs-small}}
+	'stabilization-tab' => "{{Flagged Revs-small}}
 
-Some skins (e.g. standard/classic) display an additional tab to control visibility of the page revisions, e.g. whether last revision should be included or perhaps the last checked or published version. Links to [[Special:Stabilization]].',
+Some skins (e.g. standard/classic) display an additional tab to control visibility of the page revisions, e.g. whether last revision should be included or perhaps the last checked or published version. Links to [[Special:Stabilization]].
+
+''vet'' stands for: verify, or check for accuracy, authenticity, validity, etc.",
 	'stabilization' => '{{Flagged Revs}}
 Page title of Special:Stabilization, which lets admins change how the stable version is used for a page and who can review it.',
 	'stabilization-text' => '{{Flagged Revs-small}}
@@ -1814,6 +1817,7 @@ $messages['is'] = array(
  * @author Pietrodn
  */
 $messages['it'] = array(
+	'stabilization-tab' => 'ver',
 	'stabilization' => 'Stabilizzazione pagina',
 	'stabilization-text' => "'''Modifica le impostazioni sottostanti per regolare come la versione stabile di [[:$1|$1]] è selezionata e visualizzata.'''",
 	'stabilization-perm' => "L'utente non dispone dei permessi necessari a cambiare la configurazione della versione stabile.

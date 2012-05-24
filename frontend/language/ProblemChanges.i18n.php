@@ -477,6 +477,7 @@ $messages['io'] = array(
  */
 $messages['it'] = array(
 	'problemchanges' => 'Modifiche non controllate con etichette',
+	'problemchanges-list' => 'Questa pagina elenca le pagine [[{{MediaWiki:Validationpage}}|revisionate]] che hanno una o più modifiche contrassegnate in attesa di revisione. È disponibile un elenco di [[Special:Tags|contrassegni di modifica validi]].',
 	'problemchanges-legend' => 'Elenco delle pagine con modifiche etichettate in attesa di revisione',
 	'problemchanges-none' => 'Al momento non ci sono pagine che soddisfino tale criterio.',
 	'problemchanges-category' => 'Categoria:',

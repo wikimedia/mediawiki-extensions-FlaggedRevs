@@ -7572,6 +7572,7 @@ The [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Stöðuga útgáfan] var [{{fullurl:
  * @author Melos
  * @author Nemo bis
  * @author Pietrodn
+ * @author Ximo17
  */
 $messages['it'] = array(
 	'action-review' => 'revisionare versioni',
@@ -7735,6 +7736,7 @@ Verificare la URL usata per accedere a questa pagina.',
 	'revreview-lev-all' => 'qualsiasi',
 	'revreview-lev-basic' => 'controllate',
 	'revreview-lev-quality' => 'qualità',
+	'revreview-lev-pristine' => 'originario',
 	'revreview-defaultfilter' => 'Versione di default:',
 	'revreview-def-all' => 'qualsiasi',
 	'revreview-def-draft' => 'ultima',
@@ -7747,6 +7749,7 @@ Verificare la URL usata per accedere a questa pagina.',
 	'revreview-unreviewedpage' => 'pagina non cotrollata',
 	'tooltip-ca-current' => 'Vedi la bozza di questa pagina con le modifiche in sospeso',
 	'tooltip-ca-stable' => 'Vedi la versione stabile di questa pagina',
+	'tooltip-ca-default' => 'Impostazioni di garanzia della qualità',
 	'flaggedrevs-protect-legend' => 'Revisione automatica delle modifiche ([[{{MediaWiki:Validationpage}}|aiuto]])',
 	'flaggedrevs-protect-none' => 'Autorizza tutti gli utenti',
 	'flaggedrevs-categoryview' => '[{{fullurl:Special:UnreviewedPages|category=$1}} Pagine non revisionate]{{MediaWiki:pipe-separator}}[{{fullurl:Special:PendingChanges|category=$1}} Modifiche in sospeso]',
@@ -15133,7 +15136,7 @@ $messages['uk'] = array(
 
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|нерецензована зміна|нерецензовані зміни|нерецензованих змін}}] ''(показані нижче)'' {{PLURAL:$2|очікує|очікують|очікують}} на перевірку.",
 	'revreview-edited-section' => 'Повернутися до розділу під назвою "[[#$1|$2]]".',
-	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|зміна|змін}}] в цій версії [[{{MediaWiki:Validationpage}}|{{PLURAL:$3|очікує|очікують}} на перевірку]].
+	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|зміна|зміни|змін}}] в цій версії [[{{MediaWiki:Validationpage}}|{{PLURAL:$3|очікує|очікують}} на перевірку]].
 [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Стабільна версія] була [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} перевірена] <i>$2</i>.',
 	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Зміни шаблонів/файлів] цієї версії [[{{MediaWiki:Validationpage}}|очікують перевірки]].
 [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Стабільна версія] була [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} перевірена] <i>$2</i>.',

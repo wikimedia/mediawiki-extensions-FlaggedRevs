@@ -1128,6 +1128,9 @@ $messages['it'] = array(
 
 Gli editori sono utenti stabili che possono convalidare le revisioni nelle pagine",
 	'validationstatistics-lastupdate' => "''I seguenti dati sono stati aggiornati il $1 alle $2.''",
+	'validationstatistics-pndtime' => "Le modifiche che sono state controllate da utenti affidabili sono considerate ''revisionate''.
+
+Il ritardo medio per le [[Special:OldReviewedPages|pagine che attualmente hanno modifiche in attesa di revisione]] è di '''$1'''; il ritardo misura quanto tempo la versione in sospeso è rimasta non revisionata.",
 	'validationstatistics-revtime' => "L'attesa media per le modifiche di ''utenti che non hanno eseguito l'accesso'' prima che siano revisionate è di '''$1'''; la mediana di '''$2'''.
 $3",
 	'validationstatistics-table' => "Le statistiche di revisione per ciascun namespace sono mostrate di seguito, ''a esclusione'' dei redirect. Le pagine sono considerate ''obsolete'' se hanno modifiche in sospeso; sono considerate ''sincronizzate'' se non hanno modifiche in attesa di revisione.",

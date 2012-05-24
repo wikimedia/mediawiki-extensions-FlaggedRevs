@@ -2863,6 +2863,7 @@ Sjá nánar á [[Special:Unreviewedpages|lista yfir óskoðaðar síður]].',
  * @author F. Cosoleto
  * @author Gianfranco
  * @author Pietrodn
+ * @author Ximo17
  */
 $messages['it'] = array(
 	'revisionreview' => 'Revisiona versioni',
@@ -2876,6 +2877,7 @@ $messages['it'] = array(
 	'review_conflict_oldid' => 'Qualcuno ha già accettato o respinto questa revisione mentre la stavi esaminando.',
 	'review_not_flagged' => 'La revisione di destinazione non è attualmente segnata come revisionata.',
 	'review_too_low' => 'La versione non può essere revisionata con alcuni campi lasciati "inadeguati".',
+	'review_bad_key' => 'La chiave del parametro di inclusione non è valida.',
 	'review_bad_tags' => 'Alcune delle etichette indicate non sono valide.',
 	'review_denied' => 'Permesso negato.',
 	'review_param_missing' => 'Un parametro è mancante o non valido.',
@@ -2915,6 +2917,11 @@ Vedi l'[[Special:Unreviewedpages|elenco delle pagine non revisionate]].",
 	'revreview-sadv-reviewing-c' => 'Puoi $1 che stai revisionando queste modifiche agli altri utenti.',
 	'revreview-adv-start-link' => 'segnalare',
 	'revreview-adv-stop-link' => 'annulla',
+	'revreview-toolow' => '\'\'\'È necessario valutare ognuno degli attributi superiori ad "inadeguato" al fine di rendere definitiva una revisione.\'\'\'
+
+Per rimuovere lo stato di revisione di una revisione, fare clic su "inaccettabile".
+
+Si prega di premere il pulsante "indietro" del tuo browser e riprovare.',
 	'revreview-update' => "'''[[{{MediaWiki:Validationpage}}|Revisiona]] le modifiche in sospeso ''(mostrate di seguito)'' apportate dalla versione stabile.'''",
 	'revreview-update-edited' => '<span class="flaggedrevs_important">Le tue modifiche non sono ancora nella versione stabile.</span> 
 
@@ -2934,6 +2941,7 @@ Si prega di rivedere tutte le modifiche riportate di seguito perché le tue modi
 	'revreview-reject-summary-old-short' => '{{PLURAL:$1|Respinta la prima modifica|Respinte le prime $1 modifiche}} al testo che seguono la versione $2 di $3',
 	'revreview-tt-flag' => 'Accetta questa versione marcandola come "verificata"',
 	'revreview-tt-unflag' => 'Non accetta questa versione marcandola come "non verificata"',
+	'revreview-tt-reject' => 'Annulla le modifiche al testo originale per rifiutarle',
 );
 
 /** Japanese (日本語)
