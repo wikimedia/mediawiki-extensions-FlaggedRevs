@@ -7277,10 +7277,10 @@ Ada [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffon
 	'revreview-depth-4' => 'Terpilih',
 	'revreview-draft-title' => 'Perubahan tertunda ditampilkan di halaman ini',
 	'revreview-edit' => 'Sunting',
-	'revreview-editnotice' => "'''Perubahan Anda akan ditampilkan kepada pembaca setelah pengguna terotorisasi meninjaunya. ([[{{MediaWiki:Validationpage}}|bantuan]])'''",
+	'revreview-editnotice' => "'''Perubahan Anda akan ditampilkan kepada pembaca setelah pengguna terotorisasi menyetujuinya. ([[{{MediaWiki:Validationpage}}|bantuan]])'''",
 	'revreview-submitedit' => 'Simpan perubahan',
 	'revreview-submitedit-title' => 'Kirimkan perubahan Anda untuk ditinjau',
-	'revreview-edited' => "'''Perubahan Anda akan ditampilkan kepada pembaca setelah pengguna terotorisasi meninjaunya. ([[{{MediaWiki:Validationpage}}|bantuan]])'''
+	'revreview-edited' => "'''Perubahan Anda akan ditampilkan kepada pembaca setelah pengguna terotorisasi menyetujuinya. ([[{{MediaWiki:Validationpage}}|bantuan]])'''
 
 {{PLURAL:$2|Ada|Ada}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|perubahan|perubahan}} tertunda] ''(ditampilkan di bawah)'' menunggu peninjauan.",
 	'revreview-edited-section' => 'Kembali ke bagian halaman berjudul "[[#$1|$2]]".',
