@@ -8517,6 +8517,7 @@ $messages['kn'] = array(
  * @author Klutzy
  * @author Kwj2772
  * @author Yknok29
+ * @author 아라
  */
 $messages['ko'] = array(
 	'action-review' => '편집을 검토할',
@@ -8546,6 +8547,12 @@ $messages['ko'] = array(
 	'group-autoreview' => '자동 검사자',
 	'group-autoreview-member' => '{{GENDER:$1|자동 검사자}}',
 	'grouppage-autoreview' => '{{ns:project}}:자동 검사자',
+	'group-editor.css' => '/* 이 CSS 설정은 편집자에만 적용됩니다 */',
+	'group-editor.js' => '/* 이 자바스크립트 설정은 편집자에만 적용됩니다 */',
+	'group-reviewer.css' => '/* 이 CSS 설정은 평론가에만 적용됩니다 */',
+	'group-reviewer.js' => '/* 이 자바스크립트 설정은 평론가에만 적용됩니다 */',
+	'group-autoreview.css' => '/* 이 CSS 설정은 자동 검사자에만 적용됩니다 */',
+	'group-autoreview.js' => '/* 이 자바스크립트 설정은 자동 검사자에만 적용됩니다 */',
 	'revreview-hist-draft' => '검토되지 않은 판',
 	'revreview-hist-pending' => '검토 대기 중',
 	'revreview-hist-quality' => '고품질판',
@@ -9430,6 +9437,15 @@ Dabar yra [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-
  */
 $messages['ltg'] = array(
 	'revreview-filter-all' => 'vysi',
+);
+
+/** Lushai (Mizo ţawng)
+ * @author RMizo
+ */
+$messages['lus'] = array(
+	'editor' => 'Siamṭhatu',
+	'prefs-flaggedrevs' => 'Ennawnna siamṭhatna',
+	'prefs-flaggedrevs-ui' => 'Approbation des modifications',
 );
 
 /** Latvian (Latviešu)
