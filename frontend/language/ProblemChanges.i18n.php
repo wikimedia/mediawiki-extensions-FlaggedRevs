@@ -348,7 +348,7 @@ $messages['gl'] = array(
 	'problemchanges' => 'Cambios etiquetados pendentes',
 	'problemchanges-list' => 'Esta páxina lista as páxinas [[{{MediaWiki:Validationpage}}|revisadas]] que teñen unha ou máis edicións pendentes. Hai dispoñible unha lista coas [[Special:Tags|etiquetas de cambios válidas]].',
 	'problemchanges-legend' => 'Listar as páxinas con edicións etiquetadas pendentes de revisión',
-	'problemchanges-none' => 'Actualmente non hai páxinas que reúnan estes criterios',
+	'problemchanges-none' => 'Actualmente non hai páxinas que reúnan eses criterios',
 	'problemchanges-category' => 'Categoría:',
 );
 
