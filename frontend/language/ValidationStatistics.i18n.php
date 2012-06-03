@@ -1244,6 +1244,7 @@ $messages['kn'] = array(
  * @author Klutzy
  * @author Kwj2772
  * @author Yknok29
+ * @author 아라
  */
 $messages['ko'] = array(
 	'validationstatistics' => '페이지의 검토 통계',
@@ -1251,20 +1252,19 @@ $messages['ko'] = array(
 
 편집자가 문서를 검토할 수 있습니다.",
 	'validationstatistics-lastupdate' => "''다음과 같은 데이터가 마지막으로 $1 $2에 업데이트되었습니다. ''",
-	'validationstatistics-pndtime' => "숙련된 사용자가 확인한 편집을 검토된 편집으로 간주합니다.
+	'validationstatistics-pndtime' => "숙련된 사용자가 확인한 편집을 ''검토된 편집''으로 간주합니다.
 
-[[Special:OldReviewedPages|검토되지 않은 편집이 있는 문서]]의 검토 평균 대기 시간은 '''$1'''입니다.
-이 문서는 오래 전에 검토되었으며, 검토를 기다리고 있는 편집이 없을 때 ''동기화''되었다고 표현합니다.",
+[[Special:OldReviewedPages|현재 검토가 진행 중인 편집이 있는 문서]]의 검토 평균 대기 시간은 '''$1'''입니다. 검토되지 않는 편집이 가장 오래되었을 때가 지연이 얼마나 걸리는지 측정합니다.",
 	'validationstatistics-revtime' => "'''로그인하지 않은 사용자'''의 편집의 평균 대기 시간은 '''$1'''이고 중앙값은 '''$2'''입니다.
 $3",
-	'validationstatistics-table' => "넘겨주기 문서를 '''제외한''' 문서 검토 통계가 이름공간별로 보여지고 있습니다.",
+	'validationstatistics-table' => "넘겨주기 문서를 '''제외한''' 문서 검토 통계가 이름공간별로 보여지고 있습니다. 이 문서는 오래 전에 검토되었으며, 검토를 기다리고 있는 편집이 없을 때 ''동기화''되었다고 표현합니다.",
 	'validationstatistics-ns' => '이름공간',
 	'validationstatistics-total' => '문서 수',
 	'validationstatistics-stable' => '검토됨',
 	'validationstatistics-latest' => '동기화됨',
 	'validationstatistics-synced' => '동기화됨/검토됨',
 	'validationstatistics-old' => '업데이트 필요함',
-	'validationstatistics-utable' => '아래는 최근 1시간 동안의 최고 검토자 $1명의 목록입니다',
+	'validationstatistics-utable' => '아래는 최근 $2시간 동안의 최고 검토자 $1명의 목록입니다.',
 	'validationstatistics-user' => '사용자',
 	'validationstatistics-reviews' => '검토',
 );

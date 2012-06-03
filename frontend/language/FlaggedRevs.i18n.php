@@ -8612,13 +8612,13 @@ $messages['ko'] = array(
 
 아래에 보이는 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 편집 $2개]가 검토를 기다리고 있습니다.",
 	'revreview-edited-section' => '"[[#$1|$2]]" 단락으로 돌아가기',
-	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 편집 $3개]가 검토를 기다리고 있습니다.
+	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 편집 $3개]가 [[{{MediaWiki:Validationpage}}|검토를 기다리고 있습니다]].
 이 문서의 [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 배포판]은 <i>$2</i>에 [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 검토]되었습니다.',
-	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 틀/파일]의 편집이 검토를 기다리고 있습니다.
+	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 틀/파일]의 편집이 [[{{MediaWiki:Validationpage}}|검토를 기다리고 있습니다]].
 이 문서의 [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 배포판]은 <i>$2</i>에 [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 검토]되었습니다.',
-	'revreview-newest-quality' => '아울러 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 편집 $3개]가 검토를 기다리고 있습니다.
+	'revreview-newest-quality' => '아울러 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 편집 $3개]가 [[{{MediaWiki:Validationpage}}|검토를 기다리고 있습니다]].
 이 문서의 [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 배포판]은 <i>$2</i>에 [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 승인]되었습니다.',
-	'revreview-newest-quality-i' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 틀/파일]의 편집이 검토를 기다리고 있습니다.
+	'revreview-newest-quality-i' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 틀/파일]의 편집이 [[{{MediaWiki:Validationpage}}|검토를 기다리고 있습니다]].
 이 문서의 [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 배포판]은 <i>$2</i>에 [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 승인]되었습니다.',
 	'revreview-pending-basic' => '이 [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 배포판]은 <i>$2</i>에 [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 검토]되었습니다. 아울러 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 편집 $3개]가 검토를 기다리고 있습니다.',
 	'revreview-pending-quality' => '이 [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 배포판]은 <i>$2</i>에 [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 승인]되었습니다. 아울러 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 편집 $3개]가 검토를 기다리고 있습니다.',
