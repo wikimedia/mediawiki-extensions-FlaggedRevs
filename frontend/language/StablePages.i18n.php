@@ -974,7 +974,7 @@ $messages['tr'] = array(
 	'stablepages-indef' => 'Sadece belirsiz sona erme',
 );
 
-/** Ukrainian (Українська)
+/** Ukrainian (українська)
  * @author A1
  * @author Ahonc
  * @author Prima klasy4na

@@ -15051,7 +15051,7 @@ $messages['tt-cyrl'] = array(
 	'validationpage' => '{{ns:help}}:Битләрне тикшерү',
 );
 
-/** Ukrainian (Українська)
+/** Ukrainian (українська)
  * @author AS
  * @author Ahonc
  * @author Andygol

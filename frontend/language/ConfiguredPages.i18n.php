@@ -965,7 +965,7 @@ Bazı ayarlar, okuyuculara hangi sürümün görüntüleneceğini değiştirebil
 	'configuredpages-def-stable' => 'kararlı sürüm',
 );
 
-/** Ukrainian (Українська)
+/** Ukrainian (українська)
  * @author AS
  * @author Prima klasy4na
  */
