@@ -546,18 +546,23 @@ Calca nel botón \"atrás\" del restolador y téntalo otra vuelta.",
 	'revreview-reject-cancel' => 'Encaboxar',
 );
 
-/** Azerbaijani (Azərbaycanca)
+/** Azerbaijani (azərbaycanca)
  * @author Cekli829
  * @author Vugar 1981
  * @author Wertuose
  */
 $messages['az'] = array(
 	'revisionreview' => 'Redaktələri yoxlayar',
+	'revreview-failed' => "'''Bu versiyanı yoxlamaq mümkün deyil.'''",
+	'revreview-check-flag-u' => 'Bu yoxlanılmış səhifəni qəbul et',
+	'revreview-check-flag-y' => 'Dəyişikliklərimi qəbul et',
+	'revreview-flag' => 'Bu versiyanı yoxla',
+	'revreview-reflag' => 'Bu versiyanı təkrar yoxla',
 	'revreview-log' => 'Şərh:',
 	'revreview-submit' => 'Təsdiq et',
 	'revreview-submitting' => 'Yollamaq',
 	'revreview-submit-review' => 'Versiyanı qəbul et',
-	'revreview-submit-unreview' => 'Qəbul etməni ləğv et',
+	'revreview-submit-unreview' => 'Versiyanı qəbul etmə',
 	'revreview-submit-reject' => 'Dəyişiklikləri rədd et',
 	'revreview-submit-reviewed' => 'Hazırdır. Qəbul edildi!',
 	'revreview-submit-unreviewed' => 'Hazırdır. Qəbul edilmə ləğv edildi!',
