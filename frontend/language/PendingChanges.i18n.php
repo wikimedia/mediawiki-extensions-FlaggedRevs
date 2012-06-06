@@ -1022,6 +1022,7 @@ $messages['it'] = array(
  * @author Hosiryuhosi
  * @author Ohgi
  * @author Schu
+ * @author Shirayuki
  * @author 青子守歌
  */
 $messages['ja'] = array(
@@ -1032,7 +1033,7 @@ $messages['ja'] = array(
 	'pendingchanges-hours' => '($1{{PLURAL:$1|時間}})',
 	'pendingchanges-days' => '($1{{PLURAL:$1|日}})',
 	'pendingchanges-recent' => '(1時間未満)',
-	'pendingchanges-category' => 'カテゴリー：',
+	'pendingchanges-category' => 'カテゴリ：',
 	'pendingchanges-onwatchlist' => '自分のウォッチリストに含まれるページ',
 	'pendingchanges-stable' => '公開版が既定に設定されています',
 	'pendingchanges-diff' => '査読',

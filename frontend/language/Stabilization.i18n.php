@@ -2132,7 +2132,7 @@ Et jidd och nix ennzeshtelle.',
 $messages['ku-latn'] = array(
 	'stabilization-page' => 'Navê rûpelê:',
 	'stabilization-comment' => 'Sedem:',
-	'stabilization-otherreason' => 'Sedemekî din:',
+	'stabilization-otherreason' => 'Sedemeka din:',
 );
 
 /** Latin (Latina)

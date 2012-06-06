@@ -3280,6 +3280,13 @@ Looer noh de [[Special:Unreviewedpages|Leß met de nit nohjekikte Sigge]].',
 	'revreview-tt-reject' => 'Donn heh di Änderonge aflehne un uß dä Sigg widder eruß nämme',
 );
 
+/** Kurdish (Latin script) (‪Kurdî (latînî)‬)
+ * @author George Animal
+ */
+$messages['ku-latn'] = array(
+	'revreview-reject-summary' => 'Kurte:',
+);
+
 /** Latin (Latina)
  * @author SPQRobin
  */
@@ -5398,12 +5405,13 @@ Değişikliklerinizin kararlı sürümde yer alması için, lütfen aşağıda g
 	'revreview-tt-reject' => 'Değişiklikleri geri alarak reddet',
 );
 
-/** Ukrainian (Українська)
+/** Ukrainian (українська)
  * @author AS
  * @author Ahonc
  * @author Dim Grits
  * @author JenVan
  * @author NickK
+ * @author Olvin
  * @author Prima klasy4na
  * @author Тест
  */
@@ -5471,7 +5479,7 @@ $messages['uk'] = array(
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Ваші зміни ще не включені до стабільної версії. Попередні зміни очікують на перевірку.</span>
 
 Будь ласка, перевірте усі зміни, наведені нижче, щоб включити ваші редагування до стабільної версії.',
-	'revreview-update-includes' => 'Деякі шаблони або файли були оновлені (неперевірені виділені жирним шрифтом):',
+	'revreview-update-includes' => 'Деякі шаблони або файли було оновлено (неперевірені виділено жирним шрифтом):',
 	'revreview-reject-text-list' => "Виконуючи цю дію, ви '''відкидаєте''' зміну вихідного коду в {{PLURAL:$1|наступній редакції|наступних редакціях}} [[:$2|$2]] :",
 	'revreview-reject-text-revto' => 'Відкидає сторінку назад до [{{fullurl:$1|oldid=$2}} версії від $3].',
 	'revreview-reject-summary' => 'Опис:',
