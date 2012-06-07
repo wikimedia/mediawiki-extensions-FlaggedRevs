@@ -95,10 +95,11 @@ $messages['be'] = array(
 /** Belarusian (Taraškievica orthography) (‪Беларуская (тарашкевіца)‬)
  * @author EugeneZelenko
  * @author Jim-by
+ * @author Red Winged Duck
  */
 $messages['be-tarask'] = array(
 	'qualityoversight' => 'Пашыраны журнал рэцэнзаваньняў',
-	'qualityoversight-list' => 'Гэта старонка ўтрымлівае сьпіс апошніх пацьверджаньняў і зьняцьцяў пацьверджаньняў узроўняў якасьці вэрсій.',
+	'qualityoversight-list' => 'Гэта старонка ўтрымлівае сьпіс апошніх пацьверджаньняў і зьняцьцяў пацьверджаньняў узроўняў якасьці вэрсіяў.',
 	'qualityoversight-legend' => 'Пошук у журнале праверак',
 );
 

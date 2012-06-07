@@ -3165,10 +3165,11 @@ $messages['km'] = array(
 /** Korean (한국어)
  * @author Gapo
  * @author Kwj2772
+ * @author 아라
  */
 $messages['ko'] = array(
 	'revisionreview' => '편집들을 검토하기',
-	'revreview-failed' => "'''이 판을 검토하지 못했습니다.''' 요청이 완전하지 못하거나 잘못되었습니다.",
+	'revreview-failed' => "'''이 판을 검토하지 못했습니다.'''",
 	'review_page_invalid' => '대상 문서 제목이 잘못되었습니다.',
 	'review_page_notexists' => '대상 문서가 존재하지 않습니다.',
 	'review_page_unreviewable' => '대상 문서가 검토 가능한 문서가 아닙니다.',
@@ -3180,7 +3181,7 @@ $messages['ko'] = array(
 	'review_denied' => '권한 없음',
 	'review_param_missing' => '매개 변수가 없거나 잘못되었습니다.',
 	'review_reject_excessive' => '이렇게 많은 편집을 한꺼번에 거부할 수는 없습니다.',
-	'revreview-check-flag-p' => '검토를 기다리고 있는 판 배포하기',
+	'revreview-check-flag-p' => '이 판 승인 ($1 보류 중인 바뀜이 포함)',
 	'revreview-check-flag-p-title' => '당신의 편집과 함께 지금 검토를 기다리고 있는 모든 편집을 승인합니다. 모든 검토 대기 중인 편집을 확인한 후에만 이 기능을 사용해주세요.',
 	'revreview-check-flag-u' => '이 검토하지 않은 페이지를 승인',
 	'revreview-check-flag-u-title' => '이 판을 승인합니다. 전체 문서를 다 보았을 때만 사용하십시오.',
@@ -3212,13 +3213,13 @@ $messages['ko'] = array(
 	'revreview-update' => "'''승인된 판에 이루어진 아래의 검토를 기다리고 있는 편집을 [[{{MediaWiki:Validationpage}}|검토]]해주십시오.'''",
 	'revreview-update-edited' => '<span class="flaggedrevs_important">당신의 편집은 아직 승인되지 않았습니다.</span>
 
-당신의 편집을 승인하려면 아래에 표시된 모든 편집을 검토해주십시오.
-먼저 문서 내용을 보충하거나 편집을 되돌려야 할 수도 있습니다.',
+당신의 편집을 승인하려면 아래에 표시된 모든 편집을 검토해주십시오.',
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">당신의 편집은 아직 승인되지 않았습니다. 검토를 기다리고 있는 이전의 편집이 있습니다.</span>
 
-당신의 편집을 승인하려면 아래에 보이는 모든 편집 사항을 검토해주십시오.
-필요하다면 내용을 보충하거나 편집을 되돌리십시오.',
+당신의 편집을 승인하려면 아래에 보이는 모든 편집 사항을 검토해주십시오.',
 	'revreview-update-includes' => '일부 틀이나 파일이 수정되었습니다 (검토되지 않은 문서는 굵게 표시):',
+	'revreview-reject-summary' => '요약:',
+	'revreview-reject-confirm' => '이 바뀜 거부',
 	'revreview-reject-cancel' => '취소',
 	'revreview-tt-flag' => '이 판을 검토하기',
 	'revreview-tt-unflag' => '이 판에 대한 검토 취소하기',
