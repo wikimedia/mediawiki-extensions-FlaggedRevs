@@ -64,7 +64,7 @@ class FlaggedRevsHooks {
 	) {
 		if ( !FlaggedRevs::inReviewNamespace( $otitle )
 			&& FlaggedRevs::inReviewNamespace( $ntitle )
-			&& FlaggedRevs::autoReviewNewPages() 
+			&& FlaggedRevs::autoReviewNewPages()
 		) {
 			$fa = FlaggableWikiPage::getTitleInstance( $ntitle );
 			$fa->loadPageData( 'fromdbmaster' );
@@ -921,7 +921,7 @@ class FlaggedRevsHooks {
 				break;
 			case APCOND_FR_NEVERDEMOTED: // b/c
 				$p = FRUserCounters::getParams( $user );
-				$result = ( $p && !$p['demoted'] );
+				$result = ( $p && empty( $p['demoted'] ) );
 				break;
 		}
 		return true;
