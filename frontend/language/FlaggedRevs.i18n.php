@@ -9443,9 +9443,20 @@ $messages['ltg'] = array(
  * @author RMizo
  */
 $messages['lus'] = array(
+	'action-review' => 'Siamṭhatna ennawnna',
 	'editor' => 'Siamṭhatu',
+	'flaggedrevs' => 'Siamṭhatna chhinchhiahte',
 	'prefs-flaggedrevs' => 'Ennawnna siamṭhatna',
 	'prefs-flaggedrevs-ui' => 'Approbation des modifications',
+	'revreview-current' => 'Tihdanglam nghâkte',
+	'revreview-depth' => 'Thûkzáwng',
+	'revreview-depth-0' => 'Tâwk lo',
+	'revreview-depth-1' => 'Bulthüm',
+	'revreview-depth-2' => 'Pángngai',
+	'revreview-depth-3' => 'Sáng',
+	'revreview-depth-4' => 'Tlángrèlthang',
+	'revreview-draft-title' => 'Hë phêkah hian tihdanglam nghâkte pholan a ni',
+	'revreview-edit' => 'Siamṭhatna',
 );
 
 /** Latvian (Latviešu)
@@ -11122,7 +11133,7 @@ $messages['pfl'] = array(
 	'revreview-filter-all' => 'alle',
 );
 
-/** Polish (Polski)
+/** Polish (polski)
  * @author Beau
  * @author BeginaFelicysym
  * @author Derbeth
@@ -11230,11 +11241,11 @@ Obecnie [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-di
 	'revreview-edited-section' => 'Wróć do sekcji „[[#$1|$2]]“.',
 	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|zmiana oczekuje|zmiany oczekują|zmian oczekuje}}] w tej wersji [[{{MediaWiki:Validationpage}}|na przejrzenie]].
 [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Wersja przejrzana] została [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} oznaczona] <i>$2</i>.',
-	'revreview-newest-basic-i' => 'Na przejrzenie [[{{MediaWiki:Validationpage}}|oczekują]] [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} zmiany w szablonach lub plikach], użytych na tej stronie.
+	'revreview-newest-basic-i' => 'Na przejrzenie [[{{MediaWiki:Validationpage}}|oczekują]] [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} zmiany w szablonach lub plikach] użytych na tej stronie.
 Ostatnia [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} wersja przejrzana] została [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} oznaczona] <i>$2</i>.',
 	'revreview-newest-quality' => 'W tej wersji [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|zmiana|zmiany|zmian}}] [[{{MediaWiki:Validationpage}}|{{PLURAL:$3|oczekuje|oczekują|oczekują}}]] na zweryfikowanie.
 Ostatnia [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} wersja zweryfikowana] została [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} zaakceptowana] <i>$2</i>.',
-	'revreview-newest-quality-i' => 'Na przejrzenie [[{{MediaWiki:Validationpage}}|oczekują]] [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} zmiany w szablonach lub plikach], użytych na tej stronie.
+	'revreview-newest-quality-i' => 'Na przejrzenie [[{{MediaWiki:Validationpage}}|oczekują]] [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} zmiany w szablonach lub plikach] użytych na tej stronie.
 Ostatnia [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} wersja zweryfikowana] została [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} zaakceptowana] <i>$2</i>.',
 	'revreview-pending-basic' => 'Ostatnia [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} wersja przejrzana] została [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} oznaczona] <i>$2</i>. Od tego czasu wykonano [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|zmianę|zmiany|zmian}}], {{PLURAL:$3|która oczekuje|które oczekują|które oczekują}} na przejrzenie.',
 	'revreview-pending-quality' => 'Ostatnia [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} wersja zweryfikowana] została [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} zaakceptowana] <i>$2</i>. Od tego czasu wykonano [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|zmianę|zmiany|zmian}}], {{PLURAL:$3|która oczekuje|które oczekują|które oczekują}} na zweryfikowanie.',
@@ -14662,18 +14673,22 @@ $messages['tl'] = array(
 	'flaggedrevs-pref-UI-1' => 'Gumamit ng maliliit na mga larawan at pinakakaunting teksto upang ipakita ang kalagayan sa pagsuri ng mga pahina',
 	'prefs-flaggedrevs' => 'Muling pagsuri ng binago',
 	'prefs-flaggedrevs-ui' => 'Muling pagsuri ng binago',
-	'flaggedrevs-prefs-stable' => 'Laging ipakita ang tanggap na bersyon ng mga pahina ng nilalaman ayon sa likas na pagkakatakda (kung may isa)',
+	'flaggedrevs-prefs-stable' => 'Kung kailan ipapakita ang matatag na bersyon ng mga pahina ng nilalaman ayon sa likas na katakdaan',
+	'flaggedrevs-pref-stable-0' => 'Gamitin ang nakatakdang mga kaayusan para sa bawat isang pahina',
+	'flaggedrevs-pref-stable-1' => 'Laging ipakita ang matatag na bersyon (kung meron)',
+	'flaggedrevs-pref-stable-2' => 'Laging ipakita ang pinakahuling bersyon',
 	'flaggedrevs-prefs-watch' => 'Idagdag ang mga pahinang nasuri ko na sa aking talaan ng mga binabantayan',
 	'flaggedrevs-prefs-editdiffs' => 'Ipakita ang naghihintay na pagkakaiba ng mga pagbabago kapag namamatnugot ng mga pahina',
 	'flaggedrevs-prefs-viewdiffs' => 'Ipakita ang naghihintay na pagkakaiba ng mga pagbabago kapag tinitingnan ang huling naghihintay na pagbabago',
+	'flaggedrevs-hidereviewed' => '$1 nasuring mga pagbabago',
 	'group-editor' => 'Mga patnugot',
-	'group-editor-member' => 'patnugot',
+	'group-editor-member' => '{{GENDER:$1|patnugot}}',
 	'group-reviewer' => 'Mga tagapagsuri',
-	'group-reviewer-member' => 'tagapagsuri',
+	'group-reviewer-member' => '{{GENDER:$1|manunuri}}',
 	'grouppage-editor' => '{{ns:project}}:Patnugot',
 	'grouppage-reviewer' => '{{ns:project}}:Tagapagsuri',
 	'group-autoreview' => 'Mga kusang-tagapagsuri',
-	'group-autoreview-member' => 'Kusang-tagapagsuri',
+	'group-autoreview-member' => '{{GENDER:$1|tagagamit na kusang nasuri na}}',
 	'grouppage-autoreview' => '{{ns:project}}:Kusang-tagapagsuri',
 	'revreview-hist-draft' => 'hindi pa nasusuring pagbabago',
 	'revreview-hist-pending' => 'naghihintay ng pagsusuri',
@@ -14728,12 +14743,12 @@ Maaaring may mga bagong [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWik
 	'revreview-depth-4' => 'Naitampok (naitangi)',
 	'revreview-draft-title' => 'Ipinapakita sa pahinang ito ang naghihintay na mga pagbabago',
 	'revreview-edit' => 'Baguhin',
-	'revreview-editnotice' => "'''Ang mga binago mo ay ipapakita sa mga mambabasa kapag nasuri na ng isang may pahintulot na tagagamit.  ([[{{MediaWiki:Validationpage}}|tulong]])'''",
+	'revreview-editnotice' => "'''Ang mga binago mo ay ipapakita sa mga mambabasa kapag tinanggap na ng isang may pahintulot na tagagamit.  ([[{{MediaWiki:Validationpage}}|tulong]])'''",
 	'revreview-submitedit' => 'Ipasa ang mga pagbabago',
 	'revreview-submitedit-title' => 'Ipasa ang mga pagbabago mo para masuri',
-	'revreview-edited' => "'''Ipapakita sa mga mambabasa ang mga binago mo kapag nasuri na sila ng may pahintulot na tagagamit. ([[{{MediaWiki:Validationpage}}|tulong]])'''
+	'revreview-edited' => "'''Ipapakita sa mga mambabasa ang mga binago mo kapag nasuri na ang mga ito ng isang tagagamit na may pahintulot. ([[{{MediaWiki:Validationpage}}|tulong]])'''
 
-May {{PLURAL:$2|isang|mga}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 na  nakabinbing  {{PLURAL:$2|pagbabago|mga pagbabago}}] ''(ipinapakita sa ibaba)'' na naghihintay ng pagsusuri.",
+Mayroong {{PLURAL:$2|isa lang na|mga}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 na  nakabinbing  {{PLURAL:$2|pagbabago|mga pagbabago}}] ''(ipinapakita sa ibaba)'' na naghihintay ng pagsusuri.",
 	'revreview-edited-section' => 'Bumalik sa seksyon ng pahinang may pangalang "[[#$1|$2]]".',
 	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|pagbabago|mga pagbabago}}] sa bersyong ito {{PLURAL:$3|ay|ay mga}} [[{{MediaWiki:Validationpage}}|naghihintay ng pagsusuri]].
 Ang [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} matatag na bersyon] ay [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} nasuri] noong <i>$2</i>.',
@@ -15059,6 +15074,7 @@ $messages['tt-cyrl'] = array(
  * @author JenVan
  * @author Microcell
  * @author NickK
+ * @author Olvin
  * @author Prima klasy4na
  * @author Test
  * @author Тест
@@ -15141,7 +15157,7 @@ $messages['uk'] = array(
 	'revreview-depth-2' => 'середня',
 	'revreview-depth-3' => 'висока',
 	'revreview-depth-4' => 'вибрана',
-	'revreview-draft-title' => 'На цій сторінці показані нерецензовані зміни',
+	'revreview-draft-title' => 'На цій сторінці показано нерецензовані зміни',
 	'revreview-edit' => 'Редагувати',
 	'revreview-editnotice' => "'''Ваші зміни будуть показані читачам, як тільки уповноважений користувач схвалить їх.
 ([[{{MediaWiki:Validationpage}}|допомога]])'''",
@@ -15152,8 +15168,8 @@ $messages['uk'] = array(
 
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|нерецензована зміна|нерецензовані зміни|нерецензованих змін}}] ''(показані нижче)'' {{PLURAL:$2|очікує|очікують|очікують}} на перевірку.",
 	'revreview-edited-section' => 'Повернутися до розділу під назвою "[[#$1|$2]]".',
-	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|зміна|зміни|змін}}] в цій версії [[{{MediaWiki:Validationpage}}|{{PLURAL:$3|очікує|очікують}} на перевірку]].
-[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Стабільна версія] була [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} перевірена] <i>$2</i>.',
+	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|зміна в|зміни в|змін у}}] цій версії [[{{MediaWiki:Validationpage}}|{{PLURAL:$3|очікує|очікують}} на перевірку]].
+[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Стабільну версію] було [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} перевірено] <i>$2</i>.',
 	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Зміни шаблонів/файлів] цієї версії [[{{MediaWiki:Validationpage}}|очікують перевірки]].
 [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Стабільна версія] була [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} перевірена] <i>$2</i>.',
 	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3  {{PLURAL:$3|зміна|змін}}] у цій версії [[{{MediaWiki:Validationpage}}|{{PLURAL:$3|очикує|очикують}} перевірки]].

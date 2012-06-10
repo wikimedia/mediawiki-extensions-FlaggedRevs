@@ -1151,20 +1151,21 @@ $3",
  * @author Hosiryuhosi
  * @author Ohgi
  * @author Schu
+ * @author Shirayuki
  * @author 青子守歌
  */
 $messages['ja'] = array(
 	'validationstatistics' => 'ページのレビュー統計',
-	'validationstatistics-users' => "'''{{SITENAME}}''' には現在、[[{{MediaWiki:Validationpage}}|編集者]]権限をもつ利用者が '''[[Special:ListUsers/editor|$1]]'''{{PLURAL:$1|人}}います。
+	'validationstatistics-users' => "'''{{SITENAME}}''' には現在、[[{{MediaWiki:Validationpage}}|編集者]]権限がある利用者が '''[[Special:ListUsers/editor|$1]]'''{{PLURAL:$1|人}}います。
 
 編集者とはページの各版に対して抜き取り検査を行うことを認められた利用者です。",
 	'validationstatistics-lastupdate' => "''以下のデータは、$1の$2に最後に更新されました。''",
-	'validationstatistics-pndtime' => "信頼されている利用者により確認された編集は、''査読済''とみなされます。
+	'validationstatistics-pndtime' => "信頼されている利用者により確認された編集は、''査読済''と見なされます。
 
 [[Special:OldReviewedPages|未査読の編集が保留となっているページ]]の平均遅延時間は'''$1'''です。この遅延時間は、保留中の最古の編集が査読待ちの状態を脱するのにかかった時間から測定されます。",
 	'validationstatistics-revtime' => "''非ログイン利用者''による編集が査読されるまでの平均待ち時間は'''$1'''で、中央値は'''$2'''です。
 $3",
-	'validationstatistics-table' => "名前空間別のページの査読に関する統計を以下に表示します（リダイレクトページは''除外''）。ページに査読待ちの編集がある場合は、''最新版未査読''として扱われます。査読待ちの編集がない場合は、''最新版査読済''とみなされます。",
+	'validationstatistics-table' => "名前空間別のページの査読に関する統計を以下に表示します（リダイレクトページは''除外''）。ページに査読待ちの編集がある場合は、''最新版未査読''として扱われます。査読待ちの編集がない場合は、''最新版査読済''と見なされます。",
 	'validationstatistics-ns' => '名前空間',
 	'validationstatistics-total' => 'ページ数',
 	'validationstatistics-stable' => '査読済',
@@ -1311,6 +1312,7 @@ Sigge sen als övverhollt enjeschtoof, wann Änderonge doh sen, di noch nit nohj
  * @author George Animal
  */
 $messages['ku-latn'] = array(
+	'validationstatistics-total' => 'Rûpel',
 	'validationstatistics-user' => 'Bikarhêner',
 );
 

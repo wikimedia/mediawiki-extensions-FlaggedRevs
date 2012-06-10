@@ -2978,13 +2978,13 @@ $messages['ja'] = array(
 	'review_cannot_undo' => '次の保留中の編集が同じ領域を変更したため、これらの変更を戻すことができません。',
 	'review_cannot_reject' => '既に誰かがいくつか（あるいはすべての）編集を承認したため、これらの変更を却下できませんでした。',
 	'review_reject_excessive' => 'これほど多くの編集を一度に却下することはできません。',
-	'review_reject_nulledits' => 'すべてのリビジョンが空の編集なので、これらの変更を拒否することはできません。',
+	'review_reject_nulledits' => 'すべてのリビジョンが空の編集であるため、これらの変更を拒否できません。',
 	'revreview-check-flag-p' => 'この版を承認する（保留中の$1コの{{PLURAL:$1|変更}}を含む）',
 	'revreview-check-flag-p-title' => '自身の編集とともに現在保留中の変更をすべて承認する。
 これは、あなたが既に保留中の変更全体の差分表示を確認した場合のみに使用してください。',
-	'revreview-check-flag-u' => 'この未査読ページを受理する',
-	'revreview-check-flag-u-title' => 'ページのこの版を受理する。この機能は既にページ全体を確認し終わった場合にのみ使用してください。',
-	'revreview-check-flag-y' => 'これらの変更を受理',
+	'revreview-check-flag-u' => 'この未査読ページを受理',
+	'revreview-check-flag-u-title' => 'ページのこの版を受理する。この機能は既にページ全体を確認し終わった場合のみ使用してください。',
+	'revreview-check-flag-y' => '自分の変更を受理',
 	'revreview-check-flag-y-title' => 'この編集で行った変更をすべて受理します。',
 	'revreview-flag' => 'この特定版を査読',
 	'revreview-reflag' => 'この版を再査読',
@@ -3006,11 +3006,11 @@ $messages['ja'] = array(
 	'revreview-successful2' => "'''[[:$1|$1]] の特定版の判定取り消しに成功しました。'''",
 	'revreview-poss-conflict-p' => "'''警告：[[User:$1|$1]]がこのページの査読を $2 $3 に開始しました。'''",
 	'revreview-poss-conflict-c' => "'''警告：[[User:$1|$1]]がこの変更の査読を $2 $3 に開始しました。'''",
-	'revreview-toolow' => "'''版を査読済みとするには、すべての判定要素を「不十分」より高い評価にする必要があります。'''
+	'revreview-toolow' => "'''版を査読済みにするには、すべての判定要素を「不十分」より高い評価にする必要があります。'''
 
-版の査読評価を消す場合は、「未承認」をクリックしてください。
+版の査読評価を除去する場合は、「未承認」をクリックしてください。
 
-ブラウザの「戻る」ボタンを押して再試行してください。",
+ブラウザーの「戻る」ボタンを押して再試行してください。",
 	'revreview-update' => "'''承認版に加えられた保留中の変更 (''下記参照'') を[[{{MediaWiki:Validationpage}}|査読]]してください。'''",
 	'revreview-update-edited' => '<span class="flaggedrevs_important">変更はまだ安定版に組み込まれていません。</span>
 
@@ -5269,6 +5269,7 @@ $messages['tl'] = array(
 	'review_cannot_undo' => 'Hindi maibabalik sa dati ang mga pagbabago dahil ang kasunod na iba pang nakabinbing mga pamamatnugot ay nagbago ng katulad na mga lugar.',
 	'review_cannot_reject' => 'Hindi matatanggihan ang mga pagbabagong ito dahil may ibang tao nang tumanggap sa ilan (o lahat) ng mga pagbabago.',
 	'review_reject_excessive' => 'Hindi matanggihan sa isang pagkakataon ang ganito karaming mga pagbabago.',
+	'review_reject_nulledits' => 'Hindi matatanggihan ang mga pagbabagong ito dahil lahat ng mga rebisyon ay mga pamamatnugot na walang saysay.',
 	'revreview-check-flag-p' => 'Tanggapin ang bersyong ito (kabilang ang $1 na naghihintay na {{PLURAL:$1|pagbabago|mga pagbabago}})',
 	'revreview-check-flag-p-title' => 'Tanggapin ang lahat ng pangkasalukuyang nakabinbing mga pagbabago kasama ang binago mo.
 Gamitin lamang ito kapag nakita mo na ang buong pagkakaiba ng mga pagbabagong nakabinbin.',
@@ -5296,6 +5297,12 @@ Tingnan ang [[Special:Unreviewedpages|talaan ng mga pahina hindi pa nasusuring m
 	'revreview-successful2' => "'''Matagumpay ang pagtatanggal ng bandila (pagaalis ng tatak) sa pagbabago ng [[:$1|$1]].'''",
 	'revreview-poss-conflict-p' => "'''Babala: Nagsimula si [[User:$1|$1]] na magsuring muli ng pahinang ito noong $2 noong $3.'''",
 	'revreview-poss-conflict-c' => "'''Babala: Nagsimula si [[User:$1|$1]] na magsuring muli ng mga pagbabagong ito noong $2 noong $3.'''",
+	'revreview-adv-reviewing-p' => 'Paunawa: Nakikita ng ibang mga manunuri na sinusuri mo ang pahinang ito.',
+	'revreview-adv-reviewing-c' => 'Paunawa: Makikita ng ibang mga manunuri na sinusuri mo ang mga pagbabagong ito.',
+	'revreview-sadv-reviewing-p' => 'Maaari mong $1 ang sarili mo bilang nagsusuri ng pahinang ito sa ibang mga tagagamit.',
+	'revreview-sadv-reviewing-c' => 'Maaari mong $1 ang sarili bilang nagsusuri ng mga pagbabagong ito sa ibang mga tagagamit.',
+	'revreview-adv-start-link' => 'ianunsiyo',
+	'revreview-adv-stop-link' => 'huwag ianunsiyo',
 	'revreview-toolow' => '\'\'\'Dapat mong antasan ang bawat isang katangian na mas mataas kaysa "hindi sapat" upang maisaalang-alang ang pagbabago bilang nasuri na.\'\'\'
 
 Upang matanggal ang katayuan ng pagsusuri ng isang rebisyon, pindutin ang "huwag tanggapin".
@@ -5308,19 +5315,19 @@ Pakisuri ang lahat ng mga pagbabagong ipinakikita sa ibaba upang magawang lumita
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Ang mga binago mo ay hindi pa nasa loob ng matatag na bersyon.  May mga naunang mga pagbabago naghihintay ng pagsusuri.</span>
 
 Pakisuri ang lahat ng mga pagbabagong ipinapakita sa ibaba upang magawang lumitaw ng mga binago mo sa loob ng matatag na bersyon.',
-	'revreview-update-includes' => 'Naisapanahon na ang ilang mga suleras/talaksan:',
-	'revreview-reject-text-list' => "Sa pamamagitan ng pagbuo sa galaw na ito, '''tatanggihan''' mo ang sumusunod na {{PLURAL:$1|pagbabago|mga pagbabago}}:",
+	'revreview-update-includes' => 'Naisapanahon na ang mga suleras/talaksan (makakapal ang hindi pa nasusuring mga pahina):',
+	'revreview-reject-text-list' => "Sa pagkumpleto ng galaw na ito '''tatanggihan''' mo ang mga pagbabago sa pinagmulan ng teksto mula sa sumusunod na {{PLURAL:$1|pagbabago|mga pagbabago}} ng [[:$2|$2]]:",
 	'revreview-reject-text-revto' => 'Magpapabalik ito ng pahina sa dati papunta sa [{{fullurl:$1|oldid=$2}} bersyon ng $3].',
 	'revreview-reject-summary' => 'Buod:',
 	'revreview-reject-confirm' => 'Tanggihan ang mga pagbabagong ito',
 	'revreview-reject-cancel' => 'Huwag ituloy',
-	'revreview-reject-summary-cur' => 'Tinanggihan ang huling {{PLURAL:$1|pagbabago|$1 mga pagbabago}} (ni $2) at ibinalik ang rebisyong $3 ni $4',
-	'revreview-reject-summary-old' => 'Tinanggihan ang unang {{PLURAL:$1|pagbabago|$1 mga pagbabago}} (ni $2) na sinundan ng rebisyong $3 ni $4',
-	'revreview-reject-summary-cur-short' => 'Tinanggihan ang huling {{PLURAL:$1|pagbabago|$1 mga pagbabago}} at naibalik ang rebisyong $2 ni $3',
-	'revreview-reject-summary-old-short' => 'Tinanggihana ng unang {{PLURAL:$1|pagbabago|$1 mga pagbabago}} na sumundo sa rebisyong $2 ni $3',
+	'revreview-reject-summary-cur' => 'Tinanggihan ang huling {{PLURAL:$1|pagbabago sa teksto|$1 mga pagbabago sa teksto}} (ni $2) at ibinalik ang rebisyong $3 ni $4',
+	'revreview-reject-summary-old' => 'Tinanggihan ang unang {{PLURAL:$1|pagbabago ng teksto|$1 mga pagbabago ng teksto}} (ni $2) na kasunod ng rebisyong $3 ni $4',
+	'revreview-reject-summary-cur-short' => 'Tinanggihan ang huling {{PLURAL:$1|pagbabago sa teksto|$1 mga pagbabago sa teksto}} at naibalik ang rebisyong $2 ni $3',
+	'revreview-reject-summary-old-short' => '!Tinanggihan ang unang {{PLURAL:$1|pagbabago ng teskto|$1 mga pagbabago ng teskto}} na sumunod sa rebisyong $2 ni $3',
 	'revreview-tt-flag' => 'Tanggapin ang rebisyong ito sa pamamagitan ng pagtatatak dito bilang "nasuri"',
 	'revreview-tt-unflag' => 'Huwag tanggapin ang rebisyong ito sa pamamagitan ng pagtatatak dito bilang "hindi nasuri"',
-	'revreview-tt-reject' => 'Tanggihan ang mga pagbabagong ito sa pamamagitan ng pagpapabalik sa mga ito',
+	'revreview-tt-reject' => 'Tanggihan ang mga pagbabagong ito ng tekstong pinagmulan sa pamamagitan ng pagpapasauli ng mga ito',
 );
 
 /** Turkish (Türkçe)
