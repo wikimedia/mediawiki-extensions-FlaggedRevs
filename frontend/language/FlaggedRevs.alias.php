@@ -83,7 +83,7 @@ $specialPageAliases['bjn'] = array(
 	'UnreviewedPages' => array( 'Tungkaran_nang_balum_ditinjau' ),
 );
 
-/** Breton (Brezhoneg) */
+/** Breton (brezhoneg) */
 $specialPageAliases['br'] = array(
 	'ReviewedPages' => array( 'PajennoùAdwelet' ),
 	'Stabilization' => array( 'Stabiladur' ),
@@ -93,7 +93,7 @@ $specialPageAliases['br'] = array(
 	'ValidationStatistics' => array( 'KadarnaatStadegoù' ),
 );
 
-/** Bosnian (Bosanski) */
+/** Bosnian (bosanski) */
 $specialPageAliases['bs'] = array(
 	'PendingChanges' => array( 'StarePregledaneStranice' ),
 	'QualityOversight' => array( 'KvalitetNadzora' ),
@@ -120,6 +120,21 @@ $specialPageAliases['de'] = array(
 	'ValidationStatistics' => array( 'Markierungsstatistik' ),
 );
 
+/** Zazaki (Zazaki) */
+$specialPageAliases['diq'] = array(
+	'PendingChanges' => array( 'VurnayışêkePawênê' ),
+	'ProblemChanges' => array( 'VurnayışêProblemıni' ),
+	'QualityOversight' => array( 'GırdWeynayışêRoceka' ),
+	'ReviewedPages' => array( 'PelaWeynayış' ),
+	'RevisionReview' => array( 'RevizyonWeynayış' ),
+	'Stabilization' => array( 'Dengekerdış' ),
+	'StablePages' => array( 'DengeyaPelan' ),
+	'ConfiguredPages' => array( 'VıraştenaPelan' ),
+	'ReviewedVersions' => array( 'VersiyonêkeWeyneyayê' ),
+	'UnreviewedPages' => array( 'PeleyêkeNêweyneyayê' ),
+	'ValidationStatistics' => array( 'İstatistikêTesdiqan' ),
+);
+
 /** Lower Sorbian (Dolnoserbski) */
 $specialPageAliases['dsb'] = array(
 	'PendingChanges' => array( 'Zasej njepśeglědane boki' ),
@@ -142,7 +157,7 @@ $specialPageAliases['eo'] = array(
 	'UnreviewedPages' => array( 'Nekontrolitaj_paĝoj' ),
 );
 
-/** Spanish (Español) */
+/** Spanish (español) */
 $specialPageAliases['es'] = array(
 	'PendingChanges' => array( 'Páginas_revisadas_antiguas' ),
 	'ReviewedPages' => array( 'PáginasRevisadas', 'Páginas_revisadas' ),
@@ -169,7 +184,7 @@ $specialPageAliases['fa'] = array(
 	'ValidationStatistics' => array( 'آمار_تاییدها' ),
 );
 
-/** Finnish (Suomi) */
+/** Finnish (suomi) */
 $specialPageAliases['fi'] = array(
 	'ProblemChanges' => array( 'Ongelmalliset_muutokset' ),
 	'Stabilization' => array( 'Vakaaksi_versioksi' ),
@@ -177,7 +192,7 @@ $specialPageAliases['fi'] = array(
 	'UnreviewedPages' => array( 'Arvioimattomat_sivut' ),
 );
 
-/** French (Français) */
+/** French (français) */
 $specialPageAliases['fr'] = array(
 	'PendingChanges' => array( 'AnciennesPagesRelues' ),
 	'QualityOversight' => array( 'SuperviseurQualité' ),
@@ -188,7 +203,7 @@ $specialPageAliases['fr'] = array(
 	'ValidationStatistics' => array( 'Statistiques_de_validation' ),
 );
 
-/** Franco-Provençal (Arpetan) */
+/** Franco-Provençal (arpetan) */
 $specialPageAliases['frp'] = array(
 	'PendingChanges' => array( 'Pâges_que_les_vèrsions_sont_dèpassâs', 'PâgesQueLesVèrsionsSontDèpassâs' ),
 	'QualityOversight' => array( 'Supèrvision_de_qualitât', 'SupèrvisionDeQualitât' ),
@@ -250,7 +265,7 @@ $specialPageAliases['hi'] = array(
 	'ValidationStatistics' => array( 'निरीक्षण_आँकड़े' ),
 );
 
-/** Croatian (Hrvatski) */
+/** Croatian (hrvatski) */
 $specialPageAliases['hr'] = array(
 	'StablePages' => array( 'Stabilne_stranice' ),
 );
@@ -282,7 +297,7 @@ $specialPageAliases['ht'] = array(
 	'ValidationStatistics' => array( 'EstatistikValidasyon' ),
 );
 
-/** Hungarian (Magyar) */
+/** Hungarian (magyar) */
 $specialPageAliases['hu'] = array(
 	'PendingChanges' => array( 'Elavult_ellenőrzött_lapok', 'Régen_ellenőrzött_lapok' ),
 	'QualityOversight' => array( 'Minőségellenőrzés' ),
@@ -294,7 +309,7 @@ $specialPageAliases['hu'] = array(
 	'ValidationStatistics' => array( 'Ellenőrzési_statisztika' ),
 );
 
-/** Interlingua (Interlingua) */
+/** Interlingua (interlingua) */
 $specialPageAliases['ia'] = array(
 	'PendingChanges' => array( 'Modificationes_pendente', 'Paginas_revidite_ancian' ),
 	'ProblemChanges' => array( 'Modificationes_problematic' ),
@@ -338,6 +353,21 @@ $specialPageAliases['ja'] = array(
 	'ValidationStatistics' => array( '判定統計' ),
 );
 
+/** Korean (한국어) */
+$specialPageAliases['ko'] = array(
+	'PendingChanges' => array( '보류중바뀜' ),
+	'ProblemChanges' => array( '문제바뀜' ),
+	'QualityOversight' => array( '고급검토기록' ),
+	'ReviewedPages' => array( '검토된문서' ),
+	'RevisionReview' => array( '편집검토' ),
+	'Stabilization' => array( '안정화' ),
+	'StablePages' => array( '안정된문서' ),
+	'ConfiguredPages' => array( '구성된문서' ),
+	'ReviewedVersions' => array( '검토된버전' ),
+	'UnreviewedPages' => array( '검토안된문서' ),
+	'ValidationStatistics' => array( '유효성통계' ),
+);
+
 /** Colognian (Ripoarisch) */
 $specialPageAliases['ksh'] = array(
 	'PendingChanges' => array( 'SiggeMetUnjesichVersione' ),
@@ -375,7 +405,7 @@ $specialPageAliases['lb'] = array(
 	'ValidationStatistics' => array( 'Statistik_vun_den_iwwerpréifte_Säiten' ),
 );
 
-/** Macedonian (Македонски) */
+/** Macedonian (македонски) */
 $specialPageAliases['mk'] = array(
 	'PendingChanges' => array( 'СтариОценетиСтраници' ),
 	'ProblemChanges' => array( 'ПромениНаПроблеми' ),
@@ -425,7 +455,7 @@ $specialPageAliases['ms'] = array(
 	'UnreviewedPages' => array( 'Laman_tidak_diperiksa' ),
 );
 
-/** Norwegian Bokmål (‪Norsk (bokmål)‬) */
+/** Norwegian Bokmål (‪norsk (bokmål)‬) */
 $specialPageAliases['nb'] = array(
 	'PendingChanges' => array( 'Gamle_anmeldte_sider' ),
 	'ProblemChanges' => array( 'Problemendringer' ),
@@ -470,7 +500,7 @@ $specialPageAliases['nl'] = array(
 	'ValidationStatistics' => array( 'Eindredactiestatistieken', 'StatistiekenEindredactie' ),
 );
 
-/** Norwegian Nynorsk (‪Norsk (nynorsk)‬) */
+/** Norwegian Nynorsk (‪norsk (nynorsk)‬) */
 $specialPageAliases['nn'] = array(
 	'PendingChanges' => array( 'Gamle_vurderte_sider' ),
 	'QualityOversight' => array( 'Kvalitetsoversyn' ),
@@ -482,7 +512,7 @@ $specialPageAliases['nn'] = array(
 	'ValidationStatistics' => array( 'Valideringsstatistikk' ),
 );
 
-/** Occitan (Occitan) */
+/** Occitan (occitan) */
 $specialPageAliases['oc'] = array(
 	'PendingChanges' => array( 'PaginasAncianasRelegidas' ),
 	'QualityOversight' => array( 'SupervisorQualitat' ),
@@ -492,7 +522,7 @@ $specialPageAliases['oc'] = array(
 	'UnreviewedPages' => array( 'Paginas_pas_relegidas', 'PaginasPasRelegidas' ),
 );
 
-/** Polish (Polski) */
+/** Polish (polski) */
 $specialPageAliases['pl'] = array(
 	'PendingChanges' => array( 'Zdezaktualizowane_przejrzane_strony' ),
 	'ProblemChanges' => array( 'Wątpliwe_zmiany' ),
@@ -507,7 +537,7 @@ $specialPageAliases['pl'] = array(
 	'ValidationStatistics' => array( 'Statystyki_oznaczania' ),
 );
 
-/** Portuguese (Português) */
+/** Portuguese (português) */
 $specialPageAliases['pt'] = array(
 	'PendingChanges' => array( 'Páginas_analisadas_antigas' ),
 	'QualityOversight' => array( 'Controlo_de_qualidade' ),
@@ -520,7 +550,7 @@ $specialPageAliases['pt'] = array(
 	'ValidationStatistics' => array( 'Estatísticas_de_validação' ),
 );
 
-/** Brazilian Portuguese (Português do Brasil) */
+/** Brazilian Portuguese (português do Brasil) */
 $specialPageAliases['pt-br'] = array(
 	'PendingChanges' => array( 'Versões_antigas_de_páginas_analisadas' ),
 	'QualityOversight' => array( 'Observatório_da_qualidade' ),
@@ -531,6 +561,20 @@ $specialPageAliases['pt-br'] = array(
 	'ConfiguredPages' => array( 'Páginas_configuradas' ),
 	'UnreviewedPages' => array( 'Páginas_a_analisar' ),
 	'ValidationStatistics' => array( 'Estatísticas_de_validação' ),
+);
+
+/** Russian (русский) */
+$specialPageAliases['ru'] = array(
+	'PendingChanges' => array( 'Ожидающие_проверки_изменения', 'Устаревшие_проверенные_страницы' ),
+	'QualityOversight' => array( 'Расширенный_журнал_проверок_версий' ),
+	'ReviewedPages' => array( 'Проверенные_страницы' ),
+	'RevisionReview' => array( 'Проверка_версий' ),
+	'Stabilization' => array( 'Стабилизация' ),
+	'StablePages' => array( 'Стабильные_страницы' ),
+	'ConfiguredPages' => array( 'Настроенные_страницы' ),
+	'ReviewedVersions' => array( 'Проверенные_версии', 'Стабильные_версии' ),
+	'UnreviewedPages' => array( 'Непроверенные_страницы' ),
+	'ValidationStatistics' => array( 'Статистика_проверок' ),
 );
 
 /** Sanskrit (संस्कृतम्) */
@@ -545,7 +589,7 @@ $specialPageAliases['sa'] = array(
 	'ValidationStatistics' => array( 'उपयोगितासिद्धीसांख्यिकी' ),
 );
 
-/** Slovak (Slovenčina) */
+/** Slovak (slovenčina) */
 $specialPageAliases['sk'] = array(
 	'PendingChanges' => array( 'StaréSkontrolovanéStránky' ),
 	'ProblemChanges' => array( 'ProblematickéZmeny' ),
@@ -558,13 +602,13 @@ $specialPageAliases['sk'] = array(
 	'ValidationStatistics' => array( 'ŠtatistikaOverovania' ),
 );
 
-/** Albanian (Shqip) */
+/** Albanian (shqip) */
 $specialPageAliases['sq'] = array(
 	'Stabilization' => array( 'Stabilizim' ),
 	'StablePages' => array( 'FaqetStabile' ),
 );
 
-/** Serbian (Cyrillic script) (‪Српски (ћирилица)‬) */
+/** Serbian (Cyrillic script) (‪српски (ћирилица)‬) */
 $specialPageAliases['sr-ec'] = array(
 	'PendingChanges' => array( 'СтареПрегледанеСтране' ),
 	'ProblemChanges' => array( 'Проблематичне_измене' ),
@@ -578,7 +622,7 @@ $specialPageAliases['sr-ec'] = array(
 	'UnreviewedPages' => array( 'НепрегледанеСтране', 'Непрегледане_странице' ),
 );
 
-/** Swedish (Svenska) */
+/** Swedish (svenska) */
 $specialPageAliases['sv'] = array(
 	'PendingChanges' => array( 'Gamla_granskade_sidor' ),
 	'ProblemChanges' => array( 'Problemändringar' ),
@@ -628,12 +672,12 @@ $specialPageAliases['tr'] = array(
 	'ValidationStatistics' => array( 'Doğrulamaİstatistikleri' ),
 );
 
-/** Tatar (Cyrillic script) (Татарча) */
+/** Tatar (Cyrillic script) (татарча) */
 $specialPageAliases['tt-cyrl'] = array(
 	'StablePages' => array( 'Тотрыклы_битләр' ),
 );
 
-/** Vèneto (Vèneto) */
+/** vèneto (vèneto) */
 $specialPageAliases['vec'] = array(
 	'PendingChanges' => array( 'PagineRiesaminàVèce' ),
 	'QualityOversight' => array( 'ControloQualità' ),
@@ -653,7 +697,7 @@ $specialPageAliases['vi'] = array(
 	'ValidationStatistics' => array( 'Thống_kê_duyệt' ),
 );
 
-/** Simplified Chinese (‪中文(简体)‬) */
+/** Simplified Chinese (‪中文（简体）‬) */
 $specialPageAliases['zh-hans'] = array(
 	'PendingChanges' => array( '待复审的更改' ),
 	'ProblemChanges' => array( '有问题的更改' ),
@@ -668,7 +712,7 @@ $specialPageAliases['zh-hans'] = array(
 	'ValidationStatistics' => array( '复审统计信息' ),
 );
 
-/** Traditional Chinese (‪中文(繁體)‬) */
+/** Traditional Chinese (‪中文（繁體）‬) */
 $specialPageAliases['zh-hant'] = array(
 	'PendingChanges' => array( '等待審核的更改' ),
 	'ProblemChanges' => array( '問題改變' ),
