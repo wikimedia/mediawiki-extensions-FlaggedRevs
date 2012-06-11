@@ -967,7 +967,8 @@ Molimo provjerite sve izmjene prikazane ispod da bi se vaše izmjene prikazale u
 	'revreview-tt-reject' => 'Odbij promjene ovog izvornog teksta tako što ćete ih vratiti',
 );
 
-/** Catalan (Català)
+/** Catalan (català)
+ * @author BroOk
  * @author Qllach
  * @author SMP
  * @author Toniher
@@ -977,9 +978,7 @@ $messages['ca'] = array(
 	'revreview-flag' => 'Revisa aquesta revisió',
 	'revreview-log' => 'Comentari:',
 	'revreview-submit' => 'Tramet',
-	'revreview-update' => "Si us plau, [[{{MediaWiki:Validationpage}}|reviseu]] els canvis ''(indicats a sota)'' fets des que la versió estable va ser [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovada].
-
-'''Algunes plantilles o imatges han canviat:'''",
+	'revreview-update' => "'''Si us plau, [[{{MediaWiki:Validationpage}}|revisa]] els canvis pendents ''(que es mostren a continuació)'' fets a la versió acceptada.'''",
 	'revreview-update-includes' => "S'han actualitzat algunes plantilles o fitxers:",
 );
 
@@ -5741,13 +5740,14 @@ $messages['yue'] = array(
 	'revreview-update-includes' => '有啲模/圖更新咗:',
 );
 
-/** Simplified Chinese (‪中文(简体)‬)
+/** Simplified Chinese (‪中文（简体）‬)
  * @author Bencmq
  * @author Chenxiaoqino
  * @author Gaoxuewei
  * @author Hydra
  * @author PhiLiP
  * @author Waihorace
+ * @author Xiaomingyan
  * @author 阿pp
  */
 $messages['zh-hans'] = array(
@@ -5779,7 +5779,7 @@ $messages['zh-hans'] = array(
 	'revreview-flag' => '复审此修订',
 	'revreview-reflag' => '重新复审此修订',
 	'revreview-invalid' => "'''无效的目标：'''没有与指定ID对应的[[{{MediaWiki:Validationpage}}|已复审]]修订。",
-	'revreview-log' => '注释：',
+	'revreview-log' => '评论：',
 	'revreview-main' => '您必须选择内容页的特定修订以复审。
 
 参见[[Special:Unreviewedpages|未复审页面列表]]。',

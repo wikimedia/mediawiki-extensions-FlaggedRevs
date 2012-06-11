@@ -2254,7 +2254,7 @@ $messages['mhr'] = array(
 	'stabilization-def-short' => 'Ойлыде',
 );
 
-/** Macedonian (Македонски)
+/** Macedonian (македонски)
  * @author Bjankuloski06
  * @author Brest
  */
@@ -2280,7 +2280,7 @@ $messages['mk'] = array(
 	'stabilization-otherreason' => 'Друга причина:',
 	'stabilization-expiry' => 'Истекува:',
 	'stabilization-othertime' => 'Друго време:',
-	'stabilization-def-short' => 'Основно',
+	'stabilization-def-short' => 'По основно',
 	'stabilization-def-short-0' => 'Моментално',
 	'stabilization-def-short-1' => 'Објавена',
 	'stabilize_page_invalid' => 'Целната страница е неважечка.',
