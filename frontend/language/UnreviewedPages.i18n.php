@@ -427,13 +427,14 @@ $messages['de'] = array(
 
 /** Zazaki (Zazaki)
  * @author Aspar
+ * @author Erdemaslancan
  * @author Xoser
  */
 $messages['diq'] = array(
 	'unreviewedpages' => 'Ripelî ke kontrol nibiyê',
 	'unreviewedpages-legend' => 'Listeyê tedeesteyî ke kontrol nibe',
 	'unreviewedpages-category' => 'Kategorî:',
-	'unreviewedpages-diff' => 'kontrol bike',
+	'unreviewedpages-diff' => 'Çım ra ravyarne',
 	'unreviewedpages-unwatched' => '(seyr nibiye)',
 	'unreviewedpages-watched' => '($1 activ {{PLURAL:$1|karber|karberî}} ho seyr keno)',
 	'unreviewedpages-list' => 'no pel, sewiyeya ke waziyaya goreyê aye sewiya. pelê muhtewayê ke çım ser nêçariyayê liste keno.',

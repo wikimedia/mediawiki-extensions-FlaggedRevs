@@ -455,6 +455,7 @@ $messages['de'] = array(
 );
 
 /** Zazaki (Zazaki)
+ * @author Erdemaslancan
  * @author Xoser
  */
 $messages['diq'] = array(
@@ -467,7 +468,7 @@ $messages['diq'] = array(
 	'pendingchanges-recent' => '(1 seet ra tay)',
 	'pendingchanges-category' => 'Kategorî:',
 	'pendingchanges-stable' => 'Versiyono sebit eyare veriniyo',
-	'pendingchanges-diff' => 'kontrol',
+	'pendingchanges-diff' => 'Çım ra ravyarne',
 	'pendingchanges-size' => 'Vuranayişê tewr zaf (bitan):',
 	'pendingchanges-unwatched' => '(seyr nibeno)',
 	'pendingchanges-watched' => '($1 activ {{PLURAL:$1|karber|karberan}} seyr keno)',
