@@ -5501,7 +5501,7 @@ $messages['uk'] = array(
 	'revreview-tt-reject' => 'Відхилити ці зміни вихідного тексту, повернувшись до попередньої версії',
 );
 
-/** Vèneto (Vèneto)
+/** vèneto (vèneto)
  * @author Candalua
  * @author Frigotoni
  */
@@ -5560,12 +5560,13 @@ Podarìa esser necessario proseguire o "anulare" modifiche.',
 Par piaser rivarda tute le modifiche qua soto parché le to modifiche le vegna mostrà ne la version stabile. 
 Podarìa esser necessario proseguire o "anulare" modifiche.',
 	'revreview-update-includes' => 'Alcuni modèi o file i xe stà agiornà:',
+	'revreview-reject-text-list' => "Confermando quest'asion vera '''respinte''' łe modifeghe testuałi {{PLURAL:$1|da ła seguente version|da łe seguenti version}} de [[:$2|$2]]:",
 	'revreview-reject-text-revto' => 'Questo riporterà ła pajina ała [{{fullurl:$1|oldid=$2}} version de $3]',
 	'revreview-reject-summary' => 'Comento:',
 	'revreview-reject-confirm' => 'Rifiuta sti canbiamenti',
 	'revreview-reject-cancel' => 'Lascia stare',
-	'revreview-reject-summary-cur' => 'Rifiutae {{PLURAL:$1|łe modifeghe|$1 text changes}} (aportà da $2) e confermà ła version $3 de $4',
-	'revreview-reject-summary-old' => 'Rifiutà {{PLURAL:$1|ła prima modifegà|$1 text changes}} (aportà da $2) e confermà ła version $3 de $4',
+	'revreview-reject-summary-cur' => "{{PLURAL:$1|Rifiutà l'ultema modifega|$1 Rifiutae łe modifeghe}} (aportà da $2) e confermà ła version $3 de $4",
+	'revreview-reject-summary-old' => '{{PLURAL:$1|Rifiutà ła prima modifega|$1 Rifiutae łe prime modifeghe}} (aportà da $2) e confermà ła version $3 de $4',
 	'revreview-tt-flag' => 'Aceta sta revision segnandola come "controlà"',
 	'revreview-tt-unflag' => 'Disaprova sta revision segnandola come "mia controlà"',
 	'revreview-tt-reject' => 'Rifiuta ste modifiche tirandole indrio',
