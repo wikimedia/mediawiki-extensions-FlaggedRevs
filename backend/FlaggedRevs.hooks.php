@@ -706,12 +706,13 @@ class FlaggedRevsHooks {
 	 * Check if a user has enough implicitly reviewed edits (before stable version)
 	 * @param $user User
 	 * @param $editsReq int
-	 * @param $cutoff_unixtime int exclude edits after this timestamp
+	 * @param $seconds int
 	 * @return bool
 	 */
-	protected static function reviewedEditsCheck( $user, $editsReq, $cutoff_unixtime = 0 ) {
+	protected static function reviewedEditsCheck( $user, $editsReq, $seconds = 0 ) {
 		$dbr = wfGetDB( DB_SLAVE );
-		$encCutoff = $dbr->addQuotes( $dbr->timestamp( $cutoff_unixtime ) );
+		# Get cutoff timestamp (excludes edits that are too recent)
+		$encCutoff = $dbr->addQuotes( $dbr->timestamp( time() - $seconds ) );
 		$res = $dbr->select( array( 'revision', 'flaggedpages' ), '1',
 			array(
 				'rev_user' => $user->getId(),
