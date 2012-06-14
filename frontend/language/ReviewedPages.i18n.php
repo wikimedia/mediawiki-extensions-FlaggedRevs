@@ -300,6 +300,7 @@ Der Link zu neuesten Version dieses Status ist angegeben.',
 );
 
 /** Zazaki (Zazaki)
+ * @author Erdemaslancan
  * @author Mirzali
  * @author Xoser
  */
@@ -310,7 +311,7 @@ $messages['diq'] = array(
 Versiyone peniyane ena seviye re yew link dayeya.',
 	'reviewedpages-none' => 'Ena liste de pelan çini yo',
 	'reviewedpages-all' => 'versiyonan ke kontrol biyo',
-	'reviewedpages-best' => 'revizyonê tewr rindi',
+	'reviewedpages-best' => 'revizyono tewr rınd',
 );
 
 /** Lower Sorbian (Dolnoserbski)
