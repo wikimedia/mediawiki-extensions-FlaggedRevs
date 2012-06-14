@@ -171,7 +171,7 @@ $messages['arz'] = array(
 	'unreviewedpages-recent' => '(أقل من ساعه واحدة)',
 );
 
-/** Asturian (Asturianu)
+/** Asturian (asturianu)
  * @author Esbardu
  * @author Xuacu
  */
@@ -190,7 +190,7 @@ $messages['ast'] = array(
 	'unreviewedpages-recent' => "(menos d'una hora)",
 );
 
-/** Azerbaijani (Azərbaycanca)
+/** Azerbaijani (azərbaycanca)
  * @author Cekli829
  * @author Vugar 1981
  */
@@ -223,7 +223,7 @@ $messages['bcl'] = array(
 	'unreviewedpages-diff' => 'Mga pagbabàgo',
 );
 
-/** Belarusian (Беларуская)
+/** Belarusian (беларуская)
  * @author Хомелка
  */
 $messages['be'] = array(
@@ -261,7 +261,7 @@ $messages['be-tarask'] = array(
 	'unreviewedpages-recent' => '(меней за 1 гадзіну таму)',
 );
 
-/** Bulgarian (Български)
+/** Bulgarian (български)
  * @author Borislav
  * @author DCLXVI
  * @author Turin
@@ -286,7 +286,7 @@ $messages['bn'] = array(
 	'unreviewedpages-diff' => 'পর্যালোচনা',
 );
 
-/** Breton (Brezhoneg)
+/** Breton (brezhoneg)
  * @author Fulup
  */
 $messages['br'] = array(
@@ -304,7 +304,7 @@ $messages['br'] = array(
 	'unreviewedpages-recent' => "(nebeutoc'h eget 1 eurvezh)",
 );
 
-/** Bosnian (Bosanski)
+/** Bosnian (bosanski)
  * @author CERminator
  */
 $messages['bs'] = array(
@@ -322,7 +322,7 @@ $messages['bs'] = array(
 	'unreviewedpages-recent' => '(manje od 1 sata)',
 );
 
-/** Catalan (Català)
+/** Catalan (català)
  * @author Aleator
  * @author Jordi Roqué
  * @author Qllach
@@ -357,12 +357,12 @@ $messages['ce'] = array(
 	'unreviewedpages-days' => '($1 {{PLURAL:$1|де|де}})',
 );
 
-/** Sorani (کوردی) */
+/** Sorani Kurdish (کوردی) */
 $messages['ckb'] = array(
 	'unreviewedpages-category' => 'پۆل:',
 );
 
-/** Czech (Česky)
+/** Czech (česky)
  * @author Danny B.
  * @author Jezevec
  * @author Li-sung
@@ -391,7 +391,7 @@ $messages['cu'] = array(
 	'unreviewedpages-category' => 'катигорі́ꙗ :',
 );
 
-/** Danish (Dansk)
+/** Danish (dansk)
  * @author Froztbyte
  * @author Jon Harald Søby
  */
@@ -502,7 +502,7 @@ $messages['eo'] = array(
 	'unreviewedpages-recent' => '(malpli ol 1 horo)',
 );
 
-/** Spanish (Español)
+/** Spanish (español)
  * @author Crazymadlover
  * @author Drini
  * @author Locos epraix
@@ -523,7 +523,7 @@ $messages['es'] = array(
 	'unreviewedpages-recent' => '(menos de 1 hora)',
 );
 
-/** Estonian (Eesti)
+/** Estonian (eesti)
  * @author Avjoska
  * @author Pikne
  */
@@ -542,7 +542,7 @@ $messages['et'] = array(
 	'unreviewedpages-recent' => '(alla 1 tunni)',
 );
 
-/** Basque (Euskara)
+/** Basque (euskara)
  * @author Kobazulo
  */
 $messages['eu'] = array(
@@ -552,7 +552,7 @@ $messages['eu'] = array(
 	'unreviewedpages-recent' => '(ordu bat baino gutxiago)',
 );
 
-/** Extremaduran (Estremeñu)
+/** Extremaduran (estremeñu)
  * @author Better
  */
 $messages['ext'] = array(
@@ -580,7 +580,7 @@ $messages['fa'] = array(
 	'unreviewedpages-recent' => '(کمتر از ۱ ساعت)',
 );
 
-/** Finnish (Suomi)
+/** Finnish (suomi)
  * @author Cimon Avaro
  * @author Crt
  * @author Jaakonam
@@ -605,7 +605,7 @@ $messages['fi'] = array(
 	'unreviewedpages-recent' => '(alle yksi tunti)',
 );
 
-/** French (Français)
+/** French (français)
  * @author Grondin
  * @author IAlex
  * @author PieRRoMaN
@@ -627,7 +627,7 @@ $messages['fr'] = array(
 	'unreviewedpages-recent' => "(moins d'une heure)",
 );
 
-/** Franco-Provençal (Arpetan)
+/** Franco-Provençal (arpetan)
  * @author ChrisPtDe
  */
 $messages['frp'] = array(
@@ -761,7 +761,7 @@ $messages['hi'] = array(
 	'unreviewedpages-recent' => '(१ घंटेसे कम समय)',
 );
 
-/** Croatian (Hrvatski)
+/** Croatian (hrvatski)
  * @author Dalibor Bosits
  * @author Ex13
  * @author Excaliboor
@@ -801,7 +801,7 @@ $messages['hsb'] = array(
 	'unreviewedpages-recent' => '(mjenje hač 1 hodźina)',
 );
 
-/** Hungarian (Magyar)
+/** Hungarian (magyar)
  * @author Dani
  * @author Dj
  * @author Dorgan
@@ -826,7 +826,7 @@ $messages['hu'] = array(
 	'unreviewedpages-recent' => '(kevesebb mint egy órája)',
 );
 
-/** Interlingua (Interlingua)
+/** Interlingua (interlingua)
  * @author Malafaya
  * @author McDutchie
  */
@@ -886,7 +886,7 @@ $messages['io'] = array(
 	'unreviewedpages-days' => '($1 {{PLURAL:$1|dio|dii}})',
 );
 
-/** Icelandic (Íslenska)
+/** Icelandic (íslenska)
  * @author S.Örvarr.S
  * @author Snævar
  * @author Spacebirdy
@@ -901,7 +901,7 @@ $messages['is'] = array(
 	'unreviewedpages-days' => '($1 {{PLURAL:$1|dagur|dagar}})',
 );
 
-/** Italian (Italiano)
+/** Italian (italiano)
  * @author Beta16
  * @author Darth Kule
  * @author Melos
@@ -944,7 +944,7 @@ $messages['ja'] = array(
 	'unreviewedpages-recent' => '(1時間未満)',
 );
 
-/** Jutish (Jysk)
+/** Jutish (jysk)
  * @author Huslåke
  */
 $messages['jut'] = array(
@@ -1073,7 +1073,7 @@ $messages['ku-latn'] = array(
 	'unreviewedpages-category' => 'Kategorî:',
 );
 
-/** Cornish (Kernowek)
+/** Cornish (kernowek)
  * @author Kernoweger
  * @author Kw-Moon
  * @author Nrowe
@@ -1128,7 +1128,7 @@ $messages['li'] = array(
 	'unreviewedpages-recent' => '(mènder es 1 oer)',
 );
 
-/** Lithuanian (Lietuvių)
+/** Lithuanian (lietuvių)
  * @author Eitvys200
  * @author Matasg
  */
@@ -1144,7 +1144,7 @@ $messages['lzh'] = array(
 	'unreviewedpages' => '底本',
 );
 
-/** Macedonian (Македонски)
+/** Macedonian (македонски)
  * @author Bjankuloski06
  * @author Brest
  */
@@ -1283,7 +1283,7 @@ $messages['nl'] = array(
 	'unreviewedpages-recent' => '(minder dan één uur)',
 );
 
-/** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
+/** Norwegian Nynorsk (‪norsk (nynorsk)‬)
  * @author Harald Khan
  * @author Jon Harald Søby
  * @author Nghtwlkr
@@ -1314,7 +1314,7 @@ $messages['nso'] = array(
 	'unreviewedpages-days' => '($1 {{PLURAL:$1|letšatši|matšatši}})',
 );
 
-/** Occitan (Occitan)
+/** Occitan (occitan)
  * @author Cedric31
  */
 $messages['oc'] = array(
@@ -1358,7 +1358,7 @@ $messages['pdc'] = array(
 	'unreviewedpages-recent' => '(wennicher ass 1 Schtund)',
 );
 
-/** Polish (Polski)
+/** Polish (polski)
  * @author Derbeth
  * @author Leinad
  * @author Sp5uhe
@@ -1411,7 +1411,7 @@ $messages['ps'] = array(
 	'unreviewedpages-recent' => '(له 1 ساعت نه لږ وخت)',
 );
 
-/** Portuguese (Português)
+/** Portuguese (português)
  * @author 555
  * @author Giro720
  * @author Hamilton Abreu
@@ -1433,7 +1433,7 @@ $messages['pt'] = array(
 	'unreviewedpages-recent' => '(menos de uma hora)',
 );
 
-/** Brazilian Portuguese (Português do Brasil)
+/** Brazilian Portuguese (português do Brasil)
  * @author Eduardo.mps
  * @author Giro720
  */
@@ -1452,7 +1452,7 @@ $messages['pt-br'] = array(
 	'unreviewedpages-recent' => '(menos de 1 hora)',
 );
 
-/** Romanian (Română)
+/** Romanian (română)
  * @author Firilacroco
  * @author KlaudiuMihaila
  * @author Mihai
@@ -1471,7 +1471,7 @@ $messages['ro'] = array(
 	'unreviewedpages-recent' => '(mai puțin de 1 oră)',
 );
 
-/** Tarandíne (Tarandíne)
+/** tarandíne (tarandíne)
  * @author Joetaras
  */
 $messages['roa-tara'] = array(
@@ -1489,7 +1489,7 @@ $messages['roa-tara'] = array(
 	'unreviewedpages-recent' => "(mene de 'n'ore)",
 );
 
-/** Russian (Русский)
+/** Russian (русский)
  * @author Ahonc
  * @author EugeneZelenko
  * @author Ferrer
@@ -1538,7 +1538,7 @@ $messages['sa'] = array(
 	'unreviewedpages-category' => 'वर्गः',
 );
 
-/** Sakha (Саха тыла)
+/** Sakha (саха тыла)
  * @author HalanTul
  */
 $messages['sah'] = array(
@@ -1556,7 +1556,7 @@ $messages['sah'] = array(
 	'unreviewedpages-recent' => '(1 чаастан кылгас)',
 );
 
-/** Sardinian (Sardu)
+/** Sardinian (sardu)
  * @author Andria
  */
 $messages['sc'] = array(
@@ -1582,7 +1582,7 @@ $messages['si'] = array(
 	'unreviewedpages-recent' => '(පැයකටත් වඩා අඩුවෙන්)',
 );
 
-/** Slovak (Slovenčina)
+/** Slovak (slovenčina)
  * @author Helix84
  */
 $messages['sk'] = array(
@@ -1600,7 +1600,7 @@ $messages['sk'] = array(
 	'unreviewedpages-recent' => '(menej ako 1 hodina)',
 );
 
-/** Slovenian (Slovenščina)
+/** Slovenian (slovenščina)
  * @author Dbc334
  */
 $messages['sl'] = array(
@@ -1625,14 +1625,14 @@ $messages['so'] = array(
 	'unreviewedpages-category' => 'Qeybta:',
 );
 
-/** Albanian (Shqip)
+/** Albanian (shqip)
  * @author Puntori
  */
 $messages['sq'] = array(
 	'unreviewedpages-category' => 'Kategoria:',
 );
 
-/** Serbian (Cyrillic script) (‪Српски (ћирилица)‬)
+/** Serbian (Cyrillic script) (‪српски (ћирилица)‬)
  * @author Millosh
  * @author Rancher
  * @author Sasa Stefanovic
@@ -1654,7 +1654,7 @@ $messages['sr-ec'] = array(
 	'unreviewedpages-recent' => '(мање од једног сата)',
 );
 
-/** Serbian (Latin script) (‪Srpski (latinica)‬)
+/** Serbian (Latin script) (‪srpski (latinica)‬)
  * @author Michaello
  */
 $messages['sr-el'] = array(
@@ -1691,7 +1691,7 @@ $messages['su'] = array(
 	'unreviewedpages-diff' => 'Parobahan',
 );
 
-/** Swedish (Svenska)
+/** Swedish (svenska)
  * @author Boivie
  * @author Jon Harald Søby
  * @author Lejonel
@@ -1761,14 +1761,14 @@ $messages['te'] = array(
 	'unreviewedpages-recent' => '(ఒక గంట కంటే తక్కువ)',
 );
 
-/** Tetum (Tetun)
+/** Tetum (tetun)
  * @author MF-Warburg
  */
 $messages['tet'] = array(
 	'unreviewedpages-category' => 'Kategoria:',
 );
 
-/** Tajik (Cyrillic script) (Тоҷикӣ)
+/** Tajik (Cyrillic script) (тоҷикӣ)
  * @author Ibrahim
  */
 $messages['tg-cyrl'] = array(
@@ -1778,7 +1778,7 @@ $messages['tg-cyrl'] = array(
 	'unreviewedpages-list' => 'Ин саҳифа мақолаҳои баррасинашуда, мақолаҳои ҷадид, нусхаҳои ҷадид ё баррасинашударо феҳрист мекунад.',
 );
 
-/** Tajik (Latin script) (Tojikī)
+/** Tajik (Latin script) (tojikī)
  * @author Liangent
  */
 $messages['tg-latn'] = array(
@@ -1842,7 +1842,7 @@ $messages['tr'] = array(
 	'unreviewedpages-recent' => '(1 saatten az)',
 );
 
-/** Ukrainian (Українська)
+/** Ukrainian (українська)
  * @author Ahonc
  * @author Prima klasy4na
  * @author Тест
@@ -1862,7 +1862,7 @@ $messages['uk'] = array(
 	'unreviewedpages-recent' => '(менше 1 години)',
 );
 
-/** Vèneto (Vèneto)
+/** vèneto (vèneto)
  * @author Candalua
  */
 $messages['vec'] = array(
@@ -1949,7 +1949,7 @@ $messages['yue'] = array(
 	'unreviewedpages-none' => '呢度現時無版合乎呢啲條件',
 );
 
-/** Simplified Chinese (‪中文(简体)‬)
+/** Simplified Chinese (‪中文（简体）‬)
  * @author Bencmq
  * @author Gaoxuewei
  * @author PhiLiP
@@ -1970,7 +1970,7 @@ $messages['zh-hans'] = array(
 	'unreviewedpages-recent' => '（少于1小时）',
 );
 
-/** Traditional Chinese (‪中文(繁體)‬)
+/** Traditional Chinese (‪中文（繁體）‬)
  * @author Anakmalaysia
  * @author Gaoxuewei
  * @author Oapbtommy

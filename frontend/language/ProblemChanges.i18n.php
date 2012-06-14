@@ -79,7 +79,7 @@ $messages['arz'] = array(
 	'problemchanges-category' => 'التصنيف:',
 );
 
-/** Asturian (Asturianu)
+/** Asturian (asturianu)
  * @author Xuacu
  */
 $messages['ast'] = array(
@@ -90,14 +90,14 @@ $messages['ast'] = array(
 	'problemchanges-category' => 'Categoría:',
 );
 
-/** Azerbaijani (Azərbaycanca)
+/** Azerbaijani (azərbaycanca)
  * @author Cekli829
  */
 $messages['az'] = array(
 	'problemchanges-category' => 'Kateqoriya:',
 );
 
-/** Belarusian (Беларуская)
+/** Belarusian (беларуская)
  * @author Хомелка
  */
 $messages['be'] = array(
@@ -120,7 +120,7 @@ $messages['be-tarask'] = array(
 	'problemchanges-category' => 'Катэгорыя:',
 );
 
-/** Bulgarian (Български)
+/** Bulgarian (български)
  * @author Spiritia
  * @author Turin
  */
@@ -137,7 +137,7 @@ $messages['bn'] = array(
 	'problemchanges-category' => 'বিষয়শ্রেণী:',
 );
 
-/** Breton (Brezhoneg)
+/** Breton (brezhoneg)
  * @author Fulup
  * @author Y-M D
  */
@@ -149,7 +149,7 @@ $messages['br'] = array(
 	'problemchanges-category' => 'Rummad :',
 );
 
-/** Bosnian (Bosanski)
+/** Bosnian (bosanski)
  * @author CERminator
  */
 $messages['bs'] = array(
@@ -160,7 +160,7 @@ $messages['bs'] = array(
 	'problemchanges-category' => 'Kategorija:',
 );
 
-/** Catalan (Català)
+/** Catalan (català)
  * @author Paucabot
  */
 $messages['ca'] = array(
@@ -175,12 +175,12 @@ $messages['ce'] = array(
 	'problemchanges-category' => 'Кадегар:',
 );
 
-/** Sorani (کوردی) */
+/** Sorani Kurdish (کوردی) */
 $messages['ckb'] = array(
 	'problemchanges-category' => 'پۆل:',
 );
 
-/** Czech (Česky)
+/** Czech (česky)
  * @author Jezevec
  * @author Kuvaly
  * @author Matěj Grabovský
@@ -255,7 +255,7 @@ $messages['eo'] = array(
 	'problemchanges-category' => 'Kategorio:',
 );
 
-/** Spanish (Español)
+/** Spanish (español)
  * @author Crazymadlover
  * @author Fitoschido
  */
@@ -267,7 +267,7 @@ $messages['es'] = array(
 	'problemchanges-category' => 'Categoría:',
 );
 
-/** Estonian (Eesti)
+/** Estonian (eesti)
  * @author Avjoska
  * @author Pikne
  */
@@ -278,7 +278,7 @@ $messages['et'] = array(
 	'problemchanges-category' => 'Kategooria:',
 );
 
-/** Basque (Euskara)
+/** Basque (euskara)
  * @author Kobazulo
  */
 $messages['eu'] = array(
@@ -300,7 +300,7 @@ $messages['fa'] = array(
 	'problemchanges-category' => 'رده:',
 );
 
-/** Finnish (Suomi)
+/** Finnish (suomi)
  * @author Cimon Avaro
  * @author Crt
  * @author Mies
@@ -317,7 +317,7 @@ $messages['fi'] = array(
 	'problemchanges-category' => 'Luokka',
 );
 
-/** French (Français)
+/** French (français)
  * @author IAlex
  * @author Peter17
  * @author Sherbrooke
@@ -330,7 +330,7 @@ $messages['fr'] = array(
 	'problemchanges-category' => 'Catégorie :',
 );
 
-/** Franco-Provençal (Arpetan)
+/** Franco-Provençal (arpetan)
  * @author ChrisPtDe
  */
 $messages['frp'] = array(
@@ -398,7 +398,7 @@ $messages['hi'] = array(
 	'problemchanges-category' => 'श्रेणी:',
 );
 
-/** Croatian (Hrvatski)
+/** Croatian (hrvatski)
  * @author Ex13
  * @author SpeedyGonsales
  */
@@ -422,7 +422,7 @@ Lisćina [[Special:Tags|płaćiwych změnowych markow]] k dispoziciji steji.',
 	'problemchanges-category' => 'Kategorija:',
 );
 
-/** Hungarian (Magyar)
+/** Hungarian (magyar)
  * @author Glanthor Reviol
  * @author Tgr
  */
@@ -433,7 +433,7 @@ $messages['hu'] = array(
 	'problemchanges-category' => 'Kategória:',
 );
 
-/** Interlingua (Interlingua)
+/** Interlingua (interlingua)
  * @author McDutchie
  */
 $messages['ia'] = array(
@@ -471,7 +471,7 @@ $messages['io'] = array(
 	'problemchanges-category' => 'Kategorio:',
 );
 
-/** Italian (Italiano)
+/** Italian (italiano)
  * @author Beta16
  * @author Blaisorblade
  * @author Melos
@@ -576,14 +576,14 @@ $messages['li'] = array(
 	'problemchanges-category' => 'Categorie:',
 );
 
-/** Lithuanian (Lietuvių)
+/** Lithuanian (lietuvių)
  * @author Eitvys200
  */
 $messages['lt'] = array(
 	'problemchanges-category' => 'Kategorija:',
 );
 
-/** Macedonian (Македонски)
+/** Macedonian (македонски)
  * @author Bjankuloski06
  * @author Brest
  */
@@ -643,14 +643,14 @@ $messages['nl'] = array(
 	'problemchanges-category' => 'Categorie:',
 );
 
-/** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
+/** Norwegian Nynorsk (‪norsk (nynorsk)‬)
  * @author Nghtwlkr
  */
 $messages['nn'] = array(
 	'problemchanges-category' => 'Kategori:',
 );
 
-/** Occitan (Occitan)
+/** Occitan (occitan)
  * @author Cedric31
  */
 $messages['oc'] = array(
@@ -674,7 +674,7 @@ $messages['pdc'] = array(
 	'problemchanges-category' => 'Abdeeling:',
 );
 
-/** Polish (Polski)
+/** Polish (polski)
  * @author Leinad
  * @author Sp5uhe
  */
@@ -705,7 +705,7 @@ $messages['ps'] = array(
 	'problemchanges-category' => 'وېشنيزه:',
 );
 
-/** Portuguese (Português)
+/** Portuguese (português)
  * @author Giro720
  * @author Hamilton Abreu
  * @author Malafaya
@@ -719,7 +719,7 @@ $messages['pt'] = array(
 	'problemchanges-category' => 'Categoria:',
 );
 
-/** Brazilian Portuguese (Português do Brasil)
+/** Brazilian Portuguese (português do Brasil)
  * @author Eduardo.mps
  * @author Giro720
  */
@@ -731,7 +731,7 @@ $messages['pt-br'] = array(
 	'problemchanges-category' => 'Categoria:',
 );
 
-/** Romanian (Română)
+/** Romanian (română)
  * @author KlaudiuMihaila
  * @author Minisarm
  * @author Stelistcristi
@@ -743,7 +743,7 @@ $messages['ro'] = array(
 	'problemchanges-category' => 'Categorie:',
 );
 
-/** Tarandíne (Tarandíne)
+/** tarandíne (tarandíne)
  * @author Joetaras
  */
 $messages['roa-tara'] = array(
@@ -754,7 +754,7 @@ $messages['roa-tara'] = array(
 	'problemchanges-category' => 'Categorije:',
 );
 
-/** Russian (Русский)
+/** Russian (русский)
  * @author Ferrer
  * @author Александр Сигачёв
  */
@@ -784,7 +784,7 @@ $messages['sa'] = array(
 	'problemchanges-category' => 'वर्गः',
 );
 
-/** Sakha (Саха тыла)
+/** Sakha (саха тыла)
  * @author HalanTul
  */
 $messages['sah'] = array(
@@ -794,7 +794,7 @@ $messages['sah'] = array(
 	'problemchanges-category' => 'Категория:',
 );
 
-/** Sardinian (Sardu)
+/** Sardinian (sardu)
  * @author Andria
  */
 $messages['sc'] = array(
@@ -810,7 +810,7 @@ $messages['si'] = array(
 	'problemchanges-category' => 'ප්‍රවර්ගය:',
 );
 
-/** Slovak (Slovenčina)
+/** Slovak (slovenčina)
  * @author Helix84
  */
 $messages['sk'] = array(
@@ -820,7 +820,7 @@ $messages['sk'] = array(
 	'problemchanges-category' => 'Kategória:',
 );
 
-/** Slovenian (Slovenščina)
+/** Slovenian (slovenščina)
  * @author Dbc334
  */
 $messages['sl'] = array(
@@ -838,7 +838,7 @@ $messages['so'] = array(
 	'problemchanges-category' => 'Qeybta:',
 );
 
-/** Serbian (Cyrillic script) (‪Српски (ћирилица)‬)
+/** Serbian (Cyrillic script) (‪српски (ћирилица)‬)
  * @author Charmed94
  */
 $messages['sr-ec'] = array(
@@ -848,7 +848,7 @@ $messages['sr-ec'] = array(
 	'problemchanges-category' => 'Категорија:',
 );
 
-/** Serbian (Latin script) (‪Srpski (latinica)‬) */
+/** Serbian (Latin script) (‪srpski (latinica)‬) */
 $messages['sr-el'] = array(
 	'problemchanges' => 'Označene izmene na čekanju',
 	'problemchanges-legend' => 'Prelistaj stranice na čekanju s označenim izmenama za pregled',
@@ -865,7 +865,7 @@ $messages['su'] = array(
 	'problemchanges-category' => 'Kategori:',
 );
 
-/** Swedish (Svenska)
+/** Swedish (svenska)
  * @author Boivie
  * @author Per
  * @author Rotsee
@@ -899,7 +899,7 @@ $messages['te'] = array(
 	'problemchanges-category' => 'వర్గం:',
 );
 
-/** Tetum (Tetun)
+/** Tetum (tetun)
  * @author MF-Warburg
  */
 $messages['tet'] = array(
@@ -937,7 +937,7 @@ $messages['tr'] = array(
 	'problemchanges-category' => 'Kategori:',
 );
 
-/** Ukrainian (Українська)
+/** Ukrainian (українська)
  * @author Ahonc
  * @author Dim Grits
  * @author NickK
@@ -951,7 +951,7 @@ $messages['uk'] = array(
 	'problemchanges-category' => 'Категорія:',
 );
 
-/** Vèneto (Vèneto)
+/** vèneto (vèneto)
  * @author Candalua
  */
 $messages['vec'] = array(
@@ -997,7 +997,7 @@ $messages['yi'] = array(
 	'problemchanges-category' => 'קאַטעגאריע:',
 );
 
-/** Simplified Chinese (‪中文(简体)‬)
+/** Simplified Chinese (‪中文（简体）‬)
  * @author Gaoxuewei
  * @author Hydra
  * @author Jimmy xu wrk
@@ -1011,7 +1011,7 @@ $messages['zh-hans'] = array(
 	'problemchanges-category' => '分类：',
 );
 
-/** Traditional Chinese (‪中文(繁體)‬)
+/** Traditional Chinese (‪中文（繁體）‬)
  * @author Horacewai2
  * @author Liangent
  * @author Oapbtommy

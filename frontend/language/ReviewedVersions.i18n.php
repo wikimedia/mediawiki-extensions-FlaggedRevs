@@ -111,7 +111,7 @@ $messages['arz'] = array(
 	'reviewedversions-review' => '{{GENDER:$5|راجعها|راجعتها}} $2 فى <i>$1</i>',
 );
 
-/** Asturian (Asturianu)
+/** Asturian (asturianu)
  * @author Esbardu
  * @author Xuacu
  */
@@ -124,7 +124,7 @@ $messages['ast'] = array(
 	'reviewedversions-review' => "Revisada'l <i>$1</i> por $2",
 );
 
-/** Azerbaijani (Azərbaycanca)
+/** Azerbaijani (azərbaycanca)
  * @author Cekli829
  * @author Vugar 1981
  */
@@ -152,7 +152,7 @@ $messages['bcl'] = array(
 	'reviewedversions-page' => 'Pangaran kan pahina',
 );
 
-/** Belarusian (Беларуская)
+/** Belarusian (беларуская)
  * @author Хомелка
  */
 $messages['be'] = array(
@@ -176,7 +176,7 @@ $messages['be-tarask'] = array(
 	'reviewedversions-review' => 'Правераная <i>$1</i> {{GENDER:$2|удзельнікам|удзельніцай}} $2',
 );
 
-/** Bulgarian (Български)
+/** Bulgarian (български)
  * @author Borislav
  * @author DCLXVI
  * @author Spiritia
@@ -198,7 +198,7 @@ $messages['bn'] = array(
 	'reviewedversions-page' => 'পাতার নাম:',
 );
 
-/** Breton (Brezhoneg)
+/** Breton (brezhoneg)
  * @author Fulup
  * @author Y-M D
  */
@@ -211,7 +211,7 @@ $messages['br'] = array(
 	'reviewedversions-review' => "Adwelet d'an <i>$1</i> gant $2",
 );
 
-/** Bosnian (Bosanski)
+/** Bosnian (bosanski)
  * @author CERminator
  */
 $messages['bs'] = array(
@@ -223,7 +223,7 @@ $messages['bs'] = array(
 	'reviewedversions-review' => 'Pregledano dana <i>$1</i> od strane $2',
 );
 
-/** Catalan (Català)
+/** Catalan (català)
  * @author Paucabot
  * @author SMP
  * @author Solde
@@ -248,7 +248,7 @@ $messages['ce'] = array(
 	'reviewedversions-review' => 'Хьаьжна  <i>$1</i> декъашхо $2',
 );
 
-/** Czech (Česky)
+/** Czech (česky)
  * @author Jezevec
  * @author Li-sung
  * @author Matěj Grabovský
@@ -269,7 +269,7 @@ $messages['cu'] = array(
 	'reviewedversions-page' => 'страни́цѧ и́мѧ',
 );
 
-/** Danish (Dansk)
+/** Danish (dansk)
  * @author Froztbyte
  */
 $messages['da'] = array(
@@ -343,7 +343,7 @@ $messages['eo'] = array(
 	'reviewedversions-review' => 'Kontrolita <i>$1</i> de $2',
 );
 
-/** Spanish (Español)
+/** Spanish (español)
  * @author Crazymadlover
  * @author Imre
  */
@@ -356,7 +356,7 @@ $messages['es'] = array(
 	'reviewedversions-review' => 'Revisada en <i>$1</i> por $2',
 );
 
-/** Estonian (Eesti)
+/** Estonian (eesti)
  * @author Avjoska
  * @author Pikne
  */
@@ -369,7 +369,7 @@ $messages['et'] = array(
 	'reviewedversions-review' => '$2 vaatas lehekülje üle kuupäeval <i>$1</i>',
 );
 
-/** Basque (Euskara)
+/** Basque (euskara)
  * @author An13sa
  * @author Kobazulo
  */
@@ -378,7 +378,7 @@ $messages['eu'] = array(
 	'reviewedversions-page' => 'Orrialdearen izenburua:',
 );
 
-/** Extremaduran (Estremeñu)
+/** Extremaduran (estremeñu)
  * @author Better
  */
 $messages['ext'] = array(
@@ -400,7 +400,7 @@ $messages['fa'] = array(
 	'reviewedversions-review' => 'بررسی شده در <i>$1</i> توسط $2',
 );
 
-/** Finnish (Suomi)
+/** Finnish (suomi)
  * @author Crt
  * @author Jaakonam
  * @author Nike
@@ -415,7 +415,7 @@ $messages['fi'] = array(
 	'reviewedversions-review' => '$2 arvioi sivun <i>$1</i>',
 );
 
-/** French (Français)
+/** French (français)
  * @author Grondin
  * @author IAlex
  * @author Peter17
@@ -431,7 +431,7 @@ $messages['fr'] = array(
 	'reviewedversions-review' => 'Révisée le <i>$1</i> par $2',
 );
 
-/** Franco-Provençal (Arpetan)
+/** Franco-Provençal (arpetan)
  * @author ChrisPtDe
  */
 $messages['frp'] = array(
@@ -515,7 +515,7 @@ $messages['hi'] = array(
 	'reviewedversions-review' => '$2 द्वारा <i>$1</i> को परिक्षण हुआ',
 );
 
-/** Croatian (Hrvatski)
+/** Croatian (hrvatski)
  * @author Dalibor Bosits
  * @author Dnik
  * @author SpeedyGonsales
@@ -541,7 +541,7 @@ $messages['hsb'] = array(
 	'reviewedversions-review' => 'Dnja <i>$1</i> wot $2 přepruwowany',
 );
 
-/** Hungarian (Magyar)
+/** Hungarian (magyar)
  * @author Dani
  * @author Glanthor Reviol
  * @author Samat
@@ -555,7 +555,7 @@ $messages['hu'] = array(
 	'reviewedversions-review' => 'Ellenőrizte $2, <i>$1</i>-kor',
 );
 
-/** Interlingua (Interlingua)
+/** Interlingua (interlingua)
  * @author McDutchie
  */
 $messages['ia'] = array(
@@ -588,7 +588,7 @@ $messages['ig'] = array(
 	'reviewedversions-page' => 'Áhà ihü:',
 );
 
-/** Icelandic (Íslenska)
+/** Icelandic (íslenska)
  * @author S.Örvarr.S
  * @author Snævar
  */
@@ -601,7 +601,7 @@ $messages['is'] = array(
 	'reviewedversions-review' => 'Yfirfarið <i>$1</i> af $2',
 );
 
-/** Italian (Italiano)
+/** Italian (italiano)
  * @author Beta16
  * @author Darth Kule
  */
@@ -629,7 +629,7 @@ $messages['ja'] = array(
 	'reviewedversions-review' => '査読日: <i>$1</i>、査読者: $2',
 );
 
-/** Jutish (Jysk)
+/** Jutish (jysk)
  * @author Huslåke
  */
 $messages['jut'] = array(
@@ -747,7 +747,7 @@ $messages['li'] = array(
 	'reviewedversions-review' => 'Beoordeiling oetgeveurd op <i>$1</i> door $2',
 );
 
-/** Lithuanian (Lietuvių)
+/** Lithuanian (lietuvių)
  * @author Matasg
  */
 $messages['lt'] = array(
@@ -761,7 +761,7 @@ $messages['mhr'] = array(
 	'reviewedversions-page' => 'Лаштыкын лӱмжӧ:',
 );
 
-/** Macedonian (Македонски)
+/** Macedonian (македонски)
  * @author Bjankuloski06
  * @author Brest
  */
@@ -862,7 +862,7 @@ $messages['nl'] = array(
 	'reviewedversions-review' => 'Gecontroleerd op <i>$1</i> door $2',
 );
 
-/** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
+/** Norwegian Nynorsk (‪norsk (nynorsk)‬)
  * @author Harald Khan
  * @author Jon Harald Søby
  */
@@ -882,7 +882,7 @@ $messages['nso'] = array(
 	'reviewedversions-page' => 'Leina la letlakala:',
 );
 
-/** Occitan (Occitan)
+/** Occitan (occitan)
  * @author Cedric31
  */
 $messages['oc'] = array(
@@ -908,7 +908,7 @@ $messages['pdc'] = array(
 	'reviewedversions-page' => 'Blatt-Naame:',
 );
 
-/** Polish (Polski)
+/** Polish (polski)
  * @author Derbeth
  * @author Leinad
  * @author Sp5uhe
@@ -943,7 +943,7 @@ $messages['ps'] = array(
 	'reviewedversions-page' => 'د مخ نوم:',
 );
 
-/** Portuguese (Português)
+/** Portuguese (português)
  * @author 555
  * @author Hamilton Abreu
  * @author Waldir
@@ -957,7 +957,7 @@ $messages['pt'] = array(
 	'reviewedversions-review' => 'Revista às <i>$1</i> por $2',
 );
 
-/** Brazilian Portuguese (Português do Brasil)
+/** Brazilian Portuguese (português do Brasil)
  * @author Eduardo.mps
  * @author Giro720
  */
@@ -970,7 +970,7 @@ $messages['pt-br'] = array(
 	'reviewedversions-review' => 'Analisada às <i>$1</i> por $2',
 );
 
-/** Romanian (Română)
+/** Romanian (română)
  * @author Firilacroco
  * @author KlaudiuMihaila
  * @author Mihai
@@ -982,7 +982,7 @@ $messages['ro'] = array(
 	'reviewedversions-none' => '"[[:$1]]" nu are revizii revizuite.',
 );
 
-/** Tarandíne (Tarandíne)
+/** tarandíne (tarandíne)
  * @author Joetaras
  */
 $messages['roa-tara'] = array(
@@ -994,7 +994,7 @@ $messages['roa-tara'] = array(
 	'reviewedversions-review' => 'Riviste sus a <i>$1</i> da $2',
 );
 
-/** Russian (Русский)
+/** Russian (русский)
  * @author Ferrer
  * @author Александр Сигачёв
  */
@@ -1026,7 +1026,7 @@ $messages['sa'] = array(
 	'reviewedversions-page' => 'पृष्ठ-नाम :',
 );
 
-/** Sakha (Саха тыла)
+/** Sakha (саха тыла)
  * @author HalanTul
  */
 $messages['sah'] = array(
@@ -1038,14 +1038,14 @@ $messages['sah'] = array(
 	'reviewedversions-review' => '$2 кыттааччы ырыппыт <i>$1</i>',
 );
 
-/** Sardinian (Sardu)
+/** Sardinian (sardu)
  * @author Andria
  */
 $messages['sc'] = array(
 	'reviewedversions-page' => 'Nùmene pàgina:',
 );
 
-/** Sicilian (Sicilianu)
+/** Sicilian (sicilianu)
  * @author Aushulz
  */
 $messages['scn'] = array(
@@ -1063,7 +1063,7 @@ $messages['si'] = array(
 	'reviewedversions-review' => '<i>$1</i>හීදී $2 විසින් නිරීක්ෂණය කරන ලදී',
 );
 
-/** Slovak (Slovenčina)
+/** Slovak (slovenčina)
  * @author Helix84
  */
 $messages['sk'] = array(
@@ -1075,7 +1075,7 @@ $messages['sk'] = array(
 	'reviewedversions-review' => 'Skontroloval <i>$1</i> $2',
 );
 
-/** Slovenian (Slovenščina)
+/** Slovenian (slovenščina)
  * @author Dbc334
  */
 $messages['sl'] = array(
@@ -1087,7 +1087,7 @@ $messages['sl'] = array(
 	'reviewedversions-review' => 'Pregledano <i>$1</i> s strani $2',
 );
 
-/** Albanian (Shqip)
+/** Albanian (shqip)
  * @author Tëfcí
  */
 $messages['sq'] = array(
@@ -1095,7 +1095,7 @@ $messages['sq'] = array(
 	'reviewedversions-review' => 'Shqyrtuar më <i>$1</i> nga $2',
 );
 
-/** Serbian (Cyrillic script) (‪Српски (ћирилица)‬)
+/** Serbian (Cyrillic script) (‪српски (ћирилица)‬)
  * @author Charmed94
  * @author Millosh
  * @author Sasa Stefanovic
@@ -1110,7 +1110,7 @@ $messages['sr-ec'] = array(
 	'reviewedversions-review' => 'Прегледано на <i>$1</i> од стране $2',
 );
 
-/** Serbian (Latin script) (‪Srpski (latinica)‬)
+/** Serbian (Latin script) (‪srpski (latinica)‬)
  * @author Michaello
  */
 $messages['sr-el'] = array(
@@ -1142,7 +1142,7 @@ $messages['su'] = array(
 	'reviewedversions-page' => 'Judul kaca:',
 );
 
-/** Swedish (Svenska)
+/** Swedish (svenska)
  * @author Dafer45
  * @author Lejonel
  * @author M.M.S.
@@ -1177,14 +1177,14 @@ $messages['te'] = array(
 	'reviewedversions-review' => '<i>$1</i> నాడు $2 సమీక్షించారు',
 );
 
-/** Tetum (Tetun)
+/** Tetum (tetun)
  * @author MF-Warburg
  */
 $messages['tet'] = array(
 	'reviewedversions-page' => 'Naran pájina nian:',
 );
 
-/** Tajik (Cyrillic script) (Тоҷикӣ)
+/** Tajik (Cyrillic script) (тоҷикӣ)
  * @author Ibrahim
  */
 $messages['tg-cyrl'] = array(
@@ -1196,7 +1196,7 @@ $messages['tg-cyrl'] = array(
 	'reviewedversions-review' => 'Дар <i>$1</i> аз тарафи $2 барраси шудааст',
 );
 
-/** Tajik (Latin script) (Tojikī)
+/** Tajik (Latin script) (tojikī)
  * @author Liangent
  */
 $messages['tg-latn'] = array(
@@ -1252,7 +1252,7 @@ $messages['tr'] = array(
 	'reviewedversions-review' => '$2 tarafından <i>$1</i> tarihinde gözden geçirildi',
 );
 
-/** Ukrainian (Українська)
+/** Ukrainian (українська)
  * @author Ahonc
  * @author Prima klasy4na
  */
@@ -1265,7 +1265,7 @@ $messages['uk'] = array(
 	'reviewedversions-review' => 'Перевірена <i>$1</i> користувачем $2',
 );
 
-/** Vèneto (Vèneto)
+/** vèneto (vèneto)
  * @author Candalua
  */
 $messages['vec'] = array(
@@ -1332,7 +1332,7 @@ $messages['yue'] = array(
 	'reviewedversions-review' => '響<i>$1</i>複審過',
 );
 
-/** Simplified Chinese (‪中文(简体)‬)
+/** Simplified Chinese (‪中文（简体）‬)
  * @author Gaoxuewei
  * @author Hydra
  * @author Liangent
@@ -1347,7 +1347,7 @@ $messages['zh-hans'] = array(
 	'reviewedversions-review' => '由$2在$1时复审',
 );
 
-/** Traditional Chinese (‪中文(繁體)‬)
+/** Traditional Chinese (‪中文（繁體）‬)
  * @author Horacewai2
  * @author Liangent
  * @author Waihorace

@@ -1389,7 +1389,7 @@ $messages['arz'] = array(
 	'validationpage' => '{{ns:help}}:تحقيق الصفحة',
 );
 
-/** Asturian (Asturianu)
+/** Asturian (asturianu)
  * @author Esbardu
  * @author Xuacu
  */
@@ -1516,7 +1516,7 @@ $messages['avk'] = array(
 	'revreview-revnotfound' => 'Abdif siatos ke batu bu me zo rodimtrasir. Ta vansara va batu bu va faveyene URL mane ageltal.',
 );
 
-/** Azerbaijani (Azərbaycanca)
+/** Azerbaijani (azərbaycanca)
  * @author Cekli829
  * @author Vago
  * @author Vugar 1981
@@ -1786,7 +1786,7 @@ $messages['bcl'] = array(
 	'revreview-revnotfound' => 'Dai nahanap an lumang pagpakaraháy kan pahina na hinagad mo. Sosogon tabì an URL na ginamit mo sa pagabót sa pahinang ini.',
 );
 
-/** Belarusian (Беларуская)
+/** Belarusian (беларуская)
  * @author Хомелка
  * @author Чаховіч Уладзіслаў
  */
@@ -2164,7 +2164,7 @@ $messages['be-tarask'] = array(
 	'validationpage' => '{{ns:help}}:Праверка старонак',
 );
 
-/** Bulgarian (Български)
+/** Bulgarian (български)
  * @author Borislav
  * @author DCLXVI
  * @author Spiritia
@@ -2427,7 +2427,7 @@ $messages['bqi'] = array(
 	'revreview-basic-source' => 'یه [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} نسخه بررسی وابیده] زه ای صفحه، [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} تایید وابیده] در <i>$2</i>، بر مبنای ای نسخه ایجاد وابیده.',
 );
 
-/** Breton (Brezhoneg)
+/** Breton (brezhoneg)
  * @author Fohanno
  * @author Fulup
  * @author Gwendal
@@ -2616,7 +2616,7 @@ Bez ez eus [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs
 	'validationpage' => '{{ns:help}}:Kadarnaat ar bajenn',
 );
 
-/** Bosnian (Bosanski)
+/** Bosnian (bosanski)
  * @author CERminator
  */
 $messages['bs'] = array(
@@ -2807,7 +2807,7 @@ Molimo Vas da provjerite URL pomoću kojeg ste pristupili ovoj stranici.',
 	'validationpage' => '{{ns:help}}:Provjera stranice',
 );
 
-/** Catalan (Català)
+/** Catalan (català)
  * @author Aleator
  * @author Jordi Roqué
  * @author Juanpabl
@@ -3067,7 +3067,7 @@ $messages['crh-cyrl'] = array(
 	'revreview-revnotfound' => 'Саифенинъ эски версиясы тапылмады. Лютфен, бу саифеге кирмек ичюн къуллангъан багълантынъызнынъ догърулыгъыны тешкеринъиз.',
 );
 
-/** Czech (Česky)
+/** Czech (česky)
  * @author Danny B.
  * @author Jezevec
  * @author Jkjk
@@ -3267,7 +3267,7 @@ $messages['cy'] = array(
 	'revreview-revnotfound' => "Ni ddaethpwyd o hyd i'r hen ddiwygiad o'r dudalen y gofynnwyd amdano. Gwnewch yn siwr fod yr URL yn gywir os gwelwch yn dda.",
 );
 
-/** Danish (Dansk)
+/** Danish (dansk)
  * @author Froztbyte
  * @author Jon Harald Søby
  */
@@ -3891,7 +3891,7 @@ $messages['dtp'] = array(
 	'flaggedrevs' => 'Sinimakan Natandaan',
 );
 
-/** Ewe (Eʋegbe) */
+/** Ewe (eʋegbe) */
 $messages['ee'] = array(
 	'revreview-edit' => 'Trɔ asi le eŋu',
 );
@@ -4239,7 +4239,7 @@ Bonvolu kontroli la retadreson (URL) kiun vi uzis por atingi la paĝon.\\b',
 	'validationpage' => '{{ns:help}}:Validigo de paĝo',
 );
 
-/** Spanish (Español)
+/** Spanish (español)
  * @author AlimanRuna
  * @author Armando-Martin
  * @author Bola
@@ -4448,7 +4448,7 @@ Comprueba la dirección que usaste para acceder a esta página.',
 	'validationpage' => '{{ns:help}}:Validación de artículo',
 );
 
-/** Estonian (Eesti)
+/** Estonian (eesti)
  * @author Avjoska
  * @author Pikne
  * @author Silvar
@@ -4638,7 +4638,7 @@ Palun kontrollige internetiaadressi, mille abil te seda leida püüdsite.',
 	'validationpage' => '{{ns:help}}:Lehekülgede ülevaatus',
 );
 
-/** Basque (Euskara)
+/** Basque (euskara)
  * @author An13sa
  * @author Bengoa
  * @author Joxemai
@@ -4685,7 +4685,7 @@ $messages['eu'] = array(
 	'flaggedrevs-protect-none' => 'Lankide guztiak baimendu',
 );
 
-/** Extremaduran (Estremeñu)
+/** Extremaduran (estremeñu)
  * @author Better
  */
 $messages['ext'] = array(
@@ -4896,7 +4896,7 @@ $3  [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffon
 	'validationpage' => '{{ns:help}}:اعتبار صفحه‌ها',
 );
 
-/** Finnish (Suomi)
+/** Finnish (suomi)
  * @author Cimon Avaro
  * @author Crt
  * @author Jaakonam
@@ -5099,7 +5099,7 @@ Tarkista URL-osoite, jolla hait tätä sivua.',
 	'validationpage' => '{{ns:help}}:Sivujen arviointi',
 );
 
-/** French (Français)
+/** French (français)
  * @author Cedric31
  * @author Crochet.david
  * @author Dereckson
@@ -5311,14 +5311,14 @@ Veuillez vérifier l'URL que vous avez utilisée pour accéder à cette page.",
 	'validationpage' => '{{ns:help}}:Validation de la page',
 );
 
-/** Cajun French (Français cadien)
+/** Cajun French (français cadien)
  * @author RoyAlcatraz
  */
 $messages['frc'] = array(
 	'revreview-revnotfound' => "Le vieux changement de la page que vous avez demandé pouvait pas être trouvé.  Regardez donc l'adresse URL que vous avez usée.",
 );
 
-/** Franco-Provençal (Arpetan)
+/** Franco-Provençal (arpetan)
  * @author ChrisPtDe
  */
 $messages['frp'] = array(
@@ -6403,7 +6403,7 @@ $messages['hif-latn'] = array(
 Aap jon URL ke use kar ke ii panna ke acess karaa hai, uske check karo.',
 );
 
-/** Croatian (Hrvatski)
+/** Croatian (hrvatski)
  * @author Dalibor Bosits
  * @author Dnik
  * @author Ex13
@@ -6784,7 +6784,7 @@ Je móžno, zo su so hižo nowe [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{
 	'validationpage' => '{{ns:help}}:Přehladanje strony',
 );
 
-/** Hungarian (Magyar)
+/** Hungarian (magyar)
  * @author Adam78
  * @author Bdamokos
  * @author Bean49
@@ -6994,7 +6994,7 @@ $messages['hy'] = array(
 	'revreview-revnotfound' => 'Էջի որոնված հին տարբերակը չի գտնվել։ Խնդրում ենք ստուգել այն հղումը, որով անցել եք այս էջին։',
 );
 
-/** Interlingua (Interlingua)
+/** Interlingua (interlingua)
  * @author McDutchie
  */
 $messages['ia'] = array(
@@ -7428,7 +7428,7 @@ Voluntez kontrolar la URL quan vu uzis por acesar a ca pagino.",
 	'revreview-restriction-none' => 'nula',
 );
 
-/** Icelandic (Íslenska)
+/** Icelandic (íslenska)
  * @author S.Örvarr.S
  * @author Snævar
  * @author Spacebirdy
@@ -7560,7 +7560,7 @@ The [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Stöðuga útgáfan] var [{{fullurl:
 	'validationpage' => '{{ns:help}}:Siðustaðfesting',
 );
 
-/** Italian (Italiano)
+/** Italian (italiano)
  * @author Aushulz
  * @author Beta16
  * @author Blaisorblade
@@ -7962,7 +7962,7 @@ $messages['ja'] = array(
 	'validationpage' => '{{ns:help}}:ページの判定',
 );
 
-/** Jutish (Jysk)
+/** Jutish (jysk)
  * @author Huslåke
  * @author Ælsån
  */
@@ -8904,7 +8904,7 @@ $messages['ku-latn'] = array(
 	'revreview-typefilter' => 'Cure:',
 );
 
-/** Cornish (Kernowek)
+/** Cornish (kernowek)
  * @author Kw-Moon
  */
 $messages['kw'] = array(
@@ -9309,7 +9309,7 @@ De kins hieveur [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} i
 	'validationpage' => '{{ns:help}}:Pazjenaredaksie',
 );
 
-/** Lithuanian (Lietuvių)
+/** Lithuanian (lietuvių)
  * @author Eitvys200
  * @author Matasg
  * @author Vpovilaitis
@@ -9432,7 +9432,7 @@ Dabar yra [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-
 	'validationpage' => '{{ns:help}}:Puslapio vertinimas',
 );
 
-/** Latgalian (Latgaļu)
+/** Latgalian (latgaļu)
  * @author Dark Eagle
  */
 $messages['ltg'] = array(
@@ -9474,7 +9474,7 @@ $messages['lus'] = array(
 	'revreview-edit' => 'Siamṭhatna',
 );
 
-/** Latvian (Latviešu)
+/** Latvian (latviešu)
  * @author Yyy
  */
 $messages['lv'] = array(
@@ -9527,7 +9527,7 @@ Tsy hita ny votoatin'ny pejy taloha nangatahinao.
 Hamarino azafady ny URL nampiasainao hahatongavana eto amin'ity pejy ity.",
 );
 
-/** Macedonian (Македонски)
+/** Macedonian (македонски)
  * @author Bjankuloski06
  * @author Brainmachine
  * @author Brest
@@ -9910,7 +9910,7 @@ $messages['ml'] = array(
 	'validationpage' => '{{ns:help}}:താളിന്റെ സാധുത',
 );
 
-/** Mongolian (Монгол)
+/** Mongolian (монгол)
  * @author Chinneeb
  */
 $messages['mn'] = array(
@@ -10743,7 +10743,7 @@ Controleer de URL die u gebruikte om naar deze pagina te gaan.',
 	'validationpage' => '{{ns:help}}:Paginaredactie',
 );
 
-/** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
+/** Norwegian Nynorsk (‪norsk (nynorsk)‬)
  * @author Gunnernett
  * @author Harald Khan
  * @author Jon Harald Søby
@@ -10900,7 +10900,7 @@ $messages['nso'] = array(
 	'grouppage-editor' => '{{ns:project}}:Morulaganyi',
 );
 
-/** Occitan (Occitan)
+/** Occitan (occitan)
  * @author Cedric31
  * @author Jfblanc
  */
@@ -11587,7 +11587,7 @@ $messages['ps'] = array(
 	'flaggedrevs-protect-none' => 'ټول کارنان پرېښودل',
 );
 
-/** Portuguese (Português)
+/** Portuguese (português)
  * @author 555
  * @author Alchimista
  * @author Giro720
@@ -11788,7 +11788,7 @@ Verifique a URL que usou para aceder a esta página.',
 	'validationpage' => '{{ns:help}}:Validação de páginas',
 );
 
-/** Brazilian Portuguese (Português do Brasil)
+/** Brazilian Portuguese (português do Brasil)
  * @author 555
  * @author Eduardo.mps
  * @author Giro720
@@ -12010,7 +12010,7 @@ $messages['rmy'] = array(
 	'revreview-revnotfound' => 'I puraneder versiya la patrinyaki so tu manglyan na arakhel pes. Mangas tuke te palemdikhes o phandipen so labyardyan kana avilyan kathe.',
 );
 
-/** Romanian (Română)
+/** Romanian (română)
  * @author Cin
  * @author Danutz
  * @author Emily
@@ -12151,7 +12151,7 @@ $messages['ro'] = array(
 	'validationpage' => '{{ns:help}}:Validare pagină',
 );
 
-/** Tarandíne (Tarandíne)
+/** tarandíne (tarandíne)
  * @author Joetaras
  */
 $messages['roa-tara'] = array(
@@ -12344,7 +12344,7 @@ Pe piacere condrolle l'URL ca tu è ausete pe trasè jndr'à sta pagene.",
 	'validationpage' => "{{ns:help}}:Validazione d'a vôsce",
 );
 
-/** Russian (Русский)
+/** Russian (русский)
  * @author AVRS
  * @author Ahonc
  * @author AlexSm
@@ -12753,7 +12753,7 @@ $messages['sa'] = array(
 	'revreview-typefilter' => 'प्रकारम्:',
 );
 
-/** Sakha (Саха тыла)
+/** Sakha (саха тыла)
  * @author HalanTul
  * @author Meno25
  */
@@ -12920,7 +12920,7 @@ $messages['sah'] = array(
 	'validationpage' => '{{ns:help}}:Сирэйдэри тургутуу',
 );
 
-/** Sardinian (Sardu)
+/** Sardinian (sardu)
  * @author Andria
  */
 $messages['sc'] = array(
@@ -12933,7 +12933,7 @@ $messages['sc'] = array(
 Abbàida pro praxere sa diretzione URL ki as impreadu pro lòmper a custa pàgina.',
 );
 
-/** Sicilian (Sicilianu)
+/** Sicilian (sicilianu)
  * @author Aushulz
  * @author Tonyfroio
  */
@@ -12958,7 +12958,7 @@ $messages['sdc'] = array(
 	'revreview-revnotfound' => "La versioni dumandadda di la pàgina nò è isthadda acciappadda. Verifiggà l'indirizzu usaddu pa intrà a chistha pàgina.",
 );
 
-/** Northern Sami (Sámegiella)
+/** Northern Sami (sámegiella)
  * @author Skuolfi
  */
 $messages['se'] = array(
@@ -13108,7 +13108,7 @@ $messages['si'] = array(
 	'validationpage' => '{{ns:help}}:පිටු වලංගු කිරීම',
 );
 
-/** Slovak (Slovenčina)
+/** Slovak (slovenčina)
  * @author Helix84
  */
 $messages['sk'] = array(
@@ -13299,7 +13299,7 @@ Prosím skontrolujte URL adresu, ktorú ste použili na prístup k tejto stránk
 	'validationpage' => '{{ns:help}}:Overovanie stránok',
 );
 
-/** Slovenian (Slovenščina)
+/** Slovenian (slovenščina)
  * @author Dbc334
  */
 $messages['sl'] = array(
@@ -13488,7 +13488,7 @@ Obstajajo [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-
 	'validationpage' => '{{ns:help}}:Vrednotenje strani',
 );
 
-/** Albanian (Shqip)
+/** Albanian (shqip)
  * @author Cradel
  * @author Tëfcí
  */
@@ -13501,7 +13501,7 @@ $messages['sq'] = array(
 	'revreview-revnotfound' => 'Versioni i vjetër i faqes së kërkuar nuk mund të gjindej. Ju lutem kontrolloni URL-n që përdorët për të ardhur tek kjo faqe.',
 );
 
-/** Serbian (Cyrillic script) (‪Српски (ћирилица)‬)
+/** Serbian (Cyrillic script) (‪српски (ћирилица)‬)
  * @author Millosh
  * @author Rancher
  * @author Sasa Stefanovic
@@ -13620,7 +13620,7 @@ $messages['sr-ec'] = array(
 	'validationpage' => '{{ns:help}}:Провера странице',
 );
 
-/** Serbian (Latin script) (‪Srpski (latinica)‬)
+/** Serbian (Latin script) (‪srpski (latinica)‬)
  * @author Michaello
  * @author Rancher
  * @author Жељко Тодоровић
@@ -13850,7 +13850,7 @@ Please check the URL you used to access this page.',
 	'validationpage' => '{{ns:help}}:Validasi artikel',
 );
 
-/** Swedish (Svenska)
+/** Swedish (svenska)
  * @author Ainali
  * @author Boivie
  * @author Cohan
@@ -14320,7 +14320,7 @@ $messages['te'] = array(
 	'validationpage' => '{{ns:help}}:పేజీ సరిచూత',
 );
 
-/** Tetum (Tetun)
+/** Tetum (tetun)
  * @author MF-Warburg
  */
 $messages['tet'] = array(
@@ -14328,7 +14328,7 @@ $messages['tet'] = array(
 	'revreview-filter-all' => 'Hotu',
 );
 
-/** Tajik (Cyrillic script) (Тоҷикӣ)
+/** Tajik (Cyrillic script) (тоҷикӣ)
  * @author Ibrahim
  */
 $messages['tg-cyrl'] = array(
@@ -14402,7 +14402,7 @@ $messages['tg-cyrl'] = array(
 	'validationpage' => '{{ns:help}}:Таъйиди эътибори мақолаҳо',
 );
 
-/** Tajik (Latin script) (Tojikī)
+/** Tajik (Latin script) (tojikī)
  * @author Liangent
  */
 $messages['tg-latn'] = array(
@@ -15065,7 +15065,7 @@ Lütfen bu sayfaya erişmek için kullandığınız URL'yi kontrol edin.",
 	'validationpage' => '{{ns:help}}:Sayfa doğrulaması',
 );
 
-/** Tatar (Cyrillic script) (Татарча)
+/** Tatar (Cyrillic script) (татарча)
  * @author Ильнар
  */
 $messages['tt-cyrl'] = array(
@@ -15285,7 +15285,7 @@ $messages['uk'] = array(
 	'validationpage' => '{{ns:help}}:Перевірка сторінки',
 );
 
-/** Vèneto (Vèneto)
+/** vèneto (vèneto)
  * @author Candalua
  * @author Frigotoni
  */
@@ -15939,7 +15939,7 @@ $messages['vro'] = array(
 Kaeq üle aadrõs, kost sa taad löüdäq proovõq.',
 );
 
-/** Walloon (Walon) */
+/** Walloon (walon) */
 $messages['wa'] = array(
 	'revreview-revnotfound' => "Li viye modêye del pådje ki vos avoz dmandé n' a nén stî trovêye.
 Verifyîz l' hårdêye ki vs avoz eployî po-z ariver sol pådje s' i vs plait.",
@@ -16111,7 +16111,7 @@ $messages['zea'] = array(
 Controleer asjeblieft de URL die  a je hebruken om ni deêze pagina te haene.',
 );
 
-/** Simplified Chinese (‪中文(简体)‬)
+/** Simplified Chinese (‪中文（简体）‬)
  * @author Bencmq
  * @author Chenxiaoqino
  * @author Chenzw
@@ -16313,7 +16313,7 @@ $messages['zh-hans'] = array(
 	'validationpage' => '{{ns:help}}:页面验证',
 );
 
-/** Traditional Chinese (‪中文(繁體)‬)
+/** Traditional Chinese (‪中文（繁體）‬)
  * @author Alexsh
  * @author Anakmalaysia
  * @author Bencmq

@@ -183,7 +183,7 @@ $messages['arz'] = array(
 	'pendingchanges-viewing' => '(تحت المراجعة)',
 );
 
-/** Asturian (Asturianu)
+/** Asturian (asturianu)
  * @author Esbardu
  * @author Xuacu
  */
@@ -205,7 +205,7 @@ $messages['ast'] = array(
 	'pendingchanges-viewing' => '(en revisión)',
 );
 
-/** Azerbaijani (Azərbaycanca)
+/** Azerbaijani (azərbaycanca)
  * @author Cekli829
  */
 $messages['az'] = array(
@@ -252,7 +252,7 @@ $messages['bcc'] = array(
 	'pendingchanges-watched' => '($1 {{PLURAL:$1|کاربر|کابران}} چارگنت)',
 );
 
-/** Belarusian (Беларуская)
+/** Belarusian (беларуская)
  * @author Хомелка
  */
 $messages['be'] = array(
@@ -296,7 +296,7 @@ $messages['be-tarask'] = array(
 	'pendingchanges-viewing' => '(правяраецца)',
 );
 
-/** Bulgarian (Български)
+/** Bulgarian (български)
  * @author DCLXVI
  * @author Spiritia
  * @author Turin
@@ -325,7 +325,7 @@ $messages['bn'] = array(
 	'pendingchanges-diff' => 'পর্যালোচনা',
 );
 
-/** Breton (Brezhoneg)
+/** Breton (brezhoneg)
  * @author Fulup
  * @author Gwendal
  * @author Y-M D
@@ -348,7 +348,7 @@ $messages['br'] = array(
 	'pendingchanges-viewing' => '(o vezañ adwelet)',
 );
 
-/** Bosnian (Bosanski)
+/** Bosnian (bosanski)
  * @author CERminator
  */
 $messages['bs'] = array(
@@ -369,7 +369,7 @@ $messages['bs'] = array(
 	'pendingchanges-viewing' => '(u provjeri)',
 );
 
-/** Catalan (Català)
+/** Catalan (català)
  * @author Aleator
  * @author Jordi Roqué
  * @author Martorell
@@ -397,7 +397,7 @@ $messages['ce'] = array(
 	'pendingchanges-viewing' => '(хьовсамехь йу)',
 );
 
-/** Czech (Česky)
+/** Czech (česky)
  * @author Danny B.
  * @author Jkjk
  * @author Li-sung
@@ -549,7 +549,7 @@ $messages['eo'] = array(
 	'pendingchanges-viewing' => '(kontrolata)',
 );
 
-/** Spanish (Español)
+/** Spanish (español)
  * @author Bola
  * @author Crazymadlover
  * @author Locos epraix
@@ -574,7 +574,7 @@ $messages['es'] = array(
 	'pendingchanges-viewing' => '(bajo revisión)',
 );
 
-/** Estonian (Eesti)
+/** Estonian (eesti)
  * @author Avjoska
  * @author Pikne
  */
@@ -596,7 +596,7 @@ $messages['et'] = array(
 	'pendingchanges-viewing' => '(ülevaatusel)',
 );
 
-/** Basque (Euskara)
+/** Basque (euskara)
  * @author An13sa
  * @author Joxemai
  * @author Kobazulo
@@ -641,7 +641,7 @@ $messages['fa'] = array(
 	'pendingchanges-viewing' => '(تحت بازبینی)',
 );
 
-/** Finnish (Suomi)
+/** Finnish (suomi)
  * @author Cimon Avaro
  * @author Crt
  * @author Huji
@@ -670,7 +670,7 @@ $messages['fi'] = array(
 	'pendingchanges-viewing' => '(arvioitavana)',
 );
 
-/** French (Français)
+/** French (français)
  * @author Aadri
  * @author Crochet.david
  * @author Grondin
@@ -699,7 +699,7 @@ $messages['fr'] = array(
 	'pendingchanges-viewing' => '(en révision)',
 );
 
-/** Franco-Provençal (Arpetan)
+/** Franco-Provençal (arpetan)
  * @author ChrisPtDe
  */
 $messages['frp'] = array(
@@ -830,7 +830,7 @@ $messages['hi'] = array(
 	'pendingchanges-viewing' => '(समिक्षा अंतर्गत)',
 );
 
-/** Croatian (Hrvatski)
+/** Croatian (hrvatski)
  * @author Ex13
  * @author SpeedyGonsales
  */
@@ -873,7 +873,7 @@ $messages['hsb'] = array(
 	'pendingchanges-viewing' => '(pruwuje so)',
 );
 
-/** Hungarian (Magyar)
+/** Hungarian (magyar)
  * @author Dani
  * @author Dj
  * @author Glanthor Reviol
@@ -897,7 +897,7 @@ $messages['hu'] = array(
 	'pendingchanges-viewing' => '(ellenőrzés alatt)',
 );
 
-/** Interlingua (Interlingua)
+/** Interlingua (interlingua)
  * @author Malafaya
  * @author McDutchie
  */
@@ -966,7 +966,7 @@ $messages['io'] = array(
 	'pendingchanges-category' => 'Kategorio:',
 );
 
-/** Icelandic (Íslenska)
+/** Icelandic (íslenska)
  * @author Snævar
  * @author Spacebirdy
  */
@@ -988,7 +988,7 @@ $messages['is'] = array(
 	'pendingchanges-viewing' => '(í skoðun)',
 );
 
-/** Italian (Italiano)
+/** Italian (italiano)
  * @author Beta16
  * @author Blaisorblade
  * @author Civvì
@@ -1143,7 +1143,7 @@ $messages['ku-latn'] = array(
 	'pendingchanges-category' => 'Kategorî:',
 );
 
-/** Cornish (Kernowek)
+/** Cornish (kernowek)
  * @author Kernoweger
  * @author Kw-Moon
  * @author Nrowe
@@ -1195,7 +1195,7 @@ $messages['li'] = array(
 	'pendingchanges-viewing' => '(wörd bekeke)',
 );
 
-/** Lithuanian (Lietuvių)
+/** Lithuanian (lietuvių)
  * @author Eitvys200
  * @author Vpovilaitis
  */
@@ -1216,7 +1216,7 @@ $messages['lt'] = array(
 	'pendingchanges-viewing' => '(peržiūrima)',
 );
 
-/** Macedonian (Македонски)
+/** Macedonian (македонски)
  * @author Bjankuloski06
  * @author Brest
  */
@@ -1367,7 +1367,7 @@ $messages['nl'] = array(
 	'pendingchanges-viewing' => '(wordt gecontroleerd)',
 );
 
-/** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
+/** Norwegian Nynorsk (‪norsk (nynorsk)‬)
  * @author Harald Khan
  */
 $messages['nn'] = array(
@@ -1387,7 +1387,7 @@ $messages['nn'] = array(
 	'pendingchanges-viewing' => '(under vurdering)',
 );
 
-/** Occitan (Occitan)
+/** Occitan (occitan)
  * @author Cedric31
  */
 $messages['oc'] = array(
@@ -1428,7 +1428,7 @@ $messages['pdc'] = array(
 	'pendingchanges-watched' => '(vun $1 {{PLURAL:$1|aktivem Yuuser|aktive Yuuser}} gewatscht)',
 );
 
-/** Polish (Polski)
+/** Polish (polski)
  * @author Leinad
  * @author McMonster
  * @author Sp5uhe
@@ -1483,7 +1483,7 @@ $messages['ps'] = array(
 	'pendingchanges-diff' => 'مخکتنه',
 );
 
-/** Portuguese (Português)
+/** Portuguese (português)
  * @author 555
  * @author Capmo
  * @author Hamilton Abreu
@@ -1508,7 +1508,7 @@ $messages['pt'] = array(
 	'pendingchanges-viewing' => '(em revisão)',
 );
 
-/** Brazilian Portuguese (Português do Brasil)
+/** Brazilian Portuguese (português do Brasil)
  * @author Eduardo.mps
  * @author Giro720
  */
@@ -1530,7 +1530,7 @@ $messages['pt-br'] = array(
 	'pendingchanges-viewing' => '(sob análise)',
 );
 
-/** Romanian (Română)
+/** Romanian (română)
  * @author Cin
  * @author Firilacroco
  * @author KlaudiuMihaila
@@ -1556,7 +1556,7 @@ $messages['ro'] = array(
 	'pendingchanges-viewing' => '(în curs de revizuire)',
 );
 
-/** Tarandíne (Tarandíne)
+/** tarandíne (tarandíne)
  * @author Joetaras
  */
 $messages['roa-tara'] = array(
@@ -1577,7 +1577,7 @@ $messages['roa-tara'] = array(
 	'pendingchanges-viewing' => "(sotte 'a rivisitazione)",
 );
 
-/** Russian (Русский)
+/** Russian (русский)
  * @author Ferrer
  * @author JenVan
  * @author MaxSem
@@ -1630,7 +1630,7 @@ $messages['sa'] = array(
 	'pendingchanges-category' => 'वर्गः',
 );
 
-/** Sakha (Саха тыла)
+/** Sakha (саха тыла)
  * @author HalanTul
  */
 $messages['sah'] = array(
@@ -1651,7 +1651,7 @@ $messages['sah'] = array(
 	'pendingchanges-viewing' => '(тургутулла тураллар)',
 );
 
-/** Sardinian (Sardu)
+/** Sardinian (sardu)
  * @author Andria
  */
 $messages['sc'] = array(
@@ -1680,7 +1680,7 @@ $messages['si'] = array(
 	'pendingchanges-viewing' => '(නිරීක්ෂණය යටතේ)',
 );
 
-/** Slovak (Slovenčina)
+/** Slovak (slovenčina)
  * @author Helix84
  */
 $messages['sk'] = array(
@@ -1701,7 +1701,7 @@ $messages['sk'] = array(
 	'pendingchanges-viewing' => '(kontroluje sa)',
 );
 
-/** Slovenian (Slovenščina)
+/** Slovenian (slovenščina)
  * @author Dbc334
  */
 $messages['sl'] = array(
@@ -1729,7 +1729,7 @@ $messages['so'] = array(
 	'pendingchanges-category' => 'Qeybta:',
 );
 
-/** Albanian (Shqip)
+/** Albanian (shqip)
  * @author Cradel
  */
 $messages['sq'] = array(
@@ -1750,7 +1750,7 @@ $messages['sq'] = array(
 	'pendingchanges-viewing' => '(duke u shqyrtuar)',
 );
 
-/** Serbian (Cyrillic script) (‪Српски (ћирилица)‬)
+/** Serbian (Cyrillic script) (‪српски (ћирилица)‬)
  * @author Millosh
  * @author Rancher
  * @author Жељко Тодоровић
@@ -1773,7 +1773,7 @@ $messages['sr-ec'] = array(
 	'pendingchanges-viewing' => '(под прегледом)',
 );
 
-/** Serbian (Latin script) (‪Srpski (latinica)‬)
+/** Serbian (Latin script) (‪srpski (latinica)‬)
  * @author Michaello
  * @author Жељко Тодоровић
  */
@@ -1794,7 +1794,7 @@ $messages['sr-el'] = array(
 	'pendingchanges-viewing' => '(pod pregledom)',
 );
 
-/** Swedish (Svenska)
+/** Swedish (svenska)
  * @author Boivie
  * @author Cohan
  * @author M.M.S.
@@ -1863,7 +1863,7 @@ $messages['te'] = array(
 	'pendingchanges-viewing' => '(రివ్యూలో వుంది )',
 );
 
-/** Tetum (Tetun)
+/** Tetum (tetun)
  * @author MF-Warburg
  */
 $messages['tet'] = array(
@@ -1948,7 +1948,7 @@ $messages['tr'] = array(
 	'pendingchanges-viewing' => '(gözden geçiriliyor)',
 );
 
-/** Ukrainian (Українська)
+/** Ukrainian (українська)
  * @author Ahonc
  * @author NickK
  * @author Prima klasy4na
@@ -1972,7 +1972,7 @@ $messages['uk'] = array(
 	'pendingchanges-viewing' => '(перевіряється)',
 );
 
-/** Vèneto (Vèneto)
+/** vèneto (vèneto)
  * @author Candalua
  */
 $messages['vec'] = array(
@@ -2070,7 +2070,7 @@ $messages['yue'] = array(
 	'pendingchanges-watched' => '($1{{PLURAL:$1|位用戶|位用戶}}睇緊)',
 );
 
-/** Simplified Chinese (‪中文(简体)‬)
+/** Simplified Chinese (‪中文（简体）‬)
  * @author Chenxiaoqino
  * @author Gaoxuewei
  * @author Gzdavidwong
@@ -2098,7 +2098,7 @@ $messages['zh-hans'] = array(
 	'pendingchanges-viewing' => '（正在复审）',
 );
 
-/** Traditional Chinese (‪中文(繁體)‬)
+/** Traditional Chinese (‪中文（繁體）‬)
  * @author Frankou
  * @author Gzdavidwong
  * @author Horacewai2

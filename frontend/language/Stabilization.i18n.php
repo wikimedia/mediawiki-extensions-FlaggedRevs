@@ -358,7 +358,7 @@ $messages['arz'] = array(
 	'stabilization-review' => 'راجع النسخه الحالية',
 );
 
-/** Asturian (Asturianu)
+/** Asturian (asturianu)
  * @author Esbardu
  * @author Xuacu
  */
@@ -386,7 +386,7 @@ Esta ye la configuración actual de [[:$1|$1]]:',
 	'stabilize-expiring' => "caduca'l $1 (UTC)",
 );
 
-/** Azerbaijani (Azərbaycanca)
+/** Azerbaijani (azərbaycanca)
  * @author Cekli829
  * @author Vago
  * @author Vugar 1981
@@ -464,7 +464,7 @@ $messages['bcc'] = array(
 	'stabilize-expiring' => 'وهدی هلیت  $1 (UTC)',
 );
 
-/** Belarusian (Беларуская)
+/** Belarusian (беларуская)
  * @author Хомелка
  */
 $messages['be'] = array(
@@ -544,7 +544,7 @@ $messages['be-tarask'] = array(
 	'stabilization-review' => 'Пазначыць цяперашнюю вэрсію як правераную',
 );
 
-/** Bulgarian (Български)
+/** Bulgarian (български)
  * @author Borislav
  * @author DCLXVI
  * @author Spiritia
@@ -603,7 +603,7 @@ $messages['bn'] = array(
 	'stabilize-expiring' => 'মেয়াদ উত্তীর্ণ হবে $1 (UTC)',
 );
 
-/** Breton (Brezhoneg)
+/** Breton (brezhoneg)
  * @author Fohanno
  * @author Fulup
  * @author Y-M D
@@ -645,7 +645,7 @@ N\'haller ket kefluniañ netra.',
 	'stabilization-review' => 'Merkañ ar stumm red evel adwelet.',
 );
 
-/** Bosnian (Bosanski)
+/** Bosnian (bosanski)
  * @author CERminator
  */
 $messages['bs'] = array(
@@ -685,7 +685,7 @@ Nije moguća konfiguracija.',
 	'stabilization-review' => 'Označite trenutnu reviziju provjerenom',
 );
 
-/** Catalan (Català)
+/** Catalan (català)
  * @author Aleator
  * @author Jordi Roqué
  * @author Paucabot
@@ -730,7 +730,7 @@ $messages['ce'] = array(
 	'stabilize-expiring' => 'чакхйолу $1 (UTC)',
 );
 
-/** Sorani (کوردی) */
+/** Sorani Kurdish (کوردی) */
 $messages['ckb'] = array(
 	'stabilization-submit' => 'پشتدار بکەرەوە',
 	'stabilization-comment' => 'هۆکار:',
@@ -738,7 +738,7 @@ $messages['ckb'] = array(
 	'stabilization-expiry' => 'ھەتا:',
 );
 
-/** Czech (Česky)
+/** Czech (česky)
  * @author Danny B.
  * @author Jkjk
  * @author Li-sung
@@ -779,7 +779,7 @@ $messages['cs'] = array(
 	'stabilization-review' => 'Posoudit aktuální verzi',
 );
 
-/** Danish (Dansk)
+/** Danish (dansk)
  * @author Froztbyte
  * @author Jon Harald Søby
  */
@@ -1031,7 +1031,7 @@ Neniu konfiguro eblas.',
 	'stabilization-review' => 'Marki la nunan revizion kiel kontrolitan',
 );
 
-/** Spanish (Español)
+/** Spanish (español)
  * @author Bola
  * @author Crazymadlover
  * @author Dferg
@@ -1080,7 +1080,7 @@ La configuración no es posible.',
 	'stabilization-review' => 'Marcar la versión actual verificada',
 );
 
-/** Estonian (Eesti)
+/** Estonian (eesti)
  * @author Avjoska
  * @author KalmerE.
  * @author Pikne
@@ -1122,7 +1122,7 @@ Sätete seadmine pole võimalik.',
 	'stabilization-review' => 'Märgi praegune redaktsioon kord vaadatuks',
 );
 
-/** Basque (Euskara)
+/** Basque (euskara)
  * @author An13sa
  * @author Kobazulo
  */
@@ -1142,7 +1142,7 @@ $messages['eu'] = array(
 	'stabilize-expiring' => 'iraungipen-data: $1 (UTC)',
 );
 
-/** Extremaduran (Estremeñu)
+/** Extremaduran (estremeñu)
  * @author Better
  */
 $messages['ext'] = array(
@@ -1197,7 +1197,7 @@ $messages['fa'] = array(
 	'stabilization-review' => 'علامت زدن این نسخه به عنوان بازبینی شده',
 );
 
-/** Finnish (Suomi)
+/** Finnish (suomi)
  * @author Cimon Avaro
  * @author Crt
  * @author Mies
@@ -1245,7 +1245,7 @@ Asetusten määrittäminen ei ole mahdollista.',
 	'stabilization-review' => 'Merkitse viimeisin versio katsotuksi',
 );
 
-/** French (Français)
+/** French (français)
  * @author ChrisPtDe
  * @author Dereckson
  * @author Dodoïste
@@ -1293,7 +1293,7 @@ Voici les paramètres actuels de [[:$1|$1]] :",
 	'stabilization-review' => 'Marquer la version actuelle comme vérifiée',
 );
 
-/** Franco-Provençal (Arpetan)
+/** Franco-Provençal (arpetan)
  * @author ChrisPtDe
  */
 $messages['frp'] = array(
@@ -1554,7 +1554,7 @@ $messages['hi'] = array(
 	'stabilization-review' => 'बर्त्तमान की संशोधन को चिन्हित करें',
 );
 
-/** Croatian (Hrvatski)
+/** Croatian (hrvatski)
  * @author Dalibor Bosits
  * @author Dnik
  * @author Ex13
@@ -1634,7 +1634,7 @@ Aktualne nastajenja za „[[:$1|$1]]“ su:',
 	'stabilization-review' => 'Aktualnu wersiju jako skontrolowanu markěrować',
 );
 
-/** Hungarian (Magyar)
+/** Hungarian (magyar)
  * @author Dani
  * @author Enbéká
  * @author Glanthor Reviol
@@ -1681,7 +1681,7 @@ Nem lehet a beállításokat módosítani.',
 	'stabilization-review' => 'Aktuális változat ellenőrzöttnek jelölése',
 );
 
-/** Interlingua (Interlingua)
+/** Interlingua (interlingua)
  * @author McDutchie
  */
 $messages['ia'] = array(
@@ -1796,7 +1796,7 @@ $messages['io'] = array(
 	'stabilization-def-short-1' => 'Stabila',
 );
 
-/** Icelandic (Íslenska)
+/** Icelandic (íslenska)
  * @author S.Örvarr.S
  */
 $messages['is'] = array(
@@ -1805,7 +1805,7 @@ $messages['is'] = array(
 	'stabilization-comment' => 'Ástæða:',
 );
 
-/** Italian (Italiano)
+/** Italian (italiano)
  * @author Aushulz
  * @author Beta16
  * @author Blaisorblade
@@ -1897,7 +1897,7 @@ $messages['ja'] = array(
 	'stabilization-review' => '現在の版を査読済みとする',
 );
 
-/** Jutish (Jysk)
+/** Jutish (jysk)
  * @author Huslåke
  * @author Ælsån
  */
@@ -2221,7 +2221,7 @@ Dit zeen de hudige instellinge veur [[:$1|$1]]:',
 	'stabilization-review' => 'Markeer hudige versie es gecontroleerd',
 );
 
-/** Lithuanian (Lietuvių)
+/** Lithuanian (lietuvių)
  * @author Eitvys200
  * @author Matasg
  */
@@ -2236,7 +2236,7 @@ $messages['lt'] = array(
 	'stabilization-def-short-0' => 'Esamas',
 );
 
-/** Latvian (Latviešu)
+/** Latvian (latviešu)
  * @author GreenZeb
  */
 $messages['lv'] = array(
@@ -2334,7 +2334,7 @@ $messages['ml'] = array(
 	'stabilization-review' => 'ഇപ്പോഴുള്ള പതിപ്പ് പരിശോധിച്ചതായി അടയാളപ്പെടുത്തുക',
 );
 
-/** Mongolian (Монгол)
+/** Mongolian (монгол)
  * @author Chinneeb
  */
 $messages['mn'] = array(
@@ -2532,7 +2532,7 @@ Instellen is niet mogelijk.',
 	'stabilization-review' => 'Huidige versie als gecontroleerd markeren',
 );
 
-/** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
+/** Norwegian Nynorsk (‪norsk (nynorsk)‬)
  * @author Gunnernett
  * @author Harald Khan
  * @author Jon Harald Søby
@@ -2587,7 +2587,7 @@ $messages['nso'] = array(
 	'stabilize-expiring' => 'fetatšatši $1 (UTC)',
 );
 
-/** Occitan (Occitan)
+/** Occitan (occitan)
  * @author Cedric31
  * @author ChrisPtDe
  * @author Juanpabl
@@ -2653,7 +2653,7 @@ $messages['pfl'] = array(
 	'stabilization-page' => 'Saidename:',
 );
 
-/** Polish (Polski)
+/** Polish (polski)
  * @author Derbeth
  * @author Fizykaa
  * @author Holek
@@ -2755,7 +2755,7 @@ $messages['ps'] = array(
 	'stabilize-expiring' => 'په $1 (UTC) پای ته رسېږي',
 );
 
-/** Portuguese (Português)
+/** Portuguese (português)
  * @author 555
  * @author Giro720
  * @author Hamilton Abreu
@@ -2799,7 +2799,7 @@ Não é possível configurá-la.',
 	'stabilization-review' => 'Marcar a edição actual como verificada',
 );
 
-/** Brazilian Portuguese (Português do Brasil)
+/** Brazilian Portuguese (português do Brasil)
  * @author Eduardo.mps
  * @author Giro720
  * @author Luckas Blade
@@ -2848,7 +2848,7 @@ $messages['qu'] = array(
 	'stabilize_denied' => 'Manam saqillasqachu.',
 );
 
-/** Romanian (Română)
+/** Romanian (română)
  * @author Cin
  * @author Firilacroco
  * @author KlaudiuMihaila
@@ -2891,7 +2891,7 @@ Configurarea nu este posibilă.',
 	'stabilization-review' => 'Marchează versiunea curentă ca verificată',
 );
 
-/** Tarandíne (Tarandíne)
+/** tarandíne (tarandíne)
  * @author Joetaras
  */
 $messages['roa-tara'] = array(
@@ -2931,7 +2931,7 @@ Non ge stonne le configurazione.',
 	'stabilization-review' => "Signe 'a revisiona corrende cumme verificate",
 );
 
-/** Russian (Русский)
+/** Russian (русский)
  * @author AlexSm
  * @author Claymore
  * @author Drbug
@@ -3025,7 +3025,7 @@ $messages['sa'] = array(
 	'stabilization-def-short' => 'यदभावे',
 );
 
-/** Sakha (Саха тыла)
+/** Sakha (саха тыла)
  * @author HalanTul
  */
 $messages['sah'] = array(
@@ -3061,7 +3061,7 @@ $messages['sah'] = array(
 	'stabilization-review' => 'Билиҥни барылын көрүү',
 );
 
-/** Sardinian (Sardu)
+/** Sardinian (sardu)
  * @author Andria
  */
 $messages['sc'] = array(
@@ -3071,7 +3071,7 @@ $messages['sc'] = array(
 	'stabilization-otherreason' => 'Àteru motivu:',
 );
 
-/** Sicilian (Sicilianu)
+/** Sicilian (sicilianu)
  * @author Aushulz
  */
 $messages['scn'] = array(
@@ -3107,7 +3107,7 @@ $messages['si'] = array(
 	'stabilization-review' => 'වත්මන් සංශෝධනය සලකුණු කළා යයි සලකුණු කරන්න',
 );
 
-/** Slovak (Slovenčina)
+/** Slovak (slovenčina)
  * @author Helix84
  */
 $messages['sk'] = array(
@@ -3144,7 +3144,7 @@ $messages['sk'] = array(
 	'stabilization-review' => 'Označiť aktuálnu revíziu ako skontrolovanú',
 );
 
-/** Slovenian (Slovenščina)
+/** Slovenian (slovenščina)
  * @author Dbc334
  */
 $messages['sl'] = array(
@@ -3184,7 +3184,7 @@ Nastavitev ni mogoča.',
 	'stabilization-review' => 'Označi trenutno redakcijo kot pregledano',
 );
 
-/** Albanian (Shqip)
+/** Albanian (shqip)
  * @author Puntori
  */
 $messages['sq'] = array(
@@ -3205,7 +3205,7 @@ Asnjë konfigurim nuk është i mundshëm.',
 	'stabilize-expiring' => 'skadon $1 (UTC)',
 );
 
-/** Serbian (Cyrillic script) (‪Српски (ћирилица)‬)
+/** Serbian (Cyrillic script) (‪српски (ћирилица)‬)
  * @author Millosh
  * @author Rancher
  * @author Sasa Stefanovic
@@ -3247,7 +3247,7 @@ $messages['sr-ec'] = array(
 	'stabilization-review' => 'Означи тренутну ревизику као прегледану',
 );
 
-/** Serbian (Latin script) (‪Srpski (latinica)‬)
+/** Serbian (Latin script) (‪srpski (latinica)‬)
  * @author Michaello
  * @author Жељко Тодоровић
  * @author Михајло Анђелковић
@@ -3338,7 +3338,7 @@ KOnfigurasi teu bisa dilarapkeun.',
 	'stabilize-expiring' => 'kadaluwarsa $1 (UTC)',
 );
 
-/** Swedish (Svenska)
+/** Swedish (svenska)
  * @author Boivie
  * @author Dafer45
  * @author Lejonel
@@ -3451,14 +3451,14 @@ $messages['te'] = array(
 	'stabilize-expiring' => '$1 (UTC) నాడు కాలం చెల్లుతుంది',
 );
 
-/** Tetum (Tetun)
+/** Tetum (tetun)
  * @author MF-Warburg
  */
 $messages['tet'] = array(
 	'stabilization-page' => 'Naran pájina nian:',
 );
 
-/** Tajik (Cyrillic script) (Тоҷикӣ)
+/** Tajik (Cyrillic script) (тоҷикӣ)
  * @author Ibrahim
  */
 $messages['tg-cyrl'] = array(
@@ -3484,7 +3484,7 @@ $messages['tg-cyrl'] = array(
 	'stabilize-expiring' => 'Дар $1 (UTC) ба интиҳо мерасад',
 );
 
-/** Tajik (Latin script) (Tojikī)
+/** Tajik (Latin script) (tojikī)
  * @author Liangent
  */
 $messages['tg-latn'] = array(
@@ -3642,14 +3642,14 @@ Yapılandırma mümkün değil.',
 	'stabilization-review' => 'Geçerli sürümü kontrol edilmiş olarak işaretle',
 );
 
-/** Tatar (Cyrillic script) (Татарча)
+/** Tatar (Cyrillic script) (татарча)
  * @author Ерней
  */
 $messages['tt-cyrl'] = array(
 	'stabilization-def-short' => 'Килешү буенча',
 );
 
-/** Ukrainian (Українська)
+/** Ukrainian (українська)
  * @author AS
  * @author Ahonc
  * @author NickK
@@ -3698,7 +3698,7 @@ $messages['ur'] = array(
 	'stabilization-comment' => 'وجہ:',
 );
 
-/** Vèneto (Vèneto)
+/** vèneto (vèneto)
  * @author Candalua
  */
 $messages['vec'] = array(
@@ -3894,7 +3894,7 @@ $messages['yue'] = array(
 	'stabilize-expiring' => '於 $1 (UTC) 到期',
 );
 
-/** Simplified Chinese (‪中文(简体)‬)
+/** Simplified Chinese (‪中文（简体）‬)
  * @author Bencmq
  * @author Gaoxuewei
  * @author Liangent
@@ -3934,7 +3934,7 @@ $messages['zh-hans'] = array(
 	'stabilization-review' => '将当前修订标记为已检查',
 );
 
-/** Traditional Chinese (‪中文(繁體)‬)
+/** Traditional Chinese (‪中文（繁體）‬)
  * @author Alexsh
  * @author Gaoxuewei
  * @author Horacewai2

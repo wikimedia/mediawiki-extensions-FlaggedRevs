@@ -118,7 +118,7 @@ $messages['arz'] = array(
 	'reviewedpages-best' => 'مراجعه فائقة',
 );
 
-/** Asturian (Asturianu)
+/** Asturian (asturianu)
  * @author Esbardu
  * @author Xuacu
  */
@@ -135,7 +135,7 @@ $messages['ast'] = array(
 	'reviewedpages-best' => 'meyor revisión',
 );
 
-/** Azerbaijani (Azərbaycanca)
+/** Azerbaijani (azərbaycanca)
  * @author Vugar 1981
  */
 $messages['az'] = array(
@@ -163,7 +163,7 @@ $messages['bcc'] = array(
 	'reviewedpages-best' => 'بازبینی اصلی',
 );
 
-/** Belarusian (Беларуская)
+/** Belarusian (беларуская)
  * @author Хомелка
  */
 $messages['be'] = array(
@@ -190,7 +190,7 @@ $messages['be-tarask'] = array(
 	'reviewedpages-best' => 'найлепшая вэрсія',
 );
 
-/** Bulgarian (Български)
+/** Bulgarian (български)
  * @author Borislav
  * @author DCLXVI
  */
@@ -215,7 +215,7 @@ $messages['bn'] = array(
 	'reviewedpages-all' => 'সংশোধিত সংস্করণসমূহ',
 );
 
-/** Breton (Brezhoneg)
+/** Breton (brezhoneg)
  * @author Fulup
  * @author Y-M D
  */
@@ -233,7 +233,7 @@ Al liamm kinniget a ya war-zu ar stumm ziwezhañ eus al live-se.",
 	'reviewedpages-best' => 'adweladenn wellañ',
 );
 
-/** Bosnian (Bosanski)
+/** Bosnian (bosanski)
  * @author CERminator
  */
 $messages['bs'] = array(
@@ -245,7 +245,7 @@ $messages['bs'] = array(
 	'reviewedpages-best' => 'najbolja revizija',
 );
 
-/** Catalan (Català)
+/** Catalan (català)
  * @author Jordi Roqué
  * @author Paucabot
  */
@@ -263,7 +263,7 @@ $messages['ce'] = array(
 	'reviewedpages-best' => 'чlогlа дика варси',
 );
 
-/** Czech (Česky)
+/** Czech (česky)
  * @author Jezevec
  * @author Li-sung
  * @author Matěj Grabovský
@@ -363,7 +363,7 @@ Ligilo estas farata al la lasta revizio de tiu nivelo.",
 	'reviewedpages-best' => 'plej bona revizio',
 );
 
-/** Spanish (Español)
+/** Spanish (español)
  * @author Crazymadlover
  * @author Imre
  */
@@ -380,7 +380,7 @@ Se da un enlace a la última revisión de este nivel.",
 	'reviewedpages-best' => 'Mejor revisión',
 );
 
-/** Estonian (Eesti)
+/** Estonian (eesti)
  * @author Avjoska
  * @author Pikne
  */
@@ -394,7 +394,7 @@ $messages['et'] = array(
 	'reviewedpages-best' => 'parim redaktsioon',
 );
 
-/** Basque (Euskara)
+/** Basque (euskara)
  * @author Kobazulo
  */
 $messages['eu'] = array(
@@ -420,7 +420,7 @@ $messages['fa'] = array(
 	'reviewedpages-best' => 'بهترین نسخه',
 );
 
-/** Finnish (Suomi)
+/** Finnish (suomi)
  * @author Cimon Avaro
  * @author Crt
  * @author Olli
@@ -439,7 +439,7 @@ Linkki viittaa tämän tason viimeisimpään versioon.",
 	'reviewedpages-best' => 'paras versio',
 );
 
-/** French (Français)
+/** French (français)
  * @author Dereckson
  * @author Grondin
  * @author IAlex
@@ -460,7 +460,7 @@ Le lien donné pointe vers la dernière version de ce niveau.",
 	'reviewedpages-best' => 'meilleure version',
 );
 
-/** Franco-Provençal (Arpetan)
+/** Franco-Provençal (arpetan)
  * @author ChrisPtDe
  */
 $messages['frp'] = array(
@@ -557,7 +557,7 @@ $messages['hi'] = array(
 	'reviewedpages-best' => 'मूल अवतरण',
 );
 
-/** Croatian (Hrvatski)
+/** Croatian (hrvatski)
  * @author Dnik
  * @author Ex13
  * @author SpeedyGonsales
@@ -591,7 +591,7 @@ Wotkaz k najnowšej wersiji teje runiny je podaty.",
 	'reviewedpages-best' => 'najlěpša wersija',
 );
 
-/** Hungarian (Magyar)
+/** Hungarian (magyar)
  * @author Dani
  * @author Glanthor Reviol
  * @author KossuthRad
@@ -611,7 +611,7 @@ A hivatkozások az illető értékelési szint legutolsó változatára mutatnak
 	'reviewedpages-best' => 'legjobb változat',
 );
 
-/** Interlingua (Interlingua)
+/** Interlingua (interlingua)
  * @author McDutchie
  */
 $messages['ia'] = array(
@@ -645,7 +645,7 @@ Sebuah pranala diberikan pada perbaikan terakhir level tersebut.",
 	'reviewedpages-best' => 'Perbaikan terbaik',
 );
 
-/** Icelandic (Íslenska)
+/** Icelandic (íslenska)
  * @author S.Örvarr.S
  * @author Snævar
  * @author Spacebirdy
@@ -660,7 +660,7 @@ $messages['is'] = array(
 	'reviewedpages-best' => 'besta útgáfan',
 );
 
-/** Italian (Italiano)
+/** Italian (italiano)
  * @author Beta16
  * @author Darth Kule
  * @author Gianfranco
@@ -698,7 +698,7 @@ $messages['ja'] = array(
 	'reviewedpages-best' => '最良版',
 );
 
-/** Jutish (Jysk)
+/** Jutish (jysk)
  * @author Ælsån
  */
 $messages['jut'] = array(
@@ -836,7 +836,7 @@ d'r Weurt 'n verwiezing gegaeve nao de leste versie veur det niveau.",
 	'reviewedpages-best' => 'beste versie',
 );
 
-/** Macedonian (Македонски)
+/** Macedonian (македонски)
  * @author Bjankuloski06
  * @author Brest
  */
@@ -946,7 +946,7 @@ Er wordt een verwijzing gegeven naar de laatste versie voor dat niveau.",
 	'reviewedpages-best' => 'beste versie',
 );
 
-/** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
+/** Norwegian Nynorsk (‪norsk (nynorsk)‬)
  * @author Harald Khan
  * @author Njardarlogar
  */
@@ -969,7 +969,7 @@ $messages['nso'] = array(
 	'reviewedpages-none' => 'Gago matlakala go lenano le',
 );
 
-/** Occitan (Occitan)
+/** Occitan (occitan)
  * @author Cedric31
  */
 $messages['oc'] = array(
@@ -991,7 +991,7 @@ $messages['or'] = array(
 	'reviewedpages' => 'ସମୀକ୍ଷା ପୃଷ୍ଠା',
 );
 
-/** Polish (Polski)
+/** Polish (polski)
  * @author Leinad
  * @author Sp5uhe
  */
@@ -1029,7 +1029,7 @@ $messages['ps'] = array(
 	'reviewedpages-none' => 'په همدې لړليک کې هېڅ کوم مخ نشته',
 );
 
-/** Portuguese (Português)
+/** Portuguese (português)
  * @author 555
  * @author Giro720
  * @author Hamilton Abreu
@@ -1049,7 +1049,7 @@ $messages['pt'] = array(
 	'reviewedpages-best' => 'melhor edição',
 );
 
-/** Brazilian Portuguese (Português do Brasil)
+/** Brazilian Portuguese (português do Brasil)
  * @author Eduardo.mps
  * @author Giro720
  */
@@ -1066,7 +1066,7 @@ Existe um link para a última edição com o mesmo nível.',
 	'reviewedpages-best' => 'melhor revisão',
 );
 
-/** Romanian (Română)
+/** Romanian (română)
  * @author Firilacroco
  * @author KlaudiuMihaila
  * @author Mihai
@@ -1084,7 +1084,7 @@ O legătură către ultima revizie de acel nivel este furnizată.",
 	'reviewedpages-best' => 'cea mai bună revizie',
 );
 
-/** Tarandíne (Tarandíne)
+/** tarandíne (tarandíne)
  * @author Joetaras
  */
 $messages['roa-tara'] = array(
@@ -1100,7 +1100,7 @@ $messages['roa-tara'] = array(
 	'reviewedpages-best' => 'megghia revisione',
 );
 
-/** Russian (Русский)
+/** Russian (русский)
  * @author Ferrer
  * @author Александр Сигачёв
  */
@@ -1130,7 +1130,7 @@ $messages['rue'] = array(
 	'reviewedpages-best' => 'найлїпша верзія',
 );
 
-/** Sakha (Саха тыла)
+/** Sakha (саха тыла)
  * @author HalanTul
  */
 $messages['sah'] = array(
@@ -1157,7 +1157,7 @@ $messages['si'] = array(
 	'reviewedpages-best' => 'හොඳම සංශෝධනය',
 );
 
-/** Slovak (Slovenčina)
+/** Slovak (slovenčina)
  * @author Helix84
  */
 $messages['sk'] = array(
@@ -1172,7 +1172,7 @@ $messages['sk'] = array(
 	'reviewedpages-best' => 'primárna revízia',
 );
 
-/** Slovenian (Slovenščina)
+/** Slovenian (slovenščina)
  * @author Dbc334
  */
 $messages['sl'] = array(
@@ -1185,7 +1185,7 @@ Podana je tudi povezava do najnovejše redakcije te stopnje.",
 	'reviewedpages-best' => 'najboljša redakcija',
 );
 
-/** Albanian (Shqip)
+/** Albanian (shqip)
  * @author Puntori
  * @author Tëfcí
  */
@@ -1194,7 +1194,7 @@ $messages['sq'] = array(
 	'reviewedpages-all' => 'versione të shqyrtuara',
 );
 
-/** Serbian (Cyrillic script) (‪Српски (ћирилица)‬)
+/** Serbian (Cyrillic script) (‪српски (ћирилица)‬)
  * @author Charmed94
  * @author Millosh
  * @author Rancher
@@ -1215,7 +1215,7 @@ $messages['sr-ec'] = array(
 	'reviewedpages-best' => 'најбоља измена',
 );
 
-/** Serbian (Latin script) (‪Srpski (latinica)‬)
+/** Serbian (Latin script) (‪srpski (latinica)‬)
  * @author Michaello
  * @author Михајло Анђелковић
  */
@@ -1255,7 +1255,7 @@ $messages['su'] = array(
 	'reviewedpages-lev-2' => 'Petingan',
 );
 
-/** Swedish (Svenska)
+/** Swedish (svenska)
  * @author Boivie
  * @author Dafer45
  * @author Lejonel
@@ -1301,7 +1301,7 @@ $messages['te'] = array(
 	'reviewedpages-best' => 'ఉత్తమ కూర్పు',
 );
 
-/** Tajik (Cyrillic script) (Тоҷикӣ)
+/** Tajik (Cyrillic script) (тоҷикӣ)
  * @author Ibrahim
  */
 $messages['tg-cyrl'] = array(
@@ -1316,7 +1316,7 @@ $messages['tg-cyrl'] = array(
 	'reviewedpages-best' => 'нусхаи беҳтарин',
 );
 
-/** Tajik (Latin script) (Tojikī)
+/** Tajik (Latin script) (tojikī)
  * @author Liangent
  */
 $messages['tg-latn'] = array(
@@ -1376,7 +1376,7 @@ O seviyedeki en son revizyona bağlantı verilmiştir.",
 	'reviewedpages-best' => 'en iyi revizyon',
 );
 
-/** Ukrainian (Українська)
+/** Ukrainian (українська)
  * @author Ahonc
  * @author Prima klasy4na
  */
@@ -1393,7 +1393,7 @@ $messages['uk'] = array(
 	'reviewedpages-best' => 'найкраща версія',
 );
 
-/** Vèneto (Vèneto)
+/** vèneto (vèneto)
  * @author Candalua
  */
 $messages['vec'] = array(
@@ -1467,7 +1467,7 @@ $messages['yue'] = array(
 	'reviewedpages-best' => '最好修訂',
 );
 
-/** Simplified Chinese (‪中文(简体)‬)
+/** Simplified Chinese (‪中文（简体）‬)
  * @author PhiLiP
  * @author Shinjiman
  */
@@ -1483,7 +1483,7 @@ $messages['zh-hans'] = array(
 	'reviewedpages-best' => '最佳修订',
 );
 
-/** Traditional Chinese (‪中文(繁體)‬)
+/** Traditional Chinese (‪中文（繁體）‬)
  * @author Horacewai2
  * @author Shinjiman
  * @author Waihorace

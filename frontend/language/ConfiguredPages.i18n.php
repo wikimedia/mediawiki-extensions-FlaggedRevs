@@ -83,7 +83,7 @@ $messages['arc'] = array(
 	'configuredpages-def-draft' => 'ܨܚܚܐ ܚܕܬ ܡܢ ܟܠ',
 );
 
-/** Asturian (Asturianu)
+/** Asturian (asturianu)
  * @author Xuacu
  */
 $messages['ast'] = array(
@@ -96,7 +96,7 @@ Dalgunes preferencies puen camudar la versión que s'amuesa a los llectores o to
 	'configuredpages-def-stable' => 'versión estable',
 );
 
-/** Azerbaijani (Azərbaycanca)
+/** Azerbaijani (azərbaycanca)
  * @author Vugar 1981
  */
 $messages['az'] = array(
@@ -107,7 +107,7 @@ $messages['az'] = array(
 	'configuredpages-def-stable' => 'qərarlı versiya',
 );
 
-/** Belarusian (Беларуская)
+/** Belarusian (беларуская)
  * @author Yury Tarasievich
  * @author Хомелка
  */
@@ -136,7 +136,7 @@ $messages['be-tarask'] = array(
 	'configuredpages-def-stable' => 'апублікаваная вэрсія',
 );
 
-/** Bulgarian (Български)
+/** Bulgarian (български)
  * @author Spiritia
  * @author Turin
  */
@@ -160,7 +160,7 @@ $messages['bn'] = array(
 	'configuredpages-def-stable' => 'স্থিতিশীল সংস্করণ',
 );
 
-/** Breton (Brezhoneg)
+/** Breton (brezhoneg)
  * @author Fulup
  * @author Y-M D
  */
@@ -174,7 +174,7 @@ Arventennoù zo a c'hall lakaat da cheñch ar stumm diskwelet d'al lennerien pe 
 	'configuredpages-def-stable' => 'stumm embannet',
 );
 
-/** Bosnian (Bosanski)
+/** Bosnian (bosanski)
  * @author CERminator
  */
 $messages['bs'] = array(
@@ -187,7 +187,7 @@ Neke postavke mogu promijeniti vidljivost vezije koja je prikazana čitaocu ili 
 	'configuredpages-def-stable' => 'stabilna verzija',
 );
 
-/** Catalan (Català)
+/** Catalan (català)
  * @author Paucabot
  */
 $messages['ca'] = array(
@@ -204,7 +204,7 @@ $messages['ce'] = array(
 	'configuredpages-def-stable' => 'чутоьхна йолу варси',
 );
 
-/** Czech (Česky)
+/** Czech (česky)
  * @author Jezevec
  * @author Jkjk
  */
@@ -218,7 +218,7 @@ Některá nstavení mohou změnit verzi zobrazenou čtenářům nebo omezit skup
 	'configuredpages-def-stable' => 'stabilní verze',
 );
 
-/** Danish (Dansk)
+/** Danish (dansk)
  * @author Froztbyte
  */
 $messages['da'] = array(
@@ -293,7 +293,7 @@ Kelkaj agordoj eble ŝanĝos kiun version estos montrita al legantoj aŭ plu lim
 	'configuredpages-def-stable' => 'publikigita versio',
 );
 
-/** Spanish (Español)
+/** Spanish (español)
  * @author Dferg
  * @author Peter17
  */
@@ -307,7 +307,7 @@ Algunos ajustes puede que cambien qué versión es mostrada a los lectores o pue
 	'configuredpages-def-stable' => 'versión publicada',
 );
 
-/** Estonian (Eesti)
+/** Estonian (eesti)
  * @author Pikne
  */
 $messages['et'] = array(
@@ -320,7 +320,7 @@ Mõnest sättest võib oleneda, milline versioon lugejale kuvatakse või kes saa
 	'configuredpages-def-stable' => 'püsiv versioon',
 );
 
-/** Basque (Euskara)
+/** Basque (euskara)
  * @author Joxemai
  */
 $messages['eu'] = array(
@@ -348,7 +348,7 @@ $messages['fa'] = array(
 	'configuredpages-def-stable' => 'نسخه پایدار',
 );
 
-/** Finnish (Suomi)
+/** Finnish (suomi)
  * @author Olli
  * @author Pxos
  */
@@ -362,7 +362,7 @@ Jotkut asetukset saattavat vaikuttaa siihen, mikä versio näytetään lukijoill
 	'configuredpages-def-stable' => 'vakaa versio',
 );
 
-/** French (Français)
+/** French (français)
  * @author Peter17
  */
 $messages['fr'] = array(
@@ -375,7 +375,7 @@ Certains paramètres peuvent faire apparaître une version différente pour les 
 	'configuredpages-def-stable' => 'version publiée',
 );
 
-/** Franco-Provençal (Arpetan)
+/** Franco-Provençal (arpetan)
  * @author ChrisPtDe
  */
 $messages['frp'] = array(
@@ -440,7 +440,7 @@ $messages['hi'] = array(
 	'configuredpages-def-stable' => 'स्थिर रूपांतर',
 );
 
-/** Croatian (Hrvatski)
+/** Croatian (hrvatski)
  * @author Ex13
  * @author SpeedyGonsales
  */
@@ -467,7 +467,7 @@ Někotre nastajenja móhli změnić, kotra wersija so zwobraznja abo dale wobmje
 	'configuredpages-def-stable' => 'wozjewjena wersija',
 );
 
-/** Hungarian (Magyar)
+/** Hungarian (magyar)
  * @author Glanthor Reviol
  */
 $messages['hu'] = array(
@@ -480,7 +480,7 @@ Néhány beállítás megváltoztathatja, az olvasók melyik változatot látjá
 	'configuredpages-def-stable' => 'közzétett változat',
 );
 
-/** Interlingua (Interlingua)
+/** Interlingua (interlingua)
  * @author McDutchie
  */
 $messages['ia'] = array(
@@ -507,7 +507,7 @@ $messages['id'] = array(
 	'configuredpages-def-stable' => 'versi stabil',
 );
 
-/** Italian (Italiano)
+/** Italian (italiano)
  * @author Aushulz
  * @author Beta16
  * @author Ximo17
@@ -599,7 +599,7 @@ $messages['li'] = array(
 	'configuredpages-def-stable' => 'gepubliceerde versie',
 );
 
-/** Lithuanian (Lietuvių)
+/** Lithuanian (lietuvių)
  * @author Eitvys200
  * @author Vpovilaitis
  */
@@ -613,7 +613,7 @@ Kai kuriuos parametrus gali keisti, kurių versija yra rodoma skaitytojams arba 
 	'configuredpages-def-stable' => 'stabili versija',
 );
 
-/** Macedonian (Македонски)
+/** Macedonian (македонски)
  * @author Bjankuloski06
  */
 $messages['mk'] = array(
@@ -678,7 +678,7 @@ Instellingen wijzigen welke versie wordt weergegeven aan lezers of beperken wie 
 	'configuredpages-def-stable' => 'gepubliceerde versie',
 );
 
-/** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
+/** Norwegian Nynorsk (‪norsk (nynorsk)‬)
  * @author Nghtwlkr
  */
 $messages['nn'] = array(
@@ -686,7 +686,7 @@ $messages['nn'] = array(
 	'configuredpages-def-stable' => 'publisert versjon',
 );
 
-/** Occitan (Occitan)
+/** Occitan (occitan)
  * @author Cedric31
  */
 $messages['oc'] = array(
@@ -702,7 +702,7 @@ $messages['or'] = array(
 	'configuredpages-def-stable' => 'ସ୍ଥିର ସଂସ୍କରଣ',
 );
 
-/** Polish (Polski)
+/** Polish (polski)
  * @author Sp5uhe
  */
 $messages['pl'] = array(
@@ -736,7 +736,7 @@ $messages['ps'] = array(
 	'configuredpages-none' => 'په همدې لړليک کې هېڅ کوم مخ نشته',
 );
 
-/** Portuguese (Português)
+/** Portuguese (português)
  * @author Hamilton Abreu
  */
 $messages['pt'] = array(
@@ -749,7 +749,7 @@ Alguns parâmetros podem alterar a versão que é apresentada aos utilizadores, 
 	'configuredpages-def-stable' => 'versão publicada',
 );
 
-/** Brazilian Portuguese (Português do Brasil)
+/** Brazilian Portuguese (português do Brasil)
  * @author Giro720
  */
 $messages['pt-br'] = array(
@@ -762,7 +762,7 @@ Alguns parâmetros podem alterar a versão que é apresentada aos usuários, ou 
 	'configuredpages-def-stable' => 'versão publicada',
 );
 
-/** Romanian (Română)
+/** Romanian (română)
  * @author Cin
  * @author Firilacroco
  * @author Minisarm
@@ -774,7 +774,7 @@ $messages['ro'] = array(
 	'configuredpages-def-stable' => 'versiune stabilă',
 );
 
-/** Tarandíne (Tarandíne)
+/** tarandíne (tarandíne)
  * @author Joetaras
  */
 $messages['roa-tara'] = array(
@@ -786,7 +786,7 @@ $messages['roa-tara'] = array(
 	'configuredpages-def-stable' => 'versiona secure',
 );
 
-/** Russian (Русский)
+/** Russian (русский)
  * @author Kaganer
  * @author Александр Сигачёв
  */
@@ -813,7 +813,7 @@ $messages['rue'] = array(
 	'configuredpages-def-stable' => 'опублікована верзія',
 );
 
-/** Sakha (Саха тыла)
+/** Sakha (саха тыла)
  * @author HalanTul
  */
 $messages['sah'] = array(
@@ -824,7 +824,7 @@ $messages['sah'] = array(
 	'configuredpages-def-stable' => 'бигэ барыл',
 );
 
-/** Sardinian (Sardu)
+/** Sardinian (sardu)
  * @author Andria
  */
 $messages['sc'] = array(
@@ -842,7 +842,7 @@ $messages['si'] = array(
 	'configuredpages-def-stable' => 'ස්ථාවර අනුවාදය',
 );
 
-/** Slovak (Slovenčina)
+/** Slovak (slovenčina)
  * @author Helix84
  */
 $messages['sk'] = array(
@@ -855,7 +855,7 @@ Niektoré nastavenia môžu meniť verziu, ktorá je zobrazená pre čitateľa, 
 	'configuredpages-def-stable' => 'stabilná verzia',
 );
 
-/** Slovenian (Slovenščina)
+/** Slovenian (slovenščina)
  * @author Dbc334
  */
 $messages['sl'] = array(
@@ -868,7 +868,7 @@ Nekatere nastavitve morda spremenijo, katera različica je prikazana bralcem, al
 	'configuredpages-def-stable' => 'stabilna različica',
 );
 
-/** Serbian (Cyrillic script) (‪Српски (ћирилица)‬)
+/** Serbian (Cyrillic script) (‪српски (ћирилица)‬)
  * @author Жељко Тодоровић
  * @author Михајло Анђелковић
  */
@@ -876,14 +876,14 @@ $messages['sr-ec'] = array(
 	'configuredpages-config' => 'Подешавања',
 );
 
-/** Serbian (Latin script) (‪Srpski (latinica)‬)
+/** Serbian (Latin script) (‪srpski (latinica)‬)
  * @author Жељко Тодоровић
  */
 $messages['sr-el'] = array(
 	'configuredpages-config' => 'Podešavanja',
 );
 
-/** Swedish (Svenska)
+/** Swedish (svenska)
  * @author Ainali
  * @author Boivie
  * @author Dafer45
@@ -979,7 +979,7 @@ $messages['uk'] = array(
 	'configuredpages-def-stable' => 'опублікована версія',
 );
 
-/** Vèneto (Vèneto)
+/** vèneto (vèneto)
  * @author Candalua
  */
 $messages['vec'] = array(
@@ -1006,7 +1006,7 @@ Một số tùy chọn có thể có ảnh hưởng đến phiên bản được
 	'configuredpages-def-stable' => 'phiên bản xuất bản',
 );
 
-/** Simplified Chinese (‪中文(简体)‬)
+/** Simplified Chinese (‪中文（简体）‬)
  * @author Onecountry
  * @author PhiLiP
  */
@@ -1019,7 +1019,7 @@ $messages['zh-hans'] = array(
 	'configuredpages-def-stable' => '稳定版本',
 );
 
-/** Traditional Chinese (‪中文(繁體)‬)
+/** Traditional Chinese (‪中文（繁體）‬)
  * @author Horacewai2
  * @author Waihorace
  */

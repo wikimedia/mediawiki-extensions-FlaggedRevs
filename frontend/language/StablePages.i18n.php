@@ -105,7 +105,7 @@ $messages['arz'] = array(
 	'stablepages-config' => 'ضبط',
 );
 
-/** Asturian (Asturianu)
+/** Asturian (asturianu)
  * @author Xuacu
  */
 $messages['ast'] = array(
@@ -127,7 +127,7 @@ $messages['bcc'] = array(
 	'stablepages-config' => 'تنظیمات',
 );
 
-/** Belarusian (Беларуская)
+/** Belarusian (беларуская)
  * @author Хомелка
  */
 $messages['be'] = array(
@@ -153,7 +153,7 @@ $messages['be-tarask'] = array(
 	'stablepages-indef' => 'Толькі зь непазначаным тэрмінам',
 );
 
-/** Bulgarian (Български)
+/** Bulgarian (български)
  * @author DCLXVI
  */
 $messages['bg'] = array(
@@ -169,7 +169,7 @@ $messages['bn'] = array(
 	'stablepages-config' => 'কনফিগারেশন',
 );
 
-/** Breton (Brezhoneg)
+/** Breton (brezhoneg)
  * @author Fohanno
  * @author Fulup
  * @author Y-M D
@@ -183,7 +183,7 @@ Gant se, ne vo diskouezet dre ziouer d'al lennerien ar c'hemmoù graet gant impl
 	'stablepages-indef' => 'Padelezh termen amfin hepken',
 );
 
-/** Bosnian (Bosanski)
+/** Bosnian (bosanski)
  * @author CERminator
  */
 $messages['bs'] = array(
@@ -195,7 +195,7 @@ Izmjene drugih korisnika nisu prikazane čitaocima po postavkama dok ih ne provj
 	'stablepages-indef' => 'Samo bez isteka roka',
 );
 
-/** Catalan (Català)
+/** Catalan (català)
  * @author Aleator
  * @author Jordi Roqué
  * @author Paucabot
@@ -206,7 +206,7 @@ $messages['ca'] = array(
 	'stablepages-config' => 'Configuració',
 );
 
-/** Czech (Česky)
+/** Czech (česky)
  * @author Danny B.
  * @author Jezevec
  * @author Matěj Grabovský
@@ -220,7 +220,7 @@ $messages['cs'] = array(
 	'stablepages-indef' => 'Pouze neurčitá expirace',
 );
 
-/** Danish (Dansk)
+/** Danish (dansk)
  * @author Froztbyte
  */
 $messages['da'] = array(
@@ -293,7 +293,7 @@ $messages['eo'] = array(
 	'stablepages-indef' => 'Nur maldefinita findato',
 );
 
-/** Spanish (Español)
+/** Spanish (español)
  * @author Bola
  * @author Crazymadlover
  * @author Dferg
@@ -309,7 +309,7 @@ Las ediciones hechas por otros usuarios no son mostradas a los lectores por defe
 	'stablepages-indef' => 'Sólo caducidad infinita',
 );
 
-/** Estonian (Eesti)
+/** Estonian (eesti)
  * @author Pikne
  */
 $messages['et'] = array(
@@ -319,7 +319,7 @@ $messages['et'] = array(
 	'stablepages-config' => 'Sätted',
 );
 
-/** Basque (Euskara)
+/** Basque (euskara)
  * @author An13sa
  * @author Kobazulo
  */
@@ -343,7 +343,7 @@ $messages['fa'] = array(
 	'stablepages-indef' => 'فقط انقضای نامحدود',
 );
 
-/** Finnish (Suomi)
+/** Finnish (suomi)
  * @author Cimon Avaro
  * @author Crt
  * @author Olli
@@ -360,7 +360,7 @@ Muiden käyttäjien tekemiä muokkauksia ei näytetä, ennen kuin valtuutettu k�
 	'stablepages-indef' => 'Vain määrittämätön vanhentumisaika',
 );
 
-/** French (Français)
+/** French (français)
  * @author Crochet.david
  * @author Grondin
  * @author IAlex
@@ -378,7 +378,7 @@ Les modifications faites par les autres utilisateurs ne sont pas affichées par 
 	'stablepages-indef' => 'Délai d’expiration infini seulement',
 );
 
-/** Franco-Provençal (Arpetan)
+/** Franco-Provençal (arpetan)
  * @author ChrisPtDe
  */
 $messages['frp'] = array(
@@ -451,7 +451,7 @@ $messages['hi'] = array(
 	'stablepages-indef' => 'केबल असीमित अबसान',
 );
 
-/** Croatian (Hrvatski)
+/** Croatian (hrvatski)
  * @author Dalibor Bosits
  * @author Ex13
  * @author SpeedyGonsales
@@ -476,7 +476,7 @@ $messages['hsb'] = array(
 	'stablepages-indef' => 'Jenož z njepostajenym spadnjenjom',
 );
 
-/** Hungarian (Magyar)
+/** Hungarian (magyar)
  * @author Dani
  * @author Glanthor Reviol
  * @author Misibacsi
@@ -490,7 +490,7 @@ $messages['hu'] = array(
 	'stablepages-indef' => 'Csak határozatlan lejárat',
 );
 
-/** Interlingua (Interlingua)
+/** Interlingua (interlingua)
  * @author McDutchie
  */
 $messages['ia'] = array(
@@ -517,7 +517,7 @@ $messages['id'] = array(
 	'stablepages-indef' => 'Hanya untuk kedaluwarsa tak terbatas',
 );
 
-/** Italian (Italiano)
+/** Italian (italiano)
  * @author Beta16
  * @author Blaisorblade
  * @author Darth Kule
@@ -618,14 +618,14 @@ Bewerkinge door anger gebroekers waere neet weergegaeve toetdet daotoe gerechtig
 	'stablepages-indef' => 'Allein zonger vervaldatum',
 );
 
-/** Lithuanian (Lietuvių)
+/** Lithuanian (lietuvių)
  * @author Eitvys200
  */
 $messages['lt'] = array(
 	'stablepages-config' => 'Konfigūracija',
 );
 
-/** Macedonian (Македонски)
+/** Macedonian (македонски)
  * @author Bjankuloski06
  * @author Brest
  */
@@ -711,7 +711,7 @@ Bewerkingen door andere gebruikers worden niet weergegeven totdat daartoe gerech
 	'stablepages-indef' => 'Alleen zonder vervaldatum',
 );
 
-/** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
+/** Norwegian Nynorsk (‪norsk (nynorsk)‬)
  * @author Harald Khan
  * @author Njardarlogar
  */
@@ -722,7 +722,7 @@ $messages['nn'] = array(
 	'stablepages-config' => 'Konfigurering',
 );
 
-/** Occitan (Occitan)
+/** Occitan (occitan)
  * @author Cedric31
  */
 $messages['oc'] = array(
@@ -732,7 +732,7 @@ $messages['oc'] = array(
 	'stablepages-config' => 'Configuracion',
 );
 
-/** Polish (Polski)
+/** Polish (polski)
  * @author Leinad
  * @author Sp5uhe
  * @author ToSter
@@ -758,7 +758,7 @@ $messages['pms'] = array(
 	'stablepages-indef' => 'Mach fin andefinìa',
 );
 
-/** Portuguese (Português)
+/** Portuguese (português)
  * @author 555
  * @author Hamilton Abreu
  * @author Waldir
@@ -772,7 +772,7 @@ Edições de outros utilizadores não são apresentadas aos leitores até que um
 	'stablepages-indef' => 'Somente de expiração infinita',
 );
 
-/** Brazilian Portuguese (Português do Brasil)
+/** Brazilian Portuguese (português do Brasil)
  * @author Eduardo.mps
  * @author Giro720
  */
@@ -785,7 +785,7 @@ Edições de outros utilizadores não são apresentadas aos leitores até que um
 	'stablepages-indef' => 'Somente de expiração infinita',
 );
 
-/** Romanian (Română)
+/** Romanian (română)
  * @author Firilacroco
  * @author KlaudiuMihaila
  * @author Mihai
@@ -797,7 +797,7 @@ $messages['ro'] = array(
 	'stablepages-config' => 'Configurație',
 );
 
-/** Tarandíne (Tarandíne)
+/** tarandíne (tarandíne)
  * @author Joetaras
  */
 $messages['roa-tara'] = array(
@@ -809,7 +809,7 @@ Certe cangiaminde non ge ponne essere pubblecate fine ca 'n'utende autorizzate n
 	'stablepages-indef' => "Sualmende 'na scadenze indefinite",
 );
 
-/** Russian (Русский)
+/** Russian (русский)
  * @author Claymore
  * @author G0rn
  * @author Александр Сигачёв
@@ -834,7 +834,7 @@ $messages['rue'] = array(
 	'stablepages-indef' => 'Лем неіста експірація',
 );
 
-/** Sakha (Саха тыла)
+/** Sakha (саха тыла)
  * @author HalanTul
  */
 $messages['sah'] = array(
@@ -853,7 +853,7 @@ $messages['si'] = array(
 	'stablepages-indef' => 'අනිශ්චිත කල් ඉකුත් වීම පමණි',
 );
 
-/** Slovak (Slovenčina)
+/** Slovak (slovenčina)
  * @author Helix84
  */
 $messages['sk'] = array(
@@ -864,7 +864,7 @@ $messages['sk'] = array(
 	'stablepages-indef' => 'Vypršanie iba na dobu neurčitú',
 );
 
-/** Slovenian (Slovenščina)
+/** Slovenian (slovenščina)
  * @author Dbc334
  */
 $messages['sl'] = array(
@@ -876,7 +876,7 @@ Urejanja, ki jih naredijo ostali uporabniki, privzeto niso prikazana bralcem, do
 	'stablepages-indef' => 'Samo neomejen potek',
 );
 
-/** Serbian (Cyrillic script) (‪Српски (ћирилица)‬)
+/** Serbian (Cyrillic script) (‪српски (ћирилица)‬)
  * @author Charmed94
  * @author Millosh
  * @author Rancher
@@ -890,7 +890,7 @@ $messages['sr-ec'] = array(
 	'stablepages-config' => 'Поставке',
 );
 
-/** Serbian (Latin script) (‪Srpski (latinica)‬)
+/** Serbian (Latin script) (‪srpski (latinica)‬)
  * @author Michaello
  * @author Жељко Тодоровић
  */
@@ -902,7 +902,7 @@ Izmene drugih korisnika po podrazumevanom nisu prikazane čitaocima dok ih ne pr
 	'stablepages-config' => 'Podešavanje',
 );
 
-/** Swedish (Svenska)
+/** Swedish (svenska)
  * @author Boivie
  * @author M.M.S.
  */
@@ -988,7 +988,7 @@ $messages['uk'] = array(
 	'stablepages-indef' => 'Тільки з невизначеним строком',
 );
 
-/** Vèneto (Vèneto)
+/** vèneto (vèneto)
  * @author Candalua
  */
 $messages['vec'] = array(
@@ -1041,7 +1041,7 @@ $messages['yue'] = array(
 	'stablepages-config' => '設定',
 );
 
-/** Simplified Chinese (‪中文(简体)‬)
+/** Simplified Chinese (‪中文（简体）‬)
  * @author Gaoxuewei
  * @author Hydra
  * @author PhiLiP
@@ -1056,7 +1056,7 @@ $messages['zh-hans'] = array(
 	'stablepages-indef' => '只限永久到期',
 );
 
-/** Traditional Chinese (‪中文(繁體)‬)
+/** Traditional Chinese (‪中文（繁體）‬)
  * @author Gaoxuewei
  * @author Horacewai2
  * @author Shinjiman

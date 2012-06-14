@@ -181,7 +181,7 @@ $messages['arz'] = array(
 	'validationstatistics-reviews' => 'مراجعات',
 );
 
-/** Asturian (Asturianu)
+/** Asturian (asturianu)
  * @author Esbardu
  * @author Xuacu
  */
@@ -209,7 +209,7 @@ $3",
 	'validationstatistics-reviews' => 'Revisiones',
 );
 
-/** Azerbaijani (Azərbaycanca)
+/** Azerbaijani (azərbaycanca)
  * @author Cekli829
  * @author Vugar 1981
  */
@@ -221,7 +221,7 @@ $messages['az'] = array(
 	'validationstatistics-reviews' => 'Yoxlamalar',
 );
 
-/** Belarusian (Беларуская)
+/** Belarusian (беларуская)
  * @author Хомелка
  */
 $messages['be'] = array(
@@ -276,7 +276,7 @@ $3",
 	'validationstatistics-reviews' => 'Рэцэнзіяў',
 );
 
-/** Bulgarian (Български)
+/** Bulgarian (български)
  * @author DCLXVI
  * @author Spiritia
  * @author Turin
@@ -300,7 +300,7 @@ $messages['bn'] = array(
 	'validationstatistics-user' => 'ব্যবহারকারী',
 );
 
-/** Breton (Brezhoneg)
+/** Breton (brezhoneg)
  * @author Fulup
  * @author Gwendal
  * @author Y-M D
@@ -328,7 +328,7 @@ An dale keitat evit [[Special:OldReviewedPages|ar pajennoù a c'hortoz bezañ ad
 	'validationstatistics-reviews' => 'Adweladennoù',
 );
 
-/** Bosnian (Bosanski)
+/** Bosnian (bosanski)
  * @author CERminator
  */
 $messages['bs'] = array(
@@ -354,7 +354,7 @@ $3",
 	'validationstatistics-reviews' => 'Pregledi',
 );
 
-/** Catalan (Català)
+/** Catalan (català)
  * @author Aleator
  * @author SMP
  * @author Solde
@@ -384,12 +384,12 @@ $messages['ce'] = array(
 	'validationstatistics-reviews' => 'Нийса йуй хьажар',
 );
 
-/** Sorani (کوردی) */
+/** Sorani Kurdish (کوردی) */
 $messages['ckb'] = array(
 	'validationstatistics-user' => 'بەکارهێنەر',
 );
 
-/** Czech (Česky)
+/** Czech (česky)
  * @author Jezevec
  * @author Jkjk
  * @author Kuvaly
@@ -425,7 +425,7 @@ $messages['cu'] = array(
 	'validationstatistics-total' => 'страницѧ',
 );
 
-/** Danish (Dansk)
+/** Danish (dansk)
  * @author Froztbyte
  */
 $messages['da'] = array(
@@ -574,7 +574,7 @@ $3",
 	'validationstatistics-reviews' => 'Kontrolaĵoj',
 );
 
-/** Spanish (Español)
+/** Spanish (español)
  * @author Bola
  * @author Crazymadlover
  * @author Dferg
@@ -604,7 +604,7 @@ La demora mide cuanto la edición pendiente más antigua ha estado sin revisar."
 	'validationstatistics-reviews' => 'Revisiones',
 );
 
-/** Estonian (Eesti)
+/** Estonian (eesti)
  * @author Avjoska
  * @author KalmerE.
  * @author Pikne
@@ -632,7 +632,7 @@ $3",
 	'validationstatistics-reviews' => 'Ülevaatamisi',
 );
 
-/** Basque (Euskara)
+/** Basque (euskara)
  * @author An13sa
  * @author Kobazulo
  */
@@ -675,7 +675,7 @@ $3",
 	'validationstatistics-reviews' => 'بازبینی‌ها',
 );
 
-/** Finnish (Suomi)
+/** Finnish (suomi)
  * @author Cimon Avaro
  * @author Crt
  * @author Mies
@@ -710,7 +710,7 @@ $3",
 	'validationstatistics-reviews' => 'Arviointeja',
 );
 
-/** French (Français)
+/** French (français)
  * @author Crochet.david
  * @author Grondin
  * @author IAlex
@@ -743,14 +743,14 @@ $3",
 	'validationstatistics-reviews' => 'Relecteurs',
 );
 
-/** Cajun French (Français cadien)
+/** Cajun French (français cadien)
  * @author Ebe123
  */
 $messages['frc'] = array(
 	'validationstatistics-user' => 'Useur',
 );
 
-/** Franco-Provençal (Arpetan)
+/** Franco-Provençal (arpetan)
  * @author ChrisPtDe
  */
 $messages['frp'] = array(
@@ -922,7 +922,7 @@ $messages['hil'] = array(
 	'validationstatistics-user' => 'Naga-Usar',
 );
 
-/** Croatian (Hrvatski)
+/** Croatian (hrvatski)
  * @author Dalibor Bosits
  * @author Ex13
  * @author Herr Mlinka
@@ -977,7 +977,7 @@ Přerězny komdźenje za [[Special:OldReviewedPages|strony z njepřepruwowane zm
 	'validationstatistics-reviews' => 'Přepruwowanja',
 );
 
-/** Hungarian (Magyar)
+/** Hungarian (magyar)
  * @author Bdamokos
  * @author BáthoryPéter
  * @author Dani
@@ -1010,7 +1010,7 @@ $3",
 	'validationstatistics-reviews' => 'Ellenőrzések',
 );
 
-/** Interlingua (Interlingua)
+/** Interlingua (interlingua)
  * @author McDutchie
  */
 $messages['ia'] = array(
@@ -1089,7 +1089,7 @@ $messages['io'] = array(
 	'validationstatistics-user' => 'Uzanto',
 );
 
-/** Icelandic (Íslenska)
+/** Icelandic (íslenska)
  * @author Snævar
  * @author Spacebirdy
  */
@@ -1113,7 +1113,7 @@ $3",
 	'validationstatistics-old' => 'Úreldar',
 );
 
-/** Italian (Italiano)
+/** Italian (italiano)
  * @author Beta16
  * @author Blaisorblade
  * @author Darth Kule
@@ -1316,7 +1316,7 @@ $messages['ku-latn'] = array(
 	'validationstatistics-user' => 'Bikarhêner',
 );
 
-/** Cornish (Kernowek)
+/** Cornish (kernowek)
  * @author Kernoweger
  * @author Kw-Moon
  */
@@ -1370,7 +1370,7 @@ $3",
 	'validationstatistics-reviews' => 'Beoeardeilinge',
 );
 
-/** Lithuanian (Lietuvių)
+/** Lithuanian (lietuvių)
  * @author Eitvys200
  */
 $messages['lt'] = array(
@@ -1380,7 +1380,7 @@ $messages['lt'] = array(
 	'validationstatistics-reviews' => 'Peržiūros',
 );
 
-/** Latgalian (Latgaļu)
+/** Latgalian (latgaļu)
  * @author Dark Eagle
  */
 $messages['ltg'] = array(
@@ -1396,7 +1396,7 @@ $messages['mhr'] = array(
 	'validationstatistics-ns' => 'Лӱм-влакын кумдыкышт',
 );
 
-/** Macedonian (Македонски)
+/** Macedonian (македонски)
  * @author Bjankuloski06
  * @author Brest
  */
@@ -1451,7 +1451,7 @@ $3",
 	'validationstatistics-reviews' => 'സംശോധനങ്ങൾ',
 );
 
-/** Mongolian (Монгол)
+/** Mongolian (монгол)
  * @author Chinneeb
  */
 $messages['mn'] = array(
@@ -1566,7 +1566,7 @@ $3",
 	'validationstatistics-reviews' => 'Beoordelingen',
 );
 
-/** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
+/** Norwegian Nynorsk (‪norsk (nynorsk)‬)
  * @author Gunnernett
  * @author Harald Khan
  * @author Njardarlogar
@@ -1585,7 +1585,7 @@ $messages['nn'] = array(
 	'validationstatistics-user' => 'Brukar',
 );
 
-/** Occitan (Occitan)
+/** Occitan (occitan)
  * @author Cedric31
  */
 $messages['oc'] = array(
@@ -1626,7 +1626,7 @@ $messages['pdc'] = array(
 	'validationstatistics-user' => 'Yuuser',
 );
 
-/** Polish (Polski)
+/** Polish (polski)
  * @author Fizykaa
  * @author Jwitos
  * @author Leinad
@@ -1695,7 +1695,7 @@ $messages['ps'] = array(
 	'validationstatistics-user' => 'کارن',
 );
 
-/** Portuguese (Português)
+/** Portuguese (português)
  * @author 555
  * @author Alchimista
  * @author Giro720
@@ -1727,7 +1727,7 @@ $3",
 	'validationstatistics-reviews' => 'Revisões',
 );
 
-/** Brazilian Portuguese (Português do Brasil)
+/** Brazilian Portuguese (português do Brasil)
  * @author Eduardo.mps
  * @author Giro720
  */
@@ -1754,7 +1754,7 @@ $3",
 	'validationstatistics-reviews' => 'Análises',
 );
 
-/** Romanian (Română)
+/** Romanian (română)
  * @author Cin
  * @author Firilacroco
  * @author KlaudiuMihaila
@@ -1779,7 +1779,7 @@ Editorii și recenzorii sunt utilizatori stabiliți care pot verifica modificăr
 	'validationstatistics-reviews' => 'Recenzii',
 );
 
-/** Tarandíne (Tarandíne)
+/** tarandíne (tarandíne)
  * @author Joetaras
  */
 $messages['roa-tara'] = array(
@@ -1805,7 +1805,7 @@ $3",
 	'validationstatistics-reviews' => 'Reviste',
 );
 
-/** Russian (Русский)
+/** Russian (русский)
  * @author Ahonc
  * @author AlexSm
  * @author Claymore
@@ -1872,7 +1872,7 @@ $messages['sa'] = array(
 	'validationstatistics-user' => 'योजक',
 );
 
-/** Sakha (Саха тыла)
+/** Sakha (саха тыла)
  * @author HalanTul
  */
 $messages['sah'] = array(
@@ -1889,7 +1889,7 @@ $messages['sah'] = array(
 	'validationstatistics-reviews' => 'Бэрэбиэркэ',
 );
 
-/** Sardinian (Sardu)
+/** Sardinian (sardu)
  * @author Andria
  */
 $messages['sc'] = array(
@@ -1898,7 +1898,7 @@ $messages['sc'] = array(
 	'validationstatistics-user' => 'Usuàriu',
 );
 
-/** Sicilian (Sicilianu)
+/** Sicilian (sicilianu)
  * @author Aushulz
  */
 $messages['scn'] = array(
@@ -1921,7 +1921,7 @@ $messages['si'] = array(
 	'validationstatistics-reviews' => 'නිරීක්ෂණ',
 );
 
-/** Slovak (Slovenčina)
+/** Slovak (slovenčina)
  * @author Helix84
  */
 $messages['sk'] = array(
@@ -1945,7 +1945,7 @@ Tieto stránky sú považované za ''zastarané''. Podobne, stránky sú považo
 	'validationstatistics-reviews' => 'Kontroly',
 );
 
-/** Slovenian (Slovenščina)
+/** Slovenian (slovenščina)
  * @author Dbc334
  */
 $messages['sl'] = array(
@@ -1971,14 +1971,14 @@ $3",
 	'validationstatistics-reviews' => 'Pregledi',
 );
 
-/** Albanian (Shqip)
+/** Albanian (shqip)
  * @author Puntori
  */
 $messages['sq'] = array(
 	'validationstatistics-total' => 'Faqet',
 );
 
-/** Serbian (Cyrillic script) (‪Српски (ћирилица)‬)
+/** Serbian (Cyrillic script) (‪српски (ћирилица)‬)
  * @author Rancher
  * @author Sasa Stefanovic
  * @author Михајло Анђелковић
@@ -1997,7 +1997,7 @@ $messages['sr-ec'] = array(
 	'validationstatistics-reviews' => 'Прегледи',
 );
 
-/** Serbian (Latin script) (‪Srpski (latinica)‬)
+/** Serbian (Latin script) (‪srpski (latinica)‬)
  * @author Michaello
  */
 $messages['sr-el'] = array(
@@ -2013,7 +2013,7 @@ $messages['sr-el'] = array(
 	'validationstatistics-reviews' => 'Pregledi',
 );
 
-/** Swedish (Svenska)
+/** Swedish (svenska)
  * @author Boivie
  * @author Dafer45
  * @author M.M.S.
@@ -2088,7 +2088,7 @@ $messages['te'] = array(
 	'validationstatistics-reviews' => 'సమీక్షలు',
 );
 
-/** Tetum (Tetun)
+/** Tetum (tetun)
  * @author MF-Warburg
  */
 $messages['tet'] = array(
@@ -2181,7 +2181,7 @@ $3",
 	'validationstatistics-reviews' => 'İncelemeler',
 );
 
-/** Ukrainian (Українська)
+/** Ukrainian (українська)
  * @author AS
  * @author Ahonc
  * @author Alex Khimich
@@ -2213,7 +2213,7 @@ $3",
 	'validationstatistics-reviews' => 'Перевірок',
 );
 
-/** Vèneto (Vèneto)
+/** vèneto (vèneto)
  * @author Candalua
  */
 $messages['vec'] = array(
@@ -2314,7 +2314,7 @@ $messages['yi'] = array(
 	'validationstatistics-user' => 'באַניצער',
 );
 
-/** Simplified Chinese (‪中文(简体)‬)
+/** Simplified Chinese (‪中文（简体）‬)
  * @author Bencmq
  * @author Gaoxuewei
  * @author Hydra
@@ -2344,7 +2344,7 @@ $messages['zh-hans'] = array(
 	'validationstatistics-reviews' => '复审',
 );
 
-/** Traditional Chinese (‪中文(繁體)‬)
+/** Traditional Chinese (‪中文（繁體）‬)
  * @author Anakmalaysia
  * @author Gaoxuewei
  * @author Horacewai2

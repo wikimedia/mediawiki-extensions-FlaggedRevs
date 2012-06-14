@@ -518,7 +518,7 @@ $messages['arz'] = array(
 	'revreview-update-includes' => 'بعض القوالب/الملفات تم تحديثها:',
 );
 
-/** Asturian (Asturianu)
+/** Asturian (asturianu)
  * @author Esbardu
  * @author Xuacu
  */
@@ -595,7 +595,7 @@ $messages['bcc'] = array(
 	'revreview-update-includes' => 'لهتی تمپلتان/تصاویر په روچ بیتگین:',
 );
 
-/** Belarusian (Беларуская)
+/** Belarusian (беларуская)
  * @author Хомелка
  */
 $messages['be'] = array(
@@ -752,7 +752,7 @@ $messages['be-tarask'] = array(
 	'revreview-tt-reject' => 'Адхіліць гэтыя зьмены, скасаваўшы іх',
 );
 
-/** Bulgarian (Български)
+/** Bulgarian (български)
  * @author Borislav
  * @author DCLXVI
  * @author Spiritia
@@ -804,7 +804,7 @@ $messages['bn'] = array(
 	'revreview-reject-cancel' => 'বাতিল',
 );
 
-/** Breton (Brezhoneg)
+/** Breton (brezhoneg)
  * @author Fohanno
  * @author Fulup
  * @author Gwendal
@@ -884,7 +884,7 @@ Adlennit an holl gemmoù diskouezet a-is evit ma teufe war wel ho kemmoù er stu
 	'revreview-tt-reject' => "Dizober ar c'hemmoù-se en destenn orin en ur zisteurel anezho",
 );
 
-/** Bosnian (Bosanski)
+/** Bosnian (bosanski)
  * @author CERminator
  * @author Edinwiki
  */
@@ -1048,12 +1048,12 @@ $messages['ce'] = array(
 	'revreview-reject-summary-cur-short' => '{{PLURAL:$1|Йуха баькхина тlаьххьара $1 хийцам|Йуха баькхина тlаьххьара $1 хийцамаш}} а, варсий метта хlоттош $2 $3',
 );
 
-/** Sorani (کوردی) */
+/** Sorani Kurdish (کوردی) */
 $messages['ckb'] = array(
 	'revreview-submit' => 'ناردن',
 );
 
-/** Czech (Česky)
+/** Czech (česky)
  * @author Danny B.
  * @author Jezevec
  * @author Jkjk
@@ -1125,7 +1125,7 @@ Bude nutné tyto editace začlenit nebo zamítnout.',
 	'revreview-tt-reject' => 'Odmítnout tyto změny jejich vrácením',
 );
 
-/** Danish (Dansk)
+/** Danish (dansk)
  * @author Peter Alberti
  */
 $messages['da'] = array(
@@ -1522,7 +1522,7 @@ Bonvolu kontroli ĉiujn jenajn ŝanĝojn por aperigi viajn redaktojn en la stabi
 	'revreview-tt-reject' => 'Malaprobi ĉi tiujn ŝanĝojn de informo-fontoj, malfarante ilin',
 );
 
-/** Spanish (Español)
+/** Spanish (español)
  * @author Armando-Martin
  * @author Crazymadlover
  * @author Dferg
@@ -1616,7 +1616,7 @@ Por favor, revisa todos los cambios mostrados a continuación para que se acepte
 	'revreview-tt-reject' => 'Rechazar estos cambios del texto fuente revirtiendolos',
 );
 
-/** Estonian (Eesti)
+/** Estonian (eesti)
  * @author Avjoska
  * @author Pikne
  */
@@ -1682,7 +1682,7 @@ Oma muudatuste püsivas versioonis kuvamiseks vaata palun kõik allpool näidatu
 	'revreview-tt-unflag' => 'Lükka see redaktsioon tagasi, märkides selle kui "kord vaatamata"',
 );
 
-/** Basque (Euskara)
+/** Basque (euskara)
  * @author Kobazulo
  */
 $messages['eu'] = array(
@@ -1779,7 +1779,7 @@ $messages['fa'] = array(
 	'revreview-tt-reject' => 'این تغییرات متن مبدأ را با واگردانی مردود کنید',
 );
 
-/** Finnish (Suomi)
+/** Finnish (suomi)
  * @author Cimon Avaro
  * @author Crt
  * @author Mies
@@ -1869,7 +1869,7 @@ Arvioi kaikki alla olevat muutokset, jotta muokkauksesi näkyisivät vakaassa ve
 	'revreview-tt-reject' => 'Hylkää nämä lähdetekstiin tehdyt muutokset kumoamalla ne.',
 );
 
-/** French (Français)
+/** French (français)
  * @author Crochet.david
  * @author Gomoko
  * @author Grondin
@@ -1960,7 +1960,7 @@ Vous devez relire toutes les modifications affichées ci-dessous pour la votre a
 	'revreview-tt-reject' => 'Rejeter ces modifications dans le texte source en les révoquant',
 );
 
-/** Franco-Provençal (Arpetan)
+/** Franco-Provençal (arpetan)
  * @author ChrisPtDe
  */
 $messages['frp'] = array(
@@ -2375,7 +2375,7 @@ $messages['hi'] = array(
 	'revreview-reject-cancel' => 'रद्द करें',
 );
 
-/** Croatian (Hrvatski)
+/** Croatian (hrvatski)
  * @author Dalibor Bosits
  * @author Dnik
  * @author Ex13
@@ -2534,7 +2534,7 @@ Přepruwuj prošu wšě změny, kotrež so deleka pokazuja, zo bychu so twoje zm
 	'revreview-tt-reject' => 'Tute změny žórłoweho teksta přez wróćostajenje wotpokazać',
 );
 
-/** Hungarian (Magyar)
+/** Hungarian (magyar)
  * @author Bean49
  * @author BáthoryPéter
  * @author Dani
@@ -2623,7 +2623,7 @@ Kérlek ellenőrizd az alább látható változtatásokat, hogy a szerkesztései
 	'revreview-tt-reject' => 'Változtatások elutasítása visszaállítással',
 );
 
-/** Interlingua (Interlingua)
+/** Interlingua (interlingua)
  * @author McDutchie
  */
 $messages['ia'] = array(
@@ -2810,7 +2810,7 @@ $messages['io'] = array(
 	'revreview-log' => 'Komento:',
 );
 
-/** Icelandic (Íslenska)
+/** Icelandic (íslenska)
  * @author Snævar
  * @author Spacebirdy
  */
@@ -2858,7 +2858,7 @@ Sjá nánar á [[Special:Unreviewedpages|lista yfir óskoðaðar síður]].',
 	'revreview-tt-reject' => 'Hafna breytingu á texta með því að taka breytinguna aftur',
 );
 
-/** Italian (Italiano)
+/** Italian (italiano)
  * @author Aushulz
  * @author Beta16
  * @author Blaisorblade
@@ -3032,7 +3032,7 @@ $messages['ja'] = array(
 	'revreview-tt-reject' => 'ソーステキストへの変更を差し戻して却下する',
 );
 
-/** Jutish (Jysk)
+/** Jutish (jysk)
  * @author Huslåke
  */
 $messages['jut'] = array(
@@ -3424,7 +3424,7 @@ Klik op de knoep \"Trök\" in diene browser en probeer  t opnúuj.",
 	'revreview-update' => "'''[[{{MediaWiki:Validationpage}}|Controleer]] e.t.b. de ''ongerstaonde'' wieziginge ten opzichte van de gepubliceerde versie.'''",
 );
 
-/** Lithuanian (Lietuvių)
+/** Lithuanian (lietuvių)
  * @author Eitvys200
  * @author Matasg
  * @author Vpovilaitis
@@ -3456,7 +3456,7 @@ $messages['lzh'] = array(
 	'revreview-submitting' => '在處理',
 );
 
-/** Macedonian (Македонски)
+/** Macedonian (македонски)
  * @author Bjankuloski06
  * @author Brainmachine
  * @author Brest
@@ -3625,7 +3625,7 @@ $messages['ml'] = array(
 	'revreview-tt-reject' => 'എഴുത്തിൽ വന്ന ഈ മാറ്റങ്ങൾ പുനഃപ്രാപനം ചെയ്ത് നിരാകരിക്കുക',
 );
 
-/** Mongolian (Монгол)
+/** Mongolian (монгол)
  * @author Chinneeb
  */
 $messages['mn'] = array(
@@ -3916,7 +3916,7 @@ Controleer alle hieronder weergegeven wijzigingen om ook uw bewerking zichtbaar 
 	'revreview-tt-reject' => 'Deze wijzigingen afkeuren door te terug te draaien',
 );
 
-/** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
+/** Norwegian Nynorsk (‪norsk (nynorsk)‬)
  * @author Harald Khan
  * @author Jon Harald Søby
  * @author Nghtwlkr
@@ -3944,7 +3944,7 @@ Sjå [[Special:Unreviewedpages|lista over sider som manglar vurdering]].',
 	'revreview-update-includes' => 'Nokre malar/bilete vart oppdaterte:',
 );
 
-/** Occitan (Occitan)
+/** Occitan (occitan)
  * @author Cedric31
  */
 $messages['oc'] = array(
@@ -3990,7 +3990,7 @@ $messages['pdc'] = array(
 	'revreview-log' => 'Aamaericking:',
 );
 
-/** Polish (Polski)
+/** Polish (polski)
  * @author Fizykaa
  * @author Holek
  * @author Leinad
@@ -4176,7 +4176,7 @@ $messages['ps'] = array(
 	'revreview-reject-cancel' => 'ناګارل',
 );
 
-/** Portuguese (Português)
+/** Portuguese (português)
  * @author 555
  * @author Giro720
  * @author Hamilton Abreu
@@ -4263,7 +4263,7 @@ Para que as suas edições apareçam na versão publicada, reveja todas as alter
 	'revreview-tt-reject' => 'Rejeitar estas alterações ao texto, revertendo-as',
 );
 
-/** Brazilian Portuguese (Português do Brasil)
+/** Brazilian Portuguese (português do Brasil)
  * @author Giro720
  * @author Helder.wiki
  * @author Luckas Blade
@@ -4355,7 +4355,7 @@ $messages['qu'] = array(
 	'review_denied' => 'Manam saqillasqachu.',
 );
 
-/** Romanian (Română)
+/** Romanian (română)
  * @author Cin
  * @author Firilacroco
  * @author KlaudiuMihaila
@@ -4410,7 +4410,7 @@ $messages['ro'] = array(
 	'revreview-tt-reject' => 'Respinge aceste schimbări ale textului prin restaurarea versiunii anterioare lor',
 );
 
-/** Tarandíne (Tarandíne)
+/** tarandíne (tarandíne)
  * @author Joetaras
  */
 $messages['roa-tara'] = array(
@@ -4471,7 +4471,7 @@ Pe piacere cazze 'u buttone \"back\" d'u browser tune e pruève arrete.",
 	'revreview-tt-reject' => 'Refiute ste cangiaminde de sorgende de teste annullannele',
 );
 
-/** Russian (Русский)
+/** Russian (русский)
  * @author AlexSm
  * @author Ferrer
  * @author Jackie
@@ -4645,7 +4645,7 @@ $messages['sa'] = array(
 	'revreview-reject-cancel' => 'निवर्तयते',
 );
 
-/** Sakha (Саха тыла)
+/** Sakha (саха тыла)
  * @author HalanTul
  */
 $messages['sah'] = array(
@@ -4713,7 +4713,7 @@ $messages['sah'] = array(
 	'revreview-tt-reject' => 'Бу уларытыылары суох гынан ыстатыйаны урукку барылыгар төннөр',
 );
 
-/** Sardinian (Sardu)
+/** Sardinian (sardu)
  * @author Andria
  */
 $messages['sc'] = array(
@@ -4755,7 +4755,7 @@ $messages['si'] = array(
 	'revreview-reject-cancel' => 'අවලංගු කරන්න',
 );
 
-/** Slovak (Slovenčina)
+/** Slovak (slovenčina)
  * @author Helix84
  */
 $messages['sk'] = array(
@@ -4816,7 +4816,7 @@ Možno budete musieť pokračovať alebo „vrátiť“ úpravy.',
 	'revreview-tt-reject' => 'Odmietnuť tieto zmeny ich vrátením',
 );
 
-/** Slovenian (Slovenščina)
+/** Slovenian (slovenščina)
  * @author Dbc334
  */
 $messages['sl'] = array(
@@ -4898,14 +4898,14 @@ Prosimo, preglejte vse spremembe prikazane podaj, da prikažete vaše spremembe 
 	'revreview-tt-reject' => 'Zavrnite te spremembe besedila tako, da jih vrnete',
 );
 
-/** Albanian (Shqip)
+/** Albanian (shqip)
  * @author Tëfcí
  */
 $messages['sq'] = array(
 	'revreview-successful' => "'''Shqyrtimi i faqesë ''[[:$1|$1]]'' u shënua me sukses ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} shiko të gjithë versionet të shqyrtuara]).'''",
 );
 
-/** Serbian (Cyrillic script) (‪Српски (ћирилица)‬)
+/** Serbian (Cyrillic script) (‪српски (ћирилица)‬)
  * @author Millosh
  * @author Rancher
  * @author Sasa Stefanovic
@@ -4933,7 +4933,7 @@ $messages['sr-ec'] = array(
 	'revreview-update-includes' => 'Ажурирани шаблони/датотеке (непрегледане странице су подебљане):',
 );
 
-/** Serbian (Latin script) (‪Srpski (latinica)‬)
+/** Serbian (Latin script) (‪srpski (latinica)‬)
  * @author Michaello
  */
 $messages['sr-el'] = array(
@@ -4982,7 +4982,7 @@ $messages['su'] = array(
 	'revreview-log' => 'Kamandang:',
 );
 
-/** Swedish (Svenska)
+/** Swedish (svenska)
  * @author Boivie
  * @author Cohan
  * @author Dafer45
@@ -5153,14 +5153,14 @@ $messages['te'] = array(
 	'revreview-tt-reject' => 'ఈ మార్పులను౮ వెనక్కి తీసుకుపోయి, వాటిని తిరస్కరించు',
 );
 
-/** Tetum (Tetun)
+/** Tetum (tetun)
  * @author MF-Warburg
  */
 $messages['tet'] = array(
 	'revreview-reject-summary' => 'Rezumu:',
 );
 
-/** Tajik (Cyrillic script) (Тоҷикӣ)
+/** Tajik (Cyrillic script) (тоҷикӣ)
  * @author Ibrahim
  */
 $messages['tg-cyrl'] = array(
@@ -5177,7 +5177,7 @@ $messages['tg-cyrl'] = array(
 '''Бархе аз шаблонҳо/аксҳо барӯз шудаанд:'''",
 );
 
-/** Tajik (Latin script) (Tojikī)
+/** Tajik (Latin script) (tojikī)
  * @author Liangent
  */
 $messages['tg-latn'] = array(
@@ -5830,7 +5830,7 @@ $messages['zh-hans'] = array(
 	'revreview-tt-reject' => '拒绝这些对源文本的修改并撤消它们',
 );
 
-/** Traditional Chinese (‪中文(繁體)‬)
+/** Traditional Chinese (‪中文（繁體）‬)
  * @author Anakmalaysia
  * @author Liangent
  * @author Mark85296341

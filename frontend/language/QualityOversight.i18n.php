@@ -65,7 +65,7 @@ $messages['arz'] = array(
 	'qualityoversight-legend' => 'ابحث فى سجلات المراجعه الحديثة',
 );
 
-/** Asturian (Asturianu)
+/** Asturian (asturianu)
  * @author Xuacu
  */
 $messages['ast'] = array(
@@ -83,7 +83,7 @@ $messages['bcc'] = array(
 	'qualityoversight-legend' => 'گردگ په آماران نوکین بازبینی',
 );
 
-/** Belarusian (Беларуская)
+/** Belarusian (беларуская)
  * @author Хомелка
  */
 $messages['be'] = array(
@@ -103,14 +103,14 @@ $messages['be-tarask'] = array(
 	'qualityoversight-legend' => 'Пошук у журнале праверак',
 );
 
-/** Bulgarian (Български)
+/** Bulgarian (български)
  * @author DCLXVI
  */
 $messages['bg'] = array(
 	'qualityoversight' => 'Качествен надзор',
 );
 
-/** Breton (Brezhoneg)
+/** Breton (brezhoneg)
  * @author Fulup
  * @author Y-M D
  */
@@ -120,7 +120,7 @@ $messages['br'] = array(
 	'qualityoversight-legend' => 'Klask marilhoù an adweladennoù diwezhañ',
 );
 
-/** Bosnian (Bosanski)
+/** Bosnian (bosanski)
  * @author CERminator
  */
 $messages['bs'] = array(
@@ -129,7 +129,7 @@ $messages['bs'] = array(
 	'qualityoversight-legend' => 'Traži nedavne zapise pregleda',
 );
 
-/** Catalan (Català)
+/** Catalan (català)
  * @author Davidpar
  * @author SMP
  * @author Solde
@@ -140,7 +140,7 @@ $messages['ca'] = array(
 	'qualityoversight-legend' => 'Cerca els registres de revisions recents',
 );
 
-/** Czech (Česky)
+/** Czech (česky)
  * @author Matěj Grabovský
  */
 $messages['cs'] = array(
@@ -196,7 +196,7 @@ $messages['eo'] = array(
 	'qualityoversight-legend' => 'Serĉi lastajn protokolerojn',
 );
 
-/** Spanish (Español)
+/** Spanish (español)
  * @author Crazymadlover
  * @author Translationista
  */
@@ -206,7 +206,7 @@ $messages['es'] = array(
 	'qualityoversight-legend' => 'Buscar lista de revisiones recientes',
 );
 
-/** Estonian (Eesti)
+/** Estonian (eesti)
  * @author Pikne
  */
 $messages['et'] = array(
@@ -225,7 +225,7 @@ $messages['fa'] = array(
 	'qualityoversight-legend' => 'جستجوی سیاهه‌های بازبینی اخیر',
 );
 
-/** Finnish (Suomi)
+/** Finnish (suomi)
  * @author Olli
  * @author Pxos
  * @author ZeiP
@@ -236,7 +236,7 @@ $messages['fi'] = array(
 	'qualityoversight-legend' => 'Hae tuoreista arviointilokeista',
 );
 
-/** French (Français)
+/** French (français)
  * @author Grondin
  * @author Verdy p
  */
@@ -246,7 +246,7 @@ $messages['fr'] = array(
 	'qualityoversight-legend' => 'Rechercher les journaux des révisions récentes',
 );
 
-/** Franco-Provençal (Arpetan)
+/** Franco-Provençal (arpetan)
  * @author ChrisPtDe
  */
 $messages['frp'] = array(
@@ -303,7 +303,7 @@ $messages['hi'] = array(
 	'qualityoversight-legend' => 'बर्त्तमान की समिक्षा लॉग ढूंदे',
 );
 
-/** Croatian (Hrvatski)
+/** Croatian (hrvatski)
  * @author Ex13
  * @author SpeedyGonsales
  */
@@ -322,7 +322,7 @@ $messages['hsb'] = array(
 	'qualityoversight-legend' => 'Aktualne kontrolowe zapiski přepytać',
 );
 
-/** Hungarian (Magyar)
+/** Hungarian (magyar)
  * @author Dani
  * @author Glanthor Reviol
  */
@@ -332,7 +332,7 @@ $messages['hu'] = array(
 	'qualityoversight-legend' => 'Keresés a legutóbbi ellenőrzések naplójában',
 );
 
-/** Interlingua (Interlingua)
+/** Interlingua (interlingua)
  * @author McDutchie
  */
 $messages['ia'] = array(
@@ -351,7 +351,7 @@ $messages['id'] = array(
 	'qualityoversight-legend' => 'Cari log peninjauan terkini',
 );
 
-/** Icelandic (Íslenska)
+/** Icelandic (íslenska)
  * @author Snævar
  */
 $messages['is'] = array(
@@ -360,7 +360,7 @@ $messages['is'] = array(
 	'qualityoversight-legend' => 'Leita í nýlegum yfirferðar skrám',
 );
 
-/** Italian (Italiano)
+/** Italian (italiano)
  * @author Beta16
  * @author Darth Kule
  * @author Pietrodn
@@ -425,7 +425,7 @@ $messages['li'] = array(
 	'qualityoversight-legend' => 'Doorzeuk recente contrologbeuk',
 );
 
-/** Macedonian (Македонски)
+/** Macedonian (македонски)
  * @author Bjankuloski06
  */
 $messages['mk'] = array(
@@ -484,7 +484,7 @@ $messages['nl'] = array(
 	'qualityoversight-legend' => 'Recente controlelogboeken doorzoeken',
 );
 
-/** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
+/** Norwegian Nynorsk (‪norsk (nynorsk)‬)
  * @author Harald Khan
  * @author Njardarlogar
  */
@@ -494,7 +494,7 @@ $messages['nn'] = array(
 	'qualityoversight-legend' => 'Søk i loggen over dei siste vurderingane',
 );
 
-/** Occitan (Occitan)
+/** Occitan (occitan)
  * @author Cedric31
  */
 $messages['oc'] = array(
@@ -503,7 +503,7 @@ $messages['oc'] = array(
 	'qualityoversight-legend' => 'Recercar los jornals de las revisions recentas',
 );
 
-/** Polish (Polski)
+/** Polish (polski)
  * @author Leinad
  * @author Sp5uhe
  */
@@ -522,7 +522,7 @@ $messages['pms'] = array(
 	'qualityoversight-legend' => 'A serca ij registr ëd le revision ressente',
 );
 
-/** Portuguese (Português)
+/** Portuguese (português)
  * @author 555
  * @author Hamilton Abreu
  */
@@ -532,7 +532,7 @@ $messages['pt'] = array(
 	'qualityoversight-legend' => 'Pesquisar registos das revisões recentes',
 );
 
-/** Brazilian Portuguese (Português do Brasil)
+/** Brazilian Portuguese (português do Brasil)
  * @author Eduardo.mps
  * @author Giro720
  */
@@ -542,7 +542,7 @@ $messages['pt-br'] = array(
 	'qualityoversight-legend' => 'Pesquisar nos registros de análises recentes',
 );
 
-/** Romanian (Română)
+/** Romanian (română)
  * @author Mihai
  */
 $messages['ro'] = array(
@@ -550,7 +550,7 @@ $messages['ro'] = array(
 	'qualityoversight-legend' => 'Căutați jurnalele recente ale revizuirilor',
 );
 
-/** Tarandíne (Tarandíne)
+/** tarandíne (tarandíne)
  * @author Joetaras
  */
 $messages['roa-tara'] = array(
@@ -559,7 +559,7 @@ $messages['roa-tara'] = array(
 	'qualityoversight-legend' => "Cirche jndr'à l'archivie de le revisitaziune recende",
 );
 
-/** Russian (Русский)
+/** Russian (русский)
  * @author KPu3uC B Poccuu
  * @author Kaganer
  * @author Александр Сигачёв
@@ -579,7 +579,7 @@ $messages['rue'] = array(
 	'qualityoversight-legend' => 'Глядати в недавных записах перевірок',
 );
 
-/** Sakha (Саха тыла)
+/** Sakha (саха тыла)
  * @author HalanTul
  */
 $messages['sah'] = array(
@@ -596,7 +596,7 @@ $messages['si'] = array(
 	'qualityoversight-legend' => 'මෑත නිරීක්ෂණ ලඝු සටහන් ගවේෂණය කරන්න',
 );
 
-/** Slovak (Slovenčina)
+/** Slovak (slovenčina)
  * @author Helix84
  */
 $messages['sk'] = array(
@@ -605,7 +605,7 @@ $messages['sk'] = array(
 	'qualityoversight-legend' => 'Hľadať v posledných záznamoch kontrol',
 );
 
-/** Slovenian (Slovenščina)
+/** Slovenian (slovenščina)
  * @author Dbc334
  */
 $messages['sl'] = array(
@@ -614,7 +614,7 @@ $messages['sl'] = array(
 	'qualityoversight-legend' => 'Iskanje nedavnih dnevnikov pregledov',
 );
 
-/** Serbian (Cyrillic script) (‪Српски (ћирилица)‬)
+/** Serbian (Cyrillic script) (‪српски (ћирилица)‬)
  * @author Charmed94
  * @author Millosh
  */
@@ -624,7 +624,7 @@ $messages['sr-ec'] = array(
 	'qualityoversight-legend' => 'Претрага извештаја недавних прегледа',
 );
 
-/** Serbian (Latin script) (‪Srpski (latinica)‬)
+/** Serbian (Latin script) (‪srpski (latinica)‬)
  * @author Michaello
  */
 $messages['sr-el'] = array(
@@ -633,7 +633,7 @@ $messages['sr-el'] = array(
 	'qualityoversight-legend' => 'Pretraga loga skorih pregleda.',
 );
 
-/** Swedish (Svenska)
+/** Swedish (svenska)
  * @author Boivie
  * @author M.M.S.
  */
@@ -685,7 +685,7 @@ $messages['tr'] = array(
 	'qualityoversight-legend' => 'Yakın zamanlı inceleme günlüklerini ara',
 );
 
-/** Ukrainian (Українська)
+/** Ukrainian (українська)
  * @author Ahonc
  */
 $messages['uk'] = array(
@@ -694,7 +694,7 @@ $messages['uk'] = array(
 	'qualityoversight-legend' => 'Пошук у журналі перевірок',
 );
 
-/** Vèneto (Vèneto)
+/** vèneto (vèneto)
  * @author Candalua
  */
 $messages['vec'] = array(
@@ -730,7 +730,7 @@ $messages['yue'] = array(
 	'qualityoversight-list' => '呢一版列示咗最近核准修訂同埋最近品質修訂嘅折舊。',
 );
 
-/** Simplified Chinese (‪中文(简体)‬)
+/** Simplified Chinese (‪中文（简体）‬)
  * @author Gaoxuewei
  * @author PhiLiP
  * @author Shinjiman
@@ -741,7 +741,7 @@ $messages['zh-hans'] = array(
 	'qualityoversight-legend' => '搜索最近复审日志',
 );
 
-/** Traditional Chinese (‪中文(繁體)‬)
+/** Traditional Chinese (‪中文（繁體）‬)
  * @author Horacewai2
  * @author Liangent
  * @author Mark85296341
