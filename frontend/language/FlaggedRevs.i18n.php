@@ -13502,6 +13502,7 @@ $messages['sq'] = array(
 );
 
 /** Serbian (Cyrillic script) (‪српски (ћирилица)‬)
+ * @author FriedrickMILBarbarossa
  * @author Millosh
  * @author Rancher
  * @author Sasa Stefanovic
@@ -13534,7 +13535,7 @@ $messages['sr-ec'] = array(
 	'review-logentry-dis' => 'означи као застарело издање странице [[$1]]',
 	'review-logentry-id' => 'измена: $2',
 	'review-logentry-diff' => 'прегледане измене',
-	'review-logpage' => 'Лог прегледа чланка',
+	'review-logpage' => 'Дневник прегледа чланка',
 	'reviewer' => 'Прегледач',
 	'revreview-accuracy' => 'Тачност',
 	'revreview-accuracy-0' => 'Неадекватне',
@@ -13621,6 +13622,7 @@ $messages['sr-ec'] = array(
 );
 
 /** Serbian (Latin script) (‪srpski (latinica)‬)
+ * @author FriedrickMILBarbarossa
  * @author Michaello
  * @author Rancher
  * @author Жељко Тодоровић
@@ -13652,7 +13654,7 @@ $messages['sr-el'] = array(
 	'review-logentry-dis' => 'označi kao zastarelo izdanje stranice [[$1]]',
 	'review-logentry-id' => 'revizija: $2',
 	'review-logentry-diff' => 'pregledane izmene',
-	'review-logpage' => 'Log pregleda članka',
+	'review-logpage' => 'Dnevnik pregleda članka',
 	'reviewer' => 'Pregledač',
 	'revreview-accuracy' => 'Tačnost',
 	'revreview-accuracy-0' => 'Neadekvatne',
