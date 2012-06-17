@@ -2961,7 +2961,7 @@ Si prega di rivedere tutte le modifiche riportate di seguito perché le tue modi
 $messages['ja'] = array(
 	'revisionreview' => '特定版の査読',
 	'revreview-failed' => "'''この版を査読できません。'''",
-	'revreview-submission-invalid' => '送信は完了しなかったか、もしくは不正なものでした。',
+	'revreview-submission-invalid' => '送信は完了しなかった、または無効なものでした。',
 	'review_page_invalid' => '指定されたページ名は無効です。',
 	'review_page_notexists' => '指定されたページは存在していません。',
 	'review_page_unreviewable' => '指定されたページは閲覧できません。',
@@ -4479,6 +4479,7 @@ Pe piacere cazze 'u buttone \"back\" d'u browser tune e pruève arrete.",
  * @author Kaganer
  * @author Lockal
  * @author MaxSem
+ * @author Ole Yves
  * @author Александр Сигачёв
  */
 $messages['ru'] = array(
@@ -4501,7 +4502,7 @@ $messages['ru'] = array(
 	'review_cannot_reject' => 'Не удаётся отклонить эти изменения, потому что кто-то уже подтвердил некоторые из их.',
 	'review_reject_excessive' => 'Невозможно отклонить такое большое количество изменений сразу.',
 	'review_reject_nulledits' => 'Невозможно отменить эти изменения, так как все правки являются пустыми.',
-	'revreview-check-flag-p' => 'Подтвердить эту версию ($1 {{PLURAL:$1|непроверенное изменения|непроверенных изменения|непроверенных изменений}})',
+	'revreview-check-flag-p' => 'Подтвердить эту версию ($1 {{PLURAL:$1|непроверенное изменение|непроверенных изменения|непроверенных изменений}})',
 	'revreview-check-flag-p-title' => 'Подтвердить все ожидающие проверки изменения вместе с вашей правкой. Используйте, только если вы уже просмотрели все ожидающие проверки изменения.',
 	'revreview-check-flag-u' => 'Подтвердить эту версию непроверенной страницы',
 	'revreview-check-flag-u-title' => 'Подтвердить эту версию страницы. Применяйте только в случае, если вы полностью просмотрели страницу.',

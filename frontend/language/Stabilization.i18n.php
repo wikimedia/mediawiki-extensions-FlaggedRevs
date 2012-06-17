@@ -1859,6 +1859,7 @@ Non è possibile effettuare la configurazione.',
  * @author Hosiryuhosi
  * @author JtFuruhata
  * @author Schu
+ * @author Shirayuki
  * @author Whym
  * @author 青子守歌
  */
@@ -1889,8 +1890,8 @@ $messages['ja'] = array(
 	'stabilize_page_notexists' => '指定したページ名が存在しません。',
 	'stabilize_page_unreviewable' => '指定したページは査読可能な名前空間にありません。',
 	'stabilize_invalid_autoreview' => '無効な自動査読の制限。',
-	'stabilize_invalid_level' => '不正な保護レベル。',
-	'stabilize_expiry_invalid' => '有効期限に不正な日時が設定されました。',
+	'stabilize_invalid_level' => '無効な保護レベル。',
+	'stabilize_expiry_invalid' => '有効期限に無効な日時が設定されました。',
 	'stabilize_expiry_old' => '有効期限に指定された日時を過ぎています。',
 	'stabilize_denied' => '許可されていません。',
 	'stabilize-expiring' => '有効期限: $1 (UTC)',
