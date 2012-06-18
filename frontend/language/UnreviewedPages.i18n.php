@@ -9,6 +9,7 @@
 $messages = array();
 
 $messages['en'] = array(
+	'action-unreviewedpages' => 'view the list of unreviewed pages',
 	'unreviewedpages' => 'Unreviewed pages',
 	'unreviewedpages-legend' => 'List unreviewed content pages',
 	'unreviewedpages-category' => 'Category:',
@@ -34,6 +35,7 @@ $messages['en'] = array(
  * @author Umherirrender
  */
 $messages['qqq'] = array(
+	'action-unreviewed' => 'Permission to view [[Special:UnreviewedPages]]',
 	'unreviewedpages' => '{{Flagged Revs}}
 Name of the [[Special:UnreviewedPages]] page, which lists out pages lacking a stable version.',
 	'unreviewedpages-legend' => '{{Flagged Revs}}
