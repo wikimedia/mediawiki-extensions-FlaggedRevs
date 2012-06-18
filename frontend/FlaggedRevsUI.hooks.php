@@ -195,7 +195,7 @@ class FlaggedRevsUIHooks {
 	}
 
 	public static function overrideRedirect(
-		Title $title, WebRequest $request, &$ignoreRedirect, &$target, Article &$article
+		Title $title, WebRequest $request, &$ignoreRedirect, &$target, Page &$article
 	) {
 		global $wgMemc, $wgParserCacheExpireTime;
 		$fa = FlaggableWikiPage::getTitleInstance( $title ); // on $wgTitle
