@@ -15941,10 +15941,13 @@ $messages['vro'] = array(
 Kaeq üle aadrõs, kost sa taad löüdäq proovõq.',
 );
 
-/** Walloon (walon) */
+/** Walloon (walon)
+ * @author Srtxg
+ */
 $messages['wa'] = array(
 	'revreview-revnotfound' => "Li viye modêye del pådje ki vos avoz dmandé n' a nén stî trovêye.
 Verifyîz l' hårdêye ki vs avoz eployî po-z ariver sol pådje s' i vs plait.",
+	'tooltip-ca-stable' => "Vey l' eplaideye modêye di cisse pådje ci",
 );
 
 /** Wolof (Wolof)

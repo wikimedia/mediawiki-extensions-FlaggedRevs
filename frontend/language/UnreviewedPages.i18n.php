@@ -29,13 +29,14 @@ $messages['en'] = array(
  * @author Darth Kule
  * @author Fryed-peach
  * @author Jon Harald Søby
+ * @author Kghbln
  * @author Purodha
  * @author Raymond
  * @author Siebrand
  * @author Umherirrender
  */
 $messages['qqq'] = array(
-	'action-unreviewed' => 'Permission to view [[Special:UnreviewedPages]]',
+	'action-unreviewedpages' => '{{doc-action|unreviewedpages}}',
 	'unreviewedpages' => '{{Flagged Revs}}
 Name of the [[Special:UnreviewedPages]] page, which lists out pages lacking a stable version.',
 	'unreviewedpages-legend' => '{{Flagged Revs}}
@@ -413,6 +414,7 @@ $messages['da'] = array(
  * @author Umherirrender
  */
 $messages['de'] = array(
+	'action-unreviewedpages' => 'die Liste der ungesichteten Seiten einzusehen',
 	'unreviewedpages' => 'Ungesichtete Seiten',
 	'unreviewedpages-legend' => 'Liste ungesichteter Seiten',
 	'unreviewedpages-category' => 'Kategorie:',
@@ -505,12 +507,14 @@ $messages['eo'] = array(
 );
 
 /** Spanish (español)
+ * @author Armando-Martin
  * @author Crazymadlover
  * @author Drini
  * @author Locos epraix
  * @author Sanbec
  */
 $messages['es'] = array(
+	'action-unreviewedpages' => 'ver la lista de páginas no revisadas',
 	'unreviewedpages' => 'Páginas no revisadas',
 	'unreviewedpages-legend' => 'Lista de páginas de contenido no revisadas',
 	'unreviewedpages-category' => 'Categoría:',
@@ -661,11 +665,12 @@ $messages['ga'] = array(
 	'unreviewedpages-category' => 'Catagóir:',
 );
 
-/** Galician (Galego)
+/** Galician (galego)
  * @author Alma
  * @author Toliño
  */
 $messages['gl'] = array(
+	'action-unreviewedpages' => 'ver a lista das páxinas non revisadas',
 	'unreviewedpages' => 'Páxinas sen revisar',
 	'unreviewedpages-legend' => 'Listar as páxinas con contido sen revisar',
 	'unreviewedpages-category' => 'Categoría:',
@@ -789,6 +794,7 @@ $messages['hr'] = array(
  * @author Michawiki
  */
 $messages['hsb'] = array(
+	'action-unreviewedpages' => 'lisćinu njepřepruwowanych stronow zwobraznić',
 	'unreviewedpages' => 'Njepruwowane nastawki',
 	'unreviewedpages-legend' => 'Lisćina njepřehladanych wobsahowych stronow',
 	'unreviewedpages-category' => 'Kategorija:',
@@ -833,6 +839,7 @@ $messages['hu'] = array(
  * @author McDutchie
  */
 $messages['ia'] = array(
+	'action-unreviewedpages' => 'vider le lista de paginas non revidite',
 	'unreviewedpages' => 'Paginas non revidite',
 	'unreviewedpages-legend' => 'Lista de paginas de contento non revidite',
 	'unreviewedpages-category' => 'Categoria:',
@@ -910,6 +917,7 @@ $messages['is'] = array(
  * @author Pietrodn
  */
 $messages['it'] = array(
+	'action-unreviewedpages' => "vedere l'elenco delle pagine non revisionate",
 	'unreviewedpages' => 'Pagine non revisionate',
 	'unreviewedpages-legend' => 'Elenco delle pagine non revisionate',
 	'unreviewedpages-category' => 'Categoria:',
@@ -1098,6 +1106,7 @@ $messages['la'] = array(
  * @author Robby
  */
 $messages['lb'] = array(
+	'action-unreviewedpages' => "d'Lëscht vun den net nogekuckte Säiten ze kucken",
 	'unreviewedpages' => 'Säit déi net nogekuckt ass',
 	'unreviewedpages-legend' => 'Lëscht vun den net nogekuckte Säiten',
 	'unreviewedpages-category' => 'Kategorie:',
@@ -1151,6 +1160,7 @@ $messages['lzh'] = array(
  * @author Brest
  */
 $messages['mk'] = array(
+	'action-unreviewedpages' => 'преглед на список на непроверени страници',
 	'unreviewedpages' => 'Непроверени страници',
 	'unreviewedpages-legend' => 'Список на непрегледани статии',
 	'unreviewedpages-category' => 'Категорија:',
@@ -1271,6 +1281,7 @@ $messages['nds'] = array(
  * @author Siebrand
  */
 $messages['nl'] = array(
+	'action-unreviewedpages' => "de lijst met ongecontroleerde pagina's te bekijken",
 	'unreviewedpages' => "Ongecontroleerde pagina's",
 	'unreviewedpages-legend' => "Lijst met ongecontroleerde pagina's",
 	'unreviewedpages-category' => 'Categorie:',
@@ -1810,6 +1821,7 @@ $messages['tk'] = array(
  * @author AnakngAraw
  */
 $messages['tl'] = array(
+	'action-unreviewedpages' => 'tingnan ang talaan ng mga pahinang hindi pa nasusuri',
 	'unreviewedpages' => 'Hindi pa nasusuring mga pahina',
 	'unreviewedpages-legend' => 'Itala ang hindi pa nasusuring mga pahina ng nilalaman',
 	'unreviewedpages-category' => 'Kaurian:',
