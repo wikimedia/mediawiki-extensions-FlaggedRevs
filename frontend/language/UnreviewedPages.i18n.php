@@ -613,6 +613,7 @@ $messages['fi'] = array(
 );
 
 /** French (français)
+ * @author DavidL
  * @author Grondin
  * @author IAlex
  * @author PieRRoMaN
@@ -620,6 +621,7 @@ $messages['fi'] = array(
  * @author Verdy p
  */
 $messages['fr'] = array(
+	'action-unreviewedpages' => 'voir la liste des pages non révisées',
 	'unreviewedpages' => 'Pages non revues',
 	'unreviewedpages-legend' => 'Liste des pages de contenu non révisées',
 	'unreviewedpages-category' => 'Catégorie :',
