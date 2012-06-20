@@ -3600,13 +3600,14 @@ Belka [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diff
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|vurnayiş|vurnayişan}}] paweyê çımserçarnayiş 
 {{PLURAL:$2|esto|este}}.",
 	'revreview-edited-section' => 'Qismê pelê "[[#$1|$2]]" reyna şo.',
-	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} revizyono teqib biyaye yo tewr peyin]  <i>$2</i> tarix de [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} tesdiq biyo].
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|vurnayiş|vurnayiş}}] {{PLURAL:$3|gani konrol bıbo|gani konrol bıbo}}.',
-	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} versiyone sebiti] <i>$2</i> tarix de [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} tesdiq biyo].
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Vurnayişê Şablon/dosyayi] gani konrol bıbo.',
-	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} versiyone sebiti]  <i>$2</i> tarix de [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} tesdiq biyo]. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|vurnayiş|vurnayişan}}] {{PLURAL:$3|gani kontrol bıbo|gani kontrol bıbo}}.',
-	'revreview-newest-quality-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} versiyone sebiti] <i>$2</i> tarix de [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} tesdiq biyo].
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} vurnayişê şablon/dosyayi] gani newe ra konrol bıbo.',
+	'revreview-newest-basic' => 'No versiyonê [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} vurnayışê şablon/dosya], [[{{MediaWiki:Validationpage}}|kontrol kerdış paweno]].
+[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Versiyonê heqiqi], <i>$2</i> dem dê [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} kerdo araşt].',
+	'revreview-newest-basic-i' => 'No versiyonê [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} vurnayışê şablon/dosya], [[{{MediaWiki:Validationpage}}|kontrol kerdış paweno]].
+[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Versiyonê heqiqi], <i>$2</i> dem dê [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} kerdo araşt].',
+	'revreview-newest-quality' => 'No versiyonê [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} vurnayışê şablon/dosya], [[{{MediaWiki:Validationpage}}|kontrol kerdış paweno]].
+[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Versiyonê heqiqi], <i>$2</i> dem dê [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} kerdo araşt].',
+	'revreview-newest-quality-i' => 'No versiyonê [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} vurnayışê şablon/dosya], [[{{MediaWiki:Validationpage}}|kontrol kerdış paweno]].
+[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Versiyonê heqiqi], <i>$2</i> dem dê [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} kerdo araşt].',
 	'revreview-pending-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Versiyonê sabiti] <i>$2</i> di [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} control biya]. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|vurnayis|vurnayisan}}] {{PLURAL:$3|esta|este}} ke gani kontrol biyo.',
 	'revreview-pending-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Versiyonê sabiti] <i>$2</i> de [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} qebul biya]. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|vurnayis|vurnayisan}}] {{PLURAL:$3|esta|este}} ke gani kontrol biyo.',
 	'revreview-pending-nosection' => 'Ena [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} versiyon tewr peniya] 

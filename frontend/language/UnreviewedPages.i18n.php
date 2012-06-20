@@ -597,6 +597,7 @@ $messages['fa'] = array(
  * @author ZeiP
  */
 $messages['fi'] = array(
+	'action-unreviewedpages' => 'nähdä luetteloa arvioimattomista sivuista',
 	'unreviewedpages' => 'Arvioimattomat sivut',
 	'unreviewedpages-legend' => 'Luettelo arvioimattomista sisältösivuista',
 	'unreviewedpages-category' => 'Luokka',
