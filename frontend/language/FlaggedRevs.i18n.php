@@ -3582,7 +3582,7 @@ $messages['diq'] = array(
 	'revreview-basic-old' => 'No yew revizyono [[{{MediaWiki:Validationpage}}|teqib biyayeyo]] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} pêroyi liste ker]), roca <i>$2</i> tarix de [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} tesdiq biyo].
 Belka [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} vurnayişa newe] biyê.',
 	'revreview-basic-same' => 'No revizyon tewr peyin [[{{MediaWiki:Validationpage}}|teqib biyo]], <i>$2</i> tarix de [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} tesdiq biyo].',
-	'revreview-basic-source' => '[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} revizyonê no peli], <i>$2</i> tarix de [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} tesdiq biyo], no revizyon qıstas geriyayo.',
+	'revreview-basic-source' => 'Yew [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} çımraviyarnayışo qontrolkerde]yê na peleyo ke <i>$2</i> de [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} cerrebiyayo], nê çımraviyarnayışi ra bınge gêno.',
 	'revreview-current' => 'Vurnayışê dardebiyaey',
 	'revreview-depth' => 'xorani',
 	'revreview-depth-0' => 'Tam niya',

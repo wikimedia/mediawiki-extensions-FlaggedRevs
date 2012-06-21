@@ -1216,6 +1216,25 @@ $messages['lt'] = array(
 	'pendingchanges-viewing' => '(peržiūrima)',
 );
 
+/** Lushai (Mizo ţawng)
+ * @author RMizo
+ */
+$messages['lus'] = array(
+	'pendingchanges-list' => 'Hë phêkah hian [[{{MediaWiki:Validationpage}}|ennawn tawh]] phêka ennawn leh ngái siamṭhatna pahnih-khat tlar chhuah a ni.',
+	'pendingchanges-none' => 'Hetiang tehfung mil thlap phêk pakhat mah a awm lo',
+	'pendingchanges-hours' => '({{PLURAL:$1||}} dárkár $1)',
+	'pendingchanges-days' => '({{PLURAL:$1|ni|ni}} $1)',
+	'pendingchanges-recent' => '(dárkar 1 aia rei lo)',
+	'pendingchanges-category' => 'Pawl:',
+	'pendingchanges-onwatchlist' => 'Ka rálvèn phêkte',
+	'pendingchanges-stable' => 'Thlansâ hi awmphung ngheta dah a ni',
+	'pendingchanges-diff' => 'endikna',
+	'pendingchanges-size' => 'Tihdanglamna lian thei ber (bait-in):',
+	'pendingchanges-unwatched' => '(rálvèn aṭanga paih)',
+	'pendingchanges-watched' => '({{PLURAL:$1||}} hmangtu thothäng $1-in an vil)',
+	'pendingchanges-viewing' => '(endik mék)',
+);
+
 /** Macedonian (македонски)
  * @author Bjankuloski06
  * @author Brest

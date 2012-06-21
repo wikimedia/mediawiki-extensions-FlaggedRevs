@@ -1375,12 +1375,14 @@ $messages['pdc'] = array(
 );
 
 /** Polish (polski)
+ * @author BeginaFelicysym
  * @author Derbeth
  * @author Leinad
  * @author Sp5uhe
  * @author ToSter
  */
 $messages['pl'] = array(
+	'action-unreviewedpages' => 'widok listy  niesprawdzonych stron',
 	'unreviewedpages' => 'Nieprzejrzane strony',
 	'unreviewedpages-legend' => 'Lista nieprzejrzanych stron',
 	'unreviewedpages-category' => 'Kategoria',
@@ -1620,6 +1622,7 @@ $messages['sk'] = array(
  * @author Dbc334
  */
 $messages['sl'] = array(
+	'action-unreviewedpages' => 'ogled seznama nepregledanih strani',
 	'unreviewedpages' => 'Nepregledane strani',
 	'unreviewedpages-legend' => 'Seznam nepregledanih strani z vsebino',
 	'unreviewedpages-category' => 'Kategorija:',
