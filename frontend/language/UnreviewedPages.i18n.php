@@ -453,6 +453,7 @@ $messages['diq'] = array(
  * @author Michawiki
  */
 $messages['dsb'] = array(
+	'action-unreviewedpages' => 'lisćinu njepśeglědanych bokow zwobrazniś',
 	'unreviewedpages' => 'Njepśeglědane boki',
 	'unreviewedpages-legend' => 'Lisćina njepśeglědanych wopśimjeśowych bokow',
 	'unreviewedpages-category' => 'Kategorija:',
@@ -1038,6 +1039,7 @@ $messages['kn'] = array(
 
 /** Korean (한국어)
  * @author Kwj2772
+ * @author 아라
  */
 $messages['ko'] = array(
 	'unreviewedpages' => '검토되지 않은 문서',
@@ -1045,7 +1047,7 @@ $messages['ko'] = array(
 	'unreviewedpages-category' => '분류:',
 	'unreviewedpages-diff' => '검토',
 	'unreviewedpages-unwatched' => '(주시되지 않음)',
-	'unreviewedpages-watched' => '($1명의 활동중인 {{PLURAL:$1|사용자가|사용자들이}} 주시중)',
+	'unreviewedpages-watched' => '(활동적인 사용자 $1명이 주시중)',
 	'unreviewedpages-list' => '이 특수 문서는 특정한 등급으로 [[{{MediaWiki:Validationpage}}|검토]]되지 않은 문서의 목록을 보여 주고 있습니다.',
 	'unreviewedpages-none' => '조건에 맞는 문서가 없습니다.',
 	'unreviewedpages-viewing' => '(확인 중)',
@@ -1220,6 +1222,7 @@ $messages['mr'] = array(
  * @author Kurniasan
  */
 $messages['ms'] = array(
+	'action-unreviewedpages' => 'melihat senarai laman-laman yang belum disemak',
 	'unreviewedpages' => 'Halaman belum diperiksa',
 	'unreviewedpages-legend' => 'Senarai laman kandungan yang belum diperiksa',
 	'unreviewedpages-category' => 'Kategori:',
@@ -1923,6 +1926,7 @@ $messages['vep'] = array(
  * @author Vinhtantran
  */
 $messages['vi'] = array(
+	'action-unreviewedpages' => 'xem danh sách các trang chưa duyệt',
 	'unreviewedpages' => 'Các trang chưa được duyệt',
 	'unreviewedpages-legend' => 'Liệt kê các trang có nội dung chưa được duyệt',
 	'unreviewedpages-category' => 'Thể loại:',

@@ -8590,7 +8590,7 @@ $messages['ko'] = array(
 	'revreview-accuracy-4' => '알참',
 	'revreview-auto' => '(자동)',
 	'revreview-basic' => '이 버전은 <i>$2</i>에 [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 검토]된 [[{{MediaWiki:Validationpage}}|배포판]]입니다.
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3개의 편집]이 검토를 기다리고 있습니다.',
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 편집 $3개]가 검토를 기다리고 있습니다.',
 	'revreview-basic-i' => '이 버전은 <i>$2</i>에 [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 검토]된 [[{{MediaWiki:Validationpage}}|배포판]]입니다.
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 틀/파일의 편집]이 검토를 기다리고 있습니다.',
 	'revreview-basic-old' => '이 판은 [[{{MediaWiki:Validationpage}}|검토된 버전]]([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} 모두 보기])으로, <i>$2</i>에 [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 검토]되었습니다.
@@ -8627,7 +8627,7 @@ $messages['ko'] = array(
 	'revreview-noflagged' => "이 문서에는 [[{{MediaWiki:Validationpage}}|검토된 판]]이 없습니다. 따라서 이 문서는 품질 기준에 맞는지 검토를 거치지 '''않았을''' 수 있습니다.",
 	'revreview-oldrating' => '평가 내력:',
 	'revreview-quality' => '이 버전은 <i>$2</i>에 [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 승인]된 [[{{MediaWiki:Validationpage}}|배포판]]입니다.
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3개의 편집]이 검토를 기다리고 있습니다.',
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 편집 $3개]가 검토를 기다리고 있습니다.',
 	'revreview-quality-i' => '이 버전은 <i>$2</i>에 [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 승인]된 [[{{MediaWiki:Validationpage}}|배포판]]입니다.
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 틀/파일의 편집]이 검토를 기다리고 있습니다.',
 	'revreview-quality-old' => '이 판은 [[{{MediaWiki:Validationpage}}|고품질판]]([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} 모두 보기])으로, <i>$2</i>에 [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 검토]되었습니다.
@@ -15699,6 +15699,12 @@ $messages['vi'] = array(
 	'group-autoreview' => 'Người tự duyệt',
 	'group-autoreview-member' => '{{GENDER:$1}}người tự duyệt',
 	'grouppage-autoreview' => '{{ns:project}}:Người tự duyệt',
+	'group-editor.css' => '/* Mã CSS tại đây sẽ chỉ ảnh hưởng đến các biên tập viên */',
+	'group-editor.js' => '/* Mã JS tại đây sẽ chỉ ảnh hưởng đến các biên tập viên */',
+	'group-reviewer.css' => '/* Mã CSS tại đây sẽ chỉ ảnh hưởng đến những người duyệt bài */',
+	'group-reviewer.js' => '/* Mã JS tại đây sẽ chỉ ảnh hưởng đến những người duyệt bài */',
+	'group-autoreview.css' => '/* Mã CSS tại đây sẽ chỉ ảnh hưởng đến những người tự duyệt */',
+	'group-autoreview.js' => '/* Mã JS tại đây sẽ chỉ ảnh hưởng đến những người tự duyệt */',
 	'revreview-hist-draft' => 'phiên bản chưa xem qua',
 	'revreview-hist-pending' => 'phiên bản đang chờ',
 	'revreview-hist-quality' => 'bản chất lượng cao',
