@@ -449,7 +449,7 @@ $messages['diq'] = array(
 	'unreviewedpages-recent' => '(1 seet ra kêm)',
 );
 
-/** Lower Sorbian (Dolnoserbski)
+/** Lower Sorbian (dolnoserbski)
  * @author Michawiki
  */
 $messages['dsb'] = array(
@@ -793,7 +793,7 @@ $messages['hr'] = array(
 	'unreviewedpages-recent' => '(manje od 1 sat)',
 );
 
-/** Upper Sorbian (Hornjoserbsce)
+/** Upper Sorbian (hornjoserbsce)
  * @author Dundak
  * @author Michawiki
  */

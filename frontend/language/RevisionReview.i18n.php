@@ -5077,7 +5077,7 @@ Vänligen granska alla ändringar som visas nedan för att göra så att dina re
 $messages['sw'] = array(
 	'revreview-log' => 'Sababu:',
 	'revreview-submit' => 'Wasilisha',
-	'revreview-reject-summary-old-short' => '{{PLURAL:$1|Badiliko la kwanza lililofuata|Mabadiliko ya $1 yaliyofuata}} pitio la $2 lililoandikwa na $3',
+	'revreview-reject-summary-old-short' => '{{PLURAL:$1|Badiliko la kwanza lililofuata|Mabadiliko ya $1 yaliyofuata}} pitio la $2 lililoandikwa na $3 {{PLURAL:$1|lilikataliwa|yalikataliwa}}',
 );
 
 /** Tamil (தமிழ்)
