@@ -978,7 +978,7 @@ $messages['ca'] = array(
 	'revreview-flag' => 'Revisa aquesta revisió',
 	'revreview-log' => 'Comentari:',
 	'revreview-submit' => 'Tramet',
-	'revreview-update' => "'''Si us plau, [[{{MediaWiki:Validationpage}}|revisa]] els canvis pendents ''(que es mostren a continuació)'' fets a la versió acceptada.'''",
+	'revreview-update' => "'''[[{{MediaWiki:Validationpage}}|Reviseu]] els canvis pendents ''(que es mostren a continuació)'' fets des de la versió acceptada.'''",
 	'revreview-update-includes' => "S'han actualitzat algunes plantilles o fitxers:",
 );
 
