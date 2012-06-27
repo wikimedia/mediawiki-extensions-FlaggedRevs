@@ -179,6 +179,7 @@ $messages['arz'] = array(
  * @author Xuacu
  */
 $messages['ast'] = array(
+	'action-unreviewedpages' => 'ver la llista de páxines ensin revisar',
 	'unreviewedpages' => 'Páxines non revisaes',
 	'unreviewedpages-legend' => 'Llista de páxines con conteníu ensin revisar',
 	'unreviewedpages-category' => 'Categoría:',

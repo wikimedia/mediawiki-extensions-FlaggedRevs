@@ -3169,14 +3169,17 @@ $messages['km'] = array(
 $messages['ko'] = array(
 	'revisionreview' => '편집들을 검토하기',
 	'revreview-failed' => "'''이 판을 검토하지 못했습니다.'''",
+	'revreview-submission-invalid' => '제출이 불완전하거나 잘못되었습니다.',
 	'review_page_invalid' => '대상 문서 제목이 잘못되었습니다.',
 	'review_page_notexists' => '대상 문서가 존재하지 않습니다.',
 	'review_page_unreviewable' => '대상 문서가 검토 가능한 문서가 아닙니다.',
 	'review_no_oldid' => '판 번호가 정의되지 않았습니다.',
 	'review_bad_oldid' => '해당 판이 존재하지 않습니다.',
+	'review_conflict_oldid' => '다른 사용자가 당신이 이 판을 보는 동안 이미 판이 승인되거나 거부되었습니다.',
 	'review_not_flagged' => '해당 판이 아직 검토되지 않았습니다.',
 	'review_too_low' => '어떤 입력 사항을 "부적절"으로 남겨 둔 채로 검토할 수 없습니다.',
 	'review_bad_key' => '틀/파일 포함 변수 키가 잘못되었습니다.',
+	'review_bad_tags' => '특정 태그 값의 일부가 잘못되었습니다.',
 	'review_denied' => '권한 없음',
 	'review_param_missing' => '매개 변수가 없거나 잘못되었습니다.',
 	'review_reject_excessive' => '이렇게 많은 편집을 한꺼번에 거부할 수는 없습니다.',
@@ -3204,6 +3207,12 @@ $messages['ko'] = array(
 	'revreview-submit-unreviewed' => '완료. 승인 취소하였습니다!',
 	'revreview-successful' => "'''[[:$1|$1]] 문서의 편집이 성공적으로 검토되었습니다. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} 안정 버전 보기])'''",
 	'revreview-successful2' => "'''[[:$1|$1]] 문서의 편집이 성공적으로 검토 철회되었습니다.'''",
+	'revreview-poss-conflict-p' => "'''경고: [[User:$1|$1]] 사용자가 $2 $3에 이 문서를 검토하기 시작했습니다.'''",
+	'revreview-poss-conflict-c' => "'''경고: [[User:$1|$1]] 사용자가 $2 $3에 이 바뀜을 검토하기 시작했습니다.'''",
+	'revreview-adv-reviewing-p' => '참고: 다른 평론가가 당신이 이 문서를 검토하는 것을 볼 수 있습니다.',
+	'revreview-adv-reviewing-c' => '참고: 다른 평론가가 당신이 이 바뀜을 검토하는 것을 볼 수 있습니다.',
+	'revreview-sadv-reviewing-p' => '당신은 $1 자신이 다른 사람한테 이 문서를 검토할 수 있습니다.',
+	'revreview-sadv-reviewing-c' => '당신은 $1 자신이 다른 사람한테 이 바뀜을 검토할 수 있습니다.',
 	'revreview-toolow' => '\'\'\'당신은 문서를 검토하려면 등급을 모두 "부적절"보다 높게 매겨야 합니다.\'\'\'
 
 판의 검토를 철회하려면 모든 란을 "부적절"으로 설정하십시오.
