@@ -483,19 +483,30 @@ class FlaggedRevsUIHooks {
 		return true;
 	}
 
-	public static function addToContribsLine( $contribs, &$ret, $row ) {
-		$namespaces = FlaggedRevs::getReviewNamespaces();
-		if ( !in_array( $row->page_namespace, $namespaces ) ) {
-			// do nothing
-		} elseif ( isset( $row->fr_quality ) ) {
-			$ret = '<span class="' . FlaggedRevsXML::getQualityColor( $row->fr_quality ) .
-				'">' . $ret . '</span>';
-		} elseif ( isset( $row->fp_pending_since )
-			&& $row->rev_timestamp >= $row->fp_pending_since ) // bug 15515
-		{
-			$ret = '<span class="flaggedrevs-pending">' . $ret . '</span>';
-		} elseif ( !isset( $row->fp_stable ) ) {
-			$ret = '<span class="flaggedrevs-unreviewed">' . $ret . '</span>';
+	/**
+	 * Intercept contribution entries and format them to FlaggedRevs standards
+	 *
+	 * @param $contribs SpecialPage object for contributions
+	 * @param $ret string the HTML line
+	 * @param $row Row the DB row for this line
+	 * @param $classes the classes to add to the surrounding <li>
+	 * @return bool
+	 */
+	public static function addToContribsLine( $contribs, &$ret, $row, &$classes ) {
+		// make sure that we're parsing revisions data
+		if ( isset( $row->rev_id ) ) {
+			$namespaces = FlaggedRevs::getReviewNamespaces();
+			if ( !in_array( $row->page_namespace, $namespaces ) ) {
+				// do nothing
+			} elseif ( isset( $row->fr_quality ) ) {
+				$classes[] = FlaggedRevsXML::getQualityColor( $row->fr_quality );
+			} elseif ( isset( $row->fp_pending_since )
+				&& $row->rev_timestamp >= $row->fp_pending_since ) // bug 15515
+			{
+				$classes[] = 'flaggedrevs-pending';
+			} elseif ( !isset( $row->fp_stable ) ) {
+				$classes[] = 'flaggedrevs-unreviewed';
+			}
 		}
 		return true;
 	}
