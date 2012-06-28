@@ -3182,7 +3182,10 @@ $messages['ko'] = array(
 	'review_bad_tags' => '특정 태그 값의 일부가 잘못되었습니다.',
 	'review_denied' => '권한 없음',
 	'review_param_missing' => '매개 변수가 없거나 잘못되었습니다.',
+	'review_cannot_undo' => '같은 영역을 바꾸는 추가적으로 대기중인 편집 때문에 이러한 바뀜을 실행 취소할 수 없습니다.',
+	'review_cannot_reject' => '다른 사용자가 이미 편집의 일부(또는 전부)를 허용하기 때문에 이러한 바뀜을 거부할 수 없습니다.',
 	'review_reject_excessive' => '이렇게 많은 편집을 한꺼번에 거부할 수는 없습니다.',
+	'review_reject_nulledits' => '모든 판이 존재하지 않는 편집이기 때문에 이러한 바뀜을 거부할 수 없습니다.',
 	'revreview-check-flag-p' => '이 판 승인 ($1 보류 중인 바뀜이 포함)',
 	'revreview-check-flag-p-title' => '당신의 편집과 함께 지금 검토를 기다리고 있는 모든 편집을 승인합니다. 모든 검토 대기 중인 편집을 확인한 후에만 이 기능을 사용해주세요.',
 	'revreview-check-flag-u' => '이 검토하지 않은 페이지를 승인',
@@ -3213,6 +3216,8 @@ $messages['ko'] = array(
 	'revreview-adv-reviewing-c' => '참고: 다른 평론가가 당신이 이 바뀜을 검토하는 것을 볼 수 있습니다.',
 	'revreview-sadv-reviewing-p' => '당신은 $1 자신이 다른 사람한테 이 문서를 검토할 수 있습니다.',
 	'revreview-sadv-reviewing-c' => '당신은 $1 자신이 다른 사람한테 이 바뀜을 검토할 수 있습니다.',
+	'revreview-adv-start-link' => '통지',
+	'revreview-adv-stop-link' => '통지 안 함',
 	'revreview-toolow' => '\'\'\'당신은 문서를 검토하려면 등급을 모두 "부적절"보다 높게 매겨야 합니다.\'\'\'
 
 판의 검토를 철회하려면 모든 란을 "부적절"으로 설정하십시오.
@@ -3226,9 +3231,15 @@ $messages['ko'] = array(
 
 당신의 편집을 승인하려면 아래에 보이는 모든 편집 사항을 검토해주십시오.',
 	'revreview-update-includes' => '일부 틀이나 파일이 수정되었습니다 (검토되지 않은 문서는 굵게 표시):',
+	'revreview-reject-text-list' => "이 작업을 완료하여 [[:$2|$2]]의 다음 {{PLURAL:$1|판}}에서 원본 텍스트 바뀜을 '''거부'''합니다:",
+	'revreview-reject-text-revto' => '이는 [{{fullurl:$1|oldid=$2}} $3의 같은 버전]으로 문서를 되돌립니다.',
 	'revreview-reject-summary' => '요약:',
 	'revreview-reject-confirm' => '이 바뀜 거부',
 	'revreview-reject-cancel' => '취소',
+	'revreview-reject-summary-cur' => '($2에 의해) {{PLURAL:$1|텍스트 바뀜이|텍스트 바뀜 $1개가}} 거부되었고 $4에 의해 $3 판이 복원됨',
+	'revreview-reject-summary-old' => '$4에 의해 $3 판 다음에 ($2에 의해) 첫 {{PLURAL:$1|텍스트 바뀜이|텍스트 바뀜 $1개가}} 거부됨',
+	'revreview-reject-summary-cur-short' => '$3에 의해 $2 판 다음에 최근 {{PLURAL:$1|텍스트 바뀜이|텍스트 바뀜 $1개가}} 거부됨',
+	'revreview-reject-summary-old-short' => '$3에 의해 $2 판 다음에 첫 {{PLURAL:$1|텍스트 바뀜이|텍스트 바뀜 $1개가}} 거부됨',
 	'revreview-tt-flag' => '이 판을 검토하기',
 	'revreview-tt-unflag' => '이 판에 대한 검토 취소하기',
 	'revreview-tt-reject' => '편집을 되돌려 이 내용 변경 사항을 거부',

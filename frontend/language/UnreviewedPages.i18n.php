@@ -1043,6 +1043,7 @@ $messages['kn'] = array(
  * @author 아라
  */
 $messages['ko'] = array(
+	'action-unreviewedpages' => '검토되지 않은 문서 목록 보기',
 	'unreviewedpages' => '검토되지 않은 문서',
 	'unreviewedpages-legend' => '검토되지 않은 문서 목록',
 	'unreviewedpages-category' => '분류:',
@@ -1407,6 +1408,7 @@ $messages['pl'] = array(
  * @author Dragonòt
  */
 $messages['pms'] = array(
+	'action-unreviewedpages' => 'vardé la lista dle pàgine pa revisionà',
 	'unreviewedpages' => 'Pàgine dësrevisionà',
 	'unreviewedpages-legend' => "Lista le pàgine 'd contnù pa revisionà",
 	'unreviewedpages-category' => 'Categorìa:',
