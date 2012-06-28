@@ -322,27 +322,30 @@ class FlaggedRevision {
 		$dbw = wfGetDB( DB_MASTER );
 		# Set any flagged revision flags
 		$this->mFlags = array_merge( $this->mFlags, array( 'dynamic' ) ); // legacy
-		# Build the inclusion data chunks
+		# Build the template/file inclusion data chunks
 		$tmpInsertRows = array();
-		foreach ( (array)$this->mTemplates as $namespace => $titleAndID ) {
-			foreach ( $titleAndID as $dbkey => $id ) {
-				$tmpInsertRows[] = array(
-					'ft_rev_id'     => $this->getRevId(),
-					'ft_namespace'  => (int)$namespace,
-					'ft_title'      => $dbkey,
-					'ft_tmp_rev_id' => (int)$id
+		$fileInsertRows = array();
+		# Avoid saving this data if we don't use it to stabilize pages
+		if ( FlaggedRevs::inclusionSetting() !== FR_INCLUDES_CURRENT ) {
+			foreach ( (array)$this->mTemplates as $namespace => $titleAndID ) {
+				foreach ( $titleAndID as $dbkey => $id ) {
+					$tmpInsertRows[] = array(
+						'ft_rev_id'     => $this->getRevId(),
+						'ft_namespace'  => (int)$namespace,
+						'ft_title'      => $dbkey,
+						'ft_tmp_rev_id' => (int)$id
+					);
+				}
+			}
+			foreach ( (array)$this->mFiles as $dbkey => $timeSHA1 ) {
+				$fileInsertRows[] = array(
+					'fi_rev_id'         => $this->getRevId(),
+					'fi_name'           => $dbkey,
+					'fi_img_sha1'       => strval( $timeSHA1['sha1'] ),
+					'fi_img_timestamp'  => $timeSHA1['time'] ? // false => NULL
+						$dbw->timestamp( $timeSHA1['time'] ) : null
 				);
 			}
-		}
-		$fileInsertRows = array();
-		foreach ( (array)$this->mFiles as $dbkey => $timeSHA1 ) {
-			$fileInsertRows[] = array(
-				'fi_rev_id'         => $this->getRevId(),
-				'fi_name'           => $dbkey,
-				'fi_img_sha1'       => strval( $timeSHA1['sha1'] ),
-				'fi_img_timestamp'  => $timeSHA1['time'] ? // false => NULL
-					$dbw->timestamp( $timeSHA1['time'] ) : null
-			);
 		}
 		# Sanity check for partial revisions
 		if ( !$this->getPage() || !$this->getRevId() ) {
