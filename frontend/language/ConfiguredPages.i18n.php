@@ -551,10 +551,11 @@ $messages['ka'] = array(
 
 /** Korean (한국어)
  * @author Kwj2772
+ * @author 아라
  */
 $messages['ko'] = array(
 	'configuredpages' => '검토 설정이 되어 있는 문서',
-	'configuredpages-list' => '다음은 기본값과 다른 검토 설정이 되어 있는 문서의 목록입니다.
+	'configuredpages-list' => '이 문서는 기본값과 다른 검토 설정이 되어 있는 문서를 나타냅니다.
 어떤 설정은 독자에게 보여지는 판을 바꾸거나 검토 없이 편집할 수 있는 사용자를 제한할 수 있습니다.',
 	'configuredpages-none' => '이 목록에 문서가 없습니다.',
 	'configuredpages-config' => '설정',
