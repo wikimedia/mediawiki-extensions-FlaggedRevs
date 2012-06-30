@@ -23,7 +23,7 @@ $specialPageAliases['en'] = array(
 	'ValidationStatistics' => array( 'ValidationStatistics' ),
 );
 
-/** Aragonese (Aragonés) */
+/** Aragonese (aragonés) */
 $specialPageAliases['an'] = array(
 	'PendingChanges' => array( 'PachinasSupervisatasAntigas' ),
 	'QualityOversight' => array( 'SupervisataDeCalidat' ),
@@ -135,7 +135,7 @@ $specialPageAliases['diq'] = array(
 	'ValidationStatistics' => array( 'İstatistikêTesdiqan' ),
 );
 
-/** Lower Sorbian (Dolnoserbski) */
+/** Lower Sorbian (dolnoserbski) */
 $specialPageAliases['dsb'] = array(
 	'PendingChanges' => array( 'Zasej njepśeglědane boki' ),
 	'QualityOversight' => array( 'Kwalitna_kontrola' ),
@@ -215,7 +215,7 @@ $specialPageAliases['frp'] = array(
 	'ValidationStatistics' => array( 'Statistiques_de_validacion', 'StatistiquesDeValidacion' ),
 );
 
-/** Galician (Galego) */
+/** Galician (galego) */
 $specialPageAliases['gl'] = array(
 	'PendingChanges' => array( 'Páxinas_revisadas_hai_tempo' ),
 	'ProblemChanges' => array( 'Cambios_nun_problema' ),
@@ -270,7 +270,7 @@ $specialPageAliases['hr'] = array(
 	'StablePages' => array( 'Stabilne_stranice' ),
 );
 
-/** Upper Sorbian (Hornjoserbsce) */
+/** Upper Sorbian (hornjoserbsce) */
 $specialPageAliases['hsb'] = array(
 	'PendingChanges' => array( 'Zaso njepřehladane strony' ),
 	'QualityOversight' => array( 'Kwalitna_kontrola' ),
