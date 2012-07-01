@@ -369,7 +369,7 @@ $messages['am'] = array(
 	'revreview-log' => 'ማጠቃለያ፦',
 );
 
-/** Aragonese (Aragonés)
+/** Aragonese (aragonés)
  * @author Juanpabl
  */
 $messages['an'] = array(
@@ -667,7 +667,7 @@ $messages['be'] = array(
 	'revreview-tt-reject' => 'Адхіліць гэтыя змены, адкаціць іх',
 );
 
-/** Belarusian (Taraškievica orthography) (‪Беларуская (тарашкевіца)‬)
+/** Belarusian (Taraškievica orthography) (‪беларуская (тарашкевіца)‬)
  * @author EugeneZelenko
  * @author Jim-by
  * @author Wizardist
@@ -1314,7 +1314,7 @@ Ti belki tewr verni de vurnayişan teqib biki ya zi "peyser biyeri".',
 	'revreview-tt-unflag' => '"Qontrol nibiyo" nişan bike ke ena revizyon qebul meke',
 );
 
-/** Lower Sorbian (Dolnoserbski)
+/** Lower Sorbian (dolnoserbski)
  * @author Michawiki
  */
 $messages['dsb'] = array(
@@ -2054,7 +2054,7 @@ $messages['ga'] = array(
 	'revreview-log' => 'Nóta tráchta:',
 );
 
-/** Galician (Galego)
+/** Galician (galego)
  * @author Gallaecio
  * @author Toliño
  * @author Xosé
@@ -2450,7 +2450,7 @@ Molimo provjerite sve izmjene prikazane ispod da bi se vaše izmjene prikazale u
 	'revreview-tt-reject' => 'Odbaci ove promjene tako što ćete ih ukloniti',
 );
 
-/** Upper Sorbian (Hornjoserbsce)
+/** Upper Sorbian (hornjoserbsce)
  * @author Michawiki
  * @author Tlustulimu
  */
@@ -4581,7 +4581,7 @@ $messages['ru'] = array(
 	'revreview-tt-reject' => 'Отклонить эти текстовые изменения, откатить их',
 );
 
-/** Rusyn (Русиньскый)
+/** Rusyn (русиньскый)
  * @author Gazeb
  */
 $messages['rue'] = array(
@@ -5430,7 +5430,7 @@ Değişikliklerinizin kararlı sürümde yer alması için, lütfen aşağıda g
 	'revreview-reject-cancel' => 'İptal',
 	'revreview-tt-flag' => 'Bu revizyonu kontrol edilmiş olarak işaretleyerek onayla',
 	'revreview-tt-unflag' => 'Bu revizyonu "kontrol edilmemiş" olarak işaretleyerek kabul etme',
-	'revreview-tt-reject' => 'Değişiklikleri geri alarak reddet',
+	'revreview-tt-reject' => 'Kaynak metin değişikliklerini geri alarak reddet',
 );
 
 /** Ukrainian (українська)

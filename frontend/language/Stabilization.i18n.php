@@ -237,7 +237,7 @@ $messages['am'] = array(
 	'stabilization-def-short-0' => 'ያሁኑኑ',
 );
 
-/** Aragonese (Aragonés)
+/** Aragonese (aragonés)
  * @author Juanpabl
  */
 $messages['an'] = array(
@@ -502,7 +502,7 @@ $messages['be'] = array(
 	'stabilization-review' => 'Адзначыць бягучую версію як правераную',
 );
 
-/** Belarusian (Taraškievica orthography) (‪Беларуская (тарашкевіца)‬)
+/** Belarusian (Taraškievica orthography) (‪беларуская (тарашкевіца)‬)
  * @author EugeneZelenko
  * @author Jim-by
  * @author Zedlik
@@ -900,7 +900,7 @@ Konfugure ni beno.',
 	'stabilization-review' => 'Versiyonê penî ke kontrol biyo ay nisan bike',
 );
 
-/** Lower Sorbian (Dolnoserbski)
+/** Lower Sorbian (dolnoserbski)
  * @author Michawiki
  */
 $messages['dsb'] = array(
@@ -1349,7 +1349,7 @@ $messages['ga'] = array(
 	'stabilization-comment' => 'Fáth:',
 );
 
-/** Galician (Galego)
+/** Galician (galego)
  * @author Alma
  * @author Toliño
  * @author Xosé
@@ -1596,7 +1596,7 @@ Slijede važeće postavke za [[:$1|$1]]:',
 	'stabilization-review' => 'Označite trenutačnu inačicu pregledanom',
 );
 
-/** Upper Sorbian (Hornjoserbsce)
+/** Upper Sorbian (hornjoserbsce)
  * @author Michawiki
  */
 $messages['hsb'] = array(
@@ -2977,7 +2977,7 @@ $messages['ru'] = array(
 	'stabilization-review' => 'Отметить текущую версию как проверенную',
 );
 
-/** Rusyn (Русиньскый)
+/** Rusyn (русиньскый)
  * @author Gazeb
  */
 $messages['rue'] = array(
@@ -3391,7 +3391,7 @@ $messages['sw'] = array(
 	'stabilization-othertime' => 'Kipindi kingine:',
 );
 
-/** Silesian (Ślůnski)
+/** Silesian (ślůnski)
  * @author Herr Kriss
  */
 $messages['szl'] = array(

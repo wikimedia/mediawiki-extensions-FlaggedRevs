@@ -38,7 +38,7 @@ $messages['af'] = array(
 	'qualityoversight-legend' => 'Soek onlangse hersiening logs',
 );
 
-/** Aragonese (Aragonés)
+/** Aragonese (aragonés)
  * @author Juanpabl
  */
 $messages['an'] = array(
@@ -92,7 +92,7 @@ $messages['be'] = array(
 	'qualityoversight-legend' => 'Пошук па журналу праверак',
 );
 
-/** Belarusian (Taraškievica orthography) (‪Беларуская (тарашкевіца)‬)
+/** Belarusian (Taraškievica orthography) (‪беларуская (тарашкевіца)‬)
  * @author EugeneZelenko
  * @author Jim-by
  * @author Red Winged Duck
@@ -169,7 +169,7 @@ $messages['diq'] = array(
 	'qualityoversight-legend' => 'Loganê kontrol penî de bigêre',
 );
 
-/** Lower Sorbian (Dolnoserbski)
+/** Lower Sorbian (dolnoserbski)
  * @author Michawiki
  */
 $messages['dsb'] = array(
@@ -255,7 +255,7 @@ $messages['frp'] = array(
 	'qualityoversight-legend' => 'Rechèrchiér los jornals de les novèles rèvisions',
 );
 
-/** Galician (Galego)
+/** Galician (galego)
  * @author Toliño
  */
 $messages['gl'] = array(
@@ -313,7 +313,7 @@ $messages['hr'] = array(
 	'qualityoversight-legend' => 'Pretraži evidencije nedavnih ocjena',
 );
 
-/** Upper Sorbian (Hornjoserbsce)
+/** Upper Sorbian (hornjoserbsce)
  * @author Michawiki
  */
 $messages['hsb'] = array(
@@ -570,7 +570,7 @@ $messages['ru'] = array(
 	'qualityoversight-legend' => 'Поиск по журналу проверок',
 );
 
-/** Rusyn (Русиньскый)
+/** Rusyn (русиньскый)
  * @author Gazeb
  */
 $messages['rue'] = array(

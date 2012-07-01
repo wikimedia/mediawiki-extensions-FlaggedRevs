@@ -69,7 +69,7 @@ $messages['aln'] = array(
 	'stablepages-config' => 'Konfiguracion',
 );
 
-/** Aragonese (Aragonés)
+/** Aragonese (aragonés)
  * @author Juanpabl
  */
 $messages['an'] = array(
@@ -139,7 +139,7 @@ $messages['be'] = array(
 	'stablepages-indef' => 'Толькі з нявызначаным тэрмінам',
 );
 
-/** Belarusian (Taraškievica orthography) (‪Беларуская (тарашкевіца)‬)
+/** Belarusian (Taraškievica orthography) (‪беларуская (тарашкевіца)‬)
  * @author EugeneZelenko
  * @author Jim-by
  * @author Wizardist
@@ -258,7 +258,7 @@ Vurnayişan otomatik qeyd nibena eka yew karberanê binan meqale vurne heta yew 
 	'stablepages-indef' => 'Tenya vêrdışo ebedi',
 );
 
-/** Lower Sorbian (Dolnoserbski)
+/** Lower Sorbian (dolnoserbski)
  * @author Michawiki
  */
 $messages['dsb'] = array(
@@ -390,7 +390,7 @@ Los changements fêts per los ôtros usanciérs sont pas montrâs per dèfôt ux
 	'stablepages-indef' => 'Solament l’èxpiracion sen fin',
 );
 
-/** Galician (Galego)
+/** Galician (galego)
  * @author Toliño
  */
 $messages['gl'] = array(
@@ -465,7 +465,7 @@ Izmjene drugih suradnika nisu prikazane čitateljima po postavkama dok ih ne pro
 	'stablepages-indef' => 'Samo bez isteka roka',
 );
 
-/** Upper Sorbian (Hornjoserbsce)
+/** Upper Sorbian (hornjoserbsce)
  * @author Michawiki
  */
 $messages['hsb'] = array(
@@ -823,7 +823,7 @@ $messages['ru'] = array(
 	'stablepages-indef' => 'Только с неопределённым сроком',
 );
 
-/** Rusyn (Русиньскый)
+/** Rusyn (русиньскый)
  * @author Gazeb
  */
 $messages['rue'] = array(

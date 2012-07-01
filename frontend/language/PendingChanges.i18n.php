@@ -110,7 +110,7 @@ $messages['am'] = array(
 	'pendingchanges-category' => 'መደብ:',
 );
 
-/** Aragonese (Aragonés)
+/** Aragonese (aragonés)
  * @author Juanpabl
  */
 $messages['an'] = array(
@@ -273,7 +273,7 @@ $messages['be'] = array(
 	'pendingchanges-viewing' => '(правяраюцца)',
 );
 
-/** Belarusian (Taraškievica orthography) (‪Беларуская (тарашкевіца)‬)
+/** Belarusian (Taraškievica orthography) (‪беларуская (тарашкевіца)‬)
  * @author EugeneZelenko
  * @author Jim-by
  * @author Wizardist
@@ -421,7 +421,7 @@ $messages['cs'] = array(
 	'pendingchanges-viewing' => '(posuzuje se)',
 );
 
-/** Church Slavic (Словѣ́ньскъ / ⰔⰎⰑⰂⰡⰐⰠⰔⰍⰟ)
+/** Church Slavic (словѣ́ньскъ / ⰔⰎⰑⰂⰡⰐⰠⰔⰍⰟ)
  * @author ОйЛ
  */
 $messages['cu'] = array(
@@ -475,7 +475,7 @@ $messages['diq'] = array(
 	'pendingchanges-viewing' => '(ho kontrol keno)',
 );
 
-/** Lower Sorbian (Dolnoserbski)
+/** Lower Sorbian (dolnoserbski)
  * @author Michawiki
  */
 $messages['dsb'] = array(
@@ -729,7 +729,7 @@ $messages['ga'] = array(
 	'pendingchanges-category' => 'Catagóir:',
 );
 
-/** Galician (Galego)
+/** Galician (galego)
  * @author Toliño
  */
 $messages['gl'] = array(
@@ -852,7 +852,7 @@ $messages['hr'] = array(
 	'pendingchanges-viewing' => '(u ocjenjivanju)',
 );
 
-/** Upper Sorbian (Hornjoserbsce)
+/** Upper Sorbian (hornjoserbsce)
  * @author Michawiki
  */
 $messages['hsb'] = array(
@@ -1622,7 +1622,7 @@ $messages['ru'] = array(
 	'pendingchanges-viewing' => '(проверяются)',
 );
 
-/** Rusyn (Русиньскый)
+/** Rusyn (русиньскый)
  * @author Gazeb
  */
 $messages['rue'] = array(

@@ -67,7 +67,7 @@ $messages['aln'] = array(
 	'reviewedversions-page' => 'Emri i faqes:',
 );
 
-/** Aragonese (Aragonés)
+/** Aragonese (aragonés)
  * @author Juanpabl
  */
 $messages['an'] = array(
@@ -164,7 +164,7 @@ $messages['be'] = array(
 	'reviewedversions-review' => 'Праверана <i>$1</i> ўдзельнікам $2',
 );
 
-/** Belarusian (Taraškievica orthography) (‪Беларуская (тарашкевіца)‬)
+/** Belarusian (Taraškievica orthography) (‪беларуская (тарашкевіца)‬)
  * @author EugeneZelenko
  */
 $messages['be-tarask'] = array(
@@ -262,7 +262,7 @@ $messages['cs'] = array(
 	'reviewedversions-review' => 'Posouzeno <i>$1</i> uživatelem $2',
 );
 
-/** Church Slavic (Словѣ́ньскъ / ⰔⰎⰑⰂⰡⰐⰠⰔⰍⰟ)
+/** Church Slavic (словѣ́ньскъ / ⰔⰎⰑⰂⰡⰐⰠⰔⰍⰟ)
  * @author ОйЛ
  */
 $messages['cu'] = array(
@@ -304,7 +304,7 @@ $messages['diq'] = array(
 	'reviewedversions-review' => 'hetê $2 ra <i>$1</i> tarix de kontrol bı',
 );
 
-/** Lower Sorbian (Dolnoserbski)
+/** Lower Sorbian (dolnoserbski)
  * @author Michawiki
  */
 $messages['dsb'] = array(
@@ -450,7 +450,7 @@ $messages['fy'] = array(
 	'reviewedversions-page' => 'Sidenamme:',
 );
 
-/** Galician (Galego)
+/** Galician (galego)
  * @author Alma
  * @author Toliño
  * @author Xosé
@@ -529,7 +529,7 @@ $messages['hr'] = array(
 	'reviewedversions-review' => 'Ocijenjeno <i>$1</i> od suradnika $2',
 );
 
-/** Upper Sorbian (Hornjoserbsce)
+/** Upper Sorbian (hornjoserbsce)
  * @author Michawiki
  */
 $messages['hsb'] = array(
@@ -1007,7 +1007,7 @@ $messages['ru'] = array(
 	'reviewedversions-review' => 'Проверена <i>$1</i> участником $2',
 );
 
-/** Rusyn (Русиньскый)
+/** Rusyn (русиньскый)
  * @author Gazeb
  */
 $messages['rue'] = array(

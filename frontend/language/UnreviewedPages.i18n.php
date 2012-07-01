@@ -111,7 +111,7 @@ $messages['am'] = array(
 	'unreviewedpages-category' => 'መደብ:',
 );
 
-/** Aragonese (Aragonés)
+/** Aragonese (aragonés)
  * @author Juanpabl
  */
 $messages['an'] = array(
@@ -245,7 +245,7 @@ $messages['be'] = array(
 	'unreviewedpages-recent' => '(Менш 1 гадзіны)',
 );
 
-/** Belarusian (Taraškievica orthography) (‪Беларуская (тарашкевіца)‬)
+/** Belarusian (Taraškievica orthography) (‪беларуская (тарашкевіца)‬)
  * @author EugeneZelenko
  * @author Jim-by
  * @author Red Winged Duck
@@ -388,7 +388,7 @@ $messages['cs'] = array(
 	'unreviewedpages-recent' => '(méně něž hodina)',
 );
 
-/** Church Slavic (Словѣ́ньскъ / ⰔⰎⰑⰂⰡⰐⰠⰔⰍⰟ)
+/** Church Slavic (словѣ́ньскъ / ⰔⰎⰑⰂⰡⰐⰠⰔⰍⰟ)
  * @author ОйЛ
  */
 $messages['cu'] = array(
@@ -740,6 +740,7 @@ $messages['haw'] = array(
  * @author YaronSh
  */
 $messages['he'] = array(
+	'action-unreviewedpages' => 'להציג רשימה של דפים שלא נסקרו',
 	'unreviewedpages' => 'דפים שלא נסקרו',
 	'unreviewedpages-legend' => 'רשימה של דפי תוכן שלא נסקרו',
 	'unreviewedpages-category' => 'קטגוריה:',
@@ -1537,7 +1538,7 @@ $messages['ru'] = array(
 	'unreviewedpages-recent' => '(менее, чем 1 час)',
 );
 
-/** Rusyn (Русиньскый)
+/** Rusyn (русиньскый)
  * @author Gazeb
  */
 $messages['rue'] = array(

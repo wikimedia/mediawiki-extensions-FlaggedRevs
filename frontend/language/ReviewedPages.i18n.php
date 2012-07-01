@@ -68,7 +68,7 @@ $messages['af'] = array(
 	'reviewedpages-best' => 'beste weergawe',
 );
 
-/** Aragonese (Aragonés)
+/** Aragonese (aragonés)
  * @author Juanpabl
  */
 $messages['an'] = array(
@@ -176,7 +176,7 @@ $messages['be'] = array(
 	'reviewedpages-best' => 'найлепшая версія',
 );
 
-/** Belarusian (Taraškievica orthography) (‪Беларуская (тарашкевіца)‬)
+/** Belarusian (Taraškievica orthography) (‪беларуская (тарашкевіца)‬)
  * @author EugeneZelenko
  * @author Jim-by
  */
@@ -314,7 +314,7 @@ Versiyone peniyane ena seviye re yew link dayeya.',
 	'reviewedpages-best' => 'revizyono tewr rınd',
 );
 
-/** Lower Sorbian (Dolnoserbski)
+/** Lower Sorbian (dolnoserbski)
  * @author Michawiki
  */
 $messages['dsb'] = array(
@@ -476,7 +476,7 @@ Lo lim balyê pouente vers la dèrriére vèrsion de cél nivél.",
 	'reviewedpages-best' => 'vèrsion la ples bôna',
 );
 
-/** Galician (Galego)
+/** Galician (galego)
  * @author Alma
  * @author Toliño
  */
@@ -575,7 +575,7 @@ Navedena je poveznica do najnovije inačice stranice koja je ocijenjena najmanje
 	'reviewedpages-best' => 'najbolje ocijenjena inačica',
 );
 
-/** Upper Sorbian (Hornjoserbsce)
+/** Upper Sorbian (hornjoserbsce)
  * @author Michawiki
  */
 $messages['hsb'] = array(
@@ -1117,7 +1117,7 @@ $messages['ru'] = array(
 	'reviewedpages-best' => 'наилучшая версия',
 );
 
-/** Rusyn (Русиньскый)
+/** Rusyn (русиньскый)
  * @author Gazeb
  */
 $messages['rue'] = array(

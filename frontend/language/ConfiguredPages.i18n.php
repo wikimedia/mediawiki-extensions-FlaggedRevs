@@ -121,7 +121,7 @@ $messages['be'] = array(
 	'configuredpages-def-stable' => 'публікаваная версія',
 );
 
-/** Belarusian (Taraškievica orthography) (‪Беларуская (тарашкевіца)‬)
+/** Belarusian (Taraškievica orthography) (‪беларуская (тарашкевіца)‬)
  * @author EugeneZelenko
  * @author Wizardist
  * @author Zedlik
@@ -254,7 +254,7 @@ Tey eyran belki vuriyena feqet versiyan inan bini de mocneyena  ya zi wedekaran 
 	'configuredpages-def-stable' => 'versiyonê sebiti',
 );
 
-/** Lower Sorbian (Dolnoserbski)
+/** Lower Sorbian (dolnoserbski)
  * @author Michawiki
  */
 $messages['dsb'] = array(
@@ -388,7 +388,7 @@ Quârques paramètres pôvont fâre aparêtre una vèrsion difèrenta por los li
 	'configuredpages-def-stable' => 'vèrsion stâbla',
 );
 
-/** Galician (Galego)
+/** Galician (galego)
  * @author Toliño
  */
 $messages['gl'] = array(
@@ -454,7 +454,7 @@ Određene postavke mogu promijeniti koja se inačica prikazuje čitateljima ili 
 	'configuredpages-def-stable' => 'stabilna inačica',
 );
 
-/** Upper Sorbian (Hornjoserbsce)
+/** Upper Sorbian (hornjoserbsce)
  * @author Michawiki
  */
 $messages['hsb'] = array(
@@ -801,7 +801,7 @@ $messages['ru'] = array(
 	'configuredpages-def-stable' => 'опубликованная версия',
 );
 
-/** Rusyn (Русиньскый)
+/** Rusyn (русиньскый)
  * @author Gazeb
  */
 $messages['rue'] = array(

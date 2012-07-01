@@ -107,7 +107,7 @@ $messages['be'] = array(
 	'problemchanges-category' => 'Катэгорыя:',
 );
 
-/** Belarusian (Taraškievica orthography) (‪Беларуская (тарашкевіца)‬)
+/** Belarusian (Taraškievica orthography) (‪беларуская (тарашкевіца)‬)
  * @author EugeneZelenko
  * @author Jim-by
  * @author Wizardist
@@ -219,7 +219,7 @@ $messages['diq'] = array(
 	'problemchanges-category' => 'Kategorî:',
 );
 
-/** Lower Sorbian (Dolnoserbski)
+/** Lower Sorbian (dolnoserbski)
  * @author Michawiki
  */
 $messages['dsb'] = array(
@@ -341,7 +341,7 @@ $messages['frp'] = array(
 	'problemchanges-category' => 'Catègorie :',
 );
 
-/** Galician (Galego)
+/** Galician (galego)
  * @author Toliño
  */
 $messages['gl'] = array(
@@ -410,7 +410,7 @@ $messages['hr'] = array(
 	'problemchanges-category' => 'Kategorija:',
 );
 
-/** Upper Sorbian (Hornjoserbsce)
+/** Upper Sorbian (hornjoserbsce)
  * @author Michawiki
  */
 $messages['hsb'] = array(
@@ -766,7 +766,7 @@ $messages['ru'] = array(
 	'problemchanges-category' => 'Категория:',
 );
 
-/** Rusyn (Русиньскый)
+/** Rusyn (русиньскый)
  * @author Gazeb
  */
 $messages['rue'] = array(

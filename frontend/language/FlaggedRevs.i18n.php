@@ -885,7 +885,7 @@ $messages['am'] = array(
 	'revreview-filter-all' => 'ሁሉ',
 );
 
-/** Aragonese (Aragonés)
+/** Aragonese (aragonés)
  * @author Juanpabl
  */
 $messages['an'] = array(
@@ -1967,7 +1967,7 @@ $messages['be'] = array(
 	'validationpage' => '{{ns:help}}:Праверка старонак',
 );
 
-/** Belarusian (Taraškievica orthography) (‪Беларуская (тарашкевіца)‬)
+/** Belarusian (Taraškievica orthography) (‪беларуская (тарашкевіца)‬)
  * @author EugeneZelenko
  * @author Jim-by
  * @author Red Winged Duck
@@ -3696,7 +3696,7 @@ Belka [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diff
 	'validationpage' => '{{ns:help}}:tesdiq kerdışê peli',
 );
 
-/** Lower Sorbian (Dolnoserbski)
+/** Lower Sorbian (dolnoserbski)
  * @author Michawiki
  * @author Nepl1
  */
@@ -5544,7 +5544,7 @@ $messages['gan'] = array(
 	'revreview-revnotfound' => '倷請求嗰更早版本嗰修改歷史冇尋到。請檢查倷嗰URL係否正確。',
 );
 
-/** Galician (Galego)
+/** Galician (galego)
  * @author Alma
  * @author Gallaecio
  * @author Toliño
@@ -6593,7 +6593,7 @@ Molimo provjerite URL koji vas je doveo ovamo.',
 	'validationpage' => '{{ns:help}}:Ocjenjivanje članaka',
 );
 
-/** Upper Sorbian (Hornjoserbsce)
+/** Upper Sorbian (hornjoserbsce)
  * @author Dundak
  * @author Michawiki
  */
@@ -11839,13 +11839,13 @@ $messages['pt-br'] = array(
 	'revreview-hist-pending-difflink' => "'''[[{{fullurl:$1|oldid=$2&diff=$3{{MediaWiki:flaggedrevs-diffonly}}}} revisão pendente]]'''",
 	'review-edit-diff' => "'''NOTA: Algumas das alterações pendentes afetam a área da página que você está editando.'''",
 	'revreview-diff-toggle-show' => 'mostrar alterações',
-	'revreview-diff-toggle-hide' => 'esconder alterações',
+	'revreview-diff-toggle-hide' => 'ocultar estas alterações',
 	'revreview-diff-toggle-title' => 'Alternar entre a apresentação das alterações pendentes e da versão publicada',
 	'revreview-log-toggle-show' => 'mostrar registro de estabilidade',
-	'revreview-log-toggle-hide' => 'esconder registro de estabilidade',
+	'revreview-log-toggle-hide' => 'ocultar registro de estabilidade',
 	'revreview-log-toggle-title' => 'Alternar a apresentação do registro das configurações de estabilidade',
 	'revreview-log-details-show' => 'mostrar detalhes',
-	'revreview-log-details-hide' => 'esconder detalhes',
+	'revreview-log-details-hide' => 'ocultar detalhes',
 	'revreview-log-details-title' => 'Alternar a apresentação do registro das configurações de estabilidade',
 	'review-diff2stable' => 'Ver alterações pendentes à versão publicada',
 	'review-logentry-app' => 'revisou uma versão de [[$1]]',
@@ -11930,7 +11930,7 @@ Podem existir [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedr
 	'revreview-style-2' => 'Boa',
 	'revreview-style-3' => 'Concisa',
 	'revreview-style-4' => 'Exemplar',
-	'revreview-toggle-title' => 'mostrar/esconder detalhes',
+	'revreview-toggle-title' => 'exibir/ocultar detalhes',
 	'revreview-visibility-synced' => "'''Esta página tem uma [[{{MediaWiki:Validationpage}}|versão publicada]] atualizada; os parâmetros de estabilidade da página podem ser [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} configurados].'''",
 	'revreview-visibility-outdated' => "'''Esta página tem uma [[{{MediaWiki:Validationpage}}|versão publicada]] desatualizada; os parâmetros de estabilidade da página podem ser [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} configurados].'''",
 	'revreview-visibility-nostable' => "'''Esta página não tem uma [[{{MediaWiki:Validationpage}}|versão publicada]]; os parâmetros de estabilidade da página podem ser [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} configurados].'''",
@@ -12552,7 +12552,7 @@ $messages['ru'] = array(
 	'validationpage' => '{{ns:help}}:Проверка страниц',
 );
 
-/** Rusyn (Русиньскый)
+/** Rusyn (русиньскый)
  * @author Gazeb
  */
 $messages['rue'] = array(
@@ -12973,7 +12973,7 @@ $messages['sei'] = array(
 	'revreview-revnotfound' => 'Janrevicion zode páhina zo me yahöx necoccebj yahöxom. Controlar URL zo me usadadde accesom jan páhina.',
 );
 
-/** Samogitian (Žemaitėška) */
+/** Samogitian (žemaitėška) */
 $messages['sgs'] = array(
 	'revreview-revnotfound' => 'Nuorima poslapė versėjė narasta. Patėkrėnkėt URL, katro patekuot i šėta poslapi.',
 );
@@ -14066,7 +14066,7 @@ $messages['sw'] = array(
 	'revreview-restriction-none' => 'usichague',
 );
 
-/** Silesian (Ślůnski)
+/** Silesian (ślůnski)
  * @author Timpul
  */
 $messages['szl'] = array(

@@ -111,7 +111,7 @@ $messages['am'] = array(
 	'validationstatistics-ns' => 'ክፍለ-ዊኪ',
 );
 
-/** Aragonese (Aragonés)
+/** Aragonese (aragonés)
  * @author Juanpabl
  */
 $messages['an'] = array(
@@ -248,7 +248,7 @@ $3",
 	'validationstatistics-reviews' => 'Праверкі',
 );
 
-/** Belarusian (Taraškievica orthography) (‪Беларуская (тарашкевіца)‬)
+/** Belarusian (Taraškievica orthography) (‪беларуская (тарашкевіца)‬)
  * @author EugeneZelenko
  * @author Jim-by
  * @author Red Winged Duck
@@ -418,7 +418,7 @@ $3",
 	'validationstatistics-reviews' => 'Posouzení',
 );
 
-/** Church Slavic (Словѣ́ньскъ / ⰔⰎⰑⰂⰡⰐⰠⰔⰍⰟ)
+/** Church Slavic (словѣ́ньскъ / ⰔⰎⰑⰂⰡⰐⰠⰔⰍⰟ)
  * @author ОйЛ
  */
 $messages['cu'] = array(
@@ -496,7 +496,7 @@ $3",
 	'validationstatistics-reviews' => 'Revizyonî',
 );
 
-/** Lower Sorbian (Dolnoserbski)
+/** Lower Sorbian (dolnoserbski)
  * @author Michawiki
  */
 $messages['dsb'] = array(
@@ -784,7 +784,7 @@ $messages['ga'] = array(
 	'validationstatistics-total' => 'Leathanaigh',
 );
 
-/** Galician (Galego)
+/** Galician (galego)
  * @author Toliño
  */
 $messages['gl'] = array(
@@ -951,7 +951,7 @@ $3",
 	'validationstatistics-reviews' => 'Ocjene',
 );
 
-/** Upper Sorbian (Hornjoserbsce)
+/** Upper Sorbian (hornjoserbsce)
  * @author Michawiki
  */
 $messages['hsb'] = array(
@@ -1249,7 +1249,7 @@ $messages['kn'] = array(
  */
 $messages['ko'] = array(
 	'validationstatistics' => '페이지의 검토 통계',
-	'validationstatistics-users' => "'''{{SITENAME}}'''에는 [[Special:ListUsers/editor|$1]]명의 [[{{MediaWiki:Validationpage}}|편집자]] 권한을 가진 사용자가 있습니다.
+	'validationstatistics-users' => "'''{{SITENAME}}'''에는 [[{{MediaWiki:Validationpage}}|편집자]] 권한을 가진 사용자 [[Special:ListUsers/editor|$1]]명이 있습니다.
 
 편집자가 문서를 검토할 수 있습니다.",
 	'validationstatistics-lastupdate' => "''다음과 같은 데이터가 마지막으로 $1 $2에 업데이트되었습니다. ''",
@@ -1838,7 +1838,7 @@ $3",
 	'validationstatistics-reviews' => 'Проверки',
 );
 
-/** Rusyn (Русиньскый)
+/** Rusyn (русиньскый)
  * @author Gazeb
  */
 $messages['rue'] = array(
