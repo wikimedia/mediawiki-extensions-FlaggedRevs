@@ -16520,7 +16520,7 @@ $messages['zh-hant'] = array(
 	'revreview-locked' => "'''注意：'''對本頁作出的編輯必須經[[{{MediaWiki:Validationpage}}|複審]]後方可向讀者顯示。",
 	'revreview-unlocked' => "'''注意：'''對本頁作出的編輯無須經過[[{{MediaWiki:Validationpage}}|複審]]就可以向讀者顯示。",
 	'log-show-hide-review' => '$1複審日誌',
-	'validationpage' => '{{ns:help}}：頁面驗證',
+	'validationpage' => '{{ns:help}}:頁面驗證',
 );
 
 /** Chinese (Taiwan) (‪中文(台灣)‬) */
