@@ -1248,7 +1248,7 @@ $messages['kn'] = array(
  * @author 아라
  */
 $messages['ko'] = array(
-	'validationstatistics' => '페이지의 검토 통계',
+	'validationstatistics' => '문서의 검토 통계',
 	'validationstatistics-users' => "'''{{SITENAME}}'''에는 [[{{MediaWiki:Validationpage}}|편집자]] 권한을 가진 사용자 [[Special:ListUsers/editor|$1]]명이 있습니다.
 
 편집자가 문서를 검토할 수 있습니다.",
