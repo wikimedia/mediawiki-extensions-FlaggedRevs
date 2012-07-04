@@ -216,7 +216,7 @@ $messages['diq'] = array(
 	'problemchanges' => 'Vuranayîşanê etiket biyo vindeno',
 	'problemchanges-legend' => 'Pelanê ke be vurnayışi etiket biyê u seba çımraviyarnayışi pawenê lista ke',
 	'problemchanges-none' => 'Ser ena kriteri de pelan çini yo',
-	'problemchanges-category' => 'Kategorî:',
+	'problemchanges-category' => 'Kategoriye:',
 );
 
 /** Lower Sorbian (dolnoserbski)

@@ -244,7 +244,7 @@ $specialPageAliases['gsw'] = array(
 
 /** Gujarati (ગુજરાતી) */
 $specialPageAliases['gu'] = array(
-	'PendingChanges' => array( 'જુનાં તપાસાયેલા પાનાં' ),
+	'PendingChanges' => array( 'જુનાં_તપાસાયેલા_પાનાં' ),
 	'QualityOversight' => array( 'ગુણવતા_દુર્લક્ષ' ),
 	'ReviewedPages' => array( 'રીવ્યુપાનાં' ),
 	'RevisionReview' => array( 'આવૃત્તિરીવ્યુ' ),

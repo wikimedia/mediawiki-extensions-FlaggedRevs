@@ -572,8 +572,10 @@ $messages['ext'] = array(
  * @author Huji
  * @author Mardetanha
  * @author Mjbmr
+ * @author Reza1615
  */
 $messages['fa'] = array(
+	'action-unreviewedpages' => 'مشاهدهٔ صفحه‌های پی‌گیری نشده',
 	'unreviewedpages' => 'صفحه‌های بررسی نشده',
 	'unreviewedpages-legend' => 'فهرست صفحه‌های بازبینی نشده',
 	'unreviewedpages-category' => 'رده:',
