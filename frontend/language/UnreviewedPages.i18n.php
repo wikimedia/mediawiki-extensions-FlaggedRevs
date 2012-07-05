@@ -1873,10 +1873,12 @@ $messages['tr'] = array(
 
 /** Ukrainian (українська)
  * @author Ahonc
+ * @author Olvin
  * @author Prima klasy4na
  * @author Тест
  */
 $messages['uk'] = array(
+	'action-unreviewedpages' => 'Перегляд списку неперевірених сторінок',
 	'unreviewedpages' => 'Неперевірені сторінки',
 	'unreviewedpages-legend' => 'Список неперевірених статей',
 	'unreviewedpages-category' => 'Категорія:',
