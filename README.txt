@@ -1,4 +1,4 @@
-﻿Complete online documenation: 
+Complete online documenation: 
 http://www.mediawiki.org/wiki/Extension:FlaggedRevs
 
 ==Prerequisites==
