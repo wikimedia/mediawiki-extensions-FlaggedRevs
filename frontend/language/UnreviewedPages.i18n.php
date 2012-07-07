@@ -1072,6 +1072,7 @@ $messages['krj'] = array(
  * @author Purodha
  */
 $messages['ksh'] = array(
+	'action-unreviewedpages' => 'de Leß met nit nohjekikte Sigge beloore',
 	'unreviewedpages' => 'De noch nit aanjekikte Sigge',
 	'unreviewedpages-legend' => 'Leß met de noch nit aanjekikte Sigge em Houp-Appachtemang',
 	'unreviewedpages-category' => 'Saachjrupp:',
