@@ -647,14 +647,14 @@ $specialPageAliases['sw'] = array(
 
 /** Tagalog (Tagalog) */
 $specialPageAliases['tl'] = array(
-	'PendingChanges' => array( 'Nasuring lumang mga pahina' ),
-	'QualityOversight' => array( 'Maingat na pamamahala ng kalidad' ),
-	'ReviewedPages' => array( 'Sinuring mga pahina' ),
-	'RevisionReview' => array( 'Pagsusuri ng pagbabago' ),
+	'PendingChanges' => array( 'Nasuring_lumang_mga_pahina' ),
+	'QualityOversight' => array( 'Maingat_na_pamamahala_ng_kalidad' ),
+	'ReviewedPages' => array( 'Sinuring_mga_pahina' ),
+	'RevisionReview' => array( 'Pagsusuri_ng_pagbabago' ),
 	'Stabilization' => array( 'Pagpapatatag', 'Pagpapatibay' ),
-	'StablePages' => array( 'Matatag na mga pahina' ),
-	'UnreviewedPages' => array( 'Mga pahina hindi pa nasusuri' ),
-	'ValidationStatistics' => array( 'Mga estadistika ng pagtitiyak' ),
+	'StablePages' => array( 'Matatag_na_mga_pahina' ),
+	'UnreviewedPages' => array( 'Mga_pahina_hindi_pa_nasusuri' ),
+	'ValidationStatistics' => array( 'Mga_estadistika_ng_pagtitiyak' ),
 );
 
 /** Turkish (Türkçe) */
