@@ -1519,6 +1519,7 @@ $messages['roa-tara'] = array(
 
 /** Russian (русский)
  * @author Ahonc
+ * @author DCamer
  * @author EugeneZelenko
  * @author Ferrer
  * @author Kaganer
@@ -1527,6 +1528,7 @@ $messages['roa-tara'] = array(
  * @author Александр Сигачёв
  */
 $messages['ru'] = array(
+	'action-unreviewedpages' => 'просмотр списка непроверенных страниц',
 	'unreviewedpages' => 'Непроверенные страницы',
 	'unreviewedpages-legend' => 'Список непроверенных статей',
 	'unreviewedpages-category' => 'Категория:',

@@ -8625,7 +8625,7 @@ $messages['ko'] = array(
 	'revreview-pending-quality' => '이 [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 배포판]은 <i>$2</i>에 [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 승인]되었습니다. 아울러 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 편집 $3개]가 검토를 기다리고 있습니다.',
 	'revreview-pending-nosection' => '문단이 이동되었거나 삭제되었는지를 확인하려면 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 검토를 기다리고 있는 편집 $2개]를 포함하고 있는 [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} 최신판]을 확인해보십시오.',
 	'revreview-noflagged' => "이 문서에는 [[{{MediaWiki:Validationpage}}|검토된 판]]이 없습니다. 따라서 이 문서는 품질 기준에 맞는지 검토를 거치지 '''않았을''' 수 있습니다.",
-	'revreview-oldrating' => '평가 내력:',
+	'revreview-oldrating' => '평가 내역:',
 	'revreview-quality' => '이 버전은 <i>$2</i>에 [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 승인]된 [[{{MediaWiki:Validationpage}}|배포판]]입니다.
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 편집 $3개]가 검토를 기다리고 있습니다.',
 	'revreview-quality-i' => '이 버전은 <i>$2</i>에 [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 승인]된 [[{{MediaWiki:Validationpage}}|배포판]]입니다.
