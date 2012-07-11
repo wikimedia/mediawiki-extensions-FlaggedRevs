@@ -677,6 +677,20 @@ $specialPageAliases['tt-cyrl'] = array(
 	'StablePages' => array( 'Тотрыклы_битләр' ),
 );
 
+/** Ukrainian (українська) */
+$specialPageAliases['uk'] = array(
+	'PendingChanges' => array( 'Сторінки_що_очікують_перевірки' ),
+	'QualityOversight' => array( 'Поглиблений_журнал_перевірок' ),
+	'ReviewedPages' => array( 'Перевірені_сторінки' ),
+	'RevisionReview' => array( 'Перевірка_версій' ),
+	'Stabilization' => array( 'Стабілізація' ),
+	'StablePages' => array( 'Стабілізовані_сторінки' ),
+	'ConfiguredPages' => array( 'Налаштовані_сторінки' ),
+	'ReviewedVersions' => array( 'Перевірені_версії' ),
+	'UnreviewedPages' => array( 'Неперевірені_сторінки' ),
+	'ValidationStatistics' => array( 'Статистика_перевірок' ),
+);
+
 /** vèneto (vèneto) */
 $specialPageAliases['vec'] = array(
 	'PendingChanges' => array( 'PagineRiesaminàVèce' ),
