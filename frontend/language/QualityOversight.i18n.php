@@ -465,8 +465,7 @@ $messages['ms'] = array(
 	'qualityoversight-legend' => 'Cari log kaji semula terkini',
 );
 
-/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
- * @author Jon Harald Søby
+/** Norwegian Bokmål (‪norsk (bokmål)‬)
  * @author Nghtwlkr
  */
 $messages['nb'] = array(
@@ -703,7 +702,7 @@ $messages['vec'] = array(
 	'qualityoversight-legend' => 'Serca i registri de le revision reçenti',
 );
 
-/** Veps (Vepsän kel’)
+/** Veps (vepsän kel’)
  * @author Игорь Бродский
  */
 $messages['vep'] = array(

@@ -254,7 +254,7 @@ $messages['ca'] = array(
 	'reviewedpages-best' => 'millor revisió',
 );
 
-/** Chechen (Нохчийн)
+/** Chechen (нохчийн)
  * @author Sasan700
  */
 $messages['ce'] = array(
@@ -738,7 +738,7 @@ $messages['kk-arab'] = array(
 	'reviewedpages-best' => 'ەڭ سوڭعى ەڭ جوعارى دەڭگەي بەرىلگەن نۇسقاسى',
 );
 
-/** Kazakh (Cyrillic script) (‪Қазақша (кирил)‬) */
+/** Kazakh (Cyrillic script) (‪қазақша (кирил)‬) */
 $messages['kk-cyrl'] = array(
 	'reviewedpages' => 'Сын берілген беттер',
 	'reviewedpages-leg' => 'Анық деңгейде сын берілген беттерді тізімдеу',
@@ -751,7 +751,7 @@ $messages['kk-cyrl'] = array(
 	'reviewedpages-best' => 'ең соңғы ең жоғары деңгей берілген нұсқасы',
 );
 
-/** Kazakh (Latin script) (‪Qazaqşa (latın)‬) */
+/** Kazakh (Latin script) (‪qazaqşa (latın)‬) */
 $messages['kk-latn'] = array(
 	'reviewedpages' => 'Sın berilgen better',
 	'reviewedpages-leg' => 'Anıq deñgeýde sın berilgen betterdi tizimdew',
@@ -910,9 +910,8 @@ $messages['nah'] = array(
 	'reviewedpages-lev-1' => 'Cuallōtl',
 );
 
-/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
+/** Norwegian Bokmål (‪norsk (bokmål)‬)
  * @author EivindJ
- * @author Jon Harald Søby
  * @author Nghtwlkr
  */
 $messages['nb'] = array(
@@ -1409,7 +1408,7 @@ Xe fornìo un link a l'ultima revision par quel livèl.",
 	'reviewedpages-best' => 'revision mejo',
 );
 
-/** Veps (Vepsän kel’)
+/** Veps (vepsän kel’)
  * @author Игорь Бродский
  */
 $messages['vep'] = array(

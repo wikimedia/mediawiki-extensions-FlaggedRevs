@@ -348,7 +348,7 @@ $messages['ca'] = array(
 	'unreviewedpages-recent' => "(menys d'una hora)",
 );
 
-/** Chechen (Нохчийн)
+/** Chechen (нохчийн)
  * @author Sasan700
  */
 $messages['ce'] = array(
@@ -1005,7 +1005,7 @@ $messages['kk-arab'] = array(
 	'unreviewedpages-list' => 'بۇل بەتتە سىن بەرىلمەگەن ماقالالار نە جاڭادان جاسالعان, سىن بەرىلمەگەن, نۇسقالارى بار ماقالار تىزىمدەلىنەدى.',
 );
 
-/** Kazakh (Cyrillic script) (‪Қазақша (кирил)‬) */
+/** Kazakh (Cyrillic script) (‪қазақша (кирил)‬) */
 $messages['kk-cyrl'] = array(
 	'unreviewedpages' => 'Сын берілмеген беттер',
 	'unreviewedpages-category' => 'Санат:',
@@ -1013,7 +1013,7 @@ $messages['kk-cyrl'] = array(
 	'unreviewedpages-list' => 'Бұл бетте сын берілмеген мақалалар не жаңадан жасалған, сын берілмеген, нұсқалары бар мақалар тізімделінеді.',
 );
 
-/** Kazakh (Latin script) (‪Qazaqşa (latın)‬) */
+/** Kazakh (Latin script) (‪qazaqşa (latın)‬) */
 $messages['kk-latn'] = array(
 	'unreviewedpages' => 'Sın berilmegen better',
 	'unreviewedpages-category' => 'Sanat:',
@@ -1243,7 +1243,7 @@ $messages['ms'] = array(
 	'unreviewedpages-recent' => '(kurang drpd. 1 jam)',
 );
 
-/** Erzya (Эрзянь)
+/** Erzya (эрзянь)
  * @author Amdf
  */
 $messages['myv'] = array(
@@ -1258,9 +1258,8 @@ $messages['nah'] = array(
 	'unreviewedpages-category' => 'Tlaìxmatkàtlàlilòtl:',
 );
 
-/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
+/** Norwegian Bokmål (‪norsk (bokmål)‬)
  * @author Harald Khan
- * @author Jon Harald Søby
  * @author Nghtwlkr
  * @author Simny
  */
@@ -1914,7 +1913,7 @@ $messages['vec'] = array(
 	'unreviewedpages-recent' => "(manco de un'ora)",
 );
 
-/** Veps (Vepsän kel’)
+/** Veps (vepsän kel’)
  * @author Игорь Бродский
  */
 $messages['vep'] = array(

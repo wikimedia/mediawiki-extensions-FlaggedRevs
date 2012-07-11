@@ -239,7 +239,7 @@ $messages['ca'] = array(
 	'reviewedversions-review' => 'Revisat el <em>$1</em> per $2',
 );
 
-/** Chechen (Нохчийн)
+/** Chechen (нохчийн)
  * @author Sasan700
  */
 $messages['ce'] = array(
@@ -656,7 +656,7 @@ $messages['kk-arab'] = array(
 	'reviewedversions-review' => '$2 <i>$1</i> كەزىندە سىن بەردى',
 );
 
-/** Kazakh (Cyrillic script) (‪Қазақша (кирил)‬) */
+/** Kazakh (Cyrillic script) (‪қазақша (кирил)‬) */
 $messages['kk-cyrl'] = array(
 	'reviewedversions' => 'Тиянақты нұсқалар',
 	'reviewedversions-leg1' => 'Сын берілген беттің нұсқа тізімі',
@@ -666,7 +666,7 @@ $messages['kk-cyrl'] = array(
 	'reviewedversions-review' => '$2 <i>$1</i> кезінде сын берді',
 );
 
-/** Kazakh (Latin script) (‪Qazaqşa (latın)‬) */
+/** Kazakh (Latin script) (‪qazaqşa (latın)‬) */
 $messages['kk-latn'] = array(
 	'reviewedversions' => 'Tïyanaqtı nusqalar',
 	'reviewedversions-leg1' => 'Sın berilgen bettiñ nusqa tizimi',
@@ -754,7 +754,7 @@ $messages['lt'] = array(
 	'reviewedversions-page' => 'Puslapio pavadinimas:',
 );
 
-/** Eastern Mari (Олык Марий)
+/** Eastern Mari (олык марий)
  * @author Сай
  */
 $messages['mhr'] = array(
@@ -814,7 +814,7 @@ $messages['ms'] = array(
 	'reviewedversions-review' => 'Diperiksa pada <i>$1</i> oleh $2',
 );
 
-/** Erzya (Эрзянь)
+/** Erzya (эрзянь)
  * @author Amdf
  */
 $messages['myv'] = array(
@@ -828,8 +828,7 @@ $messages['nah'] = array(
 	'reviewedversions-page' => 'Zāzanilli ītōcā:',
 );
 
-/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
- * @author Jon Harald Søby
+/** Norwegian Bokmål (‪norsk (bokmål)‬)
  * @author Nghtwlkr
  */
 $messages['nb'] = array(
@@ -1277,7 +1276,7 @@ $messages['vec'] = array(
 	'reviewedversions-review' => 'Riesaminà el <i>$1</i> da $2',
 );
 
-/** Veps (Vepsän kel’)
+/** Veps (vepsän kel’)
  * @author Игорь Бродский
  */
 $messages['vep'] = array(

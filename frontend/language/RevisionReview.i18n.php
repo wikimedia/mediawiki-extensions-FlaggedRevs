@@ -571,7 +571,7 @@ $messages['az'] = array(
 	'revreview-reject-cancel' => 'Ləğv et',
 );
 
-/** Bashkir (Башҡортса)
+/** Bashkir (башҡортса)
  * @author Haqmar
  */
 $messages['ba'] = array(
@@ -982,7 +982,7 @@ $messages['ca'] = array(
 	'revreview-update-includes' => "S'han actualitzat algunes plantilles o fitxers:",
 );
 
-/** Chechen (Нохчийн)
+/** Chechen (нохчийн)
  * @author Sasan700
  */
 $messages['ce'] = array(
@@ -3121,7 +3121,7 @@ $messages['kk-arab'] = array(
 كەيبىر جاڭارتىلعان ۇلگىلەر/سۋرەتتەر:',
 );
 
-/** Kazakh (Cyrillic script) (‪Қазақша (кирил)‬) */
+/** Kazakh (Cyrillic script) (‪қазақша (кирил)‬) */
 $messages['kk-cyrl'] = array(
 	'revisionreview' => 'Нұсқаларға сын беру',
 	'revreview-flag' => 'Бұл нұсқаға сын беру',
@@ -3135,7 +3135,7 @@ $messages['kk-cyrl'] = array(
 	'revreview-update' => 'Тиянақты нұсқа бекітілгеннен бері жасалған өзгерістерге (төменде көрсетілген) сын беріп шығыңыз.',
 );
 
-/** Kazakh (Latin script) (‪Qazaqşa (latın)‬) */
+/** Kazakh (Latin script) (‪qazaqşa (latın)‬) */
 $messages['kk-latn'] = array(
 	'revisionreview' => 'Nusqalarğa sın berw',
 	'revreview-flag' => 'Bul nusqağa sın berw',
@@ -3190,8 +3190,8 @@ $messages['ko'] = array(
 	'revreview-check-flag-p-title' => '당신의 편집과 함께 지금 검토를 기다리고 있는 모든 편집을 승인합니다. 모든 검토 대기 중인 편집을 확인한 후에만 이 기능을 사용해주세요.',
 	'revreview-check-flag-u' => '이 검토하지 않은 페이지를 승인',
 	'revreview-check-flag-u-title' => '이 판을 승인합니다. 전체 문서를 다 보았을 때만 사용하십시오.',
-	'revreview-check-flag-y' => '다음 변경 사항을 승인',
-	'revreview-check-flag-y-title' => '현재 편집에서 행한 모든 변경 사항을 승인합니다.',
+	'revreview-check-flag-y' => '바뀜 사항을 승인',
+	'revreview-check-flag-y-title' => '여기에서 행한 모든 바뀜 사항을 승인합니다.',
 	'revreview-flag' => '이 판을 검토하기',
 	'revreview-reflag' => '이 판을 다시 검토하기',
 	'revreview-invalid' => "'''대상이 잘못됨:''' 주어진 ID와 대응되는 [[{{MediaWiki:Validationpage}}|검토된 판]]이 없습니다.",
@@ -3242,7 +3242,7 @@ $messages['ko'] = array(
 	'revreview-reject-summary-old-short' => '$3에 의해 $2 판 다음에 첫 {{PLURAL:$1|텍스트 바뀜이|텍스트 바뀜 $1개가}} 거부됨',
 	'revreview-tt-flag' => '이 판을 검토하기',
 	'revreview-tt-unflag' => '이 판에 대한 검토 취소하기',
-	'revreview-tt-reject' => '편집을 되돌려 이 내용 변경 사항을 거부',
+	'revreview-tt-reject' => '편집을 되돌려 이 내용 바뀜 사항을 거부',
 );
 
 /** Colognian (Ripoarisch)
@@ -3762,10 +3762,9 @@ Sila kaji semula segala perubahan yang ditunjukkan di bawah untuk memastikan aga
 	'revreview-tt-reject' => 'Tolak perubahan teks sumber ini dengan membalikkannya',
 );
 
-/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
+/** Norwegian Bokmål (‪norsk (bokmål)‬)
  * @author EivindJ
  * @author Event
- * @author Jon Harald Søby
  * @author Laaknor
  * @author Nghtwlkr
  */
@@ -3828,7 +3827,7 @@ Revider alle endringene vist nedenfor for å gjøre redigeringene dine synlige i
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Endringene dine er ikke i den stabile versjonen ennå. Det finnes tidligere endringer som venter på revidering.</span>
 
 Revider alle endringene vist nedenfor for å gjøre redigeringene dine synlige i den stabile versjonen.',
-	'revreview-update-includes' => 'Noen maler eller filer ble oppdatert:',
+	'revreview-update-includes' => 'Maler/filer oppdatert (ureviderte sider i fet tekst):',
 	'revreview-reject-text-list' => "Ved å fullføre denne handlingen vil du '''avvise''' følgende {{PLURAL:$1|endring|endringer}}:",
 	'revreview-reject-text-revto' => 'Dette vil tilbakestille siden til [{{fullurl:$1|oldid=$2}} versjonen fra $3].',
 	'revreview-reject-summary' => 'Sammendrag:',
@@ -5593,7 +5592,7 @@ Podarìa esser necessario proseguire o "anulare" modifiche.',
 	'revreview-tt-reject' => 'Rifiuta ste modifiche tirandole indrio',
 );
 
-/** Veps (Vepsän kel’)
+/** Veps (vepsän kel’)
  * @author Игорь Бродский
  */
 $messages['vep'] = array(

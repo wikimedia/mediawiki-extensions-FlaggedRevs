@@ -1618,7 +1618,7 @@ Xahiş edirik, URL ünvanını yoxlayasınız.',
 	'flaggedrevs-protect-none' => 'Bütün istifadəçilərə icazə ver',
 );
 
-/** Bashkir (Башҡортса)
+/** Bashkir (башҡортса)
  * @author Haqmar
  */
 $messages['ba'] = array(
@@ -2894,7 +2894,7 @@ Reviseu l'URL que heu emprat per a accedir-hi.",
 	'tooltip-ca-stable' => 'Vegeu la versió estable de la pàgina',
 );
 
-/** Chechen (Нохчийн)
+/** Chechen (нохчийн)
  * @author Sasan700
  */
 $messages['ce'] = array(
@@ -3053,14 +3053,14 @@ $messages['ch'] = array(
 	'revreview-revnotfound' => "Ti siña masodda' i tinilaika i påhina ni finaisen-mu. Pot fabot chek i URL ni un usa para i finatto-mu gi påhina.",
 );
 
-/** Crimean Turkish (Latin script) (‪Qırımtatarca (Latin)‬)
+/** Crimean Turkish (Latin script) (‪qırımtatarca (Latin)‬)
  * @author Don Alessandro
  */
 $messages['crh-latn'] = array(
 	'revreview-revnotfound' => 'Saifeniñ eski versiyası tapılmadı. Lütfen, bu saifege kirmek içün qullanğan bağlantıñıznıñ doğrulığını teşkeriñiz.',
 );
 
-/** Crimean Turkish (Cyrillic script) (‪Къырымтатарджа (Кирилл)‬)
+/** Crimean Turkish (Cyrillic script) (‪къырымтатарджа (Кирилл)‬)
  * @author Don Alessandro
  */
 $messages['crh-cyrl'] = array(
@@ -8298,7 +8298,7 @@ $messages['kk-arab'] = array(
 	'validationpage' => '{{ns:help}}:ماقالا اقتالۋى',
 );
 
-/** Kazakh (Cyrillic script) (‪Қазақша (кирил)‬) */
+/** Kazakh (Cyrillic script) (‪қазақша (кирил)‬) */
 $messages['kk-cyrl'] = array(
 	'editor' => 'Түзетуші',
 	'flaggedrevs' => 'Белгіленген нұсқалар',
@@ -8377,7 +8377,7 @@ $messages['kk-cyrl'] = array(
 	'validationpage' => '{{ns:help}}:Мақала ақталуы',
 );
 
-/** Kazakh (Latin script) (‪Qazaqşa (latın)‬) */
+/** Kazakh (Latin script) (‪qazaqşa (latın)‬) */
 $messages['kk-latn'] = array(
 	'editor' => 'Tüzetwşi',
 	'flaggedrevs' => 'Belgilengen nusqalar',
@@ -8607,7 +8607,7 @@ $messages['ko'] = array(
 	'revreview-draft-title' => '이 페이지에서 검토를 기다리고 있는 판이 표시되고 있습니다.',
 	'revreview-edit' => '편집',
 	'revreview-editnotice' => "'''당신의 편집은 권한이 있는 사용자가 승인한 후에 배포될 것입니다. ([[{{MediaWiki:Validationpage}}|도움말]])'''",
-	'revreview-submitedit' => '변경 사항 제출',
+	'revreview-submitedit' => '바뀜 제출',
 	'revreview-submitedit-title' => '당신의 편집을 검토 요청하기',
 	'revreview-edited' => "'''당신의 편집은 권한이 있는 사용자가 승인한 후에 배포될 것입니다. ([[{{MediaWiki:Validationpage}}|도움말]])'''
 
@@ -8672,7 +8672,7 @@ $messages['ko'] = array(
 	'stable-logentry-reset' => '$1의 배포 설정을 초기화함',
 	'stable-log-restriction' => '자동 검토: "$1" 권한이 필요합니다',
 	'stable-logpage' => '배포 설정 기록',
-	'stable-logpagetext' => '이 기록은 문서의 [[{{MediaWiki:Validationpage}}|배포판]] 설정에 대한 변경 사항을 나타내는 기록입니다.',
+	'stable-logpagetext' => '이 기록은 문서의 [[{{MediaWiki:Validationpage}}|배포판]] 설정에 대한 바뀜 사항을 나타내는 기록입니다.',
 	'revreview-filter-all' => '모두',
 	'revreview-filter-stable' => '배포됨',
 	'revreview-statusfilter' => '검토 상태 변화:',
@@ -9514,7 +9514,7 @@ $messages['lzh'] = array(
 	'revreview-revnotfound' => '查無舊審，惠核網址。',
 );
 
-/** Moksha (Мокшень)
+/** Moksha (мокшень)
  * @author Numulunj pilgae
  */
 $messages['mdf'] = array(
@@ -10244,7 +10244,7 @@ $messages['mt'] = array(
 	'revreview-revnotfound' => "Ir-reviżjoni l-antika tal-paġna li staqsejt dwar ma setgħatx tiġi minsuba. Jekk jogħġbok verifika l-URL li użajt sabiex tidħol f'din il-paġna.",
 );
 
-/** Erzya (Эрзянь)
+/** Erzya (эрзянь)
  * @author Botuzhaleny-sodamo
  */
 $messages['myv'] = array(
@@ -10276,16 +10276,16 @@ $messages['nah'] = array(
 	'tooltip-ca-current' => 'Xiquitta inīn āmatl īca in yancuīc tlapatlaliztli',
 );
 
-/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
+/** Norwegian Bokmål (‪norsk (bokmål)‬)
  * @author EivindJ
  * @author Event
  * @author H92
  * @author Harald Khan
- * @author Jon Harald Søby
  * @author Kph
  * @author Laaknor
  * @author Meno25
  * @author Nghtwlkr
+ * @author Njardarlogar
  * @author Stigmj
  */
 $messages['nb'] = array(
@@ -10308,13 +10308,13 @@ $messages['nb'] = array(
 	'flaggedrevs-prefs-viewdiffs' => 'Vis forskjellen mellom ventende endringer når du viser den siste ventende revisjonen',
 	'flaggedrevs-hidereviewed' => '$1 gjennomgåtte redigeringer',
 	'group-editor' => 'Skribenter',
-	'group-editor-member' => 'Skribent',
+	'group-editor-member' => '{{GENDER:$1|skribent}}',
 	'group-reviewer' => 'Anmeldere',
-	'group-reviewer-member' => 'Anmelder',
+	'group-reviewer-member' => '{{GENDER:$1|reviderer}}',
 	'grouppage-editor' => '{{ns:project}}:Skribenter',
 	'grouppage-reviewer' => '{{ns:project}}:Anmeldere',
 	'group-autoreview' => 'Autoanmeldere',
-	'group-autoreview-member' => 'autoanmelder',
+	'group-autoreview-member' => '{{GENDER:$1|autosjekket bruker}}',
 	'grouppage-autoreview' => '{{ns:project}}:Autoanmelder',
 	'revreview-hist-draft' => 'ukontrollert revisjon',
 	'revreview-hist-pending' => 'venter på godkjennelse',
@@ -15476,7 +15476,7 @@ Verifica l'URL che te doparà par açedere a sta pàxena.",
 	'validationpage' => '{{ns:help}}:Validassion dele pàxene',
 );
 
-/** Veps (Vepsän kel’)
+/** Veps (vepsän kel’)
  * @author Игорь Бродский
  */
 $messages['vep'] = array(

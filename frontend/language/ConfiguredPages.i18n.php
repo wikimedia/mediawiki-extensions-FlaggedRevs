@@ -196,7 +196,7 @@ $messages['ca'] = array(
 	'configuredpages-def-stable' => 'versió publicada',
 );
 
-/** Chechen (Нохчийн)
+/** Chechen (нохчийн)
  * @author Sasan700
  */
 $messages['ce'] = array(
@@ -653,7 +653,7 @@ Sesetengah tetapan mungkin mengubah versi mana yang dipaparkan kepada pembaca, a
 	'configuredpages-def-stable' => 'versi stabil',
 );
 
-/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
+/** Norwegian Bokmål (‪norsk (bokmål)‬)
  * @author Nghtwlkr
  */
 $messages['nb'] = array(

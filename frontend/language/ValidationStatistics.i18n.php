@@ -372,7 +372,7 @@ Els Editors són usuaris experimentats que poden validar les revisions de les p�
 	'validationstatistics-user' => 'Usuari',
 );
 
-/** Chechen (Нохчийн)
+/** Chechen (нохчийн)
  * @author Sasan700
  */
 $messages['ce'] = array(
@@ -1270,7 +1270,7 @@ $3",
 	'validationstatistics-reviews' => '검토',
 );
 
-/** Karachay-Balkar (Къарачай-Малкъар)
+/** Karachay-Balkar (къарачай-малкъар)
  * @author Iltever
  * @author Къарачайлы
  */
@@ -1389,7 +1389,7 @@ $messages['ltg'] = array(
 	'validationstatistics-user' => 'Lītuotuojs',
 );
 
-/** Eastern Mari (Олык Марий)
+/** Eastern Mari (олык марий)
  * @author Сай
  */
 $messages['mhr'] = array(
@@ -1495,7 +1495,7 @@ $messages['mt'] = array(
 	'validationstatistics-user' => 'Utent',
 );
 
-/** Erzya (Эрзянь)
+/** Erzya (эрзянь)
  * @author Botuzhaleny-sodamo
  */
 $messages['myv'] = array(
@@ -1511,8 +1511,7 @@ $messages['nah'] = array(
 	'validationstatistics-total' => 'Tlaìxtlapaltìn',
 );
 
-/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
- * @author Jon Harald Søby
+/** Norwegian Bokmål (‪norsk (bokmål)‬)
  * @author Nghtwlkr
  */
 $messages['nb'] = array(
@@ -2239,7 +2238,7 @@ Ste pagine le xe considerà ''obsolete''. Le se considera ''agiornà'' se no ghe
 	'validationstatistics-reviews' => 'Revisioni',
 );
 
-/** Veps (Vepsän kel’)
+/** Veps (vepsän kel’)
  * @author Игорь Бродский
  */
 $messages['vep'] = array(

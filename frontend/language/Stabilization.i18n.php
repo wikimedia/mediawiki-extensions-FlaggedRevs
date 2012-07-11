@@ -410,7 +410,7 @@ $messages['az'] = array(
 	'stabilize-expiring' => '$1 (UTC)-da bitir',
 );
 
-/** Bashkir (Башҡортса)
+/** Bashkir (башҡортса)
  * @author Assele
  * @author Haqmar
  */
@@ -712,7 +712,7 @@ No és possible fer cap configuració.',
 	'stabilize-expiring' => 'expira $1 (UTC)',
 );
 
-/** Chechen (Нохчийн)
+/** Chechen (нохчийн)
  * @author Sasan700
  */
 $messages['ce'] = array(
@@ -1972,7 +1972,7 @@ $messages['kk-arab'] = array(
 	'stabilization-def-short-1' => 'تىياناقتى',
 );
 
-/** Kazakh (Cyrillic script) (‪Қазақша (кирил)‬) */
+/** Kazakh (Cyrillic script) (‪қазақша (кирил)‬) */
 $messages['kk-cyrl'] = array(
 	'stabilization-tab' => '(сқ)',
 	'stabilization' => 'Бетті тиянақтау',
@@ -1993,7 +1993,7 @@ $messages['kk-cyrl'] = array(
 	'stabilization-def-short-1' => 'Тиянақты',
 );
 
-/** Kazakh (Latin script) (‪Qazaqşa (latın)‬) */
+/** Kazakh (Latin script) (‪qazaqşa (latın)‬) */
 $messages['kk-latn'] = array(
 	'stabilization-tab' => '(sq)',
 	'stabilization' => 'Betti tïyanaqtaw',
@@ -2247,7 +2247,7 @@ $messages['lv'] = array(
 	'stabilization-othertime' => 'Cits laiks:',
 );
 
-/** Eastern Mari (Олык Марий)
+/** Eastern Mari (олык марий)
  * @author Сай
  */
 $messages['mhr'] = array(
@@ -2418,7 +2418,7 @@ Tetapan tidak boleh dibuat.',
 	'stabilization-review' => 'Tandai semakan semasa sebagai diperiksa',
 );
 
-/** Erzya (Эрзянь)
+/** Erzya (эрзянь)
  * @author Amdf
  * @author Botuzhaleny-sodamo
  */
@@ -2440,9 +2440,8 @@ $messages['nah'] = array(
 	'stabilize-expiring' => 'motlamīz $1 (UTC)',
 );
 
-/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
+/** Norwegian Bokmål (‪norsk (bokmål)‬)
  * @author H92
- * @author Jon Harald Søby
  * @author Laaknor
  * @author Nghtwlkr
  */
@@ -3739,7 +3738,7 @@ No se pode canbiar le inpostassion.',
 	'stabilization-review' => 'Segna la revision atuale come controlà',
 );
 
-/** Veps (Vepsän kel’)
+/** Veps (vepsän kel’)
  * @author Игорь Бродский
  */
 $messages['vep'] = array(

@@ -168,7 +168,7 @@ $messages['ca'] = array(
 	'problemchanges-category' => 'Categoria:',
 );
 
-/** Chechen (Нохчийн)
+/** Chechen (нохчийн)
  * @author Sasan700
  */
 $messages['ce'] = array(
@@ -618,8 +618,7 @@ $messages['ms'] = array(
 	'problemchanges-category' => 'Kategori:',
 );
 
-/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
- * @author Jon Harald Søby
+/** Norwegian Bokmål (‪norsk (bokmål)‬)
  * @author Laaknor
  * @author Nghtwlkr
  * @author Simny
@@ -961,7 +960,7 @@ $messages['vec'] = array(
 	'problemchanges-category' => 'Categoria:',
 );
 
-/** Veps (Vepsän kel’)
+/** Veps (vepsän kel’)
  * @author Игорь Бродский
  */
 $messages['vep'] = array(

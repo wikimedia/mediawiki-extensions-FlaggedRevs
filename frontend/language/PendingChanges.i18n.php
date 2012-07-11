@@ -383,7 +383,7 @@ $messages['ca'] = array(
 	'pendingchanges-watched' => '({{PLURAL:$1|un usari|$1 usuaris}} actius en vigilen)',
 );
 
-/** Chechen (Нохчийн)
+/** Chechen (нохчийн)
  * @author Sasan700
  */
 $messages['ce'] = array(
@@ -1332,9 +1332,8 @@ $messages['nah'] = array(
 	'pendingchanges-watched' => '($1 āyini  {{PLURAL:$1|tlatequitiltilīlli quichiya|tlatequitiltilīltin quichiyah}})',
 );
 
-/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
+/** Norwegian Bokmål (‪norsk (bokmål)‬)
  * @author EivindJ
- * @author Jon Harald Søby
  * @author Nghtwlkr
  */
 $messages['nb'] = array(
@@ -2013,7 +2012,7 @@ $messages['vec'] = array(
 	'pendingchanges-viewing' => '(in corso de revision)',
 );
 
-/** Veps (Vepsän kel’)
+/** Veps (vepsän kel’)
  * @author Игорь Бродский
  */
 $messages['vep'] = array(

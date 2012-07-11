@@ -685,8 +685,7 @@ Modifiki magħmula minn utenti oħra ma jidhrux awtomatikament lill-qarrejja sak
 	'stablepages-indef' => 'Skadenza indefinita biss',
 );
 
-/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
- * @author Jon Harald Søby
+/** Norwegian Bokmål (‪norsk (bokmål)‬)
  * @author Nghtwlkr
  */
 $messages['nb'] = array(
@@ -999,7 +998,7 @@ $messages['vec'] = array(
 	'stablepages-indef' => 'Solo scadensa indefinìa',
 );
 
-/** Veps (Vepsän kel’)
+/** Veps (vepsän kel’)
  * @author Игорь Бродский
  */
 $messages['vep'] = array(
