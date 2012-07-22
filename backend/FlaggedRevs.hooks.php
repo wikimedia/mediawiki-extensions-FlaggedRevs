@@ -468,7 +468,7 @@ class FlaggedRevsHooks {
 	protected static function editCheckReview(
 		Page $article, $rev, $user, $editTimestamp
 	) {
-		$prevTimestamp = $flags = null;
+		$prevTimestamp = null;
 		$prevRevId = $rev->getParentId(); // revision before $rev
 		$title = $article->getTitle(); // convenience
 		# Check wpEdittime against the former current rev for verification
@@ -487,9 +487,9 @@ class FlaggedRevsHooks {
 				return false; // not flagged?
 			}
 		}
+		$flags = null;
 		# Review this revision of the page...
-		return FlaggedRevs::autoReviewEdit(
-			$article, $user, $rev, $flags, false  /* manual */ );
+		return FlaggedRevs::autoReviewEdit( $article, $user, $rev, $flags, false /* manual */ );
 	}
 
 	/**
@@ -592,7 +592,7 @@ class FlaggedRevsHooks {
 				}
 			}
 			# Review this revision of the page...
-			$ok = FlaggedRevs::autoReviewEdit( $article, $user, $rev, $flags, false );
+			$ok = FlaggedRevs::autoReviewEdit( $article, $user, $rev, $flags, false /* manual */ );
 			if ( $ok ) {
 				FlaggedRevs::markRevisionPatrolled( $rev ); // reviewed -> patrolled
 				FlaggedRevs::extraHTMLCacheUpdate( $title );

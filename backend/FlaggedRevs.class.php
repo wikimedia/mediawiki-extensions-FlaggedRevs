@@ -937,9 +937,47 @@ class FlaggedRevs {
 		# Rev ID is not put into parser on edit, so do the same here.
 		# Also, a second parse would be triggered otherwise.
 		$editInfo = $article->prepareTextForEdit( $rev->getText() );
-		$poutput = $editInfo->output; // revision HTML output
+		$poutput  = $editInfo->output; // revision HTML output
 
-		# If this is an image page, store corresponding file info
+		# Get the "review time" versions of templates and files.
+		# This tries to make sure each template/file version either came from the stable
+		# version of that template/file or was a "review time" version used in the stable
+		# version of this page. If a pending version of a template/file is currently vandalism,
+		# we try to avoid storing its ID as the "review time" version so it won't show up when
+		# someone views the page. If not possible, this stores the current template/file.
+		if ( FlaggedRevs::inclusionSetting() === FR_INCLUDES_CURRENT ) {
+			$tVersions = $poutput->getTemplateIds();
+			$fVersions = $poutput->getFileSearchOptions();
+		} else {
+			$tVersions = $oldSv ? $oldSv->getTemplateVersions() : array();
+			$fVersions = $oldSv ? $oldSv->getFileVersions() : array();
+			foreach ( $poutput->getTemplateIds() as $ns => $pages ) {
+				foreach ( $pages as $dbKey => $revId ) {
+					if ( !isset( $tVersions[$ns][$dbKey] ) ) {
+						$srev = FlaggedRevision::newFromStable( Title::makeTitle( $ns, $dbKey ) );
+						if ( $srev ) { // use stable
+							$tVersions[$ns][$dbKey] = $srev->getRevId();
+						} else { // use current
+							$tVersions[$ns][$dbKey] = $revId;
+						}
+					}
+				}
+			}
+			foreach ( $poutput->getFileSearchOptions() as $dbKey => $info ) {
+				if ( !isset( $fVersions[$dbKey] ) ) {
+					$srev = FlaggedRevision::newFromStable( Title::makeTitle( NS_FILE, $dbKey ) );
+					if ( $srev && $srev->getFileTimestamp() ) { // use stable
+						$fVersions[$dbKey]['time'] = $srev->getFileTimestamp();
+						$fVersions[$dbKey]['sha1'] = $srev->getFileSha1();
+					} else { // use current
+						$fVersions[$dbKey]['time'] = $info['time'];
+						$fVersions[$dbKey]['sha1'] = $info['sha1'];
+					}
+				}
+			}
+		}
+
+		# If this is an image page, get the corresponding file version info...
 		$fileData = array( 'name' => null, 'timestamp' => null, 'sha1' => null );
 		if ( $title->getNamespace() == NS_FILE ) {
 			# We must use WikiFilePage process cache on upload or get bitten by slave lag
@@ -963,9 +1001,9 @@ class FlaggedRevs {
 			'img_name'      	=> $fileData['name'],
 			'img_timestamp' 	=> $fileData['timestamp'],
 			'img_sha1'      	=> $fileData['sha1'],
-			'templateVersions' 	=> $poutput->getTemplateIds(),
-			'fileVersions'     	=> $poutput->getFileSearchOptions(),
-			'flags'				=> implode( ',', $propFlags ),
+			'templateVersions' 	=> $tVersions,
+			'fileVersions'     	=> $fVersions,
+			'flags'             => implode( ',', $propFlags ),
 		) );
 		$flaggedRevision->insert();
 		# Update the article review log
