@@ -251,26 +251,28 @@ class FlaggablePageView extends ContextSource {
 		if ( !$this->article->isReviewable() || !$request->getVal( 'oldid' ) ) {
 			return true;
 		}
-		# We may have nav links like "direction=prev&oldid=x"
-		$revID = $this->getOldIDFromRequest();
-		$frev = FlaggedRevision::newFromTitle( $this->article->getTitle(), $revID );
-		# Give a notice if this rev ID corresponds to a reviewed version...
-		if ( $frev ) {
-			$time = $this->getLanguage()->date( $frev->getTimestamp(), true );
-			$flags = $frev->getTags();
-			$quality = FlaggedRevs::isQuality( $flags );
-			$msg = $quality ? 'revreview-quality-source' : 'revreview-basic-source';
-			$tag = wfMsgExt( $msg, 'parseinline', $frev->getRevId(), $time );
-			# Hide clutter
-			if ( !$this->useSimpleUI() && !empty( $flags ) ) {
-				$tag .= FlaggedRevsXML::ratingToggle() .
-					"<div id='mw-fr-revisiondetails' style='display:block;'>" .
-					wfMsgHtml( 'revreview-oldrating' ) .
-					FlaggedRevsXML::addTagRatings( $flags ) . '</div>';
+		if ( !$this->out->isPrintable() ) {
+			# We may have nav links like "direction=prev&oldid=x"
+			$revID = $this->getOldIDFromRequest();
+			$frev = FlaggedRevision::newFromTitle( $this->article->getTitle(), $revID );
+			# Give a notice if this rev ID corresponds to a reviewed version...
+			if ( $frev ) {
+				$time = $this->getLanguage()->date( $frev->getTimestamp(), true );
+				$flags = $frev->getTags();
+				$quality = FlaggedRevs::isQuality( $flags );
+				$msg = $quality ? 'revreview-quality-source' : 'revreview-basic-source';
+				$tag = wfMsgExt( $msg, 'parseinline', $frev->getRevId(), $time );
+				# Hide clutter
+				if ( !$this->useSimpleUI() && !empty( $flags ) ) {
+					$tag .= FlaggedRevsXML::ratingToggle() .
+						"<div id='mw-fr-revisiondetails'>" .
+						wfMsgHtml( 'revreview-oldrating' ) .
+						FlaggedRevsXML::addTagRatings( $flags ) . '</div>';
+				}
+				$css = 'flaggedrevs_notice plainlinks noprint';
+				$tag = "<div id='mw-fr-revisiontag-old' class='$css'>$tag</div>";
+				$this->out->addHTML( $tag );
 			}
-			$css = 'flaggedrevs_notice plainlinks noprint';
-			$tag = "<div id='mw-fr-revisiontag-old' class='$css'>$tag</div>";
-			$this->out->addHTML( $tag );
 		}
 		return true;
 	}
@@ -302,7 +304,7 @@ class FlaggablePageView extends ContextSource {
 		} elseif ( !$this->article->exists() || !$this->article->isReviewable() ) {
 			return true;
 		}
-		$tag = '';
+		$tag = ''; // review tag box/bar message
 		$old = $stable = false;
 		# Check the newest stable version.
 		$srev = $this->article->getStableRev();
@@ -335,46 +337,43 @@ class FlaggablePageView extends ContextSource {
 		}
 		// Is the page config altered?
 		$prot = FlaggedRevsXML::lockStatusIcon( $this->article );
-		// Is there no stable version?
-		if ( !$frev ) {
-			# Add "no reviewed version" tag, but not for printable output
-			$this->showUnreviewedPage( $tag, $prot );
-			return true;
-		}
-		# Get flags and date
-		$flags = $frev->getTags();
-		# Get quality level
-		$quality = FlaggedRevs::isQuality( $flags );
-		$pristine = FlaggedRevs::isPristine( $flags );
-		// Looking at some specific old stable revision ("&stableid=x")
-		// set to override given the relevant conditions. If the user is
-		// requesting the stable revision ("&stableid=x"), defer to override
-		// behavior below, since it is the same as ("&stable=1").
-		if ( $old ) {
-			# Tell MW that parser output is done by setting $outputDone
-			$outputDone = $this->showOldReviewedVersion( $frev, $tag, $prot );
-			$useParserCache = false;
-		// Stable version requested by ID or relevant conditions met to
-		// to override page view with the stable version.
-		} elseif ( $stable || $this->showingStable() ) {
-			# Tell MW that parser output is done by setting $outputDone
-			$outputDone = $this->showStableVersion( $srev, $tag, $prot );
-			$useParserCache = false;
-		// Looking at some specific old revision (&oldid=x) or if FlaggedRevs is not
-		// set to override given the relevant conditions (like &stable=0) or there
-		// is no stable version.
+		if ( $frev ) { // has stable version?
+			// Looking at some specific old stable revision ("&stableid=x")
+			// set to override given the relevant conditions. If the user is
+			// requesting the stable revision ("&stableid=x"), defer to override
+			// behavior below, since it is the same as ("&stable=1").
+			if ( $old ) {
+				# Tell MW that parser output is done by setting $outputDone
+				$outputDone = $this->showOldReviewedVersion( $frev, $tag, $prot );
+				$useParserCache = false;
+			// Stable version requested by ID or relevant conditions met to
+			// to override page view with the stable version.
+			} elseif ( $stable || $this->showingStable() ) {
+				# Tell MW that parser output is done by setting $outputDone
+				$outputDone = $this->showStableVersion( $srev, $tag, $prot );
+				$useParserCache = false;
+			// Looking at some specific old revision (&oldid=x) or if FlaggedRevs is not
+			// set to override given the relevant conditions (like &stable=0).
+			} else {
+				$this->showDraftVersion( $srev, $tag, $prot );
+			}
 		} else {
-			$this->showDraftVersion( $srev, $tag, $prot );
+			// Looking at a page with no stable version; add "no reviewed version" tag.
+			$this->showUnreviewedPage( $tag, $prot );
 		}
 		# Some checks for which tag CSS to use
 		if ( $this->useSimpleUI() ) {
 			$tagClass = 'flaggedrevs_short';
-		} elseif ( $pristine ) {
-			$tagClass = 'flaggedrevs_pristine';
-		} elseif ( $quality ) {
-			$tagClass = 'flaggedrevs_quality';
 		} else {
-			$tagClass = 'flaggedrevs_basic';
+			if ( !$frev ) {
+				$tagClass = 'flaggedrevs_notice';
+			} elseif ( FlaggedRevs::isPristine( $frev->getTags() ) ) {
+				$tagClass = 'flaggedrevs_pristine';
+			} elseif ( FlaggedRevs::isQuality( $frev->getTags() ) ) {
+				$tagClass = 'flaggedrevs_quality';
+			} else {
+				$tagClass = 'flaggedrevs_basic';
+			}
 		}
 		# Wrap tag contents in a div
 		if ( $tag != '' ) {
@@ -411,7 +410,7 @@ class FlaggablePageView extends ContextSource {
 	 * @param $prot protection notice
 	 * Tag output function must be called by caller
 	 */
-	protected function showUnreviewedPage( $tag, $prot ) {
+	protected function showUnreviewedPage( &$tag, $prot ) {
 		if ( $this->out->isPrintable() ) {
 			return; // all this function does is add notices; don't show them
 		}
@@ -419,15 +418,9 @@ class FlaggablePageView extends ContextSource {
 		// Simple icon-based UI
 		if ( $this->useSimpleUI() ) {
 			$tag .= $prot . $icon . wfMsgExt( 'revreview-quick-none', 'parseinline' );
-			$css = "flaggedrevs_short plainlinks noprint";
-			$this->reviewNotice .= "<div id='mw-fr-revisiontag' class='$css'>$tag</div>";
 		// Standard UI
 		} else {
-			$css = 'flaggedrevs_notice plainlinks noprint';
-			$tag = "<div id='mw-fr-revisiontag' class='$css'>" .
-				$prot . $icon . wfMsgExt( 'revreview-noflagged', 'parseinline' ) .
-				"</div>";
-			$this->reviewNotice .= $tag;
+			$tag .= $prot . $icon . wfMsgExt( 'revreview-noflagged', 'parseinline' );
 		}
 	}
 
@@ -488,7 +481,7 @@ class FlaggablePageView extends ContextSource {
 			}
 			# Notice should always use subtitle
 			$this->reviewNotice = "<div id='mw-fr-reviewnotice' " .
-				"class='flaggedrevs_preview plainlinks'>$pending</div>";
+				"class='flaggedrevs_preview plainlinks noprint'>$pending</div>";
 		# Otherwise, construct some tagging info for non-printable outputs.
 		# Also, if low profile UI is enabled and the page is synced, skip the tag.
 		# Note: the "your edit is pending" notice has all this info, so we never add both.
@@ -599,7 +592,7 @@ class FlaggablePageView extends ContextSource {
 				# Hide clutter
 				if ( !empty( $flags ) ) {
 					$tag .= FlaggedRevsXML::ratingToggle();
-					$tag .= "<div id='mw-fr-revisiondetails' style='display:block;'>" .
+					$tag .= "<div id='mw-fr-revisiondetails'>" .
 						wfMsgHtml( 'revreview-oldrating' ) .
 						FlaggedRevsXML::addTagRatings( $flags ) . '</div>';
 				}
@@ -684,7 +677,7 @@ class FlaggablePageView extends ContextSource {
 				$tag .= wfMsgExt( $msg, 'parseinline', $srev->getRevId(), $time, $revsSince );
 				if ( !empty( $flags ) ) {
 					$tag .= FlaggedRevsXML::ratingToggle();
-					$tag .= "<div id='mw-fr-revisiondetails' style='display:block;'>" .
+					$tag .= "<div id='mw-fr-revisiondetails'>" .
 						FlaggedRevsXML::addTagRatings( $flags ) . '</div>';
 				}
 			}
