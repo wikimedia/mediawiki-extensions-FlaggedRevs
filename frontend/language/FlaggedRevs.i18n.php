@@ -2849,6 +2849,7 @@ $messages['ca'] = array(
 	'revreview-depth-2' => 'Moderat',
 	'revreview-depth-3' => 'Alt',
 	'revreview-edit' => 'Modifica',
+	'revreview-submitedit' => 'Envia els canvis',
 	'revreview-newest-basic' => "L'[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} última versió revisada] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} vegeu-les totes]) va ser [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovada] a <i>$2</i>. Hi ha [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|canvi|canvis}}] que {{PLURAL:$3|necessita|necessiten}} revisió.",
 	'revreview-newest-basic-i' => "L'[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} última versió revisada] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} vegeu-les totes]) va ser [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovada] a <i>$2</i>. Hi ha [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} canvis de plantilla o d'imatge] que necessiten revisió.",
 	'revreview-newest-quality' => "L'[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} última versió de qualitat] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} vegeu-les totes]) va ser [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovada] a <i>$2</i>. Hi ha [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|canvi|canvis}}] que {{PLURAL:$3|necessita|necessiten}} revisió.",
@@ -3531,7 +3532,7 @@ $messages['diq'] = array(
 	'flaggedrevs-prefs-watch' => 'pelê ke mı çım ser ra çarnayi kerdi bıerz listeya seyrkerdışê mı',
 	'flaggedrevs-prefs-editdiffs' => 'Wexto ke mı pelan vurna ferqan ramocne',
 	'flaggedrevs-prefs-viewdiffs' => 'Wexto ke mı vurnayisane pelan kontrol keni ferqan mocneno',
-	'group-editor' => 'Nuştekaran',
+	'group-editor' => 'Editori',
 	'group-editor-member' => 'nuştekar',
 	'group-reviewer' => 'rexnekari',
 	'group-reviewer-member' => 'rexnekar',
@@ -9312,6 +9313,7 @@ De kins hieveur [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} i
 
 /** Lithuanian (lietuvių)
  * @author Eitvys200
+ * @author Homo
  * @author Matasg
  * @author Vpovilaitis
  */
@@ -9341,7 +9343,7 @@ $messages['lt'] = array(
 	'grouppage-editor' => '{{ns:project}}:Redaktoriai',
 	'grouppage-reviewer' => '{{ns:project}}:Vertintojai',
 	'group-autoreview' => 'Automatiškai patvirtinantis dalyvis',
-	'group-autoreview-member' => '{{GENDER:$1|automatiškai patvirtinantis dalyvis|automatiškai patvirtinanti dalyvė|automatiškai patvirtinantis dalyvis}}',
+	'group-autoreview-member' => '{{GENDER:$1|automatiškai patvirtintas naudotojas|automatiškai patvirtinta naudotoja}}',
 	'grouppage-autoreview' => '{{ns:project}}:Automatiškai patvirtinantys dalyviai',
 	'revreview-hist-draft' => 'neįvertinta versija',
 	'revreview-hist-pending' => 'nepatvirtinta versija',

@@ -962,7 +962,7 @@ Wobdźěłowarjo su nazhonići wužiwarjo, kotřiž móžeja wersije stronow kon
 	'validationstatistics-lastupdate' => "''Slědowace daty buchu $1 $2 posledni raz zaktualizowane.''",
 	'validationstatistics-pndtime' => "Změny, kotrež buchu wot nazhonitych wužiwarjow skontrolowane, měli so ''přepruwować''.
 
-Přerězny komdźenje za [[Special:OldReviewedPages|strony z njepřepruwowane změny]] je '''$1'''; komdźenje měri, kak dołho najstarša njekontrolowana změna wosta njepřepruwowana.",
+Přerězny komdźenje za [[Special:OldReviewedPages|strony z njekontrolowanymi změnami]] je '''$1'''; komdźenje měri, kak dołho najstarša njekontrolowana změna wosta njepřepruwowana.",
 	'validationstatistics-revtime' => "Přerězny čakanski čas za změny wot ''wužiwarjow, kotřiž njejsu přizjewjeni'' za přepruwowanje je '''\$1\"\"; přerězna hódnota je '''\$2'''.
 \$3",
 	'validationstatistics-table' => "Statistika přepruwowanja stronow za kóždy mjenowy rum so deleka pokazuje, ''nimo'' daleposrědkowanjow. Strony maja za ''zestarjene'', jeli maja změny, kotrež na přepruwowanje čakaja; strony maja za ''synchronizowane'', jeli změny, kotrež na přepruwowanje čakaja, njejsu.",

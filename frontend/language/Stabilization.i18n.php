@@ -2050,12 +2050,13 @@ $messages['kn'] = array(
  * @author Devunt
  * @author Gapo
  * @author Kwj2772
+ * @author 아라
  */
 $messages['ko'] = array(
 	'stabilization-tab' => '검토',
 	'stabilization' => '문서 배포 설정',
 	'stabilization-text' => "'''[[:$1|$1]] 문서의 배포판을 어떻게 선택되어 보여질 지에 대한 설정을 아래 양식을 통해 바꿀 수 있습니다.'''",
-	'stabilization-perm' => '당신의 계정은 게시 설정 변경을 할 수 있는 권한이 없습니다.
+	'stabilization-perm' => '당신의 계정은 게시 설정 바꾸기를 할 수 있는 권한이 없습니다.
 [[:$1|$1]]에 현재 설정이 있습니다',
 	'stabilization-page' => '문서 이름:',
 	'stabilization-leg' => '게시 설정 확인',
