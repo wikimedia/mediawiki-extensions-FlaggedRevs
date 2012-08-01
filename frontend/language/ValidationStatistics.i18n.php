@@ -480,18 +480,18 @@ Editorî u kontrol kerdoğî karberanê kihanyerê ke eşkenî pelan revize bike
 	'validationstatistics-lastupdate' => "''Ena data tewr peyên roca $1 seatê $2 de biya rocani.''",
 	'validationstatistics-pndtime' => "Vurnayişan ke karberanê kihanan ra nişan biyo inan ma heseb keni qontrol biya.
 
-Avaraj tehcil qey [[Special:OldReviewedPages|pages with unreviewed edits pending]] '''$1''' a.
+Avaraj tehcil qey [[Special:OldReviewedPages|peleyê ke çım ra ravyarnayış pawenê]] '''$1''' a.
 Ena pelan ma ''kihanan'' ra hesebneni. Eka yew vuranayişan ciniyo, pelan ke ''sync'' kebul beno.",
 	'validationstatistics-revtime' => "Avaraj tecil seba vurnayişan pê ''karberanê ke hama ci nikewta'' qontrol beno '''$1'''; mediyan '''$2''' ya.
 $3",
-	'validationstatistics-table' => "Ser her cayênameyî rê îstatistiks bin de mucnayîyo, pelanê redreksiyonî ''nimucniyo\".",
+	'validationstatistics-table' => "Qandê herunda nama istatistikê pela çım ra ravyarnayışi, peleyê hetenayışa ''tewr nêkerê''  cêr dı ratneyayê. Peleyê ke vurnayış pawenê ''noroc resnayışê cı qedyayo'', peleyê ke vurnayış nêpawena zi ''senkronize'' qebul benê.",
 	'validationstatistics-ns' => 'Cayênameyî',
 	'validationstatistics-total' => 'Ripelî',
 	'validationstatistics-stable' => 'Çım ra ravyarneya',
 	'validationstatistics-latest' => 'Rocaniye biyo',
 	'validationstatistics-synced' => 'Rocaniye biyo/Kontrol biyo',
 	'validationstatistics-old' => 'Verên',
-	'validationstatistics-utable' => 'Cor de yew liste est ke seatê penî de panc kontrol kerdoğî mucneno.',
+	'validationstatistics-utable' => 'Cêr dı {{PLURAL:$2|seate|$2 seatan}} dı tewr vêşi çım ra ravyarnayış keno $1 karberi liste benê.',
 	'validationstatistics-user' => 'Karber',
 	'validationstatistics-reviews' => 'Revizyonî',
 );

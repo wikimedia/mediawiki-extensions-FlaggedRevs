@@ -461,13 +461,14 @@ $messages['de'] = array(
 $messages['diq'] = array(
 	'pendingchanges' => 'Pelanê ho vurneyeni',
 	'pendingchanges-legend' => 'Vurnayîşanê etiket biyo înan liste bike',
-	'pendingchanges-list' => 'Ena pele {{PLURAL:$1|a reviewed page|reviewed pages}} liste keno.',
+	'pendingchanges-list' => 'Ena pele [[{{MediaWiki:Validationpage}}|peleye ke weynayış wazena]] liste keno yana yew bi vurnayışa mocnena.',
 	'pendingchanges-none' => 'Ser ena kriteri de pelan çini yo',
 	'pendingchanges-hours' => '($1 {{PLURAL:$1|seet|seetan}})',
 	'pendingchanges-days' => '($1 {{PLURAL:$1|roc|rocan}})',
 	'pendingchanges-recent' => '(1 seet ra tay)',
 	'pendingchanges-category' => 'Kategorî:',
-	'pendingchanges-stable' => 'Versiyono sebit eyare veriniyo',
+	'pendingchanges-onwatchlist' => 'Peleyê ke lista da seyri deyê',
+	'pendingchanges-stable' => 'Versiyono sebit hesıbyayo',
 	'pendingchanges-diff' => 'Çım ra ravyarne',
 	'pendingchanges-size' => 'Vuranayişê tewr zaf (bitan):',
 	'pendingchanges-unwatched' => '(seyr nibeno)',
@@ -552,6 +553,7 @@ $messages['eo'] = array(
 /** Spanish (español)
  * @author Bola
  * @author Crazymadlover
+ * @author Dferg
  * @author Locos epraix
  * @author Sanbec
  * @author Translationista
@@ -567,11 +569,11 @@ $messages['es'] = array(
 	'pendingchanges-category' => 'Categoría:',
 	'pendingchanges-onwatchlist' => 'Páginas en mi lista de seguimiento',
 	'pendingchanges-stable' => 'La versión estable se muestra por defecto',
-	'pendingchanges-diff' => 'Revisado',
+	'pendingchanges-diff' => 'revisar',
 	'pendingchanges-size' => 'Cambio máximo (bytes):',
 	'pendingchanges-unwatched' => '(no vigilado)',
 	'pendingchanges-watched' => '($1 {{PLURAL:$1|usuario|usuarios}} activos vigilando)',
-	'pendingchanges-viewing' => '(bajo revisión)',
+	'pendingchanges-viewing' => '(en revisión)',
 );
 
 /** Estonian (eesti)

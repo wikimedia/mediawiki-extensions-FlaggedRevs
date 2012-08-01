@@ -1350,9 +1350,9 @@ $messages['tl'] = array(
 	'reviewedpages-list' => "Naglalaman ang kawing na ito ng [[{{MediaWiki:Validationpage}}|nasuring]]  mga pahina na ang ''pinakamataas na naabot'' na antas ng pagsusuri (ng isang rebisyon) ay ang antas na tinukoy.  
 Ibinigay ang isang kawing papunta sa pinahakuling pagbabago ng ganyang antas.",
 	'reviewedpages-none' => 'Walang mga pahina sa loob ng talaang ito',
-	'reviewedpages-lev-0' => 'Namataan na',
-	'reviewedpages-lev-1' => 'Kaantasan ng uri (kalidad)',
-	'reviewedpages-lev-2' => 'Naitampok (itinangi)',
+	'reviewedpages-lev-0' => '{{int:revreview-lev-basic}}',
+	'reviewedpages-lev-1' => '{{int:revreview-lev-quality}}',
+	'reviewedpages-lev-2' => '{{int:revreview-lev-pristine}}',
 	'reviewedpages-all' => 'mga bersyong nasuri na',
 	'reviewedpages-best' => 'pinakamainam na pagbabago',
 );

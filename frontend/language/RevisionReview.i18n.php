@@ -1257,12 +1257,13 @@ Bitte markieren Sie alle unten angezeigten Änderungen, damit Ihre Bearbeitungen
 
 /** Zazaki (Zazaki)
  * @author Aspar
+ * @author Erdemaslancan
  * @author Mirzali
  * @author Xoser
  */
 $messages['diq'] = array(
 	'revisionreview' => 'revizyonanê ser çım bıçarn',
-	'revreview-failed' => "'''Eno versiyon tedqiq nêbeno.''' Mırecaet ya temam niyo ya zi sewbina nêvêreno.",
+	'revreview-failed' => "'''Eno rewizyono qontrol nêbeno.'''",
 	'review_page_invalid' => 'Nameyê pele ya hedefi meqbul niyo.',
 	'review_page_notexists' => 'Pele ke hedef biya eka cini ya.',
 	'review_page_unreviewable' => 'Pele ke hedef biya eka eka kontrol nibena.',
@@ -1272,7 +1273,7 @@ $messages['diq'] = array(
 	'review_bad_key' => 'Tuşê parametre raşt niya.',
 	'review_denied' => 'Destur nedano.',
 	'review_param_missing' => 'Yew parametrevini biya ya zi raşt niya.',
-	'revreview-check-flag-p' => 'Vurnayışanê ke hama cap nibiyê inan kebul ke',
+	'revreview-check-flag-p' => 'Nê versiyoni qebul kerê (zeredê cı dı $1 {{PLURAL:$1|vurnayış|vurnayışi}} pawênê)',
 	'revreview-check-flag-p-title' => 'Vurnayişê xo u vurnayişan ke hama kebul nibiya inan kebul bike. Ena xacet teyna şuxulne ci wext ke ti diffê vurnayişê hemi kontrol kerd.',
 	'revreview-check-flag-u' => 'Ena pele ke qontrol nibiya ke ay kebul bike',
 	'revreview-check-flag-u-title' => 'Versiyon ena pele kebul bike. Ena pele şuxulne eka teyna ena pele temamen diye.',
@@ -1281,7 +1282,7 @@ $messages['diq'] = array(
 	'revreview-flag' => 'nop revizyon ser çım bıçarn',
 	'revreview-reflag' => 'Enê çımraviyarnayışi qontrol ke',
 	'revreview-invalid' => "'''hedefo nemeqbul:''' yew revizyono [[{{MediaWiki:Validationpage}}|konrol biyaye]] zi ID de pê nêgıneni.",
-	'revreview-log' => 'beyanat:',
+	'revreview-log' => 'Vatış:',
 	'revreview-main' => 'qey çım ser çarnayişi, şıma gani pelê muhtewayi ra yew revizyon bıvıcini.
 
 bıewnê [[Special:Unreviewedpages|listeya pelê konrol nêbiyayeyan]].',
@@ -1289,29 +1290,33 @@ bıewnê [[Special:Unreviewedpages|listeya pelê konrol nêbiyayeyan]].',
 	'revreview-stable2' => 'Ena pele de [{{fullurl:$1|stable=1}} versiyonê sebiti] (eka este) ti eşkena bivini.',
 	'revreview-submit' => 'bışaw',
 	'revreview-submitting' => 'şawiyeno...',
-	'revreview-submit-review' => 'Tesdiq ke',
-	'revreview-submit-unreview' => 'Tesdiq meke',
+	'revreview-submit-review' => 'Rewizyoni qebul ke',
+	'revreview-submit-unreview' => 'Rewizyoni qebul meke',
+	'revreview-submit-reject' => 'Vurnayışa red ke',
 	'revreview-submit-reviewed' => 'Temam. Tesdiq bi!',
 	'revreview-submit-unreviewed' => 'Temam. Tesdiq nêbi!',
 	'revreview-successful' => "'''qey [[:$1|$1]] revizyon bı serkewte işaret bı. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} revizyonê istiqarınan bıvin])'''",
 	'revreview-successful2' => "'''qey [[:$1|$1]] işaretê revizyoni bı serkewte wera diya.'''",
 	'revreview-toolow' => "'''Ti gani her nitelikan \"tam niya\" zafyer rate bike ke seba revizyon gani qontrol bibo.'''
 
-Seba statuyê qontroli wedarnayişi, eyaranê ''hemi'' her ca de \"tam niya\" bike.
+Seba weziyetê qontroli wedarnayişi, sazanê ''hemi'' her ca de \"tam niya\" bike.
 
-Ma rica keni \"peyser\" şu ra klik bike reyna deneme bike.",
+Ma rica keni \"peyser\" şı ra rayna cerbnayışi pıploxnê.",
 	'revreview-update' => "'''Kerem ke, vurnayışanê teberi pêro ''(cêr mocniyenê)'' [[{{MediaWiki:Validationpage}}|tekrar bıvêne]] heta ke verziyono qayım vıraciya.'''",
-	'revreview-update-edited' => '<span class="flaggedrevs_important">Vurnayişanê tu hama zerrê versiyonê sebiti de niya.</span>
+	'revreview-update-edited' => '<span class="flaggedrevs_important">Vurnayişê şıma zerrê versiyonê sebiti de niya.</span>
 
 Ma rica keni vurnayişanê xo peran versiyonê sebit biki bade kontrolê vurnayişi.
-Ti belki tewr verni de vurnayişan teqib biki ya zi "peyser biyeri".',
-	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Vurnayişanê tu hama zerrê versiyonê sebiti de niya. Hama vurnayişanê binan ho sira de.</span>
+Ti belki tewr verni de vurnayişan teqib biki ya na "peyser bêri".',
+	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Vurnayişê şıma zerrê versiyonê sebiti de niya.</span>
 
 Ma rica keni vurnayişanê xo peran versiyonê sebit biki bade kontrolê vurnayişi.
-Ti belki tewr verni de vurnayişan teqib biki ya zi "peyser biyeri".',
+Ti belki tewr verni de vurnayişan teqib biki ya na "peyser bêri".',
 	'revreview-update-includes' => 'Şabloni/dosyey biy rocaney (pelê etudkerdey qalındê):',
+	'revreview-reject-summary' => 'Xulasa:',
+	'revreview-reject-confirm' => 'Nê vurnayışa red ke',
+	'revreview-reject-cancel' => 'Bıterkne',
 	'revreview-tt-flag' => '"Qontrol" nişan bike ke ena revizyon qebul bike',
-	'revreview-tt-unflag' => '"Qontrol nibiyo" nişan bike ke ena revizyon qebul meke',
+	'revreview-tt-unflag' => 'Nê çım ra ravyarnayışi "Qontrol nêbiyo" deye qebul meke',
 );
 
 /** Lower Sorbian (dolnoserbski)
@@ -4582,6 +4587,7 @@ $messages['ru'] = array(
 
 /** Rusyn (русиньскый)
  * @author Gazeb
+ * @author Olvin
  */
 $messages['rue'] = array(
 	'revisionreview' => 'Перевірка верзій',
@@ -5353,6 +5359,7 @@ Pakisuri ang lahat ng mga pagbabagong ipinapakita sa ibaba upang magawang lumita
  * @author Emperyan
  * @author Joseph
  * @author Khutuck
+ * @author Sadrettin
  * @author Srhat
  * @author Szoszv
  * @author Vito Genovese
@@ -5421,7 +5428,7 @@ Değişikliklerinizin kararlı sürümde yer alması için lütfen aşağıda g�
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Değişiklikleriniz henüz kararlı sürüm için değildir. İnceleme bekleyen eski değişiklikler bulunmaktadır.</span>
 
 Değişikliklerinizin kararlı sürümde yer alması için, lütfen aşağıda gösterilen tüm değişiklikleri inceleyin.',
-	'revreview-update-includes' => 'Sablonlar/dosyalar güncellenmiş (gözden geçirilmemiş sayfalar koyu renkli):',
+	'revreview-update-includes' => 'Şablonlar/dosyalar güncellenmiş (gözden geçirilmemiş sayfalar koyu renkli):',
 	'revreview-reject-text-list' => "Bu eylemi tamamlayarak, aşağıdaki {{PLURAL:$1|değişiklik|değişiklikleri}} '''reddetmiş''' olacaksınız:",
 	'revreview-reject-text-revto' => 'Bu sayfa [{{fullurl:$1|oldid=$2}} $3 tarihli] revizyona geri dönecektir.',
 	'revreview-reject-summary' => 'Özet:',
@@ -5484,7 +5491,7 @@ $messages['uk'] = array(
 	'revreview-submit-reject' => 'Відхилити зміни',
 	'revreview-submit-reviewed' => 'Виконано. Затверджена!',
 	'revreview-submit-unreviewed' => 'Виконано. Не затверджена!',
-	'revreview-successful' => "'''Обрана версія [[:$1|$1]] успішно позначена. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} перегляд усіх стабільних версій])'''",
+	'revreview-successful' => "'''На версію [[:$1|$1]] успішно встановлено позначку про перегляд. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} перегляд усіх переглянутих версій])'''",
 	'revreview-successful2' => "'''Із обраної версії [[:$1|$1]] успішно знята позначка.'''",
 	'revreview-poss-conflict-p' => "'''Попередження: [[User:$1|$1]] почав перевіряти цю сторінку $2 о $3.'''",
 	'revreview-poss-conflict-c' => "'''Попередження: [[User:$1|$1]] почав перевіряти цю сторінку $2 о $3.'''",

@@ -126,10 +126,12 @@ $messages['an'] = array(
 );
 
 /** Arabic (العربية)
+ * @author Ciphers
  * @author Meno25
  * @author OsamaK
  */
 $messages['ar'] = array(
+	'action-unreviewedpages' => 'عرض قائمة بالصفحات غير المراجعة',
 	'unreviewedpages' => 'صفحات غير مراجعة',
 	'unreviewedpages-legend' => 'عرض صفحات المحتوى غير المراجعة',
 	'unreviewedpages-category' => 'التصنيف:',
@@ -442,7 +444,7 @@ $messages['diq'] = array(
 	'unreviewedpages-diff' => 'Çım ra ravyarne',
 	'unreviewedpages-unwatched' => '(seyr nibiye)',
 	'unreviewedpages-watched' => '($1 activ {{PLURAL:$1|karber|karberî}} ho seyr keno)',
-	'unreviewedpages-list' => 'no pel, sewiyeya ke waziyaya goreyê aye sewiya. pelê muhtewayê ke çım ser nêçariyayê liste keno.',
+	'unreviewedpages-list' => 'Na pela, sewiyeya ke waziyaya goreyê aye sewiya pelê muhtewayê ke [[{{MediaWiki:Validationpage}}|çım ser nêçariyêya]] liste kena.',
 	'unreviewedpages-none' => 'nê kriteran de peli çini',
 	'unreviewedpages-viewing' => '(kontrol beno)',
 	'unreviewedpages-hours' => '($1 {{PLURAL:$1|seet|seeti}})',

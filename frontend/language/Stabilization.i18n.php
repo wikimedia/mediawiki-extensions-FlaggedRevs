@@ -861,6 +861,7 @@ Die aktuellen Einstellungen für „[[:$1|$1]]“ sind:',
 /** Zazaki (Zazaki)
  * @author Aspar
  * @author Belekvor
+ * @author Erdemaslancan
  * @author Xoser
  */
 $messages['diq'] = array(
@@ -876,7 +877,7 @@ Tiya de eyaranê penîyî qe [[:$1|$1]] esto:',
 	'stabilization-def2' => 'Revizyonê penî',
 	'stabilization-restrict' => 'Kontrolî/qedexeyê oto-kontrolî',
 	'stabilization-restrict-none' => 'Restriksiyonê bînî çini yo',
-	'stabilization-submit' => 'Konfirme bike',
+	'stabilization-submit' => 'Testiq ke',
 	'stabilization-notexists' => 'Yew pel ser "[[:$1|$1]]" çini yo. 
 Konfugure ni beno.',
 	'stabilization-notcontent' => 'Pel"[[:$1|$1]]" kontrol nibeno. 
@@ -885,7 +886,7 @@ Konfugure ni beno.',
 	'stabilization-otherreason' => 'Sebebê bîn:',
 	'stabilization-expiry' => 'Qediyeno:',
 	'stabilization-othertime' => 'Wextê bîn:',
-	'stabilization-def-short' => 'Eyaranê tewr vernî',
+	'stabilization-def-short' => 'Hesıbyaye',
 	'stabilization-def-short-0' => 'Penî',
 	'stabilization-def-short-1' => 'Sebit',
 	'stabilize_page_invalid' => 'Nameyê pele ya hedefi meqbul niyo.',
