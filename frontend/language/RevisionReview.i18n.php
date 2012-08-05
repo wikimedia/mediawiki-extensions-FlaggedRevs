@@ -109,6 +109,7 @@ Please review all the changes shown below to make your edits appear in the stabl
  * @author IAlex
  * @author Jon Harald Søby
  * @author Lloffiwr
+ * @author Nemo bis
  * @author Pxos
  * @author Raymond
  * @author SPQRobin
@@ -138,7 +139,7 @@ Used when reviewing a revision where someone else already accepted or removed ac
 	'review_not_flagged' => '{{Flagged Revs}}
 Used when removing acceptance status from a revision were it was already removed (or was never there).',
 	'review_too_low' => '{{Flagged Revs}}
-Used when reviewing a revision.',
+Used when reviewing a revision; "inadequate" is the literal name of a state.',
 	'review_bad_key' => '{{Flagged Revs}}
 Used when reviewing a revision.
 When you review, you specify the template/file versions to use. The key given by the user must match a special hash salted with those parameters. This makes it so users can only use the template/file versions as shown on the form they submitted on, rather than sending their own arbitrary values.',
@@ -269,7 +270,7 @@ Shown on the reject form (user clicked "reject" on review form).
 {{Identical|Summary}}
 Shown on the reject form.',
 	'revreview-reject-confirm' => '{{Flagged Revs}}
-Shown on the reject form. Confirmation button.',
+Shown on the reject form. Confirmation button to reject unreviewed changes.',
 	'revreview-reject-cancel' => '{{Flagged Revs}}
 {{Identical|Cancel}}
 Shown on the reject form.',

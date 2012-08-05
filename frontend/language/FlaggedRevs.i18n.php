@@ -247,6 +247,7 @@ Please check the URL you used to access this page.',
  * @author Lloffiwr
  * @author McDutchie
  * @author Meno25
+ * @author Nemo bis
  * @author Nike
  * @author Prima klasy4na
  * @author Purodha
@@ -316,8 +317,8 @@ Show on [[Special:Preferences]]. This is for a setting to add an initially colla
 	'flaggedrevs-prefs-viewdiffs' => '{{Flagged Revs}}
 Show on [[Special:Preferences]]. This is for a setting to add an initially collapsed diff to the top of pages with pending changes. This is only added when the latest revision of the page is reviewed.',
 	'flaggedrevs-hidereviewed' => '{{Flagged Revs}}
-Shown within parenthesis on Special:Recentchanges, SpecialNewPages, and Special:Watchlist. This refers to a toggle to hide or show edits (revisions) that have been reviewed. If set to "hide", it also hides edits to pages that are not reviewable (like Talk pages).
-* $1 A link with the text {{msg-mw|show}} or {{msg-mw|hide}}',
+Shown within parenthesis on Special:Recentchanges, SpecialNewPages, and Special:Watchlist. This refers to a toggle to hide or show edits (revisions) that have been reviewed. If set to "hide", it also hides edits to pages that are not reviewable (like Talk pages). Parameters:
+* $1 is a link with the text {{msg-mw|show}} or {{msg-mw|hide}}',
 	'group-editor' => '{{Flagged Revs}}
 {{doc-group|editor}}
 {{Identical|Editor}}',
@@ -409,6 +410,8 @@ Appears at [[Special:Log/review]] and is used for diff link text of log entries.
 	'review-logentry-diff2' => '{{Flagged Revs}}
 Appears at [[Special:Log/review]] and is used for diff link text of log entries. The diff is between a revision that had its acceptance revoked and the previous accepted revision.',
 	'review-logpage' => '{{Flagged Revs}}
+{{doc-logpage}}
+
 Name of review log Special:Log/review',
 	'review-logpagetext' => '{{Flagged Revs}}
 {{Identical|Content page}}
@@ -630,6 +633,9 @@ Shown on the stability log (Special:Log/stability).
 Shown on the stability log (Special:Log/stability).
 * $1 Name of the permission that is required to review and autoreview in addition to any required rights',
 	'stable-logpage' => '{{Flagged Revs}}
+{{doc-logpage}}
+
+
 Same of the stability log at Special:Log/stability',
 	'stable-logpagetext' => '{{Flagged Revs}}
 {{Identical|Content pages}}
@@ -4640,8 +4646,8 @@ $messages['et'] = array(
 	'revreview-visibility-synced' => "'''Sellel lehekülje on uuendatud [[{{MediaWiki:Validationpage}}|püsiv versioon]]. Lehekülje püsivussätteid saab [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} muuta].'''",
 	'revreview-visibility-outdated' => "'''Sellel lehekülje on iganenud [[{{MediaWiki:Validationpage}}|püsiv versioon]]. Lehekülje püsivussätteid saab [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} muuta].'''",
 	'revreview-visibility-nostable' => "'''Sellel lehekülje pole [[{{MediaWiki:Validationpage}}|püsivat versiooni]]. Lehekülje püsivussätteid saab [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} muuta].'''",
-	'revreview-revnotfound' => 'Vana redaktsiooni, mille järele te pärisite, ei leitud.
-Palun kontrollige internetiaadressi, mille abil te seda leida püüdsite.',
+	'revreview-revnotfound' => 'Vana redaktsiooni, mille järele pärisid, ei leitud.
+Palun kontrolli internetiaadressi, mille abil seda leida püüdsid.',
 	'right-autoreview' => 'Märkida enda muudatused automaatselt kord vaadatuks',
 	'right-autoreviewrestore' => 'Tühistamise ajal automaatselt üle vaadata',
 	'right-movestable' => 'Teisaldada püsivate versioonidega lehekülgi',
