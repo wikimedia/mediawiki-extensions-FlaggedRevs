@@ -1196,7 +1196,7 @@ Siehe die [[Special:Unreviewedpages|Liste unmarkierter Versionen]].',
 	'revreview-adv-stop-link' => 'Hinweis zurücknehmen',
 	'revreview-toolow' => "'''Du musst jedes der Attribute besser als „unzureichend“ einstufen, damit eine Version als markiert angesehen werden kann.'''
 
-Um den Markierungstatus einer Version aufzuheben, muss auf „Markierung entfernen“ geklickt werden.
+Um den Markierungstatus einer Version aufzuheben, muss auf „{{int:revreview-submit-unreview}}“ geklickt werden.
 
 Klicke auf die „Zurück“-Schaltfläche deines Browsers und versuche es erneut.",
 	'revreview-update' => "'''Bitte [[{{MediaWiki:Validationpage}}|markiere]] alle Änderungen ''(siehe unten)'', die seit der letzten stabilen Version getätigt wurden.'''",
@@ -1671,7 +1671,7 @@ Vaata [[Special:Unreviewedpages|ülevaatamata lehekülgede loendit]].',
 	'revreview-adv-stop-link' => 'jäta teatamata',
 	'revreview-toolow' => '\'\'\'Lehekülje ülevaadatuks arvamiseks pead hindama kõiki tunnuseid kõrgemini kui "ebarahuldav".\'\'\'
 
-Redaktsioonilt ülevaadatu seisundi eemaldamiseks klõpsa "lükka tagasi".
+Redaktsioonilt ülevaadatu seisundi eemaldamiseks klõpsa "{{int:revreview-submit-unreview}}".
 
 Palun klõpsa oma võrgulehitseja "Tagasi"-nuppu ja proovi uuesti.',
 	'revreview-update' => "'''Palun [[{{MediaWiki:Validationpage}}|vaata üle]] kõik alates püsivast versioonist tehtud ootel muudatused ''(näidatud allpool)''.'''",
@@ -1941,7 +1941,7 @@ Voir la [[Special:Unreviewedpages|liste des pages non relues]].",
 	'revreview-adv-stop-link' => 'annuler la publicité',
 	'revreview-toolow' => "'''Vous devez affecter à chacun des attributs une évaluation plus élevée que « inappropriée » pour que la relecture soit prise en compte comme acceptée.'''
 
-Pour enlever l’état de relecture d’une version, cliquez sur « Ne pas accepter ».
+Pour enlever l’état de relecture d’une version, cliquez sur « {{int:revreview-submit-unreview}} ».
 
 Veuillez utiliser le bouton « Retour » de votre navigateur puis essayez de nouveau.",
 	'revreview-update' => "Veuillez [[{{MediaWiki:Validationpage}}|relire]] toutes les modifications ''(voir ci-dessous)'' apportées à la version acceptée.",
@@ -2118,9 +2118,9 @@ Vexa a [[Special:Unreviewedpages|lista de páxinas sen revisar]].',
 	'revreview-sadv-reviewing-c' => 'Pode $1 aos demais usuarios de que está a revisar estes cambios.',
 	'revreview-adv-start-link' => 'advertir',
 	'revreview-adv-stop-link' => 'retirar a advertencia',
-	'revreview-toolow' => '\'\'\'Debe, polo menos, valorar cada un dos atributos cunha puntuación maior que "inadecuado" para que unha revisión sexa considerada como revisada.\'\'\'
+	'revreview-toolow' => '\'\'\'Debe valorar cada un dos atributos cunha puntuación maior que "inadecuado" para que unha revisión sexa considerada como revisada.\'\'\'
 
-Para retirar o estado de aprobación dunha revisión, prema sobre "suspender".
+Para retirar o estado de aprobación dunha revisión, prema en "{{int:revreview-submit-unreview}}".
 
 Por favor, prema sobre o botón "Volver" do seu navegador e inténteo de novo.',
 	'revreview-update' => "'''[[{{MediaWiki:Validationpage}}|Revise]] os cambios pendentes ''(móstranse a continuación)'' feitos á versión aceptada.'''",
@@ -2307,7 +2307,7 @@ $messages['he'] = array(
 	'revreview-adv-stop-link' => 'לבטל את ההודעה',
 	'revreview-toolow' => 'יש לדרג כל אחת מהתכונות הבאות גבוה יותר מ"בלתי קבילה" כדי שהגרסה תיחשב לגרסה שנסקרה.
 
-כדי להסיר מגרסה את הגדרת מצב הסקירה שלה, יש ללחוץ על "דחיית הגרסה".
+כדי להסיר מגרסה את הגדרת מצב הסקירה שלה, יש ללחוץ על "{{int:revreview-submit-unreview}}".
 
 נא ללחוץ על כפתור "אחורה" בדפדפן ולנסות שוב.',
 	'revreview-update' => "נא [[{{MediaWiki:Validationpage}}|לסקור]] את כל השינויים הממתינים '''(מוצגים להלן)''' שנעשו מאז הגרסה היציבה האחרונה.'''",
@@ -2515,7 +2515,7 @@ Hlej [[Special:Unreviewedpages|za lisćinu njepřepruwowanych stronow]].',
 	'revreview-adv-stop-link' => 'wjace njeskedźbnić',
 	'revreview-toolow' => '\'\'\'Dyrbiš kóždy z atributow wyše hač "njepřiměrjeny" pohódnoćić, zo by so wersija jako přepruwowana wobkedźbowała.\'\'\'
 
-Zo by přepruwowanski status wersije wotstronił, klikń na "njeakceptować".
+Zo by přepruwowanski status wersije wotstronił, klikń na"{{int:revreview-submit-unreview}}".
 
 Prošu klikń na tłóčatko "Wróćo" w swojim wobhladowaku a spytaj hišće raz.',
 	'revreview-update' => "'''Prošu [[{{MediaWiki:Validationpage}}|přepruwuj]] njepřepruwowane změny ''(hlej deleka)'', kotrež buchu na akceptowanej wersiji přewjedźene.'''",
@@ -3542,9 +3542,9 @@ $messages['mk'] = array(
 	'revreview-adv-stop-link' => 'повлечи разглас',
 	'revreview-toolow' => "'''Атрибутите мора да ги оцените со нешто повисоко од „недоволно“ за ревизијата да се смета за проверена.'''
 
-За да го отстраните статусот на ревизијата, поставете ги сите полиња како „неприфатливо“.
+За да го отстраните статусот „проверено“ на ревизијата, стиснете на „{{int:revreview-submit-unreview}}“.
 
-Притиснете на копчето „назад“ во вашиот прелистувач и обидете се повторно.",
+Притиснете на копчето „назад“ во прелистувачот и обидете се повторно.",
 	'revreview-update' => "'''[[{{MediaWiki:Validationpage}}|проверете]] ги промените ''(прикажани подолу)'' направени на прифатената верзија.'''",
 	'revreview-update-edited' => '<span class="flaggedrevs_important">Вашите измени сè уште не се вклучени во стабилната верзија.</span>
 
@@ -3916,7 +3916,7 @@ Zie  de [[Special:Unreviewedpages|lijst met ongecontroleerde pagina's]].",
 	'revreview-adv-stop-link' => 'niet aan het controleren bent',
 	'revreview-toolow' => '\'\'\'U moet tenminste alle eigenschappen hoger instellen dan "{{int:Revreview-accuracy-0}}" om voor een versie aan te geven dat deze is gecontroleerd.\'\'\'
 
-Klik op "Versie afkeuren" om de waardering van een versie te verwijderen.
+Klik op "{{int:revreview-submit-unreview}}" om de waardering van een versie te verwijderen.
 
 Klik op de knop "Terug" in uw browser en probeer het opnieuw.',
 	'revreview-update' => "'''[[{{MediaWiki:Validationpage}}|Controleer]] alstublieft de ''onderstaande'' wijzigingen ten opzichte van de gepubliceerde versie.'''",
@@ -4258,7 +4258,7 @@ Veja a [[Special:Unreviewedpages|lista de páginas não revistas]].',
 	'revreview-adv-reviewing-p' => 'Aviso: Os outros revisores podem ver que está a revisar esta página.',
 	'revreview-adv-reviewing-c' => 'Aviso: Os outros revisores podem ver que está a revisar estas alterações.',
 	'revreview-sadv-reviewing-p' => 'Você pode $1 aos outros utilizadores que está a revisar esta página.',
-	'revreview-sadv-reviewing-c' => 'Você pode $1 aos outros usuários que está a revisar estas alterações.',
+	'revreview-sadv-reviewing-c' => 'Pode $1 os outros utilizadores de que está a rever estas alterações.',
 	'revreview-adv-start-link' => 'informar',
 	'revreview-adv-stop-link' => 'parar de informar',
 	'revreview-toolow' => '\'\'\'Para uma edição ser considerada revista, tem de avaliar cada atributo com valores acima de "inadequada".\'\'\'
@@ -5329,11 +5329,11 @@ Tingnan ang [[Special:Unreviewedpages|talaan ng mga pahina hindi pa nasusuring m
 	'revreview-sadv-reviewing-c' => 'Maaari mong $1 ang sarili bilang nagsusuri ng mga pagbabagong ito sa ibang mga tagagamit.',
 	'revreview-adv-start-link' => 'ianunsiyo',
 	'revreview-adv-stop-link' => 'huwag ianunsiyo',
-	'revreview-toolow' => '\'\'\'Dapat mong antasan ang bawat isang katangian na mas mataas kaysa "hindi sapat" upang maisaalang-alang ang pagbabago bilang nasuri na.\'\'\'
+	'revreview-toolow' => '\'\'\'Dapat mong antasan ang bawat isang katangian na mas mataas kaysa sa "hindi sapat" upang maisaalang-alang ang pagbabago bilang nasuri nang muli.\'\'\'
 
-Upang matanggal ang katayuan ng pagsusuri ng isang rebisyon, pindutin ang "huwag tanggapin".
+Upang matanggal ang katayuan ng pagsusuri ng isang rebisyon, pindutin ang "{{int:revreview-submit-unreview}}".
 
-Pakipindot ang pindutang "bumalik" sa iyong pantingin-tingin at subukang muli.',
+Paki pindutin ang pindutang "bumalik" sa iyong pantingin-tingin at subukang muli.',
 	'revreview-update' => "''' Mangyaring [[{{MediaWiki:Validationpage}}|pakisuri]] ang anumang nakabinbing mga pagbabago ''(ipinapakita sa ibaba)'' na ginawa magmula noong magkaroon ng matatag ang bersyon.'''",
 	'revreview-update-edited' => '<span class="flaggedrevs_important">Ang mga binago mo ay hindi pa nasa loob ng matatag na bersyon.</span>
 
