@@ -71,7 +71,7 @@ See the [[Special:Unreviewedpages|list of unreviewed pages]].',
 	'revreview-adv-stop-link' 	   => 'de-advertise',
 	'revreview-toolow'             => '\'\'\'You must rate each of the attributes higher than "inadequate" in order for a revision to be considered reviewed.\'\'\'
 
-To remove the review status of a revision, click "unaccept".
+To remove the review status of a revision, click "{{int:revreview-submit-unreview}}".
 
 Please hit the "back" button in your browser and try again.',
 	'revreview-update'             => '\'\'\'Please [[{{MediaWiki:Validationpage}}|review]] any pending changes \'\'(shown below)\'\' made since the stable version.\'\'\'',
