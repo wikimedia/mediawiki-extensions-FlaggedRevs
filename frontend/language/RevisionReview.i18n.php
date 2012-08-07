@@ -530,18 +530,29 @@ $messages['ast'] = array(
 	'review_page_invalid' => 'El títulu de la páxina de destín nun ye válidu.',
 	'review_page_notexists' => 'La páxina de destín nun esiste.',
 	'review_page_unreviewable' => 'Nun se puede revisar la páxina de destín.',
+	'review_no_oldid' => 'Non se conseñó denguna ID de revisión.',
+	'revreview-check-flag-y' => 'Aceutar los mios cambios',
+	'revreview-check-flag-y-title' => 'Aceutar tolos cambios que vienes de facer equí.',
 	'revreview-flag' => 'Revisar esta revisión',
+	'revreview-reflag' => 'Revisar esta revisión otra vuelta',
 	'revreview-log' => 'Comentariu:',
 	'revreview-main' => "Tienes que seleicionar una revisión concreta d'una páxina de conteníos pa revisala.
 
 Vete a la [[Special:Unreviewedpages|llista de páxines ensin revisar]].",
 	'revreview-submit' => 'Unviar',
+	'revreview-submitting' => 'Unviando...',
+	'revreview-submit-review' => 'Aceutar revisión',
+	'revreview-submit-unreview' => 'Nun aceutar la revisión',
+	'revreview-submit-reject' => 'Refugar los cambios',
 	'revreview-toolow' => "'''Tienes de calificar caún de los atributos más alto que \"non afayadizu\" pa qu'una revisión se considere revisada.'''
 
-Pa desaniciar l'estáu d'una revisión, calca \"nun aceutar\".
+Pa desaniciar l'estáu d'una revisión, calca \"{{int:revreview-submit-unreview}}\".
 
-Calca nel botón \"atrás\" del restolador y téntalo otra vuelta.",
+Calca nel botón \"atrás\" del restolador ya intentalo otra vuelta.",
 	'revreview-update' => "'''Por favor [[{{MediaWiki:Validationpage}}|revisa]] tolos cambios pendientes que ''(s'amuesen abaxo)'' fechos dende la versión estable.'''",
+	'revreview-update-edited' => '<span class="flaggedrevs_important">Los tos cambios inda nun tan na versión estable.</span>
+
+Revisa tolos cambios que s\'amuesen más abaxo pa facer que les tos ediciones apaezan na versión estable.',
 	'revreview-update-includes' => "S'anovaron delles plantíes/ficheros (páxines ensin revisar en negrina):",
 	'revreview-reject-summary' => 'Resume:',
 	'revreview-reject-cancel' => 'Encaboxar',
@@ -1597,9 +1608,9 @@ Mira la [[Special:Unreviewedpages|lista de páginas no revisadas]].',
 	'revreview-adv-stop-link' => 'anular la publicidad',
 	'revreview-toolow' => "'''Debes valorar cada uno de los atributos más alto que \"inadecuado\" para que la revisión sea considerada verificada.'''
 
-Para quitar el estado de verificación de una revisión, clic \"no aceptar\".
+Para quitar el estado de verificación de una revisión, haz clic en \"{{int:revreview-submit-unreview}}\".
 
-Por favor presiona el botón ''atrás'' en tu navegador e intentalo de nuevo.",
+Por favor presiona el botón ''Atrás'' en tu navegador e inténtalo de nuevo.",
 	'revreview-update' => "'''Por favor,[[{{MediaWiki:Validationpage}}|revisa]] los cambios pendientes ''(que se muestran a continuación)'' hechos en la versión aceptada.'''",
 	'revreview-update-edited' => '<span class="flaggedrevs_important">Tus cambios aún no han sido incorporados en la versión estable.</span>
 
@@ -3226,7 +3237,7 @@ $messages['ko'] = array(
 	'revreview-adv-stop-link' => '통지 안 함',
 	'revreview-toolow' => '\'\'\'당신은 문서를 검토하려면 등급을 모두 "부적절"보다 높게 매겨야 합니다.\'\'\'
 
-판의 검토를 철회하려면 모든 란을 "부적절"으로 설정하십시오.
+판의 검토를 철회하려면 모든 란을 "{{int:revreview-submit-unreview}}"로 설정하십시오.
 
 브라우저의 "뒤로" 버튼을 눌러 다시 시도하십시오.',
 	'revreview-update' => "'''승인된 판에 이루어진 아래의 검토를 기다리고 있는 편집을 [[{{MediaWiki:Validationpage}}|검토]]해주십시오.'''",
@@ -4441,6 +4452,7 @@ $messages['ro'] = array(
 $messages['roa-tara'] = array(
 	'revisionreview' => 'Revide le revisiune',
 	'revreview-failed' => "'''None ge se pò rivedè sta revisione.'''",
+	'revreview-submission-invalid' => "'A reggistrazione jè 'ngomblete o invalide pe otre mutive.",
 	'review_page_invalid' => "'U titele d'a pàgene de destinazzione jè invalide.",
 	'review_page_notexists' => "'A pàgene de destinazzione non g'esiste.",
 	'review_page_unreviewable' => "'A pàgene de destinazione non g'è revisitabbele.",
@@ -4478,7 +4490,7 @@ Vide 'a [[Special:Unreviewedpages|liste de le pàggene ca non g'onne state rivis
 	'revreview-adv-stop-link' => 'no-pubblecezzà',
 	'revreview-toolow' => "'''Tu ninde ninde a valutà ognedune de le attrebbute cchiù ierte de ''inadeguate'' purcé 'na revisione pò essere considerate reviste.'''
 
-Pe luà 'u state de reviste de 'na revisione, cazze sus a \"none accettà\".
+Pe luà 'u state de reviste de 'na revisione, cazze sus a \"{{int:revreview-submit-unreview}}\".
 
 Pe piacere cazze 'u buttone \"back\" d'u browser tune e pruève arrete.",
 	'revreview-update' => "'''Pe piacere [[{{MediaWiki:Validationpage}}|revide]] ogne cangiamende pendende ''(le vide aqquà sotte)'' fatte da 'a versiona secure.'''",
