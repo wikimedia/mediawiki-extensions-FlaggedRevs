@@ -273,6 +273,7 @@ $messages['es'] = array(
  */
 $messages['et'] = array(
 	'problemchanges' => 'Märgistatud ootel muudatused',
+	'problemchanges-list' => 'Siin leheküljel on toodud [[{{MediaWiki:Validationpage}}|üle vaadatud]] leheküljed, mille üks või enam märgistatud muudatust ootavad ülevaatamist. Kehtivate muudatusmärgiste loendi leiad [[Special:Tags|siit]].',
 	'problemchanges-legend' => 'Ülevaatamist ootavate märgistatud muudatustega lehekülgede loetlemine',
 	'problemchanges-none' => 'Sellistele kriteeriumitele vastavad leheküljed puuduvad praegu.',
 	'problemchanges-category' => 'Kategooria:',

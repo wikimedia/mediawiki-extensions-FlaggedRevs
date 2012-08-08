@@ -475,16 +475,18 @@ $messages['dsb'] = array(
  * @author Consta
  * @author Crazymadlover
  * @author Dead3y3
+ * @author Glavkos
  * @author Omnipaedista
  */
 $messages['el'] = array(
+	'action-unreviewedpages' => 'εμφανίστε τον κατάλογο μη επιθεωρημένων σελίδων',
 	'unreviewedpages' => 'Σελίδες χωρίς κριτική',
 	'unreviewedpages-legend' => 'Απαρίθμηση σελίδων περιεχομένου χωρίς κριτική',
 	'unreviewedpages-category' => 'Κατηγορία:',
 	'unreviewedpages-diff' => 'κριτική',
 	'unreviewedpages-unwatched' => '(δεν παρακολουθείται)',
 	'unreviewedpages-watched' => '($1 {{PLURAL:$1|ενεργός χρήστης παρακολουθεί|ενεργοί χρήστες παρακολουθούν}})',
-	'unreviewedpages-list' => 'Αυτή η σελίδα απαριθμεί σελίδες περιεχομένων που δεν έχουν κριθεί στο καθορισμένο επίπεδο.',
+	'unreviewedpages-list' => "Η σελίδα αυτή περιέχει σε λίστα  σελίδες περιεχομένου που '' δεν '' έχουν ακόμα [[{{MediaWiki:Validationpage}}|επιθεωρηθεί]] στο συγκεκριμένο επίπεδο.",
 	'unreviewedpages-none' => 'Αυτή τη στιγμή δεν υπάρχουν σελίδες που να ικανοποιούν αυτά τα κριτήρια',
 	'unreviewedpages-viewing' => '(υπό κριτική)',
 	'unreviewedpages-hours' => '($1 {{PLURAL:$1|ώρα|ώρες}})',
@@ -538,6 +540,7 @@ $messages['es'] = array(
  * @author Pikne
  */
 $messages['et'] = array(
+	'action-unreviewedpages' => 'vaadata ülevaatamata lehekülgede loendit',
 	'unreviewedpages' => 'Ülevaatamata leheküljed',
 	'unreviewedpages-legend' => 'Ülevaatamata sisulehekülgede loetlemine',
 	'unreviewedpages-category' => 'Kategooria:',

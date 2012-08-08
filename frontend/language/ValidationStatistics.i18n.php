@@ -530,13 +530,13 @@ wokomuźenje měri, kak dłujko nejstarša njepśeglědana změna jo južo njep�
  * @author Omnipaedista
  */
 $messages['el'] = array(
-	'validationstatistics' => 'Στατιστικά επικύρωσης',
+	'validationstatistics' => 'Σελίδα επιθεώρησης στατιστικών',
 	'validationstatistics-users' => "Ο ιστότοπος '''{{SITENAME}}''' αυτή τη στιγμή έχει '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|χρήστη|χρήστες}} με δικαιώματα [[{{MediaWiki:Validationpage}}|Συντάκτη]]
 και '''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$2|χρήστη|χρήστες}} με δικαιώματα [[{{MediaWiki:Validationpage}}|Κριτικού]].
 
 Οι Συντάκτες και οι Κριτικοί είναι καθιερωμένοι χρήστες που μπορούν να ελέγχουν τις αναθεωρήσεις μίας σελίδας.",
 	'validationstatistics-lastupdate' => "''Τα παρακάτω στοιχεία ενημερώθηκαν  τελευταία φορά στις $1 του $2 .''",
-	'validationstatistics-table' => "Τα στατιστικά για κάθε περιοχή ονομάτων εμφανίζονται παρακάτω, των σελίδων ανακατεύθυνσης ''εξαιρουμένων''.",
+	'validationstatistics-table' => "Στατιστικά στοιχεία αναθεώρησης σελίδων για κάθε ονοματοχώρο εμφανίζονται πιο κάτω, \"εξαιρουμένων\" των σελίδων ανακατεύθυνσης. Οι σελίδες αντιμετωπίζονται ως '' ξεπερασμένες '' εάν έχουν αλλαγές εν αναμονή επιθεώρησης και οι  σελίδες θεωρούνται '' συγχρονισμένες'' αν δεν υπάρχουν επεξεργασίες που αναμένουν επιθεώρηση.",
 	'validationstatistics-ns' => 'Περιοχή ονομάτων',
 	'validationstatistics-total' => 'Σελίδες',
 	'validationstatistics-stable' => 'Κρίθηκαν',
@@ -613,11 +613,11 @@ $messages['et'] = array(
 	'validationstatistics' => 'Ülevaatuse arvandmestik',
 	'validationstatistics-users' => "Praegu on '''{{GRAMMAR:inessive|{{SITENAME}}}}''' '''[[Special:ListUsers/editor|$1]]''' [[{{MediaWiki:Validationpage}}|toimetaja]] õigustes {{PLURAL:$1|kasutaja|kasutajat}}.
 
-Toimetajad on kohale määratud kasutajad, kes saavad lehekülgel tehtud muudatused põgusalt üle vaadata.",
+Toimetajad on tunnustatud kasutajad, kes saavad lehekülgedel tehtud muudatused põgusalt üle vaadata.",
 	'validationstatistics-lastupdate' => "''Järgnevate andmete viimane uuendamisaeg: $1, kell $2.''",
-	'validationstatistics-pndtime' => "Kohale määratud kasutajate tehtud muudatused arvatakse ''ülevaadatuks''.
+	'validationstatistics-pndtime' => "Tunnustatud kasutajate tehtud muudatused arvatakse ''ülevaadatuks''.
 
-Keskmine viitaeg [[Special:OldReviewedPages|ootel muudatustega lehekülgede ülevaatamiseks]] on '''$1'''; viiteaeg näitab kui kaua on vanim ootel muudatus ülevaatamata olnud.",
+Keskmine viiteaeg [[Special:OldReviewedPages|praegu ootel muudatustega lehekülgede ülevaatamiseks]] on '''$1'''; viiteaeg näitab kui kaua on olnud vanim ootel muudatus üle vaatamata.",
 	'validationstatistics-revtime' => "''Sisselogimata kasutajate'' tehtud muudatuste ooteaeg ülevaatamiseks on keskmiselt '''$1'''; mediaan on '''$2'''.
 $3",
 	'validationstatistics-table' => "Allpool on toodud lehekülgede ülevaatamisarvandmed nimeruumiti, ''välja arvatud'' ümbersuunamisleheküljed. Lehekülg arvatakse ''iganenuks'', kui mõni sealne muudatus ootab ülevaatamist; lehekülg arvatakse ''ühtivaks'', kui ükski muudatus ei oota ülevaatamist.",
@@ -1922,6 +1922,7 @@ $messages['si'] = array(
 
 /** Slovak (slovenčina)
  * @author Helix84
+ * @author Teslaton
  */
 $messages['sk'] = array(
 	'validationstatistics' => 'Štatistiky overenia',
@@ -1938,7 +1939,7 @@ Tieto stránky sú považované za ''zastarané''. Podobne, stránky sú považo
 	'validationstatistics-stable' => 'Skontrolované',
 	'validationstatistics-latest' => 'Synchronizovaná',
 	'validationstatistics-synced' => 'Synchronizované/skontrolované',
-	'validationstatistics-old' => 'Zastaralé',
+	'validationstatistics-old' => 'Zastarané',
 	'validationstatistics-utable' => 'Dolu je zoznam $1 naj kontrolórov za poslednú hodinu.',
 	'validationstatistics-user' => 'Používateľ',
 	'validationstatistics-reviews' => 'Kontroly',

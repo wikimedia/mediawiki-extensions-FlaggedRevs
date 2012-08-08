@@ -1449,6 +1449,8 @@ $messages['el'] = array(
 	'revreview-submit-reject' => 'Απόρριψη αλλαγών',
 	'revreview-submit-reviewed' => 'Έγινε. Αποδεκτή!',
 	'revreview-submit-unreviewed' => 'Έγινε. Μη αποδεκτή!',
+	'revreview-adv-start-link' => 'διαφημίστε',
+	'revreview-adv-stop-link' => 'από-διαφημίστε',
 	'revreview-reject-summary' => 'Σύνοψη:',
 	'revreview-reject-confirm' => 'Απόρριψη αυτών των αλλαγών',
 	'revreview-reject-cancel' => 'Ακύρωση',
@@ -3388,7 +3390,7 @@ Kuckt d'[[Special:Unreviewedpages|Lëscht vun den net nogekuckte Sàiten]].",
 	'revreview-adv-stop-link' => 'bekanntginn zréckzéien',
 	'revreview-toolow' => "'''Dir musst fir all Attribut hei drënner eng Bewäertung ofginn déi besser ass wéi \"net adequat\" fir datt eng Versioun als nogekuckt betruecht ka ginn.'''
 
-Fir de Statut nogekuckt vun enger Versioun ewechzehuelen klickt op \"net akzeptéieren\".
+Fir de Statut nogekuckt vun enger Versioun ewechzehuelen klickt op \"{{int:revreview-submit-unreview}}\".
 
 Klickt w.e.g op den ''Zréck''-Knäppche vun Ärem Browser a versicht et nach eng Kéier.",
 	'revreview-update' => "'''[[{{MediaWiki:Validationpage}}|Kuckt]] w.e.g. all Ännerungen no ''(déi ënnendrënner gewise sinn)'' déi no der publizéiert Versioun gemaach goufen.'''",

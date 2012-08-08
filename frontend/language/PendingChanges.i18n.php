@@ -1703,11 +1703,12 @@ $messages['si'] = array(
 
 /** Slovak (slovenčina)
  * @author Helix84
+ * @author Teslaton
  */
 $messages['sk'] = array(
-	'pendingchanges' => 'Zastaralé skontrolované stránky',
+	'pendingchanges' => 'Stránky s úpravami na kontrolu',
 	'pendingchanges-legend' => 'Zoznam skontrolovaných stránok s neskontrolovanými revíziami',
-	'pendingchanges-list' => 'Táto stránka obsahuje {{PLURAL:$1|skontrolovanú stránku, ktorej|zoznam skontrolovaných stránok, ktorých}} následné úpravy zatiaľ neboli skontrolované.',
+	'pendingchanges-list' => 'Táto stránka obsahuje zoznam [[{{MediaWiki:Validationpage}}|skontrolovaných stránok]], ktorých následné úpravy zatiaľ neboli skontrolované.',
 	'pendingchanges-none' => 'Momentálne žiadne stránky nezodpovedajú týmto kritériám',
 	'pendingchanges-hours' => '($1 {{PLURAL:$1|hodina|hodiny|hodín}})',
 	'pendingchanges-days' => '($1 {{PLURAL:$1|deň|dni|dní}})',

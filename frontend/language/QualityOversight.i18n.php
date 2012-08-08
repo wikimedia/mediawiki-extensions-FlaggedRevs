@@ -179,10 +179,11 @@ $messages['dsb'] = array(
 );
 
 /** Greek (Ελληνικά)
+ * @author Glavkos
  * @author Omnipaedista
  */
 $messages['el'] = array(
-	'qualityoversight' => 'Επόπτης ποιότητας',
+	'qualityoversight' => 'Προχωρημένη επιθεώρηση καταγραφής',
 	'qualityoversight-list' => 'Αυτή η σελίδα συγκαταλέγει τις πιο πρόσφατες εγκρίσεις και αποδοκιμασίες αναθεωρήσεων.',
 	'qualityoversight-legend' => 'Αναζήτηση στα αρχεία προσφάτων επιθεωρήσεων',
 );
