@@ -10311,9 +10311,31 @@ Sila semak URL yang anda gunakan untuk mencapai laman ini.',
 );
 
 /** Maltese (Malti)
+ * @author Chrisportelli
  * @author Giangian15
  */
 $messages['mt'] = array(
+	'action-review' => 'tirrevedi reviżjonijiet',
+	'editor' => 'Editur',
+	'flaggedrevs' => 'Verifika tar-reviżjonijiet',
+	'flaggedrevs-watched-pending' => "Attwalment hemm [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} bidliet pendenti] f'paġni taħt reviżjoni fost dawk li inti ssegwi. '''L-attenzjoni tiegħek hija rikjesta'''.",
+	'flaggedrevs-desc' => 'Tagħti l-edituri l-possibilità li jirrevedu reviżjonijiet u jistabilizzaw paġni',
+	'flaggedrevs-pref-UI' => 'Interfaċċa bażika:',
+	'flaggedrevs-pref-UI-1' => 'Uża ikoni żgħar u test minimali sabiex turi l-istat tar-reviżjoni tal-paġni',
+	'prefs-flaggedrevs' => 'Immodifika reċensjoni',
+	'prefs-flaggedrevs-ui' => 'Immodifika reċensjoni',
+	'flaggedrevs-pref-stable-1' => 'Uri dejjem il-verżjoni stabbli (jekk teżisti)',
+	'flaggedrevs-pref-stable-2' => 'Uri dejjem l-aħħar verżjoni',
+	'flaggedrevs-prefs-watch' => "Żid paġni li nirrevedi fil-lista ta' osservazzjonijiet tiegħi",
+	'flaggedrevs-prefs-editdiffs' => 'Uri d-diff tal-bidliet pendenti meta timmodifika paġni',
+	'flaggedrevs-prefs-viewdiffs' => 'Uri d-diff tal-bidliet pendenti meta tara l-aħħar verżjoni pendenti',
+	'flaggedrevs-hidereviewed' => '$1 modifiki reviżjonati',
+	'group-editor' => 'Edituri',
+	'group-editor-member' => '{{GENDER:$1|editur|editriċi}}',
+	'group-reviewer' => 'Rivedituri',
+	'group-reviewer-member' => 'riveditur',
+	'grouppage-editor' => '{{ns:project}}:Editur',
+	'grouppage-reviewer' => '{{ns:project}}:Riveditur',
 	'revreview-revnotfound' => "Ir-reviżjoni l-antika tal-paġna li staqsejt dwar ma setgħatx tiġi minsuba. Jekk jogħġbok verifika l-URL li użajt sabiex tidħol f'din il-paġna.",
 );
 

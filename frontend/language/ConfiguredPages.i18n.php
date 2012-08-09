@@ -653,6 +653,15 @@ Sesetengah tetapan mungkin mengubah versi mana yang dipaparkan kepada pembaca, a
 	'configuredpages-def-stable' => 'versi stabil',
 );
 
+/** Maltese (Malti)
+ * @author Chrisportelli
+ */
+$messages['mt'] = array(
+	'configuredpages-config' => 'Konfigurazzjoni',
+	'configuredpages-def-draft' => 'l-aħħar verżjoni',
+	'configuredpages-def-stable' => 'verżjoni stabbli',
+);
+
 /** Norwegian Bokmål (‪norsk (bokmål)‬)
  * @author Nghtwlkr
  */

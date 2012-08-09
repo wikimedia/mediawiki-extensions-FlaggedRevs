@@ -1389,8 +1389,7 @@ Glědaj [[Special:Unreviewedpages|lisćinu njepśeglědanych bokow]].',
 	'revreview-adv-stop-link' => 'wěcej njedopomnjeś',
 	'revreview-toolow' => '\'\'\'Musyš nanejmjenjej kuždy z atributow wušej ako "njepśiměrjony" pógódnośiś, aby wersija płaśeła ako pśeglědana.\'\'\'
 
-Aby pśeglědowański status wersije wótpórał, klikni na  "wótpokazaś".
-
+Aby pśeglědowański status wersije wótpórał, klikni na  "{{int:revreview-submit-unreview}}".
 Pšosym klikni na tłocašk "Slědk" w swójom wobglědowaku a wopytaj hyšći raz.',
 	'revreview-update' => "'''Pšosym [[{{MediaWiki:Validationpage}}|pśeglědaj]] ''(slědujuce)'' njepśeglědane změny, kótarež su se na akceptěrowanej wersiji pśewjedli.'''",
 	'revreview-update-edited' => '<span class="flaggedrevs_important">Twóje změny hyšći njejsu w stabilnej wersiji.</span>
@@ -2942,7 +2941,7 @@ Vedi l'[[Special:Unreviewedpages|elenco delle pagine non revisionate]].",
 	'revreview-adv-stop-link' => 'annulla',
 	'revreview-toolow' => '\'\'\'È necessario valutare ognuno degli attributi superiori ad "inadeguato" al fine di rendere definitiva una revisione.\'\'\'
 
-Per rimuovere lo stato di revisione di una revisione, fare clic su "inaccettabile".
+Per rimuovere lo stato di revisione di una revisione, fare clic su "{{int:revreview-submit-unreview}}".
 
 Si prega di premere il pulsante "indietro" del tuo browser e riprovare.',
 	'revreview-update' => "'''[[{{MediaWiki:Validationpage}}|Revisiona]] le modifiche in sospeso ''(mostrate di seguito)'' apportate dalla versione stabile.'''",
@@ -4439,6 +4438,8 @@ $messages['ro'] = array(
 	'revreview-successful2' => "'''Revizuirea [[:$1|$1]] invalidată cu succes.'''",
 	'revreview-poss-conflict-p' => "'''Avertisment: [[User:$1|$1]] a început revizuirea acestei pagini pe $2 la $3.'''",
 	'revreview-poss-conflict-c' => "'''Avertisment: [[User:$1|$1]] a început revizuirea acestor schimbări pe $2 la $3.'''",
+	'revreview-adv-start-link' => 'faceți publicitate',
+	'revreview-adv-stop-link' => 'anulați publicitatea',
 	'revreview-reject-text-revto' => 'Acesta va reveni pagina înapoi la [{{fullurl:$1|oldid=$2}} versiunea din $3].',
 	'revreview-reject-summary' => 'Rezumat:',
 	'revreview-reject-confirm' => 'Respinge aceste modificări',
@@ -5177,6 +5178,8 @@ $messages['te'] = array(
 	'revreview-submit-review' => 'కూర్పుని అంగీకరించు',
 	'revreview-submit-reject' => 'మార్పులను తిరస్కరించండి',
 	'revreview-submit-reviewed' => 'పూర్తియ్యింది. అంగీకరించారు!',
+	'revreview-adv-reviewing-p' => 'గమనిక: మీరు ఈ పేజీని సమీక్షిస్తున్న విషయాన్ని ఇతర సమీక్షకులు చూడగలరు.',
+	'revreview-adv-reviewing-c' => 'గమనిక: మీరు ఈ మార్పులను సమీక్షిస్తున్న విషయాన్ని ఇతర సమీక్షకులు చూడగలరు.',
 	'revreview-toolow' => 'ఓ కూర్పును సమీక్షించినట్లుగా భావించాలంటే కింద ఇచ్చిన గుణాలన్నిటినీ "సమ్మతించలేదు" కంటే ఉన్నతంగా రేటు చెయ్యాలి.',
 	'revreview-update' => "సుస్థిర కూర్పుని [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} అనుమతించిన] తర్వాత జరిగిన ''(క్రింద చూపించిన)'' మార్పులను [[{{MediaWiki:Validationpage}}|సమీక్షించండి]].
 
@@ -5707,7 +5710,7 @@ Mời xem [[Special:Unreviewedpages|danh sách các trang chưa được duyệt
 	'revreview-adv-stop-link' => 'ngừng báo',
 	'revreview-toolow' => "'''Mỗi thuộc tính cần phải cao hơn “kém” để cho phiên bản có thể được xem là được duyệt.'''
 
-Để rút cờ được duyệt của một phiên bản, hãy bấm “Rút chấp nhận”.
+Để rút cờ được duyệt của một phiên bản, hãy bấm “{{int:revreview-submit-unreview}}”.
 
 Xin hãy bấm nút “Lùi” trong trình duyệt và thử lại.",
 	'revreview-update' => "'''Xin hãy [[{{MediaWiki:Validationpage}}|duyệt]] những thay đổi đang chờ ''(dưới đây)'' đã được thực hiện từ khi phiên bản ổn định.'''",
