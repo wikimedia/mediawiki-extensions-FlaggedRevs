@@ -3755,7 +3755,7 @@ Sila lihat [[Special:Unreviewedpages|senarai laman yang belum diperiksa]].',
 	'revreview-adv-stop-link' => 'jangan hebahkan',
 	'revreview-toolow' => '\'\'\'Anda mesti menilai setiap satu atribut itu sebagai lebih tinggi daripada "tidak memadai" supaya semakan itu dianggap sudah dikaji semula.\'\'\'
 
-Untuk membatalkan status kaji semula semakan itu, klik "tarik balik penerimaan".
+Untuk membatalkan status kaji semula semakan itu, klik "{{int:revreview-submit-unreview}}".
 
 Sila tekan butang "←" pada pelayar anda dan cuba lagi.',
 	'revreview-update' => "'''Sila [[{{MediaWiki:Validationpage}}|kaji semula]] sebarang perubahan tergantung ''(ditunjukkan di bawah)'' yang dilakukan sejak versi stabil.'''",
@@ -5122,6 +5122,7 @@ $messages['sw'] = array(
 );
 
 /** Tamil (தமிழ்)
+ * @author Karthi.dr
  * @author Mahir78
  * @author TRYPPN
  */
@@ -5135,6 +5136,7 @@ $messages['ta'] = array(
 	'review_not_flagged' => 'இந்த இலக்கு திருத்தப் பதிப்பு தற்போது மதிப்பிடப்பட்டதாக குறிக்கப்படவில்லை.',
 	'review_denied' => 'அனுமதி தடைசெய்யப்பட்டது.',
 	'review_param_missing' => 'ஒரு காரணி காணப்படவில்லை அல்லது தவறானது',
+	'review_reject_excessive' => 'பல மாற்றங்களை ஒரேயடியாக நிராகரிக்க இயலாது.',
 	'revreview-check-flag-p' => 'நிலுவை மாற்றங்களை ஏற்றுக்கொள்க',
 	'revreview-check-flag-p-title' => 'தற்போதுள்ள எல்லா நிலுவை மாற்றங்களையும் நீங்கள் தொகுத்தவைகளுடன் ஏற்றுக்கொள்ளுங்கள். நீங்கள் ஏற்கெனவே முழு நிலுவையில் உள்ள மாற்றங்களை சரிபார்த்திருந்தால் மட்டுமே.',
 	'revreview-check-flag-u' => 'மதிப்பீடு செய்யாத இந்தப் பக்கத்தை ஏற்றுக்கொள்க',

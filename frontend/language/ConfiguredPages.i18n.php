@@ -269,11 +269,13 @@ Někotare nastajenja by mógli se změniś, kótara wersija zwobraznja se cytarj
 
 /** Greek (Ελληνικά)
  * @author Crazymadlover
+ * @author Glavkos
  * @author Omnipaedista
  * @author ZaDiak
  */
 $messages['el'] = array(
-	'configuredpages' => 'Σελίδες με διαμορφώσεις αναθεώρησης',
+	'configuredpages' => 'Σελίδες με διαμορφώσεις επιθεώρησης',
+	'configuredpages-list' => 'Η σελίδα αυτή περιλαμβάνει σελίδες που έχουν διαμορφωθεί για να έχουν διαφορετικές ρυθμίσεις έγκρισης σε σχέση με τις προεπιλεγμένες του ιστότοπου. Μερικές ρυθμίσεις μπορεί να αλλάζουν την έκδοση που εμφανίζεται στους αναγνώστες ή να διευρύνουν τους περιορισμούς για το ποιος μπορεί να κάνει επεξεργασίες που δεν χρειάζονται επιθεώρηση.',
 	'configuredpages-none' => 'Δεν υπάρχουν σελίδες σε αυτή τη λίστα.',
 	'configuredpages-config' => 'Διαμόρφωση',
 	'configuredpages-def-draft' => 'τελευταία έκδοση',
