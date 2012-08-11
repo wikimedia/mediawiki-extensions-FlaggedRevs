@@ -371,11 +371,13 @@ $messages['ckb'] = array(
 /** Czech (česky)
  * @author Danny B.
  * @author Jezevec
+ * @author Jkjk
  * @author Li-sung
  * @author Matěj Grabovský
  * @author Mormegil
  */
 $messages['cs'] = array(
+	'action-unreviewedpages' => 'zobrazit seznam neposouzených stránek',
 	'unreviewedpages' => 'Neposouzené stránky',
 	'unreviewedpages-legend' => 'Seznam neposouzených obsahových stránek',
 	'unreviewedpages-category' => 'Kategorie:',

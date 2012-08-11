@@ -438,7 +438,7 @@ $messages['ar'] = array(
 انظر [[Special:Unreviewedpages|قائمة الصفحات غير المراجعة]].',
 	'revreview-stable1' => 'ربما ترغب في رؤية [{{fullurl:$1|stableid=$2}} هذه النسخة المعلمة] لترى ما إذا كانت [{{fullurl:$1|stable=1}} النسخة المنشورة] لهذه الصفحة.',
 	'revreview-stable2' => 'قد ترغب في مشاهدة [{{fullurl:$1|stable=1}} النسخة المستقرة] لهذه الصفحة.',
-	'revreview-submit' => 'أرسل',
+	'revreview-submit' => 'إرسال',
 	'revreview-submitting' => 'يرسل...',
 	'revreview-submit-review' => 'اقبل المراجعة',
 	'revreview-submit-unreview' => 'لا تقبل المراجعة',
@@ -1167,7 +1167,7 @@ $messages['de'] = array(
 	'review_too_low' => 'Version kann nicht markiert werden, solange Felder noch als „unzureichend“ gekennzeichnet sind.',
 	'review_bad_key' => 'Der Wert des Markierungsparameters ist ungültig.',
 	'review_bad_tags' => 'Einige der angegebenen Kennzeichen sind ungültig.',
-	'review_denied' => 'Zugriff verweigert.',
+	'review_denied' => 'Der Zugriff wurde verweigert.',
 	'review_param_missing' => 'Ein Parameter fehlt oder ist ungültig.',
 	'review_cannot_undo' => 'Diese Änderungen können nicht rückgängig gemacht werden, da weitere ausstehende Änderungen in den gleichen Bereichen gemacht wurden.',
 	'review_cannot_reject' => 'Diese Änderungen können nicht verworfen werden, da ein anderer Benutzer bereits ein paar oder alle Bearbeitungen akzeptiert hat.',
@@ -1513,9 +1513,9 @@ Vidu la [[Special:Unreviewedpages|liston de nereviziitaj paĝoj]] .',
 	'revreview-sadv-reviewing-c' => 'Vi povas $1 al aliaj uzantoj ke vi revizias ĉi tiujn ŝanĝojn.',
 	'revreview-adv-start-link' => 'anonci',
 	'revreview-adv-stop-link' => 'malanonci',
-	'revreview-toolow' => '\'\'\'Vi devas taksi ĉiun el la jenaj atribuoj almenaŭ pli alta ol "adekvata" por revizio esti konsiderata kiel kontrolita.\'\'\'
+	'revreview-toolow' => '\'\'Vi devas taksi ĉiun el la jenaj atribuoj almenaŭ pli alta ol "adekvata" por revizio esti konsiderata kiel kontrolita.\'\'\'
 
-Forigi reviziatan statuson de revizio, klaku "malaprobi".
+Forigi reviziatan statuson de revizio, klaku "{{int:revreview-submit-unreview}}".
 
 Bonvolu klaki la "reiri" butonon en via retumilo kaj reprovu.',
 	'revreview-update' => "Bonvolu [[{{MediaWiki:Validationpage}}|kontroli]] iujn kontrolendajn ŝanĝojn ''(montritajn suben)'' faritajn ekde la aprobita versio:'''",
@@ -5170,6 +5170,7 @@ $messages['te'] = array(
 	'review_page_invalid' => 'లక్ష్యిత పుట శీర్షిక చెల్లనిది.',
 	'review_page_notexists' => 'లక్ష్యిత పుట లేనే లేదు.',
 	'review_denied' => 'అనుమతిని నిరాకరించారు.',
+	'revreview-check-flag-y' => 'నా మార్పులను అంగీకరించు',
 	'revreview-flag' => 'ఈ కూర్పుని సమీక్షించండి',
 	'revreview-log' => 'వ్యాఖ్య:',
 	'revreview-main' => 'సమీక్షించడానికి మీరు విషయపు పేజీ యొక్క ఓ నిర్ధిష్ట కూర్పుని ఎంచుకోవాలి.

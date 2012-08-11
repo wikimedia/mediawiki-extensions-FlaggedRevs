@@ -842,7 +842,7 @@ Die aktuellen Einstellungen für „[[:$1|$1]]“ sind:',
 	'stabilize_invalid_level' => 'Ungültige Seitenschutzstufe.',
 	'stabilize_expiry_invalid' => 'Ungültiges Ablaufdatum.',
 	'stabilize_expiry_old' => 'Das Ablaufdatum wurde überschritten.',
-	'stabilize_denied' => 'Zugriff verweigert.',
+	'stabilize_denied' => 'Der Zugriff wurde verweigert.',
 	'stabilize-expiring' => 'bis $2, $3 Uhr (UTC)',
 	'stabilization-review' => 'Markiere die aktuelle Version',
 );
