@@ -4130,10 +4130,10 @@ $messages['eo'] = array(
 	'flaggedrevs-prefs-stable' => 'Ĉiam defaŭlte montri la stabilan version de enhavaj paĝoj',
 	'flaggedrevs-pref-stable-0' => 'Uzi la defaŭltajn agordojn por ĉiu paĝo',
 	'flaggedrevs-pref-stable-1' => 'Ĉiam montri la stabilan version (se ĝi ekzistas)',
-	'flaggedrevs-pref-stable-2' => 'Ĉiam montri la lasta versio',
+	'flaggedrevs-pref-stable-2' => 'Ĉiam montri la lastan version',
 	'flaggedrevs-prefs-watch' => 'Aldoni miajn kontrolitajn paĝojn al mia atentaro',
 	'flaggedrevs-prefs-editdiffs' => 'Montri diferencon de kontrolenda versio kiam redaktante paĝojn',
-	'flaggedrevs-prefs-viewdiffs' => 'Montri diferencon de kontrolendaj ŝanĝoj kiam vidante la lastan kontrolendan revizion',
+	'flaggedrevs-prefs-viewdiffs' => 'Montri diferencon de kontrolendaj ŝanĝoj rigardante la lastan kontrolendan revizion',
 	'flaggedrevs-hidereviewed' => '$1 kontrolitaj redaktoj',
 	'group-editor' => 'Reviziantoj',
 	'group-editor-member' => '{{GENDER:$1|redaktanto|redaktantino}}',
@@ -6302,6 +6302,7 @@ $messages['he'] = array(
 /** Hindi (हिन्दी)
  * @author Ansumang
  * @author Kaustubh
+ * @author Siddhartha Ghai
  */
 $messages['hi'] = array(
 	'action-review' => 'संशोधनों की समीक्षा',
@@ -6420,7 +6421,7 @@ $messages['hi'] = array(
 	'revreview-style-2' => 'अच्छा',
 	'revreview-style-3' => 'संक्षिप्त',
 	'revreview-style-4' => 'विशेष',
-	'revreview-toggle-title' => 'ज्यादा ज़ानकारी दर्शायें/छुपायें',
+	'revreview-toggle-title' => 'अधिक जानकारी दिखाएँ/छुपाएँ',
 	'revreview-visibility-synced' => "'''इस पन्नेको एक [[{{MediaWiki:Validationpage}}|स्थिर अवतरण]] हैं, जो [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} बदला] जा सकता हैं।'''",
 	'revreview-revnotfound' => 'आपसे पूछा गया इस लेख का पुराना अवतरण नहीं मिल पाया। कॄपया आपने इस्तेमाल किये URL की जाँच करें।',
 	'right-autoreview' => 'अवतरण देखें ऐसे अपनेआप मार्क करें',
@@ -8816,6 +8817,12 @@ $messages['ksh'] = array(
 	'group-autoreview' => '{{ns:project}}:{{int:group-autoreview-member}}',
 	'group-autoreview-member' => 'Automattesch Nohkiker',
 	'grouppage-autoreview' => '{{ns:project}}:{{int:group-autoreview-member}}',
+	'group-editor.css' => '/* Dat CSS heh aan dä Stell wirrek nur op de Redaktöre för et Sichte */',
+	'group-editor.js' => '/* Dat JavaSkrep heh aan dä Stell wirrek nur op de Redaktöre för et Sichte */',
+	'group-reviewer.css' => '/* Dat CSS heh aan dä Stell wirrek nur op de Redaktöre för et Pröfe */',
+	'group-reviewer.js' => '/* Dat JavaSkrep heh aan dä Stell wirrek nur op de Redaktöre för et Pröfe */',
+	'group-autoreview.css' => '/* Dat CSS heh aan dä Stell wirrek nur op de Automattesch Nohkiker */',
+	'group-autoreview.js' => '/* Dat JavaSkrep heh aan dä Stell wirrek nur op de Automattesch Nohkiker */',
 	'revreview-hist-draft' => 'onjeprööf Version',
 	'revreview-hist-pending' => 'Di Version es onjeprööf',
 	'revreview-hist-quality' => '{{lcfirst:{{int:revreview-lev-quality}}}}',
@@ -8847,7 +8854,7 @@ $messages['ksh'] = array(
 	'revreview-accuracy-1' => 'drövver jekik',
 	'revreview-accuracy-2' => 'Akeraat, Enhallt jeprööf',
 	'revreview-accuracy-3' => 'Quelle jeprööf',
-	'revreview-accuracy-4' => 'Exzelänt',
+	'revreview-accuracy-4' => 'Äxzälänt',
 	'revreview-auto' => '(automattesch)',
 	'revreview-basic' => 'Dat es de neuste [[{{MediaWiki:Validationpage}}|{{int:revreview-lev-basic}}]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} {{lcfirst:{{int:revreview-approved}}}}] aam <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$3|Ein Änderung|Noch $3 Änderunge|Kein Änderung}}] aan hee däm [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Äntworf] {{PLURAL:$3|shteiht noch|shtonn|shteiht mieh}} zom Nohjekik wääde aan.',
@@ -8864,7 +8871,7 @@ Es müjjelesch, et künnt noch [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{M
 	'revreview-depth-1' => 'Jrondlääje',
 	'revreview-depth-2' => 'Meddelmääßesch',
 	'revreview-depth-3' => 'Huh',
-	'revreview-depth-4' => 'Exzälänt',
+	'revreview-depth-4' => 'Äxzälänt',
 	'revreview-draft-title' => 'Dat heh ess-en Äntworfs_Sigg',
 	'revreview-edit' => 'Dä Äntworf verändere',
 	'revreview-editnotice' => "'''Ding Änderunge aan heh dä Sigg kumme bei de [[{{MediaWiki:Validationpage}}|beshtändeje Versione]], wann ene Metmaacher met dämm Rääsch dohzoh se nohkik un dohför {{lcfirst:{{int:revreview-approved}}}}.'''",
@@ -8909,7 +8916,7 @@ Et sinn_er [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs
 	'revreview-style-1' => 'kammer bruche',
 	'revreview-style-2' => 'joot',
 	'revreview-style-3' => 'jenou',
-	'revreview-style-4' => 'exzälänt',
+	'revreview-style-4' => 'Äxzälänt',
 	'revreview-toggle-title' => 'Eijnzelheijte aanzeije udder vershteische',
 	'revreview-visibility-synced' => "'''Hee di Sigg hät en jeänderte [[{{MediaWiki:Validationpage}}|{{int:stablepages-stable}}]].
 De {{int:stabilization}} kam_mer [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} ändere].'''",
@@ -11184,7 +11191,7 @@ $messages['or'] = array(
 	'revreview-depth' => 'ଗଭୀରତା',
 	'revreview-depth-0' => 'ଅପର୍ଜ୍ୟାପ୍ତ',
 	'revreview-depth-1' => 'ମୌଳିକ',
-	'revreview-edit' => 'ସମ୍ପାଦନ',
+	'revreview-edit' => 'ସମ୍ପାଦନା',
 	'revreview-submitedit' => 'ବଦଳ ଦାଖଲ କରନ୍ତୁ',
 	'revreview-quick-basic-old' => "'''[[{{MediaWiki:Validationpage}}|ପରଖିଲେ]]'''",
 	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|ପରଖିଲେ]]'''",
@@ -12131,6 +12138,7 @@ $messages['ro'] = array(
 	'prefs-flaggedrevs' => 'Recenzie modificări',
 	'prefs-flaggedrevs-ui' => 'Modificare recenzie',
 	'flaggedrevs-pref-stable-0' => 'Utizitați parametrii impliciți pentru fiecare pagină',
+	'flaggedrevs-pref-stable-2' => 'Arată mereu cea mai recentă versiune',
 	'flaggedrevs-hidereviewed' => '$1 modificări revizuite',
 	'group-editor' => 'Editori',
 	'group-editor-member' => '{{GENDER:$1|editor|editoare|editor}}',

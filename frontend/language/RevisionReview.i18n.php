@@ -4028,6 +4028,7 @@ $messages['pdc'] = array(
 );
 
 /** Polish (polski)
+ * @author Ankry
  * @author Fizykaa
  * @author Holek
  * @author Leinad
@@ -4087,7 +4088,7 @@ Zobacz [[Special:Unreviewedpages|listę nieprzejrzanych stron]].',
 	'revreview-sadv-reviewing-c' => 'Możesz $1 innych użytkowników, o tym że jesteś w trakcie przeglądania tych zmian.',
 	'revreview-adv-start-link' => 'poinformować',
 	'revreview-adv-stop-link' => 'wycofaj informowanie',
-	'revreview-toolow' => "'''Musisz ocenić każdy z atrybutów wyżej niż „nieakceptowalny“, aby oznaczyć wersję jako zweryfikowaną.'''
+	'revreview-toolow' => "'''Musisz ocenić każdy z atrybutów wyżej niż „nieakceptowalny”, aby oznaczyć wersję jako zweryfikowaną.'''
 
 Aby wycofać zweryfikowanie kliknij na „Cofnij akceptację wersji”.
 
