@@ -976,7 +976,8 @@ $messages['el'] = array(
 	'stabilization-def-short-1' => 'Σταθερή',
 	'stabilize_page_invalid' => 'Ο τίτλος της σελίδας προορισμού δεν είναι έγκυρος.',
 	'stabilize_page_notexists' => 'Η σελίδα προορισμού δεν υπάρχει.',
-	'stabilize_invalid_autoreview' => 'Μη έγκυρος περιορισμός αυτοεπισκόπησης',
+	'stabilize_page_unreviewable' => 'Η σελίδα προορισμού δεν είναι  στον ονοματοχώρο προς επιθεώρηση.',
+	'stabilize_invalid_autoreview' => 'Μη έγκυρος περιορισμός αυτοεπιθεώρησης',
 	'stabilize_invalid_level' => 'Άκυρο επίπεδο προστασίας.',
 	'stabilize_expiry_invalid' => 'Άκυρη ημερομηνία λήξης.',
 	'stabilize_expiry_old' => 'Η ημερομηνία λήξης έχει ήδη περάσει.',
@@ -3402,11 +3403,13 @@ $messages['szl'] = array(
 
 /** Tamil (தமிழ்)
  * @author Kanags
+ * @author Karthi.dr
  * @author TRYPPN
  * @author Ulmo
  * @author செல்வா
  */
 $messages['ta'] = array(
+	'stabilization-tab' => 'சரிபார்',
 	'stabilization-page' => 'பக்கப் பெயர்:',
 	'stabilization-def2' => 'அண்மைய திருத்தங்கள்',
 	'stabilization-restrict-none' => 'மேலும் அதிகப்படியான தடைகள் இல்லை',

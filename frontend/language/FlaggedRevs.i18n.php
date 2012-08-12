@@ -4035,6 +4035,9 @@ $messages['el'] = array(
 	'revreview-editnotice' => "''' Οι αλλαγές σας θα εμφανιστούν στους αναγνώστες από τη στιγμή που ένας εξουσιοδοτημένος χρήστης τις αποδεχτεί. ([[{{MediaWiki:Validationpage}}|help]])'' '",
 	'revreview-submitedit' => 'Υποβολή αλλαγών',
 	'revreview-submitedit-title' => 'Υποβάλετε τις αλλαγές σας για αναθεώρηση',
+	'revreview-edited' => "''' Οι αλλαγές σας θα εμφανιστούν  στους αναγνώστες από τη στιγμή που ένας εξουσιοδοτημένος χρήστης τις αποδεχτεί. ([[{{MediaWiki:Validationpage}}|βοήθεια]])'' '
+
+{{PLURAL:$2| Υπάρχει|Υπάρχουν}} [{{fullurl:{{FULLPAGENAMEE}}|oldid = $1&diff =cur{{MediaWiki:flaggedrevs-diffonly}}}}  $2    {{PLURAL:$2|αλλαγή|αλλαγές}}] σε εκκρεμότητα '' (φαίνεται παρακάτω)'' που αναμένουν επιθεώρηση.",
 	'revreview-edited-section' => 'Επιστρέψετε στο τμήμα της σελίδας με όνομα "[[#$1|$2]]".',
 	'revreview-oldrating' => 'Βαθμολογήθηκε:',
 	'revreview-quality-title' => 'Αυτή είναι μια ποιοτική έκδοση αυτής της σελίδας',
@@ -4044,8 +4047,9 @@ $messages['el'] = array(
 	'revreview-quick-none' => "'''[[{{MediaWiki:Validationpage}}|Δεν ελέγχθηκε]]'''",
 	'revreview-quick-quality-old' => "'''[[{{MediaWiki:Validationpage}}|Ποιότητα]]'''",
 	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|Ποιότητα]]'''",
+	'revreview-quick-see-quality' => '[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} εκκρεμεί επιθεώρηση αλλαγών]]',
 	'revreview-source' => 'Εμφάνιση κώδικα',
-	'revreview-basic-title' => 'Αυτή είναι μια επισκοπημένη  έκδοση αυτής της σελίδας',
+	'revreview-basic-title' => 'Αυτή είναι μια ελεγμένη έκδοση αυτής της σελίδας',
 	'revreview-style' => 'Αναγνωσιμότητα',
 	'revreview-style-0' => 'Ανεπαρκής',
 	'revreview-style-1' => 'Αποδεκτό',
@@ -4055,7 +4059,7 @@ $messages['el'] = array(
 	'revreview-toggle-title' => 'εμφάνιση/απόκρυψη λεπτομερειών',
 	'revreview-visibility-synced' => "''' Η σελίδα έχει μια ενημερωμένη [[{{MediaWiki:Validationpage}} |σταθερή έκδοση]]; η σταθερότητα των ρυθμίσεων της σελίδας μπορεί να [{{fullurl: {{#Special:Stabilization}} |page = {{FULLPAGENAMEE}}}} ρυθμιστεί].'' '",
 	'revreview-revnotfound' => 'Η παλιά αναθεώρηση της σελίδας που ζητήσατε δεν ήταν δυνατόν να βρεθεί. Παρακαλούμε ελέγξτε τo URL που χρησιμοποιήσατε για να φτάσετε σε αυτήν τη σελίδα.',
-	'right-autoreview' => 'Αυτόματη σήμανση αναθεωρήσεων ως επιθεωρημένων',
+	'right-autoreview' => 'Αυτόματη σήμανση των αναθεωρήσεων κάποιου ως επιθεωρημένων',
 	'right-autoreviewrestore' => 'Αυτο-επιθεώρηση στην αναστροφή',
 	'right-movestable' => 'Μετακίνηση σελίδων με σταθερές εκδόσεις',
 	'right-review' => 'Σἠμανση επεξεργασιών ως επισκοπημένων',
@@ -4066,6 +4070,7 @@ $messages['el'] = array(
 	'specialpages-group-quality' => 'Επεξεργασία αναθεώρησης',
 	'stable-logentry-config' => 'Ορισμός ρυθμίσεων για  σταθερή έκδοση " $1 "',
 	'stable-logentry-modify' => 'άλλαξε η σταθερή έκδοση των ρυθμίσεων για " $1 "',
+	'stable-log-restriction' => 'Η αυτό-επιθεώρηση: απαιτεί " $1 " δικαιώματα',
 	'stable-logpage' => 'Αρχείο καταγραφής σταθερών εκδόσεων',
 	'revreview-filter-all' => 'όλες',
 	'revreview-filter-stable' => 'σταθερό',
@@ -12785,7 +12790,7 @@ $messages['rue'] = array(
 	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|Якость]]'''",
 	'revreview-quick-see-basic' => '[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} перевірити нерецензованы зміны]]',
 	'revreview-quick-see-quality' => '[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} перевірити нерецензованы зміны]]',
-	'revreview-source' => 'Відїти код',
+	'revreview-source' => 'Видїти код',
 	'revreview-basic-title' => 'Тото перевірена верзія той сторінкы',
 	'revreview-style' => 'Чітательность',
 	'revreview-style-0' => 'Не зазначена',
@@ -12837,8 +12842,8 @@ $messages['rue'] = array(
 	'revreview-reviewlink' => 'нерецензованы зміны',
 	'revreview-reviewlink-title' => 'Зобразити роздїл вшыткых змін што чекають на перевірку',
 	'revreview-unreviewedpage' => 'неперевірена сторінка',
-	'tooltip-ca-current' => 'Відїти тоту сторінку з нерецензованыма змінами',
-	'tooltip-ca-stable' => 'Відїти стабілну верзію той сторінкы',
+	'tooltip-ca-current' => 'Видїти тоту сторінку з нерецензованыма змінами',
+	'tooltip-ca-stable' => 'Видїти стабілну верзію той сторінкы',
 	'tooltip-ca-default' => 'Наставлїня стабілной і указованой верзії',
 	'flaggedrevs-protect-legend' => 'Автоматічне рецензованя едітованя ([[{{MediaWiki:Validationpage}}|поміч]])',
 	'flaggedrevs-protect-none' => 'Доволити вшыткым хоснователям',
@@ -13208,6 +13213,7 @@ $messages['si'] = array(
 	'revreview-restriction-none' => 'කිසිවක් නොමැත',
 	'revreview-reviewlink' => 'බලාපොරොත්තුවන සංස්කරණ',
 	'revreview-unreviewedpage' => 'පරික්ෂා නොකළ පිටුව',
+	'tooltip-ca-stable' => 'මෙම පිටුවෙහි ස්ථාවර අනුවාදය නරඹන්න',
 	'tooltip-ca-default' => 'ගුණාත්මක ආරක්ෂණ සැකසුම්',
 	'flaggedrevs-protect-legend' => 'ස්වයංක්‍රීය සංස්කරණ නිරීක්ෂණය ([[{{MediaWiki:Validationpage}}|උදව්]])',
 	'flaggedrevs-protect-none' => 'සියළු පරිශිලකයන්ට ඉඩ දෙන්න',
@@ -14183,6 +14189,7 @@ $messages['szl'] = array(
 
 /** Tamil (தமிழ்)
  * @author Kanags
+ * @author Karthi.dr
  * @author Mahir78
  * @author Shanmugamp7
  * @author TRYPPN
@@ -14212,6 +14219,7 @@ $messages['ta'] = array(
 	'revreview-hist-quality' => 'தரமான மேலாய்வு',
 	'revreview-hist-basic' => 'சோதிக்கப்பட்ட மேலாய்வு',
 	'revreview-hist-quality-auto' => 'தானியக்கமாக ஏற்றுக்கொள்ளப்பட்டது',
+	'revreview-hist-basic-auto' => 'தானாக சரிபார்க்கப்பட்டது.',
 	'revreview-hist-pending-difflink' => "'''[[{{fullurl:$1|oldid=$2&diff=$3{{MediaWiki:flaggedrevs-diffonly}}}} திறனாய்வு நிலுவையில் உள்ளது]]'''",
 	'revreview-diff-toggle-show' => 'அந்த மாற்றங்களைக் காட்டுக',
 	'revreview-diff-toggle-hide' => 'அந்த மாற்றங்களை மறைக்கவும்',

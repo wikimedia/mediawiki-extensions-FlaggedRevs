@@ -188,9 +188,12 @@ Neke postavke mogu promijeniti vidljivost vezije koja je prikazana čitaocu ili 
 );
 
 /** Catalan (català)
+ * @author Grondin
  * @author Paucabot
  */
 $messages['ca'] = array(
+	'configuredpages' => 'Pàgines amb configuracions de relectura',
+	'configuredpages-list' => 'Aquesta pàgina llista les pàgines configurades a fi de tenir',
 	'configuredpages-config' => 'Configuració',
 	'configuredpages-def-draft' => 'última versió',
 	'configuredpages-def-stable' => 'versió publicada',
