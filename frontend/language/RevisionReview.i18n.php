@@ -417,7 +417,7 @@ $messages['ar'] = array(
 	'review_too_low' => 'لا يمكن مراجعة التعديلات بوجود بعض الحقول "غير كافية".',
 	'review_bad_key' => 'مفتاح مؤشر إدراج غير صالح.',
 	'review_bad_tags' => 'بعض قيم الوسوم المحددة غير صالحة.',
-	'review_denied' => 'تم رفض الإذن.',
+	'review_denied' => 'الإذن مرفوض.',
 	'review_param_missing' => 'المؤشر مفقود أو غير صالح.',
 	'review_cannot_undo' => 'لا يمكن الرجوع عن هذه التغييرات بسب وجود تغييرات في الانتظار على ذات المقاطع.',
 	'review_cannot_reject' => 'لا يمكن رفض هذه التعديلات بسبب أن أحدهم قبل بعض (أو جميع) هذه التعديلات.',
@@ -471,7 +471,7 @@ $messages['ar'] = array(
 	'revreview-reject-text-revto' => 'هذا سوف يعيد الصفحة إلى [{{fullurl:$1|oldid=$2}} النسخة $3]',
 	'revreview-reject-summary' => 'ملخص التعديل:',
 	'revreview-reject-confirm' => 'ارفض هذه التعديلات',
-	'revreview-reject-cancel' => 'ألغِ',
+	'revreview-reject-cancel' => 'إلغاء',
 	'revreview-reject-summary-cur' => 'رفض {{PLURAL:$1||التغيير النصي الأخير|التغييرين النصيين الأخيرين|ال‍$1 تغييرات نصية الأخيرة|ال‍$1 تغييرا نصيا أخيرا|ال‍$1 تغيير نصي أخير}} (ل‍$2) واستعادة المراجعة $3 ل‍$4',
 	'revreview-reject-summary-old' => 'رفض أول {{PLURAL:$1||تغيير نصي|تغييرين نصيين|$1 تغييرات نصية|$1 تغييرا نصيا|$1 تغيير نصي}} (ل‍$2) {{PLURAL:$1||تلى|تليا|تلت|تلى}} المراجعة $3 ل‍$4',
 	'revreview-reject-summary-cur-short' => 'رفض {{PLURAL:$1||التغيير النصي الأخير|التغييرين النصيين الأخيرين|ال‍$1 تغييرات نصية الأخيرة|ال‍$1 تغييرا نصيا أخيرا|ال‍$1 تغيير نصي أخير}} واستعادة المراجعة $2 ل‍$3',
@@ -984,6 +984,7 @@ Molimo provjerite sve izmjene prikazane ispod da bi se vaše izmjene prikazale u
  * @author Qllach
  * @author SMP
  * @author Toniher
+ * @author පසිඳු කාවින්ද
  */
 $messages['ca'] = array(
 	'revisionreview' => 'Revisa les revisions',
@@ -992,6 +993,7 @@ $messages['ca'] = array(
 	'revreview-submit' => 'Tramet',
 	'revreview-update' => "'''[[{{MediaWiki:Validationpage}}|Reviseu]] els canvis pendents ''(que es mostren a continuació)'' fets des de la versió acceptada.'''",
 	'revreview-update-includes' => "S'han actualitzat algunes plantilles o fitxers:",
+	'revreview-reject-cancel' => 'Cancel.lar',
 );
 
 /** Chechen (нохчийн)
@@ -1434,8 +1436,10 @@ $messages['el'] = array(
 	'review_bad_tags' => 'Ορισμένες τιμές της συγκεκριμένης ετικέτας δεν είναι έγκυρες.',
 	'review_denied' => 'Δεν έχετε δικαίωμα πρόσβασης.',
 	'review_param_missing' => 'Μια παράμετρος λείπει ή δεν είναι έγκυρη.',
+	'review_cannot_reject' => 'Δεν είναι δυνατό να απορρίψετε αυτές τις αλλαγές, επειδή κάποιος ήδη αποδεχθεί ορισμένες (ή όλες) τις επεξεργασίες.',
 	'review_reject_excessive' => 'Δεν είναι δυνατό να απορριφθούν τόσο πολλές επεξεργασίες με τη μια.',
 	'review_reject_nulledits' => 'Δεν είναι δυνατό να απορρίψετε αυτές τις αλλαγές, επειδή όλες οι αναθεωρήσεις είναι κενές επεξεργασίες.',
+	'revreview-check-flag-p' => 'Αποδεχτείτε αυτήν την έκδοση (περιλαμβάνει  $1  {{PLURAL:$1|αλλαγή|αλλαγές}}  σε εκκρεμότητα)',
 	'revreview-check-flag-u' => 'Αποδοχή αυτής της μη ελεγμένης σελίδας',
 	'revreview-check-flag-y' => 'Αποδοχή των αλλαγών μου',
 	'revreview-check-flag-y-title' => 'Αποδοχή όλων των αλλαγών που έχετε κάνει εδώ.',
@@ -1454,6 +1458,7 @@ $messages['el'] = array(
 	'revreview-reject-summary' => 'Σύνοψη:',
 	'revreview-reject-confirm' => 'Απόρριψη αυτών των αλλαγών',
 	'revreview-reject-cancel' => 'Ακύρωση',
+	'revreview-tt-flag' => 'Αποδοχή αυτής της αναθεώρησης τσεκάροντάς την ως  "ελεγμένη"',
 	'revreview-tt-reject' => 'Απορρίψετε αυτές τις αλλαγές κειμένου πηγής  με αναστροφή τους',
 );
 
@@ -1648,10 +1653,14 @@ $messages['et'] = array(
 	'review_page_unreviewable' => 'Sihtlehekülge pole ülevaadatav.',
 	'review_no_oldid' => 'Redaktsiooni ID pole määratud.',
 	'review_bad_oldid' => 'Sellist sihtredaktsiooni pole.',
+	'review_conflict_oldid' => 'Keegi juba kiitis selle redaktsiooni heaks või lükkas selle tagasi ajal, mil seda vaatasid.',
 	'review_not_flagged' => 'Sihtredaktsioon pole praegu ülevaadatuks märgitud.',
 	'review_too_low' => 'Jättes mõnele väljale väärtuse "ebarahuldav", ei saa redaktsiooni ülevaadatuks märkida.',
 	'review_denied' => 'Luba tagasi lükatud.',
 	'review_param_missing' => 'Parameeter puudub või on vigane.',
+	'review_cannot_undo' => 'Neid muudatusi ei saa eemaldada, sest edasised ootel muudatused on tehtud samades kohtades.',
+	'review_cannot_reject' => 'Neid muudatusi ei saa tagasi lükata, sest keegi kiitis mõned (või kõik) neist juba heaks.',
+	'review_reject_excessive' => 'Nii palju muudatusi ei saa korraga tagasi lükata.',
 	'revreview-check-flag-p' => 'Kiida see redaktsioon heaks (sisaldab {{PLURAL:$1|üht|$1}} ootel muudatust)',
 	'revreview-check-flag-p-title' => 'Kiida kõik praegu ootel olevad muudatused heaks, kaasa arvatud su enda muudatus. Kasuta seda ainult siis, kui oled juba kõiki erinevusi ootel muudatuste ja püsiva versiooni vahel näinud.',
 	'revreview-check-flag-u' => 'Kiida see ülevaatamata lehekülg heaks',
@@ -1659,6 +1668,7 @@ $messages['et'] = array(
 	'revreview-check-flag-y' => 'Kiida need muudatused heaks',
 	'revreview-check-flag-y-title' => 'Kiida kõik enda tehtud muudatused selles redaktsioonis heaks.',
 	'revreview-flag' => 'Redaktsiooni ülevaatamine',
+	'revreview-reflag' => 'Redaktsiooni veelkord ülevaatamine',
 	'revreview-invalid' => "'''Vigane sihtkoht:''' antud ID-le ei vasta ükski [[{{MediaWiki:Validationpage}}|ülevaadatud]] redaktsioon.",
 	'revreview-log' => 'Kommentaar:',
 	'revreview-main' => 'Selleks üle vaadata, pead valima sisulehekülje kindla redaktsiooni.
@@ -1670,6 +1680,7 @@ Vaata [[Special:Unreviewedpages|ülevaatamata lehekülgede loendit]].',
 	'revreview-submitting' => 'Esitan...',
 	'revreview-submit-review' => 'Kiida redaktsioon heaks',
 	'revreview-submit-unreview' => 'Lükka redaktsioon tagasi',
+	'revreview-submit-reject' => 'Lükka muudatused tagasi',
 	'revreview-submit-reviewed' => 'Tehtud ja heaks kiidetud!',
 	'revreview-submit-unreviewed' => 'Tehtud ja tagasi lükatud!',
 	'revreview-successful' => "'''Lehekülje [[:$1|$1]] redaktsioon edukalt vaadatud. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} vaata ülevaadatud versioone])'''",
@@ -1695,10 +1706,18 @@ Oma muudatuste püsivas versioonis kuvamiseks vaata palun kõik allpool näidatu
 
 Oma muudatuste püsivas versioonis kuvamiseks vaata palun kõik allpool näidatud muudatused üle.',
 	'revreview-update-includes' => 'Malle või faile on uuendatud (ülevaatamata leheküljed rasvaselt):',
+	'revreview-reject-text-list' => "Kui viid selle toimingu lõpule, '''lükkad tagasi''' lehekülje [[:$2|$2]] {{PLURAL:$1|järgmise redaktsiooni|järgmiste redaktsioonide}} lähtetekstide muudatused:",
+	'revreview-reject-text-revto' => 'Sellega pöördutakse tagasi järgmise versiooni juurde: [{{fullurl:$1|oldid=$2}} $3].',
 	'revreview-reject-summary' => 'Resümee:',
+	'revreview-reject-confirm' => 'Lükka need muudatused tagasi',
 	'revreview-reject-cancel' => 'Loobu',
+	'revreview-reject-summary-cur' => 'Tagasi lükatud kasutaja $2 {{PLURAL:$1|viimane tekstimuudatus|$1 viimast tekstimuudatust}} ja taastatud kasutaja $4 redaktsioon $3',
+	'revreview-reject-summary-old' => 'Tagasi lükatud kasutaja $2 {{PLURAL:$1|esimene tekstimuudatus|$1 esimest tekstimuudatust}}, mis {{PLURAL:$1|järgneb|järgnevad}} kasutaja $4 redaktsioonile $3',
+	'revreview-reject-summary-cur-short' => 'Tagasi lükatud {{PLURAL:$1|viimane tekstimuudatus|$1 viimast tekstimuudatust}} ja taastatud kasutaja $3 redaktsioon $2',
+	'revreview-reject-summary-old-short' => 'Tagasi lükatud {{PLURAL:$1|esimene tekstimuudatus|$1 esimest tekstimuudatust}}, mis {{PLURAL:$1|järgneb|järgnevad}} kasutaja $3 redaktsioonile $2',
 	'revreview-tt-flag' => 'Kiida see redaktsioon heaks, märkides selle kui "kord vaadatud"',
 	'revreview-tt-unflag' => 'Lükka see redaktsioon tagasi, märkides selle kui "kord vaatamata"',
+	'revreview-tt-reject' => 'Lükka need lähteteksti muudatused tagasi ja tühista nad',
 );
 
 /** Basque (euskara)

@@ -319,6 +319,7 @@ $messages['et'] = array(
 	'stablepages-list' => 'Järgnevatel lehekülgedel saavad ainult kindlad kasutajad teha muudatusi, mis ei vaja ülevaatamist. Ülejäänud kasutajate tehtud muudatusi ei kuvata vaikimisi, enne kui volitatud kasutaja on need üle vaadanud.',
 	'stablepages-none' => 'Selles loendis pole lehekülgi.',
 	'stablepages-config' => 'Sätted',
+	'stablepages-indef' => 'Ainult aegumatud',
 );
 
 /** Basque (euskara)

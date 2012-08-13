@@ -371,15 +371,23 @@ $messages['bs'] = array(
 
 /** Catalan (català)
  * @author Aleator
+ * @author Grondin
  * @author Jordi Roqué
  * @author Martorell
  * @author Paucabot
  */
 $messages['ca'] = array(
+	'pendingchanges' => 'Pàgines amb canvis en curs',
+	'pendingchanges-legend' => 'Llista de les pàgines revisades amb canvis en curs',
+	'pendingchanges-list' => 'Aquesta pàgina afixa la llista de les pàgines  [[{{MediaWiki:Validationpage}}|revisades]] tenint un o més canvis que atenen una revisió.',
+	'pendingchanges-none' => 'Actualment no hi ha cap pàgina que compleixi aquests criteris.',
 	'pendingchanges-hours' => '($1 {{PLURAL:$1|hora|hores}})',
 	'pendingchanges-days' => '($1 {{PLURAL:$1|dia|dies}})',
 	'pendingchanges-recent' => "(menys d'una hora)",
 	'pendingchanges-category' => 'Categoria:',
+	'pendingchanges-onwatchlist' => 'Pàgines a la meva llista de seguiment',
+	'pendingchanges-stable' => 'La versió estable està posada per defecte',
+	'pendingchanges-diff' => 'revisió',
 	'pendingchanges-watched' => '({{PLURAL:$1|un usari|$1 usuaris}} actius en vigilen)',
 );
 
@@ -1787,6 +1795,7 @@ $messages['sr-ec'] = array(
 	'pendingchanges-days' => '($1 {{PLURAL:$1|дан|дана}})',
 	'pendingchanges-recent' => '(мање од једног сата)',
 	'pendingchanges-category' => 'Категорија:',
+	'pendingchanges-onwatchlist' => 'Странице на мом списку надгледања',
 	'pendingchanges-stable' => 'Подразумевано је стабилно издање',
 	'pendingchanges-diff' => 'преглед',
 	'pendingchanges-size' => 'Највећа измена (у бајтовима):',

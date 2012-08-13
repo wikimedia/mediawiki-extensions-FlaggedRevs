@@ -500,6 +500,7 @@ $messages['el'] = array(
  * @author Yekrats
  */
 $messages['eo'] = array(
+	'action-unreviewedpages' => 'vidi la liston de nekontrolitaj paĝoj',
 	'unreviewedpages' => 'Nereviziitaj paĝoj',
 	'unreviewedpages-legend' => 'Listigi nereviziitajn enhavajn paĝojn',
 	'unreviewedpages-category' => 'Kategorio:',
@@ -781,6 +782,13 @@ $messages['hi'] = array(
 	'unreviewedpages-hours' => '($1 {{PLURAL:$1|घंटा|घंटे}})',
 	'unreviewedpages-days' => '($1 {{PLURAL:$1|दिन|दिन}})',
 	'unreviewedpages-recent' => '(१ घंटेसे कम समय)',
+);
+
+/** Fiji Hindi (Latin script) (Fiji Hindi)
+ * @author Karthi.dr
+ */
+$messages['hif-latn'] = array(
+	'unreviewedpages-category' => 'Vibhag:',
 );
 
 /** Croatian (hrvatski)

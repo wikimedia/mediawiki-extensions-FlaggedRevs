@@ -983,7 +983,7 @@ $messages['el'] = array(
 	'stabilize_expiry_old' => 'Η ημερομηνία λήξης έχει ήδη περάσει.',
 	'stabilize_denied' => 'Δεν έχετε δικαίωμα πρόσβασης.',
 	'stabilize-expiring' => 'λήγει στις $1 (UTC)',
-	'stabilization-review' => 'Επιθεωρήστε τη τρέχουσα έκδοση',
+	'stabilization-review' => 'Επισήμανση τρέχουσαν αναθεώρησης ως ελεγμένης',
 );
 
 /** British English (British English)
@@ -3404,6 +3404,7 @@ $messages['szl'] = array(
 /** Tamil (தமிழ்)
  * @author Kanags
  * @author Karthi.dr
+ * @author Shanmugamp7
  * @author TRYPPN
  * @author Ulmo
  * @author செல்வா
@@ -3421,6 +3422,8 @@ $messages['ta'] = array(
 	'stabilization-def-short' => 'பொதுவானது',
 	'stabilization-def-short-0' => 'நடப்பு',
 	'stabilization-def-short-1' => 'ஏற்றுக்கொள்ளப்பட்டது',
+	'stabilize_page_invalid' => 'இலக்கு பக்க தலைப்பு செல்லாதது.',
+	'stabilize_page_notexists' => 'இலக்கு பக்கம் இல்லை.',
 	'stabilize_denied' => 'செய்யுரிமை மறுக்கப்பட்டது.',
 );
 

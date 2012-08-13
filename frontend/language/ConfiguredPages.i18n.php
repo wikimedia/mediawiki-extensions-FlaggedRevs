@@ -193,7 +193,9 @@ Neke postavke mogu promijeniti vidljivost vezije koja je prikazana čitaocu ili 
  */
 $messages['ca'] = array(
 	'configuredpages' => 'Pàgines amb configuracions de relectura',
-	'configuredpages-list' => 'Aquesta pàgina llista les pàgines configurades a fi de tenir',
+	'configuredpages-list' => "Aquesta pàgina llista les pàgines configurades a fi de tenir diferents configuracions d'aprovació que les per defecte.
+Algunes podrien canviar amb la versió afixada pels lectors o restringeix la llista dels contribuïdors qui poden editar sense que es necessita una relectura.",
+	'configuredpages-none' => 'No hi ha cap pàgina en aquesta llista.',
 	'configuredpages-config' => 'Configuració',
 	'configuredpages-def-draft' => 'última versió',
 	'configuredpages-def-stable' => 'versió publicada',
@@ -884,11 +886,14 @@ Nekatere nastavitve morda spremenijo, katera različica je prikazana bralcem, al
 );
 
 /** Serbian (Cyrillic script) (‪српски (ћирилица)‬)
+ * @author Rancher
  * @author Жељко Тодоровић
  * @author Михајло Анђелковић
  */
 $messages['sr-ec'] = array(
 	'configuredpages-config' => 'Подешавања',
+	'configuredpages-def-draft' => 'најновија верзија',
+	'configuredpages-def-stable' => 'стабилна верзија',
 );
 
 /** Serbian (Latin script) (‪srpski (latinica)‬)

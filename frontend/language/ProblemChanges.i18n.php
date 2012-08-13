@@ -161,9 +161,11 @@ $messages['bs'] = array(
 );
 
 /** Catalan (català)
+ * @author Grondin
  * @author Paucabot
  */
 $messages['ca'] = array(
+	'problemchanges' => 'Canvis marcats en curs',
 	'problemchanges-none' => 'Actualment no hi ha cap pàgina que compleixi els criteris',
 	'problemchanges-category' => 'Categoria:',
 );

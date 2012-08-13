@@ -246,10 +246,12 @@ $messages['bs'] = array(
 );
 
 /** Catalan (català)
+ * @author Grondin
  * @author Jordi Roqué
  * @author Paucabot
  */
 $messages['ca'] = array(
+	'reviewedpages' => 'Pàgines revisades',
 	'reviewedpages-none' => 'No hi ha pàgines a la llista',
 	'reviewedpages-best' => 'millor revisió',
 );
