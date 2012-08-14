@@ -1453,12 +1453,16 @@ $messages['el'] = array(
 	'revreview-submit-reject' => 'Απόρριψη αλλαγών',
 	'revreview-submit-reviewed' => 'Έγινε. Αποδεκτή!',
 	'revreview-submit-unreviewed' => 'Έγινε. Μη αποδεκτή!',
+	'revreview-poss-conflict-p' => "'''Προειδοποίηση: [[User:$1|$1]] ξεκίνησε να επιθεωρεί αυτή τη σελίδα στο $2 στις $3.'''",
+	'revreview-adv-reviewing-p' => 'Προειδοποίηση: Άλλους επιθεωρητές μπορούν να δουν ότι επιθεωρείτε αυτή τη  σελίδα.',
+	'revreview-adv-reviewing-c' => 'Προειδοποίηση: Άλλοι επιθεωρητές μπορούν να δουν ότι επιθεωρείτε αυτή τη  σελίδα.',
 	'revreview-adv-start-link' => 'διαφημίστε',
 	'revreview-adv-stop-link' => 'από-διαφημίστε',
 	'revreview-reject-summary' => 'Σύνοψη:',
 	'revreview-reject-confirm' => 'Απόρριψη αυτών των αλλαγών',
 	'revreview-reject-cancel' => 'Ακύρωση',
 	'revreview-tt-flag' => 'Αποδοχή αυτής της αναθεώρησης τσεκάροντάς την ως  "ελεγμένη"',
+	'revreview-tt-unflag' => 'Μη αποδοχή αυτής της αναθεώρησης τσεκάροντας την ως "μη ελεγμένη"',
 	'revreview-tt-reject' => 'Απορρίψετε αυτές τις αλλαγές κειμένου πηγής  με αναστροφή τους',
 );
 
@@ -5146,6 +5150,7 @@ $messages['sw'] = array(
  * @author Karthi.dr
  * @author Mahir78
  * @author TRYPPN
+ * @author மதனாஹரன்
  */
 $messages['ta'] = array(
 	'revisionreview' => 'மறுஆய்வின் மதிப்பீடுகள்',
@@ -5174,6 +5179,7 @@ $messages['ta'] = array(
 	'revreview-submit-reject' => 'மாற்றங்களைத் தள்ளுபடிசெய்க',
 	'revreview-submit-reviewed' => 'முடிந்தது. ஏற்றுக்கொள்ளப்பட்டது!',
 	'revreview-submit-unreviewed' => 'முடிந்தது. ஏற்றுக்கொள்ளப்படவில்லை!',
+	'revreview-adv-start-link' => 'விளம்பரப்படுத்தவும்',
 	'revreview-reject-summary' => 'சுருக்கம்:',
 	'revreview-reject-confirm' => 'இந்த மாற்றங்களைப் புறக்கணி',
 	'revreview-reject-cancel' => 'இரத்து செய்',

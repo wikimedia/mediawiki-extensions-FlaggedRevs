@@ -3087,6 +3087,7 @@ $messages['scn'] = array(
  * @author පසිඳු කාවින්ද
  */
 $messages['si'] = array(
+	'stabilization-tab' => 'vet',
 	'stabilization' => 'පිටුවේ ස්ථාවරත්වය',
 	'stabilization-page' => 'පිටු නාමය:',
 	'stabilization-def2' => 'අවසාන සංශෝධනය',

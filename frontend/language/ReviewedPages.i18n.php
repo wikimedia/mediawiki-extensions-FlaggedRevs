@@ -1280,8 +1280,10 @@ En länk ges till den senaste versionen av denna nivå.",
 
 /** Tamil (தமிழ்)
  * @author Shanmugamp7
+ * @author மதனாஹரன்
  */
 $messages['ta'] = array(
+	'reviewedpages-none' => 'இப்பட்டியலில் எந்தவொரு பக்கமும் இல்லை.',
 	'reviewedpages-best' => 'சிறந்த பரிசீலனை',
 );
 
