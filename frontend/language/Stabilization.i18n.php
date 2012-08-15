@@ -687,6 +687,7 @@ Nije moguća konfiguracija.',
 
 /** Catalan (català)
  * @author Aleator
+ * @author Grondin
  * @author Jordi Roqué
  * @author Paucabot
  * @author Qllach
@@ -694,15 +695,19 @@ Nije moguća konfiguracija.',
  * @author Toniher
  */
 $messages['ca'] = array(
+	'stabilization' => 'Estabilització de la pàgina',
 	'stabilization-page' => 'Nom de la pàgina:',
+	'stabilization-leg' => 'Confirma els paràmetres de la versió estable',
 	'stabilization-def2' => 'La revisió actual/esborrany',
 	'stabilization-submit' => 'Confirma',
 	'stabilization-notexists' => 'No hi ha cap pàgina que s\'anomeni "[[:$1|$1]]".
 No és possible fer cap configuració.',
+	'stabilization-notcontent' => "No s'ha pogut revisar la pàgina «[[:$1|$1]]».
+No és possible cap configuració.",
 	'stabilization-comment' => 'Motiu:',
 	'stabilization-otherreason' => 'Altres raons:',
-	'stabilization-expiry' => 'Venç:',
-	'stabilization-othertime' => 'Un altre temps:',
+	'stabilization-expiry' => "Data d'expiració",
+	'stabilization-othertime' => 'Un altre termini',
 	'stabilization-def-short' => 'Per defecte',
 	'stabilization-def-short-0' => 'Actual',
 	'stabilization-def-short-1' => 'Publicat',
@@ -1346,9 +1351,12 @@ $messages['fy'] = array(
 
 /** Irish (Gaeilge)
  * @author Alison
+ * @author පසිඳු කාවින්ද
  */
 $messages['ga'] = array(
 	'stabilization-comment' => 'Fáth:',
+	'stabilization-def-short' => 'réamhshocrú',
+	'stabilization-def-short-0' => 'reatha',
 );
 
 /** Galician (galego)
@@ -1928,12 +1936,14 @@ Ekke konfiguråsje er mågleg.',
 
 /** Georgian (ქართული)
  * @author BRUTE
+ * @author David1010
  * @author გიორგიმელა
  */
 $messages['ka'] = array(
 	'stabilization-tab' => 'vet',
 	'stabilization' => 'გვერდის სტაბილიზაცია',
 	'stabilization-page' => 'გვერდის სახელი:',
+	'stabilization-leg' => 'გამოქვეყნებული ვერსიის პარამეტრების დამოწმება',
 	'stabilization-def2' => 'ბოლო ვერსია',
 	'stabilization-restrict-none' => 'არც-ერთი დამატებითი აკრძალვა',
 	'stabilization-submit' => 'დამოწმება',
@@ -1947,8 +1957,13 @@ $messages['ka'] = array(
 	'stabilization-def-short' => 'თავდაპირველი',
 	'stabilization-def-short-0' => 'მიმდინარე',
 	'stabilization-def-short-1' => 'გამოქვეყნებული',
+	'stabilize_page_invalid' => 'გვერდის სამიზნე სახელი არასწორია.',
+	'stabilize_page_notexists' => 'სამიზნე გვერდი არ არსებობს.',
+	'stabilize_page_unreviewable' => 'სამიზნე გვერდი არ მდებარეობს შემოწმებულ სახელთა სივრცეში.',
+	'stabilize_invalid_level' => 'დაცვის არასწორი დონე.',
 	'stabilize_expiry_invalid' => 'ვადის გასვლის არასწორი თარიღი.',
 	'stabilize_expiry_old' => 'მოქმედების ვადა გავიდა.',
+	'stabilize_denied' => 'წვდომა აკრძალულია.',
 	'stabilize-expiring' => 'ვადა გასდის: $1 (UTC)',
 	'stabilization-review' => 'მონიშნეთ ამჟამინდელი ცვლილება შემოწმებულად',
 );

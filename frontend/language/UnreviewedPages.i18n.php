@@ -998,6 +998,7 @@ $messages['jv'] = array(
  * @author გიორგიმელა
  */
 $messages['ka'] = array(
+	'action-unreviewedpages' => 'შეუმოწმებელი გვერდების სიის ხილვა',
 	'unreviewedpages' => 'შეუმოწმებელი გვერდები',
 	'unreviewedpages-legend' => 'შეუმოწმებელი სტატიების სია',
 	'unreviewedpages-category' => 'კატეგორია:',

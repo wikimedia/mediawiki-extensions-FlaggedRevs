@@ -252,7 +252,9 @@ $messages['bs'] = array(
  */
 $messages['ca'] = array(
 	'reviewedpages' => 'Pàgines revisades',
+	'reviewedpages-leg' => "Llista les pàgines que s'ha comprovat",
 	'reviewedpages-none' => 'No hi ha pàgines a la llista',
+	'reviewedpages-all' => 'versions verificades',
 	'reviewedpages-best' => 'millor revisió',
 );
 
@@ -722,6 +724,7 @@ $messages['jut'] = array(
  */
 $messages['ka'] = array(
 	'reviewedpages' => 'შემოწმებული გვერდები',
+	'reviewedpages-leg' => 'შემოწმებული გვერდების სია',
 	'reviewedpages-none' => 'ამ სიაში გვერდები არ არის',
 	'reviewedpages-all' => 'შემოწმებული ვერსიები',
 	'reviewedpages-best' => 'საუკეთესო ვერსია',

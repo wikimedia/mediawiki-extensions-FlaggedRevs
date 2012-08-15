@@ -552,6 +552,7 @@ $messages['ja'] = array(
 
 /** Georgian (ქართული)
  * @author BRUTE
+ * @author David1010
  * @author ITshnik
  * @author გიორგიმელა
  */
@@ -561,6 +562,7 @@ $messages['ka'] = array(
 სხვა მომხმარებლების მიერ განხორციელებული ცვლილებები არ იქნება ნაჩვენები მომხმარებლებისადმი სანამ ვინმე მათ არ შეამოწმებს.',
 	'stablepages-none' => 'ამ სიაში გვერდები არ არის',
 	'stablepages-config' => 'კონფიგურაცია',
+	'stablepages-indef' => 'მხოლოდ განუსაზღვრელი ვადით',
 );
 
 /** Khmer (ភាសាខ្មែរ)

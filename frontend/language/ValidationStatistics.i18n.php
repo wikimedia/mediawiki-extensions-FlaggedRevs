@@ -777,10 +777,12 @@ $3",
 
 /** Irish (Gaeilge)
  * @author Alison
+ * @author පසිඳු කාවින්ද
  */
 $messages['ga'] = array(
 	'validationstatistics-ns' => 'Ainmspás',
 	'validationstatistics-total' => 'Leathanaigh',
+	'validationstatistics-user' => 'Úsáideoir',
 );
 
 /** Galician (galego)

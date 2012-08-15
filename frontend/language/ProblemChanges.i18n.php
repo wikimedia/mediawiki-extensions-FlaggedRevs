@@ -505,9 +505,11 @@ $messages['ja'] = array(
 
 /** Georgian (ქართული)
  * @author BRUTE
+ * @author David1010
  * @author Dawid Deutschland
  */
 $messages['ka'] = array(
+	'problemchanges' => 'მონიშნულია შეუმოწმებელი ცვლილებები',
 	'problemchanges-legend' => 'სია იმ გვერდებისა, რომელთა ბოლო ვერსია ჯერ კიდევ შეუმოწმებელია',
 	'problemchanges-none' => 'ამ დროისათვის არ არსებობს სტატიები ასეთი კრიტერიუმებით',
 	'problemchanges-category' => 'კატეგორია:',

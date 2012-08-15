@@ -639,11 +639,15 @@ $messages['jut'] = array(
 
 /** Georgian (ქართული)
  * @author BRUTE
+ * @author David1010
  * @author Nodar Kherkheulidze
  */
 $messages['ka'] = array(
 	'reviewedversions' => 'შემოწმებული ვერსიები',
+	'reviewedversions-leg1' => 'გვერდის შემოწმებული ვერსიების სია',
 	'reviewedversions-page' => 'გვერდის სახელი:',
+	'reviewedversions-none' => '„[[:$1]]“ არ გააჩნია შემოწმებული ვერსიები.',
+	'reviewedversions-review' => 'შეამოწმა <i>$1</i> მომხმარებელმა $2',
 );
 
 /** Kazakh (Arabic script) (‫قازاقشا (تٴوتە)‬) */

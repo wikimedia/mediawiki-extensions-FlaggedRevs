@@ -423,7 +423,7 @@ $messages['ar'] = array(
 	'review_cannot_reject' => 'لا يمكن رفض هذه التعديلات بسبب أن أحدهم قبل بعض (أو جميع) هذه التعديلات.',
 	'review_reject_excessive' => 'لا يمكن رفض جميع هذه التعديلات في وقت واحد.',
 	'review_reject_nulledits' => 'لا يمكن رفض هذه التغييرات لأن كل مراجعاتك ليست فيها أي تعديل.',
-	'revreview-check-flag-p' => 'اقبل هذه النسخة (تتضمن {{PLURAL:$1||تعديلا واحدا معلقا|تعديلان معلقان|$1 تعديلات معلقة|$1 تعديل معلق|$1 تعديلا معلقا}})',
+	'revreview-check-flag-p' => 'اقبل هذه النسخة (تتضمن {{PLURAL:$1||تعديلاً واحداً معلقاً|تعديلين معلقين|$1 تعديلات معلقة|$1 تعديل معلق|$1 تعديلاً معلقاً}})',
 	'revreview-check-flag-p-title' => 'قبول كل التغييرات المعلقة حاليا بالإضافة إلى التحرير الخاص بك. استخدم هذا فقط إذا كنت قد سبق و رأيت فرق التغييرات المعلقة.',
 	'revreview-check-flag-u' => 'اقبل هذه الصفحة غير المراجعة',
 	'revreview-check-flag-u-title' => 'قبول هذه النسخة من الصفحة. يستخدم فقط إن كنت قد استعرضت كامل الصفحة.',
@@ -981,6 +981,7 @@ Molimo provjerite sve izmjene prikazane ispod da bi se vaše izmjene prikazale u
 
 /** Catalan (català)
  * @author BroOk
+ * @author Grondin
  * @author Qllach
  * @author SMP
  * @author Toniher
@@ -988,12 +989,13 @@ Molimo provjerite sve izmjene prikazane ispod da bi se vaše izmjene prikazale u
  */
 $messages['ca'] = array(
 	'revisionreview' => 'Revisa les revisions',
-	'revreview-flag' => 'Revisa aquesta revisió',
+	'revreview-flag' => 'Comprova aquesta revisió',
+	'revreview-reflag' => 'Comprova de nou aquesta revisió',
 	'revreview-log' => 'Comentari:',
 	'revreview-submit' => 'Tramet',
 	'revreview-update' => "'''[[{{MediaWiki:Validationpage}}|Reviseu]] els canvis pendents ''(que es mostren a continuació)'' fets des de la versió acceptada.'''",
 	'revreview-update-includes' => "S'han actualitzat algunes plantilles o fitxers:",
-	'revreview-reject-cancel' => 'Cancel.lar',
+	'revreview-reject-cancel' => 'Cancel·lar',
 );
 
 /** Chechen (нохчийн)
@@ -1311,11 +1313,11 @@ bıewnê [[Special:Unreviewedpages|listeya pelê konrol nêbiyayeyan]].',
 	'revreview-submit-unreviewed' => 'Temam. Tesdiq nêbi!',
 	'revreview-successful' => "'''qey [[:$1|$1]] revizyon bı serkewte işaret bı. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} revizyonê istiqarınan bıvin])'''",
 	'revreview-successful2' => "'''qey [[:$1|$1]] işaretê revizyoni bı serkewte wera diya.'''",
-	'revreview-toolow' => "'''Ti gani her nitelikan \"tam niya\" zafyer rate bike ke seba revizyon gani qontrol bibo.'''
+	'revreview-toolow' => '\'\'\'Ti gani her nitelikan "tam niya" zafyer rate bike ke seba revizyon gani qontrol bibo.\'\'\'
 
-Seba weziyetê qontroli wedarnayişi, sazanê ''hemi'' her ca de \"tam niya\" bike.
+Seba weziyetê qontroli wedarnayişi, sazanê "{{int:revreview-submit-unreview}}" her ca de "tam niya" bike.
 
-Ma rica keni \"peyser\" şı ra rayna cerbnayışi pıploxnê.",
+Ma rica keni "peyser" şı ra rayna cerbnayışi pıploxnê.',
 	'revreview-update' => "'''Kerem ke, vurnayışanê teberi pêro ''(cêr mocniyenê)'' [[{{MediaWiki:Validationpage}}|tekrar bıvêne]] heta ke verziyono qayım vıraciya.'''",
 	'revreview-update-edited' => '<span class="flaggedrevs_important">Vurnayişê şıma zerrê versiyonê sebiti de niya.</span>
 
@@ -1726,11 +1728,14 @@ Oma muudatuste püsivas versioonis kuvamiseks vaata palun kõik allpool näidatu
 
 /** Basque (euskara)
  * @author Kobazulo
+ * @author පසිඳු කාවින්ද
  */
 $messages['eu'] = array(
 	'revreview-log' => 'Iruzkina:',
 	'revreview-submit' => 'Bidali',
 	'revreview-submitting' => 'Bidaltzen...',
+	'revreview-reject-summary' => 'Laburpena:',
+	'revreview-reject-cancel' => 'Utzi',
 );
 
 /** Persian (فارسی)
@@ -2091,9 +2096,12 @@ $messages['fy'] = array(
 
 /** Irish (Gaeilge)
  * @author Alison
+ * @author පසිඳු කාවින්ද
  */
 $messages['ga'] = array(
 	'revreview-log' => 'Nóta tráchta:',
+	'revreview-reject-summary' => 'Achoimre:',
+	'revreview-reject-cancel' => 'Cealaigh',
 );
 
 /** Galician (galego)

@@ -5687,13 +5687,18 @@ Gean nei of de keppeling dy jo brûkt hawwe wol goed is.",
 
 /** Irish (Gaeilge)
  * @author Alison
+ * @author පසිඳු කාවින්ද
  */
 $messages['ga'] = array(
 	'revreview-depth-1' => 'Bunúsach',
 	'revreview-depth-2' => 'Meánach',
 	'revreview-depth-3' => 'q',
+	'revreview-edit' => 'Cuir in eagar',
+	'revreview-source' => 'Féach ar fhoinse',
 	'revreview-revnotfound' => "Ní bhfuarthas seaneagrán an leathanaigh a d'iarr tú ar.
 Cinntigh an URL a d'úsáid tú chun an leathanach seo a rochtain.",
+	'revreview-typefilter' => 'Saghas:',
+	'revreview-restriction-none' => 'Tada',
 );
 
 /** Gan (贛語)

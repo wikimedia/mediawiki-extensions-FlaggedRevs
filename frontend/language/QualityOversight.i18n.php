@@ -383,6 +383,14 @@ $messages['ja'] = array(
 	'qualityoversight-legend' => '最近の査読記録を検索',
 );
 
+/** Georgian (ქართული)
+ * @author David1010
+ */
+$messages['ka'] = array(
+	'qualityoversight' => 'ვერსიის შემოწმების გაფართოებული ჟურნალი',
+	'qualityoversight-legend' => 'შემოწმების ჟურნალის მიხედვით ძიება',
+);
+
 /** Khmer (ភាសាខ្មែរ)
  * @author វ័ណថារិទ្ធ
  */
