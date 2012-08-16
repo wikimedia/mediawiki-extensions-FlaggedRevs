@@ -166,6 +166,8 @@ $messages['bs'] = array(
  */
 $messages['ca'] = array(
 	'problemchanges' => 'Canvis marcats en curs',
+	'problemchanges-list' => "Aquesta pàgina llista les pàgines [[{{MediaWiki:Validationpage}}|revistes]] tenint un o més revisions marcades en curs d'edició. Una llista dels [[Special:Tags|marcadors de canvi vàlids]] està disponible.",
+	'problemchanges-legend' => "Llista les pàgines amb revisions marcades en curs d'edició",
 	'problemchanges-none' => 'Actualment no hi ha cap pàgina que compleixi els criteris',
 	'problemchanges-category' => 'Categoria:',
 );
@@ -499,8 +501,18 @@ $messages['ja'] = array(
 	'problemchanges' => 'タグ付けされた保留中の編集',
 	'problemchanges-list' => 'このページは、[[{{MediaWiki:Validationpage}}|査読]]済みページのうち、タグ付きの査読待ちの編集があるものの一覧です。[[Special:Tags|有効なタグ]]の一覧も利用できます。',
 	'problemchanges-legend' => '査読待ちのタグ付き編集のあるページの一覧',
-	'problemchanges-none' => '現時点でこれらの基準に合致するページはありません',
+	'problemchanges-none' => '現在、これらの基準を満たすページはありません',
 	'problemchanges-category' => 'カテゴリ:',
+);
+
+/** Javanese (Basa Jawa)
+ * @author NoiX180
+ */
+$messages['jv'] = array(
+	'problemchanges' => 'Owahan katundha sing ditandhai',
+	'problemchanges-legend' => 'Daptar kaca mawa ulasan katundha suntingan ditandhai',
+	'problemchanges-none' => 'Ora ana kaca sing cocok karo kritèria',
+	'problemchanges-category' => 'Kategori:',
 );
 
 /** Georgian (ქართული)

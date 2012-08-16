@@ -383,6 +383,14 @@ $messages['ja'] = array(
 	'qualityoversight-legend' => '最近の査読記録を検索',
 );
 
+/** Javanese (Basa Jawa)
+ * @author NoiX180
+ */
+$messages['jv'] = array(
+	'qualityoversight' => 'Log pangulasan canggih',
+	'qualityoversight-legend' => 'Golèk log pangulasan paling anyar',
+);
+
 /** Georgian (ქართული)
  * @author David1010
  */

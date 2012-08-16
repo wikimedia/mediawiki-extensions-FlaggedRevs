@@ -388,7 +388,10 @@ $messages['ca'] = array(
 	'pendingchanges-onwatchlist' => 'Pàgines a la meva llista de seguiment',
 	'pendingchanges-stable' => 'La versió estable està posada per defecte',
 	'pendingchanges-diff' => 'revisió',
+	'pendingchanges-size' => 'Diferència màxima de mida (bytes):',
+	'pendingchanges-unwatched' => '(no vigilat)',
 	'pendingchanges-watched' => '({{PLURAL:$1|un usari|$1 usuaris}} actius en vigilen)',
+	'pendingchanges-viewing' => '(sota revisió)',
 );
 
 /** Chechen (нохчийн)
@@ -1040,7 +1043,7 @@ $messages['ja'] = array(
 	'pendingchanges' => '編集が保留されているページ',
 	'pendingchanges-legend' => '査読待ちの版のある査読済みページを一覧',
 	'pendingchanges-list' => 'このページは、一度[[{{MediaWiki:Validationpage}}|査読]]されたページで、査読待ちの編集があるものの一覧です。',
-	'pendingchanges-none' => '現在、この基準に合うページはありません',
+	'pendingchanges-none' => '現在、これらの基準を満たすページはありません',
 	'pendingchanges-hours' => '($1{{PLURAL:$1|時間}})',
 	'pendingchanges-days' => '($1{{PLURAL:$1|日}})',
 	'pendingchanges-recent' => '(1時間未満)',
@@ -1052,6 +1055,26 @@ $messages['ja'] = array(
 	'pendingchanges-unwatched' => '(未ウォッチ)',
 	'pendingchanges-watched' => '($1人の活動中の{{PLURAL:$1|利用者}}がウォッチ)',
 	'pendingchanges-viewing' => '(査読中)',
+);
+
+/** Javanese (Basa Jawa)
+ * @author NoiX180
+ */
+$messages['jv'] = array(
+	'pendingchanges' => 'Kaca mawa owahan katundha',
+	'pendingchanges-legend' => 'Daptar kaca kaulas mawa kaca katundha',
+	'pendingchanges-none' => 'Ora ana kaca sing cocok karo kritèria',
+	'pendingchanges-hours' => '($1 {{PLURAL:$1|jam|jam}})',
+	'pendingchanges-days' => '($1 {{PLURAL:$1|dina|dina}})',
+	'pendingchanges-recent' => '(kurang saka 1 jam)',
+	'pendingchanges-category' => 'Kategori:',
+	'pendingchanges-onwatchlist' => 'Kaca nèng daptar pangawasan kula',
+	'pendingchanges-stable' => 'Vèrsi stabil kuwi gawan',
+	'pendingchanges-diff' => 'ulas',
+	'pendingchanges-size' => 'Owahan maks (bita):',
+	'pendingchanges-unwatched' => '(ora diawasi)',
+	'pendingchanges-watched' => '($1 {{PLURAL:$1|panganggo|panganggo}} aktif ngawasi)',
+	'pendingchanges-viewing' => '(lagi diulas)',
 );
 
 /** Georgian (ქართული)

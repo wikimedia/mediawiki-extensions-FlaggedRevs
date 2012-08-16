@@ -197,11 +197,14 @@ Izmjene drugih korisnika nisu prikazane čitaocima po postavkama dok ih ne provj
 
 /** Catalan (català)
  * @author Aleator
+ * @author Grondin
  * @author Jordi Roqué
  * @author Paucabot
  */
 $messages['ca'] = array(
-	'stablepages' => 'Pàgines estables',
+	'stablepages' => "Pàgines utilitzant l'aprovació de les modificacions",
+	'stablepages-list' => 'Aquesta pàgina llista les on algunes usuaris poden fer edicions que no necessiten cap revisió.
+Les edicions fetes pels altres usuaris no són afixades als lectors per defecte fins que una persona habilitada les revisi.',
 	'stablepages-none' => 'No hi ha pàgines a la llista',
 	'stablepages-config' => 'Configuració',
 );

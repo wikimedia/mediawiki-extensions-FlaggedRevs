@@ -961,6 +961,7 @@ $messages['it'] = array(
  * @author Hosiryuhosi
  * @author JtFuruhata
  * @author Ohgi
+ * @author Shirayuki
  */
 $messages['ja'] = array(
 	'unreviewedpages' => '未査読ページ',
@@ -970,7 +971,7 @@ $messages['ja'] = array(
 	'unreviewedpages-unwatched' => '(未ウォッチ)',
 	'unreviewedpages-watched' => '($1人の活動中の{{PLURAL:$1|利用者}}がウォッチ)',
 	'unreviewedpages-list' => 'このページは、指定された水準に達する[[{{MediaWiki:Validationpage}}|査読]]をされていない記事の一覧です。',
-	'unreviewedpages-none' => '現時点でこの基準に適合するページはありません',
+	'unreviewedpages-none' => '現在、これらの基準を満たすページはありません',
 	'unreviewedpages-viewing' => '(査読中)',
 	'unreviewedpages-hours' => '($1 時間)',
 	'unreviewedpages-days' => '($1 日)',

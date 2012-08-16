@@ -544,6 +544,17 @@ $messages['ja'] = array(
 	'configuredpages-def-stable' => '公開版',
 );
 
+/** Javanese (Basa Jawa)
+ * @author NoiX180
+ */
+$messages['jv'] = array(
+	'configuredpages' => 'Kaca mawa pangaturan pratayang',
+	'configuredpages-none' => 'Ora ana kaca nèng daptar iki.',
+	'configuredpages-config' => 'Pangaturan',
+	'configuredpages-def-draft' => 'vèrsi pungkasan',
+	'configuredpages-def-stable' => 'vèri stabil',
+);
+
 /** Georgian (ქართული)
  * @author BRUTE
  * @author გიორგიმელა
@@ -664,6 +675,10 @@ Sesetengah tetapan mungkin mengubah versi mana yang dipaparkan kepada pembaca, a
  * @author Chrisportelli
  */
 $messages['mt'] = array(
+	'configuredpages' => "Paġni b'konfigurazzjoni ta' reviżjoni",
+	'configuredpages-list' => "Din il-paġna telenka l-paġni kkonfigurati li jkollhom konfigurazzjoni differenti ta' approvazzjoni minn dawk stabbiliti minn qabel.
+Ċerti konfigurazzjonijiet jistgħu jbiddlu liema verżjoni tintwera lill-qarrejja jew tillimita min jista' jagħmel modifiki li m'għandhomx bżonn reviżjoni.",
+	'configuredpages-none' => "M'hemm l-ebda paġna f'din il-lista.",
 	'configuredpages-config' => 'Konfigurazzjoni',
 	'configuredpages-def-draft' => 'l-aħħar verżjoni',
 	'configuredpages-def-stable' => 'verżjoni stabbli',

@@ -423,7 +423,7 @@ $messages['ar'] = array(
 	'review_cannot_reject' => 'لا يمكن رفض هذه التعديلات بسبب أن أحدهم قبل بعض (أو جميع) هذه التعديلات.',
 	'review_reject_excessive' => 'لا يمكن رفض جميع هذه التعديلات في وقت واحد.',
 	'review_reject_nulledits' => 'لا يمكن رفض هذه التغييرات لأن كل مراجعاتك ليست فيها أي تعديل.',
-	'revreview-check-flag-p' => 'اقبل هذه النسخة (تتضمن {{PLURAL:$1||تعديلاً واحداً معلقاً|تعديلين معلقين|$1 تعديلات معلقة|$1 تعديل معلق|$1 تعديلاً معلقاً}})',
+	'revreview-check-flag-p' => 'اقبل هذه النسخة (تتضمن {{PLURAL:$1||تعديلا واحدا معلقا|تعديلين معلقين|$1 تعديلات معلقة|$1 تعديل معلق|$1 تعديلا معلقا}})',
 	'revreview-check-flag-p-title' => 'قبول كل التغييرات المعلقة حاليا بالإضافة إلى التحرير الخاص بك. استخدم هذا فقط إذا كنت قد سبق و رأيت فرق التغييرات المعلقة.',
 	'revreview-check-flag-u' => 'اقبل هذه الصفحة غير المراجعة',
 	'revreview-check-flag-u-title' => 'قبول هذه النسخة من الصفحة. يستخدم فقط إن كنت قد استعرضت كامل الصفحة.',
@@ -989,12 +989,13 @@ Molimo provjerite sve izmjene prikazane ispod da bi se vaše izmjene prikazale u
  */
 $messages['ca'] = array(
 	'revisionreview' => 'Revisa les revisions',
+	'revreview-failed' => "'''No s'ha pogut verificar aquesta versió.'''",
 	'revreview-flag' => 'Comprova aquesta revisió',
 	'revreview-reflag' => 'Comprova de nou aquesta revisió',
 	'revreview-log' => 'Comentari:',
 	'revreview-submit' => 'Tramet',
 	'revreview-update' => "'''[[{{MediaWiki:Validationpage}}|Reviseu]] els canvis pendents ''(que es mostren a continuació)'' fets des de la versió acceptada.'''",
-	'revreview-update-includes' => "S'han actualitzat algunes plantilles o fitxers:",
+	'revreview-update-includes' => "S'han actualitzat algunes plantilles o fitxers (pàgines no revistes en negreta):",
 	'revreview-reject-cancel' => 'Cancel·lar',
 );
 
@@ -3087,6 +3088,22 @@ $messages['ja'] = array(
  */
 $messages['jut'] = array(
 	'revreview-log' => 'Bemærkenge:',
+);
+
+/** Javanese (Basa Jawa)
+ * @author NoiX180
+ */
+$messages['jv'] = array(
+	'revreview-submit' => 'Kirim',
+	'revreview-submitting' => 'Ngirimaké...',
+	'revreview-submit-review' => 'Tampa rèvisi',
+	'revreview-submit-unreview' => 'Tolak rèvisi',
+	'revreview-submit-reject' => 'Tolak owah-owahan',
+	'revreview-submit-reviewed' => 'Rampung. Ditampa!',
+	'revreview-submit-unreviewed' => 'Rampun. Ditolak!',
+	'revreview-reject-summary' => 'Ringkesan:',
+	'revreview-reject-confirm' => 'Tolak owah-owahan iki',
+	'revreview-reject-cancel' => 'Batal',
 );
 
 /** Georgian (ქართული)

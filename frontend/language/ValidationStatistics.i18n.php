@@ -356,11 +356,12 @@ $3",
 
 /** Catalan (català)
  * @author Aleator
+ * @author Grondin
  * @author SMP
  * @author Solde
  */
 $messages['ca'] = array(
-	'validationstatistics' => 'Estadístiques de validació',
+	'validationstatistics' => 'Estadístiques de revisió',
 	'validationstatistics-users' => "'''{{SITENAME}}''' té actualment '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|usuari|usuaris}} amb drets d'[[{{MediaWiki:Validationpage}}|Editor]].
 
 Els Editors són usuaris experimentats que poden validar les revisions de les pàgines.",

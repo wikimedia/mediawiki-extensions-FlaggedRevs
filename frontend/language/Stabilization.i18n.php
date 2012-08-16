@@ -698,7 +698,7 @@ $messages['ca'] = array(
 	'stabilization' => 'Estabilització de la pàgina',
 	'stabilization-page' => 'Nom de la pàgina:',
 	'stabilization-leg' => 'Confirma els paràmetres de la versió estable',
-	'stabilization-def2' => 'La revisió actual/esborrany',
+	'stabilization-def2' => "L'última revisió",
 	'stabilization-submit' => 'Confirma',
 	'stabilization-notexists' => 'No hi ha cap pàgina que s\'anomeni "[[:$1|$1]]".
 No és possible fer cap configuració.',
@@ -1932,6 +1932,39 @@ Ekke konfiguråsje er mågleg.',
 	'stabilize_expiry_invalid' => 'Ugyldegt duråsje dåt æller tiid.',
 	'stabilize_expiry_old' => 'Dette duråsje tiid er ål passærn.',
 	'stabilize-expiring' => 'durær biis $1 (UTC)',
+);
+
+/** Javanese (Basa Jawa)
+ * @author NoiX180
+ */
+$messages['jv'] = array(
+	'stabilization' => 'Stabilisasi kaca',
+	'stabilization-page' => 'Jeneng kaca:',
+	'stabilization-leg' => 'Konfirmasi pangaturan vèrsi sing stabil',
+	'stabilization-def' => 'Rèvisi ditampilaké nèng tampilan kaca gawan',
+	'stabilization-def1' => 'Vèrsi stabil; yèn ora rèvisi sing paling anyar, banjur sing pungkasan',
+	'stabilization-def2' => 'Rèvisi pungkasan',
+	'stabilization-restrict' => 'Tiliki/tiliki otomatis wewatesan',
+	'stabilization-restrict-none' => 'Ora ana wewatesan èkstra',
+	'stabilization-submit' => 'Konfirmasi',
+	'stabilization-notexists' => 'Ora ana kaca ajeneng "[[:$1|$1]]".
+Ora bisa dikonfigurasi.',
+	'stabilization-notcontent' => 'Kaca "[[:$1|$1]]" ora bisa ditiliki.
+Ora bisa dikonfigurasi.',
+	'stabilization-comment' => 'Alesan:',
+	'stabilization-otherreason' => 'Alesan liya:',
+	'stabilization-expiry' => 'Kadaluwarsa:',
+	'stabilization-othertime' => 'Wektu liya:',
+	'stabilization-def-short' => 'Gawan',
+	'stabilization-def-short-0' => 'Saiki',
+	'stabilization-def-short-1' => 'Stabil',
+	'stabilize_page_invalid' => 'Judhul kaca patujon ora sah.',
+	'stabilize_page_notexists' => 'Kaca patujon ora ana.',
+	'stabilize_invalid_level' => 'Undhak panjagan ora sah.',
+	'stabilize_expiry_invalid' => 'Tanggal kedaluwarsa ora sah.',
+	'stabilize_expiry_old' => 'Wektu kedaluwarsa iki wis kapungkur.',
+	'stabilize_denied' => 'Idin ditolak.',
+	'stabilize-expiring' => 'kedaluwarsa $1 (UTC)',
 );
 
 /** Georgian (ქართული)

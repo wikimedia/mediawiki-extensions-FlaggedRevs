@@ -253,6 +253,8 @@ $messages['bs'] = array(
 $messages['ca'] = array(
 	'reviewedpages' => 'Pàgines revisades',
 	'reviewedpages-leg' => "Llista les pàgines que s'ha comprovat",
+	'reviewedpages-list' => "Aquesta llista conté pàgines [[{{MediaWiki:Validationpage}}|revistes]] on una dels revisions ha assolit el nivell lectura més alt especificat.
+S'ha donat un enllaç cap a l'última versió d'aquell nivell.",
 	'reviewedpages-none' => 'No hi ha pàgines a la llista',
 	'reviewedpages-all' => 'versions verificades',
 	'reviewedpages-best' => 'millor revisió',
