@@ -988,9 +988,22 @@ $messages['jut'] = array(
 
 /** Javanese (Basa Jawa)
  * @author Meursault2004
+ * @author NoiX180
  */
 $messages['jv'] = array(
+	'action-unreviewedpages' => 'delok daptar kaca sing durung dirèvisi',
+	'unreviewedpages' => 'Kaca sing durung dirèvisi',
+	'unreviewedpages-legend' => 'Daptar kaca kontèn sing durung dirèvisi',
 	'unreviewedpages-category' => 'Kategori',
+	'unreviewedpages-diff' => 'ulas',
+	'unreviewedpages-unwatched' => '(ora diawasi)',
+	'unreviewedpages-watched' => '($1 {{PLURAL:$1|panganggo|panganggo}} aktif ngawasi)',
+	'unreviewedpages-list' => "Kaca iki ngraptar kaca kontèn sing '''durung''' [[{{MediaWiki:Validationpage}}|diulas]] ing undhak tartamtu.",
+	'unreviewedpages-none' => 'Ora ana kaca sing cocok karo kritèria',
+	'unreviewedpages-viewing' => '(lagi diulas)',
+	'unreviewedpages-hours' => '($1 {{PLURAL:$1|jam|jam}})',
+	'unreviewedpages-days' => '($1 {{PLURAL:$1|dina|dina}})',
+	'unreviewedpages-recent' => '(kurang saka 1 jam)',
 );
 
 /** Georgian (ქართული)
@@ -1910,6 +1923,15 @@ $messages['uk'] = array(
 	'unreviewedpages-hours' => '($1 {{PLURAL:$1|година|години|годин}})',
 	'unreviewedpages-days' => '($1 {{PLURAL:$1|день|дні|днів}})',
 	'unreviewedpages-recent' => '(менше 1 години)',
+);
+
+/** Urdu (اردو)
+ * @author පසිඳු කාවින්ද
+ */
+$messages['ur'] = array(
+	'unreviewedpages-category' => 'زمرہ:',
+	'unreviewedpages-diff' => 'کا جائزہ لینے',
+	'unreviewedpages-recent' => '(کم سے کم 1 گھنٹہ)',
 );
 
 /** vèneto (vèneto)

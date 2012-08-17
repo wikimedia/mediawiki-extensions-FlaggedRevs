@@ -1960,11 +1960,14 @@ Ora bisa dikonfigurasi.',
 	'stabilization-def-short-1' => 'Stabil',
 	'stabilize_page_invalid' => 'Judhul kaca patujon ora sah.',
 	'stabilize_page_notexists' => 'Kaca patujon ora ana.',
+	'stabilize_page_unreviewable' => 'Kaca patujon ora ana nèng bilik jeneng sing bisa diulas.',
+	'stabilize_invalid_autoreview' => 'Wewatesan ulas otomatis ora sah.',
 	'stabilize_invalid_level' => 'Undhak panjagan ora sah.',
 	'stabilize_expiry_invalid' => 'Tanggal kedaluwarsa ora sah.',
 	'stabilize_expiry_old' => 'Wektu kedaluwarsa iki wis kapungkur.',
 	'stabilize_denied' => 'Idin ditolak.',
 	'stabilize-expiring' => 'kedaluwarsa $1 (UTC)',
+	'stabilization-review' => 'Tandhai cènthang rèvisi saiki',
 );
 
 /** Georgian (ქართული)
@@ -3750,9 +3753,27 @@ $messages['uk'] = array(
 	'stabilization-review' => 'Позначити поточну версію перевіреною',
 );
 
-/** Urdu (اردو) */
+/** Urdu (اردو)
+ * @author පසිඳු කාවින්ද
+ */
 $messages['ur'] = array(
+	'stabilization' => 'صفحہ استحکام',
+	'stabilization-page' => 'صفحہ کا نام:',
+	'stabilization-leg' => 'مستحکم ورژن ترتیبات کی تصدیق',
+	'stabilization-def2' => 'اس تازہ ترین ترمیم',
+	'stabilization-submit' => 'اس بات کی تصدیق',
 	'stabilization-comment' => 'وجہ:',
+	'stabilization-otherreason' => 'دوسری وجہ:',
+	'stabilization-expiry' => 'ختم ہوگا:',
+	'stabilization-othertime' => 'دوسرے وقت:',
+	'stabilization-def-short' => 'پہلے سے طے شدہ',
+	'stabilization-def-short-0' => 'موجودہ',
+	'stabilization-def-short-1' => 'مستحکم',
+	'stabilize_page_invalid' => 'ہدف صفحہ عنوان باطل ہے.',
+	'stabilize_page_notexists' => 'ہدف کے صفحہ وجود نہیں.',
+	'stabilize_invalid_level' => 'باطل کے تحفظ کی سطح.',
+	'stabilize_expiry_invalid' => 'باطل ختم کی تاریخ.',
+	'stabilize_denied' => 'اجازت کی تردید کی ہے ۔',
 );
 
 /** vèneto (vèneto)

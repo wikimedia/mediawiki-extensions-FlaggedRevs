@@ -1401,6 +1401,13 @@ $messages['uk'] = array(
 	'reviewedpages-best' => 'найкраща версія',
 );
 
+/** Urdu (اردو)
+ * @author පසිඳු කාවින්ද
+ */
+$messages['ur'] = array(
+	'reviewedpages-best' => 'سب سے بہترین ترمیمی',
+);
+
 /** vèneto (vèneto)
  * @author Candalua
  */

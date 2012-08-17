@@ -2026,6 +2026,16 @@ $messages['uk'] = array(
 	'pendingchanges-viewing' => '(перевіряється)',
 );
 
+/** Urdu (اردو)
+ * @author පසිඳු කාවින්ද
+ */
+$messages['ur'] = array(
+	'pendingchanges-category' => 'زمرہ:',
+	'pendingchanges-onwatchlist' => 'پر میرے دیکھنی والی فہرست صفحات',
+	'pendingchanges-stable' => 'مستحکم ورژن پہلے سے طے شدہ ہے',
+	'pendingchanges-diff' => 'کا جائزہ لینے',
+);
+
 /** vèneto (vèneto)
  * @author Candalua
  */

@@ -968,6 +968,13 @@ $messages['uk'] = array(
 	'problemchanges-category' => 'Категорія:',
 );
 
+/** Urdu (اردو)
+ * @author පසිඳු කාවින්ද
+ */
+$messages['ur'] = array(
+	'problemchanges-category' => 'زمرہ:',
+);
+
 /** vèneto (vèneto)
  * @author Candalua
  */

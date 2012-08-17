@@ -1187,13 +1187,17 @@ $3",
 );
 
 /** Javanese (Basa Jawa)
+ * @author NoiX180
  * @author Pras
  */
 $messages['jv'] = array(
-	'validationstatistics' => 'Statistik validasi',
+	'validationstatistics' => 'Statistik ulasan kaca',
 	'validationstatistics-users' => "'''{{SITENAME}}''' wektu iki duwé '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|panganggo|panganggo}} kanthi hak aksès [[{{MediaWiki:Validationpage}}|Editor]] lan '''[[Special:ListUsers/pamriksa|$2]]''' {{PLURAL:$2|panganggo|panganggo}} kanthi hak aksès [[{{MediaWiki:Validationpage}}|Pamriksa]].
 
 Editor lan Pamriksa iku panganggo mapan sing bisa mriksa langsung owah-owahan kaca.",
+	'validationstatistics-lastupdate' => "''Data iki dianyari pungkasan $1 wanci $2.''",
+	'validationstatistics-revtime' => "Reratan wektu tunggu kanggo suntingan déning ''panganggo sing durung mlebu log'' kanggo diulas yakuwi '''$1'''; median '''$2'''.
+$3",
 	'validationstatistics-table' => "Statistik kanggo saben bilik jeneng ditampilaké ing ngisor iki, ''kajaba'' kaca pangalihan.",
 	'validationstatistics-ns' => 'Bilik jeneng',
 	'validationstatistics-total' => 'Kaca',
@@ -1201,6 +1205,9 @@ Editor lan Pamriksa iku panganggo mapan sing bisa mriksa langsung owah-owahan ka
 	'validationstatistics-latest' => 'Wis disinkronaké',
 	'validationstatistics-synced' => 'Wis disinkronaké/Wis dipriksa',
 	'validationstatistics-old' => 'Lawas',
+	'validationstatistics-utable' => 'Ngisor iki daptar {{PLURAL:$1|pangulas paling aktif|$1 pangulas paling aktif}} {{PLURAL:$2|jam|$2 jam}} kapungkur.',
+	'validationstatistics-user' => 'Panganggo',
+	'validationstatistics-reviews' => 'Ulasan',
 );
 
 /** Georgian (ქართული)
@@ -2220,6 +2227,18 @@ $3",
 	'validationstatistics-utable' => 'Нижче представлено {{PLURAL:$1|найбільш активного редактора|список $1 найбільш активних редакторів}} за {{PLURAL:$2|останню $2 годину|останні $2 години|останніх $2 годин}}.',
 	'validationstatistics-user' => 'Користувач',
 	'validationstatistics-reviews' => 'Перевірок',
+);
+
+/** Urdu (اردو)
+ * @author පසිඳු කාවින්ද
+ */
+$messages['ur'] = array(
+	'validationstatistics' => 'صفحہ کے اعداد و شمار کا جائزہ لیں',
+	'validationstatistics-ns' => 'نیم سپیس',
+	'validationstatistics-total' => 'صفحات',
+	'validationstatistics-stable' => 'کا جائزہ لیا',
+	'validationstatistics-user' => 'صارف',
+	'validationstatistics-reviews' => 'جائزہ',
 );
 
 /** vèneto (vèneto)

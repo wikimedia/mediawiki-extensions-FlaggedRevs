@@ -1014,6 +1014,17 @@ $messages['uk'] = array(
 	'configuredpages-def-stable' => 'опублікована версія',
 );
 
+/** Urdu (اردو)
+ * @author පසිඳු කාවින්ද
+ */
+$messages['ur'] = array(
+	'configuredpages' => 'صفحات کا جائزہ لینے کی ترتیب کے ساتھ',
+	'configuredpages-none' => 'اس فہرست میں کوئی صفحات ہیں ۔',
+	'configuredpages-config' => 'ترتیب',
+	'configuredpages-def-draft' => 'تازہ ترین ورژن',
+	'configuredpages-def-stable' => 'مستحکم ورژن',
+);
+
 /** vèneto (vèneto)
  * @author Candalua
  */

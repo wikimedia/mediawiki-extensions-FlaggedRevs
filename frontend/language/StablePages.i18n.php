@@ -553,6 +553,16 @@ $messages['ja'] = array(
 	'stablepages-indef' => '無期限のみ',
 );
 
+/** Javanese (Basa Jawa)
+ * @author NoiX180
+ */
+$messages['jv'] = array(
+	'stablepages' => 'Kaca sing nganggo pangiyakan suntingan',
+	'stablepages-none' => 'Ora ana kaca nèng daptar iki.',
+	'stablepages-config' => 'Pangaturan',
+	'stablepages-indef' => 'Namung kanggo kedaluwarsa ora kawates',
+);
+
 /** Georgian (ქართული)
  * @author BRUTE
  * @author David1010
@@ -993,6 +1003,15 @@ $messages['uk'] = array(
 	'stablepages-none' => 'У цьому списку немає сторінок.',
 	'stablepages-config' => 'Налаштування',
 	'stablepages-indef' => 'Тільки з невизначеним строком',
+);
+
+/** Urdu (اردو)
+ * @author පසිඳු කාවින්ද
+ */
+$messages['ur'] = array(
+	'stablepages' => 'کا استعمال کرتے ہوئے صفحات میں ترمیم کی منظوری',
+	'stablepages-none' => 'اس فہرست میں کوئی صفحات ہیں ۔',
+	'stablepages-config' => 'ترتیب',
 );
 
 /** vèneto (vèneto)

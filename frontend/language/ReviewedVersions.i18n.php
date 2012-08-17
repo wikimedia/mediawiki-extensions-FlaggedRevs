@@ -1268,6 +1268,14 @@ $messages['uk'] = array(
 	'reviewedversions-review' => 'Перевірена <i>$1</i> користувачем $2',
 );
 
+/** Urdu (اردو)
+ * @author පසිඳු කාවින්ද
+ */
+$messages['ur'] = array(
+	'reviewedversions-leg1' => 'ایک صفحے کے لئے فہرست کا جائزہ لیا ترمیم',
+	'reviewedversions-page' => 'صفحہ کا نام:',
+);
+
 /** vèneto (vèneto)
  * @author Candalua
  */

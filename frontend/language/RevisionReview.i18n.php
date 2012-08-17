@@ -5604,6 +5604,32 @@ $messages['uk'] = array(
 	'revreview-tt-reject' => 'Відхилити ці зміни вихідного тексту, повернувшись до попередньої версії',
 );
 
+/** Urdu (اردو)
+ * @author පසිඳු කාවින්ද
+ */
+$messages['ur'] = array(
+	'revisionreview' => 'ترمیم کا جائزہ لیں',
+	'review_page_invalid' => 'ہدف صفحہ عنوان باطل ہے.',
+	'review_page_notexists' => 'ہدف کے صفحہ وجود نہیں.',
+	'review_bad_oldid' => 'ہدف کے ترمیمی وجود نہیں.',
+	'review_bad_key' => 'تحریک منہاج القرآن کے پیرامیٹر باطل شامل کئے جانے کے اہم.',
+	'review_bad_tags' => 'مخصوص کردہ ٹیگ اقدار میں سے کچھ باطل ہیں.',
+	'review_denied' => 'اجازت کی تردید کی ہے ۔',
+	'review_param_missing' => 'ایک پیرامیٹر گمشدہ یا باطل ہے.',
+	'revreview-check-flag-u-title' => 'صفحے کے اس ورژن کو قبول. صرف اس کا استعمال اگر آپ نے پہلے سے ہی دیکھا کے کے پورے صفحے ہے.',
+	'revreview-flag' => 'اس ترمیمی کا جائزہ لیں',
+	'revreview-log' => 'تبصرہ:',
+	'revreview-submit' => 'جمع کرائیں',
+	'revreview-submitting' => 'پیش آیا...',
+	'revreview-submit-review' => 'ترمیمی قبول',
+	'revreview-submit-reject' => 'تبدیلیاں مسترد',
+	'revreview-submit-reviewed' => 'کیا. قبول!',
+	'revreview-adv-start-link' => 'کی تشہیر',
+	'revreview-reject-summary' => 'خلاصہ:',
+	'revreview-reject-confirm' => 'ان تبدیلیوں کو مسترد',
+	'revreview-reject-cancel' => 'منسوخ',
+);
+
 /** vèneto (vèneto)
  * @author Candalua
  * @author Frigotoni
