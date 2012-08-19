@@ -440,6 +440,7 @@ $messages['de'] = array(
  * @author Xoser
  */
 $messages['diq'] = array(
+	'action-unreviewedpages' => 'listeyê pelanê seyirnibiya bivîne',
 	'unreviewedpages' => 'Ripelî ke kontrol nibiyê',
 	'unreviewedpages-legend' => 'Listeyê tedeesteyî ke kontrol nibe',
 	'unreviewedpages-category' => 'Kategorî:',
@@ -758,7 +759,7 @@ $messages['he'] = array(
 	'unreviewedpages-unwatched' => 'לא במעקב',
 	'unreviewedpages-watched' => '({{PLURAL:$1|משתמש פעיל אחד עוקב|$1 משתמשים פעילים עוקבים}})',
 	'unreviewedpages-list' => 'רשימת דפי תוכן שטרם [[{{MediaWiki:Validationpage}}|נסקרו]] ברמה המוגדרת.',
-	'unreviewedpages-none' => 'אין כרגע דפים המתאימים לאמות המידה האלו',
+	'unreviewedpages-none' => 'אין כרגע דפים המתאימים להגדרות האלו',
 	'unreviewedpages-viewing' => '(במהלך סקירה)',
 	'unreviewedpages-hours' => '({{PLURAL:$1|שעה|$1 שעות|שעתיים}})',
 	'unreviewedpages-days' => '({{PLURAL:$1|יום|$1 ימים|יומיים}})',

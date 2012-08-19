@@ -711,10 +711,12 @@ No és possible cap configuració.",
 	'stabilization-def-short' => 'Per defecte',
 	'stabilization-def-short-0' => 'Actual',
 	'stabilization-def-short-1' => 'Publicat',
+	'stabilize_invalid_level' => 'Nivell de protecció invàlid.',
 	'stabilize_expiry_invalid' => 'La data de venciment no és vàlida.',
 	'stabilize_expiry_old' => 'Aquesta data de venciment ja ha passat.',
 	'stabilize_denied' => 'Permís denegat.',
 	'stabilize-expiring' => 'expira $1 (UTC)',
+	'stabilization-review' => 'Marca la revisió actual comprovada',
 );
 
 /** Chechen (нохчийн)

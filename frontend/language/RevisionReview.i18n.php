@@ -457,7 +457,7 @@ $messages['ar'] = array(
 	'revreview-adv-stop-link' => 'لا تعلن',
 	'revreview-toolow' => '\'\'\'يجب عليك تقييم كل من المحددات بالأسفل أعلى من "غير مقبولة" لكي تعتبر المراجعة مراجعة.\'\'\'
 
-لسحب حالة المراجعة لمراجعة، اضغط "غير موافق".
+لسحب حالة المراجعة لمراجعة، اضغط "{{int:revreview-submit-unreview}}".
 
 من فضلك اضغط زر "رجوع" في متصفحك وحاول مجددا.',
 	'revreview-update' => "'''من فضلك [[{{MediaWiki:Validationpage}}|راجع]] أية تغييرات موقفة ''(معروضة بالأسفل)'' أجريت منذ النسخة المستقرة.'''",
@@ -990,6 +990,12 @@ Molimo provjerite sve izmjene prikazane ispod da bi se vaše izmjene prikazale u
 $messages['ca'] = array(
 	'revisionreview' => 'Revisa les revisions',
 	'revreview-failed' => "'''No s'ha pogut verificar aquesta versió.'''",
+	'revreview-submission-invalid' => 'La tramesa va ser incompleta o altrament invàlida.',
+	'review_page_invalid' => 'El títol de la pàgina objecte és invàlid',
+	'review_page_notexists' => 'La pàgina objecte no existeix.',
+	'review_page_unreviewable' => 'La pàgina objecte no és verificable.',
+	'review_no_oldid' => 'Cap codi de revisió indicat.',
+	'review_bad_oldid' => 'La revisió objecte no existeix.',
 	'revreview-flag' => 'Comprova aquesta revisió',
 	'revreview-reflag' => 'Comprova de nou aquesta revisió',
 	'revreview-log' => 'Comentari:',
@@ -4223,7 +4229,7 @@ Vardé la [[Special:Unreviewedpages|lista dle pàgine pa revisionà]].',
 	'revreview-adv-stop-link' => 'publicisa nen',
 	'revreview-toolow' => "'''A venta ch'a stima mincadun ëd j'atribù pi àut che \"pa adeguà\" përchè na revision a sia considerà revisionà.'''
 
-Për gavé lë stat ëd revision ëd na revision, sgnaca \"pa acetà\".
+Për gavé lë stat ëd revision ëd na revision, sgnaca \"{{int:revreview-submit-unreview}}\".
 
 Për piasì, ch'a sgnaca ël boton \"andré\" an sò navigador e ch'a preuva torna.",
 	'revreview-update' => "'''Për piasì [[{{MediaWiki:Validationpage}}|ch'a revision-a]] tuti ij cangiament an cors ''(smonù ambelessì-sota)'' fàit a la version publicà.'''",
