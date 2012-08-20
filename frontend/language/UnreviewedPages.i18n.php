@@ -1986,7 +1986,7 @@ $messages['vi'] = array(
 	'unreviewedpages-list' => "Trang này liệt kê những trang nội dung ''chưa'' được [[{{MediaWiki:Validationpage}}|duyệt]] tới mức chỉ định.",
 	'unreviewedpages-none' => 'Hiện không có trang nào thỏa mãn tiêu chí này',
 	'unreviewedpages-viewing' => '(đang duyệt)',
-	'unreviewedpages-hours' => '($1 tiếng){{PLURAL:$1||}}',
+	'unreviewedpages-hours' => '($1 giờ)',
 	'unreviewedpages-days' => '($1 ngày){{PLURAL:$1||}}',
 	'unreviewedpages-recent' => '(ít hơn 1 tiếng)',
 );

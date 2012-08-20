@@ -2920,7 +2920,7 @@ $messages['ro'] = array(
 Iată configurația curentă pentru [[:$1|$1]]:',
 	'stabilization-page' => 'Numele paginii:',
 	'stabilization-leg' => 'Confirmați setările versiunii stabile',
-	'stabilization-def' => 'Revizie afișată pe vizualizarea paginii implicite',
+	'stabilization-def' => 'Versiune afișată pe vizualizarea implicită a paginii',
 	'stabilization-def1' => 'Revizia stabilă; dacă nu există, atunci cea curentă',
 	'stabilization-def2' => 'Ultima versiune',
 	'stabilization-restrict' => 'Restricții pentru revizualizarea automată',

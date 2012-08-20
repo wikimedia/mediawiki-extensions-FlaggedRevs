@@ -1082,12 +1082,12 @@ Existe um link para a última edição com o mesmo nível.',
 $messages['ro'] = array(
 	'reviewedpages' => 'Pagini revizuite',
 	'reviewedpages-leg' => 'Afișarea paginilor revizuite',
-	'reviewedpages-list' => "Această listă conține paginile [[{{MediaWiki:Validationpage}}|revizuite]] al căror nivel ''maxim'' de revizuire (al unei revizii) este cel specificat.
-O legătură către ultima revizie de acel nivel este furnizată.",
+	'reviewedpages-list' => "Această listă conține paginile [[{{MediaWiki:Validationpage}}|revizuite]] al căror nivel ''maxim'' de revizuire (al unei versiuni) este cel specificat.
+O legătură către ultima versiune de acel nivel este furnizată.",
 	'reviewedpages-none' => 'Nu există pagini în această listă',
 	'reviewedpages-lev-1' => 'Calitate',
 	'reviewedpages-all' => 'versiuni revizuite',
-	'reviewedpages-best' => 'cea mai bună revizie',
+	'reviewedpages-best' => 'cea mai bună versiune',
 );
 
 /** tarandíne (tarandíne)

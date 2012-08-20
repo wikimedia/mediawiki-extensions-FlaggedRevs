@@ -3064,7 +3064,7 @@ $messages['ja'] = array(
 	'revreview-poss-conflict-c' => "'''警告：[[User:$1|$1]]がこの変更の査読を $2 $3 に開始しました。'''",
 	'revreview-toolow' => "'''版を査読済みにするには、すべての判定要素を「不十分」より高い評価にする必要があります。'''
 
-版の査読評価を除去する場合は、「未承認」をクリックしてください。
+版の査読評価を除去する場合は、「{{int:revreview-submit-unreview}}」をクリックしてください。
 
 ブラウザーの「戻る」ボタンを押して再試行してください。",
 	'revreview-update' => "'''承認版に加えられた保留中の変更 (''下記参照'') を[[{{MediaWiki:Validationpage}}|査読]]してください。'''",
@@ -4458,14 +4458,14 @@ $messages['qu'] = array(
  */
 $messages['ro'] = array(
 	'revisionreview' => 'Revizuire revizii',
-	'revreview-failed' => "'''Imposibil de revizuit această revizie.'''",
+	'revreview-failed' => "'''Imposibil de revizuit această versiune.'''",
 	'revreview-submission-invalid' => 'Trimiterea a fost incompletă sau nevalidă.',
 	'review_page_invalid' => 'Titlul paginii țintă este nevalid.',
 	'review_page_notexists' => 'Pagina țintă nu există.',
 	'review_page_unreviewable' => 'Pagina țintă nu se poate revizui.',
-	'review_no_oldid' => 'Niciun ID de revizie specificat.',
+	'review_no_oldid' => 'Niciun ID de versiune specificat.',
 	'review_bad_oldid' => 'Revizia țintă nu există.',
-	'review_conflict_oldid' => 'Cineva a acceptat sau a respins deja acestă revizie în timp ce dumneavoastră o vizualizați.',
+	'review_conflict_oldid' => 'Cineva a acceptat sau a respins deja acestă versiune în timp ce dumneavoastră o vizualizați.',
 	'review_not_flagged' => 'Revizia țintă nu este marcată în prezent ca revizuită.',
 	'review_too_low' => 'Revizia nu poate fi revizuită cu unele câmpuri lăsate ca „insuficient”.',
 	'review_bad_key' => 'Cheie de parametru de includere nevalidă.',
@@ -4500,8 +4500,8 @@ $messages['ro'] = array(
 	'revreview-reject-summary' => 'Rezumat:',
 	'revreview-reject-confirm' => 'Respinge aceste modificări',
 	'revreview-reject-cancel' => 'Revocare',
-	'revreview-tt-flag' => 'Acceptă această revizie marcând-o ca „verificată”',
-	'revreview-tt-unflag' => 'Dezaprobă această revizie marcând-o ca „neverificată”',
+	'revreview-tt-flag' => 'Acceptă această versiune marcând-o ca „verificată”',
+	'revreview-tt-unflag' => 'Dezaprobă această versiune marcând-o ca „neverificată”',
 	'revreview-tt-reject' => 'Respinge aceste schimbări ale textului prin restaurarea versiunii anterioare lor',
 );
 
