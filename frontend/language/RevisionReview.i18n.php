@@ -2737,7 +2737,7 @@ Vide le [[Special:Unreviewedpages|lista de paginas non revidite]].',
 	'revreview-adv-stop-link' => 'non plus annunciar',
 	'revreview-toolow' => '\'\'\'Tu debe evalutar cata un del attributos como plus alte que "inadequate" a fin que un version sia considerate como revidite.\'\'\'
 
-Pro remover le stato de revision de un version, clicca super "non plus acceptar".
+Pro remover le stato de revision de un version, clicca sur "{{int:revreview-submit-unreview}}".
 
 Per favor preme le button "retro" in tu navigator e reproba.',
 	'revreview-update' => "'''Per favor [[{{MediaWiki:Validationpage}}|revide]] omne modificationes pendente ''(monstrate hic infra)'' facite al version acceptate.'''",
