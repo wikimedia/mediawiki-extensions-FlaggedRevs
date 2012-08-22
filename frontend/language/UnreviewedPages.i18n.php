@@ -1533,6 +1533,7 @@ $messages['ro'] = array(
  * @author Joetaras
  */
 $messages['roa-tara'] = array(
+	'action-unreviewedpages' => "vide l'elenghe de le pàggene none revisitate",
 	'unreviewedpages' => 'Pàggene senza revisione',
 	'unreviewedpages-legend' => 'Liste de le pàggene cu le condenute senza rivisitaziune',
 	'unreviewedpages-category' => 'Categorije:',

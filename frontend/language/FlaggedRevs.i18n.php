@@ -15238,6 +15238,7 @@ Pakisuri ang URL na ginamit para mapuntahan ang pahinang ito.',
  * @author Mach
  * @author Manco Capac
  * @author Runningfridgesrule
+ * @author Sadrettin
  * @author Srhat
  * @author Vito Genovese
  */
@@ -15379,7 +15380,7 @@ Lütfen bu sayfaya erişmek için kullandığınız URL'yi kontrol edin.",
 	'right-review' => 'Revizyonları "kontrol edilmiş" olarak işaretler',
 	'right-stablesettings' => 'Kararlı sürümün nasıl seçilip görüntüleneceğini ayarlar',
 	'right-validate' => 'Revizyonları "kaliteli" olarak işaretler',
-	'right-unreviewedpages' => '[[Special:UnreviewedPages|İncelenmemiş sayfalar listesini]] görür',
+	'right-unreviewedpages' => '[[Special:UnreviewedPages|İncelenmemiş sayfalar listesini]] görme',
 	'rights-editor-revoke' => '[[$1]] adlı kullanıcının editör statüsü geri alındı',
 	'specialpages-group-quality' => 'Düzenleme incelemesi',
 	'stable-logentry-config' => '"$1" için kararlı sürüm ayarlarını belirledi',
