@@ -272,6 +272,7 @@ No ye posible confegurar-la.',
  * @author Ciphers
  * @author Meno25
  * @author OsamaK
+ * @author زكريا
  */
 $messages['ar'] = array(
 	'stabilization-tab' => 'تج',
@@ -307,7 +308,7 @@ $messages['ar'] = array(
 	'stabilize_expiry_old' => 'تاريخ الانتهاء هذا مر بالفعل.',
 	'stabilize_denied' => 'الإذن مرفوض!',
 	'stabilize-expiring' => 'تنتهي في $1 (UTC)',
-	'stabilization-review' => 'عام على النسخة الحالية كمراجعة',
+	'stabilization-review' => 'علم النسخة الحالية بعلامة المراجعة',
 );
 
 /** Aramaic (ܐܪܡܝܐ)
