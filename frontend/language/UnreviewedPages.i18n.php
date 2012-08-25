@@ -965,6 +965,7 @@ $messages['it'] = array(
  * @author Shirayuki
  */
 $messages['ja'] = array(
+	'action-unreviewedpages' => '未査読ページの一覧の閲覧',
 	'unreviewedpages' => '未査読ページ',
 	'unreviewedpages-legend' => '未査読記事を一覧',
 	'unreviewedpages-category' => 'カテゴリ:',
