@@ -4229,7 +4229,7 @@ Vardé la [[Special:Unreviewedpages|lista dle pàgine pa revisionà]].',
 	'revreview-adv-stop-link' => 'publicisa nen',
 	'revreview-toolow' => "'''A venta ch'a stima mincadun ëd j'atribù pi àut che \"pa adeguà\" përchè na revision a sia considerà revisionà.'''
 
-Për gavé lë stat ëd revision ëd na revision, sgnaca \"{{int:revreview-submit-unreview}}\".
+Për gavé lë stat ëd revision ëd na revision, ch'a sgnaca \"{{int:revreview-submit-unreview}}\".
 
 Për piasì, ch'a sgnaca ël boton \"andré\" an sò navigador e ch'a preuva torna.",
 	'revreview-update' => "'''Për piasì [[{{MediaWiki:Validationpage}}|ch'a revision-a]] tuti ij cangiament an cors ''(smonù ambelessì-sota)'' fàit a la version publicà.'''",
