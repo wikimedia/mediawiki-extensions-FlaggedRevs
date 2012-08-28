@@ -1570,6 +1570,7 @@ Bonvolu kontroli ĉiujn jenajn ŝanĝojn por aperigi viajn redaktojn en la stabi
  * @author Locos epraix
  * @author MetalBrasil
  * @author Mor
+ * @author Savh
  * @author Translationista
  * @author Vivaelcelta
  */
@@ -1635,7 +1636,7 @@ Por favor presiona el botón ''Atrás'' en tu navegador e inténtalo de nuevo.",
 	'revreview-update-edited' => '<span class="flaggedrevs_important">Tus cambios aún no han sido incorporados en la versión estable.</span>
 
 Por favor revisa todos los cambios mostrados debajo para hacer que tus ediciones aparezcan en la versión estable.',
-	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Tus cambios no está en la versión estable aún. Hay ediciones previas pendientes de ser revisadas.</span>
+	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Tus cambios aún no están en la versión estable. Hay ediciones previas pendientes de ser revisadas.</span>
 
 Por favor, revisa todos los cambios mostrados a continuación para que se acepten tus ediciones.',
 	'revreview-update-includes' => 'Plantilla/archivos actualizados (páginas sin revisar en negrita):',
