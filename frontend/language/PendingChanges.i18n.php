@@ -1098,7 +1098,7 @@ $messages['ka'] = array(
 	'pendingchanges-diff' => 'შემოწმება',
 	'pendingchanges-size' => 'მაქსიმალური ცვლილება (ბაიტები)',
 	'pendingchanges-unwatched' => '(არავის კონტროლის სიაში არ არის)',
-	'pendingchanges-watched' => '({{PLURAL:$1|აკონტროლებს $1 აქტიური მომხმარებელი|აკონტროლებენ $1 აქტიური მომხმარებლები}})',
+	'pendingchanges-watched' => '({{PLURAL:$1|აკონტროლებს $1 აქტიური მომხმარებელი|აკონტროლებს $1 აქტიური მომხმარებელი}})',
 	'pendingchanges-viewing' => 'მოწმდება',
 );
 
