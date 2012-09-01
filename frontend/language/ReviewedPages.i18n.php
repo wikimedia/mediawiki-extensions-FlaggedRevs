@@ -945,7 +945,7 @@ $messages['nl'] = array(
 	'reviewedpages-list' => "De volgende pagina's zijn [[{{MediaWiki:Validationpage}}|gecontroleerd]] tot het '''hoogst aangegeven''' niveau (van een versie).
 Er wordt een verwijzing gegeven naar de laatste versie voor dat niveau.",
 	'reviewedpages-none' => "Er staan geen pagina's in deze lijst.",
-	'reviewedpages-lev-0' => 'Gecontroleerd',
+	'reviewedpages-lev-0' => '{{int:revreview-lev-basic}}',
 	'reviewedpages-lev-1' => 'Kwaliteit',
 	'reviewedpages-lev-2' => 'Uitgelicht',
 	'reviewedpages-all' => 'gecontroleerde versies',

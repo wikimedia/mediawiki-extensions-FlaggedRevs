@@ -1415,7 +1415,7 @@ $messages['nl'] = array(
 	'pendingchanges-diff' => 'controleren',
 	'pendingchanges-size' => 'Maximale wijziging in aantal bytes:',
 	'pendingchanges-unwatched' => '(niet op een volglijst)',
-	'pendingchanges-watched' => '($1 actieve {{PLURAL:$1|gebruiker heeft|gebruikers hebben}} deze pagina op {{PLURAL:$1|zijn|hun}} volglijst)',
+	'pendingchanges-watched' => '(deze pagina staat op de volglijst van $1 actieve {{PLURAL:$1|gebruiker|gebruikers}})',
 	'pendingchanges-viewing' => '(wordt gecontroleerd)',
 );
 

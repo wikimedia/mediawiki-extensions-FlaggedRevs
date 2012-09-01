@@ -4003,7 +4003,7 @@ Controleer alle hieronder weergegeven wijzigingen om ook uw bewerking zichtbaar 
 	'revreview-reject-summary-cur' => 'Heeft de laatste {{PLURAL:$1|tekstwijziging|$1 tekstwijzigingen}} (door $2) afgekeurd en versie $3 van $4 teruggeplaatst',
 	'revreview-reject-summary-old' => 'Heeft de eerste {{PLURAL:$1|tekstwijziging|$1 |tekstwijzigingen}} (door $2) na versie $3 door $4 afgekeurd',
 	'revreview-reject-summary-cur-short' => 'Heeft de laatste {{PLURAL:$1||tekstwijziging|$1 |tekstwijzigingen}} afgekeurd en versie $2 door $3 teruggeplaatst',
-	'revreview-reject-summary-old-short' => 'Heeft de eerste {{PLURAL:$1||tekstwijziging|$1 |tekstwijzigingen}} na versie $2 door $3 afgekeurd',
+	'revreview-reject-summary-old-short' => 'Heeft de eerste {{PLURAL:$1|tekstwijziging|$1 tekstwijzigingen}} na versie $2 door $3 afgekeurd',
 	'revreview-tt-flag' => 'Deze versie goedkeuren door haar als gecontroleerd te markeren',
 	'revreview-tt-unflag' => "Keur deze versie af door haar als '''ongecontroleerd''' te markeren",
 	'revreview-tt-reject' => 'Deze wijzigingen afkeuren door te terug te draaien',
