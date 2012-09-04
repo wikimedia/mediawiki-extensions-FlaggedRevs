@@ -487,7 +487,7 @@ Ena pelan ma ''kihanan'' ra hesebneni. Eka yew vuranayişan ciniyo, pelan ke ''s
 $3",
 	'validationstatistics-table' => "Qandê herunda nama istatistikê pela çım ra ravyarnayışi, peleyê hetenayışa ''tewr nêkerê''  cêr dı ratneyayê. Peleyê ke vurnayış pawenê ''noroc resnayışê cı qedyayo'', peleyê ke vurnayış nêpawena zi ''senkronize'' qebul benê.",
 	'validationstatistics-ns' => 'Cayênameyî',
-	'validationstatistics-total' => 'Ripelî',
+	'validationstatistics-total' => 'Peley',
 	'validationstatistics-stable' => 'Çım ra ravyarneya',
 	'validationstatistics-latest' => 'Rocaniye biyo',
 	'validationstatistics-synced' => 'Rocaniye biyo/Kontrol biyo',

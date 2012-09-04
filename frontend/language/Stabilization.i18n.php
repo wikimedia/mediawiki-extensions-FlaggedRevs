@@ -2954,7 +2954,7 @@ Configurarea nu este posibilă.',
 $messages['roa-tara'] = array(
 	'stabilization-tab' => 'vet',
 	'stabilization' => 'Pàgene de stabbilizzazione',
-	'stabilization-text' => "'''Cange le 'mbostaziune sotte pe aggiustà cumme a 'na versiona secure de [[:$1|$1]] ca jè selezionete e visualizzate.'''",
+	'stabilization-text' => "'''Cange le 'mbostaziune sotte pe aggiustà cumme a 'na versiona secure de [[:$1|$1]] ca jè selezionate e visualizzate.'''",
 	'stabilization-perm' => "'U cunde utende tue non ge tène le permesse pe cangià 'a configurazione d'a versione pubblecate.
 Chiste sonde le configuraziune corrende pe [[:$1|$1]]:",
 	'stabilization-page' => "Nome d'a pàgene:",
