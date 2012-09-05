@@ -1899,7 +1899,7 @@ Katso [[Special:Unreviewedpages|lista sivuista, joita ei ole arvioitu]].',
 	'revreview-adv-stop-link' => 'älä ilmoita muille',
 	'revreview-toolow' => "'''Sinun täytyy arvioida kaikki alla olevat kohdat paremmalla arvolla kuin ”puutteellinen”, jotta versio katsottaisiin arvioiduksi.'''
 
-Poistaaksesi version arviointitilan napsauta ”Poista version arviointi”.
+Poistaaksesi version arviointitilan napsauta \"{{int:revreview-submit-unreview}}\".
 
 Palaa selaimen takaisin-painikkeella ja yritä uudelleen.",
 	'revreview-update' => "'''[[{{MediaWiki:Validationpage}}|Arvioi]] kaikki odottavat muutokset (näytetään alla), jotka on tehty vakaan version jälkeen.'''",
@@ -3692,9 +3692,9 @@ $messages['ml'] = array(
 	'revreview-sadv-reviewing-c' => 'ഈ മാറ്റങ്ങൾ സംശോധനം ചെയ്ത് മറ്റുള്ളവർക്ക് സഹായമാകാമെന്ന് താങ്കൾ തന്നെ $1.',
 	'revreview-adv-start-link' => 'പരസ്യമിടുക',
 	'revreview-adv-stop-link' => 'പരസ്യം കളയുക',
-	'revreview-toolow' => '\'\'\'നാൾപ്പതിപ്പ് സംശോധനം ചെയ്തതാണെന്ന് കണക്കാക്കാൻ താഴെ കൊടുത്തിരിക്കുന്ന ഓരോന്നിലും താങ്കൾ "അപര്യാപ്തം" എന്ന നിലയ്ക്ക് മുകളിലുള്ള ഒരു നിലവാരമിടേണ്ടതാണ്.\'\'\'
+	'revreview-toolow' => '\'\'നാൾപ്പതിപ്പ് സംശോധനം ചെയ്തതാണെന്ന് കണക്കാക്കാൻ താഴെ കൊടുത്തിരിക്കുന്ന ഓരോന്നിലും താങ്കൾ "അപര്യാപ്തം" എന്ന നിലയ്ക്ക് മുകളിലുള്ള ഒരു നിലവാരമിടേണ്ടതാണ്.\'\'\'
 
-ഒരു നാൾപ്പതിപ്പിന്റെ സംശോധിത പദവി ഒഴിവാക്കാൻ എല്ലാ മണ്ഡലങ്ങളും "അസ്വീകാര്യം" എന്നു കുറിക്കുക.
+ഒരു നാൾപ്പതിപ്പിന്റെ സംശോധിത പദവി ഒഴിവാക്കാൻ എല്ലാ മണ്ഡലങ്ങളും "{{int:revreview-submit-unreview}}" എന്നു കുറിക്കുക.
 
 താങ്കളുടെ ബ്രൗസറിന്റെ "ബാക്ക്" ബട്ടൺ ഞെക്കി പിന്നോട്ട് പോയി വീണ്ടും ശ്രമിക്കുക.',
 	'revreview-update' => "'''ദയവായി അവശേഷിക്കുന്ന മാറ്റങ്ങൾ ''(താഴെ കൊടുത്തിരിക്കുന്നു)'' [[{{MediaWiki:Validationpage}}|സംശോധനം ചെയ്ത്]] അംഗീകരിക്കപ്പെട്ട പതിപ്പ് ആക്കുക.'''",

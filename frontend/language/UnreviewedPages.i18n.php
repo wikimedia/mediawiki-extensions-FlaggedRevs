@@ -1225,6 +1225,7 @@ $messages['mk'] = array(
  * @author Shijualex
  */
 $messages['ml'] = array(
+	'action-unreviewedpages' => 'സംശോധനം ചെയ്യാത്ത താളുകളുടെ പട്ടിക കാട്ടുക',
 	'unreviewedpages' => 'സംശോധനം ചെയ്യാത്ത താളുകൾ',
 	'unreviewedpages-legend' => 'ഉള്ളടക്കം സം‌ശോധനം ചെയ്തിട്ടില്ലാത്ത താളുകളുടെ പട്ടിക പ്രദർശിപ്പിക്കുക',
 	'unreviewedpages-category' => 'വർഗ്ഗം:',
