@@ -718,6 +718,7 @@ $messages['grc'] = array(
  * @author Als-Holder
  */
 $messages['gsw'] = array(
+	'action-unreviewedpages' => 'd Lischt vu dr nit gsichtete Syten aazluege',
 	'unreviewedpages' => 'Syte, wu nonig vum Fäldhieter gsäh sin',
 	'unreviewedpages-legend' => 'Lischt vu Syte, wu nonig vum Fäldhieter gsäh sin',
 	'unreviewedpages-category' => 'Kategori:',

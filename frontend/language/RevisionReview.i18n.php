@@ -2269,7 +2269,7 @@ Lueg au d [[Special:Unreviewedpages|Lischt vu nit markierte Versione]].',
 	'revreview-adv-stop-link' => 'nümm druff hyywyse',
 	'revreview-toolow' => "'''Du muesch fir e jedes vu däne Attribut e Wärt yystelle, wu hecher isch wie „längt nit“, ass e Version as \"prieft\" giltet.''' 
 
-Zum dr Priefigsstatus vun ere Version z ändere, durkc uf „Versionsmarkierig uuseneh“.
+Zum dr Priefigsstatus vun ere Version z ändere, druck uf „{{int:revreview-submit-unreview}}“.
 
 Bitte druck uf dr „Zruck“-Chnopf un versuech s nonemol.",
 	'revreview-update' => "'''Bitte [[{{MediaWiki:Validationpage}}|prief]] di hängige Änderige ''(lueg unte)'', wu syt dr letschte vereffetligte Version gmacht wore sin.'''",
