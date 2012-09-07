@@ -29,7 +29,7 @@ class FlaggedRevsSetup {
 	/**
 	 * Register source code paths.
 	 * This function must NOT depend on any config vars.
-	 * 
+	 *
 	 * @param $classes Array $wgAutoloadClasses
 	 * @param $messagesFiles Array $wgExtensionMessagesFiles
 	 * @return void
@@ -160,7 +160,7 @@ class FlaggedRevsSetup {
 	/**
 	 * Register backend and API hook handlers.
 	 * This function must NOT depend on any config vars.
-	 * 
+	 *
 	 * @return void
 	 */
 	public static function setUnconditionalHooks() {
@@ -258,7 +258,7 @@ class FlaggedRevsSetup {
 
 	/**
 	 * Set $wgAutopromoteOnce
-	 * 
+	 *
 	 * @return void
 	 */
 	public static function setAutopromoteConfig() {
@@ -320,7 +320,7 @@ class FlaggedRevsSetup {
 
 	/**
 	 * Set special pages
-	 * 
+	 *
 	 * @return void
 	 */
 	public static function setSpecialPages() {
@@ -332,12 +332,12 @@ class FlaggedRevsSetup {
 
 	/**
 	 * Set API modules
-	 * 
+	 *
 	 * @return void
 	 */
 	public static function setAPIModules() {
 		global $wgAPIModules, $wgAPIListModules, $wgAPIPropModules;
-		global $wgFlaggedRevsProtection;
+		global $wgFlaggedRevsProtection, $wgAPIGeneratorModules;
 
 		if ( $wgFlaggedRevsProtection ) {
 			$wgAPIModules['stabilize'] = 'ApiStabilizeProtect';
@@ -346,6 +346,10 @@ class FlaggedRevsSetup {
 			$wgAPIListModules['reviewedpages'] = 'ApiQueryReviewedpages';
 			$wgAPIListModules['unreviewedpages'] = 'ApiQueryUnreviewedpages';
 			$wgAPIListModules['configuredpages'] = 'ApiQueryConfiguredpages';
+
+			$wgAPIGeneratorModules['reviewedpages'] = 'ApiQueryReviewedpages';
+			$wgAPIGeneratorModules['unreviewedpages'] = 'ApiQueryUnreviewedpages';
+			$wgAPIGeneratorModules['configuredpages'] = 'ApiQueryConfiguredpages';
 		}
 		# Page review module for API
 		$wgAPIModules['review'] = 'ApiReview';
@@ -353,6 +357,7 @@ class FlaggedRevsSetup {
 		$wgAPIModules['reviewactivity'] = 'ApiReviewActivity';
 		# OldReviewedPages for API
 		$wgAPIListModules['oldreviewedpages'] = 'ApiQueryOldreviewedpages';
+		$wgAPIGeneratorModules['oldreviewedpages'] = 'ApiQueryOldreviewedpages';
 		# Flag metadata for pages for API
 		$wgAPIPropModules['flagged'] = 'ApiQueryFlagged';
 		# Site flag config for API
@@ -361,7 +366,7 @@ class FlaggedRevsSetup {
 
 	/**
 	 * Remove irrelevant user rights
-	 * 
+	 *
 	 * @return void
 	 */
 	public static function setConditionalRights() {
@@ -380,7 +385,7 @@ class FlaggedRevsSetup {
 
 	/**
 	 * Set $wgDefaultUserOptions
-	 * 
+	 *
 	 * @return void
 	 */
 	public static function setConditionalPreferences() {
