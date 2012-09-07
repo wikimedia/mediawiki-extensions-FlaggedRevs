@@ -10820,6 +10820,7 @@ Kiek de URL nao die'j gebruken um naor disse zied te gaon.",
 /** Nepali (नेपाली)
  * @author Bhawani Gautam
  * @author Bhawani Gautam Rhk
+ * @author RajeshPandey
  * @author सरोज कुमार ढकाल
  */
 $messages['ne'] = array(
@@ -10859,6 +10860,7 @@ $messages['ne'] = array(
 	'revreview-diff-toggle-hide' => 'ती परिवर्तनहरु लुकाउने',
 	'revreview-log-details-show' => 'विस्तृत जानकारी हेर्ने',
 	'revreview-log-details-hide' => 'विस्तृत जानकारी लुकाउने',
+	'revreview-depth' => 'गहिराई',
 );
 
 /** Dutch (Nederlands)
