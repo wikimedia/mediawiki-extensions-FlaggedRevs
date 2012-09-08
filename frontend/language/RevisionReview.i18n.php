@@ -4972,7 +4972,7 @@ Oglejte si [[Special:Unreviewedpages|seznam nepregledanih strani]].',
 	'revreview-adv-stop-link' => 'prenehaj razglaševati',
 	'revreview-toolow' => "'''Vse atribute morate oceniti višje od »neustrezno«, če želite redakcijo označiti kot pregledano.'''
 
-Za odstranitev stanja pregleda redakcije kliknite »ne sprejmi«.
+Za odstranitev stanja pregleda redakcije kliknite »{{int:revreview-submit-unreview}}«.
 
 Prosimo, kliknite gumb »nazaj« v vašem brskalniku in poskusite znova.",
 	'revreview-update' => "'''Prosimo, [[{{MediaWiki:Validationpage}}|preglejte]] kakršne koli spremembe v teku ''(prikazane spodaj)'', ki so bile narejene po ustaljeni različici.'''",
