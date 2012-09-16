@@ -2030,10 +2030,12 @@ $messages['yue'] = array(
 /** Simplified Chinese (‪中文（简体）‬)
  * @author Bencmq
  * @author Gaoxuewei
+ * @author Hydra
  * @author PhiLiP
  * @author 阿pp
  */
 $messages['zh-hans'] = array(
+	'action-unreviewedpages' => '查看未受监视页面的列表',
 	'unreviewedpages' => '未复审页面',
 	'unreviewedpages-legend' => '未复审内容页面列表',
 	'unreviewedpages-category' => '分类：',

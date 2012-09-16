@@ -5941,7 +5941,7 @@ $messages['zh-hans'] = array(
 	'revreview-adv-stop-link' => '取消告知其他用户',
 	'revreview-toolow' => "'''您必须将所有字段标记为“不足”以上才能将修订标记为已复审。'''
 
-要去掉修订的复审状态，请点击“不接受”。
+要去掉修订的复审状态，请点击“{{int:revreview-submit-unreview}}”。
 
 请点击您浏览器中的“后退”按钮后重试。",
 	'revreview-update' => "'''请[[{{MediaWiki:Validationpage}}|复审]]自稳定版本后的所有待复审更改（如下所示）。'''",
