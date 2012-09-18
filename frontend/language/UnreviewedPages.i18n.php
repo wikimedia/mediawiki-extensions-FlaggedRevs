@@ -762,8 +762,8 @@ $messages['he'] = array(
 	'unreviewedpages-list' => 'רשימת דפי תוכן שטרם [[{{MediaWiki:Validationpage}}|נסקרו]] ברמה המוגדרת.',
 	'unreviewedpages-none' => 'אין כרגע דפים המתאימים להגדרות האלו',
 	'unreviewedpages-viewing' => '(במהלך סקירה)',
-	'unreviewedpages-hours' => '({{PLURAL:$1|שעה|$1 שעות|שעתיים}})',
-	'unreviewedpages-days' => '({{PLURAL:$1|יום|$1 ימים|יומיים}})',
+	'unreviewedpages-hours' => '({{PLURAL:$1|שעה|שעתיים|$1 שעות}})',
+	'unreviewedpages-days' => '({{PLURAL:$1|יום|יומיים|$1 ימים}})',
 	'unreviewedpages-recent' => '(פחות משעה)',
 );
 
