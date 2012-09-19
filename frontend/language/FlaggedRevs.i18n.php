@@ -3418,6 +3418,7 @@ ikke findes. Kontrollér den URL du brugte til at få adgang til denne side.',
  * @author Merlissimo
  * @author Metalhead64
  * @author MichaelFrey
+ * @author Pill
  * @author Purodha
  * @author Raimond Spekking
  * @author SVG
