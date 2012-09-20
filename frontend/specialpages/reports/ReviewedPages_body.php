@@ -33,19 +33,19 @@ class ReviewedPages extends SpecialPage {
 		// Text to explain level select (if there are several levels)
 		if ( FlaggedRevs::qualityVersions() ) {
 			$this->getOutput()->addWikiMsg( 'reviewedpages-list',
-				$this->getLang()->formatNum( $this->pager->getNumRows() ) );
+				$this->getLanguage()->formatNum( $this->pager->getNumRows() ) );
 		}
 		$form = Html::openElement( 'form',
 			array( 'name' => 'reviewedpages', 'action' => $wgScript, 'method' => 'get' ) );
-		$form .= "<fieldset><legend>" . wfMsgHtml( 'reviewedpages-leg' ) . "</legend>\n";
+		$form .= "<fieldset><legend>" . $this->msg( 'reviewedpages-leg' )->escaped() . "</legend>\n";
 
 		// show/hide links
-		$showhide = array( wfMsgHtml( 'show' ), wfMsgHtml( 'hide' ) );
+		$showhide = array( $this->msg( 'show' )->escaped(), $this->msg( 'hide' )->escaped() );
 		$onoff = 1 - $this->hideRedirs;
 		$link = Linker::link( $this->getTitle(), $showhide[$onoff], array(),
 			 array( 'hideredirs' => $onoff, 'namespace' => $this->namespace )
 		);
-		$showhideredirs = wfMsgHtml( 'whatlinkshere-hideredirs', $link );
+		$showhideredirs = $this->msg( 'whatlinkshere-hideredirs' )->rawParams( $link )->escaped();
 
 		$fields = array();
 		$namespaces = FlaggedRevs::getReviewNamespaces();
@@ -59,7 +59,7 @@ class ReviewedPages extends SpecialPage {
 		$form .= $showhideredirs;
 
 		if ( count( $fields ) ) {
-			$form .= " " . Xml::submitButton( wfMsg( 'go' ) );
+			$form .= " " . Xml::submitButton( $this->msg( 'go' )->text() );
 		}
 		$form .= Html::hidden( 'title', $this->getTitle()->getPrefixedDBKey() ) . "\n";
 		$form .= "</fieldset>";
@@ -76,28 +76,28 @@ class ReviewedPages extends SpecialPage {
 			$out->addHTML( $this->pager->getBody() );
 			$out->addHTML( $this->pager->getNavigationBar() );
 		} else {
-			$out->addHTML( wfMsgExt( 'reviewedpages-none', array( 'parse' ) ) );
+			$out->addHTML( $this->msg( 'reviewedpages-none' )->parseAsBlock() );
 		}
 	}
 
 	public function formatRow( $row ) {
 		$title = Title::newFromRow( $row );
 		$link = Linker::link( $title ); # Link to page
-		$dirmark = $this->getLang()->getDirMark(); # Direction mark
+		$dirmark = $this->getLanguage()->getDirMark(); # Direction mark
 		$stxt = ''; # Size (bytes)
 		if ( !is_null( $size = $row->page_len ) ) {
 			if ( $size == 0 ) {
-				$stxt = ' <small>' . wfMsgHtml( 'historyempty' ) . '</small>';
+				$stxt = ' <small>' . $this->msg( 'historyempty' )->escaped() . '</small>';
 			} else {
 				$stxt = ' <small>' .
-					wfMsgExt( 'historysize', 'parsemag', $this->getLang()->formatNum( $size ) ) .
+					$this->msg( 'historysize' )->numParams( $size )->escaped() .
 					'</small>';
 			}
 		}
 		# Link to list of reviewed versions for page
 		$list = Linker::linkKnown(
 			SpecialPage::getTitleFor( 'ReviewedVersions' ),
-			wfMsgHtml( 'reviewedpages-all' ),
+			$this->msg( 'reviewedpages-all' )->escaped(),
 			array(),
 			'page=' . $title->getPrefixedUrl()
 		);
@@ -106,7 +106,7 @@ class ReviewedPages extends SpecialPage {
 		if ( FlaggedRevs::qualityVersions() ) {
 			$best = Linker::linkKnown(
 				$title,
-				wfMsgHtml( 'reviewedpages-best' ),
+				$this->msg( 'reviewedpages-best' )->escaped(),
 				array(),
 				'stableid=best'
 			);

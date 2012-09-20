@@ -64,11 +64,11 @@ class PendingChanges extends SpecialPage {
 
 		# Explanatory text
 		$this->getOutput()->addWikiMsg( 'pendingchanges-list',
-			$this->getLang()->formatNum( $this->pager->getNumRows() ) );
+			$this->getLanguage()->formatNum( $this->pager->getNumRows() ) );
 
 		$form = Html::openElement( 'form', array( 'name' => 'pendingchanges',
 			'action' => $wgScript, 'method' => 'get' ) ) . "\n";
-		$form .= "<fieldset><legend>" . wfMsgHtml( 'pendingchanges-legend' ) . "</legend>\n";
+		$form .= "<fieldset><legend>" . $this->msg( 'pendingchanges-legend' )->escaped() . "</legend>\n";
 		$form .= Html::hidden( 'title', $this->getTitle()->getPrefixedDBKey() ) . "\n";
 
 		$items = array();
@@ -84,7 +84,7 @@ class PendingChanges extends SpecialPage {
 		if ( !FlaggedRevs::isStableShownByDefault() && !FlaggedRevs::useOnlyIfProtected() ) {
 			$items[] = "<span style='white-space: nowrap;'>" .
 				Xml::check( 'stable', $this->stable, array( 'id' => 'wpStable' ) ) .
-				Xml::label( wfMsg( 'pendingchanges-stable' ), 'wpStable' ) . '</span>';
+				Xml::label( $this->msg( 'pendingchanges-stable' )->text(), 'wpStable' ) . '</span>';
 		}
 		if ( $items ) {
 			$form .= implode( ' ', $items ) . '<br />';
@@ -92,17 +92,17 @@ class PendingChanges extends SpecialPage {
 
 		$items = array();
 		$items[] =
-			Xml::label( wfMsg( "pendingchanges-category" ), 'wpCategory' ) . '&#160;' .
+			Xml::label( $this->msg( "pendingchanges-category" )->text(), 'wpCategory' ) . '&#160;' .
 			Xml::input( 'category', 30, $this->category, array( 'id' => 'wpCategory' ) );
 		if ( $this->getUser()->getId() ) {
 			$items[] = Xml::check( 'watched', $this->watched, array( 'id' => 'wpWatched' ) ) .
-				Xml::label( wfMsg( 'pendingchanges-onwatchlist' ), 'wpWatched' );
+				Xml::label( $this->msg( 'pendingchanges-onwatchlist' )->text(), 'wpWatched' );
 		}
 		$form .= implode( ' ', $items ) . '<br />';
 		$form .=
-			Xml::label( wfMsg( 'pendingchanges-size' ), 'wpSize' ) .
+			Xml::label( $this->msg( 'pendingchanges-size' )->text(), 'wpSize' ) .
 			Xml::input( 'size', 4, $this->size, array( 'id' => 'wpSize' ) ) . ' ' .
-			Xml::submitButton( wfMsg( 'allpagessubmit' ) ) . "\n";
+			Xml::submitButton( $this->msg( 'allpagessubmit' )->text() ) . "\n";
 		$form .= "</fieldset>";
 		$form .= Html::closeElement( 'form' ) . "\n";
 
@@ -143,7 +143,7 @@ class PendingChanges extends SpecialPage {
 				$limit = intval( $m[1] );
 			}
 			if ( preg_match( '/^namespace=(.*)$/', $bit, $m ) ) {
-				$ns = $this->getLang()->getNsIndex( $m[1] );
+				$ns = $this->getLanguage()->getNsIndex( $m[1] );
 				if ( $ns !== false ) {
 					$this->namespace = $ns;
 				}
@@ -172,7 +172,7 @@ class PendingChanges extends SpecialPage {
 		}
 		$feed = new $wgFeedClasses[$type](
 			$this->feedTitle(),
-			wfMsg( 'tagline' ),
+			$this->msg( 'tagline' )->text(),
 			$this->getTitle()->getFullUrl()
 		);
 		$this->pager->mLimit = min( $wgFeedLimit, $this->pager->mLimit );
@@ -189,7 +189,7 @@ class PendingChanges extends SpecialPage {
 	protected function feedTitle() {
 		global $wgContLanguageCode, $wgSitename;
 
-		$page = SpecialPage::getPage( 'PendingChanges' );
+		$page = SpecialPageFactory::getPage( 'PendingChanges' );
 		$desc = $page->getDescription();
 		return "$wgSitename - $desc [$wgContLanguageCode]";
 	}
@@ -220,25 +220,28 @@ class PendingChanges extends SpecialPage {
 		# Page links...
 		$link = Linker::link( $title );
 		$hist = Linker::linkKnown( $title,
-			wfMsgHtml( 'hist' ), array(), 'action=history' );
+			$this->msg( 'hist' )->escaped(),
+			array(),
+			array( 'action' => 'history' )
+		);
 		$review = Linker::linkKnown( $title,
-			wfMsg( 'pendingchanges-diff' ),
+			$this->msg( 'pendingchanges-diff' )->escaped(),
 			array(),
 			array( 'diff' => 'cur', 'oldid' => $row->stable ) + FlaggedRevs::diffOnlyCGI()
 		);
 		# Show quality level if there are several
 		if ( FlaggedRevs::qualityVersions() ) {
 			$quality = $row->quality
-				? wfMsgHtml( 'revreview-lev-quality' )
-				: wfMsgHtml( 'revreview-lev-basic' );
+				? $this->msg( 'revreview-lev-quality' )->escaped()
+				: $this->msg( 'revreview-lev-basic' )->escaped();
 			$quality = " <b>[{$quality}]</b>";
 		}
 		# Is anybody watching?
 		if ( !$this->including() && $this->getUser()->isAllowed( 'unreviewedpages' ) ) {
 			$uw = FRUserActivity::numUsersWatchingPage( $title );
 			$watching = $uw
-				? wfMsgExt( 'pendingchanges-watched', 'parsemag', $this->getLang()->formatNum( $uw ) )
-				: wfMsgHtml( 'pendingchanges-unwatched' );
+				? $this->msg( 'pendingchanges-watched' )->numParams( $uw )->escaped()
+				: $this->msg( 'pendingchanges-unwatched' )->escaped();
 			$watching = " {$watching}";
 		} else {
 			$uw = - 1;
@@ -251,15 +254,13 @@ class PendingChanges extends SpecialPage {
 			// After three days, just use days
 			if ( $hours > ( 3 * 24 ) ) {
 				$days = round( $hours / 24, 0 );
-				$age = wfMsgExt( 'pendingchanges-days',
-					'parsemag', $this->getLang()->formatNum( $days ) );
+				$age = $this->msg( 'pendingchanges-days' )->numParams( $days )->escaped();
 			// If one or more hours, use hours
 			} elseif ( $hours >= 1 ) {
 				$hours = round( $hours, 0 );
-				$age = wfMsgExt( 'pendingchanges-hours',
-					'parsemag', $this->getLang()->formatNum( $hours ) );
+				$age = $this->msg( 'pendingchanges-hours' )->numParams( $hours )->escaped();
 			} else {
-				$age = wfMsg( 'pendingchanges-recent' ); // hot off the press :)
+				$age = $this->msg( 'pendingchanges-recent' )->escaped(); // hot off the press :)
 			}
 			// Oh-noes!
 			$css = self::getLineClass( $hours, $uw );
@@ -271,7 +272,7 @@ class PendingChanges extends SpecialPage {
 		list( $u, $ts ) = FRUserActivity::getUserReviewingDiff( $row->stable, $row->page_latest );
 		if ( $u !== null ) {
 			$underReview = ' <span class="fr-under-review">' .
-				wfMsgHtml( 'pendingchanges-viewing' ) . '</span>';
+				$this->msg( 'pendingchanges-viewing' )->escaped() . '</span>';
 		}
 
 		return( "<li{$css}>{$link} ({$hist}) {$stxt} ({$review}) <i>{$age}</i>" .

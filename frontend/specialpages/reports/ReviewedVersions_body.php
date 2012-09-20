@@ -35,32 +35,37 @@ class ReviewedVersions extends UnlistedSpecialPage {
 		$num = $pager->getNumRows();
 		if ( $num ) {
 			$out->addWikiMsg( 'reviewedversions-list',
-				$this->page->getPrefixedText(), $this->getLang()->formatNum( $num ) );
+				$this->page->getPrefixedText(), $this->getLanguage()->formatNum( $num ) );
 			$out->addHTML( $pager->getNavigationBar() );
 			$out->addHTML( "<ul>" . $pager->getBody() . "</ul>" );
 			$out->addHTML( $pager->getNavigationBar() );
 		} else {
-			$out->addHTML( wfMsgExt( 'reviewedversions-none', array( 'parse' ),
-				$this->page->getPrefixedText() ) );
+			$out->addHTML( $this->msg( 'reviewedversions-none',	$this->page->getPrefixedText() )
+					->parseAsBlock() );
 		}
 	}
 
 	public function formatRow( $row ) {
-		$rdatim = $this->getLang()->timeanddate( wfTimestamp( TS_MW, $row->rev_timestamp ), true );
-		$fdatim = $this->getLang()->timeanddate( wfTimestamp( TS_MW, $row->fr_timestamp ), true );
-		$fdate = $this->getLang()->date( wfTimestamp( TS_MW, $row->fr_timestamp ), true );
-		$ftime = $this->getLang()->time( wfTimestamp( TS_MW, $row->fr_timestamp ), true );
-		$review = wfMsgExt( 'reviewedversions-review', array( 'parseinline', 'replaceafter' ),
+		$rdatim = $this->getLanguage()->timeanddate( wfTimestamp( TS_MW, $row->rev_timestamp ),
+			true );
+		$fdatim = $this->getLanguage()->timeanddate( wfTimestamp( TS_MW, $row->fr_timestamp ), true );
+		$fdate = $this->getLanguage()->date( wfTimestamp( TS_MW, $row->fr_timestamp ), true );
+		$ftime = $this->getLanguage()->time( wfTimestamp( TS_MW, $row->fr_timestamp ), true );
+		$review = $this->msg( 'reviewedversions-review' )->rawParams(
 			$fdatim,
 			Linker::userLink( $row->fr_user, $row->user_name ) .
 			' ' . Linker::userToolLinks( $row->fr_user, $row->user_name ),
 			$fdate, $ftime, $row->user_name
-		);
+		)->text();
 		$lev = ( $row->fr_quality >= 1 )
-			? wfMsgHtml( 'revreview-hist-quality' )
-			: wfMsgHtml( 'revreview-hist-basic' );
-		$link = Linker::makeKnownLinkObj( $this->page, $rdatim,
-			'stableid=' . $row->fr_rev_id );
+			? $this->msg( 'revreview-hist-quality' )->escaped()
+			: $this->msg( 'revreview-hist-basic' )->escaped();
+		$link = Linker::link(
+			$this->page,
+			$rdatim,
+			array(),
+			array( 'stableid' => $row->fr_rev_id )
+		);
 		return '<li>' . $link . ' (' . $review . ') <strong>[' . $lev . ']</strong></li>';
 	}
 }

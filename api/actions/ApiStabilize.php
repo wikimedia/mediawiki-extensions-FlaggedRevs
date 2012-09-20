@@ -111,7 +111,7 @@ class ApiStabilizeGeneral extends ApiStabilize {
 
 		$status = $form->submit(); // true/error message key
 		if ( $status !== true ) {
-			$this->dieUsageMsg( wfMsg( $status ) );
+			$this->dieUsageMsg( $this->msg( $status )->text() );
 		}
 
 		# Output success line with the title and config parameters
@@ -218,7 +218,7 @@ class ApiStabilizeProtect extends ApiStabilize {
 
 		$status = $form->submit(); // true/error message key
 		if ( $status !== true ) {
-			$this->dieUsageMsg( wfMsg( $status ) );
+			$this->dieUsageMsg( $this->msg( $status )->text() );
 		}
 
 		# Output success line with the title and config parameters

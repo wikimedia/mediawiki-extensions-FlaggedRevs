@@ -261,12 +261,12 @@ class FlaggablePageView extends ContextSource {
 				$flags = $frev->getTags();
 				$quality = FlaggedRevs::isQuality( $flags );
 				$msg = $quality ? 'revreview-quality-source' : 'revreview-basic-source';
-				$tag = wfMsgExt( $msg, 'parseinline', $frev->getRevId(), $time );
+				$tag = $this->msg( $msg, $frev->getRevId(), $time )->parse();
 				# Hide clutter
 				if ( !$this->useSimpleUI() && !empty( $flags ) ) {
 					$tag .= FlaggedRevsXML::ratingToggle() .
 						"<div id='mw-fr-revisiondetails'>" .
-						wfMsgHtml( 'revreview-oldrating' ) .
+						$this->msg( 'revreview-oldrating' )->escaped() .
 						FlaggedRevsXML::addTagRatings( $flags ) . '</div>';
 				}
 				$css = 'flaggedrevs_notice plainlinks noprint';
@@ -328,7 +328,7 @@ class FlaggablePageView extends ContextSource {
 		}
 		// $reqId is null if nothing requested, false if invalid
 		if ( $reqId === false ) {
-			$this->out->addWikiText( wfMsg( 'revreview-invalid' ) );
+			$this->out->addWikiText( $this->msg( 'revreview-invalid' )->text() );
 			$this->out->returnToMain( false, $this->article->getTitle() );
 			# Tell MW that parser output is done
 			$outputDone = true;
@@ -417,10 +417,10 @@ class FlaggablePageView extends ContextSource {
 		$icon = FlaggedRevsXML::draftStatusIcon();
 		// Simple icon-based UI
 		if ( $this->useSimpleUI() ) {
-			$tag .= $prot . $icon . wfMsgExt( 'revreview-quick-none', 'parseinline' );
+			$tag .= $prot . $icon . $this->msg( 'revreview-quick-none' )->parse();
 		// Standard UI
 		} else {
-			$tag .= $prot . $icon . wfMsgExt( 'revreview-noflagged', 'parseinline' );
+			$tag .= $prot . $icon . $this->msg( 'revreview-noflagged' )->parse();
 		}
 	}
 
@@ -468,8 +468,7 @@ class FlaggablePageView extends ContextSource {
 			if ( $this->showRatingIcon() ) {
 				$pending .= FlaggedRevsXML::draftStatusIcon();
 			}
-			$pending .= wfMsgExt( 'revreview-edited',
-				'parseinline', $srev->getRevId(), $revsSince );
+			$pending .= $this->msg( 'revreview-edited', $srev->getRevId(), $revsSince )->parse();
 			$anchor = $request->getVal( 'fromsection' );
 			if ( $anchor != null ) {
 				// Hack: reverse some of the Sanitizer::escapeId() encoding
@@ -477,7 +476,7 @@ class FlaggablePageView extends ContextSource {
 					array( ':' , '.' ), array( '%3A', '%' ), $anchor
 				) );
 				$section = str_replace( '_', ' ', $section ); // prettify
-				$pending .= wfMsgExt( 'revreview-edited-section', 'parse', $anchor, $section );
+				$pending .= $this->msg( 'revreview-edited-section', $anchor, $section )->parseAsBlock();
 			}
 			# Notice should always use subtitle
 			$this->reviewNotice = "<div id='mw-fr-reviewnotice' " .
@@ -495,14 +494,12 @@ class FlaggablePageView extends ContextSource {
 					$msg = $quality
 						? 'revreview-quick-quality-same'
 						: 'revreview-quick-basic-same';
-					$msgHTML = wfMsgExt( $msg, 'parseinline',
-						$srev->getRevId(), $revsSince );
+					$msgHTML = $this->msg( $msg, $srev->getRevId(), $revsSince )->parse();
 				} else {
 					$msg = $quality
 						? 'revreview-quick-see-quality'
 						: 'revreview-quick-see-basic';
-					$msgHTML = wfMsgExt( $msg, 'parseinline',
-						$srev->getRevId(), $revsSince );
+					$msgHTML = $this->msg( $msg, $srev->getRevId(), $revsSince )->parse();
 				}
 				$icon = '';
 				# For protection based configs, show lock only if it's not redundant.
@@ -522,15 +519,13 @@ class FlaggablePageView extends ContextSource {
 					} else {
 						$msg = 'revreview-basic-same';
 					}
-					$msgHTML = wfMsgExt( $msg, 'parseinline',
-						$srev->getRevId(), $time, $revsSince );
+					$msgHTML = $this->msg( $msg, $srev->getRevId(), $time, $revsSince )->parse();
 				} else {
 					$msg = $quality
 						? 'revreview-newest-quality'
 						: 'revreview-newest-basic';
 					$msg .= ( $revsSince == 0 ) ? '-i' : '';
-					$msgHTML = wfMsgExt( $msg, 'parseinline',
-						$srev->getRevId(), $time, $revsSince );
+					$msgHTML = $this->msg( $msg, $srev->getRevId(), $time, $revsSince )->parse();
 				}
 				$icon = $synced
 					? FlaggedRevsXML::stableStatusIcon( $quality )
@@ -576,7 +571,7 @@ class FlaggablePageView extends ContextSource {
 					$msg = $quality
 						? 'revreview-quick-quality-old'
 						: 'revreview-quick-basic-old';
-					$msgHTML = wfMsgExt( $msg, 'parseinline', $frev->getRevId(), $revsSince );
+					$msgHTML = $this->msg( $msg, $frev->getRevId(), $revsSince )->parse();
 				}
 				$msgHTML = $prot . $icon . $msgHTML;
 				$tag = FlaggedRevsXML::prettyRatingBox( $frev, $msgHTML,
@@ -588,12 +583,12 @@ class FlaggablePageView extends ContextSource {
 					? 'revreview-quality-old'
 					: 'revreview-basic-old';
 				$tag = $prot . $icon;
-				$tag .= wfMsgExt( $msg, 'parseinline', $frev->getRevId(), $time );
+				$tag .= $this->msg( $msg, $frev->getRevId(), $time )->parse();
 				# Hide clutter
 				if ( !empty( $flags ) ) {
 					$tag .= FlaggedRevsXML::ratingToggle();
 					$tag .= "<div id='mw-fr-revisiondetails'>" .
-						wfMsgHtml( 'revreview-oldrating' ) .
+						$this->msg( 'revreview-oldrating' )->escaped() .
 						FlaggedRevsXML::addTagRatings( $flags ) . '</div>';
 				}
 			}
@@ -656,8 +651,7 @@ class FlaggablePageView extends ContextSource {
 						: 'revreview-quick-basic';
 					# Uses messages 'revreview-quick-quality-same', 'revreview-quick-basic-same'
 					$msg = $synced ? "{$msg}-same" : $msg;
-					$msgHTML = wfMsgExt( $msg, 'parseinline',
-						$srev->getRevId(), $revsSince );
+					$msgHTML = $this->msg( $msg, $srev->getRevId(), $revsSince )->parse();
 				}
 				$msgHTML = $prot . $icon . $msgHTML;
 				$tag = FlaggedRevsXML::prettyRatingBox( $srev, $msgHTML,
@@ -674,7 +668,7 @@ class FlaggablePageView extends ContextSource {
 					$msg .= '-i';
 				}
 				$tag = $prot . $icon;
-				$tag .= wfMsgExt( $msg, 'parseinline', $srev->getRevId(), $time, $revsSince );
+				$tag .= $this->msg( $msg, $srev->getRevId(), $time, $revsSince )->parse();
 				if ( !empty( $flags ) ) {
 					$tag .= FlaggedRevsXML::ratingToggle();
 					$tag .= "<div id='mw-fr-revisiondetails'>" .
@@ -774,11 +768,13 @@ class FlaggablePageView extends ContextSource {
 			? 'revreview-hist-quality'
 			: 'revreview-hist-basic';
 		$lClass = FlaggedRevsXML::getQualityColor( (int)$quality );
-		$leftNote = "<span class='$lClass'>[" . wfMsgHtml( $leftNote ) . "]</span>";
+		// @todo FIXME: i18n Hard coded brackets.
+		$leftNote = "<span class='$lClass'>[" . $this->msg( $leftNote )->escaped() . "]</span>";
 		# Review status of right diff revision...
 		$rClass = FlaggedRevsXML::getQualityColor( false );
+		// @todo FIXME: i18n Hard coded brackets.
 		$rightNote = "<span class='$rClass'>[" .
-			wfMsgHtml( 'revreview-hist-pending' ) . "]</span>";
+			$this->msg( 'revreview-hist-pending' )->escaped() . "]</span>";
 		# Get the actual body of the diff...
 		$diffEngine = new DifferenceEngine( $title, $srev->getRevId(), $latest );
 		$diffBody = $diffEngine->getDiffBody();
@@ -935,7 +931,7 @@ class FlaggablePageView extends ContextSource {
 			# Let users know if their edit will have to be reviewed.
 			# Note: if the log excerpt was shown then this is redundant.
 			if ( !$log && $this->editWillRequireReview( $editPage ) ) {
-				$items[] = wfMsgExt( 'revreview-editnotice', 'parseinline' );
+				$items[] = $this->msg( 'revreview-editnotice' )->parse();
 			}
 			# Add a notice if there are pending edits...
 			if ( $this->article->revsArePending() ) {
@@ -955,12 +951,14 @@ class FlaggablePageView extends ContextSource {
 					? 'revreview-hist-quality'
 					: 'revreview-hist-basic';
 				$lClass = FlaggedRevsXML::getQualityColor( (int)$quality );
+				// @todo i18n FIXME: Hard coded brackets
 				$leftNote = "<span class='$lClass'>[" .
-					wfMsgHtml( $leftNote ) . "]</span>";
+					$this->msg( $leftNote )->escaped() . "]</span>";
 				# Right diff side...
 				$rClass = FlaggedRevsXML::getQualityColor( false );
+				// @todo i18n FIXME: Hard coded brackets
 				$rightNote = "<span class='$rClass'>[" .
-					wfMsgHtml( 'revreview-hist-pending' ) . "]</span>";
+					$this->msg( 'revreview-hist-pending' )->escaped() . "]</span>";
 				# Get the stable version source
 				$text = $frev->getRevText();
 				# Are we editing a section?
@@ -973,7 +971,7 @@ class FlaggablePageView extends ContextSource {
 					$diffEngine = new DifferenceEngine( $this->article->getTitle() );
 					$diffBody = $diffEngine->generateDiffBody( $text, $editPage->textbox1 );
 					$diffHtml =
-						wfMsgExt( 'review-edit-diff', 'parseinline' ) . ' ' .
+						$this->msg( 'review-edit-diff' )->parse() . ' ' .
 						FlaggedRevsXML::diffToggle() .
 						"<div id='mw-fr-stablediff'>" .
 						$this->getFormattedDiff( $diffBody, '', $leftNote, $rightNote ) .
@@ -1000,12 +998,12 @@ class FlaggablePageView extends ContextSource {
 		$s = '';
 		# Only for pages manually made to be stable...
 		if ( $this->article->isPageLocked() ) {
-			$s = wfMsgExt( 'revreview-locked', 'parseinline' );
+			$s = $this->msg( 'revreview-locked' )->parse();
 			$s .= ' ' . FlaggedRevsXML::logDetailsToggle();
 			$s .= FlaggedRevsXML::stabilityLogExcerpt( $this->article );
 		# ...or unstable
 		} elseif ( $this->article->isPageUnlocked() ) {
-			$s = wfMsgExt( 'revreview-unlocked', 'parseinline' );
+			$s = $this->msg( 'revreview-unlocked' )->parse();
 			$s .= ' ' . FlaggedRevsXML::logDetailsToggle();
 			$s .= FlaggedRevsXML::stabilityLogExcerpt( $this->article );
 		}
@@ -1021,8 +1019,8 @@ class FlaggablePageView extends ContextSource {
 			$revsSince = $this->article->getPendingRevCount();
 			if ( $revsSince ) {
 				$s .= "<div class='flaggedrevs_editnotice plainlinks'>" .
-					wfMsgExt( 'revreview-pending-nosection', 'parseinline',
-						$srev->getRevId(), $revsSince ) . "</div>";
+					$this->msg( 'revreview-pending-nosection',
+						$srev->getRevId(), $revsSince )->parse() . "</div>";
 			}
 		}
 		return true;
@@ -1044,7 +1042,7 @@ class FlaggablePageView extends ContextSource {
 				Html::rawElement(
 					'span',
 					array( 'class' => 'plainlinks', 'id' => 'mw-fr-category-oldreviewed' ),
-					wfMsgExt( 'flaggedrevs-categoryview', 'parseinline', urlencode( $category ) )
+					$this->msg( 'flaggedrevs-categoryview', urlencode( $category ) )->parse()
 				)
 			);
 		}
@@ -1146,16 +1144,16 @@ class FlaggablePageView extends ContextSource {
 			$frev = $this->article->getStableRev();
 			if ( $frev && $frev->getRevId() == $this->article->getLatest() ) {
 				$this->out->prependHTML( "<span class='plainlinks'>" .
-					wfMsgExt( 'revreview-visibility-synced', 'parseinline',
-						$title->getPrefixedText() ) . "</span>" );
+					$this->msg( 'revreview-visibility-synced',
+						$title->getPrefixedText() )->parse() . "</span>" );
 			} elseif ( $frev ) {
 				$this->out->prependHTML( "<span class='plainlinks'>" .
-					wfMsgExt( 'revreview-visibility-outdated', 'parseinline',
-						$title->getPrefixedText() ) . "</span>" );
+					$this->msg( 'revreview-visibility-outdated',
+						$title->getPrefixedText() )->parse() . "</span>" );
 			} else {
 				$this->out->prependHTML( "<span class='plainlinks'>" .
-					wfMsgExt( 'revreview-visibility-nostable', 'parseinline',
-						$title->getPrefixedText() ) . "</span>" );
+					$this->msg( 'revreview-visibility-nostable',
+						$title->getPrefixedText() )->parse() . "</span>" );
 			}
 		}
 		return true;
@@ -1188,7 +1186,7 @@ class FlaggablePageView extends ContextSource {
 			// Add the tab
 			$actions['default'] = array(
 				'class' => false,
-				'text' => wfMsg( 'stabilization-tab' ),
+				'text' => $this->msg( 'stabilization-tab' )->text(),
 				'href' => $stableTitle->getLocalUrl( 'page=' . $title->getPrefixedUrl() )
 			);
 		}
@@ -1219,13 +1217,13 @@ class FlaggablePageView extends ContextSource {
 		// Set the edit tab names as needed...
 		if ( $pendingEdits ) {
 			if ( isset( $views['edit'] ) ) {
-				$views['edit']['text'] = wfMsg( 'revreview-edit' );
+				$views['edit']['text'] = $this->msg( 'revreview-edit' )->text();
 				if ( $this->showingStable() ) { // bug 31489; direct user to current
 					$views['edit']['href'] = $skin->getTitle()->getFullURL( 'action=edit' );
 				}
 			}
 			if ( isset( $views['viewsource'] ) ) {
-				$views['viewsource']['text'] = wfMsg( 'revreview-source' );
+				$views['viewsource']['text'] = $this->msg( 'revreview-source' )->text();
 				if ( $this->showingStable() ) { // bug 31489; direct user to current
 					$views['viewsource']['href'] = $skin->getTitle()->getFullURL( 'action=edit' );
 				}
@@ -1249,7 +1247,7 @@ class FlaggablePageView extends ContextSource {
 				'class' => ''
 			),
 			'draft' => array( // view draft
-				'text'  => wfMsg( 'revreview-current' ),
+				'text'  => $this->msg( 'revreview-current' )->text(),
 				'href'  => $title->getLocalUrl( 'stable=0&redirect=no' ),
 				'class' => 'collapsible'
 			),
@@ -1357,7 +1355,7 @@ class FlaggablePageView extends ContextSource {
 		$msg .= ( $revsSince == 0 ) ? '-i' : '';
 		# Add bar msg to the top of the page...
 		$css = 'flaggedrevs_preview plainlinks';
-		$msgHTML = wfMsgExt( $msg, 'parseinline', $srev->getRevId(), $time, $revsSince );
+		$msgHTML = $this->msg( $msg, $srev->getRevId(), $time, $revsSince )->parse();
 		$this->reviewNotice .= "<div id='mw-fr-reviewnotice' class='$css'>" .
 			"$msgHTML$diffToggle</div>";
 	}
@@ -1440,12 +1438,12 @@ class FlaggablePageView extends ContextSource {
 					} else {
 						$msg = 'revreview-update'; // generic "please review" notice...
 					}
-					$this->diffNoticeBox = wfMsgExt( $msg, 'parse' ); // add as part of form
+					$this->diffNoticeBox = $this->msg( $msg )->parseAsBlock(); // add as part of form
 				}
 				# Add include change list...
 				if ( count( $changeList ) ) { // just inclusion changes
 					$changeText .= "<p>" .
-						wfMsgExt( 'revreview-update-includes', 'parseinline' ) .
+						$this->msg( 'revreview-update-includes' )->parse() .
 						'&#160;' . implode( ', ', $changeList ) . "</p>\n";
 				}
 			}
@@ -1523,11 +1521,11 @@ class FlaggablePageView extends ContextSource {
 		if ( $article->revsArePending() && !$fullStableDiff ) {
 			$review = Linker::linkKnown(
 				$article->getTitle(),
-				wfMsgHtml( 'review-diff2stable' ),
+				wfMessage( 'review-diff2stable' )->escaped(),
 				array(),
 				array( 'oldid' => $srev->getRevId(), 'diff' => 'cur' ) + FlaggedRevs::diffOnlyCGI()
 			);
-			$review = wfMsgHtml( 'parentheses', $review );
+			$review = wfMessage( 'parentheses' )->rawParams( $review )->escaped();
 			$review = "<div class='fr-diff-to-stable' align='center'>$review</div>";
 		}
 		return $review;
@@ -1544,13 +1542,15 @@ class FlaggablePageView extends ContextSource {
 			list( $msg, $class ) = self::getDiffRevMsgAndClass( $oldRev, $srev );
 			$table .= "<table class='fr-diff-ratings'><tr>";
 			$table .= "<td width='50%' align='center'>";
+			// @todo i18n FIXME: Hard coded brackets
 			$table .= "<span class='$class'>[" .
-				wfMsgHtml( $msg ) . "]</span>";
+				wfMessage( $msg )->escaped() . "]</span>";
 
 			list( $msg, $class ) = self::getDiffRevMsgAndClass( $newRev, $srev );
 			$table .= "</td><td width='50%' align='center'>";
+			// @todo i18n FIXME: Hard coded brackets
 			$table .= "<span class='$class'>[" .
-				wfMsgHtml( $msg ) . "]</span>";
+				wfMessage( $msg )->escaped() . "]</span>";
 
 			$table .= "</td></tr></table>\n";
 		# New page "diffs" - just one rev
@@ -1558,7 +1558,8 @@ class FlaggablePageView extends ContextSource {
 			list( $msg, $class ) = self::getDiffRevMsgAndClass( $newRev, $srev );
 			$table .= "<table class='fr-diff-ratings'>";
 			$table .= "<tr><td align='center'><span class='$class'>";
-			$table .= '[' . wfMsgHtml( $msg ) . ']';
+			// @todo i18n FIXME: Hard coded brackets
+			$table .= '[' . wfMessage( $msg )->escaped() . ']';
 			$table .= "</span></td></tr></table>\n";
 		}
 		return $table;
@@ -1723,10 +1724,11 @@ class FlaggablePageView extends ContextSource {
 			$dom = new DOMDocument();
 			$dom->loadXML( $buttons['save'] ); // load button XML from hook
 			foreach ( $dom->getElementsByTagName( 'input' ) as $input ) { // one <input>
-				$input->setAttribute( 'value', wfMsg( 'revreview-submitedit' ) );
+				$input->setAttribute( 'value', $this->msg( 'revreview-submitedit' )->text() );
+				// @todo i18n FIXME: Hard coded brackets.
 				$input->setAttribute( 'title', // keep accesskey
-					wfMsgExt( 'revreview-submitedit-title', 'parsemag' ) .
-						' [' . wfMsg( 'accesskey-save' ) . ']' );
+					$this->msg( 'revreview-submitedit-title' )->text() .
+						' [' . $this->msg( 'accesskey-save' )->text() . ']' );
 				# Change submit button text & title
 				$buttons['save'] = $dom->saveXML( $dom->documentElement );
 			}
@@ -1819,17 +1821,17 @@ class FlaggablePageView extends ContextSource {
 				// For pending changes...
 				if ( $this->article->revsArePending() ) {
 					$n = $this->article->getPendingRevCount();
-					$attribs['title'] = wfMsg( 'revreview-check-flag-p-title' );
-					$labelMsg = wfMsgExt( 'revreview-check-flag-p', 'parseinline', $n );
+					$attribs['title'] = $this->msg( 'revreview-check-flag-p-title' )->text();
+					$labelMsg = $this->msg( 'revreview-check-flag-p', $n )->parse();
 				// For just the user's changes...
 				} else {
-					$attribs['title'] = wfMsgExt( 'revreview-check-flag-y-title', 'parsemag' );
-					$labelMsg = wfMsgExt( 'revreview-check-flag-y', 'parseinline' );
+					$attribs['title'] = $this->msg( 'revreview-check-flag-y-title' )->parse();
+					$labelMsg = $this->msg( 'revreview-check-flag-y' )->parse();
 				}
 			// For unreviewed pages...
 			} else {
-				$attribs['title'] = wfMsg( 'revreview-check-flag-u-title' );
-				$labelMsg = wfMsgExt( 'revreview-check-flag-u', 'parseinline' );
+				$attribs['title'] = $this->msg( 'revreview-check-flag-u-title' )->text();
+				$labelMsg = $this->msg( 'revreview-check-flag-u' )->parse();
 			}
 			$label = Xml::element( 'label', $attribs, $labelMsg );
 			$checkboxes['reviewed'] = $checkbox . '&#160;' . $label;

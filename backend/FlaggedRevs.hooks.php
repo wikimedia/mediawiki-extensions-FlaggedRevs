@@ -933,7 +933,7 @@ class FlaggedRevsHooks {
 		if ( $user->isAllowed( 'review' ) ) {
 			$key = $wgRequest->getSessionData( 'wsFlaggedRevsKey' );
 			if ( $key === null ) { // should catch login
-				$key = User::generateToken( $user->getId() );
+				$key = MWCryptRand::generateHex( 32 );
 				// Temporary secret key attached to this session
 				$wgRequest->setSessionData( 'wsFlaggedRevsKey', $key );
 			}

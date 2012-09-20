@@ -28,7 +28,7 @@ class StablePages extends SpecialPage {
 		global $wgScript;
 
 		$this->getOutput()->addWikiMsg( 'stablepages-list',
-			$this->getLang()->formatNum( $this->pager->getNumRows() ) );
+			$this->getLanguage()->formatNum( $this->pager->getNumRows() ) );
 
 		$fields = array();
 		// Namespace selector
@@ -39,15 +39,15 @@ class StablePages extends SpecialPage {
 		if ( FlaggedRevs::getRestrictionLevels() ) {
 			$fields[] = FlaggedRevsXML::getRestrictionFilterMenu( $this->autoreview );
 		}
-		$fields[] = Xml::checkLabel( wfMsg( 'stablepages-indef' ), 'indef',
+		$fields[] = Xml::checkLabel( $this->msg( 'stablepages-indef' )->text(), 'indef',
 			'stablepages-indef', $this->indef );
 
 		$form = Html::openElement( 'form',
 			array( 'name' => 'stablepages', 'action' => $wgScript, 'method' => 'get' ) );
 		$form .= Html::hidden( 'title', $this->getTitle()->getPrefixedDBKey() );
-		$form .= "<fieldset><legend>" . wfMsg( 'stablepages' ) . "</legend>\n";
+		$form .= "<fieldset><legend>" . $this->msg( 'stablepages' )->text() . "</legend>\n";
 		$form .= implode( '&#160;', $fields ) . '&nbsp';
-		$form .= " " . Xml::submitButton( wfMsg( 'go' ) );
+		$form .= " " . Xml::submitButton( $this->msg( 'go' )->text() );
 		$form .= "</fieldset>\n";
 		$form .= Html::closeElement( 'form' ) . "\n";
 
@@ -75,14 +75,15 @@ class StablePages extends SpecialPage {
 		$link = Linker::link( $title );
 		// Helpful utility links
 		$utilLinks = array();
-		$utilLinks[] = Linker::link( $title,
-			wfMsgHtml( 'stablepages-config' ),
+		$utilLinks[] = Linker::link(
+			$title,
+			$this->msg( 'stablepages-config' )->escaped(),
 			array(), array( 'action' => 'protect' ), 'known' );
 		$utilLinks[] = Linker::link( $title,
-			wfMsgHtml( 'history' ),
+			$this->msg( 'history' )->escaped(),
 			array(), array( 'action' => 'history' ), 'known' );
 		$utilLinks[] = Linker::link( SpecialPage::getTitleFor( 'Log', 'stable' ),
-			wfMsgHtml( 'stable-logpage' ),
+			$this->msg( 'stable-logpage' )->escaped(),
 			array(), array( 'page' => $title->getPrefixedText() ), 'known' );
 		// Autoreview/review restriction level
 		$restr = '';
@@ -92,16 +93,16 @@ class StablePages extends SpecialPage {
 		}
 		// When these configuration settings expire
 		if ( $row->fpc_expiry != 'infinity' && strlen( $row->fpc_expiry ) ) {
-			$expiry_description = " (" . wfMsgForContent(
+			$expiry_description = " (" . $this->msg(
 				'protect-expiring',
-				$this->getLang()->timeanddate( $row->fpc_expiry ),
-				$this->getLang()->date( $row->fpc_expiry ),
-				$this->getLang()->time( $row->fpc_expiry )
-			) . ")";
+				$this->getLanguage()->timeanddate( $row->fpc_expiry ),
+				$this->getLanguage()->date( $row->fpc_expiry ),
+				$this->getLanguage()->time( $row->fpc_expiry )
+			)->inContentLanguage()->text() . ")";
 		} else {
 			$expiry_description = "";
 		}
-		$utilLinks = $this->getLang()->pipeList( $utilLinks );
+		$utilLinks = $this->getLanguage()->pipeList( $utilLinks );
 		return "<li>{$link} ({$utilLinks}) {$restr}<i>{$expiry_description}</i></li>";
 	}
 }

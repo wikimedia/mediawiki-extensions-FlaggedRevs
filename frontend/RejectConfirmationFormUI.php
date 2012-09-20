@@ -60,7 +60,7 @@ class RejectConfirmationFormUI {
 			if ( $rev->getTextId() != $lastTextId ) { // skip null edits
 				$rejectIds[] = $rev->getId();
 				$rejectAuthors[] = $rev->isDeleted( Revision::DELETED_USER )
-					? wfMsg( 'rev-deleted-user' )
+					? wfMessage( 'rev-deleted-user' )->text()
 					: "[[{$contribs}/{$rev->getUserText()}|{$rev->getUserText()}]]";
 			}
 			$lastTextId = $rev->getTextId();
@@ -72,8 +72,8 @@ class RejectConfirmationFormUI {
 		}
 
 		// List of revisions being undone...
-		$form .= wfMsgExt( 'revreview-reject-text-list', 'parseinline',
-			$wgLang->formatNum( count( $rejectIds ) ), $oldRev->getTitle()->getPrefixedText() );
+		$form .= wfMessage( 'revreview-reject-text-list' )->numParams( $rejectIds )
+			->params( $oldRev->getTitle()->getPrefixedText() )->parse();
 		$form .= '<ul>';
 
 		$list = new RevisionList( RequestContext::getMain(), $oldRev->getTitle() );
@@ -88,37 +88,37 @@ class RejectConfirmationFormUI {
 		$form .= '</ul>';
 		if ( $newRev->isCurrent() ) {
 			// Revision this will revert to (when reverting the top X revs)...
-			$form .= wfMsgExt( 'revreview-reject-text-revto', 'parseinline',
+			$form .= wfMessage( 'revreview-reject-text-revto', 'parseinline',
 				$oldRev->getTitle()->getPrefixedDBKey(), $oldRev->getId(),
 				$wgLang->timeanddate( $oldRev->getTimestamp(), true )
-			);
+			)->text();
 		}
 
 		$comment = $this->form->getComment(); // convenience
 		// Determine the default edit summary...
 		$oldRevAuthor = $oldRev->isDeleted( Revision::DELETED_USER )
-			? wfMsg( 'rev-deleted-user' )
+			? wfMessage( 'rev-deleted-user' )->text()
 			: $oldRev->getUserText();
 		// NOTE: *-cur msg wording not safe for (unlikely) edit auto-merge
 		$msg = $newRev->isCurrent()
 			? 'revreview-reject-summary-cur' 
 			: 'revreview-reject-summary-old';
-		$defaultSummary = wfMsgExt( $msg, array( 'parsemag', 'content' ),
+		$defaultSummary = wfMessage( $msg,
 			$wgContLang->formatNum( count( $rejectIds ) ),
 			$wgContLang->listToText( $rejectAuthors ),
 			$oldRev->getId(),
-			$oldRevAuthor );
+			$oldRevAuthor )->inContentLanguage()->text();
 		// If the message is too big, then fallback to the shorter one
-		$colonSeparator = wfMsgForContent( 'colon-separator' );
+		$colonSeparator = wfMessage( 'colon-separator' )->text();
 		$maxLen = 255 - count( $colonSeparator ) - count( $comment );
 		if ( strlen( $defaultSummary ) > $maxLen ) {
 			$msg = $newRev->isCurrent()
 				? 'revreview-reject-summary-cur-short' 
 				: 'revreview-reject-summary-old-short';
-			$defaultSummary = wfMsgExt( $msg, array( 'parsemag', 'content' ),
+			$defaultSummary = wfMessage( $msg,
 				$wgContLang->formatNum( count( $rejectIds ) ),
 				$oldRev->getId(),
-				$oldRevAuthor );
+				$oldRevAuthor )->inContentLanguage()->text();
 		}
 		// Append any review comment...
 		if ( $comment != '' ) {
@@ -139,13 +139,13 @@ class RejectConfirmationFormUI {
 		$form .= Html::hidden( 'oldid', $this->form->getOldId() );
 		$form .= Html::hidden( 'refid', $this->form->getRefId() );
 		$form .= Html::hidden( 'target', $oldRev->getTitle()->getPrefixedDBKey() );
-		$form .= Html::hidden( 'wpEditToken', $this->form->getUser()->editToken() );
+		$form .= Html::hidden( 'wpEditToken', $this->form->getUser()->getEditToken() );
 		$form .= Html::hidden( 'changetime', $newRev->getTimestamp() );
-		$form .= Xml::inputLabel( wfMsg( 'revreview-reject-summary' ), 'wpReason',
+		$form .= Xml::inputLabel( wfMessage( 'revreview-reject-summary' )->text(), 'wpReason',
 			'wpReason', 120, $defaultSummary, array( 'maxlength' => 200 ) ) . "<br />";
-		$form .= Html::input( 'wpSubmit', wfMsg( 'revreview-reject-confirm' ), 'submit' );
+		$form .= Html::input( 'wpSubmit', wfMessage( 'revreview-reject-confirm' )->text(), 'submit' );
 		$form .= ' ';
-		$form .= Linker::link( $this->form->getPage(), wfMsg( 'revreview-reject-cancel' ),
+		$form .= Linker::link( $this->form->getPage(), wfMessage( 'revreview-reject-cancel' )->text(),
 			array( 'onClick' => 'history.back(); return history.length <= 1;' ),
 			array( 'oldid' => $this->form->getRefId(), 'diff' => $this->form->getOldId() ) );
 		$form .= Xml::closeElement( 'form' );

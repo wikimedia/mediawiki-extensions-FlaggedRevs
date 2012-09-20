@@ -129,7 +129,7 @@ class RevisionReviewFormUI {
 		# Add appropriate legend text
 		$legendMsg = $frev ? 'revreview-reflag' : 'revreview-flag';
 		$form .= Xml::openElement( 'legend', array( 'id' => 'mw-fr-reviewformlegend' ) );
-		$form .= "<strong>" . wfMsgHtml( $legendMsg ) . "</strong>";
+		$form .= "<strong>" . wfMessage( $legendMsg )->escaped() . "</strong>";
 		$form .= Xml::closeElement( 'legend' ) . "\n";
 		# Show explanatory text
 		$form .= $this->topNotice;
@@ -149,8 +149,8 @@ class RevisionReviewFormUI {
 			$msg = $priorRevId
 				? 'revreview-poss-conflict-c'
 				: 'revreview-poss-conflict-p';
-			$form .= wfMsgExt( $msg, 'parseinline',
-				$u, $wgLang->date( $ts, true ), $wgLang->time( $ts, true ) );
+			$form .= wfMessage( $msg, $u, $wgLang->date( $ts, true ), $wgLang->time( $ts, true ) )
+				->parse();
 			$form .= "</span>";
 		// Page not under review or under review by this user...
 		} elseif ( !$frev ) { // rev not already reviewed
@@ -179,7 +179,7 @@ class RevisionReviewFormUI {
 		# Hide comment input if needed
 		if ( !$disabled ) {
 			$form .= Xml::inputLabel(
-				wfMsg( 'revreview-log' ), 'wpReason', 'mw-fr-commentbox', 40, '',
+				wfMessage( 'revreview-log' )->text(), 'wpReason', 'mw-fr-commentbox', 40, '',
 				array( 'maxlength' => 255, 'class' => 'fr-comment-box' )
 			);
 		}
@@ -325,7 +325,7 @@ class RevisionReviewFormUI {
 					$i = $minLevel;
 					$attribs = array( 'class' => "fr-rating-option-$i" );
 					$attribs = $attribs + array( 'value' => $i );
-					$item .= Xml::checkLabel( wfMsg( 'revreview-' . $levels[$i] ),
+					$item .= Xml::checkLabel( wfMessage( 'revreview-' . $levels[$i] )->text(),
 						"wp$quality", "wp$quality", ( $selected == $i ), $attribs ) . "\n";
 				}
 				$items[] = $item;
@@ -384,34 +384,34 @@ class RevisionReviewFormUI {
 			$applicable = true; // tags might change
 			$needsChange = ( $frev && !$reviewIncludes );
 		}
-		$s = Xml::submitButton( wfMsgHtml( 'revreview-submit-review' ),
+		$s = Xml::submitButton( wfMessage( 'revreview-submit-review' )->escaped(),
 			array(
 				'name'      => 'wpApprove',
 				'id'        => 'mw-fr-submit-accept',
-				'accesskey' => wfMsg( 'revreview-ak-review' ),
-				'title'     => wfMsg( 'revreview-tt-flag' ) . ' [' .
-					wfMsg( 'revreview-ak-review' ) . ']'
+				'accesskey' => wfMessage( 'revreview-ak-review' )->text(),
+				'title'     => wfMessage( 'revreview-tt-flag' )->text() . ' [' .
+					wfMessage( 'revreview-ak-review' )->text() . ']'
 			) + ( ( $disabled || !$applicable ) ? $disAttrib : array() )
 		);
 		# REJECT BUTTON: revert from a pending revision to the stable
 		if ( $rejectId ) {
 			$s .= ' ';
-			$s .= Xml::submitButton( wfMsgHtml( 'revreview-submit-reject' ),
+			$s .= Xml::submitButton( wfMessage( 'revreview-submit-reject' )->escaped(),
 				array(
 					'name'  => 'wpReject',
 					'id'    => 'mw-fr-submit-reject',
-					'title' => wfMsg( 'revreview-tt-reject' ),
+					'title' => wfMessage( 'revreview-tt-reject' )->text(),
 				) + ( $disabled ? $disAttrib : array() )
 			);
 		}
 		# UNACCEPT BUTTON: revoke a revisions acceptance
 		# Hide if revision is not flagged
 		$s .= ' ';
-		$s .= Xml::submitButton( wfMsgHtml( 'revreview-submit-unreview' ),
+		$s .= Xml::submitButton( wfMessage( 'revreview-submit-unreview' )->escaped(),
 			array(
 				'name'  => 'wpUnapprove',
 				'id'    => 'mw-fr-submit-unaccept',
-				'title' => wfMsg( 'revreview-tt-unflag' ),
+				'title' => wfMessage( 'revreview-tt-unflag' )->text(),
 				'style' => $frev ? '' : 'display:none'
 			) + ( $disabled ? $disAttrib : array() )
 		) . "\n";

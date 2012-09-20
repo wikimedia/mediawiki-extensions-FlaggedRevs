@@ -117,7 +117,7 @@ class FlagProtectToSemiProtect extends Maintenance {
 				
 				$db->begin();
 				$article = new WikiPage( $title );
-				$ok = $article->updateRestrictions( $limit, $reason, $cascade, $expiry, $user );
+				$ok = $article->doUpdateRestrictions( $limit, $reason, $cascade, $expiry, $user );
 				if ( $ok ) {
 					$count++;
 				} else {

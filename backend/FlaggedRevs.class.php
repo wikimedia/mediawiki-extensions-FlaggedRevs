@@ -322,7 +322,7 @@ class FlaggedRevs {
 	 * @return string
 	 */
 	public static function getTagMsg( $tag ) {
-		return wfMsgExt( "revreview-$tag", array( 'escapenoentities' ) );
+		return wfMessage( "revreview-$tag" )->escaped();
 	}
 
 	/**
@@ -350,8 +350,7 @@ class FlaggedRevs {
 			return '';
 		}
 		# Return empty string if not there
-		return wfMsgExt( 'revreview-' . self::$dimensions[$tag][$value],
-			array( 'escapenoentities' ) );
+		return wfMessage( 'revreview-' . self::$dimensions[$tag][$value] )->escaped();
 	}
 
 	/**
@@ -387,7 +386,7 @@ class FlaggedRevs {
 	 * @return array
 	 */
 	public static function diffOnlyCGI() {
-		$val = trim( wfMsgForContent( 'flaggedrevs-diffonly' ) );
+		$val = trim( wfMessage( 'flaggedrevs-diffonly' )->inContentLanguage()->text() );
 		if ( strpos( $val, '&diffonly=1' ) !== false ) {
 			return array( 'diffonly' => 1 );
 		} elseif ( strpos( $val, '&diffonly=0' ) !== false ) {

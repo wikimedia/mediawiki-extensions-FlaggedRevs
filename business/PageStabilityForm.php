@@ -111,7 +111,8 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 			$comment = $this->reasonSelection; // start with dropdown reason
 			if ( $this->reasonExtra != '' ) {
 				# Append custom reason
-				$comment .= wfMsgForContent( 'colon-separator' ) . $this->reasonExtra;
+				$comment .= wfMessage( 'colon-separator' )->inContentLanguage()->text() .
+					$this->reasonExtra;
 			}
 		} else {
 			$comment = $this->reasonExtra; // just use custom reason
@@ -287,9 +288,9 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 			$settings = FlaggedRevsLogView::stabilitySettings( $params, true /*content*/ );
 		}
 		$comment = $wgContLang->ucfirst(
-			wfMsgForContent( $type, $this->page->getPrefixedText() ) ); // action
+			wfMessage( $type, $this->page->getPrefixedText() )->inContentLanguage()->text() ); // action
 		if ( $reason != '' ) {
-			$comment .= wfMsgForContent( 'colon-separator' ) . $reason; // add reason
+			$comment .= wfMessage( 'colon-separator' )->inContentLanguage()->text() . $reason; // add reason
 		}
 		if ( $settings != '' ) {
 			$comment .= " {$settings}"; // add settings

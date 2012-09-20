@@ -75,7 +75,7 @@ class RevisionReview extends UnlistedSpecialPage {
 		if ( $request->wasPosted() ) {
 			// Check the edit token...
 			if ( !$confirmed ) {
-				$out->addWikiText( wfMsg( 'sessionfailure' ) );
+				$out->addWikiText( $this->msg( 'sessionfailure' )->text() );
 				$out->returnToMain( false, $this->page );
 				return;
 			}
@@ -89,7 +89,7 @@ class RevisionReview extends UnlistedSpecialPage {
 				// Failure...
 				} else {
 					if ( $status === 'review_page_unreviewable' ) {
-						$out->addWikiText( wfMsg( 'revreview-main' ) );
+						$out->addWikiText( $this->msg( 'revreview-main' )->text() );
 						return;
 					} elseif ( $status === 'review_page_notexists' ) {
 						$out->showErrorPage( 'internalerror', 'nopagetext' );
@@ -106,7 +106,7 @@ class RevisionReview extends UnlistedSpecialPage {
 				$status = $form->submit();
 				// Success...
 				if ( $status === true ) {
-					$out->setPageTitle( wfMsgHtml( 'actioncomplete' ) );
+					$out->setPageTitle( $this->msg( 'actioncomplete' ) );
 					if ( $form->getAction() === 'approve' ) {
 						$out->addHTML( $this->approvalSuccessHTML( true ) );
 					} elseif ( $form->getAction() === 'unapprove' ) {
@@ -117,21 +117,21 @@ class RevisionReview extends UnlistedSpecialPage {
 				// Failure...
 				} else {
 					if ( $status === 'review_page_unreviewable' ) {
-						$out->addWikiText( wfMsg( 'revreview-main' ) );
+						$out->addWikiText( $this->msg( 'revreview-main' )->text() );
 						return;
 					} elseif ( $status === 'review_page_notexists' ) {
 						$out->showErrorPage( 'internalerror', 'nopagetext' );
 						return;
 					} elseif ( $status === 'review_denied' ) {
-						$out->permissionRequired( 'badaccess-group0' ); // protected?
+						throw new PermissionsError( 'badaccess-group0' ); // protected?
 					} elseif ( $status === 'review_bad_key' ) {
-						$out->permissionRequired( 'badaccess-group0' ); // fiddling
+						throw new PermissionsError( 'badaccess-group0' ); // fiddling
 					} elseif ( $status === 'review_bad_oldid' ) {
 						$out->showErrorPage( 'internalerror', 'revreview-revnotfound' );
 					} elseif ( $status === 'review_not_flagged' ) {
 						$out->redirect( $this->page->getFullUrl() ); // already unflagged
 					} elseif ( $status === 'review_too_low' ) {
-						$out->addWikiText( wfMsg( 'revreview-toolow' ) );
+						$out->addWikiText( $this->msg( 'revreview-toolow' )->text() );
 					} else {
 						$out->showErrorPage( 'internalerror', $status );
 					}
@@ -148,10 +148,10 @@ class RevisionReview extends UnlistedSpecialPage {
 		$title = $this->form->getPage();
 		# Show success message
 		$s = "<div class='plainlinks'>";
-		$s .= wfMsgExt( 'revreview-successful', 'parse',
-			$title->getPrefixedText(), $title->getPrefixedUrl() );
-		$s .= wfMsgExt( 'revreview-stable1', 'parse',
-			$title->getPrefixedUrl(), $this->form->getOldId() );
+		$s .= $this->msg( 'revreview-successful',
+			$title->getPrefixedText(), $title->getPrefixedUrl() )->parseAsBlock();
+		$s .= $this->msg( 'revreview-stable1',
+			$title->getPrefixedUrl(), $this->form->getOldId() )->parseAsBlock();
 		$s .= "</div>";
 		# Handy links to special pages
 		if ( $showlinks && $this->getUser()->isAllowed( 'unreviewedpages' ) ) {
@@ -164,10 +164,10 @@ class RevisionReview extends UnlistedSpecialPage {
 		$title = $this->form->getPage();
 		# Show success message
 		$s = "<div class='plainlinks'>";
-		$s .= wfMsgExt( 'revreview-successful2', 'parse',
-			$title->getPrefixedText(), $title->getPrefixedUrl() );
-		$s .= wfMsgExt( 'revreview-stable2', 'parse',
-			$title->getPrefixedUrl(), $this->form->getOldId() );
+		$s .= $this->msg( 'revreview-successful2',
+			$title->getPrefixedText(), $title->getPrefixedUrl() )->parseAsBlock();
+		$s .= $this->msg( 'revreview-stable2',
+			$title->getPrefixedUrl(), $this->form->getOldId() )->parseAsBlock();
 		$s .= "</div>";
 		# Handy links to special pages
 		if ( $showlinks && $this->getUser()->isAllowed( 'unreviewedpages' ) ) {
@@ -177,12 +177,12 @@ class RevisionReview extends UnlistedSpecialPage {
 	}
 
 	protected function getSpecialLinks() {
-		$s = '<p>' . wfMsgHtml( 'returnto',
+		$s = '<p>' . $this->msg( 'returnto' )->rawParams(
 			Linker::linkKnown( SpecialPage::getTitleFor( 'UnreviewedPages' ) )
-		) . '</p>';
-		$s .= '<p>' . wfMsgHtml( 'returnto',
+		)->escaped() . '</p>';
+		$s .= '<p>' . $this->msg( 'returnto' )->rawParams(
 			Linker::linkKnown( SpecialPage::getTitleFor( 'PendingChanges' ) )
-		) . '</p>';
+		)->escaped() . '</p>';
 		return $s;
 	}
 
@@ -191,8 +191,8 @@ class RevisionReview extends UnlistedSpecialPage {
 
 		$args = func_get_args();
 		if ( wfReadOnly() ) {
-			return '<err#>' . wfMsgExt( 'revreview-failed', 'parseinline' ) .
-				wfMsgExt( 'revreview-submission-invalid', 'parseinline' );
+			return '<err#>' . wfMessage( 'revreview-failed' )->parse() .
+				wfMessage( 'revreview-submission-invalid' )->parse();
 		}
 		$tags = FlaggedRevs::getTags();
 		// Make review interface object
@@ -204,8 +204,8 @@ class RevisionReview extends UnlistedSpecialPage {
 		foreach ( $args as $arg ) {
 			$set = explode( '|', $arg, 2 );
 			if ( count( $set ) != 2 ) {
-				return '<err#>' . wfMsgExt( 'revreview-failed', 'parseinline' ) .
-					wfMsgExt( 'revreview-submission-invalid', 'parseinline' );
+				return '<err#>' . wfMessage( 'revreview-failed' )->parse() .
+					wfMessage( 'revreview-submission-invalid' )->parse();
 			}
 			list( $par, $val ) = $set;
 			switch( $par )
@@ -259,7 +259,7 @@ class RevisionReview extends UnlistedSpecialPage {
 		}
 		# Valid target title?
 		if ( !$title ) {
-			return '<err#>' . wfMsgExt( 'notargettext', 'parseinline' );
+			return '<err#>' . wfMessage( 'notargettext' )->parse();
 		}
 		$form->setPage( $title );
 		$form->setSessionKey( $wgRequest->getSessionData( 'wsFlaggedRevsKey' ) );
@@ -267,7 +267,7 @@ class RevisionReview extends UnlistedSpecialPage {
 		$status = $form->ready(); // all params loaded
 		# Check session via user token
 		if ( !$wgUser->matchEditToken( $editToken ) ) {
-			return '<err#>' . wfMsgExt( 'sessionfailure', 'parseinline' );
+			return '<err#>' . wfMessage( 'sessionfailure' )->parse();
 		}
 		# Basic permission checks...
 		$permErrors = $title->getUserPermissionsErrors( 'review', $wgUser, false );
@@ -291,8 +291,8 @@ class RevisionReview extends UnlistedSpecialPage {
 			}
 		# Failure...
 		} else {
-			return '<err#>' . wfMsgExt( 'revreview-failed', 'parse' ) .
-				'<p>' . wfMsgHtml( $status ) . '</p>';
+			return '<err#>' . wfMessage( 'revreview-failed' )->parseAsBlock() .
+				'<p>' . wfMessage( $status )->escaped() . '</p>';
 		}
 	}
 }
