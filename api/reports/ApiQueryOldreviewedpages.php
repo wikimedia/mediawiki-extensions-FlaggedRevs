@@ -41,7 +41,6 @@ class ApiQueryOldreviewedpages extends ApiQueryGeneratorBase {
 	}
 
 	private function run( $resultPageSet = null ) {
-		global $wgUser, $wgMemc;
 		$params = $this->extractRequestParams();
 
 		// Construct SQL Query
@@ -61,7 +60,7 @@ class ApiQueryOldreviewedpages extends ApiQueryGeneratorBase {
 				intval( $params['maxsize'] ) );
 		}
 		if ( $params['filterwatched'] == 'watched' ) {
-			if ( !( $uid = $wgUser->getId() ) ) {
+			if ( !( $uid = $this->getUser()->getId() ) ) {
 				$this->dieUsage( 'You must be logged-in to have a watchlist', 'notloggedin' );
 			}
 			$this->addTables( 'watchlist' );

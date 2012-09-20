@@ -4,6 +4,7 @@
  * @author Krinkle <krinklemail@gmail.com> 2011
  */
 ( function( $ ) {
+	"use strict";
 
 var fr = {
 	/* Dropdown collapse timer */

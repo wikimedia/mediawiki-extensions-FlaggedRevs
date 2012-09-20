@@ -4,6 +4,7 @@
  * @author Daniel Arnold 2008
  */
 ( function( $ ) {
+	"use strict";
 
 var fr = {
 	/* User is reviewing this page? */
@@ -21,7 +22,7 @@ var fr = {
 
 		// Disable 'accept' button if the revision was already reviewed.
 		// This is used so that they can be re-enabled if a rating changes.
-		if ( typeof( jsReviewNeedsChange ) != 'undefined' && jsReviewNeedsChange === 1 ) {
+		if ( typeof( jsReviewNeedsChange ) !== 'undefined' && jsReviewNeedsChange === 1 ) {
 			$( '#mw-fr-submit-accept' ).prop( 'disabled', 'disabled' );
 		}
 
@@ -70,7 +71,7 @@ var fr = {
 			var selectedlevel = 0; // default
 			if ( tagLevelSelect.prop( 'nodeName' ) === 'SELECT' ) {
 				selectedlevel = tagLevelSelect.prop( 'selectedIndex' );
-			} else if ( tagLevelSelect.prop( 'type' ) == 'checkbox' ) {
+			} else if ( tagLevelSelect.prop( 'type' ) === 'checkbox' ) {
 				selectedlevel = tagLevelSelect.prop( 'checked' ) ? 1 : 0;
 			} else if ( tagLevelSelect.prop( 'type' ) === 'radio' ) {
 				// Go through each radio option and find the selected one...
@@ -111,7 +112,7 @@ var fr = {
 		for ( var tag in wgFlaggedRevsParams.tags ) { // for each tag
 			var select = form.find( "[name='wp" + tag + "']" ).eq( 0 );
 			// Look for a selector for this tag
-			if ( select.length && select.prop( 'nodeName' ) == 'SELECT' ) {
+			if ( select.length && select.prop( 'nodeName' ) === 'SELECT' ) {
 				var selectedlevel = select.prop( 'selectedIndex' );
 				var value = select.children( 'option' ).eq( selectedlevel ).val();
 				select.prop( 'className', 'fr-rating-option-' + value );
@@ -301,7 +302,7 @@ var fr = {
 			window.scroll( 0, 0 ); // scroll up to notice
 		}
 		// Update changetime for conflict handling
-		if ( changeTime != null ) {
+		if ( changeTime !== null ) {
 			$( '#mw-fr-input-changetime' ).val( changeTime );
 		}
 		fr.unlockReviewForm( form );
@@ -332,9 +333,9 @@ var fr = {
 			}
 		}
 		// Build notice to say that user is advertising...
-		var msgkey = $('#mw-fr-input-refid').length
-			? 'revreview-adv-reviewing-c' // diff
-			: 'revreview-adv-reviewing-p'; // page
+		var msgkey = $('#mw-fr-input-refid').length ?
+			'revreview-adv-reviewing-c' : // diff
+			'revreview-adv-reviewing-p'; // page
 		var $underReview = $(
 			'<span class="fr-under-review">' + mw.message( msgkey ).escaped() + '</span>' );
 		// Update notice to say that user is advertising...
@@ -358,9 +359,9 @@ var fr = {
 			}
 		}
 		// Build notice to say that user is not advertising...
-		var msgkey = $('#mw-fr-input-refid').length
-			? 'revreview-sadv-reviewing-c' // diff
-			: 'revreview-sadv-reviewing-p'; // page
+		var msgkey = $('#mw-fr-input-refid').length ?
+			'revreview-sadv-reviewing-c' : // diff
+			'revreview-sadv-reviewing-p'; // page
 		var $underReview = $(
 			'<span class="fr-make-under-review">' +
 			mw.message( msgkey )
@@ -380,11 +381,13 @@ var fr = {
 	 * Set reviewing status for this page/diff
 	 */
 	'setReviewingStatus': function( value ) {
-		var res = false;
-		// Get {previd,oldid} array for this page view.
-		// The previd value will be 0 if this is not a diff view.
-		var oRevId = $('#mw-fr-input-refid') ? $('#mw-fr-input-refid').val() : 0;
-		var nRevId = $('#mw-fr-input-oldid') ? $('#mw-fr-input-oldid').val() : 0;
+		var res = false,
+			// Get {previd,oldid} array for this page view.
+			// The previd value will be 0 if this is not a diff view.
+			inputRefId = $('#mw-fr-input-refid'),
+			oRevId = inputRefId ? inputRefId.val() : 0,
+			inputOldId = $('#mw-fr-input-oldid' ),
+			nRevId = inputOldId ? inputOldId.val() : 0;
 		if ( nRevId > 0 ) {
 			// Send GET request via AJAX!
 			var call = $.ajax({

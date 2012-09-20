@@ -86,7 +86,8 @@ class ApiReview extends ApiBase {
 			$form->setFileVersion( $fileParam );
 			$form->bypassValidationKey(); // always OK; uses current templates/files
 		}
-		$status = $form->ready(); // all params set
+
+		$form->ready(); // all params set
 
 		# Try to do the actual review
 		$status = $form->submit();

@@ -1,8 +1,13 @@
 <?php
 
 class FlaggedRevsLogView {
-	/** 
+	/**
 	 * Add setting change description to log line
+	 * @param $type
+	 * @param $action
+	 * @param null $title
+	 * @param null $skin
+	 * @param array $params
 	 * @return string
 	 */
 	public static function stabilityLogText(

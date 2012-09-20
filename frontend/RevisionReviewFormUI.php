@@ -15,7 +15,7 @@ class RevisionReviewFormUI {
 
 	/**
 	 * Generates a brief review form for a page
-	 * @param RequestContext $context
+	 * @param \IContextSource|\RequestContext $context
 	 * @param FlaggableWikiPage $article
 	 * @param Revision $rev
 	 */
@@ -62,7 +62,8 @@ class RevisionReviewFormUI {
 
 	/**
 	 * Set the template/file version parameters of what the user is viewing
-	 * @param string $topNotice Text to
+	 * @param array $templateIDs
+	 * @param array $imageSHA1Keys
 	 */
 	public function setIncludeVersions( array $templateIDs, array $imageSHA1Keys ) {
 		$this->templateIDs = $templateIDs;
@@ -74,7 +75,7 @@ class RevisionReviewFormUI {
 	 * @return array (html string, error string or true)
 	 */
 	public function getHtml() {
-		global $wgOut, $wgLang, $wgParser, $wgEnableParserCache;
+		global $wgLang;
 		$revId = $this->rev->getId();
 		if ( $this->rev->isDeleted( Revision::DELETED_TEXT ) ) {
 			return array( '', 'review_bad_oldid' ); # The revision must be valid and public

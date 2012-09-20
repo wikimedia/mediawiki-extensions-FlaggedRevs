@@ -427,9 +427,9 @@ class FlaggablePageView extends ContextSource {
 	/**
 	 * Tag output function must be called by caller
 	 * Parser cache control deferred to caller
-	 * @param $srev stable version
-	 * @param $tag review box/bar info
-	 * @param $prot protection notice icon
+	 * @param FlaggedRevision $srev stable version
+	 * @param string $tag review box/bar info
+	 * @param string $prot protection notice icon
 	 * @return void
 	 */
 	protected function showDraftVersion( FlaggedRevision $srev, &$tag, $prot ) {
@@ -538,10 +538,9 @@ class FlaggablePageView extends ContextSource {
 	/**
 	 * Tag output function must be called by caller
 	 * Parser cache control deferred to caller
-	 * @param $srev stable version
-	 * @param $frev selected flagged revision
-	 * @param $tag review box/bar info
-	 * @param $prot protection notice icon
+	 * @param FlaggedRevision $frev selected flagged revision
+	 * @param string $tag review box/bar info
+	 * @param string $prot protection notice icon
 	 * @return ParserOutput
 	 */
 	protected function showOldReviewedVersion( FlaggedRevision $frev, &$tag, $prot ) {
@@ -617,9 +616,9 @@ class FlaggablePageView extends ContextSource {
 	/**
 	 * Tag output function must be called by caller
 	 * Parser cache control deferred to caller
-	 * @param $srev stable version
-	 * @param $tag review box/bar info
-	 * @param $prot protection notice
+	 * @param \FlaggedRevision|\stable $srev stable version
+	 * @param string $tag review box/bar info
+	 * @param string $prot protection notice
 	 * @return ParserOutput
 	 */
 	protected function showStableVersion( FlaggedRevision $srev, &$tag, $prot ) {
@@ -1054,6 +1053,7 @@ class FlaggablePageView extends ContextSource {
 	 * If $output is an OutputPage then this prepends the form onto it.
 	 * If $output is a string then this appends the review form to it.
 	 * @param mixed string|OutputPage
+	 * @return bool
 	 */
 	public function addReviewForm( &$output ) {
 		$request = $this->getRequest();
@@ -1195,7 +1195,10 @@ class FlaggablePageView extends ContextSource {
 
 	/**
 	 * Modify an array of tab links to include flagged revs UI elements
+	 * @param Skin $skin
+	 * @param array $views
 	 * @param string $type ('flat' for SkinTemplateTabs, 'nav' for SkinTemplateNavigation)
+	 * @return bool
 	 */
 	public function setViewTabs( Skin $skin, array &$views, $type ) {
 		$this->load();
@@ -1395,7 +1398,6 @@ class FlaggablePageView extends ContextSource {
 			&& !$this->article->stableVersionIsSynced() ) // pending changes
 		{
 			$changeText = '';
-			$changeList = array();
 			# Page not synced only due to includes?
 			if ( !$this->article->revsArePending() ) {
 				# Add a list of links to each changed template...
@@ -1856,6 +1858,8 @@ class FlaggablePageView extends ContextSource {
 	/**
 	 * Guess the rev ID the text of this form is based off
 	 * Note: baseRevId trusted for Reviewers - check text for others.
+	 * @param EditPage $editPage
+	 * @param WebRequest $request
 	 * @return int
 	 */
 	protected static function getBaseRevId( EditPage $editPage, WebRequest $request ) {

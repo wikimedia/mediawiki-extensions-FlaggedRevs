@@ -481,7 +481,7 @@ Shows as the "save page" button on pages with a stable version where the user la
 {{Gender}}
 Attribute title for the "save page" button for pages with a stable version where the user lacks review and automatic review rights.',
 	'revreview-edited' => '{{Flagged Revs-small}}
-If an anonymous user edits a stable page, after saving the page he sees the draft version (<tt>stable=0</tt> in page title) he has made.
+If an anonymous user edits a stable page, after saving the page he sees the draft version <code>stable=0</code> in page title) he has made.
 
 {{Identical|Authorised user}}',
 	'revreview-edited-section' => '{{Flagged Revs}}
@@ -720,7 +720,7 @@ Shown in the "flagged revs box". This shows on pages were edits don\'t require r
 	'log-show-hide-review' => '{{Flagged Revs}}
 * $1 is one of {{msg|show}} or {{msg|hide}}',
 	'validationpage' => "{{Flagged Revs-small}}
-Link to the general help page. Do ''not'' translate the <tt><nowiki>{{ns:help}}:</nowiki></tt> part, including the colon.",
+Link to the general help page. Do ''not'' translate the <code><nowiki>{{ns:help}}:</nowiki></code> part, including the colon.",
 );
 
 /** Afrikaans (Afrikaans)

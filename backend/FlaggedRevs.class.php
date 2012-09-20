@@ -126,6 +126,8 @@ class FlaggedRevs {
 				: self::$autoReviewConfig & ~FR_AUTOREVIEW_CREATION;
 			wfWarn( '$wgFlaggedRevsAutoReviewNew is deprecated; use $wgFlaggedRevsAutoReview.' );
 		}
+
+		return true;
 	}
 
 	# ################ Basic config accessors #################
@@ -582,6 +584,7 @@ class FlaggedRevs {
 	/**
 	 * Check that ParserOutput object has file/template versions
 	 * Note that ParserOutput::mImageTimeKeys wasn't always there
+	 * @param ParserOutput $pOut
 	 * @return bool
 	 */
 	public static function parserOutputIsVersioned( ParserOutput $pOut ) {
@@ -654,7 +657,7 @@ class FlaggedRevs {
 
 	/**
 	 * @param Page $article
-	 * @param parserOutput $parserOut
+	 * @param parserOutput $stableOut
 	 * Updates the stable-only cache dependency table
 	 */
 	public static function updateStableOnlyDeps( Page $article, ParserOutput $stableOut ) {
@@ -688,7 +691,6 @@ class FlaggedRevs {
 	 * Do cache updates for when the stable version of a page changed.
 	 * Invalidates/purges pages that include the given page.
 	 * @param Title $title
-	 * @param bool $recursive
 	 */
 	public static function HTMLCacheUpdates( Title $title ) {
 		global $wgDeferredUpdateList;
@@ -747,9 +749,9 @@ class FlaggedRevs {
 
 	/**
 	 * Return memc value if not expired
-	 * @param object|false $data makeMemcObj() tuple
+	 * @param object|bool $data makeMemcObj() tuple
 	 * @param Page $article
-	 * @param $allowStale Use 'allowStale' to skip page_touched check
+	 * @param string $allowStale Use 'allowStale' to skip page_touched check
 	 * @return mixed
 	 */
 	public static function getMemcValue( $data, Page $article, $allowStale = '' ) {

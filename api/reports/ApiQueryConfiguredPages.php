@@ -136,7 +136,6 @@ class ApiQueryConfiguredpages extends ApiQueryGeneratorBase {
 	}
 
 	public function getAllowedParams() {
-		$namespaces = FlaggedRevs::getReviewNamespaces();
 		// Replace '' with more readable 'none' in autoreview restiction levels
 		$autoreviewLevels = FlaggedRevs::getRestrictionLevels();
 		$autoreviewLevels[] = 'none';

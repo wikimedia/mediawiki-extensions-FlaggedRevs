@@ -7,7 +7,7 @@ class FRUserCounters {
 	 * Get params for a user ID
 	 * @param int $uid
 	 * @param int $flags FR_MASTER, FR_FOR_UPDATE
-	 * @param string $dBName, optional wiki name
+	 * @param bool|string $dBName optional wiki name
 	 * @return array
 	 */
 	public static function getUserParams( $uid, $flags = 0, $dBName = false ) {
@@ -37,7 +37,7 @@ class FRUserCounters {
 
 	/**
 	 * Initializes unset param fields to their starting values
-	 * @param &array $p
+	 * @param array $p
 	 */
 	protected static function setUnitializedFields( array &$p ) {
 		if ( !isset( $p['uniqueContentPages'] ) ) {
@@ -58,7 +58,7 @@ class FRUserCounters {
 	 * Get the params row for a user
 	 * @param int $uid
 	 * @param int $flags FR_MASTER, FR_FOR_UPDATE
-	 * @param string $dBName, optional wiki name
+	 * @param bool|string $dBName optional wiki name
 	 * @return mixed (false or Row)
 	 */
 	protected static function fetchParamsRow( $uid, $flags = 0, $dBName = false ) {
@@ -81,7 +81,7 @@ class FRUserCounters {
 	 * Save params for a user
 	 * @param int $uid
 	 * @param array $params
-	 * @param string $dBName, optional wiki name
+	 * @param bool|string $dBName optional wiki name
 	 * @return bool success
 	 */
 	public static function saveUserParams( $uid, array $params, $dBName = false ) {
@@ -114,6 +114,7 @@ class FRUserCounters {
 	 * Flatten params for a user for DB storage
 	 * Note: param values must be integers
 	 * @param array $params
+	 * @throws MWException
 	 * @return string
 	 */
 	protected static function flattenParams( array $params ) {
@@ -158,7 +159,7 @@ class FRUserCounters {
 
 	/**
 	 * Update users params array for a user on edit
-	 * @param &array $p user params
+	 * @param array $p user params
 	 * @param Page $article the article just edited
 	 * @param string $summary edit summary
 	 * @return bool anything changed

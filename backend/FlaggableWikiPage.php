@@ -45,7 +45,7 @@ class FlaggableWikiPage extends WikiPage {
 
 	/**
 	 * Get the current file version (null if this not a File page)
-	 * @return File|null|false
+	 * @return File|null|bool false
 	 */
 	public function getFile() {
 		if ( $this->file === null && $this->mTitle->getNamespace() == NS_FILE ) {
@@ -337,7 +337,7 @@ class FlaggableWikiPage extends WikiPage {
 	 * Fetch a page record with the given conditions
 	 * @param $dbr Database object
 	 * @param $conditions Array
-	 * @params $options Array
+	 * @param array $options
 	 * @return mixed Database result resource, or false on failure
 	 */
 	protected function pageData( $dbr, $conditions, $options = array() ) {
@@ -359,7 +359,7 @@ class FlaggableWikiPage extends WikiPage {
 
 	/**
 	 * Set the page field data loaded from some source
-	 * @param $data Database row object or "fromdb"
+	 * @param \Database|string $data Database row object or "fromdb"
 	 * @return void
 	 */
 	public function loadPageData( $data = 'fromdb' ) {
@@ -482,8 +482,7 @@ class FlaggableWikiPage extends WikiPage {
 	/**
 	 * Updates the flaggedpage_pending table
 	 * @param int $pageId Page ID
-	 * @abstract int $latest Latest revision
-	 * @return void
+	 * @param int $latest Latest revision
 	 */
 	protected static function updatePendingList( $pageId, $latest ) {
 		$data = array();

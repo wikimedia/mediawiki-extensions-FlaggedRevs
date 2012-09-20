@@ -169,6 +169,8 @@ class ValidationStatistics extends IncludableSpecialPage {
 			$reviewChart .= "</table>\n";
 			$out->addHTML( $reviewChart );
 		}
+
+		return true;
 	}
 
 	protected function maybeUpdate() {

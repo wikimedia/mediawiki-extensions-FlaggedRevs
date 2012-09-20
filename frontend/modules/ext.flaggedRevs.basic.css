@@ -12,7 +12,7 @@ div.flaggedrevs_notice {
 	padding: 5px;
 	font-weight: normal;
 	line-height: 1.5em;
-	margin: .5em 1em 0em 0em;
+	margin: .5em 1em 0 0;
 	text-align: center;
 	clear: both;
 }
@@ -161,8 +161,8 @@ div.flaggedrevs_short_details {
 .fr-text {
 	height: 1em;
 	line-height: 1em;
-	margin: 0px 7px 0px 0px;
-	padding: 0px;
+	margin: 0 7px 0 0;
+	padding: 0;
 	font-weight: bold;
 	width: 80px;
 }

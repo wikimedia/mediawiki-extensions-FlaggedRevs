@@ -7,7 +7,7 @@ class FlaggedRevsStats {
 	 * Get FR-related stats at a designated snapshot in time.
 	 * If no $timestamp is specified, then the latest will be used.
 	 *
-	 * @param $timestamp string|false TS_ timestamp
+	 * @param $timestamp string|bool false TS_ timestamp
 	 * @return Array of current FR stats
 	 */
 	public static function getStats( $timestamp = false ) {
@@ -194,8 +194,9 @@ class FlaggedRevsStats {
 
 	/**
 	 * Get edit review time statistics (as recent as possible)
-	 * @param $dbcache Database cache object
+	 * @param $dbCache cache object
 	 * @param $users string "anons" or "users"
+	 * @throws MWException
 	 * @return Array associative
 	 */
 	private static function getEditReviewTimes( $dbCache, $users = 'anons' ) {
@@ -210,7 +211,7 @@ class FlaggedRevsStats {
 		if ( FlaggedRevs::useOnlyIfProtected() ) {
 			return $result; // disabled
 		}
-		$aveRT = $medianRT = 0;
+
 		$rPerTable = array(); // review wait percentiles
 		# Only go so far back...otherwise we will get garbage values due to
 		# the fact that FlaggedRevs wasn't enabled until after a while.
@@ -344,7 +345,6 @@ class FlaggedRevsStats {
 
 		$secondsR = 0; // total wait seconds for edits later reviewed
 		$secondsP = 0; // total wait seconds for edits still pending
-		$aveRT = $medianRT = 0;
 		$times = array();
 		if ( $dbr->numRows( $res ) ) {
 			# Get the elapsed times revs were pending (flagged time - edit time)

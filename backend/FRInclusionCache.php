@@ -59,8 +59,8 @@ class FRInclusionCache {
 					$rev->getText(),
 					$article->getTitle(), 
 					ParserOptions::newFromUser( $user ), // Note: tidy off
-					true, 
-					true, 
+					true,
+					true,
 					$rev->getId() 
 				);
 			}
@@ -117,8 +117,7 @@ class FRInclusionCache {
 	 * Set template and image versions from parsing a revision
 	 * @param Title $title
 	 * @param int $revId
-	 * @param ParserOutput $rev
-	 * @return void
+	 * @param ParserOutput $pOut
 	 */
 	public static function setRevIncludes( Title $title, $revId, ParserOutput $pOut ) {
 		global $wgMemc;

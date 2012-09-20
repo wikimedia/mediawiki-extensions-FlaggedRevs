@@ -4,7 +4,13 @@
  */
 class RevisionReviewForm extends FRGenericSubmitForm {
 	/* Form parameters which can be user given */
+	/*
+	 * @var Title $page
+	 */
 	protected $page = null;                 # Target Title obj
+	/*
+	 * @var Page $article
+	 */
 	protected $article = null;              # Target Page obj
 	protected $approve = false;             # Approval requested
 	protected $unapprove = false;           # De-approval requested
@@ -352,7 +358,8 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 	 * Adds or updates the flagged revision table for this page/id set
 	 * @param Revision $rev The revision to be accepted
 	 * @param FlaggedRevision $oldFrev Currently accepted version of $rev or null
-	 * @return true on success, array of errors on failure
+	 * @throws MWException
+	 * @return bool|array true on success, array of errors on failure
 	 */
 	private function approveRevision( Revision $rev, FlaggedRevision $oldFrev = null ) {
 		wfProfileIn( __METHOD__ );
@@ -442,6 +449,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 	/**
 	 * @param FlaggedRevision $frev
 	 * Removes flagged revision data for this page/id set
+	 * @return bool
 	 */
 	private function unapproveRevision( FlaggedRevision $frev ) {
 		wfProfileIn( __METHOD__ );

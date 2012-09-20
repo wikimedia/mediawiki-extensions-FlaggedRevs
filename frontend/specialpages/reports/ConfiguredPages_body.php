@@ -2,6 +2,9 @@
 
 // Assumes $wgFlaggedRevsProtection is off
 class ConfiguredPages extends SpecialPage {
+	/*
+	 * @var $pager ConfiguredPagesPager
+	 */
 	protected $pager = null;
 
 	public function __construct() {

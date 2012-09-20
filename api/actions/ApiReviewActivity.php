@@ -27,19 +27,18 @@
  * @ingroup FlaggedRevs
  */
 class ApiReviewActivity extends ApiBase {
-
 	/**
 	 * This function does essentially the same as RevisionReview::AjaxReview,
 	 * except that it generates the template and image parameters itself.
 	 */
 	public function execute() {
-		global $wgUser;
+		$user = $this->getUser();
 		$params = $this->extractRequestParams();
 		// Check basic permissions
-		if ( !$wgUser->isAllowed( 'review' ) ) {
+		if ( !$user->isAllowed( 'review' ) ) {
 			$this->dieUsage( "You don't have the right to review revisions.",
 				'permissiondenied' );
-		} elseif ( $wgUser->isBlocked( false ) ) {
+		} elseif ( $user->isBlocked( false ) ) {
 			$this->dieUsageMsg( array( 'blockedtext' ) );
 		}
 
@@ -54,7 +53,6 @@ class ApiReviewActivity extends ApiBase {
 			$this->dieUsage( "Provided page is not reviewable.", 'notreviewable' );
 		}
 
-		$status = false;
 		if ( $params['previd'] ) { // changes
 			$oldRev = Revision::newFromId( $params['previd'] );
 			if ( !$oldRev || $oldRev->getPage() != $newRev->getPage() ) {
@@ -63,19 +61,19 @@ class ApiReviewActivity extends ApiBase {
 			// Mark as reviewing...
 			if ( $params['reviewing'] ) {
 				$status = FRUserActivity::setUserReviewingDiff(
-					$wgUser, $params['previd'], $params['oldid'] );
+					$user, $params['previd'], $params['oldid'] );
 			// Unmark as reviewing...
 			} else {
 				$status = FRUserActivity::clearUserReviewingDiff(
-					$wgUser, $params['previd'], $params['oldid'] );
+					$user, $params['previd'], $params['oldid'] );
 			}
 		} else {
 			// Mark as reviewing...
 			if ( $params['reviewing'] ) {
-				$status = FRUserActivity::setUserReviewingPage( $wgUser, $newRev->getPage() );
+				$status = FRUserActivity::setUserReviewingPage( $user, $newRev->getPage() );
 			// Unmark as reviewing...
 			} else {
-				$status = FRUserActivity::clearUserReviewingPage( $wgUser, $newRev->getPage() );
+				$status = FRUserActivity::clearUserReviewingPage( $user, $newRev->getPage() );
 			}
 		}
 

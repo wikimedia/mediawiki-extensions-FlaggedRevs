@@ -46,6 +46,7 @@ abstract class FRGenericSubmitForm {
 
 	/**
 	 * Signal that inputs are all given (via accessors)
+	 * @throws MWException
 	 * @return mixed (true on success, error string on target failure)
 	 */
 	final public function ready() {
@@ -73,6 +74,7 @@ abstract class FRGenericSubmitForm {
 	 * Set a member field to a value if the fields are unlocked
 	 * @param mixed &$field Field of this form
 	 * @param mixed $value Value to set the field to
+	 * @throws MWException
 	 * @return void
 	 */
 	final protected function trySet( &$field, $value ) {
@@ -168,6 +170,7 @@ abstract class FRGenericSubmitForm {
 
 	/**
 	 * Submit the form parameters for the page config to the DB
+	 * @throws MWException
 	 * @return mixed (true on success, error string on failure)
 	 */
 	final public function submit() {

@@ -2,7 +2,7 @@
 
 class FlaggedRevsLog {
 	/**
-	 * $action is a valid review log action
+	 * @param string $action A valid review log action
 	 * @return bool
 	 */
 	public static function isReviewAction( $action ) {
@@ -10,7 +10,7 @@ class FlaggedRevsLog {
 	}
 
 	/**
-	 * $action is a valid stability log action
+	 * @param string $action A valid stability log action
 	 * @return bool
 	 */
 	public static function isStabilityAction( $action ) {
@@ -19,6 +19,7 @@ class FlaggedRevsLog {
 
 	/**
 	 * $action is a valid review log deprecate action
+	 * @param string $action
 	 * @return bool
 	 */
 	public static function isReviewDeapproval( $action ) {
@@ -94,7 +95,6 @@ class FlaggedRevsLog {
 	 * @param array $config
 	 * @param array $oldConfig
 	 * @param string $reason
-	 * @param bool $auto
 	 */
 	public static function updateStabilityLog(
 		Title $title, array $config, array $oldConfig, $reason
@@ -129,6 +129,7 @@ class FlaggedRevsLog {
 	/**
 	 * Collapse an associate array into a string
 	 * @param array $pars
+	 * @throws MWException
 	 * @return string
 	 */
 	public static function collapseParams( array $pars ) {
@@ -147,7 +148,7 @@ class FlaggedRevsLog {
 
 	/**
 	 * Expand a list of log params into an associative array
-	 * @params array $pars
+	 * @param array $pars
 	 * @return array (associative)
 	 */
 	public static function expandParams( array $pars ) {

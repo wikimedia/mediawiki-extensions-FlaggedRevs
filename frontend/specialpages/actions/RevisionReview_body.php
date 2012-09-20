@@ -264,7 +264,7 @@ class RevisionReview extends UnlistedSpecialPage {
 		$form->setPage( $title );
 		$form->setSessionKey( $wgRequest->getSessionData( 'wsFlaggedRevsKey' ) );
 
-		$status = $form->ready(); // all params loaded
+		$form->ready(); // all params loaded
 		# Check session via user token
 		if ( !$wgUser->matchEditToken( $editToken ) ) {
 			return '<err#>' . wfMessage( 'sessionfailure' )->parse();

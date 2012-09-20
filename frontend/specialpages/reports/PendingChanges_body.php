@@ -1,6 +1,9 @@
 <?php
 
 class PendingChanges extends SpecialPage {
+	/*
+	 * @var $pages PendingChangesPager
+	 */
 	protected $pager = null;
 
 	public function __construct() {

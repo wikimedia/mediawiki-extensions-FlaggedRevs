@@ -48,6 +48,7 @@ class FlaggedRevsUIHooks {
 	/**
 	 * Add FlaggedRevs css for relevant special pages.
 	 * @param OutputPage $out
+	 * @return bool
 	 */
 	protected static function injectStyleForSpecial( &$out ) {
 		$title = $out->getTitle();

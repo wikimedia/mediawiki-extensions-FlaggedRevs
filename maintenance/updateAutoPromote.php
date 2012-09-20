@@ -69,8 +69,8 @@ class UpdateFRAutoPromote extends Maintenance {
 					array( 'LIMIT' => max($wgFlaggedRevsAutopromote['uniqueContentPages'],50) )
 				);
 				$p['uniqueContentPages'] = array();
-				foreach ( $sres as $row ) {
-					$p['uniqueContentPages'][] = (int)$row->rev_page;
+				foreach ( $sres as $innerRow ) {
+					$p['uniqueContentPages'][] = (int)$innerRow->rev_page;
 				}
 				# Save the new params...
 				if ( $oldp != $p ) {

@@ -25,7 +25,8 @@ class FlaggedRevision {
 
 	/**
 	 * @param Row|array $row (DB row or array)
-	 * @return void
+	 * @throws MWException
+	 * @return \FlaggedRevision
 	 */
 	public function __construct( $row ) {
 		if ( is_object( $row ) ) {
@@ -761,7 +762,7 @@ class FlaggedRevision {
 	 *    (b) Current file exists and the "version used" was non-existing (created)
 	 *    (c) Current file doesn't exist and the "version used" existed (deleted)
 	 *
-	 * @param string $noForeign Using 'noForeign' skips foreign file updates (bug 15748)
+	 * @param bool|string $noForeign Using 'noForeign' skips foreign file updates (bug 15748)
 	 * @return array of (title, MW file timestamp in reviewed version, has stable rev) tuples
 	 */
 	public function findPendingFileChanges( $noForeign = false ) {
@@ -844,6 +845,7 @@ class FlaggedRevision {
 	 * version against a list of current versions of templates.
 	 * See findPendingTemplateChanges() for details.
 	 *
+	 * @param array $newTemplates
 	 * @return array of (title, rev ID in reviewed version, has stable rev) tuples
 	 */
 	public function findTemplateChanges( array $newTemplates ) {
@@ -879,7 +881,8 @@ class FlaggedRevision {
 	 * version against a list of current versions of files.
 	 * See findPendingFileChanges() for details.
 	 *
-	 * @param string $noForeign Using 'noForeign' skips foreign file updates (bug 15748)
+	 * @param array $newFiles
+	 * @param bool|string $noForeign Using 'noForeign' skips foreign file updates (bug 15748)
 	 * @return array of (title, MW file timestamp in reviewed version, has stable rev) tuples
 	 */
 	public function findFileChanges( array $newFiles, $noForeign = false ) {
@@ -909,7 +912,7 @@ class FlaggedRevision {
 
 	/**
 	 * @param int $rev_id
-	 * @param $flags FR_MASTER
+	 * @param \FR_MASTER|int $flags FR_MASTER
 	 * @return mixed (int or false)
 	 * Get quality of a revision
 	 */
@@ -925,7 +928,7 @@ class FlaggedRevision {
 
 	/**
 	 * @param int $rev_id
-	 * @param $flags FR_MASTER
+	 * @param \FR_MASTER|int $flags FR_MASTER
 	 * @return bool
 	 * Useful for quickly pinging to see if a revision is flagged
 	 */

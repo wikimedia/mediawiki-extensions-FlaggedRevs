@@ -41,7 +41,6 @@ class ApiQueryUnreviewedpages extends ApiQueryGeneratorBase {
 	}
 
 	private function run( $resultPageSet = null ) {
-		global $wgMemc;
 		$params = $this->extractRequestParams();
 
 		// Construct SQL Query

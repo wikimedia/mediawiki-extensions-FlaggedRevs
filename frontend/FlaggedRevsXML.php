@@ -188,7 +188,7 @@ class FlaggedRevsXML {
 
 	/**
 	 * @param array $flags
-	 * @param bool $prettybox
+	 * @param bool $prettyBox
 	 * @param string $css, class to wrap box in
 	 * @return string
 	 * Generates a review box/tag
@@ -224,10 +224,9 @@ class FlaggedRevsXML {
 
 	/**
 	 * @param FlaggedRevision $frev, the reviewed version
-	 * @param string $html, the short message HTML
+	 * @param string $shtml Short message HTML
 	 * @param int $revsSince, revisions since review
 	 * @param string $type (stable/draft/oldstable)
-	 * @param bool $stable, are we referring to the stable revision?
 	 * @param bool $synced, does stable=current and this is one of them?
 	 * @return string
 	 * Generates a review box using a table using FlaggedRevsXML::addTagRatings()
@@ -396,6 +395,8 @@ class FlaggedRevsXML {
 			return "<img class=\"flaggedrevs-icon\" src=\"$encPath/doc-check.png\"" .
 				" alt=\"$encTitle\" title=\"$encTitle\" />";
 		}
+
+		return '';
 	}
 
 	/*

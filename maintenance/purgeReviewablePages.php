@@ -102,8 +102,6 @@ class PurgeReviewablePages extends Maintenance {
 			return;
 		}
 
-		$db = wfGetDB( DB_MASTER );
-
 		$count = 0;
 		while ( !feof( $fileHandle ) ) {
 			$dbKey = trim( fgets( $fileHandle ) );

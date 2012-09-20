@@ -144,6 +144,7 @@ class FRPageConfig {
 	/**
 	 * Find what protection level a config is in
 	 * @param array $config
+	 * @throws MWException
 	 * @return string
 	 */
 	public static function getProtectionLevel( array $config ) {
@@ -170,6 +171,7 @@ class FRPageConfig {
 	/**
 	 * Check if an fpc_level value is valid
 	 * @param string $right
+	 * @return bool
 	 */
 	protected static function isValidRestriction( $right ) {
 		if ( $right == '' ) {

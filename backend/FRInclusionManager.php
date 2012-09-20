@@ -59,9 +59,9 @@ class FRInclusionManager {
 
 	/**
 	 * Clean up a template version array
-	 * @param array $tmpParams (ns => dbKey => revId )
+	 * @param array $params (ns => dbKey => revId )
 	 * @return array
-	 */	
+	 */
 	protected function formatTemplateArray( array $params ) {
 		$res = array();
 		foreach ( $params as $ns => $templates ) {
@@ -75,9 +75,9 @@ class FRInclusionManager {
 
 	/**
 	 * Clean up a file version array
-	 * @param array $imgParams (dbKey => array('time' => MW timestamp,'sha1' => sha1) )
+	 * @param array $params (dbKey => array('time' => MW timestamp,'sha1' => sha1) )
 	 * @return array
-	 */	
+	 */
 	protected function formatFileArray( array $params ) {
 		$res = array();
 		foreach ( $params as $dbKey => $timeKey ) {
@@ -124,6 +124,7 @@ class FRInclusionManager {
 	/**
 	 * Get the "review time" template version for parser
 	 * @param Title $title
+	 * @throws MWException
 	 * @return mixed (int/null)
 	 */
 	public function getReviewedTemplateVersion( Title $title ) {
@@ -141,6 +142,7 @@ class FRInclusionManager {
 	/**
 	 * Get the "review time" file version for parser
 	 * @param Title $title
+	 * @throws MWException
 	 * @return array (MW timestamp/'0'/null, sha1/''/null )
 	 */
 	public function getReviewedFileVersion( Title $title ) {

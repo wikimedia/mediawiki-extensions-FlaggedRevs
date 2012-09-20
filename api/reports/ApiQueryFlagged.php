@@ -27,7 +27,6 @@
  * @ingroup FlaggedRevs
  */
 class ApiQueryFlagged extends ApiQueryBase {
-
 	public function execute() {
 		$pageSet = $this->getPageSet();
 		$pageids = array_keys( $pageSet->getGoodTitles() );
@@ -55,6 +54,8 @@ class ApiQueryFlagged extends ApiQueryBase {
 			}
 			$result->addValue( array( 'query', 'pages', $row->fp_page_id ), 'flagged', $data );
 		}
+
+		return true;
 	}
 
 	public function getCacheMode( $params ) {
