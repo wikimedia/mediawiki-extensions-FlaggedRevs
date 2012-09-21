@@ -294,5 +294,7 @@ class RevisionReview extends UnlistedSpecialPage {
 			return '<err#>' . wfMessage( 'revreview-failed' )->parseAsBlock() .
 				'<p>' . wfMessage( $status )->escaped() . '</p>';
 		}
+
+		return '';
 	}
 }
