@@ -13,11 +13,10 @@ class FlaggedRevsLogView {
 		}
 		if ( $skin ) {
 			$titleLink = $skin->link( $title, $title->getPrefixedText() );
-			$text = wfMsgHtml( "stable-logentry-{$action}", $titleLink );
+			$text = wfMessage( "stable-logentry-{$action}", $titleLink )->escaped();
 		} else { // for content (e.g. IRC...)
-			$text = wfMsgExt( "stable-logentry-{$action}",
-				array( 'parsemag', 'escape', 'replaceafter', 'content' ),
-				$title->getPrefixedText() );
+			$text = wfMessage( "stable-logentry-{$action}" )
+				->rawParams( $title->getPrefixedText() )->inContentLanguage()->escaped();
 		}
 		$pars = FlaggedRevsLog::expandParams( $params ); // list -> assoc array
 		$details = self::stabilitySettings( $pars, !$skin ); // list of setting values
@@ -37,11 +36,11 @@ class FlaggedRevsLogView {
 		# Add history link showing edits right before the config change
 		$hist = Linker::link(
 			$title,
-			wfMsgHtml( 'hist' ),
+			wfMessage( 'hist' )->escaped(),
 			array(),
 			array( 'action' => 'history', 'offset' => $timestamp )
 		);
-		$hist = wfMsgHtml( 'parentheses', $hist );
+		$hist = wfMessage( 'parentheses' )->rawParams( $hist )->escaped();
 		return $hist;
 	}
 
@@ -56,20 +55,21 @@ class FlaggedRevsLogView {
 		global $wgLang, $wgContLang;
 		$set = array();
 		$settings = '';
-		$wfMsg = $forContent ? 'wfMsgForContent' : 'wfMsg';
 		$langObj = $forContent ? $wgContLang : $wgLang;
 		// Protection-based configs (precedence never changed)...
 		if ( !isset( $pars['precedence'] ) ) {
 			if ( isset( $pars['autoreview'] ) && strlen( $pars['autoreview'] ) ) {
-				$set[] = $wfMsg( 'stable-log-restriction', $pars['autoreview'] );
+				$set[] = wfMessage( 'stable-log-restriction', $pars['autoreview'] )->inLanguage(
+					$langObj )->text();
 			}
 		// General case...
 		} else {
 			// Default version shown on page view
 			if ( isset( $pars['override'] ) ) {
-				$set[] = $wfMsg( 'stabilization-def-short' ) .
-					$wfMsg( 'colon-separator' ) .
-					$wfMsg( 'stabilization-def-short-' . $pars['override'] );
+				$set[] = wfMessage( 'stabilization-def-short' )->inLanguage( $langObj )->text() .
+					wfMessage( 'colon-separator' )->inLanguage( $langObj )->text() .
+					wfMessage( 'stabilization-def-short-' . $pars['override'] )
+						->inLanguage( $langObj )->text();
 			}
 			// Autoreview restriction
 			if ( isset( $pars['autoreview'] ) && strlen( $pars['autoreview'] ) ) {
@@ -81,13 +81,13 @@ class FlaggedRevsLogView {
 		}
 		# Expiry is a MW timestamp or 'infinity'
 		if ( isset( $pars['expiry'] ) && $pars['expiry'] != 'infinity' ) {
-			$expiry_description = $wfMsg( 'stabilize-expiring',
+			$expiry_description = wfMessage( 'stabilize-expiring',
 				$langObj->timeanddate( $pars['expiry'], false, false ) ,
 				$langObj->date( $pars['expiry'], false, false ) ,
 				$langObj->time( $pars['expiry'], false, false )
-			);
+			)->inLanguage( $langObj )->text();
 			if ( $settings != '' ) $settings .= ' ';
-			$settings .= $wfMsg( 'parentheses', $expiry_description );
+			$settings .= wfMessage( 'parentheses', $expiry_description )->inLanguage( $langObj )->text();
 		}
 		return htmlspecialchars( $settings );
 	}
@@ -111,7 +111,7 @@ class FlaggedRevsLogView {
 				$links .= '(';
 				$links .= Linker::linkKnown(
 					$title,
-					wfMsgHtml( $msg ),
+					wfMessage( $msg )->escaped(),
 					array(),
 					array( 'oldid' => $oldStable, 'diff' => $revId )
 				);
@@ -125,7 +125,7 @@ class FlaggedRevsLogView {
 			$links .= ' (';
 			$links .= Linker::linkKnown(
 				$title,
-				wfMsgHtml( 'review-logentry-id', $revId, $time ),
+				wfMessage( 'review-logentry-id', $revId, $time )->escaped(),
 				array(),
 				array( 'oldid' => $revId, 'diff' => 'prev' ) + FlaggedRevs::diffOnlyCGI()
 			);

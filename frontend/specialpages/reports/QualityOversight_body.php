@@ -46,7 +46,7 @@ class QualityOversight extends SpecialPage {
 
 		# Explanatory text
 		$out->addWikiMsg( 'qualityoversight-list',
-			$this->getLang()->formatNum( $pager->getNumRows() ) );
+			$this->getLanguage()->formatNum( $pager->getNumRows() ) );
 		# Show form options
 		$this->showForm();
 
@@ -71,7 +71,7 @@ class QualityOversight extends SpecialPage {
 		$this->getOutput()->addHTML(
 			Xml::openElement( 'form', array( 'name' => 'qualityoversight',
 				'action' => $wgScript, 'method' => 'get' ) ) .
-			'<fieldset><legend>' . wfMsgHtml( 'qualityoversight-legend' ) . '</legend><p>' .
+			'<fieldset><legend>' . $this->msg( 'qualityoversight-legend' )->escaped() . '</legend><p>' .
 			Html::hidden( 'title', $this->getTitle()->getPrefixedDBKey() ) .
 			FlaggedRevsXML::getNamespaceMenu( $this->namespace ) . '&#160;' .
 			( FlaggedRevs::qualityVersions()
@@ -79,11 +79,12 @@ class QualityOversight extends SpecialPage {
 					'&#160;'
 				: ""
 			) .
-			Xml::inputLabel( wfMsg( 'specialloguserlabel' ), 'user', 'user', 20, $this->user ) .
+			Xml::inputLabel( $this->msg( 'specialloguserlabel' )->text(), 'user', 'user', 20,
+				$this->user ) .
 				'<br />' .
 			FlaggedRevsXML::getStatusFilterMenu( $this->status ) . '&#160;' .
 			FlaggedRevsXML::getAutoFilterMenu( $this->automatic ) . '&#160;' .
-			Xml::submitButton( wfMsg( 'go' ) ) .
+			Xml::submitButton( $this->msg( 'go' )->text() ) .
 			'</p></fieldset>' . Xml::closeElement( 'form' )
 		);
 	}

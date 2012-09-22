@@ -49,16 +49,16 @@ class FlaggedRevsLog {
 		# Skip rating list if flagging is just an 0/1 feature...
 		if ( !FlaggedRevs::binaryFlagging() ) {
 			foreach ( $dims as $quality => $level ) {
-				$ratings[] = wfMsgForContent( "revreview-$quality" ) .
-					wfMsgForContent( 'colon-separator' ) .
-					wfMsgForContent( "revreview-$quality-$level" );
+				$ratings[] = wfMessage( "revreview-$quality" )->inContentLanguage()->text() .
+					wfMessage( 'colon-separator' )->inContentLanguage()->text() .
+					wfMessage( "revreview-$quality-$level" )->inContentLanguage()->text();
 			}
 		}
 		$isAuto = ( $auto && !FlaggedRevs::isQuality( $dims ) ); // Paranoid check
 		// Approved revisions
 		if ( $approve ) {
 			if ( $isAuto ) {
-				$comment = wfMsgForContent( 'revreview-auto' ); // override this
+				$comment = wfMessage( 'revreview-auto' )->inContentLanguage()->text(); // override this
 			}
 			# Make comma-separated list of ratings
 			$rating = !empty( $ratings )

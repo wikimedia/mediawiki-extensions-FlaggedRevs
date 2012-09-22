@@ -29,7 +29,7 @@ class ConfiguredPages extends SpecialPage {
 
 		# Explanatory text
 		$this->getOutput()->addWikiMsg( 'configuredpages-list',
-			$this->getLang()->formatNum( $this->pager->getNumRows() ) );
+			$this->getLanguage()->formatNum( $this->pager->getNumRows() ) );
 
 		$fields = array();
 		# Namespace selector
@@ -46,9 +46,9 @@ class ConfiguredPages extends SpecialPage {
 		$form = Html::openElement( 'form',
 			array( 'name' => 'configuredpages', 'action' => $wgScript, 'method' => 'get' ) );
 		$form .= Html::hidden( 'title', $this->getTitle()->getPrefixedDBKey() );
-		$form .= "<fieldset><legend>" . wfMsg( 'configuredpages' ) . "</legend>\n";
+		$form .= "<fieldset><legend>" . $this->msg( 'configuredpages' )->escaped() . "</legend>\n";
 		$form .= implode( '&#160;', $fields ) . '<br/>';
-		$form .= Xml::submitButton( wfMsg( 'go' ) );
+		$form .= Xml::submitButton( $this->msg( 'go' )->text() );
 		$form .= "</fieldset>\n";
 		$form .= Html::closeElement( 'form' ) . "\n";
 
@@ -76,15 +76,15 @@ class ConfiguredPages extends SpecialPage {
 		# Link to page configuration
 		$config = Linker::linkKnown(
 			SpecialPage::getTitleFor( 'Stabilization' ),
-			wfMsgHtml( 'configuredpages-config' ),
+			$this->msg( 'configuredpages-config' )->escaped(),
 			array(),
 			'page=' . $title->getPrefixedUrl()
 		);
 		# Show which version is the default (stable or draft)
 		if ( intval( $row->fpc_override ) ) {
-			$default = wfMsgHtml( 'configuredpages-def-stable' );
+			$default = $this->msg( 'configuredpages-def-stable' )->escaped();
 		} else {
-			$default = wfMsgHtml( 'configuredpages-def-draft' );
+			$default = $this->msg( 'configuredpages-def-draft' )->escaped();
 		}
 		# Autoreview/review restriction level
 		$restr = '';
@@ -94,12 +94,12 @@ class ConfiguredPages extends SpecialPage {
 		}
 		# When these configuration settings expire
 		if ( $row->fpc_expiry != 'infinity' && strlen( $row->fpc_expiry ) ) {
-			$expiry_description = " (" . wfMsgForContent(
+			$expiry_description = " (" . $this->msg(
 				'protect-expiring',
-				$this->getLang()->timeanddate( $row->fpc_expiry ),
-				$this->getLang()->date( $row->fpc_expiry ),
-				$this->getLang()->time( $row->fpc_expiry )
-			) . ")";
+				$this->getLanguage()->timeanddate( $row->fpc_expiry ),
+				$this->getLanguage()->date( $row->fpc_expiry ),
+				$this->getLanguage()->time( $row->fpc_expiry )
+			)->inContentLanguage()->text() . ")";
 		} else {
 			$expiry_description = "";
 		}

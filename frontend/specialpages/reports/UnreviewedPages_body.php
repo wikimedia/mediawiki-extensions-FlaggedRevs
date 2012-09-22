@@ -12,9 +12,9 @@ class UnreviewedPages extends SpecialPage {
 
 		$this->setHeaders();
 		if ( !$this->getUser()->isAllowed( 'unreviewedpages' ) ) {
-			$this->getOutput()->permissionRequired( 'unreviewedpages' );
-			return;
+			throw new PermissionsError ( 'unreviewedpages' );
 		}
+
 		$this->currentUnixTS = wfTimestamp( TS_UNIX ); // now
 
 		# Get default namespace
@@ -41,21 +41,21 @@ class UnreviewedPages extends SpecialPage {
 
 		# Add explanatory text
 		$this->getOutput()->addWikiMsg( 'unreviewedpages-list',
-			$this->getLang()->formatNum( $this->pager->getNumRows() ) );
+			$this->getLanguage()->formatNum( $this->pager->getNumRows() ) );
 
 		# show/hide links
-		$showhide = array( wfMsgHtml( 'show' ), wfMsgHtml( 'hide' ) );
+		$showhide = array( $this->msg( 'show' )->escaped(), $this->msg( 'hide' )->escaped() );
 		$onoff = 1 - $this->hideRedirs;
 		$link = Linker::link( $this->getTitle(), $showhide[$onoff], array(),
 			array( 'hideredirs' => $onoff, 'category' => $this->category,
 				'namespace' => $this->namespace )
 		);
-		$showhideredirs = wfMsgHtml( 'whatlinkshere-hideredirs', $link );
+		$showhideredirs = $this->msg( 'whatlinkshere-hideredirs' )->rawParams( $link )->escaped();
 
 		# Add form...
 		$form = Html::openElement( 'form', array( 'name' => 'unreviewedpages',
 			'action' => $wgScript, 'method' => 'get' ) ) . "\n";
-		$form .= "<fieldset><legend>" . wfMsg( 'unreviewedpages-legend' ) . "</legend>\n";
+		$form .= "<fieldset><legend>" . $this->msg( 'unreviewedpages-legend' )->escaped() . "</legend>\n";
 		$form .= Html::hidden( 'title', $this->getTitle()->getPrefixedDBKey() ) . "\n";
 		# Add dropdowns as needed
 		if ( count( FlaggedRevs::getReviewNamespaces() ) > 1 ) {
@@ -66,11 +66,11 @@ class UnreviewedPages extends SpecialPage {
 		}
 		$form .=
 			"<span style='white-space: nowrap;'>" .
-			Xml::label( wfMsg( "unreviewedpages-category" ), 'category' ) . '&#160;' .
+			Xml::label( $this->msg( 'unreviewedpages-category' )->text(), 'category' ) . '&#160;' .
 			Xml::input( 'category', 30, $this->category, array( 'id' => 'category' ) ) .
 			'</span><br />';
 		$form .= $showhideredirs . '&#160;&#160;';
-		$form .= Xml::submitButton( wfMsg( 'allpagessubmit' ) );
+		$form .= Xml::submitButton( $this->msg( 'allpagessubmit' )->text() );
 		$form .= '</fieldset>';
 		$form .= Html::closeElement( 'form' ) . "\n";
 
@@ -81,12 +81,12 @@ class UnreviewedPages extends SpecialPage {
 				array( 'qci_type' => 'fr_unreviewedpages' ), __METHOD__ );
 			if ( $ts ) {
 				$ts = wfTimestamp( TS_MW, $ts );
-				$td = $this->getLang()->timeanddate( $ts );
-				$d = $this->getLang()->date( $ts );
-				$t = $this->getLang()->time( $ts );
-				$form .= wfMsgExt( 'perfcachedts', 'parse', $td, $d, $t );
+				$td = $this->getLanguage()->timeanddate( $ts );
+				$d = $this->getLanguage()->date( $ts );
+				$t = $this->getLanguage()->time( $ts );
+				$form .= $this->msg( 'perfcachedts', $td, $d, $t )->parseAsBlock();
 			} else {
-				$form .= wfMsgExt( 'perfcached', 'parse' );
+				$form .= $this->msg( 'perfcached' )->parseAsBlock();
 			}
 		}
 
@@ -109,12 +109,17 @@ class UnreviewedPages extends SpecialPage {
 
 		$stxt = $underReview = $watching = '';
 		$link = Linker::link( $title, null, array(), 'redirect=no' );
-		$dirmark = $this->getLang()->getDirMark();
-		$hist = Linker::linkKnown( $title, wfMsgHtml( 'hist' ), array(), 'action=history' );
+		$dirmark = $this->getLanguage()->getDirMark();
+		$hist = Linker::linkKnown(
+			$title,
+			$this->msg( 'hist' )->escaped(),
+			array(),
+			array( 'action' => 'history' )
+		);
 		if ( !is_null( $size = $row->page_len ) ) {
 			$stxt = ( $size == 0 )
-				? wfMsgHtml( 'historyempty' )
-				: wfMsgExt( 'historysize', 'parsemag', $this->getLang()->formatNum( $size ) );
+				? $this->msg( 'historyempty' )->escaped()
+				: $this->msg( 'historysize' )->numParams( $size )->escaped();
 			$stxt = " <small>$stxt</small>";
 		}
 		# Get how long the first unreviewed edit has been waiting...
@@ -123,21 +128,19 @@ class UnreviewedPages extends SpecialPage {
 		// After three days, just use days
 		if ( $hours > ( 3 * 24 ) ) {
 			$days = round( $hours / 24, 0 );
-			$age = ' ' . wfMsgExt( 'unreviewedpages-days',
-				'parsemag', $this->getLang()->formatNum( $days ) );
+			$age = ' ' . $this->msg( 'unreviewedpages-days' )->numParams( $days )->escaped();
 		// If one or more hours, use hours
 		} elseif ( $hours >= 1 ) {
 			$hours = round( $hours, 0 );
-			$age = ' ' . wfMsgExt( 'unreviewedpages-hours',
-				'parsemag', $this->getLang()->formatNum( $hours ) );
+			$age = ' ' . $this->msg( 'unreviewedpages-hours' )->numParams( $hours )->escaped();
 		} else {
-			$age = ' ' . wfMsg( 'unreviewedpages-recent' ); // hot off the press :)
+			$age = ' ' . $this->msg( 'unreviewedpages-recent' )->escaped(); // hot off the press :)
 		}
 		if ( $this->getUser()->isAllowed( 'unwatchedpages' ) ) {
 			$uw = FRUserActivity::numUsersWatchingPage( $title );
 			$watching = $uw
-				? wfMsgExt( 'unreviewedpages-watched', 'parsemag', $this->getLang()->formatNum( $uw ) )
-				: wfMsgHtml( 'unreviewedpages-unwatched' );
+				? $this->msg( 'unreviewedpages-watched' )->numParams( $uw )->escaped()
+				: $this->msg( 'unreviewedpages-unwatched' )->escaped();
 			$watching = " $watching"; // Oh-noes!
 		} else {
 			$uw = - 1;
@@ -149,7 +152,7 @@ class UnreviewedPages extends SpecialPage {
 		list( $u, $ts ) = FRUserActivity::getUserReviewingPage( $row->page_id );
 		if ( $u !== null ) {
 			$underReview = " <span class='fr-under-review'>" .
-				wfMsgHtml( 'unreviewedpages-viewing' ) . '</span>';
+				$this->msg( 'unreviewedpages-viewing' )->escaped() . '</span>';
 		}
 
 		return( "<li{$css}>{$link} $dirmark {$stxt} ({$hist})" .

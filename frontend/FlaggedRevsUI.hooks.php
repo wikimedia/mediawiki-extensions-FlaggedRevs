@@ -97,8 +97,8 @@ class FlaggedRevsUIHooks {
 				'section' => 'flaggedrevs/flaggedrevs-ui',
 				'label-message' => 'flaggedrevs-pref-UI',
 				'options' => array(
-					wfMsg( 'flaggedrevs-pref-UI-0' ) => 0,
-					wfMsg( 'flaggedrevs-pref-UI-1' ) => 1,
+					wfMessage( 'flaggedrevs-pref-UI-0' )->text() => 0,
+					wfMessage( 'flaggedrevs-pref-UI-1' )->text() => 1,
 				),
 			);
 		// Default versions...
@@ -108,9 +108,9 @@ class FlaggedRevsUIHooks {
 				'section' => 'flaggedrevs/flaggedrevs-ui',
 				'label-message' => 'flaggedrevs-prefs-stable',
 				'options' => array(
-					wfMsg( 'flaggedrevs-pref-stable-0' ) => FR_SHOW_STABLE_DEFAULT,
-					wfMsg( 'flaggedrevs-pref-stable-1' ) => FR_SHOW_STABLE_ALWAYS,
-					wfMsg( 'flaggedrevs-pref-stable-2' ) => FR_SHOW_STABLE_NEVER,
+					wfMessage( 'flaggedrevs-pref-stable-0' )->text() => FR_SHOW_STABLE_DEFAULT,
+					wfMessage( 'flaggedrevs-pref-stable-1' )->text() => FR_SHOW_STABLE_ALWAYS,
+					wfMessage( 'flaggedrevs-pref-stable-2' )->text() => FR_SHOW_STABLE_NEVER,
 				),
 			);
 		// Review-related rights...
@@ -404,8 +404,8 @@ class FlaggedRevsUIHooks {
 		$link = $class = '';
 		if ( wfTimestamp( TS_UNIX, $row->rev_timestamp ) > $history->fr_stableRevUTS ) {
 			$class = 'flaggedrevs-pending';
-			$link = wfMsgExt( 'revreview-hist-pending-difflink', 'parseinline',
-				$title->getPrefixedText(), $history->fr_stableRevId, $revId );
+			$link = $history->msg( 'revreview-hist-pending-difflink',
+				$title->getPrefixedText(), $history->fr_stableRevId, $revId )->parse();
 			$link = '<span class="plainlinks mw-fr-hist-difflink">' . $link . '</span>';
 			$history->fr_pendingRevs = true; // pending rev shown above stable
 		// Reviewed revision: highlight and add link
@@ -455,7 +455,7 @@ class FlaggedRevsUIHooks {
 		}
 		$name = isset( $row->reviewer ) ?
 			$row->reviewer : User::whoIs( $row->fr_user );
-		$link = wfMsgExt( $msg, 'parseinline', $title->getPrefixedDBkey(), $row->rev_id, $name );
+		$link = wfMessage( $msg, $title->getPrefixedDBkey(), $row->rev_id, $name )->parse();
 		$link = "<span class='$css plainlinks'>[$link]</span>";
 		return array( $link, $liCss );
 	}
@@ -526,17 +526,17 @@ class FlaggedRevsUIHooks {
 			// Is this a config were pages start off reviewable?
 			// Hide notice from non-reviewers due to vandalism concerns (bug 24002).
 			if ( !FlaggedRevs::useOnlyIfProtected() && $wgUser->isAllowed( 'review' ) ) {
-				$rlink = wfMsgHtml( 'revreview-unreviewedpage' );
+				$rlink = wfMessage( 'revreview-unreviewedpage' )->escaped();
 				$css = 'flaggedrevs-unreviewed';
 			}
 		// page is reviewed and has pending edits (use timestamps; bug 15515)
 		} elseif ( isset( $rc->mAttribs['fp_pending_since'] ) &&
 			$rc->mAttribs['rc_timestamp'] >= $rc->mAttribs['fp_pending_since'] )
 		{
-			$rlink = $list->skin->link(
+			$rlink = Linker::link(
 				$title,
-				wfMsgHtml( 'revreview-reviewlink' ),
-				array( 'title' => wfMsg( 'revreview-reviewlink-title' ) ),
+				wfMessage( 'revreview-reviewlink' )->escaped(),
+				array( 'title' => wfMessage( 'revreview-reviewlink-title' )->text() ),
 				array( 'oldid' => $rc->mAttribs['fp_stable'], 'diff' => 'cur' ) +
 					FlaggedRevs::diffOnlyCGI()
 			);
@@ -613,7 +613,7 @@ class FlaggedRevsUIHooks {
 			if ( $watchedOutdated ) {
 				$css = 'plainlinks fr-watchlist-pending-notice';
 				$out->prependHTML( "<div id='mw-fr-watchlist-pending-notice' class='$css'>" .
-					wfMsgExt( 'flaggedrevs-watched-pending', 'parseinline' ) . "</div>" );
+					wfMessage( 'flaggedrevs-watched-pending' )->parse() . "</div>" );
 			}
 		}
 		return true;
@@ -652,7 +652,7 @@ class FlaggedRevsUIHooks {
 		# Includes restriction dropdown and expiry dropdown & field.
 		$output .= "<tr><td>";
 		$output .= Xml::openElement( 'fieldset' );
-		$legendMsg = wfMsgExt( 'flaggedrevs-protect-legend', 'parseinline' );
+		$legendMsg = wfMessage( 'flaggedrevs-protect-legend' )->parse();
 		$output .= "<legend>{$legendMsg}</legend>";
 		# Add a "no restrictions" level
 		$effectiveLevels = FlaggedRevs::getRestrictionLevels();
@@ -666,12 +666,12 @@ class FlaggedRevsUIHooks {
 		$output .= Xml::openElement( 'select', $attribs );
 		foreach ( $effectiveLevels as $limit ) {
 			if ( $limit == 'none' ) {
-				$label = wfMsg( 'flaggedrevs-protect-none' );
+				$label = wfMessage( 'flaggedrevs-protect-none' )->text();
 			} else {
-				$label = wfMsg( 'flaggedrevs-protect-' . $limit );
+				$label = wfMessage( 'flaggedrevs-protect-' . $limit )->text();
 			}
 			// Default to the key itself if no UI message
-			if ( wfEmptyMsg( 'flaggedrevs-protect-' . $limit, $label ) ) {
+			if ( wfMessage( 'flaggedrevs-protect-' . $limit )->isDisabled() ) {
 				$label = 'flaggedrevs-protect-' . $limit;
 			}
 			$output .= Xml::option( $label, $limit, $limit == $restriction );
@@ -679,7 +679,7 @@ class FlaggedRevsUIHooks {
 		$output .= Xml::closeElement( 'select' );
 
 		# Get expiry dropdown <select>...
-		$scExpiryOptions = wfMsgForContent( 'protect-expiry-options' );
+		$scExpiryOptions = wfMessage( 'protect-expiry-options' )->inContentLanguage()->text();
 		$showProtectOptions = ( $scExpiryOptions !== '-' && $isAllowed );
 		# Add the current expiry as an option
 		$expiryFormOptions = '';
@@ -689,12 +689,15 @@ class FlaggedRevsUIHooks {
 			$t = $wgLang->time( $config['expiry'] );
 			$expiryFormOptions .=
 				Xml::option(
-					wfMsg( 'protect-existing-expiry', $timestamp, $d, $t ),
+					wfMessage( 'protect-existing-expiry', $timestamp, $d, $t )->text(),
 					'existing',
 					$expirySelect == 'existing'
 				) . "\n";
 		}
-		$expiryFormOptions .= Xml::option( wfMsg( 'protect-othertime-op' ), 'othertime' ) . "\n";
+		$expiryFormOptions .= Xml::option( wfMessage(
+				'protect-othertime-op' )->text(),
+				'othertime'
+		) . "\n";
 		# Add custom dropdown levels (from MediaWiki message)
 		foreach ( explode( ',', $scExpiryOptions ) as $option ) {
 			if ( strpos( $option, ":" ) === false ) {
@@ -712,7 +715,7 @@ class FlaggedRevsUIHooks {
 			$output .= "
 				<tr>
 					<td class='mw-label'>" .
-						Xml::label( wfMsg( 'stabilization-expiry' ),
+						Xml::label( wfMessage( 'stabilization-expiry' )->text(),
 							'mwStabilizeExpirySelection' ) .
 					"</td>
 					<td class='mw-input'>" .
@@ -732,7 +735,10 @@ class FlaggedRevsUIHooks {
 		$output .= "
 			<tr>
 				<td class='mw-label'>" .
-					Xml::label( wfMsg( 'stabilization-othertime' ), 'mwStabilizeExpiryOther' ) .
+					Xml::label(
+						wfMessage( 'stabilization-othertime' )->text(),
+						'mwStabilizeExpiryOther'
+					) .
 				'</td>
 				<td class="mw-input">' .
 					Xml::input( 'mwStabilizeExpiryOther', 50, $expiryOther, $attribs ) .
@@ -765,7 +771,8 @@ class FlaggedRevsUIHooks {
 			return true; // not a reviewable page
 		}
 		# Show relevant lines from the stability log:
-		$out->addHTML( Xml::element( 'h2', null, LogPage::logName( 'stable' ) ) );
+		$logPage = new LogPage( 'stable' );
+		$out->addHTML( Xml::element( 'h2', null, $logPage->getName() ) );
 		LogEventsList::showLogExtract( $out, 'stable', $article->getTitle()->getPrefixedText() );
 		return true;
 	}
@@ -796,7 +803,7 @@ class FlaggedRevsUIHooks {
 		if ( $wgRequest->wasPosted() && $form->isAllowed() ) {
 			$status = $form->submit();
 			if ( $status !== true ) {
-				$errorMsg = wfMsg( $status ); // some error message
+				$errorMsg = wfMessage( $status )->text(); // some error message
 			}
 		}
 		return true;

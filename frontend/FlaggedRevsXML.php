@@ -22,7 +22,7 @@ class FlaggedRevsXML {
 	public static function getNamespaceMenu( $selected = null, $all = null ) {
 		global $wgContLang;
 		$namespaces = FlaggedRevs::getReviewNamespaces();
-		$s = "<label for='namespace'>" . wfMsgHtml( 'namespace' ) . "</label>";
+		$s = "<label for='namespace'>" . wfMessage( 'namespace' )->escaped() . "</label>";
 		if ( $selected !== '' ) {
 			if ( is_null( $selected ) ) {
 				# No namespace selected; let exact match work without hitting Main
@@ -35,14 +35,14 @@ class FlaggedRevsXML {
 		$s .= "\n<select id='namespace' name='namespace' class='namespaceselector'>\n";
 		$arr = $wgContLang->getFormattedNamespaces();
 		if ( !is_null( $all ) ) {
-			$arr = array( $all => wfMsg( 'namespacesall' ) ) + $arr; // should be first
+			$arr = array( $all => wfMessage( 'namespacesall' )->text() ) + $arr; // should be first
 		}
 		foreach ( $arr as $index => $name ) {
 			# Content pages only (except 'all')
 			if ( $index !== $all && !in_array( $index, $namespaces ) ) {
 				continue;
 			}
-			$name = $index !== 0 ? $name : wfMsg( 'blanknamespace' );
+			$name = $index !== 0 ? $name : wfMessage( 'blanknamespace' )->text();
 			if ( $index === $selected ) {
 				$s .= "\t" . Xml::element( "option", array( "value" => $index,
 					"selected" => "selected" ), $name ) . "\n";
@@ -64,17 +64,17 @@ class FlaggedRevsXML {
 	public static function getLevelMenu(
 		$selected = null, $all = 'revreview-filter-all', $max = 2
 	) {
-		$s = "<label for='wpLevel'>" . wfMsgHtml( 'revreview-levelfilter' ) . "</label>\n";
+		$s = "<label for='wpLevel'>" . wfMessage( 'revreview-levelfilter' )->escaped() . "</label>\n";
 		$s .= Xml::openElement( 'select', array( 'name' => 'level', 'id' => 'wpLevel' ) );
 		if ( $all !== false ) {
-			$s .= Xml::option( wfMsg( $all ), - 1, $selected === - 1 );
+			$s .= Xml::option( wfMessage( $all )->text(), - 1, $selected === - 1 );
 		}
-		$s .= Xml::option( wfMsg( 'revreview-lev-basic' ), 0, $selected === 0 );
+		$s .= Xml::option( wfMessage( 'revreview-lev-basic' )->text(), 0, $selected === 0 );
 		if ( FlaggedRevs::qualityVersions() ) {
-			$s .= Xml::option( wfMsg( 'revreview-lev-quality' ), 1, $selected === 1 );
+			$s .= Xml::option( wfMessage( 'revreview-lev-quality' )->text(), 1, $selected === 1 );
 		}
 		if ( $max >= 2 && FlaggedRevs::pristineVersions() ) {
-			$s .= Xml::option( wfMsg( 'revreview-lev-pristine' ), 2, $selected === 2 );
+			$s .= Xml::option( wfMessage( 'revreview-lev-pristine' )->text(), 2, $selected === 2 );
 		}
 		# Note: Pristine not tracked at sp:QualityOversight (counts as quality)
 		$s .= Xml::closeElement( 'select' ) . "\n";
@@ -90,12 +90,12 @@ class FlaggedRevsXML {
 		if ( is_null( $selected ) ) {
 			$selected = ''; // "all"
 		}
-		$s = Xml::label( wfMsg( 'revreview-defaultfilter' ), 'wpStable' ) . "\n";
+		$s = Xml::label( wfMessage( 'revreview-defaultfilter' )->text(), 'wpStable' ) . "\n";
 		$s .= Xml::openElement( 'select',
 			array( 'name' => 'stable', 'id' => 'wpStable' ) );
-		$s .= Xml::option( wfMsg( 'revreview-def-all' ), '', $selected == '' );
-		$s .= Xml::option( wfMsg( 'revreview-def-stable' ), 1, $selected === 1 );
-		$s .= Xml::option( wfMsg( 'revreview-def-draft' ), 0, $selected === 0 );
+		$s .= Xml::option( wfMessage( 'revreview-def-all' )->text(), '', $selected == '' );
+		$s .= Xml::option( wfMessage( 'revreview-def-stable' )->text(), 1, $selected === 1 );
+		$s .= Xml::option( wfMessage( 'revreview-def-draft' )->text(), 0, $selected === 0 );
 		$s .= Xml::closeElement( 'select' ) . "\n";
 		return $s;
 	}
@@ -109,20 +109,21 @@ class FlaggedRevsXML {
 		if ( is_null( $selected ) ) {
 			$selected = ''; // "all"
 		}
-		$s = Xml::label( wfMsg( 'revreview-restrictfilter' ), 'wpRestriction' ) . "\n";
+		$s = Xml::label( wfMessage( 'revreview-restrictfilter' )->text(), 'wpRestriction' ) . "\n";
 		$s .= Xml::openElement( 'select',
 			array( 'name' => 'restriction', 'id' => 'wpRestriction' ) );
-		$s .= Xml::option( wfMsg( 'revreview-restriction-any' ), '', $selected == '' );
+		$s .= Xml::option( wfMessage( 'revreview-restriction-any' )->text(), '', $selected == '' );
 		if ( !FlaggedRevs::useProtectionLevels() ) {
 			# All "protected" pages have a protection level, not "none"
-			$s .= Xml::option( wfMsg( 'revreview-restriction-none' ),
+			$s .= Xml::option( wfMessage( 'revreview-restriction-none' )->text(),
 				'none', $selected == 'none' );
 		}
 		foreach ( FlaggedRevs::getRestrictionLevels() as $perm ) {
 			$key = "revreview-restriction-{$perm}";
-			$msg = wfMsg( $key );
-			if ( wfEmptyMsg( $key, $msg ) ) {
+			if ( wfMessage( $key )->isDisabled() ) {
 				$msg = $perm; // fallback to user right key
+			} else {
+				$msg = wfMessage( $key )->text();
 			}
 			$s .= Xml::option( $msg, $perm, $selected == $perm );
 		}
@@ -136,12 +137,12 @@ class FlaggedRevsXML {
 	 * @return string
 	 */
 	public static function getStatusFilterMenu( $selected = null ) {
-		$s = "<label for='wpStatus'>" . wfMsgHtml( 'revreview-statusfilter' ) . "</label>\n";
+		$s = "<label for='wpStatus'>" . wfMessage( 'revreview-statusfilter' )->escaped() . "</label>\n";
 		$s .= Xml::openElement( 'select', array( 'name' => 'status', 'id' => 'wpStatus' ) );
-		$s .= Xml::option( wfMsg( "revreview-filter-all" ), - 1, $selected === - 1 );
-		$s .= Xml::option( wfMsg( "revreview-filter-approved" ), 1, $selected === 1 );
-		$s .= Xml::option( wfMsg( "revreview-filter-reapproved" ), 2, $selected === 2 );
-		$s .= Xml::option( wfMsg( "revreview-filter-unapproved" ), 3, $selected === 3 );
+		$s .= Xml::option( wfMessage( "revreview-filter-all" )->text(), - 1, $selected === - 1 );
+		$s .= Xml::option( wfMessage( "revreview-filter-approved" )->text(), 1, $selected === 1 );
+		$s .= Xml::option( wfMessage( "revreview-filter-reapproved" )->text(), 2, $selected === 2 );
+		$s .= Xml::option( wfMessage( "revreview-filter-unapproved" )->text(), 3, $selected === 3 );
 		$s .= Xml::closeElement( 'select' ) . "\n";
 		return $s;
 	}
@@ -152,11 +153,11 @@ class FlaggedRevsXML {
 	 * @return string
 	 */
 	public static function getAutoFilterMenu( $selected = null ) {
-		$s = "<label for='wpApproved'>" . wfMsgHtml( 'revreview-typefilter' ) . "</label>\n";
+		$s = "<label for='wpApproved'>" . wfMessage( 'revreview-typefilter' )->escaped() . "</label>\n";
 		$s .= Xml::openElement( 'select', array( 'name' => 'automatic', 'id' => 'wpApproved' ) );
-		$s .= Xml::option( wfMsg( "revreview-filter-all" ), - 1, $selected === - 1 );
-		$s .= Xml::option( wfMsg( "revreview-filter-manual" ), 0, $selected === 0 );
-		$s .= Xml::option( wfMsg( "revreview-filter-auto" ), 1, $selected === 1 );
+		$s .= Xml::option( wfMessage( "revreview-filter-all" )->text(), - 1, $selected === - 1 );
+		$s .= Xml::option( wfMessage( "revreview-filter-manual" )->text(), 0, $selected === 0 );
+		$s .= Xml::option( wfMessage( "revreview-filter-auto" )->text(), 1, $selected === 1 );
 		$s .= Xml::closeElement( 'select' ) . "\n";
 		return $s;
 	}
@@ -199,18 +200,18 @@ class FlaggedRevsXML {
 		}
 		foreach ( FlaggedRevs::getTags() as $quality ) {
 			$level = isset( $flags[$quality] ) ? $flags[$quality] : 0;
-			$encValueText = wfMsgHtml( "revreview-$quality-$level" );
+			$encValueText = wfMessage( "revreview-$quality-$level" )->escaped();
 			$level = $flags[$quality];
 
 			$levelmarker = $level * 20 + 20;
 			if ( $prettyBox ) {
 				$tag .= "<tr><td class='fr-text' valign='middle'>" .
-					wfMsgHtml( "revreview-$quality" ) .
+					wfMessage( "revreview-$quality" )->escaped() .
 					"</td><td class='fr-value$levelmarker' valign='middle'>" .
 					$encValueText . "</td></tr>\n";
 			} else {
 				$tag .= "&#160;<span class='fr-marker-$levelmarker'><strong>" .
-					wfMsgHtml( "revreview-$quality" ) .
+					wfMessage( "revreview-$quality" )->escaped() .
 					"</strong>: <span class='fr-text-value'>$encValueText&#160;</span>&#160;" .
 					"</span>\n";
 			}
@@ -252,12 +253,11 @@ class FlaggedRevsXML {
 		if ( $synced && ( $type == 'stable' || $type == 'draft' ) ) {
 			$msg = $quality ?
 				'revreview-quality-same' : 'revreview-basic-same';
-			$html = wfMsgExt( $msg, 'parseinline',
-				$frev->getRevId(), $time, $revsSince );
+			$html = wfMessage( $msg, $frev->getRevId(), $time, $revsSince )->parse();
 		} elseif ( $type == 'oldstable' ) {
 			$msg = $quality ?
 				'revreview-quality-old' : 'revreview-basic-old';
-			$html = wfMsgExt( $msg, 'parseinline', $frev->getRevId(), $time );
+			$html = wfMessage( $msg, $frev->getRevId(), $time )->parse();
 		} else {
 			if ( $type == 'stable' ) {
 				$msg = $quality ?
@@ -269,8 +269,7 @@ class FlaggedRevsXML {
 			# For searching: uses messages 'revreview-quality-i', 'revreview-basic-i',
 			# 'revreview-newest-quality-i', 'revreview-newest-basic-i'
 			$msg .= ( $revsSince == 0 ) ? '-i' : '';
-			$html = wfMsgExt( $msg, 'parseinline',
-				$frev->getRevId(), $time, $revsSince );
+			$html = wfMessage( $msg, $frev->getRevId(), $time, $revsSince )->parse();
 		}
 		# Make fancy box...
 		$box = '<div class="flaggedrevs_short_basic">';
@@ -305,7 +304,7 @@ class FlaggedRevsXML {
 		$encPath = htmlspecialchars( self::styleUrlPath() . '/img' );
 		$img = '<img id="mw-fr-revisiontoggle" class="fr-toggle-arrow"';
 		$img .= " src=\"{$encPath}/arrow-down.png\" style=\"display:none;\"";
-		$img .= ' alt="' . wfMsgHtml( 'revreview-toggle-title' ) . '" />';
+		$img .= ' alt="' . wfMessage( 'revreview-toggle-title' )->escaped() . '" />';
 		return $img;
 	}
 
@@ -315,8 +314,8 @@ class FlaggedRevsXML {
 	 */
 	public static function ratingToggle() {
 		return '<a id="mw-fr-revisiontoggle" class="fr-toggle-symbol"' .
-			' style="display:none;" title="' . wfMsgHtml( 'revreview-toggle-title' ) . '" >' .
-			wfMsgHtml( 'revreview-toggle-show' ) . '</a>';
+			' style="display:none;" title="' . wfMessage( 'revreview-toggle-title' )->escaped() . '" >' .
+			wfMessage( 'revreview-toggle-show' )->escaped() . '</a>';
 	}
 
 	/**
@@ -325,10 +324,10 @@ class FlaggedRevsXML {
 	 */
 	public static function diffToggle() {
 		$toggle = '<a class="fr-toggle-text" title="' .
-			wfMsgHtml( 'revreview-diff-toggle-title' ) . '" >' .
-			wfMsgHtml( 'revreview-diff-toggle-show' ) . '</a>';
+			wfMessage( 'revreview-diff-toggle-title' )->escaped() . '" >' .
+			wfMessage( 'revreview-diff-toggle-show' )->escaped() . '</a>';
 		return '<span id="mw-fr-difftoggle" style="display:none;">' .
-			wfMsgHtml( 'parentheses', $toggle ) . '</span>';
+			wfMessage( 'parentheses' )->rawParams( $toggle )->escaped() . '</span>';
 	}
 
 	/**
@@ -337,10 +336,10 @@ class FlaggedRevsXML {
 	 */
 	public static function logToggle() {
 		$toggle = '<a class="fr-toggle-text" title="' .
-			wfMsgHtml( 'revreview-log-toggle-title' ) . '" >' .
-			wfMsgHtml( 'revreview-log-toggle-show' ) . '</a>';
+			wfMessage( 'revreview-log-toggle-title' )->escaped() . '" >' .
+			wfMessage( 'revreview-log-toggle-show' )->escaped() . '</a>';
 		return '<span id="mw-fr-logtoggle" class="fr-logtoggle-excerpt" style="display:none;">' .
-			wfMsgHtml( 'parentheses', $toggle ) . '</span>';
+			wfMessage( 'parentheses' )->rawParams( $toggle )->escaped() . '</span>';
 	}
 
 	/**
@@ -349,10 +348,10 @@ class FlaggedRevsXML {
 	 */
 	public static function logDetailsToggle() {
 		$toggle = '<a class="fr-toggle-text" title="' .
-			wfMsgHtml( 'revreview-log-details-title' ) . '" >' .
-			wfMsgHtml( 'revreview-log-details-show' ) . '</a>';
+			wfMessage( 'revreview-log-details-title' )->escaped() . '" >' .
+			wfMessage( 'revreview-log-details-show' )->escaped() . '</a>';
 		return '<span id="mw-fr-logtoggle" class="fr-logtoggle-details" style="display:none;">' .
-			wfMsgHtml( 'parentheses', $toggle ) . '</span>';
+			wfMessage( 'parentheses' )->rawParams( $toggle )->escaped() . '</span>';
 	}
 
 	/*
@@ -361,7 +360,7 @@ class FlaggedRevsXML {
 	 */
 	public static function draftStatusIcon() {
 		$encPath = htmlspecialchars( self::styleUrlPath() . '/img' );
-		$encTitle = wfMsgHtml( 'revreview-draft-title' );
+		$encTitle = wfMessage( 'revreview-draft-title' )->escaped();
 		return "<img class=\"flaggedrevs-icon\" src=\"$encPath/1.png\"" .
 			" alt=\"$encTitle\" title=\"$encTitle\" />";
 	}
@@ -375,8 +374,8 @@ class FlaggedRevsXML {
 		$encPath = htmlspecialchars( self::styleUrlPath() . '/img' );
 		$file = $isQuality ? '3.png' : '2.png';
 		$encTitle = $isQuality
-			? wfMsgHtml( 'revreview-quality-title' )
-			: wfMsgHtml( 'revreview-basic-title' );
+			? wfMessage( 'revreview-quality-title' )->escaped()
+			: wfMessage( 'revreview-basic-title' )->escaped();
 		return "<img class=\"flaggedrevs-icon\" src=\"$encPath/$file\"" .
 			" alt=\"$encTitle\" title=\"$encTitle\" />";
 	}
@@ -389,11 +388,11 @@ class FlaggedRevsXML {
 	public static function lockStatusIcon( $flaggedArticle ) {
 		$encPath = htmlspecialchars( self::styleUrlPath() . '/img' );
 		if ( $flaggedArticle->isPageLocked() ) {
-			$encTitle = wfMsgHtml( 'revreview-locked-title' );
+			$encTitle = wfMessage( 'revreview-locked-title' )->escaped();
 			return "<img class=\"flaggedrevs-icon\" src=\"$encPath/doc-magnify.png\"" .
 				" alt=\"$encTitle\" title=\"$encTitle\" />";
 		} elseif ( $flaggedArticle->isPageUnlocked() ) {
-			$encTitle = wfMsgHtml( 'revreview-unlocked-title' );
+			$encTitle = wfMessage( 'revreview-unlocked-title' )->escaped();
 			return "<img class=\"flaggedrevs-icon\" src=\"$encPath/doc-check.png\"" .
 				" alt=\"$encTitle\" title=\"$encTitle\" />";
 		}
@@ -414,7 +413,7 @@ class FlaggedRevsXML {
 		$msg = FlaggedRevs::isQuality( $flags )
 			? 'revreview-pending-quality'
 			: 'revreview-pending-basic';
-		$tag = wfMsgExt( $msg, 'parseinline', $frev->getRevId(), $time, $revsSince );
+		$tag = wfMessage( $msg, $frev->getRevId(), $time, $revsSince )->parse();
 		return $tag;
 	}
 

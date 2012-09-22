@@ -59,11 +59,11 @@ class ProblemChanges extends SpecialPage {
 
 		// Add explanatory text
 		$this->getOutput()->addWikiMsg( 'problemchanges-list',
-			$this->getLang()->formatNum( $this->pager->getNumRows() ) );
+			$this->getLanguage()->formatNum( $this->pager->getNumRows() ) );
 
 		$form = Html::openElement( 'form', array( 'name' => 'problemchanges',
 			'action' => $wgScript, 'method' => 'get' ) ) . "\n";
-		$form .= "<fieldset><legend>" . wfMsg( 'problemchanges-legend' ) . "</legend>\n";
+		$form .= "<fieldset><legend>" . $this->msg( 'problemchanges-legend' )->escaped() . "</legend>\n";
 		$form .= Html::hidden( 'title', $this->getTitle()->getPrefixedDBKey() ) . "\n";
 		$form .=
 			( FlaggedRevs::qualityVersions()
@@ -78,9 +78,9 @@ class ProblemChanges extends SpecialPage {
 			$form .= Xml::tags( 'td', array( 'class' => 'mw-input' ), $tagForm[1] );
 		}
 		$form .= '<br />' .
-			Xml::label( wfMsg( "problemchanges-category" ), 'wpCategory' ) . '&#160;' .
+			Xml::label( $this->msg( "problemchanges-category" )->text(), 'wpCategory' ) . '&#160;' .
 			Xml::input( 'category', 30, $this->category, array( 'id' => 'wpCategory' ) ) . ' ';
-		$form .= Xml::submitButton( wfMsg( 'allpagessubmit' ) ) . "\n";
+		$form .= Xml::submitButton( $this->msg( 'allpagessubmit' )->text() ) . "\n";
 		$form .= '</fieldset>';
 		$form .= Html::closeElement( 'form' ) . "\n";
 
@@ -143,7 +143,7 @@ class ProblemChanges extends SpecialPage {
 		}
 		$feed = new $wgFeedClasses[$type](
 			$this->feedTitle(),
-			wfMsg( 'tagline' ),
+			$this->msg( 'tagline' )->text(),
 			$this->getTitle()->getFullUrl()
 		);
 		$this->pager->mLimit = min( $wgFeedLimit, $this->pager->mLimit );
@@ -160,7 +160,7 @@ class ProblemChanges extends SpecialPage {
 	protected function feedTitle() {
 		global $wgContLanguageCode, $wgSitename;
 
-		$page = SpecialPage::getPage( 'ProblemChanges' );
+		$page = SpecialPageFactory::getPage( 'ProblemChanges' );
 		$desc = $page->getDescription();
 		return "$wgSitename - $desc [$wgContLanguageCode]";
 	}
@@ -191,29 +191,29 @@ class ProblemChanges extends SpecialPage {
 		$title = Title::newFromRow( $row );
 		$link = Linker::link( $title );
 		$review = Linker::linkKnown( $title,
-			wfMsg( 'pendingchanges-diff' ),
+			$this->msg( 'pendingchanges-diff' )->escaped(),
 			array(),
 			array( 'diff' => 'cur', 'oldid' => $row->stable ) + FlaggedRevs::diffOnlyCGI()
 		);
 		# Show quality level if there are several
 		if ( FlaggedRevs::qualityVersions() ) {
 			$quality = $row->quality
-				? wfMsgHtml( 'revreview-lev-quality' )
-				: wfMsgHtml( 'revreview-lev-basic' );
+				? $this->msg( 'revreview-lev-quality' )->escaped()
+				: $this->msg( 'revreview-lev-basic' )->escaped();
 			$quality = " <b>[{$quality}]</b>";
 		}
 		# What are the tags?
 		$dbTags = self::getChangeTags( $title->getArticleID(), $row->stable );
 		if ( $dbTags ) {
-			$tags = htmlspecialchars( implode( ', ', $dbTags ) );
-			$tags = ' <b>' . wfMsgHtml( 'parentheses', $tags ) . '</b>';
+			$tags = implode( ', ', $dbTags );
+			$tags = ' <b>' . $this->msg( 'parentheses', $tags )->escaped() . '</b>';
 		}
 		# Is anybody watching?
 		if ( !$this->including() && $this->getUser()->isAllowed( 'unreviewedpages' ) ) {
 			$uw = FRUserActivity::numUsersWatchingPage( $title );
 			$watching = $uw
-				? wfMsgExt( 'pendingchanges-watched', 'parsemag', $this->getLang()->formatNum( $uw ) )
-				: wfMsgHtml( 'pendingchanges-unwatched' );
+				? $this->msg( 'pendingchanges-watched' )->numParams( $uw )->escaped()
+				: $this->msg( 'pendingchanges-unwatched' )->escaped();
 			$watching = " {$watching}";
 		} else {
 			$uw = - 1;
@@ -226,15 +226,13 @@ class ProblemChanges extends SpecialPage {
 			// After three days, just use days
 			if ( $hours > ( 3 * 24 ) ) {
 				$days = round( $hours / 24, 0 );
-				$age = wfMsgExt( 'pendingchanges-days',
-					'parsemag', $this->getLang()->formatNum( $days ) );
+				$age = $this->msg( 'pendingchanges-days' )->numParams( $days )->escaped();
 			// If one or more hours, use hours
 			} elseif ( $hours >= 1 ) {
 				$hours = round( $hours, 0 );
-				$age = wfMsgExt( 'pendingchanges-hours',
-					'parsemag', $this->getLang()->formatNum( $hours ) );
+				$age = $this->msg( 'pendingchanges-hours' )->numParams( $hours )->escaped();
 			} else {
-				$age = wfMsg( 'pendingchanges-recent' ); // hot off the press :)
+				$age = $this->msg( 'pendingchanges-recent' )->escaped(); // hot off the press :)
 			}
 			// Oh-noes!
 			$css = self::getLineClass( $hours, $uw );
@@ -246,7 +244,7 @@ class ProblemChanges extends SpecialPage {
 		list( $u, $ts ) = FRUserActivity::getUserReviewingDiff( $row->stable, $row->page_latest );
 		if ( $u !== null ) {
 			$underReview = ' <span class="fr-under-review">' .
-				wfMsgHtml( 'pendingchanges-viewing' ) . '</span>';
+				$this->msg( 'pendingchanges-viewing' )->escaped() . '</span>';
 		}
 
 		return( "<li{$css}>{$link} ({$review}) <i>{$age}</i>" .
@@ -275,7 +273,7 @@ class ProblemChanges extends SpecialPage {
 		}
 		return $tags;
 	}
-	
+
 	protected static function getLineClass( $hours, $uw ) {
 		if ( $uw == 0 )
 			return 'fr-unreviewed-unwatched';

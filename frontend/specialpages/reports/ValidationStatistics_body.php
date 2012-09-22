@@ -11,7 +11,7 @@ class ValidationStatistics extends IncludableSpecialPage {
 		global $wgContLang, $wgFlaggedRevsStats;
 
 		$out = $this->getOutput();
-		$lang = $this->getLang();
+		$lang = $this->getLanguage();
 
 		$this->setHeaders();
 		$this->db = wfGetDB( DB_SLAVE );
@@ -82,7 +82,7 @@ class ValidationStatistics extends IncludableSpecialPage {
 		$msgs = array( 'ns', 'total', 'stable', 'latest', 'synced', 'old' ); // our headings
 		foreach ( $msgs as $msg ) {
 			$out->addHTML( '<th>' .
-				wfMsgExt( "validationstatistics-$msg", 'parseinline' ) . '</th>' );
+				$this->msg( "validationstatistics-$msg" )->parse() . '</th>' );
 		}
 		$out->addHTML( "</tr>\n" );
 		$namespaces = FlaggedRevs::getReviewNamespaces();
@@ -95,30 +95,29 @@ class ValidationStatistics extends IncludableSpecialPage {
 			}
 
 			$NsText = $wgContLang->getFormattedNsText( $namespace );
-			$NsText = $NsText ? $NsText : wfMsgHTML( 'blanknamespace' );
+			$NsText = $NsText ? $NsText : $this->msg( 'blanknamespace' )->escaped();
 
 			$percRev = intval( $total ) == 0
 				? '-' // devision by zero
-				: wfMsg( 'parentheses',
-					wfMsgExt( 'percent', array( 'escapenoentities' ),
-						$lang->formatnum( sprintf( '%4.2f',
-							100 * intval( $reviewed ) / intval( $total ) ) )
-					)
-				);
+				: $this->msg( 'parentheses',
+					$this->msg( 'percent' )
+						->numParams( sprintf(
+							'%4.2f',
+							100 * intval( $reviewed ) / intval( $total )
+						) )->escaped()
+				)->text();
 			$percLatest = intval( $total ) == 0
 				? '-' // devision by zero
-				: wfMsg( 'parentheses', 
-					wfMsgExt( 'percent', array( 'escapenoentities' ),
-						$lang->formatnum( sprintf( '%4.2f',
-							100 * intval( $synced ) / intval( $total ) ) )
-					)
-				);
+				: $this->msg( 'parentheses',
+					$this->msg( 'percent' )
+						->numParams( sprintf( '%4.2f', 100 * intval( $synced ) / intval( $total )
+						) )->escaped()
+				)->text();
 			$percSynced = intval( $reviewed ) == 0
 				? '-' // devision by zero
-				: wfMsgExt( 'percent', array( 'escapenoentities' ),
-					$lang->formatnum( sprintf( '%4.2f',
-						100 * intval( $synced ) / intval( $reviewed ) ) )
-				);
+				: $this->msg( 'percent' )
+					->numParams( sprintf( '%4.2f', 100 * intval( $synced ) / intval( $reviewed ) ) )
+					->escaped();
 			$outdated = intval( $reviewed ) - intval( $synced );
 			$outdated = $lang->formatnum( max( 0, $outdated ) ); // lag between queries
 
@@ -161,8 +160,8 @@ class ValidationStatistics extends IncludableSpecialPage {
 			);
 			$css = 'wikitable flaggedrevs_stats_table';
 			$reviewChart = "<table class='$css' style='white-space: nowrap;'>\n";
-			$reviewChart .= '<tr><th>' . wfMsgHtml( 'validationstatistics-user' ) .
-				'</th><th>' . wfMsgHtml( 'validationstatistics-reviews' ) . '</th></tr>';
+			$reviewChart .= '<tr><th>' . $this->msg( 'validationstatistics-user' )->escaped() .
+				'</th><th>' . $this->msg( 'validationstatistics-reviews' )->escaped() . '</th></tr>';
 			foreach ( $data as $userId => $reviews ) {
 				$reviewChart .= '<tr><td>' . htmlspecialchars( User::whois( $userId ) ) .
 					'</td><td>' . $lang->formatNum( $reviews ) . '</td></tr>';

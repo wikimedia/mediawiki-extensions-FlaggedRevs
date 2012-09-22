@@ -73,7 +73,7 @@ class Stabilization extends UnlistedSpecialPage {
 			if ( $status === true ) {
 				$out->redirect( $title->getFullUrl() );
 			} else {
-				$this->showForm( wfMsg( $status ) );
+				$this->showForm( $this->msg( $status )->text() );
 			}
 		# Form GET request...
 		} else {
@@ -92,25 +92,25 @@ class Stabilization extends UnlistedSpecialPage {
 		$s = ''; // form HTML string
 		# Add any error messages
 		if ( "" != $err ) {
-			$out->setSubtitle( wfMsgHtml( 'formerror' ) );
+			$out->setSubtitle( $this->msg( 'formerror' ) );
 			$out->addHTML( "<p class='error'>{$err}</p>\n" );
 		}
 		# Add header text
 		if ( !$form->isAllowed() ) {
-			$s .= wfMsgExt( 'stabilization-perm', 'parse', $title->getPrefixedText() );
+			$s .= $this->msg( 'stabilization-perm', $title->getPrefixedText() )->parseAsBlock();
 		} else {
-			$s .= wfMsgExt( 'stabilization-text', 'parse', $title->getPrefixedText() );
+			$s .= $this->msg( 'stabilization-text', $title->getPrefixedText() )->parseAsBlock();
 		}
 		# Borrow some protection messages for dropdowns
 		$reasonDropDown = Xml::listDropDown(
 			'wpReasonSelection',
-			wfMsgForContent( 'protect-dropdown' ),
-			wfMsgForContent( 'protect-otherreason-op' ),
+			$this->msg( 'protect-dropdown' )->inContentLanguage()->text(),
+			$this->msg( 'protect-otherreason-op' )->inContentLanguage()->text(),
 			$form->getReasonSelection(),
 			'mwStabilize-reason',
 			4
 		);
-		$scExpiryOptions = wfMsgForContent( 'protect-expiry-options' );
+		$scExpiryOptions = $this->msg( 'protect-expiry-options' )->inContentLanguage()->text();
 		$showProtectOptions = ( $scExpiryOptions !== '-' && $form->isAllowed() );
 		$dropdownOptions = array(); // array of <label,value>
 		# Add the current expiry as a dropdown option
@@ -119,10 +119,10 @@ class Stabilization extends UnlistedSpecialPage {
 			$d = $this->getLanguage()->date( $oldConfig['expiry'] );
 			$t = $this->getLanguage()->time( $oldConfig['expiry'] );
 			$dropdownOptions[] = array(
-				wfMsg( 'protect-existing-expiry', $timestamp, $d, $t ), 'existing' );
+				$this->msg( 'protect-existing-expiry', $timestamp, $d, $t )->text(), 'existing' );
 		}
 		# Add "other time" expiry dropdown option
-		$dropdownOptions[] = array( wfMsg( 'protect-othertime-op' ), 'othertime' );
+		$dropdownOptions[] = array( $this->msg( 'protect-othertime-op' )->text(), 'othertime' );
 		# Add custom expiry dropdown options (from MediaWiki message)
 		foreach( explode( ',', $scExpiryOptions ) as $option ) {
 			if ( strpos( $option, ":" ) === false ) {
@@ -147,26 +147,26 @@ class Stabilization extends UnlistedSpecialPage {
 			'action' => $this->getTitle()->getLocalUrl(), 'method' => 'post' ) );
 		# Add stable version override and selection options
 		$s .=
-			Xml::fieldset( wfMsg( 'stabilization-def' ), false ) . "\n" .
-			Xml::radioLabel( wfMsg( 'stabilization-def1' ), 'wpStableconfig-override', 1,
+			Xml::fieldset( $this->msg( 'stabilization-def' )->text(), false ) . "\n" .
+			Xml::radioLabel( $this->msg( 'stabilization-def1' )->text(), 'wpStableconfig-override', 1,
 				'default-stable', 1 == $form->getOverride(), $this->disabledAttr() ) .
 				'<br />' . "\n" .
-			Xml::radioLabel( wfMsg( 'stabilization-def2' ), 'wpStableconfig-override', 0,
+			Xml::radioLabel( $this->msg( 'stabilization-def2' )->text(), 'wpStableconfig-override', 0,
 				'default-current', 0 == $form->getOverride(), $this->disabledAttr() ) . "\n" .
 			Xml::closeElement( 'fieldset' );
 		# Add autoreview restriction select
-		$s .= Xml::fieldset( wfMsg( 'stabilization-restrict' ), false ) .
+		$s .= Xml::fieldset( $this->msg( 'stabilization-restrict' )->text(), false ) .
 			$this->buildSelector( $form->getAutoreview() ) .
 			Xml::closeElement( 'fieldset' ) .
 
-			Xml::fieldset( wfMsg( 'stabilization-leg' ), false ) .
+			Xml::fieldset( $this->msg( 'stabilization-leg' )->text(), false ) .
 			Xml::openElement( 'table' );
 		# Add expiry dropdown to form...
 		if ( $showProtectOptions && $form->isAllowed() ) {
 			$s .= "
 				<tr>
 					<td class='mw-label'>" .
-						Xml::label( wfMsg( 'stabilization-expiry' ),
+						Xml::label( $this->msg( 'stabilization-expiry' )->text(),
 							'mwStabilizeExpirySelection' ) .
 					"</td>
 					<td class='mw-input'>" .
@@ -186,7 +186,8 @@ class Stabilization extends UnlistedSpecialPage {
 		$s .= "
 			<tr>
 				<td class='mw-label'>" .
-					Xml::label( wfMsg( 'stabilization-othertime' ), 'mwStabilizeExpiryOther' ) .
+					Xml::label( $this->msg( 'stabilization-othertime' )->text(),
+						'mwStabilizeExpiryOther' ) .
 				'</td>
 				<td class="mw-input">' .
 					Xml::input( "mwStabilize-expiry", 50, $form->getExpiryCustom(), $attribs ) .
@@ -194,16 +195,17 @@ class Stabilization extends UnlistedSpecialPage {
 			</tr>';
 		# Add comment input and submit button
 		if ( $form->isAllowed() ) {
-			$watchLabel = wfMsgExt( 'watchthis', 'parseinline' );
-			$watchAttribs = array( 'accesskey' => wfMsg( 'accesskey-watch' ),
+			$watchLabel = $this->msg( 'watchthis' )->parse();
+			$watchAttribs = array( 'accesskey' => $this->msg( 'accesskey-watch' )->text(),
 				'id' => 'wpWatchthis' );
 			$watchChecked = ( $this->getUser()->getOption( 'watchdefault' )
 				|| $title->userIsWatching() );
-			$reviewLabel = wfMsgExt( 'stabilization-review', 'parseinline' );
+			$reviewLabel = $this->msg( 'stabilization-review' )->parse();
 
 			$s .= ' <tr>
 					<td class="mw-label">' .
-						xml::label( wfMsg( 'stabilization-comment' ), 'wpReasonSelection' ) .
+						xml::label( $this->msg( 'stabilization-comment' )->text(),
+							'wpReasonSelection' ) .
 					'</td>
 					<td class="mw-input">' .
 						$reasonDropDown .
@@ -211,7 +213,7 @@ class Stabilization extends UnlistedSpecialPage {
 				</tr>
 				<tr>
 					<td class="mw-label">' .
-						Xml::label( wfMsg( 'stabilization-otherreason' ), 'wpReason' ) .
+						Xml::label( $this->msg( 'stabilization-otherreason' )->text(), 'wpReason' ) .
 					'</td>
 					<td class="mw-input">' .
 						Xml::input( 'wpReason', 70, $form->getReasonExtra(),
@@ -235,7 +237,7 @@ class Stabilization extends UnlistedSpecialPage {
 				<tr>
 					<td></td>
 					<td class="mw-submit">' .
-						Xml::submitButton( wfMsg( 'stabilization-submit' ) ) .
+						Xml::submitButton( $this->msg( 'stabilization-submit' )->text() ) .
 					'</td>
 				</tr>' . Xml::closeElement( 'table' ) .
 				Html::hidden( 'title', $this->getTitle()->getPrefixedDBKey() ) .
@@ -248,8 +250,9 @@ class Stabilization extends UnlistedSpecialPage {
 
 		$out->addHTML( $s );
 
+		$log = new LogPage( 'stable' );
 		$out->addHTML( Xml::element( 'h2', null,
-			htmlspecialchars( LogPage::logName( 'stable' ) ) ) );
+			htmlspecialchars( $log->getName() ) ) );
 		LogEventsList::showLogExtract( $out, 'stable',
 			$title->getPrefixedText(), '', array( 'lim' => 25 ) );
 
@@ -303,14 +306,14 @@ class Stabilization extends UnlistedSpecialPage {
 	 */
 	protected function getOptionLabel( $permission ) {
 		if ( $permission == '' ) {
-			return wfMsg( 'stabilization-restrict-none' );
+			return $this->msg( 'stabilization-restrict-none' )->text();
 		} else {
 			$key = "protect-level-{$permission}";
-			$msg = wfMsg( $key );
-			if ( wfEmptyMsg( $key, $msg ) ) {
-				$msg = wfMsg( 'protect-fallback', $permission );
+			$msg = $this->msg( $key );
+			if ( $msg->isDisabled() ) {
+				$msg = $this->msg( 'protect-fallback', $permission );
 			}
-			return $msg;
+			return $msg->text();
 		}
 	}
 
