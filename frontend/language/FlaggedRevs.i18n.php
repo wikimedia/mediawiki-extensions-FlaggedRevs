@@ -15728,6 +15728,13 @@ $messages['ur'] = array(
 	'revreview-unlocked-title' => 'اس صفحے کو کرنے کے لئے گئی تدوین نہیں کی ضرورت کا جائزہ لیں.',
 );
 
+/** Uzbek (oʻzbekcha)
+ * @author CoderSI
+ */
+$messages['uz'] = array(
+	'revreview-source' => 'Manbasini koʻrish',
+);
+
 /** vèneto (vèneto)
  * @author Candalua
  * @author Frigotoni
