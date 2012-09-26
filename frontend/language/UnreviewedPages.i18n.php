@@ -2050,12 +2050,13 @@ $messages['zh-hans'] = array(
 	'unreviewedpages-recent' => '（少于1小时）',
 );
 
-/** Traditional Chinese (‪中文（繁體）‬)
+/** Traditional Chinese (中文（繁體）‎)
  * @author Anakmalaysia
  * @author Gaoxuewei
  * @author Oapbtommy
  */
 $messages['zh-hant'] = array(
+	'action-unreviewedpages' => '查看未受監視頁面的列表',
 	'unreviewedpages' => '未複審頁面',
 	'unreviewedpages-legend' => '未復審內容頁面列表',
 	'unreviewedpages-category' => '類別：',

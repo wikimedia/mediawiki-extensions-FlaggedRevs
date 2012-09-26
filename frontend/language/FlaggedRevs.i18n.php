@@ -11880,6 +11880,10 @@ Che as controla për piasì l'adrëssa (URL) che a l'ha dovrà për rivé a sta 
  */
 $messages['ps'] = array(
 	'editor' => 'سمونګر',
+	'flaggedrevs' => 'رپی لرونکې مخليدنې',
+	'flaggedrevs-pref-UI' => 'بنسټيز ليدنمخ:',
+	'prefs-flaggedrevs' => 'سمون مخليدنه',
+	'prefs-flaggedrevs-ui' => 'سمون مخليدنه',
 	'group-editor' => 'سمونګران',
 	'group-editor-member' => '{{GENDER:$1|سمونګر}}',
 	'group-reviewer' => 'مخکتونکي',
@@ -13976,7 +13980,7 @@ $messages['sr-ec'] = array(
 	'validationpage' => '{{ns:help}}:Провера странице',
 );
 
-/** Serbian (Latin script) (‪srpski (latinica)‬)
+/** Serbian (Latin script) (srpski (latinica)‎)
  * @author FriedrickMILBarbarossa
  * @author Michaello
  * @author Rancher
@@ -13984,14 +13988,23 @@ $messages['sr-ec'] = array(
  * @author Михајло Анђелковић
  */
 $messages['sr-el'] = array(
+	'action-review' => 'pregledanje izmena',
 	'editor' => 'Uređivač',
 	'flaggedrevs' => 'Označene izmene',
 	'flaggedrevs-desc' => 'Omogućava urednicima da provere izmene i stabilizuju stranice',
 	'flaggedrevs-pref-UI' => 'Osnovni interfejs:',
 	'flaggedrevs-pref-UI-0' => 'Koristi detaljne kutije za prikaz stanja odobrenja stranica',
 	'flaggedrevs-pref-UI-1' => 'Koristi male ikone i jednostavan tekst za prikaz stanja odobrenja stranica',
+	'prefs-flaggedrevs' => 'Pregledanje izmena',
+	'prefs-flaggedrevs-ui' => 'Pregledanje izmena',
 	'flaggedrevs-prefs-stable' => 'Kada da se prikaže stabilno izdanje stranica sa sadržajem po podrazumevanom',
+	'flaggedrevs-pref-stable-0' => 'Koristi podrazumevana podešavanja na svakoj stranici',
+	'flaggedrevs-pref-stable-1' => 'Uvek prikazuj stabilnu verziju (ako postoji)',
+	'flaggedrevs-pref-stable-2' => 'Uvek prikazuj najnoviju verziju',
 	'flaggedrevs-prefs-watch' => 'Dodaj strane koje sam pregledao u moj spisak nadgledanja.',
+	'flaggedrevs-prefs-editdiffs' => 'Prikaži razlike izmena na čekanju pri uređivanju stranica',
+	'flaggedrevs-prefs-viewdiffs' => 'Prikaži razlike izmena na čekanju pri prikazivanju najnovije revizije na čekanju',
+	'flaggedrevs-hidereviewed' => '$1 pregledane izmene',
 	'group-editor' => 'Uređivači',
 	'group-editor-member' => '{{GENDER:$1|urednik|urednica|urednik}}',
 	'group-reviewer' => 'Pregledači',
@@ -14004,6 +14017,8 @@ $messages['sr-el'] = array(
 	'revreview-hist-basic' => 'proverena izmena',
 	'revreview-hist-quality-user' => 'odobrio/-la [[User:$3|$3]]',
 	'revreview-hist-basic-user' => 'proverio/la [[User:$3|$3]]',
+	'revreview-diff-toggle-show' => 'prikaži izmene',
+	'revreview-diff-toggle-hide' => 'sakrij izmene',
 	'review-diff2stable' => 'Pogledaj sve izmene na čekanju',
 	'review-logentry-app' => 'pregleda izdanje stranice [[$1]]',
 	'review-logentry-dis' => 'označi kao zastarelo izdanje stranice [[$1]]',
@@ -14018,6 +14033,14 @@ $messages['sr-el'] = array(
 	'revreview-accuracy-3' => 'Sa dobrim izvorima',
 	'revreview-accuracy-4' => 'Izabrani',
 	'revreview-auto' => '(automatski)',
+	'revreview-basic' => 'Ovo je [[{{MediaWiki:Validationpage}}|objavljena verzija]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} proverena] dana <i>$2</i>.
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|izmena čeka na|izmene čekaju na|izmena čeka na}}] pregled.',
+	'revreview-basic-i' => 'Ovo je [[{{MediaWiki:Validationpage}}|objavljena verzija]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} proverena] dana <i>$2</i>.
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} izmene šablona/datoteke] čekaju na pregled.',
+	'revreview-basic-old' => 'Ovo je [[{{MediaWiki:Validationpage}}|proverena]] verzija ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} ceo spisak]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} odobren] dana <i>$2</i>.
+Možda su napravljene nove [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} izmene].',
+	'revreview-basic-same' => 'Ovo je [[{{MediaWiki:Validationpage}}|objavljena verzija]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} proverena] dana <i>$2</i>.',
+	'revreview-basic-source' => '[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} Proverena verzija] ove stranice, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} odobrena] dana <i>$2</i>, zasnovana je na ovoj izmeni.',
 	'revreview-current' => 'Izmene na čekanju',
 	'revreview-depth' => 'Dubina',
 	'revreview-depth-0' => 'Neadevkatno',
@@ -14028,6 +14051,7 @@ $messages['sr-el'] = array(
 	'revreview-draft-title' => 'Na ovoj stranici su prikazane izmene na čekanju',
 	'revreview-edit' => 'Uredi',
 	'revreview-submitedit' => 'Pošalji promene',
+	'revreview-submitedit-title' => 'Pošaljite svoje izmene za pregled',
 	'revreview-oldrating' => 'Ocenjeno je:',
 	'revreview-quality-title' => 'Ovo je kvalitetna verzija ove strane',
 	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|Pregledani članak]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} prikaži nacrt]]",
@@ -14073,16 +14097,27 @@ Molimo vas da proverite URL koji ste upotrebili da biste pristupili ovoj stranic
 	'revreview-filter-manual' => 'ručno',
 	'revreview-levelfilter' => 'Nivo:',
 	'revreview-lev-all' => 'bilo koji',
+	'revreview-lev-basic' => 'proverena',
+	'revreview-lev-quality' => 'kvalitetna',
+	'revreview-lev-pristine' => 'prvobitna',
+	'revreview-defaultfilter' => 'Podrazumevana verzija:',
 	'revreview-def-all' => 'bilo koji',
 	'revreview-def-draft' => 'poslednje',
 	'revreview-def-stable' => 'prihvaćeno',
+	'revreview-restrictfilter' => 'Ograničenje automatske provere:',
 	'revreview-restriction-any' => 'bilo koji',
 	'revreview-restriction-none' => 'nijedan',
 	'revreview-reviewlink' => 'neproverene izmene',
+	'revreview-reviewlink-title' => 'Pogledaj razliku između svih izmena na čekanju',
 	'revreview-unreviewedpage' => 'neproverena strana',
 	'tooltip-ca-current' => 'Pregled stranice s izmenama na čekanju',
 	'tooltip-ca-stable' => 'Pregled objavljenog izdanja ove stranice',
 	'tooltip-ca-default' => 'Podešavanja obezbeđivanja kvaliteta.',
+	'flaggedrevs-protect-legend' => 'Automatska provera izmena ([[{{MediaWiki:Validationpage}}|pomoć]])',
+	'flaggedrevs-protect-none' => 'Dozvoli svim korisnicima',
+	'revreview-locked-title' => 'Izmene na ovoj stranici zahtevaju pregled.',
+	'revreview-unlocked-title' => 'Izmene na ovoj stranici ne zahtevaju pregled.',
+	'log-show-hide-review' => '$1 dnevnik pregledanja',
 	'validationpage' => '{{ns:help}}:Validacija članka',
 );
 
@@ -16772,7 +16807,7 @@ $messages['zh-hans'] = array(
 	'validationpage' => '{{ns:help}}:页面验证',
 );
 
-/** Traditional Chinese (‪中文（繁體）‬)
+/** Traditional Chinese (中文（繁體）‎)
  * @author Alexsh
  * @author Anakmalaysia
  * @author Bencmq
@@ -16863,12 +16898,12 @@ $messages['zh-hant'] = array(
 	'revreview-depth-4' => '特色',
 	'revreview-draft-title' => '這是一個草稿頁面',
 	'revreview-edit' => '編輯',
-	'revreview-editnotice' => "'''您的變更會在被授權用戶審核後向讀者展示。'''([[{{MediaWiki:Validationpage}}|幫助]])",
+	'revreview-editnotice' => "'''您的更改將在已授權用戶複審後向讀者展示。（[[{{MediaWiki:Validationpage}}|幫助]]）'''",
 	'revreview-submitedit' => '提交更改',
 	'revreview-submitedit-title' => '提交您的變更供審查',
-	'revreview-edited' => "'''你的更改將於獲授權的用戶審查後向讀者展示。 ([[{{MediaWiki:Validationpage}}|幫助]])'''
+	'revreview-edited' => "'''您的更改將在已授權用戶複審後向讀者展示。（[[{{MediaWiki:Validationpage}}|幫助]]）'''
 
-有{{PLURAL:$2|一|多}}個 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} ($2個)未審核的{{PLURAL:$2|版本|版本}}]  ''（如下所示）''等待審查。",
+有[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$2|$2|$2}}個{{PLURAL:$2|更改|更改}}]''（如下所示）''正在等待覆審。",
 	'revreview-edited-section' => '回到「[[#$1|$2]]」章節。',
 	'revreview-newest-basic' => '該版本中有[{{fullurl:{{​​FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3個{{PLURAL:$3|更改|更改}}]{{PLURAL: $3|正在|正在}}[[{{MediaWiki:Validationpage}}|等待複審]]。
 當前[{{fullurl:{{​​FULLPAGENAMEE}}|stable=1}} 穩定版本][{{fullurl:{{​​#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 檢查]於$2。',

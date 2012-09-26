@@ -1827,7 +1827,7 @@ $messages['sr-ec'] = array(
 	'pendingchanges-viewing' => '(под прегледом)',
 );
 
-/** Serbian (Latin script) (‪srpski (latinica)‬)
+/** Serbian (Latin script) (srpski (latinica)‎)
  * @author Michaello
  * @author Жељко Тодоровић
  */
@@ -1840,6 +1840,7 @@ $messages['sr-el'] = array(
 	'pendingchanges-days' => '($1 {{PLURAL:$1|dan|dana}})',
 	'pendingchanges-recent' => '(manje od jednog časa)',
 	'pendingchanges-category' => 'Kategorija:',
+	'pendingchanges-onwatchlist' => 'Stranice na mom spisku nadgledanja',
 	'pendingchanges-stable' => 'Podrazumevano je stabilno izdanje',
 	'pendingchanges-diff' => 'pregled',
 	'pendingchanges-size' => 'Najveća izmena (bajtovi):',

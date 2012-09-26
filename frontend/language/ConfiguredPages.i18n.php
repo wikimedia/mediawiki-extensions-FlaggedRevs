@@ -911,11 +911,13 @@ $messages['sr-ec'] = array(
 	'configuredpages-def-stable' => 'стабилна верзија',
 );
 
-/** Serbian (Latin script) (‪srpski (latinica)‬)
+/** Serbian (Latin script) (srpski (latinica)‎)
  * @author Жељко Тодоровић
  */
 $messages['sr-el'] = array(
 	'configuredpages-config' => 'Podešavanja',
+	'configuredpages-def-draft' => 'najnovija verzija',
+	'configuredpages-def-stable' => 'stabilna verzija',
 );
 
 /** Swedish (svenska)

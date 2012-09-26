@@ -1899,7 +1899,7 @@ Katso [[Special:Unreviewedpages|lista sivuista, joita ei ole arvioitu]].',
 	'revreview-adv-stop-link' => 'älä ilmoita muille',
 	'revreview-toolow' => "'''Sinun täytyy arvioida kaikki alla olevat kohdat paremmalla arvolla kuin ”puutteellinen”, jotta versio katsottaisiin arvioiduksi.'''
 
-Poistaaksesi version arviointitilan napsauta \"{{int:revreview-submit-unreview}}\".
+Poistaaksesi version arviointitilan napsauta ”{{int:revreview-submit-unreview}}”.
 
 Palaa selaimen takaisin-painikkeella ja yritä uudelleen.",
 	'revreview-update' => "'''[[{{MediaWiki:Validationpage}}|Arvioi]] kaikki odottavat muutokset (näytetään alla), jotka on tehty vakaan version jälkeen.'''",
@@ -5966,7 +5966,7 @@ $messages['zh-hans'] = array(
 	'revreview-tt-reject' => '拒绝这些对源文本的修改并撤消它们',
 );
 
-/** Traditional Chinese (‪中文（繁體）‬)
+/** Traditional Chinese (中文（繁體）‎)
  * @author Anakmalaysia
  * @author Liangent
  * @author Mark85296341
@@ -6025,11 +6025,11 @@ $messages['zh-hant'] = array(
 	'revreview-sadv-reviewing-c' => '您可以$1您正在審閱這些更改。',
 	'revreview-adv-start-link' => '告知其他用戶',
 	'revreview-adv-stop-link' => '取消告知其他用戶',
-	'revreview-toolow' => '您一定要最少將下面每一項的屬性評定高於「不足」，才可將一個修訂設定為已複審。
+	'revreview-toolow' => "'''您必須將所有字段標記為“不足”以上才能將修訂標記為已複審。'''
 
-要捨棄一個修訂，請點選「拒絕」。
+要去掉修訂的複審狀態，請點擊“{{int:revreview-submit-unreview}}”。
 
-請在您的瀏覽器點擊「返回」按鈕，然後再試一次。',
+請點擊您瀏覽器中的“後退”按鈕後重試。",
 	'revreview-update' => "請[[{{MediaWiki:Validationpage}}|複審]]自從於這頁的穩定版以來的任何更改''（在下面顯示）''。",
 	'revreview-update-edited' => '<span class="flaggedrevs_important">所做的更改不是尚未是穩定版本。</span>
 
