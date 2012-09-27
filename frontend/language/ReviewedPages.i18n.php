@@ -316,6 +316,9 @@ $messages['diq'] = array(
 	'reviewedpages-list' => 'Ena liste de [[{{MediaWiki:Validationpage}}|pelanê kontrol biyo]] ke "standarde tewr berzi" (versiyonan ra)  înan ra seviye beliyo.
 Versiyone peniyane ena seviye re yew link dayeya.',
 	'reviewedpages-none' => 'Ena liste de pelan çini yo',
+	'reviewedpages-lev-0' => '{{int:revreview-lev-basic}}',
+	'reviewedpages-lev-1' => '{{int:revreview-lev-quality}}',
+	'reviewedpages-lev-2' => '{{int:revreview-lev-pristine}}',
 	'reviewedpages-all' => 'versiyonan ke kontrol biyo',
 	'reviewedpages-best' => 'revizyono tewr rınd',
 );

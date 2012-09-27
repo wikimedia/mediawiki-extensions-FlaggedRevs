@@ -1531,7 +1531,9 @@ $messages['pms'] = array(
 $messages['ps'] = array(
 	'pendingchanges-hours' => '($1 {{PLURAL:$1|ساعت|ساعتونه}})',
 	'pendingchanges-days' => '($1 {{PLURAL:$1|ورځ|ورځې}})',
+	'pendingchanges-recent' => '(له 1 ګړۍ نه لږ وخت)',
 	'pendingchanges-category' => 'وېشنيزه:',
+	'pendingchanges-onwatchlist' => 'زما د کتنلړ مخونه',
 	'pendingchanges-diff' => 'مخکتنه',
 );
 
