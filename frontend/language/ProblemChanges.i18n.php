@@ -957,13 +957,14 @@ $messages['tr'] = array(
 /** Ukrainian (українська)
  * @author Ahonc
  * @author Dim Grits
+ * @author Microcell
  * @author NickK
  * @author Prima klasy4na
  */
 $messages['uk'] = array(
 	'problemchanges' => 'Відмічені нерецензовані зміни',
 	'problemchanges-list' => 'На цій сторінці подано [[{{MediaWiki:Validationpage}}|перевірені]] сторінки, що мають відмічені редагування. Дивіться список [[Special:Tags|допустимих тегів]].',
-	'problemchanges-legend' => 'Список сторінок із позначеними редагуваннями, що очікують перевірки',
+	'problemchanges-legend' => 'Список сторінок із позначеними редагуваннями, що очікують на перевірку',
 	'problemchanges-none' => 'Наразі немає сторінок, які відповідають цим критеріям',
 	'problemchanges-category' => 'Категорія:',
 );

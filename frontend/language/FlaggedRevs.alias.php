@@ -62,6 +62,20 @@ $specialPageAliases['arz'] = array(
 	'ValidationStatistics' => array( 'احصائيات_الصلاحيه' ),
 );
 
+/** Bashkir (башҡортса) */
+$specialPageAliases['ba'] = array(
+	'PendingChanges' => array( 'PendingChanges' ),
+	'QualityOversight' => array( 'AdvancedReviewLog' ),
+	'ReviewedPages' => array( 'ReviewedPages' ),
+	'RevisionReview' => array( 'RevisionReview' ),
+	'Stabilization' => array( 'Stabilization' ),
+	'StablePages' => array( 'StablePages' ),
+	'ConfiguredPages' => array( 'ConfiguredPages' ),
+	'ReviewedVersions' => array( 'StableVersions' ),
+	'UnreviewedPages' => array( 'UnreviewedPages' ),
+	'ValidationStatistics' => array( 'ValidationStatistics' ),
+);
+
 /** Southern Balochi (بلوچی مکرانی) */
 $specialPageAliases['bcc'] = array(
 	'PendingChanges' => array( 'صفحات-بازبینی-قدیمی' ),
