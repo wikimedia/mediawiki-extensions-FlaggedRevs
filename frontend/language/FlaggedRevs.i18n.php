@@ -7588,6 +7588,14 @@ $messages['ig'] = array(
 	'flaggedrevs-protect-none' => "Kwèré ọ'bànifé nílé",
 );
 
+/** Iloko (Ilokano)
+ * @author Lam-ang
+ */
+$messages['ilo'] = array(
+	'action-review' => 'irepaso dagiti binaliwan',
+	'editor' => 'Mannurat',
+);
+
 /** Ido (Ido)
  * @author Malafaya
  */
@@ -11893,6 +11901,8 @@ $messages['ps'] = array(
 	'grouppage-editor' => '{{ns:project}}:سمونګر',
 	'reviewer' => 'مخکتونکی',
 	'revreview-accuracy' => 'کره توب',
+	'revreview-accuracy-2' => 'کره',
+	'revreview-accuracy-3' => 'سمو سرچينو څخه برخمن',
 	'revreview-auto' => '(خپلسري)',
 	'revreview-current' => 'بدلونونو ته تم',
 	'revreview-depth' => 'ژورتيا',
@@ -11901,11 +11911,13 @@ $messages['ps'] = array(
 	'revreview-depth-3' => 'لوړ',
 	'revreview-edit' => 'سمول',
 	'revreview-submitedit' => 'بدلونونه ورسپارل',
+	'revreview-oldrating' => 'دا و ارزېده:',
 	'revreview-source' => 'سرچينه کتل',
 	'revreview-style' => 'لوستوړتيا',
 	'revreview-style-1' => 'د منلو وړ',
 	'revreview-style-2' => 'ښه',
 	'revreview-toggle-title' => 'څرګندونې ښکاره کول/پټول',
+	'specialpages-group-quality' => 'سمون مخليدنه',
 	'revreview-filter-all' => 'ټول',
 	'revreview-filter-stable' => 'ثابت',
 	'revreview-statusfilter' => 'د مخليدنې کړنه:',

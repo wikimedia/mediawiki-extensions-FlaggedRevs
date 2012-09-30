@@ -679,7 +679,7 @@ $messages['be'] = array(
 	'revreview-tt-reject' => 'Адхіліць гэтыя змены, адкаціць іх',
 );
 
-/** Belarusian (Taraškievica orthography) (‪беларуская (тарашкевіца)‬)
+/** Belarusian (Taraškievica orthography) (беларуская (тарашкевіца)‎)
  * @author EugeneZelenko
  * @author Jim-by
  * @author Wizardist
@@ -754,7 +754,7 @@ $messages['be-tarask'] = array(
 	'revreview-reject-text-revto' => 'Гэта адкаціць назад старонку да [{{fullurl:$1|oldid=$2}} вэрсіі $3].',
 	'revreview-reject-summary' => 'Апісаньне:',
 	'revreview-reject-confirm' => 'Адмяніць гэтыя зьмены',
-	'revreview-reject-cancel' => 'Адмяніць',
+	'revreview-reject-cancel' => 'Скасаваць',
 	'revreview-reject-summary-cur' => '{{PLURAL:$1|Адхіленая $1 апошняя тэкставая зьмена зробленая|Адхіленыя $1 апошнія тэкставыя зьмены зробленыя|Адхіленыя $1 апошніх тэкставых зьменаў зробленых}} ($2) і адноўленая вэрсія $3 зробленая $4',
 	'revreview-reject-summary-old' => '{{PLURAL:$1|Адхіленая $1 першая тэкставая зьмена зробленая|Адхіленыя $1 першыя тэкставыя зьмены зробленыя|Адхіленыя $1 першых тэкставых зьменаў зробленыя}} ($2) наступных пасьля вэрсіі $3 зробленай $4',
 	'revreview-reject-summary-cur-short' => '{{PLURAL:$1|Адхіленая $1 апошняя тэкставая зьмена|Адхіленыя $1 апошнія тэкставыя зьмены|Адхіленыя $1 апошніх тэкставых зьменаў}} і адноўленая вэрсія $2 зробленая $3',
