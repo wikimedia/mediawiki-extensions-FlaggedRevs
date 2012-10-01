@@ -2282,7 +2282,7 @@ Bitte iberprief alli unte aazeigte Änderige, ass Dyyni Bearbeite chenne ibernuu
 	'revreview-update-includes' => 'Vorlage/Dateie sin aktualisiert worde (nit markierti Syte sin fett gkennzeichnet):',
 	'revreview-reject-text-list' => "Mit Abschluss vu däre Aktion {{PLURAL:$1|wird die Änderig|wäre die Änderige}} aa [[:$2|$2]]  '''furtghejt''':",
 	'revreview-reject-text-revto' => 'Des setzt d Syte uf d [{{fullurl:$1|oldid=$2}} Version vum $3] zruck.',
-	'revreview-reject-summary' => 'Zämefassig:',
+	'revreview-reject-summary' => 'Zämmefassig:',
 	'revreview-reject-confirm' => 'Die Änderige furtgheje',
 	'revreview-reject-cancel' => 'Abbräche',
 	'revreview-reject-summary-cur' => 'Di {{PLURAL:$1|letscht Teggständerig|$1 letschten Teggständerige}} vu $2 {{PLURAL:$1|isch|sin}} furtghejt wore un d Version $3 vu $4 widerhärgstellt',
