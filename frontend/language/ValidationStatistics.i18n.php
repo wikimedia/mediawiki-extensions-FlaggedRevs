@@ -248,7 +248,7 @@ $3",
 	'validationstatistics-reviews' => 'Праверкі',
 );
 
-/** Belarusian (Taraškievica orthography) (‪беларуская (тарашкевіца)‬)
+/** Belarusian (Taraškievica orthography) (беларуская (тарашкевіца)‎)
  * @author EugeneZelenko
  * @author Jim-by
  * @author Red Winged Duck
@@ -867,7 +867,7 @@ $messages['gu'] = array(
 	'validationstatistics-stable' => 'પરામર્શિત',
 );
 
-/** Hausa (هَوُسَ) */
+/** Hausa (Hausa) */
 $messages['ha'] = array(
 	'validationstatistics-ns' => 'Sararin suna',
 );
@@ -1325,7 +1325,7 @@ Sigge sen als övverhollt enjeschtoof, wann Änderonge doh sen, di noch nit nohj
 	'validationstatistics-reviews' => 'Mohlde en Sigg beshtätesh',
 );
 
-/** Kurdish (Latin script) (‪Kurdî (latînî)‬)
+/** Kurdish (Latin script) (Kurdî (latînî)‎)
  * @author George Animal
  */
 $messages['ku-latn'] = array(
@@ -1528,7 +1528,7 @@ $messages['nah'] = array(
 	'validationstatistics-total' => 'Tlaìxtlapaltìn',
 );
 
-/** Norwegian Bokmål (‪norsk (bokmål)‬)
+/** Norwegian Bokmål (norsk (bokmål)‎)
  * @author Nghtwlkr
  */
 $messages['nb'] = array(
@@ -1582,7 +1582,7 @@ $3",
 	'validationstatistics-reviews' => 'Beoordelingen',
 );
 
-/** Norwegian Nynorsk (‪norsk (nynorsk)‬)
+/** Norwegian Nynorsk (norsk (nynorsk)‎)
  * @author Gunnernett
  * @author Harald Khan
  * @author Njardarlogar
@@ -1995,7 +1995,7 @@ $messages['sq'] = array(
 	'validationstatistics-total' => 'Faqet',
 );
 
-/** Serbian (Cyrillic script) (‪српски (ћирилица)‬)
+/** Serbian (Cyrillic script) (српски (ћирилица)‎)
  * @author Rancher
  * @author Sasa Stefanovic
  * @author Михајло Анђелковић
@@ -2014,7 +2014,7 @@ $messages['sr-ec'] = array(
 	'validationstatistics-reviews' => 'Прегледи',
 );
 
-/** Serbian (Latin script) (‪srpski (latinica)‬)
+/** Serbian (Latin script) (srpski (latinica)‎)
  * @author Michaello
  */
 $messages['sr-el'] = array(
@@ -2343,7 +2343,7 @@ $messages['yi'] = array(
 	'validationstatistics-user' => 'באַניצער',
 );
 
-/** Simplified Chinese (‪中文（简体）‬)
+/** Simplified Chinese (中文（简体）‎)
  * @author Bencmq
  * @author Gaoxuewei
  * @author Hydra
@@ -2373,7 +2373,7 @@ $messages['zh-hans'] = array(
 	'validationstatistics-reviews' => '复审',
 );
 
-/** Traditional Chinese (‪中文（繁體）‬)
+/** Traditional Chinese (中文（繁體）‎)
  * @author Anakmalaysia
  * @author Gaoxuewei
  * @author Horacewai2

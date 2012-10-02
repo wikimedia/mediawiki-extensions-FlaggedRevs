@@ -176,7 +176,7 @@ $messages['be'] = array(
 	'reviewedpages-best' => 'найлепшая версія',
 );
 
-/** Belarusian (Taraškievica orthography) (‪беларуская (тарашкевіца)‬)
+/** Belarusian (Taraškievica orthography) (беларуская (тарашкевіца)‎)
  * @author EugeneZelenko
  * @author Jim-by
  */
@@ -735,7 +735,7 @@ $messages['ka'] = array(
 	'reviewedpages-best' => 'საუკეთესო ვერსია',
 );
 
-/** Kazakh (Arabic script) (‫قازاقشا (تٴوتە)‬) */
+/** Kazakh (Arabic script) (قازاقشا (تٴوتە)‏) */
 $messages['kk-arab'] = array(
 	'reviewedpages' => 'سىن بەرىلگەن بەتتەر',
 	'reviewedpages-leg' => 'انىق دەڭگەيدە سىن بەرىلگەن بەتتەردى تىزىمدەۋ',
@@ -748,7 +748,7 @@ $messages['kk-arab'] = array(
 	'reviewedpages-best' => 'ەڭ سوڭعى ەڭ جوعارى دەڭگەي بەرىلگەن نۇسقاسى',
 );
 
-/** Kazakh (Cyrillic script) (‪қазақша (кирил)‬) */
+/** Kazakh (Cyrillic script) (қазақша (кирил)‎) */
 $messages['kk-cyrl'] = array(
 	'reviewedpages' => 'Сын берілген беттер',
 	'reviewedpages-leg' => 'Анық деңгейде сын берілген беттерді тізімдеу',
@@ -761,7 +761,7 @@ $messages['kk-cyrl'] = array(
 	'reviewedpages-best' => 'ең соңғы ең жоғары деңгей берілген нұсқасы',
 );
 
-/** Kazakh (Latin script) (‪qazaqşa (latın)‬) */
+/** Kazakh (Latin script) (qazaqşa (latın)‎) */
 $messages['kk-latn'] = array(
 	'reviewedpages' => 'Sın berilgen better',
 	'reviewedpages-leg' => 'Anıq deñgeýde sın berilgen betterdi tizimdew',
@@ -920,7 +920,7 @@ $messages['nah'] = array(
 	'reviewedpages-lev-1' => 'Cuallōtl',
 );
 
-/** Norwegian Bokmål (‪norsk (bokmål)‬)
+/** Norwegian Bokmål (norsk (bokmål)‎)
  * @author EivindJ
  * @author Nghtwlkr
  */
@@ -955,7 +955,7 @@ Er wordt een verwijzing gegeven naar de laatste versie voor dat niveau.",
 	'reviewedpages-best' => 'beste versie',
 );
 
-/** Norwegian Nynorsk (‪norsk (nynorsk)‬)
+/** Norwegian Nynorsk (norsk (nynorsk)‎)
  * @author Harald Khan
  * @author Njardarlogar
  */
@@ -1203,7 +1203,7 @@ $messages['sq'] = array(
 	'reviewedpages-all' => 'versione të shqyrtuara',
 );
 
-/** Serbian (Cyrillic script) (‪српски (ћирилица)‬)
+/** Serbian (Cyrillic script) (српски (ћирилица)‎)
  * @author Charmed94
  * @author Millosh
  * @author Rancher
@@ -1224,7 +1224,7 @@ $messages['sr-ec'] = array(
 	'reviewedpages-best' => 'најбоља измена',
 );
 
-/** Serbian (Latin script) (‪srpski (latinica)‬)
+/** Serbian (Latin script) (srpski (latinica)‎)
  * @author Michaello
  * @author Михајло Анђелковић
  */
@@ -1485,7 +1485,7 @@ $messages['yue'] = array(
 	'reviewedpages-best' => '最好修訂',
 );
 
-/** Simplified Chinese (‪中文（简体）‬)
+/** Simplified Chinese (中文（简体）‎)
  * @author PhiLiP
  * @author Shinjiman
  */
@@ -1501,7 +1501,7 @@ $messages['zh-hans'] = array(
 	'reviewedpages-best' => '最佳修订',
 );
 
-/** Traditional Chinese (‪中文（繁體）‬)
+/** Traditional Chinese (中文（繁體）‎)
  * @author Horacewai2
  * @author Shinjiman
  * @author Waihorace

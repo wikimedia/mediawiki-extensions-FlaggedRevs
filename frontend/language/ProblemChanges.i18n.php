@@ -107,7 +107,7 @@ $messages['be'] = array(
 	'problemchanges-category' => 'Катэгорыя:',
 );
 
-/** Belarusian (Taraškievica orthography) (‪беларуская (тарашкевіца)‬)
+/** Belarusian (Taraškievica orthography) (беларуская (тарашкевіца)‎)
  * @author EugeneZelenko
  * @author Jim-by
  * @author Wizardist
@@ -376,7 +376,7 @@ $messages['gsw'] = array(
 	'problemchanges-category' => 'Kategorii:',
 );
 
-/** Hausa (هَوُسَ) */
+/** Hausa (Hausa) */
 $messages['ha'] = array(
 	'problemchanges-category' => 'Rukuni:',
 );
@@ -566,7 +566,7 @@ En Leß met de [[Special:Tags|jöltejje Makeeronge för Änderonge]] ham_mer och
 	'problemchanges-category' => 'Zoot:',
 );
 
-/** Kurdish (Latin script) (‪Kurdî (latînî)‬)
+/** Kurdish (Latin script) (Kurdî (latînî)‎)
  * @author George Animal
  */
 $messages['ku-latn'] = array(
@@ -636,7 +636,7 @@ $messages['ms'] = array(
 	'problemchanges-category' => 'Kategori:',
 );
 
-/** Norwegian Bokmål (‪norsk (bokmål)‬)
+/** Norwegian Bokmål (norsk (bokmål)‎)
  * @author Laaknor
  * @author Nghtwlkr
  * @author Simny
@@ -660,7 +660,7 @@ $messages['nl'] = array(
 	'problemchanges-category' => 'Categorie:',
 );
 
-/** Norwegian Nynorsk (‪norsk (nynorsk)‬)
+/** Norwegian Nynorsk (norsk (nynorsk)‎)
  * @author Nghtwlkr
  */
 $messages['nn'] = array(
@@ -855,7 +855,7 @@ $messages['so'] = array(
 	'problemchanges-category' => 'Qeybta:',
 );
 
-/** Serbian (Cyrillic script) (‪српски (ћирилица)‬)
+/** Serbian (Cyrillic script) (српски (ћирилица)‎)
  * @author Charmed94
  */
 $messages['sr-ec'] = array(
@@ -865,7 +865,7 @@ $messages['sr-ec'] = array(
 	'problemchanges-category' => 'Категорија:',
 );
 
-/** Serbian (Latin script) (‪srpski (latinica)‬) */
+/** Serbian (Latin script) (srpski (latinica)‎) */
 $messages['sr-el'] = array(
 	'problemchanges' => 'Označene izmene na čekanju',
 	'problemchanges-legend' => 'Prelistaj stranice na čekanju s označenim izmenama za pregled',
@@ -1022,7 +1022,7 @@ $messages['yi'] = array(
 	'problemchanges-category' => 'קאַטעגאריע:',
 );
 
-/** Simplified Chinese (‪中文（简体）‬)
+/** Simplified Chinese (中文（简体）‎)
  * @author Gaoxuewei
  * @author Hydra
  * @author Jimmy xu wrk
@@ -1036,7 +1036,7 @@ $messages['zh-hans'] = array(
 	'problemchanges-category' => '分类：',
 );
 
-/** Traditional Chinese (‪中文（繁體）‬)
+/** Traditional Chinese (中文（繁體）‎)
  * @author Horacewai2
  * @author Liangent
  * @author Oapbtommy

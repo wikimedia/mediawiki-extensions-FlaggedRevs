@@ -273,7 +273,7 @@ $messages['be'] = array(
 	'pendingchanges-viewing' => '(правяраюцца)',
 );
 
-/** Belarusian (Taraškievica orthography) (‪беларуская (тарашкевіца)‬)
+/** Belarusian (Taraškievica orthography) (беларуская (тарашкевіца)‎)
  * @author EugeneZelenko
  * @author Jim-by
  * @author Wizardist
@@ -1170,7 +1170,7 @@ $messages['ksh'] = array(
 	'pendingchanges-viewing' => '(weed nohjekik)',
 );
 
-/** Kurdish (Latin script) (‪Kurdî (latînî)‬)
+/** Kurdish (Latin script) (Kurdî (latînî)‎)
  * @author George Animal
  */
 $messages['ku-latn'] = array(
@@ -1365,7 +1365,7 @@ $messages['nah'] = array(
 	'pendingchanges-watched' => '($1 āyini  {{PLURAL:$1|tlatequitiltilīlli quichiya|tlatequitiltilīltin quichiyah}})',
 );
 
-/** Norwegian Bokmål (‪norsk (bokmål)‬)
+/** Norwegian Bokmål (norsk (bokmål)‎)
  * @author EivindJ
  * @author Nghtwlkr
  */
@@ -1419,7 +1419,7 @@ $messages['nl'] = array(
 	'pendingchanges-viewing' => '(wordt gecontroleerd)',
 );
 
-/** Norwegian Nynorsk (‪norsk (nynorsk)‬)
+/** Norwegian Nynorsk (norsk (nynorsk)‎)
  * @author Harald Khan
  */
 $messages['nn'] = array(
@@ -1805,7 +1805,7 @@ $messages['sq'] = array(
 	'pendingchanges-viewing' => '(duke u shqyrtuar)',
 );
 
-/** Serbian (Cyrillic script) (‪српски (ћирилица)‬)
+/** Serbian (Cyrillic script) (српски (ћирилица)‎)
  * @author Millosh
  * @author Rancher
  * @author Жељко Тодоровић
@@ -2137,7 +2137,7 @@ $messages['yue'] = array(
 	'pendingchanges-watched' => '($1{{PLURAL:$1|位用戶|位用戶}}睇緊)',
 );
 
-/** Simplified Chinese (‪中文（简体）‬)
+/** Simplified Chinese (中文（简体）‎)
  * @author Chenxiaoqino
  * @author Gaoxuewei
  * @author Gzdavidwong
@@ -2165,7 +2165,7 @@ $messages['zh-hans'] = array(
 	'pendingchanges-viewing' => '（正在复审）',
 );
 
-/** Traditional Chinese (‪中文（繁體）‬)
+/** Traditional Chinese (中文（繁體）‎)
  * @author Frankou
  * @author Gzdavidwong
  * @author Horacewai2

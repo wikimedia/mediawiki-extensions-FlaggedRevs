@@ -121,7 +121,7 @@ $messages['be'] = array(
 	'configuredpages-def-stable' => 'публікаваная версія',
 );
 
-/** Belarusian (Taraškievica orthography) (‪беларуская (тарашкевіца)‬)
+/** Belarusian (Taraškievica orthography) (беларуская (тарашкевіца)‎)
  * @author EugeneZelenko
  * @author Wizardist
  * @author Zedlik
@@ -684,7 +684,7 @@ $messages['mt'] = array(
 	'configuredpages-def-stable' => 'verżjoni stabbli',
 );
 
-/** Norwegian Bokmål (‪norsk (bokmål)‬)
+/** Norwegian Bokmål (norsk (bokmål)‎)
  * @author Nghtwlkr
  */
 $messages['nb'] = array(
@@ -710,7 +710,7 @@ Instellingen wijzigen welke versie wordt weergegeven aan lezers of beperken wie 
 	'configuredpages-def-stable' => 'gepubliceerde versie',
 );
 
-/** Norwegian Nynorsk (‪norsk (nynorsk)‬)
+/** Norwegian Nynorsk (norsk (nynorsk)‎)
  * @author Nghtwlkr
  */
 $messages['nn'] = array(
@@ -900,7 +900,7 @@ Nekatere nastavitve morda spremenijo, katera različica je prikazana bralcem, al
 	'configuredpages-def-stable' => 'stabilna različica',
 );
 
-/** Serbian (Cyrillic script) (‪српски (ћирилица)‬)
+/** Serbian (Cyrillic script) (српски (ћирилица)‎)
  * @author Rancher
  * @author Жељко Тодоровић
  * @author Михајло Анђелковић
@@ -1054,7 +1054,7 @@ Một số tùy chọn có thể có ảnh hưởng đến phiên bản được
 	'configuredpages-def-stable' => 'phiên bản xuất bản',
 );
 
-/** Simplified Chinese (‪中文（简体）‬)
+/** Simplified Chinese (中文（简体）‎)
  * @author Onecountry
  * @author PhiLiP
  */
@@ -1067,7 +1067,7 @@ $messages['zh-hans'] = array(
 	'configuredpages-def-stable' => '稳定版本',
 );
 
-/** Traditional Chinese (‪中文（繁體）‬)
+/** Traditional Chinese (中文（繁體）‎)
  * @author Horacewai2
  * @author Waihorace
  */

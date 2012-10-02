@@ -503,7 +503,7 @@ $messages['be'] = array(
 	'stabilization-review' => 'Адзначыць бягучую версію як правераную',
 );
 
-/** Belarusian (Taraškievica orthography) (‪беларуская (тарашкевіца)‬)
+/** Belarusian (Taraškievica orthography) (беларуская (тарашкевіца)‎)
  * @author EugeneZelenko
  * @author Jim-by
  * @author Zedlik
@@ -855,7 +855,7 @@ Die aktuellen Einstellungen für „[[:$1|$1]]“ sind:',
 	'stabilization-review' => 'Markiere die aktuelle Version',
 );
 
-/** German (formal address) (‪Deutsch (Sie-Form)‬)
+/** German (formal address) (Deutsch (Sie-Form)‎)
  * @author Kghbln
  * @author Umherirrender
  */
@@ -1467,7 +1467,7 @@ $messages['gv'] = array(
 	'stabilization-comment' => 'Fa:',
 );
 
-/** Hausa (هَوُسَ) */
+/** Hausa (Hausa) */
 $messages['ha'] = array(
 	'stabilization-comment' => 'Dalili:',
 	'stabilization-otherreason' => 'Wani dalili:',
@@ -2007,7 +2007,7 @@ $messages['ka'] = array(
 	'stabilization-review' => 'მონიშნეთ ამჟამინდელი ცვლილება შემოწმებულად',
 );
 
-/** Kazakh (Arabic script) (‫قازاقشا (تٴوتە)‬) */
+/** Kazakh (Arabic script) (قازاقشا (تٴوتە)‏) */
 $messages['kk-arab'] = array(
 	'stabilization-tab' => '(سق)',
 	'stabilization' => 'بەتتى تىياناقتاۋ',
@@ -2028,7 +2028,7 @@ $messages['kk-arab'] = array(
 	'stabilization-def-short-1' => 'تىياناقتى',
 );
 
-/** Kazakh (Cyrillic script) (‪қазақша (кирил)‬) */
+/** Kazakh (Cyrillic script) (қазақша (кирил)‎) */
 $messages['kk-cyrl'] = array(
 	'stabilization-tab' => '(сқ)',
 	'stabilization' => 'Бетті тиянақтау',
@@ -2049,7 +2049,7 @@ $messages['kk-cyrl'] = array(
 	'stabilization-def-short-1' => 'Тиянақты',
 );
 
-/** Kazakh (Latin script) (‪qazaqşa (latın)‬) */
+/** Kazakh (Latin script) (qazaqşa (latın)‎) */
 $messages['kk-latn'] = array(
 	'stabilization-tab' => '(sq)',
 	'stabilization' => 'Betti tïyanaqtaw',
@@ -2184,7 +2184,7 @@ Et jidd och nix ennzeshtelle.',
 	'stabilization-review' => 'Donn faßhallde, dat de aktoälle Version nohjekik es',
 );
 
-/** Kurdish (Latin script) (‪Kurdî (latînî)‬)
+/** Kurdish (Latin script) (Kurdî (latînî)‎)
  * @author George Animal
  */
 $messages['ku-latn'] = array(
@@ -2497,7 +2497,7 @@ $messages['nah'] = array(
 	'stabilize-expiring' => 'motlamīz $1 (UTC)',
 );
 
-/** Norwegian Bokmål (‪norsk (bokmål)‬)
+/** Norwegian Bokmål (norsk (bokmål)‎)
  * @author H92
  * @author Laaknor
  * @author Nghtwlkr
@@ -2589,7 +2589,7 @@ Instellen is niet mogelijk.',
 	'stabilization-review' => 'Huidige versie als gecontroleerd markeren',
 );
 
-/** Norwegian Nynorsk (‪norsk (nynorsk)‬)
+/** Norwegian Nynorsk (norsk (nynorsk)‎)
  * @author Gunnernett
  * @author Harald Khan
  * @author Jon Harald Søby
@@ -3263,7 +3263,7 @@ Asnjë konfigurim nuk është i mundshëm.',
 	'stabilize-expiring' => 'skadon $1 (UTC)',
 );
 
-/** Serbian (Cyrillic script) (‪српски (ћирилица)‬)
+/** Serbian (Cyrillic script) (српски (ћирилица)‎)
  * @author Millosh
  * @author Rancher
  * @author Sasa Stefanovic
@@ -3305,7 +3305,7 @@ $messages['sr-ec'] = array(
 	'stabilization-review' => 'Означи тренутну ревизику као прегледану',
 );
 
-/** Serbian (Latin script) (‪srpski (latinica)‬)
+/** Serbian (Latin script) (srpski (latinica)‎)
  * @author Michaello
  * @author Жељко Тодоровић
  * @author Михајло Анђелковић
@@ -3975,7 +3975,7 @@ $messages['yue'] = array(
 	'stabilize-expiring' => '於 $1 (UTC) 到期',
 );
 
-/** Simplified Chinese (‪中文（简体）‬)
+/** Simplified Chinese (中文（简体）‎)
  * @author Bencmq
  * @author Gaoxuewei
  * @author Liangent
@@ -4015,7 +4015,7 @@ $messages['zh-hans'] = array(
 	'stabilization-review' => '将当前修订标记为已检查',
 );
 
-/** Traditional Chinese (‪中文（繁體）‬)
+/** Traditional Chinese (中文（繁體）‎)
  * @author Alexsh
  * @author Gaoxuewei
  * @author Horacewai2

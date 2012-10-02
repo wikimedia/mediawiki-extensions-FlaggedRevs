@@ -481,7 +481,7 @@ Shows as the "save page" button on pages with a stable version where the user la
 {{Gender}}
 Attribute title for the "save page" button for pages with a stable version where the user lacks review and automatic review rights.',
 	'revreview-edited' => '{{Flagged Revs-small}}
-If an anonymous user edits a stable page, after saving the page he sees the draft version <code>stable=0</code> in page title) he has made.
+If an anonymous user edits a stable page, after saving the page he sees the draft version (<tt>stable=0</tt> in page title) he has made.
 
 {{Identical|Authorised user}}',
 	'revreview-edited-section' => '{{Flagged Revs}}
@@ -720,7 +720,7 @@ Shown in the "flagged revs box". This shows on pages were edits don\'t require r
 	'log-show-hide-review' => '{{Flagged Revs}}
 * $1 is one of {{msg|show}} or {{msg|hide}}',
 	'validationpage' => "{{Flagged Revs-small}}
-Link to the general help page. Do ''not'' translate the <code><nowiki>{{ns:help}}:</nowiki></code> part, including the colon.",
+Link to the general help page. Do ''not'' translate the <tt><nowiki>{{ns:help}}:</nowiki></tt> part, including the colon.",
 );
 
 /** Afrikaans (Afrikaans)
@@ -1978,7 +1978,7 @@ $messages['be'] = array(
 	'validationpage' => '{{ns:help}}:Праверка старонак',
 );
 
-/** Belarusian (Taraškievica orthography) (‪беларуская (тарашкевіца)‬)
+/** Belarusian (Taraškievica orthography) (беларуская (тарашкевіца)‎)
  * @author EugeneZelenko
  * @author Jim-by
  * @author Red Winged Duck
@@ -3177,14 +3177,14 @@ $messages['ch'] = array(
 	'revreview-revnotfound' => "Ti siña masodda' i tinilaika i påhina ni finaisen-mu. Pot fabot chek i URL ni un usa para i finatto-mu gi påhina.",
 );
 
-/** Crimean Turkish (Latin script) (‪qırımtatarca (Latin)‬)
+/** Crimean Turkish (Latin script) (qırımtatarca (Latin)‎)
  * @author Don Alessandro
  */
 $messages['crh-latn'] = array(
 	'revreview-revnotfound' => 'Saifeniñ eski versiyası tapılmadı. Lütfen, bu saifege kirmek içün qullanğan bağlantıñıznıñ doğrulığını teşkeriñiz.',
 );
 
-/** Crimean Turkish (Cyrillic script) (‪къырымтатарджа (Кирилл)‬)
+/** Crimean Turkish (Cyrillic script) (къырымтатарджа (Кирилл)‎)
  * @author Don Alessandro
  */
 $messages['crh-cyrl'] = array(
@@ -3618,7 +3618,7 @@ Neue [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffo
 	'validationpage' => '{{ns:help}}:Gesichtete und geprüfte Versionen',
 );
 
-/** German (formal address) (‪Deutsch (Sie-Form)‬)
+/** German (formal address) (Deutsch (Sie-Form)‎)
  * @author Imre
  * @author Jens Liebenau
  * @author Kghbln
@@ -6185,7 +6185,7 @@ S cha syy, ass es scho neiji [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{Med
 	'validationpage' => '{{ns:project}}:Gesichtete und geprüfte Versionen',
 );
 
-/** Hausa (هَوُسَ) */
+/** Hausa (Hausa) */
 $messages['ha'] = array(
 	'revreview-filter-all' => 'duka',
 );
@@ -8517,7 +8517,7 @@ $messages['kab'] = array(
 Ssenqed URL i tesseqdac.',
 );
 
-/** Kazakh (Arabic script) (‫قازاقشا (تٴوتە)‬) */
+/** Kazakh (Arabic script) (قازاقشا (تٴوتە)‏) */
 $messages['kk-arab'] = array(
 	'editor' => 'تۇزەتۋشى',
 	'flaggedrevs' => 'بەلگىلەنگەن نۇسقالار',
@@ -8596,7 +8596,7 @@ $messages['kk-arab'] = array(
 	'validationpage' => '{{ns:help}}:ماقالا اقتالۋى',
 );
 
-/** Kazakh (Cyrillic script) (‪қазақша (кирил)‬) */
+/** Kazakh (Cyrillic script) (қазақша (кирил)‎) */
 $messages['kk-cyrl'] = array(
 	'editor' => 'Түзетуші',
 	'flaggedrevs' => 'Белгіленген нұсқалар',
@@ -8675,7 +8675,7 @@ $messages['kk-cyrl'] = array(
 	'validationpage' => '{{ns:help}}:Мақала ақталуы',
 );
 
-/** Kazakh (Latin script) (‪qazaqşa (latın)‬) */
+/** Kazakh (Latin script) (qazaqşa (latın)‎) */
 $messages['kk-latn'] = array(
 	'editor' => 'Tüzetwşi',
 	'flaggedrevs' => 'Belgilengen nusqalar',
@@ -9203,7 +9203,7 @@ fottjeschmesse hät?',
 	'validationpage' => '{{ns:help}}:Nohjeloorte, jeprööfte un beschtäteschte Versione vun Sigge',
 );
 
-/** Kurdish (Latin script) (‪Kurdî (latînî)‬)
+/** Kurdish (Latin script) (Kurdî (latînî)‎)
  * @author George Animal
  */
 $messages['ku-latn'] = array(
@@ -10613,7 +10613,7 @@ $messages['nah'] = array(
 	'tooltip-ca-current' => 'Xiquitta inīn āmatl īca in yancuīc tlapatlaliztli',
 );
 
-/** Norwegian Bokmål (‪norsk (bokmål)‬)
+/** Norwegian Bokmål (norsk (bokmål)‎)
  * @author EivindJ
  * @author Event
  * @author H92
@@ -11083,7 +11083,7 @@ Controleer de URL die u gebruikte om naar deze pagina te gaan.',
 	'validationpage' => '{{ns:help}}:Paginaredactie',
 );
 
-/** Norwegian Nynorsk (‪norsk (nynorsk)‬)
+/** Norwegian Nynorsk (norsk (nynorsk)‎)
  * @author Gunnernett
  * @author Harald Khan
  * @author Jon Harald Søby
@@ -13854,7 +13854,7 @@ $messages['sq'] = array(
 	'revreview-revnotfound' => 'Versioni i vjetër i faqes së kërkuar nuk mund të gjindej. Ju lutem kontrolloni URL-n që përdorët për të ardhur tek kjo faqe.',
 );
 
-/** Serbian (Cyrillic script) (‪српски (ћирилица)‬)
+/** Serbian (Cyrillic script) (српски (ћирилица)‎)
  * @author FriedrickMILBarbarossa
  * @author Millosh
  * @author Rancher
@@ -16621,7 +16621,7 @@ $messages['zea'] = array(
 Controleer asjeblieft de URL die  a je hebruken om ni deêze pagina te haene.',
 );
 
-/** Simplified Chinese (‪中文（简体）‬)
+/** Simplified Chinese (中文（简体）‎)
  * @author Bencmq
  * @author Chenxiaoqino
  * @author Chenzw

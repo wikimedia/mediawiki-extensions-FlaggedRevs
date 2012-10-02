@@ -92,7 +92,7 @@ $messages['be'] = array(
 	'qualityoversight-legend' => 'Пошук па журналу праверак',
 );
 
-/** Belarusian (Taraškievica orthography) (‪беларуская (тарашкевіца)‬)
+/** Belarusian (Taraškievica orthography) (беларуская (тарашкевіца)‎)
  * @author EugeneZelenko
  * @author Jim-by
  * @author Red Winged Duck
@@ -482,7 +482,7 @@ $messages['ms'] = array(
 	'qualityoversight-legend' => 'Cari log kaji semula terkini',
 );
 
-/** Norwegian Bokmål (‪norsk (bokmål)‬)
+/** Norwegian Bokmål (norsk (bokmål)‎)
  * @author Nghtwlkr
  */
 $messages['nb'] = array(
@@ -500,7 +500,7 @@ $messages['nl'] = array(
 	'qualityoversight-legend' => 'Recente controlelogboeken doorzoeken',
 );
 
-/** Norwegian Nynorsk (‪norsk (nynorsk)‬)
+/** Norwegian Nynorsk (norsk (nynorsk)‎)
  * @author Harald Khan
  * @author Njardarlogar
  */
@@ -630,7 +630,7 @@ $messages['sl'] = array(
 	'qualityoversight-legend' => 'Iskanje nedavnih dnevnikov pregledov',
 );
 
-/** Serbian (Cyrillic script) (‪српски (ћирилица)‬)
+/** Serbian (Cyrillic script) (српски (ћирилица)‎)
  * @author Charmed94
  * @author Millosh
  */
@@ -640,7 +640,7 @@ $messages['sr-ec'] = array(
 	'qualityoversight-legend' => 'Претрага извештаја недавних прегледа',
 );
 
-/** Serbian (Latin script) (‪srpski (latinica)‬)
+/** Serbian (Latin script) (srpski (latinica)‎)
  * @author Michaello
  */
 $messages['sr-el'] = array(
@@ -746,7 +746,7 @@ $messages['yue'] = array(
 	'qualityoversight-list' => '呢一版列示咗最近核准修訂同埋最近品質修訂嘅折舊。',
 );
 
-/** Simplified Chinese (‪中文（简体）‬)
+/** Simplified Chinese (中文（简体）‎)
  * @author Gaoxuewei
  * @author PhiLiP
  * @author Shinjiman
@@ -757,7 +757,7 @@ $messages['zh-hans'] = array(
 	'qualityoversight-legend' => '搜索最近复审日志',
 );
 
-/** Traditional Chinese (‪中文（繁體）‬)
+/** Traditional Chinese (中文（繁體）‎)
  * @author Horacewai2
  * @author Liangent
  * @author Mark85296341

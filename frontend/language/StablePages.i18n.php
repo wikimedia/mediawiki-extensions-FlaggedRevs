@@ -139,7 +139,7 @@ $messages['be'] = array(
 	'stablepages-indef' => 'Толькі з нявызначаным тэрмінам',
 );
 
-/** Belarusian (Taraškievica orthography) (‪беларуская (тарашкевіца)‬)
+/** Belarusian (Taraškievica orthography) (беларуская (тарашкевіца)‎)
  * @author EugeneZelenko
  * @author Jim-by
  * @author Wizardist
@@ -703,7 +703,7 @@ Modifiki magħmula minn utenti oħra ma jidhrux awtomatikament lill-qarrejja sak
 	'stablepages-indef' => 'Skadenza indefinita biss',
 );
 
-/** Norwegian Bokmål (‪norsk (bokmål)‬)
+/** Norwegian Bokmål (norsk (bokmål)‎)
  * @author Nghtwlkr
  */
 $messages['nb'] = array(
@@ -728,7 +728,7 @@ Bewerkingen door andere gebruikers worden niet weergegeven totdat daartoe gerech
 	'stablepages-indef' => 'Alleen zonder vervaldatum',
 );
 
-/** Norwegian Nynorsk (‪norsk (nynorsk)‬)
+/** Norwegian Nynorsk (norsk (nynorsk)‎)
  * @author Harald Khan
  * @author Njardarlogar
  */
@@ -893,7 +893,7 @@ Urejanja, ki jih naredijo ostali uporabniki, privzeto niso prikazana bralcem, do
 	'stablepages-indef' => 'Samo neomejen potek',
 );
 
-/** Serbian (Cyrillic script) (‪српски (ћирилица)‬)
+/** Serbian (Cyrillic script) (српски (ћирилица)‎)
  * @author Charmed94
  * @author Millosh
  * @author Rancher
@@ -907,7 +907,7 @@ $messages['sr-ec'] = array(
 	'stablepages-config' => 'Поставке',
 );
 
-/** Serbian (Latin script) (‪srpski (latinica)‬)
+/** Serbian (Latin script) (srpski (latinica)‎)
  * @author Michaello
  * @author Жељко Тодоровић
  */
@@ -1067,7 +1067,7 @@ $messages['yue'] = array(
 	'stablepages-config' => '設定',
 );
 
-/** Simplified Chinese (‪中文（简体）‬)
+/** Simplified Chinese (中文（简体）‎)
  * @author Gaoxuewei
  * @author Hydra
  * @author PhiLiP
@@ -1082,7 +1082,7 @@ $messages['zh-hans'] = array(
 	'stablepages-indef' => '只限永久到期',
 );
 
-/** Traditional Chinese (‪中文（繁體）‬)
+/** Traditional Chinese (中文（繁體）‎)
  * @author Gaoxuewei
  * @author Horacewai2
  * @author Shinjiman

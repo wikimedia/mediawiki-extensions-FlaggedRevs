@@ -164,7 +164,7 @@ $messages['be'] = array(
 	'reviewedversions-review' => 'Праверана <i>$1</i> ўдзельнікам $2',
 );
 
-/** Belarusian (Taraškievica orthography) (‪беларуская (тарашкевіца)‬)
+/** Belarusian (Taraškievica orthography) (беларуская (тарашкевіца)‎)
  * @author EugeneZelenko
  */
 $messages['be-tarask'] = array(
@@ -650,7 +650,7 @@ $messages['ka'] = array(
 	'reviewedversions-review' => 'შეამოწმა <i>$1</i> მომხმარებელმა $2',
 );
 
-/** Kazakh (Arabic script) (‫قازاقشا (تٴوتە)‬) */
+/** Kazakh (Arabic script) (قازاقشا (تٴوتە)‏) */
 $messages['kk-arab'] = array(
 	'reviewedversions' => 'تىياناقتى نۇسقالار',
 	'reviewedversions-leg1' => 'سىن بەرىلگەن بەتتىڭ نۇسقا ٴتىزىمى',
@@ -660,7 +660,7 @@ $messages['kk-arab'] = array(
 	'reviewedversions-review' => '$2 <i>$1</i> كەزىندە سىن بەردى',
 );
 
-/** Kazakh (Cyrillic script) (‪қазақша (кирил)‬) */
+/** Kazakh (Cyrillic script) (қазақша (кирил)‎) */
 $messages['kk-cyrl'] = array(
 	'reviewedversions' => 'Тиянақты нұсқалар',
 	'reviewedversions-leg1' => 'Сын берілген беттің нұсқа тізімі',
@@ -670,7 +670,7 @@ $messages['kk-cyrl'] = array(
 	'reviewedversions-review' => '$2 <i>$1</i> кезінде сын берді',
 );
 
-/** Kazakh (Latin script) (‪qazaqşa (latın)‬) */
+/** Kazakh (Latin script) (qazaqşa (latın)‎) */
 $messages['kk-latn'] = array(
 	'reviewedversions' => 'Tïyanaqtı nusqalar',
 	'reviewedversions-leg1' => 'Sın berilgen bettiñ nusqa tizimi',
@@ -712,7 +712,7 @@ $messages['ksh'] = array(
 	'reviewedversions-review' => 'Nohjekik {{GENDER:$5|vum|vum|vun däm Metmaacher|vun däm|vun dä}} $2 aam $3 öm $4 Uhr.',
 );
 
-/** Kurdish (Latin script) (‪Kurdî (latînî)‬)
+/** Kurdish (Latin script) (Kurdî (latînî)‎)
  * @author George Animal
  */
 $messages['ku-latn'] = array(
@@ -832,7 +832,7 @@ $messages['nah'] = array(
 	'reviewedversions-page' => 'Zāzanilli ītōcā:',
 );
 
-/** Norwegian Bokmål (‪norsk (bokmål)‬)
+/** Norwegian Bokmål (norsk (bokmål)‎)
  * @author Nghtwlkr
  */
 $messages['nb'] = array(
@@ -865,7 +865,7 @@ $messages['nl'] = array(
 	'reviewedversions-review' => 'Gecontroleerd op <i>$1</i> door $2',
 );
 
-/** Norwegian Nynorsk (‪norsk (nynorsk)‬)
+/** Norwegian Nynorsk (norsk (nynorsk)‎)
  * @author Harald Khan
  * @author Jon Harald Søby
  */
@@ -1098,7 +1098,7 @@ $messages['sq'] = array(
 	'reviewedversions-review' => 'Shqyrtuar më <i>$1</i> nga $2',
 );
 
-/** Serbian (Cyrillic script) (‪српски (ћирилица)‬)
+/** Serbian (Cyrillic script) (српски (ћирилица)‎)
  * @author Charmed94
  * @author Millosh
  * @author Sasa Stefanovic
@@ -1113,7 +1113,7 @@ $messages['sr-ec'] = array(
 	'reviewedversions-review' => 'Прегледано на <i>$1</i> од стране $2',
 );
 
-/** Serbian (Latin script) (‪srpski (latinica)‬)
+/** Serbian (Latin script) (srpski (latinica)‎)
  * @author Michaello
  */
 $messages['sr-el'] = array(
@@ -1343,7 +1343,7 @@ $messages['yue'] = array(
 	'reviewedversions-review' => '響<i>$1</i>複審過',
 );
 
-/** Simplified Chinese (‪中文（简体）‬)
+/** Simplified Chinese (中文（简体）‎)
  * @author Gaoxuewei
  * @author Hydra
  * @author Liangent
@@ -1358,7 +1358,7 @@ $messages['zh-hans'] = array(
 	'reviewedversions-review' => '由$2在$1时复审',
 );
 
-/** Traditional Chinese (‪中文（繁體）‬)
+/** Traditional Chinese (中文（繁體）‎)
  * @author Horacewai2
  * @author Liangent
  * @author Waihorace

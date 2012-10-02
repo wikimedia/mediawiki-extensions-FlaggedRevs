@@ -1243,7 +1243,7 @@ Bitte markiere alle unten angezeigten Änderungen, damit deine Bearbeitungen zur
 	'revreview-tt-reject' => 'Diese Textänderungen durch Zurücksetzen verwerfen',
 );
 
-/** German (formal address) (‪Deutsch (Sie-Form)‬)
+/** German (formal address) (Deutsch (Sie-Form)‎)
  * @author Imre
  * @author Kghbln
  * @author Umherirrender
@@ -2294,7 +2294,7 @@ Bitte iberprief alli unte aazeigte Änderige, ass Dyyni Bearbeite chenne ibernuu
 	'revreview-tt-reject' => 'Die Teggtsänderige dur zruggsetze zruggwyse',
 );
 
-/** Hausa (هَوُسَ) */
+/** Hausa (Hausa) */
 $messages['ha'] = array(
 	'revreview-log' => 'Bahasi:',
 );
@@ -3180,7 +3180,7 @@ $messages['ka'] = array(
 	'revreview-tt-unflag' => 'აღარ მაჩვენო ის ვერსია, რომელშიც მე მონიშვნა უარვყავი',
 );
 
-/** Kazakh (Arabic script) (‫قازاقشا (تٴوتە)‬) */
+/** Kazakh (Arabic script) (قازاقشا (تٴوتە)‏) */
 $messages['kk-arab'] = array(
 	'revisionreview' => 'نۇسقالارعا سىن بەرۋ',
 	'revreview-flag' => 'بۇل نۇسقاعا (#$1) سىن بەرۋ',
@@ -3195,7 +3195,7 @@ $messages['kk-arab'] = array(
 كەيبىر جاڭارتىلعان ۇلگىلەر/سۋرەتتەر:',
 );
 
-/** Kazakh (Cyrillic script) (‪қазақша (кирил)‬) */
+/** Kazakh (Cyrillic script) (қазақша (кирил)‎) */
 $messages['kk-cyrl'] = array(
 	'revisionreview' => 'Нұсқаларға сын беру',
 	'revreview-flag' => 'Бұл нұсқаға сын беру',
@@ -3209,7 +3209,7 @@ $messages['kk-cyrl'] = array(
 	'revreview-update' => 'Тиянақты нұсқа бекітілгеннен бері жасалған өзгерістерге (төменде көрсетілген) сын беріп шығыңыз.',
 );
 
-/** Kazakh (Latin script) (‪qazaqşa (latın)‬) */
+/** Kazakh (Latin script) (qazaqşa (latın)‎) */
 $messages['kk-latn'] = array(
 	'revisionreview' => 'Nusqalarğa sın berw',
 	'revreview-flag' => 'Bul nusqağa sın berw',
@@ -3374,7 +3374,7 @@ Looer noh de [[Special:Unreviewedpages|Leß met de nit nohjekikte Sigge]].',
 	'revreview-tt-reject' => 'Donn heh di Änderonge aflehne un uß dä Sigg widder eruß nämme',
 );
 
-/** Kurdish (Latin script) (‪Kurdî (latînî)‬)
+/** Kurdish (Latin script) (Kurdî (latînî)‎)
  * @author George Animal
  */
 $messages['ku-latn'] = array(
@@ -3836,7 +3836,7 @@ Sila kaji semula segala perubahan yang ditunjukkan di bawah untuk memastikan aga
 	'revreview-tt-reject' => 'Tolak perubahan teks sumber ini dengan membalikkannya',
 );
 
-/** Norwegian Bokmål (‪norsk (bokmål)‬)
+/** Norwegian Bokmål (norsk (bokmål)‎)
  * @author EivindJ
  * @author Event
  * @author Laaknor
@@ -4009,7 +4009,7 @@ Controleer alle hieronder weergegeven wijzigingen om ook uw bewerking zichtbaar 
 	'revreview-tt-reject' => 'Deze wijzigingen afkeuren door te terug te draaien',
 );
 
-/** Norwegian Nynorsk (‪norsk (nynorsk)‬)
+/** Norwegian Nynorsk (norsk (nynorsk)‎)
  * @author Harald Khan
  * @author Jon Harald Søby
  * @author Nghtwlkr
@@ -5004,7 +5004,7 @@ $messages['sq'] = array(
 	'revreview-successful' => "'''Shqyrtimi i faqesë ''[[:$1|$1]]'' u shënua me sukses ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} shiko të gjithë versionet të shqyrtuara]).'''",
 );
 
-/** Serbian (Cyrillic script) (‪српски (ћирилица)‬)
+/** Serbian (Cyrillic script) (српски (ћирилица)‎)
  * @author Millosh
  * @author Rancher
  * @author Sasa Stefanovic
@@ -5032,7 +5032,7 @@ $messages['sr-ec'] = array(
 	'revreview-update-includes' => 'Ажурирани шаблони/датотеке (непрегледане странице су подебљане):',
 );
 
-/** Serbian (Latin script) (‪srpski (latinica)‬)
+/** Serbian (Latin script) (srpski (latinica)‎)
  * @author Michaello
  */
 $messages['sr-el'] = array(
@@ -5878,7 +5878,7 @@ $messages['yue'] = array(
 	'revreview-update-includes' => '有啲模/圖更新咗:',
 );
 
-/** Simplified Chinese (‪中文（简体）‬)
+/** Simplified Chinese (中文（简体）‎)
  * @author Bencmq
  * @author Chenxiaoqino
  * @author Gaoxuewei

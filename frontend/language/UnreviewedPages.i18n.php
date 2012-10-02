@@ -247,7 +247,7 @@ $messages['be'] = array(
 	'unreviewedpages-recent' => '(Менш 1 гадзіны)',
 );
 
-/** Belarusian (Taraškievica orthography) (‪беларуская (тарашкевіца)‬)
+/** Belarusian (Taraškievica orthography) (беларуская (тарашкевіца)‎)
  * @author EugeneZelenko
  * @author Jim-by
  * @author Red Winged Duck
@@ -733,7 +733,7 @@ $messages['gsw'] = array(
 	'unreviewedpages-recent' => '(weniger wie ei Stund)',
 );
 
-/** Hausa (هَوُسَ) */
+/** Hausa (Hausa) */
 $messages['ha'] = array(
 	'unreviewedpages-category' => 'Rukuni:',
 );
@@ -1030,7 +1030,7 @@ $messages['ka'] = array(
 	'unreviewedpages-recent' => '(1 საათზე ნაკლები)',
 );
 
-/** Kazakh (Arabic script) (‫قازاقشا (تٴوتە)‬) */
+/** Kazakh (Arabic script) (قازاقشا (تٴوتە)‏) */
 $messages['kk-arab'] = array(
 	'unreviewedpages' => 'سىن بەرىلمەگەن بەتتەر',
 	'unreviewedpages-category' => 'سانات:',
@@ -1038,7 +1038,7 @@ $messages['kk-arab'] = array(
 	'unreviewedpages-list' => 'بۇل بەتتە سىن بەرىلمەگەن ماقالالار نە جاڭادان جاسالعان, سىن بەرىلمەگەن, نۇسقالارى بار ماقالار تىزىمدەلىنەدى.',
 );
 
-/** Kazakh (Cyrillic script) (‪қазақша (кирил)‬) */
+/** Kazakh (Cyrillic script) (қазақша (кирил)‎) */
 $messages['kk-cyrl'] = array(
 	'unreviewedpages' => 'Сын берілмеген беттер',
 	'unreviewedpages-category' => 'Санат:',
@@ -1046,7 +1046,7 @@ $messages['kk-cyrl'] = array(
 	'unreviewedpages-list' => 'Бұл бетте сын берілмеген мақалалар не жаңадан жасалған, сын берілмеген, нұсқалары бар мақалар тізімделінеді.',
 );
 
-/** Kazakh (Latin script) (‪qazaqşa (latın)‬) */
+/** Kazakh (Latin script) (qazaqşa (latın)‎) */
 $messages['kk-latn'] = array(
 	'unreviewedpages' => 'Sın berilmegen better',
 	'unreviewedpages-category' => 'Sanat:',
@@ -1120,7 +1120,7 @@ $messages['ksh'] = array(
 	'unreviewedpages-recent' => '(winnijer wie en Shtund)',
 );
 
-/** Kurdish (Latin script) (‪Kurdî (latînî)‬)
+/** Kurdish (Latin script) (Kurdî (latînî)‎)
  * @author George Animal
  */
 $messages['ku-latn'] = array(
@@ -1292,7 +1292,7 @@ $messages['nah'] = array(
 	'unreviewedpages-category' => 'Tlaìxmatkàtlàlilòtl:',
 );
 
-/** Norwegian Bokmål (‪norsk (bokmål)‬)
+/** Norwegian Bokmål (norsk (bokmål)‎)
  * @author Harald Khan
  * @author Nghtwlkr
  * @author Simny
@@ -1341,7 +1341,7 @@ $messages['nl'] = array(
 	'unreviewedpages-recent' => '(minder dan één uur)',
 );
 
-/** Norwegian Nynorsk (‪norsk (nynorsk)‬)
+/** Norwegian Nynorsk (norsk (nynorsk)‎)
  * @author Harald Khan
  * @author Jon Harald Søby
  * @author Nghtwlkr
@@ -1697,7 +1697,7 @@ $messages['sq'] = array(
 	'unreviewedpages-category' => 'Kategoria:',
 );
 
-/** Serbian (Cyrillic script) (‪српски (ћирилица)‬)
+/** Serbian (Cyrillic script) (српски (ћирилица)‎)
  * @author Millosh
  * @author Rancher
  * @author Sasa Stefanovic
@@ -1719,7 +1719,7 @@ $messages['sr-ec'] = array(
 	'unreviewedpages-recent' => '(мање од једног сата)',
 );
 
-/** Serbian (Latin script) (‪srpski (latinica)‬)
+/** Serbian (Latin script) (srpski (latinica)‎)
  * @author Michaello
  */
 $messages['sr-el'] = array(
@@ -2027,7 +2027,7 @@ $messages['yue'] = array(
 	'unreviewedpages-none' => '呢度現時無版合乎呢啲條件',
 );
 
-/** Simplified Chinese (‪中文（简体）‬)
+/** Simplified Chinese (中文（简体）‎)
  * @author Bencmq
  * @author Gaoxuewei
  * @author Hydra
