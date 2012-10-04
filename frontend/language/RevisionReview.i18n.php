@@ -1000,8 +1000,15 @@ $messages['ca'] = array(
 	'revreview-reflag' => 'Comprova de nou aquesta revisió',
 	'revreview-log' => 'Comentari:',
 	'revreview-submit' => 'Tramet',
+	'revreview-submit-review' => 'Accepta la revisió',
+	'revreview-submit-unreview' => 'Rebutja la revisió',
+	'revreview-submit-reject' => 'Rebutja els canvis',
+	'revreview-submit-reviewed' => 'Fet. Acceptada.',
+	'revreview-submit-unreviewed' => 'Fet. Rebutjada.',
+	'revreview-successful' => "' ' Revisió de [[: $1 | $1 ]] correctament marcada. ([{{fullurl: {{#Special:ReviewedVersions}} |page = $2 }} veure les versions revisades]) ' '",
 	'revreview-update' => "'''[[{{MediaWiki:Validationpage}}|Reviseu]] els canvis pendents ''(que es mostren a continuació)'' fets des de la versió acceptada.'''",
 	'revreview-update-includes' => "S'han actualitzat algunes plantilles o fitxers (pàgines no revistes en negreta):",
+	'revreview-reject-confirm' => 'Rebutja aquests canvis',
 	'revreview-reject-cancel' => 'Cancel·lar',
 );
 

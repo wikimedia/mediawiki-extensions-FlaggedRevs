@@ -123,7 +123,7 @@ $specialPageAliases['bs'] = array(
 $specialPageAliases['de'] = array(
 	'PendingChanges' => array( 'Seiten_mit_ungesichteten_Versionen' ),
 	'ProblemChanges' => array( 'Seiten_mit_problematischen_Versionen' ),
-	'QualityOversight' => array( 'Markierungsübersicht' ),
+	'QualityOversight' => array( 'Erweitertes_Sichtungslogbuch', 'Markierungsübersicht' ),
 	'ReviewedPages' => array( 'Gesichtete_Seiten' ),
 	'RevisionReview' => array( 'Versionsprüfung' ),
 	'Stabilization' => array( 'Seitenkonfiguration', 'Stabilisierung' ),
@@ -131,7 +131,7 @@ $specialPageAliases['de'] = array(
 	'ConfiguredPages' => array( 'Konfigurierte_Seiten' ),
 	'ReviewedVersions' => array( 'Gesichtete_Versionen' ),
 	'UnreviewedPages' => array( 'Ungesichtete_Seiten' ),
-	'ValidationStatistics' => array( 'Markierungsstatistik' ),
+	'ValidationStatistics' => array( 'Sichtungsstatistik', 'Markierungsstatistik' ),
 );
 
 /** Zazaki (Zazaki) */
