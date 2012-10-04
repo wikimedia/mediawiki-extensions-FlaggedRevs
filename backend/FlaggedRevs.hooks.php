@@ -71,7 +71,7 @@ class FlaggedRevsHooks {
 			// Re-validate NS/config (new title may not be reviewable)
 			if ( $fa->isReviewable() && $ntitle->userCan( 'autoreview' ) ) {
 				// Auto-review such edits like new pages...
-				$rev = Revision::newFromTitle( $ntitle );
+				$rev = Revision::newFromTitle( $ntitle, false, Revision::READ_LATEST );
 				if ( $rev ) { // sanity
 					FlaggedRevs::autoReviewEdit( $fa, $user, $rev );
 				}
@@ -555,7 +555,7 @@ class FlaggedRevsHooks {
 		}
 		$title = $article->getTitle(); // convenience
 		# Get the current revision ID
-		$rev = Revision::newFromTitle( $title );
+		$rev = Revision::newFromTitle( $title, false, Revision::READ_LATEST );
 		if ( !$rev ) {
 			return true; // wtf?
 		}
