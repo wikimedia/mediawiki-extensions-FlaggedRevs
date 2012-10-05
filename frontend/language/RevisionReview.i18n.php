@@ -110,6 +110,7 @@ Please review all the changes shown below to make your edits appear in the stabl
  * @author Jon Harald Søby
  * @author Lloffiwr
  * @author Nemo bis
+ * @author Purodha
  * @author Pxos
  * @author Raymond
  * @author SPQRobin
@@ -277,22 +278,25 @@ Shown on the reject form.',
 	'revreview-reject-summary-cur' => '{{Flagged Revs-small}}
 Default summary shown when rejecting pending changes, and they are the latest revisions to a page
 * $1 is the number of rejected revisions
-* $2 is the list of (one or more) users who are being rejected
-* $3 is the revision ID of the revision being reverted to',
+* $2 is the list of of one or more users whose changes are being rejected
+* $3 is the revision ID of the revision being reverted to
+* $4 may be a user? or a link?',
 	'revreview-reject-summary-old' => '{{Flagged Revs-small}}
 Default summary shown when rejecting pending changes.
 * $1 is the number of rejected revisions
 * $2 is the list of (one or more) users who are being rejected
-* $3 is the revision ID of the revision before the first pending change',
+* $3 is the revision ID of the revision before the first pending change
+* $4 a user name? a link to a user page?',
 	'revreview-reject-summary-cur-short' => '{{Flagged Revs-small}}
 Default summary shown when rejecting pending changes, and they are the latest revisions to a page
 * $1 is the number of rejected revisions
-* $2 is the revision ID of the revision being reverted to',
+* $2 is the revision ID of the revision being reverted to
+* $3 a user name? a link to a user page?',
 	'revreview-reject-summary-old-short' => '{{Flagged Revs-small}}
 Default summary shown when rejecting pending changes.
 * $1 is the number of rejected revisions
-* $3 is the revision ID of the revision before the first pending change
-
+* $2 is the revision ID of the revision before the first pending change
+* $3 a user name? a link to a user page?
 Alternative sentences which mean the same as the above message are:
 * Rejected the next {{PLURAL:$1|change|$1 changes}} that followed revision $2 by $3
 * Rejected the {{PLURAL:$1|change|$1 changes}} that immediately followed revision $2 by $3',
@@ -3339,6 +3343,10 @@ $messages['ksh'] = array(
 	'review_no_oldid' => 'Kein Kännong för en Version es aanjejovve',
 	'review_bad_oldid' => 'Esu en Kännong för en Version jidd et nit.',
 	'review_conflict_oldid' => 'Sönßwää hät alld heh di Version jootjeheiße udder afjelehnt, derwiel Do se noch aam Beloore wohß.',
+	'review_not_flagged' => 'Di Version es em Momang nit nohjekik.',
+	'review_too_low' => 'Di Version kann nit nohjekik wääde, esu lang noch Fälder op „dat rick nit uß“ schtonn.',
+	'review_bad_key' => 'Ene onjältije Schlößelwäät för Parrameetere för en Datei udder Schabloon opzeroofe.',
+	'review_bad_tags' => 'Bei dä Wääte för Befähle sinn_er onjöltejje bei.',
 	'review_denied' => 'Zohjang verbodde.',
 	'review_param_missing' => 'Ene Parrameeter fählt, udder es nit jöltesch.',
 	'review_cannot_undo' => 'Mer künne di Änderonge nit retuur nämme weil noch ander Änderonge aan dersellve Shtelle nohjekik wääde möße.',
@@ -3347,6 +3355,7 @@ $messages['ksh'] = array(
 	'review_reject_nulledits' => 'Heh di Änderonge künne nit retuur jemaat wääde, weil domet jaa nix verändert woode es.',
 	'revreview-check-flag-p' => 'Don heh di Version aanämme, {{PLURAL:$1|ein noh_nit aanjenumme Änderong|$1 noh_nit aanjenumme Änderonge}}
 enjeschloßße',
+	'revreview-check-flag-u' => 'Donn heh di Sigg',
 	'revreview-check-flag-y' => 'Donn ming Änderonge aannämme',
 	'revreview-check-flag-y-title' => 'Donn all de Änderonge aannämme, di De heh jemaat häs.',
 	'revreview-flag' => 'Donn heh di Version nohkike!',
@@ -3357,8 +3366,8 @@ enjeschloßße',
 nohzekike.
 
 Looer noh de [[Special:Unreviewedpages|Leß met de nit nohjekikte Sigge]].',
-	'revreview-stable1' => 'Velleisch wells De joh [{{fullurl:$1|stableid=$2}} heh di nohjekik Version] aankike un looere of se jez de [{{fullurl:$1|stable=1}} aktoälle {{int:stablepages-stable}}] vun dä Sigg es?',
-	'revreview-stable2' => 'Velleisch wells De joh de [{{fullurl:$1|stableid=1}} {{int:stablepages-stable}}] aankike, wann noch ein doh es?',
+	'revreview-stable1' => 'Velleisch wells De joh [{{fullurl:$1|stableid=$2}} heh di nohjekik Version] aankike un looere of se jäz de [{{fullurl:$1|stable=1}} neuste {{int:stablepages-stable}}] vun dä Sigg es?',
+	'revreview-stable2' => 'Velleisch wells De joh de [{{fullurl:$1|stableid=1}} {{int:stablepages-stable}}] vun dä Sigg aankike?',
 	'revreview-submit' => 'Lohß Jonn!',
 	'revreview-submitting' => 'Am Övverdraare&nbsp;…',
 	'revreview-submit-review' => 'Heh di Version joodheiße',
@@ -3370,6 +3379,7 @@ Looer noh de [[Special:Unreviewedpages|Leß met de nit nohjekikte Sigge]].',
 	'revreview-successful2' => "'''Di Version vun dä Sigg „[[:$1|$1]]“ es jäz wider zeröck jeshtoof.'''",
 	'revreview-poss-conflict-p' => "'''Opjepaß: {{GENDER:$2|Dä|Et|Dä Metmaacher|De|Dat}} [[User:$1|$1]] hät aam $2 öm $3 Uhr aanjefange, heh di Sigg nohzekike.'''",
 	'revreview-poss-conflict-c' => "'''Opjepaß: {{GENDER:$2|Dä|Et|Dä Metmaacher|De|Dat}} [[User:$1|$1]] hät aam $2 öm $3 Uhr aanjefange, heh di Änderonge nohzekike.'''",
+	'revreview-adv-reviewing-p' => 'Opjepaß: De andere Nohkiker künne sinn, dat De di Sigg aam nohkike bes.',
 	'revreview-toolow' => 'Do moß för jeede vun dä Eijeschaffte unge en Not udder Präddikaat jävve, wat bäßer wi „{{lcfirst:{{int:revreview-style-0}}}}“ es, domet di Version als nohjekik jeldt. Öm en Version widder zeröckzeshtoofe, donn alle Präddikaate op „{{lcfirst:{{int:revreview-style-0}}}}“ säze.',
 	'revreview-update' => "Bes esu joot, un donn all de Änderunge ''(unge sin se opjeliß)'' [[{{MediaWiki:Validationpage}}|nohkike]], di jemaat woodte, zick däm de {{int:stablepages-stable}} et letz [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} {{lcfirst:{{int:revreview-approved}}}}] woode es.<br />
 '''E paa Schablohne, Datteije, udder beeds, sin jeändert woode:'''",
@@ -3377,8 +3387,13 @@ Looer noh de [[Special:Unreviewedpages|Leß met de nit nohjekikte Sigge]].',
 	'revreview-reject-summary' => 'Koot Zosammejefass, Quell:',
 	'revreview-reject-confirm' => 'Donn heh di Änderonge aflehne',
 	'revreview-reject-cancel' => 'Stopp! Avbreche!',
+	'revreview-reject-summary-cur' => '{{PLURAL:$1|De läzde Änderong|De läzde $1 Änderonge|Kein Änderonge}} aam Täx <!--{{PLURAL:$5|
+{{GENDER:$2|vum|vum|vumm Metmaacher|vun dä|vum}}|...}}--> vum $2 sin afjelehnt woode un de Version $3 {{GENDER:$4|vum|vum|vumm Metmaacher|vun dä|vum}} [[User:$4|$4]] es widder retuur.',
+	'revreview-reject-summary-old' => '{{PLURAL:$1|De eezde Änderong|De eezde $1 Änderonge|Kein Änderonge}} (<!--{{PLURAL:$5|{{GENDER:$2|vum|vum|vumm Metmaacher|vun dä|vum}} [[User:$2|$2]]|vum $2|-}}-->vun $2) aam Täx noh dä de Version $3 {{GENDER:$4|vum|vum|vumm Metmaacher|vun dä|vum}} [[User:$4|$4]] sin afjelehnt woode.',
+	'revreview-reject-summary-cur-short' => '{{PLURAL:$1|De läzde Änderong|De läzde $1 Änderonge|Kein Änderonge}} aam Täx sin afjelehnt woode un de Version $2 {{GENDER:$3|vum|vum|vumm Metmaacher|vun dä|vum}} [[User:$3|$3]] es jäz retuur.',
+	'revreview-reject-summary-old-short' => '{{PLURAL:$1|De eezde Änderong|De eezde $1 Änderonge|Kein Änderonge}} aam Täx noh dä de Version $2 {{GENDER:$3|vum|vum|vumm Metmaacher|vun dä|vum}} [[User:$3|$3]] sin afjelehnt woode.',
 	'revreview-tt-flag' => 'Donn heh di Versino aannämme, endämm dat De sähß, dat De se jeprööv häß.',
-	'revreview-tt-reject' => 'Donn heh di Änderonge aflehne un uß dä Sigg widder eruß nämme',
+	'revreview-tt-reject' => 'Heh di Änderonge aam Täx aflehne un uß dä Sigg widder eruß nämme',
 );
 
 /** Kurdish (Latin script) (Kurdî (latînî)‎)

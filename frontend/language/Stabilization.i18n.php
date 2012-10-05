@@ -316,7 +316,7 @@ $messages['ar'] = array(
  */
 $messages['arc'] = array(
 	'stabilization-page' => 'ܫܡܐ ܕܦܐܬܐ:',
-	'stabilization-submit' => 'ܚܬܬ',
+	'stabilization-submit' => 'ܫܪܪ',
 	'stabilization-comment' => 'ܥܠܬܐ:',
 	'stabilization-otherreason' => 'ܥܠܬܐ ܐܚܪܬܐ:',
 	'stabilization-othertime' => 'ܥܕܢܐ ܐܚܪܬܐ:',
