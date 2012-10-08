@@ -839,10 +839,11 @@ $messages['sk'] = array(
 
 /** Slovenian (slovenščina)
  * @author Dbc334
+ * @author Eleassar
  */
 $messages['sl'] = array(
 	'problemchanges' => 'Označene spremembe v teku',
-	'problemchanges-list' => 'Ta stran navaja [[{{MediaWiki:Validationpage}}|{{PLURAL:$1|pregledano|pregledani|pregledane}}]] {{PLURAL:$1|stran, ki ima|strani, ki imata|strani, ki imajo}} eno ali več označenih urejanj, čakajočih na pregled. Na voljo je seznam [[Special:Tags|veljavnih oznak]].',
+	'problemchanges-list' => 'Ta stran navaja [[{{MediaWiki:Validationpage}}|{{PLURAL:$1|pregledano|pregledani|pregledane}}]] {{PLURAL:$1|stran, ki ima|strani, ki imata|strani, ki imajo}} eno ali več označenih urejanj, čakajočih na pregled. Na razpolago je seznam [[Special:Tags|veljavnih oznak]].',
 	'problemchanges-legend' => 'Navaja označene strani, ki čakajo na pregled sprememb',
 	'problemchanges-none' => 'Trenutno ni nobene strani, ki bi ustrezala izbranim merilom',
 	'problemchanges-category' => 'Kategorija:',
