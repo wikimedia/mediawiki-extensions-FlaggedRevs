@@ -20,10 +20,10 @@ class ValidationStatistics extends IncludableSpecialPage {
 
 		$ec = $this->getEditorCount();
 		$rc = $this->getReviewerCount();
-		$mt = $this->getMeanReviewWait();
-		$mdt = $this->getMedianReviewWait();
+		$mt = $this->getMeanReviewWaitAnon();
+		$mdt = $this->getMedianReviewWaitAnon();
 		$pt = $this->getMeanPendingWait();
-		$pData = $this->getPercentiles();
+		$pData = $this->getReviewPercentilesAnon();
 		$timestamp = $this->getLastUpdate();
 
 		$out->addWikiMsg( 'validationstatistics-users',
@@ -202,7 +202,7 @@ class ValidationStatistics extends IncludableSpecialPage {
 		}
 		return false;
 	}
-	
+
 	protected function readyForQuery() {
 		if ( !$this->db->tableExists( 'flaggedrevs_statistics' ) ) {
 			return false;
@@ -210,7 +210,7 @@ class ValidationStatistics extends IncludableSpecialPage {
 			return ( 0 != $this->db->selectField( 'flaggedrevs_statistics', 'COUNT(*)' ) );
 		}
 	}
-	
+
 	protected function getEditorCount() {
 		return $this->db->selectField( 'user_groups', 'COUNT(*)',
 			array( 'ug_group' => 'editor' ),
@@ -230,16 +230,16 @@ class ValidationStatistics extends IncludableSpecialPage {
 		return $this->latestData;
 	}
 
-	protected function getMeanReviewWait() {
+	protected function getMeanReviewWaitAnon() {
 		$stats = $this->getStats();
-		return $stats['reviewLag-average'];
+		return $stats['reviewLag-anon-average'];
 	}
-	
-	protected function getMedianReviewWait() {
+
+	protected function getMedianReviewWaitAnon() {
 		$stats = $this->getStats();
-		return $stats['reviewLag-median'];
+		return $stats['reviewLag-anon-median'];
 	}
-	
+
 	protected function getMeanPendingWait() {
 		$stats = $this->getStats();
 		return $stats['pendingLag-average'];
@@ -251,7 +251,7 @@ class ValidationStatistics extends IncludableSpecialPage {
 			? $stats['totalPages-NS'][$ns]
 			: '-';
 	}
-	
+
 	protected function getReviewedPages( $ns ) {
 		$stats = $this->getStats();
 		return isset( $stats['reviewedPages-NS'][$ns] )
@@ -266,20 +266,20 @@ class ValidationStatistics extends IncludableSpecialPage {
 			: '-';
 	}
 
-	protected function getPercentiles() {
+	protected function getReviewPercentilesAnon() {
 		$stats = $this->getStats();
-		return $stats['reviewLag-percentile'];
+		return $stats['reviewLag-anon-percentile'];
 	}
 
 	protected function getLastUpdate() {
 		$stats = $this->getStats();
 		return $stats['statTimestamp'];
 	}
-	
+
 	// top X reviewers in the last Y hours
 	protected function getTopReviewers() {
 		global $wgFlaggedRevsStats;
-		
+
 		$key = wfMemcKey( 'flaggedrevs', 'reviewTopUsers' );
 		$dbCache = wfGetCache( CACHE_DB );
 		$data = $dbCache->get( $key );
