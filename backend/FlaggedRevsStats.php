@@ -266,7 +266,7 @@ class FlaggedRevsStats {
 		if ( $users === 'anons' ) {
 			$userCondition = 'rev_user = 0';
 		} elseif ( $users === 'users' ) {
-			$userCondition = 'rev_user = 1';
+			$userCondition = 'rev_user > 0';
 		} else {
 			throw new MWException( 'Invalid $users param given.' );
 		}
@@ -303,13 +303,13 @@ class FlaggedRevsStats {
 		# Get timestamp boundaries
 		$timeCondition = "rev_timestamp BETWEEN $encMinTS AND $encMaxTS";
 		# Get mod for edit spread
-		$ecKey = wfMemcKey( 'flaggedrevs', 'anonEditCount', $days );
+		$ecKey = wfMemcKey( 'flaggedrevs', 'rcEditCount', $users, $days );
 		$edits = (int)$dbCache->get( $ecKey );
 		if ( !$edits ) {
 			$edits = (int)$dbr->selectField( array('page','revision'),
 				'COUNT(*)',
 				array(
-					$userCondition, // IP edits (should start off unreviewed)
+					$userCondition,
 					$timeCondition, // in time range
 					'page_id = rev_page',
 					'page_namespace' => FlaggedRevs::getReviewNamespaces()
@@ -328,7 +328,6 @@ class FlaggedRevsStats {
 			__METHOD__,
 			array(
 				'GROUP BY'  => array( 'rev_timestamp', 'rev_id' ), // user_timestamp INDEX used
-				'USE INDEX' => array( 'revision' => 'user_timestamp' ), // sanity; mysql picks this
 				'STRAIGHT_JOIN'
 			),
 			array(
