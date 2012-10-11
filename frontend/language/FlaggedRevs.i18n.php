@@ -4105,6 +4105,8 @@ $messages['el'] = array(
 	'revreview-accuracy-3' => 'Με επαρκείς πηγές',
 	'revreview-accuracy-4' => 'Επιλεγμένο',
 	'revreview-auto' => '(αυτόματο)',
+	'revreview-basic-old' => 'Αυτή είναι μια [[{{MediaWiki:Validationpage}}|ελεγμένη]] έκδοση  ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} απαριθμήστε όλες]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} που έχουν εγκριθεί] στο <i>$2</i>.
+	Νέες [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} αλλαγές] έχουν γίνει.',
 	'revreview-basic-same' => 'Αυτή είναι η [[{{MediaWiki: Validationpage}}|σταθερή έκδοση]],  [{{fullurl: {{# Special: Log}}|type =review&page ={{FULLPAGENAMEE}}}} που εξετάστηκε] στις <i>$2</i> .',
 	'revreview-basic-source' => 'Μια  [{{fullurl: {{FULLPAGENAMEE}} |stableid = $1 }} ελεγμένη έκδοση] αυτής της σελίδας,[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} εγκρίθηκε] για <i>$2</i>, βασίστηκε σε αυτή την αναθεώρηση.',
 	'revreview-current' => 'Αλλαγές σε εκκρεμότητα',
@@ -4146,6 +4148,8 @@ $messages['el'] = array(
 	'revreview-style-4' => 'Επιλεγμένο',
 	'revreview-toggle-title' => 'εμφάνιση/απόκρυψη λεπτομερειών',
 	'revreview-visibility-synced' => "''' Η σελίδα έχει μια ενημερωμένη [[{{MediaWiki:Validationpage}} |σταθερή έκδοση]]; η σταθερότητα των ρυθμίσεων της σελίδας μπορεί να [{{fullurl: {{#Special:Stabilization}} |page = {{FULLPAGENAMEE}}}} ρυθμιστεί].'' '",
+	'revreview-visibility-outdated' => "'''Η σελίδα αυτή διαθέτει μια απαρχαιωμένη [[{{MediaWiki:Validationpage}}|σταθερή έκδοση]]; οι ρυθμίσεις σταθερότητας της σελίδας μπορούν [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} να διαμορφωθούν].'''",
+	'revreview-visibility-nostable' => "'''Η σελίδα δεν έχει μια [[{{MediaWiki:Validationpage}}|σταθερή έκδοση]]; οι ρυθμίσεις σταθερότητας της σελίδας μπορούν να  [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} διαμορφωθούν].'''",
 	'revreview-revnotfound' => 'Η παλιά αναθεώρηση της σελίδας που ζητήσατε δεν ήταν δυνατόν να βρεθεί. Παρακαλούμε ελέγξτε τo URL που χρησιμοποιήσατε για να φτάσετε σε αυτήν τη σελίδα.',
 	'right-autoreview' => 'Αυτόματη σήμανση των αναθεωρήσεων κάποιου ως επιθεωρημένων',
 	'right-autoreviewrestore' => 'Αυτο-επιθεώρηση στην αναστροφή',
