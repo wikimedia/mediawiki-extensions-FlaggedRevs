@@ -207,6 +207,7 @@ $messages['ca'] = array(
 Les edicions fetes pels altres usuaris no són afixades als lectors per defecte fins que una persona habilitada les revisi.',
 	'stablepages-none' => 'No hi ha pàgines a la llista',
 	'stablepages-config' => 'Configuració',
+	'stablepages-indef' => 'Només la caducitat indefinida',
 );
 
 /** Czech (česky)

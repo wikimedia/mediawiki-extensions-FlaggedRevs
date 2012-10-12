@@ -365,12 +365,18 @@ $messages['ca'] = array(
 	'validationstatistics-users' => "'''{{SITENAME}}''' té actualment '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|usuari|usuaris}} amb drets d'[[{{MediaWiki:Validationpage}}|Editor]].
 
 Els Editors són usuaris experimentats que poden validar les revisions de les pàgines.",
+	'validationstatistics-lastupdate' => "''Les dades següents van ser actualitzades el $1 a les $2.''",
+	'validationstatistics-pndtime' => "Són considerades com a « revisades » les edicions que han comprovat els usuaris habilitats.
+
+El temps mitjà pel que fa a [[Special:OldReviewedPages|les pagines amb edicions en curs de revisió]] és d'uns '''$1'''; es mesura el retard en funció del temps que es necessita la verificació de la versió més antiga.",
 	'validationstatistics-ns' => 'Espai de noms',
 	'validationstatistics-total' => 'Pàgines',
 	'validationstatistics-stable' => "S'ha revisat",
 	'validationstatistics-latest' => 'Sincronitzat',
 	'validationstatistics-synced' => 'Sincronitzat/Revisat',
+	'validationstatistics-old' => 'Desfasat',
 	'validationstatistics-user' => 'Usuari',
+	'validationstatistics-reviews' => 'Revisions',
 );
 
 /** Chechen (нохчийн)

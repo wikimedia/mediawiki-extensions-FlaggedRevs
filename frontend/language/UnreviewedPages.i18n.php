@@ -330,12 +330,14 @@ $messages['bs'] = array(
 
 /** Catalan (català)
  * @author Aleator
+ * @author Grondin
  * @author Jordi Roqué
  * @author Qllach
  * @author SMP
  * @author Toniher
  */
 $messages['ca'] = array(
+	'action-unreviewedpages' => 'visualitza la llista de les pàgines no revisades',
 	'unreviewedpages' => 'Pàgines per revisar',
 	'unreviewedpages-legend' => 'Llista de pàgines amb contingut no revisat',
 	'unreviewedpages-category' => 'Categoria:',
