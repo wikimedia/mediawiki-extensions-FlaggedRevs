@@ -4949,6 +4949,7 @@ Možno budete musieť pokračovať alebo „vrátiť“ úpravy.',
 
 /** Slovenian (slovenščina)
  * @author Dbc334
+ * @author Eleassar
  */
 $messages['sl'] = array(
 	'revisionreview' => 'Preglej redakcije',
@@ -4964,7 +4965,7 @@ $messages['sl'] = array(
 	'review_too_low' => 'Redakcija ne more biti pregledana z nekaterimi polji izpoljenimi »neustrezno«.',
 	'review_bad_key' => 'Neveljavni parameter vključitvenega ključa.',
 	'review_bad_tags' => 'Nekatere od navedenih vrednosti oznak so neveljavne.',
-	'review_denied' => 'Dovoljenje je zavrnjeno.',
+	'review_denied' => 'Dovoljenje zavrnjeno.',
 	'review_param_missing' => 'Parameter manjka ali ni veljaven.',
 	'review_cannot_undo' => 'Teh sprememb ni mogoče razveljaviti, ker so nadaljnja urejanja v teku spremenila ista področja.',
 	'review_cannot_reject' => 'Ne morem zavrniti teh sprememb, ker je nekdo že sprejel nekatera (ali vsa) urejanja.',

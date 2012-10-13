@@ -8112,7 +8112,7 @@ $messages['ja'] = array(
 	'revreview-visibility-outdated' => "'''このページには古くなった[[{{MediaWiki:Validationpage}}|公開版]]があります。ページの公開版設定は[{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} 変更可能]です。'''",
 	'revreview-visibility-nostable' => "'''このページには[[{{MediaWiki:Validationpage}}|公開版]]がありません。ページの固定度設定は[{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} 変更可能]です。'''",
 	'revreview-revnotfound' => 'あなたが要求したこのページの旧版は見つかりませんでした。このページにアクセスしたURLをもう一度確認してください。',
-	'right-autoreview' => '自分の編集を自動的に「確認済み」にする',
+	'right-autoreview' => '自身の編集を自動的に「確認済み」にする',
 	'right-autoreviewrestore' => '巻き戻し時に自動査読',
 	'right-movestable' => '公開されたページを移動',
 	'right-review' => '版に「確認済み」の印を付ける',
