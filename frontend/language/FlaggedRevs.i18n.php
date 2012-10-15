@@ -3680,7 +3680,7 @@ $messages['diq'] = array(
 	'revreview-hist-basic-auto' => 'otomatikmen qontrol bi',
 	'revreview-hist-pending-difflink' => "'''[[{{fullurl:$1|oldid=$2&diff=$3{{MediaWiki:flaggedrevs-diffonly}}}} qontrol ho vindeno]]'''",
 	'review-edit-diff' => "'''DIQET: Tay vurnayişan ke hama çap nibiya ho pedê nuştiş de ca geno.'''",
-	'revreview-diff-toggle-show' => 'nê vurnayışa bıvin',
+	'revreview-diff-toggle-show' => 'Nê vurnayışan bımocne',
 	'revreview-diff-toggle-hide' => 'vurnayışan bınımne',
 	'revreview-diff-toggle-title' => 'Toogle vurnayişan ke benate taslak u versiyanê çap biyaye mocnena',
 	'revreview-log-toggle-show' => 'logê sebiti bimocne',
