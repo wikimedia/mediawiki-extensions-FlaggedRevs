@@ -12,10 +12,14 @@ class FlaggedRevsStats {
 	 */
 	public static function getStats( $timestamp = false ) {
 		$data = array(); // initialize
-		$data['reviewLag-sampleSize'] = '-';
-		$data['reviewLag-average'] = '-';
-		$data['reviewLag-median'] = '-';
-		$data['reviewLag-percentile'] = array();
+		$data['reviewLag-anon-sampleSize'] = '-';
+		$data['reviewLag-anon-average'] = '-';
+		$data['reviewLag-anon-median'] = '-';
+		$data['reviewLag-anon-percentile'] = array();
+		$data['reviewLag-user-sampleSize'] = '-';
+		$data['reviewLag-user-average'] = '-';
+		$data['reviewLag-user-median'] = '-';
+		$data['reviewLag-user-percentile'] = array();
 		$data['totalPages-NS'] = array();
 		$data['reviewedPages-NS'] = array();
 		$data['syncedPages-NS'] = array();
@@ -38,18 +42,22 @@ class FlaggedRevsStats {
 			foreach ( $res as $row ) {
 				$key = explode( ':', $row->frs_stat_key );
 				switch ( $key[0] ) {
-					case 'reviewLag-sampleSize':
-					case 'reviewLag-average':
-					case 'reviewLag-median':
+					case 'reviewLag-anon-sampleSize':
+					case 'reviewLag-anon-average':
+					case 'reviewLag-anon-median':
+					case 'reviewLag-user-sampleSize':
+					case 'reviewLag-user-average':
+					case 'reviewLag-user-median':
 					case 'pendingLag-average':
 						$data[$key[0]] = (int)$row->frs_stat_val;
 						break;
-					case 'reviewLag-percentile': // <stat name,percentile)
+					case 'reviewLag-anon-percentile': // <stat name,percentile>
+					case 'reviewLag-user-percentile': // <stat name,percentile>
 						$data[$key[0]][$key[1]] = (int)$row->frs_stat_val;
 						break;
-					case 'totalPages-NS': // <stat name,namespace)
-					case 'reviewedPages-NS': // <stat name,namespace)
-					case 'syncedPages-NS': // <stat name,namespace)
+					case 'totalPages-NS': // <stat name,namespace>
+					case 'reviewedPages-NS': // <stat name,namespace>
+					case 'syncedPages-NS': // <stat name,namespace>
 						$data[$key[0]][$key[1]] = (int)$row->frs_stat_val;
 						break;
 				}
@@ -85,42 +93,71 @@ class FlaggedRevsStats {
 		$avePET = self::getMeanPendingEditTime();
 
 		# Get wait (till review) time samples for anon edits...
-		$reviewData = self::getEditReviewTimes( $dbCache, 'anons' );
+		$reviewDataAnon = self::getEditReviewTimes( $dbCache, 'anons' );
+		# Get wait (till review) time samples for logged-in user edits...
+		$reviewDataUser = self::getEditReviewTimes( $dbCache, 'users' );
 
 		$dbw = wfGetDB( DB_MASTER );
 		// The timestamp to identify this whole batch of data
 		$encDataTimestamp = $dbw->timestamp();
 
 		$dataSet = array();
+		// Data range for samples...
 		$dataSet[] = array(
-			'frs_stat_key'  => 'reviewLag-sampleStartTimestamp',
-			'frs_stat_val'  => $reviewData['sampleStartTS'], // unix
+			'frs_stat_key'  => 'reviewLag-anon-sampleStartTimestamp',
+			'frs_stat_val'  => $reviewDataAnon['sampleStartTS'], // unix
 			'frs_timestamp' => $encDataTimestamp );
 		$dataSet[] = array(
-			'frs_stat_key'  => 'reviewLag-sampleEndTimestamp',
-			'frs_stat_val'  => $reviewData['sampleEndTS'], // unix
+			'frs_stat_key'  => 'reviewLag-user-sampleStartTimestamp',
+			'frs_stat_val'  => $reviewDataUser['sampleStartTS'], // unix
+			'frs_timestamp' => $encDataTimestamp );
+		$dataSet[] = array(
+			'frs_stat_key'  => 'reviewLag-anon-sampleEndTimestamp',
+			'frs_stat_val'  => $reviewDataAnon['sampleEndTS'], // unix
+			'frs_timestamp' => $encDataTimestamp );
+		$dataSet[] = array(
+			'frs_stat_key'  => 'reviewLag-user-sampleEndTimestamp',
+			'frs_stat_val'  => $reviewDataUser['sampleEndTS'], // unix
 			'frs_timestamp' => $encDataTimestamp );
 		// All-namespace percentiles...
-		foreach( $reviewData['percTable'] as $percentile => $seconds ) {
+		foreach( $reviewDataAnon['percTable'] as $percentile => $seconds ) {
 			$dataSet[] = array(
-				'frs_stat_key'  => 'reviewLag-percentile:'.(int)$percentile,
+				'frs_stat_key'  => 'reviewLag-anon-percentile:'.(int)$percentile,
 				'frs_stat_val'  => $seconds,
 				'frs_timestamp' => $encDataTimestamp );
 		}
-		// Sample size...
+		foreach( $reviewDataUser['percTable'] as $percentile => $seconds ) {
+			$dataSet[] = array(
+				'frs_stat_key'  => 'reviewLag-user-percentile:'.(int)$percentile,
+				'frs_stat_val'  => $seconds,
+				'frs_timestamp' => $encDataTimestamp );
+		}
+		// Sample sizes...
 		$dataSet[] = array(
-			'frs_stat_key'  => 'reviewLag-sampleSize',
-			'frs_stat_val'  => $reviewData['sampleSize'],
+			'frs_stat_key'  => 'reviewLag-anon-sampleSize',
+			'frs_stat_val'  => $reviewDataAnon['sampleSize'],
+			'frs_timestamp' => $encDataTimestamp );
+		$dataSet[] = array(
+			'frs_stat_key'  => 'reviewLag-user-sampleSize',
+			'frs_stat_val'  => $reviewDataUser['sampleSize'],
 			'frs_timestamp' => $encDataTimestamp );
 
 		// All-namespace ave/med review lag & ave pending lag stats...
 		$dataSet[] = array(
-			'frs_stat_key'  => 'reviewLag-average',
-			'frs_stat_val'  => $reviewData['average'],
+			'frs_stat_key'  => 'reviewLag-anon-average',
+			'frs_stat_val'  => $reviewDataAnon['average'],
 			'frs_timestamp' => $encDataTimestamp );
 		$dataSet[] = array(
-			'frs_stat_key'  => 'reviewLag-median',
-			'frs_stat_val'  => $reviewData['median'],
+			'frs_stat_key'  => 'reviewLag-user-average',
+			'frs_stat_val'  => $reviewDataUser['average'],
+			'frs_timestamp' => $encDataTimestamp );
+		$dataSet[] = array(
+			'frs_stat_key'  => 'reviewLag-anon-median',
+			'frs_stat_val'  => $reviewDataAnon['median'],
+			'frs_timestamp' => $encDataTimestamp );
+		$dataSet[] = array(
+			'frs_stat_key'  => 'reviewLag-user-median',
+			'frs_stat_val'  => $reviewDataUser['median'],
 			'frs_timestamp' => $encDataTimestamp );
 		$dataSet[] = array(
 			'frs_stat_key'  => 'pendingLag-average',
