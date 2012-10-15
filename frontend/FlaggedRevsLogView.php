@@ -18,7 +18,7 @@ class FlaggedRevsLogView {
 		}
 		if ( $skin ) {
 			$titleLink = $skin->link( $title, $title->getPrefixedText() );
-			$text = wfMessage( "stable-logentry-{$action}", $titleLink )->escaped();
+			$text = wfMessage( "stable-logentry-{$action}" )->rawParams( $titleLink )->escaped();
 		} else { // for content (e.g. IRC...)
 			$text = wfMessage( "stable-logentry-{$action}" )
 				->rawParams( $title->getPrefixedText() )->inContentLanguage()->escaped();
