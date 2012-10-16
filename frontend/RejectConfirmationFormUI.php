@@ -88,10 +88,10 @@ class RejectConfirmationFormUI {
 		$form .= '</ul>';
 		if ( $newRev->isCurrent() ) {
 			// Revision this will revert to (when reverting the top X revs)...
-			$form .= wfMessage( 'revreview-reject-text-revto', 'parseinline',
+			$form .= wfMessage( 'revreview-reject-text-revto',
 				$oldRev->getTitle()->getPrefixedDBKey(), $oldRev->getId(),
 				$wgLang->timeanddate( $oldRev->getTimestamp(), true )
-			)->text();
+			)->parse();
 		}
 
 		$comment = $this->form->getComment(); // convenience
