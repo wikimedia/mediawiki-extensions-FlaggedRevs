@@ -4603,6 +4603,7 @@ Pe piacere cazze 'u buttone \"back\" d'u browser tune e pruève arrete.",
 
 /** Russian (русский)
  * @author AlexSm
+ * @author Eleferen
  * @author Ferrer
  * @author Jackie
  * @author KPu3uC B Poccuu
@@ -4666,7 +4667,7 @@ $messages['ru'] = array(
 	'revreview-adv-stop-link' => 'снять объявление',
 	'revreview-toolow' => "'''Вы должны указать для всех значений уровень выше, чем «недостаточный», чтобы версия страницы считалась проверенной.'''
 
-Чтобы сбросить признак проверки этой версии, нажмите «Снять подтверждение».
+Чтобы сбросить признак проверки этой версии, нажмите «{{int:revreview-submit-unreview}}».
 
 Пожалуйста, нажмите в браузере кнопку «назад», чтобы указать значения заново.",
 	'revreview-update' => "'''Пожалуйста, [[{{MediaWiki:Validationpage}}|проверьте]] изменения ''(показаны ниже)'', сделанные в принятой версии.'''",
