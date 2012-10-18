@@ -11034,7 +11034,7 @@ Er kunnen ongecontroleerde [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{Media
 	'revreview-style-3' => 'Bondig',
 	'revreview-style-4' => 'Uitgelicht',
 	'revreview-toggle-title' => 'details weergeven/verbergen',
-	'revreview-visibility-synced' => "'''Deze pagina heeft een [[{{MediaWiki:Validationpage}}|gepubliceerde versie]].
+	'revreview-visibility-synced' => "'''Deze pagina heeft een bijgewerkte [[{{MediaWiki:Validationpage}}|gepubliceerde versie]].
 U kunt hiervoor [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} instellingen maken].'''",
 	'revreview-visibility-outdated' => "'''Deze pagina heeft een verouderde [[{{MediaWiki:Validationpage}}|gepubliceerde versie]].
 U kunt hiervoor [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} instellingen maken].'''",

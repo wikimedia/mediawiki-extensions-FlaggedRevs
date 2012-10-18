@@ -1305,6 +1305,7 @@ $messages['diq'] = array(
 	'review_bad_oldid' => 'Revizyon ke hedef biya eka cini ya.',
 	'review_too_low' => 'Revizyon kontrol nibena cunki tay cayan "tam niya".',
 	'review_bad_key' => 'Tuşê parametre raşt niya.',
+	'review_bad_tags' => 'Tay erce etiketa nêraverdeyê',
 	'review_denied' => 'Destur nedano.',
 	'review_param_missing' => 'Yew parametrevini biya ya zi raşt niya.',
 	'revreview-check-flag-p' => 'Nê versiyoni qebul kerê (zeredê cı dı $1 {{PLURAL:$1|vurnayış|vurnayışi}} pawênê)',
@@ -1331,6 +1332,8 @@ bıewnê [[Special:Unreviewedpages|listeya pelê konrol nêbiyayeyan]].',
 	'revreview-submit-unreviewed' => 'Temam. Tesdiq nêbi!',
 	'revreview-successful' => "'''qey [[:$1|$1]] revizyon bı serkewte işaret bı. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} revizyonê istiqarınan bıvin])'''",
 	'revreview-successful2' => "'''qey [[:$1|$1]] işaretê revizyoni bı serkewte wera diya.'''",
+	'revreview-adv-start-link' => 'İlan kerden',
+	'revreview-adv-stop-link' => 'İlan meke',
 	'revreview-toolow' => '\'\'\'Ti gani her nitelikan "tam niya" zafyer rate bike ke seba revizyon gani qontrol bibo.\'\'\'
 
 Seba weziyetê qontroli wedarnayişi, sazanê "{{int:revreview-submit-unreview}}" her ca de "tam niya" bike.
@@ -3069,7 +3072,7 @@ $messages['ja'] = array(
 	'revreview-reflag' => 'この版を再査読',
 	'revreview-invalid' => "'''無効な対象:''' 指定されたIDに対応する[[{{MediaWiki:Validationpage}}|査読済み]]版はありません。",
 	'revreview-log' => '査読内容の要約:',
-	'revreview-main' => '査読のためには対象記事から特定の版を選択する必要があります。
+	'revreview-main' => '査読するには対象記事の特定の版を選択する必要があります。
 
 [[Special:Unreviewedpages|未査読ページ一覧]]を参照してください。',
 	'revreview-stable1' => '[{{fullurl:$1|stableid=$2}} この判定版]を閲覧し、それがこのページの現在の[{{fullurl:$1|stable=1}} 公開版]であるかどうかを確かめることができます。',
@@ -4020,7 +4023,7 @@ Zie  de [[Special:Unreviewedpages|lijst met ongecontroleerde pagina's]].",
 Klik op "{{int:revreview-submit-unreview}}" om de waardering van een versie te verwijderen.
 
 Klik op de knop "Terug" in uw browser en probeer het opnieuw.',
-	'revreview-update' => "'''[[{{MediaWiki:Validationpage}}|Controleer]] alstublieft de ''onderstaande'' wijzigingen ten opzichte van de gepubliceerde versie.'''",
+	'revreview-update' => "'''[[{{MediaWiki:Validationpage}}|Controleer]] de ''onderstaande'' wijzigingen ten opzichte van de gepubliceerde versie.'''",
 	'revreview-update-edited' => '<span class="flaggedrevs_important">Uw wijzigingen zijn nog niet zichtbaar in de stabiele versie.</span>
 
 Controleer alle wijzigingen hieronder om uw bewerkingen zichtbaar te maken in de stabiele versie.',
