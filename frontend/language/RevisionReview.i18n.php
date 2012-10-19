@@ -1305,7 +1305,7 @@ $messages['diq'] = array(
 	'review_bad_oldid' => 'Revizyon ke hedef biya eka cini ya.',
 	'review_too_low' => 'Revizyon kontrol nibena cunki tay cayan "tam niya".',
 	'review_bad_key' => 'Tuşê parametre raşt niya.',
-	'review_bad_tags' => 'Tay erce etiketa nêraverdeyê',
+	'review_bad_tags' => 'Tayê vayeyê etiketanê mocniyayeyan nêvêrenê.',
 	'review_denied' => 'Destur nedano.',
 	'review_param_missing' => 'Yew parametrevini biya ya zi raşt niya.',
 	'revreview-check-flag-p' => 'Nê versiyoni qebul kerê (zeredê cı dı $1 {{PLURAL:$1|vurnayış|vurnayışi}} pawênê)',
@@ -1332,8 +1332,8 @@ bıewnê [[Special:Unreviewedpages|listeya pelê konrol nêbiyayeyan]].',
 	'revreview-submit-unreviewed' => 'Temam. Tesdiq nêbi!',
 	'revreview-successful' => "'''qey [[:$1|$1]] revizyon bı serkewte işaret bı. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} revizyonê istiqarınan bıvin])'''",
 	'revreview-successful2' => "'''qey [[:$1|$1]] işaretê revizyoni bı serkewte wera diya.'''",
-	'revreview-adv-start-link' => 'İlan kerden',
-	'revreview-adv-stop-link' => 'İlan meke',
+	'revreview-adv-start-link' => 'ilan bıke',
+	'revreview-adv-stop-link' => 'ilan meke',
 	'revreview-toolow' => '\'\'\'Ti gani her nitelikan "tam niya" zafyer rate bike ke seba revizyon gani qontrol bibo.\'\'\'
 
 Seba weziyetê qontroli wedarnayişi, sazanê "{{int:revreview-submit-unreview}}" her ca de "tam niya" bike.
