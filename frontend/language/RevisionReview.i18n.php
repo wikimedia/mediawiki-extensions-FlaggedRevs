@@ -13,7 +13,6 @@ $messages = array();
  * @author Raimond Spekking
  * @author Siebrand
  */
-
 $messages['en'] = array(
 	'revisionreview'               => 'Review revisions',
 	'revreview-failed'             => "'''Unable to review this revision.'''",
@@ -390,9 +389,9 @@ Mire-se a [[Special:Unreviewedpages|lista de pachinas sin revisar]].",
 	'revreview-submit' => 'Ninviar',
 	'revreview-successful' => "'''S'ha sinyalato a versión trigata de [[:$1|$1]]. ([{{fullurl:{{#Special:Stableversions}}|page=$2}} amostrar todas as versions sinyalatas])'''",
 	'revreview-successful2' => "'''S'ha sacato o sinyal d'as versions trigatas de [[:$1|$1]]'''",
-	'revreview-toolow' => "'''Ha d'avaluar totz os atributos con una calificación mayor que \"inadequato\" ta que una versión se considere revisata.''' 
+	'revreview-toolow' => "'''Ha d'avaluar totz os atributos con una calificación mayor que \"inadequato\" ta que una versión se considere revisata.'''
 
-Ta sacar o status de revisato d'una versión, faiga click en \"no acceptar\". 
+Ta sacar o status de revisato d'una versión, faiga click en \"no acceptar\".
 
 Por favor, prete o botón de \"enta zaga\" d'o suyo navegador y torne a intentar-lo.",
 	'revreview-update' => "Por favor [[{{MediaWiki:Validationpage}}|revise]] os cambios pendients ''(que s'amuestran en o cobaixo)'' feitos sobre a versión acceptata.",
@@ -1123,7 +1122,7 @@ $messages['cs'] = array(
 	'revreview-reflag' => 'Označit tuto revizi za neposouzenou',
 	'revreview-invalid' => "'''Neplatný cíl:''' žádná [[{{MediaWiki:Validationpage}}|posouzená]] verze neodpovídá zadanému ID.",
 	'revreview-log' => 'Komentář:',
-	'revreview-main' => 'Pro posouzení musíte vybrat určitou verzi stránky. 
+	'revreview-main' => 'Pro posouzení musíte vybrat určitou verzi stránky.
 
 Vizte [[Special:Unreviewedpages|seznam neposouzených stránek]].',
 	'revreview-stable1' => 'Můžete zobrazit [{{fullurl:$1|stableid=$2}} tuto označenou verzi] nebo se podívat, jestli je to teď [{{fullurl:$1|stable=1}} stabilní verze] této stránky.',
@@ -1890,7 +1889,7 @@ $messages['fi'] = array(
 	'review_reject_excessive' => 'Näin monta muokkausta ei voida hylätä kerralla.',
 	'review_reject_nulledits' => 'Näitä muutoksia ei voitu hylätä, koska kaikki versiot ovat nollamuokkauksia.',
 	'revreview-check-flag-p' => 'Hyväksy tämä versio (sisältää {{PLURAL:$1|odottavan muutoksen|$1 odottavaa muutosta}})',
-	'revreview-check-flag-p-title' => 'Hyväksy kaikki arviointia odottavat muutokset oman muokkauksesi yhteydessä. 
+	'revreview-check-flag-p-title' => 'Hyväksy kaikki arviointia odottavat muutokset oman muokkauksesi yhteydessä.
 Käytä tätä vain, jos olet jo käynyt läpi kaikki muokkaukset.',
 	'revreview-check-flag-u' => 'Hyväksy tämä arvioimaton sivu',
 	'revreview-check-flag-u-title' => 'Hyväksy tämä versio tästä sivusta. Käytä tätä vain, jos olet jo nähnyt koko sivun.',
@@ -2292,7 +2291,7 @@ Lueg au d [[Special:Unreviewedpages|Lischt vu nit markierte Versione]].',
 	'revreview-sadv-reviewing-c' => 'Du chasch andri Benutzer $1 dass du die Änderige überpriefe duesch.',
 	'revreview-adv-start-link' => 'druff hyywyse',
 	'revreview-adv-stop-link' => 'nümm druff hyywyse',
-	'revreview-toolow' => "'''Du muesch fir e jedes vu däne Attribut e Wärt yystelle, wu hecher isch wie „längt nit“, ass e Version as \"prieft\" giltet.''' 
+	'revreview-toolow' => "'''Du muesch fir e jedes vu däne Attribut e Wärt yystelle, wu hecher isch wie „längt nit“, ass e Version as \"prieft\" giltet.'''
 
 Zum dr Priefigsstatus vun ere Version z ändere, druck uf „{{int:revreview-submit-unreview}}“.
 
@@ -2849,16 +2848,16 @@ Lihat [[Special:Unreviewedpages]] untuk daftar halaman yang belum ditinjau.',
 	'revreview-sadv-reviewing-c' => 'Anda dapat $1 diri sedang meninjau perubahan ini kepada pengguna lainnya.',
 	'revreview-adv-start-link' => 'mengiklankan',
 	'revreview-adv-stop-link' => 'menghentikan pengiklanan',
-	'revreview-toolow' => '\'\'\'Anda harus menilai setiap atribut lebih tinggi daripada "tidak memadai" agar revisi dianggap telah ditinjau.\'\'\' 
+	'revreview-toolow' => '\'\'\'Anda harus menilai setiap atribut lebih tinggi daripada "tidak memadai" agar revisi dianggap telah ditinjau.\'\'\'
 
-Untuk menghapus status tinjauan revisi, klik "tolak". 
+Untuk menghapus status tinjauan revisi, klik "tolak".
 
 Silakan tekan tombol "back" pada peramban Anda dan coba lagi.',
 	'revreview-update' => "'''Mohon [[{{MediaWiki:Validationpage}}|tinjau]] semua perubahan tertunda ''(ditampilkan di bawah)'' yang dibuat sejak versi stabil dimuat.'''",
-	'revreview-update-edited' => '<span class="flaggedrevs_important">Perubahan Anda belum masuk versi stabil.</span> 
+	'revreview-update-edited' => '<span class="flaggedrevs_important">Perubahan Anda belum masuk versi stabil.</span>
 
 Harap tinjau semua perubahan yang ditunjukkan di bawah ini untuk membuat suntingan Anda muncul dalam versi stabil.',
-	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Perubahan Anda belum masuk versi stabil. Ada perubahan terdahulu yang menunggu tinjauan.</span> 
+	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Perubahan Anda belum masuk versi stabil. Ada perubahan terdahulu yang menunggu tinjauan.</span>
 
 Harap tinjau semua perubahan yang ditunjukkan di bawah ini untuk membuat suntingan Anda muncul dalam versi stabil.',
 	'revreview-update-includes' => 'Templat/berkas diperbarui (halaman belum tertinjau bercetak tebal):',
@@ -3010,10 +3009,10 @@ Per rimuovere lo stato di revisione di una revisione, fare clic su "{{int:revrev
 
 Si prega di premere il pulsante "indietro" del tuo browser e riprovare.',
 	'revreview-update' => "'''[[{{MediaWiki:Validationpage}}|Revisiona]] le modifiche in sospeso ''(mostrate di seguito)'' apportate dalla versione stabile.'''",
-	'revreview-update-edited' => '<span class="flaggedrevs_important">Le tue modifiche non sono ancora nella versione stabile.</span> 
+	'revreview-update-edited' => '<span class="flaggedrevs_important">Le tue modifiche non sono ancora nella versione stabile.</span>
 
 Si prega di rivedere tutte le modifiche riportate di seguito perché le tue modifiche vengano visualizzate nella versione stabile.',
-	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Le tue modifiche non sono ancora nella versione stabile. Ci sono precedenti modifiche che aspettano una revisione.</span> 
+	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Le tue modifiche non sono ancora nella versione stabile. Ci sono precedenti modifiche che aspettano una revisione.</span>
 
 Si prega di rivedere tutte le modifiche riportate di seguito perché le tue modifiche vengano visualizzate nella versione stabile.',
 	'revreview-update-includes' => 'Alcuni Template/file sono stati aggiornati (pagine non revisionate in grassetto):',
@@ -4375,7 +4374,7 @@ Clique o botão "voltar" do seu browser e tente novamente, por favor.',
 	'revreview-update-edited' => '<span class="flaggedrevs_important">As suas alterações ainda não estão na versão publicada.</span>
 
 Para que as suas edições apareçam na versão publicada, reveja todas as alterações mostradas abaixo, por favor.',
-	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">As suas alterações ainda não estão na versão publicada. Existem edições anteriores à espera de revisão.</span> 
+	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">As suas alterações ainda não estão na versão publicada. Existem edições anteriores à espera de revisão.</span>
 
 Para que as suas edições apareçam na versão publicada, reveja todas as alterações mostradas abaixo, por favor.',
 	'revreview-update-includes' => 'Foram actualizados ficheiros ou predefinições (as páginas não revistas aparecem a negrito):',
@@ -4460,7 +4459,7 @@ Clique o botão "voltar" do seu navegador e tente novamente, por favor.',
 	'revreview-update-edited' => '<span class="flaggedrevs_important">As suas alterações ainda não estão na versão publicada.</span>
 
 Para que as suas edições apareçam na versão publicada, revise todas as alterações mostradas abaixo, por favor.',
-	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">As suas alterações ainda não estão na versão publicada. Existem edições anteriores à espera de revisão.</span> 
+	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">As suas alterações ainda não estão na versão publicada. Existem edições anteriores à espera de revisão.</span>
 
 Para que as suas edições apareçam na versão publicada, revise todas as alterações mostradas abaixo, por favor.',
 	'revreview-update-includes' => 'Foram atualizados arquivos ou predefinições (as páginas não revistas aparecem a negrito):',
@@ -4752,10 +4751,10 @@ $messages['rue'] = array(
 
 Просиме, стисните клапку «Назад» у перезерачі і спробуйте щі раз.",
 	'revreview-update' => "Просиме, [[{{MediaWiki:Validationpage}}|перевірьте]] вшыткы нерецензованы зміны ''(указаны ниже)'', зроблены з моменту встановлїня стабілной верзії.",
-	'revreview-update-edited' => '<span class="flaggedrevs_important">Вашы зміны іщі не включены до стабілной верзії.</span> 
+	'revreview-update-edited' => '<span class="flaggedrevs_important">Вашы зміны іщі не включены до стабілной верзії.</span>
 
 Просиме, перевіртье вшыткы зміны, указаны ниже, жебы включіти вашы едітованя до стабілной верзії.',
-	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Вашы зміны іщі не включены до стабілной верзії. Опереднї зміны чекають на перевірку</span> 
+	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Вашы зміны іщі не включены до стабілной верзії. Опереднї зміны чекають на перевірку</span>
 
 Просиме, перевіртье вшыткы зміны, указаны ниже, жебы включіти вашы едітованя до стабілной верзії.',
 	'revreview-update-includes' => 'Дакотры шаблоны або файлы были обновены (неперевірены суть тучным писмом):',
@@ -4811,7 +4810,7 @@ $messages['sah'] = array(
 	'revreview-reflag' => 'Барылы хат көрүү',
 	'revreview-invalid' => "'''Алҕас сорук:''' Бу ID-га сөп түбэһэр сирэй [[{{MediaWiki:Validationpage}}|бигэ]] барыла суох эбит.",
 	'revreview-log' => 'Ырытыы:',
-	'revreview-main' => 'Бэрэбиэркэлииргэ сирэй биир эмит барылын талыахтааххын. 
+	'revreview-main' => 'Бэрэбиэркэлииргэ сирэй биир эмит барылын талыахтааххын.
 
 [[Special:Unreviewedpages|Бэрэбиэркэлэммэтэх сирэйдэр тиһиктэрин]] көр.',
 	'revreview-stable1' => 'Баҕар эн [{{fullurl:$1|stableid=$2}} бу бэлиэтэммит барылы]  эбэтэр, баар буоллаҕына, сирэй [{{fullurl:$1|stable=1}} бэчээттэммит барылын] көрүөххүн баҕарарыҥ буолуо.',
@@ -4918,7 +4917,7 @@ $messages['sk'] = array(
 	'revreview-reflag' => 'Znova skontrolovať túto revíziu',
 	'revreview-invalid' => "'''Neplatný cieľ:''' zadanému ID nezodpovedá žiadna [[{{MediaWiki:Validationpage}}|skontrolovaná]] revízia.",
 	'revreview-log' => 'Komentár záznamu:',
-	'revreview-main' => 'Musíte vybrať konkrétnu verziu stránky s obsahom, aby ste ju mohli skontrolovať. 
+	'revreview-main' => 'Musíte vybrať konkrétnu verziu stránky s obsahom, aby ste ju mohli skontrolovať.
 
 Pozri zoznam [[Special:Unreviewedpages|neskontrolovaných stránok]].',
 	'revreview-stable1' => 'Môžete zobraziť [{{fullurl:$2|stableid=$2}} túto označenú verziu] alebo sa pozrieť, či je teraz [{{fullurl:$1|stable=1}} stabilná verzia] tejto stránky.',
@@ -4938,13 +4937,13 @@ Ak chcete učiniť verziu zavrhovanou, nastavte všetky polia na „neschválen�
 Prosím, stlačte tlačidlo „Späť“ vo svojom prehliadači a skúste to znova.",
 	'revreview-update' => "Prosím, [[{{MediaWiki:Validationpage}}|skontrolujte]] všetky zmeny ''(zobrazené nižšie)'', ktoré boli vykonané od [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} schválenia].<br />
 '''Niektoré šablóny/súbory sa zmenili:'''",
-	'revreview-update-edited' => '<span class="flaggedrevs_important">Vaše zmeny zatiaľ nie sú v stabilnej verzii.</span> 
+	'revreview-update-edited' => '<span class="flaggedrevs_important">Vaše zmeny zatiaľ nie sú v stabilnej verzii.</span>
 
-Prosím, prečítajte si všetky nižšie uvedené zmeny, aby sa vaše úpravy sa objaví v stabilnej verzii. 
+Prosím, prečítajte si všetky nižšie uvedené zmeny, aby sa vaše úpravy sa objaví v stabilnej verzii.
 Možno budete musieť pokračovať alebo „vrátiť“ úpravy.',
-	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Vaše zmeny zatiaľ nie sú v stabilnej verzii. Existujú predchádzajúce zmeny čakajúce na kontrolu.</span> 
+	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Vaše zmeny zatiaľ nie sú v stabilnej verzii. Existujú predchádzajúce zmeny čakajúce na kontrolu.</span>
 
-Prosím, prečítajte si všetky nižšie uvedené zmeny, aby sa vaše úpravy sa objaví v stabilnej verzii. 
+Prosím, prečítajte si všetky nižšie uvedené zmeny, aby sa vaše úpravy sa objaví v stabilnej verzii.
 Možno budete musieť pokračovať alebo „vrátiť“ úpravy.',
 	'revreview-update-includes' => 'Niektoré šablóny/súbory sa zmenili:',
 	'revreview-tt-flag' => 'Označiť túto revíziu ako skontrolovanú',
@@ -5105,7 +5104,7 @@ $messages['stq'] = array(
 
 Sjuch [[Special:Unreviewedpages]] foar ne Lieste fon nit pröiwede Versione.',
 	'revreview-submit' => 'Wröigenge spiekerje',
-	'revreview-toolow' => 'Du moast foar älk fon do unnerstoundende Attribute n Wäid haager as „{{int:revreview-accuracy-0}}“ ienstaale, 
+	'revreview-toolow' => 'Du moast foar älk fon do unnerstoundende Attribute n Wäid haager as „{{int:revreview-accuracy-0}}“ ienstaale,
 deermäd ne Version as wröiged jält. Uum ne Version tou fersmieten, mouten aal Attribute ap „{{int:revreview-accuracy-0}}“ stounde.',
 	'revreview-update' => "[[{{MediaWiki:Validationpage}}|Wröig]] älke Annerenge ''(sjuch hierunner)'' siet ju lääste stoabile Version [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} fräiroat] wuude.
 
@@ -5382,7 +5381,7 @@ $messages['tk'] = array(
 	'revreview-submit-unreviewed' => 'Boldy. Kabul edilmedi!',
 	'revreview-successful' => "'''[[:$1|$1]] wersiýasy şowly baýdaklandy. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} durnukly wersiýalary gör])'''",
 	'revreview-successful2' => "'''[[:$1|$1]] wersiýasynyň baýdagy şowly aýryldy.'''",
-	'revreview-toolow' => '\'\'\'Bir wersiýanyň gözden geçirilen diýlip hasap edilmegi üçin aşakdaky aýratynlyklardan iň bolmanda birine "tassyklanmadyk"dan ýokary ses bermeli\'\'\'. 
+	'revreview-toolow' => '\'\'\'Bir wersiýanyň gözden geçirilen diýlip hasap edilmegi üçin aşakdaky aýratynlyklardan iň bolmanda birine "tassyklanmadyk"dan ýokary ses bermeli\'\'\'.
 Bir wersiýany köneltmek üçin ähli meýdançalary "tassyklanmadyk" diýip belläň.
 
 Brauzeriňizde "yza" düwmesine basyň we gaýtadan synanyşyň.',
@@ -5629,7 +5628,7 @@ $messages['uk'] = array(
 
 Будь ласка, натисніть кнопку «Назад» у браузері і спробуйте ще раз.",
 	'revreview-update' => "Будь ласка, [[{{MediaWiki:Validationpage}}|перевірте]] всі нерецензовані зміни ''(показані нижче)'', зроблені з моменту встановлення стабільної версії.",
-	'revreview-update-edited' => '<span class="flaggedrevs_important">Ваші зміни ще не включені до стабільної версії.</span> 
+	'revreview-update-edited' => '<span class="flaggedrevs_important">Ваші зміни ще не включені до стабільної версії.</span>
 
 Будь ласка, перевірте усі зміни, наведені нижче, щоб включити ваші редагування до стабільної версії.',
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Ваші зміни ще не включені до стабільної версії. Попередні зміни очікують на перевірку.</span>
@@ -5726,13 +5725,13 @@ Par anular el stato de na revision, struca "disaprova".
 
 Par piaser struca el boton "indrìo" del to browser e pròa da novo.',
 	'revreview-update' => "'''Par piaser [[{{MediaWiki:Validationpage}}|verifica]] tuti i canbiamenti ''(mostrà qua soto)'' fati rispeto a la version stabile.'''",
-	'revreview-update-edited' => '<span class="flaggedrevs_important">Le to modifiche no le xe gnancora ne la version stabile.</span> 
+	'revreview-update-edited' => '<span class="flaggedrevs_important">Le to modifiche no le xe gnancora ne la version stabile.</span>
 
-Par piaser rivarda tute le modifiche qua soto parché le to modifiche le vegna mostrà ne la version stabile. 
+Par piaser rivarda tute le modifiche qua soto parché le to modifiche le vegna mostrà ne la version stabile.
 Podarìa esser necessario proseguire o "anulare" modifiche.',
-	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Le to modifiche no le xe gnancora ne la version stabile. Ghe xe canbiamenti precedenti pendenti.</span> 
+	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Le to modifiche no le xe gnancora ne la version stabile. Ghe xe canbiamenti precedenti pendenti.</span>
 
-Par piaser rivarda tute le modifiche qua soto parché le to modifiche le vegna mostrà ne la version stabile. 
+Par piaser rivarda tute le modifiche qua soto parché le to modifiche le vegna mostrà ne la version stabile.
 Podarìa esser necessario proseguire o "anulare" modifiche.',
 	'revreview-update-includes' => 'Alcuni modèi o file i xe stà agiornà:',
 	'revreview-reject-text-list' => "Confermando quest'asion vera '''respinte''' łe modifeghe testuałi {{PLURAL:$1|da ła seguente version|da łe seguenti version}} de [[:$2|$2]]:",
