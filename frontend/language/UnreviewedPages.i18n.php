@@ -121,7 +121,7 @@ $messages['an'] = array(
 	'unreviewedpages-diff' => 'revisar',
 	'unreviewedpages-unwatched' => '(no cosirata)',
 	'unreviewedpages-watched' => '($1 {{PLURAL:$1|usuario|usuarios}} activos cosirando)',
-	'unreviewedpages-list' => "Ista pachina amuestra os articlos que no s'han revisato dica o livel especificato.",
+	'unreviewedpages-list' => "Ista pachina amuestra os articlos que no s'han revisato dica o livel especificato.", # Fuzzy
 	'unreviewedpages-none' => 'No bi ha actualment garra pachina que cumpla ixos criterios',
 );
 
@@ -168,7 +168,7 @@ $messages['arz'] = array(
 	'unreviewedpages-diff' => 'راجع',
 	'unreviewedpages-unwatched' => '(غير مراقبة)',
 	'unreviewedpages-watched' => '({{PLURAL:$1|لا مستخدمون نشطون يراقبون|مستخدم واحد نشط يراقب|مستخدمان نشطان يراقبان|$1 مستخدمين نشطين يراقبون|$1 مستخدمًا نشطًا يراقبون|$1 مستخدم نشط يراقبون}})',
-	'unreviewedpages-list' => 'هذه الصفحه تعرض صفحات المحتوى التى لم تتم مراجعتها لمستوى المحدد.',
+	'unreviewedpages-list' => 'هذه الصفحه تعرض صفحات المحتوى التى لم تتم مراجعتها لمستوى المحدد.', # Fuzzy
 	'unreviewedpages-none' => 'لا توجد صفحات بهذه المواصفات حاليا',
 	'unreviewedpages-viewing' => '(تحت المراجعة)',
 	'unreviewedpages-hours' => '({{PLURAL:$1||ساعه واحد|ساعتان|$1 ساعات|$1 ساعة}})',
@@ -216,8 +216,8 @@ $messages['bcc'] = array(
 	'unreviewedpages-category' => 'دسته:',
 	'unreviewedpages-diff' => 'بازبینی',
 	'unreviewedpages-unwatched' => '(نه چارگ)',
-	'unreviewedpages-watched' => '($1 {{PLURAL:$1|user|کابران}} چارگ بیت)',
-	'unreviewedpages-list' => 'ای صفحه مقالاتی که بازبینی نه بیتگن لیست کن.',
+	'unreviewedpages-watched' => '($1 {{PLURAL:$1|user|کابران}} چارگ بیت)', # Fuzzy
+	'unreviewedpages-list' => 'ای صفحه مقالاتی که بازبینی نه بیتگن لیست کن.', # Fuzzy
 	'unreviewedpages-none' => 'هنو گو این معیارآن صفحه ای نیست',
 );
 
@@ -226,7 +226,7 @@ $messages['bcc'] = array(
  */
 $messages['bcl'] = array(
 	'unreviewedpages-category' => 'Kategorya:',
-	'unreviewedpages-diff' => 'Mga pagbabàgo',
+	'unreviewedpages-diff' => 'Mga pagbabàgo', # Fuzzy
 );
 
 /** Belarusian (беларуская)
@@ -239,7 +239,7 @@ $messages['be'] = array(
 	'unreviewedpages-diff' => 'праверыць',
 	'unreviewedpages-unwatched' => '(не сочаць)',
 	'unreviewedpages-watched' => '({{PLURAL:$1|сочыць $1 актыўны ўдзельнік|сочыць $1 актыўных удзельніка|сочаць $1 актыўных удзельнікаў}})',
-	'unreviewedpages-list' => 'На гэтай старонцы пералічаны артыкулы, якія не былі ацэненыя на паказаны ўзровень.',
+	'unreviewedpages-list' => 'На гэтай старонцы пералічаны артыкулы, якія не былі ацэненыя на паказаны ўзровень.', # Fuzzy
 	'unreviewedpages-none' => 'У сапраўдны момант няма старонак, якія задавальняюць названым умовам',
 	'unreviewedpages-viewing' => '(правяраецца)',
 	'unreviewedpages-hours' => '($1 {{PLURAL:$1|гадзіну|гадзіны|гадзін}})',
@@ -365,7 +365,8 @@ $messages['ce'] = array(
 	'unreviewedpages-days' => '($1 {{PLURAL:$1|де|де}})',
 );
 
-/** Sorani Kurdish (کوردی) */
+/** Sorani Kurdish (کوردی)
+ */
 $messages['ckb'] = array(
 	'unreviewedpages-category' => 'پۆل:',
 );
@@ -380,7 +381,7 @@ $messages['ckb'] = array(
  */
 $messages['cs'] = array(
 	'action-unreviewedpages' => 'zobrazit seznam neposouzených stránek',
-	'unreviewedpages' => 'Neposouzené stránky',
+	'unreviewedpages' => 'Neposouzené stránky', # Fuzzy
 	'unreviewedpages-legend' => 'Seznam neposouzených obsahových stránek',
 	'unreviewedpages-category' => 'Kategorie:',
 	'unreviewedpages-diff' => 'kontrola',
@@ -576,7 +577,7 @@ $messages['eu'] = array(
  */
 $messages['ext'] = array(
 	'unreviewedpages-category' => 'Categoria:',
-	'unreviewedpages-diff' => 'Chambus',
+	'unreviewedpages-diff' => 'Chambus', # Fuzzy
 );
 
 /** Persian (فارسی)
@@ -735,7 +736,8 @@ $messages['gsw'] = array(
 	'unreviewedpages-recent' => '(weniger wie ei Stund)',
 );
 
-/** Hausa (Hausa) */
+/** Hausa (Hausa)
+ */
 $messages['ha'] = array(
 	'unreviewedpages-category' => 'Rukuni:',
 );
@@ -779,8 +781,8 @@ $messages['hi'] = array(
 	'unreviewedpages-category' => 'श्रेणी:',
 	'unreviewedpages-diff' => 'जाँचे',
 	'unreviewedpages-unwatched' => '(न देखे हुए)',
-	'unreviewedpages-watched' => '($1 {{PLURAL:$1|सदस्यने|सदस्योंने}} ध्यान रखा हैं)',
-	'unreviewedpages-list' => 'यह पन्ना ऐसे लेख दर्शाता हैं जिन्हें जाँचा नहीं गया हैं।',
+	'unreviewedpages-watched' => '($1 {{PLURAL:$1|सदस्यने|सदस्योंने}} ध्यान रखा हैं)', # Fuzzy
+	'unreviewedpages-list' => 'यह पन्ना ऐसे लेख दर्शाता हैं जिन्हें जाँचा नहीं गया हैं।', # Fuzzy
 	'unreviewedpages-none' => 'इस क्राइटेरिआ से मिलने वाले पन्ने नहीं हैं',
 	'unreviewedpages-viewing' => '(समिक्षा अंतर्गत)',
 	'unreviewedpages-hours' => '($1 {{PLURAL:$1|घंटा|घंटे}})',
@@ -808,7 +810,7 @@ $messages['hr'] = array(
 	'unreviewedpages-diff' => 'ocijeni',
 	'unreviewedpages-unwatched' => '(nepraćeno)',
 	'unreviewedpages-watched' => '($1 {{PLURAL:$1|aktivni suradnik|aktivnih suradnika}} prati)',
-	'unreviewedpages-list' => 'Ovdje se navode stranice sa sadržajem koje nisu pregledane do određene razine.',
+	'unreviewedpages-list' => 'Ovdje se navode stranice sa sadržajem koje nisu pregledane do određene razine.', # Fuzzy
 	'unreviewedpages-none' => 'Trenutačno nema stranica koje zadovoljavaju ovim kriterijima',
 	'unreviewedpages-viewing' => '(u ocijenjivanju)',
 	'unreviewedpages-hours' => '($1 {{PLURAL:$1|sat|sata|sati}})',
@@ -988,7 +990,7 @@ $messages['ja'] = array(
  */
 $messages['jut'] = array(
 	'unreviewedpages-category' => 'Klynge:',
-	'unreviewedpages-diff' => 'Ændrenger',
+	'unreviewedpages-diff' => 'Ændrenger', # Fuzzy
 );
 
 /** Javanese (Basa Jawa)
@@ -1032,28 +1034,31 @@ $messages['ka'] = array(
 	'unreviewedpages-recent' => '(1 საათზე ნაკლები)',
 );
 
-/** Kazakh (Arabic script) (قازاقشا (تٴوتە)‏) */
+/** Kazakh (Arabic script) (قازاقشا (تٴوتە)‏)
+ */
 $messages['kk-arab'] = array(
 	'unreviewedpages' => 'سىن بەرىلمەگەن بەتتەر',
 	'unreviewedpages-category' => 'سانات:',
 	'unreviewedpages-diff' => 'وزگەرىستەر',
-	'unreviewedpages-list' => 'بۇل بەتتە سىن بەرىلمەگەن ماقالالار نە جاڭادان جاسالعان, سىن بەرىلمەگەن, نۇسقالارى بار ماقالار تىزىمدەلىنەدى.',
+	'unreviewedpages-list' => 'بۇل بەتتە سىن بەرىلمەگەن ماقالالار نە جاڭادان جاسالعان, سىن بەرىلمەگەن, نۇسقالارى بار ماقالار تىزىمدەلىنەدى.', # Fuzzy
 );
 
-/** Kazakh (Cyrillic script) (қазақша (кирил)‎) */
+/** Kazakh (Cyrillic script) (қазақша (кирил)‎)
+ */
 $messages['kk-cyrl'] = array(
 	'unreviewedpages' => 'Сын берілмеген беттер',
 	'unreviewedpages-category' => 'Санат:',
 	'unreviewedpages-diff' => 'Өзгерістер',
-	'unreviewedpages-list' => 'Бұл бетте сын берілмеген мақалалар не жаңадан жасалған, сын берілмеген, нұсқалары бар мақалар тізімделінеді.',
+	'unreviewedpages-list' => 'Бұл бетте сын берілмеген мақалалар не жаңадан жасалған, сын берілмеген, нұсқалары бар мақалар тізімделінеді.', # Fuzzy
 );
 
-/** Kazakh (Latin script) (qazaqşa (latın)‎) */
+/** Kazakh (Latin script) (qazaqşa (latın)‎)
+ */
 $messages['kk-latn'] = array(
 	'unreviewedpages' => 'Sın berilmegen better',
 	'unreviewedpages-category' => 'Sanat:',
 	'unreviewedpages-diff' => 'Özgerister',
-	'unreviewedpages-list' => 'Bul bette sın berilmegen maqalalar ne jañadan jasalğan, sın berilmegen, nusqaları bar maqalar tizimdelinedi.',
+	'unreviewedpages-list' => 'Bul bette sın berilmegen maqalalar ne jañadan jasalğan, sın berilmegen, nusqaları bar maqalar tizimdelinedi.', # Fuzzy
 );
 
 /** Khmer (ភាសាខ្មែរ)
@@ -1177,7 +1182,7 @@ $messages['li'] = array(
 	'unreviewedpages-diff' => 'kiek nao',
 	'unreviewedpages-unwatched' => '(neet oppe volglies)',
 	'unreviewedpages-watched' => '($1 actieve {{PLURAL:$1|gebroeker|gebroekers}} kiekendj)',
-	'unreviewedpages-list' => "Dees pazjena tuunt pazjena's die nag ónbekeke zeen toet t aangegaeve nivo.",
+	'unreviewedpages-list' => "Dees pazjena tuunt pazjena's die nag ónbekeke zeen toet t aangegaeve nivo.", # Fuzzy
 	'unreviewedpages-none' => "'t Göf gein paasjes die aan dees kriteria vóldoon",
 	'unreviewedpages-viewing' => '(wörd bekeke)',
 	'unreviewedpages-hours' => '$1 {{PLURAL:$1|oer|oer}}',
@@ -1253,8 +1258,8 @@ $messages['mr'] = array(
 	'unreviewedpages-category' => 'वर्ग:',
 	'unreviewedpages-diff' => 'तपासा',
 	'unreviewedpages-unwatched' => '(न पाहिलेली)',
-	'unreviewedpages-watched' => '($1 {{PLURAL:$1|सदस्यानी|सदस्यांनी}} पहारा दिलेला आहे)',
-	'unreviewedpages-list' => 'हे पान अशा पानांची यादी दर्शविते जी पाने तपासलेली नाहीत.',
+	'unreviewedpages-watched' => '($1 {{PLURAL:$1|सदस्यानी|सदस्यांनी}} पहारा दिलेला आहे)', # Fuzzy
+	'unreviewedpages-list' => 'हे पान अशा पानांची यादी दर्शविते जी पाने तपासलेली नाहीत.', # Fuzzy
 	'unreviewedpages-none' => 'ह्या मानदंडांशी जुळणारी पाने नाहीत',
 );
 
@@ -1356,7 +1361,7 @@ $messages['nn'] = array(
 	'unreviewedpages-diff' => 'vurder',
 	'unreviewedpages-unwatched' => '(uovervaka)',
 	'unreviewedpages-watched' => '({{PLURAL:$1|éin aktiv brukar|$1 aktive brukarar}} overvakar)',
-	'unreviewedpages-list' => 'Denne sida listar opp artiklar som manglar vurdering',
+	'unreviewedpages-list' => 'Denne sida listar opp artiklar som manglar vurdering', # Fuzzy
 	'unreviewedpages-none' => 'Det finst ingen sider som svarer til søkekriteria',
 	'unreviewedpages-viewing' => '(under vurdering)',
 	'unreviewedpages-hours' => '($1 {{PLURAL:$1|time|timar}})',
@@ -1384,7 +1389,7 @@ $messages['oc'] = array(
 	'unreviewedpages-diff' => 'revision',
 	'unreviewedpages-unwatched' => '(pas observat)',
 	'unreviewedpages-watched' => '($1 {{PLURAL:$1|utilizaire actiu seguís|utilizaires actius seguisson}} aquesta pagina)',
-	'unreviewedpages-list' => 'Aquesta pagina fa la lista de las paginas que son pas estadas revisadas al nivèl especificat.',
+	'unreviewedpages-list' => 'Aquesta pagina fa la lista de las paginas que son pas estadas revisadas al nivèl especificat.', # Fuzzy
 	'unreviewedpages-none' => 'Actualament, existís pas cap de pagina respectant aquestes critèris',
 	'unreviewedpages-viewing' => '(en revision)',
 	'unreviewedpages-hours' => '($1 {{PLURAL:$1|ora|oras}})',
@@ -1475,11 +1480,11 @@ $messages['ps'] = array(
 );
 
 /** Portuguese (português)
- * @author 555
  * @author Giro720
  * @author Hamilton Abreu
  * @author Lijealso
  * @author Malafaya
+ * @author 555
  */
 $messages['pt'] = array(
 	'unreviewedpages' => 'Páginas não revistas',
@@ -1614,7 +1619,7 @@ $messages['sah'] = array(
 	'unreviewedpages-diff' => 'тургутуу',
 	'unreviewedpages-unwatched' => '(кэтээбэттэр)',
 	'unreviewedpages-watched' => '($1 көхтөөх кыттааччы кэтиир)',
-	'unreviewedpages-list' => 'Бу сирэйгэ этиллибит таһымынан сыаналамматах сирэйдэр көстөллөр.',
+	'unreviewedpages-list' => 'Бу сирэйгэ этиллибит таһымынан сыаналамматах сирэйдэр көстөллөр.', # Fuzzy
 	'unreviewedpages-none' => 'Эппит таһымҥар эппиэттиир ыстатыйа билигин суох эбит',
 	'unreviewedpages-viewing' => '(тургутуллаллар)',
 	'unreviewedpages-hours' => '($1 чаас)',
@@ -1658,7 +1663,7 @@ $messages['sk'] = array(
 	'unreviewedpages-diff' => 'kontrola',
 	'unreviewedpages-unwatched' => '(nesledovaná)',
 	'unreviewedpages-watched' => '({{PLURAL:$1|sleduje $1 aktívny používateľ|sleduú $1 aktívni používatelia|sleduje $1 aktívnych používateľov}})',
-	'unreviewedpages-list' => 'Táto stránka obsahuje zoznam článkov, ktoré neboli skontrolované do určenej úrovne.',
+	'unreviewedpages-list' => 'Táto stránka obsahuje zoznam článkov, ktoré neboli skontrolované do určenej úrovne.', # Fuzzy
 	'unreviewedpages-none' => 'Momentálne žiadne stránky nespĺňajú tieto kritériá',
 	'unreviewedpages-viewing' => '(kontroluje sa)',
 	'unreviewedpages-hours' => '($1 {{PLURAL:$1|hodina|hodiny|hodín}})',
@@ -1746,7 +1751,7 @@ $messages['stq'] = array(
 	'unreviewedpages' => 'Nit wröigede Artikkele',
 	'unreviewedpages-category' => 'Kategorie:',
 	'unreviewedpages-diff' => 'sichtje',
-	'unreviewedpages-list' => 'Disse Siede wiest Artikkele, do der noch sieläärge nit wröiged wuuden of nit wröigede Versione hääbe.',
+	'unreviewedpages-list' => 'Disse Siede wiest Artikkele, do der noch sieläärge nit wröiged wuuden of nit wröigede Versione hääbe.', # Fuzzy
 );
 
 /** Sundanese (Basa Sunda)
@@ -1784,7 +1789,8 @@ $messages['sv'] = array(
 	'unreviewedpages-recent' => '(mindre än en timme)',
 );
 
-/** Swahili (Kiswahili) */
+/** Swahili (Kiswahili)
+ */
 $messages['sw'] = array(
 	'unreviewedpages-category' => 'Jamii:',
 );
@@ -1800,7 +1806,7 @@ $messages['ta'] = array(
 	'unreviewedpages-diff' => 'மதிப்பிடு',
 	'unreviewedpages-unwatched' => '(கவனிக்கப்படமாட்டாது)',
 	'unreviewedpages-watched' => '($1 {{PLURAL:$1|பயனர்|பயனர்கள்}} பார்வையிடுகிறார்கள்)',
-	'unreviewedpages-list' => 'இங்கே கொடுக்கப்பட்ட பக்கங்களின் உள்ளடக்கங்களை குறிப்பிடப்பட்ட அளவுக்கு இன்னும் பரிசீலனை செய்யப்படவில்லை.',
+	'unreviewedpages-list' => 'இங்கே கொடுக்கப்பட்ட பக்கங்களின் உள்ளடக்கங்களை குறிப்பிடப்பட்ட அளவுக்கு இன்னும் பரிசீலனை செய்யப்படவில்லை.', # Fuzzy
 	'unreviewedpages-none' => 'தாங்கள் குறிப்பிட்ட விதிமுறைகளுக்கு உட்பட்ட பக்கங்கள் தற்சமயம் ஏதுமில்லை.',
 	'unreviewedpages-viewing' => '(மீள் பார்வைக்காக)',
 	'unreviewedpages-hours' => '($1 {{PLURAL:$1|மணி|மணிகள்}})',
@@ -1820,7 +1826,7 @@ $messages['te'] = array(
 	'unreviewedpages-diff' => 'సమీక్షించండి',
 	'unreviewedpages-unwatched' => '(వీక్షణలో లేనివి)',
 	'unreviewedpages-watched' => '($1 {{PLURAL:$1|క్రియాశీల వాడుకరి|గురు క్రియాశీల వాడుకరులు}} వీక్షిస్తున్నారు)',
-	'unreviewedpages-list' => 'ఈ పేజీలో పేర్కొన్న స్థాయి వరకు సమీక్షించని వ్యాసాల జాబితా ప్రదర్సింపబడుతోంది.',
+	'unreviewedpages-list' => 'ఈ పేజీలో పేర్కొన్న స్థాయి వరకు సమీక్షించని వ్యాసాల జాబితా ప్రదర్సింపబడుతోంది.', # Fuzzy
 	'unreviewedpages-none' => 'ఈ నియమాలకు సరిపోలుతున్న పేజీలు ఏమీ ప్రస్తుతం లేవు',
 	'unreviewedpages-viewing' => '(సమీక్షలో ఉంది)',
 	'unreviewedpages-hours' => '($1 {{PLURAL:$1|గంట|గంటలు}})',
@@ -1841,8 +1847,8 @@ $messages['tet'] = array(
 $messages['tg-cyrl'] = array(
 	'unreviewedpages' => 'Саҳифаҳои баррасӣ нашуда',
 	'unreviewedpages-category' => 'Гурӯҳ:',
-	'unreviewedpages-diff' => 'Тағйирот',
-	'unreviewedpages-list' => 'Ин саҳифа мақолаҳои баррасинашуда, мақолаҳои ҷадид, нусхаҳои ҷадид ё баррасинашударо феҳрист мекунад.',
+	'unreviewedpages-diff' => 'Тағйирот', # Fuzzy
+	'unreviewedpages-list' => 'Ин саҳифа мақолаҳои баррасинашуда, мақолаҳои ҷадид, нусхаҳои ҷадид ё баррасинашударо феҳрист мекунад.', # Fuzzy
 );
 
 /** Tajik (Latin script) (tojikī)
@@ -1863,7 +1869,7 @@ $messages['tk'] = array(
 	'unreviewedpages-diff' => 'gözden geçir',
 	'unreviewedpages-unwatched' => '(gözegçilikde däl)',
 	'unreviewedpages-watched' => '($1 işjeň {{PLURAL:$1|ulanyjy|ulanyjy}} gözegçilik edýär)',
-	'unreviewedpages-list' => 'Bu sahypa görkezilen derejä çenli gözden geçirilmedik mazmunly sahypalary sanawlaýar.',
+	'unreviewedpages-list' => 'Bu sahypa görkezilen derejä çenli gözden geçirilmedik mazmunly sahypalary sanawlaýar.', # Fuzzy
 	'unreviewedpages-none' => 'Häzirki wagtda bu şertlere gabat gelýän hiç hili sahypa ýok.',
 	'unreviewedpages-viewing' => '(gözden geçirilýär)',
 	'unreviewedpages-hours' => '($1 {{PLURAL:$1|sagat|sagat}})',
@@ -1902,7 +1908,7 @@ $messages['tr'] = array(
 	'unreviewedpages-diff' => 'gözden geçir',
 	'unreviewedpages-unwatched' => '(izlenmiyor)',
 	'unreviewedpages-watched' => '($1 etkin {{PLURAL:$1|kullanıcı|kullanıcı}} izliyor)',
-	'unreviewedpages-list' => 'Bu sayfa, belirlenen seviyeye göre gözden geçirilmemiş içerik sayfalarını listeler.',
+	'unreviewedpages-list' => 'Bu sayfa, belirlenen seviyeye göre gözden geçirilmemiş içerik sayfalarını listeler.', # Fuzzy
 	'unreviewedpages-none' => 'Şu anda bu kriterleri karşılayan bir sayfa bulunmamaktadır',
 	'unreviewedpages-viewing' => '(gözden geçiriliyor)',
 	'unreviewedpages-hours' => '($1 {{PLURAL:$1|saat|saat}})',
@@ -1951,7 +1957,7 @@ $messages['vec'] = array(
 	'unreviewedpages-diff' => 'esamina',
 	'unreviewedpages-unwatched' => '(non osservà)',
 	'unreviewedpages-watched' => "($1 {{PLURAL:$1|utente el|utenti i}} tien d'ocio sta pagina)",
-	'unreviewedpages-list' => 'Sta pagina la elenca le pagine che no le xe stà gnancora riesaminà fin al livèl indicà.',
+	'unreviewedpages-list' => 'Sta pagina la elenca le pagine che no le xe stà gnancora riesaminà fin al livèl indicà.', # Fuzzy
 	'unreviewedpages-none' => 'No ghe xe atualmente pagine che sodisfa sti criteri',
 	'unreviewedpages-viewing' => '(in corso de revision)',
 	'unreviewedpages-hours' => '($1 {{PLURAL:$1|ora|ore}})',
@@ -2004,8 +2010,8 @@ $messages['vi'] = array(
 $messages['vo'] = array(
 	'unreviewedpages' => 'Pads no pekrütöls',
 	'unreviewedpages-category' => 'Klad:',
-	'unreviewedpages-diff' => 'Votükams',
-	'unreviewedpages-list' => 'Su pad at palisedons yegeds no pekrütöls u labü fomams nulik no pekrütöls',
+	'unreviewedpages-diff' => 'Votükams', # Fuzzy
+	'unreviewedpages-list' => 'Su pad at palisedons yegeds no pekrütöls u labü fomams nulik no pekrütöls', # Fuzzy
 	'unreviewedpages-hours' => '({{PLURAL:$1|düp|düps}} $1)',
 	'unreviewedpages-days' => '({{PLURAL:$1|del|dels}} $1)',
 );
@@ -2017,15 +2023,16 @@ $messages['yi'] = array(
 	'unreviewedpages-category' => 'קאטעגאריע:',
 );
 
-/** Cantonese (粵語) */
+/** Cantonese (粵語)
+ */
 $messages['yue'] = array(
 	'unreviewedpages' => '未複審嘅版',
 	'unreviewedpages-legend' => '列示未複審嘅內容頁',
 	'unreviewedpages-category' => '分類:',
 	'unreviewedpages-diff' => '更改',
 	'unreviewedpages-unwatched' => '(未睇)',
-	'unreviewedpages-watched' => '($1{{PLURAL:$1|位用戶|位用戶}}睇緊)',
-	'unreviewedpages-list' => '呢一版列示出重未複審或視察過嘅文章修訂。',
+	'unreviewedpages-watched' => '($1{{PLURAL:$1|位用戶|位用戶}}睇緊)', # Fuzzy
+	'unreviewedpages-list' => '呢一版列示出重未複審或視察過嘅文章修訂。', # Fuzzy
 	'unreviewedpages-none' => '呢度現時無版合乎呢啲條件',
 );
 
@@ -2072,4 +2079,3 @@ $messages['zh-hant'] = array(
 	'unreviewedpages-days' => '（$1 {{PLURAL:$1|天|天}}）',
 	'unreviewedpages-recent' => '（小於1小時）',
 );
-

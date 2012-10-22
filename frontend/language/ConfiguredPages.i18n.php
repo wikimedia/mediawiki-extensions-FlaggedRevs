@@ -1080,4 +1080,3 @@ $messages['zh-hant'] = array(
 	'configuredpages-def-draft' => '最新版本',
 	'configuredpages-def-stable' => '已出版的內容',
 );
-

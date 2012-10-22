@@ -53,7 +53,7 @@ Label use on checkbox filter to only show pages where edits will require review 
  */
 $messages['af'] = array(
 	'stablepages' => 'Bladsye onderhewig aan goedkeuring van bywerkings',
-	'stablepages-list' => "Hier is 'n lys van bladsye wat handmatig gestel is om die gepubliseerde weergawe as standaard inhoud vir lesers te wys.",
+	'stablepages-list' => "Hier is 'n lys van bladsye wat handmatig gestel is om die gepubliseerde weergawe as standaard inhoud vir lesers te wys.", # Fuzzy
 	'stablepages-none' => 'Daar is geen bladsye in hierdie lys nie.',
 	'stablepages-config' => 'Voorkeure',
 	'stablepages-indef' => 'Slegs onbepaald verstryking',
@@ -64,7 +64,7 @@ $messages['af'] = array(
  */
 $messages['aln'] = array(
 	'stablepages' => 'Faqet e përdorur redakto miratim',
-	'stablepages-list' => 'Më poshtë është një listë e faqeve të cilat janë të kufizuara në mënyrë që përdoruesit të caktuara mund të bëjë vetëm redaktimet e që nuk kërkojnë shqyrtim. Redaktimet e tillë nuk janë botuar deri në një përdorues të autorizuar kritikat e tyre.',
+	'stablepages-list' => 'Më poshtë është një listë e faqeve të cilat janë të kufizuara në mënyrë që përdoruesit të caktuara mund të bëjë vetëm redaktimet e që nuk kërkojnë shqyrtim. Redaktimet e tillë nuk janë botuar deri në një përdorues të autorizuar kritikat e tyre.', # Fuzzy
 	'stablepages-none' => 'Nuk ka faqe në këtë listë.',
 	'stablepages-config' => 'Konfiguracion',
 );
@@ -99,8 +99,8 @@ $messages['ar'] = array(
  * @author Ramsis II
  */
 $messages['arz'] = array(
-	'stablepages' => 'صفحات مستقرة',
-	'stablepages-list' => 'تحت فيه ليستة الصفح اللى مترتّبه يدوى علشان تخلّى النسخه المنشوره تبقى محتوى الصفحه الاساسى للقرّايين.',
+	'stablepages' => 'صفحات مستقرة', # Fuzzy
+	'stablepages-list' => 'تحت فيه ليستة الصفح اللى مترتّبه يدوى علشان تخلّى النسخه المنشوره تبقى محتوى الصفحه الاساسى للقرّايين.', # Fuzzy
 	'stablepages-none' => 'لا توجد صفحات فى هذه القائمة',
 	'stablepages-config' => 'ضبط',
 );
@@ -121,8 +121,8 @@ Les ediciones feches por otros usuarios nun s'amuesen a los llectores de mou pre
  * @author Mostafadaneshvar
  */
 $messages['bcc'] = array(
-	'stablepages' => 'صفحات ثابت',
-	'stablepages-list' => 'جهلء یک لیستی چه صفحاتی هستن که دستی تنظیم بوتت تا نسخه ثابت په داب پیش فرضین محتوا په بازدید کنوک پیش داریت.',
+	'stablepages' => 'صفحات ثابت', # Fuzzy
+	'stablepages-list' => 'جهلء یک لیستی چه صفحاتی هستن که دستی تنظیم بوتت تا نسخه ثابت په داب پیش فرضین محتوا په بازدید کنوک پیش داریت.', # Fuzzy
 	'stablepages-none' => 'هچ صفحه ای تی ای لیست نیست',
 	'stablepages-config' => 'تنظیمات',
 );
@@ -157,7 +157,7 @@ $messages['be-tarask'] = array(
  * @author DCLXVI
  */
 $messages['bg'] = array(
-	'stablepages' => 'Устойчиви страници',
+	'stablepages' => 'Устойчиви страници', # Fuzzy
 	'stablepages-none' => 'Списъкът не съдържа страници',
 	'stablepages-config' => 'Конфигурация',
 );
@@ -414,7 +414,7 @@ As edicións feitas por outros usuarios non se mostran aos lectores por defecto 
  * @author Omnipaedista
  */
 $messages['grc'] = array(
-	'stablepages' => 'Σταθεραὶ δέλτοι',
+	'stablepages' => 'Σταθεραὶ δέλτοι', # Fuzzy
 	'stablepages-config' => 'Διαμόρφωσις',
 );
 
@@ -451,8 +451,8 @@ $messages['he'] = array(
  * @author Kaustubh
  */
 $messages['hi'] = array(
-	'stablepages' => 'स्थिर पन्ने',
-	'stablepages-list' => 'नीचे स्थिर अवतरण अविचल दिखाने वाले पन्नोंकी सूची हैं जो हाथसे तैयार की गई हैं।',
+	'stablepages' => 'स्थिर पन्ने', # Fuzzy
+	'stablepages-list' => 'नीचे स्थिर अवतरण अविचल दिखाने वाले पन्नोंकी सूची हैं जो हाथसे तैयार की गई हैं।', # Fuzzy
 	'stablepages-none' => 'इस सूची में पन्ने नहीं हैं',
 	'stablepages-config' => 'कॉन्फिगरेशन',
 	'stablepages-indef' => 'केबल असीमित अबसान',
@@ -673,8 +673,8 @@ $messages['ml'] = array(
  * @author Kaustubh
  */
 $messages['mr'] = array(
-	'stablepages' => 'स्थिर पाने',
-	'stablepages-list' => 'खाली स्थिर आवृत्त्या अविचल पणे दाखविणार्‍या पानांची यादी आहे जी कुणीतरी तयार केलेली आहे.',
+	'stablepages' => 'स्थिर पाने', # Fuzzy
+	'stablepages-list' => 'खाली स्थिर आवृत्त्या अविचल पणे दाखविणार्‍या पानांची यादी आहे जी कुणीतरी तयार केलेली आहे.', # Fuzzy
 	'stablepages-none' => 'या यादीत पाने नाहीत',
 	'stablepages-config' => 'कॉन्फिगरेशन',
 );
@@ -734,8 +734,8 @@ Bewerkingen door andere gebruikers worden niet weergegeven totdat daartoe gerech
  * @author Njardarlogar
  */
 $messages['nn'] = array(
-	'stablepages' => 'Stabile sider',
-	'stablepages-list' => 'Under er ei lista over sider manuelt innstilte til å syna den stabile versjonen som standardinnhald for lesarar.',
+	'stablepages' => 'Stabile sider', # Fuzzy
+	'stablepages-list' => 'Under er ei lista over sider manuelt innstilte til å syna den stabile versjonen som standardinnhald for lesarar.', # Fuzzy
 	'stablepages-none' => 'Det finst ingen sider i denne lista',
 	'stablepages-config' => 'Konfigurering',
 );
@@ -745,7 +745,7 @@ $messages['nn'] = array(
  */
 $messages['oc'] = array(
 	'stablepages' => "Paginas qu'utilizan la validacion de las modificacions",
-	'stablepages-list' => "Çaijós, figura una lista de las paginas que son restrenchas que d'unes utilizaires ne pòdon editar solets sens qu'una relectura siá necessària. Atal, las modificacions son pas publicadas tant qu'un utilizaire abilitat las ajan repassadas.",
+	'stablepages-list' => "Çaijós, figura una lista de las paginas que son restrenchas que d'unes utilizaires ne pòdon editar solets sens qu'una relectura siá necessària. Atal, las modificacions son pas publicadas tant qu'un utilizaire abilitat las ajan repassadas.", # Fuzzy
 	'stablepages-none' => 'Existís pas cap de pagina dins aquesta lista',
 	'stablepages-config' => 'Configuracion',
 );
@@ -777,9 +777,9 @@ $messages['pms'] = array(
 );
 
 /** Portuguese (português)
- * @author 555
  * @author Hamilton Abreu
  * @author Waldir
+ * @author 555
  */
 $messages['pt'] = array(
 	'stablepages' => 'Páginas sujeitas à aprovação de edições',
@@ -875,8 +875,8 @@ $messages['si'] = array(
  * @author Helix84
  */
 $messages['sk'] = array(
-	'stablepages' => 'Stabilné stránky',
-	'stablepages-list' => 'Toto je zoznam stránok, ktoré boli ručne nastavené, aby sa ako ich štandardný obsah zobrazovala čitateľom stabilná verzia.',
+	'stablepages' => 'Stabilné stránky', # Fuzzy
+	'stablepages-list' => 'Toto je zoznam stránok, ktoré boli ručne nastavené, aby sa ako ich štandardný obsah zobrazovala čitateľom stabilná verzia.', # Fuzzy
 	'stablepages-none' => 'Tento zoznam neobsahuje žiadne stránky.',
 	'stablepages-config' => 'Nastavenie',
 	'stablepages-indef' => 'Vypršanie iba na dobu neurčitú',
@@ -952,7 +952,7 @@ $messages['ta'] = array(
  * @author వైజాసత్య
  */
 $messages['te'] = array(
-	'stablepages' => 'స్థిరమైన పేజీలు',
+	'stablepages' => 'స్థిరమైన పేజీలు', # Fuzzy
 	'stablepages-none' => 'ఈ జాబితాలో పేజీలేవీ లేవు',
 	'stablepages-config' => 'స్వరూపణం',
 	'stablepages-indef' => 'నిరవధిక కాలంచెల్లుబాటు మాత్రమే',
@@ -962,8 +962,8 @@ $messages['te'] = array(
  * @author Hanberke
  */
 $messages['tk'] = array(
-	'stablepages' => 'Durnukly sahypalar',
-	'stablepages-list' => 'Aşakda durnukly wersiýany zyýaratçylara gaýybana sahypa mazmuny hökmünde görkezmek üçin el bilen konfigurirlenen sahypalaryň sanawy görkezilýär.',
+	'stablepages' => 'Durnukly sahypalar', # Fuzzy
+	'stablepages-list' => 'Aşakda durnukly wersiýany zyýaratçylara gaýybana sahypa mazmuny hökmünde görkezmek üçin el bilen konfigurirlenen sahypalaryň sanawy görkezilýär.', # Fuzzy
 	'stablepages-none' => 'Bu sanawda hiç hili sahypa ýok',
 	'stablepages-config' => 'Konfigurasiýa',
 );
@@ -1020,7 +1020,7 @@ $messages['ur'] = array(
  */
 $messages['vec'] = array(
 	'stablepages' => "Pagine che dopara l'aprovassion de le modifiche",
-	'stablepages-list' => 'Sta qua la xe na lista de pagine configurà manualmente par mostrar la version publicà come contenuto de default par i letori.',
+	'stablepages-list' => 'Sta qua la xe na lista de pagine configurà manualmente par mostrar la version publicà come contenuto de default par i letori.', # Fuzzy
 	'stablepages-none' => 'No ghe xe nissuna pagina su sta lista',
 	'stablepages-config' => 'Configurassion',
 	'stablepages-indef' => 'Solo scadensa indefinìa',
@@ -1062,8 +1062,8 @@ $messages['vo'] = array(
  * @author Shinjiman
  */
 $messages['yue'] = array(
-	'stablepages' => '穩定頁',
-	'stablepages-list' => '下面嗰版列示咗啲版係手動噉設定去顯示穩定版做畀觀看者做預設版內容。',
+	'stablepages' => '穩定頁', # Fuzzy
+	'stablepages-list' => '下面嗰版列示咗啲版係手動噉設定去顯示穩定版做畀觀看者做預設版內容。', # Fuzzy
 	'stablepages-none' => '無版響呢個表度',
 	'stablepages-config' => '設定',
 );
@@ -1097,4 +1097,3 @@ $messages['zh-hant'] = array(
 	'stablepages-config' => '設定',
 	'stablepages-indef' => '只限永久到期',
 );
-

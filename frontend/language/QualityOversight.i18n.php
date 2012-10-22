@@ -78,7 +78,7 @@ $messages['ast'] = array(
  * @author Mostafadaneshvar
  */
 $messages['bcc'] = array(
-	'qualityoversight' => 'کیفیت بازرویت',
+	'qualityoversight' => 'کیفیت بازرویت', # Fuzzy
 	'qualityoversight-list' => 'ای صفحه نوکین تاییدات کیفیت بازبینی ان و نسخ کیفیت بازبینی ان لیست کنت.',
 	'qualityoversight-legend' => 'گردگ په آماران نوکین بازبینی',
 );
@@ -107,7 +107,7 @@ $messages['be-tarask'] = array(
  * @author DCLXVI
  */
 $messages['bg'] = array(
-	'qualityoversight' => 'Качествен надзор',
+	'qualityoversight' => 'Качествен надзор', # Fuzzy
 );
 
 /** Breton (brezhoneg)
@@ -144,7 +144,7 @@ $messages['ca'] = array(
  * @author Matěj Grabovský
  */
 $messages['cs'] = array(
-	'qualityoversight' => 'Dozor na kvalitu',
+	'qualityoversight' => 'Dozor na kvalitu', # Fuzzy
 	'qualityoversight-list' => 'Tato stránka obsahuje seznam všech nedávných schválení kvalitních verzí a zastárání revizí.',
 	'qualityoversight-legend' => 'Hledat v nedávných záznamech posouzení',
 );
@@ -269,7 +269,7 @@ $messages['gl'] = array(
  * @author Omnipaedista
  */
 $messages['grc'] = array(
-	'qualityoversight' => 'Ἐπιστάτης ποιότητος',
+	'qualityoversight' => 'Ἐπιστάτης ποιότητος', # Fuzzy
 	'qualityoversight-list' => 'Ἥδε ἡ δέλτος καταλέγει τὰς πλέον προσφάτους ἐπιδοκιμασίας καὶ ὑποτιμήσεις τῶν ἀναθεωρήσεων.',
 	'qualityoversight-legend' => 'Ζητεῖν προσφάτους καταλόγους ἐπιθεωρήσεων',
 );
@@ -299,8 +299,8 @@ $messages['he'] = array(
  * @author Kaustubh
  */
 $messages['hi'] = array(
-	'qualityoversight' => 'गुणवत्ता ओवरसाईट',
-	'qualityoversight-list' => 'यह पन्ना नवीनतम गुणवत्तापूर्ण अवतरणोंके प्रमाणिकरण की सूची दर्शाता हैं तथा गुणवत्तापूर्ण अवतरणोंका डिप्रिसिएशन दर्शाता हैं।',
+	'qualityoversight' => 'गुणवत्ता ओवरसाईट', # Fuzzy
+	'qualityoversight-list' => 'यह पन्ना नवीनतम गुणवत्तापूर्ण अवतरणोंके प्रमाणिकरण की सूची दर्शाता हैं तथा गुणवत्तापूर्ण अवतरणोंका डिप्रिसिएशन दर्शाता हैं।', # Fuzzy
 	'qualityoversight-legend' => 'बर्त्तमान की समिक्षा लॉग ढूंदे',
 );
 
@@ -505,7 +505,7 @@ $messages['nl'] = array(
  * @author Njardarlogar
  */
 $messages['nn'] = array(
-	'qualityoversight' => 'Kvalitetsoversikt',
+	'qualityoversight' => 'Kvalitetsoversikt', # Fuzzy
 	'qualityoversight-list' => 'Denne sida syner dei siste godkjende og degraderte sideversjonane.',
 	'qualityoversight-legend' => 'Søk i loggen over dei siste vurderingane',
 );
@@ -539,8 +539,8 @@ $messages['pms'] = array(
 );
 
 /** Portuguese (português)
- * @author 555
  * @author Hamilton Abreu
+ * @author 555
  */
 $messages['pt'] = array(
 	'qualityoversight' => 'Registo avançado de revisões',
@@ -742,7 +742,7 @@ $messages['vi'] = array(
  * @author Shinjiman
  */
 $messages['yue'] = array(
-	'qualityoversight' => '品質管理',
+	'qualityoversight' => '品質管理', # Fuzzy
 	'qualityoversight-list' => '呢一版列示咗最近核准修訂同埋最近品質修訂嘅折舊。',
 );
 
@@ -769,4 +769,3 @@ $messages['zh-hant'] = array(
 	'qualityoversight-list' => '這個頁面列示出最近核准修訂以及最近品質修訂之折舊。',
 	'qualityoversight-legend' => '搜尋最近審核記錄',
 );
-

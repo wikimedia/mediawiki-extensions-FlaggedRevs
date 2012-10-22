@@ -165,18 +165,18 @@ $messages['arc'] = array(
  * @author Ramsis II
  */
 $messages['arz'] = array(
-	'validationstatistics' => 'إحصاءات التحقق',
+	'validationstatistics' => 'إحصاءات التحقق', # Fuzzy
 	'validationstatistics-users' => "'''{{SITENAME}}''' دلوقتى فيه '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|يوزر|يوزر}} بحقوق [[{{MediaWiki:Validationpage}}|محرر]].
 
 المحررين هما يوزرات متعيّنين و يقدرو يشوفو و يشيّكو على مراجعات الصفح.",
-	'validationstatistics-table' => "الإحصاءات لكل نطاق معروضه بالأسفل، ''ولا يشمل ذلك'' صفحات التحويل.",
+	'validationstatistics-table' => "الإحصاءات لكل نطاق معروضه بالأسفل، ''ولا يشمل ذلك'' صفحات التحويل.", # Fuzzy
 	'validationstatistics-ns' => 'النطاق',
 	'validationstatistics-total' => 'الصفحات',
 	'validationstatistics-stable' => 'مراجع',
 	'validationstatistics-latest' => 'محدث',
 	'validationstatistics-synced' => 'تم تحديثه/تمت مراجعته',
 	'validationstatistics-old' => 'قديمة',
-	'validationstatistics-utable' => 'بالأسفل قائمه بأعلى $1 مراجعين فى الساعه الأخيره.',
+	'validationstatistics-utable' => 'بالأسفل قائمه بأعلى $1 مراجعين فى الساعه الأخيره.', # Fuzzy
 	'validationstatistics-user' => 'المستخدم',
 	'validationstatistics-reviews' => 'مراجعات',
 );
@@ -236,14 +236,14 @@ $messages['be'] = array(
 Гэтыя старонкі лічацца ''састарэлымі''. Старонкі лічацца ''сінхранізаванымі'', калі няма правак, якія чакаюць праверкі.",
 	'validationstatistics-revtime' => "Сярэдняя затрымка праверкі для зменаў, якія зрабілі ''ўдзельнікі, якія не прадставіліся'', складае '''$1'''; медыяна — '''$2'''.
 $3",
-	'validationstatistics-table' => "Ніжэй прадстаўлена статыстыка праверак па кожнай прасторы імёнаў, ''выключаючы'' старонкі перанакіраванняў.",
+	'validationstatistics-table' => "Ніжэй прадстаўлена статыстыка праверак па кожнай прасторы імёнаў, ''выключаючы'' старонкі перанакіраванняў.", # Fuzzy
 	'validationstatistics-ns' => 'Прастора імёнаў',
 	'validationstatistics-total' => 'Старонак',
 	'validationstatistics-stable' => 'Правераныя',
 	'validationstatistics-latest' => 'Пераправераныя',
 	'validationstatistics-synced' => 'Доля пераправераных у правераных',
 	'validationstatistics-old' => 'Састарэлыя',
-	'validationstatistics-utable' => 'Ніжэй прыведзены пералік з $1 найбольш актыўных вывяраючых за апошнюю гадзіну.',
+	'validationstatistics-utable' => 'Ніжэй прыведзены пералік з $1 найбольш актыўных вывяраючых за апошнюю гадзіну.', # Fuzzy
 	'validationstatistics-user' => 'Удзельнік',
 	'validationstatistics-reviews' => 'Праверкі',
 );
@@ -391,7 +391,8 @@ $messages['ce'] = array(
 	'validationstatistics-reviews' => 'Нийса йуй хьажар',
 );
 
-/** Sorani Kurdish (کوردی) */
+/** Sorani Kurdish (کوردی)
+ */
 $messages['ckb'] = array(
 	'validationstatistics-user' => 'بەکارهێنەر',
 );
@@ -824,19 +825,19 @@ $3",
  * @author Omnipaedista
  */
 $messages['grc'] = array(
-	'validationstatistics' => 'Στατιστικὰ ἐπικυρώσεων',
+	'validationstatistics' => 'Στατιστικὰ ἐπικυρώσεων', # Fuzzy
 	'validationstatistics-users' => "Τὸ '''{{SITENAME}}''' νῦν ἔχει '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|χρὠμενον|χρωμένους}} μετὰ δικαιωμάτων [[{{MediaWiki:Validationpage}}|μεταγραφέως]]
 καὶ '''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$2|χρὠμενον|χρωμένους}} μετὰ δικαιωμάτων [[{{MediaWiki:Validationpage}}|ἐπιθεωρητοῦ]].
 
-Μεταγραφεῖς καὶ ἐπιθεωρηταὶ καθιερωμένοι χρώμενοι εἰσὶν δυνάμενοι τὰς τῶν δέλτων ἀναθεωρήσεις ἐλέγχειν.",
-	'validationstatistics-table' => "Στατιστικὰ δεδομένα διὰ πᾶν ὀνοματεῖον κάτωθι εἰσί, δέλτων ἀναδιευθύνσεως ''ἐξαιρουμένων''.",
+Μεταγραφεῖς καὶ ἐπιθεωρηταὶ καθιερωμένοι χρώμενοι εἰσὶν δυνάμενοι τὰς τῶν δέλτων ἀναθεωρήσεις ἐλέγχειν.", # Fuzzy
+	'validationstatistics-table' => "Στατιστικὰ δεδομένα διὰ πᾶν ὀνοματεῖον κάτωθι εἰσί, δέλτων ἀναδιευθύνσεως ''ἐξαιρουμένων''.", # Fuzzy
 	'validationstatistics-ns' => 'Ὀνοματεῖον',
 	'validationstatistics-total' => 'Δέλτοι',
 	'validationstatistics-stable' => 'Ἀνατεθεωρημένη',
 	'validationstatistics-latest' => 'Συγκεχρονισμένη',
 	'validationstatistics-synced' => 'Συγκεχρονισμένη/Ἐπιτεθεωρημένη',
 	'validationstatistics-old' => 'Ἀπηρχαιωμένη',
-	'validationstatistics-utable' => 'Κάτωθι ἐστὶ ὁ κατάλογος τῶν $1 κορυφαίων ἐπιθεωρητῶν τῇ ὑστάτη μίᾳ ὥρᾳ.',
+	'validationstatistics-utable' => 'Κάτωθι ἐστὶ ὁ κατάλογος τῶν $1 κορυφαίων ἐπιθεωρητῶν τῇ ὑστάτη μίᾳ ὥρᾳ.', # Fuzzy
 	'validationstatistics-user' => 'Χρώμενος',
 	'validationstatistics-reviews' => 'Ἐπιθεωρήσεις',
 );
@@ -873,7 +874,8 @@ $messages['gu'] = array(
 	'validationstatistics-stable' => 'પરામર્શિત',
 );
 
-/** Hausa (Hausa) */
+/** Hausa (Hausa)
+ */
 $messages['ha'] = array(
 	'validationstatistics-ns' => 'Sararin suna',
 );
@@ -1200,11 +1202,11 @@ $messages['jv'] = array(
 	'validationstatistics' => 'Statistik ulasan kaca',
 	'validationstatistics-users' => "'''{{SITENAME}}''' wektu iki duwé '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|panganggo|panganggo}} kanthi hak aksès [[{{MediaWiki:Validationpage}}|Editor]] lan '''[[Special:ListUsers/pamriksa|$2]]''' {{PLURAL:$2|panganggo|panganggo}} kanthi hak aksès [[{{MediaWiki:Validationpage}}|Pamriksa]].
 
-Editor lan Pamriksa iku panganggo mapan sing bisa mriksa langsung owah-owahan kaca.",
+Editor lan Pamriksa iku panganggo mapan sing bisa mriksa langsung owah-owahan kaca.", # Fuzzy
 	'validationstatistics-lastupdate' => "''Data iki dianyari pungkasan $1 wanci $2.''",
 	'validationstatistics-revtime' => "Reratan wektu tunggu kanggo suntingan déning ''panganggo sing durung mlebu log'' kanggo diulas yakuwi '''$1'''; median '''$2'''.
 $3",
-	'validationstatistics-table' => "Statistik kanggo saben bilik jeneng ditampilaké ing ngisor iki, ''kajaba'' kaca pangalihan.",
+	'validationstatistics-table' => "Statistik kanggo saben bilik jeneng ditampilaké ing ngisor iki, ''kajaba'' kaca pangalihan.", # Fuzzy
 	'validationstatistics-ns' => 'Bilik jeneng',
 	'validationstatistics-total' => 'Kaca',
 	'validationstatistics-stable' => 'Wis dipriksa',
@@ -1381,7 +1383,7 @@ $messages['li'] = array(
 	'validationstatistics' => 'Paginacontrolestatistieke',
 	'validationstatistics-revtime' => "De gemiddelde wachtied veur controle van bewirkinge door ''gebroekers die neet aangemeld zeen' is '''$1'''. De mediaan is '''$2'''.
 $3",
-	'validationstatistics-table' => "Controlestatistieke veur eder naamruumde, ''exclusief'' redireks waere hieónger getuind.",
+	'validationstatistics-table' => "Controlestatistieke veur eder naamruumde, ''exclusief'' redireks waere hieónger getuind.", # Fuzzy
 	'validationstatistics-ns' => 'Naamruumde',
 	'validationstatistics-total' => 'Paasj',
 	'validationstatistics-stable' => 'Bekeke',
@@ -1595,9 +1597,9 @@ $3",
  * @author Ranveig
  */
 $messages['nn'] = array(
-	'validationstatistics' => 'Valideringsstatistikk',
+	'validationstatistics' => 'Valideringsstatistikk', # Fuzzy
 	'validationstatistics-users' => "'''{{SITENAME}}''' har nett no {{PLURAL:$1|'''éin''' brukar|'''[[Special:ListUsers/editor|$1]]''' brukarar}} med [[{{MediaWiki:Validationpage}}|skriverettar]]. Skriverettar vil seie at ein kan sjekke endringar av sider.",
-	'validationstatistics-table' => "Statistikk for kvart namnerom er synt nedanfor, ''utanom'' omdirigeringssider.",
+	'validationstatistics-table' => "Statistikk for kvart namnerom er synt nedanfor, ''utanom'' omdirigeringssider.", # Fuzzy
 	'validationstatistics-ns' => 'Namnerom',
 	'validationstatistics-total' => 'Sider',
 	'validationstatistics-stable' => 'Vurdert',
@@ -1615,14 +1617,14 @@ $messages['oc'] = array(
 	'validationstatistics-users' => "'''{{SITENAME}}''' dispausa actualament de '''[[Special:ListUsers/editor|$1]]''' utilizaire{{PLURAL:$1||s}} amb los dreches de [[{{MediaWiki:Validationpage}}|contributor]].
 
 Los contributors e relectors son d'utilizaires establits que pòdon verificar las revisions de las paginas.",
-	'validationstatistics-table' => "Las estatisticas per cada espaci de noms son afichadas çaijós, a ''l’exclusion'' de las paginas de redireccion.",
+	'validationstatistics-table' => "Las estatisticas per cada espaci de noms son afichadas çaijós, a ''l’exclusion'' de las paginas de redireccion.", # Fuzzy
 	'validationstatistics-ns' => 'Nom de l’espaci',
 	'validationstatistics-total' => 'Paginas',
 	'validationstatistics-stable' => 'Relegit',
 	'validationstatistics-latest' => 'Sincronizada',
 	'validationstatistics-synced' => 'Sincronizat/Relegit',
 	'validationstatistics-old' => 'Desuet',
-	'validationstatistics-utable' => 'Çaijós figuran los $1 melhors relectors dins la darrièra ora.',
+	'validationstatistics-utable' => 'Çaijós figuran los $1 melhors relectors dins la darrièra ora.', # Fuzzy
 	'validationstatistics-user' => 'Utilizaire',
 	'validationstatistics-reviews' => 'Relectors',
 );
@@ -1718,13 +1720,13 @@ $messages['ps'] = array(
 );
 
 /** Portuguese (português)
- * @author 555
  * @author Alchimista
  * @author Giro720
  * @author Hamilton Abreu
  * @author Lijealso
  * @author Malafaya
  * @author Waldir
+ * @author 555
  */
 $messages['pt'] = array(
 	'validationstatistics' => 'Estatísticas da revisão de páginas',
@@ -1906,7 +1908,7 @@ $messages['sah'] = array(
 	'validationstatistics-latest' => 'Хат тургутуллубут',
 	'validationstatistics-synced' => 'Хат тургутуллубуттар тургутуллубуттар истэригэр бырыаннара',
 	'validationstatistics-old' => 'Эргэрбит',
-	'validationstatistics-utable' => 'Бүтэһик чааска ордук көхтөөх $1 тургутааччы тиһигэ көстөр.',
+	'validationstatistics-utable' => 'Бүтэһик чааска ордук көхтөөх $1 тургутааччы тиһигэ көстөр.', # Fuzzy
 	'validationstatistics-user' => 'Кыттааччы',
 	'validationstatistics-reviews' => 'Бэрэбиэркэ',
 );
@@ -1948,22 +1950,22 @@ $messages['si'] = array(
  * @author Teslaton
  */
 $messages['sk'] = array(
-	'validationstatistics' => 'Štatistiky overenia',
-	'validationstatistics-users' => "'''{{SITENAME}}''' má momentálne '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|používateľa|používateľov}} s právami [[{{MediaWiki:Validationpage}}|redaktor]] a '''[[Special:ListUsers/reviewer|$2]]'' {{PLURAL:$2|používateľa|používateľov}} s právami [[{{MediaWiki:Validationpage}}|kontrolór]].",
+	'validationstatistics' => 'Štatistiky overenia', # Fuzzy
+	'validationstatistics-users' => "'''{{SITENAME}}''' má momentálne '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|používateľa|používateľov}} s právami [[{{MediaWiki:Validationpage}}|redaktor]] a '''[[Special:ListUsers/reviewer|$2]]'' {{PLURAL:$2|používateľa|používateľov}} s právami [[{{MediaWiki:Validationpage}}|kontrolór]].", # Fuzzy
 	'validationstatistics-lastupdate' => "''Nasledujúce údaje boli naposledy aktualizované $1 $2.''",
 	'validationstatistics-pndtime' => "Úpravy, ktoré boli overené dôveryhodnými používateľmi sú považované za skontrolované.
 
 Priemerné čakanie na [[Special:OldReviewedPages|stránky s  čakajúcimi úpravami]] je '''$1'''.
-Tieto stránky sú považované za ''zastarané''. Podobne, stránky sú považované za ''synchronizované'', ak nie sú k dispozícii žiadne úpravy čakajúce na kontrolu.",
-	'validationstatistics-revtime' => "Priemerné čakanie na skontrolovanie úprav ''neprihlásených používateľov'' je '''$1''', medián je '''$2'''.",
-	'validationstatistics-table' => "Dolu sú zobrazené štatistiky pre každý menný priestor ''okrem'' presmerovacích stránok.",
+Tieto stránky sú považované za ''zastarané''. Podobne, stránky sú považované za ''synchronizované'', ak nie sú k dispozícii žiadne úpravy čakajúce na kontrolu.", # Fuzzy
+	'validationstatistics-revtime' => "Priemerné čakanie na skontrolovanie úprav ''neprihlásených používateľov'' je '''$1''', medián je '''$2'''.", # Fuzzy
+	'validationstatistics-table' => "Dolu sú zobrazené štatistiky pre každý menný priestor ''okrem'' presmerovacích stránok.", # Fuzzy
 	'validationstatistics-ns' => 'Menný priestor',
 	'validationstatistics-total' => 'Stránky',
 	'validationstatistics-stable' => 'Skontrolované',
 	'validationstatistics-latest' => 'Synchronizovaná',
 	'validationstatistics-synced' => 'Synchronizované/skontrolované',
 	'validationstatistics-old' => 'Zastarané',
-	'validationstatistics-utable' => 'Dolu je zoznam $1 naj kontrolórov za poslednú hodinu.',
+	'validationstatistics-utable' => 'Dolu je zoznam $1 naj kontrolórov za poslednú hodinu.', # Fuzzy
 	'validationstatistics-user' => 'Používateľ',
 	'validationstatistics-reviews' => 'Kontroly',
 );
@@ -2067,7 +2069,8 @@ $3",
 	'validationstatistics-reviews' => 'Granskningar',
 );
 
-/** Swahili (Kiswahili) */
+/** Swahili (Kiswahili)
+ */
 $messages['sw'] = array(
 	'validationstatistics-ns' => 'Eneo la wiki',
 	'validationstatistics-total' => 'Kurasa',
@@ -2098,15 +2101,15 @@ $messages['te'] = array(
 	'validationstatistics' => 'పేజీ సమీక్షల గణాంకాలు',
 	'validationstatistics-users' => "'''{{SITENAME}}'''లో ప్రస్తుతం '''[[Special:ListUsers/editor|$1]]'''{{PLURAL:$1| వాడుకరి|గురు వాడుకరులు}} [[{{MediaWiki:Validationpage}}|సంపాదకుల]] హక్కులతోనూ మరియు '''[[Special:ListUsers/reviewer|$2]]'''{{PLURAL:$2| వాడుకరి|గురు వాడుకరులు}}  [[{{MediaWiki:Validationpage}}|సమీక్షకుల]] హక్కులతోనూ ఉన్నారు.
 
-సంపాదకులు మరియు సమీక్షకులు అంటే పేజీలకు కూర్పులను ఎప్పటికప్పుడు సరిచూడగలిగిన నిర్ధారిత వాడుకరులు.",
-	'validationstatistics-table' => "ప్రతీ పేరుబరి యొక్క గణాంకాలు క్రింద చూపించాం, దారిమార్పు పేజీలని ''మినహాయించి''.",
+సంపాదకులు మరియు సమీక్షకులు అంటే పేజీలకు కూర్పులను ఎప్పటికప్పుడు సరిచూడగలిగిన నిర్ధారిత వాడుకరులు.", # Fuzzy
+	'validationstatistics-table' => "ప్రతీ పేరుబరి యొక్క గణాంకాలు క్రింద చూపించాం, దారిమార్పు పేజీలని ''మినహాయించి''.", # Fuzzy
 	'validationstatistics-ns' => 'పేరుబరి',
 	'validationstatistics-total' => 'పేజీలు',
 	'validationstatistics-stable' => 'రివ్యూడ్',
 	'validationstatistics-latest' => 'సింకుడు',
 	'validationstatistics-synced' => 'సింకుడు/రివ్యూడ్',
 	'validationstatistics-old' => 'పాతవి',
-	'validationstatistics-utable' => 'ఇది గడచిన గంటలో {{PLURAL:$1|ఒక|$1గురు}} అత్యంత క్రియాశీల సమీక్షకుల యొక్క జాబితా.',
+	'validationstatistics-utable' => 'ఇది గడచిన గంటలో {{PLURAL:$1|ఒక|$1గురు}} అత్యంత క్రియాశీల సమీక్షకుల యొక్క జాబితా.', # Fuzzy
 	'validationstatistics-user' => 'వాడుకరి',
 	'validationstatistics-reviews' => 'సమీక్షలు',
 );
@@ -2130,19 +2133,19 @@ $messages['th'] = array(
  * @author Hanberke
  */
 $messages['tk'] = array(
-	'validationstatistics' => 'Barlama statistikalary',
+	'validationstatistics' => 'Barlama statistikalary', # Fuzzy
 	'validationstatistics-users' => "'''{{SITENAME}}''' saýtynda häzirki wagtda [[{{MediaWiki:Validationpage}}|Redaktor]] hukugyna eýe '''[[Special:ListUsers/editor|$1]]''' sany {{PLURAL:$1|ulanyjy|ulanyjy}} hem-de [[{{MediaWiki:Validationpage}}|Gözden geçiriji]] hukugyna eýe '''[[Special:ListUsers/reviewer|$2]]''' sany {{PLURAL:$2|ulanyjy|ulanyjy}} bardyr.
 
-Redaktorlar we Gözden Geçirijiler sahypalara barlag wersiýasyny belläp bilýän kesgitli ulanyjylardyr.",
+Redaktorlar we Gözden Geçirijiler sahypalara barlag wersiýasyny belläp bilýän kesgitli ulanyjylardyr.", # Fuzzy
 	'validationstatistics-lastupdate' => '"Aşakdaky maglumat soňky gezek $1, $2 senesinde täzelendi"',
-	'validationstatistics-table' => "Her bir at giňişligi üçin statistikalar aşakda görkezilýär, gönükdirme sahypalary ''degişli däl''.",
+	'validationstatistics-table' => "Her bir at giňişligi üçin statistikalar aşakda görkezilýär, gönükdirme sahypalary ''degişli däl''.", # Fuzzy
 	'validationstatistics-ns' => 'At giňişligi',
 	'validationstatistics-total' => 'Sahypalar',
 	'validationstatistics-stable' => 'Gözden geçirilen',
 	'validationstatistics-latest' => 'Sinhronizirlenen',
 	'validationstatistics-synced' => 'Sinhronizirlenen/Gözden geçirilen',
 	'validationstatistics-old' => 'Möwriti geçen',
-	'validationstatistics-utable' => 'Aşakdaky sanaw soňky bir sagadyň dowamyndaky iň işjeň $1 gözden geçirijiniň sanawydyr.',
+	'validationstatistics-utable' => 'Aşakdaky sanaw soňky bir sagadyň dowamyndaky iň işjeň $1 gözden geçirijiniň sanawydyr.', # Fuzzy
 	'validationstatistics-user' => 'Ulanyjy',
 	'validationstatistics-reviews' => 'Barlaglar',
 );
@@ -2260,16 +2263,16 @@ I revisori i xe utenti che pode verificar le revision de le pagine.",
 	'validationstatistics-pndtime' => "Le modifiche che xe stà controlà da utenti afidabili le xe considerà verificà.
 
 El ritardo medio par [[Special:OldReviewedPages|le pagine con canbiamenti in atesa]] el xe '''$1'''.
-Ste pagine le xe considerà ''obsolete''. Le se considera ''agiornà'' se no ghe xe canbiamenti in atesa.",
+Ste pagine le xe considerà ''obsolete''. Le se considera ''agiornà'' se no ghe xe canbiamenti in atesa.", # Fuzzy
 	'validationstatistics-revtime' => "El tenpo medio da spetare par controlar le modifiche fate da ''utenti anonimi'' xe '''$1'''; la media xe '''$2'''.",
-	'validationstatistics-table' => "Qua soto se cata le statìsteghe de revision par ogni namespace, ''escluse'' le pagine de redirect.",
+	'validationstatistics-table' => "Qua soto se cata le statìsteghe de revision par ogni namespace, ''escluse'' le pagine de redirect.", # Fuzzy
 	'validationstatistics-ns' => 'Namespace',
 	'validationstatistics-total' => 'Pagine',
 	'validationstatistics-stable' => 'Ricontrolà',
 	'validationstatistics-latest' => 'Sincronizà',
 	'validationstatistics-synced' => 'Sincronizà/Ricontrolà',
 	'validationstatistics-old' => 'Mia ajornà',
-	'validationstatistics-utable' => "Sto qua xe l'elenco dei primi $1 revisori ne l'ultima ora.",
+	'validationstatistics-utable' => "Sto qua xe l'elenco dei primi $1 revisori ne l'ultima ora.", # Fuzzy
 	'validationstatistics-user' => 'Utente',
 	'validationstatistics-reviews' => 'Revisioni',
 );
@@ -2409,4 +2412,3 @@ $3",
 	'validationstatistics-user' => '用戶',
 	'validationstatistics-reviews' => '審核者',
 );
-

@@ -341,7 +341,7 @@ $messages['af'] = array(
 	'revreview-submit-reviewed' => 'Gedoen. Is aanvaar!',
 	'revreview-submit-unreviewed' => 'Gedoen. Nie aanvaar nie!',
 	'revreview-adv-start-link' => 'adverteer',
-	'revreview-update-includes' => 'Sommige sjablone/lêers is bygewerk:',
+	'revreview-update-includes' => 'Sommige sjablone/lêers is bygewerk:', # Fuzzy
 	'revreview-reject-summary' => 'Opsomming:',
 	'revreview-reject-confirm' => 'Keur hierdie veranderinge af',
 	'revreview-reject-cancel' => 'Kanselleer',
@@ -354,16 +354,16 @@ $messages['af'] = array(
 $messages['aln'] = array(
 	'revreview-submit' => 'Submit',
 	'revreview-submitting' => 'Dorëzimi ...',
-	'revreview-submit-review' => 'Miratoj',
-	'revreview-submit-unreview' => 'De-miratojë',
+	'revreview-submit-review' => 'Miratoj', # Fuzzy
+	'revreview-submit-unreview' => 'De-miratojë', # Fuzzy
 	'revreview-submit-reviewed' => 'Done. Aprovuar!',
 	'revreview-submit-unreviewed' => 'Done. De-aprovuar!',
 	'revreview-successful' => "'''Rishikimi i [[:$1|$1]] flamur me sukses. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} parë shqyrtuar versionet ])'''",
 	'revreview-successful2' => "'''Rishikimi i [[:$1|$1]] paflamur me sukses.'''",
-	'revreview-toolow' => '\'\'\'Ju duhet të kursit të secilit prej atributeve më të larta se "paaprovuar" në mënyrë që për një rishikim të merren parasysh rishikohet.\'\'\' Për të hequr statusin shqyrtimin e rishikimit, i vendosur të gjitha fushat për të "paaprovuar". Ju lutem goditi "mbrapa "butonin e shfletuesit tuaj dhe provoni përsëri.',
-	'revreview-update' => "Ju lutem [[{{MediaWiki:Validationpage}}|rishikim]] ndonjë ndryshim në pritje''(treguar më poshtë),''e bëra në versionin e botuar.",
-	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Ndryshimet juaja ende nuk janë botuar.</span> Ka redaktimet e mëparshme në pritje të shqyrtimit. Për të publikojë ndryshimet tuaj, ju lutemi shqyrtimin e të gjitha ndryshimet e treguar më poshtë.',
-	'revreview-update-includes' => 'Disa templates / Fotografi të ishin më të azhornuara:',
+	'revreview-toolow' => '\'\'\'Ju duhet të kursit të secilit prej atributeve më të larta se "paaprovuar" në mënyrë që për një rishikim të merren parasysh rishikohet.\'\'\' Për të hequr statusin shqyrtimin e rishikimit, i vendosur të gjitha fushat për të "paaprovuar". Ju lutem goditi "mbrapa "butonin e shfletuesit tuaj dhe provoni përsëri.', # Fuzzy
+	'revreview-update' => "Ju lutem [[{{MediaWiki:Validationpage}}|rishikim]] ndonjë ndryshim në pritje''(treguar më poshtë),''e bëra në versionin e botuar.", # Fuzzy
+	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Ndryshimet juaja ende nuk janë botuar.</span> Ka redaktimet e mëparshme në pritje të shqyrtimit. Për të publikojë ndryshimet tuaj, ju lutemi shqyrtimin e të gjitha ndryshimet e treguar më poshtë.', # Fuzzy
+	'revreview-update-includes' => 'Disa templates / Fotografi të ishin më të azhornuara:', # Fuzzy
 );
 
 /** Amharic (አማርኛ)
@@ -389,13 +389,13 @@ Mire-se a [[Special:Unreviewedpages|lista de pachinas sin revisar]].",
 	'revreview-submit' => 'Ninviar',
 	'revreview-successful' => "'''S'ha sinyalato a versión trigata de [[:$1|$1]]. ([{{fullurl:{{#Special:Stableversions}}|page=$2}} amostrar todas as versions sinyalatas])'''",
 	'revreview-successful2' => "'''S'ha sacato o sinyal d'as versions trigatas de [[:$1|$1]]'''",
-	'revreview-toolow' => "'''Ha d'avaluar totz os atributos con una calificación mayor que \"inadequato\" ta que una versión se considere revisata.'''
+	'revreview-toolow' => "'''Ha d'avaluar totz os atributos con una calificación mayor que \"inadequato\" ta que una versión se considere revisata.''' 
 
-Ta sacar o status de revisato d'una versión, faiga click en \"no acceptar\".
+Ta sacar o status de revisato d'una versión, faiga click en \"no acceptar\". 
 
-Por favor, prete o botón de \"enta zaga\" d'o suyo navegador y torne a intentar-lo.",
+Por favor, prete o botón de \"enta zaga\" d'o suyo navegador y torne a intentar-lo.", # Fuzzy
 	'revreview-update' => "Por favor [[{{MediaWiki:Validationpage}}|revise]] os cambios pendients ''(que s'amuestran en o cobaixo)'' feitos sobre a versión acceptata.",
-	'revreview-update-includes' => "S'han esviellato bellas plantillas u fichers:",
+	'revreview-update-includes' => "S'han esviellato bellas plantillas u fichers:", # Fuzzy
 );
 
 /** Arabic (العربية)
@@ -497,7 +497,7 @@ $messages['arc'] = array(
  */
 $messages['arz'] = array(
 	'revisionreview' => 'مراجعه المراجعات',
-	'revreview-failed' => "'''غير قادر على مراجعه هذه المراجعه.''' الإرسال غير مكتمل أو غير هذا غير صحيح.",
+	'revreview-failed' => "'''غير قادر على مراجعه هذه المراجعه.''' الإرسال غير مكتمل أو غير هذا غير صحيح.", # Fuzzy
 	'revreview-flag' => 'راجع هذه المراجعة',
 	'revreview-reflag' => 'راجع تانى المراجعه دى',
 	'revreview-invalid' => "'''هدف غير صحيح:''' لا مراجعه [[{{MediaWiki:Validationpage}}|مراجعة]] تتطابق مع الرقم المعطى.",
@@ -506,20 +506,20 @@ $messages['arz'] = array(
 
 انظر [[Special:Unreviewedpages|قائمه الصفحات غير المراجعة]].',
 	'revreview-stable1' => 'ممكن تكون عاوز تشوف [{{fullurl:$1|stableid=$2}} النسخه المتعلّم عليها دى] و تشوف لو بقت دلوقتى [{{fullurl:$1|stable=1}} النسخه المنشوره] بتاعة الصفحه دى.',
-	'revreview-stable2' => 'ممكن تكون عاوز تشوف [{{fullurl:$1|stable=1}} النسخه المنشوره] بتاعة الصفحه دى (لو لسه فيه واحده).',
+	'revreview-stable2' => 'ممكن تكون عاوز تشوف [{{fullurl:$1|stable=1}} النسخه المنشوره] بتاعة الصفحه دى (لو لسه فيه واحده).', # Fuzzy
 	'revreview-submit' => 'أرسل',
 	'revreview-submitting' => 'جارى التنفيذ...',
-	'revreview-submit-review' => 'علم كمراجعة',
-	'revreview-submit-unreview' => 'علم كغير مراجعة',
+	'revreview-submit-review' => 'علم كمراجعة', # Fuzzy
+	'revreview-submit-unreview' => 'علم كغير مراجعة', # Fuzzy
 	'revreview-successful' => "'''عُلّمت مراجعه [[:$1|$1]] بنجاح. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} اعرض النسخ المستقرة])'''",
 	'revreview-successful2' => "'''مراجعه [[:$1|$1]] تمت إزاله علمها بنجاح.'''",
 	'revreview-toolow' => '\'\'\'لازم تقيّم كل المحددات اللى تحت أكتر من "مش متأكد عليها" علشان المراجعه تعتبر متراجعه.\'\'\'
 علشان يتنفض لمراجعه, اعمل عليهم كلهم بـ "مش متأكد عليها".
 
-لو سمحت دوس على زرار "back" فى البراوزر بتاعتك و جرّب تانى.',
+لو سمحت دوس على زرار "back" فى البراوزر بتاعتك و جرّب تانى.', # Fuzzy
 	'revreview-update' => "لو سمحت [[{{MediaWiki:Validationpage}}|راجع]] اى تغييرات ''(باينه تحت)'' معموله من وقت النسخه المنشوره ما [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} اتأكد عليها].<br />
-'''شوية قوالب/فايلات اتجددت:'''",
-	'revreview-update-includes' => 'بعض القوالب/الملفات تم تحديثها:',
+'''شوية قوالب/فايلات اتجددت:'''", # Fuzzy
+	'revreview-update-includes' => 'بعض القوالب/الملفات تم تحديثها:', # Fuzzy
 );
 
 /** Asturian (asturianu)
@@ -601,13 +601,13 @@ $messages['bcc'] = array(
 	'revreview-flag' => 'ای بازبینی اصلاح کن',
 	'revreview-invalid' => "'''نامعتبراین هدف:''' هچ [[{{MediaWiki:Validationpage}}|بازبینی بوتگین]] نسخه مطابق انت گون داتگین شناسگ.",
 	'revreview-log' => 'نظر:',
-	'revreview-stable2' => 'شما شاید بلوٹیت بگندیت [{{fullurl:$1|stable=1}} نسخه ثابتی]چه ای صفحه (اگر که هستن).',
-	'revreview-submit' => 'بازبینی دیم دی',
+	'revreview-stable2' => 'شما شاید بلوٹیت بگندیت [{{fullurl:$1|stable=1}} نسخه ثابتی]چه ای صفحه (اگر که هستن).', # Fuzzy
+	'revreview-submit' => 'بازبینی دیم دی', # Fuzzy
 	'revreview-successful' => "'''انتخابی بازبینی [[:$1|$1]]گون موفقیت نشان بوت. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} بچار کل نسخ نشان بوتگینء])'''",
 	'revreview-successful2' => "'''انتخاب بوتگین باز بینی [[:$1|$1]] گون موفقیت بی نشان بوت.'''",
 	'revreview-toolow' => 'شما بایدن حداقل هر یکی چه جهلگین نشانانء درجه بللیت گیشتر چه "unapproved" تا یک بازبینیء په داب چارتگین بیت.
-په نسخ کتن یک بازبینی کل فیلدانء په داب "unapproved" نشان کن.',
-	'revreview-update-includes' => 'لهتی تمپلتان/تصاویر په روچ بیتگین:',
+په نسخ کتن یک بازبینی کل فیلدانء په داب "unapproved" نشان کن.', # Fuzzy
+	'revreview-update-includes' => 'لهتی تمپلتان/تصاویر په روچ بیتگین:', # Fuzzy
 );
 
 /** Belarusian (беларуская)
@@ -631,7 +631,7 @@ $messages['be'] = array(
 	'review_cannot_undo' => 'Не ўдаецца адмяніць гэтыя змены, паколькі далейшыя змены, якія чакаюць праверкі, закранаюць той жа ўчастак.',
 	'review_cannot_reject' => 'Не ўдаецца адхіліць гэтыя змены, таму што нехта ўжо пацвердзіў некаторыя з іх.',
 	'review_reject_excessive' => 'Немагчыма адхіліць такую вялікую колькасць змяненняў адразу.',
-	'revreview-check-flag-p' => 'Пацвердзіць неправераныя змены',
+	'revreview-check-flag-p' => 'Пацвердзіць неправераныя змены', # Fuzzy
 	'revreview-check-flag-p-title' => 'Пацвердзіць ўсе змены, якія чакаюць праверкі, разам з вашай праўкай. Выкарыстоўвайце, толькі калі вы ўжо прагледзелі ўсе змены, якія чакаюць праверкі.',
 	'revreview-check-flag-u' => 'Пацвердзіць гэтую версію неправеранай старонкі',
 	'revreview-check-flag-u-title' => 'Пацвердзіць гэтую версію старонкі. Ужывайце толькі ў выпадку, калі вы цалкам прагледзелі старонку.',
@@ -659,27 +659,27 @@ $messages['be'] = array(
 
 Каб скінуць прыкмету праверкі гэтай версіі, націсніце «Зняць пацвярджэнне».
 
-Калі ласка, націсніце ў браўзэры кнопку «назад», каб паказаць значэнні зноўку.",
+Калі ласка, націсніце ў браўзэры кнопку «назад», каб паказаць значэнні зноўку.", # Fuzzy
 	'revreview-update' => "'''Калі ласка, [[{{MediaWiki:Validationpage}}|праверце]] змены ''(гл. ніжэй)'', якія зроблены ў прынятай версіі.'''",
 	'revreview-update-edited' => '<span class="flaggedrevs_important">Вашы змены яшчэ не ўключаны ў стабільную версію.</span>
 
 Калі ласка, праверце ўсе паказаныя ніжэй змены, каб забяспечыць з\'яўленне вашых правак у стабільнай версіі.
-Магчыма, вам спатрэбіцца прайсці па гісторыі правак або «адмяніць» змены.',
+Магчыма, вам спатрэбіцца прайсці па гісторыі правак або «адмяніць» змены.', # Fuzzy
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Вашы змены яшчэ не ўключаны ў стабільную версію. Існуюць больш раннія праўкі, якія патрабуюць праверкі.</span>
 
 Каб уключыць вашы праўкі ў стабільную версію, калі ласка, праверце ўсе змены, паказаныя ніжэй.
-Магчыма, вам спатрэбіцца спачатку прайсці па праўках ці адмяніць іх.',
-	'revreview-update-includes' => 'Некаторыя шаблоны ці файлы былі абноўленыя:',
-	'revreview-reject-text-list' => "Выконваючы гэта дзеянне, вы '''адхіляеце''' {{PLURAL:$1|наступную змену|наступныя змены}}:",
+Магчыма, вам спатрэбіцца спачатку прайсці па праўках ці адмяніць іх.', # Fuzzy
+	'revreview-update-includes' => 'Некаторыя шаблоны ці файлы былі абноўленыя:', # Fuzzy
+	'revreview-reject-text-list' => "Выконваючы гэта дзеянне, вы '''адхіляеце''' {{PLURAL:$1|наступную змену|наступныя змены}}:", # Fuzzy
 	'revreview-reject-text-revto' => 'Вяртае старонку назад да [{{fullurl:$1|oldid=$2}} версіі ад $3].',
-	'revreview-reject-summary' => 'Апісанне праўкі',
+	'revreview-reject-summary' => 'Апісанне праўкі', # Fuzzy
 	'revreview-reject-confirm' => 'Адхіліць гэтыя змены',
 	'revreview-reject-cancel' => 'Адмена',
-	'revreview-reject-summary-cur' => '	{{PLURAL:$1|Адхілена апошняя $1 змена|Адхілены апошнія $1 змены|Адхілены апошнія $1 змен}} ($2) і адноўлена версія $3 $4',
-	'revreview-reject-summary-old' => '{{PLURAL:$1|Адхілена першая $1 змена|Адхілены першыя $1 змены|Адхілены апошнія $1 змен}} ($2), {{PLURAL:$1|якая ішла|якія ішлі}} за версіяй $3 $4',
+	'revreview-reject-summary-cur' => '	{{PLURAL:$1|Адхілена апошняя $1 змена|Адхілены апошнія $1 змены|Адхілены апошнія $1 змен}} ($2) і адноўлена версія $3 $4', # Fuzzy
+	'revreview-reject-summary-old' => '{{PLURAL:$1|Адхілена першая $1 змена|Адхілены першыя $1 змены|Адхілены апошнія $1 змен}} ($2), {{PLURAL:$1|якая ішла|якія ішлі}} за версіяй $3 $4', # Fuzzy
 	'revreview-tt-flag' => 'Пацвердзіце гэтую версію, адзначыўшы яе як правераную',
 	'revreview-tt-unflag' => 'Зняць пацверджанне з гэтай версіі, адзначыўшы яе як неправераную',
-	'revreview-tt-reject' => 'Адхіліць гэтыя змены, адкаціць іх',
+	'revreview-tt-reject' => 'Адхіліць гэтыя змены, адкаціць іх', # Fuzzy
 );
 
 /** Belarusian (Taraškievica orthography) (беларуская (тарашкевіца)‎)
@@ -744,7 +744,7 @@ $messages['be-tarask'] = array(
 
 Каб зьняць адзнаку з вэрсіі, націсьніце «зьняць зацьверджаньне».
 
-Калі ласка, націсьніце ў Вашым браўзэры кнопку «вярнуцца» і паспрабуйце зноў.",
+Калі ласка, націсьніце ў Вашым браўзэры кнопку «вярнуцца» і паспрабуйце зноў.", # Fuzzy
 	'revreview-update' => "'''Калі ласка, [[{{MediaWiki:Validationpage}}|прарэцэнзуйце]] ўсе зьмены ''(паказаныя ніжэй)'', зробленыя ў апублікаванай вэрсіі.'''",
 	'revreview-update-edited' => '<span class="flaggedrevs_important">Вашыя зьмены яшчэ не былі далучаныя да стабільнай вэрсіі.</span>
 
@@ -808,13 +808,13 @@ $messages['bn'] = array(
 	'revreview-log' => 'মন্তব্য:',
 	'revreview-main' => 'আপনাকে অবশ্যই কোন একটি বিষয়বস্তু পাতা থেকে একটি নির্দিষ্ট সংশোধন পর্যালোচনা করার জন্য বাছাই করতে হবে।
 
-পর্যালোচনা করা হয়নি এমন পাতাগুলির একটি তালিকার জন্য [[Special:Unreviewedpages]] দেখুন।',
+পর্যালোচনা করা হয়নি এমন পাতাগুলির একটি তালিকার জন্য [[Special:Unreviewedpages]] দেখুন।', # Fuzzy
 	'revreview-submit' => 'জমা দাও',
 	'revreview-submitting' => 'জমা হচ্ছে …',
 	'revreview-submit-review' => 'সংশোধন গ্রহণ',
 	'revreview-submit-unreview' => 'সংশোধন প্রত্যাখান',
 	'revreview-submit-reject' => 'পরিবর্তন প্রত্যাখান',
-	'revreview-toolow' => 'কোন সংশোধনকে পর্যালোচিত গণ্য করতে চাইলে আপনাকে নিচের বৈশিষ্ট্যগুলির প্রতিটিকে কমপক্ষে "অননুমোদিত" থেকে উচ্চতর কোন রেটিং দিতে হবে। কোন সংশোধনকে অবনমিত করতে চাইলে, সবগুলি ক্ষেত্র "অননুমোদিত"-তে সেট করুন।',
+	'revreview-toolow' => 'কোন সংশোধনকে পর্যালোচিত গণ্য করতে চাইলে আপনাকে নিচের বৈশিষ্ট্যগুলির প্রতিটিকে কমপক্ষে "অননুমোদিত" থেকে উচ্চতর কোন রেটিং দিতে হবে। কোন সংশোধনকে অবনমিত করতে চাইলে, সবগুলি ক্ষেত্র "অননুমোদিত"-তে সেট করুন।', # Fuzzy
 	'revreview-reject-summary' => 'সারাংশ:',
 	'revreview-reject-cancel' => 'বাতিল',
 );
@@ -876,7 +876,7 @@ Gwelet [[Special:Unreviewedpages|roll ar pajennoù nann-adlennet]].',
 
 Evit tennañ kuit statud adlenn ur stumm, klikit war \"diaprouiñ\".
 
-Implijit bouton \"distreiñ\" ho merdeer ha klaskit en-dro.",
+Implijit bouton \"distreiñ\" ho merdeer ha klaskit en-dro.", # Fuzzy
 	'revreview-update' => "'''Mar plij [[{{MediaWiki:Validationpage}}|adlennit]] an holl gemmoù ''(diskouezet a-is)'' bet graet d'ar stumm degemeret.'''",
 	'revreview-update-edited' => '<span class="flaggedrevs_important">N\'emañ ket ho kemmoù er stumm stabil c\'hoazh.</span>
 
@@ -949,8 +949,8 @@ Pogledajte [[Special:Unreviewedpages|spisak nepregledanih stranica]].',
 	'revreview-successful2' => "'''Reviziji od [[:$1|$1]] je uspješno uklonjena oznaka.'''",
 	'revreview-poss-conflict-p' => "'''Upozorenje: [[User:$1|$1]] je započeo pregled ove stranice dana $2 u $3.'''",
 	'revreview-poss-conflict-c' => "'''Upozorenje: [[User:$1|$1]] je započeo pregled ovih izmjena dana $2 u $3.'''",
-	'revreview-adv-reviewing-p' => "'''Napomena: Drugi korisnici mogu vidjeti da vi pregledavate ovu stranicu.'''",
-	'revreview-adv-reviewing-c' => "'''Napomena: Drugi korisnici mogu vidjeti da vi pregledavate ove izmjene.'''",
+	'revreview-adv-reviewing-p' => "'''Napomena: Drugi korisnici mogu vidjeti da vi pregledavate ovu stranicu.'''", # Fuzzy
+	'revreview-adv-reviewing-c' => "'''Napomena: Drugi korisnici mogu vidjeti da vi pregledavate ove izmjene.'''", # Fuzzy
 	'revreview-sadv-reviewing-p' => 'Možete se $1 za pregledanje ove stranice od drugih korisnika.',
 	'revreview-sadv-reviewing-c' => 'Možete se $1 za pregledanje ovih izmjena od drugih korisnika.',
 	'revreview-adv-start-link' => 'prijaviti',
@@ -959,7 +959,7 @@ Pogledajte [[Special:Unreviewedpages|spisak nepregledanih stranica]].',
 
 Da bi uklonili status ocjene revizije, kliknite na ''odbij''.
 
-Molimo pritisnite dugme \"natrag\" u Vašem pregledniku i pokušajte ponovo.",
+Molimo pritisnite dugme \"natrag\" u Vašem pregledniku i pokušajte ponovo.", # Fuzzy
 	'revreview-update' => "'''Molimo [[{{MediaWiki:Validationpage}}|pregledajte]] sve promjene na čekanju ''(pokazane ispod)'' načinjene od stabilne verzije.'''",
 	'revreview-update-edited' => '<span class="flaggedrevs_important">Vaše izmjene još uvijek nisu u stabilnoj verziji.</span>
 
@@ -1008,7 +1008,7 @@ $messages['ca'] = array(
 	'revreview-submit-reject' => 'Rebutja els canvis',
 	'revreview-submit-reviewed' => 'Fet. Acceptada.',
 	'revreview-submit-unreviewed' => 'Fet. Rebutjada.',
-	'revreview-successful' => "' ' Revisió de [[: $1 | $1 ]] correctament marcada. ([{{fullurl: {{#Special:ReviewedVersions}} |page = $2 }} veure les versions revisades]) ' '",
+	'revreview-successful' => "' ' Revisió de [[: $1 | $1 ]] correctament marcada. ([{{fullurl: {{#Special:ReviewedVersions}} |page = $2 }} veure les versions revisades]) ' '", # Fuzzy
 	'revreview-update' => "'''[[{{MediaWiki:Validationpage}}|Reviseu]] els canvis pendents ''(que es mostren a continuació)'' fets des de la versió acceptada.'''",
 	'revreview-update-includes' => "S'han actualitzat algunes plantilles o fitxers (pàgines no revistes en negreta):",
 	'revreview-reject-confirm' => 'Rebutja aquests canvis',
@@ -1064,7 +1064,7 @@ $messages['ce'] = array(
 
 Варсийга хьаьжна аьлла билгалло дlайаккха, тlе таlайе «Къобал йар дlадаккха».
 
-Дехар до, хьожуш гlодириг чохь (browser) тlе таlайе «йуха йаккхар», йуха а мах хотта ба.",
+Дехар до, хьожуш гlодириг чохь (browser) тlе таlайе «йуха йаккхар», йуха а мах хотта ба.", # Fuzzy
 	'revreview-update' => "'''Дехар до, [[{{MediaWiki:Validationpage}}|хьажа]] хийцамашка ''(гойту лахахьа)'', бина болу тlелаьцчу варсийн.'''",
 	'revreview-update-edited' => '<span class="flaggedrevs_important">Хьан хийцамаш хlинца ца латийна цхьан эшара йолу варсийн.</span>
 
@@ -1072,16 +1072,17 @@ $messages['ce'] = array(
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Хьан хийцамаш хlинца ца латийна цхьан эшара йолу варсийн. Кхий хьалхара хийцамаш бу, хьажа дезаш.</span>
 
 Шу хийцамаш латаба, цхьан эшар йолучу варсийца, дехар до, хьовсийша массо хийцамашка, гойтуш болу лахахьа.',
-	'revreview-update-includes' => 'Цхьа долу куцкепаш йа хlумнаш а карла даьхна:',
-	'revreview-reject-summary' => 'Хийцамех лаьцна:',
+	'revreview-update-includes' => 'Цхьа долу куцкепаш йа хlумнаш а карла даьхна:', # Fuzzy
+	'revreview-reject-summary' => 'Хийцамех лаьцна:', # Fuzzy
 	'revreview-reject-confirm' => 'Йуха баха иза хийцамаш',
 	'revreview-reject-cancel' => 'Цаоьшу',
-	'revreview-reject-summary-cur' => '{{PLURAL:$1|Йуха баькхина тlаьххьара $1 хийцам|Йуха баькхина тlаьххьара $1 хийцамаш}} ($2) а, варсий метта хlоттош $3 $4',
-	'revreview-reject-summary-old' => '{{PLURAL:$1|Йуха баькхина дуьхьаралера $1 хийцам|Йуха баькхина дуьхьаралера $1 хийцамаш}} ($2), {{PLURAL:$1|тlехьа богlаш|тlехьа богlаш}} болу оцу варсийн $3 $4',
-	'revreview-reject-summary-cur-short' => '{{PLURAL:$1|Йуха баькхина тlаьххьара $1 хийцам|Йуха баькхина тlаьххьара $1 хийцамаш}} а, варсий метта хlоттош $2 $3',
+	'revreview-reject-summary-cur' => '{{PLURAL:$1|Йуха баькхина тlаьххьара $1 хийцам|Йуха баькхина тlаьххьара $1 хийцамаш}} ($2) а, варсий метта хlоттош $3 $4', # Fuzzy
+	'revreview-reject-summary-old' => '{{PLURAL:$1|Йуха баькхина дуьхьаралера $1 хийцам|Йуха баькхина дуьхьаралера $1 хийцамаш}} ($2), {{PLURAL:$1|тlехьа богlаш|тlехьа богlаш}} болу оцу варсийн $3 $4', # Fuzzy
+	'revreview-reject-summary-cur-short' => '{{PLURAL:$1|Йуха баькхина тlаьххьара $1 хийцам|Йуха баькхина тlаьххьара $1 хийцамаш}} а, варсий метта хlоттош $2 $3', # Fuzzy
 );
 
-/** Sorani Kurdish (کوردی) */
+/** Sorani Kurdish (کوردی)
+ */
 $messages['ckb'] = array(
 	'revreview-submit' => 'ناردن',
 );
@@ -1095,38 +1096,38 @@ $messages['ckb'] = array(
  */
 $messages['cs'] = array(
 	'revisionreview' => 'Posouzení verzí',
-	'revreview-failed' => "'''Nelze posoudit tuto revizi.''' Zadané údaje jsou neúplné nebo nesprávné.",
+	'revreview-failed' => "'''Nelze posoudit tuto revizi.''' Zadané údaje jsou neúplné nebo nesprávné.", # Fuzzy
 	'revreview-submission-invalid' => 'Příspěvek by nekompletní nebo jinak chybný.',
-	'review_page_invalid' => 'Cílová stránka je neplatná.',
+	'review_page_invalid' => 'Cílová stránka je neplatná.', # Fuzzy
 	'review_page_notexists' => 'Cílová stránka neexistuje.',
 	'review_page_unreviewable' => 'Cílová stránka není posouditená.',
 	'review_no_oldid' => 'Nebylo uvedeno číslo revize',
 	'review_bad_oldid' => 'Cílová verze neexistuje.',
-	'review_not_flagged' => 'Cílová revize nyní není označena jako posouzená.',
-	'review_too_low' => 'Revizi nelze posoudit, pokud některá pole ponechaná "neadekvátní".',
-	'review_bad_key' => 'Neplatný klíč parametru zařazení',
+	'review_not_flagged' => 'Cílová revize nyní není označena jako posouzená.', # Fuzzy
+	'review_too_low' => 'Revizi nelze posoudit, pokud některá pole ponechaná "neadekvátní".', # Fuzzy
+	'review_bad_key' => 'Neplatný klíč parametru zařazení', # Fuzzy
 	'review_bad_tags' => 'Některé z hodnot zadaného tagu jsou neplatné.',
 	'review_denied' => 'Přístup odmítnut.',
 	'review_param_missing' => 'Parametr chybí nebo je nesprávný',
-	'review_cannot_undo' => 'Nelze vrátit tyto změny protože čekající editace změnily stejnou oblast.',
+	'review_cannot_undo' => 'Nelze vrátit tyto změny protože čekající editace změnily stejnou oblast.', # Fuzzy
 	'review_cannot_reject' => 'Tyto změny nelze odmítnout, protože někdo již přijal některé (nebo všechny) úpravy.',
 	'review_reject_excessive' => 'Nelze odmítnout tolik změn najednou.',
 	'review_reject_nulledits' => 'Tyto změny nelze odmítnout, protože jde o prázdné úpravy.',
-	'revreview-check-flag-p' => 'Akceptovat čekající změny',
-	'revreview-check-flag-p-title' => 'Přijmout všechny čekající změny spolu vaší editací. Použijte, jen pokud jste již viděli rozdíl čekajících změn.',
+	'revreview-check-flag-p' => 'Akceptovat čekající změny', # Fuzzy
+	'revreview-check-flag-p-title' => 'Přijmout všechny čekající změny spolu vaší editací. Použijte, jen pokud jste již viděli rozdíl čekajících změn.', # Fuzzy
 	'revreview-check-flag-u' => 'Přimout tuto neposouzenou stránku',
 	'revreview-check-flag-u-title' => 'Přijmout tuto verzi stránky. Použijte jen pokud jste již viděli celou stránku.',
 	'revreview-check-flag-y' => 'Akceptovat tyto změny',
 	'revreview-check-flag-y-title' => 'Akceptovat všechny změny vaší editace.',
 	'revreview-flag' => 'Posoudit tuto verzi',
-	'revreview-reflag' => 'Označit tuto revizi za neposouzenou',
+	'revreview-reflag' => 'Označit tuto revizi za neposouzenou', # Fuzzy
 	'revreview-invalid' => "'''Neplatný cíl:''' žádná [[{{MediaWiki:Validationpage}}|posouzená]] verze neodpovídá zadanému ID.",
 	'revreview-log' => 'Komentář:',
-	'revreview-main' => 'Pro posouzení musíte vybrat určitou verzi stránky.
+	'revreview-main' => 'Pro posouzení musíte vybrat určitou verzi stránky. 
 
 Vizte [[Special:Unreviewedpages|seznam neposouzených stránek]].',
-	'revreview-stable1' => 'Můžete zobrazit [{{fullurl:$1|stableid=$2}} tuto označenou verzi] nebo se podívat, jestli je to teď [{{fullurl:$1|stable=1}} stabilní verze] této stránky.',
-	'revreview-stable2' => 'Můžete zobrazit [{{fullurl:$1|stable=1}} stabilní verzi] této stránky (pokud ještě existuje).',
+	'revreview-stable1' => 'Můžete zobrazit [{{fullurl:$1|stableid=$2}} tuto označenou verzi] nebo se podívat, jestli je to teď [{{fullurl:$1|stable=1}} stabilní verze] této stránky.', # Fuzzy
+	'revreview-stable2' => 'Můžete zobrazit [{{fullurl:$1|stable=1}} stabilní verzi] této stránky (pokud ještě existuje).', # Fuzzy
 	'revreview-submit' => 'Odeslat',
 	'revreview-submitting' => 'Odesílá se',
 	'revreview-submit-review' => 'Přijmout revizi',
@@ -1136,26 +1137,26 @@ Vizte [[Special:Unreviewedpages|seznam neposouzených stránek]].',
 	'revreview-submit-unreviewed' => 'Hotovo. Neakceptováno!',
 	'revreview-successful' => "'''Vybraná revize stránky [[:$1|$1]] byla úspěšně označena. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} zobrazit stabilní verze])'''",
 	'revreview-successful2' => "'''Označení revize stránky [[:$1|$1]] bylo úspěšně zrušeno.'''",
-	'revreview-toolow' => 'Aby byla verze označena jako posouzená, musíte označit každou vlastnost lepším hodnocením než "neschváleno". Pokud chcete verzi odmítnout nechte ve všech polích hodnocení "neschváleno".',
+	'revreview-toolow' => 'Aby byla verze označena jako posouzená, musíte označit každou vlastnost lepším hodnocením než "neschváleno". Pokud chcete verzi odmítnout nechte ve všech polích hodnocení "neschváleno".', # Fuzzy
 	'revreview-update' => "[[{{MediaWiki:Validationpage}}|Posuďte]] prosím všechny změny ''(zobrazené níže)'' provedené od posledního [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} schválení] stabilní verze.<br />
-'''Některé šablony nebo soubory byly změněny:'''",
+'''Některé šablony nebo soubory byly změněny:'''", # Fuzzy
 	'revreview-update-edited' => '<span class="flaggedrevs_important">Vaše změny zatím nejsou ve stabilní verzi.</span>
 
 Aby se tam mohly dostat, posuďte prosím nejdříve všechny změny zobrazené níže.
-Bude nutné tyto editace začlenit nebo zamítnout.',
+Bude nutné tyto editace začlenit nebo zamítnout.', # Fuzzy
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Vaše změny zatím nejsou ve stabilní verzi. Některé starší změny ještě čekají na posouzení.</span>
 
 Aby se tam mohly dostat, posuďte prosím nejdříve všechny změny zobrazené níže.
-Bude nutné tyto editace začlenit nebo zamítnout.',
+Bude nutné tyto editace začlenit nebo zamítnout.', # Fuzzy
 	'revreview-update-includes' => 'Šablony/soubory byly aktualizovány (nezkontrolované stránky jsou tučně):',
-	'revreview-reject-text-list' => "Dokončením této akce, '''zamítnete''' následující {{PLURAL:$1|zmněnu|změny|změn}}:",
+	'revreview-reject-text-list' => "Dokončením této akce, '''zamítnete''' následující {{PLURAL:$1|zmněnu|změny|změn}}:", # Fuzzy
 	'revreview-reject-text-revto' => 'Toto se vrátí zpět stránku do [{{fullurl:$1|oldid = $2}} revize z $3].',
 	'revreview-reject-summary' => 'Shrnutí:',
 	'revreview-reject-confirm' => 'Odmítnout tyto změny',
 	'revreview-reject-cancel' => 'Zrušit',
 	'revreview-tt-flag' => 'Schválit tuto verzi jejím označením za "zkontrolovanou"',
-	'revreview-tt-unflag' => 'Zamítnout tuto verzi jejím označením za "nezkontrolovanou"',
-	'revreview-tt-reject' => 'Odmítnout tyto změny jejich vrácením',
+	'revreview-tt-unflag' => 'Zamítnout tuto verzi jejím označením za "nezkontrolovanou"', # Fuzzy
+	'revreview-tt-reject' => 'Odmítnout tyto změny jejich vrácením', # Fuzzy
 );
 
 /** Danish (dansk)
@@ -1276,7 +1277,7 @@ Siehe die [[Special:Unreviewedpages|Liste unmarkierter Versionen]].',
 
 Um den Markierungstatus einer Version aufzuheben, muss auf „Markierung entfernen“ geklickt werden.
 
-Klicken Sie auf die „Zurück“-Schaltfläche Ihres Browsers und versuchen Sie es erneut.",
+Klicken Sie auf die „Zurück“-Schaltfläche Ihres Browsers und versuchen Sie es erneut.", # Fuzzy
 	'revreview-update' => "'''Bitte [[{{MediaWiki:Validationpage}}|überprüfen]] Sie alle Änderungen ''(siehe unten)'', die seit der neuesten freigegebenen Version getätigt wurden.'''",
 	'revreview-update-edited' => '<span class="flaggedrevs_important">Ihre Änderungen wurden bislang noch nicht als stabile Version gekennzeichnet.</span>
 
@@ -1889,7 +1890,7 @@ $messages['fi'] = array(
 	'review_reject_excessive' => 'Näin monta muokkausta ei voida hylätä kerralla.',
 	'review_reject_nulledits' => 'Näitä muutoksia ei voitu hylätä, koska kaikki versiot ovat nollamuokkauksia.',
 	'revreview-check-flag-p' => 'Hyväksy tämä versio (sisältää {{PLURAL:$1|odottavan muutoksen|$1 odottavaa muutosta}})',
-	'revreview-check-flag-p-title' => 'Hyväksy kaikki arviointia odottavat muutokset oman muokkauksesi yhteydessä.
+	'revreview-check-flag-p-title' => 'Hyväksy kaikki arviointia odottavat muutokset oman muokkauksesi yhteydessä. 
 Käytä tätä vain, jos olet jo käynyt läpi kaikki muokkaukset.',
 	'revreview-check-flag-u' => 'Hyväksy tämä arvioimaton sivu',
 	'revreview-check-flag-u-title' => 'Hyväksy tämä versio tästä sivusta. Käytä tätä vain, jos olet jo nähnyt koko sivun.',
@@ -2096,7 +2097,7 @@ Vêde la [[Special:Unreviewedpages|lista de les pâges pas revues]].',
 
 Por enlevar lo statut de rèvision d’una vèrsion, clicâd dessus « dèsaprovar ».
 
-Volyéd utilisar lo boton « Devant » de voutron navigator et pués tornâd èprovar.",
+Volyéd utilisar lo boton « Devant » de voutron navigator et pués tornâd èprovar.", # Fuzzy
 	'revreview-update' => "'''Volyéd [[{{MediaWiki:Validationpage}}|revêre]] tôs los changements en atenta ''(vêde ce-desot)'' fêts a la vèrsion stâbla.'''",
 	'revreview-update-edited' => '<span class="flaggedrevs_important">Voutros changements sont p’oncor dens la vèrsion stâbla.</span>
 
@@ -2291,7 +2292,7 @@ Lueg au d [[Special:Unreviewedpages|Lischt vu nit markierte Versione]].',
 	'revreview-sadv-reviewing-c' => 'Du chasch andri Benutzer $1 dass du die Änderige überpriefe duesch.',
 	'revreview-adv-start-link' => 'druff hyywyse',
 	'revreview-adv-stop-link' => 'nümm druff hyywyse',
-	'revreview-toolow' => "'''Du muesch fir e jedes vu däne Attribut e Wärt yystelle, wu hecher isch wie „längt nit“, ass e Version as \"prieft\" giltet.'''
+	'revreview-toolow' => "'''Du muesch fir e jedes vu däne Attribut e Wärt yystelle, wu hecher isch wie „längt nit“, ass e Version as \"prieft\" giltet.''' 
 
 Zum dr Priefigsstatus vun ere Version z ändere, druck uf „{{int:revreview-submit-unreview}}“.
 
@@ -2318,7 +2319,8 @@ Bitte iberprief alli unte aazeigte Änderige, ass Dyyni Bearbeite chenne ibernuu
 	'revreview-tt-reject' => 'Die Teggtsänderige dur zruggsetze zruggwyse',
 );
 
-/** Hausa (Hausa) */
+/** Hausa (Hausa)
+ */
 $messages['ha'] = array(
 	'revreview-log' => 'Bahasi:',
 );
@@ -2433,9 +2435,9 @@ $messages['hi'] = array(
 	'revreview-log' => 'टिप्पणी:',
 	'revreview-main' => 'परिक्षण के लिये एक अवतरण चुनना अनिवार्य हैं।
 
-परिक्षण ना हुए अवतरणोंकी सूची के लिये [[Special:Unreviewedpages]] देखें।',
-	'revreview-stable1' => 'आप शायद इस पन्नेका [{{fullurl:$1|stableid=$2}} यह मार्क किया हुआ अवतरण] अब [{{fullurl:$1|stable=1}} स्थिर अवतरण] बन चुका हैं या नहीं यह देखना चाहतें हैं।',
-	'revreview-stable2' => 'आप इस पन्नेका [{{fullurl:$1|stable=1}} स्थिर अवतरण] देख सकतें हैं (अगर उपलब्ध है तो)।',
+परिक्षण ना हुए अवतरणोंकी सूची के लिये [[Special:Unreviewedpages]] देखें।', # Fuzzy
+	'revreview-stable1' => 'आप शायद इस पन्नेका [{{fullurl:$1|stableid=$2}} यह मार्क किया हुआ अवतरण] अब [{{fullurl:$1|stable=1}} स्थिर अवतरण] बन चुका हैं या नहीं यह देखना चाहतें हैं।', # Fuzzy
+	'revreview-stable2' => 'आप इस पन्नेका [{{fullurl:$1|stable=1}} स्थिर अवतरण] देख सकतें हैं (अगर उपलब्ध है तो)।', # Fuzzy
 	'revreview-submit' => 'जमा करें',
 	'revreview-submitting' => 'दाखिला...',
 	'revreview-submit-review' => 'संशोधन स्वीकार',
@@ -2448,10 +2450,10 @@ $messages['hi'] = array(
 	'revreview-successful2' => "'''[[:$1|$1]] के चुने हुए अवतरण का मार्क हटाया।'''",
 	'revreview-adv-start-link' => 'विज्ञापन',
 	'revreview-toolow' => 'एक अवतरण को जाँचने का मार्क करने के लिये आपको नीचे लिखे हर पॅरॅमीटरको "अप्रमाणित" से उपरी दर्जा देना आवश्यक हैं।
-एक अवतरणका गुणांकन कम करने के लिये, निम्नलिखित सभी कॉलममें "अप्रमाणित" चुनें।',
+एक अवतरणका गुणांकन कम करने के लिये, निम्नलिखित सभी कॉलममें "अप्रमाणित" चुनें।', # Fuzzy
 	'revreview-update' => "कृपया किये हुए बदलाव ''(नीचे दिये हुए)'' [[{{MediaWiki:Validationpage}}|जाँचे]] क्योंकी स्थिर अवतरण [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} प्रमाणित] कर दिया गया हैं।<br />
-'''कुछ साँचा/चित्र बदले हैं:'''",
-	'revreview-update-includes' => 'कुछ साँचा/चित्र बदले हैं:',
+'''कुछ साँचा/चित्र बदले हैं:'''", # Fuzzy
+	'revreview-update-includes' => 'कुछ साँचा/चित्र बदले हैं:', # Fuzzy
 	'revreview-reject-summary' => 'सारांश:',
 	'revreview-reject-confirm' => 'ये संशोधन अस्वीकार करें',
 	'revreview-reject-cancel' => 'रद्द करें',
@@ -2509,7 +2511,7 @@ Pogledajte [[Special:Unreviewedpages|popis neocijenjenih stranica]].',
 
 Za uklanjanje pregledanog statusa inačice, kliknite na ''unaccept''.
 
-Molimo kliknite gumb \"natrag\" u Vašem web pregledniku i pokušajte opet.",
+Molimo kliknite gumb \"natrag\" u Vašem web pregledniku i pokušajte opet.", # Fuzzy
 	'revreview-update' => "'''Molimo [[{{MediaWiki:Validationpage}}|ocijenite]] sve promjene ''(prikazane dolje)'' učinjene nakon važeće inačice.'''",
 	'revreview-update-edited' => '<span class="flaggedrevs_important">Vaše izmjene još uvijek nisu u stabilnoj inačici.</span>
 
@@ -2517,19 +2519,19 @@ Molimo provjerite sve izmjene prikazane ispod da bi se vaše izmjene prikazale u
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Vaše izmjene još uvijek nisu u stabilnoj inačici. Postoje ranije izmjene koje su na čekanju za provjeru</span>
 
 Molimo provjerite sve izmjene prikazane ispod da bi se vaše izmjene prikazale u stabilnoj inačici.',
-	'revreview-update-includes' => 'Neki predlošci/datoteke su ažurirane:',
-	'revreview-reject-text-list' => "Dovršavanjem ove akcije, vi ćete '''odbiti''' {{PLURAL:$1|sljedeću promjenu|sljedeće promjene|sljedeće promjene}}:",
+	'revreview-update-includes' => 'Neki predlošci/datoteke su ažurirane:', # Fuzzy
+	'revreview-reject-text-list' => "Dovršavanjem ove akcije, vi ćete '''odbiti''' {{PLURAL:$1|sljedeću promjenu|sljedeće promjene|sljedeće promjene}}:", # Fuzzy
 	'revreview-reject-text-revto' => 'Ovime ćete vratiti stranicu natrag na [{{fullurl:$1|oldid=$2}} inačicu od $3].',
-	'revreview-reject-summary' => 'Uredi sažetak:',
+	'revreview-reject-summary' => 'Uredi sažetak:', # Fuzzy
 	'revreview-reject-confirm' => 'Odbaci ove promjene',
 	'revreview-reject-cancel' => 'Otkazati',
-	'revreview-reject-summary-cur' => '{{PLURAL:$1|Odbijena zadnja izmjena|Odbijene zadnje $1 izmjene|Odbijeno zadnjih $1 izmjena}} (od strane $2) i vraćena inačica $3 suradnika $4',
-	'revreview-reject-summary-old' => '{{PLURAL:$1|Odbijena prva izmjena|Odbijene prve $1 izmjene|Odbijeno prvih $1 izmjena}} (od strane $2) koje su načinjene nakon inačice $3 suradnika $4',
-	'revreview-reject-summary-cur-short' => '{{PLURAL:$1|Odbijena zadnja izmjena|Odbijene zadnje $1 izmjene|Odbijeno zadnjih $1 izmjena}} i vraćena inačica $2 suradnika $3',
-	'revreview-reject-summary-old-short' => '{{PLURAL:$1|Odbijena prva izmjena|Odbijene prve $1 izmjene|Odbijeno prvih $1 izmjena}} koje su načinjene nakon inačice $2 suradnika $3',
+	'revreview-reject-summary-cur' => '{{PLURAL:$1|Odbijena zadnja izmjena|Odbijene zadnje $1 izmjene|Odbijeno zadnjih $1 izmjena}} (od strane $2) i vraćena inačica $3 suradnika $4', # Fuzzy
+	'revreview-reject-summary-old' => '{{PLURAL:$1|Odbijena prva izmjena|Odbijene prve $1 izmjene|Odbijeno prvih $1 izmjena}} (od strane $2) koje su načinjene nakon inačice $3 suradnika $4', # Fuzzy
+	'revreview-reject-summary-cur-short' => '{{PLURAL:$1|Odbijena zadnja izmjena|Odbijene zadnje $1 izmjene|Odbijeno zadnjih $1 izmjena}} i vraćena inačica $2 suradnika $3', # Fuzzy
+	'revreview-reject-summary-old-short' => '{{PLURAL:$1|Odbijena prva izmjena|Odbijene prve $1 izmjene|Odbijeno prvih $1 izmjena}} koje su načinjene nakon inačice $2 suradnika $3', # Fuzzy
 	'revreview-tt-flag' => "Prihvati ovu inačicu označavajući je ''provjerenom''",
 	'revreview-tt-unflag' => "Poništi ovu inačicu označavajući je ''neprovjerenom''",
-	'revreview-tt-reject' => 'Odbaci ove promjene tako što ćete ih ukloniti',
+	'revreview-tt-reject' => 'Odbaci ove promjene tako što ćete ih ukloniti', # Fuzzy
 );
 
 /** Upper Sorbian (hornjoserbsce)
@@ -2682,7 +2684,7 @@ Lásd az [[Special:Unreviewedpages|ellenőrizetlen lapok listáját]].',
 
 Nem ellenőrzöttnek való visszaminősítéshez állítsd az összes mezőt „nem ellenőrzött” értékre.
 
-Kattints a böngésződ „Vissza” gombjára, majd próbáld újra.",
+Kattints a böngésződ „Vissza” gombjára, majd próbáld újra.", # Fuzzy
 	'revreview-update' => "'''Kérlek [[{{MediaWiki:Validationpage}}|ellenőrizd]] a közzétett változat utáni, még függőben lévő változtatásokat ''(lásd alább)''.'''",
 	'revreview-update-edited' => '<span class="flaggedrevs_important">A változtatásaid még nincsenek közzétéve.</span>
 
@@ -2848,16 +2850,16 @@ Lihat [[Special:Unreviewedpages]] untuk daftar halaman yang belum ditinjau.',
 	'revreview-sadv-reviewing-c' => 'Anda dapat $1 diri sedang meninjau perubahan ini kepada pengguna lainnya.',
 	'revreview-adv-start-link' => 'mengiklankan',
 	'revreview-adv-stop-link' => 'menghentikan pengiklanan',
-	'revreview-toolow' => '\'\'\'Anda harus menilai setiap atribut lebih tinggi daripada "tidak memadai" agar revisi dianggap telah ditinjau.\'\'\'
+	'revreview-toolow' => '\'\'\'Anda harus menilai setiap atribut lebih tinggi daripada "tidak memadai" agar revisi dianggap telah ditinjau.\'\'\' 
 
-Untuk menghapus status tinjauan revisi, klik "tolak".
+Untuk menghapus status tinjauan revisi, klik "tolak". 
 
-Silakan tekan tombol "back" pada peramban Anda dan coba lagi.',
+Silakan tekan tombol "back" pada peramban Anda dan coba lagi.', # Fuzzy
 	'revreview-update' => "'''Mohon [[{{MediaWiki:Validationpage}}|tinjau]] semua perubahan tertunda ''(ditampilkan di bawah)'' yang dibuat sejak versi stabil dimuat.'''",
-	'revreview-update-edited' => '<span class="flaggedrevs_important">Perubahan Anda belum masuk versi stabil.</span>
+	'revreview-update-edited' => '<span class="flaggedrevs_important">Perubahan Anda belum masuk versi stabil.</span> 
 
 Harap tinjau semua perubahan yang ditunjukkan di bawah ini untuk membuat suntingan Anda muncul dalam versi stabil.',
-	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Perubahan Anda belum masuk versi stabil. Ada perubahan terdahulu yang menunggu tinjauan.</span>
+	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Perubahan Anda belum masuk versi stabil. Ada perubahan terdahulu yang menunggu tinjauan.</span> 
 
 Harap tinjau semua perubahan yang ditunjukkan di bawah ini untuk membuat suntingan Anda muncul dalam versi stabil.',
 	'revreview-update-includes' => 'Templat/berkas diperbarui (halaman belum tertinjau bercetak tebal):',
@@ -2881,8 +2883,8 @@ Harap tinjau semua perubahan yang ditunjukkan di bawah ini untuk membuat sunting
 $messages['ig'] = array(
 	'revreview-submit' => 'Dànyé',
 	'revreview-submitting' => 'Nà dànyé...',
-	'revreview-submit-review' => 'Kwelụ',
-	'revreview-submit-unreview' => 'Ékwèlụ',
+	'revreview-submit-review' => 'Kwelụ', # Fuzzy
+	'revreview-submit-unreview' => 'Ékwèlụ', # Fuzzy
 );
 
 /** Ido (Ido)
@@ -3009,10 +3011,10 @@ Per rimuovere lo stato di revisione di una revisione, fare clic su "{{int:revrev
 
 Si prega di premere il pulsante "indietro" del tuo browser e riprovare.',
 	'revreview-update' => "'''[[{{MediaWiki:Validationpage}}|Revisiona]] le modifiche in sospeso ''(mostrate di seguito)'' apportate dalla versione stabile.'''",
-	'revreview-update-edited' => '<span class="flaggedrevs_important">Le tue modifiche non sono ancora nella versione stabile.</span>
+	'revreview-update-edited' => '<span class="flaggedrevs_important">Le tue modifiche non sono ancora nella versione stabile.</span> 
 
 Si prega di rivedere tutte le modifiche riportate di seguito perché le tue modifiche vengano visualizzate nella versione stabile.',
-	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Le tue modifiche non sono ancora nella versione stabile. Ci sono precedenti modifiche che aspettano una revisione.</span>
+	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Le tue modifiche non sono ancora nella versione stabile. Ci sono precedenti modifiche che aspettano una revisione.</span> 
 
 Si prega di rivedere tutte le modifiche riportate di seguito perché le tue modifiche vengano visualizzate nella versione stabile.',
 	'revreview-update-includes' => 'Alcuni Template/file sono stati aggiornati (pagine non revisionate in grassetto):',
@@ -3204,47 +3206,50 @@ $messages['ka'] = array(
 	'revreview-tt-unflag' => 'აღარ მაჩვენო ის ვერსია, რომელშიც მე მონიშვნა უარვყავი',
 );
 
-/** Kazakh (Arabic script) (قازاقشا (تٴوتە)‏) */
+/** Kazakh (Arabic script) (قازاقشا (تٴوتە)‏)
+ */
 $messages['kk-arab'] = array(
 	'revisionreview' => 'نۇسقالارعا سىن بەرۋ',
-	'revreview-flag' => 'بۇل نۇسقاعا (#$1) سىن بەرۋ',
+	'revreview-flag' => 'بۇل نۇسقاعا (#$1) سىن بەرۋ', # Fuzzy
 	'revreview-log' => 'ماندەمەسى:',
 	'revreview-main' => 'سىن بەرۋ ٴۇشىن ماعلۇمات بەتىنىڭ ەرەكشە نۇسقاسىن بولەكتەۋىڭىز كەرەك.
 
-سىن بەرىلمەگەن بەت ٴتىزىمى ٴۇشىن [[{{ns:special}}:Unreviewedpages]] بەتىن قاراڭىز.',
-	'revreview-submit' => 'سىن جىبەرۋ',
+سىن بەرىلمەگەن بەت ٴتىزىمى ٴۇشىن [[{{ns:special}}:Unreviewedpages]] بەتىن قاراڭىز.', # Fuzzy
+	'revreview-submit' => 'سىن جىبەرۋ', # Fuzzy
 	'revreview-toolow' => 'نۇسقاعا سىن بەرىلگەن دەپ سانالۋى ٴۇشىن تومەندەگى قاسىيەتتەردىڭ قاي-قايسىسىن «بەكىتىلمەگەن»
-دەگەننەن جوعارى دەڭگەي بەرۋىڭىز كەرەك. نۇسقانى كەمىتۋ ٴۇشىن, بارلىق ورىستەردى «بەكىتىلمەگەن» دەپ تاپسىرىلسىن.',
+دەگەننەن جوعارى دەڭگەي بەرۋىڭىز كەرەك. نۇسقانى كەمىتۋ ٴۇشىن, بارلىق ورىستەردى «بەكىتىلمەگەن» دەپ تاپسىرىلسىن.', # Fuzzy
 	'revreview-update' => 'تىياناقتى نۇسقا بەكىتىلگەننەن بەرى جاسالعان وزگەرىستەرگە (تومەندە كورسەتىلگەن) سىن بەرىپ شىعىڭىز.
-كەيبىر جاڭارتىلعان ۇلگىلەر/سۋرەتتەر:',
+كەيبىر جاڭارتىلعان ۇلگىلەر/سۋرەتتەر:', # Fuzzy
 );
 
-/** Kazakh (Cyrillic script) (қазақша (кирил)‎) */
+/** Kazakh (Cyrillic script) (қазақша (кирил)‎)
+ */
 $messages['kk-cyrl'] = array(
 	'revisionreview' => 'Нұсқаларға сын беру',
 	'revreview-flag' => 'Бұл нұсқаға сын беру',
 	'revreview-log' => 'Мәндемесі:',
 	'revreview-main' => 'Сын беру үшін мағлұмат бетінің ерекше нұсқасын бөлектеуіңіз керек.
 
-Сын берілмеген бет тізімі үшін [[{{ns:special}}:Unreviewedpages]] бетін қараңыз.',
-	'revreview-submit' => 'Сын жіберу',
+Сын берілмеген бет тізімі үшін [[{{ns:special}}:Unreviewedpages]] бетін қараңыз.', # Fuzzy
+	'revreview-submit' => 'Сын жіберу', # Fuzzy
 	'revreview-toolow' => 'Нұсқаға сын берілген деп саналуы үшін төмендегі қасиеттердің қай-қайсысын «бекітілмеген»
-дегеннен жоғары деңгей беруіңіз керек. Нұсқаны кеміту үшін, барлық өрістерді «бекітілмеген» деп тапсырылсын.',
-	'revreview-update' => 'Тиянақты нұсқа бекітілгеннен бері жасалған өзгерістерге (төменде көрсетілген) сын беріп шығыңыз.',
+дегеннен жоғары деңгей беруіңіз керек. Нұсқаны кеміту үшін, барлық өрістерді «бекітілмеген» деп тапсырылсын.', # Fuzzy
+	'revreview-update' => 'Тиянақты нұсқа бекітілгеннен бері жасалған өзгерістерге (төменде көрсетілген) сын беріп шығыңыз.', # Fuzzy
 );
 
-/** Kazakh (Latin script) (qazaqşa (latın)‎) */
+/** Kazakh (Latin script) (qazaqşa (latın)‎)
+ */
 $messages['kk-latn'] = array(
 	'revisionreview' => 'Nusqalarğa sın berw',
 	'revreview-flag' => 'Bul nusqağa sın berw',
 	'revreview-log' => 'Mändemesi:',
 	'revreview-main' => 'Sın berw üşin mağlumat betiniñ erekşe nusqasın bölektewiñiz kerek.
 
-Sın berilmegen bet tizimi üşin [[{{ns:special}}:Unreviewedpages]] betin qarañız.',
-	'revreview-submit' => 'Sın jiberw',
+Sın berilmegen bet tizimi üşin [[{{ns:special}}:Unreviewedpages]] betin qarañız.', # Fuzzy
+	'revreview-submit' => 'Sın jiberw', # Fuzzy
 	'revreview-toolow' => 'Nusqağa sın berilgen dep sanalwı üşin tömendegi qasïetterdiñ qaý-qaýsısın «bekitilmegen»
-degennen joğarı deñgeý berwiñiz kerek. Nusqanı kemitw üşin, barlıq öristerdi «bekitilmegen» dep tapsırılsın.',
-	'revreview-update' => 'Tïyanaqtı nusqa bekitilgennen beri jasalğan özgeristerge (tömende körsetilgen) sın berip şığıñız.',
+degennen joğarı deñgeý berwiñiz kerek. Nusqanı kemitw üşin, barlıq öristerdi «bekitilmegen» dep tapsırılsın.', # Fuzzy
+	'revreview-update' => 'Tïyanaqtı nusqa bekitilgennen beri jasalğan özgeristerge (tömende körsetilgen) sın berip şığıñız.', # Fuzzy
 );
 
 /** Khmer (ភាសាខ្មែរ)
@@ -3256,7 +3261,7 @@ $messages['km'] = array(
 	'revreview-log' => 'យោបល់៖',
 	'revreview-submit' => 'ដាក់ស្នើ',
 	'revreview-submitting' => 'កំពុង​ដាក់ស្នើ...',
-	'revreview-update-includes' => 'ទំព័រគំរូ/រូបភាពមួយចំនួនត្រូវបានបន្ទាន់សម័យរួចហើយ៖',
+	'revreview-update-includes' => 'ទំព័រគំរូ/រូបភាពមួយចំនួនត្រូវបានបន្ទាន់សម័យរួចហើយ៖', # Fuzzy
 );
 
 /** Korean (한국어)
@@ -3393,18 +3398,18 @@ Looer noh de [[Special:Unreviewedpages|Leß met de nit nohjekikte Sigge]].',
 	'revreview-poss-conflict-p' => "'''Opjepaß: {{GENDER:$2|Dä|Et|Dä Metmaacher|De|Dat}} [[User:$1|$1]] hät aam $2 öm $3 Uhr aanjefange, heh di Sigg nohzekike.'''",
 	'revreview-poss-conflict-c' => "'''Opjepaß: {{GENDER:$2|Dä|Et|Dä Metmaacher|De|Dat}} [[User:$1|$1]] hät aam $2 öm $3 Uhr aanjefange, heh di Änderonge nohzekike.'''",
 	'revreview-adv-reviewing-p' => 'Opjepaß: De andere Nohkiker künne sinn, dat De di Sigg aam nohkike bes.',
-	'revreview-toolow' => 'Do moß för jeede vun dä Eijeschaffte unge en Not udder Präddikaat jävve, wat bäßer wi „{{lcfirst:{{int:revreview-style-0}}}}“ es, domet di Version als nohjekik jeldt. Öm en Version widder zeröckzeshtoofe, donn alle Präddikaate op „{{lcfirst:{{int:revreview-style-0}}}}“ säze.',
+	'revreview-toolow' => 'Do moß för jeede vun dä Eijeschaffte unge en Not udder Präddikaat jävve, wat bäßer wi „{{lcfirst:{{int:revreview-style-0}}}}“ es, domet di Version als nohjekik jeldt. Öm en Version widder zeröckzeshtoofe, donn alle Präddikaate op „{{lcfirst:{{int:revreview-style-0}}}}“ säze.', # Fuzzy
 	'revreview-update' => "Bes esu joot, un donn all de Änderunge ''(unge sin se opjeliß)'' [[{{MediaWiki:Validationpage}}|nohkike]], di jemaat woodte, zick däm de {{int:stablepages-stable}} et letz [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} {{lcfirst:{{int:revreview-approved}}}}] woode es.<br />
-'''E paa Schablohne, Datteije, udder beeds, sin jeändert woode:'''",
-	'revreview-update-includes' => 'E paa Schabloone udder Dateije udder beeds sin jeändert woode:',
+'''E paa Schablohne, Datteije, udder beeds, sin jeändert woode:'''", # Fuzzy
+	'revreview-update-includes' => 'E paa Schabloone udder Dateije udder beeds sin jeändert woode:', # Fuzzy
 	'revreview-reject-summary' => 'Koot Zosammejefass, Quell:',
 	'revreview-reject-confirm' => 'Donn heh di Änderonge aflehne',
 	'revreview-reject-cancel' => 'Stopp! Avbreche!',
 	'revreview-reject-summary-cur' => '{{PLURAL:$1|De läzde Änderong|De läzde $1 Änderonge|Kein Änderonge}} aam Täx <!--{{PLURAL:$5|
-{{GENDER:$2|vum|vum|vumm Metmaacher|vun dä|vum}}|...}}--> vum $2 sin afjelehnt woode un de Version $3 {{GENDER:$4|vum|vum|vumm Metmaacher|vun dä|vum}} [[User:$4|$4]] es widder retuur.',
-	'revreview-reject-summary-old' => '{{PLURAL:$1|De eezde Änderong|De eezde $1 Änderonge|Kein Änderonge}} (<!--{{PLURAL:$5|{{GENDER:$2|vum|vum|vumm Metmaacher|vun dä|vum}} [[User:$2|$2]]|vum $2|-}}-->vun $2) aam Täx noh dä de Version $3 {{GENDER:$4|vum|vum|vumm Metmaacher|vun dä|vum}} [[User:$4|$4]] sin afjelehnt woode.',
-	'revreview-reject-summary-cur-short' => '{{PLURAL:$1|De läzde Änderong|De läzde $1 Änderonge|Kein Änderonge}} aam Täx sin afjelehnt woode un de Version $2 {{GENDER:$3|vum|vum|vumm Metmaacher|vun dä|vum}} [[User:$3|$3]] es jäz retuur.',
-	'revreview-reject-summary-old-short' => '{{PLURAL:$1|De eezde Änderong|De eezde $1 Änderonge|Kein Änderonge}} aam Täx noh dä de Version $2 {{GENDER:$3|vum|vum|vumm Metmaacher|vun dä|vum}} [[User:$3|$3]] sin afjelehnt woode.',
+{{GENDER:$2|vum|vum|vumm Metmaacher|vun dä|vum}}|...}}--> vum $2 sin afjelehnt woode un de Version $3 {{GENDER:$4|vum|vum|vumm Metmaacher|vun dä|vum}} [[User:$4|$4]] es widder retuur.', # Fuzzy
+	'revreview-reject-summary-old' => '{{PLURAL:$1|De eezde Änderong|De eezde $1 Änderonge|Kein Änderonge}} (<!--{{PLURAL:$5|{{GENDER:$2|vum|vum|vumm Metmaacher|vun dä|vum}} [[User:$2|$2]]|vum $2|-}}-->vun $2) aam Täx noh dä de Version $3 {{GENDER:$4|vum|vum|vumm Metmaacher|vun dä|vum}} [[User:$4|$4]] sin afjelehnt woode.', # Fuzzy
+	'revreview-reject-summary-cur-short' => '{{PLURAL:$1|De läzde Änderong|De läzde $1 Änderonge|Kein Änderonge}} aam Täx sin afjelehnt woode un de Version $2 {{GENDER:$3|vum|vum|vumm Metmaacher|vun dä|vum}} [[User:$3|$3]] es jäz retuur.', # Fuzzy
+	'revreview-reject-summary-old-short' => '{{PLURAL:$1|De eezde Änderong|De eezde $1 Änderonge|Kein Änderonge}} aam Täx noh dä de Version $2 {{GENDER:$3|vum|vum|vumm Metmaacher|vun dä|vum}} [[User:$3|$3]] sin afjelehnt woode.', # Fuzzy
 	'revreview-tt-flag' => 'Donn heh di Versino aannämme, endämm dat De sähß, dat De se jeprööv häß.',
 	'revreview-tt-reject' => 'Heh di Änderonge aam Täx aflehne un uß dä Sigg widder eruß nämme',
 );
@@ -3512,7 +3517,7 @@ Kuckt w.e.g. all d\'Ännerungen hei drënner no fir datt Är Ännerungen akzept�
 $messages['li'] = array(
 	'revisionreview' => 'Versies beoordeile',
 	'revreview-failed' => "''''t Waas neet meugelik dees versie es gecontroleerd in te stelle.'''
-'t Formuleer waas incompleet of bevatde óngeljige waerd.",
+'t Formuleer waas incompleet of bevatde óngeljige waerd.", # Fuzzy
 	'review_page_invalid' => 'De doelpaginanaam is ongeldig.',
 	'review_page_notexists' => 'De doelpagina besteit neet.',
 	'review_page_unreviewable' => 'De doelpagina kan neet gecontroleerd waere.',
@@ -3523,7 +3528,7 @@ $messages['li'] = array(
 	'review_bad_key' => 'Ongeljige paramaetersleutel.',
 	'review_denied' => 'Geinen toegank.',
 	'review_param_missing' => "d'r Óntbrik 'ne paramaeter of de opgegaeve paramaeter is ongeldig.",
-	'revreview-check-flag-p' => 'Markeer óngecontroleerde wieziginge',
+	'revreview-check-flag-p' => 'Markeer óngecontroleerde wieziginge', # Fuzzy
 	'revreview-check-flag-p-title' => 'Publiceer alle ongecontroleerde wieziginge same mit dien wieziginge.
 Gebroek dit allein es se de ongecontroleerde wieziginge haes bekeke.',
 	'revreview-check-flag-u' => 'Aanvaard dees óngecontroleerde pagina',
@@ -3549,7 +3554,7 @@ Zuuch de [[Special:Unreviewedpages|lies mit ongecontroleerde pagina's]].",
 	'revreview-toolow' => "'''Doe mós tenminste alle ongerstaonde eigesjappe hoeger instelle es \"{{int:Revreview-accuracy-0}}\" om veur 'n versie aan te gaeve det dees is gecontroleerd.'''
 Stel alle velje in op \"{{int:Revreview-accuracy-0}}\" om de waardering van 'n versie te verwiedere.
 
-Klik op de knoep \"Trök\" in diene browser en probeer  t opnúuj.",
+Klik op de knoep \"Trök\" in diene browser en probeer  t opnúuj.", # Fuzzy
 	'revreview-update' => "'''[[{{MediaWiki:Validationpage}}|Controleer]] e.t.b. de ''ongerstaonde'' wieziginge ten opzichte van de gepubliceerde versie.'''",
 );
 
@@ -3774,18 +3779,18 @@ $messages['mr'] = array(
 	'revreview-log' => 'प्रतिक्रीया:',
 	'revreview-main' => 'तपासण्यासाठी एखादी आवृत्ती निवडणे गरजेचे आहे.
 
-न तपासलेल्या पानांची यादी पहाण्यासाठी [[Special:Unreviewedpages]] इथे जा.',
-	'revreview-stable1' => 'तुम्ही कदाचित या पानाची [{{fullurl:$1|stableid=$2}} ही खूण केलेली आवृत्ती] आता [{{fullurl:$1|stable=1}} स्थिर आवृत्ती] झाली आहे किंवा नाही हे पाहू इच्छिता.',
-	'revreview-stable2' => 'तुम्ही या पानाची [{{fullurl:$1|stable=1}} स्थिर आवृत्ती] पाहू शकता (जर उपलब्ध असेल तर).',
+न तपासलेल्या पानांची यादी पहाण्यासाठी [[Special:Unreviewedpages]] इथे जा.', # Fuzzy
+	'revreview-stable1' => 'तुम्ही कदाचित या पानाची [{{fullurl:$1|stableid=$2}} ही खूण केलेली आवृत्ती] आता [{{fullurl:$1|stable=1}} स्थिर आवृत्ती] झाली आहे किंवा नाही हे पाहू इच्छिता.', # Fuzzy
+	'revreview-stable2' => 'तुम्ही या पानाची [{{fullurl:$1|stable=1}} स्थिर आवृत्ती] पाहू शकता (जर उपलब्ध असेल तर).', # Fuzzy
 	'revreview-submit' => 'पाठवा',
 	'revreview-successful' => "'''[[:$1|$1]] च्या निवडलेल्या आवृत्तीवर यशस्वीरित्या तपासल्याची खूण केलेली आहे.
 ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} सर्व खूणा केलेल्या आवृत्त्या पहा])'''",
 	'revreview-successful2' => "'''[[:$1|$1]] च्या निवडलेल्या आवृत्तीची खूण काढली.'''",
 	'revreview-toolow' => 'एखादी आवृत्ती तपासलेली आहे अशी खूण करण्यासाठी तुम्ही खालील प्रत्येक पॅरॅमीटर्सना "अप्रमाणित" पेक्षा वरचा दर्जा देणे आवश्यक आहे.
-एखाद्या आवृत्तीचे गुणांकन कमी करण्यासाठी, खालील सर्व रकान्यांमध्ये "अप्रमाणित" भरा.',
+एखाद्या आवृत्तीचे गुणांकन कमी करण्यासाठी, खालील सर्व रकान्यांमध्ये "अप्रमाणित" भरा.', # Fuzzy
 	'revreview-update' => "कृपया केलेले बदल ''(खाली दिलेले)'' [[{{MediaWiki:Validationpage}}|तपासा]] कारण स्थिर आवृत्ती [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} प्रमाणित] करण्यात आलेली आहे.<br />
-'''काही साचे/चित्रे बदललेली आहेत:'''",
-	'revreview-update-includes' => 'काही साचे/चित्र बदलण्यात आलेले आहेत:',
+'''काही साचे/चित्रे बदललेली आहेत:'''", # Fuzzy
+	'revreview-update-includes' => 'काही साचे/चित्र बदलण्यात आलेले आहेत:', # Fuzzy
 );
 
 /** Malay (Bahasa Melayu)
@@ -3923,12 +3928,12 @@ Se [[Special:Unreviewedpages|listen over ikke-anmeldte sider]].',
 	'revreview-successful2' => "'''Valgt versjon av [[:$1|$1]] ble degradert.'''",
 	'revreview-poss-conflict-p' => "'''Advarsel: [[User:$1|$1]] begynte å revidere denne siden den $2, $3.'''",
 	'revreview-poss-conflict-c' => "'''Advarsel: [[User:$1|$1]] begynte å revidere disse endringene den $2, $3.'''",
-	'revreview-adv-reviewing-p' => "'''Merk: Du har nå startet gjennomgang av denne siden på  $1 ved $2.'''",
+	'revreview-adv-reviewing-p' => "'''Merk: Du har nå startet gjennomgang av denne siden på  $1 ved $2.'''", # Fuzzy
 	'revreview-toolow' => "'''Du må vurdere hver av egenskapene til høyere enn «utilstrekkelig» for at revisjonen skal bli vurdert som revidert.'''
 
 For å fjerne vurderingsstatusen til en revisjon, klikk på «underkjenn».
 
-Klikk på «tilbake»-knappen i nettleseren din og prøv igjen.",
+Klikk på «tilbake»-knappen i nettleseren din og prøv igjen.", # Fuzzy
 	'revreview-update' => "'''[[{{MediaWiki:Validationpage}}|Revider]] ventende endringer ''(vist nedenfor)'' som har blitt gjort på den aksepterte versjonen.'''",
 	'revreview-update-edited' => '<span class="flaggedrevs_important">Endringene dine er ikke i den stabile versjonen ennå.</span>
 
@@ -3937,18 +3942,18 @@ Revider alle endringene vist nedenfor for å gjøre redigeringene dine synlige i
 
 Revider alle endringene vist nedenfor for å gjøre redigeringene dine synlige i den stabile versjonen.',
 	'revreview-update-includes' => 'Maler/filer oppdatert (ureviderte sider i fet tekst):',
-	'revreview-reject-text-list' => "Ved å fullføre denne handlingen vil du '''avvise''' følgende {{PLURAL:$1|endring|endringer}}:",
+	'revreview-reject-text-list' => "Ved å fullføre denne handlingen vil du '''avvise''' følgende {{PLURAL:$1|endring|endringer}}:", # Fuzzy
 	'revreview-reject-text-revto' => 'Dette vil tilbakestille siden til [{{fullurl:$1|oldid=$2}} versjonen fra $3].',
 	'revreview-reject-summary' => 'Sammendrag:',
 	'revreview-reject-confirm' => 'Avvis disse endringene',
 	'revreview-reject-cancel' => 'Avbryt',
-	'revreview-reject-summary-cur' => 'Forkastet {{PLURAL:$1|den siste endringen|de siste $1 endringene}} (av $2) og gjenopprettet revisjon $3 av $4.',
-	'revreview-reject-summary-old' => 'Forkastet {{PLURAL:$1|den første endringen|de første $1 endringene}} (av $2) som fulgte revisjon $3 av $4',
-	'revreview-reject-summary-cur-short' => 'Forkastet {{PLURAL:$1|den siste endringen|de siste $1 endringene}} og gjenopprettet revisjon $2 av $3',
-	'revreview-reject-summary-old-short' => 'Forkastet {{PLURAL:$1|den første endringen|de første $1 endringene}} som fulgte revisjon $2 av $3',
+	'revreview-reject-summary-cur' => 'Forkastet {{PLURAL:$1|den siste endringen|de siste $1 endringene}} (av $2) og gjenopprettet revisjon $3 av $4.', # Fuzzy
+	'revreview-reject-summary-old' => 'Forkastet {{PLURAL:$1|den første endringen|de første $1 endringene}} (av $2) som fulgte revisjon $3 av $4', # Fuzzy
+	'revreview-reject-summary-cur-short' => 'Forkastet {{PLURAL:$1|den siste endringen|de siste $1 endringene}} og gjenopprettet revisjon $2 av $3', # Fuzzy
+	'revreview-reject-summary-old-short' => 'Forkastet {{PLURAL:$1|den første endringen|de første $1 endringene}} som fulgte revisjon $2 av $3', # Fuzzy
 	'revreview-tt-flag' => 'Godkjenn denne revisjonen ved å merke den som kontrollert',
 	'revreview-tt-unflag' => 'Underkjenn denne revisjonen ved å merke den som «ukontrollert»',
-	'revreview-tt-reject' => 'Avvis disse endringene ved å tilbakestille dem',
+	'revreview-tt-reject' => 'Avvis disse endringene ved å tilbakestille dem', # Fuzzy
 );
 
 /** Low German (Plattdüütsch)
@@ -4060,16 +4065,16 @@ $messages['nn'] = array(
 	'revreview-main' => 'Du lyt velja ein viss versjon av ei innhaldssida for å kunna gjera ei vurdering.
 
 Sjå [[Special:Unreviewedpages|lista over sider som manglar vurdering]].',
-	'revreview-stable1' => 'Du ynskjer kanskje å sjå [{{fullurl:$1|stableid=$2}} denne merkte versjonen] og sjå om han er den [{{fullurl:$1|stable=1}} stabile versjonen] av denne sida.',
-	'revreview-stable2' => 'Du ynskjer kanskje å sjå den [{{fullurl:$1|stable=1}} stabile versjoen] av sida (om det enno finst ein).',
+	'revreview-stable1' => 'Du ynskjer kanskje å sjå [{{fullurl:$1|stableid=$2}} denne merkte versjonen] og sjå om han er den [{{fullurl:$1|stable=1}} stabile versjonen] av denne sida.', # Fuzzy
+	'revreview-stable2' => 'Du ynskjer kanskje å sjå den [{{fullurl:$1|stable=1}} stabile versjoen] av sida (om det enno finst ein).', # Fuzzy
 	'revreview-submit' => 'Utfør',
 	'revreview-submitting' => 'Leverer …',
 	'revreview-successful' => "'''Vald versjon av [[:$1|$1]] har vorte merkt. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} sjå alle stabile versjonar])'''",
 	'revreview-successful2' => "'''Vald versjon av [[:$1|$1]] vart degradert.'''",
-	'revreview-toolow' => 'Vurderinga di av sida lyt minst vera over «ikkje godkjend» for alle eigenskapane nedanfor for at versjonen skal kunna vera vurdert. For å degradera ein versjon, oppgje «ikkje godkjend» for alle eigenskapane.',
+	'revreview-toolow' => 'Vurderinga di av sida lyt minst vera over «ikkje godkjend» for alle eigenskapane nedanfor for at versjonen skal kunna vera vurdert. For å degradera ein versjon, oppgje «ikkje godkjend» for alle eigenskapane.', # Fuzzy
 	'revreview-update' => "[[{{MediaWiki:Validationpage}}|Vurder]] endringar ''(synte nedanfor)'' som er vortne gjort sidan den stabile versjonen vart [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} godkjend].<br />
-'''Nokre malar eller bilete vart oppdaterte:'''",
-	'revreview-update-includes' => 'Nokre malar/bilete vart oppdaterte:',
+'''Nokre malar eller bilete vart oppdaterte:'''", # Fuzzy
+	'revreview-update-includes' => 'Nokre malar/bilete vart oppdaterte:', # Fuzzy
 );
 
 /** Occitan (occitan)
@@ -4077,25 +4082,25 @@ Sjå [[Special:Unreviewedpages|lista over sider som manglar vurdering]].',
  */
 $messages['oc'] = array(
 	'revisionreview' => 'Tornar veire las versions',
-	'revreview-failed' => 'La relectura a fracassat !',
+	'revreview-failed' => 'La relectura a fracassat !', # Fuzzy
 	'revreview-flag' => 'Avalorar aquesta version',
 	'revreview-invalid' => "'''Cibla incorrècta :''' cap de version [[{{MediaWiki:Validationpage}}|relegida]] correspond pas al numèro indicat.",
 	'revreview-log' => 'Comentari al jornal :',
 	'revreview-main' => 'Vos cal causir una version precisa a partir del contengut en règla de la pagina per revisar. Vejatz [[Special:Unreviewedpages|Versions pas revisadas]] per una tièra de paginas.',
-	'revreview-stable1' => "Podètz voler visionar aquesta [{{fullurl:$1|stableid=$2}} version marcada] o veire se es ara la [{{fullurl:$1|stable=1}} version establa] d'aquesta pagina.",
-	'revreview-stable2' => "Podètz voler visionar [{{fullurl:$1|stable=1}} la version establa] d'aquesta pagina (se n'existís una).",
+	'revreview-stable1' => "Podètz voler visionar aquesta [{{fullurl:$1|stableid=$2}} version marcada] o veire se es ara la [{{fullurl:$1|stable=1}} version establa] d'aquesta pagina.", # Fuzzy
+	'revreview-stable2' => "Podètz voler visionar [{{fullurl:$1|stable=1}} la version establa] d'aquesta pagina (se n'existís una).", # Fuzzy
 	'revreview-submit' => 'Salvar',
 	'revreview-submitting' => 'Somission…',
-	'revreview-submit-review' => 'Aprovar',
-	'revreview-submit-unreview' => 'Desaprovar',
+	'revreview-submit-review' => 'Aprovar', # Fuzzy
+	'revreview-submit-unreview' => 'Desaprovar', # Fuzzy
 	'revreview-submit-reviewed' => 'Fach. Aprovat !',
 	'revreview-submit-unreviewed' => 'Fach. Desaprovat!',
 	'revreview-successful' => "'''La version seleccionada de [[:$1|$1]], es estada marcada d'una bandièra amb succès ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} Vejatz totas las versions establas])'''",
 	'revreview-successful2' => "La version de [[:$1|$1]] a pogut se veire levar son drapèu amb succès.'''",
-	'revreview-toolow' => 'Pels atributs çaijós, vos cal donar un puntatge mai elevat que « non aprobat » per que la version siá considerada coma revista. Per depreciar una version, metètz totes los camps a « non aprobat ».',
+	'revreview-toolow' => 'Pels atributs çaijós, vos cal donar un puntatge mai elevat que « non aprobat » per que la version siá considerada coma revista. Per depreciar una version, metètz totes los camps a « non aprobat ».', # Fuzzy
 	'revreview-update' => "[[{{MediaWiki:Validationpage}}|Relegissètz]] totas las modificacions ''(vejatz çaijós)'' efectuadas dempuèi l’[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovacion] de la version establa.
-'''Qualques fichièrs o modèls son estats meses a jorn :'''",
-	'revreview-update-includes' => 'Qualques modèls o fichièrs son estats meses a jorn :',
+'''Qualques fichièrs o modèls son estats meses a jorn :'''", # Fuzzy
+	'revreview-update-includes' => 'Qualques modèls o fichièrs son estats meses a jorn :', # Fuzzy
 );
 
 /** Oriya (ଓଡ଼ିଆ)
@@ -4306,11 +4311,11 @@ $messages['ps'] = array(
 );
 
 /** Portuguese (português)
- * @author 555
  * @author Giro720
  * @author Hamilton Abreu
  * @author Helder.wiki
  * @author Waldir
+ * @author 555
  */
 $messages['pt'] = array(
 	'revisionreview' => 'Rever edições',
@@ -4369,12 +4374,12 @@ Veja a [[Special:Unreviewedpages|lista de páginas não revistas]].',
 
 Para anular a revisão de uma edição, clique "anular revisão".
 
-Clique o botão "voltar" do seu browser e tente novamente, por favor.',
+Clique o botão "voltar" do seu browser e tente novamente, por favor.', # Fuzzy
 	'revreview-update' => "'''[[{{MediaWiki:Validationpage}}|Reveja]] quaisquer alterações pendentes ''(mostradas abaixo)'' que tenham sido feitas à versão publicada, por favor.'''",
 	'revreview-update-edited' => '<span class="flaggedrevs_important">As suas alterações ainda não estão na versão publicada.</span>
 
 Para que as suas edições apareçam na versão publicada, reveja todas as alterações mostradas abaixo, por favor.',
-	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">As suas alterações ainda não estão na versão publicada. Existem edições anteriores à espera de revisão.</span>
+	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">As suas alterações ainda não estão na versão publicada. Existem edições anteriores à espera de revisão.</span> 
 
 Para que as suas edições apareçam na versão publicada, reveja todas as alterações mostradas abaixo, por favor.',
 	'revreview-update-includes' => 'Foram actualizados ficheiros ou predefinições (as páginas não revistas aparecem a negrito):',
@@ -4454,12 +4459,12 @@ Veja a [[Special:Unreviewedpages|lista de páginas não revisadas]].',
 
 Para anular a revisão de uma edição, clique "anular revisão".
 
-Clique o botão "voltar" do seu navegador e tente novamente, por favor.',
+Clique o botão "voltar" do seu navegador e tente novamente, por favor.', # Fuzzy
 	'revreview-update' => "'''[[{{MediaWiki:Validationpage}}|Reveja]] quaisquer alterações pendentes ''(mostradas abaixo)'' que tenham sido feitas à versão publicada, por favor.'''",
 	'revreview-update-edited' => '<span class="flaggedrevs_important">As suas alterações ainda não estão na versão publicada.</span>
 
 Para que as suas edições apareçam na versão publicada, revise todas as alterações mostradas abaixo, por favor.',
-	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">As suas alterações ainda não estão na versão publicada. Existem edições anteriores à espera de revisão.</span>
+	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">As suas alterações ainda não estão na versão publicada. Existem edições anteriores à espera de revisão.</span> 
 
 Para que as suas edições apareçam na versão publicada, revise todas as alterações mostradas abaixo, por favor.',
 	'revreview-update-includes' => 'Foram atualizados arquivos ou predefinições (as páginas não revistas aparecem a negrito):',
@@ -4743,18 +4748,18 @@ $messages['rue'] = array(
 	'revreview-successful2' => "'''Позначіня ревізії сторінкы [[:$1|$1]] было успішно зняте.'''",
 	'revreview-poss-conflict-p' => "'''Варованя: [[User:$1|$1]] почав перевіряти тоту сторінку $2 о $3.'''",
 	'revreview-poss-conflict-c' => "'''Варованя: [[User:$1|$1]] почав перевіряти тоты зміны $2 о $3.'''",
-	'revreview-adv-reviewing-p' => "'''Позначка: Сьте оголошеный, же сьте зачали перевірёвати тоту сторінку дня $1 о $2.'''",
-	'revreview-adv-reviewing-c' => "'''Позначка: Сьте оголошеный, же сьте зачали перевірёвати тоты зміны дня $1 о $2.'''",
+	'revreview-adv-reviewing-p' => "'''Позначка: Сьте оголошеный, же сьте зачали перевірёвати тоту сторінку дня $1 о $2.'''", # Fuzzy
+	'revreview-adv-reviewing-c' => "'''Позначка: Сьте оголошеный, же сьте зачали перевірёвати тоты зміны дня $1 о $2.'''", # Fuzzy
 	'revreview-toolow' => "'''Мусите становити каждый з атрібутів у значіня высше, як \"недостаточный\", одповідно до процедуры позначіня верзії рецензованов.'''
 
 Жебы зняти статус рецензованя, стисните \"зняти\".
 
-Просиме, стисните клапку «Назад» у перезерачі і спробуйте щі раз.",
+Просиме, стисните клапку «Назад» у перезерачі і спробуйте щі раз.", # Fuzzy
 	'revreview-update' => "Просиме, [[{{MediaWiki:Validationpage}}|перевірьте]] вшыткы нерецензованы зміны ''(указаны ниже)'', зроблены з моменту встановлїня стабілной верзії.",
-	'revreview-update-edited' => '<span class="flaggedrevs_important">Вашы зміны іщі не включены до стабілной верзії.</span>
+	'revreview-update-edited' => '<span class="flaggedrevs_important">Вашы зміны іщі не включены до стабілной верзії.</span> 
 
 Просиме, перевіртье вшыткы зміны, указаны ниже, жебы включіти вашы едітованя до стабілной верзії.',
-	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Вашы зміны іщі не включены до стабілной верзії. Опереднї зміны чекають на перевірку</span>
+	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Вашы зміны іщі не включены до стабілной верзії. Опереднї зміны чекають на перевірку</span> 
 
 Просиме, перевіртье вшыткы зміны, указаны ниже, жебы включіти вашы едітованя до стабілной верзії.',
 	'revreview-update-includes' => 'Дакотры шаблоны або файлы были обновены (неперевірены суть тучным писмом):',
@@ -4810,7 +4815,7 @@ $messages['sah'] = array(
 	'revreview-reflag' => 'Барылы хат көрүү',
 	'revreview-invalid' => "'''Алҕас сорук:''' Бу ID-га сөп түбэһэр сирэй [[{{MediaWiki:Validationpage}}|бигэ]] барыла суох эбит.",
 	'revreview-log' => 'Ырытыы:',
-	'revreview-main' => 'Бэрэбиэркэлииргэ сирэй биир эмит барылын талыахтааххын.
+	'revreview-main' => 'Бэрэбиэркэлииргэ сирэй биир эмит барылын талыахтааххын. 
 
 [[Special:Unreviewedpages|Бэрэбиэркэлэммэтэх сирэйдэр тиһиктэрин]] көр.',
 	'revreview-stable1' => 'Баҕар эн [{{fullurl:$1|stableid=$2}} бу бэлиэтэммит барылы]  эбэтэр, баар буоллаҕына, сирэй [{{fullurl:$1|stable=1}} бэчээттэммит барылын] көрүөххүн баҕарарыҥ буолуо.',
@@ -4828,7 +4833,7 @@ $messages['sah'] = array(
 
 Ырытыллыбатах оҥорорго «Бигэргэтиитин уһул» диэни баттаа.
 
-Суолталарын хос туруоруоххун баҕарар буоллаххына браузерыҥ «төнүн» тимэҕин баттаа.",
+Суолталарын хос туруоруоххун баҕарар буоллаххына браузерыҥ «төнүн» тимэҕин баттаа.", # Fuzzy
 	'revreview-update' => "'''Бука диэн, бигэ барыл манна көстүбүт уларыйыыларын ''(аллара)'' [[{{MediaWiki:Validationpage}}|тургут эрэ]].'''",
 	'revreview-update-edited' => '<span class="flaggedrevs_important">Эн уларытыыларыҥ бигэ барылга киирэ иликтэр.</span>
 
@@ -4837,15 +4842,15 @@ $messages['sah'] = array(
 
 Бука диэн, аллара көрдөрүллүбүт туох баар уларытыылары көрөн кинилэри ыстатыйа бигэ барылыгар киллэр.',
 	'revreview-update-includes' => 'Саҥардыллыбыт халыыптар/билэлэр (тургутуллубатахтар модьу бичигинэн):',
-	'revreview-reject-text-list' => "Бу дьайыыны оҥорон Эн {{PLURAL:$1|бу уларытыыны|бу уларытыылары}} '''суох гынаҕын''':",
+	'revreview-reject-text-list' => "Бу дьайыыны оҥорон Эн {{PLURAL:$1|бу уларытыыны|бу уларытыылары}} '''суох гынаҕын''':", # Fuzzy
 	'revreview-reject-text-revto' => 'Сирэйи бу барылга [{{fullurl:$1|oldid=$2}} ($3) төннөрөҕүн].',
 	'revreview-reject-summary' => 'Түмүк:',
 	'revreview-reject-confirm' => 'Бу уларытыылары суох гынарга',
 	'revreview-reject-cancel' => 'Салҕаама',
-	'revreview-reject-summary-cur' => '{{PLURAL:$1|Бүтэһик $1 уларытыы суох оҥоһуллан|Бүтэһик $1 уларытыылар суох оҥоһулланнар}} ($2) бу $3 $4 барыл төннөрүлүннэ.',
+	'revreview-reject-summary-cur' => '{{PLURAL:$1|Бүтэһик $1 уларытыы суох оҥоһуллан|Бүтэһик $1 уларытыылар суох оҥоһулланнар}} ($2) бу $3 $4 барыл төннөрүлүннэ.', # Fuzzy
 	'revreview-tt-flag' => 'Бу барылы бигэргэтэн тургутуллубут курдук бэлиэтээ',
 	'revreview-tt-unflag' => 'Бу барыл бигэргэтиитин устан тургутуллубатах курдук бэлиэтээ',
-	'revreview-tt-reject' => 'Бу уларытыылары суох гынан ыстатыйаны урукку барылыгар төннөр',
+	'revreview-tt-reject' => 'Бу уларытыылары суох гынан ыстатыйаны урукку барылыгар төннөр', # Fuzzy
 );
 
 /** Sardinian (sardu)
@@ -4895,7 +4900,7 @@ $messages['si'] = array(
  */
 $messages['sk'] = array(
 	'revisionreview' => 'Prezrieť kontroly',
-	'revreview-failed' => "'''Nebolo možné skontrolovať túto revíziu.''' Príspevok je neúplný alebo inak neplatný.",
+	'revreview-failed' => "'''Nebolo možné skontrolovať túto revíziu.''' Príspevok je neúplný alebo inak neplatný.", # Fuzzy
 	'review_page_invalid' => 'Názov cieľovej stránky nie je platný.',
 	'review_page_notexists' => 'Cieľová stránka neexistuje.',
 	'review_page_unreviewable' => 'Cieľovú stránku nie je možné kontrolovať.',
@@ -4907,7 +4912,7 @@ $messages['sk'] = array(
 	'review_denied' => 'Nedostatočné oprávnenie.',
 	'review_param_missing' => 'Parameter je neplatný alebo chýba.',
 	'review_cannot_undo' => 'Nie je možné vrátiť tieto zmeny, pretože ďalšie čakajúce úpravy zmenili rovnaké oblasti.',
-	'revreview-check-flag-p' => 'Označiť čakajúce úpravy ako skontrolované',
+	'revreview-check-flag-p' => 'Označiť čakajúce úpravy ako skontrolované', # Fuzzy
 	'revreview-check-flag-p-title' => 'Prijať všetky momentálne čakajúce zmeny spolu s vašou vlastnou úpravy. Toto použite, iba ak ste už videli celý rozdiel čakajúcich zmien.',
 	'revreview-check-flag-u' => 'Prijať túto neskontrolovanú stránku',
 	'revreview-check-flag-u-title' => 'Prijať túto verziu stránky. Použite, iba ak ste už videli celú stránku.',
@@ -4917,15 +4922,15 @@ $messages['sk'] = array(
 	'revreview-reflag' => 'Znova skontrolovať túto revíziu',
 	'revreview-invalid' => "'''Neplatný cieľ:''' zadanému ID nezodpovedá žiadna [[{{MediaWiki:Validationpage}}|skontrolovaná]] revízia.",
 	'revreview-log' => 'Komentár záznamu:',
-	'revreview-main' => 'Musíte vybrať konkrétnu verziu stránky s obsahom, aby ste ju mohli skontrolovať.
+	'revreview-main' => 'Musíte vybrať konkrétnu verziu stránky s obsahom, aby ste ju mohli skontrolovať. 
 
 Pozri zoznam [[Special:Unreviewedpages|neskontrolovaných stránok]].',
-	'revreview-stable1' => 'Môžete zobraziť [{{fullurl:$2|stableid=$2}} túto označenú verziu] alebo sa pozrieť, či je teraz [{{fullurl:$1|stable=1}} stabilná verzia] tejto stránky.',
-	'revreview-stable2' => 'Môžete zobraziť [{{fullurl:$1|stable=1}} stabilnú verziu] tejto stránky (ak ešte existuje).',
+	'revreview-stable1' => 'Môžete zobraziť [{{fullurl:$2|stableid=$2}} túto označenú verziu] alebo sa pozrieť, či je teraz [{{fullurl:$1|stable=1}} stabilná verzia] tejto stránky.', # Fuzzy
+	'revreview-stable2' => 'Môžete zobraziť [{{fullurl:$1|stable=1}} stabilnú verziu] tejto stránky (ak ešte existuje).', # Fuzzy
 	'revreview-submit' => 'Odoslať',
 	'revreview-submitting' => 'Odosiela sa...',
-	'revreview-submit-review' => 'Označiť ako skontrolované',
-	'revreview-submit-unreview' => 'Označiť ako neskontrolované',
+	'revreview-submit-review' => 'Označiť ako skontrolované', # Fuzzy
+	'revreview-submit-unreview' => 'Označiť ako neskontrolované', # Fuzzy
 	'revreview-submit-reject' => 'Odmietnuť zmeny',
 	'revreview-submit-reviewed' => 'Hotovo. Prijaté!',
 	'revreview-submit-unreviewed' => 'Hotovo. Neprijaté!',
@@ -4934,21 +4939,21 @@ Pozri zoznam [[Special:Unreviewedpages|neskontrolovaných stránok]].',
 	'revreview-toolow' => "'''Musíte ohodnotiť každý z nasledujúcich atribútov minimálne vyššie ako „neschválené“, aby bolo možné verziu považovať za skontrolovanú.'''
 Ak chcete učiniť verziu zavrhovanou, nastavte všetky polia na „neschválené“.
 
-Prosím, stlačte tlačidlo „Späť“ vo svojom prehliadači a skúste to znova.",
+Prosím, stlačte tlačidlo „Späť“ vo svojom prehliadači a skúste to znova.", # Fuzzy
 	'revreview-update' => "Prosím, [[{{MediaWiki:Validationpage}}|skontrolujte]] všetky zmeny ''(zobrazené nižšie)'', ktoré boli vykonané od [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} schválenia].<br />
-'''Niektoré šablóny/súbory sa zmenili:'''",
-	'revreview-update-edited' => '<span class="flaggedrevs_important">Vaše zmeny zatiaľ nie sú v stabilnej verzii.</span>
+'''Niektoré šablóny/súbory sa zmenili:'''", # Fuzzy
+	'revreview-update-edited' => '<span class="flaggedrevs_important">Vaše zmeny zatiaľ nie sú v stabilnej verzii.</span> 
 
-Prosím, prečítajte si všetky nižšie uvedené zmeny, aby sa vaše úpravy sa objaví v stabilnej verzii.
-Možno budete musieť pokračovať alebo „vrátiť“ úpravy.',
-	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Vaše zmeny zatiaľ nie sú v stabilnej verzii. Existujú predchádzajúce zmeny čakajúce na kontrolu.</span>
+Prosím, prečítajte si všetky nižšie uvedené zmeny, aby sa vaše úpravy sa objaví v stabilnej verzii. 
+Možno budete musieť pokračovať alebo „vrátiť“ úpravy.', # Fuzzy
+	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Vaše zmeny zatiaľ nie sú v stabilnej verzii. Existujú predchádzajúce zmeny čakajúce na kontrolu.</span> 
 
-Prosím, prečítajte si všetky nižšie uvedené zmeny, aby sa vaše úpravy sa objaví v stabilnej verzii.
-Možno budete musieť pokračovať alebo „vrátiť“ úpravy.',
-	'revreview-update-includes' => 'Niektoré šablóny/súbory sa zmenili:',
-	'revreview-tt-flag' => 'Označiť túto revíziu ako skontrolovanú',
-	'revreview-tt-unflag' => 'Označiť túto revíziu ako neskontrolovanú',
-	'revreview-tt-reject' => 'Odmietnuť tieto zmeny ich vrátením',
+Prosím, prečítajte si všetky nižšie uvedené zmeny, aby sa vaše úpravy sa objaví v stabilnej verzii. 
+Možno budete musieť pokračovať alebo „vrátiť“ úpravy.', # Fuzzy
+	'revreview-update-includes' => 'Niektoré šablóny/súbory sa zmenili:', # Fuzzy
+	'revreview-tt-flag' => 'Označiť túto revíziu ako skontrolovanú', # Fuzzy
+	'revreview-tt-unflag' => 'Označiť túto revíziu ako neskontrolovanú', # Fuzzy
+	'revreview-tt-reject' => 'Odmietnuť tieto zmeny ich vrátením', # Fuzzy
 );
 
 /** Slovenian (slovenščina)
@@ -5102,13 +5107,13 @@ $messages['stq'] = array(
 	'revreview-log' => 'Logbouk-Iendraach:',
 	'revreview-main' => 'Du moast ne Artikkelversion tou Wröigenge uutwääle.
 
-Sjuch [[Special:Unreviewedpages]] foar ne Lieste fon nit pröiwede Versione.',
-	'revreview-submit' => 'Wröigenge spiekerje',
-	'revreview-toolow' => 'Du moast foar älk fon do unnerstoundende Attribute n Wäid haager as „{{int:revreview-accuracy-0}}“ ienstaale,
-deermäd ne Version as wröiged jält. Uum ne Version tou fersmieten, mouten aal Attribute ap „{{int:revreview-accuracy-0}}“ stounde.',
+Sjuch [[Special:Unreviewedpages]] foar ne Lieste fon nit pröiwede Versione.', # Fuzzy
+	'revreview-submit' => 'Wröigenge spiekerje', # Fuzzy
+	'revreview-toolow' => 'Du moast foar älk fon do unnerstoundende Attribute n Wäid haager as „{{int:revreview-accuracy-0}}“ ienstaale, 
+deermäd ne Version as wröiged jält. Uum ne Version tou fersmieten, mouten aal Attribute ap „{{int:revreview-accuracy-0}}“ stounde.', # Fuzzy
 	'revreview-update' => "[[{{MediaWiki:Validationpage}}|Wröig]] älke Annerenge ''(sjuch hierunner)'' siet ju lääste stoabile Version [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} fräiroat] wuude.
 
-'''Do foulgjende Foarloagen un Bielden wuuden ferannerd:'''",
+'''Do foulgjende Foarloagen un Bielden wuuden ferannerd:'''", # Fuzzy
 );
 
 /** Sundanese (Basa Sunda)
@@ -5184,7 +5189,7 @@ Se [[Special:Unreviewedpages|listan över ogranskade sidor]].',
 
 För att ta bort granskningsstatusen för en version, klicka på "oacceptera".
 
-Klicka på "tillbaka"-knappen i din webbläsare och försök igen.',
+Klicka på "tillbaka"-knappen i din webbläsare och försök igen.', # Fuzzy
 	'revreview-update' => "'''Vänligen [[{{MediaWiki:Validationpage}}|granska]] några väntande ändringar ''(visas nedan)'' på den accepterade versionen.'''",
 	'revreview-update-edited' => '<span class="flaggedrevs_important">Dina ändringar är ännu inte i den stabila versionen.</span>
 
@@ -5212,7 +5217,7 @@ Vänligen granska alla ändringar som visas nedan för att göra så att dina re
 $messages['sw'] = array(
 	'revreview-log' => 'Sababu:',
 	'revreview-submit' => 'Wasilisha',
-	'revreview-reject-summary-old-short' => '{{PLURAL:$1|Badiliko la kwanza lililofuata|Mabadiliko ya $1 yaliyofuata}} pitio la $2 lililoandikwa na $3 {{PLURAL:$1|lilikataliwa|yalikataliwa}}',
+	'revreview-reject-summary-old-short' => '{{PLURAL:$1|Badiliko la kwanza lililofuata|Mabadiliko ya $1 yaliyofuata}} pitio la $2 lililoandikwa na $3 {{PLURAL:$1|lilikataliwa|yalikataliwa}}', # Fuzzy
 );
 
 /** Tamil (தமிழ்)
@@ -5232,7 +5237,7 @@ $messages['ta'] = array(
 	'review_denied' => 'அனுமதி தடைசெய்யப்பட்டது.',
 	'review_param_missing' => 'ஒரு காரணி காணப்படவில்லை அல்லது தவறானது',
 	'review_reject_excessive' => 'பல மாற்றங்களை ஒரேயடியாக நிராகரிக்க இயலாது.',
-	'revreview-check-flag-p' => 'நிலுவை மாற்றங்களை ஏற்றுக்கொள்க',
+	'revreview-check-flag-p' => 'நிலுவை மாற்றங்களை ஏற்றுக்கொள்க', # Fuzzy
 	'revreview-check-flag-p-title' => 'தற்போதுள்ள எல்லா நிலுவை மாற்றங்களையும் நீங்கள் தொகுத்தவைகளுடன் ஏற்றுக்கொள்ளுங்கள். நீங்கள் ஏற்கெனவே முழு நிலுவையில் உள்ள மாற்றங்களை சரிபார்த்திருந்தால் மட்டுமே.',
 	'revreview-check-flag-u' => 'மதிப்பீடு செய்யாத இந்தப் பக்கத்தை ஏற்றுக்கொள்க',
 	'revreview-check-flag-y' => 'இந்த மாற்றங்களை ஏற்றுக்கொள்க',
@@ -5264,7 +5269,7 @@ $messages['ta'] = array(
  */
 $messages['te'] = array(
 	'revisionreview' => 'కూర్పులను సమీక్షించు',
-	'revreview-failed' => 'రివ్యూ తప్పింది',
+	'revreview-failed' => 'రివ్యూ తప్పింది', # Fuzzy
 	'review_page_invalid' => 'లక్ష్యిత పుట శీర్షిక చెల్లనిది.',
 	'review_page_notexists' => 'లక్ష్యిత పుట లేనే లేదు.',
 	'review_denied' => 'అనుమతిని నిరాకరించారు.',
@@ -5274,7 +5279,7 @@ $messages['te'] = array(
 	'revreview-main' => 'సమీక్షించడానికి మీరు విషయపు పేజీ యొక్క ఓ నిర్ధిష్ట కూర్పుని ఎంచుకోవాలి.
 
 [[Special:Unreviewedpages|సమీక్షించని పేజీల జాబితా]]ని చూడండి.',
-	'revreview-stable2' => 'మీరు ఈ పేజీ యొక్క [{{fullurl:$1|stable=1}} సుస్థిర కూర్పు]ని (అది ఉండి ఉంటే) చూడొచ్చు.',
+	'revreview-stable2' => 'మీరు ఈ పేజీ యొక్క [{{fullurl:$1|stable=1}} సుస్థిర కూర్పు]ని (అది ఉండి ఉంటే) చూడొచ్చు.', # Fuzzy
 	'revreview-submit' => 'దాఖలుచెయ్యి',
 	'revreview-submitting' => 'దాఖలుచేస్తున్నాం...',
 	'revreview-submit-review' => 'కూర్పుని అంగీకరించు',
@@ -5282,21 +5287,21 @@ $messages['te'] = array(
 	'revreview-submit-reviewed' => 'పూర్తియ్యింది. అంగీకరించారు!',
 	'revreview-adv-reviewing-p' => 'గమనిక: మీరు ఈ పేజీని సమీక్షిస్తున్న విషయాన్ని ఇతర సమీక్షకులు చూడగలరు.',
 	'revreview-adv-reviewing-c' => 'గమనిక: మీరు ఈ మార్పులను సమీక్షిస్తున్న విషయాన్ని ఇతర సమీక్షకులు చూడగలరు.',
-	'revreview-toolow' => 'ఓ కూర్పును సమీక్షించినట్లుగా భావించాలంటే కింద ఇచ్చిన గుణాలన్నిటినీ "సమ్మతించలేదు" కంటే ఉన్నతంగా రేటు చెయ్యాలి.',
+	'revreview-toolow' => 'ఓ కూర్పును సమీక్షించినట్లుగా భావించాలంటే కింద ఇచ్చిన గుణాలన్నిటినీ "సమ్మతించలేదు" కంటే ఉన్నతంగా రేటు చెయ్యాలి.', # Fuzzy
 	'revreview-update' => "సుస్థిర కూర్పుని [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} అనుమతించిన] తర్వాత జరిగిన ''(క్రింద చూపించిన)'' మార్పులను [[{{MediaWiki:Validationpage}}|సమీక్షించండి]].
 
-'''కొన్ని మూసలు/ఫైళ్లను  తాజాకరించారు:'''",
-	'revreview-update-includes' => 'కొన్ని మూసలు/ఫైళ్లను తాజాకరించారు:',
-	'revreview-reject-text-list' => 'ఈ చర్యను పూర్తి చేస్తే మీరు కింది {{PLURAL:$1|మార్పు|మార్పుల}}ను ’’’తిరస్కరిస్తున్నట్లే’’’:',
+'''కొన్ని మూసలు/ఫైళ్లను  తాజాకరించారు:'''", # Fuzzy
+	'revreview-update-includes' => 'కొన్ని మూసలు/ఫైళ్లను తాజాకరించారు:', # Fuzzy
+	'revreview-reject-text-list' => 'ఈ చర్యను పూర్తి చేస్తే మీరు కింది {{PLURAL:$1|మార్పు|మార్పుల}}ను ’’’తిరస్కరిస్తున్నట్లే’’’:', # Fuzzy
 	'revreview-reject-text-revto' => 'ఇది ఈ పేజీని తిరిగి [{{fullurl:$1|oldid=$2}} $3 నాటి వెర్షను]కు తీసుకెళ్తుంది.',
 	'revreview-reject-summary' => 'సారాంశం:',
 	'revreview-reject-confirm' => 'ఈ మార్పులను తిరస్కరించు',
 	'revreview-reject-cancel' => 'రద్దుచేయి',
-	'revreview-reject-summary-cur' => '{{PLURAL:$1|మార్పు|$1 మార్పుల}}ను  ($2 చేసినవి) తిరస్కరించి, $4 చేసిన  కూర్పు $3 ను పునస్థాపించాం.',
-	'revreview-reject-summary-old' => '$4 చేసిన  కూర్పు $3 తరువాత చేసిన మొదటి {{PLURAL:$1|మార్పు|$1 మార్పుల}}ను  ($2 చేసినవి) తిరస్కరించాం.',
-	'revreview-reject-summary-cur-short' => 'చివరి {{PLURAL:$1|మార్పు|$1 మార్పుల}}ను  తిరస్కరించి, $3 చేసిన  కూర్పు $2 ను పునస్థాపించాం.',
-	'revreview-reject-summary-old-short' => '$3 చేసిన కూర్పు $2 తరువాత చేసిన మొదటి {{PLURAL:$1|మార్పు|$1 మార్పుల}}ను తిరస్కరించాం.',
-	'revreview-tt-reject' => 'ఈ మార్పులను౮ వెనక్కి తీసుకుపోయి, వాటిని తిరస్కరించు',
+	'revreview-reject-summary-cur' => '{{PLURAL:$1|మార్పు|$1 మార్పుల}}ను  ($2 చేసినవి) తిరస్కరించి, $4 చేసిన  కూర్పు $3 ను పునస్థాపించాం.', # Fuzzy
+	'revreview-reject-summary-old' => '$4 చేసిన  కూర్పు $3 తరువాత చేసిన మొదటి {{PLURAL:$1|మార్పు|$1 మార్పుల}}ను  ($2 చేసినవి) తిరస్కరించాం.', # Fuzzy
+	'revreview-reject-summary-cur-short' => 'చివరి {{PLURAL:$1|మార్పు|$1 మార్పుల}}ను  తిరస్కరించి, $3 చేసిన  కూర్పు $2 ను పునస్థాపించాం.', # Fuzzy
+	'revreview-reject-summary-old-short' => '$3 చేసిన కూర్పు $2 తరువాత చేసిన మొదటి {{PLURAL:$1|మార్పు|$1 మార్పుల}}ను తిరస్కరించాం.', # Fuzzy
+	'revreview-tt-reject' => 'ఈ మార్పులను౮ వెనక్కి తీసుకుపోయి, వాటిని తిరస్కరించు', # Fuzzy
 );
 
 /** Tetum (tetun)
@@ -5315,12 +5320,12 @@ $messages['tg-cyrl'] = array(
 	'revreview-log' => 'Тавзеҳ:',
 	'revreview-main' => 'Шумо бояд як нусхаи хосро аз саҳифаи мӯҳтаво барои баррасӣ кардан, интихоб кунед.
 
-Барои дарёфт кардани саҳифаҳои баррасинашуда ба [[Special:Unreviewedpages]] нигаред.',
-	'revreview-submit' => 'Сабти баррасӣ',
-	'revreview-toolow' => 'Шумо бояд ҳар як аз мавориди зеринро ба дараҷаи беш аз  "таъйиднашуда" аломат бизанед, то он нусха баррасишуда ба ҳисоб равад. Барои бебаҳо кардани як нусха, тамоми маворидро "таъйиднашуда" аломат бизанед.',
+Барои дарёфт кардани саҳифаҳои баррасинашуда ба [[Special:Unreviewedpages]] нигаред.', # Fuzzy
+	'revreview-submit' => 'Сабти баррасӣ', # Fuzzy
+	'revreview-toolow' => 'Шумо бояд ҳар як аз мавориди зеринро ба дараҷаи беш аз  "таъйиднашуда" аломат бизанед, то он нусха баррасишуда ба ҳисоб равад. Барои бебаҳо кардани як нусха, тамоми маворидро "таъйиднашуда" аломат бизанед.', # Fuzzy
 	'revreview-update' => "Лутфан тамоми тағйироте (дар зер оварда шудааст), ки пас аз охирин нусхаи пойдор амалӣ шударо  [[{{MediaWiki:Validationpage}}|барраси кунед]], ки аз замоне, ки нусхаи пойдор  [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} таъйидшуда] буд.
 
-'''Бархе аз шаблонҳо/аксҳо барӯз шудаанд:'''",
+'''Бархе аз шаблонҳо/аксҳо барӯз шудаанд:'''", # Fuzzy
 );
 
 /** Tajik (Latin script) (tojikī)
@@ -5330,7 +5335,7 @@ $messages['tg-latn'] = array(
 	'revisionreview' => 'Nusxahoi barrasī',
 	'revreview-flag' => 'In nusxaro barrasi kuned',
 	'revreview-log' => 'Tavzeh:',
-	'revreview-toolow' => 'Şumo bojad har jak az mavoridi zerinro ba daraçai beş az  "ta\'jidnaşuda" alomat bizaned, to on nusxa barrasişuda ba hisob ravad. Baroi bebaho kardani jak nusxa, tamomi mavoridro "ta\'jidnaşuda" alomat bizaned.',
+	'revreview-toolow' => 'Şumo bojad har jak az mavoridi zerinro ba daraçai beş az  "ta\'jidnaşuda" alomat bizaned, to on nusxa barrasişuda ba hisob ravad. Baroi bebaho kardani jak nusxa, tamomi mavoridro "ta\'jidnaşuda" alomat bizaned.', # Fuzzy
 );
 
 /** Thai (ไทย)
@@ -5349,7 +5354,7 @@ $messages['th'] = array(
  */
 $messages['tk'] = array(
 	'revisionreview' => 'Wersiýalary gözden geçir',
-	'revreview-failed' => "'''Bu wersiýany gözden geçirip bolmaýar.''' Tabşyrma doly däl ýa-da nädogry.",
+	'revreview-failed' => "'''Bu wersiýany gözden geçirip bolmaýar.''' Tabşyrma doly däl ýa-da nädogry.", # Fuzzy
 	'review_page_invalid' => 'Niýetlenilýän sahypa ady nädogry.',
 	'review_page_notexists' => 'Niýetlenilýän sahypa ýok.',
 	'review_page_unreviewable' => 'Niýetlenilýän sahypany gözden geçirip bolmaýar.',
@@ -5358,38 +5363,38 @@ $messages['tk'] = array(
 	'review_not_flagged' => 'Niýetlenilýän wersiýa häzirki wagtda gözden geçirilen diýlip bellenilmändir.',
 	'review_denied' => 'Rugsat ret edildi.',
 	'review_param_missing' => 'Parametr ýok ýa-da nädogry.',
-	'revreview-check-flag-p' => 'Garaşýan özgerdişleri gözden geçirilen diýip belle',
+	'revreview-check-flag-p' => 'Garaşýan özgerdişleri gözden geçirilen diýip belle', # Fuzzy
 	'revreview-check-flag-u' => 'Bu gözden geçirilmedik sahypany kabul et',
 	'revreview-check-flag-u-title' => 'Sahypanyň bu wersiýasyny abul et. Muny diňe tutuş sahypany gören bolsaňyz ulanyň.',
 	'revreview-check-flag-y' => 'Bu üýtgeşmeleri kabul et',
 	'revreview-check-flag-y-title' => 'Bu özgerdişde eden ähli üýtgeşmeleriňizi kabul ediň.',
 	'revreview-flag' => 'Bu wersiýany gözden geçir',
-	'revreview-reflag' => 'Bu wersiýany gaýtadan gözden geçir/gözden geçirme',
+	'revreview-reflag' => 'Bu wersiýany gaýtadan gözden geçir/gözden geçirme', # Fuzzy
 	'revreview-invalid' => "'''Nädogry niýetlenilýän:''' hiç bir [[{{MediaWiki:Validationpage}}|gözden geçirilen]] wersiýa berlen ID-ä laýyk gelmeýär.",
 	'revreview-log' => 'Teswir:',
 	'revreview-main' => 'Gözden geçirmek üçin, mazmunly sahypanyň belli bir wersiýasyny saýlamaly.
 
 [[Special:Unreviewedpages|Gözden geçirilmedik sahyplaryň sanawyna]] serediň.',
-	'revreview-stable1' => '[{{fullurl:$1|stableid=$2}} Bu baýdakly wersiýany] görüp, belkem bu sahypanyň [{{fullurl:$1|stable=1}} durnukly wersiýadygyny] ýa-da däldigini görmek isleýänsiňiz.',
-	'revreview-stable2' => 'Belkem bu sahypanyň [{{fullurl:$1|stable=1}} durnukly wersiýasyny] görmek isleýänsiňiz (eger henizem duran bolsa).',
+	'revreview-stable1' => '[{{fullurl:$1|stableid=$2}} Bu baýdakly wersiýany] görüp, belkem bu sahypanyň [{{fullurl:$1|stable=1}} durnukly wersiýadygyny] ýa-da däldigini görmek isleýänsiňiz.', # Fuzzy
+	'revreview-stable2' => 'Belkem bu sahypanyň [{{fullurl:$1|stable=1}} durnukly wersiýasyny] görmek isleýänsiňiz (eger henizem duran bolsa).', # Fuzzy
 	'revreview-submit' => 'Tabşyr',
 	'revreview-submitting' => 'Tabşyrylýar...',
-	'revreview-submit-review' => 'Gözden geçirilen diýip belle',
-	'revreview-submit-unreview' => 'Gözden geçirilmedik diýip belle',
+	'revreview-submit-review' => 'Gözden geçirilen diýip belle', # Fuzzy
+	'revreview-submit-unreview' => 'Gözden geçirilmedik diýip belle', # Fuzzy
 	'revreview-submit-reject' => 'Üýtgeşmeleri ret et',
 	'revreview-submit-reviewed' => 'Boldy. Kabul edildi!',
 	'revreview-submit-unreviewed' => 'Boldy. Kabul edilmedi!',
 	'revreview-successful' => "'''[[:$1|$1]] wersiýasy şowly baýdaklandy. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} durnukly wersiýalary gör])'''",
 	'revreview-successful2' => "'''[[:$1|$1]] wersiýasynyň baýdagy şowly aýryldy.'''",
-	'revreview-toolow' => '\'\'\'Bir wersiýanyň gözden geçirilen diýlip hasap edilmegi üçin aşakdaky aýratynlyklardan iň bolmanda birine "tassyklanmadyk"dan ýokary ses bermeli\'\'\'.
+	'revreview-toolow' => '\'\'\'Bir wersiýanyň gözden geçirilen diýlip hasap edilmegi üçin aşakdaky aýratynlyklardan iň bolmanda birine "tassyklanmadyk"dan ýokary ses bermeli\'\'\'. 
 Bir wersiýany köneltmek üçin ähli meýdançalary "tassyklanmadyk" diýip belläň.
 
-Brauzeriňizde "yza" düwmesine basyň we gaýtadan synanyşyň.',
+Brauzeriňizde "yza" düwmesine basyň we gaýtadan synanyşyň.', # Fuzzy
 	'revreview-update' => "Durnukly wersiýa [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} tassyklanandan] bäri edilen islendik üýtgeşmäni ''(aşakda görkezilen)'' [[{{MediaWiki:Validationpage}}|gözden geçiriň]].<br />
-'''Käbir şablonlar/faýllar täzelenilipdir:'''",
-	'revreview-update-includes' => 'Käbir şablonlar/faýllar täzelendi:',
-	'revreview-tt-flag' => 'Bu wersiýany gözden geçirilen diýip belle',
-	'revreview-tt-unflag' => 'Bu wersiýany gözden geçirilmedik diýip belle',
+'''Käbir şablonlar/faýllar täzelenilipdir:'''", # Fuzzy
+	'revreview-update-includes' => 'Käbir şablonlar/faýllar täzelendi:', # Fuzzy
+	'revreview-tt-flag' => 'Bu wersiýany gözden geçirilen diýip belle', # Fuzzy
+	'revreview-tt-unflag' => 'Bu wersiýany gözden geçirilmedik diýip belle', # Fuzzy
 );
 
 /** Tagalog (Tagalog)
@@ -5540,7 +5545,7 @@ $messages['tr'] = array(
 
 Bir revizyonun inceleme durumunu kaldırmak için, "kabul etme" seçeneğine tıklayın.
 
-Lütfen tarayıcınızdaki "geri" tuşuna basın ve tekrar deneyin.',
+Lütfen tarayıcınızdaki "geri" tuşuna basın ve tekrar deneyin.', # Fuzzy
 	'revreview-update' => "'''Lütfen kararlı sürümden sonra yapılmış olan ve aşağıda yer alan tüm bekleyen değişiklikleri [[{{MediaWiki:Validationpage}}|inceleyin]].'''",
 	'revreview-update-edited' => '<span class="flaggedrevs_important">Değişiklikleriniz henüz kararlı sürüm içinde değildir.</span>
 
@@ -5549,7 +5554,7 @@ Değişikliklerinizin kararlı sürümde yer alması için lütfen aşağıda g�
 
 Değişikliklerinizin kararlı sürümde yer alması için, lütfen aşağıda gösterilen tüm değişiklikleri inceleyin.',
 	'revreview-update-includes' => 'Şablonlar/dosyalar güncellenmiş (gözden geçirilmemiş sayfalar koyu renkli):',
-	'revreview-reject-text-list' => "Bu eylemi tamamlayarak, aşağıdaki {{PLURAL:$1|değişiklik|değişiklikleri}} '''reddetmiş''' olacaksınız:",
+	'revreview-reject-text-list' => "Bu eylemi tamamlayarak, aşağıdaki {{PLURAL:$1|değişiklik|değişiklikleri}} '''reddetmiş''' olacaksınız:", # Fuzzy
 	'revreview-reject-text-revto' => 'Bu sayfa [{{fullurl:$1|oldid=$2}} $3 tarihli] revizyona geri dönecektir.',
 	'revreview-reject-summary' => 'Özet:',
 	'revreview-reject-confirm' => 'Bu değişiklikleri reddet',
@@ -5626,9 +5631,9 @@ $messages['uk'] = array(
 
 Щоб зняти статус рецензування, натисніть \"зняти\".
 
-Будь ласка, натисніть кнопку «Назад» у браузері і спробуйте ще раз.",
+Будь ласка, натисніть кнопку «Назад» у браузері і спробуйте ще раз.", # Fuzzy
 	'revreview-update' => "Будь ласка, [[{{MediaWiki:Validationpage}}|перевірте]] всі нерецензовані зміни ''(показані нижче)'', зроблені з моменту встановлення стабільної версії.",
-	'revreview-update-edited' => '<span class="flaggedrevs_important">Ваші зміни ще не включені до стабільної версії.</span>
+	'revreview-update-edited' => '<span class="flaggedrevs_important">Ваші зміни ще не включені до стабільної версії.</span> 
 
 Будь ласка, перевірте усі зміни, наведені нижче, щоб включити ваші редагування до стабільної версії.',
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Ваші зміни ще не включені до стабільної версії. Попередні зміни очікують на перевірку.</span>
@@ -5681,7 +5686,7 @@ $messages['ur'] = array(
  */
 $messages['vec'] = array(
 	'revisionreview' => 'Riesamina versioni',
-	'revreview-failed' => "'''Inpossibile controlar la revision.''' La proposta la xe inconpleta o invalida.",
+	'revreview-failed' => "'''Inpossibile controlar la revision.''' La proposta la xe inconpleta o invalida.", # Fuzzy
 	'review_page_invalid' => 'La pagina de destinassion no la xe valida.',
 	'review_page_notexists' => 'La pagina de destinassion no la esiste.',
 	'review_page_unreviewable' => 'La pagina de destinassion no la xe revisionabile.',
@@ -5693,7 +5698,7 @@ $messages['vec'] = array(
 	'review_denied' => 'Parmesso negà.',
 	'review_param_missing' => 'Un parametro el xe mancante o invalido.',
 	'review_cannot_undo' => 'No se pole anular sti canbiamenti parché altri canbiamenti pendenti i gà canbià i stessi tochi.',
-	'revreview-check-flag-p' => 'Pùblica i canbiamenti atualmente in atesa',
+	'revreview-check-flag-p' => 'Pùblica i canbiamenti atualmente in atesa', # Fuzzy
 	'revreview-check-flag-p-title' => 'Aceta tuti i canbiamenti pendenti insieme co la to modifica. Falo solo che te ghè zà visto tuta la difarensa de i canbiamenti in sospeso.',
 	'revreview-check-flag-u' => 'Aceta sta pagina mia revisionà',
 	'revreview-check-flag-u-title' => 'Aceta sta version de la pagina. Falo solo se te ghè zà visto la pagina intiera.',
@@ -5723,17 +5728,17 @@ Varda la [[Special:Unreviewedpages|lista de pagine da riesaminar]].',
 
 Par anular el stato de na revision, struca "disaprova".
 
-Par piaser struca el boton "indrìo" del to browser e pròa da novo.',
+Par piaser struca el boton "indrìo" del to browser e pròa da novo.', # Fuzzy
 	'revreview-update' => "'''Par piaser [[{{MediaWiki:Validationpage}}|verifica]] tuti i canbiamenti ''(mostrà qua soto)'' fati rispeto a la version stabile.'''",
-	'revreview-update-edited' => '<span class="flaggedrevs_important">Le to modifiche no le xe gnancora ne la version stabile.</span>
+	'revreview-update-edited' => '<span class="flaggedrevs_important">Le to modifiche no le xe gnancora ne la version stabile.</span> 
 
-Par piaser rivarda tute le modifiche qua soto parché le to modifiche le vegna mostrà ne la version stabile.
-Podarìa esser necessario proseguire o "anulare" modifiche.',
-	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Le to modifiche no le xe gnancora ne la version stabile. Ghe xe canbiamenti precedenti pendenti.</span>
+Par piaser rivarda tute le modifiche qua soto parché le to modifiche le vegna mostrà ne la version stabile. 
+Podarìa esser necessario proseguire o "anulare" modifiche.', # Fuzzy
+	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Le to modifiche no le xe gnancora ne la version stabile. Ghe xe canbiamenti precedenti pendenti.</span> 
 
-Par piaser rivarda tute le modifiche qua soto parché le to modifiche le vegna mostrà ne la version stabile.
-Podarìa esser necessario proseguire o "anulare" modifiche.',
-	'revreview-update-includes' => 'Alcuni modèi o file i xe stà agiornà:',
+Par piaser rivarda tute le modifiche qua soto parché le to modifiche le vegna mostrà ne la version stabile. 
+Podarìa esser necessario proseguire o "anulare" modifiche.', # Fuzzy
+	'revreview-update-includes' => 'Alcuni modèi o file i xe stà agiornà:', # Fuzzy
 	'revreview-reject-text-list' => "Confermando quest'asion vera '''respinte''' łe modifeghe testuałi {{PLURAL:$1|da ła seguente version|da łe seguenti version}} de [[:$2|$2]]:",
 	'revreview-reject-text-revto' => 'Questo riporterà ła pajina ała [{{fullurl:$1|oldid=$2}} version de $3]',
 	'revreview-reject-summary' => 'Comento:',
@@ -5743,7 +5748,7 @@ Podarìa esser necessario proseguire o "anulare" modifiche.',
 	'revreview-reject-summary-old' => '{{PLURAL:$1|Rifiutà ła prima modifega|$1 Rifiutae łe prime modifeghe}} (aportà da $2) e confermà ła version $3 de $4',
 	'revreview-tt-flag' => 'Aceta sta revision segnandola come "controlà"',
 	'revreview-tt-unflag' => 'Disaprova sta revision segnandola come "mia controlà"',
-	'revreview-tt-reject' => 'Rifiuta ste modifiche tirandole indrio',
+	'revreview-tt-reject' => 'Rifiuta ste modifiche tirandole indrio', # Fuzzy
 );
 
 /** Veps (vepsän kel’)
@@ -5772,7 +5777,7 @@ Kc. [[Special:Unreviewedpages|kodvmatomiden lehtpoliden nimikirjutez]].',
 	'revreview-adv-start-link' => 'reklamiruida',
 	'revreview-toolow' => 'Pidab kirjutada kaikuččiden znamoičedoiden täht korktemb tazopind, mi "vähehk", miše versii lugetihe kodvdud.
 Miše heitta necen versijan kodvindan tunduz, paingat "ei ole znamoitud".
-Olgat hüväd, paingat kaclimes "Tagaze"-painim, miše kirjutada znamoičendad udes.',
+Olgat hüväd, paingat kaclimes "Tagaze"-painim, miše kirjutada znamoičendad udes.', # Fuzzy
 	'revreview-update' => 'Olgat hüväd, [[{{MediaWiki:Validationpage}}|kodvgat]] toižetused "(alemba ozutadud)" vahvištoittud versijaha.',
 	'revreview-update-includes' => 'Udištadud šablonad/failad (kodvmatomad oma anttud sanktal šriftal):',
 	'revreview-reject-cancel' => 'Heitta pätand',
@@ -5874,11 +5879,11 @@ $messages['vo'] = array(
 	'revreview-log' => 'Küpet:',
 	'revreview-main' => 'Mutol välön fomami semik pada ninädilabik ad krütön oni.
 
-Logolös padi: [[Special:Unreviewedpages]], su kel dabinon lised padas no nog pekrütölas.',
+Logolös padi: [[Special:Unreviewedpages]], su kel dabinon lised padas no nog pekrütölas.', # Fuzzy
 	'revreview-submit' => 'Sedön',
 	'revreview-update' => "[[{{MediaWiki:Validationpage}}|Reidolös e krütolös]] votükamis valik ''(dono pejonölis)'', kels pedunons sis fomam fümöfik [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} päzepon].
 
-'''Samafomots e/u magods aniks pekoräkons:'''",
+'''Samafomots e/u magods aniks pekoräkons:'''", # Fuzzy
 );
 
 /** Yiddish (ייִדיש)
@@ -5895,7 +5900,8 @@ $messages['yi'] = array(
 	'revreview-reject-cancel' => 'אַנולירן',
 );
 
-/** Cantonese (粵語) */
+/** Cantonese (粵語)
+ */
 $messages['yue'] = array(
 	'revisionreview' => '複審修訂',
 	'revreview-flag' => '複審呢次修訂',
@@ -5904,15 +5910,15 @@ $messages['yue'] = array(
 	'revreview-main' => '你一定要響一版內容頁度揀一個個別嘅修訂去複審。
 
 	睇[[Special:Unreviewedpages]]去拎未複審嘅版。',
-	'revreview-stable1' => '你可能想去睇[{{fullurl:$1|stableid=$2}} 呢個加咗旗嘅版本]去睇呢一版而家係唔係[{{fullurl:$1|stable=1}} 穩定版]。',
-	'revreview-stable2' => '你可能想去睇呢一版嘅[{{fullurl:$1|stable=1}} 穩定版] (如果嗰度仍然有一個嘅話)。',
+	'revreview-stable1' => '你可能想去睇[{{fullurl:$1|stableid=$2}} 呢個加咗旗嘅版本]去睇呢一版而家係唔係[{{fullurl:$1|stable=1}} 穩定版]。', # Fuzzy
+	'revreview-stable2' => '你可能想去睇呢一版嘅[{{fullurl:$1|stable=1}} 穩定版] (如果嗰度仍然有一個嘅話)。', # Fuzzy
 	'revreview-submit' => '遞交',
 	'revreview-successful' => "'''[[:$1|$1]]所選擇嘅修訂已經成功噉加旗。 ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} 去睇全部加旗版])'''",
 	'revreview-successful2' => "'''[[:$1|$1]]所選擇嘅修訂已經成功噉減旗。'''",
 	'revreview-toolow' => '你一定要最少將下面每一項嘅屬性評定高過"未批准"，去將一個修訂複審。
-	要捨棄一個修訂，設定全部格做"未批准"。',
-	'revreview-update' => '請複審自從響呢版嘅穩定版以來嘅任何更改 (響下面度顯示) 。模同圖亦可能同時更改。',
-	'revreview-update-includes' => '有啲模/圖更新咗:',
+	要捨棄一個修訂，設定全部格做"未批准"。', # Fuzzy
+	'revreview-update' => '請複審自從響呢版嘅穩定版以來嘅任何更改 (響下面度顯示) 。模同圖亦可能同時更改。', # Fuzzy
+	'revreview-update-includes' => '有啲模/圖更新咗:', # Fuzzy
 );
 
 /** Simplified Chinese (中文（简体）‎)
@@ -6089,4 +6095,3 @@ $messages['zh-hant'] = array(
 	'revreview-tt-unflag' => '將這個修訂標記為「未檢查」以取消批准這一修正。',
 	'revreview-tt-reject' => '拒絕這些對源文本的修改並撤消它們',
 );
-

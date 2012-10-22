@@ -282,6 +282,8 @@ Option in [[Special:Preferences]], under {{msg-mw|prefs-flaggedrevs}}. See {{msg
 	'flaggedrevs-pref-UI-1' => '{{Flagged Revs-small}}
 
 Option in [[Special:Preferences]], under {{msg-mw|prefs-flaggedrevs}}. See {{msg|flaggedrevs-pref-UI-0|pl=yes}} for the opposite message. See [[:Image:FlaggedRevs.jpg]] for an example image.',
+	'flaggedrevs-stable-categories' => '{{Flagged Revs}}
+{{notranslate}}',
 	'prefs-flaggedrevs' => "{{Flagged Revs-small}}
 
 This appears in [[Special:Preferences]]:
@@ -318,6 +320,8 @@ Show on [[Special:Preferences]]. This is for a setting to add an initially colla
 	'flaggedrevs-hidereviewed' => '{{Flagged Revs}}
 Shown within parenthesis on Special:Recentchanges, SpecialNewPages, and Special:Watchlist. This refers to a toggle to hide or show edits (revisions) that have been reviewed. If set to "hide", it also hides edits to pages that are not reviewable (like Talk pages). Parameters:
 * $1 is a link with the text {{msg-mw|show}} or {{msg-mw|hide}}',
+	'flaggedrevs-diffonly' => '{{Flagged Revs}}
+{{notranslate}}',
 	'group-editor' => '{{Flagged Revs}}
 {{doc-group|editor}}
 {{Identical|Editor}}',
@@ -716,6 +720,12 @@ Shown as the attribute title to the lock icon in the "flagged revs box". This sh
 Shown in the "flagged revs box". This shows on pages were edits require review and only when this is not the case by default.',
 	'revreview-unlocked' => '{{Flagged Revs}}
 Shown in the "flagged revs box". This shows on pages were edits don\'t require review and only when this is not the case by default.',
+	'revreview-ak-review' => '{{FlaggedRevs}}
+{{notranslate}}',
+	'accesskey-ca-current' => '{{FlaggedRevs}}
+{{doc-accesskey}}',
+	'accesskey-ca-stable' => '{{FlaggedRevs}}
+{{doc-accesskey}}',
 	'log-show-hide-review' => '{{Flagged Revs}}
 * $1 is one of {{msg|show}} or {{msg|hide}}',
 	'validationpage' => "{{Flagged Revs-small}}
@@ -743,9 +753,9 @@ $messages['af'] = array(
 	'flaggedrevs-prefs-editdiffs' => 'Wys die hangende veranderinge verskil wanneer hulle bladsye redigeer',
 	'flaggedrevs-prefs-viewdiffs' => 'Wys die hangende veranderinge verskil wanneer jy die jongste hangende hersiening',
 	'group-editor' => 'Redakteurs',
-	'group-editor-member' => 'Redakteur',
+	'group-editor-member' => 'Redakteur', # Fuzzy
 	'group-reviewer' => 'Beoordelaars',
-	'group-reviewer-member' => 'resensent',
+	'group-reviewer-member' => 'resensent', # Fuzzy
 	'grouppage-editor' => '{{ns:project}}:Redakteur',
 	'grouppage-reviewer' => '{{ns:project}}:Eindredakteur',
 	'group-autoreview' => 'Autochecked gebruikers',
@@ -794,9 +804,9 @@ $messages['af'] = array(
 	'revreview-quality-title' => "Dit is 'n kwaliteitsweergawe van die bladsy",
 	'revreview-quick-invalid' => "'''Ongeldige weergawenommer'''",
 	'revreview-quick-see-basic' => "'''[[{{MediaWiki:Validationpage}}|Werkweergawe]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} gepubliseerde weergawe]]
-[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} vergelyk]]",
+[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} vergelyk]]", # Fuzzy
 	'revreview-quick-see-quality' => "'''[[{{MediaWiki:Validationpage}}|Werkweergawe]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} gepubliseerde weergawe]]
-[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} vergelyk]]",
+[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} vergelyk]]", # Fuzzy
 	'revreview-source' => 'Wys bronteks',
 	'revreview-style' => 'Leesbaarheid',
 	'revreview-style-0' => 'Onvoldoende',
@@ -807,13 +817,13 @@ $messages['af'] = array(
 	'revreview-toggle-title' => 'wys/versteek details',
 	'revreview-revnotfound' => 'Die ou weergawe wat jy aangevra het kon nie gevind word nie. Gaan asseblief die URL na wat jy gebruik het.',
 	'right-movestable' => 'Skuif gepubliseerde bladsye',
-	'specialpages-group-quality' => 'Gehaltebeheer',
+	'specialpages-group-quality' => 'Gehaltebeheer', # Fuzzy
 	'revreview-filter-all' => 'Alles',
-	'revreview-filter-stable' => 'stabiel',
-	'revreview-statusfilter' => 'Status verandering:',
+	'revreview-filter-stable' => 'stabiel', # Fuzzy
+	'revreview-statusfilter' => 'Status verandering:', # Fuzzy
 	'revreview-filter-approved' => 'Goedgekeur',
 	'revreview-filter-reapproved' => 'Opnuut goedgekeur',
-	'revreview-filter-unapproved' => 'Nie goedgekeur nie',
+	'revreview-filter-unapproved' => 'Nie goedgekeur nie', # Fuzzy
 	'revreview-typefilter' => 'Tipe:',
 	'revreview-filter-auto' => 'Outomaties',
 	'revreview-filter-manual' => 'Handmatig',
@@ -826,7 +836,7 @@ $messages['af'] = array(
 	'revreview-def-all' => 'enige',
 	'revreview-def-draft' => 'nuutste',
 	'revreview-def-stable' => 'gepubliseerde',
-	'revreview-restrictfilter' => 'Beperkingsvlak:',
+	'revreview-restrictfilter' => 'Beperkingsvlak:', # Fuzzy
 	'revreview-restriction-any' => 'enige',
 	'revreview-restriction-none' => 'geen',
 	'revreview-reviewlink' => 'hangende wysigings',
@@ -834,7 +844,7 @@ $messages['af'] = array(
 	'tooltip-ca-current' => 'Sien hierdie bladsy met die hangende veranderinge',
 	'tooltip-ca-stable' => 'Kyk na die stabiele weergawe van hierdie bladsy',
 	'tooltip-ca-default' => 'Instellings vir kwaliteitsbeheer',
-	'flaggedrevs-protect-legend' => 'Publiseer wysigings',
+	'flaggedrevs-protect-legend' => 'Publiseer wysigings', # Fuzzy
 	'flaggedrevs-protect-none' => 'Alle gebruikers toelaat',
 	'revreview-locked-title' => 'Wysigings op hierdie bladsy moet word nagegaan.',
 	'revreview-unlocked-title' => 'Wysigings aan hierdie bladsy nie hersiening nodig het nie.',
@@ -862,9 +872,9 @@ $messages['aln'] = array(
 	'right-unreviewedpages' => 'Shikoni [[Special:UnreviewedPages|Lista e faqeve unreviewed]]',
 	'rights-editor-revoke' => 'hequr statusin e redaktor nga [[$1]]',
 	'specialpages-group-quality' => 'miratim Edit',
-	'stable-logentry-config' => 'Paneli i konfiguruar publikim për $1',
-	'stable-logentry-reset' => 'settings reset publikim për $1',
-	'stable-log-restriction' => 'Publikimi: kërkojnë "$1" leje',
+	'stable-logentry-config' => 'Paneli i konfiguruar publikim për $1', # Fuzzy
+	'stable-logentry-reset' => 'settings reset publikim për $1', # Fuzzy
+	'stable-log-restriction' => 'Publikimi: kërkojnë "$1" leje', # Fuzzy
 	'stable-logpage' => 'Regjistri i Stabilitetit',
 	'stable-logpagetext' => 'Ky është një regjistër për ndryshimet në [[{{MediaWiki:Validationpage}}|publikuar versionin] konfigurimin] i faqeve të përmbajtjes.',
 	'revreview-filter-all' => 'të gjithë',
@@ -899,12 +909,12 @@ $messages['an'] = array(
 	'flaggedrevs-desc' => "Ofreix a os editors y revisadors l'habilidat de validar as version y fer estables as pachinas",
 	'flaggedrevs-pref-UI-0' => "Fer servir as caixas detalladas t'amostrar o estau de verificación d'as pachinas",
 	'flaggedrevs-pref-UI-1' => "Fer servir iconos chicot y texto menimo ta amostrar o estau de verificación d'as pachinas",
-	'flaggedrevs-prefs-stable' => "Amostrar siempre por defecto a versión acceptada d'as pachinas de contenius (si ye que bi'n ha beluna).",
+	'flaggedrevs-prefs-stable' => "Amostrar siempre por defecto a versión acceptada d'as pachinas de contenius (si ye que bi'n ha beluna).", # Fuzzy
 	'flaggedrevs-prefs-watch' => "Adhibir as pachinas revisatas por yo t'a lista de seguimiento",
 	'group-editor' => 'Editors',
-	'group-editor-member' => 'Editor',
+	'group-editor-member' => 'Editor', # Fuzzy
 	'group-reviewer' => 'Revisadors',
-	'group-reviewer-member' => 'Revisador',
+	'group-reviewer-member' => 'Revisador', # Fuzzy
 	'grouppage-editor' => '{{ns:project}}:Editor',
 	'grouppage-reviewer' => '{{ns:project}}:Revisador',
 	'revreview-hist-draft' => 'versión no verificata',
@@ -946,23 +956,23 @@ Talment s'haiga feito [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:
 	'revreview-edit' => 'Modificar',
 	'revreview-edited' => "'''As edicions suyas s'amostrarán a os lectors malas que un usuario autorizato las revise. ([[{{MediaWiki:Validationpage}}|aduya]])
 
-Bi ha [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|cambio pendient|cambios pendients}}] ''(s'amuestran más t'abaixo)'' aguardando revisión.",
-	'revreview-newest-basic' => 'A [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} versión acceptata] se [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} verificó] o <i>$2</i>. Bi ha [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|cambio pendient|cambios pendients}}] aguardando una revisión.',
-	'revreview-newest-basic-i' => 'A [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} versión acceptata] se [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} verificó] o <i>$2</i>. Bi ha [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} cambios en as plantillas/fichers] aguardando una revisión.',
-	'revreview-newest-quality' => "A [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} zaguera versión acceptata] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} s'aprebó] o <i>$2</i>. Bi ha [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|cambio pendient|cambios pendients}}] que {{PLURAL:$3|amenista|amenistan}} una revisión.",
-	'revreview-newest-quality-i' => "A [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} versión acceptata] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} s'aprebó] o <i>$2</i>. Bi ha [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} cambios en as plantillas/fichers] aguardando una revisión.",
-	'revreview-noflagged' => "No bi ha garra versión revisata d'ista pachina, asinas que '''no''' s'ha comprebato a suya qualidat.",
+Bi ha [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|cambio pendient|cambios pendients}}] ''(s'amuestran más t'abaixo)'' aguardando revisión.", # Fuzzy
+	'revreview-newest-basic' => 'A [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} versión acceptata] se [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} verificó] o <i>$2</i>. Bi ha [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|cambio pendient|cambios pendients}}] aguardando una revisión.', # Fuzzy
+	'revreview-newest-basic-i' => 'A [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} versión acceptata] se [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} verificó] o <i>$2</i>. Bi ha [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} cambios en as plantillas/fichers] aguardando una revisión.', # Fuzzy
+	'revreview-newest-quality' => "A [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} zaguera versión acceptata] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} s'aprebó] o <i>$2</i>. Bi ha [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|cambio pendient|cambios pendients}}] que {{PLURAL:$3|amenista|amenistan}} una revisión.", # Fuzzy
+	'revreview-newest-quality-i' => "A [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} versión acceptata] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} s'aprebó] o <i>$2</i>. Bi ha [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} cambios en as plantillas/fichers] aguardando una revisión.", # Fuzzy
+	'revreview-noflagged' => "No bi ha garra versión revisata d'ista pachina, asinas que '''no''' s'ha comprebato a suya qualidat.", # Fuzzy
 	'revreview-oldrating' => 'A calificación ye:',
-	'revreview-quality' => 'Ista ye a [[{{MediaWiki:Validationpage}}|versión acceptata]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} verificata] o <i>$2</i>.
+	'revreview-quality' => 'Ista ye a [[{{MediaWiki:Validationpage}}|versión acceptata]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} verificata] o <i>$2</i>. 
 Bi ha [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|cambio pendient|cambios pendients}}] aguardando una revisión.',
-	'revreview-quality-i' => 'Ista ye a [[{{MediaWiki:Validationpage}}|versión acceptata]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprebata] o <i>$2</i>.
+	'revreview-quality-i' => 'Ista ye a [[{{MediaWiki:Validationpage}}|versión acceptata]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprebata] o <i>$2</i>. 
 Bi ha [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} cambios en plantillas/fichers] aguardando una revisión.',
-	'revreview-quality-old' => "Ista ye una versión [[{{MediaWiki:Validationpage}}|de calidat]] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} amostrat todas]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprebata] o <i>$2</i>.
+	'revreview-quality-old' => "Ista ye una versión [[{{MediaWiki:Validationpage}}|de calidat]] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} amostrat todas]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprebata] o <i>$2</i>. 
 Talment s'haiga feito [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} nuevos cambios].",
 	'revreview-quality-same' => 'Ista ye a [[{{MediaWiki:Validationpage}}|versión acceptata]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprebata] o <i>$2</i>.',
 	'revreview-quality-source' => "Una [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} versión de qualidat] d'ista pachina, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprebata] o <i>$2</i>, ye basata en ista versión.",
 	'revreview-quality-title' => "Ista ye una versión de qualidat d'ista pachina",
-	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|Articlo verificato]]''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} revisar cambios pendients]]",
+	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|Articlo verificato]]''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} revisar cambios pendients]]", # Fuzzy
 	'revreview-quick-basic-old' => "'''[[{{MediaWiki:Validationpage}}|Articlo supervisato]]'''",
 	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|Articlo supervisato]]'''",
 	'revreview-quick-invalid' => "'''ID de revisión no conforme'''",
@@ -1260,7 +1270,7 @@ $messages['arz'] = array(
 	'flaggedrevs-pref-stable-2' => 'أظهر أحدث إصدار دايما',
 	'flaggedrevs-prefs-watch' => 'أضف الصفحات التى أراجعها إلى قائمه مراقبتي',
 	'flaggedrevs-prefs-editdiffs' => 'بيّن التغييرات اللى مستنيّه المراجعه لما تعدّل الصفح',
-	'flaggedrevs-prefs-viewdiffs' => 'بيّن التغييرات اللى مستنيّه المراجعه لما تشوف مسودّات الصفحه',
+	'flaggedrevs-prefs-viewdiffs' => 'بيّن التغييرات اللى مستنيّه المراجعه لما تشوف مسودّات الصفحه', # Fuzzy
 	'group-editor' => 'محررون',
 	'group-editor-member' => '{{GENDER:$1|محرر|محرره}}',
 	'group-reviewer' => 'مراجعون',
@@ -1285,70 +1295,70 @@ $messages['arz'] = array(
 	'review-logentry-diff' => 'التغييرات تمت مراجعتها',
 	'review-logentry-diff2' => 'التغييرات مرفوضه',
 	'review-logpage' => 'سجل المراجعة',
-	'review-logpagetext' => 'هذا سجل بالتغييرات فى حاله [[{{MediaWiki:Validationpage}}|الموافقة]] لصفحات المحتوى.',
+	'review-logpagetext' => 'هذا سجل بالتغييرات فى حاله [[{{MediaWiki:Validationpage}}|الموافقة]] لصفحات المحتوى.', # Fuzzy
 	'reviewer' => 'مراجع',
 	'revreview-accuracy' => 'الدقة',
-	'revreview-accuracy-0' => 'غير موافق',
+	'revreview-accuracy-0' => 'غير موافق', # Fuzzy
 	'revreview-accuracy-1' => 'منظورة',
 	'revreview-accuracy-2' => 'دقيقة',
 	'revreview-accuracy-3' => 'مصادرها جيدة',
 	'revreview-accuracy-4' => 'مميزة',
 	'revreview-auto' => '(تلقائيا)',
 	'revreview-basic' => 'هيا دى [[{{MediaWiki:Validationpage}}|النسخه المنشوره]]، [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} اتشيّك عليها] فى  <i>$2</i>.
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$3||تغيير واحد متعلق|تغييرين متعلقين|$3 تغييرات متعلقة|$3 تغيير متعلق|$3 تغيير متعلق}}] {{PLURAL:$3||مستنّى |مستنّى |تمستنّى |مستنّى }} المراجعة.',
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$3||تغيير واحد متعلق|تغييرين متعلقين|$3 تغييرات متعلقة|$3 تغيير متعلق|$3 تغيير متعلق}}] {{PLURAL:$3||مستنّى |مستنّى |تمستنّى |مستنّى }} المراجعة.', # Fuzzy
 	'revreview-basic-i' => 'هى دى [[{{MediaWiki:Validationpage}}|النسخه المنشوره]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} متشيّك عليها] فى <i>$2</i>.
-[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} المسودّه] فيها [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} قالب/تغييرات الفايل] مستنّه المراجعه.',
+[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} المسودّه] فيها [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} قالب/تغييرات الفايل] مستنّه المراجعه.', # Fuzzy
 	'revreview-basic-old' => 'دى نسخه [[{{MediaWiki:Validationpage}}| متشيّك عليها]] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} بيّنهم كلهم]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} متأكد عليها] فى <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} تغييرات] جديده ممكن تكون اتعملت.',
 	'revreview-basic-same' => 'هى دى [[{{MediaWiki:Validationpage}}|النسخه المنشوره]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} اتشيّك عليها] فى <i>$2</i>.',
 	'revreview-basic-source' => '[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} نسخه متشيّك عليها] من الصفحه دى, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} اتأكد عليها] فى <i>$2</i>, اتعملت على اساس المراجعه دى.',
-	'revreview-current' => 'مسودة',
+	'revreview-current' => 'مسودة', # Fuzzy
 	'revreview-depth' => 'العمق',
-	'revreview-depth-0' => 'غير موافق عليها',
+	'revreview-depth-0' => 'غير موافق عليها', # Fuzzy
 	'revreview-depth-1' => 'أساسي',
 	'revreview-depth-2' => 'متوسط',
 	'revreview-depth-3' => 'مرتفع',
 	'revreview-depth-4' => 'مميز',
-	'revreview-draft-title' => 'هذه صفحه مسودة',
+	'revreview-draft-title' => 'هذه صفحه مسودة', # Fuzzy
 	'revreview-edit' => 'عدّل',
-	'revreview-editnotice' => "'''تغييراتك [[{{MediaWiki:Validationpage}}|ستنشر]] متى [[{{MediaWiki:Validationpage}}|راجعها]] مستخدم مخول.'''",
+	'revreview-editnotice' => "'''تغييراتك [[{{MediaWiki:Validationpage}}|ستنشر]] متى [[{{MediaWiki:Validationpage}}|راجعها]] مستخدم مخول.'''", # Fuzzy
 	'revreview-edited' => "'''التغييرات [[{{MediaWiki:Validationpage}}|ستنشر]] متى [[{{MediaWiki:Validationpage}}|راجعها]] مستخدم مخول.'''
-''المسودة''، المعروضه بالأسفل، تحتوى على  [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|تغيير|تغيير}}] مقترح.",
-	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} النسخه المنشوره] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} اتشيّك عليها] فى <i>$2</i>. المسودّه فيها
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|تغيير مستنّى المراجعه|تغييرات مستنيّه المراجعه}}].',
-	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} النسخه المنشوره] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} اتشيّك عليها] فى <i>$2</i>. المسودّه فيها
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} قالب/تغييرات الفايل] مستنيّه المراجعه.',
-	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} النسخه المنشوره] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} اتأكد عليهاا] فى <i>$2</i>. المسودّه فيها
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|تغيير مستنّى المراجعه|تغييرات مستنيّه المراجعه}}].',
-	'revreview-newest-quality-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} النسخه المنشوره] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} اتأكد عليها] فى <i>$2</i>. المسودّه فيها
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} قالب/تغييرات الفايل] مستنيّه المراجعه.',
-	'revreview-noflagged' => "ما فيش مراجعات [[{{MediaWiki:Validationpage}}|متراجع عليها]] للصفحه دى, علشان كده ممكن '''ما يكونش''' [[{{MediaWiki:Validationpage}}|متشيّك عليها]] للجوده.",
+''المسودة''، المعروضه بالأسفل، تحتوى على  [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|تغيير|تغيير}}] مقترح.", # Fuzzy
+	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} النسخه المنشوره] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} اتشيّك عليها] فى <i>$2</i>. المسودّه فيها  
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|تغيير مستنّى المراجعه|تغييرات مستنيّه المراجعه}}].', # Fuzzy
+	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} النسخه المنشوره] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} اتشيّك عليها] فى <i>$2</i>. المسودّه فيها  
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} قالب/تغييرات الفايل] مستنيّه المراجعه.', # Fuzzy
+	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} النسخه المنشوره] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} اتأكد عليهاا] فى <i>$2</i>. المسودّه فيها  
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|تغيير مستنّى المراجعه|تغييرات مستنيّه المراجعه}}].', # Fuzzy
+	'revreview-newest-quality-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} النسخه المنشوره] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} اتأكد عليها] فى <i>$2</i>. المسودّه فيها  
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} قالب/تغييرات الفايل] مستنيّه المراجعه.', # Fuzzy
+	'revreview-noflagged' => "ما فيش مراجعات [[{{MediaWiki:Validationpage}}|متراجع عليها]] للصفحه دى, علشان كده ممكن '''ما يكونش''' [[{{MediaWiki:Validationpage}}|متشيّك عليها]] للجوده.", # Fuzzy
 	'revreview-oldrating' => 'تم تقييمها ك:',
 	'revreview-quality' => 'هى دى [[{{MediaWiki:Validationpage}}|النسخه المنشوره]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} اتأكد عليها] فى <i>$2</i>.
-[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} المسوده] فيها [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|تغيير|تغييرات}}] مستنيّه المراجعه.',
+[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} المسوده] فيها [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|تغيير|تغييرات}}] مستنيّه المراجعه.', # Fuzzy
 	'revreview-quality-i' => 'هى دى [[{{MediaWiki:Validationpage}}|النسخه المنشوره]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} اتأكد عليها] فى <i>$2</i>.
-[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} المسودّه] فيها [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} قالب/تغييرات الفايل] مستنيّه المراجعه.',
+[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} المسودّه] فيها [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} قالب/تغييرات الفايل] مستنيّه المراجعه.', # Fuzzy
 	'revreview-quality-old' => 'المراجعه دى مراجعة [[{{MediaWiki:Validationpage}}|جوده]] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} بينهم كلهم]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} اتأكد عليها] فى <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} تغييرات] جديده ممكن تكون اتعملت.',
 	'revreview-quality-same' => 'هى دى [[{{MediaWiki:Validationpage}}|النسخه المنشوره]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} اتأكد عليها] فى <i>$2</i>.',
 	'revreview-quality-source' => '[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} نسخه جودة] من هذه الصفحه، [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} تمت الموافقه عليها] فى <i>$2</i>، بناء على هذه المراجعه.',
 	'revreview-quality-title' => 'دى نسخه جوده من الصفحه دى',
-	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|صفحه متشيّك عليها]]''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} شوف المسودّه]]",
-	'revreview-quick-basic-old' => "'''[[{{MediaWiki:Validationpage}}|صفحه متشيّك عليها]]''' [ شوف المسودّه]]",
-	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|صفحه متشيّك عليها]]'''",
+	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|صفحه متشيّك عليها]]''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} شوف المسودّه]]", # Fuzzy
+	'revreview-quick-basic-old' => "'''[[{{MediaWiki:Validationpage}}|صفحه متشيّك عليها]]''' [ شوف المسودّه]]", # Fuzzy
+	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|صفحه متشيّك عليها]]'''", # Fuzzy
 	'revreview-quick-invalid' => "'''رقم مراجعه غير صحيح'''",
-	'revreview-quick-none' => "'''[[{{MediaWiki:Validationpage}}|صفحه مسودّه]]''' (مش متراجعه)",
-	'revreview-quick-quality' => "'''[[{{MediaWiki:Validationpage}}|صفحه الجودة]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} اعرض المسودة]]",
-	'revreview-quick-quality-old' => "'''[[{{MediaWiki:Validationpage}}|صفحه الجودة]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} اعرض المسودة]]",
-	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|صفحه الجودة]]'''",
+	'revreview-quick-none' => "'''[[{{MediaWiki:Validationpage}}|صفحه مسودّه]]''' (مش متراجعه)", # Fuzzy
+	'revreview-quick-quality' => "'''[[{{MediaWiki:Validationpage}}|صفحه الجودة]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} اعرض المسودة]]", # Fuzzy
+	'revreview-quick-quality-old' => "'''[[{{MediaWiki:Validationpage}}|صفحه الجودة]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} اعرض المسودة]]", # Fuzzy
+	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|صفحه الجودة]]'''", # Fuzzy
 	'revreview-quick-see-basic' => "'''[[{{MediaWiki:Validationpage}}|مسودّه]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} نسخه منشوره]]
-[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} قارن]]",
+[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} قارن]]", # Fuzzy
 	'revreview-quick-see-quality' => "'''[[{{MediaWiki:Validationpage}}|مسودّه]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} نسخه منشوره]]
-[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} قارن]]",
-	'revreview-source' => 'مصدر المسودّه',
+[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} قارن]]", # Fuzzy
+	'revreview-source' => 'مصدر المسودّه', # Fuzzy
 	'revreview-basic-title' => 'دى نسخه متراجع عليها من الصفحه دى',
 	'revreview-style' => 'القابليه للقراءة',
-	'revreview-style-0' => 'غير مقبول',
+	'revreview-style-0' => 'غير مقبول', # Fuzzy
 	'revreview-style-1' => 'مقبول',
 	'revreview-style-2' => 'جيدة',
 	'revreview-style-3' => 'متوسطة',
@@ -1366,18 +1376,18 @@ $messages['arz'] = array(
 	'right-validate' => 'علّم على المراجعات انها "جوده"',
 	'right-unreviewedpages' => 'رؤيه [[Special:UnreviewedPages|قائمه الصفحات غير المراجعة]]',
 	'rights-editor-revoke' => 'أزال حاله محرر من [[$1]]',
-	'specialpages-group-quality' => 'توكيد الجودة',
-	'stable-logentry-config' => 'ضبط النسخه المستقره ل$1',
-	'stable-logentry-reset' => 'أعاد ضبط النسخه المستقره ل$1',
+	'specialpages-group-quality' => 'توكيد الجودة', # Fuzzy
+	'stable-logentry-config' => 'ضبط النسخه المستقره ل$1', # Fuzzy
+	'stable-logentry-reset' => 'أعاد ضبط النسخه المستقره ل$1', # Fuzzy
 	'stable-logpage' => 'سجل الاستقرار',
 	'stable-logpagetext' => 'هذا سجل بالتغييرات لضبط [[{{MediaWiki:Validationpage}}|النسخه المستقرة]]
 لصفحات المحتوى.',
 	'revreview-filter-all' => 'الكل',
 	'revreview-filter-stable' => 'منشوره',
-	'revreview-statusfilter' => 'تغير الحالة:',
+	'revreview-statusfilter' => 'تغير الحالة:', # Fuzzy
 	'revreview-filter-approved' => 'تمت الموافقه عليها',
 	'revreview-filter-reapproved' => 'تكررت الموافقه عليها',
-	'revreview-filter-unapproved' => 'غير موافق عليها',
+	'revreview-filter-unapproved' => 'غير موافق عليها', # Fuzzy
 	'revreview-typefilter' => 'النوع:',
 	'revreview-filter-auto' => 'تلقائي',
 	'revreview-filter-manual' => 'يدوي',
@@ -1385,16 +1395,16 @@ $messages['arz'] = array(
 	'revreview-lev-basic' => 'متشيّك عليها',
 	'revreview-lev-quality' => 'جودة',
 	'revreview-lev-pristine' => 'فائقة',
-	'revreview-reviewlink' => 'مراجعة',
-	'tooltip-ca-current' => 'عرض المسوده الحاليه لهذه الصفحة',
+	'revreview-reviewlink' => 'مراجعة', # Fuzzy
+	'tooltip-ca-current' => 'عرض المسوده الحاليه لهذه الصفحة', # Fuzzy
 	'tooltip-ca-stable' => 'شوف النسخه المنشوره بتاعة الصفحه دى',
 	'tooltip-ca-default' => 'إعدادات توكيد الجودة',
-	'flaggedrevs-protect-legend' => 'نشر التعديلات',
+	'flaggedrevs-protect-legend' => 'نشر التعديلات', # Fuzzy
 	'flaggedrevs-protect-none' => 'السماح لكل المستخدمين',
-	'revreview-locked-title' => 'التعديلات يجب أن تتم مراجعتها قبل أن يتم عرضها فى هذه الصفحة!',
-	'revreview-unlocked-title' => 'التعديلات لا تتطلب مراجعه قبل أن يتم عرضها فى هذه الصفحة!',
-	'revreview-locked' => 'التعديلات يجب أن تتم مراجعتها قبل أن يتم عرضها فى هذه الصفحة!',
-	'revreview-unlocked' => "'''ملاحظه:''' التعديلات مش بتحتاج [[{{MediaWiki:Validationpage}}|مراجعه]] قبل ما تتنشر على الصفحه دى.",
+	'revreview-locked-title' => 'التعديلات يجب أن تتم مراجعتها قبل أن يتم عرضها فى هذه الصفحة!', # Fuzzy
+	'revreview-unlocked-title' => 'التعديلات لا تتطلب مراجعه قبل أن يتم عرضها فى هذه الصفحة!', # Fuzzy
+	'revreview-locked' => 'التعديلات يجب أن تتم مراجعتها قبل أن يتم عرضها فى هذه الصفحة!', # Fuzzy
+	'revreview-unlocked' => "'''ملاحظه:''' التعديلات مش بتحتاج [[{{MediaWiki:Validationpage}}|مراجعه]] قبل ما تتنشر على الصفحه دى.", # Fuzzy
 	'log-show-hide-review' => '$1 سجل المراجعة',
 	'validationpage' => '{{ns:help}}:تحقيق الصفحة',
 );
@@ -1521,7 +1531,8 @@ La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} versión estable] s'[{{fullurl:{{#Spe
 	'validationpage' => '{{ns:help}}: Convalidación de la páxina',
 );
 
-/** Kotava (Kotava) */
+/** Kotava (Kotava)
+ */
 $messages['avk'] = array(
 	'revreview-revnotfound' => 'Abdif siatos ke batu bu me zo rodimtrasir. Ta vansara va batu bu va faveyene URL mane ageltal.',
 );
@@ -1544,11 +1555,11 @@ $messages['az'] = array(
 	'group-editor' => 'Redaktorlar',
 	'group-editor-member' => '{{GENDER:$1|redaktor}}',
 	'group-reviewer' => 'İncələyənlər',
-	'group-reviewer-member' => 'İncələyən',
+	'group-reviewer-member' => 'İncələyən', # Fuzzy
 	'grouppage-editor' => '{{ns:project}}:Redaktor',
 	'grouppage-reviewer' => '{{ns:project}}:İncələyən',
 	'group-autoreview' => 'Avtomatik yoxlanılan istifadəçilər',
-	'group-autoreview-member' => 'Avtomatik yoxlanılan istifadəçilər',
+	'group-autoreview-member' => 'Avtomatik yoxlanılan istifadəçilər', # Fuzzy
 	'grouppage-autoreview' => '{{ns:project}}:Avtotəsdiqlənmiş istifadəçilər',
 	'revreview-hist-draft' => 'yoxlanılmış versiya',
 	'revreview-hist-pending' => 'gözləyən versiya',
@@ -1699,99 +1710,99 @@ $messages['ba'] = array(
 $messages['bcc'] = array(
 	'editor' => 'اصلاح گر',
 	'flaggedrevs' => 'بازبینی ان نشان هشتگین',
-	'flaggedrevs-desc' => 'اصلاح کنوک و مرور کنوکانء اجارت هلیتش تا بازبنی و صفحات ثابتء تایید کنت.',
-	'flaggedrevs-pref-UI-0' => 'چه دستبر کاربری نسخه ثابت گون جزییات استفاده کن',
-	'flaggedrevs-pref-UI-1' => 'چه دستبر کاربری نسخه ثابت ساده استفاده کن',
-	'flaggedrevs-prefs-stable' => 'یک سر نسخه ثاثت چه محتوای صفحات په طور پیشفرض پیش دار (اگر که هست اتن)',
+	'flaggedrevs-desc' => 'اصلاح کنوک و مرور کنوکانء اجارت هلیتش تا بازبنی و صفحات ثابتء تایید کنت.', # Fuzzy
+	'flaggedrevs-pref-UI-0' => 'چه دستبر کاربری نسخه ثابت گون جزییات استفاده کن', # Fuzzy
+	'flaggedrevs-pref-UI-1' => 'چه دستبر کاربری نسخه ثابت ساده استفاده کن', # Fuzzy
+	'flaggedrevs-prefs-stable' => 'یک سر نسخه ثاثت چه محتوای صفحات په طور پیشفرض پیش دار (اگر که هست اتن)', # Fuzzy
 	'flaggedrevs-prefs-watch' => 'اضافه کن صفحاتی که من بازبینی کتگنت ته منی لیست چارگ',
 	'group-editor' => 'اصلاح کنوکان',
-	'group-editor-member' => 'اصلاح کنوک',
+	'group-editor-member' => 'اصلاح کنوک', # Fuzzy
 	'group-reviewer' => 'بازبینی کنوکان',
-	'group-reviewer-member' => 'بازبینی کنوک',
+	'group-reviewer-member' => 'بازبینی کنوک', # Fuzzy
 	'grouppage-editor' => '{{ns:project}}:اصلاح کنوک',
 	'grouppage-reviewer' => '{{ns:project}}:بازبینی کنوک',
-	'revreview-hist-draft' => 'بازبینی پیش نویس',
+	'revreview-hist-draft' => 'بازبینی پیش نویس', # Fuzzy
 	'revreview-hist-quality' => 'بازبینی کیفیت',
-	'revreview-hist-basic' => 'بازبینی رویت بیتگ',
-	'revreview-hist-quality-user' => '[{{fullurl:$1|stableid=$2}}تایید بوت گون [[User:$3|$3]]',
-	'revreview-hist-basic-user' => 'رویت بیتگ گون [[User:$3|$3]]',
-	'review-diff2stable' => 'به گند تغییراتء بین بازبینی ان ثابت و هنوکین',
-	'review-logentry-app' => 'بازبینی بوت  [[$1]]',
-	'review-logentry-dis' => 'یک نسخه ای چه [[$1]] منسوخ کت',
+	'revreview-hist-basic' => 'بازبینی رویت بیتگ', # Fuzzy
+	'revreview-hist-quality-user' => '[{{fullurl:$1|stableid=$2}}تایید بوت گون [[User:$3|$3]]', # Fuzzy
+	'revreview-hist-basic-user' => 'رویت بیتگ گون [[User:$3|$3]]', # Fuzzy
+	'review-diff2stable' => 'به گند تغییراتء بین بازبینی ان ثابت و هنوکین', # Fuzzy
+	'review-logentry-app' => 'بازبینی بوت  [[$1]]', # Fuzzy
+	'review-logentry-dis' => 'یک نسخه ای چه [[$1]] منسوخ کت', # Fuzzy
 	'review-logentry-id' => 'بازبینی شناسگ : $2',
-	'review-logentry-diff' => 'پرک گون نسخه ثابت',
+	'review-logentry-diff' => 'پرک گون نسخه ثابت', # Fuzzy
 	'review-logpage' => 'ورود بازبینی',
 	'reviewer' => 'بازبینی کنوک',
 	'revreview-accuracy' => 'درستی',
-	'revreview-accuracy-0' => 'تایید به بیتگین',
+	'revreview-accuracy-0' => 'تایید به بیتگین', # Fuzzy
 	'revreview-accuracy-1' => 'رویت بیتگ',
 	'revreview-accuracy-2' => 'درست',
 	'revreview-accuracy-3' => 'شرین منبع بوتیگین',
 	'revreview-accuracy-4' => 'نمایان',
 	'revreview-auto' => '(اتوماتیک)',
-	'revreview-current' => 'پیش نویس',
+	'revreview-current' => 'پیش نویس', # Fuzzy
 	'revreview-depth' => 'عمق',
-	'revreview-depth-0' => 'تایید نه بوتت',
+	'revreview-depth-0' => 'تایید نه بوتت', # Fuzzy
 	'revreview-depth-1' => 'اساسی',
 	'revreview-depth-2' => 'متعادل',
 	'revreview-depth-3' => 'بالاد',
 	'revreview-depth-4' => 'نمایان',
-	'revreview-draft-title' => 'مقاله پیش نویس',
-	'revreview-edit' => 'اصلاح پیش نویس',
+	'revreview-draft-title' => 'مقاله پیش نویس', # Fuzzy
+	'revreview-edit' => 'اصلاح پیش نویس', # Fuzzy
 	'revreview-oldrating' => 'شی درجه بندی بوتت:',
-	'revreview-quality-title' => 'مقاله کیفیت',
-	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|رویت بیتگ مقاله]]''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}}به گند پیش نویس]]",
-	'revreview-quick-basic-old' => "'''[[{{MediaWiki:Validationpage}}|رویت بیتگرویت بیتگ مقاله]]''' [ به گند پیش نویس]]",
-	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|رویت بیتگ مقاله]]'''",
+	'revreview-quality-title' => 'مقاله کیفیت', # Fuzzy
+	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|رویت بیتگ مقاله]]''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}}به گند پیش نویس]]", # Fuzzy
+	'revreview-quick-basic-old' => "'''[[{{MediaWiki:Validationpage}}|رویت بیتگرویت بیتگ مقاله]]''' [ به گند پیش نویس]]", # Fuzzy
+	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|رویت بیتگ مقاله]]'''", # Fuzzy
 	'revreview-quick-invalid' => "'''نامعتبر شناسه بازبینی'''",
-	'revreview-quick-none' => "'''[[{{MediaWiki:Validationpage}}|هنوکین بازبینی]]''' (بی بازبینی)",
-	'revreview-quick-quality' => "'''[[{{MediaWiki:Validationpage}}|کیفیت مقاله]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} به گند پیش نویسء]]",
-	'revreview-quick-quality-old' => "'''[[{{MediaWiki:Validationpage}}|کیفیت مقاله]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} به گند پیش نویسء]]",
-	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|کیفیت مقاله]]'''",
+	'revreview-quick-none' => "'''[[{{MediaWiki:Validationpage}}|هنوکین بازبینی]]''' (بی بازبینی)", # Fuzzy
+	'revreview-quick-quality' => "'''[[{{MediaWiki:Validationpage}}|کیفیت مقاله]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} به گند پیش نویسء]]", # Fuzzy
+	'revreview-quick-quality-old' => "'''[[{{MediaWiki:Validationpage}}|کیفیت مقاله]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} به گند پیش نویسء]]", # Fuzzy
+	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|کیفیت مقاله]]'''", # Fuzzy
 	'revreview-quick-see-basic' => "'''پیش نویس''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}}دیستن مقالهء]]
-[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}}مقایسه]]",
+[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}}مقایسه]]", # Fuzzy
 	'revreview-quick-see-quality' => "'''پیش نویس''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} دیستن مقاله]]
-[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} مقایسه]]",
-	'revreview-source' => 'منبع پیش نویس',
-	'revreview-basic-title' => 'رویت بیتگ مقاله',
+[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur}} مقایسه]]", # Fuzzy
+	'revreview-source' => 'منبع پیش نویس', # Fuzzy
+	'revreview-basic-title' => 'رویت بیتگ مقاله', # Fuzzy
 	'revreview-style' => 'وانایی',
-	'revreview-style-0' => 'تایید نه بیتگ',
+	'revreview-style-0' => 'تایید نه بیتگ', # Fuzzy
 	'revreview-style-1' => 'قابل قبول',
 	'revreview-style-2' => 'هوب',
 	'revreview-style-3' => 'مختصر',
 	'revreview-style-4' => 'نمایان',
 	'revreview-toggle-title' => 'پیش دار/پناه کن جزییاتء',
 	'revreview-revnotfound' => 'کدیمی بازبینی چه ای صفحه که شما لوٹیت ودیگ نه بوت. لطفا URL که شما په رستن په ای صفحه استفاده کنیت کنترلی کنیت.',
-	'right-autoreview' => 'اتوماتیکی نشان کن بازبینیء په عنوان رویت بیتگین',
-	'right-movestable' => 'صفحات ثابت جاه په جاه کن',
-	'right-review' => 'بازبینی آن په عنوان رویت بیتگین نشان کن',
-	'right-stablesettings' => 'تنظیم کن چطور نسخه ثابت انتخاب بوت  پیش دارگ بیت',
-	'right-validate' => 'نشان کن بازبینی انء په داب معتبرین',
-	'right-unreviewedpages' => 'به گند لیست صفحات بی بازبینی',
+	'right-autoreview' => 'اتوماتیکی نشان کن بازبینیء په عنوان رویت بیتگین', # Fuzzy
+	'right-movestable' => 'صفحات ثابت جاه په جاه کن', # Fuzzy
+	'right-review' => 'بازبینی آن په عنوان رویت بیتگین نشان کن', # Fuzzy
+	'right-stablesettings' => 'تنظیم کن چطور نسخه ثابت انتخاب بوت  پیش دارگ بیت', # Fuzzy
+	'right-validate' => 'نشان کن بازبینی انء په داب معتبرین', # Fuzzy
+	'right-unreviewedpages' => 'به گند لیست صفحات بی بازبینی', # Fuzzy
 	'rights-editor-revoke' => 'حالت اصلاح گرء بزور چه [[$1]]',
-	'specialpages-group-quality' => 'اطمینان کیفیت',
-	'stable-logentry-config' => 'نسخه ثابت تنظیم بوتگین په $1',
-	'stable-logentry-reset' => 'پد ترین نسخه ثابت په $1',
+	'specialpages-group-quality' => 'اطمینان کیفیت', # Fuzzy
+	'stable-logentry-config' => 'نسخه ثابت تنظیم بوتگین په $1', # Fuzzy
+	'stable-logentry-reset' => 'پد ترین نسخه ثابت په $1', # Fuzzy
 	'stable-logpage' => 'آمار ثبات',
 	'revreview-filter-all' => 'کل',
-	'revreview-statusfilter' => 'وضعیت:',
+	'revreview-statusfilter' => 'وضعیت:', # Fuzzy
 	'revreview-filter-approved' => 'تایید',
 	'revreview-filter-reapproved' => 'دگه تایید بوت',
-	'revreview-filter-unapproved' => 'تایید نه بوتگین',
+	'revreview-filter-unapproved' => 'تایید نه بوتگین', # Fuzzy
 	'revreview-typefilter' => 'نوع:',
 	'revreview-filter-auto' => 'اتوماتیک',
 	'revreview-filter-manual' => 'دستی',
-	'tooltip-ca-current' => 'به گند هنوکین پیش نویس ای صفحهء',
-	'tooltip-ca-stable' => 'به گند نسخه ثابت ای صفحهء',
+	'tooltip-ca-current' => 'به گند هنوکین پیش نویس ای صفحهء', # Fuzzy
+	'tooltip-ca-stable' => 'به گند نسخه ثابت ای صفحهء', # Fuzzy
 	'tooltip-ca-default' => 'تنضیمات اطمینان کیفیت',
-	'validationpage' => '{{ns:help}}: اعتبار مقاله',
+	'validationpage' => '{{ns:help}}: اعتبار مقاله', # Fuzzy
 );
 
 /** Bikol Central (Bikol Central)
  * @author Filipinayzd
  */
 $messages['bcl'] = array(
-	'revreview-hist-quality' => 'kalidad',
+	'revreview-hist-quality' => 'kalidad', # Fuzzy
 	'revreview-depth' => 'Rarom',
 	'revreview-revnotfound' => 'Dai nahanap an lumang pagpakaraháy kan pahina na hinagad mo. Sosogon tabì an URL na ginamit mo sa pagabót sa pahinang ini.',
 );
@@ -1811,19 +1822,19 @@ $messages['be'] = array(
 	'flaggedrevs-pref-UI-1' => 'Невялікія значкі і мінімум тэксту для інфармацыі аб стане пацверджання старонкі',
 	'prefs-flaggedrevs' => 'Пацвярджэнне зменаў',
 	'prefs-flaggedrevs-ui' => 'Пацвярджэнне зменаў',
-	'flaggedrevs-prefs-stable' => 'Заўсёды паказваць па змаўчанні апублікаваную версію артыкула (калі такая існуе)',
+	'flaggedrevs-prefs-stable' => 'Заўсёды паказваць па змаўчанні апублікаваную версію артыкула (калі такая існуе)', # Fuzzy
 	'flaggedrevs-prefs-watch' => 'Дадаваць правераныя мною старонкі ў спіс назірання',
 	'flaggedrevs-prefs-editdiffs' => 'Паказваць розніцу паміж праверанай і неправеранай версіямі пры рэдагаванні старонак',
 	'flaggedrevs-prefs-viewdiffs' => 'Паказваць неправераныя змены пры праглядзе апошняй неправеранай версіі старонкі',
 	'flaggedrevs-hidereviewed' => '$1  {{PLURAL:$1|правераную праўку|правераныя праўкі|правераных правак}}',
 	'group-editor' => 'Даглядальнікі',
-	'group-editor-member' => 'Даглядальнік',
+	'group-editor-member' => 'Даглядальнік', # Fuzzy
 	'group-reviewer' => 'Вывяраючыя',
-	'group-reviewer-member' => 'вывяраючы',
+	'group-reviewer-member' => 'вывяраючы', # Fuzzy
 	'grouppage-editor' => '{{ns:project}}:Даглядальнік',
 	'grouppage-reviewer' => '{{ns:project}}:Вывяраючы',
 	'group-autoreview' => 'Аўтадаглядальнікі',
-	'group-autoreview-member' => 'Аўтадаглядальнік',
+	'group-autoreview-member' => 'Аўтадаглядальнік', # Fuzzy
 	'grouppage-autoreview' => '{{ns:project}}:Аўтадаглядальнікі',
 	'revreview-hist-draft' => 'неправераная версія',
 	'revreview-hist-pending' => 'чакае праверкі',
@@ -1877,17 +1888,17 @@ $messages['be'] = array(
 	'revreview-depth-4' => 'Абраная',
 	'revreview-draft-title' => 'На гэтай старонцы паказваюцца неправераныя змены',
 	'revreview-edit' => 'Правіць',
-	'revreview-editnotice' => "	'''Зробленыя вамі змены будуць паказаны чытачам пасля праверкі упаўнаважаным удзельнікам. ([[{{MediaWiki:Validationpage}}|падрабязней]])'''",
+	'revreview-editnotice' => "	'''Зробленыя вамі змены будуць паказаны чытачам пасля праверкі упаўнаважаным удзельнікам. ([[{{MediaWiki:Validationpage}}|падрабязней]])'''", # Fuzzy
 	'revreview-submitedit' => 'Пацвердзіць змены',
 	'revreview-submitedit-title' => 'Адправіць вашыя змены для праверкі',
 	'revreview-edited' => "'''Змены будуць паказаны чытачам пасля іх праверкі упаўнаважаным удзельнікам. ([[{{MediaWiki:Validationpage}}|падрабязней]])'''
 
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|змена|змены|змен}}] {{PLURAL:$2|чакае|чакаюць|чакаюць}} праверки (паказаны ніжэй).",
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|змена|змены|змен}}] {{PLURAL:$2|чакае|чакаюць|чакаюць}} праверки (паказаны ніжэй).", # Fuzzy
 	'revreview-edited-section' => 'Вярнуцца да раздзелу старонкі пад назвай «[[#$1|$2]]».',
-	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Апублікаваная версія] была [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} праверана] <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|змена|змены|змен}}] {{PLURAL:$3|чакае|чакаюць|чакаюць}} праверкі.',
-	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Апублікаваная версія] была [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} праверана] <i>$2</i>. Маюцца неправераныя [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} змены ў шаблонах ці файлах].',
-	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Апублікаваная версія] была [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} пацвержана] <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|змена|змены|зменаў}}] {{PLURAL:$3|чакае|чакаюць|чакаюць}} праверкі.',
-	'revreview-newest-quality-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Апублікаваная версія] была [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} пацвержана] <i>$2</i>. Маецца неправераныя [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} змены ў шаблонах ці файлах].',
+	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Апублікаваная версія] была [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} праверана] <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|змена|змены|змен}}] {{PLURAL:$3|чакае|чакаюць|чакаюць}} праверкі.', # Fuzzy
+	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Апублікаваная версія] была [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} праверана] <i>$2</i>. Маюцца неправераныя [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} змены ў шаблонах ці файлах].', # Fuzzy
+	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Апублікаваная версія] была [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} пацвержана] <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|змена|змены|зменаў}}] {{PLURAL:$3|чакае|чакаюць|чакаюць}} праверкі.', # Fuzzy
+	'revreview-newest-quality-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Апублікаваная версія] была [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} пацвержана] <i>$2</i>. Маецца неправераныя [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} змены ў шаблонах ці файлах].', # Fuzzy
 	'revreview-pending-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Апублікаваная версія] была [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} праверана] <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|змена|змены|змен}}] {{PLURAL:$3|чакае|чакаюць|чакаюць}} праверкі.',
 	'revreview-pending-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Апублікаваная версія] была [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} пацвержана] <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|змена|змены|змен}}] {{PLURAL:$3|чакае|чакаюць|чакаюць}} праверкі.',
 	'revreview-pending-nosection' => 'Звярніце ўвагу на [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} апошнюю версію], у каторай {{PLURAL:$2|чакае|чакаюць|чакаюць}} праверкі [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|змена|змены|змен}}]. Магчыма, раздел быў перамешчаны ці выдалены.',
@@ -2007,11 +2018,11 @@ $messages['be-tarask'] = array(
 	'group-editor' => 'Рэдактары',
 	'group-editor-member' => '{{GENDER:$1|рэдактар|рэдактарка}}',
 	'group-reviewer' => 'Рэцэнзэнты',
-	'group-reviewer-member' => 'рэцэнзэнт',
+	'group-reviewer-member' => 'рэцэнзэнт', # Fuzzy
 	'grouppage-editor' => '{{ns:project}}:Рэдактар',
 	'grouppage-reviewer' => '{{ns:project}}:Рэцэнзэнт',
 	'group-autoreview' => 'Аўтаматычныя рэцэнзэнты',
-	'group-autoreview-member' => 'аўтаматычны рэцэнзэнт',
+	'group-autoreview-member' => 'аўтаматычны рэцэнзэнт', # Fuzzy
 	'grouppage-autoreview' => '{{ns:project}}:Аўтаматычны рэцэнзэнт',
 	'revreview-hist-draft' => 'неправераная вэрсія',
 	'revreview-hist-pending' => 'чакае праверкі',
@@ -2065,12 +2076,12 @@ $messages['be-tarask'] = array(
 	'revreview-depth-4' => 'Выбраная',
 	'revreview-draft-title' => 'На гэтай старонцы паказаныя нерэцэнзаваныя зьмены',
 	'revreview-edit' => 'Рэдагаваць',
-	'revreview-editnotice' => "'''Вашыя рэдагаваньні будуць паказаныя пасьля таго, як іх прарэцэнзуе аўтарызаваны удзельнік.([[{{MediaWiki:Validationpage}}|дапамога]])'''",
+	'revreview-editnotice' => "'''Вашыя рэдагаваньні будуць паказаныя пасьля таго, як іх прарэцэнзуе аўтарызаваны удзельнік.([[{{MediaWiki:Validationpage}}|дапамога]])'''", # Fuzzy
 	'revreview-submitedit' => 'Прыняць зьмены',
 	'revreview-submitedit-title' => 'Прапанаваць Вашыя зьмены для рэцэнзаваньня',
 	'revreview-edited' => "'''Вашыя рэдагаваньні будуць паказаныя чытачам пасьля таго, як іх прарэцэнзуе аўтарызаваны ўдзельнік.([[{{MediaWiki:Validationpage}}|?]])'''
 
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|зьмена|зьмены|зьмены}}] {{PLURAL:$2|''(паказаная ніжэй)'' чакае|''(паказаныя ніжэй)'' чакаюць|''(паказаныя ніжэй)'' чакаюць}} рэцэнзаваньня.",
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|зьмена|зьмены|зьмены}}] {{PLURAL:$2|''(паказаная ніжэй)'' чакае|''(паказаныя ніжэй)'' чакаюць|''(паказаныя ніжэй)'' чакаюць}} рэцэнзаваньня.", # Fuzzy
 	'revreview-edited-section' => 'Вярнуцца да сэкцыі з назвай «[[#$1|$2]]».',
 	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$3|зьмена|зьмены|зьменаў}}] [[{{MediaWiki:Validationpage}}|{{PLURAL:$3|чакае|чакаюць|чакаюць}} праверкі]].
 [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Апублікаваная вэрсія] была [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} правераная] <i>$2</i>.',
@@ -2090,11 +2101,11 @@ $messages['be-tarask'] = array(
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|зьмена|зьмены|зьменаў}}] {{PLURAL:$3|патрабуе|патрабуюць|патрабуюць}} рэцэнзаваньня.',
 	'revreview-quality-i' => 'Гэта [[{{MediaWiki:Validationpage}}|апублікаваная вэрсія]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} зацьверджаная] <i>$2</i>.
 Ёсьць [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} зьмены ў шаблёнах/файлах], якія патрабуюць рэцэнзаваньня.',
-	'revreview-quality-old' => 'Гэта [[{{MediaWiki:Validationpage}}|якасная]] вэрсія
-([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} сьпіс цалкам]),
+	'revreview-quality-old' => 'Гэта [[{{MediaWiki:Validationpage}}|якасная]] вэрсія 
+([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} сьпіс цалкам]), 
 [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} зацьверджаная] <i>$2</i>.
 Маглі быць зроблены новыя [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} зьмены].',
-	'revreview-quality-same' => 'Гэта [[{{MediaWiki:Validationpage}}|апублікаваная вэрсія]]
+	'revreview-quality-same' => 'Гэта [[{{MediaWiki:Validationpage}}|апублікаваная вэрсія]] 
 [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} зацьверджаная] <i>$2</i>.',
 	'revreview-quality-source' => '[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} Якасная вэрсія] гэтай старонкі, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} зацьверджаная] <i>$2</i>, была заснавана на гэтай вэрсіі.',
 	'revreview-quality-title' => 'Якасная вэрсія гэтай старонкі',
@@ -2182,7 +2193,7 @@ $messages['be-tarask'] = array(
  */
 $messages['bg'] = array(
 	'editor' => 'Редактор',
-	'flaggedrevs-desc' => 'Дава възможността на редактори/рецензенти да одобряват версии и да определят страници като устойчиви',
+	'flaggedrevs-desc' => 'Дава възможността на редактори/рецензенти да одобряват версии и да определят страници като устойчиви', # Fuzzy
 	'flaggedrevs-pref-UI' => 'Базов интерфейс:',
 	'flaggedrevs-pref-UI-0' => 'Да се използват детайлни карета, за да се покаже статуса на страниците (прегледани или не)',
 	'flaggedrevs-pref-UI-1' => 'Да се използват малки икони и минимално количество текст, за да се покаже статуса на страниците (прегледани или не)',
@@ -2191,81 +2202,81 @@ $messages['bg'] = array(
 	'flaggedrevs-prefs-stable' => 'Кога да се показва стабилната версия на страниците по подразбиране',
 	'flaggedrevs-pref-stable-1' => 'Винаги да се показва стабилната версия (ако има такава)',
 	'flaggedrevs-pref-stable-2' => 'Винаги да се показва последната версия',
-	'flaggedrevs-prefs-editdiffs' => 'Показване разликата със стабилната версия при редактиране на страници',
-	'flaggedrevs-prefs-viewdiffs' => 'Показване разликата със стабилната версия при преглед на чернови',
+	'flaggedrevs-prefs-editdiffs' => 'Показване разликата със стабилната версия при редактиране на страници', # Fuzzy
+	'flaggedrevs-prefs-viewdiffs' => 'Показване разликата със стабилната версия при преглед на чернови', # Fuzzy
 	'flaggedrevs-hidereviewed' => '$1 {{PLURAL:$1|прегледана редакция|прегледани редакции}}',
 	'group-editor' => 'Редактори',
-	'group-editor-member' => 'Редактор',
+	'group-editor-member' => 'Редактор', # Fuzzy
 	'group-reviewer' => 'Рецензенти',
-	'group-reviewer-member' => 'Рецензент',
+	'group-reviewer-member' => 'Рецензент', # Fuzzy
 	'grouppage-editor' => '{{ns:project}}:Редактор',
 	'grouppage-reviewer' => '{{ns:project}}:Рецензент',
 	'group-autoreview' => 'Авторецензенти',
-	'group-autoreview-member' => 'авторецензент',
-	'grouppage-autoreview' => '{ns:project}}:Авторецензент',
+	'group-autoreview-member' => 'авторецензент', # Fuzzy
+	'grouppage-autoreview' => '{ns:project}}:Авторецензент', # Fuzzy
 	'revreview-hist-draft' => 'непроверена версия',
 	'revreview-hist-pending' => 'версия, очакваща проверка',
 	'revreview-hist-quality' => 'качествена версия',
 	'revreview-hist-basic' => 'проверена версия',
 	'revreview-log-details-show' => 'показване на подробности',
-	'review-diff2stable' => 'Преглед на разликите между устойчивата и текущата версия',
+	'review-diff2stable' => 'Преглед на разликите между устойчивата и текущата версия', # Fuzzy
 	'review-logentry-id' => 'номер на редакция: $2',
 	'reviewer' => 'Рецензент',
 	'revreview-accuracy' => 'Точност',
-	'revreview-accuracy-0' => 'Неодобрена',
+	'revreview-accuracy-0' => 'Неодобрена', # Fuzzy
 	'revreview-accuracy-1' => 'Прегледана',
 	'revreview-accuracy-2' => 'Точна',
 	'revreview-accuracy-3' => 'Добри източници',
 	'revreview-accuracy-4' => 'Избрана',
 	'revreview-auto' => '(автоматично)',
-	'revreview-current' => 'Чернова',
+	'revreview-current' => 'Чернова', # Fuzzy
 	'revreview-depth' => 'Пълнота',
-	'revreview-depth-0' => 'Неодобрена',
+	'revreview-depth-0' => 'Неодобрена', # Fuzzy
 	'revreview-depth-1' => 'Начална',
 	'revreview-depth-2' => 'Средна',
 	'revreview-depth-3' => 'Висока',
 	'revreview-depth-4' => 'Избрана',
-	'revreview-draft-title' => 'Това е чернова на страница',
+	'revreview-draft-title' => 'Това е чернова на страница', # Fuzzy
 	'revreview-edit' => 'Редактиране',
 	'revreview-oldrating' => 'Досегашна оценка:',
-	'revreview-quality-same' => 'Това е [[{{MediaWiki:Validationpage}}|стабилната версия]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approved] на <i>$2</i>.',
+	'revreview-quality-same' => 'Това е [[{{MediaWiki:Validationpage}}|стабилната версия]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approved] на <i>$2</i>.', # Fuzzy
 	'revreview-quick-invalid' => "'''Невалиден номер на версия'''",
-	'revreview-quick-none' => "'''Текуща''' (няма рецензирани версии)",
+	'revreview-quick-none' => "'''Текуща''' (няма рецензирани версии)", # Fuzzy
 	'revreview-quick-see-basic' => '[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} преглед на чакащите за одобрение промени]]',
 	'revreview-quick-see-quality' => '[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} преглед на чакащите за одобрение промени]]',
-	'revreview-source' => 'изходен код на черновата',
+	'revreview-source' => 'изходен код на черновата', # Fuzzy
 	'revreview-basic-title' => 'Това е проверена версия на тази страница',
 	'revreview-style' => 'Четимост',
-	'revreview-style-0' => 'Неодобрена',
+	'revreview-style-0' => 'Неодобрена', # Fuzzy
 	'revreview-style-1' => 'Приемлива',
 	'revreview-style-2' => 'Добра',
 	'revreview-style-3' => 'Издържана',
 	'revreview-style-4' => 'Избрана',
 	'revreview-toggle-title' => 'показване/скриване на детайли',
 	'revreview-revnotfound' => 'Желаната стара версия на страницата не беше открита. Проверете адреса, който използвахте за достъп до страницата.',
-	'right-movestable' => 'Преместване на устойчиви страници',
+	'right-movestable' => 'Преместване на устойчиви страници', # Fuzzy
 	'right-review' => 'Отбелязване на версиите като проверени',
 	'right-stablesettings' => 'Конфигуриране на начина за избор и показване на стабилната версия',
 	'right-validate' => 'Отбелязване на версиите като качествени',
 	'rights-editor-revoke' => 'отне правата на редактор на [[$1]]',
-	'specialpages-group-quality' => 'Качествен контрол',
+	'specialpages-group-quality' => 'Качествен контрол', # Fuzzy
 	'stable-logpage' => 'Дневник на устойчивите версии',
 	'revreview-filter-all' => 'Всички',
-	'revreview-filter-stable' => 'устойчива',
-	'revreview-statusfilter' => 'Промяна на състоянието:',
+	'revreview-filter-stable' => 'устойчива', # Fuzzy
+	'revreview-statusfilter' => 'Промяна на състоянието:', # Fuzzy
 	'revreview-filter-approved' => 'Одобрени',
 	'revreview-filter-reapproved' => 'Повторно одобрени',
-	'revreview-filter-unapproved' => 'Неодобрени',
+	'revreview-filter-unapproved' => 'Неодобрени', # Fuzzy
 	'revreview-typefilter' => 'Тип:',
 	'revreview-filter-auto' => 'Автоматично',
 	'revreview-filter-manual' => 'Ръчно',
 	'revreview-levelfilter' => 'Ниво:',
 	'revreview-defaultfilter' => 'Версия по подразбиране:',
 	'revreview-reviewlink-title' => 'Преглед на разликовата препратка с всички промени, очакващи проверка',
-	'tooltip-ca-current' => 'Преглед на текущата чернова на страницата',
-	'tooltip-ca-stable' => 'Преглед на устойчивата версия на страницата',
+	'tooltip-ca-current' => 'Преглед на текущата чернова на страницата', # Fuzzy
+	'tooltip-ca-stable' => 'Преглед на устойчивата версия на страницата', # Fuzzy
 	'tooltip-ca-default' => 'Настройки на контрола на качеството',
-	'flaggedrevs-protect-legend' => 'Публикуване на редакциите',
+	'flaggedrevs-protect-legend' => 'Публикуване на редакциите', # Fuzzy
 	'flaggedrevs-protect-none' => 'Позволяване на всички потребители',
 );
 
@@ -2345,10 +2356,10 @@ $messages['bn'] = array(
 	'revreview-submitedit-title' => 'আপনার পরিবর্তন পরীক্ষণের জন্য জমা দিন',
 	'revreview-edited' => "'''আপনার পরিবর্তন একজন বিশেষ ক্ষমতা প্রাপ্ত ব্যবহারকারী দ্বারা পরীক্ষিত হওয়ার পর মূল পাতায় দৃশ্যমান হবে। ([[{{MediaWiki:Validationpage}}|সাহায্য]])'''
 
-এখানে {{PLURAL:$2|মোট|মোট}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2টি অমিমাংসীত {{PLURAL:$2|পরিবর্তন|পরিবর্তন}}] ''(নিচে প্রদর্শিত)'' পর্যবেক্ষণের জন্য অপেক্ষামান।",
+এখানে {{PLURAL:$2|মোট|মোট}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2টি অমিমাংসীত {{PLURAL:$2|পরিবর্তন|পরিবর্তন}}] ''(নিচে প্রদর্শিত)'' পর্যবেক্ষণের জন্য অপেক্ষামান।", # Fuzzy
 	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} সাম্প্রতি দেখা সংস্করণ]
 ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} সমস্ত তালিকা])  [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} অনুমোদিত] হয়েছে
-<i>$2</i> এ। [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|পরিবর্তন|পরিবর্তনসমূহ}}] পর্যালোচনা {{PLURAL:$3|প্রয়োজন|প্রয়োজন}}।',
+<i>$2</i> এ। [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|পরিবর্তন|পরিবর্তনসমূহ}}] পর্যালোচনা {{PLURAL:$3|প্রয়োজন|প্রয়োজন}}।', # Fuzzy
 	'revreview-oldrating' => 'পূর্বে মূল্যায়ন ছিল:',
 	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|পরীক্ষিত]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} অমীমাংসিত পরিবর্তন পর্যালোচনা]]",
 	'revreview-quick-basic-old' => "'''[[{{MediaWiki:Validationpage}}|পরীক্ষিত]]'''",
@@ -2401,7 +2412,7 @@ $messages['bn'] = array(
 	'revreview-reviewlink' => 'অমীমাংসিত সম্পাদনা',
 	'revreview-reviewlink-title' => 'সকল অমীমাংসীত পরিবর্তনের পার্থক্য দেখাও',
 	'revreview-unreviewedpage' => 'অপরীক্ষিত পাতা',
-	'tooltip-ca-current' => 'এই পাতাটির বর্তমান খসড়াটি দেখুন',
+	'tooltip-ca-current' => 'এই পাতাটির বর্তমান খসড়াটি দেখুন', # Fuzzy
 	'tooltip-ca-stable' => 'এই পাতার স্থিতিশীল সংস্করণটি দেখাও',
 	'tooltip-ca-default' => 'মান নিশ্চিতকরণ সেটিংস',
 	'flaggedrevs-protect-none' => 'সমস্ত ব্যবহারকারীর জন্য',
@@ -2414,27 +2425,27 @@ $messages['bn'] = array(
 $messages['bqi'] = array(
 	'editor' => 'اصلاحگر',
 	'flaggedrevs' => 'نسخه‌های علامت‌دار',
-	'flaggedrevs-prefs-stable' => 'بختیاری (bqi)(در صورت وجود) همیشه نسخه مقاوم یه صفحه را به عنوان نسخه پیش فرض نشو بده',
+	'flaggedrevs-prefs-stable' => 'بختیاری (bqi)(در صورت وجود) همیشه نسخه مقاوم یه صفحه را به عنوان نسخه پیش فرض نشو بده', # Fuzzy
 	'flaggedrevs-prefs-watch' => 'صفحاتی که بازبینی ا‌کنم را به لیست پیگیری‌هام اضاف کن',
 	'group-editor' => 'اصلاحگران',
-	'group-editor-member' => 'اصلاحگر',
+	'group-editor-member' => 'اصلاحگر', # Fuzzy
 	'group-reviewer' => 'مرورگرها',
-	'group-reviewer-member' => 'مرورگر',
+	'group-reviewer-member' => 'مرورگر', # Fuzzy
 	'grouppage-editor' => '{{ns:project}}:اصلاحگر',
 	'grouppage-reviewer' => '{{ns:project}}:مرورگر',
-	'review-logpagetext' => 'ای نمایه ای زه تعییرات وضعیت [[{{MediaWiki:Validationpage}}|تائید]]
-نسخه‌های صفحاته .',
+	'review-logpagetext' => 'ای نمایه ای زه تعییرات وضعیت [[{{MediaWiki:Validationpage}}|تائید]] 
+نسخه‌های صفحاته .', # Fuzzy
 	'revreview-auto' => 'اتوماتیک',
 	'revreview-basic' => 'ای آخرین نسخه [[{{MediaWiki:Validationpage}}|بررسی‌ وابیده]] است که در <i>$2</i>
 [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} تائید وابیده]. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} پیش ‌نویس]
 قابل [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} اصلاح] است؛ [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|تغییر|تغییر}}]
-نیازمند بررسی {{PLURAL:$3|است|هستند}}.',
+نیازمند بررسی {{PLURAL:$3|است|هستند}}.', # Fuzzy
 	'revreview-basic-i' => 'ای چدید‌ترین نسخه [[{{MediaWiki:Validationpage}}|بررسی وابیده]] است، که در <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} تایید وابیده].
-[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} پیش ‌نویس] دارای [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} تغییراتی در قالبها/تصویرها] است که هنی بازبینی نوابیدنه.',
+[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} پیش ‌نویس] دارای [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} تغییراتی در قالبها/تصویرها] است که هنی بازبینی نوابیدنه.', # Fuzzy
 	'revreview-basic-old' => 'ای یه نسخه [[{{MediaWiki:Validationpage}}|بررسی وابیده]] است([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} نشودادن همه])، که در <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} تایید وابیده].
-ممکنه   [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} تغییرات] جدیدی اتفاق افتاده وابیده',
-	'revreview-basic-same' => 'ای آخرین نسخه [[{{MediaWiki:Validationpage}}|بررسی وابیده]] ‌است، که در <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} تایید وابیده] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} لیست کامل]).',
-	'revreview-basic-source' => 'یه [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} نسخه بررسی وابیده] زه ای صفحه، [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} تایید وابیده] در <i>$2</i>، بر مبنای ای نسخه ایجاد وابیده.',
+ممکنه   [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} تغییرات] جدیدی اتفاق افتاده وابیده', # Fuzzy
+	'revreview-basic-same' => 'ای آخرین نسخه [[{{MediaWiki:Validationpage}}|بررسی وابیده]] ‌است، که در <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} تایید وابیده] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} لیست کامل]).', # Fuzzy
+	'revreview-basic-source' => 'یه [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} نسخه بررسی وابیده] زه ای صفحه، [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} تایید وابیده] در <i>$2</i>، بر مبنای ای نسخه ایجاد وابیده.', # Fuzzy
 );
 
 /** Breton (brezhoneg)
@@ -2543,7 +2554,7 @@ Bez' ez eus [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrev
 	'revreview-oldrating' => 'E boentadur :',
 	'revreview-quality' => "Ar [[{{MediaWiki:Validationpage}}|stumm embannet]] eo, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprouet] d'an <i>$2</i>.
 Bez ez eus [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 kemm{{PLURAL:$3||}}] hag o deus ezhomm bezañ adlennet.",
-	'revreview-quality-i' => "Ar [[{{MediaWiki:Validationpage}}|stumm embannet]] eo, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} parouet] d'an <i>$2</i>.
+	'revreview-quality-i' => "Ar [[{{MediaWiki:Validationpage}}|stumm embannet]] eo, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} parouet] d'an <i>$2</i>. 
 Bez ez eus [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} kemmoù patromoù/restroù] o c'hortoz bezañ adlennet.",
 	'revreview-quality-old' => "Un adweladenn [[{{MediaWiki:Validationpage}}|a galite]] eo ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} gwelet ar roll]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprouet] d'an <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Kemmoù] nevez a c'hell bezañ bet graet.",
@@ -2649,13 +2660,13 @@ $messages['bs'] = array(
 	'flaggedrevs-prefs-viewdiffs' => 'Pokaži razlike izmjena na čekanju pri prikazivanju posljednje revizije na čekanju',
 	'flaggedrevs-hidereviewed' => '$1 pregledanih izmjena',
 	'group-editor' => 'Urednici',
-	'group-editor-member' => 'uređivač',
+	'group-editor-member' => 'uređivač', # Fuzzy
 	'group-reviewer' => 'Provjerivači',
-	'group-reviewer-member' => 'provjerivač',
+	'group-reviewer-member' => 'provjerivač', # Fuzzy
 	'grouppage-editor' => '{{ns:project}}:Urednik',
 	'grouppage-reviewer' => '{{ns:project}}:Pregledavač',
 	'group-autoreview' => 'Autonadzornici',
-	'group-autoreview-member' => 'autonadzornik',
+	'group-autoreview-member' => 'autonadzornik', # Fuzzy
 	'grouppage-autoreview' => '{{ns:project}}:Autonadzornik',
 	'revreview-hist-draft' => 'neprovjerena revizija',
 	'revreview-hist-pending' => 'čeka na provjeru',
@@ -2709,12 +2720,12 @@ Nove [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffo
 	'revreview-depth-4' => 'Odabrano',
 	'revreview-draft-title' => 'Na ovoj stranici su prikazane izmjene na čekanju',
 	'revreview-edit' => 'Uredi',
-	'revreview-editnotice' => "'''Vaše izmjene će biti prikazane čitaocima tek kada ih pregleda potvrđeni korisnik. ([[{{MediaWiki:Validationpage}}|pomoć]])'''",
+	'revreview-editnotice' => "'''Vaše izmjene će biti prikazane čitaocima tek kada ih pregleda potvrđeni korisnik. ([[{{MediaWiki:Validationpage}}|pomoć]])'''", # Fuzzy
 	'revreview-submitedit' => 'Pošalji promjene',
 	'revreview-submitedit-title' => 'Pošaljite svoje izmjene na pregled',
 	'revreview-edited' => "'''Vaše izmjene će biti prikazane čitaocima kada iz autorizirani korisnik provjeri. ([[{{MediaWiki:Validationpage}}|pomoć]])'''
 
-{{PLURAL:$2|Postoji|Postoje}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2  {{PLURAL:$2|izmjena|izmjene|izmjena}}] na čekanju ''(prikazano ispod)'' {{PLURAL:$2|koja|koje}} čekaju na provjeru.",
+{{PLURAL:$2|Postoji|Postoje}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2  {{PLURAL:$2|izmjena|izmjene|izmjena}}] na čekanju ''(prikazano ispod)'' {{PLURAL:$2|koja|koje}} čekaju na provjeru.", # Fuzzy
 	'revreview-edited-section' => 'Natrag na sekciju stranice pod imenom "[[#$1|$2]]".',
 	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|izmjena|izmjene}}] u ovoj verziji {{PLURAL:$3|je|su}} [[{{MediaWiki:Validationpage}}|na čekanju za provjeru]].
 [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Stabilna verzija] je bila [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} provjerena] dana <i>$2</i>.',
@@ -2725,9 +2736,9 @@ Nove [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffo
 	'revreview-newest-quality-i' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Izmjene šablona/datoteke] u ovoj verziji [[{{MediaWiki:Validationpage}}|čekaju na provjeru]].
 [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Stabilna verzija] je bila [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} odobrena] dana <i>$2</i>.',
 	'revreview-pending-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Stabilna verzija] je bila [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} provjerena] dana <i>$2</i>. {{PLURAL:$3|Postoji|Postoje}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|izmjena|izmjene}}] koje čekaju na provjeru.',
-	'revreview-pending-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Stabilna verzija] je bila [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} odobrena] dana <i>$2</i>.
+	'revreview-pending-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Stabilna verzija] je bila [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} odobrena] dana <i>$2</i>. 
 {{PLURAL:$3|Postoji|Postoje}}  [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|izmjena|izmjene}}] koje čekaju na pregled.',
-	'revreview-pending-nosection' => 'Pokušajte pogledati [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} posljednju reviziju], koja uključuje
+	'revreview-pending-nosection' => 'Pokušajte pogledati [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} posljednju reviziju], koja uključuje 
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|izmjenu|izmjene|izmjena}}] koje čekaju, da provjerite da li je sekcija pomjerena ili obrisana.',
 	'revreview-noflagged' => "Nema [[{{MediaWiki:Validationpage}}|pregledanih verzija]] ove stranice, tako da '''ne''' može biti provjerena u skladu sa standardima.",
 	'revreview-oldrating' => 'Ocijenjeno je:',
@@ -2927,7 +2938,7 @@ La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} versió estable] va ser [{{fullurl:{{
 La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} versió estable] va ser [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovada] el <i>$2</i>.',
 	'revreview-pending-basic' => 'La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} versió estable] va ser [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} compravada] el <i>$2</i>. Hi ha [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|canvi|canvis}}] en curs que {{PLURAL:$3|atén|atenen}} una revisió.',
 	'revreview-pending-quality' => 'La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} versió estable] va ser [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovada] el <i>$2</i>. Hi ha [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|canvi|canvis}}] en curs que atenen revisió.',
-	'revreview-pending-nosection' => "Assejeu de veure l'[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} última revisió], que inclou
+	'revreview-pending-nosection' => "Assejeu de veure l'[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} última revisió], que inclou 
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|canvi|canvis}}] en curs, a fi de verificar si la secció va ser moguda o esborrada.",
 	'revreview-noflagged' => "No hi ha [[{{MediaWiki:Validationpage}}|versions revisades]] d'aquesta pàgina i, per tant, pot '''no''' haver estat [[{{MediaWiki:Validationpage}}|comprovada]] la seva qualitat segons els estàndards.",
 	'revreview-oldrating' => 'Estava valorada:',
@@ -3031,18 +3042,18 @@ $messages['ce'] = array(
 	'flaggedrevs-pref-UI-1' => 'Жимо куьцаш а кlеззиг йоза оц бакъйиначу агlоний хьолех лаьцна хааман',
 	'prefs-flaggedrevs' => 'Бакъдарца нисдарш',
 	'prefs-flaggedrevs-ui' => 'Бакъдарца нисдарш',
-	'flaggedrevs-prefs-stable' => 'Даиман гайта хьецадеш дитарехь чутоьхна даларехь йолу агlо (нагахь исаннаг йалахь)',
+	'flaggedrevs-prefs-stable' => 'Даиман гайта хьецадеш дитарехь чутоьхна даларехь йолу агlо (нагахь исаннаг йалахь)', # Fuzzy
 	'flaggedrevs-prefs-watch' => 'Со хьаьжна волу агlонаш, тергаме могlаман юкъа тоха',
 	'flaggedrevs-prefs-editdiffs' => 'Гайта башхонаш хьаьжна а хьажанза даларехь агlонан редаккхарца',
 	'flaggedrevs-prefs-viewdiffs' => 'Гайта хьаьжназа болу хийцам хьажуш тlаьхьаралера агlон хьажанза долу далар',
 	'group-editor' => 'Гlаролхой',
-	'group-editor-member' => 'гlаролхо',
+	'group-editor-member' => 'гlаролхо', # Fuzzy
 	'group-reviewer' => 'Нийсдохьажамхой',
-	'group-reviewer-member' => 'нийсдохьажамхо',
+	'group-reviewer-member' => 'нийсдохьажамхо', # Fuzzy
 	'grouppage-editor' => '{{ns:project}}:Хьажамхо',
 	'grouppage-reviewer' => '{{ns:project}}:Нийсдохьажамхо',
 	'group-autoreview' => 'Шаьшха нийсдохьажамхой',
-	'group-autoreview-member' => 'шаьшха нийсдохьажамхой',
+	'group-autoreview-member' => 'шаьшха нийсдохьажамхой', # Fuzzy
 	'grouppage-autoreview' => '{{ns:project}}:Шаьшха нийсдохьажамхой',
 	'revreview-hist-draft' => 'хьажанза варси',
 	'revreview-hist-pending' => 'хьоьжуш хьажаре',
@@ -3096,17 +3107,17 @@ $messages['ce'] = array(
 	'revreview-depth-4' => 'хаьржина',
 	'revreview-draft-title' => 'Хlокху агlон тlехь гойту хьажанза болу хийцамаш',
 	'revreview-edit' => 'Нисйé',
-	'revreview-editnotice' => "'''Ахьа бина болу хийцамаш гур бу йоьшучарна, нийса йу ле йац хьожушвер хьаьжча. ([[{{MediaWiki:Validationpage}}|кхин дlа]])'''",
+	'revreview-editnotice' => "'''Ахьа бина болу хийцамаш гур бу йоьшучарна, нийса йу ле йац хьожушвер хьаьжча. ([[{{MediaWiki:Validationpage}}|кхин дlа]])'''", # Fuzzy
 	'revreview-submitedit' => 'Дlайазъбе хийцамаш',
 	'revreview-submitedit-title' => 'Дlа бахьийта хьай хийцамаш хьажаре',
 	'revreview-edited' => "'''Хийцамаш гойтур бу йоьшучарна тlаьхьа, нийса йу ле йац хьожушвер хьаьжча. ([[{{MediaWiki:Validationpage}}|кхин дlа]])'''
 
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|хийцам|хийцамаш}}] {{PLURAL:$2|хьоьжуш|хьоьжуш}} бу хьажаре (гойтуш лахахь).",
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|хийцам|хийцамаш}}] {{PLURAL:$2|хьоьжуш|хьоьжуш}} бу хьажаре (гойтуш лахахь).", # Fuzzy
 	'revreview-edited-section' => 'Йуха гlо агlонан даакъанчу оцу цlарца «[[#$1|$2]]».',
-	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Чутоьхна башхо] йара [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} хьаьжна] <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|хийцам|хийцамаш|хийцамаш}}] {{PLURAL:$3|хьоьжу|хьоьжуш|хьоьжуш}} бу хьажаре.',
-	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Чутоьхна башхо] йара [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} хьажна] <i>$2</i>. Хьажанза бу [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} хийцамаш оц куцкепашца йа хlумнашца].',
-	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Чутоьхна башхо] йара [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} бакъйина] <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|хийцам|хийцамаш|хийцамаш}}] {{PLURAL:$3|хьоьжу|хьоьжуш|хьоьжуш}} бу хьажаре.',
-	'revreview-newest-quality-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Чутоьхна башхо] йара [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} бакъйина] <i>$2</i>. Хьажанза бу [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} хийцамаш оц куцкепашца йа хlумнашца].',
+	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Чутоьхна башхо] йара [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} хьаьжна] <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|хийцам|хийцамаш|хийцамаш}}] {{PLURAL:$3|хьоьжу|хьоьжуш|хьоьжуш}} бу хьажаре.', # Fuzzy
+	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Чутоьхна башхо] йара [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} хьажна] <i>$2</i>. Хьажанза бу [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} хийцамаш оц куцкепашца йа хlумнашца].', # Fuzzy
+	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Чутоьхна башхо] йара [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} бакъйина] <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|хийцам|хийцамаш|хийцамаш}}] {{PLURAL:$3|хьоьжу|хьоьжуш|хьоьжуш}} бу хьажаре.', # Fuzzy
+	'revreview-newest-quality-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Чутоьхна башхо] йара [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} бакъйина] <i>$2</i>. Хьажанза бу [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} хийцамаш оц куцкепашца йа хlумнашца].', # Fuzzy
 	'revreview-pending-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Чутоьхна башхо] йара [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} хьаьжна] <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|хийцам|хийцамаш|хийцамаш}}] {{PLURAL:$3|хьоьжу|хьоьжуш|хьоьжуш}} бу хьажаре.',
 	'revreview-pending-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Чутоьхна башхо] йара [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} бакъйина] <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|хийцам|хийцамаш|хийцамаш}}] {{PLURAL:$3|хьоьжу|хьоьжуш|хьоьжуш}} бу хьажаре.',
 	'revreview-pending-nosection' => 'Тергонца хьажа [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} тlаьхьаралерачу башхонга], хьога {{PLURAL:$2|хьоьжу|хьоьжуш|хьоьжуш}} бу хьажаре [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|хийцам|хийцамаш|хийцамаш}}]. Хила мега, даакъа дехьа даьккхина йа дlадайина.',
@@ -3176,18 +3187,18 @@ $messages['ch'] = array(
 	'revreview-revnotfound' => "Ti siña masodda' i tinilaika i påhina ni finaisen-mu. Pot fabot chek i URL ni un usa para i finatto-mu gi påhina.",
 );
 
-/** Crimean Turkish (Latin script) (qırımtatarca (Latin)‎)
- * @author Don Alessandro
- */
-$messages['crh-latn'] = array(
-	'revreview-revnotfound' => 'Saifeniñ eski versiyası tapılmadı. Lütfen, bu saifege kirmek içün qullanğan bağlantıñıznıñ doğrulığını teşkeriñiz.',
-);
-
 /** Crimean Turkish (Cyrillic script) (къырымтатарджа (Кирилл)‎)
  * @author Don Alessandro
  */
 $messages['crh-cyrl'] = array(
 	'revreview-revnotfound' => 'Саифенинъ эски версиясы тапылмады. Лютфен, бу саифеге кирмек ичюн къуллангъан багълантынъызнынъ догърулыгъыны тешкеринъиз.',
+);
+
+/** Crimean Turkish (Latin script) (qırımtatarca (Latin)‎)
+ * @author Don Alessandro
+ */
+$messages['crh-latn'] = array(
+	'revreview-revnotfound' => 'Saifeniñ eski versiyası tapılmadı. Lütfen, bu saifege kirmek içün qullanğan bağlantıñıznıñ doğrulığını teşkeriñiz.',
 );
 
 /** Czech (česky)
@@ -3206,14 +3217,14 @@ $messages['cs'] = array(
 	'flaggedrevs-watched-pending' => "Momentálně existují [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} neprověřené úpravy] posouzených stránek, které jsou na vašem seznamu sledovaných stránek. '''Vyžaduje se vaše pozornost!'''",
 	'flaggedrevs-desc' => 'Umožňuje editorům hodnotit verze a stabilizovat stránky',
 	'flaggedrevs-pref-UI' => 'Základní rozhraní:',
-	'flaggedrevs-pref-UI-0' => 'Používat podrobné uživatelské rozhraní stabilních verzí',
-	'flaggedrevs-pref-UI-1' => 'Používat jednoduché uživatelské rozhraní stabilních verzí',
-	'prefs-flaggedrevs' => 'Stabilita',
-	'prefs-flaggedrevs-ui' => 'Označené revize',
-	'flaggedrevs-prefs-stable' => 'Vždy standardně zobrazovat stabilní verzi stránek s obsahem (pokud existuje)',
+	'flaggedrevs-pref-UI-0' => 'Používat podrobné uživatelské rozhraní stabilních verzí', # Fuzzy
+	'flaggedrevs-pref-UI-1' => 'Používat jednoduché uživatelské rozhraní stabilních verzí', # Fuzzy
+	'prefs-flaggedrevs' => 'Stabilita', # Fuzzy
+	'prefs-flaggedrevs-ui' => 'Označené revize', # Fuzzy
+	'flaggedrevs-prefs-stable' => 'Vždy standardně zobrazovat stabilní verzi stránek s obsahem (pokud existuje)', # Fuzzy
 	'flaggedrevs-prefs-watch' => 'Přidat stránky, které zkontroluji, do mého seznamu sledovaných stránek',
-	'flaggedrevs-prefs-editdiffs' => 'Při editování stránek zobrazovat rozdíly proti stabilní verzi',
-	'flaggedrevs-prefs-viewdiffs' => 'Při zobrazování navrhů stránek zobrazovat rozdíly proti stabilní verzi.',
+	'flaggedrevs-prefs-editdiffs' => 'Při editování stránek zobrazovat rozdíly proti stabilní verzi', # Fuzzy
+	'flaggedrevs-prefs-viewdiffs' => 'Při zobrazování navrhů stránek zobrazovat rozdíly proti stabilní verzi.', # Fuzzy
 	'group-editor' => 'Editoři',
 	'group-editor-member' => '{{GENDER:$1|editor|editorka|editor}}',
 	'group-reviewer' => 'Posuzovatelé',
@@ -3221,35 +3232,35 @@ $messages['cs'] = array(
 	'grouppage-editor' => '{{ns:project}}:Editor',
 	'grouppage-reviewer' => '{{ns:project}}:Posuzovatel',
 	'group-autoreview' => 'Automatičtí posuzovatelé',
-	'group-autoreview-member' => 'automatický posuzovatel',
+	'group-autoreview-member' => 'automatický posuzovatel', # Fuzzy
 	'grouppage-autoreview' => '{{ns:project}}:Automatický posuzovatel',
 	'revreview-hist-draft' => 'nezkontrolovaná revize',
 	'revreview-hist-pending' => 'čeká na kontrolu',
 	'revreview-hist-quality' => 'kvalitní verze',
 	'revreview-hist-basic' => 'zkontrolovaná revize',
-	'revreview-hist-quality-user' => 'ověřeno uživatelem [[User:$3|$3]]',
+	'revreview-hist-quality-user' => 'ověřeno uživatelem [[User:$3|$3]]', # Fuzzy
 	'revreview-hist-basic-user' => 'zkontrolováno uživatelem [[User:$3|$3]]',
 	'revreview-hist-quality-auto' => 'automaticky schváleno',
-	'revreview-hist-basic-auto' => 'automaticky posouzeno',
+	'revreview-hist-basic-auto' => 'automaticky posouzeno', # Fuzzy
 	'revreview-hist-pending-difflink' => "'''[[{{fullurl:$1|oldid=$2&diff=$3{{MediaWiki:flaggedrevs-diffonly}}}} čeká na kontrolu]]'''",
 	'review-edit-diff' => "'''UPOZORNĚNÍ: Část stránky, kterou editujete, obsahuje změny čekající na schválení'''",
 	'revreview-diff-toggle-show' => 'ukázat tyto změny',
 	'revreview-diff-toggle-hide' => 'skýt tyto změny',
-	'revreview-diff-toggle-title' => 'Nastavení zobrazení čekajících změn stabilní verze',
-	'revreview-log-toggle-show' => 'zobrazit log stabilních verzí',
-	'revreview-log-toggle-hide' => 'skrýt log stabilních verzí',
-	'revreview-log-toggle-title' => 'Nastavení zobrazení záznamu nastavení stability',
+	'revreview-diff-toggle-title' => 'Nastavení zobrazení čekajících změn stabilní verze', # Fuzzy
+	'revreview-log-toggle-show' => 'zobrazit log stabilních verzí', # Fuzzy
+	'revreview-log-toggle-hide' => 'skrýt log stabilních verzí', # Fuzzy
+	'revreview-log-toggle-title' => 'Nastavení zobrazení záznamu nastavení stability', # Fuzzy
 	'revreview-log-details-show' => 'zobrazit detaily',
 	'revreview-log-details-hide' => 'skrýt detaily',
-	'revreview-log-details-title' => 'Nastavení zobrazení záznamu nastavení stability',
+	'revreview-log-details-title' => 'Nastavení zobrazení záznamu nastavení stability', # Fuzzy
 	'review-diff2stable' => 'Zobrazit všechny změny čekající na kontrolu',
 	'review-logentry-app' => 'posoudil verzi stránky [[$1]]',
 	'review-logentry-dis' => 'zastaral verzi stránky [[$1]]',
 	'review-logentry-id' => 'ID verze: $2',
 	'review-logentry-diff' => 'posouzené změny',
-	'review-logentry-diff2' => 'neposouzené změny',
+	'review-logentry-diff2' => 'neposouzené změny', # Fuzzy
 	'review-logpage' => 'Kniha označování verzí',
-	'review-logpagetext' => 'Tato kniha zobrazuje změny [[{{MediaWiki:Validationpage}}|schválení]] verzí stránek.',
+	'review-logpagetext' => 'Tato kniha zobrazuje změny [[{{MediaWiki:Validationpage}}|schválení]] verzí stránek.', # Fuzzy
 	'reviewer' => 'Posuzovatel',
 	'revreview-accuracy' => 'Stav',
 	'revreview-accuracy-0' => 'Nedostačující',
@@ -3258,14 +3269,14 @@ $messages['cs'] = array(
 	'revreview-accuracy-3' => 'dobře ozdrojováno',
 	'revreview-accuracy-4' => 'doporučeno',
 	'revreview-auto' => '(automaticky)',
-	'revreview-basic' => 'Toto je poslední [[{{MediaWiki:Validationpage}}|prohlédnutá]] verze. Byla [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} schválena] <i>$2</i>.
-V [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} návrhu]  {{PLURAL:$3|je|jsou|je}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|změna|změny|změn}}] {{PLURAL:$3|čekající|čekající|čekajících}} na posouzení.',
+	'revreview-basic' => 'Toto je poslední [[{{MediaWiki:Validationpage}}|prohlédnutá]] verze. Byla [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} schválena] <i>$2</i>. 
+V [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} návrhu]  {{PLURAL:$3|je|jsou|je}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|změna|změny|změn}}] {{PLURAL:$3|čekající|čekající|čekajících}} na posouzení.', # Fuzzy
 	'revreview-basic-i' => 'Toto je poslední [[{{MediaWiki:Validationpage}}|prohlédnutá]] verze. Byla [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} schválena] <i>$2</i>.
-[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Návrh] obsahuje [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} změny šablony/obrázku] čekající na posouzení.',
-	'revreview-basic-old' => 'Toto je [[{{MediaWiki:Validationpage}}|prohlédnutá]] verze ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} seznam všech]) Byla [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} schválena] <i>$2</i>.
-Možná byly provedeny nové [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} změny].',
-	'revreview-basic-same' => 'Toto je poslední  [[{{MediaWiki:Validationpage}}|prohlédnutá]] verze. Byla [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} schválena] <i>$2</i>. Stránku je možné [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} upravit].',
-	'revreview-basic-source' => '[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} Prohlédnutá verze] této stránky, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} schválená] <i>$2</i>, vychází z této verze.',
+[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Návrh] obsahuje [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} změny šablony/obrázku] čekající na posouzení.', # Fuzzy
+	'revreview-basic-old' => 'Toto je [[{{MediaWiki:Validationpage}}|prohlédnutá]] verze ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} seznam všech]) Byla [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} schválena] <i>$2</i>. 
+Možná byly provedeny nové [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} změny].', # Fuzzy
+	'revreview-basic-same' => 'Toto je poslední  [[{{MediaWiki:Validationpage}}|prohlédnutá]] verze. Byla [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} schválena] <i>$2</i>. Stránku je možné [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} upravit].', # Fuzzy
+	'revreview-basic-source' => '[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} Prohlédnutá verze] této stránky, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} schválená] <i>$2</i>, vychází z této verze.', # Fuzzy
 	'revreview-current' => 'Změny čekající na kontrolu',
 	'revreview-depth' => 'Hloubka',
 	'revreview-depth-0' => 'Nedostačující',
@@ -3275,45 +3286,45 @@ Možná byly provedeny nové [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{Med
 	'revreview-depth-4' => 'Význačná',
 	'revreview-draft-title' => 'Na této stránce jsou zobrazeny změny čekající na kontrolu',
 	'revreview-edit' => 'Editovat',
-	'revreview-editnotice' => "'''Až autorizovaný uživatel [[{{MediaWiki:Validationpage}}|posoudí]] vaše změny, budou [[{{MediaWiki:Validationpage}}|zveřejněny]].'''",
+	'revreview-editnotice' => "'''Až autorizovaný uživatel [[{{MediaWiki:Validationpage}}|posoudí]] vaše změny, budou [[{{MediaWiki:Validationpage}}|zveřejněny]].'''", # Fuzzy
 	'revreview-submitedit' => 'Odeslat změny',
 	'revreview-submitedit-title' => 'Odeslat změny k posouzení',
 	'revreview-edited' => "'''Úpravy budou začleněny do [[{{MediaWiki:Validationpage}}|publikovány]], jakmile je [[{{MediaWiki:Validationpage}}|posoudí]] pověřený uživatel.'''
-Níže je zobrazen aktuální ''návrh'' stránky obsahující [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|navrženou změnu|navržené změny|navržených změn}}].",
-	'revreview-edited-section' => ' Vrátit se na stránku do sekce "[[#$1|$2]]".',
-	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Poslední prohlédnutá verze] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} seznam všech]) byla [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} schválena] <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|změna|změny|změn}}] {{PLURAL:$3|potřebuje|potřebují|potřebuje}} posoudit.',
+Níže je zobrazen aktuální ''návrh'' stránky obsahující [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|navrženou změnu|navržené změny|navržených změn}}].", # Fuzzy
+	'revreview-edited-section' => ' Vrátit se na stránku do sekce "[[#$1|$2]]".', # Fuzzy
+	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Poslední prohlédnutá verze] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} seznam všech]) byla [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} schválena] <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|změna|změny|změn}}] {{PLURAL:$3|potřebuje|potřebují|potřebuje}} posoudit.', # Fuzzy
 	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Poslední prohlédnutá verze] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} seznam všech]) byla [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} schválena]  <i>$2</i>.
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Změny šablony/obrázku] čekají na posouzení.',
-	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Poslední kvalitní verze] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} seznam všech]) byla [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} schválena] <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|změna|změny|změn}}] {{PLURAL:$3|potřebuje|potřebují|potřebuje}} posoudit.',
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Změny šablony/obrázku] čekají na posouzení.', # Fuzzy
+	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Poslední kvalitní verze] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} seznam všech]) byla [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} schválena] <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|změna|změny|změn}}] {{PLURAL:$3|potřebuje|potřebují|potřebuje}} posoudit.', # Fuzzy
 	'revreview-newest-quality-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Poslední kvalitní verze] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} seznam všech]) byla [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} schválena] <i>$2</i>.
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Změny šablony/obrázku] čekají na posouzení.',
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Změny šablony/obrázku] čekají na posouzení.', # Fuzzy
 	'revreview-pending-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Stabilní verze] byla [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} schválena] <i>$2</i>. [$3 {{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$3|změna čeká na pousouzení|změny čekají na posouzení|změn čeka na posouzení}}].',
 	'revreview-pending-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Stabilní verze] byla [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} schválena] <i>$2</i>. [$3 {{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$3|změna čeká na pousouzení|změny čekají na posouzení|změn čeka na posouzení}}].',
 	'revreview-pending-nosection' => 'Pokoušíte se zobratit [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} poslední revizi], která obsahuje
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|čekající změnu|čekající změny|čekajícíh změn}}], abyste viděli, jestli byla část přesunutá nebo smazaná.',
-	'revreview-noflagged' => 'Tato stránka nemá žádné posouzené verze, takže dosud nebyla [[{{MediaWiki:Validationpage}}|zkontrolována]] kvalita.',
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|čekající změnu|čekající změny|čekajícíh změn}}], abyste viděli, jestli byla část přesunutá nebo smazaná.', # Fuzzy
+	'revreview-noflagged' => 'Tato stránka nemá žádné posouzené verze, takže dosud nebyla [[{{MediaWiki:Validationpage}}|zkontrolována]] kvalita.', # Fuzzy
 	'revreview-oldrating' => 'Bylo ohodnoceno:',
-	'revreview-quality' => 'Toto je poslední [[{{MediaWiki:Validationpage}}|stabilní verze]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} schválená] <i>$2</i>.
-[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Návrh] obsahuje [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|navrženou změnu|navržené změny|navržených změn}}] {{PLURAL:$3|čekající|čekající|čekajících}} na posouzení.',
+	'revreview-quality' => 'Toto je poslední [[{{MediaWiki:Validationpage}}|stabilní verze]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} schválená] <i>$2</i>. 
+[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Návrh] obsahuje [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|navrženou změnu|navržené změny|navržených změn}}] {{PLURAL:$3|čekající|čekající|čekajících}} na posouzení.', # Fuzzy
 	'revreview-quality-i' => 'Toto je [[{{MediaWiki:Validationpage}}|stabilní verze]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} schválená] <i>$2</i>.
-[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Návrh] obsahuje [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} změny šablon nebo souborů] čekající na posouzení.',
-	'revreview-quality-old' => 'Toto je [[{{MediaWiki:Validationpage}}|kvalitní]] verze ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} seznam všech]). Byla [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} schválena] <i>$2</i>.
-Možná byly provedeny nové [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} změny].',
-	'revreview-quality-same' => 'Toto je poslední  [[{{MediaWiki:Validationpage}}|stabilní verze]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} schválená] <i>$2</i>.',
+[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Návrh] obsahuje [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} změny šablon nebo souborů] čekající na posouzení.', # Fuzzy
+	'revreview-quality-old' => 'Toto je [[{{MediaWiki:Validationpage}}|kvalitní]] verze ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} seznam všech]). Byla [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} schválena] <i>$2</i>. 
+Možná byly provedeny nové [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} změny].', # Fuzzy
+	'revreview-quality-same' => 'Toto je poslední  [[{{MediaWiki:Validationpage}}|stabilní verze]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} schválená] <i>$2</i>.', # Fuzzy
 	'revreview-quality-source' => '[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} Kvalitní verze] této stránky, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} schválená] <i>$2</i>, vychází z této verze.',
 	'revreview-quality-title' => 'Toto je kvalitní verze této stránky',
-	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|Posouzená stránka]]''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} zobrazit návrh]]",
-	'revreview-quick-basic-old' => "'''[[{{MediaWiki:Validationpage}}|Prohlédnutý článek]]''' [ zobrazit návrh]]",
-	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|Prohlédnutá]]''' (žádné nezkontrolované změny)",
+	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|Posouzená stránka]]''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} zobrazit návrh]]", # Fuzzy
+	'revreview-quick-basic-old' => "'''[[{{MediaWiki:Validationpage}}|Prohlédnutý článek]]''' [ zobrazit návrh]]", # Fuzzy
+	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|Prohlédnutá]]''' (žádné nezkontrolované změny)", # Fuzzy
 	'revreview-quick-invalid' => "'''Neplatná identifikace verze'''",
-	'revreview-quick-none' => "'''[[{{MediaWiki:Validationpage}}|Nejnovější verze]]''' (dosud neposouzeno)",
-	'revreview-quick-quality' => "'''[[{{MediaWiki:Validationpage}}|Kvalitní stránka]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} zobrazit návrh]]",
-	'revreview-quick-quality-old' => "'''[[{{MediaWiki:Validationpage}}|Kvalitní stránka]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} zobrazit návrh]]",
-	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|Kvalitní stránka]]'''",
+	'revreview-quick-none' => "'''[[{{MediaWiki:Validationpage}}|Nejnovější verze]]''' (dosud neposouzeno)", # Fuzzy
+	'revreview-quick-quality' => "'''[[{{MediaWiki:Validationpage}}|Kvalitní stránka]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} zobrazit návrh]]", # Fuzzy
+	'revreview-quick-quality-old' => "'''[[{{MediaWiki:Validationpage}}|Kvalitní stránka]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} zobrazit návrh]]", # Fuzzy
+	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|Kvalitní stránka]]'''", # Fuzzy
 	'revreview-quick-see-basic' => "'''[[{{MediaWiki:Validationpage}}|Návrh]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} stabilní verze]]
-[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} porovnání]]",
+[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} porovnání]]", # Fuzzy
 	'revreview-quick-see-quality' => "'''[[{{MediaWiki:Validationpage}}|Návrh]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} stabilní verze]]
-[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} porovnání]]",
+[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} porovnání]]", # Fuzzy
 	'revreview-source' => 'Zobrazit zdroj',
 	'revreview-basic-title' => 'Toto je zkontrolovaná verze této stránky',
 	'revreview-style' => 'Čitelnost',
@@ -3323,27 +3334,27 @@ Možná byly provedeny nové [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{Med
 	'revreview-style-3' => 'Výstižná',
 	'revreview-style-4' => 'Význačná',
 	'revreview-toggle-title' => 'skrýt/zobrazit detaily',
-	'revreview-visibility-synced' => "'''Tato stránka má aktualizovanou [[{{MediaWiki:Validationpage}}|stabilní verzi]]; nastavení stability stránek lze [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} změnit].'''",
-	'revreview-visibility-outdated' => "'''Tato stránka má zastaralou [[{{MediaWiki:Validationpage}}|stabilní verzi]]; stabilitu stránek lze [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} nastavit].'''",
-	'revreview-visibility-nostable' => "'''Tato stránka nemá [[{{MediaWiki:Validationpage}}|stabilní verzi]]; stabilitu stránek lze [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} nastavit].'''",
+	'revreview-visibility-synced' => "'''Tato stránka má aktualizovanou [[{{MediaWiki:Validationpage}}|stabilní verzi]]; nastavení stability stránek lze [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} změnit].'''", # Fuzzy
+	'revreview-visibility-outdated' => "'''Tato stránka má zastaralou [[{{MediaWiki:Validationpage}}|stabilní verzi]]; stabilitu stránek lze [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} nastavit].'''", # Fuzzy
+	'revreview-visibility-nostable' => "'''Tato stránka nemá [[{{MediaWiki:Validationpage}}|stabilní verzi]]; stabilitu stránek lze [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} nastavit].'''", # Fuzzy
 	'revreview-revnotfound' => 'Nelze najít starou verzi, kterou žádáte. Zkuste prosím zkontrolovat URL hledané stránky.',
-	'right-autoreview' => 'Automaticky označovat revize jako posouzené',
-	'right-movestable' => 'Přesunout stabilní stránky',
-	'right-review' => 'Označit verze jako prohlédnuté',
-	'right-stablesettings' => 'Nastavit, jak se vybírají a zobrazují stabilní verze',
-	'right-validate' => 'Označit revize jako ověřené',
+	'right-autoreview' => 'Automaticky označovat revize jako posouzené', # Fuzzy
+	'right-movestable' => 'Přesunout stabilní stránky', # Fuzzy
+	'right-review' => 'Označit verze jako prohlédnuté', # Fuzzy
+	'right-stablesettings' => 'Nastavit, jak se vybírají a zobrazují stabilní verze', # Fuzzy
+	'right-validate' => 'Označit revize jako ověřené', # Fuzzy
 	'right-unreviewedpages' => 'Zobrazit [[Special:UnreviewedPages|seznam neposouzených stránek]]',
 	'rights-editor-revoke' => 'odebírá status editora uživateli [[$1]]',
 	'specialpages-group-quality' => 'Upravit posudek',
-	'stable-logentry-config' => 'nastavuje výběr stabilní verze stránky $1',
-	'stable-logentry-modify' => 'změneno nastavení stabilní verze na "$1"',
-	'stable-logentry-reset' => 'vrací výchozí výběr stabilní verze stránky $1',
-	'stable-log-restriction' => 'Autuposuzování: vyžaduje oprávnění "$1"',
+	'stable-logentry-config' => 'nastavuje výběr stabilní verze stránky $1', # Fuzzy
+	'stable-logentry-modify' => 'změneno nastavení stabilní verze na "$1"', # Fuzzy
+	'stable-logentry-reset' => 'vrací výchozí výběr stabilní verze stránky $1', # Fuzzy
+	'stable-log-restriction' => 'Autuposuzování: vyžaduje oprávnění "$1"', # Fuzzy
 	'stable-logpage' => 'Kniha stabilních verzí',
 	'stable-logpagetext' => 'Toto je záznam změn nastavení [[{{MediaWiki:Validationpage}}|stabilní verze]] stránek.',
 	'revreview-filter-all' => 'všechny',
 	'revreview-filter-stable' => 'stabilní',
-	'revreview-statusfilter' => 'Změna stavu:',
+	'revreview-statusfilter' => 'Změna stavu:', # Fuzzy
 	'revreview-filter-approved' => 'Schválené',
 	'revreview-filter-reapproved' => 'Znovu schválené',
 	'revreview-filter-unapproved' => 'Zamítnuté',
@@ -3359,21 +3370,21 @@ Možná byly provedeny nové [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{Med
 	'revreview-def-all' => 'libovolné',
 	'revreview-def-draft' => 'nejnovější',
 	'revreview-def-stable' => 'stabilní',
-	'revreview-restrictfilter' => 'Omezení autoposuzování:',
+	'revreview-restrictfilter' => 'Omezení autoposuzování:', # Fuzzy
 	'revreview-restriction-any' => 'všechny',
 	'revreview-restriction-none' => 'žádné',
-	'revreview-reviewlink' => 'posoudit',
+	'revreview-reviewlink' => 'posoudit', # Fuzzy
 	'revreview-reviewlink-title' => 'Zobrazit rozdíl všech čekajících změn',
 	'revreview-unreviewedpage' => 'nezkontrolovaná stránka',
-	'tooltip-ca-current' => 'Zobrazit nejnovější návrh této stránky',
-	'tooltip-ca-stable' => 'Zobrazit stabilní verzi této stránky',
+	'tooltip-ca-current' => 'Zobrazit nejnovější návrh této stránky', # Fuzzy
+	'tooltip-ca-stable' => 'Zobrazit stabilní verzi této stránky', # Fuzzy
 	'tooltip-ca-default' => 'Nastavení stabilní a zobrazované verze',
-	'flaggedrevs-protect-legend' => 'Zveřejnit úpravy',
+	'flaggedrevs-protect-legend' => 'Zveřejnit úpravy', # Fuzzy
 	'flaggedrevs-protect-none' => 'Povolit všem uživatelům',
-	'revreview-locked-title' => 'Úpravy musejí být posouzeny předtím, než se zobrazí na této stránce.',
-	'revreview-unlocked-title' => 'Úpravy nevyžadují posouzení, než se zobrazí na této stránce.',
-	'revreview-locked' => 'Úpravy vyžadují [[{{MediaWiki:Validationpage}}|posouzení]], než se zobrazí na této stránce.',
-	'revreview-unlocked' => 'Úpravy nevyžadují [[{{MediaWiki:Validationpage}}|posouzení]], než se zobrazí na této stránce.',
+	'revreview-locked-title' => 'Úpravy musejí být posouzeny předtím, než se zobrazí na této stránce.', # Fuzzy
+	'revreview-unlocked-title' => 'Úpravy nevyžadují posouzení, než se zobrazí na této stránce.', # Fuzzy
+	'revreview-locked' => 'Úpravy vyžadují [[{{MediaWiki:Validationpage}}|posouzení]], než se zobrazí na této stránce.', # Fuzzy
+	'revreview-unlocked' => 'Úpravy nevyžadují [[{{MediaWiki:Validationpage}}|posouzení]], než se zobrazí na této stránce.', # Fuzzy
 	'log-show-hide-review' => '$1 záznam posouzení',
 	'validationpage' => '{{ns:help}}:Ověřování stránek',
 );
@@ -3402,7 +3413,7 @@ $messages['da'] = array(
 	'flaggedrevs-pref-UI-1' => 'Anvend mindre ikoner og minimal tekst til at vise siders godkendelsesstatus',
 	'prefs-flaggedrevs' => 'Redigeringsgodkendelse',
 	'group-editor' => 'Skribenter',
-	'group-editor-member' => 'skribent',
+	'group-editor-member' => 'skribent', # Fuzzy
 	'revreview-auto' => '(automatisk)',
 	'revreview-revnotfound' => 'Den gamle version af den side du spurgte efter kan
 ikke findes. Kontrollér den URL du brugte til at få adgang til denne side.',
@@ -3726,7 +3737,7 @@ Belka [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diff
 	'revreview-submitedit-title' => 'Seba qontroli vurnayişan tu qeyd bike',
 	'revreview-edited' => "'''Vurnayişê ke no pel de biyê, badê kontrolê serkari daxil beno. [[{{MediaWiki:Validationpage}}|Peşti bımocne]]'''
 
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|vurnayiş|vurnayişan}}] paweyê çım ravyarnayışi
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|vurnayiş|vurnayişan}}] paweyê çım ravyarnayışi 
 {{PLURAL:$2|esto|este}}.",
 	'revreview-edited-section' => 'Qismê pelê "[[#$1|$2]]" reyna şo.',
 	'revreview-newest-basic' => 'Na wersiyon dı [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3  {{PLURAL:$3|vurnayış|vurnayışi}}] estê {{PLURAL:$3|tede|tede }}  dı [[{{MediaWiki:Validationpage}}|çım ravyarnayış pawenê]].
@@ -3739,7 +3750,7 @@ Hesıbyayê [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} wersiyon]ê cı <i>$2</i> [{
 [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Versiyonê heqiqi], <i>$2</i> dem dê [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} kerdo araşt].',
 	'revreview-pending-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Versiyonê sabiti] <i>$2</i> di [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} control biya]. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|vurnayis|vurnayisan}}] {{PLURAL:$3|esta|este}} ke gani kontrol biyo.',
 	'revreview-pending-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Versiyonê sabiti] <i>$2</i> de [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} qebul biya]. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|vurnayis|vurnayisan}}] {{PLURAL:$3|esta|este}} ke gani kontrol biyo.',
-	'revreview-pending-nosection' => 'Ena [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} versiyon tewr peniya]
+	'revreview-pending-nosection' => 'Ena [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} versiyon tewr peniya] 
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 hama {{PLURAL:$2|vurnayiş|vurnayişan}}], bivini eka qisim wedariya ya zi transfer biya.',
 	'revreview-noflagged' => 'No pel de revizyono ke [[{{MediaWiki:Validationpage}}|çım ser nêçariyayi]] çini yo, no sebeb ra qey qalite belka hewl niyo.',
 	'revreview-oldrating' => 'derecekerdış:',
@@ -4025,7 +4036,8 @@ $messages['dtp'] = array(
 	'flaggedrevs' => 'Sinimakan Natandaan',
 );
 
-/** Ewe (eʋegbe) */
+/** Ewe (eʋegbe)
+ */
 $messages['ee'] = array(
 	'revreview-edit' => 'Trɔ asi le eŋu',
 );
@@ -4129,7 +4141,7 @@ $messages['el'] = array(
 {{PLURAL:$2| Υπάρχει|Υπάρχουν}} [{{fullurl:{{FULLPAGENAMEE}}|oldid = $1&diff =cur{{MediaWiki:flaggedrevs-diffonly}}}}  $2    {{PLURAL:$2|αλλαγή|αλλαγές}}] σε εκκρεμότητα '' (φαίνεται παρακάτω)'' που αναμένουν επιθεώρηση.",
 	'revreview-edited-section' => 'Επιστρέψετε στο τμήμα της σελίδας με όνομα "[[#$1|$2]]".',
 	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|change|changes}}] σε αυτή την έκδοση {{PLURAL:$3|είναι}} [[{{MediaWiki:Validationpage}}|εκκρεμής επιθεώρηση]].
-Η [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} σταθερή έκδοση] ήταν [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} ελεγμένη] στις <i>$2</i>.',
+Η [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} σταθερή έκδοση] ήταν [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} ελεγμένη] στις <i>$2</i>.', # Fuzzy
 	'revreview-noflagged' => "Δεν υπάρχουν [[{{MediaWiki:Validationpage}}|επιθεωρημένες εκδόσεις]] αυτής της σελίδας, κι επόμενως αυτή μπορεί να  '''μην''' έχει ελεγχθεί για τήρηση των προτύπων.",
 	'revreview-oldrating' => 'Βαθμολογήθηκε:',
 	'revreview-quality-same' => 'Αυτή είναι μια [[{{MediaWiki:Validationpage}}|σταθερή έκδοση]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} που εγκρίθηκε] στις <i>$2</i>.',
@@ -4152,7 +4164,7 @@ $messages['el'] = array(
 	'revreview-style-3' => 'Περιεκτικό',
 	'revreview-style-4' => 'Επιλεγμένο',
 	'revreview-toggle-title' => 'εμφάνιση/απόκρυψη λεπτομερειών',
-	'revreview-visibility-synced' => "''' Η σελίδα έχει μια ενημερωμένη [[{{MediaWiki:Validationpage}} |σταθερή έκδοση]]; η σταθερότητα των ρυθμίσεων της σελίδας μπορεί να [{{fullurl: {{#Special:Stabilization}} |page = {{FULLPAGENAMEE}}}} ρυθμιστεί].'' '",
+	'revreview-visibility-synced' => "''' Η σελίδα έχει μια ενημερωμένη [[{{MediaWiki:Validationpage}} |σταθερή έκδοση]]; η σταθερότητα των ρυθμίσεων της σελίδας μπορεί να [{{fullurl: {{#Special:Stabilization}} |page = {{FULLPAGENAMEE}}}} ρυθμιστεί].'' '", # Fuzzy
 	'revreview-visibility-outdated' => "'''Η σελίδα αυτή διαθέτει μια απαρχαιωμένη [[{{MediaWiki:Validationpage}}|σταθερή έκδοση]]; οι ρυθμίσεις σταθερότητας της σελίδας μπορούν [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} να διαμορφωθούν].'''",
 	'revreview-visibility-nostable' => "'''Η σελίδα δεν έχει μια [[{{MediaWiki:Validationpage}}|σταθερή έκδοση]]; οι ρυθμίσεις σταθερότητας της σελίδας μπορούν να  [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} διαμορφωθούν].'''",
 	'revreview-revnotfound' => 'Η παλιά αναθεώρηση της σελίδας που ζητήσατε δεν ήταν δυνατόν να βρεθεί. Παρακαλούμε ελέγξτε τo URL που χρησιμοποιήσατε για να φτάσετε σε αυτήν τη σελίδα.',
@@ -4728,7 +4740,7 @@ $messages['et'] = array(
 [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Püsiv versioon] on [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} heaks kiidetud] (<i>$2</i>).',
 	'revreview-pending-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Püsiv versioon] on [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} kord vaadatud] (<i>$2</i>). [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|muudatus|muudatust}}] {{PLURAL:$3|ootab|ootavad}} ülevaatamist.',
 	'revreview-pending-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Püsiv versioon] on [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} heaks kiidetud] (<i>$2</i>). [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|muudatus|muudatust}}] {{PLURAL:$3|ootab|ootavad}} ülevaatamist.',
-	'revreview-pending-nosection' => 'Proovi vaadata [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} viimast redaktsiooni], milles on
+	'revreview-pending-nosection' => 'Proovi vaadata [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} viimast redaktsiooni], milles on 
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 ootel {{PLURAL:$2|muudatus|muudatust}}], nägemaks, kas alaosa oli teisaldatud või kustutatud.',
 	'revreview-noflagged' => "[[{{MediaWiki:Validationpage}}|Ülevaadatud versioonid]] sellest leheküljest puuduvad, seega selle standarditest kinnipidamist '''ei''' pruugi olla kontrollitud.",
 	'revreview-oldrating' => 'Hinnang oli:',
@@ -4834,7 +4846,7 @@ $messages['eu'] = array(
 	'prefs-flaggedrevs' => 'Edizio-onespena',
 	'flaggedrevs-prefs-watch' => 'Aldatzen ditudan orrialdeak nire segimendu zerrendara gehitu',
 	'group-editor' => 'Editoreak',
-	'group-editor-member' => 'editorea',
+	'group-editor-member' => 'editorea', # Fuzzy
 	'group-reviewer' => 'Berrikusleak',
 	'grouppage-editor' => '{{ns:project}}:Editorea',
 	'review-logentry-id' => 'berrikuspena: $2',
@@ -4873,7 +4885,7 @@ $messages['eu'] = array(
 $messages['ext'] = array(
 	'editor' => 'Eitol',
 	'group-editor' => 'Eitoris',
-	'group-editor-member' => 'Eitol',
+	'group-editor-member' => 'Eitol', # Fuzzy
 	'grouppage-editor' => '{{ns:project}}:Eitol',
 	'revreview-auto' => '(autumáticu)',
 	'revreview-style-2' => 'Güenu',
@@ -5401,7 +5413,7 @@ La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} version stable] a été [{{fullurl:{{
 La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} version stable] a été [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approuvée] le <i>$2</i>.',
 	'revreview-newest-quality-i' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Des modifications dans les modèles ou les fichiers] de cette version sont [[{{MediaWiki:Validationpage}}|en attente de relecture]].
 La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} version stable] a été [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approuvée] le <i>$2</i>.',
-	'revreview-pending-basic' => 'La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} version publiée] a été [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} vérifiée] le <i>$2</i>. Il y a
+	'revreview-pending-basic' => 'La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} version publiée] a été [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} vérifiée] le <i>$2</i>. Il y a  
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 modification{{PLURAL:$3||s}}] en attente de relecture.',
 	'revreview-pending-quality' => 'La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} version publiée] a été [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approuvée] le <i>$2</i>. Il y a [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 modification{{PLURAL:$3||s}}] en attente de relecture.',
 	'revreview-pending-nosection' => 'Essayer de visualiser le [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} dernière version], qui contient [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2  modification{{PLURAL:$2||s}}] en cours, afin de voir si la section a été déplacée ou supprimée.',
@@ -5583,12 +5595,12 @@ De novéls [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs
 	'revreview-depth-4' => 'Remarcâbla',
 	'revreview-draft-title' => 'Los changements en atenta sont montrâs sur ceta pâge',
 	'revreview-edit' => 'Changiér',
-	'revreview-editnotice' => "'''Voutros changements seront montrâs ux liésors setout qu’un usanciér qu’at los drêts nècèssèros los arat revus. ([[{{MediaWiki:Validationpage}}|éde]])'''",
+	'revreview-editnotice' => "'''Voutros changements seront montrâs ux liésors setout qu’un usanciér qu’at los drêts nècèssèros los arat revus. ([[{{MediaWiki:Validationpage}}|éde]])'''", # Fuzzy
 	'revreview-submitedit' => 'Sometre los changements',
 	'revreview-submitedit-title' => 'Sometre voutros changements por rèvision',
 	'revreview-edited' => "'''Voutros changements seront montrâs ux liésors setout qu’un usanciér qu’at los drêts nècèssèros los arat revus. ([[{{MediaWiki:Validationpage}}|éde]])'''
 
-Ora, y at [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 changement{{PLURAL:$2||s}} en atenta de rèvision] ''(vêde ce-desot)''.",
+Ora, y at [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 changement{{PLURAL:$2||s}} en atenta de rèvision] ''(vêde ce-desot)''.", # Fuzzy
 	'revreview-edited-section' => 'Tornar a la sèccion de la pâge apelâ « [[#$1|$2]] ».',
 	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 changement{{PLURAL:$3||s}}] dens cela vèrsion {{PLURAL:$3|est|sont}} [[{{MediaWiki:Validationpage}}|en atenta de rèvision]].
 La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} vèrsion stâbla] at étâ [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} controlâ] lo <i>$2</i>.',
@@ -5695,13 +5707,13 @@ Volyéd controlar l’URL que vos éd utilisâ por arrevar a ceta pâge.',
 $messages['fy'] = array(
 	'editor' => 'Redakteur',
 	'group-editor' => 'Redakteuren',
-	'group-editor-member' => 'Redakteur',
+	'group-editor-member' => 'Redakteur', # Fuzzy
 	'group-reviewer' => 'Einredakteuren',
-	'group-reviewer-member' => 'Einredakteur',
+	'group-reviewer-member' => 'Einredakteur', # Fuzzy
 	'grouppage-editor' => '{{ns:project}}:Redakteur',
 	'grouppage-reviewer' => '{{ns:project}}:Einredakteur',
 	'reviewer' => 'Einredakteur',
-	'revreview-depth-0' => 'Net kontrolearre',
+	'revreview-depth-0' => 'Net kontrolearre', # Fuzzy
 	'revreview-style-2' => 'Goed',
 	'revreview-revnotfound' => "De âlde ferzje fan dizze side dêr't jo om frege hawwe, is der net.
 Gean nei of de keppeling dy jo brûkt hawwe wol goed is.",
@@ -5935,65 +5947,65 @@ Por favor verifique o URL que utilizou para acceder a esta páxina.',
 $messages['grc'] = array(
 	'editor' => 'Μεταγραφεύς',
 	'flaggedrevs' => 'Ἐληλεγμέναι Ἀναθεωρήσεις',
-	'prefs-flaggedrevs' => 'Σταθερότης',
-	'prefs-flaggedrevs-ui' => 'Σεσημασμέναι ἀναθεωρήσεις',
+	'prefs-flaggedrevs' => 'Σταθερότης', # Fuzzy
+	'prefs-flaggedrevs-ui' => 'Σεσημασμέναι ἀναθεωρήσεις', # Fuzzy
 	'group-editor' => 'Μεταγραφεῖς',
-	'group-editor-member' => 'μεταγραφεύς',
+	'group-editor-member' => 'μεταγραφεύς', # Fuzzy
 	'group-reviewer' => 'Ἐπιθεωρηταί',
-	'group-reviewer-member' => 'ἐπιθεωρητής',
+	'group-reviewer-member' => 'ἐπιθεωρητής', # Fuzzy
 	'grouppage-editor' => '{{ns:project}}:Μεταγραφεύς',
 	'grouppage-reviewer' => '{{ns:project}}:Ἐπιθεωρητής',
 	'group-autoreview' => 'Αὐτόματοι ἐπιθεωρηταί',
-	'group-autoreview-member' => 'αὐτόματος ἐπιθεωρητής',
-	'revreview-hist-draft' => 'πρόχειρος ἐπιθεώρησις',
+	'group-autoreview-member' => 'αὐτόματος ἐπιθεωρητής', # Fuzzy
+	'revreview-hist-draft' => 'πρόχειρος ἐπιθεώρησις', # Fuzzy
 	'revreview-hist-quality' => 'ποιοτικὴ ἀναθεώρησις',
-	'revreview-hist-basic' => 'θεωρημένη ἀναθεώρησις',
-	'review-logentry-app' => 'Ἀναθεωρημένη r$2 τῆς [[$1]]',
+	'revreview-hist-basic' => 'θεωρημένη ἀναθεώρησις', # Fuzzy
+	'review-logentry-app' => 'Ἀναθεωρημένη r$2 τῆς [[$1]]', # Fuzzy
 	'review-logentry-id' => 'ἀναθεώρησις: $2',
-	'review-logentry-diff' => 'μεταβολαὶ ὡς πρὸς τὴν σταθερὰ ἔκδοσιν',
+	'review-logentry-diff' => 'μεταβολαὶ ὡς πρὸς τὴν σταθερὰ ἔκδοσιν', # Fuzzy
 	'review-logpage' => 'Ἀναθεωρήσεων κατάλογος',
 	'reviewer' => 'ἐπιθεωρητής',
 	'revreview-accuracy' => 'Ἀκρίβεια',
-	'revreview-accuracy-0' => 'Μὴ προκεκριμένη',
+	'revreview-accuracy-0' => 'Μὴ προκεκριμένη', # Fuzzy
 	'revreview-accuracy-1' => 'Θεωρημένη',
 	'revreview-accuracy-2' => 'Ἀκριβής',
 	'revreview-accuracy-4' => 'Ἐξαίρετος',
 	'revreview-auto' => '(αὐτόματος)',
-	'revreview-current' => 'Πρόχειρος',
+	'revreview-current' => 'Πρόχειρος', # Fuzzy
 	'revreview-depth' => 'Βάθος',
-	'revreview-depth-0' => 'Μὴ προκεκριμένη',
+	'revreview-depth-0' => 'Μὴ προκεκριμένη', # Fuzzy
 	'revreview-depth-1' => 'βασική',
 	'revreview-depth-2' => 'Μετρία',
 	'revreview-depth-3' => 'Ὑψηλὴ',
 	'revreview-depth-4' => 'Ἐξαίρετος',
-	'revreview-draft-title' => 'Προσχέδιος δέλτος',
-	'revreview-edit' => 'Προσχέδιον μεταγραφῆς',
+	'revreview-draft-title' => 'Προσχέδιος δέλτος', # Fuzzy
+	'revreview-edit' => 'Προσχέδιον μεταγραφῆς', # Fuzzy
 	'revreview-oldrating' => 'Ἐβαθμώθη:',
-	'revreview-quality' => "Ἥδε ἐστὶ ἡ [[{{MediaWiki:Validationpage}}|ποιοτικὴ ἔκδοσις]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} ἐπικυρωμένη] κατὰ τὴν ''$2''. Ἡ [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} πρόχειρη ἔκδοσις] περιέχει [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$3|$3 μεταβολὴν ἀναμένουσαν|$3 μεταβολὰς ἀναμένουσας}}] ἐπιθεώρησιν.",
-	'revreview-quality-title' => 'ποιοτικὴ ἔκδοσις',
+	'revreview-quality' => "Ἥδε ἐστὶ ἡ [[{{MediaWiki:Validationpage}}|ποιοτικὴ ἔκδοσις]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} ἐπικυρωμένη] κατὰ τὴν ''$2''. Ἡ [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} πρόχειρη ἔκδοσις] περιέχει [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$3|$3 μεταβολὴν ἀναμένουσαν|$3 μεταβολὰς ἀναμένουσας}}] ἐπιθεώρησιν.", # Fuzzy
+	'revreview-quality-title' => 'ποιοτικὴ ἔκδοσις', # Fuzzy
 	'revreview-quick-invalid' => "'''Ἄκυρος ἀναθεώρησις ID'''",
-	'revreview-source' => 'πρόχειρος πηγή',
-	'revreview-basic-title' => 'θεωρημένη δέλτος',
+	'revreview-source' => 'πρόχειρος πηγή', # Fuzzy
+	'revreview-basic-title' => 'θεωρημένη δέλτος', # Fuzzy
 	'revreview-style' => 'Ἀναγνωσιμότης',
-	'revreview-style-0' => 'Μὴ προκεκριμένη',
+	'revreview-style-0' => 'Μὴ προκεκριμένη', # Fuzzy
 	'revreview-style-1' => 'ἀποδεκτὸν',
 	'revreview-style-2' => 'Καλή',
 	'revreview-style-3' => 'Περιεκτική',
 	'revreview-style-4' => 'Ἐξαίρετος',
 	'revreview-filter-all' => 'Ἅπασαι',
-	'revreview-filter-stable' => 'σταθερά',
-	'revreview-statusfilter' => 'Ἀλλαγὴ καθεστῶτος:',
+	'revreview-filter-stable' => 'σταθερά', # Fuzzy
+	'revreview-statusfilter' => 'Ἀλλαγὴ καθεστῶτος:', # Fuzzy
 	'revreview-filter-approved' => 'Προκεκριμένη',
 	'revreview-filter-reapproved' => 'Ἁναπροκεκριμένη',
-	'revreview-filter-unapproved' => 'Μὴ προκεκριμένη',
+	'revreview-filter-unapproved' => 'Μὴ προκεκριμένη', # Fuzzy
 	'revreview-typefilter' => 'Τύπος:',
 	'revreview-filter-auto' => 'αὐτόματος',
 	'revreview-filter-manual' => 'χειροκίνητος',
 	'revreview-levelfilter' => 'Ἐπίπεδον:',
-	'revreview-lev-basic' => 'τεθεωρημένη',
+	'revreview-lev-basic' => 'τεθεωρημένη', # Fuzzy
 	'revreview-lev-quality' => 'ποιοτικὴ',
 	'revreview-lev-pristine' => 'Ἀνέπαφος',
-	'revreview-reviewlink' => 'ἐπιθεωρεῖν',
+	'revreview-reviewlink' => 'ἐπιθεωρεῖν', # Fuzzy
 	'log-show-hide-review' => '$1 κατάλογος ἀναθεωρήσεων',
 	'validationpage' => '{{ns:help}}:Έπικύρωσις δέλτου',
 );
@@ -6069,7 +6081,7 @@ $messages['gsw'] = array(
 	'revreview-basic' => 'Des isch di [[{{MediaWiki:Validationpage}}|vereffetligt Version]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} frejgee] <i>$2</i>.
 S het [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 hängigi {{PLURAL:$3|Änderig|Änderige}}].
 Im [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Entwurf] het s',
-	'revreview-basic-i' => 'Des isch di [[{{MediaWiki:Validationpage}}|vereffetligt Version]],
+	'revreview-basic-i' => 'Des isch di [[{{MediaWiki:Validationpage}}|vereffetligt Version]], 
 [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} frejgee] am <i>$2</i>.
 S het [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Änderige an Vorlage/Dateie], wu no sotte prieft wäre.
 Im [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Entwurf] het s',
@@ -6105,7 +6117,7 @@ Di [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} gsichtet Version] isch am <i>$2</i> [
 S het [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 hängigi {{PLURAL:$3|Änderig|Änderige}}].',
 	'revreview-pending-quality' => 'Di [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} vereffetligt Version] isch am <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} frejgee wore].
 S het [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 hängigi {{PLURAL:$3|Änderig|Änderige}}].',
-	'revreview-pending-nosection' => 'Versuech s mit Aaluge vu dr [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Entwurfsversion],  wu s
+	'revreview-pending-nosection' => 'Versuech s mit Aaluge vu dr [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Entwurfsversion],  wu s 
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 hängigi {{PLURAL:$2|Änderig|Änderige}}] din het go säh, eb dr Abschnitt verschobe woren isch oder glescht.',
 	'revreview-noflagged' => "Vu däre Syte git s kei [[{{MediaWiki:Validationpage}}|priefti]] Versione, s cha syy, ass si no '''nit''' uf d Qualitet prieft woren isch.",
 	'revreview-oldrating' => 'Yystufig bis jetz:',
@@ -6196,7 +6208,8 @@ S cha syy, ass es scho neiji [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{Med
 	'validationpage' => '{{ns:project}}:Gesichtete und geprüfte Versionen',
 );
 
-/** Hausa (Hausa) */
+/** Hausa (Hausa)
+ */
 $messages['ha'] = array(
 	'revreview-filter-all' => 'duka',
 );
@@ -6215,7 +6228,7 @@ $messages['haw'] = array(
 	'editor' => 'Luna',
 	'flaggedrevs' => 'Nā Kāmua Kaha',
 	'group-editor' => 'Nā luna',
-	'group-editor-member' => 'Luna',
+	'group-editor-member' => 'Luna', # Fuzzy
 );
 
 /** Hebrew (עברית)
@@ -6423,13 +6436,13 @@ $messages['hi'] = array(
 	'action-review' => 'संशोधनों की समीक्षा',
 	'editor' => 'सम्पादक',
 	'flaggedrevs' => 'फ्लॅग किये हुए अवतरण',
-	'flaggedrevs-desc' => 'संपादक और परीक्षकोंको पान्ने के अवतरण प्रमाणित करने की तथा पन्ने स्थिर करनेकी अनुमति देता हैं।',
+	'flaggedrevs-desc' => 'संपादक और परीक्षकोंको पान्ने के अवतरण प्रमाणित करने की तथा पन्ने स्थिर करनेकी अनुमति देता हैं।', # Fuzzy
 	'flaggedrevs-pref-UI' => 'बुनियादी इंटरफेस:',
-	'flaggedrevs-pref-UI-0' => 'इंटरफेस में बढाया हुआ स्थिर अवतरणका इस्तेमाल करें',
-	'flaggedrevs-pref-UI-1' => 'इंटरफेस में सीधे स्थिर अवतरणका इस्तेमाल करें',
+	'flaggedrevs-pref-UI-0' => 'इंटरफेस में बढाया हुआ स्थिर अवतरणका इस्तेमाल करें', # Fuzzy
+	'flaggedrevs-pref-UI-1' => 'इंटरफेस में सीधे स्थिर अवतरणका इस्तेमाल करें', # Fuzzy
 	'prefs-flaggedrevs' => 'सम्पादन समीक्षा',
 	'prefs-flaggedrevs-ui' => 'सम्पादन समीक्षा',
-	'flaggedrevs-prefs-stable' => 'हमेशा स्थिर अवतरण दर्शायें (अगर उपलब्ध हैं तो)',
+	'flaggedrevs-prefs-stable' => 'हमेशा स्थिर अवतरण दर्शायें (अगर उपलब्ध हैं तो)', # Fuzzy
 	'flaggedrevs-pref-stable-0' => 'प्रत्येक पृष्ठ के लिए पूर्व निर्धारित सेटिंग्स का उपयोग करें',
 	'flaggedrevs-pref-stable-1' => 'हमेशा स्थिर संस्करण दिखाएँ (यदि वहाँ एक है)',
 	'flaggedrevs-pref-stable-2' => 'हमेशा नवीनतम संस्करण दिखाएँ',
@@ -6446,11 +6459,11 @@ $messages['hi'] = array(
 	'group-autoreview' => 'स्वसमीक्षक सदस्य',
 	'group-autoreview-member' => '{{GENDER:$1|स्वसमीक्षक सदस्य}}',
 	'grouppage-autoreview' => '{{ns:project}}:स्वसमीक्षक सदस्य',
-	'revreview-hist-draft' => 'ढाँचा अवतरण',
+	'revreview-hist-draft' => 'ढाँचा अवतरण', # Fuzzy
 	'revreview-hist-pending' => 'बाकी संशोधन',
 	'revreview-hist-quality' => 'गुणवत्तापूर्ण अवतरण',
-	'revreview-hist-basic' => 'चुना हुआ अवतरण',
-	'revreview-hist-quality-user' => '[[User:$3|$3]] ने जाँचा हुआ',
+	'revreview-hist-basic' => 'चुना हुआ अवतरण', # Fuzzy
+	'revreview-hist-quality-user' => '[[User:$3|$3]] ने जाँचा हुआ', # Fuzzy
 	'revreview-hist-basic-user' => '[[User:$3|$3]] ने चुना हुआ',
 	'revreview-hist-quality-auto' => 'अपने आप स्वीकृत',
 	'revreview-hist-basic-auto' => 'अपने आप जांच',
@@ -6460,97 +6473,97 @@ $messages['hi'] = array(
 	'revreview-log-toggle-hide' => 'स्थिरता लॉग छुपाएँ',
 	'revreview-log-details-show' => 'विवरण दिखाएँ',
 	'revreview-log-details-hide' => 'विवरण छुपाएँ',
-	'review-diff2stable' => 'स्थिर और सद्य अवतरण में फर्क देखें',
-	'review-logentry-app' => '[[$1]] परखा गया',
-	'review-logentry-dis' => '[[$1]] के एक अवतरण का गुणांकन कम किया',
+	'review-diff2stable' => 'स्थिर और सद्य अवतरण में फर्क देखें', # Fuzzy
+	'review-logentry-app' => '[[$1]] परखा गया', # Fuzzy
+	'review-logentry-dis' => '[[$1]] के एक अवतरण का गुणांकन कम किया', # Fuzzy
 	'review-logentry-id' => 'अवतरण क्र: $2',
 	'review-logentry-diff' => 'बदलाव जांच हुई',
 	'review-logpage' => 'रिव्ह्यू लॉग',
-	'review-logpagetext' => 'यह कंटेंट पन्नोंके अवतरणोंमें हुए बदलावोंके [[{{MediaWiki:Validationpage}}|परीक्षण]] की सूची हैं।',
+	'review-logpagetext' => 'यह कंटेंट पन्नोंके अवतरणोंमें हुए बदलावोंके [[{{MediaWiki:Validationpage}}|परीक्षण]] की सूची हैं।', # Fuzzy
 	'reviewer' => 'परीक्षक',
 	'revreview-accuracy' => 'सत्यता',
-	'revreview-accuracy-0' => 'अप्रमाणित',
+	'revreview-accuracy-0' => 'अप्रमाणित', # Fuzzy
 	'revreview-accuracy-1' => 'चुनी हुई',
 	'revreview-accuracy-2' => 'प्रमाणित',
 	'revreview-accuracy-3' => 'अच्छे स्रोत',
 	'revreview-accuracy-4' => 'विशेष',
 	'revreview-auto' => '(अपनेआप)',
 	'revreview-basic' => 'यह नवीनतम [[{{MediaWiki:Validationpage}}|चुना हुआ]] अवतरण हैं, जो <i>$2</i> को [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} प्रमाणित] हो चुका हैं।
-[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} ढाँचे] में [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|बदलाव है|बदलाव हैं}}] जिनकी जाँच बाकी हैं।',
+[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} ढाँचे] में [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|बदलाव है|बदलाव हैं}}] जिनकी जाँच बाकी हैं।', # Fuzzy
 	'revreview-basic-i' => 'यह नवीनतम [[{{MediaWiki:Validationpage}}|चुना हुआ]] अवतरण हैं, जो <i>$2</i> को [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} प्रमाणित] हो चुका हैं।
-[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} ढाँचे] में [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} साँचा/चित्र बदलाव] हैं जिनकी जाँच बाकी हैं।',
+[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} ढाँचे] में [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} साँचा/चित्र बदलाव] हैं जिनकी जाँच बाकी हैं।', # Fuzzy
 	'revreview-basic-old' => 'यह एक [[{{MediaWiki:Validationpage}}|चुना हुआ]] अवतरण हैं ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} पूरी सूची]), जो <i>$2</i> को [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} प्रमाणित] हो चुका हैं।
-इसमें नये [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} बदलाव] होने की संभावना हैं।',
-	'revreview-basic-same' => 'यह नवीनतम [[{{MediaWiki:Validationpage}}|चुना हुआ]] अवतरण हैं ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} पूरी सूची]), जो <i>$2</i> को [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} प्रमाणित] हो चुका हैं।',
-	'revreview-basic-source' => 'इस पन्नेका एक [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} चुना हुआ अवतरण], जो <i>$2</i> को [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} प्रमाणित] हुआ हैं, इस अवतरण पर आधारित था।',
-	'revreview-current' => 'कच्चा लेख',
+इसमें नये [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} बदलाव] होने की संभावना हैं।', # Fuzzy
+	'revreview-basic-same' => 'यह नवीनतम [[{{MediaWiki:Validationpage}}|चुना हुआ]] अवतरण हैं ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} पूरी सूची]), जो <i>$2</i> को [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} प्रमाणित] हो चुका हैं।', # Fuzzy
+	'revreview-basic-source' => 'इस पन्नेका एक [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} चुना हुआ अवतरण], जो <i>$2</i> को [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} प्रमाणित] हुआ हैं, इस अवतरण पर आधारित था।', # Fuzzy
+	'revreview-current' => 'कच्चा लेख', # Fuzzy
 	'revreview-depth' => 'गहराई',
-	'revreview-depth-0' => 'अप्रमाणित',
+	'revreview-depth-0' => 'अप्रमाणित', # Fuzzy
 	'revreview-depth-1' => 'प्राथमिक',
 	'revreview-depth-2' => 'मध्यम',
 	'revreview-depth-3' => 'उच्च',
 	'revreview-depth-4' => 'विशेष',
-	'revreview-draft-title' => 'लेख का ढाँचा',
-	'revreview-edit' => 'कच्चा अवतरण संपादित करें',
+	'revreview-draft-title' => 'लेख का ढाँचा', # Fuzzy
+	'revreview-edit' => 'कच्चा अवतरण संपादित करें', # Fuzzy
 	'revreview-submitedit' => 'बदलाव जमा करें',
 	'revreview-submitedit-title' => 'समिक्षा के लिए बदलाव दाखिल करें',
 	'revreview-edited' => "'''नये बदलाव एखाद पुराने सदस्यद्वारा जाँचे जाने पर [[{{MediaWiki:Validationpage}}|स्थिर अवतरण]] में दर्शायें जायेंगे।
-''कच्चा ढाँचा'' नीचे दिया हुआ हैं।''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|बदलाव की|बदलावोंकी}}] जाँच बाकी हैं।",
+''कच्चा ढाँचा'' नीचे दिया हुआ हैं।''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|बदलाव की|बदलावोंकी}}] जाँच बाकी हैं।", # Fuzzy
 	'revreview-edited-section' => 'पृष्ठ सेक्शन "[[#$1|$2]]" को लौटें ।',
 	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} नवीनतम चुना हुआ अवतरण] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} पूरी सूची]) <i>$2</i> को [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} प्रमाणित] हो गया हैं।
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|बदलाव की|बदलावोंकी}}] जाँच बाकी हैं।',
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|बदलाव की|बदलावोंकी}}] जाँच बाकी हैं।', # Fuzzy
 	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} नवीनतम चुना हुआ अवतरण] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} पूरी सूची]) <i>$2</i> को [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} प्रमाणित] हो गया हैं।
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} साँचा/चित्र बदलाव] की जाँच बाकी हैं।',
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} साँचा/चित्र बदलाव] की जाँच बाकी हैं।', # Fuzzy
 	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} नवीनतम गुणवत्तापूर्ण अवतरण] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} पूरी सूची]) <i>$2</i> को [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} प्रमाणित] हो गया हैं।
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|बदलाव की|बदलावोंकी}}] जाँच बाकी हैं।',
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|बदलाव की|बदलावोंकी}}] जाँच बाकी हैं।', # Fuzzy
 	'revreview-newest-quality-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} नवीनतम गुणवत्तापूर्ण अवतरण] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} पूरी सूची]) <i>$2</i> को [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} प्रमाणित] हो गया हैं।
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} साँचा/चित्र बदलाव] की जाँच बाकी हैं।',
-	'revreview-noflagged' => "इस पन्ने के जाँचे हुए अवतरण नहीं हैं, इसलिये यह पन्ना गुणवत्ता के लिये [[{{MediaWiki:Validationpage}}|जाँचा]] '''नहीं''' गया होने की संभावना हैं।",
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} साँचा/चित्र बदलाव] की जाँच बाकी हैं।', # Fuzzy
+	'revreview-noflagged' => "इस पन्ने के जाँचे हुए अवतरण नहीं हैं, इसलिये यह पन्ना गुणवत्ता के लिये [[{{MediaWiki:Validationpage}}|जाँचा]] '''नहीं''' गया होने की संभावना हैं।", # Fuzzy
 	'revreview-oldrating' => 'इसका गुणांकन:',
 	'revreview-quality' => 'यह नवीनतम [[{{MediaWiki:Validationpage}}|गुणवत्तापूर्ण]] अवतरण हैं, जो <i>$2</i> को [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} प्रमाणित] हो चुका हैं।
-[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} ढाँचे] में [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|बदलाव है|बदलाव हैं}}] जिनकी जाँच बाकी हैं।',
+[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} ढाँचे] में [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|बदलाव है|बदलाव हैं}}] जिनकी जाँच बाकी हैं।', # Fuzzy
 	'revreview-quality-i' => 'यह नवीनतम [[{{MediaWiki:Validationpage}}|गुणवत्तापूर्ण]] अवतरण हैं, जो <i>$2</i> को [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} प्रमाणित] हो चुका हैं।
-[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} ढाँचे] में [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} साँचा/चित्र बदलाव] हैं जिनकी जाँच बाकी हैं।',
+[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} ढाँचे] में [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} साँचा/चित्र बदलाव] हैं जिनकी जाँच बाकी हैं।', # Fuzzy
 	'revreview-quality-old' => 'यह एक [[{{MediaWiki:Validationpage}}|गुणवत्तापूर्ण]] अवतरण हैं ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} पूरी सूची]), जो <i>$2</i> को [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} प्रमाणित] हो चुका हैं।
-इसमें नये [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} बदलाव] होने की संभावना हैं।',
-	'revreview-quality-same' => 'यह नवीनतम [[{{MediaWiki:Validationpage}}|गुणवत्तापूर्ण]] अवतरण हैं ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} पूरी सूची]), जो <i>$2</i> को [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} प्रमाणित] हो चुका हैं।',
+इसमें नये [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} बदलाव] होने की संभावना हैं।', # Fuzzy
+	'revreview-quality-same' => 'यह नवीनतम [[{{MediaWiki:Validationpage}}|गुणवत्तापूर्ण]] अवतरण हैं ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} पूरी सूची]), जो <i>$2</i> को [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} प्रमाणित] हो चुका हैं।', # Fuzzy
 	'revreview-quality-source' => 'इस पन्नेका एक [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} गुणवत्तापूर्ण अवतरण], जो <i>$2</i> को [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} प्रमाणित] हुआ हैं, इस अवतरण पर आधारित था।',
-	'revreview-quality-title' => 'गुणवत्तापूर्ण लेख',
-	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|चुना हुआ लेख]]''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} ड्राफ्ट देखें]]",
-	'revreview-quick-basic-old' => "'''[[{{MediaWiki:Validationpage}}|चुना हुआ लेख]]''' [ ड्राफ्ट देखें]]",
-	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|चुना हुआ लेख]]'''",
+	'revreview-quality-title' => 'गुणवत्तापूर्ण लेख', # Fuzzy
+	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|चुना हुआ लेख]]''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} ड्राफ्ट देखें]]", # Fuzzy
+	'revreview-quick-basic-old' => "'''[[{{MediaWiki:Validationpage}}|चुना हुआ लेख]]''' [ ड्राफ्ट देखें]]", # Fuzzy
+	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|चुना हुआ लेख]]'''", # Fuzzy
 	'revreview-quick-invalid' => "'''गलत अवतरण क्रमांक'''",
-	'revreview-quick-none' => "'''[[{{MediaWiki:Validationpage}}|सद्य अवतरण]]''' (परिक्षण हुआ नहीं)",
-	'revreview-quick-quality' => "'''[[{{MediaWiki:Validationpage}}|गुणवत्तापूर्ण लेख]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} ड्राफ्ट देखें]]",
-	'revreview-quick-quality-old' => "'''[[{{MediaWiki:Validationpage}}|गुणवत्तापूर्ण लेख]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} ड्राफ्ट देखें]]",
-	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|गुणवत्तापूर्ण लेख]]'''",
+	'revreview-quick-none' => "'''[[{{MediaWiki:Validationpage}}|सद्य अवतरण]]''' (परिक्षण हुआ नहीं)", # Fuzzy
+	'revreview-quick-quality' => "'''[[{{MediaWiki:Validationpage}}|गुणवत्तापूर्ण लेख]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} ड्राफ्ट देखें]]", # Fuzzy
+	'revreview-quick-quality-old' => "'''[[{{MediaWiki:Validationpage}}|गुणवत्तापूर्ण लेख]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} ड्राफ्ट देखें]]", # Fuzzy
+	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|गुणवत्तापूर्ण लेख]]'''", # Fuzzy
 	'revreview-quick-see-basic' => "'''ड्राफ्ट''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} लेख देखें]]
-[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} फर्क जाँचें]]",
+[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} फर्क जाँचें]]", # Fuzzy
 	'revreview-quick-see-quality' => "'''ड्राफ्ट''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} लेख देखें]]
-[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} फर्क जाँचें]]",
-	'revreview-source' => 'कच्चा स्रोत',
-	'revreview-basic-title' => 'चुना हुआ लेख',
+[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} फर्क जाँचें]]", # Fuzzy
+	'revreview-source' => 'कच्चा स्रोत', # Fuzzy
+	'revreview-basic-title' => 'चुना हुआ लेख', # Fuzzy
 	'revreview-style' => 'वाचनीयता',
-	'revreview-style-0' => 'अप्रमाणित',
+	'revreview-style-0' => 'अप्रमाणित', # Fuzzy
 	'revreview-style-1' => 'इस्तेमाल करने लायक',
 	'revreview-style-2' => 'अच्छा',
 	'revreview-style-3' => 'संक्षिप्त',
 	'revreview-style-4' => 'विशेष',
 	'revreview-toggle-title' => 'अधिक जानकारी दिखाएँ/छुपाएँ',
-	'revreview-visibility-synced' => "'''इस पन्नेको एक [[{{MediaWiki:Validationpage}}|स्थिर अवतरण]] हैं, जो [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} बदला] जा सकता हैं।'''",
+	'revreview-visibility-synced' => "'''इस पन्नेको एक [[{{MediaWiki:Validationpage}}|स्थिर अवतरण]] हैं, जो [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} बदला] जा सकता हैं।'''", # Fuzzy
 	'revreview-revnotfound' => 'आपसे पूछा गया इस लेख का पुराना अवतरण नहीं मिल पाया। कॄपया आपने इस्तेमाल किये URL की जाँच करें।',
-	'right-autoreview' => 'अवतरण देखें ऐसे अपनेआप मार्क करें',
+	'right-autoreview' => 'अवतरण देखें ऐसे अपनेआप मार्क करें', # Fuzzy
 	'right-autoreviewrestore' => 'स्व-समीक्षा रोलबेक पर',
-	'right-movestable' => 'स्थिर पन्नोंका स्थानांतरण करें',
-	'right-review' => 'अवतरण देखें ऐसे मार्क करें',
-	'right-stablesettings' => 'स्थिर अवतरण किस प्रकार चुना और दर्शाया जायेगा इसे निश्चित करें',
-	'right-validate' => 'अवतरण वैध ऐसे मार्क करें',
-	'right-unreviewedpages' => 'न देखें हुए पन्नोंकी सूची देखें',
+	'right-movestable' => 'स्थिर पन्नोंका स्थानांतरण करें', # Fuzzy
+	'right-review' => 'अवतरण देखें ऐसे मार्क करें', # Fuzzy
+	'right-stablesettings' => 'स्थिर अवतरण किस प्रकार चुना और दर्शाया जायेगा इसे निश्चित करें', # Fuzzy
+	'right-validate' => 'अवतरण वैध ऐसे मार्क करें', # Fuzzy
+	'right-unreviewedpages' => 'न देखें हुए पन्नोंकी सूची देखें', # Fuzzy
 	'rights-editor-revoke' => '[[$1]] के संपादन अधिकार निकाले गये',
-	'specialpages-group-quality' => 'गुणवत्ता नियंत्रण',
-	'stable-logentry-config' => '$1 का स्थिर अवतरणीकरण बदलें',
+	'specialpages-group-quality' => 'गुणवत्ता नियंत्रण', # Fuzzy
+	'stable-logentry-config' => '$1 का स्थिर अवतरणीकरण बदलें', # Fuzzy
 	'stable-logentry-modify' => 'स्थिर संस्करण सेटिंग्स बदला गया "$1" के लिए',
-	'stable-logentry-reset' => '$1 का स्थिर अवतरणीकरण पूर्ववत करें',
+	'stable-logentry-reset' => '$1 का स्थिर अवतरणीकरण पूर्ववत करें', # Fuzzy
 	'stable-log-restriction' => 'स्व-समिक्षा: "$1" की अनुमति चाहिए',
 	'stable-logpage' => 'स्थिर आवृत्ती सूची',
 	'stable-logpagetext' => 'यह कंटेंट पन्नोंके [[{{MediaWiki:Validationpage}}|स्थिर अवतरण]] में हुए बदलावों की सूची हैं।',
@@ -6577,8 +6590,8 @@ $messages['hi'] = array(
 	'revreview-reviewlink' => 'बचा हुआ सम्पादन',
 	'revreview-reviewlink-title' => 'बाकी बदलाव का अंतर देखें',
 	'revreview-unreviewedpage' => 'पृष्ठ अनचेक करें',
-	'tooltip-ca-current' => 'इस पन्ने का कच्चा अवतरण देखें',
-	'tooltip-ca-stable' => 'इस पन्ने का स्थिर अवतरण देखें',
+	'tooltip-ca-current' => 'इस पन्ने का कच्चा अवतरण देखें', # Fuzzy
+	'tooltip-ca-stable' => 'इस पन्ने का स्थिर अवतरण देखें', # Fuzzy
 	'tooltip-ca-default' => 'गुणवत्ता आश्वासन सेटिंग',
 	'flaggedrevs-protect-legend' => 'स्वचालित सम्पादन समीक्षा ([[{{MediaWiki:Validationpage}}|सहायता]])',
 	'flaggedrevs-protect-none' => 'सभी सदस्यों को अनुमति दें',
@@ -6586,7 +6599,7 @@ $messages['hi'] = array(
 	'revreview-locked-title' => 'इस पृष्ठ में संपदानों को समिक्षा की ज़रूरत है ।',
 	'revreview-unlocked-title' => 'इस पृष्ठ में संपदानों को समिक्षा की ज़रूरत नहीं है ।',
 	'log-show-hide-review' => '$1 लॉग की समीक्षा',
-	'validationpage' => '{{ns:help}}:लेख प्रमाणिकरण',
+	'validationpage' => '{{ns:help}}:लेख प्रमाणिकरण', # Fuzzy
 );
 
 /** Fiji Hindi (Latin script) (Fiji Hindi)
@@ -6617,18 +6630,18 @@ $messages['hr'] = array(
 	'flaggedrevs-pref-UI-1' => 'Rabi male ikone i kratak prikaz statusa stranica',
 	'prefs-flaggedrevs' => 'Ocjena uređivanja',
 	'prefs-flaggedrevs-ui' => 'Ocjena uređivanja',
-	'flaggedrevs-prefs-stable' => 'Uvijek prikazuj kao zadano stabilnu inačicu stranica sa sadržajem (ako postoji)',
+	'flaggedrevs-prefs-stable' => 'Uvijek prikazuj kao zadano stabilnu inačicu stranica sa sadržajem (ako postoji)', # Fuzzy
 	'flaggedrevs-prefs-watch' => 'Dodaj stranice koje ocijenim na moj popis praćenja',
 	'flaggedrevs-prefs-editdiffs' => 'Prikaži razlike na čekanju pri uređivanju stranice',
 	'flaggedrevs-prefs-viewdiffs' => 'Pokaži razlike izmjena na čekanju pri prikazivanju posljednje inačice na čekanju',
 	'group-editor' => 'Urednici',
-	'group-editor-member' => 'Urednik',
+	'group-editor-member' => 'Urednik', # Fuzzy
 	'group-reviewer' => 'Ocjenjivači',
-	'group-reviewer-member' => 'Ocjenjivač',
+	'group-reviewer-member' => 'Ocjenjivač', # Fuzzy
 	'grouppage-editor' => '{{ns:project}}:Urednik',
 	'grouppage-reviewer' => '{{ns:project}}:Ocjenjivač',
 	'group-autoreview' => 'Samoocjenjivači',
-	'group-autoreview-member' => 'samoocjenjivač',
+	'group-autoreview-member' => 'samoocjenjivač', # Fuzzy
 	'grouppage-autoreview' => '{{ns:project}}:Samoocjenjivač',
 	'revreview-hist-draft' => 'neprovjerena inačica',
 	'revreview-hist-pending' => 'čeka na provjeru',
@@ -6682,22 +6695,22 @@ Nove su [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-di
 	'revreview-depth-4' => 'Izvrstan',
 	'revreview-draft-title' => 'Na ovoj stranici su prikazane izmjene na čekanju',
 	'revreview-edit' => 'Uredi',
-	'revreview-editnotice' => "'''Vaše izmjene ove stranice bit će prikazane čitateljima kad ih ovlašteni suradnik ocijeni. ([[{{MediaWiki:Validationpage}}|pomoć]])'''",
+	'revreview-editnotice' => "'''Vaše izmjene ove stranice bit će prikazane čitateljima kad ih ovlašteni suradnik ocijeni. ([[{{MediaWiki:Validationpage}}|pomoć]])'''", # Fuzzy
 	'revreview-submitedit' => 'Pošalji promjene',
 	'revreview-submitedit-title' => 'Pošaljite Vaše izmjene na pregled',
 	'revreview-edited' => "'''Vaše izmjene biti će prikazane čitateljima kad ih ovlašteni suradnik ocijeni. ([[{{MediaWiki:Validationpage}}|pomoć]])'''
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$2|Postoji $2 izmjena koja čeka|Postoje $2 izmjene koje čekaju|Postoji $2 izmjena koje čekaju}}] ocjenu.",
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$2|Postoji $2 izmjena koja čeka|Postoje $2 izmjene koje čekaju|Postoji $2 izmjena koje čekaju}}] ocjenu.", # Fuzzy
 	'revreview-edited-section' => 'Natrag na odlomak stranice pod imenom "[[#$1|$2]]".',
 	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Stabilna inačica] je bila [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} provjerena] dana <i>$2</i>.
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$3|Postoji $3 promjena koja|Postoje $3 promjene koje|Postoji $3 promjena koje}}] {{PLURAL:$3|treba|trebaju|trebaju}} ocjenu.',
-	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Posljednja pregledana izmjena] je [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} odobrena] <i>$2</i>. Postoje [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} izmjene predloška/datoteke] koje je potrebno ocijeniti.',
-	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Zadnje ocjenjivanje članka] je [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} izvršeno] dana <i>$2</i>.
-{{PLURAL:$3|Postoji|Postoje|Postoji}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$3|$3 promjena|$3 promjene|$3 promjena}}] {{PLURAL:$3|koja treba|koje trebaju|koje trebaju}} ocjenu.',
-	'revreview-newest-quality-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Posljednja ocijenjena izmjena] je [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} odobrena] <i>$2</i>. Postoje [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} izmjene predloška/datoteke] koje je potrebno ocijeniti.',
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$3|Postoji $3 promjena koja|Postoje $3 promjene koje|Postoji $3 promjena koje}}] {{PLURAL:$3|treba|trebaju|trebaju}} ocjenu.', # Fuzzy
+	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Posljednja pregledana izmjena] je [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} odobrena] <i>$2</i>. Postoje [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} izmjene predloška/datoteke] koje je potrebno ocijeniti.', # Fuzzy
+	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Zadnje ocjenjivanje članka] je [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} izvršeno] dana <i>$2</i>. 
+{{PLURAL:$3|Postoji|Postoje|Postoji}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$3|$3 promjena|$3 promjene|$3 promjena}}] {{PLURAL:$3|koja treba|koje trebaju|koje trebaju}} ocjenu.', # Fuzzy
+	'revreview-newest-quality-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Posljednja ocijenjena izmjena] je [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} odobrena] <i>$2</i>. Postoje [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} izmjene predloška/datoteke] koje je potrebno ocijeniti.', # Fuzzy
 	'revreview-pending-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Stabilna verzija] je bila [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} provjerena] dana <i>$2</i>. {{PLURAL:$3|Postoji|Postoje}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|izmjena|izmjene}}] koje čekaju na provjeru.',
-	'revreview-pending-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Stabilna verzija] je bila [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} odobrena] dana <i>$2</i>.
+	'revreview-pending-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Stabilna verzija] je bila [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} odobrena] dana <i>$2</i>. 
 {{PLURAL:$3|Postoji|Postoje}}  [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|izmjena|izmjene}}] koje čekaju na pregled.',
-	'revreview-pending-nosection' => 'Pokušajte pogledati [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} posljednju inačicu], koja uključuje
+	'revreview-pending-nosection' => 'Pokušajte pogledati [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} posljednju inačicu], koja uključuje 
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|izmjenu|izmjene|izmjena}}] koje čekaju provjeru, kako bi vidjeli je li odlomak pomican ili obrisan.',
 	'revreview-noflagged' => "Nema [[{{MediaWiki:Validationpage}}|ocijenjenih inačica]] stranice, stoga najvjerojatnije '''nije''' provjerena usklađenost stranice sa standardima projekta.",
 	'revreview-oldrating' => 'Prethodna ocjena:',
@@ -6854,7 +6867,7 @@ $messages['hsb'] = array(
 	'revreview-accuracy-4' => 'wuběrna',
 	'revreview-auto' => '(awtomatisce)',
 	'revreview-basic' => 'To je [[{{MediaWiki:Validationpage}}|wozjewjena wersija]],
-[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} skontrolowana] <i>$2</i>.
+[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} skontrolowana] <i>$2</i>. 
 {{PLURAL:$3|Je|Stej|Su|Je}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|nječinjena změna|nječinjenej změnje|nječinjene změny|nječinjenych změnow}}], {{PLURAL:$3|kotraž čaka|kotrejž čakatej|kotrež čakaja|kotrež čaka}} na přepruwowanje.',
 	'revreview-basic-i' => 'To je [[{{MediaWiki:Validationpage}}|wozjewjena wersija]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} skontrolowana] <i>$2</i>.
 Su [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} změny předłohow/datajow], kotrež na přepruwowanje čakaja.',
@@ -6882,7 +6895,7 @@ Je móžno, zo su so nowe [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaW
 [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Stabilna wersija] bu <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} skontrolowana].',
 	'revreview-newest-basic-i' => 'Su [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} změny předłohow/datajow] w tutej wersiji, kotrež na [[{{MediaWiki:Validationpage}}|přepruwowanje]] čakaja.
 [{{fullurl:{{FULLPAGENAMEE}}|stable=1}}Stabilna wersija] bu <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} skontrolowana].',
-	'revreview-newest-quality' => '{{PLURAL:$3|Je|Stej|Su|Je}}
+	'revreview-newest-quality' => '{{PLURAL:$3|Je|Stej|Su|Je}} 
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|změna|změnje|změny|změnow}}] w tutej wersiji hišće {{PLURAL:$3|čaka|čakatej|čakaja|čaka}} na [[{{MediaWiki:Validationpage}}|přepruwowanje]].
 [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Stabilna wersija] bu <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} schwalena].',
 	'revreview-newest-quality-i' => 'Su [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} změny předłohow/datajow] w tutej wersiji, kotrež na [[{{MediaWiki:Validationpage}}|přepruwowanje]] čakaja.
@@ -8172,41 +8185,41 @@ $messages['jut'] = array(
 	'editor' => 'Editor',
 	'flaggedrevs' => 'Flagged Reviisje',
 	'group-editor' => 'Editors',
-	'group-editor-member' => 'Editor',
+	'group-editor-member' => 'Editor', # Fuzzy
 	'group-reviewer' => 'Reviewers',
-	'group-reviewer-member' => 'Reviewer',
+	'group-reviewer-member' => 'Reviewer', # Fuzzy
 	'grouppage-editor' => '{{ns:project}}:Editor',
 	'grouppage-reviewer' => '{{ns:project}}:Reviewer',
 	'revreview-hist-quality' => 'kwalitæ reviisje',
-	'revreview-hist-basic' => 'sæn reviisje',
+	'revreview-hist-basic' => 'sæn reviisje', # Fuzzy
 	'reviewer' => 'Reviewer',
 	'revreview-accuracy' => 'Klopthed',
-	'revreview-accuracy-0' => 'Niveauen',
+	'revreview-accuracy-0' => 'Niveauen', # Fuzzy
 	'revreview-accuracy-1' => 'Niveauto',
 	'revreview-accuracy-2' => 'Niveautre',
 	'revreview-accuracy-3' => 'Niveaufor',
 	'revreview-accuracy-4' => 'Niveaufem',
-	'revreview-current' => 'Dråft',
+	'revreview-current' => 'Dråft', # Fuzzy
 	'revreview-depth' => 'Diip',
-	'revreview-depth-0' => 'Niveauen',
+	'revreview-depth-0' => 'Niveauen', # Fuzzy
 	'revreview-depth-1' => 'Niveauto',
 	'revreview-depth-2' => 'Niveautre',
 	'revreview-depth-3' => 'Niveaufire',
 	'revreview-depth-4' => 'Niveaufem',
-	'revreview-edit' => 'Redigær draft',
+	'revreview-edit' => 'Redigær draft', # Fuzzy
 	'revreview-oldrating' => "E'r ræten:",
-	'revreview-source' => 'draft sårs',
+	'revreview-source' => 'draft sårs', # Fuzzy
 	'revreview-style' => 'Læsbårhed',
-	'revreview-style-0' => 'Niveauen',
+	'revreview-style-0' => 'Niveauen', # Fuzzy
 	'revreview-style-1' => 'Niveauto',
 	'revreview-style-2' => 'Niveautre',
 	'revreview-style-3' => 'Niveaufor',
 	'revreview-style-4' => 'Niveaufem',
 	'rights-editor-revoke' => 'slettet redigærerståt der [[$1]]',
-	'tooltip-ca-current' => "Se'n draft nuværende detter side",
-	'tooltip-ca-stable' => "Se'n stabiil versje detter pæge",
+	'tooltip-ca-current' => "Se'n draft nuværende detter side", # Fuzzy
+	'tooltip-ca-stable' => "Se'n stabiil versje detter pæge", # Fuzzy
 	'tooltip-ca-default' => 'Kwalitæt assurans endstellenger',
-	'validationpage' => '{{ns:help}}:Artikel vålidåsje',
+	'validationpage' => '{{ns:help}}:Artikel vålidåsje', # Fuzzy
 );
 
 /** Javanese (Basa Jawa)
@@ -8289,7 +8302,7 @@ $messages['jv'] = array(
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|change|owahan}}] katunda {{PLURAL:$3|nunggu|nunggu}} dirèvisi.',
 	'revreview-quality-i' => 'Iki [[{{MediaWiki:Validationpage}}|vèrsi stabil]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} ditampa] <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Owahan templat/berkas] nunggu diulas.',
-	'revreview-style-0' => 'Ora disarujuki',
+	'revreview-style-0' => 'Ora disarujuki', # Fuzzy
 	'revreview-style-1' => 'Lumayan',
 	'revreview-style-2' => 'Apik',
 	'revreview-style-3' => 'Ringkes',
@@ -8528,28 +8541,29 @@ $messages['kab'] = array(
 Ssenqed URL i tesseqdac.',
 );
 
-/** Kazakh (Arabic script) (قازاقشا (تٴوتە)‏) */
+/** Kazakh (Arabic script) (قازاقشا (تٴوتە)‏)
+ */
 $messages['kk-arab'] = array(
 	'editor' => 'تۇزەتۋشى',
 	'flaggedrevs' => 'بەلگىلەنگەن نۇسقالار',
 	'group-editor' => 'تۇزەتۋشىلەر',
-	'group-editor-member' => 'تۇزەتۋشى',
+	'group-editor-member' => 'تۇزەتۋشى', # Fuzzy
 	'group-reviewer' => 'سىن بەرۋشىلەر',
-	'group-reviewer-member' => 'سىن بەرۋشى',
+	'group-reviewer-member' => 'سىن بەرۋشى', # Fuzzy
 	'grouppage-editor' => '{{ns:project}}:تۇزەتۋشى',
 	'grouppage-reviewer' => '{{ns:project}}:سىن بەرۋشى',
 	'revreview-hist-quality' => '[ساپالىنعان]',
-	'revreview-hist-basic' => '[شولىنعان]',
-	'review-diff2stable' => 'تىياناقتى مەن اعىمدىق نۇسقالار اراداعى وزگەرىستەر',
-	'review-logentry-app' => '[[$1]] دەگەنگە سىن بەردى',
-	'review-logentry-dis' => '[[$1]] دەگەننىڭ نۇسقاسىن كەمىتتى',
+	'revreview-hist-basic' => '[شولىنعان]', # Fuzzy
+	'review-diff2stable' => 'تىياناقتى مەن اعىمدىق نۇسقالار اراداعى وزگەرىستەر', # Fuzzy
+	'review-logentry-app' => '[[$1]] دەگەنگە سىن بەردى', # Fuzzy
+	'review-logentry-dis' => '[[$1]] دەگەننىڭ نۇسقاسىن كەمىتتى', # Fuzzy
 	'review-logentry-id' => 'نۇسقا ٴنومىرى: $2',
 	'review-logpage' => 'ماقالاعا سىن بەرۋ جۋرنالى',
 	'review-logpagetext' => 'بۇل ماعلۇمات بەتتەردەگى نۇسقالاردى [[{{MediaWiki:Validationpage}}|بەكىتۋ]] كۇيى
-وزگەرىستەرىنىڭ جۋرنالى.',
+وزگەرىستەرىنىڭ جۋرنالى.', # Fuzzy
 	'reviewer' => 'سىن بەرۋشى',
 	'revreview-accuracy' => 'دالدىگى',
-	'revreview-accuracy-0' => 'بەكىتىلمەگەن',
+	'revreview-accuracy-0' => 'بەكىتىلمەگەن', # Fuzzy
 	'revreview-accuracy-1' => 'شولىنعان',
 	'revreview-accuracy-2' => 'ٴدالدى',
 	'revreview-accuracy-3' => 'قاينار كەلتىرىلگەن',
@@ -8558,77 +8572,78 @@ $messages['kk-arab'] = array(
 	'revreview-basic' => 'بۇل ەڭ سوڭعى [[{{MediaWiki:Validationpage}}|شولىنعان]] نۇسقا,
 <i>$2</i> كەزىندە [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} بەكىتىلگەن]. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} جوبا جازباسى]
 [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} وزگەرتىلۋى] مۇمكىن; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|وزگەرىسى|وزگەرىسى}}]
-سىن بەرۋدى {{PLURAL:$3|كۇتۋدە|كۇتۋدە}}.',
-	'revreview-current' => 'جوبا جازبا',
+سىن بەرۋدى {{PLURAL:$3|كۇتۋدە|كۇتۋدە}}.', # Fuzzy
+	'revreview-current' => 'جوبا جازبا', # Fuzzy
 	'revreview-depth' => 'كامىلدىگى',
-	'revreview-depth-0' => 'بەكىتىلمەگەن',
+	'revreview-depth-0' => 'بەكىتىلمەگەن', # Fuzzy
 	'revreview-depth-1' => 'ىرگەلى',
 	'revreview-depth-2' => 'ورتاشا',
 	'revreview-depth-3' => 'جوعارى',
 	'revreview-depth-4' => 'تاڭدامالى',
-	'revreview-edit' => 'جوبا جازبانى وڭدەۋ',
+	'revreview-edit' => 'جوبا جازبانى وڭدەۋ', # Fuzzy
 	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} ەڭ سوڭعى شولىنعان نۇسقاسى]
-([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} بارلىق ٴتىزىمى]) <i>$2</i> كەزىندە [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} بەكىتىلدى]. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|وزگەرىسىنە|وزگەرىسىنە}}] سىن بەرۋى {{PLURAL:$3|كەرەك|كەرەك}}.',
+([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} بارلىق ٴتىزىمى]) <i>$2</i> كەزىندە [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} بەكىتىلدى]. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|وزگەرىسىنە|وزگەرىسىنە}}] سىن بەرۋى {{PLURAL:$3|كەرەك|كەرەك}}.', # Fuzzy
 	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} ەڭ سوڭعى ساپالى نۇسقاسى]
 ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} بارلىعىنىڭ ٴتىزىمى]) <i>$2</i> كەزىندە [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} بەكىتىلدى].
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|وزگەرىسىنە|وزگەرىسىنە}}] سىن بەرۋى {{PLURAL:$3|كەرەك|كەرەك}}.',
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|وزگەرىسىنە|وزگەرىسىنە}}] سىن بەرۋى {{PLURAL:$3|كەرەك|كەرەك}}.', # Fuzzy
 	'revreview-noflagged' => "بۇل بەتتىڭ سىن بەرىلگەن نۇسقالارى مىندا جوق, سوندىقتان بۇنىڭ ساپاسى
-'''[[{{MediaWiki:Validationpage}}|تەكسەرىلمەگەن]]''' بولۋى مۇمكىن.",
+'''[[{{MediaWiki:Validationpage}}|تەكسەرىلمەگەن]]''' بولۋى مۇمكىن.", # Fuzzy
 	'revreview-oldrating' => 'بۇل مىنا باعا الدى:',
 	'revreview-quality' => 'بۇل ەڭ سوڭعى [[{{MediaWiki:Validationpage}}|ساپالى]] نۇسقا,
 <i>$2</i> كەزىندە [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} بەكىتىلگەن]. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} جوبا جازباسى]
 [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} وزگەرتىلۋى] مۇمكىن; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|وزگەرىسى|وزگەرىسى}}]
-سىن بەرۋدى {{PLURAL:$3|كۇتۋدە|كۇتۋدە}}.',
-	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|شولىنعان]]''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} جوبا جازباسىن قاراۋ]]",
-	'revreview-quick-none' => "'''اعىمدىق''' (cىن بەرىلگەن نۇسقالار جوق)",
-	'revreview-quick-quality' => "'''[[{{MediaWiki:Validationpage}}|ساپالى]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} جوبا جازباسىن قاراۋ]]",
+سىن بەرۋدى {{PLURAL:$3|كۇتۋدە|كۇتۋدە}}.', # Fuzzy
+	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|شولىنعان]]''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} جوبا جازباسىن قاراۋ]]", # Fuzzy
+	'revreview-quick-none' => "'''اعىمدىق''' (cىن بەرىلگەن نۇسقالار جوق)", # Fuzzy
+	'revreview-quick-quality' => "'''[[{{MediaWiki:Validationpage}}|ساپالى]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} جوبا جازباسىن قاراۋ]]", # Fuzzy
 	'revreview-quick-see-basic' => "'''جوبا جازبا''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} تىياناقتى ماقالانى قاراۋ]]
-($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$2|وزگەرىس|وزگەرىس}}]]",
+($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$2|وزگەرىس|وزگەرىس}}]]", # Fuzzy
 	'revreview-quick-see-quality' => "'''جوبا جازبا''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} تىياناقتى ماقالانى قاراۋ]]
-($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$2|وزگەرىس|وزگەرىس}}]]",
-	'revreview-source' => 'جوبا جازبالى قاينار',
+($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$2|وزگەرىس|وزگەرىس}}]]", # Fuzzy
+	'revreview-source' => 'جوبا جازبالى قاينار', # Fuzzy
 	'revreview-style' => 'وقىمدىلىعى',
-	'revreview-style-0' => 'بەكىتىلمەگەن',
+	'revreview-style-0' => 'بەكىتىلمەگەن', # Fuzzy
 	'revreview-style-1' => 'ٴتىيىمدى',
 	'revreview-style-2' => 'جاقسى',
 	'revreview-style-3' => 'تارتىمدى',
 	'revreview-style-4' => 'تاڭدامالى',
 	'revreview-visibility-synced' => 'وسى بەتتىڭ [[{{MediaWiki:Validationpage}}|تىياناقتى نۇسقاسى]] بار, بۇل
-[{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} باپتالاۋى] مۇمكىن.',
+[{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} باپتالاۋى] مۇمكىن.', # Fuzzy
 	'revreview-revnotfound' => 'بۇل بەتتىڭ سۇرالعان ەسكى تۇزەتۋى تابىلعان جوق. وسى بەت قاتىناۋىنا پايدالانعان URL تەكسەرىپ شىعىڭىز.',
-	'stable-logentry-config' => '$1 ٴۇشىن تىياناقتى نۇسقا باپتالىمى رەتتەلدى',
-	'stable-logentry-reset' => '$1 ٴۇشىن تىياناقتى نۇسقا باپتالىمى قايتا قويىلدى',
+	'stable-logentry-config' => '$1 ٴۇشىن تىياناقتى نۇسقا باپتالىمى رەتتەلدى', # Fuzzy
+	'stable-logentry-reset' => '$1 ٴۇشىن تىياناقتى نۇسقا باپتالىمى قايتا قويىلدى', # Fuzzy
 	'stable-logpage' => 'تىياناقتى نۇسقا جۋرنالى',
 	'stable-logpagetext' => 'بۇل ماعلۇمات بەتتەردەگى [[{{MediaWiki:Validationpage}}|تىياناقتى نۇسقا]] باپتالىمى
-وزگەرىستەرىنىڭ جۋرنالى.',
-	'tooltip-ca-current' => 'بۇل بەتتىڭ اعىمداعى جوبا جازباسىن قاراۋ',
-	'tooltip-ca-stable' => 'بۇل بەتتىڭ تىياناقتى نۇسقاسىن قاراۋ',
+وزگەرىستەرىنىڭ جۋرنالى.', # Fuzzy
+	'tooltip-ca-current' => 'بۇل بەتتىڭ اعىمداعى جوبا جازباسىن قاراۋ', # Fuzzy
+	'tooltip-ca-stable' => 'بۇل بەتتىڭ تىياناقتى نۇسقاسىن قاراۋ', # Fuzzy
 	'tooltip-ca-default' => 'ساپا قامسىزداندىرۋدى باپتاۋ',
-	'validationpage' => '{{ns:help}}:ماقالا اقتالۋى',
+	'validationpage' => '{{ns:help}}:ماقالا اقتالۋى', # Fuzzy
 );
 
-/** Kazakh (Cyrillic script) (қазақша (кирил)‎) */
+/** Kazakh (Cyrillic script) (қазақша (кирил)‎)
+ */
 $messages['kk-cyrl'] = array(
 	'editor' => 'Түзетуші',
 	'flaggedrevs' => 'Белгіленген нұсқалар',
 	'group-editor' => 'Түзетушілер',
-	'group-editor-member' => 'түзетуші',
+	'group-editor-member' => 'түзетуші', # Fuzzy
 	'group-reviewer' => 'Сын берушілер',
-	'group-reviewer-member' => 'сын беруші',
+	'group-reviewer-member' => 'сын беруші', # Fuzzy
 	'grouppage-editor' => '{{ns:project}}:Түзетуші',
 	'grouppage-reviewer' => '{{ns:project}}:Сын беруші',
 	'revreview-hist-quality' => '[сапалынған]',
-	'revreview-hist-basic' => '[шолынған]',
-	'review-diff2stable' => 'Тиянақты мен ағымдық нұсқалар арадағы өзгерістер',
-	'review-logentry-app' => '[[$1]] дегенге сын берді',
-	'review-logentry-dis' => '[[$1]] дегеннің нұсқасын кемітті',
+	'revreview-hist-basic' => '[шолынған]', # Fuzzy
+	'review-diff2stable' => 'Тиянақты мен ағымдық нұсқалар арадағы өзгерістер', # Fuzzy
+	'review-logentry-app' => '[[$1]] дегенге сын берді', # Fuzzy
+	'review-logentry-dis' => '[[$1]] дегеннің нұсқасын кемітті', # Fuzzy
 	'review-logentry-id' => 'нұсқа нөмірі: $2',
 	'review-logpage' => 'Мақалаға сын беру журналы',
 	'review-logpagetext' => 'Бұл мағлұмат беттердегі нұсқаларды [[{{MediaWiki:Validationpage}}|бекіту]] күйі
-өзгерістерінің журналы.',
+өзгерістерінің журналы.', # Fuzzy
 	'reviewer' => 'Сын беруші',
 	'revreview-accuracy' => 'Дәлдігі',
-	'revreview-accuracy-0' => 'бекітілмеген',
+	'revreview-accuracy-0' => 'бекітілмеген', # Fuzzy
 	'revreview-accuracy-1' => 'шолынған',
 	'revreview-accuracy-2' => 'дәлді',
 	'revreview-accuracy-3' => 'қайнар келтірілген',
@@ -8637,77 +8652,78 @@ $messages['kk-cyrl'] = array(
 	'revreview-basic' => 'Бұл ең соңғы [[{{MediaWiki:Validationpage}}|шолынған]] нұсқа,
 <i>$2</i> кезінде [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} бекітілген]. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Жоба жазбасы]
 [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} өзгертілуі] мүмкін; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|өзгерісі|өзгерісі}}]
-сын беруді {{PLURAL:$3|күтуде|күтуде}}.',
-	'revreview-current' => 'Жоба жазба',
+сын беруді {{PLURAL:$3|күтуде|күтуде}}.', # Fuzzy
+	'revreview-current' => 'Жоба жазба', # Fuzzy
 	'revreview-depth' => 'Кәмілдігі',
-	'revreview-depth-0' => 'бекітілмеген',
+	'revreview-depth-0' => 'бекітілмеген', # Fuzzy
 	'revreview-depth-1' => 'іргелі',
 	'revreview-depth-2' => 'орташа',
 	'revreview-depth-3' => 'жоғары',
 	'revreview-depth-4' => 'таңдамалы',
-	'revreview-edit' => 'Жоба жазбаны өңдеу',
+	'revreview-edit' => 'Жоба жазбаны өңдеу', # Fuzzy
 	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Ең соңғы шолынған нұсқасы]
-([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} барлық тізімі]) <i>$2</i> кезінде [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} бекітілді]. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|өзгерісіне|өзгерісіне}}] сын беруі {{PLURAL:$3|керек|керек}}.',
+([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} барлық тізімі]) <i>$2</i> кезінде [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} бекітілді]. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|өзгерісіне|өзгерісіне}}] сын беруі {{PLURAL:$3|керек|керек}}.', # Fuzzy
 	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Ең соңғы сапалы нұсқасы]
 ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} барлығының тізімі]) <i>$2</i> кезінде [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} бекітілді].
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|өзгерісіне|өзгерісіне}}] сын беруі {{PLURAL:$3|керек|керек}}.',
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|өзгерісіне|өзгерісіне}}] сын беруі {{PLURAL:$3|керек|керек}}.', # Fuzzy
 	'revreview-noflagged' => "Бұл беттің сын берілген нұсқалары мында жоқ, сондықтан бұның сапасы
-'''[[{{MediaWiki:Validationpage}}|тексерілмеген]]''' болуы мүмкін.",
+'''[[{{MediaWiki:Validationpage}}|тексерілмеген]]''' болуы мүмкін.", # Fuzzy
 	'revreview-oldrating' => 'Бұл мына баға алды:',
 	'revreview-quality' => 'Бұл ең соңғы [[{{MediaWiki:Validationpage}}|сапалы]] нұсқа,
 <i>$2</i> кезінде [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} бекітілген]. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Жоба жазбасы]
 [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} өзгертілуі] мүмкін; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|өзгерісі|өзгерісі}}]
-сын беруді {{PLURAL:$3|күтуде|күтуде}}.',
-	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|Шолынған]]''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} жоба жазбасын қарау]]",
-	'revreview-quick-none' => "'''Ағымдық''' (cын берілген нұсқалар жоқ)",
-	'revreview-quick-quality' => "'''[[{{MediaWiki:Validationpage}}|Сапалы]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} жоба жазбасын қарау]]",
+сын беруді {{PLURAL:$3|күтуде|күтуде}}.', # Fuzzy
+	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|Шолынған]]''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} жоба жазбасын қарау]]", # Fuzzy
+	'revreview-quick-none' => "'''Ағымдық''' (cын берілген нұсқалар жоқ)", # Fuzzy
+	'revreview-quick-quality' => "'''[[{{MediaWiki:Validationpage}}|Сапалы]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} жоба жазбасын қарау]]", # Fuzzy
 	'revreview-quick-see-basic' => "'''Жоба жазба''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} тиянақты мақаланы қарау]]
-($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$2|өзгеріс|өзгеріс}}]]",
+($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$2|өзгеріс|өзгеріс}}]]", # Fuzzy
 	'revreview-quick-see-quality' => "'''Жоба жазба''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} тиянақты мақаланы қарау]]
-($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$2|өзгеріс|өзгеріс}}]]",
-	'revreview-source' => 'жоба жазбалы қайнар',
+($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$2|өзгеріс|өзгеріс}}]]", # Fuzzy
+	'revreview-source' => 'жоба жазбалы қайнар', # Fuzzy
 	'revreview-style' => 'Оқымдылығы',
-	'revreview-style-0' => 'бекітілмеген',
+	'revreview-style-0' => 'бекітілмеген', # Fuzzy
 	'revreview-style-1' => 'тиімді',
 	'revreview-style-2' => 'жақсы',
 	'revreview-style-3' => 'тартымды',
 	'revreview-style-4' => 'таңдамалы',
 	'revreview-visibility-synced' => 'Осы беттің [[{{MediaWiki:Validationpage}}|тиянақты нұсқасы]] бар, бұл
-[{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} бапталауы] мүмкін.',
+[{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} бапталауы] мүмкін.', # Fuzzy
 	'revreview-revnotfound' => 'Бұл беттің сұралған ескі түзетуі табылған жоқ. Осы бет қатынауына пайдаланған URL тексеріп шығыңыз.',
-	'stable-logentry-config' => '$1 үшін тиянақты нұсқа бапталымы реттелді',
-	'stable-logentry-reset' => '$1 үшін тиянақты нұсқа бапталымы қайта қойылды',
+	'stable-logentry-config' => '$1 үшін тиянақты нұсқа бапталымы реттелді', # Fuzzy
+	'stable-logentry-reset' => '$1 үшін тиянақты нұсқа бапталымы қайта қойылды', # Fuzzy
 	'stable-logpage' => 'Тиянақты нұсқа журналы',
 	'stable-logpagetext' => 'Бұл мағлұмат беттердегі [[{{MediaWiki:Validationpage}}|тиянақты нұсқа]] бапталымы
-өзгерістерінің журналы.',
-	'tooltip-ca-current' => 'Бұл беттің ағымдағы жоба жазбасын қарау',
-	'tooltip-ca-stable' => 'Бұл беттің тиянақты нұсқасын қарау',
+өзгерістерінің журналы.', # Fuzzy
+	'tooltip-ca-current' => 'Бұл беттің ағымдағы жоба жазбасын қарау', # Fuzzy
+	'tooltip-ca-stable' => 'Бұл беттің тиянақты нұсқасын қарау', # Fuzzy
 	'tooltip-ca-default' => 'Сапа қамсыздандыруды баптау',
-	'validationpage' => '{{ns:help}}:Мақала ақталуы',
+	'validationpage' => '{{ns:help}}:Мақала ақталуы', # Fuzzy
 );
 
-/** Kazakh (Latin script) (qazaqşa (latın)‎) */
+/** Kazakh (Latin script) (qazaqşa (latın)‎)
+ */
 $messages['kk-latn'] = array(
 	'editor' => 'Tüzetwşi',
 	'flaggedrevs' => 'Belgilengen nusqalar',
 	'group-editor' => 'Tüzetwşiler',
-	'group-editor-member' => 'tüzetwşi',
+	'group-editor-member' => 'tüzetwşi', # Fuzzy
 	'group-reviewer' => 'Sın berwşiler',
-	'group-reviewer-member' => 'sın berwşi',
+	'group-reviewer-member' => 'sın berwşi', # Fuzzy
 	'grouppage-editor' => '{{ns:project}}:Tüzetwşi',
 	'grouppage-reviewer' => '{{ns:project}}:Sın berwşi',
 	'revreview-hist-quality' => '[sapalınğan]',
-	'revreview-hist-basic' => '[şolınğan]',
-	'review-diff2stable' => 'Tïyanaqtı men ağımdıq nusqalar aradağı özgerister',
-	'review-logentry-app' => '[[$1]] degenge sın berdi',
-	'review-logentry-dis' => '[[$1]] degenniñ nusqasın kemitti',
+	'revreview-hist-basic' => '[şolınğan]', # Fuzzy
+	'review-diff2stable' => 'Tïyanaqtı men ağımdıq nusqalar aradağı özgerister', # Fuzzy
+	'review-logentry-app' => '[[$1]] degenge sın berdi', # Fuzzy
+	'review-logentry-dis' => '[[$1]] degenniñ nusqasın kemitti', # Fuzzy
 	'review-logentry-id' => 'nusqa nömiri: $2',
 	'review-logpage' => 'Maqalağa sın berw jwrnalı',
 	'review-logpagetext' => 'Bul mağlumat betterdegi nusqalardı [[{{MediaWiki:Validationpage}}|bekitw]] küýi
-özgeristeriniñ jwrnalı.',
+özgeristeriniñ jwrnalı.', # Fuzzy
 	'reviewer' => 'Sın berwşi',
 	'revreview-accuracy' => 'Däldigi',
-	'revreview-accuracy-0' => 'bekitilmegen',
+	'revreview-accuracy-0' => 'bekitilmegen', # Fuzzy
 	'revreview-accuracy-1' => 'şolınğan',
 	'revreview-accuracy-2' => 'däldi',
 	'revreview-accuracy-3' => 'qaýnar keltirilgen',
@@ -8716,53 +8732,53 @@ $messages['kk-latn'] = array(
 	'revreview-basic' => 'Bul eñ soñğı [[{{MediaWiki:Validationpage}}|şolınğan]] nusqa,
 <i>$2</i> kezinde [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} bekitilgen]. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Joba jazbası]
 [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} özgertilwi] mümkin; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|özgerisi|özgerisi}}]
-sın berwdi {{PLURAL:$3|kütwde|kütwde}}.',
-	'revreview-current' => 'Joba jazba',
+sın berwdi {{PLURAL:$3|kütwde|kütwde}}.', # Fuzzy
+	'revreview-current' => 'Joba jazba', # Fuzzy
 	'revreview-depth' => 'Kämildigi',
-	'revreview-depth-0' => 'bekitilmegen',
+	'revreview-depth-0' => 'bekitilmegen', # Fuzzy
 	'revreview-depth-1' => 'irgeli',
 	'revreview-depth-2' => 'ortaşa',
 	'revreview-depth-3' => 'joğarı',
 	'revreview-depth-4' => 'tañdamalı',
-	'revreview-edit' => 'Joba jazbanı öñdew',
+	'revreview-edit' => 'Joba jazbanı öñdew', # Fuzzy
 	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Eñ soñğı şolınğan nusqası]
-([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} barlıq tizimi]) <i>$2</i> kezinde [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} bekitildi]. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|özgerisine|özgerisine}}] sın berwi {{PLURAL:$3|kerek|kerek}}.',
+([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} barlıq tizimi]) <i>$2</i> kezinde [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} bekitildi]. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|özgerisine|özgerisine}}] sın berwi {{PLURAL:$3|kerek|kerek}}.', # Fuzzy
 	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Eñ soñğı sapalı nusqası]
 ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} barlığınıñ tizimi]) <i>$2</i> kezinde [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} bekitildi].
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|özgerisine|özgerisine}}] sın berwi {{PLURAL:$3|kerek|kerek}}.',
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|özgerisine|özgerisine}}] sın berwi {{PLURAL:$3|kerek|kerek}}.', # Fuzzy
 	'revreview-noflagged' => "Bul bettiñ sın berilgen nusqaları mında joq, sondıqtan bunıñ sapası
-'''[[{{MediaWiki:Validationpage}}|tekserilmegen]]''' bolwı mümkin.",
+'''[[{{MediaWiki:Validationpage}}|tekserilmegen]]''' bolwı mümkin.", # Fuzzy
 	'revreview-oldrating' => 'Bul mına bağa aldı:',
 	'revreview-quality' => 'Bul eñ soñğı [[{{MediaWiki:Validationpage}}|sapalı]] nusqa,
 <i>$2</i> kezinde [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} bekitilgen]. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Joba jazbası]
 [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} özgertilwi] mümkin; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|özgerisi|özgerisi}}]
-sın berwdi {{PLURAL:$3|kütwde|kütwde}}.',
-	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|Şolınğan]]''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} joba jazbasın qaraw]]",
-	'revreview-quick-none' => "'''Ağımdıq''' (cın berilgen nusqalar joq)",
-	'revreview-quick-quality' => "'''[[{{MediaWiki:Validationpage}}|Sapalı]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} joba jazbasın qaraw]]",
+sın berwdi {{PLURAL:$3|kütwde|kütwde}}.', # Fuzzy
+	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|Şolınğan]]''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} joba jazbasın qaraw]]", # Fuzzy
+	'revreview-quick-none' => "'''Ağımdıq''' (cın berilgen nusqalar joq)", # Fuzzy
+	'revreview-quick-quality' => "'''[[{{MediaWiki:Validationpage}}|Sapalı]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} joba jazbasın qaraw]]", # Fuzzy
 	'revreview-quick-see-basic' => "'''Joba jazba''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} tïyanaqtı maqalanı qaraw]]
-($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$2|özgeris|özgeris}}]]",
+($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$2|özgeris|özgeris}}]]", # Fuzzy
 	'revreview-quick-see-quality' => "'''Joba jazba''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} tïyanaqtı maqalanı qaraw]]
-($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$2|özgeris|özgeris}}]]",
-	'revreview-source' => 'joba jazbalı qaýnar',
+($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$2|özgeris|özgeris}}]]", # Fuzzy
+	'revreview-source' => 'joba jazbalı qaýnar', # Fuzzy
 	'revreview-style' => 'Oqımdılığı',
-	'revreview-style-0' => 'bekitilmegen',
+	'revreview-style-0' => 'bekitilmegen', # Fuzzy
 	'revreview-style-1' => 'tïimdi',
 	'revreview-style-2' => 'jaqsı',
 	'revreview-style-3' => 'tartımdı',
 	'revreview-style-4' => 'tañdamalı',
 	'revreview-visibility-synced' => 'Osı bettiñ [[{{MediaWiki:Validationpage}}|tïyanaqtı nusqası]] bar, bul
-[{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} baptalawı] mümkin.',
+[{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} baptalawı] mümkin.', # Fuzzy
 	'revreview-revnotfound' => 'Bul bettiñ suralğan eski tüzetwi tabılğan joq. Osı bet qatınawına paýdalanğan URL tekserip şığıñız.',
-	'stable-logentry-config' => '$1 üşin tïyanaqtı nusqa baptalımı retteldi',
-	'stable-logentry-reset' => '$1 üşin tïyanaqtı nusqa baptalımı qaýta qoýıldı',
+	'stable-logentry-config' => '$1 üşin tïyanaqtı nusqa baptalımı retteldi', # Fuzzy
+	'stable-logentry-reset' => '$1 üşin tïyanaqtı nusqa baptalımı qaýta qoýıldı', # Fuzzy
 	'stable-logpage' => 'Tïyanaqtı nusqa jwrnalı',
 	'stable-logpagetext' => 'Bul mağlumat betterdegi [[{{MediaWiki:Validationpage}}|tïyanaqtı nusqa]] baptalımı
-özgeristeriniñ jwrnalı.',
-	'tooltip-ca-current' => 'Bul bettiñ ağımdağı joba jazbasın qaraw',
-	'tooltip-ca-stable' => 'Bul bettiñ tïyanaqtı nusqasın qaraw',
+özgeristeriniñ jwrnalı.', # Fuzzy
+	'tooltip-ca-current' => 'Bul bettiñ ağımdağı joba jazbasın qaraw', # Fuzzy
+	'tooltip-ca-stable' => 'Bul bettiñ tïyanaqtı nusqasın qaraw', # Fuzzy
 	'tooltip-ca-default' => 'Sapa qamsızdandırwdı baptaw',
-	'validationpage' => '{{ns:help}}:Maqala aqtalwı',
+	'validationpage' => '{{ns:help}}:Maqala aqtalwı', # Fuzzy
 );
 
 /** Khmer (ភាសាខ្មែរ)
@@ -8775,9 +8791,9 @@ sın berwdi {{PLURAL:$3|kütwde|kütwde}}.',
 $messages['km'] = array(
 	'editor' => 'អ្នកកែសម្រួល',
 	'group-editor' => 'អ្នកកែសម្រួល',
-	'group-editor-member' => 'អ្នកកែសម្រួល',
+	'group-editor-member' => 'អ្នកកែសម្រួល', # Fuzzy
 	'group-reviewer' => 'អ្នកត្រួតពិនិត្យឡើងវិញ',
-	'group-reviewer-member' => 'អ្នកត្រួតពិនិត្យឡើងវិញ',
+	'group-reviewer-member' => 'អ្នកត្រួតពិនិត្យឡើងវិញ', # Fuzzy
 	'grouppage-editor' => '{{ns:project}}:អ្នកកែសម្រួល',
 	'grouppage-reviewer' => '{{ns:project}}:អ្នកត្រួតពិនិត្យឡើងវិញ',
 	'review-logentry-id' => 'កំណែ​ប្រែ​៖ $2',
@@ -8799,11 +8815,11 @@ $messages['km'] = array(
 	'revreview-toggle-title' => 'បង្ហាញ/លាក់ ព័ត៌មានលំអិត',
 	'revreview-revnotfound' => 'កំណែប្រែចាស់របស់ទំព័រដែលអ្នកស្វែងរកមិនមានទេ។ ចូរពិនិត្យURLដែលអ្នកធ្លាប់ដំណើរការទំព័រនេះ។',
 	'revreview-filter-all' => 'ទាំងអស់',
-	'revreview-statusfilter' => 'បំលាស់ប្ដូរ​ស្ថានភាព:',
+	'revreview-statusfilter' => 'បំលាស់ប្ដូរ​ស្ថានភាព:', # Fuzzy
 	'revreview-typefilter' => 'ប្រភេទ:',
 	'revreview-filter-auto' => 'ដោយស្វ័យប្រវត្តិ',
-	'revreview-reviewlink' => 'ពិនិត្យឡើងវិញ',
-	'tooltip-ca-current' => 'មើលសេចក្តីព្រាងបច្ចុប្បន្ន​នៃទំព័រនេះ',
+	'revreview-reviewlink' => 'ពិនិត្យឡើងវិញ', # Fuzzy
+	'tooltip-ca-current' => 'មើលសេចក្តីព្រាងបច្ចុប្បន្ន​នៃទំព័រនេះ', # Fuzzy
 	'log-show-hide-review' => '$1 កំណត់ហេតុ​នៃ​ការ​ពិនិត្យឡើងវិញ',
 	'validationpage' => '{{ns:help}}: សុពលកម្ម​ទំព័រ',
 );
@@ -8815,7 +8831,7 @@ $messages['km'] = array(
 $messages['kn'] = array(
 	'editor' => 'ಸಂಪಾದಕ',
 	'group-editor' => 'ಸಂಪಾದಕರು',
-	'group-editor-member' => 'ಸಂಪಾದಕ',
+	'group-editor-member' => 'ಸಂಪಾದಕ', # Fuzzy
 	'revreview-edit' => 'ಸಂಪಾದಿಸಿ',
 	'revreview-revnotfound' => 'ನೀವು ಕೋರಿದ ಪುಟದ ಹಳೆ ಆವೃತ್ತಿ ಸಿಗಲಿಲ್ಲ. ದಯವಿಟ್ಟು ಈ ಪುಟವನ್ನು ತಲುಪಲು ಉಪಯೋಗಿಸಿದ URL ಅನ್ನು ಒಮ್ಮೆ ಪರೀಕ್ಷಿಸಿ.',
 	'revreview-filter-all' => 'ಎಲ್ಲಾ',
@@ -9034,22 +9050,22 @@ $messages['ksh'] = array(
 	'flaggedrevs-pref-UI-1' => 'Nemm janz klei Beldsche un koum Täx, för aanzezeije, ov un wie en Sigg nohjekik woode es.',
 	'prefs-flaggedrevs' => 'Sigge Nohkike',
 	'prefs-flaggedrevs-ui' => '{{int:prefs-flaggedrevs}}',
-	'flaggedrevs-prefs-stable' => 'Donn emmer shtanndatmääßesch de aktoälle {{int:stablepages-stable}} vun nomaale Sigge aanzeije, wann ein doh es.',
+	'flaggedrevs-prefs-stable' => 'Donn emmer shtanndatmääßesch de aktoälle {{int:stablepages-stable}} vun nomaale Sigge aanzeije, wann ein doh es.', # Fuzzy
 	'flaggedrevs-pref-stable-0' => 'Nemm de Shtandatt-Enställonge för jeede Sigg',
 	'flaggedrevs-pref-stable-1' => 'Donn emmer de {{int:stablepages-stable}} aanzeije, wann ein doh es.',
 	'flaggedrevs-pref-stable-2' => 'Donn emmer de neuste Version aanzeije.',
 	'flaggedrevs-prefs-watch' => 'Dun ming selfs nohjekik Sigge automatisch för ming Oppassliss vürschlage',
 	'flaggedrevs-prefs-editdiffs' => 'Zeisch der Ongerscheid zo de {{int:stablepages-stable}} beim Sigge Ändere',
-	'flaggedrevs-prefs-viewdiffs' => 'Zeisch der Ongerscheid noh de beschtändije Version wann De en Äntworfs_Sigg annloorß.',
+	'flaggedrevs-prefs-viewdiffs' => 'Zeisch der Ongerscheid noh de beschtändije Version wann De en Äntworfs_Sigg annloorß.', # Fuzzy
 	'flaggedrevs-hidereviewed' => '{{PLURAL:$1|Ein|$1|Kein}} nohjekik Änderonge',
 	'group-editor' => 'Redaktöre för et Sichte',
 	'group-editor-member' => '{{int:editor}}',
 	'group-reviewer' => 'Redaktöre för et Pröfe',
-	'group-reviewer-member' => '{{int:reviewer}}',
+	'group-reviewer-member' => '{{int:reviewer}}', # Fuzzy
 	'grouppage-editor' => '{{ns:project}}:{{int:group-editor-member}}',
 	'grouppage-reviewer' => '{{ns:project}}:{{int:group-reviewer-member}}',
 	'group-autoreview' => '{{ns:project}}:{{int:group-autoreview-member}}',
-	'group-autoreview-member' => 'Automattesch Nohkiker',
+	'group-autoreview-member' => 'Automattesch Nohkiker', # Fuzzy
 	'grouppage-autoreview' => '{{ns:project}}:{{int:group-autoreview-member}}',
 	'group-editor.css' => '/* Dat CSS heh aan dä Stell wirrek nur op de Redaktöre för et Sichte */',
 	'group-editor.js' => '/* Dat JavaSkrep heh aan dä Stell wirrek nur op de Redaktöre för et Sichte */',
@@ -9069,12 +9085,12 @@ $messages['ksh'] = array(
 	'review-edit-diff' => "'''Opjepaß: Änderunge, di noch nit nohjekik sin, sin och en dämm Afschnet, woh De draan am schrieve bes.'''",
 	'revreview-diff-toggle-show' => 'donn di Änderunge aanzeije',
 	'revreview-diff-toggle-hide' => 'donn di Änderunge versteiche',
-	'revreview-diff-toggle-title' => 'Donn de Ongerscheide zor  stable Version aanzeje udder verbärje',
+	'revreview-diff-toggle-title' => 'Donn de Ongerscheide zor  stable Version aanzeje udder verbärje', # Fuzzy
 	'revreview-log-toggle-show' => 'donn et <i lang="en">stability</i> Logbooch aanzeije',
 	'revreview-log-toggle-hide' => 'donn et <i lang="en">stability</i> Logbooch versteiche',
 	'revreview-log-details-show' => 'Einzelheite aanzeije',
 	'revreview-log-details-hide' => 'Einzelheite versteiche',
-	'revreview-log-details-title' => 'Donn et Aanzeije vun de Enställung vum <i lang="en">stability</i> Logbooch Ömschallde',
+	'revreview-log-details-title' => 'Donn et Aanzeije vun de Enställung vum <i lang="en">stability</i> Logbooch Ömschallde', # Fuzzy
 	'review-diff2stable' => 'Don alle Änderonge zeije, di noch nit nohjekik sin',
 	'review-logentry-app' => 'hät en Version vun dä Sigg „[[$1]]“ nohjekik',
 	'review-logentry-dis' => 'hät en Version vun dä Sigg „[[$1]]“ zeröckjeshtoof',
@@ -9091,94 +9107,94 @@ $messages['ksh'] = array(
 	'revreview-accuracy-4' => 'Äxzälänt',
 	'revreview-auto' => '(automattesch)',
 	'revreview-basic' => 'Dat es de neuste [[{{MediaWiki:Validationpage}}|{{int:revreview-lev-basic}}]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} {{lcfirst:{{int:revreview-approved}}}}] aam <i>$2</i>.
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$3|Ein Änderung|Noch $3 Änderunge|Kein Änderung}}] aan hee däm [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Äntworf] {{PLURAL:$3|shteiht noch|shtonn|shteiht mieh}} zom Nohjekik wääde aan.',
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$3|Ein Änderung|Noch $3 Änderunge|Kein Änderung}}] aan hee däm [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Äntworf] {{PLURAL:$3|shteiht noch|shtonn|shteiht mieh}} zom Nohjekik wääde aan.', # Fuzzy
 	'revreview-basic-i' => 'Dat es de neuste [[{{MediaWiki:Validationpage}}|{{int:revreview-lev-basic}}]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} {{lcfirst:{{int:revreview-approved}}}}] aam <i>$2</i>.
 Et shtonn_er noch Änderunge aan
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} <!-- {{PLURAL:$ 3|Ein Änderung|Noch $ 3 Änderunge|Kein Änderung}} {{PLURAL:$ 3|shteiht noch|shtonn|shteiht mieh}} --> Schabloone udder Datteije] för et Nohjekik Wääde aan, di en heh däm [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Äntworf] enjebonge sin.',
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} <!-- {{PLURAL:$ 3|Ein Änderung|Noch $ 3 Änderunge|Kein Änderung}} {{PLURAL:$ 3|shteiht noch|shtonn|shteiht mieh}} --> Schabloone udder Datteije] för et Nohjekik Wääde aan, di en heh däm [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Äntworf] enjebonge sin.', # Fuzzy
 	'revreview-basic-old' => 'Dat hee es en [[{{MediaWiki:Validationpage}}|{{int:revreview-lev-basic}}]] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} alle oplesßte]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} {{lcfirst:{{int:revreview-approved}}}}] aam <i>$2</i>.
 Es müjjelesch, et künnt noch [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} neuer Änderunge] jevve.',
 	'revreview-basic-same' => 'Dat hee es de neuste [[{{MediaWiki:Validationpage}}|{{int:revreview-lev-basic}}]] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} Alle opleßte]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} {{lcfirst:{{int:revreview-approved}}}}] aam <i>$2</i>.',
 	'revreview-basic-source' => 'En [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} {{int:revreview-lev-basic}}] vun hee dä Sigg, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} {{lcfirst:{{int:revreview-approved}}}}] aam <i>$2</i>, boud op hee di Version op.',
-	'revreview-current' => 'Äntworf Änderonge',
+	'revreview-current' => 'Äntworf Änderonge', # Fuzzy
 	'revreview-depth' => 'Deefjang',
-	'revreview-depth-0' => 'Nit {{lcfirst:{{int:revreview-approved}}}}',
+	'revreview-depth-0' => 'Nit {{lcfirst:{{int:revreview-approved}}}}', # Fuzzy
 	'revreview-depth-1' => 'Jrondlääje',
 	'revreview-depth-2' => 'Meddelmääßesch',
 	'revreview-depth-3' => 'Huh',
 	'revreview-depth-4' => 'Äxzälänt',
-	'revreview-draft-title' => 'Dat heh ess-en Äntworfs_Sigg',
+	'revreview-draft-title' => 'Dat heh ess-en Äntworfs_Sigg', # Fuzzy
 	'revreview-edit' => 'Ändere',
-	'revreview-editnotice' => "'''Ding Änderunge aan heh dä Sigg kumme bei de [[{{MediaWiki:Validationpage}}|beshtändeje Versione]], wann ene Metmaacher met dämm Rääsch dohzoh se nohkik un dohför {{lcfirst:{{int:revreview-approved}}}}.'''",
+	'revreview-editnotice' => "'''Ding Änderunge aan heh dä Sigg kumme bei de [[{{MediaWiki:Validationpage}}|beshtändeje Versione]], wann ene Metmaacher met dämm Rääsch dohzoh se nohkik un dohför {{lcfirst:{{int:revreview-approved}}}}.'''", # Fuzzy
 	'revreview-submitedit' => 'Donn de Änderonge faßhalllde',
 	'revreview-submitedit-title' => 'Donn Ding Änderonge zom Nohkike schecke',
 	'revreview-edited' => "'''Änderunge wähde en de [[{{MediaWiki:Validationpage}}|aktoälle beshtändeje Versione]] opjenumme, esu bald wi ene Metmaacher met däm Rääsch dohzoh se nohkik un doför {{lcfirst:{{int:revreview-approved}}}}.'''
-Unge es dä ''Äntworf'' ze sinn, woh [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$2|ein Änderung noch|noch $2 Änderunge|kein Änderung mieh}}] zom Nohkike {{PLURAL:$2|aanshteiht|aanshtonn|aanshteiht}}.",
+Unge es dä ''Äntworf'' ze sinn, woh [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$2|ein Änderung noch|noch $2 Änderunge|kein Änderung mieh}}] zom Nohkike {{PLURAL:$2|aanshteiht|aanshtonn|aanshteiht}}.", # Fuzzy
 	'revreview-edited-section' => 'Jangk retuur op de Sigg noh däm Afschnett „[[#$1|$2]]“.',
-	'revreview-newest-basic' => 'De [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} neuste {{int:revreview-lev-basic}}] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} All opleßte]) wood [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} {{lcfirst:{{int:revreview-approved}}}}] aam <i>$2</i>. {{PLURAL:$3|||Et es}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$3|Ein Änderung|$3 Änderunge|keij Änderung}}] {{PLURAL:$3|es|sin noch|}} op et Nohkike am waade.',
+	'revreview-newest-basic' => 'De [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} neuste {{int:revreview-lev-basic}}] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} All opleßte]) wood [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} {{lcfirst:{{int:revreview-approved}}}}] aam <i>$2</i>. {{PLURAL:$3|||Et es}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$3|Ein Änderung|$3 Änderunge|keij Änderung}}] {{PLURAL:$3|es|sin noch|}} op et Nohkike am waade.', # Fuzzy
 	'revreview-newest-basic-i' => 'De [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} neuste {{int:revreview-lev-basic}}] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} All opleßte]) wood [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} {{lcfirst:{{int:revreview-approved}}}}] aam <i>$2</i>.
-Et sinn_er noch [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Änderunge aan enjebonge Schablohne, Datteije, udder beeds] drop am waade, dat se nohjekik wääde.',
-	'revreview-newest-quality' => 'De [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} neuste quality Version] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} All opleßte]) wood [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} {{lcfirst:{{int:revreview-approved}}}}] aam <i>$2</i>. {{PLURAL:$3|||Et es ävver}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$3|Ein Änderung|$3 Änderunge|keij Änderung}}] {{PLURAL:$3|es|sin|}} op et Nohkike am waade.',
+Et sinn_er noch [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Änderunge aan enjebonge Schablohne, Datteije, udder beeds] drop am waade, dat se nohjekik wääde.', # Fuzzy
+	'revreview-newest-quality' => 'De [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} neuste quality Version] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} All opleßte]) wood [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} {{lcfirst:{{int:revreview-approved}}}}] aam <i>$2</i>. {{PLURAL:$3|||Et es ävver}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$3|Ein Änderung|$3 Änderunge|keij Änderung}}] {{PLURAL:$3|es|sin|}} op et Nohkike am waade.', # Fuzzy
 	'revreview-newest-quality-i' => 'De [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} neuste {{int:revreview-lev-quality}}] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} all opleßte]) wood [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} {{lcfirst:{{int:revreview-approved}}}}] aam <i>$2</i>.
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Änderunge aan enjebonge Schablohne udder Datteije udder beeds] sin op et Nohkike am waade.',
-	'revreview-noflagged' => "Mer han kei nohjekik Versione vun hee dä Sigg, dröm künnt dä ier Qualliteit och '''nit''' [[{{MediaWiki:Validationpage}}|nohjeprööf]] sin.",
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Änderunge aan enjebonge Schablohne udder Datteije udder beeds] sin op et Nohkike am waade.', # Fuzzy
+	'revreview-noflagged' => "Mer han kei nohjekik Versione vun hee dä Sigg, dröm künnt dä ier Qualliteit och '''nit''' [[{{MediaWiki:Validationpage}}|nohjeprööf]] sin.", # Fuzzy
 	'revreview-oldrating' => 'Se wohr enjeshtoof als:',
 	'revreview-quality' => 'Dat es de neuste  [[{{MediaWiki:Validationpage}}|{{int:revreview-lev-quality}}]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} {{lcfirst:{{int:revreview-approved}}}}] aam <i>$2</i>.
-[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Dä aktoälle Äntworf] hät [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$3|ein Änderung|$3  Änderunge |keij Änderung}}] op et Nohkike am waade.',
+[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Dä aktoälle Äntworf] hät [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$3|ein Änderung|$3  Änderunge |keij Änderung}}] op et Nohkike am waade.', # Fuzzy
 	'revreview-quality-i' => 'Dat es de neuste [[{{MediaWiki:Validationpage}}|{{int:revreview-lev-quality}}]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}}, {{lcfirst:{{int:revreview-approved}}}}] aam <i>$2</i>.
-Dä [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} aktoälle Äntworf] hät [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Änderunge aan enjebonge Schablohne, Datteije, udder beeds], di op et Nohkike aam waade sin.',
+Dä [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} aktoälle Äntworf] hät [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Änderunge aan enjebonge Schablohne, Datteije, udder beeds], di op et Nohkike aam waade sin.', # Fuzzy
 	'revreview-quality-old' => 'Dat hee es en [[{{MediaWiki:Validationpage}}|{{int:revreview-lev-quality}}]] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} All opleßte]), un wood [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} {{lcfirst:{{int:revreview-approved}}}}] aam <i>$2</i>.
-Et sinn_er [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} neu Änderunge] drahn jemaat woode.',
-	'revreview-quality-same' => 'Dat hee es de neuste [[{{MediaWiki:Validationpage}}|{{int:revreview-lev-quality}}]] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} all opleßte]) Se wood [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} {{lcfirst:{{int:revreview-approved}}}}] aam <i>$2</i>.',
+Et sinn_er [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} neu Änderunge] drahn jemaat woode.', # Fuzzy
+	'revreview-quality-same' => 'Dat hee es de neuste [[{{MediaWiki:Validationpage}}|{{int:revreview-lev-quality}}]] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} all opleßte]) Se wood [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} {{lcfirst:{{int:revreview-approved}}}}] aam <i>$2</i>.', # Fuzzy
 	'revreview-quality-source' => 'En [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} {{int:revreview-lev-quality}}] vun dää Sigg wood [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} {{lcfirst:{{int:revreview-approved}}}}] aam <i>$2</i>, se bout op heh di Version op.',
-	'revreview-quality-title' => 'Dat heh es en {{lcfirst:{{int:revreview-quality-rev}}}}',
-	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|{{int:revreview-basic-title}}]]''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Donn dä aktoälle Äntworf beloore]]",
-	'revreview-quick-basic-old' => "'''[[{{MediaWiki:Validationpage}}|{{int:revreview-basic-title}}]]''' [ Donn dä aktoälle Äntworf belooere]]",
-	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|{{int:revreview-basic-title}}]]'''",
+	'revreview-quality-title' => 'Dat heh es en {{lcfirst:{{int:revreview-quality-rev}}}}', # Fuzzy
+	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|{{int:revreview-basic-title}}]]''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Donn dä aktoälle Äntworf beloore]]", # Fuzzy
+	'revreview-quick-basic-old' => "'''[[{{MediaWiki:Validationpage}}|{{int:revreview-basic-title}}]]''' [ Donn dä aktoälle Äntworf belooere]]", # Fuzzy
+	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|{{int:revreview-basic-title}}]]'''", # Fuzzy
 	'revreview-quick-invalid' => "'''Onjöltijje Versions-Nommer'''",
-	'revreview-quick-none' => "De '''[[{{MediaWiki:Validationpage}}|Aktoälle Version]]''' (nit nohjekik)",
-	'revreview-quick-quality' => "'''[[{{MediaWiki:Validationpage}}|{{int:revreview-quality-title}}]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Donn dä aktoälle Äntworf aanloore]]",
-	'revreview-quick-quality-old' => "'''[[{{MediaWiki:Validationpage}}|{{int:revreview-quality-title}}]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Donn dä aktoälle Äntworf aanloore]]",
-	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|{{int:revreview-quality-title}}]]'''",
+	'revreview-quick-none' => "De '''[[{{MediaWiki:Validationpage}}|Aktoälle Version]]''' (nit nohjekik)", # Fuzzy
+	'revreview-quick-quality' => "'''[[{{MediaWiki:Validationpage}}|{{int:revreview-quality-title}}]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Donn dä aktoälle Äntworf aanloore]]", # Fuzzy
+	'revreview-quick-quality-old' => "'''[[{{MediaWiki:Validationpage}}|{{int:revreview-quality-title}}]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Donn dä aktoälle Äntworf aanloore]]", # Fuzzy
+	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|{{int:revreview-quality-title}}]]'''", # Fuzzy
 	'revreview-quick-see-basic' => "'''[[{{MediaWiki:Validationpage}}|Äntworf]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} {{int:stablepages-stable}}]]
-[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} verjliische]]",
+[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} verjliische]]", # Fuzzy
 	'revreview-quick-see-quality' => "'''[[{{MediaWiki:Validationpage}}|Äntworf]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} {{int:stablepages-stable}}]]
-[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} verjliische]]",
+[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} verjliische]]", # Fuzzy
 	'revreview-source' => 'Wikitex aanlooere',
-	'revreview-basic-title' => 'Heh dat ess_en {{lcfirst:{{int:revreview-accuracy-1}}}} Sigg',
+	'revreview-basic-title' => 'Heh dat ess_en {{lcfirst:{{int:revreview-accuracy-1}}}} Sigg', # Fuzzy
 	'revreview-style' => 'Lässbaakeit',
-	'revreview-style-0' => 'nit {{lcfirst:{{int:revreview-approved}}}}',
+	'revreview-style-0' => 'nit {{lcfirst:{{int:revreview-approved}}}}', # Fuzzy
 	'revreview-style-1' => 'kammer bruche',
 	'revreview-style-2' => 'joot',
 	'revreview-style-3' => 'jenou',
 	'revreview-style-4' => 'Äxzälänt',
 	'revreview-toggle-title' => 'Eijnzelheijte aanzeije udder vershteische',
 	'revreview-visibility-synced' => "'''Hee di Sigg hät en jeänderte [[{{MediaWiki:Validationpage}}|{{int:stablepages-stable}}]].
-De {{int:stabilization}} kam_mer [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} ändere].'''",
+De {{int:stabilization}} kam_mer [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} ändere].'''", # Fuzzy
 	'revreview-visibility-outdated' => "'''Hee di Sigg hät en övverhollte [[{{MediaWiki:Validationpage}}|{{int:stablepages-stable}}]].
-De {{int:stabilization}} kam_mer [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} ändere].'''",
+De {{int:stabilization}} kam_mer [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} ändere].'''", # Fuzzy
 	'revreview-visibility-nostable' => "'''Hee di Sigg hät keij [[{{MediaWiki:Validationpage}}|{{int:stablepages-stable}}]].
-De {{int:stabilization}} kam_mer [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} ändere].'''",
-	'revreview-revnotfound' => '<b>Dä.</b> Die ählere Version vun dä Sigg, wo De noh frochs, es nit do. Schad. Luur ens
-op die URL, die Dich herjebraht hät, die weed verkihrt sin, oder se es villeich üvverhollt, weil einer die Sigg
+De {{int:stabilization}} kam_mer [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} ändere].'''", # Fuzzy
+	'revreview-revnotfound' => '<b>Dä.</b> Die ählere Version vun dä Sigg, wo De noh frochs, es nit do. Schad. Luur ens 
+op die URL, die Dich herjebraht hät, die weed verkihrt sin, oder se es villeich üvverhollt, weil einer die Sigg 
 fottjeschmesse hät?',
-	'right-autoreview' => 'Versione vun Sigge automattesch als „{{lcfirst:{{int:revreview-accuracy-1}}}}“ makeere',
+	'right-autoreview' => 'Versione vun Sigge automattesch als „{{lcfirst:{{int:revreview-accuracy-1}}}}“ makeere', # Fuzzy
 	'right-autoreviewrestore' => 'Beim Änderonge Retuur Nämme automattesch op „Nohjeloort“ säze',
-	'right-movestable' => 'beshtändeje Sigge ömnenne',
-	'right-review' => 'Versione als „{{lcfirst:{{int:revreview-accuracy-1}}}}“ makeere',
-	'right-stablesettings' => 'Enshtelle, wi en {{int:stablepages-stable}} beshtemmp un aanjezeish weed',
-	'right-validate' => 'Versione nohloore un beschtääteje',
+	'right-movestable' => 'beshtändeje Sigge ömnenne', # Fuzzy
+	'right-review' => 'Versione als „{{lcfirst:{{int:revreview-accuracy-1}}}}“ makeere', # Fuzzy
+	'right-stablesettings' => 'Enshtelle, wi en {{int:stablepages-stable}} beshtemmp un aanjezeish weed', # Fuzzy
+	'right-validate' => 'Versione nohloore un beschtääteje', # Fuzzy
 	'right-unreviewedpages' => 'De [[Special:UnreviewedPages|Leß met de nit aanjekikte Sigge]] aanloore',
 	'rights-editor-revoke' => 'hät {{GENDER:$1|dä|dat|dä Metmaacher|dat|de}} [[$1]] uß dä Metmaacher-Jrop vun de {{int:group-editor}} eruß jenumme',
-	'specialpages-group-quality' => 'Sigge ier Qualliteit',
+	'specialpages-group-quality' => 'Sigge ier Qualliteit', # Fuzzy
 	'stable-logentry-config' => 'hät de Enstellunge för et Versione-Aanzeije vun dä Sigg „$1“ jeändert',
 	'stable-logentry-modify' => 'hät de Enstellunge för et Versione-Aanzeije vun dä Sigg „$1“ jeändert',
 	'stable-logentry-reset' => 'hät de Enstellunge för et Versione-Aanzeije vun dä Sigg „$1“ op der Shtanndatt retuur jesaz',
-	'stable-log-restriction' => 'Automattesch Nohkike: bruch et Rääsch „$1“',
+	'stable-log-restriction' => 'Automattesch Nohkike: bruch et Rääsch „$1“', # Fuzzy
 	'stable-logpage' => 'Logboch vun de Sigge ier beshtändeje Versione',
 	'stable-logpagetext' => 'Dat hee es et Logboch met de Änderunge aan de Enstellunge för de Sigge mem Ennhallt vum Wiki ier [[{{MediaWiki:Validationpage}}|beshtändeje Versione]].',
 	'revreview-filter-all' => 'All',
-	'revreview-filter-stable' => 'beshtändesch',
-	'revreview-statusfilter' => 'Veränderung vum Zohshtand:',
+	'revreview-filter-stable' => 'beshtändesch', # Fuzzy
+	'revreview-statusfilter' => 'Veränderung vum Zohshtand:', # Fuzzy
 	'revreview-filter-approved' => '{{ucfirst:{{int:revreview-approved}}}}',
 	'revreview-filter-reapproved' => 'Noch ens udder widder {{lcfirst:{{int:revreview-filter-approved}}}}',
 	'revreview-filter-unapproved' => 'Nit mieh {{lcfirst:{{int:revreview-filter-approved}}}}',
@@ -9193,14 +9209,14 @@ fottjeschmesse hät?',
 	'revreview-defaultfilter' => 'De shtandattmääßeje Version:',
 	'revreview-def-all' => 'all',
 	'revreview-def-draft' => 'neuste',
-	'revreview-def-stable' => 'beshtändesch',
+	'revreview-def-stable' => 'beshtändesch', # Fuzzy
 	'revreview-restrictfilter' => 'Beschrängkunge vum automattesch Nohkike:',
 	'revreview-restriction-any' => 'all',
 	'revreview-restriction-none' => 'kein',
-	'revreview-reviewlink' => 'nohkike',
+	'revreview-reviewlink' => 'nohkike', # Fuzzy
 	'revreview-reviewlink-title' => 'Alle de Änderonge, di noch nit nohjekik sin, en einem Rötsch',
 	'revreview-unreviewedpage' => 'nit nohjekik Sigg',
-	'tooltip-ca-current' => 'Dä aktoälle Äntworf vun hee dä Sigg aanlooere',
+	'tooltip-ca-current' => 'Dä aktoälle Äntworf vun hee dä Sigg aanlooere', # Fuzzy
 	'tooltip-ca-stable' => 'De {{int:stablepages-stable}} vun dä Sigg he beloore',
 	'tooltip-ca-default' => 'Enshtellunge för de Sigge ier Qualliteit',
 	'flaggedrevs-protect-legend' => 'Automattesch Änderunge nohkike ([[{{MediaWiki:Validationpage}}|Hölp]])',
@@ -9351,7 +9367,7 @@ Déi [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} stabil Versioun] gouf den <i>$2</i>
 Déi [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} publizéiert Versioun] gouf den <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} fräiginn].',
 	'revreview-pending-basic' => 'Déi [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} publizéiert Versioun] gouf den <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} nogekuckt]. Et gëtt
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|Ännerung|Ännerungen}}] déi drop waarden nogekuckt ze ginn.',
-	'revreview-pending-quality' => 'Déi [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} publizéiert Versioun] gouf den <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} fräiginn]. Et gëtt
+	'revreview-pending-quality' => 'Déi [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} publizéiert Versioun] gouf den <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} fräiginn]. Et gëtt 
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|Ännerung|Ännerungen}} am Suspens] déi dorop waarden nogekuckt ze ginn.',
 	'revreview-pending-nosection' => 'Versicht déi [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} lescht Versioun] ze kucken, an där $2 [{{PLURAL:$2|Ännerung|Ännerungen}} am Suspens {{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}}] dra sinn, fir ze kucken ob den Abschnitt geréckelt oder geläscht gouf.',
 	'revreview-noflagged' => "Et gëtt keng [[{{MediaWiki:Validationpage}}|nogekuckte Versioune]] vun dëser Säit, et kann also sinn datt se '''net''' op hir Qualitéit nogekuckt gouf.",
@@ -9467,13 +9483,13 @@ $messages['li'] = array(
 	'flaggedrevs-prefs-viewdiffs' => "Tuin bie 't bekieke van leste versie versjille mit gecontroleerde versie",
 	'flaggedrevs-hidereviewed' => '$1 gecontroleerde bewerkinge',
 	'group-editor' => 'Bewèrkers',
-	'group-editor-member' => 'Bewèrker',
+	'group-editor-member' => 'Bewèrker', # Fuzzy
 	'group-reviewer' => 'Bekiekers',
-	'group-reviewer-member' => 'Bekieker',
+	'group-reviewer-member' => 'Bekieker', # Fuzzy
 	'grouppage-editor' => '{{ns:project}}:Bewèrker',
 	'grouppage-reviewer' => '{{ns:project}}:Bekieker',
 	'group-autoreview' => 'Automatische controleurs',
-	'group-autoreview-member' => 'automatische controleur',
+	'group-autoreview-member' => 'automatische controleur', # Fuzzy
 	'grouppage-autoreview' => '{{ns:project}}:Automatische controleur',
 	'revreview-hist-draft' => 'ongecontroleerde versie',
 	'revreview-hist-pending' => 'wach op controle',
@@ -9526,12 +9542,12 @@ d'r Kinne nuuj [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flagged
 	'revreview-depth-4' => 'Oetgelich',
 	'revreview-draft-title' => 'Dees pagina bevat óngecontroleerde wieziginge',
 	'revreview-edit' => 'Bewirk',
-	'revreview-editnotice' => "'''Dien wieziginge waere waergaeve naodet 'ne gebroeker dees haet gecontroleerd. ([[{{MediaWiki:Validationpage}}|?]])'''",
+	'revreview-editnotice' => "'''Dien wieziginge waere waergaeve naodet 'ne gebroeker dees haet gecontroleerd. ([[{{MediaWiki:Validationpage}}|?]])'''", # Fuzzy
 	'revreview-submitedit' => 'Slaon verangering óp',
 	'revreview-submitedit-title' => 'Slaon verangering óp ter controle',
 	'revreview-edited' => "'''Nuuj bewèrkinge waere opgenaome in de [[{{MediaWiki:Validationpage}}|stabiel versie]] es 'n eindredacteur ze gecontroleerd haet.'''
 
-d'r {{PLURAL:$2|Is|zeen}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 ongecontroleerde {{PLURAL:$2|wieziging|wieziginge}}]; dees waeren hieonger weergegaeve.",
+d'r {{PLURAL:$2|Is|zeen}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 ongecontroleerde {{PLURAL:$2|wieziging|wieziginge}}]; dees waeren hieonger weergegaeve.", # Fuzzy
 	'revreview-edited-section' => 'Trök nao de paragraaf "[[#$1|$2]]".',
 	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|wijziging|wijzigingen}}] in dees versie {{PLURAL:$3|wach|wachten}} op [[{{MediaWiki:Validationpage}}|controle]].
 De [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} stabiele versie] is [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} gecontroleerd] op <i>$2</i>.',
@@ -9809,27 +9825,27 @@ $messages['lzh'] = array(
 	'editor' => '分校官',
 	'flaggedrevs' => '校勘本',
 	'group-editor' => '分校官',
-	'group-editor-member' => '分校官',
+	'group-editor-member' => '分校官', # Fuzzy
 	'group-reviewer' => '總校官',
-	'group-reviewer-member' => '總校官',
+	'group-reviewer-member' => '總校官', # Fuzzy
 	'grouppage-editor' => '{{ns:project}}:分校官',
 	'grouppage-reviewer' => '{{ns:project}}:總校官',
-	'revreview-hist-draft' => '底本',
+	'revreview-hist-draft' => '底本', # Fuzzy
 	'revreview-hist-quality' => '校正本',
-	'revreview-hist-basic' => '初定本',
+	'revreview-hist-basic' => '初定本', # Fuzzy
 	'revreview-accuracy-1' => '過目',
 	'revreview-accuracy-4' => '卓著',
-	'revreview-current' => '底本',
-	'revreview-draft-title' => '底本',
-	'revreview-noflagged' => '此為底本，未經[[{{MediaWiki:Validationpage}}|審校]]。',
-	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|初定本]]'''",
-	'revreview-quick-basic-old' => "'''[[{{MediaWiki:Validationpage}}|初定本]]''' [ 修纂新稿]]",
-	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|初定本]]''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 修纂新稿]]",
+	'revreview-current' => '底本', # Fuzzy
+	'revreview-draft-title' => '底本', # Fuzzy
+	'revreview-noflagged' => '此為底本，未經[[{{MediaWiki:Validationpage}}|審校]]。', # Fuzzy
+	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|初定本]]'''", # Fuzzy
+	'revreview-quick-basic-old' => "'''[[{{MediaWiki:Validationpage}}|初定本]]''' [ 修纂新稿]]", # Fuzzy
+	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|初定本]]''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 修纂新稿]]", # Fuzzy
 	'revreview-quick-invalid' => '查無此錄',
-	'revreview-quick-none' => "'''[[{{MediaWiki:Validationpage}}|今本]]'''（此為底本，未經審校）",
-	'revreview-quick-see-basic' => "'''此為底本''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 察閱初定本]] （[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 較二者之別]）",
-	'revreview-quick-see-quality' => "'''此為底本''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 察閱初定本]] （[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 較二者之別]）",
-	'revreview-basic-title' => '初定本',
+	'revreview-quick-none' => "'''[[{{MediaWiki:Validationpage}}|今本]]'''（此為底本，未經審校）", # Fuzzy
+	'revreview-quick-see-basic' => "'''此為底本''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 察閱初定本]] （[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 較二者之別]）", # Fuzzy
+	'revreview-quick-see-quality' => "'''此為底本''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 察閱初定本]] （[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 較二者之別]）", # Fuzzy
+	'revreview-basic-title' => '初定本', # Fuzzy
 	'revreview-revnotfound' => '查無舊審，惠核網址。',
 );
 
@@ -9840,7 +9856,8 @@ $messages['mdf'] = array(
 	'revreview-revnotfound' => 'Тя лопать сире верзиец аф муви. Ватт URL конань вельде тон сувать тя лопас.',
 );
 
-/** Malagasy (Malagasy) */
+/** Malagasy (Malagasy)
+ */
 $messages['mg'] = array(
 	'revreview-revnotfound' => "
 Tsy hita ny votoatin'ny pejy taloha nangatahinao.
@@ -10042,6 +10059,9 @@ $messages['mk'] = array(
 	'revreview-unlocked-title' => 'Уредувањата на оваа страница не бараат преглед.',
 	'revreview-locked' => "'''Напомена:''' Уредувањата мора да се [[{{MediaWiki:Validationpage}}|проверат]] пред да бидат видливи за читателите на оваа страница.",
 	'revreview-unlocked' => "'''Напомена:''' Уредувањата не бараат [[{{MediaWiki:Validationpage}}|проверка]] пред да бидат видливи за читателите на оваа страница.",
+	'revreview-ak-review' => 'п',
+	'accesskey-ca-current' => 'в',
+	'accesskey-ca-stable' => 'c',
 	'log-show-hide-review' => '$1 дневник на оценувања',
 	'validationpage' => '{{ns:help}}:Проверка на страница',
 );
@@ -10138,11 +10158,11 @@ $messages['ml'] = array(
 	'revreview-edited-section' => 'താളിലെ "[[#$1|$2]]" എന്ന ഉപവിഭാഗത്തിലേയ്ക്ക് തിരിച്ചുപോവുക.',
 	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} സ്ഥിരീകരിച്ച പതിപ്പ്] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} പരിശോധിച്ചത്] <i>$2</i>നു ആണ്. അതിൽ
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$3|ഒരു മാറ്റം|$3 മാറ്റങ്ങൾ}}] [[{{MediaWiki:Validationpage}}|സംശോധനത്തിനു അവശേഷിക്കുന്നു]].',
-	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} സ്ഥിരീകരിച്ച പതിപ്പ്] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} പരിശോധിച്ചത്] <i>$2</i>നു ആണ്. അതിൽ
+	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} സ്ഥിരീകരിച്ച പതിപ്പ്] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} പരിശോധിച്ചത്] <i>$2</i>നു ആണ്. അതിൽ 
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} ഫലക/പ്രമാണ മാറ്റങ്ങൾ] [[{{MediaWiki:Validationpage}}|സംശോധനം പ്രതീക്ഷിക്കുന്നു]].',
 	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} സ്ഥിരീകരിച്ച പതിപ്പ്] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} അംഗീകരിക്കപ്പെട്ടത്] <i>$2</i>നു ആണ്. അതിൽ
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$3|ഒരു മാറ്റം|$3 മാറ്റങ്ങൾ}}] [[{{MediaWiki:Validationpage}}|സംശോധനത്തിന് അവശേഷിക്കുന്നു]].',
-	'revreview-newest-quality-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} സ്ഥിരീകരിച്ച പതിപ്പ്] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} അംഗീകരിക്കപ്പെട്ടത്] <i>$2</i>നു ആണ്. അതിൽ
+	'revreview-newest-quality-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} സ്ഥിരീകരിച്ച പതിപ്പ്] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} അംഗീകരിക്കപ്പെട്ടത്] <i>$2</i>നു ആണ്. അതിൽ 
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} ഫലക/പ്രമാണ മാറ്റങ്ങൾ] [[{{MediaWiki:Validationpage}}|സംശോധനം പ്രതീക്ഷിക്കുന്നു]].',
 	'revreview-pending-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} പ്രസിദ്ധീകരിച്ച പതിപ്പ്] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} പരിശോധിച്ചത്] <i>$2</i>നു ആണ്. അതിൽ [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$3|ഒരു മാറ്റം|$3 മാറ്റങ്ങൾ}}] സംശോധനം പ്രതീക്ഷിക്കുന്നു.',
 	'revreview-pending-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} പ്രസിദ്ധീകരിക്കപ്പെട്ട പതിപ്പ്] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} അംഗീകരിക്കപ്പെട്ടത്] <i>$2</i>നു ആണ്. അതിൽ [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$3|ഒരു മാറ്റം|$3 മാറ്റങ്ങൾ}}] സംശോധനം പ്രതീക്ഷിക്കുന്നു.',
@@ -10248,32 +10268,32 @@ $messages['mn'] = array(
 $messages['mr'] = array(
 	'editor' => 'संपादक',
 	'flaggedrevs' => 'चिन्हांकित आवृत्ती',
-	'flaggedrevs-desc' => 'संपादक तसेच तपासनीसांना पानाच्या आवृत्त्या प्रमाणित करण्याची तसेच पाने स्थिर करण्याची परवानगी देते.',
-	'flaggedrevs-pref-UI-0' => 'इंटरफेस मध्ये वाढीव स्थिर आवृत्ती वापरा',
-	'flaggedrevs-pref-UI-1' => 'इंटरफेस मध्ये साधी स्थिर आवृत्ती वापरा',
-	'flaggedrevs-prefs-stable' => 'कायम स्थिर आवृत्ती अविचलपणे दर्शवा (जर उपलब्ध असेल तर)',
+	'flaggedrevs-desc' => 'संपादक तसेच तपासनीसांना पानाच्या आवृत्त्या प्रमाणित करण्याची तसेच पाने स्थिर करण्याची परवानगी देते.', # Fuzzy
+	'flaggedrevs-pref-UI-0' => 'इंटरफेस मध्ये वाढीव स्थिर आवृत्ती वापरा', # Fuzzy
+	'flaggedrevs-pref-UI-1' => 'इंटरफेस मध्ये साधी स्थिर आवृत्ती वापरा', # Fuzzy
+	'flaggedrevs-prefs-stable' => 'कायम स्थिर आवृत्ती अविचलपणे दर्शवा (जर उपलब्ध असेल तर)', # Fuzzy
 	'flaggedrevs-prefs-watch' => 'मी तपासलेली पाने माझ्या पहाऱ्याच्या सूचीमध्ये टाका',
 	'group-editor' => 'संपादक',
-	'group-editor-member' => 'संपादक',
+	'group-editor-member' => 'संपादक', # Fuzzy
 	'group-reviewer' => 'तपासनीस',
-	'group-reviewer-member' => 'तपासनीस',
+	'group-reviewer-member' => 'तपासनीस', # Fuzzy
 	'grouppage-editor' => '{{ns:project}}:संपादक',
 	'grouppage-reviewer' => '{{ns:project}}:तपासनीस',
-	'revreview-hist-draft' => 'कच्ची आवृत्ती',
+	'revreview-hist-draft' => 'कच्ची आवृत्ती', # Fuzzy
 	'revreview-hist-quality' => 'गुणवत्तापूर्ण आवृत्ती',
-	'revreview-hist-basic' => 'निवडलेली आवृत्ती',
-	'revreview-hist-quality-user' => '[[User:$3|$3]] ने तपासलेली',
+	'revreview-hist-basic' => 'निवडलेली आवृत्ती', # Fuzzy
+	'revreview-hist-quality-user' => '[[User:$3|$3]] ने तपासलेली', # Fuzzy
 	'revreview-hist-basic-user' => '[[User:$3|$3]] ने निवडलेली',
-	'review-diff2stable' => 'स्थिर व सध्याच्या आवृत्तीमधील फरक पहा',
-	'review-logentry-app' => '[[$1]] तपासले',
-	'review-logentry-dis' => '[[$1]] च्या एका आवृत्तीचे गुणांकन कमी केले',
+	'review-diff2stable' => 'स्थिर व सध्याच्या आवृत्तीमधील फरक पहा', # Fuzzy
+	'review-logentry-app' => '[[$1]] तपासले', # Fuzzy
+	'review-logentry-dis' => '[[$1]] च्या एका आवृत्तीचे गुणांकन कमी केले', # Fuzzy
 	'review-logentry-id' => 'आवर्तन क्र.: $2',
-	'review-logentry-diff' => 'स्थिर आवृत्तीशी फरक',
+	'review-logentry-diff' => 'स्थिर आवृत्तीशी फरक', # Fuzzy
 	'review-logpage' => 'तपासणी सूची',
-	'review-logpagetext' => 'ही कंटेंट पानांच्या आवृत्त्यांमधील बदलांच्या [[{{MediaWiki:Validationpage}}|प्रमाणिकरणाची]] सूची आहे.',
+	'review-logpagetext' => 'ही कंटेंट पानांच्या आवृत्त्यांमधील बदलांच्या [[{{MediaWiki:Validationpage}}|प्रमाणिकरणाची]] सूची आहे.', # Fuzzy
 	'reviewer' => 'समीक्षक',
 	'revreview-accuracy' => 'अचूकता',
-	'revreview-accuracy-0' => 'अप्रमाणित',
+	'revreview-accuracy-0' => 'अप्रमाणित', # Fuzzy
 	'revreview-accuracy-1' => 'निवडली',
 	'revreview-accuracy-2' => 'योग्य',
 	'revreview-accuracy-3' => 'सुयोग्य स्रोतातून',
@@ -10281,84 +10301,84 @@ $messages['mr'] = array(
 	'revreview-auto' => '(आपोआप)',
 	'revreview-basic' => "ही नवीनतम [[{{MediaWiki:Validationpage}}|निवडलेली]] आवृत्ती आहे, जी <i>$2</i> रोजी [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} प्रमाणित] केलेली आहे.
 याची [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} कच्ची प्रत] आता '''[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} बदलता]''' येऊ शकते;
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|बदलासाठी|बदलांसाठी}}] पुनर्तपासणीची वाट पाहत आहोत.",
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|बदलासाठी|बदलांसाठी}}] पुनर्तपासणीची वाट पाहत आहोत.", # Fuzzy
 	'revreview-basic-i' => 'ही नवीनतम [[{{MediaWiki:Validationpage}}|निवडलेली]] आवृत्ती आहे, जी <i>$2</i> रोजी [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} प्रमाणित] करण्यात आलेली आहे.
-याची [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} कच्ची प्रत] ज्यामध्ये [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} साचे/चित्र बदल] आहेत, तपासण्यासाठी बाकी आहे.',
+याची [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} कच्ची प्रत] ज्यामध्ये [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} साचे/चित्र बदल] आहेत, तपासण्यासाठी बाकी आहे.', # Fuzzy
 	'revreview-basic-old' => 'ही एक [[{{MediaWiki:Validationpage}}|निवडलेली]] आवृत्ती आहे ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} सर्व यादी]), जी <i>$2</i> ला [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} प्रमाणित] केलेली आहे.
-नवीन [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} बदल] केलेले असण्याची शक्यता आहे.',
-	'revreview-basic-same' => 'ही नवीनतम [[{{MediaWiki:Validationpage}}|निवडलेली]] आवृत्ती आहे ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} सर्व यादी]), जी <i>$2</i> रोजी [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} प्रमाणित] केलेली आहे.',
-	'revreview-basic-source' => 'या पानाची एक [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} निवडलेली आवृत्ती], जी <i>$2</i> ला[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} प्रमाणित] केलेली आहे, या आवृत्तीवर आधारित आहे.',
-	'revreview-current' => 'कच्ची प्रत',
+नवीन [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} बदल] केलेले असण्याची शक्यता आहे.', # Fuzzy
+	'revreview-basic-same' => 'ही नवीनतम [[{{MediaWiki:Validationpage}}|निवडलेली]] आवृत्ती आहे ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} सर्व यादी]), जी <i>$2</i> रोजी [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} प्रमाणित] केलेली आहे.', # Fuzzy
+	'revreview-basic-source' => 'या पानाची एक [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} निवडलेली आवृत्ती], जी <i>$2</i> ला[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} प्रमाणित] केलेली आहे, या आवृत्तीवर आधारित आहे.', # Fuzzy
+	'revreview-current' => 'कच्ची प्रत', # Fuzzy
 	'revreview-depth' => 'गहनता',
-	'revreview-depth-0' => 'अप्रमाणित',
+	'revreview-depth-0' => 'अप्रमाणित', # Fuzzy
 	'revreview-depth-1' => 'प्राथमिक',
 	'revreview-depth-2' => 'माध्यमिक',
 	'revreview-depth-3' => 'उच्च',
 	'revreview-depth-4' => 'विशेष',
-	'revreview-draft-title' => 'लेखाची कच्ची प्रत',
+	'revreview-draft-title' => 'लेखाची कच्ची प्रत', # Fuzzy
 	'revreview-edit' => 'संपादन',
 	'revreview-edited' => "'''नवीन संपादने एखाद्या जुन्या सदस्याने तपासल्यानंतर [[{{MediaWiki:Validationpage}}|स्थिर आवृत्ती]] मध्ये दाखविली जातील.
-''कच्ची प्रत'' खाली दिलेली आहे.''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|बदलाची|बदलांची}}] तपासणी बाकी आहे.",
+''कच्ची प्रत'' खाली दिलेली आहे.''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|बदलाची|बदलांची}}] तपासणी बाकी आहे.", # Fuzzy
 	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} नविनतम निवडलेली आवृत्ती] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} सर्व यादी]) ही <i>$2</i> रोजी [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} प्रमाणित केलेली आहे].
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|बदलासाठी|बदलांसाठी}}] पुनर्तपासणीची गरज आहे.',
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|बदलासाठी|बदलांसाठी}}] पुनर्तपासणीची गरज आहे.', # Fuzzy
 	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} नवीनतम निवडलेली आवृत्ती] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} सर्व यादी]) <i>$2</i> रोजी [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} प्रमाणित] करण्यात आलेली आहे.
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} साचा/चित्र बदल] तपासायचे राहिलेले आहेत.',
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} साचा/चित्र बदल] तपासायचे राहिलेले आहेत.', # Fuzzy
 	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} नविनतम निवडलेली आवृत्ती] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} सर्व यादी]) ही <i>$2</i> रोजी [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} प्रमाणित केलेली आहे].
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|बदलासाठी|बदलांसाठी}}] पुनर्तपासणीची गरज आहे.',
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|बदलासाठी|बदलांसाठी}}] पुनर्तपासणीची गरज आहे.', # Fuzzy
 	'revreview-newest-quality-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} नवीनतम गुणवत्तापूर्ण आवृत्ती] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} सर्व यादी]) <i>$2</i> रोजी [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} प्रमाणित] करण्यात आलेली आहे.
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} साचा/चित्र बदल] तपासायचे राहिलेले आहेत.',
-	'revreview-noflagged' => "या पानाच्या तपासलेल्या आवृत्त्या नाहीत, त्यामुळे हे पान गुणवत्तेसाठी [[{{MediaWiki:Validationpage}}|तपासलेले]] '''नसण्याची''' शक्यता आहे.",
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} साचा/चित्र बदल] तपासायचे राहिलेले आहेत.', # Fuzzy
+	'revreview-noflagged' => "या पानाच्या तपासलेल्या आवृत्त्या नाहीत, त्यामुळे हे पान गुणवत्तेसाठी [[{{MediaWiki:Validationpage}}|तपासलेले]] '''नसण्याची''' शक्यता आहे.", # Fuzzy
 	'revreview-oldrating' => 'याचे गुणांकन:',
 	'revreview-quality' => "ही नवीनतम [[{{MediaWiki:Validationpage}}|गुणवत्तापूर्ण]] आवृत्ती आहे, जी <i>$2</i> रोजी [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} प्रमाणित] केलेली आहे.
 याची [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} कच्ची प्रत] आता '''[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} बदलता]''' येऊ शकते;
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|बदलासाठी|बदलांसाठी}}] पुनर्तपासणीची वाट पाहत आहोत.",
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|बदलासाठी|बदलांसाठी}}] पुनर्तपासणीची वाट पाहत आहोत.", # Fuzzy
 	'revreview-quality-i' => 'ही नवीनतम [[{{MediaWiki:Validationpage}}|गुणवत्तापूर्ण]] आवृत्ती आहे, जी <i>$2</i> रोजी [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} प्रमाणित] करण्यात आलेली आहे.
-याची [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} कच्ची प्रत] ज्यामध्ये [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} साचे/चित्र बदल] आहेत, तपासण्यासाठी बाकी आहे.',
+याची [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} कच्ची प्रत] ज्यामध्ये [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} साचे/चित्र बदल] आहेत, तपासण्यासाठी बाकी आहे.', # Fuzzy
 	'revreview-quality-old' => 'ही एक [[{{MediaWiki:Validationpage}}|गुणवत्तापूर्ण]] आवृत्ती आहे ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} सर्व यादी]), जी <i>$2</i> ला [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} प्रमाणित] केलेली आहे.
-नवीन [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} बदल] केलेले असण्याची शक्यता आहे.',
-	'revreview-quality-same' => 'ही नवीनतम [[{{MediaWiki:Validationpage}}|गुणवत्तापूर्ण]] आवृत्ती आहे ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} सर्व यादी]), जी <i>$2</i> रोजी [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} प्रमाणित] केलेली आहे.',
+नवीन [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} बदल] केलेले असण्याची शक्यता आहे.', # Fuzzy
+	'revreview-quality-same' => 'ही नवीनतम [[{{MediaWiki:Validationpage}}|गुणवत्तापूर्ण]] आवृत्ती आहे ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} सर्व यादी]), जी <i>$2</i> रोजी [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} प्रमाणित] केलेली आहे.', # Fuzzy
 	'revreview-quality-source' => 'या पानाची एक [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} गुणवत्तापूर्ण आवृत्ती], जी <i>$2</i> ला[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} प्रमाणित] केलेली आहे, या आवृत्तीवर आधारित आहे.',
-	'revreview-quality-title' => 'गुणवत्तापूर्ण लेख',
+	'revreview-quality-title' => 'गुणवत्तापूर्ण लेख', # Fuzzy
 	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|निवडलेला लेख]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} कच्ची प्रत पहा]]",
-	'revreview-quick-basic-old' => "'''[[{{MediaWiki:Validationpage}}|निवडलेला लेख]]''' [[कच्ची प्रत पहा]]",
+	'revreview-quick-basic-old' => "'''[[{{MediaWiki:Validationpage}}|निवडलेला लेख]]''' [[कच्ची प्रत पहा]]", # Fuzzy
 	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|निवडलेला लेख]]'''",
 	'revreview-quick-invalid' => "'''चुकीचा आवृत्ती क्रमांक'''",
-	'revreview-quick-none' => "'''[[{{MediaWiki:Validationpage}}|सध्याची आवृत्ती]]''' (तपासलेली नाही)",
+	'revreview-quick-none' => "'''[[{{MediaWiki:Validationpage}}|सध्याची आवृत्ती]]''' (तपासलेली नाही)", # Fuzzy
 	'revreview-quick-quality' => "'''[[{{MediaWiki:Validationpage}}|प्रत]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} शेवटचा बदल पहा]]",
-	'revreview-quick-quality-old' => "'''[[{{MediaWiki:Validationpage}}|गुणवत्तापूर्ण लेख]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} कच्ची प्रत पहा]]",
-	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|गुणवत्तापूर्ण लेख]]'''",
+	'revreview-quick-quality-old' => "'''[[{{MediaWiki:Validationpage}}|गुणवत्तापूर्ण लेख]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} कच्ची प्रत पहा]]", # Fuzzy
+	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|गुणवत्तापूर्ण लेख]]'''", # Fuzzy
 	'revreview-quick-see-basic' => "'''कच्ची प्रत''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} लेख पहा]]
 [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} फरक तपासा]]",
 	'revreview-quick-see-quality' => "'''कच्ची प्रत''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} लेख पहा]]
 [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} फरक तपासा]]",
 	'revreview-source' => 'स्रोत पहा',
-	'revreview-basic-title' => 'निवडलेला लेख',
+	'revreview-basic-title' => 'निवडलेला लेख', # Fuzzy
 	'revreview-style' => 'वाचनीयता',
-	'revreview-style-0' => 'अप्रमाणित',
+	'revreview-style-0' => 'अप्रमाणित', # Fuzzy
 	'revreview-style-1' => 'वापरण्यायोग्य',
 	'revreview-style-2' => 'चांगले',
 	'revreview-style-3' => 'संक्षिप्त',
 	'revreview-style-4' => 'विशेष',
 	'revreview-toggle-title' => 'जास्तीची माहिती दाखवा/लपवा',
-	'revreview-visibility-synced' => "'''या पानाला एक [[{{MediaWiki:Validationpage}}|स्थिर आवृत्ती]] आहे, जी [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} बदलली] जाऊ शकते.'''",
+	'revreview-visibility-synced' => "'''या पानाला एक [[{{MediaWiki:Validationpage}}|स्थिर आवृत्ती]] आहे, जी [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} बदलली] जाऊ शकते.'''", # Fuzzy
 	'revreview-revnotfound' => 'या पृष्ठाची तुम्ही मागविलेली जुनी आवृत्ती सापडली नाही.
 कृपया URL तपासून पहा.',
-	'right-autoreview' => 'आवृत्त्या पाहिल्या म्हणून आपोआप खूणा करा',
-	'right-movestable' => 'स्थिर पानांचे स्थानांतरण करा',
-	'right-review' => 'आवृत्त्या पाहिल्या म्हणून खूण करा',
-	'right-stablesettings' => 'स्थिर आवृत्ती कशा प्रकारे निवडली व दाखविली जाते ते ठरवा',
-	'right-validate' => 'आवृत्त्या वैध म्हणून खूण करा',
-	'right-unreviewedpages' => 'न तपासलेल्या पानांची यादी पहा',
+	'right-autoreview' => 'आवृत्त्या पाहिल्या म्हणून आपोआप खूणा करा', # Fuzzy
+	'right-movestable' => 'स्थिर पानांचे स्थानांतरण करा', # Fuzzy
+	'right-review' => 'आवृत्त्या पाहिल्या म्हणून खूण करा', # Fuzzy
+	'right-stablesettings' => 'स्थिर आवृत्ती कशा प्रकारे निवडली व दाखविली जाते ते ठरवा', # Fuzzy
+	'right-validate' => 'आवृत्त्या वैध म्हणून खूण करा', # Fuzzy
+	'right-unreviewedpages' => 'न तपासलेल्या पानांची यादी पहा', # Fuzzy
 	'rights-editor-revoke' => '[[$1]] चे संपादक अधिकार काढून घेतले',
-	'specialpages-group-quality' => 'गुणवत्ता वचन',
-	'stable-logentry-config' => '$1 चे स्थिर आवृत्तीकरण बदला',
-	'stable-logentry-reset' => '$1 चे स्थिर आवृत्तीकरण पूर्वपदास न्या',
+	'specialpages-group-quality' => 'गुणवत्ता वचन', # Fuzzy
+	'stable-logentry-config' => '$1 चे स्थिर आवृत्तीकरण बदला', # Fuzzy
+	'stable-logentry-reset' => '$1 चे स्थिर आवृत्तीकरण पूर्वपदास न्या', # Fuzzy
 	'stable-logpage' => 'स्थिर आवृत्ती सूची',
 	'stable-logpagetext' => 'ही कंटेंट पानांच्या [[{{MediaWiki:Validationpage}}|स्थिर आवृत्ती]] मधील बदलांची सूची आहे.',
-	'tooltip-ca-current' => 'या पानाची कच्ची प्रत पहा',
-	'tooltip-ca-stable' => 'या पानाची पक्की प्रत पहा',
+	'tooltip-ca-current' => 'या पानाची कच्ची प्रत पहा', # Fuzzy
+	'tooltip-ca-stable' => 'या पानाची पक्की प्रत पहा', # Fuzzy
 	'tooltip-ca-default' => 'गुणवत्ता देणारी स्थिती',
-	'validationpage' => '{{ns:help}}:लेख प्रमाणिकरण',
+	'validationpage' => '{{ns:help}}:लेख प्रमाणिकरण', # Fuzzy
 );
 
 /** Malay (Bahasa Melayu)
@@ -10596,7 +10616,7 @@ $messages['mt'] = array(
  * @author Botuzhaleny-sodamo
  */
 $messages['myv'] = array(
-	'group-editor-member' => 'витницязо-петницязо',
+	'group-editor-member' => 'витницязо-петницязо', # Fuzzy
 	'revreview-style' => 'Ловновиксчизэ',
 	'revreview-style-0' => 'Асатышка',
 	'revreview-style-1' => 'Маштови',
@@ -10716,12 +10736,12 @@ Nye [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffon
 	'revreview-depth-4' => 'Utmerket',
 	'revreview-draft-title' => 'Ventende endringer vises på denne siden',
 	'revreview-edit' => 'Rediger',
-	'revreview-editnotice' => "'''Endringer dine vil bli vist til lesere når en autorisert bruker har revidert dem. ([[{{MediaWiki:Validationpage}}|hjelp]])'''",
+	'revreview-editnotice' => "'''Endringer dine vil bli vist til lesere når en autorisert bruker har revidert dem. ([[{{MediaWiki:Validationpage}}|hjelp]])'''", # Fuzzy
 	'revreview-submitedit' => 'Send endringer',
 	'revreview-submitedit-title' => 'Send endringene dine for revidering',
 	'revreview-edited' => "'''Endringer vil bli vist til lesere når en autorisert bruker har revidert dem. ([[{{MediaWiki:Validationpage}}|hjelp]])'''
 
-Det er [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1|diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$2|én ventende endring|$2 ventende endringer}}] ''(vist nedenfor)'' som venter på revidering.",
+Det er [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1|diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$2|én ventende endring|$2 ventende endringer}}] ''(vist nedenfor)'' som venter på revidering.", # Fuzzy
 	'revreview-edited-section' => 'Tilbake til avsnitt med navnet «[[#$1|$2]]».',
 	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|endring|endringer}}] i denne versjonen [[{{MediaWiki:Validationpage}}|venter på revidering]].
 Den [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} stabile versjonen] ble [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} kontrollert] den <i>$2</i>.',
@@ -10827,7 +10847,7 @@ Nye [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffon
  */
 $messages['nds'] = array(
 	'flaggedrevs' => 'Tekente Versionen',
-	'review-logentry-app' => 'hett de Version $2 vun „[[$1]]“ markeert',
+	'review-logentry-app' => 'hett de Version $2 vun „[[$1]]“ markeert', # Fuzzy
 	'revreview-accuracy-2' => 'akraat',
 	'revreview-auto' => '(automaatsch)',
 	'revreview-depth' => 'Deep',
@@ -10843,7 +10863,7 @@ $messages['nds'] = array(
  * @author Servien
  */
 $messages['nds-nl'] = array(
-	'revreview-revnotfound' => "De ouwe versie van disse zied kon niet evunnen wörden.
+	'revreview-revnotfound' => "De ouwe versie van disse zied kon niet evunnen wörden. 
 Kiek de URL nao die'j gebruken um naor disse zied te gaon.",
 );
 
@@ -10864,17 +10884,17 @@ $messages['ne'] = array(
 	'flaggedrevs-pref-UI-1' => 'पृष्ठको समीक्षा स्थिति देखाउन साना चिह्न र न्यूनतम पाठको प्रयोग  गर्नुहोस्',
 	'prefs-flaggedrevs' => 'समीक्षा गर्ने',
 	'prefs-flaggedrevs-ui' => 'समीक्षा गर्ने',
-	'flaggedrevs-prefs-stable' => 'सधैं सामाग्री पृष्ठको स्थिर संस्करण (यदि छ भनें) डिफल्ट रुपमा  देखाउनुहोस्',
+	'flaggedrevs-prefs-stable' => 'सधैं सामाग्री पृष्ठको स्थिर संस्करण (यदि छ भनें) डिफल्ट रुपमा  देखाउनुहोस्', # Fuzzy
 	'flaggedrevs-prefs-editdiffs' => 'पृष्ठ सम्पादनको बेला लंबित परिवर्तन भिन्नता देखाउनुहोस्',
 	'flaggedrevs-prefs-viewdiffs' => 'नवीनतम लंबित संस्करण हेरेको बेला लंबित परिवर्तन भिन्नता देखाउनुहोस्',
 	'group-editor' => 'सम्पादकहरु',
-	'group-editor-member' => 'सम्पादक',
+	'group-editor-member' => 'सम्पादक', # Fuzzy
 	'group-reviewer' => 'समीक्षकहरु',
-	'group-reviewer-member' => 'समीक्षक',
+	'group-reviewer-member' => 'समीक्षक', # Fuzzy
 	'grouppage-editor' => '{{ns:project}}:सम्पादक',
 	'grouppage-reviewer' => '{{ns:project}}:समीक्षक',
 	'group-autoreview' => 'स्वनियन्त्रित प्रयोगकर्ताहरु',
-	'group-autoreview-member' => 'स्वनियन्त्रित प्रयोगकर्ताहरु',
+	'group-autoreview-member' => 'स्वनियन्त्रित प्रयोगकर्ताहरु', # Fuzzy
 	'grouppage-autoreview' => '{{ns:project}}:स्वनियन्त्रित प्रयोगकर्ताहरु',
 	'revreview-hist-draft' => 'अनियंत्रित संशोधन',
 	'revreview-hist-pending' => 'लंबित संशोधन',
@@ -11106,137 +11126,137 @@ $messages['nn'] = array(
 	'editor' => 'Skribent',
 	'flaggedrevs' => 'Vurderte versjonar',
 	'flaggedrevs-watched-pending' => "Det finst [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} endringar] på vurderte sider på overvakingslista di. '''Merksemda di trengst.'''",
-	'flaggedrevs-desc' => 'Gjev skribentar og meldarar evna til å godkjenna sideversjonar og stabilisera sider',
-	'flaggedrevs-pref-UI-0' => 'Nytt eit detaljert grensesnitt for stabile versjonar',
-	'flaggedrevs-pref-UI-1' => 'Nytt eit enkelt grensesnitt for stabile versjonar',
-	'flaggedrevs-prefs-stable' => 'Vis alltid den stabile versjonen av innhaldssidor (om ein finst)',
+	'flaggedrevs-desc' => 'Gjev skribentar og meldarar evna til å godkjenna sideversjonar og stabilisera sider', # Fuzzy
+	'flaggedrevs-pref-UI-0' => 'Nytt eit detaljert grensesnitt for stabile versjonar', # Fuzzy
+	'flaggedrevs-pref-UI-1' => 'Nytt eit enkelt grensesnitt for stabile versjonar', # Fuzzy
+	'flaggedrevs-prefs-stable' => 'Vis alltid den stabile versjonen av innhaldssidor (om ein finst)', # Fuzzy
 	'flaggedrevs-prefs-watch' => 'Legg til sidene eg vurderer i overvakingslista mi',
 	'group-editor' => 'Skribentar',
-	'group-editor-member' => 'skribent',
+	'group-editor-member' => 'skribent', # Fuzzy
 	'group-reviewer' => 'Meldarar',
-	'group-reviewer-member' => 'Meldar',
+	'group-reviewer-member' => 'Meldar', # Fuzzy
 	'grouppage-editor' => '{{ns:project}}:Skribentar',
 	'grouppage-reviewer' => '{{ns:project}}:Meldarar',
 	'group-autoreview' => 'Automeldarar',
-	'group-autoreview-member' => 'automeldar',
+	'group-autoreview-member' => 'automeldar', # Fuzzy
 	'grouppage-autoreview' => '{{ns:project}}:Automeldarar',
-	'revreview-hist-draft' => 'utkast',
+	'revreview-hist-draft' => 'utkast', # Fuzzy
 	'revreview-hist-quality' => 'kvalitetsversjon',
-	'revreview-hist-basic' => 'vurdert versjon',
-	'revreview-hist-quality-user' => 'godkjend av [[User:$3|$3]]',
-	'revreview-hist-basic-user' => 'vurdert av [[User:$3|$3]]',
-	'revreview-hist-basic-auto' => 'automatisk vurdert',
+	'revreview-hist-basic' => 'vurdert versjon', # Fuzzy
+	'revreview-hist-quality-user' => 'godkjend av [[User:$3|$3]]', # Fuzzy
+	'revreview-hist-basic-user' => 'vurdert av [[User:$3|$3]]', # Fuzzy
+	'revreview-hist-basic-auto' => 'automatisk vurdert', # Fuzzy
 	'revreview-log-details-show' => 'vis detaljar',
 	'revreview-log-details-hide' => 'skjul detaljar',
-	'review-diff2stable' => 'Syn endringar mellom den stabile og den noverande versjonen',
+	'review-diff2stable' => 'Syn endringar mellom den stabile og den noverande versjonen', # Fuzzy
 	'review-logentry-app' => 'vurderte ein versjon av [[$1]]',
 	'review-logentry-dis' => 'degraderte versjon ein versjon av [[$1]]',
-	'review-logentry-id' => 'sjå: $2',
+	'review-logentry-id' => 'sjå: $2', # Fuzzy
 	'review-logentry-diff' => 'endringar vurderte',
 	'review-logpage' => 'Vurderingslogg',
-	'review-logpagetext' => 'Dette er ein logg over endringar i [[{{MediaWiki:Validationpage}}|godkjenningsstoda]] til innhaldssider.',
+	'review-logpagetext' => 'Dette er ein logg over endringar i [[{{MediaWiki:Validationpage}}|godkjenningsstoda]] til innhaldssider.', # Fuzzy
 	'reviewer' => 'Vurdert av',
 	'revreview-accuracy' => 'Vurdering',
-	'revreview-accuracy-0' => 'Ikkje godkjend',
+	'revreview-accuracy-0' => 'Ikkje godkjend', # Fuzzy
 	'revreview-accuracy-1' => 'Vurdert',
 	'revreview-accuracy-2' => 'Nøyaktig',
 	'revreview-accuracy-3' => 'God kjeldetilvising',
 	'revreview-accuracy-4' => 'Utmerka',
 	'revreview-auto' => '(automatisk)',
 	'revreview-basic' => 'Dette er den siste [[{{MediaWiki:Validationpage}}|vurderte]] versjonen, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}}  vurdert] den <i>$2</i>.
-[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Utkastet] har [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$3|éi endring|$3 endringar}}] som ventar på vurdering.',
-	'revreview-basic-i' => 'Dette er den siste [[{{MediaWiki:Validationpage}}|vurderte]] sideversjonen, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} vurdert] den <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Utkastet] har [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} mal- eller biletendringar] som ventar på vurdering.',
+[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Utkastet] har [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$3|éi endring|$3 endringar}}] som ventar på vurdering.', # Fuzzy
+	'revreview-basic-i' => 'Dette er den siste [[{{MediaWiki:Validationpage}}|vurderte]] sideversjonen, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} vurdert] den <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Utkastet] har [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} mal- eller biletendringar] som ventar på vurdering.', # Fuzzy
 	'revreview-basic-old' => 'Dette er ein [[{{MediaWiki:Validationpage}}|vurdert]] versjon ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} sjå alle]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} godkjend] den <i>$2</i>.
-Nye [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} endringar] kan ha vortne gjort.',
-	'revreview-basic-same' => 'Dette er den siste [[{{MediaWiki:Validationpage}}|vurderte]] versjonen ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} sjå alle]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} godkjend] den <i>$2</i>.',
-	'revreview-basic-source' => 'Ein [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} vurdert versjon] av denne sida, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} godkjend] den <i>$2</i>, byggjer på denne versjonen.',
-	'revreview-current' => 'Utkast',
+Nye [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} endringar] kan ha vortne gjort.', # Fuzzy
+	'revreview-basic-same' => 'Dette er den siste [[{{MediaWiki:Validationpage}}|vurderte]] versjonen ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} sjå alle]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} godkjend] den <i>$2</i>.', # Fuzzy
+	'revreview-basic-source' => 'Ein [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} vurdert versjon] av denne sida, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} godkjend] den <i>$2</i>, byggjer på denne versjonen.', # Fuzzy
+	'revreview-current' => 'Utkast', # Fuzzy
 	'revreview-depth' => 'Djupn',
-	'revreview-depth-0' => 'Ikkje godkjend',
+	'revreview-depth-0' => 'Ikkje godkjend', # Fuzzy
 	'revreview-depth-1' => 'Grunnleggjande',
 	'revreview-depth-2' => 'Medels',
 	'revreview-depth-3' => 'God',
 	'revreview-depth-4' => 'Utmerka',
-	'revreview-draft-title' => 'Utkastsida',
-	'revreview-edit' => 'Endra utkast',
-	'revreview-editnotice' => "'''Endringar på denne sida vil verta inkluderte i den [[{{MediaWiki:Validationpage}}|stabile versjonen]] so snart ein autorisert brukar godkjenner dei.'''",
+	'revreview-draft-title' => 'Utkastsida', # Fuzzy
+	'revreview-edit' => 'Endra utkast', # Fuzzy
+	'revreview-editnotice' => "'''Endringar på denne sida vil verta inkluderte i den [[{{MediaWiki:Validationpage}}|stabile versjonen]] so snart ein autorisert brukar godkjenner dei.'''", # Fuzzy
 	'revreview-edited' => "'''Endringar vil verta inkluderte i den [[{{MediaWiki:Validationpage}}|stabile versjonen]] so snart ein autorisert brukar godkjenner dei.'''
-'''''Utkastet'' er vist nedanfor.''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$2|Éi endring|$2 endringar}}] ventar på vurdering.",
+'''''Utkastet'' er vist nedanfor.''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$2|Éi endring|$2 endringar}}] ventar på vurdering.", # Fuzzy
 	'revreview-newest-basic' => 'Den [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} siste godkjende versjonen] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} syn alle]) vart [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} godkjend] den <i>$2</i>.
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$3|Éi endring må verta vurdert|$3 endringar må verta vurderte}}].',
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$3|Éi endring må verta vurdert|$3 endringar må verta vurderte}}].', # Fuzzy
 	'revreview-newest-basic-i' => 'Den [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} siste vurderte versjonen] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} syn alle]) vart [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} godkjend] den <i>$2</i>.
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Mal- eller biletendringar] må verta vurderte.',
-	'revreview-newest-quality' => 'Den [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} siste kvalitetssikra versjonen av sida]  ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} syn alle]) vart [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} godkjend] den <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$3|Éi endring må verta vurdert|$3 endringar må verta vurderte}}].',
-	'revreview-newest-quality-i' => 'Den [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} siste kvalitetssikra sideversjonen]  ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} syn alle]) vart [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} godkjend] den <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Mal- eller biletendringar] må verta vurderte.',
-	'revreview-noflagged' => "Det finst ingen vurderte versjonar av denne sida, so ho har kanskje '''ikkje''' vorten [[{{MediaWiki:Validationpage}}|sjekka]] for kvalitet.",
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Mal- eller biletendringar] må verta vurderte.', # Fuzzy
+	'revreview-newest-quality' => 'Den [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} siste kvalitetssikra versjonen av sida]  ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} syn alle]) vart [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} godkjend] den <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$3|Éi endring må verta vurdert|$3 endringar må verta vurderte}}].', # Fuzzy
+	'revreview-newest-quality-i' => 'Den [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} siste kvalitetssikra sideversjonen]  ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} syn alle]) vart [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} godkjend] den <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Mal- eller biletendringar] må verta vurderte.', # Fuzzy
+	'revreview-noflagged' => "Det finst ingen vurderte versjonar av denne sida, so ho har kanskje '''ikkje''' vorten [[{{MediaWiki:Validationpage}}|sjekka]] for kvalitet.", # Fuzzy
 	'revreview-oldrating' => 'Vart vurdert som:',
 	'revreview-quality' => 'Dette er den siste [[{{MediaWiki:Validationpage}}|kvalitetsversjonen]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} godkjend] den <i>$2</i>.
-[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Utkastet] har [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$3|éi endring|$3 endringar}}] som ventar på vurdering.',
+[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Utkastet] har [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$3|éi endring|$3 endringar}}] som ventar på vurdering.', # Fuzzy
 	'revreview-quality-i' => 'Dette er den siste [[{{MediaWiki:Validationpage}}|kvalitetsversjonen]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} godkjend] den <i>$2</i>.
-[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Utkastet] har [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} bilet- eller malendringar] som ventar på vurdering.',
+[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Utkastet] har [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} bilet- eller malendringar] som ventar på vurdering.', # Fuzzy
 	'revreview-quality-old' => 'Dette er ein [[{{MediaWiki:Validationpage}}|kvalitetsversjon]] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} sjå alle]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} godkjend] den <i>$2</i>.
-Nye [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} endringar] kan ha vortne gjort.',
-	'revreview-quality-same' => 'Dette er den siste [[{{MediaWiki:Validationpage}}|kvalitetsversjonen]] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} sjå alle]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} godkjend] den <i>$2</i>.',
+Nye [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} endringar] kan ha vortne gjort.', # Fuzzy
+	'revreview-quality-same' => 'Dette er den siste [[{{MediaWiki:Validationpage}}|kvalitetsversjonen]] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} sjå alle]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} godkjend] den <i>$2</i>.', # Fuzzy
 	'revreview-quality-source' => 'Ein [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} kvalitetsversjon] av denne sida, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} godkjend] den <i>$2</i>, byggjer på denne versjonen.',
-	'revreview-quality-title' => 'Kvalitetsartikkel',
-	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|Vurdert artikkel]]''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} syn utkast]]",
-	'revreview-quick-basic-old' => "'''[[{{MediaWiki:Validationpage}}|Vurdert artikkel]]''' [ syn utkast]]",
-	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|Vurdert artikkel]]'''",
+	'revreview-quality-title' => 'Kvalitetsartikkel', # Fuzzy
+	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|Vurdert artikkel]]''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} syn utkast]]", # Fuzzy
+	'revreview-quick-basic-old' => "'''[[{{MediaWiki:Validationpage}}|Vurdert artikkel]]''' [ syn utkast]]", # Fuzzy
+	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|Vurdert artikkel]]'''", # Fuzzy
 	'revreview-quick-invalid' => "'''Ugyldig versjons-ID'''",
-	'revreview-quick-none' => "'''[[{{MediaWiki:Validationpage}}|Siste versjon]]''' (ikkje vurdert)",
-	'revreview-quick-quality' => "'''[[{{MediaWiki:Validationpage}}|Kvalitetsartikkel]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} syn utkast]]",
-	'revreview-quick-quality-old' => "'''[[{{MediaWiki:Validationpage}}|Kvalitetsartikkel]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} syn utkast]]",
-	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|Kvalitetsartikkel]]'''",
+	'revreview-quick-none' => "'''[[{{MediaWiki:Validationpage}}|Siste versjon]]''' (ikkje vurdert)", # Fuzzy
+	'revreview-quick-quality' => "'''[[{{MediaWiki:Validationpage}}|Kvalitetsartikkel]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} syn utkast]]", # Fuzzy
+	'revreview-quick-quality-old' => "'''[[{{MediaWiki:Validationpage}}|Kvalitetsartikkel]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} syn utkast]]", # Fuzzy
+	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|Kvalitetsartikkel]]'''", # Fuzzy
 	'revreview-quick-see-basic' => "'''[[{{MediaWiki:Validationpage}}|Utkast]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} syn vurdert artikkel]]
-[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} jamfør]]",
+[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} jamfør]]", # Fuzzy
 	'revreview-quick-see-quality' => "'''[[{{MediaWiki:Validationpage}}|Utkast]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} syn vurdert artikkel]]
-[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} jamfør]]",
-	'revreview-source' => 'kjeldetekst for utkast',
-	'revreview-basic-title' => 'Vurdert artikkel',
+[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} jamfør]]", # Fuzzy
+	'revreview-source' => 'kjeldetekst for utkast', # Fuzzy
+	'revreview-basic-title' => 'Vurdert artikkel', # Fuzzy
 	'revreview-style' => 'Lesbarheit',
-	'revreview-style-0' => 'Ikkje godkjend',
+	'revreview-style-0' => 'Ikkje godkjend', # Fuzzy
 	'revreview-style-1' => 'Akseptabel',
 	'revreview-style-2' => 'Bra',
 	'revreview-style-3' => 'Konsis',
 	'revreview-style-4' => 'Utmerka',
 	'revreview-toggle-title' => 'syn/løyn detaljar',
-	'revreview-visibility-synced' => "'''Denne sida har ein oppdatert [[{{MediaWiki:Validationpage}}|stabil versjon]]; innstillingar for stabile sider kan ein [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} endra].'''",
-	'revreview-visibility-outdated' => "'''Denne sida har ein utdatert [[{{MediaWiki:Validationpage}}|stabil sideversjon]]. Stabilitetsinnstillingane kan ein [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} endra].'''",
-	'revreview-visibility-nostable' => "'''Denne sida har ikkje ein  [[{{MediaWiki:Validationpage}}|stabil sideversjon]]. Stabilitetsinnstillingane for sider kan ein [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} endra].'''",
+	'revreview-visibility-synced' => "'''Denne sida har ein oppdatert [[{{MediaWiki:Validationpage}}|stabil versjon]]; innstillingar for stabile sider kan ein [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} endra].'''", # Fuzzy
+	'revreview-visibility-outdated' => "'''Denne sida har ein utdatert [[{{MediaWiki:Validationpage}}|stabil sideversjon]]. Stabilitetsinnstillingane kan ein [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} endra].'''", # Fuzzy
+	'revreview-visibility-nostable' => "'''Denne sida har ikkje ein  [[{{MediaWiki:Validationpage}}|stabil sideversjon]]. Stabilitetsinnstillingane for sider kan ein [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} endra].'''", # Fuzzy
 	'revreview-revnotfound' => 'Den gamle versjonen av sida du spurde etter finst ikkje. Sjekk nettadressa du brukte for å komma deg åt denne sida.',
-	'right-autoreview' => 'Automatisk merkja sideverjonar som vurderte',
-	'right-movestable' => 'Flytta stabile sider',
-	'right-review' => 'Merkja sideversjonar som vurderte',
-	'right-stablesettings' => 'Endra korleis stabile versjonar vert valde og viste',
-	'right-validate' => 'Merkja sideversjonar som godkjende',
+	'right-autoreview' => 'Automatisk merkja sideverjonar som vurderte', # Fuzzy
+	'right-movestable' => 'Flytta stabile sider', # Fuzzy
+	'right-review' => 'Merkja sideversjonar som vurderte', # Fuzzy
+	'right-stablesettings' => 'Endra korleis stabile versjonar vert valde og viste', # Fuzzy
+	'right-validate' => 'Merkja sideversjonar som godkjende', # Fuzzy
 	'right-unreviewedpages' => 'Sjå [[Special:UnreviewedPages|lista over sider som ikkje er vurderte]]',
 	'rights-editor-revoke' => 'fjerna skribentrettane til [[$1]]',
-	'specialpages-group-quality' => 'Sikring av kvalitet',
-	'stable-logentry-config' => 'endra innstillingar for stabile versjonar av $1',
-	'stable-logentry-reset' => 'gjorde om innstillingar for stabile versjonar av $1',
+	'specialpages-group-quality' => 'Sikring av kvalitet', # Fuzzy
+	'stable-logentry-config' => 'endra innstillingar for stabile versjonar av $1', # Fuzzy
+	'stable-logentry-reset' => 'gjorde om innstillingar for stabile versjonar av $1', # Fuzzy
 	'stable-logpage' => 'Versjonsstabiliseringslogg',
 	'stable-logpagetext' => 'Dette er ein logg over endringar av innstillingane for [[{{MediaWiki:Validationpage}}|stabile sideversjonar]] av innhaldssider.',
 	'revreview-filter-all' => 'Alle',
-	'revreview-filter-stable' => 'stabil',
-	'revreview-statusfilter' => 'Endring i stoda:',
+	'revreview-filter-stable' => 'stabil', # Fuzzy
+	'revreview-statusfilter' => 'Endring i stoda:', # Fuzzy
 	'revreview-filter-approved' => 'Godkjende',
 	'revreview-filter-reapproved' => 'Godkjende på nytt',
-	'revreview-filter-unapproved' => 'Ikkje godkjende',
+	'revreview-filter-unapproved' => 'Ikkje godkjende', # Fuzzy
 	'revreview-typefilter' => 'Type:',
 	'revreview-filter-auto' => 'Automatisk',
 	'revreview-filter-manual' => 'Manuelt',
 	'revreview-levelfilter' => 'Nivå:',
-	'revreview-lev-basic' => 'vurdert',
+	'revreview-lev-basic' => 'vurdert', # Fuzzy
 	'revreview-lev-quality' => 'kvalitet',
 	'revreview-lev-pristine' => 'opphavleg',
-	'revreview-reviewlink' => 'vurder',
-	'tooltip-ca-current' => 'Syn det noverande utkastet til sida',
-	'tooltip-ca-stable' => 'Syn den stabile versjonen av sida',
+	'revreview-reviewlink' => 'vurder', # Fuzzy
+	'tooltip-ca-current' => 'Syn det noverande utkastet til sida', # Fuzzy
+	'tooltip-ca-stable' => 'Syn den stabile versjonen av sida', # Fuzzy
 	'tooltip-ca-default' => 'Innstillingar for kvalitetssikring',
-	'revreview-locked-title' => 'Endringar må verta vurderte før dei vert synte på denne sida.',
-	'revreview-unlocked-title' => 'Endringar treng ikkje verta vurderte før dei vert synte på denne sida.',
-	'revreview-locked' => 'Endringar må verta vurderte før dei vert synte på denne sida.',
-	'revreview-unlocked' => 'Endringar treng ikkje verta vurderte før dei vert synte på denne sida.',
+	'revreview-locked-title' => 'Endringar må verta vurderte før dei vert synte på denne sida.', # Fuzzy
+	'revreview-unlocked-title' => 'Endringar treng ikkje verta vurderte før dei vert synte på denne sida.', # Fuzzy
+	'revreview-locked' => 'Endringar må verta vurderte før dei vert synte på denne sida.', # Fuzzy
+	'revreview-unlocked' => 'Endringar treng ikkje verta vurderte før dei vert synte på denne sida.', # Fuzzy
 	'log-show-hide-review' => '$1 vurderingslogg',
 	'validationpage' => '{{ns:help}}:Sidegodkjenning',
 );
@@ -11247,7 +11267,7 @@ Nye [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffon
 $messages['nso'] = array(
 	'editor' => 'Morulaganyi',
 	'group-editor' => 'Barulaganyi',
-	'group-editor-member' => 'Morulaganyi',
+	'group-editor-member' => 'Morulaganyi', # Fuzzy
 	'grouppage-editor' => '{{ns:project}}:Morulaganyi',
 );
 
@@ -11260,31 +11280,31 @@ $messages['oc'] = array(
 	'editor' => 'Contributor',
 	'flaggedrevs' => 'Revisions marcadas',
 	'flaggedrevs-watched-pending' => "I a actualament [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} de modificacions en espèra] de paginas relegidas dins vòstra lista de seguiment. '''Prestatz-i atencion !'''",
-	'flaggedrevs-desc' => "Balha la possibilitat als editors o als relectors de validar las modificacions e d'estabilizar las paginas.",
-	'flaggedrevs-pref-UI' => 'Interfàcia de las versions establas :',
-	'flaggedrevs-pref-UI-0' => "Utilizar l’interfàcia d'utilizaire de la version establa detalhada",
-	'flaggedrevs-pref-UI-1' => "Utilizar una simpla interfàcia d'utilizaire establa",
-	'prefs-flaggedrevs' => 'Estabilitat',
-	'prefs-flaggedrevs-ui' => 'Revisions marcadas',
-	'flaggedrevs-prefs-stable' => "Afichar totjorn la version establa del contengut de las paginas per defaut (se n'existís una)",
+	'flaggedrevs-desc' => "Balha la possibilitat als editors o als relectors de validar las modificacions e d'estabilizar las paginas.", # Fuzzy
+	'flaggedrevs-pref-UI' => 'Interfàcia de las versions establas :', # Fuzzy
+	'flaggedrevs-pref-UI-0' => "Utilizar l’interfàcia d'utilizaire de la version establa detalhada", # Fuzzy
+	'flaggedrevs-pref-UI-1' => "Utilizar una simpla interfàcia d'utilizaire establa", # Fuzzy
+	'prefs-flaggedrevs' => 'Estabilitat', # Fuzzy
+	'prefs-flaggedrevs-ui' => 'Revisions marcadas', # Fuzzy
+	'flaggedrevs-prefs-stable' => "Afichar totjorn la version establa del contengut de las paginas per defaut (se n'existís una)", # Fuzzy
 	'flaggedrevs-prefs-watch' => "Apond las paginas qu'ai revistas a ma lista de seguiment.",
-	'flaggedrevs-prefs-editdiffs' => 'Far veire lo diff cap a la version establa quand modificatz de paginas',
-	'flaggedrevs-prefs-viewdiffs' => "Far veire lo diff cap a la revision establa quand los borrolhons d'una pagina son consultats",
+	'flaggedrevs-prefs-editdiffs' => 'Far veire lo diff cap a la version establa quand modificatz de paginas', # Fuzzy
+	'flaggedrevs-prefs-viewdiffs' => "Far veire lo diff cap a la revision establa quand los borrolhons d'una pagina son consultats", # Fuzzy
 	'group-editor' => 'Contributors',
-	'group-editor-member' => 'Contributor',
+	'group-editor-member' => 'Contributor', # Fuzzy
 	'group-reviewer' => 'Revisors',
-	'group-reviewer-member' => 'Revisor',
+	'group-reviewer-member' => 'Revisor', # Fuzzy
 	'grouppage-editor' => '{{ns:project}}:Editor',
 	'grouppage-reviewer' => '{{ns:project}}:Reviewer',
 	'group-autoreview' => 'Revisadors automatics',
-	'group-autoreview-member' => 'revisador automatic',
+	'group-autoreview-member' => 'revisador automatic', # Fuzzy
 	'grouppage-autoreview' => '{{ns:project}}:Revisador automatic',
-	'revreview-hist-draft' => 'version borrolhon',
+	'revreview-hist-draft' => 'version borrolhon', # Fuzzy
 	'revreview-hist-quality' => 'qualitat de la version',
-	'revreview-hist-basic' => 'Version visualizada',
-	'revreview-hist-quality-user' => 'validada per [[User:$3|$3]]',
-	'revreview-hist-basic-user' => 'visada per [[User:$3|$3]]',
-	'revreview-hist-basic-auto' => 'revista automaticament',
+	'revreview-hist-basic' => 'Version visualizada', # Fuzzy
+	'revreview-hist-quality-user' => 'validada per [[User:$3|$3]]', # Fuzzy
+	'revreview-hist-basic-user' => 'visada per [[User:$3|$3]]', # Fuzzy
+	'revreview-hist-basic-auto' => 'revista automaticament', # Fuzzy
 	'revreview-diff-toggle-show' => 'far veire los cambiaments',
 	'revreview-diff-toggle-hide' => 'amagar los cambiaments',
 	'revreview-diff-toggle-title' => "Bascuolar l'afichatge entre las modificacions en espèra e la version publicada",
@@ -11292,94 +11312,94 @@ $messages['oc'] = array(
 	'revreview-log-toggle-hide' => "amagar lo jornal d'estabilitat",
 	'revreview-log-details-show' => 'far veire los detalhs',
 	'revreview-log-details-hide' => 'amagar los detalhs',
-	'review-diff2stable' => 'Vejatz las modificacions entre las versions establas e actualas.',
-	'review-logentry-app' => 'a revist v$2 de [[$1]]',
-	'review-logentry-dis' => 'a depreciat v$2 de [[$1]]',
+	'review-diff2stable' => 'Vejatz las modificacions entre las versions establas e actualas.', # Fuzzy
+	'review-logentry-app' => 'a revist v$2 de [[$1]]', # Fuzzy
+	'review-logentry-dis' => 'a depreciat v$2 de [[$1]]', # Fuzzy
 	'review-logentry-id' => 'Revision : $2',
-	'review-logentry-diff' => 'modificacions cap a la version establa',
+	'review-logentry-diff' => 'modificacions cap a la version establa', # Fuzzy
 	'review-logpage' => 'Jornal de las relecturas',
-	'review-logpagetext' => "Vaquí lo jornal de las modificacions de l'estatut [[{{MediaWiki:Validationpage}}|d'aprobacion]] de las revisions del contengut de las paginas.",
+	'review-logpagetext' => "Vaquí lo jornal de las modificacions de l'estatut [[{{MediaWiki:Validationpage}}|d'aprobacion]] de las revisions del contengut de las paginas.", # Fuzzy
 	'reviewer' => 'Revisor',
 	'revreview-accuracy' => 'Precision',
-	'revreview-accuracy-0' => 'Pas aprobada',
+	'revreview-accuracy-0' => 'Pas aprobada', # Fuzzy
 	'revreview-accuracy-1' => 'Vista',
 	'revreview-accuracy-2' => 'Precis',
 	'revreview-accuracy-3' => 'Plan fontada',
 	'revreview-accuracy-4' => 'Remirable',
 	'revreview-auto' => '(automatic)',
-	'revreview-basic' => "Es la darrièra [[{{MediaWiki:Validationpage}}|version revista]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprobada] lo ''$2''. L'[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} esbòs] pòt èsser [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} modificat]; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$3|$3 cambiament espèra|$3 cambiaments espèran}}] una revision.",
+	'revreview-basic' => "Es la darrièra [[{{MediaWiki:Validationpage}}|version revista]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprobada] lo ''$2''. L'[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} esbòs] pòt èsser [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} modificat]; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$3|$3 cambiament espèra|$3 cambiaments espèran}}] una revision.", # Fuzzy
 	'revreview-basic-i' => 'Vaquí la darrièra version [[{{MediaWiki:Validationpage}}|estadissa]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} revista] lo <i>$2</i>.
-Lo [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} borrolhon] caup de [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} cambiaments de modèl o de fichièrs] en espèra de relectura.',
+Lo [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} borrolhon] caup de [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} cambiaments de modèl o de fichièrs] en espèra de relectura.', # Fuzzy
 	'revreview-basic-old' => 'Vaquí una version [[{{MediaWiki:Validationpage}}|visada]] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} lista entièra]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprobada] lo <i>$2</i>.
-De [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} modificacions novèlas] pòdon èsser estada efectuadas.',
-	'revreview-basic-same' => 'Aquò es la darrièra version [[{{MediaWiki:Validationpage}}|susvelhada]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovada] sur <i>$2</i>. La pagina pòt èsser [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} modificada].',
-	'revreview-basic-source' => "Una [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} version visada] d'aquesta pagina, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprobada] lo <i>$2</i>, es estada basada en defòra d'aquesta version.",
-	'revreview-current' => 'Esbòs',
+De [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} modificacions novèlas] pòdon èsser estada efectuadas.', # Fuzzy
+	'revreview-basic-same' => 'Aquò es la darrièra version [[{{MediaWiki:Validationpage}}|susvelhada]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovada] sur <i>$2</i>. La pagina pòt èsser [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} modificada].', # Fuzzy
+	'revreview-basic-source' => "Una [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} version visada] d'aquesta pagina, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprobada] lo <i>$2</i>, es estada basada en defòra d'aquesta version.", # Fuzzy
+	'revreview-current' => 'Esbòs', # Fuzzy
 	'revreview-depth' => 'Prigondor',
-	'revreview-depth-0' => 'Pas aprobada',
+	'revreview-depth-0' => 'Pas aprobada', # Fuzzy
 	'revreview-depth-1' => 'De basa',
 	'revreview-depth-2' => 'Moderat',
 	'revreview-depth-3' => 'Elevada',
 	'revreview-depth-4' => 'Remirabla',
-	'revreview-draft-title' => 'Borrolhon de pagina',
-	'revreview-edit' => 'Esbòs de modificacion',
-	'revreview-editnotice' => "'''Nòta : Las modificacions sus aquesta pagina seràn incorporada dins la [[{{MediaWiki:Validationpage}}|version establa]] un còp qu’un utilizaire abilitat las aurà relegidas.'''",
+	'revreview-draft-title' => 'Borrolhon de pagina', # Fuzzy
+	'revreview-edit' => 'Esbòs de modificacion', # Fuzzy
+	'revreview-editnotice' => "'''Nòta : Las modificacions sus aquesta pagina seràn incorporada dins la [[{{MediaWiki:Validationpage}}|version establa]] un còp qu’un utilizaire abilitat las aurà relegidas.'''", # Fuzzy
 	'revreview-edited' => "'''Las modificacions novèlas seràn incorporadas dins [[{{MediaWiki:Validationpage}}|la version establa]] un còp qu’un utilizaire autorizat las aurà relegidas.
 
-Lo ''borrolhon'' es visible çaijós. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|modificacion espèra|modificacions espèran}}] una relectura.",
-	'revreview-newest-basic' => "La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} darrièra version vista] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} las veire totas]) èra [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprobada] lo ''$2''. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|cambiament|cambiaments}}] {{PLURAL:$3|demanda|demandan}} una revision.",
+Lo ''borrolhon'' es visible çaijós. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|modificacion espèra|modificacions espèran}}] una relectura.", # Fuzzy
+	'revreview-newest-basic' => "La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} darrièra version vista] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} las veire totas]) èra [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprobada] lo ''$2''. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|cambiament|cambiaments}}] {{PLURAL:$3|demanda|demandan}} una revision.", # Fuzzy
 	'revreview-newest-basic-i' => 'La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} darrièra version visualizada] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} vejatz la lista]) es estada [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovada] lo <i>$2</i>.
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} cambiaments de modèls o defichièrs] necessitan una relectura.',
-	'revreview-newest-quality' => "La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} darrièra version de qualitat] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} las veire totas]) èra [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprobada] lo ''$2''. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|cambiament|cambiaments}}] {{PLURAL:$3|demanda|demandan}} una revision.",
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} cambiaments de modèls o defichièrs] necessitan una relectura.', # Fuzzy
+	'revreview-newest-quality' => "La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} darrièra version de qualitat] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} las veire totas]) èra [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprobada] lo ''$2''. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|cambiament|cambiaments}}] {{PLURAL:$3|demanda|demandan}} una revision.", # Fuzzy
 	'revreview-newest-quality-i' => 'La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} darrièra version de qualitat] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} vejatz la lista]) es estada [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovada] lo <i>$2</i>.
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} modificacions de modèls o de fichièrs] necessitan una relectura.',
-	'revreview-noflagged' => "I a pas de version revisada d'aquesta pagina, sa [[{{MediaWiki:Validationpage}}|qualitat]] es incèrtana.",
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} modificacions de modèls o de fichièrs] necessitan una relectura.', # Fuzzy
+	'revreview-noflagged' => "I a pas de version revisada d'aquesta pagina, sa [[{{MediaWiki:Validationpage}}|qualitat]] es incèrtana.", # Fuzzy
 	'revreview-oldrating' => 'Son puntatge :',
-	'revreview-quality' => "Es la darrièra [[{{MediaWiki:Validationpage}}|version de qualitat]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprobada] lo ''$2''. L'[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} esbòs] pòt èsser [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} modificat]; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$3|$3 cambiament espèra|$3 cambiaments espèran}}] una revision.",
+	'revreview-quality' => "Es la darrièra [[{{MediaWiki:Validationpage}}|version de qualitat]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprobada] lo ''$2''. L'[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} esbòs] pòt èsser [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} modificat]; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$3|$3 cambiament espèra|$3 cambiaments espèran}}] una revision.", # Fuzzy
 	'revreview-quality-i' => 'Es la darrièra version [[{{MediaWiki:Validationpage}}|de qualitat]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprobada] lo <i>$2</i>.
-Lo [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} borrolhon] compòrta de [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} cambiaments de modèls o de fichièrs] en espèra de relectura.',
+Lo [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} borrolhon] compòrta de [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} cambiaments de modèls o de fichièrs] en espèra de relectura.', # Fuzzy
 	'revreview-quality-old' => 'Vaquí una version de [[{{MediaWiki:Validationpage}}|qualitat]] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} tot listar]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprobada] lo <i>$2</i>.
-De [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} modificacions novèlas] pòdon èsser estadas efectuadas.',
-	'revreview-quality-same' => 'Aquò es la darrièra version de [[{{MediaWiki:Validationpage}}|qualitat]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovada] sus <i>$2</i>. La pagina pòt èsser [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} modificada].',
+De [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} modificacions novèlas] pòdon èsser estadas efectuadas.', # Fuzzy
+	'revreview-quality-same' => 'Aquò es la darrièra version de [[{{MediaWiki:Validationpage}}|qualitat]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovada] sus <i>$2</i>. La pagina pòt èsser [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} modificada].', # Fuzzy
 	'revreview-quality-source' => "Una [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} version de qualitat] d'aquesta pagina, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprobada] lo <i>$2</i>, es estada basada en defòra d'aquesta version.",
-	'revreview-quality-title' => 'Pagina de qualitat',
-	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|pagina visada]]'''. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} veire revision correnta]]",
-	'revreview-quick-basic-old' => "[[{{MediaWiki:Validationpage}}|pagina visada]]''' [ veire lo borrolhon]]",
-	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|Pagina susvelhada]]''' (cap de modificacion pas revista)",
+	'revreview-quality-title' => 'Pagina de qualitat', # Fuzzy
+	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|pagina visada]]'''. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} veire revision correnta]]", # Fuzzy
+	'revreview-quick-basic-old' => "[[{{MediaWiki:Validationpage}}|pagina visada]]''' [ veire lo borrolhon]]", # Fuzzy
+	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|Pagina susvelhada]]''' (cap de modificacion pas revista)", # Fuzzy
 	'revreview-quick-invalid' => "'''Numèro de version incorrèct'''",
-	'revreview-quick-none' => "'''Correnta''' (pas de revisions evaluadas)",
-	'revreview-quick-quality' => "'''[[{{MediaWiki:Validationpage}}|Pagina de qualitat]]'''. [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} veire version correnta]]",
-	'revreview-quick-quality-old' => "'''[[{{MediaWiki:Validationpage}}|Pagina de qualitat]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} visionar lo borrolhon]]",
-	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|Pagina de qualitat]]''' (cap de modificacion pas revista)",
+	'revreview-quick-none' => "'''Correnta''' (pas de revisions evaluadas)", # Fuzzy
+	'revreview-quick-quality' => "'''[[{{MediaWiki:Validationpage}}|Pagina de qualitat]]'''. [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} veire version correnta]]", # Fuzzy
+	'revreview-quick-quality-old' => "'''[[{{MediaWiki:Validationpage}}|Pagina de qualitat]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} visionar lo borrolhon]]", # Fuzzy
+	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|Pagina de qualitat]]''' (cap de modificacion pas revista)", # Fuzzy
 	'revreview-quick-see-basic' => "'''[[{{MediaWiki:Validationpage}}|Borrolhon]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} vejatz la pagina]]
-[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} comparar]]",
+[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} comparar]]", # Fuzzy
 	'revreview-quick-see-quality' => "'''[[{{MediaWiki:Validationpage}}|Borrolhon]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} vejatz la pagina]]
-[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} comparar]]",
-	'revreview-source' => "Font de l'esbòs",
-	'revreview-basic-title' => 'Aquela pagina es velhada',
+[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} comparar]]", # Fuzzy
+	'revreview-source' => "Font de l'esbòs", # Fuzzy
+	'revreview-basic-title' => 'Aquela pagina es velhada', # Fuzzy
 	'revreview-style' => 'Lisibilitat',
-	'revreview-style-0' => 'Pas aprobada',
+	'revreview-style-0' => 'Pas aprobada', # Fuzzy
 	'revreview-style-1' => 'Acceptabla',
 	'revreview-style-2' => 'Bona',
 	'revreview-style-3' => 'Concisa',
 	'revreview-style-4' => 'Remirabla',
 	'revreview-toggle-title' => 'far veire/amagar los detalhs',
-	'revreview-visibility-synced' => "Aquesta pagina conten una [[{{MediaWiki:Validationpage}}|version establa]],  sos paramètres d'estabilitat pòdon èsser [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} configurats].",
-	'revreview-visibility-outdated' => "'''Aquesta pagina compòrta una [[{{MediaWiki:Validationpage}}|version establa]] perimida. Los paramètres d'estabilitat de la pagina pòdon èsser [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} configurats].'''",
-	'revreview-visibility-nostable' => "'''Aquesta pagina dispausa pas d'una [[{{MediaWiki:Validationpage}}|version establa]] ; los paramètres d'estabilitat de la pagina pòdon èsser [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} configurats].'''",
+	'revreview-visibility-synced' => "Aquesta pagina conten una [[{{MediaWiki:Validationpage}}|version establa]],  sos paramètres d'estabilitat pòdon èsser [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} configurats].", # Fuzzy
+	'revreview-visibility-outdated' => "'''Aquesta pagina compòrta una [[{{MediaWiki:Validationpage}}|version establa]] perimida. Los paramètres d'estabilitat de la pagina pòdon èsser [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} configurats].'''", # Fuzzy
+	'revreview-visibility-nostable' => "'''Aquesta pagina dispausa pas d'una [[{{MediaWiki:Validationpage}}|version establa]] ; los paramètres d'estabilitat de la pagina pòdon èsser [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} configurats].'''", # Fuzzy
 	'revreview-revnotfound' => "La version precedenta d'aquesta pagina a pas pogut èsser retrobada. Verificatz l'URL qu'avètz utilizada per accedir a aquesta pagina.",
-	'right-autoreview' => 'Marcar automaticament las versions coma visadas',
-	'right-movestable' => 'Desplaçar de paginas establas',
-	'right-review' => 'Marcar las versions coma visadas',
-	'right-stablesettings' => 'Configurar cossí la version establa es seleccionada puèi afichada',
-	'right-validate' => 'Marcar las versions coma validadas',
+	'right-autoreview' => 'Marcar automaticament las versions coma visadas', # Fuzzy
+	'right-movestable' => 'Desplaçar de paginas establas', # Fuzzy
+	'right-review' => 'Marcar las versions coma visadas', # Fuzzy
+	'right-stablesettings' => 'Configurar cossí la version establa es seleccionada puèi afichada', # Fuzzy
+	'right-validate' => 'Marcar las versions coma validadas', # Fuzzy
 	'right-unreviewedpages' => 'Veire [[Special:UnreviewedPages|la lista de las paginas pas revistas]]',
 	'rights-editor-revoke' => "a revocat los dreches d'editor de [[$1]]",
-	'specialpages-group-quality' => 'Assegurança de qualitat',
-	'stable-logentry-config' => 'Las versions establas de $1 son parametradas.',
-	'stable-logentry-reset' => 'Tornar metre a zèro lo jornal de las versions establas de $1',
+	'specialpages-group-quality' => 'Assegurança de qualitat', # Fuzzy
+	'stable-logentry-config' => 'Las versions establas de $1 son parametradas.', # Fuzzy
+	'stable-logentry-reset' => 'Tornar metre a zèro lo jornal de las versions establas de $1', # Fuzzy
 	'stable-logpage' => 'Jornal de las versions establas',
-	'stable-logpagetext' => 'Vaquí lo jornal de las modificacions per la [[{{MediaWiki:Validationpage}}|version establa]] de la configuracion de las presentas paginas.',
+	'stable-logpagetext' => 'Vaquí lo jornal de las modificacions per la [[{{MediaWiki:Validationpage}}|version establa]] de la configuracion de las presentas paginas.', # Fuzzy
 	'revreview-filter-all' => 'Tot',
 	'revreview-filter-stable' => 'publicat',
 	'revreview-statusfilter' => "Accion d'aprobacion :",
@@ -11398,20 +11418,20 @@ De [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonl
 	'revreview-def-all' => 'totas',
 	'revreview-def-draft' => 'darrièra',
 	'revreview-def-stable' => 'publicada',
-	'revreview-restrictfilter' => 'Nivèl de restriccion :',
+	'revreview-restrictfilter' => 'Nivèl de restriccion :', # Fuzzy
 	'revreview-restriction-any' => 'totes',
 	'revreview-restriction-none' => 'pas cap',
 	'revreview-reviewlink' => 'modificacions en espèra',
 	'revreview-unreviewedpage' => 'Pagina pas verificada',
-	'tooltip-ca-current' => "Veire l'esbòs corrent d'aquesta pagina",
+	'tooltip-ca-current' => "Veire l'esbòs corrent d'aquesta pagina", # Fuzzy
 	'tooltip-ca-stable' => "Veire la version publicada d'aquesta pagina",
 	'tooltip-ca-default' => "Paramètres per l'assegurança-qualitat",
-	'flaggedrevs-protect-legend' => 'Publicar los cambiaments',
+	'flaggedrevs-protect-legend' => 'Publicar los cambiaments', # Fuzzy
 	'flaggedrevs-protect-none' => 'Permetre a totes',
-	'revreview-locked-title' => 'Las modificacions devon èsser revistas abans d’èsser afichadas sus aquesta pagina !',
-	'revreview-unlocked-title' => 'Las modificacions necessitan pas de relectura abans d’èsser afichadas sus aquesta pagina !',
-	'revreview-locked' => 'Las modificacions devon èsser revistas abans d’èsser afichadas sus aquesta pagina !',
-	'revreview-unlocked' => 'Las modificacions necessitan pas de relectura abans d’èsser afichadas sus aquesta pagina !',
+	'revreview-locked-title' => 'Las modificacions devon èsser revistas abans d’èsser afichadas sus aquesta pagina !', # Fuzzy
+	'revreview-unlocked-title' => 'Las modificacions necessitan pas de relectura abans d’èsser afichadas sus aquesta pagina !', # Fuzzy
+	'revreview-locked' => 'Las modificacions devon èsser revistas abans d’èsser afichadas sus aquesta pagina !', # Fuzzy
+	'revreview-unlocked' => 'Las modificacions necessitan pas de relectura abans d’èsser afichadas sus aquesta pagina !', # Fuzzy
 	'log-show-hide-review' => "$1 l'istoric de las relecturas",
 	'validationpage' => '{{ns:help}}:Validacion de la pagina',
 );
@@ -11772,7 +11792,7 @@ $messages['pms'] = array(
 	'revreview-accuracy-3' => 'Bon-e sorgiss',
 	'revreview-accuracy-4' => 'Premià',
 	'revreview-auto' => '(aotomàtich)',
-	'revreview-basic' => "Costa-sì a l'é la [[{{MediaWiki:Validationpage}}|version publicà]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} controlà] dël <i>$2</i>.
+	'revreview-basic' => "Costa-sì a l'é la [[{{MediaWiki:Validationpage}}|version publicà]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} controlà] dël <i>$2</i>. 
 A-i {{PLURAL:$3|is|son}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 pending {{PLURAL:$3|cangiament|cangiament}}] pendent ch'a speto na revision.",
 	'revreview-basic-i' => "Costa a l'é la [[{{MediaWiki:Validationpage}}|version publicà]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} controlà] dël <i>$2</i>.
 A-i son [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} stamp/cangiament d'archivi] ch'a speto na revision.",
@@ -11810,7 +11830,7 @@ La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} version stàbil] a l'era [{{fullurl:{
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|modìfica|modìfiche}} pendent], për vëdde se la session a l'é stàita tramudà o scancelà.",
 	'revreview-noflagged' => "A-i é pa gnun-a [[{{MediaWiki:Validationpage}}|version revisionà]] dë sta pàgina-sì, donca a peul '''nen''' esse stàita controlà për l'aderensa a jë stàndard.",
 	'revreview-oldrating' => "A l'é stait giudicà për:",
-	'revreview-quality' => "Costa-sì a l'é la [[{{MediaWiki:Validationpage}}|version publicà]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovà] dël <i>$2</i>.
+	'revreview-quality' => "Costa-sì a l'é la [[{{MediaWiki:Validationpage}}|version publicà]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovà] dël <i>$2</i>. 
 A-i {{PLURAL:$3|é|son}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|cangiament|cangiament}}] pendent ch'a speto na revision.",
 	'revreview-quality-i' => "Costa-sì a l'é la [[{{MediaWiki:Validationpage}}|version publicà]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovà] dël <i>$2</i>.
 A-i son [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} cangiament dë stamp/archivi] ch'a speto na revision.",
@@ -11949,7 +11969,6 @@ $messages['ps'] = array(
 );
 
 /** Portuguese (português)
- * @author 555
  * @author Alchimista
  * @author Giro720
  * @author Hamilton Abreu
@@ -11959,6 +11978,7 @@ $messages['ps'] = array(
  * @author Malafaya
  * @author RmSilva
  * @author Waldir
+ * @author 555
  */
 $messages['pt'] = array(
 	'action-review' => 'rever edições',
@@ -12041,13 +12061,13 @@ Existem [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-di
 	'revreview-draft-title' => 'As alterações pendentes são mostradas nesta página',
 	'revreview-edit' => 'Editar',
 	'revreview-editnotice' => "'''As suas alterações serão apresentadas aos leitores após revisão por um utilizador autorizado.
-([[{{MediaWiki:Validationpage}}|ajuda]])'''",
+([[{{MediaWiki:Validationpage}}|ajuda]])'''", # Fuzzy
 	'revreview-submitedit' => 'Enviar alterações',
 	'revreview-submitedit-title' => 'Enviar as suas alterações para revisão',
 	'revreview-edited' => "'''As suas alterações serão apresentadas aos leitores após revisão por um utilizador autorizado.
 ([[{{MediaWiki:Validationpage}}|ajuda]])'''
 
-{{PLURAL:$2|Existe|Existem}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|alteração pendente|alterações pendentes}}] {{PLURAL:$2|''(apresentada abaixo)''|''(apresentadas abaixo)''}} a aguardar revisão.",
+{{PLURAL:$2|Existe|Existem}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|alteração pendente|alterações pendentes}}] {{PLURAL:$2|''(apresentada abaixo)''|''(apresentadas abaixo)''}} a aguardar revisão.", # Fuzzy
 	'revreview-edited-section' => 'Voltar à secção "[[#$1|$2]]" da página.',
 	'revreview-newest-basic' => '{{PLURAL:$3|Existe|Existem}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|alteração pendente|alterações pendentes}}] a [[{{MediaWiki:Validationpage}}|aguardar revisão]].
 A [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} versão publicada] foi [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} verificada] a <i>$2</i>.',
@@ -12150,7 +12170,6 @@ Verifique a URL que usou para aceder a esta página.',
 );
 
 /** Brazilian Portuguese (português do Brasil)
- * @author 555
  * @author Eduardo.mps
  * @author Giro720
  * @author Hamilton Abreu
@@ -12159,6 +12178,7 @@ Verifique a URL que usou para aceder a esta página.',
  * @author Luckas Blade
  * @author Pedroca cerebral
  * @author Rafael Vargas
+ * @author 555
  */
 $messages['pt-br'] = array(
 	'action-review' => 'rever edições',
@@ -12247,7 +12267,7 @@ Podem existir [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedr
 	'revreview-edited' => "'''As suas alterações serão exibidas aos leitores após um usuário autorizado as aprovar..
 ([[{{MediaWiki:Validationpage}}|ajuda]])'''
 
-{{PLURAL:$2|Existe|Existem}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|alteração pendente ''(exibida|alterações pendentes ''(exibidas}}] abaixo)'' aguardando revisão.",
+{{PLURAL:$2|Existe|Existem}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|alteração pendente ''(exibida|alterações pendentes ''(exibidas}}] abaixo)'' aguardando revisão.", # Fuzzy
 	'revreview-edited-section' => 'Voltar à seção "[[#$1|$2]]" da página.',
 	'revreview-newest-basic' => '{{PLURAL:$3|Existe|Existem}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|alteração pendente|alterações pendentes}}] [[{{MediaWiki:Validationpage}}|aguardando revisão]].
 A [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} versão publicada] foi [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} verificada] em <i>$2</i>.',
@@ -12909,6 +12929,9 @@ $messages['ru'] = array(
 	'revreview-unlocked-title' => 'Правки этой страницы не требуют проверки.',
 	'revreview-locked' => "'''Замечание.''' Правки должны быть [[{{MediaWiki:Validationpage}}|проверены]], прежде чем они будут показаны читателям этой страницы.",
 	'revreview-unlocked' => "'''Замечание.''' Чтобы читатели этой страницы увидели сделанные изменения, их предварительная [[{{MediaWiki:Validationpage}}|проверка]] не требуется.",
+	'revreview-ak-review' => 's',
+	'accesskey-ca-current' => 'v',
+	'accesskey-ca-stable' => 'c',
 	'log-show-hide-review' => '$1 журнал проверок',
 	'validationpage' => '{{ns:help}}:Проверка страниц',
 );
@@ -12936,13 +12959,13 @@ $messages['rue'] = array(
 	'flaggedrevs-prefs-viewdiffs' => 'Указовати нерецензованы зміны при переглядї остатнёй нерецензованой верзії сторінкы',
 	'flaggedrevs-hidereviewed' => '$1 перевіреных едітовань',
 	'group-editor' => 'Едіторы',
-	'group-editor-member' => 'едітор',
+	'group-editor-member' => 'едітор', # Fuzzy
 	'group-reviewer' => 'Рецензенты',
-	'group-reviewer-member' => 'рецензент',
+	'group-reviewer-member' => 'рецензент', # Fuzzy
 	'grouppage-editor' => '{{ns:project}}:Едітор',
 	'grouppage-reviewer' => '{{ns:project}}:Рецензент',
 	'group-autoreview' => 'Авторедакторы',
-	'group-autoreview-member' => 'авторедактор',
+	'group-autoreview-member' => 'авторедактор', # Fuzzy
 	'grouppage-autoreview' => '{{ns:project}}:Авторедактор',
 	'revreview-hist-draft' => 'неперевірена верзія',
 	'revreview-hist-pending' => 'чекать на перевірку',
@@ -12997,13 +13020,13 @@ $messages['rue'] = array(
 	'revreview-draft-title' => 'На тій сторінцї суть указаны зміны чекаючі на контролю',
 	'revreview-edit' => 'Едітовати',
 	'revreview-editnotice' => "'''Вашы зміны будуть указаны чітателям, як їх авторізованый хоснователь перевірить.
-([[{{MediaWiki:Validationpage}}|поміч]])'''",
+([[{{MediaWiki:Validationpage}}|поміч]])'''", # Fuzzy
 	'revreview-submitedit' => 'Одослати зміны',
 	'revreview-submitedit-title' => 'Одослати зміны про посуджіня',
 	'revreview-edited' => "'''Вашы зміны будуть указаны чітателям, аж їх авторізованый хоснователь перевірить.
 ([[{{MediaWiki:Validationpage}}|поміч]])'''
 
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|нерецензована зміна|нерецензованы зміны|нерецензованых змін}}] ''(указаны ниже)'' {{PLURAL:$2|чекать|чекають|чекають}} на перевірку.",
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|нерецензована зміна|нерецензованы зміны|нерецензованых змін}}] ''(указаны ниже)'' {{PLURAL:$2|чекать|чекають|чекають}} на перевірку.", # Fuzzy
 	'revreview-edited-section' => 'Вернути ся до секції сторінкы "[[#$1|$2]]".',
 	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|зміна|змін}}] в тій верзії [[{{MediaWiki:Validationpage}}|{{PLURAL:$3|чекать|чекають}} на перевірку]].
 [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Стабілна верзія] була [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} перевірена] <i>$2</i>.',
@@ -13130,13 +13153,13 @@ $messages['sah'] = array(
 	'flaggedrevs-pref-UI-1' => 'Сирэйи бигэргэтии туругар сыһыаннаах кырачаан бэлиэлэр уонна кылгас тиэкистэр',
 	'prefs-flaggedrevs' => 'Көннөрүүлэри бигэргэтии',
 	'prefs-flaggedrevs-ui' => 'Уларытыыны бигэргэтии',
-	'flaggedrevs-prefs-stable' => 'Бастаан ыстатыйа бэчээттэммит барылын көрдөрөргө (баар буоллаҕына)',
+	'flaggedrevs-prefs-stable' => 'Бастаан ыстатыйа бэчээттэммит барылын көрдөрөргө (баар буоллаҕына)', # Fuzzy
 	'flaggedrevs-prefs-watch' => 'Тургуппут сирэйдэрбин кэтээн көрүү тиһигэр киллэрэн ис',
 	'flaggedrevs-prefs-editdiffs' => 'Сирэйдэри уларытарга тургутуллубут уонна тургутуллубатах барыллар уратыларын көрдөр',
 	'group-editor' => 'Көннөрөөччүлэр',
-	'group-editor-member' => 'көннөрөөччү',
+	'group-editor-member' => 'көннөрөөччү', # Fuzzy
 	'group-reviewer' => 'Рецензеннар',
-	'group-reviewer-member' => 'рецензент',
+	'group-reviewer-member' => 'рецензент', # Fuzzy
 	'grouppage-editor' => '{{ns:project}}:Көннөрөөччү',
 	'grouppage-reviewer' => '{{ns:project}}:Рецензент',
 	'revreview-hist-draft' => 'тургутуллубатах барыл',
@@ -13173,7 +13196,7 @@ $messages['sah'] = array(
 	'revreview-accuracy-3' => 'Источниктардаах',
 	'revreview-accuracy-4' => 'Талыы-талба',
 	'revreview-auto' => '(аптамаатынан)',
-	'revreview-basic' => 'Бу [[{{MediaWiki:Validationpage}}|тахсыбыт барыл]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} тургутуллубут:] <i>$2</i>.
+	'revreview-basic' => 'Бу [[{{MediaWiki:Validationpage}}|тахсыбыт барыл]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} тургутуллубут:] <i>$2</i>. 
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|уларытыы|уларытыылар}}] бигэргэтэри {{PLURAL:$3|кэтэһэр|кэтэһэллэр}}.',
 	'revreview-basic-i' => 'Бу [[{{MediaWiki:Validationpage}}|тахсыбыт барыл]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} тургутуллубут] <i>$2</i>.
 Халыыптарга эбэтэр билэлэргэ тургутуллубатах [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} уларытыылар] бааллар.',
@@ -13190,23 +13213,23 @@ $messages['sah'] = array(
 	'revreview-depth-4' => 'Талыы-талба',
 	'revreview-draft-title' => 'Бу сирэйгэ көрүллүбэтэх уларытыылар эмиэ көстөллөр',
 	'revreview-edit' => 'Уларытыы',
-	'revreview-editnotice' => "'''Эн оҥорбут уларытыыгын бастаан туспа анаммыт дьон тургутуохтара, ол эрэ кэнниттэн атын кыттааччылар көрүөхтэрэ. ([[{{MediaWiki:Validationpage}}|сиһилии]])'''",
+	'revreview-editnotice' => "'''Эн оҥорбут уларытыыгын бастаан туспа анаммыт дьон тургутуохтара, ол эрэ кэнниттэн атын кыттааччылар көрүөхтэрэ. ([[{{MediaWiki:Validationpage}}|сиһилии]])'''", # Fuzzy
 	'revreview-submitedit' => 'Уларытыылары ылынарга',
 	'revreview-edited-section' => 'Сирэй маннык ааттаах салаатыгар төнүн "[[#$1|$2]]".',
 	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Бүтэһик бэрэбиэркэлэммит торума]
 ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} торумнар испииһэктэрэ]) [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} бэлиэтэммит]
-<i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 көннөрүү {{PLURAL:$3|көрүллүөхтээх|көрүллүөхтээхтэр}}].',
+<i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 көннөрүү {{PLURAL:$3|көрүллүөхтээх|көрүллүөхтээхтэр}}].', # Fuzzy
 	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Бүтэһик кичэйэн көрүллүбүт торума]
 ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} торумнар испииһэктэрэ]) [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} бэлиэтэммит]
-<i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 көннөрүү {{PLURAL:$3|көрүллүөхтээх|көрүллүөхтээхтэр}}].',
-	'revreview-noflagged' => "Бу сирэй ырытыллыбыт торума суох, арааһа кини хаачыстыбата [[{{MediaWiki:Validationpage}}|'''сыаналамматах''']] быһыылаах.",
+<i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 көннөрүү {{PLURAL:$3|көрүллүөхтээх|көрүллүөхтээхтэр}}].', # Fuzzy
+	'revreview-noflagged' => "Бу сирэй ырытыллыбыт торума суох, арааһа кини хаачыстыбата [[{{MediaWiki:Validationpage}}|'''сыаналамматах''']] быһыылаах.", # Fuzzy
 	'revreview-oldrating' => 'Сыаналаммыт:',
 	'revreview-quality' => 'Бу бүтэһик [[{{MediaWiki:Validationpage}}|бэрэбиэркэлэммит]] торум,
 [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} бэлиэтэммит:] <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Хойукку торумун] [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} уларытыахха] сөп;
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|уларытыы|уларытыылар}}] ырытыллыыны {{PLURAL:$3|кэтэһэр|кэтэһэллэр}}.',
-	'revreview-quality-same' => 'Бу бүтэһик [[{{MediaWiki:Validationpage}}|бэрэбиркэлэммит]] торум, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} бэрэбиэркэлэммит] <i>$2</i>. Сирэйгэ [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} көннөрүү оҥоруохха] сөп.',
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|уларытыы|уларытыылар}}] ырытыллыыны {{PLURAL:$3|кэтэһэр|кэтэһэллэр}}.', # Fuzzy
+	'revreview-quality-same' => 'Бу бүтэһик [[{{MediaWiki:Validationpage}}|бэрэбиркэлэммит]] торум, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} бэрэбиэркэлэммит] <i>$2</i>. Сирэйгэ [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} көннөрүү оҥоруохха] сөп.', # Fuzzy
 	'revreview-quality-title' => 'Бу сирэй бигэргэтиллибит барыла',
-	'revreview-quick-basic' => "[[{{MediaWiki:Validationpage}}|Тургутуллубут]]''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} көрүллүбэтэх уларытыылары көрдөр]]",
+	'revreview-quick-basic' => "[[{{MediaWiki:Validationpage}}|Тургутуллубут]]''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} көрүллүбэтэх уларытыылары көрдөр]]", # Fuzzy
 	'revreview-quick-basic-old' => "[[{{MediaWiki:Validationpage}}|Көрүллүбүт сирэй]]'''",
 	'revreview-quick-basic-same' => "[[{{MediaWiki:Validationpage}}|Көрүллүбүт сирэй]]'''",
 	'revreview-quick-invalid' => "'''Сирэй барылын идентификатора алҕастаах'''",
@@ -13225,8 +13248,8 @@ $messages['sah'] = array(
 	'revreview-style-3' => 'Кылгас',
 	'revreview-style-4' => 'Уһулуччу үчүгэй',
 	'revreview-toggle-title' => 'сиһилиитин көрдөр/кистээ',
-	'revreview-visibility-synced' => 'Бу сирэй [[{{MediaWiki:Validationpage}}|чистовой торумнаах]], которая может быть
-[{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} настроена].',
+	'revreview-visibility-synced' => 'Бу сирэй [[{{MediaWiki:Validationpage}}|чистовой торумнаах]], которая может быть  
+[{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} настроена].', # Fuzzy
 	'revreview-visibility-outdated' => "'''Бу сирэй [[{{MediaWiki:Validationpage}}|бэчээттэммит барыла]] эргэрбит; бэчээттэммит барыллар хайдах көстөллөрүн [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} уларытыахха] сөп.'''",
 	'revreview-visibility-nostable' => "'''Бу сирэй [[{{MediaWiki:Validationpage}}|бэчээттэммит барыла]] суох эбит; бэчээттэммит барыллар хайдах көстөллөрүн [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} уларытыахха] сөп.'''",
 	'revreview-revnotfound' => 'Бу сирэй урукку барыла булуллубата. Ыйынньыгы сыыһата суох суруйбуккун көр.',
@@ -13308,7 +13331,8 @@ $messages['scn'] = array(
 	'revreview-restriction-none' => 'nuddu',
 );
 
-/** Scots (Scots) */
+/** Scots (Scots)
+ */
 $messages['sco'] = array(
 	'revreview-revnotfound' => 'The auld reveision o the page ye socht cuidna be funnd. Please check the URL ye uised til access this page.',
 );
@@ -13334,7 +13358,8 @@ $messages['sei'] = array(
 	'revreview-revnotfound' => 'Janrevicion zode páhina zo me yahöx necoccebj yahöxom. Controlar URL zo me usadadde accesom jan páhina.',
 );
 
-/** Samogitian (žemaitėška) */
+/** Samogitian (žemaitėška)
+ */
 $messages['sgs'] = array(
 	'revreview-revnotfound' => 'Nuorima poslapė versėjė narasta. Patėkrėnkėt URL, katro patekuot i šėta poslapi.',
 );
@@ -13343,7 +13368,7 @@ $messages['sgs'] = array(
  * @author Dalinanir
  */
 $messages['shi'] = array(
-	'flaggedrevs-prefs-stable' => 'Ml dima lqm lli ibidn n tisniwin ( iɣ llant)',
+	'flaggedrevs-prefs-stable' => 'Ml dima lqm lli ibidn n tisniwin ( iɣ llant)', # Fuzzy
 	'flaggedrevs-prefs-watch' => 'Zayd tisniwin lli ttasɣ i umuɣ n tilli n tfur.',
 	'flaggedrevs-prefs-editdiffs' => 'Ml inaḥyatn gr imbdln lli zul iqln ɣ tizi lliɣ at sbadlt tisniwin',
 );
@@ -13540,13 +13565,13 @@ $messages['sk'] = array(
 	'revreview-accuracy-4' => 'odporúčaný',
 	'revreview-auto' => '(automatické)',
 	'revreview-basic' => 'Toto je [[{{MediaWiki:Validationpage}}|stabilná verzia]] tejto stránky, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} videná] <i>$2</i>.
-[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Aktuálna verzia] obsahuje [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|navrhovanú zmenu čakajúcu|navrhované zmeny čakajúce|navrhovaných zmien čakajúcich}}] na revíziu.',
+[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Aktuálna verzia] obsahuje [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|navrhovanú zmenu čakajúcu|navrhované zmeny čakajúce|navrhovaných zmien čakajúcich}}] na revíziu.', # Fuzzy
 	'revreview-basic-i' => 'Toto je [[{{MediaWiki:Validationpage}}|stabilná verzia]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} skontrolovaná] <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} návrh] obsahuje [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Zmeny šablóny/súboru] čakajú na schválenie.',
 	'revreview-basic-old' => 'Toto je [[{{MediaWiki:Validationpage}}|videná]] revízia ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} zobraziť všetky]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} schválená] <i>$2</i>.
-Je možné, že boli vykonané ďalšie [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} zmeny].',
-	'revreview-basic-same' => 'Toto je [[{{MediaWiki:Validationpage}}|stabilná verzia]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} videná] <i>$2</i>.',
-	'revreview-basic-source' => 'Na tejto revízii bola založená [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} videná verzia] tejto stránky, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} schválená] <i>$2</i>.',
+Je možné, že boli vykonané ďalšie [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} zmeny].', # Fuzzy
+	'revreview-basic-same' => 'Toto je [[{{MediaWiki:Validationpage}}|stabilná verzia]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} videná] <i>$2</i>.', # Fuzzy
+	'revreview-basic-source' => 'Na tejto revízii bola založená [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} videná verzia] tejto stránky, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} schválená] <i>$2</i>.', # Fuzzy
 	'revreview-current' => 'Čakajúce zmeny',
 	'revreview-depth' => 'Hĺbka',
 	'revreview-depth-0' => 'Neadekvátne',
@@ -13556,75 +13581,75 @@ Je možné, že boli vykonané ďalšie [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&di
 	'revreview-depth-4' => 'odporúčaný',
 	'revreview-draft-title' => 'Táto stránka zobrazuje čakajúce zmeny',
 	'revreview-edit' => 'Upraviť',
-	'revreview-editnotice' => "'''Vaše úpravy budú [[{{MediaWiki:Validationpage}}|zverejnené]], keď ich oprávnený používateľ [[{{MediaWiki:Validationpage}}|skontroluje]].'''",
+	'revreview-editnotice' => "'''Vaše úpravy budú [[{{MediaWiki:Validationpage}}|zverejnené]], keď ich oprávnený používateľ [[{{MediaWiki:Validationpage}}|skontroluje]].'''", # Fuzzy
 	'revreview-submitedit' => 'Odoslať zmeny',
 	'revreview-submitedit-title' => 'Odoslať vaše zmeny na kontrolu',
 	'revreview-edited' => "'''Úpravy budú [[{{MediaWiki:Validationpage}}|zverejnené]] potom, čo ich [[{{MediaWiki:Validationpage}}|skontroluje]] dôveryhodný používateľ.
-Dolu zobrazený ''návrh'' stránky obsahuje [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|navrhovanú zmenu|navrhované zmeny|navrhovaných zmien}}].",
+Dolu zobrazený ''návrh'' stránky obsahuje [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|navrhovanú zmenu|navrhované zmeny|navrhovaných zmien}}].", # Fuzzy
 	'revreview-edited-section' => 'Návrat na sekciu stránky s názvom „[[#$1|$2]]“',
 	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Posledná overená revízia]
 	([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} zobraziť všetky]) tejto stránky bola [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} schválená]
-	 <i>$2</i>. <br /> {{PLURAL:$3|$3 revízia|$3 revízie||$3 revízií}} ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} zmeny]) čaká na schválenie.',
+	 <i>$2</i>. <br /> {{PLURAL:$3|$3 revízia|$3 revízie||$3 revízií}} ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} zmeny]) čaká na schválenie.', # Fuzzy
 	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Posledná videná revízia] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} zobraziť všetky]) bola [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} schválená] <i>$2</i>.
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Template/file Zmeny] je potrebné schváliť.',
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Template/file Zmeny] je potrebné schváliť.', # Fuzzy
 	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Posledná kvalitná revízia]
 	([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} zobraziť všetky]) tejto stránky bola [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} schválená]
-	 <i>$2</i>. <br /> {{PLURAL:$3|$3 revízia|$3 revízie||$3 revízií}} ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} zmeny]) čaká na schválenie.',
+	 <i>$2</i>. <br /> {{PLURAL:$3|$3 revízia|$3 revízie||$3 revízií}} ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} zmeny]) čaká na schválenie.', # Fuzzy
 	'revreview-newest-quality-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Posledná kvalitná revízia] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} zobraziť všetky]) bola [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} schválená] <i>$2</i>.
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Template/file Zmeny] je potrebné schváliť.',
-	'revreview-pending-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} stabilná verzia] bola [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} videná] <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Návrh] obsahuje
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$3|$3 čakajúcu zmenu|$3 čakajúce zmeny|$3 čakajúcich zmien}}].',
-	'revreview-pending-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} stabilná verzia] bola [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} schválená] <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Návrh] obsahuje
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$3|$3 čakajúcu zmenu|$3 čakajúce zmeny|$3 čakajúcich zmien}}].',
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Template/file Zmeny] je potrebné schváliť.', # Fuzzy
+	'revreview-pending-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} stabilná verzia] bola [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} videná] <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Návrh] obsahuje 
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$3|$3 čakajúcu zmenu|$3 čakajúce zmeny|$3 čakajúcich zmien}}].', # Fuzzy
+	'revreview-pending-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} stabilná verzia] bola [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} schválená] <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Návrh] obsahuje  
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$3|$3 čakajúcu zmenu|$3 čakajúce zmeny|$3 čakajúcich zmien}}].', # Fuzzy
 	'revreview-pending-nosection' => 'Skúste si pozrieť [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} poslednú revíziu], ktorá obsahuje
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|čakajúcu zmenu|čakajúce zmeny|čakajúcich zmien}}], aby ste videli či bola sekcia presunutá alebo zmazaná.',
 	'revreview-noflagged' => "Neexistujú revidované verzie tejto stránky, takže jej
-	kvalita '''nebola''' [[{{MediaWiki:Validationpage}}|skontrolovaná]].",
+	kvalita '''nebola''' [[{{MediaWiki:Validationpage}}|skontrolovaná]].", # Fuzzy
 	'revreview-oldrating' => 'Bolo ohodnotené ako:',
 	'revreview-quality' => 'Toto je [[{{MediaWiki:Validationpage}}|stabilná verzia]] tejto stránky, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} schválená] <i>$2</i>.
-[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Aktuálna verzia] obsahuje [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|navrhovanú zmenu čakajúcu|navrhované zmeny čakajúce|navrhovaných zmien čakajúcich}}] na revíziu.',
+[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Aktuálna verzia] obsahuje [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|navrhovanú zmenu čakajúcu|navrhované zmeny čakajúce|navrhovaných zmien čakajúcich}}] na revíziu.', # Fuzzy
 	'revreview-quality-i' => 'Toto je [[{{MediaWiki:Validationpage}}|stabilná verziia]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} schválená] <i>$2</i>.
-Jej [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} návrh] má [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} template/file zmeny] čakajúce na schválenie.',
+Jej [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} návrh] má [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} template/file zmeny] čakajúce na schválenie.', # Fuzzy
 	'revreview-quality-old' => 'Toto je [[{{MediaWiki:Validationpage}}|kvalitná]] revízia ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} zobraziť všetky]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} schválená] <i>$2</i>.
-Je možné, že boli vykonané ďalšie [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} zmeny].',
-	'revreview-quality-same' => 'Toto je [[{{MediaWiki:Validationpage}}|stabilná verzia]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} schválená] <i>$2</i>.',
+Je možné, že boli vykonané ďalšie [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} zmeny].', # Fuzzy
+	'revreview-quality-same' => 'Toto je [[{{MediaWiki:Validationpage}}|stabilná verzia]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} schválená] <i>$2</i>.', # Fuzzy
 	'revreview-quality-source' => 'Na tejto revízii bola založená [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} kvalitná verzia] tejto stránky, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} schválená] <i>$2</i>.',
-	'revreview-quality-title' => 'Toto je kvalitná stránka',
-	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|Videná stránka]]'''. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Zobraziť návrh]]",
-	'revreview-quick-basic-old' => "'''[[{{MediaWiki:Validationpage}}|Videná stránka]]''' [ zobraziť návrh]]",
-	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|Videná stránka]]'''",
+	'revreview-quality-title' => 'Toto je kvalitná stránka', # Fuzzy
+	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|Videná stránka]]'''. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Zobraziť návrh]]", # Fuzzy
+	'revreview-quick-basic-old' => "'''[[{{MediaWiki:Validationpage}}|Videná stránka]]''' [ zobraziť návrh]]", # Fuzzy
+	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|Videná stránka]]'''", # Fuzzy
 	'revreview-quick-invalid' => "'''Neplatný ID revízie'''",
-	'revreview-quick-none' => "'''Aktuálna'''. Žiadne revízie neboli skontrolvoané..",
-	'revreview-quick-quality' => "'''[[{{MediaWiki:Validationpage}}|Kvalitná stránka]]'''. [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Zobraziť návrh]]",
-	'revreview-quick-quality-old' => "'''[[{{MediaWiki:Validationpage}}|Kvalitná stránka]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} zobraziť návrh]]",
-	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|Kvalitná stránka]]'''",
+	'revreview-quick-none' => "'''Aktuálna'''. Žiadne revízie neboli skontrolvoané..", # Fuzzy
+	'revreview-quick-quality' => "'''[[{{MediaWiki:Validationpage}}|Kvalitná stránka]]'''. [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Zobraziť návrh]]", # Fuzzy
+	'revreview-quick-quality-old' => "'''[[{{MediaWiki:Validationpage}}|Kvalitná stránka]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} zobraziť návrh]]", # Fuzzy
+	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|Kvalitná stránka]]'''", # Fuzzy
 	'revreview-quick-see-basic' => "'''[[{{MediaWiki:Validationpage}}|Návrh]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} stabilná verzia]]
-[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} porovnať]]",
+[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} porovnať]]", # Fuzzy
 	'revreview-quick-see-quality' => "'''[[{{MediaWiki:Validationpage}}|Návrh]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} stabilná verzia]]
-[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} porovnať]]",
-	'revreview-source' => 'Zdroj konceptu',
-	'revreview-basic-title' => 'Toto je videná stránka',
+[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} porovnať]]", # Fuzzy
+	'revreview-source' => 'Zdroj konceptu', # Fuzzy
+	'revreview-basic-title' => 'Toto je videná stránka', # Fuzzy
 	'revreview-style' => 'Čitateľnosť',
-	'revreview-style-0' => 'neschválené',
+	'revreview-style-0' => 'neschválené', # Fuzzy
 	'revreview-style-1' => 'prijateľná',
 	'revreview-style-2' => 'dobrá',
 	'revreview-style-3' => 'zhustená',
 	'revreview-style-4' => 'odporúčaný',
 	'revreview-toggle-title' => 'zobraziť/skryť podrobnosti',
-	'revreview-visibility-synced' => "'''Táto stránka má [[{{MediaWiki:Validationpage}}|stabilnú verziu]]; nastavenia stability stránky je možné [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} upraviť].'''",
-	'revreview-visibility-outdated' => "'''Táto stránka má zastaralú [[{{MediaWiki:Validationpage}}|stabilnú verziu]]; nastavenia stability stránky je možné [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} upraviť].'''",
-	'revreview-visibility-nostable' => "'''Táto stránka nemá [[{{MediaWiki:Validationpage}}|stabilnú verziu]]; nastavenia stability stránky je možné [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} upraviť].'''",
+	'revreview-visibility-synced' => "'''Táto stránka má [[{{MediaWiki:Validationpage}}|stabilnú verziu]]; nastavenia stability stránky je možné [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} upraviť].'''", # Fuzzy
+	'revreview-visibility-outdated' => "'''Táto stránka má zastaralú [[{{MediaWiki:Validationpage}}|stabilnú verziu]]; nastavenia stability stránky je možné [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} upraviť].'''", # Fuzzy
+	'revreview-visibility-nostable' => "'''Táto stránka nemá [[{{MediaWiki:Validationpage}}|stabilnú verziu]]; nastavenia stability stránky je možné [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} upraviť].'''", # Fuzzy
 	'revreview-revnotfound' => 'Požadovaná staršia verzia stránky nebola nájdená.
 Prosím skontrolujte URL adresu, ktorú ste použili na prístup k tejto stránke.',
-	'right-autoreview' => 'Automaticky označiť revízie ako videné',
-	'right-movestable' => 'Presunúť stabilné stránky',
-	'right-review' => 'Označiť revízie ako videné',
-	'right-stablesettings' => 'Nastaviť ako sa vyberajú a zobrazujú stabilné verzie',
-	'right-validate' => 'Označiť revízie ako overené',
+	'right-autoreview' => 'Automaticky označiť revízie ako videné', # Fuzzy
+	'right-movestable' => 'Presunúť stabilné stránky', # Fuzzy
+	'right-review' => 'Označiť revízie ako videné', # Fuzzy
+	'right-stablesettings' => 'Nastaviť ako sa vyberajú a zobrazujú stabilné verzie', # Fuzzy
+	'right-validate' => 'Označiť revízie ako overené', # Fuzzy
 	'right-unreviewedpages' => 'Zobraziť [[Special:UnreviewedPages|zoznam neskontrolovaných stránok]]',
 	'rights-editor-revoke' => '[[$1]] odteraz nemá status redaktor.',
-	'specialpages-group-quality' => 'Zaistenie kvality',
-	'stable-logentry-config' => 'nastavil stabilné verzie $1',
+	'specialpages-group-quality' => 'Zaistenie kvality', # Fuzzy
+	'stable-logentry-config' => 'nastavil stabilné verzie $1', # Fuzzy
 	'stable-logentry-modify' => 'zmenil nastavenia stabilnej verzie „$1“',
 	'stable-logentry-reset' => 'obnovil nastavenia stabilnej verzie „$1“',
 	'stable-log-restriction' => 'Automatická kontrola: vyžaduje oprávnenie „$1“',
@@ -13654,15 +13679,15 @@ Prosím skontrolujte URL adresu, ktorú ste použili na prístup k tejto stránk
 	'revreview-reviewlink' => 'čakajúce úpravy',
 	'revreview-reviewlink-title' => 'Zobraziť rozdiel všetkých čakajúcich zmien',
 	'revreview-unreviewedpage' => 'neskontrolovaná stránka',
-	'tooltip-ca-current' => 'Zobraziť aktuálny koncept tejto stránky',
-	'tooltip-ca-stable' => 'Zobraziť stabilnú verziu tejto stránky',
+	'tooltip-ca-current' => 'Zobraziť aktuálny koncept tejto stránky', # Fuzzy
+	'tooltip-ca-stable' => 'Zobraziť stabilnú verziu tejto stránky', # Fuzzy
 	'tooltip-ca-default' => 'Nastavenia kontroly kvality',
-	'flaggedrevs-protect-legend' => 'Zverejniť úpravy',
+	'flaggedrevs-protect-legend' => 'Zverejniť úpravy', # Fuzzy
 	'flaggedrevs-protect-none' => 'Povoliť všetkým používateľom',
-	'revreview-locked-title' => 'Úpravy vyžadujú kontrolu predtým, než sa zobrazia na tejto stránke!',
-	'revreview-unlocked-title' => 'Úpravy nevyžadujú kontrolu predtým, než sa zobrazia na tejto stránke!',
-	'revreview-locked' => 'Úpravy vyžadujú kontrolu predtým, než sa zobrazia na tejto stránke!',
-	'revreview-unlocked' => 'Úpravy nevyžadujú kontrolu predtým, než sa zobrazia na tejto stránke!',
+	'revreview-locked-title' => 'Úpravy vyžadujú kontrolu predtým, než sa zobrazia na tejto stránke!', # Fuzzy
+	'revreview-unlocked-title' => 'Úpravy nevyžadujú kontrolu predtým, než sa zobrazia na tejto stránke!', # Fuzzy
+	'revreview-locked' => 'Úpravy vyžadujú kontrolu predtým, než sa zobrazia na tejto stránke!', # Fuzzy
+	'revreview-unlocked' => 'Úpravy nevyžadujú kontrolu predtým, než sa zobrazia na tejto stránke!', # Fuzzy
 	'log-show-hide-review' => '$1 záznam kontrol',
 	'validationpage' => '{{ns:help}}:Overovanie stránok',
 );
@@ -14007,6 +14032,9 @@ $messages['sr-ec'] = array(
 	'flaggedrevs-protect-none' => 'Дозволи свим корисницима',
 	'revreview-locked-title' => 'Измене на овој страници захтевају преглед.',
 	'revreview-unlocked-title' => 'Измене на овој страници не захтевају преглед.',
+	'revreview-ak-review' => 's',
+	'accesskey-ca-current' => 'v',
+	'accesskey-ca-stable' => 'c',
 	'log-show-hide-review' => '$1 дневник прегледања',
 	'validationpage' => '{{ns:help}}:Провера странице',
 );
@@ -14065,7 +14093,7 @@ $messages['sr-el'] = array(
 	'revreview-accuracy-4' => 'Izabrani',
 	'revreview-auto' => '(automatski)',
 	'revreview-basic' => 'Ovo je [[{{MediaWiki:Validationpage}}|objavljena verzija]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} proverena] dana <i>$2</i>.
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|izmena čeka na|izmene čekaju na|izmena čeka na}}] pregled.',
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|izmena čeka na|izmene čekaju na|izmena čeka na}}] pregled.', # Fuzzy
 	'revreview-basic-i' => 'Ovo je [[{{MediaWiki:Validationpage}}|objavljena verzija]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} proverena] dana <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} izmene šablona/datoteke] čekaju na pregled.',
 	'revreview-basic-old' => 'Ovo je [[{{MediaWiki:Validationpage}}|proverena]] verzija ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} ceo spisak]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} odobren] dana <i>$2</i>.
@@ -14148,6 +14176,9 @@ Molimo vas da proverite URL koji ste upotrebili da biste pristupili ovoj stranic
 	'flaggedrevs-protect-none' => 'Dozvoli svim korisnicima',
 	'revreview-locked-title' => 'Izmene na ovoj stranici zahtevaju pregled.',
 	'revreview-unlocked-title' => 'Izmene na ovoj stranici ne zahtevaju pregled.',
+	'revreview-ak-review' => 's',
+	'accesskey-ca-current' => 'v',
+	'accesskey-ca-stable' => 'c',
 	'log-show-hide-review' => '$1 dnevnik pregledanja',
 	'validationpage' => '{{ns:help}}:Validacija članka',
 );
@@ -14159,24 +14190,24 @@ Molimo vas da proverite URL koji ste upotrebili da biste pristupili ovoj stranic
 $messages['stq'] = array(
 	'editor' => 'Sieuwer',
 	'flaggedrevs' => 'Markierde Versione',
-	'flaggedrevs-desc' => 'Stoabile Versione',
+	'flaggedrevs-desc' => 'Stoabile Versione', # Fuzzy
 	'group-editor' => 'Sieuwere',
-	'group-editor-member' => 'Sieuwer',
+	'group-editor-member' => 'Sieuwer', # Fuzzy
 	'group-reviewer' => 'Wröigere',
-	'group-reviewer-member' => 'Wröiger',
+	'group-reviewer-member' => 'Wröiger', # Fuzzy
 	'grouppage-editor' => '{{ns:project}}:Sieuwer',
 	'grouppage-reviewer' => '{{ns:project}}:Wröiger',
 	'revreview-hist-quality' => 'wröigede Version',
-	'revreview-hist-basic' => 'sieuwede Version',
-	'review-diff2stable' => 'Unnerskeede twiske ju stoabile Version un ju aktuelle Version bekiekje',
-	'review-logentry-app' => 'markierde Version $2 fon [[$1]]',
-	'review-logentry-dis' => 'Hoalde ju Markierenge wäch foar Version $2 fon [[$1]]',
-	'review-logentry-id' => 'bekiekje: $2',
+	'revreview-hist-basic' => 'sieuwede Version', # Fuzzy
+	'review-diff2stable' => 'Unnerskeede twiske ju stoabile Version un ju aktuelle Version bekiekje', # Fuzzy
+	'review-logentry-app' => 'markierde Version $2 fon [[$1]]', # Fuzzy
+	'review-logentry-dis' => 'Hoalde ju Markierenge wäch foar Version $2 fon [[$1]]', # Fuzzy
+	'review-logentry-id' => 'bekiekje: $2', # Fuzzy
 	'review-logpage' => 'Versionsmarkierengs-Logbouk',
-	'review-logpagetext' => 'Dit is dät Annerengs-Logbouk fon do [[{{MediaWiki:Validationpage}}|Sieden-Fräigoawen]].',
+	'review-logpagetext' => 'Dit is dät Annerengs-Logbouk fon do [[{{MediaWiki:Validationpage}}|Sieden-Fräigoawen]].', # Fuzzy
 	'reviewer' => 'Wröiger',
 	'revreview-accuracy' => 'Akroategaid',
-	'revreview-accuracy-0' => 'nit fräiroat',
+	'revreview-accuracy-0' => 'nit fräiroat', # Fuzzy
 	'revreview-accuracy-1' => 'sieuwed',
 	'revreview-accuracy-2' => 'wröiged',
 	'revreview-accuracy-3' => 'Wällen wröiged',
@@ -14185,59 +14216,59 @@ $messages['stq'] = array(
 	'revreview-basic' => 'Dit is ju lääste [[Help:Sieuwede Versione|sieuwede]] Version,
 	[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} fräiroat] ap n <i>$2</i>. Ju [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} apstuunse Version]
 	kon [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} beoarbaided] wäide; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|Version|Versione}}]
-{{PLURAL:$3|stoant|stounde}} noch tou Wröigenge an.',
+{{PLURAL:$3|stoant|stounde}} noch tou Wröigenge an.', # Fuzzy
 	'revreview-basic-same' => "Dät is ju lääste [[{{MediaWiki:Validationpage}}|bekiekede]] Version,
-([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} wies aal]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} fräiroat] an dän <i>$2</i>. Ju Siede kon '''[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} beoarbaided]''' wäide.",
-	'revreview-current' => 'Äntwurf (beoarbaidboar)',
+([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} wies aal]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} fräiroat] an dän <i>$2</i>. Ju Siede kon '''[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} beoarbaided]''' wäide.", # Fuzzy
+	'revreview-current' => 'Äntwurf (beoarbaidboar)', # Fuzzy
 	'revreview-depth' => 'Djüpte',
-	'revreview-depth-0' => 'nit fräiroat',
+	'revreview-depth-0' => 'nit fräiroat', # Fuzzy
 	'revreview-depth-1' => 'eenfach',
 	'revreview-depth-2' => 'middel',
 	'revreview-depth-3' => 'hooch',
 	'revreview-depth-4' => 'exzellent',
-	'revreview-edit' => 'Beoarbaidje Äntwurf',
+	'revreview-edit' => 'Beoarbaidje Äntwurf', # Fuzzy
 	'revreview-newest-basic' => 'Ju [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} lääste wröigede Version]
 	([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} sjuch aal]) wuude ap n <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} fräiroat].
-	[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|Version|Versione}}] {{PLURAL:$3|stoant|stounde}} noch tou Wröigenge an.',
+	[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|Version|Versione}}] {{PLURAL:$3|stoant|stounde}} noch tou Wröigenge an.', # Fuzzy
 	'revreview-newest-quality' => 'Ju [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} lääste wröigede Version]
 	([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} sjuch aal]) wuude ap n <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} fräiroat].
-	[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|Version|Versione}}] {{PLURAL:$3|stoant|stounde}} noch tou Wröigenge an.',
-	'revreview-noflagged' => 'Fon disse Siede rakt et neen markierde Versione, so dät noch neen Tjuugnis uur ju [[{{MediaWiki:Validationpage}}|Qualität]] moaked wäide kon.',
+	[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|Version|Versione}}] {{PLURAL:$3|stoant|stounde}} noch tou Wröigenge an.', # Fuzzy
+	'revreview-noflagged' => 'Fon disse Siede rakt et neen markierde Versione, so dät noch neen Tjuugnis uur ju [[{{MediaWiki:Validationpage}}|Qualität]] moaked wäide kon.', # Fuzzy
 	'revreview-oldrating' => 'Iendeelenge bit nu:',
 	'revreview-quality' => 'Dit is ju lääste [[{{MediaWiki:Validationpage}}|wröigede]] Version,
 	[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} fräiroat] ap n <i>$2</i>. Ju [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} apstuunse Version]
 	kon [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} beoarbaided] wäide; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|Version|Versione}}]
-	{{PLURAL:$3|stoant|stounde}} noch tou Wröigenge an.',
+	{{PLURAL:$3|stoant|stounde}} noch tou Wröigenge an.', # Fuzzy
 	'revreview-quality-same' => "Dät is ju lääste [[{{MediaWiki:Validationpage}}|wröigede]] Version,
-([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} wies aal]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} fräiroat] an dän <i>$2</i>. Ju Siede kon '''[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} beoarbaided]''' wäide.",
-	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|Sieuwed.]]''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Sjuch ju aktuelle Version]]",
-	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|Sieuwed]]''' (neen Annerengen do der nit wröiged sunt)",
-	'revreview-quick-none' => "'''Aktuell.''' Der wuude noch neen Version wröiged.",
-	'revreview-quick-quality' => "'''[[{{MediaWiki:Validationpage}}|Wröiged.]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Sjuch ju aktuelle Version]]",
-	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|Wröiged]]''' (neen Annerengen do der nit wröiged sunt)",
+([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} wies aal]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} fräiroat] an dän <i>$2</i>. Ju Siede kon '''[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} beoarbaided]''' wäide.", # Fuzzy
+	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|Sieuwed.]]''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Sjuch ju aktuelle Version]]", # Fuzzy
+	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|Sieuwed]]''' (neen Annerengen do der nit wröiged sunt)", # Fuzzy
+	'revreview-quick-none' => "'''Aktuell.''' Der wuude noch neen Version wröiged.", # Fuzzy
+	'revreview-quick-quality' => "'''[[{{MediaWiki:Validationpage}}|Wröiged.]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Sjuch ju aktuelle Version]]", # Fuzzy
+	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|Wröiged]]''' (neen Annerengen do der nit wröiged sunt)", # Fuzzy
 	'revreview-quick-see-basic' => "'''Aktuell.''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Sjuch ju lääste wröigede Version]]
-	($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$2|Annerenge|Annerengen}}]]",
+	($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$2|Annerenge|Annerengen}}]]", # Fuzzy
 	'revreview-quick-see-quality' => "'''Aktuell.''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Sjuch ju lääste wröigede Version]]
-	($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$2|Annerenge|Annerengen}}]]",
-	'revreview-source' => 'Äntwurfs-Wältext',
+	($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$2|Annerenge|Annerengen}}]]", # Fuzzy
+	'revreview-source' => 'Äntwurfs-Wältext', # Fuzzy
 	'revreview-style' => 'Leesboarhaid',
-	'revreview-style-0' => 'nit fräiroat',
+	'revreview-style-0' => 'nit fräiroat', # Fuzzy
 	'revreview-style-1' => 'akzeptoabel',
 	'revreview-style-2' => 'goud',
 	'revreview-style-3' => 'akroat',
 	'revreview-style-4' => 'exzellent',
 	'revreview-visibility-synced' => 'Disse Siede häd ne [[{{MediaWiki:Validationpage}}|stoabile Version]], ju der
-	[{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} konfigurierd] wäide kon.',
+	[{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} konfigurierd] wäide kon.', # Fuzzy
 	'revreview-revnotfound' => 'Ju soachte Version fon dissen Artikkel kuude nit fuunen wäide. Uurpröiwe jädden ju URL fon disse Siede.',
 	'rights-editor-revoke' => 'äntlook dät Sieuwer-Gjucht fon [[$1]]',
-	'stable-logentry-config' => 'konfigurierde ju Sieden-Ienstaalenge fon $1',
-	'stable-logentry-reset' => 'sätte ju Sieden-Ienstaalenge foar $1 tourääch',
+	'stable-logentry-config' => 'konfigurierde ju Sieden-Ienstaalenge fon $1', # Fuzzy
+	'stable-logentry-reset' => 'sätte ju Sieden-Ienstaalenge foar $1 tourääch', # Fuzzy
 	'stable-logpage' => 'Stoabile-Versione-Logbouk',
-	'stable-logpagetext' => 'Dit is dät Annerengs-Logbouk fon do Konfigurationsienstaalengen fon do [[{{MediaWiki:Validationpage}}|Stoabile Versione]]',
-	'tooltip-ca-current' => 'Ankiekjen fon dän aktuelle Äntwurf fon disse Siede',
-	'tooltip-ca-stable' => 'Ankiekjen fon ju stoabile Version fon disse Siede',
+	'stable-logpagetext' => 'Dit is dät Annerengs-Logbouk fon do Konfigurationsienstaalengen fon do [[{{MediaWiki:Validationpage}}|Stoabile Versione]]', # Fuzzy
+	'tooltip-ca-current' => 'Ankiekjen fon dän aktuelle Äntwurf fon disse Siede', # Fuzzy
+	'tooltip-ca-stable' => 'Ankiekjen fon ju stoabile Version fon disse Siede', # Fuzzy
 	'tooltip-ca-default' => 'Ienstaalengen fon ju Artikkel-Qualität',
-	'validationpage' => '{{ns:help}}:Stoabile Versione',
+	'validationpage' => '{{ns:help}}:Stoabile Versione', # Fuzzy
 );
 
 /** Sundanese (Basa Sunda)
@@ -14247,30 +14278,30 @@ $messages['stq'] = array(
 $messages['su'] = array(
 	'editor' => 'Éditor',
 	'group-editor' => 'Éditor',
-	'group-editor-member' => 'Éditor',
+	'group-editor-member' => 'Éditor', # Fuzzy
 	'grouppage-editor' => '{{ns:project}}:Éditor',
-	'review-diff2stable' => 'Témbongkeun béda antara révisi stabil jeung kiwari',
+	'review-diff2stable' => 'Témbongkeun béda antara révisi stabil jeung kiwari', # Fuzzy
 	'review-logentry-id' => 'ID révisi: $2',
-	'revreview-accuracy-0' => 'Teu disatujuan',
+	'revreview-accuracy-0' => 'Teu disatujuan', # Fuzzy
 	'revreview-accuracy-2' => 'Akurat',
 	'revreview-accuracy-4' => 'Petingan',
 	'revreview-auto' => '(otomatis)',
 	'revreview-depth' => 'Jero',
-	'revreview-depth-0' => 'Teu disatujuan',
+	'revreview-depth-0' => 'Teu disatujuan', # Fuzzy
 	'revreview-depth-1' => 'Dasar',
 	'revreview-depth-3' => 'Luhur',
 	'revreview-depth-4' => 'Petingan',
-	'revreview-style-0' => 'Teu disatujuan',
+	'revreview-style-0' => 'Teu disatujuan', # Fuzzy
 	'revreview-style-1' => 'Meueusan',
 	'revreview-style-2' => 'Alus',
 	'revreview-style-4' => 'Petingan',
 	'revreview-revnotfound' => 'Révisi heubeul kaca nu dipénta ku anjeun teu bisa kapanggih.
 Please check the URL you used to access this page.',
-	'right-stablesettings' => 'Ngatur kumaha vérsi stabil dipilih sarta dipintonkeun',
+	'right-stablesettings' => 'Ngatur kumaha vérsi stabil dipilih sarta dipintonkeun', # Fuzzy
 	'rights-editor-revoke' => 'nyabut status éditor ti [[$1]]',
 	'stable-logpage' => 'Log vérsi stabil',
-	'tooltip-ca-stable' => 'Témbongkeun vérsi stabil ieu kaca',
-	'validationpage' => '{{ns:help}}:Validasi artikel',
+	'tooltip-ca-stable' => 'Témbongkeun vérsi stabil ieu kaca', # Fuzzy
+	'validationpage' => '{{ns:help}}:Validasi artikel', # Fuzzy
 );
 
 /** Swedish (svenska)
@@ -14371,19 +14402,19 @@ Nyare [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diff
 	'revreview-draft-title' => 'Väntande ändringar visas på denna sida',
 	'revreview-edit' => 'Redigera',
 	'revreview-editnotice' => "'''Dina ändringar kommer att visas när en behörig användare granskar dem.
-([[{{MediaWiki:Validationpage}}|hjälp]])'''",
+([[{{MediaWiki:Validationpage}}|hjälp]])'''", # Fuzzy
 	'revreview-submitedit' => 'Skicka ändringar',
 	'revreview-submitedit-title' => 'Skicka dina ändringar för granskning',
 	'revreview-edited' => "'''Dina ändringar kommer visas när en behörig användare granskar dom.
 ([[{{MediaWiki:Validationpage}}|hjälp]])'''
-
-Det finns [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|ändring|ändringar}}] ''(visas nedan)'' som väntar på granskning.",
+ 
+Det finns [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|ändring|ändringar}}] ''(visas nedan)'' som väntar på granskning.", # Fuzzy
 	'revreview-edited-section' => 'Återgå till sidavsnittet som heter "[[#$1|$2]]".',
 	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|ändring|ändringar}}] i denna version [[{{MediaWiki:Validationpage}}|väntar på att {{PLURAL:$3|bli granskad|granskas}}]].
 [Den stabila versionen av {{fullurl:{{FULLPAGENAMEE}}|stable=1}}] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} kontrollerades] den <i>$2</i>.',
-	'revreview-newest-basic-i' => 'Den [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} accepterade versionen] av den här sidan blev [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} kontrollerad] den <i>$2</i>. Det finns [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} mall-/filändringar] som väntar på granskning.',
-	'revreview-newest-quality' => 'Den [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} accepterade versionen]  blev [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} godkänd] den <i>$2</i>. Det finns [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|ändring|ändringar}}] som väntar på granskning.',
-	'revreview-newest-quality-i' => 'Den [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} accepterade versionen] blev [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} godkänd] den <i>$2</i>. Det finns [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} mall-/filändringar] som väntar på granskning.',
+	'revreview-newest-basic-i' => 'Den [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} accepterade versionen] av den här sidan blev [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} kontrollerad] den <i>$2</i>. Det finns [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} mall-/filändringar] som väntar på granskning.', # Fuzzy
+	'revreview-newest-quality' => 'Den [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} accepterade versionen]  blev [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} godkänd] den <i>$2</i>. Det finns [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|ändring|ändringar}}] som väntar på granskning.', # Fuzzy
+	'revreview-newest-quality-i' => 'Den [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} accepterade versionen] blev [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} godkänd] den <i>$2</i>. Det finns [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} mall-/filändringar] som väntar på granskning.', # Fuzzy
 	'revreview-pending-basic' => 'Den [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} accepterade versionen] blev [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} granskad] den <i>$2</i>. Det finnns [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|ändring|ändringar}}] som väntar på granskning.',
 	'revreview-pending-quality' => 'Den [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} accepterade versionen] blev [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} godkänd] den <i>$2</i>. Det finns [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|ändring|ändringar}}] som väntar på granskning.',
 	'revreview-pending-nosection' => 'Prova att titta på [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} senaste versionen], som innehåller
@@ -14517,7 +14548,7 @@ $messages['ta'] = array(
 	'group-editor' => 'தொகுப்பாளர்கள்',
 	'group-editor-member' => '{{GENDER:$1|தொகுப்பாளர்}}',
 	'group-reviewer' => 'மதிப்பீட்டாளர்கள்',
-	'group-reviewer-member' => 'மதிப்பீட்டாளர்',
+	'group-reviewer-member' => 'மதிப்பீட்டாளர்', # Fuzzy
 	'grouppage-editor' => '{{ns:project}}:தொகுப்பாளர்',
 	'grouppage-reviewer' => '{{ns:project}}:மதிப்பீட்டாளர்',
 	'group-autoreview' => 'தானியக்கமாக சோதிக்கப்பட்ட பயனர்கள்',
@@ -14624,13 +14655,13 @@ $messages['te'] = array(
 	'prefs-flaggedrevs-ui' => 'ఎడిట్ సమీక్ష',
 	'flaggedrevs-prefs-watch' => 'నేను సమీక్షించిన పేజీలను నా వీక్షణాజాబితాలో చేర్చు',
 	'group-editor' => 'ఎడిటర్లు',
-	'group-editor-member' => 'ఎడిటర్',
+	'group-editor-member' => 'ఎడిటర్', # Fuzzy
 	'group-reviewer' => 'సమీక్షకులు',
-	'group-reviewer-member' => 'సమీక్షకులు',
+	'group-reviewer-member' => 'సమీక్షకులు', # Fuzzy
 	'grouppage-editor' => '{{ns:project}}:ఎడిటర్',
 	'grouppage-reviewer' => '{{ns:project}}:సమీక్షకులు',
 	'group-autoreview' => 'ఆటో రివ్యూవర్స్',
-	'group-autoreview-member' => 'ఆటో రివ్యూవర్',
+	'group-autoreview-member' => 'ఆటో రివ్యూవర్', # Fuzzy
 	'grouppage-autoreview' => '{{ns:project}}:ఆటోరివ్యూవర్',
 	'revreview-hist-draft' => 'పరిశీలించని కూర్పు',
 	'revreview-hist-pending' => 'పెండింగులో ఉన్న కూర్పు',
@@ -14648,57 +14679,57 @@ $messages['te'] = array(
 	'revreview-log-details-hide' => 'వివరాలను దాచు',
 	'review-diff2stable' => 'పెండింగులో ఉన్న మార్పులన్నిటినీ చూపించు',
 	'review-logentry-app' => '[[$1]] యొక్క వెర్షను సమీక్షించబడింది',
-	'review-logentry-dis' => '[[$1]] యొక్క $2 కూర్పుని నిరాదరించారు',
+	'review-logentry-dis' => '[[$1]] యొక్క $2 కూర్పుని నిరాదరించారు', # Fuzzy
 	'review-logentry-id' => 'కూర్పు: $2',
 	'review-logentry-diff' => 'సమీక్షించిన మార్పులు',
 	'review-logpage' => 'సమీక్షల చిట్టా',
 	'review-logpagetext' => 'విషయపు పేజీల యొక్క ఏయే కూర్పులు [[{{MediaWiki:Validationpage}}|పరిశీలింపబడ్డాయో]] వాటి లాగ్ ఇది.',
 	'reviewer' => 'సమీక్షకులు',
 	'revreview-accuracy' => 'ఖచ్చితత్వం',
-	'revreview-accuracy-0' => 'ఆమోదించనివి',
+	'revreview-accuracy-0' => 'ఆమోదించనివి', # Fuzzy
 	'revreview-accuracy-1' => 'కనబడింది',
 	'revreview-accuracy-2' => 'ఖచ్చితం',
 	'revreview-accuracy-3' => 'సమూలము',
 	'revreview-accuracy-4' => 'విశేష్యం',
 	'revreview-auto' => '(ఆటోమెటిక్)',
-	'revreview-basic' => 'ఇది చిట్టచివరిగా [[{{MediaWiki:Validationpage}}|కనబడిన]] కూర్పు; <i>$2</i> న [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} ఆమోదించబడింది]. ఈ [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} చిత్తు ప్రతిని] [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} మార్చవచ్చు]; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|మార్పు|మార్పులు}}] సమీక్ష కోసం {{PLURAL:$3|వేచి ఉంది|వేచి ఉన్నాయి}}.',
+	'revreview-basic' => 'ఇది చిట్టచివరిగా [[{{MediaWiki:Validationpage}}|కనబడిన]] కూర్పు; <i>$2</i> న [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} ఆమోదించబడింది]. ఈ [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} చిత్తు ప్రతిని] [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} మార్చవచ్చు]; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|మార్పు|మార్పులు}}] సమీక్ష కోసం {{PLURAL:$3|వేచి ఉంది|వేచి ఉన్నాయి}}.', # Fuzzy
 	'revreview-basic-i' => 'ఇది <i>$2</i> నాడు  [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} పరిశిలించబడిన ] [[{{MediaWiki:Validationpage}}|సుస్థిర కూర్పు]].
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} మూస/ఫైలు మార్పులు] సమీక్ష కోసం వేచి ఉన్నాయి.',
-	'revreview-basic-same' => 'ఇది చిట్టచివరిగా [[{{MediaWiki:Validationpage}}|కనబడిన]] కూర్పు, <i>$2</i> న [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} ఆమోదించబడింది]. ఈ పేజీని [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} మార్చవచ్చు].',
+	'revreview-basic-same' => 'ఇది చిట్టచివరిగా [[{{MediaWiki:Validationpage}}|కనబడిన]] కూర్పు, <i>$2</i> న [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} ఆమోదించబడింది]. ఈ పేజీని [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} మార్చవచ్చు].', # Fuzzy
 	'revreview-current' => 'పెండింగులో ఉన్న మార్పుల',
 	'revreview-depth' => 'లోతైనది',
-	'revreview-depth-0' => 'ఆమోదించనివి',
+	'revreview-depth-0' => 'ఆమోదించనివి', # Fuzzy
 	'revreview-depth-1' => 'ప్రాథమిక',
 	'revreview-depth-2' => 'మధ్యస్తం',
 	'revreview-depth-3' => 'ఉన్నత',
 	'revreview-depth-4' => 'విశేషం',
 	'revreview-draft-title' => 'పెండింగులో ఉన్న మార్పులు ఈ పేజీలో చూపించబడతాయి',
 	'revreview-edit' => 'మార్చు',
-	'revreview-editnotice' => "’’’ఒక అధీకృత వాడుకరి సమీక్షించిన తర్వాత మీ మార్పులు చూపించబడతాయి. ([[{{MediaWiki:Validationpage}}|help]])'''",
+	'revreview-editnotice' => "’’’ఒక అధీకృత వాడుకరి సమీక్షించిన తర్వాత మీ మార్పులు చూపించబడతాయి. ([[{{MediaWiki:Validationpage}}|help]])'''", # Fuzzy
 	'revreview-submitedit' => 'మార్పులని దాఖలుచెయ్యి',
 	'revreview-submitedit-title' => 'సమీక్షకై మీ మార్పులని  దాఖలుచెయ్యండి',
 	'revreview-edited-section' => 'తిరిగి "[[#$1|$2]]" అనే పేరున్న పేజీ విభాగానికి వెళ్ళండి',
-	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} చిట్టచివరిగా కనబడిన ఈ కూర్పు] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} అన్నిటినీ చూపించు]) <i>$2</i> న  [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} ఆమోదించబడింది]. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|మార్పుకు|మార్పులకు}}] సమీక్ష {{PLURAL:$3|అవసరం|అవసరం}}.',
+	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} చిట్టచివరిగా కనబడిన ఈ కూర్పు] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} అన్నిటినీ చూపించు]) <i>$2</i> న  [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} ఆమోదించబడింది]. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|మార్పుకు|మార్పులకు}}] సమీక్ష {{PLURAL:$3|అవసరం|అవసరం}}.', # Fuzzy
 	'revreview-newest-basic-i' => 'ఈ వెర్షనులోని [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} మూస/ఫైలు మార్పులు] [[{{MediaWiki:Validationpage}}|సమీక్ష కోసం వేచి ఉన్నాయి]].
 దీని [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} సుస్థిర వెర్షను] <i>$2</i> నాడు [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} పరిశీలించబడింది] .',
-	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} చివరి నాణ్యతా కూర్పు] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} అన్నీ చూపించు]) <i>$2</i>న [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} అనుమతించారు]. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$3|1 మార్పు|$3 మార్పుల}}]ను సమీక్షించాలి.',
+	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} చివరి నాణ్యతా కూర్పు] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} అన్నీ చూపించు]) <i>$2</i>న [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} అనుమతించారు]. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$3|1 మార్పు|$3 మార్పుల}}]ను సమీక్షించాలి.', # Fuzzy
 	'revreview-noflagged' => "ఈ పేజీకి [[{{MediaWiki:Validationpage}}|సమీక్షిత కూర్పు]]లేమీ లేవు. కాబట్టి దీన్ని నాణ్యత కొరకు సరిచూసి '''ఉండక'''పోవచ్చు.",
 	'revreview-oldrating' => 'రేటింగు:',
-	'revreview-quality' => 'ఇది చిట్టచివరి [[{{MediaWiki:Validationpage}}|నాణ్యమైన]] కూర్పు; <i>$2</i> న [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} ఆమోదించబడింది]. ఈ [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} చిత్తుప్రతిని] [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} మార్చవచ్చు]; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|మార్పు|మార్పులు}}] సమీక్ష కోసం {{PLURAL:$3|వేచి ఉంది|వేచి ఉన్నాయి}}.',
-	'revreview-quality-same' => 'ఇది చిట్టచివరి [[{{MediaWiki:Validationpage}}|నాణ్యమైన]] కూర్పు, <i>$2</i> న [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} ఆమోదించబడింది]. ఈ పేజీని [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} మార్చవచ్చు].',
+	'revreview-quality' => 'ఇది చిట్టచివరి [[{{MediaWiki:Validationpage}}|నాణ్యమైన]] కూర్పు; <i>$2</i> న [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} ఆమోదించబడింది]. ఈ [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} చిత్తుప్రతిని] [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} మార్చవచ్చు]; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|మార్పు|మార్పులు}}] సమీక్ష కోసం {{PLURAL:$3|వేచి ఉంది|వేచి ఉన్నాయి}}.', # Fuzzy
+	'revreview-quality-same' => 'ఇది చిట్టచివరి [[{{MediaWiki:Validationpage}}|నాణ్యమైన]] కూర్పు, <i>$2</i> న [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} ఆమోదించబడింది]. ఈ పేజీని [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} మార్చవచ్చు].', # Fuzzy
 	'revreview-quality-title' => 'ఇది ఈ పేజి యొక్క నాణ్యమైన కూర్పు',
-	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|గమనించిన పేజి]]''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} చిత్తుప్రతిని చూపించు]]",
-	'revreview-quick-basic-old' => "'''[[{{MediaWiki:Validationpage}}|గమనించిన పేజి]]''' [ చిత్తుప్రతిని చూపించు]]",
+	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|గమనించిన పేజి]]''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} చిత్తుప్రతిని చూపించు]]", # Fuzzy
+	'revreview-quick-basic-old' => "'''[[{{MediaWiki:Validationpage}}|గమనించిన పేజి]]''' [ చిత్తుప్రతిని చూపించు]]", # Fuzzy
 	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|పరిశీలించబడింది]]'''",
 	'revreview-quick-invalid' => "'''తప్పుడు కూర్పు ID'''",
 	'revreview-quick-none' => "'''[[{{MediaWiki:Validationpage}}|పరిశీలించనివి]]'''",
-	'revreview-quick-quality' => "'''[[{{MediaWiki:Validationpage}}|నాణ్యత పేజి]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} చిత్తు ప్రతిని చూడండి]]",
+	'revreview-quick-quality' => "'''[[{{MediaWiki:Validationpage}}|నాణ్యత పేజి]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} చిత్తు ప్రతిని చూడండి]]", # Fuzzy
 	'revreview-quick-quality-old' => "'''[[{{MediaWiki:Validationpage}}|నాణ్యత]]'''",
 	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|నాణ్యత]]'''",
-	'revreview-quick-see-basic' => "'''[[{{MediaWiki:Validationpage}}|చిత్తు  ప్రతి]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} పేజీని చూడండి]]
-[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} తేడాలు చూడు]]",
-	'revreview-quick-see-quality' => "'''[[{{MediaWiki:Validationpage}}|చిత్తు  ప్రతి]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} పేజీని చూడండి]]
-[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} తేడాలు చూడు]]",
+	'revreview-quick-see-basic' => "'''[[{{MediaWiki:Validationpage}}|చిత్తు  ప్రతి]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} పేజీని చూడండి]] 
+[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} తేడాలు చూడు]]", # Fuzzy
+	'revreview-quick-see-quality' => "'''[[{{MediaWiki:Validationpage}}|చిత్తు  ప్రతి]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} పేజీని చూడండి]] 
+[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} తేడాలు చూడు]]", # Fuzzy
 	'revreview-source' => 'మూలం చూపించు',
 	'revreview-basic-title' => 'ఇది ఈ పేజీ యొక్క పరిశీలించబడిన కూర్పు',
 	'revreview-style' => 'పఠనీయత',
@@ -14708,7 +14739,7 @@ $messages['te'] = array(
 	'revreview-style-3' => 'క్లుప్తం',
 	'revreview-style-4' => 'విశేషనీయం',
 	'revreview-toggle-title' => 'వివరాలను చూపించు/దాచు',
-	'revreview-visibility-synced' => "'''ఈ పేజీకి ఒక క్రొత్త [[{{MediaWiki:Validationpage}}|సుస్థిర కూర్పు]] ఉంది, దాని స్థిరత్వ సెట్టింగులను [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} మార్చవచ్చు].'''",
+	'revreview-visibility-synced' => "'''ఈ పేజీకి ఒక క్రొత్త [[{{MediaWiki:Validationpage}}|సుస్థిర కూర్పు]] ఉంది, దాని స్థిరత్వ సెట్టింగులను [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} మార్చవచ్చు].'''", # Fuzzy
 	'revreview-revnotfound' => 'మీరడిగిన పేజీ పాత కూర్పు దొరకలేదు. ఆ పేజీ కోసం మీరు వాడిన URLను సరిచూసుకోండి.',
 	'right-autoreview' => 'స్వీయ మార్పులను ఆటోమాటిగ్గా "పరిశీలించినట్లు"గా గుర్తించు',
 	'right-movestable' => 'స్థిరకూర్పులు కలిగిన పేజీలను తరలించు',
@@ -14718,7 +14749,7 @@ $messages['te'] = array(
 	'rights-editor-revoke' => '[[$1]] నుండి ఎడిటర్ హోదా తొలగించారు',
 	'specialpages-group-quality' => 'మార్పు చేర్పుల సమీక్ష',
 	'stable-logentry-config' => '"$1"కి సుస్థిర కూర్పు సెట్టింగులను అమర్చు',
-	'stable-logentry-reset' => '$1కి సుస్థిర కూర్పుని పునర్నిర్ణయించండి',
+	'stable-logentry-reset' => '$1కి సుస్థిర కూర్పుని పునర్నిర్ణయించండి', # Fuzzy
 	'stable-logpage' => 'సుస్థిర కూర్పుల చిట్టా',
 	'stable-logpagetext' => 'ఇది విషయపు పేజీల [[{{MediaWiki:Validationpage}}|సుస్థిర కూర్పు]] మార్పుల చిట్టా.',
 	'revreview-filter-all' => 'అన్నీ',
@@ -14726,7 +14757,7 @@ $messages['te'] = array(
 	'revreview-statusfilter' => 'సమీక్ష చర్య:',
 	'revreview-filter-approved' => 'అనుమతించబడినది',
 	'revreview-filter-reapproved' => 'తిరిగి అనుతించబడినవి',
-	'revreview-filter-unapproved' => 'అనుమతించబడనివి',
+	'revreview-filter-unapproved' => 'అనుమతించబడనివి', # Fuzzy
 	'revreview-typefilter' => 'రకం:',
 	'revreview-filter-auto' => 'ఆటోమాటిక్',
 	'revreview-filter-manual' => 'మాన్యువల్',
@@ -14739,10 +14770,10 @@ $messages['te'] = array(
 	'revreview-def-all' => 'ఏదైనా',
 	'revreview-def-draft' => 'చిట్టచివరి',
 	'revreview-restriction-any' => 'ఏదైనా',
-	'revreview-reviewlink' => 'రివ్యూ',
+	'revreview-reviewlink' => 'రివ్యూ', # Fuzzy
 	'revreview-unreviewedpage' => 'సరిచూడని పుట',
-	'tooltip-ca-current' => 'ఈ పేజీ యొక్క ప్రస్తుత ప్రతిని చూడండి',
-	'tooltip-ca-stable' => 'ఈ పేజీ యొక్క సుస్థిర కూర్పుని చూడండి',
+	'tooltip-ca-current' => 'ఈ పేజీ యొక్క ప్రస్తుత ప్రతిని చూడండి', # Fuzzy
+	'tooltip-ca-stable' => 'ఈ పేజీ యొక్క సుస్థిర కూర్పుని చూడండి', # Fuzzy
 	'tooltip-ca-default' => 'నాణ్యతా భరోసా అమరికలు',
 	'flaggedrevs-protect-legend' => 'స్వయంచాలక మార్పుల సమీక్ష ([[{{MediaWiki:Validationpage}}|సహాయం]])',
 	'flaggedrevs-protect-none' => 'అందరు వాడుకరులను అనుమతించు',
@@ -14764,72 +14795,72 @@ $messages['tet'] = array(
 $messages['tg-cyrl'] = array(
 	'editor' => 'Вироишгар',
 	'flaggedrevs' => 'Нусхаҳои аломатдор',
-	'flaggedrevs-desc' => 'Ба вироишгархо/мурукунандагон имкони таъйид кардани нусхаҳо ва пойдор сохтани саҳифаҳоро медиҳад',
+	'flaggedrevs-desc' => 'Ба вироишгархо/мурукунандагон имкони таъйид кардани нусхаҳо ва пойдор сохтани саҳифаҳоро медиҳад', # Fuzzy
 	'group-editor' => 'Вироишгарон',
-	'group-editor-member' => 'Вироишгар',
+	'group-editor-member' => 'Вироишгар', # Fuzzy
 	'group-reviewer' => 'Мурургарон',
-	'group-reviewer-member' => 'Мурургар',
+	'group-reviewer-member' => 'Мурургар', # Fuzzy
 	'grouppage-editor' => '{{ns:project}}:Вироишгар',
 	'grouppage-reviewer' => '{{ns:project}}:Мурургар',
 	'revreview-hist-quality' => 'нусхаи бокайфият',
-	'revreview-hist-basic' => 'нусхаи баррасишуда',
-	'review-diff2stable' => 'Нигаристани тағйирот байни нусхаҳои пойдор ва кунунӣ',
-	'review-logentry-app' => '[[$1]]ро барраси кард',
-	'review-logentry-dis' => 'Нусхаи аз [[$1]]ро камбаҳо кард',
+	'revreview-hist-basic' => 'нусхаи баррасишуда', # Fuzzy
+	'review-diff2stable' => 'Нигаристани тағйирот байни нусхаҳои пойдор ва кунунӣ', # Fuzzy
+	'review-logentry-app' => '[[$1]]ро барраси кард', # Fuzzy
+	'review-logentry-dis' => 'Нусхаи аз [[$1]]ро камбаҳо кард', # Fuzzy
 	'review-logentry-id' => 'Нишонаи нусха: $2',
 	'review-logpage' => 'Гузориши барраси',
-	'review-logpagetext' => 'Ин гузорише аз тағйирот ба вазъияти [[{{MediaWiki:Validationpage}}|таъйиди]] нусхаҳо барои мӯҳтавои саҳифаҳо аст.',
+	'review-logpagetext' => 'Ин гузорише аз тағйирот ба вазъияти [[{{MediaWiki:Validationpage}}|таъйиди]] нусхаҳо барои мӯҳтавои саҳифаҳо аст.', # Fuzzy
 	'reviewer' => 'Мурургар',
 	'revreview-accuracy' => 'Дақиқ',
-	'revreview-accuracy-0' => 'Муттавасит',
+	'revreview-accuracy-0' => 'Муттавасит', # Fuzzy
 	'revreview-accuracy-1' => 'Баррасишуда',
 	'revreview-accuracy-2' => 'Дақиқ',
 	'revreview-accuracy-3' => 'Дорои манобеъи хуб',
 	'revreview-accuracy-4' => 'Баргузида',
 	'revreview-auto' => '(худкор)',
-	'revreview-basic' => "Ин охирин нусхаи  [[{{MediaWiki:Validationpage}}|баррасишуда]]  аст, ки дар <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} таъйид шудааст]. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Пешнавис] қобили '''[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} вироиш аст]'''; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|тағйир|тағйирот}}] ниёзманди баррасӣ  {{PLURAL:$3|аст|ҳастанд}}.",
-	'revreview-basic-same' => "Ин охирин нусхаи  [[{{MediaWiki:Validationpage}}|баррасишуда]] аст, ки дар <i>$2</i>  ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} феҳристи комил]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} таъйид шудааст]. Ин саҳифа қобили  '''[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} тағйир]''' аст.",
-	'revreview-current' => 'Пешнавис',
+	'revreview-basic' => "Ин охирин нусхаи  [[{{MediaWiki:Validationpage}}|баррасишуда]]  аст, ки дар <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} таъйид шудааст]. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Пешнавис] қобили '''[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} вироиш аст]'''; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|тағйир|тағйирот}}] ниёзманди баррасӣ  {{PLURAL:$3|аст|ҳастанд}}.", # Fuzzy
+	'revreview-basic-same' => "Ин охирин нусхаи  [[{{MediaWiki:Validationpage}}|баррасишуда]] аст, ки дар <i>$2</i>  ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} феҳристи комил]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} таъйид шудааст]. Ин саҳифа қобили  '''[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} тағйир]''' аст.", # Fuzzy
+	'revreview-current' => 'Пешнавис', # Fuzzy
 	'revreview-depth' => 'Умқ',
-	'revreview-depth-0' => 'Таъйиднашуда',
+	'revreview-depth-0' => 'Таъйиднашуда', # Fuzzy
 	'revreview-depth-1' => 'Муқаддамотӣ',
 	'revreview-depth-2' => 'Миёна',
 	'revreview-depth-3' => 'Баланд',
 	'revreview-depth-4' => 'Баргузида',
-	'revreview-edit' => 'Вироиши пешнавис',
-	'revreview-edited' => "'''Вироишҳои нав пас аз назар гузаронидани онҳо аз тарафи корбаре ба [[{{MediaWiki:Validationpage}}|нусхаи пойдор]] илова хоҳанд шуд. Дар зер ''пешнавис'' оварда шудааст. ''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|тағйир|тағйирот}}] баррасиро интизор аст.",
-	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Охирин нусхаи баррасишуда] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} феҳристи комил]) дар  <i>$2</i>  [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} таъйид шудааст]. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|тағйир|тағйирот}}] ниёзманди баррасӣ {{PLURAL:$3|аст|ҳастанд}}.',
-	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Охирин нусхаи бокайфият] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} феҳристи комил]) дар  <i>$2</i>  [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} таъйид шудааст]. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|тағйир|тағйирот}}] ниёзманди баррасӣ {{PLURAL:$3|аст|ҳастанд}}.',
-	'revreview-noflagged' => 'Нусхаи муруршудае аз ин саҳифа вуҷуд надорад, ба ин далел, ки ин саҳифа аз назари кайфият ва сифат баррасӣ [[{{MediaWiki:Validationpage}}|нашудааст]].',
+	'revreview-edit' => 'Вироиши пешнавис', # Fuzzy
+	'revreview-edited' => "'''Вироишҳои нав пас аз назар гузаронидани онҳо аз тарафи корбаре ба [[{{MediaWiki:Validationpage}}|нусхаи пойдор]] илова хоҳанд шуд. Дар зер ''пешнавис'' оварда шудааст. ''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|тағйир|тағйирот}}] баррасиро интизор аст.", # Fuzzy
+	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Охирин нусхаи баррасишуда] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} феҳристи комил]) дар  <i>$2</i>  [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} таъйид шудааст]. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|тағйир|тағйирот}}] ниёзманди баррасӣ {{PLURAL:$3|аст|ҳастанд}}.', # Fuzzy
+	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Охирин нусхаи бокайфият] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} феҳристи комил]) дар  <i>$2</i>  [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} таъйид шудааст]. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|тағйир|тағйирот}}] ниёзманди баррасӣ {{PLURAL:$3|аст|ҳастанд}}.', # Fuzzy
+	'revreview-noflagged' => 'Нусхаи муруршудае аз ин саҳифа вуҷуд надорад, ба ин далел, ки ин саҳифа аз назари кайфият ва сифат баррасӣ [[{{MediaWiki:Validationpage}}|нашудааст]].', # Fuzzy
 	'revreview-oldrating' => 'Дараҷаи дода шуда:',
-	'revreview-quality' => "Ин охирин нусхаи  [[{{MediaWiki:Validationpage}}|бокайфият]] аст, ки дар <i>$2</i>  [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} таъйид шудааст]. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Пешнавис] қобили '''[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} вироиш аст]'''; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|тағйир|тағйирот}}] ниёзманди баррасӣ  {{PLURAL:$3|аст|ҳастанд}}.",
-	'revreview-quality-same' => "Ин охирин нусхаи  [[{{MediaWiki:Validationpage}}|бокайфият]] аст, ки дар  <i>$2</i> ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} феҳристи комил]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} таъйид шудааст]. Ин саҳифа қобили  '''[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} тағйир]''' аст.",
-	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|Баррасишуда]]''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} ниг. пешнавис]]",
-	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|Баррасишуда]]''' (фақат тағйироти баррасишуда)",
+	'revreview-quality' => "Ин охирин нусхаи  [[{{MediaWiki:Validationpage}}|бокайфият]] аст, ки дар <i>$2</i>  [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} таъйид шудааст]. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Пешнавис] қобили '''[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} вироиш аст]'''; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|тағйир|тағйирот}}] ниёзманди баррасӣ  {{PLURAL:$3|аст|ҳастанд}}.", # Fuzzy
+	'revreview-quality-same' => "Ин охирин нусхаи  [[{{MediaWiki:Validationpage}}|бокайфият]] аст, ки дар  <i>$2</i> ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} феҳристи комил]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} таъйид шудааст]. Ин саҳифа қобили  '''[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} тағйир]''' аст.", # Fuzzy
+	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|Баррасишуда]]''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} ниг. пешнавис]]", # Fuzzy
+	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|Баррасишуда]]''' (фақат тағйироти баррасишуда)", # Fuzzy
 	'revreview-quick-invalid' => "'''Нишонаи номӯътабари нусха'''",
-	'revreview-quick-none' => "Нусхаҳои вуруднашудаи '''Феълӣ'''' (на нусхаҳои муруршуда)",
-	'revreview-quick-quality' => "[[{{MediaWiki:Validationpage}}|Мақолаи босифат]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} ниг. пешнавис]]",
-	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|Сифат]]''' (фақат тағйироти баррасишуда)",
-	'revreview-quick-see-basic' => "'''Феълӣ''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} мушоҳидаи нусхаи пойдор]] ($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$2|тағйир|тағйирот}}]]",
-	'revreview-quick-see-quality' => "'''Феълӣ''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} мушоҳидаи нусхаи пойдор]] ($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$2|тағйир|тағйирот}}]]",
-	'revreview-source' => 'манбаъи пешнавис',
+	'revreview-quick-none' => "Нусхаҳои вуруднашудаи '''Феълӣ'''' (на нусхаҳои муруршуда)", # Fuzzy
+	'revreview-quick-quality' => "[[{{MediaWiki:Validationpage}}|Мақолаи босифат]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} ниг. пешнавис]]", # Fuzzy
+	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|Сифат]]''' (фақат тағйироти баррасишуда)", # Fuzzy
+	'revreview-quick-see-basic' => "'''Феълӣ''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} мушоҳидаи нусхаи пойдор]] ($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$2|тағйир|тағйирот}}]]", # Fuzzy
+	'revreview-quick-see-quality' => "'''Феълӣ''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} мушоҳидаи нусхаи пойдор]] ($2 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$2|тағйир|тағйирот}}]]", # Fuzzy
+	'revreview-source' => 'манбаъи пешнавис', # Fuzzy
 	'revreview-style' => 'Хоноӣ',
-	'revreview-style-0' => 'Таъйиднашуда',
+	'revreview-style-0' => 'Таъйиднашуда', # Fuzzy
 	'revreview-style-1' => 'Қобили қабул',
 	'revreview-style-2' => 'Хуб',
 	'revreview-style-3' => 'Мухтасар',
 	'revreview-style-4' => 'Баргузида',
-	'revreview-visibility-synced' => "'''Ин саҳифа дорои як  [[{{MediaWiki:Validationpage}}|нусхаи пойдор]] аст, танзимот барои он метавонад   [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} пайкарбандӣ] шавад.'''",
+	'revreview-visibility-synced' => "'''Ин саҳифа дорои як  [[{{MediaWiki:Validationpage}}|нусхаи пойдор]] аст, танзимот барои он метавонад   [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} пайкарбандӣ] шавад.'''", # Fuzzy
 	'revreview-revnotfound' => 'Нусхаи кӯҳнаи саҳифае, ки дархоста будед, ёфт нашуд. Лутфан нишонаи URL-ро, ки аз он ба ин саҳифа дастрасӣ карда будед, барассӣ кунед.',
 	'rights-editor-revoke' => 'Ихтиёроти виростор аз [[$1]] гирифта шуд',
-	'stable-logentry-config' => 'пойдоркунии нусха барои $1ро танзим кард',
-	'stable-logentry-reset' => 'бознишондодани нусхаи мунташиршуда ба $1',
+	'stable-logentry-config' => 'пойдоркунии нусха барои $1ро танзим кард', # Fuzzy
+	'stable-logentry-reset' => 'бознишондодани нусхаи мунташиршуда ба $1', # Fuzzy
 	'stable-logpage' => 'Гузориши нусхаи пойдор',
-	'stable-logpagetext' => 'Ин гузориши тағйирот аз танзимоти саҳифаҳои мӯҳтавои [[{{MediaWiki:Validationpage}}|нусхаҳои пойдор]] аст.',
-	'tooltip-ca-current' => 'Мушоҳидаи пешнависи феълии ин саҳифа',
-	'tooltip-ca-stable' => 'Мушоҳидаи нусхаи пойдори ин саҳифа',
+	'stable-logpagetext' => 'Ин гузориши тағйирот аз танзимоти саҳифаҳои мӯҳтавои [[{{MediaWiki:Validationpage}}|нусхаҳои пойдор]] аст.', # Fuzzy
+	'tooltip-ca-current' => 'Мушоҳидаи пешнависи феълии ин саҳифа', # Fuzzy
+	'tooltip-ca-stable' => 'Мушоҳидаи нусхаи пойдори ин саҳифа', # Fuzzy
 	'tooltip-ca-default' => 'Танзимоти итминони кайфият',
-	'validationpage' => '{{ns:help}}:Таъйиди эътибори мақолаҳо',
+	'validationpage' => '{{ns:help}}:Таъйиди эътибори мақолаҳо', # Fuzzy
 );
 
 /** Tajik (Latin script) (tojikī)
@@ -14838,58 +14869,58 @@ $messages['tg-cyrl'] = array(
 $messages['tg-latn'] = array(
 	'editor' => 'Viroişgar',
 	'flaggedrevs' => 'Nusxahoi alomatdor',
-	'flaggedrevs-desc' => "Ba viroişgarxo/murukunandagon imkoni ta'jid kardani nusxaho va pojdor soxtani sahifahoro medihad",
+	'flaggedrevs-desc' => "Ba viroişgarxo/murukunandagon imkoni ta'jid kardani nusxaho va pojdor soxtani sahifahoro medihad", # Fuzzy
 	'group-editor' => 'Viroişgaron',
-	'group-editor-member' => 'Viroişgar',
+	'group-editor-member' => 'Viroişgar', # Fuzzy
 	'group-reviewer' => 'Mururgaron',
-	'group-reviewer-member' => 'Mururgar',
+	'group-reviewer-member' => 'Mururgar', # Fuzzy
 	'grouppage-editor' => '{{ns:project}}:Viroişgar',
 	'grouppage-reviewer' => '{{ns:project}}:Mururgar',
 	'revreview-hist-quality' => 'nusxai bokajfijat',
-	'revreview-hist-basic' => 'nusxai barrasişuda',
-	'review-diff2stable' => 'Nigaristani taƣjirot bajni nusxahoi pojdor va kununī',
+	'revreview-hist-basic' => 'nusxai barrasişuda', # Fuzzy
+	'review-diff2stable' => 'Nigaristani taƣjirot bajni nusxahoi pojdor va kununī', # Fuzzy
 	'review-logentry-id' => 'Nişonai nusxa: $2',
 	'review-logpage' => 'Guzorişi barrasi',
-	'review-logpagetext' => "In guzorişe az taƣjirot ba vaz'ijati [[{{MediaWiki:Validationpage}}|ta'jidi]] nusxaho baroi mūhtavoi sahifaho ast.",
+	'review-logpagetext' => "In guzorişe az taƣjirot ba vaz'ijati [[{{MediaWiki:Validationpage}}|ta'jidi]] nusxaho baroi mūhtavoi sahifaho ast.", # Fuzzy
 	'reviewer' => 'Mururgar',
 	'revreview-accuracy' => 'Daqiq',
-	'revreview-accuracy-0' => 'Muttavasit',
+	'revreview-accuracy-0' => 'Muttavasit', # Fuzzy
 	'revreview-accuracy-1' => 'Barrasişuda',
 	'revreview-accuracy-2' => 'Daqiq',
 	'revreview-accuracy-3' => "Doroi manobe'i xub",
 	'revreview-accuracy-4' => 'Barguzida',
 	'revreview-auto' => '(xudkor)',
-	'revreview-basic-same' => "In oxirin nusxai  [[{{MediaWiki:Validationpage}}|barrasişuda]] ast, ki dar <i>$2</i>  ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} fehristi komil]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} ta'jid şudaast]. In sahifa qobili  '''[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} taƣjir]''' ast.",
-	'revreview-current' => 'Peşnavis',
+	'revreview-basic-same' => "In oxirin nusxai  [[{{MediaWiki:Validationpage}}|barrasişuda]] ast, ki dar <i>$2</i>  ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} fehristi komil]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} ta'jid şudaast]. In sahifa qobili  '''[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} taƣjir]''' ast.", # Fuzzy
+	'revreview-current' => 'Peşnavis', # Fuzzy
 	'revreview-depth' => 'Umq',
-	'revreview-depth-0' => "Ta'jidnaşuda",
+	'revreview-depth-0' => "Ta'jidnaşuda", # Fuzzy
 	'revreview-depth-1' => 'Muqaddamotī',
 	'revreview-depth-2' => 'Mijona',
 	'revreview-depth-3' => 'Baland',
 	'revreview-depth-4' => 'Barguzida',
-	'revreview-edit' => 'Viroişi peşnavis',
-	'revreview-newest-basic' => "[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Oxirin nusxai barrasişuda] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} fehristi komil]) dar  <i>$2</i>  [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} ta'jid şudaast]. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|taƣjir|taƣjirot}}] nijozmandi barrasī {{PLURAL:$3|ast|hastand}}.",
-	'revreview-newest-quality' => "[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Oxirin nusxai bokajfijat] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} fehristi komil]) dar  <i>$2</i>  [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} ta'jid şudaast]. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|taƣjir|taƣjirot}}] nijozmandi barrasī {{PLURAL:$3|ast|hastand}}.",
-	'revreview-noflagged' => 'Nusxai mururşudae az in sahifa vuçud nadorad, ba in dalel, ki in sahifa az nazari kajfijat va sifat barrasī [[{{MediaWiki:Validationpage}}|naşudaast]].',
+	'revreview-edit' => 'Viroişi peşnavis', # Fuzzy
+	'revreview-newest-basic' => "[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Oxirin nusxai barrasişuda] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} fehristi komil]) dar  <i>$2</i>  [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} ta'jid şudaast]. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|taƣjir|taƣjirot}}] nijozmandi barrasī {{PLURAL:$3|ast|hastand}}.", # Fuzzy
+	'revreview-newest-quality' => "[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Oxirin nusxai bokajfijat] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} fehristi komil]) dar  <i>$2</i>  [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} ta'jid şudaast]. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|taƣjir|taƣjirot}}] nijozmandi barrasī {{PLURAL:$3|ast|hastand}}.", # Fuzzy
+	'revreview-noflagged' => 'Nusxai mururşudae az in sahifa vuçud nadorad, ba in dalel, ki in sahifa az nazari kajfijat va sifat barrasī [[{{MediaWiki:Validationpage}}|naşudaast]].', # Fuzzy
 	'revreview-oldrating' => 'Daraçai doda şuda:',
-	'revreview-quality-same' => "In oxirin nusxai  [[{{MediaWiki:Validationpage}}|bokajfijat]] ast, ki dar  <i>$2</i> ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} fehristi komil]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} ta'jid şudaast]. In sahifa qobili  '''[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} taƣjir]''' ast.",
+	'revreview-quality-same' => "In oxirin nusxai  [[{{MediaWiki:Validationpage}}|bokajfijat]] ast, ki dar  <i>$2</i> ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} fehristi komil]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} ta'jid şudaast]. In sahifa qobili  '''[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} taƣjir]''' ast.", # Fuzzy
 	'revreview-quick-invalid' => "'''Nişonai nomū'tabari nusxa'''",
-	'revreview-quick-none' => "Nusxahoi vurudnaşudai '''Fe'lī'''' (na nusxahoi mururşuda)",
-	'revreview-source' => "manba'i peşnavis",
+	'revreview-quick-none' => "Nusxahoi vurudnaşudai '''Fe'lī'''' (na nusxahoi mururşuda)", # Fuzzy
+	'revreview-source' => "manba'i peşnavis", # Fuzzy
 	'revreview-style' => 'Xonoī',
-	'revreview-style-0' => "Ta'jidnaşuda",
+	'revreview-style-0' => "Ta'jidnaşuda", # Fuzzy
 	'revreview-style-1' => 'Qobili qabul',
 	'revreview-style-2' => 'Xub',
 	'revreview-style-3' => 'Muxtasar',
 	'revreview-style-4' => 'Barguzida',
 	'revreview-revnotfound' => 'Nusxai kūhnai sahifae, ki darxosta buded, joft naşud. Lutfan nişonai URL-ro, ki az on ba in sahifa dastrasī karda buded, barassī kuned.',
 	'rights-editor-revoke' => 'Ixtijoroti virostor az [[$1]] girifta şud',
-	'stable-logentry-config' => 'pojdorkuniji nusxa baroi $1ro tanzim kard',
-	'stable-logentry-reset' => 'pojdorkuniji nusxa baroi $1ro az nav kard',
+	'stable-logentry-config' => 'pojdorkuniji nusxa baroi $1ro tanzim kard', # Fuzzy
+	'stable-logentry-reset' => 'pojdorkuniji nusxa baroi $1ro az nav kard', # Fuzzy
 	'stable-logpage' => 'Guzorişi nusxai pojdor',
 	'stable-logpagetext' => 'In guzorişi taƣjirot az tanzimoti sahifahoi mūhtavoi [[{{MediaWiki:Validationpage}}|nusxahoi pojdor]] ast.',
-	'tooltip-ca-current' => "Muşohidai peşnavisi fe'liji in sahifa",
-	'tooltip-ca-stable' => 'Muşohidai nusxai pojdori in sahifa',
+	'tooltip-ca-current' => "Muşohidai peşnavisi fe'liji in sahifa", # Fuzzy
+	'tooltip-ca-stable' => 'Muşohidai nusxai pojdori in sahifa', # Fuzzy
 	'tooltip-ca-default' => 'Tanzimoti itminoni kajfijat',
 );
 
@@ -14902,13 +14933,13 @@ $messages['tg-latn'] = array(
  */
 $messages['th'] = array(
 	'editor' => 'ผู้แก้ไข',
-	'group-editor-member' => 'ผู้แก้ไข',
+	'group-editor-member' => 'ผู้แก้ไข', # Fuzzy
 	'revreview-diff-toggle-show' => 'แสดงการเปลี่ยนแปลงเหล่านั้น',
 	'revreview-diff-toggle-hide' => 'ซ่อนการเปลี่ยนแปลงเหล่านั้น',
 	'revreview-log-details-show' => 'แสดงรายละเอียด',
 	'revreview-log-details-hide' => 'ซ่อนรายละเอียด',
 	'revreview-accuracy' => 'ความถูกต้อง',
-	'revreview-accuracy-0' => 'ยังไม่ได้ตรวจสอบ',
+	'revreview-accuracy-0' => 'ยังไม่ได้ตรวจสอบ', # Fuzzy
 	'revreview-accuracy-1' => 'ตรวจสอบแล้ว',
 	'revreview-accuracy-2' => 'มีความถูกต้อง',
 	'revreview-accuracy-3' => 'มีแหล่งที่มาที่ดี',
@@ -14916,7 +14947,7 @@ $messages['th'] = array(
 	'revreview-auto' => '(อัตโนมัติ)',
 	'revreview-source' => 'ดูโค้ด',
 	'revreview-style' => 'การจัดเรียงให้อ่านง่าย',
-	'revreview-style-0' => 'ไม่ผ่าน',
+	'revreview-style-0' => 'ไม่ผ่าน', # Fuzzy
 	'revreview-style-1' => 'ยอมรับได้',
 	'revreview-style-2' => 'ดี',
 	'revreview-style-3' => 'เนื้อหากระชับ',
@@ -14934,153 +14965,153 @@ $messages['tk'] = array(
 	'editor' => 'Redaktor',
 	'flaggedrevs' => 'Baýdakly wersiýalar',
 	'flaggedrevs-watched-pending' => "Häzirki wagtda gözegçilik sanawyňyzdaky gözden geçirilen sahypalaryň [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} garaşýan özgerdişleri] bar. '''Üns bermegiňiz zerur!'''",
-	'flaggedrevs-desc' => 'Redaktorlara we gözden geçirijilere wersiýalary barlama we sahypalary durnuklaşdyrma mümkinçiligini berýär',
-	'flaggedrevs-pref-UI' => 'Durnukly wersiýa interfeýsi:',
-	'flaggedrevs-pref-UI-0' => 'Jikme-jik durnukly wersiýa ulanyjy interfeýsini ulan',
-	'flaggedrevs-pref-UI-1' => 'Ýönekeý durnukly wersiýa ulanyjy interfeýsini ulan',
-	'prefs-flaggedrevs' => 'Durnuklylyk',
-	'prefs-flaggedrevs-ui' => 'Baýdakly wersiýalar',
-	'flaggedrevs-prefs-stable' => 'Hemişe gaýybana mazmunly sahypalaryň durnukly wersiýalryny görkez (eger bar bolsa)',
+	'flaggedrevs-desc' => 'Redaktorlara we gözden geçirijilere wersiýalary barlama we sahypalary durnuklaşdyrma mümkinçiligini berýär', # Fuzzy
+	'flaggedrevs-pref-UI' => 'Durnukly wersiýa interfeýsi:', # Fuzzy
+	'flaggedrevs-pref-UI-0' => 'Jikme-jik durnukly wersiýa ulanyjy interfeýsini ulan', # Fuzzy
+	'flaggedrevs-pref-UI-1' => 'Ýönekeý durnukly wersiýa ulanyjy interfeýsini ulan', # Fuzzy
+	'prefs-flaggedrevs' => 'Durnuklylyk', # Fuzzy
+	'prefs-flaggedrevs-ui' => 'Baýdakly wersiýalar', # Fuzzy
+	'flaggedrevs-prefs-stable' => 'Hemişe gaýybana mazmunly sahypalaryň durnukly wersiýalryny görkez (eger bar bolsa)', # Fuzzy
 	'flaggedrevs-prefs-watch' => 'Gözden geçiren sahypalarymy gözegçilik sanawyma goş',
-	'flaggedrevs-prefs-editdiffs' => 'Sahypalar redaktirlenende durnukly wersiýa görä aratapawudy görkez',
-	'flaggedrevs-prefs-viewdiffs' => 'Sahypa garalamalary görkezilende durnukly wersiýa görä aratapawudy görkez',
+	'flaggedrevs-prefs-editdiffs' => 'Sahypalar redaktirlenende durnukly wersiýa görä aratapawudy görkez', # Fuzzy
+	'flaggedrevs-prefs-viewdiffs' => 'Sahypa garalamalary görkezilende durnukly wersiýa görä aratapawudy görkez', # Fuzzy
 	'group-editor' => 'Redaktorlar',
-	'group-editor-member' => 'redaktor',
+	'group-editor-member' => 'redaktor', # Fuzzy
 	'group-reviewer' => 'Gözden geçirijiler',
-	'group-reviewer-member' => 'gözden geçiriji',
+	'group-reviewer-member' => 'gözden geçiriji', # Fuzzy
 	'grouppage-editor' => '{{ns:project}}:Redaktor',
 	'grouppage-reviewer' => '{{ns:project}}:Gözden geçiriji',
 	'group-autoreview' => 'Awto gözden geçirijiler',
-	'group-autoreview-member' => 'awto gözden geçiriji',
+	'group-autoreview-member' => 'awto gözden geçiriji', # Fuzzy
 	'grouppage-autoreview' => '{{ns:project}}:Awto gözden geçiriji',
-	'revreview-hist-draft' => 'garalama wersiýa',
+	'revreview-hist-draft' => 'garalama wersiýa', # Fuzzy
 	'revreview-hist-pending' => 'gözden geçirilmäge garaşýar',
 	'revreview-hist-quality' => 'hil wersiýasy',
-	'revreview-hist-basic' => 'äňedilen wersiýa',
+	'revreview-hist-basic' => 'äňedilen wersiýa', # Fuzzy
 	'revreview-hist-quality-user' => '[[User:$3|$3]] tarapyndan tassyklandy',
 	'revreview-hist-basic-user' => '[[User:$3|$3]] tarapyndan äňedildi',
 	'revreview-hist-quality-auto' => 'awtomatik tassyklanypdyr',
-	'revreview-hist-basic-auto' => 'awtomatik äňedilipdir',
+	'revreview-hist-basic-auto' => 'awtomatik äňedilipdir', # Fuzzy
 	'revreview-hist-pending-difflink' => "'''[[{{fullurl:$1|oldid=$2&diff=$3{{MediaWiki:flaggedrevs-diffonly}}}} gözden geçirilmäge garaşýar]]'''",
-	'review-edit-diff' => "'''BELLIK: Neşir edilen wersiýada edilen käbir garaşýan üýtgeşmeler aşakdaky özgerdiş formuna birikdirilýär.'''",
+	'review-edit-diff' => "'''BELLIK: Neşir edilen wersiýada edilen käbir garaşýan üýtgeşmeler aşakdaky özgerdiş formuna birikdirilýär.'''", # Fuzzy
 	'revreview-diff-toggle-show' => 'üýtgeşmeleri görkez',
-	'revreview-diff-toggle-hide' => '(üýtgeşmeleri gizle)',
-	'revreview-diff-toggle-title' => 'Garalama we neşir edilen wersiýalaryň arasyndaky üýtgeşmeleriň displeýine geçir',
+	'revreview-diff-toggle-hide' => '(üýtgeşmeleri gizle)', # Fuzzy
+	'revreview-diff-toggle-title' => 'Garalama we neşir edilen wersiýalaryň arasyndaky üýtgeşmeleriň displeýine geçir', # Fuzzy
 	'revreview-log-toggle-show' => 'durnuklylyk gündeligini görkez',
 	'revreview-log-toggle-hide' => 'durnuklylyk gündeligini gizle',
 	'revreview-log-toggle-title' => 'Durnuklylyk sazlamalary gündeliginiň displeýini aç/ýap',
 	'revreview-log-details-show' => 'jikme-jikligi görkez',
 	'revreview-log-details-hide' => 'jikme-jikligi gizle',
 	'revreview-log-details-title' => 'Durnuklylyk sazlamalary gündeliginiň displeýini aç/ýap',
-	'review-diff2stable' => 'Durnukly we häzirki wesrsiýalaryň arasyndaky üýtgeşmelri görkez',
+	'review-diff2stable' => 'Durnukly we häzirki wesrsiýalaryň arasyndaky üýtgeşmelri görkez', # Fuzzy
 	'review-logentry-app' => '[[$1]] sahypasynyň bir wersiýasyny gözden geçirdi',
 	'review-logentry-dis' => '[[$1]] sahypasynyň bir wersiýasyny köne diýip belledi',
 	'review-logentry-id' => 'wersiýa: $2',
 	'review-logentry-diff' => 'gözden geşirilen üýtgeşmeler',
-	'review-logentry-diff2' => 'gözden geçirilmedik üýtgeşmeler',
+	'review-logentry-diff2' => 'gözden geçirilmedik üýtgeşmeler', # Fuzzy
 	'review-logpage' => 'Gözden geçirme gündeligi',
-	'review-logpagetext' => 'Bu gündelik mazmunly sahypalaryň wersiýalarynyň [[{{MediaWiki:Validationpage}}|tassyklama]] statusyndaky üýtgeşmeleri görkezýär.',
+	'review-logpagetext' => 'Bu gündelik mazmunly sahypalaryň wersiýalarynyň [[{{MediaWiki:Validationpage}}|tassyklama]] statusyndaky üýtgeşmeleri görkezýär.', # Fuzzy
 	'reviewer' => 'Gözden geçiriji',
 	'revreview-accuracy' => 'Takyklyk',
-	'revreview-accuracy-0' => 'Tassyklanylmadyk',
+	'revreview-accuracy-0' => 'Tassyklanylmadyk', # Fuzzy
 	'revreview-accuracy-1' => 'Äňedilen',
 	'revreview-accuracy-2' => 'Takyk',
 	'revreview-accuracy-3' => 'Çeşme görkezýär',
 	'revreview-accuracy-4' => 'Saýlama',
 	'revreview-auto' => '(awtomatik)',
 	'revreview-basic' => 'Bu [[{{MediaWiki:Validationpage}}|durnukly wersiýadyr]], <i>$2</i> senesinde [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} äňedilipdir].
-[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Garalama] [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 sany teklip edilen {{PLURAL:$3|üýtgeşmäni|üýtgeşmäni}}] öz içine alýar.',
+[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Garalama] [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 sany teklip edilen {{PLURAL:$3|üýtgeşmäni|üýtgeşmäni}}] öz içine alýar.', # Fuzzy
 	'revreview-basic-i' => 'Bu [[{{MediaWiki:Validationpage}}|durnukly wersiýadyr]], <i>$2</i> senesinde [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} äňedilipdir].
-[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Garalama] gözden geçirilmäge garaşýan [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} şablon/faýl üýtgeşmesini] öz içine alýar.',
+[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Garalama] gözden geçirilmäge garaşýan [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} şablon/faýl üýtgeşmesini] öz içine alýar.', # Fuzzy
 	'revreview-basic-old' => 'Bu [[{{MediaWiki:Validationpage}}|äňedilen]] wersiýadyr ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} ählisini sanawla]), <i>$2</i> senesinde [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} tassylanyldy].
-Täze [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} üýtgeşmeler] edilen bolmagy mümkin.',
-	'revreview-basic-same' => 'Bu [[{{MediaWiki:Validationpage}}|durnukly wersiýadyr]], <i>$2</i> senesinde [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} äňedilipdir].',
-	'revreview-basic-source' => 'Bu sahypanyň [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} äňedilen wersiýasy], <i>$2</i> senesinde [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} tassyklanylypdyr], bu wersiýa esaslanýar.',
-	'revreview-current' => 'Garalama',
+Täze [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} üýtgeşmeler] edilen bolmagy mümkin.', # Fuzzy
+	'revreview-basic-same' => 'Bu [[{{MediaWiki:Validationpage}}|durnukly wersiýadyr]], <i>$2</i> senesinde [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} äňedilipdir].', # Fuzzy
+	'revreview-basic-source' => 'Bu sahypanyň [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} äňedilen wersiýasy], <i>$2</i> senesinde [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} tassyklanylypdyr], bu wersiýa esaslanýar.', # Fuzzy
+	'revreview-current' => 'Garalama', # Fuzzy
 	'revreview-depth' => 'Çuňluk',
-	'revreview-depth-0' => 'Tassyklanylmadyk',
+	'revreview-depth-0' => 'Tassyklanylmadyk', # Fuzzy
 	'revreview-depth-1' => 'Esasy',
 	'revreview-depth-2' => 'Orta tap',
 	'revreview-depth-3' => 'Ýokary',
 	'revreview-depth-4' => 'Saýlama',
-	'revreview-draft-title' => 'Bu bir garalama sahypasydyr',
-	'revreview-edit' => 'Garalamany redaktirle',
-	'revreview-editnotice' => "'''Üýtgeşmeleriňiz ygtyýarly bir ulanyjy [[{{MediaWiki:Validationpage}}|gözden geçirensoň]] [[{{MediaWiki:Validationpage}}|neşir ediljekdir]].'''",
+	'revreview-draft-title' => 'Bu bir garalama sahypasydyr', # Fuzzy
+	'revreview-edit' => 'Garalamany redaktirle', # Fuzzy
+	'revreview-editnotice' => "'''Üýtgeşmeleriňiz ygtyýarly bir ulanyjy [[{{MediaWiki:Validationpage}}|gözden geçirensoň]] [[{{MediaWiki:Validationpage}}|neşir ediljekdir]].'''", # Fuzzy
 	'revreview-submitedit' => 'Üýtgeşmeleri tabşyr',
 	'revreview-submitedit-title' => 'Üýtgeşmeleriňizi gözden geçirilmegi üçin tassyklaň',
 	'revreview-edited' => "'''Üýtgeşmeleriňiz ygtyýarly bir ulanyjy [[{{MediaWiki:Validationpage}}|gözden geçirensoň]] [[{{MediaWiki:Validationpage}}|neşir ediljekdir]].'''
-Aşakda görkezilen ''garalama'' teklip edilen [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 sany {{PLURAL:$2|üýtgeşmäni|üýtgeşmäni}}] öz içine alýar.",
+Aşakda görkezilen ''garalama'' teklip edilen [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 sany {{PLURAL:$2|üýtgeşmäni|üýtgeşmäni}}] öz içine alýar.", # Fuzzy
 	'revreview-edited-section' => '"[[#$1|$2]]" atly sahypa bölümine yza dolan.',
-	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Durnukly wersiýa] <i>$2</i> senesinde [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} äňedilipdir] Garalama
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 sany teklip edilen {{PLURAL:$3|üýtgeşmäni|üýtgeşmäni}}] öz içine alýar.',
-	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Durnukly wersiýa] <i>$2</i> senesinde [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} äňedilipdir]. Garalama gözden geçirilmäge garaşýan
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Şablon/faýl üýtgeşmelerini] öz içine alýar.',
-	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Durnukly wersiýa] <i>$2</i> senesinde [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} tassyklandy]. Garalama teklip edilen
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 sany {{PLURAL:$3|üýtgeşmäni|üýgeşmäni}}] öz içine alýar.',
-	'revreview-newest-quality-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Durnukly wersiýa] <i>$2</i> senesinde [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} tassyklandy]. Garalama gözden geçirilmäge garaşýan
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Şablon/faýl üýgeşmelerini] öz içine alýar.',
+	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Durnukly wersiýa] <i>$2</i> senesinde [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} äňedilipdir] Garalama   
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 sany teklip edilen {{PLURAL:$3|üýtgeşmäni|üýtgeşmäni}}] öz içine alýar.', # Fuzzy
+	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Durnukly wersiýa] <i>$2</i> senesinde [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} äňedilipdir]. Garalama gözden geçirilmäge garaşýan   
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Şablon/faýl üýtgeşmelerini] öz içine alýar.', # Fuzzy
+	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Durnukly wersiýa] <i>$2</i> senesinde [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} tassyklandy]. Garalama teklip edilen    
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 sany {{PLURAL:$3|üýtgeşmäni|üýgeşmäni}}] öz içine alýar.', # Fuzzy
+	'revreview-newest-quality-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Durnukly wersiýa] <i>$2</i> senesinde [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} tassyklandy]. Garalama gözden geçirilmäge garaşýan     
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Şablon/faýl üýgeşmelerini] öz içine alýar.', # Fuzzy
 	'revreview-pending-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Durnukly wersiýa] <i>$2</i> senesinde [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} barlanylypdyr]. Gözden geçirilmäge garaşýan [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 sany {{PLURAL:$3|üýtgeşme|üýtgeşme}}] bar.',
 	'revreview-pending-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Durnukly wersiýa] <i>$2</i> senesinde [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} tassyklanylypdyr]. Gözden geçirilmäge garaşýan [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 sany {{PLURAL:$3|üýtgeşme|üýtgeşme}}] bar.',
-	'revreview-noflagged' => "Bu sahypada hiç hili gözden geçirilmedik wersiýa ýok, şol sebäple hil taýdan [[{{MediaWiki:Validationpage}}|'''barlanmadyk''']] bolmagy ahmal.",
+	'revreview-noflagged' => "Bu sahypada hiç hili gözden geçirilmedik wersiýa ýok, şol sebäple hil taýdan [[{{MediaWiki:Validationpage}}|'''barlanmadyk''']] bolmagy ahmal.", # Fuzzy
 	'revreview-oldrating' => 'Derejelendirildi:',
-	'revreview-quality' => '[[{{MediaWiki:Validationpage}}|Durnukly wersiýa]], <i>$2</i> senesinde [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} tassyklandy].
-[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Garalama] teklip edilen $3 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$3|üýtgeşmäni|üýtgeşmäni}}] öz içine alýar.',
-	'revreview-quality-i' => '[[{{MediaWiki:Validationpage}}|Durnukly wersiýa]], <i>$2</i> senesinde [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} tassyklandy].
-[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Garalamada] gözden geçirilmäge garaşýan [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Şablon/faýl üýtgeşmeleri] bar.',
+	'revreview-quality' => '[[{{MediaWiki:Validationpage}}|Durnukly wersiýa]], <i>$2</i> senesinde [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} tassyklandy]. 
+[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Garalama] teklip edilen $3 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$3|üýtgeşmäni|üýtgeşmäni}}] öz içine alýar.', # Fuzzy
+	'revreview-quality-i' => '[[{{MediaWiki:Validationpage}}|Durnukly wersiýa]], <i>$2</i> senesinde [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} tassyklandy]. 
+[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Garalamada] gözden geçirilmäge garaşýan [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Şablon/faýl üýtgeşmeleri] bar.', # Fuzzy
 	'revreview-quality-old' => 'Bu bir [[{{MediaWiki:Validationpage}}|ýokary hilli]] wersiýadyr ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} ählisini sanawla]), <i>$2</i> senesinde [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} tassylanyldy].
-Täze [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} üýtgeşmeler] edilen bolmagy ahmal.',
-	'revreview-quality-same' => 'Bu [[{{MediaWiki:Validationpage}}|durnukly wersiýadyr]], <i>$2</i> senesinde [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} tassyklanyldy].',
+Täze [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} üýtgeşmeler] edilen bolmagy ahmal.', # Fuzzy
+	'revreview-quality-same' => 'Bu [[{{MediaWiki:Validationpage}}|durnukly wersiýadyr]], <i>$2</i> senesinde [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} tassyklanyldy].', # Fuzzy
 	'revreview-quality-source' => 'Bu sahypanyň [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} ýokary hilli wersiýasy], <i>$2</i> senesinde [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} tassyklanylan], bu wersiýanyň esasyndadyr.',
-	'revreview-quality-title' => 'Bu ýokary hilli sahypadyr',
-	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|Äňedilen sahypa]]''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} garalamany gör]]",
-	'revreview-quick-basic-old' => "'''[[{{MediaWiki:Validationpage}}|Äňedilen sahypa]]''' [ garalamany gör]]",
-	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|Äňedilen sahypa]]'''",
+	'revreview-quality-title' => 'Bu ýokary hilli sahypadyr', # Fuzzy
+	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|Äňedilen sahypa]]''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} garalamany gör]]", # Fuzzy
+	'revreview-quick-basic-old' => "'''[[{{MediaWiki:Validationpage}}|Äňedilen sahypa]]''' [ garalamany gör]]", # Fuzzy
+	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|Äňedilen sahypa]]'''", # Fuzzy
 	'revreview-quick-invalid' => "'''Nädogry wersiýa ID-si'''",
-	'revreview-quick-none' => "'''[[{{MediaWiki:Validationpage}}|Häzirki wersiýa]]''' (gözden geçirilmedik)",
-	'revreview-quick-quality' => "'''[[{{MediaWiki:Validationpage}}|Ýokary hilli sahypa]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} garalamany gör]]",
-	'revreview-quick-quality-old' => "'''[[{{MediaWiki:Validationpage}}|Ýokary hilli sahypa]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} garalamany gör]]",
-	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|Ýokary hilli sahypa]]'''",
+	'revreview-quick-none' => "'''[[{{MediaWiki:Validationpage}}|Häzirki wersiýa]]''' (gözden geçirilmedik)", # Fuzzy
+	'revreview-quick-quality' => "'''[[{{MediaWiki:Validationpage}}|Ýokary hilli sahypa]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} garalamany gör]]", # Fuzzy
+	'revreview-quick-quality-old' => "'''[[{{MediaWiki:Validationpage}}|Ýokary hilli sahypa]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} garalamany gör]]", # Fuzzy
+	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|Ýokary hilli sahypa]]'''", # Fuzzy
 	'revreview-quick-see-basic' => "'''[[{{MediaWiki:Validationpage}}|Garalama]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} durnukly wersiýa]]
-[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} deňeşdir]]",
+[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} deňeşdir]]", # Fuzzy
 	'revreview-quick-see-quality' => "'''[[{{MediaWiki:Validationpage}}|Garalama]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} durnukly wersiýa]]
-[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} deňeşdir]]",
-	'revreview-source' => 'garalama çeşmesi',
-	'revreview-basic-title' => 'Bu äňedilen sahypadyr',
+[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} deňeşdir]]", # Fuzzy
+	'revreview-source' => 'garalama çeşmesi', # Fuzzy
+	'revreview-basic-title' => 'Bu äňedilen sahypadyr', # Fuzzy
 	'revreview-style' => 'Okalma derejesi',
-	'revreview-style-0' => 'Tassyklanylmadyk',
+	'revreview-style-0' => 'Tassyklanylmadyk', # Fuzzy
 	'revreview-style-1' => 'Kabul ederlik',
 	'revreview-style-2' => 'Gowy',
 	'revreview-style-3' => 'Gysga',
 	'revreview-style-4' => 'Saýlama',
 	'revreview-toggle-title' => 'jikme-jiklikleri görkez/gizle',
-	'revreview-visibility-synced' => "'''Bu sahypanyň täzelenen bir [[{{MediaWiki:Validationpage}}|durnukly wersiýasy]] bar; sahypanyň durnuklylyk sazlamalaryny [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} konfigurirläp bolýar].'''",
-	'revreview-visibility-outdated' => "'''Bu sahypanyň möwriti geçen bir [[{{MediaWiki:Validationpage}}|durnukly wersiýasy]] bar; sahypanyň durnuklylyk sazlamalaryny [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} konfigurirlemek mümkin].'''",
-	'revreview-visibility-nostable' => "'''Bu sahypanyň hiç hili [[{{MediaWiki:Validationpage}}|durnukly wersiýasy]] ýok;sahypanyň durnuklylyk sazlamalaryny [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} konfigurirlemek mümkin].'''",
+	'revreview-visibility-synced' => "'''Bu sahypanyň täzelenen bir [[{{MediaWiki:Validationpage}}|durnukly wersiýasy]] bar; sahypanyň durnuklylyk sazlamalaryny [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} konfigurirläp bolýar].'''", # Fuzzy
+	'revreview-visibility-outdated' => "'''Bu sahypanyň möwriti geçen bir [[{{MediaWiki:Validationpage}}|durnukly wersiýasy]] bar; sahypanyň durnuklylyk sazlamalaryny [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} konfigurirlemek mümkin].'''", # Fuzzy
+	'revreview-visibility-nostable' => "'''Bu sahypanyň hiç hili [[{{MediaWiki:Validationpage}}|durnukly wersiýasy]] ýok;sahypanyň durnuklylyk sazlamalaryny [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} konfigurirlemek mümkin].'''", # Fuzzy
 	'revreview-revnotfound' => 'Isleýän sahypaňyzyň köne wersiýasy tapdyrmady. Bu sahypa ýetmek üçin ulanan URL-ňizi barlaň.',
-	'right-autoreview' => 'Wersiýalary äňedilen diýip awtomatik belle',
-	'right-movestable' => 'Durnukly sahypalary geçir',
-	'right-review' => 'Wersiýalary äňedilen diýip belle',
-	'right-stablesettings' => 'Durnukly wersiýanyň nähili saýlanmalydygyny we görkezilmelidigini konfigurirle',
-	'right-validate' => 'Wersiýalary barlanan diýip belle',
+	'right-autoreview' => 'Wersiýalary äňedilen diýip awtomatik belle', # Fuzzy
+	'right-movestable' => 'Durnukly sahypalary geçir', # Fuzzy
+	'right-review' => 'Wersiýalary äňedilen diýip belle', # Fuzzy
+	'right-stablesettings' => 'Durnukly wersiýanyň nähili saýlanmalydygyny we görkezilmelidigini konfigurirle', # Fuzzy
+	'right-validate' => 'Wersiýalary barlanan diýip belle', # Fuzzy
 	'right-unreviewedpages' => '[[Special:UnreviewedPages|Gözden geçirilmedik sahypalaryň sanawyny]] görkez',
 	'rights-editor-revoke' => '[[$1]] üçin redaktor statusy yzyna alyndy',
-	'specialpages-group-quality' => 'Hil tassyklamasy',
-	'stable-logentry-config' => '$1 üçin durnukly wersiýalaşdyrma konfigurirlendi',
-	'stable-logentry-reset' => '$1 üçin durnukly wersiýalaşdyrmany başky ýagdaýa getir',
+	'specialpages-group-quality' => 'Hil tassyklamasy', # Fuzzy
+	'stable-logentry-config' => '$1 üçin durnukly wersiýalaşdyrma konfigurirlendi', # Fuzzy
+	'stable-logentry-reset' => '$1 üçin durnukly wersiýalaşdyrmany başky ýagdaýa getir', # Fuzzy
 	'stable-logpage' => 'Durnuklylyk gündeligi',
 	'stable-logpagetext' => 'Bu gündelik mazmunly sahypalaryň [[{{MediaWiki:Validationpage}}|durnukly wersiýa]] konfigurasiýasyndaky üýtgeşmeleri görkezýär.',
 	'revreview-filter-all' => 'ähli',
-	'revreview-filter-stable' => 'durnukly',
-	'revreview-statusfilter' => 'Status üýtgeşmesi:',
+	'revreview-filter-stable' => 'durnukly', # Fuzzy
+	'revreview-statusfilter' => 'Status üýtgeşmesi:', # Fuzzy
 	'revreview-filter-approved' => 'Tassyklanylan',
 	'revreview-filter-reapproved' => 'Gaýtadan tassyklanylan',
-	'revreview-filter-unapproved' => 'Tassyklanylmadyk',
+	'revreview-filter-unapproved' => 'Tassyklanylmadyk', # Fuzzy
 	'revreview-typefilter' => 'Tip:',
 	'revreview-filter-auto' => 'Awtomatik',
 	'revreview-filter-manual' => 'El bilen',
 	'revreview-levelfilter' => 'Dereje:',
 	'revreview-lev-all' => 'islendik',
-	'revreview-lev-basic' => 'äňedilen',
+	'revreview-lev-basic' => 'äňedilen', # Fuzzy
 	'revreview-lev-quality' => 'hil',
 	'revreview-lev-pristine' => 'başky',
 	'revreview-defaultfilter' => 'Gaýybana wersiýa:',
@@ -15089,17 +15120,17 @@ Täze [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diff
 	'revreview-def-stable' => 'durnukly',
 	'revreview-restriction-any' => 'islendik',
 	'revreview-restriction-none' => 'ýok',
-	'revreview-reviewlink' => 'gözden geçir',
+	'revreview-reviewlink' => 'gözden geçir', # Fuzzy
 	'revreview-unreviewedpage' => 'barlanmadyk sahypa',
-	'tooltip-ca-current' => 'Bu sahypanyň häzirki garalamasyny görkez',
-	'tooltip-ca-stable' => 'Bu sahypanyň durnukly wersiýasyny görkez',
+	'tooltip-ca-current' => 'Bu sahypanyň häzirki garalamasyny görkez', # Fuzzy
+	'tooltip-ca-stable' => 'Bu sahypanyň durnukly wersiýasyny görkez', # Fuzzy
 	'tooltip-ca-default' => 'Hil tassyklamasy sazlamalary',
-	'flaggedrevs-protect-legend' => 'Özgerdişleri neşir et',
+	'flaggedrevs-protect-legend' => 'Özgerdişleri neşir et', # Fuzzy
 	'flaggedrevs-protect-none' => 'Ähli ulanyjylara rugsat ber',
-	'revreview-locked-title' => 'Özgerdişler bu sahypada görkezilmänkä gözden geçirilmelidir.',
-	'revreview-unlocked-title' => 'Özgerdişleriň bu sahypada görkezilmänkä gözden geçirilmegi talap edilmeýär.',
-	'revreview-locked' => 'Özgerdişler bu sahypada görkezilmänkä [[{{MediaWiki:Validationpage}}|gözden geçirilmelidir]].',
-	'revreview-unlocked' => 'Özgerdişleriň bu sahypada görkezilmänkä [[{{MediaWiki:Validationpage}}|gözden geçirilmegi]] talap edilmeýär.',
+	'revreview-locked-title' => 'Özgerdişler bu sahypada görkezilmänkä gözden geçirilmelidir.', # Fuzzy
+	'revreview-unlocked-title' => 'Özgerdişleriň bu sahypada görkezilmänkä gözden geçirilmegi talap edilmeýär.', # Fuzzy
+	'revreview-locked' => 'Özgerdişler bu sahypada görkezilmänkä [[{{MediaWiki:Validationpage}}|gözden geçirilmelidir]].', # Fuzzy
+	'revreview-unlocked' => 'Özgerdişleriň bu sahypada görkezilmänkä [[{{MediaWiki:Validationpage}}|gözden geçirilmegi]] talap edilmeýär.', # Fuzzy
 	'log-show-hide-review' => 'gözden geçirme gündeligini $1',
 	'validationpage' => '{{ns:help}}:Sahypa barlamasy',
 );
@@ -15176,7 +15207,7 @@ $messages['tl'] = array(
 	'revreview-accuracy-3' => 'Sapat at tumpak ang mga pinagmulan',
 	'revreview-accuracy-4' => 'Naitampok (naitangi)',
 	'revreview-auto' => '(awtomatiko/kusa)',
-	'revreview-basic' => 'Ito ang pinakahuling [[{{MediaWiki:Validationpage}}|tanggap na bersyon]],
+	'revreview-basic' => 'Ito ang pinakahuling [[{{MediaWiki:Validationpage}}|tanggap na bersyon]],  
 [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} nasuri] noong <i>$2</i>.
 May {{PLURAL:$3|isang|mga}}  [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 na naghihintay na {{PLURAL:$3|pagbabago|pagbabagong}}] naghihintay na masuri.',
 	'revreview-basic-i' => 'Ito ang [[{{MediaWiki:Validationpage}}|tinanggap na bersyon]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} nasuri] noong <i>$2</i>.
@@ -15212,7 +15243,7 @@ Ang [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} matatag na bersyon] ay [{{fullurl:{{
 	'revreview-pending-basic' => 'Ang [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} tanggap na bersyon] ay [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} nasuri] noong <i>$2</i>. May {{PLURAL:$3|isang|mga}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 nakabinbing {{PLURAL:$3|pagbabago|mga pagbabago}}]ng naghihintay ng muling pagsusuri.',
 	'revreview-pending-quality' => 'Ang [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} tanggap na bersyon] ay [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} pinayagan] noong <i>$2</i>. May {{PLURAL:$3|isang|mga}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 nakabinbing {{PLURAL:$3|pagbabago|mga pagbabago}}]ng naghihintay ng muling pagsusuri.',
 	'revreview-pending-nosection' => 'Subuking tingnan ang [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} pinakahuling pagbabago], na kinabibilangan ng [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 nakabinbing {{PLURAL:$2|pagbabago|mga pagbabago}}], upang tingnan kung ang seksyon ay inilipat o binura.',
-	'revreview-noflagged' => "Walang [[{{MediaWiki:Validationpage}}|muling nasuring mga pagbabago]] ng pahinang ito, kaya maaaring '''hindi''' pa ito
+	'revreview-noflagged' => "Walang [[{{MediaWiki:Validationpage}}|muling nasuring mga pagbabago]] ng pahinang ito, kaya maaaring '''hindi''' pa ito 
 nasuri para sa pagsunod sa mga pamantayan.",
 	'revreview-oldrating' => 'Binigyan ito ng antas/halagang:',
 	'revreview-quality' => 'Ito ang pinakahuling [[{{MediaWiki:Validationpage}}|tanggap na bersyon]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} pinayagan] noong <i>$2</i>.
@@ -15246,9 +15277,9 @@ Maaaring may bagong nagawang [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{Med
 	'revreview-toggle-hide' => '(-)',
 	'revreview-toggle-title' => 'ipakita/itago ang mga detalye',
 	'revreview-visibility-synced' => "'''Ang pahinang ito ay may isang naisapanahon nang [[{{MediaWiki:Validationpage}}|matatag na bersyon]]; ang katakdaang pangkatatagan ay maaaring [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} iayos].'''",
-	'revreview-visibility-outdated' => "'''Ang pahinang ito ay may luma nang [[{{MediaWiki:Validationpage}}|matatag na bersyon]];
+	'revreview-visibility-outdated' => "'''Ang pahinang ito ay may luma nang [[{{MediaWiki:Validationpage}}|matatag na bersyon]]; 
 ang mga katakdaang pangkatatagan ng pahina ay maaaring [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} iayos].'''",
-	'revreview-visibility-nostable' => "'''Ang pahinang ito ay walang isang [[{{MediaWiki:Validationpage}}|matatag na bersyon]];
+	'revreview-visibility-nostable' => "'''Ang pahinang ito ay walang isang [[{{MediaWiki:Validationpage}}|matatag na bersyon]]; 
 ang mga katakdaang pangkatatagan ng pahina ay maaaring [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} ayusin].'''",
 	'revreview-revnotfound' => 'Hindi matagpuan ang hinihingi mong lumang pagbabago ng pahina.
 Pakisuri ang URL na ginamit para mapuntahan ang pahinang ito.',
@@ -15450,7 +15481,7 @@ Yeni [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffo
 	'revreview-visibility-synced' => "'''Bu sayfanın güncellenmiş bir [[{{MediaWiki:Validationpage}}|kararlı sürümü]] mevcut. Sayfa kararlılık ayarları [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} yapılandırılabilir].'''",
 	'revreview-visibility-outdated' => "'''Bu sayfanın tarihi geçmiş bir [[{{MediaWiki:Validationpage}}|kararlı sürümü]] mevcut. Sayfa kararlılık ayarları [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} yapılandırılabilir].'''",
 	'revreview-visibility-nostable' => "'''Bu sayfanın [[{{MediaWiki:Validationpage}}|kararlı bir sürümü]] bulunmuyor. Sayfa kararlılık ayarları [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} yapılandırılabilir].'''",
-	'revreview-revnotfound' => "İstemiş olduğunuz sayfanın eski sürümü bulunamadı.
+	'revreview-revnotfound' => "İstemiş olduğunuz sayfanın eski sürümü bulunamadı. 
 Lütfen bu sayfaya erişmek için kullandığınız URL'yi kontrol edin.",
 	'right-autoreview' => 'Kendi revizyonlarını otomatik olarak kontrol edilmiş işaretler',
 	'right-movestable' => 'Kararlı sürümleri olan sayfaları taşır',
@@ -15597,7 +15628,7 @@ $messages['uk'] = array(
 	'revreview-accuracy-4' => 'вибрана',
 	'revreview-auto' => '(автоматично)',
 	'revreview-basic' => 'Це [[{{MediaWiki:Validationpage}}|опублікована версія]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} перевірена] <i>$2</i>.
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|нерецензована зміна|нерецензовані зміни|нерецензованих змін}}] {{PLURAL:$3|очікує|очікують|очікують}} на перевірку.',
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|нерецензована зміна|нерецензовані зміни|нерецензованих змін}}] {{PLURAL:$3|очікує|очікують|очікують}} на перевірку.', # Fuzzy
 	'revreview-basic-i' => 'Це [[{{MediaWiki:Validationpage}}|опублікована версія]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} перевірена] <i>$2</i>.
 Є [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} зміни в шаблонах/файлах], що очікують на перевірку.',
 	'revreview-basic-old' => 'Це [[{{MediaWiki:Validationpage}}|перевірена]] версія ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} список усіх]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} затверджена] <i>$2</i>.
@@ -15720,6 +15751,9 @@ $messages['uk'] = array(
 	'revreview-unlocked-title' => 'Зміни цієї сторінки не потребують рецензування.',
 	'revreview-locked' => "'''Примітка:''' Редагування повинні бути [[{{MediaWiki:Validationpage}}|перевірені]] перед тим, як будуть показані читачам на цій сторінці.",
 	'revreview-unlocked' => "'''Примітка:''' Редагування не потребують [[{{MediaWiki:Validationpage}}|рецензування]] перед тим, як будуть показані читачам на цій сторінці.",
+	'revreview-ak-review' => 's',
+	'accesskey-ca-current' => 'v',
+	'accesskey-ca-stable' => 'c',
 	'log-show-hide-review' => '$1 журнал перевірок',
 	'validationpage' => '{{ns:help}}:Перевірка сторінки',
 );
@@ -15816,25 +15850,25 @@ $messages['vec'] = array(
 	'flaggedrevs-pref-UI-1' => 'Dòpara le icone picenine e un testo minio par mostra el stato de aprovassion de le pagine',
 	'prefs-flaggedrevs' => 'Modifica recension',
 	'prefs-flaggedrevs-ui' => 'Modifica recension',
-	'flaggedrevs-prefs-stable' => 'Mostra sempre par default la version publicà de le pagine (se ghe ne esiste una)',
+	'flaggedrevs-prefs-stable' => 'Mostra sempre par default la version publicà de le pagine (se ghe ne esiste una)', # Fuzzy
 	'flaggedrevs-prefs-watch' => "Tien d'ocio le pagine che riesamino",
 	'flaggedrevs-prefs-editdiffs' => 'Mostra le difarense dei canbiamenti in atesa quando te sì drio modificar le pagine',
 	'flaggedrevs-prefs-viewdiffs' => 'Mostra le difarense dei canbiamenti in atesa quando te sì drio vardar le ultime revision',
 	'flaggedrevs-hidereviewed' => '$1 modifighe revixionae',
 	'group-editor' => 'Contributori',
-	'group-editor-member' => 'Contributor',
+	'group-editor-member' => 'Contributor', # Fuzzy
 	'group-reviewer' => 'Revisori',
-	'group-reviewer-member' => 'Revisor',
+	'group-reviewer-member' => 'Revisor', # Fuzzy
 	'grouppage-editor' => '{{ns:project}}:Contributor',
 	'grouppage-reviewer' => '{{ns:project}}:Revisor',
 	'group-autoreview' => 'Autorevisori',
-	'group-autoreview-member' => 'autorevisor',
+	'group-autoreview-member' => 'autorevisor', # Fuzzy
 	'grouppage-autoreview' => '{{ns:project}}:Autorevisori',
 	'revreview-hist-draft' => 'revision mia controlà',
 	'revreview-hist-pending' => 'in atesa de verifica',
 	'revreview-hist-quality' => 'revision de qualità',
 	'revreview-hist-basic' => 'Revision verificà',
-	'revreview-hist-quality-user' => 'convalidà da [[User:$3|$3]]',
+	'revreview-hist-quality-user' => 'convalidà da [[User:$3|$3]]', # Fuzzy
 	'revreview-hist-basic-user' => 'verificà da [[User:$3|$3]]',
 	'revreview-hist-quality-auto' => 'aprovà automaticamente',
 	'revreview-hist-basic-auto' => 'verificà automaticamente',
@@ -15882,21 +15916,21 @@ Po' darse che sia stà fati [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{Medi
 	'revreview-depth-4' => 'De qualità',
 	'revreview-draft-title' => 'Le modifiche in sospeso le vien mostrà su sta pagina',
 	'revreview-edit' => 'Modìfega',
-	'revreview-editnotice' => "'''I to canbiamenti i sarà mostrà ai letori quando un utente autorizà el li gavarà verificà. ([[{{MediaWiki:Validationpage}}|Juta]])'''",
+	'revreview-editnotice' => "'''I to canbiamenti i sarà mostrà ai letori quando un utente autorizà el li gavarà verificà. ([[{{MediaWiki:Validationpage}}|Juta]])'''", # Fuzzy
 	'revreview-submitedit' => 'Invia modifiche',
 	'revreview-submitedit-title' => 'Invia le to modifiche par la revision',
 	'revreview-edited' => "'''I canbiamenti i sarà mostrà ai letori quando un utente autorizà el li gavarà verificà ([[{{MediaWiki:Validationpage}}|ajuto]]).'''
 
-Ghe xe [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|canbiamento|canbiamenti}}] in atesa ''(mostrà qua soto)''.",
+Ghe xe [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|canbiamento|canbiamenti}}] in atesa ''(mostrà qua soto)''.", # Fuzzy
 	'revreview-edited-section' => 'Torna a la sezion "[[#$1|$2]]" de la pagina.',
-	'revreview-newest-basic' => 'La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} version stabile] la xe stà [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} verificà] el <i>$2</i>. Ghe xe
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|canbiamento|canbiamenti}}] in atesa.',
+	'revreview-newest-basic' => 'La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} version stabile] la xe stà [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} verificà] el <i>$2</i>. Ghe xe  
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|canbiamento|canbiamenti}}] in atesa.', # Fuzzy
 	'revreview-newest-basic-i' => 'La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} version stabile] la xe stà [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} verificà] el <i>$2</i>. Ghe xe
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} canbiamenti a modèi e/o file] in atesa de verifica.',
-	'revreview-newest-quality' => 'La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} version stabile] la xe stà [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovà] el <i>$2</i>. Ghe xe
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|canbiamento|canbiamenti}}] in atesa.',
-	'revreview-newest-quality-i' => 'La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} version stabile] la xe stà [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovà] el <i>$2</i>. Ghe xe
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} canbiamenti a modèi e/o file] in atesa de verifica.',
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} canbiamenti a modèi e/o file] in atesa de verifica.', # Fuzzy
+	'revreview-newest-quality' => 'La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} version stabile] la xe stà [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovà] el <i>$2</i>. Ghe xe   
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|canbiamento|canbiamenti}}] in atesa.', # Fuzzy
+	'revreview-newest-quality-i' => 'La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} version stabile] la xe stà [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovà] el <i>$2</i>. Ghe xe 
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} canbiamenti a modèi e/o file] in atesa de verifica.', # Fuzzy
 	'revreview-pending-basic' => 'La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} version stabile] la xe stà [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} verificà] el <i>$2</i>. Ghe xe
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|canbiamento|canbiamenti}}] in atesa.',
 	'revreview-pending-quality' => 'La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} version stabile] la xe stà [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovà] el <i>$2</i>. Ghe xe
@@ -16121,9 +16155,9 @@ Täs voib olda uzid [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:fl
 	'revreview-style-4' => 'Valitud',
 	'revreview-toggle-title' => 'ozutada/peitta detalid',
 	'revreview-visibility-synced' => "Necil lehtpolel om udištadud [[{{MediaWiki:Validationpage}}|publikuidud versii]]; sab toižetada [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} publikuidud versijoiden ozutamižen järgendused].'''",
-	'revreview-visibility-outdated' => "'''Necil lehtpolel ei ole [[{{MediaWiki:Validationpage}}|publikoitud versijad]];
+	'revreview-visibility-outdated' => "'''Necil lehtpolel ei ole [[{{MediaWiki:Validationpage}}|publikoitud versijad]]; 
 sab toižetada [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}}-lehtpolen publikoičendan järgendused].'''",
-	'revreview-visibility-nostable' => "'''Necil lehtpolel ei ole [[{{MediaWiki:Validationpage}}|publikoitud versijad]];
+	'revreview-visibility-nostable' => "'''Necil lehtpolel ei ole [[{{MediaWiki:Validationpage}}|publikoitud versijad]]; 
 sab toižetada [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}}-lehtpolen publikoičendan järgendused].'''",
 	'revreview-revnotfound' => 'Ei voi löuta lehtpolen edelišt versijad. Olgat hüväd, kodvgat, om-ik oiged se kosketuz, kudamban tö olet kävutanuded necile lehtpolele tuldes.',
 	'right-autoreview' => 'Znamoita avtomatižikš lehtpoliden versijad kut arvosteldud',
@@ -16287,7 +16321,7 @@ The [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Phiên bản ổn định] đã đư
 [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Phiên bản ổn định] đã được [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} chấp nhận] vào <i>$2</i>.',
 	'revreview-pending-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Phiên bản ổn định] đã được [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} xem qua] vào <i>$2</i>. Hiện có [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 thay đổi] đang chờ được duyệt.',
 	'revreview-pending-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Phiên bản ổn định] đã được [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} chấp nhận] vào <i>$2</i>. Hiện có [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 thay đổi] đang chờ được duyệt.',
-	'revreview-pending-nosection' => 'Hãy thử xem [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} phiên bản gần đây nhất] gồm có
+	'revreview-pending-nosection' => 'Hãy thử xem [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} phiên bản gần đây nhất] gồm có 
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 thay đổi đang chờ] để biết phần này đã được di chuyển hoặc xóa hay không.',
 	'revreview-noflagged' => "Không có [[{{MediaWiki:Validationpage}}|phiên bản đã được duyệt]] của trang này, do đó có thể '''chưa''' ai kiểm tra nó có đủ chuẩn hay không.",
 	'revreview-oldrating' => 'Được xếp hạng:',
@@ -16383,72 +16417,72 @@ Hiện có [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs
  */
 $messages['vo'] = array(
 	'editor' => 'Redakan',
-	'flaggedrevs-desc' => 'Dälon redakanes/krütanes ad zepön fomamis/votükamis ed ad fümöfükön padis',
+	'flaggedrevs-desc' => 'Dälon redakanes/krütanes ad zepön fomamis/votükamis ed ad fümöfükön padis', # Fuzzy
 	'group-editor' => 'Redakans',
-	'group-editor-member' => 'Redakan',
+	'group-editor-member' => 'Redakan', # Fuzzy
 	'group-reviewer' => 'Krütans',
-	'group-reviewer-member' => 'Krütan',
+	'group-reviewer-member' => 'Krütan', # Fuzzy
 	'grouppage-editor' => '{{ns:project}}:Redakan',
 	'grouppage-reviewer' => '{{ns:project}}:Krütan',
 	'revreview-hist-quality' => 'kalietakrüt',
-	'revreview-hist-basic' => 'fomam pelogöl',
-	'review-diff2stable' => 'Votükams vü fomam fümöfik e fomam anuik',
-	'review-logentry-app' => 'ekrüton padi: [[$1]]',
-	'review-logentry-dis' => 'ecödon fomami pada: [[$1]] läs gudiki',
+	'revreview-hist-basic' => 'fomam pelogöl', # Fuzzy
+	'review-diff2stable' => 'Votükams vü fomam fümöfik e fomam anuik', # Fuzzy
+	'review-logentry-app' => 'ekrüton padi: [[$1]]', # Fuzzy
+	'review-logentry-dis' => 'ecödon fomami pada: [[$1]] läs gudiki', # Fuzzy
 	'review-logentry-id' => 'dientifakot fomama: $2',
-	'review-logpage' => 'Lised yegedikrütamas',
-	'review-logpagetext' => 'Is palisedons votükams [[{{MediaWiki:Validationpage}}|zepastada]] padas ninädilabik.',
+	'review-logpage' => 'Lised yegedikrütamas', # Fuzzy
+	'review-logpagetext' => 'Is palisedons votükams [[{{MediaWiki:Validationpage}}|zepastada]] padas ninädilabik.', # Fuzzy
 	'reviewer' => 'Krütan',
-	'revreview-accuracy-0' => 'No pezepöl',
+	'revreview-accuracy-0' => 'No pezepöl', # Fuzzy
 	'revreview-accuracy-3' => 'Labü fonäts',
 	'revreview-auto' => '(itjäfidik)',
 	'revreview-basic' => 'Fomam at binon [[{{MediaWiki:Validationpage}}|fomam pelogöl lätik]], kel
 [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} päzepon] tü <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Riget]
 kanon [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} pavotükön]; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$3|votükam|votükams}} $3] nog
-{{PLURAL:$3|nedon|nedons}} pakrütön.',
-	'revreview-current' => 'Riget',
+{{PLURAL:$3|nedon|nedons}} pakrütön.', # Fuzzy
+	'revreview-current' => 'Riget', # Fuzzy
 	'revreview-depth' => 'Dib',
-	'revreview-depth-0' => 'No pezepöl',
+	'revreview-depth-0' => 'No pezepöl', # Fuzzy
 	'revreview-depth-1' => 'Staböfik',
 	'revreview-depth-2' => 'Zänedik',
 	'revreview-depth-3' => 'Löpik',
 	'revreview-edit' => 'Redakön',
 	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Fomam pelogöl lätik]
 ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} lisedön valikis]) [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} päzepon]
-tü <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$3|votükam|votükams}} $3] {{PLURAL:$3|nedon|nedons}} pakrütön.',
+tü <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$3|votükam|votükams}} $3] {{PLURAL:$3|nedon|nedons}} pakrütön.', # Fuzzy
 	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Krüt lätik tefü kaliet]
 ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} lisedön valikis]) [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} päzepon]
-tü <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$3|votükam|votükams}} $3] {{PLURAL:$3|nedon|nedons}} pakrütön.',
-	'revreview-noflagged' => "No dabinons fomams pekrütöl pada at; ba '''no''' [[{{MediaWiki:Validationpage}}|pekontrolon]] tefü kaliet.",
+tü <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$3|votükam|votükams}} $3] {{PLURAL:$3|nedon|nedons}} pakrütön.', # Fuzzy
+	'revreview-noflagged' => "No dabinons fomams pekrütöl pada at; ba '''no''' [[{{MediaWiki:Validationpage}}|pekontrolon]] tefü kaliet.", # Fuzzy
 	'revreview-oldrating' => 'Pädadilädon as:',
 	'revreview-quality' => 'Is logoy [[{{MediaWiki:Validationpage}}|krüti lätik tefü kaliet]], kel
 [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} päzepon] tü <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Riget]
 kanon [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} pavotükön]; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$3|votükam|votükams}} $3]
-{{PLURAL:$3|nedon|nedons}} pakrütön.',
-	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|Pelogon]]''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} logön rigeti]]",
-	'revreview-quick-none' => "'''Anuik''' (nen fomams pekrütöl)",
-	'revreview-quick-quality' => "'''[[{{MediaWiki:Validationpage}}|Kaliet]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} logön rigeti]]",
+{{PLURAL:$3|nedon|nedons}} pakrütön.', # Fuzzy
+	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|Pelogon]]''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} logön rigeti]]", # Fuzzy
+	'revreview-quick-none' => "'''Anuik''' (nen fomams pekrütöl)", # Fuzzy
+	'revreview-quick-quality' => "'''[[{{MediaWiki:Validationpage}}|Kaliet]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} logön rigeti]]", # Fuzzy
 	'revreview-quick-see-basic' => "'''Riget''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} logön yegedi]]
-[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} leigodön]]",
+[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} leigodön]]", # Fuzzy
 	'revreview-quick-see-quality' => "'''Riget''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} logön yegedi]]
-[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} leigodön]]",
+[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} leigodön]]", # Fuzzy
 	'revreview-source' => 'Logön fonäti',
 	'revreview-style' => 'Reidov',
-	'revreview-style-0' => 'No pezepöl',
+	'revreview-style-0' => 'No pezepöl', # Fuzzy
 	'revreview-style-1' => 'Zepabik',
 	'revreview-style-2' => 'Gudik',
 	'revreview-style-3' => 'Naböfik',
-	'revreview-visibility-synced' => 'Pad at labon [[{{MediaWiki:Validationpage}}|fomami fümöfik]], kela parametem kanon [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} pafümetön].',
+	'revreview-visibility-synced' => 'Pad at labon [[{{MediaWiki:Validationpage}}|fomami fümöfik]], kela parametem kanon [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} pafümetön].', # Fuzzy
 	'revreview-revnotfound' => 'Padafomam büik fa ol peflagöl no petuvon. Kontrololös, begö! ladeti-URL, keli egebol ad logön padi at.',
 	'rights-editor-revoke' => 'emoükon redakanastadi gebana: [[$1]]',
-	'stable-logentry-config' => '„Fomam fümöfik“ pemögükon pro $1',
-	'stable-logentry-reset' => 'Vagükön lisedi: „fomams fümöfik“ pro $1',
+	'stable-logentry-config' => '„Fomam fümöfik“ pemögükon pro $1', # Fuzzy
+	'stable-logentry-reset' => 'Vagükön lisedi: „fomams fümöfik“ pro $1', # Fuzzy
 	'stable-logpage' => 'Jenotalised fomama fümöfik',
-	'stable-logpagetext' => 'Is palisedons votükams parametas [[{{MediaWiki:Validationpage}}|fomama fümöfik]] padas ninädilabik.',
+	'stable-logpagetext' => 'Is palisedons votükams parametas [[{{MediaWiki:Validationpage}}|fomama fümöfik]] padas ninädilabik.', # Fuzzy
 	'revreview-filter-all' => 'valik',
 	'revreview-restriction-none' => 'nonik',
-	'tooltip-ca-current' => 'Logön rigeti anuik pada at',
-	'tooltip-ca-stable' => 'Logön fomami fümöfik pada at',
+	'tooltip-ca-current' => 'Logön rigeti anuik pada at', # Fuzzy
+	'tooltip-ca-stable' => 'Logön fomami fümöfik pada at', # Fuzzy
 	'tooltip-ca-default' => 'Paramets tefü kalietitäxet',
 	'validationpage' => '{{ns:help}}:Padikontrolam',
 );
@@ -16505,36 +16539,37 @@ $messages['yi'] = array(
 	'revreview-restriction-none' => 'קיין',
 );
 
-/** Cantonese (粵語) */
+/** Cantonese (粵語)
+ */
 $messages['yue'] = array(
 	'editor' => '編輯',
 	'flaggedrevs' => '加咗旗嘅修訂',
-	'flaggedrevs-desc' => '畀編輯者同埋評論家個能力去核實修訂同埋穩定化頁',
-	'flaggedrevs-pref-UI-0' => '用詳細穩定版用戶界面',
-	'flaggedrevs-pref-UI-1' => '用簡單穩定版用戶界面',
-	'flaggedrevs-prefs-stable' => '總係預設顯示穩定版內容 (如果有一個嘅話)',
+	'flaggedrevs-desc' => '畀編輯者同埋評論家個能力去核實修訂同埋穩定化頁', # Fuzzy
+	'flaggedrevs-pref-UI-0' => '用詳細穩定版用戶界面', # Fuzzy
+	'flaggedrevs-pref-UI-1' => '用簡單穩定版用戶界面', # Fuzzy
+	'flaggedrevs-prefs-stable' => '總係預設顯示穩定版內容 (如果有一個嘅話)', # Fuzzy
 	'flaggedrevs-prefs-watch' => '加入我複審過嘅到我張監視清單度',
 	'group-editor' => '編輯',
-	'group-editor-member' => '編輯',
+	'group-editor-member' => '編輯', # Fuzzy
 	'group-reviewer' => '評論家',
-	'group-reviewer-member' => '評論家',
+	'group-reviewer-member' => '評論家', # Fuzzy
 	'grouppage-editor' => '{{ns:project}}:編者',
 	'grouppage-reviewer' => '{{ns:project}}:評論家',
-	'revreview-hist-draft' => '草稿修訂',
+	'revreview-hist-draft' => '草稿修訂', # Fuzzy
 	'revreview-hist-quality' => '質素修訂',
-	'revreview-hist-basic' => '視察修訂',
-	'revreview-hist-quality-user' => '由[[User:$3|$3]]確認]過',
-	'revreview-hist-basic-user' => '由[[User:$3|$3]]視察]過',
-	'review-diff2stable' => '同上次穩定修訂嘅差異',
-	'review-logentry-app' => '視察咗[[$1]]',
-	'review-logentry-dis' => '折舊咗[[$1]]嘅版本',
+	'revreview-hist-basic' => '視察修訂', # Fuzzy
+	'revreview-hist-quality-user' => '由[[User:$3|$3]]確認]過', # Fuzzy
+	'revreview-hist-basic-user' => '由[[User:$3|$3]]視察]過', # Fuzzy
+	'review-diff2stable' => '同上次穩定修訂嘅差異', # Fuzzy
+	'review-logentry-app' => '視察咗[[$1]]', # Fuzzy
+	'review-logentry-dis' => '折舊咗[[$1]]嘅版本', # Fuzzy
 	'review-logentry-id' => '修訂 ID: $2',
-	'review-logentry-diff' => '同穩定版嘅差異',
+	'review-logentry-diff' => '同穩定版嘅差異', # Fuzzy
 	'review-logpage' => '文章複審記錄',
-	'review-logpagetext' => '呢個係內容版[[{{MediaWiki:Validationpage}}|批准]]狀態嘅更改記錄。',
+	'review-logpagetext' => '呢個係內容版[[{{MediaWiki:Validationpage}}|批准]]狀態嘅更改記錄。', # Fuzzy
 	'reviewer' => '評論家',
 	'revreview-accuracy' => '準確度',
-	'revreview-accuracy-0' => '未批准',
+	'revreview-accuracy-0' => '未批准', # Fuzzy
 	'revreview-accuracy-1' => '視察過',
 	'revreview-accuracy-2' => '準確',
 	'revreview-accuracy-3' => '有好來源',
@@ -16542,90 +16577,90 @@ $messages['yue'] = array(
 	'revreview-auto' => '(自動)',
 	'revreview-basic' => '呢個係最後[[{{MediaWiki:Validationpage}}|視察過嘅]]修訂，
 	響<i>$2</i>[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 批准]。
-	[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} 草稿]有[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3次更改]等緊去複審。',
+	[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} 草稿]有[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3次更改]等緊去複審。', # Fuzzy
 	'revreview-basic-i' => '呢個係最後[[{{MediaWiki:Validationpage}}|視察過嘅]]修訂，
 	響<i>$2</i>[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 批准]。
-	[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} 草稿]有[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 模/圖更改]等緊去複審。',
+	[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} 草稿]有[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 模/圖更改]等緊去複審。', # Fuzzy
 	'revreview-basic-old' => '呢個係最後[[{{MediaWiki:Validationpage}}|視察過嘅]]修訂（[{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} 列示全部]），
 	響<i>$2</i>[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 批准]。
-	新[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 更改]可能會做咗。',
+	新[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 更改]可能會做咗。', # Fuzzy
 	'revreview-basic-same' => '呢個係最後[[{{MediaWiki:Validationpage}}|視察過嘅]]修訂（[{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} 列示全部]），
-	響<i>$2</i>[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 批准]。',
-	'revreview-basic-source' => '一個[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} 視察版]嘅頁，響<i>$2</i>[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 批准]，基於呢次修訂。',
-	'revreview-current' => '草稿',
+	響<i>$2</i>[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 批准]。', # Fuzzy
+	'revreview-basic-source' => '一個[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} 視察版]嘅頁，響<i>$2</i>[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 批准]，基於呢次修訂。', # Fuzzy
+	'revreview-current' => '草稿', # Fuzzy
 	'revreview-depth' => '深度',
-	'revreview-depth-0' => '未批准',
+	'revreview-depth-0' => '未批准', # Fuzzy
 	'revreview-depth-1' => '基本',
 	'revreview-depth-2' => '中等',
 	'revreview-depth-3' => '高',
 	'revreview-depth-4' => '正',
-	'revreview-draft-title' => '草稿文章',
-	'revreview-edit' => '編輯草稿',
+	'revreview-draft-title' => '草稿文章', # Fuzzy
+	'revreview-edit' => '編輯草稿', # Fuzzy
 	'revreview-edited' => "'''啲編輯響會整合到[[{{MediaWiki:Validationpage}}|穩定版]]當一位整好嘅用戶複審過佢哋。'''
-'''個''草稿''響下面度列示。''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2次更改等緊去]複審。",
+'''個''草稿''響下面度列示。''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2次更改等緊去]複審。", # Fuzzy
 	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 最後視察過嘅修訂]
 	([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} 列示全部]) 響<i>$2</i>曾經[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 批准過嘅]。
-	[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3次更改]需要複審。',
+	[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3次更改]需要複審。', # Fuzzy
 	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 最後視察過嘅修訂]
 	([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} 列示全部]) 響<i>$2</i>曾經[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 批准過嘅]。
-	[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 模/圖更改]需要複審',
+	[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 模/圖更改]需要複審', # Fuzzy
 	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 最後有質素嘅修訂]
 	([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} 列示全部]) 響<i>$2</i>曾經[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 批准過嘅]。
-	[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3次更改]需要複審。',
+	[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3次更改]需要複審。', # Fuzzy
 	'revreview-newest-quality-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 最後有質素嘅修訂]
 	([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} 列示全部]) 響<i>$2</i>曾經[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 批准過嘅]。
-	[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $模/圖更改]需要複審。',
-	'revreview-noflagged' => "呢一版無複審過嘅修訂，佢可能'''未'''[[{{MediaWiki:Validationpage}}|檢查]]質量。",
+	[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $模/圖更改]需要複審。', # Fuzzy
+	'revreview-noflagged' => "呢一版無複審過嘅修訂，佢可能'''未'''[[{{MediaWiki:Validationpage}}|檢查]]質量。", # Fuzzy
 	'revreview-oldrating' => '曾經評定為:',
 	'revreview-quality' => '呢個係最後[[{{MediaWiki:Validationpage}}|有質素嘅]]修訂，
 	響<i>$2</i>[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 批准]。
-	[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} 草稿]有[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3次更改]等緊去複審。',
+	[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} 草稿]有[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3次更改]等緊去複審。', # Fuzzy
 	'revreview-quality-i' => '呢個係最後[[{{MediaWiki:Validationpage}}|有質素嘅]]修訂，
 	響<i>$2</i>[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 批准]。
-	[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} 草稿]有[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 模/圖更改]等緊去複審。',
+	[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} 草稿]有[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 模/圖更改]等緊去複審。', # Fuzzy
 	'revreview-quality-old' => '呢個係[[{{MediaWiki:Validationpage}}|有質素嘅]]修訂 ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} 列示全部])，響<i>$2</i>[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 批准]。
-	新[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 更改]可能會做咗。',
+	新[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 更改]可能會做咗。', # Fuzzy
 	'revreview-quality-same' => '呢個係最後[[{{MediaWiki:Validationpage}}|有質素嘅]]修訂（[{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} 列示全部]），
-	響<i>$2</i>[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 批准]。',
+	響<i>$2</i>[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 批准]。', # Fuzzy
 	'revreview-quality-source' => '一個[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} 有質素嘅]頁，響<i>$2</i>[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 批准]，基於呢次修訂。',
-	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|視察過嘅文章]]''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 睇草稿]]",
-	'revreview-quick-basic-old' => "'''[[{{MediaWiki:Validationpage}}|視察過嘅文章]]''' [ 睇草稿]]",
-	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|視察過嘅文章]]'''",
+	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|視察過嘅文章]]''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 睇草稿]]", # Fuzzy
+	'revreview-quick-basic-old' => "'''[[{{MediaWiki:Validationpage}}|視察過嘅文章]]''' [ 睇草稿]]", # Fuzzy
+	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|視察過嘅文章]]'''", # Fuzzy
 	'revreview-quick-invalid' => "'''無效嘅修訂ID'''",
-	'revreview-quick-none' => "'''現時嘅'''。無已複審嘅修訂。",
-	'revreview-quick-quality' => "'''[[{{MediaWiki:Validationpage}}|有質素嘅文章]]'''。[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 睇草稿]]",
-	'revreview-quick-quality-old' => "'''[[{{MediaWiki:Validationpage}}|有質素嘅文章]]'''。[[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} 睇草稿]]",
-	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|有質素嘅文章]]'''",
-	'revreview-quick-see-basic' => "'''草稿'''。[[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 睇文]] [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 比較]]",
-	'revreview-quick-see-quality' => "'''草稿'''。[[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 睇文]] [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 比較]]",
-	'revreview-source' => '草稿原始碼',
-	'revreview-basic-title' => '視察過嘅文',
+	'revreview-quick-none' => "'''現時嘅'''。無已複審嘅修訂。", # Fuzzy
+	'revreview-quick-quality' => "'''[[{{MediaWiki:Validationpage}}|有質素嘅文章]]'''。[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 睇草稿]]", # Fuzzy
+	'revreview-quick-quality-old' => "'''[[{{MediaWiki:Validationpage}}|有質素嘅文章]]'''。[[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} 睇草稿]]", # Fuzzy
+	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|有質素嘅文章]]'''", # Fuzzy
+	'revreview-quick-see-basic' => "'''草稿'''。[[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 睇文]] [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 比較]]", # Fuzzy
+	'revreview-quick-see-quality' => "'''草稿'''。[[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 睇文]] [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 比較]]", # Fuzzy
+	'revreview-source' => '草稿原始碼', # Fuzzy
+	'revreview-basic-title' => '視察過嘅文', # Fuzzy
 	'revreview-style' => '可讀性',
-	'revreview-style-0' => '未批准',
+	'revreview-style-0' => '未批准', # Fuzzy
 	'revreview-style-1' => '可接受',
 	'revreview-style-2' => '好',
 	'revreview-style-3' => '簡潔',
 	'revreview-style-4' => '正',
 	'revreview-toggle-title' => '顯示/隱藏細節',
-	'revreview-visibility-synced' => "'''呢一版有一個[[{{MediaWiki:Validationpage}}|穩定版]]；佢嘅設定可以[{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} 較]。'''",
+	'revreview-visibility-synced' => "'''呢一版有一個[[{{MediaWiki:Validationpage}}|穩定版]]；佢嘅設定可以[{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} 較]。'''", # Fuzzy
 	'revreview-revnotfound' => '呢版無你要搵嗰個版本喎。
 唔該睇下條網址啱唔啱。',
-	'right-autoreview' => '自動標示修訂做已視察過嘅',
-	'right-movestable' => '搬穩定頁',
-	'right-review' => '標示修訂做已視察嘅',
-	'right-stablesettings' => '設定如何將穩定版選擇同顯示',
-	'right-validate' => '標示修訂做已確認嘅',
+	'right-autoreview' => '自動標示修訂做已視察過嘅', # Fuzzy
+	'right-movestable' => '搬穩定頁', # Fuzzy
+	'right-review' => '標示修訂做已視察嘅', # Fuzzy
+	'right-stablesettings' => '設定如何將穩定版選擇同顯示', # Fuzzy
+	'right-validate' => '標示修訂做已確認嘅', # Fuzzy
 	'right-unreviewedpages' => '去睇未複審版嘅表',
 	'rights-editor-revoke' => '由[[$1]]拎走編者狀態',
-	'specialpages-group-quality' => '品質保證',
-	'stable-logentry-config' => '設定咗$1嘅穩定版本',
-	'stable-logentry-reset' => '已重設$1嘅穩定版本',
+	'specialpages-group-quality' => '品質保證', # Fuzzy
+	'stable-logentry-config' => '設定咗$1嘅穩定版本', # Fuzzy
+	'stable-logentry-reset' => '已重設$1嘅穩定版本', # Fuzzy
 	'stable-logpage' => '穩定記錄',
 	'stable-logpagetext' => '呢個係[[{{MediaWiki:Validationpage}}|穩定版]]設定內容頁嘅更改記錄。',
-	'tooltip-ca-current' => '去睇呢一版嘅現時草稿',
-	'tooltip-ca-stable' => '去睇呢一版嘅穩定版',
+	'tooltip-ca-current' => '去睇呢一版嘅現時草稿', # Fuzzy
+	'tooltip-ca-stable' => '去睇呢一版嘅穩定版', # Fuzzy
 	'tooltip-ca-default' => '品質保證設定',
-	'validationpage' => '{{ns:help}}:文章確認',
+	'validationpage' => '{{ns:help}}:文章確認', # Fuzzy
 );
 
 /** Zeeuws (Zeêuws)
@@ -17041,4 +17076,3 @@ $messages['zh-tw'] = array(
 	'revreview-revnotfound' => '您請求的更早版本的修訂記錄沒有找到。
 請檢查您請求本頁面用的URL是否正確。',
 );
-

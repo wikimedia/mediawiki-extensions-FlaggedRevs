@@ -145,6 +145,8 @@ Used on Special:Stabilization.',
 Used on Special:Stabilization.',
 	'stabilize_denied' => '{{Flagged Revs}}
 Used on Special:Stabilization. Generic permission error.',
+	'stabilize_protect_quota' => '{{Flagged Revs}}
+{{notranslate}}',
 	'stabilize-expiring' => "{{Flagged Revs}}
 Used on Special:Stabilization.
 
@@ -204,8 +206,8 @@ $messages['aln'] = array(
 	'stabilization-page' => 'Emri i faqes:',
 	'stabilization-leg' => 'Paneli i Konfirmo publikuar versionin',
 	'stabilization-def' => 'Revision shfaqet në faqe të parë default',
-	'stabilization-def1' => 'Versioni i publikuar, e nëse nuk është i pranishëm, atëherë / draftin aktual',
-	'stabilization-def2' => 'Aktuale / rishikim projekt',
+	'stabilization-def1' => 'Versioni i publikuar, e nëse nuk është i pranishëm, atëherë / draftin aktual', # Fuzzy
+	'stabilization-def2' => 'Aktuale / rishikim projekt', # Fuzzy
 	'stabilization-restrict' => 'Rishikimi / auto-përmbledhje kufizime',
 	'stabilization-restrict-none' => 'Nuk ka kufizime shtesë',
 	'stabilization-submit' => 'Konfirmoj',
@@ -331,15 +333,15 @@ $messages['arc'] = array(
 $messages['arz'] = array(
 	'stabilization-tab' => 'تج',
 	'stabilization' => 'تثبيت الصفحة',
-	'stabilization-text' => "'''غيّر التظبيطات اللى تحت علشان تظبط ازاى تختار و تبيّن النسخه المنشوره بتاعة [[:$1|$1]].'''",
+	'stabilization-text' => "'''غيّر التظبيطات اللى تحت علشان تظبط ازاى تختار و تبيّن النسخه المنشوره بتاعة [[:$1|$1]].'''", # Fuzzy
 	'stabilization-perm' => 'حسابك ما عندوش اذن علشان يغيّر ظبطة النسخه المنشوره.
 هنا التظبيطات بتاعة دلوقتى لـ [[:$1|$1]]:',
 	'stabilization-page' => 'اسم الصفحة:',
 	'stabilization-leg' => 'اتأكيد من تظبيطات النسخه المنشوره',
 	'stabilization-def' => 'المراجعه المعروضه عند رؤيه الصفحه افتراضيا',
-	'stabilization-def1' => 'المراجعه المنشوره; لو مش موجوده, يبقى المراجعه بتاعة دلوقتى/المسوده',
-	'stabilization-def2' => 'المراجعه الحالية/المسودة',
-	'stabilization-restrict' => 'ضوابط المراجعه التلقائية',
+	'stabilization-def1' => 'المراجعه المنشوره; لو مش موجوده, يبقى المراجعه بتاعة دلوقتى/المسوده', # Fuzzy
+	'stabilization-def2' => 'المراجعه الحالية/المسودة', # Fuzzy
+	'stabilization-restrict' => 'ضوابط المراجعه التلقائية', # Fuzzy
 	'stabilization-restrict-none' => 'لا ضوابط إضافية',
 	'stabilization-submit' => 'تأكيد',
 	'stabilization-notexists' => 'لا توجد صفحه بالاسم "[[:$1|$1]]".
@@ -356,7 +358,7 @@ $messages['arz'] = array(
 	'stabilize_expiry_invalid' => 'تاريخ انتهاء غير صحيح.',
 	'stabilize_expiry_old' => 'تاريخ الانتهاء هذا مر بالفعل.',
 	'stabilize-expiring' => 'تنتهى فى $1 (UTC)',
-	'stabilization-review' => 'راجع النسخه الحالية',
+	'stabilization-review' => 'راجع النسخه الحالية', # Fuzzy
 );
 
 /** Asturian (asturianu)
@@ -442,14 +444,14 @@ $messages['bar'] = array(
 $messages['bcc'] = array(
 	'stabilization-tab' => 'وت',
 	'stabilization' => '‏ثبات کتن صفحه',
-	'stabilization-text' => "''''عوض کن تنظیمات جهلی په شرکتن شی چه چطورکا نسخه ثابت  [[:$1|$1]]  انتخاب و پیش دارگ بیت''''",
+	'stabilization-text' => "''''عوض کن تنظیمات جهلی په شرکتن شی چه چطورکا نسخه ثابت  [[:$1|$1]]  انتخاب و پیش دارگ بیت''''", # Fuzzy
 	'stabilization-perm' => 'شمی حساب اجازت به عوض کتن تنظیمات نسخه ثابت نیست.
-ادان هنوکین تنظیمات په  [[:$1|$1]]:',
+ادان هنوکین تنظیمات په  [[:$1|$1]]:', # Fuzzy
 	'stabilization-page' => 'نام صفحه:',
-	'stabilization-leg' => 'تنظیمات نسخه ثابت تایید کن',
+	'stabilization-leg' => 'تنظیمات نسخه ثابت تایید کن', # Fuzzy
 	'stabilization-def' => 'بازبینی ته پیش فرضین دیستن جاهکیت',
-	'stabilization-def1' => 'ثابتین بازبینی; اگر نیست، گوڈء هنوکین',
-	'stabilization-def2' => 'هنوکین بازبینی',
+	'stabilization-def1' => 'ثابتین بازبینی; اگر نیست، گوڈء هنوکین', # Fuzzy
+	'stabilization-def2' => 'هنوکین بازبینی', # Fuzzy
 	'stabilization-submit' => 'تایید',
 	'stabilization-notexists' => 'صفحه ای په نام "[[:$1|$1]]" نیست.
 هچ تنظیمی ممکن نهنت.',
@@ -459,7 +461,7 @@ $messages['bcc'] = array(
 	'stabilization-expiry' => 'هلیت:',
 	'stabilization-def-short' => 'پیش فرض',
 	'stabilization-def-short-0' => 'هنوکین',
-	'stabilization-def-short-1' => 'ثابت',
+	'stabilization-def-short-1' => 'ثابت', # Fuzzy
 	'stabilize_expiry_invalid' => 'نامعتبرین تاریخ هلگ',
 	'stabilize_expiry_old' => 'ای زمان انقضا هنو هلتت.',
 	'stabilize-expiring' => 'وهدی هلیت  $1 (UTC)',
@@ -554,10 +556,10 @@ $messages['be-tarask'] = array(
 $messages['bg'] = array(
 	'stabilization' => 'Устойчивост на страницата',
 	'stabilization-page' => 'Име на страницата:',
-	'stabilization-leg' => 'Потвърждение на настройките за устойчива версия',
+	'stabilization-leg' => 'Потвърждение на настройките за устойчива версия', # Fuzzy
 	'stabilization-def' => 'Версия, показвана по подразбиране',
-	'stabilization-def1' => 'Устойчивата версия; ако няма такава, тогава текущата',
-	'stabilization-def2' => 'Текущата версия или чернова',
+	'stabilization-def1' => 'Устойчивата версия; ако няма такава, тогава текущата', # Fuzzy
+	'stabilization-def2' => 'Текущата версия или чернова', # Fuzzy
 	'stabilization-restrict-none' => 'Няма допълнителни ограничения',
 	'stabilization-submit' => 'Потвърждаване',
 	'stabilization-notexists' => 'Не съществува страница „[[:$1|$1]]“. Не е възможно конфигуриране.',
@@ -569,7 +571,7 @@ $messages['bg'] = array(
 	'stabilization-othertime' => 'Друго време:',
 	'stabilization-def-short' => 'По подразбиране',
 	'stabilization-def-short-0' => 'Текуща',
-	'stabilization-def-short-1' => 'Устойчива',
+	'stabilization-def-short-1' => 'Устойчива', # Fuzzy
 	'stabilize_page_invalid' => 'Заглавието на целевата страница е невалидно.',
 	'stabilize_page_notexists' => 'Целевата страница не съществува.',
 	'stabilize_page_unreviewable' => 'Целевата страница не е от именно пространство, подлежащо на рецензия',
@@ -750,7 +752,8 @@ $messages['ce'] = array(
 	'stabilize-expiring' => 'чакхйолу $1 (UTC)',
 );
 
-/** Sorani Kurdish (کوردی) */
+/** Sorani Kurdish (کوردی)
+ */
 $messages['ckb'] = array(
 	'stabilization-submit' => 'پشتدار بکەرەوە',
 	'stabilization-comment' => 'هۆکار:',
@@ -768,14 +771,14 @@ $messages['ckb'] = array(
 $messages['cs'] = array(
 	'stabilization-tab' => 'stabilizace',
 	'stabilization' => 'Stabilizace stránky',
-	'stabilization-text' => "'''Změňte nastavení níže pro přizpůsobení toho, jak se vybírá stabilní verze stránky [[:$1|$1]] a co se zobrazí.'''",
-	'stabilization-perm' => 'Tento účet nemá povoleno měnit nastavení stabilní verze. Níže je současné nastavení stránky [[:$1|$1]]:',
+	'stabilization-text' => "'''Změňte nastavení níže pro přizpůsobení toho, jak se vybírá stabilní verze stránky [[:$1|$1]] a co se zobrazí.'''", # Fuzzy
+	'stabilization-perm' => 'Tento účet nemá povoleno měnit nastavení stabilní verze. Níže je současné nastavení stránky [[:$1|$1]]:', # Fuzzy
 	'stabilization-page' => 'Jméno stránky:',
-	'stabilization-leg' => 'Potvrdit nastavení stabilní verze',
+	'stabilization-leg' => 'Potvrdit nastavení stabilní verze', # Fuzzy
 	'stabilization-def' => 'Verze zobrazená jako výchozí',
-	'stabilization-def1' => 'Stabilní revize; pokud neexistuje, je to současná revize/návrh',
-	'stabilization-def2' => 'Současná/návrhová verze',
-	'stabilization-restrict' => 'Omezení automatického posuzování',
+	'stabilization-def1' => 'Stabilní revize; pokud neexistuje, je to současná revize/návrh', # Fuzzy
+	'stabilization-def2' => 'Současná/návrhová verze', # Fuzzy
+	'stabilization-restrict' => 'Omezení automatického posuzování', # Fuzzy
 	'stabilization-restrict-none' => 'Žádná další omezení',
 	'stabilization-submit' => 'Potvrdit',
 	'stabilization-notexists' => 'Neexistuje stránka "[[:$1|$1]]". Nastavení není možné.',
@@ -787,16 +790,16 @@ $messages['cs'] = array(
 	'stabilization-def-short' => 'Výchozí',
 	'stabilization-def-short-0' => 'současná',
 	'stabilization-def-short-1' => 'Stabilní',
-	'stabilize_page_invalid' => 'Cílová stránka je neplatná.',
+	'stabilize_page_invalid' => 'Cílová stránka je neplatná.', # Fuzzy
 	'stabilize_page_notexists' => 'Cílová stránka neexistuje.',
-	'stabilize_page_unreviewable' => 'Cílová stránka není v posuzovatelném jmenném prostoru.',
-	'stabilize_invalid_autoreview' => 'Nesprávné omezení automatického posuzování.',
+	'stabilize_page_unreviewable' => 'Cílová stránka není v posuzovatelném jmenném prostoru.', # Fuzzy
+	'stabilize_invalid_autoreview' => 'Nesprávné omezení automatického posuzování.', # Fuzzy
 	'stabilize_invalid_level' => 'Neplatná úroveň ochrany.',
 	'stabilize_expiry_invalid' => 'Datum vypršení je chybné.',
 	'stabilize_expiry_old' => 'Čas vypršení již minul.',
 	'stabilize_denied' => 'Přístup odmítnut.',
 	'stabilize-expiring' => 'vyprší $1 (UTC)',
-	'stabilization-review' => 'Posoudit aktuální verzi',
+	'stabilization-review' => 'Posoudit aktuální verzi', # Fuzzy
 );
 
 /** Danish (dansk)
@@ -1430,7 +1433,7 @@ $messages['grc'] = array(
 	'stabilization-expiry' => 'Λήγει:',
 	'stabilization-def-short' => 'Προκαθωρισμένη',
 	'stabilization-def-short-0' => 'Τρέχουσα',
-	'stabilization-def-short-1' => 'Σταθερά',
+	'stabilization-def-short-1' => 'Σταθερά', # Fuzzy
 	'stabilize-expiring' => 'λήγει $1 (UTC)',
 );
 
@@ -1479,7 +1482,8 @@ $messages['gv'] = array(
 	'stabilization-comment' => 'Fa:',
 );
 
-/** Hausa (Hausa) */
+/** Hausa (Hausa)
+ */
 $messages['ha'] = array(
 	'stabilization-comment' => 'Dalili:',
 	'stabilization-otherreason' => 'Wani dalili:',
@@ -1544,15 +1548,15 @@ $messages['he'] = array(
 $messages['hi'] = array(
 	'stabilization-tab' => 'व्हेट',
 	'stabilization' => 'लेख स्थ्रिर करें',
-	'stabilization-text' => "'''[[:$1|$1]] का स्थिर अवतरण किस प्रकार चुना या दर्शाया जाये इस के लिये निम्नलिखित सेटिंग बदलें।'''",
+	'stabilization-text' => "'''[[:$1|$1]] का स्थिर अवतरण किस प्रकार चुना या दर्शाया जाये इस के लिये निम्नलिखित सेटिंग बदलें।'''", # Fuzzy
 	'stabilization-perm' => 'आपको स्थिर अवतरण बदलनेकी अनुमति नहीं हैं।
-[[:$1|$1]]का अभीका सेटींग इस प्रकार हैं:',
+[[:$1|$1]]का अभीका सेटींग इस प्रकार हैं:', # Fuzzy
 	'stabilization-page' => 'पृष्ठ नाम:',
-	'stabilization-leg' => 'स्थिर अवतरण सेटिंग निश्चित करें',
+	'stabilization-leg' => 'स्थिर अवतरण सेटिंग निश्चित करें', # Fuzzy
 	'stabilization-def' => 'डिफॉल्ट पन्ने के साथ बदलाव दर्शायें गयें हैं',
 	'stabilization-def1' => 'स्थिर अवतरण;
-अगर नहीं हैं, तो सद्य',
-	'stabilization-def2' => 'सद्य अवतरण',
+अगर नहीं हैं, तो सद्य', # Fuzzy
+	'stabilization-def2' => 'सद्य अवतरण', # Fuzzy
 	'stabilization-restrict' => 'समिक्षा/स्व-समिक्षा प्रतिबंध',
 	'stabilization-restrict-none' => 'कोई अतिरिक्त प्रतिबंध नहीं',
 	'stabilization-submit' => 'निश्चित करें',
@@ -1932,8 +1936,8 @@ $messages['jut'] = array(
 	'stabilization-page' => 'Pægenavn:',
 	'stabilization-def' => 'Reviisje displayen åp somår pæger sigt',
 	'stabilization-def1' => 'Æ ståbiil reviisje;
-als ekke er, dan æ nuværende',
-	'stabilization-def2' => 'Æ nuværende reviisje',
+als ekke er, dan æ nuværende', # Fuzzy
+	'stabilization-def2' => 'Æ nuværende reviisje', # Fuzzy
 	'stabilization-submit' => 'Konfirmær',
 	'stabilization-notexists' => 'Her har ekke pæge nåm "[[:$1|$1]]".
 Ekke konfiguråsje er mågleg.',
@@ -1943,7 +1947,7 @@ Ekke konfiguråsje er mågleg.',
 	'stabilization-expiry' => 'Duråsje:',
 	'stabilization-def-short' => 'Åtåmatisk',
 	'stabilization-def-short-0' => 'Nuværende',
-	'stabilization-def-short-1' => 'Stabiil',
+	'stabilization-def-short-1' => 'Stabiil', # Fuzzy
 	'stabilize_expiry_invalid' => 'Ugyldegt duråsje dåt æller tiid.',
 	'stabilize_expiry_old' => 'Dette duråsje tiid er ål passærn.',
 	'stabilize-expiring' => 'durær biis $1 (UTC)',
@@ -2019,67 +2023,70 @@ $messages['ka'] = array(
 	'stabilization-review' => 'მონიშნეთ ამჟამინდელი ცვლილება შემოწმებულად',
 );
 
-/** Kazakh (Arabic script) (قازاقشا (تٴوتە)‏) */
+/** Kazakh (Arabic script) (قازاقشا (تٴوتە)‏)
+ */
 $messages['kk-arab'] = array(
 	'stabilization-tab' => '(سق)',
 	'stabilization' => 'بەتتى تىياناقتاۋ',
-	'stabilization-text' => 'تومەندەگى باپتالىمداردى وزگەرتكەندە [[:$1|$1]] دەگەننىڭ تىياناقتى نۇسقاسى قالاي بولەكتەنۋى مەن كورسەتىلۋى تۇزەتىلەدى.',
+	'stabilization-text' => 'تومەندەگى باپتالىمداردى وزگەرتكەندە [[:$1|$1]] دەگەننىڭ تىياناقتى نۇسقاسى قالاي بولەكتەنۋى مەن كورسەتىلۋى تۇزەتىلەدى.', # Fuzzy
 	'stabilization-perm' => 'تىركەلگىڭىزگە تىياناقتى نۇسقانىڭ باپتالىمىن وزگەرتۋگە رۇقسات بەرىلمەگەن.
-[[:$1|$1]] ٴۇشىن اعىمداعى باپتاۋلار مىندا كەلتىرىلەدى:',
+[[:$1|$1]] ٴۇشىن اعىمداعى باپتاۋلار مىندا كەلتىرىلەدى:', # Fuzzy
 	'stabilization-page' => 'بەت اتاۋى:',
-	'stabilization-leg' => 'بەت ٴۇشىن تىياناقتى نۇسقانى باپتاۋ',
+	'stabilization-leg' => 'بەت ٴۇشىن تىياناقتى نۇسقانى باپتاۋ', # Fuzzy
 	'stabilization-def' => 'بەتتىڭ ادەپكى كورىنىسىندە كەلتىرىلەتىن نۇسقا',
-	'stabilization-def1' => 'تىياناقتى نۇسقاسى; ەگەر جوق بولسا, اعىمداعىلاردىڭ بىرەۋى بولادى',
-	'stabilization-def2' => 'اعىمدىق نۇسقاسى',
+	'stabilization-def1' => 'تىياناقتى نۇسقاسى; ەگەر جوق بولسا, اعىمداعىلاردىڭ بىرەۋى بولادى', # Fuzzy
+	'stabilization-def2' => 'اعىمدىق نۇسقاسى', # Fuzzy
 	'stabilization-submit' => 'قۇپتاۋ',
 	'stabilization-notexists' => '«[[:$1|$1]]» دەپ اتالعان ەش بەت جوق. ەش باپتالىم رەتتەلمەيدى.',
 	'stabilization-notcontent' => '«[[:$1|$1]]» دەگەن بەتكە سىن بەرىلمەيدى. ەش باپتالىم رەتتەلمەيدى.',
 	'stabilization-comment' => 'سەبەبى:',
 	'stabilization-def-short' => 'ادەپكى',
 	'stabilization-def-short-0' => 'اعىمدىق',
-	'stabilization-def-short-1' => 'تىياناقتى',
+	'stabilization-def-short-1' => 'تىياناقتى', # Fuzzy
 );
 
-/** Kazakh (Cyrillic script) (қазақша (кирил)‎) */
+/** Kazakh (Cyrillic script) (қазақша (кирил)‎)
+ */
 $messages['kk-cyrl'] = array(
 	'stabilization-tab' => '(сқ)',
 	'stabilization' => 'Бетті тиянақтау',
-	'stabilization-text' => 'Төмендегі бапталымдарды өзгерткенде [[:$1|$1]] дегеннің тиянақты нұсқасы қалай бөлектенуі мен көрсетілуі түзетіледі.',
+	'stabilization-text' => 'Төмендегі бапталымдарды өзгерткенде [[:$1|$1]] дегеннің тиянақты нұсқасы қалай бөлектенуі мен көрсетілуі түзетіледі.', # Fuzzy
 	'stabilization-perm' => 'Тіркелгіңізге тиянақты нұсқаның бапталымын өзгертуге рұқсат берілмеген.
-[[:$1|$1]] үшін ағымдағы баптаулар мында келтіріледі:',
+[[:$1|$1]] үшін ағымдағы баптаулар мында келтіріледі:', # Fuzzy
 	'stabilization-page' => 'Бет атауы:',
-	'stabilization-leg' => 'Бет үшін тиянақты нұсқаны баптау',
+	'stabilization-leg' => 'Бет үшін тиянақты нұсқаны баптау', # Fuzzy
 	'stabilization-def' => 'Беттің әдепкі көрінісінде келтірілетін нұсқа',
-	'stabilization-def1' => 'Тиянақты нұсқасы; егер жоқ болса, ағымдағылардың біреуі болады',
-	'stabilization-def2' => 'Ағымдық нұсқасы',
+	'stabilization-def1' => 'Тиянақты нұсқасы; егер жоқ болса, ағымдағылардың біреуі болады', # Fuzzy
+	'stabilization-def2' => 'Ағымдық нұсқасы', # Fuzzy
 	'stabilization-submit' => 'Құптау',
 	'stabilization-notexists' => '«[[:$1|$1]]» деп аталған еш бет жоқ. Еш бапталым реттелмейді.',
 	'stabilization-notcontent' => '«[[:$1|$1]]» деген бетке сын берілмейді. Еш бапталым реттелмейді.',
 	'stabilization-comment' => 'Себебі:',
 	'stabilization-def-short' => 'Әдепкі',
 	'stabilization-def-short-0' => 'Ағымдық',
-	'stabilization-def-short-1' => 'Тиянақты',
+	'stabilization-def-short-1' => 'Тиянақты', # Fuzzy
 );
 
-/** Kazakh (Latin script) (qazaqşa (latın)‎) */
+/** Kazakh (Latin script) (qazaqşa (latın)‎)
+ */
 $messages['kk-latn'] = array(
 	'stabilization-tab' => '(sq)',
 	'stabilization' => 'Betti tïyanaqtaw',
-	'stabilization-text' => 'Tömendegi baptalımdardı özgertkende [[:$1|$1]] degenniñ tïyanaqtı nusqası qalaý bölektenwi men körsetilwi tüzetiledi.',
+	'stabilization-text' => 'Tömendegi baptalımdardı özgertkende [[:$1|$1]] degenniñ tïyanaqtı nusqası qalaý bölektenwi men körsetilwi tüzetiledi.', # Fuzzy
 	'stabilization-perm' => 'Tirkelgiñizge tïyanaqtı nusqanıñ baptalımın özgertwge ruqsat berilmegen.
-[[:$1|$1]] üşin ağımdağı baptawlar mında keltiriledi:',
+[[:$1|$1]] üşin ağımdağı baptawlar mında keltiriledi:', # Fuzzy
 	'stabilization-page' => 'Bet atawı:',
-	'stabilization-leg' => 'Bet üşin tïyanaqtı nusqanı baptaw',
+	'stabilization-leg' => 'Bet üşin tïyanaqtı nusqanı baptaw', # Fuzzy
 	'stabilization-def' => 'Bettiñ ädepki körinisinde keltiriletin nusqa',
-	'stabilization-def1' => 'Tïyanaqtı nusqası; eger joq bolsa, ağımdağılardıñ birewi boladı',
-	'stabilization-def2' => 'Ağımdıq nusqası',
+	'stabilization-def1' => 'Tïyanaqtı nusqası; eger joq bolsa, ağımdağılardıñ birewi boladı', # Fuzzy
+	'stabilization-def2' => 'Ağımdıq nusqası', # Fuzzy
 	'stabilization-submit' => 'Quptaw',
 	'stabilization-notexists' => '«[[:$1|$1]]» dep atalğan eş bet joq. Eş baptalım rettelmeýdi.',
 	'stabilization-notcontent' => '«[[:$1|$1]]» degen betke sın berilmeýdi. Eş baptalım rettelmeýdi.',
 	'stabilization-comment' => 'Sebebi:',
 	'stabilization-def-short' => 'Ädepki',
 	'stabilization-def-short-0' => 'Ağımdıq',
-	'stabilization-def-short-1' => 'Tïyanaqtı',
+	'stabilization-def-short-1' => 'Tïyanaqtı', # Fuzzy
 );
 
 /** Khmer (ភាសាខ្មែរ)
@@ -2091,7 +2098,7 @@ $messages['kk-latn'] = array(
  */
 $messages['km'] = array(
 	'stabilization-page' => 'ឈ្មោះទំព័រ៖',
-	'stabilization-def2' => 'ការពិនិត្យឡើងវិញពេលបច្ចុប្បន្ន',
+	'stabilization-def2' => 'ការពិនិត្យឡើងវិញពេលបច្ចុប្បន្ន', # Fuzzy
 	'stabilization-submit' => 'បញ្ជាក់ទទួលស្គាល់',
 	'stabilization-comment' => 'មូលហេតុ៖',
 	'stabilization-otherreason' => 'មូលហេតុផ្សេងទៀត៖',
@@ -2422,13 +2429,13 @@ $messages['mr'] = array(
 	'stabilization' => 'पान स्थिर करा',
 	'stabilization-text' => "[[:$1|$1]] ची स्थिर आवृत्ती कशा प्रकारे निवडली अथवा दाखविली जाईल या साठी खालील रुपरेषा बदला.'''",
 	'stabilization-perm' => 'तुम्हाला स्थिर आवृत्ती बदलण्याची परवानगी नाही.
-[[:$1|$1]]चे सध्याचे सेटींग खालीलप्रमाणे:',
+[[:$1|$1]]चे सध्याचे सेटींग खालीलप्रमाणे:', # Fuzzy
 	'stabilization-page' => 'पृष्ठ नाव:',
-	'stabilization-leg' => 'स्थिर आवृत्ती सेटिंग निश्चित करा',
+	'stabilization-leg' => 'स्थिर आवृत्ती सेटिंग निश्चित करा', # Fuzzy
 	'stabilization-def' => 'मूळ प्रकारे पानावर बदल दाखविलेले आहेत',
 	'stabilization-def1' => 'स्थिर आवृत्ती;
-जर उपलब्ध नसेल, तर सध्याची',
-	'stabilization-def2' => 'सध्याची आवृत्ती',
+जर उपलब्ध नसेल, तर सध्याची', # Fuzzy
+	'stabilization-def2' => 'सध्याची आवृत्ती', # Fuzzy
 	'stabilization-submit' => 'सहमती द्या',
 	'stabilization-notexists' => '"[[:$1|$1]]" या नावाचे पृष्ठ अस्तित्वात नाही.
 बदल करू शकत नाही.',
@@ -2438,7 +2445,7 @@ $messages['mr'] = array(
 	'stabilization-expiry' => 'रद्द होते:',
 	'stabilization-def-short' => 'मूळ (अविचल)',
 	'stabilization-def-short-0' => 'सद्य',
-	'stabilization-def-short-1' => 'स्थीर',
+	'stabilization-def-short-1' => 'स्थीर', # Fuzzy
 	'stabilize_expiry_invalid' => 'चुकीचा रद्दीकरण दिनांक.',
 	'stabilize_expiry_old' => 'ही रद्दीकरण वेळ उलटून गेलेली आहे.',
 	'stabilize-expiring' => '$1 (UTC) ला रद्द होते',
@@ -2611,15 +2618,15 @@ Instellen is niet mogelijk.',
 $messages['nn'] = array(
 	'stabilization-tab' => 'kvalitet',
 	'stabilization' => 'Sidestabilisering',
-	'stabilization-text' => "'''Endra innstillingane nedanfor for å velja korleis den stabile versjonen av [[:$1|$1]] skal verta vald og synt.'''",
+	'stabilization-text' => "'''Endra innstillingane nedanfor for å velja korleis den stabile versjonen av [[:$1|$1]] skal verta vald og synt.'''", # Fuzzy
 	'stabilization-perm' => 'Brukarkontoen din har ikkje løyve til å endra innstillingane for stabile versjonar.
-Her er dei noverande innstillingane for [[:$1|$1]]:',
+Her er dei noverande innstillingane for [[:$1|$1]]:', # Fuzzy
 	'stabilization-page' => 'Sidenamn:',
-	'stabilization-leg' => 'Stadfest innstillingane for stabile versjonar',
+	'stabilization-leg' => 'Stadfest innstillingane for stabile versjonar', # Fuzzy
 	'stabilization-def' => 'Sideversjonen som skal verta nytta som standardvising',
-	'stabilization-def1' => 'Den stabile versjonen om han finst; om ikkje, den siste versjonen',
-	'stabilization-def2' => 'Den siste versjonen',
-	'stabilization-restrict' => 'Avgrensing på automelding',
+	'stabilization-def1' => 'Den stabile versjonen om han finst; om ikkje, den siste versjonen', # Fuzzy
+	'stabilization-def2' => 'Den siste versjonen', # Fuzzy
+	'stabilization-restrict' => 'Avgrensing på automelding', # Fuzzy
 	'stabilization-restrict-none' => 'Ingen ekstra avgrensingar',
 	'stabilization-submit' => 'Stadfest',
 	'stabilization-notexists' => 'Det finst inga sida med tittelen «[[:$1|$1]]».
@@ -2627,18 +2634,18 @@ Ingen innstillingar kan verta gjort.',
 	'stabilization-notcontent' => 'Sida «[[:$1|$1]]» kan ikkje verta vurdert.
 Ingen innstillingar kan verta gjorde.',
 	'stabilization-comment' => 'Årsak:',
-	'stabilization-otherreason' => 'Anna årsak',
+	'stabilization-otherreason' => 'Anna årsak', # Fuzzy
 	'stabilization-expiry' => 'Endar:',
 	'stabilization-othertime' => 'Anna tid:',
 	'stabilization-def-short' => '(standard)',
 	'stabilization-def-short-0' => 'Noverande',
-	'stabilization-def-short-1' => 'Stabil',
+	'stabilization-def-short-1' => 'Stabil', # Fuzzy
 	'stabilize_page_invalid' => 'Målsidetittelen er ugyldig.',
 	'stabilize_page_notexists' => 'Målsida finst ikkje.',
 	'stabilize_expiry_invalid' => 'Ugyldig sluttdato.',
 	'stabilize_expiry_old' => 'Sluttdatoen har alt vore.',
 	'stabilize-expiring' => 'endar $1 (UTC)',
-	'stabilization-review' => 'Vurder den noverande versjonen',
+	'stabilization-review' => 'Vurder den noverande versjonen', # Fuzzy
 );
 
 /** Novial (Novial)
@@ -2664,15 +2671,15 @@ $messages['nso'] = array(
 $messages['oc'] = array(
 	'stabilization-tab' => '(qa)',
 	'stabilization' => 'Estabilizacion de la pagina',
-	'stabilization-text' => "'''Modificatz los paramètres çaijós per definir lo biais dont la version establa de [[:$1|$1]] es seleccionada e afichada.'''",
+	'stabilization-text' => "'''Modificatz los paramètres çaijós per definir lo biais dont la version establa de [[:$1|$1]] es seleccionada e afichada.'''", # Fuzzy
 	'stabilization-perm' => 'Vòstre compte a pas los dreches per cambiar los paramètres de la version publicada.
 Aquí los paramètres actuals de [[:$1|$1]] :',
 	'stabilization-page' => 'Nom de la pagina :',
 	'stabilization-leg' => 'Confirmar lo parametratge de la version publicada',
 	'stabilization-def' => "Version afichada al moment de l'afichatge per defaut de la pagina",
-	'stabilization-def1' => "La revision publicada ; se'n i a pas, alara la correnta o lo borrolhon en cors",
-	'stabilization-def2' => 'La revision correnta o lo borrolhon en cors',
-	'stabilization-restrict' => 'Tornar veire automaticament las restriccions',
+	'stabilization-def1' => "La revision publicada ; se'n i a pas, alara la correnta o lo borrolhon en cors", # Fuzzy
+	'stabilization-def2' => 'La revision correnta o lo borrolhon en cors', # Fuzzy
+	'stabilization-restrict' => 'Tornar veire automaticament las restriccions', # Fuzzy
 	'stabilization-restrict-none' => 'Pas de restriccion suplementària',
 	'stabilization-submit' => 'Confirmar',
 	'stabilization-notexists' => 'I a pas de pagina « [[:$1|$1]] », pas de parametratge possible',
@@ -2687,7 +2694,7 @@ Aquí los paramètres actuals de [[:$1|$1]] :',
 	'stabilize_expiry_invalid' => "Data d'expiracion invalida.",
 	'stabilize_expiry_old' => "Lo temps d'expiracion ja es passat.",
 	'stabilize-expiring' => 'expira $1 (UTC)',
-	'stabilization-review' => 'Tornar veire la version correnta',
+	'stabilization-review' => 'Tornar veire la version correnta', # Fuzzy
 );
 
 /** Oriya (ଓଡ଼ିଆ)
@@ -2825,11 +2832,11 @@ $messages['ps'] = array(
 );
 
 /** Portuguese (português)
- * @author 555
  * @author Giro720
  * @author Hamilton Abreu
  * @author Malafaya
  * @author Waldir
+ * @author 555
  */
 $messages['pt'] = array(
 	'stabilization-tab' => 'cgq',
@@ -3127,7 +3134,7 @@ $messages['sah'] = array(
 	'stabilize_expiry_invalid' => 'Болдьох сыыһа туруорулунна.',
 	'stabilize_expiry_old' => 'Болдьох этиллибит кэмэ номнуо ааспыт.',
 	'stabilize-expiring' => 'Болдьоҕо бүтэр: $1 (UTC)',
-	'stabilization-review' => 'Билиҥни барылын көрүү',
+	'stabilization-review' => 'Билиҥни барылын көрүү', # Fuzzy
 );
 
 /** Sardinian (sardu)
@@ -3183,14 +3190,14 @@ $messages['si'] = array(
 $messages['sk'] = array(
 	'stabilization-tab' => '(kk)',
 	'stabilization' => 'Stabilizácia stránky',
-	'stabilization-text' => "'''|Tieto voľby menia spôsob výberu a zobrazenia stabilnej verzie stránky [[:$1|$1]].'''",
-	'stabilization-perm' => 'Váš účet nemá oprávnenie meniť nastavenia stabilnej verzie. Tu sú súčasné nastavenia [[:$1|$1]]:',
+	'stabilization-text' => "'''|Tieto voľby menia spôsob výberu a zobrazenia stabilnej verzie stránky [[:$1|$1]].'''", # Fuzzy
+	'stabilization-perm' => 'Váš účet nemá oprávnenie meniť nastavenia stabilnej verzie. Tu sú súčasné nastavenia [[:$1|$1]]:', # Fuzzy
 	'stabilization-page' => 'Názov stránky:',
-	'stabilization-leg' => 'Potvrdiť nastavenia stabilnej verzie',
+	'stabilization-leg' => 'Potvrdiť nastavenia stabilnej verzie', # Fuzzy
 	'stabilization-def' => 'Revízia, ktorá sa zobrazí pri štandardnom zobrazení stránky',
-	'stabilization-def1' => 'Stabilná revízia; ak nie je prítomná, je to aktuálna/návrh',
-	'stabilization-def2' => 'Aktuálna revízia/návrh',
-	'stabilization-restrict' => 'Obmedzenia automatického overenia',
+	'stabilization-def1' => 'Stabilná revízia; ak nie je prítomná, je to aktuálna/návrh', # Fuzzy
+	'stabilization-def2' => 'Aktuálna revízia/návrh', # Fuzzy
+	'stabilization-restrict' => 'Obmedzenia automatického overenia', # Fuzzy
 	'stabilization-restrict-none' => 'Žiadne ďalšie obmedzenia',
 	'stabilization-submit' => 'Potvrdiť',
 	'stabilization-notexists' => 'Neexistuje stránka s názvom „[[:$1|$1]]“. Konfigurácia nie je možná.',
@@ -3201,7 +3208,7 @@ $messages['sk'] = array(
 	'stabilization-othertime' => 'Iný čas:',
 	'stabilization-def-short' => 'štandard',
 	'stabilization-def-short-0' => 'aktuálna',
-	'stabilization-def-short-1' => 'stabilná',
+	'stabilization-def-short-1' => 'stabilná', # Fuzzy
 	'stabilize_page_invalid' => 'Názov cieľovej stránky nie je platný.',
 	'stabilize_page_notexists' => 'Cieľová stránka neexistuje.',
 	'stabilize_page_unreviewable' => 'Cieľová stránka nie je v mennom priestore, v ktorom možno kontrolovať.',
@@ -3261,7 +3268,7 @@ $messages['sq'] = array(
 	'stabilization-tab' => 'vet',
 	'stabilization' => 'Stabilizimi i faqes',
 	'stabilization-page' => 'Emri i faqes:',
-	'stabilization-def2' => 'Versioni i tanishëm',
+	'stabilization-def2' => 'Versioni i tanishëm', # Fuzzy
 	'stabilization-submit' => 'Konfirmo',
 	'stabilization-notexists' => 'Nuk ka faqe me emrin "[[:$1|$1]]".
 Asnjë konfigurim nuk është i mundshëm.',
@@ -3362,13 +3369,13 @@ Ovde su trenutna podešavanja za [[:$1|$1]]:',
 $messages['stq'] = array(
 	'stabilization-tab' => '(qa)',
 	'stabilization' => 'Sieden-Stabilität',
-	'stabilization-text' => "'''Annerje do Ienstaalengen uum fäästtoulääsen, wo ju stoabile Version fon „[[:$1|$1]]“ uutwääld un anwiesd wäide schäl.'''",
-	'stabilization-perm' => 'Du hääst nit ju ärfoarderelke Begjuchtigenge, uum do Ienstaalengen fon ju stoabile Version tou annerjen. Do aktuelle Begjuchtigengen foar „[[:$1|$1]]“ sunt:',
+	'stabilization-text' => "'''Annerje do Ienstaalengen uum fäästtoulääsen, wo ju stoabile Version fon „[[:$1|$1]]“ uutwääld un anwiesd wäide schäl.'''", # Fuzzy
+	'stabilization-perm' => 'Du hääst nit ju ärfoarderelke Begjuchtigenge, uum do Ienstaalengen fon ju stoabile Version tou annerjen. Do aktuelle Begjuchtigengen foar „[[:$1|$1]]“ sunt:', # Fuzzy
 	'stabilization-page' => 'Siedennoome:',
-	'stabilization-leg' => 'Ienstaalengen fon ju markierde Version foar ne Siede',
+	'stabilization-leg' => 'Ienstaalengen fon ju markierde Version foar ne Siede', # Fuzzy
 	'stabilization-def' => 'Anwiesde Version in ju normoale Siedenansicht',
-	'stabilization-def1' => 'Ju stoabile Version; wan neen deer is, dan ju aktuelle Version.',
-	'stabilization-def2' => 'Ju aktuellste Version',
+	'stabilization-def1' => 'Ju stoabile Version; wan neen deer is, dan ju aktuelle Version.', # Fuzzy
+	'stabilization-def2' => 'Ju aktuellste Version', # Fuzzy
 	'stabilization-submit' => 'Bestäätigje',
 	'stabilization-notexists' => 'Dät rakt neen Siede „[[:$1|$1]]“. Neen Ienstaalengen muugelk.',
 	'stabilization-notcontent' => 'Ju Siede "[[:$1|$1]]" kon nit wröiged wäide. Konfiguration nit muugelk.',
@@ -3376,7 +3383,7 @@ $messages['stq'] = array(
 	'stabilization-expiry' => 'Gultich bit:',
 	'stabilization-def-short' => 'Standoard',
 	'stabilization-def-short-0' => 'Aktuell',
-	'stabilization-def-short-1' => 'Stoabil',
+	'stabilization-def-short-1' => 'Stoabil', # Fuzzy
 	'stabilize_expiry_invalid' => 'Uungultich Ouloopdoatum.',
 	'stabilize_expiry_old' => 'Dät Ouloopdoatum is al foarbie.',
 	'stabilize-expiring' => 'lapt ou $1 (UTC)',
@@ -3388,13 +3395,13 @@ $messages['stq'] = array(
  */
 $messages['su'] = array(
 	'stabilization' => 'Stabilisasi halaman',
-	'stabilization-text' => "''Robah seting katut pikeun mengatur vérsi stabil ti [[:$1|$1]] geus dipilih sarta ditémbongkeun.'''",
+	'stabilization-text' => "''Robah seting katut pikeun mengatur vérsi stabil ti [[:$1|$1]] geus dipilih sarta ditémbongkeun.'''", # Fuzzy
 	'stabilization-perm' => 'Rekening anjeun teu boga kawenangan pikeun ngarobah konfigurasi vérsi stabil.
-Setélan kiwari pikeun [[:$1|$1]] nyaéta:',
+Setélan kiwari pikeun [[:$1|$1]] nyaéta:', # Fuzzy
 	'stabilization-page' => 'Ngaran kaca:',
 	'stabilization-def1' => 'Vérsi stabil;
-mun euweuh, paké vérsi kiwari',
-	'stabilization-def2' => 'Révisi kiwari',
+mun euweuh, paké vérsi kiwari', # Fuzzy
+	'stabilization-def2' => 'Révisi kiwari', # Fuzzy
 	'stabilization-submit' => 'Konfirmasi',
 	'stabilization-notexists' => 'Euweuh kaca nu ngaranna “[[:$1|$1]]”.
 KOnfigurasi teu bisa dilarapkeun.',
@@ -3402,7 +3409,7 @@ KOnfigurasi teu bisa dilarapkeun.',
 	'stabilization-expiry' => 'Kadaluwarsa:',
 	'stabilization-def-short' => 'Buhun',
 	'stabilization-def-short-0' => 'Kiwari',
-	'stabilization-def-short-1' => 'Stabil',
+	'stabilization-def-short-1' => 'Stabil', # Fuzzy
 	'stabilize_expiry_invalid' => 'Titimangsa kadaluwarsana salah.',
 	'stabilize_expiry_old' => 'Titimangsa kadaluwarsa geus kaliwat.',
 	'stabilize-expiring' => 'kadaluwarsa $1 (UTC)',
@@ -3451,7 +3458,8 @@ Här visas de nuvarande inställningarna för [[:$1|$1]]:',
 	'stabilization-review' => 'Markera den nuvarande revisionen som kontrollerad',
 );
 
-/** Swahili (Kiswahili) */
+/** Swahili (Kiswahili)
+ */
 $messages['sw'] = array(
 	'stabilization-submit' => 'Yakinisha',
 	'stabilization-comment' => 'Sababu:',
@@ -3502,13 +3510,13 @@ $messages['ta'] = array(
 $messages['te'] = array(
 	'stabilization-tab' => 'vet',
 	'stabilization' => 'పేజీ స్ధిరీకరణ',
-	'stabilization-text' => "'''[[:$1|$1]] యొక్క సుస్థిర కూర్పు ఎలా ఎంచుకోవాలి మరియు చూపించబడాలో సరిదిద్దడానికి క్రింది అమరికలు మార్చండి.'''",
-	'stabilization-perm' => 'మీ ఖాతాకు సుస్థిర కూర్పును మార్చే అనుమతి లేదు. [[:$1|$1]]కి ప్రస్తుత అమరికల ఇవీ:',
+	'stabilization-text' => "'''[[:$1|$1]] యొక్క సుస్థిర కూర్పు ఎలా ఎంచుకోవాలి మరియు చూపించబడాలో సరిదిద్దడానికి క్రింది అమరికలు మార్చండి.'''", # Fuzzy
+	'stabilization-perm' => 'మీ ఖాతాకు సుస్థిర కూర్పును మార్చే అనుమతి లేదు. [[:$1|$1]]కి ప్రస్తుత అమరికల ఇవీ:', # Fuzzy
 	'stabilization-page' => 'పేజీ పేరు:',
-	'stabilization-leg' => 'పేజీకి సుస్థిర కూర్పు సెట్టి౦గులని నిర్ధేశించండి',
+	'stabilization-leg' => 'పేజీకి సుస్థిర కూర్పు సెట్టి౦గులని నిర్ధేశించండి', # Fuzzy
 	'stabilization-def' => 'డిఫాల్టు పేజీ వ్యూలో చూపించే కూర్పు',
-	'stabilization-def1' => 'సుస్థిర కూర్పు; అది లేకపోతే, ప్రస్తుత కూర్పు',
-	'stabilization-def2' => 'ప్రస్తుత కూర్పు',
+	'stabilization-def1' => 'సుస్థిర కూర్పు; అది లేకపోతే, ప్రస్తుత కూర్పు', # Fuzzy
+	'stabilization-def2' => 'ప్రస్తుత కూర్పు', # Fuzzy
 	'stabilization-restrict-none' => 'మరిన్ని నిరోధాలు లేవు',
 	'stabilization-submit' => 'నిర్ధారించు',
 	'stabilization-notexists' => '"[[:$1|$1]]" అనే పేజీ లేదు. స్వరూపణం వీలుపడదు.',
@@ -3539,13 +3547,13 @@ $messages['tet'] = array(
 $messages['tg-cyrl'] = array(
 	'stabilization-tab' => 'санҷиш',
 	'stabilization' => 'Пойдорсозии саҳифаҳо',
-	'stabilization-text' => "'''Тағйири танзимоти зерин ба манзури таъйини ин, ки нусхаи пойдор аз [[:$1|$1]] чигуна интихоб ва намоиш дода мешавад.'''",
-	'stabilization-perm' => 'Ҳисоби шумо иҷозати тағйири танзими нусхаи пойдорро надорад. Танзимоти феълӣ барои [[:$1|$1]]  чунинанд:',
+	'stabilization-text' => "'''Тағйири танзимоти зерин ба манзури таъйини ин, ки нусхаи пойдор аз [[:$1|$1]] чигуна интихоб ва намоиш дода мешавад.'''", # Fuzzy
+	'stabilization-perm' => 'Ҳисоби шумо иҷозати тағйири танзими нусхаи пойдорро надорад. Танзимоти феълӣ барои [[:$1|$1]]  чунинанд:', # Fuzzy
 	'stabilization-page' => 'Номи саҳифа:',
-	'stabilization-leg' => 'Тасдиқи танзими нусхаи пойдор',
+	'stabilization-leg' => 'Тасдиқи танзими нусхаи пойдор', # Fuzzy
 	'stabilization-def' => 'Нусхае ки дар ҳолати пешфарз намоиш дода мешавад',
-	'stabilization-def1' => 'Нусхаи пойдор; агар он вуҷуд надошта бошад, пас он нусхаи феълӣ аст',
-	'stabilization-def2' => 'Нусхаи феълӣ',
+	'stabilization-def1' => 'Нусхаи пойдор; агар он вуҷуд надошта бошад, пас он нусхаи феълӣ аст', # Fuzzy
+	'stabilization-def2' => 'Нусхаи феълӣ', # Fuzzy
 	'stabilization-submit' => 'Тасдиқ',
 	'stabilization-notexists' => 'Саҳифае бо унвони "[[:$1|$1]]" вуҷуд надорад. Танзимот мумкин нест.',
 	'stabilization-notcontent' => 'Саҳифаи "[[:$1|$1]]" қобили баррасӣ нест. Танзимот мумкин нест.',
@@ -3553,7 +3561,7 @@ $messages['tg-cyrl'] = array(
 	'stabilization-expiry' => 'Интиҳо:',
 	'stabilization-def-short' => 'Пешфарз',
 	'stabilization-def-short-0' => 'Феълӣ',
-	'stabilization-def-short-1' => 'Пойдор',
+	'stabilization-def-short-1' => 'Пойдор', # Fuzzy
 	'stabilize_expiry_invalid' => 'Таърихи интиҳоии ғайримиҷоз.',
 	'stabilize_expiry_old' => 'Таърихи интиҳо аллакай сипарӣ шудааст.',
 	'stabilize-expiring' => 'Дар $1 (UTC) ба интиҳо мерасад',
@@ -3565,9 +3573,9 @@ $messages['tg-cyrl'] = array(
 $messages['tg-latn'] = array(
 	'stabilization-tab' => 'sançiş',
 	'stabilization' => 'Pojdorsoziji sahifaho',
-	'stabilization-perm' => "Hisobi şumo içozati taƣjiri tanzimi nusxai pojdorro nadorad. Tanzimoti fe'lī baroi [[:$1|$1]]  cuninand:",
+	'stabilization-perm' => "Hisobi şumo içozati taƣjiri tanzimi nusxai pojdorro nadorad. Tanzimoti fe'lī baroi [[:$1|$1]]  cuninand:", # Fuzzy
 	'stabilization-page' => 'Nomi sahifa:',
-	'stabilization-leg' => 'Tasdiqi tanzimi nusxai pojdor',
+	'stabilization-leg' => 'Tasdiqi tanzimi nusxai pojdor', # Fuzzy
 	'stabilization-def' => 'Nusxae ki dar holati peşfarz namoiş doda meşavad',
 	'stabilization-submit' => 'Tasdiq',
 	'stabilization-notexists' => 'Sahifae bo unvoni "[[:$1|$1]]" vuçud nadorad. Tanzimot mumkin nest.',
@@ -3576,7 +3584,7 @@ $messages['tg-latn'] = array(
 	'stabilization-expiry' => 'Intiho:',
 	'stabilization-def-short' => 'Peşfarz',
 	'stabilization-def-short-0' => "Fe'lī",
-	'stabilization-def-short-1' => 'Pojdor',
+	'stabilization-def-short-1' => 'Pojdor', # Fuzzy
 	'stabilize_expiry_invalid' => "Ta'rixi intihoiji ƣajrimiçoz.",
 	'stabilize_expiry_old' => "Ta'rixi intiho allakaj siparī şudaast.",
 	'stabilize-expiring' => 'Dar $1 (UTC) ba intiho merasad',
@@ -3601,15 +3609,15 @@ $messages['th'] = array(
 $messages['tk'] = array(
 	'stabilization-tab' => 'vet',
 	'stabilization' => 'Sahypa durnuklaşdyrma',
-	'stabilization-text' => "'''[[:$1|$1]] üçin durnukly wersiýanyň nähili saýlanmalydygyny we görkezilmelidigini sazlamak üçin sazlamalry üýtgediň.'''",
+	'stabilization-text' => "'''[[:$1|$1]] üçin durnukly wersiýanyň nähili saýlanmalydygyny we görkezilmelidigini sazlamak üçin sazlamalry üýtgediň.'''", # Fuzzy
 	'stabilization-perm' => 'Hasabyňyzyň durnukly wersiýa konfigurasiýasyny üýtgetmäge rugsady ýok. 
-[[:$1|$1]] üçin häzirki sazlamalar:',
+[[:$1|$1]] üçin häzirki sazlamalar:', # Fuzzy
 	'stabilization-page' => 'Sahypa ady:',
-	'stabilization-leg' => 'Durnukly wersiýa sazlamalaryny tassykla',
+	'stabilization-leg' => 'Durnukly wersiýa sazlamalaryny tassykla', # Fuzzy
 	'stabilization-def' => 'Gaýybana sahypa görkezişinde görkezilýän wersiýa',
-	'stabilization-def1' => 'Durnukly wersiýa; eger ýok bolsa, onda häzirki wersiýa/garalama',
-	'stabilization-def2' => 'Häzirki/garalama wersiýa',
-	'stabilization-restrict' => 'Awto gözden geçirme çäklendirmeleri',
+	'stabilization-def1' => 'Durnukly wersiýa; eger ýok bolsa, onda häzirki wersiýa/garalama', # Fuzzy
+	'stabilization-def2' => 'Häzirki/garalama wersiýa', # Fuzzy
+	'stabilization-restrict' => 'Awto gözden geçirme çäklendirmeleri', # Fuzzy
 	'stabilization-restrict-none' => 'Başga goşmaça çäklendirme ýok',
 	'stabilization-submit' => 'Tassykla',
 	'stabilization-notexists' => '"[[:$1|$1]]" atlandyrylýan sahypa ýok.
@@ -3622,7 +3630,7 @@ Konfigurirlemek mümkin däl.',
 	'stabilization-othertime' => 'Başga wagt:',
 	'stabilization-def-short' => 'Gaýybana',
 	'stabilization-def-short-0' => 'Häzirki',
-	'stabilization-def-short-1' => 'Durnukly',
+	'stabilization-def-short-1' => 'Durnukly', # Fuzzy
 	'stabilize_page_invalid' => 'Niýetlenilýän sahypa ady nädogry.',
 	'stabilize_page_notexists' => 'Niýetlenilýän sahypa ýok.',
 	'stabilize_invalid_level' => 'Nädogry gorag derejesi.',
@@ -3630,7 +3638,7 @@ Konfigurirlemek mümkin däl.',
 	'stabilize_expiry_old' => 'Gutaryş möhleti eýýäm geçipdir.',
 	'stabilize_denied' => 'Rugsat ret edildi.',
 	'stabilize-expiring' => 'gutarýar $1 (UTC)',
-	'stabilization-review' => 'Häzirki wersiýany gözden geçir',
+	'stabilization-review' => 'Häzirki wersiýany gözden geçir', # Fuzzy
 );
 
 /** Tagalog (Tagalog)
@@ -3919,13 +3927,13 @@ Không thể cấu hình.',
 $messages['vo'] = array(
 	'stabilization-tab' => '(ka)',
 	'stabilization' => 'Fümöfükam pada',
-	'stabilization-text' => "'''Votükolös parametis dono ad sludön, lio fomam fümöfik pada: [[:$1|$1]] pavälon e pajonon.'''",
-	'stabilization-perm' => 'Kal olik no dälon ad votükön parametemi fomama fümöfik. Is palisedon parametem anuik pro pad: [[:$1|$1]]:',
+	'stabilization-text' => "'''Votükolös parametis dono ad sludön, lio fomam fümöfik pada: [[:$1|$1]] pavälon e pajonon.'''", # Fuzzy
+	'stabilization-perm' => 'Kal olik no dälon ad votükön parametemi fomama fümöfik. Is palisedon parametem anuik pro pad: [[:$1|$1]]:', # Fuzzy
 	'stabilization-page' => 'Nem pada:',
-	'stabilization-leg' => 'Fümedön parametis fomama fümöfik',
+	'stabilization-leg' => 'Fümedön parametis fomama fümöfik', # Fuzzy
 	'stabilization-def' => 'Fomam jonabik pö padilogams kösömik',
-	'stabilization-def1' => 'Fomam fümöfik; if no dabinon, tän fomam anuik',
-	'stabilization-def2' => 'Fomam anuik',
+	'stabilization-def1' => 'Fomam fümöfik; if no dabinon, tän fomam anuik', # Fuzzy
+	'stabilization-def2' => 'Fomam anuik', # Fuzzy
 	'stabilization-submit' => 'Fümedön',
 	'stabilization-notexists' => 'Pad tiädü "[[:$1|$1]]" no dabinon. Fomükam no mögon.',
 	'stabilization-notcontent' => 'Pad: "[[:$1|$1]]" no kanon pakrütön. Parametem nonik mögon.',
@@ -3934,12 +3942,13 @@ $messages['vo'] = array(
 	'stabilization-expiry' => 'Dul jü:',
 	'stabilization-othertime' => 'Dul votik:',
 	'stabilization-def-short-0' => 'Anuik',
-	'stabilization-def-short-1' => 'Fümöfik',
+	'stabilization-def-short-1' => 'Fümöfik', # Fuzzy
 	'stabilize_expiry_invalid' => 'Dul no lonöföl.',
 	'stabilize-expiring' => 'dulon jü $1 (UTC)',
 );
 
-/** Wu (吴语) */
+/** Wu (吴语)
+ */
 $messages['wuu'] = array(
 	'stabilization-comment' => '理由：',
 );
@@ -3964,14 +3973,14 @@ $messages['yi'] = array(
 $messages['yue'] = array(
 	'stabilization-tab' => '查',
 	'stabilization' => '穩定頁',
-	'stabilization-text' => "'''改下面嘅設定去調節所揀嘅[[:$1|$1]]之穩定版如何顯示。'''",
+	'stabilization-text' => "'''改下面嘅設定去調節所揀嘅[[:$1|$1]]之穩定版如何顯示。'''", # Fuzzy
 	'stabilization-perm' => '你嘅戶口無權限去改穩定版設定。
-呢度有現時[[:$1|$1]]嘅設定:',
+呢度有現時[[:$1|$1]]嘅設定:', # Fuzzy
 	'stabilization-page' => '版名:',
-	'stabilization-leg' => '確認穩定版嘅設定',
+	'stabilization-leg' => '確認穩定版嘅設定', # Fuzzy
 	'stabilization-def' => '響預設版視嘅修訂顯示',
-	'stabilization-def1' => '穩定修訂；如果未有，就係現時嘅',
-	'stabilization-def2' => '現時嘅修訂',
+	'stabilization-def1' => '穩定修訂；如果未有，就係現時嘅', # Fuzzy
+	'stabilization-def2' => '現時嘅修訂', # Fuzzy
 	'stabilization-submit' => '確認',
 	'stabilization-notexists' => '呢度係無一版係叫"[[:$1|$1]]"。
 無設定可以改到。',
@@ -3981,7 +3990,7 @@ $messages['yue'] = array(
 	'stabilization-expiry' => '到期:',
 	'stabilization-def-short' => '預設',
 	'stabilization-def-short-0' => '現時',
-	'stabilization-def-short-1' => '穩定',
+	'stabilization-def-short-1' => '穩定', # Fuzzy
 	'stabilize_expiry_invalid' => '無效嘅到期日。',
 	'stabilize_expiry_old' => '到期日已經過咗。',
 	'stabilize-expiring' => '於 $1 (UTC) 到期',
@@ -4072,4 +4081,3 @@ $messages['zh-hant'] = array(
 	'stabilize-expiring' => '於 $1 （UTC） 到期',
 	'stabilization-review' => '將此當前版本標記為已查閱',
 );
-

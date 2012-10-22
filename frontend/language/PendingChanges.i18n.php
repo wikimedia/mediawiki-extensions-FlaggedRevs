@@ -95,7 +95,7 @@ $messages['af'] = array(
 	'pendingchanges-recent' => '(minder as een uur)',
 	'pendingchanges-category' => 'Kategorie:',
 	'pendingchanges-onwatchlist' => 'Bladsye op my dophoulys',
-	'pendingchanges-stable' => 'Stabiele weergawe is standaard',
+	'pendingchanges-stable' => 'Stabiele weergawe is standaard', # Fuzzy
 	'pendingchanges-diff' => 'kontroleer',
 	'pendingchanges-size' => 'Max verandering (grepe):',
 	'pendingchanges-unwatched' => '(op geen dophoulys nie)',
@@ -116,7 +116,7 @@ $messages['am'] = array(
 $messages['an'] = array(
 	'pendingchanges' => 'Pachinas con cambios pendients',
 	'pendingchanges-legend' => 'Lista de pachinas revisatas con edicions sin revisar',
-	'pendingchanges-list' => 'Ista pachina amuestra {{PLURAL:$1|una pachina revisata|pachinas revisatas}} que tienen edicions pendients.',
+	'pendingchanges-list' => 'Ista pachina amuestra {{PLURAL:$1|una pachina revisata|pachinas revisatas}} que tienen edicions pendients.', # Fuzzy
 	'pendingchanges-none' => 'No bi ha agora garra pachina que cumpla ixas condicions',
 	'pendingchanges-hours' => '($1 {{PLURAL:$1|ora|oras}})',
 	'pendingchanges-days' => '($1 {{PLURAL:$1|día|días}})',
@@ -167,15 +167,15 @@ $messages['arc'] = array(
  * @author Ramsis II
  */
 $messages['arz'] = array(
-	'pendingchanges' => 'صفحات مراجعه قديمة',
+	'pendingchanges' => 'صفحات مراجعه قديمة', # Fuzzy
 	'pendingchanges-legend' => 'عرض الصفحات المراجعه ذات المراجعات غير المراجعة',
-	'pendingchanges-list' => 'هذه الصفحه تعرض {{PLURAL:$1||صفحه مراجعه فيها|صفحتين مراجعتين فيهما|صفحات مراجعه فيها}} تعديلات قيد الانتظار.',
+	'pendingchanges-list' => 'هذه الصفحه تعرض {{PLURAL:$1||صفحه مراجعه فيها|صفحتين مراجعتين فيهما|صفحات مراجعه فيها}} تعديلات قيد الانتظار.', # Fuzzy
 	'pendingchanges-none' => 'لا توجد حاليا صفحات تطابق هذه المواصفات',
 	'pendingchanges-hours' => '({{PLURAL:$1||ساعه واحد|ساعتان|$1 ساعات|$1 ساعة}})',
 	'pendingchanges-days' => '({{PLURAL:$1||يوم واحد|يومان|$1 أيام|$1 يومًا|$1 يوم}})',
 	'pendingchanges-recent' => '(أقل من ساعة)',
 	'pendingchanges-category' => 'تصنيف:',
-	'pendingchanges-stable' => 'منظورة',
+	'pendingchanges-stable' => 'منظورة', # Fuzzy
 	'pendingchanges-diff' => 'راجع',
 	'pendingchanges-size' => 'أقصى تغيير (بايت):',
 	'pendingchanges-unwatched' => '(غير مراقبة)',
@@ -219,7 +219,7 @@ $messages['az'] = array(
 $messages['bar'] = array(
 	'pendingchanges' => 'Saiten mid unmarkiarde Enderungen',
 	'pendingchanges-legend' => 'Listn vu gsichtete Seitn mid nu ned gsichtete Veasionen',
-	'pendingchanges-list' => "De Spezialseitn zoagt {{PLURAL:$1|a gsichtete|gsichtete}} Seitn, vu {{PLURAL:$1|dea's|de's}} nu ned gsichtete Veasionen gibt.",
+	'pendingchanges-list' => "De Spezialseitn zoagt {{PLURAL:$1|a gsichtete|gsichtete}} Seitn, vu {{PLURAL:$1|dea's|de's}} nu ned gsichtete Veasionen gibt.", # Fuzzy
 	'pendingchanges-none' => "Momentan gibt's kane Seitn, de wås zu de Kriterien passn.",
 	'pendingchanges-hours' => '($1 Stund)',
 	'pendingchanges-days' => '($1 Tåg)',
@@ -238,18 +238,18 @@ $messages['bar'] = array(
  * @author Mostafadaneshvar
  */
 $messages['bcc'] = array(
-	'pendingchanges' => 'صفحات بازبینی تاریح گوستگین',
+	'pendingchanges' => 'صفحات بازبینی تاریح گوستگین', # Fuzzy
 	'pendingchanges-legend' => 'لیست کن صفحاتء بازبینی بوتگین گون باز بینی نه بوتگین نسخ',
-	'pendingchanges-list' => 'ای صفحه لسیت کنت بازبینی صفحاتی که که اصلاحات معلقی هسن',
+	'pendingchanges-list' => 'ای صفحه لسیت کنت بازبینی صفحاتی که که اصلاحات معلقی هسن', # Fuzzy
 	'pendingchanges-none' => 'هنو هچ صفحه ای گون ای معیاران نیست',
 	'pendingchanges-hours' => '($1 {{PLURAL:$1|ساعت|ساعت}})',
 	'pendingchanges-days' => '($1 {{PLURAL:$1|روچ|روچان}})',
 	'pendingchanges-recent' => '(کمتر چه یک ساعت)',
 	'pendingchanges-category' => 'دسته:',
-	'pendingchanges-stable' => 'رویت بیتگ',
+	'pendingchanges-stable' => 'رویت بیتگ', # Fuzzy
 	'pendingchanges-diff' => 'بازبینی',
 	'pendingchanges-unwatched' => '(نه چارگ بیت)',
-	'pendingchanges-watched' => '($1 {{PLURAL:$1|کاربر|کابران}} چارگنت)',
+	'pendingchanges-watched' => '($1 {{PLURAL:$1|کاربر|کابران}} چارگنت)', # Fuzzy
 );
 
 /** Belarusian (беларуская)
@@ -258,7 +258,7 @@ $messages['bcc'] = array(
 $messages['be'] = array(
 	'pendingchanges' => 'Старонкі з неправеранымі зменамі',
 	'pendingchanges-legend' => 'Пералік правераных старонак з неправеранымі версіямі',
-	'pendingchanges-list' => 'На гэтай старонцы пералічаны правераныя старонкі, якія ў далейшым правіліся',
+	'pendingchanges-list' => 'На гэтай старонцы пералічаны правераныя старонкі, якія ў далейшым правіліся', # Fuzzy
 	'pendingchanges-none' => 'У цяперашні час няма старонак, якія задавальняюць гэтым умовам',
 	'pendingchanges-hours' => '($1 {{PLURAL:$1|гадзіну|гадзіны|гадзін}})',
 	'pendingchanges-days' => '($1 {{PLURAL:$1|дзень|дня|дзён}})',
@@ -415,16 +415,16 @@ $messages['ce'] = array(
  * @author Matěj Grabovský
  */
 $messages['cs'] = array(
-	'pendingchanges' => 'Zastaralé posouzené stránky',
+	'pendingchanges' => 'Zastaralé posouzené stránky', # Fuzzy
 	'pendingchanges-legend' => 'Zobrazit seznam posouzených stránek s neprověřenými revizemi',
-	'pendingchanges-list' => 'Tato stránka obsahuje {{PLURAL:$1|posouzenou stránku, jejíž|seznam posouzených stránek, jejichž}} úpravy nebyly zatím prověřeny.',
+	'pendingchanges-list' => 'Tato stránka obsahuje {{PLURAL:$1|posouzenou stránku, jejíž|seznam posouzených stránek, jejichž}} úpravy nebyly zatím prověřeny.', # Fuzzy
 	'pendingchanges-none' => 'Momentálně neexistují žádné stránky odpovídající těmto kritériím',
 	'pendingchanges-hours' => '($1 {{plural:$1|hodina|hodiny|hodin}})',
 	'pendingchanges-days' => '($1 {{plural:$1|den|dny|dní}})',
 	'pendingchanges-recent' => '(méně než 1 hodina)',
 	'pendingchanges-category' => 'Kategorie:',
-	'pendingchanges-onwatchlist' => 'Stránky na mém seznamu sledovaných stránek',
-	'pendingchanges-stable' => 'prohlédnuto',
+	'pendingchanges-onwatchlist' => 'Stránky na mém seznamu sledovaných stránek', # Fuzzy
+	'pendingchanges-stable' => 'prohlédnuto', # Fuzzy
 	'pendingchanges-diff' => 'posoudit',
 	'pendingchanges-size' => 'Maximální velikost změny (v bajtech):',
 	'pendingchanges-unwatched' => '(nesledované)',
@@ -771,7 +771,7 @@ $messages['grc'] = array(
 	'pendingchanges-hours' => '($1 {{PLURAL:$1|ὥρα|ὥραι}})',
 	'pendingchanges-days' => '($1 {{PLURAL:$1|ἡμέρα|ἡμέραι}})',
 	'pendingchanges-category' => 'Κατηγορία:',
-	'pendingchanges-stable' => 'θεωρημένη',
+	'pendingchanges-stable' => 'θεωρημένη', # Fuzzy
 	'pendingchanges-diff' => 'θεωρεῖν',
 	'pendingchanges-unwatched' => '(ἀνεφορωμένη)',
 );
@@ -826,20 +826,20 @@ $messages['he'] = array(
  * @author Kaustubh
  */
 $messages['hi'] = array(
-	'pendingchanges' => 'पुराने जाँचे हुए पन्ने',
+	'pendingchanges' => 'पुराने जाँचे हुए पन्ने', # Fuzzy
 	'pendingchanges-legend' => 'जिन जाँचे हुए पन्नोंको न जाँचे हुए अवतरण हैं उनकी सूची दर्शायें',
-	'pendingchanges-list' => 'यह पन्ना ऐसे जाँचे हुए पन्नोंकी सूची दर्शाता हैं जिनमें न जाँचे हुए बदलाव हैं।',
+	'pendingchanges-list' => 'यह पन्ना ऐसे जाँचे हुए पन्नोंकी सूची दर्शाता हैं जिनमें न जाँचे हुए बदलाव हैं।', # Fuzzy
 	'pendingchanges-none' => 'इस क्राइटेरिआ से मिलने वाले पन्ने नहीं हैं',
 	'pendingchanges-hours' => '($1 {{PLURAL:$1|घंटा|घंटे}})',
 	'pendingchanges-days' => '($1 {{PLURAL:$1|दिन|दिन}})',
 	'pendingchanges-recent' => '(१ घंटेसे कम समय)',
 	'pendingchanges-category' => 'श्रेणी:',
 	'pendingchanges-onwatchlist' => 'मेरी ध्यानसूची में पृष्ठों',
-	'pendingchanges-stable' => 'चुना हुआ',
+	'pendingchanges-stable' => 'चुना हुआ', # Fuzzy
 	'pendingchanges-diff' => 'जाँच',
 	'pendingchanges-size' => 'ज़्यादा से ज़्यादा बदलाव (बाइटस) :',
 	'pendingchanges-unwatched' => '(न देखे हुए)',
-	'pendingchanges-watched' => '($1 {{PLURAL:$1|सदस्यने|सदस्योंने}} ध्यान रखा हैं)',
+	'pendingchanges-watched' => '($1 {{PLURAL:$1|सदस्यने|सदस्योंने}} ध्यान रखा हैं)', # Fuzzy
 	'pendingchanges-viewing' => '(समिक्षा अंतर्गत)',
 );
 
@@ -1317,18 +1317,18 @@ $messages['ml'] = array(
  * @author Kaustubh
  */
 $messages['mr'] = array(
-	'pendingchanges' => 'जूनी तपासलेली पाने',
+	'pendingchanges' => 'जूनी तपासलेली पाने', # Fuzzy
 	'pendingchanges-legend' => 'ज्या तपासलेल्या पानांना न तपासलेल्या आवृत्त्या आहेत अशा पानांची यादी तयार करा',
-	'pendingchanges-list' => 'हे पान अशा तपासलेल्या पानांची यादी देते ज्यामध्ये न तपासलेले बदल आहेत.',
+	'pendingchanges-list' => 'हे पान अशा तपासलेल्या पानांची यादी देते ज्यामध्ये न तपासलेले बदल आहेत.', # Fuzzy
 	'pendingchanges-none' => 'ह्या मानदंडांशी जुळणारी पाने नाहीत',
 	'pendingchanges-hours' => '($1 {{PLURAL:$1|तास|तास}})',
 	'pendingchanges-days' => '($1 {{PLURAL:$1|दिवस|दिवस}})',
 	'pendingchanges-recent' => '(१ तासापेक्षा कमी वेळ)',
 	'pendingchanges-category' => 'वर्ग:',
-	'pendingchanges-stable' => 'निवडलेली',
+	'pendingchanges-stable' => 'निवडलेली', # Fuzzy
 	'pendingchanges-diff' => 'तपासा',
 	'pendingchanges-unwatched' => '(न पाहिलेली)',
-	'pendingchanges-watched' => '($1 {{PLURAL:$1|सदस्यानी|सदस्यांनी}} पहारा दिलेला आहे)',
+	'pendingchanges-watched' => '($1 {{PLURAL:$1|सदस्यानी|सदस्यांनी}} पहारा दिलेला आहे)', # Fuzzy
 );
 
 /** Malay (Bahasa Melayu)
@@ -1423,15 +1423,15 @@ $messages['nl'] = array(
  * @author Harald Khan
  */
 $messages['nn'] = array(
-	'pendingchanges' => 'Utdaterte vurderte sider',
+	'pendingchanges' => 'Utdaterte vurderte sider', # Fuzzy
 	'pendingchanges-legend' => 'Syn vurderte sider med versjonar som manglar vurdering',
-	'pendingchanges-list' => 'Denne sida syner vurderte sider som har uteståande endringar.',
+	'pendingchanges-list' => 'Denne sida syner vurderte sider som har uteståande endringar.', # Fuzzy
 	'pendingchanges-none' => 'For tida møter ingen sider desse krava',
 	'pendingchanges-hours' => '({{PLURAL:$1|éin time|$1 timar}})',
 	'pendingchanges-days' => '({{PLURAL:$1|éin dag|$1 dagar}})',
 	'pendingchanges-recent' => '(mindre enn éin time)',
 	'pendingchanges-category' => 'Kategori:',
-	'pendingchanges-stable' => 'vurdert',
+	'pendingchanges-stable' => 'vurdert', # Fuzzy
 	'pendingchanges-diff' => 'vurder',
 	'pendingchanges-size' => 'Maksimal endring (byte):',
 	'pendingchanges-unwatched' => '(ikkje overvaka)',
@@ -1445,13 +1445,13 @@ $messages['nn'] = array(
 $messages['oc'] = array(
 	'pendingchanges' => "Paginas qu'an de modificacions en espèra",
 	'pendingchanges-legend' => 'Listas de paginas revistas amb de versions pas visadas.',
-	'pendingchanges-list' => 'Aquesta pagina lista {{PLURAL:$1|una pagina ja revista que compòrta|de paginas ja revistas que compòrtan}} de modificacions novèlas.',
+	'pendingchanges-list' => 'Aquesta pagina lista {{PLURAL:$1|una pagina ja revista que compòrta|de paginas ja revistas que compòrtan}} de modificacions novèlas.', # Fuzzy
 	'pendingchanges-none' => 'Existís actualament pas cap de pagina respectant aquestes critèris',
 	'pendingchanges-hours' => '($1 {{PLURAL:$1|ora|oras}})',
 	'pendingchanges-days' => '($1 {{PLURAL:$1|jorn|jorns}})',
 	'pendingchanges-recent' => "(mens qu'una ora)",
 	'pendingchanges-category' => 'Categoria :',
-	'pendingchanges-stable' => 'visat',
+	'pendingchanges-stable' => 'visat', # Fuzzy
 	'pendingchanges-diff' => 'relectura',
 	'pendingchanges-size' => 'Cambiament maximal de la talha (en octets) :',
 	'pendingchanges-unwatched' => '(pas observat)',
@@ -1538,11 +1538,11 @@ $messages['ps'] = array(
 );
 
 /** Portuguese (português)
- * @author 555
  * @author Capmo
  * @author Hamilton Abreu
  * @author Malafaya
  * @author Waldir
+ * @author 555
  */
 $messages['pt'] = array(
 	'pendingchanges' => 'Páginas com edições pendentes',
@@ -1879,7 +1879,8 @@ $messages['sv'] = array(
 	'pendingchanges-viewing' => '(granskas)',
 );
 
-/** Swahili (Kiswahili) */
+/** Swahili (Kiswahili)
+ */
 $messages['sw'] = array(
 	'pendingchanges-category' => 'Jamii:',
 );
@@ -1906,13 +1907,13 @@ $messages['ta'] = array(
 $messages['te'] = array(
 	'pendingchanges' => 'మార్పులతో వేచియున్న పుటలు',
 	'pendingchanges-legend' => 'వేచియున్న మార్పులతో కూడిన పుటలను చూపించు',
-	'pendingchanges-list' => 'వేచియున్న మార్పులు కలిగిన {{PLURAL:$1|ఒక సమీక్షిత పేజీని|సమీక్షిత పేజీలను}} ఈ పేజీ చూపిస్తుంది.',
+	'pendingchanges-list' => 'వేచియున్న మార్పులు కలిగిన {{PLURAL:$1|ఒక సమీక్షిత పేజీని|సమీక్షిత పేజీలను}} ఈ పేజీ చూపిస్తుంది.', # Fuzzy
 	'pendingchanges-none' => 'ఈ నియమాలకు సరిపోలుతున్న పేజీలు ఏమీ ప్రస్తుతం లేవు',
 	'pendingchanges-hours' => '($1 {{PLURAL:$1|గంట|గంటలు}})',
 	'pendingchanges-days' => '($1 {{PLURAL:$1|రోజు|రోజులు}})',
 	'pendingchanges-recent' => '(1 గంట లోపల)',
 	'pendingchanges-category' => 'వర్గం:',
-	'pendingchanges-stable' => 'నిలకడబరిచినది',
+	'pendingchanges-stable' => 'నిలకడబరిచినది', # Fuzzy
 	'pendingchanges-diff' => 'రివ్యూ',
 	'pendingchanges-size' => 'గరిష్ఠ మార్పు (బైట్లు):',
 	'pendingchanges-unwatched' => '(వీక్షణలో లేనివి)',
@@ -1940,16 +1941,16 @@ $messages['th'] = array(
  * @author Hanberke
  */
 $messages['tk'] = array(
-	'pendingchanges' => 'Möwriti geçen gözden geçirilen sahypalar',
+	'pendingchanges' => 'Möwriti geçen gözden geçirilen sahypalar', # Fuzzy
 	'pendingchanges-legend' => 'Gözden geçirmeklige garaşýan wersiýalary bar bolan gözden geçirilen sahypalary sanawla',
-	'pendingchanges-list' => 'Bu sahypa garaşýan özgerdişleri bar bolan gözden geçirilen {{PLURAL:$1|bir sahypany|sahypalary}} sanawlaýar.',
+	'pendingchanges-list' => 'Bu sahypa garaşýan özgerdişleri bar bolan gözden geçirilen {{PLURAL:$1|bir sahypany|sahypalary}} sanawlaýar.', # Fuzzy
 	'pendingchanges-none' => 'Häzirki wagtda bu şertlere gabat gelýän hiç hili sahypa ýok',
 	'pendingchanges-hours' => '($1 {{PLURAL:$1|sagat|sagat}})',
 	'pendingchanges-days' => '($1 {{PLURAL:$1|gün|gün}})',
 	'pendingchanges-recent' => '(1 sagatdan az)',
 	'pendingchanges-category' => 'Kategoriýa:',
 	'pendingchanges-onwatchlist' => 'Gözegçilik sanawymdaky sahypalar',
-	'pendingchanges-stable' => 'Durnuklaşdyryldy',
+	'pendingchanges-stable' => 'Durnuklaşdyryldy', # Fuzzy
 	'pendingchanges-diff' => 'gözden geçir',
 	'pendingchanges-size' => 'Maksimum üýtgeşme (baýt):',
 	'pendingchanges-unwatched' => '(gözegçilikde däl)',
@@ -1990,7 +1991,7 @@ $messages['tl'] = array(
 $messages['tr'] = array(
 	'pendingchanges' => 'İnceleme bekleyen sayfalar',
 	'pendingchanges-legend' => 'Gözden geçirilme bekleyen revizyonu olan gözden geçirilmiş sayfaları listele',
-	'pendingchanges-list' => 'Bu sayfa, bir veya daha fazla bekleyen değişikliğe sahip [[{{MediaWiki:Validationpage}}|gözden geçirilmiş]] {{PLURAL:$1|bir sayfayı|sayfaları}} listeler.',
+	'pendingchanges-list' => 'Bu sayfa, bir veya daha fazla bekleyen değişikliğe sahip [[{{MediaWiki:Validationpage}}|gözden geçirilmiş]] {{PLURAL:$1|bir sayfayı|sayfaları}} listeler.', # Fuzzy
 	'pendingchanges-none' => 'Şimdilik bu kriterlere uyan sayfa yoktur',
 	'pendingchanges-hours' => '($1 {{PLURAL:$1|saat|saat}})',
 	'pendingchanges-days' => '($1 {{PLURAL:$1|gün|gün}})',
@@ -2043,9 +2044,9 @@ $messages['ur'] = array(
  * @author Candalua
  */
 $messages['vec'] = array(
-	'pendingchanges' => 'Pagine riesaminà tenpo adrìo',
+	'pendingchanges' => 'Pagine riesaminà tenpo adrìo', # Fuzzy
 	'pendingchanges-legend' => 'Elenca le pagine riesaminà con versioni non riesaminà',
-	'pendingchanges-list' => 'Sta pagina la elenca {{PLURAL:$1|una pagina riesaminà|le pagine riesaminà}} che gà modifiche in atesa.',
+	'pendingchanges-list' => 'Sta pagina la elenca {{PLURAL:$1|una pagina riesaminà|le pagine riesaminà}} che gà modifiche in atesa.', # Fuzzy
 	'pendingchanges-none' => 'No ghe xe atualmente nissuna pagina che sodisfa sti criteri',
 	'pendingchanges-hours' => '($1 {{PLURAL:$1|ora|ore}})',
 	'pendingchanges-days' => '($1 {{PLURAL:$1|giòrno|giòrni}})',
@@ -2123,18 +2124,18 @@ $messages['yi'] = array(
  * @author Shinjiman
  */
 $messages['yue'] = array(
-	'pendingchanges' => '已過時複審過嘅版',
+	'pendingchanges' => '已過時複審過嘅版', # Fuzzy
 	'pendingchanges-legend' => '列示有未複審修訂之複審過嘅版',
-	'pendingchanges-list' => '呢一版列示咗有等緊編輯嘅評論版。',
+	'pendingchanges-list' => '呢一版列示咗有等緊編輯嘅評論版。', # Fuzzy
 	'pendingchanges-none' => '呢度現時無版係合乎呢啲條件',
 	'pendingchanges-hours' => '($1個鐘頭)',
 	'pendingchanges-days' => '($1日)',
 	'pendingchanges-recent' => '(少過1個鐘頭)',
 	'pendingchanges-category' => '類:',
-	'pendingchanges-stable' => '察看',
+	'pendingchanges-stable' => '察看', # Fuzzy
 	'pendingchanges-diff' => '複審',
 	'pendingchanges-unwatched' => '(未睇)',
-	'pendingchanges-watched' => '($1{{PLURAL:$1|位用戶|位用戶}}睇緊)',
+	'pendingchanges-watched' => '($1{{PLURAL:$1|位用戶|位用戶}}睇緊)', # Fuzzy
 );
 
 /** Simplified Chinese (中文（简体）‎)
@@ -2192,4 +2193,3 @@ $messages['zh-hant'] = array(
 	'pendingchanges-watched' => '（在$1位活躍用戶的監視列表中）',
 	'pendingchanges-viewing' => '（等待審核）',
 );
-

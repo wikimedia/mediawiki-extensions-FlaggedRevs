@@ -53,7 +53,7 @@ This message is used in the list of reviewed versions of a page (Special:Reviewe
  * @author පසිඳු කාවින්ද
  */
 $messages['af'] = array(
-	'reviewedversions' => 'Bekyk stabiele weergawes',
+	'reviewedversions' => 'Bekyk stabiele weergawes', # Fuzzy
 	'reviewedversions-leg1' => "Lys hersien hersienings vir 'n bladsy",
 	'reviewedversions-page' => 'Bladsynaam:',
 );
@@ -75,7 +75,7 @@ $messages['an'] = array(
 	'reviewedversions-leg1' => "Amostrar a lista de versions revisatas d'una pachina",
 	'reviewedversions-page' => "Nombre d'a pachina:",
 	'reviewedversions-none' => '"[[:$1]]" no tiene versions revisatas.',
-	'reviewedversions-list' => "A siguient ye una lista con {{PLURAL:%2|a sola versión|as versions}} de [[:$1]] que s'han revisato:",
+	'reviewedversions-list' => "A siguient ye una lista con {{PLURAL:%2|a sola versión|as versions}} de [[:$1]] que s'han revisato:", # Fuzzy
 	'reviewedversions-review' => 'Revisata por $2 o <i>$1</i>',
 );
 
@@ -103,7 +103,7 @@ $messages['arc'] = array(
  * @author Meno25
  */
 $messages['arz'] = array(
-	'reviewedversions' => 'عرض النسخ المستقرة',
+	'reviewedversions' => 'عرض النسخ المستقرة', # Fuzzy
 	'reviewedversions-leg1' => 'عرض المراجعات المراجعه لصفحة',
 	'reviewedversions-page' => 'اسم الصفحة:',
 	'reviewedversions-none' => '"[[:$1]]" لا يوجد بها مراجعات مراجعه.',
@@ -137,11 +137,11 @@ $messages['az'] = array(
  * @author Mostafadaneshvar
  */
 $messages['bcc'] = array(
-	'reviewedversions' => 'به گند ثابتین نسخه یانء',
+	'reviewedversions' => 'به گند ثابتین نسخه یانء', # Fuzzy
 	'reviewedversions-leg1' => 'لیست کن اصلاحات بازبینی په ای صفحه',
 	'reviewedversions-page' => 'نام صفحه:',
 	'reviewedversions-none' => '"[[:$1]]" هچ نسخه بازبینیء نیست',
-	'reviewedversions-list' => 'جهلیگین یک لیستی چه بازبینی آن [[:$1]] که دگه چارگ بوتگنت:',
+	'reviewedversions-list' => 'جهلیگین یک لیستی چه بازبینی آن [[:$1]] که دگه چارگ بوتگنت:', # Fuzzy
 	'reviewedversions-review' => 'بازبینی بیته ته <i>$1</i> گون $2',
 );
 
@@ -182,7 +182,7 @@ $messages['be-tarask'] = array(
  * @author Spiritia
  */
 $messages['bg'] = array(
-	'reviewedversions' => 'Преглед на устойчивите версии',
+	'reviewedversions' => 'Преглед на устойчивите версии', # Fuzzy
 	'reviewedversions-leg1' => 'Преглед на рецензираните версии на страницата',
 	'reviewedversions-page' => 'Име на страницата:',
 	'reviewedversions-none' => 'Страницата „[[:$1]]“ няма рецензирани версии.',
@@ -468,7 +468,7 @@ $messages['gl'] = array(
  * @author Omnipaedista
  */
 $messages['grc'] = array(
-	'reviewedversions' => 'Ὁρᾶν τὰς σταθερὰς ἐκδόσεις',
+	'reviewedversions' => 'Ὁρᾶν τὰς σταθερὰς ἐκδόσεις', # Fuzzy
 	'reviewedversions-leg1' => 'Ὕσταται ἐπιθεωρημέναι ἀναθεωρήσεις δέλτου τινός',
 	'reviewedversions-page' => 'Ὄνομα δέλτου:',
 	'reviewedversions-none' => 'Τὸ "[[:$1]]" οὐκ ἔχει ἐπιθεωρημένας ἀναθεωρήσεις.',
@@ -507,11 +507,11 @@ $messages['he'] = array(
  * @author Kaustubh
  */
 $messages['hi'] = array(
-	'reviewedversions' => 'स्थिर अवतरण देखें',
+	'reviewedversions' => 'स्थिर अवतरण देखें', # Fuzzy
 	'reviewedversions-leg1' => 'पन्नेके परीक्षण हुए अवतरणोंकी सूची देखें',
 	'reviewedversions-page' => 'लेख शीर्षक:',
 	'reviewedversions-none' => '"[[:$1]]" को एकभी परिक्षण किया हुआ अवतरण नहीं हैं।',
-	'reviewedversions-list' => 'नीचे [[:$1]] के परिक्षण हुए अवतरणोंकी सूची हैं:',
+	'reviewedversions-list' => 'नीचे [[:$1]] के परिक्षण हुए अवतरणोंकी सूची हैं:', # Fuzzy
 	'reviewedversions-review' => '$2 द्वारा <i>$1</i> को परिक्षण हुआ',
 );
 
@@ -633,7 +633,7 @@ $messages['ja'] = array(
  * @author Huslåke
  */
 $messages['jut'] = array(
-	'reviewedversions' => 'Stabiil versje',
+	'reviewedversions' => 'Stabiil versje', # Fuzzy
 	'reviewedversions-page' => 'Pægenavn:',
 );
 
@@ -650,33 +650,36 @@ $messages['ka'] = array(
 	'reviewedversions-review' => 'შეამოწმა <i>$1</i> მომხმარებელმა $2',
 );
 
-/** Kazakh (Arabic script) (قازاقشا (تٴوتە)‏) */
+/** Kazakh (Arabic script) (قازاقشا (تٴوتە)‏)
+ */
 $messages['kk-arab'] = array(
-	'reviewedversions' => 'تىياناقتى نۇسقالار',
+	'reviewedversions' => 'تىياناقتى نۇسقالار', # Fuzzy
 	'reviewedversions-leg1' => 'سىن بەرىلگەن بەتتىڭ نۇسقا ٴتىزىمى',
 	'reviewedversions-page' => 'بەت اتاۋى:',
 	'reviewedversions-none' => '«[[:$1]]» بەتىندە سىن بەرىلگەن ەش نۇسقا جوق.',
-	'reviewedversions-list' => 'كەلەسى تىزىمدە [[:$1]] بەتىنىڭ سىن بەرىلگەن نۇسقالارى كەلتىرىلەدى:',
+	'reviewedversions-list' => 'كەلەسى تىزىمدە [[:$1]] بەتىنىڭ سىن بەرىلگەن نۇسقالارى كەلتىرىلەدى:', # Fuzzy
 	'reviewedversions-review' => '$2 <i>$1</i> كەزىندە سىن بەردى',
 );
 
-/** Kazakh (Cyrillic script) (қазақша (кирил)‎) */
+/** Kazakh (Cyrillic script) (қазақша (кирил)‎)
+ */
 $messages['kk-cyrl'] = array(
-	'reviewedversions' => 'Тиянақты нұсқалар',
+	'reviewedversions' => 'Тиянақты нұсқалар', # Fuzzy
 	'reviewedversions-leg1' => 'Сын берілген беттің нұсқа тізімі',
 	'reviewedversions-page' => 'Бет атауы:',
 	'reviewedversions-none' => '«[[:$1]]» бетінде сын берілген еш нұсқа жоқ.',
-	'reviewedversions-list' => 'Келесі тізімде [[:$1]] бетінің сын берілген нұсқалары келтіріледі:',
+	'reviewedversions-list' => 'Келесі тізімде [[:$1]] бетінің сын берілген нұсқалары келтіріледі:', # Fuzzy
 	'reviewedversions-review' => '$2 <i>$1</i> кезінде сын берді',
 );
 
-/** Kazakh (Latin script) (qazaqşa (latın)‎) */
+/** Kazakh (Latin script) (qazaqşa (latın)‎)
+ */
 $messages['kk-latn'] = array(
-	'reviewedversions' => 'Tïyanaqtı nusqalar',
+	'reviewedversions' => 'Tïyanaqtı nusqalar', # Fuzzy
 	'reviewedversions-leg1' => 'Sın berilgen bettiñ nusqa tizimi',
 	'reviewedversions-page' => 'Bet atawı:',
 	'reviewedversions-none' => '«[[:$1]]» betinde sın berilgen eş nusqa joq.',
-	'reviewedversions-list' => 'Kelesi tizimde [[:$1]] betiniñ sın berilgen nusqaları keltiriledi:',
+	'reviewedversions-list' => 'Kelesi tizimde [[:$1]] betiniñ sın berilgen nusqaları keltiriledi:', # Fuzzy
 	'reviewedversions-review' => '$2 <i>$1</i> kezinde sın berdi',
 );
 
@@ -800,7 +803,7 @@ $messages['mr'] = array(
 	'reviewedversions-leg1' => 'एखाद्या पानाच्या तपासलेल्या आवृत्त्यांची यादी',
 	'reviewedversions-page' => 'पृष्ठ नाव',
 	'reviewedversions-none' => '"[[:$1]]" ला कुठल्याही तपासलेल्या आवृत्त्या नाहीत.',
-	'reviewedversions-list' => 'खाली [[:$1]] च्या तपासलेल्या आवृत्त्यांची यादी आहे:',
+	'reviewedversions-list' => 'खाली [[:$1]] च्या तपासलेल्या आवृत्त्यांची यादी आहे:', # Fuzzy
 	'reviewedversions-review' => '$2 द्वारा <i>$1</i> रोजी तपासली गेली',
 );
 
@@ -870,11 +873,11 @@ $messages['nl'] = array(
  * @author Jon Harald Søby
  */
 $messages['nn'] = array(
-	'reviewedversions' => 'Sjå stabile versjonar',
+	'reviewedversions' => 'Sjå stabile versjonar', # Fuzzy
 	'reviewedversions-leg1' => 'List opp vurderte versjonar av ei sida',
 	'reviewedversions-page' => 'Sidenamn',
 	'reviewedversions-none' => '«[[:$1]]» har ingen vurderte versjonar.',
-	'reviewedversions-list' => 'Fylgjande er ei lista over vurderte versjonar av [[:$1]]:',
+	'reviewedversions-list' => 'Fylgjande er ei lista over vurderte versjonar av [[:$1]]:', # Fuzzy
 	'reviewedversions-review' => 'Vurdert den <i>$1</i> av $2',
 );
 
@@ -947,9 +950,9 @@ $messages['ps'] = array(
 );
 
 /** Portuguese (português)
- * @author 555
  * @author Hamilton Abreu
  * @author Waldir
+ * @author 555
  */
 $messages['pt'] = array(
 	'reviewedversions' => 'Edições revistas',
@@ -1070,7 +1073,7 @@ $messages['si'] = array(
  * @author Helix84
  */
 $messages['sk'] = array(
-	'reviewedversions' => 'Zobraziť stabilné verzie',
+	'reviewedversions' => 'Zobraziť stabilné verzie', # Fuzzy
 	'reviewedversions-leg1' => 'Zoznam skontrolovaných verzií stránky',
 	'reviewedversions-page' => 'Názov stránky',
 	'reviewedversions-none' => '[[:$1]] nemá skontrolované verzie.',
@@ -1129,7 +1132,7 @@ $messages['sr-el'] = array(
  * @author Pyt
  */
 $messages['stq'] = array(
-	'reviewedversions' => 'Stoabile Versione bekiekje',
+	'reviewedversions' => 'Stoabile Versione bekiekje', # Fuzzy
 	'reviewedversions-leg1' => 'Lieste fon do wröigede Versione foar n Artikkel',
 	'reviewedversions-page' => 'Artikkelnoome:',
 	'reviewedversions-none' => '„[[:$1]]“ häd neen wröigede Versione.',
@@ -1141,7 +1144,7 @@ $messages['stq'] = array(
  * @author Kandar
  */
 $messages['su'] = array(
-	'reviewedversions' => 'Témbongkeun vérsi stabil',
+	'reviewedversions' => 'Témbongkeun vérsi stabil', # Fuzzy
 	'reviewedversions-page' => 'Judul kaca:',
 );
 
@@ -1191,11 +1194,11 @@ $messages['tet'] = array(
  * @author Ibrahim
  */
 $messages['tg-cyrl'] = array(
-	'reviewedversions' => 'Нигаристани нусхаҳои пойдор',
+	'reviewedversions' => 'Нигаристани нусхаҳои пойдор', # Fuzzy
 	'reviewedversions-leg1' => 'Феҳрист кардани нусхаҳои баррасишудаи як саҳифа',
 	'reviewedversions-page' => 'Номи саҳифа:',
 	'reviewedversions-none' => '"[[:$1]]" ҳеҷ нусхаи баррасишудае надорад.',
-	'reviewedversions-list' => 'Дар зер феҳристи аз нусхаҳои баррасишуда аз [[:$1]]ро мебинед:',
+	'reviewedversions-list' => 'Дар зер феҳристи аз нусхаҳои баррасишуда аз [[:$1]]ро мебинед:', # Fuzzy
 	'reviewedversions-review' => 'Дар <i>$1</i> аз тарафи $2 барраси шудааст',
 );
 
@@ -1203,11 +1206,11 @@ $messages['tg-cyrl'] = array(
  * @author Liangent
  */
 $messages['tg-latn'] = array(
-	'reviewedversions' => 'Nigaristani nusxahoi pojdor',
+	'reviewedversions' => 'Nigaristani nusxahoi pojdor', # Fuzzy
 	'reviewedversions-leg1' => 'Fehrist kardani nusxahoi barrasişudai jak sahifa',
 	'reviewedversions-page' => 'Nomi sahifa:',
 	'reviewedversions-none' => '"[[:$1]]" heç nusxai barrasişudae nadorad.',
-	'reviewedversions-list' => 'Dar zer fehristi az nusxahoi barrasişuda az [[:$1]]ro mebined:',
+	'reviewedversions-list' => 'Dar zer fehristi az nusxahoi barrasişuda az [[:$1]]ro mebined:', # Fuzzy
 	'reviewedversions-review' => 'Dar <i>$1</i> az tarafi $2 barrasi şudaast',
 );
 
@@ -1222,7 +1225,7 @@ $messages['th'] = array(
  * @author Hanberke
  */
 $messages['tk'] = array(
-	'reviewedversions' => 'Gözden geçirilen wersiýalary görkez',
+	'reviewedversions' => 'Gözden geçirilen wersiýalary görkez', # Fuzzy
 	'reviewedversions-leg1' => 'Sahypa üçin gözden geçirilen wersiýalary sanawla',
 	'reviewedversions-page' => 'Sahypa ady:',
 	'reviewedversions-none' => '"[[:$1]]" sahypasynda hiç hili gözden geçirilen wersiýa ýok.',
@@ -1318,11 +1321,11 @@ $messages['vi'] = array(
  * @author Smeira
  */
 $messages['vo'] = array(
-	'reviewedversions' => 'Logön fomamis fümöfik',
+	'reviewedversions' => 'Logön fomamis fümöfik', # Fuzzy
 	'reviewedversions-leg1' => 'Lisedön padafomamis pekrütöl',
 	'reviewedversions-page' => 'Nem pada:',
 	'reviewedversions-none' => '"[[:$1]]" no labon fomamis pekrütöl.',
-	'reviewedversions-list' => 'Ekö! lised fomamas ya pekrütölas pada: [[:$1]]:',
+	'reviewedversions-list' => 'Ekö! lised fomamas ya pekrütölas pada: [[:$1]]:', # Fuzzy
 	'reviewedversions-review' => 'Pekrüton tü <i>$1</i> fa geban: $2',
 );
 
@@ -1333,14 +1336,15 @@ $messages['yi'] = array(
 	'reviewedversions-page' => 'בלאט נאמען:',
 );
 
-/** Cantonese (粵語) */
+/** Cantonese (粵語)
+ */
 $messages['yue'] = array(
-	'reviewedversions' => '穩定版',
+	'reviewedversions' => '穩定版', # Fuzzy
 	'reviewedversions-leg1' => '列示一版複審過嘅修訂',
 	'reviewedversions-page' => '版名',
 	'reviewedversions-none' => '[[:$1]]無複審過嘅修訂。',
-	'reviewedversions-list' => '下面係[[:$1]]已經複審過嘅修訂一覽:',
-	'reviewedversions-review' => '響<i>$1</i>複審過',
+	'reviewedversions-list' => '下面係[[:$1]]已經複審過嘅修訂一覽:', # Fuzzy
+	'reviewedversions-review' => '響<i>$1</i>複審過', # Fuzzy
 );
 
 /** Simplified Chinese (中文（简体）‎)
@@ -1371,4 +1375,3 @@ $messages['zh-hant'] = array(
 	'reviewedversions-list' => '以下是[[:$1]]的{{PLURAL:$2|此唯一|此}}版本{{PLURAL:$2|已|已}}複審的修訂列表：',
 	'reviewedversions-review' => '由$2於<i>$1</i>進行了複審',
 );
-

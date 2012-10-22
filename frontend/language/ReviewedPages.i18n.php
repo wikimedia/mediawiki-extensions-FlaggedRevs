@@ -108,14 +108,14 @@ $messages['ar'] = array(
  */
 $messages['arz'] = array(
 	'reviewedpages' => 'صفحات مراجعة',
-	'reviewedpages-leg' => 'اعرض الصفحات حسب أعلى مستوى مراجعة',
-	'reviewedpages-list' => 'هذه الصفحه تعرض الصفحات التى تمت مراجعتها (على أقصى تقدير) للمستوى المحدد.',
+	'reviewedpages-leg' => 'اعرض الصفحات حسب أعلى مستوى مراجعة', # Fuzzy
+	'reviewedpages-list' => 'هذه الصفحه تعرض الصفحات التى تمت مراجعتها (على أقصى تقدير) للمستوى المحدد.', # Fuzzy
 	'reviewedpages-none' => 'لا توجد صفحات فى هذه القائمة',
 	'reviewedpages-lev-0' => 'منظورة',
 	'reviewedpages-lev-1' => 'جودة',
 	'reviewedpages-lev-2' => 'مختارة',
 	'reviewedpages-all' => 'نسخ مراجعة',
-	'reviewedpages-best' => 'مراجعه فائقة',
+	'reviewedpages-best' => 'مراجعه فائقة', # Fuzzy
 );
 
 /** Asturian (asturianu)
@@ -153,14 +153,14 @@ O seviyedeki en son revizyona bağlantı verilmiştir.",
  */
 $messages['bcc'] = array(
 	'reviewedpages' => 'صفحات بازبینی بوتگین',
-	'reviewedpages-leg' => 'لیست صفحات بازبینی بوتگین په یک سطح حاص',
-	'reviewedpages-list' => 'جهلیگین صفحات به مشخصین سطح بازبینی بوتت.',
+	'reviewedpages-leg' => 'لیست صفحات بازبینی بوتگین په یک سطح حاص', # Fuzzy
+	'reviewedpages-list' => 'جهلیگین صفحات به مشخصین سطح بازبینی بوتت.', # Fuzzy
 	'reviewedpages-none' => 'ته ای لیست هچ صفحه ای نیست',
 	'reviewedpages-lev-0' => 'رویت بیتت',
 	'reviewedpages-lev-1' => 'کیفیت',
 	'reviewedpages-lev-2' => 'نمایان',
 	'reviewedpages-all' => 'نسخه یان بازبینی بوتگین',
-	'reviewedpages-best' => 'بازبینی اصلی',
+	'reviewedpages-best' => 'بازبینی اصلی', # Fuzzy
 );
 
 /** Belarusian (беларуская)
@@ -196,14 +196,14 @@ $messages['be-tarask'] = array(
  */
 $messages['bg'] = array(
 	'reviewedpages' => 'Рецензирани страници',
-	'reviewedpages-leg' => 'Преглед на страниците, получили определена оценка',
-	'reviewedpages-list' => 'Следните страници са получили оценка до определената',
+	'reviewedpages-leg' => 'Преглед на страниците, получили определена оценка', # Fuzzy
+	'reviewedpages-list' => 'Следните страници са получили оценка до определената', # Fuzzy
 	'reviewedpages-none' => 'Списъкът не съдържа страници',
 	'reviewedpages-lev-0' => 'Прегледани',
 	'reviewedpages-lev-1' => 'Качество',
 	'reviewedpages-lev-2' => 'Избрани',
 	'reviewedpages-all' => 'рецензирани версии',
-	'reviewedpages-best' => 'последната най-високо оценена версия',
+	'reviewedpages-best' => 'последната най-високо оценена версия', # Fuzzy
 );
 
 /** Bengali (বাংলা)
@@ -276,8 +276,8 @@ $messages['ce'] = array(
  */
 $messages['cs'] = array(
 	'reviewedpages' => 'Posouzené stránky',
-	'reviewedpages-leg' => 'Seznam stránek podle nejvyšší úrovně posouzení',
-	'reviewedpages-list' => 'Tato stránka obsahuje seznam článků, které byly posouzeny (nejvíce) na určitou úroveň.',
+	'reviewedpages-leg' => 'Seznam stránek podle nejvyšší úrovně posouzení', # Fuzzy
+	'reviewedpages-list' => 'Tato stránka obsahuje seznam článků, které byly posouzeny (nejvíce) na určitou úroveň.', # Fuzzy
 	'reviewedpages-none' => 'Žádná stránka neodpovídá',
 	'reviewedpages-lev-0' => 'prohlédnuté',
 	'reviewedpages-lev-1' => 'kvalitní',
@@ -556,14 +556,14 @@ $messages['he'] = array(
  */
 $messages['hi'] = array(
 	'reviewedpages' => 'परिक्षण हुए पन्ने',
-	'reviewedpages-leg' => 'विशिष्ट गुण मिले पन्ने',
-	'reviewedpages-list' => 'निम्नलिखित पन्ने विशिष्ट गुण प्राप्त हैं',
+	'reviewedpages-leg' => 'विशिष्ट गुण मिले पन्ने', # Fuzzy
+	'reviewedpages-list' => 'निम्नलिखित पन्ने विशिष्ट गुण प्राप्त हैं', # Fuzzy
 	'reviewedpages-none' => 'इस सूची में पन्ने नहीं हैं',
 	'reviewedpages-lev-0' => 'चुना हुआ',
 	'reviewedpages-lev-1' => 'गुणवत्ता',
 	'reviewedpages-lev-2' => 'विशेष',
 	'reviewedpages-all' => 'परिक्षण हुए अवतरण',
-	'reviewedpages-best' => 'मूल अवतरण',
+	'reviewedpages-best' => 'मूल अवतरण', # Fuzzy
 );
 
 /** Croatian (hrvatski)
@@ -712,14 +712,14 @@ $messages['ja'] = array(
  */
 $messages['jut'] = array(
 	'reviewedpages' => 'Sæn pæger',
-	'reviewedpages-leg' => 'Liste pæger sæn til æ ståndvast nivå',
-	'reviewedpages-list' => 'Æ følgende pæger er sæn til æ spæsifiærn nivå',
+	'reviewedpages-leg' => 'Liste pæger sæn til æ ståndvast nivå', # Fuzzy
+	'reviewedpages-list' => 'Æ følgende pæger er sæn til æ spæsifiærn nivå', # Fuzzy
 	'reviewedpages-none' => 'Her er ekke pæger in dette liste',
 	'reviewedpages-lev-0' => 'Sæn',
 	'reviewedpages-lev-1' => 'Kwalititæt',
 	'reviewedpages-lev-2' => 'Gådvårende',
 	'reviewedpages-all' => 'sæn versje',
-	'reviewedpages-best' => 'erste versje',
+	'reviewedpages-best' => 'erste versje', # Fuzzy
 );
 
 /** Georgian (ქართული)
@@ -735,43 +735,46 @@ $messages['ka'] = array(
 	'reviewedpages-best' => 'საუკეთესო ვერსია',
 );
 
-/** Kazakh (Arabic script) (قازاقشا (تٴوتە)‏) */
+/** Kazakh (Arabic script) (قازاقشا (تٴوتە)‏)
+ */
 $messages['kk-arab'] = array(
 	'reviewedpages' => 'سىن بەرىلگەن بەتتەر',
-	'reviewedpages-leg' => 'انىق دەڭگەيدە سىن بەرىلگەن بەتتەردى تىزىمدەۋ',
-	'reviewedpages-list' => 'كەلەسى بەتتەرگە كەلتىرىلگەن دەڭگەيدە سىن بەرىلگەن',
+	'reviewedpages-leg' => 'انىق دەڭگەيدە سىن بەرىلگەن بەتتەردى تىزىمدەۋ', # Fuzzy
+	'reviewedpages-list' => 'كەلەسى بەتتەرگە كەلتىرىلگەن دەڭگەيدە سىن بەرىلگەن', # Fuzzy
 	'reviewedpages-none' => 'بۇل تىزىمدە ەش بەت جوق',
 	'reviewedpages-lev-0' => 'شولىنعان',
 	'reviewedpages-lev-1' => 'ساپالى',
 	'reviewedpages-lev-2' => 'تاڭدامالى',
 	'reviewedpages-all' => 'سىن بەرىلگەن نۇسقالارى',
-	'reviewedpages-best' => 'ەڭ سوڭعى ەڭ جوعارى دەڭگەي بەرىلگەن نۇسقاسى',
+	'reviewedpages-best' => 'ەڭ سوڭعى ەڭ جوعارى دەڭگەي بەرىلگەن نۇسقاسى', # Fuzzy
 );
 
-/** Kazakh (Cyrillic script) (қазақша (кирил)‎) */
+/** Kazakh (Cyrillic script) (қазақша (кирил)‎)
+ */
 $messages['kk-cyrl'] = array(
 	'reviewedpages' => 'Сын берілген беттер',
-	'reviewedpages-leg' => 'Анық деңгейде сын берілген беттерді тізімдеу',
-	'reviewedpages-list' => 'Келесі беттерге келтірілген деңгейде сын берілген',
+	'reviewedpages-leg' => 'Анық деңгейде сын берілген беттерді тізімдеу', # Fuzzy
+	'reviewedpages-list' => 'Келесі беттерге келтірілген деңгейде сын берілген', # Fuzzy
 	'reviewedpages-none' => 'Бұл тізімде еш бет жоқ',
 	'reviewedpages-lev-0' => 'шолынған',
 	'reviewedpages-lev-1' => 'сапалы',
 	'reviewedpages-lev-2' => 'таңдамалы',
 	'reviewedpages-all' => 'сын берілген нұсқалары',
-	'reviewedpages-best' => 'ең соңғы ең жоғары деңгей берілген нұсқасы',
+	'reviewedpages-best' => 'ең соңғы ең жоғары деңгей берілген нұсқасы', # Fuzzy
 );
 
-/** Kazakh (Latin script) (qazaqşa (latın)‎) */
+/** Kazakh (Latin script) (qazaqşa (latın)‎)
+ */
 $messages['kk-latn'] = array(
 	'reviewedpages' => 'Sın berilgen better',
-	'reviewedpages-leg' => 'Anıq deñgeýde sın berilgen betterdi tizimdew',
-	'reviewedpages-list' => 'Kelesi betterge keltirilgen deñgeýde sın berilgen',
+	'reviewedpages-leg' => 'Anıq deñgeýde sın berilgen betterdi tizimdew', # Fuzzy
+	'reviewedpages-list' => 'Kelesi betterge keltirilgen deñgeýde sın berilgen', # Fuzzy
 	'reviewedpages-none' => 'Bul tizimde eş bet joq',
 	'reviewedpages-lev-0' => 'şolınğan',
 	'reviewedpages-lev-1' => 'sapalı',
 	'reviewedpages-lev-2' => 'tañdamalı',
 	'reviewedpages-all' => 'sın berilgen nusqaları',
-	'reviewedpages-best' => 'eñ soñğı eñ joğarı deñgeý berilgen nusqası',
+	'reviewedpages-best' => 'eñ soñğı eñ joğarı deñgeý berilgen nusqası', # Fuzzy
 );
 
 /** Khmer (ភាសាខ្មែរ)
@@ -885,14 +888,14 @@ $messages['ml'] = array(
  */
 $messages['mr'] = array(
 	'reviewedpages' => 'तपासलेली पाने',
-	'reviewedpages-leg' => 'विशिष्ट गुणांकनाला तपासलेली पाने',
-	'reviewedpages-list' => 'खालील पाने दिलेल्या विशिष्ट गुणांकनात तपासलेली आहेत',
+	'reviewedpages-leg' => 'विशिष्ट गुणांकनाला तपासलेली पाने', # Fuzzy
+	'reviewedpages-list' => 'खालील पाने दिलेल्या विशिष्ट गुणांकनात तपासलेली आहेत', # Fuzzy
 	'reviewedpages-none' => 'या यादीत पाने नाहीत',
 	'reviewedpages-lev-0' => 'निवडलेली',
 	'reviewedpages-lev-1' => 'गुणवत्ता',
 	'reviewedpages-lev-2' => 'विशेष',
 	'reviewedpages-all' => 'तपासलेल्या आवृत्त्या',
-	'reviewedpages-best' => 'मूळ आवृत्ती',
+	'reviewedpages-best' => 'मूळ आवृत्ती', # Fuzzy
 );
 
 /** Malay (Bahasa Melayu)
@@ -961,14 +964,14 @@ Er wordt een verwijzing gegeven naar de laatste versie voor dat niveau.",
  */
 $messages['nn'] = array(
 	'reviewedpages' => 'Vurderte sider',
-	'reviewedpages-leg' => 'List opp sider etter høgaste nivå',
-	'reviewedpages-list' => 'Dei fylgjande sidene har vortne vurderte som det oppgjevne nivået',
+	'reviewedpages-leg' => 'List opp sider etter høgaste nivå', # Fuzzy
+	'reviewedpages-list' => 'Dei fylgjande sidene har vortne vurderte som det oppgjevne nivået', # Fuzzy
 	'reviewedpages-none' => 'Det finst ingen sider i denne lista',
 	'reviewedpages-lev-0' => 'Vurdert',
 	'reviewedpages-lev-1' => 'Kvalitet',
 	'reviewedpages-lev-2' => 'Utmerka',
 	'reviewedpages-all' => 'vurderte versjonar',
-	'reviewedpages-best' => 'beste versjon',
+	'reviewedpages-best' => 'beste versjon', # Fuzzy
 );
 
 /** Northern Sotho (Sesotho sa Leboa)
@@ -984,7 +987,7 @@ $messages['nso'] = array(
 $messages['oc'] = array(
 	'reviewedpages' => 'Pagina passadas en revista',
 	'reviewedpages-leg' => 'Far la lista de las paginas que son estadas relegidas',
-	'reviewedpages-list' => 'Aquesta pagina fa la lista de las paginas en revista (al mai) al nivèl especificat.',
+	'reviewedpages-list' => 'Aquesta pagina fa la lista de las paginas en revista (al mai) al nivèl especificat.', # Fuzzy
 	'reviewedpages-none' => 'Aquesta lista es voida',
 	'reviewedpages-lev-0' => 'Visualizat',
 	'reviewedpages-lev-1' => 'De qualitat',
@@ -1039,11 +1042,11 @@ $messages['ps'] = array(
 );
 
 /** Portuguese (português)
- * @author 555
  * @author Giro720
  * @author Hamilton Abreu
  * @author Malafaya
  * @author Waldir
+ * @author 555
  */
 $messages['pt'] = array(
 	'reviewedpages' => 'Páginas revistas',
@@ -1171,14 +1174,14 @@ $messages['si'] = array(
  */
 $messages['sk'] = array(
 	'reviewedpages' => 'Skontrolované stránky',
-	'reviewedpages-leg' => 'Zoznam stránok podľa najvyššej úrovne kontroly',
-	'reviewedpages-list' => 'Táto stránka obsahuje zoznam článkov, ktoré boli skontrolované (najviac) do určenej úrovne.',
+	'reviewedpages-leg' => 'Zoznam stránok podľa najvyššej úrovne kontroly', # Fuzzy
+	'reviewedpages-list' => 'Táto stránka obsahuje zoznam článkov, ktoré boli skontrolované (najviac) do určenej úrovne.', # Fuzzy
 	'reviewedpages-none' => 'V tomto zozname sa nenachádzajú žiadne stránky.',
 	'reviewedpages-lev-0' => 'Videná',
 	'reviewedpages-lev-1' => 'Kvalita',
 	'reviewedpages-lev-2' => 'Odporúčané',
 	'reviewedpages-all' => 'skontrolované verzie',
-	'reviewedpages-best' => 'primárna revízia',
+	'reviewedpages-best' => 'primárna revízia', # Fuzzy
 );
 
 /** Slovenian (slovenščina)
@@ -1246,14 +1249,14 @@ Veza je data najnovijoj reviziji tog nivoa.",
  */
 $messages['stq'] = array(
 	'reviewedpages' => 'Wröigede Sieden',
-	'reviewedpages-leg' => 'Lieste fon do Sieden mäd dän hoochste Level',
-	'reviewedpages-list' => 'Do foulgjende Sieden wuuden wröiged un hääbe dän anroate Stoatus kriegen',
+	'reviewedpages-leg' => 'Lieste fon do Sieden mäd dän hoochste Level', # Fuzzy
+	'reviewedpages-list' => 'Do foulgjende Sieden wuuden wröiged un hääbe dän anroate Stoatus kriegen', # Fuzzy
 	'reviewedpages-none' => 'Ju Lieste is loos.',
 	'reviewedpages-lev-0' => 'Sieuwed',
 	'reviewedpages-lev-1' => 'Qualität',
 	'reviewedpages-lev-2' => 'Exzellent',
 	'reviewedpages-all' => 'wröigede Versione',
-	'reviewedpages-best' => 'lääste ap hoochste wäidierde Version',
+	'reviewedpages-best' => 'lääste ap hoochste wäidierde Version', # Fuzzy
 );
 
 /** Sundanese (Basa Sunda)
@@ -1303,7 +1306,7 @@ $messages['ta'] = array(
 $messages['te'] = array(
 	'reviewedpages' => 'సమీక్షించిన పేజీలు',
 	'reviewedpages-leg' => 'సమీక్షితమై ఉన్న పుటలను చూపించు',
-	'reviewedpages-list' => 'ఈ క్రింద పేర్కొన్న {{PLURAL:$1|పేజీ|పేజీలు}} మీరడిగిన స్థాయివరకు ఎక్కువగా సమీక్షించబడినవి',
+	'reviewedpages-list' => 'ఈ క్రింద పేర్కొన్న {{PLURAL:$1|పేజీ|పేజీలు}} మీరడిగిన స్థాయివరకు ఎక్కువగా సమీక్షించబడినవి', # Fuzzy
 	'reviewedpages-none' => 'ఈ జాబితాలో పేజీలు లేవు.',
 	'reviewedpages-lev-0' => 'కనబడింది',
 	'reviewedpages-lev-1' => 'నాణ్యత',
@@ -1317,14 +1320,14 @@ $messages['te'] = array(
  */
 $messages['tg-cyrl'] = array(
 	'reviewedpages' => 'Саҳифаҳои баррасӣ нашуда',
-	'reviewedpages-leg' => 'Намоиши саҳифаҳое ки то ҳад баррасӣ шудаанд',
-	'reviewedpages-list' => 'Саҳифаҳои зерин то ҳад таъйин шуда, мавриди баррасӣ қарор гирифтаанд',
+	'reviewedpages-leg' => 'Намоиши саҳифаҳое ки то ҳад баррасӣ шудаанд', # Fuzzy
+	'reviewedpages-list' => 'Саҳифаҳои зерин то ҳад таъйин шуда, мавриди баррасӣ қарор гирифтаанд', # Fuzzy
 	'reviewedpages-none' => 'Саҳифаҳое дар ин феҳрист нест',
 	'reviewedpages-lev-0' => 'Баррасишуда',
 	'reviewedpages-lev-1' => 'Бо кайфият',
 	'reviewedpages-lev-2' => 'Баргузида',
 	'reviewedpages-all' => 'нусхаҳои баррасӣ шуда',
-	'reviewedpages-best' => 'нусхаи беҳтарин',
+	'reviewedpages-best' => 'нусхаи беҳтарин', # Fuzzy
 );
 
 /** Tajik (Latin script) (tojikī)
@@ -1337,7 +1340,7 @@ $messages['tg-latn'] = array(
 	'reviewedpages-lev-1' => 'Bo kajfijat',
 	'reviewedpages-lev-2' => 'Barguzida',
 	'reviewedpages-all' => 'nusxahoi barrasī şuda',
-	'reviewedpages-best' => 'nusxai behtarin',
+	'reviewedpages-best' => 'nusxai behtarin', # Fuzzy
 );
 
 /** Turkmen (Türkmençe)
@@ -1345,12 +1348,12 @@ $messages['tg-latn'] = array(
  */
 $messages['tk'] = array(
 	'reviewedpages' => 'Gözden geçirilen sahypalar',
-	'reviewedpages-leg' => 'Sahypalary iň ýokary gözden geçirme derejesine göre sanawla',
-	'reviewedpages-list' => 'Bu sahypa görkezilen derejede (iň ýokary) gözden geçirilen sahypalary sanawlaýar.',
+	'reviewedpages-leg' => 'Sahypalary iň ýokary gözden geçirme derejesine göre sanawla', # Fuzzy
+	'reviewedpages-list' => 'Bu sahypa görkezilen derejede (iň ýokary) gözden geçirilen sahypalary sanawlaýar.', # Fuzzy
 	'reviewedpages-none' => 'Bu sanawda hiç hili sahypa ýok',
 	'reviewedpages-lev-2' => 'Saýlama',
 	'reviewedpages-all' => 'gözden geçirilen wersiýalar',
-	'reviewedpages-best' => 'iň gowy wersiýa',
+	'reviewedpages-best' => 'iň gowy wersiýa', # Fuzzy
 );
 
 /** Tagalog (Tagalog)
@@ -1475,14 +1478,14 @@ $messages['vo'] = array(
  */
 $messages['yue'] = array(
 	'reviewedpages' => '複審過嘅版',
-	'reviewedpages-leg' => '列示複審過到指定級數嘅版',
-	'reviewedpages-list' => '下面嘅版已經複審到一個指定嘅級數',
+	'reviewedpages-leg' => '列示複審過到指定級數嘅版', # Fuzzy
+	'reviewedpages-list' => '下面嘅版已經複審到一個指定嘅級數', # Fuzzy
 	'reviewedpages-none' => '無版響呢個表度',
 	'reviewedpages-lev-0' => '視察過',
 	'reviewedpages-lev-1' => '質素',
 	'reviewedpages-lev-2' => '正',
 	'reviewedpages-all' => '複審版',
-	'reviewedpages-best' => '最好修訂',
+	'reviewedpages-best' => '最好修訂', # Fuzzy
 );
 
 /** Simplified Chinese (中文（简体）‎)
@@ -1517,4 +1520,3 @@ $messages['zh-hant'] = array(
 	'reviewedpages-all' => '複審版',
 	'reviewedpages-best' => '最佳修訂',
 );
-

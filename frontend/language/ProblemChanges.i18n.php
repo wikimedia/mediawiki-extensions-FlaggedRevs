@@ -73,7 +73,7 @@ $messages['arc'] = array(
  * @author Meno25
  */
 $messages['arz'] = array(
-	'problemchanges' => 'راجع التغييرات الموسومة',
+	'problemchanges' => 'راجع التغييرات الموسومة', # Fuzzy
 	'problemchanges-legend' => 'اعرض الصفحات ذات التعديلات الموسومه التى تنتظر المراجعة',
 	'problemchanges-none' => 'لا توجد حاليًا صفحات توافق هذه المعايير',
 	'problemchanges-category' => 'التصنيف:',
@@ -179,7 +179,8 @@ $messages['ce'] = array(
 	'problemchanges-category' => 'Кадегар:',
 );
 
-/** Sorani Kurdish (کوردی) */
+/** Sorani Kurdish (کوردی)
+ */
 $messages['ckb'] = array(
 	'problemchanges-category' => 'پۆل:',
 );
@@ -218,6 +219,7 @@ $messages['de'] = array(
  */
 $messages['diq'] = array(
 	'problemchanges' => 'Vuranayîşanê etiket biyo vindeno',
+	'problemchanges-list' => 'Nê listeyê pele ke [[{{MediaWiki:Validationpage}}|vêniyayê]] be yew ya zi xeylê etiketê vurnayışi ra tedqiq sero manenê. Listeya cı zi [[Special:Tags|etiketanê vurnayışanê vêrdayeyan]] de esta.',
 	'problemchanges-legend' => 'Pelanê ke be vurnayışi etiket biyê u seba çımraviyarnayışi pawenê lista ke',
 	'problemchanges-none' => 'Ser ena kriteri de pelan çini yo',
 	'problemchanges-category' => 'Kategoriye:',
@@ -376,7 +378,8 @@ $messages['gsw'] = array(
 	'problemchanges-category' => 'Kategorii:',
 );
 
-/** Hausa (Hausa) */
+/** Hausa (Hausa)
+ */
 $messages['ha'] = array(
 	'problemchanges-category' => 'Rukuni:',
 );
@@ -866,7 +869,8 @@ $messages['sr-ec'] = array(
 	'problemchanges-category' => 'Категорија:',
 );
 
-/** Serbian (Latin script) (srpski (latinica)‎) */
+/** Serbian (Latin script) (srpski (latinica)‎)
+ */
 $messages['sr-el'] = array(
 	'problemchanges' => 'Označene izmene na čekanju',
 	'problemchanges-legend' => 'Prelistaj stranice na čekanju s označenim izmenama za pregled',
@@ -878,7 +882,7 @@ $messages['sr-el'] = array(
  * @author Irwangatot
  */
 $messages['su'] = array(
-	'problemchanges' => 'Pariksa parobahan nu diberé tanda',
+	'problemchanges' => 'Pariksa parobahan nu diberé tanda', # Fuzzy
 	'problemchanges-none' => 'Kiwari euweuh kaca anu minuhan kriteria kasebut',
 	'problemchanges-category' => 'Kategori:',
 );
@@ -897,7 +901,8 @@ $messages['sv'] = array(
 	'problemchanges-category' => 'Kategori:',
 );
 
-/** Swahili (Kiswahili) */
+/** Swahili (Kiswahili)
+ */
 $messages['sw'] = array(
 	'problemchanges-category' => 'Jamii:',
 );
@@ -928,7 +933,7 @@ $messages['tet'] = array(
  * @author Hanberke
  */
 $messages['tk'] = array(
-	'problemchanges' => 'Tegli üýtgeşmeleri gözden geçir',
+	'problemchanges' => 'Tegli üýtgeşmeleri gözden geçir', # Fuzzy
 	'problemchanges-legend' => 'Tegli özgerdişleri gözden geçirmeklige garaşýan sahypalary sanawla',
 	'problemchanges-none' => 'Häzirki wagtda hiç bir sahypa bu şertlere gabat gelmeýär',
 	'problemchanges-category' => 'Kategoriýa:',
@@ -1050,4 +1055,3 @@ $messages['zh-hant'] = array(
 	'problemchanges-none' => '目前沒有頁面符合這些條件',
 	'problemchanges-category' => '類別：',
 );
-
