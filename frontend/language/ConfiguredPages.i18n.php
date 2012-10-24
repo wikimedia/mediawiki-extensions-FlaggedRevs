@@ -1054,6 +1054,13 @@ Một số tùy chọn có thể có ảnh hưởng đến phiên bản được
 	'configuredpages-def-stable' => 'phiên bản xuất bản',
 );
 
+/** Yiddish (ייִדיש)
+ * @author פוילישער
+ */
+$messages['yi'] = array(
+	'configuredpages-def-draft' => 'לעצטע ווערסיע',
+);
+
 /** Simplified Chinese (中文（简体）‎)
  * @author Onecountry
  * @author PhiLiP
