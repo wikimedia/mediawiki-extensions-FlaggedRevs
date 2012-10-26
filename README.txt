@@ -2,7 +2,7 @@ Complete online documenation:
 http://www.mediawiki.org/wiki/Extension:FlaggedRevs
 
 ==Prerequisites==
-* Downloaded the extension from SVN
+* Downloaded the extension from GIT
 * MediaWiki 1.19+
 * Shell access
 
