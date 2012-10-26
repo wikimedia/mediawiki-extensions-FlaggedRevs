@@ -337,7 +337,7 @@ var fr = {
 			'revreview-adv-reviewing-c' : // diff
 			'revreview-adv-reviewing-p'; // page
 		var $underReview = $(
-			'<span class="fr-under-review">' + mw.message( msgkey ).escaped() + '</span>' );
+			'<span class="fr-under-review">' + mw.message( msgkey, mw.user ).escaped() + '</span>' );
 		// Update notice to say that user is advertising...
 		$('#mw-fr-reviewing-status')
 			.empty()

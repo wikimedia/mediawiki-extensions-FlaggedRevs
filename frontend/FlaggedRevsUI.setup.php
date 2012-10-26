@@ -171,7 +171,7 @@ class FlaggedRevsUISetup {
 				'revreview-sadv-reviewing-p', 'revreview-sadv-reviewing-c',
 				'revreview-adv-start-link', 'revreview-adv-stop-link'
 			),
-			'dependencies'  => array( 'mediawiki.util' ),
+			'dependencies'  => array( 'mediawiki.util', 'mediawiki.user', 'mediawiki.jqueryMsg' ),
 			'localBasePath' => $localModulePath,
 			'remoteExtPath' => $remoteModulePath,
 		);

@@ -62,8 +62,8 @@ See the [[Special:Unreviewedpages|list of unreviewed pages]].',
 	'revreview-successful2'        => '\'\'\'Revision of [[:$1|$1]] successfully unflagged.\'\'\'',
 	'revreview-poss-conflict-p'    => '\'\'\'Warning: [[User:$1|$1]] started reviewing this page on $2 at $3.\'\'\'',
 	'revreview-poss-conflict-c'    => '\'\'\'Warning: [[User:$1|$1]] started reviewing these changes on $2 at $3.\'\'\'',
-	'revreview-adv-reviewing-p'    => 'Notice: Other reviewers can see that you are reviewing this page.',
-	'revreview-adv-reviewing-c'    => 'Notice: Other reviewers can see that you are reviewing these changes.',
+	'revreview-adv-reviewing-p'    => 'Notice: Other reviewers can see that {{GENDER:$1|you}} are reviewing this page.',
+	'revreview-adv-reviewing-c'    => 'Notice: Other reviewers can see that {{GENDER:$1|you}} are reviewing these changes.',
 	'revreview-sadv-reviewing-p'   => 'You can $1 yourself as reviewing this page to other users.',
 	'revreview-sadv-reviewing-c'   => 'You can $1 yourself as reviewing these changes to other users.',
 	'revreview-adv-start-link'     => 'advertise',
@@ -229,11 +229,15 @@ Parameters:
 	'revreview-adv-reviewing-p' => '{{Flagged Revs}}
 Shown on the form to review pages. Indicates that other reviewers will get a notice that this user is already reviewing this revision of the page. Not shown on diffs.
 
-This message is followed by {{msg-mw|revreview-adv-stop-link}} as link in parenthesis.',
+This message is followed by {{msg-mw|revreview-adv-stop-link}} as link in parenthesis.
+
+$1 is the gender for the gender magic word.',
 	'revreview-adv-reviewing-c' => '{{Flagged Revs}}
 Shown on the form to review pages. Indicates that other reviewers will get a notice that this user is already reviewing this revision of the page. Shown on diffs.
 
-This message is followed by {{msg-mw|revreview-adv-stop-link}} as link in parenthesis.',
+This message is followed by {{msg-mw|revreview-adv-stop-link}} as link in parenthesis.
+
+$1 is the gender for the gender magic word.',
 	'revreview-sadv-reviewing-p' => '{{Flagged Revs}}
 Shown on the form to review pages. Not shown on diffs.
 $1 is {{msg-mw|revreview-adv-start-link}} as a link. It displays as "advertise".',
