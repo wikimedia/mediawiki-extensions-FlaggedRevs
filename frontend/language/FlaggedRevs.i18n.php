@@ -15601,7 +15601,7 @@ $messages['uk'] = array(
 	'revreview-hist-quality-auto' => 'автоматично затверджена',
 	'revreview-hist-basic-auto' => 'автоматично перевірена',
 	'revreview-hist-pending-difflink' => "'''[[{{fullurl:$1|oldid=$2&diff=$3{{MediaWiki:flaggedrevs-diffonly}}}} очікує на перевірку]]'''",
-	'review-edit-diff' => "'''Зауваження. Деякі нерецензовані зміни стосуються області сторінки, яку ви редагуєте.'''",
+	'review-edit-diff' => "'''Зауваження. Деякі нерецензовані зміни стосуються розділу сторінки, який ви редагуєте.'''",
 	'revreview-diff-toggle-show' => 'показати зміни',
 	'revreview-diff-toggle-hide' => 'сховати зміни',
 	'revreview-diff-toggle-title' => 'Переключити відображення нерецензованих змін до опублікованої версії',
@@ -15751,9 +15751,6 @@ $messages['uk'] = array(
 	'revreview-unlocked-title' => 'Зміни цієї сторінки не потребують рецензування.',
 	'revreview-locked' => "'''Примітка:''' Редагування повинні бути [[{{MediaWiki:Validationpage}}|перевірені]] перед тим, як будуть показані читачам на цій сторінці.",
 	'revreview-unlocked' => "'''Примітка:''' Редагування не потребують [[{{MediaWiki:Validationpage}}|рецензування]] перед тим, як будуть показані читачам на цій сторінці.",
-	'revreview-ak-review' => 's',
-	'accesskey-ca-current' => 'v',
-	'accesskey-ca-stable' => 'c',
 	'log-show-hide-review' => '$1 журнал перевірок',
 	'validationpage' => '{{ns:help}}:Перевірка сторінки',
 );
