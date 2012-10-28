@@ -8141,14 +8141,14 @@ $messages['ja'] = array(
 	'stable-logpagetext' => 'これは記事の[[{{MediaWiki:Validationpage}}|固定版]]設定の変更記録です。',
 	'revreview-filter-all' => 'すべて',
 	'revreview-filter-stable' => '公開',
-	'revreview-statusfilter' => '査読操作：',
+	'revreview-statusfilter' => '査読操作:',
 	'revreview-filter-approved' => '承認済',
 	'revreview-filter-reapproved' => '再承認済',
 	'revreview-filter-unapproved' => '承認取り消し',
-	'revreview-typefilter' => '種類：',
+	'revreview-typefilter' => '種類:',
 	'revreview-filter-auto' => '自動',
 	'revreview-filter-manual' => '手動',
-	'revreview-levelfilter' => '水準：',
+	'revreview-levelfilter' => '水準:',
 	'revreview-lev-all' => 'すべて',
 	'revreview-lev-basic' => '確認済み',
 	'revreview-lev-quality' => '内容充実',
@@ -8157,7 +8157,7 @@ $messages['ja'] = array(
 	'revreview-def-all' => '任意',
 	'revreview-def-draft' => '最新版',
 	'revreview-def-stable' => '公開版',
-	'revreview-restrictfilter' => '自動査読制限：',
+	'revreview-restrictfilter' => '自動査読制限:',
 	'revreview-restriction-any' => 'すべて',
 	'revreview-restriction-none' => 'なし',
 	'revreview-reviewlink' => '査読待ちの編集',
@@ -9775,7 +9775,7 @@ $messages['ltg'] = array(
 	'revreview-filter-all' => 'vysi',
 );
 
-/** Lushai (Mizo ţawng)
+/** Mizo (Mizo ţawng)
  * @author RMizo
  */
 $messages['lus'] = array(
@@ -10059,9 +10059,6 @@ $messages['mk'] = array(
 	'revreview-unlocked-title' => 'Уредувањата на оваа страница не бараат преглед.',
 	'revreview-locked' => "'''Напомена:''' Уредувањата мора да се [[{{MediaWiki:Validationpage}}|проверат]] пред да бидат видливи за читателите на оваа страница.",
 	'revreview-unlocked' => "'''Напомена:''' Уредувањата не бараат [[{{MediaWiki:Validationpage}}|проверка]] пред да бидат видливи за читателите на оваа страница.",
-	'revreview-ak-review' => 'п',
-	'accesskey-ca-current' => 'в',
-	'accesskey-ca-stable' => 'c',
 	'log-show-hide-review' => '$1 дневник на оценувања',
 	'validationpage' => '{{ns:help}}:Проверка на страница',
 );
@@ -12929,9 +12926,6 @@ $messages['ru'] = array(
 	'revreview-unlocked-title' => 'Правки этой страницы не требуют проверки.',
 	'revreview-locked' => "'''Замечание.''' Правки должны быть [[{{MediaWiki:Validationpage}}|проверены]], прежде чем они будут показаны читателям этой страницы.",
 	'revreview-unlocked' => "'''Замечание.''' Чтобы читатели этой страницы увидели сделанные изменения, их предварительная [[{{MediaWiki:Validationpage}}|проверка]] не требуется.",
-	'revreview-ak-review' => 's',
-	'accesskey-ca-current' => 'v',
-	'accesskey-ca-stable' => 'c',
 	'log-show-hide-review' => '$1 журнал проверок',
 	'validationpage' => '{{ns:help}}:Проверка страниц',
 );
@@ -14032,9 +14026,6 @@ $messages['sr-ec'] = array(
 	'flaggedrevs-protect-none' => 'Дозволи свим корисницима',
 	'revreview-locked-title' => 'Измене на овој страници захтевају преглед.',
 	'revreview-unlocked-title' => 'Измене на овој страници не захтевају преглед.',
-	'revreview-ak-review' => 's',
-	'accesskey-ca-current' => 'v',
-	'accesskey-ca-stable' => 'c',
 	'log-show-hide-review' => '$1 дневник прегледања',
 	'validationpage' => '{{ns:help}}:Провера странице',
 );
@@ -14176,9 +14167,6 @@ Molimo vas da proverite URL koji ste upotrebili da biste pristupili ovoj stranic
 	'flaggedrevs-protect-none' => 'Dozvoli svim korisnicima',
 	'revreview-locked-title' => 'Izmene na ovoj stranici zahtevaju pregled.',
 	'revreview-unlocked-title' => 'Izmene na ovoj stranici ne zahtevaju pregled.',
-	'revreview-ak-review' => 's',
-	'accesskey-ca-current' => 'v',
-	'accesskey-ca-stable' => 'c',
 	'log-show-hide-review' => '$1 dnevnik pregledanja',
 	'validationpage' => '{{ns:help}}:Validacija članka',
 );

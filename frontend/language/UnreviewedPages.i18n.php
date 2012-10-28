@@ -976,13 +976,13 @@ $messages['ja'] = array(
 	'unreviewedpages-category' => 'カテゴリ:',
 	'unreviewedpages-diff' => '査読',
 	'unreviewedpages-unwatched' => '(未ウォッチ)',
-	'unreviewedpages-watched' => '($1人の活動中の{{PLURAL:$1|利用者}}がウォッチ)',
-	'unreviewedpages-list' => 'このページは、指定された水準に達する[[{{MediaWiki:Validationpage}}|査読]]をされていない記事の一覧です。',
+	'unreviewedpages-watched' => '($1 人の活動中の{{PLURAL:$1|利用者}}がウォッチ)',
+	'unreviewedpages-list' => 'このページは、指定された水準に達するまだ[[{{MediaWiki:Validationpage}}|査読]]されていない記事の一覧です。',
 	'unreviewedpages-none' => '現在、これらの基準を満たすページはありません',
 	'unreviewedpages-viewing' => '(査読中)',
-	'unreviewedpages-hours' => '($1 時間)',
-	'unreviewedpages-days' => '($1 日)',
-	'unreviewedpages-recent' => '(1時間未満)',
+	'unreviewedpages-hours' => '($1 {{PLURAL:$1|時間}})',
+	'unreviewedpages-days' => '($1 {{PLURAL:$1|日}})',
+	'unreviewedpages-recent' => '(1 時間未満)',
 );
 
 /** Jutish (jysk)

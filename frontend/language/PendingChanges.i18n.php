@@ -1042,18 +1042,18 @@ $messages['it'] = array(
 $messages['ja'] = array(
 	'pendingchanges' => '編集が保留されているページ',
 	'pendingchanges-legend' => '査読待ちの版のある査読済みページを一覧',
-	'pendingchanges-list' => 'このページは、一度[[{{MediaWiki:Validationpage}}|査読]]されたページで、査読待ちの編集があるものの一覧です。',
+	'pendingchanges-list' => 'このページでは、一度[[{{MediaWiki:Validationpage}}|査読]]されたページのうち、査読待ちの編集があるものを列挙します。',
 	'pendingchanges-none' => '現在、これらの基準を満たすページはありません',
-	'pendingchanges-hours' => '($1{{PLURAL:$1|時間}})',
-	'pendingchanges-days' => '($1{{PLURAL:$1|日}})',
-	'pendingchanges-recent' => '(1時間未満)',
-	'pendingchanges-category' => 'カテゴリ：',
+	'pendingchanges-hours' => '($1 {{PLURAL:$1|時間}})',
+	'pendingchanges-days' => '($1 {{PLURAL:$1|日}})',
+	'pendingchanges-recent' => '(1 時間未満)',
+	'pendingchanges-category' => 'カテゴリ:',
 	'pendingchanges-onwatchlist' => '自分のウォッチリストに含まれるページ',
 	'pendingchanges-stable' => '公開版が既定に設定されています',
 	'pendingchanges-diff' => '査読',
-	'pendingchanges-size' => '変更量の上限 (バイト)：',
+	'pendingchanges-size' => '変更量の上限 (バイト):',
 	'pendingchanges-unwatched' => '(未ウォッチ)',
-	'pendingchanges-watched' => '($1人の活動中の{{PLURAL:$1|利用者}}がウォッチ)',
+	'pendingchanges-watched' => '($1 人の活動中の{{PLURAL:$1|利用者}}がウォッチ)',
 	'pendingchanges-viewing' => '(査読中)',
 );
 
@@ -1250,7 +1250,7 @@ $messages['lt'] = array(
 	'pendingchanges-viewing' => '(peržiūrima)',
 );
 
-/** Lushai (Mizo ţawng)
+/** Mizo (Mizo ţawng)
  * @author RMizo
  */
 $messages['lus'] = array(
