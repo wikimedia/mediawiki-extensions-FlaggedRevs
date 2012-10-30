@@ -231,7 +231,7 @@ Shown on the form to review pages. Indicates that other reviewers will get a not
 
 This message is followed by {{msg-mw|revreview-adv-stop-link}} as link in parenthesis.
 
-$1 is the gender for the gender magic word.',
+$1 is the gender for the gender magic word.', # Fuzzy
 	'revreview-adv-reviewing-c' => '{{Flagged Revs}}
 Shown on the form to review pages. Indicates that other reviewers will get a notice that this user is already reviewing this revision of the page. Shown on diffs.
 
@@ -1225,8 +1225,8 @@ Siehe die [[Special:Unreviewedpages|Liste unmarkierter Versionen]].',
 	'revreview-successful2' => "'''Die Markierung der Version von [[:$1|$1]] wurde erfolgreich aufgehoben.'''",
 	'revreview-poss-conflict-p' => "'''Warnung: Ein anderer Benutzer ([[User:$1|$1]]) hat am $2 um $3 Uhr damit begonnen, diese Seite zu überprüfen.'''",
 	'revreview-poss-conflict-c' => "'''Warnung: Ein anderer Benutzer ([[User:$1|$1]]) hat am $2 um $3 Uhr damit begonnen, diese Änderungen zu überprüfen.'''",
-	'revreview-adv-reviewing-p' => 'Hinweis: Andere Benutzer werden nun darauf hingewiesen, dass du diese Seite überprüfst.',
-	'revreview-adv-reviewing-c' => 'Hinweis: Andere Benutzer werden nun darauf hingewiesen, dass du diese Änderungen überprüfst.',
+	'revreview-adv-reviewing-p' => 'Hinweis: Andere Benutzer werden nun darauf hingewiesen, dass {{GENDER:$1|du}} diese Seite überprüfst.',
+	'revreview-adv-reviewing-c' => 'Hinweis: Andere Benutzer werden nun darauf hingewiesen, dass {{GENDER:$1|du}} diese Änderungen überprüfst.',
 	'revreview-sadv-reviewing-p' => 'Du kannst andere Benutzer darauf hinweisen, dass du diese Seite $1.',
 	'revreview-sadv-reviewing-c' => 'Du kannst andere Benutzer darauf hinweisen, dass du diese Änderungen $1.',
 	'revreview-adv-start-link' => 'überprüfst',
@@ -1649,8 +1649,8 @@ Mira la [[Special:Unreviewedpages|lista de páginas no revisadas]].',
 	'revreview-successful2' => "'''Se ha desmarcado la revisión de [[:$1|$1]] correctamente.'''",
 	'revreview-poss-conflict-p' => "'''Aviso: [[User:$1|$1]] empezó a revisar esta página el $2 a las $3.'''",
 	'revreview-poss-conflict-c' => "'''Aviso: [[User:$1|$1]] empezó a revisar estos cambios el $2 a las $3.'''",
-	'revreview-adv-reviewing-p' => 'Aviso: Otros revisores pueden ver que usted está revisando esta página.',
-	'revreview-adv-reviewing-c' => 'Aviso: Otros revisores pueden ver que usted está revisando estos cambios.',
+	'revreview-adv-reviewing-p' => 'Aviso: Otros revisores pueden ver que {{GENDER:$1|tú}} estás revisando esta página.',
+	'revreview-adv-reviewing-c' => 'Aviso: Otros revisores pueden ver que {{GENDER:$1|tú}} estás revisando estos cambios.',
 	'revreview-sadv-reviewing-p' => 'Usted puede $1 a usted mismo como revisor de esta página a otros usuarios.',
 	'revreview-sadv-reviewing-c' => 'Usted puede $1 a usted mismo como revisor de esta página a otros usuarios.',
 	'revreview-adv-start-link' => 'anunciar',
@@ -2011,8 +2011,8 @@ Voir la [[Special:Unreviewedpages|liste des pages non relues]].",
 	'revreview-successful2' => "'''Version de [[:$1|$1]] invalidée.'''",
 	'revreview-poss-conflict-p' => "'''Attention : [[User:$1|$1]] a commencé à relire cette page le $2 à $3.'''",
 	'revreview-poss-conflict-c' => "'''Attention : [[User:$1|$1]] a commencé à relire ces modifications le $2 à $3.'''",
-	'revreview-adv-reviewing-p' => "Remarque: D'autres relecteurs peuvent voir que vous examinez cette page.",
-	'revreview-adv-reviewing-c' => "Remarque: D'autres relecteurs peuvent voir que vous examinez ces modifications.",
+	'revreview-adv-reviewing-p' => "Remarque: D'autres relecteurs peuvent voir que {{GENDER:$1|vous}} examinez cette page.",
+	'revreview-adv-reviewing-c' => "Remarque: D'autres relecteurs peuvent voir que {{GENDER:$1|vous}} examinez ces modifications.",
 	'revreview-sadv-reviewing-p' => 'Vous pouvez vous $1 vous-mêmes comme relecteur de cette page pour les autres utilisateurs.',
 	'revreview-sadv-reviewing-c' => 'Vous pouvez vous $1 vous-mêmes comme relecteur de ces changements aux autres utilisateurs.',
 	'revreview-adv-start-link' => 'faire de la publicité',
@@ -3003,8 +3003,8 @@ Vedi l'[[Special:Unreviewedpages|elenco delle pagine non revisionate]].",
 	'revreview-successful2' => "'''Versione di [[:$1|$1]] marcata come non verificata con successo.'''",
 	'revreview-poss-conflict-p' => "'''Attenzione: [[User:$1|$1]] ha iniziato a revisionare questa pagina in data $2 alle $3.'''",
 	'revreview-poss-conflict-c' => "'''Attenzione: [[User:$1|$1]] ha iniziato a revisionare queste modifiche in data $2 alle $3.'''",
-	'revreview-adv-reviewing-p' => 'Nota: altri revisori sono in grado di vedere che esamini questa pagina.',
-	'revreview-adv-reviewing-c' => 'Nota: altri revisori sono in grado di vedere che esamini questi cambiamenti.',
+	'revreview-adv-reviewing-p' => 'Nota: altri revisori sono in grado di vedere che {{GENDER:$1|}}esamini questa pagina.',
+	'revreview-adv-reviewing-c' => 'Nota: altri revisori sono in grado di vedere che {{GENDER:$1|}}esamini queste modifiche.',
 	'revreview-sadv-reviewing-p' => 'Puoi $1 che stai revisionando questa pagina agli altri utenti.',
 	'revreview-sadv-reviewing-c' => 'Puoi $1 che stai revisionando queste modifiche agli altri utenti.',
 	'revreview-adv-start-link' => 'segnalare',
@@ -3093,6 +3093,8 @@ $messages['ja'] = array(
 	'revreview-successful2' => "'''[[:$1|$1]] の特定版の判定取り消しに成功しました。'''",
 	'revreview-poss-conflict-p' => "'''警告：[[User:$1|$1]]がこのページの査読を $2 $3 に開始しました。'''",
 	'revreview-poss-conflict-c' => "'''警告：[[User:$1|$1]]がこの変更の査読を $2 $3 に開始しました。'''",
+	'revreview-adv-reviewing-p' => '注意: あなたがこのページを査読していることは、他の査読者からも分かる状態になります。', # Fuzzy
+	'revreview-adv-reviewing-c' => '注意: あなたがこれらの変更を査読していることは、他の査読者からも分かる状態になります。', # Fuzzy
 	'revreview-toolow' => "'''版を査読済みにするには、すべての判定要素を「不十分」より高い評価にする必要があります。'''
 
 版の査読評価を除去する場合は、「{{int:revreview-submit-unreview}}」をクリックしてください。
@@ -3646,8 +3648,8 @@ $messages['mk'] = array(
 	'revreview-successful2' => "'''Успешно отстранета ознака од ревизијата на [[:$1|$1]].'''",
 	'revreview-poss-conflict-p' => "'''Предупредување: [[User:$1|$1]] почна да ја проверува страницава на $2 во $3 ч.'''",
 	'revreview-poss-conflict-c' => "'''Предупредување: [[User:$1|$1]] почна да ги проверува промениве на $2 во $3.'''",
-	'revreview-adv-reviewing-p' => 'Напомена: Другите прегледувачи можат да видат дека ја прегледувате страницава.',
-	'revreview-adv-reviewing-c' => 'Напомена: Другите прегледувачи можат да видат дека ги прегледувате овие промени..',
+	'revreview-adv-reviewing-p' => 'Напомена: Другите прегледувачи можат да видат дека {{GENDER:$1|ја}} прегледувате страницава.',
+	'revreview-adv-reviewing-c' => 'Напомена: Другите прегледувачи можат да видат дека {{GENDER:$1|ги}} прегледувате овие промени.',
 	'revreview-sadv-reviewing-p' => 'Можете да $1 дека ја проверувате страницава, за да знаат другите.',
 	'revreview-sadv-reviewing-c' => 'Можете да $1 дека ги проверувате промениве, за да знаат другите.',
 	'revreview-adv-start-link' => 'разгласите',
@@ -5625,8 +5627,8 @@ $messages['uk'] = array(
 	'revreview-successful2' => "'''Із обраної версії [[:$1|$1]] успішно знята позначка.'''",
 	'revreview-poss-conflict-p' => "'''Попередження: [[User:$1|$1]] почав перевіряти цю сторінку $2 о $3.'''",
 	'revreview-poss-conflict-c' => "'''Попередження: [[User:$1|$1]] почав перевіряти цю сторінку $2 о $3.'''",
-	'revreview-adv-reviewing-p' => 'Примітка: Інші рецензенти можуть бачити, що ви рецензуєте цю сторінку.',
-	'revreview-adv-reviewing-c' => 'Примітка: Інші рецензенти можуть бачити, що ви рецензуєте ці редагування.',
+	'revreview-adv-reviewing-p' => 'Примітка: Інші рецензенти можуть бачити, що ви рецензуєте цю сторінку.', # Fuzzy
+	'revreview-adv-reviewing-c' => 'Примітка: Інші рецензенти можуть бачити, що ви рецензуєте ці редагування.', # Fuzzy
 	'revreview-sadv-reviewing-p' => 'Ви можете $1 для інших користувачів, що рецензуєте цю сторінку.',
 	'revreview-sadv-reviewing-c' => 'Ви можете $1 для інших користувачів, що рецензуєте ці редагування.',
 	'revreview-adv-start-link' => 'показувати',
@@ -5650,7 +5652,7 @@ $messages['uk'] = array(
 	'revreview-reject-confirm' => 'Скасувати ці зміни',
 	'revreview-reject-cancel' => 'Скасувати',
 	'revreview-reject-summary-cur' => '{{PLURAL:$1|Скасовано останнє редагування|Скасовані останні $1 редагування|Скасовано останні $1 редагувань}} ($2) і відновлена версія $3 $4',
-	'revreview-reject-summary-old' => '{{PLURAL:$1|Скасовано перше редагування|Скасовані перші $1 редагування|Скасовані перші $1 редагувань}} ($2), {{PLURAL:$1|слідуюче|слідуючі}} за версією $3 $4',
+	'revreview-reject-summary-old' => '{{PLURAL:$1|Скасовано перше редагування|Скасовані перші $1 редагування|Скасовані перші $1 редагувань}} (користувача $2), {{PLURAL:$1|виконане|виконані}} після версії $3 $4',
 	'revreview-reject-summary-cur-short' => '{{PLURAL:$1|Скасовано останнє редагування|Скасовані останні $1 редагування|Скасовано останні $1 редагувань}} і відновлена версія $2 $3',
 	'revreview-reject-summary-old-short' => '{{PLURAL:$1|Скасовано перше редагування|Скасовані перші $1 редагування|Скасовані перші $1 редагувань}}, {{PLURAL:$1|наступне|наступні}} за версією $2 $3',
 	'revreview-tt-flag' => 'Затвердити цю версію з позначенням її перевіреною',
