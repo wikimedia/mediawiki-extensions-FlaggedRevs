@@ -5501,7 +5501,7 @@ Veuillez vérifier l'URL que vous avez utilisée pour accéder à cette page.",
 	'revreview-unlocked-title' => 'Les modifications de cette page ne nécessitent pas de relecture.',
 	'revreview-locked' => "'''Note :''' les modifications doivent être [[{{MediaWiki:Validationpage}}|relues]] avant d’être affichées sur cette page.",
 	'revreview-unlocked' => "'''Note :''' les modifications ne nécessitent pas de [[{{MediaWiki:Validationpage}}|relecture]] avant d’être affichées sur cette page.",
-	'log-show-hide-review' => "$1 l'historique des relectures",
+	'log-show-hide-review' => '$1 l’historique des relectures',
 	'validationpage' => '{{ns:help}}:Validation de la page',
 );
 
