@@ -1900,15 +1900,17 @@ $messages['tl'] = array(
  * @author Joseph
  * @author Karduelis
  * @author Runningfridgesrule
+ * @author Sadrettin
  */
 $messages['tr'] = array(
+	'action-unreviewedpages' => 'gözden geçirilmemiş sayfalar listesini görüntüle',
 	'unreviewedpages' => 'Gözden geçirilmemiş sayfalar',
 	'unreviewedpages-legend' => 'Gözden geçirilmemiş içerik sayfalarını listele',
 	'unreviewedpages-category' => 'Kategori:',
 	'unreviewedpages-diff' => 'gözden geçir',
 	'unreviewedpages-unwatched' => '(izlenmiyor)',
 	'unreviewedpages-watched' => '($1 etkin {{PLURAL:$1|kullanıcı|kullanıcı}} izliyor)',
-	'unreviewedpages-list' => 'Bu sayfa, belirlenen seviyeye göre gözden geçirilmemiş içerik sayfalarını listeler.', # Fuzzy
+	'unreviewedpages-list' => 'Bu sayfa, belirlenen seviyeye göre [[{{MediaWiki:Validationpage}}|gözden geçirilmemiş]] içerik sayfalarını listeler.',
 	'unreviewedpages-none' => 'Şu anda bu kriterleri karşılayan bir sayfa bulunmamaktadır',
 	'unreviewedpages-viewing' => '(gözden geçiriliyor)',
 	'unreviewedpages-hours' => '($1 {{PLURAL:$1|saat|saat}})',

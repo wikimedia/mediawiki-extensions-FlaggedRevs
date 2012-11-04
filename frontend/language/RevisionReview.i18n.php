@@ -5541,17 +5541,17 @@ $messages['tr'] = array(
 	'revreview-successful2' => "'''[[:$1|$1]] sayfasının revizyon bayrağı başarıyla kaldırıldı.'''",
 	'revreview-poss-conflict-p' => "''' Uyarı: [[User:$1|$1]] Bu sayfa üzerinde inceleme başlattı: $2 $3 .'' '",
 	'revreview-poss-conflict-c' => "''' Uyarı: [[User:$1|$1]] Bu değişiklikler üzerinde inceleme başlattı: $2 $3 .'' '",
-	'revreview-adv-reviewing-p' => 'Bilgi: Diğer kullanıcılar bu değişikliği incelediğinizi görebilirler.',
-	'revreview-adv-reviewing-c' => 'Bilgi: Diğer kullanıcılar bu değişiklikleri incelediğinizi görebilirler.',
+	'revreview-adv-reviewing-p' => 'Bilgi: Diğer kullanıcılar bu değişikliği incelediğinizi görebilirler.', # Fuzzy
+	'revreview-adv-reviewing-c' => 'Bilgi: Diğer kullanıcılar bu değişiklikleri incelediğinizi görebilirler.', # Fuzzy
 	'revreview-sadv-reviewing-p' => 'Bu sayfayı incelemekte olduğunuzu diğer kullanıcılara $1bilirsiniz.',
 	'revreview-sadv-reviewing-c' => 'Bu değişiklikleri incelemekte olduğunuzu diğer kullanıcılara $1bilirsiniz.',
 	'revreview-adv-start-link' => 'bildire',
 	'revreview-adv-stop-link' => 'Bildirme!',
-	'revreview-toolow' => '\'\'\'Bir revizyonun incelenmiş sayılabilmesi için özniteliklerin hepsini "yetersiz" düzeyden yüksek derecelendirmelisiniz.\'\'\'
+	'revreview-toolow' => '\'\'\'Bir sürümün incelenmiş sayılabilmesi için özniteliklerin hepsini "yetersiz" düzeyden yüksek derecelendirmelisiniz.\'\'\'
 
-Bir revizyonun inceleme durumunu kaldırmak için, "kabul etme" seçeneğine tıklayın.
+Bir sürümün inceleme durumunu kaldırmak için "{{int:revreview-submit-unreview}}" seçeneğine tıklayın.
 
-Lütfen tarayıcınızdaki "geri" tuşuna basın ve tekrar deneyin.', # Fuzzy
+Lütfen tarayıcınızdaki "geri" tuşuna basın ve tekrar deneyin.',
 	'revreview-update' => "'''Lütfen kararlı sürümden sonra yapılmış olan ve aşağıda yer alan tüm bekleyen değişiklikleri [[{{MediaWiki:Validationpage}}|inceleyin]].'''",
 	'revreview-update-edited' => '<span class="flaggedrevs_important">Değişiklikleriniz henüz kararlı sürüm içinde değildir.</span>
 
@@ -5560,11 +5560,15 @@ Değişikliklerinizin kararlı sürümde yer alması için lütfen aşağıda g�
 
 Değişikliklerinizin kararlı sürümde yer alması için, lütfen aşağıda gösterilen tüm değişiklikleri inceleyin.',
 	'revreview-update-includes' => 'Şablonlar/dosyalar güncellenmiş (gözden geçirilmemiş sayfalar koyu renkli):',
-	'revreview-reject-text-list' => "Bu eylemi tamamlayarak, aşağıdaki {{PLURAL:$1|değişiklik|değişiklikleri}} '''reddetmiş''' olacaksınız:", # Fuzzy
+	'revreview-reject-text-list' => "Bu eylemi tamamlayarak [[:$2|$2]] sayfasındaki şu {{PLURAL:$1|sürümü|sürümleri}} '''reddetmiş''' olacaksınız:",
 	'revreview-reject-text-revto' => 'Bu sayfa [{{fullurl:$1|oldid=$2}} $3 tarihli] revizyona geri dönecektir.',
 	'revreview-reject-summary' => 'Özet:',
 	'revreview-reject-confirm' => 'Bu değişiklikleri reddet',
 	'revreview-reject-cancel' => 'İptal',
+	'revreview-reject-summary-cur' => '$2 adlı kullanıcının son {{PLURAL:$1|değişikliği|$1 değişikliği}} reddedilerek $4 sürümüne ($3) geri dönüldü',
+	'revreview-reject-summary-old' => '$4 sürümünü ($3) takip eden $2 adlı kullanıcının ilk {{PLURAL:$1|değişikliği|$1 değişikliği}} reddedildi',
+	'revreview-reject-summary-cur-short' => 'Son {{PLURAL:$1|değişiklik|$1 değişiklik}} reddedilerek $3 sürümüne ($2) geri dönüldü',
+	'revreview-reject-summary-old-short' => '$3 sürümünü ($2) takip eden ilk {{PLURAL:$1|değişiklik|$1 değişiklik}} reddedildi',
 	'revreview-tt-flag' => 'Bu revizyonu kontrol edilmiş olarak işaretleyerek onayla',
 	'revreview-tt-unflag' => 'Bu revizyonu "kontrol edilmemiş" olarak işaretleyerek kabul etme',
 	'revreview-tt-reject' => 'Kaynak metin değişikliklerini geri alarak reddet',
