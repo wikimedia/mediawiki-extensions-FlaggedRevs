@@ -1022,6 +1022,7 @@ Por favor, revise l'adreza que fació servir t'acceder a ista pachina.",
 
 /** Arabic (العربية)
  * @author ;Hiba;1
+ * @author Abanima
  * @author Antime
  * @author AwamerT
  * @author Ciphers
@@ -1066,7 +1067,7 @@ $messages['ar'] = array(
 	'revreview-hist-quality' => 'مراجعة جودة',
 	'revreview-hist-basic' => 'مراجعة منقحة',
 	'revreview-hist-quality-user' => 'اعتمدها [[User:$3|$3]]',
-	'revreview-hist-basic-user' => 'فحصها [[User:$3|$3]]',
+	'revreview-hist-basic-user' => '{{GENDER:$3|فحصها|فحصتها}} [[User:$3|$3]]',
 	'revreview-hist-quality-auto' => 'أعتمدت تلقائيا',
 	'revreview-hist-basic-auto' => 'فحصت تلقائيا',
 	'revreview-hist-pending-difflink' => "'''[[{{fullurl:$1|oldid=$2&diff=$3{{MediaWiki:flaggedrevs-diffonly}}}} مراجعة موقفة]]'''",
