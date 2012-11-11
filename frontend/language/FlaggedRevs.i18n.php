@@ -253,6 +253,7 @@ Please check the URL you used to access this page.',
  * @author Raymond
  * @author Rex
  * @author SPQRobin
+ * @author Shirayuki
  * @author Siebrand
  * @author Tgr
  * @author The Evil IP address
@@ -272,7 +273,7 @@ General title for the [[Translating:Flagged Revs extension|Flagged Revs]] extens
 Appears on top of user watchlist (Special:Watchlist).',
 	'flaggedrevs-desc' => '{{Flagged Revs}}
 
-{{desc}}',
+{{desc|name=Flagged Revisions|url=http://www.mediawiki.org/wiki/Extension:FlaggedRevs}}',
 	'flaggedrevs-pref-UI' => '{{Flagged Revs-small}}
 
 Shown in [[Special:Preferences]], under {{msg-mw|prefs-flaggedrevs}}, as a label for the alternative choices {{msg|flaggedrevs-pref-UI-0|pl=yes}}, and {{msg|flaggedrevs-pref-UI-1|pl=yes}}. See [[:Image:FlaggedRevs.jpg]] for an example image.',
@@ -3404,17 +3405,45 @@ $messages['cy'] = array(
 );
 
 /** Danish (dansk)
+ * @author Christian List
  * @author Froztbyte
  * @author Jon Harald Søby
  */
 $messages['da'] = array(
+	'action-review' => 'gennemgå revisioner',
 	'editor' => 'Skribent',
+	'flaggedrevs' => 'Afmærkede revisioner',
+	'flaggedrevs-watched-pending' => "Der er i øjeblikket [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} ventende ændringer] til reviderede sider på din overvågningsliste. '''Din opmærksomhed er påkrævet!'''",
+	'flaggedrevs-desc' => 'Giver skribenter mulighed for at gennemgå revisioner og stabilisere sider',
 	'flaggedrevs-pref-UI' => 'Grundlæggende grænseflade:',
 	'flaggedrevs-pref-UI-0' => 'Anvend detaljerede bokse til at vise siders godkendelsesstatus',
 	'flaggedrevs-pref-UI-1' => 'Anvend mindre ikoner og minimal tekst til at vise siders godkendelsesstatus',
 	'prefs-flaggedrevs' => 'Redigeringsgodkendelse',
+	'prefs-flaggedrevs-ui' => 'Redigeringsgodkendelse',
+	'flaggedrevs-prefs-stable' => 'Hvornår skal den stabile version af indholdssider vises som standard',
+	'flaggedrevs-pref-stable-0' => 'Brug standardindstillingerne for hver side',
+	'flaggedrevs-pref-stable-1' => 'Vis altid den stabile version (hvis der findes én)',
+	'flaggedrevs-pref-stable-2' => 'Vis altid den nyeste version',
+	'flaggedrevs-prefs-watch' => 'Tilføj sider jeg gennemgår til min overvågningsliste',
 	'group-editor' => 'Skribenter',
-	'group-editor-member' => 'skribent', # Fuzzy
+	'group-editor-member' => '{{GENDER:$1|skribent}}',
+	'group-reviewer' => 'Korrekturlæsere',
+	'group-reviewer-member' => '{{GENDER:$1|korrekturlæser}}',
+	'grouppage-editor' => '{{ns:project}}:Skribent',
+	'grouppage-reviewer' => '{{ns:project}}:Korrekturlæser',
+	'group-autoreview' => 'Registrerede brugere',
+	'group-autoreview-member' => '{{GENDER:$1|registreret bruger}}',
+	'grouppage-autoreview' => '{{ns:project}}:Registrerede brugere',
+	'revreview-hist-draft' => 'ukontrolleret revision',
+	'revreview-hist-pending' => 'venter på godkendelse',
+	'revreview-hist-quality' => 'kvalitetsversion',
+	'revreview-hist-basic' => 'kontrolleret revision',
+	'revreview-hist-quality-user' => 'godkendt af [[User:$3|$3]]',
+	'revreview-log-details-show' => 'vis detaljer',
+	'revreview-log-details-hide' => 'skjul detaljer',
+	'review-logentry-id' => 'revision: $2',
+	'reviewer' => 'Korrekturlæser',
+	'revreview-accuracy-4' => 'Fremhævet',
 	'revreview-auto' => '(automatisk)',
 	'revreview-revnotfound' => 'Den gamle version af den side du spurgte efter kan
 ikke findes. Kontrollér den URL du brugte til at få adgang til denne side.',

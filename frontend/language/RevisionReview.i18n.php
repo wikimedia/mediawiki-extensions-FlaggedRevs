@@ -2334,6 +2334,7 @@ $messages['ha'] = array(
  * @author Rotemliss
  * @author StuB
  * @author YaronSh
+ * @author חיים
  */
 $messages['he'] = array(
 	'revisionreview' => 'סקירת גרסאות',
@@ -2381,8 +2382,8 @@ $messages['he'] = array(
 	'revreview-successful2' => "'''סימון הגרסה [[:$1|$1]] הוסר בהצלחה.'''",
 	'revreview-poss-conflict-p' => "'''אזהרה: [[User:$1|$1]] התחיל לסקור את הדף הזה ב־$2 בשעה $3.'''",
 	'revreview-poss-conflict-c' => "'''אזהרה: [[User:$1|$1]] התחיל לסקור את השינויים האלה ב־$2 בשעה $3.'''",
-	'revreview-adv-reviewing-p' => 'לתשומת לבכם: סוקרים אחרים יכולים לראות שאתם סוקרים את הדף הזה.',
-	'revreview-adv-reviewing-c' => 'לתשומת לבכם: סוקרים אחרים יכולים לראות שאתם סוקרים את השינויים האלה.',
+	'revreview-adv-reviewing-p' => 'לתשומת לבך: סוקרים אחרים יכולים לראות ש{{GENDER:$1|אתה סוקר|את סוקרת}} דף זה.',
+	'revreview-adv-reviewing-c' => 'לתשומת לבך: סוקרים אחרים יכולים לראות ש{{GENDER:$1|אתה סוקר|את סוקרת}} שינויים אלו.',
 	'revreview-sadv-reviewing-p' => 'לתשומת לבך: אפשר $1 על עצמך למשתמשים אחרים בתור סוקר הדף הזה.',
 	'revreview-sadv-reviewing-c' => 'לתשומת לבך: אפשר $1 על עצמך בתור סוקר השינויים האלה למשתמשים אחרים.',
 	'revreview-adv-start-link' => 'להודיע',
@@ -3483,8 +3484,8 @@ Kuckt d'[[Special:Unreviewedpages|Lëscht vun den net nogekuckte Sàiten]].",
 	'revreview-successful2' => "'''D'Markéierung vun der Versioun vu(n) [[:$1|$1]] gouf ewechgeholl.'''",
 	'revreview-poss-conflict-p' => "'''Opgepasst: [[User:$1|$1]] huet den $2 ëm $3 ugefaang dës Säit nozekucken.'''",
 	'revreview-poss-conflict-c' => "'''Opgepasst: [[User:$1|$1]] huet den $2 ëm $3 ugefaang dës Ännerungen nozekucken.'''",
-	'revreview-adv-reviewing-p' => 'Notiz: Aner Benotzer gesinn datt Dir dës Säit nokuckt.',
-	'revreview-adv-reviewing-c' => 'Notiz: Aner Benotzer gesinn datt Dir dës Ännerungen nokuckt',
+	'revreview-adv-reviewing-p' => 'Notiz: Aner Benotzer gesinn datt {{GENDER:$1|Dir}} dës Säit nokuckt.',
+	'revreview-adv-reviewing-c' => 'Notiz: Aner Benotzer gesinn datt {{GENDER:$1|Dir}} dës Ännerungen nokuckt',
 	'revreview-sadv-reviewing-p' => 'Dir kënnt $1 datt Dir dës Säit nokuckt.',
 	'revreview-sadv-reviewing-c' => 'Dir kënnt $1 bekanntginn</a> datt Dir dës Ännerungen nokuckt.',
 	'revreview-adv-start-link' => 'bekanntginn',
