@@ -1478,6 +1478,7 @@ $messages['el'] = array(
 	'revreview-check-flag-y-title' => 'Αποδοχή όλων των αλλαγών που έχετε κάνει εδώ.',
 	'revreview-flag' => 'Επιθεώρησε αυτή την τροποποίηση',
 	'revreview-reflag' => 'Επαναθεώρηση αυτής της έκδοσης',
+	'revreview-invalid' => "'''Μη έγκυρος στόχος:''' μη [[{{MediaWiki:Validationpage}}|επιθεωρημένη]] αναθεώρηση αντιστοιχεί στη δοσμένη ID.",
 	'revreview-log' => 'Σχόλιο:',
 	'revreview-main' => 'Θα πρέπει να επιλέξεις μια συγκεκριμένη αναθεώρηση μιας σελίδας περιεχομένου εφόσον θέλεις να την επιθεωρήσεις.
 
@@ -1491,8 +1492,9 @@ $messages['el'] = array(
 	'revreview-submit-reviewed' => 'Έγινε. Αποδεκτή!',
 	'revreview-submit-unreviewed' => 'Έγινε. Μη αποδεκτή!',
 	'revreview-poss-conflict-p' => "'''Προειδοποίηση: Ο [[User:$1|$1]] ξεκίνησε να επιθεωρεί αυτή τη σελίδα στο $2 στις $3.'''",
-	'revreview-adv-reviewing-p' => 'Προειδοποίηση: Άλλους επιθεωρητές μπορούν να δουν ότι επιθεωρείτε αυτή τη  σελίδα.',
-	'revreview-adv-reviewing-c' => 'Προειδοποίηση: Άλλοι επιθεωρητές μπορούν να δουν ότι επιθεωρείτε αυτή τη  σελίδα.',
+	'revreview-poss-conflict-c' => "'''Προειδοποίηση: Ο [[User:$1|$1]] ξεκίνησε να επιθεωρεί αυτές τις αλλαγές στο $2 του $3.'''",
+	'revreview-adv-reviewing-p' => 'Προειδοποίηση: Άλλους επιθεωρητές μπορούν να δουν ότι επιθεωρείτε αυτή τη  σελίδα.', # Fuzzy
+	'revreview-adv-reviewing-c' => 'Προειδοποίηση: Άλλοι επιθεωρητές μπορούν να δουν ότι επιθεωρείτε αυτή τη  σελίδα.', # Fuzzy
 	'revreview-adv-start-link' => 'διαφημίστε',
 	'revreview-adv-stop-link' => 'από-διαφημίστε',
 	'revreview-reject-summary' => 'Σύνοψη:',
@@ -3094,8 +3096,8 @@ $messages['ja'] = array(
 	'revreview-successful2' => "'''[[:$1|$1]] の特定版の判定取り消しに成功しました。'''",
 	'revreview-poss-conflict-p' => "'''警告：[[User:$1|$1]]がこのページの査読を $2 $3 に開始しました。'''",
 	'revreview-poss-conflict-c' => "'''警告：[[User:$1|$1]]がこの変更の査読を $2 $3 に開始しました。'''",
-	'revreview-adv-reviewing-p' => '注意: あなたがこのページを査読していることは、他の査読者からも分かる状態になります。', # Fuzzy
-	'revreview-adv-reviewing-c' => '注意: あなたがこれらの変更を査読していることは、他の査読者からも分かる状態になります。', # Fuzzy
+	'revreview-adv-reviewing-p' => '注意: {{GENDER:$1|あなた}}がこのページを査読していることは、他の査読者からも分かる状態になります。',
+	'revreview-adv-reviewing-c' => '注意: {{GENDER:$1|あなた}}がこれらの変更を査読していることは、他の査読者からも分かる状態になります。',
 	'revreview-toolow' => "'''版を査読済みにするには、すべての判定要素を「不十分」より高い評価にする必要があります。'''
 
 版の査読評価を除去する場合は、「{{int:revreview-submit-unreview}}」をクリックしてください。

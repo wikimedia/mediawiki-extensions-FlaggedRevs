@@ -4177,12 +4177,13 @@ $messages['el'] = array(
 
 {{PLURAL:$2| Υπάρχει|Υπάρχουν}} [{{fullurl:{{FULLPAGENAMEE}}|oldid = $1&diff =cur{{MediaWiki:flaggedrevs-diffonly}}}}  $2    {{PLURAL:$2|αλλαγή|αλλαγές}}] σε εκκρεμότητα '' (φαίνεται παρακάτω)'' που αναμένουν επιθεώρηση.",
 	'revreview-edited-section' => 'Επιστρέψετε στο τμήμα της σελίδας με όνομα "[[#$1|$2]]".',
-	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|change|changes}}] σε αυτή την έκδοση {{PLURAL:$3|είναι}} [[{{MediaWiki:Validationpage}}|εκκρεμής επιθεώρηση]].
-Η [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} σταθερή έκδοση] ήταν [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} ελεγμένη] στις <i>$2</i>.', # Fuzzy
+	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|αλλαγή|αλλαγές}}] σε αυτή την έκδοση {{PLURAL:$3|είναι}} [[{{MediaWiki:Validationpage}}|εκκρεμής επιθεώρηση]].
+Η [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} σταθερή έκδοση] ήταν [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} ελεγμένη] στις <i>$2</i>.',
 	'revreview-noflagged' => "Δεν υπάρχουν [[{{MediaWiki:Validationpage}}|επιθεωρημένες εκδόσεις]] αυτής της σελίδας, κι επόμενως αυτή μπορεί να  '''μην''' έχει ελεγχθεί για τήρηση των προτύπων.",
 	'revreview-oldrating' => 'Βαθμολογήθηκε:',
 	'revreview-quality-same' => 'Αυτή είναι μια [[{{MediaWiki:Validationpage}}|σταθερή έκδοση]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} που εγκρίθηκε] στις <i>$2</i>.',
 	'revreview-quality-title' => 'Αυτή είναι μια ποιοτική έκδοση αυτής της σελίδας',
+	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|Ελέγχθηκε]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} επιθεώρηση με εκκρεμείς αλλαγές]]",
 	'revreview-quick-basic-old' => "'''[[{{MediaWiki:Validationpage}}|Ελέγχθηκε]]'''",
 	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|Ελέγχθηκε]]'''",
 	'revreview-quick-invalid' => "'''Άκυρος κωδικός αναθεώρησης'''",
