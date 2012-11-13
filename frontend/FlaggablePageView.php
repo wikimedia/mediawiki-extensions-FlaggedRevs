@@ -690,8 +690,17 @@ class FlaggablePageView extends ContextSource {
 		} else {
 			$text = $srev->getRevText();
 			# Get the new stable parser output...
-			$parserOut = FlaggedRevs::parseStableText(
-				$this->article->getTitle(), $text, $srev->getRevId(), $pOpts );
+			if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_CURRENT && $synced ) {
+				# We can try the current version cache, since they are the same revision
+				$parserOut = ParserCache::singleton()->get( $this->article, $pOpts );
+			} else {
+				$parserOut = false;
+			}
+
+			if ( !$parserOut ) {
+				$parserOut = FlaggedRevs::parseStableText(
+					$this->article->getTitle(), $text, $srev->getRevId(), $pOpts );
+			}
 
 			$redirHtml = $this->getRedirectHtml( $text );
 			if ( $redirHtml == '' ) { // page is not a redirect...
