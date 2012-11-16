@@ -753,11 +753,12 @@ $messages['ce'] = array(
 );
 
 /** Sorani Kurdish (کوردی)
+ * @author Calak
  */
 $messages['ckb'] = array(
 	'stabilization-submit' => 'پشتدار بکەرەوە',
 	'stabilization-comment' => 'هۆکار:',
-	'stabilization-otherreason' => 'هۆکاری دیکە:',
+	'stabilization-otherreason' => 'ھۆکاری تر:',
 	'stabilization-expiry' => 'ھەتا:',
 );
 

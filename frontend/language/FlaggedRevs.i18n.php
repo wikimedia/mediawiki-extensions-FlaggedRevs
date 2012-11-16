@@ -4160,7 +4160,7 @@ $messages['el'] = array(
 	'revreview-basic-old' => 'Αυτή είναι μια [[{{MediaWiki:Validationpage}}|ελεγμένη]] έκδοση  ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} απαριθμήστε όλες]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} που έχουν εγκριθεί] στο <i>$2</i>.
 	Νέες [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} αλλαγές] έχουν γίνει.',
 	'revreview-basic-same' => 'Αυτή είναι η [[{{MediaWiki:Validationpage}}|σταθερή έκδοση]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} που ελέγθηκε] στις <i>$2</i>.',
-	'revreview-basic-source' => 'Μια  [{{fullurl: {{FULLPAGENAMEE}} |stableid = $1 }} ελεγμένη έκδοση] αυτής της σελίδας,[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} εγκρίθηκε] για <i>$2</i>, βασίστηκε σε αυτή την αναθεώρηση.',
+	'revreview-basic-source' => 'Η [{{fullurl: {{FULLPAGENAMEE}} |stableid = $1 }} ελεγμένη έκδοση] αυτής της σελίδας, που [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} εγκρίθηκε] στις <i>$2</i>, βασίστηκε σε αυτή την αναθεώρηση.',
 	'revreview-current' => 'Αλλαγές σε εκκρεμότητα',
 	'revreview-depth' => 'Βάθος',
 	'revreview-depth-0' => 'Ανεπαρκής',
