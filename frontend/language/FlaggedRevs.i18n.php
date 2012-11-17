@@ -4466,6 +4466,7 @@ Bonvolu kontroli la retadreson (URL) kiun vi uzis por atingi la paĝon.\\b',
  * @author Armando-Martin
  * @author Bola
  * @author Crazymadlover
+ * @author Dalton2
  * @author Dferg
  * @author Diego Grez
  * @author Drini
@@ -4625,7 +4626,7 @@ Nuevos [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-dif
 Comprueba la dirección que usaste para acceder a esta página.',
 	'right-autoreview' => 'Marcar automáticamente las versiones como verificadas',
 	'right-autoreviewrestore' => 'Revisar automáticamente una revisión cuando se proceda a revertir',
-	'right-movestable' => 'Mover páginas publicadas',
+	'right-movestable' => 'Trasladar páginas publicadas',
 	'right-review' => 'Marcar versiones como «revisadas»',
 	'right-stablesettings' => 'Configurar la forma de seleccionar y mostrar la versión publicada',
 	'right-validate' => 'Marcar las versiones como que son de "calidad"',

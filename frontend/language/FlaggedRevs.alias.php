@@ -352,6 +352,21 @@ $specialPageAliases['id'] = array(
 	'ValidationStatistics' => array( 'Statistik_validasi', 'StatistikValidasi' ),
 );
 
+/** Italian (italiano) */
+$specialPageAliases['it'] = array(
+	'PendingChanges' => array( 'CambiamentiInAttesa' ),
+	'ProblemChanges' => array( 'CambiamentiProblema' ),
+	'QualityOversight' => array( 'RivisualizzaRegistroAvanzato' ),
+	'ReviewedPages' => array( 'PaginaRivisualizzata' ),
+	'RevisionReview' => array( 'RivisualizzaRevisione' ),
+	'Stabilization' => array( 'Stabilizzazione' ),
+	'StablePages' => array( 'PagineStabili' ),
+	'ConfiguredPages' => array( 'PagineConfigurate' ),
+	'ReviewedVersions' => array( 'VersioniRivisualizzate' ),
+	'UnreviewedPages' => array( 'PagineNonRivisualizzate' ),
+	'ValidationStatistics' => array( 'StatisticheDiConvalida' ),
+);
+
 /** Japanese (日本語) */
 $specialPageAliases['ja'] = array(
 	'PendingChanges' => array( '古くなった査読済みページ' ),
