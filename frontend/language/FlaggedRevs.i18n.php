@@ -3692,7 +3692,7 @@ Momentan {{PLURAL:$2|gibt|gibt}} es [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=c
 $messages['diq'] = array(
 	'action-review' => 'çımraviyarnayışan qontrol ke',
 	'editor' => 'Redaktor',
-	'flaggedrevs' => 'Reviyanan ke flag biyo',
+	'flaggedrevs' => 'Revizyonê Desmalyayey',
 	'flaggedrevs-watched-pending' => "pelê çımserçarnayeyi yê listeya şıma de [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} tayê vurnayişi esti]. '''paweyê elaqaya şıma!'''",
 	'flaggedrevs-desc' => 'Ena desthelatiyê vurnayişan dana editor u çımsernayoxan sero pelan',
 	'flaggedrevs-pref-UI' => 'Miyanriyo bıngeyın:',

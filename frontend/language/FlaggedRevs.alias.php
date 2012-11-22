@@ -618,6 +618,21 @@ $specialPageAliases['sa'] = array(
 	'ValidationStatistics' => array( 'उपयोगितासिद्धीसांख्यिकी' ),
 );
 
+/** Sicilian (sicilianu) */
+$specialPageAliases['scn'] = array(
+	'PendingChanges' => array( 'CambiamentiInAttesa' ),
+	'ProblemChanges' => array( 'CambiamentiProblema' ),
+	'QualityOversight' => array( 'RivisualizzaRegistroAvanzato' ),
+	'ReviewedPages' => array( 'PaginaRivisualizzata' ),
+	'RevisionReview' => array( 'RivisualizzaRevisione' ),
+	'Stabilization' => array( 'Stabilizzazione' ),
+	'StablePages' => array( 'PagineStabili' ),
+	'ConfiguredPages' => array( 'PagineConfigurate' ),
+	'ReviewedVersions' => array( 'VersioniRivisualizzate' ),
+	'UnreviewedPages' => array( 'PagineNonRivisualizzate' ),
+	'ValidationStatistics' => array( 'StatisticheDiConvalida' ),
+);
+
 /** Slovak (slovenčina) */
 $specialPageAliases['sk'] = array(
 	'PendingChanges' => array( 'StaréSkontrolovanéStránky' ),
