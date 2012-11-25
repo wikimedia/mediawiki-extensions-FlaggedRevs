@@ -60,7 +60,7 @@ class FlaggedRevsUISetup {
 			# Mark items in user contribs
 			$hooks['ContribsPager::getQueryInfo'][] = 'FlaggedRevsUIHooks::addToContribsQuery';
 			$hooks['ContributionsLineEnding'][] = 'FlaggedRevsUIHooks::addToContribsLine';
-		} 
+		}
 
 		# RC filter UIs
 		$hooks['SpecialNewPagesFilters'][] = 'FlaggedRevsUIHooks::addHideReviewedFilter';
@@ -96,7 +96,7 @@ class FlaggedRevsUISetup {
 	 * @return void
 	 */
 	public static function defineSpecialPages( array &$pages, array &$groups, array &$updates ) {
-		global $wgFlaggedRevsProtection, $wgFlaggedRevsNamespaces, $wgUseTagFilter;
+		global $wgFlaggedRevsProtection, $wgFlaggedRevsNamespaces, $wgUseTagFilter, $wgEnableValidationStatisticsUpdates;
 
 		// Show special pages only if FlaggedRevs is enabled on some namespaces
 		if ( count( $wgFlaggedRevsNamespaces ) ) {
@@ -120,7 +120,9 @@ class FlaggedRevsUISetup {
 			$groups['QualityOversight'] = 'quality';
 			$pages['ValidationStatistics'] = 'ValidationStatistics';
 			$groups['ValidationStatistics'] = 'quality';
-			$updates['ValidationStatistics'] = 'FlaggedRevsStats::updateCache';
+			if ( $wgEnableValidationStatisticsUpdates ) {
+				$updates['ValidationStatistics'] = 'FlaggedRevsStats::updateCache';
+			}
 			// Protect levels define allowed stability settings
 			if ( $wgFlaggedRevsProtection ) {
 				$pages['StablePages'] = 'StablePages';

@@ -172,5 +172,8 @@ $wgFlaggedRevsStats = array(
 # In such cases, we select the current (unreviewed) revision. Likewise for files.
 $wgFlaggedRevsHandleIncludes = FR_INCLUDES_STABLE;
 
+# Whether to run Validation Statistics updates during Special Page Cache Updates
+$wgEnableValidationStatisticsUpdates = true;
+
 # End of configuration variables.
 # ########
