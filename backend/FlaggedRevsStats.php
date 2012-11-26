@@ -358,26 +358,39 @@ class FlaggedRevsStats {
 		# For edits that started off pending, how long do they take to get reviewed?
 		# Edits started off pending if made when a flagged rev of the page already existed.
 		# Get the *first* reviewed rev *after* each edit and get the time difference.
-		$res = $dbr->select(
-			array( 'revision', 'p' => 'flaggedrevs', 'n' => 'flaggedrevs' ),
-			array( 'MIN(rev_timestamp) AS rt', 'MIN(n.fr_timestamp) AS nft', 'MAX(p.fr_rev_id)' ),
-			array( $userCondition, $timeCondition, "(rev_id % $mod) = 0" ),
-			__METHOD__,
+		$sql = $dbr->selectSQLText(
+			array( 'revision' ),
 			array(
-				'GROUP BY'  => array( 'rev_timestamp', 'rev_id' ), // user_timestamp INDEX used
-				'STRAIGHT_JOIN'
+				'rev_timestamp AS rt', // time revision was made
+				'(' . $dbr->selectSQLText( 'flaggedrevs',
+					'MIN(fr_timestamp)',
+					array(
+						'fr_page_id = rev_page',
+						'fr_rev_timestamp >= rev_timestamp' ),
+					__METHOD__,
+					array( 'USE INDEX' => 'page_time' )
+				) . ') AS nft' // time when revision was first reviewed
 			),
 			array(
-				'p' => array( 'INNER JOIN', array( // last review
-					'p.fr_page_id = rev_page',
-					'p.fr_rev_id < rev_id', // not imported later
-					'p.fr_timestamp < rev_timestamp' ) ),
-				'n' => array( 'INNER JOIN', array( // next review
-					'n.fr_page_id = rev_page',
-					'n.fr_rev_id >= rev_id',
-					'n.fr_timestamp >= rev_timestamp' ) )
-			)
+				$userCondition,
+				$timeCondition,
+				"(rev_id % $mod) = 0",
+				'rev_parent_id > 0', // optimize (exclude new pages)
+				'EXISTS (' . $dbr->selectSQLText( 'flaggedrevs',
+					'*',
+					array( // page was reviewed when this revision was made
+						'fr_page_id = rev_page',
+						'fr_rev_timestamp < rev_timestamp', // before this revision
+						'fr_rev_id < rev_id', // not imported later
+						'fr_timestamp < rev_timestamp' ), // page reviewed before revision
+					__METHOD__,
+					array( 'USE INDEX' => 'page_time' )
+				) . ')'
+			),
+			__METHOD__
 		);
+		// foreach ( $dbr->query( "EXPLAIN $sql" ) as $row ) { print_r( $row ); }
+		$res = $dbr->query( $sql );
 
 		$secondsR = 0; // total wait seconds for edits later reviewed
 		$secondsP = 0; // total wait seconds for edits still pending
