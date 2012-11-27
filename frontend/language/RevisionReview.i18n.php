@@ -4140,6 +4140,7 @@ $messages['pdc'] = array(
  * @author Masti
  * @author McMonster
  * @author Sp5uhe
+ * @author Tsca
  */
 $messages['pl'] = array(
 	'revisionreview' => 'Oznaczenie wersji',
@@ -4187,8 +4188,8 @@ Zobacz [[Special:Unreviewedpages|listę nieprzejrzanych stron]].',
 	'revreview-successful2' => "'''Wersja [[:$1|$1]] została pomyślnie odznaczona.'''",
 	'revreview-poss-conflict-p' => "'''Uwaga – [[User:$1|$1]] rozpoczął przeglądanie tej strony $2 o $3.'''",
 	'revreview-poss-conflict-c' => "'''Uwaga – [[User:$1|$1]] rozpoczął przeglądanie tych zmian $2 o $3.'''",
-	'revreview-adv-reviewing-p' => 'Uwaga – inni redaktorzy mogą zobaczyć, że rozpocząłeś przeglądanie tej strony.',
-	'revreview-adv-reviewing-c' => 'Uwaga – inni redaktorzy mogą zobaczyć, że rozpocząłeś przeglądanie tych zmian.',
+	'revreview-adv-reviewing-p' => 'Uwaga – inni redaktorzy mogą zobaczyć, że rozpocząłeś przeglądanie tej strony.', # Fuzzy
+	'revreview-adv-reviewing-c' => 'Uwaga – inni redaktorzy mogą zobaczyć, że rozpocząłeś przeglądanie tych zmian.', # Fuzzy
 	'revreview-sadv-reviewing-p' => 'Możesz $1 innych użytkowników, o tym że jesteś w trakcie przeglądania tej strony.',
 	'revreview-sadv-reviewing-c' => 'Możesz $1 innych użytkowników, o tym że jesteś w trakcie przeglądania tych zmian.',
 	'revreview-adv-start-link' => 'poinformować',
@@ -4211,7 +4212,7 @@ Przejrzyj wszystkie poniższe zmiany, a Twoje edycje zostaną zamieszczone w wer
 	'revreview-reject-summary' => 'Podsumowanie',
 	'revreview-reject-confirm' => 'Wycofaj te zmiany',
 	'revreview-reject-cancel' => 'Anuluj',
-	'revreview-reject-summary-cur' => 'Wycofano {{PLURAL:$1|ostatnią zmianę|ostatnie $1 zmiany|ostatnich $1 zmian}} treści ({{PLURAL:$1|zrobioną|zrobione|zrobionych}} przez $2) i przywrócono wersję $3 autorstwa $4',
+	'revreview-reject-summary-cur' => 'Wycofano {{PLURAL:$1|ostatnią zmianę|ostatnie $1 zmiany|ostatnich $1 zmian}} treści ({{PLURAL:$1|wprowadzoną|wprowadzone|wprowadzonych}} przez $2) i przywrócono wersję $3 autorstwa $4',
 	'revreview-reject-summary-old' => 'Wycofano {{PLURAL:$1|pierwszą zmianę|pierwsze $1 zmiany|pierwszych $1 zmian}} treści ({{PLURAL:$1|zrobioną|zrobione|zrobionych}} przez $2), {{PLURAL:$1|którą wykonano|które wykonano}} po wersji $3 autorstwa $4',
 	'revreview-reject-summary-cur-short' => 'Wycofano {{PLURAL:$1|ostatnią zmianę|ostatnie $1 zmiany|ostatnich $1 zmian}} treści i przywrócono wersję $2 autorstwa $3',
 	'revreview-reject-summary-old-short' => 'Wycofano {{PLURAL:$1|pierwszą zmianę|pierwsze $1 zmiany|pierwszych $1 zmian}} treści, {{PLURAL:$1|którą wykonano|które wykonano}} po wersji $2 autorstwa $3',

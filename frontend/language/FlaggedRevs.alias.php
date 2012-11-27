@@ -201,9 +201,11 @@ $specialPageAliases['fa'] = array(
 /** Finnish (suomi) */
 $specialPageAliases['fi'] = array(
 	'ProblemChanges' => array( 'Ongelmalliset_muutokset' ),
+	'ReviewedPages' => array( 'Arvioidut_sivut' ),
 	'Stabilization' => array( 'Vakaaksi_versioksi' ),
 	'StablePages' => array( 'Vakaat_sivut' ),
 	'UnreviewedPages' => array( 'Arvioimattomat_sivut' ),
+	'ValidationStatistics' => array( 'Sivujen_arviointitilastot' ),
 );
 
 /** French (français) */
@@ -499,7 +501,7 @@ $specialPageAliases['nb'] = array(
 	'ValidationStatistics' => array( 'Valideringsstatistikk' ),
 );
 
-/** Nedersaksisch (Nedersaksisch) */
+/** Nedersaksies (Nedersaksies) */
 $specialPageAliases['nds-nl'] = array(
 	'PendingChanges' => array( 'Wiezigingen_in_wachtrie' ),
 	'ProblemChanges' => array( 'Problematiese_wiezigingen' ),
