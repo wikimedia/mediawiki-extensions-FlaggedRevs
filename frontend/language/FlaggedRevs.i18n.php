@@ -3461,6 +3461,7 @@ ikke findes. Kontrollér den URL du brugte til at få adgang til denne side.',
  * @author ChrisiPK
  * @author DaSch
  * @author Dawid Deutschland
+ * @author Filzstift
  * @author Giftpflanze
  * @author Imre
  * @author Jens Liebenau
@@ -3542,7 +3543,7 @@ $messages['de'] = array(
 	'revreview-accuracy-2' => 'geprüft',
 	'revreview-accuracy-3' => 'Quellen geprüft',
 	'revreview-accuracy-4' => 'exzellent',
-	'revreview-auto' => '(automatisch)',
+	'revreview-auto' => 'automatisch',
 	'revreview-basic' => 'Dies ist die [[{{MediaWiki:Validationpage}}|gesichtete Version]], die am <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} markiert] wurde.
 Es gibt [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 ausstehende {{PLURAL:$3|Änderung|Änderungen}}], die noch gesichtet werden {{PLURAL:$3|muss|müssen}}.',
 	'revreview-basic-i' => 'Dies ist die [[{{MediaWiki:Validationpage}}|gesichtete Version]], die am <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} markiert] wurde.

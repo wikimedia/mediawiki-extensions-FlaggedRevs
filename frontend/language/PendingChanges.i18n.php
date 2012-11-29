@@ -465,6 +465,13 @@ $messages['de'] = array(
 	'pendingchanges-viewing' => '(wird überprüft)',
 );
 
+/** Swiss High German (Schweizer Hochdeutsch)
+ * @author Filzstift
+ */
+$messages['de-ch'] = array(
+	'pendingchanges-size' => 'Maximale Änderungsgrösse in Byte:',
+);
+
 /** Zazaki (Zazaki)
  * @author Erdemaslancan
  * @author Xoser
