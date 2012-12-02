@@ -1173,6 +1173,7 @@ $messages['da'] = array(
 
 /** German (Deutsch)
  * @author ChrisiPK
+ * @author Inkowik
  * @author Kghbln
  * @author Merlissimo
  * @author Metalhead64
@@ -1249,10 +1250,10 @@ Bitte markiere alle unten angezeigten Änderungen, damit deine Bearbeitungen zur
 	'revreview-reject-summary' => 'Zusammenfassung:',
 	'revreview-reject-confirm' => 'Diese Änderungen verwerfen',
 	'revreview-reject-cancel' => 'Abbrechen',
-	'revreview-reject-summary-cur' => 'Die {{PLURAL:$1|letzte Textänderung|$1 letzten Textänderungen}} von $2 {{PLURAL:$1|wurde|wurden}} verworfen und die Version $3 von $4 wiederhergestellt',
-	'revreview-reject-summary-old' => 'Die {{PLURAL:$1|erste Textänderung|$1 ersten Textänderungen}} von $2, die auf die Version $3 von $4  {{PLURAL:$1|folgte, wurde|folgten, wurden}} verworfen',
-	'revreview-reject-summary-cur-short' => 'Die {{PLURAL:$1|letzte Textänderung wurde|$1 letzten Textänderungen wurden}} verworfen und die Version $2 von $3 wiederhergestellt',
-	'revreview-reject-summary-old-short' => '{{PLURAL:$1|Die erste Textänderung|ersten $1 Textänderungen}}, die auf die Version $2 von $3 {{PLURAL:$1|folgte, wurde|folgten, wurden}} verworfen',
+	'revreview-reject-summary-cur' => 'Die {{PLURAL:$1|letzte Textänderung|$1 letzten Textänderungen}} von $2 {{PLURAL:$1|wurde|wurden}} verworfen und die Version $3 von $4 wiederhergestellt.',
+	'revreview-reject-summary-old' => 'Die {{PLURAL:$1|erste Textänderung|$1 ersten Textänderungen}} von $2, die auf die Version $3 von $4  {{PLURAL:$1|folgte, wurde|folgten, wurden}} verworfen.',
+	'revreview-reject-summary-cur-short' => 'Die {{PLURAL:$1|letzte Textänderung wurde|$1 letzten Textänderungen wurden}} verworfen und die Version $2 von $3 wiederhergestellt.',
+	'revreview-reject-summary-old-short' => '{{PLURAL:$1|Die erste Textänderung|ersten $1 Textänderungen}}, die auf die Version $2 von $3 {{PLURAL:$1|folgte, wurde|folgten, wurden}} verworfen.',
 	'revreview-tt-flag' => 'Diese Version akzeptieren, indem du die Änderungen als „überprüft“ markierst',
 	'revreview-tt-unflag' => 'Diese Version nicht mehr anzeigen lassen, indem du die Markierung entfernst',
 	'revreview-tt-reject' => 'Diese Textänderungen durch Zurücksetzen verwerfen',
