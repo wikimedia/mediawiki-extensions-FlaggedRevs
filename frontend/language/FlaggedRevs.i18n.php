@@ -4123,8 +4123,8 @@ $messages['el'] = array(
 	'revreview-hist-pending' => 'σε εκκρεμότητα αναθεώρηση',
 	'revreview-hist-quality' => 'έκδοση ποιότητας',
 	'revreview-hist-basic' => 'ελεγμένη αναθεώρηση',
-	'revreview-hist-quality-user' => 'εγκρίθηκε από [[User:$3|$3]]',
-	'revreview-hist-basic-user' => 'ελέγχθηκε από [[User:$3|$3]]',
+	'revreview-hist-quality-user' => 'εγκρίθηκε από [[Χρήστης:$3|$3]]', # Fuzzy
+	'revreview-hist-basic-user' => 'ελέγχθηκε από [[Χρήστης:$3|$3]]', # Fuzzy
 	'revreview-hist-quality-auto' => 'εγκρίθηκε αυτόματα',
 	'revreview-hist-basic-auto' => 'ελέγχθηκε αυτόματα',
 	'revreview-hist-pending-difflink' => "'''[[{{fullurl:$1|oldid=$2&diff=$3{{MediaWiki:flaggedrevs-diffonly}}}} εκκρεμεί επισκόπηση]]'''",
