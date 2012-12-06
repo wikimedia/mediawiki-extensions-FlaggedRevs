@@ -13917,6 +13917,7 @@ Obstajajo [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-
 
 /** Albanian (shqip)
  * @author Cradel
+ * @author Olsi
  * @author Tëfcí
  */
 $messages['sq'] = array(
@@ -13924,6 +13925,11 @@ $messages['sq'] = array(
 	'editor' => 'Redaktuesi',
 	'flaggedrevs-desc' => 'I jep përdoruesve të drejtën e shqyrtimit të redaktimeve dhe stabilizimit të faqeve',
 	'flaggedrevs-pref-UI' => 'Ndërfaqe e thjeshtë:',
+	'revreview-hist-quality-auto' => 'miratuar automatikisht',
+	'revreview-hist-basic-auto' => 'kontrolluar automatikisht',
+	'revreview-editnotice' => "'''Ndryshimet tuaja do të shfaqen sapo një përdorues i autorizuar t'i pranojë ato.
+([[{{MediaWiki:Validationpage}}|ndihmë]])'''",
+	'revreview-submitedit' => 'Paraqit ndryshimet',
 	'revreview-noflagged' => "Nuk ekzistojnë [[{{MediaWiki:Validationpage}}|versione të shqyrtuara]] e kësaj faqe, kështu që '''nuk''' mund të jetë konfirmuar në standartet e tij të cilësisë.",
 	'revreview-revnotfound' => 'Versioni i vjetër i faqes së kërkuar nuk mund të gjindej. Ju lutem kontrolloni URL-n që përdorët për të ardhur tek kjo faqe.',
 );

@@ -5056,10 +5056,17 @@ Prosimo, preglejte vse spremembe prikazane podaj, da prikažete vaše spremembe 
 );
 
 /** Albanian (shqip)
+ * @author Olsi
  * @author Tëfcí
  */
 $messages['sq'] = array(
+	'revreview-submit-reject' => 'Kthe ndryshimet',
+	'revreview-submit-reviewed' => 'U bë. Pranuar!',
+	'revreview-submit-unreviewed' => 'U bë. Refuzuar!',
 	'revreview-successful' => "'''Shqyrtimi i faqesë ''[[:$1|$1]]'' u shënua me sukses ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} shiko të gjithë versionet të shqyrtuara]).'''",
+	'revreview-sadv-reviewing-c' => 'Ju mund ta $1 veten tuaj si një kontrollues i këtyre ndryshimeve te përdoruesit e tjerë.',
+	'revreview-adv-start-link' => 'reklamoni',
+	'revreview-reject-cancel' => 'Anulo',
 );
 
 /** Serbian (Cyrillic script) (српски (ћирилица)‎)
