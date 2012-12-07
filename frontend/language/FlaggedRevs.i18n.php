@@ -4123,8 +4123,8 @@ $messages['el'] = array(
 	'revreview-hist-pending' => 'σε εκκρεμότητα αναθεώρηση',
 	'revreview-hist-quality' => 'έκδοση ποιότητας',
 	'revreview-hist-basic' => 'ελεγμένη αναθεώρηση',
-	'revreview-hist-quality-user' => 'εγκρίθηκε από [[Χρήστης:$3|$3]]', # Fuzzy
-	'revreview-hist-basic-user' => 'ελέγχθηκε από [[Χρήστης:$3|$3]]', # Fuzzy
+	'revreview-hist-quality-user' => 'εγκρίθηκε από [[User:$3|$3]]',
+	'revreview-hist-basic-user' => 'εκλέχθηκε από [[User:$3|$3]]',
 	'revreview-hist-quality-auto' => 'εγκρίθηκε αυτόματα',
 	'revreview-hist-basic-auto' => 'ελέγχθηκε αυτόματα',
 	'revreview-hist-pending-difflink' => "'''[[{{fullurl:$1|oldid=$2&diff=$3{{MediaWiki:flaggedrevs-diffonly}}}} εκκρεμεί επισκόπηση]]'''",
@@ -4180,9 +4180,26 @@ $messages['el'] = array(
 	'revreview-edited-section' => 'Επιστρέψετε στο τμήμα της σελίδας με όνομα "[[#$1|$2]]".',
 	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|αλλαγή|αλλαγές}}] σε αυτή την έκδοση {{PLURAL:$3|είναι}} [[{{MediaWiki:Validationpage}}|εκκρεμής επιθεώρηση]].
 Η [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} σταθερή έκδοση] ήταν [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} ελεγμένη] στις <i>$2</i>.',
+	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Αλλαγές Προτύπου/αρχείου] σε αυτή την έκδοση [[{{MediaWiki:Validationpage}}|αναμένουν επιθεώρηση]].
+Η  [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} σταθερή έκδοση] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} ελέγχθηκε] στις <i>$2</i>.',
+	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3  {{PLURAL:$3|Αλλαγή|αλλαγές}}] σε αυτήν την έκδοση [[{{MediaWiki:Validationpage}}|αναμένει επιθεώρηση]].
+Η  [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} σταθερή έκδοση] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} εγκρίθηκε] στις <i>$2</i>.',
+	'revreview-newest-quality-i' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Αλλαγές σε Πρότυπο/αρχείο] σε αυτήν την έκδοση  [[{{MediaWiki:Validationpage}}|αναμένουν επιθεώρηση]].
+Η  [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} σταθερή έκδοση] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} εγκρίθηκε] στις <i>$2</i>.',
+	'revreview-pending-basic' => 'Η [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} σταθερή έκδοση] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} ελέγχθηκε] στις <i>$2</i>. {{PLURAL:$3|Υπάρχει|Υπάρχουν}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 εκκρεμής/είς {{PLURAL:$3|αλλαγή|αλλαγές}}] που αναμένουν επιθεώρηση.',
+	'revreview-pending-quality' => 'Η  [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} σταθερή έκδοση] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} εγκρίθηκε] στις <i>$2</i>. {{PLURAL:$3|Υπάρχει|Υπάρχουν}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 εκκρεμής/είς {{PLURAL:$3|αλλαγή|αλλαγές}}] που περιμένει επιθεώρηση.',
+	'revreview-pending-nosection' => 'Δώστε προσοχή στην [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} τελευταία αναθεώρηση], η οποία περιλαμβάνει
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 εκκρεμής/είς {{PLURAL:$2|αλλαγή|αλλαγές}}], για να δείτε αν το τμήμα μετακινήθηκε ή διαγράφτηκε.',
 	'revreview-noflagged' => "Δεν υπάρχουν [[{{MediaWiki:Validationpage}}|επιθεωρημένες εκδόσεις]] αυτής της σελίδας, κι επόμενως αυτή μπορεί να  '''μην''' έχει ελεγχθεί για τήρηση των προτύπων.",
 	'revreview-oldrating' => 'Βαθμολογήθηκε:',
+	'revreview-quality' => 'Αυτή είναι η [[{{MediaWiki:Validationpage}}|σταθερή έκδοση]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} που εγκρίθηκε] στις <i>$2</i>.
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 και  {{PLURAL:$3|αλλαγή|αλλαγές}}] {{PLURAL:$3|αναμένει|αναμένουν}} επιθεώρηση.',
+	'revreview-quality-i' => 'Αυτή είναι η  [[{{MediaWiki:Validationpage}}|σταθερή έκδοση]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} που εγκρίθηκε] στις <i>$2</i>.
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Αλλαγές Προτύπου/αρχείου] αναμένουν επιθεώρηση.',
+	'revreview-quality-old' => 'Αυτή είναι μια  [[{{MediaWiki:Validationpage}}|ποιοτική]] έκδοση ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} απαρίθμησης όλων]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} που εγκρίθηκε] στις <i>$2</i>.
+	Νέες [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} αλλαγές] θα μπορούσαν να έχουν γίνει.',
 	'revreview-quality-same' => 'Αυτή είναι μια [[{{MediaWiki:Validationpage}}|σταθερή έκδοση]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} που εγκρίθηκε] στις <i>$2</i>.',
+	'revreview-quality-source' => 'Μια [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} ποιοτική έκδοση] αυτής της σελίδας, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} εγκρίθηκε] στις <i>$2</i>, βασίστηκε σε αυτήν την αναθεώρηση.',
 	'revreview-quality-title' => 'Αυτή είναι μια ποιοτική έκδοση αυτής της σελίδας',
 	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|Ελέγχθηκε]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} επιθεώρηση με εκκρεμείς αλλαγές]]",
 	'revreview-quick-basic-old' => "'''[[{{MediaWiki:Validationpage}}|Ελέγχθηκε]]'''",
@@ -4203,7 +4220,7 @@ $messages['el'] = array(
 	'revreview-style-3' => 'Περιεκτικό',
 	'revreview-style-4' => 'Επιλεγμένο',
 	'revreview-toggle-title' => 'εμφάνιση/απόκρυψη λεπτομερειών',
-	'revreview-visibility-synced' => "''' Η σελίδα έχει μια ενημερωμένη [[{{MediaWiki:Validationpage}} |σταθερή έκδοση]]; η σταθερότητα των ρυθμίσεων της σελίδας μπορεί να [{{fullurl: {{#Special:Stabilization}} |page = {{FULLPAGENAMEE}}}} ρυθμιστεί].'' '", # Fuzzy
+	'revreview-visibility-synced' => "Η σελίδα αυτή έχει μια ενημερωμένη [[{{MediaWiki:Validationpage}}|σταθερή έκδοση]]; η σταθερότητα των ρυθμίσεων της σελίδας μπορεί να [{{fullurl: {{#Special:Stabilization}} |page = {{FULLPAGENAMEE}}}} διαμορφωθεί].'' '",
 	'revreview-visibility-outdated' => "'''Η σελίδα αυτή διαθέτει μια απαρχαιωμένη [[{{MediaWiki:Validationpage}}|σταθερή έκδοση]]; οι ρυθμίσεις σταθερότητας της σελίδας μπορούν [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} να διαμορφωθούν].'''",
 	'revreview-visibility-nostable' => "'''Η σελίδα δεν έχει μια [[{{MediaWiki:Validationpage}}|σταθερή έκδοση]]; οι ρυθμίσεις σταθερότητας της σελίδας μπορούν να  [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} διαμορφωθούν].'''",
 	'revreview-revnotfound' => 'Η παλιά αναθεώρηση της σελίδας που ζητήσατε δεν ήταν δυνατόν να βρεθεί. Παρακαλούμε ελέγξτε τo URL που χρησιμοποιήσατε για να φτάσετε σε αυτήν τη σελίδα.',
@@ -5343,6 +5360,7 @@ Tarkista URL-osoite, jolla hait tätä sivua.',
  * @author IAlex
  * @author Jean-Frédéric
  * @author Korrigan
+ * @author Ltrlg
  * @author McDutchie
  * @author Mihai
  * @author Od1n
@@ -5390,7 +5408,7 @@ $messages['fr'] = array(
 	'revreview-hist-basic' => 'version vérifiée',
 	'revreview-hist-quality-user' => 'approuvée par [[User:$3|$3]]',
 	'revreview-hist-basic-user' => 'vérifiée par [[User:$3|$3]]',
-	'revreview-hist-quality-auto' => ' automatiquement approuvée',
+	'revreview-hist-quality-auto' => 'automatiquement approuvée',
 	'revreview-hist-basic-auto' => 'automatiquement vérifiée',
 	'revreview-hist-pending-difflink' => "'''[[{{fullurl:$1|oldid=$2&diff=$3{{MediaWiki:flaggedrevs-diffonly}}}} en attente de relecture]]'''",
 	'review-edit-diff' => "'''AVERTISSEMENT : Certains changements en cours affectent la zone de la page que vous êtes en train de modifier.'''",
