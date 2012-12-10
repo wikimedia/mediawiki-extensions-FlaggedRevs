@@ -3437,6 +3437,13 @@ $messages['ku-latn'] = array(
 	'revreview-reject-summary' => 'Kurte:',
 );
 
+/** Kirghiz (Кыргызча)
+ * @author Growingup
+ */
+$messages['ky'] = array(
+	'revreview-reject-cancel' => 'Жокко чыгаруу',
+);
+
 /** Latin (Latina)
  * @author SPQRobin
  */

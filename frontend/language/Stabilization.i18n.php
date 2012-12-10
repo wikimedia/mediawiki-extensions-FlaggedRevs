@@ -2213,6 +2213,15 @@ $messages['ku-latn'] = array(
 	'stabilization-otherreason' => 'Sedemeka din:',
 );
 
+/** Kirghiz (Кыргызча)
+ * @author Growingup
+ */
+$messages['ky'] = array(
+	'stabilization-page' => 'Барак аты:',
+	'stabilization-comment' => 'Себеп:',
+	'stabilization-def-short' => 'жарыяланбасча',
+);
+
 /** Latin (Latina)
  * @author SPQRobin
  */

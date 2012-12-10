@@ -1143,6 +1143,13 @@ $messages['kw'] = array(
 	'unreviewedpages-category' => 'Klass:',
 );
 
+/** Kirghiz (Кыргызча)
+ * @author Growingup
+ */
+$messages['ky'] = array(
+	'unreviewedpages-category' => 'Категория:',
+);
+
 /** Latin (Latina)
  * @author Omnipaedista
  * @author SPQRobin
