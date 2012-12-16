@@ -376,10 +376,11 @@ $messages['it'] = array(
  * @author Aotake
  * @author Fryed-peach
  * @author Hosiryuhosi
+ * @author Shirayuki
  */
 $messages['ja'] = array(
 	'qualityoversight' => '詳細な査読記録',
-	'qualityoversight-list' => 'このページでは最近の特定版承認および棄却を一覧しています。',
+	'qualityoversight-list' => 'このページでは最近の特定版承認および棄却を列挙しています。',
 	'qualityoversight-legend' => '最近の査読記録を検索',
 );
 
