@@ -1370,7 +1370,7 @@ Editeure si confirméiert Benotzer déi nogekuckte Versioune vu Säiten derbäis
 Den duerchschnëttlechen Delai fir [[Special:OldReviewedPages|Säite mat net nogekuckten Ännerungen am Suspens]] ass '''$1'''; den Delai moosst wéi laang déi eelst Ännerung am Suspens war ier se nogekuckt gouf.",
 	'validationstatistics-revtime' => "Déi duerchschnëttlech Waardezäit fir Ännerunge vu ''Benotzer déi net ageloggt waren'' ier hier Ännerung nogekuckt ass ass '''$1'''; d'Median ass '''$2'''.
 $3",
-	'validationstatistics-table' => "Statistike vun den nogekuckte Säite fir jiddwer Nummraum sinn hei drënner, Viruleedungssäite sinn ''net berücksichtegt''. Säiten ginn als vereelst (outdated) betruecht wann et Ännerunge gëtt déi nach musse nogekuckt ginn; Säite wou keng Ännerungen am Suspens si ginn als ''aktuell'' (synced) betruecht.",
+	'validationstatistics-table' => "Statistike vun den nogekuckte Säite fir jiddwer Nummraum sinn hei drënner, Viruleedungssäite sinn ''net berücksichtegt''. Säite ginn als vereelst (outdated) betruecht wann et Ännerunge gëtt déi nach mussen nogekuckt ginn; Säite wou keng Ännerungen a Suspens sinn, ginn als ''aktuell'' (synced) betruecht.",
 	'validationstatistics-ns' => 'Nummraum',
 	'validationstatistics-total' => 'Säiten',
 	'validationstatistics-stable' => 'Nogekuckt',

@@ -577,10 +577,11 @@ $messages['ku-latn'] = array(
 );
 
 /** Luxembourgish (Lëtzebuergesch)
+ * @author Les Meloures
  * @author Robby
  */
 $messages['lb'] = array(
-	'problemchanges' => 'Markéiert Ännerunge am Suspens',
+	'problemchanges' => 'Markéiert Ännerungen a Suspens',
 	'problemchanges-list' => 'Op dëser Säit stinn [[{{MediaWiki:Validationpage}}|nogekuckte]] Säiten déi eng oder méi Versiounen hunn déi nach drop waarde fir nogekuckt ze ginn. Eng Lëscht vun de [[Special:Tags|valabelen Ännerungsmarkéierunge]] ass disponibel.',
 	'problemchanges-legend' => 'Lëscht vun de markéierte Säiten déi nach net nogekuckt sinn',
 	'problemchanges-none' => 'Et gëtt el keng Säiten déi dës Kriterien entspriechen',
