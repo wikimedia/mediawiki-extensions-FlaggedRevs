@@ -13935,6 +13935,7 @@ Obstajajo [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-
 
 /** Albanian (shqip)
  * @author Cradel
+ * @author Euriditi
  * @author Olsi
  * @author Tëfcí
  */
@@ -13945,11 +13946,19 @@ $messages['sq'] = array(
 	'flaggedrevs-pref-UI' => 'Ndërfaqe e thjeshtë:',
 	'revreview-hist-quality-auto' => 'miratuar automatikisht',
 	'revreview-hist-basic-auto' => 'kontrolluar automatikisht',
+	'revreview-diff-toggle-show' => 'trego ndryshimet',
+	'revreview-diff-toggle-hide' => 'fshih ndryshimet',
+	'revreview-log-details-show' => 'shfaq detajet',
+	'revreview-log-details-hide' => 'fshih detajet',
+	'revreview-current' => 'Ndryshimet në pritje',
+	'revreview-edit' => 'Redakto',
 	'revreview-editnotice' => "'''Ndryshimet tuaja do të shfaqen sapo një përdorues i autorizuar t'i pranojë ato.
 ([[{{MediaWiki:Validationpage}}|ndihmë]])'''",
 	'revreview-submitedit' => 'Paraqit ndryshimet',
 	'revreview-noflagged' => "Nuk ekzistojnë [[{{MediaWiki:Validationpage}}|versione të shqyrtuara]] e kësaj faqe, kështu që '''nuk''' mund të jetë konfirmuar në standartet e tij të cilësisë.",
+	'revreview-source' => 'Shiko tekstin',
 	'revreview-revnotfound' => 'Versioni i vjetër i faqes së kërkuar nuk mund të gjindej. Ju lutem kontrolloni URL-n që përdorët për të ardhur tek kjo faqe.',
+	'validationpage' => '{{ns:help}}:Kontrolli i faqes',
 );
 
 /** Serbian (Cyrillic script) (српски (ћирилица)‎)
