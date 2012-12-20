@@ -760,6 +760,7 @@ $messages['ckb'] = array(
 	'stabilization-comment' => 'هۆکار:',
 	'stabilization-otherreason' => 'ھۆکاری تر:',
 	'stabilization-expiry' => 'ھەتا:',
+	'stabilize-expiring' => 'بەسەردەچێ لە ڕێکەوتی $1 (UTC)',
 );
 
 /** Czech (česky)

@@ -6754,7 +6754,7 @@ Nove su [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-di
 	'revreview-draft-title' => 'Na ovoj stranici su prikazane izmjene na čekanju',
 	'revreview-edit' => 'Uredi',
 	'revreview-editnotice' => "'''Vaše izmjene ove stranice bit će prikazane čitateljima kad ih ovlašteni suradnik ocijeni. ([[{{MediaWiki:Validationpage}}|pomoć]])'''", # Fuzzy
-	'revreview-submitedit' => 'Pošalji promjene',
+	'revreview-submitedit' => 'Sačuvaj stranicu',
 	'revreview-submitedit-title' => 'Pošaljite Vaše izmjene na pregled',
 	'revreview-edited' => "'''Vaše izmjene biti će prikazane čitateljima kad ih ovlašteni suradnik ocijeni. ([[{{MediaWiki:Validationpage}}|pomoć]])'''
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$2|Postoji $2 izmjena koja čeka|Postoje $2 izmjene koje čekaju|Postoji $2 izmjena koje čekaju}}] ocjenu.", # Fuzzy
