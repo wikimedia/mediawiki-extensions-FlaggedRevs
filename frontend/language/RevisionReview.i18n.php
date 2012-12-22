@@ -1738,8 +1738,8 @@ Vaata [[Special:Unreviewedpages|ülevaatamata lehekülgede loendit]].',
 	'revreview-successful2' => "'''Lehekülje [[:$1|$1]] redaktsioonilt vaatamismärkus edukalt eemaldatud.'''",
 	'revreview-poss-conflict-p' => "'''Hoiatus: [[User:$1|$1]] hakkas seda lehekülge üle vaatama ($2, kell $3).'''",
 	'revreview-poss-conflict-c' => "'''Hoiatus: [[User:$1|$1]] hakkas neid muudatusi üle vaatama ($2, kell $3).'''",
-	'revreview-adv-reviewing-p' => 'Märkus: Teised ülevaatajad näevad, et seda lehekülge üle vaatad.',
-	'revreview-adv-reviewing-c' => 'Märkus: Teised ülevaatajad näevad, et neid muudatusi üle vaatad.',
+	'revreview-adv-reviewing-p' => 'Märkus: Teised ülevaatajad näevad, et seda lehekülge üle {{GENDER:$1|vaatad}}.',
+	'revreview-adv-reviewing-c' => 'Märkus: Teised ülevaatajad näevad, et neid muudatusi üle  {{GENDER:$1|vaatad}}.',
 	'revreview-sadv-reviewing-p' => 'Saad teistele kasutajatele $1, et vaatad seda lehekülge üle.',
 	'revreview-sadv-reviewing-c' => 'Saad teistele kasutajatele $1, et vaatad neid muudatusi üle.',
 	'revreview-adv-start-link' => 'teatada',
@@ -1839,8 +1839,8 @@ $messages['fa'] = array(
 	'revreview-successful2' => "'''پرچم نسخه‌های انتخابی از [[:$1|$1]] با موفقیت برداشته شد.'''",
 	'revreview-poss-conflict-p' => "'''هشدار: [[User:$1|$1]] شروع به بازبینی این صفحه در تاریخ $2، ساعت $3 کرده است.'''",
 	'revreview-poss-conflict-c' => "'''هشدار: [[User:$1|$1]] شروع به بازبینی این تغییرات در تاریخ $2، ساعت $3 کرده است.'''",
-	'revreview-adv-reviewing-p' => 'توجه: دیگر بازبینان می‌توانند ببینند که شما در حال بازبینی این صفحه هستید.',
-	'revreview-adv-reviewing-c' => 'توجه: دیگر بازبینان می‌توانند ببینند که شما در حال بازبینی این تغییرات هستید.',
+	'revreview-adv-reviewing-p' => 'توجه: دیگر بازبینان می‌توانند ببینند که {{GENDER:$1|شما}} در حال بازبینی این صفحه هستید.',
+	'revreview-adv-reviewing-c' => 'توجه: دیگر بازبینان می‌توانند ببینند که {{GENDER:$1|شما}} در حال بازبینی این تغییرات هستید.',
 	'revreview-sadv-reviewing-p' => 'شما می‌توانید خودتان را به عنوان بازبین این صفحه به دیگر کاربران، $1.',
 	'revreview-sadv-reviewing-c' => 'شما می‌توانید خودتان را به عنوان بازبین این تغییرات به دیگر کاربران، $1.',
 	'revreview-adv-start-link' => 'اعلان کنید',
@@ -4064,7 +4064,7 @@ Controleer alle hieronder weergegeven wijzigingen om ook uw bewerking zichtbaar 
 	'revreview-reject-confirm' => 'Deze wijzigingen afkeuren',
 	'revreview-reject-cancel' => 'Annuleren',
 	'revreview-reject-summary-cur' => 'Heeft de laatste {{PLURAL:$1|tekstwijziging|$1 tekstwijzigingen}} (door $2) afgekeurd en versie $3 van $4 teruggeplaatst',
-	'revreview-reject-summary-old' => 'Heeft de eerste {{PLURAL:$1|tekstwijziging|$1 |tekstwijzigingen}} (door $2) na versie $3 door $4 afgekeurd',
+	'revreview-reject-summary-old' => 'Heeft de eerste {{PLURAL:$1|tekstwijziging|$1 tekstwijzigingen}} (door $2) na versie $3 door $4 afgekeurd',
 	'revreview-reject-summary-cur-short' => 'Heeft de laatste {{PLURAL:$1||tekstwijziging|$1 |tekstwijzigingen}} afgekeurd en versie $2 door $3 teruggeplaatst',
 	'revreview-reject-summary-old-short' => 'Heeft de eerste {{PLURAL:$1|tekstwijziging|$1 tekstwijzigingen}} na versie $2 door $3 afgekeurd',
 	'revreview-tt-flag' => 'Deze versie goedkeuren door haar als gecontroleerd te markeren',
@@ -4152,6 +4152,7 @@ $messages['pdc'] = array(
  * @author Holek
  * @author Leinad
  * @author Masti
+ * @author Matma Rex
  * @author McMonster
  * @author Sp5uhe
  * @author Tsca
@@ -4202,8 +4203,8 @@ Zobacz [[Special:Unreviewedpages|listę nieprzejrzanych stron]].',
 	'revreview-successful2' => "'''Wersja [[:$1|$1]] została pomyślnie odznaczona.'''",
 	'revreview-poss-conflict-p' => "'''Uwaga – [[User:$1|$1]] rozpoczął przeglądanie tej strony $2 o $3.'''",
 	'revreview-poss-conflict-c' => "'''Uwaga – [[User:$1|$1]] rozpoczął przeglądanie tych zmian $2 o $3.'''",
-	'revreview-adv-reviewing-p' => 'Uwaga – inni redaktorzy mogą zobaczyć, że rozpocząłeś przeglądanie tej strony.', # Fuzzy
-	'revreview-adv-reviewing-c' => 'Uwaga – inni redaktorzy mogą zobaczyć, że rozpocząłeś przeglądanie tych zmian.', # Fuzzy
+	'revreview-adv-reviewing-p' => 'Uwaga – inni redaktorzy mogą zobaczyć, że {{GENDER:$1|rozpocząłeś|rozpoczęłaś}} przeglądanie tej strony.',
+	'revreview-adv-reviewing-c' => 'Uwaga – inni redaktorzy mogą zobaczyć, że {{GENDER:$1|rozpocząłeś|rozpoczęłaś}} przeglądanie tych zmian.',
 	'revreview-sadv-reviewing-p' => 'Możesz $1 innych użytkowników, o tym że jesteś w trakcie przeglądania tej strony.',
 	'revreview-sadv-reviewing-c' => 'Możesz $1 innych użytkowników, o tym że jesteś w trakcie przeglądania tych zmian.',
 	'revreview-adv-start-link' => 'poinformować',
