@@ -439,6 +439,14 @@ $messages['cu'] = array(
 	'pendingchanges-category' => 'катигорі́ꙗ :',
 );
 
+/** Danish (dansk)
+ * @author Tjernobyl
+ */
+$messages['da'] = array(
+	'pendingchanges-recent' => '(mindre end 1 time)',
+	'pendingchanges-category' => 'Kategori:',
+);
+
 /** German (Deutsch)
  * @author Kghbln
  * @author Melancholie
@@ -1359,6 +1367,21 @@ $messages['ms'] = array(
 	'pendingchanges-unwatched' => '(tidak dipantau)',
 	'pendingchanges-watched' => '(dipantau {{PLURAL:$1|seorang|$1 orang}} pengguna aktif)',
 	'pendingchanges-viewing' => '(sedang dikaji semula)',
+);
+
+/** Maltese (Malti)
+ * @author Chrisportelli
+ */
+$messages['mt'] = array(
+	'pendingchanges' => "Paġni b'tibdil pendenti",
+	'pendingchanges-hours' => '($1 {{PLURAL:$1|siegħa|sigħat}})',
+	'pendingchanges-days' => '($1 {{PLURAL:$1|jum|jiem}})',
+	'pendingchanges-recent' => '(inqas minn siegħa)',
+	'pendingchanges-category' => 'Kategorija',
+	'pendingchanges-onwatchlist' => "Paġni fil-lista ta' osservazzjonijiet tiegħi",
+	'pendingchanges-stable' => 'Il-verżjoni stabbli hija l-awtomatika',
+	'pendingchanges-diff' => 'irrevedi',
+	'pendingchanges-size' => 'Bidla massima (bytes):',
 );
 
 /** Nahuatl (Nāhuatl)

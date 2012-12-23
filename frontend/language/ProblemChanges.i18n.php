@@ -197,6 +197,13 @@ $messages['cs'] = array(
 	'problemchanges-category' => 'Kategorie:',
 );
 
+/** Danish (dansk)
+ * @author Tjernobyl
+ */
+$messages['da'] = array(
+	'problemchanges-category' => 'Kategori:',
+);
+
 /** German (Deutsch)
  * @author Jens Liebenau
  * @author Kghbln
@@ -638,6 +645,14 @@ $messages['ms'] = array(
 	'problemchanges-legend' => 'Senaraikan laman dengan suntingan bertag yang menunggu untuk dikaji semula',
 	'problemchanges-none' => 'Tiada laman yang memenuhi kriteria ini',
 	'problemchanges-category' => 'Kategori:',
+);
+
+/** Maltese (Malti)
+ * @author Chrisportelli
+ */
+$messages['mt'] = array(
+	'problemchanges-none' => "Għall-mument m'hemm l-ebda paġna li tissodisfa dawn il-kriterji",
+	'problemchanges-category' => 'Kategorija:',
 );
 
 /** Norwegian Bokmål (norsk (bokmål)‎)

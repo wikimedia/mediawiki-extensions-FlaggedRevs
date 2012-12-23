@@ -1521,9 +1521,12 @@ $3",
  * @author Chrisportelli
  */
 $messages['mt'] = array(
+	'validationstatistics' => 'Statistika tar-reviżjoni',
 	'validationstatistics-ns' => 'Spazju tal-isem',
 	'validationstatistics-total' => 'Paġni',
+	'validationstatistics-stable' => 'Riveduti',
 	'validationstatistics-user' => 'Utent',
+	'validationstatistics-reviews' => 'Reviżjonijiet',
 );
 
 /** Erzya (эрзянь)

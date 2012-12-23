@@ -2505,6 +2505,29 @@ Tetapan tidak boleh dibuat.',
 	'stabilization-review' => 'Tandai semakan semasa sebagai diperiksa',
 );
 
+/** Maltese (Malti)
+ * @author Chrisportelli
+ */
+$messages['mt'] = array(
+	'stabilization-tab' => 'ver',
+	'stabilization' => 'Stabbilizzazzjoni tal-paġna',
+	'stabilization-page' => 'Isem tal-paġna:',
+	'stabilization-restrict-none' => 'L-ebda restrizzjoni żejda',
+	'stabilization-submit' => 'Ikkonferma',
+	'stabilization-notexists' => 'M\'hemm l-ebda paġna bl-isem "[[:$1|$1]]".
+L-ebda konfigurazzjoni mhi possibbli.',
+	'stabilization-comment' => 'Raġuni:',
+	'stabilization-otherreason' => 'Raġuni oħra:',
+	'stabilization-expiry' => 'Skadenza:',
+	'stabilization-othertime' => 'Ħin ieħor:',
+	'stabilization-def-short-0' => 'Attwali',
+	'stabilization-def-short-1' => 'Stabbli',
+	'stabilize_page_invalid' => "It-titlu tal-paġna ta' destinazzjoni huwa ħażin.",
+	'stabilize_page_notexists' => "Il-paġna ta' destinazzjoni ma teżistix.",
+	'stabilize_page_unreviewable' => "Il-paġna ta' destinazzjoni ma tinstabx fl-ispazju tal-isem rivedibbli.",
+	'stabilize_denied' => 'Permess miċħud.',
+);
+
 /** Erzya (эрзянь)
  * @author Amdf
  * @author Botuzhaleny-sodamo

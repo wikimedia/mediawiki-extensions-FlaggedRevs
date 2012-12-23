@@ -1291,6 +1291,16 @@ $messages['ms'] = array(
 	'unreviewedpages-recent' => '(kurang drpd. 1 jam)',
 );
 
+/** Maltese (Malti)
+ * @author Chrisportelli
+ */
+$messages['mt'] = array(
+	'unreviewedpages' => 'Paġni mhux riveduti',
+	'unreviewedpages-legend' => "Lista ta' paġni mhux riveduti",
+	'unreviewedpages-category' => 'Kategorija:',
+	'unreviewedpages-diff' => 'irrevedi',
+);
+
 /** Erzya (эрзянь)
  * @author Amdf
  */

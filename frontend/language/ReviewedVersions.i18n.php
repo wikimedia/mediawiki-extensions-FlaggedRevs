@@ -822,6 +822,14 @@ $messages['ms'] = array(
 	'reviewedversions-review' => 'Diperiksa pada <i>$1</i> oleh $2',
 );
 
+/** Maltese (Malti)
+ * @author Chrisportelli
+ */
+$messages['mt'] = array(
+	'reviewedversions-page' => 'Isem tal-paġna:',
+	'reviewedversions-none' => '"[[:$1]]" m\'għandiex reviżjonijiet riveduti.',
+);
+
 /** Erzya (эрзянь)
  * @author Amdf
  */

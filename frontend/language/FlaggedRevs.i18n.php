@@ -3415,6 +3415,7 @@ $messages['cy'] = array(
  * @author Christian List
  * @author Froztbyte
  * @author Jon Harald Søby
+ * @author Tjernobyl
  */
 $messages['da'] = array(
 	'action-review' => 'gennemgå revisioner',
@@ -3452,8 +3453,17 @@ $messages['da'] = array(
 	'reviewer' => 'Korrekturlæser',
 	'revreview-accuracy-4' => 'Fremhævet',
 	'revreview-auto' => '(automatisk)',
+	'revreview-style-0' => 'Utilstrækkelig',
+	'revreview-style-1' => 'Acceptabel',
+	'revreview-style-2' => 'God',
+	'revreview-style-4' => 'Fremhævet',
+	'revreview-toggle-title' => 'vis/skjul detaljer',
 	'revreview-revnotfound' => 'Den gamle version af den side du spurgte efter kan
 ikke findes. Kontrollér den URL du brugte til at få adgang til denne side.',
+	'revreview-filter-auto' => 'Automatisk',
+	'revreview-filter-manual' => 'Manuel',
+	'revreview-def-draft' => 'seneste',
+	'revreview-restriction-none' => 'ingen',
 );
 
 /** German (Deutsch)
@@ -10661,6 +10671,13 @@ $messages['mt'] = array(
 	'grouppage-editor' => '{{ns:project}}:Editur',
 	'grouppage-reviewer' => '{{ns:project}}:Riveditur',
 	'group-autoreview' => 'Rivedituri awtomatiċi',
+	'revreview-accuracy' => 'Eżattezza',
+	'revreview-accuracy-0' => 'Inadegwata',
+	'revreview-accuracy-2' => 'Preċiża',
+	'revreview-accuracy-3' => 'Dokumentata tajjeb',
+	'revreview-accuracy-4' => 'Tajba',
+	'revreview-auto' => '(awtomatiku)',
+	'revreview-current' => 'Tibdil pendenti',
 	'revreview-depth-0' => 'Inadegwat',
 	'revreview-depth-2' => 'Medjokri',
 	'revreview-depth-3' => 'Għoli',
@@ -13934,6 +13951,7 @@ Obstajajo [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-
 );
 
 /** Albanian (shqip)
+ * @author Besnik b
  * @author Cradel
  * @author Euriditi
  * @author Olsi
@@ -13955,7 +13973,7 @@ $messages['sq'] = array(
 	'revreview-editnotice' => "'''Ndryshimet tuaja do të shfaqen sapo një përdorues i autorizuar t'i pranojë ato.
 ([[{{MediaWiki:Validationpage}}|ndihmë]])'''",
 	'revreview-submitedit' => 'Paraqit ndryshimet',
-	'revreview-noflagged' => "Nuk ekzistojnë [[{{MediaWiki:Validationpage}}|versione të shqyrtuara]] e kësaj faqe, kështu që '''nuk''' mund të jetë konfirmuar në standartet e tij të cilësisë.",
+	'revreview-noflagged' => "Nuk ka [[{{MediaWiki:Validationpage}}|versione të shqyrtuara]] të kësaj faqe, ndaj mund të '''mos''' jetë kontrolluar përputhja e saj me standardet.",
 	'revreview-source' => 'Shiko tekstin',
 	'revreview-revnotfound' => 'Versioni i vjetër i faqes së kërkuar nuk mund të gjindej. Ju lutem kontrolloni URL-n që përdorët për të ardhur tek kjo faqe.',
 	'validationpage' => '{{ns:help}}:Kontrolli i faqes',

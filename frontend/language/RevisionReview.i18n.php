@@ -3600,6 +3600,7 @@ $messages['lt'] = array(
 	'revreview-submit-reject' => 'Atmesti keitimus',
 	'revreview-submit-reviewed' => 'Atlikta. Patvirtinta!',
 	'revreview-submit-unreviewed' => 'Atlikta. Nepatvirtinta!',
+	'revreview-adv-start-link' => 'reklama',
 	'revreview-reject-summary' => 'Apibendrinimas:',
 	'revreview-reject-confirm' => 'Atmesti šiuos pakeitimus',
 	'revreview-reject-cancel' => 'Atšaukti',
@@ -3897,6 +3898,23 @@ Sila kaji semula segala perubahan yang ditunjukkan di bawah untuk memastikan aga
 	'revreview-tt-flag' => 'Terima semakan ini dengan menandainya sebagai "diperiksa"',
 	'revreview-tt-unflag' => 'Tarik balik penerimaan semakan ini dengan menandainya sebagai "tidak diperiksa"',
 	'revreview-tt-reject' => 'Tolak perubahan teks sumber ini dengan membalikkannya',
+);
+
+/** Maltese (Malti)
+ * @author Chrisportelli
+ */
+$messages['mt'] = array(
+	'revisionreview' => 'Reviżjoni tar-reviżjonijiet',
+	'revreview-submission-invalid' => 'Is-sottomissjoni kienet inkompleta jew ħażina.',
+	'review_page_invalid' => "It-titlu tal-paġna ta' destinazzjoni huwa ħażin.",
+	'review_page_notexists' => "Il-paġna ta' destinazzjoni ma teżistix.",
+	'review_page_unreviewable' => "Il-paġna ta' destinazzjoni ma tistax tiġi riveduta.",
+	'review_no_oldid' => 'L-ebda ID tar-reviżjoni ma ġie speċifikat.',
+	'review_denied' => 'Permess miċħud.',
+	'revreview-check-flag-y' => 'Aċċetta t-tibdiliet tiegħi',
+	'revreview-check-flag-y-title' => 'Aċċetta t-tibdiliet kollha li inti għamilt hawnhekk.',
+	'revreview-log' => 'Kumment:',
+	'revreview-submit' => 'Ibgħat',
 );
 
 /** Norwegian Bokmål (norsk (bokmål)‎)

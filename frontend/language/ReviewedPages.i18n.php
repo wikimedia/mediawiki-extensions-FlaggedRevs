@@ -916,6 +916,17 @@ $messages['ms'] = array(
 	'reviewedpages-best' => 'semakan terbaik',
 );
 
+/** Maltese (Malti)
+ * @author Chrisportelli
+ */
+$messages['mt'] = array(
+	'reviewedpages' => 'Paġni riveduti',
+	'reviewedpages-leg' => 'Elenka l-paġni li ġew riveduti',
+	'reviewedpages-none' => "M'hemm l-ebda paġna f'din il-lista.",
+	'reviewedpages-all' => 'verżjonijiet riveduti',
+	'reviewedpages-best' => 'l-aqwa reviżjoni',
+);
+
 /** Nahuatl (Nāhuatl)
  * @author Fluence
  */
