@@ -227,11 +227,8 @@ Parameters:
 * $2 is a date
 * $3 is a time',
 	'revreview-adv-reviewing-p' => '{{Flagged Revs}}
-Shown on the form to review pages. Indicates that other reviewers will get a notice that this user is already reviewing this revision of the page. Not shown on diffs.
-
-This message is followed by {{msg-mw|revreview-adv-stop-link}} as link in parenthesis.
-
-$1 is the gender for the gender magic word.', # Fuzzy
+Shown on the form to review pages. Indicates that other reviewers will get a notice that this user is already reviewing this revision of the page. Not shown on diffs. This message is followed by {{msg-mw|revreview-adv-stop-link}} as link in parenthesis. Parameters:
+* $1 is the gender for the gender magic word.',
 	'revreview-adv-reviewing-c' => '{{Flagged Revs}}
 Shown on the form to review pages. Indicates that other reviewers will get a notice that this user is already reviewing this revision of the page. Shown on diffs.
 
@@ -3441,6 +3438,12 @@ $messages['ku-latn'] = array(
  * @author Growingup
  */
 $messages['ky'] = array(
+	'revreview-log' => 'Комментарий:',
+	'revreview-submit' => 'Жөнөтүү',
+	'revreview-submitting' => 'Жөнөтүү…',
+	'revreview-submit-reviewed' => 'Даяр. Аныкталды!',
+	'revreview-submit-unreviewed' => 'Даяр. Аныкталган жок!',
+	'revreview-reject-summary' => 'Баяндама:',
 	'revreview-reject-cancel' => 'Жокко чыгаруу',
 );
 

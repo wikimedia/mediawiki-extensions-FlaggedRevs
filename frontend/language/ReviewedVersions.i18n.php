@@ -723,6 +723,13 @@ $messages['ku-latn'] = array(
 	'reviewedversions-page' => 'Navê rûpelê:',
 );
 
+/** Kirghiz (Кыргызча)
+ * @author Growingup
+ */
+$messages['ky'] = array(
+	'reviewedversions-page' => 'Барак аты:',
+);
+
 /** Latin (Latina)
  * @author UV
  */

@@ -613,6 +613,13 @@ $messages['ksh'] = array(
 	'stablepages-indef' => 'Bloß met onbejränz Duuer',
 );
 
+/** Kirghiz (Кыргызча)
+ * @author Growingup
+ */
+$messages['ky'] = array(
+	'stablepages-config' => 'ырастоо',
+);
+
 /** Luxembourgish (Lëtzebuergesch)
  * @author Robby
  */

@@ -1202,6 +1202,13 @@ $messages['kw'] = array(
 	'pendingchanges-category' => 'Klass:',
 );
 
+/** Kirghiz (Кыргызча)
+ * @author Growingup
+ */
+$messages['ky'] = array(
+	'pendingchanges-category' => 'Категория:',
+);
+
 /** Luxembourgish (Lëtzebuergesch)
  * @author Robby
  */

@@ -594,6 +594,13 @@ Enstellunge künne jemaat wääde, öm faßzelääje, wat för en Version de Lä
 	'configuredpages-def-stable' => 'de Version för de Öffentleschkeit',
 );
 
+/** Kirghiz (Кыргызча)
+ * @author Growingup
+ */
+$messages['ky'] = array(
+	'configuredpages-config' => 'Ырастоо',
+);
+
 /** Luxembourgish (Lëtzebuergesch)
  * @author Robby
  */

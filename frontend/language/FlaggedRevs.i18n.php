@@ -9314,6 +9314,23 @@ $messages['kw'] = array(
 	'revreview-filter-all' => 'Oll',
 );
 
+/** Kirghiz (Кыргызча)
+ * @author Growingup
+ */
+$messages['ky'] = array(
+	'revreview-edit' => 'Оңдоо',
+	'revreview-style-2' => 'Жакшы',
+	'revreview-filter-all' => 'баары',
+	'revreview-typefilter' => 'Түр:',
+	'revreview-filter-auto' => 'Автоматтуу түрдө',
+	'revreview-filter-manual' => 'Кол менен',
+	'revreview-levelfilter' => 'Деңгээл:',
+	'revreview-lev-all' => 'каалаган',
+	'revreview-lev-basic' => 'текшерилген',
+	'revreview-restriction-any' => 'каалаган',
+	'revreview-restriction-none' => 'жок',
+);
+
 /** Latin (Latina)
  * @author SPQRobin
  * @author UV

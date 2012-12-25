@@ -1355,6 +1355,16 @@ $messages['kw'] = array(
 	'validationstatistics-total' => 'Folednow',
 );
 
+/** Kirghiz (Кыргызча)
+ * @author Growingup
+ */
+$messages['ky'] = array(
+	'validationstatistics-ns' => 'Ат мейкиндиги',
+	'validationstatistics-total' => 'Барак',
+	'validationstatistics-user' => 'Катышуучу',
+	'validationstatistics-reviews' => 'Текшерүүлөр',
+);
+
 /** Luxembourgish (Lëtzebuergesch)
  * @author Les Meloures
  * @author Robby

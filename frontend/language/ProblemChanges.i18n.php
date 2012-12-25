@@ -583,6 +583,13 @@ $messages['ku-latn'] = array(
 	'problemchanges-category' => 'Kategorî:',
 );
 
+/** Kirghiz (Кыргызча)
+ * @author Growingup
+ */
+$messages['ky'] = array(
+	'problemchanges-category' => 'Категория:',
+);
+
 /** Luxembourgish (Lëtzebuergesch)
  * @author Les Meloures
  * @author Robby

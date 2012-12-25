@@ -1147,7 +1147,9 @@ $messages['kw'] = array(
  * @author Growingup
  */
 $messages['ky'] = array(
+	'unreviewedpages' => 'Текшерилбеген барактар',
 	'unreviewedpages-category' => 'Категория:',
+	'unreviewedpages-diff' => 'текшерүү',
 );
 
 /** Latin (Latina)

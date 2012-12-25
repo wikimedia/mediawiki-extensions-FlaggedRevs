@@ -1804,7 +1804,7 @@ Konfigurasi tak dapat diterapkan.',
 $messages['ig'] = array(
 	'stabilization-tab' => 'vet',
 	'stabilization-page' => 'Áhà ihü:',
-	'stabilization-submit' => 'Sị Í kwèrè',
+	'stabilization-submit' => 'Kwèré',
 	'stabilization-comment' => 'Mgbághapụtà:',
 	'stabilization-otherreason' => 'Mgbághàpụtá ozor:',
 	'stabilization-expiry' => 'Gbá okà:',
@@ -2220,7 +2220,10 @@ $messages['ku-latn'] = array(
 $messages['ky'] = array(
 	'stabilization-page' => 'Барак аты:',
 	'stabilization-comment' => 'Себеп:',
+	'stabilization-otherreason' => 'Башка себеп:',
+	'stabilization-othertime' => 'Башка убакыт:',
 	'stabilization-def-short' => 'жарыяланбасча',
+	'stabilization-def-short-0' => 'Кезектеги',
 );
 
 /** Latin (Latina)
