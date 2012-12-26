@@ -7671,6 +7671,8 @@ $messages['ig'] = array(
 	'revreview-filter-all' => 'nke níle',
 	'revreview-filter-stable' => 'chịm',
 	'revreview-typefilter' => 'Ùdị:',
+	'revreview-filter-manual' => 'Ònyèmáká',
+	'revreview-levelfilter' => 'Órúrú:',
 	'revreview-lev-all' => 'nkéowulà',
 	'revreview-lev-quality' => 'ómá ya',
 	'revreview-def-all' => 'nkéowulà',
@@ -9320,6 +9322,8 @@ $messages['kw'] = array(
 $messages['ky'] = array(
 	'revreview-edit' => 'Оңдоо',
 	'revreview-style-2' => 'Жакшы',
+	'revreview-toggle-show' => '(+)',
+	'revreview-toggle-hide' => '(-)',
 	'revreview-filter-all' => 'баары',
 	'revreview-typefilter' => 'Түр:',
 	'revreview-filter-auto' => 'Автоматтуу түрдө',
@@ -14497,11 +14501,11 @@ Nyare [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diff
 	'revreview-depth-4' => 'Utmärkt',
 	'revreview-draft-title' => 'Väntande ändringar visas på denna sida',
 	'revreview-edit' => 'Redigera',
-	'revreview-editnotice' => "'''Dina ändringar kommer att visas när en behörig användare granskar dem.
-([[{{MediaWiki:Validationpage}}|hjälp]])'''", # Fuzzy
+	'revreview-editnotice' => "'''Dina ändringar kommer att visas när en behörig användare accepterar dem.
+([[{{MediaWiki:Validationpage}}|hjälp]])'''",
 	'revreview-submitedit' => 'Skicka ändringar',
 	'revreview-submitedit-title' => 'Skicka dina ändringar för granskning',
-	'revreview-edited' => "'''Dina ändringar kommer visas när en behörig användare granskar dom.
+	'revreview-edited' => "'''Dina ändringar kommer visas när en behörig användare accepterar dem.
 ([[{{MediaWiki:Validationpage}}|hjälp]])'''
  
 Det finns [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|ändring|ändringar}}] ''(visas nedan)'' som väntar på granskning.", # Fuzzy

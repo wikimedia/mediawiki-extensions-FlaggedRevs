@@ -1807,7 +1807,7 @@ $messages['ig'] = array(
 	'stabilization-submit' => 'Kwèré',
 	'stabilization-comment' => 'Mgbághapụtà:',
 	'stabilization-otherreason' => 'Mgbághàpụtá ozor:',
-	'stabilization-expiry' => 'Gbá okà:',
+	'stabilization-expiry' => 'Gbá ọ́kà:',
 	'stabilization-othertime' => 'Ógẹ ozor',
 	'stabilization-def-short' => 'Nke éjị bịdó',
 	'stabilization-def-short-0' => 'Nká Í nọ',
@@ -3537,6 +3537,7 @@ $messages['ta'] = array(
 	'stabilize_page_invalid' => 'இலக்கு பக்க தலைப்பு செல்லாதது.',
 	'stabilize_page_notexists' => 'இலக்கு பக்கம் இல்லை.',
 	'stabilize_denied' => 'செய்யுரிமை மறுக்கப்பட்டது.',
+	'stabilize-expiring' => '$1 (UTC) மணிக்கு காலாவதியாகிறது',
 );
 
 /** Telugu (తెలుగు)
