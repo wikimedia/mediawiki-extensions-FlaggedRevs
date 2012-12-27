@@ -3578,11 +3578,11 @@ Neue [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffo
 
 Momentan {{PLURAL:$2|gibt|gibt}} es [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 unmarkierte {{PLURAL:$2|Änderung|Änderungen}}], die noch markiert werden {{PLURAL:$2|muss|müssen}}.",
 	'revreview-edited-section' => 'Zurück zum Seitenabschnitt „[[#$1|$2]]“.',
-	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|Änderung|Änderungen}}] dieser Version {{PLURAL:$3|ist|sind}} [[{{MediaWiki:Validationpage}}|noch nicht markiert]].
+	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|Änderung|Änderungen}}] dieser Version {{PLURAL:$3|ist|sind}} noch nicht [[{{MediaWiki:Validationpage}}|markiert]].
 Die [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} gesichtete Version] wurde am <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} markiert].',
 	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Vorlagen- und Dateiänderungen] dieser Version sind [[{{MediaWiki:Validationpage}}|noch nicht markiert]].
 Die [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} gesichtete Version] wurde am <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} markiert].',
-	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|Änderung|Änderungen}}] dieser Version {{PLURAL:$3|ist|sind}} [[{{MediaWiki:Validationpage}}|noch nicht markiert]].
+	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|Änderung|Änderungen}}] dieser Version {{PLURAL:$3|ist|sind}} noch nicht [[{{MediaWiki:Validationpage}}|markiert]].
 Die [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} gesichtete Version] wurde am <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} markiert].',
 	'revreview-newest-quality-i' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Vorlagen- und Dateiänderungen] dieser Version sind [[{{MediaWiki:Validationpage}}|noch nicht markiert]].
 Die [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} gesichtete Version] wurde am <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} markiert].',
