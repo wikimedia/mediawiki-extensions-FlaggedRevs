@@ -1291,6 +1291,14 @@ $messages['lus'] = array(
 	'pendingchanges-viewing' => '(endik mék)',
 );
 
+/** Latvian (latviešu)
+ * @author Papuass
+ */
+$messages['lv'] = array(
+	'pendingchanges-recent' => '(mazāk par 1 stundu)',
+	'pendingchanges-category' => 'Kategorija:',
+);
+
 /** Macedonian (македонски)
  * @author Bjankuloski06
  * @author Brest

@@ -2063,7 +2063,7 @@ $messages['frp'] = array(
 	'review_no_oldid' => 'Nion numerô de la vèrsion at étâ spècefiâ.',
 	'review_bad_oldid' => 'La vèrsion ciba ègziste pas.',
 	'review_conflict_oldid' => 'Quârqu’un at ja accèptâ ou ben refusâ cela vèrsion pendent que vos la reveyévâd.',
-	'review_not_flagged' => 'Ora, la vèrsion ciba est pas marcâ coment revua.',
+	'review_not_flagged' => 'Ora la vèrsion ciba est pas marcâye coment revua.',
 	'review_too_low' => 'La vèrsion pôt pas étre revua avouéc des champs lèssiês a « ensufisent ».',
 	'review_bad_key' => 'Cllâf de paramètre d’encllusion envalida.',
 	'review_bad_tags' => 'Quârques valors de balisa spècefiâs sont envalides.',
@@ -2086,7 +2086,7 @@ $messages['frp'] = array(
 	'revreview-main' => 'Vos dête chouèsir una vèrsion spècefica d’una pâge de contegnu por fâre una rèvision.
 
 Vêde la [[Special:Unreviewedpages|lista de les pâges pas revues]].',
-	'revreview-stable1' => 'Vos souhètâd pôt-étre vêre ceta [{{fullurl:$1|stableid=$2}} vèrsion marcâ] por vêre s’o est ora la [{{fullurl:$1|stable=1}} vèrsion stâbla] de cela pâge.',
+	'revreview-stable1' => 'Pôt-étre vos souhètâd vêre ceta [{{fullurl:$1|stableid=$2}} vèrsion signalâye] por vêre s’o est ora la [{{fullurl:$1|stable=1}} vèrsion stâbla] de cela pâge.',
 	'revreview-stable2' => 'Vos souhètâd pôt-étre vêre la [{{fullurl:$1|stable=1}} vèrsion stâbla] de ceta pâge.',
 	'revreview-submit' => 'Sometre',
 	'revreview-submitting' => 'Somission...',
@@ -2095,12 +2095,12 @@ Vêde la [[Special:Unreviewedpages|lista de les pâges pas revues]].',
 	'revreview-submit-reject' => 'Refusar los changements',
 	'revreview-submit-reviewed' => 'Fât. Aprovâ !',
 	'revreview-submit-unreviewed' => 'Fât. Dèsaprovâ !',
-	'revreview-successful' => "'''La vèrsion chouèsia de [[:$1|$1]] at étâ marcâ avouéc reusséta ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} vêde totes les vèrsions stâbles]).'''",
+	'revreview-successful' => "'''La vèrsion chouèsia de [[:$1|$1]] est étâye signalâye avouéc reusséta ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} vêde totes les vèrsions stâbles]).'''",
 	'revreview-successful2' => "'''La vèrsion chouèsia de [[:$1|$1]] at étâ envalidâ avouéc reusséta.'''",
 	'revreview-poss-conflict-p' => "'''Atencion : [[User:$1|$1]] s’at betâ a revêre cela pâge lo $2 a $3.'''",
 	'revreview-poss-conflict-c' => "'''Atencion : [[User:$1|$1]] s’at betâ a revêre celos changements lo $2 a $3.'''",
-	'revreview-adv-reviewing-p' => 'Nota : d’ôtros rèvisors pôvont vêre que vos ègzamenâd cela pâge.',
-	'revreview-adv-reviewing-c' => 'Nota : d’ôtros rèvisors pôvont vêre que vos ègzamenâd celos changements.',
+	'revreview-adv-reviewing-p' => 'Nota : d’ôtros rèvisors pôvont vêre que vos ègzamenâd cela pâge.', # Fuzzy
+	'revreview-adv-reviewing-c' => 'Nota : d’ôtros rèvisors pôvont vêre que vos ègzamenâd celos changements.', # Fuzzy
 	'revreview-adv-start-link' => 'fâre de recllâma',
 	'revreview-adv-stop-link' => 'anular la recllâma',
 	'revreview-toolow' => "'''Vos dête afèctar una èstimacion ples hôta que « ensufisent » por que la vèrsion seye considèrâ coment revua.'''

@@ -639,6 +639,15 @@ Kai kuriuos parametrus gali keisti, kurių versija yra rodoma skaitytojams arba 
 	'configuredpages-def-stable' => 'stabili versija',
 );
 
+/** Latvian (latviešu)
+ * @author Papuass
+ */
+$messages['lv'] = array(
+	'configuredpages-config' => 'Konfigurācija',
+	'configuredpages-def-draft' => 'jaunākā versija',
+	'configuredpages-def-stable' => 'stabilā versija',
+);
+
 /** Macedonian (македонски)
  * @author Bjankuloski06
  */

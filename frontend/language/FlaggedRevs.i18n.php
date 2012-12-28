@@ -5586,7 +5586,7 @@ $messages['frc'] = array(
 $messages['frp'] = array(
 	'action-review' => 'revêre les vèrsions',
 	'editor' => 'Contributor',
-	'flaggedrevs' => 'Vèrsions marcâs',
+	'flaggedrevs' => 'Vèrsions signalâyes',
 	'flaggedrevs-watched-pending' => "Ora, y at des [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} changements en atenta] de pâges revues dens voutra lista de survelyence. '''Nen volyéd fâre de câs !'''",
 	'flaggedrevs-desc' => 'Balye la possibilitât ux contributors de revêre les vèrsions et pués de stabilisar les pâges.',
 	'flaggedrevs-pref-UI' => 'Entèrface de bâsa :',
@@ -7884,9 +7884,9 @@ $messages['it'] = array(
 	'group-reviewer-member' => 'Revisore',
 	'grouppage-editor' => '{{ns:project}}:Editore',
 	'grouppage-reviewer' => '{{ns:project}}:Revisore',
-	'group-autoreview' => 'Autorevisori',
-	'group-autoreview-member' => '{{GENDER:$1|autorevisore}}',
-	'grouppage-autoreview' => '{{ns:project}}:Autorevisori',
+	'group-autoreview' => 'Autocontrollati',
+	'group-autoreview-member' => '{{GENDER:$1|autocontrollato}}',
+	'grouppage-autoreview' => '{{ns:project}}:Autocontrollati',
 	'revreview-hist-draft' => 'versione bozza',
 	'revreview-hist-pending' => 'revisione in sospeso',
 	'revreview-hist-quality' => 'versione di qualità',
@@ -9900,9 +9900,12 @@ $messages['lus'] = array(
 );
 
 /** Latvian (latviešu)
+ * @author Papuass
  * @author Yyy
  */
 $messages['lv'] = array(
+	'revreview-edit' => 'Labot',
+	'revreview-submitedit' => 'Iesniegt izmaiņas',
 	'revreview-revnotfound' => 'Meklētā vecā lapas versija netika atrasta. Lūdzu pārbaudi lietoto URL.',
 );
 
