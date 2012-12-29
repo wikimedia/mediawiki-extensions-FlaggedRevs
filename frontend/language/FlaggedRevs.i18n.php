@@ -3461,7 +3461,7 @@ $messages['da'] = array(
 	'revreview-revnotfound' => 'Den gamle version af den side du spurgte efter kan
 ikke findes. Kontrollér den URL du brugte til at få adgang til denne side.',
 	'revreview-filter-auto' => 'Automatisk',
-	'revreview-filter-manual' => 'Manuel',
+	'revreview-filter-manual' => 'Manuelt',
 	'revreview-def-draft' => 'seneste',
 	'revreview-restriction-none' => 'ingen',
 );
