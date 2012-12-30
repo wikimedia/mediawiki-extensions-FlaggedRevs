@@ -2645,6 +2645,14 @@ Instellen is niet mogelijk.',
 	'stabilization-review' => 'Huidige versie als gecontroleerd markeren',
 );
 
+/** Nederlands (informeel)‎ (Nederlands (informeel)‎)
+ * @author Siebrand
+ */
+$messages['nl-informal'] = array(
+	'stabilization-perm' => 'Je hebt geen rechten om de instellingen voor de gepubliceerde versie te wijzigen.
+Dit zijn de huidige instellingen voor [[:$1|$1]]:',
+);
+
 /** Norwegian Nynorsk (norsk (nynorsk)‎)
  * @author Gunnernett
  * @author Harald Khan

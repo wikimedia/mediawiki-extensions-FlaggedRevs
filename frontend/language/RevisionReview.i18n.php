@@ -4037,7 +4037,7 @@ $messages['nl'] = array(
 Gebruik dit alleen als u de ongecontroleerde wijzigingen hebt bekeken.',
 	'revreview-check-flag-u' => 'Deze ongecontroleerde pagina accepteren',
 	'revreview-check-flag-u-title' => 'Deze versie van de pagina accepteren.
-Gebruik dit alleen als u de hele pagina al gezien hebt.',
+Gebruik dit alleen als u de hele pagina al hebt gezien.',
 	'revreview-check-flag-y' => 'Deze wijzigingen accepteren',
 	'revreview-check-flag-y-title' => 'Alle wijzigingen uit deze bewerking accepteren.',
 	'revreview-flag' => 'Versie controleren',
@@ -4046,7 +4046,7 @@ Gebruik dit alleen als u de hele pagina al gezien hebt.',
 	'revreview-log' => 'Opmerking:',
 	'revreview-main' => "U moet een specifieke versie van een pagina kiezen die u wilt controleren.
 
-Zie  de [[Special:Unreviewedpages|lijst met ongecontroleerde pagina's]].",
+Zie de [[Special:Unreviewedpages|lijst met ongecontroleerde pagina's]].",
 	'revreview-stable1' => 'U kunt van deze pagina [{{fullurl:$1|stableid=$2}} deze gecontroleerde versie] bekijken om te beoordelen of dit nu de [{{fullurl:$1|stable=1}} gepubliceerde versie] is.',
 	'revreview-stable2' => 'Wellicht wilt u de [{{fullurl:$1|stable=1}} gepubliceerde versie] van deze pagina bekijken.',
 	'revreview-submit' => 'Opslaan',
@@ -4091,6 +4091,38 @@ Controleer alle hieronder weergegeven wijzigingen om ook uw bewerking zichtbaar 
 	'revreview-tt-flag' => 'Deze versie goedkeuren door haar als gecontroleerd te markeren',
 	'revreview-tt-unflag' => "Keur deze versie af door haar als '''ongecontroleerd''' te markeren",
 	'revreview-tt-reject' => 'Deze wijzigingen afkeuren door te terug te draaien',
+);
+
+/** Nederlands (informeel)‎ (Nederlands (informeel)‎)
+ * @author Siebrand
+ */
+$messages['nl-informal'] = array(
+	'review_conflict_oldid' => 'Iemand heeft deze versie al goedgekeurd of afgekeurd terwijl je de versie aan het beoordelen was.',
+	'revreview-check-flag-p-title' => 'Alle ongecontroleerde wijzigingen samen met jouw wijzigingen publiceren.
+Gebruik dit alleen als je de ongecontroleerde wijzigingen hebt bekeken.',
+	'revreview-check-flag-u-title' => 'Deze versie van de pagina accepteren.
+Gebruik dit alleen als je de hele pagina al hebt gezien.',
+	'revreview-main' => "Je moet een specifieke versie van een pagina kiezen die je wilt controleren.
+
+Zie de [[Special:Unreviewedpages|lijst met ongecontroleerde pagina's]].",
+	'revreview-stable1' => 'Je kunt van deze pagina [{{fullurl:$1|stableid=$2}} deze gecontroleerde versie] bekijken om te beoordelen of dit nu de [{{fullurl:$1|stable=1}} gepubliceerde versie] is.',
+	'revreview-stable2' => 'Wellicht wil je de [{{fullurl:$1|stable=1}} gepubliceerde versie] van deze pagina bekijken.',
+	'revreview-adv-reviewing-p' => 'Let op: andere gebruikers zien dat {{GENDER:$1|jij}} bezig bent met het beoordelen van deze pagina.',
+	'revreview-adv-reviewing-c' => 'Let op: andere gebruikers zien dat {{GENDER:$1|jij}} bezig bent met het beoordelen van deze wijzigingen.',
+	'revreview-sadv-reviewing-p' => 'Je kunt aan andere gebruikers aangeven dat jij deze pagina $1.',
+	'revreview-sadv-reviewing-c' => 'Je kunt aan andere gebruikers aangeven dat jij deze wijzigingen $1.',
+	'revreview-toolow' => '\'\'\'Je moet tenminste alle eigenschappen hoger instellen dan "{{int:Revreview-accuracy-0}}" om voor een versie aan te geven dat deze is gecontroleerd.\'\'\'
+
+Klik op "{{int:revreview-submit-unreview}}" om de waardering van een versie te verwijderen.
+
+Klik op de knop "Terug" in je browser en probeer het opnieuw.',
+	'revreview-update-edited' => '<span class="flaggedrevs_important">Je wijzigingen zijn nog niet zichtbaar in de stabiele versie.</span>
+
+Controleer alle wijzigingen hieronder om je bewerkingen zichtbaar te maken in de stabiele versie.',
+	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Je wijzigingen zijn nog niet opgenomen in de stabiele versie. Er moeten nog bewerkingen gecontroleerd worden.</span>
+
+Controleer alle hieronder weergegeven wijzigingen om ook jouw bewerking zichtbaar te maken in de stabiele versie.',
+	'revreview-reject-text-list' => "Door deze handeling uit te voeren, '''keur je de brontekstwijzingen af''' van de volgende {{PLURAL:$1|versie|versies}} van [[:$2|$2]]:",
 );
 
 /** Norwegian Nynorsk (norsk (nynorsk)‎)

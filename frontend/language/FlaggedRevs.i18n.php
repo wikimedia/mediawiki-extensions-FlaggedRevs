@@ -457,7 +457,12 @@ Displayed on the top of a page when you are viewing an old checked revision. The
 * Example: [http://de.wikipedia.org/w/index.php?title=Deutsche_Sprache&oldid=46894374 de.wikipedia].
 * Parameter $2 is the date of the approval',
 	'revreview-current' => '{{Flagged Revs}}
-Used for the name of the tab on a page to view the latest version when there are pending changes.',
+Used for the name of the tab on a page to view the latest version when there are pending changes.
+
+See also:
+* {{msg-mw|Revreview-current}}
+* {{msg-mw|Accesskey-ca-current}}
+* {{msg-mw|Tooltip-ca-current}}',
 	'revreview-depth' => "{{Flagged Revs}}
 Name of the 'depth' tag. Shown on review form and in review status box.",
 	'revreview-depth-0' => "{{Flagged Revs}}
@@ -701,7 +706,12 @@ Attribute title to diff-to-stable review links. See {{Revreview-reviewlink}}.',
 	'revreview-unreviewedpage' => '{{Flagged Revs}}
 Text shown on RecentChanges and Watchlists to denote reviewable pages that have no stable version.',
 	'tooltip-ca-current' => '{{Flagged Revs}}
-Title attribute to the "pending changes" tab. See {{msg-mw|Revreview-current}}. Appears on pages with pending changes.',
+Title attribute to the "pending changes" tab. See {{msg-mw|Revreview-current}}. Appears on pages with pending changes.
+
+See also:
+* {{msg-mw|Revreview-current}}
+* {{msg-mw|Accesskey-ca-current}}
+* {{msg-mw|Tooltip-ca-current}}',
 	'tooltip-ca-stable' => '{{Flagged Revs}}
 Title attribute to the "stable version" (or "read") tab of a page. Appears on pages with pending changes.',
 	'tooltip-ca-default' => '{{Flagged Revs}}
@@ -724,7 +734,11 @@ Shown in the "flagged revs box". This shows on pages were edits don\'t require r
 	'revreview-ak-review' => '{{FlaggedRevs}}
 {{notranslate}}',
 	'accesskey-ca-current' => '{{FlaggedRevs}}
-{{doc-accesskey}}',
+{{doc-accesskey}}
+See also:
+* {{msg-mw|Revreview-current}}
+* {{msg-mw|Accesskey-ca-current}}
+* {{msg-mw|Tooltip-ca-current}}',
 	'accesskey-ca-stable' => '{{FlaggedRevs}}
 {{doc-accesskey}}',
 	'log-show-hide-review' => '{{Flagged Revs}}
@@ -11208,6 +11222,20 @@ Controleer de URL die u gebruikte om naar deze pagina te gaan.',
 	'revreview-unlocked' => "'''Let op:''' Bewerkingen aan deze pagina hoeven niet [[{{MediaWiki:Validationpage}}|gecontroleerd]] te worden voordat ze worden weergegeven.",
 	'log-show-hide-review' => 'Waarderingslogboek $1',
 	'validationpage' => '{{ns:help}}:Paginaredactie',
+);
+
+/** Nederlands (informeel)‎ (Nederlands (informeel)‎)
+ * @author Siebrand
+ */
+$messages['nl-informal'] = array(
+	'flaggedrevs-watched-pending' => "Er zijn op het moment [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} ongecontroleerde bewerkingen op je volglijst].
+'''Je aandacht is gewenst!'''",
+	'revreview-editnotice' => "'''Je wijzigingen worden aan lezers weergegeven als ze zijn gecontroleerd ([[{{MediaWiki:Validationpage}}|hulp]]).'''",
+	'revreview-edited' => "'''Je wijzigingen worden aan lezers worden weergegeven zodra die zijn gecontroleerd. ([[{{MediaWiki:Validationpage}}|?]])'''
+
+Er {{PLURAL:$2|is|zijn}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 ongecontroleerde {{PLURAL:$2|wijziging|wijzigingen}}] (zie hieronder) die nog gecontroleerd moeten worden.",
+	'revreview-revnotfound' => 'De opgevraagde oude versie van deze pagina is onvindbaar.
+Controleer de URL die je gebruikte om naar deze pagina te gaan.',
 );
 
 /** Norwegian Nynorsk (norsk (nynorsk)‎)
