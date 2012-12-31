@@ -1274,6 +1274,13 @@ $messages['tr'] = array(
 	'reviewedversions-review' => '$2 tarafından <i>$1</i> tarihinde gözden geçirildi',
 );
 
+/** Uyghur (Arabic script) (ئۇيغۇرچە)
+ * @author Sahran
+ */
+$messages['ug-arab'] = array(
+	'reviewedversions-page' => 'بەت ئاتى:',
+);
+
 /** Ukrainian (українська)
  * @author Ahonc
  * @author Prima klasy4na

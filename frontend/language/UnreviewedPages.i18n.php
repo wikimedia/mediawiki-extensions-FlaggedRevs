@@ -1937,6 +1937,13 @@ $messages['tr'] = array(
 	'unreviewedpages-recent' => '(1 saatten az)',
 );
 
+/** Uyghur (Arabic script) (ئۇيغۇرچە)
+ * @author Sahran
+ */
+$messages['ug-arab'] = array(
+	'unreviewedpages-category' => 'تۈرى:',
+);
+
 /** Ukrainian (українська)
  * @author Ahonc
  * @author Olvin

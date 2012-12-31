@@ -999,6 +999,13 @@ $messages['tr'] = array(
 	'stablepages-indef' => 'Sadece belirsiz sona erme',
 );
 
+/** Uyghur (Arabic script) (ئۇيغۇرچە)
+ * @author Sahran
+ */
+$messages['ug-arab'] = array(
+	'stablepages-config' => 'سەپلىمە',
+);
+
 /** Ukrainian (українська)
  * @author A1
  * @author Ahonc

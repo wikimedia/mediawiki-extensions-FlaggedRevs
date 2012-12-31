@@ -983,6 +983,13 @@ $messages['tr'] = array(
 	'problemchanges-category' => 'Kategori:',
 );
 
+/** Uyghur (Arabic script) (ئۇيغۇرچە)
+ * @author Sahran
+ */
+$messages['ug-arab'] = array(
+	'problemchanges-category' => 'تۈرى:',
+);
+
 /** Ukrainian (українська)
  * @author Ahonc
  * @author Dim Grits

@@ -1094,6 +1094,7 @@ $messages['ckb'] = array(
  * @author Jkjk
  * @author Li-sung
  * @author Matěj Grabovský
+ * @author Vks
  */
 $messages['cs'] = array(
 	'revisionreview' => 'Posouzení verzí',
@@ -1138,6 +1139,8 @@ Vizte [[Special:Unreviewedpages|seznam neposouzených stránek]].',
 	'revreview-submit-unreviewed' => 'Hotovo. Neakceptováno!',
 	'revreview-successful' => "'''Vybraná revize stránky [[:$1|$1]] byla úspěšně označena. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} zobrazit stabilní verze])'''",
 	'revreview-successful2' => "'''Označení revize stránky [[:$1|$1]] bylo úspěšně zrušeno.'''",
+	'revreview-adv-start-link' => 'inzerovat',
+	'revreview-adv-stop-link' => 'vzít zpět inzerování',
 	'revreview-toolow' => 'Aby byla verze označena jako posouzená, musíte označit každou vlastnost lepším hodnocením než "neschváleno". Pokud chcete verzi odmítnout nechte ve všech polích hodnocení "neschváleno".', # Fuzzy
 	'revreview-update' => "[[{{MediaWiki:Validationpage}}|Posuďte]] prosím všechny změny ''(zobrazené níže)'' provedené od posledního [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} schválení] stabilní verze.<br />
 '''Některé šablony nebo soubory byly změněny:'''", # Fuzzy
@@ -4340,8 +4343,8 @@ Vardé la [[Special:Unreviewedpages|lista dle pàgine pa revisionà]].',
 	'revreview-successful2' => "'''Gavà për da bin la marca a la revision ëd [[:$1|$1]].'''",
 	'revreview-poss-conflict-p' => "'''Avis: [[User:$1|$1]] a l'ha ancaminà a revisioné costa pàgina ël $2 a $3.'''",
 	'revreview-poss-conflict-c' => "'''Avis: [[User:$1|$1]] a l'ha ancaminà a revisioné sti cambiament ël $2 a $3.'''",
-	'revreview-adv-reviewing-p' => "Nòta: D'àutri revisor a peulo vëdde che chiel a l'é an camin ch'a revision-a sta pàgina.",
-	'revreview-adv-reviewing-c' => "Nòta: D'àutri revisor a peulo vëdde ch'a l'é an camin ch'a revision-a coste modìfiche.",
+	'revreview-adv-reviewing-p' => "Nòta: D'àutri revisor a peulo vëdde che {{GENDER:$1|chiel|chila}} a l'é an camin ch'a revision-a sta pàgina.",
+	'revreview-adv-reviewing-c' => "Nòta: D'àutri revisor a peulo vëdde che {{GENDER:$1|chiel|chila}} a l'é an camin ch'a revision-a coste modìfiche.",
 	'revreview-sadv-reviewing-p' => "A peul $1 chiel-midem com revisor ëd costa pàgina për j'àutri utent.",
 	'revreview-sadv-reviewing-c' => "A peul $1 chiel-midem com revisor ëd se modìfiche a d'àutri utent.",
 	'revreview-adv-start-link' => 'propon-se',
@@ -5651,6 +5654,17 @@ Değişikliklerinizin kararlı sürümde yer alması için, lütfen aşağıda g
 	'revreview-tt-flag' => 'Bu revizyonu kontrol edilmiş olarak işaretleyerek onayla',
 	'revreview-tt-unflag' => 'Bu revizyonu "kontrol edilmemiş" olarak işaretleyerek kabul etme',
 	'revreview-tt-reject' => 'Kaynak metin değişikliklerini geri alarak reddet',
+);
+
+/** Uyghur (Arabic script) (ئۇيغۇرچە)
+ * @author Sahran
+ */
+$messages['ug-arab'] = array(
+	'review_denied' => 'ھوقۇق يوق.',
+	'revreview-log' => 'ئىزاھات:',
+	'revreview-submit' => 'تاپشۇر',
+	'revreview-reject-summary' => 'ئۈزۈندە',
+	'revreview-reject-cancel' => 'ۋاز كەچ',
 );
 
 /** Ukrainian (українська)

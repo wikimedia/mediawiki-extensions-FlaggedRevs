@@ -1018,6 +1018,14 @@ Bazı ayarlar, okuyuculara hangi sürümün görüntüleneceğini değiştirebil
 	'configuredpages-def-stable' => 'kararlı sürüm',
 );
 
+/** Uyghur (Arabic script) (ئۇيغۇرچە)
+ * @author Sahran
+ */
+$messages['ug-arab'] = array(
+	'configuredpages-config' => 'سەپلىمە',
+	'configuredpages-def-draft' => 'ئاخىرقى نەشرى',
+);
+
 /** Ukrainian (українська)
  * @author AS
  * @author Prima klasy4na

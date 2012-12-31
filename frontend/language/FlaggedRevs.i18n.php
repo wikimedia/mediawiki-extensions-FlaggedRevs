@@ -3248,6 +3248,7 @@ $messages['cs'] = array(
 	'flaggedrevs-prefs-watch' => 'Přidat stránky, které zkontroluji, do mého seznamu sledovaných stránek',
 	'flaggedrevs-prefs-editdiffs' => 'Při editování stránek zobrazovat rozdíly proti stabilní verzi', # Fuzzy
 	'flaggedrevs-prefs-viewdiffs' => 'Při zobrazování navrhů stránek zobrazovat rozdíly proti stabilní verzi.', # Fuzzy
+	'flaggedrevs-hidereviewed' => '$1 zhodnocené úpravy',
 	'group-editor' => 'Editoři',
 	'group-editor-member' => '{{GENDER:$1|editor|editorka|editor}}',
 	'group-reviewer' => 'Posuzovatelé',
@@ -15680,6 +15681,41 @@ $messages['tt-cyrl'] = array(
 	'revreview-source' => 'Карау',
 	'revreview-basic-title' => 'Бу битнең каралган юрамасы',
 	'validationpage' => '{{ns:help}}:Битләрне тикшерү',
+);
+
+/** Uyghur (Arabic script) (ئۇيغۇرچە)
+ * @author Sahran
+ */
+$messages['ug-arab'] = array(
+	'editor' => 'تەھرىرلىگۈچ',
+	'group-editor' => 'تەھرىرلىگۈچ',
+	'group-reviewer' => 'كۆزدىن كەچۈرگۈچى',
+	'revreview-accuracy' => 'توغرىلىقى',
+	'revreview-accuracy-4' => 'ئالاھىدىلىك',
+	'revreview-auto' => '(ئاپتوماتىك)',
+	'revreview-depth' => 'چوڭقۇرلۇقى',
+	'revreview-depth-1' => 'ئاساس',
+	'revreview-depth-2' => 'لايىق',
+	'revreview-depth-3' => 'يۇقىرى',
+	'revreview-depth-4' => 'ئالاھىدىلىك',
+	'revreview-edit' => 'تەھرىر',
+	'revreview-source' => 'مەنبەنى كۆرسەت',
+	'revreview-style-2' => 'ياخشى',
+	'revreview-style-4' => 'ئالاھىدىلىك',
+	'revreview-filter-all' => 'ھەممىسى',
+	'revreview-filter-stable' => 'مۇقىم نەشرى',
+	'revreview-filter-approved' => 'تەستىقلانغان',
+	'revreview-typefilter' => 'تىپى:',
+	'revreview-filter-auto' => 'ئاپتوماتىك',
+	'revreview-filter-manual' => 'قولدا',
+	'revreview-levelfilter' => 'دەرىجە:',
+	'revreview-lev-all' => 'خالىغان',
+	'revreview-lev-basic' => 'تاللاقلىق',
+	'revreview-def-all' => 'خالىغان',
+	'revreview-def-stable' => 'مۇقىم نەشرى',
+	'revreview-restriction-any' => 'خالىغان',
+	'revreview-restriction-none' => 'يوق',
+	'flaggedrevs-protect-none' => 'ھەممە ئىشلەتكۈچىگە يول قوي',
 );
 
 /** Ukrainian (українська)

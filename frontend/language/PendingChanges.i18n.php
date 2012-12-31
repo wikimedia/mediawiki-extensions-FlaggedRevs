@@ -2052,6 +2052,13 @@ $messages['tr'] = array(
 	'pendingchanges-viewing' => '(gözden geçiriliyor)',
 );
 
+/** Uyghur (Arabic script) (ئۇيغۇرچە)
+ * @author Sahran
+ */
+$messages['ug-arab'] = array(
+	'pendingchanges-category' => 'تۈرى:',
+);
+
 /** Ukrainian (українська)
  * @author Ahonc
  * @author NickK

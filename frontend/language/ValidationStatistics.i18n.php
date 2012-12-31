@@ -2228,6 +2228,17 @@ $3",
 	'validationstatistics-reviews' => 'İncelemeler',
 );
 
+/** Uyghur (Arabic script) (ئۇيغۇرچە)
+ * @author Sahran
+ */
+$messages['ug-arab'] = array(
+	'validationstatistics-ns' => 'ئات بوشلۇقى',
+	'validationstatistics-total' => 'بەتلەر',
+	'validationstatistics-old' => 'زاماندىن قالغان',
+	'validationstatistics-user' => 'ئىشلەتكۈچى',
+	'validationstatistics-reviews' => 'باھالار',
+);
+
 /** Ukrainian (українська)
  * @author AS
  * @author Ahonc

@@ -3778,6 +3778,22 @@ $messages['tt-cyrl'] = array(
 	'stabilization-def-short' => 'Килешү буенча',
 );
 
+/** Uyghur (Arabic script) (ئۇيغۇرچە)
+ * @author Sahran
+ */
+$messages['ug-arab'] = array(
+	'stabilization-page' => 'بەت ئاتى:',
+	'stabilization-submit' => 'جەزملە',
+	'stabilization-comment' => 'سەۋەب:',
+	'stabilization-expiry' => 'قەرەلى:',
+	'stabilization-othertime' => 'باشقا ۋاقىت:',
+	'stabilization-def-short' => 'كۆڭۈلدىكى',
+	'stabilization-def-short-0' => 'نۆۋەتتىكى',
+	'stabilization-def-short-1' => 'مۇقىم',
+	'stabilize_denied' => 'ھوقۇق يوق.',
+	'stabilize-expiring' => '$1 (UTC) توختىتىلغان',
+);
+
 /** Ukrainian (українська)
  * @author AS
  * @author Ahonc
