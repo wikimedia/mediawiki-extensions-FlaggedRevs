@@ -7963,7 +7963,7 @@ Potrebbero essere state apportate nuove [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&di
 	'revreview-edited-section' => 'Ritorna alla sezione intitolata "[[#$1|$2]]".',
 	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|modifica|modifiche}}] in questa versione {{PLURAL:$3|è|sono}} [[{{MediaWiki:Validationpage}}|in attesta di revisione]].
 La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} versione stabile] è stata [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} controllata] il <i>$2</i>.',
-	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Modifiche a template o file] in questa versione sono [[{{MediaWiki:Validationpage}}|in attesta di revisione]].
+	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Modifiche a template o file] in questa versione sono [[{{MediaWiki:Validationpage}}|in attesa di revisione]].
 La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} versione stabile] è stata [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} controllata] il <i>$2</i>.',
 	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|modifica|modifiche}}] in questa versione {{PLURAL:$3|è|sono}} [[{{MediaWiki:Validationpage}}|in attesta di revisione]].
 La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} versione stabile] è stata [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approvata] il <i>$2</i>.',

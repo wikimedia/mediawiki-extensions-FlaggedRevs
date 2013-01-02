@@ -4646,6 +4646,7 @@ $messages['roa-tara'] = array(
 	'review_page_unreviewable' => "'A pàgene de destinazione non g'è revisitabbele.",
 	'review_no_oldid' => 'Nisciune ID de revisione ha state specificate.',
 	'review_bad_oldid' => "'A versione de destinazzione non g'esiste.",
+	'review_conflict_oldid' => 'Quacchedune ave ggià accettate o scettate sta revisione mendre ca tu a stè leggive.',
 	'review_not_flagged' => "'A versione de destinazione non g'è pe mò signate cumme reviste.",
 	'review_too_low' => '\'A revisione non ge pò essere reviste cu quacche cambe lassate "inadeguate".',
 	'review_bad_key' => "Inglusione invalide d'u parametre chiave.",
