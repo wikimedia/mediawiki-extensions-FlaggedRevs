@@ -657,7 +657,8 @@ Shown as dropdown option on lists or log pages.',
 	'revreview-statusfilter' => '{{Flagged Revs}}
 Shown as dropdown option on lists or log pages.',
 	'revreview-filter-approved' => '{{Flagged Revs}}
-Shown as dropdown option on lists or log pages to filter results.',
+Shown as dropdown option on lists or log pages to filter results.
+{{Identical|Approved}}',
 	'revreview-filter-reapproved' => '{{Flagged Revs}}
 Shown as dropdown option on lists or log pages to filter results.',
 	'revreview-filter-unapproved' => '{{Flagged Revs}}
@@ -15821,8 +15822,8 @@ $messages['uk'] = array(
 
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|нерецензована зміна|нерецензовані зміни|нерецензованих змін}}] ''(показані нижче)'' {{PLURAL:$2|очікує|очікують|очікують}} на перевірку.",
 	'revreview-edited-section' => 'Повернутися до розділу під назвою "[[#$1|$2]]".',
-	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|зміна в|зміни в|змін у}}] цій версії [[{{MediaWiki:Validationpage}}|{{PLURAL:$3|очікує|очікують}} на перевірку]].
-[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Стабільну версію] було [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} перевірено] <i>$2</i>.',
+	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|зміна] в|зміни] в|змін] у}} цій версії [[{{MediaWiki:Validationpage}}|{{PLURAL:$3|очікує|очікують}} на перевірку]].
+[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Стабільну версію] було [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} перевірено] <i>$2</i>.', # Fuzzy
 	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Зміни шаблонів/файлів] цієї версії [[{{MediaWiki:Validationpage}}|очікують на перевірку]].
 [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Стабільна версія] була [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} перевірена] <i>$2</i>.',
 	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3  {{PLURAL:$3|зміна|змін}}] у цій версії [[{{MediaWiki:Validationpage}}|{{PLURAL:$3|очикує|очикують}} перевірки]].

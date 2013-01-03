@@ -36,6 +36,7 @@ $3',
  * @author Fryed-peach
  * @author Jon Harald Søby
  * @author Raymond
+ * @author Shirayuki
  * @author Umherirrender
  * @author Yekrats
  */
@@ -87,7 +88,8 @@ Shown on [[Special:ValidationStatistics]].
 Used as the "user" table column header for the "users who made the most reviews recently" table.',
 	'validationstatistics-reviews' => '{{Flagged Revs}}
 Shown on [[Special:ValidationStatistics]].
-Used as the "number of reviews" table column header for the "users who made the most reviews recently" table.',
+Used as the "number of reviews" table column header for the "users who made the most reviews recently" table.
+{{Identical|Review}}',
 );
 
 /** Afrikaans (Afrikaans)
