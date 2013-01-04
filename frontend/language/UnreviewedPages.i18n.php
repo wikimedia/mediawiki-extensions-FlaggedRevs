@@ -2049,6 +2049,8 @@ $messages['vo'] = array(
  */
 $messages['yi'] = array(
 	'unreviewedpages-category' => 'קאטעגאריע:',
+	'unreviewedpages-hours' => "$1 {{PLURAL:$1|שעה|שעה'ן}}",
+	'unreviewedpages-days' => '$1 {{PLURAL:$1|טאג|טעג}}',
 );
 
 /** Cantonese (粵語)

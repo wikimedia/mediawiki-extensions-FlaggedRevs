@@ -4027,6 +4027,7 @@ $messages['yi'] = array(
 	'stabilization-expiry' => 'גייט אויס:',
 	'stabilization-def-short' => 'גרונטלעך',
 	'stabilization-def-short-0' => 'לויפֿיקע',
+	'stabilize_page_notexists' => 'ציל בלאט עקזיסטירט נישט.',
 );
 
 /** Cantonese (粵語)

@@ -4650,6 +4650,7 @@ $messages['roa-tara'] = array(
 	'review_not_flagged' => "'A versione de destinazione non g'è pe mò signate cumme reviste.",
 	'review_too_low' => '\'A revisione non ge pò essere reviste cu quacche cambe lassate "inadeguate".',
 	'review_bad_key' => "Inglusione invalide d'u parametre chiave.",
+	'review_bad_tags' => 'Quacche valore de le tag specificate jè invalide.',
 	'review_denied' => 'Permesse vietate.',
 	'review_param_missing' => "'Nu parametre ha state zumbate o jè invalide.",
 	'review_reject_excessive' => "Non ge pozze refiutà troppe cangiaminde tutte 'na vote.",
@@ -4683,6 +4684,9 @@ Pe luà 'u state de reviste de 'na revisione, cazze sus a \"{{int:revreview-subm
 
 Pe piacere cazze 'u buttone \"back\" d'u browser tune e pruève arrete.",
 	'revreview-update' => "'''Pe piacere [[{{MediaWiki:Validationpage}}|revide]] ogne cangiamende pendende ''(le vide aqquà sotte)'' fatte da 'a versiona secure.'''",
+	'revreview-update-edited' => "<span class=\"flaggedrevs_important\">Le cangiaminde tune non ge stonne angore jndr'à 'na versione stabbile.</span>
+
+Pe piacere revisite tutte le pàggene aqquà sotte pe fà assè le cangiaminde tune jndr'à 'na versione stabbile.",
 	'revreview-update-includes' => "''Certe template/file onne state aggiornate (pàggene none reviste in grascette):",
 	'revreview-reject-text-revto' => "Quiste annulle 'a pàgene turnanne a 'a [{{fullurl:$1|oldid=$2}} versione de $3].",
 	'revreview-reject-summary' => 'Riepileghe:',
