@@ -193,6 +193,11 @@ class FlaggedRevsHooks {
 			$title = Title::makeTitle( NS_FILE, $title->getDBkey() );
 			$title->resetArticleId( $title->getArticleID() ); // avoid extra queries
 		}
+		# Check if this file is only on a foreign repo
+		$file = wfFindFile( $title );
+		if ( $file && !$file->isLocal() ) {
+			return true; // just use the current version (bug 41832)
+		}
 		$time = $sha1 = false; // unspecified (defaults to current version)
 		# Check for the version of this file used when reviewed...
 		list( $maybeTS, $maybeSha1 ) = $incManager->getReviewedFileVersion( $title );
