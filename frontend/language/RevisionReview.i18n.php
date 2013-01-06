@@ -1449,6 +1449,7 @@ Pšosym pśeglědaj wšykne slědujuce změny, aby je w stabilnej wersiji pokaza
  * @author Dead3y3
  * @author Glavkos
  * @author Omnipaedista
+ * @author Protnet
  * @author ZaDiak
  */
 $messages['el'] = array(
@@ -1507,12 +1508,12 @@ $messages['el'] = array(
 
 Παρακαλώ επιθεωρήστε όλες τις αλλαγές που φαίνονται παρακάτω για να κάνετε τις αλλαγές σας να εμφανιστούν στην σταθερή έκδοση.',
 	'revreview-update-includes' => 'Πρότυπα/αρχεία ενημερώθηκαν (μη επιθεωρημένες σελίδες με έντονους χαρακτήρες):',
-	'revreview-reject-text-revto' => 'Αυτό θα επαναφέρει τη σελίδα πίσω στην έκδοση  [{{fullurl:$1|oldid=$2}} ως της $3].',
+	'revreview-reject-text-revto' => 'Αυτό θα επαναφέρει τη σελίδα πίσω στην έκδοση  [{{fullurl:$1|oldid=$2}} όπως ήταν στις $3].',
 	'revreview-reject-summary' => 'Σύνοψη:',
 	'revreview-reject-confirm' => 'Απόρριψη αυτών των αλλαγών',
 	'revreview-reject-cancel' => 'Ακύρωση',
 	'revreview-reject-summary-old' => 'Απορρίφθηκε η πρώτη {{PLURAL:$1|αλλαγή κειμένου|$1 αλλαγές κειμένου}} (από $2) που ακολούθησε την αναθεώρηση $3 από $4',
-	'revreview-reject-summary-cur-short' => 'Απορρίφθηκε η τελευταία {{PLURAL:$1|αλλαγή κειμένου|$1 αλλαγές κειμένου}} και αποκαταστάθηκε η αναθεώρηση $2 από $3',
+	'revreview-reject-summary-cur-short' => '{{PLURAL:$1|Απορρίφθηκε η τελευταία $1 αλλαγή|Απορρίφθηκαν οι τελευταίες $1 αλλαγές}} κειμένου και αποκαταστάθηκε η αναθεώρηση $2 από $3',
 	'revreview-reject-summary-old-short' => 'Απορρίφθηκε η πρώτη {{PLURAL:$1|αλλαγή κειμένου|$1 αλλαγές κειμένου}} που ακολούθησαν την αναθεώρηση $2 από $3',
 	'revreview-tt-flag' => 'Αποδοχή αυτής της αναθεώρησης τσεκάροντάς την ως  "ελεγμένη"',
 	'revreview-tt-unflag' => 'Μη αποδοχή αυτής της αναθεώρησης τσεκάροντας την ως "μη ελεγμένη"',

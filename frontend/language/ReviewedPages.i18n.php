@@ -694,9 +694,10 @@ E' fornito un link all'ultima revisione per quel livello.",
  * @author Hosiryuhosi
  * @author JtFuruhata
  * @author Schu
+ * @author Shirayuki
  */
 $messages['ja'] = array(
-	'reviewedpages' => '査読済みページ',
+	'reviewedpages' => '査読済ページ',
 	'reviewedpages-leg' => '査読済みのページを一覧',
 	'reviewedpages-list' => 'このページは[[{{MediaWiki:Validationpage}}|査読]]結果の最高値が指定した水準にあるページを一覧しています。水準に達している中で最新の版にリンクしています。',
 	'reviewedpages-none' => '表示すべきページはありません',
