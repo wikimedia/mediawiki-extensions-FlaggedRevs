@@ -921,11 +921,12 @@ $3",
 
 /** Hindi (हिन्दी)
  * @author Ansumang
+ * @author Siddhartha Ghai
  */
 $messages['hi'] = array(
 	'validationstatistics' => 'पृष्ठ समिक्षा आकलन',
 	'validationstatistics-ns' => 'नामस्थान',
-	'validationstatistics-total' => 'पृष्ठों',
+	'validationstatistics-total' => 'पृष्ठ',
 	'validationstatistics-stable' => 'समीक्षा',
 	'validationstatistics-old' => 'पुराना',
 	'validationstatistics-user' => 'सदस्य',
