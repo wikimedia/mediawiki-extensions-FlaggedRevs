@@ -3359,7 +3359,7 @@ $messages['ko'] = array(
 당신의 편집을 승인하려면 아래에 보이는 모든 편집 사항을 검토해주십시오.',
 	'revreview-update-includes' => '일부 틀이나 파일이 수정되었습니다 (검토되지 않은 문서는 굵게 표시):',
 	'revreview-reject-text-list' => "이 작업을 완료하여 [[:$2|$2]]의 다음 {{PLURAL:$1|판}}에서 원본 텍스트 바뀜을 '''거부'''합니다:",
-	'revreview-reject-text-revto' => '이는 [{{fullurl:$1|oldid=$2}} $3의 같은 버전]으로 문서를 되돌립니다.',
+	'revreview-reject-text-revto' => '[{{fullurl:$1|oldid=$2}} $3의 같은 버전]으로 문서를 되돌립니다.',
 	'revreview-reject-summary' => '요약:',
 	'revreview-reject-confirm' => '이 바뀜 거부',
 	'revreview-reject-cancel' => '취소',

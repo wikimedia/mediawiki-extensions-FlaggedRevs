@@ -598,11 +598,14 @@ Possible value of the 'style' tag for a revision. All accepted revisions must ha
 	'revreview-toggle-title' => '{{Flagged Revs-small}}
 Tooltip shown when hovering over <span style="color:blue;">(-/+)</span>.',
 	'revreview-visibility-synced' => '{{Flagged Revs-small}}
-Appears above the protection form when the current version of the page is the stable version; otherwise {{msg-mw|revreview-visibility2}} or {{msg-mw|revreview-visibility3}} is shown.',
+Appears above the protection form when the current version of the page is the stable version.
+{{Related|Revreview-visibility}}',
 	'revreview-visibility-outdated' => '{{Flagged Revs-small}}
-Appears on top of the protection form when the current version is not the stable version; otherwise {{msg-mw|revreview-visibility}} or {{msg-mw|revreview-visibility3}} is shown.',
+Appears on top of the protection form when the current version is not the stable version.
+{{Related|Revreview-visibility}}',
 	'revreview-visibility-nostable' => '{{Flagged Revs-small}}
-Appears on top of the protection form when the page has no stable version at all; otherwise {{msg-mw|revreview-visibility}} or {{msg-mw|revreview-visibility2}} is shown.',
+Appears on top of the protection form when the page has no stable version at all.
+{{Related|Revreview-visibility}}',
 	'revreview-revnotfound' => '{{Flagged Revs}}
 Shown when a bad old reviewed version ID is requested for a page view (via ?stableid=x).',
 	'right-autoreview' => '{{Flagged Revs}}
@@ -8206,9 +8209,9 @@ $messages['ja'] = array(
 	'revreview-style-3' => '明快',
 	'revreview-style-4' => '秀逸',
 	'revreview-toggle-title' => '詳細を表示または非表示',
-	'revreview-visibility-synced' => "'''このページにはより新しい[[{{MediaWiki:Validationpage}}|公開版]]があります。ページの公開版設定は[{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} 変更可能です]。'''",
-	'revreview-visibility-outdated' => "'''このページには古くなった[[{{MediaWiki:Validationpage}}|公開版]]があります。ページの公開版設定は[{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} 変更可能]です。'''",
-	'revreview-visibility-nostable' => "'''このページには[[{{MediaWiki:Validationpage}}|公開版]]がありません。ページの固定度設定は[{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} 変更可能]です。'''",
+	'revreview-visibility-synced' => "'''このページにはより新しい[[{{MediaWiki:Validationpage}}|公開版]]があります。ページの公開版設定は[{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} 変更できます]。'''",
+	'revreview-visibility-outdated' => "'''このページには古くなった[[{{MediaWiki:Validationpage}}|公開版]]があります。ページの公開版設定は[{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} 変更できます]。'''",
+	'revreview-visibility-nostable' => "'''このページには[[{{MediaWiki:Validationpage}}|公開版]]がありません。ページの固定度設定は[{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} 変更できます]。'''",
 	'revreview-revnotfound' => 'あなたが要求したこのページの旧版は見つかりませんでした。このページにアクセスしたURLをもう一度確認してください。',
 	'right-autoreview' => '自身の編集を自動的に「確認済み」にする',
 	'right-autoreviewrestore' => '巻き戻し時に自動査読',
