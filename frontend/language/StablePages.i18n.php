@@ -23,6 +23,7 @@ Edits made by other users are not displayed to readers by default until an autho
  * @author Jon Harald Søby
  * @author Purodha
  * @author Raymond
+ * @author Shirayuki
  * @author Umherirrender
  */
 $messages['qqq'] = array(
@@ -35,8 +36,8 @@ This text is shown on [http://flaggedrevs.labs.wikimedia.org/wiki/Special:Stable
 Parameters:
 * $1 - (optional) Number of items in the list, to be used with PLURAL, when unavoidable.',
 	'stablepages-none' => '{{Flagged Revs}}
-{{Identical|There are no pages in this list}}
-Shown on the page [[Special:StablePages]].',
+Shown on the page [[Special:StablePages]].
+{{Identical|There are no pages in this list}}',
 	'stablepages-config' => '{{Flagged Revs}}
 {{Identical|Configuration}}
 Shown on the page [[Special:StablePages]].
@@ -542,6 +543,7 @@ $messages['it'] = array(
 /** Japanese (日本語)
  * @author Aotake
  * @author Fryed-peach
+ * @author Shirayuki
  * @author Whym
  * @author 青子守歌
  */
@@ -549,7 +551,7 @@ $messages['ja'] = array(
 	'stablepages' => '編集承認を使用しているページ',
 	'stablepages-list' => '以下は、特定の利用者のみが、査読なしに編集することのできるページの一覧です。
 その他の利用者による編集は、承認された利用者が査読するまで、閲覧者には表示されません。',
-	'stablepages-none' => '表示すべきページはありません',
+	'stablepages-none' => '表示すべきページはありません。',
 	'stablepages-config' => '設定',
 	'stablepages-indef' => '無期限のみ',
 );

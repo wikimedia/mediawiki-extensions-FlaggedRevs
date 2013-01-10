@@ -23,6 +23,7 @@ Some settings might change which version is displayed to readers or further rest
  * @author EugeneZelenko
  * @author Purodha
  * @author Raymond
+ * @author Shirayuki
  * @author Umherirrender
  * @author Yekrats
  */
@@ -35,7 +36,8 @@ Used on Special:ConfiguredPages.
 Parameters:
 * $1 - (optional) Number of items in the list, to be used with PLURAL, when unavoidable.',
 	'configuredpages-none' => '{{Flagged Revs}}
-Used on Special:ConfiguredPages.',
+Used on Special:ConfiguredPages.
+{{Identical|There are no pages in this list}}',
 	'configuredpages-config' => '{{Flagged Revs}}
 {{Identical|Configuration}}
 Used on Special:ConfiguredPages. Refers to the combination of settings of how the stable version is used and who can review the page.',

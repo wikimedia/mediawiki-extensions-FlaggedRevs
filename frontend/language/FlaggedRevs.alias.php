@@ -386,9 +386,9 @@ $specialPageAliases['ja'] = array(
 
 /** Korean (한국어) */
 $specialPageAliases['ko'] = array(
-	'PendingChanges' => array( '보류중바뀜' ),
+	'PendingChanges' => array( '보류중바뀜', '오래된검토된문서' ),
 	'ProblemChanges' => array( '문제바뀜' ),
-	'QualityOversight' => array( '고급검토기록' ),
+	'QualityOversight' => array( '고급검토기록', '품질감시' ),
 	'ReviewedPages' => array( '검토된문서' ),
 	'RevisionReview' => array( '편집검토' ),
 	'Stabilization' => array( '안정화' ),

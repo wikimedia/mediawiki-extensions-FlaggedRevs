@@ -57,6 +57,7 @@ No configuration is possible.',
  * @author Robby
  * @author SPQRobin
  * @author Saper
+ * @author Shirayuki
  * @author Umherirrender
  */
 $messages['qqq'] = array(
@@ -119,7 +120,8 @@ Used on Special:Stabilization.
 Used on Special:Stabilization.
 {{Identical|Expires}}',
 	'stabilization-othertime' => '{{Flagged Revs}}
-Used on Special:Stabilization.',
+Used on Special:Stabilization.
+{{Identical|Other time}}',
 	'stabilization-def-short' => '{{Flagged Revs}}
 {{Identical|Default}}
 Used at Special:Log for entries made by Special:Stabilization. It is displayed as in log entries that have text like "[Default: Stable, autoreview=sysop]".',
@@ -127,8 +129,8 @@ Used at Special:Log for entries made by Special:Stabilization. It is displayed a
 {{Identical|Current}}
 Used at Special:Log for entries made by Special:Stabilization. It is displayed as in log entries that have text like "[Default: Stable, autoreview=sysop]".',
 	'stabilization-def-short-1' => '{{Flagged Revs}}
-{{Identical|Stable}}
-Used at Special:Log for entries made by Special:Stabilization. It is displayed as in log entries that have text like "[Default: Stable, autoreview=sysop]".',
+Used at Special:Log for entries made by Special:Stabilization. It is displayed as in log entries that have text like "[Default: Stable, autoreview=sysop]".
+{{Identical|Stable}}',
 	'stabilize_page_invalid' => '{{Flagged Revs}}
 Used on Special:Stabilization.',
 	'stabilize_page_notexists' => '{{Flagged Revs}}

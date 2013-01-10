@@ -435,8 +435,8 @@ Possible value of the 'accuracy' tag for a revision. All accepted revisions must
 	'revreview-accuracy-3' => "{{Flagged Revs}}
 Possible value of the 'accuracy' tag for a revision. All accepted revisions must have ratings for each tag type.",
 	'revreview-accuracy-4' => "{{Flagged Revs}}
-{{Identical|Featured}}
-Possible value of the 'accuracy' tag for a revision. All accepted revisions must have ratings for each tag type.",
+Possible value of the 'accuracy' tag for a revision. All accepted revisions must have ratings for each tag type.
+{{Identical|Featured}}",
 	'revreview-auto' => '{{Flagged Revs}}
 {{Identical|Automatic}}',
 	'revreview-basic' => '{{Flagged Revs}}
@@ -474,8 +474,8 @@ Possible value of the 'depth' tag for a revision. All accepted revisions must ha
 	'revreview-depth-3' => "{{Flagged Revs}}
 Possible value of the 'depth' tag for a revision. All accepted revisions must have ratings for each tag type.",
 	'revreview-depth-4' => "{{Flagged Revs}}
-{{Identical|Featured}}
-Possible value of the 'depth' tag for a revision. All accepted revisions must have ratings for each tag type.",
+Possible value of the 'depth' tag for a revision. All accepted revisions must have ratings for each tag type.
+{{Identical|Featured}}",
 	'revreview-draft-title' => '{{Flagged Revs}}
 Attribute title of the "pending changes" tab on pages with pending changes. See {{Revreview-current}}.',
 	'revreview-edit' => '{{Flagged Revs-small}}
@@ -589,8 +589,8 @@ Possible value of the 'style' tag for a revision. All accepted revisions must ha
 	'revreview-style-3' => "{{Flagged Revs}}
 Possible value of the 'style' tag for a revision. All accepted revisions must have ratings for each tag type.",
 	'revreview-style-4' => "{{Flagged Revs}}
-{{Identical|Featured}}
-Possible value of the 'style' tag for a revision. All accepted revisions must have ratings for each tag type.",
+Possible value of the 'style' tag for a revision. All accepted revisions must have ratings for each tag type.
+{{Identical|Featured}}",
 	'revreview-toggle-show' => '{{FlaggedRevs}}
 {{Optional}}',
 	'revreview-toggle-hide' => '{{FlaggedRevs}}
@@ -656,7 +656,8 @@ Shown on the stability log (Special:Log/stability).',
 {{Identical|All}}
 Shown as dropdown option on lists or log pages.',
 	'revreview-filter-stable' => '{{Flagged Revs}}
-Shown as dropdown option on lists or log pages.',
+Shown as dropdown option on lists or log pages.
+{{Identical|Stable}}',
 	'revreview-statusfilter' => '{{Flagged Revs}}
 Shown as dropdown option on lists or log pages.',
 	'revreview-filter-approved' => '{{Flagged Revs}}
@@ -693,8 +694,8 @@ Shown as dropdown option on lists or log pages to filter results.',
 	'revreview-def-draft' => '{{Flagged Revs}}
 Shown as dropdown option on lists or log pages to filter results.',
 	'revreview-def-stable' => '{{Flagged Revs}}
-{{Identical|stable}}
-Shown as dropdown option on lists or log pages to filter results.',
+Shown as dropdown option on lists or log pages to filter results.
+{{Identical|Stable}}',
 	'revreview-restrictfilter' => '{{Flagged Revs}}
 Shown as dropdown option on lists or log pages to filter results.',
 	'revreview-restriction-any' => '{{Flagged Revs}}
@@ -7184,9 +7185,9 @@ Azóta történhettek új [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaW
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$2|Egy|$2}} változtatás vár ellenőrzésre] ''(lásd alább)''.",
 	'revreview-edited-section' => 'Vissza a(z) „[[#$1|$2]]” című alfejezetre.',
 	'revreview-newest-basic' => 'Ebben a változatban [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 változtatás] vár [[{{MediaWiki:Validationpage}}|ellenőrzésre]].
-A [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} közzétett változat] ekkor volt [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} ellenőrizve]: <i>$2</i>.',
-	'revreview-newest-basic-i' => 'Ebben a változatban [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Sablon- vagy fájlváltoztatások] várnak [[{{MediaWiki:Validationpage}}|ellenőrzésre]].
-A [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} közzétett változat] ekkora volt [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} ellenőrizve]: <i>$2</i>.',
+A [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} közzétett változat] ekkor volt [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} ellenőrizve]: <i>$2</i>',
+	'revreview-newest-basic-i' => 'Ebben a változatban [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} sablon- vagy fájlváltoztatások] várnak [[{{MediaWiki:Validationpage}}|ellenőrzésre]].
+A [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} közzétett változat] ekkor volt [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} ellenőrizve]: <i>$2</i>',
 	'revreview-newest-quality' => 'Ebben a változatban [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 változtatás] vár [[{{MediaWiki:Validationpage}}|ellenőrzésre]].
 A [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} közzétett változat] ekkora volt [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} minőséginek jelölve]: <i>$2</i>.',
 	'revreview-newest-quality-i' => 'Ebben a változatban [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Sablon- vagy fájlváltoztatások] várnak [[{{MediaWiki:Validationpage}}|ellenőrzésre]]. A [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} közzétett változat] ekkora volt [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} minőséginek jelölve]: <i>$2</i>.',
