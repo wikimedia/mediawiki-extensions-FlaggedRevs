@@ -585,7 +585,8 @@ Possible value of the 'style' tag for a revision. All accepted revisions must ha
 	'revreview-style-1' => "{{Flagged Revs}}
 Possible value of the 'style' tag for a revision. All accepted revisions must have ratings for each tag type.",
 	'revreview-style-2' => "{{Flagged Revs}}
-Possible value of the 'style' tag for a revision. All accepted revisions must have ratings for each tag type.",
+Possible value of the 'style' tag for a revision. All accepted revisions must have ratings for each tag type.
+{{Identical|Goods}}",
 	'revreview-style-3' => "{{Flagged Revs}}
 Possible value of the 'style' tag for a revision. All accepted revisions must have ratings for each tag type.",
 	'revreview-style-4' => "{{Flagged Revs}}
@@ -8939,7 +8940,7 @@ $messages['ko'] = array(
 	'action-review' => '편집을 검토할',
 	'editor' => '편집자',
 	'flaggedrevs' => '특정 판 검토',
-	'flaggedrevs-watched-pending' => "당신이 주시하고 있는 문서 중 검토된 적이 있는 문서에 [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} 검토를 기다리고 있는 편집]이 있습니다. '''당신의 관심이 필요합니다!'''",
+	'flaggedrevs-watched-pending' => "주시하고 있는 문서 중 검토된 적이 있는 문서에 [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} 검토를 기다리고 있는 편집]이 있습니다. '''당신의 관심이 필요합니다!'''",
 	'flaggedrevs-desc' => '편집자와 검토자에게 편집을 검토하고 문서를 안정화할 수 있도록 함',
 	'flaggedrevs-pref-UI' => '기본 인터페이스:',
 	'flaggedrevs-pref-UI-0' => '문서의 검토 상태를 보일 때 자세한 알림 상자를 쓰기',
