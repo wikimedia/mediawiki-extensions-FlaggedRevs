@@ -748,7 +748,7 @@ See also:
 	'accesskey-ca-stable' => '{{FlaggedRevs}}
 {{doc-accesskey}}',
 	'log-show-hide-review' => '{{Flagged Revs}}
-* $1 is one of {{msg|show}} or {{msg|hide}}',
+* $1 is one of {{msg-mw|show}} or {{msg-mw|hide}}',
 	'validationpage' => "{{Flagged Revs-small}}
 Link to the general help page. Do ''not'' translate the <tt><nowiki>{{ns:help}}:</nowiki></tt> part, including the colon.",
 );
