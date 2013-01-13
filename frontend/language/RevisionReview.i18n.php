@@ -113,6 +113,7 @@ Please review all the changes shown below to make your edits appear in the stabl
  * @author Pxos
  * @author Raymond
  * @author SPQRobin
+ * @author Shirayuki
  * @author Siebrand
  * @author Umherirrender
  * @author Yekrats
@@ -208,11 +209,11 @@ Shown on the form to review pages.',
 	'revreview-submit-unreviewed' => '{{Flagged Revs}}
 Shown on the form to review pages.',
 	'revreview-successful' => '{{Flagged Revs-small}}
-Shown when a reviewer/editor has marked a revision as stable/checked/... See also {{msg|revreview-successful2|pl=yes}}.
+Shown when a reviewer/editor has marked a revision as stable/checked/... See also {{msg-mw|revreview-successful2|pl=yes}}.
 * $1 The page name
 * $2 The page name (url escaped)',
 	'revreview-successful2' => '{{Flagged Revs-small}}
-Shown when a reviewer/editor has marked a stable/checked/... revision as unstable/unchecked/... After that, it can normally be reviewed again. See also {{msg|revreview-successful|pl=yes}}.
+Shown when a reviewer/editor has marked a stable/checked/... revision as unstable/unchecked/... After that, it can normally be reviewed again. See also {{msg-mw|revreview-successful}}.
 * $1 The page name',
 	'revreview-poss-conflict-p' => '{{Flagged Revs}}
 Shown on the form to review pages. Not shown on diffs.
@@ -3345,7 +3346,7 @@ $messages['ko'] = array(
 	'revreview-sadv-reviewing-c' => '당신은 $1 자신이 다른 사람한테 이 바뀜을 검토할 수 있습니다.',
 	'revreview-adv-start-link' => '통지',
 	'revreview-adv-stop-link' => '통지 안 함',
-	'revreview-toolow' => '\'\'\'당신은 문서를 검토하려면 등급을 모두 "부적절"보다 높게 매겨야 합니다.\'\'\'
+	'revreview-toolow' => '\'\'\'문서를 검토하려면 등급을 모두 "부적절"보다 높게 매겨야 합니다.\'\'\'
 
 판의 검토를 철회하려면 모든 란을 "{{int:revreview-submit-unreview}}"로 설정하십시오.
 

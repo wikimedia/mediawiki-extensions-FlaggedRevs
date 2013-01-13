@@ -934,12 +934,13 @@ $messages['pdc'] = array(
  * @author Derbeth
  * @author Leinad
  * @author Sp5uhe
+ * @author ToSter
  */
 $messages['pl'] = array(
 	'reviewedversions' => 'Wersje oznaczone',
 	'reviewedversions-leg1' => 'Pokaż oznaczone wersje strony',
 	'reviewedversions-page' => 'Nazwa strony:',
-	'reviewedversions-none' => '„[[:$1]]” nie posiada wersji oznaczonych.',
+	'reviewedversions-none' => '„[[:$1]]” nie ma wersji oznaczonych.',
 	'reviewedversions-list' => '{{PLURAL:$2|Wersja|Wersje}} strony „[[:$1]]”, {{PLURAL:$2|która została oznaczona|które zostały oznaczone:}}',
 	'reviewedversions-review' => '<i>$1</i>, oznaczona przez $2',
 );

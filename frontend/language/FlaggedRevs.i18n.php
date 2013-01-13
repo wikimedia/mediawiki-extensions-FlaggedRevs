@@ -275,8 +275,10 @@ Appears on top of user watchlist (Special:Watchlist).',
 
 {{desc|name=Flagged Revisions|url=http://www.mediawiki.org/wiki/Extension:FlaggedRevs}}',
 	'flaggedrevs-pref-UI' => '{{Flagged Revs-small}}
-
-Shown in [[Special:Preferences]], under {{msg-mw|prefs-flaggedrevs}}, as a label for the alternative choices {{msg|flaggedrevs-pref-UI-0|pl=yes}}, and {{msg|flaggedrevs-pref-UI-1|pl=yes}}. See [[:Image:FlaggedRevs.jpg]] for an example image.',
+Shown in [[Special:Preferences]], under {{msg-mw|prefs-flaggedrevs}}, as a label for the following alternative choices
+* {{msg-mw|flaggedrevs-pref-UI-0}}
+* {{msg-mw|flaggedrevs-pref-UI-1}}
+See [[:Image:FlaggedRevs.jpg]] for an example image.',
 	'flaggedrevs-pref-UI-0' => '{{Flagged Revs-small}}
 
 Option in [[Special:Preferences]], under {{msg-mw|prefs-flaggedrevs}}. See {{msg|flaggedrevs-pref-UI-1|pl=yes}} for the opposite message. See [[:Image:FlaggedRevs.jpg]] for an example image.',
@@ -11768,7 +11770,7 @@ Ostatnia [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} wersja zweryfikowana] została 
 	'revreview-pending-quality' => 'Ostatnia [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} wersja zweryfikowana] została [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} zaakceptowana] <i>$2</i>. Od tego czasu wykonano [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|zmianę|zmiany|zmian}}], {{PLURAL:$3|która oczekuje|które oczekują|które oczekują}} na zweryfikowanie.',
 	'revreview-pending-nosection' => 'Spróbuj zobaczyć [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} ostatnią wersję], która zawiera
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|oczekującą zmianę|oczekujące zmiany|oczekujących zmian}}], aby sprawdzić czy sekcja została przeniesiona lub usunięta.',
-	'revreview-noflagged' => "Ta strona nie posiada wersji oznaczonej – możliwe, że '''nie''' została [[{{MediaWiki:Validationpage}}|przejrzana]] pod kątem jakości.",
+	'revreview-noflagged' => "Ta strona nie ma wersji oznaczonej – możliwe, że '''nie''' została [[{{MediaWiki:Validationpage}}|przejrzana]] pod kątem jakości.",
 	'revreview-oldrating' => 'Uzyskana ocena:',
 	'revreview-quality' => 'To jest najnowsza [[{{MediaWiki:Validationpage}}|wersja zweryfikowana]], które została [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} zaakceptowana] <i>$2</i>.
 Od tego czasu wykonano [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|zmianę|zmiany|zmian}}], {{PLURAL:$3|która oczekuje|które oczekują|które oczekują}} na zweryfikowanie.',
@@ -11798,9 +11800,9 @@ Później mogły zostać wykonane następne [{{fullurl:{{FULLPAGENAMEE}}|oldid=$
 	'revreview-style-3' => 'zwięźle',
 	'revreview-style-4' => 'na medal',
 	'revreview-toggle-title' => 'pokaż lub ukryj szczegóły',
-	'revreview-visibility-synced' => "'''Ta strona posiada aktualną [[{{MediaWiki:Validationpage}}|wersję oznaczoną]]. Sposób wyświetlania wersji na tej stronie może zostać [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} skonfigurowany].'''",
-	'revreview-visibility-outdated' => "'''Ta strona posiada nieaktualną [[{{MediaWiki:Validationpage}}|wersję oznaczoną]]. Sposób wyświetlania wersji na tej stronie może zostać [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} skonfigurowany].'''",
-	'revreview-visibility-nostable' => "'''Ta strona nie posiada [[{{MediaWiki:Validationpage}}|wersji oznaczonej]]. Sposób wyświetlania wersji na tej stronie może zostać [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} skonfigurowany].'''",
+	'revreview-visibility-synced' => "'''Ta strona ma aktualną [[{{MediaWiki:Validationpage}}|wersję oznaczoną]]. Sposób wyświetlania wersji na tej stronie może zostać [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} skonfigurowany].'''",
+	'revreview-visibility-outdated' => "'''Ta strona ma nieaktualną [[{{MediaWiki:Validationpage}}|wersję oznaczoną]]. Sposób wyświetlania wersji na tej stronie może zostać [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} skonfigurowany].'''",
+	'revreview-visibility-nostable' => "'''Ta strona nie ma [[{{MediaWiki:Validationpage}}|wersji oznaczonej]]. Sposób wyświetlania wersji na tej stronie może zostać [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} skonfigurowany].'''",
 	'revreview-revnotfound' => 'Żądana, starsza wersja strony nie została odnaleziona. Sprawdź użyty adres URL.',
 	'right-autoreview' => 'Automatyczne oznaczanie własnych edycji jako przejrzanych',
 	'right-autoreviewrestore' => 'Automatyczne oznaczanie wycofań zmian jako przejrzane',
@@ -15827,8 +15829,8 @@ $messages['uk'] = array(
 
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|нерецензована зміна|нерецензовані зміни|нерецензованих змін}}] ''(показані нижче)'' {{PLURAL:$2|очікує|очікують|очікують}} на перевірку.",
 	'revreview-edited-section' => 'Повернутися до розділу під назвою "[[#$1|$2]]".',
-	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|зміна] в|зміни] в|змін] у}} цій версії [[{{MediaWiki:Validationpage}}|{{PLURAL:$3|очікує|очікують}} на перевірку]].
-[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Стабільну версію] було [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} перевірено] <i>$2</i>.', # Fuzzy
+	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|зміна] в|[зміни] в|[змін] }} цій версії [[{{MediaWiki:Validationpage}}|{{PLURAL:$3|очікує|очікують}} на перевірку]].
+[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Стабільну версію] було [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} перевірено] <i>$2</i>.',
 	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Зміни шаблонів/файлів] цієї версії [[{{MediaWiki:Validationpage}}|очікують на перевірку]].
 [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Стабільна версія] була [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} перевірена] <i>$2</i>.',
 	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3  {{PLURAL:$3|зміна|змін}}] у цій версії [[{{MediaWiki:Validationpage}}|{{PLURAL:$3|очикує|очикують}} перевірки]].
