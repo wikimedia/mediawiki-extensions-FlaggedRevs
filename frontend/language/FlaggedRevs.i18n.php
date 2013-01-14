@@ -474,7 +474,8 @@ Possible value of the 'depth' tag for a revision. All accepted revisions must ha
 	'revreview-depth-2' => "{{Flagged Revs}}
 Possible value of the 'depth' tag for a revision. All accepted revisions must have ratings for each tag type.",
 	'revreview-depth-3' => "{{Flagged Revs}}
-Possible value of the 'depth' tag for a revision. All accepted revisions must have ratings for each tag type.",
+Possible value of the 'depth' tag for a revision. All accepted revisions must have ratings for each tag type.
+{{Identical|High}}",
 	'revreview-depth-4' => "{{Flagged Revs}}
 Possible value of the 'depth' tag for a revision. All accepted revisions must have ratings for each tag type.
 {{Identical|Featured}}",
