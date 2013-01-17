@@ -1563,6 +1563,7 @@ $messages['avk'] = array(
 );
 
 /** Azerbaijani (azərbaycanca)
+ * @author AZISS
  * @author Cekli829
  * @author Vago
  * @author Vugar 1981
@@ -1599,7 +1600,7 @@ $messages['az'] = array(
 	'revreview-diff-toggle-hide' => 'dəyişiklikləri gizlət',
 	'revreview-log-toggle-show' => 'sabit qeydiyyatı göstər',
 	'revreview-log-toggle-hide' => 'sabit qeydiyyatı gizlət',
-	'revreview-log-details-show' => 'detalları göstər',
+	'revreview-log-details-show' => 'Ətraflı göstər',
 	'revreview-log-details-hide' => 'detalları gizlə',
 	'review-diff2stable' => 'Bütün gözləyən dəyişiklikləri göstər',
 	'review-logentry-app' => '[[$1]] səhifəsinin bir versiyası incələndi',
