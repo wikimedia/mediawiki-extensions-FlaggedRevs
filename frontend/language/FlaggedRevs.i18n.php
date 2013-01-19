@@ -15831,8 +15831,8 @@ $messages['uk'] = array(
 
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|нерецензована зміна|нерецензовані зміни|нерецензованих змін}}] ''(показані нижче)'' {{PLURAL:$2|очікує|очікують|очікують}} на перевірку.",
 	'revreview-edited-section' => 'Повернутися до розділу під назвою "[[#$1|$2]]".',
-	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|зміна] в|[зміни] в|[змін] }} цій версії [[{{MediaWiki:Validationpage}}|{{PLURAL:$3|очікує|очікують}} на перевірку]].
-[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Стабільну версію] було [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} перевірено] <i>$2</i>.',
+	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|зміна] в|зміни] в|змін] у}} цій версії [[{{MediaWiki:Validationpage}}|{{PLURAL:$3|очікує|очікують}} на перевірку]].
+[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Стабільну версію] було [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} перевірено] <i>$2</i>.', # Fuzzy
 	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Зміни шаблонів/файлів] цієї версії [[{{MediaWiki:Validationpage}}|очікують на перевірку]].
 [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Стабільна версія] була [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} перевірена] <i>$2</i>.',
 	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3  {{PLURAL:$3|зміна|змін}}] у цій версії [[{{MediaWiki:Validationpage}}|{{PLURAL:$3|очикує|очикують}} перевірки]].
@@ -16013,6 +16013,7 @@ $messages['uz'] = array(
 /** vèneto (vèneto)
  * @author Candalua
  * @author Frigotoni
+ * @author GatoSelvadego
  */
 $messages['vec'] = array(
 	'action-review' => 'verificar le revision',
@@ -16055,8 +16056,8 @@ $messages['vec'] = array(
 	'revreview-log-toggle-show' => 'mostra el registro de stabilità',
 	'revreview-log-toggle-hide' => 'scondi el registro de stabilità',
 	'revreview-log-toggle-title' => 'Mostra/scondi el registro de le inpostassion de stabilità',
-	'revreview-log-details-show' => 'mostra detagli',
-	'revreview-log-details-hide' => 'scondi detagli',
+	'revreview-log-details-show' => 'mostra detaji',
+	'revreview-log-details-hide' => 'scondi detaji',
 	'revreview-log-details-title' => 'Mostra/scondi el registro de le inpostassion de stabilità',
 	'review-diff2stable' => 'Varda i canbiamenti in atesa de la version publicà',
 	'review-logentry-app' => 'gà ricontrolà na version de [[$1]]',
