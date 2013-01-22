@@ -123,8 +123,8 @@ Used on Special:Stabilization.
 Used on Special:Stabilization.
 {{Identical|Other time}}',
 	'stabilization-def-short' => '{{Flagged Revs}}
-{{Identical|Default}}
-Used at Special:Log for entries made by Special:Stabilization. It is displayed as in log entries that have text like "[Default: Stable, autoreview=sysop]".',
+Used at Special:Log for entries made by Special:Stabilization. It is displayed as in log entries that have text like "[Default: Stable, autoreview=sysop]".
+{{Identical|Default}}',
 	'stabilization-def-short-0' => '{{Flagged Revs}}
 {{Identical|Current}}
 Used at Special:Log for entries made by Special:Stabilization. It is displayed as in log entries that have text like "[Default: Stable, autoreview=sysop]".',
