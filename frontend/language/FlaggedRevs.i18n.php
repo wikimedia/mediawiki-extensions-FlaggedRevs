@@ -11415,73 +11415,89 @@ $messages['oc'] = array(
 	'editor' => 'Contributor',
 	'flaggedrevs' => 'Revisions marcadas',
 	'flaggedrevs-watched-pending' => "I a actualament [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} de modificacions en espèra] de paginas relegidas dins vòstra lista de seguiment. '''Prestatz-i atencion !'''",
-	'flaggedrevs-desc' => "Balha la possibilitat als editors o als relectors de validar las modificacions e d'estabilizar las paginas.", # Fuzzy
-	'flaggedrevs-pref-UI' => 'Interfàcia de las versions establas :', # Fuzzy
-	'flaggedrevs-pref-UI-0' => "Utilizar l’interfàcia d'utilizaire de la version establa detalhada", # Fuzzy
-	'flaggedrevs-pref-UI-1' => "Utilizar una simpla interfàcia d'utilizaire establa", # Fuzzy
-	'prefs-flaggedrevs' => 'Estabilitat', # Fuzzy
-	'prefs-flaggedrevs-ui' => 'Revisions marcadas', # Fuzzy
-	'flaggedrevs-prefs-stable' => "Afichar totjorn la version establa del contengut de las paginas per defaut (se n'existís una)", # Fuzzy
+	'flaggedrevs-desc' => "Balha la possibilitat als contributors de tornar legir las versions e d'estabilizar las paginas",
+	'flaggedrevs-pref-UI' => 'Interfàcia de basa :',
+	'flaggedrevs-pref-UI-0' => "Utilizar l’interfàcia detalhada per afichar l'estatut d’aprovacion de las paginas",
+	'flaggedrevs-pref-UI-1' => "Utilizar d'icònas pichonas e un tèxte somari per afichar l'estatut de las paginas",
+	'prefs-flaggedrevs' => 'Aprovacion de las modificacions',
+	'prefs-flaggedrevs-ui' => 'Aprovacion de las modificacions',
+	'flaggedrevs-prefs-stable' => 'Quora afichar la version establa de las paginas dels contenguts per defaut',
+	'flaggedrevs-pref-stable-0' => 'Utilizar los paramètres per defaut per cada pagina',
+	'flaggedrevs-pref-stable-1' => "Afichar totjorn la version establa (se n'i a una)",
+	'flaggedrevs-pref-stable-2' => 'Afichar totjorn la darrièra version',
 	'flaggedrevs-prefs-watch' => "Apond las paginas qu'ai revistas a ma lista de seguiment.",
-	'flaggedrevs-prefs-editdiffs' => 'Far veire lo diff cap a la version establa quand modificatz de paginas', # Fuzzy
+	'flaggedrevs-prefs-editdiffs' => 'Far veire lo diff de las modificacions en espèra quand modificatz de paginas',
 	'flaggedrevs-prefs-viewdiffs' => "Far veire lo diff cap a la revision establa quand los borrolhons d'una pagina son consultats", # Fuzzy
+	'flaggedrevs-hidereviewed' => '$1 a examinat las modificacions',
 	'group-editor' => 'Contributors',
-	'group-editor-member' => 'Contributor', # Fuzzy
+	'group-editor-member' => '{{GENDER:$1|contributor|contributritz}}',
 	'group-reviewer' => 'Revisors',
-	'group-reviewer-member' => 'Revisor', # Fuzzy
+	'group-reviewer-member' => '{{GENDER:$1|relector|relectritz}}',
 	'grouppage-editor' => '{{ns:project}}:Editor',
 	'grouppage-reviewer' => '{{ns:project}}:Reviewer',
 	'group-autoreview' => 'Revisadors automatics',
-	'group-autoreview-member' => 'revisador automatic', # Fuzzy
+	'group-autoreview-member' => '{{GENDER:$1|relector automatic|relectritz automatica}}',
 	'grouppage-autoreview' => '{{ns:project}}:Revisador automatic',
-	'revreview-hist-draft' => 'version borrolhon', # Fuzzy
+	'revreview-hist-draft' => 'version pas verificada',
+	'revreview-hist-pending' => 'en espèra de relectura',
 	'revreview-hist-quality' => 'qualitat de la version',
-	'revreview-hist-basic' => 'Version visualizada', # Fuzzy
-	'revreview-hist-quality-user' => 'validada per [[User:$3|$3]]', # Fuzzy
-	'revreview-hist-basic-user' => 'visada per [[User:$3|$3]]', # Fuzzy
-	'revreview-hist-basic-auto' => 'revista automaticament', # Fuzzy
+	'revreview-hist-basic' => 'version verificada',
+	'revreview-hist-quality-user' => 'aprovada per [[User:$3|$3]]',
+	'revreview-hist-basic-user' => 'verificada per [[User:$3|$3]]',
+	'revreview-hist-quality-auto' => 'aprovada automaticament',
+	'revreview-hist-basic-auto' => 'verificada automaticament',
+	'revreview-hist-pending-difflink' => "'''[[{{fullurl:$1|oldid=$2&diff=$3{{MediaWiki:flaggedrevs-diffonly}}}} en espèra de relectura]]'''",
 	'revreview-diff-toggle-show' => 'far veire los cambiaments',
 	'revreview-diff-toggle-hide' => 'amagar los cambiaments',
 	'revreview-diff-toggle-title' => "Bascuolar l'afichatge entre las modificacions en espèra e la version publicada",
 	'revreview-log-toggle-show' => "far veire lo jornal d'estabilitat",
 	'revreview-log-toggle-hide' => "amagar lo jornal d'estabilitat",
+	'revreview-log-toggle-title' => "Bascuolar l'afichatge del jornal dels paramètres d'estabilitat",
 	'revreview-log-details-show' => 'far veire los detalhs',
 	'revreview-log-details-hide' => 'amagar los detalhs',
-	'review-diff2stable' => 'Vejatz las modificacions entre las versions establas e actualas.', # Fuzzy
-	'review-logentry-app' => 'a revist v$2 de [[$1]]', # Fuzzy
-	'review-logentry-dis' => 'a depreciat v$2 de [[$1]]', # Fuzzy
+	'revreview-log-details-title' => "Bascuolar l'afichatge del jornal dels paramètres d'estabilitat",
+	'review-diff2stable' => 'Vejatz las modificacions en cors per rapòrt a la version publicada.',
+	'review-logentry-app' => 'a repassat una version de [[$1]]',
+	'review-logentry-dis' => 'a depreciat una version de [[$1]]',
 	'review-logentry-id' => 'Revision : $2',
-	'review-logentry-diff' => 'modificacions cap a la version establa', # Fuzzy
+	'review-logentry-diff' => 'modificacions repassadas',
+	'review-logentry-diff2' => 'modificacions desuetas',
 	'review-logpage' => 'Jornal de las relecturas',
 	'review-logpagetext' => "Vaquí lo jornal de las modificacions de l'estatut [[{{MediaWiki:Validationpage}}|d'aprobacion]] de las revisions del contengut de las paginas.", # Fuzzy
 	'reviewer' => 'Revisor',
 	'revreview-accuracy' => 'Precision',
-	'revreview-accuracy-0' => 'Pas aprobada', # Fuzzy
+	'revreview-accuracy-0' => 'Insufisent',
 	'revreview-accuracy-1' => 'Vista',
 	'revreview-accuracy-2' => 'Precis',
 	'revreview-accuracy-3' => 'Plan fontada',
 	'revreview-accuracy-4' => 'Remirable',
 	'revreview-auto' => '(automatic)',
-	'revreview-basic' => "Es la darrièra [[{{MediaWiki:Validationpage}}|version revista]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprobada] lo ''$2''. L'[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} esbòs] pòt èsser [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} modificat]; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$3|$3 cambiament espèra|$3 cambiaments espèran}}] una revision.", # Fuzzy
-	'revreview-basic-i' => 'Vaquí la darrièra version [[{{MediaWiki:Validationpage}}|estadissa]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} revista] lo <i>$2</i>.
-Lo [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} borrolhon] caup de [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} cambiaments de modèl o de fichièrs] en espèra de relectura.', # Fuzzy
-	'revreview-basic-old' => 'Vaquí una version [[{{MediaWiki:Validationpage}}|visada]] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} lista entièra]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprobada] lo <i>$2</i>.
-De [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} modificacions novèlas] pòdon èsser estada efectuadas.', # Fuzzy
-	'revreview-basic-same' => 'Aquò es la darrièra version [[{{MediaWiki:Validationpage}}|susvelhada]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovada] sur <i>$2</i>. La pagina pòt èsser [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} modificada].', # Fuzzy
-	'revreview-basic-source' => "Una [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} version visada] d'aquesta pagina, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprobada] lo <i>$2</i>, es estada basada en defòra d'aquesta version.", # Fuzzy
-	'revreview-current' => 'Esbòs', # Fuzzy
+	'revreview-basic' => "Aquò's la [[{{MediaWiki:Validationpage}}|version publicada]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} verificada] lo <i>$2</i>.
+I a [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 modificacion{{PLURAL:$3||s}}] en espèra de relectura.",
+	'revreview-basic-i' => "Aquò's la [[{{MediaWiki:Validationpage}}|version publicada]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} verificada] lo <i>$2</i>.
+I a [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} de cambiaments de modèl o de fichièrs] en espèra de relectura.",
+	'revreview-basic-old' => 'Vaquí una version [[{{MediaWiki:Validationpage}}|verificada]] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} lista entièra]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovada] lo <i>$2</i>.
+De [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} modificacions novèlas] pòdon èsser estadas efectuadas.',
+	'revreview-basic-same' => "Aquò's la [[{{MediaWiki:Validationpage}}|version publicada]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} verificada] lo <i>$2</i>.",
+	'revreview-basic-source' => "Una [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} version verificada] d'aquesta pagina, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovada] lo <i>$2</i>, es basada sus aquesta version.",
+	'revreview-current' => 'Cambiaments en espèra',
 	'revreview-depth' => 'Prigondor',
-	'revreview-depth-0' => 'Pas aprobada', # Fuzzy
+	'revreview-depth-0' => 'Insufisent',
 	'revreview-depth-1' => 'De basa',
 	'revreview-depth-2' => 'Moderat',
 	'revreview-depth-3' => 'Elevada',
 	'revreview-depth-4' => 'Remirabla',
-	'revreview-draft-title' => 'Borrolhon de pagina', # Fuzzy
-	'revreview-edit' => 'Esbòs de modificacion', # Fuzzy
-	'revreview-editnotice' => "'''Nòta : Las modificacions sus aquesta pagina seràn incorporada dins la [[{{MediaWiki:Validationpage}}|version establa]] un còp qu’un utilizaire abilitat las aurà relegidas.'''", # Fuzzy
-	'revreview-edited' => "'''Las modificacions novèlas seràn incorporadas dins [[{{MediaWiki:Validationpage}}|la version establa]] un còp qu’un utilizaire autorizat las aurà relegidas.
+	'revreview-draft-title' => 'Las modificacions en espèra son afichadas sus aquesta pagina',
+	'revreview-edit' => 'Modificar',
+	'revreview-editnotice' => "'''Vòstras modificacions seràn afichadas als lectors un còp qu’un utilizaire que dispausa dels dreches necessaris las aurà acceptadas.
+([[{{MediaWiki:Validationpage}}|ajuda]])'''",
+	'revreview-submitedit' => 'Sometètz vòstras modificacions',
+	'revreview-submitedit-title' => 'Sometètz vòstras modificacions per relectura',
+	'revreview-edited' => "'''Las modificacions seràn afichadas als lectors tre qu'un utilizaire que dispausa dels dreches sufisents las aurà acceptadas.
+([[{{MediaWiki:Validationpage}}|ajuda]])'''
 
-Lo ''borrolhon'' es visible çaijós. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|modificacion espèra|modificacions espèran}}] una relectura.", # Fuzzy
+I a actualament [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|modification|modificacions}} en espèra de relectura], afichadas çaijós.",
+	'revreview-edited-section' => 'Tornar a la seccion de la pagina nomenada « [[#$1|$2]] ».',
 	'revreview-newest-basic' => "La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} darrièra version vista] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} las veire totas]) èra [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprobada] lo ''$2''. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|cambiament|cambiaments}}] {{PLURAL:$3|demanda|demandan}} una revision.", # Fuzzy
 	'revreview-newest-basic-i' => 'La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} darrièra version visualizada] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} vejatz la lista]) es estada [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovada] lo <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} cambiaments de modèls o defichièrs] necessitan una relectura.', # Fuzzy
@@ -11497,7 +11513,7 @@ Lo [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} borrolhon] compòrta de [{{fullurl:{{
 De [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} modificacions novèlas] pòdon èsser estadas efectuadas.', # Fuzzy
 	'revreview-quality-same' => 'Aquò es la darrièra version de [[{{MediaWiki:Validationpage}}|qualitat]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovada] sus <i>$2</i>. La pagina pòt èsser [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} modificada].', # Fuzzy
 	'revreview-quality-source' => "Una [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} version de qualitat] d'aquesta pagina, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprobada] lo <i>$2</i>, es estada basada en defòra d'aquesta version.",
-	'revreview-quality-title' => 'Pagina de qualitat', # Fuzzy
+	'revreview-quality-title' => "Aquò's una version de qualitat d'aquesta pagina",
 	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|pagina visada]]'''. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} veire revision correnta]]", # Fuzzy
 	'revreview-quick-basic-old' => "[[{{MediaWiki:Validationpage}}|pagina visada]]''' [ veire lo borrolhon]]", # Fuzzy
 	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|Pagina susvelhada]]''' (cap de modificacion pas revista)", # Fuzzy

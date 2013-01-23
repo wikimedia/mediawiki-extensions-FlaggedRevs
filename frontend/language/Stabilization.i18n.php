@@ -316,6 +316,7 @@ $messages['ar'] = array(
 );
 
 /** Aramaic (ܐܪܡܝܐ)
+ * @author 334a
  * @author Basharh
  */
 $messages['arc'] = array(
@@ -323,7 +324,7 @@ $messages['arc'] = array(
 	'stabilization-submit' => 'ܫܪܪ',
 	'stabilization-comment' => 'ܥܠܬܐ:',
 	'stabilization-otherreason' => 'ܥܠܬܐ ܐܚܪܬܐ:',
-	'stabilization-othertime' => 'ܥܕܢܐ ܐܚܪܬܐ:',
+	'stabilization-othertime' => 'ܥܕܢܐ ܐܚܪܢܐ:',
 	'stabilization-def-short-0' => 'ܗܫܝܐ',
 );
 

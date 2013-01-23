@@ -4209,10 +4209,15 @@ $messages['oc'] = array(
 	'revreview-submit-unreviewed' => 'Fach. Desaprovat!',
 	'revreview-successful' => "'''La version seleccionada de [[:$1|$1]], es estada marcada d'una bandièra amb succès ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} Vejatz totas las versions establas])'''",
 	'revreview-successful2' => "La version de [[:$1|$1]] a pogut se veire levar son drapèu amb succès.'''",
+	'revreview-adv-start-link' => 'far de publicitat',
+	'revreview-adv-stop-link' => 'anullar la publicitat',
 	'revreview-toolow' => 'Pels atributs çaijós, vos cal donar un puntatge mai elevat que « non aprobat » per que la version siá considerada coma revista. Per depreciar una version, metètz totes los camps a « non aprobat ».', # Fuzzy
 	'revreview-update' => "[[{{MediaWiki:Validationpage}}|Relegissètz]] totas las modificacions ''(vejatz çaijós)'' efectuadas dempuèi l’[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovacion] de la version establa.
 '''Qualques fichièrs o modèls son estats meses a jorn :'''", # Fuzzy
 	'revreview-update-includes' => 'Qualques modèls o fichièrs son estats meses a jorn :', # Fuzzy
+	'revreview-reject-summary' => 'Resumit :',
+	'revreview-reject-confirm' => 'Regetar aquestes cambiaments',
+	'revreview-reject-cancel' => 'Anullar',
 );
 
 /** Oriya (ଓଡ଼ିଆ)
