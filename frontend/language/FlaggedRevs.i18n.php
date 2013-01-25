@@ -8171,9 +8171,9 @@ $messages['ja'] = array(
 	'revreview-editnotice' => "'''今回の変更は、承認された利用者が受理した後に公開されます。 ([[{{MediaWiki:Validationpage}}|ヘルプ]])'''",
 	'revreview-submitedit' => '変更を送信',
 	'revreview-submitedit-title' => '変更を査読に送信',
-	'revreview-edited' => "'''今回の変更は、承認された利用者が受理した後に公開されます。（[[{{MediaWiki:Validationpage}}|ヘルプ]]）'''
+	'revreview-edited' => "'''今回の変更は、承認された利用者が受理した後に公開されます。([[{{MediaWiki:Validationpage}}|ヘルプ]])'''
 
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2件の保留中の変更]''（下記参照）''が査読待ちです。",
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2件の保留中の変更] ''(下記参照)'' が査読待ちです。",
 	'revreview-edited-section' => 'セクション "[[#$1|$2]]" に戻る。',
 	'revreview-newest-basic' => 'この版における[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3件の変更{{PLURAL:$3}}]が{{PLURAL:$3}}、[[{{MediaWiki:Validationpage}}|査読待ち]]の状態にあります。
 [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 公開版]は<i>$2</i>に[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 確認されました]。',
@@ -8450,7 +8450,7 @@ $messages['ka'] = array(
 	'action-review' => 'გვერდის ვერსიების შემოწმება',
 	'editor' => 'შემმოწმებელი',
 	'flaggedrevs' => 'შემოწმებული რედაქტირებები',
-	'flaggedrevs-watched-pending' => "თქვენს კონტროლის სიაში არსებობს შეუმოწმებელი ცვლილებები. გთხოვთ, '''ყურადღება მიაქციოთ!'''",
+	'flaggedrevs-watched-pending' => "თქვენს კონტროლის სიაში არსებობს შეუმოწმებელი ცვლილებები. გთხოვთ, '''ყურადღება მიაქციეთ!'''",
 	'flaggedrevs-desc' => 'რედაქტორებს აძლევს გვერდის ვერსიების შემოწმებისა და სტაბილური ვერსიების დაყენების უფლებას',
 	'flaggedrevs-pref-UI' => 'მარტივი ინტერფეისი:',
 	'flaggedrevs-pref-UI-0' => 'დამატებითი ინფორმაცია გვერდის სტატუსთან დაკავშირებით.',
@@ -8994,8 +8994,8 @@ $messages['ko'] = array(
 	'revreview-log-details-hide' => '자세한 내용 숨기기',
 	'revreview-log-details-title' => '안정화 설정 기록 표시 여부를 설정하기',
 	'review-diff2stable' => '모든 검토를 기다리고 있는 편집 보기',
-	'review-logentry-app' => '[[$1]] 문서의 판 1개를 검토함',
-	'review-logentry-dis' => '[[$1]] 문서의 판 1개에 대해 검토를 철회함',
+	'review-logentry-app' => '사용자가 [[$1]] 문서의 판을 검토했습니다',
+	'review-logentry-dis' => '사용자가 [[$1]] 문서의 판에 대해 검토를 철회했습니다',
 	'review-logentry-id' => '판 ID: $2',
 	'review-logentry-diff' => '차이',
 	'review-logentry-diff2' => '검토 철회한 편집의 차이',
@@ -9085,11 +9085,11 @@ $messages['ko'] = array(
 	'right-stablesettings' => '어떻게 배포판이 선택되어 보여질 것인지 설정',
 	'right-validate' => '특정 판을 "고품질판"으로 표시하기',
 	'right-unreviewedpages' => '[[Special:UnreviewedPages|검토되지 않은 문서의 목록]] 보기',
-	'rights-editor-revoke' => '[[$1]]의 편집자 권한을 해제함',
+	'rights-editor-revoke' => '[[$1]]의 편집자 권한을 해제했습니다',
 	'specialpages-group-quality' => '편집 검토',
-	'stable-logentry-config' => '$1 문서의 배포 설정을 정함',
-	'stable-logentry-modify' => '$1 문서의 배포 설정을 바꿈',
-	'stable-logentry-reset' => '$1의 배포 설정을 초기화함',
+	'stable-logentry-config' => '사용자가 "$1" 문서의 배포 설정을 정했습니다',
+	'stable-logentry-modify' => '사용자가 "$1" 문서의 배포 설정을 바꿨습니다',
+	'stable-logentry-reset' => '사용자가 "$1" 문서의 배포 설정을 초기화했습니다',
 	'stable-log-restriction' => '자동 검토: "$1" 권한이 필요합니다',
 	'stable-logpage' => '배포 설정 기록',
 	'stable-logpagetext' => '이 기록은 문서의 [[{{MediaWiki:Validationpage}}|배포판]] 설정에 대한 바뀜 사항을 나타내는 기록입니다.',
@@ -15756,6 +15756,7 @@ $messages['ug-arab'] = array(
  * @author Olvin
  * @author Prima klasy4na
  * @author Test
+ * @author Ата
  * @author Тест
  */
 $messages['uk'] = array(
@@ -15847,8 +15848,8 @@ $messages['uk'] = array(
 
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|нерецензована зміна|нерецензовані зміни|нерецензованих змін}}] ''(показані нижче)'' {{PLURAL:$2|очікує|очікують|очікують}} на перевірку.",
 	'revreview-edited-section' => 'Повернутися до розділу під назвою "[[#$1|$2]]".',
-	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|зміна] в|зміни] в|змін] у}} цій версії [[{{MediaWiki:Validationpage}}|{{PLURAL:$3|очікує|очікують}} на перевірку]].
-[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Стабільну версію] було [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} перевірено] <i>$2</i>.', # Fuzzy
+	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|зміна|зміни|змін}}] у цій версії [[{{MediaWiki:Validationpage}}|{{PLURAL:$3|очікує|очікують}} на перевірку]].
+[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Стабільну версію] було [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} перевірено] <i>$2</i>.',
 	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Зміни шаблонів/файлів] цієї версії [[{{MediaWiki:Validationpage}}|очікують на перевірку]].
 [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Стабільна версія] була [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} перевірена] <i>$2</i>.',
 	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3  {{PLURAL:$3|зміна|змін}}] у цій версії [[{{MediaWiki:Validationpage}}|{{PLURAL:$3|очикує|очикують}} перевірки]].
