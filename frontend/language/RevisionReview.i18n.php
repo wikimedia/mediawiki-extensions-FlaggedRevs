@@ -456,8 +456,8 @@ $messages['ar'] = array(
 	'revreview-successful2' => "'''مراجعة [[:$1|$1]] تمت إزالة علمها بنجاح.'''",
 	'revreview-poss-conflict-p' => "'''تحذير: بدأ [[User:$1|$1]] مراجعة هذه الصفحة في $2 عند $3.'''",
 	'revreview-poss-conflict-c' => "'''تحذير: بدأ [[User:$1|$1]] مراجعة هذه النغييرات في $2 عند $3.'''",
-	'revreview-adv-reviewing-p' => 'تبصرة: سيكون المراجعون الآخرون على علم بمراجعتك لهذه الصفحة.',
-	'revreview-adv-reviewing-c' => 'تبصرة: سيكون المراجعون الآخرون على علم بمراجعتك لهذه التعديلات.',
+	'revreview-adv-reviewing-p' => 'تبصرة: سيكون المراجعون الآخرون على علم بمراجعتك لهذه الصفحة.', # Fuzzy
+	'revreview-adv-reviewing-c' => 'تبصرة: سيكون المراجعون الآخرون على علم بمراجعتك لهذه التعديلات.', # Fuzzy
 	'revreview-sadv-reviewing-p' => '$1 للمستخدمين الآخرين مراجعتك لهذه الصفحة.',
 	'revreview-sadv-reviewing-c' => '$1 للمستخدمين الآخرين مراجعتك لهذه التعديلات.',
 	'revreview-adv-start-link' => 'أعلن',
@@ -738,8 +738,8 @@ $messages['be-tarask'] = array(
 	'revreview-successful2' => "'''З вэрсіі [[:$1|$1]] было пасьпяхова зьнятае пазначэньне.'''",
 	'revreview-poss-conflict-p' => "'''Папярэджаньне: [[User:$1|$1]] пачаў рэцэнзаваньне гэтай старонкі $2 у $3.'''",
 	'revreview-poss-conflict-c' => "'''Папярэджаньне: [[User:$1|$1]] пачаў рэцэнзаваньне гэтых зьменаў $2 у $3.'''",
-	'revreview-adv-reviewing-p' => 'Заўвага: Іншыя рэцэнзэнты могуць бачыць, што Вы рэцэнзуеце гэтую старонку.',
-	'revreview-adv-reviewing-c' => 'Заўвага: Іншыя рэцэнзэнты могуць бачыць, што Вы рэцэнзуеце гэтыя зьмены.',
+	'revreview-adv-reviewing-p' => 'Заўвага: Іншыя рэцэнзэнты могуць бачыць, што Вы рэцэнзуеце гэтую старонку.', # Fuzzy
+	'revreview-adv-reviewing-c' => 'Заўвага: Іншыя рэцэнзэнты могуць бачыць, што Вы рэцэнзуеце гэтыя зьмены.', # Fuzzy
 	'revreview-sadv-reviewing-p' => 'Вы можаце $1 усім, што Вы рэцэнзуеце гэтую старонку.',
 	'revreview-sadv-reviewing-c' => 'Вы можаце $1 усім, што Вы рэцэнзуеце гэтыя зьмены.',
 	'revreview-adv-start-link' => 'рэклямаваць',
@@ -1287,8 +1287,8 @@ $messages['de-formal'] = array(
 Siehe die [[Special:Unreviewedpages|Liste unmarkierter Versionen]].',
 	'revreview-stable1' => 'Vielleicht möchten Sie [{{fullurl:$1|stableid=$2}} die markierte Version] aufrufen, um zu sehen, ob es nunmehr die [{{fullurl:$1|stable=1}} freigegebene Version] dieser Seite ist?',
 	'revreview-stable2' => 'Vielleicht möchten Sie die [{{fullurl:$1|stable=1}} freigegebene Version] dieser Seite sehen?',
-	'revreview-adv-reviewing-p' => 'Hinweis: Andere Benutzer werden nun darauf hingewiesen, dass Sie diese Seite überprüfen.',
-	'revreview-adv-reviewing-c' => 'Hinweis: Andere Benutzer werden nun darauf hingewiesen, dass Sie diese Änderungen überprüfen.',
+	'revreview-adv-reviewing-p' => 'Hinweis: Andere Benutzer werden nun darauf hingewiesen, dass Sie diese Seite überprüfen.', # Fuzzy
+	'revreview-adv-reviewing-c' => 'Hinweis: Andere Benutzer werden nun darauf hingewiesen, dass Sie diese Änderungen überprüfen.', # Fuzzy
 	'revreview-sadv-reviewing-p' => 'Sie können andere Benutzer darauf hinweisen, dass Sie diese Seite $1.',
 	'revreview-sadv-reviewing-c' => 'Sie können andere Benutzer darauf hinweisen, dass Sie diese Änderungen $1.',
 	'revreview-adv-start-link' => 'überprüfen',
@@ -1425,8 +1425,8 @@ Glědaj [[Special:Unreviewedpages|lisćinu njepśeglědanych bokow]].',
 	'revreview-successful2' => "'''Markěrowanje [[:$1|$1]] jo se wuspěšnje wótpórało.'''",
 	'revreview-poss-conflict-p' => "'''Warnowanje: [[User:$1|$1]] jo zachopił toś ten bok $2, $3 pśeglědaś.'''",
 	'revreview-poss-conflict-c' => "'''Warnowanje: [[User:$1|$1]] jo zachopił toś te změny $2, $3 pśeglědaś.'''",
-	'revreview-adv-reviewing-p' => 'Glědaj: Druge pśeglědarje mógu wiźeś, až pśeglědujoš toś ten bok.',
-	'revreview-adv-reviewing-c' => 'Glědaj: Druge pśeglědarje mógu wiźeś, až pśeglědujoš toś te změny.',
+	'revreview-adv-reviewing-p' => 'Glědaj: Druge pśeglědarje mógu wiźeś, až pśeglědujoš toś ten bok.', # Fuzzy
+	'revreview-adv-reviewing-c' => 'Glědaj: Druge pśeglědarje mógu wiźeś, až pśeglědujoš toś te změny.', # Fuzzy
 	'revreview-sadv-reviewing-p' => 'Móžoš drugich wužywarjow na to $1, až pśeglědujoš toś ten bok.',
 	'revreview-sadv-reviewing-c' => 'Móžoš sam drugich wužywarjow $1, až pśeglědujoš toś te změny.',
 	'revreview-adv-start-link' => 'dopomnjeś',
@@ -1596,8 +1596,8 @@ Vidu la [[Special:Unreviewedpages|liston de nereviziitaj paĝoj]] .',
 	'revreview-successful2' => "'''Versio de [[:$1|$1]] sukcese malmarkita.'''",
 	'revreview-poss-conflict-p' => "'''Atentu: [[User:$1|$1]] ekkontrolis ĉi tiun paĝon je $2 $3.'''",
 	'revreview-poss-conflict-c' => "'''Atentu: [[User:$1|$1]] ekkontrolis ĉi tiujn paĝojn je $2 $3.'''",
-	'revreview-adv-reviewing-p' => 'Notu: aliaj reviziantoj povas vidi ke vi revizias ĉi tiun paĝon.',
-	'revreview-adv-reviewing-c' => 'Notu: aliaj reviziantoj povas vidi ke vi revizias ĉi tiujn ŝanĝojn.',
+	'revreview-adv-reviewing-p' => 'Notu: aliaj reviziantoj povas vidi ke vi revizias ĉi tiun paĝon.', # Fuzzy
+	'revreview-adv-reviewing-c' => 'Notu: aliaj reviziantoj povas vidi ke vi revizias ĉi tiujn ŝanĝojn.', # Fuzzy
 	'revreview-sadv-reviewing-p' => 'Vi povas $1 al aliaj uzantoj ke vi revizias ĉi tiun paĝon.',
 	'revreview-sadv-reviewing-c' => 'Vi povas $1 al aliaj uzantoj ke vi revizias ĉi tiujn ŝanĝojn.',
 	'revreview-adv-start-link' => 'anonci',
@@ -2332,8 +2332,8 @@ Lueg au d [[Special:Unreviewedpages|Lischt vu nit markierte Versione]].',
 	'revreview-successful2' => "'''D Markierig vu dr Version vu [[:$1|$1]] isch ufghobe wore.'''",
 	'revreview-poss-conflict-p' => "'''Obacht: De Benutzer [[User:$1|$1]] het am $2 um $3 Uhr demit aagfange die Syte z überpriefe.'''",
 	'revreview-poss-conflict-c' => "'''Obacht: De Benutzer [[User:$1|$1]] het am $2 um $3 Uhr demit aagfange die Änderige z überpriefe.'''",
-	'revreview-adv-reviewing-p' => 'Hyywys: Andri Bentzer wärde ab jetz druf hyygwyse, dass du die Syte überpriefe duesch.',
-	'revreview-adv-reviewing-c' => 'Hyywys: Andri Bentzer wärde ab jetz druf hyygwyse, dass du die Änderige überpriefe duesch.',
+	'revreview-adv-reviewing-p' => 'Hyywys: Andri Bentzer wärde ab jetz druf hyygwyse, dass du die Syte überpriefe duesch.', # Fuzzy
+	'revreview-adv-reviewing-c' => 'Hyywys: Andri Bentzer wärde ab jetz druf hyygwyse, dass du die Änderige überpriefe duesch.', # Fuzzy
 	'revreview-sadv-reviewing-p' => 'Du chasch andri Benutzer $1 dass du die Syte überpriefe duesch.',
 	'revreview-sadv-reviewing-c' => 'Du chasch andri Benutzer $1 dass du die Änderige überpriefe duesch.',
 	'revreview-adv-start-link' => 'druff hyywyse',
@@ -2632,8 +2632,8 @@ Hlej [[Special:Unreviewedpages|za lisćinu njepřepruwowanych stronow]].',
 	'revreview-successful2' => "'''Woznamjenjenje wersije [[:$1|$1]] je so wuspěšnje wotstroniło.'''",
 	'revreview-poss-conflict-p' => "'''Warnowanje: [[User:$1|$1]] započa tutu stronu $2, $3 přepruwować.'''",
 	'revreview-poss-conflict-c' => "'''Warnowanje: [[User:$1|$1]] započa tute změny $2, $3 přepruwować.'''",
-	'revreview-adv-reviewing-p' => 'Kedźbu: Druzy přepruwowarjo móža widźeć, zo tutu stronu přepruwuješ.',
-	'revreview-adv-reviewing-c' => 'Kedźbu: Druzy přepruwowarjo móža widźeć, zo tute změny přepruwuješ.',
+	'revreview-adv-reviewing-p' => 'Kedźbu: Druzy přepruwowarjo móža widźeć, zo tutu stronu přepruwuješ.', # Fuzzy
+	'revreview-adv-reviewing-c' => 'Kedźbu: Druzy přepruwowarjo móža widźeć, zo tute změny přepruwuješ.', # Fuzzy
 	'revreview-sadv-reviewing-p' => 'Móžeš druhich wužiwarjow na to $1, zo tutu stronu přepruwuješ.',
 	'revreview-sadv-reviewing-c' => 'Móžeš druhich wužiwarjow na to $1, zo tute změny přepruwuješ.',
 	'revreview-adv-start-link' => 'skedźbnić',
@@ -2721,8 +2721,8 @@ Lásd az [[Special:Unreviewedpages|ellenőrizetlen lapok listáját]].',
 	'revreview-successful2' => "'''A(z) [[:$1|$1]] változatáról sikeresen eltávolítottad a jelölést.'''",
 	'revreview-poss-conflict-p' => "'''Figyelem: [[User:$1|$1]] elkezdte ellenőrizni a lapot ekkor: $2   $3'''",
 	'revreview-poss-conflict-c' => "'''Figyelem: [[User:$1|$1]] elkezdte ellenőrizni a lapon történt változásokat ekkor: $2   $3'''",
-	'revreview-adv-reviewing-p' => 'Figyelem: A többi szerkesztő látja, hogy éppen ellenőrzöd ezt a lapot.',
-	'revreview-adv-reviewing-c' => 'Figyelem: A többi szerkesztő látja, hogy éppen ellenőrzöd ezeket a változásokat.',
+	'revreview-adv-reviewing-p' => 'Figyelem: A többi szerkesztő látja, hogy éppen ellenőrzöd ezt a lapot.', # Fuzzy
+	'revreview-adv-reviewing-c' => 'Figyelem: A többi szerkesztő látja, hogy éppen ellenőrzöd ezeket a változásokat.', # Fuzzy
 	'revreview-sadv-reviewing-p' => '$1 a többi szerkesztő számára, hogy dolgozol a lap ellenőrzésén.',
 	'revreview-sadv-reviewing-c' => '$1 a többi szerkesztő számára, hogy dolgozol a változások ellenőrzésén.',
 	'revreview-adv-start-link' => 'Jelezheted',
@@ -2803,8 +2803,8 @@ Vide le [[Special:Unreviewedpages|lista de paginas non revidite]].',
 	'revreview-successful2' => "'''Le version de [[:$1|$1]] ha essite dismarcate con successo.'''",
 	'revreview-poss-conflict-p' => "'''Attention: [[User:$1|$1]] comenciava a revider iste pagina le $2 a $3.'''",
 	'revreview-poss-conflict-c' => "'''Attention: [[User:$1|$1]] comenciava a revider iste modificationes le $2 a $3.'''",
-	'revreview-adv-reviewing-p' => 'Nota: Altere revisores pote vider que tu revide iste pagina.',
-	'revreview-adv-reviewing-c' => 'Nota: Altere revisores pote vider que tu revide iste cambiamentos.',
+	'revreview-adv-reviewing-p' => 'Nota: Altere revisores pote vider que tu revide iste pagina.', # Fuzzy
+	'revreview-adv-reviewing-c' => 'Nota: Altere revisores pote vider que tu revide iste cambiamentos.', # Fuzzy
 	'revreview-sadv-reviewing-p' => 'Tu pote $1 al altere usatores que tu revide iste pagina.',
 	'revreview-sadv-reviewing-c' => 'Tu pote $1 al altere usatores que tu revide iste cambiamentos.',
 	'revreview-adv-start-link' => 'annunciar',
@@ -2891,8 +2891,8 @@ Lihat [[Special:Unreviewedpages]] untuk daftar halaman yang belum ditinjau.',
 	'revreview-successful2' => "'''Penandaan revisi [[:$1|$1]] berhasil dibatalkan.'''",
 	'revreview-poss-conflict-p' => "'''Peringatan: [[User:$1|$1]] mulai meninjau halaman ini pada $2 $3.'''",
 	'revreview-poss-conflict-c' => "'''Peringatan: [[User:$1|$1]] mulai meninjau perubahan ini pada $2 $3.'''",
-	'revreview-adv-reviewing-p' => 'Perhatian: Peninjau lainnya dapat melihat bahwa Anda sedang meninjau halaman ini.',
-	'revreview-adv-reviewing-c' => 'Perhatian: Peninjau lainnya dapat melihat bahwa Anda sedang meninjau perubahan ini.',
+	'revreview-adv-reviewing-p' => 'Perhatian: Peninjau lainnya dapat melihat bahwa Anda sedang meninjau halaman ini.', # Fuzzy
+	'revreview-adv-reviewing-c' => 'Perhatian: Peninjau lainnya dapat melihat bahwa Anda sedang meninjau perubahan ini.', # Fuzzy
 	'revreview-sadv-reviewing-p' => 'Anda dapat $1 diri sedang meninjau halaman ini kepada pengguna lainnya.',
 	'revreview-sadv-reviewing-c' => 'Anda dapat $1 diri sedang meninjau perubahan ini kepada pengguna lainnya.',
 	'revreview-adv-start-link' => 'mengiklankan',
@@ -2970,8 +2970,8 @@ Sjá nánar á [[Special:Unreviewedpages|lista yfir óskoðaðar síður]].',
 	'revreview-submit-reviewed' => 'Búið. Samþykkt!',
 	'revreview-poss-conflict-p' => "'''Viðvörun: [[User:$1|$1]] hóf að yfirfara síðuna $2 kl. $3.'''",
 	'revreview-poss-conflict-c' => "'''Viðvörun: [[User:$1|$1]] hóf að yfirfara þessar breytingar $2 kl. $3.'''",
-	'revreview-adv-reviewing-p' => 'Tilkynning: Aðrir ritstjórar geta séð að þú sért að yfirfara þessa síðu.',
-	'revreview-adv-reviewing-c' => 'Tilkynning: Aðrir ritsjórar geta séð að þú sért að yfirfara þessar breytingar.',
+	'revreview-adv-reviewing-p' => 'Tilkynning: Aðrir ritstjórar geta séð að þú sért að yfirfara þessa síðu.', # Fuzzy
+	'revreview-adv-reviewing-c' => 'Tilkynning: Aðrir ritsjórar geta séð að þú sért að yfirfara þessar breytingar.', # Fuzzy
 	'revreview-sadv-reviewing-p' => 'Þú getur $1 að þú sért að yfirfara þessa síðu.',
 	'revreview-sadv-reviewing-c' => 'Þú getur $1 að þú sért að yfirfara þessar breytingar.',
 	'revreview-adv-start-link' => 'tilkynnt',
@@ -3446,7 +3446,7 @@ Looer noh de [[Special:Unreviewedpages|Leß met de nit nohjekikte Sigge]].',
 	'revreview-successful2' => "'''Di Version vun dä Sigg „[[:$1|$1]]“ es jäz wider zeröck jeshtoof.'''",
 	'revreview-poss-conflict-p' => "'''Opjepaß: {{GENDER:$2|Dä|Et|Dä Metmaacher|De|Dat}} [[User:$1|$1]] hät aam $2 öm $3 Uhr aanjefange, heh di Sigg nohzekike.'''",
 	'revreview-poss-conflict-c' => "'''Opjepaß: {{GENDER:$2|Dä|Et|Dä Metmaacher|De|Dat}} [[User:$1|$1]] hät aam $2 öm $3 Uhr aanjefange, heh di Änderonge nohzekike.'''",
-	'revreview-adv-reviewing-p' => 'Opjepaß: De andere Nohkiker künne sinn, dat De di Sigg aam nohkike bes.',
+	'revreview-adv-reviewing-p' => 'Opjepaß: De andere Nohkiker künne sinn, dat De di Sigg aam nohkike bes.', # Fuzzy
 	'revreview-toolow' => 'Do moß för jeede vun dä Eijeschaffte unge en Not udder Präddikaat jävve, wat bäßer wi „{{lcfirst:{{int:revreview-style-0}}}}“ es, domet di Version als nohjekik jeldt. Öm en Version widder zeröckzeshtoofe, donn alle Präddikaate op „{{lcfirst:{{int:revreview-style-0}}}}“ säze.', # Fuzzy
 	'revreview-update' => "Bes esu joot, un donn all de Änderunge ''(unge sin se opjeliß)'' [[{{MediaWiki:Validationpage}}|nohkike]], di jemaat woodte, zick däm de {{int:stablepages-stable}} et letz [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} {{lcfirst:{{int:revreview-approved}}}}] woode es.<br />
 '''E paa Schablohne, Datteije, udder beeds, sin jeändert woode:'''", # Fuzzy
@@ -4483,8 +4483,8 @@ Veja a [[Special:Unreviewedpages|lista de páginas não revistas]].',
 	'revreview-successful2' => "'''A edição de [[:$1|$1]] foi desmarcada com sucesso.'''",
 	'revreview-poss-conflict-p' => "'''Aviso: O utilizador [[User:$1|$1]] começou a rever esta página às $3 de $2.'''",
 	'revreview-poss-conflict-c' => "'''Aviso: O utilizador [[User:$1|$1]] começou a rever estas alterações às $3 de $2.'''",
-	'revreview-adv-reviewing-p' => 'Aviso: Os outros revisores podem ver que está a revisar esta página.',
-	'revreview-adv-reviewing-c' => 'Aviso: Os outros revisores podem ver que está a revisar estas alterações.',
+	'revreview-adv-reviewing-p' => 'Aviso: Os outros revisores podem ver que está a revisar esta página.', # Fuzzy
+	'revreview-adv-reviewing-c' => 'Aviso: Os outros revisores podem ver que está a revisar estas alterações.', # Fuzzy
 	'revreview-sadv-reviewing-p' => 'Você pode $1 aos outros utilizadores que está a revisar esta página.',
 	'revreview-sadv-reviewing-c' => 'Pode $1 os outros utilizadores de que está a rever estas alterações.',
 	'revreview-adv-start-link' => 'informar',
@@ -4568,8 +4568,8 @@ Veja a [[Special:Unreviewedpages|lista de páginas não revisadas]].',
 	'revreview-successful2' => "'''A edição de [[:$1|$1]] foi desmarcada com sucesso.'''",
 	'revreview-poss-conflict-p' => "'''Aviso: O usuário [[User:$1|$1]] começou a revisar esta página às $3 de $2.'''",
 	'revreview-poss-conflict-c' => "'''Aviso: O usuário [[User:$1|$1]] começou a revisar estas alterações às $3 de $2.'''",
-	'revreview-adv-reviewing-p' => 'Aviso: Os outros revisores podem ver que está revisando esta página.',
-	'revreview-adv-reviewing-c' => 'Aviso: Os outros revisores podem ver que está revisando estas alterações.',
+	'revreview-adv-reviewing-p' => 'Aviso: Os outros revisores podem ver que está revisando esta página.', # Fuzzy
+	'revreview-adv-reviewing-c' => 'Aviso: Os outros revisores podem ver que está revisando estas alterações.', # Fuzzy
 	'revreview-sadv-reviewing-p' => 'Você pode $1 aos outros usuários que está revisando esta página.',
 	'revreview-sadv-reviewing-c' => 'Você pode $1 aos outros usuários que está revisando estas alterações.',
 	'revreview-adv-start-link' => 'informar',
@@ -5318,8 +5318,8 @@ Se [[Special:Unreviewedpages|listan över ogranskade sidor]].',
 	'revreview-successful2' => "'''Vald sidversion av [[:$1|$1]] har avflaggats.'''",
 	'revreview-poss-conflict-p' => "'''Varning: [[User:$1|$1]] började granska denna sida den $2 kl. $3.'''",
 	'revreview-poss-conflict-c' => "'''Varning: [[User:$1|$1]] började granska dessa ändringar den $2 kl. $3.'''",
-	'revreview-adv-reviewing-p' => 'OBS: Andra granskare kan se att du granskar denna sida.',
-	'revreview-adv-reviewing-c' => 'OBS: Andra granskare kan se att du granskar dessa ändringar.',
+	'revreview-adv-reviewing-p' => 'OBS: Andra granskare kan se att du granskar denna sida.', # Fuzzy
+	'revreview-adv-reviewing-c' => 'OBS: Andra granskare kan se att du granskar dessa ändringar.', # Fuzzy
 	'revreview-sadv-reviewing-p' => 'Du kan $1 dig själv som att du granskar denna sida till andra användare.',
 	'revreview-sadv-reviewing-c' => 'Du kan $1 dig själv som att du granskar dessa ändringar till andra användare.',
 	'revreview-adv-start-link' => 'annonsera',
@@ -5424,8 +5424,8 @@ $messages['te'] = array(
 	'revreview-submit-review' => 'కూర్పుని అంగీకరించు',
 	'revreview-submit-reject' => 'మార్పులను తిరస్కరించండి',
 	'revreview-submit-reviewed' => 'పూర్తియ్యింది. అంగీకరించారు!',
-	'revreview-adv-reviewing-p' => 'గమనిక: మీరు ఈ పేజీని సమీక్షిస్తున్న విషయాన్ని ఇతర సమీక్షకులు చూడగలరు.',
-	'revreview-adv-reviewing-c' => 'గమనిక: మీరు ఈ మార్పులను సమీక్షిస్తున్న విషయాన్ని ఇతర సమీక్షకులు చూడగలరు.',
+	'revreview-adv-reviewing-p' => 'గమనిక: మీరు ఈ పేజీని సమీక్షిస్తున్న విషయాన్ని ఇతర సమీక్షకులు చూడగలరు.', # Fuzzy
+	'revreview-adv-reviewing-c' => 'గమనిక: మీరు ఈ మార్పులను సమీక్షిస్తున్న విషయాన్ని ఇతర సమీక్షకులు చూడగలరు.', # Fuzzy
 	'revreview-toolow' => 'ఓ కూర్పును సమీక్షించినట్లుగా భావించాలంటే కింద ఇచ్చిన గుణాలన్నిటినీ "సమ్మతించలేదు" కంటే ఉన్నతంగా రేటు చెయ్యాలి.', # Fuzzy
 	'revreview-update' => "సుస్థిర కూర్పుని [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} అనుమతించిన] తర్వాత జరిగిన ''(క్రింద చూపించిన)'' మార్పులను [[{{MediaWiki:Validationpage}}|సమీక్షించండి]].
 
@@ -5586,8 +5586,8 @@ Tingnan ang [[Special:Unreviewedpages|talaan ng mga pahina hindi pa nasusuring m
 	'revreview-successful2' => "'''Matagumpay ang pagtatanggal ng bandila (pagaalis ng tatak) sa pagbabago ng [[:$1|$1]].'''",
 	'revreview-poss-conflict-p' => "'''Babala: Nagsimula si [[User:$1|$1]] na magsuring muli ng pahinang ito noong $2 noong $3.'''",
 	'revreview-poss-conflict-c' => "'''Babala: Nagsimula si [[User:$1|$1]] na magsuring muli ng mga pagbabagong ito noong $2 noong $3.'''",
-	'revreview-adv-reviewing-p' => 'Paunawa: Nakikita ng ibang mga manunuri na sinusuri mo ang pahinang ito.',
-	'revreview-adv-reviewing-c' => 'Paunawa: Makikita ng ibang mga manunuri na sinusuri mo ang mga pagbabagong ito.',
+	'revreview-adv-reviewing-p' => 'Paunawa: Nakikita ng ibang mga manunuri na sinusuri mo ang pahinang ito.', # Fuzzy
+	'revreview-adv-reviewing-c' => 'Paunawa: Makikita ng ibang mga manunuri na sinusuri mo ang mga pagbabagong ito.', # Fuzzy
 	'revreview-sadv-reviewing-p' => 'Maaari mong $1 ang sarili mo bilang nagsusuri ng pahinang ito sa ibang mga tagagamit.',
 	'revreview-sadv-reviewing-c' => 'Maaari mong $1 ang sarili bilang nagsusuri ng mga pagbabagong ito sa ibang mga tagagamit.',
 	'revreview-adv-start-link' => 'ianunsiyo',
@@ -5877,8 +5877,8 @@ Varda la [[Special:Unreviewedpages|lista de pagine da riesaminar]].',
 	'revreview-submit-unreviewed' => 'Finìo. Rifiutà!',
 	'revreview-successful' => "'''La revision de [[:$1|$1]] la xe stà verificà. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} varda tute le version stabili])'''",
 	'revreview-successful2' => "'''Cavà el contrassegno a la version selessionà de [[:$1|$1]].'''",
-	'revreview-adv-reviewing-p' => 'Ocio: Altri contribudori i pol vedare che sito drio riesaminare sta pajina.',
-	'revreview-adv-reviewing-c' => 'Ocio: Altri contribudori i pol vedare che sito drio riesaminare sti canbiamenti.',
+	'revreview-adv-reviewing-p' => 'Ocio: Altri contribudori i pol vedare che sito drio riesaminare sta pajina.', # Fuzzy
+	'revreview-adv-reviewing-c' => 'Ocio: Altri contribudori i pol vedare che sito drio riesaminare sti canbiamenti.', # Fuzzy
 	'revreview-toolow' => '\'\'\'Ti gà da segnar ognuno dei atributi qua soto piessè alto de "Non aprovà" parché la revision la sia considerà verificà.\'\'\'
 
 Par anular el stato de na revision, struca "disaprova".
@@ -5991,8 +5991,8 @@ Mời xem [[Special:Unreviewedpages|danh sách các trang chưa được duyệt
 	'revreview-successful2' => "'''Phiên bản của [[:$1|$1]] đã được bỏ cờ thành công.'''",
 	'revreview-poss-conflict-p' => "'''Cảnh báo: [[User:$1|$1]] đã bắt đầu duyệt trang này vào $2 lúc $3.'''",
 	'revreview-poss-conflict-c' => "'''Cảnh báo: [[User:$1|$1]] đã bắt đầu duyệt các thay đổi này vào $2 lúc $3.'''",
-	'revreview-adv-reviewing-p' => 'Chú ý: Những người duyệt bài khác có thể xem rằng bạn đang duyệt trang này.',
-	'revreview-adv-reviewing-c' => 'Chú ý: Những người duyệt bài khác có thể xem rằng bạn đang duyệt các thay đổi này.',
+	'revreview-adv-reviewing-p' => 'Chú ý: Những người duyệt bài khác có thể xem rằng bạn đang duyệt trang này.', # Fuzzy
+	'revreview-adv-reviewing-c' => 'Chú ý: Những người duyệt bài khác có thể xem rằng bạn đang duyệt các thay đổi này.', # Fuzzy
 	'revreview-sadv-reviewing-p' => 'Bạn có thể $1 cho người ta biết rằng bạn đang duyệt trang này.',
 	'revreview-sadv-reviewing-c' => 'Bạn có thể $1 cho người ta biết rằng bạn đang duyệt các thay đổi này.',
 	'revreview-adv-start-link' => 'báo',
@@ -6218,8 +6218,8 @@ $messages['zh-hant'] = array(
 	'revreview-successful2' => "'''[[:$1|$1]]的指定版本已成功移除標記。'''",
 	'revreview-poss-conflict-p' => "'''警告：[[User:$1|$1]]在$2$3時開始審閱此頁面。 '''",
 	'revreview-poss-conflict-c' => "'''警告：[[User:$1|$1]]在$2$3時開始審閱這些更改。 '''",
-	'revreview-adv-reviewing-p' => '注意：其他複審員可以看到您正在審閱本頁。',
-	'revreview-adv-reviewing-c' => '注意：其他複審員可以看到您正在審閱這些更改。',
+	'revreview-adv-reviewing-p' => '注意：其他複審員可以看到您正在審閱本頁。', # Fuzzy
+	'revreview-adv-reviewing-c' => '注意：其他複審員可以看到您正在審閱這些更改。', # Fuzzy
 	'revreview-sadv-reviewing-p' => '您可以$1您正在審閱本頁面。',
 	'revreview-sadv-reviewing-c' => '您可以$1您正在審閱這些更改。',
 	'revreview-adv-start-link' => '告知其他用戶',
