@@ -1715,7 +1715,7 @@ class FlaggablePageView extends ContextSource {
 		if ( $extraQuery !== '' ) {
 			$extraQuery .= '&';
 		}
-		$extraQuery .= wfArrayToCGI( $params ); // note: EditPage will add initial "&"
+		$extraQuery .= wfArrayToCgi( $params ); // note: EditPage will add initial "&"
 		return true;
 	}
 

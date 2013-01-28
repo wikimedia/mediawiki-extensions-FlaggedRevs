@@ -51,7 +51,7 @@ class ProblemChanges extends SpecialPage {
 			'category'  => $request->getVal( 'category' ),
 		);
 		$this->getOutput()->setSyndicated( true );
-		$this->getOutput()->setFeedAppendQuery( wfArrayToCGI( $queryParams ) );
+		$this->getOutput()->setFeedAppendQuery( wfArrayToCgi( $queryParams ) );
 	}
 
 	public function showForm() {
