@@ -8571,6 +8571,8 @@ $messages['ka'] = array(
 	'revreview-style-2' => 'კარგი',
 	'revreview-style-3' => 'მცირესიტყვოვანი',
 	'revreview-style-4' => 'რჩეული',
+	'revreview-toggle-show' => '(+)',
+	'revreview-toggle-hide' => '(-)',
 	'revreview-toggle-title' => 'დამატებითი ინფორმაციის ჩვენება/დამალვა',
 	'revreview-visibility-synced' => "'''ამ გვერდს აქვს განახლებული [[{{MediaWiki:Validationpage}}|გამოქვეყნებული ვერსიები]]; გამოქვეყნებული ვერსიების კონფიგურაცია შეგიძლიათ [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} შეცვალოთ].'''",
 	'revreview-visibility-outdated' => "'''ამ გვერდს აქვს მოძველებული [[{{MediaWiki:Validationpage}}|გამოქვეყნებული ვერსიები]]; გამოქვეყნებული ვერსიების კონფიგურაცია შეგიძლიათ [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} შეცვალოთ].'''",

@@ -501,7 +501,7 @@ $specialPageAliases['nb'] = array(
 	'ValidationStatistics' => array( 'Valideringsstatistikk' ),
 );
 
-/** Nedersaksies (Nedersaksies) */
+/** Low Saxon (Netherlands) (Nedersaksies) */
 $specialPageAliases['nds-nl'] = array(
 	'PendingChanges' => array( 'Wiezigingen_in_wachtrie' ),
 	'ProblemChanges' => array( 'Problematiese_wiezigingen' ),
