@@ -2115,6 +2115,8 @@ $messages['km'] = array(
 	'stabilize_page_invalid' => 'ឈ្មោះឯកសារគោលដៅមិនត្រឹមត្រូវ។',
 	'stabilize_page_notexists' => 'មិនមាន​ទំព័រ​គោលដៅនេះ​ទេ​។',
 	'stabilize_expiry_invalid' => 'កាលបរិច្ឆេទផុតកំណត់មិនត្រឹមត្រូវ។',
+	'stabilize_expiry_old' => 'កាលបរិច្ឆេទផុតកំណត់បានហួសផុតបាត់ទៅហើយ។',
+	'stabilize_denied' => 'ការអនុញ្ញាតត្រូវបដិសេដ។',
 	'stabilize-expiring' => 'ផុតកំណត់ម៉ោង $1 (UTC)',
 );
 

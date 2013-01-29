@@ -5392,6 +5392,7 @@ Tarkista URL-osoite, jolla hait tätä sivua.',
  * @author Dodoïste
  * @author Gomoko
  * @author Grondin
+ * @author Guillom
  * @author IAlex
  * @author Jean-Frédéric
  * @author Korrigan
@@ -5427,7 +5428,7 @@ $messages['fr'] = array(
 	'flaggedrevs-prefs-watch' => 'Ajouter les pages que je relis à ma liste de suivi.',
 	'flaggedrevs-prefs-editdiffs' => 'Montrer le diff des modifications en attente lorsque vous modifiez des pages',
 	'flaggedrevs-prefs-viewdiffs' => 'Montrer le diff des modifications en attente lorsque la dernière version en attente d’une page est consultée',
-	'flaggedrevs-hidereviewed' => '$1 a examiné les modifications',
+	'flaggedrevs-hidereviewed' => '$1 les modifications relues.',
 	'group-editor' => 'Contributeurs',
 	'group-editor-member' => '{{GENDER:$1|contributeur|contributrice}}',
 	'group-reviewer' => 'Relecteurs',
