@@ -1518,16 +1518,16 @@ $messages['el'] = array(
 	'revreview-sadv-reviewing-c' => 'Μπορείτε να  $1  μόνος σας καθώς επιθεωρείτε αυτές τις αλλαγές σε άλλους χρήστες.',
 	'revreview-adv-start-link' => 'διαφημίστε',
 	'revreview-adv-stop-link' => 'από-διαφημίστε',
-	'revreview-toolow' => "'''Θα πρέπει να βαθμολογήσετε κάθε ένα από τα χαρακτηριστικά που είναι υψηλότερο από «ανεπαρκές» προκειμένου να θεωρηθεί μια αναθεώρηση εξετασθείσα.'''
+	'revreview-toolow' => "'''Θα πρέπει να βαθμολογήσετε κάθε ένα από τα χαρακτηριστικά με βαθμό υψηλότερο από «ανεπαρκές» προκειμένου να θεωρηθεί μια αναθεώρηση εξετασθείσα.'''
 
-Για να καταργήσετε την κατάσταση εξέτασης μιας νέας έκδοσης , κάντε κλικ στο κουμπί «{{int:revreview-submit-unreview}}».
+Για να βγει μια αναθεώρηση από κατάσταση εξέτασης, κάντε κλικ στο «{{int:revreview-submit-unreview}}».
 
-Παρακαλούμε πατήστε το κουμπί \"Πίσω\" στο πρόγραμμα περιήγησης και προσπαθήστε ξανά.",
+Παρακαλούμε πατήστε το κουμπί «πίσω» στο πρόγραμμα περιήγησής σας και προσπαθήστε ξανά.",
 	'revreview-update' => "'''Παρακαλούμε [[{{MediaWiki:Validationpage}}|εξετάστε]] τις όποιες εκκρεμείς αλλαγές ''(εμφανίζονται παρακάτω)'' που έχουν γίνει μετά από τη σταθερή έκδοση.'''",
 	'revreview-update-edited' => '<span class="flaggedrevs_important"> Οι αλλαγές σας δεν είναι ακόμη σε σταθερή έκδοση.</span>
 
 Παρακαλώ επιθεωρήστε όλες τις αλλαγές που φαίνονται παρακάτω για να κάνετε τις αλλαγές σας να εμφανιστούν στην σταθερή έκδοση.',
-	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Οι αλλαγές σας δεν είναι ακόμα στη σταθερή έκδοση. Υπάρχουν προγενέστερες αλλαγές για τις οποίες εκκρεμεί επιθεώρηση.</span>
+	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Οι αλλαγές σας δεν είναι ακόμα στη σταθερή έκδοση. Υπάρχουν προγενέστερες αλλαγές για τις οποίες εκκρεμεί εξέταση.</span>
 
 Παρακαλούμε εξετάσετε όλες τις αλλαγές που φαίνονται παρακάτω για να κάνετε τις επεξεργασίες σας να εμφανιστούν στη σταθερή έκδοση.',
 	'revreview-update-includes' => 'Πρότυπα/αρχεία ενημερώθηκαν (μη επιθεωρημένες σελίδες με έντονους χαρακτήρες):',
@@ -1536,7 +1536,7 @@ $messages['el'] = array(
 	'revreview-reject-summary' => 'Σύνοψη:',
 	'revreview-reject-confirm' => 'Απόρριψη αυτών των αλλαγών',
 	'revreview-reject-cancel' => 'Ακύρωση',
-	'revreview-reject-summary-cur' => '{{PLURAL:$1|Απορρίφθηκε η τελευταία αλλαγή|Απορρίφθηκαν οι $1 τελευταίες αλλαγές}} (από $2) κειμένου και αποκαταστάθηκε η αναθεώρηση $3 από $4',
+	'revreview-reject-summary-cur' => '{{PLURAL:$1|Απορρίφθηκε η τελευταία αλλαγή|Απορρίφθηκαν οι $1 τελευταίες αλλαγές}} κειμένου (από $2) και αποκαταστάθηκε η αναθεώρηση $3 από $4',
 	'revreview-reject-summary-old' => 'Απορρίφθηκε η πρώτη {{PLURAL:$1|αλλαγή κειμένου|$1 αλλαγές κειμένου}} (από $2) που ακολούθησε την αναθεώρηση $3 από $4',
 	'revreview-reject-summary-cur-short' => '{{PLURAL:$1|Απορρίφθηκε η τελευταία $1 αλλαγή|Απορρίφθηκαν οι τελευταίες $1 αλλαγές}} κειμένου και αποκαταστάθηκε η αναθεώρηση $2 από $3',
 	'revreview-reject-summary-old-short' => 'Απορρίφθηκε η πρώτη {{PLURAL:$1|αλλαγή κειμένου|$1 αλλαγές κειμένου}} που ακολούθησαν την αναθεώρηση $2 από $3',
@@ -4689,7 +4689,9 @@ $messages['roa-tara'] = array(
 	'review_reject_excessive' => "Non ge pozze refiutà troppe cangiaminde tutte 'na vote.",
 	'review_reject_nulledits' => 'Non ge se ponne scettà ste cangiaminde purcé tutte le revisiune so cangiaminde nulle.',
 	'revreview-check-flag-p' => 'Accette sta versione (inglude $1 {{PLURAL:$1|cangiamende|cangiaminde}} appese)',
+	'revreview-check-flag-p-title' => "Accette 'u resultate de le cangiaminde appise e le cangiaminde fatte aqquà. Ause sulamende quiste ce tu è ggià 'ndrucate le differenze de le cangiaminde appise.",
 	'revreview-check-flag-u' => 'Accette sta pàgene none reviste',
+	'revreview-check-flag-u-title' => "Accette sta versione d'a pàgene. Ause sulamende quiste ce tu è ggià 'ndrucate 'a pàgene 'ndere.",
 	'revreview-check-flag-y' => 'Accette ste cangiaminde',
 	'revreview-check-flag-y-title' => 'Accette tutte le cangiaminde ca tu è fatte aqquà.',
 	'revreview-flag' => 'Revide sta revisione',
