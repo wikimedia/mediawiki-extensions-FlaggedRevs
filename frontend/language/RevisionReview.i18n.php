@@ -4714,6 +4714,8 @@ Vide 'a [[Special:Unreviewedpages|liste de le pàggene ca non g'onne state rivis
 	'revreview-successful2' => "'''Revisione de [[:$1|$1]] ha state luete 'u flag.'''",
 	'revreview-poss-conflict-p' => "'''Attenziò: [[User:$1|$1]] ave accumenzate a revisità sta pàgene 'u $2 a le $3.'''",
 	'revreview-poss-conflict-c' => "'''Attenziò: [[User:$1|$1]] ave accumenzate a revisità ste cangiaminde 'u $2 a le $3.'''",
+	'revreview-adv-reviewing-p' => 'Notizie: Otre revisitature ponne vedè ce {{GENDER:$1|tu}} ste revisione sta pàgene.',
+	'revreview-adv-reviewing-c' => 'Notizie: Otre revisitature ponne vedè ce {{GENDER:$1|tu}} ste revisione ste cangiaminde.',
 	'revreview-sadv-reviewing-p' => 'Tu puè $1 cumme revisitatore de sta pàgene a otre utinde.',
 	'revreview-sadv-reviewing-c' => 'Tu puè $1 cumme revisitatore de ste cangiaminde a otre utinde.',
 	'revreview-adv-start-link' => 'pubblecizze',
@@ -4727,6 +4729,9 @@ Pe piacere cazze 'u buttone \"back\" d'u browser tune e pruève arrete.",
 	'revreview-update-edited' => "<span class=\"flaggedrevs_important\">Le cangiaminde tune non ge stonne angore jndr'à 'na versione stabbile.</span>
 
 Pe piacere revisite tutte le pàggene aqquà sotte pe fà assè le cangiaminde tune jndr'à 'na versione stabbile.",
+	'revreview-update-edited-prev' => "<span class=\"flaggedrevs_important\">Le cangiaminde tune non ge stonne angore jndr'à 'na versiona stabbele. Stonne cangiaminde de apprime ca aspettane 'na revisione appese.</span>
+
+Pe piacere revisione tutte le cangiaminde ca iessene aqquà sotte pe fà ca le cangiaminde iessene jndr'à 'na versiona stabbele.",
 	'revreview-update-includes' => "''Certe template/file onne state aggiornate (pàggene none reviste in grascette):",
 	'revreview-reject-text-list' => "Pe combletà st'azione tu a '''scettà''' le cangiaminde da 'u teste de origgene da {{PLURAL:$1|'a seguende revisione|le seguende revisiune}} de [[:$2|$2]]:",
 	'revreview-reject-text-revto' => "Quiste annulle 'a pàgene turnanne a 'a [{{fullurl:$1|oldid=$2}} versione de $3].",
