@@ -706,7 +706,7 @@ Shown as dropdown option on lists or log pages to filter results.',
 {{Identical|Any}}
 Shown as dropdown option on lists or log pages to filter results.',
 	'revreview-restriction-none' => '{{Flagged Revs}}
-{{Identical|none}}
+{{Identical|None}}
 Shown as dropdown option on lists or log pages to filter results.',
 	'revreview-reviewlink' => '{{Flagged Revs}}
 Text of link to diff of the stable version against the latest version. "Edits" means "revisions" here.',
