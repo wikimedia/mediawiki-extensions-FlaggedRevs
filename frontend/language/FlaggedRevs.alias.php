@@ -486,7 +486,7 @@ $specialPageAliases['ms'] = array(
 	'UnreviewedPages' => array( 'Laman_tidak_diperiksa' ),
 );
 
-/** Norwegian Bokmål (norsk (bokmål)‎) */
+/** Norwegian Bokmål (norsk bokmål) */
 $specialPageAliases['nb'] = array(
 	'PendingChanges' => array( 'Gamle_anmeldte_sider' ),
 	'ProblemChanges' => array( 'Problemendringer' ),
@@ -531,7 +531,7 @@ $specialPageAliases['nl'] = array(
 	'ValidationStatistics' => array( 'Eindredactiestatistieken', 'StatistiekenEindredactie' ),
 );
 
-/** Norwegian Nynorsk (norsk (nynorsk)‎) */
+/** Norwegian Nynorsk (norsk nynorsk) */
 $specialPageAliases['nn'] = array(
 	'PendingChanges' => array( 'Gamle_vurderte_sider' ),
 	'QualityOversight' => array( 'Kvalitetsoversyn' ),
