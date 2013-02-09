@@ -11688,6 +11688,7 @@ $messages['pfl'] = array(
  * @author Soeb
  * @author Sovq
  * @author Sp5uhe
+ * @author Stanko
  * @author ToSter
  * @author Wpedzich
  * @author Žekřil71pl
@@ -11740,7 +11741,7 @@ $messages['pl'] = array(
 	'revreview-log-details-hide' => 'ukryj szczegóły',
 	'revreview-log-details-title' => 'Zmień widoczność rejestru konfiguracji stron',
 	'review-diff2stable' => 'Pokaż wszystkie zmiany oczekujące na przejrzenie',
-	'review-logentry-app' => 'przejrzał wersję [[$1]]',
+	'review-logentry-app' => '{{GENDER:$2|przejrzał|przejrzała}} wersję [[$1]]', # Fuzzy
 	'review-logentry-dis' => 'wycofał oznaczenie wersji [[$1]]',
 	'review-logentry-id' => 'zobacz wersję z $2',
 	'review-logentry-diff' => 'przejrzane zmiany',
