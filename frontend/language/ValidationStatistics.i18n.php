@@ -85,7 +85,8 @@ $1 Number of users in the "top active reviewers" list.
 $2 Number of hours of reviews the list is based on. The list includes items from $2 hours ago up to the present.',
 	'validationstatistics-user' => '{{Flagged Revs}}
 Shown on [[Special:ValidationStatistics]].
-Used as the "user" table column header for the "users who made the most reviews recently" table.',
+Used as the "user" table column header for the "users who made the most reviews recently" table.
+{{Identical|User}}',
 	'validationstatistics-reviews' => '{{Flagged Revs}}
 Shown on [[Special:ValidationStatistics]].
 Used as the "number of reviews" table column header for the "users who made the most reviews recently" table.
