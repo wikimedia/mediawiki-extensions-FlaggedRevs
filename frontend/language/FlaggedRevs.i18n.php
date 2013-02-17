@@ -270,7 +270,7 @@ $messages['qqq'] = array(
 General title for the [[Translating:Flagged Revs extension|Flagged Revs]] extension.
 * "flagged" in the sense of "has been seen, has been checked"',
 	'flaggedrevs-watched-pending' => '{{FlaggedRevs}}
-Appears on top of user watchlist (Special:Watchlist).',
+Appears on top of user watchlist ([[Special:Watchlist]]).',
 	'flaggedrevs-desc' => '{{Flagged Revs}}
 
 {{desc|name=Flagged Revisions|url=http://www.mediawiki.org/wiki/Extension:FlaggedRevs}}',
@@ -321,7 +321,13 @@ Show on [[Special:Preferences]]. This is for a setting to add an initially colla
 	'flaggedrevs-prefs-viewdiffs' => '{{Flagged Revs}}
 Show on [[Special:Preferences]]. This is for a setting to add an initially collapsed diff to the top of pages with pending changes. This is only added when the latest revision of the page is reviewed.',
 	'flaggedrevs-hidereviewed' => '{{Flagged Revs}}
-Shown within parenthesis on Special:Recentchanges, SpecialNewPages, and Special:Watchlist. This refers to a toggle to hide or show edits (revisions) that have been reviewed. If set to "hide", it also hides edits to pages that are not reviewable (like Talk pages). Parameters:
+Shown within parenthesis on [[Special:Recentchanges]], [[Special:NewPages]]  and [[Special:Watchlist]].
+
+This refers to a toggle to hide or show edits (revisions) that have been reviewed.
+
+If set to "hide", it also hides edits to pages that are not reviewable (like Talk pages).
+
+Parameters:
 * $1 is a link with the text {{msg-mw|show}} or {{msg-mw|hide}}',
 	'flaggedrevs-diffonly' => '{{Flagged Revs}}
 {{notranslate}}',
