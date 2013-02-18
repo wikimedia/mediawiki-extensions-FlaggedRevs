@@ -537,7 +537,7 @@ Shown below the error message a user gets when trying to edit a non-existent pag
 	'revreview-noflagged' => '{{Flagged Revs-small}}
 Shown above a page, when there are no accepted revisions of that page.',
 	'revreview-oldrating' => '{{Flagged Revs-small}}
-Used in the detailed version as label text for the ratings, see [http://translatewiki.net/w/images/8/84/FlaggedRevs.jpg this image] for an example.',
+Used in the detailed version as label text for the ratings, see [[:File:FlaggedRevs.jpg|this image]] for an example.',
 	'revreview-quality' => '{{Flagged Revs}}
 Shown when viewing a "quality" page with pending changes.
 * $1 The stable version ID
