@@ -102,6 +102,7 @@ $messages['az'] = array(
  */
 $messages['be'] = array(
 	'problemchanges' => 'Адзначаныя неправераныя змены',
+	'problemchanges-list' => 'На гэтай старонцы пералічаны [[{{MediaWiki:Validationpage}}|правераныя]] старонкі, якія маюць пазначаныя неправераныя праўкі. Гл. спіс [[Special:Tags|дапушчальных пазнак]].',
 	'problemchanges-legend' => 'Пералік старонак з адзначанымі праўкамі, якія чакаюць праверкі',
 	'problemchanges-none' => 'У цяперашні час няма старонак, якія адпавядаюць гэтым умовам',
 	'problemchanges-category' => 'Катэгорыя:',

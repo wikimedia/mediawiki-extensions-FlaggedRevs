@@ -681,7 +681,8 @@ Shown as dropdown option on lists or log pages to filter results.',
 {{Identical|Type}}
 Shown as dropdown option on lists or log pages to filter results.',
 	'revreview-filter-auto' => '{{Flagged Revs}}
-Shown as dropdown option on lists or log pages to filter results.',
+Shown as dropdown option on lists or log pages to filter results.
+{{Identical|Automatic}}',
 	'revreview-filter-manual' => '{{Flagged Revs}}
 Shown as dropdown option on lists or log pages to filter results.',
 	'revreview-levelfilter' => '{{Flagged Revs}}
@@ -1854,19 +1855,22 @@ $messages['be'] = array(
 	'flaggedrevs-pref-UI-1' => 'Невялікія значкі і мінімум тэксту для інфармацыі аб стане пацверджання старонкі',
 	'prefs-flaggedrevs' => 'Пацвярджэнне зменаў',
 	'prefs-flaggedrevs-ui' => 'Пацвярджэнне зменаў',
-	'flaggedrevs-prefs-stable' => 'Заўсёды паказваць па змаўчанні апублікаваную версію артыкула (калі такая існуе)', # Fuzzy
+	'flaggedrevs-prefs-stable' => 'Калі паказваць па змаўчанні апублікаваную версію артыкула',
+	'flaggedrevs-pref-stable-0' => 'Карыстацца настаўленнямі па змаўчанні для ўсіх старонак',
+	'flaggedrevs-pref-stable-1' => 'Заўсёды паказваць правераную версію (калі яна існуе)',
+	'flaggedrevs-pref-stable-2' => 'Заўсёды паказваць апошнюю версію',
 	'flaggedrevs-prefs-watch' => 'Дадаваць правераныя мною старонкі ў спіс назірання',
 	'flaggedrevs-prefs-editdiffs' => 'Паказваць розніцу паміж праверанай і неправеранай версіямі пры рэдагаванні старонак',
 	'flaggedrevs-prefs-viewdiffs' => 'Паказваць неправераныя змены пры праглядзе апошняй неправеранай версіі старонкі',
 	'flaggedrevs-hidereviewed' => '$1  {{PLURAL:$1|правераную праўку|правераныя праўкі|правераных правак}}',
 	'group-editor' => 'Даглядальнікі',
-	'group-editor-member' => 'Даглядальнік', # Fuzzy
+	'group-editor-member' => '{{GENDER:$1|даглядальнік|даглядальніца}}',
 	'group-reviewer' => 'Вывяраючыя',
-	'group-reviewer-member' => 'вывяраючы', # Fuzzy
+	'group-reviewer-member' => '{{GENDER:$1|вывяраючы|вывяраючая}}',
 	'grouppage-editor' => '{{ns:project}}:Даглядальнік',
 	'grouppage-reviewer' => '{{ns:project}}:Вывяраючы',
 	'group-autoreview' => 'Аўтадаглядальнікі',
-	'group-autoreview-member' => 'Аўтадаглядальнік', # Fuzzy
+	'group-autoreview-member' => '{{GENDER:$1|аўтадаглядальнік|аўтадаглядальніца}}',
 	'grouppage-autoreview' => '{{ns:project}}:Аўтадаглядальнікі',
 	'revreview-hist-draft' => 'неправераная версія',
 	'revreview-hist-pending' => 'чакае праверкі',
@@ -1920,17 +1924,21 @@ $messages['be'] = array(
 	'revreview-depth-4' => 'Абраная',
 	'revreview-draft-title' => 'На гэтай старонцы паказваюцца неправераныя змены',
 	'revreview-edit' => 'Правіць',
-	'revreview-editnotice' => "	'''Зробленыя вамі змены будуць паказаны чытачам пасля праверкі упаўнаважаным удзельнікам. ([[{{MediaWiki:Validationpage}}|падрабязней]])'''", # Fuzzy
+	'revreview-editnotice' => "'''Зробленыя вамі змены будуць паказаны чытачам пасля таго, як іх пазначыць праверанымі ўпаўнаважаны ўдзельнік''' ([[{{MediaWiki:Validationpage}}|падрабязней]]).",
 	'revreview-submitedit' => 'Пацвердзіць змены',
 	'revreview-submitedit-title' => 'Адправіць вашыя змены для праверкі',
-	'revreview-edited' => "'''Змены будуць паказаны чытачам пасля іх праверкі упаўнаважаным удзельнікам. ([[{{MediaWiki:Validationpage}}|падрабязней]])'''
+	'revreview-edited' => "'''Змены будуць паказаны чытачам пасля таго, як іх пазначыць праверанымі ўпаўнаважаны ўдзельнік''' ([[{{MediaWiki:Validationpage}}|падрабязней]]).
 
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|змена|змены|змен}}] {{PLURAL:$2|чакае|чакаюць|чакаюць}} праверки (паказаны ніжэй).", # Fuzzy
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|змена чакае|змены чакаюць|змен чакае}}] праверкі (паказаны ніжэй).",
 	'revreview-edited-section' => 'Вярнуцца да раздзелу старонкі пад назвай «[[#$1|$2]]».',
-	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Апублікаваная версія] была [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} праверана] <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|змена|змены|змен}}] {{PLURAL:$3|чакае|чакаюць|чакаюць}} праверкі.', # Fuzzy
-	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Апублікаваная версія] была [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} праверана] <i>$2</i>. Маюцца неправераныя [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} змены ў шаблонах ці файлах].', # Fuzzy
-	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Апублікаваная версія] была [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} пацвержана] <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|змена|змены|зменаў}}] {{PLURAL:$3|чакае|чакаюць|чакаюць}} праверкі.', # Fuzzy
-	'revreview-newest-quality-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Апублікаваная версія] была [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} пацвержана] <i>$2</i>. Маецца неправераныя [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} змены ў шаблонах ці файлах].', # Fuzzy
+	'revreview-newest-basic' => 'У гэтай версіі [[{{MediaWiki:Validationpage}}|{{PLURAL:$3|чакае|чакаюць|чакаюць}} праверкі]] [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|змена|змены|змен}}].
+[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Стабільная версія] была [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} праверана] <i>$2</i>.', # Fuzzy
+	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Змены шаблонаў/файлаў] гэтай версіі [[{{MediaWiki:Validationpage}}|чакаюць праверкі]].
+[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Стабільная версія] была [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} праверана] <i>$2</i>.',
+	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|змена|змены|змен}}] у гэтай версіі [[{{MediaWiki:Validationpage}}|{{PLURAL:$2|чакае|чакаюць}} праверкі]].
+[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Стабільная версія] была [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} пацвержана] <i>$2</i>.',
+	'revreview-newest-quality-i' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Змены шаблонаў/файлаў] гэтай версіі [[{{MediaWiki:Validationpage}}|чакаюць праверкі]].
+[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Стабільная версія] была [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} пацвержана] <i>$2</i>.',
 	'revreview-pending-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Апублікаваная версія] была [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} праверана] <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|змена|змены|змен}}] {{PLURAL:$3|чакае|чакаюць|чакаюць}} праверкі.',
 	'revreview-pending-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Апублікаваная версія] была [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} пацвержана] <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|змена|змены|змен}}] {{PLURAL:$3|чакае|чакаюць|чакаюць}} праверкі.',
 	'revreview-pending-nosection' => 'Звярніце ўвагу на [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} апошнюю версію], у каторай {{PLURAL:$2|чакае|чакаюць|чакаюць}} праверкі [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|змена|змены|змен}}]. Магчыма, раздел быў перамешчаны ці выдалены.',
@@ -1969,6 +1977,7 @@ $messages['be'] = array(
 	'revreview-visibility-nostable' => "'''У гэтай старонкі няма [[{{MediaWiki:Validationpage}}|апублікаванай версіі]]; наладкі адлюстравання апублікаваных версій можна [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} змяніць].'''",
 	'revreview-revnotfound' => 'Старая версія старонкі не знойдзена. Калі ласка, праверце правільнасць спасылкі, якую вы выкарысталі для доступу да гэтай старонцы.',
 	'right-autoreview' => 'аўтаматычная адзнака версій старонак як дагледжаных',
+	'right-autoreviewrestore' => 'Аўтавыверка пры адкаце',
 	'right-movestable' => 'перайменаванне апублікаваных версій',
 	'right-review' => 'адзнака версій старонак як дагледжаных',
 	'right-stablesettings' => 'наладка выбару і паказу апублікаванай версіі',
