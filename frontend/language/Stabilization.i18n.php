@@ -146,7 +146,8 @@ Used on Special:Stabilization.',
 	'stabilize_expiry_old' => '{{Flagged Revs}}
 Used on Special:Stabilization.',
 	'stabilize_denied' => '{{Flagged Revs}}
-Used on Special:Stabilization. Generic permission error.',
+Used on Special:Stabilization. Generic permission error.
+{{Identical|Permission denied}}',
 	'stabilize_protect_quota' => '{{Flagged Revs}}
 {{notranslate}}',
 	'stabilize-expiring' => "{{Flagged Revs}}

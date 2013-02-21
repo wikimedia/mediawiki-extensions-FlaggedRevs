@@ -148,8 +148,8 @@ When you review, you specify the template/file versions to use. The key given by
 Used when reviewing a revision.
 Error message given if tag values are missing or out of range.',
 	'review_denied' => '{{Flagged Revs}}
-{{Identical|Permission denied}}
-Used when reviewing a revision.',
+Used when reviewing a revision.
+{{Identical|Permission denied}}',
 	'review_param_missing' => '{{Flagged Revs}}
 Used when reviewing a revision.
 A mostly generic error message.',
