@@ -389,9 +389,15 @@ Shown on history pages for revisions that were made *after* the latest accepted 
 	'review-edit-diff' => '{{Flagged Revs}}
 Shown on the edit form on pages with pending changes where the section the user is editing is effected by pending changes (unaccepted edits).',
 	'revreview-diff-toggle-show' => '{{Flagged Revs}}
-Used as a the name of a toggle to uncollapse a pending changes diff.',
+Used as a the name of a toggle to uncollapse a pending changes diff.
+
+See also:
+* {{msg-mw|Revreview-diff-toggle-hide}}',
 	'revreview-diff-toggle-hide' => '{{Flagged Revs}}
-Used as a the name of a toggle to collapse a pending changes diff.',
+Used as a the name of a toggle to collapse a pending changes diff.
+
+See also:
+* {{msg-mw|Revreview-diff-toggle-show}}',
 	'revreview-diff-toggle-title' => '{{Flagged Revs}}
 This message is shown above the edit box as an attribute title to a toggle (see {{Revreview-diff-toggle-show}} and {{Revreview-diff-toggle-hide}}).',
 	'revreview-log-toggle-show' => '{{Flagged Revs}}
@@ -8144,8 +8150,8 @@ $messages['ja'] = array(
 	'revreview-hist-basic-auto' => '自動確認済',
 	'revreview-hist-pending-difflink' => "'''[[{{fullurl:$1|oldid=$2&diff=$3{{MediaWiki:flaggedrevs-diffonly}}}} 査読待ち]]'''",
 	'review-edit-diff' => "'''注意: ''いくつか''の保留中の変更が、編集中のページの箇所に影響を与えます。'''",
-	'revreview-diff-toggle-show' => '変更を表示',
-	'revreview-diff-toggle-hide' => '変更を隠す',
+	'revreview-diff-toggle-show' => '差分を表示',
+	'revreview-diff-toggle-hide' => '差分を隠す',
 	'revreview-diff-toggle-title' => '保留中の編集から公開中の版に表示を切り替え',
 	'revreview-log-toggle-show' => '安定版のログを表示',
 	'revreview-log-toggle-hide' => '安定版のログを非表示',
