@@ -8119,7 +8119,7 @@ $messages['ja'] = array(
 	'prefs-flaggedrevs-ui' => '編集の査読',
 	'flaggedrevs-prefs-stable' => '公開版表示の既定設定',
 	'flaggedrevs-pref-stable-0' => '各ページの既定の設定を使用',
-	'flaggedrevs-pref-stable-1' => '常に公開版を表示（存在する場合）',
+	'flaggedrevs-pref-stable-1' => '常に公開版を表示 (存在する場合)',
 	'flaggedrevs-pref-stable-2' => '常に最新版を表示',
 	'flaggedrevs-prefs-watch' => '自分が査読したページをウォッチリストに追加',
 	'flaggedrevs-prefs-editdiffs' => 'ページ編集中に保留中の編集の差分を表示',
@@ -8207,7 +8207,7 @@ $messages['ja'] = array(
 [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 公開版]は<i>$2</i>に[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 承認されました]。',
 	'revreview-pending-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 公開版]は <i>$2</i> に[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 確認されました]。[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3件の保留中の{{PLURAL:$3|変更}}]が査読待ちです。',
 	'revreview-pending-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 公開版]は <i>$2</i> に[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 承認されました]。[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3件の保留中の{{PLURAL:$3|変更}}]が査読待ちです。',
-	'revreview-pending-nosection' => 'セクションが移動または削除されているかを確認するには、[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} 最新版]（[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2件の保留中の{{PLURAL:$2|変更}}]あり）を確認してください。',
+	'revreview-pending-nosection' => 'セクションが移動または削除されているかを確認するには、[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} 最新版] ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2件の保留中の{{PLURAL:$2|変更}}]あり) を確認してください。',
 	'revreview-noflagged' => "このページには[[{{MediaWiki:Validationpage}}|査読済]]の版が存在せず、各種標準の順守について確認がされて'''いない'''可能性があります。",
 	'revreview-oldrating' => '査読結果:',
 	'revreview-quality' => 'これは[[{{MediaWiki:Validationpage}}|公開版]]です。<i>$2</i> に[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 承認されました]。
