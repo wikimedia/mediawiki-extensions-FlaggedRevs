@@ -21,6 +21,7 @@ $messages['en'] = array(
  * @author EugeneZelenko
  * @author IAlex
  * @author Purodha
+ * @author Shirayuki
  */
 $messages['qqq'] = array(
 	'problemchanges' => '{{Flagged Revs}}
@@ -34,8 +35,8 @@ Used on the Special:ProblemPages page.',
 	'problemchanges-none' => '{{Flagged Revs}}
 Used on the Special:ProblemPages page.',
 	'problemchanges-category' => '{{Flagged Revs}}
-{{Identical|Category}}
-Used on the Special:ProblemPages page.',
+Used on the Special:ProblemPages page.
+{{Identical|Category}}',
 );
 
 /** Afrikaans (Afrikaans)

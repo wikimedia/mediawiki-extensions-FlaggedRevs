@@ -78,8 +78,8 @@ Information displayed on Special:Stabilization.
 Used on Special:Stabilization when the user has not the permission to change the settings.
 * $1 The page name',
 	'stabilization-page' => '{{Flagged Revs}}
-{{Identical|Page name}}
-Used on Special:Stabilization.',
+Used on Special:Stabilization.
+{{Identical|Page name}}',
 	'stabilization-leg' => '{{Flagged Revs}}
 Used on Special:Stabilization.',
 	'stabilization-def' => '{{Flagged Revs}}
@@ -126,8 +126,8 @@ Used on Special:Stabilization.
 Used at [[Special:Log]] for entries made by Special:Stabilization. It is displayed as in log entries that have text like "[Default: Stable, autoreview=sysop]".
 {{Identical|Default}}',
 	'stabilization-def-short-0' => '{{Flagged Revs}}
-{{Identical|Current}}
-Used at [[Special:Log]] for entries made by Special:Stabilization. It is displayed as in log entries that have text like "[Default: Stable, autoreview=sysop]".',
+Used at [[Special:Log]] for entries made by Special:Stabilization. It is displayed as in log entries that have text like "[Default: Stable, autoreview=sysop]".
+{{Identical|Current}}',
 	'stabilization-def-short-1' => '{{Flagged Revs}}
 Used at [[Special:Log]] for entries made by Special:Stabilization. It is displayed as in log entries that have text like "[Default: Stable, autoreview=sysop]".
 {{Identical|Stable}}',

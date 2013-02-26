@@ -33,6 +33,7 @@ $messages['en'] = array(
  * @author Purodha
  * @author Raymond
  * @author SPQRobin
+ * @author Shirayuki
  * @author Yekrats
  */
 $messages['qqq'] = array(
@@ -53,9 +54,8 @@ Used on [http://en.labs.wikimedia.org/wiki/Special:OldReviewedPages Special:OldR
 	'pendingchanges-recent' => '{{Flagged Revs}}
 Used on [http://en.labs.wikimedia.org/wiki/Special:OldReviewedPages Special:OldReviewedPages] to denote the age of the last unreviewed change to a listed page.',
 	'pendingchanges-category' => '{{Flagged Revs}}
-{{Identical|Category}}
-
-Used on [http://en.labs.wikimedia.org/wiki/Special:OldReviewedPages Special:OldReviewedPages] as a label for an input field in the form.',
+Used on [http://en.labs.wikimedia.org/wiki/Special:OldReviewedPages Special:OldReviewedPages] as a label for an input field in the form.
+{{Identical|Category}}',
 	'pendingchanges-onwatchlist' => '{{Flagged Revs}}',
 	'pendingchanges-stable' => '{{Flagged Revs}}',
 	'pendingchanges-diff' => '{{Flagged Revs}}

@@ -181,11 +181,11 @@ Label of a checkbox that shows on the edit form of pages with no stable version.
 	'revreview-invalid' => '{{Flagged Revs}}
 Used when viewing a page with a bad ?stableid=x parameter (similar to ?oldid= parameter)',
 	'revreview-log' => '{{Flagged Revs}}
-{{Identical|Comment}}
-Shown on review form.',
+Shown on review form.
+{{Identical|Comment}}',
 	'revreview-main' => '{{Flagged Revs}}
-{{Identical|Content page}}
-Shown on Special:RevisionReview.',
+Shown on Special:RevisionReview.
+{{Identical|Content page}}',
 	'revreview-stable1' => '{{Flagged Revs}}
 Shown after accepting a revision of a page.
 * $1 Name of the page
@@ -197,7 +197,7 @@ The text on the submit button in the form used to review pages.
 
 {{Identical|Submit}}',
 	'revreview-submitting' => '{{flaggedrevs}}
-{{identical|submitting}}',
+{{Identical|Submitting}}',
 	'revreview-submit-review' => '{{Flagged Revs}}
 Shown on the form to review pages.',
 	'revreview-submit-unreview' => '{{Flagged Revs}}
@@ -271,13 +271,13 @@ Shown on the reject form (user clicked "reject" on review form).
 * $2 Number, revisions ID that would be restored
 * $3 Timestamp of that revision',
 	'revreview-reject-summary' => '{{Flagged Revs}}
-{{Identical|Summary}}
-Shown on the reject form.',
+Shown on the reject form.
+{{Identical|Summary}}',
 	'revreview-reject-confirm' => '{{Flagged Revs}}
 Shown on the reject form. Confirmation button to reject unreviewed changes.',
 	'revreview-reject-cancel' => '{{Flagged Revs}}
-{{Identical|Cancel}}
-Shown on the reject form.',
+Shown on the reject form.
+{{Identical|Cancel}}',
 	'revreview-reject-summary-cur' => '{{Flagged Revs-small}}
 Default summary shown when rejecting pending changes, and they are the latest revisions to a page
 * $1 is the number of rejected revisions

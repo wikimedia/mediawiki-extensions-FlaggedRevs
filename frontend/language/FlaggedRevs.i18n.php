@@ -297,13 +297,12 @@ The tab is for review-related preferences.",
 
 This appears in [[Special:Preferences]], under the tab that using the name {{Prefs-flaggedrevs}}.',
 	'flaggedrevs-prefs-stable' => '{{Flagged Revs}}
-{{Identical|Content page}}
-
-Show on [[Special:Preferences]].
+Shown on [[Special:Preferences]].
 The user is to select one of the following options:
 * {{msg-mw|Flaggedrevs-pref-stable-0}}
 * {{msg-mw|Flaggedrevs-pref-stable-1}}
-* {{msg-mw|Flaggedrevs-pref-stable-2}}',
+* {{msg-mw|Flaggedrevs-pref-stable-2}}
+{{Identical|Content page}}',
 	'flaggedrevs-pref-stable-0' => '{{Flagged Revs}}
 Show on [[Special:Preferences]] as an option for how to use stable versions.
 This option make pages display the stable version either as the default or not as the default based on page and site settings, *rather* than any user settings. In other words, it removes any custom user-specified behavior.',
@@ -415,25 +414,29 @@ Used as the attribute title of a toggle to collapse or uncollapse the stability 
 	'review-diff2stable' => '{{Flagged Revs}}
 Shown at the top of diff forms (in parenthesis) for pages with pending changes where the diff being viewed is *not* the diff of the stable revision against the latest version.',
 	'review-logentry-app' => '{{Flagged Revs}}
-Shown for review log entries on [[Special:Log/review]]
+Shown for review log entries on Special:Log/review.
 Parameters:
-* $1 is a page title',
+* $1 - a page title',
 	'review-logentry-dis' => '{{Flagged Revs}}
 Parameters:
 * $1 is a page title',
 	'review-logentry-id' => '{{Flagged Revs}}
 {{Identical|Revision}}',
 	'review-logentry-diff' => '{{Flagged Revs}}
-Appears at [[Special:Log/review]] and is used for diff link text of log entries. The diff is between a revision that had been accepted and the previous accepted revision.',
+Appears at Special:Log/review and is used for diff link text of log entries.
+
+The diff is between a revision that had been accepted and the previous accepted revision.',
 	'review-logentry-diff2' => '{{Flagged Revs}}
-Appears at [[Special:Log/review]] and is used for diff link text of log entries. The diff is between a revision that had its acceptance revoked and the previous accepted revision.',
+Appears at Special:Log/review and is used for diff link text of log entries.
+
+The diff is between a revision that had its acceptance revoked and the previous accepted revision.',
 	'review-logpage' => '{{Flagged Revs}}
 {{doc-logpage}}
 
 Name of review log Special:Log/review',
 	'review-logpagetext' => '{{Flagged Revs}}
-{{Identical|Content page}}
-Explanation text at Special:Log/review.',
+Explanation text at Special:Log/review.
+{{Identical|Content page}}',
 	'reviewer' => '{{Flagged Revs}}
 {{Identical|Reviewer}}',
 	'revreview-accuracy' => '{{Flagged Revs}}
@@ -497,8 +500,8 @@ Attribute title of the "pending changes" tab on pages with pending changes. See 
 Users who see the stable version and not the draft version as page, have this message in the "edit" tab.
 {{Identical|Edit}}',
 	'revreview-editnotice' => '{{Flagged Revs}}
-{{Identical|Authorised user}}
-Shown on the edit form to users who lack review and automatic review rights.',
+Shown on the edit form to users who lack review and automatic review rights.
+{{Identical|Authorised user}}',
 	'revreview-submitedit' => '{{Flagged Revs}}
 Shows as the "save page" button on pages with a stable version where the user lacks review and automatic review rights.',
 	'revreview-submitedit-title' => '{{Flagged Revs}}
@@ -539,7 +542,8 @@ Shown on page histories for "quality" pages with pending changes.
 	'revreview-pending-nosection' => '{{Flagged Revs}}
 Shown below the error message a user gets when trying to edit a non-existent page section.
 * $1 The stable version ID
-* $2 The number of pending revisions',
+* $2 The number of pending revisions
+"<code><nowiki>{{MediaWiki:flaggedrevs-diffonly}}</nowiki></code>" will be part of the URL.',
 	'revreview-noflagged' => '{{Flagged Revs-small}}
 Shown above a page, when there are no accepted revisions of that page.',
 	'revreview-oldrating' => '{{Flagged Revs-small}}
@@ -582,13 +586,13 @@ Used in "flagged revs box" when viewing an old "quality" version of a page.',
 	'revreview-quick-quality-same' => '{{Flagged Revs}}
 Used in "flagged revs box" when viewing a "quality" page and there are no pending changes.',
 	'revreview-quick-see-basic' => '{{Flagged Revs}}
-{{Identical|Draft view article compare}}
-Used in "flagged revs box" when viewing the latest version of a "checked" page with pending changes.
-* $1 Stable version ID',
+Used in "flagged revs box" when viewing the latest version of a "checked" page with pending changes. Parameters:
+* $1 - Stable version ID
+{{Identical|Draft view article compare}}',
 	'revreview-quick-see-quality' => '{{Flagged Revs}}
-{{Identical|Draft view article compare}}
-Used in "flagged revs box" when viewing the latest version of a "quality" page with pending changes.
-* $1 Stable version ID',
+Used in "flagged revs box" when viewing the latest version of a "quality" page with pending changes. Parameters:
+* $1 - Stable version ID
+{{Identical|Draft view article compare}}',
 	'revreview-source' => '{{Flagged Revs}}
 {{Identical|View source}}',
 	'revreview-basic-title' => '{{Flagged Revs}}
@@ -666,11 +670,11 @@ Shown on the stability log (Special:Log/stability).
 
 Same of the stability log at Special:Log/stability',
 	'stable-logpagetext' => '{{Flagged Revs}}
-{{Identical|Content pages}}
-Shown on the stability log (Special:Log/stability).',
+Shown on the stability log (Special:Log/stability).
+{{Identical|Content pages}}',
 	'revreview-filter-all' => '{{Flagged Revs}}
-{{Identical|All}}
-Shown as dropdown option on lists or log pages.',
+Shown as dropdown option on lists or log pages.
+{{Identical|All}}',
 	'revreview-filter-stable' => '{{Flagged Revs}}
 Shown as dropdown option on lists or log pages.
 {{Identical|Stable}}',
@@ -684,8 +688,8 @@ Shown as dropdown option on lists or log pages to filter results.',
 	'revreview-filter-unapproved' => '{{Flagged Revs}}
 Shown as dropdown option on lists or log pages to filter results.',
 	'revreview-typefilter' => '{{Flagged Revs}}
-{{Identical|Type}}
-Shown as dropdown option on lists or log pages to filter results.',
+Shown as dropdown option on lists or log pages to filter results.
+{{Identical|Type}}',
 	'revreview-filter-auto' => '{{Flagged Revs}}
 Shown as dropdown option on lists or log pages to filter results.
 {{Identical|Automatic}}',
@@ -694,8 +698,8 @@ Shown as dropdown option on lists or log pages to filter results.',
 	'revreview-levelfilter' => '{{Flagged Revs}}
 Shown as dropdown option on lists or log pages to filter results.',
 	'revreview-lev-all' => '{{Flagged Revs}}
-{{Identical|Any}}
-Shown as dropdown option on lists or log pages to filter results.',
+Shown as dropdown option on lists or log pages to filter results.
+{{Identical|Any}}',
 	'revreview-lev-basic' => '{{Flagged Revs}}
 Shown as dropdown option on lists or log pages to filter results.',
 	'revreview-lev-quality' => '{{Flagged Revs}}
@@ -703,11 +707,11 @@ Shown as dropdown option on lists or log pages to filter results.',
 	'revreview-lev-pristine' => '{{Flagged Revs}}
 Shown as dropdown option on lists or log pages to filter results.',
 	'revreview-defaultfilter' => '{{Flagged Revs}}
-{{Identical|Default version:}}
-Shown as dropdown option on lists or log pages to filter results.',
+Shown as dropdown option on lists or log pages to filter results.
+{{Identical|Default version:}}',
 	'revreview-def-all' => '{{Flagged Revs}}
-{{Identical|Any}}
-Shown as dropdown option on lists or log pages to filter results.',
+Shown as dropdown option on lists or log pages to filter results.
+{{Identical|Any}}',
 	'revreview-def-draft' => '{{Flagged Revs}}
 Shown as dropdown option on lists or log pages to filter results.',
 	'revreview-def-stable' => '{{Flagged Revs}}
@@ -716,11 +720,11 @@ Shown as dropdown option on lists or log pages to filter results.
 	'revreview-restrictfilter' => '{{Flagged Revs}}
 Shown as dropdown option on lists or log pages to filter results.',
 	'revreview-restriction-any' => '{{Flagged Revs}}
-{{Identical|Any}}
-Shown as dropdown option on lists or log pages to filter results.',
+Shown as dropdown option on lists or log pages to filter results.
+{{Identical|Any}}',
 	'revreview-restriction-none' => '{{Flagged Revs}}
-{{Identical|None}}
-Shown as dropdown option on lists or log pages to filter results.',
+Shown as dropdown option on lists or log pages to filter results.
+{{Identical|None}}',
 	'revreview-reviewlink' => '{{Flagged Revs}}
 Text of link to diff of the stable version against the latest version. "Edits" means "revisions" here.',
 	'revreview-reviewlink-title' => '{{Flagged Revs}}

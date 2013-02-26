@@ -20,6 +20,7 @@ $messages['en'] = array(
 /** Message documentation (Message documentation)
  * @author Aaron Schulz
  * @author Jon Harald Søby
+ * @author Shirayuki
  * @author Siebrand
  */
 $messages['qqq'] = array(
@@ -29,8 +30,8 @@ Name of the Special:ReviewedVersions page, which lists all reviewed versions for
 Used on Special:ReviewedVersions.
 The legend of the form used to select a page on Special:ReviewedVersions.',
 	'reviewedversions-page' => '{{Flagged Revs}}
-{{Identical|Page name}}
-Used on Special:ReviewedVersions.',
+Used on Special:ReviewedVersions.
+{{Identical|Page name}}',
 	'reviewedversions-none' => '{{Flagged Revs}}
 Message is displayed on Special:ReviewedVersions for pages that has no reviewed revisions.
 * $1 The page name.',

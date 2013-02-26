@@ -750,6 +750,7 @@ $specialPageAliases['vec'] = array(
 /** Vietnamese (Tiếng Việt) */
 $specialPageAliases['vi'] = array(
 	'PendingChanges' => array( 'Trang_chưa_duyệt_cũ' ),
+	'ProblemChanges' => array( 'Thay_đổi_có_vấn_đề' ),
 	'QualityOversight' => array( 'Giám_sát_chất_lượng' ),
 	'ReviewedPages' => array( 'Trang_đã_duyệt' ),
 	'StablePages' => array( 'Trang_ổn_định' ),

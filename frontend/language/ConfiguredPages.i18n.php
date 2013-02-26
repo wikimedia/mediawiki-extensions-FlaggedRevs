@@ -39,13 +39,11 @@ Parameters:
 Used on Special:ConfiguredPages.
 {{Identical|There are no pages in this list}}',
 	'configuredpages-config' => '{{Flagged Revs}}
-{{Identical|Configuration}}
-Used on Special:ConfiguredPages. Refers to the combination of settings of how the stable version is used and who can review the page.',
+Used on Special:ConfiguredPages. Refers to the combination of settings of how the stable version is used and who can review the page.
+{{Identical|Configuration}}',
 	'configuredpages-def-draft' => '{{Flagged Revs}}
-{{identical|latest version}}
 Used on Special:ConfiguredPages.',
 	'configuredpages-def-stable' => '{{Flagged Revs}}
-{{identical|stable version}}
 Used on Special:ConfiguredPages.',
 );
 

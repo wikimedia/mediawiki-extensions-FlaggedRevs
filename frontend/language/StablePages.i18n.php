@@ -39,9 +39,9 @@ Parameters:
 Shown on the page [[Special:StablePages]].
 {{Identical|There are no pages in this list}}',
 	'stablepages-config' => '{{Flagged Revs}}
-{{Identical|Configuration}}
 Shown on the page [[Special:StablePages]].
-Text for the link to change the FlaggedRevs configuration for a specific page. Links to [[Special:Stabilization]].',
+Text for the link to change the FlaggedRevs configuration for a specific page. Links to [[Special:Stabilization]].
+{{Identical|Configuration}}',
 	'stablepages-indef' => '{{Flagged Revs}}
 Shown on the page [[Special:StablePages]].
 Label use on checkbox filter to only show pages where edits will require review indefinetely',

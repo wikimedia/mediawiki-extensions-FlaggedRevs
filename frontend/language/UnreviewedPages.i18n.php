@@ -32,6 +32,7 @@ $messages['en'] = array(
  * @author Kghbln
  * @author Purodha
  * @author Raymond
+ * @author Shirayuki
  * @author Siebrand
  * @author Umherirrender
  */
@@ -40,15 +41,15 @@ $messages['qqq'] = array(
 	'unreviewedpages' => '{{Flagged Revs}}
 Name of the [[Special:UnreviewedPages]] page, which lists out pages lacking a stable version.',
 	'unreviewedpages-legend' => '{{Flagged Revs}}
-{{Identical|Content page}}
-Used on the page [[Special:UnreviewedPages]].
-Note that "content pages" are any page that *can* be reviewed.',
+Used on the page Special:UnreviewedPages.
+Note that "content pages" are any page that *can* be reviewed.
+{{Identical|Content page}}',
 	'unreviewedpages-category' => '{{Flagged Revs}}
-{{Identical|Category}}
-Used on the page [[Special:UnreviewedPages]].',
+Used on the page Special:UnreviewedPages.
+{{Identical|Category}}',
 	'unreviewedpages-diff' => '{{Flagged Revs}}
-{{Identical|Review}}
-Used on the page [[Special:UnreviewedPages]].',
+Used on the page Special:UnreviewedPages.
+{{Identical|Review}}',
 	'unreviewedpages-unwatched' => '{{Flagged Revs}}
 Used on the page [[Special:UnreviewedPages]].',
 	'unreviewedpages-watched' => '{{Flagged Revs}}
@@ -56,10 +57,9 @@ Used on the page [[Special:UnreviewedPages]].
 * $1 is the number of active users that have the page on their watchlist
 Note that "active" is based roughly on logging in and out',
 	'unreviewedpages-list' => '{{Flagged Revs}}
-{{Identical|Content page}}
-
 Parameters:
-* $1 - (optional) Number of items in the list, to be used with PLURAL, when unavoidable.',
+* $1 - (optional) Number of items in the list, to be used with PLURAL, when unavoidable
+{{Identical|Content page}}',
 	'unreviewedpages-none' => '{{Flagged Revs}}
 Used on the page [[Special:UnreviewedPages]].',
 	'unreviewedpages-viewing' => '{{Flagged Revs}}

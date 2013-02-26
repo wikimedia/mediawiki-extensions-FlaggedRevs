@@ -64,9 +64,9 @@ Shown on the page [[Special:ValidationStatistics]].',
 	'validationstatistics-ns' => '{{Flagged Revs}}
 {{Identical|Namespace}}',
 	'validationstatistics-total' => '{{Flagged Revs}}
-{{Identical|Pages}}
-Shown on the page [[Special:ValidationStatistics]].
-Table header for all pages in a certain namespace.',
+Shown on the page Special:ValidationStatistics.
+Table header for all pages in a certain namespace.
+{{Identical|Pages}}',
 	'validationstatistics-stable' => '{{Flagged Revs}}
 Shown on the page [[Special:ValidationStatistics]].
 Table header for pages that that have a stable version',
