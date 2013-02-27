@@ -1523,8 +1523,10 @@ $messages['pt'] = array(
 /** Brazilian Portuguese (português do Brasil)
  * @author Eduardo.mps
  * @author Giro720
+ * @author Raylton P. Sousa
  */
 $messages['pt-br'] = array(
+	'action-unreviewedpages' => 'ver a lista de páginas não revisadas',
 	'unreviewedpages' => 'Páginas não analisadas',
 	'unreviewedpages-legend' => 'Lista páginas de conteúdo a serem analisadas',
 	'unreviewedpages-category' => 'Categoria:',
