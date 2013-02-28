@@ -5178,6 +5178,13 @@ Prosimo, preglejte vse spremembe prikazane podaj, da prikažete vaše spremembe 
 	'revreview-tt-reject' => 'Zavrnite te spremembe besedila tako, da jih vrnete',
 );
 
+/** Somali (Soomaaliga)
+ * @author Abshirdheere
+ */
+$messages['so'] = array(
+	'revreview-reject-summary-cur' => 'Diidmo {{PLURAL:$1|badalkii qoraalkii ugu dambeeyey|$1 Qoraalkii la badalay}} ($2) Dib ayuu ugu celieye $3 ka $4',
+);
+
 /** Albanian (shqip)
  * @author Olsi
  * @author Tëfcí
