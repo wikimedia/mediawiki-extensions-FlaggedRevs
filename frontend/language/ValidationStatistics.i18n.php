@@ -78,7 +78,8 @@ Shown on the page [[Special:ValidationStatistics]].
 Table header for the ratio of pages that that have a stable version and no pending changes *over* all pages with a stable version.',
 	'validationstatistics-old' => '{{Flagged Revs}}
 Shown on the page [[Special:ValidationStatistics]].
-Table header for pages that have pending changes (edits newer than the stable version).',
+Table header for pages that have pending changes (edits newer than the stable version).
+{{Identical|Outdated}}',
 	'validationstatistics-utable' => '{{Flagged Revs}}
 Shown on the page [[Special:ValidationStatistics]].
 $1 Number of users in the "top active reviewers" list.
