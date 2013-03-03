@@ -2521,8 +2521,8 @@ $messages['br'] = array(
 	'flaggedrevs-pref-stable-1' => 'Atav diskouez ar stumm stabil (pa vez unan)',
 	'flaggedrevs-pref-stable-2' => 'Atav diskouez ar stumm diwezhañ',
 	'flaggedrevs-prefs-watch' => "Ouzhpennañ ar pajennoù a adwelan da'm roll evezhiañ.",
-	'flaggedrevs-prefs-editdiffs' => "Diskouez difoc'h ar c'hemmoù o c'hortoz pa vezoc'h o kemm ar bajennoù",
-	'flaggedrevs-prefs-viewdiffs' => "Diskwel difoc'hoù ar c'hemmoù o c'hortoz p'emañ stumm diwezhañ ur bajenn o c'hortoz gwelet",
+	'flaggedrevs-prefs-editdiffs' => "Diskouez diforc'h ar c'hemmoù o c'hortoz pa vezoc'h o kemm ar bajennoù",
+	'flaggedrevs-prefs-viewdiffs' => "Diskwel diforc'hioù ar c'hemmoù o c'hortoz p'emañ stumm diwezhañ ur bajenn o c'hortoz gwelet",
 	'flaggedrevs-hidereviewed' => "Adwelet eo bet ar c'hemmoù gant $1",
 	'group-editor' => 'Skridaozerien',
 	'group-editor-member' => '{{GENDER:$1|skridaozer|skridaozerez}}',
@@ -2622,7 +2622,7 @@ Bez ez eus [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs
 	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|A-feson]]'''",
 	'revreview-quick-see-basic' => "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} adlenn ar c'hemmoù o c'hortoz]]",
 	'revreview-quick-see-quality' => "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} adlenn ar c'hemmoù o c'hortoz]]",
-	'revreview-source' => 'Gwelet ar vammenn',
+	'revreview-source' => 'Sellet ouzh tarzh an destenn',
 	'revreview-basic-title' => 'Ur stumm gwiriet eus ar bajenn-mañ eo',
 	'revreview-style' => 'Lennuster',
 	'revreview-style-0' => 'Digevazas',
@@ -8200,7 +8200,7 @@ $messages['ja'] = array(
 	'revreview-edited' => "'''今回の変更は、承認された利用者が受理した後に公開されます。([[{{MediaWiki:Validationpage}}|ヘルプ]])'''
 
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2件の保留中の変更] ''(下記参照)'' が査読待ちです。",
-	'revreview-edited-section' => 'セクション "[[#$1|$2]]" に戻る。',
+	'revreview-edited-section' => 'セクション「[[#$1|$2]]」に戻る。',
 	'revreview-newest-basic' => 'この版における[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3件の変更{{PLURAL:$3}}]が{{PLURAL:$3}}、[[{{MediaWiki:Validationpage}}|査読待ち]]の状態にあります。
 [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 公開版]は<i>$2</i>に[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 確認されました]。',
 	'revreview-newest-basic-i' => 'この版における[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} テンプレートまたはファイルの変更]が[[{{MediaWiki:Validationpage}}|査読待ち]]の状態にあります。
