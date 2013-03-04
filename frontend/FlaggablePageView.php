@@ -876,7 +876,7 @@ class FlaggablePageView extends ContextSource {
 		}
 
 		if ( !$time ) {
-			return; // Use the default behaviour
+			return; // Use the default behavior
 		}
 
 		$title = $this->article->getTitle();
