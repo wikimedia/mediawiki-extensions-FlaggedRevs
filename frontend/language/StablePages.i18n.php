@@ -289,6 +289,14 @@ $messages['el'] = array(
 	'stablepages-indef' => 'Μόνο λήξη αορίστου χρόνου',
 );
 
+/** British English (British English)
+ * @author Shirayuki
+ */
+$messages['en-gb'] = array(
+	'stablepages-list' => 'This page lists pages to which only certain users can make edits that do not require review.
+Edits made by other users are not displayed to readers by default until an authorised user reviews them.',
+);
+
 /** Esperanto (Esperanto)
  * @author Yekrats
  */

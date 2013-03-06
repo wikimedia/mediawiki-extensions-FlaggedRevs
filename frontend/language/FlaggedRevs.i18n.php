@@ -4339,9 +4339,14 @@ $messages['el'] = array(
 
 /** British English (British English)
  * @author Reedy
+ * @author Shirayuki
  */
 $messages['en-gb'] = array(
 	'flaggedrevs-desc' => 'Gives editors and reviewers the ability to review revisions and stabilise pages',
+	'revreview-editnotice' => "'''Your changes will be displayed to readers once an authorised user accepts them. ([[{{MediaWiki:Validationpage}}|help]])'''",
+	'revreview-edited' => "'''Your changes will be displayed to readers once an authorised user accepts them. ([[{{MediaWiki:Validationpage}}|help]])'''
+
+There {{PLURAL:$2|is|are}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 pending {{PLURAL:$2|change|changes}}] ''(shown below)'' awaiting review.",
 );
 
 /** Esperanto (Esperanto)
@@ -8153,7 +8158,7 @@ $messages['ja'] = array(
 	'revreview-hist-quality-auto' => '自動承認済',
 	'revreview-hist-basic-auto' => '自動確認済',
 	'revreview-hist-pending-difflink' => "'''[[{{fullurl:$1|oldid=$2&diff=$3{{MediaWiki:flaggedrevs-diffonly}}}} 査読待ち]]'''",
-	'review-edit-diff' => "'''注意: ''いくつか''の保留中の変更が、編集中のページの箇所に影響を与えます。'''",
+	'review-edit-diff' => "'''注意: 保留中の変更の''一部''が、編集中のページまたは節に影響を与えます。'''",
 	'revreview-diff-toggle-show' => '差分を表示',
 	'revreview-diff-toggle-hide' => '差分を隠す',
 	'revreview-diff-toggle-title' => '保留中の編集から公開中の版に表示を切り替え',
