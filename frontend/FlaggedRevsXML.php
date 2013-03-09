@@ -199,17 +199,25 @@ class FlaggedRevsXML {
 			$tag .= "<table id='mw-fr-revisionratings-box' align='center' class='$css' cellpadding='0'>";
 		}
 		foreach ( FlaggedRevs::getTags() as $quality ) {
+			// Give grep a chance to find the usages:
+			// revreview-accuracy-0, revreview-accuracy-1, revreview-accuracy-2, revreview-accuracy-3, revreview-accuracy-4,
+			// revreview-depth-0, revreview-depth-1, revreview-depth-2, revreview-depth-3, revreview-depth-4,
+			// revreview-style-0, revreview-style-1, revreview-style-2, revreview-style-3, revreview-style-4
 			$level = isset( $flags[$quality] ) ? $flags[$quality] : 0;
 			$encValueText = wfMessage( "revreview-$quality-$level" )->escaped();
 			$level = $flags[$quality];
 
 			$levelmarker = $level * 20 + 20;
 			if ( $prettyBox ) {
+				// Give grep a chance to find the usages:
+				// revreview-accuracy, revreview-depth, revreview-style
 				$tag .= "<tr><td class='fr-text' valign='middle'>" .
 					wfMessage( "revreview-$quality" )->escaped() .
 					"</td><td class='fr-value$levelmarker' valign='middle'>" .
 					$encValueText . "</td></tr>\n";
 			} else {
+				// Give grep a chance to find the usages:
+				// revreview-accuracy, revreview-depth, revreview-style
 				$tag .= "&#160;<span class='fr-marker-$levelmarker'><strong>" .
 					wfMessage( "revreview-$quality" )->escaped() .
 					"</strong>: <span class='fr-text-value'>$encValueText&#160;</span>&#160;" .
