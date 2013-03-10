@@ -396,8 +396,10 @@ $messages['ce'] = array(
 );
 
 /** Sorani Kurdish (کوردی)
+ * @author Calak
  */
 $messages['ckb'] = array(
+	'validationstatistics-total' => 'پەڕەکان',
 	'validationstatistics-user' => 'بەکارهێنەر',
 );
 
