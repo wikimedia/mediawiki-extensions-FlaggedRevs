@@ -280,26 +280,26 @@ Shown on the reject form.
 {{Identical|Cancel}}',
 	'revreview-reject-summary-cur' => '{{Flagged Revs-small}}
 Default summary shown when rejecting pending changes, and they are the latest revisions to a page
-* $1 is the number of rejected revisions
-* $2 is the list of of one or more users whose changes are being rejected
-* $3 is the revision ID of the revision being reverted to
-* $4 may be a user? or a link?',
+* $1 - the number of rejected revisions
+* $2 - the list of of one or more users whose changes are being rejected
+* $3 - the revision ID of the revision being reverted to
+* $4 - the username or {{msg-mw|rev-deleted-user}} (if the user has been deleted)',
 	'revreview-reject-summary-old' => '{{Flagged Revs-small}}
 Default summary shown when rejecting pending changes.
-* $1 is the number of rejected revisions
-* $2 is the list of (one or more) users who are being rejected
-* $3 is the revision ID of the revision before the first pending change
-* $4 a user name? a link to a user page?',
+* $1 - the number of rejected revisions
+* $2 - the list of (one or more) users who are being rejected
+* $3 - the revision ID of the revision before the first pending change
+* $4 - the username or {{msg-mw|rev-deleted-user}} (if the user has been deleted)',
 	'revreview-reject-summary-cur-short' => '{{Flagged Revs-small}}
 Default summary shown when rejecting pending changes, and they are the latest revisions to a page
-* $1 is the number of rejected revisions
-* $2 is the revision ID of the revision being reverted to
-* $3 a user name? a link to a user page?',
+* $1 - the number of rejected revisions
+* $2 - the revision ID of the revision being reverted to
+* $3 - the username or {{msg-mw|rev-deleted-user}} (if the user has been deleted)',
 	'revreview-reject-summary-old-short' => '{{Flagged Revs-small}}
 Default summary shown when rejecting pending changes.
-* $1 is the number of rejected revisions
-* $2 is the revision ID of the revision before the first pending change
-* $3 a user name? a link to a user page?
+* $1 - the number of rejected revisions
+* $2 - the revision ID of the revision before the first pending change
+* $3 - the username or {{msg-mw|rev-deleted-user}} (if the user has been deleted)
 Alternative sentences which mean the same as the above message are:
 * Rejected the next {{PLURAL:$1|change|$1 changes}} that followed revision $2 by $3
 * Rejected the {{PLURAL:$1|change|$1 changes}} that immediately followed revision $2 by $3',
