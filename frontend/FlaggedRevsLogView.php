@@ -71,6 +71,8 @@ class FlaggedRevsLogView {
 		} else {
 			// Default version shown on page view
 			if ( isset( $pars['override'] ) ) {
+				// Give grep a chance to find the usages:
+				// stabilization-def-short-0, stabilization-def-short-1
 				$set[] = wfMessage( 'stabilization-def-short' )->inLanguage( $langObj )->text() .
 					wfMessage( 'colon-separator' )->inLanguage( $langObj )->text() .
 					wfMessage( 'stabilization-def-short-' . $pars['override'] )
