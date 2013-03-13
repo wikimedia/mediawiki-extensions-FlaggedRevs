@@ -482,6 +482,7 @@ $specialPageAliases['ms'] = array(
 	'PendingChanges' => array( 'Laman_diperiksa_lapuk' ),
 	'QualityOversight' => array( 'Kawalan_mutu' ),
 	'ReviewedPages' => array( 'Laman_diperiksa' ),
+	'Stabilization' => array( 'Penstabilan' ),
 	'StablePages' => array( 'Laman_stabil' ),
 	'UnreviewedPages' => array( 'Laman_tidak_diperiksa' ),
 );
