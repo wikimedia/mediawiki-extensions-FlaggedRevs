@@ -25,6 +25,7 @@ $messages['en'] = array(
  * @author Aaron Schulz
  * @author Jon Harald Søby
  * @author SPQRobin
+ * @author Shirayuki
  * @author Umherirrender
  */
 $messages['qqq'] = array(
@@ -44,8 +45,7 @@ Shown on Special:ReviewedPages.
 	'reviewedpages-lev-1' => '{{Flagged Revs}}
 {{optional}}',
 	'reviewedpages-lev-2' => '{{Flagged Revs}}
-{{optional}}
-{{Identical|Featured}}',
+{{optional}}',
 	'reviewedpages-all' => '{{Flagged Revs}}
 Shown on Special:ReviewedPages. Links to Special:ReviewedVersions for a particular page.',
 	'reviewedpages-best' => '{{Flagged Revs}}
