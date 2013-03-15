@@ -69,7 +69,8 @@ Table header for all pages in a certain namespace.
 {{Identical|Pages}}',
 	'validationstatistics-stable' => '{{Flagged Revs}}
 Shown on the page [[Special:ValidationStatistics]].
-Table header for pages that that have a stable version',
+Table header for pages that that have a stable version.
+{{Identical|Reviewed}}',
 	'validationstatistics-latest' => '{{Flagged Revs}}
 Shown on the page [[Special:ValidationStatistics]].
 Table header for pages that that have a stable version and no pending changes.',
