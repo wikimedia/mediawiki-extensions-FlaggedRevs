@@ -1425,8 +1425,8 @@ Glědaj [[Special:Unreviewedpages|lisćinu njepśeglědanych bokow]].',
 	'revreview-successful2' => "'''Markěrowanje [[:$1|$1]] jo se wuspěšnje wótpórało.'''",
 	'revreview-poss-conflict-p' => "'''Warnowanje: [[User:$1|$1]] jo zachopił toś ten bok $2, $3 pśeglědaś.'''",
 	'revreview-poss-conflict-c' => "'''Warnowanje: [[User:$1|$1]] jo zachopił toś te změny $2, $3 pśeglědaś.'''",
-	'revreview-adv-reviewing-p' => 'Glědaj: Druge pśeglědarje mógu wiźeś, až pśeglědujoš toś ten bok.', # Fuzzy
-	'revreview-adv-reviewing-c' => 'Glědaj: Druge pśeglědarje mógu wiźeś, až pśeglědujoš toś te změny.', # Fuzzy
+	'revreview-adv-reviewing-p' => 'Glědaj: Druge pśeglědarje mógu wiźeś, až {{GENDER:$1|ty}} pśeglědujoš toś ten bok.',
+	'revreview-adv-reviewing-c' => 'Glědaj: Druge pśeglědarje mógu wiźeś, až {{GENDER:$1|ty}} pśeglědujoš toś te změny.',
 	'revreview-sadv-reviewing-p' => 'Móžoš drugich wužywarjow na to $1, až pśeglědujoš toś ten bok.',
 	'revreview-sadv-reviewing-c' => 'Móžoš sam drugich wužywarjow $1, až pśeglědujoš toś te změny.',
 	'revreview-adv-start-link' => 'dopomnjeś',
@@ -2632,8 +2632,8 @@ Hlej [[Special:Unreviewedpages|za lisćinu njepřepruwowanych stronow]].',
 	'revreview-successful2' => "'''Woznamjenjenje wersije [[:$1|$1]] je so wuspěšnje wotstroniło.'''",
 	'revreview-poss-conflict-p' => "'''Warnowanje: [[User:$1|$1]] započa tutu stronu $2, $3 přepruwować.'''",
 	'revreview-poss-conflict-c' => "'''Warnowanje: [[User:$1|$1]] započa tute změny $2, $3 přepruwować.'''",
-	'revreview-adv-reviewing-p' => 'Kedźbu: Druzy přepruwowarjo móža widźeć, zo tutu stronu přepruwuješ.', # Fuzzy
-	'revreview-adv-reviewing-c' => 'Kedźbu: Druzy přepruwowarjo móža widźeć, zo tute změny přepruwuješ.', # Fuzzy
+	'revreview-adv-reviewing-p' => 'Kedźbu: Druzy přepruwowarjo móža widźeć, zo {{GENDER:$1|ty}} tutu stronu přepruwuješ.',
+	'revreview-adv-reviewing-c' => 'Kedźbu: Druzy přepruwowarjo móža widźeć, zo {{GENDER:$1|ty}} tute změny přepruwuješ.',
 	'revreview-sadv-reviewing-p' => 'Móžeš druhich wužiwarjow na to $1, zo tutu stronu přepruwuješ.',
 	'revreview-sadv-reviewing-c' => 'Móžeš druhich wužiwarjow na to $1, zo tute změny přepruwuješ.',
 	'revreview-adv-start-link' => 'skedźbnić',
