@@ -6001,7 +6001,7 @@ Fixéronse novos [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flagg
 	'revreview-basic-title' => 'Esta é unha versión comprobada desta páxina',
 	'revreview-style' => 'Lexibilidade',
 	'revreview-style-0' => 'Inadecuado',
-	'revreview-style-1' => 'Aceptábel',
+	'revreview-style-1' => 'Aceptable',
 	'revreview-style-2' => 'Boa',
 	'revreview-style-3' => 'Concisa',
 	'revreview-style-4' => 'Destacada',
@@ -6024,7 +6024,7 @@ Por favor verifique o URL que utilizou para acceder a esta páxina.',
 	'stable-logentry-modify' => 'cambiou os parámetros de publicación de "$1"',
 	'stable-logentry-reset' => 'restableceu os parámetros de publicación de "$1"',
 	'stable-log-restriction' => 'Revisión automática: necesita permisos de "$1"',
-	'stable-logpage' => 'Rexistro de versións estábeis',
+	'stable-logpage' => 'Rexistro de versións estables',
 	'stable-logpagetext' => 'Este é un rexistro dos cambios feitos na configuración da [[{{MediaWiki:Validationpage}}|versión publicada]] das páxinas de contido.',
 	'revreview-filter-all' => 'todas',
 	'revreview-filter-stable' => 'publicada',
@@ -14095,6 +14095,7 @@ $messages['sq'] = array(
 /** Serbian (Cyrillic script) (српски (ћирилица)‎)
  * @author FriedrickMILBarbarossa
  * @author Millosh
+ * @author Nikola Smolenski
  * @author Rancher
  * @author Sasa Stefanovic
  * @author Жељко Тодоровић
@@ -14175,7 +14176,7 @@ $messages['sr-ec'] = array(
 	'revreview-quick-quality' => "'''[[{{MediaWiki:Validationpage}}|Квалитетна]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} прегледај измене на чекању]]",
 	'revreview-quick-quality-old' => "'''[[{{MediaWiki:Validationpage}}|Квалитетна]]'''",
 	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|Квалитетна]]'''",
-	'revreview-source' => 'Изворник',
+	'revreview-source' => 'Изворни код',
 	'revreview-basic-title' => 'Ово је проверена верзија ове стране',
 	'revreview-style' => 'Читљивост',
 	'revreview-style-0' => 'Неадекватно',

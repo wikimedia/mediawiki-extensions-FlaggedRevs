@@ -168,6 +168,7 @@ $specialPageAliases['eo'] = array(
 	'ReviewedPages' => array( 'Kontrolitaj_paĝoj' ),
 	'Stabilization' => array( 'Stabilado' ),
 	'StablePages' => array( 'Stabilaj_paĝoj' ),
+	'ConfiguredPages' => array( 'Agorditaj_paĝoj' ),
 	'UnreviewedPages' => array( 'Nekontrolitaj_paĝoj' ),
 );
 
