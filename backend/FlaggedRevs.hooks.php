@@ -320,14 +320,6 @@ class FlaggedRevsHooks {
 				$result = false;
 				return false;
 			}
-		# Don't let users patrol reviewable pages (where reviewed <=> patrolled)
-		} elseif ( $action === 'patrol' || $action === 'autopatrol' ) {
-			$flaggedArticle = FlaggableWikiPage::getTitleInstance( $title );
-			# For a page to be patrollable it must not be reviewable.
-			if ( $flaggedArticle->isReviewable() ) {
-				$result = false;
-				return false; // patrol by "accepting"
-			}
 		# Enforce autoreview/review restrictions
 		} elseif ( $action === 'autoreview' || $action === 'review' ) {
 			# Get autoreview restriction settings...
