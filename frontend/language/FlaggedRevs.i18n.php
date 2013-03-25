@@ -652,7 +652,7 @@ Shown when a bad old reviewed version ID is requested for a page view (via ?stab
 	'rights-editor-revoke' => "{{Flagged Revs}}
 * $1 User's user page title",
 	'specialpages-group-quality' => '{{Flagged Revs-small}}
-A group in [[Special:SpecialPages]] for all special pages of the Flagged Revs extension.',
+{{doc-special-group|that=are related to the extension FlaggedRevs|like=[[Special:PendingChanges]], [[Special:ReviewedPages]], [[Special:QualityOversight]], etc}}',
 	'stable-logentry-config' => '{{Flagged Revs}}
 Shown on the stability log (Special:Log/stability).
 * $1 Link to the effected page',
@@ -713,7 +713,8 @@ Shown as dropdown option on lists or log pages to filter results.
 Shown as dropdown option on lists or log pages to filter results.
 {{Identical|Any}}',
 	'revreview-def-draft' => '{{Flagged Revs}}
-Shown as dropdown option on lists or log pages to filter results.',
+Shown as dropdown option on lists or log pages to filter results.
+{{Identical|Latest}}',
 	'revreview-def-stable' => '{{Flagged Revs}}
 Shown as dropdown option on lists or log pages to filter results.
 {{Identical|Stable}}',
