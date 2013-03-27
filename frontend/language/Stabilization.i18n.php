@@ -2600,12 +2600,15 @@ Her er de nåværende innstillingene for [[:$1|$1]]:',
 );
 
 /** Low German (Plattdüütsch)
+ * @author Joachim Mos
  * @author Slomox
  */
 $messages['nds'] = array(
 	'stabilization-page' => 'Siedennaam:',
 	'stabilization-comment' => 'Grund:',
 	'stabilization-expiry' => 'Löppt ut:',
+	'stabilization-def-short' => 'Default',
+	'stabilization-def-short-0' => 'Aktuell',
 	'stabilize-expiring' => 'löppt $1 ut (UTC)',
 );
 

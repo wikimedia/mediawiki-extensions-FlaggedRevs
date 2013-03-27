@@ -10998,6 +10998,7 @@ Nye [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffon
 );
 
 /** Low German (Plattdüütsch)
+ * @author Joachim Mos
  * @author Slomox
  */
 $messages['nds'] = array(
@@ -11012,6 +11013,7 @@ $messages['nds'] = array(
 	'revreview-style-2' => 'Good',
 	'revreview-toggle-title' => 'wies/versteek Details',
 	'revreview-revnotfound' => 'De Version vun disse Siet, no de du söökst, kunn nich funnen warrn. Prööv de URL vun disse Siet.',
+	'revreview-filter-all' => 'all',
 );
 
 /** Nedersaksies (Nedersaksies)

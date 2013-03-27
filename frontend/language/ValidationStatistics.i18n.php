@@ -1589,6 +1589,14 @@ $3",
 	'validationstatistics-reviews' => 'Anmeldelser',
 );
 
+/** Low German (Plattdüütsch)
+ * @author Joachim Mos
+ */
+$messages['nds'] = array(
+	'validationstatistics-total' => 'Sieden',
+	'validationstatistics-user' => 'Bruker',
+);
+
 /** Dutch (Nederlands)
  * @author Ooswesthoesbes
  * @author Siebrand

@@ -677,6 +677,13 @@ $messages['nb'] = array(
 	'problemchanges-category' => 'Kategori:',
 );
 
+/** Low German (Plattdüütsch)
+ * @author Joachim Mos
+ */
+$messages['nds'] = array(
+	'problemchanges-category' => 'Kategorie:',
+);
+
 /** Dutch (Nederlands)
  * @author Siebrand
  */

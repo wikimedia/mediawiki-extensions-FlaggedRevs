@@ -4037,10 +4037,13 @@ Revider alle endringene vist nedenfor for å gjøre redigeringene dine synlige i
 );
 
 /** Low German (Plattdüütsch)
+ * @author Joachim Mos
  * @author Slomox
  */
 $messages['nds'] = array(
 	'revreview-log' => 'Kommentar:',
+	'revreview-submit' => 'Spickern',
+	'revreview-reject-cancel' => 'Afbreken',
 );
 
 /** Dutch (Nederlands)
