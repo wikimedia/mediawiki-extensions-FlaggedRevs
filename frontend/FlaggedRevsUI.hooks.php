@@ -378,7 +378,8 @@ class FlaggedRevsUIHooks {
 		$fields[] = 'fp_pending_since';
 		$join_conds['flaggedpages'] = array( 'LEFT JOIN', 'fp_page_id = rc_cur_id' );
 		if ( $wgRequest->getBool( 'hideReviewed' ) && !FlaggedRevs::useOnlyIfProtected() ) {
-			$conds[] = 'rc_timestamp >= fp_pending_since OR fp_stable IS NULL';
+			// Don't filter external changes as FlaggedRevisions doesn't apply to those
+			$conds[] = 'rc_timestamp >= fp_pending_since OR fp_stable IS NULL OR rc_type = ' . RC_EXTERNAL;
 		}
 		return true;
 	}
