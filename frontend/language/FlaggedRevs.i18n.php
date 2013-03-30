@@ -840,7 +840,7 @@ $messages['af'] = array(
 	'revreview-depth-4' => 'Uitgelig',
 	'revreview-draft-title' => 'Veranderinge wat nog nie goedgekeur is nie word op hierdie bladsy vertoon',
 	'revreview-edit' => 'Wysig',
-	'revreview-submitedit' => 'Dien veranderinge',
+	'revreview-submitedit' => 'Stoor wysigings',
 	'revreview-submitedit-title' => 'Stuur jou veranderinge vir hersiening',
 	'revreview-oldrating' => 'Word gewaardeer as:',
 	'revreview-quality-title' => "Dit is 'n kwaliteitsweergawe van die bladsy",
@@ -861,11 +861,11 @@ $messages['af'] = array(
 	'right-movestable' => 'Skuif gepubliseerde bladsye',
 	'specialpages-group-quality' => 'Gehaltebeheer', # Fuzzy
 	'revreview-filter-all' => 'Alles',
-	'revreview-filter-stable' => 'stabiel', # Fuzzy
+	'revreview-filter-stable' => 'Gepubliseer',
 	'revreview-statusfilter' => 'Status verandering:', # Fuzzy
 	'revreview-filter-approved' => 'Goedgekeur',
 	'revreview-filter-reapproved' => 'Opnuut goedgekeur',
-	'revreview-filter-unapproved' => 'Nie goedgekeur nie', # Fuzzy
+	'revreview-filter-unapproved' => 'Afgekeur',
 	'revreview-typefilter' => 'Tipe:',
 	'revreview-filter-auto' => 'Outomaties',
 	'revreview-filter-manual' => 'Handmatig',
@@ -8188,7 +8188,7 @@ $messages['ja'] = array(
 	'revreview-basic' => 'これは[[{{MediaWiki:Validationpage}}|公開版]]です。<i>$2</i> に[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 確認されました]。[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3件の保留中の{{PLURAL:$3|変更}}]が査読待ちです。',
 	'revreview-basic-i' => 'これは[[{{MediaWiki:Validationpage}}|公開版]]です。<i>$2</i> に[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 確認されました]。
 査読待ちの[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} テンプレートまたはファイルの変更]があります。',
-	'revreview-basic-old' => 'これは[[{{MediaWiki:Validationpage}}|確認済み]]版 ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} すべてを一覧]) です。<i>$2</i> に[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 承認されました]。承認後に新たに[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 変更]されているかもしれません。',
+	'revreview-basic-old' => 'これは[[{{MediaWiki:Validationpage}}|確認済み]]版 ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} すべてを列挙]) です。<i>$2</i> に[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 承認されました]。承認後に新たに[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 変更]されているかもしれません。',
 	'revreview-basic-same' => 'これは[[{{MediaWiki:Validationpage}}|公開版]]です。<i>$2</i> に[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 確認されました]。',
 	'revreview-basic-source' => '<i>$2</i> に[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 承認された]このページの[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} 確認済み版]は、この版に基づいています。',
 	'revreview-current' => '査読待ちの変更',
