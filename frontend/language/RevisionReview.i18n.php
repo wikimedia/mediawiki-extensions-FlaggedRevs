@@ -6008,8 +6008,8 @@ Mời xem [[Special:Unreviewedpages|danh sách các trang chưa được duyệt
 	'revreview-successful2' => "'''Phiên bản của [[:$1|$1]] đã được bỏ cờ thành công.'''",
 	'revreview-poss-conflict-p' => "'''Cảnh báo: [[User:$1|$1]] đã bắt đầu duyệt trang này vào $2 lúc $3.'''",
 	'revreview-poss-conflict-c' => "'''Cảnh báo: [[User:$1|$1]] đã bắt đầu duyệt các thay đổi này vào $2 lúc $3.'''",
-	'revreview-adv-reviewing-p' => 'Chú ý: Những người duyệt bài khác có thể xem rằng bạn đang duyệt trang này.', # Fuzzy
-	'revreview-adv-reviewing-c' => 'Chú ý: Những người duyệt bài khác có thể xem rằng bạn đang duyệt các thay đổi này.', # Fuzzy
+	'revreview-adv-reviewing-p' => 'Chú ý: Những người duyệt bài khác có thể xem rằng {{GENDER:$1}}bạn đang duyệt trang này.',
+	'revreview-adv-reviewing-c' => 'Chú ý: Những người duyệt bài khác có thể xem rằng {{GENDER:$1}}bạn đang duyệt các thay đổi này.',
 	'revreview-sadv-reviewing-p' => 'Bạn có thể $1 cho người ta biết rằng bạn đang duyệt trang này.',
 	'revreview-sadv-reviewing-c' => 'Bạn có thể $1 cho người ta biết rằng bạn đang duyệt các thay đổi này.',
 	'revreview-adv-start-link' => 'báo',
