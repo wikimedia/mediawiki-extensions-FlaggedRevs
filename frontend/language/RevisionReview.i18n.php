@@ -6187,6 +6187,7 @@ $messages['zh-hans'] = array(
  * @author Liangent
  * @author Mark85296341
  * @author Oapbtommy
+ * @author Simon Shek
  * @author Waihorace
  */
 $messages['zh-hant'] = array(
@@ -6235,8 +6236,8 @@ $messages['zh-hant'] = array(
 	'revreview-successful2' => "'''[[:$1|$1]]的指定版本已成功移除標記。'''",
 	'revreview-poss-conflict-p' => "'''警告：[[User:$1|$1]]在$2$3時開始審閱此頁面。 '''",
 	'revreview-poss-conflict-c' => "'''警告：[[User:$1|$1]]在$2$3時開始審閱這些更改。 '''",
-	'revreview-adv-reviewing-p' => '注意：其他複審員可以看到您正在審閱本頁。', # Fuzzy
-	'revreview-adv-reviewing-c' => '注意：其他複審員可以看到您正在審閱這些更改。', # Fuzzy
+	'revreview-adv-reviewing-p' => '注意：其他複審員可以看到{{GENDER:$1|您}}正在審閱本頁。',
+	'revreview-adv-reviewing-c' => '注意：其他複審員可以看到{{GENDER:$1|您}}正在審閱這些更改。',
 	'revreview-sadv-reviewing-p' => '您可以$1您正在審閱本頁面。',
 	'revreview-sadv-reviewing-c' => '您可以$1您正在審閱這些更改。',
 	'revreview-adv-start-link' => '告知其他用戶',
