@@ -11217,7 +11217,7 @@ U kunt hiervoor [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} i
 U kunt hiervoor [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} instellingen maken].'''",
 	'revreview-visibility-nostable' => "'''Deze pagina heeft geen [[{{MediaWiki:Validationpage}}|gepubliceerde versie]].
 U kunt hiervoor [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} instellingen maken].'''",
-	'revreview-revnotfound' => 'De opgevraagde oude versie van deze pagina is onvindbaar.
+	'revreview-revnotfound' => 'De opgegeven oude versie van deze pagina is onvindbaar.
 Controleer de URL die u gebruikte om naar deze pagina te gaan.',
 	'right-autoreview' => 'Versies automatisch als gecontroleerd markeren',
 	'right-autoreviewrestore' => 'Automatisch als gecontroleerd markeren bij terugdraaien',
@@ -11282,8 +11282,8 @@ $messages['nl-informal'] = array(
 	'revreview-edited' => "'''Je wijzigingen worden aan lezers worden weergegeven zodra die zijn gecontroleerd. ([[{{MediaWiki:Validationpage}}|?]])'''
 
 Er {{PLURAL:$2|is|zijn}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 ongecontroleerde {{PLURAL:$2|wijziging|wijzigingen}}] (zie hieronder) die nog gecontroleerd moeten worden.",
-	'revreview-revnotfound' => 'De opgevraagde oude versie van deze pagina is onvindbaar.
-Controleer de URL die je gebruikte om naar deze pagina te gaan.',
+	'revreview-revnotfound' => 'De opgegeven oude versie van deze pagina is onvindbaar.
+Controleer de URL die je hebt gebruikt om naar deze pagina te gaan.',
 );
 
 /** Norwegian Nynorsk (norsk (nynorsk)‎)
