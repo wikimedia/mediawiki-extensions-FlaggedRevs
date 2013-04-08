@@ -365,13 +365,14 @@ class FlaggedRevsHooks {
 		Page $article, $rev, $baseRevId = false, $user = null
 	) {
 		global $wgRequest;
+
+		$title = $article->getTitle(); // convenience
 		# Edit must be non-null, to a reviewable page, with $user set
-		$fa = FlaggableWikiPage::getTitleInstance( $article->getTitle() );
+		$fa = FlaggableWikiPage::getTitleInstance( $title );
 		$fa->loadPageData( 'fromdbmaster' );
 		if ( !$rev || !$user || !$fa->isReviewable() ) {
 			return true;
 		}
-		$title = $article->getTitle(); // convenience
 		$title->resetArticleID( $rev->getPage() ); // Avoid extra DB hit and lag issues
 		# Get what was just the current revision ID
 		$prevRevId = $rev->getParentId();
@@ -382,7 +383,7 @@ class FlaggedRevsHooks {
 			&& $wgRequest->getCheck( 'wpReviewEdit' )
 			&& $title->getUserPermissionsErrors( 'review', $user ) === array() )
 		{
-			if ( self::editCheckReview( $article, $rev, $user, $editTimestamp ) ) {
+			if ( self::editCheckReview( $fa, $rev, $user, $editTimestamp ) ) {
 				return true; // reviewed...done!
 			}
 		}
@@ -431,7 +432,7 @@ class FlaggedRevsHooks {
 					$flags = $frev->getTags(); // null edits & rollbacks keep previous tags
 				}
 				# Review this revision of the page...
-				FlaggedRevs::autoReviewEdit( $article, $user, $rev, $flags );
+				FlaggedRevs::autoReviewEdit( $fa, $user, $rev, $flags );
 			}
 		# Case B: the user cannot autoreview edits. Check if either:
 		# (a) this is a rollback to the stable version
@@ -454,7 +455,7 @@ class FlaggedRevsHooks {
 			if ( $reviewableChange ) {
 				$flags = $srev->getTags(); // use old tags
 				# Review this revision of the page...
-				FlaggedRevs::autoReviewEdit( $article, $user, $rev, $flags );
+				FlaggedRevs::autoReviewEdit( $fa, $user, $rev, $flags );
 			}
 		}
 		return true;

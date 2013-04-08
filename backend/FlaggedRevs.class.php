@@ -192,7 +192,7 @@ class FlaggedRevs {
 	 */
 	public static function autoReviewEdits() {
 		self::load();
-		return self::$autoReviewConfig & FR_AUTOREVIEW_CHANGES;
+		return ( self::$autoReviewConfig & FR_AUTOREVIEW_CHANGES ) != 0;
 	}
 
 	/**
@@ -201,7 +201,7 @@ class FlaggedRevs {
 	 */
 	public static function autoReviewNewPages() {
 		self::load();
-		return self::$autoReviewConfig & FR_AUTOREVIEW_CREATION;
+		return ( self::$autoReviewConfig & FR_AUTOREVIEW_CREATION ) != 0;
 	}
 
 	/**
@@ -595,15 +595,26 @@ class FlaggedRevs {
 
 	/**
 	 * Update the page tables with a new stable version.
-	 * @param Title $title
+	 * @param WikiPage|Title $page
 	 * @param FlaggedRevision|null $sv, the new stable version (optional)
 	 * @param FlaggedRevision|null $oldSv, the old stable version (optional)
 	 * @param Object editInfo Article edit info about the current revision (optional)
 	 * @return bool stable version text/file changed and FR_INCLUDES_STABLE
 	 */
 	public static function stableVersionUpdates(
-		Title $title, $sv = null, $oldSv = null, $editInfo = null
+		$page, $sv = null, $oldSv = null, $editInfo = null
 	) {
+		if ( $page instanceof FlaggableWikiPage ) {
+			$article = $page;
+		} elseif ( $page instanceof WikiPage ) {
+			$article = FlaggableWikiPage::getTitleInstance( $page->getTitle() );
+		} elseif ( $page instanceof Title ) {
+			$article = FlaggableWikiPage::getTitleInstance( $page );
+		} else {
+			throw new MWException( "First argument must be a Title or WikiPage." );
+		}
+		$title = $article->getTitle();
+
 		$changed = false;
 		if ( $oldSv === null ) { // optional
 			$oldSv = FlaggedRevision::newFromStable( $title, FR_MASTER );
@@ -611,7 +622,7 @@ class FlaggedRevs {
 		if ( $sv === null ) { // optional
 			$sv = FlaggedRevision::determineStable( $title, FR_MASTER );
 		}
-		$article = new FlaggableWikiPage( $title );
+
 		if ( !$sv ) {
 			# Empty flaggedrevs data for this page if there is no stable version
 			$article->clearStableVersion();
@@ -1012,7 +1023,7 @@ class FlaggedRevs {
 			$flags, array(), '', $rev->getId(), $oldSvId, true, $auto );
 
 		# Update page and tracking tables and clear cache
-		FlaggedRevs::stableVersionUpdates( $title );
+		FlaggedRevs::stableVersionUpdates( $article );
 
 		wfProfileOut( __METHOD__ );
 		return true;
