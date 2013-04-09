@@ -599,6 +599,7 @@ $specialPageAliases['pt-br'] = array(
 /** Russian (русский) */
 $specialPageAliases['ru'] = array(
 	'PendingChanges' => array( 'Ожидающие_проверки_изменения', 'Устаревшие_проверенные_страницы' ),
+	'ProblemChanges' => array( 'Непроверенные_изменения' ),
 	'QualityOversight' => array( 'Расширенный_журнал_проверок_версий' ),
 	'ReviewedPages' => array( 'Проверенные_страницы' ),
 	'RevisionReview' => array( 'Проверка_версий' ),

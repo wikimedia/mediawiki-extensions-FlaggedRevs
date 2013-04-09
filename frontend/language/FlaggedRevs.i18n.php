@@ -559,8 +559,11 @@ Shown when viewing a "quality" page were only template or files changes are pend
 * $1 The stable version ID
 * $2 The date the stable version was accepted',
 	'revreview-quality-old' => '{{Flagged Revs}}
-Shown when viewing a old "quality" version of a page.
-* Parameter $2 is the date of the approval',
+Shown when viewing an old "quality" version of a page.
+
+Parameters:
+* $1 - revision ID
+* $2 - the date of the approval',
 	'revreview-quality-same' => '{{Flagged Revs}}',
 	'revreview-quality-source' => "{{Flagged Revs-small}}
 Displayed on the top of a page when you are viewing an old quality revision. The link goes to the reviewed *version* of this revision (e.g. templates/files are stabilized).
@@ -10097,7 +10100,7 @@ $messages['mk'] = array(
 	'revreview-basic-old' => 'Ова е [[{{MediaWiki:Validationpage}}|проверена]] верзија ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} список на сите]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} одобрена] на <i>$2</i>.
 Можеби се направени нови [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} промени].',
 	'revreview-basic-same' => 'Ова е [[{{MediaWiki:Validationpage}}|објавената верзија]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} проверена] на <i>$2</i>.',
-	'revreview-basic-source' => '[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} Проверена верзија] на оваа страница, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} одобрена] на <i>$2</i>, беше заснована на оваа ревизија.',
+	'revreview-basic-source' => '[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} Проверена верзија] на оваа страница, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} одобрена] на <i>$2</i>, се засноваше на оваа ревизија.',
 	'revreview-current' => 'Промени во исчекување',
 	'revreview-depth' => 'Длабочина',
 	'revreview-depth-0' => 'Несоодветна',
@@ -10136,7 +10139,7 @@ $messages['mk'] = array(
 	'revreview-quality-old' => 'Ова е [[{{MediaWiki:Validationpage}}|квалитетна]] ревизија ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} список на сите]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} одобрена] на <i>$2</i>.
 Може да се направени нови [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} промени].',
 	'revreview-quality-same' => 'Ова е [[{{MediaWiki:Validationpage}}|објавената верзија]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} одобрена] на <i>$2</i>.',
-	'revreview-quality-source' => '[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} Квалитетна верзија] на оваа страница, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} одобрена] на <i>$2</i>, беше заснована на оваа верзија.',
+	'revreview-quality-source' => '[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} Квалитетна верзија] на оваа страница, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} одобрена] на <i>$2</i>, се засноваше на оваа верзија.',
 	'revreview-quality-title' => 'Ова е квалитетна верзија на страницава',
 	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|Проверена]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} промени во исчекување]]",
 	'revreview-quick-basic-old' => "'''[[{{MediaWiki:Validationpage}}|Проверена]]'''",
