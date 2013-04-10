@@ -3527,6 +3527,7 @@ ikke findes. Kontrollér den URL du brugte til at få adgang til denne side.',
  * @author DaSch
  * @author Dawid Deutschland
  * @author Filzstift
+ * @author Geitost
  * @author Giftpflanze
  * @author Imre
  * @author Jens Liebenau
@@ -3553,8 +3554,8 @@ $messages['de'] = array(
 	'flaggedrevs-watched-pending' => "Es gibt momentan [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} ungesichtete Bearbeitungen] gesichteter Seiten, die sich auf deiner Beobachtungsliste befinden. '''Deine Aufmerksamkeit wird daher benötigt!'''",
 	'flaggedrevs-desc' => 'Ermöglicht es Seitenversionen zu markieren sowie eine stabile Seitenversion festzulegen',
 	'flaggedrevs-pref-UI' => 'Einfache Benutzeroberfläche:',
-	'flaggedrevs-pref-UI-0' => 'Verwende die detaillierte Übersicht, um den Markierungstatus von Seiten anzuzeigen',
-	'flaggedrevs-pref-UI-1' => 'Verwende kleine Symbole und wenig Text, um den Markierungstatus von Seiten anzuzeigen',
+	'flaggedrevs-pref-UI-0' => 'Verwende die detaillierte Übersicht, um den Markierungsstatus von Seiten anzuzeigen',
+	'flaggedrevs-pref-UI-1' => 'Verwende kleine Symbole und wenig Text, um den Markierungsstatus von Seiten anzuzeigen',
 	'prefs-flaggedrevs' => 'Seitenanzeige',
 	'prefs-flaggedrevs-ui' => 'Seitenanzeige',
 	'flaggedrevs-prefs-stable' => 'Welche Version einer Seite soll standardmäßig angezeigt werden?',

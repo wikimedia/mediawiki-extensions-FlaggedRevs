@@ -1187,6 +1187,7 @@ $messages['da'] = array(
 
 /** German (Deutsch)
  * @author ChrisiPK
+ * @author Geitost
  * @author Inkowik
  * @author Kghbln
  * @author Merlissimo
@@ -1248,7 +1249,7 @@ Siehe die [[Special:Unreviewedpages|Liste unmarkierter Versionen]].',
 	'revreview-adv-stop-link' => 'Hinweis zurücknehmen',
 	'revreview-toolow' => "'''Du musst jedes der Attribute besser als „unzureichend“ einstufen, damit eine Version als markiert angesehen werden kann.'''
 
-Um den Markierungstatus einer Version aufzuheben, muss auf „{{int:revreview-submit-unreview}}“ geklickt werden.
+Um den Markierungsstatus einer Version aufzuheben, muss auf „{{int:revreview-submit-unreview}}“ geklickt werden.
 
 Klicke auf die „Zurück“-Schaltfläche deines Browsers und versuche es erneut.",
 	'revreview-update' => "'''Bitte [[{{MediaWiki:Validationpage}}|markiere]] alle Änderungen ''(siehe unten)'', die seit der letzten stabilen Version getätigt wurden.'''",
@@ -1273,7 +1274,19 @@ Bitte markiere alle unten angezeigten Änderungen, damit deine Bearbeitungen zur
 	'revreview-tt-reject' => 'Diese Textänderungen durch Zurücksetzen verwerfen',
 );
 
+/** Swiss High German (Schweizer Hochdeutsch)
+ * @author Geitost
+ */
+$messages['de-ch'] = array(
+	'revreview-toolow' => "'''Du musst jedes der Attribute besser als «unzureichend» einstufen, damit eine Version als markiert angesehen werden kann.'''
+
+Um den Markierungsstatus einer Version aufzuheben, muss auf «{{int:revreview-submit-unreview}}» geklickt werden.
+
+Klicke auf die «Zurück»-Schaltfläche deines Browsers und versuche es erneut.",
+);
+
 /** German (formal address) (Deutsch (Sie-Form)‎)
+ * @author Geitost
  * @author Imre
  * @author Kghbln
  * @author Umherirrender
@@ -1294,9 +1307,9 @@ Siehe die [[Special:Unreviewedpages|Liste unmarkierter Versionen]].',
 	'revreview-adv-start-link' => 'überprüfen',
 	'revreview-toolow' => "'''Sie müssen jedes der Attribute besser als „unzureichend“ einstufen, damit eine Version als markiert angesehen werden kann.'''
 
-Um den Markierungstatus einer Version aufzuheben, muss auf „Markierung entfernen“ geklickt werden.
+Um den Markierungsstatus einer Version aufzuheben, muss auf „{{int:revreview-submit-unreview}}“ geklickt werden.
 
-Klicken Sie auf die „Zurück“-Schaltfläche Ihres Browsers und versuchen Sie es erneut.", # Fuzzy
+Klicken Sie auf die „Zurück“-Schaltfläche Ihres Browsers und versuchen es erneut.",
 	'revreview-update' => "'''Bitte [[{{MediaWiki:Validationpage}}|überprüfen]] Sie alle Änderungen ''(siehe unten)'', die seit der neuesten freigegebenen Version getätigt wurden.'''",
 	'revreview-update-edited' => '<span class="flaggedrevs_important">Ihre Änderungen wurden bislang noch nicht als stabile Version gekennzeichnet.</span>
 
