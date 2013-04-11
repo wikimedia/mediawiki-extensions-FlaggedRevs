@@ -876,6 +876,13 @@ Die aktuellen Einstellungen für „[[:$1|$1]]“ sind:',
 	'stabilization-review' => 'Markiere die aktuelle Version',
 );
 
+/** Swiss High German (Schweizer Hochdeutsch)
+ * @author Geitost
+ */
+$messages['de-ch'] = array(
+	'stabilization-text' => "'''Ändere die folgenden Einstellungen, um festzulegen, wie die zu veröffentlichende Version von «[[:$1|$1]]» ausgewählt und angezeigt werden soll.'''",
+);
+
 /** German (formal address) (Deutsch (Sie-Form)‎)
  * @author Kghbln
  * @author Umherirrender
