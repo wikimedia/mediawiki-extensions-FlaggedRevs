@@ -1575,7 +1575,7 @@ La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} versión estable] s'[{{fullurl:{{#Spe
 	'tooltip-ca-default' => 'Parámetros del aseguramientu de calidá',
 	'flaggedrevs-protect-none' => 'Permitir tolos usuarios',
 	'log-show-hide-review' => '$1 rexistru de revisiones',
-	'validationpage' => '{{ns:help}}: Convalidación de la páxina',
+	'validationpage' => '{{ns:help}}:Convalidación de la páxina',
 );
 
 /** Kotava (Kotava)
@@ -3081,7 +3081,7 @@ Reviseu l'URL que heu emprat per a accedir-hi.",
 	'revreview-locked' => "'''Avís''': canvis han ser [[{{MediaWiki:Validationpage}}|aprovats]] abans de ser afixats als lectors d'aquesta pàgina",
 	'revreview-unlocked' => "'''Avís:''' Canvis no necessiten cap [[{{MediaWiki:Validationpage}}|approbació]] abans de ser afixats als lectors d'aquesta pàgina.",
 	'log-show-hide-review' => '$1 registre de revisió',
-	'validationpage' => '{{ns:ajuda}}: Aprovació de les pàgines',
+	'validationpage' => '{{ns:help}}:Aprovació de les pàgines',
 );
 
 /** Chechen (нохчийн)
@@ -5469,8 +5469,8 @@ $messages['fr'] = array(
 	'group-editor-member' => '{{GENDER:$1|contributeur|contributrice}}',
 	'group-reviewer' => 'Relecteurs',
 	'group-reviewer-member' => '{{GENDER:$1|relecteur|relectrice}}',
-	'grouppage-editor' => '{{ns:project}}:Editor',
-	'grouppage-reviewer' => '{{ns:project}}:Reviewer',
+	'grouppage-editor' => '{{ns:project}}:Éditeurs',
+	'grouppage-reviewer' => '{{ns:project}}:Relecteurs',
 	'group-autoreview' => 'Relecteurs automatiques',
 	'group-autoreview-member' => '{{GENDER:$1|relecteur automatique|relectrice automatique}}',
 	'grouppage-autoreview' => '{{ns:project}}:Relecteur automatique',
@@ -7974,7 +7974,7 @@ $messages['it'] = array(
 	'review-logentry-id' => 'revisione: $2',
 	'review-logentry-diff' => 'modifiche controllate',
 	'review-logentry-diff2' => 'modifiche deprecate',
-	'review-logpage' => 'Log revisioni',
+	'review-logpage' => 'Registro delle revisioni',
 	'review-logpagetext' => 'Questo è un registro delle versioni di pagine di contenuto che sono state [[{{MediaWiki:Validationpage}}|controllate]].',
 	'reviewer' => 'Revisore',
 	'revreview-accuracy' => 'Accuratezza',
@@ -8955,7 +8955,7 @@ $messages['km'] = array(
 	'revreview-reviewlink' => 'ពិនិត្យឡើងវិញ', # Fuzzy
 	'tooltip-ca-current' => 'មើលសេចក្តីព្រាងបច្ចុប្បន្ន​នៃទំព័រនេះ', # Fuzzy
 	'log-show-hide-review' => '$1 កំណត់ហេតុ​នៃ​ការ​ពិនិត្យឡើងវិញ',
-	'validationpage' => '{{ns:help}}: សុពលកម្ម​ទំព័រ',
+	'validationpage' => '{{ns:help}}:សុពលកម្ម​ទំព័រ',
 );
 
 /** Kannada (ಕನ್ನಡ)
@@ -9178,7 +9178,7 @@ $messages['ksh'] = array(
 	'editor' => 'Redaktör för et Sichte',
 	'flaggedrevs' => 'Beschtähteschte Versione',
 	'flaggedrevs-watched-pending' => "Mer han jraad [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} noch nit nohjekik Änderunge] aan Sigge op Ding Oppassleß, wohvun ällder Versione ald nohjekik wohre. '''Ding Hülp weedt jebruch!'''",
-	'flaggedrevs-desc' => 'Määt et för de Metmaacher müjjelesch, de Versijone fun Sigge ze övverpröfe un dat faßzehallde, un domet dänne ier Qualiteit beshtändesch ze hallde.',
+	'flaggedrevs-desc' => 'Määd ed för de Metmaacher möjjelesch, de Väsjohne fun Sigge ze övverpröfe un dat faßzehallde, un domet dänne ier Qualiteit beschtändesch ze hallde.',
 	'flaggedrevs-pref-UI' => 'Bedeen-Ovverfläsch:',
 	'flaggedrevs-pref-UI-0' => 'Nemm Käßte met ville Einzelheite, för aanzezeije, ov un wie en Sigg nohjekik woode es.',
 	'flaggedrevs-pref-UI-1' => 'Nemm janz klei Beldsche un koum Täx, för aanzezeije, ov un wie en Sigg nohjekik woode es.',
@@ -11722,6 +11722,7 @@ $messages['pfl'] = array(
  * @author Maikking
  * @author Marcin Łukasz Kiejzik
  * @author McMonster
+ * @author Odie2
  * @author Pimke
  * @author Soeb
  * @author Sovq
@@ -11779,7 +11780,7 @@ $messages['pl'] = array(
 	'revreview-log-details-hide' => 'ukryj szczegóły',
 	'revreview-log-details-title' => 'Zmień widoczność rejestru konfiguracji stron',
 	'review-diff2stable' => 'Pokaż wszystkie zmiany oczekujące na przejrzenie',
-	'review-logentry-app' => '{{GENDER:$2|przejrzał|przejrzała}} wersję [[$1]]', # Fuzzy
+	'review-logentry-app' => 'przejrzano wersję [[$1]]',
 	'review-logentry-dis' => 'wycofał oznaczenie wersji [[$1]]',
 	'review-logentry-id' => 'zobacz wersję z $2',
 	'review-logentry-diff' => 'przejrzane zmiany',

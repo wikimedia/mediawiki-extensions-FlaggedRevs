@@ -1324,7 +1324,7 @@ $messages['krc'] = array(
  * @author Purodha
  */
 $messages['ksh'] = array(
-	'validationstatistics' => 'Shtatistike vun de Beschtätijunge för Sigge',
+	'validationstatistics' => 'Schtatistike vun de Beschtäätejonge för Sigge',
 	'validationstatistics-users' => "'''{{ucfirst:{{GRAMMAR:Mominativ|{{SITENAME}}}}}}''' hät em Momang [[Special:ListUsers/editor|{{PLURAL:$1|'''eine''' Metmaacher|'''$1''' Metmaacher|'''keine''' Metmaacher}}]] met däm Rääsch, der [[{{MediaWiki:Validationpage}}|{{int:group-editor-member}}]] ze maache.
 
 {{int:group-editor}} sin doför aanerkannte un extra ußjesöhk Metmaacher, di Versione vun Sigge beshtäteje künne.",
@@ -1334,8 +1334,8 @@ $messages['ksh'] = array(
 Em Schnett doohrd et '''$1''' för [[Special:OldReviewedPages|Sigge met Änderonge, di nit nohjekik sin]]. Jezallt weed dobei immer de Duur, bes de ählste Änderong nohjekik es.",
 	'validationstatistics-revtime' => "De Duur beß de Änderonge vun ''naameloose Metmaacher'' nohjekik sen, es '''$1''' — der Median es '''$2'''.
 $3",
-	'validationstatistics-table' => 'Statistike vun de Beschtäätejunge för jedes Appachtemang wäädew onge jezeish, ävver oohne de Sigge met Ömleijdunge.
-Sigge sen als övverhollt enjeschtoof, wann Änderonge doh sen, di noch nit nohjekik sin. All Sigge söns wääde als nohjekik un om aktoälle Shtand jezallt.',
+	'validationstatistics-table' => 'Schtatistike vun de Beschtäätejunge för jedes Appachtemang wääde onge jezeisch, ävver der oohne de Sigge met Ömleijdunge.
+Sigge sen als övverhollt enjeschtoof, wann Änderonge doh sen, di noch nit nohjekik sin. All Sigge söns wääde als nohjekik un om aktoälle Schtand jezallt.',
 	'validationstatistics-ns' => 'Appachtemang',
 	'validationstatistics-total' => 'Sigge ensjesamp',
 	'validationstatistics-stable' => 'Aanjekik',
