@@ -589,7 +589,7 @@ $messages['ksh'] = array(
 	'configuredpages-list' => 'Heh kütt en Leß met {{PLURAL:$1|dä Sigg|dä Sigge|kein Sigge}} met eije Enstellunge för Aanzeije un Nohkike, di anders sin, wi der Standatt för et Wiki.
 Enstellunge künne jemaat wääde, öm faßzelääje, wat för en Version de Lässer ze sinn kritt, udder öm zohsäzlesch ze beschrängke, wä Änderonge maache kann, di keiner nohkike udder beschtääteje moß.',
 	'configuredpages-none' => 'En heh dä Leß sin kein Sigge dren.',
-	'configuredpages-config' => 'Enshtellung',
+	'configuredpages-config' => 'Enschtällunge',
 	'configuredpages-def-draft' => 'de neuste Version',
 	'configuredpages-def-stable' => 'de Version för de Öffentleschkeit',
 );

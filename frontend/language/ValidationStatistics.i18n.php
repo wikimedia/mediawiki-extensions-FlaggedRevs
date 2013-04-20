@@ -501,7 +501,7 @@ Ena pelan ma ''kihanan'' ra hesebneni. Eka yew vuranayişan ciniyo, pelan ke ''s
 	'validationstatistics-revtime' => "Avaraj tecil seba vurnayişan pê ''karberanê ke hama ci nikewta'' qontrol beno '''$1'''; mediyan '''$2''' ya.
 $3",
 	'validationstatistics-table' => "Qandê herunda nama istatistikê pela çım ra ravyarnayışi, peleyê hetenayışa ''tewr nêkerê''  cêr dı ratneyayê. Peleyê ke vurnayış pawenê ''noroc resnayışê cı qedyayo'', peleyê ke vurnayış nêpawena zi ''senkronize'' qebul benê.",
-	'validationstatistics-ns' => 'Cayênameyî',
+	'validationstatistics-ns' => 'Cayê namey',
 	'validationstatistics-total' => 'Peli',
 	'validationstatistics-stable' => 'Çım ra ravyarneya',
 	'validationstatistics-latest' => 'Rocaniye biyo',

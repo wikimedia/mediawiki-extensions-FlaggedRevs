@@ -619,7 +619,7 @@ $messages['ksh'] = array(
 	'stablepages-list' => 'Heh dronger kütt en Leß met {{PLURAL:$1|dä Sigg|dä Sigge|dä Noll Sigge}}, woh bloß beshtemmpte Metmaacher draan ändere künne, di nit nohjekik wääde möße.
 Änderonge vun ander Metmaacher kritt der Lesser shtandatmäßesch nit aanjezeisch, bes ene berääschteschte Metmaacher se nohjekik hät.',
 	'stablepages-none' => 'En dä Leß sin kein Sigge dren',
-	'stablepages-config' => 'Enstellunge',
+	'stablepages-config' => 'Enschtällunge',
 	'stablepages-indef' => 'Bloß met onbejränz Duuer',
 );
 
