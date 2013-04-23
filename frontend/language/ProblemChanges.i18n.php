@@ -176,9 +176,10 @@ $messages['ca'] = array(
 
 /** Chechen (нохчийн)
  * @author Sasan700
+ * @author Умар
  */
 $messages['ce'] = array(
-	'problemchanges-category' => 'Кадегар:',
+	'problemchanges-category' => 'Категори:',
 );
 
 /** Sorani Kurdish (کوردی)

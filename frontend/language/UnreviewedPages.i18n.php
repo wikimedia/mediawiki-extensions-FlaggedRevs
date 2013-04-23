@@ -354,9 +354,10 @@ $messages['ca'] = array(
 
 /** Chechen (нохчийн)
  * @author Sasan700
+ * @author Умар
  */
 $messages['ce'] = array(
-	'unreviewedpages-category' => 'Кадегар:',
+	'unreviewedpages-category' => 'Категори:',
 	'unreviewedpages-diff' => 'хьажа',
 	'unreviewedpages-unwatched' => '(терго йац)',
 	'unreviewedpages-watched' => '({{PLURAL:$1|терго йеш $1 жигар декъашхо|терго йеш $1 жигар декъашхой}})',

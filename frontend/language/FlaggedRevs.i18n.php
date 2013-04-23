@@ -700,7 +700,8 @@ Shown as dropdown option on lists or log pages to filter results.
 	'revreview-filter-manual' => '{{Flagged Revs}}
 Shown as dropdown option on lists or log pages to filter results.',
 	'revreview-levelfilter' => '{{Flagged Revs}}
-Shown as dropdown option on lists or log pages to filter results.',
+Shown as dropdown option on lists or log pages to filter results.
+{{Identical|Level}}',
 	'revreview-lev-all' => '{{Flagged Revs}}
 Shown as dropdown option on lists or log pages to filter results.
 {{Identical|Any}}',
@@ -2907,7 +2908,7 @@ $messages['ca'] = array(
 	'flaggedrevs-pref-UI' => 'Interfície bàsica:',
 	'flaggedrevs-pref-UI-0' => "Utilitza la interfície detallada per a veure l'estatut de les pàgines.",
 	'flaggedrevs-pref-UI-1' => "Utilitza icones petites i text minimal per a veure l'estatut de les pàgines",
-	'prefs-flaggedrevs' => 'Edita la revisió',
+	'prefs-flaggedrevs' => 'Canvis a revisar',
 	'prefs-flaggedrevs-ui' => 'Edita la revisió',
 	'flaggedrevs-prefs-stable' => 'Quan mostrar la versió estable de les pàgines de contingut per defecte',
 	'flaggedrevs-pref-stable-0' => 'Utilitza la configuració per defecte per cada pàgina',

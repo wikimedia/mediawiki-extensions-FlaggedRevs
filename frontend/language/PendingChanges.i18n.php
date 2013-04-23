@@ -396,12 +396,13 @@ $messages['ca'] = array(
 
 /** Chechen (нохчийн)
  * @author Sasan700
+ * @author Умар
  */
 $messages['ce'] = array(
 	'pendingchanges-hours' => '($1 {{PLURAL:$1|сахьат|сахьат}})',
 	'pendingchanges-days' => '($1 {{PLURAL:$1|де|де}})',
 	'pendingchanges-recent' => '(лаххар 1 сахьтехь)',
-	'pendingchanges-category' => 'Кадегар:',
+	'pendingchanges-category' => 'Категори:',
 	'pendingchanges-diff' => 'хьажа',
 	'pendingchanges-unwatched' => '(терго йац)',
 	'pendingchanges-watched' => '({{PLURAL:$1|терго йеш $1 жигар декъашхо|терго йеш $1 жигар декъашхой}})',
