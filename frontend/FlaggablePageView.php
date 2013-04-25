@@ -1794,7 +1794,11 @@ class FlaggablePageView extends ContextSource {
 			}
 			if ( !isset( $editPage->fr_baseFRev ) ) {
 				$baseRevId = self::getBaseRevId( $editPage, $this->getRequest() );
+				$baseRevId2 = self::getAltBaseRevId( $editPage, $this->getRequest() );
 				$editPage->fr_baseFRev = FlaggedRevision::newFromTitle( $title, $baseRevId );
+				if ( !$editPage->fr_baseFRev && $baseRevId2 ) {
+					$editPage->fr_baseFRev = FlaggedRevision::newFromTitle( $title, $baseRevId2 );
+				}
 			}
 			if ( $editPage->fr_baseFRev ) {
 				return true; // edit will be autoreviewed
@@ -1857,8 +1861,10 @@ class FlaggablePageView extends ContextSource {
 	 * Note: baseRevId trusted for Reviewers - text checked for others.
 	 */
 	public function addRevisionIDField( EditPage $editPage, OutputPage $out ) {
-		$revId = self::getBaseRevId( $editPage, $this->getRequest() );
-		$out->addHTML( "\n" . Html::hidden( 'baseRevId', $revId ) );
+		$out->addHTML( "\n" . Html::hidden( 'baseRevId',
+			self::getBaseRevId( $editPage, $this->getRequest() ) ) );
+		$out->addHTML( "\n" . Html::hidden( 'altBaseRevId',
+			self::getAltBaseRevId( $editPage, $this->getRequest() ) ) );
 		$out->addHTML( "\n" . Html::hidden( 'undidRev',
 			empty( $editPage->undidRev ) ? 0 : $editPage->undidRev )
 		);
@@ -1875,16 +1881,8 @@ class FlaggablePageView extends ContextSource {
 		if ( !isset( $editPage->fr_baseRevId ) ) {
 			$article = $editPage->getArticle(); // convenience
 			$latestId = $article->getLatest(); // current rev
-			$undo = $request->getIntOrNull( 'undo' );
-			# Undoing consecutive top edits...
-			if ( $undo && $undo === $latestId ) {
-				# Treat this like a revert to a base revision.
-				# We are undoing all edits *after* some rev ID (undoafter).
-				# If undoafter is not given, then it is the previous rev ID.
-				$revId = $request->getInt( 'undoafter',
-					$article->getTitle()->getPreviousRevisionID( $latestId, Title::GAID_FOR_UPDATE ) );
-			# Undoing other edits...
-			} elseif ( $undo ) {
+			# Undoing edits...
+			if ( $request->getIntOrNull( 'undo' ) ) {
 				$revId = $latestId; // current rev is the base rev
 			# Other edits...
 			} else {
@@ -1895,11 +1893,37 @@ class FlaggablePageView extends ContextSource {
 					: $request->getInt( 'baseRevId' ); // e.g. "show changes"/"preview"
 			}
 			# Zero oldid => draft revision
-			if ( !$revId ) {
-				$revId = $latestId;
-			}
-			$editPage->fr_baseRevId = $revId;
+			$editPage->fr_baseRevId = $revId ?: $latestId;
 		}
 		return $editPage->fr_baseRevId;
+	}
+
+	/**
+	 * Guess the alternative rev ID the text of this form is based off.
+	 * When undoing the top X edits, the base can be though of as either
+	 * the current or the edit X edits prior to the latest.
+	 * Note: baseRevId trusted for Reviewers - check text for others.
+	 * @param EditPage $editPage
+	 * @param WebRequest $request
+	 * @return int
+	 */
+	protected static function getAltBaseRevId( EditPage $editPage, WebRequest $request ) {
+		if ( !isset( $editPage->fr_altBaseRevId ) ) {
+			$article = $editPage->getArticle(); // convenience
+			$latestId = $article->getLatest(); // current rev
+			$undo = $request->getIntOrNull( 'undo' );
+			# Undoing consecutive top edits...
+			if ( $undo && $undo === $latestId ) {
+				# Treat this like a revert to a base revision.
+				# We are undoing all edits *after* some rev ID (undoafter).
+				# If undoafter is not given, then it is the previous rev ID.
+				$revId = $request->getInt( 'undoafter',
+					$article->getTitle()->getPreviousRevisionID( $latestId, Title::GAID_FOR_UPDATE ) );
+			} else {
+				$revId = $request->getInt( 'altBaseRevId' );
+			}
+			$editPage->fr_altBaseRevId = $revId;
+		}
+		return $editPage->fr_altBaseRevId;
 	}
 }
