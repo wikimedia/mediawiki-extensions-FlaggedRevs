@@ -7555,13 +7555,13 @@ $messages['id'] = array(
 	'flaggedrevs-prefs-viewdiffs' => 'Tampilkan perbedaan perubahan tertunda ketika melihat revisi tertunda terkini',
 	'flaggedrevs-hidereviewed' => '$1 suntingan diperiksa',
 	'group-editor' => 'Editor',
-	'group-editor-member' => '{{GENDER:$1|penyunting}}',
+	'group-editor-member' => '{{GENDER:$1|editor}}',
 	'group-reviewer' => 'Peninjau',
 	'group-reviewer-member' => '{{GENDER:$1|peninjau}}',
 	'grouppage-editor' => '{{ns:project}}:Editor',
 	'grouppage-reviewer' => '{{ns:project}}:Peninjau',
 	'group-autoreview' => 'Autopeninjau',
-	'group-autoreview-member' => '{{GENDER:$1|pengguna autopeninjau}}',
+	'group-autoreview-member' => '{{GENDER:$1|pengguna peninjau otomatis}}',
 	'grouppage-autoreview' => '{{ns:project}}:Autotinjau',
 	'revreview-hist-draft' => 'revisi tidak terperiksa',
 	'revreview-hist-pending' => 'revisi tertunda',
@@ -10019,6 +10019,15 @@ $messages['mg'] = array(
 	'revreview-revnotfound' => "
 Tsy hita ny votoatin'ny pejy taloha nangatahinao.
 Hamarino azafady ny URL nampiasainao hahatongavana eto amin'ity pejy ity.",
+);
+
+/** Minangkabau (Baso Minangkabau)
+ * @author Iwan Novirion
+ */
+$messages['min'] = array(
+	'group-editor-member' => '{{GENDER:$1|editor}}',
+	'group-reviewer-member' => '{{GENDER:$1|paninjau}}',
+	'group-autoreview-member' => '{{GENDER:$1|pangguno paninjau otomatis}}',
 );
 
 /** Macedonian (македонски)
