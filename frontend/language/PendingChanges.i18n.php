@@ -1611,6 +1611,7 @@ $messages['pt'] = array(
 /** Brazilian Portuguese (português do Brasil)
  * @author Eduardo.mps
  * @author Giro720
+ * @author Luckas
  */
 $messages['pt-br'] = array(
 	'pendingchanges' => 'Páginas com alterações pendentes',
@@ -1626,7 +1627,7 @@ $messages['pt-br'] = array(
 	'pendingchanges-diff' => 'analisar',
 	'pendingchanges-size' => 'Tamanho máximo da alteração (em bytes):',
 	'pendingchanges-unwatched' => '(não-vigiada)',
-	'pendingchanges-watched' => '($1 {{PLURAL:$1|utilizador ativo|utilizadores ativos}} vigiando)',
+	'pendingchanges-watched' => '($1 {{PLURAL:$1|usuário ativo|usuários ativos}} vigiando)',
 	'pendingchanges-viewing' => '(sob análise)',
 );
 

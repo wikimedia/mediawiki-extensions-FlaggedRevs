@@ -2352,10 +2352,11 @@ $messages['lv'] = array(
 
 /** Eastern Mari (олык марий)
  * @author Сай
+ * @author Санюн Вадик
  */
 $messages['mhr'] = array(
 	'stabilization-page' => 'Лаштыкын лӱмжӧ:',
-	'stabilization-def-short' => 'Ойлыде',
+	'stabilization-def-short' => 'Тӱҥалтыш',
 );
 
 /** Macedonian (македонски)

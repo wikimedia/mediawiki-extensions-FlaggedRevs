@@ -1789,12 +1789,13 @@ $3",
 /** Brazilian Portuguese (português do Brasil)
  * @author Eduardo.mps
  * @author Giro720
+ * @author Luckas
  */
 $messages['pt-br'] = array(
 	'validationstatistics' => 'Estatísticas da revisão de páginas',
-	'validationstatistics-users' => "'''{{SITENAME}}''' possui, no momento, '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|utilizador|utilizadores}} com privilégios de [[{{MediaWiki:Validationpage}}|Editor]] .
+	'validationstatistics-users' => "A '''{{SITENAME}}''' tem, neste momento, '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|usuário|usuários}} com permissões de [[{{MediaWiki:Validationpage}}|Editor]].
 
-Editores são utilizadores estabelecidos que podem verificar detalhadamente revisões de páginas.",
+Editores são usuários que podem rever as edições de páginas.",
 	'validationstatistics-lastupdate' => "''Os seguintes dados foram atualizados pela última vez em $1 às $2.''",
 	'validationstatistics-pndtime' => "As edições verificadas por usuários estabelecidos são consideras ''revisadas''.
 

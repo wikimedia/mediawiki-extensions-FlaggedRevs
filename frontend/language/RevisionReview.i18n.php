@@ -4449,6 +4449,7 @@ $messages['ps'] = array(
  * @author Giro720
  * @author Hamilton Abreu
  * @author Helder.wiki
+ * @author Luckas
  * @author Waldir
  * @author 555
  */
@@ -4483,9 +4484,9 @@ Faça-o só se já viu a lista completa de diferenças das alterações pendente
 	'revreview-reflag' => 'Voltar a rever esta edição',
 	'revreview-invalid' => "'''Destino inválido:''' não há [[{{MediaWiki:Validationpage}}|edições revistas]] que correspondam ao ID fornecido.",
 	'revreview-log' => 'Comentário:',
-	'revreview-main' => 'Tem de seleccionar uma edição específica de uma página, para revê-la.
+	'revreview-main' => 'Você tem de selecionar uma edição específica de uma página, para revisá-la.
 
-Veja a [[Special:Unreviewedpages|lista de páginas não revistas]].',
+Veja a [[Special:Unreviewedpages|lista de páginas não revisadas]].',
 	'revreview-stable1' => 'Talvez deseje verificar se [{{fullurl:$1|stableid=$2}} esta versão marcada] é agora a [{{fullurl:$1|stable=1}} versão publicada] desta página.',
 	'revreview-stable2' => 'Talvez deseje ver a [{{fullurl:$1|stable=1}} versão publicada] desta página.',
 	'revreview-submit' => 'Enviar',
