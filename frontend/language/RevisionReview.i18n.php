@@ -3096,6 +3096,7 @@ Si prega di rivedere tutte le modifiche riportate di seguito perché le tue modi
  * @author Aotake
  * @author Fryed-peach
  * @author JtFuruhata
+ * @author Marine-Blue
  * @author Ohgi
  * @author Schu
  * @author Shirayuki
@@ -3164,13 +3165,13 @@ $messages['ja'] = array(
 
 変更を安定版に反映するには、下記の変更をすべて査読してください。',
 	'revreview-update-includes' => '更新されたテンプレート/ファイルがあります (未査読のページは太字):',
-	'revreview-reject-text-list' => "この操作を完了すると、[[:$2|$2]]の以下の{{PLURAL:$1|版}}の元の文章の変更を以下の理由で'''却下'''します:",
+	'revreview-reject-text-list' => "この操作を完了すると、[[:$2|$2]]による以下の{{PLURAL:$1|版}}の変更を'''却下'''します:",
 	'revreview-reject-text-revto' => 'ページを[{{fullurl:$1|oldid=$2}} $3版]へ差し戻します。',
 	'revreview-reject-summary' => '要約:',
 	'revreview-reject-confirm' => 'これらの変更を拒否',
 	'revreview-reject-cancel' => '中止',
-	'revreview-reject-summary-cur' => '最新の{{PLURAL:$1|変更|&#32;$1 変更}}は $2 によって却下され、$4 による版 $3 に復旧されました',
-	'revreview-reject-summary-old' => '最新の{{PLURAL:$1|変更|&#32;$1 変更}}は $2 によって却下され、$4 による版 $3 になりました',
+	'revreview-reject-summary-cur' => '$2 による最新の{{PLURAL:$1|変更|&#32;$1 変更}}は却下され、$4 による版 $3 に復旧されました',
+	'revreview-reject-summary-old' => '$2 による最新の{{PLURAL:$1|変更|&#32;$1 変更}}は却下され、$4 による版 $3 になりました',
 	'revreview-reject-summary-cur-short' => '最新の{{PLURAL:$1|変更|&#32;$1 変更}}は却下され、$3 による版 $2 に復旧されました',
 	'revreview-reject-summary-old-short' => '最新の{{PLURAL:$1|変更|&#32;$1 変更}}は却下され、$3 による版 $2 になりました',
 	'revreview-tt-flag' => 'この版に確認済みの印を付けて承認する',
@@ -5173,7 +5174,7 @@ Oglejte si [[Special:Unreviewedpages|seznam nepregledanih strani]].',
 Za odstranitev stanja pregleda redakcije kliknite »{{int:revreview-submit-unreview}}«.
 
 Prosimo, kliknite gumb »nazaj« v vašem brskalniku in poskusite znova.",
-	'revreview-update' => "'''Prosimo, [[{{MediaWiki:Validationpage}}|preglejte]] kakršne koli spremembe v teku ''(prikazane spodaj)'', ki so bile narejene po ustaljeni različici.'''",
+	'revreview-update' => "'''Prosimo, [[{{MediaWiki:Validationpage}}|preglejte]] vse spremembe na čakanju ''(prikazane spodaj)'', ki so bile napravljene po ustaljeni redakciji.'''",
 	'revreview-update-edited' => '<span class="flaggedrevs_important">Vaše spremembe še niso v ustaljeni različici.</span>
 
 Prosimo, preglejte vse spremembe prikazane podaj, da prikažete vaše spremembe v ustaljeni različici.',

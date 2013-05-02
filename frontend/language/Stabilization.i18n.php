@@ -2896,6 +2896,7 @@ $messages['ps'] = array(
 /** Portuguese (português)
  * @author Giro720
  * @author Hamilton Abreu
+ * @author Luckas
  * @author Malafaya
  * @author Waldir
  * @author 555
@@ -2923,7 +2924,7 @@ Não é possível configurá-la.',
 	'stabilization-expiry' => 'Expira:',
 	'stabilization-othertime' => 'Outra hora:',
 	'stabilization-def-short' => 'Padrão',
-	'stabilization-def-short-0' => 'Actual',
+	'stabilization-def-short-0' => 'Atual',
 	'stabilization-def-short-1' => 'Publicada',
 	'stabilize_page_invalid' => 'O título da página de destino é inválido.',
 	'stabilize_page_notexists' => 'A página de destino não existe.',

@@ -8115,6 +8115,7 @@ Verificare la URL usata per accedere a questa pagina.',
  * @author Fryed-peach
  * @author Hosiryuhosi
  * @author JtFuruhata
+ * @author Marine-Blue
  * @author Naohiro19
  * @author Ohgi
  * @author Schu
@@ -8256,7 +8257,7 @@ $messages['ja'] = array(
 	'revreview-visibility-synced' => "'''このページにはより新しい[[{{MediaWiki:Validationpage}}|公開版]]があります。ページの公開版設定は[{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} 変更できます]。'''",
 	'revreview-visibility-outdated' => "'''このページには古くなった[[{{MediaWiki:Validationpage}}|公開版]]があります。ページの公開版設定は[{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} 変更できます]。'''",
 	'revreview-visibility-nostable' => "'''このページには[[{{MediaWiki:Validationpage}}|公開版]]がありません。ページの固定度設定は[{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} 変更できます]。'''",
-	'revreview-revnotfound' => 'あなたが要求したこのページの旧版は見つかりませんでした。このページにアクセスしたURLをもう一度確認してください。',
+	'revreview-revnotfound' => '指定された旧版は見つかりませんでした。お探しのページのURLをもう一度ご確認ください。',
 	'right-autoreview' => '自身の編集を自動的に「確認済み」にする',
 	'right-autoreviewrestore' => '巻き戻し時に自動査読',
 	'right-movestable' => '公開されたページを移動',

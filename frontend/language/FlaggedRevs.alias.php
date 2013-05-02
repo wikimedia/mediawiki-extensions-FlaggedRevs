@@ -756,7 +756,11 @@ $specialPageAliases['vi'] = array(
 	'ProblemChanges' => array( 'Thay_đổi_có_vấn_đề' ),
 	'QualityOversight' => array( 'Giám_sát_chất_lượng' ),
 	'ReviewedPages' => array( 'Trang_đã_duyệt' ),
+	'RevisionReview' => array( 'Duyệt_phiên_bản' ),
+	'Stabilization' => array( 'Ổn_định_hóa' ),
 	'StablePages' => array( 'Trang_ổn_định' ),
+	'ConfiguredPages' => array( 'Trang_cấu_hình' ),
+	'ReviewedVersions' => array( 'Phiên_bản_đã_duyệt', 'Phiên_bản_ổn_định' ),
 	'UnreviewedPages' => array( 'Trang_chưa_duyệt' ),
 	'ValidationStatistics' => array( 'Thống_kê_duyệt' ),
 );
