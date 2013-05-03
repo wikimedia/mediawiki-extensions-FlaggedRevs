@@ -1009,4 +1009,20 @@ class FlaggedRevsHooks {
 
 		return true;
 	}
+
+	/**
+	 * Handler for EchoGetDefaultNotifiedUsers hook.
+	 * @param $event EchoEvent to get implicitly subscribed users for
+	 * @param &$users Array to append implicitly subscribed users to.
+	 * @return bool true in all cases
+	 */
+	public static function onEchoGetDefaultNotifiedUsers( $event, &$users ) {
+		$extra = $event->getExtra();
+		if ( $event->getType() == 'reverted' && $extra['method'] == 'flaggedrevs-reject' ) {
+			foreach ( $extra['reverted-users-ids'] as $userId ) {
+				$users[$userId] = User::newFromId( intval( $userId ) );
+			}
+		}
+		return true;
+	}
 }
