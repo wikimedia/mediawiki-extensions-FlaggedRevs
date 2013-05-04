@@ -3152,6 +3152,10 @@ $messages['ja'] = array(
 	'revreview-poss-conflict-c' => "'''警告: [[User:$1|$1]]がこの変更の査読を $2 $3 に開始しました。'''",
 	'revreview-adv-reviewing-p' => '注意: {{GENDER:$1|あなた}}がこのページを査読していることは、他の査読者からも分かる状態になります。',
 	'revreview-adv-reviewing-c' => '注意: {{GENDER:$1|あなた}}がこれらの変更を査読していることは、他の査読者からも分かる状態になります。',
+	'revreview-sadv-reviewing-p' => 'このページを査読したのが自分であると他の利用者に$1ことができます。',
+	'revreview-sadv-reviewing-c' => 'これらの変更を査読したのが自分であると他の利用者に$1ことができます。',
+	'revreview-adv-start-link' => '報せる',
+	'revreview-adv-stop-link' => '報せるのを止める',
 	'revreview-toolow' => "'''版を査読済みにするには、すべての判定要素を「不十分」より高い評価にする必要があります。'''
 
 版の査読評価を除去する場合は、「{{int:revreview-submit-unreview}}」をクリックしてください。

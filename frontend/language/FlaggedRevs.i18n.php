@@ -14114,6 +14114,7 @@ $messages['sq'] = array(
 
 /** Serbian (Cyrillic script) (српски (ћирилица)‎)
  * @author FriedrickMILBarbarossa
+ * @author Milicevic01
  * @author Millosh
  * @author Nikola Smolenski
  * @author Rancher
@@ -14126,7 +14127,7 @@ $messages['sr-ec'] = array(
 	'editor' => 'Уређивач',
 	'flaggedrevs' => 'Означене измене',
 	'flaggedrevs-desc' => 'Омогућава уредницима да провере измене и стабилизују странице',
-	'flaggedrevs-pref-UI' => 'Основно сучеље:',
+	'flaggedrevs-pref-UI' => 'Основно окружење (интерфејс):',
 	'flaggedrevs-pref-UI-0' => 'Користи детаљне кутије за приказ стања одобрења страница',
 	'flaggedrevs-pref-UI-1' => 'Користи мале иконе и једноставан текст за приказ стања одобрења страница',
 	'prefs-flaggedrevs' => 'Прегледање измена',

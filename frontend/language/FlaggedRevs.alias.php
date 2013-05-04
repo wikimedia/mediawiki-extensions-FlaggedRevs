@@ -372,9 +372,9 @@ $specialPageAliases['it'] = array(
 
 /** Japanese (日本語) */
 $specialPageAliases['ja'] = array(
-	'PendingChanges' => array( '古くなった査読済みページ' ),
-	'ProblemChanges' => array( '問題の修正' ),
-	'QualityOversight' => array( '品質監督' ),
+	'PendingChanges' => array( '保留中の変更', '古くなった査読済みページ' ),
+	'ProblemChanges' => array( '問題の変更', '問題の修正' ),
+	'QualityOversight' => array( '上級査読記録', '品質監督' ),
 	'ReviewedPages' => array( '査読済みページ' ),
 	'RevisionReview' => array( '特定版の査読', '版指定査読' ),
 	'Stabilization' => array( '固定', '採択', 'ページの採択' ),
