@@ -2359,6 +2359,13 @@ $messages['mhr'] = array(
 	'stabilization-def-short' => 'Тӱҥалтыш',
 );
 
+/** Minangkabau (Baso Minangkabau)
+ * @author Iwan Novirion
+ */
+$messages['min'] = array(
+	'stabilization-expiry' => 'Sampai:',
+);
+
 /** Macedonian (македонски)
  * @author Bjankuloski06
  * @author Brest
