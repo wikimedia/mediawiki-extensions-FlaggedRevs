@@ -353,7 +353,7 @@ class FlaggedRevsHooks {
 
 	/**
 	 * When an edit is made by a user, review it if either:
-	 * (a) The user can 'autoreview' and the edit's base revision is a checked
+	 * (a) The user can 'autoreview' and the edit's base revision was checked
 	 * (b) The edit is a self-revert to the stable version (by anyone)
 	 * (c) The user can 'autoreview' new pages and this edit is a new page
 	 * (d) The user can 'review' and the "review pending edits" checkbox was checked
@@ -415,6 +415,9 @@ class FlaggedRevsHooks {
 		# (a) this new revision creates a new page and new page autoreview is enabled
 		# (b) this new revision is based on an old, reviewed, revision
 		if ( $title->getUserPermissionsErrors( 'autoreview', $user ) === array() ) {
+			// For rollback/null edits, use the previous ID as the alternate base ID.
+			// Otherwise, use the 'altBaseRevId' parameter passed in by the request.
+			$altBaseRevId = $isOldRevCopy ? $prevRevId : $wgRequest->getInt( 'altBaseRevId' );
 			if ( !$prevRevId ) { // New pages
 				$reviewableNewPage = FlaggedRevs::autoReviewNewPages();
 				$reviewableChange = false;
@@ -423,6 +426,9 @@ class FlaggedRevsHooks {
 				# Check if the base revision was reviewed...
 				if ( FlaggedRevs::autoReviewEdits() ) {
 					$frev = FlaggedRevision::newFromTitle( $title, $baseRevId, FR_MASTER );
+					if ( !$frev && $altBaseRevId ) {
+						$frev = FlaggedRevision::newFromTitle( $title, $altBaseRevId, FR_MASTER );
+					}
 				}
 				$reviewableChange = (bool)$frev;
 			}
