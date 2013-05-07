@@ -60,7 +60,7 @@ $messages['en'] = array(
 	'revreview-hist-quality-auto'  => 'automatically approved',
 	'revreview-hist-basic-auto'    => 'automatically checked',
 	'revreview-hist-pending-difflink' => '\'\'\'[[{{fullurl:$1|oldid=$2&diff=$3{{MediaWiki:flaggedrevs-diffonly}}}} pending review]]\'\'\'',
-	'review-edit-diff'             => '\'\'\'NOTICE: \'\'Some\'\' of the pending changes affect the area of the page you are editing.\'\'\'',
+	'review-edit-diff'             => '\'\'\'Notice: \'\'Some\'\' of the pending changes affect the area of the page you are editing.\'\'\'',
 	'revreview-diff-toggle-show'   => 'show those changes',
 	'revreview-diff-toggle-hide'   => 'hide those changes',
 	'revreview-diff-toggle-title'  => 'Toggle display of pending changes to the stable version',
