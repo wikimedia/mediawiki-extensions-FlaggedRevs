@@ -2231,7 +2231,7 @@ Use isto soamente en canto olle o conxunto de todas as diferenzas dos cambios pe
 	'revreview-flag' => 'Revisar esta revisión',
 	'revreview-reflag' => 'Volver revisar esta revisión',
 	'revreview-invalid' => "'''Obxectivo inválido:''' ningunha revisión [[{{MediaWiki:Validationpage}}|revisada]] se corresponde co ID dado.",
-	'revreview-log' => 'Comentario para o rexistro:',
+	'revreview-log' => 'Comentario:',
 	'revreview-main' => 'Debe seleccionar unha revisión particular dunha páxina de contido de cara á revisión.
 
 Vexa a [[Special:Unreviewedpages|lista de páxinas sen revisar]].',
@@ -4271,6 +4271,7 @@ $messages['pdc'] = array(
  * @author McMonster
  * @author Sp5uhe
  * @author Tsca
+ * @author WTM
  */
 $messages['pl'] = array(
 	'revisionreview' => 'Oznaczenie wersji',
@@ -4316,8 +4317,8 @@ Zobacz [[Special:Unreviewedpages|listę nieprzejrzanych stron]].',
 	'revreview-submit-unreviewed' => 'Gotowe. Wycofano akceptację!',
 	'revreview-successful' => "'''Wersja [[:$1|$1]] została pomyślnie oznaczona. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} zobacz wszystkie wersje przejrzane])'''",
 	'revreview-successful2' => "'''Wersja [[:$1|$1]] została pomyślnie odznaczona.'''",
-	'revreview-poss-conflict-p' => "'''Uwaga – [[User:$1|$1]] rozpoczął przeglądanie tej strony $2 o $3.'''",
-	'revreview-poss-conflict-c' => "'''Uwaga – [[User:$1|$1]] rozpoczął przeglądanie tych zmian $2 o $3.'''",
+	'revreview-poss-conflict-p' => "'''Uwaga – [[User:$1|$1]] {{GENDER:$1|rozpoczął|rozpoczęła|rozpoczął}} przeglądanie tej strony $2 o $3.'''",
+	'revreview-poss-conflict-c' => "'''Uwaga – [[User:$1|$1]] {{GENDER:$1|rozpoczął|rozpoczęła|rozpoczął}} przeglądanie tych zmian $2 o $3.'''",
 	'revreview-adv-reviewing-p' => 'Uwaga – inni redaktorzy mogą zobaczyć, że {{GENDER:$1|rozpocząłeś|rozpoczęłaś}} przeglądanie tej strony.',
 	'revreview-adv-reviewing-c' => 'Uwaga – inni redaktorzy mogą zobaczyć, że {{GENDER:$1|rozpocząłeś|rozpoczęłaś}} przeglądanie tych zmian.',
 	'revreview-sadv-reviewing-p' => 'Możesz $1 innych użytkowników, o tym że jesteś w trakcie przeglądania tej strony.',
