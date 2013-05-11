@@ -59,9 +59,9 @@ Used on [http://en.labs.wikimedia.org/wiki/Special:OldReviewedPages Special:OldR
 	'pendingchanges-onwatchlist' => '{{Flagged Revs}}',
 	'pendingchanges-stable' => '{{Flagged Revs}}',
 	'pendingchanges-diff' => '{{Flagged Revs}}
+Used as link text in [[Special:PendingChanges]]. The link points to the diff page (the diff between the latest revision and the pending revision).
 
-Used on [http://en.labs.wikimedia.org/wiki/Special:OldReviewedPages Special:OldReviewedPages] as a link anchor going to the sighting page for a listed page.
-
+See example: [[mw:Special:PendingChanges]].
 {{Identical|Review}}',
 	'pendingchanges-size' => '{{Flagged Revs}}
 
