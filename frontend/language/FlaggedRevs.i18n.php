@@ -125,7 +125,7 @@ The [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} stable version] was [{{fullurl:{{#Sp
 	'revreview-noflagged'          => 'There are no [[{{MediaWiki:Validationpage}}|reviewed versions]] of this page, so it may \'\'\'not\'\'\' have been checked for adherence to standards.',
 	'revreview-oldrating'          => 'It was rated:',
 	'revreview-quality'            => 'This is the [[{{MediaWiki:Validationpage}}|stable version]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>.
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 pending {{PLURAL:$3|change|changes}}] {{PLURAL:$3|awaits|awaits}} review.',
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 pending {{PLURAL:$3|change|changes}}] {{PLURAL:$3|awaits|await}} review.',
 	'revreview-quality-i'          => 'This is the [[{{MediaWiki:Validationpage}}|stable version]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Template/file changes] await review.',
 	'revreview-quality-old'        => 'This is a [[{{MediaWiki:Validationpage}}|quality]] version ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} list all]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>.
