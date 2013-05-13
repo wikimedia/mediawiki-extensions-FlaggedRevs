@@ -7636,7 +7636,8 @@ Ada [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffon
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|perubahan|perubahan}} tertunda], untuk melihat apabila bagian ini dipindahkan atau dihapus.',
 	'revreview-noflagged' => "Tidak ada [[{{MediaWiki:Validationpage}}|versi tertinjau]] dari halaman ini, jadi kemungkinan halaman ini '''belum''' diperiksa kelayakannya.",
 	'revreview-oldrating' => 'Memiliki rating:',
-	'revreview-quality' => 'Ini adalah [[{{MediaWiki:Validationpage}}|versi stabil]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} disetujui] pada <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} Drafnya] memiliki [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 usulan {{PLURAL:$3|perubahan|perubahan}}] yang menunggu tinjauan.',
+	'revreview-quality' => 'Ini adalah [[{{MediaWiki:Validationpage}}|versi stabil]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} disetujui] pada <i>$2</i>. 
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|perubahan}} tertunda] {{PLURAL:$3|menunggu}} peninjauan.',
 	'revreview-quality-i' => 'Ini adalah [[{{MediaWiki:Validationpage}}|versi stabil]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} disetujui] pada tanggal <i>$2</i>.
 Ada [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} perubahan templat/berkas] menunggu peninjauan.',
 	'revreview-quality-old' => 'Ini adalah versi [[{{MediaWiki:Validationpage}}|berkualitas]] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} semua daftar]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} disetujui] pada tanggal <i>$2</i>.
@@ -8228,7 +8229,7 @@ $messages['ja'] = array(
 	'revreview-noflagged' => "このページには[[{{MediaWiki:Validationpage}}|査読済]]の版が存在せず、各種標準の順守について確認がされて'''いない'''可能性があります。",
 	'revreview-oldrating' => '査読結果:',
 	'revreview-quality' => 'これは[[{{MediaWiki:Validationpage}}|公開版]]です。<i>$2</i> に[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 承認されました]。
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3件の保留中の{{PLURAL:$3|変更}}]が査読待ちです。',
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3件の保留中の{{PLURAL:$3|変更}}]が査読{{PLURAL:$3|待ちです}}。',
 	'revreview-quality-i' => 'これは[[{{MediaWiki:Validationpage}}|公開版]]です。<i>$2</i> に[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 承認されました]。
 査読待ちの[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} テンプレートまたはファイルの変更]があります。',
 	'revreview-quality-old' => 'これは[[{{MediaWiki:Validationpage}}|高品質]]版 ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} すべて表示]) です。<i>$2</i> に[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 承認されました]。承認後に[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 変更]されているかもしれません。',
