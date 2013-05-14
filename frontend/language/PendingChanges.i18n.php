@@ -400,7 +400,7 @@ $messages['ca'] = array(
  */
 $messages['ce'] = array(
 	'pendingchanges-hours' => '($1 {{PLURAL:$1|сахьат|сахьат}})',
-	'pendingchanges-days' => '($1 {{PLURAL:$1|де|де}})',
+	'pendingchanges-days' => '($1 {{PLURAL:$1|де|денош|денош}})', # Fuzzy
 	'pendingchanges-recent' => '(лаххар 1 сахьтехь)',
 	'pendingchanges-category' => 'Категори:',
 	'pendingchanges-diff' => 'хьажа',
