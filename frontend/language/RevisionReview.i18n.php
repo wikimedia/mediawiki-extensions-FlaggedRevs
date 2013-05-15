@@ -1032,6 +1032,7 @@ $messages['ca'] = array(
 
 /** Chechen (нохчийн)
  * @author Sasan700
+ * @author Умар
  */
 $messages['ce'] = array(
 	'revisionreview' => 'Варсийшка хьажар',
@@ -1087,7 +1088,7 @@ $messages['ce'] = array(
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Хьан хийцамаш хlинца ца латийна цхьан эшара йолу варсийн. Кхий хьалхара хийцамаш бу, хьажа дезаш.</span>
 
 Шу хийцамаш латаба, цхьан эшар йолучу варсийца, дехар до, хьовсийша массо хийцамашка, гойтуш болу лахахьа.',
-	'revreview-update-includes' => 'Цхьа долу куцкепаш йа хlумнаш а карла даьхна:', # Fuzzy
+	'revreview-update-includes' => 'Цхьа долу кепаш йа файлаш а карла даьхна:',
 	'revreview-reject-summary' => 'Хийцамех лаьцна:', # Fuzzy
 	'revreview-reject-confirm' => 'Йуха баха иза хийцамаш',
 	'revreview-reject-cancel' => 'Цаоьшу',
