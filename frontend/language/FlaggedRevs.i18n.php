@@ -3087,6 +3087,7 @@ Reviseu l'URL que heu emprat per a accedir-hi.",
 
 /** Chechen (нохчийн)
  * @author Sasan700
+ * @author Умар
  */
 $messages['ce'] = array(
 	'action-review' => 'агlонаший варсийшка хьажар',
@@ -3112,10 +3113,10 @@ $messages['ce'] = array(
 	'group-autoreview' => 'Шаьшха нийсдохьажамхой',
 	'group-autoreview-member' => 'шаьшха нийсдохьажамхой', # Fuzzy
 	'grouppage-autoreview' => '{{ns:project}}:Шаьшха нийсдохьажамхой',
-	'revreview-hist-draft' => 'хьажанза варси',
+	'revreview-hist-draft' => 'хьажанза верси',
 	'revreview-hist-pending' => 'хьоьжуш хьажаре',
-	'revreview-hist-quality' => 'нийса йуй хьажна варси',
-	'revreview-hist-basic' => 'чекхйаллалц хьажна варси',
+	'revreview-hist-quality' => 'нийса йуй хьажна верси',
+	'revreview-hist-basic' => 'чекхйаллалц хьаьжна верси',
 	'revreview-hist-quality-user' => 'бакъдина декъашхочо [[User:$3|$3]]',
 	'revreview-hist-basic-user' => 'чекхдаллалц хьажа декъашхо [[User:$3|$3]]',
 	'revreview-hist-quality-auto' => 'шашеха бакъдина',
@@ -3134,7 +3135,7 @@ $messages['ce'] = array(
 	'review-diff2stable' => 'Гайта массо хьаьжанза хийцамаш',
 	'review-logentry-app' => 'хьажна варсийга [[$1]]',
 	'review-logentry-dis' => 'белгалло йина къаначу варсийна [[$1]]',
-	'review-logentry-id' => 'варси: $2',
+	'review-logentry-id' => 'верси: $2',
 	'review-logentry-diff' => 'хьаьжина хийцамаш',
 	'review-logentry-diff2' => 'къанбелла хийцамаш',
 	'review-logpage' => 'Хьажаран тептар',
@@ -3147,8 +3148,8 @@ $messages['ce'] = array(
 	'revreview-accuracy-3' => 'хьосташца',
 	'revreview-accuracy-4' => 'хаьржина',
 	'revreview-auto' => '(шашех)',
-	'revreview-basic' => 'Хlара [[{{MediaWiki:Validationpage}}|чутоьхна варси йу]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} хьажна] <i>$2</i>.
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|хийцам|хийцамаш|хийцамаш}}] {{PLURAL:$3|хьоьжу|хьоьжуш|хьоьжуш}} хьажаре.',
+	'revreview-basic' => 'Хlара [[{{MediaWiki:Validationpage}}|чутоьхна верси йу]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} хьажна] <i>$2</i>.
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|хийцам|хийцамаш|хийцамаш}}] {{PLURAL:$3|хьоьжу|хьоьжуш|хьоьжуш}} хьажаре.', # Fuzzy
 	'revreview-basic-i' => 'Хlара [[{{MediaWiki:Validationpage}}|чутоьхна башхо йу]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} хьажна] <i>$2</i>.
 Хьажанза бу [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} хийцамаш оц куцкепашца йа хlумнашца].',
 	'revreview-basic-old' => 'Хlара [[{{MediaWiki:Validationpage}}|чекхдаллалц хьажна йу]] башхо ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} массо могlам]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} бакъйина] <i>$2</i>.

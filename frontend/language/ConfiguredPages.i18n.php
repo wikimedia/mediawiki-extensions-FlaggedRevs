@@ -203,9 +203,10 @@ Algunes podrien canviar amb la versió afixada pels lectors o restringeix la lli
 
 /** Chechen (нохчийн)
  * @author Sasan700
+ * @author Умар
  */
 $messages['ce'] = array(
-	'configuredpages-def-draft' => 'тlаьххьара варси',
+	'configuredpages-def-draft' => 'тlаьххьара верси',
 	'configuredpages-def-stable' => 'чутоьхна йолу варси',
 );
 

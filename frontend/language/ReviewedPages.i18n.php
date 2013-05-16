@@ -262,11 +262,12 @@ S'ha donat un enllaç cap a l'última versió d'aquell nivell.",
 
 /** Chechen (нохчийн)
  * @author Sasan700
+ * @author Умар
  */
 $messages['ce'] = array(
 	'reviewedpages' => 'Хьойсина агlонаш',
 	'reviewedpages-all' => 'хьаьжина варсийш',
-	'reviewedpages-best' => 'чlогlа дика варси',
+	'reviewedpages-best' => 'чӀогӀа дика верси',
 );
 
 /** Czech (česky)
