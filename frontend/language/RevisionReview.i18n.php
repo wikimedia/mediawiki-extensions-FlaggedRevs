@@ -5322,6 +5322,7 @@ $messages['sv'] = array(
 	'review_page_unreviewable' => 'Målsidan är inte granskningsbar.',
 	'review_no_oldid' => 'Inget versions-ID angavs.',
 	'review_bad_oldid' => 'Det finns ingen sådan målversion.',
+	'review_conflict_oldid' => 'Någon har redan accepterat eller inte accepterat denna version medan du tittade på den.',
 	'review_not_flagged' => 'Målrevisionen är inte markerad som granskad.',
 	'review_too_low' => 'Sidversion kan inte granskas med några kvarvarande fält "otillräckliga".',
 	'review_bad_key' => 'Ogiltig nyckel för inkluderingsparameter.',
@@ -5356,17 +5357,17 @@ Se [[Special:Unreviewedpages|listan över ogranskade sidor]].',
 	'revreview-successful2' => "'''Vald sidversion av [[:$1|$1]] har avflaggats.'''",
 	'revreview-poss-conflict-p' => "'''Varning: [[User:$1|$1]] började granska denna sida den $2 kl. $3.'''",
 	'revreview-poss-conflict-c' => "'''Varning: [[User:$1|$1]] började granska dessa ändringar den $2 kl. $3.'''",
-	'revreview-adv-reviewing-p' => 'OBS: Andra granskare kan se att du granskar denna sida.', # Fuzzy
-	'revreview-adv-reviewing-c' => 'OBS: Andra granskare kan se att du granskar dessa ändringar.', # Fuzzy
+	'revreview-adv-reviewing-p' => 'OBS: Andra granskare kan se att {{GENDER:$1|du}} granskar denna sida.',
+	'revreview-adv-reviewing-c' => 'OBS: Andra granskare kan se att {{GENDER:$1|du}} granskar dessa ändringar.',
 	'revreview-sadv-reviewing-p' => 'Du kan $1 dig själv som att du granskar denna sida till andra användare.',
 	'revreview-sadv-reviewing-c' => 'Du kan $1 dig själv som att du granskar dessa ändringar till andra användare.',
 	'revreview-adv-start-link' => 'annonsera',
 	'revreview-adv-stop-link' => 'av-annonsera',
 	'revreview-toolow' => '\'\'\'Du måste bedöma varje attribut högre än "otillräcklig" för att en sidversion ska anses som granskad.\'\'\'
 
-För att ta bort granskningsstatusen för en version, klicka på "oacceptera".
+För att ta bort granskningsstatusen för en version, klicka på "{{int:revreview-submit-unreview}}".
 
-Klicka på "tillbaka"-knappen i din webbläsare och försök igen.', # Fuzzy
+Klicka på "tillbaka"-knappen i din webbläsare och försök igen.',
 	'revreview-update' => "'''Vänligen [[{{MediaWiki:Validationpage}}|granska]] några väntande ändringar ''(visas nedan)'' på den accepterade versionen.'''",
 	'revreview-update-edited' => '<span class="flaggedrevs_important">Dina ändringar är ännu inte i den stabila versionen.</span>
 

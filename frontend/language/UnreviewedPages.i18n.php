@@ -1797,6 +1797,7 @@ $messages['su'] = array(
  * @author WikiPhoenix
  */
 $messages['sv'] = array(
+	'action-unreviewedpages' => 'se listan över icke-granskade sidor',
 	'unreviewedpages' => 'Ogranskade sidor',
 	'unreviewedpages-legend' => 'Lista ogranskade innehållssidor',
 	'unreviewedpages-category' => 'Kategori:',

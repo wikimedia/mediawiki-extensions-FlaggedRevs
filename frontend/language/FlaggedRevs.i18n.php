@@ -14629,11 +14629,13 @@ Nyare [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diff
 	'revreview-edited' => "'''Dina ändringar kommer visas när en behörig användare accepterar dem.
 ([[{{MediaWiki:Validationpage}}|hjälp]])'''
  
-Det finns [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|ändring|ändringar}}] ''(visas nedan)'' som väntar på granskning.", # Fuzzy
+Det finns [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|ändring|ändringar}}] ''(visas nedan)'' som väntar på granskning.",
 	'revreview-edited-section' => 'Återgå till sidavsnittet som heter "[[#$1|$2]]".',
 	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|ändring|ändringar}}] i denna version [[{{MediaWiki:Validationpage}}|väntar på att {{PLURAL:$3|bli granskad|granskas}}]].
 [Den stabila versionen av {{fullurl:{{FULLPAGENAMEE}}|stable=1}}] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} kontrollerades] den <i>$2</i>.',
-	'revreview-newest-basic-i' => 'Den [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} accepterade versionen] av den här sidan blev [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} kontrollerad] den <i>$2</i>. Det finns [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} mall-/filändringar] som väntar på granskning.', # Fuzzy
+	'revreview-newest-basic-i' => 'Det finns [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Template/file ändringar] i denna version som [[{{MediaWiki:Validationpage}}|väntar på granskning]].
+
+Den [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} stabila versionen] blev [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} kontrollerad] den <i>$2</i>.',
 	'revreview-newest-quality' => 'Den [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} accepterade versionen]  blev [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} godkänd] den <i>$2</i>. Det finns [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|ändring|ändringar}}] som väntar på granskning.', # Fuzzy
 	'revreview-newest-quality-i' => 'Den [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} accepterade versionen] blev [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} godkänd] den <i>$2</i>. Det finns [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} mall-/filändringar] som väntar på granskning.', # Fuzzy
 	'revreview-pending-basic' => 'Den [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} accepterade versionen] blev [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} granskad] den <i>$2</i>. Det finnns [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|ändring|ändringar}}] som väntar på granskning.',
@@ -14675,6 +14677,7 @@ Nya [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffon
 	'revreview-visibility-nostable' => "'''Den här sidan har inte en [[{{MediaWiki:Validationpage}}|stabil version]]; inställningarna för sidstabilitet kan [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} konfigureras].'''",
 	'revreview-revnotfound' => 'Den gamla versionen av den sida du frågade efter kan inte hittas. Kontrollera den URL du använde för att nå den här sidan.',
 	'right-autoreview' => 'Få sina egna redigeringar automatiskt markerade som "kontrollerade"',
+	'right-autoreviewrestore' => 'Auto-granska vid tillbakarullning',
 	'right-movestable' => 'Flytta publicerade sidor',
 	'right-review' => 'Markera sidversioner som "kontrollerade"',
 	'right-stablesettings' => 'Ställa in hur den publicerade versionen väljs och visas',
