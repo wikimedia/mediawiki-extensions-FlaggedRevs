@@ -10035,6 +10035,7 @@ $messages['min'] = array(
 	'group-editor-member' => '{{GENDER:$1|editor}}',
 	'group-reviewer-member' => '{{GENDER:$1|paninjau}}',
 	'group-autoreview-member' => '{{GENDER:$1|pangguno paninjau otomatis}}',
+	'right-movestable' => 'Mamindahan laman versi stabil',
 );
 
 /** Macedonian (македонски)
