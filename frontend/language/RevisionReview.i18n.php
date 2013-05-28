@@ -2817,8 +2817,8 @@ Vide le [[Special:Unreviewedpages|lista de paginas non revidite]].',
 	'revreview-successful2' => "'''Le version de [[:$1|$1]] ha essite dismarcate con successo.'''",
 	'revreview-poss-conflict-p' => "'''Attention: [[User:$1|$1]] comenciava a revider iste pagina le $2 a $3.'''",
 	'revreview-poss-conflict-c' => "'''Attention: [[User:$1|$1]] comenciava a revider iste modificationes le $2 a $3.'''",
-	'revreview-adv-reviewing-p' => 'Nota: Altere revisores pote vider que tu revide iste pagina.', # Fuzzy
-	'revreview-adv-reviewing-c' => 'Nota: Altere revisores pote vider que tu revide iste cambiamentos.', # Fuzzy
+	'revreview-adv-reviewing-p' => 'Nota: Altere revisores pote vider que {{GENDER:$1|tu}} revide iste pagina.',
+	'revreview-adv-reviewing-c' => 'Nota: Altere revisores pote vider que {{GENDER:$1|tu}} revide iste cambiamentos.',
 	'revreview-sadv-reviewing-p' => 'Tu pote $1 al altere usatores que tu revide iste pagina.',
 	'revreview-sadv-reviewing-c' => 'Tu pote $1 al altere usatores que tu revide iste cambiamentos.',
 	'revreview-adv-start-link' => 'annunciar',
