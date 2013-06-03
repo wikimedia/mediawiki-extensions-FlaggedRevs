@@ -4571,6 +4571,7 @@ Bonvolu kontroli la retadreson (URL) kiun vi uzis por atingi la paĝon.\\b',
  * @author Lin linao
  * @author Locos epraix
  * @author Manuelt15
+ * @author MarcoAurelio
  * @author McDutchie
  * @author MetalBrasil
  * @author Muro de Aguas
@@ -10822,7 +10823,7 @@ $messages['nah'] = array(
 	'tooltip-ca-current' => 'Xiquitta inīn āmatl īca in yancuīc tlapatlaliztli',
 );
 
-/** Norwegian Bokmål (norsk (bokmål)‎)
+/** Norwegian Bokmål (norsk bokmål)
  * @author EivindJ
  * @author Event
  * @author H92
@@ -11039,7 +11040,7 @@ $messages['nds'] = array(
 	'revreview-filter-all' => 'all',
 );
 
-/** Nedersaksies (Nedersaksies)
+/** Low Saxon (Netherlands) (Nedersaksies)
  * @author Servien
  */
 $messages['nds-nl'] = array(
@@ -11308,7 +11309,7 @@ Er {{PLURAL:$2|is|zijn}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWi
 Controleer de URL die je hebt gebruikt om naar deze pagina te gaan.',
 );
 
-/** Norwegian Nynorsk (norsk (nynorsk)‎)
+/** Norwegian Nynorsk (norsk nynorsk)
  * @author Gunnernett
  * @author Harald Khan
  * @author Jon Harald Søby
@@ -11646,7 +11647,7 @@ De [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonl
 	'validationpage' => '{{ns:help}}:Validacion de la pagina',
 );
 
-/** Oriya (ଓଡ଼ିଆ)
+/** Oriya (ଓଡ଼ିଆ)
  * @author Ansumang
  * @author Psubhashish
  */
@@ -12388,6 +12389,7 @@ Verifique a URL que usou para aceder a esta página.',
  * @author Hamilton Abreu
  * @author Helder.wiki
  * @author Heldergeovane
+ * @author Luckas
  * @author Luckas Blade
  * @author Pedroca cerebral
  * @author Rafael Vargas

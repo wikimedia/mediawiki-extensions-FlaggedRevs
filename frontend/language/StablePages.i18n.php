@@ -312,6 +312,7 @@ $messages['eo'] = array(
  * @author Bola
  * @author Crazymadlover
  * @author Dferg
+ * @author MarcoAurelio
  * @author McDutchie
  * @author Translationista
  */
@@ -721,7 +722,7 @@ Modifiki magħmula minn utenti oħra ma jidhrux awtomatikament lill-qarrejja sak
 	'stablepages-indef' => 'Skadenza indefinita biss',
 );
 
-/** Norwegian Bokmål (norsk (bokmål)‎)
+/** Norwegian Bokmål (norsk bokmål)
  * @author Nghtwlkr
  */
 $messages['nb'] = array(
@@ -746,7 +747,7 @@ Bewerkingen door andere gebruikers worden niet weergegeven totdat daartoe gerech
 	'stablepages-indef' => 'Alleen zonder vervaldatum',
 );
 
-/** Norwegian Nynorsk (norsk (nynorsk)‎)
+/** Norwegian Nynorsk (norsk nynorsk)
  * @author Harald Khan
  * @author Njardarlogar
  */

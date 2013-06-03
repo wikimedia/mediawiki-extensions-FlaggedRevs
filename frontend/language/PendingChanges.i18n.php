@@ -582,6 +582,7 @@ $messages['eo'] = array(
  * @author Crazymadlover
  * @author Dferg
  * @author Locos epraix
+ * @author MarcoAurelio
  * @author Sanbec
  * @author Translationista
  */
@@ -1411,7 +1412,7 @@ $messages['nah'] = array(
 	'pendingchanges-watched' => '($1 āyini  {{PLURAL:$1|tlatequitiltilīlli quichiya|tlatequitiltilīltin quichiyah}})',
 );
 
-/** Norwegian Bokmål (norsk (bokmål)‎)
+/** Norwegian Bokmål (norsk bokmål)
  * @author EivindJ
  * @author Nghtwlkr
  */
@@ -1465,7 +1466,7 @@ $messages['nl'] = array(
 	'pendingchanges-viewing' => '(wordt gecontroleerd)',
 );
 
-/** Norwegian Nynorsk (norsk (nynorsk)‎)
+/** Norwegian Nynorsk (norsk nynorsk)
  * @author Harald Khan
  */
 $messages['nn'] = array(
@@ -1505,7 +1506,7 @@ $messages['oc'] = array(
 	'pendingchanges-viewing' => '(en revision)',
 );
 
-/** Oriya (ଓଡ଼ିଆ)
+/** Oriya (ଓଡ଼ିଆ)
  * @author Ansumang
  */
 $messages['or'] = array(

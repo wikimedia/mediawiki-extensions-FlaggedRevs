@@ -600,6 +600,7 @@ $3",
  * @author Dferg
  * @author Imre
  * @author Jurock
+ * @author MarcoAurelio
  * @author Translationista
  */
 $messages['es'] = array(
@@ -1563,7 +1564,7 @@ $messages['nah'] = array(
 	'validationstatistics-total' => 'Tlaìxtlapaltìn',
 );
 
-/** Norwegian Bokmål (norsk (bokmål)‎)
+/** Norwegian Bokmål (norsk bokmål)
  * @author Nghtwlkr
  */
 $messages['nb'] = array(
@@ -1625,7 +1626,7 @@ $3",
 	'validationstatistics-reviews' => 'Beoordelingen',
 );
 
-/** Norwegian Nynorsk (norsk (nynorsk)‎)
+/** Norwegian Nynorsk (norsk nynorsk)
  * @author Gunnernett
  * @author Harald Khan
  * @author Njardarlogar
@@ -1664,7 +1665,7 @@ Los contributors e relectors son d'utilizaires establits que pòdon verificar la
 	'validationstatistics-reviews' => 'Relectors',
 );
 
-/** Oriya (ଓଡ଼ିଆ)
+/** Oriya (ଓଡ଼ିଆ)
  * @author Ansumang
  */
 $messages['or'] = array(

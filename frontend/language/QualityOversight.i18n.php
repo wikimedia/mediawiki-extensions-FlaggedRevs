@@ -483,7 +483,7 @@ $messages['ms'] = array(
 	'qualityoversight-legend' => 'Cari log kaji semula terkini',
 );
 
-/** Norwegian Bokmål (norsk (bokmål)‎)
+/** Norwegian Bokmål (norsk bokmål)
  * @author Nghtwlkr
  */
 $messages['nb'] = array(
@@ -501,7 +501,7 @@ $messages['nl'] = array(
 	'qualityoversight-legend' => 'Recente controlelogboeken doorzoeken',
 );
 
-/** Norwegian Nynorsk (norsk (nynorsk)‎)
+/** Norwegian Nynorsk (norsk nynorsk)
  * @author Harald Khan
  * @author Njardarlogar
  */

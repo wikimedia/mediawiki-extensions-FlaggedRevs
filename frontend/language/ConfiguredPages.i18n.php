@@ -303,6 +303,7 @@ Kelkaj agordoj eble ŝanĝos kiun version estos montrita al legantoj aŭ plu lim
 
 /** Spanish (español)
  * @author Dferg
+ * @author MarcoAurelio
  * @author Peter17
  */
 $messages['es'] = array(
@@ -701,7 +702,7 @@ $messages['mt'] = array(
 	'configuredpages-def-stable' => 'verżjoni stabbli',
 );
 
-/** Norwegian Bokmål (norsk (bokmål)‎)
+/** Norwegian Bokmål (norsk bokmål)
  * @author Nghtwlkr
  */
 $messages['nb'] = array(
@@ -727,7 +728,7 @@ Instellingen wijzigen welke versie wordt weergegeven aan lezers of beperken wie 
 	'configuredpages-def-stable' => 'gepubliceerde versie',
 );
 
-/** Norwegian Nynorsk (norsk (nynorsk)‎)
+/** Norwegian Nynorsk (norsk nynorsk)
  * @author Nghtwlkr
  */
 $messages['nn'] = array(
@@ -744,7 +745,7 @@ $messages['oc'] = array(
 	'configuredpages-def-stable' => 'version publicada',
 );
 
-/** Oriya (ଓଡ଼ିଆ)
+/** Oriya (ଓଡ଼ିଆ)
  * @author Ansumang
  */
 $messages['or'] = array(

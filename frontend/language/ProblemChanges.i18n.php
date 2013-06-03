@@ -665,7 +665,7 @@ $messages['mt'] = array(
 	'problemchanges-category' => 'Kategorija:',
 );
 
-/** Norwegian Bokmål (norsk (bokmål)‎)
+/** Norwegian Bokmål (norsk bokmål)
  * @author Laaknor
  * @author Nghtwlkr
  * @author Simny
@@ -696,7 +696,7 @@ $messages['nl'] = array(
 	'problemchanges-category' => 'Categorie:',
 );
 
-/** Norwegian Nynorsk (norsk (nynorsk)‎)
+/** Norwegian Nynorsk (norsk nynorsk)
  * @author Nghtwlkr
  */
 $messages['nn'] = array(
@@ -713,7 +713,7 @@ $messages['oc'] = array(
 	'problemchanges-category' => 'Categoria :',
 );
 
-/** Oriya (ଓଡ଼ିଆ)
+/** Oriya (ଓଡ଼ିଆ)
  * @author Ansumang
  */
 $messages['or'] = array(

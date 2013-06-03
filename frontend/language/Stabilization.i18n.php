@@ -2575,7 +2575,7 @@ $messages['nah'] = array(
 	'stabilize-expiring' => 'motlamīz $1 (UTC)',
 );
 
-/** Norwegian Bokmål (norsk (bokmål)‎)
+/** Norwegian Bokmål (norsk bokmål)
  * @author H92
  * @author Laaknor
  * @author Nghtwlkr
@@ -2678,7 +2678,7 @@ $messages['nl-informal'] = array(
 Dit zijn de huidige instellingen voor [[:$1|$1]]:',
 );
 
-/** Norwegian Nynorsk (norsk (nynorsk)‎)
+/** Norwegian Nynorsk (norsk nynorsk)
  * @author Gunnernett
  * @author Harald Khan
  * @author Jon Harald Søby
@@ -2767,7 +2767,7 @@ Aquí los paramètres actuals de [[:$1|$1]] :',
 	'stabilization-review' => 'Tornar veire la version correnta', # Fuzzy
 );
 
-/** Oriya (ଓଡ଼ିଆ)
+/** Oriya (ଓଡ଼ିଆ)
  * @author Ansumang
  * @author Psubhashish
  */
@@ -2949,6 +2949,7 @@ Não é possível configurá-la.',
 /** Brazilian Portuguese (português do Brasil)
  * @author Eduardo.mps
  * @author Giro720
+ * @author Luckas
  * @author Luckas Blade
  */
 $messages['pt-br'] = array(

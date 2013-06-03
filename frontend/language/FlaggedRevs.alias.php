@@ -201,6 +201,7 @@ $specialPageAliases['fa'] = array(
 
 /** Finnish (suomi) */
 $specialPageAliases['fi'] = array(
+	'PendingChanges' => array( 'Odottavat_muutokset' ),
 	'ProblemChanges' => array( 'Ongelmalliset_muutokset' ),
 	'ReviewedPages' => array( 'Arvioidut_sivut' ),
 	'Stabilization' => array( 'Vakaaksi_versioksi' ),

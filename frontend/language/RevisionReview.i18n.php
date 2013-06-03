@@ -1652,6 +1652,7 @@ Bonvolu kontroli ĉiujn jenajn ŝanĝojn por aperigi viajn redaktojn en la stabi
  * @author Imre
  * @author Jurock
  * @author Locos epraix
+ * @author MarcoAurelio
  * @author MetalBrasil
  * @author Mor
  * @author Savh
@@ -3975,7 +3976,7 @@ $messages['mt'] = array(
 	'revreview-submit' => 'Ibgħat',
 );
 
-/** Norwegian Bokmål (norsk (bokmål)‎)
+/** Norwegian Bokmål (norsk bokmål)
  * @author EivindJ
  * @author Event
  * @author Laaknor
@@ -4183,7 +4184,7 @@ Controleer alle hieronder weergegeven wijzigingen om ook jouw bewerking zichtbaa
 	'revreview-reject-text-list' => "Door deze handeling uit te voeren, '''keur je de brontekstwijzingen af''' van de volgende {{PLURAL:$1|versie|versies}} van [[:$2|$2]]:",
 );
 
-/** Norwegian Nynorsk (norsk (nynorsk)‎)
+/** Norwegian Nynorsk (norsk nynorsk)
  * @author Harald Khan
  * @author Jon Harald Søby
  * @author Nghtwlkr
@@ -4242,7 +4243,7 @@ $messages['oc'] = array(
 	'revreview-reject-cancel' => 'Anullar',
 );
 
-/** Oriya (ଓଡ଼ିଆ)
+/** Oriya (ଓଡ଼ିଆ)
  * @author Ansumang
  */
 $messages['or'] = array(
@@ -4543,6 +4544,7 @@ Para que as suas edições apareçam na versão publicada, reveja todas as alter
 /** Brazilian Portuguese (português do Brasil)
  * @author Giro720
  * @author Helder.wiki
+ * @author Luckas
  * @author Luckas Blade
  */
 $messages['pt-br'] = array(

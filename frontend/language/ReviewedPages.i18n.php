@@ -936,7 +936,7 @@ $messages['nah'] = array(
 	'reviewedpages-lev-1' => 'Cuallōtl',
 );
 
-/** Norwegian Bokmål (norsk (bokmål)‎)
+/** Norwegian Bokmål (norsk bokmål)
  * @author EivindJ
  * @author Nghtwlkr
  */
@@ -971,7 +971,7 @@ Er wordt een koppeling gegeven naar de laatste versie voor dat niveau.",
 	'reviewedpages-best' => 'beste versie',
 );
 
-/** Norwegian Nynorsk (norsk (nynorsk)‎)
+/** Norwegian Nynorsk (norsk nynorsk)
  * @author Harald Khan
  * @author Njardarlogar
  */
@@ -1009,7 +1009,7 @@ $messages['oc'] = array(
 	'reviewedpages-best' => 'Melhor revision',
 );
 
-/** Oriya (ଓଡ଼ିଆ)
+/** Oriya (ଓଡ଼ିଆ)
  * @author Ansumang
  */
 $messages['or'] = array(

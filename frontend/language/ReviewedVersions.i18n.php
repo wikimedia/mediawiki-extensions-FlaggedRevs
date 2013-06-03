@@ -852,7 +852,7 @@ $messages['nah'] = array(
 	'reviewedversions-page' => 'Zāzanilli ītōcā:',
 );
 
-/** Norwegian Bokmål (norsk (bokmål)‎)
+/** Norwegian Bokmål (norsk bokmål)
  * @author Nghtwlkr
  */
 $messages['nb'] = array(
@@ -885,7 +885,7 @@ $messages['nl'] = array(
 	'reviewedversions-review' => 'Gecontroleerd op <i>$1</i> door $2',
 );
 
-/** Norwegian Nynorsk (norsk (nynorsk)‎)
+/** Norwegian Nynorsk (norsk nynorsk)
  * @author Harald Khan
  * @author Jon Harald Søby
  */
@@ -917,7 +917,7 @@ $messages['oc'] = array(
 	'reviewedversions-review' => "Revisada lo ''$1'' per $2",
 );
 
-/** Oriya (ଓଡ଼ିଆ)
+/** Oriya (ଓଡ଼ିଆ)
  * @author Ansumang
  */
 $messages['or'] = array(

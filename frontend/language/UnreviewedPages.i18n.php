@@ -1319,7 +1319,7 @@ $messages['nah'] = array(
 	'unreviewedpages-category' => 'Tlaìxmatkàtlàlilòtl:',
 );
 
-/** Norwegian Bokmål (norsk (bokmål)‎)
+/** Norwegian Bokmål (norsk bokmål)
  * @author Harald Khan
  * @author Nghtwlkr
  * @author Simny
@@ -1368,7 +1368,7 @@ $messages['nl'] = array(
 	'unreviewedpages-recent' => '(minder dan één uur)',
 );
 
-/** Norwegian Nynorsk (norsk (nynorsk)‎)
+/** Norwegian Nynorsk (norsk nynorsk)
  * @author Harald Khan
  * @author Jon Harald Søby
  * @author Nghtwlkr
@@ -1417,7 +1417,7 @@ $messages['oc'] = array(
 	'unreviewedpages-recent' => "(mens d'una ora)",
 );
 
-/** Oriya (ଓଡ଼ିଆ)
+/** Oriya (ଓଡ଼ିଆ)
  * @author Ansumang
  */
 $messages['or'] = array(
