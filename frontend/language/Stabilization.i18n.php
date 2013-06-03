@@ -740,10 +740,11 @@ No és possible cap configuració.",
 
 /** Chechen (нохчийн)
  * @author Sasan700
+ * @author Умар
  */
 $messages['ce'] = array(
 	'stabilization-page' => 'Агlон цlе:',
-	'stabilization-submit' => 'Къобалде',
+	'stabilization-submit' => 'Бакъдан',
 	'stabilization-comment' => 'Бахьан:',
 	'stabilization-otherreason' => 'Кхин бахьан:',
 	'stabilization-expiry' => 'Чекхйолу:',
