@@ -17,7 +17,7 @@ class FRInclusionCache {
 	public static function getRevIncludes(
 		Page $article, Revision $rev, User $user, $regen = ''
 	) {
-		global $wgParser, $wgMemc;
+		global $wgMemc;
 		wfProfileIn( __METHOD__ );
 
 		$key = self::getCacheKey( $article->getTitle(), $rev->getId() );
@@ -55,13 +55,8 @@ class FRInclusionCache {
 			}
 			// ParserOutput::mImageTimeKeys wasn't always there
 			if ( $pOut == false || !FlaggedRevs::parserOutputIsVersioned( $pOut ) ) {
-				$pOut = $wgParser->parse(
-					$rev->getText(),
-					$article->getTitle(), 
-					ParserOptions::newFromUser( $user ), // Note: tidy off
-					true,
-					true,
-					$rev->getId() 
+				$pOut = $rev->getContent()->getParserOutput(
+					$article->getTitle(), $rev->getId(), ParserOptions::newFromUser( $user )
 				);
 			}
 			# Get the template/file versions used...

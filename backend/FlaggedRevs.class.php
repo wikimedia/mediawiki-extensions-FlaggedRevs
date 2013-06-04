@@ -549,31 +549,27 @@ class FlaggedRevs {
 	}
 
 	/**
-	 * Get the HTML output of a revision based on $text.
-	 * @param Title $title
-	 * @param string $text
-	 * @param int $id Source revision Id
+	 * Get the HTML output of a revision.
+	 * @param FlaggedRevision $frev
 	 * @param ParserOptions $pOpts
 	 * @return ParserOutput
 	 */
-	public static function parseStableText( Title $title, $text, $id, ParserOptions $pOpts ) {
-		global $wgParser;
+	public static function parseStableRevision( FlaggedRevision $frev, ParserOptions $pOpts ) {
 		# Notify Parser if includes should be stabilized
 		$resetManager = false;
 		$incManager = FRInclusionManager::singleton();
-		if ( $id && self::inclusionSetting() != FR_INCLUDES_CURRENT ) {
+		if ( $frev->getRevId() && self::inclusionSetting() != FR_INCLUDES_CURRENT ) {
 			# Use FRInclusionManager to do the template/file version query
 			# up front unless the versions are already specified there...
 			if ( !$incManager->parserOutputIsStabilized() ) {
-				$frev = FlaggedRevision::newFromTitle( $title, $id );
-				if ( $frev ) {
-					$incManager->stabilizeParserOutput( $frev );
-					$resetManager = true; // need to reset when done
-				}
+				$incManager->stabilizeParserOutput( $frev );
+				$resetManager = true; // need to reset when done
 			}
 		}
-		# Parse the new body, wikitext -> html
-		$parserOut = $wgParser->parse( $text, $title, $pOpts, true, true, $id );
+		# Parse the new body
+		$parserOut = $frev->getRevision()->getContent()->getParserOutput(
+			$frev->getTitle(), $frev->getRevId(), $pOpts
+		);
 		# Stable parse done!
 		if ( $resetManager ) {
 			$incManager->clear(); // reset the FRInclusionManager as needed

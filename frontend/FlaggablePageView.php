@@ -593,14 +593,12 @@ class FlaggablePageView extends ContextSource {
 			}
 		}
 
-		$text = $frev->getRevText();
 		# Get the new stable parser output...
 		$pOpts = $this->article->makeParserOptions( $reqUser );
-		$parserOut = FlaggedRevs::parseStableText(
-			$this->article->getTitle(), $text, $frev->getRevId(), $pOpts );
+		$parserOut = FlaggedRevs::parseStableRevision( $frev, $pOpts );
 
 		# Parse and output HTML
-		$redirHtml = $this->getRedirectHtml( $text );
+		$redirHtml = $this->getRedirectHtml( $frev );
 		if ( $redirHtml == '' ) { // page is not a redirect...
 			# Add the stable output to the page view
 			$this->out->addParserOutput( $parserOut );
@@ -688,7 +686,6 @@ class FlaggablePageView extends ContextSource {
 			# Cache hit. Note that redirects are not cached.
 			$this->out->addParserOutput( $parserOut );
 		} else {
-			$text = $srev->getRevText();
 			# Get the new stable parser output...
 			if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_CURRENT && $synced ) {
 				# We can try the current version cache, since they are the same revision
@@ -698,11 +695,10 @@ class FlaggablePageView extends ContextSource {
 			}
 
 			if ( !$parserOut ) {
-				$parserOut = FlaggedRevs::parseStableText(
-					$this->article->getTitle(), $text, $srev->getRevId(), $pOpts );
+				$parserOut = FlaggedRevs::parseStableRevision( $srev, $pOpts );
 			}
 
-			$redirHtml = $this->getRedirectHtml( $text );
+			$redirHtml = $this->getRedirectHtml( $srev );
 			if ( $redirHtml == '' ) { // page is not a redirect...
 				# Update the stable version cache
 				$parserCache->save( $parserOut, $this->article, $pOpts );
@@ -729,8 +725,8 @@ class FlaggablePageView extends ContextSource {
 	}
 
 	// Get fancy redirect arrow and link HTML
-	protected function getRedirectHtml( $text ) {
-		$rTargets = Title::newFromRedirectArray( $text );
+	protected function getRedirectHtml( $frev ) {
+		$rTargets = $frev->getRevision()->getContent()->getRedirectChain();
 		if ( $rTargets ) {
 			$article = new Article( $this->article->getTitle() );
 			return $article->viewRedirect( $rTargets );
