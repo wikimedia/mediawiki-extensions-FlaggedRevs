@@ -934,7 +934,7 @@ class FlaggedRevsHooks {
 
 	public static function setSessionKey( User $user ) {
 		global $wgRequest;
-		if ( $user->isAllowed( 'review' ) ) {
+		if ( $user->isLoggedIn() && $user->isAllowed( 'review' ) ) {
 			$key = $wgRequest->getSessionData( 'wsFlaggedRevsKey' );
 			if ( $key === null ) { // should catch login
 				$key = MWCryptRand::generateHex( 32 );
