@@ -1200,7 +1200,7 @@ $messages['ku-latn'] = array(
  * @author Nrowe
  */
 $messages['kw'] = array(
-	'pendingchanges-days' => '($1 {{PLURAL:$1|dydh|dydh}})',
+	'pendingchanges-days' => '($1 {{PLURAL:$1|jydh|dydh}})',
 	'pendingchanges-category' => 'Klass:',
 );
 
