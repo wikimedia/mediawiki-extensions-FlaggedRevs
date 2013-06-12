@@ -1501,12 +1501,14 @@ $messages['ps'] = array(
 
 /** Portuguese (português)
  * @author Giro720
+ * @author GoEThe
  * @author Hamilton Abreu
  * @author Lijealso
  * @author Malafaya
  * @author 555
  */
 $messages['pt'] = array(
+	'action-unreviewedpages' => 'ver a lista de páginas não revistas',
 	'unreviewedpages' => 'Páginas não revistas',
 	'unreviewedpages-legend' => 'Listar páginas de conteúdo não revistas',
 	'unreviewedpages-category' => 'Categoria:',
