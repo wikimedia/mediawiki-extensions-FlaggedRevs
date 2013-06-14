@@ -2338,6 +2338,7 @@ $messages['bg'] = array(
 );
 
 /** Bengali (বাংলা)
+ * @author Aftab1995
  * @author Bellayet
  * @author Jayantanth
  * @author Wikitanvir
@@ -2348,8 +2349,11 @@ $messages['bn'] = array(
 	'editor' => 'সম্পাদক',
 	'flaggedrevs' => 'চিহ্নিত সংশোধনসমূহ',
 	'flaggedrevs-pref-UI' => 'সাধারণ ইন্টারফেস:',
+	'flaggedrevs-pref-UI-0' => 'পাতাসমূহের পর্যালোচনা অবস্থা প্রদর্শনের জন্য বিস্তারিত বক্স ব্যবহার করো',
+	'flaggedrevs-pref-UI-1' => 'পাতাসমূহের পর্যালোচনা অবস্থা প্রদর্শনের জন্য ছোট আইকন এবং ন্যূনতম টেক্সট ব্যবহার করো',
 	'prefs-flaggedrevs' => 'পর্যালোচনা সম্পাদনা',
 	'prefs-flaggedrevs-ui' => 'পর্যালোচনা সম্পাদনা',
+	'flaggedrevs-prefs-stable' => 'ডিফল্টরূপ এড়িয়ে যখন পাতার স্থিতিশীল সংস্করণ দেখায়',
 	'flaggedrevs-pref-stable-0' => 'প্রতিটি পাতার জন্য প্রাথমিক সেটিংস ব্যবহার করুন',
 	'flaggedrevs-pref-stable-1' => 'সবসময় পর্যবেক্ষণকৃত ও মিমাংসীত সংস্করণটি প্রদর্শন করো (যদি সেরকম একটি থাকে)',
 	'flaggedrevs-pref-stable-2' => 'সবসময় সাম্প্রতিকতম সংস্করণটি দেখাও',
@@ -2428,7 +2432,7 @@ $messages['bn'] = array(
 	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|গুণমান]]'''",
 	'revreview-quick-see-basic' => '[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} অমীমাংসিত পরিবর্তন পর্যালোচনা]]',
 	'revreview-quick-see-quality' => '[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} অমীমাংসিত পরিবর্তন পর্যালোচনা]]',
-	'revreview-source' => 'সোর্স দেখাও',
+	'revreview-source' => 'উৎস দেখাও',
 	'revreview-basic-title' => 'এটি এই পাতার একটি পরীক্ষিত সংস্করণ',
 	'revreview-style' => 'পঠনযোগ্যতা',
 	'revreview-style-0' => 'অনুপযুক্ত',
@@ -2473,6 +2477,7 @@ $messages['bn'] = array(
 	'tooltip-ca-stable' => 'এই পাতার স্থিতিশীল সংস্করণটি দেখাও',
 	'tooltip-ca-default' => 'মান নিশ্চিতকরণ সেটিংস',
 	'flaggedrevs-protect-none' => 'সমস্ত ব্যবহারকারীর জন্য',
+	'log-show-hide-review' => '$1 পর্যালোচনা লগ',
 	'validationpage' => '{{ns:help}}:নিবন্ধ বৈধকরণ',
 );
 
@@ -11743,6 +11748,7 @@ $messages['pfl'] = array(
  * @author McMonster
  * @author Odie2
  * @author Pimke
+ * @author Rzuwig
  * @author Soeb
  * @author Sovq
  * @author Sp5uhe
@@ -11889,7 +11895,7 @@ Później mogły zostać wykonane następne [{{fullurl:{{FULLPAGENAMEE}}|oldid=$
 	'right-movestable' => 'Przenoszenie opublikowanych stron',
 	'right-review' => 'Oznaczanie wersji jako przejrzanych',
 	'right-stablesettings' => 'Określanie sposobów wybrania i wyświetlania wersji opublikowanej',
-	'right-validate' => 'Oznaczanie wersji jako przejrzanych',
+	'right-validate' => 'Oznaczanie wersji jako „sprawdzone”',
 	'right-unreviewedpages' => 'Przeglądanie [[Special:UnreviewedPages|listy nieprzejrzanych stron]]',
 	'rights-editor-revoke' => 'odebrał uprawnienia redaktora [[$1]]',
 	'specialpages-group-quality' => 'Oznaczanie edycji',
