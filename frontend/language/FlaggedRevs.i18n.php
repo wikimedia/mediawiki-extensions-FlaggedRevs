@@ -4159,6 +4159,7 @@ $messages['ee'] = array(
  * @author Crazymadlover
  * @author Dead3y3
  * @author Flyax
+ * @author FocalPoint
  * @author Geraki
  * @author Glavkos
  * @author Omnipaedista
@@ -4195,7 +4196,7 @@ $messages['el'] = array(
 	'group-editor.css' => '/* Η CSS που βρίσκεται εδώ θα επηρεάσει μόνο τους συντάκτες */',
 	'group-editor.js' => '/* Η JS που τοποθετήθηκε εδώ θα επηρεάσει μόνο τους συντάκτες */',
 	'revreview-hist-draft' => 'μη ελεγμένη αναθεώρηση',
-	'revreview-hist-pending' => 'σε εκκρεμότητα αναθεώρηση',
+	'revreview-hist-pending' => 'αναθεώρηση σε εκκρεμότητα',
 	'revreview-hist-quality' => 'έκδοση ποιότητας',
 	'revreview-hist-basic' => 'ελεγμένη αναθεώρηση',
 	'revreview-hist-quality-user' => 'εγκρίθηκε από [[User:$3|$3]]',
