@@ -5307,6 +5307,7 @@ $messages['su'] = array(
  * @author Cohan
  * @author Dafer45
  * @author GameOn
+ * @author Jopparn
  * @author Lejonel
  * @author M.M.S.
  * @author Najami
@@ -5332,6 +5333,7 @@ $messages['sv'] = array(
 	'review_denied' => 'Tillstånd nekat.',
 	'review_param_missing' => 'En parameter saknas eller är ogiltig.',
 	'review_cannot_undo' => 'Kan inte ångra dessa ändringar eftersom ytterligare väntande redigeringar har ändrat i samma områden.',
+	'review_cannot_reject' => 'Kan inte avvisa dessa ändringar eftersom någon redan accepterat vissa (eller samtliga) av redigeringarna.',
 	'review_reject_excessive' => 'Kan inte avvisa så många ändringar på en gång.',
 	'revreview-check-flag-p' => 'Accept this version (includes $1 pending {{PLURAL:$1|change|changes}})',
 	'revreview-check-flag-p-title' => 'Acceptera alla nuvarande väntande ändringar tillsammans med din egen redigering. Använd endast detta om du redan har sett hela diffen för väntande ändringar.',
