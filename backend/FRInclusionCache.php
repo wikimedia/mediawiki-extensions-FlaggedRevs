@@ -53,12 +53,20 @@ class FRInclusionCache {
 					$pOut = $parserCache->get( $article, $article->makeParserOptions( $optsUser ) );
 				}
 			}
+
 			// ParserOutput::mImageTimeKeys wasn't always there
 			if ( $pOut == false || !FlaggedRevs::parserOutputIsVersioned( $pOut ) ) {
-				$pOut = $rev->getContent()->getParserOutput(
-					$article->getTitle(), $rev->getId(), ParserOptions::newFromUser( $user )
-				);
+				$content = $rev->getContent( Revision::RAW );
+				if ( !$content ) {
+					// Just for extra sanity
+					$pOut = new ParserOutput();
+				} else {
+					$pOut = $content->getParserOutput(
+						$article->getTitle(), $rev->getId(), ParserOptions::newFromUser( $user )
+					);
+				}
 			}
+
 			# Get the template/file versions used...
 			$versions = array( $pOut->getTemplateIds(), $pOut->getFileSearchOptions() );
 			# Save to cache (check cache expiry for dynamic elements)...
