@@ -730,6 +730,7 @@ $specialPageAliases['tt-cyrl'] = array(
 /** Ukrainian (українська) */
 $specialPageAliases['uk'] = array(
 	'PendingChanges' => array( 'Сторінки_до_перевірки' ),
+	'ProblemChanges' => array( 'Неперевірені_зміни' ),
 	'QualityOversight' => array( 'Поглиблений_журнал_перевірок' ),
 	'ReviewedPages' => array( 'Перевірені_сторінки' ),
 	'RevisionReview' => array( 'Перевірка_версій' ),
