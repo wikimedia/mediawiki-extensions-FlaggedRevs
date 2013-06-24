@@ -629,6 +629,17 @@ $messages['fi'] = array(
 	'unreviewedpages-recent' => '(alle yksi tunti)',
 );
 
+/** Faroese (føroyskt)
+ * @author EileenSanda
+ */
+$messages['fo'] = array(
+	'action-unreviewedpages' => 'sí lista yvir síður sum ikki eru eftirhugdar',
+	'unreviewedpages-category' => 'Bólkar:',
+	'unreviewedpages-hours' => '($1 {{PLURAL:$1|tími|tímar}})',
+	'unreviewedpages-days' => '($1 {{PLURAL:$1|dagur|dagar}})',
+	'unreviewedpages-recent' => '(minni enn 1 tími)',
+);
+
 /** French (français)
  * @author DavidL
  * @author Grondin
