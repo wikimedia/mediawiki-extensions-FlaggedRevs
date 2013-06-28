@@ -326,8 +326,15 @@ class FlaggedRevsHooks {
 			$fa = FlaggableWikiPage::getTitleInstance( $title );
 			$config = $fa->getStabilitySettings();
 			# Convert Sysop -> protect
-			$right = ( $config['autoreview'] === 'sysop' ) ?
-				'protect' : $config['autoreview'];
+			$right = $config['autoreview'];
+			if ( $right === 'sysop' ) {
+				// Backwards compatibility, rewrite sysop -> editprotected
+				$right = 'editprotected';
+			}
+			if ( $right === 'autoconfirmed' ) {
+				// Backwards compatibility, rewrite autoconfirmed -> editsemiprotected
+				$right = 'editsemiprotected';
+			}
 			# Check if the user has the required right, if any
 			if ( $right != '' && !$user->isAllowed( $right ) ) {
 				$result = false;
@@ -337,14 +344,17 @@ class FlaggedRevsHooks {
 			# If a page is restricted from editing such that a user cannot
 			# edit it, then said user should not be able to review it.
 			foreach ( $title->getRestrictions( 'edit' ) as $right ) {
-				// Backwards compatibility, rewrite sysop -> protect
-				$right = ( $right === 'sysop' ) ? 'protect' : $right;
+				if ( $right === 'sysop' ) {
+					// Backwards compatibility, rewrite sysop -> editprotected
+					$right = 'editprotected';
+				}
+				if ( $right === 'autoconfirmed' ) {
+					// Backwards compatibility, rewrite autoconfirmed -> editsemiprotected
+					$right = 'editsemiprotected';
+				}
 				if ( $right != '' && !$user->isAllowed( $right ) ) {
-					// 'editprotected' bypasses this restriction
-					if ( !$user->isAllowed( 'editprotected' ) ) {
-						$result = false;
-						return false;
-					}
+					$result = false;
+					return false;
 				}
 			}
 		}
