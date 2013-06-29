@@ -118,7 +118,7 @@ Used on Special:Stabilization.
 {{Identical|Other reason}}',
 	'stabilization-expiry' => '{{Flagged Revs}}
 Used on Special:Stabilization.
-{{Identical|Expires}}',
+{{Identical|Expire}}',
 	'stabilization-othertime' => '{{Flagged Revs}}
 Used on Special:Stabilization.
 {{Identical|Other time}}',

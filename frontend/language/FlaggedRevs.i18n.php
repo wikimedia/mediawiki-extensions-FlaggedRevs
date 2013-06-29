@@ -575,10 +575,14 @@ Shown as the attribute title to the checkmark icon on the "flagged revs box" sho
 Used in "flagged revs box" when viewing a "checked" page with pending changes.
 * $1 Stable version ID',
 	'revreview-quick-basic-old' => '{{Flagged Revs}}
-Used in "flagged revs box" when viewing an old "checked" version of a page.',
+Used in "flagged revs box" when viewing an old "checked" version of a page.
+{{Identical|Checked}}',
 	'revreview-quick-basic-same' => '{{Flagged Revs}}
 Used in "flagged revs box" when viewing a "checked" page and there are no pending changes.
-* $1 Stable version ID',
+
+Parameters:
+* $1 - Stable version ID
+{{Identical|Checked}}',
 	'revreview-quick-invalid' => '{{Flagged Revs}}
 Used in "flagged revs box" when viewing a bogus reviewed version was requested (via ?stableid=x).',
 	'revreview-quick-none' => '{{Flagged Revs-small}}
@@ -706,7 +710,8 @@ Shown as dropdown option on lists or log pages to filter results.
 Shown as dropdown option on lists or log pages to filter results.
 {{Identical|Any}}',
 	'revreview-lev-basic' => '{{Flagged Revs}}
-Shown as dropdown option on lists or log pages to filter results.',
+Shown as dropdown option on lists or log pages to filter results.
+{{Identical|Checked}}',
 	'revreview-lev-quality' => '{{Flagged Revs}}
 Shown as dropdown option on lists or log pages to filter results.',
 	'revreview-lev-pristine' => '{{Flagged Revs}}
