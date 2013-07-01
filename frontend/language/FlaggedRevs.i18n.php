@@ -337,14 +337,16 @@ Parameters:
 {{doc-group|editor|member}}
 {{Identical|Editor}}',
 	'group-reviewer' => '{{Flagged Revs}}
-{{doc-group|reviewer}}',
+{{doc-group|reviewer}}
+{{Identical|Reviewer}}',
 	'group-reviewer-member' => '{{Flagged Revs}}
 {{doc-group|reviewer|member}}
 {{Identical|Reviewer}}',
 	'grouppage-editor' => '{{Flagged Revs}}
 {{doc-group|editor|page}}',
 	'grouppage-reviewer' => '{{Flagged Revs}}
-{{doc-group|reviewer|page}}',
+{{doc-group|reviewer|page}}
+{{Identical|Reviewer}}',
 	'group-autoreview' => '{{Flagged Revs}}
 {{doc-group|autoreview}}
 Users in this group have their edits automatically reviewed.',
@@ -586,7 +588,8 @@ Parameters:
 	'revreview-quick-invalid' => '{{Flagged Revs}}
 Used in "flagged revs box" when viewing a bogus reviewed version was requested (via ?stableid=x).',
 	'revreview-quick-none' => '{{Flagged Revs-small}}
-Shown in the "flagged revs box" on the content page when there isn\'t any checked or quality revision yet.',
+Shown in the "flagged revs box" on the content page when there isn\'t any checked or quality revision yet.
+{{Identical|Unchecked}}',
 	'revreview-quick-quality' => '{{Flagged Revs-small}}
 Used in the "flagged revs box" when viewing a quality version, while there are pending changes.',
 	'revreview-quick-quality-old' => '{{Flagged Revs}}

@@ -136,17 +136,17 @@ $specialPageAliases['de'] = array(
 
 /** Zazaki (Zazaki) */
 $specialPageAliases['diq'] = array(
-	'PendingChanges' => array( 'VurnayışêkePawênê' ),
-	'ProblemChanges' => array( 'VurnayışêProblemıni' ),
-	'QualityOversight' => array( 'GırdWeynayışêRoceka' ),
-	'ReviewedPages' => array( 'PelaWeynayış' ),
-	'RevisionReview' => array( 'RevizyonWeynayış' ),
+	'PendingChanges' => array( 'VırnayışékePawéné' ),
+	'ProblemChanges' => array( 'VırnayışéProblemıni' ),
+	'QualityOversight' => array( 'GırdWeynayışéRoceka' ),
+	'ReviewedPages' => array( 'PeraWeynayış' ),
+	'RevisionReview' => array( 'RewizyonWeynayış' ),
 	'Stabilization' => array( 'Dengekerdış' ),
 	'StablePages' => array( 'DengeyaPelan' ),
 	'ConfiguredPages' => array( 'VıraştenaPelan' ),
-	'ReviewedVersions' => array( 'VersiyonêkeWeyneyayê' ),
-	'UnreviewedPages' => array( 'PeleyêkeNêweyneyayê' ),
-	'ValidationStatistics' => array( 'İstatistikêTesdiqan' ),
+	'ReviewedVersions' => array( 'VersiyonékeWeyneyayé' ),
+	'UnreviewedPages' => array( 'PerékeNéweyneyayé' ),
+	'ValidationStatistics' => array( 'İstatistikéTesdiqan' ),
 );
 
 /** Lower Sorbian (dolnoserbski) */
