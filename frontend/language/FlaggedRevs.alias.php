@@ -508,14 +508,14 @@ $specialPageAliases['nb'] = array(
 $specialPageAliases['nds-nl'] = array(
 	'PendingChanges' => array( 'Wiezigingen_in_wachtrie' ),
 	'ProblemChanges' => array( 'Problematiese_wiezigingen' ),
-	'QualityOversight' => array( 'Kwaliteitskontrole' ),
-	'ReviewedPages' => array( 'Pagina\'s_mit_eindredaksie' ),
+	'QualityOversight' => array( 'Kwaliteitskontraole' ),
+	'ReviewedPages' => array( 'Ziejen_mit_eindredaksie' ),
 	'RevisionReview' => array( 'Eindredaksie_versies' ),
 	'Stabilization' => array( 'Stabilisasie' ),
-	'StablePages' => array( 'Stabiele_pagina\'s' ),
-	'ConfiguredPages' => array( 'In-estelden_pagina\'s' ),
+	'StablePages' => array( 'Stabiele_ziejen' ),
+	'ConfiguredPages' => array( 'In-estelden_ziejen' ),
 	'ReviewedVersions' => array( 'Nao-ekeken_versies' ),
-	'UnreviewedPages' => array( 'Pagina\'s_zonder_eindredaksie' ),
+	'UnreviewedPages' => array( 'Ziejen_zonder_eindredaksie' ),
 	'ValidationStatistics' => array( 'Eindredaksiestaotistieken' ),
 );
 
