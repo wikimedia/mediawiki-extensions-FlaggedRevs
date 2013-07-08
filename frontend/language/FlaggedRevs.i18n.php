@@ -10838,6 +10838,7 @@ $messages['nah'] = array(
 );
 
 /** Norwegian Bokmål (norsk bokmål)
+ * @author Danmichaelo
  * @author EivindJ
  * @author Event
  * @author H92
@@ -10861,7 +10862,7 @@ $messages['nb'] = array(
 	'prefs-flaggedrevs' => 'Redigeringsgodkjennelse',
 	'prefs-flaggedrevs-ui' => 'Redigeringsgodkjennelse',
 	'flaggedrevs-prefs-stable' => 'Når den stabile versjonen av innholdssider skal vises som standard',
-	'flaggedrevs-pref-stable-0' => 'Bruk standard innstillinger for hver side',
+	'flaggedrevs-pref-stable-0' => 'Bruk standardinnstillinger for hver side',
 	'flaggedrevs-pref-stable-1' => 'Bruk alltid den stabile versjonen (om den fins)',
 	'flaggedrevs-pref-stable-2' => 'Vis alltid den seneste versjonen',
 	'flaggedrevs-prefs-watch' => 'Legg til sider jeg anmelder i overvåkningslisten min',
