@@ -14178,6 +14178,7 @@ $messages['sr-ec'] = array(
 	'revreview-hist-basic' => 'проверена измена',
 	'revreview-hist-quality-user' => 'одобрио/-ла [[User:$3|$3]]',
 	'revreview-hist-basic-user' => 'проверио/-ла [[User:$3|$3]]',
+	'review-edit-diff' => "'''Напомена: Неке од измена које су на чекању имају утицај на одломак странице који уређујете.'''",
 	'revreview-diff-toggle-show' => 'прикажи измене',
 	'revreview-diff-toggle-hide' => 'сакриј измене',
 	'review-diff2stable' => 'Погледај све измене на чекању',
@@ -14211,8 +14212,12 @@ $messages['sr-ec'] = array(
 	'revreview-depth-4' => 'Изабрани',
 	'revreview-draft-title' => 'На овој страници су приказане измене на чекању',
 	'revreview-edit' => 'Уреди',
+	'revreview-editnotice' => "'''Ваше измене ће бити видљиве читаоцима након што их овлашћени корисник провери. ([[{{MediaWiki:Validationpage}}|помоћ]])'''",
 	'revreview-submitedit' => 'Сачувај',
 	'revreview-submitedit-title' => 'Пошаљите своје измене за преглед',
+	'revreview-edited' => "'''Ваше измене ће бити видљиве након што их овлашћени корисник провери. ([[{{MediaWiki:Validationpage}}|помоћ]])'''
+
+There {{PLURAL:$2|is|are}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 pending {{PLURAL:$2|change|changes}}] ''(shown below)'' awaiting review.",
 	'revreview-oldrating' => 'Оцењено је:',
 	'revreview-quality-title' => 'Ово је квалитетна верзија ове стране',
 	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|Прегледани чланак]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} прикажи нацрт]]",
@@ -14223,6 +14228,7 @@ $messages['sr-ec'] = array(
 	'revreview-quick-quality' => "'''[[{{MediaWiki:Validationpage}}|Квалитетна]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} прегледај измене на чекању]]",
 	'revreview-quick-quality-old' => "'''[[{{MediaWiki:Validationpage}}|Квалитетна]]'''",
 	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|Квалитетна]]'''",
+	'revreview-quick-see-basic' => '[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} прегледај измене на чекању]]',
 	'revreview-source' => 'Изворни код',
 	'revreview-basic-title' => 'Ово је проверена верзија ове стране',
 	'revreview-style' => 'Читљивост',
