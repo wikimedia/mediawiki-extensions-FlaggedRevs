@@ -267,7 +267,7 @@ $messages['cs'] = array(
  * @author ОйЛ
  */
 $messages['cu'] = array(
-	'reviewedversions-page' => 'страни́цѧ и́мѧ',
+	'reviewedversions-page' => 'страницѧ имѧ :',
 );
 
 /** Danish (dansk)

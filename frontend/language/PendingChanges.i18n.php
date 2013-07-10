@@ -437,7 +437,7 @@ $messages['cs'] = array(
  * @author ОйЛ
  */
 $messages['cu'] = array(
-	'pendingchanges-category' => 'катигорі́ꙗ :',
+	'pendingchanges-category' => 'катигорїꙗ :',
 );
 
 /** Danish (dansk)

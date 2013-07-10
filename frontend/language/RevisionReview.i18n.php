@@ -3562,7 +3562,7 @@ Kuckt d'[[Special:Unreviewedpages|Lëscht vun den net nogekuckte Sàiten]].",
 	'revreview-adv-reviewing-p' => 'Notiz: Aner Benotzer gesinn datt {{GENDER:$1|Dir}} dës Säit nokuckt.',
 	'revreview-adv-reviewing-c' => 'Notiz: Aner Benotzer gesinn datt {{GENDER:$1|Dir}} dës Ännerungen nokuckt',
 	'revreview-sadv-reviewing-p' => 'Dir kënnt $1 datt Dir dës Säit nokuckt.',
-	'revreview-sadv-reviewing-c' => 'Dir kënnt $1 bekanntginn</a> datt Dir dës Ännerungen nokuckt.',
+	'revreview-sadv-reviewing-c' => 'Dir kënnt $1 datt Dir dës Ännerungen nokuckt.',
 	'revreview-adv-start-link' => 'bekanntginn',
 	'revreview-adv-stop-link' => 'bekanntginn zréckzéien',
 	'revreview-toolow' => "'''Dir musst fir all Attribut hei drënner eng Bewäertung ofginn déi besser ass wéi \"net adequat\" fir datt eng Versioun als nogekuckt betruecht ka ginn.'''
