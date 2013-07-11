@@ -1587,6 +1587,13 @@ La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} versión estable] s'[{{fullurl:{{#Spe
 	'validationpage' => '{{ns:help}}:Convalidación de la páxina',
 );
 
+/** Avaric (авар)
+ * @author Умар
+ */
+$messages['av'] = array(
+	'revreview-edit' => 'Хисизабизе',
+);
+
 /** Kotava (Kotava)
  */
 $messages['avk'] = array(
