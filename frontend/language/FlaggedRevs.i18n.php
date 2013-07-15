@@ -2387,7 +2387,7 @@ $messages['bn'] = array(
 	'grouppage-autoreview' => '{{ns:project}}:স্বয়ংক্রিয়ভাবে পরীক্ষিত ব্যবহারকারী',
 	'revreview-hist-draft' => 'অপরীক্ষিত সংশোধন',
 	'revreview-hist-pending' => 'অমীমাংসিত সংশোধন',
-	'revreview-hist-quality' => 'কোয়ালিটি সংশোধন',
+	'revreview-hist-quality' => 'গুণমানের সংশোধন',
 	'revreview-hist-basic' => 'পরীক্ষিত সংশোধন',
 	'revreview-hist-quality-user' => '[[User:$3|$3]] দ্বারা অনুমোদনকৃত',
 	'revreview-hist-basic-user' => '[[User:$3|$3]] দ্বারা পরীক্ষিত',
@@ -2432,10 +2432,9 @@ $messages['bn'] = array(
 	'revreview-submitedit-title' => 'আপনার পরিবর্তন পরীক্ষণের জন্য জমা দিন',
 	'revreview-edited' => "'''আপনার পরিবর্তন একজন বিশেষ ক্ষমতা প্রাপ্ত ব্যবহারকারী দ্বারা পরীক্ষিত হওয়ার পর মূল পাতায় দৃশ্যমান হবে। ([[{{MediaWiki:Validationpage}}|সাহায্য]])'''
 
-এখানে {{PLURAL:$2|মোট|মোট}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2টি অমিমাংসীত {{PLURAL:$2|পরিবর্তন|পরিবর্তন}}] ''(নিচে প্রদর্শিত)'' পর্যবেক্ষণের জন্য অপেক্ষামান।", # Fuzzy
-	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} সাম্প্রতি দেখা সংস্করণ]
-([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} সমস্ত তালিকা])  [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} অনুমোদিত] হয়েছে
-<i>$2</i> এ। [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|পরিবর্তন|পরিবর্তনসমূহ}}] পর্যালোচনা {{PLURAL:$3|প্রয়োজন|প্রয়োজন}}।', # Fuzzy
+এখানে {{PLURAL:$2|মোট}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2টি অমিমাংসীত {{PLURAL:$2|পরিবর্তন}}] ''(নিচে প্রদর্শিত)'' পর্যবেক্ষণের জন্য অপেক্ষামান।",
+	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} এই সংস্করণে $3 {{PLURAL:$3|টি পরিবর্তনের}}] [[{{MediaWiki:Validationpage}}|পর্যালোচনা]] প্রয়োজন।
+[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} সাম্প্রতি দেখা সংস্করণ] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} অনুমোদিত] হয়েছে <i>$2</i> এ।',
 	'revreview-oldrating' => 'পূর্বে মূল্যায়ন ছিল:',
 	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|পরীক্ষিত]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} অমীমাংসিত পরিবর্তন পর্যালোচনা]]",
 	'revreview-quick-basic-old' => "'''[[{{MediaWiki:Validationpage}}|পরীক্ষিত]]'''",
@@ -2488,10 +2487,11 @@ $messages['bn'] = array(
 	'revreview-reviewlink' => 'অমীমাংসিত সম্পাদনা',
 	'revreview-reviewlink-title' => 'সকল অমীমাংসীত পরিবর্তনের পার্থক্য দেখাও',
 	'revreview-unreviewedpage' => 'অপরীক্ষিত পাতা',
-	'tooltip-ca-current' => 'এই পাতাটির বর্তমান খসড়াটি দেখুন', # Fuzzy
+	'tooltip-ca-current' => 'অমীমাংসিত পরিবর্তনসহ এই পাতাটি দেখুন',
 	'tooltip-ca-stable' => 'এই পাতার স্থিতিশীল সংস্করণটি দেখাও',
 	'tooltip-ca-default' => 'মান নিশ্চিতকরণ সেটিংস',
 	'flaggedrevs-protect-none' => 'সমস্ত ব্যবহারকারীর জন্য',
+	'revreview-locked' => "'''নোট:''' সম্পাদনাগুলি এই পাতায় পাঠকের কাছে প্রদর্শিত হবার আগে অবশ্যই [[{{MediaWiki:Validationpage}}|পর্যালোচিত]] হবে।",
 	'log-show-hide-review' => '$1 পর্যালোচনা লগ',
 	'validationpage' => '{{ns:help}}:নিবন্ধ বৈধকরণ',
 );
@@ -14225,6 +14225,7 @@ $messages['sr-ec'] = array(
 	'revreview-edited' => "'''Ваше измене ће бити видљиве након што их овлашћени корисник провери. ([[{{MediaWiki:Validationpage}}|помоћ]])'''
 
 There {{PLURAL:$2|is|are}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 pending {{PLURAL:$2|change|changes}}] ''(shown below)'' awaiting review.",
+	'revreview-edited-section' => 'Назад на одломак странице под именом „[[#$1|$2]]“.',
 	'revreview-oldrating' => 'Оцењено је:',
 	'revreview-quality-title' => 'Ово је квалитетна верзија ове стране',
 	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|Прегледани чланак]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} прикажи нацрт]]",
