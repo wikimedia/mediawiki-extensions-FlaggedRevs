@@ -415,14 +415,21 @@ class FlaggedRevsHooks {
 		# (a) this new revision creates a new page and new page autoreview is enabled
 		# (b) this new revision is based on an old, reviewed, revision
 		if ( $title->getUserPermissionsErrors( 'autoreview', $user ) === array() ) {
-			// For rollback/null edits, use the previous ID as the alternate base ID.
-			// Otherwise, use the 'altBaseRevId' parameter passed in by the request.
+			# For rollback/null edits, use the previous ID as the alternate base ID.
+			# Otherwise, use the 'altBaseRevId' parameter passed in by the request.
 			$altBaseRevId = $isOldRevCopy ? $prevRevId : $wgRequest->getInt( 'altBaseRevId' );
 			if ( !$prevRevId ) { // New pages
 				$reviewableNewPage = FlaggedRevs::autoReviewNewPages();
 				$reviewableChange = false;
 			} else { // Edits to existing pages
 				$reviewableNewPage = false; // had previous rev
+				# If a edit was automatically merged, do not trust 'baseRevId' (bug 33481)
+				if ( $editTimestamp
+					&& $editTimestamp !== Revision::getTimestampFromId( $title, $prevRevId ) )
+				{
+					$baseRevId = $prevRevId;
+					$altBaseRevId = 0;
+				}
 				# Check if the base revision was reviewed...
 				if ( FlaggedRevs::autoReviewEdits() ) {
 					$frev = FlaggedRevision::newFromTitle( $title, $baseRevId, FR_MASTER );
@@ -432,7 +439,7 @@ class FlaggedRevsHooks {
 				}
 				$reviewableChange = (bool)$frev;
 			}
-			// Is this an edit directly to a reviewed version or a new page?
+			# Is this an edit directly to a reviewed version or a new page?
 			if ( $reviewableNewPage || $reviewableChange ) {
 				if ( $isOldRevCopy && $frev ) {
 					$flags = $frev->getTags(); // null edits & rollbacks keep previous tags
@@ -453,11 +460,11 @@ class FlaggedRevsHooks {
 				$baseRevId == $srev->getRevId() && // restored stable rev
 				$title->getUserPermissionsErrors( 'autoreviewrestore', $user ) === array()
 			);
-			# Check for self-reversions...
+			# Check for self-reversions (checks text hashes)...
 			if ( !$reviewableChange ) {
 				$reviewableChange = self::isSelfRevertToStable( $rev, $srev, $baseRevId, $user );
 			}
-			// Is this a rollback or self-reversion to the stable rev?
+			# Is this a rollback or self-reversion to the stable rev?
 			if ( $reviewableChange ) {
 				$flags = $srev->getTags(); // use old tags
 				# Review this revision of the page...
@@ -530,7 +537,7 @@ class FlaggedRevsHooks {
 			return false; // only looking for self-reverts
 		}
 		# Confirm the text because we can't trust this user.
-		return ( $rev->getText() == $srev->getRevText() );
+		return ( $rev->getSha1() === $srev->getSha1() );
 	}
 
 	/**

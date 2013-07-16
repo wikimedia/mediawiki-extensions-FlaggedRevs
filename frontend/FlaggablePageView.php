@@ -1874,6 +1874,9 @@ class FlaggablePageView extends ContextSource {
 	 * @return int
 	 */
 	protected static function getBaseRevId( EditPage $editPage, WebRequest $request ) {
+		if ( $editPage->isConflict ) {
+			return 0; // throw away these values (bug 33481)
+		}
 		if ( !isset( $editPage->fr_baseRevId ) ) {
 			$article = $editPage->getArticle(); // convenience
 			$latestId = $article->getLatest(); // current rev
@@ -1904,6 +1907,9 @@ class FlaggablePageView extends ContextSource {
 	 * @return int
 	 */
 	protected static function getAltBaseRevId( EditPage $editPage, WebRequest $request ) {
+		if ( $editPage->isConflict ) {
+			return 0; // throw away these values (bug 33481)
+		}
 		if ( !isset( $editPage->fr_altBaseRevId ) ) {
 			$article = $editPage->getArticle(); // convenience
 			$latestId = $article->getLatest(); // current rev
