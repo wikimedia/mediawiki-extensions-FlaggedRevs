@@ -343,7 +343,8 @@ Parameters:
 {{doc-group|reviewer|member}}
 {{Identical|Reviewer}}',
 	'grouppage-editor' => '{{Flagged Revs}}
-{{doc-group|editor|page}}',
+{{doc-group|editor|page}}
+{{Identical|Editor}}',
 	'grouppage-reviewer' => '{{Flagged Revs}}
 {{doc-group|reviewer|page}}
 {{Identical|Reviewer}}',
@@ -2419,7 +2420,7 @@ $messages['bn'] = array(
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3টি অমিমাংসীত {{PLURAL:$3|পরিবর্তন|পরিবর্তন}}] পর্যবেক্ষণের জন্য {{PLURAL:$3|অপেক্ষমান|অপেক্ষমান}}।',
 	'revreview-basic-i' => 'এই সংস্করণটি একটি [[{{MediaWiki:Validationpage}}|পর্যবেক্ষণকৃত সংস্করণ]], যা <i>$2</i> তারিখে [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} পরিক্ষীত হয়েছে]।
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} টেমপ্লেট/চিত্র পরিবর্তন] পর্যবেক্ষণের জন্য অপেক্ষমান।',
-	'revreview-basic-same' => 'এটি একটি [[{{MediaWiki:Validationpage}}|পরীক্ষিত সংস্করণ]], যা [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} পরীক্ষিত] হয়েছিলো <i>$2</i> তারিখে।',
+	'revreview-basic-same' => 'এটি একটি [[{{MediaWiki:Validationpage}}|পরীক্ষিত সংস্করণ]], যা [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} পরীক্ষিত] হয়েছিল <i>$2</i> তারিখে।',
 	'revreview-current' => 'অমীমাংসিত পরিবর্তন',
 	'revreview-depth' => 'গভীরতা',
 	'revreview-depth-0' => 'অনুপযুক্ত',
@@ -2433,7 +2434,7 @@ $messages['bn'] = array(
 	'revreview-edited' => "'''আপনার পরিবর্তন একজন বিশেষ ক্ষমতা প্রাপ্ত ব্যবহারকারী দ্বারা পরীক্ষিত হওয়ার পর মূল পাতায় দৃশ্যমান হবে। ([[{{MediaWiki:Validationpage}}|সাহায্য]])'''
 
 এখানে {{PLURAL:$2|মোট}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2টি অমিমাংসীত {{PLURAL:$2|পরিবর্তন}}] ''(নিচে প্রদর্শিত)'' পর্যবেক্ষণের জন্য অপেক্ষামান।",
-	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} এই সংস্করণের $3{{PLURAL:$3|টি পরিবর্তন}}] [[{{MediaWiki:Validationpage}}|পর্যালোচনার]] প্রয়োজন।
+	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} এই সংস্করণে {{formatnum:$3}}{{PLURAL:$3|টি পরিবর্তনের}}] [[{{MediaWiki:Validationpage}}|পর্যালোচনা]] প্রয়োজন।
 [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} সাম্প্রতি দেখা সংস্করণ] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} অনুমোদিত] হয়েছে <i>$2</i> তারিখে।',
 	'revreview-oldrating' => 'পূর্বে মূল্যায়ন ছিল:',
 	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|পরীক্ষিত]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} অমীমাংসিত পরিবর্তন পর্যালোচনা]]",
@@ -2454,7 +2455,7 @@ $messages['bn'] = array(
 	'revreview-style-2' => 'ভাল',
 	'revreview-style-3' => 'সংক্ষিপ্ত',
 	'revreview-style-4' => 'নির্বাচিত',
-	'revreview-toggle-title' => 'বিস্তারিত দেখাও/আড়াল',
+	'revreview-toggle-title' => 'বিস্তারিত দেখাও/আড়াল করো',
 	'revreview-revnotfound' => 'আপনির পাতাটির যে পুরনো সংস্করণটি অনুরোধ করেছেন, তা খুঁজে পাওয়া যায়নি। পাতাটিতে যাবার জন্য আপনি যে URL-টি ব্যবহার করেছিলেন, অনুগ্রহ করে সেটি পরীক্ষা করে দেখুন।',
 	'right-autoreviewrestore' => 'রোলব্যাকের ক্ষেত্রে স্বয়ংক্রিয় পর্যবেক্ষণ',
 	'rights-editor-revoke' => '[[$1]] এর সম্পাদক পদমর্যাদা প্রত্যাহার করুন',
