@@ -2912,7 +2912,7 @@ $messages['ps'] = array(
 $messages['pt'] = array(
 	'stabilization-tab' => 'cgq',
 	'stabilization' => 'Estabilização de páginas',
-	'stabilization-text' => "'''Altere os parâmetros abaixo para ajustar a forma como a versão publicada de [[:$1|$1]] é seleccionada e apresentada.'''",
+	'stabilization-text' => "'''Altere os parâmetros abaixo para ajustar a forma como a versão publicada de [[:$1|$1]] é selecionada e apresentada.'''",
 	'stabilization-perm' => 'A sua conta não tem permissão para alterar a configuração da versão publicada.
 Os parâmetros actuais da página [[:$1|$1]] são:',
 	'stabilization-page' => 'Nome da página:',
