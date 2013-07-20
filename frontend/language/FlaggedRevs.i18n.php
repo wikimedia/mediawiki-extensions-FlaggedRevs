@@ -11916,7 +11916,7 @@ Później mogły zostać wykonane następne [{{fullurl:{{FULLPAGENAMEE}}|oldid=$
 	'revreview-visibility-outdated' => "'''Ta strona ma nieaktualną [[{{MediaWiki:Validationpage}}|wersję oznaczoną]]. Sposób wyświetlania wersji na tej stronie może zostać [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} skonfigurowany].'''",
 	'revreview-visibility-nostable' => "'''Ta strona nie ma [[{{MediaWiki:Validationpage}}|wersji oznaczonej]]. Sposób wyświetlania wersji na tej stronie może zostać [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} skonfigurowany].'''",
 	'revreview-revnotfound' => 'Żądana, starsza wersja strony nie została odnaleziona. Sprawdź użyty adres URL.',
-	'right-autoreview' => 'Automatyczne oznaczanie własnych edycji jako przejrzanych',
+	'right-autoreview' => 'Automatyczne oznaczanie własnych edycji jako „przejrzane”',
 	'right-autoreviewrestore' => 'Automatyczne oznaczanie wycofań zmian jako przejrzane',
 	'right-movestable' => 'Przenoszenie opublikowanych stron',
 	'right-review' => 'Oznaczanie wersji jako „przejrzane”',
