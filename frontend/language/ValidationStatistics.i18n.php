@@ -438,6 +438,7 @@ $3",
  */
 $messages['cu'] = array(
 	'validationstatistics-total' => 'страницѧ',
+	'validationstatistics-user' => 'польꙃєватєл҄ь',
 );
 
 /** Danish (dansk)

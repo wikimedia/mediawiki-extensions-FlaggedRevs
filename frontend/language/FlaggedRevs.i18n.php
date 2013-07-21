@@ -3260,6 +3260,7 @@ $messages['ce'] = array(
 	'revreview-def-stable' => 'чутоьхнарг',
 	'revreview-restrictfilter' => 'Шашеххьажарна доза:',
 	'revreview-restriction-any' => 'муьлха',
+	'revreview-restriction-none' => 'яц',
 	'revreview-reviewlink' => 'хьажанза хийцамаш',
 	'revreview-reviewlink-title' => 'Хьажа массо башхоне хьажанза болучу хийцамашца',
 	'revreview-unreviewedpage' => 'хьажанза агlо',
