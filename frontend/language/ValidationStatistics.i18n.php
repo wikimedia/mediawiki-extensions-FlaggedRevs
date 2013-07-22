@@ -1772,7 +1772,7 @@ $messages['pt'] = array(
 	'validationstatistics-users' => "A '''{{SITENAME}}''' tem, neste momento, '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|utilizador|utilizadores}} com permissões de [[{{MediaWiki:Validationpage}}|Editor]].
 
 Editores são utilizadores que podem rever as edições de páginas.",
-	'validationstatistics-lastupdate' => "''Os seguintes dados foram actualizados pela última vez a $1 às $2.''",
+	'validationstatistics-lastupdate' => "''Os seguintes dados foram atualizados pela última vez a $1 às $2.''",
 	'validationstatistics-pndtime' => "As edições verificadas por utilizadores estabelecidos são consideras ''revistas''.
 
 O atraso médio de revisão das [[Special:OldReviewedPages|páginas com edições à espera de revisão]] é '''$1'''; este atraso mede o tempo que a edição pendente mais antiga ficou à espera de revisão.",

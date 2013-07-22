@@ -119,6 +119,15 @@ $specialPageAliases['bs'] = array(
 	'ValidationStatistics' => array( 'StatistikeValidacije' ),
 );
 
+/** Chechen (нохчийн) */
+$specialPageAliases['ce'] = array(
+	'PendingChanges' => array( 'Хьажа_хан_хила_хийцамаш' ),
+	'ProblemChanges' => array( 'Хьажанца_хийцамаш' ),
+	'ReviewedPages' => array( 'Хьаьжна_агӀонаш' ),
+	'RevisionReview' => array( 'Версега_хьажар' ),
+	'ReviewedVersions' => array( 'Хьаьжна_версеш' ),
+);
+
 /** German (Deutsch) */
 $specialPageAliases['de'] = array(
 	'PendingChanges' => array( 'Seiten_mit_ungesichteten_Versionen' ),

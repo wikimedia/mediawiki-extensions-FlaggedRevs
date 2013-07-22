@@ -3246,7 +3246,7 @@ $messages['ce'] = array(
 	'revreview-filter-approved' => 'Къобал йинарш',
 	'revreview-filter-reapproved' => 'Бокъал къобал йинарш',
 	'revreview-filter-unapproved' => 'Къобал дар дlадаькхина',
-	'revreview-typefilter' => 'Тайпе:',
+	'revreview-typefilter' => 'Тайп:',
 	'revreview-filter-auto' => 'Шашеха',
 	'revreview-filter-manual' => 'Куьйгаца',
 	'revreview-levelfilter' => 'Локхалла:',
@@ -12358,7 +12358,7 @@ Existem [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-di
 	'revreview-style-3' => 'Concisa',
 	'revreview-style-4' => 'Exemplar',
 	'revreview-toggle-title' => 'mostrar/esconder detalhes',
-	'revreview-visibility-synced' => "'''Esta página tem uma [[{{MediaWiki:Validationpage}}|versão publicada]] actualizada; os parâmetros de estabilidade da página podem ser [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} configurados].'''",
+	'revreview-visibility-synced' => "'''Esta página tem uma [[{{MediaWiki:Validationpage}}|versão publicada]] atualizada; os parâmetros de estabilidade da página podem ser [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} configurados].'''",
 	'revreview-visibility-outdated' => "'''Esta página tem uma [[{{MediaWiki:Validationpage}}|versão publicada]] desactualizada; os parâmetros de estabilidade da página podem ser [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} configurados].'''",
 	'revreview-visibility-nostable' => "'''Esta página não tem uma [[{{MediaWiki:Validationpage}}|versão publicada]]; os parâmetros de estabilidade da página podem ser [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} configurados].'''",
 	'revreview-revnotfound' => 'Não foi encontrada a versão antiga desta página, que solicitou.

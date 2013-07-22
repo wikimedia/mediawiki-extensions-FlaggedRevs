@@ -1058,8 +1058,8 @@ $messages['ce'] = array(
 	'revreview-check-flag-u-title' => 'Къобал йе хlара агlон варси. Лела йе, нагахьсан хьо билгалла хьаьжнехь агlоне.',
 	'revreview-check-flag-y' => 'Къобал бе хlара хийцамаш',
 	'revreview-check-flag-y-title' => 'Къобал бе массо хийцамаш, ахьа бинарш оцу нисдарехь.',
-	'revreview-flag' => 'Хьажа оцу варсига',
-	'revreview-reflag' => 'Йуха хьажа оцу варсига',
+	'revreview-flag' => 'Хьажа оцу версига',
+	'revreview-reflag' => 'Юха хьажа оцу версига',
 	'revreview-invalid' => "'''Гlалатца хьажор:''' йоцуш йу [[{{MediaWiki:Validationpage}}|хьаьжна]] йогlуш йолу оцу цlарца агlонан варси.",
 	'revreview-log' => 'Билгалдар:',
 	'revreview-main' => 'Ахьа харжа церах цхьа варсийн агlо, нийса йуй хьажарна.
@@ -4526,7 +4526,7 @@ Para que as suas edições apareçam na versão publicada, reveja todas as alter
 	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">As suas alterações ainda não estão na versão publicada. Existem edições anteriores à espera de revisão.</span> 
 
 Para que as suas edições apareçam na versão publicada, reveja todas as alterações mostradas abaixo, por favor.',
-	'revreview-update-includes' => 'Foram actualizados ficheiros ou predefinições (as páginas não revistas aparecem a negrito):',
+	'revreview-update-includes' => 'Foram atualizados ficheiros ou predefinições (as páginas não revistas aparecem a negrito):',
 	'revreview-reject-text-list' => 'Ao executar esta operação, irá "rejeitar" {{PLURAL:$1|a seguinte mudança|as seguintes mudanças}} a [[:$2|$2]]:',
 	'revreview-reject-text-revto' => 'A página será revertida para a [{{fullurl:$1|oldid=$2}} versão de $3].',
 	'revreview-reject-summary' => 'Resumo:',
