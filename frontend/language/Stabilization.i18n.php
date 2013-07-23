@@ -2914,7 +2914,7 @@ $messages['pt'] = array(
 	'stabilization' => 'Estabilização de páginas',
 	'stabilization-text' => "'''Altere os parâmetros abaixo para ajustar a forma como a versão publicada de [[:$1|$1]] é selecionada e apresentada.'''",
 	'stabilization-perm' => 'A sua conta não tem permissão para alterar a configuração da versão publicada.
-Os parâmetros actuais da página [[:$1|$1]] são:',
+Os parâmetros atuais da página [[:$1|$1]] são:',
 	'stabilization-page' => 'Nome da página:',
 	'stabilization-leg' => 'Confirmar os parâmetros da versão publicada',
 	'stabilization-def' => 'Edição apresentada por omissão',

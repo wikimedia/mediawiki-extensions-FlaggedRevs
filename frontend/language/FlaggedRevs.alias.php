@@ -123,9 +123,15 @@ $specialPageAliases['bs'] = array(
 $specialPageAliases['ce'] = array(
 	'PendingChanges' => array( 'Хьажа_хан_хила_хийцамаш' ),
 	'ProblemChanges' => array( 'Хьажанца_хийцамаш' ),
+	'QualityOversight' => array( 'Версешка_хьажаран_шордина_тептар' ),
 	'ReviewedPages' => array( 'Хьаьжна_агӀонаш' ),
 	'RevisionReview' => array( 'Версега_хьажар' ),
+	'Stabilization' => array( 'ЧӀагӀдалар' ),
+	'StablePages' => array( 'ЧӀагӀелла_агӀонаш' ),
+	'ConfiguredPages' => array( 'Нисйина_агӀонаш' ),
 	'ReviewedVersions' => array( 'Хьаьжна_версеш' ),
+	'UnreviewedPages' => array( 'Хьажанца_агӀонаш' ),
+	'ValidationStatistics' => array( 'Нисдаршан_статистика' ),
 );
 
 /** German (Deutsch) */

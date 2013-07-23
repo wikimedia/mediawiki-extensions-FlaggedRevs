@@ -1873,7 +1873,7 @@ $messages['fa'] = array(
 	'revreview-main' => 'شما باید یک نسخه خاص از یک صفحه را برگزینید تا بررسی کنید.
 
 [[Special:Unreviewedpages|فهرست صفحه‌های بررسی نشده]] را ببینید.',
-	'revreview-stable1' => 'شما می‌توانید [{{fullurl:$1|stableid=$2}} نسخه علامت‌دار] را مشاهده کنید و هم‌اکنون از این صفحه [{{fullurl:$1|stable=1}} نسخه پایدار] را ببینید.',
+	'revreview-stable1' => 'شما می‌توانید [{{fullurl:$1|stableid=$2}} نسخهٔ علامت‌دار] را مشاهده کنید و هم‌اکنون [{{fullurl:$1|stable=1}} نسخهٔ پایدار] این صفحه را ببینید.',
 	'revreview-stable2' => 'شما می‌توانید برای نمایش [{{fullurl:$1|stable=1}} نسخه پایدار]این صفحه را ببینید.',
 	'revreview-submit' => 'ارسال',
 	'revreview-submitting' => 'در حال ارسال...',
@@ -3376,7 +3376,7 @@ $messages['ko'] = array(
 	'revreview-submit' => '보내기',
 	'revreview-submitting' => '보내는 중...',
 	'revreview-submit-review' => '편집 승인',
-	'revreview-submit-unreview' => '편집 승인 철회',
+	'revreview-submit-unreview' => '편집 승인 취소',
 	'revreview-submit-reject' => '편집 거부',
 	'revreview-submit-reviewed' => '완료. 승인하였습니다!',
 	'revreview-submit-unreviewed' => '완료. 승인 취소하였습니다!',
