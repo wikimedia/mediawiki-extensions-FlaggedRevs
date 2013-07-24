@@ -1856,6 +1856,7 @@ class FlaggablePageView extends ContextSource {
 	 * (b) this is an unreviewed page (bug 23970)
 	 */
 	public function addReviewCheck( EditPage $editPage, array &$checkboxes, &$tabindex ) {
+		$this->load();
 		$request = $this->getRequest();
 		$title = $this->article->getTitle(); // convenience
 		if ( !$this->article->isReviewable() || !$title->userCan( 'review' ) ) {
