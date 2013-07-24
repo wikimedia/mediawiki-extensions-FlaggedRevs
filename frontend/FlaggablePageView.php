@@ -17,6 +17,7 @@ class FlaggablePageView extends ContextSource {
 	protected $reviewFormRev = false;
 
 	protected $loaded = false;
+	protected $noticesDone = false;
 
 	protected static $instance = null;
 
@@ -910,6 +911,47 @@ class FlaggablePageView extends ContextSource {
 		return true;
 	}
 
+	public function getEditNotices( Title $title, $oldid, array &$notices ) {
+		// HACK: EditPage invokes addToEditView() before this function, so $this->noticesDone
+		// will only be true if we're being called by EditPage, in which case we need to do nothing
+		// to avoid duplicating the notices.
+		if ( $this->noticesDone ) {
+			return;
+		}
+		// HACK fake EditPage
+		$editPage = new EditPage( new Article( $title, $oldid ) );
+		$editPage->oldid = $oldid;
+		$this->load();
+		$reqUser = $this->getUser();
+
+		// HACK this duplicates logic from addToEditView()
+		$log = $this->stabilityLogNotice( false );
+		if ( $log ) {
+			$notices[$this->article->isPageLocked() ? 'revreview-locked' : 'revreview-unlocked'] = $log;
+		} else if ( $this->editWillRequireReview( $editPage ) ) {
+			$notices['revreview-editnotice'] = $this->msg( 'revreview-editnotice' )->parseAsBlock();
+		}
+		$frev = $this->article->getStableRev();
+		if ( $frev && $this->article->revsArePending() ) {
+			$revsSince = $this->article->getPendingRevCount();
+			$pendingMsg = FlaggedRevsXML::pendingEditNoticeMessage( $this->article, $frev, $revsSince );
+			$notices[$pendingMsg->getKey()] = '<div class="plainlinks">' . $pendingMsg->parseAsBlock() . '</div>';
+		}
+		$latestId = $this->article->getLatest();
+		$revId  = $oldid ? $oldid : $latestId;
+		if ( $frev && $frev->getRevId() < $latestId // changes were made
+			&& $reqUser->getBoolOption( 'flaggedrevseditdiffs' ) // not disabled via prefs
+			&& $revId === $latestId // only for current rev
+		) {
+			// Construct a link to the diff
+			$diffUrl = $this->article->getTitle()->getFullURL( array(
+				'diff' => $revId, 'oldid' => $frev->getRevId() )
+			);
+			$notices['review-edit-diff'] = $this->msg( 'review-edit-diff' )->parse() . ' ' .
+				FlaggedRevsXML::diffToggle( $diffUrl );
+		}
+	}
+
 	/**
 	 * Adds stable version tags to page when editing
 	 */
@@ -994,21 +1036,26 @@ class FlaggablePageView extends ContextSource {
 				$this->out->addHTML( $html );
 			}
 		}
+		$this->noticesDone = true;
 		return true;
 	}
 
-	protected function stabilityLogNotice() {
+	protected function stabilityLogNotice( $showToggle = true ) {
 		$this->load();
 		$s = '';
 		# Only for pages manually made to be stable...
 		if ( $this->article->isPageLocked() ) {
 			$s = $this->msg( 'revreview-locked' )->parse();
-			$s .= ' ' . FlaggedRevsXML::logDetailsToggle();
+			if ( $showToggle ) {
+				$s .= ' ' . FlaggedRevsXML::logDetailsToggle();
+			}
 			$s .= FlaggedRevsXML::stabilityLogExcerpt( $this->article );
 		# ...or unstable
 		} elseif ( $this->article->isPageUnlocked() ) {
 			$s = $this->msg( 'revreview-unlocked' )->parse();
-			$s .= ' ' . FlaggedRevsXML::logDetailsToggle();
+			if ( $showToggle ) {
+				$s .= ' ' . FlaggedRevsXML::logDetailsToggle();
+			}
 			$s .= FlaggedRevsXML::stabilityLogExcerpt( $this->article );
 		}
 		return $s;

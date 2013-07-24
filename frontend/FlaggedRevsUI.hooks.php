@@ -247,6 +247,12 @@ class FlaggedRevsUIHooks {
 		return true;
 	}
 
+	public static function getEditNotices( $title, $oldid, &$notices ) {
+		$view = FlaggablePageView::singleton();
+		$view->getEditNotices( $title, $oldid, $notices );
+		return true;
+	}
+
 	public static function onBeforeEditButtons( &$editPage, &$buttons ) {
 		$view = FlaggablePageView::singleton();
 		$view->changeSaveButton( $editPage, $buttons );

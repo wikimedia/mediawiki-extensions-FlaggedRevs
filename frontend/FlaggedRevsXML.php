@@ -327,13 +327,16 @@ class FlaggedRevsXML {
 
 	/**
 	 * Generates (show/hide) JS toggle HTML
+	 * @param  $href string|null If set, make the toggle link link to this URL and don't hide it
 	 * @return string
 	 */
-	public static function diffToggle() {
-		$toggle = '<a class="fr-toggle-text" title="' .
-			wfMessage( 'revreview-diff-toggle-title' )->escaped() . '" >' .
+	public static function diffToggle( $href = null ) {
+		$toggle = '<a class="fr-toggle-text" ' .
+			'title="' . wfMessage( 'revreview-diff-toggle-title' )->escaped() .
+			( $href === null ? '' : '" href="' . htmlspecialchars( $href ) ) .
+			'" >' .
 			wfMessage( 'revreview-diff-toggle-show' )->escaped() . '</a>';
-		return '<span id="mw-fr-difftoggle" style="display:none;">' .
+		return '<span id="mw-fr-difftoggle"' . ( $href === null ? ' style="display:none;"' : '' ) . '>' .
 			wfMessage( 'parentheses' )->rawParams( $toggle )->escaped() . '</span>';
 	}
 
@@ -415,6 +418,14 @@ class FlaggedRevsXML {
 	 * Creates "stable rev reviewed on"/"x pending edits" message
 	 */
 	public static function pendingEditNotice( $flaggedArticle, $frev, $revsSince ) {
+		$msg = self::pendingEditNoticeMessage( $flaggedArticle, $frev, $revsSince );
+		return $msg->parse();
+	}
+
+	/**
+	 * Same as pendingEditNotice(), but returns a Message object.
+	 */
+	public static function pendingEditNoticeMessage( $flaggedArticle, $frev, $revsSince ) {
 		global $wgLang;
 		$flags = $frev->getTags();
 		$time = $wgLang->date( $frev->getTimestamp(), true );
@@ -422,8 +433,7 @@ class FlaggedRevsXML {
 		$msg = FlaggedRevs::isQuality( $flags )
 			? 'revreview-pending-quality'
 			: 'revreview-pending-basic';
-		$tag = wfMessage( $msg, $frev->getRevId(), $time, $revsSince )->parse();
-		return $tag;
+		return wfMessage( $msg, $frev->getRevId(), $time, $revsSince );
 	}
 
 	/*
