@@ -915,7 +915,7 @@ class FlaggablePageView extends ContextSource {
 		// HACK: EditPage invokes addToEditView() before this function, so $this->noticesDone
 		// will only be true if we're being called by EditPage, in which case we need to do nothing
 		// to avoid duplicating the notices.
-		if ( $this->noticesDone ) {
+		if ( $this->noticesDone || !$this->article->isReviewable() ) {
 			return;
 		}
 		// HACK fake EditPage
