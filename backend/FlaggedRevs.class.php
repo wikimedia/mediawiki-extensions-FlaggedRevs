@@ -502,8 +502,13 @@ class FlaggedRevs {
 		}
 		# Don't let them choose levels above their own rights
 		if ( $right == 'sysop' ) {
-			// special case, rewrite sysop to protect and editprotected
-			if ( !$user->isAllowed( 'protect' ) && !$user->isAllowed( 'editprotected' ) ) {
+			// special case, rewrite sysop to editprotected
+			if ( !$user->isAllowed( 'editprotected' ) ) {
+				return false;
+			}
+		} elseif ( $right == 'autoconfirmed' ) {
+			// special case, rewrite autoconfirmed to editsemiprotected
+			if ( !$user->isAllowed( 'editsemiprotected' ) ) {
 				return false;
 			}
 		} elseif ( !$user->isAllowed( $right ) ) {
