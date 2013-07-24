@@ -12327,7 +12327,7 @@ A [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} versão publicada] foi [{{fullurl:{{#S
 	'revreview-pending-basic' => 'A [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} versão publicada] foi [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} verificada] a <i>$2</i>. {{PLURAL:$3|Existe|Existem}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|alteração pendente|alterações pendentes}}] a aguardar revisão.',
 	'revreview-pending-quality' => 'A [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} versão publicada] foi [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovada] a <i>$2</i>. {{PLURAL:$3|Existe|Existem}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|alteração pendente|alterações pendentes}}] a aguardar revisão.',
 	'revreview-pending-nosection' => 'Tente ver a [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} edição mais recente], que inclui
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|alteração pendente|alterações pendentes}}], para verificar se a secção foi movida ou apagada.',
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|alteração pendente|alterações pendentes}}], para verificar se a seção foi movida ou apagada.',
 	'revreview-noflagged' => "Não existem edições [[{{MediaWiki:Validationpage}}|revistas]] desta página, por isso pode ainda '''não''' ter sido verificada a sua aderência aos padrões de qualidade.",
 	'revreview-oldrating' => 'Avaliação:',
 	'revreview-quality' => 'Esta é a [[{{MediaWiki:Validationpage}}|versão publicada]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovada] a <i>$2</i>.

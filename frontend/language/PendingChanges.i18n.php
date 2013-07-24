@@ -405,7 +405,7 @@ $messages['ce'] = array(
 	'pendingchanges-category' => 'Категори:',
 	'pendingchanges-diff' => 'хьажа',
 	'pendingchanges-unwatched' => '(терго йац)',
-	'pendingchanges-watched' => '({{PLURAL:$1|терго йеш $1 жигар декъашхо|терго йеш $1 жигар декъашхой}})',
+	'pendingchanges-watched' => '({{PLURAL:$1|терго йеш $1 жигар декъашхо|терго йеш $1 жигара декъашхой}})',
 	'pendingchanges-viewing' => '(хьовсамехь йу)',
 );
 
