@@ -537,7 +537,7 @@ class FlaggedRevsHooks {
 			return false; // only looking for self-reverts
 		}
 		# Confirm the text because we can't trust this user.
-		return ( $rev->getSha1() === $srev->getSha1() );
+		return ( $rev->getSha1() === $srev->getRevision()->getSha1() );
 	}
 
 	/**
