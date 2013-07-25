@@ -1515,6 +1515,7 @@ $messages['ps'] = array(
  * @author GoEThe
  * @author Hamilton Abreu
  * @author Lijealso
+ * @author Luckas
  * @author Malafaya
  * @author 555
  */
@@ -1525,7 +1526,7 @@ $messages['pt'] = array(
 	'unreviewedpages-category' => 'Categoria:',
 	'unreviewedpages-diff' => 'rever',
 	'unreviewedpages-unwatched' => '(não vigiada)',
-	'unreviewedpages-watched' => '(vigiada por $1 {{PLURAL:$1|utilizador activo|utilizadores activos}})',
+	'unreviewedpages-watched' => '(vigiada por $1 {{PLURAL:$1|utilizador ativo|utilizadores ativos}})',
 	'unreviewedpages-list' => "Esta página lista as páginas de conteúdo que ''ainda'' não foram [[{{MediaWiki:Validationpage}}|revistas]] até ao nível escolhido.",
 	'unreviewedpages-none' => 'De momento, não há páginas que se enquadrem nestes critérios',
 	'unreviewedpages-viewing' => '(em revisão)',

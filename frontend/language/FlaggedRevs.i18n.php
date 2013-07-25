@@ -691,7 +691,13 @@ Shown as dropdown option on lists or log pages.
 Shown as dropdown option on lists or log pages.
 {{Identical|Stable}}',
 	'revreview-statusfilter' => '{{Flagged Revs}}
-Shown as dropdown option on lists or log pages.',
+Shown on lists or log pages.
+
+Used as label for the select box which has the following options:
+* {{msg-mw|Revreview-filter-all}}
+* {{msg-mw|Revreview-filter-approved}}
+* {{msg-mw|Revreview-filter-reapproved}}
+* {{msg-mw|Revreview-filter-unapproved}}',
 	'revreview-filter-approved' => '{{Flagged Revs}}
 Shown as dropdown option on lists or log pages to filter results.
 {{Identical|Approved}}',
@@ -700,7 +706,12 @@ Shown as dropdown option on lists or log pages to filter results.',
 	'revreview-filter-unapproved' => '{{Flagged Revs}}
 Shown as dropdown option on lists or log pages to filter results.',
 	'revreview-typefilter' => '{{Flagged Revs}}
-Shown as dropdown option on lists or log pages to filter results.
+Shown on lists or log pages to filter results.
+
+Used as label for the select box which has the following options:
+* {{msg-mw|Revreview-filter-all}}
+* {{msg-mw|Revreview-filter-manual}}
+* {{msg-mw|Revreview-filter-auto}}
 {{Identical|Type}}',
 	'revreview-filter-auto' => '{{Flagged Revs}}
 Shown as dropdown option on lists or log pages to filter results.
@@ -709,19 +720,34 @@ Shown as dropdown option on lists or log pages to filter results.
 Shown as dropdown option on lists or log pages to filter results.',
 	'revreview-levelfilter' => '{{Flagged Revs}}
 Shown as dropdown option on lists or log pages to filter results.
+
+Followed by the following options:
+* {{msg-mw|Revreview-lev-all}}
+* {{msg-mw|Revreview-lev-basic}}
+* {{msg-mw|Revreview-lev-quality}}
+* {{msg-mw|Revreview-lev-pristine}}
 {{Identical|Level}}',
 	'revreview-lev-all' => '{{Flagged Revs}}
 Shown as dropdown option on lists or log pages to filter results.
+{{Related|Revreview-lev}}
 {{Identical|Any}}',
 	'revreview-lev-basic' => '{{Flagged Revs}}
 Shown as dropdown option on lists or log pages to filter results.
+{{Related|Revreview-lev}}
 {{Identical|Checked}}',
 	'revreview-lev-quality' => '{{Flagged Revs}}
-Shown as dropdown option on lists or log pages to filter results.',
-	'revreview-lev-pristine' => '{{Flagged Revs}}
-Shown as dropdown option on lists or log pages to filter results.',
-	'revreview-defaultfilter' => '{{Flagged Revs}}
 Shown as dropdown option on lists or log pages to filter results.
+{{Related|Revreview-lev}}',
+	'revreview-lev-pristine' => '{{Flagged Revs}}
+Shown as dropdown option on lists or log pages to filter results.
+{{Related|Revreview-lev}}',
+	'revreview-defaultfilter' => '{{Flagged Revs}}
+Shown on lists or log pages to filter results.
+
+Used as label for the select box which has the following options:
+* {{msg-mw|Revreview-def-all}}
+* {{msg-mw|Revreview-def-stable}}
+* {{msg-mw|Revreview-def-draft}}
 {{Identical|Default version:}}',
 	'revreview-def-all' => '{{Flagged Revs}}
 Shown as dropdown option on lists or log pages to filter results.
@@ -733,7 +759,11 @@ Shown as dropdown option on lists or log pages to filter results.
 Shown as dropdown option on lists or log pages to filter results.
 {{Identical|Stable}}',
 	'revreview-restrictfilter' => '{{Flagged Revs}}
-Shown as dropdown option on lists or log pages to filter results.',
+Shown on lists or log pages to filter results.
+
+Used as label for the select box which has the following options:
+* {{msg-mw|Revreview-restriction-any}}
+* {{msg-mw|Revreview-restriction-none}}',
 	'revreview-restriction-any' => '{{Flagged Revs}}
 Shown as dropdown option on lists or log pages to filter results.
 {{Identical|Any}}',
@@ -3483,6 +3513,13 @@ Možná byly provedeny nové [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{Med
 	'revreview-unlocked' => 'Úpravy nevyžadují [[{{MediaWiki:Validationpage}}|posouzení]], než se zobrazí na této stránce.', # Fuzzy
 	'log-show-hide-review' => '$1 záznam posouzení',
 	'validationpage' => '{{ns:help}}:Ověřování stránek',
+);
+
+/** Church Slavic (словѣ́ньскъ / ⰔⰎⰑⰂⰡⰐⰠⰔⰍⰟ)
+ * @author ОйЛ
+ */
+$messages['cu'] = array(
+	'revreview-edit' => 'исправи',
 );
 
 /** Welsh (Cymraeg)
@@ -12359,7 +12396,7 @@ Existem [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-di
 	'revreview-style-4' => 'Exemplar',
 	'revreview-toggle-title' => 'mostrar/esconder detalhes',
 	'revreview-visibility-synced' => "'''Esta página tem uma [[{{MediaWiki:Validationpage}}|versão publicada]] atualizada; os parâmetros de estabilidade da página podem ser [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} configurados].'''",
-	'revreview-visibility-outdated' => "'''Esta página tem uma [[{{MediaWiki:Validationpage}}|versão publicada]] desactualizada; os parâmetros de estabilidade da página podem ser [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} configurados].'''",
+	'revreview-visibility-outdated' => "'''Esta página tem uma [[{{MediaWiki:Validationpage}}|versão publicada]] desatualizada; os parâmetros de estabilidade da página podem ser [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} configurados].'''",
 	'revreview-visibility-nostable' => "'''Esta página não tem uma [[{{MediaWiki:Validationpage}}|versão publicada]]; os parâmetros de estabilidade da página podem ser [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} configurados].'''",
 	'revreview-revnotfound' => 'Não foi encontrada a versão antiga desta página, que solicitou.
 Verifique a URL que usou para aceder a esta página.',

@@ -1785,7 +1785,7 @@ $3",
 	'validationstatistics-latest' => 'Sincronizadas',
 	'validationstatistics-synced' => 'Sincronizadas/Revistas',
 	'validationstatistics-old' => 'Desactualizadas',
-	'validationstatistics-utable' => 'Abaixo está a lista {{PLURAL:$1|do revisor mais activo|dos $1 revisores mais activos}} {{PLURAL:$2|na última hora|nas últimas horas}}.',
+	'validationstatistics-utable' => 'Abaixo está a lista {{PLURAL:$1|do revisor mais ativo|dos $1 revisores mais ativos}} {{PLURAL:$2|na última hora|nas últimas horas}}.',
 	'validationstatistics-user' => 'Utilizador',
 	'validationstatistics-reviews' => 'Revisões',
 );

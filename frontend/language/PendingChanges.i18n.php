@@ -1587,6 +1587,7 @@ $messages['ps'] = array(
 /** Portuguese (português)
  * @author Capmo
  * @author Hamilton Abreu
+ * @author Luckas
  * @author Malafaya
  * @author Waldir
  * @author 555
@@ -1605,7 +1606,7 @@ $messages['pt'] = array(
 	'pendingchanges-diff' => 'rever',
 	'pendingchanges-size' => 'Alteração máx. (bytes):',
 	'pendingchanges-unwatched' => '(não vigiada)',
-	'pendingchanges-watched' => '($1 {{PLURAL:$1|utilizador activo|utilizadores activos}} a vigiar)',
+	'pendingchanges-watched' => '(vigiada por $1 {{PLURAL:$1|utilizador ativo|utilizadores ativos}})',
 	'pendingchanges-viewing' => '(em revisão)',
 );
 
