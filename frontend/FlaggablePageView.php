@@ -1195,15 +1195,15 @@ class FlaggablePageView extends ContextSource {
 			# Give a link to the page to configure the stable version
 			$frev = $this->article->getStableRev();
 			if ( $frev && $frev->getRevId() == $this->article->getLatest() ) {
-				$this->out->prependHTML( "<span class='plainlinks'>" .
+				$this->out->prependHTML( "<span class='revreview-visibility revreview-visibility-synced plainlinks'>" .
 					$this->msg( 'revreview-visibility-synced',
 						$title->getPrefixedText() )->parse() . "</span>" );
 			} elseif ( $frev ) {
-				$this->out->prependHTML( "<span class='plainlinks'>" .
+				$this->out->prependHTML( "<span class='revreview-visibility revreview-visibility-outdated plainlinks'>" .
 					$this->msg( 'revreview-visibility-outdated',
 						$title->getPrefixedText() )->parse() . "</span>" );
 			} else {
-				$this->out->prependHTML( "<span class='plainlinks'>" .
+				$this->out->prependHTML( "<span class='revreview-visibility revreview-visibility-nostable plainlinks'>" .
 					$this->msg( 'revreview-visibility-nostable',
 						$title->getPrefixedText() )->parse() . "</span>" );
 			}
