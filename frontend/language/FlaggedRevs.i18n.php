@@ -3237,7 +3237,7 @@ $messages['ce'] = array(
 	'revreview-newest-quality-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Чутоьхна башхо] йара [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} бакъйина] <i>$2</i>. Хьажанза бу [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} хийцамаш оц куцкепашца йа хlумнашца].', # Fuzzy
 	'revreview-pending-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Чутоьхна башхо] йара [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} хьаьжна] <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|хийцам|хийцамаш|хийцамаш}}] {{PLURAL:$3|хьоьжу|хьоьжуш|хьоьжуш}} бу хьажаре.',
 	'revreview-pending-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Чутоьхна башхо] йара [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} бакъйина] <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|хийцам|хийцамаш|хийцамаш}}] {{PLURAL:$3|хьоьжу|хьоьжуш|хьоьжуш}} бу хьажаре.',
-	'revreview-pending-nosection' => 'Тергонца хьажа [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} тlаьхьаралерачу башхонга], хьога {{PLURAL:$2|хьоьжу|хьоьжуш|хьоьжуш}} бу хьажаре [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|хийцам|хийцамаш|хийцамаш}}]. Хила мега, даакъа дехьа даьккхина йа дlадайина.',
+	'revreview-pending-nosection' => 'Тергонца хьажа [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} тӀаьхьаралерачу версега], хьога {{PLURAL:$2|хьоьжу|хьоьжуш}} бу хьажаре [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|хийцам|хийцамаш}}]. Хила мега, дакъа дехьа даьккхина я дӀадаьккхина.',
 	'revreview-noflagged' => "Хlокху агlона йац [[{{MediaWiki:Validationpage}}|хьаьжна башхонаш]], хила мега, цуьна дикаллийна мах '''ца хоттийна''' болучу барамца.",
 	'revreview-oldrating' => 'Хоттийна мах:',
 	'revreview-quality' => 'Хlара [[{{MediaWiki:Validationpage}}|Чутоьхна башхо йу]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} бакъйина] <i>$2</i>.
@@ -12531,7 +12531,7 @@ $messages['pt-br'] = array(
 	'revreview-basic' => 'Esta é a [[{{MediaWiki:Validationpage}}|versão publicada]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} verificada] a <i>$2</i>.
 {{PLURAL:$3|Existe|Existem}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|alteração pendente|alterações pendentes}}] aguardando revisão.',
 	'revreview-basic-i' => 'Esta é a [[{{MediaWiki:Validationpage}}|versão publicada]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} verificada] a <i>$2</i>.
-Existem [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} alterações a predefinições ou ficheiros] aguardando revisão.',
+Existem [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} alterações a predefinições ou arquivos] aguardando revisão.',
 	'revreview-basic-old' => 'Esta é uma versão [[{{MediaWiki:Validationpage}}|verificada]] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} listar todas]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovada] em <i>$2</i>.
 Podem existir [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} alterações] recentes.',
 	'revreview-basic-same' => 'Esta é a [[{{MediaWiki:Validationpage}}|versão publicada]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} verificada] a <i>$2</i>.',
@@ -14273,6 +14273,8 @@ $messages['sr-ec'] = array(
 
 There {{PLURAL:$2|is|are}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 pending {{PLURAL:$2|change|changes}}] ''(shown below)'' awaiting review.",
 	'revreview-edited-section' => 'Назад на одломак странице под именом „[[#$1|$2]]“.',
+	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Измене шаблона/датотеке] у овој верзији [[{{MediaWiki:Validationpage}}|чекају на проверу]].
+[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Стабилна верзија] је [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} проверена] дана <i>$2</i>.',
 	'revreview-oldrating' => 'Оцењено је:',
 	'revreview-quality-title' => 'Ово је квалитетна верзија ове стране',
 	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|Прегледани чланак]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} прикажи нацрт]]",

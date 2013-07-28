@@ -2943,7 +2943,7 @@ Não é possível configurá-la.',
 	'stabilize_expiry_old' => 'Esta data de expiração já passou.',
 	'stabilize_denied' => 'Permissão negada.',
 	'stabilize-expiring' => 'expira às $1 (UTC)',
-	'stabilization-review' => 'Marcar a edição actual como verificada',
+	'stabilization-review' => 'Marcar a edição atual como verificada',
 );
 
 /** Brazilian Portuguese (português do Brasil)
