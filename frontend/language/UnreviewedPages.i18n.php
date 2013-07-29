@@ -1600,6 +1600,7 @@ $messages['roa-tara'] = array(
  * @author EugeneZelenko
  * @author Ferrer
  * @author Kaganer
+ * @author NBS
  * @author Putnik
  * @author Sergey kudryavtsev
  * @author Александр Сигачёв
@@ -1617,7 +1618,7 @@ $messages['ru'] = array(
 	'unreviewedpages-viewing' => '(проверяется)',
 	'unreviewedpages-hours' => '($1 {{PLURAL:$1|час|часа|часов}})',
 	'unreviewedpages-days' => '($1 {{PLURAL:$1|день|дня|дней}})',
-	'unreviewedpages-recent' => '(менее, чем 1 час)',
+	'unreviewedpages-recent' => '(менее 1 часа)',
 );
 
 /** Rusyn (русиньскый)
