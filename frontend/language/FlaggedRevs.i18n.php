@@ -114,7 +114,7 @@ There {{PLURAL:$2|is|are}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{Media
 The [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} stable version] was [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} checked] on <i>$2</i>.',
 	'revreview-newest-basic-i'     => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Template/file changes] in this version are [[{{MediaWiki:Validationpage}}|pending review]].
 The [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} stable version] was [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} checked] on <i>$2</i>.',
-	'revreview-newest-quality'     => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3  {{PLURAL:$3|change|changes}}] in this version {{PLURAL:$3|is|are}} [[{{MediaWiki:Validationpage}}|pending review]].
+	'revreview-newest-quality'     => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|change|changes}}] in this version {{PLURAL:$3|is|are}} [[{{MediaWiki:Validationpage}}|pending review]].
 The [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} stable version] was [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>.',
 	'revreview-newest-quality-i'   => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Template/file changes] in this version are [[{{MediaWiki:Validationpage}}|pending review]].
 The [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} stable version] was [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approved] on <i>$2</i>.',

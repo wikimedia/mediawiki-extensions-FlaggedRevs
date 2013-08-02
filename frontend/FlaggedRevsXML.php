@@ -119,6 +119,8 @@ class FlaggedRevsXML {
 				'none', $selected == 'none' );
 		}
 		foreach ( FlaggedRevs::getRestrictionLevels() as $perm ) {
+			// Give grep a chance to find the usages:
+			// revreview-restriction-any, revreview-restriction-none
 			$key = "revreview-restriction-{$perm}";
 			if ( wfMessage( $key )->isDisabled() ) {
 				$msg = $perm; // fallback to user right key

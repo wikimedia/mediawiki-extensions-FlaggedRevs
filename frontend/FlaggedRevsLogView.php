@@ -16,6 +16,8 @@ class FlaggedRevsLogView {
 		if ( !$title ) {
 			return ''; // sanity check
 		}
+		// Give grep a chance to find the usages:
+		// stable-logentry-config, stable-logentry-modify, stable-logentry-reset
 		if ( $skin ) {
 			$titleLink = $skin->link( $title, $title->getPrefixedText() );
 			$text = wfMessage( "stable-logentry-{$action}" )->rawParams( $titleLink )->escaped();
