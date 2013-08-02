@@ -579,8 +579,8 @@ $messages['ko'] = array(
 어떤 설정은 독자에게 보여지는 판을 바꾸거나 검토 없이 편집할 수 있는 사용자를 제한할 수 있습니다.',
 	'configuredpages-none' => '이 목록에 문서가 없습니다.',
 	'configuredpages-config' => '설정',
-	'configuredpages-def-draft' => '최신 버전',
-	'configuredpages-def-stable' => '공개된 버전',
+	'configuredpages-def-draft' => '최신 판',
+	'configuredpages-def-stable' => '배포판',
 );
 
 /** Colognian (Ripoarisch)

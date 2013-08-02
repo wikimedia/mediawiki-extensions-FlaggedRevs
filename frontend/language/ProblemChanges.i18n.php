@@ -561,8 +561,8 @@ $messages['kn'] = array(
  */
 $messages['ko'] = array(
 	'problemchanges' => '표시된 보류 중인 바뀜 내용',
-	'problemchanges-list' => '이 문서는 하나 이상의 표시된 보류중인 [[{{MediaWiki:Validationpage}}|검토된]] 문서를 나열합니다. [[Special:Tags|유효한 바뀜 표시]] 목록을 사용할 수 있습니다.',
-	'problemchanges-legend' => '검토해야 할 편집들이 표시된 목록',
+	'problemchanges-list' => '이 문서는 하나 이상의 표시된 보류 중인 [[{{MediaWiki:Validationpage}}|검토된]] 문서를 나열합니다. [[Special:Tags|올바른 바뀜 표시]] 목록을 사용할 수 있습니다.',
+	'problemchanges-legend' => '검토해야 할 편집이 표시된 목록',
 	'problemchanges-none' => '이 조건에 맞는 문서가 없습니다.',
 	'problemchanges-category' => '분류:',
 );

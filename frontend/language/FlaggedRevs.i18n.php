@@ -8267,7 +8267,7 @@ $messages['ja'] = array(
 	'revreview-accuracy-3' => '検証性充分',
 	'revreview-accuracy-4' => '秀逸',
 	'revreview-auto' => '(自動査読)',
-	'revreview-basic' => 'これは[[{{MediaWiki:Validationpage}}|公開版]]です。<i>$2</i> に[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 確認されました]。[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3件の保留中の{{PLURAL:$3|変更}}]が査読待ちです。',
+	'revreview-basic' => 'これは[[{{MediaWiki:Validationpage}}|公開版]]です。<i>$2</i> に[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 確認されました]。[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 件の保留中の{{PLURAL:$3|変更}}]が査読待ちです。',
 	'revreview-basic-i' => 'これは[[{{MediaWiki:Validationpage}}|公開版]]です。<i>$2</i> に[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 確認されました]。
 査読待ちの[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} テンプレートまたはファイルの変更]があります。',
 	'revreview-basic-old' => 'これは[[{{MediaWiki:Validationpage}}|確認済み]]版 ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} すべてを列挙]) です。<i>$2</i> に[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 承認されました]。承認後に新たに[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 変更]されているかもしれません。',
@@ -8289,21 +8289,21 @@ $messages['ja'] = array(
 
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2件の保留中の変更] ''(下記参照)'' が査読待ちです。",
 	'revreview-edited-section' => 'セクション「[[#$1|$2]]」に戻る。',
-	'revreview-newest-basic' => 'この版における[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3{{PLURAL:$3|件の変更}}]が、[[{{MediaWiki:Validationpage}}|査読待ち]]の状態に{{PLURAL:$3|あります}}。
-[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 公開版]は<i>$2</i>に[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 確認されました]。',
+	'revreview-newest-basic' => 'この版における [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|件の変更}}]が、[[{{MediaWiki:Validationpage}}|査読待ち]]の状態に{{PLURAL:$3|あります}}。
+[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 公開版]は <i>$2</i> に[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 確認されました]。',
 	'revreview-newest-basic-i' => 'この版における[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} テンプレートまたはファイルの変更]が[[{{MediaWiki:Validationpage}}|査読待ち]]の状態にあります。
-[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 公開版]は<i>$2</i>に[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 確認されました]。',
-	'revreview-newest-quality' => 'この版における[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3{{PLURAL:$3|件の変更}}]が[[{{MediaWiki:Validationpage}}|査読待ち]]の状態に{{PLURAL:$3|あります}}。
-[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 公開版]は<i>$2</i>に[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 承認されました]。',
+[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 公開版]は <i>$2</i> に[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 確認されました]。',
+	'revreview-newest-quality' => 'この版における [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|件の変更}}]が[[{{MediaWiki:Validationpage}}|査読待ち]]の状態に{{PLURAL:$3|あります}}。
+[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 公開版]は <i>$2</i> に[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 承認されました]。',
 	'revreview-newest-quality-i' => 'この版における[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} テンプレートまたはファイルの変更]が[[{{MediaWiki:Validationpage}}|査読待ち]]の状態にあります。
-[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 公開版]は<i>$2</i>に[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 承認されました]。',
-	'revreview-pending-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 公開版]は <i>$2</i> に[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 確認されました]。[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3件の保留中の{{PLURAL:$3|変更}}]が査読待ちです。',
-	'revreview-pending-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 公開版]は <i>$2</i> に[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 承認されました]。[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3件の保留中の{{PLURAL:$3|変更}}]が査読待ちです。',
+[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 公開版]は <i>$2</i> に[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 承認されました]。',
+	'revreview-pending-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 公開版]は <i>$2</i> に[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 確認されました]。[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 件の保留中の{{PLURAL:$3|変更}}]が査読待ちです。',
+	'revreview-pending-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 公開版]は <i>$2</i> に[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 承認されました]。[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 件の保留中の{{PLURAL:$3|変更}}]が査読待ちです。',
 	'revreview-pending-nosection' => 'セクションが移動または削除されているかを確認するには、[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} 最新版] ([{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2件の保留中の{{PLURAL:$2|変更}}]あり) を確認してください。',
 	'revreview-noflagged' => "このページには[[{{MediaWiki:Validationpage}}|査読済]]の版が存在せず、各種標準の順守について確認がされて'''いない'''可能性があります。",
 	'revreview-oldrating' => '査読結果:',
 	'revreview-quality' => 'これは[[{{MediaWiki:Validationpage}}|公開版]]です。<i>$2</i> に[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 承認されました]。
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3件の保留中の{{PLURAL:$3|変更}}]が査読{{PLURAL:$3|待ちです}}。',
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 件の保留中の{{PLURAL:$3|変更}}]が査読{{PLURAL:$3|待ちです}}。',
 	'revreview-quality-i' => 'これは[[{{MediaWiki:Validationpage}}|公開版]]です。<i>$2</i> に[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 承認されました]。
 査読待ちの[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} テンプレートまたはファイルの変更]があります。',
 	'revreview-quality-old' => 'これは[[{{MediaWiki:Validationpage}}|高品質]]版 ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} すべて表示]) です。<i>$2</i> に[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 承認されました]。承認後に[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 変更]されているかもしれません。',
@@ -9067,10 +9067,10 @@ $messages['ko'] = array(
 	'flaggedrevs-pref-UI-1' => '문서의 검토 상태를 나타낼 때 작은 아이콘과 최소한의 글만 쓰기',
 	'prefs-flaggedrevs' => '편집 검토',
 	'prefs-flaggedrevs-ui' => '편집 검토',
-	'flaggedrevs-prefs-stable' => '기본적으로 검토되어 배포된 버전 표시 설정',
+	'flaggedrevs-prefs-stable' => '기본적으로 검토되어 배포된 판 보이기 설정',
 	'flaggedrevs-pref-stable-0' => '개별 문서의 기본 설정을 따름',
 	'flaggedrevs-pref-stable-1' => '(검토된 판이 있다면) 언제나 배포판을 표시하기',
-	'flaggedrevs-pref-stable-2' => '언제나 최신 버전을 표시하기',
+	'flaggedrevs-pref-stable-2' => '언제나 최신판 보기',
 	'flaggedrevs-prefs-watch' => '내가 검토한 문서를 주시문서 목록에 추가',
 	'flaggedrevs-prefs-editdiffs' => '편집할 때 검토를 기다리고 있는 편집과의 차이 보이기',
 	'flaggedrevs-prefs-viewdiffs' => '검토를 기다리고 있는 마지막 편집을 볼 때 차이를 보이기',
@@ -9091,14 +9091,14 @@ $messages['ko'] = array(
 	'group-autoreview.css' => '/* 이 CSS 설정은 자동 검사자에만 적용됩니다 */',
 	'group-autoreview.js' => '/* 이 자바스크립트 설정은 자동 검사자에만 적용됩니다 */',
 	'revreview-hist-draft' => '검토되지 않은 판',
-	'revreview-hist-pending' => '검토 대기 중',
+	'revreview-hist-pending' => '보류 중인 판',
 	'revreview-hist-quality' => '고품질판',
 	'revreview-hist-basic' => '검토된 판',
 	'revreview-hist-quality-user' => '[[User:$3|$3]]에 의해 승인됨',
 	'revreview-hist-basic-user' => '[[User:$3|$3]]에 의해 검토됨',
 	'revreview-hist-quality-auto' => '자동적으로 승인됨',
 	'revreview-hist-basic-auto' => '자동적으로 검토됨',
-	'revreview-hist-pending-difflink' => "'''[[{{fullurl:$1|oldid=$2&diff=$3{{MediaWiki:flaggedrevs-diffonly}}}} 검토 대기 중]]'''",
+	'revreview-hist-pending-difflink' => "'''[[{{fullurl:$1|oldid=$2&diff=$3{{MediaWiki:flaggedrevs-diffonly}}}} 검토 보류 중]]'''",
 	'review-edit-diff' => "'''참고: 검토를 기다리고 있는 편집이 당신이 편집하는 문서에 포함되어 있습니다.'''",
 	'revreview-diff-toggle-show' => '차이 보이기',
 	'revreview-diff-toggle-hide' => '차이 숨기기',
@@ -9112,8 +9112,8 @@ $messages['ko'] = array(
 	'review-diff2stable' => '모든 검토를 기다리고 있는 편집 보기',
 	'review-logentry-app' => '사용자가 [[$1]] 문서의 판을 검토했습니다',
 	'review-logentry-dis' => '사용자가 [[$1]] 문서의 판에 대해 검토를 철회했습니다',
-	'review-logentry-id' => '판 ID: $2',
-	'review-logentry-diff' => '차이',
+	'review-logentry-id' => '판: $2',
+	'review-logentry-diff' => '검토한 편집의 차이',
 	'review-logentry-diff2' => '검토 철회한 편집의 차이',
 	'review-logpage' => '문서 검토 기록',
 	'review-logpagetext' => '편집 [[{{MediaWiki:Validationpage}}|검토]] 상태의 변화를 나타내는 기록입니다.',
@@ -9125,14 +9125,14 @@ $messages['ko'] = array(
 	'revreview-accuracy-3' => '출처가 잘 제시됨',
 	'revreview-accuracy-4' => '알참',
 	'revreview-auto' => '(자동)',
-	'revreview-basic' => '이 버전은 <i>$2</i>에 [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 검토]된 [[{{MediaWiki:Validationpage}}|배포판]]입니다.
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 편집 $3개]가 검토를 기다리고 있습니다.',
-	'revreview-basic-i' => '이 버전은 <i>$2</i>에 [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 검토]된 [[{{MediaWiki:Validationpage}}|배포판]]입니다.
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 틀/파일의 편집]이 검토를 기다리고 있습니다.',
-	'revreview-basic-old' => '이 판은 [[{{MediaWiki:Validationpage}}|검토된 버전]]([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} 모두 보기])으로, <i>$2</i>에 [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 검토]되었습니다.
-새 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 편집]이 있을 수 있습니다.',
-	'revreview-basic-same' => '이 버전은 <i>$2</i>에 [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 검토]된 [[{{MediaWiki:Validationpage}}|배포판]]입니다.',
-	'revreview-basic-source' => '<i>$2</i>에 [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 검토]된 이 문서의 [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} 검토된 버전]은 이 판을 기반으로 합니다.',
+	'revreview-basic' => '이 판은 <i>$2</i>에 [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 검토]된 [[{{MediaWiki:Validationpage}}|배포판]]입니다.
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 보류 중인 {{PLURAL:$3|바뀜}} $3개]가 검토를 {{PLURAL:$3|기다리고 있습니다}}.',
+	'revreview-basic-i' => '이 판은 <i>$2</i>에 [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 검토]된 [[{{MediaWiki:Validationpage}}|배포판]]입니다.
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 틀/파일의 바뀜]이 검토를 기다리고 있습니다.',
+	'revreview-basic-old' => '이 판은 [[{{MediaWiki:Validationpage}}|검토된]] 판([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} 모두 보기])으로, <i>$2</i>에 [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 승인]되었습니다.
+새 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 바뀜]이 있을 수 있습니다.',
+	'revreview-basic-same' => '이 판은 <i>$2</i>에 [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 검토]된 [[{{MediaWiki:Validationpage}}|배포판]]입니다.',
+	'revreview-basic-source' => '<i>$2</i>에 [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 승인]된 이 문서의 [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} 검토된 판]은 이 판을 기반으로 합니다.',
 	'revreview-current' => '검토를 기다리고 있는 판',
 	'revreview-depth' => '깊이',
 	'revreview-depth-0' => '부적절',
@@ -9140,37 +9140,37 @@ $messages['ko'] = array(
 	'revreview-depth-2' => '중간',
 	'revreview-depth-3' => '좋음',
 	'revreview-depth-4' => '알참',
-	'revreview-draft-title' => '이 페이지에서 검토를 기다리고 있는 판이 표시되고 있습니다.',
+	'revreview-draft-title' => '이 페이지에서 검토를 기다리고 있는 판이 표시되고 있습니다',
 	'revreview-edit' => '편집',
 	'revreview-editnotice' => "'''당신의 편집은 권한이 있는 사용자가 승인한 후에 배포될 것입니다. ([[{{MediaWiki:Validationpage}}|도움말]])'''",
 	'revreview-submitedit' => '바뀜 제출',
 	'revreview-submitedit-title' => '당신의 편집을 검토 요청하기',
 	'revreview-edited' => "'''당신의 편집은 권한이 있는 사용자가 승인한 후에 배포될 것입니다. ([[{{MediaWiki:Validationpage}}|도움말]])'''
 
-아래에 보이는 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 편집 $2개]가 검토를 기다리고 있습니다.",
-	'revreview-edited-section' => '"[[#$1|$2]]" 단락으로 돌아가기',
-	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 편집 $3개]가 [[{{MediaWiki:Validationpage}}|검토를 기다리고 있습니다]].
+아래에 보이는 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 보류 중인 {{PLURAL:$2|바뀜}} $2개]가 검토를 기다리고 {{PLURAL:$2|있습니다}}.",
+	'revreview-edited-section' => '"[[#$1|$2]]" 문단으로 돌아갑니다.',
+	'revreview-newest-basic' => '이 판의 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$3|바뀜}} $3개]가 [[{{MediaWiki:Validationpage}}|검토를 기다리고]] {{PLURAL:$3|있습니다}}.
 이 문서의 [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 배포판]은 <i>$2</i>에 [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 검토]되었습니다.',
-	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 틀/파일]의 편집이 [[{{MediaWiki:Validationpage}}|검토를 기다리고 있습니다]].
+	'revreview-newest-basic-i' => '이 판의 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 틀/파일의 바뀜]이 [[{{MediaWiki:Validationpage}}|검토를 기다리고]] 있습니다.
 이 문서의 [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 배포판]은 <i>$2</i>에 [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 검토]되었습니다.',
-	'revreview-newest-quality' => '아울러 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 편집 $3개]가 [[{{MediaWiki:Validationpage}}|검토를 기다리고 있습니다]].
+	'revreview-newest-quality' => '이 판의 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$3|바뀜}} $3개]가 [[{{MediaWiki:Validationpage}}|검토를 기다리고]] {{PLURAL:$3|있습니다}}.
 이 문서의 [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 배포판]은 <i>$2</i>에 [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 승인]되었습니다.',
-	'revreview-newest-quality-i' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 틀/파일]의 편집이 [[{{MediaWiki:Validationpage}}|검토를 기다리고 있습니다]].
+	'revreview-newest-quality-i' => '이 판의 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 틀/파일의 바뀜]이 [[{{MediaWiki:Validationpage}}|검토를 기다리고]] 있습니다.
 이 문서의 [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 배포판]은 <i>$2</i>에 [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 승인]되었습니다.',
-	'revreview-pending-basic' => '이 [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 배포판]은 <i>$2</i>에 [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 검토]되었습니다. 아울러 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 편집 $3개]가 검토를 기다리고 있습니다.',
-	'revreview-pending-quality' => '이 [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 배포판]은 <i>$2</i>에 [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 승인]되었습니다. 아울러 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 편집 $3개]가 검토를 기다리고 있습니다.',
-	'revreview-pending-nosection' => '문단이 이동되었거나 삭제되었는지를 확인하려면 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 검토를 기다리고 있는 편집 $2개]를 포함하고 있는 [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} 최신판]을 확인해보십시오.',
+	'revreview-pending-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 배포판]은 <i>$2</i>에 [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 검토]되었습니다. 아울러 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 보류 중인 {{PLURAL:$3|바뀜}} $3개]가 검토를 기다리고 {{PLURAL:$3|있습니다}}.',
+	'revreview-pending-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 배포판]은 <i>$2</i>에 [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 승인]되었습니다. 아울러 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 보류 중인 {{PLURAL:$3|바뀜}} $3개]가 검토를 기다리고 {{PLURAL:$3|있습니다}}.',
+	'revreview-pending-nosection' => '문단이 이동되었거나 삭제되었는지를 확인하려면 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 검토를 기다리고 있는 {{PLURAL:$2|바뀜}} $2개]를 포함하고 있는 [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} 최신판]을 확인해보세요.',
 	'revreview-noflagged' => "이 문서에는 [[{{MediaWiki:Validationpage}}|검토된 판]]이 없습니다. 따라서 이 문서는 품질 기준에 맞는지 검토를 거치지 '''않았을''' 수 있습니다.",
 	'revreview-oldrating' => '평가 내역:',
-	'revreview-quality' => '이 버전은 <i>$2</i>에 [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 승인]된 [[{{MediaWiki:Validationpage}}|배포판]]입니다.
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 편집 $3개]가 검토를 기다리고 있습니다.',
-	'revreview-quality-i' => '이 버전은 <i>$2</i>에 [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 승인]된 [[{{MediaWiki:Validationpage}}|배포판]]입니다.
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 틀/파일의 편집]이 검토를 기다리고 있습니다.',
-	'revreview-quality-old' => '이 판은 [[{{MediaWiki:Validationpage}}|고품질판]]([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} 모두 보기])으로, <i>$2</i>에 [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 검토]되었습니다.
+	'revreview-quality' => '이 판은 <i>$2</i>에 [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 승인]된 [[{{MediaWiki:Validationpage}}|배포판]]입니다.
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 보류 중인 {{PLURAL:$3|바뀜}} $3개]가 검토를 {{PLURAL:$3|기다리고 있습니다}}.',
+	'revreview-quality-i' => '이 판은 <i>$2</i>에 [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 승인]된 [[{{MediaWiki:Validationpage}}|배포판]]입니다.
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 틀/파일의 바뀜]이 검토를 기다리고 있습니다.',
+	'revreview-quality-old' => '이 판은 [[{{MediaWiki:Validationpage}}|고품질판]]([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} 모두 보기])으로, <i>$2</i>에 [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 승인]되었습니다.
 새 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 편집]이 있을 수 있습니다.',
-	'revreview-quality-same' => '이 버전은 <i>$2</i>에 [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 승인]된 [[{{MediaWiki:Validationpage}}|배포판]]입니다.',
+	'revreview-quality-same' => '이 판은 <i>$2</i>에 [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 승인]된 [[{{MediaWiki:Validationpage}}|배포판]]입니다.',
 	'revreview-quality-source' => '<i>$2</i>에 [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 승인]된 이 문서의 [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} 고품질판]은 이 판을 기반으로 합니다.',
-	'revreview-quality-title' => '이 버전은 이 문서의 고품질판입니다.',
+	'revreview-quality-title' => '이 판은 이 문서의 고품질판입니다.',
 	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|검토된 판]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 검토 대기 중인 판 검토하기]]",
 	'revreview-quick-basic-old' => "'''[[{{MediaWiki:Validationpage}}|검토된 판]]'''",
 	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|검토된 판]]'''",
@@ -9182,7 +9182,7 @@ $messages['ko'] = array(
 	'revreview-quick-see-basic' => '[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 검토 대기 중인 판 검토하기]]',
 	'revreview-quick-see-quality' => '[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 검토 대기 중인 판 검토하기]]',
 	'revreview-source' => '원본 보기',
-	'revreview-basic-title' => '이 버전은 이 문서의 검토된 버전입니다.',
+	'revreview-basic-title' => '이 판은 이 문서의 검토된 판입니다',
 	'revreview-style' => '가독성',
 	'revreview-style-0' => '부적절',
 	'revreview-style-1' => '괜찮음',
@@ -9193,11 +9193,12 @@ $messages['ko'] = array(
 	'revreview-visibility-synced' => "'''이 문서에는 업데이트된 [[{{MediaWiki:Validationpage}}|배포판]]이 있습니다; 문서 [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}}  배포 설정]을 할 수 있습니다.'''",
 	'revreview-visibility-outdated' => "'''이 문서에는 오래 된 [[{{MediaWiki:Validationpage}}|배포판]]이 있습니다; 문서 [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} 배포 설정]을 할 수 있습니다.'''",
 	'revreview-visibility-nostable' => "'''이 문서에는 [[{{MediaWiki:Validationpage}}|배포판]]이 없습니다; 문서 [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} 배포 설정]을 할 수 있습니다.",
-	'revreview-revnotfound' => '문서의 해당 버전을 찾지 못했습니다. 접속 URL을 확인해 주세요.',
-	'right-autoreview' => "자신의 편집을 자동적으로 '검토된 판'으로 표시",
+	'revreview-revnotfound' => '요청한 문서의 과거 판을 찾지 못했습니다.
+이 문서에 접속하는 데 사용하는 URL을 확인하세요.',
+	'right-autoreview' => '자신의 편집을 자동적으로 "검토된 판"으로 표시',
 	'right-autoreviewrestore' => '되돌리면서 자동으로 검토하기',
 	'right-movestable' => '배포된 문서를 옮기기',
-	'right-review' => "편집을 '검토된 판'으로 표시",
+	'right-review' => '편집을 "검토된 판"으로 표시',
 	'right-stablesettings' => '어떻게 배포판이 선택되어 보여질 것인지 설정',
 	'right-validate' => '특정 판을 "고품질판"으로 표시하기',
 	'right-unreviewedpages' => '[[Special:UnreviewedPages|검토되지 않은 문서의 목록]] 보기',
@@ -9213,7 +9214,7 @@ $messages['ko'] = array(
 	'revreview-filter-stable' => '배포됨',
 	'revreview-statusfilter' => '검토 상태 변화:',
 	'revreview-filter-approved' => '승인됨',
-	'revreview-filter-reapproved' => '다시 승인함',
+	'revreview-filter-reapproved' => '다시 승인됨',
 	'revreview-filter-unapproved' => '승인 취소됨',
 	'revreview-typefilter' => '유형:',
 	'revreview-filter-auto' => '자동',
@@ -9223,7 +9224,7 @@ $messages['ko'] = array(
 	'revreview-lev-basic' => '검토된 판',
 	'revreview-lev-quality' => '고품질판',
 	'revreview-lev-pristine' => '깨끗한 판',
-	'revreview-defaultfilter' => '기본 버전:',
+	'revreview-defaultfilter' => '기본 판:',
 	'revreview-def-all' => '모두',
 	'revreview-def-draft' => '최신판',
 	'revreview-def-stable' => '배포판',

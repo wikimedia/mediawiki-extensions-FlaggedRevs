@@ -1149,20 +1149,20 @@ $messages['kn'] = array(
  * @author 아라
  */
 $messages['ko'] = array(
-	'pendingchanges' => '보류중인 편을 가지고 있는 문서',
+	'pendingchanges' => '보류 중인 편을 가지고 있는 문서',
 	'pendingchanges-legend' => '검토 대기 중인 편집이 있는 검토된 문서의 목록',
-	'pendingchanges-list' => '이 페이지에서는 이전에 [[{{MediaWiki:Validationpage}}|검토]]된 적이 있는 문서 중 검토 대기 중인 {{PLURAL:$1|편집}}이 하나 이상 있는 문서를 나열하고 있습니다.',
+	'pendingchanges-list' => '이 페이지에서는 [[{{MediaWiki:Validationpage}}|검토]] 대기 중인 편집이 하나 이상 있는 검토된 문서를 나열합니다.',
 	'pendingchanges-none' => '조건에 맞는 문서가 없습니다.',
-	'pendingchanges-hours' => '($1{{PLURAL:$1|시간}} 전)',
-	'pendingchanges-days' => '($1일 전)',
+	'pendingchanges-hours' => '($1{{PLURAL:$1|시간}})',
+	'pendingchanges-days' => '($1{{PLURAL:$1|일}})',
 	'pendingchanges-recent' => '(1시간 미만)',
 	'pendingchanges-category' => '분류:',
 	'pendingchanges-onwatchlist' => '내 주시문서 목록에 있는 문서',
-	'pendingchanges-stable' => '안정 버전이 기본값입니다.',
+	'pendingchanges-stable' => '배포판이 기본값입니다',
 	'pendingchanges-diff' => '검토',
 	'pendingchanges-size' => '최대 변화량 (바이트):',
 	'pendingchanges-unwatched' => '(주시되지 않음)',
-	'pendingchanges-watched' => '(활동적인 사용자 $1명이 주시중)',
+	'pendingchanges-watched' => '(활동적인 {{PLURAL:$1|사용자}} $1명이 주시 중)',
 	'pendingchanges-viewing' => '(확인 중)',
 );
 

@@ -1290,10 +1290,10 @@ $messages['kn'] = array(
  */
 $messages['ko'] = array(
 	'validationstatistics' => '문서의 검토 통계',
-	'validationstatistics-users' => "'''{{SITENAME}}'''에는 [[{{MediaWiki:Validationpage}}|편집자]] 권한을 가진 사용자 [[Special:ListUsers/editor|$1]]명이 있습니다.
+	'validationstatistics-users' => "'''{{SITENAME}}'''에는 [[{{MediaWiki:Validationpage}}|편집자]] 권한이 있는 {{PLURAL:$1|사용자}} '''[[Special:ListUsers/editor|$1]]'''명이 있습니다.
 
-편집자가 문서를 검토할 수 있습니다.",
-	'validationstatistics-lastupdate' => "''다음과 같은 데이터가 마지막으로 $1 $2에 업데이트되었습니다. ''",
+편집자는 문서의 각 판에 대해 불시에 검토를 하는 것을 인정받은 사용자가 있습니다.",
+	'validationstatistics-lastupdate' => "''다음과 같은 데이터가 마지막으로 $1 $2에 업데이트되었습니다.''",
 	'validationstatistics-pndtime' => "숙련된 사용자가 확인한 편집을 ''검토된 편집''으로 간주합니다.
 
 [[Special:OldReviewedPages|현재 검토가 진행 중인 편집이 있는 문서]]의 검토 평균 대기 시간은 '''$1'''입니다. 검토되지 않는 편집이 가장 오래되었을 때가 지연이 얼마나 걸리는지 측정합니다.",
@@ -1306,7 +1306,7 @@ $3",
 	'validationstatistics-latest' => '동기화됨',
 	'validationstatistics-synced' => '동기화됨/검토됨',
 	'validationstatistics-old' => '오래됨',
-	'validationstatistics-utable' => '아래는 최근 $2시간 동안의 최고 검토자 $1명의 목록입니다.',
+	'validationstatistics-utable' => '아래는 최근 {{PLURAL:$2|한 시간|$2시간}} 동안의 {{PLURAL:$1|최고 활동 검토자|최고 활동 검토자 $1명}}의 목록입니다.',
 	'validationstatistics-user' => '사용자',
 	'validationstatistics-reviews' => '검토',
 );

@@ -791,6 +791,7 @@ $messages['km'] = array(
 /** Korean (한국어)
  * @author Devunt
  * @author Kwj2772
+ * @author 아라
  */
 $messages['ko'] = array(
 	'reviewedpages' => '검토된 문서',
@@ -798,7 +799,7 @@ $messages['ko'] = array(
 	'reviewedpages-list' => "이 목록은 특정 판에 대하여 등급이 가장 ''높은 수준''으로 평가된 것이 주어진 등급에 해당하는 [[{{MediaWiki:Validationpage}}|검토]]된 문서를 포함하고 있습니다.
 해당 수준에서 가장 최근의 편집에 대한 링크가 주어져 있습니다.",
 	'reviewedpages-none' => '이 목록에 문서가 없습니다.',
-	'reviewedpages-all' => '검토된 버전',
+	'reviewedpages-all' => '검토된 판',
 	'reviewedpages-best' => '최고 판',
 );
 

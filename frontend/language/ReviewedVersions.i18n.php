@@ -695,13 +695,14 @@ $messages['km'] = array(
 /** Korean (한국어)
  * @author Devunt
  * @author Kwj2772
+ * @author 아라
  */
 $messages['ko'] = array(
-	'reviewedversions' => '검토된 버전',
+	'reviewedversions' => '검토된 판',
 	'reviewedversions-leg1' => '문서의 검토된 판의 목록',
 	'reviewedversions-page' => '문서 이름:',
 	'reviewedversions-none' => '"[[:$1]]"의 검토된 판이 없습니다.',
-	'reviewedversions-list' => '다음은 [[:$1]] 문서의 검토된 {{PLURAL:$2|편집}}의 목록입니다:',
+	'reviewedversions-list' => '다음은 검토{{PLURAL:$2|된}} [[:$1]] 문서의 {{PLURAL:$2|판}}의 목록입니다:',
 	'reviewedversions-review' => '<i>$1</i>에 $2에게 검토됨',
 );
 

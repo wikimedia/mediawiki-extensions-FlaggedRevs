@@ -198,13 +198,16 @@ $messages['ast'] = array(
 
 /** Azerbaijani (azərbaycanca)
  * @author Cekli829
+ * @author Khan27
  * @author Vugar 1981
  */
 $messages['az'] = array(
+	'unreviewedpages' => 'İncələnməmiş səhifələr',
 	'unreviewedpages-category' => 'Kateqoriya:',
 	'unreviewedpages-diff' => 'yoxlama',
 	'unreviewedpages-hours' => '$1 {{PLURAL:$1|saat|saat}}',
 	'unreviewedpages-days' => '$1 {{PLURAL:$1|gün|gün}}',
+	'unreviewedpages-recent' => '(1 saatdan az)',
 );
 
 /** Southern Balochi (بلوچی مکرانی)
@@ -1104,12 +1107,12 @@ $messages['ko'] = array(
 	'unreviewedpages-category' => '분류:',
 	'unreviewedpages-diff' => '검토',
 	'unreviewedpages-unwatched' => '(주시되지 않음)',
-	'unreviewedpages-watched' => '(활동적인 사용자 $1명이 주시 중)',
+	'unreviewedpages-watched' => '(활동적인 {{PLURAL:$1|사용자}} $1명이 주시 중)',
 	'unreviewedpages-list' => '이 특수 문서는 특정한 등급으로 [[{{MediaWiki:Validationpage}}|검토]]되지 않은 문서의 목록을 보여 주고 있습니다.',
 	'unreviewedpages-none' => '조건에 맞는 문서가 없습니다.',
 	'unreviewedpages-viewing' => '(확인 중)',
 	'unreviewedpages-hours' => '($1{{PLURAL:$1|시간}})',
-	'unreviewedpages-days' => '($1일)',
+	'unreviewedpages-days' => '($1{{PLURAL:$1|일}})',
 	'unreviewedpages-recent' => '(1시간 미만)',
 );
 
