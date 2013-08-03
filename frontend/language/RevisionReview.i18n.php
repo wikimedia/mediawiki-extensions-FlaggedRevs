@@ -5226,6 +5226,7 @@ $messages['sq'] = array(
 );
 
 /** Serbian (Cyrillic script) (српски (ћирилица)‎)
+ * @author Milicevic01
  * @author Millosh
  * @author Rancher
  * @author Sasa Stefanovic
@@ -5242,6 +5243,7 @@ $messages['sr-ec'] = array(
 	'revreview-log' => 'Коментар:',
 	'revreview-main' => 'Морате изабрати одређену измену странице са садржајем да бисте је проверили.
 Погледајте [[Special:Unreviewedpages|списак непрегледаних страница]].',
+	'revreview-stable1' => 'Можда желите погледати [{{fullurl:$1|stableid=$2}} ову означену верзију] и проверити да ли сада постоји [{{fullurl:$1|stable=1}} стабилна верзија] ове странице.',
 	'revreview-stable2' => 'Можда бисте хтели да видите [{{fullurl:$1|stable=1}} прихваћену верзију] ове стране.',
 	'revreview-submit' => 'Пошаљи',
 	'revreview-submitting' => 'Шаљем…',
