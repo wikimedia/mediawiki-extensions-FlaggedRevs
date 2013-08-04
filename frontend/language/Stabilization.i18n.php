@@ -2175,7 +2175,7 @@ $messages['ko'] = array(
 	'stabilize_invalid_level' => '잘못된 보호 수준입니다.',
 	'stabilize_expiry_invalid' => '기한을 잘못 입력하였습니다.',
 	'stabilize_expiry_old' => '기한을 과거로 입력하였습니다.',
-	'stabilize_denied' => '권한 없음',
+	'stabilize_denied' => '권한이 없습니다.',
 	'stabilize-expiring' => '$1 (UTC)에 만료',
 	'stabilization-review' => '현재 판을 확인한 것으로 표시',
 );
