@@ -1689,6 +1689,7 @@ $messages['pdc'] = array(
 );
 
 /** Polish (polski)
+ * @author Chrumps
  * @author Fizykaa
  * @author Jwitos
  * @author Leinad
@@ -1708,7 +1709,7 @@ Redaktorzy są doświadczonymi użytkownikami, którzy mogą oznaczać dowolne w
 Średnie opóźnienie dla [[Special:OldReviewedPages|stron ze zmianami oczekującymi na oznaczenie]] wynosi '''$1'''. Jest to czas, przez który najstarsze edycje pozostawały nieprzejrzane.",
 	'validationstatistics-revtime' => "Średni czas oczekiwania na oznaczenie edycji ''niezalogowanych użytkowników'' wynosi '''$1''', mediana – '''$2'''.
 $3",
-	'validationstatistics-table' => "Poniżej znajdują się statystyki przeglądania stron dla każdej przestrzeni nazw, ''z wyłączeniem'' przekierowań. Strony uznawane są za ''przestarzałe'' jeśli są zmiany ich treści oczekujące na przejrzenie. Strony uznawane są za ''przejrzane'' jeśli żadne zmiany ich treści nie oczekują na przejrzenie.",
+	'validationstatistics-table' => "Poniżej znajdują się statystyki przeglądania stron dla każdej przestrzeni nazw, ''z wyłączeniem'' przekierowań. Strony uznawane są za ''przestarzałe'', jeśli zmiany ich treści oczekują na przejrzenie. Strony uznawane są za ''przejrzane'', jeśli nie ma zmian ich treści, oczekujących na przejrzenie.",
 	'validationstatistics-ns' => 'Przestrzeń nazw',
 	'validationstatistics-total' => 'Stron',
 	'validationstatistics-stable' => 'Przejrzanych',

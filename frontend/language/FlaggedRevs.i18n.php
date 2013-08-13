@@ -280,11 +280,17 @@ Shown in [[Special:Preferences]], under {{msg-mw|prefs-flaggedrevs}}, as a label
 * {{msg-mw|flaggedrevs-pref-UI-1}}
 See [[:Image:FlaggedRevs.jpg]] for an example image.',
 	'flaggedrevs-pref-UI-0' => '{{Flagged Revs-small}}
+Option in [[Special:Preferences]], under {{msg-mw|prefs-flaggedrevs}}.
 
-Option in [[Special:Preferences]], under {{msg-mw|prefs-flaggedrevs}}. See {{msg|flaggedrevs-pref-UI-1|pl=yes}} for the opposite message. See [[:Image:FlaggedRevs.jpg]] for an example image.',
+See {{msg-mw|flaggedrevs-pref-UI-1}} for the opposite message.
+
+See [[:Image:FlaggedRevs.jpg]] for an example image.',
 	'flaggedrevs-pref-UI-1' => '{{Flagged Revs-small}}
+Option in [[Special:Preferences]], under {{msg-mw|prefs-flaggedrevs}}.
 
-Option in [[Special:Preferences]], under {{msg-mw|prefs-flaggedrevs}}. See {{msg|flaggedrevs-pref-UI-0|pl=yes}} for the opposite message. See [[:Image:FlaggedRevs.jpg]] for an example image.',
+See {{msg-mw|flaggedrevs-pref-UI-0}} for the opposite message.
+
+See [[:Image:FlaggedRevs.jpg]] for an example image.',
 	'flaggedrevs-stable-categories' => '{{Flagged Revs}}
 {{notranslate}}',
 	'prefs-flaggedrevs' => "{{Flagged Revs-small}}
