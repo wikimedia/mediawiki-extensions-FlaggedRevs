@@ -288,7 +288,7 @@ $specialPageAliases['gu'] = array(
 /** Hindi (हिन्दी) */
 $specialPageAliases['hi'] = array(
 	'PendingChanges' => array( 'अनिरीक्षित_पृष्ठ', 'अनिरीक्षित_पन्ने', 'पुरानेदेखेंहुएपन्ने' ),
-	'ProblemChanges' => array( 'ख़राब_बदलाव' ),
+	'ProblemChanges' => array( 'खराब_बदलाव' ),
 	'QualityOversight' => array( 'उन्नत_समीक्षा_लॉग', 'गुणवत्ता_निरीक्षण', 'गुणवत्ताओव्हरसाईट' ),
 	'ReviewedPages' => array( 'निरीक्षित_पृष्ठ', 'निरीक्षित_पन्ने', 'जाँचेहुएपन्ने' ),
 	'RevisionReview' => array( 'अवतरण_निरीक्षण' ),
