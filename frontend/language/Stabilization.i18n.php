@@ -2748,8 +2748,8 @@ Aquí los paramètres actuals de [[:$1|$1]] :',
 	'stabilization-leg' => 'Confirmar lo parametratge de la version publicada',
 	'stabilization-def' => "Version afichada al moment de l'afichatge per defaut de la pagina",
 	'stabilization-def1' => "La revision publicada ; se'n i a pas, alara la correnta o lo borrolhon en cors", # Fuzzy
-	'stabilization-def2' => 'La revision correnta o lo borrolhon en cors', # Fuzzy
-	'stabilization-restrict' => 'Tornar veire automaticament las restriccions', # Fuzzy
+	'stabilization-def2' => 'La revision correnta',
+	'stabilization-restrict' => 'Restriccions de relectura (automatic)',
 	'stabilization-restrict-none' => 'Pas de restriccion suplementària',
 	'stabilization-submit' => 'Confirmar',
 	'stabilization-notexists' => 'I a pas de pagina « [[:$1|$1]] », pas de parametratge possible',
@@ -2764,7 +2764,7 @@ Aquí los paramètres actuals de [[:$1|$1]] :',
 	'stabilize_expiry_invalid' => "Data d'expiracion invalida.",
 	'stabilize_expiry_old' => "Lo temps d'expiracion ja es passat.",
 	'stabilize-expiring' => 'expira $1 (UTC)',
-	'stabilization-review' => 'Tornar veire la version correnta', # Fuzzy
+	'stabilization-review' => 'Marcar la version actuala coma verificada',
 );
 
 /** Oriya (ଓଡ଼ିଆ)

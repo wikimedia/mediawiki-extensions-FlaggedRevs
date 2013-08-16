@@ -4217,7 +4217,7 @@ Sjå [[Special:Unreviewedpages|lista over sider som manglar vurdering]].',
  */
 $messages['oc'] = array(
 	'revisionreview' => 'Tornar veire las versions',
-	'revreview-failed' => 'La relectura a fracassat !', # Fuzzy
+	'revreview-failed' => "'''Impossible de relegir aquesta revision.'''",
 	'revreview-flag' => 'Avalorar aquesta version',
 	'revreview-invalid' => "'''Cibla incorrècta :''' cap de version [[{{MediaWiki:Validationpage}}|relegida]] correspond pas al numèro indicat.",
 	'revreview-log' => 'Comentari al jornal :',
@@ -4226,8 +4226,8 @@ $messages['oc'] = array(
 	'revreview-stable2' => "Podètz voler visionar [{{fullurl:$1|stable=1}} la version establa] d'aquesta pagina (se n'existís una).", # Fuzzy
 	'revreview-submit' => 'Salvar',
 	'revreview-submitting' => 'Somission…',
-	'revreview-submit-review' => 'Aprovar', # Fuzzy
-	'revreview-submit-unreview' => 'Desaprovar', # Fuzzy
+	'revreview-submit-review' => 'Acceptar la version',
+	'revreview-submit-unreview' => 'Desaprovar la version',
 	'revreview-submit-reviewed' => 'Fach. Aprovat !',
 	'revreview-submit-unreviewed' => 'Fach. Desaprovat!',
 	'revreview-successful' => "'''La version seleccionada de [[:$1|$1]], es estada marcada d'una bandièra amb succès ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} Vejatz totas las versions establas])'''",

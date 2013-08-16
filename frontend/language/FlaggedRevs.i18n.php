@@ -11654,37 +11654,35 @@ De [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonl
 	'revreview-quick-basic-old' => "[[{{MediaWiki:Validationpage}}|pagina visada]]''' [ veire lo borrolhon]]", # Fuzzy
 	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|Pagina susvelhada]]''' (cap de modificacion pas revista)", # Fuzzy
 	'revreview-quick-invalid' => "'''Numèro de version incorrèct'''",
-	'revreview-quick-none' => "'''Correnta''' (pas de revisions evaluadas)", # Fuzzy
-	'revreview-quick-quality' => "'''[[{{MediaWiki:Validationpage}}|Pagina de qualitat]]'''. [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} veire version correnta]]", # Fuzzy
-	'revreview-quick-quality-old' => "'''[[{{MediaWiki:Validationpage}}|Pagina de qualitat]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} visionar lo borrolhon]]", # Fuzzy
-	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|Pagina de qualitat]]''' (cap de modificacion pas revista)", # Fuzzy
-	'revreview-quick-see-basic' => "'''[[{{MediaWiki:Validationpage}}|Borrolhon]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} vejatz la pagina]]
-[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} comparar]]", # Fuzzy
-	'revreview-quick-see-quality' => "'''[[{{MediaWiki:Validationpage}}|Borrolhon]]''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} vejatz la pagina]]
-[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} comparar]]", # Fuzzy
-	'revreview-source' => "Font de l'esbòs", # Fuzzy
-	'revreview-basic-title' => 'Aquela pagina es velhada', # Fuzzy
+	'revreview-quick-none' => "'''[[{{MediaWiki:Validationpage}}|Pas verificada]]'''",
+	'revreview-quick-quality' => "'''[[{{MediaWiki:Validationpage}}|Qualitat]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} veire las modificacions en espèra]]",
+	'revreview-quick-quality-old' => "'''[[{{MediaWiki:Validationpage}}|Qualitat]]'''",
+	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|Qualitat]]'''",
+	'revreview-quick-see-basic' => '[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} repassar las modificacions en espèra]]',
+	'revreview-quick-see-quality' => '[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} repassar las modificacions en espèra]]',
+	'revreview-source' => 'Veire lo tèxte font',
+	'revreview-basic-title' => "Aquò's una version verificada d'aquesta pagina",
 	'revreview-style' => 'Lisibilitat',
-	'revreview-style-0' => 'Pas aprobada', # Fuzzy
+	'revreview-style-0' => 'Insufisent',
 	'revreview-style-1' => 'Acceptabla',
 	'revreview-style-2' => 'Bona',
 	'revreview-style-3' => 'Concisa',
 	'revreview-style-4' => 'Remirabla',
 	'revreview-toggle-title' => 'far veire/amagar los detalhs',
-	'revreview-visibility-synced' => "Aquesta pagina conten una [[{{MediaWiki:Validationpage}}|version establa]],  sos paramètres d'estabilitat pòdon èsser [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} configurats].", # Fuzzy
-	'revreview-visibility-outdated' => "'''Aquesta pagina compòrta una [[{{MediaWiki:Validationpage}}|version establa]] perimida. Los paramètres d'estabilitat de la pagina pòdon èsser [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} configurats].'''", # Fuzzy
-	'revreview-visibility-nostable' => "'''Aquesta pagina dispausa pas d'una [[{{MediaWiki:Validationpage}}|version establa]] ; los paramètres d'estabilitat de la pagina pòdon èsser [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} configurats].'''", # Fuzzy
+	'revreview-visibility-synced' => "Aquesta pagina conten una [[{{MediaWiki:Validationpage}}|version publicada]]. Los paramètres d'estabilitat pòdon èsser [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} configurats].",
+	'revreview-visibility-outdated' => "Aquesta pagina compòrta una [[{{MediaWiki:Validationpage}}|version publicada]] perimida. Los paramètres d'estabilitat de la pagina pòdon èsser [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} configurats].",
+	'revreview-visibility-nostable' => "Aquesta pagina dispausa pas d'una [[{{MediaWiki:Validationpage}}|version publicada]] ; los paramètres d'estabilitat de la pagina pòdon èsser [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} configurats].",
 	'revreview-revnotfound' => "La version precedenta d'aquesta pagina a pas pogut èsser retrobada. Verificatz l'URL qu'avètz utilizada per accedir a aquesta pagina.",
-	'right-autoreview' => 'Marcar automaticament las versions coma visadas', # Fuzzy
-	'right-movestable' => 'Desplaçar de paginas establas', # Fuzzy
-	'right-review' => 'Marcar las versions coma visadas', # Fuzzy
-	'right-stablesettings' => 'Configurar cossí la version establa es seleccionada puèi afichada', # Fuzzy
-	'right-validate' => 'Marcar las versions coma validadas', # Fuzzy
+	'right-autoreview' => 'Marcar automaticament las versions coma verificadas',
+	'right-movestable' => 'Tornar nomenar de paginas publicadas',
+	'right-review' => 'Marcar las versions coma verificadas',
+	'right-stablesettings' => "Configurar los paramètres de seleccion e d'afichatge de las versions publicadas",
+	'right-validate' => 'Marcar las versions coma de « qualitat »',
 	'right-unreviewedpages' => 'Veire [[Special:UnreviewedPages|la lista de las paginas pas revistas]]',
 	'rights-editor-revoke' => "a revocat los dreches d'editor de [[$1]]",
-	'specialpages-group-quality' => 'Assegurança de qualitat', # Fuzzy
-	'stable-logentry-config' => 'Las versions establas de $1 son parametradas.', # Fuzzy
-	'stable-logentry-reset' => 'Tornar metre a zèro lo jornal de las versions establas de $1', # Fuzzy
+	'specialpages-group-quality' => 'Aprovacion de las modificacions',
+	'stable-logentry-config' => 'a definit los paramètres de publicacion de « $1 »',
+	'stable-logentry-reset' => 'a reïnicializat los paramètres de publicacion de « $1 »',
 	'stable-logpage' => 'Jornal de las versions establas',
 	'stable-logpagetext' => 'Vaquí lo jornal de las modificacions per la [[{{MediaWiki:Validationpage}}|version establa]] de la configuracion de las presentas paginas.', # Fuzzy
 	'revreview-filter-all' => 'Tot',
@@ -11705,12 +11703,12 @@ De [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonl
 	'revreview-def-all' => 'totas',
 	'revreview-def-draft' => 'darrièra',
 	'revreview-def-stable' => 'publicada',
-	'revreview-restrictfilter' => 'Nivèl de restriccion :', # Fuzzy
+	'revreview-restrictfilter' => 'Restriccion de relectura automatica :',
 	'revreview-restriction-any' => 'totes',
 	'revreview-restriction-none' => 'pas cap',
 	'revreview-reviewlink' => 'modificacions en espèra',
 	'revreview-unreviewedpage' => 'Pagina pas verificada',
-	'tooltip-ca-current' => "Veire l'esbòs corrent d'aquesta pagina", # Fuzzy
+	'tooltip-ca-current' => "Veire los cambiaments en espèra d'aquesta pagina",
 	'tooltip-ca-stable' => "Veire la version publicada d'aquesta pagina",
 	'tooltip-ca-default' => "Paramètres per l'assegurança-qualitat",
 	'flaggedrevs-protect-legend' => 'Publicar los cambiaments', # Fuzzy
