@@ -5102,6 +5102,7 @@ $messages['ext'] = array(
 );
 
 /** Persian (فارسی)
+ * @author Dalba
  * @author Ebraminio
  * @author Huji
  * @author Ladsgroup
@@ -5182,7 +5183,7 @@ $3  [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffon
 	'revreview-basic-old' => 'این یک نسخهٔ [[{{MediaWiki:Validationpage}}|بررسی‌شده]] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} همه را فهرست کن]) است که در تاریخ <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} تأیید شده است].
 ممکن است [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} تغییرات] جدیدی صورت گرفته باشد.',
 	'revreview-basic-same' => 'این [[{{MediaWiki:Validationpage}}|نسخهٔ پایداری]] است که در <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} بررسی شد].',
-	'revreview-basic-source' => 'یک [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} نسخهٔ بررسی‌شده] از این صفحه، [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} تائیدشده] در <i>$2</i>، بر پایهٔ این نسخه قرار گرفت.',
+	'revreview-basic-source' => 'یک [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} نسخهٔ بررسی‌شده] از این صفحه، [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} تأییدشده] در <i>$2</i>، بر پایهٔ این نسخه قرار گرفت.',
 	'revreview-current' => 'پیش‌نویس تغییرات',
 	'revreview-depth' => 'عمق',
 	'revreview-depth-0' => 'نابسنده',
@@ -5217,7 +5218,7 @@ $3  [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffon
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 تغییر درحال‌انتظار] منتظر بازبینی {{PLURAL:$3|است|هستند}}.',
 	'revreview-quality-i' => 'این [[{{MediaWiki:Validationpage}}|نسخهٔ پایداری]] است که در <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} تأیید شد].
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} تغییرات الگو/پروندهٔ] منتظر بازبینی وجود دارند.',
-	'revreview-quality-old' => 'این یک نسخهٔ [[{{MediaWiki:Validationpage}}|باکیفیت]] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} همه را فهرست کن]) [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} تائیدشده] در <i>$2</i> است.
+	'revreview-quality-old' => 'این یک نسخهٔ [[{{MediaWiki:Validationpage}}|باکیفیت]] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} همه را فهرست کن]) [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} تأییدشده] در <i>$2</i> است.
 ممکن است [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} تغییرات] جدیدی صورت گرفته باشد.',
 	'revreview-quality-same' => 'این [[{{MediaWiki:Validationpage}}|نسخهٔ پایداری]] است که در تاریخ <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} تأیید شده است].',
 	'revreview-quality-source' => 'یک [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} نسخهٔ باکیفیت] از این صفحه، [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} تأیید شده] در <i>$2</i>، بر مبنای این نسخه ایجاد شده‌است.',
@@ -11634,9 +11635,10 @@ De [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonl
 
 I a actualament [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|modification|modificacions}} en espèra de relectura], afichadas çaijós.",
 	'revreview-edited-section' => 'Tornar a la seccion de la pagina nomenada « [[#$1|$2]] ».',
-	'revreview-newest-basic' => "La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} darrièra version vista] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} las veire totas]) èra [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprobada] lo ''$2''. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|cambiament|cambiaments}}] {{PLURAL:$3|demanda|demandan}} una revision.", # Fuzzy
-	'revreview-newest-basic-i' => 'La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} darrièra version visualizada] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} vejatz la lista]) es estada [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovada] lo <i>$2</i>.
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} cambiaments de modèls o defichièrs] necessitan una relectura.', # Fuzzy
+	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|modificacion|modificacions}}] dins aquesta version {{PLURAL:$3|es|son}} [[{{MediaWiki:Validationpage}}|en espèra de relectura]].
+La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} version establa] es estada [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} verificada] lo <i>$2</i>.',
+	'revreview-newest-basic-i' => "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} De modificacions dins los modèls o los fichièrs] d'aquesta version son [[{{MediaWiki:Validationpage}}|en espèra de relectura]].
+La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} version establa] es estada [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} verificada] lo <i>$2</i>.",
 	'revreview-newest-quality' => "La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} darrièra version de qualitat] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} las veire totas]) èra [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprobada] lo ''$2''. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|cambiament|cambiaments}}] {{PLURAL:$3|demanda|demandan}} una revision.", # Fuzzy
 	'revreview-newest-quality-i' => 'La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} darrièra version de qualitat] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} vejatz la lista]) es estada [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovada] lo <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} modificacions de modèls o de fichièrs] necessitan una relectura.', # Fuzzy
@@ -11651,7 +11653,7 @@ De [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonl
 	'revreview-quality-source' => "Una [{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} version de qualitat] d'aquesta pagina, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprobada] lo <i>$2</i>, es estada basada en defòra d'aquesta version.",
 	'revreview-quality-title' => "Aquò's una version de qualitat d'aquesta pagina",
 	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|pagina visada]]'''. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} veire revision correnta]]", # Fuzzy
-	'revreview-quick-basic-old' => "[[{{MediaWiki:Validationpage}}|pagina visada]]''' [ veire lo borrolhon]]", # Fuzzy
+	'revreview-quick-basic-old' => "'''[[{{MediaWiki:Validationpage}}|Verificada]]'''",
 	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|Pagina susvelhada]]''' (cap de modificacion pas revista)", # Fuzzy
 	'revreview-quick-invalid' => "'''Numèro de version incorrèct'''",
 	'revreview-quick-none' => "'''[[{{MediaWiki:Validationpage}}|Pas verificada]]'''",
