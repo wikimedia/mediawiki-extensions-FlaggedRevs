@@ -1696,6 +1696,7 @@ $messages['pdc'] = array(
  * @author Remedios44
  * @author Sp5uhe
  * @author ToSter
+ * @author WTM
  * @author Wpedzich
  */
 $messages['pl'] = array(
@@ -1706,15 +1707,15 @@ Redaktorzy są doświadczonymi użytkownikami, którzy mogą oznaczać dowolne w
 	'validationstatistics-lastupdate' => "''Poniższe dane uaktualnione zostały $1 o $2.''",
 	'validationstatistics-pndtime' => "Zmiany, które zostały sprawdzone przez uprawnionych użytkowników, są uznawane za ''oznaczone''.
 
-Średnie opóźnienie dla [[Special:OldReviewedPages|stron ze zmianami oczekującymi na oznaczenie]] wynosi '''$1'''. Jest to czas, przez który najstarsze edycje pozostawały nieprzejrzane.",
-	'validationstatistics-revtime' => "Średni czas oczekiwania na oznaczenie edycji ''niezalogowanych użytkowników'' wynosi '''$1''', mediana – '''$2'''.
+Średnie opóźnienie dla [[Special:OldReviewedPages|stron ze zmianami oczekującymi na przejrzenie]] wynosi '''$1'''. Mierzony jest czas, przez jaki pozostawała nieprzejrzana najstarsza edycja (jeśli było ich kilka po sobie).",
+	'validationstatistics-revtime' => "Średni czas oczekiwania edycji ''niezalogowanych użytkowników'' na pierwsze oznaczenie wynosi '''$1''', mediana – '''$2'''.
 $3",
-	'validationstatistics-table' => "Poniżej znajdują się statystyki przeglądania stron dla każdej przestrzeni nazw, ''z wyłączeniem'' przekierowań. Strony uznawane są za ''przestarzałe'', jeśli zmiany ich treści oczekują na przejrzenie. Strony uznawane są za ''przejrzane'', jeśli nie ma zmian ich treści, oczekujących na przejrzenie.",
+	'validationstatistics-table' => "Poniżej znajdują się statystyki przeglądania stron dla każdej przestrzeni nazw, ''z wyłączeniem'' przekierowań. Strony ''oznaczone'' (takie, które w historii mają przynajmniej jedną przejrzaną wersję) mogą być traktowane jako ''zdezaktualizowane'' bądź ''przejrzane''. Strony uznawane są za ''zdezaktualizowane'', jeśli istnieją jakieś zmiany ich treści oczekujące na przejrzenie. Strony uznawane są za ''przejrzane'', jeśli nie ma zmian ich treści, oczekujących na przejrzenie.",
 	'validationstatistics-ns' => 'Przestrzeń nazw',
-	'validationstatistics-total' => 'Stron',
-	'validationstatistics-stable' => 'Przejrzanych',
-	'validationstatistics-latest' => 'Z ostatnią edycją oznaczoną jako przejrzana',
-	'validationstatistics-synced' => 'Zsynchronizowanych lub przejrzanych',
+	'validationstatistics-total' => 'Wszystkich stron',
+	'validationstatistics-stable' => 'Oznaczone',
+	'validationstatistics-latest' => 'Przejrzane',
+	'validationstatistics-synced' => 'Przejrzane / Oznaczone',
 	'validationstatistics-old' => 'Zdezaktualizowane',
 	'validationstatistics-utable' => 'Poniżej znajduje się {{PLURAL:$1|nazwa użytkownika najaktywniej oznaczającego|lista $1 użytkowników najaktywniej oznaczających}} strony w ciągu {{PLURAL:$2|ostatniej godziny|ostatnich $2 godzin}}.',
 	'validationstatistics-user' => 'Użytkownik',
