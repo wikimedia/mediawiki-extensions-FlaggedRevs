@@ -48,11 +48,20 @@ Parameter $1 is the number of pages going to be listed, to be used with PLURAL.'
 	'pendingchanges-none' => '{{Flagged Revs}}
 Used on [http://en.labs.wikimedia.org/wiki/Special:OldReviewedPages Special:OldReviewedPages].',
 	'pendingchanges-hours' => '{{Flagged Revs}}
-Used on [http://en.labs.wikimedia.org/wiki/Special:OldReviewedPages Special:OldReviewedPages] to denote the age of the last unreviewed change to a listed page.',
+Used on [[Special:OldReviewedPages]] to denote the age of the last unreviewed change to a listed page.
+
+Parameters:
+* $1 - number of hours
+{{Related|Pendingchanges}}',
 	'pendingchanges-days' => '{{Flagged Revs}}
-Used on [http://en.labs.wikimedia.org/wiki/Special:OldReviewedPages Special:OldReviewedPages] to denote the age of the last unreviewed change to a listed page.',
+Used on [[Special:OldReviewedPages]] to denote the age of the last unreviewed change to a listed page.
+
+Parameters:
+* $1 - number of days
+{{Related|Pendingchanges}}',
 	'pendingchanges-recent' => '{{Flagged Revs}}
-Used on [http://en.labs.wikimedia.org/wiki/Special:OldReviewedPages Special:OldReviewedPages] to denote the age of the last unreviewed change to a listed page.',
+Used on [[Special:OldReviewedPages]] to denote the age of the last unreviewed change to a listed page.
+{{Related|Pendingchanges}}',
 	'pendingchanges-category' => '{{Flagged Revs}}
 Used on [http://en.labs.wikimedia.org/wiki/Special:OldReviewedPages Special:OldReviewedPages] as a label for an input field in the form.
 {{Identical|Category}}',
@@ -67,9 +76,17 @@ See example: [[mw:Special:PendingChanges]].
 
 Used on [http://en.labs.wikimedia.org/wiki/Special:OldReviewedPages Special:OldReviewedPages] as a label for an input field in the form.',
 	'pendingchanges-unwatched' => '{{Flagged Revs-small}}
-Used on [http://en.labs.wikimedia.org/wiki/Special:OldReviewedPages Special:OldReviewedPages] when nobody is watching the page.',
+Used on [[Special:OldReviewedPages]] when nobody is watching the page.
+
+See also:
+* {{msg-mw|Pendingchanges-watched}}',
 	'pendingchanges-watched' => '{{Flagged Revs-small}}
-Used on [http://en.labs.wikimedia.org/wiki/Special:OldReviewedPages Special:OldReviewedPages] when active users are watching the page.',
+Used on [[Special:OldReviewedPages]] when active users are watching the page.
+
+Parameters:
+* $1 - number of users watching page
+See also:
+* {{msg-mw|Pendingchanges-unwatched}}',
 	'pendingchanges-viewing' => '{{Flagged Revs-small}}
 Used on [http://en.labs.wikimedia.org/wiki/Special:OldReviewedPages Special:OldReviewedPages] when someone has recently requested the sighting page for a listed page.',
 );

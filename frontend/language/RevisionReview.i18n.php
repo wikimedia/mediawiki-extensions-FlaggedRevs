@@ -191,7 +191,13 @@ Shown after accepting a revision of a page.
 * $1 Name of the page
 * $2 Number, revision ID just reviewed',
 	'revreview-stable2' => '{{Flagged Revs}}
-Shown after de-accepting a revision of a page.',
+Shown after de-accepting a revision of a page.
+
+Preceded by the message {{msg-mw|Revreview-successful2}}.
+
+Parameters:
+* $1 - page title
+* $2 - (Unused) old ID',
 	'revreview-submit' => '{{Flagged Revs-small}}
 The text on the submit button in the form used to review pages.
 
@@ -215,8 +221,17 @@ Parameters:
 * $1 The page name
 * $2 The page name (url escaped)',
 	'revreview-successful2' => '{{Flagged Revs-small}}
-Shown when a reviewer/editor has marked a stable/checked/... revision as unstable/unchecked/... After that, it can normally be reviewed again. See also {{msg-mw|revreview-successful}}.
-* $1 The page name',
+Shown when a reviewer/editor has marked a stable/checked/... revision as unstable/unchecked/...
+
+After that, it can normally be reviewed again.
+
+Followed by the message {{msg-mw|Revreview-stable2}}.
+
+Parameters:
+* $1 - page title
+* $2 - (Unused) page URL
+See also:
+* {{msg-mw|Revreview-successful}}',
 	'revreview-poss-conflict-p' => '{{Flagged Revs}}
 Shown on the form to review pages. Not shown on diffs.
 Parameters:

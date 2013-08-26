@@ -382,13 +382,37 @@ The accuracy "quality", as displayed on the page history after a revision with t
 	'revreview-hist-basic' => '{{Flagged Revs-small}}
 The accuracy "checked", as displayed on the page history after a revision with this setting. This implies that the revision was accepted.',
 	'revreview-hist-quality-user' => '{{Flagged Revs}}
-Shown on history pages next to revisions that were marked as "quality".',
+Shown on history pages next to revisions that were marked as "quality".
+
+Parameters:
+* $1 - (Unused) prefixed DB key
+* $2 - (Unused) revision ID
+* $3 - username
+{{Related|Revreview-hist}}',
 	'revreview-hist-basic-user' => '{{Flagged Revs}}
-Shown on history pages next to revisions marked as "checked".',
+Shown on history pages next to revisions marked as "checked".
+
+Parameters:
+* $1 - (Unused) prefixed DB key
+* $2 - (Unused) revision ID
+* $3 - username
+{{Related|Revreview-hist}}',
 	'revreview-hist-quality-auto' => '{{Flagged Revs}}
-Shown on history pages for revisions that were automatically marked as "quality".',
+Shown on history pages for revisions that were automatically marked as "quality".
+
+Parameters:
+* $1 - (Unused) prefixed DB key
+* $2 - (Unused) revision ID
+* $3 - (Unused) username
+{{Related|Revreview-hist}}',
 	'revreview-hist-basic-auto' => '{{Flagged Revs}}
-Shown on history pages for revisions that were automatically marked as "checked".',
+Shown on history pages for revisions that were automatically marked as "checked".
+
+Parameters:
+* $1 - (Unused) prefixed DB key
+* $2 - (Unused) revision ID
+* $3 - (Unused) username
+{{Related|Revreview-hist}}',
 	'revreview-hist-pending-difflink' => '{{Flagged Revs}}
 Shown on history pages for revisions that were made *after* the latest accepted revision.
 * $1 The page name
@@ -430,6 +454,9 @@ Parameters:
 Parameters:
 * $1 is a page title',
 	'review-logentry-id' => '{{Flagged Revs}}
+Parameters:
+* $1 - (Unused) revision ID
+* $2 - timestamp (time and date)
 {{Identical|Revision}}',
 	'review-logentry-diff' => '{{Flagged Revs}}
 Appears at Special:Log/review and is used for diff link text of log entries.
@@ -477,7 +504,13 @@ Shown when viewing an old "checked" version of a page.
 * Parameter $2 is the date of the approval',
 	'revreview-basic-same' => '{{Flagged Revs}}
 Shown when viewing the stable version of a "checked" page when there are no pending changes.
-* Parameter $2 is the date of the approval',
+
+Parameters:
+* $1 - stable revision ID
+* $2 - the date of the approval
+* $3 - number of pending revisions
+See also:
+* {{msg-mw|Revreview-quality-same}}',
 	'revreview-basic-source' => '{{Flagged Revs-small}}
 Displayed on the top of a page when you are viewing an old checked revision. The link goes to the reviewed *version* of this revision (e.g. templates/files are stabilized).
 * Example: [http://de.wikipedia.org/w/index.php?title=Deutsche_Sprache&oldid=46894374 de.wikipedia].
@@ -520,9 +553,21 @@ Attribute title for the "save page" button for pages with a stable version where
 	'revreview-edited' => '{{Flagged Revs-small}}
 If an anonymous user edits a stable page, after saving the page he sees the draft version (<tt>stable=0</tt> in page title) he has made.
 
+Parameters:
+* $1 - revision ID
+* $2 - number of pending revisions
+See also:
+* {{msg-mw|Validationpage}}
+* {{msg-mw|Flaggedrevs-diffonly}}
 {{Identical|Authorised user}}',
 	'revreview-edited-section' => '{{Flagged Revs}}
-Shown in a box at the top of the page after a user (without any review rights) makes an edit that is now pending review. This is below a "your edits are pending review" message.',
+Shown in a box at the top of the page after a user (without any review rights) makes an edit that is now pending review.
+
+This is below a "your edits are pending review" message.
+
+Parameters:
+* $1 - anchor
+* $2 - section',
 	'revreview-newest-basic' => '{{Flagged Revs}}
 Shown when viewing a the latest version of a "checked" page with pending changes.
 * $2 Date of review
@@ -573,7 +618,13 @@ Shown when viewing an old "quality" version of a page.
 Parameters:
 * $1 - revision ID
 * $2 - the date of the approval',
-	'revreview-quality-same' => '{{Flagged Revs}}',
+	'revreview-quality-same' => '{{Flagged Revs}}
+Parameters:
+* $1 - stable revision ID
+* $2 - the date of the approval
+* $3 - number of pending revisions
+See also:
+* {{msg-mw|Revreview-basic-same}}',
 	'revreview-quality-source' => "{{Flagged Revs-small}}
 Displayed on the top of a page when you are viewing an old quality revision. The link goes to the reviewed *version* of this revision (e.g. templates/files are stabilized).
 * Example: [http://de.wikipedia.org/w/index.php?title=Deutsche_Sprache&oldid=46894374 de.wikipedia] (this is a checked version, but it's the same for a quality version).
@@ -582,7 +633,11 @@ Displayed on the top of a page when you are viewing an old quality revision. The
 Shown as the attribute title to the checkmark icon on the "flagged revs box" shown on "quality" pages.',
 	'revreview-quick-basic' => '{{Flagged Revs}}
 Used in "flagged revs box" when viewing a "checked" page with pending changes.
-* $1 Stable version ID',
+
+Parameters:
+* $1 - stable revision ID
+* $2 - number of pending revisions
+{{Related|Revreview-quick}}',
 	'revreview-quick-basic-old' => '{{Flagged Revs}}
 Used in "flagged revs box" when viewing an old "checked" version of a page.
 {{Identical|Checked}}',
@@ -590,7 +645,9 @@ Used in "flagged revs box" when viewing an old "checked" version of a page.
 Used in "flagged revs box" when viewing a "checked" page and there are no pending changes.
 
 Parameters:
-* $1 - Stable version ID
+* $1 - stable revision ID
+* $2 - number of pending revisions
+{{Related|Revreview-quick}}
 {{Identical|Checked}}',
 	'revreview-quick-invalid' => '{{Flagged Revs}}
 Used in "flagged revs box" when viewing a bogus reviewed version was requested (via ?stableid=x).',
@@ -598,18 +655,36 @@ Used in "flagged revs box" when viewing a bogus reviewed version was requested (
 Shown in the "flagged revs box" on the content page when there isn\'t any checked or quality revision yet.
 {{Identical|Unchecked}}',
 	'revreview-quick-quality' => '{{Flagged Revs-small}}
-Used in the "flagged revs box" when viewing a quality version, while there are pending changes.',
+Used in the "flagged revs box" when viewing a quality version, while there are pending changes.
+
+Parameters:
+* $1 - stable revision ID
+* $2 - number of pending revisions
+{{Related|Revreview-quick}}',
 	'revreview-quick-quality-old' => '{{Flagged Revs}}
 Used in "flagged revs box" when viewing an old "quality" version of a page.',
 	'revreview-quick-quality-same' => '{{Flagged Revs}}
-Used in "flagged revs box" when viewing a "quality" page and there are no pending changes.',
+Used in "flagged revs box" when viewing a "quality" page and there are no pending changes.
+
+Parameters:
+* $1 - stable revision ID
+* $2 - number of pending revisions
+{{Related|Revreview-quick}}',
 	'revreview-quick-see-basic' => '{{Flagged Revs}}
-Used in "flagged revs box" when viewing the latest version of a "checked" page with pending changes. Parameters:
-* $1 - Stable version ID
+Used in "flagged revs box" when viewing the latest version of a "checked" page with pending changes.
+
+Parameters:
+* $1 - stable revision ID
+* $2 - number of pending revisions
+{{Related|Revreview-quick}}
 {{Identical|Draft view article compare}}',
 	'revreview-quick-see-quality' => '{{Flagged Revs}}
-Used in "flagged revs box" when viewing the latest version of a "quality" page with pending changes. Parameters:
-* $1 - Stable version ID
+Used in "flagged revs box" when viewing the latest version of a "quality" page with pending changes.
+
+Parameters:
+* $1 - stable revision ID
+* $2 - number of pending revisions
+{{Related|Revreview-quick}}
 {{Identical|Draft view article compare}}',
 	'revreview-source' => '{{Flagged Revs}}
 {{Identical|View source}}',
@@ -672,13 +747,23 @@ Shown when a bad old reviewed version ID is requested for a page view (via ?stab
 	'specialpages-group-quality' => '{{Flagged Revs-small}}
 {{doc-special-group|that=are related to the extension FlaggedRevs|like=[[Special:PendingChanges]], [[Special:ReviewedPages]], [[Special:QualityOversight]], etc}}',
 	'stable-logentry-config' => '{{Flagged Revs}}
-Shown on the stability log (Special:Log/stability).
-* $1 Link to the effected page',
+Shown on the stability log ([[Special:Log/stability]]).
+
+Parameters:
+* $1 - page title, with or without link
+{{Related|Stable-logentry}}',
 	'stable-logentry-modify' => '{{Flagged Revs}}
-Shown on the stability log (Special:Log/stability).',
+Shown on the stability log ([[Special:Log/stability]]).
+
+Parameters:
+* $1 - page title, with or without link
+{{Related|Stable-logentry}}',
 	'stable-logentry-reset' => '{{Flagged Revs}}
-Shown on the stability log (Special:Log/stability).
-* $1 Link to the effected page',
+Shown on the stability log ([[Special:Log/stability]]).
+
+Parameters:
+* $1 - page title, with or without link
+{{Related|Stable-logentry}}',
 	'stable-log-restriction' => '{{Flagged Revs}}
 Shown on the stability log (Special:Log/stability).
 * $1 Name of the permission that is required to review and autoreview in addition to any required rights',
