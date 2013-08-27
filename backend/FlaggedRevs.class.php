@@ -947,9 +947,10 @@ class FlaggedRevs {
 		# Get review property flags
 		$propFlags = $auto ? array( 'auto' ) : array();
 
-		# Rev ID is not put into parser on edit, so do the same here.
-		# Also, a second parse would be triggered otherwise.
-		$editInfo = $article->prepareTextForEdit( $rev->getText() );
+		# Note: this needs to match the prepareContentForEdit() call WikiPage::doEditContent.
+		# This is for consistency and also to avoid triggering a second parse otherwise.
+		$editInfo = $article->prepareContentForEdit(
+			$rev->getContent(), null, $user, $rev->getContentFormat() );
 		$poutput  = $editInfo->output; // revision HTML output
 
 		# Get the "review time" versions of templates and files.
