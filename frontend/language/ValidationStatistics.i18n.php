@@ -457,12 +457,13 @@ $messages['da'] = array(
  * @author Kghbln
  * @author Melancholie
  * @author Merlissimo
+ * @author Shirayuki
  * @author The Evil IP address
  * @author Umherirrender
  */
 $messages['de'] = array(
 	'validationstatistics' => 'Statistiken zu Versionsmarkierungen',
-	'validationstatistics-users' => "'''{{SITENAME}}''' hat momentan '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|Benutzer|Benutzer}} mit [[{{MediaWiki:Validationpage}}|Sichterrecht]].
+	'validationstatistics-users' => "'''{{SITENAME}}''' hat momentan '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|Benutzer}} mit [[{{MediaWiki:Validationpage}}|Sichterrecht]].
 
 Sichter sind anerkannte Benutzer, die Versionen einer Seite markieren können.",
 	'validationstatistics-lastupdate' => "''Die folgenden Daten wurden zuletzt am $1 um $2 Uhr aktualisiert.''",

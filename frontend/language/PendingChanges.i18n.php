@@ -44,7 +44,8 @@ Used on [http://en.labs.wikimedia.org/wiki/Special:OldReviewedPages Special:OldR
 	'pendingchanges-list' => '{{Flagged Revs}}
 Used on [http://en.labs.wikimedia.org/wiki/Special:OldReviewedPages Special:OldReviewedPages].
 
-Parameter $1 is the number of pages going to be listed, to be used with PLURAL.',
+Parameters:
+* $1 - (Optional) the number of pages going to be listed, to be used with PLURAL',
 	'pendingchanges-none' => '{{Flagged Revs}}
 Used on [http://en.labs.wikimedia.org/wiki/Special:OldReviewedPages Special:OldReviewedPages].',
 	'pendingchanges-hours' => '{{Flagged Revs}}

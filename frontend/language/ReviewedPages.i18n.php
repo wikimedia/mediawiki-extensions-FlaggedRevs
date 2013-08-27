@@ -34,9 +34,11 @@ Name of the Special:ReviewedPages page, which lists out pages that have a stable
 	'reviewedpages-leg' => '{{Flagged Revs}}
 Shown on Special:ReviewedPages.',
 	'reviewedpages-list' => '{{Flagged Revs}}
-Shown on Special:ReviewedPages.
+Shown on [[Special:ReviewedPages]].
 Note that the "highest attained" language is key. If the user viewing the special page specifies "checked", then "quality" pages will not appear.
-Parameter $1 is the number of reviewed pages for use with PLURAL.',
+
+Parameters:
+* $1 - (Optional) the number of reviewed pages for use with PLURAL',
 	'reviewedpages-none' => '{{Flagged Revs}}
 Shown on Special:ReviewedPages.
 {{Identical|There are no pages in this list}}',

@@ -636,7 +636,10 @@ Used in "flagged revs box" when viewing a "checked" page with pending changes.
 
 Parameters:
 * $1 - stable revision ID
-* $2 - number of pending revisions
+* $2 - (Unused) number of pending revisions
+See also:
+* {{msg-mw|Validationpage}}
+* {{msg-mw|Flaggedrevs-diffonly}}
 {{Related|Revreview-quick}}',
 	'revreview-quick-basic-old' => '{{Flagged Revs}}
 Used in "flagged revs box" when viewing an old "checked" version of a page.
@@ -645,8 +648,10 @@ Used in "flagged revs box" when viewing an old "checked" version of a page.
 Used in "flagged revs box" when viewing a "checked" page and there are no pending changes.
 
 Parameters:
-* $1 - stable revision ID
-* $2 - number of pending revisions
+* $1 - (Unused) stable revision ID
+* $2 - (Unused) number of pending revisions
+See also:
+* {{msg-mw|Validationpage}}
 {{Related|Revreview-quick}}
 {{Identical|Checked}}',
 	'revreview-quick-invalid' => '{{Flagged Revs}}
@@ -659,7 +664,10 @@ Used in the "flagged revs box" when viewing a quality version, while there are p
 
 Parameters:
 * $1 - stable revision ID
-* $2 - number of pending revisions
+* $2 - (Unused) number of pending revisions
+See also:
+* {{msg-mw|Validationpage}}
+* {{msg-mw|Flaggedrevs-diffonly}}
 {{Related|Revreview-quick}}',
 	'revreview-quick-quality-old' => '{{Flagged Revs}}
 Used in "flagged revs box" when viewing an old "quality" version of a page.',
@@ -667,15 +675,19 @@ Used in "flagged revs box" when viewing an old "quality" version of a page.',
 Used in "flagged revs box" when viewing a "quality" page and there are no pending changes.
 
 Parameters:
-* $1 - stable revision ID
-* $2 - number of pending revisions
+* $1 - (Unused) stable revision ID
+* $2 - (Unused) number of pending revisions
+See also:
+* {{msg-mw|Validationpage}}
 {{Related|Revreview-quick}}',
 	'revreview-quick-see-basic' => '{{Flagged Revs}}
 Used in "flagged revs box" when viewing the latest version of a "checked" page with pending changes.
 
 Parameters:
 * $1 - stable revision ID
-* $2 - number of pending revisions
+* $2 - (Unused) number of pending revisions
+See also:
+* {{msg-mw|Flaggedrevs-diffonly}}
 {{Related|Revreview-quick}}
 {{Identical|Draft view article compare}}',
 	'revreview-quick-see-quality' => '{{Flagged Revs}}
@@ -683,7 +695,9 @@ Used in "flagged revs box" when viewing the latest version of a "quality" page w
 
 Parameters:
 * $1 - stable revision ID
-* $2 - number of pending revisions
+* $2 - (Unused) number of pending revisions
+See also:
+* {{msg-mw|Flaggedrevs-diffonly}}
 {{Related|Revreview-quick}}
 {{Identical|Draft view article compare}}',
 	'revreview-source' => '{{Flagged Revs}}
@@ -3701,6 +3715,7 @@ ikke findes. Kontrollér den URL du brugte til at få adgang til denne side.',
  * @author Purodha
  * @author Raimond Spekking
  * @author SVG
+ * @author Shirayuki
  * @author Steef389
  * @author The Evil IP address
  * @author Umherirrender
@@ -3792,7 +3807,7 @@ Neue [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffo
 	'revreview-submitedit-title' => 'Deine Änderungen zur Markierung vorschlagen',
 	'revreview-edited' => "'''Deine Änderungen werden angezeigt, sobald ein dazu berechtigter Benutzer sie akzeptiert hat. ([[{{MediaWiki:Validationpage}}|Hilfe]])'''
 
-Momentan {{PLURAL:$2|gibt|gibt}} es [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 unmarkierte {{PLURAL:$2|Änderung|Änderungen}}], die noch markiert werden {{PLURAL:$2|muss|müssen}}.",
+Momentan {{PLURAL:$2|gibt}} es [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 unmarkierte {{PLURAL:$2|Änderung|Änderungen}}], die noch markiert werden {{PLURAL:$2|muss|müssen}}.",
 	'revreview-edited-section' => 'Zurück zum Seitenabschnitt „[[#$1|$2]]“.',
 	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|Änderung|Änderungen}}] dieser Version {{PLURAL:$3|ist|sind}} noch nicht [[{{MediaWiki:Validationpage}}|markiert]].
 Die [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} gesichtete Version] wurde am <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} markiert].',
@@ -3802,8 +3817,8 @@ Die [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} gesichtete Version] wurde am <i>$2</
 Die [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} gesichtete Version] wurde am <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} markiert].',
 	'revreview-newest-quality-i' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Vorlagen- und Dateiänderungen] dieser Version sind [[{{MediaWiki:Validationpage}}|noch nicht markiert]].
 Die [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} gesichtete Version] wurde am <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} markiert].',
-	'revreview-pending-basic' => 'Die [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} gesichtete Version] wurde am <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} markiert]. Momentan {{PLURAL:$3|gibt|gibt}} es [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|Änderung|Änderungen}}], die noch gesichtet werden {{PLURAL:$3|muss|müssen}}.',
-	'revreview-pending-quality' => 'Die [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} geprüfte Version] wurde am <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} markiert]. Momentan {{PLURAL:$3|gibt|gibt}} es [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|Änderung|Änderungen}}] die noch geprüft werden {{PLURAL:$3|muss|müssen}}.',
+	'revreview-pending-basic' => 'Die [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} gesichtete Version] wurde am <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} markiert]. Momentan {{PLURAL:$3|gibt}} es [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|Änderung|Änderungen}}], die noch gesichtet werden {{PLURAL:$3|muss|müssen}}.',
+	'revreview-pending-quality' => 'Die [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} geprüfte Version] wurde am <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} markiert]. Momentan {{PLURAL:$3|gibt}} es [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|Änderung|Änderungen}}] die noch geprüft werden {{PLURAL:$3|muss|müssen}}.',
 	'revreview-pending-nosection' => 'Versuche die [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} neueste Version], die [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 unmarkierte {{PLURAL:$2|Änderung|Änderungen}}] enthält, anzusehen, um festzustellen, ob der Abschnitt verschoben oder gelöscht wurde.',
 	'revreview-noflagged' => "Von dieser Seite gibt es keine [[{{MediaWiki:Validationpage}}|markierten Versionen]]. Sie wurde möglicherweise noch '''nicht''' bezüglich ihren Qualitätsstandards bestätigt.",
 	'revreview-oldrating' => 'Bisherige Einstufung:',
@@ -8402,7 +8417,7 @@ $messages['ja'] = array(
 	'revreview-quality-same' => 'これは[[{{MediaWiki:Validationpage}}|公開版]]です。<i>$2</i> に[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 承認されました]。',
 	'revreview-quality-source' => '<i>$2</i> に[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 承認された]このページの[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} 高品質]版は、この版に基づいています。',
 	'revreview-quality-title' => 'これは本ページの高品質版です',
-	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|確認済み]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 保留中の変更を査読する]]",
+	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|確認済み]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 保留中の変更を査読]]",
 	'revreview-quick-basic-old' => "[[{{MediaWiki:Validationpage}}|確認済み]]'''",
 	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|確認済み]]'''",
 	'revreview-quick-invalid' => "'''無効な版指定'''",
