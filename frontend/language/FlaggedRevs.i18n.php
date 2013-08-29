@@ -17137,6 +17137,7 @@ Controleer asjeblieft de URL die  a je hebruken om ni deêze pagina te haene.',
  * @author Jimmy xu wrk
  * @author Liangent
  * @author PhiLiP
+ * @author Shirayuki
  * @author Waihorace
  * @author Xiaomingyan
  * @author 阿pp
@@ -17205,7 +17206,7 @@ $messages['zh-hans'] = array(
 	'revreview-accuracy-4' => '精湛',
 	'revreview-auto' => '（自动）',
 	'revreview-basic' => '这是$2时[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 检查的][[{{MediaWiki:Validationpage}}|稳定版本]]。
-还有[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3个{{PLURAL:$3|更改|更改}}]正在{{PLURAL:$3|等待|等待}}复审。',
+还有[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3个{{PLURAL:$3|更改}}]正在{{PLURAL:$3|等待}}复审。',
 	'revreview-basic-i' => '这是$2时[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 检查的][[{{MediaWiki:Validationpage}}|稳定版本]]。
 还有[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 对模板或文件的更改]正在等待复审。',
 	'revreview-basic-old' => '这是$2时[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 通过的][[{{MediaWiki:Validationpage}}|已检查]]版本（[{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} 查看所有版本]）。
@@ -17226,24 +17227,24 @@ $messages['zh-hans'] = array(
 	'revreview-submitedit-title' => '提交您的更改以复审',
 	'revreview-edited' => "'''您的更改将在已授权用户复审后向读者展示。（[[{{MediaWiki:Validationpage}}|帮助]]）'''
 
-有[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$2|$2|$2}}个{{PLURAL:$2|更改|更改}}]''（如下所示）''正在等待复审。",
+有[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$2|$2}}个{{PLURAL:$2|更改}}]''（如下所示）''正在等待复审。",
 	'revreview-edited-section' => '回到名为“[[#$1|$2]]”的页面章节。',
-	'revreview-newest-basic' => '该版本中有[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3个{{PLURAL:$3|更改|更改}}]{{PLURAL:$3|正在|正在}}[[{{MediaWiki:Validationpage}}|等待复审]]。
+	'revreview-newest-basic' => '该版本中有[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3个{{PLURAL:$3|更改}}]{{PLURAL:$3|正在}}[[{{MediaWiki:Validationpage}}|等待复审]]。
 当前[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 稳定版本][{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 检查]于$2。',
 	'revreview-newest-basic-i' => '该版本中有[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 对模板或文件的更改]正在[[{{MediaWiki:Validationpage}}|等待复审]]。
 当前[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 稳定版本][{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 检查]于$2。',
-	'revreview-newest-quality' => '该版本中有[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3个{{PLURAL:$3|更改|更改}}]{{PLURAL:$3|正在|正在}}[[{{MediaWiki:Validationpage}}|等待复审]]。
+	'revreview-newest-quality' => '该版本中有[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3个{{PLURAL:$3|更改}}]{{PLURAL:$3|正在}}[[{{MediaWiki:Validationpage}}|等待复审]]。
 当前[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 稳定版本][{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 通过]于$2。',
 	'revreview-newest-quality-i' => '该版本中有[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 对模板或文件的更改]正在[[{{MediaWiki:Validationpage}}|等待复审]]。
 当前[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 稳定版本][{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 通过]于$2。',
-	'revreview-pending-basic' => '当前[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 稳定版本][{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 检查]于$2。还{{PLURAL:$3|有|有}}[{{fullurl:{{FULLPAGENAMEE}}|oldid =$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3个待复审的{{PLURAL:$|更改|更改}}]正在等待复审。',
-	'revreview-pending-quality' => '当前[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 稳定版本][{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 通过]于$2。还{{PLURAL:$3|有|有}}[{{fullurl:{{FULLPAGENAMEE}}|oldid =$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3个待复审的{{PLURAL:$|更改|更改}}]正在等待复审。',
+	'revreview-pending-basic' => '当前[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 稳定版本][{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 检查]于$2。还{{PLURAL:$3|有}}[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3个待复审的{{PLURAL:$3|更改}}]正在等待复审。',
+	'revreview-pending-quality' => '当前[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 稳定版本][{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 通过]于$2。还{{PLURAL:$3|有}}[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3个待复审的{{PLURAL:$3|更改}}]正在等待复审。',
 	'revreview-pending-nosection' => '正在试阅[{{fullurl:{{FULLPAGENAMEE}}|stable=0}} 最新版本]以查看章节是否已被移动或删除。最新版本中含有
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2次待复审的{{PLURAL:$2|更改|更改}}]。',
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2次待复审的{{PLURAL:$2|更改}}]。',
 	'revreview-noflagged' => "当前页面不存在[[{{MediaWiki:Validationpage}}|已复审版本]]，因此它可能'''尚未'''被按照标准加以检查。",
 	'revreview-oldrating' => '曾被评为：',
 	'revreview-quality' => '这是$2时[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 通过的][[{{MediaWiki:Validationpage}}|稳定版本]]。
-还有[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3个{{PLURAL:$3|更改|更改}}]正在{{PLURAL:$3|等待|等待}}复审。',
+还有[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3个{{PLURAL:$3|更改}}]正在{{PLURAL:$3|等待}}复审。',
 	'revreview-quality-i' => '这是$2时[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 通过的][[{{MediaWiki:Validationpage}}|稳定版本]]。
 还有[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 对模板或文件的更改]正在等待复审。',
 	'revreview-quality-old' => '这是$2时[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 通过的][[{{MediaWiki:Validationpage}}|优质]]版本（[{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} 查看所有版本]）。
