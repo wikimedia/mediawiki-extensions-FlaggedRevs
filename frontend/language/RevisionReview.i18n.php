@@ -215,11 +215,13 @@ Shown on the form to review pages.',
 	'revreview-submit-unreviewed' => '{{Flagged Revs}}
 Shown on the form to review pages.',
 	'revreview-successful' => '{{Flagged Revs-small}}
-Shown when a reviewer/editor has marked a revision as stable/checked/... See also {{msg-mw|revreview-successful2}}.
+Shown when a reviewer/editor has marked a revision as stable/checked/...
 
 Parameters:
-* $1 The page name
-* $2 The page name (url escaped)',
+* $1 - the page name
+* $2 - the page name (URL escaped)
+See also:
+* {{msg-mw|Revreview-successful2}}',
 	'revreview-successful2' => '{{Flagged Revs-small}}
 Shown when a reviewer/editor has marked a stable/checked/... revision as unstable/unchecked/...
 

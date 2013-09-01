@@ -497,27 +497,44 @@ Possible value of the 'accuracy' tag for a revision. All accepted revisions must
 {{Identical|Automatic}}',
 	'revreview-basic' => '{{Flagged Revs}}
 Shown when viewing the stable version of a "checked" page when there are pending revisions.
-* $2 is the date of the approval
-* $3 is the number of pending edits (revisions)',
-	'revreview-basic-i' => '{{Flagged Revs}}
-Shown when viewing the stable version of a "checked" page when only templates or files used in it have pending revisions.
-* Parameter $2 is the date of the approval',
-	'revreview-basic-old' => '{{Flagged Revs}}
-Shown when viewing an old "checked" version of a page.
-* Parameter $2 is the date of the approval',
-	'revreview-basic-same' => '{{Flagged Revs}}
-Shown when viewing the stable version of a "checked" page when there are no pending changes.
 
 Parameters:
 * $1 - stable revision ID
 * $2 - the date of the approval
-* $3 - number of pending revisions
+* $3 - the number of pending edits (revisions)
+{{Related|Revreview}}',
+	'revreview-basic-i' => '{{Flagged Revs}}
+Shown when viewing the stable version of a "checked" page when only templates or files used in it have pending revisions.
+
+Parameters:
+* $1 - stable revision ID
+* $2 - the date of the approval
+* $3 - (Unused) the number of pending edits (revisions)
+{{Related|Revreview}}',
+	'revreview-basic-old' => '{{Flagged Revs}}
+Shown when viewing an old "checked" version of a page.
+
+Parameters:
+* $1 - stable revision ID
+* $2 - date the stable version was accepted
 See also:
-* {{msg-mw|Revreview-quality-same}}',
+* {{msg-mw|Revreview-quality-old}}',
+	'revreview-basic-same' => '{{Flagged Revs}}
+Shown when viewing the stable version of a "checked" page when there are no pending changes.
+
+Parameters:
+* $1 - (Unused) stable revision ID
+* $2 - the date of the approval
+* $3 - (Unused) the number of pending edits (revisions)
+{{Related|Revreview}}',
 	'revreview-basic-source' => '{{Flagged Revs-small}}
 Displayed on the top of a page when you are viewing an old checked revision. The link goes to the reviewed *version* of this revision (e.g. templates/files are stabilized).
 * Example: [http://de.wikipedia.org/w/index.php?title=Deutsche_Sprache&oldid=46894374 de.wikipedia].
-* Parameter $2 is the date of the approval',
+Parameters:
+* $1 - stable revision ID
+* $2 - date the stable version was accepted
+See also:
+* {{msg-mw|Revreview-quality-source}}',
 	'revreview-current' => '{{Flagged Revs}}
 Used for the name of the tab on a page to view the latest version when there are pending changes.
 
@@ -573,20 +590,36 @@ Parameters:
 * $2 - section',
 	'revreview-newest-basic' => '{{Flagged Revs}}
 Shown when viewing a the latest version of a "checked" page with pending changes.
-* $2 Date of review
-* $3 Number of pending revisions',
+
+Parameters:
+* $1 - stable revision ID
+* $2 - the date of the approval
+* $3 - the number of pending edits (revisions)
+{{Related|Revreview-newest}}',
 	'revreview-newest-basic-i' => '{{Flagged Revs}}
 Shown when viewing the latest version of a "checked" page with only template or file changes pending review.
-* $1 Number, stable version ID
-* $2 The time the stable version was reviewed',
+
+Parameters:
+* $1 - stable revision ID
+* $2 - the date of the approval
+* $3 - (Unused) the number of pending edits (revisions)
+{{Related|Revreview-newest}}',
 	'revreview-newest-quality' => '{{Flagged Revs}}
 Shown when viewing the latest version of a "quality" page when there are pending revisions.
-* $2 Date of stable version review
-* $3 The number of pending revisions',
+
+Parameters:
+* $1 - stable revision ID
+* $2 - the date of the approval
+* $3 - the number of pending edits (revisions)
+{{Related|Revreview-newest}}',
 	'revreview-newest-quality-i' => '{{Flagged Revs}}
 Shown when viewing the latest version of a "quality" page when only template or file changes are pending review.
-* $1 Stable version ID number
-* $2 Date of stable version review',
+
+Parameters:
+* $1 - stable revision ID
+* $2 - the date of the approval
+* $3 - (Unused) the number of pending edits (revisions)
+{{Related|Revreview-newest}}',
 	'revreview-pending-basic' => '{{Flagged Revs}}
 Shown on page histories for "checked" pages with pending changes.
 * $1 Stable version ID
@@ -608,30 +641,42 @@ Shown above a page, when there are no accepted revisions of that page.',
 Used in the detailed version as label text for the ratings, see [[:File:FlaggedRevs.jpg|this image]] for an example.',
 	'revreview-quality' => '{{Flagged Revs}}
 Shown when viewing a "quality" page with pending changes.
-* $1 The stable version ID
-* $2 The date the stable version was accepted
-* $3 The number of pending revisions',
+
+Parameters:
+* $1 - stable revision ID
+* $2 - date the stable version was accepted
+* $3 - number of pending revisions
+{{Related|Revreview}}',
 	'revreview-quality-i' => '{{Flagged Revs}}
 Shown when viewing a "quality" page were only template or files changes are pending.
-* $1 The stable version ID
-* $2 The date the stable version was accepted',
+
+Parameters:
+* $1 - stable revision ID
+* $2 - date the stable version was accepted
+* $3 - (Unused) number of pending revisions
+{{Related|Revreview}}',
 	'revreview-quality-old' => '{{Flagged Revs}}
 Shown when viewing an old "quality" version of a page.
 
 Parameters:
-* $1 - revision ID
-* $2 - the date of the approval',
+* $1 - stable revision ID
+* $2 - date the stable version was accepted
+See also:
+* {{msg-mw|Revreview-basic-old}}',
 	'revreview-quality-same' => '{{Flagged Revs}}
 Parameters:
-* $1 - stable revision ID
-* $2 - the date of the approval
-* $3 - number of pending revisions
-See also:
-* {{msg-mw|Revreview-basic-same}}',
+* $1 - (Unused) stable revision ID
+* $2 - date the stable version was accepted
+* $3 - (Unused) number of pending revisions
+{{Related|Revreview}}',
 	'revreview-quality-source' => "{{Flagged Revs-small}}
 Displayed on the top of a page when you are viewing an old quality revision. The link goes to the reviewed *version* of this revision (e.g. templates/files are stabilized).
 * Example: [http://de.wikipedia.org/w/index.php?title=Deutsche_Sprache&oldid=46894374 de.wikipedia] (this is a checked version, but it's the same for a quality version).
-* Parameter $2 is the date of the approval",
+Parameters:
+* $1 - stable revision ID
+* $2 - date the stable version was accepted
+See also:
+* {{msg-mw|Revreview-basic-source}}",
 	'revreview-quality-title' => '{{Flagged Revs}}
 Shown as the attribute title to the checkmark icon on the "flagged revs box" shown on "quality" pages.',
 	'revreview-quick-basic' => '{{Flagged Revs}}
@@ -3783,7 +3828,7 @@ $messages['de'] = array(
 	'reviewer' => 'Prüfer',
 	'revreview-accuracy' => 'Status',
 	'revreview-accuracy-0' => 'unzureichend',
-	'revreview-accuracy-1' => 'gesichtet',
+	'revreview-accuracy-1' => 'gesichtet', # Fuzzy
 	'revreview-accuracy-2' => 'geprüft',
 	'revreview-accuracy-3' => 'Quellen geprüft',
 	'revreview-accuracy-4' => 'exzellent',
@@ -8372,7 +8417,7 @@ $messages['ja'] = array(
 	'reviewer' => '査読者',
 	'revreview-accuracy' => '内容の正確さ',
 	'revreview-accuracy-0' => '不十分',
-	'revreview-accuracy-1' => '一覧済み',
+	'revreview-accuracy-1' => '一覧済み', # Fuzzy
 	'revreview-accuracy-2' => '的確',
 	'revreview-accuracy-3' => '検証性充分',
 	'revreview-accuracy-4' => '秀逸',
@@ -17203,7 +17248,7 @@ $messages['zh-hans'] = array(
 	'reviewer' => '复审员',
 	'revreview-accuracy' => '准确度',
 	'revreview-accuracy-0' => '不足',
-	'revreview-accuracy-1' => '已阅',
+	'revreview-accuracy-1' => '已阅', # Fuzzy
 	'revreview-accuracy-2' => '准确',
 	'revreview-accuracy-3' => '来源充足',
 	'revreview-accuracy-4' => '精湛',
