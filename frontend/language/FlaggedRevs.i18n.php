@@ -81,7 +81,7 @@ $messages['en'] = array(
 	'reviewer'                     => 'Reviewer',
 	'revreview-accuracy'           => 'Accuracy',
 	'revreview-accuracy-0'         => 'Inadequate',
-	'revreview-accuracy-1'         => 'Sighted',
+	'revreview-accuracy-1'         => 'Spot checked',
 	'revreview-accuracy-2'         => 'Accurate',
 	'revreview-accuracy-3'         => 'Well sourced',
 	'revreview-accuracy-4'         => 'Featured',
@@ -481,7 +481,10 @@ Also used in the box shown on page view, that gives information about the accept
 	'revreview-accuracy-0' => '{{Flagged Revs-small}}
 Possible value of the \'accuracy\' tag for a revision. All accepted revisions must have ratings for each tag type.
 The value name of any review tag indicating that the revision fails to meet basic standards for that tag type. For example, "accuracy" can be "inadequate".',
-	'revreview-accuracy-1' => "{{Flagged Revs-small}}
+	'revreview-accuracy-1' => "The revision was 'seen', 'looked at', and didn't contain anything obvious to reject; previously called 'sighted'.
+Can also be translated as 'okay', 'ready', 'acceptable', 'accepted'; cf. [[w:imprimatur]].
+
+{{Flagged Revs-small}}
 Possible value of the 'accuracy' tag for a revision. All accepted revisions must have ratings for each tag type.",
 	'revreview-accuracy-2' => "{{Flagged Revs}}
 Possible value of the 'accuracy' tag for a revision. All accepted revisions must have ratings for each tag type.",
