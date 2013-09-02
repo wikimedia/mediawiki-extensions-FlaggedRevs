@@ -3828,7 +3828,7 @@ $messages['de'] = array(
 	'reviewer' => 'Prüfer',
 	'revreview-accuracy' => 'Status',
 	'revreview-accuracy-0' => 'unzureichend',
-	'revreview-accuracy-1' => 'gesichtet', # Fuzzy
+	'revreview-accuracy-1' => 'Überprüft',
 	'revreview-accuracy-2' => 'geprüft',
 	'revreview-accuracy-3' => 'Quellen geprüft',
 	'revreview-accuracy-4' => 'exzellent',
@@ -6172,7 +6172,7 @@ $messages['gl'] = array(
 	'reviewer' => 'Revisor',
 	'revreview-accuracy' => 'Exactitude',
 	'revreview-accuracy-0' => 'Inadecuado',
-	'revreview-accuracy-1' => 'Revisado',
+	'revreview-accuracy-1' => 'Revisado', # Fuzzy
 	'revreview-accuracy-2' => 'Exacto',
 	'revreview-accuracy-3' => 'Ben documentado',
 	'revreview-accuracy-4' => 'Destacado',
@@ -6297,7 +6297,7 @@ Por favor verifique o URL que utilizou para acceder a esta páxina.',
 	'revreview-locked' => "'''Nota:''' As edicións deben ser [[{{MediaWiki:Validationpage}}|revisadas]] antes de se mostraren aos lectores nesta páxina.",
 	'revreview-unlocked' => "'''Nota:''' As edicións non necesitan [[{{MediaWiki:Validationpage}}|revisión]] antes de se mostraren aos lectores nesta páxina.",
 	'log-show-hide-review' => '$1 o rexistro de revisións',
-	'validationpage' => '{{ns:help}}:Validación da páxina',
+	'validationpage' => '{{ns:help}}:Validación das páxinas',
 );
 
 /** Ancient Greek (Ἀρχαία ἑλληνικὴ)
@@ -14843,7 +14843,7 @@ $messages['sv'] = array(
 	'reviewer' => 'Granskare',
 	'revreview-accuracy' => 'Riktighet',
 	'revreview-accuracy-0' => 'Otillräcklig',
-	'revreview-accuracy-1' => 'Synad',
+	'revreview-accuracy-1' => 'Synad', # Fuzzy
 	'revreview-accuracy-2' => 'Riktig',
 	'revreview-accuracy-3' => 'Bra källbelagd',
 	'revreview-accuracy-4' => 'Utmärkt',
@@ -14879,8 +14879,10 @@ Det finns [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-
 	'revreview-newest-basic-i' => 'Det finns [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Template/file ändringar] i denna version som [[{{MediaWiki:Validationpage}}|väntar på granskning]].
 
 Den [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} stabila versionen] blev [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} kontrollerad] den <i>$2</i>.',
-	'revreview-newest-quality' => 'Den [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} accepterade versionen]  blev [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} godkänd] den <i>$2</i>. Det finns [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|ändring|ändringar}}] som väntar på granskning.', # Fuzzy
-	'revreview-newest-quality-i' => 'Den [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} accepterade versionen] blev [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} godkänd] den <i>$2</i>. Det finns [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} mall-/filändringar] som väntar på granskning.', # Fuzzy
+	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|ändring|ändringar}}] i denna version [[{{MediaWiki:Validationpage}}|väntar på granskning]].
+Den [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} stabila versionen] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} godkändes] den <i>$2</i>.',
+	'revreview-newest-quality-i' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Template/file ändringar] i denna version [[{{MediaWiki:Validationpage}}|väntar på granskning]].
+Den [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} stabila versionen] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} godkändes] den <i>$2</i>.',
 	'revreview-pending-basic' => 'Den [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} accepterade versionen] blev [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} granskad] den <i>$2</i>. Det finnns [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|ändring|ändringar}}] som väntar på granskning.',
 	'revreview-pending-quality' => 'Den [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} accepterade versionen] blev [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} godkänd] den <i>$2</i>. Det finns [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|ändring|ändringar}}] som väntar på granskning.',
 	'revreview-pending-nosection' => 'Prova att titta på [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} senaste versionen], som innehåller
