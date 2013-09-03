@@ -10332,7 +10332,7 @@ $messages['mk'] = array(
 	'reviewer' => 'Прегледувач',
 	'revreview-accuracy' => 'Точност',
 	'revreview-accuracy-0' => 'Несоодветна',
-	'revreview-accuracy-1' => 'Прегледана',
+	'revreview-accuracy-1' => 'Проверена',
 	'revreview-accuracy-2' => 'Добра',
 	'revreview-accuracy-3' => 'Добро поткрепена со наводи',
 	'revreview-accuracy-4' => 'Одлична',
@@ -16058,6 +16058,7 @@ $messages['ug-arab'] = array(
 /** Ukrainian (українська)
  * @author AS
  * @author Ahonc
+ * @author Andriykopanytsia
  * @author Andygol
  * @author Base
  * @author Dim Grits
@@ -16128,7 +16129,7 @@ $messages['uk'] = array(
 	'reviewer' => 'рецензент',
 	'revreview-accuracy' => 'Точність',
 	'revreview-accuracy-0' => 'Незазначена',
-	'revreview-accuracy-1' => 'переглянута',
+	'revreview-accuracy-1' => 'Місце перевірено',
 	'revreview-accuracy-2' => 'точна',
 	'revreview-accuracy-3' => 'з джерелами',
 	'revreview-accuracy-4' => 'вибрана',
