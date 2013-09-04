@@ -150,15 +150,14 @@ Used on Special:Stabilization. Generic permission error.
 {{Identical|Permission denied}}',
 	'stabilize_protect_quota' => '{{Flagged Revs}}
 {{notranslate}}',
-	'stabilize-expiring' => "{{Flagged Revs}}
-Used on Special:Stabilization.
+	'stabilize-expiring' => '{{Flagged Revs}}
+Used to indicate when something expires, in [[Special:Stabilization]].
 
-Used to indicate when something expires.
-$1 is a time stamp in the wiki's content language.
-$2 is the corresponding date in the wiki's content language.
-$3 is the corresponding time in the wiki's content language.
-
-{{Identical|Expires $1 (UTC)}}",
+Parameters:
+* $1 - a timestamp (time and date), localized
+* $2 - (Optional) the corresponding date
+* $3 - (Optional) the corresponding time
+{{Identical|Expires $1 (UTC)}}',
 	'stabilization-review' => '{{Flagged Revs}}
 Used on Special:Stabilization.
 This refers to an option that reviews the current revision of the page when the user changes the FlaggedRevs settings for the page.',

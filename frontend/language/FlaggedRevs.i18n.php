@@ -439,9 +439,11 @@ Used as the name of a toggle to collapse the stability log (see Special:Log/stab
 	'revreview-log-toggle-title' => '{{Flagged Revs}}
 Used as the title attribute of a toggle to collapse or uncollapse the stability log (see Special:Log/stable)',
 	'revreview-log-details-show' => '{{Flagged Revs}}
-Used as the name of a toggle to uncollapse the stability log (see Special:Log/stable). Shown on edit form for pages that show the stable version by default *but* only for wikis were normally the latest revision is shown by default.',
+Used as the name of a toggle to uncollapse the stability log (see Special:Log/stable). Shown on edit form for pages that show the stable version by default *but* only for wikis were normally the latest revision is shown by default.
+{{Identical|Show details}}',
 	'revreview-log-details-hide' => '{{Flagged Revs}}
-Used as the name of a toggle to collapse or collapse the stability log (see Special:Log/stable). Shown on edit form for pages that show the stable version by default *but* only for wikis were normally the latest revision is shown by default.',
+Used as the name of a toggle to collapse or collapse the stability log (see Special:Log/stable). Shown on edit form for pages that show the stable version by default *but* only for wikis were normally the latest revision is shown by default.
+{{Identical|Hide details}}',
 	'revreview-log-details-title' => '{{Flagged Revs}}
 Used as the attribute title of a toggle to collapse or uncollapse the stability log (see Special:Log/stable)',
 	'review-diff2stable' => '{{Flagged Revs}}
