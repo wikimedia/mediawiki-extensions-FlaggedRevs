@@ -414,7 +414,7 @@ $messages['gl'] = array(
 	'stablepages' => 'Páxinas que usan a aprobación de edicións',
 	'stablepages-list' => 'A continuación está a lista coas páxinas restrinxidas de xeito que só certos usuarios poidan realizar edicións que non necesiten revisión.
 As edicións feitas por outros usuarios non se mostran aos lectores por defecto ata que un usuario autorizado as revise.',
-	'stablepages-none' => 'Non hai páxinas nesta lista',
+	'stablepages-none' => 'Non hai páxinas nesta lista.',
 	'stablepages-config' => 'Configuración',
 	'stablepages-indef' => 'Caducidade indefinida só',
 );

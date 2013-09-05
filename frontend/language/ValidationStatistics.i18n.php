@@ -82,9 +82,9 @@ Shown on the page [[Special:ValidationStatistics]].
 Table header for pages that have pending changes (edits newer than the stable version).
 {{Identical|Outdated}}',
 	'validationstatistics-utable' => '{{Flagged Revs}}
-Shown on the page [[Special:ValidationStatistics]].
-$1 Number of users in the "top active reviewers" list.
-$2 Number of hours of reviews the list is based on. The list includes items from $2 hours ago up to the present.',
+Shown on the page [[Special:ValidationStatistics]]. Parameters:
+* $1 - number of users in the "top active reviewers" list
+* $2 - number of hours of reviews the list is based on. The list includes items from $2 hours ago up to the present.',
 	'validationstatistics-user' => '{{Flagged Revs}}
 Shown on [[Special:ValidationStatistics]].
 Used as the "user" table column header for the "users who made the most reviews recently" table.
