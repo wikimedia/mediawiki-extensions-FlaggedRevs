@@ -624,18 +624,24 @@ Parameters:
 {{Related|Revreview-newest}}',
 	'revreview-pending-basic' => '{{Flagged Revs}}
 Shown on page histories for "checked" pages with pending changes.
-* $1 Stable version ID
-* $2 Date the stable version was accepted
-* $3 Number of pending changes',
+
+Parameters:
+* $1 - stable revision ID
+* $2 - date the stable version was accepted
+* $3 - number of pending changes',
 	'revreview-pending-quality' => '{{Flagged Revs}}
 Shown on page histories for "quality" pages with pending changes.
-* $1 Stable version ID
-* $2 Date the stable version was accepted
-* $3 Number of pending changes',
+
+Parameters:
+* $1 - stable revision ID
+* $2 - date the stable version was accepted
+* $3 - number of pending changes',
 	'revreview-pending-nosection' => '{{Flagged Revs}}
 Shown below the error message a user gets when trying to edit a non-existent page section.
-* $1 The stable version ID
-* $2 The number of pending revisions
+
+Parameters:
+* $1 - the stable revision ID
+* $2 - the number of pending revisions
 "<code><nowiki>{{MediaWiki:flaggedrevs-diffonly}}</nowiki></code>" will be part of the URL.',
 	'revreview-noflagged' => '{{Flagged Revs-small}}
 Shown above a page, when there are no accepted revisions of that page.',
