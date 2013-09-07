@@ -708,6 +708,7 @@ $messages['nn'] = array(
  */
 $messages['oc'] = array(
 	'problemchanges' => 'Modificacions balisadas en espèra',
+	'problemchanges-list' => "Aquesta pagina fa la lista de las [[{{MediaWiki:Validationpage}}|paginas en revision]] qu'an un o mantuna modificacion en espèra d'una revision. Una lista de las [[Special:Tags|balisas autorizadas]] es disponibla.",
 	'problemchanges-legend' => 'Listar las paginas amb de modificacions balisadas en espèra de relectura',
 	'problemchanges-none' => 'Pel moment, i a pas cap de pagina que satisfasca aqueles critèris',
 	'problemchanges-category' => 'Categoria :',

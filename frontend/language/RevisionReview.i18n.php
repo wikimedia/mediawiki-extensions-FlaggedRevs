@@ -247,26 +247,45 @@ Parameters:
 * $2 is a date
 * $3 is a time',
 	'revreview-adv-reviewing-p' => '{{Flagged Revs}}
-Shown on the form to review pages. Indicates that other reviewers will get a notice that this user is already reviewing this revision of the page. Not shown on diffs. This message is followed by {{msg-mw|revreview-adv-stop-link}} as link in parenthesis. Parameters:
-* $1 is the gender for the gender magic word.',
+Shown on the form to review pages. Indicates that other reviewers will get a notice that this user is already reviewing this revision of the page. Not shown on diffs.
+
+Followed by {{msg-mw|revreview-adv-stop-link}} as link in parenthesis.
+
+Parameters:
+* $1 - the gender for the gender magic word
+See also:
+* {{msg-mw|Revreview-adv-reviewing-c}}',
 	'revreview-adv-reviewing-c' => '{{Flagged Revs}}
 Shown on the form to review pages. Indicates that other reviewers will get a notice that this user is already reviewing this revision of the page. Shown on diffs.
 
-This message is followed by {{msg-mw|revreview-adv-stop-link}} as link in parenthesis.
+This message is followed by {{msg-mw|Revreview-adv-stop-link}} as link in parenthesis.
 
-$1 is the gender for the gender magic word.',
+Parameters:
+* $1 - the gender for the gender magic word
+See also:
+* {{msg-mw|Revreview-adv-reviewing-p}}',
 	'revreview-sadv-reviewing-p' => '{{Flagged Revs}}
-Shown on the form to review pages. Not shown on diffs.
-$1 is {{msg-mw|revreview-adv-start-link}} as a link. It displays as "advertise".',
+Shown on the form to review pages. Not shown on diffs. Parameters:
+* $1 - {{msg-mw|revreview-adv-start-link}} as a link. It displays as "advertise".
+See also:
+* {{msg-mw|Revreview-sadv-reviewing-c}}',
 	'revreview-sadv-reviewing-c' => '{{Flagged Revs}}
-Shown on the form to review pages on diffs.
-$1 is {{msg-mw|revreview-adv-start-link}} as a link. It displays as "advertise".',
+Shown on the form to review pages on diffs. Parameters:
+* $1 - {{msg-mw|Revreview-adv-start-link}} as a link. It displays as "advertise".
+See also:
+* {{msg-mw|Revreview-sadv-reviewing-p}}',
 	'revreview-adv-start-link' => '{{Flagged Revs}}
 Shown on the form to review pages. This is the text of a link.
-Used as parameter in {{msg-mw|Revreview-sadv-reviewing-c}} or {{msg-mw|Revreview-sadv-reviewing-p}}',
+
+Used as <code>$1</code> in the following messages:
+* {{msg-mw|Revreview-sadv-reviewing-c}}
+* {{msg-mw|Revreview-sadv-reviewing-p}}',
 	'revreview-adv-stop-link' => '{{Flagged Revs}}
 Shown on the form to review pages. This is the text of a link, which is enclosed in parenthesis itself.
-It stands behind {{msg-mw|Revreview-adv-reviewing-c}} or {{msg-mw|Revreview-adv-reviewing-p}}.',
+
+Preceded by one of the following:
+* {{msg-mw|Revreview-adv-reviewing-c}}
+* {{msg-mw|Revreview-adv-reviewing-p}}',
 	'revreview-toolow' => '{{Flagged Revs-small}}
 A kind of error shown when trying to review a revision with some settings on "unapproved".',
 	'revreview-update' => '{{Flagged Revs}}
