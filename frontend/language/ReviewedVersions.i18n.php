@@ -34,11 +34,21 @@ Used on Special:ReviewedVersions.
 {{Identical|Page name}}',
 	'reviewedversions-none' => '{{Flagged Revs}}
 Message is displayed on Special:ReviewedVersions for pages that has no reviewed revisions.
-* $1 The page name.',
+
+Parameters:
+* $1 - the page title
+See also:
+* {{msg-mw|Reviewedversions-list}}',
 	'reviewedversions-list' => '{{Flagged Revs}}
-Used on Special:ReviewedVersions.
-Parameter $1 is a page title,
-Parameter $2 is the count of revisions following, to be used with PLURAL.',
+Used on [[Special:ReviewedVersions]].
+
+Followed by a list.
+
+Parameters:
+* $1 - a page title
+* $2 - the count of revisions following, can be used with PLURAL
+See also:
+* {{msg-mw|Reviewedversions-none}}',
 	'reviewedversions-review' => '{{Flagged Revs}}
 This message is used in the list of reviewed versions of a page (Special:ReviewedVersions) to specify who has reviewed each version.
 * $1 is the date and time of the review

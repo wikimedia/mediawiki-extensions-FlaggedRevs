@@ -974,7 +974,9 @@ See also:
 	'accesskey-ca-stable' => '{{FlaggedRevs}}
 {{doc-accesskey}}',
 	'log-show-hide-review' => '{{Flagged Revs}}
-* $1 is one of {{msg-mw|show}} or {{msg-mw|hide}}',
+Parameters:
+* $1 - one of {{msg-mw|Show}} or {{msg-mw|Hide}}
+{{Related|Log-show-hide}}',
 	'validationpage' => "{{Flagged Revs-small}}
 Link to the general help page. Do ''not'' translate the <tt><nowiki>{{ns:help}}:</nowiki></tt> part, including the colon.",
 );
@@ -9316,7 +9318,7 @@ $messages['ko'] = array(
 	'reviewer' => '평론가',
 	'revreview-accuracy' => '정확성',
 	'revreview-accuracy-0' => '부적절',
-	'revreview-accuracy-1' => '확인함',
+	'revreview-accuracy-1' => '지점 확인함',
 	'revreview-accuracy-2' => '정확함',
 	'revreview-accuracy-3' => '출처가 잘 제시됨',
 	'revreview-accuracy-4' => '알참',
