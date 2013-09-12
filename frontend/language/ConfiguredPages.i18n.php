@@ -364,10 +364,10 @@ $messages['fa'] = array(
 $messages['fi'] = array(
 	'configuredpages' => 'Sivut, joilla on oletusarvoista poikkeavia arviointiasetuksia',
 	'configuredpages-list' => 'Alla on luettelo sivuista, joilla on oletusasetuksista poikkeavat arvioinnin hyväksymisasetukset.
-Jotkut asetukset saattavat vaikuttaa siihen, mikä versio näytetään lukijoille tai rajoittaa sitä, kuka voi tehdä sellaisia muokkauksia, jotka eivät vaadi arviointia.',
+Jotkut asetukset saattavat vaikuttaa siihen, mikä versio näytetään lukijoille, tai rajoittaa sitä, kuka voi tehdä sellaisia muokkauksia, jotka eivät vaadi arviointia.',
 	'configuredpages-none' => 'Tällä listalla ei ole sivuja.',
 	'configuredpages-config' => 'Asetukset',
-	'configuredpages-def-draft' => 'viimeisin versio',
+	'configuredpages-def-draft' => 'uusin versio',
 	'configuredpages-def-stable' => 'vakaa versio',
 );
 

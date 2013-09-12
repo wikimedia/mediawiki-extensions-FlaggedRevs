@@ -415,9 +415,13 @@ Parameters:
 {{Related|Revreview-hist}}',
 	'revreview-hist-pending-difflink' => '{{Flagged Revs}}
 Shown on history pages for revisions that were made *after* the latest accepted revision.
-* $1 The page name
-* $2 Number, stable revision ID
-* $3 Number, revision ID',
+
+Refers to {{msg-mw|Flaggedrevs-diffonly}}
+
+Parameters:
+* $1 - the page name
+* $2 - number, stable revision ID
+* $3 - number, revision ID',
 	'review-edit-diff' => '{{Flagged Revs}}
 Shown on the edit form on pages with pending changes where the section the user is editing is effected by pending changes (unaccepted edits).',
 	'revreview-diff-toggle-show' => '{{Flagged Revs}}
@@ -473,7 +477,9 @@ The diff is between a revision that had its acceptance revoked and the previous 
 
 Name of review log Special:Log/review',
 	'review-logpagetext' => '{{Flagged Revs}}
-Explanation text at Special:Log/review.
+Explanation text at [[Special:Log/review]].
+
+Refers to {{msg-mw|Validationpage}}.
 {{Identical|Content page}}',
 	'reviewer' => '{{Flagged Revs}}
 {{Identical|Reviewer}}',
@@ -500,6 +506,8 @@ Possible value of the 'accuracy' tag for a revision. All accepted revisions must
 	'revreview-basic' => '{{Flagged Revs}}
 Shown when viewing the stable version of a "checked" page when there are pending revisions.
 
+Refers to {{msg-mw|Validationpage}} and {{msg-mw|Flaggedrevs-diffonly}}.
+
 Parameters:
 * $1 - stable revision ID
 * $2 - the date of the approval
@@ -507,6 +515,8 @@ Parameters:
 {{Related|Revreview}}',
 	'revreview-basic-i' => '{{Flagged Revs}}
 Shown when viewing the stable version of a "checked" page when only templates or files used in it have pending revisions.
+
+Refers to {{msg-mw|Validationpage}} and {{msg-mw|Flaggedrevs-diffonly}}.
 
 Parameters:
 * $1 - stable revision ID
@@ -516,6 +526,8 @@ Parameters:
 	'revreview-basic-old' => '{{Flagged Revs}}
 Shown when viewing an old "checked" version of a page.
 
+Refers to {{msg-mw|Validationpage}} and {{msg-mw|Flaggedrevs-diffonly}}.
+
 Parameters:
 * $1 - stable revision ID
 * $2 - date the stable version was accepted
@@ -523,6 +535,8 @@ See also:
 * {{msg-mw|Revreview-quality-old}}',
 	'revreview-basic-same' => '{{Flagged Revs}}
 Shown when viewing the stable version of a "checked" page when there are no pending changes.
+
+Refers to {{msg-mw|Validationpage}}.
 
 Parameters:
 * $1 - (Unused) stable revision ID
@@ -566,6 +580,8 @@ Users who see the stable version and not the draft version as page, have this me
 {{Identical|Edit}}',
 	'revreview-editnotice' => '{{Flagged Revs}}
 Shown on the edit form to users who lack review and automatic review rights.
+
+Refers to {{msg-mw|Validationpage}}.
 {{Identical|Authorised user}}',
 	'revreview-submitedit' => '{{Flagged Revs}}
 Shows as the "save page" button on pages with a stable version where the user lacks review and automatic review rights.',
@@ -575,12 +591,11 @@ Attribute title for the "save page" button for pages with a stable version where
 	'revreview-edited' => '{{Flagged Revs-small}}
 If an anonymous user edits a stable page, after saving the page he sees the draft version (<tt>stable=0</tt> in page title) he has made.
 
+Refers to {{msg-mw|Validationpage}} and {{msg-mw|Flaggedrevs-diffonly}}.
+
 Parameters:
 * $1 - revision ID
 * $2 - number of pending revisions
-See also:
-* {{msg-mw|Validationpage}}
-* {{msg-mw|Flaggedrevs-diffonly}}
 {{Identical|Authorised user}}',
 	'revreview-edited-section' => '{{Flagged Revs}}
 Shown in a box at the top of the page after a user (without any review rights) makes an edit that is now pending review.
@@ -593,6 +608,8 @@ Parameters:
 	'revreview-newest-basic' => '{{Flagged Revs}}
 Shown when viewing a the latest version of a "checked" page with pending changes.
 
+Refers to {{msg-mw|Flaggedrevs-diffonly}} and {{msg-mw|Validationpage}}.
+
 Parameters:
 * $1 - stable revision ID
 * $2 - the date of the approval
@@ -600,6 +617,8 @@ Parameters:
 {{Related|Revreview-newest}}',
 	'revreview-newest-basic-i' => '{{Flagged Revs}}
 Shown when viewing the latest version of a "checked" page with only template or file changes pending review.
+
+Refers to {{msg-mw|Flaggedrevs-diffonly}} and {{msg-mw|Validationpage}}.
 
 Parameters:
 * $1 - stable revision ID
@@ -609,6 +628,8 @@ Parameters:
 	'revreview-newest-quality' => '{{Flagged Revs}}
 Shown when viewing the latest version of a "quality" page when there are pending revisions.
 
+Refers to {{msg-mw|Flaggedrevs-diffonly}} and {{msg-mw|Validationpage}}.
+
 Parameters:
 * $1 - stable revision ID
 * $2 - the date of the approval
@@ -616,6 +637,8 @@ Parameters:
 {{Related|Revreview-newest}}',
 	'revreview-newest-quality-i' => '{{Flagged Revs}}
 Shown when viewing the latest version of a "quality" page when only template or file changes are pending review.
+
+Refers to {{msg-mw|Flaggedrevs-diffonly}} and {{msg-mw|Validationpage}}.
 
 Parameters:
 * $1 - stable revision ID
@@ -625,12 +648,16 @@ Parameters:
 	'revreview-pending-basic' => '{{Flagged Revs}}
 Shown on page histories for "checked" pages with pending changes.
 
+Refers to {{msg-mw|Flaggedrevs-diffonly}}.
+
 Parameters:
 * $1 - stable revision ID
 * $2 - date the stable version was accepted
 * $3 - number of pending changes',
 	'revreview-pending-quality' => '{{Flagged Revs}}
 Shown on page histories for "quality" pages with pending changes.
+
+Refers to {{msg-mw|Flaggedrevs-diffonly}}.
 
 Parameters:
 * $1 - stable revision ID
@@ -639,16 +666,21 @@ Parameters:
 	'revreview-pending-nosection' => '{{Flagged Revs}}
 Shown below the error message a user gets when trying to edit a non-existent page section.
 
+Refers to {{msg-mw|Flaggedrevs-diffonly}}.
+
 Parameters:
 * $1 - the stable revision ID
-* $2 - the number of pending revisions
-"<code><nowiki>{{MediaWiki:flaggedrevs-diffonly}}</nowiki></code>" will be part of the URL.',
+* $2 - the number of pending revisions',
 	'revreview-noflagged' => '{{Flagged Revs-small}}
-Shown above a page, when there are no accepted revisions of that page.',
+Shown above a page, when there are no accepted revisions of that page.
+
+Refers to {{msg-mw|Validationpage}}.',
 	'revreview-oldrating' => '{{Flagged Revs-small}}
 Used in the detailed version as label text for the ratings, see [[:File:FlaggedRevs.jpg|this image]] for an example.',
 	'revreview-quality' => '{{Flagged Revs}}
 Shown when viewing a "quality" page with pending changes.
+
+Refers to {{msg-mw|Validationpage}} and {{msg-mw|Flaggedrevs-diffonly}}.
 
 Parameters:
 * $1 - stable revision ID
@@ -657,6 +689,8 @@ Parameters:
 {{Related|Revreview}}',
 	'revreview-quality-i' => '{{Flagged Revs}}
 Shown when viewing a "quality" page were only template or files changes are pending.
+
+Refers to {{msg-mw|Validationpage}} and {{msg-mw|Flaggedrevs-diffonly}}.
 
 Parameters:
 * $1 - stable revision ID
@@ -977,8 +1011,9 @@ See also:
 Parameters:
 * $1 - one of {{msg-mw|Show}} or {{msg-mw|Hide}}
 {{Related|Log-show-hide}}',
-	'validationpage' => "{{Flagged Revs-small}}
-Link to the general help page. Do ''not'' translate the <tt><nowiki>{{ns:help}}:</nowiki></tt> part, including the colon.",
+	'validationpage' => '{{Flagged Revs-small}}
+{{doc-important|Do not translate the <code><nowiki>{{ns:help}}:</nowiki></code> part, including the colon.}}
+Link to the general help page.',
 );
 
 /** Afrikaans (Afrikaans)
@@ -5588,7 +5623,7 @@ Uusia [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diff
 	'revreview-draft-title' => 'Arviointia odottavat muutokset näytetään tällä sivulla',
 	'revreview-edit' => 'Muokkaa',
 	'revreview-editnotice' => "'''Muutoksesi näytetään kaikille, kun valtuutettu käyttäjä on hyväksynyt ne. ([[{{MediaWiki:Validationpage}}|ohje]])'''",
-	'revreview-submitedit' => 'Tallenna muutokset',
+	'revreview-submitedit' => 'Lähetä muutokset',
 	'revreview-submitedit-title' => 'Lähetä muokkauksesi arvioitavaksi',
 	'revreview-edited' => "'''Muutoksesi näytetään lukijoille, kun valtuutettu käyttäjä on hyväksynyt ne. ([[{{MediaWiki:Validationpage}}|ohje]])'''
 
@@ -5672,7 +5707,7 @@ Tarkista URL-osoite, jolla hait tätä sivua.',
 	'revreview-lev-pristine' => 'huippuluokkaa',
 	'revreview-defaultfilter' => 'Oletusversio:',
 	'revreview-def-all' => 'mikä tahansa',
-	'revreview-def-draft' => 'viimeisin',
+	'revreview-def-draft' => 'uusin',
 	'revreview-def-stable' => 'vakaa',
 	'revreview-restrictfilter' => 'Automaattisen seulonnan rajoitus:',
 	'revreview-restriction-any' => 'mikä tahansa',

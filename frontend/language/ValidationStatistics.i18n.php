@@ -43,10 +43,14 @@ $3',
 $messages['qqq'] = array(
 	'validationstatistics' => '{{Flagged Revs}}
 Name of the [[Special:ValidationStatistics]] page, which contains review statistics.',
-	'validationstatistics-users' => "{{Flagged Revs}}
+	'validationstatistics-users' => '{{Flagged Revs}}
 Shown on the page [[Special:ValidationStatistics]].
-*$1 Number of users in the Editor group.
-This message is likely customized per wiki as (a) some don't use an 'editor' group or (b) it called something else",
+
+Refers to {{msg-mw|Validationpage}}.
+
+Parameters:
+* $1 - number of users in the Editor group.
+This message is likely customized per wiki as (a) some don\'t use an "editor" group or (b) it called something else',
 	'validationstatistics-lastupdate' => '{{Flagged Revs}}
 Shown on the page [[Special:ValidationStatistics]].
 * $1 = Date
