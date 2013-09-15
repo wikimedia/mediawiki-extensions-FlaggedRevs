@@ -453,12 +453,13 @@ Used as the attribute title of a toggle to collapse or uncollapse the stability 
 	'review-diff2stable' => '{{Flagged Revs}}
 Shown at the top of diff forms (in parenthesis) for pages with pending changes where the diff being viewed is *not* the diff of the stable revision against the latest version.',
 	'review-logentry-app' => '{{Flagged Revs}}
-Shown for review log entries on Special:Log/review.
-Parameters:
-* $1 - a page title',
+Shown for review log entries on Special:Log/review. Parameters:
+* $1 - a page title
+{{Related|Review-logentry}}',
 	'review-logentry-dis' => '{{Flagged Revs}}
 Parameters:
-* $1 is a page title',
+* $1 - a page title
+{{Related|Review-logentry}}',
 	'review-logentry-id' => '{{Flagged Revs}}
 Parameters:
 * $1 - (Unused) revision ID
@@ -589,7 +590,7 @@ Shows as the "save page" button on pages with a stable version where the user la
 {{Gender}}
 Attribute title for the "save page" button for pages with a stable version where the user lacks review and automatic review rights.',
 	'revreview-edited' => '{{Flagged Revs-small}}
-If an anonymous user edits a stable page, after saving the page he sees the draft version (<tt>stable=0</tt> in page title) he has made.
+If an anonymous user edits a stable page, after saving the page he sees the draft version (<code>stable=0</code> in page title) he has made.
 
 Refers to {{msg-mw|Validationpage}} and {{msg-mw|Flaggedrevs-diffonly}}.
 
@@ -700,12 +701,16 @@ Parameters:
 	'revreview-quality-old' => '{{Flagged Revs}}
 Shown when viewing an old "quality" version of a page.
 
+Refers to {{msg-mw|Validationpage}} and {{msg-mw|Flaggedrevs-diffonly}}.
+
 Parameters:
 * $1 - stable revision ID
 * $2 - date the stable version was accepted
 See also:
 * {{msg-mw|Revreview-basic-old}}',
 	'revreview-quality-same' => '{{Flagged Revs}}
+Refers to {{msg-mw|Validationpage}}.
+
 Parameters:
 * $1 - (Unused) stable revision ID
 * $2 - date the stable version was accepted
@@ -733,6 +738,8 @@ See also:
 {{Related|Revreview-quick}}',
 	'revreview-quick-basic-old' => '{{Flagged Revs}}
 Used in "flagged revs box" when viewing an old "checked" version of a page.
+
+Refers to {{msg-mw|Validationpage}}.
 {{Identical|Checked}}',
 	'revreview-quick-basic-same' => '{{Flagged Revs}}
 Used in "flagged revs box" when viewing a "checked" page and there are no pending changes.
@@ -748,6 +755,8 @@ See also:
 Used in "flagged revs box" when viewing a bogus reviewed version was requested (via ?stableid=x).',
 	'revreview-quick-none' => '{{Flagged Revs-small}}
 Shown in the "flagged revs box" on the content page when there isn\'t any checked or quality revision yet.
+
+Refers to {{msg-mw|Validationpage}}.
 {{Identical|Unchecked}}',
 	'revreview-quick-quality' => '{{Flagged Revs-small}}
 Used in the "flagged revs box" when viewing a quality version, while there are pending changes.
@@ -760,7 +769,9 @@ See also:
 * {{msg-mw|Flaggedrevs-diffonly}}
 {{Related|Revreview-quick}}',
 	'revreview-quick-quality-old' => '{{Flagged Revs}}
-Used in "flagged revs box" when viewing an old "quality" version of a page.',
+Used in "flagged revs box" when viewing an old "quality" version of a page.
+
+Refers to {{msg-mw|Validationpage}}.',
 	'revreview-quick-quality-same' => '{{Flagged Revs}}
 Used in "flagged revs box" when viewing a "quality" page and there are no pending changes.
 
@@ -816,12 +827,18 @@ Possible value of the 'style' tag for a revision. All accepted revisions must ha
 Tooltip shown when hovering over <span style="color:blue;">(-/+)</span>.',
 	'revreview-visibility-synced' => '{{Flagged Revs-small}}
 Appears above the protection form when the current version of the page is the stable version.
+
+Refers to {{msg-mw|Validationpage}}.
 {{Related|Revreview-visibility}}',
 	'revreview-visibility-outdated' => '{{Flagged Revs-small}}
 Appears on top of the protection form when the current version is not the stable version.
+
+Refers to {{msg-mw|Validationpage}}.
 {{Related|Revreview-visibility}}',
 	'revreview-visibility-nostable' => '{{Flagged Revs-small}}
 Appears on top of the protection form when the page has no stable version at all.
+
+Refers to {{msg-mw|Validationpage}}.
 {{Related|Revreview-visibility}}',
 	'revreview-revnotfound' => '{{Flagged Revs}}
 Shown when a bad old reviewed version ID is requested for a page view (via ?stableid=x).',
@@ -847,7 +864,9 @@ Shown when a bad old reviewed version ID is requested for a page view (via ?stab
 
 {{doc-right|unreviewedpages}}',
 	'rights-editor-revoke' => "{{Flagged Revs}}
-* $1 User's user page title",
+Used as log action. Parameters:
+* $1 - user's user page title
+{{Related|Review-logentry}}",
 	'specialpages-group-quality' => '{{Flagged Revs-small}}
 {{doc-special-group|that=are related to the extension FlaggedRevs|like=[[Special:PendingChanges]], [[Special:ReviewedPages]], [[Special:QualityOversight]], etc}}',
 	'stable-logentry-config' => '{{Flagged Revs}}
@@ -869,15 +888,17 @@ Parameters:
 * $1 - page title, with or without link
 {{Related|Stable-logentry}}',
 	'stable-log-restriction' => '{{Flagged Revs}}
-Shown on the stability log (Special:Log/stability).
-* $1 Name of the permission that is required to review and autoreview in addition to any required rights',
+Shown on the stability log [[Special:Log/stability]]. Parameters:
+* $1 - name of the permission that is required to review and autoreview in addition to any required rights',
 	'stable-logpage' => '{{Flagged Revs}}
 {{doc-logpage}}
 
 
 Same of the stability log at Special:Log/stability',
 	'stable-logpagetext' => '{{Flagged Revs}}
-Shown on the stability log (Special:Log/stability).
+Shown on the stability log [[Special:Log/stability]].
+
+Refers to {{msg-mw|Validationpage}}.
 {{Identical|Content pages}}',
 	'revreview-filter-all' => '{{Flagged Revs}}
 Shown as dropdown option on lists or log pages.
@@ -928,13 +949,19 @@ Shown as dropdown option on lists or log pages to filter results.
 {{Identical|Any}}',
 	'revreview-lev-basic' => '{{Flagged Revs}}
 Shown as dropdown option on lists or log pages to filter results.
+
+Used in {{msg-mw|Reviewedpages-lev-0}}.
 {{Related|Revreview-lev}}
 {{Identical|Checked}}',
 	'revreview-lev-quality' => '{{Flagged Revs}}
 Shown as dropdown option on lists or log pages to filter results.
+
+Used in {{msg-mw|Reviewedpages-lev-1}}.
 {{Related|Revreview-lev}}',
 	'revreview-lev-pristine' => '{{Flagged Revs}}
 Shown as dropdown option on lists or log pages to filter results.
+
+Used in {{msg-mw|Reviewedpages-lev-2}}.
 {{Related|Revreview-lev}}',
 	'revreview-defaultfilter' => '{{Flagged Revs}}
 Shown on lists or log pages to filter results.
@@ -983,20 +1010,36 @@ Title attribute to the "stable version" (or "read") tab of a page. Appears on pa
 	'tooltip-ca-default' => '{{Flagged Revs}}
 Text of the "vet" tab that shows to users with the ability to access Special:Stabilization but cannot protect pages. Links to Special:Stabilization. See {{Stabilization-tab}}.',
 	'flaggedrevs-protect-legend' => '{{Flagged Revs}}
-Shown on on Protection form if $wgFlaggedRevsProtection is enabled. It is the legend for a set of options for restricting who\'s edits are automatically reviewed.',
+Shown on on Protection form if $wgFlaggedRevsProtection is enabled.
+
+It is the legend for a set of options for restricting who\'s edits are automatically reviewed.
+
+Refers to {{msg-mw|Validationpage}}.',
 	'flaggedrevs-protect-none' => '{{Flagged Revs}}
 Shown on on Protection form if $wgFlaggedRevsProtection is enabled.',
 	'flaggedrevs-categoryview' => '{{Flagged Revs}}
 Shown on category pages to users who can review pages.
-* $1 Category name',
+
+Refers to {{msg-mw|Pipe-separator}}.
+
+Parameters:
+* $1 - category name',
 	'revreview-locked-title' => '{{Flagged Revs}}
 Shown as the attribute title to the lock icon in the "flagged revs box". This shows on pages were edits require review and only when this is not the case by default.',
 	'revreview-unlocked-title' => '{{Flagged Revs}}
 Shown as the attribute title to the lock icon in the "flagged revs box". This shows on pages were edits don\'t require review and only when this is not the case by default.',
 	'revreview-locked' => '{{Flagged Revs}}
-Shown in the "flagged revs box". This shows on pages were edits require review and only when this is not the case by default.',
+Shown in the "flagged revs box".
+
+This shows on pages were edits require review and only when this is not the case by default.
+
+Refers to {{msg-mw|Validationpage}}.',
 	'revreview-unlocked' => '{{Flagged Revs}}
-Shown in the "flagged revs box". This shows on pages were edits don\'t require review and only when this is not the case by default.',
+Shown in the "flagged revs box".
+
+This shows on pages were edits don\'t require review and only when this is not the case by default.
+
+Refers to {{msg-mw|Validationpage}}.',
 	'revreview-ak-review' => '{{FlaggedRevs}}
 {{notranslate}}',
 	'accesskey-ca-current' => '{{FlaggedRevs}}
@@ -8485,8 +8528,8 @@ $messages['ja'] = array(
 	'revreview-log-details-hide' => '詳細を非表示',
 	'revreview-log-details-title' => '安定版の設定ログの表示を切り替え',
 	'review-diff2stable' => '査読待ちの変更点をすべて表示',
-	'review-logentry-app' => '[[$1]] の特定版を査読承認',
-	'review-logentry-dis' => '[[$1]] の特定版を棄却',
+	'review-logentry-app' => '[[$1]] の特定版を査読しました',
+	'review-logentry-dis' => '[[$1]] の特定版を棄却しました',
 	'review-logentry-id' => '版: $2',
 	'review-logentry-diff' => '査読済みの変更',
 	'review-logentry-diff2' => '反対されている変更',
@@ -8573,7 +8616,7 @@ $messages['ja'] = array(
 	'right-stablesettings' => '公開版の選択方法・表示方法を構成',
 	'right-validate' => '版に「高品質」の印を付ける',
 	'right-unreviewedpages' => '[[Special:UnreviewedPages|未査読ページの一覧]]を閲覧',
-	'rights-editor-revoke' => '[[$1]] の編集者権限を取り消す',
+	'rights-editor-revoke' => '[[$1]] の編集者権限を取り消しました',
 	'specialpages-group-quality' => '編集の査読',
 	'stable-logentry-config' => '「$1」の安定版設定を設定',
 	'stable-logentry-modify' => '「$1」の安定版設定を変更',
@@ -11629,6 +11672,7 @@ $messages['nn'] = array(
 	'flaggedrevs-pref-UI-1' => 'Nytt eit enkelt grensesnitt for stabile versjonar', # Fuzzy
 	'flaggedrevs-prefs-stable' => 'Vis alltid den stabile versjonen av innhaldssidor (om ein finst)', # Fuzzy
 	'flaggedrevs-prefs-watch' => 'Legg til sidene eg vurderer i overvakingslista mi',
+	'flaggedrevs-hidereviewed' => '$1 vurderte endringar',
 	'group-editor' => 'Skribentar',
 	'group-editor-member' => 'skribent', # Fuzzy
 	'group-reviewer' => 'Meldarar',
@@ -11656,7 +11700,7 @@ $messages['nn'] = array(
 	'reviewer' => 'Vurdert av',
 	'revreview-accuracy' => 'Vurdering',
 	'revreview-accuracy-0' => 'Ikkje godkjend', # Fuzzy
-	'revreview-accuracy-1' => 'Vurdert',
+	'revreview-accuracy-1' => 'Vurdert', # Fuzzy
 	'revreview-accuracy-2' => 'Nøyaktig',
 	'revreview-accuracy-3' => 'God kjeldetilvising',
 	'revreview-accuracy-4' => 'Utmerka',
@@ -14464,7 +14508,9 @@ $messages['sr-ec'] = array(
 	'revreview-hist-quality' => 'квалитетна верзија',
 	'revreview-hist-basic' => 'проверена измена',
 	'revreview-hist-quality-user' => 'одобрио/-ла [[User:$3|$3]]',
-	'revreview-hist-basic-user' => 'проверио/-ла [[User:$3|$3]]',
+	'revreview-hist-basic-user' => 'прегледано од стране [[User:$3|$3]]',
+	'revreview-hist-basic-auto' => 'аутоматски проверено',
+	'revreview-hist-pending-difflink' => "'''[[{{fullurl:$1|oldid=$2&diff=$3{{MediaWiki:flaggedrevs-diffonly}}}} чека проверу]]'''",
 	'review-edit-diff' => "'''Напомена: Неке од измена које су на чекању имају утицај на одломак странице који уређујете.'''",
 	'revreview-diff-toggle-show' => 'прикажи измене',
 	'revreview-diff-toggle-hide' => 'сакриј измене',
@@ -14477,7 +14523,7 @@ $messages['sr-ec'] = array(
 	'reviewer' => 'Прегледач',
 	'revreview-accuracy' => 'Тачност',
 	'revreview-accuracy-0' => 'Неадекватне',
-	'revreview-accuracy-1' => 'Прегледано',
+	'revreview-accuracy-1' => 'Прегледано', # Fuzzy
 	'revreview-accuracy-2' => 'Тачно',
 	'revreview-accuracy-3' => 'Са добрим изворима',
 	'revreview-accuracy-4' => 'Изабрани',
@@ -14587,6 +14633,7 @@ There {{PLURAL:$2|is|are}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{Media
 /** Serbian (Latin script) (srpski (latinica)‎)
  * @author FriedrickMILBarbarossa
  * @author Michaello
+ * @author Milicevic01
  * @author Rancher
  * @author Жељко Тодоровић
  * @author Михајло Анђелковић
@@ -14620,7 +14667,7 @@ $messages['sr-el'] = array(
 	'revreview-hist-quality' => 'kvalitetna verzija',
 	'revreview-hist-basic' => 'proverena izmena',
 	'revreview-hist-quality-user' => 'odobrio/-la [[User:$3|$3]]',
-	'revreview-hist-basic-user' => 'proverio/la [[User:$3|$3]]',
+	'revreview-hist-basic-user' => 'pregledano od strane [[User:$3|$3]]',
 	'revreview-diff-toggle-show' => 'prikaži izmene',
 	'revreview-diff-toggle-hide' => 'sakrij izmene',
 	'review-diff2stable' => 'Pogledaj sve izmene na čekanju',
@@ -14632,7 +14679,7 @@ $messages['sr-el'] = array(
 	'reviewer' => 'Pregledač',
 	'revreview-accuracy' => 'Tačnost',
 	'revreview-accuracy-0' => 'Neadekvatne',
-	'revreview-accuracy-1' => 'Pregledano',
+	'revreview-accuracy-1' => 'Pregledano', # Fuzzy
 	'revreview-accuracy-2' => 'Tačno',
 	'revreview-accuracy-3' => 'Sa dobrim izvorima',
 	'revreview-accuracy-4' => 'Izabrani',

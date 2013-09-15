@@ -163,7 +163,9 @@ Used when using the "reject" feature.',
 Used when using the "reject" feature.',
 	'revreview-check-flag-p' => '{{Flagged Revs}}
 Label of a checkbox shown on the edit form of a page that already has pending changes.
-* $1 The number of pending changes.',
+
+Parameters:
+* $1 - the number of pending changes',
 	'revreview-check-flag-p-title' => '{{Flagged Revs}}
 Title of a checkbox shown on the edit form of a page that already has pending changes.',
 	'revreview-check-flag-u' => '{{Flagged Revs}}
@@ -179,7 +181,9 @@ Label of a checkbox that shows on the edit form of pages with no stable version.
 	'revreview-reflag' => '{{Flagged Revs-small}}
 * Title of the review box shown below a page (when you have the permission to review pages). This is used for already accepted revisions.',
 	'revreview-invalid' => '{{Flagged Revs}}
-Used when viewing a page with a bad ?stableid=x parameter (similar to ?oldid= parameter)',
+Used when viewing a page with a bad <code>?stableid=x</code> parameter (similar to <code>?oldid=</code> parameter).
+
+Refers to {{msg-mw|Validationpage}}.',
 	'revreview-log' => '{{Flagged Revs}}
 Shown on review form.
 {{Identical|Comment}}',
@@ -187,9 +191,9 @@ Shown on review form.
 Shown on Special:RevisionReview.
 {{Identical|Content page}}',
 	'revreview-stable1' => '{{Flagged Revs}}
-Shown after accepting a revision of a page.
-* $1 Name of the page
-* $2 Number, revision ID just reviewed',
+Shown after accepting a revision of a page. Parameters:
+* $1 - the page title
+* $2 - revision ID just reviewed',
 	'revreview-stable2' => '{{Flagged Revs}}
 Shown after de-accepting a revision of a page.
 
@@ -207,7 +211,10 @@ The text on the submit button in the form used to review pages.
 	'revreview-submit-review' => '{{Flagged Revs}}
 Shown on the form to review pages.',
 	'revreview-submit-unreview' => '{{Flagged Revs}}
-Shown on the form to review pages.',
+Shown on the form to review pages.
+
+Used in:
+* {{msg-mw|Revreview-toolow}}',
 	'revreview-submit-reject' => '{{Flagged Revs}}
 Shown on the form to review pages, but only on diff pages. This is the text of a button that acts similar to undo.',
 	'revreview-submit-reviewed' => '{{Flagged Revs}}
@@ -287,9 +294,13 @@ Preceded by one of the following:
 * {{msg-mw|Revreview-adv-reviewing-c}}
 * {{msg-mw|Revreview-adv-reviewing-p}}',
 	'revreview-toolow' => '{{Flagged Revs-small}}
-A kind of error shown when trying to review a revision with some settings on "unapproved".',
+A kind of error shown when trying to review a revision with some settings on "unapproved".
+
+Refers to {{msg-mw|Revreview-submit-unreview}}.',
 	'revreview-update' => '{{Flagged Revs}}
-Shown on the form to review pages, on diffs.',
+Shown on the form to review pages, on diffs.
+
+Refers to {{msg-mw|Validationpage}}.',
 	'revreview-update-edited' => '{{Flagged Revs}}
 Shown on the form to review pages, on diffs.',
 	'revreview-update-edited-prev' => '{{Flagged Revs}}
@@ -298,14 +309,14 @@ This message is shown after a user saves a version after another user made chang
 	'revreview-update-includes' => '{{Flagged Revs}}
 Shown on the form to review pages, on diffs.',
 	'revreview-reject-text-list' => '{{Flagged Revs}}
-Shown on the change reject form (after the review form).
-* $1 Number of revisions
-* $2 The page name',
+Shown on the change reject form (after the review form). Parameters:
+* $1 - number of revisions
+* $2 - the page title',
 	'revreview-reject-text-revto' => '{{Flagged Revs}}
-Shown on the reject form (user clicked "reject" on review form).
-* $1 Page name
-* $2 Number, revisions ID that would be restored
-* $3 Timestamp of that revision',
+Shown on the reject form (user clicked "reject" on review form). Parameters:
+* $1 - page title
+* $2 - revision ID that would be restored
+* $3 - timestamp of the revision',
 	'revreview-reject-summary' => '{{Flagged Revs}}
 Shown on the reject form.
 {{Identical|Summary}}',

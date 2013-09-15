@@ -59,10 +59,10 @@ Shown on the page [[Special:ValidationStatistics]].
 Provides the first informative paragraph in [[Special:ValidationStatistics]].
 * $1 is the average wait time for page reviews at [[Special:PendingChanges]].',
 	'validationstatistics-revtime' => '{{Flagged Revs}}
-Shown on the page [[Special:ValidationStatistics]].
-*$1 The duration of time that the average "anon" edit takes to get reviewed
-*$2 The median duration of time that the average "anon" edit takes to get reviewed
-*$3 A tabulation of the percentiles of the duration of time it takes to get "anon" edits reviewed. For example, if the P90 value is 1h33m then 90% of edits get reviewed within 1 hour, 33 minutes.',
+Shown on the page [[Special:ValidationStatistics]]. Parameters:
+* $1 - the duration of time that the average "anon" edit takes to get reviewed
+* $2 - the median duration of time that the average "anon" edit takes to get reviewed
+* $3 - a tabulation of the percentiles of the duration of time it takes to get "anon" edits reviewed. For example, if the P90 value is 1h33m then 90% of edits get reviewed within 1 hour, 33 minutes.',
 	'validationstatistics-table' => '{{Flagged Revs}}
 Shown on the page [[Special:ValidationStatistics]].',
 	'validationstatistics-ns' => '{{Flagged Revs}}

@@ -69,14 +69,17 @@ Some skins (e.g. standard/classic) display an additional tab to control visibili
 	'stabilization' => '{{Flagged Revs}}
 Page title of Special:Stabilization, which lets admins change how the stable version is used for a page and who can review it.',
 	'stabilization-text' => '{{Flagged Revs-small}}
-
-Information displayed on Special:Stabilization.
-
-"stable version selection" is the same as {{msg-mw|Stabilization-select}}.
-*$1 The page name',
+Information displayed on [[Special:Stabilization]]. Parameters:
+* $1 - the page name
+See also:
+* {{msg-mw|Stabilization-perm}}',
 	'stabilization-perm' => '{{Flagged Revs-small}}
-Used on Special:Stabilization when the user has not the permission to change the settings.
-* $1 The page name',
+Used on [[Special:Stabilization]] when the user has not the permission to change the settings.
+
+Parameters:
+* $1 - the page name
+See also:
+* {{msg-mw|Stabilization-text}}',
 	'stabilization-page' => '{{Flagged Revs}}
 Used on Special:Stabilization.
 {{Identical|Page name}}',
@@ -105,11 +108,15 @@ Message wording is a bit vague due to the fact that wikis can restrict the 'revi
 Used on Special:Stabilization.
 {{Identical|Confirm}}',
 	'stabilization-notexists' => '{{Flagged Revs}}
-Used on Special:Stabilization.
-* $1 The page name',
+Used on [[Special:Stabilization]]. Parameters:
+* $1 - the page name
+See also:
+* {{msg-mw|Stabilization-notcontent}}',
 	'stabilization-notcontent' => '{{Flagged Revs}}
-Used on Special:Stabilization.
-* $1 The page name',
+Used on [[Special:Stabilization]]. Parameters:
+* $1 - the page name
+See also:
+* {{msg-mw|Stabilization-notexists}}',
 	'stabilization-comment' => '{{Flagged Revs}}
 Used on Special:Stabilization.
 {{Identical|Reason}}',

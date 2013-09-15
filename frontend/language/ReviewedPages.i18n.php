@@ -43,11 +43,17 @@ Parameters:
 Shown on Special:ReviewedPages.
 {{Identical|There are no pages in this list}}',
 	'reviewedpages-lev-0' => '{{Flagged Revs}}
-{{optional}}',
+{{optional}}
+Default:
+* {{msg-mw|Revreview-lev-basic}}',
 	'reviewedpages-lev-1' => '{{Flagged Revs}}
-{{optional}}',
+{{optional}}
+Default:
+* {{msg-mw|Revreview-lev-quality}}',
 	'reviewedpages-lev-2' => '{{Flagged Revs}}
-{{optional}}',
+{{optional}}
+Default:
+* {{msg-mw|Revreview-lev-pristine}}',
 	'reviewedpages-all' => '{{Flagged Revs}}
 Shown on Special:ReviewedPages. Links to Special:ReviewedVersions for a particular page.',
 	'reviewedpages-best' => '{{Flagged Revs}}

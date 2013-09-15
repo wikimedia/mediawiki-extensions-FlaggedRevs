@@ -27,9 +27,12 @@ $messages['qqq'] = array(
 	'problemchanges' => '{{Flagged Revs}}
 Name of Special:ProblemChanges, which lists out tagged (via recent changes change tags) pending changes.',
 	'problemchanges-list' => '{{Flagged Revs}}
-Used on the Special:ProblemPages page.
+Used on the [[Special:ProblemPages]] page.
+
+Refers to {{msg-mw|Validationpage}}.
+
 Parameters:
-* $1 - (optional) Number of items in the list, to be used with PLURAL, when unavoidable.',
+* $1 - (Optional) number of items in the list, to be used with PLURAL, when unavoidable',
 	'problemchanges-legend' => '{{Flagged Revs}}
 Used on the Special:ProblemPages page.',
 	'problemchanges-none' => '{{Flagged Revs}}

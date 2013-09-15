@@ -57,8 +57,10 @@ Used on the page [[Special:UnreviewedPages]].
 * $1 is the number of active users that have the page on their watchlist
 Note that "active" is based roughly on logging in and out',
 	'unreviewedpages-list' => '{{Flagged Revs}}
+Refers to {{msg-mw|Validationpage}}.
+
 Parameters:
-* $1 - (optional) Number of items in the list, to be used with PLURAL, when unavoidable
+* $1 - (Optional) number of items in the list, to be used with PLURAL, when unavoidable
 {{Identical|Content page}}',
 	'unreviewedpages-none' => '{{Flagged Revs}}
 Used on the page [[Special:UnreviewedPages]].',
@@ -66,13 +68,16 @@ Used on the page [[Special:UnreviewedPages]].',
 Used on the page [[Special:UnreviewedPages]].
 Message indicates that someone is looking at this pages for review right now.',
 	'unreviewedpages-hours' => '{{Flagged Revs}}
-Used on the page [[Special:UnreviewedPages]].
-*$1 Number of hours',
+Used on the page [[Special:UnreviewedPages]]. Parameters:
+* $1 - number of hours
+{{Related|Unreviewedpages-hours}}',
 	'unreviewedpages-days' => '{{Flagged Revs}}
-Used on the page [[Special:UnreviewedPages]].
-* $1 Number of days',
+Used on the page [[Special:UnreviewedPages]]. Parameters:
+* $1 - number of days
+{{Related|Unreviewedpages-hours}}',
 	'unreviewedpages-recent' => '{{Flagged Revs}}
-Used on the page [[Special:UnreviewedPages]].',
+Used on the page [[Special:UnreviewedPages]].
+{{Related|Unreviewedpages-hours}}',
 );
 
 /** Afrikaans (Afrikaans)
