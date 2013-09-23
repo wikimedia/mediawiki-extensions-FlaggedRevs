@@ -17312,6 +17312,7 @@ Controleer asjeblieft de URL die  a je hebruken om ni deêze pagina te haene.',
  * @author Hzy980512
  * @author Jimmy xu wrk
  * @author Liangent
+ * @author Liuxinyu970226
  * @author PhiLiP
  * @author Shirayuki
  * @author Waihorace
@@ -17376,7 +17377,7 @@ $messages['zh-hans'] = array(
 	'reviewer' => '复审员',
 	'revreview-accuracy' => '准确度',
 	'revreview-accuracy-0' => '不足',
-	'revreview-accuracy-1' => '已阅', # Fuzzy
+	'revreview-accuracy-1' => '已抽查',
 	'revreview-accuracy-2' => '准确',
 	'revreview-accuracy-3' => '来源充足',
 	'revreview-accuracy-4' => '精湛',
