@@ -1419,7 +1419,7 @@ $messages['ar'] = array(
 	'reviewer' => 'مراجع',
 	'revreview-accuracy' => 'الدقة',
 	'revreview-accuracy-0' => 'غير مقبول',
-	'revreview-accuracy-1' => 'منظورة',
+	'revreview-accuracy-1' => 'منظورة', # Fuzzy
 	'revreview-accuracy-2' => 'دقيقة',
 	'revreview-accuracy-3' => 'مصادرها جيدة',
 	'revreview-accuracy-4' => 'مميزة',
@@ -1440,7 +1440,7 @@ $messages['ar'] = array(
 	'revreview-depth-3' => 'مرتفع',
 	'revreview-depth-4' => 'مميز',
 	'revreview-draft-title' => 'التعديلات المعلقة معروضة في هذه الصفحة',
-	'revreview-edit' => 'تعديل',
+	'revreview-edit' => 'عدل',
 	'revreview-editnotice' => "'''ستظهر تغييراتك للقراء متى ما قبلها مستخدم مخول. ([[{{MediaWiki:Validationpage}}|مساعدة]])'''",
 	'revreview-submitedit' => 'أرسل التغييرات',
 	'revreview-submitedit-title' => 'أرسل تعديلاتك للمراجعة',
@@ -6715,6 +6715,7 @@ $messages['haw'] = array(
 /** Hebrew (עברית)
  * @author Amire80
  * @author DoviJ
+ * @author Guycn1
  * @author Nahum
  * @author Ori229
  * @author Rotemliss
@@ -6747,9 +6748,15 @@ $messages['he'] = array(
 	'group-reviewer-member' => '{{GENDER:$1|סוקר|סוקרת}}',
 	'grouppage-editor' => '{{ns:project}}:עורך',
 	'grouppage-reviewer' => '{{ns:project}}:סוקר גרסאות',
-	'group-autoreview' => 'משתמשים בדוקים אוטומטית',
-	'group-autoreview-member' => '{{GENDER:$1|משתמש בדוק|משתמשת בדוקה}} אוטומטית',
-	'grouppage-autoreview' => '{{ns:project}}:בדוקים אוטומטית',
+	'group-autoreview' => 'סקורי עריכות אוטומטית',
+	'group-autoreview-member' => '{{GENDER:$1|סקור|סקורת}} עריכות אוטומטית',
+	'grouppage-autoreview' => '{{ns:project}}:סקור עריכות אוטומטית',
+	'group-editor.css' => '/* הסגנונות הנכתבים כאן ישפיעו על עורכים בלבד */',
+	'group-editor.js' => '/* כל סקריפט JavaScript שנכתב כאן ירוץ עבור עורכים בלבד */',
+	'group-reviewer.css' => '/* הסגנונות הנכתבים כאן ישפיעו על סוקרים בלבד */',
+	'group-reviewer.js' => '/* כל סקריפט JavaScript שנכתב כאן ירוץ עבור סוקרים בלבד */',
+	'group-autoreview.css' => '/* הסגנונות הנכתבים כאן ישפיעו על סקורי עריכות אוטומטית בלבד */',
+	'group-autoreview.js' => '/* כל סקריפט JavaScript שנכתב כאן ירוץ עבור סקורי עריכות אוטומטית בלבד */',
 	'revreview-hist-draft' => 'גרסה לא בדוקה',
 	'revreview-hist-pending' => 'גרסה ממתינה',
 	'revreview-hist-quality' => 'גרסה איכותית',
@@ -6780,7 +6787,7 @@ $messages['he'] = array(
 	'reviewer' => 'סוקר',
 	'revreview-accuracy' => 'דיוק',
 	'revreview-accuracy-0' => 'בלתי־קביל',
-	'revreview-accuracy-1' => 'נצפה',
+	'revreview-accuracy-1' => 'נצפה', # Fuzzy
 	'revreview-accuracy-2' => 'מדויק',
 	'revreview-accuracy-3' => 'עם מקורות טובים',
 	'revreview-accuracy-4' => 'מומלץ',
@@ -8331,7 +8338,7 @@ $messages['it'] = array(
 	'reviewer' => 'Revisore',
 	'revreview-accuracy' => 'Accuratezza',
 	'revreview-accuracy-0' => 'Inadeguata',
-	'revreview-accuracy-1' => 'Visionata',
+	'revreview-accuracy-1' => 'Punto controllato',
 	'revreview-accuracy-2' => 'Preciso',
 	'revreview-accuracy-3' => 'Ben documentata',
 	'revreview-accuracy-4' => 'Ottima',
@@ -13156,7 +13163,7 @@ $messages['roa-tara'] = array(
 	'reviewer' => 'Rivisitatore',
 	'revreview-accuracy' => 'Accuratezze',
 	'revreview-accuracy-0' => 'Fasce sckife',
-	'revreview-accuracy-1' => 'Viste',
+	'revreview-accuracy-1' => 'Spot verificate',
 	'revreview-accuracy-2' => 'Accurete',
 	'revreview-accuracy-3' => 'Bbona sorgende',
 	'revreview-accuracy-4' => 'Dettagliete',
@@ -13302,6 +13309,7 @@ Pe piacere condrolle l'URL ca tu è ausete pe trasè jndr'à sta pagene.",
  * @author Kalan
  * @author Kv75
  * @author Lockal
+ * @author Okras
  * @author Putnik
  * @author Rubin
  * @author Sergey kudryavtsev
@@ -13366,7 +13374,7 @@ $messages['ru'] = array(
 	'reviewer' => 'выверяющий',
 	'revreview-accuracy' => 'Точность',
 	'revreview-accuracy-0' => 'не указано',
-	'revreview-accuracy-1' => 'досмотренная',
+	'revreview-accuracy-1' => 'Выборочно проверено',
 	'revreview-accuracy-2' => 'точная',
 	'revreview-accuracy-3' => 'с источниками',
 	'revreview-accuracy-4' => 'избранная',

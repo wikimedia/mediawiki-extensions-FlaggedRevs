@@ -44,6 +44,8 @@ Used on [http://en.labs.wikimedia.org/wiki/Special:OldReviewedPages Special:OldR
 	'pendingchanges-list' => '{{Flagged Revs}}
 Used on [http://en.labs.wikimedia.org/wiki/Special:OldReviewedPages Special:OldReviewedPages].
 
+Refers to {{msg-mw|Validationpage}}.
+
 Parameters:
 * $1 - (Optional) the number of pages going to be listed, to be used with PLURAL',
 	'pendingchanges-none' => '{{Flagged Revs}}

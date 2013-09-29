@@ -37,6 +37,8 @@ Shown on Special:ReviewedPages.',
 Shown on [[Special:ReviewedPages]].
 Note that the "highest attained" language is key. If the user viewing the special page specifies "checked", then "quality" pages will not appear.
 
+Refers to {{msg-mw|Validationpage}}.
+
 Parameters:
 * $1 - (Optional) the number of reviewed pages for use with PLURAL',
 	'reviewedpages-none' => '{{Flagged Revs}}

@@ -373,11 +373,12 @@ Jotkut asetukset saattavat vaikuttaa siihen, mikä versio näytetään lukijoill
 
 /** French (français)
  * @author Peter17
+ * @author Urhixidur
  */
 $messages['fr'] = array(
 	'configuredpages' => 'Pages avec des configurations de relecture',
-	'configuredpages-list' => "La liste ci-dessous contient les pages qui ont des paramètres d'approbation différents de ceux par défaut pour ce site.
-Certains paramètres peuvent faire apparaître une version différente pour les lecteurs ou restreindre la liste des contributeurs dont les modifications n'ont pas besoin d'être vérifiées.",
+	'configuredpages-list' => 'La liste ci-dessous contient les pages qui ont des paramètres d’approbation différents de ceux par défaut pour ce site.
+Certains paramètres peuvent faire apparaître une version différente pour les lecteurs ou restreindre la liste des contributeurs dont les modifications n’ont pas besoin d’être vérifiées.',
 	'configuredpages-none' => 'Il n’y a aucune page dans cette liste.',
 	'configuredpages-config' => 'Configuration',
 	'configuredpages-def-draft' => 'dernière version',
