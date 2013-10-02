@@ -4501,7 +4501,7 @@ $messages['ps'] = array(
 	'revreview-submit-reject' => 'بدلونونه ردول',
 	'revreview-reject-summary' => 'لنډيز:',
 	'revreview-reject-confirm' => 'همدا بدلونونه ردول',
-	'revreview-reject-cancel' => 'ناګارل',
+	'revreview-reject-cancel' => 'ناگارل',
 );
 
 /** Portuguese (português)

@@ -535,9 +535,11 @@ $messages['jv'] = array(
  * @author BRUTE
  * @author David1010
  * @author Dawid Deutschland
+ * @author Nodar Kherkheulidze
  */
 $messages['ka'] = array(
 	'problemchanges' => 'მონიშნულია შეუმოწმებელი ცვლილებები',
+	'problemchanges-list' => 'ამ გვერდზე მოცემულია [[{{MediaWiki:Validationpage}}|შემოწმებული გვერდები]], რომლებშიც არის ერთი არ რამდენიმე მონიშნული რედაქტირება, რომელიც ელოდება შემოწმებას. იხილეთ [[Special:Tags|აღნიშვნების სია]].',
 	'problemchanges-legend' => 'სია იმ გვერდებისა, რომელთა ბოლო ვერსია ჯერ კიდევ შეუმოწმებელია',
 	'problemchanges-none' => 'ამ დროისათვის არ არსებობს სტატიები ასეთი კრიტერიუმებით',
 	'problemchanges-category' => 'კატეგორია:',

@@ -12487,16 +12487,16 @@ Che as controla për piasì l'adrëssa (URL) che a l'ha dovrà për rivé a sta 
  * @author Ahmed-Najib-Biabani-Ibrahimkhel
  */
 $messages['ps'] = array(
-	'editor' => 'سمونګر',
+	'editor' => 'سمونگر',
 	'flaggedrevs' => 'رپی لرونکې مخليدنې',
 	'flaggedrevs-pref-UI' => 'بنسټيز ليدنمخ:',
 	'prefs-flaggedrevs' => 'سمون مخليدنه',
 	'prefs-flaggedrevs-ui' => 'سمون مخليدنه',
 	'group-editor' => 'سمونګران',
-	'group-editor-member' => '{{GENDER:$1|سمونګر}}',
+	'group-editor-member' => '{{GENDER:$1|سمونگر}}',
 	'group-reviewer' => 'مخکتونکي',
 	'group-reviewer-member' => '{{GENDER:$1|مخکتونکی}}',
-	'grouppage-editor' => '{{ns:project}}:سمونګر',
+	'grouppage-editor' => '{{ns:project}}:سمونگر',
 	'reviewer' => 'مخکتونکی',
 	'revreview-accuracy' => 'کره توب',
 	'revreview-accuracy-2' => 'کره',
@@ -12514,7 +12514,7 @@ $messages['ps'] = array(
 	'revreview-style' => 'لوستوړتيا',
 	'revreview-style-1' => 'د منلو وړ',
 	'revreview-style-2' => 'ښه',
-	'revreview-toggle-title' => 'څرګندونې ښکاره کول/پټول',
+	'revreview-toggle-title' => 'څرگندونې ښکاره کول/پټول',
 	'specialpages-group-quality' => 'سمون مخليدنه',
 	'revreview-filter-all' => 'ټول',
 	'revreview-filter-stable' => 'ثابت',
