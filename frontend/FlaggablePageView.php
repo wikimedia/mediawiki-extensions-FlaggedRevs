@@ -596,6 +596,7 @@ class FlaggablePageView extends ContextSource {
 
 		# Get the new stable parser output...
 		$pOpts = $this->article->makeParserOptions( $reqUser );
+		$pOpts->setEditSection( false ); // old revision
 		$parserOut = FlaggedRevs::parseStableRevision( $frev, $pOpts );
 
 		# Parse and output HTML
@@ -677,6 +678,9 @@ class FlaggablePageView extends ContextSource {
 
 		# Get parsed stable version and output HTML
 		$pOpts = $this->article->makeParserOptions( $reqUser );
+		if ( !$this->article->getTitle()->quickUserCan( 'edit', $reqUser ) ) {
+			$pOpts->setEditSection( false );
+		}
 		$parserCache = FRParserCacheStable::singleton();
 		$parserOut = $parserCache->get( $this->article, $pOpts );
 
