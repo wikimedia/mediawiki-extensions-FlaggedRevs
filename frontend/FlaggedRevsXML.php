@@ -435,7 +435,7 @@ class FlaggedRevsXML {
 		$msg = FlaggedRevs::isQuality( $flags )
 			? 'revreview-pending-quality'
 			: 'revreview-pending-basic';
-		return wfMessage( $msg, $frev->getRevId(), $time, $revsSince );
+		return wfMessage( $msg, $frev->getRevId(), $time )->numParams( $revsSince );
 	}
 
 	/*
