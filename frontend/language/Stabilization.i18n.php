@@ -2245,7 +2245,7 @@ $messages['ku-latn'] = array(
 	'stabilization-otherreason' => 'Sedemeka din:',
 );
 
-/** Kirghiz (Кыргызча)
+/** Kyrgyz (Кыргызча)
  * @author Growingup
  */
 $messages['ky'] = array(

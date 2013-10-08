@@ -1224,7 +1224,7 @@ $messages['kw'] = array(
 	'pendingchanges-category' => 'Klass:',
 );
 
-/** Kirghiz (Кыргызча)
+/** Kyrgyz (Кыргызча)
  * @author Growingup
  */
 $messages['ky'] = array(

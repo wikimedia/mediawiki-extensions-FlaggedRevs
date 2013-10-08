@@ -597,7 +597,7 @@ Enstellunge künne jemaat wääde, öm faßzelääje, wat för en Version de Lä
 	'configuredpages-def-stable' => 'de Version för de Öffentleschkeit',
 );
 
-/** Kirghiz (Кыргызча)
+/** Kyrgyz (Кыргызча)
  * @author Growingup
  */
 $messages['ky'] = array(

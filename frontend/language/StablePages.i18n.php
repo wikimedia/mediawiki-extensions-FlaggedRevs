@@ -624,7 +624,7 @@ $messages['ksh'] = array(
 	'stablepages-indef' => 'Bloß met onbejränz Duuer',
 );
 
-/** Kirghiz (Кыргызча)
+/** Kyrgyz (Кыргызча)
  * @author Growingup
  */
 $messages['ky'] = array(

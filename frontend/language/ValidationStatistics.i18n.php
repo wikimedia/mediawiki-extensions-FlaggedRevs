@@ -1371,7 +1371,7 @@ $messages['kw'] = array(
 	'validationstatistics-total' => 'Folennow',
 );
 
-/** Kirghiz (Кыргызча)
+/** Kyrgyz (Кыргызча)
  * @author Growingup
  */
 $messages['ky'] = array(

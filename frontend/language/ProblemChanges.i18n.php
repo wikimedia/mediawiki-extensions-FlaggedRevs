@@ -591,7 +591,7 @@ $messages['ku-latn'] = array(
 	'problemchanges-category' => 'Kategorî:',
 );
 
-/** Kirghiz (Кыргызча)
+/** Kyrgyz (Кыргызча)
  * @author Growingup
  */
 $messages['ky'] = array(

@@ -1163,7 +1163,7 @@ $messages['kw'] = array(
 	'unreviewedpages-category' => 'Klass:',
 );
 
-/** Kirghiz (Кыргызча)
+/** Kyrgyz (Кыргызча)
  * @author Growingup
  */
 $messages['ky'] = array(

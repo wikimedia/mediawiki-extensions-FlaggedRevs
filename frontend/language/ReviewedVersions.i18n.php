@@ -735,7 +735,7 @@ $messages['ku-latn'] = array(
 	'reviewedversions-page' => 'Navê rûpelê:',
 );
 
-/** Kirghiz (Кыргызча)
+/** Kyrgyz (Кыргызча)
  * @author Growingup
  */
 $messages['ky'] = array(

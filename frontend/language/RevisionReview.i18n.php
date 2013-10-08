@@ -3541,7 +3541,7 @@ $messages['ku-latn'] = array(
 	'revreview-reject-summary' => 'Kurte:',
 );
 
-/** Kirghiz (Кыргызча)
+/** Kyrgyz (Кыргызча)
  * @author Growingup
  */
 $messages['ky'] = array(
