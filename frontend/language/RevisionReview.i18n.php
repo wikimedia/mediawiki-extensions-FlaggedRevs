@@ -3555,10 +3555,16 @@ $messages['ky'] = array(
 );
 
 /** Latin (Latina)
+ * @author MF-Warburg
  * @author SPQRobin
  */
 $messages['la'] = array(
 	'revreview-log' => 'Sententia:',
+	'revreview-submit-reject' => 'Reproba mutationes',
+	'revreview-reject-text-list' => "Conficiendo hanc actionem '''reprobabis''' {{PLURAL:$1|mutationem istam|mutationes istas}} in [[:$2|$2]]:",
+	'revreview-reject-confirm' => 'Reproba eas mutationes',
+	'revreview-reject-summary-cur' => 'Reprobavit {{PLURAL:$1|ultimam mutationem|ultimas $1 mutationes}} (ab $2) et restituit emendationem $3 de $4',
+	'revreview-reject-summary-cur-short' => 'Reprobavit {{PLURAL:$1|ultimam mutationem|ultimas $1 mutationes}} et restituit emendationem $2 de $3',
 );
 
 /** Luxembourgish (Lëtzebuergesch)
