@@ -516,14 +516,15 @@ $messages['he'] = array(
 
 /** Hindi (हिन्दी)
  * @author Kaustubh
+ * @author Siddhartha Ghai
  */
 $messages['hi'] = array(
-	'reviewedversions' => 'स्थिर अवतरण देखें', # Fuzzy
-	'reviewedversions-leg1' => 'पन्नेके परीक्षण हुए अवतरणोंकी सूची देखें',
-	'reviewedversions-page' => 'लेख शीर्षक:',
-	'reviewedversions-none' => '"[[:$1]]" को एकभी परिक्षण किया हुआ अवतरण नहीं हैं।',
-	'reviewedversions-list' => 'नीचे [[:$1]] के परिक्षण हुए अवतरणोंकी सूची हैं:', # Fuzzy
-	'reviewedversions-review' => '$2 द्वारा <i>$1</i> को परिक्षण हुआ',
+	'reviewedversions' => 'पुनरीक्षित अवतरण',
+	'reviewedversions-leg1' => 'किसी पृष्ठ के पुनरीक्षित अवतरणों की सूची देखें',
+	'reviewedversions-page' => 'पृष्ठ नाम:',
+	'reviewedversions-none' => '"[[:$1]]" का कोई पुनरीक्षित अवतरण नहीं है।',
+	'reviewedversions-list' => '[[:$1]] {{PLURAL:$2|का|के}} पुनरीक्षित {{PLURAL:$2|अवतरण|अवतरणों की सूची}} निम्न है:',
+	'reviewedversions-review' => '$2 द्वारा <i>$1</i> को पुनरीक्षित',
 );
 
 /** Croatian (hrvatski)

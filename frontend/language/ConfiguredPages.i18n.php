@@ -442,8 +442,11 @@ $messages['he'] = array(
 
 /** Hindi (हिन्दी)
  * @author Ansumang
+ * @author Siddhartha Ghai
  */
 $messages['hi'] = array(
+	'configuredpages' => 'पुनरीक्षण विकल्प प्रयोग करने वाले पृष्ठ',
+	'configuredpages-list' => 'इस पृष्ठ पर उन पृष्ठों की सूची है जिन पर पुनरीक्षण विकल्प साइट के डिफ़ॉल्ट विकल्पों से भिन्न रखे गए हैं। विकल्प ये बदल सकते हैं कि कौनसा अवतरण पाठकों को दिखाया जाएगा अथवा कौन ऐसे बदलाव कर सकता है जिन्हें पुनरीक्षण की आवश्यकता नहीं है।',
 	'configuredpages-none' => 'इस सूची में कोई पृष्ठ नहीं हैं ।',
 	'configuredpages-config' => 'कॉन्फिगरेशन',
 	'configuredpages-def-draft' => 'नवीनतम रूपांतर',

@@ -413,10 +413,13 @@ $messages['he'] = array(
 
 /** Hindi (हिन्दी)
  * @author Ansumang
+ * @author Siddhartha Ghai
  */
 $messages['hi'] = array(
-	'problemchanges' => 'बाकी बदलाव टैग हुए',
-	'problemchanges-none' => 'अभी वहाँ कोई पृष्ठ नहीं है जो इस मापदंड से मैच हो',
+	'problemchanges' => 'टैग हुए अनिरीक्षित बदलाव',
+	'problemchanges-list' => 'इस पृष्ठ पर उन [[{{MediaWiki:Validationpage}}|पुनरीक्षित]] पृष्ठों की सूची है जिनमें एक या अधिक टैग हुए सम्पादनों का पुनरीक्षण बाकी है। [[Special:Tags|मान्य बदलाव टैगों]] की सूची उपलब्ध है।',
+	'problemchanges-legend' => 'टैग किये हुए अनिरीक्षित बदलावों वाले पृष्ठों की सूची दिखाएँ',
+	'problemchanges-none' => 'इन मानदंडों को पूर्ण करने वाले इस समय कोई पृष्ठ नहीं हैं',
 	'problemchanges-category' => 'श्रेणी:',
 );
 

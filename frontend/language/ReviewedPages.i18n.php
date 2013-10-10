@@ -564,17 +564,19 @@ $messages['he'] = array(
 
 /** Hindi (हिन्दी)
  * @author Kaustubh
+ * @author Siddhartha Ghai
  */
 $messages['hi'] = array(
-	'reviewedpages' => 'परिक्षण हुए पन्ने',
-	'reviewedpages-leg' => 'विशिष्ट गुण मिले पन्ने', # Fuzzy
-	'reviewedpages-list' => 'निम्नलिखित पन्ने विशिष्ट गुण प्राप्त हैं', # Fuzzy
-	'reviewedpages-none' => 'इस सूची में पन्ने नहीं हैं',
-	'reviewedpages-lev-0' => 'चुना हुआ',
-	'reviewedpages-lev-1' => 'गुणवत्ता',
-	'reviewedpages-lev-2' => 'विशेष',
-	'reviewedpages-all' => 'परिक्षण हुए अवतरण',
-	'reviewedpages-best' => 'मूल अवतरण', # Fuzzy
+	'reviewedpages' => 'पुनरीक्षित पृष्ठ',
+	'reviewedpages-leg' => 'पुनरीक्षित पृष्ठों की सूची दिखाएँ',
+	'reviewedpages-list' => "इस सूची में वे [[{{MediaWiki:Validationpage}}|पुनरीक्षित]] पृष्ठ शामिल हैं जिनके किसी अवतरण को ''उच्चतम'' पुनरीक्षण स्तर निर्दिष्ट स्तर मिला है।
+	उस स्तर के नवीनतम अवतरण की कड़ी दी गयी है।",
+	'reviewedpages-none' => 'इस सूची में कोई पृष्ठ नहीं हैं',
+	'reviewedpages-lev-0' => '{{int:revreview-lev-basic}}',
+	'reviewedpages-lev-1' => '{{int:revreview-lev-quality}}',
+	'reviewedpages-lev-2' => '{{int:revreview-lev-pristine}}',
+	'reviewedpages-all' => 'पुनरीक्षित अवतरण',
+	'reviewedpages-best' => 'उत्तम अवतरण',
 );
 
 /** Croatian (hrvatski)

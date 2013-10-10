@@ -459,13 +459,15 @@ $messages['he'] = array(
 /** Hindi (हिन्दी)
  * @author Ansumang
  * @author Kaustubh
+ * @author Siddhartha Ghai
  */
 $messages['hi'] = array(
-	'stablepages' => 'स्थिर पन्ने', # Fuzzy
-	'stablepages-list' => 'नीचे स्थिर अवतरण अविचल दिखाने वाले पन्नोंकी सूची हैं जो हाथसे तैयार की गई हैं।', # Fuzzy
-	'stablepages-none' => 'इस सूची में पन्ने नहीं हैं',
+	'stablepages' => 'पुनरीक्षण का प्रयोग कर रहे पृष्ठ',
+	'stablepages-list' => 'इस पृष्ठ पर उन पृष्ठों की सूची है जिनमें कुछ ही सदस्य ऐसे सम्पादन कर सकते हैं जिनके लिए पुनरीक्षण की आवश्यकता नहीं है।
+अन्य सदस्यों द्वारा किये सम्पादन डिफ़ॉल्ट रूप से पाठकों को नहीं दिखाए जाते हैं जब तक कि कोई अधिकृत सदस्य उनका पुनरीक्षण ना कर ले।',
+	'stablepages-none' => 'इस सूची में कोई पृष्ठ नहीं हैं।',
 	'stablepages-config' => 'कॉन्फिगरेशन',
-	'stablepages-indef' => 'केबल असीमित अबसान',
+	'stablepages-indef' => 'केवल अनिश्चितकालीन समाप्ति',
 );
 
 /** Croatian (hrvatski)

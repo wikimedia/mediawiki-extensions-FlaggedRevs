@@ -1090,7 +1090,7 @@ $messages['ce'] = array(
 	'revreview-failed' => "'''Ца хьажало варсийга.'''",
 	'revreview-submission-invalid' => 'Хlоттам бара бузанза йа кхачам боцуш чулацамца.',
 	'review_page_invalid' => 'Агlонан чулацамца йогlуш йоцу цlе.',
-	'review_page_notexists' => 'Iалаше хьажийна агlо йа йац.',
+	'review_page_notexists' => 'Iалаше хьажийна агӀо я яц.',
 	'review_page_unreviewable' => 'Iалаше хьажийна агlо йу хьажаман.',
 	'review_no_oldid' => 'Ца хоттийна ID варси.',
 	'review_bad_oldid' => 'Йоцуш йу ишта lалаше хьажийна варси.',
@@ -2526,50 +2526,85 @@ $messages['he'] = array(
 /** Hindi (हिन्दी)
  * @author Ansumang
  * @author Kaustubh
+ * @author Siddhartha Ghai
  */
 $messages['hi'] = array(
-	'revisionreview' => 'अवतरण परखें',
-	'revreview-failed' => "'''इस संशोधन की समिक्षा संभव नहीं ।'''",
-	'revreview-submission-invalid' => 'सबमिशन असंपूर्ण है या अमान्य है ।',
-	'review_page_invalid' => 'लक्ष्य पृष्ठ की शीर्षक अमान्य है ।',
-	'review_page_notexists' => 'लक्ष्य पृष्ठ मौजूद नहीं है ।',
-	'review_page_unreviewable' => 'लक्ष्य पृष्ठ समिक्षायोग्य नहीं है ।',
-	'review_no_oldid' => 'कोई संशोधन आईड़ि विनिर्दिष्ट नहीं है ।',
-	'review_bad_oldid' => 'लक्ष्य संशोधन मौजूद नहीं है ।',
-	'review_denied' => 'अनुमति नहीं मिली ।',
-	'review_param_missing' => 'प्राचल लापता या अमान्य है ।',
-	'review_reject_excessive' => 'इतने सारे सम्पादन एक ही बार में अस्वीकार नहीं हो सकता ।',
-	'revreview-check-flag-u' => 'पृष्ठ जो जांच नहीं हुई है उसे स्वीकार करें',
+	'revisionreview' => 'अवतरण पुनरीक्षण',
+	'revreview-failed' => "'''इस अवतरण का पुनरीक्षण संभव नहीं।'''",
+	'revreview-submission-invalid' => 'सबमिशन असंपूर्ण या अमान्य है।',
+	'review_page_invalid' => 'लक्ष्य पृष्ठ शीर्षक अमान्य है।',
+	'review_page_notexists' => 'लक्ष्य पृष्ठ मौजूद नहीं है।',
+	'review_page_unreviewable' => 'लक्ष्य पृष्ठ का पुनरीक्षण नहीं किया जा सकता।',
+	'review_no_oldid' => 'कोई अवतरण आइडी निर्दिष्ट नहीं है।',
+	'review_bad_oldid' => 'लक्ष्य अवतरण मौजूद नहीं है।',
+	'review_conflict_oldid' => 'जब आप इस अवतरण को देख रहे थे तब किसी ने इस अवतरण का पुनरीक्षण कर दिया है अथवा पुनरीक्षण वापिस ले लिया है।',
+	'review_not_flagged' => 'लक्ष्य अवतरण अभी पुनरीक्षित चिन्हित नहीं है।',
+	'review_too_low' => 'किसी फ़ील्ड को "अपर्याप्त" छोड़ कर पुनरीक्षण नहीं किया जा सकता।',
+	'review_bad_key' => 'अमान्य प्रयोग प्राचल क्रमांक।',
+	'review_bad_tags' => 'निर्दिष्ट टैगों में से कुछ अमान्य हैं।',
+	'review_denied' => 'अनुमति नहीं मिली।',
+	'review_param_missing' => 'प्राचल लापता या अमान्य है।',
+	'review_cannot_undo' => 'इन बदलावों को पूर्ववत नहीं किया जा सकता क्योंकि इसके बाद हुए अनिरीक्षित बदलावों ने इसी क्षेत्र को बदला है।',
+	'review_cannot_reject' => 'सभी बदलावों को अस्वीकार नहीं किया जा सकता क्योंकि किसी ने इनमें से कुछ (या सभी) बदलावों को पहले ही स्वीकार कर लिया है।',
+	'review_reject_excessive' => 'इतने सारे सम्पादन एक ही बार में अस्वीकार नहीं किये जा सकते।',
+	'review_reject_nulledits' => 'इन बदलावों को अस्वीकार नहीं किया जा सकता क्योंकि सभी अवतरण शून्य सम्पादन हैं (अर्थात कोई परिवर्तन नहीं किये गए हैं)।',
+	'revreview-check-flag-p' => 'इस अवतरण को स्वीकार करें ($1 अनिरीक्षित {{PLURAL:$1|बदलाव|बदलावों}} सहित)',
+	'revreview-check-flag-p-title' => 'अनिरीक्षित सम्पादनों और आपके सम्पादनों के परिणाम को पुनरीक्षित करें। इसका प्रयोग तभी करें यदि आपने सभी अनिरीक्षित बदलावों को देख लिया हो।',
+	'revreview-check-flag-u' => 'इस अनिरीक्षित पृष्ठ को स्वीकार करें',
+	'revreview-check-flag-u-title' => 'पृष्ठ के इस अवतरण को स्वीकार करें। इसका प्रयोग तभी करें यदि आपने पूरे पृष्ठ को देख लिया हो।',
 	'revreview-check-flag-y' => 'मेरी बदलाव स्वीकार करें',
-	'revreview-check-flag-y-title' => 'सारे बदलाव स्वीकार करें जो आप यहाँ किया हैं ।',
-	'revreview-flag' => 'यह अवतरण परखें',
-	'revreview-reflag' => 'इस संशोधन को पुनःसमिक्षा करें',
-	'revreview-invalid' => "'''गलत लक्ष्य:''' कोईभी [[{{MediaWiki:Validationpage}}|परिक्षण]] हुआ अवतरण दिये हुए क्रमांक से मिलता नहीं।",
+	'revreview-check-flag-y-title' => 'सारे बदलाव स्वीकार करें जो आपने यहाँ किये हैं।',
+	'revreview-flag' => 'यह अवतरण पुनरीक्षित करें',
+	'revreview-reflag' => 'इस अवतरण को पुनः पुनरीक्षित करें',
+	'revreview-invalid' => "'''अमान्य लक्ष्य:''' निर्दिष्ट आइडी से कोई भी [[{{MediaWiki:Validationpage}}|पुनरीक्षित]] अवतरण नहीं मिलता।",
 	'revreview-log' => 'टिप्पणी:',
-	'revreview-main' => 'परिक्षण के लिये एक अवतरण चुनना अनिवार्य हैं।
+	'revreview-main' => 'पुनरीक्षण करने के लिये एक अवतरण चुनना अनिवार्य है।
 
-परिक्षण ना हुए अवतरणोंकी सूची के लिये [[Special:Unreviewedpages]] देखें।', # Fuzzy
-	'revreview-stable1' => 'आप शायद इस पन्नेका [{{fullurl:$1|stableid=$2}} यह मार्क किया हुआ अवतरण] अब [{{fullurl:$1|stable=1}} स्थिर अवतरण] बन चुका हैं या नहीं यह देखना चाहतें हैं।', # Fuzzy
-	'revreview-stable2' => 'आप इस पन्नेका [{{fullurl:$1|stable=1}} स्थिर अवतरण] देख सकतें हैं (अगर उपलब्ध है तो)।', # Fuzzy
+[[Special:Unreviewedpages|अनिरीक्षित अवतरणों की सूची]] देखें।',
+	'revreview-stable1' => 'आप इस पृष्ठ का [{{fullurl:$1|stableid=$2}} यह पुनरीक्षित अवतरण] देख सकते हैं यह देखने के लिए कि यह [{{fullurl:$1|stable=1}} स्थिर अवतरण] बना है या नहीं।',
+	'revreview-stable2' => 'आप इस पृष्ठ का [{{fullurl:$1|stable=1}} स्थिर अवतरण] देख सकते हैं।',
 	'revreview-submit' => 'जमा करें',
-	'revreview-submitting' => 'दाखिला...',
-	'revreview-submit-review' => 'संशोधन स्वीकार',
-	'revreview-submit-unreview' => 'संशोधन अस्वीकार',
-	'revreview-submit-reject' => 'बदलाव असीकृत',
-	'revreview-submit-reviewed' => 'पूर्ण हुई । स्वीकृत!',
-	'revreview-submit-unreviewed' => 'पूर्ण हुई । अस्वीकृत!',
-	'revreview-successful' => "[[:$1|$1]] के चुने हुए अवतरणको मार्क किया गया हैं।
-([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} सभी मार्क किये हुए अवतरण देखें])'''",
-	'revreview-successful2' => "'''[[:$1|$1]] के चुने हुए अवतरण का मार्क हटाया।'''",
+	'revreview-submitting' => 'जमा हो रहा है...',
+	'revreview-submit-review' => 'अवतरण स्वीकार करें',
+	'revreview-submit-unreview' => 'अवतरण अस्वीकार करें',
+	'revreview-submit-reject' => 'बदलाव अस्वीकार करें',
+	'revreview-submit-reviewed' => 'पूर्ण हुआ। स्वीकृत!',
+	'revreview-submit-unreviewed' => 'पूर्ण हुआ। अस्वीकृत!',
+	'revreview-successful' => "'''[[:$1|$1]] का अवतरण सफलतापूर्वक पुनरीक्षित चिन्हित किया गया। ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} सभी पुनरीक्षित अवतरण देखें])'''",
+	'revreview-successful2' => "'''[[:$1|$1]] के अवतरण का पुनरीक्षण वापिस लिया।'''",
+	'revreview-poss-conflict-p' => "'''चेतावनी: [[User:$1|$1]] ने इस पृष्ठ का पुनरीक्षण करना $2 को $3 बजे शुरू किया था।'''",
+	'revreview-poss-conflict-c' => "'''चेतावनी: [[User:$1|$1]] ने इन बदलावों का पुनरीक्षण करना $2 को $3 बजे शुरू किया था।'''",
+	'revreview-adv-reviewing-p' => 'सूचना: अन्य पुनरीक्षक देख सकते हैं कि आप इस पृष्ठ का पुनरीक्षण कर {{GENDER:$1|रहे|रही}} हैं।',
+	'revreview-adv-reviewing-c' => 'सूचना: अन्य पुनरीक्षक देख सकते हैं कि आप इन बदलावों का पुनरीक्षण कर {{GENDER:$1|रहे|रही}} हैं।',
+	'revreview-sadv-reviewing-p' => 'आप अन्य सदस्यों को $1 कर सकते हैं कि आप इस पृष्ठ का पुनरीक्षण कर रहे हैं।',
+	'revreview-sadv-reviewing-c' => 'आप अन्य सदस्यों को $1 कर सकते हैं कि आप इन बदलावों का पुनरीक्षण कर रहे हैं।',
 	'revreview-adv-start-link' => 'विज्ञापन',
-	'revreview-toolow' => 'एक अवतरण को जाँचने का मार्क करने के लिये आपको नीचे लिखे हर पॅरॅमीटरको "अप्रमाणित" से उपरी दर्जा देना आवश्यक हैं।
-एक अवतरणका गुणांकन कम करने के लिये, निम्नलिखित सभी कॉलममें "अप्रमाणित" चुनें।', # Fuzzy
-	'revreview-update' => "कृपया किये हुए बदलाव ''(नीचे दिये हुए)'' [[{{MediaWiki:Validationpage}}|जाँचे]] क्योंकी स्थिर अवतरण [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} प्रमाणित] कर दिया गया हैं।<br />
-'''कुछ साँचा/चित्र बदले हैं:'''", # Fuzzy
-	'revreview-update-includes' => 'कुछ साँचा/चित्र बदले हैं:', # Fuzzy
+	'revreview-adv-stop-link' => 'विज्ञापित ना करें',
+	'revreview-toolow' => '\'\'\'आपको सभी गुणों के लिए "अपर्याप्त" से उच्च दर्जा देना होगा अवतरण के पुनरीक्षण हेतु।\'\'\'
+
+किसी अवतरण की पुनरीक्षण स्थिति हटाने के लिए "{{int:revreview-submit-unreview}}" पर क्लिक करें।
+
+कृपया अपने ब्राउज़र का "back" बटन दबाएँ और पुनः प्रयत्न करें।',
+	'revreview-update' => "'''कृपया स्थिर अवतरण के बाद से हुए सभी ''(नीचे दिखाए गए)'' बदलावों को [[{{MediaWiki:Validationpage}}|पुनरीक्षित]] करें।'''",
+	'revreview-update-edited' => '<span class="flaggedrevs_important">आपके बदलाव अभी स्थिर अवतरण में नहीं हैं।</span>
+
+आपके बदलाव स्थिर अवतरण में दिखाने के लिए कृपया नीचे दिखाए गए सभी बदलावों का पुनरीक्षण करें।',
+	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">आपके बदलाव अभी स्थिर अवतरण में नहीं हैं। इससे पहले के बदलावों का पुनरीक्षण बाकी है।</span>
+
+आपके बदलाव स्थिर अवतरण में दिखाने के लिए कृपया नीचे दिखाए गए सभी बदलावों का पुनरीक्षण करें।',
+	'revreview-update-includes' => 'साँचे/फ़ाइलें अद्यतित (अनिरीक्षित पृष्ठ बोल्ड में):',
+	'revreview-reject-text-list' => "यह कार्य कर के आप [[:$2|$2]] के निम्न {{PLURAL:$1|अवतरण|अवतरणों}} के स्रोत पाठ में बदलावों को '''अस्वीकार''' करेंगे:",
+	'revreview-reject-text-revto' => 'इससे पृष्ठ [{{fullurl:$1|oldid=$2}} $3 के अवतरण] पर वापिस चला जाएगा।',
 	'revreview-reject-summary' => 'सारांश:',
-	'revreview-reject-confirm' => 'ये संशोधन अस्वीकार करें',
+	'revreview-reject-confirm' => 'ये बदलाव अस्वीकार करें',
 	'revreview-reject-cancel' => 'रद्द करें',
+	'revreview-reject-summary-cur' => '$2 द्वारा {{PLURAL:$1|किया|किये $1}} बदलाव अस्वीकार {{PLURAL:$1|किया|किये}} और $4 का $3 अवतरण पुनर्स्थापित किया',
+	'revreview-reject-summary-old' => '$4 के $3 अवतरण के बाद $2 द्वारा {{PLURAL:$1|किया पहला बदलाव|किये पहले $1 बदलाव}} अस्वीकार {{PLURAL:$1|किया|किये}}',
+	'revreview-reject-summary-cur-short' => '{{PLURAL:$1|पिछला बदलाव|पिछले $1 बदलाव}} अस्वीकार {{PLURAL:$1|किया|किये}} और $3 का $2 अवतरण पुनर्स्थापित किया',
+	'revreview-reject-summary-old-short' => '$3 के $2 अवतरण के बाद {{PLURAL:$1|हुआ पहला बदलाव|हुए पहले $1 बदलाव}} अस्वीकार {{PLURAL:$1|किया|किये}}',
+	'revreview-tt-flag' => 'इस अवतरण का पुनरीक्षण स्तर "देखा हुआ" चिन्हित कर स्वीकार करें',
+	'revreview-tt-unflag' => 'इस अवतरण का पुनरीक्षण स्तर "अनदेखा" चिन्हित कर के अस्वीकार करें',
+	'revreview-tt-reject' => 'इन स्रोत पाठ बदलावों को पूर्ववत कर के इन्हें अस्वीकार करें',
 );
 
 /** Croatian (hrvatski)

@@ -770,7 +770,7 @@ $messages['ce'] = array(
 	'stabilization-def-short-0' => 'хlинцлера',
 	'stabilization-def-short-1' => 'Чутоьхнарг',
 	'stabilize_page_invalid' => 'Агlонан чулацамца йогlуш йоцу цlе.',
-	'stabilize_page_notexists' => 'Iалаше хьажийна агlо йа йац.',
+	'stabilize_page_notexists' => 'Iалаше хьажийна агӀо я яц.',
 	'stabilize-expiring' => 'чакхйолу $1 (UTC)',
 );
 
@@ -1282,10 +1282,10 @@ Tässä ovat nykyiset asetukset kohteelle [[:$1|$1]]:',
 Asetusten määrittäminen ei ole mahdollista.',
 	'stabilization-notcontent' => 'Sivua [[:$1|$1]] ei voi merkitä arvioiduksi.
 Asetusten määrittäminen ei ole mahdollista.',
-	'stabilization-comment' => 'Syy',
-	'stabilization-otherreason' => 'Muu syy',
-	'stabilization-expiry' => 'Vanhentuu',
-	'stabilization-othertime' => 'Muu aika',
+	'stabilization-comment' => 'Syy:',
+	'stabilization-otherreason' => 'Muu syy:',
+	'stabilization-expiry' => 'Vanhentuu:',
+	'stabilization-othertime' => 'Muu aika:',
 	'stabilization-def-short' => 'Oletus',
 	'stabilization-def-short-0' => 'Uusin',
 	'stabilization-def-short-1' => 'Vakaa',
@@ -1575,43 +1575,43 @@ $messages['he'] = array(
 /** Hindi (हिन्दी)
  * @author Ansumang
  * @author Kaustubh
+ * @author Siddhartha Ghai
  */
 $messages['hi'] = array(
-	'stabilization-tab' => 'व्हेट',
-	'stabilization' => 'लेख स्थ्रिर करें',
-	'stabilization-text' => "'''[[:$1|$1]] का स्थिर अवतरण किस प्रकार चुना या दर्शाया जाये इस के लिये निम्नलिखित सेटिंग बदलें।'''", # Fuzzy
-	'stabilization-perm' => 'आपको स्थिर अवतरण बदलनेकी अनुमति नहीं हैं।
-[[:$1|$1]]का अभीका सेटींग इस प्रकार हैं:', # Fuzzy
+	'stabilization-tab' => 'पुनरीक्षण',
+	'stabilization' => 'पृष्ठ स्थिरता',
+	'stabilization-text' => "'''[[:$1|$1]] का स्थिर अवतरण किस प्रकार चुना या दर्शाया जाये इसके लिये निम्नलिखित सेटिंग्स बदलें।'''",
+	'stabilization-perm' => 'आपके खाते को स्थिर अवतरण बदलने की अनुमति नहीं है।
+[[:$1|$1]] की वर्तमान सेटिंग्स इस प्रकार हैं:',
 	'stabilization-page' => 'पृष्ठ नाम:',
-	'stabilization-leg' => 'स्थिर अवतरण सेटिंग निश्चित करें', # Fuzzy
-	'stabilization-def' => 'डिफॉल्ट पन्ने के साथ बदलाव दर्शायें गयें हैं',
-	'stabilization-def1' => 'स्थिर अवतरण;
-अगर नहीं हैं, तो सद्य', # Fuzzy
-	'stabilization-def2' => 'सद्य अवतरण', # Fuzzy
-	'stabilization-restrict' => 'समिक्षा/स्व-समिक्षा प्रतिबंध',
+	'stabilization-leg' => 'स्थिर अवतरण सेटिंग्स निश्चित करें',
+	'stabilization-def' => 'डिफ़ॉल्ट पृष्ठ दृश्यता में दिखाया गया अवतरण',
+	'stabilization-def1' => 'स्थिर अवतरण; अगर नहीं है, तो सद्य अवतरण',
+	'stabilization-def2' => 'सद्य अवतरण',
+	'stabilization-restrict' => 'पुनरीक्षण/स्वतः पुनरीक्षण पर प्रतिबंध',
 	'stabilization-restrict-none' => 'कोई अतिरिक्त प्रतिबंध नहीं',
 	'stabilization-submit' => 'निश्चित करें',
-	'stabilization-notexists' => '"[[:$1|$1]]" इस नामका पृष्ठ अस्तित्वमें नहीं हैं।
-बदलाव नहीं किये जा सकतें।',
-	'stabilization-notcontent' => '"[[:$1|$1]]" यह पृष्ठ जाँचा नहीं जा सकता।
-बदलाव नहीं किये जा सकतें।',
+	'stabilization-notexists' => '"[[:$1|$1]]" नाम का कोई पृष्ठ नहीं है।
+बदलाव नहीं किये जा सकते।',
+	'stabilization-notcontent' => '"[[:$1|$1]]" पृष्ठ पुनरीक्षित नहीं किया जा सकता।
+बदलाव नहीं किये जा सकते।',
 	'stabilization-comment' => 'कारण:',
 	'stabilization-otherreason' => 'अन्य कारण:',
 	'stabilization-expiry' => 'समाप्ति:',
 	'stabilization-othertime' => 'अन्य समय:',
-	'stabilization-def-short' => 'डिफॉल्ट',
+	'stabilization-def-short' => 'डिफ़ॉल्ट',
 	'stabilization-def-short-0' => 'सद्य',
 	'stabilization-def-short-1' => 'स्थिर',
-	'stabilize_page_invalid' => 'लक्ष्य पृष्ठ की शीर्षक अमान्य है ।',
-	'stabilize_page_notexists' => 'लक्ष्य पृष्ठ मौजूद नहीं है ।',
-	'stabilize_page_unreviewable' => 'लख्य पृष्ठ समिक्षायोग्य नेमस्पेस में नहीं है ।',
-	'stabilize_invalid_autoreview' => 'अमान्य स्वसमिक्षा प्रतिबंध ।',
-	'stabilize_invalid_level' => 'अमान्य सुरक्षा सस्तर ।',
-	'stabilize_expiry_invalid' => 'गलत समाप्ति तिथी।',
-	'stabilize_expiry_old' => 'यह समाप्ति तिथी गुजर चुकी हैं।',
-	'stabilize_denied' => 'अनुमति नहीं मिली ।',
+	'stabilize_page_invalid' => 'लक्ष्य पृष्ठ शीर्षक अमान्य है।',
+	'stabilize_page_notexists' => 'लक्ष्य पृष्ठ मौजूद नहीं है।',
+	'stabilize_page_unreviewable' => 'लक्ष्य पृष्ठ ऐसे नामस्थान में है जिसमें पुनरीक्षण नहीं किया जा सकता।',
+	'stabilize_invalid_autoreview' => 'अमान्य स्वतः पुनरीक्षण प्रतिबंध।',
+	'stabilize_invalid_level' => 'अमान्य सुरक्षा स्तर।',
+	'stabilize_expiry_invalid' => 'अमान्य समाप्ति तिथि।',
+	'stabilize_expiry_old' => 'यह समाप्ति तिथि गुज़र चुकी है।',
+	'stabilize_denied' => 'अनुमति नहीं मिली।',
 	'stabilize-expiring' => '$1 (UTC) को समाप्ति',
-	'stabilization-review' => 'बर्त्तमान की संशोधन को चिन्हित करें',
+	'stabilization-review' => 'वर्तमान अवतरण का पुनरीक्षण स्तर देखा हुआ चिन्हित करें',
 );
 
 /** Croatian (hrvatski)

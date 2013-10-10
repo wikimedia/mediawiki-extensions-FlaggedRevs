@@ -367,7 +367,7 @@ $messages['ca'] = array(
 $messages['ce'] = array(
 	'unreviewedpages-category' => 'Категори:',
 	'unreviewedpages-diff' => 'хьажа',
-	'unreviewedpages-unwatched' => '(терго йац)',
+	'unreviewedpages-unwatched' => '(терго яц)',
 	'unreviewedpages-watched' => '({{PLURAL:$1|терго йеш $1 жигара декъашхо|терго йеш $1 жигара декъашхой}})',
 	'unreviewedpages-viewing' => '(талламяхь йу)',
 	'unreviewedpages-hours' => '($1 {{PLURAL:$1|сахьат|сахьат}})',
@@ -794,20 +794,22 @@ $messages['he'] = array(
 /** Hindi (हिन्दी)
  * @author Ansumang
  * @author Kaustubh
+ * @author Siddhartha Ghai
  */
 $messages['hi'] = array(
-	'unreviewedpages' => 'परिक्षण ना हुए पन्ने',
-	'unreviewedpages-legend' => 'न देखें हुए लेखोंकी सूची बनायें',
+	'action-unreviewedpages' => 'सभी अनिरीक्षित पृष्ठों की सूची देखने',
+	'unreviewedpages' => 'अनिरीक्षित पृष्ठ',
+	'unreviewedpages-legend' => 'अनिरीक्षित सामग्री पृष्ठों की सूची दिखाएँ',
 	'unreviewedpages-category' => 'श्रेणी:',
-	'unreviewedpages-diff' => 'जाँचे',
-	'unreviewedpages-unwatched' => '(न देखे हुए)',
-	'unreviewedpages-watched' => '($1 {{PLURAL:$1|सदस्यने|सदस्योंने}} ध्यान रखा हैं)', # Fuzzy
-	'unreviewedpages-list' => 'यह पन्ना ऐसे लेख दर्शाता हैं जिन्हें जाँचा नहीं गया हैं।', # Fuzzy
-	'unreviewedpages-none' => 'इस क्राइटेरिआ से मिलने वाले पन्ने नहीं हैं',
-	'unreviewedpages-viewing' => '(समिक्षा अंतर्गत)',
+	'unreviewedpages-diff' => 'पुनरीक्षित करें',
+	'unreviewedpages-unwatched' => '(किसी की ध्यानसूची में नहीं)',
+	'unreviewedpages-watched' => '($1 सक्रिय {{PLURAL:$1|सदस्य|सदस्यों}} ने ध्यान रखा है)',
+	'unreviewedpages-list' => 'यह पृष्ठ ऐसे पृष्ठों की सूची दर्शाता है जिन्हें निर्दिष्ट स्तर तक [[{{MediaWiki:Validationpage}}|पुनरीक्षित]] नहीं किया गया है।',
+	'unreviewedpages-none' => 'इन मानदंडों को पूर्ण करने वाले इस समय कोई पृष्ठ नहीं हैं',
+	'unreviewedpages-viewing' => '(पुनरीक्षण के अंतर्गत)',
 	'unreviewedpages-hours' => '($1 {{PLURAL:$1|घंटा|घंटे}})',
-	'unreviewedpages-days' => '($1 {{PLURAL:$1|दिन|दिन}})',
-	'unreviewedpages-recent' => '(१ घंटेसे कम समय)',
+	'unreviewedpages-days' => '($1 {{PLURAL:$1|दिन}})',
+	'unreviewedpages-recent' => '(एक घंटे से कम समय)',
 );
 
 /** Fiji Hindi (Latin script) (Fiji Hindi)

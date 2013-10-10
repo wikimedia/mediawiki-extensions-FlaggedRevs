@@ -424,7 +424,7 @@ $messages['ce'] = array(
 	'pendingchanges-recent' => '(лаххар 1 сахьтехь)',
 	'pendingchanges-category' => 'Категори:',
 	'pendingchanges-diff' => 'хьажа',
-	'pendingchanges-unwatched' => '(терго йац)',
+	'pendingchanges-unwatched' => '(терго яц)',
 	'pendingchanges-watched' => '({{PLURAL:$1|терго йеш $1 жигар декъашхо|терго йеш $1 жигара декъашхой}})',
 	'pendingchanges-viewing' => '(хьовсамехь йу)',
 );
@@ -861,23 +861,24 @@ $messages['he'] = array(
 /** Hindi (हिन्दी)
  * @author Ansumang
  * @author Kaustubh
+ * @author Siddhartha Ghai
  */
 $messages['hi'] = array(
-	'pendingchanges' => 'पुराने जाँचे हुए पन्ने', # Fuzzy
-	'pendingchanges-legend' => 'जिन जाँचे हुए पन्नोंको न जाँचे हुए अवतरण हैं उनकी सूची दर्शायें',
-	'pendingchanges-list' => 'यह पन्ना ऐसे जाँचे हुए पन्नोंकी सूची दर्शाता हैं जिनमें न जाँचे हुए बदलाव हैं।', # Fuzzy
-	'pendingchanges-none' => 'इस क्राइटेरिआ से मिलने वाले पन्ने नहीं हैं',
+	'pendingchanges' => 'अनिरीक्षित बदलावों वाले पृष्ठ',
+	'pendingchanges-legend' => 'अनिरीक्षित बदलावों वाले पुनरीक्षित पृष्ठों की सूची दर्शायें',
+	'pendingchanges-list' => 'यह पृष्ठ ऐसे [[{{MediaWiki:Validationpage}}|पुनरीक्षित]] पृष्ठों की सूची दर्शाता है जिनमें अनिरीक्षित बदलाव हैं।',
+	'pendingchanges-none' => 'इन मानदंडों को पूर्ण करने वाले कोई पृष्ठ नहीं हैं',
 	'pendingchanges-hours' => '($1 {{PLURAL:$1|घंटा|घंटे}})',
-	'pendingchanges-days' => '($1 {{PLURAL:$1|दिन|दिन}})',
-	'pendingchanges-recent' => '(१ घंटेसे कम समय)',
+	'pendingchanges-days' => '($1 {{PLURAL:$1|दिन}})',
+	'pendingchanges-recent' => '(एक घंटे से कम समय)',
 	'pendingchanges-category' => 'श्रेणी:',
-	'pendingchanges-onwatchlist' => 'मेरी ध्यानसूची में पृष्ठों',
-	'pendingchanges-stable' => 'चुना हुआ', # Fuzzy
-	'pendingchanges-diff' => 'जाँच',
-	'pendingchanges-size' => 'ज़्यादा से ज़्यादा बदलाव (बाइटस) :',
-	'pendingchanges-unwatched' => '(न देखे हुए)',
-	'pendingchanges-watched' => '($1 {{PLURAL:$1|सदस्यने|सदस्योंने}} ध्यान रखा हैं)', # Fuzzy
-	'pendingchanges-viewing' => '(समिक्षा अंतर्गत)',
+	'pendingchanges-onwatchlist' => 'मेरी ध्यानसूची के पृष्ठ',
+	'pendingchanges-stable' => 'स्थिर अवतरण डिफ़ॉल्ट है',
+	'pendingchanges-diff' => 'पुनरीक्षण करें',
+	'pendingchanges-size' => 'अधिकतम बदलाव (बाइट्स):',
+	'pendingchanges-unwatched' => '(किसी की ध्यानसूची में नहीं)',
+	'pendingchanges-watched' => '($1 सक्रिय {{PLURAL:$1|सदस्य|सदस्यों}} ने ध्यान रखा है)',
+	'pendingchanges-viewing' => '(पुनरीक्षण के अंतर्गत)',
 );
 
 /** Croatian (hrvatski)
@@ -1827,6 +1828,7 @@ $messages['sk'] = array(
 
 /** Slovenian (slovenščina)
  * @author Dbc334
+ * @author Eleassar
  */
 $messages['sl'] = array(
 	'pendingchanges' => 'Strani s spremembami v teku',
@@ -1840,7 +1842,7 @@ $messages['sl'] = array(
 	'pendingchanges-onwatchlist' => 'Strani na mojem spisku nadzorov',
 	'pendingchanges-stable' => 'Ustaljena različica je privzeta',
 	'pendingchanges-diff' => 'preglej',
-	'pendingchanges-size' => 'Največja sprememba (bajtov):',
+	'pendingchanges-size' => 'Največja sprememba (zlogov):',
 	'pendingchanges-unwatched' => '(nespremljano)',
 	'pendingchanges-watched' => '({{PLURAL:$1|spremlja $1 aktiven uporabnik|spremljata $1 aktivna uporabnika|spremljajo $1 aktivni uporabniki|spremlja $1 aktivnih uporabnikov}})',
 	'pendingchanges-viewing' => '(v pregledu)',
