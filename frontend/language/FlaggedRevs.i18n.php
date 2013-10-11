@@ -9052,7 +9052,7 @@ $messages['ka'] = array(
 	'tooltip-ca-default' => 'ხარისხის კონტროლის მართვა',
 	'flaggedrevs-protect-legend' => 'რედაქტირებების ავტომატური მონიშვნა ([[{{MediaWiki:Validationpage}}|დახმარება]])',
 	'flaggedrevs-protect-none' => 'ნებადართულია ყველა მომხმარებლისთვის',
-	'flaggedrevs-categoryview' => '[{{fullurl:Special:UnreviewedPages|category=$1}} შეუმოწმებელი გვერდები]{{MediaWiki:pipe-separator}}[{{fullurl:Special:PendingChanges|category=$1}} ელიან ცვლილებებს]',
+	'flaggedrevs-categoryview' => '[{{fullurl:Special:UnreviewedPages|category=$1}} შეუმოწმებელი გვერდები]{{MediaWiki:pipe-separator}}[{{fullurl:Special:PendingChanges|category=$1}} შემოწმების მომლოდინე გვერდები]',
 	'revreview-locked-title' => 'ამ გვერდის რედაქტირებები უნდა მოინიშნონ.',
 	'revreview-unlocked-title' => 'ამ გვერდის რედაქტირებები არ უნდა მოინიშნონ.',
 	'revreview-locked' => "'''ყურადღება:''' გამოქვეყნებამდე შეტანილი ცვლილება [[{{MediaWiki:Validationpage}}|შემოწმდეს]].",
