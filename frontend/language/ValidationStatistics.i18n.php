@@ -26,6 +26,7 @@ $3',
 	'validationstatistics-latest' => 'Synced',
 	'validationstatistics-synced' => 'Synced/Reviewed',
 	'validationstatistics-old'    => 'Outdated',
+	'validationstatistics-unreviewed' => 'Unreviewed',
 	'validationstatistics-utable' => 'Below is a list of the {{PLURAL:$1|most active reviewer|$1 most active reviewers}} in the last {{PLURAL:$2|hour|$2 hours}}.',
 	'validationstatistics-user'   => 'User',
 	'validationstatistics-reviews' => 'Reviews',
@@ -85,6 +86,9 @@ Table header for the ratio of pages that that have a stable version and no pendi
 Shown on the page [[Special:ValidationStatistics]].
 Table header for pages that have pending changes (edits newer than the stable version).
 {{Identical|Outdated}}',
+	'validationstatistics-unreviewed' => '{{Flagged Revs}}
+Shown on the page [[Special:ValidationStatistics]].
+Table header for pages that have no stable version at all.',
 	'validationstatistics-utable' => '{{Flagged Revs}}
 Shown on the page [[Special:ValidationStatistics]]. Parameters:
 * $1 - number of users in the "top active reviewers" list

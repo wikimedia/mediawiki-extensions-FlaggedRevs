@@ -78,8 +78,9 @@ class ValidationStatistics extends IncludableSpecialPage {
 		$out->addHTML( "<tr>\n" );
 		// Headings (for a positive grep result):
 		// validationstatistics-ns, validationstatistics-total, validationstatistics-stable,
-		// validationstatistics-latest, validationstatistics-synced, validationstatistics-old
-		$msgs = array( 'ns', 'total', 'stable', 'latest', 'synced', 'old' ); // our headings
+		// validationstatistics-latest, validationstatistics-synced, validationstatistics-old,
+		// validationstatistics-unreviewed
+		$msgs = array( 'ns', 'total', 'stable', 'latest', 'synced', 'old', 'unreviewed' ); // our headings
 		foreach ( $msgs as $msg ) {
 			$out->addHTML( '<th>' .
 				$this->msg( "validationstatistics-$msg" )->parse() . '</th>' );
@@ -120,6 +121,8 @@ class ValidationStatistics extends IncludableSpecialPage {
 					->escaped();
 			$outdated = intval( $reviewed ) - intval( $synced );
 			$outdated = $lang->formatnum( max( 0, $outdated ) ); // lag between queries
+			$unreviewed = intval( $total ) - intval( $reviewed );
+			$unreviewed = $lang->formatnum( max( 0, $unreviewed ) ); // lag between queries
 
 			$out->addHTML(
 				"<tr align='center'>
@@ -143,6 +146,13 @@ class ValidationStatistics extends IncludableSpecialPage {
 					<td>" .
 						Linker::linkKnown( SpecialPage::getTitleFor( 'PendingChanges' ),
 							htmlspecialchars( $outdated ),
+							array(),
+							array( 'namespace' => $namespace )
+						) .
+					"</td>
+					<td>" .
+						Linker::linkKnown( SpecialPage::getTitleFor( 'UnreviewedPages' ),
+							htmlspecialchars( $unreviewed ),
 							array(),
 							array( 'namespace' => $namespace )
 						) .
