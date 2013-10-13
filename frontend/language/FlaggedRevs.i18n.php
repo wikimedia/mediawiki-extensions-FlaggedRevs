@@ -3481,7 +3481,7 @@ $messages['ce'] = array(
 	'review-logentry-dis' => 'белгалло йина къаначу варсийна [[$1]]',
 	'review-logentry-id' => 'верси: $2',
 	'review-logentry-diff' => 'хьаьжина хийцамаш',
-	'review-logentry-diff2' => 'къанбелла хийцамаш',
+	'review-logentry-diff2' => 'шира белла хийцамаш',
 	'review-logpage' => 'Хьажаран тептар',
 	'review-logpagetext' => 'Хlара тептер ду гойтуш, муьлха варси яззамаш бу [[{{MediaWiki:Validationpage}}|хьаьжна]].',
 	'reviewer' => 'нийсдохьажамхо',
@@ -3555,7 +3555,7 @@ $messages['ce'] = array(
 	'revreview-toggle-title' => 'гайта/къайла даккха мадарра дерг',
 	'specialpages-group-quality' => 'Бакъдар нисдарш',
 	'stable-logpage' => 'Цхьан эшшара йолучера тептар',
-	'revreview-filter-all' => 'Массо',
+	'revreview-filter-all' => 'массо',
 	'revreview-filter-stable' => 'Чутоьхна',
 	'revreview-statusfilter' => 'Тlе лоцуш дан дезарг:',
 	'revreview-filter-approved' => 'Къобал йинарш',
@@ -12779,6 +12779,7 @@ Verifique a URL que usou para aceder a esta página.',
  * @author Heldergeovane
  * @author Luckas
  * @author Luckas Blade
+ * @author Opraco
  * @author Pedroca cerebral
  * @author Rafael Vargas
  * @author 555
@@ -12931,7 +12932,7 @@ Por favor verifique a URL que você usou para acessar esta página.',
 	'stable-logentry-config' => 'definiu os parâmetros de publicação de "$1"',
 	'stable-logentry-modify' => 'alterou or parâmetros de publicação de "$1"',
 	'stable-logentry-reset' => 'repôs os parâmetros de publicação originais de "$1"',
-	'stable-log-restriction' => 'Autorevisão: requer a permissão "$1"',
+	'stable-log-restriction' => 'Autorrevisão: requer a permissão "$1"',
 	'stable-logpage' => 'Registro de estabilidade',
 	'stable-logpagetext' => 'Este é um registro de modificações na configuração da [[{{MediaWiki:Validationpage}}|versão publicada]] das páginas de conteúdo.',
 	'revreview-filter-all' => 'todas',

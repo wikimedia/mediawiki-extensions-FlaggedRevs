@@ -394,12 +394,14 @@ El temps mitjà pel que fa a [[Special:OldReviewedPages|les pagines amb edicions
 
 /** Chechen (нохчийн)
  * @author Sasan700
+ * @author Умар
  */
 $messages['ce'] = array(
 	'validationstatistics-ns' => 'Цlерийн ана',
 	'validationstatistics-total' => 'Агlонаш',
 	'validationstatistics-stable' => 'Нийса йуй хаьжнарш',
 	'validationstatistics-latest' => 'Йуха хьаьжинарш',
+	'validationstatistics-old' => 'Шира елларш',
 	'validationstatistics-user' => 'Декъашхо',
 	'validationstatistics-reviews' => 'Нийса йуй хьажар',
 );
@@ -1720,6 +1722,7 @@ $messages['pdc'] = array(
  * @author Sp5uhe
  * @author ToSter
  * @author WTM
+ * @author Woytecr
  * @author Wpedzich
  */
 $messages['pl'] = array(
@@ -1740,6 +1743,7 @@ $3",
 	'validationstatistics-latest' => 'Przejrzane',
 	'validationstatistics-synced' => 'Przejrzane / Oznaczone',
 	'validationstatistics-old' => 'Zdezaktualizowane',
+	'validationstatistics-unreviewed' => 'Nieprzejrzane',
 	'validationstatistics-utable' => 'Poniżej znajduje się {{PLURAL:$1|nazwa użytkownika najaktywniej oznaczającego|lista $1 użytkowników najaktywniej oznaczających}} strony w ciągu {{PLURAL:$2|ostatniej godziny|ostatnich $2 godzin}}.',
 	'validationstatistics-user' => 'Użytkownik',
 	'validationstatistics-reviews' => 'Liczba oznaczeń',
@@ -1819,6 +1823,7 @@ $3",
  * @author Eduardo.mps
  * @author Giro720
  * @author Luckas
+ * @author Opraco
  */
 $messages['pt-br'] = array(
 	'validationstatistics' => 'Estatísticas da revisão de páginas',
@@ -1835,7 +1840,7 @@ $3",
 	'validationstatistics-ns' => 'Espaço nominal',
 	'validationstatistics-total' => 'Páginas',
 	'validationstatistics-stable' => 'Analisadas',
-	'validationstatistics-latest' => 'Sincronizada',
+	'validationstatistics-latest' => 'Sincronizadas',
 	'validationstatistics-synced' => 'Sincronizadas/Analisadas',
 	'validationstatistics-old' => 'Desatualizadas',
 	'validationstatistics-utable' => 'Abaixo está a lista {{PLURAL:$1|do revisor mais ativo|dos $1 revisores mais ativos}} {{PLURAL:$2|na última hora|nas últimas horas}}.',
