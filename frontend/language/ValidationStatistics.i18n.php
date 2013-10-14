@@ -14,12 +14,14 @@ $messages['en'] = array(
 
 Editors are established users that can spot-check revisions to pages.',
     'validationstatistics-lastupdate' => '\'\'The following data was last updated on $1 at $2.\'\'',
-	'validationstatistics-pndtime'   => 'Edits that have been checked by established users are considered \'\'reviewed\'\'.
+	'validationstatistics-pndtime'   => 'Edits that have been checked by established users are considered \'\'{{int:validationstatistics-stable}}\'\'.
 
 The average review delay for [[Special:OldReviewedPages|pages with edits currently pending review]] is \'\'\'$1\'\'\'; the delay measures how long the oldest pending edit has gone unreviewed.',
     'validationstatistics-revtime'   => 'The average wait for edits by \'\'users that have not logged in\'\' to be reviewed is \'\'\'$1\'\'\'; the median is \'\'\'$2\'\'\'.
 $3',
-	'validationstatistics-table'  => "Page review statistics for each namespace are shown below, ''excluding'' redirect pages. Pages are treated as ''outdated'' if they have edits pending review; pages are considered ''synced'' if there are no edits pending review.",
+	'validationstatistics-table'  => "Page review statistics for each namespace are shown below, ''excluding'' redirect pages.
+Pages are treated as ''{{int:validationstatistics-old}}'' if they have edits pending review;
+pages are considered ''{{int:validationstatistics-latest}}'' if there are no edits pending review.",
 	'validationstatistics-ns'     => 'Namespace',
 	'validationstatistics-total'  => 'Pages',
 	'validationstatistics-stable' => 'Reviewed',
