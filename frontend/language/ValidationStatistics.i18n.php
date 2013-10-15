@@ -60,14 +60,22 @@ Shown on the page [[Special:ValidationStatistics]].
 * $2 = Time',
 	'validationstatistics-pndtime' => '{{Flagged Revs}}
 Provides the first informative paragraph in [[Special:ValidationStatistics]].
-* $1 is the average wait time for page reviews at [[Special:PendingChanges]].',
+
+Refers to {{msg-mw|Validationstatistics-stable}}.
+
+Parameters:
+* $1 - the average wait time for page reviews at [[Special:PendingChanges]]',
 	'validationstatistics-revtime' => '{{Flagged Revs}}
 Shown on the page [[Special:ValidationStatistics]]. Parameters:
 * $1 - the duration of time that the average "anon" edit takes to get reviewed
 * $2 - the median duration of time that the average "anon" edit takes to get reviewed
 * $3 - a tabulation of the percentiles of the duration of time it takes to get "anon" edits reviewed. For example, if the P90 value is 1h33m then 90% of edits get reviewed within 1 hour, 33 minutes.',
 	'validationstatistics-table' => '{{Flagged Revs}}
-Shown on the page [[Special:ValidationStatistics]].',
+Shown on the page [[Special:ValidationStatistics]].
+
+Refers to:
+* {{msg-mw|Validationstatistics-old}}
+* {{msg-mw|Validationstatistics-latest}}',
 	'validationstatistics-ns' => '{{Flagged Revs}}
 {{Identical|Namespace}}',
 	'validationstatistics-total' => '{{Flagged Revs}}
@@ -90,7 +98,8 @@ Table header for pages that have pending changes (edits newer than the stable ve
 {{Identical|Outdated}}',
 	'validationstatistics-unreviewed' => '{{Flagged Revs}}
 Shown on the page [[Special:ValidationStatistics]].
-Table header for pages that have no stable version at all.',
+Table header for pages that have no stable version at all.
+{{Identical|Unreviewed}}',
 	'validationstatistics-utable' => '{{Flagged Revs}}
 Shown on the page [[Special:ValidationStatistics]]. Parameters:
 * $1 - number of users in the "top active reviewers" list
@@ -469,6 +478,7 @@ $messages['da'] = array(
  * @author Kghbln
  * @author Melancholie
  * @author Merlissimo
+ * @author Metalhead64
  * @author Shirayuki
  * @author The Evil IP address
  * @author Umherirrender
@@ -479,18 +489,21 @@ $messages['de'] = array(
 
 Sichter sind anerkannte Benutzer, die Versionen einer Seite markieren können.",
 	'validationstatistics-lastupdate' => "''Die folgenden Daten wurden zuletzt am $1 um $2 Uhr aktualisiert.''",
-	'validationstatistics-pndtime' => "Bearbeitungen, die von anerkannten Benutzern bestätigt wurden, gelten als markiert.
+	'validationstatistics-pndtime' => "Bearbeitungen, die von anerkannten Benutzern bestätigt wurden, gelten als ''{{int:validationstatistics-stable}}''.
 
-Die durchschnittliche Wartezeit der [[Special:OldReviewedPages|Seiten mit unmarkierten Änderungen]] beträgt '''$1'''. Die Verzögerung misst wie lang die älteste unmarkierte Änderung unbestätigt blieb.",
+Die durchschnittliche Wartezeit der [[Special:OldReviewedPages|Seiten mit derzeit unmarkierten Änderungen]] beträgt '''$1'''. Die Verzögerung misst wie lang die älteste unmarkierte Änderung unbestätigt blieb.",
 	'validationstatistics-revtime' => "Die durchschnittliche Wartezeit bis zur Markierung, bei Bearbeitungen ''durch Benutzer, die nicht angemeldet waren''  beträgt '''$1'''; der Median ist '''$2'''.
 $3",
-	'validationstatistics-table' => 'Die Statistiken zu den Versionsmarkierungen aller Seiten, mit Ausnahme von Weiterleitungsseiten, werden unten für jeden Namensraum angezeigt. Seiten werden als veraltet eingestuft, sofern sie unmarkierte Änderungen enthalten. Alle anderen Seiten werden als markiert und somit aktuell eingestuft.',
+	'validationstatistics-table' => "Die Statistiken zu den Versionsmarkierungen aller Seiten, mit Ausnahme von Weiterleitungsseiten, werden unten für jeden Namensraum angezeigt.
+Seiten werden als ''{{int:validationstatistics-old}}'' eingestuft, sofern sie unmarkierte Änderungen enthalten.
+Alle anderen Seiten werden als ''{{int:validationstatistics-latest}}'' und somit aktuell eingestuft.",
 	'validationstatistics-ns' => 'Namensraum',
 	'validationstatistics-total' => 'Seiten gesamt',
-	'validationstatistics-stable' => 'Mindestens eine Version markiert',
-	'validationstatistics-latest' => 'Anzahl Seiten, die in der aktuellen Version markiert sind',
+	'validationstatistics-stable' => 'Überprüft',
+	'validationstatistics-latest' => 'Synchronisiert',
 	'validationstatistics-synced' => 'Prozentsatz an Seiten, die in der aktuellen Version markiert sind',
 	'validationstatistics-old' => 'Seiten mit unmarkierten Änderungen',
+	'validationstatistics-unreviewed' => 'Ungeprüft',
 	'validationstatistics-utable' => 'Nachfolgend die Anzeige {{PLURAL:$1|des aktivsten Sichters|der $1 aktivsten Sichter}} der letzten {{PLURAL:$2|Stunde|$2 Stunden}}.',
 	'validationstatistics-user' => 'Benutzer',
 	'validationstatistics-reviews' => 'Markierungen',
@@ -695,16 +708,17 @@ $messages['fa'] = array(
 	'validationstatistics-lastupdate' => "''داده‌های زیر آخرین بار در تاریخ $1 در $2 به‌روزرسانی شده است.''",
 	'validationstatistics-pndtime' => "ویرایش‌هایی که توسط کاربران تثبیت‌شده بررسی شده‌اند برای بازبینی در نظر گرفته شده‌اند.
 
-میانگین تأخیر برای [[Special:OldReviewedPages|صفحه‌های دارای ویرایش‌های بازبینی‌نشدهٔ در حال انتظار]] '''$1''' است؛ این تاخیر نشان‌دهنده مدت زمانی است که قدیمی‌ترین نسخه بررسی نشده در انتظار بررسی باقی مانده است.",
+میانگین تأخیر برای [[Special:OldReviewedPages|صفحه‌های دارای ویرایش‌های بازبینی‌نشدهٔ در حال انتظار]] '''$1''' است؛ این تاخیر نشان‌دهنده مدت زمانی است که قدیمی‌ترین نسخه بررسی نشده در انتظار بررسی باقی مانده است.", # Fuzzy
 	'validationstatistics-revtime' => "میانگین انتظار برای بازبینی ویرایش‌های ''کاربرانی که وارد نشده‌اند''، '''$1''' است؛ میانهٔ آن '''$2''' است.
 $3",
-	'validationstatistics-table' => "آمار بازبینی صفحه برای هر فضای‌نام که در زیر نشان داده‌شده، به ''استثنای'' صفحه‌های تغییرمسیر است. صفحه‌های که ویرایش‌های بررسی نشده داشته باشند ''تاریخ گذشته'' محسوب می‌شوند؛ صفحه‌هایی که ویرایش بررسی نشده نداشته باشند ''همزمان‌شده'' تلفی می‌شوند.",
+	'validationstatistics-table' => "آمار بازبینی صفحه برای هر فضای‌نام که در زیر نشان داده‌شده، به ''استثنای'' صفحه‌های تغییرمسیر است. صفحه‌های که ویرایش‌های بررسی نشده داشته باشند ''تاریخ گذشته'' محسوب می‌شوند؛ صفحه‌هایی که ویرایش بررسی نشده نداشته باشند ''همزمان‌شده'' تلفی می‌شوند.", # Fuzzy
 	'validationstatistics-ns' => 'فضای نام',
 	'validationstatistics-total' => 'صفحه‌ها',
 	'validationstatistics-stable' => 'بازبینی شده',
 	'validationstatistics-latest' => 'آخرین بازبینی',
 	'validationstatistics-synced' => 'به روز شده/بازبینی شده',
 	'validationstatistics-old' => 'تاریخ گذشته',
+	'validationstatistics-unreviewed' => 'بازبینی‌نشده',
 	'validationstatistics-utable' => 'در زیر فهرست {{PLURAL:$1|فعال‌ترین بازبین|$1 تا از فعال‌ترین بازبینان}} در آخرین {{PLURAL:$2|ساعت|$2 ساعات}} آمده است.',
 	'validationstatistics-user' => 'کاربر',
 	'validationstatistics-reviews' => 'بازبینی‌ها',
@@ -747,6 +761,7 @@ $3",
 
 /** French (français)
  * @author Crochet.david
+ * @author Gomoko
  * @author Grondin
  * @author IAlex
  * @author McDutchie
@@ -761,18 +776,21 @@ $messages['fr'] = array(
 
 Les contributeurs et relecteurs sont des utilisateurs établis qui peuvent vérifier les révisions des pages.",
 	'validationstatistics-lastupdate' => "''Les données suivantes ont été mises à jour le $1 sur $2.''",
-	'validationstatistics-pndtime' => "Les modifications vérifiées par les utilisateurs confirmés sont considérées comme ''relues''.
+	'validationstatistics-pndtime' => "Les modifications vérifiées par les utilisateurs confirmés sont considérées comme ''{{int:validationstatistics-stable}}''.
 
-Le retard de relecture moyen des [[Special:OldReviewedPages|pages contenant des modifications à relire]] est '''$1''', le retard mesure combien de temps les modifications les plus anciennes en attente sont restées non relues.",
+Le retard de relecture moyen des [[Special:OldReviewedPages|pages contenant des modifications actuellement à relire]] est '''$1''', le retard mesure combien de temps les modifications les plus anciennes en attente sont restées non relues.",
 	'validationstatistics-revtime' => "Le délai d’attente moyen pour la relecture des modifications faites par les ''utilisateurs non enregistrés'' est '''$1''' ; la médiane est '''$2'''.
 $3",
-	'validationstatistics-table' => "Les statistiques de relecture pour chaque espace de noms sont affichées ci-dessous, ''à l’exception'' des pages de redirection. Les pages sont traitées comme ''périmées'' si elles ont des modifications en attente et comme ''synchronisées'' si elle n'ont pas de modifications en attente.",
+	'validationstatistics-table' => "Les statistiques de relecture pour chaque espace de noms sont affichées ci-dessous, ''à l’exception'' des pages de redirection.
+Les pages sont traitées comme ''{{int:validationstatistics-old}}'' si elles ont des modifications en attente ;
+les pages sont considérées comme ''{{int:validationstatistics-latest}}'' si elle n’ont pas de modifications en attente.",
 	'validationstatistics-ns' => 'Espace de noms',
 	'validationstatistics-total' => 'Pages',
 	'validationstatistics-stable' => 'Révisée',
 	'validationstatistics-latest' => 'Synchronisée',
 	'validationstatistics-synced' => 'Synchronisée/Révisée',
 	'validationstatistics-old' => 'Périmée',
+	'validationstatistics-unreviewed' => 'Non relu',
 	'validationstatistics-utable' => 'Ci-dessous figure {{PLURAL:$1|le relecteur le plus actif|les $1 relecteurs les plus actifs}} dans {{PLURAL:$2|la dernière heure|les $2 dernières heures}}.',
 	'validationstatistics-user' => 'Utilisateur',
 	'validationstatistics-reviews' => 'Relecteurs',
@@ -831,18 +849,20 @@ dereitos de [[{{MediaWiki:Validationpage}}|editor]].
 
 Os editores son usuarios autoconfirmados que poden comprobar revisións de páxinas.",
 	'validationstatistics-lastupdate' => "''Os seguintes datos actualizáronse o $1 ás $2.''",
-	'validationstatistics-pndtime' => "As edicións que foron comprobadas por usuarios autoconfirmados considéranse ''revisadas''.
+	'validationstatistics-pndtime' => "As edicións que foron comprobadas por usuarios autoconfirmados teñen a marca ''{{int:validationstatistics-stable}}''.
 
-A media de atraso para as [[Special:OldReviewedPages|páxinas con edicións sen revisión]] é de '''$1'''; isto mide o tempo que as edicións pendentes levan á espera dunha revisión.",
+A media de atraso para as [[Special:OldReviewedPages|páxinas con edicións actualmente sen revisión]] é de '''$1'''; isto mide o tempo que as edicións pendentes levan á espera dunha revisión.",
 	'validationstatistics-revtime' => "A media de espera de revisión para as edicións feitas polos ''usuarios que non accederon ao sistema'' é de '''$1'''; o valor medio é de '''$2'''.
 $3",
-	'validationstatistics-table' => "A continuación móstranse as estatísticas das revisións das páxinas para cada espazo de nomes, ''excluíndo'' as páxinas de redirección. As páxinas considéranse ''obsoletas'' se teñen edicións á espera dunha revisión; as páxinas atópanse ''sincronizadas'' se non hai edicións agardando por unha revisión.",
+	'validationstatistics-table' => "A continuación móstranse as estatísticas das revisións das páxinas para cada espazo de nomes, ''excluíndo'' as páxinas de redirección.
+As páxinas coa marca ''{{int:validationstatistics-old}}'' teñen edicións á espera dunha revisión; as páxinas coa marca ''{{int:validationstatistics-latest}}'' non teñen edicións agardando por unha revisión.",
 	'validationstatistics-ns' => 'Espazo de nomes',
 	'validationstatistics-total' => 'Páxinas',
 	'validationstatistics-stable' => 'Revisado',
 	'validationstatistics-latest' => 'Sincronizado',
 	'validationstatistics-synced' => 'Sincronizado/Revisado',
 	'validationstatistics-old' => 'Obsoleto',
+	'validationstatistics-unreviewed' => 'Sen revisar',
 	'validationstatistics-utable' => 'A continuación está {{PLURAL:$1|o revisor máis activo|a lista cos $1 revisores máis activos}} {{PLURAL:$2|na última hora|nas últimas $2 horas}}.',
 	'validationstatistics-user' => 'Usuario',
 	'validationstatistics-reviews' => 'Revisións',
@@ -951,11 +971,11 @@ $messages['hi'] = array(
 	'validationstatistics-lastupdate' => "''निम्न डाटा $1 को $2 बजे अद्यतित किया गया था।''",
 	'validationstatistics-pndtime' => "सम्पादन जिन्हें अधिकृत सदस्यों ने जाँच लिया है ''पुनरीक्षित'' माने जाते हैं।
 
-[[Special:OldReviewedPages|अनिरीक्षित बदलावों वाले पृष्ठों]] के लिए औसत पुनरीक्षण समय '''$1''' है; यह समय दर्शाता है कि सबसे पुराना अनिरीक्षित सम्पादन कितने समय तक अनिरीक्षित रहा है।",
+[[Special:OldReviewedPages|अनिरीक्षित बदलावों वाले पृष्ठों]] के लिए औसत पुनरीक्षण समय '''$1''' है; यह समय दर्शाता है कि सबसे पुराना अनिरीक्षित सम्पादन कितने समय तक अनिरीक्षित रहा है।", # Fuzzy
 	'validationstatistics-revtime' => "''अपंजीकृत सदस्यों'' द्वारा किये सम्पादनों के पुनरीक्षण का औसत समय '''$1''' है; मध्यस्थ '''$2''' है।
 $3",
 	'validationstatistics-table' => "सभी नामस्थानों के लिए पुनरीक्षण आँकड़े नीचे दिखी गए हैं, पुनर्निर्देश पृष्ठों ''को छोड़ कर''।
-यदि पृष्ठों में अनिरीक्षित सम्पादन हैं तो उन्हें ''पुराना'' माना जाता है; यदि कोई अनिरीक्षित सम्पादन नहीं हैं तो उन्हें ''अद्यतित'' माना जाता है।",
+यदि पृष्ठों में अनिरीक्षित सम्पादन हैं तो उन्हें ''पुराना'' माना जाता है; यदि कोई अनिरीक्षित सम्पादन नहीं हैं तो उन्हें ''अद्यतित'' माना जाता है।", # Fuzzy
 	'validationstatistics-ns' => 'नामस्थान',
 	'validationstatistics-total' => 'पृष्ठ',
 	'validationstatistics-stable' => 'पुनरीक्षित',
@@ -1190,16 +1210,17 @@ Gli editori sono utenti stabili che possono convalidare le revisioni nelle pagin
 	'validationstatistics-lastupdate' => "''I seguenti dati sono stati aggiornati il $1 alle $2.''",
 	'validationstatistics-pndtime' => "Le modifiche che sono state controllate da utenti affidabili sono considerate ''revisionate''.
 
-Il ritardo medio per le [[Special:OldReviewedPages|pagine che attualmente hanno modifiche in attesa di revisione]] è di '''$1'''; il ritardo misura quanto tempo la versione in sospeso è rimasta non revisionata.",
+Il ritardo medio per le [[Special:OldReviewedPages|pagine che attualmente hanno modifiche in attesa di revisione]] è di '''$1'''; il ritardo misura quanto tempo la versione in sospeso è rimasta non revisionata.", # Fuzzy
 	'validationstatistics-revtime' => "L'attesa media per le modifiche di ''utenti che non hanno eseguito l'accesso'' prima che siano revisionate è di '''$1'''; la mediana di '''$2'''.
 $3",
-	'validationstatistics-table' => "Le statistiche di revisione per ciascun namespace sono mostrate di seguito, ''a esclusione'' dei redirect. Le pagine sono considerate ''obsolete'' se hanno modifiche in sospeso; sono considerate ''sincronizzate'' se non hanno modifiche in attesa di revisione.",
+	'validationstatistics-table' => "Le statistiche di revisione per ciascun namespace sono mostrate di seguito, ''a esclusione'' dei redirect. Le pagine sono considerate ''obsolete'' se hanno modifiche in sospeso; sono considerate ''sincronizzate'' se non hanno modifiche in attesa di revisione.", # Fuzzy
 	'validationstatistics-ns' => 'Namespace',
 	'validationstatistics-total' => 'Pagine',
 	'validationstatistics-stable' => 'Revisionate',
 	'validationstatistics-latest' => 'Sincronizzate',
 	'validationstatistics-synced' => 'Sincronizzate/Revisionate',
 	'validationstatistics-old' => 'Non aggiornate',
+	'validationstatistics-unreviewed' => 'Non revisionati',
 	'validationstatistics-utable' => "Di seguito è riportato l'elenco {{PLURAL:$1|del revisore più attivo|dei $1 revisori più attivi}} {{PLURAL:$2|nell'ultima ora|nelle ultime $2 ore}}.",
 	'validationstatistics-user' => 'Utente',
 	'validationstatistics-reviews' => 'Revisioni',
@@ -1220,18 +1241,21 @@ $messages['ja'] = array(
 
 編集者とはページの各版に対して抜き取り検査を行うことを認められた利用者です。",
 	'validationstatistics-lastupdate' => "''以下のデータは、$1の$2に最後に更新されました。''",
-	'validationstatistics-pndtime' => "信頼されている利用者により確認された編集は、''査読済''と見なされます。
+	'validationstatistics-pndtime' => "信頼されている利用者により確認された編集は、''{{int:validationstatistics-stable}}''と見なされます。
 
 [[Special:OldReviewedPages|未査読の編集が保留となっているページ]]の平均遅延時間は'''$1'''です。この遅延時間は、保留中の最古の編集が査読待ちの状態を脱するのにかかった時間から測定されます。",
 	'validationstatistics-revtime' => "''非ログイン利用者''による編集が査読されるまでの平均待ち時間は'''$1'''で、中央値は'''$2'''です。
 $3",
-	'validationstatistics-table' => "名前空間別のページの査読に関する統計を以下に表示します (リダイレクトページは''除外'')。ページに査読待ちの編集がある場合は、''最新版未査読''として扱われます。査読待ちの編集がない場合は、''最新版査読済''と見なされます。",
+	'validationstatistics-table' => "名前空間別のページの査読に関する統計を以下に表示します (リダイレクトページは''除外'')。
+ページに査読待ちの編集がある場合は、''{{int:validationstatistics-old}}''として扱われます。
+査読待ちの編集がない場合は、''{{int:validationstatistics-latest}}''と見なされます。",
 	'validationstatistics-ns' => '名前空間',
 	'validationstatistics-total' => 'ページ数',
 	'validationstatistics-stable' => '査読済',
 	'validationstatistics-latest' => '最新版査読済',
 	'validationstatistics-synced' => '最新版査読済/全査読済',
 	'validationstatistics-old' => '最新版未査読',
+	'validationstatistics-unreviewed' => '未査読',
 	'validationstatistics-utable' => '以下は、最近$2{{PLURAL:$2|}}時間において最も活動的な査読者$1人{{PLURAL:$1|}}の一覧です。',
 	'validationstatistics-user' => '利用者',
 	'validationstatistics-reviews' => '査読回数',
@@ -1413,18 +1437,21 @@ $messages['lb'] = array(
 
 Editeure si confirméiert Benotzer déi nogekuckte Versioune vu Säiten derbäisetze kënnen.",
 	'validationstatistics-lastupdate' => "''Dës Date goufe fir d'lescht den $1 ëm $2 Auer aktualiséiert.''",
-	'validationstatistics-pndtime' => "Ännerungen déi vun engem confirméierte Benotzer nogekuckt si ginn als nogekuckt betruecht.
+	'validationstatistics-pndtime' => "Ännerungen déi vun engem confirméierte Benotzer nogekuckt si ginn als ''{{int:validationstatistics-stable}}'' betruecht.
 
 Den duerchschnëttlechen Delai fir [[Special:OldReviewedPages|Säite mat net nogekuckten Ännerungen am Suspens]] ass '''$1'''; den Delai moosst wéi laang déi eelst Ännerung am Suspens war ier se nogekuckt gouf.",
 	'validationstatistics-revtime' => "Déi duerchschnëttlech Waardezäit fir Ännerunge vu ''Benotzer déi net ageloggt waren'' ier hier Ännerung nogekuckt ass ass '''$1'''; d'Median ass '''$2'''.
 $3",
-	'validationstatistics-table' => "Statistike vun den nogekuckte Säite fir jiddwer Nummraum sinn hei drënner, Viruleedungssäite sinn ''net berücksichtegt''. Säite ginn als vereelst (outdated) betruecht wann et Ännerunge gëtt déi nach mussen nogekuckt ginn; Säite wou keng Ännerungen a Suspens sinn, ginn als ''aktuell'' (synced) betruecht.",
+	'validationstatistics-table' => "Statistike vun den nogekuckte Säite fir jiddwer Nummraum sinn hei drënner, Viruleedungssäite sinn ''net berücksichtegt''.
+Säite ginn als ''{{int:validationstatistics-old}}'' betruecht wann et Ännerunge gëtt déi nach mussen nogekuckt ginn;
+Säite ginn als  ''{{int:validationstatistics-latest}}'' betruecht wa keng Ännerungen am Suspens sinn,.",
 	'validationstatistics-ns' => 'Nummraum',
 	'validationstatistics-total' => 'Säiten',
 	'validationstatistics-stable' => 'Nogekuckt',
 	'validationstatistics-latest' => 'Synchroniséiert',
 	'validationstatistics-synced' => 'Synchroniséiert/Nogekuckt',
 	'validationstatistics-old' => 'Ofgelaf',
+	'validationstatistics-unreviewed' => 'Net nogekuckt',
 	'validationstatistics-utable' => "Hei ënnendrënner ass d'Lëscht mat {{PLURAL:$1|dem aktivste Benotzer|den aktivste(n) $1 Benotzer}}, an {{PLURAL:$2|der leschter Stonn|de leschten $2 Stonnen}}.",
 	'validationstatistics-user' => 'Benotzer',
 	'validationstatistics-reviews' => 'Bewäertungen',
@@ -1485,18 +1512,19 @@ $messages['mk'] = array(
 
 Уредниците се докажани корисници кои можат да прават моментални проверки на ревизии на страници.",
 	'validationstatistics-lastupdate' => "''Следниве податоци се последен пат подновени на $1 во $2 ч.''",
-	'validationstatistics-pndtime' => "Уредувањата прегледани од докажани корисници се сметаат за проверени.
+	'validationstatistics-pndtime' => "Уредувањата прегледани од докажани корисници се сметаат за ''{{int:validationstatistics-stable}}''.
 
 Просечното задоцнување за [[Special:OldReviewedPages|страници со непрегледани уредувања во исчекување]] изнесува '''$1'''. Задоцнувањето покажува колку време останало непроверено најстарото уредување во исчекување .",
 	'validationstatistics-revtime' => "Просечното време на чекање за непроверени уредувања од ''ненајавени корисници'' е '''$1'''; средната вредност изнесува '''$2'''.
 $3",
-	'validationstatistics-table' => "Подолу се прикажани статистиките за прегледувањата на секој именски простор, ''освен'' страниците за пренасочување. Страниците се сметаат за „застарени“ ако имаат уредувања што чекаат на проверка. За „усогласени“ се сметаат оние што немаат уредувања во исчекување.",
+	'validationstatistics-table' => "Подолу се прикажани статистиките за прегледувањата на секој именски простор, ''освен'' страниците за пренасочување. Страниците се сметаат за ''{{int:validationstatistics-old}}'' ако имаат уредувања што чекаат на проверка. За ''{{int:validationstatistics-latest}}''  се сметаат оние што немаат уредувања во исчекување.",
 	'validationstatistics-ns' => 'Именски простор',
 	'validationstatistics-total' => 'Страници',
 	'validationstatistics-stable' => 'Оценето',
 	'validationstatistics-latest' => 'Синхронизирано',
 	'validationstatistics-synced' => 'Синхронизирани/Оценети',
 	'validationstatistics-old' => 'Застарени',
+	'validationstatistics-unreviewed' => 'Непроверени',
 	'validationstatistics-utable' => 'Подолу е наведен список на {{PLURAL:$1|најактивниот прегледувач|$1 најактивни прегледувачи}} {{PLURAL:$2|во последниов час|во последниве $2 часа}}.',
 	'validationstatistics-user' => 'Корисник',
 	'validationstatistics-reviews' => 'Оценки',
@@ -1637,13 +1665,15 @@ $messages['nl'] = array(
 
 Redacteuren zijn gebruikers die zich bewezen hebben en versies van pagina's als gecontroleerd mogen markeren.",
 	'validationstatistics-lastupdate' => "''Deze gegevens zijn bijgewerkt op $1 om $2.''",
-	'validationstatistics-pndtime' => "Van bewerkingen die zijn ''gecontroleerd'' door gebruikers wordt aangenomen dat die in orde zijn.
+	'validationstatistics-pndtime' => "Van bewerkingen die zijn ''{{int:validationstatistics-stable}}'' door gebruikers wordt aangenomen dat die in orde zijn.
 
 De gemiddelde vertraging voor de [[Special:OldReviewedPages|pagina's met ongecontroleerde bewerkingen]] is '''$1'''.
 De vertraging geeft aan hoe lang het duurt voor een bewerking wordt gecontroleerd.",
 	'validationstatistics-revtime' => "De gemiddelde wachttijd voor controle van bewerkingen door ''gebruikers die niet aangemeld zijn' is '''$1'''. De mediaan is '''$2'''.
 $3",
-	'validationstatistics-table' => "Controlestatistieken voor iedere naamruimte, ''exclusief'' doorverwijzingen worden hieronder weergegeven.",
+	'validationstatistics-table' => "Controlestatistieken voor iedere naamruimte, ''exclusief'' doorverwijzingen worden hieronder weergegeven.
+Pagina's worden behandeld als ''{{int:validationstatistics-old}}'' als er te controleren bewerkingen zijn.
+Ze worden behandeld als ''{{int:validationstatistics-latest}}'' als er geen te controleren bewerkingen zijn.",
 	'validationstatistics-ns' => 'Naamruimte',
 	'validationstatistics-total' => "Pagina's",
 	'validationstatistics-stable' => 'Gecontroleerd',
@@ -1735,10 +1765,10 @@ Redaktorzy są doświadczonymi użytkownikami, którzy mogą oznaczać dowolne w
 	'validationstatistics-lastupdate' => "''Poniższe dane uaktualnione zostały $1 o $2.''",
 	'validationstatistics-pndtime' => "Zmiany, które zostały sprawdzone przez uprawnionych użytkowników, są uznawane za ''oznaczone''.
 
-Średnie opóźnienie dla [[Special:OldReviewedPages|stron ze zmianami oczekującymi na przejrzenie]] wynosi '''$1'''. Mierzony jest czas, przez jaki pozostawała nieprzejrzana najstarsza edycja (jeśli było ich kilka po sobie).",
+Średnie opóźnienie dla [[Special:OldReviewedPages|stron ze zmianami oczekującymi na przejrzenie]] wynosi '''$1'''. Mierzony jest czas, przez jaki pozostawała nieprzejrzana najstarsza edycja (jeśli było ich kilka po sobie).", # Fuzzy
 	'validationstatistics-revtime' => "Średni czas oczekiwania edycji ''niezalogowanych użytkowników'' na pierwsze oznaczenie wynosi '''$1''', mediana – '''$2'''.
 $3",
-	'validationstatistics-table' => "Poniżej znajdują się statystyki przeglądania stron dla każdej przestrzeni nazw, ''z wyłączeniem'' przekierowań. Strony ''oznaczone'' (takie, które w historii mają przynajmniej jedną przejrzaną wersję) mogą być traktowane jako ''zdezaktualizowane'' bądź ''przejrzane''. Strony uznawane są za ''zdezaktualizowane'', jeśli istnieją jakieś zmiany ich treści oczekujące na przejrzenie. Strony uznawane są za ''przejrzane'', jeśli nie ma zmian ich treści, oczekujących na przejrzenie.",
+	'validationstatistics-table' => "Poniżej znajdują się statystyki przeglądania stron dla każdej przestrzeni nazw, ''z wyłączeniem'' przekierowań. Strony ''oznaczone'' (takie, które w historii mają przynajmniej jedną przejrzaną wersję) mogą być traktowane jako ''zdezaktualizowane'' bądź ''przejrzane''. Strony uznawane są za ''zdezaktualizowane'', jeśli istnieją jakieś zmiany ich treści oczekujące na przejrzenie. Strony uznawane są za ''przejrzane'', jeśli nie ma zmian ich treści, oczekujących na przejrzenie.", # Fuzzy
 	'validationstatistics-ns' => 'Przestrzeń nazw',
 	'validationstatistics-total' => 'Wszystkich stron',
 	'validationstatistics-stable' => 'Oznaczone',
@@ -1826,6 +1856,7 @@ $3",
  * @author Giro720
  * @author Luckas
  * @author Opraco
+ * @author Teles
  */
 $messages['pt-br'] = array(
 	'validationstatistics' => 'Estatísticas da revisão de páginas',
@@ -1835,16 +1866,17 @@ Editores são usuários que podem rever as edições de páginas.",
 	'validationstatistics-lastupdate' => "''Os seguintes dados foram atualizados pela última vez em $1 às $2.''",
 	'validationstatistics-pndtime' => "As edições verificadas por usuários estabelecidos são consideras ''revisadas''.
 
-O atraso médio de revisão das [[Special:OldReviewedPages|páginas com edições à espera de revisão]] é '''$1'''; este atraso mede o tempo que a edição pendente mais antiga ficou à espera de revisão.",
+O atraso médio de revisão das [[Special:OldReviewedPages|páginas com edições à espera de revisão]] é '''$1'''; este atraso mede o tempo que a edição pendente mais antiga ficou à espera de revisão.", # Fuzzy
 	'validationstatistics-revtime' => "O tempo médio de espera para revisão das edições de ''usuários não autenticados'' é '''$1'''; a mediana é '''$2'''.
 $3",
-	'validationstatistics-table' => "São apresentadas abaixo estatísticas das revisões em cada espaço nominal, '''excluindo''' páginas de redirecionamento. As páginas são consideradas ''desatualizadas'' se tiverem edições à espera de revisão, e ''sincronizadas'' se não tiverem edições em espera.",
+	'validationstatistics-table' => "São apresentadas abaixo estatísticas das revisões em cada espaço nominal, '''excluindo''' páginas de redirecionamento. As páginas são consideradas ''desatualizadas'' se tiverem edições à espera de revisão, e ''sincronizadas'' se não tiverem edições em espera.", # Fuzzy
 	'validationstatistics-ns' => 'Espaço nominal',
 	'validationstatistics-total' => 'Páginas',
 	'validationstatistics-stable' => 'Analisadas',
 	'validationstatistics-latest' => 'Sincronizadas',
 	'validationstatistics-synced' => 'Sincronizadas/Analisadas',
 	'validationstatistics-old' => 'Desatualizadas',
+	'validationstatistics-unreviewed' => 'Não revisado',
 	'validationstatistics-utable' => 'Abaixo está a lista {{PLURAL:$1|do revisor mais ativo|dos $1 revisores mais ativos}} {{PLURAL:$2|na última hora|nas últimas horas}}.',
 	'validationstatistics-user' => 'Usuário',
 	'validationstatistics-reviews' => 'Análises',
@@ -1907,6 +1939,7 @@ $3",
  * @author Claymore
  * @author Ferrer
  * @author Lockal
+ * @author Okras
  * @author Putnik
  * @author Sergey kudryavtsev
  * @author Александр Сигачёв
@@ -1917,18 +1950,21 @@ $messages['ru'] = array(
 
 «Редакторы» — это определённые участники, имеющие возможность делать выборочную проверку конкретных версий страниц.",
 	'validationstatistics-lastupdate' => "''Следующие данные были последний раз обновлены $1 в $2.''",
-	'validationstatistics-pndtime' => "Правки, отмеченные определёнными участниками, считаются прошедшими проверку.
+	'validationstatistics-pndtime' => "Правки, отмеченные определёнными участниками, рассматриваются как ''{{int:validationstatistics-stable}}''.
 
-Средняя задержка [[Special:OldReviewedPages|для страниц с непроверенными правками]] — '''$1'''. Этот параметр показывает как долго последняя непроверенная версия правка остаётся без внимания проверяющих.",
+Средняя задержка [[Special:OldReviewedPages|для страниц с непроверенными на текущий момент правками]] — '''$1'''. Этот параметр показывает, как долго последняя непроверенная версия правка остаётся без внимания проверяющих.",
 	'validationstatistics-revtime' => "Средняя задержка проверки для правок ''непредставившихся участников'' составляет '''$1'''; медиана — '''$2'''.
 $3",
-	'validationstatistics-table' => "Ниже представлена статистика проверок по каждому пространству имён, ''исключая'' страницы перенаправлений. Страницы считаются «устаревшими», если они имеют непроверенные правки; страницы считаются «синхронизироваными», если у них нет правок, ожидающих проверки.",
+	'validationstatistics-table' => "Ниже представлена статистика проверок по каждому пространству имён, ''исключая'' страницы перенаправлений.
+Страницы рассматриваются как ''{{int:validationstatistics-old}}'', если они имеют непроверенные правки;
+страницы отмечаются как ''{{int:validationstatistics-latest}}'', если у них нет правок, ожидающих проверки.",
 	'validationstatistics-ns' => 'Пространство',
 	'validationstatistics-total' => 'Страниц',
 	'validationstatistics-stable' => 'Проверенные',
 	'validationstatistics-latest' => 'Перепроверенные',
 	'validationstatistics-synced' => 'Доля перепроверенных в проверенных',
 	'validationstatistics-old' => 'Устаревшие',
+	'validationstatistics-unreviewed' => 'Непроверенные',
 	'validationstatistics-utable' => 'Ниже приведён список из {{PLURAL:$1|$1 наиболее активного выверяющего|$1 наиболее активных выверяющих|$1 наиболее активных выверяющих}} за {{PLURAL:$2|последний $2 час|последние $2 часа|последние $2 часов}}.',
 	'validationstatistics-user' => 'Участник',
 	'validationstatistics-reviews' => 'Проверки',
@@ -2297,6 +2333,7 @@ $messages['ug-arab'] = array(
  * @author Aced
  * @author Ahonc
  * @author Alex Khimich
+ * @author Andriykopanytsia
  * @author Dim Grits
  * @author Prima klasy4na
  * @author Тест
@@ -2307,19 +2344,20 @@ $messages['uk'] = array(
 
 «Редактори» — визначені користувачі, що мають можливість робити вибіркову перевірку конкретних версій сторінок.",
 	'validationstatistics-lastupdate' => "''Наступні дані востаннє оновлювались $1 о $2.''",
-	'validationstatistics-pndtime' => "Правки, які були перевірені встановленими користувачами вважаються ''перевіреними''
+	'validationstatistics-pndtime' => "Правки, які були перевірені встановленими користувачами вважаються ''{{int:validationstatistics-stable}}''.
 
-Середня затримка для [[Special:OldReviewedPages|сторінок з правками, що очікують на перевірку]] становить '''$1'''.
+Середня затримка для [[Special:OldReviewedPages|сторінок з правками, що зараз очікують на перевірку]] становить '''$1'''.
 Цей параметр відображає як довго неперевірена версія залишається без уваги перевіряльників.",
 	'validationstatistics-revtime' => "Середній час очікування на рецензування для редагувань ''користувачів, що не увійшли до системи'' '''$1'''; медіана — '''$2'''.
 $3",
-	'validationstatistics-table' => "Статистика рецензувань сторінок для кожного простору назв показана нижче, ''за винятком'' сторінок перенаправлень. Сторінки вважаються «застарілими», якщо вони не мають неперевірених редагувань, сторінки вважаються «синхронізованими», якщо вони не мають редагувань, що очікують на перевірку.",
+	'validationstatistics-table' => "Статистика рецензувань сторінок для кожного простору назв показана нижче, ''за винятком'' сторінок перенаправлень. Сторінки вважаються ''{{int:validationstatistics-old}}'', якщо вони не мають неперевірених редагувань, сторінки вважаються ''{{int:validationstatistics-latest}}'', якщо вони не мають редагувань, що очікують на перевірку.",
 	'validationstatistics-ns' => 'Простір назв',
 	'validationstatistics-total' => 'Сторінок',
 	'validationstatistics-stable' => 'Перевірені',
 	'validationstatistics-latest' => 'Синхронізовані',
 	'validationstatistics-synced' => 'Повторно перевірені',
 	'validationstatistics-old' => 'Застарілі',
+	'validationstatistics-unreviewed' => 'Неперевірені',
 	'validationstatistics-utable' => 'Нижче представлено {{PLURAL:$1|найбільш активного редактора|список $1 найбільш активних редакторів}} за {{PLURAL:$2|останню $2 годину|останні $2 години|останніх $2 годин}}.',
 	'validationstatistics-user' => 'Користувач',
 	'validationstatistics-reviews' => 'Перевірок',
@@ -2404,16 +2442,17 @@ Biên tập viên là người dùng có kinh nghiệm có khả năng kiểm tr
 	'validationstatistics-lastupdate' => "''Các dữ liệu sau được cập nhật lần cuối vào $1 lúc $2.''",
 	'validationstatistics-pndtime' => "Những sửa đổi được ''duyệt'' khi được người dùng có kinh nghiệm xem qua.
 
-[[Special:OldReviewedPages|Các trang có sửa đổi đang chờ duyệt]] đã chờ đợi '''$1''' trung bình, tính theo sửa đổi cũ nhất đang chờ duyệt.",
+[[Special:OldReviewedPages|Các trang có sửa đổi đang chờ duyệt]] đã chờ đợi '''$1''' trung bình, tính theo sửa đổi cũ nhất đang chờ duyệt.", # Fuzzy
 	'validationstatistics-revtime' => "Những sửa đổi của ''người dùng vô danh'' phải chờ đợi '''$1''' trung bình; thời gian trung vị là '''$2'''.
 $3",
-	'validationstatistics-table' => "Đây có thống kê duyệt trang về các không gian tên, ''trừ'' các trang đổi hướng. Mỗi trang ''lỗi thời'' có sửa đổi đang chờ duyệt, còn các trang ''cập nhật'' đã được duyệt tới sửa đổi gần đây nhất.",
+	'validationstatistics-table' => "Đây có thống kê duyệt trang về các không gian tên, ''trừ'' các trang đổi hướng. Mỗi trang ''lỗi thời'' có sửa đổi đang chờ duyệt, còn các trang ''cập nhật'' đã được duyệt tới sửa đổi gần đây nhất.", # Fuzzy
 	'validationstatistics-ns' => 'Không gian tên',
 	'validationstatistics-total' => 'Số trang',
 	'validationstatistics-stable' => 'Được duyệt',
 	'validationstatistics-latest' => 'Đã đồng bộ',
 	'validationstatistics-synced' => 'Cập nhật/Duyệt',
 	'validationstatistics-old' => 'Lỗi thời',
+	'validationstatistics-unreviewed' => 'Chưa duyệt',
 	'validationstatistics-utable' => 'Đây là {{PLURAL:$1|người duyệt|danh sách $1 người duyệt}} tích cực nhất trong {{PLURAL:$2|giờ|$2 giờ}} qua.',
 	'validationstatistics-user' => 'Người dùng',
 	'validationstatistics-reviews' => 'Bản duyệt',

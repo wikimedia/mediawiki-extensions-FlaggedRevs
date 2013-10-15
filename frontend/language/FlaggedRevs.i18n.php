@@ -461,14 +461,14 @@ See example: [[mw:Special:Log/review]].
 Parameters:
 * $1 - a page title
 {{Related|Review-logentry}}',
-	'review-logentry-dis' => '{{Flagged Revs}}
-Shown for review log entries on Special:Log/review.
+	'review-logentry-dis' => "{{Flagged Revs}}
+Review log entry on Special:Log/review. Used when a previously stable or reviewed version's review/stable tag has been removed, making the version deprecated.
 
 See example: [[mw:Special:Log/review]].
 
 Parameters:
 * $1 - a page title
-{{Related|Review-logentry}}',
+{{Related|Review-logentry}}",
 	'review-logentry-id' => '{{Flagged Revs}}
 Parameters:
 * $1 - (Unused) revision ID
@@ -5450,7 +5450,7 @@ $messages['fa'] = array(
 	'reviewer' => 'مرورگر',
 	'revreview-accuracy' => 'دقت',
 	'revreview-accuracy-0' => 'ناکافی',
-	'revreview-accuracy-1' => 'بررسی شده', # Fuzzy
+	'revreview-accuracy-1' => 'نقطهٔ بررسی‌شده',
 	'revreview-accuracy-2' => 'دقیق',
 	'revreview-accuracy-3' => 'دارای منابع خوب',
 	'revreview-accuracy-4' => 'برگزیده',
