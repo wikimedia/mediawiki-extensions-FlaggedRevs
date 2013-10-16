@@ -2089,18 +2089,22 @@ $messages['sl'] = array(
 
 Uredniki so uveljavljeni uporabniki, ki lahko samodejno preverijo redakcije strani.",
 	'validationstatistics-lastupdate' => "''Sledeči podatki so bili nazadnje posodobljeni dne $1 ob $2.''",
-	'validationstatistics-pndtime' => "Urejanja, ki so jih preverili uveljavljeni uporabniki, se smatrajo kot ''pregledana''.
+	'validationstatistics-pndtime' => "Urejanja, ki so jih preverili uveljavljeni uporabniki, se smatrajo kot ''{{int:validationstatistics-stable}}''.
 
-Povprečni zamik pregleda [[Special:OldReviewedPages|strani z urejanji, ki čakajo na pregled]], je '''$1'''; zakasnitev meri, kako dolgo je bilo nepregledano najstarejše urejanje, ki je čakalo na pregled.",
+Povprečni zamik pregleda [[Special:OldReviewedPages|strani z urejanji, ki trenutno čakajo na pregled]], je '''$1'''; zakasnitev meri, kako dolgo je bilo nepregledano najstarejše urejanje, ki je čakalo na pregled.",
 	'validationstatistics-revtime' => "Povprečna čakalna doba pregleda urejanj ''uporabnikov, ki niso prijavljeni''', je '''$1'''; mediana je '''$2'''.
 $3",
-	'validationstatistics-table' => "Statistika pregleda strani za posamezni imenski prostor je prikazana spodaj, ''brez'' preusmeritvenih strani. Srtrani se obravnavajo kot ''zastarele'', če imajo urejanja, ki čakajo na pregled; strani se štejejo kot ''usklajene'', če nobeno urejanje ne čaka na pregled.",
+	'validationstatistics-table' => "Statistika pregleda strani za posamezni imenski prostor je prikazana spodaj, ''brez'' preusmeritvenih strani.
+
+Strani se obravnavajo kot ''{{int:validationstatistics-old}}'', če imajo urejanja, ki čakajo na pregled;
+strani se štejejo kot ''{{int:validationstatistics-latest}}'', če na pregled ne čaka nobeno urejanje.",
 	'validationstatistics-ns' => 'Imenski prostor',
 	'validationstatistics-total' => 'Strani',
 	'validationstatistics-stable' => 'Pregledano',
 	'validationstatistics-latest' => 'Usklajeno',
 	'validationstatistics-synced' => 'Usklajeno/Pregledano',
 	'validationstatistics-old' => 'Zastarelo',
+	'validationstatistics-unreviewed' => 'Nepregledano',
 	'validationstatistics-utable' => 'Spodaj se nahaja seznam {{PLURAL:$1|najdejavnejšega pregledovalca|$1 najdejavnejših pregledovalcev}} v {{PLURAL:$1|zadnji uri|zadnjih $2 urah}}.',
 	'validationstatistics-user' => 'Uporabnik',
 	'validationstatistics-reviews' => 'Pregledi',
