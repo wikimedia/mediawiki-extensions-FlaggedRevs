@@ -975,7 +975,8 @@ $messages['hi'] = array(
 	'validationstatistics-revtime' => "''अपंजीकृत सदस्यों'' द्वारा किये सम्पादनों के पुनरीक्षण का औसत समय '''$1''' है; मध्यस्थ '''$2''' है।
 $3",
 	'validationstatistics-table' => "सभी नामस्थानों के लिए पुनरीक्षण आँकड़े नीचे दिखी गए हैं, पुनर्निर्देश पृष्ठों ''को छोड़ कर''।
-यदि पृष्ठों में अनिरीक्षित सम्पादन हैं तो उन्हें ''पुराना'' माना जाता है; यदि कोई अनिरीक्षित सम्पादन नहीं हैं तो उन्हें ''अद्यतित'' माना जाता है।", # Fuzzy
+यदि पृष्ठों में अनिरीक्षित सम्पादन हैं तो उन्हें ''{{int:validationstatistics-old}}'' माना जाता है;
+यदि कोई अनिरीक्षित सम्पादन नहीं हैं तो उन्हें ''{{int:validationstatistics-latest}}'' माना जाता है।",
 	'validationstatistics-ns' => 'नामस्थान',
 	'validationstatistics-total' => 'पृष्ठ',
 	'validationstatistics-stable' => 'पुनरीक्षित',
@@ -1334,6 +1335,7 @@ $messages['kn'] = array(
 /** Korean (한국어)
  * @author Devunt
  * @author Gapo
+ * @author Hym411
  * @author Klutzy
  * @author Kwj2772
  * @author Yknok29
@@ -1345,18 +1347,19 @@ $messages['ko'] = array(
 
 편집자는 문서의 각 판에 대해 불시에 검토를 하는 것을 인정받은 사용자가 있습니다.",
 	'validationstatistics-lastupdate' => "''다음과 같은 데이터가 마지막으로 $1 $2에 업데이트되었습니다.''",
-	'validationstatistics-pndtime' => "숙련된 사용자가 확인한 편집을 ''검토된 편집''으로 간주합니다.
+	'validationstatistics-pndtime' => "숙련된 사용자가 확인한 편집을 ''{{int:validationstatistics-stable}}''으로 간주합니다.
 
 [[Special:OldReviewedPages|현재 검토가 진행 중인 편집이 있는 문서]]의 검토 평균 대기 시간은 '''$1'''입니다. 검토되지 않는 편집이 가장 오래되었을 때가 지연이 얼마나 걸리는지 측정합니다.",
 	'validationstatistics-revtime' => "'''로그인하지 않은 사용자'''의 편집의 평균 대기 시간은 '''$1'''이고 중앙값은 '''$2'''입니다.
 $3",
-	'validationstatistics-table' => "넘겨주기 문서를 '''제외한''' 문서 검토 통계가 이름공간별로 보여지고 있습니다. 이 문서는 오래 전에 검토되었으며, 검토를 기다리고 있는 편집이 없을 때 ''동기화''되었다고 표현합니다.",
+	'validationstatistics-table' => "넘겨주기 문서를 ''제외한'' 문서 검토 통계가 이름공간별로 보여지고 있습니다. 이 문서는 오래 전에 검토되었으며, 검토를 기다리고 있는 편집이 없을 때 ''동기화''되었다고 표현합니다.",
 	'validationstatistics-ns' => '이름공간',
 	'validationstatistics-total' => '문서 수',
 	'validationstatistics-stable' => '검토됨',
 	'validationstatistics-latest' => '동기화됨',
 	'validationstatistics-synced' => '동기화됨/검토됨',
 	'validationstatistics-old' => '오래됨',
+	'validationstatistics-unreviewed' => '검토하지 않음',
 	'validationstatistics-utable' => '아래는 최근 {{PLURAL:$2|한 시간|$2시간}} 동안의 {{PLURAL:$1|최고 활동 검토자|최고 활동 검토자 $1명}}의 목록입니다.',
 	'validationstatistics-user' => '사용자',
 	'validationstatistics-reviews' => '검토',
