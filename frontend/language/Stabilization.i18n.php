@@ -1250,7 +1250,7 @@ $messages['fa'] = array(
 	'stabilize_expiry_old' => 'این تاریخ انقضا همینک سپری شده‌است.',
 	'stabilize_denied' => 'اجازه داده نشد.',
 	'stabilize-expiring' => 'در $1 (UTC) منقضی می‌شود.',
-	'stabilization-review' => 'علامت زدن این نسخه به عنوان بازبینی شده',
+	'stabilization-review' => 'علامت‌زدن این نسخه به‌عنوان بازبینی‌شده',
 );
 
 /** Finnish (suomi)

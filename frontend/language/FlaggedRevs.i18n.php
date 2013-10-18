@@ -5532,7 +5532,7 @@ $3  [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffon
 	'right-movestable' => 'انتقال صفحه‌های دارای نسخهٔ پایدار',
 	'right-review' => 'علامت زدن نسخه‌ها به عنوان «بررسی شده»',
 	'right-stablesettings' => 'نحوهٔ انتخاب و نمایش نسخهٔ پایدار را پیکربندی کنید',
-	'right-validate' => 'علامت زدن نسخه‌های «با کیفیت» به عنوان تأیید شده',
+	'right-validate' => 'علامت‌زدن نسخه‌های «با کیفیت» به‌عنوان تأییدشده',
 	'right-unreviewedpages' => 'مشاهدهٔ فهرست صفحه‌های بازبینی نشده',
 	'rights-editor-revoke' => 'وضعیت مرورگر را از [[$1]] گرفت',
 	'specialpages-group-quality' => 'بازبینی ویرایش',

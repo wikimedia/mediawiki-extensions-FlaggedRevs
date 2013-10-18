@@ -2488,6 +2488,7 @@ $messages['yi'] = array(
  * @author Bencmq
  * @author Gaoxuewei
  * @author Hydra
+ * @author Liuxinyu970226
  * @author PhiLiP
  * @author Xiaomingyan
  * @author 阿pp
@@ -2498,11 +2499,13 @@ $messages['zh-hans'] = array(
 
 编者是可以对页面修订作抽样检查的已确认用户。",
 	'validationstatistics-lastupdate' => "''下列数据最后更新于$1$2。''",
-	'validationstatistics-pndtime' => "已确认用户已经检查这些编辑，并认为它们是''已复审''的。
+	'validationstatistics-pndtime' => "已确认用户已经检查这些编辑，并认为它们是''{{int:validationstatistics-stable}}''的。
 
-[[Special:OldReviewedPages|含有待复审编辑页面]]的平均复审延迟是'''$1'''；这一延迟可以确定最早待复审编辑会有多久处于未复审状态。",
+[[Special:OldReviewedPages|含有正待复审的页面编辑]]的平均复审延迟是'''$1'''；这一延迟可以确定最早待复审编辑会有多久处于未复审状态。",
 	'validationstatistics-revtime' => "未登录用户等待编辑复审的平均时间为'''$1'''，中位数为'''$2'''。$3",
-	'validationstatistics-table' => "每个名字空间的页面复审统计信息如下所示，其中'''不包括'''重定向页。含有待复审编辑的页面会被标记为“已过期”，不存在待复审编辑的页面会被标记为“已同步”。",
+	'validationstatistics-table' => "每个名字空间的页面复审统计信息如下所示，''除了''重定向页。
+含有待复审编辑的页面会被标记为''{{int:validationstatistics-old}}''；
+不存在待复审编辑的页面会被标记为''{{int:validationstatistics-latest}}''。",
 	'validationstatistics-ns' => '名字空间',
 	'validationstatistics-total' => '页面',
 	'validationstatistics-stable' => '已复审',
