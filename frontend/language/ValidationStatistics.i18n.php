@@ -663,18 +663,21 @@ $messages['et'] = array(
 
 Toimetajad on tunnustatud kasutajad, kes saavad lehekülgedel tehtud muudatused põgusalt üle vaadata.",
 	'validationstatistics-lastupdate' => "''Järgnevate andmete viimane uuendamisaeg: $1, kell $2.''",
-	'validationstatistics-pndtime' => "Tunnustatud kasutajate tehtud muudatused arvatakse ''ülevaadatuks''.
+	'validationstatistics-pndtime' => "Tunnustatud kasutaja tehtud muudatuse olekuks arvatakse \"{{int:validationstatistics-stable}}\".
 
-Keskmine viiteaeg [[Special:OldReviewedPages|praegu ootel muudatustega lehekülgede ülevaatamiseks]] on '''$1'''; viiteaeg näitab kui kaua on olnud vanim ootel muudatus üle vaatamata.",
+Keskmine viiteaeg [[Special:OldReviewedPages|praegu ootel muudatustega lehekülgede ülevaatamiseks]] on '''\$1'''; viiteaeg näitab kui kaua on olnud vanim ootel muudatus üle vaatamata.",
 	'validationstatistics-revtime' => "''Sisselogimata kasutajate'' tehtud muudatuste ooteaeg ülevaatamiseks on keskmiselt '''$1'''; mediaan on '''$2'''.
 $3",
-	'validationstatistics-table' => "Allpool on toodud lehekülgede ülevaatamisarvandmed nimeruumiti, ''välja arvatud'' ümbersuunamisleheküljed. Lehekülg arvatakse ''iganenuks'', kui mõni sealne muudatus ootab ülevaatamist; lehekülg arvatakse ''ühtivaks'', kui ükski muudatus ei oota ülevaatamist.",
+	'validationstatistics-table' => 'Allpool on toodud lehekülgede ülevaatamisarvandmed nimeruumiti, \'\'välja arvatud\'\' ümbersuunamisleheküljed.
+Lehekülje olekuks arvatakse "{{int:validationstatistics-old}}", kui mõni selle muudatus ootab ülevaatamist;
+lehekülje olekuks arvatakse "{{int:validationstatistics-latest}}", kui ükski selle muudatus ei oota ülevaatamist.',
 	'validationstatistics-ns' => 'Nimeruum',
 	'validationstatistics-total' => 'Lehekülgi',
 	'validationstatistics-stable' => 'Ülevaadatud',
 	'validationstatistics-latest' => 'Ühtiv',
 	'validationstatistics-synced' => 'Ühtiv või ülevaadatud',
 	'validationstatistics-old' => 'Iganenud',
+	'validationstatistics-unreviewed' => 'Ülevaatamata',
 	'validationstatistics-utable' => 'Allpool on toodud viimase {{PLURAL:$2|tunni|$2 tunni}} {{PLURAL:$1|aktiivseim ülevaataja|$1 aktiivsemat ülevaatajat}}.',
 	'validationstatistics-user' => 'Kasutaja',
 	'validationstatistics-reviews' => 'Ülevaatamisi',
@@ -942,18 +945,21 @@ $messages['he'] = array(
 
 עורכים הם משתמשים ותיקים שיכולים לבצע בדיקה מהירה של גרסאות של דפים.",
 	'validationstatistics-lastupdate' => "''הנתונים הבאים עודכנו לאחרונה ב־$1 בשעה $2.''",
-	'validationstatistics-pndtime' => "עריכות שנבדקו על־ידי משתמשים מוּכָּרִים מוגדרות כעריכות ש'''נסקרו'''.
+	'validationstatistics-pndtime' => "עריכות שנבדקו על־ידי משתמשים מוּכָּרִים מוגדרות כעריכות ש'''{{int:validationstatistics-stable}}'''.
 
-עיכוב ממוצע ל[[Special:OldReviewedPages|דפים עם עריכות שממתינות לסקירה]] הוא '''$1'''; העיכוב מודד כמה זמן העריכה הממתינה הישנה ביותר נשארה בלי סקירה.",
+עיכוב ממוצע ל[[Special:OldReviewedPages|דפים עם עריכות שממתינות כעת לסקירה]] הוא '''$1'''; העיכוב מודד כמה זמן העריכה הממתינה הישנה ביותר נשארה בלי סקירה.",
 	'validationstatistics-revtime' => "זמן ההמתנה הממוצע לסקירת עריכות של '''משתמשים אלמוניים''' הוא '''$1'''; החציון הוא '''$2'''.
 $3",
-	'validationstatistics-table' => "דפים מוגדרים כ'''לא עדכניים''' אם יש בהם עריכות שממתינות לסקירה; דפים מוגדרים כ'''מסונכרנים''' אם אין בהם עריכות שממתינות לסקירה.",
+	'validationstatistics-table' => "סטטיסטיקות סקירה לכל מרחב שמות מוצגות להלן, '''מלבד''' דפי הפניה.
+הדפים מוגדרים '''{{int:validationstatistics-old}}''' אם יש להם עריכות שממתינות לסקירה;
+הדפים מוגדרים '''{{int:validationstatistics-latest}}''' אם אין בהם עריכות שממתינות לסקירה.",
 	'validationstatistics-ns' => 'מרחב שם',
 	'validationstatistics-total' => 'דפים',
 	'validationstatistics-stable' => 'נסקרו',
 	'validationstatistics-latest' => 'סונכרנו',
 	'validationstatistics-synced' => 'סונכרנו/נסקרו',
 	'validationstatistics-old' => 'לא עדכניים',
+	'validationstatistics-unreviewed' => 'לא נסקרו',
 	'validationstatistics-utable' => '{{PLURAL:$1|הסוקר הפעיל|רשימת $1 הסוקרים הפעילים}} ביותר ב{{PLURAL:$2|שעה האחרונה|־$2 השעות האחרונות}}.',
 	'validationstatistics-user' => 'משתמש',
 	'validationstatistics-reviews' => 'סקירות',

@@ -1112,7 +1112,7 @@ $messages['ce'] = array(
 	'revreview-flag' => 'Хьажа оцу версига',
 	'revreview-reflag' => 'Юха хьажа оцу версига',
 	'revreview-invalid' => "'''Гlалатца хьажор:''' йоцуш йу [[{{MediaWiki:Validationpage}}|хьаьжна]] йогlуш йолу оцу цlарца агlонан варси.",
-	'revreview-log' => 'Билгалдар:',
+	'revreview-log' => 'Билгалдаккхар:',
 	'revreview-main' => 'Ахьа харжа церах цхьа варсийн агlо, нийса йуй хьажарна.
 
 Хьажа. [[Special:Unreviewedpages|хьажанза агlонан могlам]].',
