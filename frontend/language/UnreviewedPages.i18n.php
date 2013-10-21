@@ -365,6 +365,7 @@ $messages['ca'] = array(
  * @author Умар
  */
 $messages['ce'] = array(
+	'action-unreviewedpages' => 'хьажанца йолу агӀонийн могӀане хьажар',
 	'unreviewedpages-category' => 'Категори:',
 	'unreviewedpages-diff' => 'хьажа',
 	'unreviewedpages-unwatched' => '(терго яц)',

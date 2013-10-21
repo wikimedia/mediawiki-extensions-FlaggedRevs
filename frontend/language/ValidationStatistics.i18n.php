@@ -2518,6 +2518,7 @@ $messages['zh-hans'] = array(
 	'validationstatistics-latest' => '已同步',
 	'validationstatistics-synced' => '已同步／已复审',
 	'validationstatistics-old' => '已过期',
+	'validationstatistics-unreviewed' => '未审核',
 	'validationstatistics-utable' => '下面列出了最近{{PLURAL:$2|一小时|$2小时}}内{{PLURAL:$1|最活跃的复审员|最活跃的$1位复审员}}。',
 	'validationstatistics-user' => '用户',
 	'validationstatistics-reviews' => '复审',

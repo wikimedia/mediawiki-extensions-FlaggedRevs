@@ -132,7 +132,7 @@ $specialPageAliases['ce'] = array(
 	'ConfiguredPages' => array( 'Нисйина_агӀонаш' ),
 	'ReviewedVersions' => array( 'Хьаьжна_версеш' ),
 	'UnreviewedPages' => array( 'Хьажанца_агӀонаш' ),
-	'ValidationStatistics' => array( 'Нисдаршан_статистика' ),
+	'ValidationStatistics' => array( 'Нисдарийн_статистика' ),
 );
 
 /** German (Deutsch) */
