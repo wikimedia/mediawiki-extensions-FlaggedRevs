@@ -1919,7 +1919,7 @@ $messages['fa'] = array(
 	'revreview-check-flag-y-title' => 'پذیرش همهٔ تغییراتی که شما در این ویرایش انجام داده‌اید.',
 	'revreview-flag' => 'بررسی این نسخه',
 	'revreview-reflag' => 'این نسخه را دوباره بازبینی کن',
-	'revreview-invalid' => "'''هدف غیر مجاز:''' نسخهٔ [[{{MediaWiki:Validationpage}}|بازبینی شده‌ای]] با این شناسه وجود ندارد.",
+	'revreview-invalid' => "'''هدف نامجاز:''' نسخهٔ [[{{MediaWiki:Validationpage}}|بازبینی شده‌ای]] با این شناسه وجود ندارد.",
 	'revreview-log' => 'توضیح:',
 	'revreview-main' => 'شما باید یک نسخه خاص از یک صفحه را برگزینید تا بررسی کنید.
 

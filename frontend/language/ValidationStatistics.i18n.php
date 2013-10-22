@@ -1843,18 +1843,21 @@ $messages['pt'] = array(
 
 Editores são utilizadores que podem rever as edições de páginas.",
 	'validationstatistics-lastupdate' => "''Os seguintes dados foram atualizados pela última vez a $1 às $2.''",
-	'validationstatistics-pndtime' => "As edições verificadas por utilizadores estabelecidos são consideras ''revistas''.
+	'validationstatistics-pndtime' => "As edições verificadas por utilizadores estabelecidos são consideradas ''{{int:validationstatistics-stable}}''.
 
 O atraso médio de revisão das [[Special:OldReviewedPages|páginas com edições à espera de revisão]] é '''$1'''; este atraso mede o tempo que a edição pendente mais antiga ficou à espera de revisão.",
 	'validationstatistics-revtime' => "O tempo médio de espera para revisão das edições de ''utilizadores não autenticados'' é '''$1'''; a mediana é '''$2'''.
 $3",
-	'validationstatistics-table' => "São apresentadas abaixo estatísticas das revisões em cada espaço nominal, '''excluindo''' páginas de redirecionamento. As páginas são consideradas ''desatualizadas'' se tiverem edições à espera de revisão, e ''sincronizadas'' se não tiverem edições em espera.",
+	'validationstatistics-table' => "São apresentadas abaixo estatísticas das revisões de páginas em cada espaço nominal, '''excluindo''' páginas de redirecionamento.
+As páginas são consideradas ''{{int:validationstatistics-old}}'' se tiverem edições à espera de revisão;
+as páginas são consideradas ''{{int:validationstatistics-latest}}'' se não tiverem edições em espera.",
 	'validationstatistics-ns' => 'Espaço nominal',
 	'validationstatistics-total' => 'Páginas',
 	'validationstatistics-stable' => 'Revistas',
 	'validationstatistics-latest' => 'Sincronizadas',
 	'validationstatistics-synced' => 'Sincronizadas/Revistas',
 	'validationstatistics-old' => 'Desactualizadas',
+	'validationstatistics-unreviewed' => 'Não revistas',
 	'validationstatistics-utable' => 'Abaixo está a lista {{PLURAL:$1|do revisor mais ativo|dos $1 revisores mais ativos}} {{PLURAL:$2|na última hora|nas últimas horas}}.',
 	'validationstatistics-user' => 'Utilizador',
 	'validationstatistics-reviews' => 'Revisões',

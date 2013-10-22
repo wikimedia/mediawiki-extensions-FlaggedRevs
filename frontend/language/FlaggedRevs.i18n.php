@@ -5512,7 +5512,7 @@ $3  [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffon
 	'revreview-quick-basic' => "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} تغییرات درانتظار بازبینی]] '''[[{{MediaWiki:Validationpage}}|بررسی‌شده]]'''",
 	'revreview-quick-basic-old' => "'''[[{{MediaWiki:Validationpage}}|بررسی شد]]'''",
 	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|بررسی شد]]'''",
-	'revreview-quick-invalid' => "'''شناسهٔ نسخهٔ غیر مجاز'''",
+	'revreview-quick-invalid' => "'''شناسهٔ نسخهٔ نامجاز'''",
 	'revreview-quick-none' => "'''[[{{MediaWiki:Validationpage}}|بررسی نشده]]'''",
 	'revreview-quick-quality' => "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} تغییرات درانتظار بازبینی]] '''[[{{MediaWiki:Validationpage}}|باکیفیت]]'''",
 	'revreview-quick-quality-old' => "'''[[{{MediaWiki:Validationpage}}|کیفیت]]'''",
