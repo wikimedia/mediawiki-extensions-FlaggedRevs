@@ -1106,18 +1106,21 @@ $messages['ia'] = array(
 
 Le Redactores es usatores establite qui pote selectivemente verificar versiones de paginas.",
 	'validationstatistics-lastupdate' => "''Le sequente datos ha essite actualisate le $1 a $2.''",
-	'validationstatistics-pndtime' => "Le modificationes que ha essite verificate per usatores stabilite es considerate como ''revidite''.
+	'validationstatistics-pndtime' => "Le modificationes que ha essite verificate per usatores stabilite es considerate como ''{{int:validationstatistics-stable}}''.
 
-Le retardo medie de revision pro [[Special:OldReviewedPages|paginas con modificationes attendente revision]] es '''$1'''; iste retardo mesura le tempore durante que le modification pendente le plus vetule ha attendite revision.",
+Le retardo medie de revision pro [[Special:OldReviewedPages|paginas con modificationes actualmente attendente revision]] es '''$1'''; iste retardo mesura le tempore durante que le modification pendente le plus vetule ha attendite revision.",
 	'validationstatistics-revtime' => "Le retardo medie de revision pro modificationes per ''usatores que non ha aperite un session'' es '''$1'''; le mediana es '''$2'''.
 $3",
-	'validationstatistics-table' => "Le statisticas de revision de paginas pro cata spatio de nomines es monstrate hic infra, ''excludente'' le paginas de redirection. Paginas es tractate como ''obsolete'' si illos ha modificationes attendente revision; paginas es considerate ''synchronisate'' si il non ha modificationes attendente revision.",
+	'validationstatistics-table' => "Le statisticas de revision de paginas pro cata spatio de nomines es monstrate hic infra, ''excludente'' le paginas de redirection.
+Paginas es tractate como ''{{int:validationstatistics-old}}'' si illos ha modificationes attendente revision;
+paginas es considerate ''{{int:validationstatistics-latest}}'' si il non ha modificationes attendente revision.",
 	'validationstatistics-ns' => 'Spatio de nomines',
 	'validationstatistics-total' => 'Paginas',
 	'validationstatistics-stable' => 'Revidite',
 	'validationstatistics-latest' => 'Synchronisate',
 	'validationstatistics-synced' => 'Synchronisate/Revidite',
 	'validationstatistics-old' => 'Obsolete',
+	'validationstatistics-unreviewed' => 'Non revidite',
 	'validationstatistics-utable' => 'Infra es le {{PLURAL:$1|revisor|lista del $1 revisores}} le plus active del ultime {{PLURAL:$2|hora|$2 horas}}.',
 	'validationstatistics-user' => 'Usator',
 	'validationstatistics-reviews' => 'Revisiones',
