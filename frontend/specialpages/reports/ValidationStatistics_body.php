@@ -8,7 +8,7 @@ class ValidationStatistics extends IncludableSpecialPage {
 	}
 
 	public function execute( $par ) {
-		global $wgContLang, $wgFlaggedRevsStats;
+		global $wgContLang, $wgFlaggedRevsStats, $wgFlaggedRevsProtection;
 
 		$out = $this->getOutput();
 		$lang = $this->getLanguage();
@@ -80,7 +80,10 @@ class ValidationStatistics extends IncludableSpecialPage {
 		// validationstatistics-ns, validationstatistics-total, validationstatistics-stable,
 		// validationstatistics-latest, validationstatistics-synced, validationstatistics-old,
 		// validationstatistics-unreviewed
-		$msgs = array( 'ns', 'total', 'stable', 'latest', 'synced', 'old', 'unreviewed' ); // our headings
+		$msgs = array( 'ns', 'total', 'stable', 'latest', 'synced', 'old' ); // our headings
+		if ( !$wgFlaggedRevsProtection ) {
+			$msgs[] = 'unreviewed';
+		}
 		foreach ( $msgs as $msg ) {
 			$out->addHTML( '<th>' .
 				$this->msg( "validationstatistics-$msg" )->parse() . '</th>' );
@@ -149,14 +152,20 @@ class ValidationStatistics extends IncludableSpecialPage {
 							array(),
 							array( 'namespace' => $namespace )
 						) .
-					"</td>
+					"</td>"
+			);
+			if ( !$wgFlaggedRevsProtection ) {
+				$out->addHTML( "
 					<td>" .
 						Linker::linkKnown( SpecialPage::getTitleFor( 'UnreviewedPages' ),
 							htmlspecialchars( $unreviewed ),
 							array(),
 							array( 'namespace' => $namespace )
 						) .
-					"</td>
+					"</td>"
+				);
+			}
+			$out->addHTML( "
 				</tr>"
 			);
 		}
