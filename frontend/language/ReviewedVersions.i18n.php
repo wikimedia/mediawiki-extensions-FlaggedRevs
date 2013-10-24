@@ -404,7 +404,7 @@ $messages['ext'] = array(
  */
 $messages['fa'] = array(
 	'reviewedversions' => 'نسخهٔ بازبینی شده',
-	'reviewedversions-leg1' => 'فهرست کردن نسخه‌های بررسی شده یک صفحه',
+	'reviewedversions-leg1' => 'فهرست‌کردن نسخه‌های بررسی‌شده یک صفحه',
 	'reviewedversions-page' => 'نام صفحه:',
 	'reviewedversions-none' => '«[[:$1]]» هیچ نسخه بررسی‌ شده‌ای ندارد.',
 	'reviewedversions-list' => 'در زیر فهرستی از {{PLURAL:$2|تنها نسخهٔ|نسخه‌های}} [[:$1]] که بازبینی {{PLURAL:$2|شده‌است|شده‌اند}} می‌باشد:',
