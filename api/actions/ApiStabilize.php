@@ -79,7 +79,7 @@ abstract class ApiStabilize extends ApiBase {
 // Assumes $wgFlaggedRevsProtection is off
 class ApiStabilizeGeneral extends ApiStabilize {
 	public function doExecute() {
-		global $wgUser;
+		global $wgUser, $wgContLang;
 
 		$params = $this->extractRequestParams();
 
@@ -119,7 +119,7 @@ class ApiStabilizeGeneral extends ApiStabilize {
 		$res['title'] = $this->title->getPrefixedText();
 		$res['default'] = $params['default'];
 		$res['autoreview'] = $params['autoreview'];
-		$res['expiry'] = $form->getExpiry();
+		$res['expiry'] = $wgContLang->formatExpiry( $form->getExpiry(), TS_ISO_8601 ) );
 		$this->getResult()->addValue( null, $this->getModuleName(), $res );
 	}
 
@@ -197,7 +197,7 @@ class ApiStabilizeGeneral extends ApiStabilize {
 // Assumes $wgFlaggedRevsProtection is on
 class ApiStabilizeProtect extends ApiStabilize {
 	public function doExecute() {
-		global $wgUser;
+		global $wgUser, $wgContLang;
 		$params = $this->extractRequestParams();
 
 		$form = new PageStabilityProtectForm( $wgUser );
@@ -225,7 +225,7 @@ class ApiStabilizeProtect extends ApiStabilize {
 		$res = array();
 		$res['title'] = $this->title->getPrefixedText();
 		$res['protectlevel'] = $params['protectlevel'];
-		$res['expiry'] = $form->getExpiry();
+		$res['expiry'] = $wgContLang->formatExpiry( $form->getExpiry(), TS_ISO_8601 ) );
 		$this->getResult()->addValue( null, $this->getModuleName(), $res );
 	}
 

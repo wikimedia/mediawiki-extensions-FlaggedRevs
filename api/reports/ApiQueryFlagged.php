@@ -28,6 +28,7 @@
  */
 class ApiQueryFlagged extends ApiQueryBase {
 	public function execute() {
+		global $wgContLang;
 		$pageSet = $this->getPageSet();
 		$pageids = array_keys( $pageSet->getGoodTitles() );
 		if ( !$pageids ) {
@@ -62,7 +63,7 @@ class ApiQueryFlagged extends ApiQueryBase {
 		$this->addWhereFld( 'fpc_page_id', $pageids );
 		foreach ( $this->select( __METHOD__ ) as $row ) {
 			$result->addValue( array( 'query', 'pages', $row->fpc_page_id, 'flagged' ), 'protection_level', $row->fpc_level );
-			$result->addValue( array( 'query', 'pages', $row->fpc_page_id, 'flagged' ), 'protection_expiry', $row->fpc_expiry );
+			$result->addValue( array( 'query', 'pages', $row->fpc_page_id, 'flagged' ), 'protection_expiry', $wgContLang->formatExpiry( $row->fpc_expiry, TS_ISO_8601 ) );
 		}
 
 		return true;
