@@ -2170,6 +2170,7 @@ $messages['sr-el'] = array(
 /** Swedish (svenska)
  * @author Boivie
  * @author Dafer45
+ * @author Jopparn
  * @author M.M.S.
  * @author Rotsee
  * @author Skalman
@@ -2183,16 +2184,17 @@ Skribenter är etablerade användare som kan granska sidversioner.",
 	'validationstatistics-lastupdate' => "''Följande uppgifter uppdaterades senast på $1 vid $2.''",
 	'validationstatistics-pndtime' => "Redigeringar som har kollats av etablerade användare anses vara granskade.
 
-Den genomsnittliga förseningen för [[Special:OldReviewedPages|sidor med väntande ogranskade redigeringar]] är '''$1'''; dröjsmålet mäter hur lång tid den äldsta väntande redigeringen blivit granskad.",
+Den genomsnittliga förseningen för [[Special:OldReviewedPages|sidor med väntande ogranskade redigeringar]] är '''$1'''; dröjsmålet mäter hur lång tid den äldsta väntande redigeringen blivit granskad.", # Fuzzy
 	'validationstatistics-revtime' => "Den genomsnittliga väntan för redigeringar av ''användare som inte har loggat in'' för att granskas är '''$1'''; medianen är '''$2'''.
 $3",
-	'validationstatistics-table' => "Sidgranskningsstatistik för varje namnrymd visas nedan, ''förutom'' omdirigeringssidor. Sidor behandlas som föråldrade om de har redigeringar i väntan på granskning; sidor betraktas som ''synkroniserade'' om det inte finns några redigeringar i väntan på granskning.",
+	'validationstatistics-table' => "Sidgranskningsstatistik för varje namnrymd visas nedan, ''förutom'' omdirigeringssidor. Sidor behandlas som föråldrade om de har redigeringar i väntan på granskning; sidor betraktas som ''synkroniserade'' om det inte finns några redigeringar i väntan på granskning.", # Fuzzy
 	'validationstatistics-ns' => 'Namnrymd',
 	'validationstatistics-total' => 'Sidor',
 	'validationstatistics-stable' => 'Granskad',
 	'validationstatistics-latest' => 'Synkad',
 	'validationstatistics-synced' => 'Synkad/Granskad',
 	'validationstatistics-old' => 'Föråldrad',
+	'validationstatistics-unreviewed' => 'Ogranskad',
 	'validationstatistics-utable' => 'Nedan listas {{PLURAL:$1|den flitigaste granskaren|de $1 flitigaste granskarna}} {{PLURAL:$2|den senaste timmen|de senaste $2 timmarna}}.',
 	'validationstatistics-user' => 'Användare',
 	'validationstatistics-reviews' => 'Granskningar',
@@ -2307,6 +2309,7 @@ $3",
 );
 
 /** Turkish (Türkçe)
+ * @author Incelemeelemani
  * @author Joseph
  * @author Manco Capac
  * @author Srhat
@@ -2321,16 +2324,17 @@ Editörler, sayfalara kontrol revizyonu atayabilen belirli kullanıcılardır.",
 	'validationstatistics-lastupdate' => '"Aşağıdaki veri en son $1, $2 tarihinde güncellendi"',
 	'validationstatistics-pndtime' => "Belirlenmiş kullanıcılar tarafından kontrol edilmiş değişiklikler gözden geçirilmiş olarak kabul edilir.
 
-[[Special:OldReviewedPages|Gözden geçirilmeyi bekleyen sayfalar]] için ortalama gecikme süresi: '''$1'''.",
+[[Special:OldReviewedPages|Gözden geçirilmeyi bekleyen sayfalar]] için ortalama gecikme süresi: '''$1'''.", # Fuzzy
 	'validationstatistics-revtime' => "''Giriş yapmamış anonim kullanıcılar'' tarafından yapılmış girişler için ortalama bekleme süresi '''$1'''; medyanı ise '''$2''' biçimindedir.
 $3",
-	'validationstatistics-table' => "İsim alanları için sayfa inceleme istatistikleri, yönlendirme sayfaları ''dahil olmadan''  aşağıda gösterilmiştir. Bekleyen değişiklik içeren sayfalar ''güncelliğini yitirmiş'', bekleyen değişiklik içermeyen sayfalar ''senkronize'' kabul edilir.",
+	'validationstatistics-table' => "İsim alanları için sayfa inceleme istatistikleri, yönlendirme sayfaları ''dahil olmadan''  aşağıda gösterilmiştir. Bekleyen değişiklik içeren sayfalar ''güncelliğini yitirmiş'', bekleyen değişiklik içermeyen sayfalar ''senkronize'' kabul edilir.", # Fuzzy
 	'validationstatistics-ns' => 'İsim alanı',
 	'validationstatistics-total' => 'Sayfalar',
 	'validationstatistics-stable' => 'Gözden geçirilmiş',
 	'validationstatistics-latest' => 'Senkronize edildi',
 	'validationstatistics-synced' => 'Eşitlenmiş/Gözden geçirilmiş',
 	'validationstatistics-old' => 'Eski',
+	'validationstatistics-unreviewed' => 'İncelenmeyen',
 	'validationstatistics-utable' => 'Aşağıda {{PLURAL:$2|saatte|$2 saatte}} en çok inceleme yapan $1 kullanıcı listelenmektedir.',
 	'validationstatistics-user' => 'Kullanıcı',
 	'validationstatistics-reviews' => 'İncelemeler',
