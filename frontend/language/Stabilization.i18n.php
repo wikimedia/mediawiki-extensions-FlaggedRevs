@@ -2476,9 +2476,10 @@ $messages['mn'] = array(
  * @author Htt
  * @author Kaustubh
  * @author Mahitgar
+ * @author V.narsikar
  */
 $messages['mr'] = array(
-	'stabilization-tab' => 'व्हेट',
+	'stabilization-tab' => 'छाननी',
 	'stabilization' => 'पान स्थिर करा',
 	'stabilization-text' => "[[:$1|$1]] ची स्थिर आवृत्ती कशा प्रकारे निवडली अथवा दाखविली जाईल या साठी खालील रुपरेषा बदला.'''",
 	'stabilization-perm' => 'तुम्हाला स्थिर आवृत्ती बदलण्याची परवानगी नाही.
@@ -2487,21 +2488,32 @@ $messages['mr'] = array(
 	'stabilization-leg' => 'स्थिर आवृत्ती सेटिंग निश्चित करा', # Fuzzy
 	'stabilization-def' => 'मूळ प्रकारे पानावर बदल दाखविलेले आहेत',
 	'stabilization-def1' => 'स्थिर आवृत्ती;
-जर उपलब्ध नसेल, तर सध्याची', # Fuzzy
-	'stabilization-def2' => 'सध्याची आवृत्ती', # Fuzzy
-	'stabilization-submit' => 'सहमती द्या',
+जर उपलब्ध नसेल, तर सध्याची आवृत्ती',
+	'stabilization-def2' => 'नविनतम आवृत्ती',
+	'stabilization-restrict' => 'तपास/स्वयंतपास प्रतिबंध',
+	'stabilization-restrict-none' => 'अधिक प्रतिबंध नाही',
+	'stabilization-submit' => 'खात्री करा',
 	'stabilization-notexists' => '"[[:$1|$1]]" या नावाचे पृष्ठ अस्तित्वात नाही.
 बदल करू शकत नाही.',
 	'stabilization-notcontent' => '"[[:$1|$1]]" हे पान तपासू शकत नाही.
 बदल करता येणार नाहीत.',
 	'stabilization-comment' => 'कारण:',
+	'stabilization-otherreason' => 'इतर कारण:',
 	'stabilization-expiry' => 'रद्द होते:',
+	'stabilization-othertime' => 'इतर वेळ:',
 	'stabilization-def-short' => 'मूळ (अविचल)',
 	'stabilization-def-short-0' => 'सद्य',
 	'stabilization-def-short-1' => 'स्थीर', # Fuzzy
+	'stabilize_page_invalid' => 'लक्ष्य पानाचे शीर्षक अवैध आहे.',
+	'stabilize_page_notexists' => 'लक्ष्य पान अस्तित्वात नाही.',
+	'stabilize_page_unreviewable' => 'लक्ष्य पान हे तपासण्याजोग्या नामविश्वात नाही.',
+	'stabilize_invalid_autoreview' => 'अवैध स्वयंतपास प्रतिबंध.',
+	'stabilize_invalid_level' => 'अवैध सुरक्षा पातळी',
 	'stabilize_expiry_invalid' => 'चुकीचा रद्दीकरण दिनांक.',
 	'stabilize_expiry_old' => 'ही रद्दीकरण वेळ उलटून गेलेली आहे.',
+	'stabilize_denied' => 'परवानगी नाकारण्यात येते.',
 	'stabilize-expiring' => '$1 (UTC) ला रद्द होते',
+	'stabilization-review' => 'सध्याची आवृत्ती तपासल्याची खूण करा',
 );
 
 /** Malay (Bahasa Melayu)

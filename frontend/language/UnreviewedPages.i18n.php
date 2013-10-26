@@ -591,6 +591,7 @@ $messages['ext'] = array(
 );
 
 /** Persian (فارسی)
+ * @author Ebraminio
  * @author Huji
  * @author Mardetanha
  * @author Mjbmr
@@ -602,8 +603,8 @@ $messages['fa'] = array(
 	'unreviewedpages-legend' => 'فهرست صفحه‌های بازبینی نشده',
 	'unreviewedpages-category' => 'رده:',
 	'unreviewedpages-diff' => 'بازبینی',
-	'unreviewedpages-unwatched' => '(پیگیری نشده)',
-	'unreviewedpages-watched' => '(پیگیری فعال توسط $1 {{PLURAL:$1|کاربر|کاربر}})',
+	'unreviewedpages-unwatched' => '(پی‌گیری‌نشده)',
+	'unreviewedpages-watched' => '({{PLURAL:$1|کاربر|کاربران}} فعال پی‌گیری‌کنندهٔ $1)',
 	'unreviewedpages-list' => 'این صفحه فهرستی از صفحاتی را نشان می‌دهد که هنوز تا سطح مشخص شده [[{{MediaWiki:Validationpage}}|بازبینی]] نشده‌اند.',
 	'unreviewedpages-none' => 'در حال حاضر صفحه‌ای که با این معیارها سازگار باشد وجود ندارد',
 	'unreviewedpages-viewing' => '(در حال بررسی)',
@@ -1283,16 +1284,22 @@ $messages['ml'] = array(
 /** Marathi (मराठी)
  * @author Kaustubh
  * @author Mahitgar
+ * @author V.narsikar
  */
 $messages['mr'] = array(
+	'action-unreviewedpages' => 'न तपासलेल्या पानांची यादी पहा',
 	'unreviewedpages' => 'न तपासलेली पाने',
 	'unreviewedpages-legend' => 'न तपासलेल्या लेखांची यादी तयार करा',
 	'unreviewedpages-category' => 'वर्ग:',
 	'unreviewedpages-diff' => 'तपासा',
-	'unreviewedpages-unwatched' => '(न पाहिलेली)',
-	'unreviewedpages-watched' => '($1 {{PLURAL:$1|सदस्यानी|सदस्यांनी}} पहारा दिलेला आहे)', # Fuzzy
-	'unreviewedpages-list' => 'हे पान अशा पानांची यादी दर्शविते जी पाने तपासलेली नाहीत.', # Fuzzy
+	'unreviewedpages-unwatched' => '(निरीक्षणात नसलेली)',
+	'unreviewedpages-watched' => '($1 सक्रिय {{PLURAL:$1|सदस्य}} पहारा देत आहे)',
+	'unreviewedpages-list' => 'हे पान अशा आशय पानांची यादी दर्शविते जी पाने अद्याप नमूद पातळीवर [[{{MediaWiki:Validationpage}}|तपासलेली]] "नाहीत".',
 	'unreviewedpages-none' => 'ह्या मानदंडांशी जुळणारी पाने नाहीत',
+	'unreviewedpages-viewing' => '(पुनरावकोलनात)',
+	'unreviewedpages-hours' => '($1 {{PLURAL:$1|तास}})',
+	'unreviewedpages-days' => '($1 {{PLURAL:$1|दिवस}})',
+	'unreviewedpages-recent' => '(१ तासापेक्षा कमी वेळ)',
 );
 
 /** Malay (Bahasa Melayu)

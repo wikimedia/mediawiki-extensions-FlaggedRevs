@@ -900,10 +900,11 @@ $messages['ml'] = array(
 
 /** Marathi (मराठी)
  * @author Kaustubh
+ * @author V.narsikar
  */
 $messages['mr'] = array(
 	'reviewedpages' => 'तपासलेली पाने',
-	'reviewedpages-leg' => 'विशिष्ट गुणांकनाला तपासलेली पाने', # Fuzzy
+	'reviewedpages-leg' => 'तपासलेल्या पानांची यादी करते',
 	'reviewedpages-list' => 'खालील पाने दिलेल्या विशिष्ट गुणांकनात तपासलेली आहेत', # Fuzzy
 	'reviewedpages-none' => 'या यादीत पाने नाहीत',
 	'reviewedpages-lev-0' => 'निवडलेली',

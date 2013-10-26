@@ -2439,6 +2439,7 @@ $messages['ha'] = array(
 
 /** Hebrew (עברית)
  * @author Amire80
+ * @author Guycn1
  * @author Rotemliss
  * @author StuB
  * @author YaronSh
@@ -2488,8 +2489,8 @@ $messages['he'] = array(
 	'revreview-submit-unreviewed' => 'בוצע. נדחה!',
 	'revreview-successful' => "'''הגרסה של [[:$1|$1]] סומנה בהצלחה. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} צפייה בגרסאות שנסקרו])'''",
 	'revreview-successful2' => "'''סימון הגרסה [[:$1|$1]] הוסר בהצלחה.'''",
-	'revreview-poss-conflict-p' => "'''אזהרה: [[User:$1|$1]] התחיל לסקור את הדף הזה ב־$2 בשעה $3.'''",
-	'revreview-poss-conflict-c' => "'''אזהרה: [[User:$1|$1]] התחיל לסקור את השינויים האלה ב־$2 בשעה $3.'''",
+	'revreview-poss-conflict-p' => "'''אזהרה: [[User:$1|$1]] {{gender:$1|התחיל|התחילה}} לסקור את הדף הזה ב־$2 בשעה $3.'''",
+	'revreview-poss-conflict-c' => "'''אזהרה: [[User:$1|$1]] {{gender:$1|התחיל|התחילה}} לסקור את השינויים האלה ב־$2 בשעה $3.'''",
 	'revreview-adv-reviewing-p' => 'לתשומת לבך: סוקרים אחרים יכולים לראות ש{{GENDER:$1|אתה סוקר|את סוקרת}} דף זה.',
 	'revreview-adv-reviewing-c' => 'לתשומת לבך: סוקרים אחרים יכולים לראות ש{{GENDER:$1|אתה סוקר|את סוקרת}} שינויים אלו.',
 	'revreview-sadv-reviewing-p' => 'לתשומת לבך: אפשר $1 על עצמך למשתמשים אחרים בתור סוקר הדף הזה.',
@@ -3946,18 +3947,19 @@ $messages['mn'] = array(
  * @author Htt
  * @author Kaustubh
  * @author Mahitgar
+ * @author V.narsikar
  */
 $messages['mr'] = array(
 	'revisionreview' => 'आवृत्त्या तपासा',
 	'revreview-flag' => 'ही आवृत्ती तपासा',
-	'revreview-invalid' => "'''चुकीचे टारगेट:''' कुठलीही [[{{MediaWiki:Validationpage}}|तपासलेली]] आवृत्ती दिलेल्या क्रमांकाशी जुळत नाही.",
-	'revreview-log' => 'प्रतिक्रीया:',
+	'revreview-invalid' => "'''चुकीचे लक्ष्य:''' कुठलीही [[{{MediaWiki:Validationpage}}|तपासलेली]] आवृत्ती दिलेल्या क्रमांकाशी जुळत नाही.",
+	'revreview-log' => 'शेरा:',
 	'revreview-main' => 'तपासण्यासाठी एखादी आवृत्ती निवडणे गरजेचे आहे.
 
 न तपासलेल्या पानांची यादी पहाण्यासाठी [[Special:Unreviewedpages]] इथे जा.', # Fuzzy
 	'revreview-stable1' => 'तुम्ही कदाचित या पानाची [{{fullurl:$1|stableid=$2}} ही खूण केलेली आवृत्ती] आता [{{fullurl:$1|stable=1}} स्थिर आवृत्ती] झाली आहे किंवा नाही हे पाहू इच्छिता.', # Fuzzy
 	'revreview-stable2' => 'तुम्ही या पानाची [{{fullurl:$1|stable=1}} स्थिर आवृत्ती] पाहू शकता (जर उपलब्ध असेल तर).', # Fuzzy
-	'revreview-submit' => 'पाठवा',
+	'revreview-submit' => 'सादर करा',
 	'revreview-successful' => "'''[[:$1|$1]] च्या निवडलेल्या आवृत्तीवर यशस्वीरित्या तपासल्याची खूण केलेली आहे.
 ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} सर्व खूणा केलेल्या आवृत्त्या पहा])'''",
 	'revreview-successful2' => "'''[[:$1|$1]] च्या निवडलेल्या आवृत्तीची खूण काढली.'''",

@@ -465,10 +465,11 @@ $messages['ml'] = array(
 /** Marathi (मराठी)
  * @author Htt
  * @author Kaustubh
+ * @author V.narsikar
  */
 $messages['mr'] = array(
 	'qualityoversight' => 'गुणवत्तेकडे दुर्लक्ष करा',
-	'qualityoversight-list' => 'हे पान नवीनतम गुणवत्तापूर्ण आवृत्त्यांचे प्रमाणिकरणाची यादी देते तसेच गुणवत्तापूर्ण आवृत्त्यांचे डिप्रिसियेशन दर्शविते.',
+	'qualityoversight-list' => 'हे पान नवीनतम गुणवत्तापूर्ण आवृत्त्यांचे प्रमाणिकरणाची यादी देते तसेच गुणवत्तापूर्ण आवृत्त्यांचे डिप्रिकेशन्स दर्शविते.',
 	'qualityoversight-legend' => 'सर्वांत नवीन समीक्षायाद्या शोधा',
 );
 

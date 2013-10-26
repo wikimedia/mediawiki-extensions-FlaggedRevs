@@ -709,12 +709,12 @@ $messages['fa'] = array(
 
 ویرایشگران کاربران تثبیت‌شده‌ای هستند که می‌توانند نسخه‌های صفحه‌ها را بررسی سرسری کنند.",
 	'validationstatistics-lastupdate' => "''داده‌های زیر آخرین بار در تاریخ $1 در $2 به‌روزرسانی شده است.''",
-	'validationstatistics-pndtime' => "ویرایش‌هایی که توسط کاربران تثبیت‌شده بررسی شده‌اند برای بازبینی در نظر گرفته شده‌اند.
+	'validationstatistics-pndtime' => "ویرایش‌هایی که توسط کاربران مجرب بررسی شده‌اند ''{{int:validationstatistics-stable}}'' در نظر گرفته شده‌اند.
 
-میانگین تأخیر برای [[Special:OldReviewedPages|صفحه‌های دارای ویرایش‌های بازبینی‌نشدهٔ در حال انتظار]] '''$1''' است؛ این تاخیر نشان‌دهنده مدت زمانی است که قدیمی‌ترین نسخه بررسی نشده در انتظار بررسی باقی مانده است.", # Fuzzy
+میانگین تأخیر برای [[Special:OldReviewedPages|صفحه‌های دارای ویرایش‌های بازبینی‌نشدهٔ در حال انتظار]] '''$1''' است؛ این تأخیر نشان‌دهنده مدت زمانی‌است که قدیمی‌ترین نسخهٔ بررسی‌نشده در انتظار بررسی باقی‌مانده‌است.",
 	'validationstatistics-revtime' => "میانگین انتظار برای بازبینی ویرایش‌های ''کاربرانی که وارد نشده‌اند''، '''$1''' است؛ میانهٔ آن '''$2''' است.
 $3",
-	'validationstatistics-table' => "آمار بازبینی صفحه برای هر فضای‌نام که در زیر نشان داده‌شده، به ''استثنای'' صفحه‌های تغییرمسیر است. صفحه‌های که ویرایش‌های بررسی نشده داشته باشند ''تاریخ گذشته'' محسوب می‌شوند؛ صفحه‌هایی که ویرایش بررسی نشده نداشته باشند ''همزمان‌شده'' تلفی می‌شوند.", # Fuzzy
+	'validationstatistics-table' => "آمار بازبینی صفحه برای هر فضای‌نام که در زیر نشان داده‌شده، به ''استثنای'' صفحه‌های تغییرمسیر است. صفحه‌های که ویرایش‌های بررسی نشده داشته باشند ''تاریخ گذشته'' محسوب می‌شوند؛ صفحه‌هایی که ویرایش بررسی نشده نداشته باشند ''همزمان‌شده'' تلفی می‌شوند.",
 	'validationstatistics-ns' => 'فضای نام',
 	'validationstatistics-total' => 'صفحه‌ها',
 	'validationstatistics-stable' => 'بازبینی شده',
@@ -1575,6 +1575,29 @@ $3",
  */
 $messages['mn'] = array(
 	'validationstatistics-ns' => 'Нэрний зай',
+);
+
+/** Marathi (मराठी)
+ * @author V.narsikar
+ */
+$messages['mr'] = array(
+	'validationstatistics' => 'पान पुनरावलोकन सांख्यिकी',
+	'validationstatistics-users' => "'''{{SITENAME}}'''वर सध्या '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|सदस्य}} [[{{MediaWiki:Validationpage}}|संपादक]] अधिकारासह आहेत.
+हे संपादक प्रस्थापित सदस्य आहेत जे  पानांच्या आवृत्तींची जागेवरच तपासणी करू शकतात.",
+	'validationstatistics-lastupdate' => "''$1 ला $2 वाजता खालील माहिती शेवटली अद्यतन केल्या गेली.''",
+	'validationstatistics-pndtime' => "ती संपादने जी प्रस्थापित सदस्यांनी तपासलेली असतात त्यांना ''{{int:validationstatistics-stable}}'' समजल्या जाते. [[Special:OldReviewedPages|पाने ज्यांची संपादने सध्या तपासणीसाठी प्रलंबित आहेत]] यासाठी तपासण्याचा सरासरी उशीर हा '''$1''' आहे;हा उशीर जुन्यात-जूने संपादन किती वेळ अपुनरावलोकित होते ते मोजतो.",
+	'validationstatistics-revtime' => "\"ते सदस्य जे सनोंद-प्रवेशित नाहीत\" अश्या सदस्यांचा संपादनांचा पुनरावलोकनासाठी सरासरी थांबा'''\$1''' आहे;त्याचा मध्य '''\$2'''आहे.
+
+\$3",
+	'validationstatistics-table' => "प्रत्येक नामविश्वासाठी पान पुनरावलोकन सांख्यिकी खाली दाखविलेली आहे,पुनर्निर्देशित पाने ''वगळुन''.पाने ही  ''{{int:validationstatistics-old}}'' समजल्या जातात जेंव्हा त्यांची संपादने तपासावयाची बाकी असतात;पाने ही  ''{{int:validationstatistics-latest}}''  समजल्या जातात जेंव्हा त्यांची संपादने तपासावयाची बाकी नसतात.",
+	'validationstatistics-ns' => 'नामविश्व',
+	'validationstatistics-total' => 'पाने',
+	'validationstatistics-stable' => 'पुनरावलोकित',
+	'validationstatistics-old' => 'जूनी',
+	'validationstatistics-unreviewed' => 'अपुनरावलोकीत',
+	'validationstatistics-utable' => 'मागील {{PLURAL:$2|तासात|$2 तासांत}} {{PLURAL:$1|सर्वात सक्रिय तपासनिसाची|$1 सर्वात सक्रिय तपासनिसांची}} यादी खाली दिलेली आहे .',
+	'validationstatistics-user' => 'सदस्य',
+	'validationstatistics-reviews' => 'समीक्षण',
 );
 
 /** Malay (Bahasa Melayu)
@@ -2510,7 +2533,7 @@ $messages['yi'] = array(
  * @author 阿pp
  */
 $messages['zh-hans'] = array(
-	'validationstatistics' => '页面复审统计信息',
+	'validationstatistics' => '页面复核统计',
 	'validationstatistics-users' => "'''{{SITENAME}}'''目前有'''[[Special:ListUsers/editor|$1]]'''{{PLURAL:$1|个|个}}用户具有[[{{MediaWiki:Validationpage}}|编者]]权限。
 
 编者是可以对页面修订作抽样检查的已确认用户。",
@@ -2528,10 +2551,10 @@ $messages['zh-hans'] = array(
 	'validationstatistics-latest' => '已同步',
 	'validationstatistics-synced' => '已同步／已复审',
 	'validationstatistics-old' => '已过期',
-	'validationstatistics-unreviewed' => '未审核',
+	'validationstatistics-unreviewed' => '未复核',
 	'validationstatistics-utable' => '下面列出了最近{{PLURAL:$2|一小时|$2小时}}内{{PLURAL:$1|最活跃的复审员|最活跃的$1位复审员}}。',
 	'validationstatistics-user' => '用户',
-	'validationstatistics-reviews' => '复审',
+	'validationstatistics-reviews' => '复核',
 );
 
 /** Traditional Chinese (中文（繁體）‎)

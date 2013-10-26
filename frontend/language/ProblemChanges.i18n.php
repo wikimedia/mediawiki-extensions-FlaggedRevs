@@ -653,6 +653,14 @@ $messages['ml'] = array(
 	'problemchanges-category' => 'വർഗ്ഗം:',
 );
 
+/** Marathi (मराठी)
+ * @author V.narsikar
+ */
+$messages['mr'] = array(
+	'problemchanges-none' => 'ह्या मानदंडांशी जुळणारी पाने नाहीत',
+	'problemchanges-category' => 'वर्ग:',
+);
+
 /** Malay (Bahasa Melayu)
  * @author Anakmalaysia
  * @author Aurora

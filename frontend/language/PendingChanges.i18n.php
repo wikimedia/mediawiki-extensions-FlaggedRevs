@@ -686,8 +686,8 @@ $messages['fa'] = array(
 	'pendingchanges-stable' => 'نسخهٔ پایدار پیش‌فرض است',
 	'pendingchanges-diff' => 'بازبینی',
 	'pendingchanges-size' => 'بزرگترین تغییر (بایت):',
-	'pendingchanges-unwatched' => '(پیگیری نشده)',
-	'pendingchanges-watched' => '(پیگیری شده توسط $1 {{PLURAL:$1|کاربر|کاربر}})',
+	'pendingchanges-unwatched' => '(پی‌گیری‌نشده)',
+	'pendingchanges-watched' => '({{PLURAL:$1|کاربر|کاربران}} فعال پی‌گیری‌کنندهٔ $1)',
 	'pendingchanges-viewing' => '(تحت بازبینی)',
 );
 
@@ -1368,20 +1368,24 @@ $messages['ml'] = array(
 
 /** Marathi (मराठी)
  * @author Kaustubh
+ * @author V.narsikar
  */
 $messages['mr'] = array(
-	'pendingchanges' => 'जूनी तपासलेली पाने', # Fuzzy
+	'pendingchanges' => 'बदल प्रलंबित असलेली पाने',
 	'pendingchanges-legend' => 'ज्या तपासलेल्या पानांना न तपासलेल्या आवृत्त्या आहेत अशा पानांची यादी तयार करा',
 	'pendingchanges-list' => 'हे पान अशा तपासलेल्या पानांची यादी देते ज्यामध्ये न तपासलेले बदल आहेत.', # Fuzzy
 	'pendingchanges-none' => 'ह्या मानदंडांशी जुळणारी पाने नाहीत',
-	'pendingchanges-hours' => '($1 {{PLURAL:$1|तास|तास}})',
-	'pendingchanges-days' => '($1 {{PLURAL:$1|दिवस|दिवस}})',
+	'pendingchanges-hours' => '($1 {{PLURAL:$1|तास}})',
+	'pendingchanges-days' => '($1 {{PLURAL:$1|दिवस}})',
 	'pendingchanges-recent' => '(१ तासापेक्षा कमी वेळ)',
 	'pendingchanges-category' => 'वर्ग:',
-	'pendingchanges-stable' => 'निवडलेली', # Fuzzy
+	'pendingchanges-onwatchlist' => 'माझ्या निरीक्षणसूचीत असलेली पाने',
+	'pendingchanges-stable' => 'स्थिर आवृत्ती ही अविचल आहे',
 	'pendingchanges-diff' => 'तपासा',
-	'pendingchanges-unwatched' => '(न पाहिलेली)',
-	'pendingchanges-watched' => '($1 {{PLURAL:$1|सदस्यानी|सदस्यांनी}} पहारा दिलेला आहे)', # Fuzzy
+	'pendingchanges-size' => 'महत्तम बदल (बाइट्स):',
+	'pendingchanges-unwatched' => '(निरीक्षणात नसलेली)',
+	'pendingchanges-watched' => '($1 सक्रिय {{PLURAL:$1|सदस्य}} पहारा देत आहे)',
+	'pendingchanges-viewing' => '(पुनरावकोलनात)',
 );
 
 /** Malay (Bahasa Melayu)

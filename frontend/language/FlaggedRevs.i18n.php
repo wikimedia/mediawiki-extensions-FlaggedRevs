@@ -10836,6 +10836,7 @@ $messages['mr'] = array(
 	'editor' => 'संपादक',
 	'flaggedrevs' => 'चिन्हांकित आवृत्ती',
 	'flaggedrevs-desc' => 'संपादक तसेच तपासनीसांना पानाच्या आवृत्त्या प्रमाणित करण्याची तसेच पाने स्थिर करण्याची परवानगी देते.', # Fuzzy
+	'flaggedrevs-pref-UI' => 'मूळ इंटरफेस',
 	'flaggedrevs-pref-UI-0' => 'इंटरफेस मध्ये वाढीव स्थिर आवृत्ती वापरा', # Fuzzy
 	'flaggedrevs-pref-UI-1' => 'इंटरफेस मध्ये साधी स्थिर आवृत्ती वापरा', # Fuzzy
 	'flaggedrevs-prefs-stable' => 'कायम स्थिर आवृत्ती अविचलपणे दर्शवा (जर उपलब्ध असेल तर)', # Fuzzy
@@ -10974,7 +10975,7 @@ $messages['mr'] = array(
 	'revreview-unreviewedpage' => 'न तपासलेली पाने',
 	'tooltip-ca-current' => 'या पानाची कच्ची प्रत पहा', # Fuzzy
 	'tooltip-ca-stable' => 'या पानाची पक्की प्रत पहा', # Fuzzy
-	'tooltip-ca-default' => 'गुणवत्ता देणारी स्थिती',
+	'tooltip-ca-default' => 'गुणवत्ता शाश्वत मांडणी',
 	'validationpage' => '{{ns:help}}:लेख प्रमाणिकरण', # Fuzzy
 );
 

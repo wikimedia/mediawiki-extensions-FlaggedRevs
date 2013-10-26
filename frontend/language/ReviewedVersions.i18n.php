@@ -818,9 +818,10 @@ $messages['ml'] = array(
 /** Marathi (मराठी)
  * @author Htt
  * @author Kaustubh
+ * @author V.narsikar
  */
 $messages['mr'] = array(
-	'reviewedversions' => 'स्थिर आवृत्त्या पहा',
+	'reviewedversions' => 'पुनरावलोकित आवृत्त्या पहा',
 	'reviewedversions-leg1' => 'एखाद्या पानाच्या तपासलेल्या आवृत्त्यांची यादी',
 	'reviewedversions-page' => 'पृष्ठ नाव',
 	'reviewedversions-none' => '"[[:$1]]" ला कुठल्याही तपासलेल्या आवृत्त्या नाहीत.',
