@@ -750,13 +750,15 @@ Seulojat ovat luotettavia käyttäjiä, jotka voivat arvioida sivuille tehtyjä 
 Keskimääräinen arviointiaika [[Special:OldReviewedPages|sivuilla, joilla on odottavia muutoksia]] on '''$1'''. Tämä viive kertoo sen, kuinka kauan sarjassa vanhin arviointia odottava muutos odottaa edelleen arviointia.",
 	'validationstatistics-revtime' => "Keskimääräinen odotusaika ''sisäänkirjautumattomien käyttäjien'' muokkausten arviointiin on '''$1'''; mediaani on '''$2'''.
 $3",
-	'validationstatistics-table' => "Alla on kaikkien nimiavaruuksien arvioinnin tilastot ''lukuun ottamatta'' ohjaussivuja. Sivuja kohdellaan ''vanhentuneina'', jos niissä on arviointia odottavia muokkauksia, ja ne ovat ''synkronoituja'', mikäli niissä ei ole arviointia odottavia muokkauksia.",
+	'validationstatistics-table' => "Alla on kaikkien nimiavaruuksien arvioinnin tilastot ''lukuun ottamatta'' ohjaussivuja. 
+Sivujen tila on ''{{int:validationstatistics-old}}'', jos niissä on arviointia odottavia muokkauksia, ja tila on ''{{int:validationstatistics-latest}}'', mikäli niissä ei ole arviointia odottavia muokkauksia.",
 	'validationstatistics-ns' => 'Nimiavaruus',
 	'validationstatistics-total' => 'Sivuja yhteensä',
 	'validationstatistics-stable' => 'Arvioitu',
 	'validationstatistics-latest' => 'Synkronoitu',
 	'validationstatistics-synced' => 'Synkronoitu/arvioitu',
 	'validationstatistics-old' => 'Vanhentunut',
+	'validationstatistics-unreviewed' => 'Arvioimatta',
 	'validationstatistics-utable' => 'Alla on lueteltu {{PLURAL:$1|aktiivisin arvioija|$1 aktiivisinta arvioijaa}} edellisen {{PLURAL:$2|tunnin|$2 tunnin}} ajalta.',
 	'validationstatistics-user' => 'Käyttäjä',
 	'validationstatistics-reviews' => 'Arviointeja',
