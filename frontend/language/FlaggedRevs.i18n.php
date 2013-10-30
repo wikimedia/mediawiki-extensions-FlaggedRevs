@@ -1835,6 +1835,9 @@ Pue asoceder que se ficieran otros [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cu
 	'revreview-editnotice' => "'''Los cambios s'amosarán a los llectores cuando un usuariu autorizáu los aceute. ([[{{MediaWiki:Validationpage}}|ayuda]])'''",
 	'revreview-submitedit' => 'Unviar los cambios',
 	'revreview-submitedit-title' => 'Unviar los cambios pa revisión',
+	'revreview-edited' => "'''Los cambios tarán visibles pa los llectores cuando un usuariu autorizáu los aceute. ([[{{MediaWiki:Validationpage}}|ayuda]])'''
+
+{{PLURAL:$2|Hai}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|cambiu pendiente|cambios pendientes}}] ''(ver más abaxo)'' esperando revisión.",
 	'revreview-newest-basic' => "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|cambéu|cambeos}}] d'esta versión {{PLURAL:$3|ta|tan}} [[{{MediaWiki:Validationpage}}|esperando revisión]].
 La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} versión estable] se [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} revisó] el <i>$2</i>.",
 	'revreview-newest-quality' => "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3  {{PLURAL:$3|cambiu|cambios}}] d'esta versión {{PLURAL:$3|ta|tan}} [[{{MediaWiki:Validationpage}}|esperando revisión]].
@@ -14796,7 +14799,7 @@ Možda su napravljene nove [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{Media
 	'revreview-quick-quality' => "'''[[{{MediaWiki:Validationpage}}|Kvalitetna]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} pregledaj izmene na čekanju]]",
 	'revreview-quick-quality-old' => "'''[[{{MediaWiki:Validationpage}}|Kvalitetna]]'''",
 	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|Kvalitetna]]'''",
-	'revreview-source' => 'Izvor',
+	'revreview-source' => 'Izvorni kod',
 	'revreview-basic-title' => 'Ovo je proverena verzija ove strane',
 	'revreview-style' => 'Čitljivost',
 	'revreview-style-0' => 'Neadekvatno',
@@ -17132,9 +17135,9 @@ $messages['vo'] = array(
 	'editor' => 'Redakan',
 	'flaggedrevs-desc' => 'Dälon redakanes/krütanes ad zepön fomamis/votükamis ed ad fümöfükön padis', # Fuzzy
 	'group-editor' => 'Redakans',
-	'group-editor-member' => 'Redakan', # Fuzzy
+	'group-editor-member' => '{{GENDER:$1|redakan}}',
 	'group-reviewer' => 'Krütans',
-	'group-reviewer-member' => 'Krütan', # Fuzzy
+	'group-reviewer-member' => '{{GENDER:$1|krütan}}',
 	'grouppage-editor' => '{{ns:project}}:Redakan',
 	'grouppage-reviewer' => '{{ns:project}}:Krütan',
 	'revreview-hist-quality' => 'kalietakrüt',
@@ -17144,7 +17147,7 @@ $messages['vo'] = array(
 	'review-logentry-app' => 'ekrüton padi: [[$1]]', # Fuzzy
 	'review-logentry-dis' => 'ecödon fomami pada: [[$1]] läs gudiki', # Fuzzy
 	'review-logentry-id' => 'dientifakot fomama: $2',
-	'review-logpage' => 'Lised yegedikrütamas', # Fuzzy
+	'review-logpage' => 'Jenotalised krütamas',
 	'review-logpagetext' => 'Is palisedons votükams [[{{MediaWiki:Validationpage}}|zepastada]] padas ninädilabik.', # Fuzzy
 	'reviewer' => 'Krütan',
 	'revreview-accuracy-0' => 'No pezepöl', # Fuzzy

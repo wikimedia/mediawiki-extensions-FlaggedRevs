@@ -4060,7 +4060,7 @@ $messages['vo'] = array(
 	'stabilization-expiry' => 'Dul jü:',
 	'stabilization-othertime' => 'Dul votik:',
 	'stabilization-def-short-0' => 'Anuik',
-	'stabilization-def-short-1' => 'Fümöfik', # Fuzzy
+	'stabilization-def-short-1' => 'Fümöfik',
 	'stabilize_expiry_invalid' => 'Dul no lonöföl.',
 	'stabilize-expiring' => 'dulon jü $1 (UTC)',
 );
