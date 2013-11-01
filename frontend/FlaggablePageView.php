@@ -469,7 +469,7 @@ class FlaggablePageView extends ContextSource {
 			if ( $this->showRatingIcon() ) {
 				$pending .= FlaggedRevsXML::draftStatusIcon();
 			}
-			$pending .= $this->msg( 'revreview-edited', $srev->getRevId(), $revsSince )->parse();
+			$pending .= $this->msg( 'revreview-edited', $srev->getRevId() )->numParams( $revsSince )->parse();
 			$anchor = $request->getVal( 'fromsection' );
 			if ( $anchor != null ) {
 				// Hack: reverse some of the Sanitizer::escapeId() encoding
@@ -495,12 +495,12 @@ class FlaggablePageView extends ContextSource {
 					$msg = $quality ?
 						'revreview-quick-quality-same' :
 						'revreview-quick-basic-same';
-					$msgHTML = $this->msg( $msg, $srev->getRevId(), $revsSince )->parse();
+					$msgHTML = $this->msg( $msg, $srev->getRevId() )->numParams( $revsSince )->parse();
 				} else {
 					$msg = $quality ?
 						'revreview-quick-see-quality' :
 						'revreview-quick-see-basic';
-					$msgHTML = $this->msg( $msg, $srev->getRevId(), $revsSince )->parse();
+					$msgHTML = $this->msg( $msg, $srev->getRevId() )->numParams( $revsSince )->parse();
 				}
 				$icon = '';
 				# For protection based configs, show lock only if it's not redundant.
@@ -525,7 +525,7 @@ class FlaggablePageView extends ContextSource {
 					// Messages: revreview-newest-quality-i, revreview-newest-basic-i
 					$msg .= ( $revsSince == 0 ) ? '-i' : '';
 				}
-				$msgHTML = $this->msg( $msg, $srev->getRevId(), $time, $revsSince )->parse();
+				$msgHTML = $this->msg( $msg, $srev->getRevId(), $time )->numParams( $revsSince )->parse();
 				$icon = $synced ?
 					FlaggedRevsXML::stableStatusIcon( $quality ) :
 					FlaggedRevsXML::draftStatusIcon();
@@ -569,7 +569,7 @@ class FlaggablePageView extends ContextSource {
 					$msg = $quality ?
 						'revreview-quick-quality-old' :
 						'revreview-quick-basic-old';
-					$msgHTML = $this->msg( $msg, $frev->getRevId(), $revsSince )->parse();
+					$msgHTML = $this->msg( $msg, $frev->getRevId() )->numParams( $revsSince )->parse();
 				}
 				$msgHTML = $prot . $icon . $msgHTML;
 				$tag = FlaggedRevsXML::prettyRatingBox( $frev, $msgHTML,
@@ -648,7 +648,7 @@ class FlaggablePageView extends ContextSource {
 						'revreview-quick-basic';
 					# Uses messages 'revreview-quick-quality-same', 'revreview-quick-basic-same'
 					$msg = $synced ? "{$msg}-same" : $msg;
-					$msgHTML = $this->msg( $msg, $srev->getRevId(), $revsSince )->parse();
+					$msgHTML = $this->msg( $msg, $srev->getRevId() )->numParams( $revsSince )->parse();
 				}
 				$msgHTML = $prot . $icon . $msgHTML;
 				$tag = FlaggedRevsXML::prettyRatingBox( $srev, $msgHTML,
@@ -665,7 +665,7 @@ class FlaggablePageView extends ContextSource {
 					$msg .= '-i';
 				}
 				$tag = $prot . $icon;
-				$tag .= $this->msg( $msg, $srev->getRevId(), $time, $revsSince )->parse();
+				$tag .= $this->msg( $msg, $srev->getRevId(), $time )->numParams( $revsSince )->parse();
 				if ( !empty( $flags ) ) {
 					$tag .= FlaggedRevsXML::ratingToggle();
 					$tag .= "<div id='mw-fr-revisiondetails'>" .
@@ -1073,7 +1073,7 @@ class FlaggablePageView extends ContextSource {
 			if ( $revsSince ) {
 				$s .= "<div class='flaggedrevs_editnotice plainlinks'>" .
 					$this->msg( 'revreview-pending-nosection',
-						$srev->getRevId(), $revsSince )->parse() . "</div>";
+						$srev->getRevId() )->numParams( $revsSince )->parse() . "</div>";
 			}
 		}
 		return true;
@@ -1413,7 +1413,7 @@ class FlaggablePageView extends ContextSource {
 		# Add bar msg to the top of the page...
 		$css = 'flaggedrevs_preview plainlinks';
 		// Messages: revreview-newest-quality-i, revreview-newest-basic-i
-		$msgHTML = $this->msg( $msg, $srev->getRevId(), $time, $revsSince )->parse();
+		$msgHTML = $this->msg( $msg, $srev->getRevId(), $time )->numParams( $revsSince )->parse();
 		$this->reviewNotice .= "<div id='mw-fr-reviewnotice' class='$css'>" .
 			"$msgHTML$diffToggle</div>";
 	}
