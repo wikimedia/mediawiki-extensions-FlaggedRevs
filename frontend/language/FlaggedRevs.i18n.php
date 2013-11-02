@@ -9827,6 +9827,7 @@ Confirma URL paginae.',
  * @author Les Meloures
  * @author Purodha
  * @author Robby
+ * @author Soued031
  */
 $messages['lb'] = array(
 	'action-review' => 'Versiounen nokucken',
@@ -9868,7 +9869,7 @@ $messages['lb'] = array(
 	'review-edit-diff' => "'''INFORMATIOUN: E puer Ännerunge déi drop waarde fir verëffentlecht ze ginn betreffen deen Deel vun Der Säit, deen dir am gaang sidd z'änneren.'''",
 	'revreview-diff-toggle-show' => 'Déi Ännerunge weisen',
 	'revreview-diff-toggle-hide' => 'Ännerunge verstoppen',
-	'revreview-diff-toggle-title' => 'Tëschent den Ännerungen déi nach am Suspens sinn an der verëffentlechter Versioun ëmschalten',
+	'revreview-diff-toggle-title' => 'Tëscht den Ännerungen déi nach am Suspens sinn an der verëffentlechter Versioun ëmschalten',
 	'revreview-log-toggle-show' => 'Stabilitéits-Logbuch weisen',
 	'revreview-log-toggle-hide' => 'Stabilitéits-Logbuch verstoppen',
 	'revreview-log-toggle-title' => "D'Uweise vun den Astellunge vun der stabiler Versioun ëmstellen",
@@ -9908,10 +9909,10 @@ Nei [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffon
 	'revreview-depth-4' => 'Bemierkenswäert',
 	'revreview-draft-title' => "D'Ännerungen, déi a Suspens sinn, stinn op op dëser Säit",
 	'revreview-edit' => 'Änneren',
-	'revreview-editnotice' => "'''Är Ännerungen ginn de Lieser gewisen esoubal wéi en autoriséierte Benotzer se akzeptéiert huet. ([[{{MediaWiki:Validationpage}}|Hëllef]])'''",
+	'revreview-editnotice' => "'''Är Ännerungen ginn de Lieser gewisen soubal wéi en autoriséierte Benotzer se akzeptéiert huet. ([[{{MediaWiki:Validationpage}}|Hëllef]])'''",
 	'revreview-submitedit' => 'Ännerunge schécken',
 	'revreview-submitedit-title' => 'Är Ännerunge fir nozekucke schécken',
-	'revreview-edited' => "'''Äer Ännerunge ginn de Lieser gewisen esoubal wéi en autoriséierte Benotzer se akzeptéiert huet. ([[{{MediaWiki:Validationpage}}|Hëllef]]).'''
+	'revreview-edited' => "'''Äer Ännerunge ginn de Lieser gewisen soubal wéi en autoriséierte Benotzer se akzeptéiert huet. ([[{{MediaWiki:Validationpage}}|Hëllef]]).'''
 
 Et gëtt [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|Ännerung|Ännerungen}} ''(hei drënner)''  déi drop {{PLURAL:$2|waart|waarde}}] fir nogekuckt ze ginn.",
 	'revreview-edited-section' => 'Zréck op den Säitenabschnitt mam Numm "[[#$1|$2]]".',

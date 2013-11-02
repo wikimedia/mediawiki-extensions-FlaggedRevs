@@ -1127,6 +1127,7 @@ $messages['ce'] = array(
 	'revreview-submit-unreviewed' => 'Йели. Къобал дар дlадаьккхи!',
 	'revreview-successful' => "'''Хьаржина башхо [[:$1|$1]] кхиамца билгалло йира. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} хьажар цхьан эшшара йолу башхонашка])'''",
 	'revreview-successful2' => "'''Хаьржиначу варсийн тlийра [[:$1|$1]] дlайаькхин билгалло.'''",
+	'revreview-sadv-reviewing-c' => 'Хьан йиш ю $1 кхечу декъашхошка хьой къобал яр гайта.',
 	'revreview-toolow' => "'''Аша локхаллийн билгалло хlотто йеза лакхахьа, хlу «тlе цатоьа», агlонан варсий хилийта хьаьжинчарна йукъехь.'''
 
 Варсийга хьаьжна аьлла билгалло дlайаккха, тlе таlайе «Къобал йар дlадаккха».
@@ -3605,6 +3606,7 @@ $messages['la'] = array(
 
 /** Luxembourgish (Lëtzebuergesch)
  * @author Robby
+ * @author Soued031
  */
 $messages['lb'] = array(
 	'revisionreview' => 'Versiounen nokucken',
@@ -3617,7 +3619,7 @@ $messages['lb'] = array(
 	'review_bad_oldid' => 'Déi Versioun vun der Zilsäit gëtt et net.',
 	'review_conflict_oldid' => 'Et huet en Aneren et akzeptéiert wéi dir am gaang waart nozekucken.',
 	'review_not_flagged' => "D'Zilversioun ass elo net als nogekuckt markéiert.",
-	'review_too_low' => 'D\'Versioun kann net nogekuckt ginn esoulaang wéi e puer Felder als "inadequat" markéiert sinn',
+	'review_too_low' => 'D\'Versioun kann net nogekuckt ginn soulaang wéi e puer Felder als "inadequat" markéiert sinn',
 	'review_bad_key' => 'De Wäert vum Préifparameter ass net valabel',
 	'review_bad_tags' => 'Et puer vun de Wäerter an de spezifizéierten Tagen sinn net valabel.',
 	'review_denied' => 'Erlaabnes refuséiert',

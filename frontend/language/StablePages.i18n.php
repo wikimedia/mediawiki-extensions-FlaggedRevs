@@ -635,10 +635,11 @@ $messages['ky'] = array(
 
 /** Luxembourgish (Lëtzebuergesch)
  * @author Robby
+ * @author Soued031
  */
 $messages['lb'] = array(
 	'stablepages' => 'Säiten déi Zoustëmmung vun den Ännerunge benotzen',
-	'stablepages-list' => 'Hei ass eng Lëscht vu Säiten déi esou gespaart sinn datt nëmme gewësse Benotzer Ännerunge maache kënnen déi net brauche nogekuckt ze ginn.
+	'stablepages-list' => 'Hei ass eng Lëscht vu Säiten déi sou gespaart sinn datt nëmme gewësse Benotzer Ännerunge maache kënnen déi net brauche nogekuckt ze ginn.
 Ännerunge vun anere Benotzer ginn de Lieser net gewise bis en autoriséierte Benotzer se nogekuckt huet.',
 	'stablepages-none' => 'Dës Lëscht ass eidel',
 	'stablepages-config' => 'Konfiguratioun',

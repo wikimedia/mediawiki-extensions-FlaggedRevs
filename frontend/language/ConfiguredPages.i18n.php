@@ -609,11 +609,12 @@ $messages['ky'] = array(
 
 /** Luxembourgish (Lëtzebuergesch)
  * @author Robby
+ * @author Soued031
  */
 $messages['lb'] = array(
 	'configuredpages' => 'Säite mat Nokuck-Konfiguratioun',
 	'configuredpages-list' => 'Hei ënnendrënner ass eng Lëscht mat Säiten déi aner Zoustëmmungsparameter hunn wéi dat Standard op dësem Site ass.
-Verschidden Astellungen kënne beaflosse wat fir eng Versioun de Lieser gewise gëtt oder esouguer limitéiere wien Ännerunge maache kann déi net mussen nogekuckt ginn.',
+Verschidden Astellungen kënne beaflosse wat fir eng Versioun de Lieser gewise gëtt oder souguer limitéiere wien Ännerunge maache kann déi net mussen nogekuckt ginn.',
 	'configuredpages-none' => 'Et gëtt keng Säiten op dëser Lëscht.',
 	'configuredpages-config' => 'Konfiguratioun',
 	'configuredpages-def-draft' => 'lescht Versioun',
