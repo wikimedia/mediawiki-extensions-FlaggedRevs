@@ -3620,11 +3620,12 @@ $messages['crh-latn'] = array(
 	'revreview-revnotfound' => 'Saifeniñ eski versiyası tapılmadı. Lütfen, bu saifege kirmek içün qullanğan bağlantıñıznıñ doğrulığını teşkeriñiz.',
 );
 
-/** Czech (česky)
+/** Czech (čeština)
  * @author Danny B.
  * @author Jezevec
  * @author Jkjk
  * @author Li-sung
+ * @author Littledogboy
  * @author Matěj Grabovský
  * @author Mormegil
  * @author Vks
@@ -3769,7 +3770,7 @@ Možná byly provedeny nové [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{Med
 	'stable-logentry-config' => 'nastavuje výběr stabilní verze stránky $1', # Fuzzy
 	'stable-logentry-modify' => 'změneno nastavení stabilní verze na "$1"', # Fuzzy
 	'stable-logentry-reset' => 'vrací výchozí výběr stabilní verze stránky $1', # Fuzzy
-	'stable-log-restriction' => 'Autuposuzování: vyžaduje oprávnění "$1"', # Fuzzy
+	'stable-log-restriction' => 'Autoposuzování: vyžaduje oprávnění "$1"',
 	'stable-logpage' => 'Kniha stabilních verzí',
 	'stable-logpagetext' => 'Toto je záznam změn nastavení [[{{MediaWiki:Validationpage}}|stabilní verze]] stránek.',
 	'revreview-filter-all' => 'všechny',
@@ -3797,7 +3798,7 @@ Možná byly provedeny nové [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{Med
 	'revreview-reviewlink-title' => 'Zobrazit rozdíl všech čekajících změn',
 	'revreview-unreviewedpage' => 'nezkontrolovaná stránka',
 	'tooltip-ca-current' => 'Zobrazit nejnovější návrh této stránky', # Fuzzy
-	'tooltip-ca-stable' => 'Zobrazit stabilní verzi této stránky', # Fuzzy
+	'tooltip-ca-stable' => 'Zobrazit stabilní verzi této stránky',
 	'tooltip-ca-default' => 'Nastavení stabilní a zobrazované verze',
 	'flaggedrevs-protect-legend' => 'Zveřejnit úpravy', # Fuzzy
 	'flaggedrevs-protect-none' => 'Povolit všem uživatelům',
@@ -4117,6 +4118,7 @@ Momentan {{PLURAL:$2|gibt|gibt}} es [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=c
 /** Zazaki (Zazaki)
  * @author Aspar
  * @author Erdemaslancan
+ * @author Gorizon
  * @author Mirzali
  * @author Xoser
  */
@@ -4178,7 +4180,7 @@ $messages['diq'] = array(
 	'reviewer' => 'rexnekar',
 	'revreview-accuracy' => 'raştiye',
 	'revreview-accuracy-0' => 'Tam niya',
-	'revreview-accuracy-1' => 'teqib biyo', # Fuzzy
+	'revreview-accuracy-1' => 'teqib biyo',
 	'revreview-accuracy-2' => 'raşt',
 	'revreview-accuracy-3' => 'kafi derece de çıme diya cı',
 	'revreview-accuracy-4' => 'Weçinaye',
@@ -4291,7 +4293,7 @@ Hesıbyayê [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} wersiyon]ê cı <i>$2</i> [{
 	'revreview-restrictfilter' => 'Sinirê oto-qontrol:',
 	'revreview-restriction-any' => 'her ci',
 	'revreview-restriction-none' => 'çıniyo',
-	'revreview-reviewlink' => 'vurnayisan ke he sira de',
+	'revreview-reviewlink' => 'vırnayışèk vırderdeyè',
 	'revreview-reviewlink-title' => 'Diffê ser vurnayişanê hemi bivine',
 	'revreview-unreviewedpage' => 'pele ke qontrol nibiya',
 	'tooltip-ca-current' => 'No pele bıvini pe vurnayisan ke sira de',
@@ -12009,7 +12011,7 @@ De [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonl
 	'revreview-quality-title' => "Aquò's una version de qualitat d'aquesta pagina",
 	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|pagina visada]]'''. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} veire revision correnta]]", # Fuzzy
 	'revreview-quick-basic-old' => "'''[[{{MediaWiki:Validationpage}}|Verificada]]'''",
-	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|Pagina susvelhada]]''' (cap de modificacion pas revista)", # Fuzzy
+	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|Verificada]]'''",
 	'revreview-quick-invalid' => "'''Numèro de version incorrèct'''",
 	'revreview-quick-none' => "'''[[{{MediaWiki:Validationpage}}|Pas verificada]]'''",
 	'revreview-quick-quality' => "'''[[{{MediaWiki:Validationpage}}|Qualitat]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} veire las modificacions en espèra]]",
@@ -12041,7 +12043,7 @@ De [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonl
 	'stable-logentry-config' => 'a definit los paramètres de publicacion de « $1 »',
 	'stable-logentry-reset' => 'a reïnicializat los paramètres de publicacion de « $1 »',
 	'stable-logpage' => 'Jornal de las versions establas',
-	'stable-logpagetext' => 'Vaquí lo jornal de las modificacions per la [[{{MediaWiki:Validationpage}}|version establa]] de la configuracion de las presentas paginas.', # Fuzzy
+	'stable-logpagetext' => 'Vaquí lo jornal de las modificacions de las [[{{MediaWiki:Validationpage}}|versions publicadas]] de las paginas.',
 	'revreview-filter-all' => 'Tot',
 	'revreview-filter-stable' => 'publicat',
 	'revreview-statusfilter' => "Accion d'aprobacion :",
@@ -12073,7 +12075,7 @@ De [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonl
 	'revreview-locked-title' => 'Las modificacions sus aquesta pagina necessitan una relectura.',
 	'revreview-unlocked-title' => "Las modificacions d'aquesta pagina necessitan pas de relectura.",
 	'revreview-locked' => "'''Nòta :''' las modificacions devon èsser [[{{MediaWiki:Validationpage}}|repassadas]] abans d’èsser afichadas sus aquesta pagina.",
-	'revreview-unlocked' => 'Las modificacions necessitan pas de relectura abans d’èsser afichadas sus aquesta pagina !', # Fuzzy
+	'revreview-unlocked' => "'''Nòta :''' las modificacions necessitan pas cap de [[{{MediaWiki:Validationpage}}|relecturas]] abans d’èsser afichadas sus aquesta pagina.",
 	'log-show-hide-review' => "$1 l'istoric de las relecturas",
 	'validationpage' => '{{ns:help}}:Validacion de la pagina',
 );

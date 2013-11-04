@@ -1226,7 +1226,7 @@ Il ritardo medio per le [[Special:OldReviewedPages|pagine che attualmente hanno 
 	'validationstatistics-revtime' => "L'attesa media per le modifiche di ''utenti che non hanno eseguito l'accesso'' prima che siano revisionate è di '''$1'''; la mediana di '''$2'''.
 $3",
 	'validationstatistics-table' => "Le statistiche di revisione per ciascun namespace sono mostrate di seguito, ''a esclusione'' dei redirect.
-Le pagine sono considerate ''{int:validationstatistics-old}}'' se hanno modifiche in sospeso; sono considerate ''{{int:validationstatistics-latest}}'' se non hanno modifiche in attesa di revisione.", # Fuzzy
+Le pagine sono considerate ''{{int:validationstatistics-old}}'' se hanno modifiche in sospeso; sono considerate ''{{int:validationstatistics-latest}}'' se non hanno modifiche in attesa di revisione.",
 	'validationstatistics-ns' => 'Namespace',
 	'validationstatistics-total' => 'Pagine',
 	'validationstatistics-stable' => 'Revisionate',
