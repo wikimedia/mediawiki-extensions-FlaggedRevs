@@ -408,7 +408,7 @@ $messages['fa'] = array(
 	'reviewedversions-page' => 'نام صفحه:',
 	'reviewedversions-none' => '«[[:$1]]» هیچ نسخه بررسی‌ شده‌ای ندارد.',
 	'reviewedversions-list' => 'در زیر فهرستی از {{PLURAL:$2|تنها نسخهٔ|نسخه‌های}} [[:$1]] که بازبینی {{PLURAL:$2|شده‌است|شده‌اند}} می‌باشد:',
-	'reviewedversions-review' => 'بررسی شده در <i>$1</i> توسط $2',
+	'reviewedversions-review' => 'بررسی‌شده در <i>$1</i> توسط $2',
 );
 
 /** Finnish (suomi)

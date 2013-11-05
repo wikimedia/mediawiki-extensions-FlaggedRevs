@@ -708,7 +708,7 @@ $messages['fa'] = array(
 	'validationstatistics-users' => "'''{{SITENAME}}''' در حال حاضر '''[[Special:ListUsers/editor|$1]]''' کاربر با اختیارات [[{{MediaWiki:Validationpage}}|ویرایشگر]] دارد.
 
 ویرایشگران کاربران تثبیت‌شده‌ای هستند که می‌توانند نسخه‌های صفحه‌ها را بررسی سرسری کنند.",
-	'validationstatistics-lastupdate' => "''داده‌های زیر آخرین بار در تاریخ $1 در $2 به‌روزرسانی شده است.''",
+	'validationstatistics-lastupdate' => "''داده‌های زیر آخرین بار در تاریخ $1 در $2 به‌روزرسانی شده‌است.''",
 	'validationstatistics-pndtime' => "ویرایش‌هایی که توسط کاربران مجرب بررسی شده‌اند ''{{int:validationstatistics-stable}}'' در نظر گرفته شده‌اند.
 
 میانگین تأخیر برای [[Special:OldReviewedPages|صفحه‌های دارای ویرایش‌های بازبینی‌نشدهٔ در حال انتظار]] '''$1''' است؛ این تأخیر نشان‌دهنده مدت زمانی‌است که قدیمی‌ترین نسخهٔ بررسی‌نشده در انتظار بررسی باقی‌مانده‌است.",
@@ -2540,7 +2540,7 @@ $messages['zh-hans'] = array(
 	'validationstatistics-users' => "'''{{SITENAME}}'''目前有'''[[Special:ListUsers/editor|$1]]'''{{PLURAL:$1|个|个}}用户具有[[{{MediaWiki:Validationpage}}|编者]]权限。
 
 编者是可以对页面修订作抽样检查的已确认用户。",
-	'validationstatistics-lastupdate' => "''下列数据最后更新于$1$2。''",
+	'validationstatistics-lastupdate' => "''以下数据最后更新于$1 $2。''",
 	'validationstatistics-pndtime' => "已确认用户已经检查这些编辑，并认为它们是''{{int:validationstatistics-stable}}''的。
 
 [[Special:OldReviewedPages|含有正待复审的页面编辑]]的平均复审延迟是'''$1'''；这一延迟可以确定最早待复审编辑会有多久处于未复审状态。",

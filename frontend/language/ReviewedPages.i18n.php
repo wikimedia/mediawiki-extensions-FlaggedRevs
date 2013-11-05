@@ -428,15 +428,15 @@ $messages['eu'] = array(
  * @author Wayiran
  */
 $messages['fa'] = array(
-	'reviewedpages' => 'صفحه‌های بررسی شده',
-	'reviewedpages-leg' => 'لیست صفحه‌های بازبینی شده',
+	'reviewedpages' => 'صفحه‌های بررسی‌شده',
+	'reviewedpages-leg' => 'لیست صفحه‌های بازبینی‌شده',
 	'reviewedpages-list' => "این فهرست‌ها دربردارندهٔ صفحه‌های [[{{MediaWiki:Validationpage}}|بازبینی‌شده‌ای]] است که '' بالاترین'' سطح بازبینی بدست‌آمده‌شان (در یک نسخه)، یک سطح مشخص است.
 پیوندی به آخرین نسخهٔ آن سطح داده شده است.",
 	'reviewedpages-none' => 'صفحه‌ای در این فهرست نیست',
-	'reviewedpages-lev-0' => 'بررسی شده',
+	'reviewedpages-lev-0' => '{{int:revreview-lev-basic}}',
 	'reviewedpages-lev-1' => 'با کیفیت',
 	'reviewedpages-lev-2' => 'برگزیده',
-	'reviewedpages-all' => 'نسخه‌های بررسی شده',
+	'reviewedpages-all' => 'نسخه‌های بررسی‌شده',
 	'reviewedpages-best' => 'بهترین نسخه',
 );
 

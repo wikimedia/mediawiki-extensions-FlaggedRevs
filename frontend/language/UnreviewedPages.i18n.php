@@ -372,7 +372,7 @@ $messages['ce'] = array(
 	'unreviewedpages-watched' => '({{PLURAL:$1|терго йеш $1 жигара декъашхо|терго йеш $1 жигара декъашхой}})',
 	'unreviewedpages-viewing' => '(талламяхь йу)',
 	'unreviewedpages-hours' => '($1 {{PLURAL:$1|сахьат|сахьат}})',
-	'unreviewedpages-days' => '($1 {{PLURAL:$1|де|де}})',
+	'unreviewedpages-days' => '($1 {{PLURAL:$1|де}})',
 );
 
 /** Sorani Kurdish (کوردی)
@@ -599,7 +599,7 @@ $messages['ext'] = array(
  */
 $messages['fa'] = array(
 	'action-unreviewedpages' => 'مشاهدهٔ صفحه‌های پی‌گیری نشده',
-	'unreviewedpages' => 'صفحه‌های بررسی نشده',
+	'unreviewedpages' => 'صفحه‌های بررسی‌نشده',
 	'unreviewedpages-legend' => 'فهرست صفحه‌های بازبینی نشده',
 	'unreviewedpages-category' => 'رده:',
 	'unreviewedpages-diff' => 'بازبینی',
