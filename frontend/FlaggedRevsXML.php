@@ -262,7 +262,7 @@ class FlaggedRevsXML {
 		if ( $synced && ( $type == 'stable' || $type == 'draft' ) ) {
 			$msg = $quality ?
 				'revreview-quality-same' : 'revreview-basic-same';
-			$html = wfMessage( $msg, $frev->getRevId(), $time, $revsSince )->parse();
+			$html = wfMessage( $msg, $frev->getRevId(), $time )->numParams( $revsSince )->parse();
 		} elseif ( $type == 'oldstable' ) {
 			$msg = $quality ?
 				'revreview-quality-old' : 'revreview-basic-old';
@@ -278,7 +278,7 @@ class FlaggedRevsXML {
 			# For searching: uses messages 'revreview-quality-i', 'revreview-basic-i',
 			# 'revreview-newest-quality-i', 'revreview-newest-basic-i'
 			$msg .= ( $revsSince == 0 ) ? '-i' : '';
-			$html = wfMessage( $msg, $frev->getRevId(), $time, $revsSince )->parse();
+			$html = wfMessage( $msg, $frev->getRevId(), $time )->numParams( $revsSince )->parse();
 		}
 		# Make fancy box...
 		$box = '<div class="flaggedrevs_short_basic">';
@@ -420,7 +420,7 @@ class FlaggedRevsXML {
 	 * Creates "stable rev reviewed on"/"x pending edits" message
 	 */
 	public static function pendingEditNotice( $flaggedArticle, $frev, $revsSince ) {
-		$msg = self::pendingEditNoticeMessage( $flaggedArticle, $frev, $revsSince );
+		$msg = self::pendingEditNoticeMessage( $flaggedArticle, $frev )->numParams( $revsSince );
 		return $msg->parse();
 	}
 
