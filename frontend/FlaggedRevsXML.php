@@ -420,7 +420,7 @@ class FlaggedRevsXML {
 	 * Creates "stable rev reviewed on"/"x pending edits" message
 	 */
 	public static function pendingEditNotice( $flaggedArticle, $frev, $revsSince ) {
-		$msg = self::pendingEditNoticeMessage( $flaggedArticle, $frev )->numParams( $revsSince );
+		$msg = self::pendingEditNoticeMessage( $flaggedArticle, $frev, $revsSince );
 		return $msg->parse();
 	}
 
