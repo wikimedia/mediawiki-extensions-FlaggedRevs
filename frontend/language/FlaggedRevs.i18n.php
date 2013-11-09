@@ -2191,6 +2191,7 @@ $messages['bcl'] = array(
 );
 
 /** Belarusian (беларуская)
+ * @author Дзяніс Тутэйшы
  * @author Хомелка
  * @author Чаховіч Уладзіслаў
  */
@@ -2203,8 +2204,8 @@ $messages['be'] = array(
 	'flaggedrevs-pref-UI' => 'Просты інтэрфейс:',
 	'flaggedrevs-pref-UI-0' => 'Падрабязная інфармацыя аб стане пацверджання старонкі',
 	'flaggedrevs-pref-UI-1' => 'Невялікія значкі і мінімум тэксту для інфармацыі аб стане пацверджання старонкі',
-	'prefs-flaggedrevs' => 'Пацвярджэнне зменаў',
-	'prefs-flaggedrevs-ui' => 'Пацвярджэнне зменаў',
+	'prefs-flaggedrevs' => 'Пацвярджэнне змен',
+	'prefs-flaggedrevs-ui' => 'Пацвярджэнне змен',
 	'flaggedrevs-prefs-stable' => 'Калі паказваць па змаўчанні апублікаваную версію артыкула',
 	'flaggedrevs-pref-stable-0' => 'Карыстацца настаўленнямі па змаўчанні для ўсіх старонак',
 	'flaggedrevs-pref-stable-1' => 'Заўсёды паказваць правераную версію (калі яна існуе)',
@@ -2340,7 +2341,7 @@ $messages['be'] = array(
 	'stable-logentry-reset' => 'скінуў наладкі стабільнай версіі для «$1»',
 	'stable-log-restriction' => 'Аўтаправерка. Патрабуецца дазвол «$1»',
 	'stable-logpage' => 'Журнал стабілізацый',
-	'stable-logpagetext' => 'Гэта журнал зменаў наладак [[{{MediaWiki:Validationpage}}|апублікаваных версій]] старонак.',
+	'stable-logpagetext' => 'Гэта журнал змен настроек [[{{MediaWiki:Validationpage}}|апублікаваных версій]] старонак.',
 	'revreview-filter-all' => 'усе',
 	'revreview-filter-stable' => 'Апублікавана',
 	'revreview-statusfilter' => 'Дзеянні па пацвярджэнню:',
