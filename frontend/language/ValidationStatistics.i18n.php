@@ -513,6 +513,7 @@ Alle anderen Seiten werden als ''{{int:validationstatistics-latest}}'' und somit
 /** Zazaki (Zazaki)
  * @author Aspar
  * @author Erdemaslancan
+ * @author Gorizon
  * @author Mirzali
  * @author Xoser
  */
@@ -535,6 +536,7 @@ $3",
 	'validationstatistics-latest' => 'Rocaniye biyo',
 	'validationstatistics-synced' => 'Rocaniye biyo/Kontrol biyo',
 	'validationstatistics-old' => 'Verên',
+	'validationstatistics-unreviewed' => 'barıyayış nebiyo',
 	'validationstatistics-utable' => 'Cêr dı {{PLURAL:$2|seate|$2 seatan}} dı tewr vêşi çım ra ravyarnayış keno $1 karberi liste benê.',
 	'validationstatistics-user' => 'Karber',
 	'validationstatistics-reviews' => 'Revizyonî',
