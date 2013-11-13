@@ -29,6 +29,16 @@ class FlaggableWikiPage extends WikiPage {
 	}
 
 	/**
+	 * Transfer the prepared edit cache from a WikiPage object
+	 *
+	 * @param WikiPage $page
+	 * @return void
+	 */
+	public function preloadPreparedEdit( WikiPage $page ) {
+		$this->mPreparedEdit = $page->mPreparedEdit;
+	}
+
+	/**
 	 * Clear object process cache values
 	 * @return void
 	 */
