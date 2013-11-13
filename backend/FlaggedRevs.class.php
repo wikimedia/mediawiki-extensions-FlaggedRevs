@@ -520,40 +520,6 @@ class FlaggedRevs {
 	# ################ Parsing functions #################
 
 	/**
-	 * All templates and arguments in $text are expanded out
-	 * @param Title $title
-	 * @param string $text wikitext
-	 * @param int $id Source revision Id
-	 * @param ParserOptions $pOpts
-	 * @return array( string wikitext, array of template versions )
-	 */
-	public static function expandText( Title $title, $text, $id, ParserOptions $pOpts ) {
-		global $wgParser;
-		# Notify Parser if includes should be stabilized
-		$resetManager = false;
-		$incManager = FRInclusionManager::singleton();
-		if ( $id && self::inclusionSetting() != FR_INCLUDES_CURRENT ) {
-			# Use FRInclusionManager to do the template/file version query
-			# up front unless the versions are already specified there...
-			if ( !$incManager->parserOutputIsStabilized() ) {
-				$frev = FlaggedRevision::newFromTitle( $title, $id );
-				if ( $frev ) {
-					$incManager->stabilizeParserOutput( $frev );
-					$resetManager = true; // need to reset when done
-				}
-			}
-		}
-		$outputText = $wgParser->preprocess( $text, $title, $pOpts, $id );
-		$pOutput = $wgParser->getOutput();
-		# Stable parse done!
-		if ( $resetManager ) {
-			$incManager->clear(); // reset the FRInclusionManager as needed
-		}
-		# Return data array
-		return array( $outputText, $pOutput->getTemplateIds() );
-	}
-
-	/**
 	 * Get the HTML output of a revision.
 	 * @param FlaggedRevision $frev
 	 * @param ParserOptions $pOpts
