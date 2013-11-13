@@ -383,6 +383,7 @@ class FlaggedRevsHooks {
 		if ( !$rev || !$user || !$fa->isReviewable() ) {
 			return true;
 		}
+		$fa->preloadPreparedEdit( $article ); // avoid double parse
 		$title->resetArticleID( $rev->getPage() ); // Avoid extra DB hit and lag issues
 		# Get what was just the current revision ID
 		$prevRevId = $rev->getParentId();
