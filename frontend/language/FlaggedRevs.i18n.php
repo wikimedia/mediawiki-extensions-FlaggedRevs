@@ -479,7 +479,7 @@ Appears at Special:Log/review and is used for diff link text of log entries.
 
 The diff is between a revision that had been accepted and the previous accepted revision.',
 	'review-logentry-diff2' => '{{Flagged Revs}}
-Appears at Special:Log/review and is used for diff link text of log entries.
+Appears at Special:Log/review and is used for diff link text of log entries, cf [https://www.mediawiki.org/w/index.php?title=Special:Log&offset=20120118103000&limit=3&type=review&user=Nikerabbit].
 
 The diff is between a revision that had its acceptance revoked and the previous accepted revision.',
 	'review-logpage' => '{{Flagged Revs}}
@@ -4120,6 +4120,7 @@ Momentan {{PLURAL:$2|gibt|gibt}} es [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=c
  * @author Aspar
  * @author Erdemaslancan
  * @author Gorizon
+ * @author Marmase
  * @author Mirzali
  * @author Xoser
  */
@@ -4243,7 +4244,7 @@ Hesıbyayê [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} wersiyon]ê cı <i>$2</i> [{
 	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|Qalite]]'''",
 	'revreview-quick-see-basic' => '[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} vurnayışanê vıneteyan bıvine]]',
 	'revreview-quick-see-quality' => '[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} vurnayışanê vıneteyan bıvine]]',
-	'revreview-source' => 'Çımey bıvêne',
+	'revreview-source' => 'Çımi bıvin',
 	'revreview-basic-title' => 'Ena yew versiyone qaliteya pele ya',
 	'revreview-style' => 'weniyayişê ey',
 	'revreview-style-0' => 'Tam niya',
@@ -11538,7 +11539,7 @@ $messages['ne'] = array(
  * @author Tvdm
  */
 $messages['nl'] = array(
-	'action-review' => 'controleren',
+	'action-review' => 'versies als "gecontroleerd" te markeren',
 	'editor' => 'Redacteur',
 	'flaggedrevs' => 'Gepubliceerde versies',
 	'flaggedrevs-watched-pending' => "Er zijn op het moment [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} ongecontroleerde bewerkingen op uw volglijst].
