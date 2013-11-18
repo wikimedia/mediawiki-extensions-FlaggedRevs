@@ -56,7 +56,7 @@ class FlaggablePageView extends ContextSource {
 	}
 
 	/**
-	 * Get the FlaggableWikiPage instance associated with $wgTitle,
+	 * Get the FlaggableWikiPage instance associated with the current page title,
 	 * or false if there isn't such a title
 	 * @return FlaggableWikiPage|null
 	 */

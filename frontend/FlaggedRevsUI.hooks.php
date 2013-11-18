@@ -199,7 +199,7 @@ class FlaggedRevsUIHooks {
 		Title $title, WebRequest $request, &$ignoreRedirect, &$target, Page &$article
 	) {
 		global $wgMemc, $wgParserCacheExpireTime;
-		$fa = FlaggableWikiPage::getTitleInstance( $title ); // on $wgTitle
+		$fa = FlaggableWikiPage::getTitleInstance( $title );
 		if ( !$fa->isReviewable() ) {
 			return true; // nothing to do
 		}
@@ -235,7 +235,7 @@ class FlaggedRevsUIHooks {
 			# on the draft as normal, avoiding any page text hits.
 			$clearEnvironment = $article->isRedirect();
 		}
-		# Environment (e.g. $wgTitle) will change in MediaWiki::initializeArticle
+		# Environment will change in MediaWiki::initializeArticle
 		if ( $clearEnvironment ) $view->clear();
 
 		return true;
