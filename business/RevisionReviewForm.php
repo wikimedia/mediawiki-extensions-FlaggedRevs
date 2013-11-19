@@ -539,7 +539,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 	 *
 	 * @param $rev Revision|RecentChange
 	 * @param $patrol string "patrol" or "unpatrol"
-	 * @param $srev FlaggedRevsion|null The new stable version
+	 * @param $srev FlaggedRevision|null The new stable version
 	 * @return void
 	 */
 	public static function updateRecentChanges( $rev, $patrol, $srev ) {
