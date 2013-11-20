@@ -2754,7 +2754,8 @@ $messages['bn'] = array(
 	'revreview-edited' => "'''আপনার পরিবর্তন একজন বিশেষ ক্ষমতা প্রাপ্ত ব্যবহারকারী দ্বারা পরীক্ষিত হওয়ার পর মূল পাতায় দৃশ্যমান হবে। ([[{{MediaWiki:Validationpage}}|সাহায্য]])'''
 
 এখানে {{PLURAL:$2|মোট}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2টি অমিমাংসীত {{PLURAL:$2|পরিবর্তন}}] ''(নিচে প্রদর্শিত)'' পর্যবেক্ষণের জন্য অপেক্ষামান।",
-	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} এই সংস্করণে {{formatnum:$3}}{{PLURAL:$3|টি পরিবর্তনের}}] [[{{MediaWiki:Validationpage}}|পর্যালোচনা]] প্রয়োজন।
+	'revreview-edited-section' => '"[[#$1|$2]]" নামক পাতা অনুচ্ছেদে ফেরত।',
+	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} এই সংস্করণটিতে $3টি {{PLURAL:$3|পরিবর্তনের}}] [[{{MediaWiki:Validationpage}}|পর্যালোচনা]] প্রয়োজন।
 [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} সাম্প্রতি দেখা সংস্করণ] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} অনুমোদিত] হয়েছে <i>$2</i> তারিখে।',
 	'revreview-oldrating' => 'পূর্বে মূল্যায়ন ছিল:',
 	'revreview-quality-title' => 'এটি এই পাতার একটি গুণগতমানের সংস্করণ',
@@ -2780,6 +2781,8 @@ $messages['bn'] = array(
 	'revreview-revnotfound' => 'আপনির পাতাটির যে পুরনো সংস্করণটি অনুরোধ করেছেন, তা খুঁজে পাওয়া যায়নি। পাতাটিতে যাবার জন্য আপনি যে URL-টি ব্যবহার করেছিলেন, অনুগ্রহ করে সেটি পরীক্ষা করে দেখুন।',
 	'right-autoreviewrestore' => 'রোলব্যাকের ক্ষেত্রে স্বয়ংক্রিয় পর্যবেক্ষণ',
 	'right-movestable' => 'পর্যবেক্ষণকৃত সংস্করণসহ পাতা স্থানান্তর',
+	'right-review' => 'সংশোধন "পরীক্ষিত" হিসাবে চিহ্নিত করুন',
+	'right-unreviewedpages' => '[[Special:UnreviewedPages|অপর্যালোচিত পাতাগুলির]] তালিকা দেখুন',
 	'rights-editor-revoke' => '[[$1]] এর সম্পাদক পদমর্যাদা প্রত্যাহার করুন',
 	'specialpages-group-quality' => 'পর্যালোচনা সম্পাদনা',
 	'stable-logentry-config' => 'অমিমাংসীত পরিবর্তন সেটিংস "$1"-এর জন্য নির্ধারণ করেছেন',

@@ -852,23 +852,28 @@ $messages['bg'] = array(
 );
 
 /** Bengali (বাংলা)
+ * @author Aftab1995
  * @author Bellayet
  * @author Zaheen
  */
 $messages['bn'] = array(
 	'revisionreview' => 'সংশোধনগুলি পর্যালোচনা করুন',
+	'revreview-failed' => "'''এই সংস্করণ পর্যালোচনা করা সম্ভব নয়।'''",
 	'review_denied' => 'অনুমতি প্রত্যাখ্যাত হয়েছে।',
 	'revreview-check-flag-y' => 'আমার পরিবর্তনসমূহ গ্রহণ',
 	'revreview-flag' => 'এই সংশোধনটি পর্যালোচনা করুন',
 	'revreview-log' => 'মন্তব্য:',
 	'revreview-main' => 'আপনাকে অবশ্যই কোন একটি বিষয়বস্তু পাতা থেকে একটি নির্দিষ্ট সংশোধন পর্যালোচনা করার জন্য বাছাই করতে হবে।
 
-পর্যালোচনা করা হয়নি এমন পাতাগুলির একটি তালিকার জন্য [[Special:Unreviewedpages]] দেখুন।', # Fuzzy
+[[Special:Unreviewedpages|অপর্যালোচিত পাতাগুলির তালিকা]] দেখুন।',
 	'revreview-submit' => 'জমা দাও',
 	'revreview-submitting' => 'জমা হচ্ছে …',
 	'revreview-submit-review' => 'সংশোধন গ্রহণ',
 	'revreview-submit-unreview' => 'সংশোধন প্রত্যাখান',
 	'revreview-submit-reject' => 'পরিবর্তন প্রত্যাখান',
+	'revreview-submit-reviewed' => 'সম্পন্ন। গ্রহণ করা হয়েছে!',
+	'revreview-submit-unreviewed' => 'সম্পন্ন। গ্রহণ করা হয়নি!',
+	'revreview-adv-start-link' => 'বিজ্ঞাপন দেওয়া',
 	'revreview-toolow' => 'কোন সংশোধনকে পর্যালোচিত গণ্য করতে চাইলে আপনাকে নিচের বৈশিষ্ট্যগুলির প্রতিটিকে কমপক্ষে "অননুমোদিত" থেকে উচ্চতর কোন রেটিং দিতে হবে। কোন সংশোধনকে অবনমিত করতে চাইলে, সবগুলি ক্ষেত্র "অননুমোদিত"-তে সেট করুন।', # Fuzzy
 	'revreview-reject-summary' => 'সারাংশ:',
 	'revreview-reject-cancel' => 'বাতিল',

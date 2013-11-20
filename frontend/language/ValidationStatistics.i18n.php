@@ -1698,6 +1698,7 @@ $messages['nds'] = array(
 );
 
 /** Dutch (Nederlands)
+ * @author Effeietsanders
  * @author Ooswesthoesbes
  * @author Siebrand
  */
@@ -1722,6 +1723,7 @@ Ze worden behandeld als ''{{int:validationstatistics-latest}}'' als er geen te c
 	'validationstatistics-latest' => 'Gesynchroniseerd',
 	'validationstatistics-synced' => 'Gesynchroniseerd/gecontroleerd',
 	'validationstatistics-old' => 'Verouderd',
+	'validationstatistics-unreviewed' => 'Niet beoordeeld',
 	'validationstatistics-utable' => 'In de onderstaande lijst {{PLURAL:$1|wordt de meest actieve eindredacteur|worden de $1 meest actieve eindredacteuren}} weergegeven in {{PLURAL:$2|het afgelopen uur|de afgelopen $2 uur}}.',
 	'validationstatistics-user' => 'Gebruiker',
 	'validationstatistics-reviews' => 'Beoordelingen',
