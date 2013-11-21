@@ -2129,7 +2129,7 @@ $messages['kk-latn'] = array(
  */
 $messages['km'] = array(
 	'stabilization-page' => 'ឈ្មោះទំព័រ៖',
-	'stabilization-def2' => 'ការពិនិត្យឡើងវិញពេលបច្ចុប្បន្ន', # Fuzzy
+	'stabilization-def2' => 'កំណែថ្មីបំផុត',
 	'stabilization-submit' => 'បញ្ជាក់ទទួលស្គាល់',
 	'stabilization-comment' => 'មូលហេតុ៖',
 	'stabilization-otherreason' => 'មូលហេតុផ្សេងទៀត៖',

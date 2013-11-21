@@ -9336,9 +9336,9 @@ sın berwdi {{PLURAL:$3|kütwde|kütwde}}.', # Fuzzy
 $messages['km'] = array(
 	'editor' => 'អ្នកកែសម្រួល',
 	'group-editor' => 'អ្នកកែសម្រួល',
-	'group-editor-member' => 'អ្នកកែសម្រួល', # Fuzzy
+	'group-editor-member' => '{{GENDER:$1|អ្នកកែសម្រួល}}',
 	'group-reviewer' => 'អ្នកត្រួតពិនិត្យឡើងវិញ',
-	'group-reviewer-member' => 'អ្នកត្រួតពិនិត្យឡើងវិញ', # Fuzzy
+	'group-reviewer-member' => '{{GENDER:$1|អ្នកត្រួតពិនិត្យឡើងវិញ}}',
 	'grouppage-editor' => '{{ns:project}}:អ្នកកែសម្រួល',
 	'grouppage-reviewer' => '{{ns:project}}:អ្នកត្រួតពិនិត្យឡើងវិញ',
 	'review-logentry-id' => 'កំណែ​ប្រែ​៖ $2',
@@ -9360,11 +9360,11 @@ $messages['km'] = array(
 	'revreview-toggle-title' => 'បង្ហាញ/លាក់ ព័ត៌មានលំអិត',
 	'revreview-revnotfound' => 'កំណែប្រែចាស់របស់ទំព័រដែលអ្នកស្វែងរកមិនមានទេ។ ចូរពិនិត្យURLដែលអ្នកធ្លាប់ដំណើរការទំព័រនេះ។',
 	'revreview-filter-all' => 'ទាំងអស់',
-	'revreview-statusfilter' => 'បំលាស់ប្ដូរ​ស្ថានភាព:', # Fuzzy
+	'revreview-statusfilter' => 'សកម្មភាពត្រួតពិនិត្យឡើងវិញ៖',
 	'revreview-typefilter' => 'ប្រភេទ:',
 	'revreview-filter-auto' => 'ដោយស្វ័យប្រវត្តិ',
-	'revreview-reviewlink' => 'ពិនិត្យឡើងវិញ', # Fuzzy
-	'tooltip-ca-current' => 'មើលសេចក្តីព្រាងបច្ចុប្បន្ន​នៃទំព័រនេះ', # Fuzzy
+	'revreview-reviewlink' => 'កំណែរងចាំការពិនិត្យឡើងវិញ',
+	'tooltip-ca-current' => 'មើលទំព័រនេះជាមួយកំណែប្រែដែលរងចាំការត្រួតពិនិត្យឡើងវិញ',
 	'log-show-hide-review' => '$1 កំណត់ហេតុ​នៃ​ការ​ពិនិត្យឡើងវិញ',
 	'validationpage' => '{{ns:help}}:សុពលកម្ម​ទំព័រ',
 );
