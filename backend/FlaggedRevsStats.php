@@ -367,8 +367,7 @@ class FlaggedRevsStats {
 					array(
 						'fr_page_id = rev_page',
 						'fr_rev_timestamp >= rev_timestamp' ),
-					__METHOD__,
-					array( 'USE INDEX' => 'page_time' )
+					__METHOD__
 				) . ') AS nft' // time when revision was first reviewed
 			),
 			array(
@@ -383,8 +382,7 @@ class FlaggedRevsStats {
 						'fr_rev_timestamp < rev_timestamp', // before this revision
 						'fr_rev_id < rev_id', // not imported later
 						'fr_timestamp < rev_timestamp' ), // page reviewed before revision
-					__METHOD__,
-					array( 'USE INDEX' => 'page_time' )
+					__METHOD__
 				) . ')'
 			),
 			__METHOD__

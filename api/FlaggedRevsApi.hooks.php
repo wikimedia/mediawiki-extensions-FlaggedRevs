@@ -63,7 +63,6 @@ abstract class FlaggedRevsApiHooks extends ApiQueryBase {
 				'fr_rev_id' => array_keys( $revids ) ), LIST_AND );
 		}
 		$module->addWhere( $db->makeList( $where, LIST_OR ) );
-		//$module->addOption( 'USE INDEX', array( 'flaggedrevs' => 'page_rev' ) );
 
 		$res = $module->select( __METHOD__ );
 

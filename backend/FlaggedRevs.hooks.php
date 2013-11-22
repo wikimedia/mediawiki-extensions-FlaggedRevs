@@ -764,8 +764,7 @@ class FlaggedRevsHooks {
 			$encCutoff = $dbr->addQuotes( $dbr->timestamp( $cutoff_unixtime ) );
 			$conds[] = "log_timestamp >= $encCutoff";
 		}
-		return (bool)$dbr->selectField( 'logging', '1', $conds,
-			__METHOD__, array( 'USE INDEX' => 'page_time' ) );
+		return (bool)$dbr->selectField( 'logging', '1', $conds, __METHOD__  );
 	}
 
 	protected static function recentEditCount( $uid, $seconds, $limit ) {
