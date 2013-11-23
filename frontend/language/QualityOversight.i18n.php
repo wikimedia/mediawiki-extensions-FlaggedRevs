@@ -415,7 +415,7 @@ $messages['km'] = array(
 $messages['ko'] = array(
 	'qualityoversight' => '고급 검토 기록',
 	'qualityoversight-list' => '이 문서는 가장 최근의 편집 판의 승인과 거부를 나열합니다.',
-	'qualityoversight-legend' => '최근 검토 기록 찾기',
+	'qualityoversight-legend' => '최근 검토 기록 검색',
 );
 
 /** Colognian (Ripoarisch)
