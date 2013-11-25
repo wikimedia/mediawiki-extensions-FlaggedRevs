@@ -1055,18 +1055,19 @@ $messages['hsb'] = array(
 
 Wobdźěłowarjo su nazhonići wužiwarjo, kotřiž móžeja wersije stronow kontrolować.",
 	'validationstatistics-lastupdate' => "''Slědowace daty buchu $1 $2 posledni raz zaktualizowane.''",
-	'validationstatistics-pndtime' => "Změny, kotrež buchu wot nazhonitych wužiwarjow skontrolowane, měli so ''přepruwować''.
+	'validationstatistics-pndtime' => "Změny, kotrež buchu wot nazhonitych wužiwarjow skontrolowane, měli so ''{{int:validationstatistics-stable}}''
 
 Přerězny komdźenje za [[Special:OldReviewedPages|strony z njekontrolowanymi změnami]] je '''$1'''; komdźenje měri, kak dołho najstarša njekontrolowana změna wosta njepřepruwowana.",
 	'validationstatistics-revtime' => "Přerězny čakanski čas za změny wot ''wužiwarjow, kotřiž njejsu přizjewjeni'' za přepruwowanje je '''\$1\"\"; přerězna hódnota je '''\$2'''.
 \$3",
-	'validationstatistics-table' => "Statistika přepruwowanja stronow za kóždy mjenowy rum so deleka pokazuje, ''nimo'' daleposrědkowanjow. Strony maja za ''zestarjene'', jeli maja změny, kotrež na přepruwowanje čakaja; strony maja za ''synchronizowane'', jeli změny, kotrež na přepruwowanje čakaja, njejsu.",
+	'validationstatistics-table' => "Statistika přepruwowanja stronow za kóždy mjenowy rum so deleka pokazuje, ''nimo'' daleposrědkowanjow. Strony maja za ''{{int:validationstatistics-old}}'', jeli maja změny, kotrež na přepruwowanje čakaja; strony maja za ''{{int:validationstatistics-latest}}, jeli změny, kotrež na přepruwowanje čakaja, njejsu.",
 	'validationstatistics-ns' => 'Mjenowy rum',
 	'validationstatistics-total' => 'Strony',
 	'validationstatistics-stable' => 'Skontrolowane',
 	'validationstatistics-latest' => 'Synchronizowany',
 	'validationstatistics-synced' => 'Synchronizowane/Skontrolowane',
 	'validationstatistics-old' => 'Zestarjene',
+	'validationstatistics-unreviewed' => 'Njepřepruwowany',
 	'validationstatistics-utable' => 'Deleka je lisćina {{PLURAL:$1|najaktiwnišeho přepruwowarja|$1 najaktiwnišeju přepruwowarjow|$1 najaktiwnišich přepruwowarjow|$1 najaktiwnišich přepruwowarjow}} w {{PLURAL:$2|zańdźenej hodźinje|zańdźenymaj $2 hodźinomaj|zańdźenych $2 hodźinach|zańdźenych $2 hodźinach}}.',
 	'validationstatistics-user' => 'Wužiwar',
 	'validationstatistics-reviews' => 'Přepruwowanja',

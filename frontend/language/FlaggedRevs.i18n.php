@@ -7400,7 +7400,7 @@ $messages['hsb'] = array(
 	'reviewer' => 'přehladowar',
 	'revreview-accuracy' => 'Dokładnosć',
 	'revreview-accuracy-0' => 'Njepřiměrjeny',
-	'revreview-accuracy-1' => 'přehladana', # Fuzzy
+	'revreview-accuracy-1' => 'Přehladany',
 	'revreview-accuracy-2' => 'pruwowana',
 	'revreview-accuracy-3' => 'Dobre žórła podate',
 	'revreview-accuracy-4' => 'wuběrna',
@@ -11232,7 +11232,7 @@ $messages['mt'] = array(
  * @author Botuzhaleny-sodamo
  */
 $messages['myv'] = array(
-	'group-editor-member' => 'витницязо-петницязо', # Fuzzy
+	'group-editor-member' => 'витницязо-петницязо',
 	'revreview-style' => 'Ловновиксчизэ',
 	'revreview-style-0' => 'Асатышка',
 	'revreview-style-1' => 'Маштови',
