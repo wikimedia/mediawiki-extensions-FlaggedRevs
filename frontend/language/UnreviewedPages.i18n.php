@@ -371,7 +371,7 @@ $messages['ce'] = array(
 	'unreviewedpages-unwatched' => '(терго яц)',
 	'unreviewedpages-watched' => '({{PLURAL:$1|терго йеш $1 жигара декъашхо|терго йеш $1 жигара декъашхой}})',
 	'unreviewedpages-viewing' => '(талламяхь йу)',
-	'unreviewedpages-hours' => '($1 {{PLURAL:$1|сахьат}})',
+	'unreviewedpages-hours' => '($1 {{PLURAL:$1|сахьт}})',
 	'unreviewedpages-days' => '($1 {{PLURAL:$1|де}})',
 );
 

@@ -2683,6 +2683,7 @@ $messages['bn'] = array(
 	'action-review' => 'সংশোধন পর্যালোচনা',
 	'editor' => 'সম্পাদক',
 	'flaggedrevs' => 'চিহ্নিত সংশোধনসমূহ',
+	'flaggedrevs-watched-pending' => "আপনার নজরতালিকায় পর্যালোচনা করা পাতাসমূহে [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} অমীমাংসিত পরিবর্তন] বর্তমানে আছে। '''আপনার দৃষ্টি আকর্ষণ প্রয়োজন!'''",
 	'flaggedrevs-pref-UI' => 'সাধারণ ইন্টারফেস:',
 	'flaggedrevs-pref-UI-0' => 'পাতাসমূহের পর্যালোচনা অবস্থা প্রদর্শনের জন্য বিস্তারিত বক্স ব্যবহার করো',
 	'flaggedrevs-pref-UI-1' => 'পাতাসমূহের পর্যালোচনা অবস্থা প্রদর্শনের জন্য ছোট আইকন এবং ন্যূনতম টেক্সট ব্যবহার করো',
@@ -8395,7 +8396,7 @@ $messages['it'] = array(
 	'revreview-accuracy-4' => 'Ottima',
 	'revreview-auto' => '(automatico)',
 	'revreview-basic' => 'Questa è la [[{{MediaWiki:Validationpage}}|versione stabile]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} controllata] il <i>$2</i>.
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|modifica|modifiche}} in sospeso] {{PLURAL:$3|aspetta|aspettano}} di essere revisionate.',
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|modifica|modifiche}} in sospeso] {{PLURAL:$3|aspetta|aspettano}} di essere {{PLURAL:$3|revisionata|revisionate}}.',
 	'revreview-basic-i' => 'Questa è la [[{{MediaWiki:Validationpage}}|versione stabile]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} controllata] il <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} modifiche a template o file] aspettano di essere revisionate.',
 	'revreview-basic-old' => 'Questa è una versione [[{{MediaWiki:Validationpage}}|controllata]] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} elenca tutte]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approvata] il <i>$2</i>.
@@ -8416,7 +8417,7 @@ Potrebbero essere state apportate nuove [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&di
 	'revreview-submitedit-title' => 'Invia le tue modifiche per la revisione',
 	'revreview-edited' => "'''Le tue modifiche saranno mostrate ai lettori una volta che un utente autorizzato le avrà accettate. ([[{{MediaWiki:Validationpage}}|aiuto]])'''
 
-{{PLURAL:$2|C'è|Ci sono}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|modifica|modifiche}} in sospeso] ''(mostrate sotto)'' che aspettano di essere revisionate.",
+{{PLURAL:$2|C'è|Ci sono}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|modifica|modifiche}} in sospeso] ''({{PLURAL:$2|mostrata|mostrate}} sotto)'' che {{PLURAL:$2|aspetta|aspettano}} di essere {{PLURAL:$2|revisionate|revisionate}}.", # Fuzzy
 	'revreview-edited-section' => 'Ritorna alla sezione intitolata "[[#$1|$2]]".',
 	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|modifica|modifiche}}] in questa versione {{PLURAL:$3|è|sono}} [[{{MediaWiki:Validationpage}}|in attesta di revisione]].
 La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} versione stabile] è stata [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} controllata] il <i>$2</i>.',
@@ -8433,7 +8434,7 @@ La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} versione stabile] è stata [{{fullurl
 	'revreview-noflagged' => "Non ci sono [[{{MediaWiki:Validationpage}}|versioni revisionate]] di questa pagina, perciò potrebbe '''non''' essere stata controllata per l'aderenza agli standard.",
 	'revreview-oldrating' => 'È stata giudicata:',
 	'revreview-quality' => 'Questa è la [[{{MediaWiki:Validationpage}}|versione stabile]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approvata] il <i>$2</i>.
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|modifica|modifiche}} in sospeso] {{PLURAL:$3|aspetta|aspettano}} di essere revisionate.',
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|modifica|modifiche}} in sospeso] {{PLURAL:$3|aspetta|aspettano}} di essere {{PLURAL:$3|revisionata|revisionate}}.',
 	'revreview-quality-i' => 'Questa è la [[{{MediaWiki:Validationpage}}|versione stabile]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approvata] il <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} modifiche a template o file] aspettano di essere revisionate.',
 	'revreview-quality-old' => 'Questa è una versione [[{{MediaWiki:Validationpage}}|di qualità]] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} elenca tutte]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} approvata] il <i>$2</i>.

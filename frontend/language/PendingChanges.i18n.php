@@ -419,7 +419,7 @@ $messages['ca'] = array(
  * @author Умар
  */
 $messages['ce'] = array(
-	'pendingchanges-hours' => '($1 {{PLURAL:$1|сахьат}})',
+	'pendingchanges-hours' => '($1 {{PLURAL:$1|сахьт}})',
 	'pendingchanges-days' => '($1 {{PLURAL:$1|де|денош|денош}})', # Fuzzy
 	'pendingchanges-recent' => '(лаххар 1 сахьтехь)',
 	'pendingchanges-category' => 'Категори:',
