@@ -8417,7 +8417,7 @@ Potrebbero essere state apportate nuove [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&di
 	'revreview-submitedit-title' => 'Invia le tue modifiche per la revisione',
 	'revreview-edited' => "'''Le tue modifiche saranno mostrate ai lettori una volta che un utente autorizzato le avrà accettate. ([[{{MediaWiki:Validationpage}}|aiuto]])'''
 
-{{PLURAL:$2|C'è|Ci sono}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|modifica|modifiche}} in sospeso] ''({{PLURAL:$2|mostrata|mostrate}} sotto)'' che {{PLURAL:$2|aspetta|aspettano}} di essere {{PLURAL:$2|revisionate|revisionate}}.", # Fuzzy
+{{PLURAL:$2|C'è|Ci sono}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|modifica|modifiche}} in sospeso] ''({{PLURAL:$2|mostrata|mostrate}} sotto)'' che {{PLURAL:$2|aspetta|aspettano}} di essere {{PLURAL:$2|revisionata|revisionate}}.",
 	'revreview-edited-section' => 'Ritorna alla sezione intitolata "[[#$1|$2]]".',
 	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|modifica|modifiche}}] in questa versione {{PLURAL:$3|è|sono}} [[{{MediaWiki:Validationpage}}|in attesta di revisione]].
 La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} versione stabile] è stata [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} controllata] il <i>$2</i>.',
