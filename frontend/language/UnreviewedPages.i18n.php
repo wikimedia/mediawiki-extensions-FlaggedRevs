@@ -1526,7 +1526,7 @@ $messages['ps'] = array(
 	'unreviewedpages-watched' => '($1 فعاله {{PLURAL:$1|کارن|کارنان}} يې ګوري)',
 	'unreviewedpages-hours' => '($1 {{PLURAL:$1|ساعت|ساعتونه}})',
 	'unreviewedpages-days' => '($1 {{PLURAL:$1|ورځ|ورځې}})',
-	'unreviewedpages-recent' => '(له 1 ګړۍ نه لږ وخت)',
+	'unreviewedpages-recent' => '(له 1 گړۍ نه لږ وخت)',
 );
 
 /** Portuguese (português)

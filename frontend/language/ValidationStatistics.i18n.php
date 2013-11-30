@@ -552,19 +552,20 @@ $messages['dsb'] = array(
 
 Wobźěłowarje su etablěrowane wužiwarje, kótarež mógu wersije bokow pśeglědaś.",
 	'validationstatistics-lastupdate' => "''Slědujuce daty su se $1 $2 zaktualizěrowali.''",
-	'validationstatistics-pndtime' => "Změny, kótarež su se pśekontrolěrowali wót  nazgónitych wužywarjow by měli se ''pśeglědaś''.
+	'validationstatistics-pndtime' => "Změny, kótarež su se pśekontrolěrowali wót  nazgónitych wužywarjow by měli se ''{{int:validationstatistics-stable}}''.
 
-Psérězne wokomuźenje pśeglědanja za [[Special:OldReviewedPages|boki z njepśeglědanymi změnami]] jo '''$1''';
+Psérězne wokomuźenje pśeglědanja za [[Special:OldReviewedPages|boki z tuchylu njepśeglědanymi změnami]] jo '''$1''';
 wokomuźenje měri, kak dłujko nejstarša njepśeglědana změna jo južo njepśeglědana.",
 	'validationstatistics-revtime' => "Pśerězny cakański cas za změny wót \"wužywarjow\", kótarež njejsu pśizjawjone\", kótarež muse se hyšći pśeglědaś, jo '''\$1'''; pśerězna gódnota jo '''\$2'''.
 \$3",
-	'validationstatistics-table' => "Statistika pśekontrolěrowanja bokow za kuždy mjenjowy rum pokazujo se dołojce, ''mimo'' dalejpósrědnjenjow. Boki maju za ''zestarjone'', jolic maju změny, kótarež cakaju na pśeglědanje; boki maju za ''synchronizowane'', jolic změny, kótarež cakaju na pśeglědanje, njejsu.",
+	'validationstatistics-table' => "Statistika pśekontrolěrowanja bokow za kuždy mjenjowy rum pokazujo se dołojce, ''mimo'' dalejpósrědnjenjow. Boki maju za '{{int:validationstatistics-old}}'', jolic maju změny, kótarež cakaju na pśeglědanje; boki maju za '''{{int:validationstatistics-latest}}'', jolic změny, kótarež cakaju na pśeglědanje, njejsu.",
 	'validationstatistics-ns' => 'Mjenjowy rum',
 	'validationstatistics-total' => 'Boki',
 	'validationstatistics-stable' => 'Pśeglědane',
 	'validationstatistics-latest' => 'Synchronizěrowany',
 	'validationstatistics-synced' => 'Synchronizěrowane/Pśeglědane',
 	'validationstatistics-old' => 'Zestarjone',
+	'validationstatistics-unreviewed' => 'Njepśeglědany',
 	'validationstatistics-utable' => 'Dołojce jo lisćina {{PLURAL:$1|nejaktiwnjejšego pśeglědarja|$1 nejaktiwnjejšeju pśeglědarjowu|$1 nejaktiwnjejšych pśeglědarjow|$1 nejaktiwnjejšych pśeglědarjow}} {{PLURAL:$2|pśejźoneje góźiny|pśejźoneju $2 góźinowu|pśejźonych $2 góźinow|pśejźonych $2 góźinow}}.',
 	'validationstatistics-user' => 'Wužywaŕ',
 	'validationstatistics-reviews' => 'Pśeglědanja',
