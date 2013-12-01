@@ -16097,7 +16097,7 @@ $messages['tr'] = array(
 	'reviewer' => 'İnceleyici',
 	'revreview-accuracy' => 'Doğruluk',
 	'revreview-accuracy-0' => 'Yetersiz',
-	'revreview-accuracy-1' => 'Görüldü', # Fuzzy
+	'revreview-accuracy-1' => 'Görüldü',
 	'revreview-accuracy-2' => 'Doğru',
 	'revreview-accuracy-3' => 'İyi kaynaklandırılmış',
 	'revreview-accuracy-4' => 'Seçkin',
@@ -16173,6 +16173,7 @@ Yeni [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffo
 	'revreview-revnotfound' => "İstemiş olduğunuz sayfanın eski sürümü bulunamadı. 
 Lütfen bu sayfaya erişmek için kullandığınız URL'yi kontrol edin.",
 	'right-autoreview' => 'Kendi revizyonlarını otomatik olarak kontrol edilmiş işaretler',
+	'right-autoreviewrestore' => 'Geri döndürürken otomatik gözden geçir',
 	'right-movestable' => 'Kararlı sürümleri olan sayfaları taşır',
 	'right-review' => 'Revizyonları "kontrol edilmiş" olarak işaretler',
 	'right-stablesettings' => 'Kararlı sürümün nasıl seçilip görüntüleneceğini ayarlar',

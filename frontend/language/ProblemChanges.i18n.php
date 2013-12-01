@@ -1006,6 +1006,7 @@ $messages['tl'] = array(
  */
 $messages['tr'] = array(
 	'problemchanges' => 'bekleyen değişiklik olarak etiketlenmiş',
+	'problemchanges-list' => 'Bu sayfa, en az bir ya da daha fazla gözden geçirme bekleyen değişikliğe sahip [[{{MediaWiki:Validationpage}}|gözden geçirilmiş]] sayfaları listeler. [[Special:Tags|Geçerli değişiklik etiketlerinin]] bir listesi mevcuttur.',
 	'problemchanges-legend' => 'Etiketli değişiklikleri gözden geçirme bekleyen sayfaları listele',
 	'problemchanges-none' => 'Şu anda hiçbir sayfa bu kriterleri karşılamıyor',
 	'problemchanges-category' => 'Kategori:',

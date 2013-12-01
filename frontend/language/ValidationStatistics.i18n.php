@@ -503,7 +503,7 @@ Alle anderen Seiten werden als ''{{int:validationstatistics-latest}}'' und somit
 	'validationstatistics-total' => 'Seiten gesamt',
 	'validationstatistics-stable' => 'Überprüft',
 	'validationstatistics-latest' => 'Synchronisiert',
-	'validationstatistics-synced' => 'Prozentsatz an Seiten, die in der aktuellen Version markiert sind',
+	'validationstatistics-synced' => 'In aktueller Version markierte Seiten (%)',
 	'validationstatistics-old' => 'Seiten mit unmarkierten Änderungen',
 	'validationstatistics-unreviewed' => 'Ungeprüft',
 	'validationstatistics-utable' => 'Nachfolgend die Anzeige {{PLURAL:$1|des aktivsten Sichters|der $1 aktivsten Sichter}} der letzten {{PLURAL:$2|Stunde|$2 Stunden}}.',
@@ -2358,12 +2358,13 @@ $messages['tr'] = array(
 
 Editörler, sayfalara kontrol revizyonu atayabilen belirli kullanıcılardır.",
 	'validationstatistics-lastupdate' => '"Aşağıdaki veri en son $1, $2 tarihinde güncellendi"',
-	'validationstatistics-pndtime' => "Belirlenmiş kullanıcılar tarafından kontrol edilmiş değişiklikler gözden geçirilmiş olarak kabul edilir.
+	'validationstatistics-pndtime' => "Belirlenmiş kullanıcılar tarafından kontrol edilmiş değişiklikler ''{{int:validationstatistics-stable}}'' olarak kabul edilir.
 
-[[Special:OldReviewedPages|Gözden geçirilmeyi bekleyen sayfalar]] için ortalama gecikme süresi: '''$1'''.", # Fuzzy
+[[Special:OldReviewedPages|Şu anda gözden geçirilmeyi bekleyen değişikliğe sahip sayfalar]] için ortalama gecikme süresi: '''$1'''; gecikme en eski bekleyen değişikliğin ne kadardır gözden geçirilmediğini ölçer.",
 	'validationstatistics-revtime' => "''Giriş yapmamış anonim kullanıcılar'' tarafından yapılmış girişler için ortalama bekleme süresi '''$1'''; medyanı ise '''$2''' biçimindedir.
 $3",
-	'validationstatistics-table' => "İsim alanları için sayfa inceleme istatistikleri, yönlendirme sayfaları ''dahil olmadan''  aşağıda gösterilmiştir. Bekleyen değişiklik içeren sayfalar ''güncelliğini yitirmiş'', bekleyen değişiklik içermeyen sayfalar ''senkronize'' kabul edilir.", # Fuzzy
+	'validationstatistics-table' => "İsim alanları için sayfa inceleme istatistikleri, yönlendirme sayfaları ''dahil olmadan''  aşağıda gösterilmiştir.
+Bekleyen değişiklik içeren sayfalar ''{{int:validationstatistics-old}}'', bekleyen değişiklik içermeyen sayfalar ''{{int:validationstatistics-latest}}'' kabul edilir.",
 	'validationstatistics-ns' => 'İsim alanı',
 	'validationstatistics-total' => 'Sayfalar',
 	'validationstatistics-stable' => 'Gözden geçirilmiş',
