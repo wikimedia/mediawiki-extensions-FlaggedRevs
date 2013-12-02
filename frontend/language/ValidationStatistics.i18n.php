@@ -2218,12 +2218,14 @@ $messages['sv'] = array(
 
 Skribenter är etablerade användare som kan granska sidversioner.",
 	'validationstatistics-lastupdate' => "''Följande uppgifter uppdaterades senast på $1 vid $2.''",
-	'validationstatistics-pndtime' => "Redigeringar som har kollats av etablerade användare anses vara granskade.
+	'validationstatistics-pndtime' => "Redigeringar som har kollats av etablerade användare anses vara ''{{int:validationstatistics-stable}}''.
 
-Den genomsnittliga förseningen för [[Special:OldReviewedPages|sidor med väntande ogranskade redigeringar]] är '''$1'''; dröjsmålet mäter hur lång tid den äldsta väntande redigeringen blivit granskad.", # Fuzzy
+Den genomsnittliga förseningen för [[Special:OldReviewedPages|sidor med aktuella ogranskade redigeringar]] är '''$1'''; dröjsmålet mäter hur lång tid den äldsta väntande redigeringen blivit granskad.",
 	'validationstatistics-revtime' => "Den genomsnittliga väntan för redigeringar av ''användare som inte har loggat in'' för att granskas är '''$1'''; medianen är '''$2'''.
 $3",
-	'validationstatistics-table' => "Sidgranskningsstatistik för varje namnrymd visas nedan, ''förutom'' omdirigeringssidor. Sidor behandlas som föråldrade om de har redigeringar i väntan på granskning; sidor betraktas som ''synkroniserade'' om det inte finns några redigeringar i väntan på granskning.", # Fuzzy
+	'validationstatistics-table' => "Sidgranskningsstatistik för varje namnrymd visas nedan, ''förutom'' omdirigeringssidor.
+Sidor behandlas som ''{{int:validationstatistics-old}}'' om de har redigeringar i väntan på granskning;
+sidor betraktas som ''{{int:validationstatistics-latest}}'' om det inte finns några redigeringar i väntan på granskning.",
 	'validationstatistics-ns' => 'Namnrymd',
 	'validationstatistics-total' => 'Sidor',
 	'validationstatistics-stable' => 'Granskad',
