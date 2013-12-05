@@ -10647,6 +10647,7 @@ $messages['mk'] = array(
  * @author Jacob.jose
  * @author Praveenp
  * @author Shijualex
+ * @author Vssun
  */
 $messages['ml'] = array(
 	'action-review' => 'നാൾപ്പതിപ്പുകൾ സംശോധനം ചെയ്യുക',
@@ -10732,7 +10733,7 @@ $messages['ml'] = array(
 	'revreview-edited' => "'''അംഗീകരിക്കപ്പെട്ട ഒരു ഉപയോക്താവ് ഒരിക്കൽ സ്വീകരിച്ചു കഴിഞ്ഞാൽ താങ്കളുടെ തിരുത്തലുകൾ എല്ലാ വായനക്കാർക്കും കാണാനാവും. ([[{{MediaWiki:Validationpage}}|സഹായം]])'''
 
 അതിൽ [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} അവശേഷിക്കുന്ന {{PLURAL:$2|ഒരു മാറ്റം|$2 മാറ്റങ്ങൾ}}] ''(താഴെ കൊടുത്തിരിക്കുന്നു)'' സം‌ശോധനം പ്രതീക്ഷിക്കുന്നു.",
-	'revreview-edited-section' => 'താളിലെ "[[#$1|$2]]" എന്ന ഉപവിഭാഗത്തിലേയ്ക്ക് തിരിച്ചുപോവുക.',
+	'revreview-edited-section' => 'താളിലെ "[[#$1|$2]]" എന്ന ഉപവിഭാഗത്തിലേയ്ക്ക് മടങ്ങുക.',
 	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} സ്ഥിരീകരിച്ച പതിപ്പ്] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} പരിശോധിച്ചത്] <i>$2</i>നു ആണ്. അതിൽ
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$3|ഒരു മാറ്റം|$3 മാറ്റങ്ങൾ}}] [[{{MediaWiki:Validationpage}}|സംശോധനത്തിനു അവശേഷിക്കുന്നു]].',
 	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} സ്ഥിരീകരിച്ച പതിപ്പ്] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} പരിശോധിച്ചത്] <i>$2</i>നു ആണ്. അതിൽ 
@@ -17598,6 +17599,7 @@ $messages['zh-hans'] = array(
  * @author Gaoxuewei
  * @author Horacewai2
  * @author Liangent
+ * @author Liuxinyu970226
  * @author Mark85296341
  * @author Waihorace
  * @author Wrightbus
@@ -17625,7 +17627,7 @@ $messages['zh-hant'] = array(
 	'group-editor-member' => '{{GENDER:$1|編者}}',
 	'group-reviewer' => '復審員',
 	'group-reviewer-member' => '復審員',
-	'grouppage-editor' => '{{ns:project}}：編者',
+	'grouppage-editor' => '{{ns:project}}:編者',
 	'grouppage-reviewer' => '{{ns:project}}:復審員',
 	'group-autoreview' => '自動複查員',
 	'group-autoreview-member' => '{{GENDER:$1|自動檢查用戶}}',
