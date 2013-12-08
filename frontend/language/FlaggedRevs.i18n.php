@@ -5070,7 +5070,7 @@ Nuevos [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-dif
 	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|Verificado]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} revisar cambios pendientes]]",
 	'revreview-quick-basic-old' => "'''[[{{MediaWiki:Validationpage}}|Verificado]]'''",
 	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|Revisado]]'''",
-	'revreview-quick-invalid' => "'''ID de revisión no válido'''",
+	'revreview-quick-invalid' => "'''El identificador de la revisión no es válido'''",
 	'revreview-quick-none' => "'''[[{{MediaWiki:Validationpage}}|Sin revisar]]'''",
 	'revreview-quick-quality' => "'''[[{{MediaWiki:Validationpage}}|Calidad]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} revisar los cambios pendientes]]",
 	'revreview-quick-quality-old' => "'''[[{{MediaWiki:Validationpage}}|Calidad]]'''",
