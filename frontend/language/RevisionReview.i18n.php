@@ -5443,6 +5443,7 @@ $messages['sv'] = array(
 	'review_cannot_undo' => 'Kan inte ångra dessa ändringar eftersom ytterligare väntande redigeringar har ändrat i samma områden.',
 	'review_cannot_reject' => 'Kan inte avvisa dessa ändringar eftersom någon redan accepterat vissa (eller samtliga) av redigeringarna.',
 	'review_reject_excessive' => 'Kan inte avvisa så många ändringar på en gång.',
+	'review_reject_nulledits' => 'Kan inte avvisa dessa ändringar eftersom alla revideringar inte har några redigeringar.',
 	'revreview-check-flag-p' => 'Accept this version (includes $1 pending {{PLURAL:$1|change|changes}})',
 	'revreview-check-flag-p-title' => 'Acceptera alla nuvarande väntande ändringar tillsammans med din egen redigering. Använd endast detta om du redan har sett hela diffen för väntande ändringar.',
 	'revreview-check-flag-u' => 'Acceptera denna ogranskade sida',
@@ -5488,6 +5489,7 @@ Vänligen granska alla ändringar som visas nedan för att göra så att dina re
 
 Vänligen granska alla ändringar som visas nedan för att göra så att dina redigeringar visas i den stabila versionen.',
 	'revreview-update-includes' => 'Mallar/filer har uppdaterats (ogranskade sidor i fet text):',
+	'revreview-reject-text-list' => "Genom att slutföra den här åtgärden kommer du att '''avvisa''' källtexten från att ändras från följande {{PLURAL:$1|revision|revisioner}} av [[:$2|$2]]:",
 	'revreview-reject-text-revto' => 'Detta kommer att återställa sidan tillbaka till [{{fullurl:$1|oldid=$2}} versionen från $3].',
 	'revreview-reject-summary' => 'Sammanfattning:',
 	'revreview-reject-confirm' => 'Avvisa dessa ändringar',
