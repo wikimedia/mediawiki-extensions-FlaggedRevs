@@ -1107,7 +1107,7 @@ $messages['yue'] = array(
  * @author Xiaomingyan
  */
 $messages['zh-hans'] = array(
-	'stablepages' => '使用了编辑审阅的页面',
+	'stablepages' => '使用编辑认可的页面',
 	'stablepages-list' => '此页面列出了特定用户可以作出编辑且无须复审的页面。其他用户对这些页面作出的编辑，将在已授权用户复审后才展示给读者。',
 	'stablepages-none' => '此列表中没有页面。',
 	'stablepages-config' => '配置',
