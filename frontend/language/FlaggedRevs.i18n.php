@@ -5341,6 +5341,7 @@ Palun kontrolli internetiaadressi, mille abil seda leida püüdsid.',
  * @author Joxemai
  * @author Kobazulo
  * @author Unai Fdz. de Betoño
+ * @author Xabier Armendaritz
  * @author පසිඳු කාවින්ද
  */
 $messages['eu'] = array(
@@ -5363,7 +5364,7 @@ $messages['eu'] = array(
 	'revreview-depth-1' => 'Oinarrizkoa',
 	'revreview-depth-3' => 'Altua',
 	'revreview-depth-4' => 'Nabarmendua',
-	'revreview-draft-title' => 'Ikusteke dauden aldaketak orrialde honetan ikus daitezeke',
+	'revreview-draft-title' => 'Ikuskatzeke dauden aldaketak orri honetan ageri dira',
 	'revreview-edit' => 'Aldatu',
 	'revreview-source' => 'Iturria ikusi',
 	'revreview-style-2' => 'Ona',
