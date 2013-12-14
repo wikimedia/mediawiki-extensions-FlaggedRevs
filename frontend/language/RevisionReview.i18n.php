@@ -1132,7 +1132,7 @@ $messages['ce'] = array(
 	'revreview-submitting' => 'Дlайахьийтар…',
 	'revreview-submit-review' => 'Къобал йе верси',
 	'revreview-submit-unreview' => 'Дlадаккха къобал йар',
-	'revreview-submit-reject' => 'Йуха баха хийцамаш',
+	'revreview-submit-reject' => 'Юха баха хийцамаш',
 	'revreview-submit-reviewed' => 'Йели. Къобал йи!',
 	'revreview-submit-unreviewed' => 'Йели. Къобал дар дlадаьккхи!',
 	'revreview-successful' => "'''Хьаржина башхо [[:$1|$1]] кхиамца билгалло йира. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} хьажар цхьан эшшара йолу башхонашка])'''",
@@ -3429,6 +3429,13 @@ $messages['km'] = array(
 	'revreview-submit' => 'ដាក់ស្នើ',
 	'revreview-submitting' => 'កំពុង​ដាក់ស្នើ...',
 	'revreview-update-includes' => 'ទំព័រគំរូ/រូបភាពមួយចំនួនត្រូវបានបន្ទាន់សម័យរួចហើយ (ទំព័រដែលមិនទាន់ត្រួតពិនិត្យហើយត្រូវ​បានសរសេរជាអក្សរដិត)៖',
+);
+
+/** Kannada (ಕನ್ನಡ)
+ * @author Dimension10
+ */
+$messages['kn'] = array(
+	'revreview-log' => 'ಟಿಪ್ಪಣಿ :',
 );
 
 /** Korean (한국어)

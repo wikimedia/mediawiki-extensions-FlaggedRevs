@@ -3523,7 +3523,7 @@ $messages['ce'] = array(
 	'revreview-edited' => "'''Хийцамаш гойтур бу йоьшучарна тlаьхьа, нийса йу ле йац хьожушвер хьаьжча. ([[{{MediaWiki:Validationpage}}|кхин дlа]])'''
 
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|хийцам|хийцамаш}}] {{PLURAL:$2|хьоьжуш|хьоьжуш}} бу хьажаре (гойтуш лахахь).", # Fuzzy
-	'revreview-edited-section' => 'Йуха гlо агlонан даакъанчу оцу цlарца «[[#$1|$2]]».',
+	'revreview-edited-section' => 'ЮхагӀо агӀонан дакъанчу оцу «[[#$1|$2]]» цӀарца.',
 	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Чутоьхна башхо] йара [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} хьаьжна] <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|хийцам|хийцамаш|хийцамаш}}] {{PLURAL:$3|хьоьжу|хьоьжуш|хьоьжуш}} бу хьажаре.', # Fuzzy
 	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Чутоьхна башхо] йара [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} хьажна] <i>$2</i>. Хьажанза бу [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} хийцамаш оц куцкепашца йа хlумнашца].', # Fuzzy
 	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Чутоьхна башхо] йара [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} бакъйина] <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|хийцам|хийцамаш|хийцамаш}}] {{PLURAL:$3|хьоьжу|хьоьжуш|хьоьжуш}} бу хьажаре.', # Fuzzy
@@ -9853,7 +9853,7 @@ $messages['lb'] = array(
 	'flaggedrevs-pref-stable-0' => "D'Standard-Astellunge fir all Säit benotzen",
 	'flaggedrevs-pref-stable-1' => 'Ëmmer déi stabil Versioun weisen (wann et eng gëtt)',
 	'flaggedrevs-pref-stable-2' => 'Ëmmer déi lescht Versioun weisen',
-	'flaggedrevs-prefs-watch' => 'Säiten déi ech nogekuckt hunn op meng Iwwerwaachungslëscht derbäisetzen',
+	'flaggedrevs-prefs-watch' => 'Säiten déi ech nogekuckt hunn op meng Iwwerwaachungslëscht dobäisetzen',
 	'flaggedrevs-prefs-editdiffs' => 'Den Ënnerscheed mat der publizéierter Versioun während dem Ännere weisen',
 	'flaggedrevs-prefs-viewdiffs' => "D'Ännerungen am Suspens weise wann déi lescht Versioun vun der Säit gewise gëtt",
 	'flaggedrevs-hidereviewed' => "$1 huet d'Ännerungen nogekuckt",
