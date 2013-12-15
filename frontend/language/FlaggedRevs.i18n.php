@@ -9853,7 +9853,7 @@ $messages['lb'] = array(
 	'flaggedrevs-pref-stable-0' => "D'Standard-Astellunge fir all Säit benotzen",
 	'flaggedrevs-pref-stable-1' => 'Ëmmer déi stabil Versioun weisen (wann et eng gëtt)',
 	'flaggedrevs-pref-stable-2' => 'Ëmmer déi lescht Versioun weisen',
-	'flaggedrevs-prefs-watch' => 'Säiten déi ech nogekuckt hunn op meng Iwwerwaachungslëscht dobäisetzen',
+	'flaggedrevs-prefs-watch' => 'Säiten déi ech nogekuckt hunn op meng Iwwerwaachungslëscht derbäisetzen',
 	'flaggedrevs-prefs-editdiffs' => 'Den Ënnerscheed mat der publizéierter Versioun während dem Ännere weisen',
 	'flaggedrevs-prefs-viewdiffs' => "D'Ännerungen am Suspens weise wann déi lescht Versioun vun der Säit gewise gëtt",
 	'flaggedrevs-hidereviewed' => "$1 huet d'Ännerungen nogekuckt",
@@ -12694,7 +12694,7 @@ $messages['pt'] = array(
 	'reviewer' => 'Revisor',
 	'revreview-accuracy' => 'Precisão',
 	'revreview-accuracy-0' => 'Inadequada',
-	'revreview-accuracy-1' => 'Vista', # Fuzzy
+	'revreview-accuracy-1' => 'Local verificado',
 	'revreview-accuracy-2' => 'Precisa',
 	'revreview-accuracy-3' => 'Bem referenciada',
 	'revreview-accuracy-4' => 'Exemplar',
@@ -12716,8 +12716,7 @@ Existem [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-di
 	'revreview-depth-4' => 'Exemplar',
 	'revreview-draft-title' => 'As alterações pendentes são mostradas nesta página',
 	'revreview-edit' => 'Editar',
-	'revreview-editnotice' => "'''As suas alterações serão apresentadas aos leitores após revisão por um utilizador autorizado.
-([[{{MediaWiki:Validationpage}}|ajuda]])'''", # Fuzzy
+	'revreview-editnotice' => "'''As suas alterações serão apresentadas aos leitores após um utilizador autorizado as aprovar. ([[{{MediaWiki:Validationpage}}|ajuda]])'''",
 	'revreview-submitedit' => 'Enviar alterações',
 	'revreview-submitedit-title' => 'Enviar as suas alterações para revisão',
 	'revreview-edited' => "'''As suas alterações serão apresentadas aos leitores após revisão por um utilizador autorizado.
