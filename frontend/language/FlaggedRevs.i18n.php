@@ -4102,6 +4102,13 @@ Neue [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffo
 	'validationpage' => '{{ns:help}}:Gesichtete und geprüfte Versionen',
 );
 
+/** Swiss High German (Schweizer Hochdeutsch)
+ * @author Filzstift
+ */
+$messages['de-ch'] = array(
+	'flaggedrevs-prefs-stable' => 'Welche Version einer Seite soll standardmässig angezeigt werden?',
+);
+
 /** German (formal address) (Deutsch (Sie-Form)‎)
  * @author Imre
  * @author Jens Liebenau

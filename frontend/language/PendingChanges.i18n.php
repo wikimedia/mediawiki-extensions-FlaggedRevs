@@ -838,6 +838,7 @@ $messages['gsw'] = array(
 /** Hebrew (עברית)
  * @author Amire80
  * @author DoviJ
+ * @author Guycn2
  * @author Rotemliss
  * @author YaronSh
  */
@@ -851,7 +852,7 @@ $messages['he'] = array(
 	'pendingchanges-recent' => 'פחות משעה',
 	'pendingchanges-category' => 'קטגוריה:',
 	'pendingchanges-onwatchlist' => 'דפים ברשימת המעקב שלי',
-	'pendingchanges-stable' => 'הגרסה היציבה היא בררת המחדל',
+	'pendingchanges-stable' => 'הגרסה היציבה היא ברירת המחדל',
 	'pendingchanges-diff' => 'לסקור',
 	'pendingchanges-size' => 'השינוי המרבי בגודל (בבתים):',
 	'pendingchanges-unwatched' => '(לא במעקב)',
