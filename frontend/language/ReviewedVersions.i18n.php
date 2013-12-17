@@ -252,9 +252,10 @@ $messages['ca'] = array(
 
 /** Chechen (нохчийн)
  * @author Sasan700
+ * @author Умар
  */
 $messages['ce'] = array(
-	'reviewedversions' => 'Хьаьжина варсийш',
+	'reviewedversions' => 'Хьаьжина версеш',
 	'reviewedversions-page' => 'Агlон цlе:',
 	'reviewedversions-review' => 'Хьаьжна  <i>$1</i> декъашхо $2',
 );

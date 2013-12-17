@@ -761,6 +761,7 @@ No és possible cap configuració.",
  */
 $messages['ce'] = array(
 	'stabilization-page' => 'Агlон цlе:',
+	'stabilization-def2' => 'ТӀаьхьара верси',
 	'stabilization-submit' => 'Бакъдан',
 	'stabilization-comment' => 'Бахьан:',
 	'stabilization-otherreason' => 'Кхин бахьан:',

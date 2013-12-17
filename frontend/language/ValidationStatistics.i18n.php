@@ -611,16 +611,17 @@ Redaktantoj estas daŭraj uzantoj kiuj povas iufoje kontroli paĝojn.",
 	'validationstatistics-lastupdate' => "''La jenaj datenoj estis laste ĝisdatigitaj je $1, $2.''",
 	'validationstatistics-pndtime' => "Redaktoj kontrolitaj de establitaj uzantoj estas konsiderataj kiel ''kontrolitaj''.
 
-La averaĝa atendo-tempo por [[Special:OldReviewedPages|paĝoj kun kontrolendaj redaktoj]] estas '''$1'''. Ĉi tiu atendo-tempo mezuras tempon ekde la plej malnova kontrolenda redakto estis farita.",
+La averaĝa atendo-tempo por [[Special:OldReviewedPages|paĝoj kun kontrolendaj redaktoj]] estas '''$1'''. Ĉi tiu atendo-tempo mezuras tempon ekde la plej malnova kontrolenda redakto estis farita.", # Fuzzy
 	'validationstatistics-revtime' => "La averaĝa atendo por redaktoj de ''ne-ensalutitaj uzantoj'' por esti kontrolita estas '''$1'''; la mediano estas '''$2'''.
 $3",
-	'validationstatistics-table' => "Jen statistikoj pri paĝkontrolado por ĉiu nomspaco, ''eksklusivante'' alidirektilojn. Paĝoj estas konsiderataj kiel ''malfreŝaj'' se ili havas kontrolendajn redaktojn. Paĝoj estas konsiderataj kiel ''ĝisdataj'' se ne estas kontrolendaj redaktoj.",
+	'validationstatistics-table' => "Jen statistikoj pri paĝkontrolado por ĉiu nomspaco, ''eksklusivante'' alidirektilojn. Paĝoj estas konsiderataj kiel ''malfreŝaj'' se ili havas kontrolendajn redaktojn. Paĝoj estas konsiderataj kiel ''ĝisdataj'' se ne estas kontrolendaj redaktoj.", # Fuzzy
 	'validationstatistics-ns' => 'Nomspaco',
 	'validationstatistics-total' => 'Paĝoj',
 	'validationstatistics-stable' => 'Paĝoj kun almenaŭ unu revizio',
 	'validationstatistics-latest' => 'Sinkronigita',
 	'validationstatistics-synced' => 'Ĝisdatigitaj/Reviziitaj',
 	'validationstatistics-old' => 'Malfreŝaj',
+	'validationstatistics-unreviewed' => 'Nekontrolita',
 	'validationstatistics-utable' => 'Jen listo de la plej {{PLURAL:$1|aktiva kontrolanto|aktivaj kontrolantoj}} dum la {{PLURAL:$2|lasta horo|lastaj $2 horoj}}.',
 	'validationstatistics-user' => 'Uzanto',
 	'validationstatistics-reviews' => 'Kontrolaĵoj',
