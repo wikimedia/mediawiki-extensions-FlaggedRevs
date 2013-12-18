@@ -6752,6 +6752,7 @@ $messages['haw'] = array(
  * @author Amire80
  * @author DoviJ
  * @author Guycn1
+ * @author Guycn2
  * @author Nahum
  * @author Ori229
  * @author Rotemliss
@@ -6818,7 +6819,7 @@ $messages['he'] = array(
 	'review-logentry-id' => 'גרסה: $2',
 	'review-logentry-diff' => 'שינויים שנסקרו',
 	'review-logentry-diff2' => 'שינויים שסומנו כמיושנים',
-	'review-logpage' => 'יומן סקירה',
+	'review-logpage' => 'יומן סקירות',
 	'review-logpagetext' => 'זהו יומן שמציג את הגרסאות של דפי תוכן ש[[{{MediaWiki:Validationpage}}|נבדקו]].',
 	'reviewer' => 'סוקר',
 	'revreview-accuracy' => 'דיוק',
@@ -6845,12 +6846,12 @@ $messages['he'] = array(
 	'revreview-depth-4' => 'מומלץ',
 	'revreview-draft-title' => 'בדף זה מוצגים שינויים ממתינים',
 	'revreview-edit' => 'עריכה',
-	'revreview-editnotice' => "השינויים שלכם יוצגו לקוראים לאחר שמשתמש מורשה יקבל אותם. ([[{{MediaWiki:Validationpage}}|עזרה]])'''",
+	'revreview-editnotice' => "'''השינויים שלך יוצגו לקוראים לאחר שמשתמש מורשה יקבל אותם. ([[{{MediaWiki:Validationpage}}|עזרה]])'''",
 	'revreview-submitedit' => 'שליחת השינויים',
-	'revreview-submitedit-title' => 'שליחת השינויים שלכם לסקירה',
-	'revreview-edited' => "'''השינויים שלכם יוצגו לקוראים לאחר שמשתמש מורשה יקבל אותם. ([[{{MediaWiki:Validationpage}}|עזרה]])'''
+	'revreview-submitedit-title' => 'שליחת השינויים שלך לסקירה',
+	'revreview-edited' => "'''השינויים שלך יוצגו לקוראים לאחר שמשתמש מורשה יקבל אותם. ([[{{MediaWiki:Validationpage}}|עזרה]])'''
 
-יש [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$2|שינוי אחד|$2 שינויים}}] ''(מוצג{{PLURAL:$2||ים}} בהמשך)'' {{PLURAL:$2|שממתין|שממתינים}} לסקירה.",
+ישנם [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$2|שינוי אחד|$2 שינויים}}] ''(מוצג{{PLURAL:$2||ים}} בהמשך)'' ה{{PLURAL:$2|ממתין|ממתינים}} לסקירה.",
 	'revreview-edited-section' => 'חזרה לפסקה "[[#$1|$2]]".',
 	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$3|שינוי אחד|$3 שינויים}}] בגרסה הזאת [[{{MediaWiki:Validationpage}}|{{PLURAL:$3|ממתין|ממתינים}} לסקירה]].
 [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} הגרסה היציבה] [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} נבדקה] ב־<i>$2</i>.',

@@ -286,6 +286,12 @@ $specialPageAliases['gu'] = array(
 	'StablePages' => array( 'સ્થિરપાનાઓ' ),
 );
 
+/** Hebrew (עברית) */
+$specialPageAliases['he'] = array(
+	'ReviewedPages' => array( 'דפים_שנסקרו' ),
+	'UnreviewedPages' => array( 'דפים_שלא_נסקרו', 'דפים_שטרם_נסקרו', 'דפים_ללא_סקירות' ),
+);
+
 /** Hindi (हिन्दी) */
 $specialPageAliases['hi'] = array(
 	'PendingChanges' => array( 'अनिरीक्षित_पृष्ठ', 'अनिरीक्षित_पन्ने', 'पुरानेदेखेंहुएपन्ने' ),

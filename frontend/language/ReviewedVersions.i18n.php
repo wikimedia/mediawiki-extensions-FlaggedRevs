@@ -503,6 +503,7 @@ $messages['gsw'] = array(
 /** Hebrew (עברית)
  * @author Amire80
  * @author DoviJ
+ * @author Guycn2
  * @author Rotemliss
  * @author דניאל ב.
  */
@@ -512,7 +513,7 @@ $messages['he'] = array(
 	'reviewedversions-page' => 'שם הדף:',
 	'reviewedversions-none' => 'בדף "[[:$1]]" אין גרסאות שנסקרו.',
 	'reviewedversions-list' => 'להלן {{PLURAL:$2|הגרסה היחידה|רשימת הגרסאות}} של [[:$1]] {{PLURAL:$2|שנסקרה|שנסקרו}}:',
-	'reviewedversions-review' => 'נסקרה ב־<i>$1</i> על ידי $2',
+	'reviewedversions-review' => 'נסקרה ב־<i>$1</i> על־ידי $2',
 );
 
 /** Hindi (हिन्दी)

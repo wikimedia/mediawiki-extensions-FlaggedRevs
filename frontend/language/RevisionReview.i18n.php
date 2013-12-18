@@ -2451,6 +2451,7 @@ $messages['ha'] = array(
 /** Hebrew (עברית)
  * @author Amire80
  * @author Guycn1
+ * @author Guycn2
  * @author Rotemliss
  * @author StuB
  * @author YaronSh
@@ -2477,11 +2478,11 @@ $messages['he'] = array(
 	'review_reject_excessive' => 'לא ניתן לדחות כמות כזאת של עריכות בבת אחת.',
 	'review_reject_nulledits' => 'לא ניתן לדחות שינויים אלה מכיוון שכל הגרסאות הן עריכות ריקות.',
 	'revreview-check-flag-p' => 'לקבל את הגרסה הזאת (לרבות {{PLURAL:$1|השינוי הממתין|$1 השינויים הממתינים}})',
-	'revreview-check-flag-p-title' => 'לקבל את התוצאה של כל השינויים הממתינים ושל השינויים שעשיתם כאן. עשו זאת רק עם כבר ראיתם את כל ההשוואות של השינויים הממתינים.',
+	'revreview-check-flag-p-title' => 'לקבל את התוצאה של כל השינויים הממתינים ושל השינויים שביצעת כאן. נא לעשות זאת רק אם כבר ראית את כל ההשוואות של השינויים הממתינים.',
 	'revreview-check-flag-u' => 'לקבל את הדף הזה, שטרם נסקר',
-	'revreview-check-flag-u-title' => 'לקבל את הגרסה הזאת של הדף. עשו זאת רק אם ראיתם כבר את הדף כולו.',
+	'revreview-check-flag-u-title' => 'לקבל את הגרסה הזאת של הדף. נא לעשות זאת רק אם כבר ראית את הדף כולו.',
 	'revreview-check-flag-y' => 'לקבל את השינויים שלי',
-	'revreview-check-flag-y-title' => 'לקבל את כל השינויים שעשיתם בעריכה זו.',
+	'revreview-check-flag-y-title' => 'לקבל את כל השינויים שעשית בעריכה זו.',
 	'revreview-flag' => 'סקירה של גרסה זו',
 	'revreview-reflag' => 'סקירה חוזרת של גרסה זו',
 	'revreview-invalid' => "'''יעד בלתי תקין:''' מספר הגרסה שניתן אינו מצביע לגרסה [[{{MediaWiki:Validationpage}}|שנסקרה]].",
@@ -2489,8 +2490,8 @@ $messages['he'] = array(
 	'revreview-main' => 'כדי לסקור, יש לבחור גרסה מסוימת של דף תוכן.
 
 ראו את [[Special:Unreviewedpages|רשימת הדפים שלא נסקרו]].',
-	'revreview-stable1' => 'ייתכן שתרצו לצפות ב[{{fullurl:$1|stableid=$2}} גרסה מסומנת זו] ולראות האם היא עכשיו [{{fullurl:$1|stable=1}} הגרסה היציבה] של הדף הזה.',
-	'revreview-stable2' => 'ייתכן שתרצו לצפות ב[{{fullurl:$1|stable=1}} גרסה היציבה] של הדף הזה.',
+	'revreview-stable1' => 'ייתכן שברצונך לצפות ב[{{fullurl:$1|stableid=$2}} גרסה מסומנת זו] ולראות האם היא עכשיו [{{fullurl:$1|stable=1}} הגרסה היציבה] של הדף הזה.',
+	'revreview-stable2' => 'ייתכן שברצונך לצפות ב[{{fullurl:$1|stable=1}} גרסה היציבה] של הדף הזה.',
 	'revreview-submit' => 'שליחה',
 	'revreview-submitting' => 'נשלח...',
 	'revreview-submit-review' => 'קבלת הגרסה',
@@ -2532,7 +2533,7 @@ $messages['he'] = array(
 	'revreview-reject-summary-old-short' => '{{PLURAL:$1|נדחה שינוי הטקסט הראשון|נדחו $1 שינויי הטקסט הראשונים}} אחרי גרסה $2 מאת $3',
 	'revreview-tt-flag' => 'קבלת גרסה זו באמצעות סימונה כ"בדוקה"',
 	'revreview-tt-unflag' => 'דחיית הגרסה הזאת באמצעות סימונה כ"לא בדוקה"',
-	'revreview-tt-reject' => 'דחיית שינויים אלה על ידי שחזורם',
+	'revreview-tt-reject' => 'דחיית שינויים אלה על־ידי שחזורם',
 );
 
 /** Hindi (हिन्दी)
