@@ -4057,7 +4057,7 @@ Neue [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffo
 	'right-validate' => 'Versionen als geprüft markieren',
 	'right-unreviewedpages' => '[[Special:UnreviewedPages|Liste der ungesichteten Seiten]] ansehen',
 	'rights-editor-revoke' => 'entfernte Sichter-Status von „[[$1]]“',
-	'specialpages-group-quality' => 'Bearbeitung prüfen',
+	'specialpages-group-quality' => 'Bearbeitungen prüfen',
 	'stable-logentry-config' => 'hat die stabile Version von „$1“ konfiguriert',
 	'stable-logentry-modify' => 'hat die Konfiguration der stabilen Version von „$1“ geändert',
 	'stable-logentry-reset' => 'hat die Konfiguration zur stabilen Version von „$1“ verworfen',
