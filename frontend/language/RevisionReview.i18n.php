@@ -2244,10 +2244,12 @@ Volyéd controlar tôs los changements montrâs ce-desot por que los voutros apa
 );
 
 /** Western Frisian (Frysk)
+ * @author Kening Aldgilles
  * @author Snakesteuben
  */
 $messages['fy'] = array(
 	'revreview-log' => 'Oanmerking:',
+	'revreview-reject-cancel' => 'Ofbrekke',
 );
 
 /** Irish (Gaeilge)
