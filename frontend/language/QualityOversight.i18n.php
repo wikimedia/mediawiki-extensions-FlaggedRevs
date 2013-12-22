@@ -140,12 +140,12 @@ $messages['ca'] = array(
 	'qualityoversight-legend' => 'Cerca els registres de revisions recents',
 );
 
-/** Czech (česky)
+/** Czech (čeština)
  * @author Matěj Grabovský
  */
 $messages['cs'] = array(
 	'qualityoversight' => 'Dozor na kvalitu', # Fuzzy
-	'qualityoversight-list' => 'Tato stránka obsahuje seznam všech nedávných schválení kvalitních verzí a zastárání revizí.',
+	'qualityoversight-list' => 'Tato stránka obsahuje seznam všech nedávných schválení kvalitních verzí a zastarání revizí.',
 	'qualityoversight-legend' => 'Hledat v nedávných záznamech posouzení',
 );
 

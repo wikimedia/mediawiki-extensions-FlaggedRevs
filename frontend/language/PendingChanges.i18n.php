@@ -429,14 +429,14 @@ $messages['ce'] = array(
 	'pendingchanges-viewing' => '(хьовсамехь йу)',
 );
 
-/** Czech (česky)
+/** Czech (čeština)
  * @author Danny B.
  * @author Jkjk
  * @author Li-sung
  * @author Matěj Grabovský
  */
 $messages['cs'] = array(
-	'pendingchanges' => 'Zastaralé posouzené stránky', # Fuzzy
+	'pendingchanges' => 'Stránky s neposouzenými změnami',
 	'pendingchanges-legend' => 'Zobrazit seznam posouzených stránek s neprověřenými revizemi',
 	'pendingchanges-list' => 'Tato stránka obsahuje {{PLURAL:$1|posouzenou stránku, jejíž|seznam posouzených stránek, jejichž}} úpravy nebyly zatím prověřeny.', # Fuzzy
 	'pendingchanges-none' => 'Momentálně neexistují žádné stránky odpovídající těmto kritériím',
@@ -444,7 +444,7 @@ $messages['cs'] = array(
 	'pendingchanges-days' => '($1 {{plural:$1|den|dny|dní}})',
 	'pendingchanges-recent' => '(méně než 1 hodina)',
 	'pendingchanges-category' => 'Kategorie:',
-	'pendingchanges-onwatchlist' => 'Stránky na mém seznamu sledovaných stránek', # Fuzzy
+	'pendingchanges-onwatchlist' => 'Stránky na mém seznamu sledovaných stránek',
 	'pendingchanges-stable' => 'prohlédnuto', # Fuzzy
 	'pendingchanges-diff' => 'posoudit',
 	'pendingchanges-size' => 'Maximální velikost změny (v bajtech):',

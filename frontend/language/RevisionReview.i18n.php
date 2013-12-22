@@ -1165,7 +1165,7 @@ $messages['ckb'] = array(
 	'revreview-submit' => 'ناردن',
 );
 
-/** Czech (česky)
+/** Czech (čeština)
  * @author Danny B.
  * @author Jezevec
  * @author Jkjk
@@ -1177,7 +1177,7 @@ $messages['cs'] = array(
 	'revisionreview' => 'Posouzení verzí',
 	'revreview-failed' => "'''Nelze posoudit tuto revizi.''' Zadané údaje jsou neúplné nebo nesprávné.", # Fuzzy
 	'revreview-submission-invalid' => 'Příspěvek by nekompletní nebo jinak chybný.',
-	'review_page_invalid' => 'Cílová stránka je neplatná.', # Fuzzy
+	'review_page_invalid' => 'Název cílové stránky je neplatný.',
 	'review_page_notexists' => 'Cílová stránka neexistuje.',
 	'review_page_unreviewable' => 'Cílová stránka není posouditená.',
 	'review_no_oldid' => 'Nebylo uvedeno číslo revize',
@@ -1192,14 +1192,14 @@ $messages['cs'] = array(
 	'review_cannot_reject' => 'Tyto změny nelze odmítnout, protože někdo již přijal některé (nebo všechny) úpravy.',
 	'review_reject_excessive' => 'Nelze odmítnout tolik změn najednou.',
 	'review_reject_nulledits' => 'Tyto změny nelze odmítnout, protože jde o prázdné úpravy.',
-	'revreview-check-flag-p' => 'Akceptovat čekající změny', # Fuzzy
+	'revreview-check-flag-p' => 'Přijmout tuto verzi (včetně $1 {{PLURAL:$1|čekající změny|čekajících změn}})',
 	'revreview-check-flag-p-title' => 'Přijmout všechny čekající změny spolu vaší editací. Použijte, jen pokud jste již viděli rozdíl čekajících změn.', # Fuzzy
 	'revreview-check-flag-u' => 'Přimout tuto neposouzenou stránku',
 	'revreview-check-flag-u-title' => 'Přijmout tuto verzi stránky. Použijte jen pokud jste již viděli celou stránku.',
 	'revreview-check-flag-y' => 'Akceptovat tyto změny',
 	'revreview-check-flag-y-title' => 'Akceptovat všechny změny vaší editace.',
 	'revreview-flag' => 'Posoudit tuto verzi',
-	'revreview-reflag' => 'Označit tuto revizi za neposouzenou', # Fuzzy
+	'revreview-reflag' => 'Znovu posoudit tuto revizi',
 	'revreview-invalid' => "'''Neplatný cíl:''' žádná [[{{MediaWiki:Validationpage}}|posouzená]] verze neodpovídá zadanému ID.",
 	'revreview-log' => 'Komentář:',
 	'revreview-main' => 'Pro posouzení musíte vybrat určitou verzi stránky. 
