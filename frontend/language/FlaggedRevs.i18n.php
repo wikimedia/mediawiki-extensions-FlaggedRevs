@@ -3568,6 +3568,7 @@ $messages['ce'] = array(
 	'right-validate' => 'агӀонийн версеш нийса юй хьаьжна сана билгалъян',
 	'right-unreviewedpages' => '[[Special:UnreviewedPages|хьажанца йолу агӀонийн могӀане]] хьажар',
 	'specialpages-group-quality' => 'Бакъдар нисдарш',
+	'stable-logentry-modify' => 'хийцина дика версен нисяр цу «$1»',
 	'stable-logpage' => 'Цхьан эшшара йолучера тептар',
 	'revreview-filter-all' => 'массо',
 	'revreview-filter-stable' => 'Чутоьхна',
