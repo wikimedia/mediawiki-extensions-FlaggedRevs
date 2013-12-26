@@ -3456,6 +3456,7 @@ $messages['ce'] = array(
 	'flaggedrevs-prefs-watch' => 'Со хьаьжна агӀонаш, тергаме могӀанан юкъа тоха',
 	'flaggedrevs-prefs-editdiffs' => 'Гайта башхонаш хьаьжна а хьажанза даларехь агlонан редаккхарца',
 	'flaggedrevs-prefs-viewdiffs' => 'Гайта хьаьжназа болу хийцам хьажуш тlаьхьаралера агlон хьажанза долу далар',
+	'flaggedrevs-hidereviewed' => '$1 хьаьжна нисдарш',
 	'group-editor' => 'Гlаролхой',
 	'group-editor-member' => 'гlаролхо', # Fuzzy
 	'group-reviewer' => 'Нийсдохьажамхой',

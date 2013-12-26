@@ -1151,7 +1151,7 @@ $messages['ce'] = array(
 
 Шу хийцамаш латаба, цхьан эшар йолучу варсийца, дехар до, хьовсийша массо хийцамашка, гойтуш болу лахахьа.',
 	'revreview-update-includes' => 'Цхьа долу кепаш йа файлаш а карла даьхна:',
-	'revreview-reject-summary' => 'Хийцамех лаьцна:', # Fuzzy
+	'revreview-reject-summary' => 'Цунах лаьцна:',
 	'revreview-reject-confirm' => 'Юха баха иза хийцамаш',
 	'revreview-reject-cancel' => 'Цаоьшу',
 	'revreview-reject-summary-cur' => '{{PLURAL:$1|Йуха баькхина тlаьххьара $1 хийцам|Йуха баькхина тlаьххьара $1 хийцамаш}} ($2) а, варсий метта хlоттош $3 $4', # Fuzzy
