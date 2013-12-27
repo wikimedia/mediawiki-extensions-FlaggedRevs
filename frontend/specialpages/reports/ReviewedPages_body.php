@@ -42,7 +42,7 @@ class ReviewedPages extends SpecialPage {
 		// show/hide links
 		$showhide = array( $this->msg( 'show' )->escaped(), $this->msg( 'hide' )->escaped() );
 		$onoff = 1 - $this->hideRedirs;
-		$link = Linker::link( $this->getTitle(), $showhide[$onoff], array(),
+		$link = Linker::link( $this->getPageTitle(), $showhide[$onoff], array(),
 			 array( 'hideredirs' => $onoff, 'namespace' => $this->namespace )
 		);
 		$showhideredirs = $this->msg( 'whatlinkshere-hideredirs' )->rawParams( $link )->escaped();
@@ -61,7 +61,7 @@ class ReviewedPages extends SpecialPage {
 		if ( count( $fields ) ) {
 			$form .= " " . Xml::submitButton( $this->msg( 'go' )->text() );
 		}
-		$form .= Html::hidden( 'title', $this->getTitle()->getPrefixedDBKey() ) . "\n";
+		$form .= Html::hidden( 'title', $this->getPageTitle()->getPrefixedDBKey() ) . "\n";
 		$form .= "</fieldset>";
 		$form .= Html::closeElement( 'form ' ) . "\n";
 

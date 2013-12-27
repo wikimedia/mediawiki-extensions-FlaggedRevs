@@ -72,7 +72,7 @@ class PendingChanges extends SpecialPage {
 		$form = Html::openElement( 'form', array( 'name' => 'pendingchanges',
 			'action' => $wgScript, 'method' => 'get' ) ) . "\n";
 		$form .= "<fieldset><legend>" . $this->msg( 'pendingchanges-legend' )->escaped() . "</legend>\n";
-		$form .= Html::hidden( 'title', $this->getTitle()->getPrefixedDBKey() ) . "\n";
+		$form .= Html::hidden( 'title', $this->getPageTitle()->getPrefixedDBKey() ) . "\n";
 
 		$items = array();
 		if ( count( FlaggedRevs::getReviewNamespaces() ) > 1 ) {
@@ -176,7 +176,7 @@ class PendingChanges extends SpecialPage {
 		$feed = new $wgFeedClasses[$type](
 			$this->feedTitle(),
 			$this->msg( 'tagline' )->text(),
-			$this->getTitle()->getFullUrl()
+			$this->getPageTitle()->getFullUrl()
 		);
 		$this->pager->mLimit = min( $wgFeedLimit, $this->pager->mLimit );
 

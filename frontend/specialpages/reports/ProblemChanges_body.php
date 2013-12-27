@@ -64,7 +64,7 @@ class ProblemChanges extends SpecialPage {
 		$form = Html::openElement( 'form', array( 'name' => 'problemchanges',
 			'action' => $wgScript, 'method' => 'get' ) ) . "\n";
 		$form .= "<fieldset><legend>" . $this->msg( 'problemchanges-legend' )->escaped() . "</legend>\n";
-		$form .= Html::hidden( 'title', $this->getTitle()->getPrefixedDBKey() ) . "\n";
+		$form .= Html::hidden( 'title', $this->getPageTitle()->getPrefixedDBKey() ) . "\n";
 		$form .=
 			( FlaggedRevs::qualityVersions()
 				? "<span style='white-space: nowrap;'>" .
@@ -144,7 +144,7 @@ class ProblemChanges extends SpecialPage {
 		$feed = new $wgFeedClasses[$type](
 			$this->feedTitle(),
 			$this->msg( 'tagline' )->text(),
-			$this->getTitle()->getFullUrl()
+			$this->getPageTitle()->getFullUrl()
 		);
 		$this->pager->mLimit = min( $wgFeedLimit, $this->pager->mLimit );
 
