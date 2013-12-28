@@ -1532,6 +1532,7 @@ $messages['haw'] = array(
 /** Hebrew (עברית)
  * @author Amire80
  * @author DoviJ
+ * @author Guycn2
  * @author Ori229
  * @author Rotemliss
  * @author YaronSh
@@ -1544,7 +1545,7 @@ $messages['he'] = array(
 להלן ההגדרות הנוכחיות עבור [[:$1|$1]]:',
 	'stabilization-page' => 'שם הדף:',
 	'stabilization-leg' => 'אנא אשרו את הגדרות היציבות',
-	'stabilization-def' => 'הגרסה המופיעה לפי בררת מחדל',
+	'stabilization-def' => 'הגרסה המופיעה לפי ברירת מחדל',
 	'stabilization-def1' => 'הגרסה היציבה; אם היא לא קיימת, אז הגרסה האחרונה',
 	'stabilization-def2' => 'הגרסה האחרונה',
 	'stabilization-restrict' => 'הגבלות על סקירה וסקירה אוטומטית',
@@ -1558,7 +1559,7 @@ $messages['he'] = array(
 	'stabilization-otherreason' => 'סיבה אחרת:',
 	'stabilization-expiry' => 'פקיעה:',
 	'stabilization-othertime' => 'זמן פקיעה אחר:',
-	'stabilization-def-short' => 'בררת מחדל',
+	'stabilization-def-short' => 'ברירת מחדל',
 	'stabilization-def-short-0' => 'נוכחי',
 	'stabilization-def-short-1' => 'יציב',
 	'stabilize_page_invalid' => 'כותרת דף היעד אינה תקינה.',
