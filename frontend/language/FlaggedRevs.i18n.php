@@ -3478,7 +3478,7 @@ $messages['ce'] = array(
 	'review-edit-diff' => "'''БЕХК БАККХАР. АгӀон чура чоь, ахьа таеш ерг, хьажарехь, нийса ю ле яц хьоьжуш ю.'''",
 	'revreview-diff-toggle-show' => 'гайта хийцамаш',
 	'revreview-diff-toggle-hide' => 'къайлабаха хийцамаш',
-	'revreview-diff-toggle-title' => 'Дlаса тоха гайтар хьаьжанза хийцамаш оцу чутоьхначу варси',
+	'revreview-diff-toggle-title' => 'ДӀаса тоха гайтар хьаьжанза хийцамаш оцу чутоьхначу верси',
 	'revreview-log-toggle-show' => 'гайта цхьан эшара долу тептар',
 	'revreview-log-toggle-hide' => 'къайладаккха цхьан эшара долу тептар',
 	'revreview-log-toggle-title' => 'Латаде гучадокхуш цхьан эшшара долу тептар нисдан',
@@ -3492,7 +3492,7 @@ $messages['ce'] = array(
 	'review-logentry-diff' => 'хьаьжина хийцамаш',
 	'review-logentry-diff2' => 'шира белла хийцамаш',
 	'review-logpage' => 'Хьажаран тептар',
-	'review-logpagetext' => 'Хlара тептер ду гойтуш, муьлха варси яззамаш бу [[{{MediaWiki:Validationpage}}|хьаьжна]].',
+	'review-logpagetext' => 'ХӀара тептер ду гойтуш, муьлха верси яззамаш бу [[{{MediaWiki:Validationpage}}|хьаьжна]].',
 	'reviewer' => 'нийсдохьажамхо',
 	'revreview-accuracy' => 'Нийсалла',
 	'revreview-accuracy-0' => 'ХӀотийна яц',
@@ -3540,9 +3540,9 @@ $messages['ce'] = array(
 Хьажанза бу [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} хийцамаш оц куцкепашца йа хlумнашца].',
 	'revreview-quality-old' => 'Хlара [[{{MediaWiki:Validationpage}}|нийса йуй хьажна]] башхо йу ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} массо могlам]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} бакъйина] <i>$2</i>.
 Хила мега дина керла [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} нисдарш].',
-	'revreview-quality-same' => 'Хlара [[{{MediaWiki:Validationpage}}|чутоьхна башхо йу]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} бакъйина] <i>$2</i>.',
+	'revreview-quality-same' => 'ХӀара [[{{MediaWiki:Validationpage}}|чутоьхна башхо ю]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} бакъйина] <i>$2</i>.',
 	'revreview-quality-source' => '[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} Нийса йуй хьажна] хlокх агlон башхо, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} чекхйаллалц хьажна] <i>$2</i>, йара бухарчуьна башхоне йалийна.',
-	'revreview-quality-title' => 'Хlара нийса йуй хьаьжна агlон башхо йу',
+	'revreview-quality-title' => 'ХӀара нийса юй хьаьжна агӀон башхо ю',
 	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|Хьаьжнарг]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} гайта хьаьжанза хийцам]]",
 	'revreview-quick-basic-old' => "'''[[{{MediaWiki:Validationpage}}|Хьаьжнарг]]'''",
 	'revreview-quick-basic-same' => "'''[[{{MediaWiki:Validationpage}}|Хьаьжнарг]]'''",
@@ -3554,7 +3554,7 @@ $messages['ce'] = array(
 	'revreview-quick-see-basic' => '[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} гайта хьажанза хийцамаш]]',
 	'revreview-quick-see-quality' => '[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} гайта хьажанза хийцамаш]]',
 	'revreview-source' => 'Хьажар дlадолалун',
-	'revreview-basic-title' => 'Хlара нийса йуй хьаьжна агlон башхо йу',
+	'revreview-basic-title' => 'ХӀара нийса юй хьаьжна агӀон башхо ю',
 	'revreview-style' => 'Йешаман',
 	'revreview-style-0' => 'ХӀотийна яц',
 	'revreview-style-1' => 'тlелацамна',
@@ -3595,7 +3595,7 @@ $messages['ce'] = array(
 	'revreview-reviewlink' => 'хьажанза хийцамаш',
 	'revreview-reviewlink-title' => 'Хьажа массо башхоне хьажанза болучу хийцамашца',
 	'revreview-unreviewedpage' => 'хьажанза агlо',
-	'flaggedrevs-protect-none' => 'Массо декъашхойн бакъо йу',
+	'flaggedrevs-protect-none' => 'Массо декъашхойн бакъо ю',
 	'log-show-hide-review' => '$1 хьажаран тептар',
 );
 
@@ -9399,6 +9399,7 @@ $messages['kn'] = array(
  * @author Gapo
  * @author Klutzy
  * @author Kwj2772
+ * @author Priviet
  * @author Yknok29
  * @author 아라
  */
@@ -9461,7 +9462,7 @@ $messages['ko'] = array(
 	'review-logentry-id' => '판: $2',
 	'review-logentry-diff' => '검토한 편집의 차이',
 	'review-logentry-diff2' => '검토 철회한 편집의 차이',
-	'review-logpage' => '문서 검토 기록',
+	'review-logpage' => '검토 기록',
 	'review-logpagetext' => '편집 [[{{MediaWiki:Validationpage}}|검토]] 상태의 변화를 나타내는 기록입니다.',
 	'reviewer' => '평론가',
 	'revreview-accuracy' => '정확성',

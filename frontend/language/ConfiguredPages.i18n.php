@@ -208,7 +208,7 @@ Algunes podrien canviar amb la versió afixada pels lectors o restringeix la lli
  */
 $messages['ce'] = array(
 	'configuredpages-def-draft' => 'тlаьххьара верси',
-	'configuredpages-def-stable' => 'чутоьхна йолу варси',
+	'configuredpages-def-stable' => 'чутоьхна йолу верси',
 );
 
 /** Czech (česky)

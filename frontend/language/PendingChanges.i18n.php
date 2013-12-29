@@ -426,7 +426,7 @@ $messages['ce'] = array(
 	'pendingchanges-diff' => 'хьажа',
 	'pendingchanges-unwatched' => '(терго яц)',
 	'pendingchanges-watched' => '({{PLURAL:$1|терго йеш $1 жигар декъашхо|терго йеш $1 жигара декъашхой}})',
-	'pendingchanges-viewing' => '(хьовсамехь йу)',
+	'pendingchanges-viewing' => '(хьовсамехь ю)',
 );
 
 /** Czech (čeština)

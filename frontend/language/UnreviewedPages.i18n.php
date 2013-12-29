@@ -370,7 +370,7 @@ $messages['ce'] = array(
 	'unreviewedpages-diff' => 'хьажа',
 	'unreviewedpages-unwatched' => '(терго яц)',
 	'unreviewedpages-watched' => '({{PLURAL:$1|терго йеш $1 жигара декъашхо|терго йеш $1 жигара декъашхой}})',
-	'unreviewedpages-viewing' => '(талламяхь йу)',
+	'unreviewedpages-viewing' => '(талламяхь ю)',
 	'unreviewedpages-hours' => '($1 {{PLURAL:$1|сахьт}})',
 	'unreviewedpages-days' => '($1 {{PLURAL:$1|де}})',
 );

@@ -2170,7 +2170,7 @@ $messages['ko'] = array(
 [[:$1|$1]]에 현재 설정이 있습니다',
 	'stabilization-page' => '문서 이름:',
 	'stabilization-leg' => '게시 설정 확인',
-	'stabilization-def' => '기본 문서 보기에서 판 표시',
+	'stabilization-def' => '기본 문서 보기에서 보여줄 판',
 	'stabilization-def1' => '게시 판; 현재 판이 아니라면, 현재/임시 판',
 	'stabilization-def2' => '현재/임시 판',
 	'stabilization-restrict' => '검토/자동 검토 제한',
