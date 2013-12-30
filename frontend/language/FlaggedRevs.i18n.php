@@ -4130,6 +4130,7 @@ Momentan {{PLURAL:$2|gibt|gibt}} es [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=c
 );
 
 /** Zazaki (Zazaki)
+ * @author Asmen
  * @author Aspar
  * @author Erdemaslancan
  * @author Gorizon
@@ -4178,7 +4179,7 @@ $messages['diq'] = array(
 	'revreview-diff-toggle-show' => 'Nê vurnayışan bımocne',
 	'revreview-diff-toggle-hide' => 'vurnayışan bınımne',
 	'revreview-diff-toggle-title' => 'Toogle vurnayişan ke benate taslak u versiyanê çap biyaye mocnena',
-	'revreview-log-toggle-show' => 'Qeydé sabit rocekan bıasne',
+	'revreview-log-toggle-show' => 'qeydanê xurtiye bımocne',
 	'revreview-log-toggle-hide' => 'Qeydé sabit rocekan bınımn',
 	'revreview-log-toggle-title' => 'Mocnayişê toggleyi ke qeydé sazané sebiti',
 	'revreview-log-details-show' => 'detayan bimocne',
