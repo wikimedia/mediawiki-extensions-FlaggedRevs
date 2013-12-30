@@ -44,7 +44,7 @@ class StablePages extends SpecialPage {
 
 		$form = Html::openElement( 'form',
 			array( 'name' => 'stablepages', 'action' => $wgScript, 'method' => 'get' ) );
-		$form .= Html::hidden( 'title', $this->getTitle()->getPrefixedDBKey() );
+		$form .= Html::hidden( 'title', $this->getPageTitle()->getPrefixedDBKey() );
 		$form .= "<fieldset><legend>" . $this->msg( 'stablepages' )->text() . "</legend>\n";
 		$form .= implode( '&#160;', $fields ) . '&nbsp';
 		$form .= " " . Xml::submitButton( $this->msg( 'go' )->text() );

@@ -46,7 +46,7 @@ class UnreviewedPages extends SpecialPage {
 		# show/hide links
 		$showhide = array( $this->msg( 'show' )->escaped(), $this->msg( 'hide' )->escaped() );
 		$onoff = 1 - $this->hideRedirs;
-		$link = Linker::link( $this->getTitle(), $showhide[$onoff], array(),
+		$link = Linker::link( $this->getPageTitle(), $showhide[$onoff], array(),
 			array( 'hideredirs' => $onoff, 'category' => $this->category,
 				'namespace' => $this->namespace )
 		);
@@ -56,7 +56,7 @@ class UnreviewedPages extends SpecialPage {
 		$form = Html::openElement( 'form', array( 'name' => 'unreviewedpages',
 			'action' => $wgScript, 'method' => 'get' ) ) . "\n";
 		$form .= "<fieldset><legend>" . $this->msg( 'unreviewedpages-legend' )->escaped() . "</legend>\n";
-		$form .= Html::hidden( 'title', $this->getTitle()->getPrefixedDBKey() ) . "\n";
+		$form .= Html::hidden( 'title', $this->getPageTitle()->getPrefixedDBKey() ) . "\n";
 		# Add dropdowns as needed
 		if ( count( FlaggedRevs::getReviewNamespaces() ) > 1 ) {
 			$form .= FlaggedRevsXML::getNamespaceMenu( $this->namespace ) . '&#160;';
