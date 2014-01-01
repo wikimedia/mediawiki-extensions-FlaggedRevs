@@ -1098,7 +1098,7 @@ $messages['ca'] = array(
 $messages['ce'] = array(
 	'revisionreview' => 'Варсийшка хьажар',
 	'revreview-failed' => "'''Ца хьажало варсийга.'''",
-	'revreview-submission-invalid' => 'Хlоттам бара бузанза йа кхачам боцуш чулацамца.',
+	'revreview-submission-invalid' => 'ХӀоттам бара бузанза я кхачам боцуш чулацамца.',
 	'review_page_invalid' => 'Агlонан чулацамца йогlуш йоцу цlе.',
 	'review_page_notexists' => 'Iалаше хьажийна агӀо я яц.',
 	'review_page_unreviewable' => 'Iалаше хьажийна агӀо ю хьажаман.',
@@ -1109,7 +1109,7 @@ $messages['ce'] = array(
 	'review_too_low' => 'Хьажанза хила мега верси, хотта ца йина цхьац йолу метигlаш.',
 	'review_bad_key' => 'барам лато мегаш доцу дlогlа.',
 	'review_denied' => 'Тlекхача цамагийна.',
-	'review_param_missing' => 'Барам хlоттийна бац йа нийса ца хlоттийна.',
+	'review_param_missing' => 'Барам хӀоттийна бац я нийса ца хӀоттийна.',
 	'review_cannot_undo' => 'Гlулакх ца хуьлу хицамаш йуху баха, хlунда аьлча, кхин дlа хьоьжуш lаш болу хьажна хийцамаш бу оцун чохь.',
 	'review_cannot_reject' => 'Гlулакх ца хуьлу хицамаш йуху баха, хlунда аьлча хlинц цхьам къобал бина церах цхьац берг.',
 	'review_reject_excessive' => 'Гlулакх ца хуьлу оцул дукха хийцамаш сиха йуху баха.',
@@ -1126,7 +1126,7 @@ $messages['ce'] = array(
 	'revreview-main' => 'Ахьа харжа церах цхьа варсийн агlо, нийса йуй хьажарна.
 
 Хьажа. [[Special:Unreviewedpages|хьажанза агlонан могlам]].',
-	'revreview-stable1' => 'Хила мега хьо хьажа лууш [{{fullurl:$1|stableid=$2}} хlокх къастам биначу башхоне] йа хlокху агlона [{{fullurl:$1|stable=1}} чутоьхначу башхоне], нагахь исаннаг йалахь.',
+	'revreview-stable1' => 'Хила мега хьо хьажа лууш [{{fullurl:$1|stableid=$2}} хӀокх къастам биначу башхоне] я хӀокху агӀона [{{fullurl:$1|stable=1}} чутоьхначу башхоне], нагахь исаннаг йалахь.',
 	'revreview-stable2' => 'Хьона хьажалур ду [{{fullurl:$1|stable=1}} чутоьхначу башхоне] хӀокху агӀон.',
 	'revreview-submit' => 'Дlадахьийта',
 	'revreview-submitting' => 'Дlайахьийтар…',
