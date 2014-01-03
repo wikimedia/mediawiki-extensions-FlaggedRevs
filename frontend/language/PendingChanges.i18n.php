@@ -419,13 +419,13 @@ $messages['ca'] = array(
  * @author Умар
  */
 $messages['ce'] = array(
-	'pendingchanges-hours' => '($1 {{PLURAL:$1|сахьт}})',
+	'pendingchanges-hours' => '($1 {{PLURAL:$1|сахьт}})', # Fuzzy
 	'pendingchanges-days' => '($1 {{PLURAL:$1|де|денош|денош}})', # Fuzzy
 	'pendingchanges-recent' => '(лаххар 1 сахьтехь)',
 	'pendingchanges-category' => 'Категори:',
 	'pendingchanges-diff' => 'хьажа',
 	'pendingchanges-unwatched' => '(терго яц)',
-	'pendingchanges-watched' => '({{PLURAL:$1|терго йеш $1 жигар декъашхо|терго йеш $1 жигара декъашхой}})',
+	'pendingchanges-watched' => '({{PLURAL:$1|1=терго йеш $1 жигар декъашхо|терго йеш $1 жигара декъашхой}})', # Fuzzy
 	'pendingchanges-viewing' => '(хьовсамехь ю)',
 );
 
@@ -1719,8 +1719,8 @@ $messages['ru'] = array(
 	'pendingchanges-legend' => 'Список проверенных страниц с непроверенными версиями',
 	'pendingchanges-list' => 'На этой странице перечислены  [[{{MediaWiki:Validationpage}}|проверенные]] страницы с правками, ожидающими проверки.',
 	'pendingchanges-none' => 'В настоящее время нет страниц, удовлетворяющих этим условиям',
-	'pendingchanges-hours' => '($1 {{PLURAL:$1|час|часа|часов}})',
-	'pendingchanges-days' => '($1 {{PLURAL:$1|день|дня|дней}})',
+	'pendingchanges-hours' => '($1 {{PLURAL:$1|час|часов|часа}})', # Fuzzy
+	'pendingchanges-days' => '($1 {{PLURAL:$1|день|дней|дня}})', # Fuzzy
 	'pendingchanges-recent' => '(менее 1 часа)',
 	'pendingchanges-category' => 'Категория:',
 	'pendingchanges-onwatchlist' => 'Страницы из моего списка наблюдения',
@@ -1728,7 +1728,7 @@ $messages['ru'] = array(
 	'pendingchanges-diff' => 'проверить',
 	'pendingchanges-size' => 'Наибольшее изменение в байтах:',
 	'pendingchanges-unwatched' => '(не следят)',
-	'pendingchanges-watched' => '({{PLURAL:$1|следит $1 активный участник|следят $1 активных участника|следят $1 активных участников}})',
+	'pendingchanges-watched' => '({{PLURAL:$1|следит $1 активный участник|следят $1 активных участников|следят $1 активных участника}})', # Fuzzy
 	'pendingchanges-viewing' => '(проверяются)',
 );
 
@@ -1893,8 +1893,8 @@ $messages['sr-ec'] = array(
 	'pendingchanges-legend' => 'Списак прегледаних страница са непрегледаним верзијама.',
 	'pendingchanges-list' => 'Ова страница наводи [[{{MediaWiki:Validationpage}}|прегледане]] странице које имају једну или више измена на чекању.',
 	'pendingchanges-none' => 'Тренутно нема страница које испуњавају ове критеријуме',
-	'pendingchanges-hours' => '($1 {{PLURAL:$1|сат|сати}})',
-	'pendingchanges-days' => '($1 {{PLURAL:$1|дан|дана}})',
+	'pendingchanges-hours' => '($1 {{PLURAL:$1|1=сат|сати}})', # Fuzzy
+	'pendingchanges-days' => '($1 {{PLURAL:$1|1=дан|дана}})', # Fuzzy
 	'pendingchanges-recent' => '(мање од једног сата)',
 	'pendingchanges-category' => 'Категорија:',
 	'pendingchanges-onwatchlist' => 'Странице на мом списку надгледања',
@@ -1915,8 +1915,8 @@ $messages['sr-el'] = array(
 	'pendingchanges-legend' => 'Spisak pregledanih stranica sa nepregledanim verzijama.',
 	'pendingchanges-list' => 'Ova stranica navodi [[{{MediaWiki:Validationpage}}|pregledane]] stranice koje imaju jednu ili više izmena na čekanju.',
 	'pendingchanges-none' => 'Trenutno nema stranica koje ispunjavaju ove kriterijume',
-	'pendingchanges-hours' => '($1 {{PLURAL:$1|sat|sati}})',
-	'pendingchanges-days' => '($1 {{PLURAL:$1|dan|dana}})',
+	'pendingchanges-hours' => '($1 {{PLURAL:$1|1=sat|sati}})', # Fuzzy
+	'pendingchanges-days' => '($1 {{PLURAL:$1|1=dan|dana}})', # Fuzzy
 	'pendingchanges-recent' => '(manje od jednog časa)',
 	'pendingchanges-category' => 'Kategorija:',
 	'pendingchanges-onwatchlist' => 'Stranice na mom spisku nadgledanja',

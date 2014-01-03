@@ -1392,9 +1392,9 @@ $3",
  */
 $messages['krc'] = array(
 	'validationstatistics' => 'Бетлени сынауну статистикасы',
-	'validationstatistics-users' => "{{SITENAME}}''' проектде бусагъатда [[{{MediaWiki:Validationpage}}|Редактор]] хакълагъа ие '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|къошулуучу|къошулуучу}} барды.
+	'validationstatistics-users' => "{{SITENAME}}''' проектде бусагъатда [[{{MediaWiki:Validationpage}}|Редактор]] хакълагъа ие '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|1=къошулуучу|къошулуучу}} барды.
 
-«Редакторла» —  бетлени белгили версияларын сайлама сынау бардырыргъа эркин къошулуучуладыла.",
+«Редакторла» —  бетлени белгили версияларын сайлама сынау бардырыргъа эркин къошулуучуладыла.", # Fuzzy
 );
 
 /** Colognian (Ripoarisch)
@@ -2000,7 +2000,7 @@ $messages['ru'] = array(
 	'validationstatistics' => 'Статистика проверок страниц',
 	'validationstatistics-users' => "В проекте {{SITENAME}} на данный момент '''[[Special:ListUsers/editor|$1]]''' {{plural:$1|участник имееет|участника имеют|участников имеют}} полномочия [[{{MediaWiki:Validationpage}}|«редактора»]].
 
-«Редакторы» — это определённые участники, имеющие возможность делать выборочную проверку конкретных версий страниц.",
+«Редакторы» — это определённые участники, имеющие возможность делать выборочную проверку конкретных версий страниц.", # Fuzzy
 	'validationstatistics-lastupdate' => "''Следующие данные были последний раз обновлены $1 в $2.''",
 	'validationstatistics-pndtime' => "Правки, отмеченные определёнными участниками, рассматриваются как ''{{int:validationstatistics-stable}}''.
 
@@ -2017,7 +2017,7 @@ $3",
 	'validationstatistics-synced' => 'Доля перепроверенных в проверенных',
 	'validationstatistics-old' => 'Устаревшие',
 	'validationstatistics-unreviewed' => 'Непроверенные',
-	'validationstatistics-utable' => 'Ниже приведён список из {{PLURAL:$1|$1 наиболее активного выверяющего|$1 наиболее активных выверяющих|$1 наиболее активных выверяющих}} за {{PLURAL:$2|последний $2 час|последние $2 часа|последние $2 часов}}.',
+	'validationstatistics-utable' => 'Ниже приведён список из {{PLURAL:$1|$1 наиболее активного выверяющего|$1 наиболее активных выверяющих|$1 наиболее активных выверяющих}} за {{PLURAL:$2|последний $2 час|последние $2 часов|последние $2 часа}}.', # Fuzzy
 	'validationstatistics-user' => 'Участник',
 	'validationstatistics-reviews' => 'Проверки',
 );
@@ -2421,7 +2421,7 @@ $3",
 	'validationstatistics-synced' => 'Повторно перевірені',
 	'validationstatistics-old' => 'Застарілі',
 	'validationstatistics-unreviewed' => 'Неперевірені',
-	'validationstatistics-utable' => 'Нижче представлено {{PLURAL:$1|найбільш активного редактора|список $1 найбільш активних редакторів}} за {{PLURAL:$2|останню $2 годину|останні $2 години|останніх $2 годин}}.',
+	'validationstatistics-utable' => 'Нижче представлено {{PLURAL:$1|1=найбільш активного редактора|список $1 найбільш активних редакторів}} за {{PLURAL:$2|останню $2 годину|останні $2 години|останніх $2 годин}}.',
 	'validationstatistics-user' => 'Користувач',
 	'validationstatistics-reviews' => 'Перевірок',
 );
@@ -2503,12 +2503,14 @@ $messages['vi'] = array(
 
 Biên tập viên là người dùng có kinh nghiệm có khả năng kiểm tra nhanh các thay đổi tại trang.",
 	'validationstatistics-lastupdate' => "''Các dữ liệu sau được cập nhật lần cuối vào $1 lúc $2.''",
-	'validationstatistics-pndtime' => "Những sửa đổi được ''duyệt'' khi được người dùng có kinh nghiệm xem qua.
+	'validationstatistics-pndtime' => "Những sửa đổi ''{{int:validationstatistics-stable}}'' khi được người dùng có kinh nghiệm xem qua.
 
-[[Special:OldReviewedPages|Các trang có sửa đổi đang chờ duyệt]] đã chờ đợi '''$1''' trung bình, tính theo sửa đổi cũ nhất đang chờ duyệt.", # Fuzzy
+[[Special:OldReviewedPages|Các trang có sửa đổi hiện đang chờ duyệt]] đã chờ đợi '''$1''' trung bình, tính theo sửa đổi cũ nhất đang chờ duyệt.",
 	'validationstatistics-revtime' => "Những sửa đổi của ''người dùng vô danh'' phải chờ đợi '''$1''' trung bình; thời gian trung vị là '''$2'''.
 $3",
-	'validationstatistics-table' => "Đây có thống kê duyệt trang về các không gian tên, ''trừ'' các trang đổi hướng. Mỗi trang ''lỗi thời'' có sửa đổi đang chờ duyệt, còn các trang ''cập nhật'' đã được duyệt tới sửa đổi gần đây nhất.", # Fuzzy
+	'validationstatistics-table' => "Đây có thống kê duyệt trang về các không gian tên, ''trừ'' các trang đổi hướng.
+
+Mỗi trang ''{{int:validationstatistics-old}}'' có sửa đổi đang chờ duyệt, còn các trang ''{{int:validationstatistics-latest}}'' đã được duyệt tới sửa đổi gần đây nhất.",
 	'validationstatistics-ns' => 'Không gian tên',
 	'validationstatistics-total' => 'Số trang',
 	'validationstatistics-stable' => 'Được duyệt',

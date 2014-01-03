@@ -183,7 +183,7 @@ $messages['be-tarask'] = array(
 	'reviewedversions-leg1' => 'Сьпіс правераных вэрсіяў старонкі',
 	'reviewedversions-page' => 'Назва старонкі:',
 	'reviewedversions-none' => '«[[:$1]]» ня мае правераных вэрсіяў.',
-	'reviewedversions-list' => '{{PLURAL:$2|Наступная вэрсія|Наступныя вэрсіі}} старонкі [[:$1]] {{PLURAL:$2|была правераная|былі правераныя}}:',
+	'reviewedversions-list' => '{{PLURAL:$2|1=Наступная вэрсія|Наступныя вэрсіі}} старонкі [[:$1]] {{PLURAL:$2|1=была правераная|былі правераныя}}:', # Fuzzy
 	'reviewedversions-review' => 'Правераная <i>$1</i> {{GENDER:$2|удзельнікам|удзельніцай}} $2',
 );
 
@@ -1042,7 +1042,7 @@ $messages['ru'] = array(
 	'reviewedversions-leg1' => 'Список проверенных версий страницы',
 	'reviewedversions-page' => 'Название страницы:',
 	'reviewedversions-none' => '«[[:$1]]» не имеет проверенных версий.',
-	'reviewedversions-list' => '{{PLURAL:$2|Была проверена следующая версия|Были проверены следующие версии}} страницы «[[:$1]]»:',
+	'reviewedversions-list' => '{{PLURAL:$2|1=Была проверена следующая версия|Были проверены следующие версии}} страницы «[[:$1]]»:', # Fuzzy
 	'reviewedversions-review' => 'Проверена <i>$1</i> участником $2',
 );
 
@@ -1145,7 +1145,7 @@ $messages['sr-ec'] = array(
 	'reviewedversions-leg1' => 'Списак прегледаних ревизија за страну',
 	'reviewedversions-page' => 'Назив странице:',
 	'reviewedversions-none' => '"[[:$1]]" нема прегледаних ревизија.',
-	'reviewedversions-list' => 'Следи списак {{PLURAL:$2|једине ревизије|ревизија}} из [[:$1]], {{PLURAL:$2|која је прегледана|које су прегледане}}:',
+	'reviewedversions-list' => 'Следи списак {{PLURAL:$2|1=једине ревизије|ревизија}} из [[:$1]], {{PLURAL:$2|1=која је прегледана|које су прегледане}}:', # Fuzzy
 	'reviewedversions-review' => 'Прегледано на <i>$1</i> од стране $2',
 );
 
@@ -1157,7 +1157,7 @@ $messages['sr-el'] = array(
 	'reviewedversions-leg1' => 'Spisak pregledanih verzija za stranu.',
 	'reviewedversions-page' => 'Ime stranice:',
 	'reviewedversions-none' => '"[[:$1]]" nema pregledanih verzija.',
-	'reviewedversions-list' => 'Sledi spisak {{PLURAL:$2|jedine revizije|revizija}} iz [[:$1]], {{PLURAL:$2|koja je pregledana|koje su pregledane}}:',
+	'reviewedversions-list' => 'Sledi spisak {{PLURAL:$2|1=jedine revizije|revizija}} iz [[:$1]], {{PLURAL:$2|1=koja je pregledana|koje su pregledane}}:', # Fuzzy
 	'reviewedversions-review' => 'Pregledano na <i>$1</i> od strane saradnika $2.',
 );
 
@@ -1300,6 +1300,7 @@ $messages['ug-arab'] = array(
 
 /** Ukrainian (українська)
  * @author Ahonc
+ * @author Andriykopanytsia
  * @author Prima klasy4na
  */
 $messages['uk'] = array(
@@ -1307,7 +1308,7 @@ $messages['uk'] = array(
 	'reviewedversions-leg1' => 'Список перевірених версій сторінки',
 	'reviewedversions-page' => 'Назва сторінки:',
 	'reviewedversions-none' => '«[[:$1]]» не має перевірених версій.',
-	'reviewedversions-list' => '{{PLURAL:$2|Лише одна версія сторінки «[[:$1]]» була перевірена|Такі версії сторінки «[[:$1]]» були перевірені}}:',
+	'reviewedversions-list' => '{{PLURAL:$2|1=Лише одна версія сторінки «[[:$1]]» була перевірена|Такі версії сторінки «[[:$1]]» були перевірені}}:',
 	'reviewedversions-review' => 'Перевірена <i>$1</i> користувачем $2',
 );
 

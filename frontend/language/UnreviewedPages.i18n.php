@@ -369,10 +369,10 @@ $messages['ce'] = array(
 	'unreviewedpages-category' => 'Категори:',
 	'unreviewedpages-diff' => 'хьажа',
 	'unreviewedpages-unwatched' => '(терго яц)',
-	'unreviewedpages-watched' => '({{PLURAL:$1|терго йеш $1 жигара декъашхо|терго йеш $1 жигара декъашхой}})',
+	'unreviewedpages-watched' => '({{PLURAL:$1|1=терго йеш $1 жигара декъашхо|терго йеш $1 жигара декъашхой}})', # Fuzzy
 	'unreviewedpages-viewing' => '(талламяхь ю)',
-	'unreviewedpages-hours' => '($1 {{PLURAL:$1|сахьт}})',
-	'unreviewedpages-days' => '($1 {{PLURAL:$1|де}})',
+	'unreviewedpages-hours' => '($1 {{PLURAL:$1|сахьт}})', # Fuzzy
+	'unreviewedpages-days' => '($1 {{PLURAL:$1|де}})', # Fuzzy
 );
 
 /** Sorani Kurdish (کوردی)
@@ -1631,12 +1631,12 @@ $messages['ru'] = array(
 	'unreviewedpages-category' => 'Категория:',
 	'unreviewedpages-diff' => 'проверить',
 	'unreviewedpages-unwatched' => '(не следят)',
-	'unreviewedpages-watched' => '({{PLURAL:$1|следит $1 активный участник|следят $1 активных участника|следят $1 активных участников}})',
+	'unreviewedpages-watched' => '({{PLURAL:$1|следит $1 активный участник|следят $1 активных участников|следят $1 активных участника}})', # Fuzzy
 	'unreviewedpages-list' => "На этой странице перечислены статьи, которые ещё ''не'' были [[{{MediaWiki:Validationpage}}|оценены]] на указанный уровень.",
 	'unreviewedpages-none' => 'В настоящий момент нет страниц, удовлетворяющих указанным условиям',
 	'unreviewedpages-viewing' => '(проверяется)',
-	'unreviewedpages-hours' => '($1 {{PLURAL:$1|час|часа|часов}})',
-	'unreviewedpages-days' => '($1 {{PLURAL:$1|день|дня|дней}})',
+	'unreviewedpages-hours' => '($1 {{PLURAL:$1|час|часов|часа}})', # Fuzzy
+	'unreviewedpages-days' => '($1 {{PLURAL:$1|день|дней|дня}})', # Fuzzy
 	'unreviewedpages-recent' => '(менее 1 часа)',
 );
 
@@ -1773,12 +1773,12 @@ $messages['sr-ec'] = array(
 	'unreviewedpages-category' => 'Категорија:',
 	'unreviewedpages-diff' => 'преглед',
 	'unreviewedpages-unwatched' => '(ненадзирано)',
-	'unreviewedpages-watched' => '($1 {{PLURAL:$1|активан корисник надгледа|акхивних корисника надгледају}})',
+	'unreviewedpages-watched' => '($1 {{PLURAL:$1|1=активан корисник надгледа|акхивних корисника надгледају}})', # Fuzzy
 	'unreviewedpages-list' => "На овој страници су наведене странице са садржајем које још ''нису'' [[{{MediaWiki:Validationpage}}|прегледане]] до одређеног нивоа.",
 	'unreviewedpages-none' => 'Не постоји ниједна страница која се поклапа са овим критеријумима.',
 	'unreviewedpages-viewing' => '(под прегледом)',
-	'unreviewedpages-hours' => '($1 {{PLURAL:$1|сат|сати}})',
-	'unreviewedpages-days' => '($1 {{PLURAL:$1|дан|дана}})',
+	'unreviewedpages-hours' => '($1 {{PLURAL:$1|1=сат|сати}})', # Fuzzy
+	'unreviewedpages-days' => '($1 {{PLURAL:$1|1=дан|дана}})', # Fuzzy
 	'unreviewedpages-recent' => '(мање од једног сата)',
 );
 
@@ -1791,12 +1791,12 @@ $messages['sr-el'] = array(
 	'unreviewedpages-category' => 'Kategorija:',
 	'unreviewedpages-diff' => 'pregled',
 	'unreviewedpages-unwatched' => '(nenadzirano)',
-	'unreviewedpages-watched' => '($1 {{PLURAL:$1|aktivan korisnik nadgleda|akhivnih korisnika nadgledaju}})',
+	'unreviewedpages-watched' => '($1 {{PLURAL:$1|1=aktivan korisnik nadgleda|akhivnih korisnika nadgledaju}})', # Fuzzy
 	'unreviewedpages-list' => "Na ovoj stranici su navedene stranice sa sadržajem koje još ''nisu'' [[{{MediaWiki:Validationpage}}|pregledane]] do određenog nivoa.",
 	'unreviewedpages-none' => 'Ne postoji nijedna strana koja se poklapa sa ovim kriterijima.',
 	'unreviewedpages-viewing' => '(pod pregledom)',
-	'unreviewedpages-hours' => '($1 {{PLURAL:$1|sat|sati}})',
-	'unreviewedpages-days' => '($1 {{PLURAL:$1|dan|dana}})',
+	'unreviewedpages-hours' => '($1 {{PLURAL:$1|1=sat|sati}})', # Fuzzy
+	'unreviewedpages-days' => '($1 {{PLURAL:$1|1=dan|dana}})', # Fuzzy
 	'unreviewedpages-recent' => '(manje od sata)',
 );
 
