@@ -15359,7 +15359,7 @@ $messages['te'] = array(
 	'group-editor' => 'ఎడిటర్లు',
 	'group-editor-member' => 'ఎడిటర్', # Fuzzy
 	'group-reviewer' => 'సమీక్షకులు',
-	'group-reviewer-member' => 'సమీక్షకులు', # Fuzzy
+	'group-reviewer-member' => '{{GENDER:$1|సమీక్షకులు}}',
 	'grouppage-editor' => '{{ns:project}}:ఎడిటర్',
 	'grouppage-reviewer' => '{{ns:project}}:సమీక్షకులు',
 	'group-autoreview' => 'ఆటో రివ్యూవర్స్',
@@ -17703,11 +17703,11 @@ $messages['zh-hant'] = array(
 
 有[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$2|$2|$2}}個{{PLURAL:$2|更改|更改}}]''（如下所示）''正在等待覆審。",
 	'revreview-edited-section' => '回到「[[#$1|$2]]」章節。',
-	'revreview-newest-basic' => '該版本中有[{{fullurl:{{​​FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3個{{PLURAL:$3|更改|更改}}]{{PLURAL: $3|正在|正在}}[[{{MediaWiki:Validationpage}}|等待複審]]。
+	'revreview-newest-basic' => '該版本中有[{{fullurl:{{​​FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3個{{PLURAL:$3|更改|更改}}]{{PLURAL:$3|正在|正在}}[[{{MediaWiki:Validationpage}}|等待複審]]。
 當前[{{fullurl:{{​​FULLPAGENAMEE}}|stable=1}} 穩定版本][{{fullurl:{{​​#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 檢查]於$2。',
 	'revreview-newest-basic-i' => '該版本中有[{{fullurl:{{​​FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 對模板或文件的更改]正在[[{{MediaWiki:Validationpage}}|等待複審]]。
 當前[{{fullurl:{{​​FULLPAGENAMEE}}|stable=1}} 穩定版本][{{fullurl:{{​​#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 檢查]於$2。',
-	'revreview-newest-quality' => '該版本中有[{{fullurl:{{​​FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3個{{PLURAL:$3|更改|更改}}]{{PLURAL: $3|正在|正在}}[[{{MediaWiki:Validationpage}}|等待複審]]。
+	'revreview-newest-quality' => '該版本中有[{{fullurl:{{​​FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3個{{PLURAL:$3|更改|更改}}]{{PLURAL:$3|正在|正在}}[[{{MediaWiki:Validationpage}}|等待複審]]。
 當前[{{fullurl:{{​​FULLPAGENAMEE}}|stable=1}} 穩定版本][{{fullurl:{{​​#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 通過]於$2。',
 	'revreview-newest-quality-i' => '該版本中有[{{fullurl:{{​​FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 對模板或文件的更改]正在[[{{MediaWiki:Validationpage}}|等待複審]]。
 當前[{{fullurl:{{​​FULLPAGENAMEE}}|stable=1}} 穩定版本][{{fullurl:{{​​#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} 通過]於$2。',

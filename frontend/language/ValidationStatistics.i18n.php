@@ -252,7 +252,7 @@ $messages['az'] = array(
  */
 $messages['be'] = array(
 	'validationstatistics' => 'Статыстыка праверак старонак',
-	'validationstatistics-users' => "У праекце {{SITENAME}} на дадзены момант '''[[Special:ListUsers/editor|$1]]''' {{plural:$1|удзельнік мае|удзельнікі маюць|удзельнікаў маюць}} паўнамоцтвы [[{{MediaWiki:Validationpage}}|«рэдактара»]].
+	'validationstatistics-users' => "У праекце {{SITENAME}} на дадзены момант '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|удзельнік мае|удзельнікі маюць|удзельнікаў маюць}} паўнамоцтвы [[{{MediaWiki:Validationpage}}|«рэдактара»]].
 
 «Рэдактары» — гэта пэўныя ўдзельнікі, якія маюць магчымасць рабіць выбарачную праверку пэўных версій старонак.",
 	'validationstatistics-lastupdate' => "''Наступныя дадзеныя былі апошні раз абноўленыя $1 у $2.''",
@@ -1316,12 +1316,12 @@ $3",
  */
 $messages['ka'] = array(
 	'validationstatistics' => 'გვერდების შემოწმების სტატისტიკა',
-	'validationstatistics-users' => "პროექტ {{SITENAME}}ში ამ მომენტისთვის '''[[Special:ListUsers/editor|$1]]''' {{plural:$1|მომხმარებელი|მომხმარებელს}} აქვს [[{{MediaWiki:Validationpage}}|„შემმოწმებლის“]] სტატუსი.
+	'validationstatistics-users' => "პროექტ {{SITENAME}}ში ამ მომენტისთვის '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|მომხმარებელი|მომხმარებელს}} აქვს [[{{MediaWiki:Validationpage}}|„შემმოწმებლის“]] სტატუსი.
 
 
 „შემმოწმებლები“ არიან მომხმარებლები, რომლებსაც შეუძლიათ სტატიის კონკრეტული ვერსიების შემოწმება.",
 	'validationstatistics-lastupdate' => "''აღნიშნული მონაცემები ბოლოს განახლდა $1, $2",
-	'validationstatistics-table' => 'ქვემოთ ნაჩვენებია სტატისტიკა თითოეული სახელთა სივრცისათვის, \'\'გარდა\'\' გადამისამართების გვერდებისა. გვერდები "მოძველებულად" ითვლება, თუ ისინი შეიცავენ შეუმოწმებელ ცვლილებებს; გვერდები ითვლება "სინქრონიზირებულად", თუ მათ არ გააჩნიათ შემოწმების მომლოდინე ცვლილებები.',
+	'validationstatistics-table' => 'ქვემოთ ნაჩვენებია სტატისტიკა თითოეული სახელთა სივრცისათვის, \'\'გარდა\'\' გადამისამართების გვერდებისა. გვერდები "მოძველებულად" ითვლება, თუ ისინი შეიცავენ შეუმოწმებელ ცვლილებებს; გვერდები ითვლება "სინქრონიზირებულად", თუ მათ არ გააჩნიათ შემოწმების მომლოდინე ცვლილებები.', # Fuzzy
 	'validationstatistics-ns' => 'სახელთა სივრცე',
 	'validationstatistics-total' => 'გვერდები',
 	'validationstatistics-stable' => 'შემოწმებული',
@@ -1998,7 +1998,7 @@ $3",
  */
 $messages['ru'] = array(
 	'validationstatistics' => 'Статистика проверок страниц',
-	'validationstatistics-users' => "В проекте {{SITENAME}} на данный момент '''[[Special:ListUsers/editor|$1]]''' {{plural:$1|участник имееет|участника имеют|участников имеют}} полномочия [[{{MediaWiki:Validationpage}}|«редактора»]].
+	'validationstatistics-users' => "В проекте {{SITENAME}} на данный момент '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|участник имееет|участника имеют|участников имеют}} полномочия [[{{MediaWiki:Validationpage}}|«редактора»]].
 
 «Редакторы» — это определённые участники, имеющие возможность делать выборочную проверку конкретных версий страниц.", # Fuzzy
 	'validationstatistics-lastupdate' => "''Следующие данные были последний раз обновлены $1 в $2.''",
@@ -2027,17 +2027,17 @@ $3",
  */
 $messages['rue'] = array(
 	'validationstatistics' => 'Штатістіка рецензовань сторінок',
-	'validationstatistics-users' => "У проекті '''{{SITENAME}}''' зараз '''[[Special:ListUsers/editor|$1]]''' {{plural:$1|хоснователь має|хоснователїв мають|хоснователїв мають}} права [[{{MediaWiki:Validationpage}}|«редактор»]].
+	'validationstatistics-users' => "У проекті '''{{SITENAME}}''' зараз '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|хоснователь має|хоснователїв мають|хоснователїв мають}} права [[{{MediaWiki:Validationpage}}|«редактор»]].
 
-«Редакторы» — становлены хоснователї, котры мають можность робити выберову перевірку конкретных верзій сторінок.",
+«Редакторы» — становлены хоснователї, котры мають можность робити выберову перевірку конкретных верзій сторінок.", # Fuzzy
 	'validationstatistics-lastupdate' => "''Наступны дата были остатнїй раз обновлены $1 о $2.''",
 	'validationstatistics-pndtime' => "Едітованя, котры были перевірены становленыма хоснователями ся поважують за ''перевірены''
 
 Середня затримка про [[Special:OldReviewedPages|сторінок з управами, котры чекають на перевірку]] становить '''$1'''.
-Тот параметер зображує як довго неперевірена сторінка ся зохабить без увагы рецензентів.",
+Тот параметер зображує як довго неперевірена сторінка ся зохабить без увагы рецензентів.", # Fuzzy
 	'validationstatistics-revtime' => "Середнїй час чеканя про едітованя од ''неприголошеных хоснователїв'' на посуджіня є '''$1'''; медіан є '''$2'''.
 $3",
-	'validationstatistics-table' => 'Штатістіка рецензовань сторінок про каждый простор назв указана ниже, "без" сторінок напрямлїня. Сторінкы ся поважують за "застаралы", кідь не мають едітованя,  котры чекають на перевірку.',
+	'validationstatistics-table' => 'Штатістіка рецензовань сторінок про каждый простор назв указана ниже, "без" сторінок напрямлїня. Сторінкы ся поважують за "застаралы", кідь не мають едітованя,  котры чекають на перевірку.', # Fuzzy
 	'validationstatistics-ns' => 'Простор назв',
 	'validationstatistics-total' => 'Сторінкы',
 	'validationstatistics-stable' => 'Перевірены',
@@ -2403,7 +2403,7 @@ $messages['ug-arab'] = array(
  */
 $messages['uk'] = array(
 	'validationstatistics' => 'Статистика рецензувань сторінок',
-	'validationstatistics-users' => "У проекті '''{{SITENAME}}''' зараз '''[[Special:ListUsers/editor|$1]]''' {{plural:$1|користувач має|користувачі мають|користувачів мають}} права [[{{MediaWiki:Validationpage}}|«редактор»]].
+	'validationstatistics-users' => "У проекті '''{{SITENAME}}''' зараз '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|користувач має|користувачі мають|користувачів мають}} права [[{{MediaWiki:Validationpage}}|«редактор»]].
 
 «Редактори» — визначені користувачі, що мають можливість робити вибіркову перевірку конкретних версій сторінок.",
 	'validationstatistics-lastupdate' => "''Наступні дані востаннє оновлювались $1 о $2.''",
@@ -2469,19 +2469,19 @@ Ste pagine le xe considerà ''obsolete''. Le se considera ''agiornà'' se no ghe
  */
 $messages['vep'] = array(
 	'validationstatistics' => 'Lehtpoliden kodvindoiden statistik',
-	'validationstatistics-users' => "{{SITENAME}}-projektas nügüd' '''[[Special:ListUsers/editor|$1]]''' {{plural:$1|kävutajal|kävutajil}}
+	'validationstatistics-users' => "{{SITENAME}}-projektas nügüd' '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|kävutajal|kävutajil}}
 oma [[{{MediaWiki:Validationpage}}|«redaktoran»]] oiktused.
 
 Redaktorad oma mugomad kävutajad, kudambil om oiktuz kodvda valitud lehtseiden konkretižed versijad.",
 	'validationstatistics-lastupdate' => '"Mugoižed andmused udestadihe $1, aig om $2."',
 	'validationstatistics-pndtime' => "Toižetused, kudambad oma znamoinu märitud ühtnijad, lugedas \"kodvdud\".
 
-Keskmäine pidestuz [[Special:OldReviewedPages|lehtpoliden kodvmatomiden toižetusidenke täht]] om '''\$1'''. Nece parametr ozutab, min aikte jäl'gmäine kodvmatoi versii jäb kodvijoiden tarkuseta.",
+Keskmäine pidestuz [[Special:OldReviewedPages|lehtpoliden kodvmatomiden toižetusidenke täht]] om '''\$1'''. Nece parametr ozutab, min aikte jäl'gmäine kodvmatoi versii jäb kodvijoiden tarkuseta.", # Fuzzy
 	'validationstatistics-revtime' => "Keiskmäine kodvindanaig \"tundmatomiden ühtnijoiden\" toižetusiden täht om '''\$1'''; median om '''\$2'''.
 \$3",
 	'validationstatistics-table' => "Alemba om kodvindan statistikad kaikuččen nimiavarusen täht. Läbioigendad oma heittud neciš statistikaspäi.
 ''Vanhtunuzikš'' kuctas lehtpolid, kudambiš om kodvmatomid toižetusid.
-Ku lehtpolil ei ole kodvmatomid toižetusid, ka ne kucuse ''sinhroniziruidud''.",
+Ku lehtpolil ei ole kodvmatomid toižetusid, ka ne kucuse ''sinhroniziruidud''.", # Fuzzy
 	'validationstatistics-ns' => 'Nimiavaruz',
 	'validationstatistics-total' => "Lehtpol't",
 	'validationstatistics-stable' => 'Kodvdud',

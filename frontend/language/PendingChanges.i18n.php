@@ -440,8 +440,8 @@ $messages['cs'] = array(
 	'pendingchanges-legend' => 'Zobrazit seznam posouzených stránek s neprověřenými revizemi',
 	'pendingchanges-list' => 'Tato stránka obsahuje {{PLURAL:$1|posouzenou stránku, jejíž|seznam posouzených stránek, jejichž}} úpravy nebyly zatím prověřeny.', # Fuzzy
 	'pendingchanges-none' => 'Momentálně neexistují žádné stránky odpovídající těmto kritériím',
-	'pendingchanges-hours' => '($1 {{plural:$1|hodina|hodiny|hodin}})',
-	'pendingchanges-days' => '($1 {{plural:$1|den|dny|dní}})',
+	'pendingchanges-hours' => '($1 {{PLURAL:$1|hodina|hodiny|hodin}})',
+	'pendingchanges-days' => '($1 {{PLURAL:$1|den|dny|dní}})',
 	'pendingchanges-recent' => '(méně než 1 hodina)',
 	'pendingchanges-category' => 'Kategorie:',
 	'pendingchanges-onwatchlist' => 'Stránky na mém seznamu sledovaných stránek',
@@ -1710,6 +1710,7 @@ $messages['roa-tara'] = array(
 /** Russian (русский)
  * @author Ferrer
  * @author JenVan
+ * @author Lockal
  * @author MaxSem
  * @author Putnik
  * @author Александр Сигачёв
@@ -1728,7 +1729,7 @@ $messages['ru'] = array(
 	'pendingchanges-diff' => 'проверить',
 	'pendingchanges-size' => 'Наибольшее изменение в байтах:',
 	'pendingchanges-unwatched' => '(не следят)',
-	'pendingchanges-watched' => '({{PLURAL:$1|следит $1 активный участник|следят $1 активных участников|следят $1 активных участника}})', # Fuzzy
+	'pendingchanges-watched' => '({{PLURAL:$1|следит $1 активный участник|следят $1 активных участников|следят $1 активных участника}})',
 	'pendingchanges-viewing' => '(проверяются)',
 );
 

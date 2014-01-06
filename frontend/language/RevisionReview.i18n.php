@@ -1096,7 +1096,7 @@ $messages['ca'] = array(
  * @author Умар
  */
 $messages['ce'] = array(
-	'revisionreview' => 'Варсийшка хьажар',
+	'revisionreview' => 'Версешка хьажар',
 	'revreview-failed' => "'''Ца хьажало варсийга.'''",
 	'revreview-submission-invalid' => 'ХӀоттам бара бузанза я кхачам боцуш чулацамца.',
 	'review_page_invalid' => 'Агlонан чулацамца йогlуш йоцу цlе.',
