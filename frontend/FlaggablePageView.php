@@ -598,15 +598,7 @@ class FlaggablePageView extends ContextSource {
 		$parserOut = FlaggedRevs::parseStableRevision( $frev, $pOpts );
 
 		# Parse and output HTML
-		$redirHtml = $this->getRedirectHtml( $frev );
-		if ( $redirHtml == '' ) { // page is not a redirect...
-			# Add the stable output to the page view
-			$this->out->addParserOutput( $parserOut );
-		} else { // page is a redirect...
-			$this->out->addHtml( $redirHtml );
-			# Add output to set categories, displaytitle, etc.
-			$this->out->addParserOutputNoText( $parserOut );
-		}
+		$this->out->addParserOutput( $parserOut );
 
 		return $parserOut;
 	}
@@ -701,17 +693,10 @@ class FlaggablePageView extends ContextSource {
 				$parserOut = FlaggedRevs::parseStableRevision( $srev, $pOpts );
 			}
 
-			$redirHtml = $this->getRedirectHtml( $srev );
-			if ( $redirHtml == '' ) { // page is not a redirect...
-				# Update the stable version cache
-				$parserCache->save( $parserOut, $this->article, $pOpts );
-				# Add the stable output to the page view
-				$this->out->addParserOutput( $parserOut );
-			} else { // page is a redirect...
-				$this->out->addHtml( $redirHtml );
-				# Add output to set categories, displaytitle, etc.
-				$this->out->addParserOutputNoText( $parserOut );
-			}
+			# Update the stable version cache
+			$parserCache->save( $parserOut, $this->article, $pOpts );
+			# Add the stable output to the page view
+			$this->out->addParserOutput( $parserOut );
 			# Update the stable version dependancies
 			FlaggedRevs::updateStableOnlyDeps( $this->article, $parserOut );
 		}
@@ -725,16 +710,6 @@ class FlaggablePageView extends ContextSource {
 		}
 
 		return $parserOut;
-	}
-
-	// Get fancy redirect arrow and link HTML
-	protected function getRedirectHtml( $frev ) {
-		$rTargets = $frev->getRevision()->getContent()->getRedirectChain();
-		if ( $rTargets ) {
-			$article = new Article( $this->article->getTitle() );
-			return $article->viewRedirect( $rTargets );
-		}
-		return '';
 	}
 
 	// Show icons for draft/stable/old reviewed versions
