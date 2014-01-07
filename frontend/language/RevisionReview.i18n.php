@@ -4893,6 +4893,7 @@ Pe piacere revisione tutte le cangiaminde ca iessene aqquà sotte pe fà ca le c
  * @author AlexSm
  * @author Eleferen
  * @author Ferrer
+ * @author Ignatus
  * @author Jackie
  * @author KPu3uC B Poccuu
  * @author Kaganer
@@ -4921,7 +4922,7 @@ $messages['ru'] = array(
 	'review_cannot_reject' => 'Не удаётся отклонить эти изменения, потому что кто-то уже подтвердил некоторые из их.',
 	'review_reject_excessive' => 'Невозможно отклонить такое большое количество изменений сразу.',
 	'review_reject_nulledits' => 'Невозможно отменить эти изменения, так как все правки являются пустыми.',
-	'revreview-check-flag-p' => 'Подтвердить эту версию ($1 {{PLURAL:$1|непроверенное изменение|непроверенных изменений|непроверенных изменения}})', # Fuzzy
+	'revreview-check-flag-p' => 'Подтвердить эту версию ($1 {{PLURAL:$1|непроверенное изменение|непроверенных изменений|непроверенных изменения}})',
 	'revreview-check-flag-p-title' => 'Подтвердить все ожидающие проверки изменения вместе с вашей правкой. Используйте, только если вы уже просмотрели все ожидающие проверки изменения.',
 	'revreview-check-flag-u' => 'Подтвердить эту версию непроверенной страницы',
 	'revreview-check-flag-u-title' => 'Подтвердить эту версию страницы. Применяйте только в случае, если вы полностью просмотрели страницу.',
@@ -4966,14 +4967,14 @@ $messages['ru'] = array(
 
 Чтобы включить ваши правки в стабильную версию, пожалуйста, проверьте все изменения, показанные ниже.',
 	'revreview-update-includes' => 'Обновлённые шаблоны или файлы (непроверенные выделены полужирным):',
-	'revreview-reject-text-list' => "Выполняя это действие, вы '''отвергаете''' изменение исходного кода в {{PLURAL:$1|1=следующей версии|следующих версиях}}:", # Fuzzy
+	'revreview-reject-text-list' => "Выполняя это действие, вы '''отвергаете''' изменение исходного текста в {{PLURAL:$1|1=следующей версии|следующих версиях}}:", # Fuzzy
 	'revreview-reject-text-revto' => 'Возвращает страницу назад к [{{fullurl:$1|oldid=$2}} версии от $3].',
 	'revreview-reject-summary' => 'Описание:',
 	'revreview-reject-confirm' => 'Отклонить эти изменения',
 	'revreview-reject-cancel' => 'Отмена',
-	'revreview-reject-summary-cur' => '{{PLURAL:$1|Отклонено последнее $1 текстовое изменение|Отклонены последние $1 текстовых изменений|Отклонены последние $1 текстовых изменения}} ($2) и восстановлена версия $3 $4', # Fuzzy
-	'revreview-reject-summary-old' => '{{PLURAL:$1|Отклонено первое $1 текстовое изменение|Отклонены первые $1 текстовых изменений|Отклонены первые $1 текстовых изменения}} ($2), {{PLURAL:$1|1=следовавшее|следовавшие}} за версией $3 $4', # Fuzzy
-	'revreview-reject-summary-cur-short' => '{{PLURAL:$1|Отклонено последнее $1 текстовое изменение|Отклонены последние $1 текстовых изменений|Отклонены последние $1 текстовых изменения}} и восстановлена версия $2 $3', # Fuzzy
+	'revreview-reject-summary-cur' => '{{PLURAL:$1|Отклонено последнее $1 текстовое изменение|Отклонены последние $1 текстовых изменений|Отклонены последние $1 текстовых изменения}} ($2) и восстановлена версия $3 $4',
+	'revreview-reject-summary-old' => '{{PLURAL:$1|Отклонено первое $1 текстовое изменение|Отклонены первые $1 текстовых изменений|Отклонены первые $1 текстовых изменения}} ($2), {{PLURAL:$1|1=следовавшее|следовавшие}} за версией $3 $4',
+	'revreview-reject-summary-cur-short' => 'Отклонен{{PLURAL:$1|о последнее $1 текстовое изменение|ы последние $1 текстовых изменений|ы последние $1 текстовых изменения}} и восстановлена версия $2 $3',
 	'revreview-reject-summary-old-short' => '{{PLURAL:$1|Отклонено первое $1 текстовое изменение|Отклонены первые $1 текстовых изменений|Отклонены первые $1 текстовых изменения}}, {{PLURAL:$1|1=следовавшее|следовавшие}} за версией $2 $3', # Fuzzy
 	'revreview-tt-flag' => 'Подтвердите эту версию, отметив её как проверенную',
 	'revreview-tt-unflag' => 'Снять подтверждение с этой версии, отметив её как непроверенную',
@@ -6076,6 +6077,14 @@ Podarìa esser necessario proseguire o "anulare" modifiche.', # Fuzzy
 $messages['vep'] = array(
 	'revisionreview' => 'Versijoiden kodvind',
 	'revreview-failed' => "'''Ei voi kodvda versijad.'''",
+	'revreview-submission-invalid' => 'Ezitamine oli vajag vai siš oli toine viga.',
+	'review_page_invalid' => 'Metlehtpolen nimi om vär',
+	'review_page_notexists' => "Metlehtpol't ei ole olemas",
+	'review_page_unreviewable' => "Metlehtpol't ei kodvgoi.",
+	'review_no_oldid' => 'Ei ole versijan identifikatorad.',
+	'review_bad_oldid' => "Metlehtpol't ei ole olemas",
+	'review_conflict_oldid' => 'Ken-se om jo vahvištoitnu necen versijan vai heiti vaivištoitandan versijanke, kuni tö luget sidä.',
+	'review_not_flagged' => "Metversii ei ole nügüd' znamoitud kut kodvdud.",
 	'review_denied' => 'Ei sa tulda.',
 	'revreview-check-flag-p' => 'Kodvda nece versii ($1 {{PLURAL:$1|kodvmatoi toižetuz|$1 kodvmatont toižetust}})',
 	'revreview-flag' => 'Kodvda nece versii',

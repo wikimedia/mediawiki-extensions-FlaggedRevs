@@ -1990,6 +1990,7 @@ $3",
  * @author AlexSm
  * @author Claymore
  * @author Ferrer
+ * @author Ignatus
  * @author Lockal
  * @author Okras
  * @author Putnik
@@ -1998,9 +1999,9 @@ $3",
  */
 $messages['ru'] = array(
 	'validationstatistics' => 'Статистика проверок страниц',
-	'validationstatistics-users' => "В проекте {{SITENAME}} на данный момент '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|участник имееет|участника имеют|участников имеют}} полномочия [[{{MediaWiki:Validationpage}}|«редактора»]].
+	'validationstatistics-users' => "В проекте {{SITENAME}} на данный момент '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|участник имеет|участников имеют|участника имеют}} полномочия [[{{MediaWiki:Validationpage}}|редактора]].
 
-«Редакторы» — это определённые участники, имеющие возможность делать выборочную проверку конкретных версий страниц.", # Fuzzy
+Редакторы — это уполномоченные участники, имеющие возможность выборочно проверять версии страниц.",
 	'validationstatistics-lastupdate' => "''Следующие данные были последний раз обновлены $1 в $2.''",
 	'validationstatistics-pndtime' => "Правки, отмеченные определёнными участниками, рассматриваются как ''{{int:validationstatistics-stable}}''.
 
@@ -2017,7 +2018,7 @@ $3",
 	'validationstatistics-synced' => 'Доля перепроверенных в проверенных',
 	'validationstatistics-old' => 'Устаревшие',
 	'validationstatistics-unreviewed' => 'Непроверенные',
-	'validationstatistics-utable' => 'Ниже приведён список из {{PLURAL:$1|$1 наиболее активного выверяющего|$1 наиболее активных выверяющих|$1 наиболее активных выверяющих}} за {{PLURAL:$2|последний $2 час|последние $2 часов|последние $2 часа}}.', # Fuzzy
+	'validationstatistics-utable' => 'Ниже приведён список из $1 наиболее {{PLURAL:$1|активного выверяющего|активных выверяющих}} за {{PLURAL:$2|последний {{#ifeq:$2|1||$2}} час|последние $2 часов|последние $2 часа}}.',
 	'validationstatistics-user' => 'Участник',
 	'validationstatistics-reviews' => 'Проверки',
 );

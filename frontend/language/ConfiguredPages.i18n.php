@@ -1072,6 +1072,17 @@ Qualche inpostassion la podarìa canbiar quale version xe mostrà ai letori o re
 	'configuredpages-def-stable' => 'version stabile',
 );
 
+/** Veps (vepsän kel’)
+ * @author Игорь Бродский
+ */
+$messages['vep'] = array(
+	'configuredpages' => 'Lehtpoled kodvindjärgendusidenke',
+	'configuredpages-none' => 'Neciš nimikirjuteses ei ole lehtpolid.',
+	'configuredpages-config' => 'Konfiguracii',
+	'configuredpages-def-draft' => 'kaikiš udemb versii',
+	'configuredpages-def-stable' => 'stabiline versii',
+);
+
 /** Vietnamese (Tiếng Việt)
  * @author Minh Nguyen
  * @author Trần Nguyễn Minh Huy

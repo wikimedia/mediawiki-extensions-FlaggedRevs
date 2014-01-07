@@ -1710,6 +1710,7 @@ $messages['roa-tara'] = array(
 /** Russian (русский)
  * @author Ferrer
  * @author JenVan
+ * @author Kaganer
  * @author Lockal
  * @author MaxSem
  * @author Putnik
@@ -1720,8 +1721,8 @@ $messages['ru'] = array(
 	'pendingchanges-legend' => 'Список проверенных страниц с непроверенными версиями',
 	'pendingchanges-list' => 'На этой странице перечислены  [[{{MediaWiki:Validationpage}}|проверенные]] страницы с правками, ожидающими проверки.',
 	'pendingchanges-none' => 'В настоящее время нет страниц, удовлетворяющих этим условиям',
-	'pendingchanges-hours' => '($1 {{PLURAL:$1|час|часов|часа}})', # Fuzzy
-	'pendingchanges-days' => '($1 {{PLURAL:$1|день|дней|дня}})', # Fuzzy
+	'pendingchanges-hours' => '($1 {{PLURAL:$1|час|часов|часа}})',
+	'pendingchanges-days' => '($1 {{PLURAL:$1|день|дней|дня}})',
 	'pendingchanges-recent' => '(менее 1 часа)',
 	'pendingchanges-category' => 'Категория:',
 	'pendingchanges-onwatchlist' => 'Страницы из моего списка наблюдения',

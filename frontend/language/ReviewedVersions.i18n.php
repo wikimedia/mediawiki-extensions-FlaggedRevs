@@ -1035,6 +1035,7 @@ $messages['roa-tara'] = array(
 
 /** Russian (русский)
  * @author Ferrer
+ * @author Kaganer
  * @author Александр Сигачёв
  */
 $messages['ru'] = array(
@@ -1042,7 +1043,7 @@ $messages['ru'] = array(
 	'reviewedversions-leg1' => 'Список проверенных версий страницы',
 	'reviewedversions-page' => 'Название страницы:',
 	'reviewedversions-none' => '«[[:$1]]» не имеет проверенных версий.',
-	'reviewedversions-list' => '{{PLURAL:$2|1=Была проверена следующая версия|Были проверены следующие версии}} страницы «[[:$1]]»:', # Fuzzy
+	'reviewedversions-list' => '{{PLURAL:$2|1=Была проверена следующая версия|Были проверены следующие версии}} страницы «[[:$1]]»:',
 	'reviewedversions-review' => 'Проверена <i>$1</i> участником $2',
 );
 

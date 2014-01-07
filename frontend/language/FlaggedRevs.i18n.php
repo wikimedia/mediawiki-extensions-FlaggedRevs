@@ -5416,6 +5416,7 @@ $messages['ext'] = array(
  * @author Ladsgroup
  * @author Mardetanha
  * @author Mjbmr
+ * @author Reza1615
  * @author Sahim
  * @author Wayiran
  */
@@ -5441,7 +5442,7 @@ $messages['fa'] = array(
 	'flaggedrevs-hidereviewed' => '$1 ویرایش بررسی‌شده',
 	'group-editor' => 'ویرایشگران',
 	'group-editor-member' => '{{GENDER:$1|ویرایشگر}}',
-	'group-reviewer' => 'مرورگران',
+	'group-reviewer' => 'بازبینی‌کنندگان',
 	'group-reviewer-member' => '{{GENDER:$1|مرورگر}}',
 	'grouppage-editor' => '{{ns:project}}:ویرایشگر',
 	'grouppage-reviewer' => '{{ns:project}}:مرورگر',
@@ -13479,8 +13480,8 @@ $messages['ru'] = array(
 	'revreview-accuracy-3' => 'с источниками',
 	'revreview-accuracy-4' => 'избранная',
 	'revreview-auto' => '(автоматически)',
-	'revreview-basic' => '<span class="plainlinks">Это [[{{MediaWiki:Validationpage}}|стабильная версия]], [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} проверенная] \'\'$2\'\'.
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|изменение ожидает|изменений ожидает|изменения ожидают}}] проверки.</span>', # Fuzzy
+	'revreview-basic' => 'Это [[{{MediaWiki:Validationpage}}|стабильная версия]], [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} проверенная] <i>$2</i>.
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|изменение ожидает|изменений ожидают|изменения ожидают}}] проверки.',
 	'revreview-basic-i' => 'Это [[{{MediaWiki:Validationpage}}|стабильная версия]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} проверенная] <i>$2</i>.
 Имеются непроверенные [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} изменения в шаблонах или файлах].',
 	'revreview-basic-old' => 'Это [[{{MediaWiki:Validationpage}}|досмотренная]] версия ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} список всех]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} подтверждённая] <i>$2</i>.
@@ -13499,25 +13500,25 @@ $messages['ru'] = array(
 	'revreview-editnotice' => "'''Сделанные вами изменения будут показаны читателям после того, как их утвердит уполномоченный участник''' ([[{{MediaWiki:Validationpage}}|подробнее]]).",
 	'revreview-submitedit' => 'Записать изменения',
 	'revreview-submitedit-title' => 'Отправить свои исправления для проверки',
-	'revreview-edited' => "'''Изменения будут показаны читателям после того, как их утвердит уполномоченный участник''' ([[{{MediaWiki:Validationpage}}|подробнее]]).
+	'revreview-edited' => "'''Изменения будут показаны читателям после того, как их утвердит уполномоченный участник ([[{{MediaWiki:Validationpage}}|подробнее]]).'''
 
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|изменение ожидает|изменений ожидает|изменения ожидают}}] проверки (показаны ниже).", # Fuzzy
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|изменение ожидает|изменений ожидают|изменения ожидают}}] проверки ''(показаны ниже)''.",
 	'revreview-edited-section' => 'Вернуться к разделу страницы под названием «[[#$1|$2]]».',
-	'revreview-newest-basic' => 'В этой версии [[{{MediaWiki:Validationpage}}|{{PLURAL:$3|ожидает|ожидает|ожидают}} проверки]] [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|изменение|изменений|изменения}}].
-[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Стабильная версия] была [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} проверена] <i>$2</i>.', # Fuzzy
+	'revreview-newest-basic' => 'В этой версии [[{{MediaWiki:Validationpage}}|{{PLURAL:$3|1=ожидает|ожидают}} проверки]] [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|изменение|изменений|изменения}}].
+[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Стабильная версия] была [{{fullurl:Special:Log|type=review&page={{FULLPAGENAMEE}}}} проверена] <i>$2</i>.',
 	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Изменения шаблонов/файлов] этой версии [[{{MediaWiki:Validationpage}}|ожидают проверки]].
 [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Стабильная версия] была [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} проверена] <i>$2</i>.',
-	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|изменение|изменений|изменения}}] в этой версии [[{{MediaWiki:Validationpage}}|{{PLURAL:$3|ожидает|ожидает|ожидают}} проверки]].
-[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Стабильная версия] была [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} подтверждена] <i>$2</i>.', # Fuzzy
+	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|изменение|изменений|изменения}}] в этой версии [[{{MediaWiki:Validationpage}}|{{PLURAL:$3|1=ожидает|ожидают}} проверки]].
+[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Стабильная версия] была [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} подтверждена] <i>$2</i>.',
 	'revreview-newest-quality-i' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Изменения шаблонов/файлов] этой версии [[{{MediaWiki:Validationpage}}|ожидают проверки]].
 [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Стабильная версия] была [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} подтверждена] <i>$2</i>.',
-	'revreview-pending-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Стабильная версия] была [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} проверена] <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|изменение|изменений|изменения}}] {{PLURAL:$3|ожидает|ожидает|ожидают}} проверки.', # Fuzzy
-	'revreview-pending-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Стабильная версия] была [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} подтверждена] <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|изменение|изменений|изменения}}] {{PLURAL:$3|ожидает|ожидает|ожидают}} проверки.', # Fuzzy
-	'revreview-pending-nosection' => 'Обратите внимание на [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} последнюю версию], в которой {{PLURAL:$2|ожидает|ожидает|ожидают}} проверки [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|изменение|изменений|изменения}}]. Возможно, раздел был перемещён или удалён.', # Fuzzy
+	'revreview-pending-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Стабильная версия] была [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} проверена] <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|изменение|изменений|изменения}}] {{PLURAL:$3|1=ожидает|ожидают}} проверки.',
+	'revreview-pending-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Стабильная версия] была [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} подтверждена] <i>$2</i>. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|изменение|изменений|изменения}}] {{PLURAL:$3|1=ожидает|ожидают}} проверки.',
+	'revreview-pending-nosection' => 'Обратите внимание на [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} последнюю версию], в которой {{PLURAL:$2|1=ожидает|ожидают}} проверки [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|изменение|изменений|изменения}}]. Возможно, был перемещён или удалён раздел.',
 	'revreview-noflagged' => "У этой страницы нет [[{{MediaWiki:Validationpage}}|проверенных версий]], вероятно, её качество '''не''' оценивалось на соответствие стандартам.",
 	'revreview-oldrating' => 'Была оценена:',
 	'revreview-quality' => 'Это [[{{MediaWiki:Validationpage}}|стабильная версия]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} подтверждённая] <i>$2</i>.
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|изменение|изменений|изменения}}] {{PLURAL:$3|ожидает|ожидает|ожидают}} проверки.', # Fuzzy
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|изменение|изменений|изменения}}] {{PLURAL:$3|1=ожидает|ожидают}} проверки.',
 	'revreview-quality-i' => 'Это [[{{MediaWiki:Validationpage}}|стабильная версия]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} подтверждённая] <i>$2</i>.
 Имеются непроверенные [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} изменения в шаблонах или файлах].',
 	'revreview-quality-old' => 'Это [[{{MediaWiki:Validationpage}}|выверенная]] версия ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} список всех]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} подтверждённая] <i>$2</i>.

@@ -1618,6 +1618,7 @@ $messages['roa-tara'] = array(
  * @author DCamer
  * @author EugeneZelenko
  * @author Ferrer
+ * @author Ignatus
  * @author Kaganer
  * @author NBS
  * @author Putnik
@@ -1631,12 +1632,12 @@ $messages['ru'] = array(
 	'unreviewedpages-category' => 'Категория:',
 	'unreviewedpages-diff' => 'проверить',
 	'unreviewedpages-unwatched' => '(не следят)',
-	'unreviewedpages-watched' => '({{PLURAL:$1|следит $1 активный участник|следят $1 активных участников|следят $1 активных участника}})', # Fuzzy
+	'unreviewedpages-watched' => '({{PLURAL:$1|следит $1 активный участник|следят $1 активных участников|следят $1 активных участника}})',
 	'unreviewedpages-list' => "На этой странице перечислены статьи, которые ещё ''не'' были [[{{MediaWiki:Validationpage}}|оценены]] на указанный уровень.",
 	'unreviewedpages-none' => 'В настоящий момент нет страниц, удовлетворяющих указанным условиям',
 	'unreviewedpages-viewing' => '(проверяется)',
-	'unreviewedpages-hours' => '($1 {{PLURAL:$1|час|часов|часа}})', # Fuzzy
-	'unreviewedpages-days' => '($1 {{PLURAL:$1|день|дней|дня}})', # Fuzzy
+	'unreviewedpages-hours' => '($1 {{PLURAL:$1|час|часов|часа}})',
+	'unreviewedpages-days' => '($1 {{PLURAL:$1|день|дней|дня}})',
 	'unreviewedpages-recent' => '(менее 1 часа)',
 );
 
@@ -2035,6 +2036,7 @@ $messages['vec'] = array(
  * @author Игорь Бродский
  */
 $messages['vep'] = array(
+	'action-unreviewedpages' => 'Ozutada kacmatomiden lehtpoliden nimikirjutez',
 	'unreviewedpages' => 'Lehtpoled, kudambad ei olgoi kodvdud',
 	'unreviewedpages-legend' => 'Niiden lehtpoliden nimikirjutez, kudambad ei olgoi kodvdud ende',
 	'unreviewedpages-category' => 'Kategorii:',
