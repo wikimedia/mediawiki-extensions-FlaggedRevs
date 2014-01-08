@@ -2824,7 +2824,7 @@ $messages['bn'] = array(
 	'revreview-unlocked-title' => 'এই পাতায় করা সম্পাদনাগুলির পর্যালোচনার প্রয়োজন হবে না।',
 	'revreview-locked' => "'''নোট:''' এই পাতা পাঠকের কাছে প্রদর্শিত হবার আগে সম্পাদনাগুলি অবশ্যই [[{{MediaWiki:Validationpage}}|পর্যালোচিত]] হবে।",
 	'revreview-unlocked' => "'''নোট:''' এই পাতা পাঠকের কাছে প্রদর্শিত হবার আগে সম্পাদনাগুলির [[{{MediaWiki:Validationpage}}|পর্যালোচনার]] প্রয়োজন হবে না।",
-	'log-show-hide-review' => '$1 পর্যালোচনা লগ',
+	'log-show-hide-review' => 'পর্যালোচনা লগ $1',
 	'validationpage' => '{{ns:help}}:নিবন্ধ বৈধকরণ',
 );
 
@@ -3501,13 +3501,13 @@ $messages['ce'] = array(
 	'revreview-accuracy-3' => 'хьосташца',
 	'revreview-accuracy-4' => 'хаьржина',
 	'revreview-auto' => '(шашех)',
-	'revreview-basic' => 'Хlара [[{{MediaWiki:Validationpage}}|чутоьхна верси йу]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} хьажна] <i>$2</i>.
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|хийцам|хийцамаш|хийцамаш}}] {{PLURAL:$3|хьоьжу|хьоьжуш|хьоьжуш}} хьажаре.', # Fuzzy
-	'revreview-basic-i' => 'Хlара [[{{MediaWiki:Validationpage}}|чутоьхна башхо йу]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} хьажна] <i>$2</i>.
-Хьажанза бу [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} хийцамаш оц куцкепашца йа хlумнашца].',
+	'revreview-basic' => 'ХӀара [[{{MediaWiki:Validationpage}}|чутоьхна верси ю]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} хьажна] <i>$2</i>.
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|хийцам|хийцамаш}}] {{PLURAL:$3|хьоьжу|хьоьжуш}} хьажаре.',
+	'revreview-basic-i' => 'ХӀара [[{{MediaWiki:Validationpage}}|чутоьхна башхо ю]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} хьаьжна] <i>$2</i>.
+Хьажанза бу [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} хийцамаш оьцу кепашца я файлашца].',
 	'revreview-basic-old' => 'Хlара [[{{MediaWiki:Validationpage}}|чекхдаллалц хьажна йу]] башхо ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} массо могlам]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} бакъйина] <i>$2</i>.
 Хила мега дина керла [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} нисдар].',
-	'revreview-basic-same' => 'Хlара [[{{MediaWiki:Validationpage}}|чутоьхна башхо йу]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} чекхдаллалц хьажна] <i>$2</i>.',
+	'revreview-basic-same' => 'ХӀара [[{{MediaWiki:Validationpage}}|чутоьхна башхо ю]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} чекхдаллалц хьаьжна] <i>$2</i>.',
 	'revreview-basic-source' => '[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} Чекхйаллалц хьажна] хlокх агlон башхо, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} бакъйинарг] <i>$2</i>, йара бухарчуьна башхоне йалийна.',
 	'revreview-current' => 'Хьажанза хийцамаш',
 	'revreview-depth' => 'Юззина',
@@ -3534,10 +3534,10 @@ $messages['ce'] = array(
 	'revreview-pending-nosection' => 'Тергонца хьажа [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} тӀаьхьаралерачу версега], хьога {{PLURAL:$2|1=хьоьжу|хьоьжуш}} бу хьажаре [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|1=хийцам|хийцамаш}}]. Хила мега, дакъа дехьа даьккхина я дӀадаьккхина.', # Fuzzy
 	'revreview-noflagged' => "ХӀокху агӀона яц [[{{MediaWiki:Validationpage}}|хьаьжна башхонаш]], хила мега, цуьна дикаллийна мах '''ца хоттийна''' болучу барамца.",
 	'revreview-oldrating' => 'Хоттийна мах:',
-	'revreview-quality' => 'Хlара [[{{MediaWiki:Validationpage}}|Чутоьхна башхо йу]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} бакъйина] <i>$2</i>.
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|хийцам|хийцамаш|хийцамаш}}] {{PLURAL:$3|хьоьжу|хьоьжуш|хьоьжуш}} бу хьажаре.', # Fuzzy
-	'revreview-quality-i' => 'Хlара [[{{MediaWiki:Validationpage}}|чутоьхна башхо йу]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} бакъйина] <i>$2</i>.
-Хьажанза бу [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} хийцамаш оц куцкепашца йа хlумнашца].',
+	'revreview-quality' => 'ХӀара [[{{MediaWiki:Validationpage}}|Чутоьхна башхо ю]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} бакъйина] <i>$2</i>.
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|хийцам|хийцамаш}}] {{PLURAL:$3|хьоьжу|хьоьжуш}} бу хьажаре.',
+	'revreview-quality-i' => 'ХӀара [[{{MediaWiki:Validationpage}}|чутоьхна башхо ю]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} бакъйина] <i>$2</i>.
+Хьажанза бу [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} хийцамаш оьцу кепашца я файлашца].',
 	'revreview-quality-old' => 'Хlара [[{{MediaWiki:Validationpage}}|нийса йуй хьажна]] башхо йу ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} массо могlам]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} бакъйина] <i>$2</i>.
 Хила мега дина керла [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} нисдарш].',
 	'revreview-quality-same' => 'ХӀара [[{{MediaWiki:Validationpage}}|чутоьхна башхо ю]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} бакъйина] <i>$2</i>.',

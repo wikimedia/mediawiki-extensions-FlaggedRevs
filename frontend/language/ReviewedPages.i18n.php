@@ -276,6 +276,7 @@ S'ha donat un enllaç cap a l'última versió d'aquell nivell.",
  */
 $messages['ce'] = array(
 	'reviewedpages' => 'Хьойсина агlонаш',
+	'reviewedpages-lev-0' => 'Хьаьжина',
 	'reviewedpages-all' => 'хьаьжина варсийш',
 	'reviewedpages-best' => 'чӀогӀа дика верси',
 );

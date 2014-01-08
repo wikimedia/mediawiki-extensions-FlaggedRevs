@@ -336,13 +336,25 @@ $messages['bg'] = array(
 );
 
 /** Bengali (বাংলা)
+ * @author Aftab1995
  * @author Bellayet
  */
 $messages['bn'] = array(
-	'pendingchanges-hours' => '($1 {{PLURAL:$1|ঘন্টা|ঘন্টা}})',
+	'pendingchanges' => 'অমীমাংসিত পরিবর্তনসহ পাতাসমূহ',
+	'pendingchanges-legend' => 'অমীমাংসিত পরিবর্তনসহ পর্যালোচিত পাতার তালিকা',
+	'pendingchanges-list' => 'এটি [[{{MediaWiki:Validationpage}}|পর্যালোচনাকৃত]] পাতায় এক বা একাধিক সম্পাদনা পর্যালোচনার জন্য অপেক্ষা করছে এমন পাতার তালিকা।',
+	'pendingchanges-none' => 'এই মানদণ্ড পূরণের মত কোন পাতা বর্তমানে নেই',
+	'pendingchanges-hours' => '($1 {{PLURAL:$1|ঘণ্টা}})',
 	'pendingchanges-days' => '($1 {{PLURAL:$1|দিন|দিন}})',
+	'pendingchanges-recent' => '(১ ঘণ্টারও কম)',
 	'pendingchanges-category' => 'বিষয়শ্রেণী:',
+	'pendingchanges-onwatchlist' => 'আমার নজরতালিকায় রাখা পাতাগুলি',
+	'pendingchanges-stable' => 'ডিফল্ট হিসাবে স্থিতিশীল সংস্করণ',
 	'pendingchanges-diff' => 'পর্যালোচনা',
+	'pendingchanges-size' => 'সর্বোচ্চ পরিবর্তন (বাইট):',
+	'pendingchanges-unwatched' => '(অপর্যবেক্ষণকৃত)',
+	'pendingchanges-watched' => '($1 জন সক্রিয় {{PLURAL:$1|ব্যবহারকারী}} নজর রাখছেন)',
+	'pendingchanges-viewing' => '(পর্যালোচনা চলছে)',
 );
 
 /** Breton (brezhoneg)
@@ -423,6 +435,7 @@ $messages['ce'] = array(
 	'pendingchanges-days' => '($1 {{PLURAL:$1|де|денош|денош}})', # Fuzzy
 	'pendingchanges-recent' => '(лаххар 1 сахьтехь)',
 	'pendingchanges-category' => 'Категори:',
+	'pendingchanges-stable' => 'Чутоьхна верси Ӏад йитарца',
 	'pendingchanges-diff' => 'хьажа',
 	'pendingchanges-unwatched' => '(терго яц)',
 	'pendingchanges-watched' => '({{PLURAL:$1|1=терго йеш $1 жигар декъашхо|терго йеш $1 жигара декъашхой}})', # Fuzzy
