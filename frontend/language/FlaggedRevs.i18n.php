@@ -4258,7 +4258,7 @@ Hesıbyayê [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} wersiyon]ê cı <i>$2</i> [{
 	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|Qalite]]'''",
 	'revreview-quick-see-basic' => '[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} vurnayışanê vıneteyan bıvine]]',
 	'revreview-quick-see-quality' => '[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} vurnayışanê vıneteyan bıvine]]',
-	'revreview-source' => 'Çımi bıvin',
+	'revreview-source' => 'Çımey bıvêne',
 	'revreview-basic-title' => 'Ena yew versiyone qaliteya pele ya',
 	'revreview-style' => 'weniyayişê ey',
 	'revreview-style-0' => 'Tam niya',
