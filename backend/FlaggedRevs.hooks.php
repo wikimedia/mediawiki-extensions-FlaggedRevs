@@ -422,6 +422,7 @@ class FlaggedRevsHooks {
 		}
 		$frev = null; // flagged rev this edit was based on
 		$flags = null; // review flags (null => default flags)
+		$srev = $fa->getStableRev();
 		# Case A: this user can auto-review edits. Check if either:
 		# (a) this new revision creates a new page and new page autoreview is enabled
 		# (b) this new revision is based on an old, reviewed, revision
@@ -448,7 +449,10 @@ class FlaggedRevsHooks {
 						$frev = FlaggedRevision::newFromTitle( $title, $altBaseRevId, FR_MASTER );
 					}
 				}
-				$reviewableChange = (bool)$frev;
+				$reviewableChange = $frev ||
+					# Bug 57073: If a user with autoreview returns the page to its last stable
+					# version, it should be marked stable, regardless of the method used to do so.
+					( $srev && $rev->getSha1() === $srev->getRevision()->getSha1() );
 			}
 			# Is this an edit directly to a reviewed version or a new page?
 			if ( $reviewableNewPage || $reviewableChange ) {
@@ -462,8 +466,7 @@ class FlaggedRevsHooks {
 		# (a) this is a rollback to the stable version
 		# (b) this is a self-reversion to the stable version
 		# These are subcases of making a new revision based on an old, reviewed, revision.
-		} elseif ( FlaggedRevs::autoReviewEdits() && $fa->getStableRev() ) {
-			$srev = $fa->getStableRev();
+		} elseif ( FlaggedRevs::autoReviewEdits() && $srev ) {
 			# Check for rollbacks...
 			$reviewableChange = (
 				$isOldRevCopy && // rollback or null edit
