@@ -447,6 +447,7 @@ $messages['ce'] = array(
  * @author Jkjk
  * @author Li-sung
  * @author Matěj Grabovský
+ * @author Mormegil
  */
 $messages['cs'] = array(
 	'pendingchanges' => 'Stránky s neposouzenými změnami',

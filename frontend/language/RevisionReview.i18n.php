@@ -4574,6 +4574,7 @@ $messages['ps'] = array(
  * @author Hamilton Abreu
  * @author Helder.wiki
  * @author Luckas
+ * @author Vitorvicentevalente
  * @author Waldir
  * @author 555
  */
@@ -4588,7 +4589,7 @@ $messages['pt'] = array(
 	'review_bad_oldid' => 'Essa edição de destino não existe.',
 	'review_conflict_oldid' => 'Enquanto visionava esta edição, alguém aprovou-a ou anulou a aprovação.',
 	'review_not_flagged' => 'A edição de destino não está neste momento marcada como revista.',
-	'review_too_low' => 'A edição não pode ser revista com alguns campos classificados "inadequada".',
+	'review_too_low' => 'A edição não pode ser revista com alguns campos classificados como "inadequados".',
 	'review_bad_key' => 'A chave do parâmetro de inclusão é inválida.',
 	'review_bad_tags' => 'Algumas das etiquetas de edição especificadas são inválidas.',
 	'review_denied' => 'Permissão negada.',
@@ -4624,8 +4625,8 @@ Veja a [[Special:Unreviewedpages|lista de páginas não revisadas]].',
 	'revreview-successful2' => "'''A edição de [[:$1|$1]] foi desmarcada com sucesso.'''",
 	'revreview-poss-conflict-p' => "'''Aviso: O utilizador [[User:$1|$1]] começou a rever esta página às $3 de $2.'''",
 	'revreview-poss-conflict-c' => "'''Aviso: O utilizador [[User:$1|$1]] começou a rever estas alterações às $3 de $2.'''",
-	'revreview-adv-reviewing-p' => 'Aviso: Os outros revisores podem ver que está a revisar esta página.', # Fuzzy
-	'revreview-adv-reviewing-c' => 'Aviso: Os outros revisores podem ver que está a revisar estas alterações.', # Fuzzy
+	'revreview-adv-reviewing-p' => 'Aviso: Os outros revisores podem ver que está a rever esta página.', # Fuzzy
+	'revreview-adv-reviewing-c' => 'Aviso: Os outros revisores podem ver que está a rever estas alterações.', # Fuzzy
 	'revreview-sadv-reviewing-p' => 'Você pode $1 aos outros utilizadores que está a revisar esta página.',
 	'revreview-sadv-reviewing-c' => 'Pode $1 os outros utilizadores de que está a rever estas alterações.',
 	'revreview-adv-start-link' => 'informar',
