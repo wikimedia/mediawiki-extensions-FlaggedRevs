@@ -19,7 +19,7 @@ class FlaggedRevsLogView {
 		// Give grep a chance to find the usages:
 		// stable-logentry-config, stable-logentry-modify, stable-logentry-reset
 		if ( $skin ) {
-			$titleLink = $skin->link( $title, $title->getPrefixedText() );
+			$titleLink = Linker::link( $title, $title->getPrefixedText() );
 			$text = wfMessage( "stable-logentry-{$action}" )->rawParams( $titleLink )->escaped();
 		} else { // for content (e.g. IRC...)
 			$text = wfMessage( "stable-logentry-{$action}" )
