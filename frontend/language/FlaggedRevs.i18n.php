@@ -14661,7 +14661,7 @@ $messages['sr-ec'] = array(
 
 There {{PLURAL:$2|1=is|are}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 pending {{PLURAL:$2|1=change|changes}}] ''(shown below)'' awaiting review.", # Fuzzy
 	'revreview-edited-section' => 'Назад на одломак странице под именом „[[#$1|$2]]“.',
-	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|1=измена|измене}}] у овој верзији {{PLURAL:$3|1=је|су}} [[{{MediaWiki:Validationpage}}|на чекању за проверу]]. [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Стабилна верзија] је била [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} проверена] дана <i>$2</i>.', # Fuzzy
+	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|измена|измене}}] у овој верзији {{PLURAL:$3|је|су}} [[{{MediaWiki:Validationpage}}|на чекању за проверу]]. [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Стабилна верзија] је била [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} проверена] дана <i>$2</i>.',
 	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Измене шаблона/датотеке] у овој верзији [[{{MediaWiki:Validationpage}}|чекају на проверу]].
 [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Стабилна верзија] је [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} проверена] дана <i>$2</i>.',
 	'revreview-newest-quality-i' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Измене шаблона/датотеке] у овој верзији [[{{MediaWiki:Validationpage}}|чекају на проверу]].
@@ -14777,6 +14777,7 @@ $messages['sr-el'] = array(
 	'revreview-hist-basic' => 'proverena izmena',
 	'revreview-hist-quality-user' => 'odobrio/-la [[User:$3|$3]]',
 	'revreview-hist-basic-user' => 'pregledano od strane [[User:$3|$3]]',
+	'revreview-hist-pending-difflink' => "'''[[{{fullurl:$1|oldid=$2&diff=$3{{MediaWiki:flaggedrevs-diffonly}}}} čeka proveru]]'''",
 	'revreview-diff-toggle-show' => 'prikaži izmene',
 	'revreview-diff-toggle-hide' => 'sakrij izmene',
 	'review-diff2stable' => 'Pogledaj sve izmene na čekanju',
@@ -14810,8 +14811,12 @@ Možda su napravljene nove [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{Media
 	'revreview-depth-4' => 'Izabrani',
 	'revreview-draft-title' => 'Na ovoj stranici su prikazane izmene na čekanju',
 	'revreview-edit' => 'Uredi',
+	'revreview-editnotice' => "'''Vaše izmene će biti vidljive čitaocima nakon što ih ovlašćeni korisnik proveri. ([[{{MediaWiki:Validationpage}}|pomoć]])'''",
 	'revreview-submitedit' => 'Pošalji promene',
 	'revreview-submitedit-title' => 'Pošaljite svoje izmene za pregled',
+	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|izmena|izmene}}] u ovoj verziji {{PLURAL:$3|je|su}} [[{{MediaWiki:Validationpage}}|na čekanju za proveru]]. [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Stabilna verzija] je bila [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} proverena] dana <i>$2</i>.',
+	'revreview-newest-quality-i' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Izmene šablona/datoteke] u ovoj verziji [[{{MediaWiki:Validationpage}}|čekaju na proveru]].
+[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Stabilna verzija] je bila [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} odobrena] dana <i>$2</i>.',
 	'revreview-oldrating' => 'Ocenjeno je:',
 	'revreview-quality-title' => 'Ovo je kvalitetna verzija ove strane',
 	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|Pregledani članak]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} prikaži nacrt]]",
