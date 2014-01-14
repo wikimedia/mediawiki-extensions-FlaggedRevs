@@ -4387,6 +4387,7 @@ $messages['pdc'] = array(
  * @author Masti
  * @author Matma Rex
  * @author McMonster
+ * @author Peter Bowman
  * @author Sp5uhe
  * @author Tsca
  * @author WTM
@@ -4440,7 +4441,7 @@ Zobacz [[Special:Unreviewedpages|listę nieprzejrzanych stron]].',
 	'revreview-adv-reviewing-p' => 'Uwaga – inni redaktorzy mogą zobaczyć, że {{GENDER:$1|rozpocząłeś|rozpoczęłaś}} przeglądanie tej strony.',
 	'revreview-adv-reviewing-c' => 'Uwaga – inni redaktorzy mogą zobaczyć, że {{GENDER:$1|rozpocząłeś|rozpoczęłaś}} przeglądanie tych zmian.',
 	'revreview-sadv-reviewing-p' => 'Możesz $1 innych użytkowników, o tym że jesteś w trakcie przeglądania tej strony.',
-	'revreview-sadv-reviewing-c' => 'Możesz $1 innych użytkowników, o tym że jesteś w trakcie przeglądania tych zmian.',
+	'revreview-sadv-reviewing-c' => 'Możesz $1 innych użytkowników o tym, że jesteś w trakcie przeglądania tych zmian.',
 	'revreview-adv-start-link' => 'poinformować',
 	'revreview-adv-stop-link' => 'wycofaj informowanie',
 	'revreview-toolow' => "'''Musisz ocenić każdy z atrybutów wyżej niż „nieakceptowalny”, aby oznaczyć wersję jako zweryfikowaną.'''
