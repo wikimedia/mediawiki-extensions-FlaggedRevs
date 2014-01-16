@@ -236,7 +236,7 @@ $messages['diq'] = array(
 	'problemchanges-list' => 'Nê listeyê pele ke [[{{MediaWiki:Validationpage}}|vêniyayê]] be yew ya zi xeylê etiketê vurnayışi ra tedqiq sero manenê. Listeya cı zi [[Special:Tags|etiketanê vurnayışanê vêrdayeyan]] de esta.',
 	'problemchanges-legend' => 'Pelanê ke be vurnayışi etiket biyê u seba çımraviyarnayışi pawenê lista ke',
 	'problemchanges-none' => 'Ser ena kriteri de pelan çini yo',
-	'problemchanges-category' => 'Kategori:',
+	'problemchanges-category' => 'Kategoriye:',
 );
 
 /** Lower Sorbian (dolnoserbski)

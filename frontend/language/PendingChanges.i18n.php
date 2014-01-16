@@ -518,6 +518,7 @@ $messages['de-ch'] = array(
 /** Zazaki (Zazaki)
  * @author Erdemaslancan
  * @author Marmase
+ * @author Mirzali
  * @author Xoser
  */
 $messages['diq'] = array(
@@ -528,7 +529,7 @@ $messages['diq'] = array(
 	'pendingchanges-hours' => '($1 {{PLURAL:$1|seet|seetan}})',
 	'pendingchanges-days' => '($1 {{PLURAL:$1|roc|rocan}})',
 	'pendingchanges-recent' => '(1 seet ra tay)',
-	'pendingchanges-category' => 'Kategori:',
+	'pendingchanges-category' => 'Kategoriye:',
 	'pendingchanges-onwatchlist' => 'Peleyê ke lista da seyri deyê',
 	'pendingchanges-stable' => 'Versiyono sebit hesıbyayo',
 	'pendingchanges-diff' => 'Çım ra ravyarne',
