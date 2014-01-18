@@ -587,9 +587,10 @@ $messages['el'] = array(
 
 /** British English (British English)
  * @author Reedy
+ * @author Shirayuki
  */
 $messages['en-gb'] = array(
-	'pendingchanges-stable' => 'Stabilised pages',
+	'pendingchanges-stable' => 'Stable version is default',
 );
 
 /** Esperanto (Esperanto)

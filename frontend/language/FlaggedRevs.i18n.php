@@ -4735,7 +4735,7 @@ $messages['el'] = array(
  * @author Shirayuki
  */
 $messages['en-gb'] = array(
-	'flaggedrevs-desc' => 'Gives editors and reviewers the ability to review revisions and stabilise pages',
+	'flaggedrevs-desc' => 'Gives Editors the ability to review revisions and stabilise pages',
 	'revreview-editnotice' => "'''Your changes will be displayed to readers once an authorised user accepts them. ([[{{MediaWiki:Validationpage}}|help]])'''",
 	'revreview-edited' => "'''Your changes will be displayed to readers once an authorised user accepts them. ([[{{MediaWiki:Validationpage}}|help]])'''
 
@@ -14623,6 +14623,7 @@ $messages['sr-ec'] = array(
 	'review-edit-diff' => "'''Напомена: Неке од измена које су на чекању имају утицај на одломак странице који уређујете.'''",
 	'revreview-diff-toggle-show' => 'прикажи измене',
 	'revreview-diff-toggle-hide' => 'сакриј измене',
+	'revreview-log-details-hide' => 'сакриј детаље',
 	'review-diff2stable' => 'Погледај све измене на чекању',
 	'review-logentry-app' => 'прегледа издање странице [[$1]]',
 	'review-logentry-dis' => 'означи као застарело издање странице [[$1]]',
@@ -14735,6 +14736,7 @@ There {{PLURAL:$2|1=is|are}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{Med
 	'flaggedrevs-protect-none' => 'Дозволи свим корисницима',
 	'revreview-locked-title' => 'Измене на овој страници захтевају преглед.',
 	'revreview-unlocked-title' => 'Измене на овој страници не захтевају преглед.',
+	'revreview-locked' => "'''Напомена:''' Измене морају бити [[{{MediaWiki:Validationpage}}|проверене]] пре приказивања читаоцима на овој страници.",
 	'log-show-hide-review' => '$1 дневник прегледања',
 	'validationpage' => '{{ns:help}}:Провера странице',
 );
@@ -14780,6 +14782,7 @@ $messages['sr-el'] = array(
 	'revreview-hist-pending-difflink' => "'''[[{{fullurl:$1|oldid=$2&diff=$3{{MediaWiki:flaggedrevs-diffonly}}}} čeka proveru]]'''",
 	'revreview-diff-toggle-show' => 'prikaži izmene',
 	'revreview-diff-toggle-hide' => 'sakrij izmene',
+	'revreview-log-details-hide' => 'sakrij detalje',
 	'review-diff2stable' => 'Pogledaj sve izmene na čekanju',
 	'review-logentry-app' => 'pregleda izdanje stranice [[$1]]',
 	'review-logentry-dis' => 'označi kao zastarelo izdanje stranice [[$1]]',
@@ -14882,6 +14885,7 @@ Molimo vas da proverite URL koji ste upotrebili da biste pristupili ovoj stranic
 	'flaggedrevs-protect-none' => 'Dozvoli svim korisnicima',
 	'revreview-locked-title' => 'Izmene na ovoj stranici zahtevaju pregled.',
 	'revreview-unlocked-title' => 'Izmene na ovoj stranici ne zahtevaju pregled.',
+	'revreview-locked' => "'''Napomena:''' Izmene moraju biti [[{{MediaWiki:Validationpage}}|proverene]] pre prikazivanja čitaocima na ovoj stranici.",
 	'log-show-hide-review' => '$1 dnevnik pregledanja',
 	'validationpage' => '{{ns:help}}:Validacija članka',
 );
