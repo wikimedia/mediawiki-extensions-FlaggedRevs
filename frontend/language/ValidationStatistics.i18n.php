@@ -1625,18 +1625,21 @@ $messages['ms'] = array(
 
 Penyunting merupakan pengguna berpengalaman yang boleh membuat pemeriksaan mengejut pada laman-laman.",
 	'validationstatistics-lastupdate' => "''Data berikut kali terakhir dikemas kini pada $1, $2.''",
-	'validationstatistics-pndtime' => "Suntingan yang telah diperiksa oleh pengguna-pengguna yang mantap dianggap ''dikaji semula''.
+	'validationstatistics-pndtime' => "Suntingan yang telah diperiksa oleh pengguna-pengguna yang mantap adalah dianggap sebagai ''{{int:validationstatistics-stable}}''.
 
-Purata masa tangguhan kaji semula untuk [[Special:OldReviewedPages|laman-laman yang mempunyai suntingan yang menunggu untuk dikaji semula]] ialah '''$1'''; masa tangguhan diukur berdasarkan berapa lama suntingan tergantung yang terlama dibiarkan tanpa kaji semula.",
+Purata masa tangguhan kaji semula untuk [[Special:OldReviewedPages|laman-laman yang mempunyai suntingan yang sedang menunggu untuk dikaji semula]] ialah '''$1'''; masa tangguhan diukur berdasarkan berapa lama suntingan tergantung yang terlama dibiarkan tanpa kaji semula.",
 	'validationstatistics-revtime' => "Purata masa menunggu untuk suntingan oleh ''pengguna yang tidak log masuk'' untuk dikaji semula ialah '''$1'''; mediannya ialah '''$2'''.
 $3",
-	'validationstatistics-table' => "Statistik kaji semula laman untuk setiap ruang nama ditunjukkan di bawah, ''tidak termasuk'' laman lencongan. Laman yang ada suntingan yang menunggu untuk dikaji semula dikira ''lapuk''; laman yang tiada suntingan yang menunggu untuk dikaji semula dikira ''diselaras''.",
+	'validationstatistics-table' => "Statistik kaji semula laman untuk setiap ruang nama ditunjukkan di bawah, ''tidak termasuk'' laman lencongan.
+
+Laman yang mempunyai suntingan yang menunggu semakan adalah ''{{int:validationstatistics-old}}'', sementara laman yang tiada yang sedemikian dianggap ''{{int:validationstatistics-latest}}''.",
 	'validationstatistics-ns' => 'Ruang nama',
 	'validationstatistics-total' => 'Laman',
 	'validationstatistics-stable' => 'Dikaji semula',
 	'validationstatistics-latest' => 'Diselaras',
 	'validationstatistics-synced' => 'Diselaras/Dikaji Semula',
 	'validationstatistics-old' => 'Lapuk',
+	'validationstatistics-unreviewed' => 'Belum disemak',
 	'validationstatistics-utable' => 'Berikut ialah {{PLURAL:$1|pengkaji semula paling aktif|senarai $1 pengkaji semula paling aktif}} dalam {{PLURAL:$2|sejam|$2 jam}} yang lalu.',
 	'validationstatistics-user' => 'Pengguna',
 	'validationstatistics-reviews' => 'Kajian semula',
@@ -1970,18 +1973,19 @@ $messages['roa-tara'] = array(
 
 Le cangiature sonde utinde stabbelite ca ponne fà verifiche a cambione de le revisiune a le pàggene.",
 	'validationstatistics-lastupdate' => "''Le seguende date onne state cangiate l'urtema vote 'u $1 a le $2.''",
-	'validationstatistics-pndtime' => "Le cangiaminde onne state verificate da utinde stabbelite e sonde considerate ''reviste''.
+	'validationstatistics-pndtime' => "Le cangiaminde onne state verificate da utinde stabbelite e sonde considerate ''{{int:validationstatistics-stable}}''.
 
 'U ritarde medie pe [[Special:OldReviewedPages|le pàggene cu cangiaminde pendende none reviste]] jè '''$1'''; 'a mesure d'u ritarde parte da quanne 'u cangiamende pendende cchiù vecchie non g'a state reviste.",
 	'validationstatistics-revtime' => "'A medie de attese pe le cangiaminde da ''utinde ca non ge s'onne collegate'' pe esseere reviste jè '''$1'''; 'a mediane jè '''$2'''.
 $3",
-	'validationstatistics-table' => "Le statisteche de le pàggene reviste pe ogne namespace avènene fatte vedè aqquà sotte, ''<nowiki>'</nowiki>scludenne'' le pàggene de le redirezionaminde. Le pàggene sonde trattate cumme ''none aggiornate'' ce lore onne cangiaminde appise pa revisione; le pàggene sonde conziderate ''aggiornate'' ce non ge tènene cangiaminde appise pa revisione.",
+	'validationstatistics-table' => "Le statisteche de le pàggene reviste pe ogne namespace avènene fatte vedè aqquà sotte, ''<nowiki>'</nowiki>scludenne'' le pàggene de le redirezionaminde. Le pàggene avènene trattate cumme ''{{int:validationstatistics-old}}'' ce lore onne cangiaminde appise pa revisione; le pàggene avènene conziderate ''{{int:validationstatistics-latest}}'' ce non ge tènene cangiaminde appise pa revisione.",
 	'validationstatistics-ns' => 'Neimspeise',
 	'validationstatistics-total' => 'Pàggene',
 	'validationstatistics-stable' => 'Riviste',
 	'validationstatistics-latest' => 'Singronizzate',
 	'validationstatistics-synced' => 'Singronizzete/Riviste',
 	'validationstatistics-old' => "Non g'è aggiornete",
+	'validationstatistics-unreviewed' => 'Non reviste',
 	'validationstatistics-utable' => "Sotte ste 'n'elenghe de le {{PLURAL:$1|revisitatore cchiù attive|$1 revisitature cchiù attive}} jndr'à {{PLURAL:$2|l'urtema ore|$2 l'urteme ore}}.",
 	'validationstatistics-user' => 'Utende',
 	'validationstatistics-reviews' => 'Reviste',

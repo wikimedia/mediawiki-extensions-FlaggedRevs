@@ -1901,6 +1901,7 @@ $messages['sq'] = array(
 );
 
 /** Serbian (Cyrillic script) (српски (ћирилица)‎)
+ * @author Milicevic01
  * @author Millosh
  * @author Rancher
  * @author Жељко Тодоровић
@@ -1911,8 +1912,8 @@ $messages['sr-ec'] = array(
 	'pendingchanges-legend' => 'Списак прегледаних страница са непрегледаним верзијама.',
 	'pendingchanges-list' => 'Ова страница наводи [[{{MediaWiki:Validationpage}}|прегледане]] странице које имају једну или више измена на чекању.',
 	'pendingchanges-none' => 'Тренутно нема страница које испуњавају ове критеријуме',
-	'pendingchanges-hours' => '($1 {{PLURAL:$1|1=сат|сати}})', # Fuzzy
-	'pendingchanges-days' => '($1 {{PLURAL:$1|1=дан|дана}})', # Fuzzy
+	'pendingchanges-hours' => '($1 {{PLURAL:$1|сат|сати}})',
+	'pendingchanges-days' => '($1 {{PLURAL:$1|дан|дана}})',
 	'pendingchanges-recent' => '(мање од једног сата)',
 	'pendingchanges-category' => 'Категорија:',
 	'pendingchanges-onwatchlist' => 'Странице на мом списку надгледања',
@@ -1926,6 +1927,7 @@ $messages['sr-ec'] = array(
 
 /** Serbian (Latin script) (srpski (latinica)‎)
  * @author Michaello
+ * @author Milicevic01
  * @author Жељко Тодоровић
  */
 $messages['sr-el'] = array(
@@ -1933,8 +1935,8 @@ $messages['sr-el'] = array(
 	'pendingchanges-legend' => 'Spisak pregledanih stranica sa nepregledanim verzijama.',
 	'pendingchanges-list' => 'Ova stranica navodi [[{{MediaWiki:Validationpage}}|pregledane]] stranice koje imaju jednu ili više izmena na čekanju.',
 	'pendingchanges-none' => 'Trenutno nema stranica koje ispunjavaju ove kriterijume',
-	'pendingchanges-hours' => '($1 {{PLURAL:$1|1=sat|sati}})', # Fuzzy
-	'pendingchanges-days' => '($1 {{PLURAL:$1|1=dan|dana}})', # Fuzzy
+	'pendingchanges-hours' => '($1 {{PLURAL:$1|sat|sati}})',
+	'pendingchanges-days' => '($1 {{PLURAL:$1|dan|dana}})',
 	'pendingchanges-recent' => '(manje od jednog časa)',
 	'pendingchanges-category' => 'Kategorija:',
 	'pendingchanges-onwatchlist' => 'Stranice na mom spisku nadgledanja',
