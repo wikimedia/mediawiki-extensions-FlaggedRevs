@@ -304,6 +304,7 @@ Kelkaj agordoj eble ŝanĝos kiun version estos montrita al legantoj aŭ plu lim
 
 /** Spanish (español)
  * @author Dferg
+ * @author Fitoschido
  * @author MarcoAurelio
  * @author Peter17
  */
@@ -313,7 +314,7 @@ $messages['es'] = array(
 Algunos ajustes puede que cambien qué versión es mostrada a los lectores o puede restringir quiénes pueden realizar ediciones que no necesitan revisión posterior.',
 	'configuredpages-none' => 'No hay páginas en esta lista.',
 	'configuredpages-config' => 'Configuración',
-	'configuredpages-def-draft' => 'última versión',
+	'configuredpages-def-draft' => 'versión más reciente',
 	'configuredpages-def-stable' => 'versión publicada',
 );
 

@@ -672,7 +672,7 @@ $messages['et'] = array(
 	'validationstatistics-users' => "Praegu on '''{{GRAMMAR:inessive|{{SITENAME}}}}''' '''[[Special:ListUsers/editor|$1]]''' [[{{MediaWiki:Validationpage}}|toimetaja]] õigustes {{PLURAL:$1|kasutaja|kasutajat}}.
 
 Toimetajad on tunnustatud kasutajad, kes saavad lehekülgedel tehtud muudatused põgusalt üle vaadata.",
-	'validationstatistics-lastupdate' => "''Järgnevate andmete viimane uuendamisaeg: $1, kell $2.''",
+	'validationstatistics-lastupdate' => "''Järgmiste andmete viimane uuendamisaeg: $1, kell $2.''",
 	'validationstatistics-pndtime' => "Tunnustatud kasutaja tehtud muudatuse olekuks arvatakse \"{{int:validationstatistics-stable}}\".
 
 Keskmine viiteaeg [[Special:OldReviewedPages|praegu ootel muudatustega lehekülgede ülevaatamiseks]] on '''\$1'''; viiteaeg näitab kui kaua on olnud vanim ootel muudatus üle vaatamata.",

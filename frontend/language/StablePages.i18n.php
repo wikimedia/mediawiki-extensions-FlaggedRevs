@@ -331,7 +331,7 @@ Las ediciones hechas por otros usuarios no son mostradas a los lectores por defe
  */
 $messages['et'] = array(
 	'stablepages' => 'Leheküljed, mille muutmine vajab heakskiitu',
-	'stablepages-list' => 'Järgnevatel lehekülgedel saavad ainult kindlad kasutajad teha muudatusi, mis ei vaja ülevaatamist. Ülejäänud kasutajate tehtud muudatusi ei kuvata vaikimisi, enne kui volitatud kasutaja on need üle vaadanud.',
+	'stablepages-list' => 'Siin on loetletud leheküljed, kus ainult kindlad kasutajad saavad teha muudatusi, mis ei vaja ülevaatamist. Ülejäänud kasutajate tehtud muudatusi ei kuvata vaikimisi, enne kui volitatud kasutaja on need üle vaadanud.',
 	'stablepages-none' => 'Selles loendis pole lehekülgi.',
 	'stablepages-config' => 'Sätted',
 	'stablepages-indef' => 'Ainult aegumatud',

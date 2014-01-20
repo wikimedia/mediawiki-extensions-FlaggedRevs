@@ -1145,7 +1145,7 @@ La configuración no es posible.',
 $messages['et'] = array(
 	'stabilization-tab' => 'sätted',
 	'stabilization' => 'Lehekülje kindlustamine',
-	'stabilization-text' => "'''Muuda järgnevaid sätteid reguleerimaks, kuidas lehekülje \"[[:\$1|\$1]]\" püsiv versioon valitakse ja kuvatakse.'''",
+	'stabilization-text' => "'''Muuda järgmisi sätteid, et reguleerida, kuidas lehekülje \"[[:\$1|\$1]]\" püsiv versioon valitakse ja kuvatakse.'''",
 	'stabilization-perm' => 'Su kontol pole püsiva versiooni sätete muutmise luba.
 Siin on lehekülje "[[:$1|$1]]" praegused sätted:',
 	'stabilization-page' => 'Lehekülje nimi:',
@@ -2160,6 +2160,7 @@ $messages['kn'] = array(
  * @author Devunt
  * @author Gapo
  * @author Kwj2772
+ * @author Priviet
  * @author 아라
  */
 $messages['ko'] = array(
@@ -2184,7 +2185,7 @@ $messages['ko'] = array(
 	'stabilization-otherreason' => '다른 이유:',
 	'stabilization-expiry' => '기한:',
 	'stabilization-othertime' => '다른 시간:',
-	'stabilization-def-short' => '기본값',
+	'stabilization-def-short' => '기본 값',
 	'stabilization-def-short-0' => '현재',
 	'stabilization-def-short-1' => '게시',
 	'stabilize_page_invalid' => '문서 이름이 잘못되었습니다.',
