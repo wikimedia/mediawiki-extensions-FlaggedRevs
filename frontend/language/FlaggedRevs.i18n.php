@@ -4942,6 +4942,7 @@ Bonvolu kontroli la retadreson (URL) kiun vi uzis por atingi la paĝon.\\b',
  * @author Armando-Martin
  * @author Bola
  * @author Crazymadlover
+ * @author Csbotero
  * @author Dalton2
  * @author Dferg
  * @author Diego Grez
@@ -5087,7 +5088,7 @@ Nuevos [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-dif
 	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|Calidad]]'''",
 	'revreview-quick-see-basic' => '[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} revisar cambios pendientes]]',
 	'revreview-quick-see-quality' => '[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} revisar cambios pendientes]]',
-	'revreview-source' => 'Ver código',
+	'revreview-source' => 'Ver código fuente',
 	'revreview-basic-title' => 'Esta es una versión verificada de esta página',
 	'revreview-style' => 'Legibilidad',
 	'revreview-style-0' => 'Inadecuado',

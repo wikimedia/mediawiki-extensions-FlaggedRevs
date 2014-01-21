@@ -1763,6 +1763,7 @@ $messages['sq'] = array(
 );
 
 /** Serbian (Cyrillic script) (српски (ћирилица)‎)
+ * @author Milicevic01
  * @author Millosh
  * @author Rancher
  * @author Sasa Stefanovic
@@ -1775,17 +1776,18 @@ $messages['sr-ec'] = array(
 	'unreviewedpages-category' => 'Категорија:',
 	'unreviewedpages-diff' => 'преглед',
 	'unreviewedpages-unwatched' => '(ненадзирано)',
-	'unreviewedpages-watched' => '($1 {{PLURAL:$1|1=активан корисник надгледа|акхивних корисника надгледају}})', # Fuzzy
+	'unreviewedpages-watched' => '($1 {{PLURAL:$1|активан корисник надгледа|активних корисника надгледају}})',
 	'unreviewedpages-list' => "На овој страници су наведене странице са садржајем које још ''нису'' [[{{MediaWiki:Validationpage}}|прегледане]] до одређеног нивоа.",
 	'unreviewedpages-none' => 'Не постоји ниједна страница која се поклапа са овим критеријумима.',
 	'unreviewedpages-viewing' => '(под прегледом)',
-	'unreviewedpages-hours' => '($1 {{PLURAL:$1|1=сат|сати}})', # Fuzzy
-	'unreviewedpages-days' => '($1 {{PLURAL:$1|1=дан|дана}})', # Fuzzy
+	'unreviewedpages-hours' => '($1 {{PLURAL:$1|сат|сати}})',
+	'unreviewedpages-days' => '($1 {{PLURAL:$1|дан|дана}})',
 	'unreviewedpages-recent' => '(мање од једног сата)',
 );
 
 /** Serbian (Latin script) (srpski (latinica)‎)
  * @author Michaello
+ * @author Milicevic01
  */
 $messages['sr-el'] = array(
 	'unreviewedpages' => 'Nepregledane strane.',
@@ -1793,12 +1795,12 @@ $messages['sr-el'] = array(
 	'unreviewedpages-category' => 'Kategorija:',
 	'unreviewedpages-diff' => 'pregled',
 	'unreviewedpages-unwatched' => '(nenadzirano)',
-	'unreviewedpages-watched' => '($1 {{PLURAL:$1|1=aktivan korisnik nadgleda|akhivnih korisnika nadgledaju}})', # Fuzzy
+	'unreviewedpages-watched' => '($1 {{PLURAL:$1|aktivan korisnik nadgleda|aktivnih korisnika nadgledaju}})',
 	'unreviewedpages-list' => "Na ovoj stranici su navedene stranice sa sadržajem koje još ''nisu'' [[{{MediaWiki:Validationpage}}|pregledane]] do određenog nivoa.",
 	'unreviewedpages-none' => 'Ne postoji nijedna strana koja se poklapa sa ovim kriterijima.',
 	'unreviewedpages-viewing' => '(pod pregledom)',
-	'unreviewedpages-hours' => '($1 {{PLURAL:$1|1=sat|sati}})', # Fuzzy
-	'unreviewedpages-days' => '($1 {{PLURAL:$1|1=dan|dana}})', # Fuzzy
+	'unreviewedpages-hours' => '($1 {{PLURAL:$1|sat|sati}})',
+	'unreviewedpages-days' => '($1 {{PLURAL:$1|dan|dana}})',
 	'unreviewedpages-recent' => '(manje od sata)',
 );
 
