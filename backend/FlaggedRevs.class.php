@@ -523,7 +523,7 @@ class FlaggedRevs {
 	 * Get the HTML output of a revision.
 	 * @param FlaggedRevision $frev
 	 * @param ParserOptions $pOpts
-	 * @return ParserOutput
+	 * @return ParserOutput|null
 	 */
 	public static function parseStableRevision( FlaggedRevision $frev, ParserOptions $pOpts ) {
 		# Notify Parser if includes should be stabilized
@@ -538,9 +538,11 @@ class FlaggedRevs {
 			}
 		}
 		# Parse the new body
-		$parserOut = $frev->getRevision()->getContent()->getParserOutput(
-			$frev->getTitle(), $frev->getRevId(), $pOpts
-		);
+		$content = $frev->getRevision()->getContent();
+		if ( $content === null ) {
+			return null; // missing revision
+		}
+		$parserOut = $content->getParserOutput( $frev->getTitle(), $frev->getRevId(), $pOpts );
 		# Stable parse done!
 		if ( $resetManager ) {
 			$incManager->clear(); // reset the FRInclusionManager as needed

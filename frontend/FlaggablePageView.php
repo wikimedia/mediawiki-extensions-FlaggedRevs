@@ -693,6 +693,14 @@ class FlaggablePageView extends ContextSource {
 				$parserOut = FlaggedRevs::parseStableRevision( $srev, $pOpts );
 			}
 
+			if ( !$parserOut ) { // serious error
+				$this->out->addWikiMsg( 'missing-article',
+					$this->article->getTitle()->getPrefixedText(),
+					$this->msg( 'missingarticle-rev', $srev->getRevId() )->text()
+				);
+				return null;
+			}
+
 			# Update the stable version cache
 			$parserCache->save( $parserOut, $this->article, $pOpts );
 			# Add the stable output to the page view
