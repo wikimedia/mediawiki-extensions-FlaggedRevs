@@ -256,7 +256,10 @@ $messages['ca'] = array(
  */
 $messages['ce'] = array(
 	'reviewedversions' => 'Хьаьжина версеш',
+	'reviewedversions-leg1' => 'АгӀонийн хьаьжна версешан могӀа',
 	'reviewedversions-page' => 'Агlон цlе:',
+	'reviewedversions-none' => '«[[:$1]]» хьаьжна версеш яц.',
+	'reviewedversions-list' => '«[[:$1]]» агӀон {{PLURAL:$2|1=хӀокху версега хьаьжна|хӀокху версешга хьаьжна}}:',
 	'reviewedversions-review' => 'Хьаьжна  <i>$1</i> декъашхо $2',
 );
 
@@ -1137,6 +1140,7 @@ $messages['sq'] = array(
 
 /** Serbian (Cyrillic script) (српски (ћирилица)‎)
  * @author Charmed94
+ * @author Milicevic01
  * @author Millosh
  * @author Sasa Stefanovic
  * @author Михајло Анђелковић
@@ -1146,19 +1150,20 @@ $messages['sr-ec'] = array(
 	'reviewedversions-leg1' => 'Списак прегледаних ревизија за страну',
 	'reviewedversions-page' => 'Назив странице:',
 	'reviewedversions-none' => '"[[:$1]]" нема прегледаних ревизија.',
-	'reviewedversions-list' => 'Следи списак {{PLURAL:$2|1=једине ревизије|ревизија}} из [[:$1]], {{PLURAL:$2|1=која је прегледана|које су прегледане}}:', # Fuzzy
+	'reviewedversions-list' => 'Следи списак {{PLURAL:$2|једине ревизије|ревизија}} из [[:$1]], {{PLURAL:$2|која је прегледана|које су прегледане}}:',
 	'reviewedversions-review' => 'Прегледано на <i>$1</i> од стране $2',
 );
 
 /** Serbian (Latin script) (srpski (latinica)‎)
  * @author Michaello
+ * @author Milicevic01
  */
 $messages['sr-el'] = array(
 	'reviewedversions' => 'Pregledana izdanja',
 	'reviewedversions-leg1' => 'Spisak pregledanih verzija za stranu.',
 	'reviewedversions-page' => 'Ime stranice:',
 	'reviewedversions-none' => '"[[:$1]]" nema pregledanih verzija.',
-	'reviewedversions-list' => 'Sledi spisak {{PLURAL:$2|1=jedine revizije|revizija}} iz [[:$1]], {{PLURAL:$2|1=koja je pregledana|koje su pregledane}}:', # Fuzzy
+	'reviewedversions-list' => 'Sledi spisak {{PLURAL:$2|edine revizije|revizija}} iz [[:$1]], {{PLURAL:$2|koja je pregledana|koje su pregledane}}:',
 	'reviewedversions-review' => 'Pregledano na <i>$1</i> od strane saradnika $2.',
 );
 
