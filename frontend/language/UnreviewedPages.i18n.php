@@ -301,9 +301,11 @@ $messages['bn'] = array(
 );
 
 /** Breton (brezhoneg)
+ * @author Fohanno
  * @author Fulup
  */
 $messages['br'] = array(
+	'action-unreviewedpages' => "Gwelet roll ar pajennoù n'int ket bet adwelet",
 	'unreviewedpages' => "Pajennoù n'int ket bet adwelet",
 	'unreviewedpages-legend' => "Rollañ a ra ar pajennoù n'int ket bet adwelet",
 	'unreviewedpages-category' => 'Rummad :',
