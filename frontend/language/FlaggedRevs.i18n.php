@@ -14033,6 +14033,18 @@ $messages['sgs'] = array(
 	'revreview-revnotfound' => 'Nuorima poslapė versėjė narasta. Patėkrėnkėt URL, katro patekuot i šėta poslapi.',
 );
 
+/** Serbo-Croatian (srpskohrvatski / српскохрватски)
+ * @author Kolega2357
+ */
+$messages['sh'] = array(
+	'group-reviewer' => 'Provjerivači',
+	'group-reviewer-member' => '{{GENDER:$1|provjerivač}}',
+	'grouppage-reviewer' => '{{ns:project}}:Provjerivači',
+	'group-autoreview' => 'Autonadzornici',
+	'group-autoreview-member' => '{{GENDER:$1|autonadzornik}}',
+	'grouppage-autoreview' => '{{ns:project}}:Autonadzornici',
+);
+
 /** Tachelhit (Tašlḥiyt/ⵜⴰⵛⵍⵃⵉⵜ)
  * @author Dalinanir
  */

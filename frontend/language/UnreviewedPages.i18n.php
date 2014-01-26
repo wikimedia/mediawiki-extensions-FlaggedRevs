@@ -660,6 +660,7 @@ $messages['fo'] = array(
  * @author IAlex
  * @author PieRRoMaN
  * @author Sherbrooke
+ * @author Urhixidur
  * @author Verdy p
  */
 $messages['fr'] = array(
@@ -670,12 +671,12 @@ $messages['fr'] = array(
 	'unreviewedpages-diff' => 'révision',
 	'unreviewedpages-unwatched' => '(non suivie)',
 	'unreviewedpages-watched' => '($1 {{PLURAL:$1|utilisateur actif suit|utilisateurs actifs suivent}} cette page)',
-	'unreviewedpages-list' => "Cette page liste les pages de contenu qui n'ont ''pas'' été [[{{MediaWiki:Validationpage}}|révisées]] avec le niveau spécifié.",
-	'unreviewedpages-none' => "Aucune page correspondant à ces critères n'a été trouvée",
+	'unreviewedpages-list' => "Cette page liste les pages de contenu qui n’ont ''pas'' été [[{{MediaWiki:Validationpage}}|révisées]] au niveau spécifié.",
+	'unreviewedpages-none' => 'Aucune page correspondant à ces critères n’a été trouvée',
 	'unreviewedpages-viewing' => '(en révision)',
 	'unreviewedpages-hours' => '($1 {{PLURAL:$1|heure|heures}})',
 	'unreviewedpages-days' => '($1 {{PLURAL:$1|jour|jours}})',
-	'unreviewedpages-recent' => "(moins d'une heure)",
+	'unreviewedpages-recent' => '(moins d’une heure)',
 );
 
 /** Franco-Provençal (arpetan)
