@@ -684,6 +684,17 @@ $messages['ml'] = array(
 	'configuredpages-def-stable' => 'പ്രസിദ്ധീകരിച്ച പതിപ്പ്',
 );
 
+/** Marathi (मराठी)
+ * @author V.narsikar
+ */
+$messages['mr'] = array(
+	'configuredpages' => 'पुनरावलोकन विन्यास असलेली पाने',
+	'configuredpages-none' => 'या यादीत काहीच पाने नाहीत.',
+	'configuredpages-config' => 'विन्यास',
+	'configuredpages-def-draft' => 'नविनतम आवृत्ती',
+	'configuredpages-def-stable' => 'स्थिर आवृत्ती',
+);
+
 /** Malay (Bahasa Melayu)
  * @author Anakmalaysia
  */

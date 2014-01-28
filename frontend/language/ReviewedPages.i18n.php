@@ -912,7 +912,7 @@ $messages['mr'] = array(
 	'reviewedpages-lev-1' => 'गुणवत्ता',
 	'reviewedpages-lev-2' => 'विशेष',
 	'reviewedpages-all' => 'तपासलेल्या आवृत्त्या',
-	'reviewedpages-best' => 'मूळ आवृत्ती', # Fuzzy
+	'reviewedpages-best' => 'सर्वोत्तम आवृत्ती',
 );
 
 /** Malay (Bahasa Melayu)

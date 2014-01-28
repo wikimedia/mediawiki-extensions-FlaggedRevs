@@ -658,6 +658,7 @@ $messages['ml'] = array(
  * @author V.narsikar
  */
 $messages['mr'] = array(
+	'problemchanges' => 'प्रलंबित बदल म्हणून खूण असणारी पाने',
 	'problemchanges-none' => 'ह्या मानदंडांशी जुळणारी पाने नाहीत',
 	'problemchanges-category' => 'वर्ग:',
 );

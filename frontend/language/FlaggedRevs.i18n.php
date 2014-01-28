@@ -11348,7 +11348,7 @@ $messages['nb'] = array(
 	'reviewer' => 'Anmelder',
 	'revreview-accuracy' => 'Nøyaktighet',
 	'revreview-accuracy-0' => 'Utilstrekkelig',
-	'revreview-accuracy-1' => 'Sjekket', # Fuzzy
+	'revreview-accuracy-1' => 'Stikkprøvd',
 	'revreview-accuracy-2' => 'Nøyaktig',
 	'revreview-accuracy-3' => 'Godt kildebelagt',
 	'revreview-accuracy-4' => 'Utmerket',
@@ -11370,12 +11370,12 @@ Nye [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffon
 	'revreview-depth-4' => 'Utmerket',
 	'revreview-draft-title' => 'Ventende endringer vises på denne siden',
 	'revreview-edit' => 'Rediger',
-	'revreview-editnotice' => "'''Endringer dine vil bli vist til lesere når en autorisert bruker har revidert dem. ([[{{MediaWiki:Validationpage}}|hjelp]])'''", # Fuzzy
+	'revreview-editnotice' => "'''Endringene dine vil bli vist til leserne straks en autorisert bruker har godtatt dem. ([[{{MediaWiki:Validationpage}}|hjelp]])'''",
 	'revreview-submitedit' => 'Send endringer',
 	'revreview-submitedit-title' => 'Send endringene dine for revidering',
-	'revreview-edited' => "'''Endringer vil bli vist til lesere når en autorisert bruker har revidert dem. ([[{{MediaWiki:Validationpage}}|hjelp]])'''
+	'revreview-edited' => "'''Endringene dine vil bli vist til leserne straks en autorisert bruker har godtatt dem. ([[{{MediaWiki:Validationpage}}|hjelp]])'''
 
-Det er [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1|diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$2|én ventende endring|$2 ventende endringer}}] ''(vist nedenfor)'' som venter på revidering.", # Fuzzy
+Det er [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1|diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 ventende {{PLURAL:$2|endring|endringer}}] ''(vist nedenfor)'' som venter på godkjennelse.",
 	'revreview-edited-section' => 'Tilbake til avsnitt med navnet «[[#$1|$2]]».',
 	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|endring|endringer}}] i denne versjonen [[{{MediaWiki:Validationpage}}|venter på revidering]].
 Den [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} stabile versjonen] ble [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} kontrollert] den <i>$2</i>.',
@@ -14043,6 +14043,8 @@ $messages['sh'] = array(
 	'group-autoreview' => 'Autonadzornici',
 	'group-autoreview-member' => '{{GENDER:$1|autonadzornik}}',
 	'grouppage-autoreview' => '{{ns:project}}:Autonadzornici',
+	'right-autoreview' => "Vlastite izmjene se automatski označavaju kao ''provjerene''",
+	'right-autoreviewrestore' => 'Automatski provjereno pri vraćanju',
 );
 
 /** Tachelhit (Tašlḥiyt/ⵜⴰⵛⵍⵃⵉⵜ)
