@@ -568,7 +568,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 					array( 'rc_patrolled' => 1 ),
 					$conds,
 					__METHOD__,
-					array( 'USE INDEX' => 'rc_cur_id', 'LIMIT' => $limit ) // performance
+					array( 'LIMIT' => $limit ) // performance
 				);
 			}
 		# If we un-accepted this rev, then mark now-pending revs as unpatrolled...
@@ -580,7 +580,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 				array( 'rc_patrolled' => 0 ),
 				$conds,
 				__METHOD__,
-				array( 'USE INDEX' => 'rc_cur_id', 'LIMIT' => $limit ) // performance
+				array( 'LIMIT' => $limit ) // performance
 			);
 		}
 	}

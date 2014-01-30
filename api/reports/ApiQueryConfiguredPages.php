@@ -69,10 +69,6 @@ class ApiQueryConfiguredpages extends ApiQueryGeneratorBase {
 			'flaggedpage_config' => array( 'INNER JOIN', 'page_id=fpc_page_id' ),
 			'flaggedpages' 		 => array( 'LEFT JOIN', 'page_id=fp_page_id' )
 		) );
-		$this->addOption(
-			'USE INDEX',
-			array( 'flaggedpage_config' => 'PRIMARY' )
-		);
 
 		if ( is_null( $resultPageSet ) ) {
 			$this->addFields( array(

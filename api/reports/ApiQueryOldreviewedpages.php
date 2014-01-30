@@ -46,7 +46,6 @@ class ApiQueryOldreviewedpages extends ApiQueryGeneratorBase {
 		// Construct SQL Query
 		$this->addTables( array( 'page', 'flaggedpages', 'revision' ) );
 		$this->addWhereFld( 'page_namespace', $params['namespace'] );
-		$useIndex = array( 'flaggedpages' => 'fp_pending_since' );
 		if ( $params['filterredir'] == 'redirects' ) {
 			$this->addWhereFld( 'page_is_redirect', 1 );
 		}
@@ -72,7 +71,6 @@ class ApiQueryOldreviewedpages extends ApiQueryGeneratorBase {
 			$this->addTables( 'categorylinks' );
 			$this->addWhere( 'cl_from = fp_page_id' );
 			$this->addWhereFld( 'cl_to', $params['category'] );
-			$useIndex['categorylinks'] = 'cl_from';
 		}
 
 		$this->addWhereRange(
@@ -86,7 +84,6 @@ class ApiQueryOldreviewedpages extends ApiQueryGeneratorBase {
 		if ( !isset( $params['start'] ) && !isset( $params['end'] ) ) {
 			$this->addWhere( 'fp_pending_since IS NOT NULL' );
 		}
-		$this->addOption( 'USE INDEX', $useIndex );
 
 		if ( is_null( $resultPageSet ) ) {
 			$this->addFields( array(

@@ -62,10 +62,6 @@ class ApiQueryReviewedpages extends ApiQueryGeneratorBase {
 			$params['end']
 		);
 		$this->addWhere( 'page_id=fp_page_id' );
-		$this->addOption(
-			'USE INDEX',
-			array( 'flaggedpages' => 'PRIMARY' )
-		);
 
 		if ( is_null( $resultPageSet ) ) {
 			$this->addFields( array (

@@ -319,8 +319,7 @@ class FlaggableWikiPage extends WikiPage {
 			),
 			__METHOD__,
 			array(
-				'ORDER BY' 	=> 'fr_quality DESC, fr_rev_timestamp DESC',
-				'USE INDEX' => array( 'flaggedrevs' => 'page_qal_time' )
+				'ORDER BY' 	=> 'fr_quality DESC, fr_rev_timestamp DESC'
 			)
 		);
 		return (int)$oldid;

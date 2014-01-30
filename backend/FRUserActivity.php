@@ -31,8 +31,7 @@ class FRUserActivity {
 				'wl_user = user_id',
 				'user_touched > ' . $dbr->addQuotes( $cutoff ) // logged in or out
 			),
-			__METHOD__,
-			array( 'USE INDEX' => array( 'watchlist' => 'namespace_title' ) )
+			__METHOD__
 		);
 		if ( $count > 10 ) {
 			# Save new value to cache (more aggresive for larger counts)

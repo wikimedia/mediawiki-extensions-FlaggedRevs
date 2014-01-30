@@ -148,10 +148,8 @@ class ReviewedPagesPager extends AlphabeticPager {
 	function getQueryInfo() {
 		$conds = $this->mConds;
 		$conds[] = 'page_id = fp_page_id';
-		$index = 'PRIMARY';
 		if ( $this->type >= 0 ) {
 			$conds['fp_quality'] = $this->type;
-			$index = 'fp_quality_page';
 		}
 		if ( $this->hideRedirs ) {
 			$conds['page_is_redirect'] = 0;
@@ -161,9 +159,6 @@ class ReviewedPagesPager extends AlphabeticPager {
 			'tables' => array( 'flaggedpages', 'page' ),
 			'fields' => 'page_namespace,page_title,page_len,fp_page_id',
 			'conds'  => $conds,
-			'options' => array(
-				'USE INDEX' => array( 'flaggedpages' => $index, 'page' => 'PRIMARY' )
-			)
 		);
 	}
 

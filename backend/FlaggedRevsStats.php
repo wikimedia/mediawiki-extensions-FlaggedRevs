@@ -224,8 +224,7 @@ class FlaggedRevsStats {
 				'fp_page_id = page_id',
 				'page_namespace' => FlaggedRevs::getReviewNamespaces() // sanity
 			),
-			__METHOD__,
-			array( 'USE INDEX' => array('flaggedpages' => 'fp_pending_since') )
+			__METHOD__
 		);
 	}
 
@@ -278,10 +277,11 @@ class FlaggedRevsStats {
 					'fpp_pending_since > '.$encLastTS, // skip failed rows
 				),
 				__METHOD__,
-				array( 'ORDER BY' => 'fpp_pending_since ASC',
-					'USE INDEX' => array( 'flaggedpage_pending' => 'fpp_quality_pending' ) )
+				array( 'ORDER BY' => 'fpp_pending_since ASC' )
 			);
-			if ( !$row ) break;
+			if ( !$row ) {
+				break;
+			}
 			# Find the newest revision at the time the page was reviewed,
 			# this is the one that *should* have been reviewed.
 			$idealRev = (int)$dbr->selectField( 'revision', 'rev_id',
