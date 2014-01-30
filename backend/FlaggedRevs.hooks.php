@@ -233,18 +233,14 @@ class FlaggedRevsHooks {
 	public static function onParserFirstCallInit( &$parser ) {
 		$parser->setFunctionHook( 'pagesusingpendingchanges',
 			'FlaggedRevsHooks::parserPagesUsingPendingChanges' );
+		$parser->setFunctionHook( 'pendingchangelevel',
+			'FlaggedRevsHooks::parserPendingChangeLevel', SFH_NO_HASH );
 		return true;
 	}
 
 	public static function onParserGetVariableValueSwitch( &$parser, &$cache, &$word, &$ret ) {
 		if ( $word == 'pendingchangelevel' ) {
-			$title = $parser->getTitle();
-			if ( !FlaggedRevs::inReviewNamespace( $title ) ) {
-				$ret = '';
-			} else {
-				$config = FRPageConfig::getStabilitySettings( $title );
-				$ret = $config['autoreview'];
-			}
+			$ret = FlaggedRevsHooks::parserPendingChangeLevel( $parser );
 		}
 		return true;
 	}
@@ -283,6 +279,19 @@ class FlaggedRevsHooks {
 			return $nsList['all'];
 		} else {
 			return $nsList[ "ns-$ns" ];
+		}
+	}
+
+	public static function parserPendingChangeLevel( &$parser, $page = '' ) {
+		$title = Title::newFromText( $page );
+		if ( !( $title instanceof Title ) ) {
+			$title = $parser->getTitle();
+		}
+		if ( !FlaggedRevs::inReviewNamespace( $title ) || !$parser->incrementExpensiveFunctionCount() ) {
+			return '';
+		} else {
+			$config = FRPageConfig::getStabilitySettings( $title );
+			return $config['autoreview'];
 		}
 	}
 
