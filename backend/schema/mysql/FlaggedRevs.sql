@@ -70,10 +70,10 @@ CREATE TABLE IF NOT EXISTS /*_*/flaggedrevs (
   fr_img_sha1 varbinary(32) NULL default NULL
 ) /*$wgDBTableOptions*/;
 
-CREATE INDEX /*i*/page_rev ON /*_*/flaggedrevs (fr_page_id,fr_rev_id);
-CREATE INDEX /*i*/page_time ON /*_*/flaggedrevs (fr_page_id,fr_rev_timestamp);
-CREATE INDEX /*i*/page_qal_rev ON /*_*/flaggedrevs (fr_page_id,fr_quality,fr_rev_id);
-CREATE INDEX /*i*/page_qal_time ON /*_*/flaggedrevs (fr_page_id,fr_quality,fr_rev_timestamp);
+CREATE INDEX /*i*/fr_page_rev ON /*_*/flaggedrevs (fr_page_id,fr_rev_id);
+CREATE INDEX /*i*/fr_page_time ON /*_*/flaggedrevs (fr_page_id,fr_rev_timestamp);
+CREATE INDEX /*i*/fr_page_qal_rev ON /*_*/flaggedrevs (fr_page_id,fr_quality,fr_rev_id);
+CREATE INDEX /*i*/fr_page_qal_time ON /*_*/flaggedrevs (fr_page_id,fr_quality,fr_rev_timestamp);
 CREATE INDEX /*i*/fr_img_sha1 ON /*_*/flaggedrevs (fr_img_sha1);
 
 -- This stores all of our transclusion revision pointers
@@ -127,9 +127,9 @@ CREATE TABLE IF NOT EXISTS /*_*/flaggedrevs_tracking (
   ftr_title varchar(255) binary NOT NULL default ''
 ) /*$wgDBTableOptions*/;
 
-CREATE UNIQUE INDEX /*i*/from_namespace_title
+CREATE UNIQUE INDEX /*i*/frt_from_namespace_title
 	ON /*_*/flaggedrevs_tracking (ftr_from,ftr_namespace,ftr_title);
-CREATE INDEX /*i*/namespace_title_from
+CREATE INDEX /*i*/frt_namespace_title_from
 	ON /*_*/flaggedrevs_tracking (ftr_namespace,ftr_title,ftr_from);
 
 -- This stores user demotions and stats
