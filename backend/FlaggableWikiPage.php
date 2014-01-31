@@ -315,7 +315,7 @@ class FlaggableWikiPage extends WikiPage {
 				'fr_page_id' => $this->getId(),
 				'rev_page = fr_page_id', // sanity
 				'rev_id = fr_rev_id',
-				'rev_deleted & ' . Revision::DELETED_TEXT => 0
+				$dbr->bitAnd( 'rev_deleted', Revision::DELETED_TEXT ) . ' = 0'
 			),
 			__METHOD__,
 			array(
@@ -427,7 +427,7 @@ class FlaggableWikiPage extends WikiPage {
 				array( 'fr_page_id' => $this->getId(),
 					'rev_id = fr_rev_id',
 					'rev_page = fr_page_id',
-					'rev_deleted & ' . Revision::DELETED_TEXT => 0
+					$dbw->bitAnd( 'rev_deleted', Revision::DELETED_TEXT ) . ' = 0'
 				),
 				__METHOD__,
 				array( 'ORDER BY' => 'fr_quality DESC', 'LIMIT' => 1 )
@@ -517,7 +517,7 @@ class FlaggableWikiPage extends WikiPage {
 					'fr_rev_timestamp > ' . $dbw->addQuotes( $higherLevelTS ),
 					'rev_id = fr_rev_id', // rev exists
 					'rev_page = fr_page_id', // sanity
-					'rev_deleted & ' . Revision::DELETED_TEXT => 0
+					$dbw->bitAnd( 'rev_deleted', Revision::DELETED_TEXT ) . ' = 0'
 				),
 				__METHOD__,
 				array( 'ORDER BY' => 'fr_rev_timestamp DESC', 'LIMIT' => 1 )

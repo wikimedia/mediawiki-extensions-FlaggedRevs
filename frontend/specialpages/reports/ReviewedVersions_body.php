@@ -89,10 +89,11 @@ class ReviewedVersionsPager extends ReverseChronologicalPager {
 	}
 
 	function getQueryInfo() {
+		$db = $this->getDatabase();
 		$conds = $this->mConds;
 		$conds['fr_page_id'] = $this->pageID;
 		$conds[] = 'fr_rev_id = rev_id';
-		$conds[] = 'rev_deleted & ' . Revision::DELETED_TEXT . ' = 0';
+		$conds[] = $db->bitAnd( 'rev_deleted', Revision::DELETED_TEXT ) . ' = 0';
 		$conds[] = 'fr_user = user_id';
 		return array(
 			'tables'  => array( 'flaggedrevs', 'revision', 'user' ),

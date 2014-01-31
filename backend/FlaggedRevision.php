@@ -260,7 +260,7 @@ class FlaggedRevision {
 			'fr_page_id' => $pageId,
 			'rev_id = fr_rev_id',
 			'rev_page = fr_page_id', // sanity
-			'rev_deleted & ' . Revision::DELETED_TEXT => 0
+			$db->bitAnd( 'rev_deleted', Revision::DELETED_TEXT ) . ' = 0'
 		);
 		$options['ORDER BY'] = 'fr_rev_timestamp DESC';
 
