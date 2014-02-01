@@ -963,6 +963,7 @@ Adlennit an holl gemmoù diskouezet a-is evit ma teufe war wel ho kemmoù er stu
 /** Bosnian (bosanski)
  * @author CERminator
  * @author Edinwiki
+ * @author KWiki
  */
 $messages['bs'] = array(
 	'revisionreview' => 'Pregledaj revizije',
@@ -970,7 +971,7 @@ $messages['bs'] = array(
 	'revreview-submission-invalid' => 'Slanje je nekompletno ili na drugi način nevaljano.',
 	'review_page_invalid' => 'Naslov ciljne datoteke nije valjan',
 	'review_page_notexists' => 'Ciljna stranica ne postoji.',
-	'review_page_unreviewable' => 'Ciljna stranica se ne može provjeravati.',
+	'review_page_unreviewable' => 'Ciljna stranica ne može se provjeravati.',
 	'review_no_oldid' => 'Nije naveden ID revizije.',
 	'review_bad_oldid' => 'Ciljna revizija ne postoji.',
 	'review_conflict_oldid' => 'Neko je već prihvatio ili odbio ovu reviziju dok ste je vi pregledali.',
@@ -1097,7 +1098,7 @@ $messages['ca'] = array(
  */
 $messages['ce'] = array(
 	'revisionreview' => 'Версешка хьажар',
-	'revreview-failed' => "'''Ца хьажало варсийга.'''",
+	'revreview-failed' => "'''Ца хьажало версега.'''",
 	'revreview-submission-invalid' => 'ХӀоттам бара бузанза я кхачам боцуш чулацамца.',
 	'review_page_invalid' => 'Агlонан чулацамца йогlуш йоцу цlе.',
 	'review_page_notexists' => 'Iалаше хьажийна агӀо я яц.',
@@ -1137,7 +1138,11 @@ $messages['ce'] = array(
 	'revreview-submit-unreviewed' => 'Йели. Къобал дар дlадаьккхи!',
 	'revreview-successful' => "'''Хьаржина башхо [[:$1|$1]] кхиамца билгалло йира. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} хьажар цхьан эшшара йолу башхонашка])'''",
 	'revreview-successful2' => "'''Хаьржиначу варсийн тlийра [[:$1|$1]] дlайаькхин билгалло.'''",
-	'revreview-sadv-reviewing-c' => 'Хьан йиш ю $1 кхечу декъашхошка хьой къобал яр гайта.',
+	'revreview-adv-reviewing-p' => 'ДӀахьедар. Кхечу къобалечарна {{GENDER:$1|хьо}} хьокху агӀоне хьожуш хилар га там бу.',
+	'revreview-adv-reviewing-c' => 'ДӀахьедар. Кхечу къобалечарна {{GENDER:$1|хьо}} хьокху хийцамашка хьожуш хилар га там бу.',
+	'revreview-sadv-reviewing-c' => 'Хьан йиш ю $1 кхечу декъашхошка хьой къобалеш хилар гайта.',
+	'revreview-adv-start-link' => 'хаийта',
+	'revreview-adv-stop-link' => 'хьожуш хилар дӀадаккха',
 	'revreview-toolow' => "'''Аша локхаллийн билгалло хlотто йеза лакхахьа, хlу «тlе цатоьа», агlонан варсий хилийта хьаьжинчарна йукъехь.'''
 
 Варсийга хьаьжна аьлла билгалло дlайаккха, тlе таlайе «Къобал йар дlадаккха».
@@ -1147,9 +1152,9 @@ $messages['ce'] = array(
 	'revreview-update-edited' => '<span class="flaggedrevs_important">Хьан хийцамаш хlинца ца латийна цхьан эшара йолу варсийн.</span>
 
 Дехар до, хьовсийша массо лахахьа гойтуш болучу хийцамашка, цхьан эшар йолу варсийца хилийта шу хийцамаш.',
-	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Хьан хийцамаш хlинца ца латийна цхьан эшара йолу варсийн. Кхий хьалхара хийцамаш бу, хьажа дезаш.</span>
+	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Хьан хийцамаш хӀинца чӀагӀелла версийн юкъа тоьхна яц. Кхий хьалхара хийцамаш бу, хьажа дезаш.</span>
 
-Шу хийцамаш латаба, цхьан эшар йолучу варсийца, дехар до, хьовсийша массо хийцамашка, гойтуш болу лахахьа.',
+Шу хийцамаш чӀагӀелла версийн юкъа тоха, дехар до, хьовсийша массо хийцамашка, гойтуш болу лахахьа.',
 	'revreview-update-includes' => 'Цхьа долу кепаш йа файлаш а карла даьхна:',
 	'revreview-reject-summary' => 'Цунах лаьцна:',
 	'revreview-reject-confirm' => 'Юха баха иза хийцамаш',

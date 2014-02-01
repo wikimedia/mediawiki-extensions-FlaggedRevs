@@ -140,6 +140,15 @@ $messages['ca'] = array(
 	'qualityoversight-legend' => 'Cerca els registres de revisions recents',
 );
 
+/** Chechen (нохчийн)
+ * @author Умар
+ */
+$messages['ce'] = array(
+	'qualityoversight' => 'Версеш къобаляран шуьйрра тептар',
+	'qualityoversight-list' => 'ХӀокху агӀонгахь гойту дукху хан йоцуш версеш къобаляр а къобаляр дӀадаккхар а.',
+	'qualityoversight-legend' => 'Къобаляран тептар чохь лахар',
+);
+
 /** Czech (čeština)
  * @author Matěj Grabovský
  */

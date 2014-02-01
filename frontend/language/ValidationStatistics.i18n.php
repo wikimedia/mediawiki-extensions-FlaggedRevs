@@ -412,6 +412,11 @@ El temps mitjà pel que fa a [[Special:OldReviewedPages|les pagines amb edicions
  * @author Умар
  */
 $messages['ce'] = array(
+	'validationstatistics' => 'АгӀонашка хьажаран статистика',
+	'validationstatistics-users' => "{{SITENAME}} проектехь хӀинца '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|декъашхо ву/ю}} цера ю [[{{MediaWiki:Validationpage}}|тадерг]] бакъо.
+
+Тадергш бу агӀонийн версеш хоржуш хьожурш.",
+	'validationstatistics-lastupdate' => "''Лахара хаамаш тӀеххьара карлабаьхна бу $1 $2.''",
 	'validationstatistics-ns' => 'Цlерийн ана',
 	'validationstatistics-total' => 'Агlонаш',
 	'validationstatistics-stable' => 'Нийса йуй хаьжнарш',
@@ -2095,6 +2100,13 @@ $messages['sc'] = array(
 $messages['scn'] = array(
 	'validationstatistics-total' => 'Pàggini',
 	'validationstatistics-user' => 'Utenti',
+);
+
+/** Serbo-Croatian (srpskohrvatski / српскохрватски)
+ * @author Kolega2357
+ */
+$messages['sh'] = array(
+	'validationstatistics-ns' => 'Imenski prostor',
 );
 
 /** Sinhala (සිංහල)

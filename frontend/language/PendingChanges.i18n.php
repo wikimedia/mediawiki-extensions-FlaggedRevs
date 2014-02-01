@@ -431,12 +431,17 @@ $messages['ca'] = array(
  * @author Умар
  */
 $messages['ce'] = array(
+	'pendingchanges' => 'Хьажанза хийцамаш болу агӀонаш',
+	'pendingchanges-legend' => 'Хьажанза версеш йолу къобалйина агӀонийн могӀам',
+	'pendingchanges-list' => 'ХӀокху агӀонгахь гойту хьажа дезаш нисдарш долу [[{{MediaWiki:Validationpage}}|къобалйина]] агӀонаш.',
 	'pendingchanges-hours' => '($1 {{PLURAL:$1|сахьт}})', # Fuzzy
 	'pendingchanges-days' => '($1 {{PLURAL:$1|де}})',
 	'pendingchanges-recent' => '(лаххар 1 сахьтехь)',
 	'pendingchanges-category' => 'Категори:',
+	'pendingchanges-onwatchlist' => 'Сан тергаме могӀам чура агӀонаш',
 	'pendingchanges-stable' => 'Чутоьхна верси Ӏад йитарца',
 	'pendingchanges-diff' => 'хьажа',
+	'pendingchanges-size' => 'Дукху хийцамаш байташкахь:',
 	'pendingchanges-unwatched' => '(терго яц)',
 	'pendingchanges-watched' => '({{PLURAL:$1|1=терго йеш $1 жигар декъашхо|терго йеш $1 жигара декъашхой}})', # Fuzzy
 	'pendingchanges-viewing' => '(хьовсамехь ю)',

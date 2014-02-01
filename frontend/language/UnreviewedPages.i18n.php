@@ -368,10 +368,13 @@ $messages['ca'] = array(
  */
 $messages['ce'] = array(
 	'action-unreviewedpages' => 'хьажанца йолу агӀонийн могӀане хьажар',
+	'unreviewedpages' => 'Хьажанза агӀонаш',
+	'unreviewedpages-legend' => 'Хьажанза агӀонийн могӀам',
 	'unreviewedpages-category' => 'Категори:',
 	'unreviewedpages-diff' => 'хьажа',
 	'unreviewedpages-unwatched' => '(терго яц)',
 	'unreviewedpages-watched' => '({{PLURAL:$1|1=терго йеш $1 жигара декъашхо|терго йеш $1 жигара декъашхой}})', # Fuzzy
+	'unreviewedpages-list' => 'ХӀокху агӀонгахь гойту [[{{MediaWiki:Validationpage}}|мах ца хадина]] агӀонаш.',
 	'unreviewedpages-viewing' => '(талламяхь ю)',
 	'unreviewedpages-hours' => '($1 {{PLURAL:$1|сахьт}})', # Fuzzy
 	'unreviewedpages-days' => '($1 {{PLURAL:$1|де}})', # Fuzzy
