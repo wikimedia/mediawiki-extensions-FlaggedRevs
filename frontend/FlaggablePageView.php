@@ -1319,6 +1319,7 @@ class FlaggablePageView extends ContextSource {
 		$newViews = array();
 		// Rebuild tabs array. Deals with Monobook vs Vector differences.
 		if ( $type == 'nav' ) { // Vector et al
+			$previousTab = null;
 			foreach ( $views as $tabAction => $data ) {
 				// The 'view' tab. Make it go to the stable version...
 				if ( $tabAction == 'view' ) {
@@ -1328,12 +1329,12 @@ class FlaggablePageView extends ContextSource {
 					$newViews[$tabAction]['class'] = $tabs['read']['class'];
 				// All other tabs...
 				} else {
-					// Add 'draft' tab to content page to the left of 'edit'...
-					if ( $tabAction == 'edit' || $tabAction == 'viewsource' ) {
+					if ( $previousTab == 'view' ) {
 						$newViews['current'] = $tabs['draft'];
 					}
 					$newViews[$tabAction] = $data;
 				}
+				$previousTab = $tabAction;
 			}
 		} elseif ( $type == 'flat' ) { // MonoBook et al
 			$first = true;
