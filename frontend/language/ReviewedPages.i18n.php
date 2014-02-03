@@ -279,7 +279,7 @@ $messages['ce'] = array(
 	'reviewedpages-leg' => 'Хьаьжина агӀонийн могӀам',
 	'reviewedpages-list' => 'ХӀокху агӀонгахь гойту [[{{MediaWiki:Validationpage}}|хьаьжина]] агӀонаш.',
 	'reviewedpages-lev-0' => 'Хьаьжина',
-	'reviewedpages-all' => 'хьаьжина варсийш',
+	'reviewedpages-all' => 'хьаьжина версеш',
 	'reviewedpages-best' => 'чӀогӀа дика верси',
 );
 

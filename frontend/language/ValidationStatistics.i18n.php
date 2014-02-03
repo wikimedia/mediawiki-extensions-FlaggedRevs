@@ -417,11 +417,17 @@ $messages['ce'] = array(
 
 Тадергш бу агӀонийн версеш хоржуш хьожурш.",
 	'validationstatistics-lastupdate' => "''Лахара хаамаш тӀеххьара карлабаьхна бу $1 $2.''",
+	'validationstatistics-pndtime' => "Бакъонаш йолу декъашхоша билгало йина агӀонаш хуьйла ''{{int:validationstatistics-stable}}''.
+
+[[Special:OldReviewedPages| ХӀинца хьажаза нисдарш долу агӀонийн]] юккъера хьедалар — '''$1'''. ХӀокху параметро гойту тӀеххьара хьажаза нисдаран верси хьожуш болучу декъашхоша терго ца еш юьту мел хан ю.",
 	'validationstatistics-ns' => 'Цlерийн ана',
 	'validationstatistics-total' => 'Агlонаш',
 	'validationstatistics-stable' => 'Нийса йуй хаьжнарш',
 	'validationstatistics-latest' => 'Юха хьаьжинарш',
+	'validationstatistics-synced' => 'Юху хьаьжнарш хьаьжна хила чера юкъар',
 	'validationstatistics-old' => 'Шира елларш',
+	'validationstatistics-unreviewed' => 'Хьажанза ерш',
+	'validationstatistics-utable' => 'Лахахьа гойту $1 {{PLURAL:$1|жигара къобалер|жигара къобалерш}} {{PLURAL:$2|тӀеххьара {{#ifeq:$2|1||$2}} сахьт}} чохь.',
 	'validationstatistics-user' => 'Декъашхо',
 	'validationstatistics-reviews' => 'Нийса йуй хьажар',
 );

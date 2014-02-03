@@ -182,6 +182,7 @@ $messages['ca'] = array(
  * @author Умар
  */
 $messages['ce'] = array(
+	'problemchanges-none' => 'ХӀинца йолу хана иштта хьал долу агӀонаш яц',
 	'problemchanges-category' => 'Категори:',
 );
 

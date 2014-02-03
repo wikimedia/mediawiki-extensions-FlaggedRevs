@@ -434,6 +434,7 @@ $messages['ce'] = array(
 	'pendingchanges' => 'Хьажанза хийцамаш болу агӀонаш',
 	'pendingchanges-legend' => 'Хьажанза версеш йолу къобалйина агӀонийн могӀам',
 	'pendingchanges-list' => 'ХӀокху агӀонгахь гойту хьажа дезаш нисдарш долу [[{{MediaWiki:Validationpage}}|къобалйина]] агӀонаш.',
+	'pendingchanges-none' => 'ХӀинца йолу хана иштта хьал долу агӀонаш яц',
 	'pendingchanges-hours' => '($1 {{PLURAL:$1|сахьт}})', # Fuzzy
 	'pendingchanges-days' => '($1 {{PLURAL:$1|де}})',
 	'pendingchanges-recent' => '(лаххар 1 сахьтехь)',

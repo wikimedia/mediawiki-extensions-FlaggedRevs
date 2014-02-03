@@ -589,19 +589,46 @@ $messages['ast'] = array(
 	'review_conflict_oldid' => 'Dalguién yá aceutó o refugó esta revisión mentanto taba viendola.',
 	'review_not_flagged' => 'La revisión de destín inda nun ta marcada como revisada.',
 	'review_too_low' => 'Nun pue revisase la revisión quedando dellos campos como "inadecuao".',
+	'review_bad_key' => "Clave de parámetru d'inclusión inválida.",
+	'review_bad_tags' => "Algunos de los valores d'etiqueta especificaos nun son válidos.",
+	'review_denied' => 'Permisu refugáu.',
+	'review_param_missing' => 'Falta un parámetru o ye inválidu.',
+	'review_cannot_undo' => 'Nun puen desfacese estos cambios porque otres ediciones pendientes posteriores camudaron les mesmes árees.',
+	'review_cannot_reject' => 'Nun puen refugase estos cambios porque dalguién yá aceutó algunes (o toles) ediciones.',
+	'review_reject_excessive' => 'Nun puen refugase tantes ediciones al mesmu tiempu.',
+	'review_reject_nulledits' => 'Nun pue refugar estos cambios porque toles revisiones son ediciones nules.',
+	'revreview-check-flag-p' => 'Aceutar esta versión (incluye {{PLURAL:$1|un cambiu pendiente|$1 cambios pendientes}})',
+	'revreview-check-flag-p-title' => "Aceutar el resultáu de los cambios pendientes y los cambios que fizo equí. Use esto sólo si yá vió'l diff de los cambios pendientes.",
+	'revreview-check-flag-u' => 'Aceutar esta páxina non revisada',
+	'revreview-check-flag-u-title' => 'Aceutar esta versión de la páxina. Use esto sólo si yá vió la páxina entera.',
 	'revreview-check-flag-y' => 'Aceutar los mios cambios',
 	'revreview-check-flag-y-title' => 'Aceutar tolos cambios que vienes de facer equí.',
 	'revreview-flag' => 'Revisar esta revisión',
 	'revreview-reflag' => 'Revisar esta revisión otra vuelta',
+	'revreview-invalid' => "'''Destín inválidu:''' nenguna versión [[{{MediaWiki:Validationpage}}|revisada]] correspuende cola ID que se dió.",
 	'revreview-log' => 'Comentariu:',
 	'revreview-main' => "Tienes que seleicionar una revisión concreta d'una páxina de conteníos pa revisala.
 
 Vete a la [[Special:Unreviewedpages|llista de páxines ensin revisar]].",
+	'revreview-stable1' => "Seique quiera ver [{{fullurl:$1|stableid=$2}} esta versión marcada] pa comprobar si agora ye la [{{fullurl:$1|stable=1}} versión estable] d'esta páxina.",
+	'revreview-stable2' => "Seique quiera ver la [{{fullurl:$1|stable=1}} versión estable] d'esta páxina.",
 	'revreview-submit' => 'Unviar',
 	'revreview-submitting' => 'Unviando...',
 	'revreview-submit-review' => 'Aceutar revisión',
 	'revreview-submit-unreview' => 'Nun aceutar la revisión',
 	'revreview-submit-reject' => 'Refugar los cambios',
+	'revreview-submit-reviewed' => 'Fecho. ¡Aceutada!',
+	'revreview-submit-unreviewed' => 'Fecho. ¡Desaprobada!',
+	'revreview-successful' => "'''Marcada correutamente la revisión de [[:$1|$1]]. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} ver les versiones revisaes])'''",
+	'revreview-successful2' => "'''Desmarcada correutamente la revisión de [[:$1|$1]].'''",
+	'revreview-poss-conflict-p' => "'''Avisu: [[User:$1|$1]] principió a revisar esta páxina'l $2 a les $3.'''",
+	'revreview-poss-conflict-c' => "'''Avisu: [[User:$1|$1]] principió a revisar estos cambios el $2 a les $3.'''",
+	'revreview-adv-reviewing-p' => 'Avisu: Otros revisores puen ver que {{GENDER:$1|vusté}} ta revisando esta páxina.',
+	'revreview-adv-reviewing-c' => 'Avisu: Otros revisores puen ver que {{GENDER:$1|vusté}} ta revisando estos cambios.',
+	'revreview-sadv-reviewing-p' => 'Pue $1 a otros usuarios que vusté ta revisando esta páxina.',
+	'revreview-sadv-reviewing-c' => 'Pue $1 a otros usuarios que vusté ta revisando estos cambios.',
+	'revreview-adv-start-link' => 'anunciar',
+	'revreview-adv-stop-link' => "dexar d'anunciar",
 	'revreview-toolow' => "'''Tienes de calificar caún de los atributos más alto que \"non afayadizu\" pa qu'una revisión se considere revisada.'''
 
 Pa desaniciar l'estáu d'una revisión, calca \"{{int:revreview-submit-unreview}}\".
@@ -611,9 +638,22 @@ Calca nel botón \"atrás\" del restolador ya intentalo otra vuelta.",
 	'revreview-update-edited' => '<span class="flaggedrevs_important">Los tos cambios inda nun tan na versión estable.</span>
 
 Revisa tolos cambios que s\'amuesen más abaxo pa facer que les tos ediciones apaezan na versión estable.',
+	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Los sos cambios inda nun tan na versión estable. Hai cambios anteriores pendientes de revisión.</span>
+
+Revise tolos cambios que s\'amuesen más abaxo pa facer que les sos ediciones apaezan na versión estable.',
 	'revreview-update-includes' => "S'anovaron delles plantíes/ficheros (páxines ensin revisar en negrina):",
+	'revreview-reject-text-list' => "Al completar esta aición tará '''refugando''' los cambios nel testu fonte de {{PLURAL:\$1|la siguiente revisión|les siguientes revisiones}} de \"[[:\$2|\$2]]\":",
+	'revreview-reject-text-revto' => 'Esto devolverá la páxina a la [{{fullurl:$1|oldid=$2}} versión del $3].',
 	'revreview-reject-summary' => 'Resume:',
+	'revreview-reject-confirm' => 'Refugar estos cambios',
 	'revreview-reject-cancel' => 'Encaboxar',
+	'revreview-reject-summary-cur' => "{{PLURAL:$1|Refugáu l'últimu cambiu|Refugaos los últimos $1 cambios}} nel testu (de $2) y restaurada la revisión $3 de $4",
+	'revreview-reject-summary-old' => '{{PLURAL:$1|Refugáu el primer cambiu|Refugaos los primeros $1 cambios}} nel testu (de $2) que siguieron a la revisión $3 de $4',
+	'revreview-reject-summary-cur-short' => "{{PLURAL:$1|Refugáu l'últimu cambiu|Refugaos los últimos $1 cambios}} nel testu y restaurada la revisión $2 de $3",
+	'revreview-reject-summary-old-short' => '{{PLURAL:$1|Refugáu el primer cambiu|Refugaos los primeros $1 cambios}} nel testu que siguieron a la revisión $3 de $4', # Fuzzy
+	'revreview-tt-flag' => 'Aceutar esta revisión marcándola como «comprobada»',
+	'revreview-tt-unflag' => 'Nun aceutar esta revisión marcándola como «nun comprobada»',
+	'revreview-tt-reject' => 'Refugar estos cambios nel testu fonte desfaciéndolos',
 );
 
 /** Azerbaijani (azərbaycanca)
@@ -1130,7 +1170,7 @@ $messages['ce'] = array(
 	'revreview-stable1' => 'Хила мега хьо хьажа лууш [{{fullurl:$1|stableid=$2}} хӀокх къастам биначу башхоне] я хӀокху агӀона [{{fullurl:$1|stable=1}} чутоьхначу башхоне], нагахь исаннаг йалахь.',
 	'revreview-stable2' => 'Хьона хьажалур ду [{{fullurl:$1|stable=1}} чутоьхначу башхоне] хӀокху агӀон.',
 	'revreview-submit' => 'Дlадахьийта',
-	'revreview-submitting' => 'Дlайахьийтар…',
+	'revreview-submitting' => 'ДӀаяхьийтар…',
 	'revreview-submit-review' => 'Къобал йе верси',
 	'revreview-submit-unreview' => 'Дlадаккха къобал йар',
 	'revreview-submit-reject' => 'Юха баха хийцамаш',
@@ -1162,6 +1202,8 @@ $messages['ce'] = array(
 	'revreview-reject-summary-cur' => '{{PLURAL:$1|1=Йуха баькхина тlаьххьара $1 хийцам|Йуха баькхина тlаьххьара $1 хийцамаш}} ($2) а, варсий метта хlоттош $3 $4', # Fuzzy
 	'revreview-reject-summary-old' => '{{PLURAL:$1|1=Йуха баькхина дуьхьаралера $1 хийцам|Йуха баькхина дуьхьаралера $1 хийцамаш}} ($2), {{PLURAL:$1|1=тlехьа богlаш|тlехьа богlаш}} болу оцу варсийн $3 $4', # Fuzzy
 	'revreview-reject-summary-cur-short' => '{{PLURAL:$1|1=Йуха баькхина тlаьххьара $1 хийцам|Йуха баькхина тlаьххьара $1 хийцамаш}} а, варсий метта хlоттош $2 $3', # Fuzzy
+	'revreview-tt-flag' => 'Къобал йе хӀара верси, иза хьаьжна санна билгала йина',
+	'revreview-tt-unflag' => 'ДӀадаккха къобал яр хӀокху версен тӀера, иза хьажанза санна билгала йина',
 );
 
 /** Sorani Kurdish (کوردی)
