@@ -420,6 +420,10 @@ $messages['ce'] = array(
 	'validationstatistics-pndtime' => "Бакъонаш йолу декъашхоша билгало йина агӀонаш хуьйла ''{{int:validationstatistics-stable}}''.
 
 [[Special:OldReviewedPages| ХӀинца хьажаза нисдарш долу агӀонийн]] юккъера хьедалар — '''$1'''. ХӀокху параметро гойту тӀеххьара хьажаза нисдаран верси хьожуш болучу декъашхоша терго ца еш юьту мел хан ю.",
+	'validationstatistics-revtime' => "ЦӀе хьулйина декъашхоша дина нисдар къобал цадеш йолу хан '''$1'''; медиан — '''$2'''.
+$3",
+	'validationstatistics-table' => "Лахахьа гойту цӀерийн меттгашца агӀонашка хьажаран статистика дӀасахьажаярш ''юкъахь яц''
+Хьажанза нисдарш долу агӀонаш  ''{{int:validationstatistics-old}}'' ю; хьажа дезаш нисдарш доцу агӀонаш ''{{int:validationstatistics-latest}}'' ю.",
 	'validationstatistics-ns' => 'Цlерийн ана',
 	'validationstatistics-total' => 'Агlонаш',
 	'validationstatistics-stable' => 'Нийса йуй хаьжнарш',

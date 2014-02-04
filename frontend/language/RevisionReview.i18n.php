@@ -650,7 +650,7 @@ Revise tolos cambios que s\'amuesen más abaxo pa facer que les sos ediciones ap
 	'revreview-reject-summary-cur' => "{{PLURAL:$1|Refugáu l'últimu cambiu|Refugaos los últimos $1 cambios}} nel testu (de $2) y restaurada la revisión $3 de $4",
 	'revreview-reject-summary-old' => '{{PLURAL:$1|Refugáu el primer cambiu|Refugaos los primeros $1 cambios}} nel testu (de $2) que siguieron a la revisión $3 de $4',
 	'revreview-reject-summary-cur-short' => "{{PLURAL:$1|Refugáu l'últimu cambiu|Refugaos los últimos $1 cambios}} nel testu y restaurada la revisión $2 de $3",
-	'revreview-reject-summary-old-short' => '{{PLURAL:$1|Refugáu el primer cambiu|Refugaos los primeros $1 cambios}} nel testu que siguieron a la revisión $3 de $4', # Fuzzy
+	'revreview-reject-summary-old-short' => '{{PLURAL:$1|Refugáu el primer cambiu|Refugaos los primeros $1 cambios}} nel testu que siguieron a la revisión $2 de $3',
 	'revreview-tt-flag' => 'Aceutar esta revisión marcándola como «comprobada»',
 	'revreview-tt-unflag' => 'Nun aceutar esta revisión marcándola como «nun comprobada»',
 	'revreview-tt-reject' => 'Refugar estos cambios nel testu fonte desfaciéndolos',
