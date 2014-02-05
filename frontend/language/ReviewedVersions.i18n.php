@@ -614,7 +614,7 @@ $messages['is'] = array(
 	'reviewedversions-leg1' => 'Listi yfir yfirfarnar útgáfur síðu',
 	'reviewedversions-page' => 'Titill síðu:',
 	'reviewedversions-none' => '"[[:$1]]" hefur engar yfirfarnar útgáfur.',
-	'reviewedversions-list' => 'Hér á eftir er listi yfir {{PLURAL:$2|einu útgáfu|útgáfur}} [[:$1]] sem {{PLURAL:$2|hefur|hafa}} verið {{PLURAL:$2|yfirfarin|yfirfarnar}}:',
+	'reviewedversions-list' => 'Hér á eftir er listi yfir {{PLURAL:$2|útgáfu|útgáfur}} [[:$1]] sem {{PLURAL:$2|hefur|hafa}} verið {{PLURAL:$2|yfirfarin|yfirfarnar}}:',
 	'reviewedversions-review' => 'Yfirfarið <i>$1</i> af $2',
 );
 
