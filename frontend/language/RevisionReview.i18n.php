@@ -1176,7 +1176,7 @@ $messages['ce'] = array(
 	'revreview-submit-reject' => 'Юха баха хийцамаш',
 	'revreview-submit-reviewed' => 'Йели. Къобал йи!',
 	'revreview-submit-unreviewed' => 'Йели. Къобал дар дlадаьккхи!',
-	'revreview-successful' => "'''Хьаржина башхо [[:$1|$1]] кхиамца билгалло йира. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} хьажар цхьан эшшара йолу башхонашка])'''",
+	'revreview-successful' => "'''Хаьржина верси [[:$1|$1]] кхиамца билгалла йира. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} чӀагӀъелла версешка хьажар])'''",
 	'revreview-successful2' => "'''Хаьржиначу варсийн тlийра [[:$1|$1]] дlайаькхин билгалло.'''",
 	'revreview-adv-reviewing-p' => 'ДӀахьедар. Кхечу къобалечарна {{GENDER:$1|хьо}} хьокху агӀоне хьожуш хилар га там бу.',
 	'revreview-adv-reviewing-c' => 'ДӀахьедар. Кхечу къобалечарна {{GENDER:$1|хьо}} хьокху хийцамашка хьожуш хилар га там бу.',
