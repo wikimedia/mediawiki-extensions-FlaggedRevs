@@ -207,6 +207,8 @@ Algunes podrien canviar amb la versió afixada pels lectors o restringeix la lli
  * @author Умар
  */
 $messages['ce'] = array(
+	'configuredpages' => 'Хьажаран гӀирс болу агӀонаш',
+	'configuredpages-none' => 'ХӀокху могӀам чохь хӀума яц',
 	'configuredpages-def-draft' => 'тlаьххьара верси',
 	'configuredpages-def-stable' => 'чутоьхна йолу верси',
 );

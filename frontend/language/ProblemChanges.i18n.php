@@ -182,6 +182,9 @@ $messages['ca'] = array(
  * @author Умар
  */
 $messages['ce'] = array(
+	'problemchanges' => 'Хьажанза билгалбина хийцамаш',
+	'problemchanges-list' => 'ХӀокху агӀонгахь ю хьажа дезаш нисдарш долу [[{{MediaWiki:Validationpage}}|хьаьжина]] агӀонаш. Хьажа кхин [[Special:Tags|магийна билгалонийн могӀаме]].',
+	'problemchanges-legend' => 'Хьажа деза агӀонийн могӀам',
 	'problemchanges-none' => 'ХӀинца йолу хана иштта хьал долу агӀонаш яц',
 	'problemchanges-category' => 'Категори:',
 );
