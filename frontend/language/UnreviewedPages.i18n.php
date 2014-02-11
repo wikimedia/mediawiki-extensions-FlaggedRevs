@@ -2025,15 +2025,17 @@ $messages['ur'] = array(
 
 /** vèneto (vèneto)
  * @author Candalua
+ * @author GatoSelvadego
  */
 $messages['vec'] = array(
+	'action-unreviewedpages' => 'varda ła lista de łe pàjine no revixionae',
 	'unreviewedpages' => 'Pagine non riesaminà',
 	'unreviewedpages-legend' => 'Elenca le pagine non riesaminà',
 	'unreviewedpages-category' => 'Categoria:',
 	'unreviewedpages-diff' => 'esamina',
 	'unreviewedpages-unwatched' => '(non osservà)',
 	'unreviewedpages-watched' => "($1 {{PLURAL:$1|utente el|utenti i}} tien d'ocio sta pagina)",
-	'unreviewedpages-list' => 'Sta pagina la elenca le pagine che no le xe stà gnancora riesaminà fin al livèl indicà.', # Fuzzy
+	'unreviewedpages-list' => 'Sta pàjina ła elenca łe pàjine che no łe xe stà gnancora [[{{MediaWiki:Validationpage}}|riexaminà]] fin al livèl indicà.',
 	'unreviewedpages-none' => 'No ghe xe atualmente pagine che sodisfa sti criteri',
 	'unreviewedpages-viewing' => '(in corso de revision)',
 	'unreviewedpages-hours' => '($1 {{PLURAL:$1|ora|ore}})',

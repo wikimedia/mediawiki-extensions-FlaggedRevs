@@ -16656,25 +16656,28 @@ $messages['vec'] = array(
 	'flaggedrevs-pref-UI-1' => 'Dòpara le icone picenine e un testo minio par mostra el stato de aprovassion de le pagine',
 	'prefs-flaggedrevs' => 'Modifica recension',
 	'prefs-flaggedrevs-ui' => 'Modifica recension',
-	'flaggedrevs-prefs-stable' => 'Mostra sempre par default la version publicà de le pagine (se ghe ne esiste una)', # Fuzzy
+	'flaggedrevs-prefs-stable' => 'Cuando mostrar ła version stabiłe de łe pàjine de contegnùo',
+	'flaggedrevs-pref-stable-0' => 'Dopara łe inpostasion de default par ogni pàjina',
+	'flaggedrevs-pref-stable-1' => 'Mostra senpre ła version stabiłe (se ghi ne xe una)',
+	'flaggedrevs-pref-stable-2' => "Mostra senpre l'ultema version",
 	'flaggedrevs-prefs-watch' => "Tien d'ocio le pagine che riesamino",
 	'flaggedrevs-prefs-editdiffs' => 'Mostra le difarense dei canbiamenti in atesa quando te sì drio modificar le pagine',
 	'flaggedrevs-prefs-viewdiffs' => 'Mostra le difarense dei canbiamenti in atesa quando te sì drio vardar le ultime revision',
 	'flaggedrevs-hidereviewed' => '$1 modifighe revixionae',
 	'group-editor' => 'Contributori',
-	'group-editor-member' => 'Contributor', # Fuzzy
+	'group-editor-member' => '{{GENDER:$1|contributor}}',
 	'group-reviewer' => 'Revisori',
-	'group-reviewer-member' => 'Revisor', # Fuzzy
+	'group-reviewer-member' => '{{GENDER:$1|revixor}}',
 	'grouppage-editor' => '{{ns:project}}:Contributor',
 	'grouppage-reviewer' => '{{ns:project}}:Revisor',
 	'group-autoreview' => 'Autorevisori',
-	'group-autoreview-member' => 'autorevisor', # Fuzzy
+	'group-autoreview-member' => '{{GENDER:$1|autorevixor}}',
 	'grouppage-autoreview' => '{{ns:project}}:Autorevisori',
 	'revreview-hist-draft' => 'revision mia controlà',
 	'revreview-hist-pending' => 'in atesa de verifica',
 	'revreview-hist-quality' => 'revision de qualità',
 	'revreview-hist-basic' => 'Revision verificà',
-	'revreview-hist-quality-user' => 'convalidà da [[User:$3|$3]]', # Fuzzy
+	'revreview-hist-quality-user' => 'convałidà da [[User:$3|$3]]',
 	'revreview-hist-basic-user' => 'verificà da [[User:$3|$3]]',
 	'revreview-hist-quality-auto' => 'aprovà automaticamente',
 	'revreview-hist-basic-auto' => 'verificà automaticamente',
@@ -16700,7 +16703,7 @@ $messages['vec'] = array(
 	'reviewer' => 'Revisor',
 	'revreview-accuracy' => 'Acuratessa',
 	'revreview-accuracy-0' => 'Inadeguà',
-	'revreview-accuracy-1' => 'Rivardà', # Fuzzy
+	'revreview-accuracy-1' => 'Rivardà',
 	'revreview-accuracy-2' => 'Acurato',
 	'revreview-accuracy-3' => 'Ben fornìa de fonti',
 	'revreview-accuracy-4' => 'De qualità',
@@ -16722,21 +16725,21 @@ Po' darse che sia stà fati [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{Medi
 	'revreview-depth-4' => 'De qualità',
 	'revreview-draft-title' => 'Le modifiche in sospeso le vien mostrà su sta pagina',
 	'revreview-edit' => 'Modìfega',
-	'revreview-editnotice' => "'''I to canbiamenti i sarà mostrà ai letori quando un utente autorizà el li gavarà verificà. ([[{{MediaWiki:Validationpage}}|Juta]])'''", # Fuzzy
+	'revreview-editnotice' => "'''I to canbiamenti i sarà mostrà ai letori cuando che un utente autorixà i gavarà verifegà. ([[{{MediaWiki:Validationpage}}|Juta]])'''",
 	'revreview-submitedit' => 'Invia modifiche',
 	'revreview-submitedit-title' => 'Invia le to modifiche par la revision',
-	'revreview-edited' => "'''I canbiamenti i sarà mostrà ai letori quando un utente autorizà el li gavarà verificà ([[{{MediaWiki:Validationpage}}|ajuto]]).'''
+	'revreview-edited' => "'''I canbiamenti i sarà mostrà ai letori cuando che un utente autorixà i gavarà verifegà ([[{{MediaWiki:Validationpage}}|ajuto]]).'''
 
-Ghe xe [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|canbiamento|canbiamenti}}] in atesa ''(mostrà qua soto)''.", # Fuzzy
+Ghe xe [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|canbiamento|canbiamenti}}] in atexa de revixion ''(mostrà cuà soto)''.",
 	'revreview-edited-section' => 'Torna a la sezion "[[#$1|$2]]" de la pagina.',
-	'revreview-newest-basic' => 'La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} version stabile] la xe stà [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} verificà] el <i>$2</i>. Ghe xe  
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|canbiamento|canbiamenti}}] in atesa.', # Fuzzy
-	'revreview-newest-basic-i' => 'La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} version stabile] la xe stà [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} verificà] el <i>$2</i>. Ghe xe
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} canbiamenti a modèi e/o file] in atesa de verifica.', # Fuzzy
-	'revreview-newest-quality' => 'La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} version stabile] la xe stà [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovà] el <i>$2</i>. Ghe xe   
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|canbiamento|canbiamenti}}] in atesa.', # Fuzzy
-	'revreview-newest-quality-i' => 'La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} version stabile] la xe stà [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovà] el <i>$2</i>. Ghe xe 
-[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} canbiamenti a modèi e/o file] in atesa de verifica.', # Fuzzy
+	'revreview-newest-basic' => 'Ła [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} version stabiłe] ła xe stà [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} verifegà] el <i>$2</i>. Ghe xe  
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|canbiamento|canbiamenti}}] in sta version in [[{{MediaWiki:Validationpage}}|atexa de revixion]].',
+	'revreview-newest-basic-i' => 'Ła [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} version stabiłe] ła xe stà [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} verifegà] el <i>$2</i>. Ghe xe
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} canbiamenti a modèłi e/o file] in sta version in [[{{MediaWiki:Validationpage}}|atexa de revixion]].',
+	'revreview-newest-quality' => 'Ła [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} version stabiłe] ła xe stà [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovà] el <i>$2</i>. Ghe xe   
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|canbiamento|canbiamenti}}] in sta version in [[{{MediaWiki:Validationpage}}|atexa de revixion]].',
+	'revreview-newest-quality-i' => 'Ła [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} version stabiłe] ła xe stà [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovà] el <i>$2</i>. Ghe xe 
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} canbiamenti a modèłi e/o file] in sta version in [[{{MediaWiki:Validationpage}}|atexa de revixion]].',
 	'revreview-pending-basic' => 'La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} version stabile] la xe stà [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} verificà] el <i>$2</i>. Ghe xe
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|canbiamento|canbiamenti}}] in atesa.',
 	'revreview-pending-quality' => 'La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} version stabile] la xe stà [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovà] el <i>$2</i>. Ghe xe
@@ -16779,6 +16782,7 @@ Xe stà fato dei [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flagg
 	'revreview-revnotfound' => "La version richiesta de ła pàxena no la xè mìa stà catà.
 Verifica l'URL che te doparà par açedere a sta pàxena.",
 	'right-autoreview' => 'Segna automaticamente le revision come "verificà"',
+	'right-autoreviewrestore' => 'Autorevixion su rollback',
 	'right-movestable' => 'Spostar le pagine publicà',
 	'right-review' => 'Segna le revision come "verificà"',
 	'right-stablesettings' => 'Configurar come la version publicà la sia selessionà e mostrà',
@@ -16821,6 +16825,7 @@ Verifica l'URL che te doparà par açedere a sta pàxena.",
 	'tooltip-ca-default' => 'Inpostassion par el controlo de qualità',
 	'flaggedrevs-protect-legend' => 'Revision automatica de le modifiche ([[{{MediaWiki:Validationpage}}|ajuto]])',
 	'flaggedrevs-protect-none' => 'Autoriza tuti i utenti',
+	'flaggedrevs-categoryview' => '[{{fullurl:Special:UnreviewedPages|category=$1}} Pàjine da revixionar]{{MediaWiki:pipe-separator}}[{{fullurl:Special:PendingChanges|category=$1}} Canbiamenti in atexa de revixion]',
 	'revreview-locked-title' => 'I canbiamenti i ga da èssar verificà.',
 	'revreview-unlocked-title' => 'I canbiamenti no i ga bisogno de èssar verificà.',
 	'revreview-locked' => "'''Ocio''': I canbiamenti i ga da èssar [[{{MediaWiki:Validationpage}}|verificà]] prima de vegner mostrà ai letori su sta pagina.",

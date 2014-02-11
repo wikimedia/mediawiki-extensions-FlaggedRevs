@@ -1048,9 +1048,11 @@ $messages['ur'] = array(
 
 /** vèneto (vèneto)
  * @author Candalua
+ * @author GatoSelvadego
  */
 $messages['vec'] = array(
 	'problemchanges' => 'Modifiche mia controlà con etichete',
+	'problemchanges-list' => 'Sta pàjina ła elenca łe pàjine [[{{MediaWiki:Validationpage}}|revixionae]] che ga una o pì modifeghe segnae in atexa de revixion. Na lista de [[Special:Tags|contrasegni de modifega vałidi]] ła xe disponibiłe.',
 	'problemchanges-legend' => 'Elenco de le pagine con modifiche etichetà in atesa di revision',
 	'problemchanges-none' => 'Al momento no ghe xe pagine che sodisfa sti criteri',
 	'problemchanges-category' => 'Categoria:',

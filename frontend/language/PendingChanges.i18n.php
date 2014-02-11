@@ -2153,11 +2153,12 @@ $messages['ur'] = array(
 
 /** vèneto (vèneto)
  * @author Candalua
+ * @author GatoSelvadego
  */
 $messages['vec'] = array(
-	'pendingchanges' => 'Pagine riesaminà tenpo adrìo', # Fuzzy
+	'pendingchanges' => 'Pagine co canbiamenti no revixionai',
 	'pendingchanges-legend' => 'Elenca le pagine riesaminà con versioni non riesaminà',
-	'pendingchanges-list' => 'Sta pagina la elenca {{PLURAL:$1|una pagina riesaminà|le pagine riesaminà}} che gà modifiche in atesa.', # Fuzzy
+	'pendingchanges-list' => 'Sta pàjina ła elenca łe pàjine [[{{MediaWiki:Validationpage}}|revixionae]] che ga uno o pì canbi da ricontrołar.',
 	'pendingchanges-none' => 'No ghe xe atualmente nissuna pagina che sodisfa sti criteri',
 	'pendingchanges-hours' => '($1 {{PLURAL:$1|ora|ore}})',
 	'pendingchanges-days' => '($1 {{PLURAL:$1|giòrno|giòrni}})',

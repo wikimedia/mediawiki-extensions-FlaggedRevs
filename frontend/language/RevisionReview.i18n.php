@@ -6102,22 +6102,29 @@ $messages['ur'] = array(
 /** vèneto (vèneto)
  * @author Candalua
  * @author Frigotoni
+ * @author GatoSelvadego
  */
 $messages['vec'] = array(
 	'revisionreview' => 'Riesamina versioni',
-	'revreview-failed' => "'''Inpossibile controlar la revision.''' La proposta la xe inconpleta o invalida.", # Fuzzy
+	'revreview-failed' => "'''Inposibiłe controłar ła revixion.'''",
+	'revreview-submission-invalid' => 'I dati inviai i xe inconpleti o comuncue no vałidi.',
 	'review_page_invalid' => 'La pagina de destinassion no la xe valida.',
 	'review_page_notexists' => 'La pagina de destinassion no la esiste.',
 	'review_page_unreviewable' => 'La pagina de destinassion no la xe revisionabile.',
 	'review_no_oldid' => 'Nessun ID de revision indicà.',
 	'review_bad_oldid' => 'La revision de destinassion no la esiste.',
+	'review_conflict_oldid' => 'Calchedun ga xà acetà o rifiutà sta revixion intanto che te jeri drio ricontrołarla.',
 	'review_not_flagged' => 'La revision de destinassion no la atualmente segnà come revisionà.',
 	'review_too_low' => 'La revision no se pole controlarla se dei canpi i xe ancora "inadeguà".',
 	'review_bad_key' => "Ciave del parametro d'inclusion sbalià.",
+	'review_bad_tags' => 'Calcheduna de łe etichete indicae no łe xe vałide.',
 	'review_denied' => 'Parmesso negà.',
 	'review_param_missing' => 'Un parametro el xe mancante o invalido.',
 	'review_cannot_undo' => 'No se pole anular sti canbiamenti parché altri canbiamenti pendenti i gà canbià i stessi tochi.',
-	'revreview-check-flag-p' => 'Pùblica i canbiamenti atualmente in atesa', # Fuzzy
+	'review_cannot_reject' => 'No se pol rifiutar sti canbiamenti parché calchedun i ga xà acetà in parte (o conpletamente).',
+	'review_reject_excessive' => 'No xe posibiłe rifiutar tute ste modifeghe inte un colpo soło.',
+	'review_reject_nulledits' => 'No se pol rifiutar sti canbiamenti parché tute łe revixion łe xe sensa contegnùi.',
+	'revreview-check-flag-p' => 'Aceta sta version (incluxo $1 {{PLURAL:$1|canbio|canbi}} in sospexo)',
 	'revreview-check-flag-p-title' => 'Aceta tuti i canbiamenti pendenti insieme co la to modifica. Falo solo che te ghè zà visto tuta la difarensa de i canbiamenti in sospeso.',
 	'revreview-check-flag-u' => 'Aceta sta pagina mia revisionà',
 	'revreview-check-flag-u-title' => 'Aceta sta version de la pagina. Falo solo se te ghè zà visto la pagina intiera.',
@@ -6141,23 +6148,27 @@ Varda la [[Special:Unreviewedpages|lista de pagine da riesaminar]].',
 	'revreview-submit-unreviewed' => 'Finìo. Rifiutà!',
 	'revreview-successful' => "'''La revision de [[:$1|$1]] la xe stà verificà. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} varda tute le version stabili])'''",
 	'revreview-successful2' => "'''Cavà el contrassegno a la version selessionà de [[:$1|$1]].'''",
-	'revreview-adv-reviewing-p' => 'Ocio: Altri contribudori i pol vedare che sito drio riesaminare sta pajina.', # Fuzzy
-	'revreview-adv-reviewing-c' => 'Ocio: Altri contribudori i pol vedare che sito drio riesaminare sti canbiamenti.', # Fuzzy
-	'revreview-toolow' => '\'\'\'Ti gà da segnar ognuno dei atributi qua soto piessè alto de "Non aprovà" parché la revision la sia considerà verificà.\'\'\'
+	'revreview-poss-conflict-p' => "'''Òcio: [[User:$1|$1]] ga scominsià revixionar sta pàjina el $2 a łe $3.'''",
+	'revreview-poss-conflict-c' => "'''Òcio: [[User:$1|$1]] ga scominsià revixionar sti canbiamenti el $2 a łe $3.'''",
+	'revreview-adv-reviewing-p' => 'Òcio: Altri contribudori i pol vedare che {{GENDER:$1|te}} si drio riexaminar sta pàjina.',
+	'revreview-adv-reviewing-c' => 'Òcio: Altri contribudori i pol vedare che {{GENDER:$1|te si}} drio riexaminar sti canbiamenti.',
+	'revreview-sadv-reviewing-p' => 'Te pol $1 che te si drio revixionar sta pàjina a altri utenti.',
+	'revreview-sadv-reviewing-c' => 'Te pol $1 che te si drio revixionar sti canbiamenti a altri utenti.',
+	'revreview-adv-start-link' => 'segnała',
+	'revreview-adv-stop-link' => 'anuła ła segnałasion',
+	'revreview-toolow' => '\'\'\'Ti ga da segnar ognuno dei atributi cuà soto piesè alto de "No aprovà" parché la revixion la sia considerà verifegà.\'\'\'
 
-Par anular el stato de na revision, struca "disaprova".
+Par anular el stato de na revision, struca "{{int:revreview-submit-unreview}}".
 
-Par piaser struca el boton "indrìo" del to browser e pròa da novo.', # Fuzzy
+Par piaser struca el boton "indrìo" del to browser e pròa da novo.',
 	'revreview-update' => "'''Par piaser [[{{MediaWiki:Validationpage}}|verifica]] tuti i canbiamenti ''(mostrà qua soto)'' fati rispeto a la version stabile.'''",
 	'revreview-update-edited' => '<span class="flaggedrevs_important">Le to modifiche no le xe gnancora ne la version stabile.</span> 
 
-Par piaser rivarda tute le modifiche qua soto parché le to modifiche le vegna mostrà ne la version stabile. 
-Podarìa esser necessario proseguire o "anulare" modifiche.', # Fuzzy
-	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Le to modifiche no le xe gnancora ne la version stabile. Ghe xe canbiamenti precedenti pendenti.</span> 
+Par piaser rivarda tute le modifiche qua soto parché le to modifiche le vegna mostrà inte la version stabile.',
+	'revreview-update-edited-prev' => '<span class="flaggedrevs_important">Le to modifiche no le xe gnancora inte la version stabile. Ghe xe canbiamenti precedenti pendenti.</span> 
 
-Par piaser rivarda tute le modifiche qua soto parché le to modifiche le vegna mostrà ne la version stabile. 
-Podarìa esser necessario proseguire o "anulare" modifiche.', # Fuzzy
-	'revreview-update-includes' => 'Alcuni modèi o file i xe stà agiornà:', # Fuzzy
+Par piaser rivarda tute le modifiche qua soto parché le to modifiche le vegna mostrà ne la version stabile.',
+	'revreview-update-includes' => 'Serti modèłi o file i xe stà axornà (pàjine no revixionae in graseto):',
 	'revreview-reject-text-list' => "Confermando quest'asion vera '''respinte''' łe modifeghe testuałi {{PLURAL:$1|da ła seguente version|da łe seguenti version}} de [[:$2|$2]]:",
 	'revreview-reject-text-revto' => 'Questo riporterà ła pajina ała [{{fullurl:$1|oldid=$2}} version de $3]',
 	'revreview-reject-summary' => 'Comento:',
@@ -6165,9 +6176,11 @@ Podarìa esser necessario proseguire o "anulare" modifiche.', # Fuzzy
 	'revreview-reject-cancel' => 'Lascia stare',
 	'revreview-reject-summary-cur' => "{{PLURAL:$1|Rifiutà l'ultema modifega|$1 Rifiutae łe modifeghe}} (aportà da $2) e confermà ła version $3 de $4",
 	'revreview-reject-summary-old' => '{{PLURAL:$1|Rifiutà ła prima modifega|$1 Rifiutae łe prime modifeghe}} (aportà da $2) e confermà ła version $3 de $4',
+	'revreview-reject-summary-cur-short' => "Rifiuta {{PLURAL:$1|'l ultemo canbiamento|i ultemi $1 canbiamenti}} e ripristina ła revixion $2 de $3",
+	'revreview-reject-summary-old-short' => "Rifiuta {{PLURAL:$1|'l ultemo canbiamento|i ultemi $1 canbiamenti}} che segue ła revixion $2 de $3",
 	'revreview-tt-flag' => 'Aceta sta revision segnandola come "controlà"',
 	'revreview-tt-unflag' => 'Disaprova sta revision segnandola come "mia controlà"',
-	'revreview-tt-reject' => 'Rifiuta ste modifiche tirandole indrio', # Fuzzy
+	'revreview-tt-reject' => 'Rifiuta ste modifiche al testo orixenal tirandole indrio',
 );
 
 /** Veps (vepsän kel’)

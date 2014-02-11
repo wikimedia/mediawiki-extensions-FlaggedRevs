@@ -2469,6 +2469,7 @@ $messages['ur'] = array(
 
 /** vèneto (vèneto)
  * @author Candalua
+ * @author GatoSelvadego
  */
 $messages['vec'] = array(
 	'validationstatistics' => 'Statìsteghe de revision',
@@ -2476,19 +2477,19 @@ $messages['vec'] = array(
 
 I revisori i xe utenti che pode verificar le revision de le pagine.",
 	'validationstatistics-lastupdate' => "''Sti dati i xe agiornà al $1 a le $2.''",
-	'validationstatistics-pndtime' => "Le modifiche che xe stà controlà da utenti afidabili le xe considerà verificà.
+	'validationstatistics-pndtime' => "Le modifiche che xe stà controlà da utenti afidabili le xe considerà ''{{int:validationstatistics-stable}}''..
 
-El ritardo medio par [[Special:OldReviewedPages|le pagine con canbiamenti in atesa]] el xe '''$1'''.
-Ste pagine le xe considerà ''obsolete''. Le se considera ''agiornà'' se no ghe xe canbiamenti in atesa.", # Fuzzy
+El ritardo medio par [[Special:OldReviewedPages|le pagine con canbiamenti in atesa]] el xe '''$1'''; el ritardo el mostra par cuanto tenpo che ła modifega da controłare ła xe restà sensa revixion.",
 	'validationstatistics-revtime' => "El tenpo medio da spetare par controlar le modifiche fate da ''utenti anonimi'' xe '''$1'''; la media xe '''$2'''.",
-	'validationstatistics-table' => "Qua soto se cata le statìsteghe de revision par ogni namespace, ''escluse'' le pagine de redirect.", # Fuzzy
+	'validationstatistics-table' => "Cuà soto se cata łe statìsteghe de revision par ogni namespace, ''escluxe'' łe pàjine de redirect. Łe pàjine łe xe tratate come ''{{int:validationstatistics-old}}'' se łe ga canbiamenti in atexa de revixion; o ''{{int:validationstatistics-latest}}'' se no łe ga canbiamenti in atexa de revixion.",
 	'validationstatistics-ns' => 'Namespace',
 	'validationstatistics-total' => 'Pagine',
 	'validationstatistics-stable' => 'Ricontrolà',
 	'validationstatistics-latest' => 'Sincronizà',
 	'validationstatistics-synced' => 'Sincronizà/Ricontrolà',
 	'validationstatistics-old' => 'Mia ajornà',
-	'validationstatistics-utable' => "Sto qua xe l'elenco dei primi $1 revisori ne l'ultima ora.", # Fuzzy
+	'validationstatistics-unreviewed' => 'No revixionà',
+	'validationstatistics-utable' => "Sta cuà ła xe na lista che mostra {{PLURAL:$1|el revixor pì ativo|i $1 revixori pì ativi}} inte l'ultem{{PLURAL:$2|a ora|e $2 ore}}.",
 	'validationstatistics-user' => 'Utente',
 	'validationstatistics-reviews' => 'Revisioni',
 );

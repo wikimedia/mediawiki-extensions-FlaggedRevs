@@ -1049,10 +1049,12 @@ $messages['ur'] = array(
 
 /** vèneto (vèneto)
  * @author Candalua
+ * @author GatoSelvadego
  */
 $messages['vec'] = array(
 	'stablepages' => "Pagine che dopara l'aprovassion de le modifiche",
-	'stablepages-list' => 'Sta qua la xe na lista de pagine configurà manualmente par mostrar la version publicà come contenuto de default par i letori.', # Fuzzy
+	'stablepages-list' => "Sta pàjina ła elenca pàjine 'ndove soło che serti utenti pol far canbi che no dimanda na revixion.
+I canbi fati da altri utenti no i vien mostrai a i letori de defaul fin che no i vien autorixai da un revixor.",
 	'stablepages-none' => 'No ghe xe nissuna pagina su sta lista',
 	'stablepages-config' => 'Configurassion',
 	'stablepages-indef' => 'Solo scadensa indefinìa',
