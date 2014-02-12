@@ -15418,19 +15418,24 @@ $messages['te'] = array(
 	'action-review' => 'కూర్పులను సమీక్షించే',
 	'editor' => 'ఎడిటర్',
 	'flaggedrevs' => 'జండాపాతిన కూర్పులు',
+	'flaggedrevs-watched-pending' => "మీ వీక్షణ జాబితాలోని సమీక్షించబడిన పేజీల్లో [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} పెండింగు మార్పులు] ఉన్నాయి.  '''కాస్త మీ చూపును అక్కడ ప్రసరింపజేయండి!'''",
 	'flaggedrevs-desc' => 'ఎడిటర్లకి కూర్పులను సరిచూసే మరియు పేజీలను స్థిరపరచే సామర్థ్యాన్ని కల్పిస్తుంది',
 	'flaggedrevs-pref-UI' => 'బేసిక్ ఇంటరుఫేసు',
 	'prefs-flaggedrevs' => 'ఎడిట్ సమీక్ష',
 	'prefs-flaggedrevs-ui' => 'ఎడిట్ సమీక్ష',
+	'flaggedrevs-pref-stable-0' => 'ప్రతీ పేజీకీ డిఫాల్టు సెట్టింగులను వాడు',
+	'flaggedrevs-pref-stable-1' => 'ఎల్లప్పుడూ సుస్థిర కూర్పునే చూపించు (అదంటూ ఒకటుంటే)',
+	'flaggedrevs-pref-stable-2' => 'ఎల్లప్పుడూ ఇట్టీవలి కూర్పునే చూపించు',
 	'flaggedrevs-prefs-watch' => 'నేను సమీక్షించిన పేజీలను నా వీక్షణాజాబితాలో చేర్చు',
+	'flaggedrevs-hidereviewed' => '$1 సమీక్షించబడిన మార్పులు',
 	'group-editor' => 'ఎడిటర్లు',
-	'group-editor-member' => 'ఎడిటర్', # Fuzzy
+	'group-editor-member' => '{{GENDER:$1|ఎడిటరు}}',
 	'group-reviewer' => 'సమీక్షకులు',
 	'group-reviewer-member' => '{{GENDER:$1|సమీక్షకులు}}',
 	'grouppage-editor' => '{{ns:project}}:ఎడిటర్',
 	'grouppage-reviewer' => '{{ns:project}}:సమీక్షకులు',
 	'group-autoreview' => 'ఆటో రివ్యూవర్స్',
-	'group-autoreview-member' => 'ఆటో రివ్యూవర్', # Fuzzy
+	'group-autoreview-member' => '{{GENDER:$1|ఆటోచెక్‍డ్ వాడుకరి}}',
 	'grouppage-autoreview' => '{{ns:project}}:ఆటోరివ్యూవర్',
 	'revreview-hist-draft' => 'పరిశీలించని కూర్పు',
 	'revreview-hist-pending' => 'పెండింగులో ఉన్న కూర్పు',
@@ -15444,39 +15449,46 @@ $messages['te'] = array(
 	'review-edit-diff' => "'''గమనిక: పెండింగులో ఉన్న మార్పులు ''కొన్ని'', మీరు ఎడిట్ చేస్తున్న పేజీలోని ప్రాంతాన్ని ప్రభావితం చేస్తాయి.'''",
 	'revreview-diff-toggle-show' => 'మార్పులను చూపించు',
 	'revreview-diff-toggle-hide' => 'మార్పులను దాచు',
+	'revreview-log-toggle-show' => 'స్థిరత్వ లాగ్‍ను చూపించు',
+	'revreview-log-toggle-hide' => 'స్థిరత్వ లాగ్‍ను దాచు',
 	'revreview-log-details-show' => 'వివరాలను చూపించు',
 	'revreview-log-details-hide' => 'వివరాలను దాచు',
 	'review-diff2stable' => 'పెండింగులో ఉన్న మార్పులన్నిటినీ చూపించు',
 	'review-logentry-app' => '[[$1]] యొక్క వెర్షను సమీక్షించబడింది',
-	'review-logentry-dis' => '[[$1]] యొక్క $2 కూర్పుని నిరాదరించారు', # Fuzzy
+	'review-logentry-dis' => '[[$1]] యొక్క ఒక కూర్పుని పక్కనబెట్టాం',
 	'review-logentry-id' => 'కూర్పు: $2',
 	'review-logentry-diff' => 'సమీక్షించిన మార్పులు',
+	'review-logentry-diff2' => 'పక్కనబెట్టిన మార్పులు',
 	'review-logpage' => 'సమీక్షల చిట్టా',
 	'review-logpagetext' => 'విషయపు పేజీల యొక్క ఏయే కూర్పులు [[{{MediaWiki:Validationpage}}|పరిశీలింపబడ్డాయో]] వాటి లాగ్ ఇది.',
 	'reviewer' => 'సమీక్షకులు',
 	'revreview-accuracy' => 'ఖచ్చితత్వం',
-	'revreview-accuracy-0' => 'ఆమోదించనివి', # Fuzzy
-	'revreview-accuracy-1' => 'కనబడింది', # Fuzzy
+	'revreview-accuracy-0' => 'అసమగ్రం',
+	'revreview-accuracy-1' => 'పరీక్షించినవి',
 	'revreview-accuracy-2' => 'ఖచ్చితం',
 	'revreview-accuracy-3' => 'సమూలము',
 	'revreview-accuracy-4' => 'విశేష్యం',
 	'revreview-auto' => '(ఆటోమెటిక్)',
-	'revreview-basic' => 'ఇది చిట్టచివరిగా [[{{MediaWiki:Validationpage}}|కనబడిన]] కూర్పు; <i>$2</i> న [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} ఆమోదించబడింది]. ఈ [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} చిత్తు ప్రతిని] [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} మార్చవచ్చు]; [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|మార్పు|మార్పులు}}] సమీక్ష కోసం {{PLURAL:$3|వేచి ఉంది|వేచి ఉన్నాయి}}.', # Fuzzy
+	'revreview-basic' => 'ఇది <i>$2</i> నాడు [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} పరిశీలించిన] [[{{MediaWiki:Validationpage}}|స్థిర కూర్పు]]
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|మార్పు|మార్పులు}}] సమీక్ష కోసం వేచి {{PLURAL:$3|ఉంది|ఉన్నాయి}}.',
 	'revreview-basic-i' => 'ఇది <i>$2</i> నాడు  [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} పరిశిలించబడిన ] [[{{MediaWiki:Validationpage}}|సుస్థిర కూర్పు]].
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} మూస/ఫైలు మార్పులు] సమీక్ష కోసం వేచి ఉన్నాయి.',
-	'revreview-basic-same' => 'ఇది చిట్టచివరిగా [[{{MediaWiki:Validationpage}}|కనబడిన]] కూర్పు, <i>$2</i> న [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} ఆమోదించబడింది]. ఈ పేజీని [{{fullurl:{{FULLPAGENAMEE}}|action=edit}} మార్చవచ్చు].', # Fuzzy
+	'revreview-basic-same' => 'ఇది <i>$2</i> నాడు [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} పరిశీలించిన] [[{{MediaWiki:Validationpage}}|స్థిర కూర్పు]]',
 	'revreview-current' => 'పెండింగులో ఉన్న మార్పుల',
 	'revreview-depth' => 'లోతైనది',
-	'revreview-depth-0' => 'ఆమోదించనివి', # Fuzzy
+	'revreview-depth-0' => 'అసమగ్రం',
 	'revreview-depth-1' => 'ప్రాథమిక',
 	'revreview-depth-2' => 'మధ్యస్తం',
 	'revreview-depth-3' => 'ఉన్నత',
 	'revreview-depth-4' => 'విశేషం',
 	'revreview-draft-title' => 'పెండింగులో ఉన్న మార్పులు ఈ పేజీలో చూపించబడతాయి',
 	'revreview-edit' => 'మార్చు',
-	'revreview-editnotice' => "’’’ఒక అధీకృత వాడుకరి సమీక్షించిన తర్వాత మీ మార్పులు చూపించబడతాయి. ([[{{MediaWiki:Validationpage}}|help]])'''", # Fuzzy
+	'revreview-editnotice' => "'''ఒక అధీకృత వాడుకరి ఆమోదించిన తర్వాత మీ మార్పులు చూపించబడతాయి. ([[{{MediaWiki:Validationpage}}|సహాయం]])'''",
 	'revreview-submitedit' => 'మార్పులని దాఖలుచెయ్యి',
 	'revreview-submitedit-title' => 'సమీక్షకై మీ మార్పులని  దాఖలుచెయ్యండి',
+	'revreview-edited' => "'''ఒక అధీకృత వాడుకరి ఆమోదించిన తర్వాత మీ మార్పులు చూపించబడతాయి. ([[{{MediaWiki:Validationpage}}|సహాయం]])'''
+
+[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|మార్పు|మార్పులు}}] ''(కింద చూపినవి)'' సమీక్ష కోసం వేచి {{PLURAL:$2|ఉంది|ఉన్నాయి}}.",
 	'revreview-edited-section' => 'తిరిగి "[[#$1|$2]]" అనే పేరున్న పేజీ విభాగానికి వెళ్ళండి',
 	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} చిట్టచివరిగా కనబడిన ఈ కూర్పు] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} అన్నిటినీ చూపించు]) <i>$2</i> న  [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} ఆమోదించబడింది]. [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|మార్పుకు|మార్పులకు}}] సమీక్ష {{PLURAL:$3|అవసరం|అవసరం}}.', # Fuzzy
 	'revreview-newest-basic-i' => 'ఈ వెర్షనులోని [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} మూస/ఫైలు మార్పులు] [[{{MediaWiki:Validationpage}}|సమీక్ష కోసం వేచి ఉన్నాయి]].
