@@ -119,7 +119,7 @@ class ApiStabilizeGeneral extends ApiStabilize {
 		$res['title'] = $this->title->getPrefixedText();
 		$res['default'] = $params['default'];
 		$res['autoreview'] = $params['autoreview'];
-		$res['expiry'] = $wgContLang->formatExpiry( $form->getExpiry(), TS_ISO_8601 ) );
+		$res['expiry'] = $wgContLang->formatExpiry( $form->getExpiry(), TS_ISO_8601 );
 		$this->getResult()->addValue( null, $this->getModuleName(), $res );
 	}
 
@@ -225,7 +225,7 @@ class ApiStabilizeProtect extends ApiStabilize {
 		$res = array();
 		$res['title'] = $this->title->getPrefixedText();
 		$res['protectlevel'] = $params['protectlevel'];
-		$res['expiry'] = $wgContLang->formatExpiry( $form->getExpiry(), TS_ISO_8601 ) );
+		$res['expiry'] = $wgContLang->formatExpiry( $form->getExpiry(), TS_ISO_8601 );
 		$this->getResult()->addValue( null, $this->getModuleName(), $res );
 	}
 
