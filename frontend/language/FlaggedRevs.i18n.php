@@ -17364,6 +17364,7 @@ $messages['yi'] = array(
 );
 
 /** Cantonese (粵語)
+ * @author Antonytse
  */
 $messages['yue'] = array(
 	'editor' => '編輯',
@@ -17457,7 +17458,7 @@ $messages['yue'] = array(
 	'revreview-quick-quality-same' => "'''[[{{MediaWiki:Validationpage}}|有質素嘅文章]]'''", # Fuzzy
 	'revreview-quick-see-basic' => "'''草稿'''。[[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 睇文]] [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 比較]]", # Fuzzy
 	'revreview-quick-see-quality' => "'''草稿'''。[[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 睇文]] [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 比較]]", # Fuzzy
-	'revreview-source' => '草稿原始碼', # Fuzzy
+	'revreview-source' => '睇原始碼',
 	'revreview-basic-title' => '視察過嘅文', # Fuzzy
 	'revreview-style' => '可讀性',
 	'revreview-style-0' => '未批准', # Fuzzy
