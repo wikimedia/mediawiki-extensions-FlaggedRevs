@@ -375,6 +375,7 @@ $messages['ce'] = array(
 	'unreviewedpages-unwatched' => '(терго яц)',
 	'unreviewedpages-watched' => '({{PLURAL:$1|1=терго йеш $1 жигара декъашхо|терго йеш $1 жигара декъашхой}})', # Fuzzy
 	'unreviewedpages-list' => 'ХӀокху агӀонгахь гойту [[{{MediaWiki:Validationpage}}|мах ца хадина]] агӀонаш.',
+	'unreviewedpages-none' => 'ХӀинца йолу хана иштта хьал долу агӀонаш яц',
 	'unreviewedpages-viewing' => '(талламяхь ю)',
 	'unreviewedpages-hours' => '($1 {{PLURAL:$1|сахьт}})', # Fuzzy
 	'unreviewedpages-days' => '($1 {{PLURAL:$1|де}})', # Fuzzy
@@ -1263,8 +1264,8 @@ $messages['mk'] = array(
 	'unreviewedpages-none' => 'Во моментов не постојат страници кои ги задоволуваат овие критериуми',
 	'unreviewedpages-viewing' => '(во фаза на проверување)',
 	'unreviewedpages-hours' => '($1 {{PLURAL:$1|час|часа}})',
-	'unreviewedpages-days' => '($1 {{PLURAL:$1|ден|дена}})',
-	'unreviewedpages-recent' => '(помалку од 1 час)',
+	'unreviewedpages-days' => '({{PLURAL:$1|еден ден|$1 дена}})',
+	'unreviewedpages-recent' => '(помалку од еден час)',
 );
 
 /** Malayalam (മലയാളം)
