@@ -454,9 +454,9 @@ $specialPageAliases['lb'] = array(
 	'RevisionReview' => array( 'Versioun_iwwerpréifen' ),
 	'Stabilization' => array( 'Stabilisatioun' ),
 	'StablePages' => array( 'Stabil_Säiten' ),
-	'ConfiguredPages' => array( 'Agestallte_Säiten' ),
+	'ConfiguredPages' => array( 'Agestallt_Säiten' ),
 	'ReviewedVersions' => array( 'Stabil_Versiounen' ),
-	'UnreviewedPages' => array( 'Net_iwwerpréifte_Säiten' ),
+	'UnreviewedPages' => array( 'Net_iwwerpréift_Säiten' ),
 	'ValidationStatistics' => array( 'Statistik_vun_den_iwwerpréifte_Säiten' ),
 );
 
@@ -793,7 +793,7 @@ $specialPageAliases['vi'] = array(
 $specialPageAliases['zh-hans'] = array(
 	'PendingChanges' => array( '待定更改' ),
 	'ProblemChanges' => array( '问题更改', '有问题的更改' ),
-	'QualityOversight' => array( '高级复审日志' ),
+	'QualityOversight' => array( '高级复审日志', '质量监督' ),
 	'ReviewedPages' => array( '已复审页面' ),
 	'RevisionReview' => array( '修订复审' ),
 	'Stabilization' => array( '稳定化' ),

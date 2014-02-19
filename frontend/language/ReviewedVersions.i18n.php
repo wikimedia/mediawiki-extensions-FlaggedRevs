@@ -387,10 +387,11 @@ $messages['et'] = array(
 /** Basque (euskara)
  * @author An13sa
  * @author Kobazulo
+ * @author Xabier Armendaritz
  */
 $messages['eu'] = array(
 	'reviewedversions' => 'Berrikusitako bertsioak',
-	'reviewedversions-page' => 'Orrialdearen izenburua:',
+	'reviewedversions-page' => 'Orriaren izenburua:',
 );
 
 /** Extremaduran (estremeñu)
