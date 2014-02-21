@@ -1473,7 +1473,7 @@ $messages['ky'] = array(
  * @author Robby
  */
 $messages['lb'] = array(
-	'validationstatistics' => 'Statistike vun denogekuckte Säiten',
+	'validationstatistics' => 'Statistike vun den nogekuckte Säiten',
 	'validationstatistics-users' => "'''{{SITENAME}}''' huet elo '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|Benotzer|Benotzer}} mat [[{{MediaWiki:Validationpage}}|Editeursrechter]].
 
 Editeure si confirméiert Benotzer déi nogekuckte Versioune vu Säiten derbäisetze kënnen.",
