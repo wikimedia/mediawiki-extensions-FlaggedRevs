@@ -4715,7 +4715,7 @@ Veja a [[Special:Unreviewedpages|lista de páginas não revisadas]].',
 	'revreview-submit' => 'Enviar',
 	'revreview-submitting' => 'Enviando...',
 	'revreview-submit-review' => 'Aprovar a edição',
-	'revreview-submit-unreview' => 'Anular aprovação da edição',
+	'revreview-submit-unreview' => 'Anular revisão',
 	'revreview-submit-reject' => 'Rejeitar as alterações',
 	'revreview-submit-reviewed' => 'Terminado. Aprovada!',
 	'revreview-submit-unreviewed' => 'Terminado. Aprovação anulada!',
@@ -4723,17 +4723,17 @@ Veja a [[Special:Unreviewedpages|lista de páginas não revisadas]].',
 	'revreview-successful2' => "'''A edição de [[:$1|$1]] foi desmarcada com sucesso.'''",
 	'revreview-poss-conflict-p' => "'''Aviso: O utilizador [[User:$1|$1]] começou a rever esta página às $3 de $2.'''",
 	'revreview-poss-conflict-c' => "'''Aviso: O utilizador [[User:$1|$1]] começou a rever estas alterações às $3 de $2.'''",
-	'revreview-adv-reviewing-p' => 'Aviso: Os outros revisores podem ver que está a rever esta página.', # Fuzzy
-	'revreview-adv-reviewing-c' => 'Aviso: Os outros revisores podem ver que está a rever estas alterações.', # Fuzzy
+	'revreview-adv-reviewing-p' => 'Aviso: Os outros revisores podem ver que {{GENDER:$1|está}} a rever esta página.',
+	'revreview-adv-reviewing-c' => 'Aviso: Os outros revisores podem ver que {{GENDER:$1|está}} a rever estas alterações.',
 	'revreview-sadv-reviewing-p' => 'Você pode $1 aos outros utilizadores que está a revisar esta página.',
 	'revreview-sadv-reviewing-c' => 'Pode $1 os outros utilizadores de que está a rever estas alterações.',
 	'revreview-adv-start-link' => 'informar',
 	'revreview-adv-stop-link' => 'parar de informar',
 	'revreview-toolow' => '\'\'\'Para uma edição ser considerada revista, tem de avaliar cada atributo com valores acima de "inadequada".\'\'\'
 
-Para anular a revisão de uma edição, clique "anular revisão".
+Para anular a revisão de uma edição, clique "{{int:revreview-submit-unreview}}".
 
-Clique o botão "voltar" do seu browser e tente novamente, por favor.', # Fuzzy
+Clique o botão "voltar" do seu browser e tente novamente, por favor.',
 	'revreview-update' => "'''[[{{MediaWiki:Validationpage}}|Reveja]] quaisquer alterações pendentes ''(mostradas abaixo)'' que tenham sido feitas à versão publicada, por favor.'''",
 	'revreview-update-edited' => '<span class="flaggedrevs_important">As suas alterações ainda não estão na versão publicada.</span>
 

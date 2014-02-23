@@ -1002,9 +1002,9 @@ $messages['hi'] = array(
 
 सम्पादक वे सदस्य होते हैं जो पृष्ठ अवतरणों को देखा हुआ पुनरीक्षित कर सकते हैं।",
 	'validationstatistics-lastupdate' => "''निम्न डाटा $1 को $2 बजे अद्यतित किया गया था।''",
-	'validationstatistics-pndtime' => "सम्पादन जिन्हें अधिकृत सदस्यों ने जाँच लिया है ''पुनरीक्षित'' माने जाते हैं।
+	'validationstatistics-pndtime' => "सम्पादन जिन्हें अधिकृत सदस्यों ने जाँच लिया है ''{{int:validationstatistics-stable}}'' माने जाते हैं।
 
-[[Special:OldReviewedPages|अनिरीक्षित बदलावों वाले पृष्ठों]] के लिए औसत पुनरीक्षण समय '''$1''' है; यह समय दर्शाता है कि सबसे पुराना अनिरीक्षित सम्पादन कितने समय तक अनिरीक्षित रहा है।", # Fuzzy
+[[Special:OldReviewedPages|अनिरीक्षित बदलावों वाले पृष्ठों]] के लिए औसत पुनरीक्षण समय '''$1''' है; यह समय दर्शाता है कि सबसे पुराना अनिरीक्षित सम्पादन कितने समय तक अनिरीक्षित रहा है।",
 	'validationstatistics-revtime' => "''अपंजीकृत सदस्यों'' द्वारा किये सम्पादनों के पुनरीक्षण का औसत समय '''$1''' है; मध्यस्थ '''$2''' है।
 $3",
 	'validationstatistics-table' => "सभी नामस्थानों के लिए पुनरीक्षण आँकड़े नीचे दिखी गए हैं, पुनर्निर्देश पृष्ठों ''को छोड़ कर''।
@@ -1016,6 +1016,7 @@ $3",
 	'validationstatistics-latest' => 'अद्यतित',
 	'validationstatistics-synced' => 'अद्यतित/पुनरीक्षित',
 	'validationstatistics-old' => 'पुराना',
+	'validationstatistics-unreviewed' => 'अनिरीक्षित',
 	'validationstatistics-utable' => 'पिछले {{PLURAL:$2|घंटे|$2 घंटों}} में सबसे सक्रिय {{PLURAL:$1|पुनरीक्षक|$1 पुनरीक्षक}} निम्न {{PLURAL:$1|है|हैं}}।',
 	'validationstatistics-user' => 'सदस्य',
 	'validationstatistics-reviews' => 'पुनरीक्षण',

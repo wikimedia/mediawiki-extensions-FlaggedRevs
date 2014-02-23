@@ -3492,7 +3492,7 @@ $messages['ce'] = array(
 	'flaggedrevs-prefs-viewdiffs' => 'Гайта хьаьжназа болу хийцам хьажуш тlаьхьаралера агlон хьажанза долу далар',
 	'flaggedrevs-hidereviewed' => '$1 хьаьжна нисдарш',
 	'group-editor' => 'Къобалерш',
-	'group-editor-member' => 'Къобалерг',
+	'group-editor-member' => '{{GENDER:$1|къобалерг}}',
 	'group-reviewer' => 'Нийсдохьажамхой',
 	'group-reviewer-member' => '{{GENDER:$1|нийсдохьажамхо}}',
 	'grouppage-editor' => '{{ns:project}}:Къобалерг',
@@ -12791,10 +12791,10 @@ Existem [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-di
 	'revreview-editnotice' => "'''As suas alterações serão apresentadas aos leitores após um utilizador autorizado as aprovar. ([[{{MediaWiki:Validationpage}}|ajuda]])'''",
 	'revreview-submitedit' => 'Enviar alterações',
 	'revreview-submitedit-title' => 'Enviar as suas alterações para revisão',
-	'revreview-edited' => "'''As suas alterações serão apresentadas aos leitores após revisão por um utilizador autorizado.
+	'revreview-edited' => "'''As suas alterações serão apresentadas aos leitores quando um utilizador autorizado as aceitar.
 ([[{{MediaWiki:Validationpage}}|ajuda]])'''
 
-{{PLURAL:$2|Existe|Existem}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|alteração pendente|alterações pendentes}}] {{PLURAL:$2|''(apresentada abaixo)''|''(apresentadas abaixo)''}} a aguardar revisão.", # Fuzzy
+{{PLURAL:$2|Existe|Existem}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|alteração pendente ''(apresentada abaixo)''|alterações pendentes ''(apresentadas abaixo)''}}] a aguardar revisão.",
 	'revreview-edited-section' => 'Voltar à seção "[[#$1|$2]]" da página.',
 	'revreview-newest-basic' => '{{PLURAL:$3|Existe|Existem}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|alteração pendente|alterações pendentes}}] a [[{{MediaWiki:Validationpage}}|aguardar revisão]].
 A [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} versão publicada] foi [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} verificada] a <i>$2</i>.',
