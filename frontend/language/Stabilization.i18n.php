@@ -3430,6 +3430,7 @@ $messages['sr-ec'] = array(
 
 /** Serbian (Latin script) (srpski (latinica)‎)
  * @author Michaello
+ * @author Milicevic01
  * @author Жељко Тодоровић
  * @author Михајло Анђелковић
  */
@@ -3453,7 +3454,7 @@ Ovde su trenutna podešavanja za [[:$1|$1]]:',
 	'stabilization-otherreason' => 'Drugi razlog:',
 	'stabilization-expiry' => 'Ističe:',
 	'stabilization-othertime' => 'Drugo vreme:',
-	'stabilization-def-short' => 'Osnovno',
+	'stabilization-def-short' => 'Podrazumevano',
 	'stabilization-def-short-0' => 'Trenutno',
 	'stabilization-def-short-1' => 'Prihvaćeno',
 	'stabilize_page_invalid' => 'Naslov ciljane strane je neispravan.',
