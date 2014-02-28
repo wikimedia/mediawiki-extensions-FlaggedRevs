@@ -35,6 +35,8 @@ $messages['en'] = array(
 	'flaggedrevs-prefs-editdiffs'  => 'Show the pending changes diff when editing pages',
 	'flaggedrevs-prefs-viewdiffs'  => 'Show the pending changes diff when viewing the latest pending revision',
 	'flaggedrevs-hidereviewed'	   => '$1 reviewed edits',
+	'flaggedrevs-hidereviewed-hide' => 'Hide',
+	'flaggedrevs-hidereviewed-show' => 'Show',
 	'flaggedrevs-diffonly'		   => '', # do not translate or duplicate this message to other languages
 	'group-editor'                 => 'Editors',
 	'group-editor-member'          => '{{GENDER:$1|editor}}',
@@ -334,7 +336,19 @@ This refers to a toggle to hide or show edits (revisions) that have been reviewe
 If set to "hide", it also hides edits to pages that are not reviewable (like Talk pages).
 
 Parameters:
-* $1 is a link with the text {{msg-mw|show}} or {{msg-mw|hide}}',
+* $1 is a link with the text {{msg-mw|flaggedrevs-hidereviewed-show}} or {{msg-mw|flaggedrevs-hidereviewed-hide}}',
+	'flaggedrevs-hidereviewed-hide' => '{{doc-actionlink}}
+Option text in [[Special:RecentChanges]] in conjunction with {{msg-mw|flaggedrevs-hidereviewed}}.
+
+See also:
+* {{msg-mw|flaggedrevs-hidereviewed-show}}
+{{Identical|Hide}}',
+    'flaggedrevs-hidereviewed-show' => '{{doc-actionlink}}
+Option text in [[Special:RecentChanges]] in conjunction with {{msg-mw|flaggedrevs-hidereviewed}}.
+
+See also:
+* {{msg-mw|flaggedrevs-hidereviewed-hide}}
+{{Identical|Show}}',
 	'flaggedrevs-diffonly' => '{{Flagged Revs}}
 {{notranslate}}',
 	'group-editor' => '{{Flagged Revs}}
