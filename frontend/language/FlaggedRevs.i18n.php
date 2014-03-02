@@ -343,7 +343,7 @@ Option text in [[Special:RecentChanges]] in conjunction with {{msg-mw|flaggedrev
 See also:
 * {{msg-mw|flaggedrevs-hidereviewed-show}}
 {{Identical|Hide}}',
-    'flaggedrevs-hidereviewed-show' => '{{doc-actionlink}}
+	'flaggedrevs-hidereviewed-show' => '{{doc-actionlink}}
 Option text in [[Special:RecentChanges]] in conjunction with {{msg-mw|flaggedrevs-hidereviewed}}.
 
 See also:
@@ -2625,6 +2625,7 @@ $messages['be-tarask'] = array(
 /** Bulgarian (български)
  * @author Borislav
  * @author DCLXVI
+ * @author Mitzev
  * @author Spiritia
  * @author Turin
  */
@@ -2642,6 +2643,8 @@ $messages['bg'] = array(
 	'flaggedrevs-prefs-editdiffs' => 'Показване разликата със стабилната версия при редактиране на страници', # Fuzzy
 	'flaggedrevs-prefs-viewdiffs' => 'Показване разликата със стабилната версия при преглед на чернови', # Fuzzy
 	'flaggedrevs-hidereviewed' => '$1 {{PLURAL:$1|прегледана редакция|прегледани редакции}}',
+	'flaggedrevs-hidereviewed-hide' => 'Скрий',
+	'flaggedrevs-hidereviewed-show' => 'Покажи',
 	'group-editor' => 'Редактори',
 	'group-editor-member' => 'Редактор', # Fuzzy
 	'group-reviewer' => 'Рецензенти',
@@ -3507,13 +3510,15 @@ $messages['ce'] = array(
 	'flaggedrevs-hidereviewed' => '$1 хьаьжна нисдарш',
 	'group-editor' => 'Къобалерш',
 	'group-editor-member' => '{{GENDER:$1|къобалерг}}',
-	'group-reviewer' => 'Нийсдохьажамхой',
-	'group-reviewer-member' => '{{GENDER:$1|нийсдохьажамхо}}',
+	'group-reviewer' => 'Къобалерш',
+	'group-reviewer-member' => '{{GENDER:$1|къобалерш}}',
 	'grouppage-editor' => '{{ns:project}}:Къобалерг',
-	'grouppage-reviewer' => '{{ns:project}}:Нийсдохьажамхо',
+	'grouppage-reviewer' => '{{ns:project}}:Къобалерш',
 	'group-autoreview' => 'Шашеха къобалерш',
 	'group-autoreview-member' => '{{GENDER:$1|шашеха къобалерш}}',
 	'grouppage-autoreview' => '{{ns:project}}:Шашеха къобалерш',
+	'group-reviewer.css' => '/* JS placed here will affect reviewers only */',
+	'group-reviewer.js' => '/* JS placed here will affect reviewers only */',
 	'revreview-hist-draft' => 'хьажанза верси',
 	'revreview-hist-pending' => 'хьоьжуш хьажаре',
 	'revreview-hist-quality' => 'нийса йуй хьажна верси',
@@ -4004,6 +4009,8 @@ $messages['de'] = array(
 	'flaggedrevs-prefs-editdiffs' => 'Zeige beim Bearbeiten auch den Unterschied zur letzten stabilen Version im Versionsvergleich',
 	'flaggedrevs-prefs-viewdiffs' => 'Zeige einen Versionsvergleich zur stabilen Version, wenn die neueste unmarkierte Version angezeigt wird',
 	'flaggedrevs-hidereviewed' => 'Markierte Bearbeitungen $1',
+	'flaggedrevs-hidereviewed-hide' => 'ausblenden',
+	'flaggedrevs-hidereviewed-show' => 'anzeigen',
 	'group-editor' => 'Sichter',
 	'group-editor-member' => '{{GENDER:$1|Sichter|Sichterin}}',
 	'group-reviewer' => 'Prüfer',
@@ -4368,7 +4375,7 @@ Hesıbyayê [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} wersiyon]ê cı <i>$2</i> [{
 	'revreview-lev-basic' => 'qontrol biyo',
 	'revreview-lev-quality' => 'qalite',
 	'revreview-lev-pristine' => 'heqiqi',
-	'revreview-defaultfilter' => 'Hesıbyaye versiyon:',
+	'revreview-defaultfilter' => 'Versiyono hesabiyaye:',
 	'revreview-def-all' => 'her ci',
 	'revreview-def-draft' => 'tewr peyêni',
 	'revreview-def-stable' => 'sebit',
@@ -4797,11 +4804,14 @@ $messages['el'] = array(
 );
 
 /** British English (British English)
+ * @author Felicilijonas
  * @author Reedy
  * @author Shirayuki
  */
 $messages['en-gb'] = array(
 	'flaggedrevs-desc' => 'Gives Editors the ability to review revisions and stabilise pages',
+	'flaggedrevs-hidereviewed-hide' => 'Slėpti',
+	'flaggedrevs-hidereviewed-show' => 'Rodyti',
 	'revreview-editnotice' => "'''Your changes will be displayed to readers once an authorised user accepts them. ([[{{MediaWiki:Validationpage}}|help]])'''",
 	'revreview-edited' => "'''Your changes will be displayed to readers once an authorised user accepts them. ([[{{MediaWiki:Validationpage}}|help]])'''
 
@@ -5477,6 +5487,7 @@ $messages['ext'] = array(
 );
 
 /** Persian (فارسی)
+ * @author Armin1392
  * @author Dalba
  * @author Ebraminio
  * @author Huji
@@ -5507,6 +5518,8 @@ $messages['fa'] = array(
 	'flaggedrevs-prefs-editdiffs' => 'نمایش تفاوت تغییرات در زمان ویرایش صفحه‌ها',
 	'flaggedrevs-prefs-viewdiffs' => 'نمایش در مدت اختلاف تغییرات در هنگام ویرایش اخیر و مدت بازبینی',
 	'flaggedrevs-hidereviewed' => '$1 ویرایش بررسی‌شده',
+	'flaggedrevs-hidereviewed-hide' => 'پنهان‌ کردن',
+	'flaggedrevs-hidereviewed-show' => 'نمایش',
 	'group-editor' => 'ویرایشگران',
 	'group-editor-member' => '{{GENDER:$1|ویرایشگر}}',
 	'group-reviewer' => 'بازبینی‌کنندگان',
@@ -6340,6 +6353,7 @@ $messages['gan'] = array(
  * @author Alma
  * @author Gallaecio
  * @author Toliño
+ * @author Vivaelcelta
  * @author Xosé
  */
 $messages['gl'] = array(
@@ -6361,6 +6375,8 @@ $messages['gl'] = array(
 	'flaggedrevs-prefs-editdiffs' => 'Mostrar as diferenzas cos cambios pendentes ao editar as páxinas',
 	'flaggedrevs-prefs-viewdiffs' => 'Mostrar as diferenzas cos cambios pendentes ao ver a última revisión pendente',
 	'flaggedrevs-hidereviewed' => '$1 edicións revisadas',
+	'flaggedrevs-hidereviewed-hide' => 'Agochar',
+	'flaggedrevs-hidereviewed-show' => 'Mostrar',
 	'group-editor' => 'Editores',
 	'group-editor-member' => '{{GENDER:$1|editor|editora}}',
 	'group-reviewer' => 'Revisores',
@@ -9943,6 +9959,8 @@ $messages['lb'] = array(
 	'flaggedrevs-prefs-editdiffs' => 'Den Ënnerscheed mat der publizéierter Versioun während dem Ännere weisen',
 	'flaggedrevs-prefs-viewdiffs' => "D'Ännerungen am Suspens weise wann déi lescht Versioun vun der Säit gewise gëtt",
 	'flaggedrevs-hidereviewed' => "$1 huet d'Ännerungen nogekuckt",
+	'flaggedrevs-hidereviewed-hide' => 'Verstoppen',
+	'flaggedrevs-hidereviewed-show' => 'Weisen',
 	'group-editor' => 'Editeuren',
 	'group-editor-member' => '{{GENDER:$1|Editeur}}',
 	'group-reviewer' => 'Reviseuren',
@@ -12263,6 +12281,7 @@ $messages['pfl'] = array(
  * @author Derbeth
  * @author Fizykaa
  * @author Holek
+ * @author Jacenty359
  * @author Jwitos
  * @author Leinad
  * @author Maikking
@@ -12298,6 +12317,8 @@ $messages['pl'] = array(
 	'flaggedrevs-prefs-editdiffs' => 'Podczas edytowania pokazuj zmiany oczekujące na przejrzenie',
 	'flaggedrevs-prefs-viewdiffs' => 'Podczas wyświetlania najnowszej oczekującej wersji pokazuj wszystkie oczekujące zmiany',
 	'flaggedrevs-hidereviewed' => '$1 przejrzane edycje',
+	'flaggedrevs-hidereviewed-hide' => 'Ukryj',
+	'flaggedrevs-hidereviewed-show' => 'Pokaż',
 	'group-editor' => 'Redaktorzy',
 	'group-editor-member' => '{{GENDER:$1|redaktor|redaktorka}}',
 	'group-reviewer' => 'Weryfikatorzy',

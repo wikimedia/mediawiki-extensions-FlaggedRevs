@@ -917,6 +917,7 @@ Die aktuellen Einstellungen für „[[:$1|$1]]“ sind:',
  * @author Aspar
  * @author Belekvor
  * @author Erdemaslancan
+ * @author Mirzali
  * @author Xoser
  */
 $messages['diq'] = array(
@@ -941,7 +942,7 @@ Konfugure ni beno.',
 	'stabilization-otherreason' => 'Sebebê bîn:',
 	'stabilization-expiry' => 'Qediyeno:',
 	'stabilization-othertime' => 'Wextê bîn:',
-	'stabilization-def-short' => 'Hesıbyaye',
+	'stabilization-def-short' => 'Hesabiyaye',
 	'stabilization-def-short-0' => 'Penî',
 	'stabilization-def-short-1' => 'Sebit',
 	'stabilize_page_invalid' => 'Nameyê pele ya hedefi meqbul niyo.',
