@@ -1785,6 +1785,8 @@ $messages['ast'] = array(
 	'flaggedrevs-prefs-editdiffs' => 'Ver les diferencies colos cambios pendientes al editar les páxines',
 	'flaggedrevs-prefs-viewdiffs' => 'Ver les diferencies colos cambios pendientes al ver la última revisión pendiente',
 	'flaggedrevs-hidereviewed' => '$1 ediciones revisaes',
+	'flaggedrevs-hidereviewed-hide' => 'Anubrir',
+	'flaggedrevs-hidereviewed-show' => 'Amosar',
 	'group-editor' => 'Editores',
 	'group-editor-member' => '{{GENDER:$1|editor|editora}}',
 	'group-reviewer' => 'Revisores',
@@ -9494,6 +9496,7 @@ $messages['kn'] = array(
 /** Korean (한국어)
  * @author Devunt
  * @author Gapo
+ * @author Hym411
  * @author Klutzy
  * @author Kwj2772
  * @author Priviet
@@ -9519,6 +9522,8 @@ $messages['ko'] = array(
 	'flaggedrevs-prefs-editdiffs' => '편집할 때 검토를 기다리고 있는 편집과의 차이 보이기',
 	'flaggedrevs-prefs-viewdiffs' => '검토를 기다리고 있는 마지막 편집을 볼 때 차이를 보이기',
 	'flaggedrevs-hidereviewed' => '검토된 편집 $1',
+	'flaggedrevs-hidereviewed-hide' => '숨기기',
+	'flaggedrevs-hidereviewed-show' => '보이기',
 	'group-editor' => '편집자',
 	'group-editor-member' => '{{GENDER:$1|편집자}}',
 	'group-reviewer' => '평론가',
@@ -11653,6 +11658,7 @@ $messages['ne'] = array(
  * @author SPQRobin
  * @author Saruman
  * @author Siebrand
+ * @author Sjoerddebruin
  * @author Tjcool007
  * @author Tvdm
  */
@@ -11676,6 +11682,8 @@ $messages['nl'] = array(
 	'flaggedrevs-prefs-editdiffs' => "Bij het bewerken van pagina's de ongecontroleerde verschillen met de gepubliceerde versie weergeven",
 	'flaggedrevs-prefs-viewdiffs' => 'Bij het bekijken van laatste versie verschillen met gecontroleerde versie weergeven',
 	'flaggedrevs-hidereviewed' => 'Gecontroleerde bewerkingen $1',
+	'flaggedrevs-hidereviewed-hide' => 'Verbergen',
+	'flaggedrevs-hidereviewed-show' => 'Weergeven',
 	'group-editor' => 'redacteuren',
 	'group-editor-member' => '{{GENDER:$1|redacteur|redactrice}}',
 	'group-reviewer' => 'eindredacteuren',
@@ -14106,8 +14114,11 @@ $messages['scn'] = array(
 );
 
 /** Scots (Scots)
+ * @author John Reid
  */
 $messages['sco'] = array(
+	'flaggedrevs-hidereviewed-hide' => 'Skauk',
+	'flaggedrevs-hidereviewed-show' => 'Shaw',
 	'revreview-revnotfound' => 'The auld reveision o the page ye socht cuidna be funnd. Please check the URL ye uised til access this page.',
 );
 
@@ -15476,6 +15487,7 @@ $messages['ta'] = array(
  * @author Chaduvari
  * @author Kiranmayee
  * @author Mpradeep
+ * @author Ravichandra
  * @author Veeven
  * @author వైజాసత్య
  */
@@ -15616,10 +15628,10 @@ $messages['te'] = array(
 	'revreview-def-all' => 'ఏదైనా',
 	'revreview-def-draft' => 'చిట్టచివరి',
 	'revreview-restriction-any' => 'ఏదైనా',
-	'revreview-reviewlink' => 'రివ్యూ', # Fuzzy
+	'revreview-reviewlink' => 'పెండింగులో ఉన్న మార్పులు',
 	'revreview-unreviewedpage' => 'సరిచూడని పుట',
-	'tooltip-ca-current' => 'ఈ పేజీ యొక్క ప్రస్తుత ప్రతిని చూడండి', # Fuzzy
-	'tooltip-ca-stable' => 'ఈ పేజీ యొక్క సుస్థిర కూర్పుని చూడండి', # Fuzzy
+	'tooltip-ca-current' => 'ఈ పేజీని పెండింగు మార్పులతో సహా చూడండి',
+	'tooltip-ca-stable' => 'ఈ పేజీ యొక్క సుస్థిర కూర్పుని చూడండి',
 	'tooltip-ca-default' => 'నాణ్యతా భరోసా అమరికలు',
 	'flaggedrevs-protect-legend' => 'స్వయంచాలక మార్పుల సమీక్ష ([[{{MediaWiki:Validationpage}}|సహాయం]])',
 	'flaggedrevs-protect-none' => 'అందరు వాడుకరులను అనుమతించు',
