@@ -1041,6 +1041,7 @@ $messages['hil'] = array(
  * @author Dalibor Bosits
  * @author Ex13
  * @author Herr Mlinka
+ * @author MaGa
  * @author SpeedyGonsales
  */
 $messages['hr'] = array(
@@ -1051,17 +1052,17 @@ Urednici su dokazani suradnici koji mogu provjeriti inačice stranice.",
 	'validationstatistics-lastupdate' => "''Sljedeći podaci su posljednji put osvježeni $1 u $2.''",
 	'validationstatistics-pndtime' => "Izmjene koje su pregledali potvrđeni suradnici smatraju se ''pregledanima''.
 
-Prosječno čekanje za pregled [[Special:OldReviewedPages|stranica s nepregledanim izmjenama]] je '''$1'''. Navedeno čekanje označava koliko je dugo najstarija izmjena koja čeka pregled ostala nepregledanom.",
+Prosječno čekanje za pregled [[Special:OldReviewedPages|stranica s nepregledanim izmjenama]] je '''$1'''. Navedeno čekanje označava koliko je dugo najstarija izmjena koja čeka pregled ostala nepregledanom.", # Fuzzy
 	'validationstatistics-revtime' => "Prosječno čekanje izmjena od strane ''suradnika koji nisu prijavljeni'' za pregled je '''$1'''; medijan je '''$2'''.
 $3",
-	'validationstatistics-table' => "Statistike pregledavanja za svaki imenski prostor prikazane su u nastavku, ''ne uključujući'' stranice za preusmjeravanje. Stranice se smatraju ''neažurnim'' ako imaju izmjene koje čekaju pregled, odnosno ''sinkroniziranima'' ako nema izmjena koje čekaju pregled.",
+	'validationstatistics-table' => "Statistike pregledavanja za svaki imenski prostor prikazane su u nastavku, ''ne uključujući'' stranice za preusmjeravanje. Stranice se smatraju ''neažurnim'' ako imaju izmjene koje čekaju pregled, odnosno ''sinkroniziranima'' ako nema izmjena koje čekaju pregled.", # Fuzzy
 	'validationstatistics-ns' => 'Imenski prostor',
 	'validationstatistics-total' => 'Stranice',
 	'validationstatistics-stable' => 'Ocijenjeno',
 	'validationstatistics-latest' => 'Sinkronizirano',
 	'validationstatistics-synced' => 'Usklađeno/Ocijenjeno',
 	'validationstatistics-old' => 'Zastarjelo',
-	'validationstatistics-utable' => 'Ispod je popis {{PLURAL:$1|najaktivnijeg|$1 najaktivnija|$1 najaktivnijih}} ocjenjivača u zadnjih {{PLURAL:$2|sat vremena|$2 sata|$2 sati}}.',
+	'validationstatistics-utable' => 'Ispod je popis {{PLURAL:$1|najaktivnijeg|$1 najaktivnija|$1 najaktivnijih}} ocjenjivača u posljednjih {{PLURAL:$2|sat vremena|$2 sata|$2 sati}}.',
 	'validationstatistics-user' => 'Suradnik',
 	'validationstatistics-reviews' => 'Ocjene',
 );

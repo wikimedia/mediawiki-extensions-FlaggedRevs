@@ -7259,6 +7259,7 @@ Aap jon URL ke use kar ke ii panna ke acess karaa hai, uske check karo.',
  * @author Dnik
  * @author Ex13
  * @author Herr Mlinka
+ * @author MaGa
  * @author Roberta F.
  * @author SpeedyGonsales
  * @author Tivek
@@ -7322,8 +7323,8 @@ $messages['hr'] = array(
 	'revreview-accuracy-3' => 'Vrlo dobar (potkrijepljen izvorima)',
 	'revreview-accuracy-4' => 'Izvrstan',
 	'revreview-auto' => '(automatski)',
-	'revreview-basic' => 'Ovo je zadnja [[{{MediaWiki:Validationpage}}|pregledana]] inačica, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} odobrena] dana <i>$2</i>.
-{{PLURAL:$3|Postoji $3 promjena|Postoje $3 promjene|Postoji $3 promjena}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$3|koja čeka|koje čekaju|koje čekaju}}] ocjenjivanje.',
+	'revreview-basic' => 'Ovo je posljednja [[{{MediaWiki:Validationpage}}|pregledana]] inačica, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} odobrena] dana <i>$2</i>.
+{{PLURAL:$3|Postoji $3 promjena|Postoje $3 promjene|Postoji $3 promjena}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$3|koja čeka|koje čekaju|koje čekaju}}] ocjenjivanje.', # Fuzzy
 	'revreview-basic-i' => 'Ovo je posljednja [[{{MediaWiki:Validationpage}}|pregledana]] inačica, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} odobrena] dana <i>$2</i>.
 Postoje [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} izmjena predloška/datoteke] koji čekaju ocjenu.',
 	'revreview-basic-old' => 'Ovo je [[{{MediaWiki:Validationpage}}|pregledana]] inačica ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} prikaži sve]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} odobrena] <i>$2</i>.
@@ -7348,7 +7349,7 @@ Nove su [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-di
 	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Stabilna inačica] je bila [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} provjerena] dana <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$3|Postoji $3 promjena koja|Postoje $3 promjene koje|Postoji $3 promjena koje}}] {{PLURAL:$3|treba|trebaju|trebaju}} ocjenu.', # Fuzzy
 	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Posljednja pregledana izmjena] je [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} odobrena] <i>$2</i>. Postoje [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} izmjene predloška/datoteke] koje je potrebno ocijeniti.', # Fuzzy
-	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Zadnje ocjenjivanje članka] je [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} izvršeno] dana <i>$2</i>. 
+	'revreview-newest-quality' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Posljednje ocjenjivanje članka] je [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} izvršeno] dana <i>$2</i>. 
 {{PLURAL:$3|Postoji|Postoje|Postoji}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$3|$3 promjena|$3 promjene|$3 promjena}}] {{PLURAL:$3|koja treba|koje trebaju|koje trebaju}} ocjenu.', # Fuzzy
 	'revreview-newest-quality-i' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Posljednja ocijenjena izmjena] je [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} odobrena] <i>$2</i>. Postoje [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} izmjene predloška/datoteke] koje je potrebno ocijeniti.', # Fuzzy
 	'revreview-pending-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Stabilna verzija] je bila [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} provjerena] dana <i>$2</i>. {{PLURAL:$3|Postoji|Postoje}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|izmjena|izmjene}}] koje čekaju na provjeru.',
@@ -7358,7 +7359,7 @@ Nove su [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-di
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|izmjenu|izmjene|izmjena}}] koje čekaju provjeru, kako bi vidjeli je li odlomak pomican ili obrisan.',
 	'revreview-noflagged' => "Nema [[{{MediaWiki:Validationpage}}|ocijenjenih inačica]] stranice, stoga najvjerojatnije '''nije''' provjerena usklađenost stranice sa standardima projekta.",
 	'revreview-oldrating' => 'Prethodna ocjena:',
-	'revreview-quality' => 'Ovo je zadnja [[{{MediaWiki:Validationpage}}|ocijenjena]] promjena, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} odobrena] dana <i>$2</i>.
+	'revreview-quality' => 'Ovo je posljednja [[{{MediaWiki:Validationpage}}|ocijenjena]] promjena, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} odobrena] dana <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} {{PLURAL:$3|Postoji $3 promjena koja čeka|Postoje $3 promjene koje čekaju|Postoji $3 promjena koje čekaju}}] ocjenjivanje.',
 	'revreview-quality-i' => 'Ovo je posljednja [[{{MediaWiki:Validationpage}}|ocijenjena]] inačica, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} odobrena] dana <i>$2</i>.
 Postoje [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} izmjene predloška/datoteke] koje čekaju ocjenu.',
@@ -16480,6 +16481,8 @@ $messages['uk'] = array(
 	'flaggedrevs-prefs-editdiffs' => 'Показувати неперевірені зміни в режимі редагування',
 	'flaggedrevs-prefs-viewdiffs' => 'Показувати нерецензовані зміни при перегляді останньої нерецензованої версії сторінки',
 	'flaggedrevs-hidereviewed' => '$1 перевірені редагування',
+	'flaggedrevs-hidereviewed-hide' => 'Приховати',
+	'flaggedrevs-hidereviewed-show' => 'Показати',
 	'group-editor' => 'Редактори',
 	'group-editor-member' => '{{GENDER:$1|редактор|редакторка}}',
 	'group-reviewer' => 'Рецензенти',

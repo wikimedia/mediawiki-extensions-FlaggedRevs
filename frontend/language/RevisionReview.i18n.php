@@ -2673,6 +2673,7 @@ $messages['hi'] = array(
  * @author Dalibor Bosits
  * @author Dnik
  * @author Ex13
+ * @author MaGa
  * @author SpeedyGonsales
  */
 $messages['hr'] = array(
@@ -2735,9 +2736,9 @@ Molimo provjerite sve izmjene prikazane ispod da bi se vaše izmjene prikazale u
 	'revreview-reject-summary' => 'Uredi sažetak:', # Fuzzy
 	'revreview-reject-confirm' => 'Odbaci ove promjene',
 	'revreview-reject-cancel' => 'Otkazati',
-	'revreview-reject-summary-cur' => '{{PLURAL:$1|Odbijena zadnja izmjena|Odbijene zadnje $1 izmjene|Odbijeno zadnjih $1 izmjena}} (od strane $2) i vraćena inačica $3 suradnika $4', # Fuzzy
+	'revreview-reject-summary-cur' => '{{PLURAL:$1|Odbijena posljednja izmjena|Odbijene posljednje $1 izmjene|Odbijeno posljednjih $1 izmjena}} (od strane $2) i vraćena inačica $3 suradnika $4',
 	'revreview-reject-summary-old' => '{{PLURAL:$1|Odbijena prva izmjena|Odbijene prve $1 izmjene|Odbijeno prvih $1 izmjena}} (od strane $2) koje su načinjene nakon inačice $3 suradnika $4', # Fuzzy
-	'revreview-reject-summary-cur-short' => '{{PLURAL:$1|Odbijena zadnja izmjena|Odbijene zadnje $1 izmjene|Odbijeno zadnjih $1 izmjena}} i vraćena inačica $2 suradnika $3', # Fuzzy
+	'revreview-reject-summary-cur-short' => '{{PLURAL:$1|Odbijena posljednja izmjena|Odbijene posljednja $1 izmjene|Odbijeno posljednjih $1 izmjena}} i vraćena inačica $2 suradnika $3',
 	'revreview-reject-summary-old-short' => '{{PLURAL:$1|Odbijena prva izmjena|Odbijene prve $1 izmjene|Odbijeno prvih $1 izmjena}} koje su načinjene nakon inačice $2 suradnika $3', # Fuzzy
 	'revreview-tt-flag' => "Prihvati ovu inačicu označavajući je ''provjerenom''",
 	'revreview-tt-unflag' => "Poništi ovu inačicu označavajući je ''neprovjerenom''",
