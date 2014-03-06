@@ -587,7 +587,8 @@ Name of the 'depth' tag. Shown on review form and in review status box.",
 	'revreview-depth-0' => "{{Flagged Revs}}
 Possible value of the 'depth' tag for a revision. All accepted revisions must have ratings for each tag type.",
 	'revreview-depth-1' => "{{Flagged Revs}}
-Possible value of the 'depth' tag for a revision. All accepted revisions must have ratings for each tag type.",
+Possible value of the 'depth' tag for a revision. All accepted revisions must have ratings for each tag type.
+{{Identical|Basic}}",
 	'revreview-depth-2' => "{{Flagged Revs}}
 Possible value of the 'depth' tag for a revision. All accepted revisions must have ratings for each tag type.
 {{Identical|Moderate}}",
@@ -3572,7 +3573,7 @@ $messages['ce'] = array(
 	'revreview-depth-3' => 'лаккхара',
 	'revreview-depth-4' => 'хаьржина',
 	'revreview-draft-title' => 'ХӀокху агӀон тӀехь гойту хьажанза болу хийцамаш',
-	'revreview-edit' => 'Нисйé',
+	'revreview-edit' => 'Нисъе',
 	'revreview-editnotice' => "'''Ахьа бина болу хийцамаш гур бу йоьшучарна, нийса йу ле йац хьожушвер хьаьжча. ([[{{MediaWiki:Validationpage}}|кхин дӀа]])'''",
 	'revreview-submitedit' => 'Дlайазъбе хийцамаш',
 	'revreview-submitedit-title' => 'Дlа бахьийта хьай хийцамаш хьажаре',
@@ -17140,6 +17141,8 @@ $messages['vi'] = array(
 	'flaggedrevs-prefs-editdiffs' => 'So sánh các thay đổi đang chờ với phiên bản ổn định khi sửa đổi trang',
 	'flaggedrevs-prefs-viewdiffs' => 'So sánh với phiên bản ổn định khi xem phiên bản đang chờ gần đây nhất',
 	'flaggedrevs-hidereviewed' => '$1 sửa đổi được duyệt',
+	'flaggedrevs-hidereviewed-hide' => 'Ẩn',
+	'flaggedrevs-hidereviewed-show' => 'Hiện',
 	'group-editor' => 'Biên tập viên',
 	'group-editor-member' => '{{GENDER:$1}}biên tập viên',
 	'group-reviewer' => 'Người duyệt bài',
@@ -17613,6 +17616,8 @@ $messages['zh-hans'] = array(
 	'flaggedrevs-prefs-editdiffs' => '编辑页面时显示待定更改的差异',
 	'flaggedrevs-prefs-viewdiffs' => '查看最后待定版本时显示待定更改的差异',
 	'flaggedrevs-hidereviewed' => '$1已复核编辑',
+	'flaggedrevs-hidereviewed-hide' => '隐藏',
+	'flaggedrevs-hidereviewed-show' => '显示',
 	'group-editor' => '编者',
 	'group-editor-member' => '{{GENDER:$1|编者}}',
 	'group-reviewer' => '复核员',
