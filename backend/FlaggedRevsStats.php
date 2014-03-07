@@ -214,12 +214,18 @@ class FlaggedRevsStats {
 		return array( $ns_total, $ns_reviewed, $ns_synced );
 	}
 
+	// @TODO: maybe put in core?
+	private static function dbUnixTime( $db, $column ) {
+		return $db->getType() === 'sqlite' ? "strftime('%s',$column)" : "UNIX_TIMESTAMP($column)";
+	}
+
 	private static function getMeanPendingEditTime() {
 		$dbr = wfGetDB( DB_SLAVE );
 		$nowUnix = wfTimestamp( TS_UNIX ); // current time in UNIX TS
+		$unixTimeCall = self::dbUnixTime( $dbr, 'fp_pending_since' );
 		return (int)$dbr->selectField(
 			array( 'flaggedpages', 'page' ),
-			"AVG( $nowUnix - UNIX_TIMESTAMP(fp_pending_since) )",
+			"AVG( $nowUnix - $unixTimeCall )",
 			array( 'fp_pending_since IS NOT NULL',
 				'fp_page_id = page_id',
 				'page_namespace' => FlaggedRevs::getReviewNamespaces() // sanity
@@ -253,7 +259,7 @@ class FlaggedRevsStats {
 		# the fact that FlaggedRevs wasn't enabled until after a while.
 		$dbr = wfGetDB( DB_SLAVE );
 		$installedUnix = (int)$dbr->selectField( 'logging',
-			'UNIX_TIMESTAMP( MIN(log_timestamp) )',
+			self::dbUnixTime( $dbr, 'MIN(log_timestamp)' ),
 			array('log_type' => 'review')
 		);
 		if ( !$installedUnix ) {
