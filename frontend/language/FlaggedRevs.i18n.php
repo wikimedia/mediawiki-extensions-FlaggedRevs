@@ -3516,11 +3516,11 @@ $messages['ce'] = array(
 	'group-editor' => 'Къобалерш',
 	'group-editor-member' => '{{GENDER:$1|къобалерг}}',
 	'group-reviewer' => 'Къобалерш',
-	'group-reviewer-member' => '{{GENDER:$1|къобалерш}}',
+	'group-reviewer-member' => '{{GENDER:$1|къобалерг}}',
 	'grouppage-editor' => '{{ns:project}}:Къобалерг',
-	'grouppage-reviewer' => '{{ns:project}}:Къобалерш',
+	'grouppage-reviewer' => '{{ns:project}}:Къобалерг',
 	'group-autoreview' => 'Шашеха къобалерш',
-	'group-autoreview-member' => '{{GENDER:$1|шашеха къобалерш}}',
+	'group-autoreview-member' => '{{GENDER:$1|шашеха къобалерг}}',
 	'grouppage-autoreview' => '{{ns:project}}:Шашеха къобалерш',
 	'group-reviewer.css' => '/* JS placed here will affect reviewers only */',
 	'group-reviewer.js' => '/* JS placed here will affect reviewers only */',
@@ -3561,11 +3561,11 @@ $messages['ce'] = array(
 	'revreview-auto' => '(шашех)',
 	'revreview-basic' => 'ХӀара [[{{MediaWiki:Validationpage}}|чутоьхна верси ю]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} хьажна] <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|хийцам|хийцамаш}}] {{PLURAL:$3|хьоьжуш}} бу хьажаре.',
-	'revreview-basic-i' => 'ХӀара [[{{MediaWiki:Validationpage}}|чутоьхна башхо ю]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} хьаьжна] <i>$2</i>.
-Хьажанза бу [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} хийцамаш оьцу кепашца я файлашца].',
+	'revreview-basic-i' => 'ХӀара [[{{MediaWiki:Validationpage}}|чӀагӀъелла верси ю]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} хьаьжна] <i>$2</i>.
+Хьажанза бу [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} хийцамаш кепашца я файлашца].',
 	'revreview-basic-old' => 'Хlара [[{{MediaWiki:Validationpage}}|чекхдаллалц хьажна йу]] башхо ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} массо могlам]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} бакъйина] <i>$2</i>.
 Хила мега дина керла [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} нисдар].',
-	'revreview-basic-same' => 'ХӀара [[{{MediaWiki:Validationpage}}|чутоьхна башхо ю]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} чекхдаллалц хьаьжна] <i>$2</i>.',
+	'revreview-basic-same' => 'ХӀара [[{{MediaWiki:Validationpage}}|чӀагӀъелла верси ю]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} хьаьжна] <i>$2</i>.',
 	'revreview-basic-source' => '[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} Къобалйина] хӀокх агӀон верси, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} бакъйинарг] <i>$2</i>, йара бухарчуьна башхоне йалийна.',
 	'revreview-current' => 'Хьажанза хийцамаш',
 	'revreview-depth' => 'Юззина',
@@ -3596,13 +3596,13 @@ $messages['ce'] = array(
 	'revreview-pending-nosection' => 'Тергонца хьажа [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} тӀаьхьаралерачу версега], хьога {{PLURAL:$2|хьоьжуш}} бу хьажаре [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|1=хийцам|хийцамаш}}]. Хила мега, дакъа дехьа даьккхина я дӀадаьккхина.',
 	'revreview-noflagged' => "ХӀокху агӀона яц [[{{MediaWiki:Validationpage}}|хьаьжна башхонаш]], хила мега, цуьна дикаллийна мах '''ца хоттийна''' болучу барамца.",
 	'revreview-oldrating' => 'Хоттийна мах:',
-	'revreview-quality' => 'ХӀара [[{{MediaWiki:Validationpage}}|Чутоьхна башхо ю]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} бакъйина] <i>$2</i>.
+	'revreview-quality' => 'ХӀара [[{{MediaWiki:Validationpage}}|чӀагӀъелла веоси ю]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} бакъйина] <i>$2</i>.
 [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|хийцам|хийцамаш}}] {{PLURAL:$3|хьоьжуш}} бу хьажаре.',
-	'revreview-quality-i' => 'ХӀара [[{{MediaWiki:Validationpage}}|чутоьхна башхо ю]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} бакъйина] <i>$2</i>.
-Хьажанза бу [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} хийцамаш оьцу кепашца я файлашца].',
+	'revreview-quality-i' => 'ХӀара [[{{MediaWiki:Validationpage}}|чӀагӀелла верси ю]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} бакъйина] <i>$2</i>.
+Хьажанза бу [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} хийцамаш кепашца я файлашца].',
 	'revreview-quality-old' => 'Хlара [[{{MediaWiki:Validationpage}}|нийса йуй хьажна]] башхо йу ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} массо могlам]), [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} бакъйина] <i>$2</i>.
 Хила мега дина керла [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} нисдарш].',
-	'revreview-quality-same' => 'ХӀара [[{{MediaWiki:Validationpage}}|чутоьхна башхо ю]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} бакъйина] <i>$2</i>.',
+	'revreview-quality-same' => 'ХӀара [[{{MediaWiki:Validationpage}}|чӀагӀъелла верси ю]], [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} бакъйина] <i>$2</i>.',
 	'revreview-quality-source' => '[{{fullurl:{{FULLPAGENAMEE}}|stableid=$1}} Нийса йуй хьаьжна] хӀокх агӀон верси, [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} чекхйаллалц хьаьжнарг] <i>$2</i>, йара бухарчуьна башхоне йалийна.',
 	'revreview-quality-title' => 'ХӀара нийса юй хьаьжна агӀон башхо ю',
 	'revreview-quick-basic' => "'''[[{{MediaWiki:Validationpage}}|Хьаьжнарг]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} гайта хьаьжанза хийцам]]",
@@ -6821,6 +6821,14 @@ S cha syy, ass es scho neiji [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{Med
 	'revreview-unlocked' => "'''Wichtig''': Bearbeitige bruuche nit [[{{MediaWiki:Validationpage}}|iberprieft]] wäre, voreb si fir Läser uf däre Syte aazeigt wäre.",
 	'log-show-hide-review' => 'Versionsmarkierigs-Logbuech $1',
 	'validationpage' => '{{ns:project}}:Gesichtete und geprüfte Versionen',
+);
+
+/** Gujarati (ગુજરાતી)
+ * @author KartikMistry
+ */
+$messages['gu'] = array(
+	'flaggedrevs-hidereviewed-hide' => 'છુપાવો',
+	'flaggedrevs-hidereviewed-show' => 'દર્શાવો',
 );
 
 /** Hausa (Hausa)
@@ -14519,6 +14527,8 @@ $messages['sl'] = array(
 	'flaggedrevs-prefs-editdiffs' => 'Prikaži primerjavo sprememb v teku med urejanjem strani',
 	'flaggedrevs-prefs-viewdiffs' => 'Prikaži primerjavo sprememb v teku med ogledovanjem zadnje redakcije v teku',
 	'flaggedrevs-hidereviewed' => '$1 pregledanih urejanj',
+	'flaggedrevs-hidereviewed-hide' => 'Skrij',
+	'flaggedrevs-hidereviewed-show' => 'Prikaži',
 	'group-editor' => 'Uredniki',
 	'group-editor-member' => '{{GENDER:$1|urednik|urednica}}',
 	'group-reviewer' => 'Pregledovalci',
@@ -14558,7 +14568,7 @@ $messages['sl'] = array(
 	'reviewer' => 'Pregledovalec',
 	'revreview-accuracy' => 'Točnost',
 	'revreview-accuracy-0' => 'Neustrezno',
-	'revreview-accuracy-1' => 'Pregledano', # Fuzzy
+	'revreview-accuracy-1' => 'Pregledano',
 	'revreview-accuracy-2' => 'Natančno',
 	'revreview-accuracy-3' => 'Dobro dokumentirano',
 	'revreview-accuracy-4' => 'Izbrano',
