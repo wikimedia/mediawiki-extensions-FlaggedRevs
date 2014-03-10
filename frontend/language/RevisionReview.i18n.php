@@ -4191,6 +4191,7 @@ $messages['mt'] = array(
 );
 
 /** Norwegian Bokmål (norsk bokmål)
+ * @author Danmichaelo
  * @author EivindJ
  * @author Event
  * @author Laaknor
@@ -4261,7 +4262,7 @@ Revider alle endringene vist nedenfor for å gjøre redigeringene dine synlige i
 	'revreview-reject-summary' => 'Sammendrag:',
 	'revreview-reject-confirm' => 'Avvis disse endringene',
 	'revreview-reject-cancel' => 'Avbryt',
-	'revreview-reject-summary-cur' => 'Forkastet {{PLURAL:$1|den siste endringen|de siste $1 endringene}} (av $2) og gjenopprettet revisjon $3 av $4.', # Fuzzy
+	'revreview-reject-summary-cur' => 'Forkastet {{PLURAL:$1|den siste tekstendringen|de siste $1 tekstendringene}} (av $2) og gjenopprettet revisjon $3 av $4',
 	'revreview-reject-summary-old' => 'Forkastet {{PLURAL:$1|den første endringen|de første $1 endringene}} (av $2) som fulgte revisjon $3 av $4', # Fuzzy
 	'revreview-reject-summary-cur-short' => 'Forkastet {{PLURAL:$1|den siste endringen|de siste $1 endringene}} og gjenopprettet revisjon $2 av $3', # Fuzzy
 	'revreview-reject-summary-old-short' => 'Forkastet {{PLURAL:$1|den første endringen|de første $1 endringene}} som fulgte revisjon $2 av $3', # Fuzzy
