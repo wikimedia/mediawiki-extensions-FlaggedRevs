@@ -6845,13 +6845,14 @@ $messages['hak'] = array(
 );
 
 /** Hawaiian (Hawai`i)
+ * @author Kolonahe
  * @author Singularity
  */
 $messages['haw'] = array(
-	'editor' => 'Luna',
+	'editor' => 'Luna Hoʻoponopono:',
 	'flaggedrevs' => 'Nā Kāmua Kaha',
-	'group-editor' => 'Nā luna',
-	'group-editor-member' => 'Luna', # Fuzzy
+	'group-editor' => 'Nā Luna Hoʻoponopono',
+	'group-editor-member' => '{{GENDER:$1|ka luna hoʻoponopono}}',
 );
 
 /** Hebrew (עברית)
@@ -11696,8 +11697,8 @@ $messages['nl'] = array(
 	'flaggedrevs-prefs-editdiffs' => "Bij het bewerken van pagina's de ongecontroleerde verschillen met de gepubliceerde versie weergeven",
 	'flaggedrevs-prefs-viewdiffs' => 'Bij het bekijken van laatste versie verschillen met gecontroleerde versie weergeven',
 	'flaggedrevs-hidereviewed' => 'Gecontroleerde bewerkingen $1',
-	'flaggedrevs-hidereviewed-hide' => 'Verbergen',
-	'flaggedrevs-hidereviewed-show' => 'Weergeven',
+	'flaggedrevs-hidereviewed-hide' => 'verbergen',
+	'flaggedrevs-hidereviewed-show' => 'weergeven',
 	'group-editor' => 'redacteuren',
 	'group-editor-member' => '{{GENDER:$1|redacteur|redactrice}}',
 	'group-reviewer' => 'eindredacteuren',
