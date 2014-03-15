@@ -9039,6 +9039,7 @@ $messages['ka'] = array(
 	'flaggedrevs-prefs-editdiffs' => 'აჩვენეთ განსხვავება შემოწმებულ და შეუმოწმებელ ვერსიებს შორის გვერდის რედაქტირებისას',
 	'flaggedrevs-prefs-viewdiffs' => 'შეუმოწმებელი ვერსიის ხილვისას აჩვენეთ გადაუმოწმებელი ცვლილება',
 	'flaggedrevs-hidereviewed' => 'შემოწმებული გვერდების $1',
+	'flaggedrevs-hidereviewed-hide' => 'დამალვა',
 	'group-editor' => 'შემმოწმებელი',
 	'group-editor-member' => '{{GENDER:$1|შემმოწმებელი}}',
 	'group-reviewer' => 'რეცენზისტები',
