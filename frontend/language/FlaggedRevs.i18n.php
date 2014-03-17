@@ -12719,6 +12719,7 @@ $messages['ps'] = array(
 	'flaggedrevs-pref-UI' => 'بنسټيز ليدنمخ:',
 	'prefs-flaggedrevs' => 'سمون مخليدنه',
 	'prefs-flaggedrevs-ui' => 'سمون مخليدنه',
+	'flaggedrevs-hidereviewed-hide' => 'پټول',
 	'group-editor' => 'سمونگران',
 	'group-editor-member' => '{{GENDER:$1|سمونگر}}',
 	'group-reviewer' => 'مخکتونکي',
@@ -14135,7 +14136,7 @@ $messages['scn'] = array(
 $messages['sco'] = array(
 	'flaggedrevs-hidereviewed-hide' => 'Skauk',
 	'flaggedrevs-hidereviewed-show' => 'Shaw',
-	'revreview-revnotfound' => 'The auld reveision o the page ye socht cuidna be funnd. Please check the URL ye uised til access this page.',
+	'revreview-revnotfound' => 'The auld reveesion o the page that ye socht coudna be foond. Please check the URL that ye uised tae access this page.',
 );
 
 /** Sassaresu (Sassaresu)
