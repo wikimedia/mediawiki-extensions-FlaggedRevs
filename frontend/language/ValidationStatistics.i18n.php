@@ -659,10 +659,9 @@ $messages['es'] = array(
 	'validationstatistics-users' => "En '''{{SITENAME}}''' actualmente hay '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|usuario|usuarios}} con derechos de [[{{MediaWiki:Validationpage}}|Editor]].
 Los editores son usuarios establecidos que pueden verificar las revisiones de las páginas.",
 	'validationstatistics-lastupdate' => "''Los siguientes datos fueron actualizados por última vez el $1 a las $2.''",
-	'validationstatistics-pndtime' => "Ediciones que han sido verificadas por usuarios establecidos son consideradas ''revisadas''.
+	'validationstatistics-pndtime' => "Las ediciones que han sido revisadas por los usuarios establecidos están consideradas \"{{int:validationstatistics-stable}}\".
 
-La demora promedio para [[Special:OldReviewedPages|páginas con ediciones pendientes no revisadas]] es '''$1''';
-La demora mide cuanto la edición pendiente más antigua ha estado sin revisar.", # Fuzzy
+El promedio de retraso para las [[Special:OldReviewedPages|páginas con ediciones pendientes de revisión]] es de '''\$1'''; el retraso mide cuánto es la mayor pendiente de ediciones sin revisar.",
 	'validationstatistics-revtime' => "La espera promedio para las ediciones  hechas por ''usuarios que no han iniciado sesión'' a ser revisadas es '''$1'''; la media es '''$2'''. $3",
 	'validationstatistics-table' => "Las estadísiticas de la revisión de páginas para cada espacio de nombres están mostradas debajo, ''excluyendo'' redirecciones. Las páginas son tratadas como ''desactualizadas'' si tiene ediciones pendientes de revisión; la páginas son consideradas ''sincronizadas'' si no tiene ediciones pendientes de revisión.", # Fuzzy
 	'validationstatistics-ns' => 'Espacio de nombres',

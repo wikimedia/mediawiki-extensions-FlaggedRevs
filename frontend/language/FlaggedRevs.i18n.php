@@ -5027,6 +5027,7 @@ Bonvolu kontroli la retadreson (URL) kiun vi uzis por atingi la paĝon.\\b',
  * @author Diego Grez
  * @author Drini
  * @author Fitoschido
+ * @author Ihojose
  * @author Imre
  * @author Jurock
  * @author Lin linao
@@ -5060,6 +5061,8 @@ $messages['es'] = array(
 	'flaggedrevs-prefs-editdiffs' => 'Mostrar las diferencias de cambios pendientes al editar páginas',
 	'flaggedrevs-prefs-viewdiffs' => 'Mostrar la diferencia de los cambios pendientes al ver la última revisión pendiente',
 	'flaggedrevs-hidereviewed' => '$1 ediciones revisadas',
+	'flaggedrevs-hidereviewed-hide' => 'Ocultar',
+	'flaggedrevs-hidereviewed-show' => 'Mostrar',
 	'group-editor' => 'Editores',
 	'group-editor-member' => '{{GENDER:$1|editor|editora}}',
 	'group-reviewer' => 'Revisores',
@@ -6860,6 +6863,7 @@ $messages['haw'] = array(
  * @author DoviJ
  * @author Guycn1
  * @author Guycn2
+ * @author Inkbug
  * @author Nahum
  * @author Ori229
  * @author Rotemliss
@@ -6886,7 +6890,7 @@ $messages['he'] = array(
 	'flaggedrevs-prefs-editdiffs' => 'להציג את ההשוואה של השינויים הממתינים בעת עריכת דפים',
 	'flaggedrevs-prefs-viewdiffs' => 'להציג את ההשוואה של השינויים הממתינים בעת צפייה בגרסה הממתינה האחרונה',
 	'flaggedrevs-hidereviewed' => '$1 העריכות שנסקרו',
-	'flaggedrevs-hidereviewed-hide' => 'להסתיר',
+	'flaggedrevs-hidereviewed-hide' => 'הסתרת',
 	'flaggedrevs-hidereviewed-show' => 'להציג',
 	'group-editor' => 'עורכים',
 	'group-editor-member' => '{{GENDER:$1|עורך|עורכת}}',
@@ -14756,6 +14760,8 @@ $messages['sr-ec'] = array(
 	'flaggedrevs-prefs-editdiffs' => 'Прикажи разлике измена на чекању при уређивању страница',
 	'flaggedrevs-prefs-viewdiffs' => 'Прикажи разлике измена на чекању при приказивању најновије ревизије на чекању',
 	'flaggedrevs-hidereviewed' => '$1 прегледане измене',
+	'flaggedrevs-hidereviewed-hide' => 'Сакриј',
+	'flaggedrevs-hidereviewed-show' => 'Прикажи',
 	'group-editor' => 'Уредници',
 	'group-editor-member' => '{{GENDER:$1|уредник|уредница|уредник}}',
 	'group-reviewer' => 'Прегледачи',
@@ -14918,6 +14924,8 @@ $messages['sr-el'] = array(
 	'flaggedrevs-prefs-editdiffs' => 'Prikaži razlike izmena na čekanju pri uređivanju stranica',
 	'flaggedrevs-prefs-viewdiffs' => 'Prikaži razlike izmena na čekanju pri prikazivanju najnovije revizije na čekanju',
 	'flaggedrevs-hidereviewed' => '$1 pregledane izmene',
+	'flaggedrevs-hidereviewed-hide' => 'Sakrij',
+	'flaggedrevs-hidereviewed-show' => 'Prikaži',
 	'group-editor' => 'Uređivači',
 	'group-editor-member' => '{{GENDER:$1|urednik|urednica|urednik}}',
 	'group-reviewer' => 'Pregledači',
