@@ -2260,10 +2260,11 @@ $messages['yue'] = array(
  * @author PhiLiP
  * @author Shinjiman
  * @author Shirayuki
+ * @author Xiaomingyan
  */
 $messages['zh-hans'] = array(
 	'pendingchanges' => '有待复审更改的页面',
-	'pendingchanges-legend' => '列出含有待复审更改的已复审页面',
+	'pendingchanges-legend' => '列出有待定更改的已复核页面',
 	'pendingchanges-list' => '此页面列出了含有一至多个待复审编辑的[[{{MediaWiki:Validationpage}}|已复审]]页面。',
 	'pendingchanges-none' => '目前没有页面符合这些条件',
 	'pendingchanges-hours' => '（$1 {{PLURAL:$1|小时}}）',
