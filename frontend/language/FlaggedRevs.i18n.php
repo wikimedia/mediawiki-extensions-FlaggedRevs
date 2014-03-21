@@ -5136,7 +5136,7 @@ Puede que se hayan realizado [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{Med
 	'revreview-edited' => "'''Sus cambios serán mostrados a los lectores una vez que un usuario autorizado los acepte. ([[{{MediaWiki:Validationpage}}|ayuda]])'''
 
 {{PLURAL:$2|Hay|Hay}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|cambio|cambios}}] {{PLURAL:$2|pendiente|pendientes}} ''({{PLURAL:$2|mostrado|mostrados}} abajo)'' esperando revisión.",
-	'revreview-edited-section' => 'Volver a la sección de la página llamada "[[#$1|$2]]".',
+	'revreview-edited-section' => 'Volver a la sección de la página «[[#$1|$2]]».',
 	'revreview-newest-basic' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|cambio|cambios}}] en esta versión {{PLURAL:$3|está|están}} [[{{MediaWiki:Validationpage}}|pendientes de revisión]].
 La [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} versión estable] fue [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} verificada] el <i>$2</i>.',
 	'revreview-newest-basic-i' => '[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Plantilla/cambios de archivo] en esta versión están [[{{MediaWiki:Validationpage}}|pendientes de revisión]].
@@ -5729,6 +5729,8 @@ $messages['fi'] = array(
 	'flaggedrevs-prefs-editdiffs' => 'Näytä arviointia odottavien muutosten ero muokattaessa sivuja',
 	'flaggedrevs-prefs-viewdiffs' => 'Näytä arviointia odottavien muutosten ero katsottaessa viimeisintä odottavaa muutosta',
 	'flaggedrevs-hidereviewed' => '$1 arvioidut muutokset',
+	'flaggedrevs-hidereviewed-hide' => 'Piilota',
+	'flaggedrevs-hidereviewed-show' => 'Näytä',
 	'group-editor' => 'seulojat',
 	'group-editor-member' => '{{GENDER:$1|seuloja}}',
 	'group-reviewer' => 'sisällöntarkastajat',
