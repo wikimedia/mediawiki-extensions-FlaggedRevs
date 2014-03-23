@@ -4438,7 +4438,7 @@ $messages['oc'] = array(
 	'revreview-log' => 'Comentari al jornal :',
 	'revreview-main' => 'Vos cal causir una version precisa a partir del contengut en règla de la pagina per revisar. Vejatz [[Special:Unreviewedpages|Versions pas revisadas]] per una lista de paginas.',
 	'revreview-stable1' => "Podètz voler visionar aquesta [{{fullurl:$1|stableid=$2}} version marcada] o veire se es ara la [{{fullurl:$1|stable=1}} version establa] d'aquesta pagina.", # Fuzzy
-	'revreview-stable2' => "Podètz voler visionar [{{fullurl:$1|stable=1}} la version establa] d'aquesta pagina (se n'existís una).", # Fuzzy
+	'revreview-stable2' => "Benlèu que volètz consultar [{{fullurl:$1|stable=1}} la version publicada] d'aquesta pagina.",
 	'revreview-submit' => 'Salvar',
 	'revreview-submitting' => 'Somission…',
 	'revreview-submit-review' => 'Acceptar la version',
@@ -4452,7 +4452,7 @@ $messages['oc'] = array(
 	'revreview-toolow' => 'Pels atributs çaijós, vos cal donar un puntatge mai elevat que « non aprobat » per que la version siá considerada coma revista. Per depreciar una version, metètz totes los camps a « non aprobat ».', # Fuzzy
 	'revreview-update' => "[[{{MediaWiki:Validationpage}}|Relegissètz]] totas las modificacions ''(vejatz çaijós)'' efectuadas dempuèi l’[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovacion] de la version establa.
 '''Qualques fichièrs o modèls son estats meses a jorn :'''", # Fuzzy
-	'revreview-update-includes' => 'Qualques modèls o fichièrs son estats meses a jorn :', # Fuzzy
+	'revreview-update-includes' => 'Modèls/fichièrs meses a jorn (paginas pas relegidas en gras) :',
 	'revreview-reject-summary' => 'Resumit :',
 	'revreview-reject-confirm' => 'Regetar aquestes cambiaments',
 	'revreview-reject-cancel' => 'Anullar',

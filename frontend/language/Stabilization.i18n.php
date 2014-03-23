@@ -2774,13 +2774,13 @@ $messages['nso'] = array(
 $messages['oc'] = array(
 	'stabilization-tab' => '(qa)',
 	'stabilization' => 'Estabilizacion de la pagina',
-	'stabilization-text' => "'''Modificatz los paramètres çaijós per definir lo biais dont la version establa de [[:$1|$1]] es seleccionada e afichada.'''", # Fuzzy
+	'stabilization-text' => "'''Modificatz los paramètres çaijós per definir lo biais que la version publicada de [[:$1|$1]] es seleccionada e afichada.'''",
 	'stabilization-perm' => 'Vòstre compte a pas los dreches per cambiar los paramètres de la version publicada.
 Aquí los paramètres actuals de [[:$1|$1]] :',
 	'stabilization-page' => 'Nom de la pagina :',
 	'stabilization-leg' => 'Confirmar lo parametratge de la version publicada',
 	'stabilization-def' => "Version afichada al moment de l'afichatge per defaut de la pagina",
-	'stabilization-def1' => "La revision publicada ; se'n i a pas, alara la correnta o lo borrolhon en cors", # Fuzzy
+	'stabilization-def1' => "La version establa ; se n'i a pas, alara la correnta",
 	'stabilization-def2' => 'La revision correnta',
 	'stabilization-restrict' => 'Restriccions de relectura (automatic)',
 	'stabilization-restrict-none' => 'Pas de restriccion suplementària',
