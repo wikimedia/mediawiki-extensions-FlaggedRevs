@@ -1,0 +1,27 @@
+{
+    "@metadata": {
+        "authors": [
+            "Cimon Avaro",
+            "Crt",
+            "Jaakonam",
+            "Mies",
+            "Nike",
+            "Pxos",
+            "Str4nd",
+            "ZeiP"
+        ]
+    },
+    "action-unreviewedpages": "tarkastella luetteloa arvioimattomista sivuista",
+    "unreviewedpages": "Arvioimattomat sivut",
+    "unreviewedpages-legend": "Luettelo arvioimattomista sisältösivuista",
+    "unreviewedpages-category": "Luokka",
+    "unreviewedpages-diff": "arvioi",
+    "unreviewedpages-unwatched": "(tarkkailematon)",
+    "unreviewedpages-watched": "($1 aktiivisen {{PLURAL:$1|käyttäjän}} tarkkailema)",
+    "unreviewedpages-list": "Tämä on luettelo sisältösivuista, joita ei ole vielä [[{{MediaWiki:Validationpage}}|arvioitu]] tietylle tasolle.",
+    "unreviewedpages-none": "Tällä hetkellä ei ole sivuja, jotka täyttävät nämä ehdot",
+    "unreviewedpages-viewing": "(arvioitavana)",
+    "unreviewedpages-hours": "($1 {{PLURAL:$1|tunti|tuntia}})",
+    "unreviewedpages-days": "($1 {{PLURAL:$1|päivä|päivää}})",
+    "unreviewedpages-recent": "(alle yksi tunti)"
+}

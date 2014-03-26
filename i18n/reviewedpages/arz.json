@@ -1,0 +1,16 @@
+{
+    "@metadata": {
+        "authors": [
+            "Meno25"
+        ]
+    },
+    "reviewedpages": "صفحات مراجعة",
+    "reviewedpages-leg": "اعرض الصفحات حسب أعلى مستوى مراجعة",
+    "reviewedpages-list": "هذه الصفحه تعرض الصفحات التى تمت مراجعتها (على أقصى تقدير) للمستوى المحدد.",
+    "reviewedpages-none": "لا توجد صفحات فى هذه القائمة",
+    "reviewedpages-lev-0": "منظورة",
+    "reviewedpages-lev-1": "جودة",
+    "reviewedpages-lev-2": "مختارة",
+    "reviewedpages-all": "نسخ مراجعة",
+    "reviewedpages-best": "مراجعه فائقة"
+}

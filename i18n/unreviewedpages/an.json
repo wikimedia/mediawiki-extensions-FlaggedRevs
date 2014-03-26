@@ -1,0 +1,15 @@
+{
+    "@metadata": {
+        "authors": [
+            "Juanpabl"
+        ]
+    },
+    "unreviewedpages": "Pachinas no revisatas",
+    "unreviewedpages-legend": "Lista de pachinas de conteniu no revisatas",
+    "unreviewedpages-category": "Categoría:",
+    "unreviewedpages-diff": "revisar",
+    "unreviewedpages-unwatched": "(no cosirata)",
+    "unreviewedpages-watched": "($1 {{PLURAL:$1|usuario|usuarios}} activos cosirando)",
+    "unreviewedpages-list": "Ista pachina amuestra os articlos que no s'han revisato dica o livel especificato.",
+    "unreviewedpages-none": "No bi ha actualment garra pachina que cumpla ixos criterios"
+}

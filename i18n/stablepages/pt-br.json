@@ -1,0 +1,13 @@
+{
+    "@metadata": {
+        "authors": [
+            "Eduardo.mps",
+            "Giro720"
+        ]
+    },
+    "stablepages": "Páginas sujeitas à aprovação de edições",
+    "stablepages-list": "Segue-se uma lista de páginas restringidas de forma a que que só certos usuários podem fazer edições que não necessitam de revisão.\nEdições de outros utilizadores não são apresentadas aos leitores até que um usuário autorizado as tenha revisadas.",
+    "stablepages-none": "Não há páginas nesta lista",
+    "stablepages-config": "Configuração",
+    "stablepages-indef": "Somente de expiração infinita"
+}

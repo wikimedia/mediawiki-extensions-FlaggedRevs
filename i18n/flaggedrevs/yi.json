@@ -1,0 +1,28 @@
+{
+    "@metadata": {
+        "authors": [
+            "Imre",
+            "Yidel",
+            "פוילישער"
+        ]
+    },
+    "editor": "רעדאַקטאָר",
+    "flaggedrevs-prefs-stable": "ווען צו ווייַזן די סטאַבילע ווערסיע פון אינהאַלט בלעטער (אויב ס'איז פֿאַראַן)",
+    "group-editor": "רעדאַקטאָרן",
+    "group-editor-member": "{{GENDER:$1|רעדאַקטאָר|רעדאַקטאָרין}}",
+    "group-reviewer": "רעצענזענטן",
+    "group-reviewer-member": "{{GENDER:$1|רעצענזענט}}",
+    "grouppage-editor": "{{ns:project}}:רעדאַקטאָר",
+    "grouppage-reviewer": "{{ns:project}}:רעצענזענט",
+    "review-logentry-id": "רעוויזיע: $2",
+    "revreview-auto": "(אויטאמאַטיש)",
+    "revreview-depth-3": "הויך",
+    "revreview-edit": "רעדאַקטירן",
+    "revreview-style-2": "גוט",
+    "revreview-revnotfound": "די אלטע רעוויזיע איר האט געבעטן קען נישט געפינען ווערן.\nביטע טשעקט די URL וואס ברויכט אריינצוגיין אין דעם בלאט.",
+    "revreview-filter-all": "אַלע",
+    "revreview-typefilter": "טיפ:",
+    "revreview-filter-manual": "האַנטלעך",
+    "revreview-def-draft": "לעצטיגע",
+    "revreview-restriction-none": "קיין"
+}

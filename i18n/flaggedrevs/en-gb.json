@@ -1,0 +1,12 @@
+{
+    "@metadata": {
+        "authors": [
+            "Felicilijonas",
+            "Reedy",
+            "Shirayuki"
+        ]
+    },
+    "flaggedrevs-desc": "Gives Editors the ability to review revisions and stabilise pages",
+    "revreview-editnotice": "'''Your changes will be displayed to readers once an authorised user accepts them. ([[{{MediaWiki:Validationpage}}|help]])'''",
+    "revreview-edited": "'''Your changes will be displayed to readers once an authorised user accepts them. ([[{{MediaWiki:Validationpage}}|help]])'''\n\nThere {{PLURAL:$2|is|are}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 pending {{PLURAL:$2|change|changes}}] ''(shown below)'' awaiting review."
+}

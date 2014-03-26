@@ -1,0 +1,38 @@
+{
+    "@metadata": {
+        "authors": [
+            "Michawiki"
+        ]
+    },
+    "stabilization-tab": "přepruwować",
+    "stabilization": "Stabilizacija strony",
+    "stabilization-text": "'''Změń slědowace nastajenja, zo by postajił, kak so wozjewjena wersija wot [[:$1|$1]] wuběra a zwobraznja.'''",
+    "stabilization-perm": "Twoje wužiwarske konto nima trěbne prawo, zo by nastajenja wozjewjeneje wersije změniło.\nAktualne nastajenja za „[[:$1|$1]]“ su:",
+    "stabilization-page": "Mjeno strony:",
+    "stabilization-leg": "Nastajenja za wozjewjenu wersiju potwjerdźić",
+    "stabilization-def": "Wersija zwobraznjena w normalnym napohledźe strony",
+    "stabilization-def1": "Stabilna wersija; jeli žana njeeksistuje, da najnowša wersija",
+    "stabilization-def2": "Najnowša wersija",
+    "stabilization-restrict": "Wobmjezowanja přepruwowanjow/awtomatiskich přepruwowanjow",
+    "stabilization-restrict-none": "Žane přidatne wobmjezowanja",
+    "stabilization-submit": "Potwjerdźić",
+    "stabilization-notexists": "Njeje strona „[[:$1|$1]]“. Žana konfiguracija móžno.",
+    "stabilization-notcontent": "Strona \"[[:$1|$1]]\" njeda so pruwować. Žana konfiguracija móžno.",
+    "stabilization-comment": "Přičina:",
+    "stabilization-otherreason": "Druha přičina:",
+    "stabilization-expiry": "Spadnje:",
+    "stabilization-othertime": "Druhi čas:",
+    "stabilization-def-short": "Standard",
+    "stabilization-def-short-0": "Aktualny",
+    "stabilization-def-short-1": "Stabilna wersija",
+    "stabilize_page_invalid": "Titul ciloweje strony je njepłaćiwy.",
+    "stabilize_page_notexists": "Cilowa strona njeeksistuje.",
+    "stabilize_page_unreviewable": "Cilowa strona w přepruwujomnym mjenowym rumje njeje.",
+    "stabilize_invalid_autoreview": "Njepłaćiwe wobmjezowanje awtomatiskeho přepruwowanja",
+    "stabilize_invalid_level": "Njepłaćiwy škitny schodźenk.",
+    "stabilize_expiry_invalid": "Njepłaćiwy datum spadnjenja.",
+    "stabilize_expiry_old": "Tutón čas spadnjenja je hižo zańdźeny.",
+    "stabilize_denied": "Prawo zapowědźene.",
+    "stabilize-expiring": "spadnje $1 hodź. (UTC)",
+    "stabilization-review": "Aktualnu wersiju jako skontrolowanu markěrować"
+}

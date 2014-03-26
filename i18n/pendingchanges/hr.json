@@ -1,0 +1,23 @@
+{
+    "@metadata": {
+        "authors": [
+            "Ex13",
+            "SpeedyGonsales"
+        ]
+    },
+    "pendingchanges": "Stranice s uređivanjima koja čekaju pregled",
+    "pendingchanges-legend": "Popis ocjenjenih stranica s izmjenama koje čekaju ocjenu",
+    "pendingchanges-list": "Ova stranica navodi [[{{MediaWiki:Validationpage}}|pregledane]] stranice koje imaju jedno ili više uređivanja na čekanju.",
+    "pendingchanges-none": "Trenutačno nema stranica koje zadovoljavaju ove kriterije",
+    "pendingchanges-hours": "($1 {{PLURAL:$1|sat|sata|sati}})",
+    "pendingchanges-days": "($1 {{PLURAL:$1|dan|dana}})",
+    "pendingchanges-recent": "(manje od 1 sat)",
+    "pendingchanges-category": "Kategorija:",
+    "pendingchanges-onwatchlist": "Stranice na mom popisu praćenja",
+    "pendingchanges-stable": "Stabilna inačica je pretpostavljena (''default'')",
+    "pendingchanges-diff": "ocijeni",
+    "pendingchanges-size": "Najveća promjena (bajtovi):",
+    "pendingchanges-unwatched": "(nepraćeno)",
+    "pendingchanges-watched": "($1 {{PLURAL:$1|aktivni suradnik prati|aktivnih suradnika prate}})",
+    "pendingchanges-viewing": "(u ocjenjivanju)"
+}

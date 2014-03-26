@@ -1,0 +1,23 @@
+{
+    "@metadata": {
+        "authors": [
+            "Borichèt",
+            "Dragonòt"
+        ]
+    },
+    "pendingchanges": "Pàgine con dle modìfiche an cors",
+    "pendingchanges-legend": "Listé le pàgine revisionà con dle revision an cors",
+    "pendingchanges-list": "Sta pàgina-sì a lista le pàgine [[{{MediaWiki:Validationpage}}|revisionà]] che a l'han un-a o pi modìfiche ch'a speto na revision.",
+    "pendingchanges-none": "Al moment a-i son gnun-e pàgine ch'a sodisfo costi criteri",
+    "pendingchanges-hours": "($1 {{PLURAL:$1|ora|ore}})",
+    "pendingchanges-days": "($1 {{PLURAL:$1|di|di}})",
+    "pendingchanges-recent": "(men che 1 ora)",
+    "pendingchanges-category": "Categorìa:",
+    "pendingchanges-onwatchlist": "Pàgine che im ten-o sot-euj",
+    "pendingchanges-stable": "La version stàbil a l'é stàndard",
+    "pendingchanges-diff": "revision-a",
+    "pendingchanges-size": "Màssim cambi (byte):",
+    "pendingchanges-unwatched": "(pa tnùa sot euj)",
+    "pendingchanges-watched": "($1 {{PLURAL:$1|utent|utent}} ativ ch'a ten-o sot euj)",
+    "pendingchanges-viewing": "(sota revision)"
+}

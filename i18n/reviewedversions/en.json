@@ -1,0 +1,11 @@
+{
+    "@metadata": {
+        "authors": []
+    },
+    "reviewedversions": "Reviewed versions",
+    "reviewedversions-leg1": "List reviewed revisions for a page",
+    "reviewedversions-page": "Page name:",
+    "reviewedversions-none": "\"[[:$1]]\" has no reviewed revisions.",
+    "reviewedversions-list": "The following is a list of {{PLURAL:$2|the only revision|revisions}} of [[:$1]] that {{PLURAL:$2|has|have}} been reviewed:",
+    "reviewedversions-review": "Reviewed on <i>$1</i> by $2"
+}

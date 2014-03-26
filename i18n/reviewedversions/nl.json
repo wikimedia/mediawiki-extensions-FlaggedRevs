@@ -1,0 +1,15 @@
+{
+    "@metadata": {
+        "authors": [
+            "McDutchie",
+            "SPQRobin",
+            "Siebrand"
+        ]
+    },
+    "reviewedversions": "Gecontroleerde versies",
+    "reviewedversions-leg1": "Lijst van gecontroleerde versies voor een pagina",
+    "reviewedversions-page": "Paginanaam:",
+    "reviewedversions-none": "\"[[:$1]]\" heeft geen gecontroleerde versies",
+    "reviewedversions-list": "Hieronder staat {{PLURAL:$2|de versie|een lijst met gecontroleerde versies}} van [[:$1]]:",
+    "reviewedversions-review": "Gecontroleerd op <i>$1</i> door $2"
+}

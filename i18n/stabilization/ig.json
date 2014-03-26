@@ -1,0 +1,18 @@
+{
+    "@metadata": {
+        "authors": [
+            "Ukabia"
+        ]
+    },
+    "stabilization-tab": "vet",
+    "stabilization-page": "Áhà ihü:",
+    "stabilization-submit": "Kwèré",
+    "stabilization-comment": "Mgbághapụtà:",
+    "stabilization-otherreason": "Mgbághàpụtá ozor:",
+    "stabilization-expiry": "Gbá ọ́kà:",
+    "stabilization-othertime": "Ógẹ ozor",
+    "stabilization-def-short": "Nke éjị bịdó",
+    "stabilization-def-short-0": "Nká Í nọ",
+    "stabilization-def-short-1": "Chịm",
+    "stabilize-expiring": "nà gbá ókà na $1 (UTC)"
+}

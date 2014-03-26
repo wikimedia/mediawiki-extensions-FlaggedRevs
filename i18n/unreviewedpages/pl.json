@@ -1,0 +1,24 @@
+{
+    "@metadata": {
+        "authors": [
+            "BeginaFelicysym",
+            "Derbeth",
+            "Leinad",
+            "Sp5uhe",
+            "ToSter"
+        ]
+    },
+    "action-unreviewedpages": "widok listy  niesprawdzonych stron",
+    "unreviewedpages": "Nieprzejrzane strony",
+    "unreviewedpages-legend": "Lista nieprzejrzanych stron",
+    "unreviewedpages-category": "Kategoria",
+    "unreviewedpages-diff": "przejrzyj",
+    "unreviewedpages-unwatched": "(nieobserwowana)",
+    "unreviewedpages-watched": "(obserwowana przez $1 {{PLURAL:$1|aktywnego użytkownika|aktywnych użytkowników}})",
+    "unreviewedpages-list": "Poniżej znajduje się {{PLURAL:$1|[[{{MediaWiki:Validationpage}}|nieprzejrzana]] strona|lista [[{{MediaWiki:Validationpage}}|nieprzejrzanych]] stron}}.",
+    "unreviewedpages-none": "Obecnie nie ma stron spełniających podane kryteria",
+    "unreviewedpages-viewing": "(w trakcie przeglądania)",
+    "unreviewedpages-hours": "($1 {{PLURAL:$1|godzinę|godziny|godzin}})",
+    "unreviewedpages-days": "($1 {{PLURAL:$1|dzień|dni}})",
+    "unreviewedpages-recent": "(mniej niż 1 godzinę)"
+}

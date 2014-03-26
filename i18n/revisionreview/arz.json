@@ -1,0 +1,26 @@
+{
+    "@metadata": {
+        "authors": [
+            "Dudi",
+            "Meno25"
+        ]
+    },
+    "revisionreview": "مراجعه المراجعات",
+    "revreview-failed": "'''غير قادر على مراجعه هذه المراجعه.''' الإرسال غير مكتمل أو غير هذا غير صحيح.",
+    "revreview-flag": "راجع هذه المراجعة",
+    "revreview-reflag": "راجع تانى المراجعه دى",
+    "revreview-invalid": "'''هدف غير صحيح:''' لا مراجعه [[{{MediaWiki:Validationpage}}|مراجعة]] تتطابق مع الرقم المعطى.",
+    "revreview-log": "تعليق:",
+    "revreview-main": "يجب أن تختار مراجعه معينه من صفحه محتوى لمراجعتها.\n\nانظر [[Special:Unreviewedpages|قائمه الصفحات غير المراجعة]].",
+    "revreview-stable1": "ممكن تكون عاوز تشوف [{{fullurl:$1|stableid=$2}} النسخه المتعلّم عليها دى] و تشوف لو بقت دلوقتى [{{fullurl:$1|stable=1}} النسخه المنشوره] بتاعة الصفحه دى.",
+    "revreview-stable2": "ممكن تكون عاوز تشوف [{{fullurl:$1|stable=1}} النسخه المنشوره] بتاعة الصفحه دى (لو لسه فيه واحده).",
+    "revreview-submit": "أرسل",
+    "revreview-submitting": "جارى التنفيذ...",
+    "revreview-submit-review": "علم كمراجعة",
+    "revreview-submit-unreview": "علم كغير مراجعة",
+    "revreview-successful": "'''عُلّمت مراجعه [[:$1|$1]] بنجاح. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} اعرض النسخ المستقرة])'''",
+    "revreview-successful2": "'''مراجعه [[:$1|$1]] تمت إزاله علمها بنجاح.'''",
+    "revreview-toolow": "'''لازم تقيّم كل المحددات اللى تحت أكتر من \"مش متأكد عليها\" علشان المراجعه تعتبر متراجعه.'''\nعلشان يتنفض لمراجعه, اعمل عليهم كلهم بـ \"مش متأكد عليها\".\n\nلو سمحت دوس على زرار \"back\" فى البراوزر بتاعتك و جرّب تانى.",
+    "revreview-update": "لو سمحت [[{{MediaWiki:Validationpage}}|راجع]] اى تغييرات ''(باينه تحت)'' معموله من وقت النسخه المنشوره ما [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} اتأكد عليها].<br />\n'''شوية قوالب/فايلات اتجددت:'''",
+    "revreview-update-includes": "بعض القوالب/الملفات تم تحديثها:"
+}

@@ -1,0 +1,13 @@
+{
+    "@metadata": {
+        "authors": [
+            "Michawiki"
+        ]
+    },
+    "configuredpages": "Strony z přepruwowanskimi konfiguracijemi",
+    "configuredpages-list": "Deleka je lisćina stronow konfigurowanych, zo bychu druhe schwalenske nastajenja hač standardne sydło měli.\nNěkotre nastajenja móhli změnić, kotra wersija so zwobraznja abo dale wobmjezować, štóž móže změny činić, kotrež njewužaduja sej přepruwowanje.",
+    "configuredpages-none": "W tutej lisćinje strony njejsu.",
+    "configuredpages-config": "Konfiguracija",
+    "configuredpages-def-draft": "najnowša wersija",
+    "configuredpages-def-stable": "wozjewjena wersija"
+}

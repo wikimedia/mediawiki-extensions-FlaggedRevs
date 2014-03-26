@@ -1,0 +1,21 @@
+{
+    "@metadata": {
+        "authors": [
+            "Bjankuloski06",
+            "Brest"
+        ]
+    },
+    "action-unreviewedpages": "преглед на список на непроверени страници",
+    "unreviewedpages": "Непроверени страници",
+    "unreviewedpages-legend": "Список на непрегледани статии",
+    "unreviewedpages-category": "Категорија:",
+    "unreviewedpages-diff": "преглед",
+    "unreviewedpages-unwatched": "(ненабљудувана)",
+    "unreviewedpages-watched": "($1 {{PLURAL:$1|активен корисник ја набљудува|активни корисници ја набљудуваат}})",
+    "unreviewedpages-list": "На оваа страница се наведени статии кои сè уште ''не'' се [[{{MediaWiki:Validationpage}}|оценети]] на назначеното ниво.",
+    "unreviewedpages-none": "Во моментов не постојат страници кои ги задоволуваат овие критериуми",
+    "unreviewedpages-viewing": "(во фаза на проверување)",
+    "unreviewedpages-hours": "($1 {{PLURAL:$1|час|часа}})",
+    "unreviewedpages-days": "({{PLURAL:$1|еден ден|$1 дена}})",
+    "unreviewedpages-recent": "(помалку од еден час)"
+}

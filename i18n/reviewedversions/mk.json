@@ -1,0 +1,14 @@
+{
+    "@metadata": {
+        "authors": [
+            "Bjankuloski06",
+            "Brest"
+        ]
+    },
+    "reviewedversions": "Проверени верзии",
+    "reviewedversions-leg1": "Список на прегледани ревизии за страница",
+    "reviewedversions-page": "Наслов на страница:",
+    "reviewedversions-none": "\"[[:$1]]\" нема прегледани ревизии.",
+    "reviewedversions-list": "Ова е список на {{PLURAL:$2|единствената ревизија|ревизиите}} на [[:$1]] {{PLURAL:$2|која е прегледана|кои се прегледани}}:",
+    "reviewedversions-review": "Прегледано на <i>$1</i> од страна на $2"
+}

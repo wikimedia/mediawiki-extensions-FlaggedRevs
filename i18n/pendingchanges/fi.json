@@ -1,0 +1,30 @@
+{
+    "@metadata": {
+        "authors": [
+            "Cimon Avaro",
+            "Crt",
+            "Huji",
+            "Jaakonam",
+            "Mobe",
+            "Nike",
+            "Olli",
+            "Pxos",
+            "ZeiP"
+        ]
+    },
+    "pendingchanges": "Sivut, joilla on arviointia odottavia muutoksia",
+    "pendingchanges-legend": "Luettele arvioidut sivut, joissa on arviointia odottavia muutoksia.",
+    "pendingchanges-list": "Tämä sivu näyttää [[{{MediaWiki:Validationpage}}|arvioidut]] sivut, joilla on odottavia muutoksia.",
+    "pendingchanges-none": "Ehdot täyttäviä sivuja ei ole",
+    "pendingchanges-hours": "($1 {{PLURAL:$1|tunti|tuntia}})",
+    "pendingchanges-days": "($1 {{PLURAL:$1|päivä|päivää}})",
+    "pendingchanges-recent": "(alle yksi tunti)",
+    "pendingchanges-category": "Luokka:",
+    "pendingchanges-onwatchlist": "Tarkkailulistallani olevat sivut",
+    "pendingchanges-stable": "Vakautettu versio oletuksena",
+    "pendingchanges-diff": "arvioi",
+    "pendingchanges-size": "Enimmäismuutos (tavua):",
+    "pendingchanges-unwatched": "(tarkkailematon)",
+    "pendingchanges-watched": "($1 aktiivisen {{PLURAL:$1|käyttäjän}} tarkkailema)",
+    "pendingchanges-viewing": "(arvioitavana)"
+}

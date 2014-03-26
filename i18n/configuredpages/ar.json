@@ -1,0 +1,16 @@
+{
+    "@metadata": {
+        "authors": [
+            ";Hiba;1",
+            "Ciphers",
+            "Loya",
+            "Mohamed Ouda"
+        ]
+    },
+    "configuredpages": "صفحات مع إعدادات عرض مسبق",
+    "configuredpages-list": "وفيما يلي قائمة من صفحات لها إعدادات لكي يكون لها إعدادات موافقة مختلفة من إعدادات الموقع الافتراضية. \nقد تغير بعض الإعدادات النسخة التي يتم عرضها للقراء أو تزيد من تقييد الذين يمكنهم التعديل بدون أن يتطلب ذلك المراجعة.",
+    "configuredpages-none": "لا توجد صفحات في هذه القائمة.",
+    "configuredpages-config": "ضبط",
+    "configuredpages-def-draft": "أحدث نسخة",
+    "configuredpages-def-stable": "نسخة مستقرة"
+}

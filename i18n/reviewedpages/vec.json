@@ -1,0 +1,16 @@
+{
+    "@metadata": {
+        "authors": [
+            "Candalua"
+        ]
+    },
+    "reviewedpages": "Pagine riesaminà",
+    "reviewedpages-leg": "Elenco de le pagine revisionà",
+    "reviewedpages-list": "Sto elenco contien le [[{{MediaWiki:Validationpage}}|pagine controlà]] el cui massimo livèl de revisione ragiunto (de una revisione) el xe quelo indicà.\nXe fornìo un link a l'ultima revision par quel livèl.",
+    "reviewedpages-none": "No ghe xe nissuna pagina su sta lista",
+    "reviewedpages-lev-0": "Rivardà",
+    "reviewedpages-lev-1": "De qualità",
+    "reviewedpages-lev-2": "De alta qualità",
+    "reviewedpages-all": "versioni riesaminà",
+    "reviewedpages-best": "revision mejo"
+}

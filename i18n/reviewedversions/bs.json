@@ -1,0 +1,13 @@
+{
+    "@metadata": {
+        "authors": [
+            "CERminator"
+        ]
+    },
+    "reviewedversions": "Pregledane verzije",
+    "reviewedversions-leg1": "Spisak pregledanih revizija stranice",
+    "reviewedversions-page": "Naslov stranice:",
+    "reviewedversions-none": "\"[[:$1]]\" nema pregledanih revizija.",
+    "reviewedversions-list": "Ovo je spisak {{PLURAL:$2|jedne verzije|verzije|verzija}} od [[:$1]] {{PLURAL:$2|koja je pregledana|koje su pregledane}}:",
+    "reviewedversions-review": "Pregledano dana <i>$1</i> od strane $2"
+}

@@ -1,0 +1,23 @@
+{
+    "@metadata": {
+        "authors": [
+            "Froztbyte",
+            "Jon Harald Søby"
+        ]
+    },
+    "stabilization-def2": "Den seneste version",
+    "stabilization-submit": "Bekræft",
+    "stabilization-notexists": "Der findes ingen side kaldet \"[[:$1|$1]]\".\nIngen konfigurering er mulig.",
+    "stabilization-comment": "Årsag:",
+    "stabilization-otherreason": "Anden årsag:",
+    "stabilization-expiry": "Udløb:",
+    "stabilization-othertime": "Anden tid:",
+    "stabilization-def-short": "Standard",
+    "stabilization-def-short-0": "Nuværende",
+    "stabilization-def-short-1": "Publiseret",
+    "stabilize_invalid_level": "Ugyldigt beskyttelsesniveau.",
+    "stabilize_expiry_old": "Udløbstidspunktet er allerede passeret.",
+    "stabilize_denied": "Tilgang nægtet.",
+    "stabilize-expiring": "til $1 (UTC)",
+    "stabilization-review": "Marker den nuværende version som kontrolleret"
+}

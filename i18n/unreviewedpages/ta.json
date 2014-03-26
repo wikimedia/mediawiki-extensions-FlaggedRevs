@@ -1,0 +1,20 @@
+{
+    "@metadata": {
+        "authors": [
+            "Kanags",
+            "TRYPPN"
+        ]
+    },
+    "unreviewedpages": "பார்வையிடப்படாத பக்கங்கள்",
+    "unreviewedpages-legend": "மீள்பார்வையிடப்படாத பகுதிகளைக் கொண்ட பக்கங்கள்",
+    "unreviewedpages-category": "பகுப்பு:",
+    "unreviewedpages-diff": "மதிப்பிடு",
+    "unreviewedpages-unwatched": "(கவனிக்கப்படமாட்டாது)",
+    "unreviewedpages-watched": "($1 {{PLURAL:$1|பயனர்|பயனர்கள்}} பார்வையிடுகிறார்கள்)",
+    "unreviewedpages-list": "இங்கே கொடுக்கப்பட்ட பக்கங்களின் உள்ளடக்கங்களை குறிப்பிடப்பட்ட அளவுக்கு இன்னும் பரிசீலனை செய்யப்படவில்லை.",
+    "unreviewedpages-none": "தாங்கள் குறிப்பிட்ட விதிமுறைகளுக்கு உட்பட்ட பக்கங்கள் தற்சமயம் ஏதுமில்லை.",
+    "unreviewedpages-viewing": "(மீள் பார்வைக்காக)",
+    "unreviewedpages-hours": "($1 {{PLURAL:$1|மணி|மணிகள்}})",
+    "unreviewedpages-days": "($1 {{PLURAL:$1|நாள்|நாட்கள்}})",
+    "unreviewedpages-recent": "(1 மணித்தியாலத்துக்குள்)"
+}

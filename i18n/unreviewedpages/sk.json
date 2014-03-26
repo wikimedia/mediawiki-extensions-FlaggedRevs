@@ -1,0 +1,19 @@
+{
+    "@metadata": {
+        "authors": [
+            "Helix84"
+        ]
+    },
+    "unreviewedpages": "Neskontrolované stránky",
+    "unreviewedpages-legend": "Zoznam neskontrolovaných stránok s obsahom",
+    "unreviewedpages-category": "Kategória:",
+    "unreviewedpages-diff": "kontrola",
+    "unreviewedpages-unwatched": "(nesledovaná)",
+    "unreviewedpages-watched": "({{PLURAL:$1|sleduje $1 aktívny používateľ|sleduú $1 aktívni používatelia|sleduje $1 aktívnych používateľov}})",
+    "unreviewedpages-list": "Táto stránka obsahuje zoznam článkov, ktoré neboli skontrolované do určenej úrovne.",
+    "unreviewedpages-none": "Momentálne žiadne stránky nespĺňajú tieto kritériá",
+    "unreviewedpages-viewing": "(kontroluje sa)",
+    "unreviewedpages-hours": "($1 {{PLURAL:$1|hodina|hodiny|hodín}})",
+    "unreviewedpages-days": "($1 {{PLURAL:$1|deň|dni|dní}})",
+    "unreviewedpages-recent": "(menej ako 1 hodina)"
+}

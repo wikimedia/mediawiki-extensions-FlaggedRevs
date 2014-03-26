@@ -1,0 +1,29 @@
+{
+    "@metadata": {
+        "authors": [
+            "Bilalokms",
+            "Erkan Yilmaz",
+            "Joseph",
+            "Karduelis",
+            "Manco Capac",
+            "Runningfridgesrule",
+            "Sadrettin",
+            "Srhat"
+        ]
+    },
+    "pendingchanges": "İnceleme bekleyen sayfalar",
+    "pendingchanges-legend": "Gözden geçirilme bekleyen revizyonu olan gözden geçirilmiş sayfaları listele",
+    "pendingchanges-list": "Bu sayfa, bir veya daha fazla bekleyen değişikliğe sahip [[{{MediaWiki:Validationpage}}|gözden geçirilmiş]] sayfaları listeler.",
+    "pendingchanges-none": "Şimdilik bu kriterlere uyan sayfa yoktur",
+    "pendingchanges-hours": "($1 {{PLURAL:$1|saat|saat}})",
+    "pendingchanges-days": "($1 {{PLURAL:$1|gün|gün}})",
+    "pendingchanges-recent": "(1 saatten daha az)",
+    "pendingchanges-category": "Kategori:",
+    "pendingchanges-onwatchlist": "İzleme listemdeki sayfalar",
+    "pendingchanges-stable": "Kararlı sürüm varsayılan",
+    "pendingchanges-diff": "gözden geçir",
+    "pendingchanges-size": "Azami değişiklik (bayt):",
+    "pendingchanges-unwatched": "(izlenmiyor)",
+    "pendingchanges-watched": "($1 etkin {{PLURAL:$1|kullanıcı|kullanıcı}} izliyor)",
+    "pendingchanges-viewing": "(gözden geçiriliyor)"
+}

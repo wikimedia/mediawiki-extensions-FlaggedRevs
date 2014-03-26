@@ -1,0 +1,32 @@
+{
+    "@metadata": {
+        "authors": [
+            "Chrumps",
+            "Fizykaa",
+            "Jwitos",
+            "Leinad",
+            "Remedios44",
+            "Sp5uhe",
+            "ToSter",
+            "WTM",
+            "Woytecr",
+            "Wpedzich"
+        ]
+    },
+    "validationstatistics": "Statystyka oznaczania stron",
+    "validationstatistics-users": "W '''{{GRAMMAR:MS.lp|{{SITENAME}}}}''' zarejestrowanych jest obecnie  '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|użytkownik|użytkowników}} z uprawnieniami [[{{MediaWiki:Validationpage}}|redaktora]].\n\nRedaktorzy są doświadczonymi użytkownikami, którzy mogą oznaczać dowolne wersje stron.",
+    "validationstatistics-lastupdate": "''Poniższe dane uaktualnione zostały $1 o $2.''",
+    "validationstatistics-pndtime": "Zmiany, które zostały sprawdzone przez uprawnionych użytkowników, są uznawane za ''oznaczone''.\n\nŚrednie opóźnienie dla [[Special:OldReviewedPages|stron ze zmianami oczekującymi na przejrzenie]] wynosi '''$1'''. Mierzony jest czas, przez jaki pozostawała nieprzejrzana najstarsza edycja (jeśli było ich kilka po sobie).",
+    "validationstatistics-revtime": "Średni czas oczekiwania edycji ''niezalogowanych użytkowników'' na pierwsze oznaczenie wynosi '''$1''', mediana – '''$2'''.\n$3",
+    "validationstatistics-table": "Poniżej znajdują się statystyki przeglądania stron dla każdej przestrzeni nazw, ''z wyłączeniem'' przekierowań. Strony ''oznaczone'' (takie, które w historii mają przynajmniej jedną przejrzaną wersję) mogą być traktowane jako ''zdezaktualizowane'' bądź ''przejrzane''. Strony uznawane są za ''zdezaktualizowane'', jeśli istnieją jakieś zmiany ich treści oczekujące na przejrzenie. Strony uznawane są za ''przejrzane'', jeśli nie ma zmian ich treści, oczekujących na przejrzenie.",
+    "validationstatistics-ns": "Przestrzeń nazw",
+    "validationstatistics-total": "Wszystkich stron",
+    "validationstatistics-stable": "Oznaczone",
+    "validationstatistics-latest": "Przejrzane",
+    "validationstatistics-synced": "Przejrzane / Oznaczone",
+    "validationstatistics-old": "Zdezaktualizowane",
+    "validationstatistics-unreviewed": "Nieprzejrzane",
+    "validationstatistics-utable": "Poniżej znajduje się {{PLURAL:$1|nazwa użytkownika najaktywniej oznaczającego|lista $1 użytkowników najaktywniej oznaczających}} strony w ciągu {{PLURAL:$2|ostatniej godziny|ostatnich $2 godzin}}.",
+    "validationstatistics-user": "Użytkownik",
+    "validationstatistics-reviews": "Liczba oznaczeń"
+}

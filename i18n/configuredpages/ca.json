@@ -1,0 +1,14 @@
+{
+    "@metadata": {
+        "authors": [
+            "Grondin",
+            "Paucabot"
+        ]
+    },
+    "configuredpages": "Pàgines amb configuracions de relectura",
+    "configuredpages-list": "Aquesta pàgina llista les pàgines configurades a fi de tenir diferents configuracions d'aprovació que les per defecte.\nAlgunes podrien canviar amb la versió afixada pels lectors o restringeix la llista dels contribuïdors qui poden editar sense que es necessita una relectura.",
+    "configuredpages-none": "No hi ha cap pàgina en aquesta llista.",
+    "configuredpages-config": "Configuració",
+    "configuredpages-def-draft": "última versió",
+    "configuredpages-def-stable": "versió publicada"
+}

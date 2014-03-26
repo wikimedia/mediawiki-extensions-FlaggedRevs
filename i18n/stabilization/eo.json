@@ -1,0 +1,38 @@
+{
+    "@metadata": {
+        "authors": [
+            "Yekrats"
+        ]
+    },
+    "stabilization-tab": "kontroli",
+    "stabilization": "Paĝa stabiligado",
+    "stabilization-text": "'''Ŝanĝu la jenajn agordojn por modifi kiel la publikigita versio de [[:$1|$1]] estas elektita kaj montrita.'''",
+    "stabilization-perm": "Via konto ne rajtas ŝanĝi la konfiguron de publikigita versio.\nJen la nunaj agordoj por [[:$1|$1]]:",
+    "stabilization-page": "Paĝnomo:",
+    "stabilization-leg": "Konfirmi agordojn de publikigitaj versioj",
+    "stabilization-def": "Versio montrita en defaŭlta paĝa vido",
+    "stabilization-def1": "La stabila versio; se ĝi ne ekzistas, la lasta revizio",
+    "stabilization-def2": "La lasta revizio",
+    "stabilization-restrict": "Limigoj pri kontrolado aŭ aŭtomata kontrolado",
+    "stabilization-restrict-none": "Neniuj pliaj limigoj",
+    "stabilization-submit": "Konfirmi",
+    "stabilization-notexists": "Neniu paĝo estas nomata \"[[:$1|$1]]\".\nNeniu konfiguro estas farebla.",
+    "stabilization-notcontent": "La paĝo \"[[:$1|$1]]\" ne estas kontrolebla.\nNeniu konfiguro eblas.",
+    "stabilization-comment": "Kialo:",
+    "stabilization-otherreason": "Alia kialo:",
+    "stabilization-expiry": "Fintempo:",
+    "stabilization-othertime": "Alia tempo:",
+    "stabilization-def-short": "Defaŭlta",
+    "stabilization-def-short-0": "Nuna",
+    "stabilization-def-short-1": "Publikigita",
+    "stabilize_page_invalid": "La titolo de la cela paĝo estas malvalida.",
+    "stabilize_page_notexists": "La cela paĝo ne ekzistas.",
+    "stabilize_page_unreviewable": "La cela paĝo ne estas en kontrolebla nomspaco.",
+    "stabilize_invalid_autoreview": "Malvalida limigo de aŭtomata kontrolado",
+    "stabilize_invalid_level": "Malvalida nivelo de protektado.",
+    "stabilize_expiry_invalid": "Malvalida findato.",
+    "stabilize_expiry_old": "Ĉi tiu findato jam estas pasita.",
+    "stabilize_denied": "Malpermesita.",
+    "stabilize-expiring": "findato $1 (UTC)",
+    "stabilization-review": "Marki la nunan revizion kiel kontrolitan"
+}

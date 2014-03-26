@@ -1,0 +1,18 @@
+{
+    "@metadata": {
+        "authors": [
+            "HalanTul"
+        ]
+    },
+    "validationstatistics": "Сирэй тургутуутун статиистиката",
+    "validationstatistics-table": "Аллара ааттар далларын тургутуу статиистиката бэриллибит (утаарыылартан ''ураты''). Сирэйдэр тургутуллубатах көннөрүүлэрдээх буоллахтарына \"эргэрбит\" диэн ааҕыллаллар; сирэйдэр тургутуллуохтаах көннөрүүлэрэ суох буоллаҕына \"тэҥнэммит\" аатыраллар.",
+    "validationstatistics-ns": "Аат дала",
+    "validationstatistics-total": "Сирэй",
+    "validationstatistics-stable": "Тургутуллубут",
+    "validationstatistics-latest": "Хат тургутуллубут",
+    "validationstatistics-synced": "Хат тургутуллубуттар тургутуллубуттар истэригэр бырыаннара",
+    "validationstatistics-old": "Эргэрбит",
+    "validationstatistics-utable": "Бүтэһик чааска ордук көхтөөх $1 тургутааччы тиһигэ көстөр.",
+    "validationstatistics-user": "Кыттааччы",
+    "validationstatistics-reviews": "Бэрэбиэркэ"
+}

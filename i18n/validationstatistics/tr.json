@@ -1,0 +1,28 @@
+{
+    "@metadata": {
+        "authors": [
+            "Incelemeelemani",
+            "Joseph",
+            "Manco Capac",
+            "Srhat",
+            "Szoszv",
+            "Vito Genovese"
+        ]
+    },
+    "validationstatistics": "Sayfa inceleme istatistikleri",
+    "validationstatistics-users": "'''{{SITENAME}}''' sitesinde şuanda [[{{MediaWiki:Validationpage}}|Editör]] yetkisine sahip '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|kullanıcı|kullanıcı}} bulunmaktadır.\n\nEditörler, sayfalara kontrol revizyonu atayabilen belirli kullanıcılardır.",
+    "validationstatistics-lastupdate": "\"Aşağıdaki veri en son $1, $2 tarihinde güncellendi\"",
+    "validationstatistics-pndtime": "Belirlenmiş kullanıcılar tarafından kontrol edilmiş değişiklikler ''{{int:validationstatistics-stable}}'' olarak kabul edilir.\n\n[[Special:OldReviewedPages|Şu anda gözden geçirilmeyi bekleyen değişikliğe sahip sayfalar]] için ortalama gecikme süresi: '''$1'''; gecikme en eski bekleyen değişikliğin ne kadardır gözden geçirilmediğini ölçer.",
+    "validationstatistics-revtime": "''Giriş yapmamış anonim kullanıcılar'' tarafından yapılmış girişler için ortalama bekleme süresi '''$1'''; medyanı ise '''$2''' biçimindedir.\n$3",
+    "validationstatistics-table": "İsim alanları için sayfa inceleme istatistikleri, yönlendirme sayfaları ''dahil olmadan''  aşağıda gösterilmiştir.\nBekleyen değişiklik içeren sayfalar ''{{int:validationstatistics-old}}'', bekleyen değişiklik içermeyen sayfalar ''{{int:validationstatistics-latest}}'' kabul edilir.",
+    "validationstatistics-ns": "İsim alanı",
+    "validationstatistics-total": "Sayfalar",
+    "validationstatistics-stable": "Gözden geçirilmiş",
+    "validationstatistics-latest": "Senkronize edildi",
+    "validationstatistics-synced": "Eşitlenmiş/Gözden geçirilmiş",
+    "validationstatistics-old": "Eski",
+    "validationstatistics-unreviewed": "İncelenmeyen",
+    "validationstatistics-utable": "Aşağıda {{PLURAL:$2|saatte|$2 saatte}} en çok inceleme yapan $1 kullanıcı listelenmektedir.",
+    "validationstatistics-user": "Kullanıcı",
+    "validationstatistics-reviews": "İncelemeler"
+}

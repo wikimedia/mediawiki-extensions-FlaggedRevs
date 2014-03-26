@@ -1,0 +1,39 @@
+{
+    "@metadata": {
+        "authors": [
+            "Bjankuloski06",
+            "Brest"
+        ]
+    },
+    "stabilization-tab": "конфиг.",
+    "stabilization": "Стабилизација на страница",
+    "stabilization-text": "'''Изменете ги поставките подолу за да прилагодите како се одбира и прикажува објавената верзија на [[:$1|$1]].'''",
+    "stabilization-perm": "Вашата сметка нема дозвола за промена на конфигурацијата на објавената верзија.\nЕве ги моменталните нагодувања за [[:$1|$1]]:",
+    "stabilization-page": "Име на страницата:",
+    "stabilization-leg": "Потврди нагодувања за објавена верзија",
+    "stabilization-def": "Верзија прикажана по основно при преглед на страница",
+    "stabilization-def1": "Стабилната ревизија; ако не постои, тогаш најновата ревизија",
+    "stabilization-def2": "Најновата ревизија",
+    "stabilization-restrict": "Ограничувања на прегледување/автопрегледување",
+    "stabilization-restrict-none": "Нема дополнителни ограничувања",
+    "stabilization-submit": "Потврди",
+    "stabilization-notexists": "Нема страница насловена како \"[[:$1|$1]]\".\nНе е можно нагодување.",
+    "stabilization-notcontent": "Страницата \"[[:$1|$1]]\" не може да се проверува.\nНе е можно нагодување.",
+    "stabilization-comment": "Причина:",
+    "stabilization-otherreason": "Друга причина:",
+    "stabilization-expiry": "Истекува:",
+    "stabilization-othertime": "Друго време:",
+    "stabilization-def-short": "По основно",
+    "stabilization-def-short-0": "Моментално",
+    "stabilization-def-short-1": "Објавена",
+    "stabilize_page_invalid": "Целната страница е неважечка.",
+    "stabilize_page_notexists": "Целната страница не постои.",
+    "stabilize_page_unreviewable": "Целната страница не е во проверлив именски простор.",
+    "stabilize_invalid_autoreview": "Неважечко ограничување на автопрегледот",
+    "stabilize_invalid_level": "Неважечко ниво на заштита.",
+    "stabilize_expiry_invalid": "Погрешен датум на важност.",
+    "stabilize_expiry_old": "Времето на важност веќе е поминато.",
+    "stabilize_denied": "Пристапот е забранет.",
+    "stabilize-expiring": "истекува $1 (UTC)",
+    "stabilization-review": "Обележи ја тековната верзија како проверена"
+}

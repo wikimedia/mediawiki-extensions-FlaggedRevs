@@ -1,0 +1,42 @@
+{
+    "@metadata": {
+        "authors": [
+            "Aspar",
+            "Belekvor",
+            "Erdemaslancan",
+            "Mirzali",
+            "Xoser"
+        ]
+    },
+    "stabilization-tab": "vet",
+    "stabilization": "istiqrar kerdışê peli",
+    "stabilization-text": "'''Eyaran bine de bivurne ke versiyonê sebiti  [[:$1|$1]] biweciye u biese.'''",
+    "stabilization-perm": "Hesabê tu rê destur çini yo ke stable versiyon confugration bivurne.\nTiya de eyaranê penîyî qe [[:$1|$1]] esto:",
+    "stabilization-page": "Nameyê pelî:",
+    "stabilization-leg": "Eyaranê stable versionî testiq bike",
+    "stabilization-def": "Vînayişê pelî de revizyon mucnayiyo",
+    "stabilization-def1": "Revizyonê sebitî; eka çini yo, revizyona peniye",
+    "stabilization-def2": "Revizyonê penî",
+    "stabilization-restrict": "Kontrolî/qedexeyê oto-kontrolî",
+    "stabilization-restrict-none": "Restriksiyonê bînî çini yo",
+    "stabilization-submit": "Testiq ke",
+    "stabilization-notexists": "Yew pel ser \"[[:$1|$1]]\" çini yo. \nKonfugure ni beno.",
+    "stabilization-notcontent": "Pel\"[[:$1|$1]]\" kontrol nibeno. \nKonfugure ni beno.",
+    "stabilization-comment": "Sebeb:",
+    "stabilization-otherreason": "Sebebê bîn:",
+    "stabilization-expiry": "Qediyeno:",
+    "stabilization-othertime": "Wextê bîn:",
+    "stabilization-def-short": "Hesabiyaye",
+    "stabilization-def-short-0": "Penî",
+    "stabilization-def-short-1": "Sebit",
+    "stabilize_page_invalid": "Nameyê pele ya hedefi meqbul niyo.",
+    "stabilize_page_notexists": "Pele ke hedef biya eka cini ya.",
+    "stabilize_page_unreviewable": "Pele ke hedef biya cayenameyi de cini ya.",
+    "stabilize_invalid_autoreview": "Otokontrol raşt niya.",
+    "stabilize_invalid_level": "Seviyeyê pawitiş raşt niya.",
+    "stabilize_expiry_invalid": "Wextê qedîyayîş raşt niyo.",
+    "stabilize_expiry_old": "Wextê qedîyayîş penî de mend.",
+    "stabilize_denied": "Destur nedano.",
+    "stabilize-expiring": "$1 (UTC) de qediyeno",
+    "stabilization-review": "Versiyonê penî ke kontrol biyo ay nisan bike"
+}

@@ -1,0 +1,13 @@
+{
+    "@metadata": {
+        "authors": [
+            "Meno25"
+        ]
+    },
+    "reviewedversions": "عرض النسخ المستقرة",
+    "reviewedversions-leg1": "عرض المراجعات المراجعه لصفحة",
+    "reviewedversions-page": "اسم الصفحة:",
+    "reviewedversions-none": "\"[[:$1]]\" لا يوجد بها مراجعات مراجعه.",
+    "reviewedversions-list": "هذه قائمه {{PLURAL:$2||بمراجعة|بمراجعتي|بمراجعات}} الصفحه [[:$1]] {{PLURAL:$2||التى تمت مراجعتها|اللتين تمت مراجعتهما|التى تمت مراجعتها}}:",
+    "reviewedversions-review": "{{GENDER:$5|راجعها|راجعتها}} $2 فى <i>$1</i>"
+}

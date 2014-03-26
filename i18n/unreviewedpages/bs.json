@@ -1,0 +1,19 @@
+{
+    "@metadata": {
+        "authors": [
+            "CERminator"
+        ]
+    },
+    "unreviewedpages": "Neprovjerene stranice",
+    "unreviewedpages-legend": "Spisak nepregledanih stranica sadržaja",
+    "unreviewedpages-category": "Kategorija:",
+    "unreviewedpages-diff": "pregled",
+    "unreviewedpages-unwatched": "(nepraćeno)",
+    "unreviewedpages-watched": "($1 {{PLURAL:$1|aktivni korisnik|aktivna korisnika|aktivnih korisnika}} pregleda)",
+    "unreviewedpages-list": "Ova stranica prikazuje stranice sadržaja koje još ''nisu'' [[{{MediaWiki:Validationpage}}|pregledane]] do određenog nivoa.",
+    "unreviewedpages-none": "Trenutno nema stranica koje zadovoljavaju ove kriterije",
+    "unreviewedpages-viewing": "(u provjeri)",
+    "unreviewedpages-hours": "($1 {{PLURAL:$1|sat|sata|sati}})",
+    "unreviewedpages-days": "($1 {{PLURAL:$1|dan|dana}})",
+    "unreviewedpages-recent": "(manje od 1 sata)"
+}

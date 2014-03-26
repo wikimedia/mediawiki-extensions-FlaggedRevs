@@ -1,0 +1,21 @@
+{
+    "@metadata": {
+        "authors": [
+            "Alma",
+            "Toliño"
+        ]
+    },
+    "action-unreviewedpages": "ver a lista das páxinas non revisadas",
+    "unreviewedpages": "Páxinas sen revisar",
+    "unreviewedpages-legend": "Listar as páxinas con contido sen revisar",
+    "unreviewedpages-category": "Categoría:",
+    "unreviewedpages-diff": "revisión",
+    "unreviewedpages-unwatched": "(sen vixiar)",
+    "unreviewedpages-watched": "($1 {{PLURAL:$1|usuario activo|usuarios activos}} vixiando)",
+    "unreviewedpages-list": "Esta páxina lista as páxinas de contido que aínda ''non'' foron [[{{MediaWiki:Validationpage}}|revisadas]] co nivel especificado.",
+    "unreviewedpages-none": "Actualmente non hai páxinas que reúnan eses criterios",
+    "unreviewedpages-viewing": "(en revisión)",
+    "unreviewedpages-hours": "($1 {{PLURAL:$1|hora|horas}})",
+    "unreviewedpages-days": "($1 {{PLURAL:$1|día|días}})",
+    "unreviewedpages-recent": "(menos dunha hora)"
+}

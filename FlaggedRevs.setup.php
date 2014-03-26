@@ -80,6 +80,7 @@ class FlaggedRevsSetup {
 
 		### Presentation classes ###
 		# Main i18n file and special page alias file
+		$wgMessagesDirs['FlaggedRevs'] = __DIR__ . '/i18n/flaggedrevs';
 		$messagesFiles['FlaggedRevs'] = "$langDir/FlaggedRevs.i18n.php";
 		$messagesFiles['FlaggedRevsMagic'] = "$langDir/FlaggedRevs.i18n.magic.php";
 		$messagesFiles['FlaggedRevsAliases'] = "$langDir/FlaggedRevs.alias.php";
@@ -92,36 +93,47 @@ class FlaggedRevsSetup {
 		$classes['RejectConfirmationFormUI'] = "$frontendDir/RejectConfirmationFormUI.php";
 		# Revision review UI
 		$classes['RevisionReview'] = "$spActionDir/RevisionReview_body.php";
+		$wgMessagesDirs['RevisionReview'] = __DIR__ . '/i18n/revisionreview';
 		$messagesFiles['RevisionReview'] = "$langDir/RevisionReview.i18n.php";
 		# Stable version config UI
 		$classes['Stabilization'] = "$spActionDir/Stabilization_body.php";
+		$wgMessagesDirs['Stabilization'] = __DIR__ . '/i18n/stabilization';
 		$messagesFiles['Stabilization'] = "$langDir/Stabilization.i18n.php";
 		# Reviewed versions list
 		$classes['ReviewedVersions'] = "$spReportDir/ReviewedVersions_body.php";
+		$wgMessagesDirs['ReviewedVersions'] = __DIR__ . '/i18n/reviewedversions';
 		$messagesFiles['ReviewedVersions'] = "$langDir/ReviewedVersions.i18n.php";
 		# Unreviewed pages list
 		$classes['UnreviewedPages'] = "$spReportDir/UnreviewedPages_body.php";
+		$wgMessagesDirs['UnreviewedPages'] = __DIR__ . '/i18n/unreviewedpages';
 		$messagesFiles['UnreviewedPages'] = "$langDir/UnreviewedPages.i18n.php";
 		# Pages with pending changes list
 		$classes['PendingChanges'] = "$spReportDir/PendingChanges_body.php";
+		$wgMessagesDirs['PendingChanges'] = __DIR__ . '/i18n/pendingchanges';
 		$messagesFiles['PendingChanges'] = "$langDir/PendingChanges.i18n.php";
 		# Pages with tagged pending changes list
 		$classes['ProblemChanges'] = "$spReportDir/ProblemChanges_body.php";
+		$wgMessagesDirs['ProblemChanges'] = __DIR__ . '/i18n/problemchanges';
 		$messagesFiles['ProblemChanges'] = "$langDir/ProblemChanges.i18n.php";
 		# Reviewed pages list
 		$classes['ReviewedPages'] = "$spReportDir/ReviewedPages_body.php";
+		$wgMessagesDirs['ReviewedPages'] = __DIR__ . '/i18n/reviewedpages';
 		$messagesFiles['ReviewedPages'] = "$langDir/ReviewedPages.i18n.php";
 		# Stable pages list (for protection config)
 		$classes['StablePages'] = "$spReportDir/StablePages_body.php";
+		$wgMessagesDirs['StablePages'] = __DIR__ . '/i18n/stablepages';
 		$messagesFiles['StablePages'] = "$langDir/StablePages.i18n.php";
 		# Configured pages list (non-protection config)
 		$classes['ConfiguredPages'] = "$spReportDir/ConfiguredPages_body.php";
+		$wgMessagesDirs['ConfiguredPages'] = __DIR__ . '/i18n/configuredpages';
 		$messagesFiles['ConfiguredPages'] = "$langDir/ConfiguredPages.i18n.php";
 		# Filterable review log page to oversee reviews
 		$classes['QualityOversight'] = "$spReportDir/QualityOversight_body.php";
+		$wgMessagesDirs['QualityOversight'] = __DIR__ . '/i18n/qualityoversight';
 		$messagesFiles['QualityOversight'] = "$langDir/QualityOversight.i18n.php";
 		# Review statistics
 		$classes['ValidationStatistics'] = "$spReportDir/ValidationStatistics_body.php";
+		$wgMessagesDirs['ValidationStatistics'] = __DIR__ . '/i18n/validationstatistics';
 		$messagesFiles['ValidationStatistics'] = "$langDir/ValidationStatistics.i18n.php";
 		### End ###
 
@@ -234,7 +246,7 @@ class FlaggedRevsSetup {
 
 	/**
 	 * Register FlaggedRevs source code paths.
-	 * 
+	 *
 	 * @return void
 	 */
 	public static function setConditionalHooks() {

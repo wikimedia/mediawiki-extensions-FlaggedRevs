@@ -1,0 +1,36 @@
+{
+    "@metadata": {
+        "authors": [
+            "පසිඳු කාවින්ද"
+        ]
+    },
+    "revisionreview": "සංශෝධන නිරීක්ෂණය කරන්න",
+    "revreview-failed": "'''මෙම සංශෝධනය නිරීක්ෂණය කල නොහැක.'''",
+    "review_page_invalid": "ඉලක්කගත පිටුවේ මාතෘකාව අනීතිකයි.",
+    "review_page_notexists": "ඉලක්කගත පිටුව නොපවතියි.",
+    "review_page_unreviewable": "ඉලක්කගත පිටුව නිරික්ෂණමය නොවේ.",
+    "review_no_oldid": "සංශෝධන හැඳුනුමක් විශේෂණය කර නොමැත.",
+    "review_bad_oldid": "ඉලක්කගත සංශෝධනය නොපවතියි.",
+    "review_bad_key": "වලංගු නොවන අන්තහ්කරණ පරාමිති යතුර.",
+    "review_denied": "අවසරදීමට නොහැක.",
+    "review_param_missing": "පරාමිතිය මඟහැරී ඇත හෝ වලංගු නොවේ.",
+    "review_reject_excessive": "එක් වතාවකට මෙවැනි සංස්කරණ රාශියක් ප්‍රතික්ෂේප කල නොහැක.",
+    "revreview-check-flag-u": "මෙම නිරීක්ෂණය නොකළ පිටුව පිළිගන්න",
+    "revreview-check-flag-y": "මගේ වෙනස්කම් බාරගන්න",
+    "revreview-check-flag-y-title": "ඔබ මෙතැනදී සිදුකල සියලුම වෙනස්කම් පිළිගන්න.",
+    "revreview-flag": "මෙම සංශෝධනය නිරීක්ෂණය කරන්න",
+    "revreview-reflag": "මෙම සංශෝධනය නැවත-නිරීක්ෂණය කරන්න",
+    "revreview-log": "පරිකථනය:",
+    "revreview-submit": "යොමන්න",
+    "revreview-submitting": "යොමු කරමින් …",
+    "revreview-submit-review": "සංශෝධනය පිළිගන්න",
+    "revreview-submit-unreview": "සංශෝධනය පිළිනොගන්න",
+    "revreview-submit-reject": "වෙනස්කම් ප්‍රතික්ෂේප කරන්න",
+    "revreview-submit-reviewed": "හරි. බාරගත්තා!",
+    "revreview-submit-unreviewed": "හරි. බාරගත්තේ නෑ!",
+    "revreview-adv-start-link": "ප්‍රචාරණය කරන්න",
+    "revreview-adv-stop-link": "ප්‍රචාරණය නොකිරීම",
+    "revreview-reject-summary": "සාරාංශය:",
+    "revreview-reject-confirm": "මෙම වෙනස්කම් ප්‍රතික්ෂේප කරන්න",
+    "revreview-reject-cancel": "අවලංගු කරන්න"
+}

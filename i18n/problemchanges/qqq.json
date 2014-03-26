@@ -1,0 +1,16 @@
+{
+    "@metadata": {
+        "authors": [
+            "Aaron Schulz",
+            "EugeneZelenko",
+            "IAlex",
+            "Purodha",
+            "Shirayuki"
+        ]
+    },
+    "problemchanges": "{{Flagged Revs}}\nName of Special:ProblemChanges, which lists out tagged (via recent changes change tags) pending changes.",
+    "problemchanges-list": "{{Flagged Revs}}\nUsed on the [[Special:ProblemPages]] page.\n\nRefers to {{msg-mw|Validationpage}}.\n\nParameters:\n* $1 - (Optional) number of items in the list, to be used with PLURAL, when unavoidable",
+    "problemchanges-legend": "{{Flagged Revs}}\nUsed on the Special:ProblemPages page.",
+    "problemchanges-none": "{{Flagged Revs}}\nUsed on the Special:ProblemPages page.",
+    "problemchanges-category": "{{Flagged Revs}}\nUsed on the Special:ProblemPages page.\n{{Identical|Category}}"
+}

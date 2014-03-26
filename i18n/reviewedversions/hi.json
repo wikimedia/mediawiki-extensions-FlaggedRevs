@@ -1,0 +1,14 @@
+{
+    "@metadata": {
+        "authors": [
+            "Kaustubh",
+            "Siddhartha Ghai"
+        ]
+    },
+    "reviewedversions": "पुनरीक्षित अवतरण",
+    "reviewedversions-leg1": "किसी पृष्ठ के पुनरीक्षित अवतरणों की सूची देखें",
+    "reviewedversions-page": "पृष्ठ नाम:",
+    "reviewedversions-none": "\"[[:$1]]\" का कोई पुनरीक्षित अवतरण नहीं है।",
+    "reviewedversions-list": "[[:$1]] {{PLURAL:$2|का|के}} पुनरीक्षित {{PLURAL:$2|अवतरण|अवतरणों की सूची}} निम्न है:",
+    "reviewedversions-review": "$2 द्वारा <i>$1</i> को पुनरीक्षित"
+}

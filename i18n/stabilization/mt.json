@@ -1,0 +1,23 @@
+{
+    "@metadata": {
+        "authors": [
+            "Chrisportelli"
+        ]
+    },
+    "stabilization-tab": "ver",
+    "stabilization": "Stabbilizzazzjoni tal-paġna",
+    "stabilization-page": "Isem tal-paġna:",
+    "stabilization-restrict-none": "L-ebda restrizzjoni żejda",
+    "stabilization-submit": "Ikkonferma",
+    "stabilization-notexists": "M'hemm l-ebda paġna bl-isem \"[[:$1|$1]]\".\nL-ebda konfigurazzjoni mhi possibbli.",
+    "stabilization-comment": "Raġuni:",
+    "stabilization-otherreason": "Raġuni oħra:",
+    "stabilization-expiry": "Skadenza:",
+    "stabilization-othertime": "Ħin ieħor:",
+    "stabilization-def-short-0": "Attwali",
+    "stabilization-def-short-1": "Stabbli",
+    "stabilize_page_invalid": "It-titlu tal-paġna ta' destinazzjoni huwa ħażin.",
+    "stabilize_page_notexists": "Il-paġna ta' destinazzjoni ma teżistix.",
+    "stabilize_page_unreviewable": "Il-paġna ta' destinazzjoni ma tinstabx fl-ispazju tal-isem rivedibbli.",
+    "stabilize_denied": "Permess miċħud."
+}

@@ -1,0 +1,23 @@
+{
+    "@metadata": {
+        "authors": [
+            "Dudi",
+            "Meno25",
+            "Ramsis II"
+        ]
+    },
+    "pendingchanges": "صفحات مراجعه قديمة",
+    "pendingchanges-legend": "عرض الصفحات المراجعه ذات المراجعات غير المراجعة",
+    "pendingchanges-list": "هذه الصفحه تعرض {{PLURAL:$1||صفحه مراجعه فيها|صفحتين مراجعتين فيهما|صفحات مراجعه فيها}} تعديلات قيد الانتظار.",
+    "pendingchanges-none": "لا توجد حاليا صفحات تطابق هذه المواصفات",
+    "pendingchanges-hours": "({{PLURAL:$1||ساعه واحد|ساعتان|$1 ساعات|$1 ساعة}})",
+    "pendingchanges-days": "({{PLURAL:$1||يوم واحد|يومان|$1 أيام|$1 يومًا|$1 يوم}})",
+    "pendingchanges-recent": "(أقل من ساعة)",
+    "pendingchanges-category": "تصنيف:",
+    "pendingchanges-stable": "منظورة",
+    "pendingchanges-diff": "راجع",
+    "pendingchanges-size": "أقصى تغيير (بايت):",
+    "pendingchanges-unwatched": "(غير مراقبة)",
+    "pendingchanges-watched": "({{PLURAL:$1|لا مستخدمون نشطون يراقبون|مستخدم واحد نشط يراقب|مستخدمان نشطان يراقبان|$1 مستخدمين نشطين يراقبون|$1 مستخدمًا نشطًا يراقبون|$1 مستخدم نشط يراقبون}})",
+    "pendingchanges-viewing": "(تحت المراجعة)"
+}

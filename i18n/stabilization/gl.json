@@ -1,0 +1,40 @@
+{
+    "@metadata": {
+        "authors": [
+            "Alma",
+            "Toliño",
+            "Xosé"
+        ]
+    },
+    "stabilization-tab": "(qa)",
+    "stabilization": "Estabilización da páxina",
+    "stabilization-text": "'''Mude a configuración a continuación para axustar a forma na que a versión publicada de \"[[:$1|$1]]\" se selecciona e mostra.'''",
+    "stabilization-perm": "A súa conta non ten os permisos necesarios para mudar a configuración da versión publicada.\nVelaquí está a configuración actual de \"[[:$1|$1]]\":",
+    "stabilization-page": "Nome da páxina:",
+    "stabilization-leg": "Confirmar as configuración da versión publicada",
+    "stabilization-def": "Revisión que aparece por defecto na vista da páxina",
+    "stabilization-def1": "A versión estable; se non existe, entón a última revisión",
+    "stabilization-def2": "A última revisión",
+    "stabilization-restrict": "Restricións de revisión/revisión automática",
+    "stabilization-restrict-none": "Sen restricións extra",
+    "stabilization-submit": "Confirmar",
+    "stabilization-notexists": "Non hai páxina ningunha chamada \"[[:$1|$1]]\".\nNon é posible a configuración.",
+    "stabilization-notcontent": "Non se pode revisar a páxina \"[[:$1|$1]]\" .\nNon é posible a configuración.",
+    "stabilization-comment": "Motivo:",
+    "stabilization-otherreason": "Outro motivo:",
+    "stabilization-expiry": "Caducidade:",
+    "stabilization-othertime": "Outra duración:",
+    "stabilization-def-short": "Por defecto",
+    "stabilization-def-short-0": "Actual",
+    "stabilization-def-short-1": "Publicada",
+    "stabilize_page_invalid": "O título da páxina de destino non é correcto.",
+    "stabilize_page_notexists": "A páxina de destino non existe.",
+    "stabilize_page_unreviewable": "A páxina de destino non está nun espazo de nomes que se poida revisar.",
+    "stabilize_invalid_autoreview": "Restrición de revisión automática incorrecta",
+    "stabilize_invalid_level": "Nivel de protección incorrecto.",
+    "stabilize_expiry_invalid": "Data de caducidade non válida.",
+    "stabilize_expiry_old": "O tempo de caducidade xa pasou.",
+    "stabilize_denied": "Permisos rexeitados.",
+    "stabilize-expiring": "caduca o $2 ás $3 (UTC)",
+    "stabilization-review": "Marcar a revisión actual como comprobada"
+}

@@ -1,0 +1,13 @@
+{
+    "@metadata": {
+        "authors": [
+            "HalanTul"
+        ]
+    },
+    "reviewedversions": "Тургутуллубут барыллара",
+    "reviewedversions-leg1": "Сирэй ырытыллыбыт торумнарын испииһэгэ",
+    "reviewedversions-page": "Сирэй аата:",
+    "reviewedversions-none": "\"[[:$1]]\" көрүллүбүт/бэрэбиэркэлэммит торумнара суох.",
+    "reviewedversions-list": "\"[[:$1]]\" сирэй {{PLURAL:$2|бу барыла ырытыллыбыт|бу барыллара ырытыллыбыттар}}:",
+    "reviewedversions-review": "$2 кыттааччы ырыппыт <i>$1</i>"
+}

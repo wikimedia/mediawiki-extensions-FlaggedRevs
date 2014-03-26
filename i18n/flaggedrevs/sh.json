@@ -1,0 +1,15 @@
+{
+    "@metadata": {
+        "authors": [
+            "Kolega2357"
+        ]
+    },
+    "group-reviewer": "Provjerivači",
+    "group-reviewer-member": "{{GENDER:$1|provjerivač}}",
+    "grouppage-reviewer": "{{ns:project}}:Provjerivači",
+    "group-autoreview": "Autonadzornici",
+    "group-autoreview-member": "{{GENDER:$1|autonadzornik}}",
+    "grouppage-autoreview": "{{ns:project}}:Autonadzornici",
+    "right-autoreview": "Vlastite izmjene se automatski označavaju kao ''provjerene''",
+    "right-autoreviewrestore": "Automatski provjereno pri vraćanju"
+}

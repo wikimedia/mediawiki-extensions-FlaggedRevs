@@ -1,0 +1,20 @@
+{
+    "@metadata": {
+        "authors": [
+            "Puntori"
+        ]
+    },
+    "stabilization-tab": "vet",
+    "stabilization": "Stabilizimi i faqes",
+    "stabilization-page": "Emri i faqes:",
+    "stabilization-def2": "Versioni i tanishëm",
+    "stabilization-submit": "Konfirmo",
+    "stabilization-notexists": "Nuk ka faqe me emrin \"[[:$1|$1]]\".\nAsnjë konfigurim nuk është i mundshëm.",
+    "stabilization-notcontent": "Faqja \"[[:$1|$1]]\" nuk mund të rishqyrtohet.\nAsnjë konfigurim nuk është i mundshëm.",
+    "stabilization-comment": "Arsyeja:",
+    "stabilization-expiry": "Skadon:",
+    "stabilization-def-short-0": "Tani",
+    "stabilize_expiry_invalid": "Datë jo vlefshme e skadimit.",
+    "stabilize_expiry_old": "Koha e skadimit tanimë ka kaluar.",
+    "stabilize-expiring": "skadon $1 (UTC)"
+}

@@ -1,0 +1,14 @@
+{
+    "@metadata": {
+        "authors": [
+            "Jezevec",
+            "Jkjk"
+        ]
+    },
+    "configuredpages": "Stránky s nastavením posuzování",
+    "configuredpages-list": "Toto je seznam stránek s jiným než standardnín nastavením schvalování.\nNěkterá nstavení mohou změnit verzi zobrazenou čtenářům nebo omezit skupinu lidí s oprávněním upravovat stránku bez nutnosti následného posouzení.",
+    "configuredpages-none": "V tomto seznamu nejsou žádné stránky.",
+    "configuredpages-config": "Nastavení",
+    "configuredpages-def-draft": "poslední verze",
+    "configuredpages-def-stable": "stabilní verze"
+}

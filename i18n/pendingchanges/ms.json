@@ -1,0 +1,24 @@
+{
+    "@metadata": {
+        "authors": [
+            "Anakmalaysia",
+            "Aviator",
+            "Kurniasan"
+        ]
+    },
+    "pendingchanges": "Laman yang mempunyai perubahan tergantung",
+    "pendingchanges-legend": "Senarai laman diperiksa dengan perubahan tergantung",
+    "pendingchanges-list": "Laman ini menyenaraikan laman-laman [[{{MediaWiki:Validationpage}}|dikaji semula]] yang ada satu atau lebih suntingan yang menunggu untuk dikaji semula.",
+    "pendingchanges-none": "Tiada laman yang memenuhi kriteria ini",
+    "pendingchanges-hours": "($1 jam)",
+    "pendingchanges-days": "($1 hari)",
+    "pendingchanges-recent": "(kurang dari sejam)",
+    "pendingchanges-category": "Kategori:",
+    "pendingchanges-onwatchlist": "Laman-laman dalam senarai pantau saya",
+    "pendingchanges-stable": "Versi stabil adalah asali",
+    "pendingchanges-diff": "periksa",
+    "pendingchanges-size": "Perubahan maks. (bait):",
+    "pendingchanges-unwatched": "(tidak dipantau)",
+    "pendingchanges-watched": "(dipantau {{PLURAL:$1|seorang|$1 orang}} pengguna aktif)",
+    "pendingchanges-viewing": "(sedang dikaji semula)"
+}

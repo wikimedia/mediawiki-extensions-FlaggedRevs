@@ -1,0 +1,34 @@
+{
+    "@metadata": {
+        "authors": [
+            "Dudi",
+            "Meno25",
+            "Ramsis II"
+        ]
+    },
+    "stabilization-tab": "تج",
+    "stabilization": "تثبيت الصفحة",
+    "stabilization-text": "'''غيّر التظبيطات اللى تحت علشان تظبط ازاى تختار و تبيّن النسخه المنشوره بتاعة [[:$1|$1]].'''",
+    "stabilization-perm": "حسابك ما عندوش اذن علشان يغيّر ظبطة النسخه المنشوره.\nهنا التظبيطات بتاعة دلوقتى لـ [[:$1|$1]]:",
+    "stabilization-page": "اسم الصفحة:",
+    "stabilization-leg": "اتأكيد من تظبيطات النسخه المنشوره",
+    "stabilization-def": "المراجعه المعروضه عند رؤيه الصفحه افتراضيا",
+    "stabilization-def1": "المراجعه المنشوره; لو مش موجوده, يبقى المراجعه بتاعة دلوقتى/المسوده",
+    "stabilization-def2": "المراجعه الحالية/المسودة",
+    "stabilization-restrict": "ضوابط المراجعه التلقائية",
+    "stabilization-restrict-none": "لا ضوابط إضافية",
+    "stabilization-submit": "تأكيد",
+    "stabilization-notexists": "لا توجد صفحه بالاسم \"[[:$1|$1]]\".\nلا ضبط ممكن.",
+    "stabilization-notcontent": "الصفحه \"[[:$1|$1]]\" لا يمكن مراجعتها.\nلا ضبط ممكن.",
+    "stabilization-comment": "السبب:",
+    "stabilization-otherreason": "سبب آخر:",
+    "stabilization-expiry": "تنتهي:",
+    "stabilization-othertime": "وقت آخر:",
+    "stabilization-def-short": "افتراضي",
+    "stabilization-def-short-0": "حالي",
+    "stabilization-def-short-1": "منشوره",
+    "stabilize_expiry_invalid": "تاريخ انتهاء غير صحيح.",
+    "stabilize_expiry_old": "تاريخ الانتهاء هذا مر بالفعل.",
+    "stabilize-expiring": "تنتهى فى $1 (UTC)",
+    "stabilization-review": "راجع النسخه الحالية"
+}

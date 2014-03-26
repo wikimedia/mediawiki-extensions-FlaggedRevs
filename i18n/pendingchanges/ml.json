@@ -1,0 +1,23 @@
+{
+    "@metadata": {
+        "authors": [
+            "Praveenp",
+            "Shijualex"
+        ]
+    },
+    "pendingchanges": "സംശോധനം ചെയ്യൽ അവശേഷിക്കുന്ന താളുകൾ",
+    "pendingchanges-legend": "സംശോധനം ചെയ്ത താളുകളൂടെ പട്ടികയോടൊപ്പം സം‌ശോധനം ചെയ്തിട്ടില്ലാത്ത പതിപ്പുകൾ പ്രദർശിപ്പിക്കുക",
+    "pendingchanges-list": "ഈ താളിൽ [[{{MediaWiki:Validationpage}}|സംശോധന ശേഷം]] ഉണ്ടായ ഒന്നോ അതിലധികമോ തിരുത്തലുകൾ സംശോധനത്തിനായി അവശേഷിക്കുന്ന താളുകൾ നൽകിയിരിക്കുന്നു.",
+    "pendingchanges-none": "ഈ മാനദണ്ഡം പാലിക്കുന്ന താളുകളൊന്നും നിലവിലില്ല",
+    "pendingchanges-hours": "($1 {{PLURAL:$1|മണിക്കൂർ|മണിക്കൂറുകൾ}})",
+    "pendingchanges-days": "({{PLURAL:$1|ഒരു ദിവസം|$1 ദിവസങ്ങൾ}})",
+    "pendingchanges-recent": "(1 മണിക്കൂറിൽ താഴെ)",
+    "pendingchanges-category": "വർഗ്ഗം:",
+    "pendingchanges-onwatchlist": "ഞാൻ ശ്രദ്ധിക്കുന്ന താളുകൾ",
+    "pendingchanges-stable": "സ്വതേ സ്ഥിരതയുള്ള പതിപ്പ്",
+    "pendingchanges-diff": "സംശോധനം",
+    "pendingchanges-size": "പരമാവധി മാറ്റങ്ങൾ (ബൈറ്റുകൾ):",
+    "pendingchanges-unwatched": "(ശ്രദ്ധിക്കുന്നില്ല)",
+    "pendingchanges-watched": "($1 സജീവ {{PLURAL:$1|ഉപയോക്താവ്|ഉപയോക്താക്കൾ}} ശ്രദ്ധിക്കുന്നു)",
+    "pendingchanges-viewing": "(സംശോധനം ചെയ്യുന്നു)"
+}

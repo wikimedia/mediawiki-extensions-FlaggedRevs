@@ -1,0 +1,15 @@
+{
+    "@metadata": {
+        "authors": [
+            "Aotake",
+            "Naohiro19",
+            "Whym"
+        ]
+    },
+    "configuredpages": "査読設定のあるページ",
+    "configuredpages-list": "以下は、サイトの既定とは異なる承認設定がされているページの一覧です。\n設定の中には、読者に表示される版を変えたり、査読なしに変更を加えることのできる利用者をより厳しく制限したりするものが含まれる可能性があります。",
+    "configuredpages-none": "この一覧にはページがありません。",
+    "configuredpages-config": "設定",
+    "configuredpages-def-draft": "最新版",
+    "configuredpages-def-stable": "公開版"
+}

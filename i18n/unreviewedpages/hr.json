@@ -1,0 +1,22 @@
+{
+    "@metadata": {
+        "authors": [
+            "Dalibor Bosits",
+            "Ex13",
+            "Excaliboor",
+            "SpeedyGonsales"
+        ]
+    },
+    "unreviewedpages": "Neocijenjene stranice",
+    "unreviewedpages-legend": "Popis neocijenjenih sadržaja stranica",
+    "unreviewedpages-category": "Kategorija:",
+    "unreviewedpages-diff": "ocijeni",
+    "unreviewedpages-unwatched": "(nepraćeno)",
+    "unreviewedpages-watched": "($1 {{PLURAL:$1|aktivni suradnik|aktivnih suradnika}} prati)",
+    "unreviewedpages-list": "Ovdje se navode stranice sa sadržajem koje nisu pregledane do određene razine.",
+    "unreviewedpages-none": "Trenutačno nema stranica koje zadovoljavaju ovim kriterijima",
+    "unreviewedpages-viewing": "(u ocijenjivanju)",
+    "unreviewedpages-hours": "($1 {{PLURAL:$1|sat|sata|sati}})",
+    "unreviewedpages-days": "($1 {{PLURAL:$1|dan|dana}})",
+    "unreviewedpages-recent": "(manje od 1 sat)"
+}

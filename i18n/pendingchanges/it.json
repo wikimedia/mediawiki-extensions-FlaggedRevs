@@ -1,0 +1,29 @@
+{
+    "@metadata": {
+        "authors": [
+            "Beta16",
+            "Blaisorblade",
+            "Civvì",
+            "Darth Kule",
+            "Gianfranco",
+            "Melos",
+            "Pietrodn",
+            "Rippitippi"
+        ]
+    },
+    "pendingchanges": "Pagine con modifiche non revisionate",
+    "pendingchanges-legend": "Elenco delle pagine revisionate ma con versioni non revisionate",
+    "pendingchanges-list": "In questa lista [[{{MediaWiki:Validationpage}}|reviewed]] ci sono pagine che hanno una o più modifiche in attesa di revisione",
+    "pendingchanges-none": "Al momento non ci sono pagine che soddisfino i criteri di ricerca.",
+    "pendingchanges-hours": "($1 {{PLURAL:$1|ora|ore}})",
+    "pendingchanges-days": "($1 {{PLURAL:$1|giorno|giorni}})",
+    "pendingchanges-recent": "(meno di un'ora)",
+    "pendingchanges-category": "Categoria:",
+    "pendingchanges-onwatchlist": "Pagine nei miei osservati speciali",
+    "pendingchanges-stable": "La versione stabile è di default",
+    "pendingchanges-diff": "revisiona",
+    "pendingchanges-size": "Cambiamento massimo (byte):",
+    "pendingchanges-unwatched": "(non osservata)",
+    "pendingchanges-watched": "(osservata da $1 {{PLURAL:$1|utente attivo|utenti attivi}})",
+    "pendingchanges-viewing": "(sotto revisione)"
+}

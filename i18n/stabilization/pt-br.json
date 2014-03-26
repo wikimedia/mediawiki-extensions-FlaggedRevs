@@ -1,0 +1,41 @@
+{
+    "@metadata": {
+        "authors": [
+            "Eduardo.mps",
+            "Giro720",
+            "Luckas",
+            "Luckas Blade"
+        ]
+    },
+    "stabilization-tab": "cgq",
+    "stabilization": "Configurações da Garantia de Qualidade",
+    "stabilization-text": "'''Altere os parâmetros abaixo para ajustar a forma como a versão publicada de [[:$1|$1]] é selecionada e apresentada.'''",
+    "stabilization-perm": "A sua conta não tem permissão para alterar a configuração da versão publicada.\nOs parâmetros atuais da página [[:$1|$1]] são:",
+    "stabilization-page": "Nome da página:",
+    "stabilization-leg": "Confirmar os parâmetros da versão publicada",
+    "stabilization-def": "Edição exibida na visualização padrão de página",
+    "stabilization-def1": "A edição publicada; se inexistente, então a revisão mais recente",
+    "stabilization-def2": "A edição mais recente",
+    "stabilization-restrict": "Restrições da revisão automática",
+    "stabilization-restrict-none": "sem restrições extras",
+    "stabilization-submit": "Confirmar",
+    "stabilization-notexists": "A página \"[[:$1|$1]]\" não existe.\nNão é possível configurá-la.",
+    "stabilization-notcontent": "A página \"[[:$1|$1]]\" não pode ser analisada.\nNão é possível configurá-la.",
+    "stabilization-comment": "Motivo:",
+    "stabilization-otherreason": "Outro motivo:",
+    "stabilization-expiry": "Expira em:",
+    "stabilization-othertime": "Outra hora:",
+    "stabilization-def-short": "Padrão",
+    "stabilization-def-short-0": "Atual",
+    "stabilization-def-short-1": "Publicada",
+    "stabilize_page_invalid": "O título da página de destino é inválido.",
+    "stabilize_page_notexists": "A página de destino não existe.",
+    "stabilize_page_unreviewable": "A página de destino não está em um espaço nominal sujeito a revisão.",
+    "stabilize_invalid_autoreview": "Restrição de autorrevisão inválida.",
+    "stabilize_invalid_level": "Nível de proteção inválido.",
+    "stabilize_expiry_invalid": "Data de expiração inválida.",
+    "stabilize_expiry_old": "Este tempo de expiração já se encerrou.",
+    "stabilize_denied": "Permissão negada.",
+    "stabilize-expiring": "expira às $1 (UTC)",
+    "stabilization-review": "Marcar a revisão atual como verificada"
+}

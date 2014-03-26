@@ -1,0 +1,17 @@
+{
+    "@metadata": {
+        "authors": [
+            "Grondin",
+            "IAlex",
+            "Peter17",
+            "PieRRoMaN",
+            "Sherbrooke"
+        ]
+    },
+    "reviewedversions": "Versions passées en revue",
+    "reviewedversions-leg1": "Dernières révisions revues d'une page",
+    "reviewedversions-page": "Nom de la page :",
+    "reviewedversions-none": "« [[:$1]] » n'a pas de version révisée.",
+    "reviewedversions-list": "La liste qui suit contient {{PLURAL:$2|de la seule version|des versions}} de « [[:$1]] » qui {{PLURAL:$2|a été révisée|ont été révisées}} :",
+    "reviewedversions-review": "Révisée le <i>$1</i> par $2"
+}

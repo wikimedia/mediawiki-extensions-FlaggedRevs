@@ -1,0 +1,16 @@
+{
+    "@metadata": {
+        "authors": [
+            "Dferg",
+            "Fitoschido",
+            "MarcoAurelio",
+            "Peter17"
+        ]
+    },
+    "configuredpages": "Páginas con configuraciones de revisión",
+    "configuredpages-list": "Debajo se encuentra una lista de páginas que han sido configuradas para tener distintos niveles de aprobación de aquel que ofrede el sitio por defecto.\nAlgunos ajustes puede que cambien qué versión es mostrada a los lectores o puede restringir quiénes pueden realizar ediciones que no necesitan revisión posterior.",
+    "configuredpages-none": "No hay páginas en esta lista.",
+    "configuredpages-config": "Configuración",
+    "configuredpages-def-draft": "versión más reciente",
+    "configuredpages-def-stable": "versión publicada"
+}

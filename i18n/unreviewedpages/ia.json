@@ -1,0 +1,21 @@
+{
+    "@metadata": {
+        "authors": [
+            "Malafaya",
+            "McDutchie"
+        ]
+    },
+    "action-unreviewedpages": "vider le lista de paginas non revidite",
+    "unreviewedpages": "Paginas non revidite",
+    "unreviewedpages-legend": "Lista de paginas de contento non revidite",
+    "unreviewedpages-category": "Categoria:",
+    "unreviewedpages-diff": "revider",
+    "unreviewedpages-unwatched": "(non observate)",
+    "unreviewedpages-watched": "(observate per $1 {{PLURAL:$1|usator|usatores}} active)",
+    "unreviewedpages-list": "Iste pagina lista le paginas de contento que ''non'' ha ancora essite [[{{MediaWiki:Validationpage}}|revidite]] al nivello specificate.",
+    "unreviewedpages-none": "Al momento il non ha paginas que corresponde a iste criterios",
+    "unreviewedpages-viewing": "(sub revision)",
+    "unreviewedpages-hours": "($1 {{PLURAL:$1|hora|horas}})",
+    "unreviewedpages-days": "($1 {{PLURAL:$1|die|dies}})",
+    "unreviewedpages-recent": "(minus de un hora)"
+}

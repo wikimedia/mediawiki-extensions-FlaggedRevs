@@ -1,0 +1,25 @@
+{
+    "@metadata": {
+        "authors": [
+            "Erdemaslancan",
+            "Marmase",
+            "Mirzali",
+            "Xoser"
+        ]
+    },
+    "pendingchanges": "Pelanê ho vurneyeni",
+    "pendingchanges-legend": "Vurnayîşanê etiket biyo înan liste bike",
+    "pendingchanges-list": "Ena pele pelanê [[{{MediaWiki:Validationpage}}|çımraviyarnayeyan]], êyê ke yew ya zi zêdeyêr vurnayışê cı estê, lista kena.",
+    "pendingchanges-none": "Ser ena kriteri de pelan çini yo",
+    "pendingchanges-hours": "($1 {{PLURAL:$1|seet|seetan}})",
+    "pendingchanges-days": "($1 {{PLURAL:$1|roc|rocan}})",
+    "pendingchanges-recent": "(1 seet ra tay)",
+    "pendingchanges-category": "Kategoriye:",
+    "pendingchanges-onwatchlist": "Peleyê ke lista da seyri deyê",
+    "pendingchanges-stable": "Versiyono sebit hesıbyayo",
+    "pendingchanges-diff": "Çım ra ravyarne",
+    "pendingchanges-size": "Vuranayişê tewr zaf (bitan):",
+    "pendingchanges-unwatched": "(seyr nibeno)",
+    "pendingchanges-watched": "($1 activ {{PLURAL:$1|karber|karberan}} seyr keno)",
+    "pendingchanges-viewing": "(ho kontrol keno)"
+}

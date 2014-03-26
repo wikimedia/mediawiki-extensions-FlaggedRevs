@@ -1,0 +1,41 @@
+{
+    "@metadata": {
+        "authors": [
+            "Cin",
+            "Firilacroco",
+            "KlaudiuMihaila",
+            "Memo18",
+            "Mihai",
+            "Minisarm",
+            "Stelistcristi"
+        ]
+    },
+    "stabilization-tab": "config.",
+    "stabilization": "Stabilizarea paginii",
+    "stabilization-perm": "Contul tău nu are permisiunea de a schimba versiunea stabilă a configurației.\nIată configurația curentă pentru [[:$1|$1]]:",
+    "stabilization-page": "Numele paginii:",
+    "stabilization-leg": "Confirmați setările versiunii stabile",
+    "stabilization-def": "Versiune afișată pe vizualizarea implicită a paginii",
+    "stabilization-def1": "Revizia stabilă; dacă nu există, atunci cea curentă",
+    "stabilization-def2": "Ultima versiune",
+    "stabilization-restrict": "Restricții pentru revizualizarea automată",
+    "stabilization-restrict-none": "Nicio restricție suplimentară",
+    "stabilization-submit": "Confirmă",
+    "stabilization-notexists": "Nu există nicio pagină numită „[[:$1|$1]]”.\nConfigurarea nu este posibilă.",
+    "stabilization-notcontent": "Pagina „[[:$1|$1]]” nu poate fi revizuită.\nConfigurarea nu este posibilă.",
+    "stabilization-comment": "Motiv:",
+    "stabilization-otherreason": "Alte motive:",
+    "stabilization-expiry": "Expiră:",
+    "stabilization-othertime": "Alt timp:",
+    "stabilization-def-short": "Implicit",
+    "stabilization-def-short-0": "Curent",
+    "stabilization-def-short-1": "Stabil",
+    "stabilize_page_invalid": "Titlul paginii ţintă este invalid.",
+    "stabilize_page_notexists": "Pagina-ţintă nu există.",
+    "stabilize_invalid_level": "Nivel de protecție nevalid.",
+    "stabilize_expiry_invalid": "Data expirării incorectă.",
+    "stabilize_expiry_old": "Această dată de expirare a trecut deja.",
+    "stabilize_denied": "Permisiune refuzată.",
+    "stabilize-expiring": "expiră $1 (UTC)",
+    "stabilization-review": "Marchează versiunea curentă ca verificată"
+}

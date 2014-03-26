@@ -1,0 +1,39 @@
+{
+    "@metadata": {
+        "authors": [
+            "Praveenp",
+            "Shijualex"
+        ]
+    },
+    "stabilization-tab": "സ്ഥിരത",
+    "stabilization": "താളിന്റെ സ്ഥിരീകരണം",
+    "stabilization-text": "'''താഴെക്കൊടുത്തിരിക്കുന്ന സജ്ജീകരണങ്ങൾ ക്രമീകരിച്ച് [[:$1|$1]] താളിന്റെ സ്ഥിരതയുള്ള പതിപ്പ് എപ്രകാരം തിരഞ്ഞെടുക്കണമെന്നും പ്രദർശിപ്പിക്കണെമെന്നും നിർണ്ണയിക്കാം.'''",
+    "stabilization-perm": "പ്രസിദ്ധീകരിക്കപ്പെട്ട പതിപ്പിന്റെ ക്രമീകരണം മാറ്റുന്നതിനുള്ള അവകാശം താങ്കളുടെ അംഗത്വത്തിനില്ല. [[:$1|$1]]ന്റെ നിലവിലുള്ള ക്രമീകരണം ഇവിടെ കാണാം:",
+    "stabilization-page": "താളിന്റെ പേര്‌:",
+    "stabilization-leg": "പ്രസിദ്ധീകരിക്കപ്പെട്ട പതിപ്പിന്റെ ക്രമീകരണങ്ങൾ സ്ഥിരീകരിക്കുക",
+    "stabilization-def": "താളിന്റെ സ്വതേയുള്ള നിലയിൽ പ്രദർശിപ്പിക്കുന്ന പതിപ്പ്",
+    "stabilization-def1": "സ്ഥിരപ്പെടുത്തിയ പതിപ്പ്;\nഅതില്ലെങ്കിൽ ഏറ്റവും പുതിയ പതിപ്പ്",
+    "stabilization-def2": "ഒടുവിലത്തെ നാൾപ്പതിപ്പ്",
+    "stabilization-restrict": "സംശോധന/സ്വയം-സംശോധന പരിമിതപ്പെടുത്തലുകൾ",
+    "stabilization-restrict-none": "കൂടുതൽ പരിമിതപ്പെടുത്തലുകളില്ല",
+    "stabilization-submit": "സ്ഥിരീകരിക്കുക",
+    "stabilization-notexists": "\"[[:$1|$1]]\". എന്ന ഒരു താൾ നിലവിലില്ല. ക്രമീകരണങ്ങൾ നടത്തുന്നതിനു സാദ്ധ്യമല്ല.",
+    "stabilization-notcontent": "\"[[:$1|$1]]\" എന്ന താൾ സം‌ശോധനം ചെയ്യുന്നതിനു സാദ്ധ്യമല്ല. ക്രമീകരണം അനുവദനീയമല്ല.",
+    "stabilization-comment": "കാരണം:",
+    "stabilization-otherreason": "മറ്റു കാരണം:",
+    "stabilization-expiry": "കാലാവധി:",
+    "stabilization-othertime": "മറ്റ് കാലയളവ്:",
+    "stabilization-def-short": "സ്വതേ",
+    "stabilization-def-short-0": "നിലവിലുള്ളത്",
+    "stabilization-def-short-1": "പ്രസിദ്ധീകരിക്കപ്പെട്ടത്",
+    "stabilize_page_invalid": "താളിനു ലക്ഷ്യമിട്ട പേര് അസാധുവാണ്.",
+    "stabilize_page_notexists": "ലക്ഷ്യമിട്ട താൾ നിലവിലില്ല.",
+    "stabilize_page_unreviewable": "ലക്ഷ്യമിട്ട താൾ സംശോധനം ചെയ്യാവുന്ന നാമമേഖലയിലല്ല.",
+    "stabilize_invalid_autoreview": "അസാധുവായ സ്വയംസംശോധന പരിമിതപ്പെടുത്തൽ",
+    "stabilize_invalid_level": "അസാധുവായ സംരക്ഷണ മാനം.",
+    "stabilize_expiry_invalid": "അസാധുവായ കാലാവധി തീയതി.",
+    "stabilize_expiry_old": "ഈ കാലാവധി സമയം കഴിഞ്ഞു പോയി.",
+    "stabilize_denied": "അനുമതി നിഷേധിച്ചിരിക്കുന്നു.",
+    "stabilize-expiring": "കാലാവധി തീരുന്നത് - $1 (UTC)",
+    "stabilization-review": "ഇപ്പോഴുള്ള പതിപ്പ് പരിശോധിച്ചതായി അടയാളപ്പെടുത്തുക"
+}

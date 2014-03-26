@@ -1,0 +1,14 @@
+{
+    "@metadata": {
+        "authors": [
+            "Fulup",
+            "Y-M D"
+        ]
+    },
+    "reviewedversions": "Stummoù adwelet",
+    "reviewedversions-leg1": "Adweladennoù diwezhañ ur bajenn",
+    "reviewedversions-page": "Anv ar bajenn :",
+    "reviewedversions-none": "\"[[:$1]]\" n'eus stumm adwelet ebet dioutañ",
+    "reviewedversions-list": "War ar roll da-heul emañ {{PLURAL:$2|an adweladenn nemeti|eus an adweladennoù}} eus [[:$1]] hag {{PLURAL:$2|a zo bet|a zo bet}} adwelet :",
+    "reviewedversions-review": "Adwelet d'an <i>$1</i> gant $2"
+}

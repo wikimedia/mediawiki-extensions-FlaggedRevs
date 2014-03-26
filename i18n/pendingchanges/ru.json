@@ -1,0 +1,28 @@
+{
+    "@metadata": {
+        "authors": [
+            "Ferrer",
+            "JenVan",
+            "Kaganer",
+            "Lockal",
+            "MaxSem",
+            "Putnik",
+            "Александр Сигачёв"
+        ]
+    },
+    "pendingchanges": "Страницы с непроверенными изменениями",
+    "pendingchanges-legend": "Список проверенных страниц с непроверенными версиями",
+    "pendingchanges-list": "На этой странице перечислены  [[{{MediaWiki:Validationpage}}|проверенные]] страницы с правками, ожидающими проверки.",
+    "pendingchanges-none": "В настоящее время нет страниц, удовлетворяющих этим условиям",
+    "pendingchanges-hours": "($1 {{PLURAL:$1|час|часов|часа}})",
+    "pendingchanges-days": "($1 {{PLURAL:$1|день|дней|дня}})",
+    "pendingchanges-recent": "(менее 1 часа)",
+    "pendingchanges-category": "Категория:",
+    "pendingchanges-onwatchlist": "Страницы из моего списка наблюдения",
+    "pendingchanges-stable": "Стабильная версия по умолчанию",
+    "pendingchanges-diff": "проверить",
+    "pendingchanges-size": "Наибольшее изменение в байтах:",
+    "pendingchanges-unwatched": "(не следят)",
+    "pendingchanges-watched": "({{PLURAL:$1|следит $1 активный участник|следят $1 активных участников|следят $1 активных участника}})",
+    "pendingchanges-viewing": "(проверяются)"
+}

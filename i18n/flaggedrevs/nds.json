@@ -1,0 +1,20 @@
+{
+    "@metadata": {
+        "authors": [
+            "Joachim Mos",
+            "Slomox"
+        ]
+    },
+    "flaggedrevs": "Tekente Versionen",
+    "review-logentry-app": "hett de Version $2 vun „[[$1]]“ markeert",
+    "revreview-accuracy-2": "akraat",
+    "revreview-auto": "(automaatsch)",
+    "revreview-depth": "Deep",
+    "revreview-depth-3": "hooch",
+    "revreview-quick-invalid": "'''Ungüllige Versions-ID'''",
+    "revreview-style": "Leesborkeit",
+    "revreview-style-2": "Good",
+    "revreview-toggle-title": "wies/versteek Details",
+    "revreview-revnotfound": "De Version vun disse Siet, no de du söökst, kunn nich funnen warrn. Prööv de URL vun disse Siet.",
+    "revreview-filter-all": "all"
+}

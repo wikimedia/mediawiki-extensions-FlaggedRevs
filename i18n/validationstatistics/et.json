@@ -1,0 +1,25 @@
+{
+    "@metadata": {
+        "authors": [
+            "Avjoska",
+            "KalmerE.",
+            "Pikne"
+        ]
+    },
+    "validationstatistics": "Ülevaatuse arvandmestik",
+    "validationstatistics-users": "Praegu on '''{{GRAMMAR:inessive|{{SITENAME}}}}''' '''[[Special:ListUsers/editor|$1]]''' [[{{MediaWiki:Validationpage}}|toimetaja]] õigustes {{PLURAL:$1|kasutaja|kasutajat}}.\n\nToimetajad on tunnustatud kasutajad, kes saavad lehekülgedel tehtud muudatused põgusalt üle vaadata.",
+    "validationstatistics-lastupdate": "''Järgmiste andmete viimane uuendamisaeg: $1, kell $2.''",
+    "validationstatistics-pndtime": "Tunnustatud kasutaja tehtud muudatuse olekuks arvatakse \"{{int:validationstatistics-stable}}\".\n\nKeskmine viiteaeg [[Special:OldReviewedPages|praegu ootel muudatustega lehekülgede ülevaatamiseks]] on '''$1'''; viiteaeg näitab kui kaua on olnud vanim ootel muudatus üle vaatamata.",
+    "validationstatistics-revtime": "''Sisselogimata kasutajate'' tehtud muudatuste ooteaeg ülevaatamiseks on keskmiselt '''$1'''; mediaan on '''$2'''.\n$3",
+    "validationstatistics-table": "Allpool on toodud lehekülgede ülevaatamisarvandmed nimeruumiti, ''välja arvatud'' ümbersuunamisleheküljed.\nLehekülje olekuks arvatakse \"{{int:validationstatistics-old}}\", kui mõni selle muudatus ootab ülevaatamist;\nlehekülje olekuks arvatakse \"{{int:validationstatistics-latest}}\", kui ükski selle muudatus ei oota ülevaatamist.",
+    "validationstatistics-ns": "Nimeruum",
+    "validationstatistics-total": "Lehekülgi",
+    "validationstatistics-stable": "Ülevaadatud",
+    "validationstatistics-latest": "Ühtiv",
+    "validationstatistics-synced": "Ühtiv või ülevaadatud",
+    "validationstatistics-old": "Iganenud",
+    "validationstatistics-unreviewed": "Ülevaatamata",
+    "validationstatistics-utable": "Allpool on toodud viimase {{PLURAL:$2|tunni|$2 tunni}} {{PLURAL:$1|aktiivseim ülevaataja|$1 aktiivsemat ülevaatajat}}.",
+    "validationstatistics-user": "Kasutaja",
+    "validationstatistics-reviews": "Ülevaatamisi"
+}

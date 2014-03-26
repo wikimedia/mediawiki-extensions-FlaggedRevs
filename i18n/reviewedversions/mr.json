@@ -1,0 +1,15 @@
+{
+    "@metadata": {
+        "authors": [
+            "Htt",
+            "Kaustubh",
+            "V.narsikar"
+        ]
+    },
+    "reviewedversions": "पुनरावलोकित आवृत्त्या पहा",
+    "reviewedversions-leg1": "एखाद्या पानाच्या तपासलेल्या आवृत्त्यांची यादी",
+    "reviewedversions-page": "पृष्ठ नाव",
+    "reviewedversions-none": "\"[[:$1]]\" ला कुठल्याही तपासलेल्या आवृत्त्या नाहीत.",
+    "reviewedversions-list": "खाली [[:$1]]  {{PLURAL:$2|ची तपासल्या गेलेली|च्या तपासल्या गेलेल्या}}{{PLURAL:$2|एकमेव आवृत्ती|आवृत्त्या}} ची यादी आहे:",
+    "reviewedversions-review": "$2 द्वारा <i>$1</i> रोजी तपासली गेली"
+}

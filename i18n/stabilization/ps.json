@@ -1,0 +1,17 @@
+{
+    "@metadata": {
+        "authors": [
+            "Ahmed-Najib-Biabani-Ibrahimkhel"
+        ]
+    },
+    "stabilization-page": "د مخ نوم:",
+    "stabilization-submit": "تاييد",
+    "stabilization-comment": "سبب:",
+    "stabilization-otherreason": "بل سبب:",
+    "stabilization-expiry": "د پای نېټه:",
+    "stabilization-othertime": "بل وخت:",
+    "stabilization-def-short": "تلواليز",
+    "stabilization-def-short-0": "اوسنی",
+    "stabilization-def-short-1": "ثابت",
+    "stabilize-expiring": "په $1 (UTC) پای ته رسېږي"
+}

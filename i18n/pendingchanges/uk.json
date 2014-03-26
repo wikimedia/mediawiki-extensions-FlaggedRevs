@@ -1,0 +1,25 @@
+{
+    "@metadata": {
+        "authors": [
+            "Ahonc",
+            "NickK",
+            "Prima klasy4na",
+            "Тест"
+        ]
+    },
+    "pendingchanges": "Сторінки з нерецензованими змінами",
+    "pendingchanges-legend": "Список перевірених сторінок з неперевіреними версіями",
+    "pendingchanges-list": "Ця сторінка містить список [[{{MediaWiki:Validationpage}}|рецензованих]] сторінок, що мають одне або більше нерецензованих редагувань.",
+    "pendingchanges-none": "Зараз нема сторінок, що задовольняють цим умовам",
+    "pendingchanges-hours": "($1 {{PLURAL:$1|година|години|годин}})",
+    "pendingchanges-days": "($1 {{PLURAL:$1|день|дні|днів}})",
+    "pendingchanges-recent": "(менше 1 години)",
+    "pendingchanges-category": "Категорія:",
+    "pendingchanges-onwatchlist": "Сторінки з мого списку спостереження",
+    "pendingchanges-stable": "Стабільна версія за умовчанням",
+    "pendingchanges-diff": "перевірити",
+    "pendingchanges-size": "Максимальна зміна розміру в байтах:",
+    "pendingchanges-unwatched": "(не спостерігають)",
+    "pendingchanges-watched": "({{PLURAL:$1|спостерігає $1 активний користувач|спостерігають $1 активних користувачі|спостерігають $1 активних користувачів}})",
+    "pendingchanges-viewing": "(перевіряється)"
+}

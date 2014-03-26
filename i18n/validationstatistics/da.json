@@ -1,0 +1,12 @@
+{
+    "@metadata": {
+        "authors": [
+            "Froztbyte"
+        ]
+    },
+    "validationstatistics-ns": "Navnerum",
+    "validationstatistics-total": "Sider",
+    "validationstatistics-stable": "Vurderet",
+    "validationstatistics-old": "Forældet",
+    "validationstatistics-user": "Bruger"
+}

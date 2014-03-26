@@ -1,0 +1,42 @@
+{
+    "@metadata": {
+        "authors": [
+            "Erkan Yilmaz",
+            "Joseph",
+            "Karduelis",
+            "Manco Capac",
+            "Srhat"
+        ]
+    },
+    "stabilization-tab": "vet",
+    "stabilization": "Sayfa kararlılaştırılması",
+    "stabilization-text": "'''[[:$1|$1]] için kararlı sürümün nasıl seçilip görüntüleneceğini ayarlamak için ayarları değiştirin.'''",
+    "stabilization-perm": "Hesabınızın kararlı sürüm yapılandırmasını değiştirmeye izni yok.\n[[:$1|$1]] için şuanki ayarlar:",
+    "stabilization-page": "Sayfa adı:",
+    "stabilization-leg": "Kararlı sürüm ayarlarını onayla",
+    "stabilization-def": "Varsayılan sayfa görünümünde gösterilen revizyon",
+    "stabilization-def1": "Kararlı sürümü; eğer yoksa, halihazırdaki son sürümü",
+    "stabilization-def2": "Son sürüm",
+    "stabilization-restrict": "İnceleme/oto-inceleme kısıtlamaları",
+    "stabilization-restrict-none": "Başka ilave kısıtlama yok",
+    "stabilization-submit": "Tespit et",
+    "stabilization-notexists": "\"[[:$1|$1]]\" adında bir sayfa yok.\nYapılandırma mümkün değil.",
+    "stabilization-notcontent": "\"[[:$1|$1]]\" sayfası gözden geçirilemiyor.\nYapılandırma mümkün değil.",
+    "stabilization-comment": "Sebep:",
+    "stabilization-otherreason": "Diğer sebep:",
+    "stabilization-expiry": "Süresi bitiyor:",
+    "stabilization-othertime": "Diğer zaman:",
+    "stabilization-def-short": "Varsayılan",
+    "stabilization-def-short-0": "Şu anki",
+    "stabilization-def-short-1": "Kararlı",
+    "stabilize_page_invalid": "Hedef sayfa başlığı geçersiz.",
+    "stabilize_page_notexists": "Hedef sayfa mevcut değil.",
+    "stabilize_page_unreviewable": "Hedef sayfa incelenebilir ad boşluğunda değil.",
+    "stabilize_invalid_autoreview": "Geçersiz oto-inceleme kısıtlaması",
+    "stabilize_invalid_level": "Geçersiz koruma seviyesi.",
+    "stabilize_expiry_invalid": "Geçersiz sona erme tarihi.",
+    "stabilize_expiry_old": "Sona erme tarihi zaten geçmiş.",
+    "stabilize_denied": "İzin verilmedi.",
+    "stabilize-expiring": "$1 (UTC) tarihinde sona eriyor",
+    "stabilization-review": "Geçerli sürümü kontrol edilmiş olarak işaretle"
+}

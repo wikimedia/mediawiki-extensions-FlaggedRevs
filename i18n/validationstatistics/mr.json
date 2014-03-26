@@ -1,0 +1,21 @@
+{
+    "@metadata": {
+        "authors": [
+            "V.narsikar"
+        ]
+    },
+    "validationstatistics": "पान पुनरावलोकन सांख्यिकी",
+    "validationstatistics-users": "'''{{SITENAME}}'''वर सध्या '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|सदस्य}} [[{{MediaWiki:Validationpage}}|संपादक]] अधिकारासह आहेत.\nहे संपादक प्रस्थापित सदस्य आहेत जे  पानांच्या आवृत्तींची जागेवरच तपासणी करू शकतात.",
+    "validationstatistics-lastupdate": "''$1 ला $2 वाजता खालील माहिती शेवटली अद्यतन केल्या गेली.''",
+    "validationstatistics-pndtime": "ती संपादने जी प्रस्थापित सदस्यांनी तपासलेली असतात त्यांना ''{{int:validationstatistics-stable}}'' समजल्या जाते. [[Special:OldReviewedPages|पाने ज्यांची संपादने सध्या तपासणीसाठी प्रलंबित आहेत]] यासाठी तपासण्याचा सरासरी उशीर हा '''$1''' आहे;हा उशीर जुन्यात-जूने संपादन किती वेळ अपुनरावलोकित होते ते मोजतो.",
+    "validationstatistics-revtime": "\"ते सदस्य जे सनोंद-प्रवेशित नाहीत\" अश्या सदस्यांचा संपादनांचा पुनरावलोकनासाठी सरासरी थांबा'''$1''' आहे;त्याचा मध्य '''$2'''आहे.\n\n$3",
+    "validationstatistics-table": "प्रत्येक नामविश्वासाठी पान पुनरावलोकन सांख्यिकी खाली दाखविलेली आहे,पुनर्निर्देशित पाने ''वगळुन''.पाने ही  ''{{int:validationstatistics-old}}'' समजल्या जातात जेंव्हा त्यांची संपादने तपासावयाची बाकी असतात;पाने ही  ''{{int:validationstatistics-latest}}''  समजल्या जातात जेंव्हा त्यांची संपादने तपासावयाची बाकी नसतात.",
+    "validationstatistics-ns": "नामविश्व",
+    "validationstatistics-total": "पाने",
+    "validationstatistics-stable": "पुनरावलोकित",
+    "validationstatistics-old": "जूनी",
+    "validationstatistics-unreviewed": "अपुनरावलोकीत",
+    "validationstatistics-utable": "मागील {{PLURAL:$2|तासात|$2 तासांत}} {{PLURAL:$1|सर्वात सक्रिय तपासनिसाची|$1 सर्वात सक्रिय तपासनिसांची}} यादी खाली दिलेली आहे .",
+    "validationstatistics-user": "सदस्य",
+    "validationstatistics-reviews": "समीक्षण"
+}

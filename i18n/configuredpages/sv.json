@@ -1,0 +1,15 @@
+{
+    "@metadata": {
+        "authors": [
+            "Ainali",
+            "Boivie",
+            "Dafer45"
+        ]
+    },
+    "configuredpages": "Sidor med granskningsinställningar",
+    "configuredpages-list": "Nedan är en lista över sidor konfigurerade för att ha olika godkännandeinställningar än platsens standard.\nVissa inställningar kan ändra vilken version som visas för läsarna eller ytterligare begränsa vem som kan göra ändringar som inte kräver granskning.",
+    "configuredpages-none": "Det finns inga sidor i den här listan.",
+    "configuredpages-config": "Konfiguration",
+    "configuredpages-def-draft": "senaste versionen",
+    "configuredpages-def-stable": "Publicerad version"
+}

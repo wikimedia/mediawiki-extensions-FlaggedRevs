@@ -1,0 +1,11 @@
+{
+    "@metadata": {
+        "authors": [
+            "Mdupont"
+        ]
+    },
+    "unreviewedpages-viewing": "(Në shqyrtim)",
+    "unreviewedpages-hours": "($1 {{PLURAL:$1|orë|orë}})",
+    "unreviewedpages-days": "($1 {{PLURAL:$1|ditë|ditët}})",
+    "unreviewedpages-recent": "(Më pak se 1 orë)"
+}

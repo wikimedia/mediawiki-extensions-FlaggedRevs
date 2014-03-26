@@ -1,0 +1,15 @@
+{
+    "@metadata": {
+        "authors": [
+            "Dalibor Bosits",
+            "Dnik",
+            "SpeedyGonsales"
+        ]
+    },
+    "reviewedversions": "Pregledane inačice",
+    "reviewedversions-leg1": "Popis ocijenjenih inačica stranice",
+    "reviewedversions-page": "Ime stranice:",
+    "reviewedversions-none": "Članak \"[[:$1]]\" nema ocijenjenih inačica.",
+    "reviewedversions-list": "Slijedi popis {{PLURAL:$2|jedne inačice|inačica}} od [[:$1]] {{PLURAL:$2|koja je ocijenjena|koje su ocijenjene}}:",
+    "reviewedversions-review": "Ocijenjeno <i>$1</i> od suradnika $2"
+}

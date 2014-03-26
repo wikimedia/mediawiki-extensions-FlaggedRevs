@@ -1,0 +1,21 @@
+{
+    "@metadata": {
+        "authors": [
+            "Kiranmayee",
+            "Veeven",
+            "వైజాసత్య"
+        ]
+    },
+    "unreviewedpages": "సమీక్షించని పేజీలు",
+    "unreviewedpages-legend": "సమీక్షించని పాఠ్య పేజీల జాబితా",
+    "unreviewedpages-category": "వర్గం:",
+    "unreviewedpages-diff": "సమీక్షించండి",
+    "unreviewedpages-unwatched": "(వీక్షణలో లేనివి)",
+    "unreviewedpages-watched": "($1 {{PLURAL:$1|క్రియాశీల వాడుకరి|గురు క్రియాశీల వాడుకరులు}} వీక్షిస్తున్నారు)",
+    "unreviewedpages-list": "ఈ పేజీలో పేర్కొన్న స్థాయి వరకు సమీక్షించని వ్యాసాల జాబితా ప్రదర్సింపబడుతోంది.",
+    "unreviewedpages-none": "ఈ నియమాలకు సరిపోలుతున్న పేజీలు ఏమీ ప్రస్తుతం లేవు",
+    "unreviewedpages-viewing": "(సమీక్షలో ఉంది)",
+    "unreviewedpages-hours": "($1 {{PLURAL:$1|గంట|గంటలు}})",
+    "unreviewedpages-days": "($1 {{PLURAL:$1|రోజు|రోజులు}})",
+    "unreviewedpages-recent": "(ఒక గంట కంటే తక్కువ)"
+}

@@ -1,0 +1,12 @@
+{
+    "@metadata": {
+        "authors": [
+            "Xqt"
+        ]
+    },
+    "pendingchanges-hours": "($1 {{PLURAL:$1|Schtund|Schtund}})",
+    "pendingchanges-days": "($1 {{PLURAL:$1|Daag|Daag}})",
+    "pendingchanges-recent": "(wennicher ass 1 Schtund)",
+    "pendingchanges-category": "Abdeeling:",
+    "pendingchanges-watched": "(vun $1 {{PLURAL:$1|aktivem Yuuser|aktive Yuuser}} gewatscht)"
+}

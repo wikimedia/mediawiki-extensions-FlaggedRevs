@@ -1,0 +1,16 @@
+{
+    "@metadata": {
+        "authors": [
+            "Alison",
+            "පසිඳු කාවින්ද"
+        ]
+    },
+    "revreview-depth-1": "Bunúsach",
+    "revreview-depth-2": "Meánach",
+    "revreview-depth-3": "q",
+    "revreview-edit": "Cuir in eagar",
+    "revreview-source": "Féach ar fhoinse",
+    "revreview-revnotfound": "Ní bhfuarthas seaneagrán an leathanaigh a d'iarr tú ar.\nCinntigh an URL a d'úsáid tú chun an leathanach seo a rochtain.",
+    "revreview-typefilter": "Saghas:",
+    "revreview-restriction-none": "Tada"
+}

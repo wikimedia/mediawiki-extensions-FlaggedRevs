@@ -1,0 +1,23 @@
+{
+    "@metadata": {
+        "authors": [
+            "Aftab1995",
+            "Bellayet"
+        ]
+    },
+    "pendingchanges": "অমীমাংসিত পরিবর্তনসহ পাতাসমূহ",
+    "pendingchanges-legend": "অমীমাংসিত পরিবর্তনসহ পর্যালোচিত পাতার তালিকা",
+    "pendingchanges-list": "এটি [[{{MediaWiki:Validationpage}}|পর্যালোচনাকৃত]] পাতায় এক বা একাধিক সম্পাদনা পর্যালোচনার জন্য অপেক্ষা করছে এমন পাতার তালিকা।",
+    "pendingchanges-none": "এই মানদণ্ড পূরণের মত কোন পাতা বর্তমানে নেই",
+    "pendingchanges-hours": "($1 {{PLURAL:$1|ঘণ্টা}})",
+    "pendingchanges-days": "($1 {{PLURAL:$1|দিন|দিন}})",
+    "pendingchanges-recent": "(১ ঘণ্টারও কম)",
+    "pendingchanges-category": "বিষয়শ্রেণী:",
+    "pendingchanges-onwatchlist": "আমার নজরতালিকায় রাখা পাতাগুলি",
+    "pendingchanges-stable": "ডিফল্ট হিসাবে স্থিতিশীল সংস্করণ",
+    "pendingchanges-diff": "পর্যালোচনা",
+    "pendingchanges-size": "সর্বোচ্চ পরিবর্তন (বাইট):",
+    "pendingchanges-unwatched": "(অপর্যবেক্ষণকৃত)",
+    "pendingchanges-watched": "($1 জন সক্রিয় {{PLURAL:$1|ব্যবহারকারী}} নজর রাখছেন)",
+    "pendingchanges-viewing": "(পর্যালোচনা চলছে)"
+}

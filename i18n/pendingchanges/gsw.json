@@ -1,0 +1,22 @@
+{
+    "@metadata": {
+        "authors": [
+            "Als-Holder"
+        ]
+    },
+    "pendingchanges": "Syte mit hängige Änderige",
+    "pendingchanges-legend": "Lischt vu Syte, wu vum Fäldhieter gsäh sin mit Versione, wu nit gsäh sin",
+    "pendingchanges-list": "Die Spezialsyte zeigt [[{{MediaWiki:Validationpage}}|markierti]] Syte mit eire oder mehrere nit markierte Bearbeitige.",
+    "pendingchanges-none": "Im Momänt git s no kei Syte mit däne Kriterie.",
+    "pendingchanges-hours": "($1 {{PLURAL:$1|Stunde|Stunde}})",
+    "pendingchanges-days": "($1 {{PLURAL:$1|Tag|Täg}})",
+    "pendingchanges-recent": "(weniger wie 1 Stund)",
+    "pendingchanges-category": "Kategorii:",
+    "pendingchanges-onwatchlist": "Syten uf myyre Beobachtigslischt",
+    "pendingchanges-stable": "Di stabil Version isch Standard",
+    "pendingchanges-diff": "as Fäldhieter aaluege",
+    "pendingchanges-size": "Maximali Änderigsgreßi in Byte:",
+    "pendingchanges-unwatched": "(nit beobachtet)",
+    "pendingchanges-watched": "(vu $1 aktive {{PLURAL:$1|Benutzer|Benutzer}} beobachtet)",
+    "pendingchanges-viewing": "(wird prieft)"
+}

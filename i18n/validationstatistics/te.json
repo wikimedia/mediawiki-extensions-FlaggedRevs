@@ -1,0 +1,20 @@
+{
+    "@metadata": {
+        "authors": [
+            "Kiranmayee",
+            "Veeven"
+        ]
+    },
+    "validationstatistics": "పేజీ సమీక్షల గణాంకాలు",
+    "validationstatistics-users": "'''{{SITENAME}}'''లో ప్రస్తుతం '''[[Special:ListUsers/editor|$1]]'''{{PLURAL:$1| వాడుకరి|గురు వాడుకరులు}} [[{{MediaWiki:Validationpage}}|సంపాదకుల]] హక్కులతోనూ మరియు '''[[Special:ListUsers/reviewer|$2]]'''{{PLURAL:$2| వాడుకరి|గురు వాడుకరులు}}  [[{{MediaWiki:Validationpage}}|సమీక్షకుల]] హక్కులతోనూ ఉన్నారు.\n\nసంపాదకులు మరియు సమీక్షకులు అంటే పేజీలకు కూర్పులను ఎప్పటికప్పుడు సరిచూడగలిగిన నిర్ధారిత వాడుకరులు.",
+    "validationstatistics-table": "ప్రతీ పేరుబరి యొక్క గణాంకాలు క్రింద చూపించాం, దారిమార్పు పేజీలని ''మినహాయించి''.",
+    "validationstatistics-ns": "పేరుబరి",
+    "validationstatistics-total": "పేజీలు",
+    "validationstatistics-stable": "రివ్యూడ్",
+    "validationstatistics-latest": "సింకుడు",
+    "validationstatistics-synced": "సింకుడు/రివ్యూడ్",
+    "validationstatistics-old": "పాతవి",
+    "validationstatistics-utable": "ఇది గడచిన గంటలో {{PLURAL:$1|ఒక|$1గురు}} అత్యంత క్రియాశీల సమీక్షకుల యొక్క జాబితా.",
+    "validationstatistics-user": "వాడుకరి",
+    "validationstatistics-reviews": "సమీక్షలు"
+}

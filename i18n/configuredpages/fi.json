@@ -1,0 +1,14 @@
+{
+    "@metadata": {
+        "authors": [
+            "Olli",
+            "Pxos"
+        ]
+    },
+    "configuredpages": "Sivut, joilla on oletusarvoista poikkeavia arviointiasetuksia",
+    "configuredpages-list": "Alla on luettelo sivuista, joilla on oletusasetuksista poikkeavat arvioinnin hyväksymisasetukset.\nJotkut asetukset saattavat vaikuttaa siihen, mikä versio näytetään lukijoille, tai rajoittaa sitä, kuka voi tehdä sellaisia muokkauksia, jotka eivät vaadi arviointia.",
+    "configuredpages-none": "Tällä listalla ei ole sivuja.",
+    "configuredpages-config": "Asetukset",
+    "configuredpages-def-draft": "uusin versio",
+    "configuredpages-def-stable": "vakaa versio"
+}

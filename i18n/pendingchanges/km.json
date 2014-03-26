@@ -1,0 +1,17 @@
+{
+    "@metadata": {
+        "authors": [
+            "Lovekhmer",
+            "Thearith",
+            "គីមស៊្រុន"
+        ]
+    },
+    "pendingchanges-hours": "($1 {{PLURAL:$1|ម៉ោង|ម៉ោង}})",
+    "pendingchanges-days": "($1{{PLURAL:$1|ថ្ងៃ|ថ្ងៃ}})",
+    "pendingchanges-recent": "(តិចជាង១ម៉ោង)",
+    "pendingchanges-category": "ចំណាត់ថ្នាក់ក្រុម៖",
+    "pendingchanges-diff": "ពិនិត្យឡើងវិញ",
+    "pendingchanges-size": "បំលាស់ប្ដូរ​អតិបរមារ (បៃ):",
+    "pendingchanges-unwatched": "(មិន​ត្រូវ​បាន​ដានដាន)",
+    "pendingchanges-watched": "($1 {{PLURAL:$1|អ្នកប្រើប្រាស់|អ្នកប្រើប្រាស់}} សកម្ម​កំពុង​តាមដាន)"
+}

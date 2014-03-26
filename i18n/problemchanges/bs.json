@@ -1,0 +1,12 @@
+{
+    "@metadata": {
+        "authors": [
+            "CERminator"
+        ]
+    },
+    "problemchanges": "Označene promjene na čekanju",
+    "problemchanges-list": "Ova stranica prikazuje [[{{MediaWiki:Validationpage}}|pregledane]] stranice koje imaju jednu ili više označenih izmjena koje čekaju provjeru. Spisak [[Special:Tags|valjanih oznaka izmjena]] je dostupan.",
+    "problemchanges-legend": "Spisak stranica sa označenim izmjenama koje čekaju pregled",
+    "problemchanges-none": "Trenutno nema stranica koje zadovoljavaju ove kriterije",
+    "problemchanges-category": "Kategorija:"
+}

@@ -1,0 +1,29 @@
+{
+    "@metadata": {
+        "authors": [
+            "Aaron Schulz",
+            "Darth Kule",
+            "Fryed-peach",
+            "Jon Harald Søby",
+            "Kghbln",
+            "Purodha",
+            "Raymond",
+            "Shirayuki",
+            "Siebrand",
+            "Umherirrender"
+        ]
+    },
+    "action-unreviewedpages": "{{doc-action|unreviewedpages}}",
+    "unreviewedpages": "{{Flagged Revs}}\nName of the [[Special:UnreviewedPages]] page, which lists out pages lacking a stable version.",
+    "unreviewedpages-legend": "{{Flagged Revs}}\nUsed on the page Special:UnreviewedPages.\nNote that \"content pages\" are any page that *can* be reviewed.\n{{Identical|Content page}}",
+    "unreviewedpages-category": "{{Flagged Revs}}\nUsed on the page Special:UnreviewedPages.\n{{Identical|Category}}",
+    "unreviewedpages-diff": "{{Flagged Revs}}\nUsed on the page Special:UnreviewedPages.\n{{Identical|Review}}",
+    "unreviewedpages-unwatched": "{{Flagged Revs}}\nUsed on the page [[Special:UnreviewedPages]].",
+    "unreviewedpages-watched": "{{Flagged Revs}}\nUsed on the page [[Special:UnreviewedPages]].\n* $1 is the number of active users that have the page on their watchlist\nNote that \"active\" is based roughly on logging in and out",
+    "unreviewedpages-list": "{{Flagged Revs}}\nRefers to {{msg-mw|Validationpage}}.\n\nParameters:\n* $1 - (Optional) number of items in the list, to be used with PLURAL, when unavoidable\n{{Identical|Content page}}",
+    "unreviewedpages-none": "{{Flagged Revs}}\nUsed on the page [[Special:UnreviewedPages]].",
+    "unreviewedpages-viewing": "{{Flagged Revs}}\nUsed on the page [[Special:UnreviewedPages]].\nMessage indicates that someone is looking at this pages for review right now.",
+    "unreviewedpages-hours": "{{Flagged Revs}}\nUsed on the page [[Special:UnreviewedPages]]. Parameters:\n* $1 - number of hours\n{{Related|Unreviewedpages-hours}}",
+    "unreviewedpages-days": "{{Flagged Revs}}\nUsed on the page [[Special:UnreviewedPages]]. Parameters:\n* $1 - number of days\n{{Related|Unreviewedpages-hours}}",
+    "unreviewedpages-recent": "{{Flagged Revs}}\nUsed on the page [[Special:UnreviewedPages]].\n{{Related|Unreviewedpages-hours}}"
+}

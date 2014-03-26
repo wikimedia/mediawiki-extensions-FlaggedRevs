@@ -1,0 +1,42 @@
+{
+    "@metadata": {
+        "authors": [
+            "AS",
+            "Ahonc",
+            "NickK",
+            "Prima klasy4na",
+            "Тест"
+        ]
+    },
+    "stabilization-tab": "(кя)",
+    "stabilization": "Стабілізація сторінки",
+    "stabilization-text": "'''Змініть наведені нижче налаштування, щоб упорядкувати вибір і відображення опублікованої версії [[:$1|$1]].'''",
+    "stabilization-perm": "Вашому обліковому запису не вистачає прав для зміни налаштувань опублікованої версії.\nТут наведені поточні налаштування для [[:$1|$1]]:",
+    "stabilization-page": "Назва сторінки:",
+    "stabilization-leg": "Підтвердження налаштувань опублікованої версії",
+    "stabilization-def": "Версія, що показується за умовчанням",
+    "stabilization-def1": "Стабільна версія; якщо такої нема, то остання версія",
+    "stabilization-def2": "Остання версія",
+    "stabilization-restrict": "Обмеження рецензування/авторецензування",
+    "stabilization-restrict-none": "Без додаткових обмежень",
+    "stabilization-submit": "Підтвердити",
+    "stabilization-notexists": "Відсутня сторінка з назвою «[[:$1|$1]]».\nНалаштування неможливе.",
+    "stabilization-notcontent": "Сторінка «[[:$1|$1]]» не може бути перевірена.\nНалаштування неможливе.",
+    "stabilization-comment": "Причина:",
+    "stabilization-otherreason": "Інша причина:",
+    "stabilization-expiry": "Закінчується:",
+    "stabilization-othertime": "Інший час:",
+    "stabilization-def-short": "Стандартно",
+    "stabilization-def-short-0": "Поточна",
+    "stabilization-def-short-1": "Опублікована",
+    "stabilize_page_invalid": "Неприпустима назва цільової сторінки.",
+    "stabilize_page_notexists": "Цільової сторінки не існує.",
+    "stabilize_page_unreviewable": "Цільова сторінка не перебуває в просторі назв, що може рецензуватись.",
+    "stabilize_invalid_autoreview": "Невірне обмеження автоматичного рецензування.",
+    "stabilize_invalid_level": "Невірний рівень захисту.",
+    "stabilize_expiry_invalid": "Помилкова дата закінчення.",
+    "stabilize_expiry_old": "Зазначений час закінчення пройшов.",
+    "stabilize_denied": "Доступ заборонено.",
+    "stabilize-expiring": "закінчується о $1 (UTC)",
+    "stabilization-review": "Позначити поточну версію перевіреною"
+}

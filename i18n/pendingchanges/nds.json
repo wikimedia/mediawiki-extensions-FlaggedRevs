@@ -1,0 +1,12 @@
+{
+    "@metadata": {
+        "authors": [
+            "Slomox"
+        ]
+    },
+    "pendingchanges-hours": "($1 {{PLURAL:$1|Stünn|Stünnen}})",
+    "pendingchanges-days": "($1 {{PLURAL:$1|Dag|Daag}})",
+    "pendingchanges-recent": "(weniger as een Stünn)",
+    "pendingchanges-category": "Kategorie:",
+    "pendingchanges-unwatched": "(op keen Oppasslist)"
+}

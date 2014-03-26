@@ -1,0 +1,13 @@
+{
+    "@metadata": {
+        "authors": [
+            "Pikne"
+        ]
+    },
+    "configuredpages": "Ülevaatamissätetega leheküljed",
+    "configuredpages-list": "Allpool on loetletud leheküljed, millele on seatud võrgukoha vaikesätetest erinevad  heakskiitmissätted.\nMõnest sättest võib oleneda, milline versioon lugejale kuvatakse või kes saab teha muudatusi, mis ei vaja ülevaatamist.",
+    "configuredpages-none": "Selles loendis pole lehekülgi.",
+    "configuredpages-config": "Sätted",
+    "configuredpages-def-draft": "uusim versioon",
+    "configuredpages-def-stable": "püsiv versioon"
+}

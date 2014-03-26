@@ -1,0 +1,17 @@
+{
+    "@metadata": {
+        "authors": [
+            "Sahran"
+        ]
+    },
+    "stabilization-page": "بەت ئاتى:",
+    "stabilization-submit": "جەزملە",
+    "stabilization-comment": "سەۋەب:",
+    "stabilization-expiry": "قەرەلى:",
+    "stabilization-othertime": "باشقا ۋاقىت:",
+    "stabilization-def-short": "كۆڭۈلدىكى",
+    "stabilization-def-short-0": "نۆۋەتتىكى",
+    "stabilization-def-short-1": "مۇقىم",
+    "stabilize_denied": "ھوقۇق يوق.",
+    "stabilize-expiring": "$1 (UTC) توختىتىلغان"
+}

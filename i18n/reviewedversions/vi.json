@@ -1,0 +1,14 @@
+{
+    "@metadata": {
+        "authors": [
+            "Minh Nguyen",
+            "Vinhtantran"
+        ]
+    },
+    "reviewedversions": "Phiên bản đã duyệt",
+    "reviewedversions-leg1": "Liệt kê những bản đã được duyệt của một trang",
+    "reviewedversions-page": "Tên trang:",
+    "reviewedversions-none": "\"[[:$1]]\" không có bản nào được duyệt.",
+    "reviewedversions-list": "Dưới đây là danh sách {{PLURAL:$2|phiên bản|các phiên bản}} của [[:$1]] đã được duyệt:",
+    "reviewedversions-review": "Đã được $2 duyệt vào <i>$1</i>"
+}

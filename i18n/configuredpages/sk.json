@@ -1,0 +1,13 @@
+{
+    "@metadata": {
+        "authors": [
+            "Helix84"
+        ]
+    },
+    "configuredpages": "Stránky s nastavením kontroly",
+    "configuredpages-list": "Nižšie je zoznam stránok nakonfigurovaných tak, aby mali odlišné nastavenia schválenia ako je predvolený jazyk webu. \nNiektoré nastavenia môžu meniť verziu, ktorá je zobrazená pre čitateľa, alebo ďalej obmedziť, kto môže vykonávať úpravy, ktoré nevyžadujú kontrolu.",
+    "configuredpages-none": "V tomto zozname sa nenachádzajú žiadne stránky.",
+    "configuredpages-config": "Konfigurácia",
+    "configuredpages-def-draft": "najnovšia verzia",
+    "configuredpages-def-stable": "stabilná verzia"
+}

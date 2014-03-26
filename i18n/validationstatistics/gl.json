@@ -1,0 +1,23 @@
+{
+    "@metadata": {
+        "authors": [
+            "Toliño"
+        ]
+    },
+    "validationstatistics": "Estatísticas de revisión das páxinas",
+    "validationstatistics-users": "Actualmente, '''{{SITENAME}}''' ten '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|usuario|usuarios}} con\ndereitos de [[{{MediaWiki:Validationpage}}|editor]].\n\nOs editores son usuarios autoconfirmados que poden comprobar revisións de páxinas.",
+    "validationstatistics-lastupdate": "''Os seguintes datos actualizáronse o $1 ás $2.''",
+    "validationstatistics-pndtime": "As edicións que foron comprobadas por usuarios autoconfirmados teñen a marca ''{{int:validationstatistics-stable}}''.\n\nA media de atraso para as [[Special:OldReviewedPages|páxinas con edicións actualmente sen revisión]] é de '''$1'''; isto mide o tempo que as edicións pendentes levan á espera dunha revisión.",
+    "validationstatistics-revtime": "A media de espera de revisión para as edicións feitas polos ''usuarios que non accederon ao sistema'' é de '''$1'''; o valor medio é de '''$2'''.\n$3",
+    "validationstatistics-table": "A continuación móstranse as estatísticas das revisións das páxinas para cada espazo de nomes, ''excluíndo'' as páxinas de redirección.\nAs páxinas coa marca ''{{int:validationstatistics-old}}'' teñen edicións á espera dunha revisión; as páxinas coa marca ''{{int:validationstatistics-latest}}'' non teñen edicións agardando por unha revisión.",
+    "validationstatistics-ns": "Espazo de nomes",
+    "validationstatistics-total": "Páxinas",
+    "validationstatistics-stable": "Revisado",
+    "validationstatistics-latest": "Sincronizado",
+    "validationstatistics-synced": "Sincronizado/Revisado",
+    "validationstatistics-old": "Obsoleto",
+    "validationstatistics-unreviewed": "Sen revisar",
+    "validationstatistics-utable": "A continuación está {{PLURAL:$1|o revisor máis activo|a lista cos $1 revisores máis activos}} {{PLURAL:$2|na última hora|nas últimas $2 horas}}.",
+    "validationstatistics-user": "Usuario",
+    "validationstatistics-reviews": "Revisións"
+}

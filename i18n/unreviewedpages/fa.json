@@ -1,0 +1,24 @@
+{
+    "@metadata": {
+        "authors": [
+            "Ebraminio",
+            "Huji",
+            "Mardetanha",
+            "Mjbmr",
+            "Reza1615"
+        ]
+    },
+    "action-unreviewedpages": "مشاهدهٔ صفحه‌های پی‌گیری نشده",
+    "unreviewedpages": "صفحه‌های بررسی‌نشده",
+    "unreviewedpages-legend": "فهرست صفحه‌های بازبینی نشده",
+    "unreviewedpages-category": "رده:",
+    "unreviewedpages-diff": "بازبینی",
+    "unreviewedpages-unwatched": "(پی‌گیری‌نشده)",
+    "unreviewedpages-watched": "({{PLURAL:$1|کاربر|کاربران}} فعال پی‌گیری‌کنندهٔ $1)",
+    "unreviewedpages-list": "این صفحه فهرستی از صفحاتی را نشان می‌دهد که هنوز تا سطح مشخص شده [[{{MediaWiki:Validationpage}}|بازبینی]] نشده‌اند.",
+    "unreviewedpages-none": "در حال حاضر صفحه‌ای که با این معیارها سازگار باشد وجود ندارد",
+    "unreviewedpages-viewing": "(در حال بررسی)",
+    "unreviewedpages-hours": "($1 {{PLURAL:$1|ساعت|ساعت}})",
+    "unreviewedpages-days": "($1 {{PLURAL:$1|روز|روز}})",
+    "unreviewedpages-recent": "(کمتر از ۱ ساعت)"
+}

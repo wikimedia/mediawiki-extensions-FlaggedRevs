@@ -1,0 +1,19 @@
+{
+    "@metadata": {
+        "authors": [
+            "Shinjiman"
+        ]
+    },
+    "pendingchanges": "已過時複審過嘅版",
+    "pendingchanges-legend": "列示有未複審修訂之複審過嘅版",
+    "pendingchanges-list": "呢一版列示咗有等緊編輯嘅評論版。",
+    "pendingchanges-none": "呢度現時無版係合乎呢啲條件",
+    "pendingchanges-hours": "($1個鐘頭)",
+    "pendingchanges-days": "($1日)",
+    "pendingchanges-recent": "(少過1個鐘頭)",
+    "pendingchanges-category": "類:",
+    "pendingchanges-stable": "察看",
+    "pendingchanges-diff": "複審",
+    "pendingchanges-unwatched": "(未睇)",
+    "pendingchanges-watched": "($1{{PLURAL:$1|位用戶|位用戶}}睇緊)"
+}

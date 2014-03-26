@@ -1,0 +1,22 @@
+{
+    "@metadata": {
+        "authors": [
+            "Toliño"
+        ]
+    },
+    "pendingchanges": "Páxinas con cambios pendentes",
+    "pendingchanges-legend": "Listar as páxinas revisadas con revisións sen revisar",
+    "pendingchanges-list": "Esta páxina lista as páxinas [[{{MediaWiki:Validationpage}}|revisadas]] que teñen edicións pendentes.",
+    "pendingchanges-none": "Actualmente non hai páxinas que reúnan eses criterios",
+    "pendingchanges-hours": "($1 {{PLURAL:$1|hora|horas}})",
+    "pendingchanges-days": "($1 {{PLURAL:$1|día|días}})",
+    "pendingchanges-recent": "(menos de 1 hora)",
+    "pendingchanges-category": "Categoría:",
+    "pendingchanges-onwatchlist": "Páxinas na miña lista de vixilancia",
+    "pendingchanges-stable": "A versión estable móstrase por defecto",
+    "pendingchanges-diff": "revisar",
+    "pendingchanges-size": "Tamaño máximo (en bytes):",
+    "pendingchanges-unwatched": "(sen vixiar)",
+    "pendingchanges-watched": "($1 {{PLURAL:$1|usuario activo|usuarios activos}} vixiando)",
+    "pendingchanges-viewing": "(en revisión)"
+}

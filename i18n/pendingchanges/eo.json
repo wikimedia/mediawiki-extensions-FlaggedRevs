@@ -1,0 +1,22 @@
+{
+    "@metadata": {
+        "authors": [
+            "Yekrats"
+        ]
+    },
+    "pendingchanges": "Paĝoj kun kontrolendaj ŝanĝoj",
+    "pendingchanges-legend": "Listigi reviziitajn paĝojn kun nereviziitaj versioj",
+    "pendingchanges-list": "Ĉi tiu paĝo montras {{PLURAL:$1|kontrolitan paĝon, kiu|kontrolitajn paĝojn, kiuj}} havas kontrolendajn redaktojn.",
+    "pendingchanges-none": "Nune neniuj paĝoj laŭ tiu kriterio.",
+    "pendingchanges-hours": "($1 {{PLURAL:$1|horo|horoj}})",
+    "pendingchanges-days": "($1 {{PLURAL:$1|tago|tagoj}})",
+    "pendingchanges-recent": "(malpli ol 1 horo)",
+    "pendingchanges-category": "Kategorio:",
+    "pendingchanges-onwatchlist": "Paĝoj en mia atentaro",
+    "pendingchanges-stable": "Stabila versio estas defaŭlta",
+    "pendingchanges-diff": "kontroli",
+    "pendingchanges-size": "Maksimuma ŝanĝo de bitokoj:",
+    "pendingchanges-unwatched": "(malatentita)",
+    "pendingchanges-watched": "($1 {{PLURAL:$1|aktiva uzanto|aktivaj uzantoj}} atentas)",
+    "pendingchanges-viewing": "(kontrolata)"
+}

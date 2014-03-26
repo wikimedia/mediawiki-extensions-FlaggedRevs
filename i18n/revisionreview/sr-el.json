@@ -1,0 +1,24 @@
+{
+    "@metadata": {
+        "authors": [
+            "Michaello"
+        ]
+    },
+    "revisionreview": "Pregled verzija",
+    "review_page_invalid": "Naslov ciljane strane je neispravan.",
+    "review_page_notexists": "Ciljana strana ne postoji.",
+    "review_page_unreviewable": "Ciljana strana se ne može pregledati.",
+    "revreview-flag": "Pregled ove verzije",
+    "revreview-invalid": "'''Loš cilj:''' nijedna [[{{MediaWiki:Validationpage}}|pregledana]] verzije ne poseduje dati redni broj.",
+    "revreview-log": "Komentar:",
+    "revreview-main": "Morate izabrati određenu izmenu stranice sa sadržajem da biste je proverili.\nPogledajte [[Special:Unreviewedpages|spisak nepregledanih stranica]].",
+    "revreview-stable2": "Možda biste hteli da vidite [{{fullurl:$1|stable=1}} prihvaćenu verziju] ove strane.",
+    "revreview-submit": "Pošalji",
+    "revreview-submitting": "Slanje...",
+    "revreview-submit-review": "Prihvati izmenu",
+    "revreview-submit-unreview": "Poništi izmenu",
+    "revreview-submit-reviewed": "Gotovo. Usvojeno!",
+    "revreview-submit-unreviewed": "Gotovo. Nije usvojeno!",
+    "revreview-successful2": "'''Uspešno je skinuta oznaka sa označene verzije strane [[:$1|$1]].'''",
+    "revreview-update-includes": "Ažurirani šabloni/datoteke (nepregledane stranice su podebljane):"
+}

@@ -1,0 +1,38 @@
+{
+    "@metadata": {
+        "authors": [
+            "Michawiki"
+        ]
+    },
+    "stabilization-tab": "pśekontrolowaś",
+    "stabilization": "Stabilizacija boka",
+    "stabilization-text": "'''Změń slědujuce nastajenja, aby póstajił, kak se wózjawjona wersija wót [[:$1|$1]] wuběra a zwobraznjujo.'''",
+    "stabilization-perm": "Twójo konto njama pšawo, aby změniło konfiguraciju wózjawjoneje wersije. How su aktualne nastajenja za [[:$1|$1]]:",
+    "stabilization-page": "Mě boka:",
+    "stabilization-leg": "Nastajenja wózjawjoneje wersije wobkšuśiś",
+    "stabilization-def": "Zwobraznjona wersija w standardnem bocnem naglěźe",
+    "stabilization-def1": "Stabilna wersija; jolic žedna njejo, ga nejnowša wersija",
+    "stabilization-def2": "Nejnowša wersija",
+    "stabilization-restrict": "Wobgranicowanja pśeglědanjow/awtomatiskich pséglědanjow",
+    "stabilization-restrict-none": "Žedne pśidatne wobgranicowanja",
+    "stabilization-submit": "Wobkšuśiś",
+    "stabilization-notexists": "Njejo bok z mjenim \"[[:$1|$1]]\".\nŽedna konfiguracija móžno.",
+    "stabilization-notcontent": "Bok \"[[:$1|$1]]\" njedajo se pśeglědaś.\nŽedna konfiguracija móžno.",
+    "stabilization-comment": "Pśicyna:",
+    "stabilization-otherreason": "Druga pśicyna:",
+    "stabilization-expiry": "Pśepadnjo:",
+    "stabilization-othertime": "Drugi cas:",
+    "stabilization-def-short": "Standard",
+    "stabilization-def-short-0": "Aktualny",
+    "stabilization-def-short-1": "Wózjawjony",
+    "stabilize_page_invalid": "Titel celowego boka jo njepłaśiwy.",
+    "stabilize_page_notexists": "Celowy bok njeeksistěrujo.",
+    "stabilize_page_unreviewable": "Celowy bok njejo w pśeglědujobnem mjenjowem rumje.",
+    "stabilize_invalid_autoreview": "Njepłaśiwe wobgranicowanje awtomatiskich pśeglědanjow.",
+    "stabilize_invalid_level": "Njepłaśiwy šćitowy schojźeńk.",
+    "stabilize_expiry_invalid": "Njpłaśiwy datum pśepadnjenja.",
+    "stabilize_expiry_old": "Toś ten cas pśepadnjenja jo se južo minuł.",
+    "stabilize_denied": "Pšawo wótpokazane.",
+    "stabilize-expiring": "pśepadnjo $1 (UTC)",
+    "stabilization-review": "Aktualnu wersiju ako pśekontrolěrowanu markěrowaś"
+}

@@ -1,0 +1,29 @@
+{
+    "@metadata": {
+        "authors": [
+            "Ahonc",
+            "DCamer",
+            "EugeneZelenko",
+            "Ferrer",
+            "Ignatus",
+            "Kaganer",
+            "NBS",
+            "Putnik",
+            "Sergey kudryavtsev",
+            "Александр Сигачёв"
+        ]
+    },
+    "action-unreviewedpages": "просмотр списка непроверенных страниц",
+    "unreviewedpages": "Непроверенные страницы",
+    "unreviewedpages-legend": "Список непроверенных статей",
+    "unreviewedpages-category": "Категория:",
+    "unreviewedpages-diff": "проверить",
+    "unreviewedpages-unwatched": "(не следят)",
+    "unreviewedpages-watched": "({{PLURAL:$1|следит $1 активный участник|следят $1 активных участников|следят $1 активных участника}})",
+    "unreviewedpages-list": "На этой странице перечислены статьи, которые ещё ''не'' были [[{{MediaWiki:Validationpage}}|оценены]] на указанный уровень.",
+    "unreviewedpages-none": "В настоящий момент нет страниц, удовлетворяющих указанным условиям",
+    "unreviewedpages-viewing": "(проверяется)",
+    "unreviewedpages-hours": "($1 {{PLURAL:$1|час|часов|часа}})",
+    "unreviewedpages-days": "($1 {{PLURAL:$1|день|дней|дня}})",
+    "unreviewedpages-recent": "(менее 1 часа)"
+}

@@ -1,0 +1,38 @@
+{
+    "@metadata": {
+        "authors": [
+            "Gunnernett",
+            "Harald Khan",
+            "Jon Harald Søby",
+            "Nghtwlkr",
+            "Njardarlogar"
+        ]
+    },
+    "stabilization-tab": "kvalitet",
+    "stabilization": "Sidestabilisering",
+    "stabilization-text": "'''Endra innstillingane nedanfor for å velja korleis den stabile versjonen av [[:$1|$1]] skal verta vald og synt.'''",
+    "stabilization-perm": "Brukarkontoen din har ikkje løyve til å endra innstillingane for stabile versjonar.\nHer er dei noverande innstillingane for [[:$1|$1]]:",
+    "stabilization-page": "Sidenamn:",
+    "stabilization-leg": "Stadfest innstillingane for stabile versjonar",
+    "stabilization-def": "Sideversjonen som skal verta nytta som standardvising",
+    "stabilization-def1": "Den stabile versjonen om han finst; om ikkje, den siste versjonen",
+    "stabilization-def2": "Den siste versjonen",
+    "stabilization-restrict": "Avgrensing på automelding",
+    "stabilization-restrict-none": "Ingen ekstra avgrensingar",
+    "stabilization-submit": "Stadfest",
+    "stabilization-notexists": "Det finst inga sida med tittelen «[[:$1|$1]]».\nIngen innstillingar kan verta gjort.",
+    "stabilization-notcontent": "Sida «[[:$1|$1]]» kan ikkje verta vurdert.\nIngen innstillingar kan verta gjorde.",
+    "stabilization-comment": "Årsak:",
+    "stabilization-otherreason": "Anna årsak",
+    "stabilization-expiry": "Endar:",
+    "stabilization-othertime": "Anna tid:",
+    "stabilization-def-short": "(standard)",
+    "stabilization-def-short-0": "Noverande",
+    "stabilization-def-short-1": "Stabil",
+    "stabilize_page_invalid": "Målsidetittelen er ugyldig.",
+    "stabilize_page_notexists": "Målsida finst ikkje.",
+    "stabilize_expiry_invalid": "Ugyldig sluttdato.",
+    "stabilize_expiry_old": "Sluttdatoen har alt vore.",
+    "stabilize-expiring": "endar $1 (UTC)",
+    "stabilization-review": "Vurder den noverande versjonen"
+}

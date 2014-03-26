@@ -1,0 +1,40 @@
+{
+    "@metadata": {
+        "authors": [
+            "Michaello",
+            "Milicevic01",
+            "Жељко Тодоровић",
+            "Михајло Анђелковић"
+        ]
+    },
+    "stabilization-tab": "veteran",
+    "stabilization": "Stabilizacija strane",
+    "stabilization-text": "'''Promenite postavke ispod da biste podesili kako se izabira i prikazuje objavljeno izdanje stranice [[:$1|$1]].'''",
+    "stabilization-perm": "Vaš nalog nema dozvolu za izmenu podešavanja za stabilne verzije.\nOvde su trenutna podešavanja za [[:$1|$1]]:",
+    "stabilization-page": "Ime stranice:",
+    "stabilization-leg": "Potvrdi podešavanja za stabilne verzije",
+    "stabilization-def": "Verzija prikazana na podrazumevanom prikazu strane.",
+    "stabilization-def1": "Stabilno izdanje; ako ne postoji, onda poslednja izmena",
+    "stabilization-def2": "Poslednja revizija",
+    "stabilization-restrict": "Ograničenja za pregledanje i automatsko pregledanje",
+    "stabilization-restrict-none": "Bez dodatnih ograničenja",
+    "stabilization-submit": "Prihvati",
+    "stabilization-notexists": "Ne postoji stranica pod imenom „[[:$1|$1]]“. Podešavanje nije moguće.",
+    "stabilization-notcontent": "Stranica „[[:$1|$1]]“ ne može biti pregledana. Podešavanje nije moguće.",
+    "stabilization-comment": "Razlog:",
+    "stabilization-otherreason": "Drugi razlog:",
+    "stabilization-expiry": "Ističe:",
+    "stabilization-othertime": "Drugo vreme:",
+    "stabilization-def-short": "Podrazumevano",
+    "stabilization-def-short-0": "Trenutno",
+    "stabilization-def-short-1": "Prihvaćeno",
+    "stabilize_page_invalid": "Naslov ciljane strane je neispravan.",
+    "stabilize_page_notexists": "Ciljana strana ne postoji.",
+    "stabilize_page_unreviewable": "Ciljana strana se ne nalazi u pregledivom imenskom prostoru.",
+    "stabilize_invalid_level": "Neispravan nivo zaštite.",
+    "stabilize_expiry_invalid": "Loš datum isticanja.",
+    "stabilize_expiry_old": "Vreme isticanja je već prošlo.",
+    "stabilize_denied": "Pristup odbijen.",
+    "stabilize-expiring": "ističe $1 (UTC)",
+    "stabilization-review": "Označi trenutnu reviziku kao pregledanu"
+}

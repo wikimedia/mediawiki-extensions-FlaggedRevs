@@ -1,0 +1,17 @@
+{
+    "@metadata": {
+        "authors": [
+            "Eduardo.mps",
+            "Giro720"
+        ]
+    },
+    "reviewedpages": "Páginas analisadas",
+    "reviewedpages-leg": "Listar as páginas revisadas",
+    "reviewedpages-list": "Esta lista contém páginas [[{{MediaWiki:Validationpage}}|revisadas]] cuja classificação mais elevada na revisão é o nível especificado.\nExiste um link para a última edição com o mesmo nível.",
+    "reviewedpages-none": "Não há páginas nesta lista",
+    "reviewedpages-lev-0": "Objetiva",
+    "reviewedpages-lev-1": "Qualidade",
+    "reviewedpages-lev-2": "Exemplar",
+    "reviewedpages-all": "edições analisadas",
+    "reviewedpages-best": "melhor revisão"
+}

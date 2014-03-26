@@ -1,0 +1,27 @@
+{
+    "@metadata": {
+        "authors": [
+            "Ibrahim"
+        ]
+    },
+    "stabilization-tab": "санҷиш",
+    "stabilization": "Пойдорсозии саҳифаҳо",
+    "stabilization-text": "'''Тағйири танзимоти зерин ба манзури таъйини ин, ки нусхаи пойдор аз [[:$1|$1]] чигуна интихоб ва намоиш дода мешавад.'''",
+    "stabilization-perm": "Ҳисоби шумо иҷозати тағйири танзими нусхаи пойдорро надорад. Танзимоти феълӣ барои [[:$1|$1]]  чунинанд:",
+    "stabilization-page": "Номи саҳифа:",
+    "stabilization-leg": "Тасдиқи танзими нусхаи пойдор",
+    "stabilization-def": "Нусхае ки дар ҳолати пешфарз намоиш дода мешавад",
+    "stabilization-def1": "Нусхаи пойдор; агар он вуҷуд надошта бошад, пас он нусхаи феълӣ аст",
+    "stabilization-def2": "Нусхаи феълӣ",
+    "stabilization-submit": "Тасдиқ",
+    "stabilization-notexists": "Саҳифае бо унвони \"[[:$1|$1]]\" вуҷуд надорад. Танзимот мумкин нест.",
+    "stabilization-notcontent": "Саҳифаи \"[[:$1|$1]]\" қобили баррасӣ нест. Танзимот мумкин нест.",
+    "stabilization-comment": "Сабаб:",
+    "stabilization-expiry": "Интиҳо:",
+    "stabilization-def-short": "Пешфарз",
+    "stabilization-def-short-0": "Феълӣ",
+    "stabilization-def-short-1": "Пойдор",
+    "stabilize_expiry_invalid": "Таърихи интиҳоии ғайримиҷоз.",
+    "stabilize_expiry_old": "Таърихи интиҳо аллакай сипарӣ шудааст.",
+    "stabilize-expiring": "Дар $1 (UTC) ба интиҳо мерасад"
+}

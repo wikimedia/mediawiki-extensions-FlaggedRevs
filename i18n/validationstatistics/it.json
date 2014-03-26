@@ -1,0 +1,29 @@
+{
+    "@metadata": {
+        "authors": [
+            "Beta16",
+            "Blaisorblade",
+            "Darth Kule",
+            "Gianfranco",
+            "Melos",
+            "OrbiliusMagister",
+            "Pietrodn"
+        ]
+    },
+    "validationstatistics": "Statistiche di revisione",
+    "validationstatistics-users": "'''{{SITENAME}}''' ha attualmente '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|utente|utenti}} con diritti di [[{{MediaWiki:Validationpage}}|Editore]].\n\nGli editori sono utenti stabili che possono convalidare le revisioni nelle pagine",
+    "validationstatistics-lastupdate": "''I seguenti dati sono stati aggiornati il $1 alle $2.''",
+    "validationstatistics-pndtime": "Le modifiche che sono state controllate da utenti affidabili sono considerate ''{{int:validationstatistics-stable}}''.\n\nIl ritardo medio per le [[Special:OldReviewedPages|pagine che attualmente hanno modifiche in attesa di revisione]] è di '''$1'''; il ritardo misura quanto tempo la versione in sospeso è rimasta non revisionata.",
+    "validationstatistics-revtime": "L'attesa media per le modifiche di ''utenti che non hanno eseguito l'accesso'' prima che siano revisionate è di '''$1'''; la mediana di '''$2'''.\n$3",
+    "validationstatistics-table": "Le statistiche di revisione per ciascun namespace sono mostrate di seguito, ''a esclusione'' dei redirect.\nLe pagine sono considerate ''{{int:validationstatistics-old}}'' se hanno modifiche in sospeso; sono considerate ''{{int:validationstatistics-latest}}'' se non hanno modifiche in attesa di revisione.",
+    "validationstatistics-ns": "Namespace",
+    "validationstatistics-total": "Pagine",
+    "validationstatistics-stable": "Revisionate",
+    "validationstatistics-latest": "Sincronizzate",
+    "validationstatistics-synced": "Sincronizzate/Revisionate",
+    "validationstatistics-old": "Non aggiornate",
+    "validationstatistics-unreviewed": "Non revisionati",
+    "validationstatistics-utable": "Di seguito è riportato l'elenco {{PLURAL:$1|del revisore più attivo|dei $1 revisori più attivi}} {{PLURAL:$2|nell'ultima ora|nelle ultime $2 ore}}.",
+    "validationstatistics-user": "Utente",
+    "validationstatistics-reviews": "Revisioni"
+}

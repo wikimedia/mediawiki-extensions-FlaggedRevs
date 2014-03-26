@@ -1,0 +1,29 @@
+{
+    "@metadata": {
+        "authors": [
+            "Aotake",
+            "Fievarsty",
+            "Fryed-peach",
+            "Hosiryuhosi",
+            "Ohgi",
+            "Schu",
+            "Shirayuki",
+            "青子守歌"
+        ]
+    },
+    "pendingchanges": "編集が保留されているページ",
+    "pendingchanges-legend": "査読待ちの版のある査読済みページを一覧",
+    "pendingchanges-list": "このページでは、一度[[{{MediaWiki:Validationpage}}|査読]]されたページのうち、査読待ちの編集があるものを列挙します。",
+    "pendingchanges-none": "現在、これらの基準を満たすページはありません",
+    "pendingchanges-hours": "($1 {{PLURAL:$1|時間}})",
+    "pendingchanges-days": "($1 {{PLURAL:$1|日}})",
+    "pendingchanges-recent": "(1 時間未満)",
+    "pendingchanges-category": "カテゴリ:",
+    "pendingchanges-onwatchlist": "自分のウォッチリストに含まれるページ",
+    "pendingchanges-stable": "公開版が既定に設定されています",
+    "pendingchanges-diff": "査読",
+    "pendingchanges-size": "変更量の上限 (バイト):",
+    "pendingchanges-unwatched": "(未ウォッチ)",
+    "pendingchanges-watched": "($1 人の活動中の{{PLURAL:$1|利用者}}がウォッチ)",
+    "pendingchanges-viewing": "(査読中)"
+}

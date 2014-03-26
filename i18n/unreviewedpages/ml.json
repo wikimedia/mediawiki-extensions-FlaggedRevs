@@ -1,0 +1,23 @@
+{
+    "@metadata": {
+        "authors": [
+            "Jacob.jose",
+            "Praveenp",
+            "Sadik Khalid",
+            "Shijualex"
+        ]
+    },
+    "action-unreviewedpages": "സംശോധനം ചെയ്യാത്ത താളുകളുടെ പട്ടിക കാട്ടുക",
+    "unreviewedpages": "സംശോധനം ചെയ്യാത്ത താളുകൾ",
+    "unreviewedpages-legend": "ഉള്ളടക്കം സം‌ശോധനം ചെയ്തിട്ടില്ലാത്ത താളുകളുടെ പട്ടിക പ്രദർശിപ്പിക്കുക",
+    "unreviewedpages-category": "വർഗ്ഗം:",
+    "unreviewedpages-diff": "പരിശോധന",
+    "unreviewedpages-unwatched": "(ശ്രദ്ധിക്കാത്തവ)",
+    "unreviewedpages-watched": "({{PLURAL:$1|ഒരു സജീവ ഉപയോക്താവ്|$1 സജീവ ഉപയോക്താക്കൾ}} ശ്രദ്ധിക്കുന്നുണ്ട്)",
+    "unreviewedpages-list": "പ്രത്യേക തലം വരെ [[{{MediaWiki:Validationpage}}|സംശോധനം]] ''ചെയ്യാത്ത'' ഉള്ളടക്ക താളുകളുടെ പട്ടികയാണ് ഈ താളിൽ ഉള്ളത്.",
+    "unreviewedpages-none": "ഈ മാനദണ്ഡം പാലിക്കുന്ന താളുകളൊന്നും നിലവിലില്ല",
+    "unreviewedpages-viewing": "(സംശോധനം ചെയ്യപ്പെടുന്നു)",
+    "unreviewedpages-hours": "({{PLURAL:$1|ഒരു മണിക്കൂർ|$1 മണിക്കൂറുകൾ}})",
+    "unreviewedpages-days": "({{PLURAL:$1|ഒരു ദിവസം|$1 ദിവസങ്ങൾ}})",
+    "unreviewedpages-recent": "(ഒരു മണിക്കൂറിൽ കുറവു സമയം)"
+}

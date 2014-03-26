@@ -1,0 +1,26 @@
+{
+    "@metadata": {
+        "authors": [
+            "Aleator",
+            "Grondin",
+            "Jordi Roqué",
+            "Martorell",
+            "Paucabot"
+        ]
+    },
+    "pendingchanges": "Pàgines amb canvis en curs",
+    "pendingchanges-legend": "Llista de les pàgines revisades amb canvis en curs",
+    "pendingchanges-list": "Aquesta pàgina afixa la llista de les pàgines  [[{{MediaWiki:Validationpage}}|revisades]] tenint un o més canvis que atenen una revisió.",
+    "pendingchanges-none": "Actualment no hi ha cap pàgina que compleixi aquests criteris.",
+    "pendingchanges-hours": "($1 {{PLURAL:$1|hora|hores}})",
+    "pendingchanges-days": "($1 {{PLURAL:$1|dia|dies}})",
+    "pendingchanges-recent": "(menys d'una hora)",
+    "pendingchanges-category": "Categoria:",
+    "pendingchanges-onwatchlist": "Pàgines a la meva llista de seguiment",
+    "pendingchanges-stable": "La versió estable està posada per defecte",
+    "pendingchanges-diff": "revisió",
+    "pendingchanges-size": "Diferència màxima de mida (bytes):",
+    "pendingchanges-unwatched": "(no vigilat)",
+    "pendingchanges-watched": "({{PLURAL:$1|un usari|$1 usuaris}} actius en vigilen)",
+    "pendingchanges-viewing": "(sota revisió)"
+}

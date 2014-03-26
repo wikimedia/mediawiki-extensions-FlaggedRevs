@@ -1,0 +1,22 @@
+{
+    "@metadata": {
+        "authors": [
+            "Игорь Бродский"
+        ]
+    },
+    "validationstatistics": "Lehtpoliden kodvindoiden statistik",
+    "validationstatistics-users": "{{SITENAME}}-projektas nügüd' '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|kävutajal|kävutajil}}\noma [[{{MediaWiki:Validationpage}}|«redaktoran»]] oiktused.\n\nRedaktorad oma mugomad kävutajad, kudambil om oiktuz kodvda valitud lehtseiden konkretižed versijad.",
+    "validationstatistics-lastupdate": "\"Mugoižed andmused udestadihe $1, aig om $2.\"",
+    "validationstatistics-pndtime": "Toižetused, kudambad oma znamoinu märitud ühtnijad, lugedas \"kodvdud\".\n\nKeskmäine pidestuz [[Special:OldReviewedPages|lehtpoliden kodvmatomiden toižetusidenke täht]] om '''$1'''. Nece parametr ozutab, min aikte jäl'gmäine kodvmatoi versii jäb kodvijoiden tarkuseta.",
+    "validationstatistics-revtime": "Keiskmäine kodvindanaig \"tundmatomiden ühtnijoiden\" toižetusiden täht om '''$1'''; median om '''$2'''.\n$3",
+    "validationstatistics-table": "Alemba om kodvindan statistikad kaikuččen nimiavarusen täht. Läbioigendad oma heittud neciš statistikaspäi.\n''Vanhtunuzikš'' kuctas lehtpolid, kudambiš om kodvmatomid toižetusid.\nKu lehtpolil ei ole kodvmatomid toižetusid, ka ne kucuse ''sinhroniziruidud''.",
+    "validationstatistics-ns": "Nimiavaruz",
+    "validationstatistics-total": "Lehtpol't",
+    "validationstatistics-stable": "Kodvdud",
+    "validationstatistics-latest": "Tantoi kodvdud",
+    "validationstatistics-synced": "Kodvdud udes",
+    "validationstatistics-old": "Vanhtunuded",
+    "validationstatistics-utable": "Alemba om anttud nimikirjutez, kus {{PLURAL:$1|om $1 kaikiš aktivižemb arvostelii|oma $1 kaikiš aktivižembad arvostelijad}} {{PLURAL:$2|jäl'gmäižes časus|$2 jäl'gmäižiš časuiš}}.",
+    "validationstatistics-user": "Kävutai",
+    "validationstatistics-reviews": "Redakcijad"
+}

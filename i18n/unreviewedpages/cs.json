@@ -1,0 +1,25 @@
+{
+    "@metadata": {
+        "authors": [
+            "Danny B.",
+            "Jezevec",
+            "Jkjk",
+            "Li-sung",
+            "Matěj Grabovský",
+            "Mormegil"
+        ]
+    },
+    "action-unreviewedpages": "zobrazit seznam neposouzených stránek",
+    "unreviewedpages": "Neposouzené stránky",
+    "unreviewedpages-legend": "Seznam neposouzených obsahových stránek",
+    "unreviewedpages-category": "Kategorie:",
+    "unreviewedpages-diff": "kontrola",
+    "unreviewedpages-unwatched": "(nesledované)",
+    "unreviewedpages-watched": "({{PLURAL:$1|sleduje|sledují|sleduje}} $1 {{PLURAL:$1|aktivní uživatel|aktivní uživatelé|aktivních uživatelů}})",
+    "unreviewedpages-list": "Tato stránka obsahuje články, které nebyly [[{{MediaWiki:Validationpage}}|posouzeny]] do určené úrovně.",
+    "unreviewedpages-none": "Momentálně neexistují žádné stránky splňující tato kritéria.",
+    "unreviewedpages-viewing": "(kontroluje se)",
+    "unreviewedpages-hours": "($1 {{PLURAL:$1|hodina|hodiny|hodin}})",
+    "unreviewedpages-days": "($1 {{PLURAL:$1|den|dny|dní}})",
+    "unreviewedpages-recent": "(méně něž hodina)"
+}

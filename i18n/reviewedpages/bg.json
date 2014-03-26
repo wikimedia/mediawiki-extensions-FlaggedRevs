@@ -1,0 +1,17 @@
+{
+    "@metadata": {
+        "authors": [
+            "Borislav",
+            "DCLXVI"
+        ]
+    },
+    "reviewedpages": "Рецензирани страници",
+    "reviewedpages-leg": "Преглед на страниците, получили определена оценка",
+    "reviewedpages-list": "Следните страници са получили оценка до определената",
+    "reviewedpages-none": "Списъкът не съдържа страници",
+    "reviewedpages-lev-0": "Прегледани",
+    "reviewedpages-lev-1": "Качество",
+    "reviewedpages-lev-2": "Избрани",
+    "reviewedpages-all": "рецензирани версии",
+    "reviewedpages-best": "последната най-високо оценена версия"
+}

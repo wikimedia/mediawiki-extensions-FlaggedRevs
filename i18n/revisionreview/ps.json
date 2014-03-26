@@ -1,0 +1,16 @@
+{
+    "@metadata": {
+        "authors": [
+            "Ahmed-Najib-Biabani-Ibrahimkhel"
+        ]
+    },
+    "revreview-check-flag-y": "زما بدلونونه دې ومنل شي",
+    "revreview-log": "تبصره:",
+    "revreview-submit": "سپارل",
+    "revreview-submitting": "د سپارلو په حال کې ...",
+    "revreview-submit-review": "مخکتنه منل",
+    "revreview-submit-reject": "بدلونونه ردول",
+    "revreview-reject-summary": "لنډيز:",
+    "revreview-reject-confirm": "همدا بدلونونه ردول",
+    "revreview-reject-cancel": "ناگارل"
+}

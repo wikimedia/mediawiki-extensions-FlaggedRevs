@@ -1,0 +1,23 @@
+{
+    "@metadata": {
+        "authors": [
+            "Candalua",
+            "GatoSelvadego"
+        ]
+    },
+    "pendingchanges": "Pagine co canbiamenti no revixionai",
+    "pendingchanges-legend": "Elenca le pagine riesaminà con versioni non riesaminà",
+    "pendingchanges-list": "Sta pàjina ła elenca łe pàjine [[{{MediaWiki:Validationpage}}|revixionae]] che ga uno o pì canbi da ricontrołar.",
+    "pendingchanges-none": "No ghe xe atualmente nissuna pagina che sodisfa sti criteri",
+    "pendingchanges-hours": "($1 {{PLURAL:$1|ora|ore}})",
+    "pendingchanges-days": "($1 {{PLURAL:$1|giòrno|giòrni}})",
+    "pendingchanges-recent": "(manco de 1 ora)",
+    "pendingchanges-category": "Categoria:",
+    "pendingchanges-onwatchlist": "Pagine che tegno d'ocio",
+    "pendingchanges-stable": "La version stabile xe el default",
+    "pendingchanges-diff": "riesamina",
+    "pendingchanges-size": "Canbiamento massimo (in byte):",
+    "pendingchanges-unwatched": "(non osservà)",
+    "pendingchanges-watched": "($1 {{PLURAL:$1|utente el|utenti i}} tien d'ocio sta pagina)",
+    "pendingchanges-viewing": "(in corso de revision)"
+}

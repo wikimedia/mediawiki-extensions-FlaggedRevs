@@ -1,0 +1,23 @@
+{
+    "@metadata": {
+        "authors": [
+            "Yekrats"
+        ]
+    },
+    "validationstatistics": "Statistikoj pri paĝkontrolado",
+    "validationstatistics-users": "'''{{SITENAME}}''' nun havas '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|uzanton|uzantojn}} kun rajto [[{{MediaWiki:Validationpage}}|Redaktanto]].\n\nRedaktantoj estas daŭraj uzantoj kiuj povas iufoje kontroli paĝojn.",
+    "validationstatistics-lastupdate": "''La jenaj datenoj estis laste ĝisdatigitaj je $1, $2.''",
+    "validationstatistics-pndtime": "Redaktoj kontrolitaj de establitaj uzantoj estas konsiderataj kiel ''kontrolitaj''.\n\nLa averaĝa atendo-tempo por [[Special:OldReviewedPages|paĝoj kun kontrolendaj redaktoj]] estas '''$1'''. Ĉi tiu atendo-tempo mezuras tempon ekde la plej malnova kontrolenda redakto estis farita.",
+    "validationstatistics-revtime": "La averaĝa atendo por redaktoj de ''ne-ensalutitaj uzantoj'' por esti kontrolita estas '''$1'''; la mediano estas '''$2'''.\n$3",
+    "validationstatistics-table": "Jen statistikoj pri paĝkontrolado por ĉiu nomspaco, ''eksklusivante'' alidirektilojn. Paĝoj estas konsiderataj kiel ''malfreŝaj'' se ili havas kontrolendajn redaktojn. Paĝoj estas konsiderataj kiel ''ĝisdataj'' se ne estas kontrolendaj redaktoj.",
+    "validationstatistics-ns": "Nomspaco",
+    "validationstatistics-total": "Paĝoj",
+    "validationstatistics-stable": "Paĝoj kun almenaŭ unu revizio",
+    "validationstatistics-latest": "Sinkronigita",
+    "validationstatistics-synced": "Ĝisdatigitaj/Reviziitaj",
+    "validationstatistics-old": "Malfreŝaj",
+    "validationstatistics-unreviewed": "Nekontrolita",
+    "validationstatistics-utable": "Jen listo de la plej {{PLURAL:$1|aktiva kontrolanto|aktivaj kontrolantoj}} dum la {{PLURAL:$2|lasta horo|lastaj $2 horoj}}.",
+    "validationstatistics-user": "Uzanto",
+    "validationstatistics-reviews": "Kontrolaĵoj"
+}

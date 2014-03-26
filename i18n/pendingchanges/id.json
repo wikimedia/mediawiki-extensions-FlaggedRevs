@@ -1,0 +1,27 @@
+{
+    "@metadata": {
+        "authors": [
+            "Bennylin",
+            "Farras",
+            "Irwangatot",
+            "IvanLanin",
+            "Iwan Novirion",
+            "Rex"
+        ]
+    },
+    "pendingchanges": "Halaman dengan penundaan perubahan",
+    "pendingchanges-legend": "Daftar halaman tertinjau yang memiliki revisi yang belum ditinjau",
+    "pendingchanges-list": "Berikut adalah daftar halaman [[{{MediaWiki:Validationpage}}|tertinjau]] yang memiliki satu atau lebih suntingan yang ditangguhkan.",
+    "pendingchanges-none": "Tidak ada halaman yang sesuai dengan kriteria ini",
+    "pendingchanges-hours": "($1 {{PLURAL:$1|jam|jam}})",
+    "pendingchanges-days": "($1 {{PLURAL:$1|hari|hari}})",
+    "pendingchanges-recent": "(kurang dari 1 jam)",
+    "pendingchanges-category": "Kategori:",
+    "pendingchanges-onwatchlist": "Halaman pada daftar pantauan saya",
+    "pendingchanges-stable": "Versi stabil adalah baku",
+    "pendingchanges-diff": "tinjau",
+    "pendingchanges-size": "Perubahan maks. (byte):",
+    "pendingchanges-unwatched": "(tidak dipantau)",
+    "pendingchanges-watched": "(dipantau $1 {{PLURAL:$1|pengguna|pengguna}} aktif)",
+    "pendingchanges-viewing": "(sedang ditinjau)"
+}

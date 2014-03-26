@@ -1,0 +1,19 @@
+{
+    "@metadata": {
+        "authors": [
+            "Gazeb"
+        ]
+    },
+    "unreviewedpages": "Неперевірены сторінкы",
+    "unreviewedpages-legend": "Список неперевіреных статей",
+    "unreviewedpages-category": "Катеґорія:",
+    "unreviewedpages-diff": "перевірити",
+    "unreviewedpages-unwatched": "(неслїдованы)",
+    "unreviewedpages-watched": "({{PLURAL:$1|слїдує $1 актівный хоснователь|слїдують $1 актівны хоснователї|слїдує $1 актівных хоснователїв}})",
+    "unreviewedpages-list": "На тій сторінцї перерахованы статї, як іщі не были [[{{MediaWiki:Validationpage}}|рецензованы]] на зазначеный рівень.",
+    "unreviewedpages-none": "Теперь нїт сторінок одповідаючіх тым крітеріям",
+    "unreviewedpages-viewing": "(контролює ся)",
+    "unreviewedpages-hours": "($1 {{PLURAL:$1|година|годины|годин}})",
+    "unreviewedpages-days": "($1 {{PLURAL:$1|день|днї|днів}})",
+    "unreviewedpages-recent": "(менше 1 годины)"
+}

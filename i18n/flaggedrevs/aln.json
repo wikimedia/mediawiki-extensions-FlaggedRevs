@@ -1,0 +1,41 @@
+{
+    "@metadata": {
+        "authors": [
+            "Mdupont"
+        ]
+    },
+    "revreview-style-2": "Mirë",
+    "revreview-style-3": "Konciz",
+    "revreview-style-4": "Me tipare",
+    "revreview-toggle-title": "shfaqje / fshih detajet",
+    "revreview-visibility-synced": "'''Kjo faqe është e azhurnuar [[{{MediaWiki:Validationpage}}|publikuar versionin]]; settings faqe e stabilitetit mund të [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} konfiguruar ].'''",
+    "revreview-visibility-outdated": "'''Kjo faqe ka një vjetëruar [[{{MediaWiki:Validationpage}}|publikuar versionin]]; settings faqe e stabilitetit mund të [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} konfiguruar ].'''",
+    "revreview-visibility-nostable": "'''Kjo faqe nuk ka një [[{{MediaWiki:Validationpage}}|publikuar versionin]]; settings faqe e stabilitetit mund të [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} konfiguruar ].'''",
+    "revreview-revnotfound": "Versioni i vjetër i faqes së kërkuar nuk mund të gjendet. Ju lutem kontrolloni URL-in që përdorët për të hyrë në këtë faqe.",
+    "right-autoreview": "A e vet redaktimet e shënuar automatikisht si \"i zgjedhur\"",
+    "right-movestable": "Leviz faqe botuar",
+    "right-review": "Mark shqyrtime si \"i zgjedhur\"",
+    "right-stablesettings": "Konfiguro si versioni i publikuar është e zgjedhur dhe të shfaqet",
+    "right-validate": "Mark shqyrtime si \"cilësi\"",
+    "right-unreviewedpages": "Shikoni [[Special:UnreviewedPages|Lista e faqeve unreviewed]]",
+    "rights-editor-revoke": "hequr statusin e redaktor nga [[$1]]",
+    "specialpages-group-quality": "miratim Edit",
+    "stable-logentry-config": "Paneli i konfiguruar publikim për $1",
+    "stable-logentry-reset": "settings reset publikim për $1",
+    "stable-log-restriction": "Publikimi: kërkojnë \"$1\" leje",
+    "stable-logpage": "Regjistri i Stabilitetit",
+    "stable-logpagetext": "Ky është një regjistër për ndryshimet në [[{{MediaWiki:Validationpage}}|publikuar versionin] konfigurimin] i faqeve të përmbajtjes.",
+    "revreview-filter-all": "të gjithë",
+    "revreview-filter-stable": "botuar",
+    "revreview-statusfilter": "veprim Aprovimi:",
+    "revreview-filter-approved": "Aprovuar",
+    "revreview-filter-reapproved": "Ri-miratuar",
+    "revreview-filter-unapproved": "De-miratuar",
+    "revreview-typefilter": "Tipi:",
+    "revreview-filter-auto": "Automatik",
+    "revreview-filter-manual": "Dore",
+    "revreview-levelfilter": "Niveli:",
+    "revreview-lev-all": "ndonjë",
+    "revreview-lev-basic": "kontrolluar",
+    "revreview-lev-quality": "cilësi"
+}

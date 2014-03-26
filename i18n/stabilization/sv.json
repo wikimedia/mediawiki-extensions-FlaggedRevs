@@ -1,0 +1,43 @@
+{
+    "@metadata": {
+        "authors": [
+            "Boivie",
+            "Dafer45",
+            "Lejonel",
+            "M.M.S.",
+            "Najami",
+            "Per"
+        ]
+    },
+    "stabilization-tab": "kvalitet",
+    "stabilization": "Sidstabilisering",
+    "stabilization-text": "'''Ändra inställningarna nedan för att bestämma hur den publicerade versionen av [[:$1|$1]] väljs och visas.'''",
+    "stabilization-perm": "Ditt konto har inte behörighet att ändra inställningen för publicerade sidversioner.\nHär visas de nuvarande inställningarna för [[:$1|$1]]:",
+    "stabilization-page": "Sidnamn:",
+    "stabilization-leg": "Bekräfta inställningar för publicerade versioner",
+    "stabilization-def": "Sidversion som används som standard när sidan visas",
+    "stabilization-def1": "Den stabila versionen; om sådan saknas, den senaste versionen",
+    "stabilization-def2": "Den senaste sidversionen",
+    "stabilization-restrict": "Begränsningar av granskning/automatgranskning",
+    "stabilization-restrict-none": "Inga extra begränsningar",
+    "stabilization-submit": "Bekräfta",
+    "stabilization-notexists": "Det finns ingen sida med titeln \"[[:$1|$1]]\". Inga inställningar kan göras.",
+    "stabilization-notcontent": "Sidan \"[[:$1|$1]]\" kan inte granskas. Inga inställningar kan göras.",
+    "stabilization-comment": "Anledning:",
+    "stabilization-otherreason": "Annan anledning:",
+    "stabilization-expiry": "Varaktighet:",
+    "stabilization-othertime": "Annan tid:",
+    "stabilization-def-short": "Standard",
+    "stabilization-def-short-0": "Senaste",
+    "stabilization-def-short-1": "Publicerad",
+    "stabilize_page_invalid": "Målsidans titel är ogiltig.",
+    "stabilize_page_notexists": "Målsidan finns ej.",
+    "stabilize_page_unreviewable": "Målsidan är inte i granskningsbar namnrymd.",
+    "stabilize_invalid_autoreview": "Ogiltig automatgranskningsbegränsning.",
+    "stabilize_invalid_level": "Ogiltig skyddsnivå.",
+    "stabilize_expiry_invalid": "Ogiltig varaktighet.",
+    "stabilize_expiry_old": "Varaktigheten har redan löpt ut.",
+    "stabilize_denied": "Tillgång nekad.",
+    "stabilize-expiring": "upphör den $1 (UTC)",
+    "stabilization-review": "Markera den nuvarande revisionen som kontrollerad"
+}

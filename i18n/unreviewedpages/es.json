@@ -1,0 +1,24 @@
+{
+    "@metadata": {
+        "authors": [
+            "Armando-Martin",
+            "Crazymadlover",
+            "Drini",
+            "Locos epraix",
+            "Sanbec"
+        ]
+    },
+    "action-unreviewedpages": "ver la lista de páginas no revisadas",
+    "unreviewedpages": "Páginas no revisadas",
+    "unreviewedpages-legend": "Lista de páginas de contenido no revisadas",
+    "unreviewedpages-category": "Categoría:",
+    "unreviewedpages-diff": "revisar",
+    "unreviewedpages-unwatched": "(no vigilado)",
+    "unreviewedpages-watched": "($1 {{PLURAL:$1|usuario|usuarios}} activos vigilando)",
+    "unreviewedpages-list": "Esta página lista páginas de contenido que aún ''no'' han sido [[{{MediaWiki:Validationpage}}|revisados]] al nivel especificado.",
+    "unreviewedpages-none": "No hay actualmente páginas que cumplan estos criterios",
+    "unreviewedpages-viewing": "(bajo revisión)",
+    "unreviewedpages-hours": "($1 {{PLURAL:$1|hora|horas}})",
+    "unreviewedpages-days": "($1 {{PLURAL:$1|día|días}})",
+    "unreviewedpages-recent": "(menos de 1 hora)"
+}

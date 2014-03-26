@@ -1,0 +1,15 @@
+{
+    "@metadata": {
+        "authors": [
+            "Dani",
+            "Glanthor Reviol",
+            "Misibacsi",
+            "Samat"
+        ]
+    },
+    "stablepages": "Szerkesztések ellenőrzését megkövetelő",
+    "stablepages-list": "Ez a lista azokat a lapokat tartalmazza, melyeket csak meghatározott felhasználók szerkeszthetnek ellenőrzés nélkül. Más szerkesztők által végzett szerkesztések nincsenek közzétéve, amíg egy járőr nem ellenőrzi őket.",
+    "stablepages-none": "Nem található egyetlen lap sem a listában",
+    "stablepages-config": "beállítás",
+    "stablepages-indef": "Csak határozatlan lejárat"
+}

@@ -1,0 +1,13 @@
+{
+    "@metadata": {
+        "authors": [
+            "Froztbyte",
+            "Jon Harald Søby"
+        ]
+    },
+    "unreviewedpages-category": "Kategori:",
+    "unreviewedpages-unwatched": "(uovervåget)",
+    "unreviewedpages-hours": "($1 {{PLURAL:$1|time|timer}})",
+    "unreviewedpages-days": "($1 {{PLURAL:$1|dag|dage}})",
+    "unreviewedpages-recent": "(mindre end 1 time)"
+}

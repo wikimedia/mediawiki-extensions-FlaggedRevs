@@ -1,0 +1,29 @@
+{
+    "@metadata": {
+        "authors": [
+            "Aaron Schulz",
+            "Fryed-peach",
+            "Jon Harald Søby",
+            "Raymond",
+            "Shirayuki",
+            "Umherirrender",
+            "Yekrats"
+        ]
+    },
+    "validationstatistics": "{{Flagged Revs}}\nName of the [[Special:ValidationStatistics]] page, which contains review statistics.",
+    "validationstatistics-users": "{{Flagged Revs}}\nShown on the page [[Special:ValidationStatistics]].\n\nRefers to {{msg-mw|Validationpage}}.\n\nParameters:\n* $1 - number of users in the Editor group.\nThis message is likely customized per wiki as (a) some don't use an \"editor\" group or (b) it called something else",
+    "validationstatistics-lastupdate": "{{Flagged Revs}}\nShown on the page [[Special:ValidationStatistics]].\n* $1 = Date\n* $2 = Time",
+    "validationstatistics-pndtime": "{{Flagged Revs}}\nProvides the first informative paragraph in [[Special:ValidationStatistics]].\n\nRefers to {{msg-mw|Validationstatistics-stable}}.\n\nParameters:\n* $1 - the average wait time for page reviews at [[Special:PendingChanges]]",
+    "validationstatistics-revtime": "{{Flagged Revs}}\nShown on the page [[Special:ValidationStatistics]]. Parameters:\n* $1 - the duration of time that the average \"anon\" edit takes to get reviewed\n* $2 - the median duration of time that the average \"anon\" edit takes to get reviewed\n* $3 - a tabulation of the percentiles of the duration of time it takes to get \"anon\" edits reviewed. For example, if the P90 value is 1h33m then 90% of edits get reviewed within 1 hour, 33 minutes.",
+    "validationstatistics-table": "{{Flagged Revs}}\nShown on the page [[Special:ValidationStatistics]].\n\nRefers to:\n* {{msg-mw|Validationstatistics-old}}\n* {{msg-mw|Validationstatistics-latest}}",
+    "validationstatistics-ns": "{{Flagged Revs}}\n{{Identical|Namespace}}",
+    "validationstatistics-total": "{{Flagged Revs}}\nShown on the page Special:ValidationStatistics.\nTable header for all pages in a certain namespace.\n{{Identical|Pages}}",
+    "validationstatistics-stable": "{{Flagged Revs}}\nShown on the page [[Special:ValidationStatistics]].\nTable header for pages that that have a stable version.\n{{Identical|Reviewed}}",
+    "validationstatistics-latest": "{{Flagged Revs}}\nShown on the page [[Special:ValidationStatistics]].\nTable header for pages that that have a stable version and no pending changes.",
+    "validationstatistics-synced": "{{Flagged Revs}}\nShown on the page [[Special:ValidationStatistics]].\nTable header for the ratio of pages that that have a stable version and no pending changes *over* all pages with a stable version.",
+    "validationstatistics-old": "{{Flagged Revs}}\nShown on the page [[Special:ValidationStatistics]].\nTable header for pages that have pending changes (edits newer than the stable version).\n{{Identical|Outdated}}",
+    "validationstatistics-unreviewed": "{{Flagged Revs}}\nShown on the page [[Special:ValidationStatistics]].\nTable header for pages that have no stable version at all.\n{{Identical|Unreviewed}}",
+    "validationstatistics-utable": "{{Flagged Revs}}\nShown on the page [[Special:ValidationStatistics]]. Parameters:\n* $1 - number of users in the \"top active reviewers\" list\n* $2 - number of hours of reviews the list is based on. The list includes items from $2 hours ago up to the present.",
+    "validationstatistics-user": "{{Flagged Revs}}\nShown on [[Special:ValidationStatistics]].\nUsed as the \"user\" table column header for the \"users who made the most reviews recently\" table.\n{{Identical|User}}",
+    "validationstatistics-reviews": "{{Flagged Revs}}\nShown on [[Special:ValidationStatistics]].\nUsed as the \"number of reviews\" table column header for the \"users who made the most reviews recently\" table.\n{{Identical|Review}}"
+}

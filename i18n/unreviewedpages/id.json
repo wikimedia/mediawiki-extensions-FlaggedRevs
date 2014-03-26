@@ -1,0 +1,21 @@
+{
+    "@metadata": {
+        "authors": [
+            "Bennylin",
+            "IvanLanin",
+            "Rex"
+        ]
+    },
+    "unreviewedpages": "Halaman yang belum ditinjau",
+    "unreviewedpages-legend": "Daftar halaman isi yang belum ditinjau",
+    "unreviewedpages-category": "Kategori:",
+    "unreviewedpages-diff": "tinjau",
+    "unreviewedpages-unwatched": "(tidak dipantau)",
+    "unreviewedpages-watched": "(dipantau $1 {{PLURAL:$1|pengguna|pengguna}} aktif)",
+    "unreviewedpages-list": "Halaman berikut berisi daftar halaman yang belum [[{{MediaWiki:Validationpage}}|ditinjau]] pada tingkat tertentu.",
+    "unreviewedpages-none": "Tidak ada halaman yang sesuai dengan kriteria ini",
+    "unreviewedpages-viewing": "(sedang ditinjau)",
+    "unreviewedpages-hours": "($1 {{PLURAL:$1|jam|jam}})",
+    "unreviewedpages-days": "($1 {{PLURAL:$1|hari|hari}})",
+    "unreviewedpages-recent": "(kurang dari 1 jam)"
+}

@@ -1,0 +1,24 @@
+{
+    "@metadata": {
+        "authors": [
+            "Huslåke",
+            "Ælsån"
+        ]
+    },
+    "stabilization-tab": "vet",
+    "stabilization-page": "Pægenavn:",
+    "stabilization-def": "Reviisje displayen åp somår pæger sigt",
+    "stabilization-def1": "Æ ståbiil reviisje;\nals ekke er, dan æ nuværende",
+    "stabilization-def2": "Æ nuværende reviisje",
+    "stabilization-submit": "Konfirmær",
+    "stabilization-notexists": "Her har ekke pæge nåm \"[[:$1|$1]]\".\nEkke konfiguråsje er mågleg.",
+    "stabilization-notcontent": "Æ pæge \"[[:$1|$1]]\" ken ekke være sæn.\nEkke konfiguråsje er mågleg.",
+    "stabilization-comment": "Begrundelse:",
+    "stabilization-expiry": "Duråsje:",
+    "stabilization-def-short": "Åtåmatisk",
+    "stabilization-def-short-0": "Nuværende",
+    "stabilization-def-short-1": "Stabiil",
+    "stabilize_expiry_invalid": "Ugyldegt duråsje dåt æller tiid.",
+    "stabilize_expiry_old": "Dette duråsje tiid er ål passærn.",
+    "stabilize-expiring": "durær biis $1 (UTC)"
+}

@@ -1,0 +1,26 @@
+{
+    "@metadata": {
+        "authors": [
+            "Danny B.",
+            "Jkjk",
+            "Li-sung",
+            "Matěj Grabovský",
+            "Mormegil"
+        ]
+    },
+    "pendingchanges": "Stránky s neposouzenými změnami",
+    "pendingchanges-legend": "Zobrazit seznam posouzených stránek s neprověřenými revizemi",
+    "pendingchanges-list": "Tato stránka obsahuje {{PLURAL:$1|posouzenou stránku, jejíž|seznam posouzených stránek, jejichž}} úpravy nebyly zatím prověřeny.",
+    "pendingchanges-none": "Momentálně neexistují žádné stránky odpovídající těmto kritériím",
+    "pendingchanges-hours": "($1 {{PLURAL:$1|hodina|hodiny|hodin}})",
+    "pendingchanges-days": "($1 {{PLURAL:$1|den|dny|dní}})",
+    "pendingchanges-recent": "(méně než 1 hodina)",
+    "pendingchanges-category": "Kategorie:",
+    "pendingchanges-onwatchlist": "Stránky na mém seznamu sledovaných stránek",
+    "pendingchanges-stable": "prohlédnuto",
+    "pendingchanges-diff": "posoudit",
+    "pendingchanges-size": "Maximální velikost změny (v bajtech):",
+    "pendingchanges-unwatched": "(nesledované)",
+    "pendingchanges-watched": "({{PLURAL:$1|sleduje $1 aktivní  auživatel|sledují $1 aktivní uživatelé|sleduje $1 aktivních uživatelů}})",
+    "pendingchanges-viewing": "(posuzuje se)"
+}

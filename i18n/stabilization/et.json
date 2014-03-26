@@ -1,0 +1,40 @@
+{
+    "@metadata": {
+        "authors": [
+            "Avjoska",
+            "KalmerE.",
+            "Pikne"
+        ]
+    },
+    "stabilization-tab": "sätted",
+    "stabilization": "Lehekülje kindlustamine",
+    "stabilization-text": "'''Muuda järgmisi sätteid, et reguleerida, kuidas lehekülje \"[[:$1|$1]]\" püsiv versioon valitakse ja kuvatakse.'''",
+    "stabilization-perm": "Su kontol pole püsiva versiooni sätete muutmise luba.\nSiin on lehekülje \"[[:$1|$1]]\" praegused sätted:",
+    "stabilization-page": "Lehekülje nimi:",
+    "stabilization-leg": "Püsiva versiooni sätete kinnitamine",
+    "stabilization-def": "Vaikimisi kuvatav lehekülje redaktsioon",
+    "stabilization-def1": "Püsiv versioon; selle puudumisel uusim redaktsioon",
+    "stabilization-def2": "Uusim redaktsioon",
+    "stabilization-restrict": "Ülevaatuse või automaatse ülevaatuse piirangud",
+    "stabilization-restrict-none": "Lisapiiranguteta",
+    "stabilization-submit": "Kinnita",
+    "stabilization-notexists": "Puudub lehekülg \"[[:$1|$1]]\".\nSätete seadmine pole võimalik.",
+    "stabilization-notcontent": "Lehekülge \"[[:$1|$1]]\" ei saa üle vaadata.\nSätete seadmine pole võimalik.",
+    "stabilization-comment": "Põhjus:",
+    "stabilization-otherreason": "Muu põhjus:",
+    "stabilization-expiry": "Aegub:",
+    "stabilization-othertime": "Muu aeg:",
+    "stabilization-def-short": "Vaikeväärtus",
+    "stabilization-def-short-0": "Praegune",
+    "stabilization-def-short-1": "Püsiv",
+    "stabilize_page_invalid": "Sihtlehekülje pealkiri on vigane.",
+    "stabilize_page_notexists": "Sihtlehekülge pole olemas.",
+    "stabilize_page_unreviewable": "Sihtlehekülg on nimeruumis, kus ülevaatamine pole võimalik.",
+    "stabilize_invalid_autoreview": "Vigane automaatse ülevaatuse piirang.",
+    "stabilize_invalid_level": "Vigane kaitsetase.",
+    "stabilize_expiry_invalid": "Vigane aegumistähtaeg.",
+    "stabilize_expiry_old": "See aegumistähtaeg on juba möödunud.",
+    "stabilize_denied": "Luba tagasi lükatud.",
+    "stabilize-expiring": "aegumistähtajaga $1 (UTC)",
+    "stabilization-review": "Märgi praegune redaktsioon kord vaadatuks"
+}

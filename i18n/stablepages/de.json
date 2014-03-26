@@ -1,0 +1,16 @@
+{
+    "@metadata": {
+        "authors": [
+            "Kghbln",
+            "MF-Warburg",
+            "Merlissimo",
+            "Purodha",
+            "Umherirrender"
+        ]
+    },
+    "stablepages": "Seiten, die erst nach einer Markierung angezeigt werden",
+    "stablepages-list": "Es folgt eine Liste von Seiten, die Einschränkungen haben, so das nur Bearbeitungen bestimmter Benutzer sofort angezeigt werden.\nBearbeitungen von anderen Bentzern werden standardmäßig solange nicht angezeigt, bis ein entsprechend berechtigter Benutzer sie markiert hat.",
+    "stablepages-none": "Diese Liste enthält keine Seiten.",
+    "stablepages-config": "Konfiguration",
+    "stablepages-indef": "Nur mit unbefristetem Ablauf"
+}

@@ -1,0 +1,13 @@
+{
+    "@metadata": {
+        "authors": [
+            "Boivie",
+            "M.M.S."
+        ]
+    },
+    "stablepages": "Sidor som använder redigeringsgodkännande",
+    "stablepages-list": "Nedan är en lista över sidor till vilka endast vissa användare kan göra redigeringar som inte kräver granskning.\nÄndringar gjorda av andra användare visas inte för läsarna förrän en behörig användare granskar dem.",
+    "stablepages-none": "Det finns inga sidor i denna lista",
+    "stablepages-config": "Konfigurering",
+    "stablepages-indef": "Endast obegränsad giltighetstid"
+}

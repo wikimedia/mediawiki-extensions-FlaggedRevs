@@ -1,0 +1,18 @@
+{
+    "@metadata": {
+        "authors": [
+            "Cimon Avaro",
+            "Crt",
+            "Mies",
+            "Nike",
+            "Olli",
+            "Pxos",
+            "Str4nd"
+        ]
+    },
+    "problemchanges": "Ongelmallisiksi merkityt odottavat muutokset",
+    "problemchanges-list": "Tämä sivu luettelee [[{{MediaWiki:Validationpage}}|arvioidut]] sivut, joilla on yksi tai useampi ongelmalliseksi merkitty muutos odottamassa arviointia. Luettelo [[Special:Tags|kelvollisista muutosmerkinnöistä]] on saatavissa.",
+    "problemchanges-legend": "Luettelo sivuista, joilla on ongelmallisiksi merkittyjä odottavia muutoksia.",
+    "problemchanges-none": "Tällä hetkellä ei ole sivuja, jotka täyttävät nämä ehdot",
+    "problemchanges-category": "Luokka"
+}

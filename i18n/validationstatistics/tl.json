@@ -1,0 +1,22 @@
+{
+    "@metadata": {
+        "authors": [
+            "AnakngAraw"
+        ]
+    },
+    "validationstatistics": "Estadistika ng pagsusuri ng pahina",
+    "validationstatistics-users": "Ang '''{{SITENAME}}''' ay  pangkasalukuyang may '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|tagagamit|mga tagagamit}} na may karapatan bilang [[{{MediaWiki:Validationpage}}|Patnugot]] .\n\nAng mga patnugot ay mga matatagal nang mga tagagamit na makakasipat ng mga pagbabago sa mga pahina.",
+    "validationstatistics-lastupdate": "''Ang sumusunod na dato ay huling naisapanahon noong $1 noong $2.''",
+    "validationstatistics-pndtime": "Mga pagbabagong nasuri na ng matatag na mga tagagamit ay itinuturing bilang ''nasuri na''.\n\nAng karaniwang pagkabinbin para sa [[Special:OldReviewedPages|mga pahinang may nakabinbing mga pahinang hindi pa nasusuri]] ay '''$1''';\nang pagkakabinbin ay sumusukat sa kung gaano katagal ang pinakalumang naghihintay na mga pagbabago ay lumipas na hindi pa nasusuri.",
+    "validationstatistics-revtime": "Ang karaniwang paghihintay para sa mga susuriing mga pagbabago ng ''mga tagagamit na hindi lumalagda'' ay '''$1'''; ang panggitnaan ay '''$2'''.\n$3",
+    "validationstatistics-table": "Ipinapakita sa ibaba ang mga estadistika ng pagsusuri ng pahina para sa bawat puwang ng pangalan, ''hindi kasama'' ang mga pahinang pinapapunta sa iba.  Ang mga pahina ay itinuturing bilang ''wala na sa panahon'' kapag mayroon silang mga pagbabago na naghihintay muling pagsusuri; ang mga pahina ay itinuturing na ''nakaalinsabay'' kapag walang mga pagbabagong naghihintay ng muling pagsusuri.",
+    "validationstatistics-ns": "Espasyo ng pangalan",
+    "validationstatistics-total": "Mga pahina",
+    "validationstatistics-stable": "Nasuri na",
+    "validationstatistics-latest": "Napagsabay na",
+    "validationstatistics-synced": "Pinagsabay-sabay/Nasuri nang muli",
+    "validationstatistics-old": "Wala na sa panahon (luma)",
+    "validationstatistics-utable": "Nasa ibaba ang talaan ng {{PLURAL:$1|pinakamasiglang tagapagsuri|$1 pinakamasisiglang mga tagapagsuri}} sa loob ng huling {{PLURAL:$2|oras|$2 mga oras}}.",
+    "validationstatistics-user": "Tagagamit",
+    "validationstatistics-reviews": "Mga pagsusuri"
+}

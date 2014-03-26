@@ -1,0 +1,10 @@
+{
+    "@metadata": {
+        "authors": [
+            "Malafaya"
+        ]
+    },
+    "pendingchanges-hours": "($1 {{PLURAL:$1|horo|hori}})",
+    "pendingchanges-days": "($1 {{PLURAL:$1|dio|dii}})",
+    "pendingchanges-category": "Kategorio:"
+}

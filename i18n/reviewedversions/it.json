@@ -1,0 +1,14 @@
+{
+    "@metadata": {
+        "authors": [
+            "Beta16",
+            "Darth Kule"
+        ]
+    },
+    "reviewedversions": "Versioni revisionate",
+    "reviewedversions-leg1": "Elenco delle versioni revisionate per una pagina",
+    "reviewedversions-page": "Nome della pagina:",
+    "reviewedversions-none": "\"[[:$1]]\" non ha versioni revisionate.",
+    "reviewedversions-list": "Di seguito è riportato un elenco {{PLURAL:$2|dell'unica versione|delle versioni}} di [[:$1]] che {{PLURAL:$2|è stata revisionata|sono state revisionate}}:",
+    "reviewedversions-review": "Revisionata il <i>$1</i> da $2"
+}

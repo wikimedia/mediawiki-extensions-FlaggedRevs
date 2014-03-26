@@ -1,0 +1,22 @@
+{
+    "@metadata": {
+        "authors": [
+            "Michawiki"
+        ]
+    },
+    "pendingchanges": "Strony z njepřepruwowanymi změnami",
+    "pendingchanges-legend": "Lisćina skontrolowanych stronow z njeskontrolowanymi wersijemi",
+    "pendingchanges-list": "Tuta strona nalistuje [[{{MediaWiki:Validationpage}}|přepruwowane]], strony. korež hišće njeskontrolowane změny maja.",
+    "pendingchanges-none": "Tuchwilu žane strony njejsu, kotrež tutym kriterijam wotpowěduja",
+    "pendingchanges-hours": "($1 {{PLURAL:$1|hodźina|hodźinje|hodźiny|hodźin}})",
+    "pendingchanges-days": "($1 {{PLURAL:$1|dźeń|dnjej|dny|dnjow}})",
+    "pendingchanges-recent": "(mjenje hač 1 hodźina)",
+    "pendingchanges-category": "Kategorija:",
+    "pendingchanges-onwatchlist": "Strony w mojim wobkedźbowankach",
+    "pendingchanges-stable": "Stabilna wersija je standard",
+    "pendingchanges-diff": "kontrolować",
+    "pendingchanges-size": "Maksimalna změna (w bajtach):",
+    "pendingchanges-unwatched": "(njewobkedźbowany)",
+    "pendingchanges-watched": "($1 {{PLURAL:$1|aktiwny wužiwar wobkedźbuje|aktiwnaj wužiwarjej wobkedźbujetaj|aktiwni wužiwarjo wobkedźbuja|aktiwnych wužiwarjow wobkedźbuje}})",
+    "pendingchanges-viewing": "(pruwuje so)"
+}

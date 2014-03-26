@@ -1,0 +1,23 @@
+{
+    "@metadata": {
+        "authors": [
+            "Beta16",
+            "Darth Kule",
+            "Melos",
+            "Pietrodn"
+        ]
+    },
+    "action-unreviewedpages": "vedere l'elenco delle pagine non revisionate",
+    "unreviewedpages": "Pagine non revisionate",
+    "unreviewedpages-legend": "Elenco delle pagine non revisionate",
+    "unreviewedpages-category": "Categoria:",
+    "unreviewedpages-diff": "revisiona",
+    "unreviewedpages-unwatched": "(non osservata)",
+    "unreviewedpages-watched": "(osservata da $1 {{PLURAL:$1|utente attivo|utenti attivi}})",
+    "unreviewedpages-list": "Di seguito sono riportate le pagine che '''non''' sono state ancora [[{{MediaWiki:Validationpage}}|revisionate]] al livello specificato.",
+    "unreviewedpages-none": "Al momento non ci sono pagine che soddisfino i criteri di ricerca.",
+    "unreviewedpages-viewing": "(sotto revisione)",
+    "unreviewedpages-hours": "($1 {{PLURAL:$1|ora|ore}})",
+    "unreviewedpages-days": "($1 {{PLURAL:$1|giorno|giorni}})",
+    "unreviewedpages-recent": "(meno di 1 ora)"
+}

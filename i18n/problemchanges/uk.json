@@ -1,0 +1,16 @@
+{
+    "@metadata": {
+        "authors": [
+            "Ahonc",
+            "Dim Grits",
+            "Microcell",
+            "NickK",
+            "Prima klasy4na"
+        ]
+    },
+    "problemchanges": "Відмічені нерецензовані зміни",
+    "problemchanges-list": "На цій сторінці подано [[{{MediaWiki:Validationpage}}|перевірені]] сторінки, що мають відмічені редагування. Дивіться список [[Special:Tags|допустимих тегів]].",
+    "problemchanges-legend": "Список сторінок із позначеними редагуваннями, що очікують на перевірку",
+    "problemchanges-none": "Наразі немає сторінок, які відповідають цим критеріям",
+    "problemchanges-category": "Категорія:"
+}

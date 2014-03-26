@@ -1,0 +1,8 @@
+{
+    "@metadata": {
+        "authors": [
+            "Geitost"
+        ]
+    },
+    "revreview-toolow": "'''Du musst jedes der Attribute besser als «unzureichend» einstufen, damit eine Version als markiert angesehen werden kann.'''\n\nUm den Markierungsstatus einer Version aufzuheben, muss auf «{{int:revreview-submit-unreview}}» geklickt werden.\n\nKlicke auf die «Zurück»-Schaltfläche deines Browsers und versuche es erneut."
+}

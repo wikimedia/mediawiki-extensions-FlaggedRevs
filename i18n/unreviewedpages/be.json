@@ -1,0 +1,19 @@
+{
+    "@metadata": {
+        "authors": [
+            "Хомелка"
+        ]
+    },
+    "unreviewedpages": "Неправераныя старонкі",
+    "unreviewedpages-legend": "Пералік неправераных старонак",
+    "unreviewedpages-category": "Катэгорыя:",
+    "unreviewedpages-diff": "праверыць",
+    "unreviewedpages-unwatched": "(не сочаць)",
+    "unreviewedpages-watched": "({{PLURAL:$1|сочыць $1 актыўны ўдзельнік|сочыць $1 актыўных удзельніка|сочаць $1 актыўных удзельнікаў}})",
+    "unreviewedpages-list": "На гэтай старонцы пералічаны артыкулы, якія не былі ацэненыя на паказаны ўзровень.",
+    "unreviewedpages-none": "У сапраўдны момант няма старонак, якія задавальняюць названым умовам",
+    "unreviewedpages-viewing": "(правяраецца)",
+    "unreviewedpages-hours": "($1 {{PLURAL:$1|гадзіну|гадзіны|гадзін}})",
+    "unreviewedpages-days": "($1 {{PLURAL:$1|дзень|дня|дзён}})",
+    "unreviewedpages-recent": "(Менш 1 гадзіны)"
+}

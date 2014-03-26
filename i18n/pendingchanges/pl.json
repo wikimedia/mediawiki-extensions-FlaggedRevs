@@ -1,0 +1,24 @@
+{
+    "@metadata": {
+        "authors": [
+            "Leinad",
+            "McMonster",
+            "Sp5uhe"
+        ]
+    },
+    "pendingchanges": "Strony oczekujące na przejrzenie",
+    "pendingchanges-legend": "Lista przejrzanych stron z wersjami oczekującymi na przejrzenie",
+    "pendingchanges-list": "Poniżej znajduje się {{PLURAL:$1|[[{{MediaWiki:Validationpage}}|przejrzana]] strona, która oczekuje na sprawdzenie nowej edycji|lista [[{{MediaWiki:Validationpage}}|przejrzanych]] stron, które oczekują na sprawdzenie nowych edycji}}.",
+    "pendingchanges-none": "Obecnie nie ma stron spełniających podane kryteria",
+    "pendingchanges-hours": "($1 {{PLURAL:$1|godzina|godziny|godzin}})",
+    "pendingchanges-days": "($1 {{PLURAL:$1|dzień|dni}})",
+    "pendingchanges-recent": "(mniej niż 1 godzina)",
+    "pendingchanges-category": "Kategoria",
+    "pendingchanges-onwatchlist": "Strony z mojej listy obserwowanych",
+    "pendingchanges-stable": "Domyślnie wersja przejrzana",
+    "pendingchanges-diff": "przejrzyj",
+    "pendingchanges-size": "Maksymalna liczba dodanych lub usuniętych bajtów",
+    "pendingchanges-unwatched": "(nieobserwowana)",
+    "pendingchanges-watched": "(obserwowana przez $1 {{PLURAL:$1|aktywnego użytkownika|aktywnych użytkowników}})",
+    "pendingchanges-viewing": "(w trakcie przeglądania)"
+}

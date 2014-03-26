@@ -1,0 +1,40 @@
+{
+    "@metadata": {
+        "authors": [
+            "Fohanno",
+            "Fulup",
+            "Y-M D"
+        ]
+    },
+    "stabilization-tab": "argas",
+    "stabilization": "Stabiladur ar bajenn",
+    "stabilization-text": "'''Cheñch ar c'hefluniadur dindan da spisaat an doare ma vez diuzet ha diskwelet stumm embannet [[:$1|$1]].'''",
+    "stabilization-perm": "N'eo ket aotreet ho kont da gemmañ arventennoù ar stumm embannet.\nSetu an arventennoù red eus [[:$1|$1]] :",
+    "stabilization-page": "Anv ar bajenn :",
+    "stabilization-leg": "Kadarnaat arventennoù ar stumm embannet",
+    "stabilization-def": "Stumm diskwelet er mod diskwel dre ziouer",
+    "stabilization-def1": "Ar stumm stabil ma vez; a-hend-all lakaat an adweladenn ziwezhañ",
+    "stabilization-def2": "An adweladenn ziwezhañ",
+    "stabilization-restrict": "Strishadurioù adlenn/adlenn emgefre",
+    "stabilization-restrict-none": "Strishadurioù ouzhpenn ebet",
+    "stabilization-submit": "Kadarnaat",
+    "stabilization-notexists": "N'eus pajenn ebet anvet \"[[:$1|$1]]\".\nN'haller ket kefluniañ netra.",
+    "stabilization-notcontent": "N'hall ket ar bajenn \"[[:$1|$1]]\" bezañ adwelet.\nN'haller ket kefluniañ netra.",
+    "stabilization-comment": "Abeg :",
+    "stabilization-otherreason": "Abeg all :",
+    "stabilization-expiry": "A ya d'e dermen",
+    "stabilization-othertime": "Mare all :",
+    "stabilization-def-short": "Dre ziouer",
+    "stabilization-def-short-0": "Red",
+    "stabilization-def-short-1": "Embannet",
+    "stabilize_page_invalid": "Fall eo titl ar bajenn buket.",
+    "stabilize_page_notexists": "N'eus ket eus ar bajenn buket.",
+    "stabilize_page_unreviewable": "N'emañ ket ar bajenn buket en un esaouenn anv a c'haller adwelet",
+    "stabilize_invalid_autoreview": "Strishadur adlenn emgefre direizh",
+    "stabilize_invalid_level": "Live gwareziñ direizh.",
+    "stabilize_expiry_invalid": "Direizh eo an deiziad termen.",
+    "stabilize_expiry_old": "Tremenet eo dija an amzer termen-se.",
+    "stabilize_denied": "Aotre nac'het.",
+    "stabilize-expiring": "Termenet d'an $1 (UTC)",
+    "stabilization-review": "Merkañ ar stumm red evel adwelet."
+}

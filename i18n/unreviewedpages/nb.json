@@ -1,0 +1,21 @@
+{
+    "@metadata": {
+        "authors": [
+            "Harald Khan",
+            "Nghtwlkr",
+            "Simny"
+        ]
+    },
+    "unreviewedpages": "Uanmeldte sider",
+    "unreviewedpages-legend": "List uanmeldte innholdssider",
+    "unreviewedpages-category": "Kategori:",
+    "unreviewedpages-diff": "anmeld",
+    "unreviewedpages-unwatched": "(uovervåket)",
+    "unreviewedpages-watched": "({{PLURAL:$1|én aktiv bruker|$1 aktive brukere}} overvåker)",
+    "unreviewedpages-list": "Denne siden lister opp innholdssider som ''ikke'' har blitt [[{{MediaWiki:Validationpage}}|vurdert]] til det spesifiserte nivået.",
+    "unreviewedpages-none": "Det er ingen sider som passer med disse kriteriene",
+    "unreviewedpages-viewing": "(under vurdering)",
+    "unreviewedpages-hours": "($1 {{PLURAL:$1|time|timer}})",
+    "unreviewedpages-days": "($1 {{PLURAL:$1|dag|dager}})",
+    "unreviewedpages-recent": "(under én time)"
+}

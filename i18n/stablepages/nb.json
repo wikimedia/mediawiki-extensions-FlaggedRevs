@@ -1,0 +1,12 @@
+{
+    "@metadata": {
+        "authors": [
+            "Nghtwlkr"
+        ]
+    },
+    "stablepages": "Sider som bruker redigeringsgodkjenning",
+    "stablepages-list": "Nedenfor er en liste over sider som kun enkelte brukere kan redigere uten krav om revidering.\nEndringer utført av andre brukere vises ikke til lesere som standard før en autorisert bruker reviderer dem.",
+    "stablepages-none": "Det er ingen sider i denne listen",
+    "stablepages-config": "Konfigurering",
+    "stablepages-indef": "Kun ubestemt utløpstid"
+}

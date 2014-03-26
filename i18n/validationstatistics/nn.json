@@ -1,0 +1,20 @@
+{
+    "@metadata": {
+        "authors": [
+            "Gunnernett",
+            "Harald Khan",
+            "Njardarlogar",
+            "Ranveig"
+        ]
+    },
+    "validationstatistics": "Valideringsstatistikk",
+    "validationstatistics-users": "'''{{SITENAME}}''' har nett no {{PLURAL:$1|'''éin''' brukar|'''[[Special:ListUsers/editor|$1]]''' brukarar}} med [[{{MediaWiki:Validationpage}}|skriverettar]]. Skriverettar vil seie at ein kan sjekke endringar av sider.",
+    "validationstatistics-table": "Statistikk for kvart namnerom er synt nedanfor, ''utanom'' omdirigeringssider.",
+    "validationstatistics-ns": "Namnerom",
+    "validationstatistics-total": "Sider",
+    "validationstatistics-stable": "Vurdert",
+    "validationstatistics-latest": "Synkronisert",
+    "validationstatistics-synced": "Synkronisert/Vurdert",
+    "validationstatistics-old": "Utdatert",
+    "validationstatistics-user": "Brukar"
+}

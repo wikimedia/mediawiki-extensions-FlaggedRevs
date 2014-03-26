@@ -1,0 +1,20 @@
+{
+    "@metadata": {
+        "authors": [
+            "Juanpabl"
+        ]
+    },
+    "revisionreview": "Revisar versions",
+    "revreview-flag": "Revisar ista versión",
+    "revreview-invalid": "'''Destín no conforme:''' no bi ha garra [[{{MediaWiki:Validationpage}}|versión revisata]] que corresponda con ixe ID.",
+    "revreview-log": "Comentario:",
+    "revreview-main": "Ha de trigar una versión particular d'una pachina de conteniu ta poder revisar-la.\n\nMire-se a [[Special:Unreviewedpages|lista de pachinas sin revisar]].",
+    "revreview-stable1": "Si quiere puede veyer [{{fullurl:$1|stableid=$2}} ista versión marcada] ta mirar si ye agora a [{{fullurl:$1|stable=1}} versión acceptata] d'ista pachina.",
+    "revreview-stable2": "Talment quiera veyer a [{{fullurl:$1|stable=1}} versión acceptata] d'ista pachina.",
+    "revreview-submit": "Ninviar",
+    "revreview-successful": "'''S'ha sinyalato a versión trigata de [[:$1|$1]]. ([{{fullurl:{{#Special:Stableversions}}|page=$2}} amostrar todas as versions sinyalatas])'''",
+    "revreview-successful2": "'''S'ha sacato o sinyal d'as versions trigatas de [[:$1|$1]]'''",
+    "revreview-toolow": "'''Ha d'avaluar totz os atributos con una calificación mayor que \"inadequato\" ta que una versión se considere revisata.''' \n\nTa sacar o status de revisato d'una versión, faiga click en \"no acceptar\". \n\nPor favor, prete o botón de \"enta zaga\" d'o suyo navegador y torne a intentar-lo.",
+    "revreview-update": "Por favor [[{{MediaWiki:Validationpage}}|revise]] os cambios pendients ''(que s'amuestran en o cobaixo)'' feitos sobre a versión acceptata.",
+    "revreview-update-includes": "S'han esviellato bellas plantillas u fichers:"
+}

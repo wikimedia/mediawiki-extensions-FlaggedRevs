@@ -1,0 +1,24 @@
+{
+    "@metadata": {
+        "authors": [
+            "Eduardo.mps",
+            "Giro720",
+            "Luckas"
+        ]
+    },
+    "pendingchanges": "Páginas com alterações pendentes",
+    "pendingchanges-legend": "Lista páginas analisadas que possuem edições que não foram verificadas",
+    "pendingchanges-list": "Esta página lista as [[{{MediaWiki:Validationpage}}|páginas sujeitas a revisão]] que têm uma ou mais edições pendentes.",
+    "pendingchanges-none": "Atualmente não existem páginas que satisfaçam estes critérios",
+    "pendingchanges-hours": "($1 {{PLURAL:$1|hora|horas}})",
+    "pendingchanges-days": "($1 {{PLURAL:$1|dia|dias}})",
+    "pendingchanges-recent": "(menos de 1 hora)",
+    "pendingchanges-category": "Categoria:",
+    "pendingchanges-onwatchlist": "Páginas na minha lista de páginas vigiadas",
+    "pendingchanges-stable": "Versão publicada por padrão",
+    "pendingchanges-diff": "analisar",
+    "pendingchanges-size": "Tamanho máximo da alteração (em bytes):",
+    "pendingchanges-unwatched": "(não-vigiada)",
+    "pendingchanges-watched": "($1 {{PLURAL:$1|usuário ativo|usuários ativos}} vigiando)",
+    "pendingchanges-viewing": "(sob análise)"
+}

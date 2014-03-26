@@ -1,0 +1,28 @@
+{
+    "@metadata": {
+        "authors": [
+            "Basharh",
+            "Michaelovic"
+        ]
+    },
+    "editor": "ܫܚܠܦܢܐ",
+    "prefs-flaggedrevs": "ܫܚܠܦ ܬܢܝܬܐ",
+    "prefs-flaggedrevs-ui": "ܫܚܠܦ ܬܢܝܬܐ",
+    "group-editor": "ܫܚܠܦܢ̈ܐ",
+    "group-editor-member": "{{GENDER:$1|ܫܚܠܦܢܐ|ܫܚܠܦܢܬܐ}}",
+    "group-reviewer": "ܡܬܢܝܢ̈ܐ",
+    "group-reviewer-member": "{{GENDER:$1|ܡܬܢܝܢܐ|ܡܬܢܝܢܬܐ}}",
+    "grouppage-editor": "{{ns:project}}:ܫܚܠܦܢܐ",
+    "grouppage-reviewer": "{{ns:project}}:ܡܬܢܝܢܐ",
+    "revreview-log-details-show": "ܚܘܝ ܐܪ̈ܝܟܬܐ",
+    "revreview-log-details-hide": "ܛܫܝ ܐܪ̈ܝܟܬܐ",
+    "review-logentry-id": "ܬܢܝܬܐ: $2",
+    "revreview-edit": "ܫܚܠܦ",
+    "revreview-source": "ܚܙܝ ܡܒܘܥܐ",
+    "revreview-style-2": "ܛܒܬܐ",
+    "revreview-filter-all": "ܟܠ",
+    "revreview-typefilter": "ܐܕܫܐ:",
+    "revreview-levelfilter": "ܫܘܝܐ:",
+    "revreview-def-draft": "ܐܚܪܝ ܟܠ",
+    "revreview-restriction-none": "ܠܐ ܡܕܡ"
+}

@@ -1,0 +1,21 @@
+{
+    "@metadata": {
+        "authors": [
+            "Harald Khan"
+        ]
+    },
+    "pendingchanges": "Utdaterte vurderte sider",
+    "pendingchanges-legend": "Syn vurderte sider med versjonar som manglar vurdering",
+    "pendingchanges-list": "Denne sida syner vurderte sider som har uteståande endringar.",
+    "pendingchanges-none": "For tida møter ingen sider desse krava",
+    "pendingchanges-hours": "({{PLURAL:$1|éin time|$1 timar}})",
+    "pendingchanges-days": "({{PLURAL:$1|éin dag|$1 dagar}})",
+    "pendingchanges-recent": "(mindre enn éin time)",
+    "pendingchanges-category": "Kategori:",
+    "pendingchanges-stable": "vurdert",
+    "pendingchanges-diff": "vurder",
+    "pendingchanges-size": "Maksimal endring (byte):",
+    "pendingchanges-unwatched": "(ikkje overvaka)",
+    "pendingchanges-watched": "({{PLURAL:$1|éin aktiv brukar|$1 aktive brukarar}} overvakar)",
+    "pendingchanges-viewing": "(under vurdering)"
+}

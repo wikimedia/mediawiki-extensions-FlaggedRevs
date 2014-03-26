@@ -1,0 +1,27 @@
+{
+    "@metadata": {
+        "authors": [
+            "Ebraminio",
+            "Huji",
+            "Ladsgroup",
+            "Mardetanha",
+            "Mjbmr",
+            "Wayiran"
+        ]
+    },
+    "pendingchanges": "صفحه‌های دارای تغییرات در حال انتظار",
+    "pendingchanges-legend": "فهرست صفحه‌های بازبینی شده با ویرایش‌های بازبینی نشده",
+    "pendingchanges-list": "این صفحه فهرستی از صفحه‌های [[{{MediaWiki:Validationpage}}|بازبینی‌شده]] دارای یک یا چند تغییر در حال انتظار است.",
+    "pendingchanges-none": "در حال حاضر صفحه‌ای که با این معیارها سازگار باشد وجود ندارد",
+    "pendingchanges-hours": "($1 {{PLURAL:$1|ساعت|ساعت}})",
+    "pendingchanges-days": "($1 {{PLURAL:$1|روز|روز}})",
+    "pendingchanges-recent": "(کمتر از ۱ ساعت)",
+    "pendingchanges-category": "رده:",
+    "pendingchanges-onwatchlist": "صفحه‌های موجود در فهرست پی‌گیری‌های من",
+    "pendingchanges-stable": "نسخهٔ پایدار پیش‌فرض است",
+    "pendingchanges-diff": "بازبینی",
+    "pendingchanges-size": "بزرگترین تغییر (بایت):",
+    "pendingchanges-unwatched": "(پی‌گیری‌نشده)",
+    "pendingchanges-watched": "({{PLURAL:$1|کاربر|کاربران}} فعال پی‌گیری‌کنندهٔ $1)",
+    "pendingchanges-viewing": "(تحت بازبینی)"
+}

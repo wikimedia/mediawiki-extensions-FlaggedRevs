@@ -1,0 +1,29 @@
+{
+    "@metadata": {
+        "authors": [
+            "Besnik b",
+            "Cradel",
+            "Euriditi",
+            "Olsi",
+            "Tëfcí"
+        ]
+    },
+    "action-review": "redaktimet e shqyrtuara",
+    "editor": "Redaktuesi",
+    "flaggedrevs-desc": "I jep përdoruesve të drejtën e shqyrtimit të redaktimeve dhe stabilizimit të faqeve",
+    "flaggedrevs-pref-UI": "Ndërfaqe e thjeshtë:",
+    "revreview-hist-quality-auto": "miratuar automatikisht",
+    "revreview-hist-basic-auto": "kontrolluar automatikisht",
+    "revreview-diff-toggle-show": "trego ndryshimet",
+    "revreview-diff-toggle-hide": "fshih ndryshimet",
+    "revreview-log-details-show": "shfaq detajet",
+    "revreview-log-details-hide": "fshih detajet",
+    "revreview-current": "Ndryshimet në pritje",
+    "revreview-edit": "Redakto",
+    "revreview-editnotice": "'''Ndryshimet tuaja do të shfaqen sapo një përdorues i autorizuar t'i pranojë ato.\n([[{{MediaWiki:Validationpage}}|ndihmë]])'''",
+    "revreview-submitedit": "Paraqit ndryshimet",
+    "revreview-noflagged": "Nuk ka [[{{MediaWiki:Validationpage}}|versione të shqyrtuara]] të kësaj faqe, ndaj mund të '''mos''' jetë kontrolluar përputhja e saj me standardet.",
+    "revreview-source": "Shiko tekstin",
+    "revreview-revnotfound": "Versioni i vjetër i faqes së kërkuar nuk mund të gjindej. Ju lutem kontrolloni URL-n që përdorët për të ardhur tek kjo faqe.",
+    "validationpage": "{{ns:help}}:Kontrolli i faqes"
+}

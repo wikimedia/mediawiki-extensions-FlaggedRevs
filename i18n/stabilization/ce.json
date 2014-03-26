@@ -1,0 +1,21 @@
+{
+    "@metadata": {
+        "authors": [
+            "Sasan700",
+            "Умар"
+        ]
+    },
+    "stabilization-page": "Агlон цlе:",
+    "stabilization-def2": "ТӀаьхьара верси",
+    "stabilization-submit": "Бакъдан",
+    "stabilization-comment": "Бахьна:",
+    "stabilization-otherreason": "Кхин бахьна:",
+    "stabilization-expiry": "Чекхйолу:",
+    "stabilization-othertime": "Кхин хан:",
+    "stabilization-def-short": "Iад йитарца",
+    "stabilization-def-short-0": "хlинцлера",
+    "stabilization-def-short-1": "Чутоьхнарг",
+    "stabilize_page_invalid": "Агlонан чулацамца йогlуш йоцу цlе.",
+    "stabilize_page_notexists": "Iалаше хьажийна агӀо я яц.",
+    "stabilize-expiring": "чакхйолу $1 (UTC)"
+}

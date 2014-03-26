@@ -1,0 +1,13 @@
+{
+    "@metadata": {
+        "authors": [
+            "Glanthor Reviol"
+        ]
+    },
+    "configuredpages": "Ellenőrzési beállításokkal rendelkező lapok",
+    "configuredpages-list": "Alább azok a lapok láthatóak, amelyek az alapértelmezettől eltérő ellenőrzési beállítással rendelkeznek.\nNéhány beállítás megváltoztathatja, az olvasók melyik változatot látják, vagy tovább szűkítheti, kik szerkeszthetnek ellenőrzés nélkül.",
+    "configuredpages-none": "Nem található egyetlen lap sem a listában.",
+    "configuredpages-config": "Beállítás",
+    "configuredpages-def-draft": "legutolsó változat",
+    "configuredpages-def-stable": "közzétett változat"
+}

@@ -1,0 +1,14 @@
+{
+    "@metadata": {
+        "authors": [
+            "Kiranmayee",
+            "Veeven"
+        ]
+    },
+    "reviewedversions": "సమీక్షిత కూర్పులు",
+    "reviewedversions-leg1": "పేజీ యొక్క సమీక్షిత కూర్పులను చూపించు",
+    "reviewedversions-page": "పేజీ పేరు:",
+    "reviewedversions-none": "\"[[:$1]]\"కి సమీక్షిత కూర్పులేమీ లేవు.",
+    "reviewedversions-list": "క్రింద ఇచ్చిన {{PLURAL:$2|కూర్పు|కూర్పులు}}  \"[[:$1]]\" యొక్క సమీక్షించబడిన {{PLURAL:$2|కూర్పు|కూర్పుల జాబితా}}:",
+    "reviewedversions-review": "<i>$1</i> నాడు $2 సమీక్షించారు"
+}

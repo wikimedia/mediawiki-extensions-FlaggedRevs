@@ -1,0 +1,34 @@
+{
+    "@metadata": {
+        "authors": [
+            "Arnobarnard",
+            "Naudefj",
+            "පසිඳු කාවින්ද"
+        ]
+    },
+    "stabilization": "Bladsy-stabilisasie",
+    "stabilization-page": "Bladsynaam:",
+    "stabilization-leg": "Bevestig stabiele weergawe instellings",
+    "stabilization-def1": "Die stabiele weergawe, indien nie teenwoordig is nie, dan is die jongste hersiening",
+    "stabilization-def2": "Die nuutste weergawe",
+    "stabilization-restrict-none": "Geen addisionele beperkinge",
+    "stabilization-submit": "Bevestig",
+    "stabilization-notexists": "Daar is geen bladsy genaamd \"[[:$1|$1]]\" nie.\nGeen konfigurasie is moontlik nie.",
+    "stabilization-comment": "Rede:",
+    "stabilization-otherreason": "Ander rede:",
+    "stabilization-expiry": "Verval:",
+    "stabilization-othertime": "Ander tyd:",
+    "stabilization-def-short": "Standaard",
+    "stabilization-def-short-0": "Huidig",
+    "stabilization-def-short-1": "Gepubliseer",
+    "stabilize_page_invalid": "De naam van die teikenbladsy is ongeldig.",
+    "stabilize_page_notexists": "Die teikenbladsy bestaan ​​nie.",
+    "stabilize_page_unreviewable": "Die teikenbladsy is nie in 'n hersienbare naamspasie nie.",
+    "stabilize_invalid_autoreview": "Ongeldige autoreview beperking.",
+    "stabilize_invalid_level": "Ongeldige beskerming vlak.",
+    "stabilize_expiry_invalid": "Ongeldige vervaldatum.",
+    "stabilize_expiry_old": "Die vervaldatum is reeds verby.",
+    "stabilize_denied": "Toestemming geweier.",
+    "stabilize-expiring": "verval $1 (UTC)",
+    "stabilization-review": "Merk die huidige weergawe nagegaan"
+}

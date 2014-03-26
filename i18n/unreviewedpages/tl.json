@@ -1,0 +1,20 @@
+{
+    "@metadata": {
+        "authors": [
+            "AnakngAraw"
+        ]
+    },
+    "action-unreviewedpages": "tingnan ang talaan ng mga pahinang hindi pa nasusuri",
+    "unreviewedpages": "Hindi pa nasusuring mga pahina",
+    "unreviewedpages-legend": "Itala ang hindi pa nasusuring mga pahina ng nilalaman",
+    "unreviewedpages-category": "Kaurian:",
+    "unreviewedpages-diff": "suriing muli",
+    "unreviewedpages-unwatched": "(hindi binabantayan)",
+    "unreviewedpages-watched": "($1 {{PLURAL:$1|tagagamit|mga tagagamit}} na nagmamasid)",
+    "unreviewedpages-list": "Nagtatala ang pahinang ito ng mga pahina ng nilalaman na ''hindi'' pa [[{{MediaWiki:Validationpage}}|nasusuring muli]] para sa tinukoy na antas.",
+    "unreviewedpages-none": "Sa ngayon, wala pang mga pahinang nakakaabot sa ganitong mga kaurian (kategorya).",
+    "unreviewedpages-viewing": "(nasa ilalim ng pagsusuri)",
+    "unreviewedpages-hours": "($1 {{PLURAL:$1|oras|mga oras}})",
+    "unreviewedpages-days": "($1 {{PLURAL:$1|araw|mga araw}})",
+    "unreviewedpages-recent": "(mas mababa kaysa 1 oras)"
+}

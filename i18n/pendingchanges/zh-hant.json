@@ -1,0 +1,29 @@
+{
+    "@metadata": {
+        "authors": [
+            "Frankou",
+            "Gzdavidwong",
+            "Horacewai2",
+            "Liangent",
+            "Oapbtommy",
+            "Shinjiman",
+            "Waihorace",
+            "Wrightbus"
+        ]
+    },
+    "pendingchanges": "已過時複審過的頁面",
+    "pendingchanges-legend": "列示有未複審修訂之複審過的頁面",
+    "pendingchanges-list": "這個頁面列示了[[{{MediaWiki:Validationpage}}|被審查]]頁中具有一個或多個待審查的編輯。",
+    "pendingchanges-none": "這裏現時沒有頁面係合乎這些條件",
+    "pendingchanges-hours": "（$1小時）",
+    "pendingchanges-days": "（$1日）",
+    "pendingchanges-recent": "（少於1小時）",
+    "pendingchanges-category": "類別：",
+    "pendingchanges-onwatchlist": "在我的監視列表中的頁面",
+    "pendingchanges-stable": "預設顯示穩定版本",
+    "pendingchanges-diff": "複審",
+    "pendingchanges-size": "最大變動（位元組）：",
+    "pendingchanges-unwatched": "（未看）",
+    "pendingchanges-watched": "（在$1位活躍用戶的監視列表中）",
+    "pendingchanges-viewing": "（等待審核）"
+}

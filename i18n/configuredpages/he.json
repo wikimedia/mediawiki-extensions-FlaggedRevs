@@ -1,0 +1,16 @@
+{
+    "@metadata": {
+        "authors": [
+            "Amire80",
+            "DoviJ",
+            "Rotemliss",
+            "YaronSh"
+        ]
+    },
+    "configuredpages": "דפים עם הגדרות סקירה",
+    "configuredpages-list": "להלן רשימה של דפים שהגדרות האישור שלהם שונות מההגדרות הכלליות של האתר.\nהגדרות מסוימות עשויות לשנות איזו גרסה מוצגת לקוראים או להגדיר קבוצה מצומצמת יותר של משתמשים שיכולים לעשות עריכות שלא דורשות סקירה.",
+    "configuredpages-none": "אין דפים ברשימה זו.",
+    "configuredpages-config": "הגדרות",
+    "configuredpages-def-draft": "הגרסה האחרונה",
+    "configuredpages-def-stable": "גרסה יציבה"
+}

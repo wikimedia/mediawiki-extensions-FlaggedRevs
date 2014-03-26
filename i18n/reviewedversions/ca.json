@@ -1,0 +1,17 @@
+{
+    "@metadata": {
+        "authors": [
+            "Paucabot",
+            "SMP",
+            "Solde",
+            "Ssola",
+            "Toniher"
+        ]
+    },
+    "reviewedversions": "Versions estables",
+    "reviewedversions-leg1": "Llista d'edicions revisades per una pàgina",
+    "reviewedversions-page": "Nom de la pàgina:",
+    "reviewedversions-none": "«[[:$1]]» no té edicions revisades.",
+    "reviewedversions-list": "A continuació hi ha la llista de {{PLURAL:$2|l'única modificació|les modificacions}} de [[:$1]] que {{PLURAL:$2|s'ha|s'han}} revisat:",
+    "reviewedversions-review": "Revisat el <em>$1</em> per $2"
+}

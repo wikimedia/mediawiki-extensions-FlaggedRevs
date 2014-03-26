@@ -1,0 +1,20 @@
+{
+    "@metadata": {
+        "authors": [
+            "පසිඳු කාවින්ද"
+        ]
+    },
+    "pendingchanges": "බලාපොරොත්තු වෙන වෙනස්කම් සහිත පිටු",
+    "pendingchanges-legend": "බලාපොරොත්තු වෙන වෙනස්කම් සහිත නිරීක්ෂණය කෙරූ පිටු ලැයිස්තුව",
+    "pendingchanges-none": "මෙම උපමානය සඳහා තවමත් ගැලපෙන පිටු කිසිවක් නොමැත",
+    "pendingchanges-hours": "({{PLURAL:$1|පැය|පැය}} $1 ක්)",
+    "pendingchanges-days": "({{PLURAL:$1|දින|දින}} $1 ක්)",
+    "pendingchanges-recent": "(පැයකටත් වඩා අඩුවෙන්)",
+    "pendingchanges-category": "ප්‍රවර්ගය:",
+    "pendingchanges-onwatchlist": "මගේ මුර ලැයිස්තුවේ ඇති පිටු",
+    "pendingchanges-stable": "ස්ථාවර සංස්කරණය සාමාන්‍යයි",
+    "pendingchanges-diff": "නිරීක්ෂණය",
+    "pendingchanges-size": "උපරිම වෙනස (බයිට):",
+    "pendingchanges-unwatched": "(මුරනොකළ)",
+    "pendingchanges-viewing": "(නිරීක්ෂණය යටතේ)"
+}

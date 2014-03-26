@@ -1,0 +1,20 @@
+{
+    "@metadata": {
+        "authors": [
+            "Giro720",
+            "Hamilton Abreu",
+            "Malafaya",
+            "Waldir",
+            "555"
+        ]
+    },
+    "reviewedpages": "Páginas revistas",
+    "reviewedpages-leg": "Listar as páginas revistas",
+    "reviewedpages-list": "Esta lista contém páginas [[{{MediaWiki:Validationpage}}|revistas]] cuja classificação mais elevada na revisão é o nível especificado.\n\tExiste um link para a última edição com o mesmo nível.",
+    "reviewedpages-none": "Não há páginas nesta lista",
+    "reviewedpages-lev-0": "Objetiva",
+    "reviewedpages-lev-1": "Qualidade",
+    "reviewedpages-lev-2": "Exemplar",
+    "reviewedpages-all": "versões revistas",
+    "reviewedpages-best": "melhor edição"
+}

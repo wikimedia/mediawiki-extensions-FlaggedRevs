@@ -1,0 +1,13 @@
+{
+    "@metadata": {
+        "authors": [
+            "McDutchie",
+            "Siebrand"
+        ]
+    },
+    "stablepages": "Pagina's onderhevig aan goedkeuring van bewerkingen",
+    "stablepages-list": "Hier worden pagina's weergegeven waar alleen bepaalde gebruikers kunnen bewerken zonder dat controle nodig is.\nBewerkingen door andere gebruikers worden niet weergegeven totdat daartoe gerechtigde gebruikers ze gecontroleerd hebben.",
+    "stablepages-none": "Er zijn geen pagina's die aan de criteria voldoen",
+    "stablepages-config": "Instellingen",
+    "stablepages-indef": "Alleen zonder vervaldatum"
+}

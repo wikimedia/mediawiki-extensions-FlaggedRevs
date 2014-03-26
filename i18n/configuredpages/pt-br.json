@@ -1,0 +1,13 @@
+{
+    "@metadata": {
+        "authors": [
+            "Giro720"
+        ]
+    },
+    "configuredpages": "Páginas com configuração de revisão",
+    "configuredpages-list": "Segue-se uma lista de páginas configuradas com parâmetros de aprovação diferentes do padrão do site.\nAlguns parâmetros podem alterar a versão que é apresentada aos usuários, ou aumentar a restrição de quem pode fazer edições que não requerem revisão.",
+    "configuredpages-none": "Não existem páginas nesta lista.",
+    "configuredpages-config": "Configuração",
+    "configuredpages-def-draft": "última versão",
+    "configuredpages-def-stable": "versão publicada"
+}

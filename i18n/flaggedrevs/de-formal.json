@@ -1,0 +1,17 @@
+{
+    "@metadata": {
+        "authors": [
+            "Imre",
+            "Jens Liebenau",
+            "Kghbln",
+            "Umherirrender"
+        ]
+    },
+    "flaggedrevs-watched-pending": "Es gibt momentan [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} ungesichtete Bearbeitungen] gesichteter Seiten, die sich auf Ihrer Beobachtungsliste befinden. '''Ihre Aufmerksamkeit wird daher benötigt!'''",
+    "review-edit-diff": "'''Hinweis: Einige der noch nicht überprüften Änderungen betreffen den Abschnitt des Textes, den Sie gerade bearbeiten.'''",
+    "revreview-editnotice": "'''Ihre Änderungen werden veröffentlicht, sobald ein dazu berechtigter Benutzer sie akzeptiert hat. ([[{{MediaWiki:Validationpage}}|Hilfe]])'''",
+    "revreview-submitedit-title": "Ihre Änderungen zum Überprüfen übertragen",
+    "revreview-edited": "'''Ihre Änderungen werden veröffentlicht, sobald ein dazu berechtigter Benutzer sie akzeptiert hat. ([[{{MediaWiki:Validationpage}}|Hilfe]])'''\n\nMomentan {{PLURAL:$2|gibt|gibt}} es [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 ungeprüfte {{PLURAL:$2|Änderung|Änderungen}}], die noch überprüft werden müssen.",
+    "revreview-pending-nosection": "Versuchen Sie die [{{fullurl:{{FULLPAGENAMEE}}|stable=0}} neueste Version], die [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 zu überprüfende {{PLURAL:$2|Änderung|Änderungen}}] enthält, anzusehen, um festzustellen, ob der Abschnitt verschoben oder gelöscht wurde.",
+    "revreview-revnotfound": "Die Version dieser Seite, nach der Sie suchen, konnte nicht gefunden werden. Bitte überprüfen Sie die URL dieser Seite."
+}

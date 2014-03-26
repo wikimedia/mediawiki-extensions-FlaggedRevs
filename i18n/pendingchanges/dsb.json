@@ -1,0 +1,22 @@
+{
+    "@metadata": {
+        "authors": [
+            "Michawiki"
+        ]
+    },
+    "pendingchanges": "Boki z njepśeglědanymi změnami",
+    "pendingchanges-legend": "Lisćina pśeglědanych bokow z njepśeglědanymi wersijami",
+    "pendingchanges-list": "Toś ten bok nalistujo [[{{MediaWiki:Validationpage}}|pśeglědane]] boki, kótarež maju hyšći njepśeglědane změny.",
+    "pendingchanges-none": "Tuchylu njejsu boki, kótarež wótpówěduju toś tym kriterijam",
+    "pendingchanges-hours": "($1 {{PLURAL:$1|góźina|góźinje|góźiny|góźinow}})",
+    "pendingchanges-days": "($1 {{PLURAL:$1|źeń|dnja|dny|dnjow}})",
+    "pendingchanges-recent": "(mjenjej ako 1 góźina)",
+    "pendingchanges-category": "Kategorija:",
+    "pendingchanges-onwatchlist": "Boki mjazy wobglědowańkami",
+    "pendingchanges-stable": "Stabilna werisja jo standard",
+    "pendingchanges-diff": "pśeglědaś",
+    "pendingchanges-size": "Maksimalna změna w bytach:",
+    "pendingchanges-unwatched": "(njewobglědowany)",
+    "pendingchanges-watched": "(Wót $1 {{PLURAL:$1|aktiwnego wužywarja|aktiwneju wužywarjowu|aktiwnych wužywarjow|aktiwnych wužywarjow}} wobglědowany)",
+    "pendingchanges-viewing": "(pśeglědujo se)"
+}

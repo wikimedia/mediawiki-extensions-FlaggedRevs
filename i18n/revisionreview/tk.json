@@ -1,0 +1,43 @@
+{
+    "@metadata": {
+        "authors": [
+            "Hanberke"
+        ]
+    },
+    "revisionreview": "Wersiýalary gözden geçir",
+    "revreview-failed": "'''Bu wersiýany gözden geçirip bolmaýar.''' Tabşyrma doly däl ýa-da nädogry.",
+    "review_page_invalid": "Niýetlenilýän sahypa ady nädogry.",
+    "review_page_notexists": "Niýetlenilýän sahypa ýok.",
+    "review_page_unreviewable": "Niýetlenilýän sahypany gözden geçirip bolmaýar.",
+    "review_no_oldid": "Hiç hili wersiýa ID-si görkezilmändir.",
+    "review_bad_oldid": "Niýetlenilýän wersiýa ýok.",
+    "review_not_flagged": "Niýetlenilýän wersiýa häzirki wagtda gözden geçirilen diýlip bellenilmändir.",
+    "review_denied": "Rugsat ret edildi.",
+    "review_param_missing": "Parametr ýok ýa-da nädogry.",
+    "revreview-check-flag-p": "Garaşýan özgerdişleri gözden geçirilen diýip belle",
+    "revreview-check-flag-u": "Bu gözden geçirilmedik sahypany kabul et",
+    "revreview-check-flag-u-title": "Sahypanyň bu wersiýasyny abul et. Muny diňe tutuş sahypany gören bolsaňyz ulanyň.",
+    "revreview-check-flag-y": "Bu üýtgeşmeleri kabul et",
+    "revreview-check-flag-y-title": "Bu özgerdişde eden ähli üýtgeşmeleriňizi kabul ediň.",
+    "revreview-flag": "Bu wersiýany gözden geçir",
+    "revreview-reflag": "Bu wersiýany gaýtadan gözden geçir/gözden geçirme",
+    "revreview-invalid": "'''Nädogry niýetlenilýän:''' hiç bir [[{{MediaWiki:Validationpage}}|gözden geçirilen]] wersiýa berlen ID-ä laýyk gelmeýär.",
+    "revreview-log": "Teswir:",
+    "revreview-main": "Gözden geçirmek üçin, mazmunly sahypanyň belli bir wersiýasyny saýlamaly.\n\n[[Special:Unreviewedpages|Gözden geçirilmedik sahyplaryň sanawyna]] serediň.",
+    "revreview-stable1": "[{{fullurl:$1|stableid=$2}} Bu baýdakly wersiýany] görüp, belkem bu sahypanyň [{{fullurl:$1|stable=1}} durnukly wersiýadygyny] ýa-da däldigini görmek isleýänsiňiz.",
+    "revreview-stable2": "Belkem bu sahypanyň [{{fullurl:$1|stable=1}} durnukly wersiýasyny] görmek isleýänsiňiz (eger henizem duran bolsa).",
+    "revreview-submit": "Tabşyr",
+    "revreview-submitting": "Tabşyrylýar...",
+    "revreview-submit-review": "Gözden geçirilen diýip belle",
+    "revreview-submit-unreview": "Gözden geçirilmedik diýip belle",
+    "revreview-submit-reject": "Üýtgeşmeleri ret et",
+    "revreview-submit-reviewed": "Boldy. Kabul edildi!",
+    "revreview-submit-unreviewed": "Boldy. Kabul edilmedi!",
+    "revreview-successful": "'''[[:$1|$1]] wersiýasy şowly baýdaklandy. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} durnukly wersiýalary gör])'''",
+    "revreview-successful2": "'''[[:$1|$1]] wersiýasynyň baýdagy şowly aýryldy.'''",
+    "revreview-toolow": "'''Bir wersiýanyň gözden geçirilen diýlip hasap edilmegi üçin aşakdaky aýratynlyklardan iň bolmanda birine \"tassyklanmadyk\"dan ýokary ses bermeli'''. \nBir wersiýany köneltmek üçin ähli meýdançalary \"tassyklanmadyk\" diýip belläň.\n\nBrauzeriňizde \"yza\" düwmesine basyň we gaýtadan synanyşyň.",
+    "revreview-update": "Durnukly wersiýa [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} tassyklanandan] bäri edilen islendik üýtgeşmäni ''(aşakda görkezilen)'' [[{{MediaWiki:Validationpage}}|gözden geçiriň]].<br />\n'''Käbir şablonlar/faýllar täzelenilipdir:'''",
+    "revreview-update-includes": "Käbir şablonlar/faýllar täzelendi:",
+    "revreview-tt-flag": "Bu wersiýany gözden geçirilen diýip belle",
+    "revreview-tt-unflag": "Bu wersiýany gözden geçirilmedik diýip belle"
+}

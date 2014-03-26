@@ -1,0 +1,19 @@
+{
+    "@metadata": {
+        "authors": [
+            "Mdupont"
+        ]
+    },
+    "revreview-submit": "Submit",
+    "revreview-submitting": "Dorëzimi ...",
+    "revreview-submit-review": "Miratoj",
+    "revreview-submit-unreview": "De-miratojë",
+    "revreview-submit-reviewed": "Done. Aprovuar!",
+    "revreview-submit-unreviewed": "Done. De-aprovuar!",
+    "revreview-successful": "'''Rishikimi i [[:$1|$1]] flamur me sukses. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} parë shqyrtuar versionet ])'''",
+    "revreview-successful2": "'''Rishikimi i [[:$1|$1]] paflamur me sukses.'''",
+    "revreview-toolow": "'''Ju duhet të kursit të secilit prej atributeve më të larta se \"paaprovuar\" në mënyrë që për një rishikim të merren parasysh rishikohet.''' Për të hequr statusin shqyrtimin e rishikimit, i vendosur të gjitha fushat për të \"paaprovuar\". Ju lutem goditi \"mbrapa \"butonin e shfletuesit tuaj dhe provoni përsëri.",
+    "revreview-update": "Ju lutem [[{{MediaWiki:Validationpage}}|rishikim]] ndonjë ndryshim në pritje''(treguar më poshtë),''e bëra në versionin e botuar.",
+    "revreview-update-edited-prev": "<span class=\"flaggedrevs_important\">Ndryshimet juaja ende nuk janë botuar.</span> Ka redaktimet e mëparshme në pritje të shqyrtimit. Për të publikojë ndryshimet tuaj, ju lutemi shqyrtimin e të gjitha ndryshimet e treguar më poshtë.",
+    "revreview-update-includes": "Disa templates / Fotografi të ishin më të azhornuara:"
+}

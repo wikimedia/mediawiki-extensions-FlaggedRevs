@@ -1,0 +1,22 @@
+{
+    "@metadata": {
+        "authors": [
+            "ChrisPtDe"
+        ]
+    },
+    "pendingchanges": "Pâges qu’ont des changements en atenta",
+    "pendingchanges-legend": "Listar les pâges revues avouéc des vèrsions a revêre",
+    "pendingchanges-list": "Ceta pâge liste les pâges ja [[{{MediaWiki:Validationpage}}|revues]] qu’ont yon ou ben un mouél de changements en atenta de rèvision.",
+    "pendingchanges-none": "Ora, y at gins de pâge que corrèspond a cetos critèros",
+    "pendingchanges-hours": "($1 hor{{PLURAL:$1|a|es}})",
+    "pendingchanges-days": "($1 jorn{{PLURAL:$1||s}})",
+    "pendingchanges-recent": "(muens de yona hora)",
+    "pendingchanges-category": "Catègorie :",
+    "pendingchanges-onwatchlist": "Pâges dens ma lista de survelyence",
+    "pendingchanges-stable": "La vèrsion stâbla est cela per dèfôt",
+    "pendingchanges-diff": "revêre",
+    "pendingchanges-size": "Difèrence de talye la ples grôssa (en octèts) :",
+    "pendingchanges-unwatched": "(pas siuvua)",
+    "pendingchanges-watched": "($1 {{PLURAL:$1|usanciér actif siut|usanciérs actifs siuvont}} cela pâge)",
+    "pendingchanges-viewing": "(en rèvision)"
+}

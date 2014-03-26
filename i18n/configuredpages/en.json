@@ -1,0 +1,11 @@
+{
+    "@metadata": {
+        "authors": []
+    },
+    "configuredpages": "Pages with review configurations",
+    "configuredpages-list": "This page lists pages configured to have different approval settings than the site default.\nSome settings might change which version is displayed to readers or further restrict who can make edits that do not require review.",
+    "configuredpages-none": "There are no pages in this list.",
+    "configuredpages-config": "Configuration",
+    "configuredpages-def-draft": "latest version",
+    "configuredpages-def-stable": "stable version"
+}

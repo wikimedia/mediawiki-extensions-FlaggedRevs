@@ -1,0 +1,14 @@
+{
+    "@metadata": {
+        "authors": [
+            "Aspar",
+            "Xoser"
+        ]
+    },
+    "reviewedversions": "Versiyonan ke kontrol biye",
+    "reviewedversions-leg1": "qey yew peli revizyonê kontrol biyayeyan liste bıker",
+    "reviewedversions-page": "nameyê peli:",
+    "reviewedversions-none": "\"[[:$1]]\" wayirê revizyonê konrol biyayeyan niyo.",
+    "reviewedversions-list": "Sıradaki, [[:$1]] için gözden geçirilmiş {{PLURAL:$2|tek revizyonun|revizyonların}} bir listesidir:",
+    "reviewedversions-review": "hetê $2 ra <i>$1</i> tarix de kontrol bı"
+}

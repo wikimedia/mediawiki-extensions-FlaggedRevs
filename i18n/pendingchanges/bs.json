@@ -1,0 +1,22 @@
+{
+    "@metadata": {
+        "authors": [
+            "CERminator"
+        ]
+    },
+    "pendingchanges": "Stranice sa izmjenama na čekanju",
+    "pendingchanges-legend": "Spisak pregledanih stranica sa revizijama koje čekaju na provjeru",
+    "pendingchanges-list": "Ova stranica prikazuje [[{{MediaWiki:Validationpage}}|pregledane]] stranice koje imaju jednu ili više izmjena na čekanju.",
+    "pendingchanges-none": "Trenutno nema stranica koje zadovoljavaju ove kriterije",
+    "pendingchanges-hours": "($1 {{PLURAL:$1|sat|sata|sati}})",
+    "pendingchanges-days": "($1 {{PLURAL:$1|dan|dana}})",
+    "pendingchanges-recent": "(manje od 1 sata)",
+    "pendingchanges-category": "Kategorija:",
+    "pendingchanges-onwatchlist": "Stranice na mom spisku praćenja",
+    "pendingchanges-stable": "Stabilna verzija je pretpostavljena",
+    "pendingchanges-diff": "pregled",
+    "pendingchanges-size": "Najveća izmjena (bajta):",
+    "pendingchanges-unwatched": "(nepregledano)",
+    "pendingchanges-watched": "($1 {{PLURAL:$1|aktivni korisnik|aktivna korisnika|aktivnih korisnika}} pregleda)",
+    "pendingchanges-viewing": "(u provjeri)"
+}

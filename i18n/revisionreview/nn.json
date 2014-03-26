@@ -1,0 +1,26 @@
+{
+    "@metadata": {
+        "authors": [
+            "Harald Khan",
+            "Jon Harald Søby",
+            "Nghtwlkr",
+            "Njardarlogar"
+        ]
+    },
+    "revisionreview": "Vurder sideversjonar",
+    "review_page_invalid": "Målsidetittelen er ugyldig.",
+    "review_page_notexists": "Målsida finst ikkje.",
+    "revreview-flag": "Vurder denne versjonen",
+    "revreview-invalid": "'''Ugyldig mål:''' ingen [[{{MediaWiki:Validationpage}}|vurderte]] versjonar svarer til den oppgjevne ID-en.",
+    "revreview-log": "Kommentar:",
+    "revreview-main": "Du lyt velja ein viss versjon av ei innhaldssida for å kunna gjera ei vurdering.\n\nSjå [[Special:Unreviewedpages|lista over sider som manglar vurdering]].",
+    "revreview-stable1": "Du ynskjer kanskje å sjå [{{fullurl:$1|stableid=$2}} denne merkte versjonen] og sjå om han er den [{{fullurl:$1|stable=1}} stabile versjonen] av denne sida.",
+    "revreview-stable2": "Du ynskjer kanskje å sjå den [{{fullurl:$1|stable=1}} stabile versjoen] av sida (om det enno finst ein).",
+    "revreview-submit": "Utfør",
+    "revreview-submitting": "Leverer …",
+    "revreview-successful": "'''Vald versjon av [[:$1|$1]] har vorte merkt. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} sjå alle stabile versjonar])'''",
+    "revreview-successful2": "'''Vald versjon av [[:$1|$1]] vart degradert.'''",
+    "revreview-toolow": "Vurderinga di av sida lyt minst vera over «ikkje godkjend» for alle eigenskapane nedanfor for at versjonen skal kunna vera vurdert. For å degradera ein versjon, oppgje «ikkje godkjend» for alle eigenskapane.",
+    "revreview-update": "[[{{MediaWiki:Validationpage}}|Vurder]] endringar ''(synte nedanfor)'' som er vortne gjort sidan den stabile versjonen vart [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} godkjend].<br />\n'''Nokre malar eller bilete vart oppdaterte:'''",
+    "revreview-update-includes": "Nokre malar/bilete vart oppdaterte:"
+}

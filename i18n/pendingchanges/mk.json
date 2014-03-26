@@ -1,0 +1,23 @@
+{
+    "@metadata": {
+        "authors": [
+            "Bjankuloski06",
+            "Brest"
+        ]
+    },
+    "pendingchanges": "Страници со промени во исчекување",
+    "pendingchanges-legend": "Список на оценети страници со уредувања во исчекување за проверка",
+    "pendingchanges-list": "Оваа страница наведува [[{{MediaWiki:Validationpage}}|прегледани]] страници со едно или повеќе уредувања во исчекување на проверка.",
+    "pendingchanges-none": "Моментално нема страници кои ги задоволуваат овие критериуми",
+    "pendingchanges-hours": "({{PLURAL:$1|еден час|$1 часа}})",
+    "pendingchanges-days": "({{PLURAL:$1|еден ден|$1 дена}})",
+    "pendingchanges-recent": "(помалку од еден час)",
+    "pendingchanges-category": "Категорија:",
+    "pendingchanges-onwatchlist": "Страници на мојот список на набљудувања",
+    "pendingchanges-stable": "Основна е стабилната верзија",
+    "pendingchanges-diff": "оцени",
+    "pendingchanges-size": "Макс. промена (во бајти):",
+    "pendingchanges-unwatched": "(ненабљудувана)",
+    "pendingchanges-watched": "({{PLURAL:$1|набљудува $1 активен корисник|набљудуваат $1 активни корисници}})",
+    "pendingchanges-viewing": "(во проверка)"
+}
