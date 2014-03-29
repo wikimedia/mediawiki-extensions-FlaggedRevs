@@ -50,7 +50,7 @@
     "revreview-submit-reject": "拒绝更改",
     "revreview-submit-reviewed": "完成。接受！",
     "revreview-submit-unreviewed": "完成。不接受！",
-    "revreview-successful": "'''已成功标记[[:$1|$1]]的修订。（[{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} 查看已复审版本]）'''",
+    "revreview-successful": "'''成功标记[[:$1|$1]]的版本。（[{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} 查看已复核版本]）'''",
     "revreview-successful2": "'''已成功去掉[[:$1|$1]]修订的标记。'''",
     "revreview-poss-conflict-p": "'''警告：[[User:$1|$1]]在$2$3时开始审阅此页面。'''",
     "revreview-poss-conflict-c": "'''警告：[[User:$1|$1]]在$2$3时开始审阅这些更改。'''",

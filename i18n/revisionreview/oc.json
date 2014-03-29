@@ -23,7 +23,7 @@
     "revreview-adv-start-link": "far de publicitat",
     "revreview-adv-stop-link": "anullar la publicitat",
     "revreview-toolow": "Pels atributs çaijós, vos cal donar un puntatge mai elevat que « non aprobat » per que la version siá considerada coma revista. Per depreciar una version, metètz totes los camps a « non aprobat ».",
-    "revreview-update": "[[{{MediaWiki:Validationpage}}|Relegissètz]] totas las modificacions ''(vejatz çaijós)'' efectuadas dempuèi l’[{{fullurl:{{#Special:Log}}|type=review\u0026page={{FULLPAGENAMEE}}}} aprovacion] de la version establa.\n'''Qualques fichièrs o modèls son estats meses a jorn :'''",
+    "revreview-update": "[[{{MediaWiki:Validationpage}}|Relegissètz]] totas las modificacions ''(vejatz çaijós)'' efectuadas dempuèi l’[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovacion] de la version establa.\n'''Qualques fichièrs o modèls son estats meses a jorn :'''",
     "revreview-update-includes": "Modèls/fichièrs meses a jorn (paginas pas relegidas en gras) :",
     "revreview-reject-summary": "Resumit :",
     "revreview-reject-confirm": "Regetar aquestes cambiaments",
