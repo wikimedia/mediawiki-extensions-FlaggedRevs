@@ -16,7 +16,8 @@
             "KossuthRad",
             "Misibacsi",
             "Samat",
-            "Tgr"
+            "Tgr",
+            "JulesWinnfield-hu"
         ]
     },
     "action-review": "változatok ellenőrzése",
@@ -37,6 +38,8 @@
     "flaggedrevs-prefs-editdiffs": "Lap szerkesztésekor mutassa az utolsó ellenőrzött változattól való eltéréseket",
     "flaggedrevs-prefs-viewdiffs": "A legfrissebb még ellenőrizetlen lapváltozatnál mutassa az utolsó ellenőrzött változattól való eltéréseket",
     "flaggedrevs-hidereviewed": "ellenőrzött szerkesztések $1",
+    "flaggedrevs-hidereviewed-hide": "elrejtése",
+    "flaggedrevs-hidereviewed-show": "megjelenítése",
     "group-editor": "járőrök",
     "group-editor-member": "járőr",
     "group-reviewer": "lektorok",

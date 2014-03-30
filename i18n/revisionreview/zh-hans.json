@@ -11,7 +11,7 @@
             "阿pp"
         ]
     },
-    "revisionreview": "复审修订",
+    "revisionreview": "复核版本",
     "revreview-failed": "'''无法查看此修订。'''",
     "revreview-submission-invalid": "提交的表单不完整或非法。",
     "review_page_invalid": "目标页面名称无效。",

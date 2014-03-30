@@ -18,7 +18,7 @@
     "validationstatistics-table": "每个名字空间的页面复审统计信息如下所示，''除了''重定向页。\n含有待复审编辑的页面会被标记为''{{int:validationstatistics-old}}''；\n不存在待复审编辑的页面会被标记为''{{int:validationstatistics-latest}}''。",
     "validationstatistics-ns": "名字空间",
     "validationstatistics-total": "页面",
-    "validationstatistics-stable": "已复审",
+    "validationstatistics-stable": "已复核",
     "validationstatistics-latest": "已同步",
     "validationstatistics-synced": "已同步／已复审",
     "validationstatistics-old": "已过期",
