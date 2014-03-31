@@ -23,6 +23,8 @@
     "flaggedrevs-prefs-editdiffs": "Pśi wobźěłowanju bokow rozdźěl njepséglědanych změnow pokazaś",
     "flaggedrevs-prefs-viewdiffs": "Rozdźěl njepśeglědanych změnow pokazaś, gaž woglědujo se nejnowša njepśeglědana wersija",
     "flaggedrevs-hidereviewed": "Pśeglědane změny $1",
+    "flaggedrevs-hidereviewed-hide": "Schowaś",
+    "flaggedrevs-hidereviewed-show": "Pokazaś",
     "group-editor": "Editory",
     "group-editor-member": "{{GENDER:$1|wobźěłaŕ|wobźěłarka}}",
     "group-reviewer": "Pśespytowarje",
