@@ -382,14 +382,14 @@ $specialPageAliases['id'] = array(
 $specialPageAliases['it'] = array(
 	'PendingChanges' => array( 'CambiamentiInAttesa' ),
 	'ProblemChanges' => array( 'CambiamentiProblema' ),
-	'QualityOversight' => array( 'RivisualizzaRegistroAvanzato' ),
-	'ReviewedPages' => array( 'PaginaRivisualizzata' ),
-	'RevisionReview' => array( 'RivisualizzaRevisione' ),
-	'Stabilization' => array( 'Stabilizzazione' ),
+	'QualityOversight' => array( 'RegistroAvanzatoRevisioni' ),
+	'ReviewedPages' => array( 'PagineRevisionate' ),
+	'RevisionReview' => array( 'RevisionaVersione' ),
+	'Stabilization' => array( 'Stabilizza' ),
 	'StablePages' => array( 'PagineStabili' ),
 	'ConfiguredPages' => array( 'PagineConfigurate' ),
-	'ReviewedVersions' => array( 'VersioniRivisualizzate' ),
-	'UnreviewedPages' => array( 'PagineNonRivisualizzate' ),
+	'ReviewedVersions' => array( 'VersioniRevisionate' ),
+	'UnreviewedPages' => array( 'PagineNonRevisionate' ),
 	'ValidationStatistics' => array( 'StatisticheDiConvalida' ),
 );
 
