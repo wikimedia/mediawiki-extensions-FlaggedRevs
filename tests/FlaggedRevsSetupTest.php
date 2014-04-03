@@ -8,10 +8,11 @@ class FlaggedRevsSetupTest extends PHPUnit_Framework_TestCase {
 
 	public function testDefineSourcePaths() {
 		$autoloadClasses = $messagesFiles = $aliasesFiles = array();
-		FlaggedRevsSetup::defineSourcePaths( $autoloadClasses, $messagesFiles );
+		FlaggedRevsSetup::defineSourcePaths( $autoloadClasses, $messagesFiles, $messagesDirs );
 		$fileLists = array(
 			'$autoloadClasses' => $autoloadClasses,
 			'$messageFiles'    => $messagesFiles,
+			'$messagesDirs'    => $messagesDirs,
 		);
 		foreach ( $fileLists as $listName => $list ) {
 			$this->assertNotEmpty( $list, "$listName variable is not empty" );

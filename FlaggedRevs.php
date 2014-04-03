@@ -43,7 +43,7 @@ require( dirname( __FILE__ ) . '/FlaggedRevs.config.php' );
 # Define were PHP files and i18n files are located
 require( dirname( __FILE__ ) . '/FlaggedRevs.setup.php' );
 require( dirname( __FILE__ ) . '/frontend/FlaggedRevsUI.setup.php' );
-FlaggedRevsSetup::defineSourcePaths( $wgAutoloadClasses, $wgExtensionMessagesFiles );
+FlaggedRevsSetup::defineSourcePaths( $wgAutoloadClasses, $wgExtensionMessagesFiles, $wgMessagesDirs );
 
 # Define JS/CSS modules and file locations
 FlaggedRevsUISetup::defineResourceModules( $wgResourceModules );
