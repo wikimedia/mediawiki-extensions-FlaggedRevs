@@ -935,6 +935,11 @@ class FlaggablePageView extends ContextSource {
 			$notices['review-edit-diff'] = $this->msg( 'review-edit-diff' )->parse() . ' ' .
 				FlaggedRevsXML::diffToggle( $diffUrl );
 		}
+
+		if ( $this->article->onlyTemplatesOrFilesPending() && $this->article->getPendingRevCount() == 0 ) {
+			$this->setPendingNotice( $frev, '', false );
+			$notices['review-transclusions'] = $this->reviewNotice;
+		}
 	}
 
 	/**
@@ -1384,9 +1389,10 @@ class FlaggablePageView extends ContextSource {
 	 * Adds a notice saying that this revision is pending review
 	 * @param FlaggedRevision $srev The stable version
 	 * @param string $diffToggle either "" or " <diff toggle><diff div>"
+	 * @param boolean $background Whether to add the 'flaggedrevs_preview' CSS class (the blue background)
 	 * @return void
 	 */
-	public function setPendingNotice( FlaggedRevision $srev, $diffToggle = '' ) {
+	public function setPendingNotice( FlaggedRevision $srev, $diffToggle = '', $background = true ) {
 		$this->load();
 		$time = $this->getLanguage()->date( $srev->getTimestamp(), true );
 		$revsSince = $this->article->getPendingRevCount();
@@ -1395,7 +1401,8 @@ class FlaggablePageView extends ContextSource {
 			'revreview-newest-basic';
 		$msg .= ( $revsSince == 0 ) ? '-i' : '';
 		# Add bar msg to the top of the page...
-		$css = 'flaggedrevs_preview plainlinks';
+		$css = 'plainlinks';
+		if ( $background ) $css .= ' flaggedrevs_preview';
 		// Messages: revreview-newest-quality-i, revreview-newest-basic-i
 		$msgHTML = $this->msg( $msg, $srev->getRevId(), $time )->numParams( $revsSince )->parse();
 		$this->reviewNotice .= "<div id='mw-fr-reviewnotice' class='$css'>" .
