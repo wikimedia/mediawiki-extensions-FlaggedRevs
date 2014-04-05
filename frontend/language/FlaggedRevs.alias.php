@@ -288,6 +288,7 @@ $specialPageAliases['gu'] = array(
 
 /** Hebrew (עברית) */
 $specialPageAliases['he'] = array(
+	'PendingChanges' => array( 'שינויים_ממתינים', 'שינויים_הממתינים_לסקירה', 'עריכות_הממתינות_לסקירה' ),
 	'ReviewedPages' => array( 'דפים_שנסקרו' ),
 	'UnreviewedPages' => array( 'דפים_שלא_נסקרו', 'דפים_שטרם_נסקרו', 'דפים_ללא_סקירות' ),
 );
