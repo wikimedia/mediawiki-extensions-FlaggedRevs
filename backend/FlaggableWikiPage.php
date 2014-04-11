@@ -23,7 +23,8 @@ class FlaggableWikiPage extends WikiPage {
 	public static function getTitleInstance( Title $title ) {
 		// Check if there is already an instance on this title
 		if ( !isset( $title->flaggedRevsArticle ) ) {
-			$title->flaggedRevsArticle = new self( $title );
+			$ctitle = clone $title; // avoid cycles
+			$title->flaggedRevsArticle = new self( $ctitle );
 		}
 		return $title->flaggedRevsArticle;
 	}
