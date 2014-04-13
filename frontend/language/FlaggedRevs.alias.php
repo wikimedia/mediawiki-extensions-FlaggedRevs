@@ -792,10 +792,10 @@ $specialPageAliases['vi'] = array(
 
 /** Simplified Chinese (中文（简体）‎) */
 $specialPageAliases['zh-hans'] = array(
-	'PendingChanges' => array( '待定更改' ),
+	'PendingChanges' => array( '待定更改', '旧复核页面' ),
 	'ProblemChanges' => array( '问题更改', '有问题的更改' ),
-	'QualityOversight' => array( '高级复审日志', '质量监督' ),
-	'ReviewedPages' => array( '已复审页面' ),
+	'QualityOversight' => array( '高级复核日志', '质量监督' ),
+	'ReviewedPages' => array( '已复核页面' ),
 	'RevisionReview' => array( '修订复审' ),
 	'Stabilization' => array( '稳定化' ),
 	'StablePages' => array( '固定页面', '稳定页面' ),
