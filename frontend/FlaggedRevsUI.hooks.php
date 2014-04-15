@@ -95,7 +95,7 @@ class FlaggedRevsUIHooks {
 		$preferences['flaggedrevssimpleui'] =
 			array(
 				'type' => 'radio',
-				'section' => 'flaggedrevs/flaggedrevs-ui',
+				'section' => 'rc/flaggedrevs-ui',
 				'label-message' => 'flaggedrevs-pref-UI',
 				'options' => array(
 					wfMessage( 'flaggedrevs-pref-UI-0' )->text() => 0,
@@ -106,7 +106,7 @@ class FlaggedRevsUIHooks {
 		$preferences['flaggedrevsstable'] =
 			array(
 				'type' => 'radio',
-				'section' => 'flaggedrevs/flaggedrevs-ui',
+				'section' => 'rc/flaggedrevs-ui',
 				'label-message' => 'flaggedrevs-prefs-stable',
 				'options' => array(
 					wfMessage( 'flaggedrevs-pref-stable-0' )->text() => FR_SHOW_STABLE_DEFAULT,
@@ -134,7 +134,7 @@ class FlaggedRevsUIHooks {
 			$preferences['flaggedrevsviewdiffs'] =
 				array(
 					'type' => 'toggle',
-					'section' => 'flaggedrevs/flaggedrevs-ui',
+					'section' => 'rc/flaggedrevs-ui',
 					'label-message' => 'flaggedrevs-prefs-viewdiffs',
 				);
 		}
