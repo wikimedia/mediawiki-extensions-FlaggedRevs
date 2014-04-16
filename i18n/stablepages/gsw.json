@@ -1,12 +1,12 @@
 {
-    "@metadata": {
-        "authors": [
-            "Als-Holder"
-        ]
-    },
-    "stablepages": "Syte mit Bearbeitigskontrolle",
-    "stablepages-list": "Do isch e Lischt vu däne Syte, wu nume sicheri Benutzer chenne Bearbeitige dra mache, wu kei Priefig bruche. Sonigi Bearbeitige wäre erscht vereffetligt, wänn si vun eme autorisierte Benutzer freigee wore sin.",
-    "stablepages-none": "Die Lischt isch läär.",
-    "stablepages-config": "Konfiguration",
-    "stablepages-indef": "Nume mit uubfrischtetem Ablauf"
+	"@metadata": {
+		"authors": [
+			"Als-Holder"
+		]
+	},
+	"stablepages": "Syte mit Bearbeitigskontrolle",
+	"stablepages-list": "Do isch e Lischt vu däne Syte, wu nume sicheri Benutzer chenne Bearbeitige dra mache, wu kei Priefig bruche. Sonigi Bearbeitige wäre erscht vereffetligt, wänn si vun eme autorisierte Benutzer freigee wore sin.",
+	"stablepages-none": "Die Lischt isch läär.",
+	"stablepages-config": "Konfiguration",
+	"stablepages-indef": "Nume mit uubfrischtetem Ablauf"
 }

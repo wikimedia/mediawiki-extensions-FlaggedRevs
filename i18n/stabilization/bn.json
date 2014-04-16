@@ -1,24 +1,24 @@
 {
-    "@metadata": {
-        "authors": [
-            "Bellayet",
-            "Ehsanulhb",
-            "Zaheen"
-        ]
-    },
-    "stabilization-tab": "(qa)",
-    "stabilization": "পাতা স্থিতিকরণ",
-    "stabilization-page": "পাতার নাম:",
-    "stabilization-def2": "সাম্প্রতিক সংশোধন",
-    "stabilization-submit": "নিশ্চিত করুন",
-    "stabilization-comment": "কারণ:",
-    "stabilization-otherreason": "অন্য কারণ:",
-    "stabilization-expiry": "মেয়াদ উত্তীর্ণ:",
-    "stabilization-othertime": "অন্য সময়:",
-    "stabilization-def-short": "পূর্বনির্ধারিত",
-    "stabilization-def-short-0": "বর্তমান",
-    "stabilization-def-short-1": "গৃহীত",
-    "stabilize_expiry_invalid": "অবৈধ মেয়াদ উত্তীর্ণের তারিখ।",
-    "stabilize_expiry_old": "মেয়াদ উত্তীর্ণের সময় পার হয়ে গেছে।",
-    "stabilize-expiring": "মেয়াদ উত্তীর্ণ হবে $1 (UTC)"
+	"@metadata": {
+		"authors": [
+			"Bellayet",
+			"Ehsanulhb",
+			"Zaheen"
+		]
+	},
+	"stabilization-tab": "(qa)",
+	"stabilization": "পাতা স্থিতিকরণ",
+	"stabilization-page": "পাতার নাম:",
+	"stabilization-def2": "সাম্প্রতিক সংশোধন",
+	"stabilization-submit": "নিশ্চিত করুন",
+	"stabilization-comment": "কারণ:",
+	"stabilization-otherreason": "অন্য কারণ:",
+	"stabilization-expiry": "মেয়াদ উত্তীর্ণ:",
+	"stabilization-othertime": "অন্য সময়:",
+	"stabilization-def-short": "পূর্বনির্ধারিত",
+	"stabilization-def-short-0": "বর্তমান",
+	"stabilization-def-short-1": "গৃহীত",
+	"stabilize_expiry_invalid": "অবৈধ মেয়াদ উত্তীর্ণের তারিখ।",
+	"stabilize_expiry_old": "মেয়াদ উত্তীর্ণের সময় পার হয়ে গেছে।",
+	"stabilize-expiring": "মেয়াদ উত্তীর্ণ হবে $1 (UTC)"
 }

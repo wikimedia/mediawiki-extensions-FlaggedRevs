@@ -1,14 +1,14 @@
 {
-    "@metadata": {
-        "authors": [
-            "Harald Khan",
-            "Jon Harald Søby"
-        ]
-    },
-    "reviewedversions": "Sjå stabile versjonar",
-    "reviewedversions-leg1": "List opp vurderte versjonar av ei sida",
-    "reviewedversions-page": "Sidenamn",
-    "reviewedversions-none": "«[[:$1]]» har ingen vurderte versjonar.",
-    "reviewedversions-list": "Fylgjande er ei lista over vurderte versjonar av [[:$1]]:",
-    "reviewedversions-review": "Vurdert den <i>$1</i> av $2"
+	"@metadata": {
+		"authors": [
+			"Harald Khan",
+			"Jon Harald Søby"
+		]
+	},
+	"reviewedversions": "Sjå stabile versjonar",
+	"reviewedversions-leg1": "List opp vurderte versjonar av ei sida",
+	"reviewedversions-page": "Sidenamn",
+	"reviewedversions-none": "«[[:$1]]» har ingen vurderte versjonar.",
+	"reviewedversions-list": "Fylgjande er ei lista over vurderte versjonar av [[:$1]]:",
+	"reviewedversions-review": "Vurdert den <i>$1</i> av $2"
 }

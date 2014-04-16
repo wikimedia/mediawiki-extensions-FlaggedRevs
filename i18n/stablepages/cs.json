@@ -1,14 +1,14 @@
 {
-    "@metadata": {
-        "authors": [
-            "Danny B.",
-            "Jezevec",
-            "Matěj Grabovský"
-        ]
-    },
-    "stablepages": "Stránky používající schvalování úprav",
-    "stablepages-list": "Toto je seznam stránek, které mohou být upravovány bez schvalování pouze vybranými uživateli.\nÚpravy jiných uživatelů nebudou standardně čtenářům zobrazeny dokud neprojdou schválením autorizovaných uživatelů.",
-    "stablepages-none": "V tomto seznamu nejsou žádné stránky.",
-    "stablepages-config": "Konfigurace",
-    "stablepages-indef": "Pouze neurčitá expirace"
+	"@metadata": {
+		"authors": [
+			"Danny B.",
+			"Jezevec",
+			"Matěj Grabovský"
+		]
+	},
+	"stablepages": "Stránky používající schvalování úprav",
+	"stablepages-list": "Toto je seznam stránek, které mohou být upravovány bez schvalování pouze vybranými uživateli.\nÚpravy jiných uživatelů nebudou standardně čtenářům zobrazeny dokud neprojdou schválením autorizovaných uživatelů.",
+	"stablepages-none": "V tomto seznamu nejsou žádné stránky.",
+	"stablepages-config": "Konfigurace",
+	"stablepages-indef": "Pouze neurčitá expirace"
 }

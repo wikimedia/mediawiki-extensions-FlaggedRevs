@@ -1,13 +1,13 @@
 {
-    "@metadata": {
-        "authors": [
-            "Yekrats"
-        ]
-    },
-    "reviewedversions": "Kontrolitaj versioj",
-    "reviewedversions-leg1": "Listigi kontrolitajn versiojn por paĝo",
-    "reviewedversions-page": "Nomo de paĝo:",
-    "reviewedversions-none": "\"[[:$1]]\" havas neniujn kontrolitajn revizojn.",
-    "reviewedversions-list": "Jen listo de {{PLURAL:$2|la sola revizio|revizioj}} de [[:$1]] {{PLURAL:$2|kiu estas kontrolita|kiuj estis kontrolitaj}}:",
-    "reviewedversions-review": "Kontrolita <i>$1</i> de $2"
+	"@metadata": {
+		"authors": [
+			"Yekrats"
+		]
+	},
+	"reviewedversions": "Kontrolitaj versioj",
+	"reviewedversions-leg1": "Listigi kontrolitajn versiojn por paĝo",
+	"reviewedversions-page": "Nomo de paĝo:",
+	"reviewedversions-none": "\"[[:$1]]\" havas neniujn kontrolitajn revizojn.",
+	"reviewedversions-list": "Jen listo de {{PLURAL:$2|la sola revizio|revizioj}} de [[:$1]] {{PLURAL:$2|kiu estas kontrolita|kiuj estis kontrolitaj}}:",
+	"reviewedversions-review": "Kontrolita <i>$1</i> de $2"
 }

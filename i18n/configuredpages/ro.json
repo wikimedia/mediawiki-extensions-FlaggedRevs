@@ -1,13 +1,13 @@
 {
-    "@metadata": {
-        "authors": [
-            "Cin",
-            "Firilacroco",
-            "Minisarm"
-        ]
-    },
-    "configuredpages-none": "Nu există pagini în această listă.",
-    "configuredpages-config": "Configurație",
-    "configuredpages-def-draft": "ultima versiune",
-    "configuredpages-def-stable": "versiune stabilă"
+	"@metadata": {
+		"authors": [
+			"Cin",
+			"Firilacroco",
+			"Minisarm"
+		]
+	},
+	"configuredpages-none": "Nu există pagini în această listă.",
+	"configuredpages-config": "Configurație",
+	"configuredpages-def-draft": "ultima versiune",
+	"configuredpages-def-stable": "versiune stabilă"
 }

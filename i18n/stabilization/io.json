@@ -1,13 +1,13 @@
 {
-    "@metadata": {
-        "authors": [
-            "Malafaya"
-        ]
-    },
-    "stabilization-page": "Nomo di la pagino:",
-    "stabilization-comment": "Motivo:",
-    "stabilization-otherreason": "Altra motivo:",
-    "stabilization-othertime": "Altra tempo:",
-    "stabilization-def-short-0": "Aktuala",
-    "stabilization-def-short-1": "Stabila"
+	"@metadata": {
+		"authors": [
+			"Malafaya"
+		]
+	},
+	"stabilization-page": "Nomo di la pagino:",
+	"stabilization-comment": "Motivo:",
+	"stabilization-otherreason": "Altra motivo:",
+	"stabilization-othertime": "Altra tempo:",
+	"stabilization-def-short-0": "Aktuala",
+	"stabilization-def-short-1": "Stabila"
 }

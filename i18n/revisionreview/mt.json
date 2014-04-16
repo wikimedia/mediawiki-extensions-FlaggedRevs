@@ -1,18 +1,18 @@
 {
-    "@metadata": {
-        "authors": [
-            "Chrisportelli"
-        ]
-    },
-    "revisionreview": "Reviżjoni tar-reviżjonijiet",
-    "revreview-submission-invalid": "Is-sottomissjoni kienet inkompleta jew ħażina.",
-    "review_page_invalid": "It-titlu tal-paġna ta' destinazzjoni huwa ħażin.",
-    "review_page_notexists": "Il-paġna ta' destinazzjoni ma teżistix.",
-    "review_page_unreviewable": "Il-paġna ta' destinazzjoni ma tistax tiġi riveduta.",
-    "review_no_oldid": "L-ebda ID tar-reviżjoni ma ġie speċifikat.",
-    "review_denied": "Permess miċħud.",
-    "revreview-check-flag-y": "Aċċetta t-tibdiliet tiegħi",
-    "revreview-check-flag-y-title": "Aċċetta t-tibdiliet kollha li inti għamilt hawnhekk.",
-    "revreview-log": "Kumment:",
-    "revreview-submit": "Ibgħat"
+	"@metadata": {
+		"authors": [
+			"Chrisportelli"
+		]
+	},
+	"revisionreview": "Reviżjoni tar-reviżjonijiet",
+	"revreview-submission-invalid": "Is-sottomissjoni kienet inkompleta jew ħażina.",
+	"review_page_invalid": "It-titlu tal-paġna ta' destinazzjoni huwa ħażin.",
+	"review_page_notexists": "Il-paġna ta' destinazzjoni ma teżistix.",
+	"review_page_unreviewable": "Il-paġna ta' destinazzjoni ma tistax tiġi riveduta.",
+	"review_no_oldid": "L-ebda ID tar-reviżjoni ma ġie speċifikat.",
+	"review_denied": "Permess miċħud.",
+	"revreview-check-flag-y": "Aċċetta t-tibdiliet tiegħi",
+	"revreview-check-flag-y-title": "Aċċetta t-tibdiliet kollha li inti għamilt hawnhekk.",
+	"revreview-log": "Kumment:",
+	"revreview-submit": "Ibgħat"
 }

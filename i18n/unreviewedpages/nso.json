@@ -1,11 +1,11 @@
 {
-    "@metadata": {
-        "authors": [
-            "Mohau"
-        ]
-    },
-    "unreviewedpages-category": "Sehlopha:",
-    "unreviewedpages-diff": "Poeletšo",
-    "unreviewedpages-hours": "($1 {{PLURAL:$1|iri|diiri}})",
-    "unreviewedpages-days": "($1 {{PLURAL:$1|letšatši|matšatši}})"
+	"@metadata": {
+		"authors": [
+			"Mohau"
+		]
+	},
+	"unreviewedpages-category": "Sehlopha:",
+	"unreviewedpages-diff": "Poeletšo",
+	"unreviewedpages-hours": "($1 {{PLURAL:$1|iri|diiri}})",
+	"unreviewedpages-days": "($1 {{PLURAL:$1|letšatši|matšatši}})"
 }

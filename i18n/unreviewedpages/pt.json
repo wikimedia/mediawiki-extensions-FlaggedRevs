@@ -1,26 +1,26 @@
 {
-    "@metadata": {
-        "authors": [
-            "Giro720",
-            "GoEThe",
-            "Hamilton Abreu",
-            "Lijealso",
-            "Luckas",
-            "Malafaya",
-            "555"
-        ]
-    },
-    "action-unreviewedpages": "ver a lista de páginas não revistas",
-    "unreviewedpages": "Páginas não revistas",
-    "unreviewedpages-legend": "Listar páginas de conteúdo não revistas",
-    "unreviewedpages-category": "Categoria:",
-    "unreviewedpages-diff": "rever",
-    "unreviewedpages-unwatched": "(não vigiada)",
-    "unreviewedpages-watched": "(vigiada por $1 {{PLURAL:$1|utilizador ativo|utilizadores ativos}})",
-    "unreviewedpages-list": "Esta página lista as páginas de conteúdo que ''ainda'' não foram [[{{MediaWiki:Validationpage}}|revistas]] até ao nível escolhido.",
-    "unreviewedpages-none": "De momento, não há páginas que se enquadrem nestes critérios",
-    "unreviewedpages-viewing": "(em revisão)",
-    "unreviewedpages-hours": "($1 {{PLURAL:$1|hora|horas}})",
-    "unreviewedpages-days": "($1 {{PLURAL:$1|dia|dias}})",
-    "unreviewedpages-recent": "(menos de uma hora)"
+	"@metadata": {
+		"authors": [
+			"Giro720",
+			"GoEThe",
+			"Hamilton Abreu",
+			"Lijealso",
+			"Luckas",
+			"Malafaya",
+			"555"
+		]
+	},
+	"action-unreviewedpages": "ver a lista de páginas não revistas",
+	"unreviewedpages": "Páginas não revistas",
+	"unreviewedpages-legend": "Listar páginas de conteúdo não revistas",
+	"unreviewedpages-category": "Categoria:",
+	"unreviewedpages-diff": "rever",
+	"unreviewedpages-unwatched": "(não vigiada)",
+	"unreviewedpages-watched": "(vigiada por $1 {{PLURAL:$1|utilizador ativo|utilizadores ativos}})",
+	"unreviewedpages-list": "Esta página lista as páginas de conteúdo que ''ainda'' não foram [[{{MediaWiki:Validationpage}}|revistas]] até ao nível escolhido.",
+	"unreviewedpages-none": "De momento, não há páginas que se enquadrem nestes critérios",
+	"unreviewedpages-viewing": "(em revisão)",
+	"unreviewedpages-hours": "($1 {{PLURAL:$1|hora|horas}})",
+	"unreviewedpages-days": "($1 {{PLURAL:$1|dia|dias}})",
+	"unreviewedpages-recent": "(menos de uma hora)"
 }

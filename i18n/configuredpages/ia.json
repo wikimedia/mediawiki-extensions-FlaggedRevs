@@ -1,13 +1,13 @@
 {
-    "@metadata": {
-        "authors": [
-            "McDutchie"
-        ]
-    },
-    "configuredpages": "Paginas con configurationes de revision",
-    "configuredpages-list": "Hic infra es un lista de paginas con configurationes de approbation differente del predefinition del sito.\nAlcun configurationes pote cambiar le version que es monstrate al lectores o limitar ulteriormente le personas qui pote facer modificationes que non require revision.",
-    "configuredpages-none": "Il non ha paginas in iste lista.",
-    "configuredpages-config": "Configuration",
-    "configuredpages-def-draft": "ultime version",
-    "configuredpages-def-stable": "version publicate"
+	"@metadata": {
+		"authors": [
+			"McDutchie"
+		]
+	},
+	"configuredpages": "Paginas con configurationes de revision",
+	"configuredpages-list": "Hic infra es un lista de paginas con configurationes de approbation differente del predefinition del sito.\nAlcun configurationes pote cambiar le version que es monstrate al lectores o limitar ulteriormente le personas qui pote facer modificationes que non require revision.",
+	"configuredpages-none": "Il non ha paginas in iste lista.",
+	"configuredpages-config": "Configuration",
+	"configuredpages-def-draft": "ultime version",
+	"configuredpages-def-stable": "version publicate"
 }

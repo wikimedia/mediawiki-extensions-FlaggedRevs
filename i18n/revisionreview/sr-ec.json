@@ -1,30 +1,30 @@
 {
-    "@metadata": {
-        "authors": [
-            "Milicevic01",
-            "Millosh",
-            "Rancher",
-            "Sasa Stefanovic",
-            "Жељко Тодоровић",
-            "Михајло Анђелковић"
-        ]
-    },
-    "revisionreview": "Преглед измена",
-    "review_page_invalid": "Наслов циљане стране је неисправан.",
-    "review_page_notexists": "Циљна страница не постоји.",
-    "review_page_unreviewable": "Циљана страна се не може прегледати.",
-    "revreview-flag": "Преглед ове верзије",
-    "revreview-invalid": "'''Лош циљ:''' ниједна [[{{MediaWiki:Validationpage}}|прегледана]] верзије не поседује дати редни број.",
-    "revreview-log": "Коментар:",
-    "revreview-main": "Морате изабрати одређену измену странице са садржајем да бисте је проверили.\nПогледајте [[Special:Unreviewedpages|списак непрегледаних страница]].",
-    "revreview-stable1": "Можда желите погледати [{{fullurl:$1|stableid=$2}} ову означену верзију] и проверити да ли сада постоји [{{fullurl:$1|stable=1}} стабилна верзија] ове странице.",
-    "revreview-stable2": "Можда бисте хтели да видите [{{fullurl:$1|stable=1}} прихваћену верзију] ове стране.",
-    "revreview-submit": "Пошаљи",
-    "revreview-submitting": "Шаљем…",
-    "revreview-submit-review": "Прихвати измену",
-    "revreview-submit-unreview": "Поништи измену",
-    "revreview-submit-reviewed": "Готово. Усвојено!",
-    "revreview-submit-unreviewed": "Готово. Није усвојено!",
-    "revreview-successful2": "'''Успешно је скинута ознака са означене верзије стране [[:$1|$1]].'''",
-    "revreview-update-includes": "Ажурирани шаблони/датотеке (непрегледане странице су подебљане):"
+	"@metadata": {
+		"authors": [
+			"Milicevic01",
+			"Millosh",
+			"Rancher",
+			"Sasa Stefanovic",
+			"Жељко Тодоровић",
+			"Михајло Анђелковић"
+		]
+	},
+	"revisionreview": "Преглед измена",
+	"review_page_invalid": "Наслов циљане стране је неисправан.",
+	"review_page_notexists": "Циљна страница не постоји.",
+	"review_page_unreviewable": "Циљана страна се не може прегледати.",
+	"revreview-flag": "Преглед ове верзије",
+	"revreview-invalid": "'''Лош циљ:''' ниједна [[{{MediaWiki:Validationpage}}|прегледана]] верзије не поседује дати редни број.",
+	"revreview-log": "Коментар:",
+	"revreview-main": "Морате изабрати одређену измену странице са садржајем да бисте је проверили.\nПогледајте [[Special:Unreviewedpages|списак непрегледаних страница]].",
+	"revreview-stable1": "Можда желите погледати [{{fullurl:$1|stableid=$2}} ову означену верзију] и проверити да ли сада постоји [{{fullurl:$1|stable=1}} стабилна верзија] ове странице.",
+	"revreview-stable2": "Можда бисте хтели да видите [{{fullurl:$1|stable=1}} прихваћену верзију] ове стране.",
+	"revreview-submit": "Пошаљи",
+	"revreview-submitting": "Шаљем…",
+	"revreview-submit-review": "Прихвати измену",
+	"revreview-submit-unreview": "Поништи измену",
+	"revreview-submit-reviewed": "Готово. Усвојено!",
+	"revreview-submit-unreviewed": "Готово. Није усвојено!",
+	"revreview-successful2": "'''Успешно је скинута ознака са означене верзије стране [[:$1|$1]].'''",
+	"revreview-update-includes": "Ажурирани шаблони/датотеке (непрегледане странице су подебљане):"
 }

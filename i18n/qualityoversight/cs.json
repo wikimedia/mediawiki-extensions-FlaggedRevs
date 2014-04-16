@@ -1,10 +1,10 @@
 {
-    "@metadata": {
-        "authors": [
-            "Matěj Grabovský"
-        ]
-    },
-    "qualityoversight": "Dozor na kvalitu",
-    "qualityoversight-list": "Tato stránka obsahuje seznam všech nedávných schválení kvalitních verzí a zastarání revizí.",
-    "qualityoversight-legend": "Hledat v nedávných záznamech posouzení"
+	"@metadata": {
+		"authors": [
+			"Matěj Grabovský"
+		]
+	},
+	"qualityoversight": "Dozor na kvalitu",
+	"qualityoversight-list": "Tato stránka obsahuje seznam všech nedávných schválení kvalitních verzí a zastarání revizí.",
+	"qualityoversight-legend": "Hledat v nedávných záznamech posouzení"
 }

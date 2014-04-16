@@ -1,13 +1,13 @@
 {
-    "@metadata": {
-        "authors": [
-            "Robby"
-        ]
-    },
-    "reviewedversions": "nogekuckte Versiounen",
-    "reviewedversions-leg1": "Lëscht vun den nogekuckte Versioune vun enger Säit",
-    "reviewedversions-page": "Säitenumm:",
-    "reviewedversions-none": "\"[[:$1]]\" huet keng nogekuckte Versiounen.",
-    "reviewedversions-list": "Dëst ass eng Lëscht vun {{PLURAL:$2|der Versioun|de Verioune}} vun [[:$1]] déi nogekuckt {{PLURAL:$2|ginn ass|gi sinn}}:",
-    "reviewedversions-review": "Nogekuckt den <i>$1</i> vum $2"
+	"@metadata": {
+		"authors": [
+			"Robby"
+		]
+	},
+	"reviewedversions": "nogekuckte Versiounen",
+	"reviewedversions-leg1": "Lëscht vun den nogekuckte Versioune vun enger Säit",
+	"reviewedversions-page": "Säitenumm:",
+	"reviewedversions-none": "\"[[:$1]]\" huet keng nogekuckte Versiounen.",
+	"reviewedversions-list": "Dëst ass eng Lëscht vun {{PLURAL:$2|der Versioun|de Verioune}} vun [[:$1]] déi nogekuckt {{PLURAL:$2|ginn ass|gi sinn}}:",
+	"reviewedversions-review": "Nogekuckt den <i>$1</i> vum $2"
 }

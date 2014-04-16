@@ -1,14 +1,14 @@
 {
-    "@metadata": {
-        "authors": [
-            "Lovekhmer",
-            "Thearith",
-            "គីមស៊្រុន"
-        ]
-    },
-    "unreviewedpages": "ទំព័រ​ដែល​មិន​ត្រូវ​បាន​មើលឡើងវិញ",
-    "unreviewedpages-category": "ចំណាត់ថ្នាក់ក្រុម ៖",
-    "unreviewedpages-diff": "មើលឡើងវិញ",
-    "unreviewedpages-unwatched": "(មិន​ត្រូវ​បាន​តាមដាន)",
-    "unreviewedpages-watched": "($1 {{PLURAL:$1|អ្នកប្រើប្រាស់|អ្នកប្រើប្រាស់}} កំពុង​តាមដាន)"
+	"@metadata": {
+		"authors": [
+			"Lovekhmer",
+			"Thearith",
+			"គីមស៊្រុន"
+		]
+	},
+	"unreviewedpages": "ទំព័រ​ដែល​មិន​ត្រូវ​បាន​មើលឡើងវិញ",
+	"unreviewedpages-category": "ចំណាត់ថ្នាក់ក្រុម ៖",
+	"unreviewedpages-diff": "មើលឡើងវិញ",
+	"unreviewedpages-unwatched": "(មិន​ត្រូវ​បាន​តាមដាន)",
+	"unreviewedpages-watched": "($1 {{PLURAL:$1|អ្នកប្រើប្រាស់|អ្នកប្រើប្រាស់}} កំពុង​តាមដាន)"
 }

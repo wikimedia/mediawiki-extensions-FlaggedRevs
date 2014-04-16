@@ -1,25 +1,25 @@
 {
-    "@metadata": {
-        "authors": [
-            "Dani",
-            "Dj",
-            "Glanthor Reviol",
-            "Gondnok"
-        ]
-    },
-    "pendingchanges": "Ellenőrizetlen szerkesztésekkel rendelkező lapok",
-    "pendingchanges-legend": "Ellenőrizetlen változatokkal rendelkező ellenőrzött lapok listája",
-    "pendingchanges-list": "Az alábbi lista az egy vagy több ellenőrizetlen szerkesztésekkel rendelkező [[{{MediaWiki:Validationpage}}|ellenőrzött]] {{PLURAL:$1|lapot|lapokat}} tartalmazza.",
-    "pendingchanges-none": "Jelenleg nincs a feltételeknek megfelelő lap.",
-    "pendingchanges-hours": "({{PLURAL:$1|Egy|$1}} órája)",
-    "pendingchanges-days": "({{PLURAL:$1|Egy|$1}} napja)",
-    "pendingchanges-recent": "(kevesebb, mint egy órája)",
-    "pendingchanges-category": "Kategória:",
-    "pendingchanges-onwatchlist": "Lapok a figyelőlistámon",
-    "pendingchanges-stable": "megtekintett",
-    "pendingchanges-diff": "ellenőriz",
-    "pendingchanges-size": "Változás legfeljebb (bájtban):",
-    "pendingchanges-unwatched": "(nem figyelt)",
-    "pendingchanges-watched": "({{PLURAL:$1|egy|$1}} aktív szerkesztő figyeli)",
-    "pendingchanges-viewing": "(ellenőrzés alatt)"
+	"@metadata": {
+		"authors": [
+			"Dani",
+			"Dj",
+			"Glanthor Reviol",
+			"Gondnok"
+		]
+	},
+	"pendingchanges": "Ellenőrizetlen szerkesztésekkel rendelkező lapok",
+	"pendingchanges-legend": "Ellenőrizetlen változatokkal rendelkező ellenőrzött lapok listája",
+	"pendingchanges-list": "Az alábbi lista az egy vagy több ellenőrizetlen szerkesztésekkel rendelkező [[{{MediaWiki:Validationpage}}|ellenőrzött]] {{PLURAL:$1|lapot|lapokat}} tartalmazza.",
+	"pendingchanges-none": "Jelenleg nincs a feltételeknek megfelelő lap.",
+	"pendingchanges-hours": "({{PLURAL:$1|Egy|$1}} órája)",
+	"pendingchanges-days": "({{PLURAL:$1|Egy|$1}} napja)",
+	"pendingchanges-recent": "(kevesebb, mint egy órája)",
+	"pendingchanges-category": "Kategória:",
+	"pendingchanges-onwatchlist": "Lapok a figyelőlistámon",
+	"pendingchanges-stable": "megtekintett",
+	"pendingchanges-diff": "ellenőriz",
+	"pendingchanges-size": "Változás legfeljebb (bájtban):",
+	"pendingchanges-unwatched": "(nem figyelt)",
+	"pendingchanges-watched": "({{PLURAL:$1|egy|$1}} aktív szerkesztő figyeli)",
+	"pendingchanges-viewing": "(ellenőrzés alatt)"
 }

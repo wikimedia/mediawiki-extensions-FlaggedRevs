@@ -1,20 +1,20 @@
 {
-    "@metadata": {
-        "authors": [
-            "Hanberke"
-        ]
-    },
-    "validationstatistics": "Barlama statistikalary",
-    "validationstatistics-users": "'''{{SITENAME}}''' saýtynda häzirki wagtda [[{{MediaWiki:Validationpage}}|Redaktor]] hukugyna eýe '''[[Special:ListUsers/editor|$1]]''' sany {{PLURAL:$1|ulanyjy|ulanyjy}} hem-de [[{{MediaWiki:Validationpage}}|Gözden geçiriji]] hukugyna eýe '''[[Special:ListUsers/reviewer|$2]]''' sany {{PLURAL:$2|ulanyjy|ulanyjy}} bardyr.\n\nRedaktorlar we Gözden Geçirijiler sahypalara barlag wersiýasyny belläp bilýän kesgitli ulanyjylardyr.",
-    "validationstatistics-lastupdate": "\"Aşakdaky maglumat soňky gezek $1, $2 senesinde täzelendi\"",
-    "validationstatistics-table": "Her bir at giňişligi üçin statistikalar aşakda görkezilýär, gönükdirme sahypalary ''degişli däl''.",
-    "validationstatistics-ns": "At giňişligi",
-    "validationstatistics-total": "Sahypalar",
-    "validationstatistics-stable": "Gözden geçirilen",
-    "validationstatistics-latest": "Sinhronizirlenen",
-    "validationstatistics-synced": "Sinhronizirlenen/Gözden geçirilen",
-    "validationstatistics-old": "Möwriti geçen",
-    "validationstatistics-utable": "Aşakdaky sanaw soňky bir sagadyň dowamyndaky iň işjeň $1 gözden geçirijiniň sanawydyr.",
-    "validationstatistics-user": "Ulanyjy",
-    "validationstatistics-reviews": "Barlaglar"
+	"@metadata": {
+		"authors": [
+			"Hanberke"
+		]
+	},
+	"validationstatistics": "Barlama statistikalary",
+	"validationstatistics-users": "'''{{SITENAME}}''' saýtynda häzirki wagtda [[{{MediaWiki:Validationpage}}|Redaktor]] hukugyna eýe '''[[Special:ListUsers/editor|$1]]''' sany {{PLURAL:$1|ulanyjy|ulanyjy}} hem-de [[{{MediaWiki:Validationpage}}|Gözden geçiriji]] hukugyna eýe '''[[Special:ListUsers/reviewer|$2]]''' sany {{PLURAL:$2|ulanyjy|ulanyjy}} bardyr.\n\nRedaktorlar we Gözden Geçirijiler sahypalara barlag wersiýasyny belläp bilýän kesgitli ulanyjylardyr.",
+	"validationstatistics-lastupdate": "\"Aşakdaky maglumat soňky gezek $1, $2 senesinde täzelendi\"",
+	"validationstatistics-table": "Her bir at giňişligi üçin statistikalar aşakda görkezilýär, gönükdirme sahypalary ''degişli däl''.",
+	"validationstatistics-ns": "At giňişligi",
+	"validationstatistics-total": "Sahypalar",
+	"validationstatistics-stable": "Gözden geçirilen",
+	"validationstatistics-latest": "Sinhronizirlenen",
+	"validationstatistics-synced": "Sinhronizirlenen/Gözden geçirilen",
+	"validationstatistics-old": "Möwriti geçen",
+	"validationstatistics-utable": "Aşakdaky sanaw soňky bir sagadyň dowamyndaky iň işjeň $1 gözden geçirijiniň sanawydyr.",
+	"validationstatistics-user": "Ulanyjy",
+	"validationstatistics-reviews": "Barlaglar"
 }

@@ -1,12 +1,12 @@
 {
-    "@metadata": {
-        "authors": [
-            "Horus",
-            "Woraponboonkerd"
-        ]
-    },
-    "review_page_notexists": "ไม่มีหน้าเป้าหมาย",
-    "revreview-check-flag-y": "ยอมรับการเปลี่ยนแปลงของฉัน",
-    "revreview-submit": "ส่ง",
-    "revreview-submitting": "กำลังส่ง..."
+	"@metadata": {
+		"authors": [
+			"Horus",
+			"Woraponboonkerd"
+		]
+	},
+	"review_page_notexists": "ไม่มีหน้าเป้าหมาย",
+	"revreview-check-flag-y": "ยอมรับการเปลี่ยนแปลงของฉัน",
+	"revreview-submit": "ส่ง",
+	"revreview-submitting": "กำลังส่ง..."
 }

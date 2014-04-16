@@ -1,15 +1,15 @@
 {
-    "@metadata": {
-        "authors": [
-            "Aleator",
-            "Grondin",
-            "Jordi Roqué",
-            "Paucabot"
-        ]
-    },
-    "stablepages": "Pàgines utilitzant l'aprovació de les modificacions",
-    "stablepages-list": "Aquesta pàgina llista les on algunes usuaris poden fer edicions que no necessiten cap revisió.\nLes edicions fetes pels altres usuaris no són afixades als lectors per defecte fins que una persona habilitada les revisi.",
-    "stablepages-none": "No hi ha pàgines a la llista",
-    "stablepages-config": "Configuració",
-    "stablepages-indef": "Només la caducitat indefinida"
+	"@metadata": {
+		"authors": [
+			"Aleator",
+			"Grondin",
+			"Jordi Roqué",
+			"Paucabot"
+		]
+	},
+	"stablepages": "Pàgines utilitzant l'aprovació de les modificacions",
+	"stablepages-list": "Aquesta pàgina llista les on algunes usuaris poden fer edicions que no necessiten cap revisió.\nLes edicions fetes pels altres usuaris no són afixades als lectors per defecte fins que una persona habilitada les revisi.",
+	"stablepages-none": "No hi ha pàgines a la llista",
+	"stablepages-config": "Configuració",
+	"stablepages-indef": "Només la caducitat indefinida"
 }

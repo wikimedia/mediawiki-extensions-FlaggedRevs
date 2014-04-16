@@ -1,28 +1,28 @@
 {
-    "@metadata": {
-        "authors": [
-            "Malafaya",
-            "Smeira"
-        ]
-    },
-    "stabilization-tab": "(ka)",
-    "stabilization": "Fümöfükam pada",
-    "stabilization-text": "'''Votükolös parametis dono ad sludön, lio fomam fümöfik pada: [[:$1|$1]] pavälon e pajonon.'''",
-    "stabilization-perm": "Kal olik no dälon ad votükön parametemi fomama fümöfik. Is palisedon parametem anuik pro pad: [[:$1|$1]]:",
-    "stabilization-page": "Nem pada:",
-    "stabilization-leg": "Fümedön parametis fomama fümöfik",
-    "stabilization-def": "Fomam jonabik pö padilogams kösömik",
-    "stabilization-def1": "Fomam fümöfik; if no dabinon, tän fomam anuik",
-    "stabilization-def2": "Fomam anuik",
-    "stabilization-submit": "Fümedön",
-    "stabilization-notexists": "Pad tiädü \"[[:$1|$1]]\" no dabinon. Fomükam no mögon.",
-    "stabilization-notcontent": "Pad: \"[[:$1|$1]]\" no kanon pakrütön. Parametem nonik mögon.",
-    "stabilization-comment": "Kod:",
-    "stabilization-otherreason": "Kod votik:",
-    "stabilization-expiry": "Dul jü:",
-    "stabilization-othertime": "Dul votik:",
-    "stabilization-def-short-0": "Anuik",
-    "stabilization-def-short-1": "Fümöfik",
-    "stabilize_expiry_invalid": "Dul no lonöföl.",
-    "stabilize-expiring": "dulon jü $1 (UTC)"
+	"@metadata": {
+		"authors": [
+			"Malafaya",
+			"Smeira"
+		]
+	},
+	"stabilization-tab": "(ka)",
+	"stabilization": "Fümöfükam pada",
+	"stabilization-text": "'''Votükolös parametis dono ad sludön, lio fomam fümöfik pada: [[:$1|$1]] pavälon e pajonon.'''",
+	"stabilization-perm": "Kal olik no dälon ad votükön parametemi fomama fümöfik. Is palisedon parametem anuik pro pad: [[:$1|$1]]:",
+	"stabilization-page": "Nem pada:",
+	"stabilization-leg": "Fümedön parametis fomama fümöfik",
+	"stabilization-def": "Fomam jonabik pö padilogams kösömik",
+	"stabilization-def1": "Fomam fümöfik; if no dabinon, tän fomam anuik",
+	"stabilization-def2": "Fomam anuik",
+	"stabilization-submit": "Fümedön",
+	"stabilization-notexists": "Pad tiädü \"[[:$1|$1]]\" no dabinon. Fomükam no mögon.",
+	"stabilization-notcontent": "Pad: \"[[:$1|$1]]\" no kanon pakrütön. Parametem nonik mögon.",
+	"stabilization-comment": "Kod:",
+	"stabilization-otherreason": "Kod votik:",
+	"stabilization-expiry": "Dul jü:",
+	"stabilization-othertime": "Dul votik:",
+	"stabilization-def-short-0": "Anuik",
+	"stabilization-def-short-1": "Fümöfik",
+	"stabilize_expiry_invalid": "Dul no lonöföl.",
+	"stabilize-expiring": "dulon jü $1 (UTC)"
 }

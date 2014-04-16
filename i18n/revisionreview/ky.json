@@ -1,14 +1,14 @@
 {
-    "@metadata": {
-        "authors": [
-            "Growingup"
-        ]
-    },
-    "revreview-log": "Комментарий:",
-    "revreview-submit": "Жөнөтүү",
-    "revreview-submitting": "Жөнөтүү…",
-    "revreview-submit-reviewed": "Даяр. Аныкталды!",
-    "revreview-submit-unreviewed": "Даяр. Аныкталган жок!",
-    "revreview-reject-summary": "Баяндама:",
-    "revreview-reject-cancel": "Жокко чыгаруу"
+	"@metadata": {
+		"authors": [
+			"Growingup"
+		]
+	},
+	"revreview-log": "Комментарий:",
+	"revreview-submit": "Жөнөтүү",
+	"revreview-submitting": "Жөнөтүү…",
+	"revreview-submit-reviewed": "Даяр. Аныкталды!",
+	"revreview-submit-unreviewed": "Даяр. Аныкталган жок!",
+	"revreview-reject-summary": "Баяндама:",
+	"revreview-reject-cancel": "Жокко чыгаруу"
 }

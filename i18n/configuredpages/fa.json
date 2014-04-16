@@ -1,17 +1,17 @@
 {
-    "@metadata": {
-        "authors": [
-            "Ebraminio",
-            "Huji",
-            "Ladsgroup",
-            "Mjbmr",
-            "Wayiran"
-        ]
-    },
-    "configuredpages": "صفحه‌های دارای تنظیمات بازبینی",
-    "configuredpages-list": "این صفحه فهرستی از صفحه‌های تنظیم شده‌ای وجود دارد که تأییدهٔ متفاوتی از پیش‌فرض تارنما دارند.\nتعدادی از تنظیمات ممکن است اینکه کدام نسخه برای خواننده نمایش داده شود یا محدودیت بیشتری که نیازی به بازبینی ندارند را تغییر دهند.",
-    "configuredpages-none": "هیچ صفحه در این فهرست وجود دارد.",
-    "configuredpages-config": "تنظیمات",
-    "configuredpages-def-draft": "آخرین نسخه",
-    "configuredpages-def-stable": "نسخه پایدار"
+	"@metadata": {
+		"authors": [
+			"Ebraminio",
+			"Huji",
+			"Ladsgroup",
+			"Mjbmr",
+			"Wayiran"
+		]
+	},
+	"configuredpages": "صفحه‌های دارای تنظیمات بازبینی",
+	"configuredpages-list": "این صفحه فهرستی از صفحه‌های تنظیم شده‌ای وجود دارد که تأییدهٔ متفاوتی از پیش‌فرض تارنما دارند.\nتعدادی از تنظیمات ممکن است اینکه کدام نسخه برای خواننده نمایش داده شود یا محدودیت بیشتری که نیازی به بازبینی ندارند را تغییر دهند.",
+	"configuredpages-none": "هیچ صفحه در این فهرست وجود دارد.",
+	"configuredpages-config": "تنظیمات",
+	"configuredpages-def-draft": "آخرین نسخه",
+	"configuredpages-def-stable": "نسخه پایدار"
 }

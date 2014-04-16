@@ -1,10 +1,10 @@
 {
-    "@metadata": {
-        "authors": [
-            "Xqt"
-        ]
-    },
-    "stabilization-page": "Naame vum Blatt:",
-    "stabilization-comment": "Grund:",
-    "stabilization-otherreason": "Annerer Grund:"
+	"@metadata": {
+		"authors": [
+			"Xqt"
+		]
+	},
+	"stabilization-page": "Naame vum Blatt:",
+	"stabilization-comment": "Grund:",
+	"stabilization-otherreason": "Annerer Grund:"
 }

@@ -1,23 +1,23 @@
 {
-    "@metadata": {
-        "authors": [
-            "Malafaya"
-        ]
-    },
-    "revreview-accuracy": "Exakteso",
-    "revreview-accuracy-2": "Exakta",
-    "revreview-depth-1": "Bazala",
-    "revreview-source": "Vidar fonto",
-    "revreview-style-1": "Aceptebla",
-    "revreview-style-2": "Bona",
-    "revreview-style-3": "Konciza",
-    "revreview-revnotfound": "L' anciena versiono di la pagino, quan vu demandis, ne povis trovesar.\nVoluntez kontrolar la URL quan vu uzis por acesar a ca pagino.",
-    "revreview-filter-all": "omna",
-    "revreview-levelfilter": "Nivelo:",
-    "revreview-lev-all": "ula",
-    "revreview-def-all": "ula",
-    "revreview-def-draft": "maxim nova",
-    "revreview-def-stable": "stabila",
-    "revreview-restriction-any": "ula",
-    "revreview-restriction-none": "nula"
+	"@metadata": {
+		"authors": [
+			"Malafaya"
+		]
+	},
+	"revreview-accuracy": "Exakteso",
+	"revreview-accuracy-2": "Exakta",
+	"revreview-depth-1": "Bazala",
+	"revreview-source": "Vidar fonto",
+	"revreview-style-1": "Aceptebla",
+	"revreview-style-2": "Bona",
+	"revreview-style-3": "Konciza",
+	"revreview-revnotfound": "L' anciena versiono di la pagino, quan vu demandis, ne povis trovesar.\nVoluntez kontrolar la URL quan vu uzis por acesar a ca pagino.",
+	"revreview-filter-all": "omna",
+	"revreview-levelfilter": "Nivelo:",
+	"revreview-lev-all": "ula",
+	"revreview-def-all": "ula",
+	"revreview-def-draft": "maxim nova",
+	"revreview-def-stable": "stabila",
+	"revreview-restriction-any": "ula",
+	"revreview-restriction-none": "nula"
 }

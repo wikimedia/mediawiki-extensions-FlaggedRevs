@@ -1,14 +1,14 @@
 {
-    "@metadata": {
-        "authors": [
-            "Eduardo.mps",
-            "Giro720"
-        ]
-    },
-    "reviewedversions": "Versões revisadas",
-    "reviewedversions-leg1": "Listar as edições analisadas de uma página",
-    "reviewedversions-page": "Título da página:",
-    "reviewedversions-none": "[[:$1]] não possui edições analisadas.",
-    "reviewedversions-list": "A seguir, uma lista {{PLURAL:$2|da única edição de|das edições de}} \"[[:$1]]\" que {{PLURAL:$2|foi analisada|foram analisadas}}:",
-    "reviewedversions-review": "Analisada às <i>$1</i> por $2"
+	"@metadata": {
+		"authors": [
+			"Eduardo.mps",
+			"Giro720"
+		]
+	},
+	"reviewedversions": "Versões revisadas",
+	"reviewedversions-leg1": "Listar as edições analisadas de uma página",
+	"reviewedversions-page": "Título da página:",
+	"reviewedversions-none": "[[:$1]] não possui edições analisadas.",
+	"reviewedversions-list": "A seguir, uma lista {{PLURAL:$2|da única edição de|das edições de}} \"[[:$1]]\" que {{PLURAL:$2|foi analisada|foram analisadas}}:",
+	"reviewedversions-review": "Analisada às <i>$1</i> por $2"
 }

@@ -1,11 +1,11 @@
 {
-    "@metadata": {
-        "authors": [
-            "Harald Khan",
-            "Njardarlogar"
-        ]
-    },
-    "qualityoversight": "Kvalitetsoversikt",
-    "qualityoversight-list": "Denne sida syner dei siste godkjende og degraderte sideversjonane.",
-    "qualityoversight-legend": "Søk i loggen over dei siste vurderingane"
+	"@metadata": {
+		"authors": [
+			"Harald Khan",
+			"Njardarlogar"
+		]
+	},
+	"qualityoversight": "Kvalitetsoversikt",
+	"qualityoversight-list": "Denne sida syner dei siste godkjende og degraderte sideversjonane.",
+	"qualityoversight-legend": "Søk i loggen over dei siste vurderingane"
 }

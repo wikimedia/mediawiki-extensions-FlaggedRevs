@@ -1,12 +1,12 @@
 {
-    "@metadata": {
-        "authors": [
-            "Michawiki"
-        ]
-    },
-    "stablepages": "Strony, kotrež schwalenje změnow wužiwaja",
-    "stablepages-list": "Deleka je lisćina stronow, kotrež jenož wěsći wužiwarjo móža změny přewjesć, kotrež sej přepruwowanje njewužaduja. Změny druhich wužiwarjow so po standardźe druhim čitarjam njepokazaja, doniž awtorizowany wužiwar je njepřepruwuje.",
-    "stablepages-none": "W tutej lisćinje strony njejsu.",
-    "stablepages-config": "Konfiguracija",
-    "stablepages-indef": "Jenož z njepostajenym spadnjenjom"
+	"@metadata": {
+		"authors": [
+			"Michawiki"
+		]
+	},
+	"stablepages": "Strony, kotrež schwalenje změnow wužiwaja",
+	"stablepages-list": "Deleka je lisćina stronow, kotrež jenož wěsći wužiwarjo móža změny přewjesć, kotrež sej přepruwowanje njewužaduja. Změny druhich wužiwarjow so po standardźe druhim čitarjam njepokazaja, doniž awtorizowany wužiwar je njepřepruwuje.",
+	"stablepages-none": "W tutej lisćinje strony njejsu.",
+	"stablepages-config": "Konfiguracija",
+	"stablepages-indef": "Jenož z njepostajenym spadnjenjom"
 }

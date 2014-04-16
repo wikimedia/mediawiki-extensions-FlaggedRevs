@@ -1,12 +1,12 @@
 {
-    "@metadata": {
-        "authors": [
-            "Man77"
-        ]
-    },
-    "stabilization-submit": "Bestäting",
-    "stabilization-comment": "Grund:",
-    "stabilization-otherreason": "Ãndara Grund:",
-    "stabilization-expiry": "Güit bis:",
-    "stabilization-othertime": "Ãndare Zeid:"
+	"@metadata": {
+		"authors": [
+			"Man77"
+		]
+	},
+	"stabilization-submit": "Bestäting",
+	"stabilization-comment": "Grund:",
+	"stabilization-otherreason": "Ãndara Grund:",
+	"stabilization-expiry": "Güit bis:",
+	"stabilization-othertime": "Ãndare Zeid:"
 }

@@ -1,17 +1,17 @@
 {
-    "@metadata": {
-        "authors": [
-            "Cimon Avaro",
-            "Crt",
-            "Olli",
-            "Pxos",
-            "Str4nd",
-            "ZeiP"
-        ]
-    },
-    "stablepages": "Sivut, jotka näytetään vasta version arvioinnin jälkeen",
-    "stablepages-list": "Tässä on luettelo sivuista, joihin vain tietyt käyttäjät voivat tehdä muokkauksia, jotka eivät vaadi arviointia.\nMuiden käyttäjien tekemiä muokkauksia ei näytetä, ennen kuin valtuutettu käyttäjä on arvioinut ne.",
-    "stablepages-none": "Tässä luettelossa ei ole sivuja.",
-    "stablepages-config": "Asetukset",
-    "stablepages-indef": "Vain määrittämätön vanhentumisaika"
+	"@metadata": {
+		"authors": [
+			"Cimon Avaro",
+			"Crt",
+			"Olli",
+			"Pxos",
+			"Str4nd",
+			"ZeiP"
+		]
+	},
+	"stablepages": "Sivut, jotka näytetään vasta version arvioinnin jälkeen",
+	"stablepages-list": "Tässä on luettelo sivuista, joihin vain tietyt käyttäjät voivat tehdä muokkauksia, jotka eivät vaadi arviointia.\nMuiden käyttäjien tekemiä muokkauksia ei näytetä, ennen kuin valtuutettu käyttäjä on arvioinut ne.",
+	"stablepages-none": "Tässä luettelossa ei ole sivuja.",
+	"stablepages-config": "Asetukset",
+	"stablepages-indef": "Vain määrittämätön vanhentumisaika"
 }

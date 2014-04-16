@@ -1,24 +1,24 @@
 {
-    "@metadata": {
-        "authors": [
-            "Bjankuloski06",
-            "Brest"
-        ]
-    },
-    "validationstatistics": "Статистики за оценки",
-    "validationstatistics-users": "'''{{SITENAME}}''' моментално има '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|корисник|корисници}} со права на „[[{{MediaWiki:Validationpage}}|Уредник]]“.\n\nУредниците се докажани корисници кои можат да прават моментални проверки на преработки на страници.",
-    "validationstatistics-lastupdate": "''Следниве податоци се последен пат подновени на $1 во $2 ч.''",
-    "validationstatistics-pndtime": "Уредувањата прегледани од докажани корисници се сметаат за ''{{int:validationstatistics-stable}}''.\n\nПросечното задоцнување за [[Special:OldReviewedPages|страници со непрегледани уредувања во исчекување]] изнесува '''$1'''. Задоцнувањето покажува колку време останало непроверено најстарото уредување во исчекување .",
-    "validationstatistics-revtime": "Просечното време на чекање за непроверени уредувања од ''ненајавени корисници'' е '''$1'''; средната вредност изнесува '''$2'''.\n$3",
-    "validationstatistics-table": "Подолу се прикажани статистиките за прегледувањата на секој именски простор, ''освен'' страниците за пренасочување. Страниците се сметаат за ''{{int:validationstatistics-old}}'' ако имаат уредувања што чекаат на проверка. За ''{{int:validationstatistics-latest}}''  се сметаат оние што немаат уредувања во исчекување.",
-    "validationstatistics-ns": "Именски простор",
-    "validationstatistics-total": "Страници",
-    "validationstatistics-stable": "Оценето",
-    "validationstatistics-latest": "Синхронизирано",
-    "validationstatistics-synced": "Синхронизирани/Оценети",
-    "validationstatistics-old": "Застарени",
-    "validationstatistics-unreviewed": "Непроверени",
-    "validationstatistics-utable": "Подолу е наведен список на {{PLURAL:$1|најактивниот прегледувач|$1 најактивни прегледувачи}} {{PLURAL:$2|во последниов час|во последниве $2 часа}}.",
-    "validationstatistics-user": "Корисник",
-    "validationstatistics-reviews": "Оценки"
+	"@metadata": {
+		"authors": [
+			"Bjankuloski06",
+			"Brest"
+		]
+	},
+	"validationstatistics": "Статистики за оценки",
+	"validationstatistics-users": "'''{{SITENAME}}''' моментално има '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|корисник|корисници}} со права на „[[{{MediaWiki:Validationpage}}|Уредник]]“.\n\nУредниците се докажани корисници кои можат да прават моментални проверки на преработки на страници.",
+	"validationstatistics-lastupdate": "''Следниве податоци се последен пат подновени на $1 во $2 ч.''",
+	"validationstatistics-pndtime": "Уредувањата прегледани од докажани корисници се сметаат за ''{{int:validationstatistics-stable}}''.\n\nПросечното задоцнување за [[Special:OldReviewedPages|страници со непрегледани уредувања во исчекување]] изнесува '''$1'''. Задоцнувањето покажува колку време останало непроверено најстарото уредување во исчекување .",
+	"validationstatistics-revtime": "Просечното време на чекање за непроверени уредувања од ''ненајавени корисници'' е '''$1'''; средната вредност изнесува '''$2'''.\n$3",
+	"validationstatistics-table": "Подолу се прикажани статистиките за прегледувањата на секој именски простор, ''освен'' страниците за пренасочување. Страниците се сметаат за ''{{int:validationstatistics-old}}'' ако имаат уредувања што чекаат на проверка. За ''{{int:validationstatistics-latest}}''  се сметаат оние што немаат уредувања во исчекување.",
+	"validationstatistics-ns": "Именски простор",
+	"validationstatistics-total": "Страници",
+	"validationstatistics-stable": "Оценето",
+	"validationstatistics-latest": "Синхронизирано",
+	"validationstatistics-synced": "Синхронизирани/Оценети",
+	"validationstatistics-old": "Застарени",
+	"validationstatistics-unreviewed": "Непроверени",
+	"validationstatistics-utable": "Подолу е наведен список на {{PLURAL:$1|најактивниот прегледувач|$1 најактивни прегледувачи}} {{PLURAL:$2|во последниов час|во последниве $2 часа}}.",
+	"validationstatistics-user": "Корисник",
+	"validationstatistics-reviews": "Оценки"
 }

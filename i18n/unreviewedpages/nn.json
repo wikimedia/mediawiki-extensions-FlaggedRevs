@@ -1,22 +1,22 @@
 {
-    "@metadata": {
-        "authors": [
-            "Harald Khan",
-            "Jon Harald Søby",
-            "Nghtwlkr",
-            "Njardarlogar"
-        ]
-    },
-    "unreviewedpages": "Sider som ikkje er vortne vurderte",
-    "unreviewedpages-legend": "List opp innhaldssider som ikkje er vurderte",
-    "unreviewedpages-category": "Kategori:",
-    "unreviewedpages-diff": "vurder",
-    "unreviewedpages-unwatched": "(uovervaka)",
-    "unreviewedpages-watched": "({{PLURAL:$1|éin aktiv brukar|$1 aktive brukarar}} overvakar)",
-    "unreviewedpages-list": "Denne sida listar opp artiklar som manglar vurdering",
-    "unreviewedpages-none": "Det finst ingen sider som svarer til søkekriteria",
-    "unreviewedpages-viewing": "(under vurdering)",
-    "unreviewedpages-hours": "($1 {{PLURAL:$1|time|timar}})",
-    "unreviewedpages-days": "($1 {{PLURAL:$1|dag|dagar}})",
-    "unreviewedpages-recent": "(mindre enn éin time)"
+	"@metadata": {
+		"authors": [
+			"Harald Khan",
+			"Jon Harald Søby",
+			"Nghtwlkr",
+			"Njardarlogar"
+		]
+	},
+	"unreviewedpages": "Sider som ikkje er vortne vurderte",
+	"unreviewedpages-legend": "List opp innhaldssider som ikkje er vurderte",
+	"unreviewedpages-category": "Kategori:",
+	"unreviewedpages-diff": "vurder",
+	"unreviewedpages-unwatched": "(uovervaka)",
+	"unreviewedpages-watched": "({{PLURAL:$1|éin aktiv brukar|$1 aktive brukarar}} overvakar)",
+	"unreviewedpages-list": "Denne sida listar opp artiklar som manglar vurdering",
+	"unreviewedpages-none": "Det finst ingen sider som svarer til søkekriteria",
+	"unreviewedpages-viewing": "(under vurdering)",
+	"unreviewedpages-hours": "($1 {{PLURAL:$1|time|timar}})",
+	"unreviewedpages-days": "($1 {{PLURAL:$1|dag|dagar}})",
+	"unreviewedpages-recent": "(mindre enn éin time)"
 }

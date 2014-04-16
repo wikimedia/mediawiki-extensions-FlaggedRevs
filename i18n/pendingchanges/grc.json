@@ -1,14 +1,14 @@
 {
-    "@metadata": {
-        "authors": [
-            "Crazymadlover",
-            "Omnipaedista"
-        ]
-    },
-    "pendingchanges-hours": "($1 {{PLURAL:$1|ὥρα|ὥραι}})",
-    "pendingchanges-days": "($1 {{PLURAL:$1|ἡμέρα|ἡμέραι}})",
-    "pendingchanges-category": "Κατηγορία:",
-    "pendingchanges-stable": "θεωρημένη",
-    "pendingchanges-diff": "θεωρεῖν",
-    "pendingchanges-unwatched": "(ἀνεφορωμένη)"
+	"@metadata": {
+		"authors": [
+			"Crazymadlover",
+			"Omnipaedista"
+		]
+	},
+	"pendingchanges-hours": "($1 {{PLURAL:$1|ὥρα|ὥραι}})",
+	"pendingchanges-days": "($1 {{PLURAL:$1|ἡμέρα|ἡμέραι}})",
+	"pendingchanges-category": "Κατηγορία:",
+	"pendingchanges-stable": "θεωρημένη",
+	"pendingchanges-diff": "θεωρεῖν",
+	"pendingchanges-unwatched": "(ἀνεφορωμένη)"
 }

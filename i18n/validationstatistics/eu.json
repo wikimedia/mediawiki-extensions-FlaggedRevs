@@ -1,13 +1,13 @@
 {
-    "@metadata": {
-        "authors": [
-            "An13sa",
-            "Kobazulo"
-        ]
-    },
-    "validationstatistics": "Orrialde berrikuspen estatistikak",
-    "validationstatistics-ns": "Izen-tartea",
-    "validationstatistics-total": "Orrialdeak",
-    "validationstatistics-old": "Deseguneratua",
-    "validationstatistics-user": "Erabiltzailea"
+	"@metadata": {
+		"authors": [
+			"An13sa",
+			"Kobazulo"
+		]
+	},
+	"validationstatistics": "Orrialde berrikuspen estatistikak",
+	"validationstatistics-ns": "Izen-tartea",
+	"validationstatistics-total": "Orrialdeak",
+	"validationstatistics-old": "Deseguneratua",
+	"validationstatistics-user": "Erabiltzailea"
 }

@@ -1,16 +1,16 @@
 {
-    "@metadata": {
-        "authors": [
-            "පසිඳු කාවින්ද"
-        ]
-    },
-    "unreviewedpages": "නිරීක්ෂණය නොකළ පිටු",
-    "unreviewedpages-legend": "නිරීක්ෂණය නොකළ අන්තර්ගතය සහිත පිටු ලැයිස්තුගත කරන්න",
-    "unreviewedpages-category": "ප්‍රවර්ගය:",
-    "unreviewedpages-diff": "නිරීක්ෂණය",
-    "unreviewedpages-unwatched": "(මුරනොකළ)",
-    "unreviewedpages-viewing": "(නිරීක්ෂණය යටතේ)",
-    "unreviewedpages-hours": "({{PLURAL:$1|පැය|පැය}} $1 ක්)",
-    "unreviewedpages-days": "({{PLURAL:$1|දින|දින}} $1 ක්)",
-    "unreviewedpages-recent": "(පැයකටත් වඩා අඩුවෙන්)"
+	"@metadata": {
+		"authors": [
+			"පසිඳු කාවින්ද"
+		]
+	},
+	"unreviewedpages": "නිරීක්ෂණය නොකළ පිටු",
+	"unreviewedpages-legend": "නිරීක්ෂණය නොකළ අන්තර්ගතය සහිත පිටු ලැයිස්තුගත කරන්න",
+	"unreviewedpages-category": "ප්‍රවර්ගය:",
+	"unreviewedpages-diff": "නිරීක්ෂණය",
+	"unreviewedpages-unwatched": "(මුරනොකළ)",
+	"unreviewedpages-viewing": "(නිරීක්ෂණය යටතේ)",
+	"unreviewedpages-hours": "({{PLURAL:$1|පැය|පැය}} $1 ක්)",
+	"unreviewedpages-days": "({{PLURAL:$1|දින|දින}} $1 ක්)",
+	"unreviewedpages-recent": "(පැයකටත් වඩා අඩුවෙන්)"
 }

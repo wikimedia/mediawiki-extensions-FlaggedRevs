@@ -1,9 +1,9 @@
 {
-    "@metadata": {
-        "authors": [
-            "Codex Sinaiticus"
-        ]
-    },
-    "revreview-revnotfound": "ለዚህ ገጽ የጠየቁት የቆየው ዕትም ሊገኝ አልቻለም። እባክዎ ይህን ገጽ ለማግኘት የተጠቀመው URL ይመልከቱ።",
-    "revreview-filter-all": "ሁሉ"
+	"@metadata": {
+		"authors": [
+			"Codex Sinaiticus"
+		]
+	},
+	"revreview-revnotfound": "ለዚህ ገጽ የጠየቁት የቆየው ዕትም ሊገኝ አልቻለም። እባክዎ ይህን ገጽ ለማግኘት የተጠቀመው URL ይመልከቱ።",
+	"revreview-filter-all": "ሁሉ"
 }

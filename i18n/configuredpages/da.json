@@ -1,10 +1,10 @@
 {
-    "@metadata": {
-        "authors": [
-            "Froztbyte"
-        ]
-    },
-    "configuredpages-none": "Der er ingen sider i denne liste.",
-    "configuredpages-config": "Konfiguration",
-    "configuredpages-def-stable": "publiseret version"
+	"@metadata": {
+		"authors": [
+			"Froztbyte"
+		]
+	},
+	"configuredpages-none": "Der er ingen sider i denne liste.",
+	"configuredpages-config": "Konfiguration",
+	"configuredpages-def-stable": "publiseret version"
 }

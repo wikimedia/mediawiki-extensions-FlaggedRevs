@@ -1,12 +1,12 @@
 {
-    "@metadata": {
-        "authors": [
-            "Игорь Бродский"
-        ]
-    },
-    "configuredpages": "Lehtpoled kodvindjärgendusidenke",
-    "configuredpages-none": "Neciš nimikirjuteses ei ole lehtpolid.",
-    "configuredpages-config": "Konfiguracii",
-    "configuredpages-def-draft": "kaikiš udemb versii",
-    "configuredpages-def-stable": "stabiline versii"
+	"@metadata": {
+		"authors": [
+			"Игорь Бродский"
+		]
+	},
+	"configuredpages": "Lehtpoled kodvindjärgendusidenke",
+	"configuredpages-none": "Neciš nimikirjuteses ei ole lehtpolid.",
+	"configuredpages-config": "Konfiguracii",
+	"configuredpages-def-draft": "kaikiš udemb versii",
+	"configuredpages-def-stable": "stabiline versii"
 }

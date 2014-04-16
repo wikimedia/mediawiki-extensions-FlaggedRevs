@@ -1,28 +1,28 @@
 {
-    "@metadata": {
-        "authors": [
-            "Boivie",
-            "Jon Harald Søby",
-            "Lejonel",
-            "M.M.S.",
-            "MagnusA",
-            "Najami",
-            "Per",
-            "Rotsee",
-            "WikiPhoenix"
-        ]
-    },
-    "action-unreviewedpages": "se listan över icke-granskade sidor",
-    "unreviewedpages": "Ogranskade sidor",
-    "unreviewedpages-legend": "Lista ogranskade innehållssidor",
-    "unreviewedpages-category": "Kategori:",
-    "unreviewedpages-diff": "granska",
-    "unreviewedpages-unwatched": "(obevakad)",
-    "unreviewedpages-watched": "($1 {{PLURAL:$1|aktiv användare|aktiva användare}} bevakar)",
-    "unreviewedpages-list": "Den här sidan listar innehållssidor som ''inte'' har [[{{MediaWiki:Validationpage}}|granskats]] till den angivna nivån.",
-    "unreviewedpages-none": "Det finns just nu inga sidor som matchar dessa kriterier",
-    "unreviewedpages-viewing": "(granskas)",
-    "unreviewedpages-hours": "($1 {{PLURAL:$1|timme|timmar}})",
-    "unreviewedpages-days": "($1 {{PLURAL:$1|dygn|dygn}})",
-    "unreviewedpages-recent": "(mindre än en timme)"
+	"@metadata": {
+		"authors": [
+			"Boivie",
+			"Jon Harald Søby",
+			"Lejonel",
+			"M.M.S.",
+			"MagnusA",
+			"Najami",
+			"Per",
+			"Rotsee",
+			"WikiPhoenix"
+		]
+	},
+	"action-unreviewedpages": "se listan över icke-granskade sidor",
+	"unreviewedpages": "Ogranskade sidor",
+	"unreviewedpages-legend": "Lista ogranskade innehållssidor",
+	"unreviewedpages-category": "Kategori:",
+	"unreviewedpages-diff": "granska",
+	"unreviewedpages-unwatched": "(obevakad)",
+	"unreviewedpages-watched": "($1 {{PLURAL:$1|aktiv användare|aktiva användare}} bevakar)",
+	"unreviewedpages-list": "Den här sidan listar innehållssidor som ''inte'' har [[{{MediaWiki:Validationpage}}|granskats]] till den angivna nivån.",
+	"unreviewedpages-none": "Det finns just nu inga sidor som matchar dessa kriterier",
+	"unreviewedpages-viewing": "(granskas)",
+	"unreviewedpages-hours": "($1 {{PLURAL:$1|timme|timmar}})",
+	"unreviewedpages-days": "($1 {{PLURAL:$1|dygn|dygn}})",
+	"unreviewedpages-recent": "(mindre än en timme)"
 }

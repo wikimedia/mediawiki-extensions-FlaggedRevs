@@ -1,12 +1,12 @@
 {
-    "@metadata": {
-        "authors": [
-            "Andria"
-        ]
-    },
-    "unreviewedpages-category": "Categoria:",
-    "unreviewedpages-diff": "revisiona",
-    "unreviewedpages-hours": "($1 {{PLURAL:$1|ora|oras}})",
-    "unreviewedpages-days": "($1 {{PLURAL:$1|die|dies}})",
-    "unreviewedpages-recent": "(nemmancu 1 ora)"
+	"@metadata": {
+		"authors": [
+			"Andria"
+		]
+	},
+	"unreviewedpages-category": "Categoria:",
+	"unreviewedpages-diff": "revisiona",
+	"unreviewedpages-hours": "($1 {{PLURAL:$1|ora|oras}})",
+	"unreviewedpages-days": "($1 {{PLURAL:$1|die|dies}})",
+	"unreviewedpages-recent": "(nemmancu 1 ora)"
 }

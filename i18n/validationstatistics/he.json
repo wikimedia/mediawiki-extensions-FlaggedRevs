@@ -1,28 +1,28 @@
 {
-    "@metadata": {
-        "authors": [
-            "Agbad",
-            "Amire80",
-            "DoviJ",
-            "Erel Segal",
-            "Rotemliss",
-            "YaronSh"
-        ]
-    },
-    "validationstatistics": "סטטיסטיקות של סקירת דפים",
-    "validationstatistics-users": "באתר '''{{SITENAME}}''' יש כעת {{PLURAL:$1|משתמש '''[[Special:ListUsers/editor|אחד]]'''|'''[[Special:ListUsers/editor|$1]]''' משתמשים}} עם הרשאת [[{{MediaWiki:Validationpage}}|עורך]].\n\nעורכים הם משתמשים ותיקים שיכולים לבצע בדיקה מהירה של גרסאות של דפים.",
-    "validationstatistics-lastupdate": "''הנתונים הבאים עודכנו לאחרונה ב־$1 בשעה $2.''",
-    "validationstatistics-pndtime": "עריכות שנבדקו על־ידי משתמשים מוּכָּרִים מוגדרות כעריכות ש'''{{int:validationstatistics-stable}}'''.\n\nעיכוב ממוצע ל[[Special:OldReviewedPages|דפים עם עריכות שממתינות כעת לסקירה]] הוא '''$1'''; העיכוב מודד כמה זמן העריכה הממתינה הישנה ביותר נשארה בלי סקירה.",
-    "validationstatistics-revtime": "זמן ההמתנה הממוצע לסקירת עריכות של '''משתמשים אלמוניים''' הוא '''$1'''; החציון הוא '''$2'''.\n$3",
-    "validationstatistics-table": "סטטיסטיקות סקירה לכל מרחב שמות מוצגות להלן, '''מלבד''' דפי הפניה.\nהדפים מוגדרים '''{{int:validationstatistics-old}}''' אם יש להם עריכות שממתינות לסקירה;\nהדפים מוגדרים '''{{int:validationstatistics-latest}}''' אם אין בהם עריכות שממתינות לסקירה.",
-    "validationstatistics-ns": "מרחב שם",
-    "validationstatistics-total": "דפים",
-    "validationstatistics-stable": "נסקרו",
-    "validationstatistics-latest": "סונכרנו",
-    "validationstatistics-synced": "סונכרנו/נסקרו",
-    "validationstatistics-old": "לא עדכניים",
-    "validationstatistics-unreviewed": "לא נסקרו",
-    "validationstatistics-utable": "{{PLURAL:$1|הסוקר הפעיל|רשימת $1 הסוקרים הפעילים}} ביותר ב{{PLURAL:$2|שעה האחרונה|־$2 השעות האחרונות}}.",
-    "validationstatistics-user": "משתמש",
-    "validationstatistics-reviews": "סקירות"
+	"@metadata": {
+		"authors": [
+			"Agbad",
+			"Amire80",
+			"DoviJ",
+			"Erel Segal",
+			"Rotemliss",
+			"YaronSh"
+		]
+	},
+	"validationstatistics": "סטטיסטיקות של סקירת דפים",
+	"validationstatistics-users": "באתר '''{{SITENAME}}''' יש כעת {{PLURAL:$1|משתמש '''[[Special:ListUsers/editor|אחד]]'''|'''[[Special:ListUsers/editor|$1]]''' משתמשים}} עם הרשאת [[{{MediaWiki:Validationpage}}|עורך]].\n\nעורכים הם משתמשים ותיקים שיכולים לבצע בדיקה מהירה של גרסאות של דפים.",
+	"validationstatistics-lastupdate": "''הנתונים הבאים עודכנו לאחרונה ב־$1 בשעה $2.''",
+	"validationstatistics-pndtime": "עריכות שנבדקו על־ידי משתמשים מוּכָּרִים מוגדרות כעריכות ש'''{{int:validationstatistics-stable}}'''.\n\nעיכוב ממוצע ל[[Special:OldReviewedPages|דפים עם עריכות שממתינות כעת לסקירה]] הוא '''$1'''; העיכוב מודד כמה זמן העריכה הממתינה הישנה ביותר נשארה בלי סקירה.",
+	"validationstatistics-revtime": "זמן ההמתנה הממוצע לסקירת עריכות של '''משתמשים אלמוניים''' הוא '''$1'''; החציון הוא '''$2'''.\n$3",
+	"validationstatistics-table": "סטטיסטיקות סקירה לכל מרחב שמות מוצגות להלן, '''מלבד''' דפי הפניה.\nהדפים מוגדרים '''{{int:validationstatistics-old}}''' אם יש להם עריכות שממתינות לסקירה;\nהדפים מוגדרים '''{{int:validationstatistics-latest}}''' אם אין בהם עריכות שממתינות לסקירה.",
+	"validationstatistics-ns": "מרחב שם",
+	"validationstatistics-total": "דפים",
+	"validationstatistics-stable": "נסקרו",
+	"validationstatistics-latest": "סונכרנו",
+	"validationstatistics-synced": "סונכרנו/נסקרו",
+	"validationstatistics-old": "לא עדכניים",
+	"validationstatistics-unreviewed": "לא נסקרו",
+	"validationstatistics-utable": "{{PLURAL:$1|הסוקר הפעיל|רשימת $1 הסוקרים הפעילים}} ביותר ב{{PLURAL:$2|שעה האחרונה|־$2 השעות האחרונות}}.",
+	"validationstatistics-user": "משתמש",
+	"validationstatistics-reviews": "סקירות"
 }

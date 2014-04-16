@@ -1,19 +1,19 @@
 {
-    "@metadata": {
-        "authors": [
-            "Juanpabl"
-        ]
-    },
-    "pendingchanges": "Pachinas con cambios pendients",
-    "pendingchanges-legend": "Lista de pachinas revisatas con edicions sin revisar",
-    "pendingchanges-list": "Ista pachina amuestra {{PLURAL:$1|una pachina revisata|pachinas revisatas}} que tienen edicions pendients.",
-    "pendingchanges-none": "No bi ha agora garra pachina que cumpla ixas condicions",
-    "pendingchanges-hours": "($1 {{PLURAL:$1|ora|oras}})",
-    "pendingchanges-days": "($1 {{PLURAL:$1|día|días}})",
-    "pendingchanges-recent": "(menos d'una hora)",
-    "pendingchanges-category": "Categoría:",
-    "pendingchanges-stable": "A versión estable s'amuestra por defecto",
-    "pendingchanges-diff": "revisión",
-    "pendingchanges-unwatched": "(no cosirata)",
-    "pendingchanges-watched": "($1 {{PLURAL:$1|usuario|usuarios}} activos cosirando)"
+	"@metadata": {
+		"authors": [
+			"Juanpabl"
+		]
+	},
+	"pendingchanges": "Pachinas con cambios pendients",
+	"pendingchanges-legend": "Lista de pachinas revisatas con edicions sin revisar",
+	"pendingchanges-list": "Ista pachina amuestra {{PLURAL:$1|una pachina revisata|pachinas revisatas}} que tienen edicions pendients.",
+	"pendingchanges-none": "No bi ha agora garra pachina que cumpla ixas condicions",
+	"pendingchanges-hours": "($1 {{PLURAL:$1|ora|oras}})",
+	"pendingchanges-days": "($1 {{PLURAL:$1|día|días}})",
+	"pendingchanges-recent": "(menos d'una hora)",
+	"pendingchanges-category": "Categoría:",
+	"pendingchanges-stable": "A versión estable s'amuestra por defecto",
+	"pendingchanges-diff": "revisión",
+	"pendingchanges-unwatched": "(no cosirata)",
+	"pendingchanges-watched": "($1 {{PLURAL:$1|usuario|usuarios}} activos cosirando)"
 }

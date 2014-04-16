@@ -1,13 +1,13 @@
 {
-    "@metadata": {
-        "authors": [
-            "Candalua",
-            "GatoSelvadego"
-        ]
-    },
-    "stablepages": "Pagine che dopara l'aprovassion de le modifiche",
-    "stablepages-list": "Sta pàjina ła elenca pàjine 'ndove soło che serti utenti pol far canbi che no dimanda na revixion.\nI canbi fati da altri utenti no i vien mostrai a i letori de defaul fin che no i vien autorixai da un revixor.",
-    "stablepages-none": "No ghe xe nissuna pagina su sta lista",
-    "stablepages-config": "Configurassion",
-    "stablepages-indef": "Solo scadensa indefinìa"
+	"@metadata": {
+		"authors": [
+			"Candalua",
+			"GatoSelvadego"
+		]
+	},
+	"stablepages": "Pagine che dopara l'aprovassion de le modifiche",
+	"stablepages-list": "Sta pàjina ła elenca pàjine 'ndove soło che serti utenti pol far canbi che no dimanda na revixion.\nI canbi fati da altri utenti no i vien mostrai a i letori de defaul fin che no i vien autorixai da un revixor.",
+	"stablepages-none": "No ghe xe nissuna pagina su sta lista",
+	"stablepages-config": "Configurassion",
+	"stablepages-indef": "Solo scadensa indefinìa"
 }

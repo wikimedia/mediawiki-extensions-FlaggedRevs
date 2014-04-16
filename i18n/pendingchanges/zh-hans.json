@@ -1,31 +1,31 @@
 {
-    "@metadata": {
-        "authors": [
-            "Chenxiaoqino",
-            "Gaoxuewei",
-            "Gzdavidwong",
-            "Hydra",
-            "Jimmy xu wrk",
-            "Liangent",
-            "PhiLiP",
-            "Shinjiman",
-            "Shirayuki",
-            "Xiaomingyan"
-        ]
-    },
-    "pendingchanges": "有待复审更改的页面",
-    "pendingchanges-legend": "列出有待定更改的已复核页面",
-    "pendingchanges-list": "此页面列出了含有一至多个待复审编辑的[[{{MediaWiki:Validationpage}}|已复审]]页面。",
-    "pendingchanges-none": "目前没有页面符合这些条件",
-    "pendingchanges-hours": "（$1 {{PLURAL:$1|小时}}）",
-    "pendingchanges-days": "（$1 {{PLURAL:$1|天|天}}）",
-    "pendingchanges-recent": "（少于1小时）",
-    "pendingchanges-category": "分类：",
-    "pendingchanges-onwatchlist": "我的监视列表中的页面",
-    "pendingchanges-stable": "默认为稳定版本",
-    "pendingchanges-diff": "复核",
-    "pendingchanges-size": "最大更改（字节）：",
-    "pendingchanges-unwatched": "（未被监视）",
-    "pendingchanges-watched": "（$1位活跃{{PLURAL:$1|用户|用户}}正在监视）",
-    "pendingchanges-viewing": "（正在复核）"
+	"@metadata": {
+		"authors": [
+			"Chenxiaoqino",
+			"Gaoxuewei",
+			"Gzdavidwong",
+			"Hydra",
+			"Jimmy xu wrk",
+			"Liangent",
+			"PhiLiP",
+			"Shinjiman",
+			"Shirayuki",
+			"Xiaomingyan"
+		]
+	},
+	"pendingchanges": "有待复审更改的页面",
+	"pendingchanges-legend": "列出有待定更改的已复核页面",
+	"pendingchanges-list": "此页面列出了含有一至多个待复审编辑的[[{{MediaWiki:Validationpage}}|已复审]]页面。",
+	"pendingchanges-none": "目前没有页面符合这些条件",
+	"pendingchanges-hours": "（$1 {{PLURAL:$1|小时}}）",
+	"pendingchanges-days": "（$1 {{PLURAL:$1|天|天}}）",
+	"pendingchanges-recent": "（少于1小时）",
+	"pendingchanges-category": "分类：",
+	"pendingchanges-onwatchlist": "我的监视列表中的页面",
+	"pendingchanges-stable": "默认为稳定版本",
+	"pendingchanges-diff": "复核",
+	"pendingchanges-size": "最大更改（字节）：",
+	"pendingchanges-unwatched": "（未被监视）",
+	"pendingchanges-watched": "（$1位活跃{{PLURAL:$1|用户|用户}}正在监视）",
+	"pendingchanges-viewing": "（正在复核）"
 }

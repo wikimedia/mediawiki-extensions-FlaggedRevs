@@ -1,11 +1,11 @@
 {
-    "@metadata": {
-        "authors": [
-            "Chrisportelli"
-        ]
-    },
-    "unreviewedpages": "Paġni mhux riveduti",
-    "unreviewedpages-legend": "Lista ta' paġni mhux riveduti",
-    "unreviewedpages-category": "Kategorija:",
-    "unreviewedpages-diff": "irrevedi"
+	"@metadata": {
+		"authors": [
+			"Chrisportelli"
+		]
+	},
+	"unreviewedpages": "Paġni mhux riveduti",
+	"unreviewedpages-legend": "Lista ta' paġni mhux riveduti",
+	"unreviewedpages-category": "Kategorija:",
+	"unreviewedpages-diff": "irrevedi"
 }

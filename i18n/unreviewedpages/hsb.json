@@ -1,21 +1,21 @@
 {
-    "@metadata": {
-        "authors": [
-            "Dundak",
-            "Michawiki"
-        ]
-    },
-    "action-unreviewedpages": "lisćinu njepřepruwowanych stronow zwobraznić",
-    "unreviewedpages": "Njepruwowane nastawki",
-    "unreviewedpages-legend": "Lisćina njepřehladanych wobsahowych stronow",
-    "unreviewedpages-category": "Kategorija:",
-    "unreviewedpages-diff": "přepruwować",
-    "unreviewedpages-unwatched": "(njewobkedźbowany)",
-    "unreviewedpages-watched": "($1 {{PLURAL:$1|aktiwny wužiwar wobkedźbuje|aktiwnaj wužiwarjej wobkedźbujetaj|aktiwni wužiwarjo wobkedźbuja|aktiwnych wužiwarjow wobkedźbuje}})",
-    "unreviewedpages-list": "Tuta strona nalistuje wobsahowe strony, kotrež hišće ''njej''su na podatej runinje [[{{MediaWiki:Validationpage}}|přepruwowane]].",
-    "unreviewedpages-none": "Tuchwilu žane strony njejsu, kotrež tutym kriterijam wotpowěduja",
-    "unreviewedpages-viewing": "(pruwuje so)",
-    "unreviewedpages-hours": "($1 {{PLURAL:$1|hodźina|hodźinje|hodźiny|hodźin}})",
-    "unreviewedpages-days": "($1 {{PLURAL:$1|dźeń|dnjej|dny|dnjow}})",
-    "unreviewedpages-recent": "(mjenje hač 1 hodźina)"
+	"@metadata": {
+		"authors": [
+			"Dundak",
+			"Michawiki"
+		]
+	},
+	"action-unreviewedpages": "lisćinu njepřepruwowanych stronow zwobraznić",
+	"unreviewedpages": "Njepruwowane nastawki",
+	"unreviewedpages-legend": "Lisćina njepřehladanych wobsahowych stronow",
+	"unreviewedpages-category": "Kategorija:",
+	"unreviewedpages-diff": "přepruwować",
+	"unreviewedpages-unwatched": "(njewobkedźbowany)",
+	"unreviewedpages-watched": "($1 {{PLURAL:$1|aktiwny wužiwar wobkedźbuje|aktiwnaj wužiwarjej wobkedźbujetaj|aktiwni wužiwarjo wobkedźbuja|aktiwnych wužiwarjow wobkedźbuje}})",
+	"unreviewedpages-list": "Tuta strona nalistuje wobsahowe strony, kotrež hišće ''njej''su na podatej runinje [[{{MediaWiki:Validationpage}}|přepruwowane]].",
+	"unreviewedpages-none": "Tuchwilu žane strony njejsu, kotrež tutym kriterijam wotpowěduja",
+	"unreviewedpages-viewing": "(pruwuje so)",
+	"unreviewedpages-hours": "($1 {{PLURAL:$1|hodźina|hodźinje|hodźiny|hodźin}})",
+	"unreviewedpages-days": "($1 {{PLURAL:$1|dźeń|dnjej|dny|dnjow}})",
+	"unreviewedpages-recent": "(mjenje hač 1 hodźina)"
 }

@@ -1,17 +1,17 @@
 {
-    "@metadata": {
-        "authors": [
-            "Ansumang",
-            "Psubhashish"
-        ]
-    },
-    "stabilization-page": "ପୃଷ୍ଠା ନାମ:",
-    "stabilization-submit": "ନିଶ୍ଚିତ କରନ୍ତୁ",
-    "stabilization-comment": "କାରଣ:",
-    "stabilization-otherreason": "ଅନ୍ୟ କାରଣ:",
-    "stabilization-expiry": "ଅଚଳ ହେବ:",
-    "stabilization-othertime": "ବାକି ସମୟ:",
-    "stabilization-def-short": "ପୂର୍ବ ନିର୍ଦ୍ଧାରିତ",
-    "stabilization-def-short-0": "ଏବେକାର",
-    "stabilization-def-short-1": "ସ୍ଥିର"
+	"@metadata": {
+		"authors": [
+			"Ansumang",
+			"Psubhashish"
+		]
+	},
+	"stabilization-page": "ପୃଷ୍ଠା ନାମ:",
+	"stabilization-submit": "ନିଶ୍ଚିତ କରନ୍ତୁ",
+	"stabilization-comment": "କାରଣ:",
+	"stabilization-otherreason": "ଅନ୍ୟ କାରଣ:",
+	"stabilization-expiry": "ଅଚଳ ହେବ:",
+	"stabilization-othertime": "ବାକି ସମୟ:",
+	"stabilization-def-short": "ପୂର୍ବ ନିର୍ଦ୍ଧାରିତ",
+	"stabilization-def-short-0": "ଏବେକାର",
+	"stabilization-def-short-1": "ସ୍ଥିର"
 }

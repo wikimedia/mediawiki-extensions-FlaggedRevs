@@ -1,17 +1,17 @@
 {
-    "@metadata": {
-        "authors": [
-            "NoiX180"
-        ]
-    },
-    "revreview-submit": "Kirim",
-    "revreview-submitting": "Ngirimaké...",
-    "revreview-submit-review": "Tampa rèvisi",
-    "revreview-submit-unreview": "Tolak rèvisi",
-    "revreview-submit-reject": "Tolak owah-owahan",
-    "revreview-submit-reviewed": "Rampung. Ditampa!",
-    "revreview-submit-unreviewed": "Rampun. Ditolak!",
-    "revreview-reject-summary": "Ringkesan:",
-    "revreview-reject-confirm": "Tolak owah-owahan iki",
-    "revreview-reject-cancel": "Batal"
+	"@metadata": {
+		"authors": [
+			"NoiX180"
+		]
+	},
+	"revreview-submit": "Kirim",
+	"revreview-submitting": "Ngirimaké...",
+	"revreview-submit-review": "Tampa rèvisi",
+	"revreview-submit-unreview": "Tolak rèvisi",
+	"revreview-submit-reject": "Tolak owah-owahan",
+	"revreview-submit-reviewed": "Rampung. Ditampa!",
+	"revreview-submit-unreviewed": "Rampun. Ditolak!",
+	"revreview-reject-summary": "Ringkesan:",
+	"revreview-reject-confirm": "Tolak owah-owahan iki",
+	"revreview-reject-cancel": "Batal"
 }

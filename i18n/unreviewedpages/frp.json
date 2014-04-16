@@ -1,19 +1,19 @@
 {
-    "@metadata": {
-        "authors": [
-            "ChrisPtDe"
-        ]
-    },
-    "unreviewedpages": "Pâges pas revues",
-    "unreviewedpages-legend": "Lista de les pâges de contegnu pas revues",
-    "unreviewedpages-category": "Catègorie :",
-    "unreviewedpages-diff": "revêre",
-    "unreviewedpages-unwatched": "(pas siuvua)",
-    "unreviewedpages-watched": "($1 {{PLURAL:$1|usanciér actif siut|usanciérs actifs siuvont}} cela pâge)",
-    "unreviewedpages-list": "Ceta pâge liste les pâges de contegnu qu’ont ''pas'' étâ [[{{MediaWiki:Validationpage}}|revues]] avouéc lo nivél spècefiâ.",
-    "unreviewedpages-none": "Ora, y at gins de pâge que corrèspond a cetos critèros",
-    "unreviewedpages-viewing": "(en rèvision)",
-    "unreviewedpages-hours": "($1 hor{{PLURAL:$1|a|es}})",
-    "unreviewedpages-days": "($1 jorn{{PLURAL:$1||s}})",
-    "unreviewedpages-recent": "(muens de yona hora)"
+	"@metadata": {
+		"authors": [
+			"ChrisPtDe"
+		]
+	},
+	"unreviewedpages": "Pâges pas revues",
+	"unreviewedpages-legend": "Lista de les pâges de contegnu pas revues",
+	"unreviewedpages-category": "Catègorie :",
+	"unreviewedpages-diff": "revêre",
+	"unreviewedpages-unwatched": "(pas siuvua)",
+	"unreviewedpages-watched": "($1 {{PLURAL:$1|usanciér actif siut|usanciérs actifs siuvont}} cela pâge)",
+	"unreviewedpages-list": "Ceta pâge liste les pâges de contegnu qu’ont ''pas'' étâ [[{{MediaWiki:Validationpage}}|revues]] avouéc lo nivél spècefiâ.",
+	"unreviewedpages-none": "Ora, y at gins de pâge que corrèspond a cetos critèros",
+	"unreviewedpages-viewing": "(en rèvision)",
+	"unreviewedpages-hours": "($1 hor{{PLURAL:$1|a|es}})",
+	"unreviewedpages-days": "($1 jorn{{PLURAL:$1||s}})",
+	"unreviewedpages-recent": "(muens de yona hora)"
 }

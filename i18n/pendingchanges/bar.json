@@ -1,23 +1,23 @@
 {
-    "@metadata": {
-        "authors": [
-            "Man77",
-            "Mucalexx"
-        ]
-    },
-    "pendingchanges": "Saiten mid unmarkiarde Enderungen",
-    "pendingchanges-legend": "Listn vu gsichtete Seitn mid nu ned gsichtete Veasionen",
-    "pendingchanges-list": "De Spezialseitn zoagt {{PLURAL:$1|a gsichtete|gsichtete}} Seitn, vu {{PLURAL:$1|dea's|de's}} nu ned gsichtete Veasionen gibt.",
-    "pendingchanges-none": "Momentan gibt's kane Seitn, de wås zu de Kriterien passn.",
-    "pendingchanges-hours": "($1 Stund)",
-    "pendingchanges-days": "($1 Tåg)",
-    "pendingchanges-recent": "(weniga wia a Stund)",
-    "pendingchanges-category": "Kategorie:",
-    "pendingchanges-onwatchlist": "Saiten auf mainer Bowochtungslisten",
-    "pendingchanges-stable": "De stabile Version is Standard",
-    "pendingchanges-diff": "sichtn",
-    "pendingchanges-size": "Maximale Ändarungsgreß (in ''Bytes''):",
-    "pendingchanges-unwatched": "(ned beobåchtet)",
-    "pendingchanges-watched": "(vu $1 {{PLURAL:$1|aktivm|aktive}} Benutza beobåchtet)",
-    "pendingchanges-viewing": "(wiad üwaprüft)"
+	"@metadata": {
+		"authors": [
+			"Man77",
+			"Mucalexx"
+		]
+	},
+	"pendingchanges": "Saiten mid unmarkiarde Enderungen",
+	"pendingchanges-legend": "Listn vu gsichtete Seitn mid nu ned gsichtete Veasionen",
+	"pendingchanges-list": "De Spezialseitn zoagt {{PLURAL:$1|a gsichtete|gsichtete}} Seitn, vu {{PLURAL:$1|dea's|de's}} nu ned gsichtete Veasionen gibt.",
+	"pendingchanges-none": "Momentan gibt's kane Seitn, de wås zu de Kriterien passn.",
+	"pendingchanges-hours": "($1 Stund)",
+	"pendingchanges-days": "($1 Tåg)",
+	"pendingchanges-recent": "(weniga wia a Stund)",
+	"pendingchanges-category": "Kategorie:",
+	"pendingchanges-onwatchlist": "Saiten auf mainer Bowochtungslisten",
+	"pendingchanges-stable": "De stabile Version is Standard",
+	"pendingchanges-diff": "sichtn",
+	"pendingchanges-size": "Maximale Ändarungsgreß (in ''Bytes''):",
+	"pendingchanges-unwatched": "(ned beobåchtet)",
+	"pendingchanges-watched": "(vu $1 {{PLURAL:$1|aktivm|aktive}} Benutza beobåchtet)",
+	"pendingchanges-viewing": "(wiad üwaprüft)"
 }

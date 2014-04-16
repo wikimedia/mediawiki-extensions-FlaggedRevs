@@ -1,24 +1,24 @@
 {
-    "@metadata": {
-        "authors": [
-            "Aspar",
-            "Erdemaslancan",
-            "Marmase",
-            "Mirzali",
-            "Xoser"
-        ]
-    },
-    "action-unreviewedpages": "listeyê pelanê seyirnibiya bivîne",
-    "unreviewedpages": "Ripelî ke kontrol nibiyê",
-    "unreviewedpages-legend": "Listeyê tedeesteyî ke kontrol nibe",
-    "unreviewedpages-category": "Kategoriye:",
-    "unreviewedpages-diff": "Çım ra ravyarne",
-    "unreviewedpages-unwatched": "(seyr nibiye)",
-    "unreviewedpages-watched": "($1 activ {{PLURAL:$1|karber|karberî}} ho seyr keno)",
-    "unreviewedpages-list": "Na pela, sewiyeya ke waziyaya goreyê aye sewiya pelê muhtewayê ke [[{{MediaWiki:Validationpage}}|çım ser nêçariyêya]] liste kena.",
-    "unreviewedpages-none": "nê kriteran de peli çini",
-    "unreviewedpages-viewing": "(kontrol beno)",
-    "unreviewedpages-hours": "($1 {{PLURAL:$1|seet|seeti}})",
-    "unreviewedpages-days": "($1 {{PLURAL:$1|roc|roci}})",
-    "unreviewedpages-recent": "(1 seet ra kêm)"
+	"@metadata": {
+		"authors": [
+			"Aspar",
+			"Erdemaslancan",
+			"Marmase",
+			"Mirzali",
+			"Xoser"
+		]
+	},
+	"action-unreviewedpages": "listeyê pelanê seyirnibiya bivîne",
+	"unreviewedpages": "Ripelî ke kontrol nibiyê",
+	"unreviewedpages-legend": "Listeyê tedeesteyî ke kontrol nibe",
+	"unreviewedpages-category": "Kategoriye:",
+	"unreviewedpages-diff": "Çım ra ravyarne",
+	"unreviewedpages-unwatched": "(seyr nibiye)",
+	"unreviewedpages-watched": "($1 activ {{PLURAL:$1|karber|karberî}} ho seyr keno)",
+	"unreviewedpages-list": "Na pela, sewiyeya ke waziyaya goreyê aye sewiya pelê muhtewayê ke [[{{MediaWiki:Validationpage}}|çım ser nêçariyêya]] liste kena.",
+	"unreviewedpages-none": "nê kriteran de peli çini",
+	"unreviewedpages-viewing": "(kontrol beno)",
+	"unreviewedpages-hours": "($1 {{PLURAL:$1|seet|seeti}})",
+	"unreviewedpages-days": "($1 {{PLURAL:$1|roc|roci}})",
+	"unreviewedpages-recent": "(1 seet ra kêm)"
 }

@@ -1,11 +1,11 @@
 {
-    "@metadata": {
-        "authors": [
-            "Hanberke"
-        ]
-    },
-    "stablepages": "Durnukly sahypalar",
-    "stablepages-list": "Aşakda durnukly wersiýany zyýaratçylara gaýybana sahypa mazmuny hökmünde görkezmek üçin el bilen konfigurirlenen sahypalaryň sanawy görkezilýär.",
-    "stablepages-none": "Bu sanawda hiç hili sahypa ýok",
-    "stablepages-config": "Konfigurasiýa"
+	"@metadata": {
+		"authors": [
+			"Hanberke"
+		]
+	},
+	"stablepages": "Durnukly sahypalar",
+	"stablepages-list": "Aşakda durnukly wersiýany zyýaratçylara gaýybana sahypa mazmuny hökmünde görkezmek üçin el bilen konfigurirlenen sahypalaryň sanawy görkezilýär.",
+	"stablepages-none": "Bu sanawda hiç hili sahypa ýok",
+	"stablepages-config": "Konfigurasiýa"
 }

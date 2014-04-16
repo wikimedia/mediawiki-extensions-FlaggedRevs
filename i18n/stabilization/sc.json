@@ -1,11 +1,11 @@
 {
-    "@metadata": {
-        "authors": [
-            "Andria"
-        ]
-    },
-    "stabilization-page": "Nùmene pàgina:",
-    "stabilization-submit": "Cunfirma",
-    "stabilization-comment": "Motivu:",
-    "stabilization-otherreason": "Àteru motivu:"
+	"@metadata": {
+		"authors": [
+			"Andria"
+		]
+	},
+	"stabilization-page": "Nùmene pàgina:",
+	"stabilization-submit": "Cunfirma",
+	"stabilization-comment": "Motivu:",
+	"stabilization-otherreason": "Àteru motivu:"
 }

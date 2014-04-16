@@ -1,13 +1,13 @@
 {
-    "@metadata": {
-        "authors": [
-            "EugeneZelenko"
-        ]
-    },
-    "reviewedversions": "Рэцэнзаваныя вэрсіі",
-    "reviewedversions-leg1": "Сьпіс правераных вэрсіяў старонкі",
-    "reviewedversions-page": "Назва старонкі:",
-    "reviewedversions-none": "«[[:$1]]» ня мае правераных вэрсіяў.",
-    "reviewedversions-list": "{{PLURAL:$2|1=Наступная вэрсія|Наступныя вэрсіі}} старонкі [[:$1]] {{PLURAL:$2|1=была правераная|былі правераныя}}:",
-    "reviewedversions-review": "Правераная <i>$1</i> {{GENDER:$2|удзельнікам|удзельніцай}} $2"
+	"@metadata": {
+		"authors": [
+			"EugeneZelenko"
+		]
+	},
+	"reviewedversions": "Рэцэнзаваныя вэрсіі",
+	"reviewedversions-leg1": "Сьпіс правераных вэрсіяў старонкі",
+	"reviewedversions-page": "Назва старонкі:",
+	"reviewedversions-none": "«[[:$1]]» ня мае правераных вэрсіяў.",
+	"reviewedversions-list": "{{PLURAL:$2|1=Наступная вэрсія|Наступныя вэрсіі}} старонкі [[:$1]] {{PLURAL:$2|1=была правераная|былі правераныя}}:",
+	"reviewedversions-review": "Правераная <i>$1</i> {{GENDER:$2|удзельнікам|удзельніцай}} $2"
 }

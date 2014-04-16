@@ -1,12 +1,12 @@
 {
-    "@metadata": {
-        "authors": [
-            "McDutchie"
-        ]
-    },
-    "stablepages": "Paginas subjecte al approbation de modificationes",
-    "stablepages-list": "Hic infra es un lista de paginas al quales solmente certe usatores pote facer modificationes que non require revision. Modificationes facite per altere usatores non es initialmente monstrate al lectores usque un usator autorisate los habera revidite.",
-    "stablepages-none": "Il non ha paginas in iste lista",
-    "stablepages-config": "Configuration",
-    "stablepages-indef": "Expiration indefinite solmente"
+	"@metadata": {
+		"authors": [
+			"McDutchie"
+		]
+	},
+	"stablepages": "Paginas subjecte al approbation de modificationes",
+	"stablepages-list": "Hic infra es un lista de paginas al quales solmente certe usatores pote facer modificationes que non require revision. Modificationes facite per altere usatores non es initialmente monstrate al lectores usque un usator autorisate los habera revidite.",
+	"stablepages-none": "Il non ha paginas in iste lista",
+	"stablepages-config": "Configuration",
+	"stablepages-indef": "Expiration indefinite solmente"
 }

@@ -1,20 +1,20 @@
 {
-    "@metadata": {
-        "authors": [
-            "Siebrand"
-        ]
-    },
-    "action-unreviewedpages": "de lijst met ongecontroleerde pagina's te bekijken",
-    "unreviewedpages": "Ongecontroleerde pagina's",
-    "unreviewedpages-legend": "Lijst met ongecontroleerde pagina's",
-    "unreviewedpages-category": "Categorie:",
-    "unreviewedpages-diff": "controle",
-    "unreviewedpages-unwatched": "(niet op een volglijst)",
-    "unreviewedpages-watched": "($1 actieve {{PLURAL:$1|gebruiker heeft|gebruikers hebben}} deze pagina op {{PLURAL:$1|zijn|hun}} volglijst)",
-    "unreviewedpages-list": "Deze pagina geeft een overzicht van [[{{MediaWiki:Validationpage}}|ongecontroleerde]] pagina's tot het opgegeven niveau.",
-    "unreviewedpages-none": "Er zijn geen pagina's die aan deze criteria voldoen",
-    "unreviewedpages-viewing": "(wordt gecontroleerd)",
-    "unreviewedpages-hours": "({{PLURAL:$1|één uur|$1 uur}})",
-    "unreviewedpages-days": "({{PLURAL:$1|één dag|$1 dagen}})",
-    "unreviewedpages-recent": "(minder dan één uur)"
+	"@metadata": {
+		"authors": [
+			"Siebrand"
+		]
+	},
+	"action-unreviewedpages": "de lijst met ongecontroleerde pagina's te bekijken",
+	"unreviewedpages": "Ongecontroleerde pagina's",
+	"unreviewedpages-legend": "Lijst met ongecontroleerde pagina's",
+	"unreviewedpages-category": "Categorie:",
+	"unreviewedpages-diff": "controle",
+	"unreviewedpages-unwatched": "(niet op een volglijst)",
+	"unreviewedpages-watched": "($1 actieve {{PLURAL:$1|gebruiker heeft|gebruikers hebben}} deze pagina op {{PLURAL:$1|zijn|hun}} volglijst)",
+	"unreviewedpages-list": "Deze pagina geeft een overzicht van [[{{MediaWiki:Validationpage}}|ongecontroleerde]] pagina's tot het opgegeven niveau.",
+	"unreviewedpages-none": "Er zijn geen pagina's die aan deze criteria voldoen",
+	"unreviewedpages-viewing": "(wordt gecontroleerd)",
+	"unreviewedpages-hours": "({{PLURAL:$1|één uur|$1 uur}})",
+	"unreviewedpages-days": "({{PLURAL:$1|één dag|$1 dagen}})",
+	"unreviewedpages-recent": "(minder dan één uur)"
 }

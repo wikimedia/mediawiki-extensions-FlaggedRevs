@@ -1,10 +1,10 @@
 {
-    "@metadata": {
-        "authors": [
-            "Malafaya"
-        ]
-    },
-    "pendingchanges-hours": "({{PLURAL:$1|düp|düps}} $1)",
-    "pendingchanges-days": "({{PLURAL:$1|del|dels}} $1)",
-    "pendingchanges-category": "Klad:"
+	"@metadata": {
+		"authors": [
+			"Malafaya"
+		]
+	},
+	"pendingchanges-hours": "({{PLURAL:$1|düp|düps}} $1)",
+	"pendingchanges-days": "({{PLURAL:$1|del|dels}} $1)",
+	"pendingchanges-category": "Klad:"
 }

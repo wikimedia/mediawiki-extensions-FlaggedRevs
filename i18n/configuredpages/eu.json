@@ -1,12 +1,12 @@
 {
-    "@metadata": {
-        "authors": [
-            "Joxemai"
-        ]
-    },
-    "configuredpages": "Berrikuspenerako zehaztapenak dituzten orriak",
-    "configuredpages-none": "Ez dago orririk zerranda honetan.",
-    "configuredpages-config": "Konfigurazioa",
-    "configuredpages-def-draft": "azken bertsioa",
-    "configuredpages-def-stable": "argitaraturiko bertsioa"
+	"@metadata": {
+		"authors": [
+			"Joxemai"
+		]
+	},
+	"configuredpages": "Berrikuspenerako zehaztapenak dituzten orriak",
+	"configuredpages-none": "Ez dago orririk zerranda honetan.",
+	"configuredpages-config": "Konfigurazioa",
+	"configuredpages-def-draft": "azken bertsioa",
+	"configuredpages-def-stable": "argitaraturiko bertsioa"
 }

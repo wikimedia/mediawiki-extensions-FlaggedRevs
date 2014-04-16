@@ -1,10 +1,10 @@
 {
-    "@metadata": {
-        "authors": [
-            "Robby"
-        ]
-    },
-    "qualityoversight": "Erweidert Logbuch vun den nogekuckte Versiounen",
-    "qualityoversight-list": "Op dëser Säit stinn déi rezenste Säiten déi fräigi goufen an denen hir Markéierung opgehuewe gouf.",
-    "qualityoversight-legend": "Am Logbuch vun den nogekuckte Säite sichen"
+	"@metadata": {
+		"authors": [
+			"Robby"
+		]
+	},
+	"qualityoversight": "Erweidert Logbuch vun den nogekuckte Versiounen",
+	"qualityoversight-list": "Op dëser Säit stinn déi rezenste Säiten déi fräigi goufen an denen hir Markéierung opgehuewe gouf.",
+	"qualityoversight-legend": "Am Logbuch vun den nogekuckte Säite sichen"
 }

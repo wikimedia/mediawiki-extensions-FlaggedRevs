@@ -1,12 +1,12 @@
 {
-    "@metadata": {
-        "authors": [
-            "Michaello",
-            "Жељко Тодоровић"
-        ]
-    },
-    "stablepages": "Stranice koje koriste potvrdu izmena",
-    "stablepages-list": "Dole je naveden spisak stranica koje samo određeni korisnici mogu menjati. Te izmene ne zahtevaju proveru.\nIzmene drugih korisnika po podrazumevanom nisu prikazane čitaocima dok ih ne proveri ovlašćeni korisnik.",
-    "stablepages-none": "Ne postoje strane u spisku.",
-    "stablepages-config": "Podešavanje"
+	"@metadata": {
+		"authors": [
+			"Michaello",
+			"Жељко Тодоровић"
+		]
+	},
+	"stablepages": "Stranice koje koriste potvrdu izmena",
+	"stablepages-list": "Dole je naveden spisak stranica koje samo određeni korisnici mogu menjati. Te izmene ne zahtevaju proveru.\nIzmene drugih korisnika po podrazumevanom nisu prikazane čitaocima dok ih ne proveri ovlašćeni korisnik.",
+	"stablepages-none": "Ne postoje strane u spisku.",
+	"stablepages-config": "Podešavanje"
 }

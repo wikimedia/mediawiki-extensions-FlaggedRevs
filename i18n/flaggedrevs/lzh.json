@@ -1,33 +1,33 @@
 {
-    "@metadata": {
-        "authors": [
-            "Itsmine",
-            "Omnipaedista"
-        ]
-    },
-    "editor": "分校官",
-    "flaggedrevs": "校勘本",
-    "group-editor": "分校官",
-    "group-editor-member": "分校官",
-    "group-reviewer": "總校官",
-    "group-reviewer-member": "總校官",
-    "grouppage-editor": "{{ns:project}}:分校官",
-    "grouppage-reviewer": "{{ns:project}}:總校官",
-    "revreview-hist-draft": "底本",
-    "revreview-hist-quality": "校正本",
-    "revreview-hist-basic": "初定本",
-    "revreview-accuracy-1": "過目",
-    "revreview-accuracy-4": "卓著",
-    "revreview-current": "底本",
-    "revreview-draft-title": "底本",
-    "revreview-noflagged": "此為底本，未經[[{{MediaWiki:Validationpage}}|審校]]。",
-    "revreview-quick-basic": "'''[[{{MediaWiki:Validationpage}}|初定本]]'''",
-    "revreview-quick-basic-old": "'''[[{{MediaWiki:Validationpage}}|初定本]]''' [ 修纂新稿]]",
-    "revreview-quick-basic-same": "'''[[{{MediaWiki:Validationpage}}|初定本]]''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 修纂新稿]]",
-    "revreview-quick-invalid": "查無此錄",
-    "revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|今本]]'''（此為底本，未經審校）",
-    "revreview-quick-see-basic": "'''此為底本''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 察閱初定本]] （[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 較二者之別]）",
-    "revreview-quick-see-quality": "'''此為底本''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 察閱初定本]] （[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 較二者之別]）",
-    "revreview-basic-title": "初定本",
-    "revreview-revnotfound": "查無舊審，惠核網址。"
+	"@metadata": {
+		"authors": [
+			"Itsmine",
+			"Omnipaedista"
+		]
+	},
+	"editor": "分校官",
+	"flaggedrevs": "校勘本",
+	"group-editor": "分校官",
+	"group-editor-member": "分校官",
+	"group-reviewer": "總校官",
+	"group-reviewer-member": "總校官",
+	"grouppage-editor": "{{ns:project}}:分校官",
+	"grouppage-reviewer": "{{ns:project}}:總校官",
+	"revreview-hist-draft": "底本",
+	"revreview-hist-quality": "校正本",
+	"revreview-hist-basic": "初定本",
+	"revreview-accuracy-1": "過目",
+	"revreview-accuracy-4": "卓著",
+	"revreview-current": "底本",
+	"revreview-draft-title": "底本",
+	"revreview-noflagged": "此為底本，未經[[{{MediaWiki:Validationpage}}|審校]]。",
+	"revreview-quick-basic": "'''[[{{MediaWiki:Validationpage}}|初定本]]'''",
+	"revreview-quick-basic-old": "'''[[{{MediaWiki:Validationpage}}|初定本]]''' [ 修纂新稿]]",
+	"revreview-quick-basic-same": "'''[[{{MediaWiki:Validationpage}}|初定本]]''' [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 修纂新稿]]",
+	"revreview-quick-invalid": "查無此錄",
+	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|今本]]'''（此為底本，未經審校）",
+	"revreview-quick-see-basic": "'''此為底本''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 察閱初定本]] （[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 較二者之別]）",
+	"revreview-quick-see-quality": "'''此為底本''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 察閱初定本]] （[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 較二者之別]）",
+	"revreview-basic-title": "初定本",
+	"revreview-revnotfound": "查無舊審，惠核網址。"
 }

@@ -1,10 +1,10 @@
 {
-    "@metadata": {
-        "authors": [
-            "Mdupont"
-        ]
-    },
-    "reviewedversions": "versionet shqyrtoi",
-    "reviewedversions-leg1": "Lista shqyrtoi shqyrtime për një faqe të",
-    "reviewedversions-page": "Emri i faqes:"
+	"@metadata": {
+		"authors": [
+			"Mdupont"
+		]
+	},
+	"reviewedversions": "versionet shqyrtoi",
+	"reviewedversions-leg1": "Lista shqyrtoi shqyrtime për një faqe të",
+	"reviewedversions-page": "Emri i faqes:"
 }

@@ -1,26 +1,26 @@
 {
-    "@metadata": {
-        "authors": [
-            "Amire80",
-            "DoviJ",
-            "Guycn2",
-            "Rotemliss",
-            "YaronSh"
-        ]
-    },
-    "pendingchanges": "דפים עם שינויים ממתינים",
-    "pendingchanges-legend": "רשימת דפים שנסקרו ושיש בהם שינויים ממתינים",
-    "pendingchanges-list": "רשימת דפים ש[[{{MediaWiki:Validationpage}}|נסקרו בעבר]] ושנעשו בהם עריכות שממתינות לסקירה.",
-    "pendingchanges-none": "אין כרגע דפים המתאימים להגדרות האלו",
-    "pendingchanges-hours": "({{PLURAL:$1|שעה|שעתיים|$1 שעות}})",
-    "pendingchanges-days": "({{PLURAL:$1|יום|יומיים|$1 ימים}})",
-    "pendingchanges-recent": "פחות משעה",
-    "pendingchanges-category": "קטגוריה:",
-    "pendingchanges-onwatchlist": "דפים ברשימת המעקב שלי",
-    "pendingchanges-stable": "הגרסה היציבה היא ברירת המחדל",
-    "pendingchanges-diff": "לסקור",
-    "pendingchanges-size": "השינוי המרבי בגודל (בבתים):",
-    "pendingchanges-unwatched": "(לא במעקב)",
-    "pendingchanges-watched": "({{PLURAL:$1|משתמש פעיל אחד עוקב|$1 משתמשים פעילים עוקבים}})",
-    "pendingchanges-viewing": "(בתהליך סקירה)"
+	"@metadata": {
+		"authors": [
+			"Amire80",
+			"DoviJ",
+			"Guycn2",
+			"Rotemliss",
+			"YaronSh"
+		]
+	},
+	"pendingchanges": "דפים עם שינויים ממתינים",
+	"pendingchanges-legend": "רשימת דפים שנסקרו ושיש בהם שינויים ממתינים",
+	"pendingchanges-list": "רשימת דפים ש[[{{MediaWiki:Validationpage}}|נסקרו בעבר]] ושנעשו בהם עריכות שממתינות לסקירה.",
+	"pendingchanges-none": "אין כרגע דפים המתאימים להגדרות האלו",
+	"pendingchanges-hours": "({{PLURAL:$1|שעה|שעתיים|$1 שעות}})",
+	"pendingchanges-days": "({{PLURAL:$1|יום|יומיים|$1 ימים}})",
+	"pendingchanges-recent": "פחות משעה",
+	"pendingchanges-category": "קטגוריה:",
+	"pendingchanges-onwatchlist": "דפים ברשימת המעקב שלי",
+	"pendingchanges-stable": "הגרסה היציבה היא ברירת המחדל",
+	"pendingchanges-diff": "לסקור",
+	"pendingchanges-size": "השינוי המרבי בגודל (בבתים):",
+	"pendingchanges-unwatched": "(לא במעקב)",
+	"pendingchanges-watched": "({{PLURAL:$1|משתמש פעיל אחד עוקב|$1 משתמשים פעילים עוקבים}})",
+	"pendingchanges-viewing": "(בתהליך סקירה)"
 }

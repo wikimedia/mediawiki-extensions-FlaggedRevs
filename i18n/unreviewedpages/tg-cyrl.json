@@ -1,11 +1,11 @@
 {
-    "@metadata": {
-        "authors": [
-            "Ibrahim"
-        ]
-    },
-    "unreviewedpages": "Саҳифаҳои баррасӣ нашуда",
-    "unreviewedpages-category": "Гурӯҳ:",
-    "unreviewedpages-diff": "Тағйирот",
-    "unreviewedpages-list": "Ин саҳифа мақолаҳои баррасинашуда, мақолаҳои ҷадид, нусхаҳои ҷадид ё баррасинашударо феҳрист мекунад."
+	"@metadata": {
+		"authors": [
+			"Ibrahim"
+		]
+	},
+	"unreviewedpages": "Саҳифаҳои баррасӣ нашуда",
+	"unreviewedpages-category": "Гурӯҳ:",
+	"unreviewedpages-diff": "баррасӣ",
+	"unreviewedpages-list": "Ин саҳифа мақолаҳои баррасинашуда, мақолаҳои ҷадид, нусхаҳои ҷадид ё баррасинашударо феҳрист мекунад."
 }

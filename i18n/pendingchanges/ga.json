@@ -1,10 +1,10 @@
 {
-    "@metadata": {
-        "authors": [
-            "Alison"
-        ]
-    },
-    "pendingchanges-hours": "($1 {{PLURAL:$1|uair|uaire}})",
-    "pendingchanges-days": "($1 {{PLURAL:$1|lá|lae}})",
-    "pendingchanges-category": "Catagóir:"
+	"@metadata": {
+		"authors": [
+			"Alison"
+		]
+	},
+	"pendingchanges-hours": "($1 {{PLURAL:$1|uair|uaire}})",
+	"pendingchanges-days": "($1 {{PLURAL:$1|lá|lae}})",
+	"pendingchanges-category": "Catagóir:"
 }

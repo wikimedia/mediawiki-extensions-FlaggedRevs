@@ -1,10 +1,10 @@
 {
-    "@metadata": {
-        "authors": [
-            "CERminator"
-        ]
-    },
-    "qualityoversight": "Napredni zapisnik pregleda",
-    "qualityoversight-list": "Ova stranica prikazuje nedavna odobrenja i uklanjanja revizija.",
-    "qualityoversight-legend": "Traži nedavne zapise pregleda"
+	"@metadata": {
+		"authors": [
+			"CERminator"
+		]
+	},
+	"qualityoversight": "Napredni zapisnik pregleda",
+	"qualityoversight-list": "Ova stranica prikazuje nedavna odobrenja i uklanjanja revizija.",
+	"qualityoversight-legend": "Traži nedavne zapise pregleda"
 }

@@ -1,14 +1,14 @@
 {
-    "@metadata": {
-        "authors": [
-            "Sasan700",
-            "Умар"
-        ]
-    },
-    "reviewedpages": "Хьойсина агlонаш",
-    "reviewedpages-leg": "Хьаьжина агӀонийн могӀам",
-    "reviewedpages-list": "ХӀокху агӀонгахь гойту [[{{MediaWiki:Validationpage}}|хьаьжина]] агӀонаш.",
-    "reviewedpages-lev-0": "Хьаьжина",
-    "reviewedpages-all": "хьаьжина версеш",
-    "reviewedpages-best": "чӀогӀа дика верси"
+	"@metadata": {
+		"authors": [
+			"Sasan700",
+			"Умар"
+		]
+	},
+	"reviewedpages": "Хьойсина агlонаш",
+	"reviewedpages-leg": "Хьаьжина агӀонийн могӀам",
+	"reviewedpages-list": "ХӀокху агӀонгахь гойту [[{{MediaWiki:Validationpage}}|хьаьжина]] агӀонаш.",
+	"reviewedpages-lev-0": "Хьаьжина",
+	"reviewedpages-all": "хьаьжина версеш",
+	"reviewedpages-best": "чӀогӀа дика верси"
 }

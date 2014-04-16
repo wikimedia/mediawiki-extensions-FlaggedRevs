@@ -1,22 +1,22 @@
 {
-    "@metadata": {
-        "authors": [
-            "Dudi",
-            "Ghaly",
-            "Meno25",
-            "Ramsis II"
-        ]
-    },
-    "validationstatistics": "إحصاءات التحقق",
-    "validationstatistics-users": "'''{{SITENAME}}''' دلوقتى فيه '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|يوزر|يوزر}} بحقوق [[{{MediaWiki:Validationpage}}|محرر]].\n\nالمحررين هما يوزرات متعيّنين و يقدرو يشوفو و يشيّكو على مراجعات الصفح.",
-    "validationstatistics-table": "الإحصاءات لكل نطاق معروضه بالأسفل، ''ولا يشمل ذلك'' صفحات التحويل.",
-    "validationstatistics-ns": "النطاق",
-    "validationstatistics-total": "الصفحات",
-    "validationstatistics-stable": "مراجع",
-    "validationstatistics-latest": "محدث",
-    "validationstatistics-synced": "تم تحديثه/تمت مراجعته",
-    "validationstatistics-old": "قديمة",
-    "validationstatistics-utable": "بالأسفل قائمه بأعلى $1 مراجعين فى الساعه الأخيره.",
-    "validationstatistics-user": "المستخدم",
-    "validationstatistics-reviews": "مراجعات"
+	"@metadata": {
+		"authors": [
+			"Dudi",
+			"Ghaly",
+			"Meno25",
+			"Ramsis II"
+		]
+	},
+	"validationstatistics": "إحصاءات التحقق",
+	"validationstatistics-users": "'''{{SITENAME}}''' دلوقتى فيه '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|يوزر|يوزر}} بحقوق [[{{MediaWiki:Validationpage}}|محرر]].\n\nالمحررين هما يوزرات متعيّنين و يقدرو يشوفو و يشيّكو على مراجعات الصفح.",
+	"validationstatistics-table": "الإحصاءات لكل نطاق معروضه بالأسفل، ''ولا يشمل ذلك'' صفحات التحويل.",
+	"validationstatistics-ns": "النطاق",
+	"validationstatistics-total": "الصفحات",
+	"validationstatistics-stable": "مراجع",
+	"validationstatistics-latest": "محدث",
+	"validationstatistics-synced": "تم تحديثه/تمت مراجعته",
+	"validationstatistics-old": "قديمة",
+	"validationstatistics-utable": "بالأسفل قائمه بأعلى $1 مراجعين فى الساعه الأخيره.",
+	"validationstatistics-user": "المستخدم",
+	"validationstatistics-reviews": "مراجعات"
 }

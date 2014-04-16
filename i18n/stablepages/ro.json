@@ -1,13 +1,13 @@
 {
-    "@metadata": {
-        "authors": [
-            "Firilacroco",
-            "KlaudiuMihaila",
-            "Mihai",
-            "Stelistcristi"
-        ]
-    },
-    "stablepages": "Pagini utilizând aprobarea modificării",
-    "stablepages-none": "Nu există pagini în această listă",
-    "stablepages-config": "Configurație"
+	"@metadata": {
+		"authors": [
+			"Firilacroco",
+			"KlaudiuMihaila",
+			"Mihai",
+			"Stelistcristi"
+		]
+	},
+	"stablepages": "Pagini utilizând aprobarea modificării",
+	"stablepages-none": "Nu există pagini în această listă",
+	"stablepages-config": "Configurație"
 }

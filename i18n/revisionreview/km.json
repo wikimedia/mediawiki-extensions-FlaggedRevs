@@ -1,13 +1,13 @@
 {
-    "@metadata": {
-        "authors": [
-            "Lovekhmer",
-            "Thearith",
-            "គីមស៊្រុន"
-        ]
-    },
-    "revreview-log": "យោបល់៖",
-    "revreview-submit": "ដាក់ស្នើ",
-    "revreview-submitting": "កំពុង​ដាក់ស្នើ...",
-    "revreview-update-includes": "ទំព័រគំរូ/រូបភាពមួយចំនួនត្រូវបានបន្ទាន់សម័យរួចហើយ (ទំព័រដែលមិនទាន់ត្រួតពិនិត្យហើយត្រូវ​បានសរសេរជាអក្សរដិត)៖"
+	"@metadata": {
+		"authors": [
+			"Lovekhmer",
+			"Thearith",
+			"គីមស៊្រុន"
+		]
+	},
+	"revreview-log": "យោបល់៖",
+	"revreview-submit": "ដាក់ស្នើ",
+	"revreview-submitting": "កំពុង​ដាក់ស្នើ...",
+	"revreview-update-includes": "ទំព័រគំរូ/រូបភាពមួយចំនួនត្រូវបានបន្ទាន់សម័យរួចហើយ (ទំព័រដែលមិនទាន់ត្រួតពិនិត្យហើយត្រូវ​បានសរសេរជាអក្សរដិត)៖"
 }

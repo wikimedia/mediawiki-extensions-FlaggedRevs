@@ -1,17 +1,17 @@
 {
-    "@metadata": {
-        "authors": [
-            "Ahonc",
-            "Prima klasy4na"
-        ]
-    },
-    "reviewedpages": "Перевірені сторінки",
-    "reviewedpages-leg": "Список сторінок, що були рецензовані",
-    "reviewedpages-list": "Цей список містить [[{{MediaWiki:Validationpage}}|рецензовані]] сторінки, чий ''найвищий досягнутий'' рівень рецензії (або версії) є зазначений рівень.\nПосилання веде на останню версію цього рівня.",
-    "reviewedpages-none": "У цьому списку відсутні сторінки",
-    "reviewedpages-lev-0": "Переглянута",
-    "reviewedpages-lev-1": "Якісна",
-    "reviewedpages-lev-2": "Вибрана",
-    "reviewedpages-all": "перевірені версії",
-    "reviewedpages-best": "найкраща версія"
+	"@metadata": {
+		"authors": [
+			"Ahonc",
+			"Prima klasy4na"
+		]
+	},
+	"reviewedpages": "Перевірені сторінки",
+	"reviewedpages-leg": "Список сторінок, що були рецензовані",
+	"reviewedpages-list": "Цей список містить [[{{MediaWiki:Validationpage}}|рецензовані]] сторінки, чий ''найвищий досягнутий'' рівень рецензії (або версії) є зазначений рівень.\nПосилання веде на останню версію цього рівня.",
+	"reviewedpages-none": "У цьому списку відсутні сторінки",
+	"reviewedpages-lev-0": "Переглянута",
+	"reviewedpages-lev-1": "Якісна",
+	"reviewedpages-lev-2": "Вибрана",
+	"reviewedpages-all": "перевірені версії",
+	"reviewedpages-best": "найкраща версія"
 }

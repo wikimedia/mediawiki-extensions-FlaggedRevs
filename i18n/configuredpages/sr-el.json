@@ -1,10 +1,10 @@
 {
-    "@metadata": {
-        "authors": [
-            "Жељко Тодоровић"
-        ]
-    },
-    "configuredpages-config": "Podešavanja",
-    "configuredpages-def-draft": "najnovija verzija",
-    "configuredpages-def-stable": "stabilna verzija"
+	"@metadata": {
+		"authors": [
+			"Жељко Тодоровић"
+		]
+	},
+	"configuredpages-config": "Podešavanja",
+	"configuredpages-def-draft": "najnovija verzija",
+	"configuredpages-def-stable": "stabilna verzija"
 }

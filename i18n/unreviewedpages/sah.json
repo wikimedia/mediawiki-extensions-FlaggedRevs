@@ -1,19 +1,19 @@
 {
-    "@metadata": {
-        "authors": [
-            "HalanTul"
-        ]
-    },
-    "unreviewedpages": "Ырытыллыбатах сирэйдэр",
-    "unreviewedpages-legend": "Бэрэбиэркэлэммэтэх сирэйдэр тиһиктэрэ",
-    "unreviewedpages-category": "Категория:",
-    "unreviewedpages-diff": "тургутуу",
-    "unreviewedpages-unwatched": "(кэтээбэттэр)",
-    "unreviewedpages-watched": "($1 көхтөөх кыттааччы кэтиир)",
-    "unreviewedpages-list": "Бу сирэйгэ этиллибит таһымынан сыаналамматах сирэйдэр көстөллөр.",
-    "unreviewedpages-none": "Эппит таһымҥар эппиэттиир ыстатыйа билигин суох эбит",
-    "unreviewedpages-viewing": "(тургутуллаллар)",
-    "unreviewedpages-hours": "($1 чаас)",
-    "unreviewedpages-days": "($1 {{PLURAL:$1|хонук|күн}})",
-    "unreviewedpages-recent": "(1 чаастан кылгас)"
+	"@metadata": {
+		"authors": [
+			"HalanTul"
+		]
+	},
+	"unreviewedpages": "Ырытыллыбатах сирэйдэр",
+	"unreviewedpages-legend": "Бэрэбиэркэлэммэтэх сирэйдэр тиһиктэрэ",
+	"unreviewedpages-category": "Категория:",
+	"unreviewedpages-diff": "тургутуу",
+	"unreviewedpages-unwatched": "(кэтээбэттэр)",
+	"unreviewedpages-watched": "($1 көхтөөх кыттааччы кэтиир)",
+	"unreviewedpages-list": "Бу сирэйгэ этиллибит таһымынан сыаналамматах сирэйдэр көстөллөр.",
+	"unreviewedpages-none": "Эппит таһымҥар эппиэттиир ыстатыйа билигин суох эбит",
+	"unreviewedpages-viewing": "(тургутуллаллар)",
+	"unreviewedpages-hours": "($1 чаас)",
+	"unreviewedpages-days": "($1 {{PLURAL:$1|хонук|күн}})",
+	"unreviewedpages-recent": "(1 чаастан кылгас)"
 }

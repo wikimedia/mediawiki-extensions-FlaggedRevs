@@ -1,23 +1,23 @@
 {
-    "@metadata": {
-        "authors": [
-            "Esbardu",
-            "Xuacu"
-        ]
-    },
-    "pendingchanges": "Páxines con cambeos pendientes",
-    "pendingchanges-legend": "Llistar páxines revisaes con revisiones non revisaes",
-    "pendingchanges-list": "Esta páxina llista les páxines [[{{MediaWiki:Validationpage}}|revisaes]] que tienen una o más ediciones esperando revisión.",
-    "pendingchanges-none": "Nun hai páxines anguaño que concuayen con estos criterios",
-    "pendingchanges-hours": "($1 {{PLURAL:$1|hora|hores}})",
-    "pendingchanges-days": "($1 {{PLURAL:$1|día|díes}})",
-    "pendingchanges-recent": "(menos d'una hora)",
-    "pendingchanges-category": "Categoría:",
-    "pendingchanges-onwatchlist": "Páxines na mio llista de vixilancia",
-    "pendingchanges-stable": "La versión estable ye la predeterminada",
-    "pendingchanges-diff": "revisar",
-    "pendingchanges-size": "Cambiu máximu (bytes):",
-    "pendingchanges-unwatched": "(non vixilada)",
-    "pendingchanges-watched": "($1 {{PLURAL:$1|usuariu activu|usuarios activos}} vixilando)",
-    "pendingchanges-viewing": "(en revisión)"
+	"@metadata": {
+		"authors": [
+			"Esbardu",
+			"Xuacu"
+		]
+	},
+	"pendingchanges": "Páxines con cambeos pendientes",
+	"pendingchanges-legend": "Llistar páxines revisaes con revisiones non revisaes",
+	"pendingchanges-list": "Esta páxina llista les páxines [[{{MediaWiki:Validationpage}}|revisaes]] que tienen una o más ediciones esperando revisión.",
+	"pendingchanges-none": "Nun hai páxines anguaño que concuayen con estos criterios",
+	"pendingchanges-hours": "($1 {{PLURAL:$1|hora|hores}})",
+	"pendingchanges-days": "($1 {{PLURAL:$1|día|díes}})",
+	"pendingchanges-recent": "(menos d'una hora)",
+	"pendingchanges-category": "Categoría:",
+	"pendingchanges-onwatchlist": "Páxines na mio llista de vixilancia",
+	"pendingchanges-stable": "La versión estable ye la predeterminada",
+	"pendingchanges-diff": "revisar",
+	"pendingchanges-size": "Cambiu máximu (bytes):",
+	"pendingchanges-unwatched": "(non vixilada)",
+	"pendingchanges-watched": "($1 {{PLURAL:$1|usuariu activu|usuarios activos}} vixilando)",
+	"pendingchanges-viewing": "(en revisión)"
 }

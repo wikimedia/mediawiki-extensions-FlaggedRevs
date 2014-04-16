@@ -1,14 +1,14 @@
 {
-    "@metadata": {
-        "authors": [
-            "Lloffiwr"
-        ]
-    },
-    "group-editor": "Golygyddion",
-    "group-editor-member": "golygydd",
-    "group-reviewer": "Adolygwyr",
-    "group-reviewer-member": "adolygydd",
-    "grouppage-editor": "{{ns:project}}:Golygydd",
-    "grouppage-reviewer": "{{ns:project}}:Adolygydd",
-    "revreview-revnotfound": "Ni ddaethpwyd o hyd i'r hen ddiwygiad o'r dudalen y gofynnwyd amdano. Gwnewch yn siwr fod yr URL yn gywir os gwelwch yn dda."
+	"@metadata": {
+		"authors": [
+			"Lloffiwr"
+		]
+	},
+	"group-editor": "Golygyddion",
+	"group-editor-member": "golygydd",
+	"group-reviewer": "Adolygwyr",
+	"group-reviewer-member": "adolygydd",
+	"grouppage-editor": "{{ns:project}}:Golygydd",
+	"grouppage-reviewer": "{{ns:project}}:Adolygydd",
+	"revreview-revnotfound": "Ni ddaethpwyd o hyd i'r hen ddiwygiad o'r dudalen y gofynnwyd amdano. Gwnewch yn siwr fod yr URL yn gywir os gwelwch yn dda."
 }

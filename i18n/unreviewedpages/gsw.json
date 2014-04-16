@@ -1,20 +1,20 @@
 {
-    "@metadata": {
-        "authors": [
-            "Als-Holder"
-        ]
-    },
-    "action-unreviewedpages": "d Lischt vu dr nit gsichtete Syten aazluege",
-    "unreviewedpages": "Syte, wu nonig vum Fäldhieter gsäh sin",
-    "unreviewedpages-legend": "Lischt vu Syte, wu nonig vum Fäldhieter gsäh sin",
-    "unreviewedpages-category": "Kategori:",
-    "unreviewedpages-diff": "aaluege",
-    "unreviewedpages-unwatched": "nid beobachtet",
-    "unreviewedpages-watched": "(vu $1 {{PLURAL:$1|Benutzer|Benutzer}} beobachtet)",
-    "unreviewedpages-list": "Die Spezialsyte zeigt Syte, wu nonig [[{{MediaWiki:Validationpage}}|markiert]] wore sin uf däm Nivo, wu aagee isch.",
-    "unreviewedpages-none": "S git kei Syte mit däne Kriterie, wu yygee wore sin.",
-    "unreviewedpages-viewing": "(wird prieft)",
-    "unreviewedpages-hours": "($1 {{PLURAL:$1|Stund|Stunde}})",
-    "unreviewedpages-days": "($1 {{PLURAL:$1|Tag|Täg}})",
-    "unreviewedpages-recent": "(weniger wie ei Stund)"
+	"@metadata": {
+		"authors": [
+			"Als-Holder"
+		]
+	},
+	"action-unreviewedpages": "d Lischt vu dr nit gsichtete Syten aazluege",
+	"unreviewedpages": "Syte, wu nonig vum Fäldhieter gsäh sin",
+	"unreviewedpages-legend": "Lischt vu Syte, wu nonig vum Fäldhieter gsäh sin",
+	"unreviewedpages-category": "Kategori:",
+	"unreviewedpages-diff": "aaluege",
+	"unreviewedpages-unwatched": "nid beobachtet",
+	"unreviewedpages-watched": "(vu $1 {{PLURAL:$1|Benutzer|Benutzer}} beobachtet)",
+	"unreviewedpages-list": "Die Spezialsyte zeigt Syte, wu nonig [[{{MediaWiki:Validationpage}}|markiert]] wore sin uf däm Nivo, wu aagee isch.",
+	"unreviewedpages-none": "S git kei Syte mit däne Kriterie, wu yygee wore sin.",
+	"unreviewedpages-viewing": "(wird prieft)",
+	"unreviewedpages-hours": "($1 {{PLURAL:$1|Stund|Stunde}})",
+	"unreviewedpages-days": "($1 {{PLURAL:$1|Tag|Täg}})",
+	"unreviewedpages-recent": "(weniger wie ei Stund)"
 }

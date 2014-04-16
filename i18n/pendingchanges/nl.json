@@ -1,22 +1,22 @@
 {
-    "@metadata": {
-        "authors": [
-            "Siebrand"
-        ]
-    },
-    "pendingchanges": "Pagina's met te controleren wijzigingen",
-    "pendingchanges-legend": "Lijst met gecontroleerde pagina's met ongecontroleerde versies",
-    "pendingchanges-list": "Op deze pagina worden de [[{{MediaWiki:Validationpage}}|gecontroleerde]] pagina's weergegeven waarvoor nog te controleren versies zijn.",
-    "pendingchanges-none": "Er zijn geen pagina's die aan de criteria voldoen",
-    "pendingchanges-hours": "($1 {{PLURAL:$1|uur|uur}})",
-    "pendingchanges-days": "($1 {{PLURAL:$1|dag|dagen}})",
-    "pendingchanges-recent": "(minder dan een uur)",
-    "pendingchanges-category": "Categorie:",
-    "pendingchanges-onwatchlist": "Pagina's op mijn volglijst",
-    "pendingchanges-stable": "Stabiele versie is standaard",
-    "pendingchanges-diff": "controleren",
-    "pendingchanges-size": "Maximale wijziging in aantal bytes:",
-    "pendingchanges-unwatched": "(niet op een volglijst)",
-    "pendingchanges-watched": "(deze pagina staat op de volglijst van $1 actieve {{PLURAL:$1|gebruiker|gebruikers}})",
-    "pendingchanges-viewing": "(wordt gecontroleerd)"
+	"@metadata": {
+		"authors": [
+			"Siebrand"
+		]
+	},
+	"pendingchanges": "Pagina's met te controleren wijzigingen",
+	"pendingchanges-legend": "Lijst met gecontroleerde pagina's met ongecontroleerde versies",
+	"pendingchanges-list": "Op deze pagina worden de [[{{MediaWiki:Validationpage}}|gecontroleerde]] pagina's weergegeven waarvoor nog te controleren versies zijn.",
+	"pendingchanges-none": "Er zijn geen pagina's die aan de criteria voldoen",
+	"pendingchanges-hours": "($1 {{PLURAL:$1|uur|uur}})",
+	"pendingchanges-days": "($1 {{PLURAL:$1|dag|dagen}})",
+	"pendingchanges-recent": "(minder dan een uur)",
+	"pendingchanges-category": "Categorie:",
+	"pendingchanges-onwatchlist": "Pagina's op mijn volglijst",
+	"pendingchanges-stable": "Stabiele versie is standaard",
+	"pendingchanges-diff": "controleren",
+	"pendingchanges-size": "Maximale wijziging in aantal bytes:",
+	"pendingchanges-unwatched": "(niet op een volglijst)",
+	"pendingchanges-watched": "(deze pagina staat op de volglijst van $1 actieve {{PLURAL:$1|gebruiker|gebruikers}})",
+	"pendingchanges-viewing": "(wordt gecontroleerd)"
 }

@@ -1,20 +1,20 @@
 {
-    "@metadata": {
-        "authors": [
-            "An13sa",
-            "Joxemai",
-            "Kobazulo"
-        ]
-    },
-    "pendingchanges-hours": "($1 {{PLURAL:$1|ordu|ordu}})",
-    "pendingchanges-days": "($1 {{PLURAL:$1|egun|egun}})",
-    "pendingchanges-recent": "(ordu bat baino gutxiago)",
-    "pendingchanges-category": "Kategoria:",
-    "pendingchanges-onwatchlist": "Nire jarraipen zerrendako orrialdeak",
-    "pendingchanges-stable": "Bertsio egonkorra lehenetsitakoa da",
-    "pendingchanges-diff": "Aurreikusi",
-    "pendingchanges-size": "Aldaketa maximoa (bytetan):",
-    "pendingchanges-unwatched": "(jarraitu gabe)",
-    "pendingchanges-watched": "($1 {{PLURAL:$1|lankide|lankide}} aktibo jarraitzen)",
-    "pendingchanges-viewing": "(berrikuspen prozesuan)"
+	"@metadata": {
+		"authors": [
+			"An13sa",
+			"Joxemai",
+			"Kobazulo"
+		]
+	},
+	"pendingchanges-hours": "($1 {{PLURAL:$1|ordu|ordu}})",
+	"pendingchanges-days": "($1 {{PLURAL:$1|egun|egun}})",
+	"pendingchanges-recent": "(ordu bat baino gutxiago)",
+	"pendingchanges-category": "Kategoria:",
+	"pendingchanges-onwatchlist": "Nire jarraipen zerrendako orrialdeak",
+	"pendingchanges-stable": "Bertsio egonkorra lehenetsitakoa da",
+	"pendingchanges-diff": "Aurreikusi",
+	"pendingchanges-size": "Aldaketa maximoa (bytetan):",
+	"pendingchanges-unwatched": "(jarraitu gabe)",
+	"pendingchanges-watched": "($1 {{PLURAL:$1|lankide|lankide}} aktibo jarraitzen)",
+	"pendingchanges-viewing": "(berrikuspen prozesuan)"
 }

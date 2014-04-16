@@ -1,13 +1,13 @@
 {
-    "@metadata": {
-        "authors": [
-            "Sp5uhe"
-        ]
-    },
-    "configuredpages": "Strony ze skonfigurowanym oznaczaniem",
-    "configuredpages-list": "Poniżej znajduje się lista stron, których ustawienia zatwierdzania są inne niż domyślne.\nNiektóre ustawienia można zmieniać jak wersja widoczna dla czytelników czy dodatkowe ograniczenie osób, których edycje nie wymagają sprawdzania.",
-    "configuredpages-none": "Brak stron na tej liście.",
-    "configuredpages-config": "Konfiguracja",
-    "configuredpages-def-draft": "najnowsza wersja",
-    "configuredpages-def-stable": "wersja opublikowana"
+	"@metadata": {
+		"authors": [
+			"Sp5uhe"
+		]
+	},
+	"configuredpages": "Strony ze skonfigurowanym oznaczaniem",
+	"configuredpages-list": "Poniżej znajduje się lista stron, których ustawienia zatwierdzania są inne niż domyślne.\nNiektóre ustawienia można zmieniać jak wersja widoczna dla czytelników czy dodatkowe ograniczenie osób, których edycje nie wymagają sprawdzania.",
+	"configuredpages-none": "Brak stron na tej liście.",
+	"configuredpages-config": "Konfiguracja",
+	"configuredpages-def-draft": "najnowsza wersja",
+	"configuredpages-def-stable": "wersja opublikowana"
 }

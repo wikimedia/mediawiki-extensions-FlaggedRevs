@@ -1,26 +1,26 @@
 {
-    "@metadata": {
-        "authors": [
-            "Dani",
-            "Dj",
-            "Dorgan",
-            "Glanthor Reviol",
-            "Gondnok",
-            "KossuthRad",
-            "Misibacsi",
-            "Samat"
-        ]
-    },
-    "unreviewedpages": "Ellenőrizetlen lapok",
-    "unreviewedpages-legend": "Nem ellenőrzött lapok listája",
-    "unreviewedpages-category": "Kategória:",
-    "unreviewedpages-diff": "ellenőrzés",
-    "unreviewedpages-unwatched": "(nem figyelt)",
-    "unreviewedpages-watched": "({{PLURAL:$1|egy|$1}} aktív szerkesztő figyeli)",
-    "unreviewedpages-list": "Azon lapok, amelyek még ''nem'' lettek [[{{MediaWiki:Validationpage}}| ellenőrizve]] a megadott szinten.",
-    "unreviewedpages-none": "Jelenleg nincs ezeknek a feltételeknek megfelelő oldal.",
-    "unreviewedpages-viewing": "(ellenőrzés alatt)",
-    "unreviewedpages-hours": "({{PLURAL:$1|egy|$1}} óra)",
-    "unreviewedpages-days": "({{PLURAL:$1|egy|$1}} nap)",
-    "unreviewedpages-recent": "(kevesebb mint egy órája)"
+	"@metadata": {
+		"authors": [
+			"Dani",
+			"Dj",
+			"Dorgan",
+			"Glanthor Reviol",
+			"Gondnok",
+			"KossuthRad",
+			"Misibacsi",
+			"Samat"
+		]
+	},
+	"unreviewedpages": "Ellenőrizetlen lapok",
+	"unreviewedpages-legend": "Nem ellenőrzött lapok listája",
+	"unreviewedpages-category": "Kategória:",
+	"unreviewedpages-diff": "ellenőrzés",
+	"unreviewedpages-unwatched": "(nem figyelt)",
+	"unreviewedpages-watched": "({{PLURAL:$1|egy|$1}} aktív szerkesztő figyeli)",
+	"unreviewedpages-list": "Azon lapok, amelyek még ''nem'' lettek [[{{MediaWiki:Validationpage}}| ellenőrizve]] a megadott szinten.",
+	"unreviewedpages-none": "Jelenleg nincs ezeknek a feltételeknek megfelelő oldal.",
+	"unreviewedpages-viewing": "(ellenőrzés alatt)",
+	"unreviewedpages-hours": "({{PLURAL:$1|egy|$1}} óra)",
+	"unreviewedpages-days": "({{PLURAL:$1|egy|$1}} nap)",
+	"unreviewedpages-recent": "(kevesebb mint egy órája)"
 }

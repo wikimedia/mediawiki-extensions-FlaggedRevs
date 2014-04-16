@@ -1,27 +1,27 @@
 {
-    "@metadata": {
-        "authors": [
-            "Kghbln",
-            "Melancholie",
-            "Michawiki",
-            "Raimond Spekking",
-            "The Evil IP address",
-            "Umherirrender"
-        ]
-    },
-    "pendingchanges": "Seiten mit unmarkierten Änderungen",
-    "pendingchanges-legend": "Liste gesichteter Seiten mit ungesichteten Versionen",
-    "pendingchanges-list": "Diese Spezialseite zeigt [[{{MediaWiki:Validationpage}}|markierte]] Seiten mit einer oder mehreren nicht markierten Bearbeitungen.",
-    "pendingchanges-none": "Gegenwärtig gibt es keine Seiten, auf die diese Kriterien zutreffen.",
-    "pendingchanges-hours": "($1 {{PLURAL:$1|Stunde|Stunden}})",
-    "pendingchanges-days": "($1 {{PLURAL:$1|Tag|Tage}})",
-    "pendingchanges-recent": "(weniger als 1 Stunde)",
-    "pendingchanges-category": "Kategorie:",
-    "pendingchanges-onwatchlist": "Seiten auf meiner Beobachtungsliste",
-    "pendingchanges-stable": "Die stabile Version ist Standard",
-    "pendingchanges-diff": "sichten",
-    "pendingchanges-size": "Maximale Änderungsgröße in Byte:",
-    "pendingchanges-unwatched": "(unbeobachtet)",
-    "pendingchanges-watched": "(von $1 {{PLURAL:$1|aktivem Benutzer|aktiven Benutzern}} beobachtet)",
-    "pendingchanges-viewing": "(wird überprüft)"
+	"@metadata": {
+		"authors": [
+			"Kghbln",
+			"Melancholie",
+			"Michawiki",
+			"Raimond Spekking",
+			"The Evil IP address",
+			"Umherirrender"
+		]
+	},
+	"pendingchanges": "Seiten mit unmarkierten Änderungen",
+	"pendingchanges-legend": "Liste gesichteter Seiten mit ungesichteten Versionen",
+	"pendingchanges-list": "Diese Spezialseite zeigt [[{{MediaWiki:Validationpage}}|markierte]] Seiten mit einer oder mehreren nicht markierten Bearbeitungen.",
+	"pendingchanges-none": "Gegenwärtig gibt es keine Seiten, auf die diese Kriterien zutreffen.",
+	"pendingchanges-hours": "($1 {{PLURAL:$1|Stunde|Stunden}})",
+	"pendingchanges-days": "($1 {{PLURAL:$1|Tag|Tage}})",
+	"pendingchanges-recent": "(weniger als 1 Stunde)",
+	"pendingchanges-category": "Kategorie:",
+	"pendingchanges-onwatchlist": "Seiten auf meiner Beobachtungsliste",
+	"pendingchanges-stable": "Die stabile Version ist Standard",
+	"pendingchanges-diff": "sichten",
+	"pendingchanges-size": "Maximale Änderungsgröße in Byte:",
+	"pendingchanges-unwatched": "(unbeobachtet)",
+	"pendingchanges-watched": "(von $1 {{PLURAL:$1|aktivem Benutzer|aktiven Benutzern}} beobachtet)",
+	"pendingchanges-viewing": "(wird überprüft)"
 }

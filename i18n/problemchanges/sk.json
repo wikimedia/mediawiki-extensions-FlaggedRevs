@@ -1,11 +1,11 @@
 {
-    "@metadata": {
-        "authors": [
-            "Helix84"
-        ]
-    },
-    "problemchanges": "Označené čakajúce zmeny",
-    "problemchanges-legend": "Vypísať zoznam stránok s označenými úpravami čakajúcimi na kontrolu",
-    "problemchanges-none": "Momentálne neexistujú žiadne stránky zodpovedajúce týmto požiadavkám",
-    "problemchanges-category": "Kategória:"
+	"@metadata": {
+		"authors": [
+			"Helix84"
+		]
+	},
+	"problemchanges": "Označené čakajúce zmeny",
+	"problemchanges-legend": "Vypísať zoznam stránok s označenými úpravami čakajúcimi na kontrolu",
+	"problemchanges-none": "Momentálne neexistujú žiadne stránky zodpovedajúce týmto požiadavkám",
+	"problemchanges-category": "Kategória:"
 }

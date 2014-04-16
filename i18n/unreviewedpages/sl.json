@@ -1,20 +1,20 @@
 {
-    "@metadata": {
-        "authors": [
-            "Dbc334"
-        ]
-    },
-    "action-unreviewedpages": "ogled seznama nepregledanih strani",
-    "unreviewedpages": "Nepregledane strani",
-    "unreviewedpages-legend": "Seznam nepregledanih strani z vsebino",
-    "unreviewedpages-category": "Kategorija:",
-    "unreviewedpages-diff": "preglej",
-    "unreviewedpages-unwatched": "(nespremljano)",
-    "unreviewedpages-watched": "({{PLURAL:$1|spremlja $1 dejavni uporabnik|spremljata $1 dejavna uporabnika|spremljajo $1 dejavni uporabniki|spremlja $1 dejavnih uporabnikov}})",
-    "unreviewedpages-list": "Ta seznam navaja strani z vsebino, ki še ''niso'' bile [[{{MediaWiki:Validationpage}}|pregledane]] do določene ravni.",
-    "unreviewedpages-none": "Trenutno ni nobene strani, ki bi ustrezala izbranim merilom",
-    "unreviewedpages-viewing": "(v pregledu)",
-    "unreviewedpages-hours": "($1 {{PLURAL:$1|ura|uri|ure|ur}})",
-    "unreviewedpages-days": "($1 {{PLURAL:$1|dan|dneva|dnevi|dni}})",
-    "unreviewedpages-recent": "(manj kot 1 ura)"
+	"@metadata": {
+		"authors": [
+			"Dbc334"
+		]
+	},
+	"action-unreviewedpages": "ogled seznama nepregledanih strani",
+	"unreviewedpages": "Nepregledane strani",
+	"unreviewedpages-legend": "Seznam nepregledanih strani z vsebino",
+	"unreviewedpages-category": "Kategorija:",
+	"unreviewedpages-diff": "preglej",
+	"unreviewedpages-unwatched": "(nespremljano)",
+	"unreviewedpages-watched": "({{PLURAL:$1|spremlja $1 dejavni uporabnik|spremljata $1 dejavna uporabnika|spremljajo $1 dejavni uporabniki|spremlja $1 dejavnih uporabnikov}})",
+	"unreviewedpages-list": "Ta seznam navaja strani z vsebino, ki še ''niso'' bile [[{{MediaWiki:Validationpage}}|pregledane]] do določene ravni.",
+	"unreviewedpages-none": "Trenutno ni nobene strani, ki bi ustrezala izbranim merilom",
+	"unreviewedpages-viewing": "(v pregledu)",
+	"unreviewedpages-hours": "($1 {{PLURAL:$1|ura|uri|ure|ur}})",
+	"unreviewedpages-days": "($1 {{PLURAL:$1|dan|dneva|dnevi|dni}})",
+	"unreviewedpages-recent": "(manj kot 1 ura)"
 }

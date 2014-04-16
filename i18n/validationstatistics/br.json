@@ -1,26 +1,26 @@
 {
-    "@metadata": {
-        "authors": [
-            "Fohanno",
-            "Fulup",
-            "Gwendal",
-            "Y-M D"
-        ]
-    },
-    "validationstatistics": "Stadegoù adlenn ar pajennoù",
-    "validationstatistics-users": "Evit ar poent, war '''{{SITENAME}}''' ez eus '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|implijer gantañ|implijer ganto}} gwirioù [[{{MediaWiki:Validationpage}}|Aozer]].\n\nAn Aozerien hag an Adlennerien a zo implijerien staliet a c'hell gwiriañ adweladennoù ar pajennoù.",
-    "validationstatistics-lastupdate": "''Ar roadennoù da-heul a zo bet hizivaet d'an $1 da $2.''",
-    "validationstatistics-pndtime": "Sellet a reer ouzh ar c'hemmoù gwiriet gant an implijerien arroutet evel kemmoù ''adlennet''..\n\nAn dale keitat evit [[Special:OldReviewedPages|ar pajennoù a c'hortoz bezañ adlennet]] a sav da '''$1'''; Muzuliañ a ra an termen pegen pell eo chomet ar c'hemm diwezhañ hep bezañ gwiriet.",
-    "validationstatistics-revtime": "Sevel a ra an amzer gortoz keitat evit adlenn kemmoù graet gant \"implijerien dienroll\" da '''$1''' ; ar geidenn zo '''$2'''.\n$3",
-    "validationstatistics-table": "A-is emañ diskouezet ar stadegoù adwelout evit pep esaouenn anv, ''nemet'' evit ar pajennoù adkas. Sellet a reer ouzh ar pajennoù evel ''dispredet'' ma'z eus kemmoù enno a chom da vezañ aprouet; sellet a reer ouzh ar pajennoù evel ''sinkronelaet'' ma n'eus netra enno da vezañ aprouet.",
-    "validationstatistics-ns": "Esaouenn anv",
-    "validationstatistics-total": "Pajennoù",
-    "validationstatistics-stable": "Adwelet",
-    "validationstatistics-latest": "Sinkronelaet",
-    "validationstatistics-synced": "Sinkronelaet/Adwelet",
-    "validationstatistics-old": "Dispredet",
-    "validationstatistics-unreviewed": "N'eo ket bet adwelet",
-    "validationstatistics-utable": "A-is emañ {{PLURAL:$1|anv an adlenner oberiantañ|anv an $1 adlenner oberiantañ}} en {{PLURAL:$2|eurvezh|$2 eurvezh}} ziwezhañ.",
-    "validationstatistics-user": "Implijer",
-    "validationstatistics-reviews": "Adweladennoù"
+	"@metadata": {
+		"authors": [
+			"Fohanno",
+			"Fulup",
+			"Gwendal",
+			"Y-M D"
+		]
+	},
+	"validationstatistics": "Stadegoù adlenn ar pajennoù",
+	"validationstatistics-users": "Evit ar poent, war '''{{SITENAME}}''' ez eus '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|implijer gantañ|implijer ganto}} gwirioù [[{{MediaWiki:Validationpage}}|Aozer]].\n\nAn Aozerien hag an Adlennerien a zo implijerien staliet a c'hell gwiriañ adweladennoù ar pajennoù.",
+	"validationstatistics-lastupdate": "''Ar roadennoù da-heul a zo bet hizivaet d'an $1 da $2.''",
+	"validationstatistics-pndtime": "Sellet a reer ouzh ar c'hemmoù gwiriet gant an implijerien arroutet evel kemmoù ''adlennet''..\n\nAn dale keitat evit [[Special:OldReviewedPages|ar pajennoù a c'hortoz bezañ adlennet]] a sav da '''$1'''; Muzuliañ a ra an termen pegen pell eo chomet ar c'hemm diwezhañ hep bezañ gwiriet.",
+	"validationstatistics-revtime": "Sevel a ra an amzer gortoz keitat evit adlenn kemmoù graet gant \"implijerien dienroll\" da '''$1''' ; ar geidenn zo '''$2'''.\n$3",
+	"validationstatistics-table": "A-is emañ diskouezet ar stadegoù adwelout evit pep esaouenn anv, ''nemet'' evit ar pajennoù adkas. Sellet a reer ouzh ar pajennoù evel ''dispredet'' ma'z eus kemmoù enno a chom da vezañ aprouet; sellet a reer ouzh ar pajennoù evel ''sinkronelaet'' ma n'eus netra enno da vezañ aprouet.",
+	"validationstatistics-ns": "Esaouenn anv",
+	"validationstatistics-total": "Pajennoù",
+	"validationstatistics-stable": "Adwelet",
+	"validationstatistics-latest": "Sinkronelaet",
+	"validationstatistics-synced": "Sinkronelaet/Adwelet",
+	"validationstatistics-old": "Dispredet",
+	"validationstatistics-unreviewed": "N'eo ket bet adwelet",
+	"validationstatistics-utable": "A-is emañ {{PLURAL:$1|anv an adlenner oberiantañ|anv an $1 adlenner oberiantañ}} en {{PLURAL:$2|eurvezh|$2 eurvezh}} ziwezhañ.",
+	"validationstatistics-user": "Implijer",
+	"validationstatistics-reviews": "Adweladennoù"
 }

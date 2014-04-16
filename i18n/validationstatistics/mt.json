@@ -1,13 +1,13 @@
 {
-    "@metadata": {
-        "authors": [
-            "Chrisportelli"
-        ]
-    },
-    "validationstatistics": "Statistika tar-reviżjoni",
-    "validationstatistics-ns": "Spazju tal-isem",
-    "validationstatistics-total": "Paġni",
-    "validationstatistics-stable": "Riveduti",
-    "validationstatistics-user": "Utent",
-    "validationstatistics-reviews": "Reviżjonijiet"
+	"@metadata": {
+		"authors": [
+			"Chrisportelli"
+		]
+	},
+	"validationstatistics": "Statistika tar-reviżjoni",
+	"validationstatistics-ns": "Spazju tal-isem",
+	"validationstatistics-total": "Paġni",
+	"validationstatistics-stable": "Riveduti",
+	"validationstatistics-user": "Utent",
+	"validationstatistics-reviews": "Reviżjonijiet"
 }

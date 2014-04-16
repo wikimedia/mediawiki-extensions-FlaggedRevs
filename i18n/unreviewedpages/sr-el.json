@@ -1,20 +1,20 @@
 {
-    "@metadata": {
-        "authors": [
-            "Michaello",
-            "Milicevic01"
-        ]
-    },
-    "unreviewedpages": "Nepregledane strane.",
-    "unreviewedpages-legend": "Spisak nepregledanih sadržajnih strana.",
-    "unreviewedpages-category": "Kategorija:",
-    "unreviewedpages-diff": "pregled",
-    "unreviewedpages-unwatched": "(nenadzirano)",
-    "unreviewedpages-watched": "($1 {{PLURAL:$1|aktivan korisnik nadgleda|aktivnih korisnika nadgledaju}})",
-    "unreviewedpages-list": "Na ovoj stranici su navedene stranice sa sadržajem koje još ''nisu'' [[{{MediaWiki:Validationpage}}|pregledane]] do određenog nivoa.",
-    "unreviewedpages-none": "Ne postoji nijedna strana koja se poklapa sa ovim kriterijima.",
-    "unreviewedpages-viewing": "(pod pregledom)",
-    "unreviewedpages-hours": "($1 {{PLURAL:$1|sat|sati}})",
-    "unreviewedpages-days": "($1 {{PLURAL:$1|dan|dana}})",
-    "unreviewedpages-recent": "(manje od sata)"
+	"@metadata": {
+		"authors": [
+			"Michaello",
+			"Milicevic01"
+		]
+	},
+	"unreviewedpages": "Nepregledane strane.",
+	"unreviewedpages-legend": "Spisak nepregledanih sadržajnih strana.",
+	"unreviewedpages-category": "Kategorija:",
+	"unreviewedpages-diff": "pregled",
+	"unreviewedpages-unwatched": "(nenadzirano)",
+	"unreviewedpages-watched": "($1 {{PLURAL:$1|aktivan korisnik nadgleda|aktivnih korisnika nadgledaju}})",
+	"unreviewedpages-list": "Na ovoj stranici su navedene stranice sa sadržajem koje još ''nisu'' [[{{MediaWiki:Validationpage}}|pregledane]] do određenog nivoa.",
+	"unreviewedpages-none": "Ne postoji nijedna strana koja se poklapa sa ovim kriterijima.",
+	"unreviewedpages-viewing": "(pod pregledom)",
+	"unreviewedpages-hours": "($1 {{PLURAL:$1|sat|sati}})",
+	"unreviewedpages-days": "($1 {{PLURAL:$1|dan|dana}})",
+	"unreviewedpages-recent": "(manje od sata)"
 }

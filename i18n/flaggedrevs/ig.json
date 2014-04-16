@@ -1,26 +1,25 @@
 {
-    "@metadata": {
-        "authors": [
-            "Ukabia"
-        ]
-    },
-    "editor": "Onye orü",
-    "prefs-flaggedrevs": "Nlé orü",
-    "prefs-flaggedrevs-ui": "Nlé orü",
-    "group-editor": "Ndi orü",
-    "revreview-edit": "Mèzi",
-    "revreview-source": "Zi mkpurụ",
-    "revreview-style-2": "Ómá",
-    "revreview-filter-all": "nke níle",
-    "revreview-filter-stable": "chịm",
-    "revreview-typefilter": "Ùdị:",
-    "revreview-filter-manual": "Ònyèmáká",
-    "revreview-levelfilter": "Órúrú:",
-    "revreview-lev-all": "nkéowulà",
-    "revreview-lev-quality": "ómá ya",
-    "revreview-def-all": "nkéowulà",
-    "revreview-def-draft": "nke ohúrù",
-    "revreview-restriction-any": "nkéowulà",
-    "revreview-restriction-none": "efù",
-    "flaggedrevs-protect-none": "Kwèré ọ'bànifé nílé"
+	"@metadata": {
+		"authors": [
+			"Ukabia"
+		]
+	},
+	"editor": "Onye orü",
+	"prefs-flaggedrevs-ui": "Nlé orü",
+	"group-editor": "Ndi orü",
+	"revreview-edit": "Mèzi",
+	"revreview-source": "Zi mkpurụ",
+	"revreview-style-2": "Ómá",
+	"revreview-filter-all": "nke níle",
+	"revreview-filter-stable": "chịm",
+	"revreview-typefilter": "Ùdị:",
+	"revreview-filter-manual": "Ònyèmáká",
+	"revreview-levelfilter": "Órúrú:",
+	"revreview-lev-all": "nkéowulà",
+	"revreview-lev-quality": "ómá ya",
+	"revreview-def-all": "nkéowulà",
+	"revreview-def-draft": "nke ohúrù",
+	"revreview-restriction-any": "nkéowulà",
+	"revreview-restriction-none": "efù",
+	"flaggedrevs-protect-none": "Kwèré ọ'bànifé nílé"
 }

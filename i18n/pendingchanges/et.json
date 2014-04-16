@@ -1,23 +1,23 @@
 {
-    "@metadata": {
-        "authors": [
-            "Avjoska",
-            "Pikne"
-        ]
-    },
-    "pendingchanges": "Ootel muudatustega leheküljed",
-    "pendingchanges-legend": "Ootel muudatustega ülevaadatud lehekülgede loetlemine",
-    "pendingchanges-list": "See lehekülg loetleb ootel muudatustega [[{{MediaWiki:Validationpage}}|ülevaadatud]] {{PLURAL:$1|lehekülje|leheküljed}}.",
-    "pendingchanges-none": "Sellistele kriteeriumitele vastavad leheküljed puuduvad praegu.",
-    "pendingchanges-hours": "($1 {{PLURAL:$1|tund|tundi}})",
-    "pendingchanges-days": "($1 {{PLURAL:$1|päev|päeva}})",
-    "pendingchanges-recent": "(alla 1 tunni)",
-    "pendingchanges-category": "Kategooria:",
-    "pendingchanges-onwatchlist": "Minu jälgitavad leheküljed",
-    "pendingchanges-stable": "Püsiv versioon on vaikeväärtuseks",
-    "pendingchanges-diff": "vaata üle",
-    "pendingchanges-size": "Muudatuse ülemmäär baitides:",
-    "pendingchanges-unwatched": "(jälgimata)",
-    "pendingchanges-watched": "($1 aktiivse {{PLURAL:$1|kasutaja}} jälgitav)",
-    "pendingchanges-viewing": "(ülevaatusel)"
+	"@metadata": {
+		"authors": [
+			"Avjoska",
+			"Pikne"
+		]
+	},
+	"pendingchanges": "Ootel muudatustega leheküljed",
+	"pendingchanges-legend": "Ootel muudatustega ülevaadatud lehekülgede loetlemine",
+	"pendingchanges-list": "See lehekülg loetleb ootel muudatustega [[{{MediaWiki:Validationpage}}|ülevaadatud]] {{PLURAL:$1|lehekülje|leheküljed}}.",
+	"pendingchanges-none": "Sellistele kriteeriumitele vastavad leheküljed puuduvad praegu.",
+	"pendingchanges-hours": "($1 {{PLURAL:$1|tund|tundi}})",
+	"pendingchanges-days": "($1 {{PLURAL:$1|päev|päeva}})",
+	"pendingchanges-recent": "(alla 1 tunni)",
+	"pendingchanges-category": "Kategooria:",
+	"pendingchanges-onwatchlist": "Minu jälgitavad leheküljed",
+	"pendingchanges-stable": "Püsiv versioon on vaikeväärtuseks",
+	"pendingchanges-diff": "vaata üle",
+	"pendingchanges-size": "Muudatuse ülemmäär baitides:",
+	"pendingchanges-unwatched": "(jälgimata)",
+	"pendingchanges-watched": "($1 aktiivse {{PLURAL:$1|kasutaja}} jälgitav)",
+	"pendingchanges-viewing": "(ülevaatusel)"
 }

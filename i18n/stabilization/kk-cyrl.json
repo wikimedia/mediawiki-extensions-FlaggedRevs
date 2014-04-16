@@ -1,21 +1,19 @@
 {
-    "@metadata": {
-        "authors": []
-    },
-    "stabilization-tab": "(сқ)",
-    "stabilization": "Бетті тиянақтау",
-    "stabilization-text": "Төмендегі бапталымдарды өзгерткенде [[:$1|$1]] дегеннің тиянақты нұсқасы қалай бөлектенуі мен көрсетілуі түзетіледі.",
-    "stabilization-perm": "Тіркелгіңізге тиянақты нұсқаның бапталымын өзгертуге рұқсат берілмеген.\n[[:$1|$1]] үшін ағымдағы баптаулар мында келтіріледі:",
-    "stabilization-page": "Бет атауы:",
-    "stabilization-leg": "Бет үшін тиянақты нұсқаны баптау",
-    "stabilization-def": "Беттің әдепкі көрінісінде келтірілетін нұсқа",
-    "stabilization-def1": "Тиянақты нұсқасы; егер жоқ болса, ағымдағылардың біреуі болады",
-    "stabilization-def2": "Ағымдық нұсқасы",
-    "stabilization-submit": "Құптау",
-    "stabilization-notexists": "«[[:$1|$1]]» деп аталған еш бет жоқ. Еш бапталым реттелмейді.",
-    "stabilization-notcontent": "«[[:$1|$1]]» деген бетке сын берілмейді. Еш бапталым реттелмейді.",
-    "stabilization-comment": "Себебі:",
-    "stabilization-def-short": "Әдепкі",
-    "stabilization-def-short-0": "Ағымдық",
-    "stabilization-def-short-1": "Тиянақты"
+	"@metadata": [],
+	"stabilization-tab": "(сқ)",
+	"stabilization": "Бетті тиянақтау",
+	"stabilization-text": "Төмендегі бапталымдарды өзгерткенде [[:$1|$1]] дегеннің тиянақты нұсқасы қалай бөлектенуі мен көрсетілуі түзетіледі.",
+	"stabilization-perm": "Тіркелгіңізге тиянақты нұсқаның бапталымын өзгертуге рұқсат берілмеген.\n[[:$1|$1]] үшін ағымдағы баптаулар мында келтіріледі:",
+	"stabilization-page": "Бет атауы:",
+	"stabilization-leg": "Бет үшін тиянақты нұсқаны баптау",
+	"stabilization-def": "Беттің әдепкі көрінісінде келтірілетін нұсқа",
+	"stabilization-def1": "Тиянақты нұсқасы; егер жоқ болса, ағымдағылардың біреуі болады",
+	"stabilization-def2": "Ағымдық нұсқасы",
+	"stabilization-submit": "Құптау",
+	"stabilization-notexists": "«[[:$1|$1]]» деп аталған еш бет жоқ. Еш бапталым реттелмейді.",
+	"stabilization-notcontent": "«[[:$1|$1]]» деген бетке сын берілмейді. Еш бапталым реттелмейді.",
+	"stabilization-comment": "Себебі:",
+	"stabilization-def-short": "Әдепкі",
+	"stabilization-def-short-0": "Ағымдық",
+	"stabilization-def-short-1": "Тиянақты"
 }

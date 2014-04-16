@@ -1,13 +1,13 @@
 {
-    "@metadata": {
-        "authors": [
-            "BRUTE",
-            "გიორგიმელა"
-        ]
-    },
-    "configuredpages": "გვერდები შემოწმების კონფიგურაციით",
-    "configuredpages-none": "ამ სიაში გვერდები არ არის.",
-    "configuredpages-config": "კონფიგურაცია",
-    "configuredpages-def-draft": "უკანასკნელი ვერსია",
-    "configuredpages-def-stable": "გამოქვეყნებული ვერსია"
+	"@metadata": {
+		"authors": [
+			"BRUTE",
+			"გიორგიმელა"
+		]
+	},
+	"configuredpages": "გვერდები შემოწმების კონფიგურაციით",
+	"configuredpages-none": "ამ სიაში გვერდები არ არის.",
+	"configuredpages-config": "კონფიგურაცია",
+	"configuredpages-def-draft": "უკანასკნელი ვერსია",
+	"configuredpages-def-stable": "გამოქვეყნებული ვერსია"
 }

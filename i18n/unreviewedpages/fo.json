@@ -1,12 +1,12 @@
 {
-    "@metadata": {
-        "authors": [
-            "EileenSanda"
-        ]
-    },
-    "action-unreviewedpages": "sí lista yvir síður sum ikki eru eftirhugdar",
-    "unreviewedpages-category": "Bólkar:",
-    "unreviewedpages-hours": "($1 {{PLURAL:$1|tími|tímar}})",
-    "unreviewedpages-days": "($1 {{PLURAL:$1|dagur|dagar}})",
-    "unreviewedpages-recent": "(minni enn 1 tími)"
+	"@metadata": {
+		"authors": [
+			"EileenSanda"
+		]
+	},
+	"action-unreviewedpages": "sí lista yvir síður sum ikki eru eftirhugdar",
+	"unreviewedpages-category": "Bólkar:",
+	"unreviewedpages-hours": "($1 {{PLURAL:$1|tími|tímar}})",
+	"unreviewedpages-days": "($1 {{PLURAL:$1|dagur|dagar}})",
+	"unreviewedpages-recent": "(minni enn 1 tími)"
 }

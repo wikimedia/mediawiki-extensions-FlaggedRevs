@@ -1,9 +1,9 @@
 {
-    "@metadata": {
-        "authors": [
-            "Умар"
-        ]
-    },
-    "flaggedrevs-hidereviewed-hide": "Чуьнуьхун",
-    "flaggedrevs-hidereviewed-show": "Къалурун"
+	"@metadata": {
+		"authors": [
+			"Умар"
+		]
+	},
+	"flaggedrevs-hidereviewed-hide": "Чуьнуьхун",
+	"flaggedrevs-hidereviewed-show": "Къалурун"
 }

@@ -1,17 +1,17 @@
 {
-    "@metadata": {
-        "authors": [
-            "Ильнар"
-        ]
-    },
-    "revreview-edit": "Үзгәртү",
-    "revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|Тикшерелмәгән]]'''",
-    "revreview-quick-quality": "'''[[{{MediaWiki:Validationpage}}|Тикшерелгән]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} тикшерелмәгән үзгәртүләрне күрсәтергә]]",
-    "revreview-quick-quality-old": "'''[[{{MediaWiki:Validationpage}}|Тикшерелгән]]'''",
-    "revreview-quick-quality-same": "'''[[{{MediaWiki:Validationpage}}|Тикшерелгән]]'''",
-    "revreview-quick-see-basic": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} тикшерелмәгән үзгәрешләрне карарга]]",
-    "revreview-quick-see-quality": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} тикшерелмәгән үзгәрешләрне карарга]]",
-    "revreview-source": "Карау",
-    "revreview-basic-title": "Бу битнең каралган юрамасы",
-    "validationpage": "{{ns:help}}:Битләрне тикшерү"
+	"@metadata": {
+		"authors": [
+			"Ильнар"
+		]
+	},
+	"revreview-edit": "Үзгәртү",
+	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|Тикшерелмәгән]]'''",
+	"revreview-quick-quality": "'''[[{{MediaWiki:Validationpage}}|Тикшерелгән]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} тикшерелмәгән үзгәртүләрне күрсәтергә]]",
+	"revreview-quick-quality-old": "'''[[{{MediaWiki:Validationpage}}|Тикшерелгән]]'''",
+	"revreview-quick-quality-same": "'''[[{{MediaWiki:Validationpage}}|Тикшерелгән]]'''",
+	"revreview-quick-see-basic": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} тикшерелмәгән үзгәрешләрне карарга]]",
+	"revreview-quick-see-quality": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} тикшерелмәгән үзгәрешләрне карарга]]",
+	"revreview-source": "Карау",
+	"revreview-basic-title": "Бу битнең каралган юрамасы",
+	"validationpage": "{{ns:help}}:Битләрне тикшерү"
 }

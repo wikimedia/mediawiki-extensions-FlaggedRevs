@@ -1,9 +1,9 @@
 {
-    "@metadata": {
-        "authors": [
-            "Shinjiman"
-        ]
-    },
-    "qualityoversight": "品質管理",
-    "qualityoversight-list": "呢一版列示咗最近核准修訂同埋最近品質修訂嘅折舊。"
+	"@metadata": {
+		"authors": [
+			"Shinjiman"
+		]
+	},
+	"qualityoversight": "品質管理",
+	"qualityoversight-list": "呢一版列示咗最近核准修訂同埋最近品質修訂嘅折舊。"
 }

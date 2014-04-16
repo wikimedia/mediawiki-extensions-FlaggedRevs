@@ -1,26 +1,26 @@
 {
-    "@metadata": {
-        "authors": [
-            "Cekli829",
-            "Vugar 1981",
-            "Wertuose"
-        ]
-    },
-    "revisionreview": "Redaktələri yoxlayar",
-    "revreview-failed": "'''Bu versiyanı yoxlamaq mümkün deyil.'''",
-    "revreview-check-flag-u": "Bu yoxlanılmış səhifəni qəbul et",
-    "revreview-check-flag-y": "Dəyişikliklərimi qəbul et",
-    "revreview-flag": "Bu versiyanı yoxla",
-    "revreview-reflag": "Bu versiyanı təkrar yoxla",
-    "revreview-log": "Şərh:",
-    "revreview-submit": "Təsdiq et",
-    "revreview-submitting": "Yollamaq",
-    "revreview-submit-review": "Versiyanı qəbul et",
-    "revreview-submit-unreview": "Versiyanı qəbul etmə",
-    "revreview-submit-reject": "Dəyişiklikləri rədd et",
-    "revreview-submit-reviewed": "Hazırdır. Qəbul edildi!",
-    "revreview-submit-unreviewed": "Hazırdır. Qəbul edilmə ləğv edildi!",
-    "revreview-reject-summary": "Xülasə:",
-    "revreview-reject-confirm": "Bu dəyişiklikləri rədd et",
-    "revreview-reject-cancel": "Ləğv et"
+	"@metadata": {
+		"authors": [
+			"Cekli829",
+			"Vugar 1981",
+			"Wertuose"
+		]
+	},
+	"revisionreview": "Redaktələri yoxlayar",
+	"revreview-failed": "'''Bu versiyanı yoxlamaq mümkün deyil.'''",
+	"revreview-check-flag-u": "Bu yoxlanılmış səhifəni qəbul et",
+	"revreview-check-flag-y": "Dəyişikliklərimi qəbul et",
+	"revreview-flag": "Bu versiyanı yoxla",
+	"revreview-reflag": "Bu versiyanı təkrar yoxla",
+	"revreview-log": "Şərh:",
+	"revreview-submit": "Təsdiq et",
+	"revreview-submitting": "Yollamaq",
+	"revreview-submit-review": "Versiyanı qəbul et",
+	"revreview-submit-unreview": "Versiyanı qəbul etmə",
+	"revreview-submit-reject": "Dəyişiklikləri rədd et",
+	"revreview-submit-reviewed": "Hazırdır. Qəbul edildi!",
+	"revreview-submit-unreviewed": "Hazırdır. Qəbul edilmə ləğv edildi!",
+	"revreview-reject-summary": "Xülasə:",
+	"revreview-reject-confirm": "Bu dəyişiklikləri rədd et",
+	"revreview-reject-cancel": "Ləğv et"
 }

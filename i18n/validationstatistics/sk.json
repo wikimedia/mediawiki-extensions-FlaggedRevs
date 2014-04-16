@@ -1,23 +1,23 @@
 {
-    "@metadata": {
-        "authors": [
-            "Helix84",
-            "Teslaton"
-        ]
-    },
-    "validationstatistics": "Štatistiky overenia",
-    "validationstatistics-users": "'''{{SITENAME}}''' má momentálne '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|používateľa|používateľov}} s právami [[{{MediaWiki:Validationpage}}|redaktor]] a '''[[Special:ListUsers/reviewer|$2]]'' {{PLURAL:$2|používateľa|používateľov}} s právami [[{{MediaWiki:Validationpage}}|kontrolór]].",
-    "validationstatistics-lastupdate": "''Nasledujúce údaje boli naposledy aktualizované $1 $2.''",
-    "validationstatistics-pndtime": "Úpravy, ktoré boli overené dôveryhodnými používateľmi sú považované za skontrolované.\n\nPriemerné čakanie na [[Special:OldReviewedPages|stránky s  čakajúcimi úpravami]] je '''$1'''.\nTieto stránky sú považované za ''zastarané''. Podobne, stránky sú považované za ''synchronizované'', ak nie sú k dispozícii žiadne úpravy čakajúce na kontrolu.",
-    "validationstatistics-revtime": "Priemerné čakanie na skontrolovanie úprav ''neprihlásených používateľov'' je '''$1''', medián je '''$2'''.",
-    "validationstatistics-table": "Dolu sú zobrazené štatistiky pre každý menný priestor ''okrem'' presmerovacích stránok.",
-    "validationstatistics-ns": "Menný priestor",
-    "validationstatistics-total": "Stránky",
-    "validationstatistics-stable": "Skontrolované",
-    "validationstatistics-latest": "Synchronizovaná",
-    "validationstatistics-synced": "Synchronizované/skontrolované",
-    "validationstatistics-old": "Zastarané",
-    "validationstatistics-utable": "Dolu je zoznam $1 naj kontrolórov za poslednú hodinu.",
-    "validationstatistics-user": "Používateľ",
-    "validationstatistics-reviews": "Kontroly"
+	"@metadata": {
+		"authors": [
+			"Helix84",
+			"Teslaton"
+		]
+	},
+	"validationstatistics": "Štatistiky overenia",
+	"validationstatistics-users": "'''{{SITENAME}}''' má momentálne '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|používateľa|používateľov}} s právami [[{{MediaWiki:Validationpage}}|redaktor]] a '''[[Special:ListUsers/reviewer|$2]]'' {{PLURAL:$2|používateľa|používateľov}} s právami [[{{MediaWiki:Validationpage}}|kontrolór]].",
+	"validationstatistics-lastupdate": "''Nasledujúce údaje boli naposledy aktualizované $1 $2.''",
+	"validationstatistics-pndtime": "Úpravy, ktoré boli overené dôveryhodnými používateľmi sú považované za skontrolované.\n\nPriemerné čakanie na [[Special:OldReviewedPages|stránky s  čakajúcimi úpravami]] je '''$1'''.\nTieto stránky sú považované za ''zastarané''. Podobne, stránky sú považované za ''synchronizované'', ak nie sú k dispozícii žiadne úpravy čakajúce na kontrolu.",
+	"validationstatistics-revtime": "Priemerné čakanie na skontrolovanie úprav ''neprihlásených používateľov'' je '''$1''', medián je '''$2'''.",
+	"validationstatistics-table": "Dolu sú zobrazené štatistiky pre každý menný priestor ''okrem'' presmerovacích stránok.",
+	"validationstatistics-ns": "Menný priestor",
+	"validationstatistics-total": "Stránky",
+	"validationstatistics-stable": "Skontrolované",
+	"validationstatistics-latest": "Synchronizovaná",
+	"validationstatistics-synced": "Synchronizované/skontrolované",
+	"validationstatistics-old": "Zastarané",
+	"validationstatistics-utable": "Dolu je zoznam $1 naj kontrolórov za poslednú hodinu.",
+	"validationstatistics-user": "Používateľ",
+	"validationstatistics-reviews": "Kontroly"
 }

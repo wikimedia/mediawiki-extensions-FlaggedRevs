@@ -1,14 +1,14 @@
 {
-    "@metadata": {
-        "authors": [
-            "Horus",
-            "Octahedron80",
-            "Passawuth"
-        ]
-    },
-    "stabilization-page": "ชื่อหน้า:",
-    "stabilization-submit": "ยืนยัน",
-    "stabilization-comment": "เหตุผล:",
-    "stabilization-def-short-0": "ปัจจุบัน",
-    "stabilization-def-short-1": "เสถียร"
+	"@metadata": {
+		"authors": [
+			"Horus",
+			"Octahedron80",
+			"Passawuth"
+		]
+	},
+	"stabilization-page": "ชื่อหน้า:",
+	"stabilization-submit": "ยืนยัน",
+	"stabilization-comment": "เหตุผล:",
+	"stabilization-def-short-0": "ปัจจุบัน",
+	"stabilization-def-short-1": "เสถียร"
 }

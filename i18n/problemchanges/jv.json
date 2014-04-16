@@ -1,11 +1,11 @@
 {
-    "@metadata": {
-        "authors": [
-            "NoiX180"
-        ]
-    },
-    "problemchanges": "Owahan katundha sing ditandhai",
-    "problemchanges-legend": "Daptar kaca mawa ulasan katundha suntingan ditandhai",
-    "problemchanges-none": "Ora ana kaca sing cocok karo kritèria",
-    "problemchanges-category": "Kategori:"
+	"@metadata": {
+		"authors": [
+			"NoiX180"
+		]
+	},
+	"problemchanges": "Owahan katundha sing ditandhai",
+	"problemchanges-legend": "Daptar kaca mawa ulasan katundha suntingan ditandhai",
+	"problemchanges-none": "Ora ana kaca sing cocok karo kritèria",
+	"problemchanges-category": "Kategori:"
 }

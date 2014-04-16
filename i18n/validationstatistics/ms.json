@@ -1,25 +1,25 @@
 {
-    "@metadata": {
-        "authors": [
-            "Anakmalaysia",
-            "Aviator",
-            "Kurniasan"
-        ]
-    },
-    "validationstatistics": "Statistik kajian semula laman",
-    "validationstatistics-users": "'''{{SITENAME}}''' kini mempunyai '''[[Special:ListUsers/editor|$1]]''' orang pengguna yang mempunyai hak [[{{MediaWiki:Validationpage}}|Penyunting]].\n\nPenyunting merupakan pengguna berpengalaman yang boleh membuat pemeriksaan mengejut pada laman-laman.",
-    "validationstatistics-lastupdate": "''Data berikut kali terakhir dikemas kini pada $1, $2.''",
-    "validationstatistics-pndtime": "Suntingan yang telah diperiksa oleh pengguna-pengguna yang mantap adalah dianggap sebagai ''{{int:validationstatistics-stable}}''.\n\nPurata masa tangguhan kaji semula untuk [[Special:OldReviewedPages|laman-laman yang mempunyai suntingan yang sedang menunggu untuk dikaji semula]] ialah '''$1'''; masa tangguhan diukur berdasarkan berapa lama suntingan tergantung yang terlama dibiarkan tanpa kaji semula.",
-    "validationstatistics-revtime": "Purata masa menunggu untuk suntingan oleh ''pengguna yang tidak log masuk'' untuk dikaji semula ialah '''$1'''; mediannya ialah '''$2'''.\n$3",
-    "validationstatistics-table": "Statistik kaji semula laman untuk setiap ruang nama ditunjukkan di bawah, ''tidak termasuk'' laman lencongan.\n\nLaman yang mempunyai suntingan yang menunggu semakan adalah ''{{int:validationstatistics-old}}'', sementara laman yang tiada yang sedemikian dianggap ''{{int:validationstatistics-latest}}''.",
-    "validationstatistics-ns": "Ruang nama",
-    "validationstatistics-total": "Laman",
-    "validationstatistics-stable": "Dikaji semula",
-    "validationstatistics-latest": "Diselaras",
-    "validationstatistics-synced": "Diselaras/Dikaji Semula",
-    "validationstatistics-old": "Lapuk",
-    "validationstatistics-unreviewed": "Belum disemak",
-    "validationstatistics-utable": "Berikut ialah {{PLURAL:$1|pengkaji semula paling aktif|senarai $1 pengkaji semula paling aktif}} dalam {{PLURAL:$2|sejam|$2 jam}} yang lalu.",
-    "validationstatistics-user": "Pengguna",
-    "validationstatistics-reviews": "Kajian semula"
+	"@metadata": {
+		"authors": [
+			"Anakmalaysia",
+			"Aviator",
+			"Kurniasan"
+		]
+	},
+	"validationstatistics": "Statistik kajian semula laman",
+	"validationstatistics-users": "'''{{SITENAME}}''' kini mempunyai '''[[Special:ListUsers/editor|$1]]''' orang pengguna yang mempunyai hak [[{{MediaWiki:Validationpage}}|Penyunting]].\n\nPenyunting merupakan pengguna berpengalaman yang boleh membuat pemeriksaan mengejut pada laman-laman.",
+	"validationstatistics-lastupdate": "''Data berikut kali terakhir dikemas kini pada $1, $2.''",
+	"validationstatistics-pndtime": "Suntingan yang telah diperiksa oleh pengguna-pengguna yang mantap adalah dianggap sebagai ''{{int:validationstatistics-stable}}''.\n\nPurata masa tangguhan kaji semula untuk [[Special:OldReviewedPages|laman-laman yang mempunyai suntingan yang sedang menunggu untuk dikaji semula]] ialah '''$1'''; masa tangguhan diukur berdasarkan berapa lama suntingan tergantung yang terlama dibiarkan tanpa kaji semula.",
+	"validationstatistics-revtime": "Purata masa menunggu untuk suntingan oleh ''pengguna yang tidak log masuk'' untuk dikaji semula ialah '''$1'''; mediannya ialah '''$2'''.\n$3",
+	"validationstatistics-table": "Statistik kaji semula laman untuk setiap ruang nama ditunjukkan di bawah, ''tidak termasuk'' laman lencongan.\n\nLaman yang mempunyai suntingan yang menunggu semakan adalah ''{{int:validationstatistics-old}}'', sementara laman yang tiada yang sedemikian dianggap ''{{int:validationstatistics-latest}}''.",
+	"validationstatistics-ns": "Ruang nama",
+	"validationstatistics-total": "Laman",
+	"validationstatistics-stable": "Dikaji semula",
+	"validationstatistics-latest": "Diselaras",
+	"validationstatistics-synced": "Diselaras/Dikaji Semula",
+	"validationstatistics-old": "Lapuk",
+	"validationstatistics-unreviewed": "Belum disemak",
+	"validationstatistics-utable": "Berikut ialah {{PLURAL:$1|pengkaji semula paling aktif|senarai $1 pengkaji semula paling aktif}} dalam {{PLURAL:$2|sejam|$2 jam}} yang lalu.",
+	"validationstatistics-user": "Pengguna",
+	"validationstatistics-reviews": "Kajian semula"
 }

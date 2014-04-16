@@ -1,29 +1,29 @@
 {
-    "@metadata": {
-        "authors": [
-            "Boivie",
-            "Cohan",
-            "M.M.S.",
-            "MagnusA",
-            "Najami",
-            "Per",
-            "Rotsee",
-            "WikiPhoenix"
-        ]
-    },
-    "pendingchanges": "Sidor med väntande ändringar",
-    "pendingchanges-legend": "Visa granskade sidor med ogranskade sidversioner",
-    "pendingchanges-list": "Den här sidan visar [[{{MediaWiki:Validationpage}}|granskade]] sidor som har en eller fler redigeringar som väntar på granskning.",
-    "pendingchanges-none": "Det finns just nu inga sidor som matchar dessa kriterier",
-    "pendingchanges-hours": "($1 {{PLURAL:$1|timme|timmar}})",
-    "pendingchanges-days": "($1 {{PLURAL:$1|dygn|dygn}})",
-    "pendingchanges-recent": "(mindre än 1 timme)",
-    "pendingchanges-category": "Kategori:",
-    "pendingchanges-onwatchlist": "Sidor på min bevakningslista",
-    "pendingchanges-stable": "Stabil version är standard",
-    "pendingchanges-diff": "granska",
-    "pendingchanges-size": "Maximal storleksändring i byte:",
-    "pendingchanges-unwatched": "(obevakad)",
-    "pendingchanges-watched": "($1 {{PLURAL:$1|aktiv användare|aktiva användare}} bevakar)",
-    "pendingchanges-viewing": "(granskas)"
+	"@metadata": {
+		"authors": [
+			"Boivie",
+			"Cohan",
+			"M.M.S.",
+			"MagnusA",
+			"Najami",
+			"Per",
+			"Rotsee",
+			"WikiPhoenix"
+		]
+	},
+	"pendingchanges": "Sidor med väntande ändringar",
+	"pendingchanges-legend": "Visa granskade sidor med ogranskade sidversioner",
+	"pendingchanges-list": "Den här sidan visar [[{{MediaWiki:Validationpage}}|granskade]] sidor som har en eller fler redigeringar som väntar på granskning.",
+	"pendingchanges-none": "Det finns just nu inga sidor som matchar dessa kriterier",
+	"pendingchanges-hours": "($1 {{PLURAL:$1|timme|timmar}})",
+	"pendingchanges-days": "($1 {{PLURAL:$1|dygn|dygn}})",
+	"pendingchanges-recent": "(mindre än 1 timme)",
+	"pendingchanges-category": "Kategori:",
+	"pendingchanges-onwatchlist": "Sidor på min bevakningslista",
+	"pendingchanges-stable": "Stabil version är standard",
+	"pendingchanges-diff": "granska",
+	"pendingchanges-size": "Maximal storleksändring i byte:",
+	"pendingchanges-unwatched": "(obevakad)",
+	"pendingchanges-watched": "($1 {{PLURAL:$1|aktiv användare|aktiva användare}} bevakar)",
+	"pendingchanges-viewing": "(granskas)"
 }

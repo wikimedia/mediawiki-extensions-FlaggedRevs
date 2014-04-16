@@ -1,11 +1,11 @@
 {
-    "@metadata": {
-        "authors": [
-            "Joachim Mos",
-            "Slomox"
-        ]
-    },
-    "revreview-log": "Kommentar:",
-    "revreview-submit": "Spickern",
-    "revreview-reject-cancel": "Afbreken"
+	"@metadata": {
+		"authors": [
+			"Joachim Mos",
+			"Slomox"
+		]
+	},
+	"revreview-log": "Kommentar:",
+	"revreview-submit": "Spickern",
+	"revreview-reject-cancel": "Afbreken"
 }

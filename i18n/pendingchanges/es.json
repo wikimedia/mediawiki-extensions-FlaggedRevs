@@ -1,28 +1,28 @@
 {
-    "@metadata": {
-        "authors": [
-            "Bola",
-            "Crazymadlover",
-            "Dferg",
-            "Locos epraix",
-            "MarcoAurelio",
-            "Sanbec",
-            "Translationista"
-        ]
-    },
-    "pendingchanges": "Páginas con cambios pendientes",
-    "pendingchanges-legend": "Lista de páginas revisadas con revisiones pendientes de verificación",
-    "pendingchanges-list": "Esta página lista las [[{{MediaWiki:Validationpage}}|páginas revisadas]] que tienen ediciones pendientes.",
-    "pendingchanges-none": "No hay actualmente páginas que cumplan estos criterios",
-    "pendingchanges-hours": "($1 {{PLURAL:$1|hora|horas}})",
-    "pendingchanges-days": "($1 {{PLURAL:$1|día|días}})",
-    "pendingchanges-recent": "(menos de 1 hora)",
-    "pendingchanges-category": "Categoría:",
-    "pendingchanges-onwatchlist": "Páginas en mi lista de seguimiento",
-    "pendingchanges-stable": "La versión estable se muestra por defecto",
-    "pendingchanges-diff": "revisar",
-    "pendingchanges-size": "Cambio máximo (bytes):",
-    "pendingchanges-unwatched": "(no vigilado)",
-    "pendingchanges-watched": "($1 {{PLURAL:$1|usuario|usuarios}} activos vigilando)",
-    "pendingchanges-viewing": "(en revisión)"
+	"@metadata": {
+		"authors": [
+			"Bola",
+			"Crazymadlover",
+			"Dferg",
+			"Locos epraix",
+			"MarcoAurelio",
+			"Sanbec",
+			"Translationista"
+		]
+	},
+	"pendingchanges": "Páginas con cambios pendientes",
+	"pendingchanges-legend": "Lista de páginas revisadas con revisiones pendientes de verificación",
+	"pendingchanges-list": "Esta página lista las [[{{MediaWiki:Validationpage}}|páginas revisadas]] que tienen ediciones pendientes.",
+	"pendingchanges-none": "No hay actualmente páginas que cumplan estos criterios",
+	"pendingchanges-hours": "($1 {{PLURAL:$1|hora|horas}})",
+	"pendingchanges-days": "($1 {{PLURAL:$1|día|días}})",
+	"pendingchanges-recent": "(menos de 1 hora)",
+	"pendingchanges-category": "Categoría:",
+	"pendingchanges-onwatchlist": "Páginas en mi lista de seguimiento",
+	"pendingchanges-stable": "La versión estable se muestra por defecto",
+	"pendingchanges-diff": "revisar",
+	"pendingchanges-size": "Cambio máximo (bytes):",
+	"pendingchanges-unwatched": "(no vigilado)",
+	"pendingchanges-watched": "($1 {{PLURAL:$1|usuario|usuarios}} activos vigilando)",
+	"pendingchanges-viewing": "(en revisión)"
 }

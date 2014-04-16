@@ -1,22 +1,22 @@
 {
-    "@metadata": {
-        "authors": [
-            "Hanberke"
-        ]
-    },
-    "pendingchanges": "Möwriti geçen gözden geçirilen sahypalar",
-    "pendingchanges-legend": "Gözden geçirmeklige garaşýan wersiýalary bar bolan gözden geçirilen sahypalary sanawla",
-    "pendingchanges-list": "Bu sahypa garaşýan özgerdişleri bar bolan gözden geçirilen {{PLURAL:$1|bir sahypany|sahypalary}} sanawlaýar.",
-    "pendingchanges-none": "Häzirki wagtda bu şertlere gabat gelýän hiç hili sahypa ýok",
-    "pendingchanges-hours": "($1 {{PLURAL:$1|sagat|sagat}})",
-    "pendingchanges-days": "($1 {{PLURAL:$1|gün|gün}})",
-    "pendingchanges-recent": "(1 sagatdan az)",
-    "pendingchanges-category": "Kategoriýa:",
-    "pendingchanges-onwatchlist": "Gözegçilik sanawymdaky sahypalar",
-    "pendingchanges-stable": "Durnuklaşdyryldy",
-    "pendingchanges-diff": "gözden geçir",
-    "pendingchanges-size": "Maksimum üýtgeşme (baýt):",
-    "pendingchanges-unwatched": "(gözegçilikde däl)",
-    "pendingchanges-watched": "($1 işjeň {{PLURAL:$1|ulanyjy|ulanyjy}} gözegçilik edýär)",
-    "pendingchanges-viewing": "(gözden geçirilýär)"
+	"@metadata": {
+		"authors": [
+			"Hanberke"
+		]
+	},
+	"pendingchanges": "Möwriti geçen gözden geçirilen sahypalar",
+	"pendingchanges-legend": "Gözden geçirmeklige garaşýan wersiýalary bar bolan gözden geçirilen sahypalary sanawla",
+	"pendingchanges-list": "Bu sahypa garaşýan özgerdişleri bar bolan gözden geçirilen {{PLURAL:$1|bir sahypany|sahypalary}} sanawlaýar.",
+	"pendingchanges-none": "Häzirki wagtda bu şertlere gabat gelýän hiç hili sahypa ýok",
+	"pendingchanges-hours": "($1 {{PLURAL:$1|sagat|sagat}})",
+	"pendingchanges-days": "($1 {{PLURAL:$1|gün|gün}})",
+	"pendingchanges-recent": "(1 sagatdan az)",
+	"pendingchanges-category": "Kategoriýa:",
+	"pendingchanges-onwatchlist": "Gözegçilik sanawymdaky sahypalar",
+	"pendingchanges-stable": "Durnuklaşdyryldy",
+	"pendingchanges-diff": "gözden geçir",
+	"pendingchanges-size": "Maksimum üýtgeşme (baýt):",
+	"pendingchanges-unwatched": "(gözegçilikde däl)",
+	"pendingchanges-watched": "($1 işjeň {{PLURAL:$1|ulanyjy|ulanyjy}} gözegçilik edýär)",
+	"pendingchanges-viewing": "(gözden geçirilýär)"
 }

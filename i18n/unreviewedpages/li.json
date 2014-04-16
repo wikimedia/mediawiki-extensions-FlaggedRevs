@@ -1,19 +1,19 @@
 {
-    "@metadata": {
-        "authors": [
-            "Ooswesthoesbes"
-        ]
-    },
-    "unreviewedpages": "Ónbekeke pazjena's",
-    "unreviewedpages-legend": "Lies mit ónbekeke paasjes",
-    "unreviewedpages-category": "Categorie:",
-    "unreviewedpages-diff": "kiek nao",
-    "unreviewedpages-unwatched": "(neet oppe volglies)",
-    "unreviewedpages-watched": "($1 actieve {{PLURAL:$1|gebroeker|gebroekers}} kiekendj)",
-    "unreviewedpages-list": "Dees pazjena tuunt pazjena's die nag ónbekeke zeen toet t aangegaeve nivo.",
-    "unreviewedpages-none": "'t Göf gein paasjes die aan dees kriteria vóldoon",
-    "unreviewedpages-viewing": "(wörd bekeke)",
-    "unreviewedpages-hours": "$1 {{PLURAL:$1|oer|oer}}",
-    "unreviewedpages-days": "$1 {{PLURAL:$1|daag|daag}}",
-    "unreviewedpages-recent": "(mènder es 1 oer)"
+	"@metadata": {
+		"authors": [
+			"Ooswesthoesbes"
+		]
+	},
+	"unreviewedpages": "Ónbekeke pazjena's",
+	"unreviewedpages-legend": "Lies mit ónbekeke paasjes",
+	"unreviewedpages-category": "Categorie:",
+	"unreviewedpages-diff": "kiek nao",
+	"unreviewedpages-unwatched": "(neet oppe volglies)",
+	"unreviewedpages-watched": "($1 actieve {{PLURAL:$1|gebroeker|gebroekers}} kiekendj)",
+	"unreviewedpages-list": "Dees pazjena tuunt pazjena's die nag ónbekeke zeen toet t aangegaeve nivo.",
+	"unreviewedpages-none": "'t Göf gein paasjes die aan dees kriteria vóldoon",
+	"unreviewedpages-viewing": "(wörd bekeke)",
+	"unreviewedpages-hours": "$1 {{PLURAL:$1|oer|oer}}",
+	"unreviewedpages-days": "$1 {{PLURAL:$1|daag|daag}}",
+	"unreviewedpages-recent": "(mènder es 1 oer)"
 }

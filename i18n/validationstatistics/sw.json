@@ -1,9 +1,7 @@
 {
-    "@metadata": {
-        "authors": []
-    },
-    "validationstatistics-ns": "Eneo la wiki",
-    "validationstatistics-total": "Kurasa",
-    "validationstatistics-old": "Zilizopitwa na wakati",
-    "validationstatistics-user": "Mtumiaji"
+	"@metadata": [],
+	"validationstatistics-ns": "Eneo la wiki",
+	"validationstatistics-total": "Kurasa",
+	"validationstatistics-old": "Zilizopitwa na wakati",
+	"validationstatistics-user": "Mtumiaji"
 }

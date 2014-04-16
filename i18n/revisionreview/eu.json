@@ -1,13 +1,13 @@
 {
-    "@metadata": {
-        "authors": [
-            "Kobazulo",
-            "පසිඳු කාවින්ද"
-        ]
-    },
-    "revreview-log": "Iruzkina:",
-    "revreview-submit": "Bidali",
-    "revreview-submitting": "Bidaltzen...",
-    "revreview-reject-summary": "Laburpena:",
-    "revreview-reject-cancel": "Utzi"
+	"@metadata": {
+		"authors": [
+			"Kobazulo",
+			"පසිඳු කාවින්ද"
+		]
+	},
+	"revreview-log": "Iruzkina:",
+	"revreview-submit": "Bidali",
+	"revreview-submitting": "Bidaltzen...",
+	"revreview-reject-summary": "Laburpena:",
+	"revreview-reject-cancel": "Utzi"
 }

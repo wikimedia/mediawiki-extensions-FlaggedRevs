@@ -1,13 +1,13 @@
 {
-    "@metadata": {
-        "authors": [
-            "Joseph",
-            "Manco Capac"
-        ]
-    },
-    "stablepages": "Değişiklik onayı kullanan sayfalar",
-    "stablepages-list": "Aşağıdaki liste, sadece belirli kullanıcıların gözden geçirme gerektirmeden değişiklik yapabilecekleri sayfaların bir listesidir. Diğer kullanıcılar tarafından yapılmış değişiklikler yetkilendirilmiş bir kullanıcı tarafından gözden geçirilip onaylanmadan gösterilmemektedir.",
-    "stablepages-none": "Bu listede hiç sayfa yok",
-    "stablepages-config": "Yapılandırma",
-    "stablepages-indef": "Sadece belirsiz sona erme"
+	"@metadata": {
+		"authors": [
+			"Joseph",
+			"Manco Capac"
+		]
+	},
+	"stablepages": "Değişiklik onayı kullanan sayfalar",
+	"stablepages-list": "Aşağıdaki liste, sadece belirli kullanıcıların gözden geçirme gerektirmeden değişiklik yapabilecekleri sayfaların bir listesidir. Diğer kullanıcılar tarafından yapılmış değişiklikler yetkilendirilmiş bir kullanıcı tarafından gözden geçirilip onaylanmadan gösterilmemektedir.",
+	"stablepages-none": "Bu listede hiç sayfa yok",
+	"stablepages-config": "Yapılandırma",
+	"stablepages-indef": "Sadece belirsiz sona erme"
 }

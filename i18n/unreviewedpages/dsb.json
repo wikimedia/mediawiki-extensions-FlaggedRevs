@@ -1,20 +1,20 @@
 {
-    "@metadata": {
-        "authors": [
-            "Michawiki"
-        ]
-    },
-    "action-unreviewedpages": "lisćinu njepśeglědanych bokow zwobrazniś",
-    "unreviewedpages": "Njepśeglědane boki",
-    "unreviewedpages-legend": "Lisćina njepśeglědanych wopśimjeśowych bokow",
-    "unreviewedpages-category": "Kategorija:",
-    "unreviewedpages-diff": "pśeglědaś",
-    "unreviewedpages-unwatched": "(njewobglědowany)",
-    "unreviewedpages-watched": "(wót $1 {{PLURAL:$1|aktiwnego wužywarja|aktiwneju wužywarjowu|aktiwnych wužywarjow|aktiwnych wužywarjow}} wobglědowany)",
-    "unreviewedpages-list": "Toś ten bok nalistujo wopśimjeśowe boki, kótarež hyšći ''njej''su se [[{{MediaWiki:Validationpage}}|pśeglědali]] na pódanej rowninje.",
-    "unreviewedpages-none": "Njejsu tuchylu žedne boki, kótarež wótpówěduju toś tym kriterijam",
-    "unreviewedpages-viewing": "(pśeglědujo se)",
-    "unreviewedpages-hours": "($1 {{PLURAL:$1|goźina|goźinje|goźiny|goźin}})",
-    "unreviewedpages-days": "($1 {{PLURAL:$1|źeń|dnja|dny|dnjow}})",
-    "unreviewedpages-recent": "(mjenjej ako 1 goźina)"
+	"@metadata": {
+		"authors": [
+			"Michawiki"
+		]
+	},
+	"action-unreviewedpages": "lisćinu njepśeglědanych bokow zwobrazniś",
+	"unreviewedpages": "Njepśeglědane boki",
+	"unreviewedpages-legend": "Lisćina njepśeglědanych wopśimjeśowych bokow",
+	"unreviewedpages-category": "Kategorija:",
+	"unreviewedpages-diff": "pśeglědaś",
+	"unreviewedpages-unwatched": "(njewobglědowany)",
+	"unreviewedpages-watched": "(wót $1 {{PLURAL:$1|aktiwnego wužywarja|aktiwneju wužywarjowu|aktiwnych wužywarjow|aktiwnych wužywarjow}} wobglědowany)",
+	"unreviewedpages-list": "Toś ten bok nalistujo wopśimjeśowe boki, kótarež hyšći ''njej''su se [[{{MediaWiki:Validationpage}}|pśeglědali]] na pódanej rowninje.",
+	"unreviewedpages-none": "Njejsu tuchylu žedne boki, kótarež wótpówěduju toś tym kriterijam",
+	"unreviewedpages-viewing": "(pśeglědujo se)",
+	"unreviewedpages-hours": "($1 {{PLURAL:$1|goźina|goźinje|goźiny|goźin}})",
+	"unreviewedpages-days": "($1 {{PLURAL:$1|źeń|dnja|dny|dnjow}})",
+	"unreviewedpages-recent": "(mjenjej ako 1 goźina)"
 }

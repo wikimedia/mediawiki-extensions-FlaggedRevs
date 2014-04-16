@@ -1,14 +1,14 @@
 {
-    "@metadata": {
-        "authors": [
-            "Lovekhmer",
-            "Thearith",
-            "គីមស៊្រុន",
-            "វ័ណថារិទ្ធ"
-        ]
-    },
-    "validationstatistics-ns": "លំហឈ្មោះ",
-    "validationstatistics-total": "ទំព័រ",
-    "validationstatistics-old": "ហួសសម័យ",
-    "validationstatistics-user": "អ្នកប្រើប្រាស់​"
+	"@metadata": {
+		"authors": [
+			"Lovekhmer",
+			"Thearith",
+			"គីមស៊្រុន",
+			"វ័ណថារិទ្ធ"
+		]
+	},
+	"validationstatistics-ns": "លំហឈ្មោះ",
+	"validationstatistics-total": "ទំព័រ",
+	"validationstatistics-old": "ហួសសម័យ",
+	"validationstatistics-user": "អ្នកប្រើប្រាស់​"
 }

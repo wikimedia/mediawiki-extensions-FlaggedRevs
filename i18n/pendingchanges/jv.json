@@ -1,21 +1,21 @@
 {
-    "@metadata": {
-        "authors": [
-            "NoiX180"
-        ]
-    },
-    "pendingchanges": "Kaca mawa owahan katundha",
-    "pendingchanges-legend": "Daptar kaca kaulas mawa kaca katundha",
-    "pendingchanges-none": "Ora ana kaca sing cocok karo kritèria",
-    "pendingchanges-hours": "($1 {{PLURAL:$1|jam|jam}})",
-    "pendingchanges-days": "($1 {{PLURAL:$1|dina|dina}})",
-    "pendingchanges-recent": "(kurang saka 1 jam)",
-    "pendingchanges-category": "Kategori:",
-    "pendingchanges-onwatchlist": "Kaca nèng daptar pangawasan kula",
-    "pendingchanges-stable": "Vèrsi stabil kuwi gawan",
-    "pendingchanges-diff": "ulas",
-    "pendingchanges-size": "Owahan maks (bita):",
-    "pendingchanges-unwatched": "(ora diawasi)",
-    "pendingchanges-watched": "($1 {{PLURAL:$1|panganggo|panganggo}} aktif ngawasi)",
-    "pendingchanges-viewing": "(lagi diulas)"
+	"@metadata": {
+		"authors": [
+			"NoiX180"
+		]
+	},
+	"pendingchanges": "Kaca mawa owahan katundha",
+	"pendingchanges-legend": "Daptar kaca kaulas mawa kaca katundha",
+	"pendingchanges-none": "Ora ana kaca sing cocok karo kritèria",
+	"pendingchanges-hours": "($1 {{PLURAL:$1|jam|jam}})",
+	"pendingchanges-days": "($1 {{PLURAL:$1|dina|dina}})",
+	"pendingchanges-recent": "(kurang saka 1 jam)",
+	"pendingchanges-category": "Kategori:",
+	"pendingchanges-onwatchlist": "Kaca nèng daptar pangawasan kula",
+	"pendingchanges-stable": "Vèrsi stabil kuwi gawan",
+	"pendingchanges-diff": "ulas",
+	"pendingchanges-size": "Owahan maks (bita):",
+	"pendingchanges-unwatched": "(ora diawasi)",
+	"pendingchanges-watched": "($1 {{PLURAL:$1|panganggo|panganggo}} aktif ngawasi)",
+	"pendingchanges-viewing": "(lagi diulas)"
 }

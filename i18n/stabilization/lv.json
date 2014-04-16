@@ -1,11 +1,11 @@
 {
-    "@metadata": {
-        "authors": [
-            "GreenZeb"
-        ]
-    },
-    "stabilization-comment": "Iemesls:",
-    "stabilization-otherreason": "Cits iemesls:",
-    "stabilization-expiry": "Beidzas:",
-    "stabilization-othertime": "Cits laiks:"
+	"@metadata": {
+		"authors": [
+			"GreenZeb"
+		]
+	},
+	"stabilization-comment": "Iemesls:",
+	"stabilization-otherreason": "Cits iemesls:",
+	"stabilization-expiry": "Beidzas:",
+	"stabilization-othertime": "Cits laiks:"
 }

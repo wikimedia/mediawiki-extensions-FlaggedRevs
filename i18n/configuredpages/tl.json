@@ -1,13 +1,13 @@
 {
-    "@metadata": {
-        "authors": [
-            "AnakngAraw"
-        ]
-    },
-    "configuredpages": "Mga pahinang may kaayusan ng pagsusuri",
-    "configuredpages-list": "Nasa ibaba ang isang talaan ng mga pahinan inayos upang magkaroon ng iba't ibang mga pagtatakda ng pagpayag kaysa sa katakdaan ng sityo.\nMay ilang mga pagtatakdang maaaring magbago na ang bersyon ay ipinapakita sa mga mambabasa o magbabawal pa lalo kung sino ang makapamamatnugot na hindi nangangailangan ng pagsusuri.",
-    "configuredpages-none": "Walang mga pahina sa loob ng talaang ito.",
-    "configuredpages-config": "Pagkakaayos",
-    "configuredpages-def-draft": "pinakabagong bersyon",
-    "configuredpages-def-stable": "tinanggap na bersyon"
+	"@metadata": {
+		"authors": [
+			"AnakngAraw"
+		]
+	},
+	"configuredpages": "Mga pahinang may kaayusan ng pagsusuri",
+	"configuredpages-list": "Nasa ibaba ang isang talaan ng mga pahinan inayos upang magkaroon ng iba't ibang mga pagtatakda ng pagpayag kaysa sa katakdaan ng sityo.\nMay ilang mga pagtatakdang maaaring magbago na ang bersyon ay ipinapakita sa mga mambabasa o magbabawal pa lalo kung sino ang makapamamatnugot na hindi nangangailangan ng pagsusuri.",
+	"configuredpages-none": "Walang mga pahina sa loob ng talaang ito.",
+	"configuredpages-config": "Pagkakaayos",
+	"configuredpages-def-draft": "pinakabagong bersyon",
+	"configuredpages-def-stable": "tinanggap na bersyon"
 }

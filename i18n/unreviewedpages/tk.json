@@ -1,19 +1,19 @@
 {
-    "@metadata": {
-        "authors": [
-            "Hanberke"
-        ]
-    },
-    "unreviewedpages": "Gözden geçirilmedik sahypalar",
-    "unreviewedpages-legend": "Gözden geçirilmedik mazmunly sahypalary sanawla",
-    "unreviewedpages-category": "Kategoriýa:",
-    "unreviewedpages-diff": "gözden geçir",
-    "unreviewedpages-unwatched": "(gözegçilikde däl)",
-    "unreviewedpages-watched": "($1 işjeň {{PLURAL:$1|ulanyjy|ulanyjy}} gözegçilik edýär)",
-    "unreviewedpages-list": "Bu sahypa görkezilen derejä çenli gözden geçirilmedik mazmunly sahypalary sanawlaýar.",
-    "unreviewedpages-none": "Häzirki wagtda bu şertlere gabat gelýän hiç hili sahypa ýok.",
-    "unreviewedpages-viewing": "(gözden geçirilýär)",
-    "unreviewedpages-hours": "($1 {{PLURAL:$1|sagat|sagat}})",
-    "unreviewedpages-days": "($1 {{PLURAL:$1|gün|gün}})",
-    "unreviewedpages-recent": "(1 sagatdan az)"
+	"@metadata": {
+		"authors": [
+			"Hanberke"
+		]
+	},
+	"unreviewedpages": "Gözden geçirilmedik sahypalar",
+	"unreviewedpages-legend": "Gözden geçirilmedik mazmunly sahypalary sanawla",
+	"unreviewedpages-category": "Kategoriýa:",
+	"unreviewedpages-diff": "gözden geçir",
+	"unreviewedpages-unwatched": "(gözegçilikde däl)",
+	"unreviewedpages-watched": "($1 işjeň {{PLURAL:$1|ulanyjy|ulanyjy}} gözegçilik edýär)",
+	"unreviewedpages-list": "Bu sahypa görkezilen derejä çenli gözden geçirilmedik mazmunly sahypalary sanawlaýar.",
+	"unreviewedpages-none": "Häzirki wagtda bu şertlere gabat gelýän hiç hili sahypa ýok.",
+	"unreviewedpages-viewing": "(gözden geçirilýär)",
+	"unreviewedpages-hours": "($1 {{PLURAL:$1|sagat|sagat}})",
+	"unreviewedpages-days": "($1 {{PLURAL:$1|gün|gün}})",
+	"unreviewedpages-recent": "(1 sagatdan az)"
 }

@@ -1,13 +1,13 @@
 {
-    "@metadata": {
-        "authors": [
-            "Minh Nguyen",
-            "Vinhtantran"
-        ]
-    },
-    "stablepages": "Trang có quá trình chấp nhận sửa đổi",
-    "stablepages-list": "Đây là danh sách các trang có quá trình duyệt sửa đổi, chỉ cho phép một số người dùng bỏ qua quá trình này.\nĐộc giả sẽ không thấy được sửa đổi của người khác cho đến khi người duyệt bài chấp nhận nó.",
-    "stablepages-none": "Không có trang nào trong danh sách",
-    "stablepages-config": "Cấu hình",
-    "stablepages-indef": "Chỉ hiện trang vô hạn"
+	"@metadata": {
+		"authors": [
+			"Minh Nguyen",
+			"Vinhtantran"
+		]
+	},
+	"stablepages": "Trang có quá trình chấp nhận sửa đổi",
+	"stablepages-list": "Đây là danh sách các trang có quá trình duyệt sửa đổi, chỉ cho phép một số người dùng bỏ qua quá trình này.\nĐộc giả sẽ không thấy được sửa đổi của người khác cho đến khi người duyệt bài chấp nhận nó.",
+	"stablepages-none": "Không có trang nào trong danh sách",
+	"stablepages-config": "Cấu hình",
+	"stablepages-indef": "Chỉ hiện trang vô hạn"
 }

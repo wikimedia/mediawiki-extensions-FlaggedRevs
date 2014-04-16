@@ -1,27 +1,27 @@
 {
-    "@metadata": {
-        "authors": [
-            "Cin",
-            "Firilacroco",
-            "KlaudiuMihaila",
-            "Mihai",
-            "Minisarm",
-            "Stelistcristi"
-        ]
-    },
-    "pendingchanges": "Pagini cu modificări în așteptare",
-    "pendingchanges-legend": "Afișează pagini revizuite cu modificări în așteptarea revizuirii",
-    "pendingchanges-list": "Această pagină afișează paginile [[{{MediaWiki:Validationpage}}|revizuite]] care au una sau mai multe modificări în așteptare.",
-    "pendingchanges-none": "Momentan nu există pagini care satisfac aceste criterii",
-    "pendingchanges-hours": "($1 {{PLURAL:$1|oră|ore}})",
-    "pendingchanges-days": "($1 {{PLURAL:$1|zi|zile}})",
-    "pendingchanges-recent": "(mai puțin de 1 oră)",
-    "pendingchanges-category": "Categorie:",
-    "pendingchanges-onwatchlist": "Pagini în lista mea de urmărire",
-    "pendingchanges-stable": "Versiunea stabilă este cea implicită",
-    "pendingchanges-diff": "recenzie",
-    "pendingchanges-size": "Schimbare maximă (octeți):",
-    "pendingchanges-unwatched": "(neurmărite)",
-    "pendingchanges-watched": "($1 {{PLURAL:$1|utilizator activ care urmărește|utilizatori activi care urmăresc}})",
-    "pendingchanges-viewing": "(în curs de revizuire)"
+	"@metadata": {
+		"authors": [
+			"Cin",
+			"Firilacroco",
+			"KlaudiuMihaila",
+			"Mihai",
+			"Minisarm",
+			"Stelistcristi"
+		]
+	},
+	"pendingchanges": "Pagini cu modificări în așteptare",
+	"pendingchanges-legend": "Afișează pagini revizuite cu modificări în așteptarea revizuirii",
+	"pendingchanges-list": "Această pagină afișează paginile [[{{MediaWiki:Validationpage}}|revizuite]] care au una sau mai multe modificări în așteptare.",
+	"pendingchanges-none": "Momentan nu există pagini care satisfac aceste criterii",
+	"pendingchanges-hours": "($1 {{PLURAL:$1|oră|ore}})",
+	"pendingchanges-days": "($1 {{PLURAL:$1|zi|zile}})",
+	"pendingchanges-recent": "(mai puțin de 1 oră)",
+	"pendingchanges-category": "Categorie:",
+	"pendingchanges-onwatchlist": "Pagini în lista mea de urmărire",
+	"pendingchanges-stable": "Versiunea stabilă este cea implicită",
+	"pendingchanges-diff": "recenzie",
+	"pendingchanges-size": "Schimbare maximă (octeți):",
+	"pendingchanges-unwatched": "(neurmărite)",
+	"pendingchanges-watched": "($1 {{PLURAL:$1|utilizator activ care urmărește|utilizatori activi care urmăresc}})",
+	"pendingchanges-viewing": "(în curs de revizuire)"
 }

@@ -1,13 +1,13 @@
 {
-    "@metadata": {
-        "authors": [
-            "Hanberke"
-        ]
-    },
-    "reviewedversions": "Gözden geçirilen wersiýalary görkez",
-    "reviewedversions-leg1": "Sahypa üçin gözden geçirilen wersiýalary sanawla",
-    "reviewedversions-page": "Sahypa ady:",
-    "reviewedversions-none": "\"[[:$1]]\" sahypasynda hiç hili gözden geçirilen wersiýa ýok.",
-    "reviewedversions-list": "Aşakdaky sanaw [[:$1]] üçin gözden geçirilen {{PLURAL:$2|ýeke-täk wersiýanyň|wersiýalaryň}} sanawydyr:",
-    "reviewedversions-review": "$2 tarapyndan <i>$1</i> senesinde gözden geçirildi"
+	"@metadata": {
+		"authors": [
+			"Hanberke"
+		]
+	},
+	"reviewedversions": "Gözden geçirilen wersiýalary görkez",
+	"reviewedversions-leg1": "Sahypa üçin gözden geçirilen wersiýalary sanawla",
+	"reviewedversions-page": "Sahypa ady:",
+	"reviewedversions-none": "\"[[:$1]]\" sahypasynda hiç hili gözden geçirilen wersiýa ýok.",
+	"reviewedversions-list": "Aşakdaky sanaw [[:$1]] üçin gözden geçirilen {{PLURAL:$2|ýeke-täk wersiýanyň|wersiýalaryň}} sanawydyr:",
+	"reviewedversions-review": "$2 tarapyndan <i>$1</i> senesinde gözden geçirildi"
 }

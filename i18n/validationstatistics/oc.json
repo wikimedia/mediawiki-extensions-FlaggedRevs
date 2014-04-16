@@ -1,19 +1,19 @@
 {
-    "@metadata": {
-        "authors": [
-            "Cedric31"
-        ]
-    },
-    "validationstatistics": "Estatisticas de relectura de las paginas",
-    "validationstatistics-users": "'''{{SITENAME}}''' dispausa actualament de '''[[Special:ListUsers/editor|$1]]''' utilizaire{{PLURAL:$1||s}} amb los dreches de [[{{MediaWiki:Validationpage}}|contributor]].\n\nLos contributors e relectors son d'utilizaires establits que pòdon verificar las revisions de las paginas.",
-    "validationstatistics-table": "Las estatisticas per cada espaci de noms son afichadas çaijós, a ''l’exclusion'' de las paginas de redireccion.",
-    "validationstatistics-ns": "Nom de l’espaci",
-    "validationstatistics-total": "Paginas",
-    "validationstatistics-stable": "Relegit",
-    "validationstatistics-latest": "Sincronizada",
-    "validationstatistics-synced": "Sincronizat/Relegit",
-    "validationstatistics-old": "Desuet",
-    "validationstatistics-utable": "Çaijós figuran los $1 melhors relectors dins la darrièra ora.",
-    "validationstatistics-user": "Utilizaire",
-    "validationstatistics-reviews": "Relectors"
+	"@metadata": {
+		"authors": [
+			"Cedric31"
+		]
+	},
+	"validationstatistics": "Estatisticas de relectura de las paginas",
+	"validationstatistics-users": "'''{{SITENAME}}''' dispausa actualament de '''[[Special:ListUsers/editor|$1]]''' utilizaire{{PLURAL:$1||s}} amb los dreches de [[{{MediaWiki:Validationpage}}|contributor]].\n\nLos contributors e relectors son d'utilizaires establits que pòdon verificar las revisions de las paginas.",
+	"validationstatistics-table": "Las estatisticas per cada espaci de noms son afichadas çaijós, a ''l’exclusion'' de las paginas de redireccion.",
+	"validationstatistics-ns": "Nom de l’espaci",
+	"validationstatistics-total": "Paginas",
+	"validationstatistics-stable": "Relegit",
+	"validationstatistics-latest": "Sincronizada",
+	"validationstatistics-synced": "Sincronizat/Relegit",
+	"validationstatistics-old": "Desuet",
+	"validationstatistics-utable": "Çaijós figuran los $1 melhors relectors dins la darrièra ora.",
+	"validationstatistics-user": "Utilizaire",
+	"validationstatistics-reviews": "Relectors"
 }

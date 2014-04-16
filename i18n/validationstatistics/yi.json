@@ -1,12 +1,12 @@
 {
-    "@metadata": {
-        "authors": [
-            "Imre",
-            "פוילישער"
-        ]
-    },
-    "validationstatistics-ns": "נאמענטייל",
-    "validationstatistics-total": "בלעטער",
-    "validationstatistics-old": "פֿאַרעלטערט",
-    "validationstatistics-user": "באַניצער"
+	"@metadata": {
+		"authors": [
+			"Imre",
+			"פוילישער"
+		]
+	},
+	"validationstatistics-ns": "נאמענטייל",
+	"validationstatistics-total": "בלעטער",
+	"validationstatistics-old": "פֿאַרעלטערט",
+	"validationstatistics-user": "באַניצער"
 }

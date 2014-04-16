@@ -1,10 +1,10 @@
 {
-    "@metadata": {
-        "authors": [
-            "Irwangatot"
-        ]
-    },
-    "problemchanges": "Pariksa parobahan nu diberé tanda",
-    "problemchanges-none": "Kiwari euweuh kaca anu minuhan kriteria kasebut",
-    "problemchanges-category": "Kategori:"
+	"@metadata": {
+		"authors": [
+			"Irwangatot"
+		]
+	},
+	"problemchanges": "Pariksa parobahan nu diberé tanda",
+	"problemchanges-none": "Kiwari euweuh kaca anu minuhan kriteria kasebut",
+	"problemchanges-category": "Kategori:"
 }

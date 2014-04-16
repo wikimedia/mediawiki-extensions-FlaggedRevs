@@ -1,18 +1,18 @@
 {
-    "@metadata": {
-        "authors": [
-            "Borislav",
-            "DCLXVI",
-            "Turin"
-        ]
-    },
-    "unreviewedpages": "Нерецензирани страници",
-    "unreviewedpages-category": "Категория:",
-    "unreviewedpages-diff": "преглеждане",
-    "unreviewedpages-unwatched": "(ненаблюдавана)",
-    "unreviewedpages-watched": "($1 {{PLURAL:$1|активен наблюдаващ потребител|активни наблюдаващи потребители}})",
-    "unreviewedpages-none": "В момента не съществуват страници, отговарящи на дадените изисквания",
-    "unreviewedpages-hours": "($1 {{PLURAL:$1|час|часа}})",
-    "unreviewedpages-days": "($1 {{PLURAL:$1|ден|дни}})",
-    "unreviewedpages-recent": "(по-малко от час)"
+	"@metadata": {
+		"authors": [
+			"Borislav",
+			"DCLXVI",
+			"Turin"
+		]
+	},
+	"unreviewedpages": "Нерецензирани страници",
+	"unreviewedpages-category": "Категория:",
+	"unreviewedpages-diff": "преглеждане",
+	"unreviewedpages-unwatched": "(ненаблюдавана)",
+	"unreviewedpages-watched": "($1 {{PLURAL:$1|активен наблюдаващ потребител|активни наблюдаващи потребители}})",
+	"unreviewedpages-none": "В момента не съществуват страници, отговарящи на дадените изисквания",
+	"unreviewedpages-hours": "($1 {{PLURAL:$1|час|часа}})",
+	"unreviewedpages-days": "($1 {{PLURAL:$1|ден|дни}})",
+	"unreviewedpages-recent": "(по-малко от час)"
 }

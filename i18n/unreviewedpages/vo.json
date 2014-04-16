@@ -1,14 +1,14 @@
 {
-    "@metadata": {
-        "authors": [
-            "Malafaya",
-            "Smeira"
-        ]
-    },
-    "unreviewedpages": "Pads no pekrütöls",
-    "unreviewedpages-category": "Klad:",
-    "unreviewedpages-diff": "Votükams",
-    "unreviewedpages-list": "Su pad at palisedons yegeds no pekrütöls u labü fomams nulik no pekrütöls",
-    "unreviewedpages-hours": "({{PLURAL:$1|düp|düps}} $1)",
-    "unreviewedpages-days": "({{PLURAL:$1|del|dels}} $1)"
+	"@metadata": {
+		"authors": [
+			"Malafaya",
+			"Smeira"
+		]
+	},
+	"unreviewedpages": "Pads no pekrütöls",
+	"unreviewedpages-category": "Klad:",
+	"unreviewedpages-diff": "Votükams",
+	"unreviewedpages-list": "Su pad at palisedons yegeds no pekrütöls u labü fomams nulik no pekrütöls",
+	"unreviewedpages-hours": "({{PLURAL:$1|düp|düps}} $1)",
+	"unreviewedpages-days": "({{PLURAL:$1|del|dels}} $1)"
 }

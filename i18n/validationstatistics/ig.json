@@ -1,13 +1,13 @@
 {
-    "@metadata": {
-        "authors": [
-            "Ukabia"
-        ]
-    },
-    "validationstatistics": "Nlé màkà orüba ihü",
-    "validationstatistics-ns": "Ámááhà",
-    "validationstatistics-total": "Ihü",
-    "validationstatistics-stable": "Hé léfùrù ya",
-    "validationstatistics-user": "Ọ'bànifé",
-    "validationstatistics-reviews": "Nléfù"
+	"@metadata": {
+		"authors": [
+			"Ukabia"
+		]
+	},
+	"validationstatistics": "Nlé màkà orüba ihü",
+	"validationstatistics-ns": "Ámááhà",
+	"validationstatistics-total": "Ihü",
+	"validationstatistics-stable": "Hé léfùrù ya",
+	"validationstatistics-user": "Ọ'bànifé",
+	"validationstatistics-reviews": "Nléfù"
 }

@@ -1,25 +1,25 @@
 {
-    "@metadata": {
-        "authors": [
-            "Effeietsanders",
-            "Ooswesthoesbes",
-            "Siebrand"
-        ]
-    },
-    "validationstatistics": "Paginacontrolestatistieken",
-    "validationstatistics-users": "'''{{SITENAME}}''' heeft op het moment '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|gebruiker|gebruikers}} in de rol van [[{{MediaWiki:Validationpage}}|Redacteur]].\n\nRedacteuren zijn gebruikers die zich bewezen hebben en versies van pagina's als gecontroleerd mogen markeren.",
-    "validationstatistics-lastupdate": "''Deze gegevens zijn bijgewerkt op $1 om $2.''",
-    "validationstatistics-pndtime": "Van bewerkingen die zijn ''{{int:validationstatistics-stable}}'' door gebruikers wordt aangenomen dat die in orde zijn.\n\nDe gemiddelde vertraging voor de [[Special:OldReviewedPages|pagina's met ongecontroleerde bewerkingen]] is '''$1'''.\nDe vertraging geeft aan hoe lang het duurt voor een bewerking wordt gecontroleerd.",
-    "validationstatistics-revtime": "De gemiddelde wachttijd voor controle van bewerkingen door ''gebruikers die niet aangemeld zijn' is '''$1'''. De mediaan is '''$2'''.\n$3",
-    "validationstatistics-table": "Controlestatistieken voor iedere naamruimte, ''exclusief'' doorverwijzingen worden hieronder weergegeven.\nPagina's worden behandeld als ''{{int:validationstatistics-old}}'' als er te controleren bewerkingen zijn.\nZe worden behandeld als ''{{int:validationstatistics-latest}}'' als er geen te controleren bewerkingen zijn.",
-    "validationstatistics-ns": "Naamruimte",
-    "validationstatistics-total": "Pagina's",
-    "validationstatistics-stable": "Gecontroleerd",
-    "validationstatistics-latest": "Gesynchroniseerd",
-    "validationstatistics-synced": "Gesynchroniseerd/gecontroleerd",
-    "validationstatistics-old": "Verouderd",
-    "validationstatistics-unreviewed": "Niet beoordeeld",
-    "validationstatistics-utable": "In de onderstaande lijst {{PLURAL:$1|wordt de meest actieve eindredacteur|worden de $1 meest actieve eindredacteuren}} weergegeven in {{PLURAL:$2|het afgelopen uur|de afgelopen $2 uur}}.",
-    "validationstatistics-user": "Gebruiker",
-    "validationstatistics-reviews": "Beoordelingen"
+	"@metadata": {
+		"authors": [
+			"Effeietsanders",
+			"Ooswesthoesbes",
+			"Siebrand"
+		]
+	},
+	"validationstatistics": "Paginacontrolestatistieken",
+	"validationstatistics-users": "'''{{SITENAME}}''' heeft op het moment '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|gebruiker|gebruikers}} in de rol van [[{{MediaWiki:Validationpage}}|Redacteur]].\n\nRedacteuren zijn gebruikers die zich bewezen hebben en versies van pagina's als gecontroleerd mogen markeren.",
+	"validationstatistics-lastupdate": "''Deze gegevens zijn bijgewerkt op $1 om $2.''",
+	"validationstatistics-pndtime": "Van bewerkingen die zijn ''{{int:validationstatistics-stable}}'' door gebruikers wordt aangenomen dat die in orde zijn.\n\nDe gemiddelde vertraging voor de [[Special:OldReviewedPages|pagina's met ongecontroleerde bewerkingen]] is '''$1'''.\nDe vertraging geeft aan hoe lang het duurt voor een bewerking wordt gecontroleerd.",
+	"validationstatistics-revtime": "De gemiddelde wachttijd voor controle van bewerkingen door ''gebruikers die niet aangemeld zijn' is '''$1'''. De mediaan is '''$2'''.\n$3",
+	"validationstatistics-table": "Controlestatistieken voor iedere naamruimte, ''exclusief'' doorverwijzingen worden hieronder weergegeven.\nPagina's worden behandeld als ''{{int:validationstatistics-old}}'' als er te controleren bewerkingen zijn.\nZe worden behandeld als ''{{int:validationstatistics-latest}}'' als er geen te controleren bewerkingen zijn.",
+	"validationstatistics-ns": "Naamruimte",
+	"validationstatistics-total": "Pagina's",
+	"validationstatistics-stable": "Gecontroleerd",
+	"validationstatistics-latest": "Gesynchroniseerd",
+	"validationstatistics-synced": "Gesynchroniseerd/gecontroleerd",
+	"validationstatistics-old": "Verouderd",
+	"validationstatistics-unreviewed": "Niet beoordeeld",
+	"validationstatistics-utable": "In de onderstaande lijst {{PLURAL:$1|wordt de meest actieve eindredacteur|worden de $1 meest actieve eindredacteuren}} weergegeven in {{PLURAL:$2|het afgelopen uur|de afgelopen $2 uur}}.",
+	"validationstatistics-user": "Gebruiker",
+	"validationstatistics-reviews": "Beoordelingen"
 }

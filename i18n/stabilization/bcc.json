@@ -1,27 +1,27 @@
 {
-    "@metadata": {
-        "authors": [
-            "Mostafadaneshvar"
-        ]
-    },
-    "stabilization-tab": "وت",
-    "stabilization": "‏ثبات کتن صفحه",
-    "stabilization-text": "''''عوض کن تنظیمات جهلی په شرکتن شی چه چطورکا نسخه ثابت  [[:$1|$1]]  انتخاب و پیش دارگ بیت''''",
-    "stabilization-perm": "شمی حساب اجازت به عوض کتن تنظیمات نسخه ثابت نیست.\nادان هنوکین تنظیمات په  [[:$1|$1]]:",
-    "stabilization-page": "نام صفحه:",
-    "stabilization-leg": "تنظیمات نسخه ثابت تایید کن",
-    "stabilization-def": "بازبینی ته پیش فرضین دیستن جاهکیت",
-    "stabilization-def1": "ثابتین بازبینی; اگر نیست، گوڈء هنوکین",
-    "stabilization-def2": "هنوکین بازبینی",
-    "stabilization-submit": "تایید",
-    "stabilization-notexists": "صفحه ای په نام \"[[:$1|$1]]\" نیست.\nهچ تنظیمی ممکن نهنت.",
-    "stabilization-notcontent": "صفحه \"[[:$1|$1]]\" نه تونیت باز بینی بیت.\nهچ تنظیمی ممکن نهنت.",
-    "stabilization-comment": "دلیل:",
-    "stabilization-expiry": "هلیت:",
-    "stabilization-def-short": "پیش فرض",
-    "stabilization-def-short-0": "هنوکین",
-    "stabilization-def-short-1": "ثابت",
-    "stabilize_expiry_invalid": "نامعتبرین تاریخ هلگ",
-    "stabilize_expiry_old": "ای زمان انقضا هنو هلتت.",
-    "stabilize-expiring": "وهدی هلیت  $1 (UTC)"
+	"@metadata": {
+		"authors": [
+			"Mostafadaneshvar"
+		]
+	},
+	"stabilization-tab": "وت",
+	"stabilization": "‏ثبات کتن صفحه",
+	"stabilization-text": "''''عوض کن تنظیمات جهلی په شرکتن شی چه چطورکا نسخه ثابت  [[:$1|$1]]  انتخاب و پیش دارگ بیت''''",
+	"stabilization-perm": "شمی حساب اجازت به عوض کتن تنظیمات نسخه ثابت نیست.\nادان هنوکین تنظیمات په  [[:$1|$1]]:",
+	"stabilization-page": "نام صفحه:",
+	"stabilization-leg": "تنظیمات نسخه ثابت تایید کن",
+	"stabilization-def": "بازبینی ته پیش فرضین دیستن جاهکیت",
+	"stabilization-def1": "ثابتین بازبینی; اگر نیست، گوڈء هنوکین",
+	"stabilization-def2": "هنوکین بازبینی",
+	"stabilization-submit": "تایید",
+	"stabilization-notexists": "صفحه ای په نام \"[[:$1|$1]]\" نیست.\nهچ تنظیمی ممکن نهنت.",
+	"stabilization-notcontent": "صفحه \"[[:$1|$1]]\" نه تونیت باز بینی بیت.\nهچ تنظیمی ممکن نهنت.",
+	"stabilization-comment": "دلیل:",
+	"stabilization-expiry": "هلیت:",
+	"stabilization-def-short": "پیش فرض",
+	"stabilization-def-short-0": "هنوکین",
+	"stabilization-def-short-1": "ثابت",
+	"stabilize_expiry_invalid": "نامعتبرین تاریخ هلگ",
+	"stabilize_expiry_old": "ای زمان انقضا هنو هلتت.",
+	"stabilize-expiring": "وهدی هلیت  $1 (UTC)"
 }

@@ -1,8 +1,8 @@
 {
-    "@metadata": {
-        "authors": [
-            "Filzstift"
-        ]
-    },
-    "flaggedrevs-prefs-stable": "Welche Version einer Seite soll standardmässig angezeigt werden?"
+	"@metadata": {
+		"authors": [
+			"Filzstift"
+		]
+	},
+	"flaggedrevs-prefs-stable": "Welche Version einer Seite soll standardmässig angezeigt werden?"
 }

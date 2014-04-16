@@ -1,30 +1,30 @@
 {
-    "@metadata": {
-        "authors": [
-            "AS",
-            "Aced",
-            "Ahonc",
-            "Alex Khimich",
-            "Andriykopanytsia",
-            "Dim Grits",
-            "Prima klasy4na",
-            "Тест"
-        ]
-    },
-    "validationstatistics": "Статистика рецензувань сторінок",
-    "validationstatistics-users": "У проекті '''{{SITENAME}}''' зараз '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|користувач має|користувачі мають|користувачів мають}} права [[{{MediaWiki:Validationpage}}|«редактор»]].\n\n«Редактори» — визначені користувачі, що мають можливість робити вибіркову перевірку конкретних версій сторінок.",
-    "validationstatistics-lastupdate": "''Наступні дані востаннє оновлювались $1 о $2.''",
-    "validationstatistics-pndtime": "Правки, які були перевірені встановленими користувачами вважаються ''{{int:validationstatistics-stable}}''.\n\nСередня затримка для [[Special:OldReviewedPages|сторінок з правками, що зараз очікують на перевірку]] становить '''$1'''.\nЦей параметр відображає як довго неперевірена версія залишається без уваги перевіряльників.",
-    "validationstatistics-revtime": "Середній час очікування на рецензування для редагувань ''користувачів, що не увійшли до системи'' '''$1'''; медіана — '''$2'''.\n$3",
-    "validationstatistics-table": "Статистика рецензувань сторінок для кожного простору назв показана нижче, ''за винятком'' сторінок перенаправлень. Сторінки вважаються ''{{int:validationstatistics-old}}'', якщо вони не мають неперевірених редагувань, сторінки вважаються ''{{int:validationstatistics-latest}}'', якщо вони не мають редагувань, що очікують на перевірку.",
-    "validationstatistics-ns": "Простір назв",
-    "validationstatistics-total": "Сторінок",
-    "validationstatistics-stable": "Перевірені",
-    "validationstatistics-latest": "Синхронізовані",
-    "validationstatistics-synced": "Повторно перевірені",
-    "validationstatistics-old": "Застарілі",
-    "validationstatistics-unreviewed": "Неперевірені",
-    "validationstatistics-utable": "Нижче представлено {{PLURAL:$1|1=найбільш активного редактора|список $1 найбільш активних редакторів}} за {{PLURAL:$2|останню $2 годину|останні $2 години|останніх $2 годин}}.",
-    "validationstatistics-user": "Користувач",
-    "validationstatistics-reviews": "Перевірок"
+	"@metadata": {
+		"authors": [
+			"AS",
+			"Aced",
+			"Ahonc",
+			"Alex Khimich",
+			"Andriykopanytsia",
+			"Dim Grits",
+			"Prima klasy4na",
+			"Тест"
+		]
+	},
+	"validationstatistics": "Статистика рецензувань сторінок",
+	"validationstatistics-users": "У проекті '''{{SITENAME}}''' зараз '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|користувач має|користувачі мають|користувачів мають}} права [[{{MediaWiki:Validationpage}}|«редактор»]].\n\n«Редактори» — визначені користувачі, що мають можливість робити вибіркову перевірку конкретних версій сторінок.",
+	"validationstatistics-lastupdate": "''Наступні дані востаннє оновлювались $1 о $2.''",
+	"validationstatistics-pndtime": "Правки, які були перевірені встановленими користувачами вважаються ''{{int:validationstatistics-stable}}''.\n\nСередня затримка для [[Special:OldReviewedPages|сторінок з правками, що зараз очікують на перевірку]] становить '''$1'''.\nЦей параметр відображає як довго неперевірена версія залишається без уваги перевіряльників.",
+	"validationstatistics-revtime": "Середній час очікування на рецензування для редагувань ''користувачів, що не увійшли до системи'' '''$1'''; медіана — '''$2'''.\n$3",
+	"validationstatistics-table": "Статистика рецензувань сторінок для кожного простору назв показана нижче, ''за винятком'' сторінок перенаправлень. Сторінки вважаються ''{{int:validationstatistics-old}}'', якщо вони не мають неперевірених редагувань, сторінки вважаються ''{{int:validationstatistics-latest}}'', якщо вони не мають редагувань, що очікують на перевірку.",
+	"validationstatistics-ns": "Простір назв",
+	"validationstatistics-total": "Сторінок",
+	"validationstatistics-stable": "Перевірені",
+	"validationstatistics-latest": "Синхронізовані",
+	"validationstatistics-synced": "Повторно перевірені",
+	"validationstatistics-old": "Застарілі",
+	"validationstatistics-unreviewed": "Неперевірені",
+	"validationstatistics-utable": "Нижче представлено {{PLURAL:$1|1=найбільш активного редактора|список $1 найбільш активних редакторів}} за {{PLURAL:$2|останню $2 годину|останні $2 години|останніх $2 годин}}.",
+	"validationstatistics-user": "Користувач",
+	"validationstatistics-reviews": "Перевірок"
 }

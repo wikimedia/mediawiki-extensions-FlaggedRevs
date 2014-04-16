@@ -1,10 +1,10 @@
 {
-    "@metadata": {
-        "authors": [
-            "Iltever"
-        ]
-    },
-    "flaggedrevs-hidereviewed": "тинтилгенлени $1",
-    "flaggedrevs-hidereviewed-hide": "джашыр",
-    "flaggedrevs-hidereviewed-show": "кёргюз"
+	"@metadata": {
+		"authors": [
+			"Iltever"
+		]
+	},
+	"flaggedrevs-hidereviewed": "тинтилгенлени $1",
+	"flaggedrevs-hidereviewed-hide": "джашыр",
+	"flaggedrevs-hidereviewed-show": "кёргюз"
 }

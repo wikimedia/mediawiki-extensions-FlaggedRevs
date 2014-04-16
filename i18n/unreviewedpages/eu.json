@@ -1,11 +1,11 @@
 {
-    "@metadata": {
-        "authors": [
-            "Kobazulo"
-        ]
-    },
-    "unreviewedpages-category": "Kategoria:",
-    "unreviewedpages-hours": "({{PLURAL:$1|Ordu bat|$1 ordu}})",
-    "unreviewedpages-days": "({{PLURAL:$1|Egun bat|$1 egun}})",
-    "unreviewedpages-recent": "(ordu bat baino gutxiago)"
+	"@metadata": {
+		"authors": [
+			"Kobazulo"
+		]
+	},
+	"unreviewedpages-category": "Kategoria:",
+	"unreviewedpages-hours": "({{PLURAL:$1|Ordu bat|$1 ordu}})",
+	"unreviewedpages-days": "({{PLURAL:$1|Egun bat|$1 egun}})",
+	"unreviewedpages-recent": "(ordu bat baino gutxiago)"
 }

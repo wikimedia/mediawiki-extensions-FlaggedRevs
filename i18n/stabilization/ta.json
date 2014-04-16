@@ -1,28 +1,28 @@
 {
-    "@metadata": {
-        "authors": [
-            "Kanags",
-            "Karthi.dr",
-            "Shanmugamp7",
-            "TRYPPN",
-            "Ulmo",
-            "செல்வா"
-        ]
-    },
-    "stabilization-tab": "சரிபார்",
-    "stabilization-page": "பக்கப் பெயர்:",
-    "stabilization-def2": "அண்மைய திருத்தங்கள்",
-    "stabilization-restrict-none": "மேலும் அதிகப்படியான தடைகள் இல்லை",
-    "stabilization-submit": "உறுதிப்படுத்து",
-    "stabilization-comment": "காரணம்:",
-    "stabilization-otherreason": "வேறு காரணம்:",
-    "stabilization-expiry": "முடிவுறுகிறது:",
-    "stabilization-othertime": "வேறு நேரம்:",
-    "stabilization-def-short": "பொதுவானது",
-    "stabilization-def-short-0": "நடப்பு",
-    "stabilization-def-short-1": "ஏற்றுக்கொள்ளப்பட்டது",
-    "stabilize_page_invalid": "இலக்கு பக்க தலைப்பு செல்லாதது.",
-    "stabilize_page_notexists": "இலக்கு பக்கம் இல்லை.",
-    "stabilize_denied": "செய்யுரிமை மறுக்கப்பட்டது.",
-    "stabilize-expiring": "$1 (UTC) மணிக்கு காலாவதியாகிறது"
+	"@metadata": {
+		"authors": [
+			"Kanags",
+			"Karthi.dr",
+			"Shanmugamp7",
+			"TRYPPN",
+			"Ulmo",
+			"செல்வா"
+		]
+	},
+	"stabilization-tab": "சரிபார்",
+	"stabilization-page": "பக்கப் பெயர்:",
+	"stabilization-def2": "அண்மைய திருத்தங்கள்",
+	"stabilization-restrict-none": "மேலும் அதிகப்படியான தடைகள் இல்லை",
+	"stabilization-submit": "உறுதிப்படுத்து",
+	"stabilization-comment": "காரணம்:",
+	"stabilization-otherreason": "வேறு காரணம்:",
+	"stabilization-expiry": "முடிவுறுகிறது:",
+	"stabilization-othertime": "வேறு நேரம்:",
+	"stabilization-def-short": "பொதுவானது",
+	"stabilization-def-short-0": "நடப்பு",
+	"stabilization-def-short-1": "ஏற்றுக்கொள்ளப்பட்டது",
+	"stabilize_page_invalid": "இலக்கு பக்க தலைப்பு செல்லாதது.",
+	"stabilize_page_notexists": "இலக்கு பக்கம் இல்லை.",
+	"stabilize_denied": "செய்யுரிமை மறுக்கப்பட்டது.",
+	"stabilize-expiring": "$1 (UTC) மணிக்கு காலாவதியாகிறது"
 }

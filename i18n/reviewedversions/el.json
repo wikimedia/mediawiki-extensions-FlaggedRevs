@@ -1,16 +1,16 @@
 {
-    "@metadata": {
-        "authors": [
-            "Consta",
-            "Dead3y3",
-            "Glavkos",
-            "Omnipaedista"
-        ]
-    },
-    "reviewedversions": "Αναθεωρημένες εκδόσεις",
-    "reviewedversions-leg1": "Απαρίθμηση κριθέντων αναθεωρήσεων για μια σελίδα",
-    "reviewedversions-page": "Όνομα σελίδας:",
-    "reviewedversions-none": "Η \"[[:$1]]\" δεν έχει αναθεωρήσεις που να έχουν κριθεί.",
-    "reviewedversions-list": "Ο ακόλουθος είναι ένας κατάλογος {{PLURAL:$2|της μοναδικής αναθεώρησης|των αναθεωρήσεων}} της σελίδας [[:$1]] που {{PLURAL:$2|έχει|έχουν}} κριθεί:",
-    "reviewedversions-review": "Κρίθηκε στις <i>$1</i> από τον/την $2"
+	"@metadata": {
+		"authors": [
+			"Consta",
+			"Dead3y3",
+			"Glavkos",
+			"Omnipaedista"
+		]
+	},
+	"reviewedversions": "Αναθεωρημένες εκδόσεις",
+	"reviewedversions-leg1": "Απαρίθμηση κριθέντων αναθεωρήσεων για μια σελίδα",
+	"reviewedversions-page": "Όνομα σελίδας:",
+	"reviewedversions-none": "Η \"[[:$1]]\" δεν έχει αναθεωρήσεις που να έχουν κριθεί.",
+	"reviewedversions-list": "Ο ακόλουθος είναι ένας κατάλογος {{PLURAL:$2|της μοναδικής αναθεώρησης|των αναθεωρήσεων}} της σελίδας [[:$1]] που {{PLURAL:$2|έχει|έχουν}} κριθεί:",
+	"reviewedversions-review": "Κρίθηκε στις <i>$1</i> από τον/την $2"
 }

@@ -1,24 +1,24 @@
 {
-    "@metadata": {
-        "authors": [
-            "Irwangatot",
-            "Kandar"
-        ]
-    },
-    "stabilization": "Stabilisasi halaman",
-    "stabilization-text": "''Robah seting katut pikeun mengatur vérsi stabil ti [[:$1|$1]] geus dipilih sarta ditémbongkeun.'''",
-    "stabilization-perm": "Rekening anjeun teu boga kawenangan pikeun ngarobah konfigurasi vérsi stabil.\nSetélan kiwari pikeun [[:$1|$1]] nyaéta:",
-    "stabilization-page": "Ngaran kaca:",
-    "stabilization-def1": "Vérsi stabil;\nmun euweuh, paké vérsi kiwari",
-    "stabilization-def2": "Révisi kiwari",
-    "stabilization-submit": "Konfirmasi",
-    "stabilization-notexists": "Euweuh kaca nu ngaranna “[[:$1|$1]]”.\nKOnfigurasi teu bisa dilarapkeun.",
-    "stabilization-comment": "Alesan:",
-    "stabilization-expiry": "Kadaluwarsa:",
-    "stabilization-def-short": "Buhun",
-    "stabilization-def-short-0": "Kiwari",
-    "stabilization-def-short-1": "Stabil",
-    "stabilize_expiry_invalid": "Titimangsa kadaluwarsana salah.",
-    "stabilize_expiry_old": "Titimangsa kadaluwarsa geus kaliwat.",
-    "stabilize-expiring": "kadaluwarsa $1 (UTC)"
+	"@metadata": {
+		"authors": [
+			"Irwangatot",
+			"Kandar"
+		]
+	},
+	"stabilization": "Stabilisasi halaman",
+	"stabilization-text": "''Robah seting katut pikeun mengatur vérsi stabil ti [[:$1|$1]] geus dipilih sarta ditémbongkeun.'''",
+	"stabilization-perm": "Rekening anjeun teu boga kawenangan pikeun ngarobah konfigurasi vérsi stabil.\nSetélan kiwari pikeun [[:$1|$1]] nyaéta:",
+	"stabilization-page": "Ngaran kaca:",
+	"stabilization-def1": "Vérsi stabil;\nmun euweuh, paké vérsi kiwari",
+	"stabilization-def2": "Révisi kiwari",
+	"stabilization-submit": "Konfirmasi",
+	"stabilization-notexists": "Euweuh kaca nu ngaranna “[[:$1|$1]]”.\nKOnfigurasi teu bisa dilarapkeun.",
+	"stabilization-comment": "Alesan:",
+	"stabilization-expiry": "Kadaluwarsa:",
+	"stabilization-def-short": "Buhun",
+	"stabilization-def-short-0": "Kiwari",
+	"stabilization-def-short-1": "Stabil",
+	"stabilize_expiry_invalid": "Titimangsa kadaluwarsana salah.",
+	"stabilize_expiry_old": "Titimangsa kadaluwarsa geus kaliwat.",
+	"stabilize-expiring": "kadaluwarsa $1 (UTC)"
 }

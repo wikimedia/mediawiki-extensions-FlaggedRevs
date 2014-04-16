@@ -1,12 +1,12 @@
 {
-    "@metadata": {
-        "authors": [
-            "Chrisportelli"
-        ]
-    },
-    "stablepages": "Paġni li jużaw l-approvazzjoni tal-modifiki",
-    "stablepages-list": "Hawn taħt hawn lista ta' paġni li huma ristretti għal ċerti utenti biss biex jagħmlu modifiki fihom mingħajr il-bżonn li jiġu reviżjonati.\nModifiki magħmula minn utenti oħra ma jidhrux awtomatikament lill-qarrejja sakemm utent awtorizzat jirrevedihom.",
-    "stablepages-none": "M'hemm ebda paġni f'din il-lista",
-    "stablepages-config": "Konfigurazzjoni",
-    "stablepages-indef": "Skadenza indefinita biss"
+	"@metadata": {
+		"authors": [
+			"Chrisportelli"
+		]
+	},
+	"stablepages": "Paġni li jużaw l-approvazzjoni tal-modifiki",
+	"stablepages-list": "Hawn taħt hawn lista ta' paġni li huma ristretti għal ċerti utenti biss biex jagħmlu modifiki fihom mingħajr il-bżonn li jiġu reviżjonati.\nModifiki magħmula minn utenti oħra ma jidhrux awtomatikament lill-qarrejja sakemm utent awtorizzat jirrevedihom.",
+	"stablepages-none": "M'hemm ebda paġni f'din il-lista",
+	"stablepages-config": "Konfigurazzjoni",
+	"stablepages-indef": "Skadenza indefinita biss"
 }

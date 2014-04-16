@@ -1,12 +1,12 @@
 {
-    "@metadata": {
-        "authors": [
-            "Gaoxuewei",
-            "PhiLiP",
-            "Shinjiman"
-        ]
-    },
-    "qualityoversight": "高级复审日志",
-    "qualityoversight-list": "此页面列出了最近通过和废弃的修订。",
-    "qualityoversight-legend": "搜索最近复审日志"
+	"@metadata": {
+		"authors": [
+			"Gaoxuewei",
+			"PhiLiP",
+			"Shinjiman"
+		]
+	},
+	"qualityoversight": "高级复审日志",
+	"qualityoversight-list": "此页面列出了最近通过和废弃的修订。",
+	"qualityoversight-legend": "搜索最近复审日志"
 }

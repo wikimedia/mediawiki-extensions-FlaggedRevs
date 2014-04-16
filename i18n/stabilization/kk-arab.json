@@ -1,21 +1,19 @@
 {
-    "@metadata": {
-        "authors": []
-    },
-    "stabilization-tab": "(سق)",
-    "stabilization": "بەتتى تىياناقتاۋ",
-    "stabilization-text": "تومەندەگى باپتالىمداردى وزگەرتكەندە [[:$1|$1]] دەگەننىڭ تىياناقتى نۇسقاسى قالاي بولەكتەنۋى مەن كورسەتىلۋى تۇزەتىلەدى.",
-    "stabilization-perm": "تىركەلگىڭىزگە تىياناقتى نۇسقانىڭ باپتالىمىن وزگەرتۋگە رۇقسات بەرىلمەگەن.\n[[:$1|$1]] ٴۇشىن اعىمداعى باپتاۋلار مىندا كەلتىرىلەدى:",
-    "stabilization-page": "بەت اتاۋى:",
-    "stabilization-leg": "بەت ٴۇشىن تىياناقتى نۇسقانى باپتاۋ",
-    "stabilization-def": "بەتتىڭ ادەپكى كورىنىسىندە كەلتىرىلەتىن نۇسقا",
-    "stabilization-def1": "تىياناقتى نۇسقاسى; ەگەر جوق بولسا, اعىمداعىلاردىڭ بىرەۋى بولادى",
-    "stabilization-def2": "اعىمدىق نۇسقاسى",
-    "stabilization-submit": "قۇپتاۋ",
-    "stabilization-notexists": "«[[:$1|$1]]» دەپ اتالعان ەش بەت جوق. ەش باپتالىم رەتتەلمەيدى.",
-    "stabilization-notcontent": "«[[:$1|$1]]» دەگەن بەتكە سىن بەرىلمەيدى. ەش باپتالىم رەتتەلمەيدى.",
-    "stabilization-comment": "سەبەبى:",
-    "stabilization-def-short": "ادەپكى",
-    "stabilization-def-short-0": "اعىمدىق",
-    "stabilization-def-short-1": "تىياناقتى"
+	"@metadata": [],
+	"stabilization-tab": "(سق)",
+	"stabilization": "بەتتى تىياناقتاۋ",
+	"stabilization-text": "تومەندەگى باپتالىمداردى وزگەرتكەندە [[:$1|$1]] دەگەننىڭ تىياناقتى نۇسقاسى قالاي بولەكتەنۋى مەن كورسەتىلۋى تۇزەتىلەدى.",
+	"stabilization-perm": "تىركەلگىڭىزگە تىياناقتى نۇسقانىڭ باپتالىمىن وزگەرتۋگە رۇقسات بەرىلمەگەن.\n[[:$1|$1]] ٴۇشىن اعىمداعى باپتاۋلار مىندا كەلتىرىلەدى:",
+	"stabilization-page": "بەت اتاۋى:",
+	"stabilization-leg": "بەت ٴۇشىن تىياناقتى نۇسقانى باپتاۋ",
+	"stabilization-def": "بەتتىڭ ادەپكى كورىنىسىندە كەلتىرىلەتىن نۇسقا",
+	"stabilization-def1": "تىياناقتى نۇسقاسى; ەگەر جوق بولسا, اعىمداعىلاردىڭ بىرەۋى بولادى",
+	"stabilization-def2": "اعىمدىق نۇسقاسى",
+	"stabilization-submit": "قۇپتاۋ",
+	"stabilization-notexists": "«[[:$1|$1]]» دەپ اتالعان ەش بەت جوق. ەش باپتالىم رەتتەلمەيدى.",
+	"stabilization-notcontent": "«[[:$1|$1]]» دەگەن بەتكە سىن بەرىلمەيدى. ەش باپتالىم رەتتەلمەيدى.",
+	"stabilization-comment": "سەبەبى:",
+	"stabilization-def-short": "ادەپكى",
+	"stabilization-def-short-0": "اعىمدىق",
+	"stabilization-def-short-1": "تىياناقتى"
 }

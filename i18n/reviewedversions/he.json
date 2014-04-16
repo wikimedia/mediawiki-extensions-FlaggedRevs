@@ -1,17 +1,17 @@
 {
-    "@metadata": {
-        "authors": [
-            "Amire80",
-            "DoviJ",
-            "Guycn2",
-            "Rotemliss",
-            "דניאל ב."
-        ]
-    },
-    "reviewedversions": "גרסאות שנסקרו",
-    "reviewedversions-leg1": "רשימת גרסאות הדף שנסקרו",
-    "reviewedversions-page": "שם הדף:",
-    "reviewedversions-none": "בדף \"[[:$1]]\" אין גרסאות שנסקרו.",
-    "reviewedversions-list": "להלן {{PLURAL:$2|הגרסה היחידה|רשימת הגרסאות}} של [[:$1]] {{PLURAL:$2|שנסקרה|שנסקרו}}:",
-    "reviewedversions-review": "נסקרה ב־<i>$1</i> על־ידי $2"
+	"@metadata": {
+		"authors": [
+			"Amire80",
+			"DoviJ",
+			"Guycn2",
+			"Rotemliss",
+			"דניאל ב."
+		]
+	},
+	"reviewedversions": "גרסאות שנסקרו",
+	"reviewedversions-leg1": "רשימת גרסאות הדף שנסקרו",
+	"reviewedversions-page": "שם הדף:",
+	"reviewedversions-none": "בדף \"[[:$1]]\" אין גרסאות שנסקרו.",
+	"reviewedversions-list": "להלן {{PLURAL:$2|הגרסה היחידה|רשימת הגרסאות}} של [[:$1]] {{PLURAL:$2|שנסקרה|שנסקרו}}:",
+	"reviewedversions-review": "נסקרה ב־<i>$1</i> על־ידי $2"
 }

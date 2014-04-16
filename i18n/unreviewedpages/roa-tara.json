@@ -1,20 +1,20 @@
 {
-    "@metadata": {
-        "authors": [
-            "Joetaras"
-        ]
-    },
-    "action-unreviewedpages": "vide l'elenghe de le pàggene none revisitate",
-    "unreviewedpages": "Pàggene senza revisione",
-    "unreviewedpages-legend": "Liste de le pàggene cu le condenute senza rivisitaziune",
-    "unreviewedpages-category": "Categorije:",
-    "unreviewedpages-diff": "reviste",
-    "unreviewedpages-unwatched": "(no condrollà)",
-    "unreviewedpages-watched": "($1 {{PLURAL:$1|utende|utinde}} attive ca condrollene)",
-    "unreviewedpages-list": "Sta pàgene elenghe le vôsce ca non ge tènene angore [[{{MediaWiki:Validationpage}}|'na rivisitazione]] jndr'à 'u levèlle specificate.",
-    "unreviewedpages-none": "Non ge stonne pàggene ca soddisfecene 'u criterie de ricerche ca è mise",
-    "unreviewedpages-viewing": "(sotte a rivisitazione)",
-    "unreviewedpages-hours": "($1 {{PLURAL:$1|ore|ore}})",
-    "unreviewedpages-days": "($1 {{PLURAL:$1|sciurne|sciurne}})",
-    "unreviewedpages-recent": "(mene de 'n'ore)"
+	"@metadata": {
+		"authors": [
+			"Joetaras"
+		]
+	},
+	"action-unreviewedpages": "vide l'elenghe de le pàggene none revisitate",
+	"unreviewedpages": "Pàggene senza revisione",
+	"unreviewedpages-legend": "Liste de le pàggene cu le condenute senza rivisitaziune",
+	"unreviewedpages-category": "Categorije:",
+	"unreviewedpages-diff": "reviste",
+	"unreviewedpages-unwatched": "(no condrollà)",
+	"unreviewedpages-watched": "($1 {{PLURAL:$1|utende|utinde}} attive ca condrollene)",
+	"unreviewedpages-list": "Sta pàgene elenghe le vôsce ca non ge tènene angore [[{{MediaWiki:Validationpage}}|'na rivisitazione]] jndr'à 'u levèlle specificate.",
+	"unreviewedpages-none": "Non ge stonne pàggene ca soddisfecene 'u criterie de ricerche ca è mise",
+	"unreviewedpages-viewing": "(sotte a rivisitazione)",
+	"unreviewedpages-hours": "($1 {{PLURAL:$1|ore|ore}})",
+	"unreviewedpages-days": "($1 {{PLURAL:$1|sciurne|sciurne}})",
+	"unreviewedpages-recent": "(mene de 'n'ore)"
 }

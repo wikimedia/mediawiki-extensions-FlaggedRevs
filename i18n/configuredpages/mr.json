@@ -1,12 +1,12 @@
 {
-    "@metadata": {
-        "authors": [
-            "V.narsikar"
-        ]
-    },
-    "configuredpages": "पुनरावलोकन विन्यास असलेली पाने",
-    "configuredpages-none": "या यादीत काहीच पाने नाहीत.",
-    "configuredpages-config": "विन्यास",
-    "configuredpages-def-draft": "नविनतम आवृत्ती",
-    "configuredpages-def-stable": "स्थिर आवृत्ती"
+	"@metadata": {
+		"authors": [
+			"V.narsikar"
+		]
+	},
+	"configuredpages": "पुनरावलोकन विन्यास असलेली पाने",
+	"configuredpages-none": "या यादीत काहीच पाने नाहीत.",
+	"configuredpages-config": "विन्यास",
+	"configuredpages-def-draft": "नविनतम आवृत्ती",
+	"configuredpages-def-stable": "स्थिर आवृत्ती"
 }

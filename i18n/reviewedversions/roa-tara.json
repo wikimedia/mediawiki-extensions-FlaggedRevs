@@ -1,13 +1,13 @@
 {
-    "@metadata": {
-        "authors": [
-            "Joetaras"
-        ]
-    },
-    "reviewedversions": "Revisiune reviste",
-    "reviewedversions-leg1": "Liste de le revisiune riviste pe 'na pàgene",
-    "reviewedversions-page": "Nome d'a vôsce:",
-    "reviewedversions-none": "\"[[:$1]]\" non ge tène revisiune de rivisitaminde.",
-    "reviewedversions-list": "'A seguende jè 'a liste de {{PLURAL:$2|'na sola revisione|revisiune}} de [[:$1]] ca {{PLURAL:$2|ha|onne}} state reviste:",
-    "reviewedversions-review": "Riviste sus a <i>$1</i> da $2"
+	"@metadata": {
+		"authors": [
+			"Joetaras"
+		]
+	},
+	"reviewedversions": "Revisiune reviste",
+	"reviewedversions-leg1": "Liste de le revisiune riviste pe 'na pàgene",
+	"reviewedversions-page": "Nome d'a vôsce:",
+	"reviewedversions-none": "\"[[:$1]]\" non ge tène revisiune de rivisitaminde.",
+	"reviewedversions-list": "'A seguende jè 'a liste de {{PLURAL:$2|'na sola revisione|revisiune}} de [[:$1]] ca {{PLURAL:$2|ha|onne}} state reviste:",
+	"reviewedversions-review": "Riviste sus a <i>$1</i> da $2"
 }

@@ -1,16 +1,16 @@
 {
-    "@metadata": {
-        "authors": [
-            "Chrisportelli"
-        ]
-    },
-    "pendingchanges": "Paġni b'tibdil pendenti",
-    "pendingchanges-hours": "($1 {{PLURAL:$1|siegħa|sigħat}})",
-    "pendingchanges-days": "($1 {{PLURAL:$1|jum|jiem}})",
-    "pendingchanges-recent": "(inqas minn siegħa)",
-    "pendingchanges-category": "Kategorija",
-    "pendingchanges-onwatchlist": "Paġni fil-lista ta' osservazzjonijiet tiegħi",
-    "pendingchanges-stable": "Il-verżjoni stabbli hija l-awtomatika",
-    "pendingchanges-diff": "irrevedi",
-    "pendingchanges-size": "Bidla massima (bytes):"
+	"@metadata": {
+		"authors": [
+			"Chrisportelli"
+		]
+	},
+	"pendingchanges": "Paġni b'tibdil pendenti",
+	"pendingchanges-hours": "($1 {{PLURAL:$1|siegħa|sigħat}})",
+	"pendingchanges-days": "($1 {{PLURAL:$1|jum|jiem}})",
+	"pendingchanges-recent": "(inqas minn siegħa)",
+	"pendingchanges-category": "Kategorija",
+	"pendingchanges-onwatchlist": "Paġni fil-lista ta' osservazzjonijiet tiegħi",
+	"pendingchanges-stable": "Il-verżjoni stabbli hija l-awtomatika",
+	"pendingchanges-diff": "irrevedi",
+	"pendingchanges-size": "Bidla massima (bytes):"
 }

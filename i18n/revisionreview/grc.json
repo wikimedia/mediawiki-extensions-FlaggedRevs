@@ -1,13 +1,13 @@
 {
-    "@metadata": {
-        "authors": [
-            "Crazymadlover",
-            "Omnipaedista"
-        ]
-    },
-    "revisionreview": "ἐπιθεωρεῖν ἀναθεωρήσεις",
-    "revreview-log": "Σχόλιον:",
-    "revreview-submit": "Ὑποβάλλειν",
-    "revreview-submitting": "Ὑποβἀλλειν...",
-    "revreview-reject-cancel": "Ἀκυροῦν"
+	"@metadata": {
+		"authors": [
+			"Crazymadlover",
+			"Omnipaedista"
+		]
+	},
+	"revisionreview": "ἐπιθεωρεῖν ἀναθεωρήσεις",
+	"revreview-log": "Σχόλιον:",
+	"revreview-submit": "Ὑποβάλλειν",
+	"revreview-submitting": "Ὑποβἀλλειν...",
+	"revreview-reject-cancel": "Ἀκυροῦν"
 }

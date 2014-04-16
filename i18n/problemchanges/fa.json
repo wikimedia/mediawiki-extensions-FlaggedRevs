@@ -1,16 +1,16 @@
 {
-    "@metadata": {
-        "authors": [
-            "Ebraminio",
-            "Huji",
-            "Mjbmr",
-            "Wayiran",
-            "ZxxZxxZ"
-        ]
-    },
-    "problemchanges": "ویرایش‌های برچسب‌خوردهٔ در انتظار",
-    "problemchanges-list": "این صفحه فهرست صفحه‌های [[{{MediaWiki:Validationpage}}|بازبینی‌شده]] است که یک یا چند ویرایش در انتطار بازبینی دارند. فهرستی از [[Special:Tags|برچسب‌های مجاز تغییر]] موجود است.",
-    "problemchanges-legend": "صفحه‌های با ویرایش‌های برچسب‌خوردهٔ در انتظار بازبینی را فهرست کن.",
-    "problemchanges-none": "در حال حاضر صفحه‌ای که با این معیارها سازگار باشد وجود ندارد",
-    "problemchanges-category": "رده:"
+	"@metadata": {
+		"authors": [
+			"Ebraminio",
+			"Huji",
+			"Mjbmr",
+			"Wayiran",
+			"ZxxZxxZ"
+		]
+	},
+	"problemchanges": "ویرایش‌های برچسب‌خوردهٔ در انتظار",
+	"problemchanges-list": "این صفحه فهرست صفحه‌های [[{{MediaWiki:Validationpage}}|بازبینی‌شده]] است که یک یا چند ویرایش در انتطار بازبینی دارند. فهرستی از [[Special:Tags|برچسب‌های مجاز تغییر]] موجود است.",
+	"problemchanges-legend": "صفحه‌های با ویرایش‌های برچسب‌خوردهٔ در انتظار بازبینی را فهرست کن.",
+	"problemchanges-none": "در حال حاضر صفحه‌ای که با این معیارها سازگار باشد وجود ندارد",
+	"problemchanges-category": "رده:"
 }

@@ -1,14 +1,14 @@
 {
-    "@metadata": {
-        "authors": [
-            "Nayvik",
-            "Shushruth"
-        ]
-    },
-    "editor": "ಸಂಪಾದಕ",
-    "group-editor": "ಸಂಪಾದಕರು",
-    "group-editor-member": "ಸಂಪಾದಕ",
-    "revreview-edit": "ಸಂಪಾದಿಸಿ",
-    "revreview-revnotfound": "ನೀವು ಕೋರಿದ ಪುಟದ ಹಳೆ ಆವೃತ್ತಿ ಸಿಗಲಿಲ್ಲ. ದಯವಿಟ್ಟು ಈ ಪುಟವನ್ನು ತಲುಪಲು ಉಪಯೋಗಿಸಿದ URL ಅನ್ನು ಒಮ್ಮೆ ಪರೀಕ್ಷಿಸಿ.",
-    "revreview-filter-all": "ಎಲ್ಲಾ"
+	"@metadata": {
+		"authors": [
+			"Nayvik",
+			"Shushruth"
+		]
+	},
+	"editor": "ಸಂಪಾದಕ",
+	"group-editor": "ಸಂಪಾದಕರು",
+	"group-editor-member": "ಸಂಪಾದಕ",
+	"revreview-edit": "ಸಂಪಾದಿಸಿ",
+	"revreview-revnotfound": "ನೀವು ಕೋರಿದ ಪುಟದ ಹಳೆ ಆವೃತ್ತಿ ಸಿಗಲಿಲ್ಲ. ದಯವಿಟ್ಟು ಈ ಪುಟವನ್ನು ತಲುಪಲು ಉಪಯೋಗಿಸಿದ URL ಅನ್ನು ಒಮ್ಮೆ ಪರೀಕ್ಷಿಸಿ.",
+	"revreview-filter-all": "ಎಲ್ಲಾ"
 }

@@ -1,19 +1,19 @@
 {
-    "@metadata": {
-        "authors": [
-            "Ooswesthoesbes"
-        ]
-    },
-    "validationstatistics": "Paginacontrolestatistieke",
-    "validationstatistics-revtime": "De gemiddelde wachtied veur controle van bewirkinge door ''gebroekers die neet aangemeld zeen' is '''$1'''. De mediaan is '''$2'''.\n$3",
-    "validationstatistics-table": "Controlestatistieke veur eder naamruumde, ''exclusief'' redireks waere hieónger getuind.",
-    "validationstatistics-ns": "Naamruumde",
-    "validationstatistics-total": "Paasj",
-    "validationstatistics-stable": "Bekeke",
-    "validationstatistics-latest": "Synchroniseerd",
-    "validationstatistics-synced": "Synchroniseerd/bekeke",
-    "validationstatistics-old": "Verajerd",
-    "validationstatistics-utable": "In de ongerstaonde lies {{PLURAL:$1|weurt de meis actieve eindredacteur|waere de $1 meis actieve eindredacteure}} getuind in {{PLURAL:$2|'t aafgeloupen oer|de afgeloupe $2 oer}}.",
-    "validationstatistics-user": "Gebroeker",
-    "validationstatistics-reviews": "Beoeardeilinge"
+	"@metadata": {
+		"authors": [
+			"Ooswesthoesbes"
+		]
+	},
+	"validationstatistics": "Paginacontrolestatistieke",
+	"validationstatistics-revtime": "De gemiddelde wachtied veur controle van bewirkinge door ''gebroekers die neet aangemeld zeen' is '''$1'''. De mediaan is '''$2'''.\n$3",
+	"validationstatistics-table": "Controlestatistieke veur eder naamruumde, ''exclusief'' redireks waere hieónger getuind.",
+	"validationstatistics-ns": "Naamruumde",
+	"validationstatistics-total": "Paasj",
+	"validationstatistics-stable": "Bekeke",
+	"validationstatistics-latest": "Synchroniseerd",
+	"validationstatistics-synced": "Synchroniseerd/bekeke",
+	"validationstatistics-old": "Verajerd",
+	"validationstatistics-utable": "In de ongerstaonde lies {{PLURAL:$1|weurt de meis actieve eindredacteur|waere de $1 meis actieve eindredacteure}} getuind in {{PLURAL:$2|'t aafgeloupen oer|de afgeloupe $2 oer}}.",
+	"validationstatistics-user": "Gebroeker",
+	"validationstatistics-reviews": "Beoeardeilinge"
 }

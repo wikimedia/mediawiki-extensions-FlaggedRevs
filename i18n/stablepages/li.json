@@ -1,12 +1,12 @@
 {
-    "@metadata": {
-        "authors": [
-            "Ooswesthoesbes"
-        ]
-    },
-    "stablepages": "Pagina's ongerhevig aan goodkeuring van bewerkinge",
-    "stablepages-list": "Hie waere pagina's weergegaeve wo allein bepaolde gebroekers kinne bewerke zonger det controle neudig is.\nBewerkinge door anger gebroekers waere neet weergegaeve toetdet daotoe gerechtigde gebroekers ze gecontroleerd höbbe.",
-    "stablepages-none": "Gein pagina's op dees lies.",
-    "stablepages-config": "Instelling",
-    "stablepages-indef": "Allein zonger vervaldatum"
+	"@metadata": {
+		"authors": [
+			"Ooswesthoesbes"
+		]
+	},
+	"stablepages": "Pagina's ongerhevig aan goodkeuring van bewerkinge",
+	"stablepages-list": "Hie waere pagina's weergegaeve wo allein bepaolde gebroekers kinne bewerke zonger det controle neudig is.\nBewerkinge door anger gebroekers waere neet weergegaeve toetdet daotoe gerechtigde gebroekers ze gecontroleerd höbbe.",
+	"stablepages-none": "Gein pagina's op dees lies.",
+	"stablepages-config": "Instelling",
+	"stablepages-indef": "Allein zonger vervaldatum"
 }

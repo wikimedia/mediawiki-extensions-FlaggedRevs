@@ -1,29 +1,29 @@
 {
-    "@metadata": {
-        "authors": [
-            "Darth Kule",
-            "Fryed-peach",
-            "Jon Harald Søby",
-            "Purodha",
-            "Raymond",
-            "SPQRobin",
-            "Shirayuki",
-            "Yekrats"
-        ]
-    },
-    "pendingchanges": "{{Flagged Revs}}\nTitle of [http://en.labs.wikimedia.org/wiki/Special:OldReviewedPages Special:OldReviewedPages].",
-    "pendingchanges-legend": "{{Flagged Revs-small}}\nUsed on [http://en.labs.wikimedia.org/wiki/Special:OldReviewedPages Special:OldReviewedPages] as title/legend of the fieldset.",
-    "pendingchanges-list": "{{Flagged Revs}}\nUsed on [http://en.labs.wikimedia.org/wiki/Special:OldReviewedPages Special:OldReviewedPages].\n\nRefers to {{msg-mw|Validationpage}}.\n\nParameters:\n* $1 - (Optional) the number of pages going to be listed, to be used with PLURAL",
-    "pendingchanges-none": "{{Flagged Revs}}\nUsed on [http://en.labs.wikimedia.org/wiki/Special:OldReviewedPages Special:OldReviewedPages].",
-    "pendingchanges-hours": "{{Flagged Revs}}\nUsed on [[Special:OldReviewedPages]] to denote the age of the last unreviewed change to a listed page.\n\nParameters:\n* $1 - number of hours\n{{Related|Pendingchanges}}",
-    "pendingchanges-days": "{{Flagged Revs}}\nUsed on [[Special:OldReviewedPages]] to denote the age of the last unreviewed change to a listed page.\n\nParameters:\n* $1 - number of days\n{{Related|Pendingchanges}}",
-    "pendingchanges-recent": "{{Flagged Revs}}\nUsed on [[Special:OldReviewedPages]] to denote the age of the last unreviewed change to a listed page.\n{{Related|Pendingchanges}}",
-    "pendingchanges-category": "{{Flagged Revs}}\nUsed on [http://en.labs.wikimedia.org/wiki/Special:OldReviewedPages Special:OldReviewedPages] as a label for an input field in the form.\n{{Identical|Category}}",
-    "pendingchanges-onwatchlist": "{{Flagged Revs}}",
-    "pendingchanges-stable": "{{Flagged Revs}}",
-    "pendingchanges-diff": "{{Flagged Revs}}\nUsed as link text in [[Special:PendingChanges]]. The link points to the diff page (the diff between the latest revision and the pending revision).\n\nSee example: [[mw:Special:PendingChanges]].\n{{Identical|Review}}",
-    "pendingchanges-size": "{{Flagged Revs}}\n\nUsed on [http://en.labs.wikimedia.org/wiki/Special:OldReviewedPages Special:OldReviewedPages] as a label for an input field in the form.",
-    "pendingchanges-unwatched": "{{Flagged Revs-small}}\nUsed on [[Special:OldReviewedPages]] when nobody is watching the page.\n\nSee also:\n* {{msg-mw|Pendingchanges-watched}}",
-    "pendingchanges-watched": "{{Flagged Revs-small}}\nUsed on [[Special:OldReviewedPages]] when active users are watching the page.\n\nParameters:\n* $1 - number of users watching page\nSee also:\n* {{msg-mw|Pendingchanges-unwatched}}",
-    "pendingchanges-viewing": "{{Flagged Revs-small}}\nUsed on [http://en.labs.wikimedia.org/wiki/Special:OldReviewedPages Special:OldReviewedPages] when someone has recently requested the sighting page for a listed page."
+	"@metadata": {
+		"authors": [
+			"Darth Kule",
+			"Fryed-peach",
+			"Jon Harald Søby",
+			"Purodha",
+			"Raymond",
+			"SPQRobin",
+			"Shirayuki",
+			"Yekrats"
+		]
+	},
+	"pendingchanges": "{{Flagged Revs}}\nTitle of [http://en.labs.wikimedia.org/wiki/Special:OldReviewedPages Special:OldReviewedPages].",
+	"pendingchanges-legend": "{{Flagged Revs-small}}\nUsed on [http://en.labs.wikimedia.org/wiki/Special:OldReviewedPages Special:OldReviewedPages] as title/legend of the fieldset.",
+	"pendingchanges-list": "{{Flagged Revs}}\nUsed on [http://en.labs.wikimedia.org/wiki/Special:OldReviewedPages Special:OldReviewedPages].\n\nRefers to {{msg-mw|Validationpage}}.\n\nParameters:\n* $1 - (Optional) the number of pages going to be listed, to be used with PLURAL",
+	"pendingchanges-none": "{{Flagged Revs}}\nUsed on [http://en.labs.wikimedia.org/wiki/Special:OldReviewedPages Special:OldReviewedPages].",
+	"pendingchanges-hours": "{{Flagged Revs}}\nUsed on [[Special:OldReviewedPages]] to denote the age of the last unreviewed change to a listed page.\n\nParameters:\n* $1 - number of hours\n{{Related|Pendingchanges}}",
+	"pendingchanges-days": "{{Flagged Revs}}\nUsed on [[Special:OldReviewedPages]] to denote the age of the last unreviewed change to a listed page.\n\nParameters:\n* $1 - number of days\n{{Related|Pendingchanges}}",
+	"pendingchanges-recent": "{{Flagged Revs}}\nUsed on [[Special:OldReviewedPages]] to denote the age of the last unreviewed change to a listed page.\n{{Related|Pendingchanges}}",
+	"pendingchanges-category": "{{Flagged Revs}}\nUsed on [http://en.labs.wikimedia.org/wiki/Special:OldReviewedPages Special:OldReviewedPages] as a label for an input field in the form.\n{{Identical|Category}}",
+	"pendingchanges-onwatchlist": "{{Flagged Revs}}",
+	"pendingchanges-stable": "{{Flagged Revs}}",
+	"pendingchanges-diff": "{{Flagged Revs}}\nUsed as link text in [[Special:PendingChanges]]. The link points to the diff page (the diff between the latest revision and the pending revision).\n\nSee example: [[mw:Special:PendingChanges]].\n{{Identical|Review}}",
+	"pendingchanges-size": "{{Flagged Revs}}\n\nUsed on [http://en.labs.wikimedia.org/wiki/Special:OldReviewedPages Special:OldReviewedPages] as a label for an input field in the form.",
+	"pendingchanges-unwatched": "{{Flagged Revs-small}}\nUsed on [[Special:OldReviewedPages]] when nobody is watching the page.\n\nSee also:\n* {{msg-mw|Pendingchanges-watched}}",
+	"pendingchanges-watched": "{{Flagged Revs-small}}\nUsed on [[Special:OldReviewedPages]] when active users are watching the page.\n\nParameters:\n* $1 - number of users watching page\nSee also:\n* {{msg-mw|Pendingchanges-unwatched}}",
+	"pendingchanges-viewing": "{{Flagged Revs-small}}\nUsed on [http://en.labs.wikimedia.org/wiki/Special:OldReviewedPages Special:OldReviewedPages] when someone has recently requested the sighting page for a listed page."
 }

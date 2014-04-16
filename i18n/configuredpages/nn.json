@@ -1,9 +1,9 @@
 {
-    "@metadata": {
-        "authors": [
-            "Nghtwlkr"
-        ]
-    },
-    "configuredpages-def-draft": "siste versjon",
-    "configuredpages-def-stable": "publisert versjon"
+	"@metadata": {
+		"authors": [
+			"Nghtwlkr"
+		]
+	},
+	"configuredpages-def-draft": "siste versjon",
+	"configuredpages-def-stable": "publisert versjon"
 }

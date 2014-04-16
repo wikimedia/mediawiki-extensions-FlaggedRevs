@@ -1,12 +1,12 @@
 {
-    "@metadata": {
-        "authors": [
-            "Ansumang"
-        ]
-    },
-    "editor": "सम्पादकम्",
-    "group-editor": "सम्पादकम्",
-    "grouppage-editor": "{{ns:project}}:सम्पादकम्",
-    "revreview-edit": "सम्पाद्यताम्",
-    "revreview-typefilter": "प्रकारम्:"
+	"@metadata": {
+		"authors": [
+			"Ansumang"
+		]
+	},
+	"editor": "सम्पादकम्",
+	"group-editor": "सम्पादकम्",
+	"grouppage-editor": "{{ns:project}}:सम्पादकम्",
+	"revreview-edit": "सम्पाद्यताम्",
+	"revreview-typefilter": "प्रकारम्:"
 }

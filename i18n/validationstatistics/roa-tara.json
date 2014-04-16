@@ -1,23 +1,23 @@
 {
-    "@metadata": {
-        "authors": [
-            "Joetaras"
-        ]
-    },
-    "validationstatistics": "Statisteche d'a pàgene reviste",
-    "validationstatistics-users": "'''{{SITENAME}}''' jndr'à quiste mumende tène '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|utende|utinde}} cu le deritte de [[{{MediaWiki:Validationpage}}|cangiatore]].\n\nLe cangiature sonde utinde stabbelite ca ponne fà verifiche a cambione de le revisiune a le pàggene.",
-    "validationstatistics-lastupdate": "''Le seguende date onne state cangiate l'urtema vote 'u $1 a le $2.''",
-    "validationstatistics-pndtime": "Le cangiaminde onne state verificate da utinde stabbelite e sonde considerate ''{{int:validationstatistics-stable}}''.\n\n'U ritarde medie pe [[Special:OldReviewedPages|le pàggene cu cangiaminde pendende none reviste]] jè '''$1'''; 'a mesure d'u ritarde parte da quanne 'u cangiamende pendende cchiù vecchie non g'a state reviste.",
-    "validationstatistics-revtime": "'A medie de attese pe le cangiaminde da ''utinde ca non ge s'onne collegate'' pe esseere reviste jè '''$1'''; 'a mediane jè '''$2'''.\n$3",
-    "validationstatistics-table": "Le statisteche de le pàggene reviste pe ogne namespace avènene fatte vedè aqquà sotte, ''<nowiki>'</nowiki>scludenne'' le pàggene de le redirezionaminde. Le pàggene avènene trattate cumme ''{{int:validationstatistics-old}}'' ce lore onne cangiaminde appise pa revisione; le pàggene avènene conziderate ''{{int:validationstatistics-latest}}'' ce non ge tènene cangiaminde appise pa revisione.",
-    "validationstatistics-ns": "Neimspeise",
-    "validationstatistics-total": "Pàggene",
-    "validationstatistics-stable": "Riviste",
-    "validationstatistics-latest": "Singronizzate",
-    "validationstatistics-synced": "Singronizzete/Riviste",
-    "validationstatistics-old": "Non g'è aggiornete",
-    "validationstatistics-unreviewed": "Non reviste",
-    "validationstatistics-utable": "Sotte ste 'n'elenghe de le {{PLURAL:$1|revisitatore cchiù attive|$1 revisitature cchiù attive}} jndr'à {{PLURAL:$2|l'urtema ore|$2 l'urteme ore}}.",
-    "validationstatistics-user": "Utende",
-    "validationstatistics-reviews": "Reviste"
+	"@metadata": {
+		"authors": [
+			"Joetaras"
+		]
+	},
+	"validationstatistics": "Statisteche d'a pàgene reviste",
+	"validationstatistics-users": "'''{{SITENAME}}''' jndr'à quiste mumende tène '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|utende|utinde}} cu le deritte de [[{{MediaWiki:Validationpage}}|cangiatore]].\n\nLe cangiature sonde utinde stabbelite ca ponne fà verifiche a cambione de le revisiune a le pàggene.",
+	"validationstatistics-lastupdate": "''Le seguende date onne state cangiate l'urtema vote 'u $1 a le $2.''",
+	"validationstatistics-pndtime": "Le cangiaminde onne state verificate da utinde stabbelite e sonde considerate ''{{int:validationstatistics-stable}}''.\n\n'U ritarde medie pe [[Special:OldReviewedPages|le pàggene cu cangiaminde pendende none reviste]] jè '''$1'''; 'a mesure d'u ritarde parte da quanne 'u cangiamende pendende cchiù vecchie non g'a state reviste.",
+	"validationstatistics-revtime": "'A medie de attese pe le cangiaminde da ''utinde ca non ge s'onne collegate'' pe esseere reviste jè '''$1'''; 'a mediane jè '''$2'''.\n$3",
+	"validationstatistics-table": "Le statisteche de le pàggene reviste pe ogne namespace avènene fatte vedè aqquà sotte, ''<nowiki>'</nowiki>scludenne'' le pàggene de le redirezionaminde. Le pàggene avènene trattate cumme ''{{int:validationstatistics-old}}'' ce lore onne cangiaminde appise pa revisione; le pàggene avènene conziderate ''{{int:validationstatistics-latest}}'' ce non ge tènene cangiaminde appise pa revisione.",
+	"validationstatistics-ns": "Neimspeise",
+	"validationstatistics-total": "Pàggene",
+	"validationstatistics-stable": "Riviste",
+	"validationstatistics-latest": "Singronizzate",
+	"validationstatistics-synced": "Singronizzete/Riviste",
+	"validationstatistics-old": "Non g'è aggiornete",
+	"validationstatistics-unreviewed": "Non reviste",
+	"validationstatistics-utable": "Sotte ste 'n'elenghe de le {{PLURAL:$1|revisitatore cchiù attive|$1 revisitature cchiù attive}} jndr'à {{PLURAL:$2|l'urtema ore|$2 l'urteme ore}}.",
+	"validationstatistics-user": "Utende",
+	"validationstatistics-reviews": "Reviste"
 }

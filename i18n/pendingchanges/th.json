@@ -1,10 +1,10 @@
 {
-    "@metadata": {
-        "authors": [
-            "Horus"
-        ]
-    },
-    "pendingchanges-hours": "($1 {{PLURAL:$1|ชั่วโมง|ชั่วโมง}})",
-    "pendingchanges-days": "($1 {{PLURAL:$1|วัน|วัน}})",
-    "pendingchanges-recent": "(น้อยกว่า 1 ชั่วโมง)"
+	"@metadata": {
+		"authors": [
+			"Horus"
+		]
+	},
+	"pendingchanges-hours": "($1 {{PLURAL:$1|ชั่วโมง|ชั่วโมง}})",
+	"pendingchanges-days": "($1 {{PLURAL:$1|วัน|วัน}})",
+	"pendingchanges-recent": "(น้อยกว่า 1 ชั่วโมง)"
 }

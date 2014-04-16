@@ -1,11 +1,9 @@
 {
-    "@metadata": {
-        "authors": []
-    },
-    "reviewedversions": "Тиянақты нұсқалар",
-    "reviewedversions-leg1": "Сын берілген беттің нұсқа тізімі",
-    "reviewedversions-page": "Бет атауы:",
-    "reviewedversions-none": "«[[:$1]]» бетінде сын берілген еш нұсқа жоқ.",
-    "reviewedversions-list": "Келесі тізімде [[:$1]] бетінің сын берілген нұсқалары келтіріледі:",
-    "reviewedversions-review": "$2 <i>$1</i> кезінде сын берді"
+	"@metadata": [],
+	"reviewedversions": "Тиянақты нұсқалар",
+	"reviewedversions-leg1": "Сын берілген беттің нұсқа тізімі",
+	"reviewedversions-page": "Бет атауы:",
+	"reviewedversions-none": "«[[:$1]]» бетінде сын берілген еш нұсқа жоқ.",
+	"reviewedversions-list": "Келесі тізімде [[:$1]] бетінің сын берілген нұсқалары келтіріледі:",
+	"reviewedversions-review": "$2 <i>$1</i> кезінде сын берді"
 }

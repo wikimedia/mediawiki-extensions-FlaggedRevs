@@ -1,23 +1,23 @@
 {
-    "@metadata": {
-        "authors": [
-            "Joseph",
-            "Karduelis",
-            "Runningfridgesrule",
-            "Sadrettin"
-        ]
-    },
-    "action-unreviewedpages": "gözden geçirilmemiş sayfalar listesini görüntüle",
-    "unreviewedpages": "Gözden geçirilmemiş sayfalar",
-    "unreviewedpages-legend": "Gözden geçirilmemiş içerik sayfalarını listele",
-    "unreviewedpages-category": "Kategori:",
-    "unreviewedpages-diff": "gözden geçir",
-    "unreviewedpages-unwatched": "(izlenmiyor)",
-    "unreviewedpages-watched": "($1 etkin {{PLURAL:$1|kullanıcı|kullanıcı}} izliyor)",
-    "unreviewedpages-list": "Bu sayfa, belirlenen seviyeye göre [[{{MediaWiki:Validationpage}}|gözden geçirilmemiş]] içerik sayfalarını listeler.",
-    "unreviewedpages-none": "Şu anda bu kriterleri karşılayan bir sayfa bulunmamaktadır",
-    "unreviewedpages-viewing": "(gözden geçiriliyor)",
-    "unreviewedpages-hours": "($1 {{PLURAL:$1|saat|saat}})",
-    "unreviewedpages-days": "($1 {{PLURAL:$1|gün|gün}})",
-    "unreviewedpages-recent": "(1 saatten az)"
+	"@metadata": {
+		"authors": [
+			"Joseph",
+			"Karduelis",
+			"Runningfridgesrule",
+			"Sadrettin"
+		]
+	},
+	"action-unreviewedpages": "gözden geçirilmemiş sayfalar listesini görüntüle",
+	"unreviewedpages": "Gözden geçirilmemiş sayfalar",
+	"unreviewedpages-legend": "Gözden geçirilmemiş içerik sayfalarını listele",
+	"unreviewedpages-category": "Kategori:",
+	"unreviewedpages-diff": "gözden geçir",
+	"unreviewedpages-unwatched": "(izlenmiyor)",
+	"unreviewedpages-watched": "($1 etkin {{PLURAL:$1|kullanıcı|kullanıcı}} izliyor)",
+	"unreviewedpages-list": "Bu sayfa, belirlenen seviyeye göre [[{{MediaWiki:Validationpage}}|gözden geçirilmemiş]] içerik sayfalarını listeler.",
+	"unreviewedpages-none": "Şu anda bu kriterleri karşılayan bir sayfa bulunmamaktadır",
+	"unreviewedpages-viewing": "(gözden geçiriliyor)",
+	"unreviewedpages-hours": "($1 {{PLURAL:$1|saat|saat}})",
+	"unreviewedpages-days": "($1 {{PLURAL:$1|gün|gün}})",
+	"unreviewedpages-recent": "(1 saatten az)"
 }

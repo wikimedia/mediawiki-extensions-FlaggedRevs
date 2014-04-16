@@ -1,12 +1,12 @@
 {
-    "@metadata": {
-        "authors": [
-            "ChrisPtDe"
-        ]
-    },
-    "stablepages": "Pâges qu’utilisont la validacion des changements",
-    "stablepages-list": "Vê-que una lista de les pâges que sont rètrentes de façon que solament quârques usanciérs la pôvont changiér sen qu’una rèvision seye nècèssèra.\nLos changements fêts per los ôtros usanciérs sont pas montrâs per dèfôt ux liésors tant qu’un usanciér ôtorisâ los èye revus.",
-    "stablepages-none": "Y at gins de pâge dens ceta lista.",
-    "stablepages-config": "Configuracion",
-    "stablepages-indef": "Solament l’èxpiracion sen fin"
+	"@metadata": {
+		"authors": [
+			"ChrisPtDe"
+		]
+	},
+	"stablepages": "Pâges qu’utilisont la validacion des changements",
+	"stablepages-list": "Vê-que una lista de les pâges que sont rètrentes de façon que solament quârques usanciérs la pôvont changiér sen qu’una rèvision seye nècèssèra.\nLos changements fêts per los ôtros usanciérs sont pas montrâs per dèfôt ux liésors tant qu’un usanciér ôtorisâ los èye revus.",
+	"stablepages-none": "Y at gins de pâge dens ceta lista.",
+	"stablepages-config": "Configuracion",
+	"stablepages-indef": "Solament l’èxpiracion sen fin"
 }

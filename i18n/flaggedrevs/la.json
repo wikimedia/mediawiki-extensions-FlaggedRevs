@@ -1,19 +1,19 @@
 {
-    "@metadata": {
-        "authors": [
-            "SPQRobin",
-            "UV"
-        ]
-    },
-    "editor": "Recensor",
-    "group-editor": "Recensores",
-    "group-editor-member": "{{GENDER:$1|recensor}}",
-    "group-reviewer": "Revisores",
-    "group-reviewer-member": "{{GENDER:$1|revisor}}",
-    "grouppage-editor": "{{ns:project}}:Recensor",
-    "grouppage-reviewer": "{{ns:project}}:Revisor",
-    "reviewer": "Revisor",
-    "revreview-style-2": "Bonus",
-    "revreview-revnotfound": "Emendatio quem rogavisti non inventa est.\nConfirma URL paginae.",
-    "rights-editor-revoke": "removit statum recensorem usoris [[$1]]"
+	"@metadata": {
+		"authors": [
+			"SPQRobin",
+			"UV"
+		]
+	},
+	"editor": "Recensor",
+	"group-editor": "Recensores",
+	"group-editor-member": "{{GENDER:$1|recensor}}",
+	"group-reviewer": "Revisores",
+	"group-reviewer-member": "{{GENDER:$1|revisor}}",
+	"grouppage-editor": "{{ns:project}}:Recensor",
+	"grouppage-reviewer": "{{ns:project}}:Revisor",
+	"reviewer": "Revisor",
+	"revreview-style-2": "Bonus",
+	"revreview-revnotfound": "Emendatio quem rogavisti non inventa est.\nConfirma URL paginae.",
+	"rights-editor-revoke": "removit statum recensorem usoris [[$1]]"
 }

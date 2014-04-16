@@ -1,13 +1,13 @@
 {
-    "@metadata": {
-        "authors": [
-            "Yekrats"
-        ]
-    },
-    "configuredpages": "Paĝoj kun kontrolaj konfiguradoj",
-    "configuredpages-list": "Jen listo de paĝoj konfiguritaj enhavi malsamajn aprobado-agordojn ol la defaŭlto de la retejo.\nKelkaj agordoj eble ŝanĝos kiun version estos montrita al legantoj aŭ plu limigos kiu povas fari redaktojn nedevante kontroladon.",
-    "configuredpages-none": "Estas neniuj paĝoj en ĉi tiu listo.",
-    "configuredpages-config": "Konfiguro",
-    "configuredpages-def-draft": "lasta versio",
-    "configuredpages-def-stable": "publikigita versio"
+	"@metadata": {
+		"authors": [
+			"Yekrats"
+		]
+	},
+	"configuredpages": "Paĝoj kun kontrolaj konfiguradoj",
+	"configuredpages-list": "Jen listo de paĝoj konfiguritaj enhavi malsamajn aprobado-agordojn ol la defaŭlto de la retejo.\nKelkaj agordoj eble ŝanĝos kiun version estos montrita al legantoj aŭ plu limigos kiu povas fari redaktojn nedevante kontroladon.",
+	"configuredpages-none": "Estas neniuj paĝoj en ĉi tiu listo.",
+	"configuredpages-config": "Konfiguro",
+	"configuredpages-def-draft": "lasta versio",
+	"configuredpages-def-stable": "publikigita versio"
 }

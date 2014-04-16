@@ -1,14 +1,14 @@
 {
-    "@metadata": {
-        "authors": [
-            "Leinad",
-            "Sp5uhe",
-            "ToSter"
-        ]
-    },
-    "stablepages": "Strony wykorzystujące oznaczanie zmian",
-    "stablepages-list": "Poniżej znajduje się lista stron, które skonfigurowano tak, że tylko określeni użytkownicy mogą wprowadzać do nich zmiany niewymagające oznaczenia.\nEdycje dokonane przez innych użytkowników nie będą domyślnie wyświetlane czytelnikom do momentu oznaczenia ich przez uprawnionego użytkownika.",
-    "stablepages-none": "Brak stron na tej liście.",
-    "stablepages-config": "Konfiguracja",
-    "stablepages-indef": "Wyłącznie z niezdefiniowanym czasem wygaśnięcia"
+	"@metadata": {
+		"authors": [
+			"Leinad",
+			"Sp5uhe",
+			"ToSter"
+		]
+	},
+	"stablepages": "Strony wykorzystujące oznaczanie zmian",
+	"stablepages-list": "Poniżej znajduje się lista stron, które skonfigurowano tak, że tylko określeni użytkownicy mogą wprowadzać do nich zmiany niewymagające oznaczenia.\nEdycje dokonane przez innych użytkowników nie będą domyślnie wyświetlane czytelnikom do momentu oznaczenia ich przez uprawnionego użytkownika.",
+	"stablepages-none": "Brak stron na tej liście.",
+	"stablepages-config": "Konfiguracja",
+	"stablepages-indef": "Wyłącznie z niezdefiniowanym czasem wygaśnięcia"
 }

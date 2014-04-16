@@ -1,11 +1,11 @@
 {
-    "@metadata": {
-        "authors": [
-            "Cedric31"
-        ]
-    },
-    "stablepages": "Paginas qu'utilizan la validacion de las modificacions",
-    "stablepages-list": "Çaijós, figura una lista de las paginas que son restrenchas que d'unes utilizaires ne pòdon editar solets sens qu'una relectura siá necessària. Atal, las modificacions son pas publicadas tant qu'un utilizaire abilitat las ajan repassadas.",
-    "stablepages-none": "Existís pas cap de pagina dins aquesta lista",
-    "stablepages-config": "Configuracion"
+	"@metadata": {
+		"authors": [
+			"Cedric31"
+		]
+	},
+	"stablepages": "Paginas qu'utilizan la validacion de las modificacions",
+	"stablepages-list": "Çaijós, figura una lista de las paginas que son restrenchas que d'unes utilizaires ne pòdon editar solets sens qu'una relectura siá necessària. Atal, las modificacions son pas publicadas tant qu'un utilizaire abilitat las ajan repassadas.",
+	"stablepages-none": "Existís pas cap de pagina dins aquesta lista",
+	"stablepages-config": "Configuracion"
 }

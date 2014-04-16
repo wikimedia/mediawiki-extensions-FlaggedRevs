@@ -1,11 +1,11 @@
 {
-    "@metadata": {
-        "authors": [
-            "Slomox"
-        ]
-    },
-    "unreviewedpages-category": "Kategorie:",
-    "unreviewedpages-diff": "as nakeken marken",
-    "unreviewedpages-unwatched": "(op keen Oppasslist)",
-    "unreviewedpages-watched": "($1 aktive {{PLURAL:$1|Bruker|Brukers}} passt op disse Sied op)"
+	"@metadata": {
+		"authors": [
+			"Slomox"
+		]
+	},
+	"unreviewedpages-category": "Kategorie:",
+	"unreviewedpages-diff": "as nakeken marken",
+	"unreviewedpages-unwatched": "(op keen Oppasslist)",
+	"unreviewedpages-watched": "($1 aktive {{PLURAL:$1|Bruker|Brukers}} passt op disse Sied op)"
 }

@@ -1,34 +1,34 @@
 {
-    "@metadata": {
-        "authors": [
-            "BRUTE",
-            "David1010",
-            "გიორგიმელა"
-        ]
-    },
-    "stabilization-tab": "vet",
-    "stabilization": "გვერდის სტაბილიზაცია",
-    "stabilization-page": "გვერდის სახელი:",
-    "stabilization-leg": "გამოქვეყნებული ვერსიის პარამეტრების დამოწმება",
-    "stabilization-def2": "ბოლო ვერსია",
-    "stabilization-restrict-none": "არც-ერთი დამატებითი აკრძალვა",
-    "stabilization-submit": "დამოწმება",
-    "stabilization-notexists": "არ არსებობს გვერდი სახელით \"[[:$1|$1]]\".\nკონფიგურაცია შეუძლებელია.",
-    "stabilization-notcontent": "გვერდი «[[:$1|$1]]» ვერ შემოწმდება. კონფიგურაცია შეუძლებელია.",
-    "stabilization-comment": "მიზეზი:",
-    "stabilization-otherreason": "სხვა მიზეზი:",
-    "stabilization-expiry": "ვადა:",
-    "stabilization-othertime": "სხვა დრო:",
-    "stabilization-def-short": "თავდაპირველი",
-    "stabilization-def-short-0": "მიმდინარე",
-    "stabilization-def-short-1": "გამოქვეყნებული",
-    "stabilize_page_invalid": "გვერდის სამიზნე სახელი არასწორია.",
-    "stabilize_page_notexists": "სამიზნე გვერდი არ არსებობს.",
-    "stabilize_page_unreviewable": "სამიზნე გვერდი არ მდებარეობს შემოწმებულ სახელთა სივრცეში.",
-    "stabilize_invalid_level": "დაცვის არასწორი დონე.",
-    "stabilize_expiry_invalid": "ვადის გასვლის არასწორი თარიღი.",
-    "stabilize_expiry_old": "მოქმედების ვადა გავიდა.",
-    "stabilize_denied": "წვდომა აკრძალულია.",
-    "stabilize-expiring": "ვადა გასდის: $1 (UTC)",
-    "stabilization-review": "მონიშნეთ ამჟამინდელი ცვლილება შემოწმებულად"
+	"@metadata": {
+		"authors": [
+			"BRUTE",
+			"David1010",
+			"გიორგიმელა"
+		]
+	},
+	"stabilization-tab": "vet",
+	"stabilization": "გვერდის სტაბილიზაცია",
+	"stabilization-page": "გვერდის სახელი:",
+	"stabilization-leg": "გამოქვეყნებული ვერსიის პარამეტრების დამოწმება",
+	"stabilization-def2": "ბოლო ვერსია",
+	"stabilization-restrict-none": "არც-ერთი დამატებითი აკრძალვა",
+	"stabilization-submit": "დამოწმება",
+	"stabilization-notexists": "არ არსებობს გვერდი სახელით \"[[:$1|$1]]\".\nკონფიგურაცია შეუძლებელია.",
+	"stabilization-notcontent": "გვერდი «[[:$1|$1]]» ვერ შემოწმდება. კონფიგურაცია შეუძლებელია.",
+	"stabilization-comment": "მიზეზი:",
+	"stabilization-otherreason": "სხვა მიზეზი:",
+	"stabilization-expiry": "ვადა:",
+	"stabilization-othertime": "სხვა დრო:",
+	"stabilization-def-short": "თავდაპირველი",
+	"stabilization-def-short-0": "მიმდინარე",
+	"stabilization-def-short-1": "გამოქვეყნებული",
+	"stabilize_page_invalid": "გვერდის სამიზნე სახელი არასწორია.",
+	"stabilize_page_notexists": "სამიზნე გვერდი არ არსებობს.",
+	"stabilize_page_unreviewable": "სამიზნე გვერდი არ მდებარეობს შემოწმებულ სახელთა სივრცეში.",
+	"stabilize_invalid_level": "დაცვის არასწორი დონე.",
+	"stabilize_expiry_invalid": "ვადის გასვლის არასწორი თარიღი.",
+	"stabilize_expiry_old": "მოქმედების ვადა გავიდა.",
+	"stabilize_denied": "წვდომა აკრძალულია.",
+	"stabilize-expiring": "ვადა გასდის: $1 (UTC)",
+	"stabilization-review": "მონიშნეთ ამჟამინდელი ცვლილება შემოწმებულად"
 }

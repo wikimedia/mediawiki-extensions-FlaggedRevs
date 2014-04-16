@@ -1,27 +1,27 @@
 {
-    "@metadata": {
-        "authors": [
-            "Chhorran",
-            "Lovekhmer",
-            "Thearith",
-            "គីមស៊្រុន",
-            "វ័ណថារិទ្ធ"
-        ]
-    },
-    "stabilization-page": "ឈ្មោះទំព័រ៖",
-    "stabilization-def2": "កំណែថ្មីបំផុត",
-    "stabilization-submit": "បញ្ជាក់ទទួលស្គាល់",
-    "stabilization-comment": "មូលហេតុ៖",
-    "stabilization-otherreason": "មូលហេតុផ្សេងទៀត៖",
-    "stabilization-expiry": "ផុតកំណត់៖",
-    "stabilization-othertime": "រយៈពេលផ្សេងទៀត៖",
-    "stabilization-def-short": "លំនាំដើម",
-    "stabilization-def-short-0": "បច្ចុប្បន្ន",
-    "stabilization-def-short-1": "ឋិតថេរ",
-    "stabilize_page_invalid": "ឈ្មោះឯកសារគោលដៅមិនត្រឹមត្រូវ។",
-    "stabilize_page_notexists": "មិនមាន​ទំព័រ​គោលដៅនេះ​ទេ​។",
-    "stabilize_expiry_invalid": "កាលបរិច្ឆេទផុតកំណត់មិនត្រឹមត្រូវ។",
-    "stabilize_expiry_old": "កាលបរិច្ឆេទផុតកំណត់បានហួសផុតបាត់ទៅហើយ។",
-    "stabilize_denied": "ការអនុញ្ញាតត្រូវបដិសេដ។",
-    "stabilize-expiring": "ផុតកំណត់ម៉ោង $1 (UTC)"
+	"@metadata": {
+		"authors": [
+			"Chhorran",
+			"Lovekhmer",
+			"Thearith",
+			"គីមស៊្រុន",
+			"វ័ណថារិទ្ធ"
+		]
+	},
+	"stabilization-page": "ឈ្មោះទំព័រ៖",
+	"stabilization-def2": "កំណែថ្មីបំផុត",
+	"stabilization-submit": "បញ្ជាក់ទទួលស្គាល់",
+	"stabilization-comment": "មូលហេតុ៖",
+	"stabilization-otherreason": "មូលហេតុផ្សេងទៀត៖",
+	"stabilization-expiry": "ផុតកំណត់៖",
+	"stabilization-othertime": "រយៈពេលផ្សេងទៀត៖",
+	"stabilization-def-short": "លំនាំដើម",
+	"stabilization-def-short-0": "បច្ចុប្បន្ន",
+	"stabilization-def-short-1": "ឋិតថេរ",
+	"stabilize_page_invalid": "ឈ្មោះឯកសារគោលដៅមិនត្រឹមត្រូវ។",
+	"stabilize_page_notexists": "មិនមាន​ទំព័រ​គោលដៅនេះ​ទេ​។",
+	"stabilize_expiry_invalid": "កាលបរិច្ឆេទផុតកំណត់មិនត្រឹមត្រូវ។",
+	"stabilize_expiry_old": "កាលបរិច្ឆេទផុតកំណត់បានហួសផុតបាត់ទៅហើយ។",
+	"stabilize_denied": "ការអនុញ្ញាតត្រូវបដិសេដ។",
+	"stabilize-expiring": "ផុតកំណត់ម៉ោង $1 (UTC)"
 }

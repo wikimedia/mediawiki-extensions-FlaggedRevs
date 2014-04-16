@@ -1,29 +1,29 @@
 {
-    "@metadata": {
-        "authors": [
-            "Bdamokos",
-            "BáthoryPéter",
-            "Dani",
-            "Dorgan",
-            "Glanthor Reviol",
-            "Hunyadym",
-            "Misibacsi",
-            "Samat"
-        ]
-    },
-    "validationstatistics": "Ellenőrzési statisztika",
-    "validationstatistics-users": "A(z) '''{{SITENAME}}''' wikinek jelenleg '''[[Special:ListUsers/editor|$1]]''' [[{{MediaWiki:Validationpage}}|járőrjoggal]]  rendelkező szerkesztője van.\n\nA járőrök olyan tapasztalt szerkesztők, akik ellenőrizhetik a lapok változatait.",
-    "validationstatistics-lastupdate": "''Az alábbi adatokat legutóbb $1 $2-kor frissítették.''",
-    "validationstatistics-pndtime": "Azok a szerkesztések, amiket megerősített szerkesztők végeznek, ellenőrzöttnek minősülnek.\n\n[[Special:OldReviewedPages|A nem ellenőrzött szerkesztésekkel rendelkező lapok]] átlagos várakozási ideje '''$1'''. A várakozási idő az ellenőrzésre váró legrégebbi módosítás óta értendő.",
-    "validationstatistics-revtime": "A ''nem bejelentkezett szerkesztőknek'' '''$1''' az átlagos várakozási idő az ellenőrzésig; a medián '''$2'''.\n$3",
-    "validationstatistics-table": "Ezen az oldalon a névterekre bontott ellenőrzési statisztika látható, az átirányítások ''nélkül''. Egy oldal ''elavult'' lesz, ha ellenőrzésre váró módosítás történt rajta. ''Szinkronban van'', ha nincs ellenőrzésre váró módosítás.",
-    "validationstatistics-ns": "Névtér",
-    "validationstatistics-total": "Lapok",
-    "validationstatistics-stable": "Ellenőrizve",
-    "validationstatistics-latest": "Szinkronizálva",
-    "validationstatistics-synced": "Szinkronizálva/ellenőrizve",
-    "validationstatistics-old": "Elavult",
-    "validationstatistics-utable": "A lista a(z) {{PLURAL:$1|legaktívabb járőrt|$1 legaktívabb járőrt}} mutatja az elmúlt {{PLURAL:$2|órában|$2 órában}}.",
-    "validationstatistics-user": "Felhasználó",
-    "validationstatistics-reviews": "Ellenőrzések"
+	"@metadata": {
+		"authors": [
+			"Bdamokos",
+			"BáthoryPéter",
+			"Dani",
+			"Dorgan",
+			"Glanthor Reviol",
+			"Hunyadym",
+			"Misibacsi",
+			"Samat"
+		]
+	},
+	"validationstatistics": "Ellenőrzési statisztika",
+	"validationstatistics-users": "A(z) '''{{SITENAME}}''' wikinek jelenleg '''[[Special:ListUsers/editor|$1]]''' [[{{MediaWiki:Validationpage}}|járőrjoggal]]  rendelkező szerkesztője van.\n\nA járőrök olyan tapasztalt szerkesztők, akik ellenőrizhetik a lapok változatait.",
+	"validationstatistics-lastupdate": "''Az alábbi adatokat legutóbb $1 $2-kor frissítették.''",
+	"validationstatistics-pndtime": "Azok a szerkesztések, amiket megerősített szerkesztők végeznek, ellenőrzöttnek minősülnek.\n\n[[Special:OldReviewedPages|A nem ellenőrzött szerkesztésekkel rendelkező lapok]] átlagos várakozási ideje '''$1'''. A várakozási idő az ellenőrzésre váró legrégebbi módosítás óta értendő.",
+	"validationstatistics-revtime": "A ''nem bejelentkezett szerkesztőknek'' '''$1''' az átlagos várakozási idő az ellenőrzésig; a medián '''$2'''.\n$3",
+	"validationstatistics-table": "Ezen az oldalon a névterekre bontott ellenőrzési statisztika látható, az átirányítások ''nélkül''. Egy oldal ''elavult'' lesz, ha ellenőrzésre váró módosítás történt rajta. ''Szinkronban van'', ha nincs ellenőrzésre váró módosítás.",
+	"validationstatistics-ns": "Névtér",
+	"validationstatistics-total": "Lapok",
+	"validationstatistics-stable": "Ellenőrizve",
+	"validationstatistics-latest": "Szinkronizálva",
+	"validationstatistics-synced": "Szinkronizálva/ellenőrizve",
+	"validationstatistics-old": "Elavult",
+	"validationstatistics-utable": "A lista a(z) {{PLURAL:$1|legaktívabb járőrt|$1 legaktívabb járőrt}} mutatja az elmúlt {{PLURAL:$2|órában|$2 órában}}.",
+	"validationstatistics-user": "Felhasználó",
+	"validationstatistics-reviews": "Ellenőrzések"
 }

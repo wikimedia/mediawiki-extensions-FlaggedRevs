@@ -1,13 +1,13 @@
 {
-    "@metadata": {
-        "authors": [
-            "Игорь Бродский"
-        ]
-    },
-    "reviewedversions": "kodvdud versijad",
-    "reviewedversions-leg1": "Lehtpolen kodvdud versijoiden nimikirjutez",
-    "reviewedversions-page": "Lehtpolen nimi:",
-    "reviewedversions-none": "\"[[:$1]]\"-lehtpolel ei ole kodvdud versijoid",
-    "reviewedversions-list": "Naku om nimikirjutez, kudambas om [[:$1]]-lehtpolen {{PLURAL:$2|üksjäine kodvdud redakcii|kodvdud redakcijoid}}",
-    "reviewedversions-review": "Om kodvdud datal <i>$1</i> $2-arvostelijal"
+	"@metadata": {
+		"authors": [
+			"Игорь Бродский"
+		]
+	},
+	"reviewedversions": "kodvdud versijad",
+	"reviewedversions-leg1": "Lehtpolen kodvdud versijoiden nimikirjutez",
+	"reviewedversions-page": "Lehtpolen nimi:",
+	"reviewedversions-none": "\"[[:$1]]\"-lehtpolel ei ole kodvdud versijoid",
+	"reviewedversions-list": "Naku om nimikirjutez, kudambas om [[:$1]]-lehtpolen {{PLURAL:$2|üksjäine kodvdud redakcii|kodvdud redakcijoid}}",
+	"reviewedversions-review": "Om kodvdud datal <i>$1</i> $2-arvostelijal"
 }

@@ -1,31 +1,31 @@
 {
-    "@metadata": {
-        "authors": [
-            "Crochet.david",
-            "Gomoko",
-            "Grondin",
-            "IAlex",
-            "McDutchie",
-            "Peter17",
-            "PieRRoMaN",
-            "Verdy p",
-            "Zetud"
-        ]
-    },
-    "validationstatistics": "Statistiques de relecture des pages",
-    "validationstatistics-users": "'''{{SITENAME}}''' dispose actuellement de '''[[Special:ListUsers/editor|$1]]''' utilisateur{{PLURAL:$1||s}} avec les droits de [[{{MediaWiki:Validationpage}}|contributeur]].\n\nLes contributeurs et relecteurs sont des utilisateurs établis qui peuvent vérifier les révisions des pages.",
-    "validationstatistics-lastupdate": "''Les données suivantes ont été mises à jour le $1 sur $2.''",
-    "validationstatistics-pndtime": "Les modifications vérifiées par les utilisateurs confirmés sont considérées comme ''{{int:validationstatistics-stable}}''.\n\nLe retard de relecture moyen des [[Special:OldReviewedPages|pages contenant des modifications actuellement à relire]] est '''$1''', le retard mesure combien de temps les modifications les plus anciennes en attente sont restées non relues.",
-    "validationstatistics-revtime": "Le délai d’attente moyen pour la relecture des modifications faites par les ''utilisateurs non enregistrés'' est '''$1''' ; la médiane est '''$2'''.\n$3",
-    "validationstatistics-table": "Les statistiques de relecture pour chaque espace de noms sont affichées ci-dessous, ''à l’exception'' des pages de redirection.\nLes pages sont traitées comme ''{{int:validationstatistics-old}}'' si elles ont des modifications en attente ;\nles pages sont considérées comme ''{{int:validationstatistics-latest}}'' si elle n’ont pas de modifications en attente.",
-    "validationstatistics-ns": "Espace de noms",
-    "validationstatistics-total": "Pages",
-    "validationstatistics-stable": "Révisée",
-    "validationstatistics-latest": "Synchronisée",
-    "validationstatistics-synced": "Synchronisée/Révisée",
-    "validationstatistics-old": "Périmée",
-    "validationstatistics-unreviewed": "Non relu",
-    "validationstatistics-utable": "Ci-dessous figure {{PLURAL:$1|le relecteur le plus actif|les $1 relecteurs les plus actifs}} dans {{PLURAL:$2|la dernière heure|les $2 dernières heures}}.",
-    "validationstatistics-user": "Utilisateur",
-    "validationstatistics-reviews": "Relecteurs"
+	"@metadata": {
+		"authors": [
+			"Crochet.david",
+			"Gomoko",
+			"Grondin",
+			"IAlex",
+			"McDutchie",
+			"Peter17",
+			"PieRRoMaN",
+			"Verdy p",
+			"Zetud"
+		]
+	},
+	"validationstatistics": "Statistiques de relecture des pages",
+	"validationstatistics-users": "'''{{SITENAME}}''' dispose actuellement de '''[[Special:ListUsers/editor|$1]]''' utilisateur{{PLURAL:$1||s}} avec les droits de [[{{MediaWiki:Validationpage}}|contributeur]].\n\nLes contributeurs et relecteurs sont des utilisateurs établis qui peuvent vérifier les révisions des pages.",
+	"validationstatistics-lastupdate": "''Les données suivantes ont été mises à jour le $1 sur $2.''",
+	"validationstatistics-pndtime": "Les modifications vérifiées par les utilisateurs confirmés sont considérées comme ''{{int:validationstatistics-stable}}''.\n\nLe retard de relecture moyen des [[Special:OldReviewedPages|pages contenant des modifications actuellement à relire]] est '''$1''', le retard mesure combien de temps les modifications les plus anciennes en attente sont restées non relues.",
+	"validationstatistics-revtime": "Le délai d’attente moyen pour la relecture des modifications faites par les ''utilisateurs non enregistrés'' est '''$1''' ; la médiane est '''$2'''.\n$3",
+	"validationstatistics-table": "Les statistiques de relecture pour chaque espace de noms sont affichées ci-dessous, ''à l’exception'' des pages de redirection.\nLes pages sont traitées comme ''{{int:validationstatistics-old}}'' si elles ont des modifications en attente ;\nles pages sont considérées comme ''{{int:validationstatistics-latest}}'' si elle n’ont pas de modifications en attente.",
+	"validationstatistics-ns": "Espace de noms",
+	"validationstatistics-total": "Pages",
+	"validationstatistics-stable": "Révisée",
+	"validationstatistics-latest": "Synchronisée",
+	"validationstatistics-synced": "Synchronisée/Révisée",
+	"validationstatistics-old": "Périmée",
+	"validationstatistics-unreviewed": "Non relu",
+	"validationstatistics-utable": "Ci-dessous figure {{PLURAL:$1|le relecteur le plus actif|les $1 relecteurs les plus actifs}} dans {{PLURAL:$2|la dernière heure|les $2 dernières heures}}.",
+	"validationstatistics-user": "Utilisateur",
+	"validationstatistics-reviews": "Relecteurs"
 }

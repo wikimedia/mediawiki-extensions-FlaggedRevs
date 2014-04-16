@@ -1,17 +1,17 @@
 {
-    "@metadata": {
-        "authors": [
-            "Charmed94",
-            "Milicevic01",
-            "Millosh",
-            "Sasa Stefanovic",
-            "Михајло Анђелковић"
-        ]
-    },
-    "reviewedversions": "Прегледана издања",
-    "reviewedversions-leg1": "Списак прегледаних ревизија за страну",
-    "reviewedversions-page": "Назив странице:",
-    "reviewedversions-none": "\"[[:$1]]\" нема прегледаних ревизија.",
-    "reviewedversions-list": "Следи списак {{PLURAL:$2|једине ревизије|ревизија}} из [[:$1]], {{PLURAL:$2|која је прегледана|које су прегледане}}:",
-    "reviewedversions-review": "Прегледано на <i>$1</i> од стране $2"
+	"@metadata": {
+		"authors": [
+			"Charmed94",
+			"Milicevic01",
+			"Millosh",
+			"Sasa Stefanovic",
+			"Михајло Анђелковић"
+		]
+	},
+	"reviewedversions": "Прегледана издања",
+	"reviewedversions-leg1": "Списак прегледаних ревизија за страну",
+	"reviewedversions-page": "Назив странице:",
+	"reviewedversions-none": "\"[[:$1]]\" нема прегледаних ревизија.",
+	"reviewedversions-list": "Следи списак {{PLURAL:$2|једине ревизије|ревизија}} из [[:$1]], {{PLURAL:$2|која је прегледана|које су прегледане}}:",
+	"reviewedversions-review": "Прегледано на <i>$1</i> од стране $2"
 }

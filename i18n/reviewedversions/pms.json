@@ -1,15 +1,15 @@
 {
-    "@metadata": {
-        "authors": [
-            "Borichèt",
-            "Bèrto 'd Sèra",
-            "Dragonòt"
-        ]
-    },
-    "reviewedversions": "Version revisionà",
-    "reviewedversions-leg1": "Fé na lista dle version aprovà ëd na pàgina",
-    "reviewedversions-page": "Nòm dla pàgina",
-    "reviewedversions-none": "[[:$1]] a l'ha pa gnun-a version revisionà.",
-    "reviewedversions-list": "Costa-sì a l'é na lista ëd version ëd {{PLURAL:$2|na revision|le revision}} ëd [[:$1]] ch'a {{PLURAL:$2|l'é stàita|son ëstàite}}  revisionà:",
-    "reviewedversions-review": "Revisionà dël <i>$1</i> da $2"
+	"@metadata": {
+		"authors": [
+			"Borichèt",
+			"Bèrto 'd Sèra",
+			"Dragonòt"
+		]
+	},
+	"reviewedversions": "Version revisionà",
+	"reviewedversions-leg1": "Fé na lista dle version aprovà ëd na pàgina",
+	"reviewedversions-page": "Nòm dla pàgina",
+	"reviewedversions-none": "[[:$1]] a l'ha pa gnun-a version revisionà.",
+	"reviewedversions-list": "Costa-sì a l'é na lista ëd version ëd {{PLURAL:$2|na revision|le revision}} ëd [[:$1]] ch'a {{PLURAL:$2|l'é stàita|son ëstàite}}  revisionà:",
+	"reviewedversions-review": "Revisionà dël <i>$1</i> da $2"
 }

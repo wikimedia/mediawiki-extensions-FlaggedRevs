@@ -1,13 +1,13 @@
 {
-    "@metadata": {
-        "authors": [
-            "Siebrand"
-        ]
-    },
-    "configuredpages": "Pagina's met controleinstellingen",
-    "configuredpages-list": "Deze pagina bevat een lijst met pagina's waarvoor de controleinstellingen afwijken van de standaardinstellingen.\nInstellingen wijzigen welke versie wordt weergegeven aan lezers of beperken wie kan kan bewerken zonder dat controle noodzakelijk is.",
-    "configuredpages-none": "Er zijn geen pagina's die aan de criteria voldoen.",
-    "configuredpages-config": "Instellingen",
-    "configuredpages-def-draft": "laatste versie",
-    "configuredpages-def-stable": "gepubliceerde versie"
+	"@metadata": {
+		"authors": [
+			"Siebrand"
+		]
+	},
+	"configuredpages": "Pagina's met controleinstellingen",
+	"configuredpages-list": "Deze pagina bevat een lijst met pagina's waarvoor de controleinstellingen afwijken van de standaardinstellingen.\nInstellingen wijzigen welke versie wordt weergegeven aan lezers of beperken wie kan kan bewerken zonder dat controle noodzakelijk is.",
+	"configuredpages-none": "Er zijn geen pagina's die aan de criteria voldoen.",
+	"configuredpages-config": "Instellingen",
+	"configuredpages-def-draft": "laatste versie",
+	"configuredpages-def-stable": "gepubliceerde versie"
 }

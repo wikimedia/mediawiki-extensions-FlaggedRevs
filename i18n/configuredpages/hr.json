@@ -1,14 +1,14 @@
 {
-    "@metadata": {
-        "authors": [
-            "Ex13",
-            "SpeedyGonsales"
-        ]
-    },
-    "configuredpages": "Stranice s postavkama provjere",
-    "configuredpages-list": "Slijedi popis stranica konfiguriranih tako da imaju različite postavke odobrenja od pretpostavljene vrijednosti (''default'') projekta.\nOdređene postavke mogu promijeniti koja se inačica prikazuje čitateljima ili dalje ograničiti tko može uređivati stranicu da pregled nije nužan.",
-    "configuredpages-none": "Nema stranica na ovom popisu.",
-    "configuredpages-config": "Konfiguracija",
-    "configuredpages-def-draft": "najnovija inačica",
-    "configuredpages-def-stable": "stabilna inačica"
+	"@metadata": {
+		"authors": [
+			"Ex13",
+			"SpeedyGonsales"
+		]
+	},
+	"configuredpages": "Stranice s postavkama provjere",
+	"configuredpages-list": "Slijedi popis stranica konfiguriranih tako da imaju različite postavke odobrenja od pretpostavljene vrijednosti (''default'') projekta.\nOdređene postavke mogu promijeniti koja se inačica prikazuje čitateljima ili dalje ograničiti tko može uređivati stranicu da pregled nije nužan.",
+	"configuredpages-none": "Nema stranica na ovom popisu.",
+	"configuredpages-config": "Konfiguracija",
+	"configuredpages-def-draft": "najnovija inačica",
+	"configuredpages-def-stable": "stabilna inačica"
 }

@@ -1,10 +1,10 @@
 {
-    "@metadata": {
-        "authors": [
-            "Malafaya"
-        ]
-    },
-    "unreviewedpages-category": "Kategorio:",
-    "unreviewedpages-hours": "($1 {{PLURAL:$1|horo|hori}})",
-    "unreviewedpages-days": "($1 {{PLURAL:$1|dio|dii}})"
+	"@metadata": {
+		"authors": [
+			"Malafaya"
+		]
+	},
+	"unreviewedpages-category": "Kategorio:",
+	"unreviewedpages-hours": "($1 {{PLURAL:$1|horo|hori}})",
+	"unreviewedpages-days": "($1 {{PLURAL:$1|dio|dii}})"
 }

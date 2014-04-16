@@ -1,17 +1,17 @@
 {
-    "@metadata": {
-        "authors": [
-            "Mostafadaneshvar"
-        ]
-    },
-    "revisionreview": "بازبینی اصلاحات",
-    "revreview-flag": "ای بازبینی اصلاح کن",
-    "revreview-invalid": "'''نامعتبراین هدف:''' هچ [[{{MediaWiki:Validationpage}}|بازبینی بوتگین]] نسخه مطابق انت گون داتگین شناسگ.",
-    "revreview-log": "نظر:",
-    "revreview-stable2": "شما شاید بلوٹیت بگندیت [{{fullurl:$1|stable=1}} نسخه ثابتی]چه ای صفحه (اگر که هستن).",
-    "revreview-submit": "بازبینی دیم دی",
-    "revreview-successful": "'''انتخابی بازبینی [[:$1|$1]]گون موفقیت نشان بوت. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} بچار کل نسخ نشان بوتگینء])'''",
-    "revreview-successful2": "'''انتخاب بوتگین باز بینی [[:$1|$1]] گون موفقیت بی نشان بوت.'''",
-    "revreview-toolow": "شما بایدن حداقل هر یکی چه جهلگین نشانانء درجه بللیت گیشتر چه \"unapproved\" تا یک بازبینیء په داب چارتگین بیت.\nپه نسخ کتن یک بازبینی کل فیلدانء په داب \"unapproved\" نشان کن.",
-    "revreview-update-includes": "لهتی تمپلتان/تصاویر په روچ بیتگین:"
+	"@metadata": {
+		"authors": [
+			"Mostafadaneshvar"
+		]
+	},
+	"revisionreview": "بازبینی اصلاحات",
+	"revreview-flag": "ای بازبینی اصلاح کن",
+	"revreview-invalid": "'''نامعتبراین هدف:''' هچ [[{{MediaWiki:Validationpage}}|بازبینی بوتگین]] نسخه مطابق انت گون داتگین شناسگ.",
+	"revreview-log": "نظر:",
+	"revreview-stable2": "شما شاید بلوٹیت بگندیت [{{fullurl:$1|stable=1}} نسخه ثابتی]چه ای صفحه (اگر که هستن).",
+	"revreview-submit": "بازبینی دیم دی",
+	"revreview-successful": "'''انتخابی بازبینی [[:$1|$1]]گون موفقیت نشان بوت. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} بچار کل نسخ نشان بوتگینء])'''",
+	"revreview-successful2": "'''انتخاب بوتگین باز بینی [[:$1|$1]] گون موفقیت بی نشان بوت.'''",
+	"revreview-toolow": "شما بایدن حداقل هر یکی چه جهلگین نشانانء درجه بللیت گیشتر چه \"unapproved\" تا یک بازبینیء په داب چارتگین بیت.\nپه نسخ کتن یک بازبینی کل فیلدانء په داب \"unapproved\" نشان کن.",
+	"revreview-update-includes": "لهتی تمپلتان/تصاویر په روچ بیتگین:"
 }

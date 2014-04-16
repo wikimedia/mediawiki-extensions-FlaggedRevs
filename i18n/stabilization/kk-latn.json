@@ -1,21 +1,19 @@
 {
-    "@metadata": {
-        "authors": []
-    },
-    "stabilization-tab": "(sq)",
-    "stabilization": "Betti tïyanaqtaw",
-    "stabilization-text": "Tömendegi baptalımdardı özgertkende [[:$1|$1]] degenniñ tïyanaqtı nusqası qalaý bölektenwi men körsetilwi tüzetiledi.",
-    "stabilization-perm": "Tirkelgiñizge tïyanaqtı nusqanıñ baptalımın özgertwge ruqsat berilmegen.\n[[:$1|$1]] üşin ağımdağı baptawlar mında keltiriledi:",
-    "stabilization-page": "Bet atawı:",
-    "stabilization-leg": "Bet üşin tïyanaqtı nusqanı baptaw",
-    "stabilization-def": "Bettiñ ädepki körinisinde keltiriletin nusqa",
-    "stabilization-def1": "Tïyanaqtı nusqası; eger joq bolsa, ağımdağılardıñ birewi boladı",
-    "stabilization-def2": "Ağımdıq nusqası",
-    "stabilization-submit": "Quptaw",
-    "stabilization-notexists": "«[[:$1|$1]]» dep atalğan eş bet joq. Eş baptalım rettelmeýdi.",
-    "stabilization-notcontent": "«[[:$1|$1]]» degen betke sın berilmeýdi. Eş baptalım rettelmeýdi.",
-    "stabilization-comment": "Sebebi:",
-    "stabilization-def-short": "Ädepki",
-    "stabilization-def-short-0": "Ağımdıq",
-    "stabilization-def-short-1": "Tïyanaqtı"
+	"@metadata": [],
+	"stabilization-tab": "(sq)",
+	"stabilization": "Betti tïyanaqtaw",
+	"stabilization-text": "Tömendegi baptalımdardı özgertkende [[:$1|$1]] degenniñ tïyanaqtı nusqası qalaý bölektenwi men körsetilwi tüzetiledi.",
+	"stabilization-perm": "Tirkelgiñizge tïyanaqtı nusqanıñ baptalımın özgertwge ruqsat berilmegen.\n[[:$1|$1]] üşin ağımdağı baptawlar mında keltiriledi:",
+	"stabilization-page": "Bet atawı:",
+	"stabilization-leg": "Bet üşin tïyanaqtı nusqanı baptaw",
+	"stabilization-def": "Bettiñ ädepki körinisinde keltiriletin nusqa",
+	"stabilization-def1": "Tïyanaqtı nusqası; eger joq bolsa, ağımdağılardıñ birewi boladı",
+	"stabilization-def2": "Ağımdıq nusqası",
+	"stabilization-submit": "Quptaw",
+	"stabilization-notexists": "«[[:$1|$1]]» dep atalğan eş bet joq. Eş baptalım rettelmeýdi.",
+	"stabilization-notcontent": "«[[:$1|$1]]» degen betke sın berilmeýdi. Eş baptalım rettelmeýdi.",
+	"stabilization-comment": "Sebebi:",
+	"stabilization-def-short": "Ädepki",
+	"stabilization-def-short-0": "Ağımdıq",
+	"stabilization-def-short-1": "Tïyanaqtı"
 }

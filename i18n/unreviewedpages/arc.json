@@ -1,12 +1,12 @@
 {
-    "@metadata": {
-        "authors": [
-            "Basharh"
-        ]
-    },
-    "unreviewedpages-category": "ܣܕܪܐ:",
-    "unreviewedpages-diff": "ܬܢܝ",
-    "unreviewedpages-hours": "($1 {{PLURAL:$1|ܫܥܬܐ|ܫܥܬ̈ܐ}})",
-    "unreviewedpages-days": "($1 {{PLURAL:$1|ܝܘܡܐ|ܝܘܡܬ̈ܐ}})",
-    "unreviewedpages-recent": "(ܒܨܝܪ ܡܢ ܚܕܐ ܫܥܬܐ)"
+	"@metadata": {
+		"authors": [
+			"Basharh"
+		]
+	},
+	"unreviewedpages-category": "ܣܕܪܐ:",
+	"unreviewedpages-diff": "ܬܢܝ",
+	"unreviewedpages-hours": "($1 {{PLURAL:$1|ܫܥܬܐ|ܫܥܬ̈ܐ}})",
+	"unreviewedpages-days": "($1 {{PLURAL:$1|ܝܘܡܐ|ܝܘܡܬ̈ܐ}})",
+	"unreviewedpages-recent": "(ܒܨܝܪ ܡܢ ܚܕܐ ܫܥܬܐ)"
 }

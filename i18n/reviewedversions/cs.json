@@ -1,15 +1,15 @@
 {
-    "@metadata": {
-        "authors": [
-            "Jezevec",
-            "Li-sung",
-            "Matěj Grabovský"
-        ]
-    },
-    "reviewedversions": "Posouzené verze",
-    "reviewedversions-leg1": "Přehled posouzených verzí stránky",
-    "reviewedversions-page": "Jméno stránky",
-    "reviewedversions-none": "[[:$1]] nemá žádné posouzené verze.",
-    "reviewedversions-list": "Toto je seznam {{PLURAL:$2|jediné revize|revizí}} stránky [[:$1]], {{PLURAL:$2|která nebyla|které nebyly}} posouzeny:",
-    "reviewedversions-review": "Posouzeno <i>$1</i> uživatelem $2"
+	"@metadata": {
+		"authors": [
+			"Jezevec",
+			"Li-sung",
+			"Matěj Grabovský"
+		]
+	},
+	"reviewedversions": "Posouzené verze",
+	"reviewedversions-leg1": "Přehled posouzených verzí stránky",
+	"reviewedversions-page": "Jméno stránky",
+	"reviewedversions-none": "[[:$1]] nemá žádné posouzené verze.",
+	"reviewedversions-list": "Toto je seznam {{PLURAL:$2|jediné revize|revizí}} stránky [[:$1]], {{PLURAL:$2|která nebyla|které nebyly}} posouzeny:",
+	"reviewedversions-review": "Posouzeno <i>$1</i> uživatelem $2"
 }

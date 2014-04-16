@@ -1,23 +1,23 @@
 {
-    "@metadata": {
-        "authors": [
-            "Дзяніс Тутэйшы",
-            "Хомелка"
-        ]
-    },
-    "validationstatistics": "Статыстыка праверак старонак",
-    "validationstatistics-users": "У праекце {{SITENAME}} на дадзены момант '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|удзельнік мае|удзельнікі маюць|удзельнікаў маюць}} паўнамоцтвы [[{{MediaWiki:Validationpage}}|«рэдактара»]].\n\n«Рэдактары» — гэта пэўныя ўдзельнікі, якія маюць магчымасць рабіць выбарачную праверку пэўных версій старонак.",
-    "validationstatistics-lastupdate": "''Наступныя дадзеныя былі апошні раз абноўленыя $1 у $2.''",
-    "validationstatistics-pndtime": "Праўкі, адзначаныя пэўнымі удзельнікамі, лічацца праверанымі.\n\nСярэдняя затрымка [[Special:OldReviewedPages|для старонак з неправеранымі зменамі]] — '''$1'''.\nГэтыя старонкі лічацца ''састарэлымі''. Старонкі лічацца ''сінхранізаванымі'', калі няма правак, якія чакаюць праверкі.",
-    "validationstatistics-revtime": "Сярэдняя затрымка праверкі для правак, якія зрабілі ''ўдзельнікі, якія не прадставіліся'', складае '''$1'''; медыяна — '''$2'''.\n$3",
-    "validationstatistics-table": "Ніжэй прадстаўлена статыстыка праверак па кожнай прасторы імёнаў, ''выключаючы'' старонкі перанакіраванняў.",
-    "validationstatistics-ns": "Прастора імёнаў",
-    "validationstatistics-total": "Старонак",
-    "validationstatistics-stable": "Правераныя",
-    "validationstatistics-latest": "Пераправераныя",
-    "validationstatistics-synced": "Доля пераправераных у правераных",
-    "validationstatistics-old": "Састарэлыя",
-    "validationstatistics-utable": "Ніжэй прыведзены пералік з $1 найбольш актыўных вывяраючых за апошнюю гадзіну.",
-    "validationstatistics-user": "Удзельнік",
-    "validationstatistics-reviews": "Праверкі"
+	"@metadata": {
+		"authors": [
+			"Дзяніс Тутэйшы",
+			"Хомелка"
+		]
+	},
+	"validationstatistics": "Статыстыка праверак старонак",
+	"validationstatistics-users": "У праекце {{SITENAME}} на дадзены момант '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|удзельнік мае|удзельнікі маюць|удзельнікаў маюць}} паўнамоцтвы [[{{MediaWiki:Validationpage}}|«рэдактара»]].\n\n«Рэдактары» — гэта пэўныя ўдзельнікі, якія маюць магчымасць рабіць выбарачную праверку пэўных версій старонак.",
+	"validationstatistics-lastupdate": "''Наступныя дадзеныя былі апошні раз абноўленыя $1 у $2.''",
+	"validationstatistics-pndtime": "Праўкі, адзначаныя пэўнымі удзельнікамі, лічацца праверанымі.\n\nСярэдняя затрымка [[Special:OldReviewedPages|для старонак з неправеранымі зменамі]] — '''$1'''.\nГэтыя старонкі лічацца ''састарэлымі''. Старонкі лічацца ''сінхранізаванымі'', калі няма правак, якія чакаюць праверкі.",
+	"validationstatistics-revtime": "Сярэдняя затрымка праверкі для правак, якія зрабілі ''ўдзельнікі, якія не прадставіліся'', складае '''$1'''; медыяна — '''$2'''.\n$3",
+	"validationstatistics-table": "Ніжэй прадстаўлена статыстыка праверак па кожнай прасторы імёнаў, ''выключаючы'' старонкі перанакіраванняў.",
+	"validationstatistics-ns": "Прастора імёнаў",
+	"validationstatistics-total": "Старонак",
+	"validationstatistics-stable": "Правераныя",
+	"validationstatistics-latest": "Пераправераныя",
+	"validationstatistics-synced": "Доля пераправераных у правераных",
+	"validationstatistics-old": "Састарэлыя",
+	"validationstatistics-utable": "Ніжэй прыведзены пералік з $1 найбольш актыўных вывяраючых за апошнюю гадзіну.",
+	"validationstatistics-user": "Удзельнік",
+	"validationstatistics-reviews": "Праверкі"
 }

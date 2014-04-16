@@ -1,11 +1,11 @@
 {
-    "@metadata": {
-        "authors": [
-            "Growingup"
-        ]
-    },
-    "validationstatistics-ns": "Ат мейкиндиги",
-    "validationstatistics-total": "Барак",
-    "validationstatistics-user": "Катышуучу",
-    "validationstatistics-reviews": "Текшерүүлөр"
+	"@metadata": {
+		"authors": [
+			"Growingup"
+		]
+	},
+	"validationstatistics-ns": "Ат мейкиндиги",
+	"validationstatistics-total": "Барак",
+	"validationstatistics-user": "Катышуучу",
+	"validationstatistics-reviews": "Текшерүүлөр"
 }

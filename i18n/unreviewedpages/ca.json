@@ -1,25 +1,25 @@
 {
-    "@metadata": {
-        "authors": [
-            "Aleator",
-            "Grondin",
-            "Jordi Roqué",
-            "Qllach",
-            "SMP",
-            "Toniher"
-        ]
-    },
-    "action-unreviewedpages": "visualitza la llista de les pàgines no revisades",
-    "unreviewedpages": "Pàgines per revisar",
-    "unreviewedpages-legend": "Llista de pàgines amb contingut no revisat",
-    "unreviewedpages-category": "Categoria:",
-    "unreviewedpages-diff": "revisió",
-    "unreviewedpages-unwatched": "(no vigilat)",
-    "unreviewedpages-watched": "($1 {{PLURAL:$1|usuari|usuaris}} actius vigilant)",
-    "unreviewedpages-list": "Aquesta pàgina llista les pàgines de contingut que '''no''' han estat [[{{MediaWiki:Validationpage}}|revisades]] al nivell indicat.",
-    "unreviewedpages-none": "En aquest moment no hi ha pàgines que compleixin aquests criteris",
-    "unreviewedpages-viewing": "(sota revisió)",
-    "unreviewedpages-hours": "($1 {{PLURAL:$1|hora|hores}})",
-    "unreviewedpages-days": "($1 {{PLURAL:$1|dia|dies}})",
-    "unreviewedpages-recent": "(menys d'una hora)"
+	"@metadata": {
+		"authors": [
+			"Aleator",
+			"Grondin",
+			"Jordi Roqué",
+			"Qllach",
+			"SMP",
+			"Toniher"
+		]
+	},
+	"action-unreviewedpages": "visualitza la llista de les pàgines no revisades",
+	"unreviewedpages": "Pàgines per revisar",
+	"unreviewedpages-legend": "Llista de pàgines amb contingut no revisat",
+	"unreviewedpages-category": "Categoria:",
+	"unreviewedpages-diff": "revisió",
+	"unreviewedpages-unwatched": "(no vigilat)",
+	"unreviewedpages-watched": "($1 {{PLURAL:$1|usuari|usuaris}} actius vigilant)",
+	"unreviewedpages-list": "Aquesta pàgina llista les pàgines de contingut que '''no''' han estat [[{{MediaWiki:Validationpage}}|revisades]] al nivell indicat.",
+	"unreviewedpages-none": "En aquest moment no hi ha pàgines que compleixin aquests criteris",
+	"unreviewedpages-viewing": "(sota revisió)",
+	"unreviewedpages-hours": "($1 {{PLURAL:$1|hora|hores}})",
+	"unreviewedpages-days": "($1 {{PLURAL:$1|dia|dies}})",
+	"unreviewedpages-recent": "(menys d'una hora)"
 }

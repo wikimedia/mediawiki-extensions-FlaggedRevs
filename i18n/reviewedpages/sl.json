@@ -1,13 +1,13 @@
 {
-    "@metadata": {
-        "authors": [
-            "Dbc334"
-        ]
-    },
-    "reviewedpages": "Pregledane strani",
-    "reviewedpages-leg": "Navede strani, ki so bile pregledane",
-    "reviewedpages-list": "Ta seznam vsebuje [[{{MediaWiki:Validationpage}}|pregledane]] strani, ki imajo določeno ''najvišjo doseženo'' stopnjo pregleda (redakcije).\nPodana je tudi povezava do najnovejše redakcije te stopnje.",
-    "reviewedpages-none": "Na tem seznamu ni strani.",
-    "reviewedpages-all": "pregledane redakcije",
-    "reviewedpages-best": "najboljša redakcija"
+	"@metadata": {
+		"authors": [
+			"Dbc334"
+		]
+	},
+	"reviewedpages": "Pregledane strani",
+	"reviewedpages-leg": "Navede strani, ki so bile pregledane",
+	"reviewedpages-list": "Ta seznam vsebuje [[{{MediaWiki:Validationpage}}|pregledane]] strani, ki imajo določeno ''najvišjo doseženo'' stopnjo pregleda (redakcije).\nPodana je tudi povezava do najnovejše redakcije te stopnje.",
+	"reviewedpages-none": "Na tem seznamu ni strani.",
+	"reviewedpages-all": "pregledane redakcije",
+	"reviewedpages-best": "najboljša redakcija"
 }

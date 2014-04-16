@@ -1,12 +1,12 @@
 {
-    "@metadata": {
-        "authors": [
-            "Rancher",
-            "Жељко Тодоровић",
-            "Михајло Анђелковић"
-        ]
-    },
-    "configuredpages-config": "Подешавања",
-    "configuredpages-def-draft": "најновија верзија",
-    "configuredpages-def-stable": "стабилна верзија"
+	"@metadata": {
+		"authors": [
+			"Rancher",
+			"Жељко Тодоровић",
+			"Михајло Анђелковић"
+		]
+	},
+	"configuredpages-config": "Подешавања",
+	"configuredpages-def-draft": "најновија верзија",
+	"configuredpages-def-stable": "стабилна верзија"
 }

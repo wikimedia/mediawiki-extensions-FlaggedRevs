@@ -1,12 +1,12 @@
 {
-    "@metadata": {
-        "authors": [
-            "Joetaras"
-        ]
-    },
-    "stablepages": "Pàggene ca ausane 'nu cangiamende approvate",
-    "stablepages-list": "Sotte ste 'na liste de pàggene ca onne state ristrette accussì ca sulamende certe utinde ponne fà cangiaminde ca non ge richiedene 'na revisione. <br />\nCerte cangiaminde non ge ponne essere pubblecate fine ca 'n'utende autorizzate non ge le rivede.",
-    "stablepages-none": "Non ge stonne pàggene jndr'à sta liste",
-    "stablepages-config": "Configurazione",
-    "stablepages-indef": "Sualmende 'na scadenze indefinite"
+	"@metadata": {
+		"authors": [
+			"Joetaras"
+		]
+	},
+	"stablepages": "Pàggene ca ausane 'nu cangiamende approvate",
+	"stablepages-list": "Sotte ste 'na liste de pàggene ca onne state ristrette accussì ca sulamende certe utinde ponne fà cangiaminde ca non ge richiedene 'na revisione. <br />\nCerte cangiaminde non ge ponne essere pubblecate fine ca 'n'utende autorizzate non ge le rivede.",
+	"stablepages-none": "Non ge stonne pàggene jndr'à sta liste",
+	"stablepages-config": "Configurazione",
+	"stablepages-indef": "Sualmende 'na scadenze indefinite"
 }

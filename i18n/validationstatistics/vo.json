@@ -1,9 +1,9 @@
 {
-    "@metadata": {
-        "authors": [
-            "Malafaya"
-        ]
-    },
-    "validationstatistics-ns": "Nemaspad",
-    "validationstatistics-total": "Pads"
+	"@metadata": {
+		"authors": [
+			"Malafaya"
+		]
+	},
+	"validationstatistics-ns": "Nemaspad",
+	"validationstatistics-total": "Pads"
 }

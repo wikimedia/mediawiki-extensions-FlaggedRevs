@@ -1,14 +1,14 @@
 {
-    "@metadata": {
-        "authors": [
-            "BRUTE",
-            "David1010",
-            "Nodar Kherkheulidze"
-        ]
-    },
-    "reviewedversions": "შემოწმებული ვერსიები",
-    "reviewedversions-leg1": "გვერდის შემოწმებული ვერსიების სია",
-    "reviewedversions-page": "გვერდის სახელი:",
-    "reviewedversions-none": "„[[:$1]]“ არ გააჩნია შემოწმებული ვერსიები.",
-    "reviewedversions-review": "შეამოწმა <i>$1</i> მომხმარებელმა $2"
+	"@metadata": {
+		"authors": [
+			"BRUTE",
+			"David1010",
+			"Nodar Kherkheulidze"
+		]
+	},
+	"reviewedversions": "შემოწმებული ვერსიები",
+	"reviewedversions-leg1": "გვერდის შემოწმებული ვერსიების სია",
+	"reviewedversions-page": "გვერდის სახელი:",
+	"reviewedversions-none": "„[[:$1]]“ არ გააჩნია შემოწმებული ვერსიები.",
+	"reviewedversions-review": "შეამოწმა <i>$1</i> მომხმარებელმა $2"
 }

@@ -1,13 +1,13 @@
 {
-    "@metadata": {
-        "authors": [
-            "Toliño"
-        ]
-    },
-    "configuredpages": "Páxinas con configuracións de revisión",
-    "configuredpages-list": "A continuación está a lista coas páxinas configuradas para ter opcións de aprobación diferentes ás opcións por defecto do sitio.\nAlgunhas configuracións poden facer aparecer unha versión diferente para os lectores ou restrinxir a lista de colaboradores que poden realizar edicións sen necesidade de revisión.",
-    "configuredpages-none": "Non hai páxinas nesta lista.",
-    "configuredpages-config": "Configuración",
-    "configuredpages-def-draft": "última versión",
-    "configuredpages-def-stable": "versión publicada"
+	"@metadata": {
+		"authors": [
+			"Toliño"
+		]
+	},
+	"configuredpages": "Páxinas con configuracións de revisión",
+	"configuredpages-list": "A continuación está a lista coas páxinas configuradas para ter opcións de aprobación diferentes ás opcións por defecto do sitio.\nAlgunhas configuracións poden facer aparecer unha versión diferente para os lectores ou restrinxir a lista de colaboradores que poden realizar edicións sen necesidade de revisión.",
+	"configuredpages-none": "Non hai páxinas nesta lista.",
+	"configuredpages-config": "Configuración",
+	"configuredpages-def-draft": "última versión",
+	"configuredpages-def-stable": "versión publicada"
 }

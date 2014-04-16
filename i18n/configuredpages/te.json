@@ -1,11 +1,11 @@
 {
-    "@metadata": {
-        "authors": [
-            "Veeven"
-        ]
-    },
-    "configuredpages-none": "ఈ జాబితాలో పుటలు లేవు.",
-    "configuredpages-config": "స్వరూపణం",
-    "configuredpages-def-draft": "చిట్టచివరి కూర్పు",
-    "configuredpages-def-stable": "ప్రచురిత కూర్పు"
+	"@metadata": {
+		"authors": [
+			"Veeven"
+		]
+	},
+	"configuredpages-none": "ఈ జాబితాలో పుటలు లేవు.",
+	"configuredpages-config": "స్వరూపణం",
+	"configuredpages-def-draft": "చిట్టచివరి కూర్పు",
+	"configuredpages-def-stable": "ప్రచురిత కూర్పు"
 }

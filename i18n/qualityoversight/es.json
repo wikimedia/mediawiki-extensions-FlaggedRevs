@@ -1,11 +1,11 @@
 {
-    "@metadata": {
-        "authors": [
-            "Crazymadlover",
-            "Translationista"
-        ]
-    },
-    "qualityoversight": "Registro de revisión avanzado",
-    "qualityoversight-list": "Esta página enumera las más recientes aprobaciones y depreciaciones de revisiones.",
-    "qualityoversight-legend": "Buscar lista de revisiones recientes"
+	"@metadata": {
+		"authors": [
+			"Crazymadlover",
+			"Translationista"
+		]
+	},
+	"qualityoversight": "Registro de revisión avanzado",
+	"qualityoversight-list": "Esta página enumera las más recientes aprobaciones y depreciaciones de revisiones.",
+	"qualityoversight-legend": "Buscar lista de revisiones recientes"
 }

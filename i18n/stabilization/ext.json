@@ -1,11 +1,11 @@
 {
-    "@metadata": {
-        "authors": [
-            "Better"
-        ]
-    },
-    "stabilization-page": "Nombri la páhina:",
-    "stabilization-submit": "Confirmal",
-    "stabilization-def-short": "Defeutu",
-    "stabilization-def-short-0": "Atual"
+	"@metadata": {
+		"authors": [
+			"Better"
+		]
+	},
+	"stabilization-page": "Nombri la páhina:",
+	"stabilization-submit": "Confirmal",
+	"stabilization-def-short": "Defeutu",
+	"stabilization-def-short-0": "Atual"
 }

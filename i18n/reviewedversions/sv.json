@@ -1,16 +1,16 @@
 {
-    "@metadata": {
-        "authors": [
-            "Dafer45",
-            "Lejonel",
-            "M.M.S.",
-            "Najami"
-        ]
-    },
-    "reviewedversions": "Granskade versioner",
-    "reviewedversions-leg1": "Lista granskade versioner av en sida",
-    "reviewedversions-page": "Sidnamn:",
-    "reviewedversions-none": "\"[[:$1]]\" har inga granskade versioner.",
-    "reviewedversions-list": "Följande är en lista av {{PLURAL:$2|den enda versionen|versioner}} av [[:$1]] som har granskats:",
-    "reviewedversions-review": "Granskad den <i>$1</i> av $2"
+	"@metadata": {
+		"authors": [
+			"Dafer45",
+			"Lejonel",
+			"M.M.S.",
+			"Najami"
+		]
+	},
+	"reviewedversions": "Granskade versioner",
+	"reviewedversions-leg1": "Lista granskade versioner av en sida",
+	"reviewedversions-page": "Sidnamn:",
+	"reviewedversions-none": "\"[[:$1]]\" har inga granskade versioner.",
+	"reviewedversions-list": "Följande är en lista av {{PLURAL:$2|den enda versionen|versioner}} av [[:$1]] som har granskats:",
+	"reviewedversions-review": "Granskad den <i>$1</i> av $2"
 }

@@ -1,9 +1,9 @@
 {
-    "@metadata": {
-        "authors": [
-            "Herr Kriss"
-        ]
-    },
-    "stabilization-expiry": "Wygaso:",
-    "stabilization-def-short": "Důmyślna"
+	"@metadata": {
+		"authors": [
+			"Herr Kriss"
+		]
+	},
+	"stabilization-expiry": "Wygaso:",
+	"stabilization-def-short": "Důmyślna"
 }

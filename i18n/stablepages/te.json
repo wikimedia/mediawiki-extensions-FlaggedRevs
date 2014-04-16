@@ -1,12 +1,12 @@
 {
-    "@metadata": {
-        "authors": [
-            "Veeven",
-            "వైజాసత్య"
-        ]
-    },
-    "stablepages": "స్థిరమైన పేజీలు",
-    "stablepages-none": "ఈ జాబితాలో పేజీలేవీ లేవు",
-    "stablepages-config": "స్వరూపణం",
-    "stablepages-indef": "నిరవధిక కాలంచెల్లుబాటు మాత్రమే"
+	"@metadata": {
+		"authors": [
+			"Veeven",
+			"వైజాసత్య"
+		]
+	},
+	"stablepages": "స్థిరమైన పేజీలు",
+	"stablepages-none": "ఈ జాబితాలో పేజీలేవీ లేవు",
+	"stablepages-config": "స్వరూపణం",
+	"stablepages-indef": "నిరవధిక కాలంచెల్లుబాటు మాత్రమే"
 }

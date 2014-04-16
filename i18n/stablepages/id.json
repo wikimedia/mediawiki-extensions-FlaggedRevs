@@ -1,17 +1,17 @@
 {
-    "@metadata": {
-        "authors": [
-            "Bennylin",
-            "Farras",
-            "Irwangatot",
-            "IvanLanin",
-            "Iwan Novirion",
-            "Rex"
-        ]
-    },
-    "stablepages": "Halaman menggunakan suntingan persetujuan",
-    "stablepages-list": "Di bawah ini adalah daftar halaman yang dibatasi sehingga hanya pengguna tertentu dapat melakukan penyuntingan yang tidak membutuhkan peninjauan. Suntingan yang dilakukan pengguna lain tidak akan ditampilkan ke pembaca secara langsung sampai seorang pengguna yang diberi kuasa meninjaunya.",
-    "stablepages-none": "Tidak ada halaman di dalam daftar ini",
-    "stablepages-config": "Konfigurasi",
-    "stablepages-indef": "Hanya untuk kedaluwarsa tak terbatas"
+	"@metadata": {
+		"authors": [
+			"Bennylin",
+			"Farras",
+			"Irwangatot",
+			"IvanLanin",
+			"Iwan Novirion",
+			"Rex"
+		]
+	},
+	"stablepages": "Halaman menggunakan suntingan persetujuan",
+	"stablepages-list": "Di bawah ini adalah daftar halaman yang dibatasi sehingga hanya pengguna tertentu dapat melakukan penyuntingan yang tidak membutuhkan peninjauan. Suntingan yang dilakukan pengguna lain tidak akan ditampilkan ke pembaca secara langsung sampai seorang pengguna yang diberi kuasa meninjaunya.",
+	"stablepages-none": "Tidak ada halaman di dalam daftar ini",
+	"stablepages-config": "Konfigurasi",
+	"stablepages-indef": "Hanya untuk kedaluwarsa tak terbatas"
 }

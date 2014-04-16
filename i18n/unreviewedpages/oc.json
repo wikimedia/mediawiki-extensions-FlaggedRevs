@@ -1,19 +1,19 @@
 {
-    "@metadata": {
-        "authors": [
-            "Cedric31"
-        ]
-    },
-    "unreviewedpages": "Listar las paginas pas revisadas",
-    "unreviewedpages-legend": "Lista dels contenguts de las paginas pas visats",
-    "unreviewedpages-category": "Categoria :",
-    "unreviewedpages-diff": "revision",
-    "unreviewedpages-unwatched": "(pas observat)",
-    "unreviewedpages-watched": "($1 {{PLURAL:$1|utilizaire actiu seguís|utilizaires actius seguisson}} aquesta pagina)",
-    "unreviewedpages-list": "Aquesta pagina fa la lista de las paginas que son pas estadas revisadas al nivèl especificat.",
-    "unreviewedpages-none": "Actualament, existís pas cap de pagina respectant aquestes critèris",
-    "unreviewedpages-viewing": "(en revision)",
-    "unreviewedpages-hours": "($1 {{PLURAL:$1|ora|oras}})",
-    "unreviewedpages-days": "($1 {{PLURAL:$1|jorn|jorns}})",
-    "unreviewedpages-recent": "(mens d'una ora)"
+	"@metadata": {
+		"authors": [
+			"Cedric31"
+		]
+	},
+	"unreviewedpages": "Listar las paginas pas revisadas",
+	"unreviewedpages-legend": "Lista dels contenguts de las paginas pas visats",
+	"unreviewedpages-category": "Categoria :",
+	"unreviewedpages-diff": "revision",
+	"unreviewedpages-unwatched": "(pas observat)",
+	"unreviewedpages-watched": "($1 {{PLURAL:$1|utilizaire actiu seguís|utilizaires actius seguisson}} aquesta pagina)",
+	"unreviewedpages-list": "Aquesta pagina fa la lista de las paginas que son pas estadas revisadas al nivèl especificat.",
+	"unreviewedpages-none": "Actualament, existís pas cap de pagina respectant aquestes critèris",
+	"unreviewedpages-viewing": "(en revision)",
+	"unreviewedpages-hours": "($1 {{PLURAL:$1|ora|oras}})",
+	"unreviewedpages-days": "($1 {{PLURAL:$1|jorn|jorns}})",
+	"unreviewedpages-recent": "(mens d'una ora)"
 }

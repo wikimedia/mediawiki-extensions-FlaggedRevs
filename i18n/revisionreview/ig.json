@@ -1,11 +1,11 @@
 {
-    "@metadata": {
-        "authors": [
-            "Ukabia"
-        ]
-    },
-    "revreview-submit": "Dànyé",
-    "revreview-submitting": "Nà dànyé...",
-    "revreview-submit-review": "Kwelụ",
-    "revreview-submit-unreview": "Ékwèlụ"
+	"@metadata": {
+		"authors": [
+			"Ukabia"
+		]
+	},
+	"revreview-submit": "Dànyé",
+	"revreview-submitting": "Nà dànyé...",
+	"revreview-submit-review": "Kwelụ",
+	"revreview-submit-unreview": "Ékwèlụ"
 }

@@ -1,17 +1,17 @@
 {
-    "@metadata": {
-        "authors": [
-            "Bola",
-            "Crazymadlover",
-            "Dferg",
-            "MarcoAurelio",
-            "McDutchie",
-            "Translationista"
-        ]
-    },
-    "stablepages": "Páginas usando aprobación para la edición",
-    "stablepages-list": "Debajo está una lista de páginas los cuales solo ciertos usuarios pueden hacer ediciones que no requieren revisión.\nLas ediciones hechas por otros usuarios no son mostradas a los lectores por defecto hasta que un usuario autorizado los revise.",
-    "stablepages-none": "No hay páginas en esta lista",
-    "stablepages-config": "Configuración",
-    "stablepages-indef": "Sólo caducidad infinita"
+	"@metadata": {
+		"authors": [
+			"Bola",
+			"Crazymadlover",
+			"Dferg",
+			"MarcoAurelio",
+			"McDutchie",
+			"Translationista"
+		]
+	},
+	"stablepages": "Páginas usando aprobación para la edición",
+	"stablepages-list": "Debajo está una lista de páginas los cuales solo ciertos usuarios pueden hacer ediciones que no requieren revisión.\nLas ediciones hechas por otros usuarios no son mostradas a los lectores por defecto hasta que un usuario autorizado los revise.",
+	"stablepages-none": "No hay páginas en esta lista",
+	"stablepages-config": "Configuración",
+	"stablepages-indef": "Sólo caducidad infinita"
 }

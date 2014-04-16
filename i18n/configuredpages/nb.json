@@ -1,13 +1,13 @@
 {
-    "@metadata": {
-        "authors": [
-            "Nghtwlkr"
-        ]
-    },
-    "configuredpages": "Sider med revisjonsinnstillinger",
-    "configuredpages-list": "Nedenfor er en liste over sider som er satt opp med godkjenningsinnstillinger som er forskjellig fra nettstedsstandarden.\nEnkelte innstillinger kan endre hvilken versjon som vises til lesere eller ytterligere begrense hvem som kan gjøre endringer som ikke krever revidering.",
-    "configuredpages-none": "Det er ingen sider i denne listen.",
-    "configuredpages-config": "Oppsett",
-    "configuredpages-def-draft": "siste versjon",
-    "configuredpages-def-stable": "publisert versjon"
+	"@metadata": {
+		"authors": [
+			"Nghtwlkr"
+		]
+	},
+	"configuredpages": "Sider med revisjonsinnstillinger",
+	"configuredpages-list": "Nedenfor er en liste over sider som er satt opp med godkjenningsinnstillinger som er forskjellig fra nettstedsstandarden.\nEnkelte innstillinger kan endre hvilken versjon som vises til lesere eller ytterligere begrense hvem som kan gjøre endringer som ikke krever revidering.",
+	"configuredpages-none": "Det er ingen sider i denne listen.",
+	"configuredpages-config": "Oppsett",
+	"configuredpages-def-draft": "siste versjon",
+	"configuredpages-def-stable": "publisert versjon"
 }

@@ -1,9 +1,9 @@
 {
-    "@metadata": {
-        "authors": [
-            "Reedy",
-            "Shirayuki"
-        ]
-    },
-    "pendingchanges-stable": "Stable version is default"
+	"@metadata": {
+		"authors": [
+			"Reedy",
+			"Shirayuki"
+		]
+	},
+	"pendingchanges-stable": "Stable version is default"
 }

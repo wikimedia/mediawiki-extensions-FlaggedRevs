@@ -1,11 +1,11 @@
 {
-    "@metadata": {
-        "authors": [
-            "Alison",
-            "පසිඳු කාවින්ද"
-        ]
-    },
-    "revreview-log": "Nóta tráchta:",
-    "revreview-reject-summary": "Achoimre:",
-    "revreview-reject-cancel": "Cealaigh"
+	"@metadata": {
+		"authors": [
+			"Alison",
+			"පසිඳු කාවින්ද"
+		]
+	},
+	"revreview-log": "Nóta tráchta:",
+	"revreview-reject-summary": "Achoimre:",
+	"revreview-reject-cancel": "Cealaigh"
 }

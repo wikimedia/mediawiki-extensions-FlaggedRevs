@@ -1,12 +1,12 @@
 {
-    "@metadata": {
-        "authors": [
-            "NoiX180"
-        ]
-    },
-    "configuredpages": "Kaca mawa pangaturan pratayang",
-    "configuredpages-none": "Ora ana kaca nèng daptar iki.",
-    "configuredpages-config": "Pangaturan",
-    "configuredpages-def-draft": "vèrsi pungkasan",
-    "configuredpages-def-stable": "vèri stabil"
+	"@metadata": {
+		"authors": [
+			"NoiX180"
+		]
+	},
+	"configuredpages": "Kaca mawa pangaturan pratayang",
+	"configuredpages-none": "Ora ana kaca nèng daptar iki.",
+	"configuredpages-config": "Pangaturan",
+	"configuredpages-def-draft": "vèrsi pungkasan",
+	"configuredpages-def-stable": "vèri stabil"
 }

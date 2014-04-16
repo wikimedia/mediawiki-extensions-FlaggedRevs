@@ -1,15 +1,15 @@
 {
-    "@metadata": {
-        "authors": [
-            "Ahonc",
-            "Andriykopanytsia",
-            "Prima klasy4na"
-        ]
-    },
-    "reviewedversions": "Рецензовані версії",
-    "reviewedversions-leg1": "Список перевірених версій сторінки",
-    "reviewedversions-page": "Назва сторінки:",
-    "reviewedversions-none": "«[[:$1]]» не має перевірених версій.",
-    "reviewedversions-list": "{{PLURAL:$2|1=Лише одна версія сторінки «[[:$1]]» була перевірена|Такі версії сторінки «[[:$1]]» були перевірені}}:",
-    "reviewedversions-review": "Перевірена <i>$1</i> користувачем $2"
+	"@metadata": {
+		"authors": [
+			"Ahonc",
+			"Andriykopanytsia",
+			"Prima klasy4na"
+		]
+	},
+	"reviewedversions": "Рецензовані версії",
+	"reviewedversions-leg1": "Список перевірених версій сторінки",
+	"reviewedversions-page": "Назва сторінки:",
+	"reviewedversions-none": "«[[:$1]]» не має перевірених версій.",
+	"reviewedversions-list": "{{PLURAL:$2|1=Лише одна версія сторінки «[[:$1]]» була перевірена|Такі версії сторінки «[[:$1]]» були перевірені}}:",
+	"reviewedversions-review": "Перевірена <i>$1</i> користувачем $2"
 }

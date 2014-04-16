@@ -1,9 +1,9 @@
 {
-    "@metadata": {
-        "authors": [
-            "Peter Alberti"
-        ]
-    },
-    "revreview-submit": "Indsend",
-    "revreview-submitting": "Indsender…"
+	"@metadata": {
+		"authors": [
+			"Peter Alberti"
+		]
+	},
+	"revreview-submit": "Indsend",
+	"revreview-submitting": "Indsender…"
 }

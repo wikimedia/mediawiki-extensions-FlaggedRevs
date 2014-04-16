@@ -1,13 +1,13 @@
 {
-    "@metadata": {
-        "authors": [
-            "Candalua"
-        ]
-    },
-    "configuredpages": "Pagine con configurassion de revision",
-    "configuredpages-list": "Qua ghe xe na lista de pagine configurà con inpostassion de aprovassion difarenti del resto del sito.\nQualche inpostassion la podarìa canbiar quale version xe mostrà ai letori o restrenzere chi pole far modifiche che no ghe voja la verifica.",
-    "configuredpages-none": "No ghe xe nissuna pagina su sta lista",
-    "configuredpages-config": "Configurassion",
-    "configuredpages-def-draft": "ultima version",
-    "configuredpages-def-stable": "version stabile"
+	"@metadata": {
+		"authors": [
+			"Candalua"
+		]
+	},
+	"configuredpages": "Pagine con configurassion de revision",
+	"configuredpages-list": "Qua ghe xe na lista de pagine configurà con inpostassion de aprovassion difarenti del resto del sito.\nQualche inpostassion la podarìa canbiar quale version xe mostrà ai letori o restrenzere chi pole far modifiche che no ghe voja la verifica.",
+	"configuredpages-none": "No ghe xe nissuna pagina su sta lista",
+	"configuredpages-config": "Configurassion",
+	"configuredpages-def-draft": "ultima version",
+	"configuredpages-def-stable": "version stabile"
 }

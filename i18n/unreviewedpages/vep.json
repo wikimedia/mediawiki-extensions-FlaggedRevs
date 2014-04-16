@@ -1,20 +1,20 @@
 {
-    "@metadata": {
-        "authors": [
-            "Игорь Бродский"
-        ]
-    },
-    "action-unreviewedpages": "Ozutada kacmatomiden lehtpoliden nimikirjutez",
-    "unreviewedpages": "Lehtpoled, kudambad ei olgoi kodvdud",
-    "unreviewedpages-legend": "Niiden lehtpoliden nimikirjutez, kudambad ei olgoi kodvdud ende",
-    "unreviewedpages-category": "Kategorii:",
-    "unreviewedpages-diff": "kodvda",
-    "unreviewedpages-unwatched": "(ei ole kaceltud)",
-    "unreviewedpages-watched": "($1 {{PLURAL:$1|aktivine kävutai|aktivišt kävutajad}} kaceltas)",
-    "unreviewedpages-list": "Necil lehtpolel om kodvmatomiden kirjutusiden nimid; nenid kirjutusid ei völ [[{{MediaWiki:Validationpage}}|arvostelgoi]] märitud pindad samas.",
-    "unreviewedpages-none": "Nügüd' ei ole lehtpolid, kudambad sättudas ningoižiden arvoimižidenke.",
-    "unreviewedpages-viewing": "(lehtpoled, kudambad nügüd' kodvdas)",
-    "unreviewedpages-hours": "($1 {{PLURAL:$1|čas|časud}})",
-    "unreviewedpages-days": "($1 {{PLURAL:$1|päiv|päiväd}})",
-    "unreviewedpages-recent": "(vähemb časud)"
+	"@metadata": {
+		"authors": [
+			"Игорь Бродский"
+		]
+	},
+	"action-unreviewedpages": "Ozutada kacmatomiden lehtpoliden nimikirjutez",
+	"unreviewedpages": "Lehtpoled, kudambad ei olgoi kodvdud",
+	"unreviewedpages-legend": "Niiden lehtpoliden nimikirjutez, kudambad ei olgoi kodvdud ende",
+	"unreviewedpages-category": "Kategorii:",
+	"unreviewedpages-diff": "kodvda",
+	"unreviewedpages-unwatched": "(ei ole kaceltud)",
+	"unreviewedpages-watched": "($1 {{PLURAL:$1|aktivine kävutai|aktivišt kävutajad}} kaceltas)",
+	"unreviewedpages-list": "Necil lehtpolel om kodvmatomiden kirjutusiden nimid; nenid kirjutusid ei völ [[{{MediaWiki:Validationpage}}|arvostelgoi]] märitud pindad samas.",
+	"unreviewedpages-none": "Nügüd' ei ole lehtpolid, kudambad sättudas ningoižiden arvoimižidenke.",
+	"unreviewedpages-viewing": "(lehtpoled, kudambad nügüd' kodvdas)",
+	"unreviewedpages-hours": "($1 {{PLURAL:$1|čas|časud}})",
+	"unreviewedpages-days": "($1 {{PLURAL:$1|päiv|päiväd}})",
+	"unreviewedpages-recent": "(vähemb časud)"
 }

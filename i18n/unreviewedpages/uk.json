@@ -1,23 +1,23 @@
 {
-    "@metadata": {
-        "authors": [
-            "Ahonc",
-            "Olvin",
-            "Prima klasy4na",
-            "Тест"
-        ]
-    },
-    "action-unreviewedpages": "Перегляд списку неперевірених сторінок",
-    "unreviewedpages": "Неперевірені сторінки",
-    "unreviewedpages-legend": "Список неперевірених статей",
-    "unreviewedpages-category": "Категорія:",
-    "unreviewedpages-diff": "перевірити",
-    "unreviewedpages-unwatched": "(не спостерігають)",
-    "unreviewedpages-watched": "({{PLURAL:$1|спостерігає $1 активний користувач|спостерігають $1 активних користувачі|спостерігають $1 активних користувачів}})",
-    "unreviewedpages-list": "На цій сторінці перераховані статті, що ще ''не'' були [[{{MediaWiki:Validationpage}}|рецензовані]] на зазначений рівень.",
-    "unreviewedpages-none": "Зараз нема сторінок, що відповідають зазначеним критеріям",
-    "unreviewedpages-viewing": "(перевіряється)",
-    "unreviewedpages-hours": "($1 {{PLURAL:$1|година|години|годин}})",
-    "unreviewedpages-days": "($1 {{PLURAL:$1|день|дні|днів}})",
-    "unreviewedpages-recent": "(менше 1 години)"
+	"@metadata": {
+		"authors": [
+			"Ahonc",
+			"Olvin",
+			"Prima klasy4na",
+			"Тест"
+		]
+	},
+	"action-unreviewedpages": "Перегляд списку неперевірених сторінок",
+	"unreviewedpages": "Неперевірені сторінки",
+	"unreviewedpages-legend": "Список неперевірених статей",
+	"unreviewedpages-category": "Категорія:",
+	"unreviewedpages-diff": "перевірити",
+	"unreviewedpages-unwatched": "(не спостерігають)",
+	"unreviewedpages-watched": "({{PLURAL:$1|спостерігає $1 активний користувач|спостерігають $1 активних користувачі|спостерігають $1 активних користувачів}})",
+	"unreviewedpages-list": "На цій сторінці перераховані статті, що ще ''не'' були [[{{MediaWiki:Validationpage}}|рецензовані]] на зазначений рівень.",
+	"unreviewedpages-none": "Зараз нема сторінок, що відповідають зазначеним критеріям",
+	"unreviewedpages-viewing": "(перевіряється)",
+	"unreviewedpages-hours": "($1 {{PLURAL:$1|година|години|годин}})",
+	"unreviewedpages-days": "($1 {{PLURAL:$1|день|дні|днів}})",
+	"unreviewedpages-recent": "(менше 1 години)"
 }

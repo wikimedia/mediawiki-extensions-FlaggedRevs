@@ -1,13 +1,13 @@
 {
-    "@metadata": {
-        "authors": [
-            "Candalua"
-        ]
-    },
-    "reviewedversions": "Version riesaminà",
-    "reviewedversions-leg1": "Elenca le version riesaminà de na pagina",
-    "reviewedversions-page": "Nome de la pagina:",
-    "reviewedversions-none": "\"[[:$1]]\" no la gà version riesaminà.",
-    "reviewedversions-list": "Qua soto ghe xe {{PLURAL:$2|l'unica version|la lista de le version}} de [[:$1]] che {{PLURAL:$2|la|le}} xe stà riesaminà:",
-    "reviewedversions-review": "Riesaminà el <i>$1</i> da $2"
+	"@metadata": {
+		"authors": [
+			"Candalua"
+		]
+	},
+	"reviewedversions": "Version riesaminà",
+	"reviewedversions-leg1": "Elenca le version riesaminà de na pagina",
+	"reviewedversions-page": "Nome de la pagina:",
+	"reviewedversions-none": "\"[[:$1]]\" no la gà version riesaminà.",
+	"reviewedversions-list": "Qua soto ghe xe {{PLURAL:$2|l'unica version|la lista de le version}} de [[:$1]] che {{PLURAL:$2|la|le}} xe stà riesaminà:",
+	"reviewedversions-review": "Riesaminà el <i>$1</i> da $2"
 }

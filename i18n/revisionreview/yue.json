@@ -1,18 +1,16 @@
 {
-    "@metadata": {
-        "authors": []
-    },
-    "revisionreview": "複審修訂",
-    "revreview-flag": "複審呢次修訂",
-    "revreview-invalid": "'''無效嘅目標:''' 無[[{{MediaWiki:Validationpage}}|複審過]]嘅修訂跟仕已經畀咗嘅ID。",
-    "revreview-log": "記錄註解:",
-    "revreview-main": "你一定要響一版內容頁度揀一個個別嘅修訂去複審。\n\n\t睇[[Special:Unreviewedpages]]去拎未複審嘅版。",
-    "revreview-stable1": "你可能想去睇[{{fullurl:$1|stableid=$2}} 呢個加咗旗嘅版本]去睇呢一版而家係唔係[{{fullurl:$1|stable=1}} 穩定版]。",
-    "revreview-stable2": "你可能想去睇呢一版嘅[{{fullurl:$1|stable=1}} 穩定版] (如果嗰度仍然有一個嘅話)。",
-    "revreview-submit": "遞交",
-    "revreview-successful": "'''[[:$1|$1]]所選擇嘅修訂已經成功噉加旗。 ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} 去睇全部加旗版])'''",
-    "revreview-successful2": "'''[[:$1|$1]]所選擇嘅修訂已經成功噉減旗。'''",
-    "revreview-toolow": "你一定要最少將下面每一項嘅屬性評定高過\"未批准\"，去將一個修訂複審。\n\t要捨棄一個修訂，設定全部格做\"未批准\"。",
-    "revreview-update": "請複審自從響呢版嘅穩定版以來嘅任何更改 (響下面度顯示) 。模同圖亦可能同時更改。",
-    "revreview-update-includes": "有啲模/圖更新咗:"
+	"@metadata": [],
+	"revisionreview": "複審修訂",
+	"revreview-flag": "複審呢次修訂",
+	"revreview-invalid": "'''無效嘅目標:''' 無[[{{MediaWiki:Validationpage}}|複審過]]嘅修訂跟仕已經畀咗嘅ID。",
+	"revreview-log": "記錄註解:",
+	"revreview-main": "你一定要響一版內容頁度揀一個個別嘅修訂去複審。\n\n\t睇[[Special:Unreviewedpages]]去拎未複審嘅版。",
+	"revreview-stable1": "你可能想去睇[{{fullurl:$1|stableid=$2}} 呢個加咗旗嘅版本]去睇呢一版而家係唔係[{{fullurl:$1|stable=1}} 穩定版]。",
+	"revreview-stable2": "你可能想去睇呢一版嘅[{{fullurl:$1|stable=1}} 穩定版] (如果嗰度仍然有一個嘅話)。",
+	"revreview-submit": "遞交",
+	"revreview-successful": "'''[[:$1|$1]]所選擇嘅修訂已經成功噉加旗。 ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} 去睇全部加旗版])'''",
+	"revreview-successful2": "'''[[:$1|$1]]所選擇嘅修訂已經成功噉減旗。'''",
+	"revreview-toolow": "你一定要最少將下面每一項嘅屬性評定高過\"未批准\"，去將一個修訂複審。\n\t要捨棄一個修訂，設定全部格做\"未批准\"。",
+	"revreview-update": "請複審自從響呢版嘅穩定版以來嘅任何更改 (響下面度顯示) 。模同圖亦可能同時更改。",
+	"revreview-update-includes": "有啲模/圖更新咗:"
 }

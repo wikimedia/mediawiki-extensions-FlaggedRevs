@@ -1,16 +1,16 @@
 {
-    "@metadata": {
-        "authors": [
-            "Eitvys200",
-            "Matasg"
-        ]
-    },
-    "stabilization-page": "Puslapio pavadinimas:",
-    "stabilization-submit": "Patvirtinti",
-    "stabilization-comment": "Priežastis:",
-    "stabilization-otherreason": "Kitos priežastys:",
-    "stabilization-expiry": "Baigiasi:",
-    "stabilization-othertime": "Kitas laikas:",
-    "stabilization-def-short": "Standartinis",
-    "stabilization-def-short-0": "Esamas"
+	"@metadata": {
+		"authors": [
+			"Eitvys200",
+			"Matasg"
+		]
+	},
+	"stabilization-page": "Puslapio pavadinimas:",
+	"stabilization-submit": "Patvirtinti",
+	"stabilization-comment": "Priežastis:",
+	"stabilization-otherreason": "Kitos priežastys:",
+	"stabilization-expiry": "Baigiasi:",
+	"stabilization-othertime": "Kitas laikas:",
+	"stabilization-def-short": "Standartinis",
+	"stabilization-def-short-0": "Esamas"
 }

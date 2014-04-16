@@ -1,23 +1,23 @@
 {
-    "@metadata": {
-        "authors": [
-            "Kiranmayee",
-            "Veeven",
-            "వైజాసత్య"
-        ]
-    },
-    "pendingchanges": "మార్పులతో వేచియున్న పుటలు",
-    "pendingchanges-legend": "వేచియున్న మార్పులతో కూడిన పుటలను చూపించు",
-    "pendingchanges-list": "వేచియున్న మార్పులు కలిగిన {{PLURAL:$1|ఒక సమీక్షిత పేజీని|సమీక్షిత పేజీలను}} ఈ పేజీ చూపిస్తుంది.",
-    "pendingchanges-none": "ఈ నియమాలకు సరిపోలుతున్న పేజీలు ఏమీ ప్రస్తుతం లేవు",
-    "pendingchanges-hours": "($1 {{PLURAL:$1|గంట|గంటలు}})",
-    "pendingchanges-days": "($1 {{PLURAL:$1|రోజు|రోజులు}})",
-    "pendingchanges-recent": "(1 గంట లోపల)",
-    "pendingchanges-category": "వర్గం:",
-    "pendingchanges-stable": "నిలకడబరిచినది",
-    "pendingchanges-diff": "రివ్యూ",
-    "pendingchanges-size": "గరిష్ఠ మార్పు (బైట్లు):",
-    "pendingchanges-unwatched": "(వీక్షణలో లేనివి)",
-    "pendingchanges-watched": "($1 చేతన  {{PLURAL:$1|వాడుకరి|గురు వాడుకరులు}} వీక్షిస్తున్నారు)",
-    "pendingchanges-viewing": "(రివ్యూలో వుంది )"
+	"@metadata": {
+		"authors": [
+			"Kiranmayee",
+			"Veeven",
+			"వైజాసత్య"
+		]
+	},
+	"pendingchanges": "మార్పులతో వేచియున్న పుటలు",
+	"pendingchanges-legend": "వేచియున్న మార్పులతో కూడిన పుటలను చూపించు",
+	"pendingchanges-list": "వేచియున్న మార్పులు కలిగిన {{PLURAL:$1|ఒక సమీక్షిత పేజీని|సమీక్షిత పేజీలను}} ఈ పేజీ చూపిస్తుంది.",
+	"pendingchanges-none": "ఈ నియమాలకు సరిపోలుతున్న పేజీలు ఏమీ ప్రస్తుతం లేవు",
+	"pendingchanges-hours": "($1 {{PLURAL:$1|గంట|గంటలు}})",
+	"pendingchanges-days": "($1 {{PLURAL:$1|రోజు|రోజులు}})",
+	"pendingchanges-recent": "(1 గంట లోపల)",
+	"pendingchanges-category": "వర్గం:",
+	"pendingchanges-stable": "నిలకడబరిచినది",
+	"pendingchanges-diff": "రివ్యూ",
+	"pendingchanges-size": "గరిష్ఠ మార్పు (బైట్లు):",
+	"pendingchanges-unwatched": "(వీక్షణలో లేనివి)",
+	"pendingchanges-watched": "($1 చేతన  {{PLURAL:$1|వాడుకరి|గురు వాడుకరులు}} వీక్షిస్తున్నారు)",
+	"pendingchanges-viewing": "(రివ్యూలో వుంది )"
 }

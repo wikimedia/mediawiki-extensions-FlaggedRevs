@@ -1,11 +1,11 @@
 {
-    "@metadata": {
-        "authors": [
-            "Andria"
-        ]
-    },
-    "pendingchanges-hours": "($1 {{PLURAL:$1|ora|oras}})",
-    "pendingchanges-days": "($1 {{PLURAL:$1|die|dies}})",
-    "pendingchanges-recent": "(nemmancu 1 ora)",
-    "pendingchanges-category": "Categoria:"
+	"@metadata": {
+		"authors": [
+			"Andria"
+		]
+	},
+	"pendingchanges-hours": "($1 {{PLURAL:$1|ora|oras}})",
+	"pendingchanges-days": "($1 {{PLURAL:$1|die|dies}})",
+	"pendingchanges-recent": "(nemmancu 1 ora)",
+	"pendingchanges-category": "Categoria:"
 }

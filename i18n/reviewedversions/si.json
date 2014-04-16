@@ -1,12 +1,12 @@
 {
-    "@metadata": {
-        "authors": [
-            "පසිඳු කාවින්ද"
-        ]
-    },
-    "reviewedversions": "නිරීක්ෂණය කෙරූ අනුවාද",
-    "reviewedversions-leg1": "පිටුවක් සඳහා නිරීක්ෂණය කෙරූ සංශෝධන ලැයිස්තුගත කරන්න",
-    "reviewedversions-page": "පිටු නාමය:",
-    "reviewedversions-none": "\"[[:$1]]\" සතුව නිරීක්ෂණය කෙරූ සංශෝධන නොමැත.",
-    "reviewedversions-review": "<i>$1</i>හීදී $2 විසින් නිරීක්ෂණය කරන ලදී"
+	"@metadata": {
+		"authors": [
+			"පසිඳු කාවින්ද"
+		]
+	},
+	"reviewedversions": "නිරීක්ෂණය කෙරූ අනුවාද",
+	"reviewedversions-leg1": "පිටුවක් සඳහා නිරීක්ෂණය කෙරූ සංශෝධන ලැයිස්තුගත කරන්න",
+	"reviewedversions-page": "පිටු නාමය:",
+	"reviewedversions-none": "\"[[:$1]]\" සතුව නිරීක්ෂණය කෙරූ සංශෝධන නොමැත.",
+	"reviewedversions-review": "<i>$1</i>හීදී $2 විසින් නිරීක්ෂණය කරන ලදී"
 }

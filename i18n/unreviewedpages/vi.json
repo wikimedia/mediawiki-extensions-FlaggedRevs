@@ -1,21 +1,21 @@
 {
-    "@metadata": {
-        "authors": [
-            "Minh Nguyen",
-            "Vinhtantran"
-        ]
-    },
-    "action-unreviewedpages": "xem danh sách các trang chưa duyệt",
-    "unreviewedpages": "Các trang chưa được duyệt",
-    "unreviewedpages-legend": "Liệt kê các trang có nội dung chưa được duyệt",
-    "unreviewedpages-category": "Thể loại:",
-    "unreviewedpages-diff": "duyệt",
-    "unreviewedpages-unwatched": "(chưa theo dõi)",
-    "unreviewedpages-watched": "($1 {{PLURAL:$1|thành viên|thành viên}} tích cực đang theo dõi)",
-    "unreviewedpages-list": "Trang này liệt kê những trang nội dung ''chưa'' được [[{{MediaWiki:Validationpage}}|duyệt]] tới mức chỉ định.",
-    "unreviewedpages-none": "Hiện không có trang nào thỏa mãn tiêu chí này",
-    "unreviewedpages-viewing": "(đang duyệt)",
-    "unreviewedpages-hours": "($1 giờ)",
-    "unreviewedpages-days": "($1 ngày){{PLURAL:$1||}}",
-    "unreviewedpages-recent": "(ít hơn 1 tiếng)"
+	"@metadata": {
+		"authors": [
+			"Minh Nguyen",
+			"Vinhtantran"
+		]
+	},
+	"action-unreviewedpages": "xem danh sách các trang chưa duyệt",
+	"unreviewedpages": "Các trang chưa được duyệt",
+	"unreviewedpages-legend": "Liệt kê các trang có nội dung chưa được duyệt",
+	"unreviewedpages-category": "Thể loại:",
+	"unreviewedpages-diff": "duyệt",
+	"unreviewedpages-unwatched": "(chưa theo dõi)",
+	"unreviewedpages-watched": "($1 {{PLURAL:$1|thành viên|thành viên}} tích cực đang theo dõi)",
+	"unreviewedpages-list": "Trang này liệt kê những trang nội dung ''chưa'' được [[{{MediaWiki:Validationpage}}|duyệt]] tới mức chỉ định.",
+	"unreviewedpages-none": "Hiện không có trang nào thỏa mãn tiêu chí này",
+	"unreviewedpages-viewing": "(đang duyệt)",
+	"unreviewedpages-hours": "($1 giờ)",
+	"unreviewedpages-days": "($1 ngày){{PLURAL:$1||}}",
+	"unreviewedpages-recent": "(ít hơn 1 tiếng)"
 }

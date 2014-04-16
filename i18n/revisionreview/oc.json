@@ -1,31 +1,31 @@
 {
-    "@metadata": {
-        "authors": [
-            "Cedric31"
-        ]
-    },
-    "revisionreview": "Tornar veire las versions",
-    "revreview-failed": "'''Impossible de relegir aquesta revision.'''",
-    "revreview-flag": "Avalorar aquesta version",
-    "revreview-invalid": "'''Cibla incorrècta :''' cap de version [[{{MediaWiki:Validationpage}}|relegida]] correspond pas al numèro indicat.",
-    "revreview-log": "Comentari al jornal :",
-    "revreview-main": "Vos cal causir una version precisa a partir del contengut en règla de la pagina per revisar. Vejatz [[Special:Unreviewedpages|Versions pas revisadas]] per una lista de paginas.",
-    "revreview-stable1": "Podètz voler visionar aquesta [{{fullurl:$1|stableid=$2}} version marcada] o veire se es ara la [{{fullurl:$1|stable=1}} version establa] d'aquesta pagina.",
-    "revreview-stable2": "Benlèu que volètz consultar [{{fullurl:$1|stable=1}} la version publicada] d'aquesta pagina.",
-    "revreview-submit": "Salvar",
-    "revreview-submitting": "Somission…",
-    "revreview-submit-review": "Acceptar la version",
-    "revreview-submit-unreview": "Desaprovar la version",
-    "revreview-submit-reviewed": "Fach. Aprovat !",
-    "revreview-submit-unreviewed": "Fach. Desaprovat!",
-    "revreview-successful": "'''La version seleccionada de [[:$1|$1]], es estada marcada d'una bandièra amb succès ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} Vejatz totas las versions establas])'''",
-    "revreview-successful2": "La version de [[:$1|$1]] a pogut se veire levar son drapèu amb succès.'''",
-    "revreview-adv-start-link": "far de publicitat",
-    "revreview-adv-stop-link": "anullar la publicitat",
-    "revreview-toolow": "Pels atributs çaijós, vos cal donar un puntatge mai elevat que « non aprobat » per que la version siá considerada coma revista. Per depreciar una version, metètz totes los camps a « non aprobat ».",
-    "revreview-update": "[[{{MediaWiki:Validationpage}}|Relegissètz]] totas las modificacions ''(vejatz çaijós)'' efectuadas dempuèi l’[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovacion] de la version establa.\n'''Qualques fichièrs o modèls son estats meses a jorn :'''",
-    "revreview-update-includes": "Modèls/fichièrs meses a jorn (paginas pas relegidas en gras) :",
-    "revreview-reject-summary": "Resumit :",
-    "revreview-reject-confirm": "Regetar aquestes cambiaments",
-    "revreview-reject-cancel": "Anullar"
+	"@metadata": {
+		"authors": [
+			"Cedric31"
+		]
+	},
+	"revisionreview": "Tornar veire las versions",
+	"revreview-failed": "'''Impossible de relegir aquesta revision.'''",
+	"revreview-flag": "Avalorar aquesta version",
+	"revreview-invalid": "'''Cibla incorrècta :''' cap de version [[{{MediaWiki:Validationpage}}|relegida]] correspond pas al numèro indicat.",
+	"revreview-log": "Comentari al jornal :",
+	"revreview-main": "Vos cal causir una version precisa a partir del contengut en règla de la pagina per revisar. Vejatz [[Special:Unreviewedpages|Versions pas revisadas]] per una lista de paginas.",
+	"revreview-stable1": "Podètz voler visionar aquesta [{{fullurl:$1|stableid=$2}} version marcada] o veire se es ara la [{{fullurl:$1|stable=1}} version establa] d'aquesta pagina.",
+	"revreview-stable2": "Benlèu que volètz consultar [{{fullurl:$1|stable=1}} la version publicada] d'aquesta pagina.",
+	"revreview-submit": "Salvar",
+	"revreview-submitting": "Somission…",
+	"revreview-submit-review": "Acceptar la version",
+	"revreview-submit-unreview": "Desaprovar la version",
+	"revreview-submit-reviewed": "Fach. Aprovat !",
+	"revreview-submit-unreviewed": "Fach. Desaprovat!",
+	"revreview-successful": "'''La version seleccionada de [[:$1|$1]], es estada marcada d'una bandièra amb succès ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} Vejatz totas las versions establas])'''",
+	"revreview-successful2": "La version de [[:$1|$1]] a pogut se veire levar son drapèu amb succès.'''",
+	"revreview-adv-start-link": "far de publicitat",
+	"revreview-adv-stop-link": "anullar la publicitat",
+	"revreview-toolow": "Pels atributs çaijós, vos cal donar un puntatge mai elevat que « non aprobat » per que la version siá considerada coma revista. Per depreciar una version, metètz totes los camps a « non aprobat ».",
+	"revreview-update": "[[{{MediaWiki:Validationpage}}|Relegissètz]] totas las modificacions ''(vejatz çaijós)'' efectuadas dempuèi l’[{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} aprovacion] de la version establa.\n'''Qualques fichièrs o modèls son estats meses a jorn :'''",
+	"revreview-update-includes": "Modèls/fichièrs meses a jorn (paginas pas relegidas en gras) :",
+	"revreview-reject-summary": "Resumit :",
+	"revreview-reject-confirm": "Regetar aquestes cambiaments",
+	"revreview-reject-cancel": "Anullar"
 }

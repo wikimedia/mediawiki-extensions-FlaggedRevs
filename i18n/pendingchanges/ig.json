@@ -1,13 +1,13 @@
 {
-    "@metadata": {
-        "authors": [
-            "Ukabia"
-        ]
-    },
-    "pendingchanges-hours": "({{PLURAL:$1|àmànì|àmànì}} $1)",
-    "pendingchanges-days": "({{PLURAL:$1|chi|chi}} $1)",
-    "pendingchanges-recent": "(bènata àmànì 1)",
-    "pendingchanges-category": "Ébéonọr:",
-    "pendingchanges-diff": "lèwárí",
-    "pendingchanges-viewing": "(na nlé)"
+	"@metadata": {
+		"authors": [
+			"Ukabia"
+		]
+	},
+	"pendingchanges-hours": "({{PLURAL:$1|àmànì|àmànì}} $1)",
+	"pendingchanges-days": "({{PLURAL:$1|chi|chi}} $1)",
+	"pendingchanges-recent": "(bènata àmànì 1)",
+	"pendingchanges-category": "Ébéonọr:",
+	"pendingchanges-diff": "lèwárí",
+	"pendingchanges-viewing": "(na nlé)"
 }

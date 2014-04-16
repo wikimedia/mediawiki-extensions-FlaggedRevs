@@ -1,21 +1,21 @@
 {
-    "@metadata": {
-        "authors": [
-            "Cedric31"
-        ]
-    },
-    "pendingchanges": "Paginas qu'an de modificacions en espèra",
-    "pendingchanges-legend": "Listas de paginas revistas amb de versions pas visadas.",
-    "pendingchanges-list": "Aquesta pagina fa la lista de las [[{{MediaWiki:Validationpage}}|paginas ja repassadas]] qu'an una o mai d'una modificacion en espèra d'examèn.",
-    "pendingchanges-none": "Existís actualament pas cap de pagina respectant aquestes critèris",
-    "pendingchanges-hours": "($1 {{PLURAL:$1|ora|oras}})",
-    "pendingchanges-days": "($1 {{PLURAL:$1|jorn|jorns}})",
-    "pendingchanges-recent": "(mens qu'una ora)",
-    "pendingchanges-category": "Categoria :",
-    "pendingchanges-stable": "La version establa es la per defaut",
-    "pendingchanges-diff": "relectura",
-    "pendingchanges-size": "Cambiament maximal de la talha (en octets) :",
-    "pendingchanges-unwatched": "(pas observat)",
-    "pendingchanges-watched": "($1 {{PLURAL:$1|utilizaire actiu|utilizaires actius}} a observar)",
-    "pendingchanges-viewing": "(en revision)"
+	"@metadata": {
+		"authors": [
+			"Cedric31"
+		]
+	},
+	"pendingchanges": "Paginas qu'an de modificacions en espèra",
+	"pendingchanges-legend": "Listas de paginas revistas amb de versions pas visadas.",
+	"pendingchanges-list": "Aquesta pagina fa la lista de las [[{{MediaWiki:Validationpage}}|paginas ja repassadas]] qu'an una o mai d'una modificacion en espèra d'examèn.",
+	"pendingchanges-none": "Existís actualament pas cap de pagina respectant aquestes critèris",
+	"pendingchanges-hours": "($1 {{PLURAL:$1|ora|oras}})",
+	"pendingchanges-days": "($1 {{PLURAL:$1|jorn|jorns}})",
+	"pendingchanges-recent": "(mens qu'una ora)",
+	"pendingchanges-category": "Categoria :",
+	"pendingchanges-stable": "La version establa es la per defaut",
+	"pendingchanges-diff": "relectura",
+	"pendingchanges-size": "Cambiament maximal de la talha (en octets) :",
+	"pendingchanges-unwatched": "(pas observat)",
+	"pendingchanges-watched": "($1 {{PLURAL:$1|utilizaire actiu|utilizaires actius}} a observar)",
+	"pendingchanges-viewing": "(en revision)"
 }

@@ -1,20 +1,20 @@
 {
-    "@metadata": {
-        "authors": [
-            "Crazymadlover",
-            "Omnipaedista"
-        ]
-    },
-    "validationstatistics": "Στατιστικὰ ἐπικυρώσεων",
-    "validationstatistics-users": "Τὸ '''{{SITENAME}}''' νῦν ἔχει '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|χρὠμενον|χρωμένους}} μετὰ δικαιωμάτων [[{{MediaWiki:Validationpage}}|μεταγραφέως]]\nκαὶ '''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$2|χρὠμενον|χρωμένους}} μετὰ δικαιωμάτων [[{{MediaWiki:Validationpage}}|ἐπιθεωρητοῦ]].\n\nΜεταγραφεῖς καὶ ἐπιθεωρηταὶ καθιερωμένοι χρώμενοι εἰσὶν δυνάμενοι τὰς τῶν δέλτων ἀναθεωρήσεις ἐλέγχειν.",
-    "validationstatistics-table": "Στατιστικὰ δεδομένα διὰ πᾶν ὀνοματεῖον κάτωθι εἰσί, δέλτων ἀναδιευθύνσεως ''ἐξαιρουμένων''.",
-    "validationstatistics-ns": "Ὀνοματεῖον",
-    "validationstatistics-total": "Δέλτοι",
-    "validationstatistics-stable": "Ἀνατεθεωρημένη",
-    "validationstatistics-latest": "Συγκεχρονισμένη",
-    "validationstatistics-synced": "Συγκεχρονισμένη/Ἐπιτεθεωρημένη",
-    "validationstatistics-old": "Ἀπηρχαιωμένη",
-    "validationstatistics-utable": "Κάτωθι ἐστὶ ὁ κατάλογος τῶν $1 κορυφαίων ἐπιθεωρητῶν τῇ ὑστάτη μίᾳ ὥρᾳ.",
-    "validationstatistics-user": "Χρώμενος",
-    "validationstatistics-reviews": "Ἐπιθεωρήσεις"
+	"@metadata": {
+		"authors": [
+			"Crazymadlover",
+			"Omnipaedista"
+		]
+	},
+	"validationstatistics": "Στατιστικὰ ἐπικυρώσεων",
+	"validationstatistics-users": "Τὸ '''{{SITENAME}}''' νῦν ἔχει '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|χρὠμενον|χρωμένους}} μετὰ δικαιωμάτων [[{{MediaWiki:Validationpage}}|μεταγραφέως]]\nκαὶ '''[[Special:ListUsers/reviewer|$2]]''' {{PLURAL:$2|χρὠμενον|χρωμένους}} μετὰ δικαιωμάτων [[{{MediaWiki:Validationpage}}|ἐπιθεωρητοῦ]].\n\nΜεταγραφεῖς καὶ ἐπιθεωρηταὶ καθιερωμένοι χρώμενοι εἰσὶν δυνάμενοι τὰς τῶν δέλτων ἀναθεωρήσεις ἐλέγχειν.",
+	"validationstatistics-table": "Στατιστικὰ δεδομένα διὰ πᾶν ὀνοματεῖον κάτωθι εἰσί, δέλτων ἀναδιευθύνσεως ''ἐξαιρουμένων''.",
+	"validationstatistics-ns": "Ὀνοματεῖον",
+	"validationstatistics-total": "Δέλτοι",
+	"validationstatistics-stable": "Ἀνατεθεωρημένη",
+	"validationstatistics-latest": "Συγκεχρονισμένη",
+	"validationstatistics-synced": "Συγκεχρονισμένη/Ἐπιτεθεωρημένη",
+	"validationstatistics-old": "Ἀπηρχαιωμένη",
+	"validationstatistics-utable": "Κάτωθι ἐστὶ ὁ κατάλογος τῶν $1 κορυφαίων ἐπιθεωρητῶν τῇ ὑστάτη μίᾳ ὥρᾳ.",
+	"validationstatistics-user": "Χρώμενος",
+	"validationstatistics-reviews": "Ἐπιθεωρήσεις"
 }

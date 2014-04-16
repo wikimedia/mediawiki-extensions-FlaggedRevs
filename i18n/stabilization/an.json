@@ -1,28 +1,28 @@
 {
-    "@metadata": {
-        "authors": [
-            "Juanpabl"
-        ]
-    },
-    "stabilization-tab": "(vet)",
-    "stabilization": "Estabilización d'a pachina",
-    "stabilization-text": "'''Cambeye a confeguración d'abaixo si quier achustar a forma de trigar y amostrar a versión acceptada de [[:$1|$1]].'''",
-    "stabilization-perm": "A suya cuenta no tiene premisos ta cambiar a confeguración d'a versión acceptada. Os achustes actuals ta [[:$1|$1]] s'amuestran aquí:",
-    "stabilization-page": "Nombre d'a pachina:",
-    "stabilization-leg": "Confirmar a confeguración d'a versión acceptada",
-    "stabilization-def": "A revisión s'amuestra en a pachina de visualización por defecto",
-    "stabilization-def1": "A versión estable; si no ye present, alavez a zaguera versión",
-    "stabilization-def2": "A zaguera versión",
-    "stabilization-submit": "Confirmar",
-    "stabilization-notexists": "No bi ha garra pachina tetulata \"[[:$1|$1]]\". \nNo ye posible confegurar-la.",
-    "stabilization-notcontent": "A pachina \"[[:$1|$1]]\" no se puede revisar.\nNo ye posible confegurar-la.",
-    "stabilization-comment": "Razón:",
-    "stabilization-otherreason": "Atra razón:",
-    "stabilization-expiry": "Circunduce:",
-    "stabilization-def-short": "Por defecto",
-    "stabilization-def-short-0": "Actual",
-    "stabilization-def-short-1": "Acceptada",
-    "stabilize_expiry_invalid": "A calendata de circunducción no ye conforme.",
-    "stabilize_expiry_old": "Ista calendata de circunducción ya ye pasata.",
-    "stabilize-expiring": "circunduce o $1 (UTC)"
+	"@metadata": {
+		"authors": [
+			"Juanpabl"
+		]
+	},
+	"stabilization-tab": "(vet)",
+	"stabilization": "Estabilización d'a pachina",
+	"stabilization-text": "'''Cambeye a confeguración d'abaixo si quier achustar a forma de trigar y amostrar a versión acceptada de [[:$1|$1]].'''",
+	"stabilization-perm": "A suya cuenta no tiene premisos ta cambiar a confeguración d'a versión acceptada. Os achustes actuals ta [[:$1|$1]] s'amuestran aquí:",
+	"stabilization-page": "Nombre d'a pachina:",
+	"stabilization-leg": "Confirmar a confeguración d'a versión acceptada",
+	"stabilization-def": "A revisión s'amuestra en a pachina de visualización por defecto",
+	"stabilization-def1": "A versión estable; si no ye present, alavez a zaguera versión",
+	"stabilization-def2": "A zaguera versión",
+	"stabilization-submit": "Confirmar",
+	"stabilization-notexists": "No bi ha garra pachina tetulata \"[[:$1|$1]]\". \nNo ye posible confegurar-la.",
+	"stabilization-notcontent": "A pachina \"[[:$1|$1]]\" no se puede revisar.\nNo ye posible confegurar-la.",
+	"stabilization-comment": "Razón:",
+	"stabilization-otherreason": "Atra razón:",
+	"stabilization-expiry": "Circunduce:",
+	"stabilization-def-short": "Por defecto",
+	"stabilization-def-short-0": "Actual",
+	"stabilization-def-short-1": "Acceptada",
+	"stabilize_expiry_invalid": "A calendata de circunducción no ye conforme.",
+	"stabilize_expiry_old": "Ista calendata de circunducción ya ye pasata.",
+	"stabilize-expiring": "circunduce o $1 (UTC)"
 }
