@@ -23,6 +23,8 @@
 	"flaggedrevs-prefs-editdiffs": "Bim Ändre di hängige Unterschid zeige",
 	"flaggedrevs-prefs-viewdiffs": "im Aaluege vu dr letschte hängige Version di hängige Änderige zeige",
 	"flaggedrevs-hidereviewed": "Markierti Bearbeitige $1",
+	"flaggedrevs-hidereviewed-hide": "uusblände",
+	"flaggedrevs-hidereviewed-show": "aazeige",
 	"group-editor": "Fäldhieter",
 	"group-editor-member": "{{GENDER:$1|Fäldhüeter|Fäldhüeteri}}",
 	"group-reviewer": "Priefer",
