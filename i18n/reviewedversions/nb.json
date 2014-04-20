@@ -1,13 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
-			"Nghtwlkr"
+			"Nghtwlkr",
+			"Jeblad"
 		]
 	},
 	"reviewedversions": "Reviderte versjoner",
-	"reviewedversions-leg1": "List anmeldte versjoner av en side",
+	"reviewedversions-leg1": "List reviderte revisjoner av en side",
 	"reviewedversions-page": "Sidenavn:",
-	"reviewedversions-none": "«[[:$1]]» har ingen anmeldte versjoner.",
-	"reviewedversions-list": "Følgende er en liste over {{PLURAL:$2|den eneste versjonen|versjonene}} av [[:$1]] som har blitt gjennomgått:",
-	"reviewedversions-review": "Anmeldt <i>$1</i> av $2"
+	"reviewedversions-none": "«[[:$1]]» har ingen reviderte versjoner.",
+	"reviewedversions-list": "Følgende er en liste over {{PLURAL:$2|den eneste revisjonen|revisjonene}} av [[:$1]] som har blitt gjennomgått:",
+	"reviewedversions-review": "Revidert på <i>$1</i> av $2"
 }

@@ -2,22 +2,23 @@
 	"@metadata": {
 		"authors": [
 			"EivindJ",
-			"Nghtwlkr"
+			"Nghtwlkr",
+			"Jeblad"
 		]
 	},
 	"pendingchanges": "Sider med ventende endringer",
-	"pendingchanges-legend": "Vis anmeldte sider med uanmeldte sideversjoner",
+	"pendingchanges-legend": "List reviderte sider med ventende endringer",
 	"pendingchanges-list": "Denne siden lister opp [[{{MediaWiki:Validationpage}}|reviderte]] sider som har en eller flere ventende endringer.",
 	"pendingchanges-none": "Det er for tiden ingen sider som passer med disse kriteriene",
-	"pendingchanges-hours": "($1 {{PLURAL:$1|time|timer}})",
-	"pendingchanges-days": "($1 {{PLURAL:$1|dag|dager}})",
+	"pendingchanges-hours": "({{PLURAL:$1|En time|$1 timer}})",
+	"pendingchanges-days": "({{PLURAL:$1|En dag|$1 dager}})",
 	"pendingchanges-recent": "(under én time)",
 	"pendingchanges-category": "Kategori:",
 	"pendingchanges-onwatchlist": "Sider på min overvåkningsliste",
 	"pendingchanges-stable": "Stabil versjon er standard",
-	"pendingchanges-diff": "anmeld",
-	"pendingchanges-size": "Maksimal endring (byte):",
+	"pendingchanges-diff": "revider",
+	"pendingchanges-size": "Maks endring (byte):",
 	"pendingchanges-unwatched": "(ikke overvåket)",
 	"pendingchanges-watched": "({{PLURAL:$1|én aktiv bruker|$1 aktive brukere}} overvåker)",
-	"pendingchanges-viewing": "(under vurdering)"
+	"pendingchanges-viewing": "(under revidering)"
 }

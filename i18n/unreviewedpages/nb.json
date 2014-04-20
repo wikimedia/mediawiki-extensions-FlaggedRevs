@@ -3,19 +3,21 @@
 		"authors": [
 			"Harald Khan",
 			"Nghtwlkr",
-			"Simny"
+			"Simny",
+			"Jeblad"
 		]
 	},
-	"unreviewedpages": "Uanmeldte sider",
-	"unreviewedpages-legend": "List uanmeldte innholdssider",
+	"action-unreviewedpages": "vise listen over ureviderte sider",
+	"unreviewedpages": "Ureviderte sider",
+	"unreviewedpages-legend": "List ureviderte innholdssider",
 	"unreviewedpages-category": "Kategori:",
-	"unreviewedpages-diff": "anmeld",
+	"unreviewedpages-diff": "revider",
 	"unreviewedpages-unwatched": "(uovervåket)",
 	"unreviewedpages-watched": "({{PLURAL:$1|én aktiv bruker|$1 aktive brukere}} overvåker)",
-	"unreviewedpages-list": "Denne siden lister opp innholdssider som ''ikke'' har blitt [[{{MediaWiki:Validationpage}}|vurdert]] til det spesifiserte nivået.",
+	"unreviewedpages-list": "Denne siden lister opp innholdssider som ''ikke'' har blitt [[{{MediaWiki:Validationpage}}|revidert]] til det spesifiserte nivået.",
 	"unreviewedpages-none": "Det er ingen sider som passer med disse kriteriene",
-	"unreviewedpages-viewing": "(under vurdering)",
-	"unreviewedpages-hours": "($1 {{PLURAL:$1|time|timer}})",
-	"unreviewedpages-days": "($1 {{PLURAL:$1|dag|dager}})",
+	"unreviewedpages-viewing": "(under revidering)",
+	"unreviewedpages-hours": "({{PLURAL:$1|én time|$1 timer}})",
+	"unreviewedpages-days": "({{PLURAL:$1|én dag|$1 dager}})",
 	"unreviewedpages-recent": "(under én time)"
 }

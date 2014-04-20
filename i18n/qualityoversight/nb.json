@@ -1,10 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Nghtwlkr"
+			"Nghtwlkr",
+			"Jeblad"
 		]
 	},
-	"qualityoversight": "Avansert revisjonslogg",
-	"qualityoversight-list": "Denne siden viser de siste godkjenninger og degraderinger av sideversjoner.",
-	"qualityoversight-legend": "Søk logger etter de siste anmeldelsene"
+	"qualityoversight": "Avansert revideringslogg",
+	"qualityoversight-list": "Denne siden viser de siste godkjenninger og degraderinger av revisjoner.",
+	"qualityoversight-legend": "Søk siste revideringslogger"
 }
