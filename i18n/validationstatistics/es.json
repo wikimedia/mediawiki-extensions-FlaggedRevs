@@ -16,7 +16,7 @@
 	"validationstatistics-lastupdate": "''Los siguientes datos fueron actualizados por última vez el $1 a las $2.''",
 	"validationstatistics-pndtime": "Las ediciones que han sido revisadas por los usuarios establecidos están consideradas \"{{int:validationstatistics-stable}}\".\n\nEl promedio de retraso para las [[Special:OldReviewedPages|páginas con ediciones pendientes de revisión]] es de '''$1'''; el retraso mide cuánto es la mayor pendiente de ediciones sin revisar.",
 	"validationstatistics-revtime": "La espera promedio para las ediciones  hechas por ''usuarios que no han iniciado sesión'' a ser revisadas es '''$1'''; la media es '''$2'''. $3",
-	"validationstatistics-table": "Las estadísiticas de la revisión de páginas para cada espacio de nombres están mostradas debajo, ''excluyendo'' redirecciones. Las páginas son tratadas como ''desactualizadas'' si tiene ediciones pendientes de revisión; la páginas son consideradas ''sincronizadas'' si no tiene ediciones pendientes de revisión.",
+	"validationstatistics-table": "Las estadísticas de revisión de página para cada espacio de nombres se indica a continuación, \"excluyendo\" las páginas de redirección.\nLas páginas son tratadas como ''{{int:validationstatistics-old}}'' si tienen ediciones pendientes de revisión; las páginas son consideradas ''{{int:validationstatistics-latest}}'' si no tienen ediciones pendientes de revisión.",
 	"validationstatistics-ns": "Espacio de nombres",
 	"validationstatistics-total": "Páginas",
 	"validationstatistics-stable": "Revisado",

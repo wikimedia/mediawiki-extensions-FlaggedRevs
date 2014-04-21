@@ -1,13 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
-			"AnakngAraw"
+			"AnakngAraw",
+			"Jojit fb"
 		]
 	},
 	"stabilization-tab": "suriing mabuti (masinsinan)",
 	"stabilization": "Pagpapatatag ng pahina",
 	"stabilization-text": "'''Baguhin ang mga pagtatakdang nasa ibaba upang mabago ang kung paano napili at napalitaw ang tanggap na bersyon ng [[:$1|$1]].'''",
-	"stabilization-perm": "Walang pahintulon ang akawnt mo na magbago ng ayos ng tanggap na bersyon.\nNarito ang pangkasalukuyang mga katakdaan para sa [[:$1|$1]]:",
+	"stabilization-perm": "Walang pahintulot ang account mo na magbago ng matatag na bersyon.\nNarito ang pangkasalukuyang mga katakdaan para sa [[:$1|$1]]:",
 	"stabilization-page": "Pangalan ng pahina:",
 	"stabilization-leg": "Tiyakin ang mga pagtatakda para sa tanggap na bersyon",
 	"stabilization-def": "Ang pagbabagong ipinakita sa natatanaw na likas na nakatakdang pahina",
