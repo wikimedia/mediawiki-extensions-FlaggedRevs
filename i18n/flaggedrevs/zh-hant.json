@@ -10,7 +10,8 @@
 			"Liuxinyu970226",
 			"Mark85296341",
 			"Waihorace",
-			"Wrightbus"
+			"Wrightbus",
+			"Cwlin0416"
 		]
 	},
 	"action-review": "複查修改",
@@ -30,6 +31,8 @@
 	"flaggedrevs-prefs-editdiffs": "在編輯時顯示與穩定版本的差異",
 	"flaggedrevs-prefs-viewdiffs": "在顯示頁面草稿時顯示與穩定版本的差異",
 	"flaggedrevs-hidereviewed": "$1已複審的編輯",
+	"flaggedrevs-hidereviewed-hide": "隱藏",
+	"flaggedrevs-hidereviewed-show": "顯示",
 	"group-editor": "編輯",
 	"group-editor-member": "{{GENDER:$1|編者}}",
 	"group-reviewer": "復審員",
