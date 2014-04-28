@@ -9,13 +9,14 @@
 			"IvanLanin",
 			"Iwan Novirion",
 			"Kenrick95",
-			"Rex"
+			"Rex",
+			"Ezagren"
 		]
 	},
 	"action-review": "tinjau revisi",
 	"editor": "Penyunting",
 	"flaggedrevs": "Revisi bertanda",
-	"flaggedrevs-watched-pending": "Saat ini ada halaman [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} suntingan tertunda] untuk ditinjau dalam daftar pantauan Anda. '''Memerlukan perhatian anda!'''",
+	"flaggedrevs-watched-pending": "Saat ini ada halaman [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} suntingan tertunda] untuk ditinjau dalam daftar pantauan Anda. '''Perhatian Anda diperlukan!'''",
 	"flaggedrevs-desc": "Memberikan Penyunting kemampuan untuk meninjau revisi dan menandai halaman sebagai stabil",
 	"flaggedrevs-pref-UI": "Antarmuka dasar:",
 	"flaggedrevs-pref-UI-0": "Gunakan kotak rincian untuk menampilkan status tinjauan halaman",

@@ -27,6 +27,8 @@
 	"flaggedrevs-prefs-editdiffs": "Wexto ke mı pelan vurna ferqan ramocne",
 	"flaggedrevs-prefs-viewdiffs": "Wexto ke mı vurnayisane pelan kontrol keni ferqan mocneno",
 	"flaggedrevs-hidereviewed": "Bari vurnayışê $1",
+	"flaggedrevs-hidereviewed-hide": "Bınımne",
+	"flaggedrevs-hidereviewed-show": "Bımocne",
 	"group-editor": "Editori",
 	"group-editor-member": "{{GENDER:$1|editor}}",
 	"group-reviewer": "rexnekari",
