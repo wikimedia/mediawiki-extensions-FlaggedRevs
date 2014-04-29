@@ -12,7 +12,7 @@
 	"validationstatistics-revtime": "ЦӀе хьулйина декъашхоша дина нисдар къобал цадеш йолу хан '''$1'''; медиан — '''$2'''.\n$3",
 	"validationstatistics-table": "Лахахьа гойту цӀерийн меттгашца агӀонашка хьажаран статистика дӀасахьажаярш ''юкъахь яц''\nХьажанза нисдарш долу агӀонаш  ''{{int:validationstatistics-old}}'' ю; хьажа дезаш нисдарш доцу агӀонаш ''{{int:validationstatistics-latest}}'' ю.",
 	"validationstatistics-ns": "Цlерийн ана",
-	"validationstatistics-total": "Агlонаш",
+	"validationstatistics-total": "АгӀонаш",
 	"validationstatistics-stable": "Нийса йуй хаьжнарш",
 	"validationstatistics-latest": "Юха хьаьжинарш",
 	"validationstatistics-synced": "Юху хьаьжнарш хьаьжна хила чера юкъар",
