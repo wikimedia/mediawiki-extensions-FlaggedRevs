@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Nghtwlkr",
-			"Jeblad"
+			"Jeblad",
+			"Danmichaelo"
 		]
 	},
 	"validationstatistics": "Siderevideringsstatistikk",
@@ -10,15 +11,15 @@
 	"validationstatistics-lastupdate": "''Følgende data ble sist oppdatert $1, $2.''",
 	"validationstatistics-pndtime": "Redigeringer som har blitt kontrollert av etablerte brukere anses å være ''{{int:validationstatistics-stable}}''.\n\nGjennomsnittsforsinkelsen for [[Special:OldReviewedPages|sider med ureviderte ventende endringer]] er nå '''$1'''; forsinkelsen måler hvor lenge den eldste ventende endringen har vært urevidert.",
 	"validationstatistics-revtime": "Gjennomsnittsventetiden for endringer av ''brukere som ikke har logget inn'' å bli revidert er '''$1'''; medianen er '''$2'''.\n$3",
-	"validationstatistics-table": "Siderevideringsstatistikk for hvert navnerom vises nedenfor, ''utenom'' omdirigeringssider.\nSider behandles som ''{{int:validationstatistics-old}}'' om de har ureviderte ventende endringer;\nsider anses å være ''{{int:validationstatistics-latest}}'' dersom de har ingen ureviderte ventende endringer.",
+	"validationstatistics-table": "Sidegjennomgangsstatistikk for hvert navnerom vises nedenfor, ''utenom'' omdirigeringssider.\nSider behandles som ''{{int:validationstatistics-old}}'' hvis de har redigeringer som venter på gjennomgang;\nsider anses å være ''{{int:validationstatistics-latest}}'' hvis det ikke har redigeringer som venter på gjennomgang.",
 	"validationstatistics-ns": "Navnerom",
 	"validationstatistics-total": "Sider",
-	"validationstatistics-stable": "Revidert",
+	"validationstatistics-stable": "Gjennomgått",
 	"validationstatistics-latest": "Synkronisert",
-	"validationstatistics-synced": "Synkronisert/Revidert",
+	"validationstatistics-synced": "Synkronisert/Gjennomgått",
 	"validationstatistics-old": "Foreldet",
-	"validationstatistics-unreviewed": "Urevidert",
+	"validationstatistics-unreviewed": "Ikke gjennomgått",
 	"validationstatistics-utable": "Under er en liste over {{PLURAL:$1|den mest aktive anmelderen|de $1 mest aktive anmelderne}} {{PLURAL:$2|den siste timen|de siste $2 timene}}.",
 	"validationstatistics-user": "Bruker",
-	"validationstatistics-reviews": "Revideringer"
+	"validationstatistics-reviews": "Gjennomganger"
 }

@@ -3,11 +3,12 @@
 		"authors": [
 			"EivindJ",
 			"Nghtwlkr",
-			"Jeblad"
+			"Jeblad",
+			"Danmichaelo"
 		]
 	},
 	"pendingchanges": "Sider med ventende endringer",
-	"pendingchanges-legend": "List reviderte sider med ventende endringer",
+	"pendingchanges-legend": "List opp sider for gjennomgang med ventende endringer",
 	"pendingchanges-list": "Denne siden lister opp [[{{MediaWiki:Validationpage}}|reviderte]] sider som har en eller flere ventende endringer.",
 	"pendingchanges-none": "Det er for tiden ingen sider som passer med disse kriteriene",
 	"pendingchanges-hours": "({{PLURAL:$1|En time|$1 timer}})",
