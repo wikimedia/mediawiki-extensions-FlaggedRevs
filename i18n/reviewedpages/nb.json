@@ -3,10 +3,11 @@
 		"authors": [
 			"EivindJ",
 			"Nghtwlkr",
-			"Jeblad"
+			"Jeblad",
+			"Danmichaelo"
 		]
 	},
-	"reviewedpages": "Reviderte sider",
+	"reviewedpages": "Sider markert for gjennomgang",
 	"reviewedpages-leg": "List opp sider som har blitt revidert",
 	"reviewedpages-list": "Denne listen inneholder [[{{MediaWiki:Validationpage}}|reviderte]] sider som ''på det meste''  har hatt et revisjonsnivå på et oppgitt nivå.\nEn lenke er oppgitt til den siste revisjonen med det nivået.",
 	"reviewedpages-none": "Det er ingen sider i denne listen",
