@@ -12,7 +12,8 @@
 			"Nghtwlkr",
 			"Rotsee",
 			"Tobulos1",
-			"WikiPhoenix"
+			"WikiPhoenix",
+			"Lokal Profil"
 		]
 	},
 	"revisionreview": "Granska sidversioner",
@@ -49,8 +50,8 @@
 	"revreview-stable2": "Du vill kanske se den [{{fullurl:$1|stable=1}} accepterade versionen] av denna sida.",
 	"revreview-submit": "Spara",
 	"revreview-submitting": "Levererar...",
-	"revreview-submit-review": "Godkänn revision",
-	"revreview-submit-unreview": "Acceptera inte revision",
+	"revreview-submit-review": "Godkänn version",
+	"revreview-submit-unreview": "Acceptera inte version",
 	"revreview-submit-reject": "Avvisa ändringar",
 	"revreview-submit-reviewed": "Klar. Godkänd!",
 	"revreview-submit-unreviewed": "Klar. Inte accepterad!",
@@ -69,7 +70,7 @@
 	"revreview-update-edited": "<span class=\"flaggedrevs_important\">Dina ändringar är ännu inte i den stabila versionen.</span>\n\nVänligen granska alla ändringar som visas nedan för att göra så att dina redigeringar visas i den stabila versionen.",
 	"revreview-update-edited-prev": "<span class=\"flaggedrevs_important\">Dina ändringar är ännu inte i den stabila versionen. Det finns tidigare ändringar som väntar på granskning</span>\n\nVänligen granska alla ändringar som visas nedan för att göra så att dina redigeringar visas i den stabila versionen.",
 	"revreview-update-includes": "Mallar/filer har uppdaterats (ogranskade sidor i fet text):",
-	"revreview-reject-text-list": "Genom att slutföra den här åtgärden kommer du att '''avvisa''' källtexten från att ändras från följande {{PLURAL:$1|revision|revisioner}} av [[:$2|$2]]:",
+	"revreview-reject-text-list": "Genom att slutföra den här åtgärden kommer du att '''avvisa''' ändringarna i källtexten från följande {{PLURAL:$1|version|versioner}} av [[:$2|$2]]:",
 	"revreview-reject-text-revto": "Detta kommer att återställa sidan tillbaka till [{{fullurl:$1|oldid=$2}} versionen från $3].",
 	"revreview-reject-summary": "Sammanfattning:",
 	"revreview-reject-confirm": "Avvisa dessa ändringar",
