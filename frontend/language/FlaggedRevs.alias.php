@@ -790,6 +790,11 @@ $specialPageAliases['vi'] = array(
 	'ValidationStatistics' => array( 'Thống_kê_duyệt' ),
 );
 
+/** Yiddish (ייִדיש) */
+$specialPageAliases['yi'] = array(
+	'UnreviewedPages' => array( 'אומרעצענזירטע_בלעטער' ),
+);
+
 /** Simplified Chinese (中文（简体）‎) */
 $specialPageAliases['zh-hans'] = array(
 	'PendingChanges' => array( '待定更改', '旧复核页面' ),
