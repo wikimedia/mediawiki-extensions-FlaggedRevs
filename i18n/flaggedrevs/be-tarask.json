@@ -26,6 +26,8 @@
 	"flaggedrevs-prefs-editdiffs": "Паказваць адрозьненьні паміж неправеранай і праверанай вэрсіямі пад час рэдагаваньня старонак",
 	"flaggedrevs-prefs-viewdiffs": "Паказваць неправераныя зьмены пад час прагляду апошняй неправеранай вэрсіі",
 	"flaggedrevs-hidereviewed": "$1 рэцэнзаваныя рэдагаваньні",
+	"flaggedrevs-hidereviewed-hide": "Схаваць",
+	"flaggedrevs-hidereviewed-show": "Паказаць",
 	"group-editor": "Рэдактары",
 	"group-editor-member": "{{GENDER:$1|рэдактар|рэдактарка}}",
 	"group-reviewer": "Рэцэнзэнты",
