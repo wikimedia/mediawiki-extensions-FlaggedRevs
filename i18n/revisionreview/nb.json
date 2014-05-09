@@ -10,7 +10,7 @@
 		]
 	},
 	"revisionreview": "Gjennomgå revisjoner",
-	"revreview-failed": "'''Kunne ikke revidere denne revisjonen.'''",
+	"revreview-failed": "'''Kunne ikke gjennomgå denne revisjonen.'''",
 	"revreview-submission-invalid": "Innsendingen var ufullstendig eller på en annen måte ugyldig.",
 	"review_page_invalid": "Målsidetittelen er ugyldig.",
 	"review_page_notexists": "Målsiden finnes ikke.",
@@ -38,7 +38,7 @@
 	"revreview-reflag": "Revider denne revisjonen på nytt",
 	"revreview-invalid": "'''Ugyldig mål:''' ingen [[{{MediaWiki:Validationpage}}|reviderte]] revisjoner tilsvarer den angitte ID-en.",
 	"revreview-log": "Kommentar:",
-	"revreview-main": "Du må velge en viss revisjon av en innholdsside for å revidere den.\n\nSe [[Special:Unreviewedpages|listen over ureviderte sider]].",
+	"revreview-main": "Du må velge en bestemt revisjon av en innholdsside for å gjennomgå den.\n\nSe [[Special:Unreviewedpages|listen over ikke-gjennomgåtte sider]].",
 	"revreview-stable1": "Du vil kanskje se [{{fullurl:$1|stableid=$2}} denne flaggede versjonen] og se om den nå er den [{{fullurl:$1|stable=1}} stabile versjonen] av denne siden.",
 	"revreview-stable2": "Du vil kanskje se den [{{fullurl:$1|stable=1}} stabile versjonen] av denne siden.",
 	"revreview-submit": "Send",

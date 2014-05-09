@@ -17,8 +17,8 @@
 	"pendingchanges-category": "Kategori:",
 	"pendingchanges-onwatchlist": "Sider på min overvåkningsliste",
 	"pendingchanges-stable": "Stabil versjon er standard",
-	"pendingchanges-diff": "revider",
-	"pendingchanges-size": "Maks endring (byte):",
+	"pendingchanges-diff": "gjennomgå",
+	"pendingchanges-size": "Maks størrelsesendring (bytes):",
 	"pendingchanges-unwatched": "(ikke overvåket)",
 	"pendingchanges-watched": "({{PLURAL:$1|én aktiv bruker|$1 aktive brukere}} overvåker)",
 	"pendingchanges-viewing": "(venter på gjennomgang)"

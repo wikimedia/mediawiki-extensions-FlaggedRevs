@@ -31,7 +31,7 @@
 	"group-editor": "Рэдактары",
 	"group-editor-member": "{{GENDER:$1|рэдактар|рэдактарка}}",
 	"group-reviewer": "Рэцэнзэнты",
-	"group-reviewer-member": "рэцэнзэнт",
+	"group-reviewer-member": "{{GENDER:$1|рэцэнзэнт|рэцэнзэнтка}}",
 	"grouppage-editor": "{{ns:project}}:Рэдактар",
 	"grouppage-reviewer": "{{ns:project}}:Рэцэнзэнт",
 	"group-autoreview": "Аўтаматычныя рэцэнзэнты",

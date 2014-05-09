@@ -2,13 +2,14 @@
 	"@metadata": {
 		"authors": [
 			"Nghtwlkr",
-			"Jeblad"
+			"Jeblad",
+			"Danmichaelo"
 		]
 	},
-	"reviewedversions": "Reviderte versjoner",
-	"reviewedversions-leg1": "List reviderte revisjoner av en side",
+	"reviewedversions": "Gjennomgåtte versjoner",
+	"reviewedversions-leg1": "List gjennomgåtte versjoner av en side",
 	"reviewedversions-page": "Sidenavn:",
-	"reviewedversions-none": "«[[:$1]]» har ingen reviderte versjoner.",
+	"reviewedversions-none": "«[[:$1]]» har ingen gjennomgåtte revisjoner.",
 	"reviewedversions-list": "Følgende er en liste over {{PLURAL:$2|den eneste revisjonen|revisjonene}} av [[:$1]] som har blitt gjennomgått:",
-	"reviewedversions-review": "Revidert på <i>$1</i> av $2"
+	"reviewedversions-review": "Gjennomgått <i>$1</i> av $2"
 }

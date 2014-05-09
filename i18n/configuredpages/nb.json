@@ -9,7 +9,7 @@
 	"configuredpages": "Sider med revisjonsinnstillinger",
 	"configuredpages-list": "Nedenfor er en liste over sider som er satt opp med godkjenningsinnstillinger forskjellig fra nettstedstandarden.\nEnkelte innstillinger kan endre hvilken versjon som vises til lesere eller ytterligere begrense hvem som kan gjøre endringer som ikke krever gjennomgang.",
 	"configuredpages-none": "Det er ingen sider i denne listen.",
-	"configuredpages-config": "Innstilling",
+	"configuredpages-config": "Innstillinger",
 	"configuredpages-def-draft": "siste versjon",
 	"configuredpages-def-stable": "stabil versjon"
 }
