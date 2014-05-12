@@ -49,6 +49,7 @@ class FlaggedRevsSetup {
 		$langDir          = "$dir/frontend/language";
 		$spActionDir      = "$dir/frontend/specialpages/actions";
 		$spReportDir      = "$dir/frontend/specialpages/reports";
+		$scribuntoDir     = "$dir/scribunto";
 		$testDir          = "$dir/tests";
 
 		### Backend classes ###
@@ -161,6 +162,10 @@ class FlaggedRevsSetup {
 		$classes['ApiFlagConfig'] = "$apiReportDir/ApiFlagConfig.php";
 		### End ###
 
+		### Scribunto classes ###
+		$classes['Scribunto_LuaFlaggedRevsLibrary'] = "$scribuntoDir/FlaggedRevs.library.php";
+		### End ###
+
 		### Event handler classes ###
 		$classes['FlaggedRevsHooks'] = "$backendDir/FlaggedRevs.hooks.php";
 		$classes['FlaggedRevsUIHooks'] = "$frontendDir/FlaggedRevsUI.hooks.php";
@@ -247,6 +252,14 @@ class FlaggedRevsSetup {
 
 		# Database schema changes
 		$wgHooks['LoadExtensionSchemaUpdates'][] = 'FlaggedRevsUpdaterHooks::addSchemaUpdates';
+
+		# Add our library to Scribunto
+		$wgHooks['ScribuntoExternalLibraries'][] = function( $engine, array &$extraLibraries ) {
+			if( $engine == 'lua' ) {
+				$extraLibraries['mw.ext.FlaggedRevs'] = 'Scribunto_LuaFlaggedRevsLibrary';
+			}
+			return true;
+		};
 		# ########
 	}
 

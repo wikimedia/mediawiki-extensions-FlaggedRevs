@@ -90,6 +90,14 @@ class FlaggableWikiPage extends WikiPage {
 	}
 
 	/**
+	 * Has data for this page been loaded?
+	 * @return bool
+	 */
+	public function isDataLoaded() {
+		return $this->mDataLoaded;
+	}
+
+	/**
 	 * Are edits to this page currently pending?
 	 * @return bool
 	 */
