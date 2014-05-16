@@ -1,4 +1,12 @@
 {
-	"@metadata": [],
-	"unreviewedpages-category": "پۆل:"
+	"@metadata": {
+		"authors": [
+			"Calak"
+		]
+	},
+	"unreviewedpages-category": "پۆل:",
+	"unreviewedpages-unwatched": "(چاودێری نەکراو)",
+	"unreviewedpages-watched": "($1 بەکارھێنەری {{PLURAL:$1|بەکارھێنەر}}ی چالاکی چاودێر)",
+	"unreviewedpages-none": "ھەر ئێستا ھیچ پەڕەیەک ئەم پێوەرانە ناگرێتەوە",
+	"unreviewedpages-recent": "(کەمتر لە ساعەتێک)"
 }

@@ -1,4 +1,18 @@
 {
-	"@metadata": [],
-	"revreview-submit": "ناردن"
+	"@metadata": {
+		"authors": [
+			"Calak"
+		]
+	},
+	"revreview-log": "بۆچوون:",
+	"revreview-submit": "ناردن",
+	"revreview-submit-review": "پێداچوونەوە قەبووڵ بکە",
+	"revreview-submit-unreview": "پێداچوونەوە قەبووڵ مەکە",
+	"revreview-submit-reject": "گۆڕانکارییەکان ڕەد بکەوە",
+	"revreview-submit-reviewed": "کرا. قەبووڵ کرا!",
+	"revreview-submit-unreviewed": "کرا. قەبووڵ نەکرا!",
+	"revreview-adv-start-link": "ڕابگەیێنە",
+	"revreview-adv-stop-link": "ڕامەگەیێنە",
+	"revreview-reject-summary": "کورتە:",
+	"revreview-reject-confirm": "ئەم گۆڕانکارییانە ڕەد بکەوە"
 }

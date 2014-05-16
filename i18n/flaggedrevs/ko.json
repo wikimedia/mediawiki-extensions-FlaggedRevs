@@ -168,7 +168,7 @@
 	"revreview-lev-pristine": "깨끗한 판",
 	"revreview-defaultfilter": "기본 판:",
 	"revreview-def-all": "모두",
-	"revreview-def-draft": "최신판",
+	"revreview-def-draft": "최신",
 	"revreview-def-stable": "배포판",
 	"revreview-restrictfilter": "자동 검토 제한:",
 	"revreview-restriction-any": "모두",

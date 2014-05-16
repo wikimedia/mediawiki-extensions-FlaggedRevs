@@ -4,9 +4,16 @@
 			"Calak"
 		]
 	},
+	"stabilization-page": "ناوی پەڕە:",
+	"stabilization-def2": "دواییت پێداچوونەوە",
 	"stabilization-submit": "پشتدار بکەرەوە",
 	"stabilization-comment": "هۆکار:",
 	"stabilization-otherreason": "ھۆکاری تر:",
 	"stabilization-expiry": "ھەتا:",
+	"stabilization-othertime": "کاتی تر:",
+	"stabilization-def-short-0": "ھەنووکە",
+	"stabilize_invalid_level": "ئاستی بەسەرچوونی نادروست.",
+	"stabilize_expiry_invalid": "ڕێکەوتی بەسەرچوونی نادروست.",
+	"stabilize_expiry_old": "کاتی بەسەرچوون ھەر ئێستا تێپەڕاوە.",
 	"stabilize-expiring": "بەسەردەچێ لە ڕێکەوتی $1 (UTC)"
 }
