@@ -15,7 +15,7 @@
 	"pendingchanges": "Sivut, joilla on arviointia odottavia muutoksia",
 	"pendingchanges-legend": "Luettele arvioidut sivut, joissa on arviointia odottavia muutoksia.",
 	"pendingchanges-list": "Tämä sivu näyttää [[{{MediaWiki:Validationpage}}|arvioidut]] sivut, joilla on odottavia muutoksia.",
-	"pendingchanges-none": "Ehdot täyttäviä sivuja ei ole",
+	"pendingchanges-none": "Näitä hakuehtoja täyttäviä sivuja ei ole yhtään tällä hetkellä.",
 	"pendingchanges-hours": "($1 {{PLURAL:$1|tunti|tuntia}})",
 	"pendingchanges-days": "($1 {{PLURAL:$1|päivä|päivää}})",
 	"pendingchanges-recent": "(alle yksi tunti)",
