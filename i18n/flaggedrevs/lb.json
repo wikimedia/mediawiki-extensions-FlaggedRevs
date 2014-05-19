@@ -124,7 +124,7 @@
 	"revreview-style-4": "Bemierkenswäert",
 	"revreview-toggle-title": "Detailer weisen/verstoppen",
 	"revreview-visibility-synced": "'''Dës Säit huet eng aktualiséiert [[{{MediaWiki:Validationpage}}|publizéiert Versioun]]; d'Astellunge vun der Stabilitéit kënnen op [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} agestallt ginn].'''",
-	"revreview-visibility-outdated": "'''Dës Säit huet eng vereelzte [[{{MediaWiki:Validationpage}}|publizéiert Versioun]]; d'Astellunge vun der Säitestabilitéit kënnen [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} agestallt ginn].'''",
+	"revreview-visibility-outdated": "'''Dës Säit huet eng vereelst [[{{MediaWiki:Validationpage}}|publizéiert Versioun]]; d'Astellunge vun der Säitestabilitéit kënnen [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} agestallt ginn].'''",
 	"revreview-visibility-nostable": "'''Dës Säit huet keng [[{{MediaWiki:Validationpage}}|publizéiert Versioun]]; d'Astellunge vun der Säitestabilitéit kënnen  [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} agestallt] ginn.'''",
 	"revreview-revnotfound": "Déi Versioun vun der Säit déi Dir gefrot hutt konnt net fonnt ginn. Kuckt d'URL no, déi Dir benotzt hutt fir op dës Säit ze kommen.",
 	"right-autoreview": "Versiounen automatesch als \"nogekuckt\" markéieren",
