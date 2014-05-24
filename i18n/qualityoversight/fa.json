@@ -2,10 +2,11 @@
 	"@metadata": {
 		"authors": [
 			"Ebraminio",
-			"Huji"
+			"Huji",
+			"Calak"
 		]
 	},
-	"qualityoversight": "سیاههٔ پیشرفتهٔ بازبینی",
-	"qualityoversight-list": "این صفحه آخرین موارد تأیید نسخه‌های با کیفیت و نیز مستهلک شدن نسخه‌های با کیفیت را فهرست می‌کند.",
+	"qualityoversight": "سیاههٔ بازبینی پیشرفته",
+	"qualityoversight-list": "این صفحه آخرین موارد تأیید و رد نسخه‌ها را فهرست می‌کند.",
 	"qualityoversight-legend": "جستجوی سیاهه‌های بازبینی اخیر"
 }

@@ -4,6 +4,9 @@
 			"Calak"
 		]
 	},
+	"pendingchanges": "پەڕەکان بە گۆڕانکارییە ھەڵواسراوەکان",
+	"pendingchanges-legend": "پەڕە بەسەرداچووەکان بە گۆڕانکارییە ھەڵواسراوەکان پێرست بکە",
+	"pendingchanges-list": "ئەم پەڕەیە پەڕە [[{{MediaWiki:Validationpage}}|بەسەرداچووەکان]] بە یەک یان چەند دەستکاریی چاوەڕێی بەسەرداچوونەوە پێرست دەکات.",
 	"pendingchanges-none": "ھەر ئێستا ھیچ پەڕەیەک ئەم پێوەرانە ناگرێتەوە",
 	"pendingchanges-hours": "($1 {{PLURAL:$1|ساعەت}})",
 	"pendingchanges-days": "($1 {{PLURAL:$1|ڕۆژ}})",
@@ -12,5 +15,5 @@
 	"pendingchanges-onwatchlist": "پەڕەکانی ناو پێرستی چاودێریم",
 	"pendingchanges-size": "زۆرینەی گۆڕانکاری (بایت):",
 	"pendingchanges-unwatched": "(چاودێری نەکراو)",
-	"pendingchanges-watched": "($1 بەکارھێنەری {{PLURAL:$1|بەکارھێنەر}}ی چالاکی چاودێر)"
+	"pendingchanges-watched": "($1 {{PLURAL:$1|بەکارھێنەر}}ی چالاکی چاودێر)"
 }

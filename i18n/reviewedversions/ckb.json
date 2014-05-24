@@ -4,5 +4,8 @@
 			"Calak"
 		]
 	},
-	"reviewedversions-page": "ناوی پەڕە:"
+	"reviewedversions": "پێداچوونەوە بەسەرداچووەکان",
+	"reviewedversions-leg1": "پێداچوونەوە بەسەرداچووەکانی پەڕەیەک پێرست بکە",
+	"reviewedversions-page": "ناوی پەڕە:",
+	"reviewedversions-none": "«[[:$1]]» ھیچ پێداچوونەوەیەکی بەسەرداچووی نییە."
 }

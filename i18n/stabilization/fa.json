@@ -8,11 +8,12 @@
 			"Momeni",
 			"Sahim",
 			"Wayiran",
-			"ZxxZxxZ"
+			"ZxxZxxZ",
+			"Calak"
 		]
 	},
 	"stabilization-tab": "(کک)",
-	"stabilization": "پایدارسازی صفحه‌ها",
+	"stabilization": "پایدارسازی صفحه",
 	"stabilization-text": "برای تعیین چگونگی انتخاب و نمایش نسخهٔ پایدار [[:$1|$1]]، تنظیمات زیر را تغییر دهید.",
 	"stabilization-perm": "حساب شما اجازهٔ تغییر پیکربندی نسخهٔ پایدار را ندارد.\nتنظیمات کنونی برای [[:$1|$1]] چنین هستند:",
 	"stabilization-page": "نام صفحه:",

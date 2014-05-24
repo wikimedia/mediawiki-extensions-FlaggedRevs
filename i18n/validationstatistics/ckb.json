@@ -4,8 +4,14 @@
 			"Calak"
 		]
 	},
+	"validationstatistics": "ئاماری بەسەرداچوونەوەی پەڕە",
+	"validationstatistics-users": "'''{{SITENAME}}''' ھەنووکە '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|بەکارھێنەر}}ی بە مافی [[{{MediaWiki:Validationpage}}|دەستکاریکەر]] ھەیە.\n\nدەستکاریکەران بەکارھێنەرانێکی جێباوڕن کە دەتوانن پێداچوونەوەکانی پەڕەکان تاوتوێ بکەن.",
 	"validationstatistics-ns": "بۆشایی ناو",
 	"validationstatistics-total": "پەڕەکان",
+	"validationstatistics-stable": "بەسەرداچووە",
 	"validationstatistics-old": "کۆن",
-	"validationstatistics-user": "بەکارهێنەر"
+	"validationstatistics-unreviewed": "بەسەردانەچووە",
+	"validationstatistics-utable": "ژێرەوە پێرستێکە لە {{PLURAL:$1|چالاکترین بەسەرداچوونەوەکەر|$1 کەس لە چالاکترین بەسەرداچوونەوەکەران}} لە {{PLURAL:$2|یەک ساعەت|$2 ساعەت}}ی ڕابردوو.",
+	"validationstatistics-user": "بەکارهێنەر",
+	"validationstatistics-reviews": "بەسەرداچوونەوەکان"
 }

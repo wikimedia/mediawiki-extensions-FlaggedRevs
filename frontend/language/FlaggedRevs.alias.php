@@ -135,6 +135,15 @@ $specialPageAliases['ce'] = array(
 	'ValidationStatistics' => array( 'Нисдарийн_статистика' ),
 );
 
+/** Sorani Kurdish (کوردی) */
+$specialPageAliases['ckb'] = array(
+	'PendingChanges' => array( 'گۆڕانکارییە_ھەڵواسراوەکان' ),
+	'ProblemChanges' => array( 'گۆڕانکارییە_گرفتسازەکان' ),
+	'QualityOversight' => array( 'لۆگی_بەسەرداچوونەوەی_پێشکەوتوو' ),
+	'RevisionReview' => array( 'بەسەرداچوونەوەی_پێداچوونەوە' ),
+	'StablePages' => array( 'پەڕە_جێگرتووەکان' ),
+);
+
 /** German (Deutsch) */
 $specialPageAliases['de'] = array(
 	'PendingChanges' => array( 'Seiten_mit_ungesichteten_Versionen' ),
@@ -202,17 +211,17 @@ $specialPageAliases['es'] = array(
 
 /** Persian (فارسی) */
 $specialPageAliases['fa'] = array(
-	'PendingChanges' => array( 'صفحه‌های_بازبینی_شده_قدیمی' ),
-	'ProblemChanges' => array( 'تغییر_مشکلات' ),
+	'PendingChanges' => array( 'تغییرات_در_حال_انتظار' ),
+	'ProblemChanges' => array( 'تغییرات_دارای_مشکل' ),
 	'QualityOversight' => array( 'نظارت_کیفی' ),
-	'ReviewedPages' => array( 'صفحه‌های_بازبینی_شده' ),
+	'ReviewedPages' => array( 'صفحه‌های_بازبینی‌شده' ),
 	'RevisionReview' => array( 'بازبینی_نسخه' ),
 	'Stabilization' => array( 'پایدارسازی' ),
 	'StablePages' => array( 'صفحه‌های_پایدار' ),
-	'ConfiguredPages' => array( 'صفحه‌های_تنظیم_شده' ),
+	'ConfiguredPages' => array( 'صفحه‌های_تنظیم‌شده' ),
 	'ReviewedVersions' => array( 'نسخه‌های_پایدار' ),
-	'UnreviewedPages' => array( 'صفحه‌های‌بازبینی‌نشده' ),
-	'ValidationStatistics' => array( 'آمار_تاییدها' ),
+	'UnreviewedPages' => array( 'صفحه‌های_بازبینی‌نشده' ),
+	'ValidationStatistics' => array( 'آمار_تأییدها' ),
 );
 
 /** Finnish (suomi) */

@@ -6,11 +6,12 @@
 			"Ladsgroup",
 			"Mardetanha",
 			"Mjbmr",
-			"Wayiran"
+			"Wayiran",
+			"Calak"
 		]
 	},
 	"pendingchanges": "صفحه‌های دارای تغییرات در حال انتظار",
-	"pendingchanges-legend": "فهرست صفحه‌های بازبینی شده با ویرایش‌های بازبینی نشده",
+	"pendingchanges-legend": "فهرست کردن صفحه‌های بازبینی‌شده با تغییرات در حال انتظار",
 	"pendingchanges-list": "این صفحه فهرستی از صفحه‌های [[{{MediaWiki:Validationpage}}|بازبینی‌شده]] دارای یک یا چند تغییر در حال انتظار است.",
 	"pendingchanges-none": "در حال حاضر صفحه‌ای که با این معیارها سازگار باشد وجود ندارد",
 	"pendingchanges-hours": "($1 {{PLURAL:$1|ساعت|ساعت}})",
@@ -22,6 +23,6 @@
 	"pendingchanges-diff": "بازبینی",
 	"pendingchanges-size": "بزرگترین تغییر (بایت):",
 	"pendingchanges-unwatched": "(پی‌گیری‌نشده)",
-	"pendingchanges-watched": "({{PLURAL:$1|کاربر|کاربران}} فعال پی‌گیری‌کنندهٔ $1)",
+	"pendingchanges-watched": "($1 {{PLURAL:$1|کاربر}} فعال پی‌گیرنده)",
 	"pendingchanges-viewing": "(تحت بازبینی)"
 }

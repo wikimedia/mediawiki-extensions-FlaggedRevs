@@ -4,6 +4,7 @@
 			"Calak"
 		]
 	},
+	"stabilization": "جێگرتووکردنی پەڕە",
 	"stabilization-page": "ناوی پەڕە:",
 	"stabilization-def2": "دواییت پێداچوونەوە",
 	"stabilization-submit": "پشتدار بکەرەوە",
@@ -12,6 +13,9 @@
 	"stabilization-expiry": "ھەتا:",
 	"stabilization-othertime": "کاتی تر:",
 	"stabilization-def-short-0": "ھەنووکە",
+	"stabilization-def-short-1": "جێگرتوو",
+	"stabilize_page_invalid": "سەردێڕی پەڕەی مەبەست نادروستە.",
+	"stabilize_page_notexists": " پەڕەی مەبەست بوونی نییە.",
 	"stabilize_invalid_level": "ئاستی بەسەرچوونی نادروست.",
 	"stabilize_expiry_invalid": "ڕێکەوتی بەسەرچوونی نادروست.",
 	"stabilize_expiry_old": "کاتی بەسەرچوون ھەر ئێستا تێپەڕاوە.",
