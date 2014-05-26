@@ -6,7 +6,8 @@
 			"Ladsgroup",
 			"Mjbmr",
 			"Sahim",
-			"Wayiran"
+			"Wayiran",
+			"Calak"
 		]
 	},
 	"validationstatistics": "آمار بازبینی صفحه",
@@ -17,7 +18,7 @@
 	"validationstatistics-table": "آمار بازبینی صفحه برای هر فضای‌نام که در زیر نشان داده‌شده، به ''استثنای'' صفحه‌های تغییرمسیر است. صفحه‌های که ویرایش‌های بررسی نشده داشته باشند ''تاریخ گذشته'' محسوب می‌شوند؛ صفحه‌هایی که ویرایش بررسی نشده نداشته باشند ''همزمان‌شده'' تلفی می‌شوند.",
 	"validationstatistics-ns": "فضای نام",
 	"validationstatistics-total": "صفحه‌ها",
-	"validationstatistics-stable": "بازبینی شده",
+	"validationstatistics-stable": "بازبینی‌شده",
 	"validationstatistics-latest": "آخرین بازبینی",
 	"validationstatistics-synced": "به روز شده/بازبینی شده",
 	"validationstatistics-old": "تاریخ گذشته",

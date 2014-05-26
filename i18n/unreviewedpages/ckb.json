@@ -4,11 +4,14 @@
 			"Calak"
 		]
 	},
+	"action-unreviewedpages": "پێرستی پەڕە بەسەردانەچووەکان ببینە",
 	"unreviewedpages": "پەڕە بەسەردانەچووەکان",
 	"unreviewedpages-category": "پۆل:",
+	"unreviewedpages-diff": "بەسەریدا بچۆوە",
 	"unreviewedpages-unwatched": "(چاودێری نەکراو)",
 	"unreviewedpages-watched": "($1 {{PLURAL:$1|بەکارھێنەر}}ی چالاکی چاودێر)",
 	"unreviewedpages-none": "ھەر ئێستا ھیچ پەڕەیەک ئەم پێوەرانە ناگرێتەوە",
+	"unreviewedpages-viewing": "(لە ژێر بەسەرداچوونەوەدا)",
 	"unreviewedpages-hours": "($1 {{PLURAL:$1|ساعەت}})",
 	"unreviewedpages-days": "($1 {{PLURAL:$1|ڕۆژ}})",
 	"unreviewedpages-recent": "(کەمتر لە ساعەتێک)"

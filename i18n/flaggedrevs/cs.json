@@ -133,7 +133,7 @@
 	"right-validate": "Označit revize jako ověřené",
 	"right-unreviewedpages": "Zobrazit [[Special:UnreviewedPages|seznam neposouzených stránek]]",
 	"rights-editor-revoke": "odebírá status editora uživateli [[$1]]",
-	"specialpages-group-quality": "Upravit posudek",
+	"specialpages-group-quality": "Posuzování editací",
 	"stable-logentry-config": "nastavuje výběr stabilní verze stránky $1",
 	"stable-logentry-modify": "změneno nastavení stabilní verze na \"$1\"",
 	"stable-logentry-reset": "vrací výchozí výběr stabilní verze stránky $1",
