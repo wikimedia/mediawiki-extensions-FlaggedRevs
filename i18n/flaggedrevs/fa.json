@@ -77,7 +77,7 @@
 	"revreview-accuracy-3": "دارای منابع خوب",
 	"revreview-accuracy-4": "برگزیده",
 	"revreview-auto": "(خودکار)",
-	"revreview-basic": "این [[{{MediaWiki:Validationpage}}|نسخهٔ پایداری]] است که در <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} بررسی شد].\n\n$3  [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} تغییر درحال‌انتظار] نیازمند بازبینی {{PLURAL:$3|است|هستند}}.",
+	"revreview-basic": "این [[{{MediaWiki:Validationpage}}|نسخهٔ پایداری]] است که در <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} بررسی شده‌است].\n$3  [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} تغییر در حال انتظار] نیازمند بازبینی {{PLURAL:$3|است|هستند}}.",
 	"revreview-basic-i": "این [[{{MediaWiki:Validationpage}}|نسخهٔ پایداری]] است که در <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} بازبینی شد].\n[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} تغییراتی از الگو/پروندهٔ] در انتظار بازبینی، وجود دارند.",
 	"revreview-basic-old": "این یک نسخهٔ [[{{MediaWiki:Validationpage}}|بررسی‌شده]] ([{{fullurl:{{#Special:ReviewedVersions}}|page={{FULLPAGENAMEE}}}} همه را فهرست کن]) است که در تاریخ <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} تأیید شده است].\nممکن است [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} تغییرات] جدیدی صورت گرفته باشد.",
 	"revreview-basic-same": "این [[{{MediaWiki:Validationpage}}|نسخهٔ پایداری]] است که در <i>$2</i> [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} بررسی شده‌است].",

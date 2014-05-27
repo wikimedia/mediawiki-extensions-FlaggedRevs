@@ -3,10 +3,11 @@
 		"authors": [
 			"Beta16",
 			"Darth Kule",
-			"Pietrodn"
+			"Pietrodn",
+			"Nemo bis"
 		]
 	},
-	"qualityoversight": "Registro avanzato delle revisioni",
-	"qualityoversight-list": "Questa pagina elenca le più recenti approvazioni e deprezzamenti delle revisioni.",
-	"qualityoversight-legend": "Cerca i log delle revisioni recenti"
+	"qualityoversight": "Registro delle verifiche avanzate",
+	"qualityoversight-list": "Questa pagina elenca le più recenti approvazioni e demozioni di modifiche.",
+	"qualityoversight-legend": "Cerca i log delle verifiche recenti"
 }

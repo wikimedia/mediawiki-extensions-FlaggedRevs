@@ -4,12 +4,13 @@
 			"Beta16",
 			"Darth Kule",
 			"Gianfranco",
-			"Pietrodn"
+			"Pietrodn",
+			"Nemo bis"
 		]
 	},
 	"reviewedpages": "Pagine revisionate",
 	"reviewedpages-leg": "Elenca le pagine revisionate",
-	"reviewedpages-list": "Questo elenco contiene le [[{{MediaWiki:Validationpage}}|pagine controllate]] il cui massimo livello di revisione raggiunto (di una revisione) è il livello specificato.\nE' fornito un link all'ultima revisione per quel livello.",
+	"reviewedpages-list": "Questo elenco contiene le [[{{MediaWiki:Validationpage}}|pagine controllate]] il cui massimo livello di versione raggiunto (di una versione) è il livello specificato.\nE' fornito un link all'ultima versione per quel livello.",
 	"reviewedpages-none": "Non ci sono pagine in questo elenco",
 	"reviewedpages-lev-0": "Visionata",
 	"reviewedpages-lev-1": "Qualità",

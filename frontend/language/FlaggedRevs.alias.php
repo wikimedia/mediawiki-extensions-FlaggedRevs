@@ -298,8 +298,16 @@ $specialPageAliases['gu'] = array(
 /** Hebrew (עברית) */
 $specialPageAliases['he'] = array(
 	'PendingChanges' => array( 'שינויים_ממתינים', 'שינויים_הממתינים_לסקירה', 'עריכות_הממתינות_לסקירה' ),
+	'ProblemChanges' => array( 'שינויים_בעייתיים' ),
+	'QualityOversight' => array( 'יומן_סקירה_מתקדם' ),
 	'ReviewedPages' => array( 'דפים_שנסקרו' ),
+	'RevisionReview' => array( 'סקירת_גרסה' ),
+	'Stabilization' => array( 'ייצוב' ),
+	'StablePages' => array( 'דפים_יציבים' ),
+	'ConfiguredPages' => array( 'דפים_מוגדרים' ),
+	'ReviewedVersions' => array( 'גרסאות_שנסקרו' ),
 	'UnreviewedPages' => array( 'דפים_שלא_נסקרו', 'דפים_שטרם_נסקרו', 'דפים_ללא_סקירות' ),
+	'ValidationStatistics' => array( 'סטטיסטיקות_אישור' ),
 );
 
 /** Hindi (हिन्दी) */
