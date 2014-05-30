@@ -7,7 +7,8 @@
 			"Liuxinyu970226",
 			"PhiLiP",
 			"Xiaomingyan",
-			"阿pp"
+			"阿pp",
+			"Mywood"
 		]
 	},
 	"validationstatistics": "页面复核统计",
@@ -21,7 +22,7 @@
 	"validationstatistics-stable": "已复核",
 	"validationstatistics-latest": "已同步",
 	"validationstatistics-synced": "已同步／已复审",
-	"validationstatistics-old": "已过期",
+	"validationstatistics-old": "已过时",
 	"validationstatistics-unreviewed": "未复核",
 	"validationstatistics-utable": "下面列出了最近{{PLURAL:$2|一小时|$2小时}}内{{PLURAL:$1|最活跃的复审员|最活跃的$1位复审员}}。",
 	"validationstatistics-user": "用户",
