@@ -886,7 +886,7 @@ class FlaggedRevs {
 	 * If no appropriate tags can be found, then the review will abort.
 	 */
 	public static function autoReviewEdit(
-		Page $article, $user, Revision $rev, array $flags = null, $auto = true
+		WikiPage $article, $user, Revision $rev, array $flags = null, $auto = true
 	) {
 		wfProfileIn( __METHOD__ );
 		$title = $article->getTitle(); // convenience
