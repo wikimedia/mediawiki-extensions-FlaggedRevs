@@ -2,11 +2,12 @@
 	"@metadata": {
 		"authors": [
 			"Onecountry",
-			"PhiLiP"
+			"PhiLiP",
+			"Mywood"
 		]
 	},
 	"configuredpages": "已设置复审的页面",
-	"configuredpages-list": "此页面列出了其复审设置与站点默认设置不同的页面。部分设置可能会改变向读者展示的版本，或进一步限定在作出编辑时无须复审的用户。",
+	"configuredpages-list": "本页面列出配置了与网站默认复核设置不同的页面。某些设置可能会改变向读者展示的版本，甚至限定可以做出不需要复核编辑的用户。",
 	"configuredpages-none": "此列表中没有页面。",
 	"configuredpages-config": "配置",
 	"configuredpages-def-draft": "最新版本",
