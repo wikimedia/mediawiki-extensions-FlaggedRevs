@@ -8,7 +8,8 @@
 			"PhiLiP",
 			"Waihorace",
 			"Xiaomingyan",
-			"阿pp"
+			"阿pp",
+			"Mywood"
 		]
 	},
 	"revisionreview": "复核版本",
@@ -30,7 +31,7 @@
 	"review_cannot_reject": "无法拒绝这些更改，因为其他人已经接受了一些（或所有）的编辑。",
 	"review_reject_excessive": "无法一次拒绝过多编辑。",
 	"review_reject_nulledits": "无法拒绝这些更改，因为所有修订都是空编辑。",
-	"revreview-check-flag-p": "接受此版本（包括$1个待复审的{{PLURAL:$1|更改|更改}}）",
+	"revreview-check-flag-p": "接受该版本（包括$1个待定{{PLURAL:$1|更改}}）",
 	"revreview-check-flag-p-title": "接受此页面的所有待复审更改以及你的更改。请只在完整审阅了所有复审更改差异后，才使用此功能。",
 	"revreview-check-flag-u": "接受此未复审页面",
 	"revreview-check-flag-u-title": "接受此页面的该版本。请只在审阅了整个页面后才使用此功能。",
