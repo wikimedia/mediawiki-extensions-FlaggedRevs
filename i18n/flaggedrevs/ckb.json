@@ -166,7 +166,7 @@
 	"tooltip-ca-current": "ئەم پەڕەیە بە گۆڕانکارییە ھەڵواسراوەکانەوە ببینە",
 	"tooltip-ca-stable": "وەشانی جێگرتووی ئەم پەڕەیە ببینە",
 	"tooltip-ca-default": "ڕێکخستنەکانی کۆنترۆڵی چاکی",
-	"flaggedrevs-protect-legend": "بەسەرداچوونەوەی دەستکاریی خۆگەر ([[{{MediaWiki:Validationpage}}|یارمەتی]])",
+	"flaggedrevs-protect-legend": "بەسەرداچوونەوەی دەستکاریی خۆگەڕ ([[{{MediaWiki:Validationpage}}|یارمەتی]])",
 	"flaggedrevs-protect-none": "بە ھەموو بەکارھێنەران ڕێگە بدە",
 	"flaggedrevs-categoryview": "[{{fullurl:Special:UnreviewedPages|category=$1}} پەڕە بەسەردانەچووەکان]{{MediaWiki:pipe-separator}}[{{fullurl:Special:PendingChanges|category=$1}} گۆڕانکارییە ھەڵواسراوەکان]",
 	"revreview-locked-title": "دەستکاریی ئەم پەڕەیە بەسەرداچوونەوەی پێویستە.",
