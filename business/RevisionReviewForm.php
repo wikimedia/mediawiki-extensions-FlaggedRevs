@@ -525,8 +525,8 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 	 * @return string
 	 */
 	public static function validationKey( $tmpP, $imgP, $imgV, $rid, $sessKey ) {
-		global $wgSecretKey, $wgProxyKey;
-		$key = md5( $wgSecretKey ? $wgSecretKey : $wgProxyKey ); // fall back to $wgProxyKey
+		global $wgSecretKey;
+		$key = md5( $wgSecretKey );
 		$keyBits = $key[3] . $key[9] . $key[13] . $key[19] . $key[26];
 		return md5( "{$imgP}{$tmpP}{$imgV}{$rid}{$sessKey}{$keyBits}" );
 	}
