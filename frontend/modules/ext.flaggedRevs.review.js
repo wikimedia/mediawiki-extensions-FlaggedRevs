@@ -297,11 +297,10 @@ var wgFlaggedRevsParams = mw.config.get( 'wgFlaggedRevsParams' ),
 			}
 			// (b) Output any error response message
 			if ( response.indexOf( '<err#>' ) === 0 ) {
-				mw.util.jsMessage( msg, 'review' ); // failure notice
+				mw.notify( msg, { tag: 'review' } ); // failure notice
 			} else {
-				mw.util.jsMessage( response, 'review' ); // fatal notice
+				mw.notify( response, { tag: 'review' } ); // fatal notice
 			}
-			window.scroll( 0, 0 ); // scroll up to notice
 		}
 		// Update changetime for conflict handling
 		if ( changeTime !== null ) {
