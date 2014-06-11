@@ -4,8 +4,11 @@
 			"Kolega2357"
 		]
 	},
+	"group-editor": "Uređivači",
+	"group-editor-member": "{{GENDER:$1|uređivač}}",
 	"group-reviewer": "Provjerivači",
 	"group-reviewer-member": "{{GENDER:$1|provjerivač}}",
+	"grouppage-editor": "{{ns:project}}:Uređivač",
 	"grouppage-reviewer": "{{ns:project}}:Provjerivači",
 	"group-autoreview": "Autonadzornici",
 	"group-autoreview-member": "{{GENDER:$1|autonadzornik}}",
