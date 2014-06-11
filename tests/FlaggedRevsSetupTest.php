@@ -7,7 +7,7 @@ class FlaggedRevsSetupTest extends PHPUnit_Framework_TestCase {
 	public function __construct() {}
 
 	public function testDefineSourcePaths() {
-		$autoloadClasses = $messagesFiles = $aliasesFiles = array();
+		$autoloadClasses = $messagesFiles = $aliasesFiles = $messagesDirs = array();
 		FlaggedRevsSetup::defineSourcePaths( $autoloadClasses, $messagesFiles, $messagesDirs );
 		$fileLists = array(
 			'$autoloadClasses' => $autoloadClasses,
