@@ -57,7 +57,6 @@ var wgFlaggedRevsParams = mw.config.get( 'wgFlaggedRevsParams' ),
 			return;
 		}
 
-		var quality = true;
 		var somezero = false;
 		// Determine if this is a "quality" or "incomplete" review
 		for ( var tag in wgFlaggedRevsParams.tags ) {
@@ -86,11 +85,6 @@ var wgFlaggedRevsParams = mw.config.get( 'wgFlaggedRevsParams' ),
 				return; // error: should not happen
 			}
 
-			// Get quality level for this tag
-			var qualityLevel = wgFlaggedRevsParams.tags[tag].quality;
-			if ( selectedlevel < qualityLevel ) {
-				quality = false; // not a quality review
-			}
 			if ( selectedlevel <= 0 ) {
 				somezero = true;
 			}
