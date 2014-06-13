@@ -12,7 +12,8 @@
 			"Runningfridgesrule",
 			"Sadrettin",
 			"Srhat",
-			"Vito Genovese"
+			"Vito Genovese",
+			"Arystanbek"
 		]
 	},
 	"action-review": "revizyonları inceler",
@@ -32,6 +33,7 @@
 	"flaggedrevs-prefs-editdiffs": "Sayfaları değiştirirken bekleyen değişiklikler farkını göster",
 	"flaggedrevs-prefs-viewdiffs": "Son bekleyen revizyonu görüntülerken bekleyen değişiklik farkını göster",
 	"flaggedrevs-hidereviewed": "İncelenmiş değişiklikleri $1",
+	"flaggedrevs-hidereviewed-hide": "gizle",
 	"group-editor": "Editörler",
 	"group-editor-member": "{{GENDER:$1|editör}}",
 	"group-reviewer": "İnceleyiciler",
