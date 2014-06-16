@@ -330,12 +330,13 @@ $specialPageAliases['hr'] = array(
 
 /** Upper Sorbian (hornjoserbsce) */
 $specialPageAliases['hsb'] = array(
-	'PendingChanges' => array( 'Zaso njepřehladane strony' ),
+	'PendingChanges' => array( 'Zaso_njepřehladane_strony' ),
 	'QualityOversight' => array( 'Kwalitna_kontrola' ),
 	'ReviewedPages' => array( 'Přehladane_strony' ),
 	'RevisionReview' => array( 'Wersijowe_přehladanje' ),
 	'Stabilization' => array( 'Stabilizacija' ),
 	'StablePages' => array( 'Stabilne_strony' ),
+	'ConfiguredPages' => array( 'Konfigurowane_strony' ),
 	'UnreviewedPages' => array( 'Njepřehladane_strony' ),
 	'ValidationStatistics' => array( 'Statistika_přehladanjow' ),
 );

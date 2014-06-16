@@ -24,6 +24,8 @@
 	"flaggedrevs-prefs-editdiffs": "পাতা সম্পাদনা করার সময় অমিমাংসীত পরিবর্তনের পার্থক্য প্রদর্শন করো",
 	"flaggedrevs-prefs-viewdiffs": "সাম্প্রতিকতম অমিমাংসীত সংস্করণ প্রদর্শনের সময় অমিমাংসীত পরিবর্তনের পার্থক্য প্রদর্শন করো",
 	"flaggedrevs-hidereviewed": "$1টি পর্যবেক্ষণকৃত সম্পাদনা",
+	"flaggedrevs-hidereviewed-hide": "আড়াল করো",
+	"flaggedrevs-hidereviewed-show": "দেখাও",
 	"group-editor": "সম্পাদকগণ",
 	"group-editor-member": "{{GENDER:$1|সম্পাদক}}",
 	"group-reviewer": "নিরীক্ষকগণ",
