@@ -5,14 +5,15 @@
 			"ArnoLagrange",
 			"Castelobranco",
 			"Michawiki",
-			"Yekrats"
+			"Yekrats",
+			"Tlustulimu"
 		]
 	},
 	"action-review": "kontroli reviziojn",
 	"editor": "Revizianto",
 	"flaggedrevs": "Markitaj Versioj",
 	"flaggedrevs-watched-pending": "Estas [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} ne-reviziitaj redaktoj] de reviziitaj paĝoj en via atentaro. '''Via atento estas bezonata!'''",
-	"flaggedrevs-desc": "Rajtigas al Redaktantoj la kapablon kontroli versiojn kaj stabiligi paĝojn",
+	"flaggedrevs-desc": "Ebligas al redaktantoj revizii versiojn kaj stabiligi paĝojn",
 	"flaggedrevs-pref-UI": "Baza interfaco:",
 	"flaggedrevs-pref-UI-0": "Uzi detalajn skatolojn por montri aprobstatuson de paĝoj",
 	"flaggedrevs-pref-UI-1": "Uzi ikonetojn kaj simplan tekston por montri aprobstatuson de paĝoj",
@@ -24,7 +25,9 @@
 	"flaggedrevs-prefs-watch": "Aldoni miajn kontrolitajn paĝojn al mia atentaro",
 	"flaggedrevs-prefs-editdiffs": "Montri diferencon de kontrolenda versio kiam redaktante paĝojn",
 	"flaggedrevs-prefs-viewdiffs": "Montri diferencon de kontrolendaj ŝanĝoj rigardante la lastan kontrolendan revizion",
-	"flaggedrevs-hidereviewed": "$1 kontrolitaj redaktoj",
+	"flaggedrevs-hidereviewed": "$1 kontrolitajn redaktojn",
+	"flaggedrevs-hidereviewed-hide": "Kaŝi",
+	"flaggedrevs-hidereviewed-show": "Montri",
 	"group-editor": "Reviziantoj",
 	"group-editor-member": "{{GENDER:$1|redaktanto|redaktantino}}",
 	"group-reviewer": "Kontrolantoj",
