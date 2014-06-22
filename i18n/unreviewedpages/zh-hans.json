@@ -6,12 +6,13 @@
 			"Hydra",
 			"PhiLiP",
 			"阿pp",
-			"Xiaomingyan"
+			"Xiaomingyan",
+			"Mywood"
 		]
 	},
 	"action-unreviewedpages": "查看未受监视页面的列表",
-	"unreviewedpages": "未复审页面",
-	"unreviewedpages-legend": "未复审内容页面列表",
+	"unreviewedpages": "未复核页面",
+	"unreviewedpages-legend": "未复核内容页面列表",
 	"unreviewedpages-category": "分类：",
 	"unreviewedpages-diff": "复核",
 	"unreviewedpages-unwatched": "（未被监视）",
