@@ -15,5 +15,5 @@
 	"reviewedpages-lev-0": "{{int:revreview-lev-basic}}",
 	"reviewedpages-lev-2": "{{int:revreview-lev-pristine}}",
 	"reviewedpages-all": "arvioidut versiot",
-	"reviewedpages-best": "paras versio"
+	"reviewedpages-best": "paras yksittäinen versio"
 }

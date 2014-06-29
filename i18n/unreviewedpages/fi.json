@@ -14,7 +14,7 @@
 	"action-unreviewedpages": "tarkastella luetteloa arvioimattomista sivuista",
 	"unreviewedpages": "Arvioimattomat sivut",
 	"unreviewedpages-legend": "Luettelo arvioimattomista sisältösivuista",
-	"unreviewedpages-category": "Luokka",
+	"unreviewedpages-category": "Luokka:",
 	"unreviewedpages-diff": "arvioi",
 	"unreviewedpages-unwatched": "(tarkkailematon)",
 	"unreviewedpages-watched": "($1 aktiivisen {{PLURAL:$1|käyttäjän}} tarkkailema)",

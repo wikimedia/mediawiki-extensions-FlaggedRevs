@@ -18,7 +18,7 @@
 	"stabilization-perm": "Tunnuksellasi ei ole oikeutta muuttaa vakaiden versioiden asetuksia.\nTässä ovat nykyiset asetukset kohteelle [[:$1|$1]]:",
 	"stabilization-page": "Sivun nimi:",
 	"stabilization-leg": "Vahvista vakaiden versioiden asetukset",
-	"stabilization-def": "Versio, joka näytetään oletusarvoisesti",
+	"stabilization-def": "Versio, joka näytetään oletuksena kaikille",
 	"stabilization-def1": "Vakaa versio. Jos vakaata versiota ei ole, uusin versio.",
 	"stabilization-def2": "Uusin versio",
 	"stabilization-restrict": "Seulonnan ja automaattiseulonnan rajoitukset",
