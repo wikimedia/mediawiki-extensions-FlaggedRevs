@@ -8,7 +8,8 @@
 			"Merlissimo",
 			"Metalhead64",
 			"Purodha",
-			"Umherirrender"
+			"Umherirrender",
+			"Schniggendiller"
 		]
 	},
 	"revisionreview": "Versionen markieren",
@@ -35,7 +36,7 @@
 	"revreview-check-flag-u": "Diese unmarkierte Seite akzeptieren",
 	"revreview-check-flag-u-title": "Diese Seitenversion akzeptieren. Dies sollte nur gemacht werden, wenn vorher die gesamte Seite angeschaut wurde.",
 	"revreview-check-flag-y": "Diese Änderungen markieren",
-	"revreview-check-flag-y-title": "Markieren alle Änderungen, die du mit dieser Bearbeitung gemacht hast.",
+	"revreview-check-flag-y-title": "Markieren aller Änderungen, die du mit dieser Bearbeitung gemacht hast.",
 	"revreview-flag": "Markiere Version",
 	"revreview-reflag": "Diese Version erneut markieren",
 	"revreview-invalid": "'''Ungültiges Ziel:''' keine [[{{MediaWiki:Validationpage}}|markierte]] Version zur angegebenen Versionsnummer gefunden.",
