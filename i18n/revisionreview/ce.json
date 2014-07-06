@@ -35,7 +35,7 @@
 	"revreview-main": "Ахьа харжа царех цхьа версийн агӀо, нийса юй хьажарна.\n\nХьажа. [[Special:Unreviewedpages|хьажанза агӀонан могӀам]].",
 	"revreview-stable1": "Хила мега хьо хьажа лууш [{{fullurl:$1|stableid=$2}} хӀокх къастам биначу башхоне] я хӀокху агӀона [{{fullurl:$1|stable=1}} чутоьхначу башхоне], нагахь исаннаг йалахь.",
 	"revreview-stable2": "Хьона хьажалур ду [{{fullurl:$1|stable=1}} чутоьхначу башхоне] хӀокху агӀон.",
-	"revreview-submit": "Дlадахьийта",
+	"revreview-submit": "Дахьийта хетарг",
 	"revreview-submitting": "ДӀаяхьийтар…",
 	"revreview-submit-review": "Къобал йе верси",
 	"revreview-submit-unreview": "Дlадаккха къобал йар",
