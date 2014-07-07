@@ -85,6 +85,7 @@ var fr = {
 	 * @param e {jQuery.Event}
 	 */
 	'onBoxMouseOver': function ( e ) {
+		/*global window*/
 		window.clearTimeout( fr.boxCollapseTimer );
 		fr.boxCollapseTimer = null;
 		fr.showBoxDetails();
@@ -97,6 +98,7 @@ var fr = {
 	 */
 	'onBoxMouseOut': function ( e ) {
 		if ( !fr.isMouseOutBubble( e, 'mw-fr-revisiontag' ) ) {
+			/*global window*/
 			fr.boxCollapseTimer = window.setTimeout( fr.hideBoxDetails, 150 );
 		}
 	},
@@ -205,7 +207,7 @@ var fr = {
 };
 
 // Perform some onload events:
-$( document ).ready( function () {
+$( function () {
 	fr.init();
 } );
 

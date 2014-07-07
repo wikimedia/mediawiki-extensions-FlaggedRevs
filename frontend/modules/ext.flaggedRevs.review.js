@@ -23,6 +23,8 @@ var wgFlaggedRevsParams = mw.config.get( 'wgFlaggedRevsParams' ),
 
 		// Disable 'accept' button if the revision was already reviewed.
 		// This is used so that they can be re-enabled if a rating changes.
+		/*global jsReviewNeedsChange*/
+		// wtf? this is set in frontend/RevisionReviewFormUI by outputting JS
 		if ( typeof jsReviewNeedsChange !== 'undefined' && jsReviewNeedsChange === 1 ) {
 			$( '#mw-fr-submit-accept' ).prop( 'disabled', 'disabled' );
 		}
@@ -37,6 +39,7 @@ var wgFlaggedRevsParams = mw.config.get( 'wgFlaggedRevsParams' ),
 		// Display "advertise" notice
 		fr.enableAjaxReviewActivity();
 		// "De-advertise" user as "no longer reviewing" on navigate-away
+		/*global window*/
 		$( window ).unload( function ( e ) {
 			if ( fr.isUserReviewing === 1 ) {
 				fr.deadvertiseReviewing();
@@ -232,6 +235,7 @@ var wgFlaggedRevsParams = mw.config.get( 'wgFlaggedRevsParams' ),
 
 		// On success...
 		if ( response.indexOf( '<suc#>' ) === 0 ) {
+			/*global document*/
 			// (a) Update document title and form buttons...
 			if ( asubmit.length && usubmit.length ) {
 				// Revision was flagged
