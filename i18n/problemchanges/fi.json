@@ -12,7 +12,7 @@
 	},
 	"problemchanges": "Merkatut odottavat muutokset",
 	"problemchanges-list": "Tämä sivu luettelee [[{{MediaWiki:Validationpage}}|arvioidut]] sivut, joissa on yksi tai useampi merkattu muokkaus (''engl.'' tagged edit) odottamassa arviointia. Luettelo [[Special:Tags|kelvollisista muutosmerkinnöistä]] on saatavissa.",
-	"problemchanges-legend": "Luettele sivut, joissa on merkattuja muokkauksia (''engl.'' tagged edits) odottamassa arviointia.",
+	"problemchanges-legend": "Luettele sivut, joissa on merkattuja muokkauksia odottamassa arviointia",
 	"problemchanges-none": "Tällä hetkellä ei ole sivuja, jotka täyttävät nämä hakuehdot.",
 	"problemchanges-category": "Luokka:"
 }
