@@ -14,7 +14,7 @@
 	"review_page_unreviewable": "Ciljna stranica ne može se provjeravati.",
 	"review_no_oldid": "Nije naveden ID revizije.",
 	"review_bad_oldid": "Ciljna revizija ne postoji.",
-	"review_conflict_oldid": "Neko je već prihvatio ili odbio ovu reviziju dok ste je vi pregledali.",
+	"review_conflict_oldid": "Neko je već prihvatio ili odbio ovu reviziju dok ste je Vi pregledavali.",
 	"review_not_flagged": "Ciljna revizija nije trenutno označena kao pregledana.",
 	"review_too_low": "Revizije ne mogu biti pregledane ako su neka polja ostavljena ''neadekvatna''.",
 	"review_bad_key": "Nevaljan ključ parametra uključivanja.",
