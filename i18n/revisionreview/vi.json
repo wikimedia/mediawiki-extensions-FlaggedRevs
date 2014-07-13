@@ -22,7 +22,7 @@
 	"review_denied": "Không cho phép.",
 	"review_param_missing": "Một tham số bị thiếu hoặc không hợp lệ.",
 	"review_cannot_undo": "Không thể lùi lại những thay dổi này vì những thay đổi về sau ở cùng phần đang chờ được duyệt.",
-	"review_cannot_reject": "Không có thể từ chối những thay đổi này vì ai đó đã chấp nhận một số (hoặc tất cả) các sửa đổi.",
+	"review_cannot_reject": "Không thể từ chối những thay đổi này vì ai đó đã chấp nhận một số (hoặc tất cả) các sửa đổi.",
 	"review_reject_excessive": "Không thể từ chối nhiều sửa đổi này cùng một lúc.",
 	"review_reject_nulledits": "Không thể từ chối những thay đổi này bởi vì các phiên bản này không khác nhau tí nào.",
 	"revreview-check-flag-p": "Chấp nhận phiên bản này (bao gồm $1 thay đổi đang chờ duyệt)",
