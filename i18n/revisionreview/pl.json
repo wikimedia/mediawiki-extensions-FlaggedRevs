@@ -22,7 +22,7 @@
 	"review_page_unreviewable": "Brak możliwości przeglądnięcia wskazanej strony.",
 	"review_no_oldid": "Nie podano ID wersji.",
 	"review_bad_oldid": "Wskazana wersja nie istnieje.",
-	"review_conflict_oldid": "Ktoś już zaakceptował lub odrzucił tę wersję w czasie gdy nad nią się zastanawiałeś.",
+	"review_conflict_oldid": "Ktoś już zaakceptował lub odrzucił tę wersję w czasie, gdy nad nią się zastanawiałaś/zastanawiałeś.",
 	"review_not_flagged": "Wybrana wersja nie jest oznaczona.",
 	"review_too_low": "Wersja nie może zostać oznaczona jeśli niektóre pola pozostały „nieadekwatne”.",
 	"review_bad_key": "Nieprawidłowy klucz identyfikujący parametry.",
