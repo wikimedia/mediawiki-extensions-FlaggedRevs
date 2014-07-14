@@ -1037,4 +1037,29 @@ class FlaggedRevsHooks {
 		}
 		return true;
 	}
+
+	/**
+	 * @param array $updateFields
+	 * @return bool
+	 */
+	public static function onUserMergeAccountFields( array &$updateFields ) {
+		$updateFields[] = array( 'flaggedrevs', 'fr_user' );
+
+		return true;
+	}
+
+	public static function onMergeAccountFromTo( User &$oldUser, User &$newUser ) {
+		// Don't merge into anonymous users...
+		if ( $newUser->getId() !== 0 ) {
+			FRUserCounters::mergeUserParams( $oldUser, $newUser );
+		}
+
+		return true;
+	}
+
+	public static function onDeleteAccount( User $oldUser ) {
+		FRUserCounters::deleteUserParams( $oldUser );
+
+		return true;
+	}
 }

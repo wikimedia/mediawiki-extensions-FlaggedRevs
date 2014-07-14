@@ -95,6 +95,30 @@ class FRUserCounters {
 		return ( $dbw->affectedRows() > 0 );
 	}
 
+	public static function deleteUserParams( User $user ) {
+		$dbw = wfGetDB( DB_MASTER );
+		$dbw->delete(
+			'flaggedrevs_promote',
+			array( 'frp_user_id' => $user->getId() ),
+			__METHOD__
+		);
+	}
+
+	public static function mergeUserParams( User $oldUser, User $newUser ) {
+		$oldParams = self::getUserParams( $oldUser->getId(), FR_MASTER );
+		$newParams = self::getUserParams( $newUser->getId(), FR_MASTER );
+		$newParams['uniqueContentPages'] = array_unique( array_merge(
+			$newParams['uniqueContentPages'],
+			$oldParams['uniqueContentPages']
+		) );
+		sort( $newParams['uniqueContentPages'] );
+		$newParams['totalContentEdits'] += $oldParams['totalContentEdits'];
+		$newParams['editComments'] += $oldParams['editComments'];
+		$newParams['revertedEdits'] += $oldParams['revertedEdits'];
+
+		self::saveUserParams( $newUser->getId(), $newParams );
+	}
+
 	/**
 	 * Increments a count for a user
 	 * @param int $uid User id

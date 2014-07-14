@@ -235,6 +235,11 @@ class FlaggedRevsSetup {
 		# GNSM category hooks
 		$wgHooks['GoogleNewsSitemap::Query'][] = 'FlaggedRevsHooks::gnsmQueryModifier';
 
+		# UserMerge hooks
+		$wgHooks['UserMergeAccountFields'][] = 'FlaggedRevsHooks::onUserMergeAccountFields';
+		$wgHooks['MergeAccountFromTo'][] = 'FlaggedRevsHooks::onMergeAccountFromTo';
+		$wgHooks['DeleteAccount'][] = 'FlaggedRevsHooks::onDeleteAccount';
+
 		# Duplicate flagged* tables in parserTests.php
 		$wgHooks['ParserTestTables'][] = 'FlaggedRevsTestHooks::onParserTestTables';
 		# Integration tests
