@@ -101,10 +101,16 @@ class Stabilization extends UnlistedSpecialPage {
 		} else {
 			$s .= $this->msg( 'stabilization-text', $title->getPrefixedText() )->parseAsBlock();
 		}
-		# Borrow some protection messages for dropdowns
+		# Traditionally, the list of reasons for stabilization is the same as
+		# for protection.  In some cases, however, it might be desirable to
+		# use a different list for stabilization.
+		$defaultReasons = $this->msg( 'stabilization-dropdown' );
+		if ( $defaultReasons->isDisabled() ) {
+			$defaultReasons = $this->msg( 'protect-dropdown' );
+		}
 		$reasonDropDown = Xml::listDropDown(
 			'wpReasonSelection',
-			$this->msg( 'protect-dropdown' )->inContentLanguage()->text(),
+			$defaultReasons->inContentLanguage()->text(),
 			$this->msg( 'protect-otherreason-op' )->inContentLanguage()->text(),
 			$form->getReasonSelection(),
 			'mwStabilize-reason',

@@ -11,6 +11,7 @@
     "stabilization-def": "Revision displayed on default page view",
     "stabilization-def1": "The stable version; if not present, then the latest revision",
     "stabilization-def2": "The latest revision",
+    "stabilization-dropdown": "",
     "stabilization-restrict": "Review/auto-review restrictions",
     "stabilization-restrict-none": "No extra restrictions",
     "stabilization-submit": "Confirm",
