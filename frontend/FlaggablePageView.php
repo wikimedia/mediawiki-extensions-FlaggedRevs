@@ -237,7 +237,7 @@ class FlaggablePageView extends ContextSource {
 		$this->load();
 		// Sanity check that this is a reviewable page
 		if ( $this->article->isReviewable() ) {
-			$this->out->appendSubtitle( $this->reviewNotice );
+			$this->out->addSubtitle( $this->reviewNotice );
 		}
 		return true;
 	}
@@ -1074,7 +1074,7 @@ class FlaggablePageView extends ContextSource {
 		if ( !FlaggedRevs::useOnlyIfProtected() ) {
 			# Add links to lists of unreviewed pages and pending changes in this category
 			$category = $this->article->getTitle()->getText();
-			$this->out->appendSubtitle(
+			$this->out->addSubtitle(
 				Html::rawElement(
 					'span',
 					array( 'class' => 'plainlinks', 'id' => 'mw-fr-category-oldreviewed' ),
