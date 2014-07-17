@@ -722,6 +722,8 @@ $specialPageAliases['sv'] = array(
 	'RevisionReview' => array( 'Versionsgranskning' ),
 	'Stabilization' => array( 'Stabilisering' ),
 	'StablePages' => array( 'Stabila_sidor' ),
+	'ConfiguredPages' => array( 'Konfigurerade_sidor' ),
+	'ReviewedVersions' => array( 'Granskade_versioner', 'Stabila_versioner' ),
 	'UnreviewedPages' => array( 'Ogranskade_sidor' ),
 	'ValidationStatistics' => array( 'Valideringsstatistik' ),
 );
