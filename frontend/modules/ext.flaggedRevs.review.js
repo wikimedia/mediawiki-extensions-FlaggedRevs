@@ -301,7 +301,7 @@ var wgFlaggedRevsParams = mw.config.get( 'wgFlaggedRevsParams' ),
 			}
 			// (b) Output any error response message
 			if ( response.indexOf( '<err#>' ) === 0 ) {
-				mw.notify( msg, { tag: 'review' } ); // failure notice
+				mw.notify( $.parseHTML( msg ), { tag: 'review' } ); // failure notice
 			} else {
 				mw.notify( response, { tag: 'review' } ); // fatal notice
 			}
