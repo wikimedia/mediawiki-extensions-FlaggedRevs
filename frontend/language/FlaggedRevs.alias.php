@@ -827,7 +827,7 @@ $specialPageAliases['zh-hans'] = array(
 	'ConfiguredPages' => array( '配置页面' ),
 	'ReviewedVersions' => array( '已复审版本' ),
 	'UnreviewedPages' => array( '未复审页面' ),
-	'ValidationStatistics' => array( '复审统计信息' ),
+	'ValidationStatistics' => array( '确认统计信息' ),
 );
 
 /** Traditional Chinese (中文（繁體）‎) */
