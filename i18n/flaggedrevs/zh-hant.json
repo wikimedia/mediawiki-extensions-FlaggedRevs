@@ -11,13 +11,14 @@
 			"Mark85296341",
 			"Waihorace",
 			"Wrightbus",
-			"Cwlin0416"
+			"Cwlin0416",
+			"LNDDYL"
 		]
 	},
 	"action-review": "複查修改",
 	"editor": "編輯",
 	"flaggedrevs": "標記的修訂",
-	"flaggedrevs-watched-pending": "您監視列表上有積壓的[{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} 編輯]未複查。'''需要您的注意！'''",
+	"flaggedrevs-watched-pending": "您監視清單上有積壓的[{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} 編輯]未複查。'''需要您的注意！'''",
 	"flaggedrevs-desc": "給予編輯者能力去核實修訂以及穩定化頁面",
 	"flaggedrevs-pref-UI": "基本介面：",
 	"flaggedrevs-pref-UI-0": "使用詳細的審批狀態框來顯示此頁面的複審狀態",
@@ -27,7 +28,7 @@
 	"flaggedrevs-pref-stable-0": "為每個頁面使用默認設置",
 	"flaggedrevs-pref-stable-1": "（如果有的話）始終顯示穩定版本",
 	"flaggedrevs-pref-stable-2": "始終顯示最新版本",
-	"flaggedrevs-prefs-watch": "將我評審的頁面添加到我的監視列表中",
+	"flaggedrevs-prefs-watch": "將我評審的頁面添加到我的監視清單中",
 	"flaggedrevs-prefs-editdiffs": "在編輯時顯示與穩定版本的差異",
 	"flaggedrevs-prefs-viewdiffs": "在顯示頁面草稿時顯示與穩定版本的差異",
 	"flaggedrevs-hidereviewed": "$1已複審的編輯",

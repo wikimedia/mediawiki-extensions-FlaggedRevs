@@ -3,10 +3,11 @@
 		"authors": [
 			"Anakmalaysia",
 			"Gaoxuewei",
-			"Oapbtommy"
+			"Oapbtommy",
+			"LNDDYL"
 		]
 	},
-	"action-unreviewedpages": "查看未受監視頁面的列表",
+	"action-unreviewedpages": "檢視未受監視頁面的清單",
 	"unreviewedpages": "未複審頁面",
 	"unreviewedpages-legend": "未復審內容頁面列表",
 	"unreviewedpages-category": "類別：",

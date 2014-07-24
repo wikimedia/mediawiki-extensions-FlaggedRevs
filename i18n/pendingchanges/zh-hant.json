@@ -8,7 +8,8 @@
 			"Oapbtommy",
 			"Shinjiman",
 			"Waihorace",
-			"Wrightbus"
+			"Wrightbus",
+			"LNDDYL"
 		]
 	},
 	"pendingchanges": "已過時複審過的頁面",
@@ -19,11 +20,11 @@
 	"pendingchanges-days": "（$1日）",
 	"pendingchanges-recent": "（少於1小時）",
 	"pendingchanges-category": "類別：",
-	"pendingchanges-onwatchlist": "在我的監視列表中的頁面",
+	"pendingchanges-onwatchlist": "在我的監視清單中的頁面",
 	"pendingchanges-stable": "預設顯示穩定版本",
 	"pendingchanges-diff": "複審",
 	"pendingchanges-size": "最大變動（位元組）：",
 	"pendingchanges-unwatched": "（未看）",
-	"pendingchanges-watched": "（在$1位活躍用戶的監視列表中）",
+	"pendingchanges-watched": "（在$1位活躍使用者的監視清單中）",
 	"pendingchanges-viewing": "（等待審核）"
 }
