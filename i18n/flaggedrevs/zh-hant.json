@@ -41,7 +41,7 @@
 	"grouppage-editor": "{{ns:project}}:編者",
 	"grouppage-reviewer": "{{ns:project}}:復審員",
 	"group-autoreview": "自動複查員",
-	"group-autoreview-member": "{{GENDER:$1|自動檢查用戶}}",
+	"group-autoreview-member": "{{GENDER:$1|自動檢查使用者}}",
 	"grouppage-autoreview": "{{ns:project}}：自動複審",
 	"revreview-hist-draft": "未經檢查的修訂",
 	"revreview-hist-pending": "等待審核",

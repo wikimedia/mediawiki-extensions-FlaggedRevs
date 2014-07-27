@@ -6,7 +6,8 @@
 			"Mark85296341",
 			"Oapbtommy",
 			"Simon Shek",
-			"Waihorace"
+			"Waihorace",
+			"LNDDYL"
 		]
 	},
 	"revisionreview": "複審修訂",
@@ -62,7 +63,7 @@
 	"revreview-update": "請[[{{MediaWiki:Validationpage}}|複審]]自從於這頁的穩定版以來的任何更改''（在下面顯示）''。",
 	"revreview-update-edited": "<span class=\"flaggedrevs_important\">所做的更改不是尚未是穩定版本。</span>\n\n请檢查下面所列示的所有改變，以令到你的編輯在穩定頁面中出現。",
 	"revreview-update-edited-prev": "<span class=\"flaggedrevs_important\">您的變更尚未發佈。在你的編輯之前還有未審核的版本。</span>\n\n請檢查以下所有的修訂，以令你的編輯出現在穩定版本中。",
-	"revreview-update-includes": "模板或文件已更新（未復審頁面以粗體顯示）：",
+	"revreview-update-includes": "模板或檔案已更新（未復審頁面以粗體顯示）：",
 	"revreview-reject-text-list": "完成此操作後，您將'''拒絕'''在[[:$2|$2]]的{{PLURAL:$1|修訂|修訂}}中對源文本的更改：",
 	"revreview-reject-text-revto": "這將恢復頁面回[{{fullurl:$1|oldid=$2}} $3的版本]。",
 	"revreview-reject-summary": "摘要：",

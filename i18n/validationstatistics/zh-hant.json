@@ -12,7 +12,7 @@
 		]
 	},
 	"validationstatistics": "審核統計",
-	"validationstatistics-users": "'''{{SITENAME}}'''現時有'''[[Special:ListUsers/editor|$1]]'''{{PLURAL:$1|個|個}}用戶具有[[{{MediaWiki:Validationpage}}|編輯]]的權限。\n\n編輯及審定皆為已確認的用戶，並可以檢查各頁面的修定。",
+	"validationstatistics-users": "'''{{SITENAME}}'''現時有'''[[Special:ListUsers/editor|$1]]'''{{PLURAL:$1|個|個}}使用者具有[[{{MediaWiki:Validationpage}}|編輯]]的權限。\n\n編輯及審定皆為已確認的使用者，並可以檢查各頁面的修定。",
 	"validationstatistics-lastupdate": "''以下數據最後更新於$1在$2。''",
 	"validationstatistics-pndtime": "已確認使用者已經檢查這些編輯，並認為它們是''{{int:validationstatistics-stable|已復審}}''的。\n\n[[Special:OldReviewedPages|含有待複審編輯頁面]]的平均複審延遲是'''$1'''；這一延遲可以確定最早待複審編輯會有多久處於未復審狀態。",
 	"validationstatistics-revtime": "平均等待''未登入用戶''的編輯審核是'''$1'''；中位數是'''$2 '''。\n$3",
