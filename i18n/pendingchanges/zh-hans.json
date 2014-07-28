@@ -11,7 +11,9 @@
 			"Shinjiman",
 			"Shirayuki",
 			"Xiaomingyan",
-			"Mywood"
+			"Mywood",
+			"Impersonator 1",
+			"Liuxinyu970226"
 		]
 	},
 	"pendingchanges": "有待定更改的页面",
@@ -27,6 +29,6 @@
 	"pendingchanges-diff": "复核",
 	"pendingchanges-size": "最大更改（字节）：",
 	"pendingchanges-unwatched": "（未被监视）",
-	"pendingchanges-watched": "（$1位活跃{{PLURAL:$1|用户|用户}}正在监视）",
+	"pendingchanges-watched": "（$1位活跃{{PLURAL:$1|用户}}正在监视）",
 	"pendingchanges-viewing": "（正在复核）"
 }
