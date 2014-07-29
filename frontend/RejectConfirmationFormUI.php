@@ -62,6 +62,8 @@ class RejectConfirmationFormUI {
 				$rejectAuthors[] = $rev->isDeleted( Revision::DELETED_USER )
 					? wfMessage( 'rev-deleted-user' )->text()
 					: "[[{$contribs}/{$rev->getUserText()}|{$rev->getUserText()}]]";
+				// Used for GENDER support for revreview-reject-summary-*
+				$lastRejectAuthor = $rev->getUserText();
 			}
 			$lastTextId = $rev->getTextId();
 		}
@@ -97,9 +99,13 @@ class RejectConfirmationFormUI {
 
 		$comment = $this->form->getComment(); // convenience
 		// Determine the default edit summary...
-		$oldRevAuthor = $oldRev->isDeleted( Revision::DELETED_USER )
-			? wfMessage( 'rev-deleted-user' )->text()
-			: $oldRev->getUserText();
+		if ( $oldRev->isDeleted( Revision::DELETED_USER ) ) {
+			$oldRevAuthor = wfMessage( 'rev-deleted-user' )->text();
+			$oldRevAuthorUsername = '.';
+		} else {
+			$oldRevAuthor = $oldRev->getUserText();
+			$oldRevAuthorUsername = $oldRevAuthor;
+		}
 		// NOTE: *-cur msg wording not safe for (unlikely) edit auto-merge
 		$msg = $newRev->isCurrent()
 			? 'revreview-reject-summary-cur' 
@@ -108,7 +114,10 @@ class RejectConfirmationFormUI {
 			$wgContLang->formatNum( count( $rejectIds ) ),
 			$wgContLang->listToText( $rejectAuthors ),
 			$oldRev->getId(),
-			$oldRevAuthor )->inContentLanguage()->text();
+			$oldRevAuthor,
+			count( $rejectAuthors ) === 1 ? $lastRejectAuthor : '.',
+			$oldRevAuthorUsername
+		)->numParams( count( $rejectAuthors ) )->inContentLanguage()->text();
 		// If the message is too big, then fallback to the shorter one
 		$colonSeparator = wfMessage( 'colon-separator' )->text();
 		$maxLen = 255 - count( $colonSeparator ) - count( $comment );
@@ -119,7 +128,9 @@ class RejectConfirmationFormUI {
 			$defaultSummary = wfMessage( $msg,
 				$wgContLang->formatNum( count( $rejectIds ) ),
 				$oldRev->getId(),
-				$oldRevAuthor )->inContentLanguage()->text();
+				$oldRevAuthor,
+				$oldRevAuthorUsername
+			)->inContentLanguage()->text();
 		}
 		// Append any review comment...
 		if ( $comment != '' ) {
