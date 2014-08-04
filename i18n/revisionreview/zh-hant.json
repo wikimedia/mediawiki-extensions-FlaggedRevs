@@ -40,7 +40,7 @@
 	"revreview-invalid": "'''無效的目標：'''沒有 [[{{MediaWiki:Validationpage}}|審核]]修改對應於指定的ID。",
 	"revreview-log": "記錄註解:",
 	"revreview-main": "您一定要在一頁的內容頁中選擇一個個別的修訂去複審。\n\n\t參看[[Special:Unreviewedpages]]去擷取未複審的頁面。",
-	"revreview-stable1": "您可能要查看[{{fullurl:$1|stableid=$2}} 此標記的版本]，看看是否現在此頁的[{{fullurl:$1|stable=1}} 穩定版本]。",
+	"revreview-stable1": "您可能要檢視[{{fullurl:$1|stableid=$2}} 此標記的版本]，看看是否現在此頁的[{{fullurl:$1|stable=1}} 穩定版本]。",
 	"revreview-stable2": "你可能想使用本頁的[{{fullurl:$1|stable=1}} 已審核版本]。",
 	"revreview-submit": "提交",
 	"revreview-submitting": "正在提交…",
