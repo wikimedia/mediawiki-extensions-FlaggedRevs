@@ -43,7 +43,7 @@
 	"grouppage-reviewer": "{{ns:project}}:Sisällöntarkastajat",
 	"group-autoreview": "automaattiseulojat",
 	"group-autoreview-member": "{{GENDER:$1|automaattiseuloja}}",
-	"grouppage-autoreview": "{{ns:project}}:Automaattiseulojat",
+	"grouppage-autoreview": "{{ns:project}}:Automaattiseulotut käyttäjät",
 	"revreview-hist-draft": "arvioimaton versio",
 	"revreview-hist-pending": "odottaa arviointia",
 	"revreview-hist-quality": "laadukas versio",

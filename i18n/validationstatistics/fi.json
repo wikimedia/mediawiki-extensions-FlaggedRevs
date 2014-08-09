@@ -26,7 +26,7 @@
 	"validationstatistics-synced": "Synkronoitu/arvioitu",
 	"validationstatistics-old": "Vanhentunut",
 	"validationstatistics-unreviewed": "Arvioimatta",
-	"validationstatistics-utable": "Alla on lueteltu {{PLURAL:$1|aktiivisin arvioija|$1 aktiivisinta arvioijaa}} edellisen {{PLURAL:$2|tunnin|$2 tunnin}} ajalta.",
+	"validationstatistics-utable": "Alla on lueteltu {{PLURAL:$1|aktiivisin seuloja|$1 aktiivisinta seulojaa}} edellisen {{PLURAL:$2|tunnin|$2 tunnin}} ajalta.",
 	"validationstatistics-user": "Käyttäjä",
 	"validationstatistics-reviews": "Arviointeja"
 }

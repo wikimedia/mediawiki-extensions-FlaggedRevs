@@ -7,7 +7,7 @@
 			"Danmichaelo"
 		]
 	},
-	"reviewedpages": "Sider markert for gjennomgang",
+	"reviewedpages": "Sider markert som gjennomgått",
 	"reviewedpages-leg": "List opp sider som har blitt revidert",
 	"reviewedpages-list": "Denne listen inneholder [[{{MediaWiki:Validationpage}}|reviderte]] sider som ''på det meste''  har hatt et revisjonsnivå på et oppgitt nivå.\nEn lenke er oppgitt til den siste revisjonen med det nivået.",
 	"reviewedpages-none": "Det er ingen sider i denne listen",
@@ -15,5 +15,5 @@
 	"reviewedpages-lev-1": "Kvalitet",
 	"reviewedpages-lev-2": "Utmerket",
 	"reviewedpages-all": "gjennomgåtte versjoner",
-	"reviewedpages-best": "beste versjon"
+	"reviewedpages-best": "beste revisjon"
 }

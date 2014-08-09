@@ -11,7 +11,7 @@
 	"validationstatistics-lastupdate": "''Følgende data ble sist oppdatert $1, $2.''",
 	"validationstatistics-pndtime": "Redigeringer som har blitt kontrollert av etablerte brukere anses å være ''{{int:validationstatistics-stable}}''.\n\nGjennomsnittsforsinkelsen for [[Special:OldReviewedPages|sider med ureviderte ventende endringer]] er nå '''$1'''; forsinkelsen måler hvor lenge den eldste ventende endringen har vært urevidert.",
 	"validationstatistics-revtime": "Gjennomsnittsventetiden for endringer av ''brukere som ikke har logget inn'' å bli revidert er '''$1'''; medianen er '''$2'''.\n$3",
-	"validationstatistics-table": "Sidegjennomgangsstatistikk for hvert navnerom vises nedenfor, ''utenom'' omdirigeringssider.\nSider behandles som ''{{int:validationstatistics-old}}'' hvis de har redigeringer som venter på gjennomgang;\nsider anses å være ''{{int:validationstatistics-latest}}'' hvis det ikke har redigeringer som venter på gjennomgang.",
+	"validationstatistics-table": "Sidegjennomgangsstatistikk for hvert navnerom vises nedenfor, ''utenom'' omdirigeringssider.\nSider behandles som ''{{int:validationstatistics-old}}'' hvis de har redigeringer som venter på gjennomgang;\nsider anses å være ''{{int:validationstatistics-latest}}'' hvis de ikke har redigeringer som venter på gjennomgang.",
 	"validationstatistics-ns": "Navnerom",
 	"validationstatistics-total": "Sider",
 	"validationstatistics-stable": "Gjennomgått",

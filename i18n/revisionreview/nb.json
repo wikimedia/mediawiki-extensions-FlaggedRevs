@@ -17,7 +17,7 @@
 	"review_page_unreviewable": "Målsiden er ikke reviderbar.",
 	"review_no_oldid": "Ingen revisjons-ID spesifisert.",
 	"review_bad_oldid": "Målrevisjonen finnes ikke.",
-	"review_conflict_oldid": "Noen har allerede godkjent eller ikke godkjent denne revisjonen mens du så på den.",
+	"review_conflict_oldid": "Noen har allerede godkjent eller avvist denne revisjonen mens du så på den.",
 	"review_not_flagged": "Målrevisjonen er foreløpig ikke merket som revidert.",
 	"review_too_low": "Revisjonen kan ikke revideres med enkelte felt markert som «utilstrekkelig».",
 	"review_bad_key": "Ugyldig inkluderingsparameternøkkel.",

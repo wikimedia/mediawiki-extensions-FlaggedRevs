@@ -614,8 +614,9 @@ $specialPageAliases['pl'] = array(
 
 /** Portuguese (português) */
 $specialPageAliases['pt'] = array(
-	'PendingChanges' => array( 'Páginas_analisadas_antigas' ),
-	'QualityOversight' => array( 'Controlo_de_qualidade' ),
+	'PendingChanges' => array( 'Versões_antigas_de_páginas_analisadas', 'Páginas_analisadas_antigas' ),
+	'ProblemChanges' => array( 'Alterações_assinaladas' ),
+	'QualityOversight' => array( 'Controlo_de_qualidade', 'Controle_de_qualidade' ),
 	'ReviewedPages' => array( 'Páginas_analisadas' ),
 	'RevisionReview' => array( 'Revisão_de_versões' ),
 	'Stabilization' => array( 'Estabilização' ),
