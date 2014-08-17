@@ -135,7 +135,7 @@ class FRExtraCacheUpdate {
  * @ingroup JobQueue
  */
 class FRExtraCacheUpdateJob extends Job {
-	var $table, $start, $end;
+	public $table, $start, $end;
 
 	/**
 	 * Construct a job
