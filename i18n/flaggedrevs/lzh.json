@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Itsmine",
-			"Omnipaedista"
+			"Omnipaedista",
+			"Jason924tw"
 		]
 	},
 	"editor": "分校官",
@@ -29,5 +30,6 @@
 	"revreview-quick-see-basic": "'''此為底本''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 察閱初定本]] （[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 較二者之別]）",
 	"revreview-quick-see-quality": "'''此為底本''' [[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} 察閱初定本]] （[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} 較二者之別]）",
 	"revreview-basic-title": "初定本",
-	"revreview-revnotfound": "查無舊審，惠核網址。"
+	"revreview-revnotfound": "查無舊審，惠核網址。",
+	"revreview-reviewlink": "待審"
 }
