@@ -6,7 +6,8 @@
 			"Qllach",
 			"SMP",
 			"Toniher",
-			"පසිඳු කාවින්ද"
+			"පසිඳු කාවින්ද",
+			"Fitoschido"
 		]
 	},
 	"revisionreview": "Revisa les revisions",
@@ -28,7 +29,7 @@
 	"revreview-reflag": "Comprova de nou aquesta revisió",
 	"revreview-log": "Comentari:",
 	"revreview-submit": "Tramet",
-	"revreview-submitting": "Desant…",
+	"revreview-submitting": "S’està enviant…",
 	"revreview-submit-review": "Accepta la revisió",
 	"revreview-submit-unreview": "Rebutja la revisió",
 	"revreview-submit-reject": "Rebutja els canvis",

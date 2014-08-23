@@ -1,13 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
-			"Andria"
+			"Andria",
+			"Taxandru"
 		]
 	},
 	"revreview-diff-toggle-show": "ammustra is mudàntzias",
 	"revreview-diff-toggle-hide": "cua is mudàntzias",
 	"revreview-log-details-show": "ammustra is particulares",
 	"revreview-log-details-hide": "cua is particulares",
-	"revreview-edit": "Acontza",
+	"revreview-edit": "Càmbia",
 	"revreview-revnotfound": "Sa revisione cabudiana de sa pàgina ki as pedidu, no est stada agatada.\nAbbàida pro praxere sa diretzione URL ki as impreadu pro lòmper a custa pàgina."
 }

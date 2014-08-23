@@ -15,6 +15,7 @@
 	"grouppage-editor": "{{ns:project}}:分校官",
 	"grouppage-reviewer": "{{ns:project}}:總校官",
 	"revreview-hist-draft": "底本",
+	"revreview-hist-pending": "待審",
 	"revreview-hist-quality": "校正本",
 	"revreview-hist-basic": "初定本",
 	"revreview-accuracy-1": "過目",

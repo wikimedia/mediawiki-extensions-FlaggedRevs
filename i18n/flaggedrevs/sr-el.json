@@ -48,7 +48,7 @@
 	"revreview-log-details-show": "prikaži detalje",
 	"revreview-log-details-hide": "sakrij detalje",
 	"review-diff2stable": "Pogledaj sve izmene na čekanju",
-	"review-logentry-app": "pregleda izdanje stranice [[$1]]",
+	"review-logentry-app": "je pregledao izdanje stranice [[$1]]",
 	"review-logentry-dis": "označi kao zastarelo izdanje stranice [[$1]]",
 	"review-logentry-id": "revizija: $2",
 	"review-logentry-diff": "pregledane izmene",
