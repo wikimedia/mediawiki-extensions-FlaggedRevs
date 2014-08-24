@@ -663,8 +663,10 @@ class FlaggedRevs {
 	 * Updates squid cache for a title. Defers till after main commit().
 	 */
 	public static function purgeSquid( Title $title ) {
-		global $wgDeferredUpdateList;
-		$wgDeferredUpdateList[] = new FRSquidUpdate( $title );
+		DeferredUpdates::addCallableUpdate( function() use ( $title ) {
+			$title->purgeSquid();
+			HTMLFileCache::clearFileCache( $title );
+		} );
 	}
 
 	/**
@@ -673,13 +675,12 @@ class FlaggedRevs {
 	 * @param Title $title
 	 */
 	public static function HTMLCacheUpdates( Title $title ) {
-		global $wgDeferredUpdateList;
 		# Invalidate caches of articles which include this page...
-		$wgDeferredUpdateList[] = new HTMLCacheUpdate( $title, 'templatelinks' );
+		DeferredUpdates::addHTMLCacheUpdate( $title, 'templatelinks' );
 		if ( $title->getNamespace() == NS_FILE ) {
-			$wgDeferredUpdateList[] = new HTMLCacheUpdate( $title, 'imagelinks' );
+			DeferredUpdates::addHTMLCacheUpdate( $title, 'imagelinks' );
 		}
-		$wgDeferredUpdateList[] = new FRExtraCacheUpdate( $title );
+		DeferredUpdates::addUpdate( new FRExtraCacheUpdate( $title ) );
 	}
 
 	/**
@@ -687,8 +688,7 @@ class FlaggedRevs {
 	 * @param Title $title
 	 */
 	public static function extraHTMLCacheUpdate( Title $title ) {
-		global $wgDeferredUpdateList;
-		$wgDeferredUpdateList[] = new FRExtraCacheUpdate( $title );
+		DeferredUpdates::addUpdate( new FRExtraCacheUpdate( $title ) );
 	}
 
 	# ################ Revision functions #################
