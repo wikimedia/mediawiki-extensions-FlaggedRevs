@@ -7,7 +7,7 @@
  * These dependancies should be limited in number as most pages should
  * have a stable version synced with the current version.
  */
-class FRExtraCacheUpdate {
+class FRExtraCacheUpdate implements DeferrableUpdate {
 	public $mTitle, $mTable;
 	public $mRowsPerJob, $mRowsPerQuery;
 
@@ -167,23 +167,5 @@ class FRExtraCacheUpdateJob extends Job {
 		# Invalidate the pages
 		$update->invalidateIDs( $res );
 		return true;
-	}
-}
-
-/**
- * Class for handling post-commit squid purge of a page
- */
-class FRSquidUpdate {
-	protected $title;
-
-	function __construct( Title $title ) {
-		$this->title = $title;
-	}
-
-	function doUpdate() {
-		# Purge squid for this page only
-		$this->title->purgeSquid();
-		# Clear file cache for this page only
-		HTMLFileCache::clearFileCache( $this->title );
 	}
 }
