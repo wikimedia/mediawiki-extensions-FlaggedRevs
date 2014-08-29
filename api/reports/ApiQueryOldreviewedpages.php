@@ -222,12 +222,6 @@ class ApiQueryOldreviewedpages extends ApiQueryGeneratorBase {
 		return 'Enumerates pages that have changes pending review';
 	}
 
-	public function getPossibleErrors() {
-		return array_merge( parent::getPossibleErrors(), array(
-			array( 'code' => 'notloggedin', 'info' => 'You must be logged-in to have a watchlist' ),
-		) );
-	}
-
 	public function getExamples() {
 		return array(
 			'Show a list of pages with pending unreviewed changes',

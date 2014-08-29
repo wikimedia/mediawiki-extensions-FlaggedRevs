@@ -118,17 +118,6 @@ class ApiReviewActivity extends ApiBase {
 		return 'Advertise or de-advertise yourself as reviewing an unreviewed page or unreviewed changes';
 	}
 
-	public function getPossibleErrors() {
-		return array_merge( parent::getPossibleErrors(), array(
-			array( 'code' => 'notarget',
-				'info' => 'Provided revision or page can not be found.' ),
-			array( 'code' => 'notreviewable',
-				'info' => 'Provided page is not reviewable.' ),
-			array( 'code' => 'permissiondenied',
-				'info' => 'Insufficient rights to set the activity flag.' ),
-		) );
-	}
-
 	public function needsToken() {
 		return 'csrf';
 	}

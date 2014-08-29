@@ -173,18 +173,6 @@ class ApiStabilizeGeneral extends ApiStabilize {
 		return 'Change page stability settings';
 	}
 
-	// @TODO: fill in stabilize_* values from PageStabilityGeneralForm
-	public function getPossibleErrors() {
-		return array_merge( parent::getPossibleErrors(), array(
-			array( 'missingparam', 'title' ),
-			array( 'missingparam', 'token' ),
-			array( 'missingparam', 'default' ),
-			array( 'code' => 'invalidtitle', 'info' => 'Invalid title given.' ),
-			array( 'code' => 'invalidtitle', 'info' => 'Target page does not exist.' ),
-			array( 'code' => 'invalidtitle', 'info' => 'Title given does not correspond to a reviewable page.' ),
-		) );
-	}
-
 	public function getExamples() {
 		return 'api.php?action=stabilize&title=Test&default=stable&reason=Test&token=123ABC';
 	}
@@ -259,18 +247,6 @@ class ApiStabilizeProtect extends ApiStabilize {
 
 	public function getDescription() {
 		return 'Configure review-protection settings for a page';
-	}
-
-	// @TODO: fill in stabilize_* values from PageStabilityProtectForm
-	public function getPossibleErrors() {
-		return array_merge( parent::getPossibleErrors(), array(
-			array( 'missingparam', 'title' ),
-			array( 'missingparam', 'token' ),
-			array( 'missingparam', 'default' ),
-			array( 'code' => 'invalidtitle', 'info' => 'Invalid title given.' ),
-			array( 'code' => 'invalidtitle', 'info' => 'Target page does not exist.' ),
-			array( 'code' => 'invalidtitle', 'info' => 'Title given does not correspond to a reviewable page.' ),
-		) );
 	}
 
 	public function getExamples() {

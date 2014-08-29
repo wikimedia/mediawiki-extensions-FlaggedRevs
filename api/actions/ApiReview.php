@@ -180,21 +180,6 @@ class ApiReview extends ApiBase {
 		return 'Review a revision by approving or de-approving it';
 	}
 
-	public function getPossibleErrors() {
-		return array_merge( parent::getPossibleErrors(), array(
-			array( 'code' => 'notarget',
-				'info' => 'Provided revision or page can not be found.' ),
-			array( 'code' => 'notreviewable',
-				'info' => 'Provided page is not reviewable.' ),
-			array( 'code' => 'mixedapproval',
-				'info' => 'No flags can be set to zero when accepting a revision.' ),
-			array( 'code' => 'invalidtags',
-				'info' => 'The given tags have a value that is out of range.' ),
-			array( 'code' => 'permissiondenied',
-				'info' => 'Insufficient rights to set the specified flags or review/edit the page.' ),
-		) );
-	}
-
 	public function needsToken() {
 		return 'csrf';
 	}
