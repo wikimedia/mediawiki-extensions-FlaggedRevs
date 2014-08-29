@@ -1,10 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Andria"
+			"Andria",
+			"Taxandru"
 		]
 	},
 	"validationstatistics-ns": "Nùmene-logu",
 	"validationstatistics-total": "Pàginas",
-	"validationstatistics-user": "Usuàriu"
+	"validationstatistics-user": "Impitadore"
 }

@@ -41,7 +41,7 @@
 	"revreview-hist-basic": "проверена измена",
 	"revreview-hist-quality-user": "одобрио/-ла [[User:$3|$3]]",
 	"revreview-hist-basic-user": "прегледао/ла [[User:$3|$3]]",
-	"revreview-hist-basic-auto": "аутоматски проверено",
+	"revreview-hist-basic-auto": "аутоматски прегледано",
 	"revreview-hist-pending-difflink": "'''[[{{fullurl:$1|oldid=$2&diff=$3{{MediaWiki:flaggedrevs-diffonly}}}} чека проверу]]'''",
 	"review-edit-diff": "'''Напомена: неке од измена које су на чекању имају утицај на део странице који уређујете.'''",
 	"revreview-diff-toggle-show": "прикажи измене",

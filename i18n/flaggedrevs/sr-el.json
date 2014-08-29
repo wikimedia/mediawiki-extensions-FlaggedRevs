@@ -39,7 +39,7 @@
 	"revreview-hist-basic": "proverena izmena",
 	"revreview-hist-quality-user": "odobrio/-la [[User:$3|$3]]",
 	"revreview-hist-basic-user": "pregledao/la [[User:$3|$3]]",
-	"revreview-hist-basic-auto": "automatski provereno",
+	"revreview-hist-basic-auto": "automatski pregledano",
 	"revreview-hist-pending-difflink": "'''[[{{fullurl:$1|oldid=$2&diff=$3{{MediaWiki:flaggedrevs-diffonly}}}} čeka proveru]]'''",
 	"review-edit-diff": "'''Napomena: neke od izmena koje su na čekanju imaju uticaj na deo stranice koji uređujete.'''",
 	"revreview-diff-toggle-show": "prikaži izmene",
