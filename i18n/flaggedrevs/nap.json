@@ -1,0 +1,11 @@
+{
+	"@metadata": {
+		"authors": [
+			"C.R."
+		]
+	},
+	"action-review": "rivedé verziune",
+	"editor": "Editore",
+	"flaggedrevs": "Verziune nzignàte",
+	"flaggedrevs-watched-pending": "Ce stanno [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} cagnamiente mpise] a paggene 'e verifica dint'a l'elenco 'e paggene cuntrullata. '''Vide ca l'hè a vedé!'''"
+}

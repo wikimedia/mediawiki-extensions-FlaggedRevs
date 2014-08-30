@@ -1,8 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Itsmine"
+			"Itsmine",
+			"Jason924tw"
 		]
 	},
-	"unreviewedpages": "底本"
+	"unreviewedpages": "底本",
+	"unreviewedpages-category": "類：",
+	"unreviewedpages-diff": "檢校"
 }
