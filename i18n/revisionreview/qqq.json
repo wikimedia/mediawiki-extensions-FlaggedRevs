@@ -19,7 +19,8 @@
 			"Shirayuki",
 			"Siebrand",
 			"Umherirrender",
-			"Yekrats"
+			"Yekrats",
+			"Liuxinyu970226"
 		]
 	},
 	"revisionreview": "{{Flagged Revs}}\nName of the Special:RevisionReview page.",
@@ -69,7 +70,7 @@
 	"revreview-adv-reviewing-c": "{{Flagged Revs}}\nShown on the form to review pages. Indicates that other reviewers will get a notice that this user is already reviewing this revision of the page. Shown on diffs.\n\nThis message is followed by {{msg-mw|Revreview-adv-stop-link}} as link in parenthesis.\n\nParameters:\n* $1 - the gender for the gender magic word\nSee also:\n* {{msg-mw|Revreview-adv-reviewing-p}}",
 	"revreview-sadv-reviewing-p": "{{Flagged Revs}}\nShown on the form to review pages. Not shown on diffs. Parameters:\n* $1 - {{msg-mw|revreview-adv-start-link}} as a link. It displays as \"advertise\".\nSee also:\n* {{msg-mw|Revreview-sadv-reviewing-c}}",
 	"revreview-sadv-reviewing-c": "{{Flagged Revs}}\nShown on the form to review pages on diffs. Parameters:\n* $1 - {{msg-mw|Revreview-adv-start-link}} as a link. It displays as \"advertise\".\nSee also:\n* {{msg-mw|Revreview-sadv-reviewing-p}}",
-	"revreview-adv-start-link": "{{Flagged Revs}}\nShown on the form to review pages. This is the text of a link.\n\nUsed as <code>$1</code> in the following messages:\n* {{msg-mw|Revreview-sadv-reviewing-c}}\n* {{msg-mw|Revreview-sadv-reviewing-p}}",
+	"revreview-adv-start-link": "{{Flagged Revs}}\nShown on the form to review pages. This is the text of a link.\n\nUsed as <code>$1</code> in the following messages:\n* {{msg-mw|Revreview-sadv-reviewing-c}}\n* {{msg-mw|Revreview-sadv-reviewing-p}}\n{{Identical|Advertise}}",
 	"revreview-adv-stop-link": "{{Flagged Revs}}\nShown on the form to review pages. This is the text of a link, which is enclosed in parenthesis itself.\n\nPreceded by one of the following:\n* {{msg-mw|Revreview-adv-reviewing-c}}\n* {{msg-mw|Revreview-adv-reviewing-p}}",
 	"revreview-toolow": "{{Flagged Revs-small}}\nA kind of error shown when trying to review a revision with some settings on \"unapproved\".\n\nRefers to {{msg-mw|Revreview-submit-unreview}}.",
 	"revreview-update": "{{Flagged Revs}}\nShown on the form to review pages, on diffs.\n\nRefers to {{msg-mw|Validationpage}}.",
