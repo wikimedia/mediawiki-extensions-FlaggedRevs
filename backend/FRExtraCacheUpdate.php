@@ -72,7 +72,8 @@ class FRExtraCacheUpdate implements DeferrableUpdate {
 			}
 			$start = $id; // Where the last ID left off
 		} while ( $start );
-		Job::batchInsert( $jobs );
+
+		JobQueueGroup::singleton()->push( $jobs );
 	}
 
 	public function getFromField() {
