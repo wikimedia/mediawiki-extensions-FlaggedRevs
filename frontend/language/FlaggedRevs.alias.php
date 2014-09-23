@@ -786,7 +786,7 @@ $specialPageAliases['uk'] = array(
 	'ValidationStatistics' => array( 'Статистика_перевірок' ),
 );
 
-/** vèneto (vèneto) */
+/** Venetian (vèneto) */
 $specialPageAliases['vec'] = array(
 	'PendingChanges' => array( 'PagineRiesaminàVèce' ),
 	'QualityOversight' => array( 'ControloQualità' ),
