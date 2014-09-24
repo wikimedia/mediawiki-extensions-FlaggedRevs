@@ -227,7 +227,6 @@ class UnreviewedPages extends SpecialPage {
 		$dbw->begin();
 		# Clear out any old cached data
 		$dbw->delete( 'querycache', array( 'qc_type' => 'fr_unreviewedpages' ), __METHOD__ );
-		wfWaitForSlaves( 5 );
 		# Insert new data...
 		if ( $insertRows ) {
 			$dbw->insert( 'querycache', $insertRows, __METHOD__ );
@@ -266,7 +265,6 @@ class UnreviewedPages extends SpecialPage {
 		$dbw->begin();
 		# Clear out any old cached data
 		$dbw->delete( 'querycache', array( 'qc_type' => 'fr_unreviewedpages_q' ), __METHOD__ );
-		wfWaitForSlaves( 5 );
 		# Insert new data...
 		if ( $insertRows ) {
 			$dbw->insert( 'querycache', $insertRows, __METHOD__ );
