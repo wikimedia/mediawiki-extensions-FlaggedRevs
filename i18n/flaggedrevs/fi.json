@@ -142,7 +142,7 @@
 	"right-review": "Merkitä versioita katsotuiksi",
 	"right-stablesettings": "Määrittää miten vakaat versiot valitaan ja näytetään",
 	"right-validate": "Merkitä versioita laadukkaiksi",
-	"right-unreviewedpages": "Tarkastella [[Special:UnreviewedPages|luetteloa arvioimattomista sivuista]]",
+	"right-unreviewedpages": "Nähdä [[Special:UnreviewedPages|luettelon arvioimattomista sivuista]]",
 	"rights-editor-revoke": "poisti seulojan oikeudet käyttäjältä [[$1]]",
 	"specialpages-group-quality": "Muutosten arviointi",
 	"stable-logentry-config": "määritti vakautusasetukset sivulle ”$1”",
