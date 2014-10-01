@@ -12,7 +12,8 @@
 			"Melos",
 			"Nemo bis",
 			"Pietrodn",
-			"Ximo17"
+			"Ximo17",
+			"Elitre"
 		]
 	},
 	"action-review": "revisionare versioni",
@@ -122,7 +123,7 @@
 	"revreview-quick-quality-same": "'''[[{{MediaWiki:Validationpage}}|Pagina di qualità]]'''",
 	"revreview-quick-see-basic": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} revisiona modifiche in sospeso]]",
 	"revreview-quick-see-quality": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} revisiona modifiche in sospeso]]",
-	"revreview-source": "Visualizza sorgente",
+	"revreview-source": "Visualizza wikitesto",
 	"revreview-basic-title": "Questa è una versione verificata della pagina",
 	"revreview-style": "Leggibilità",
 	"revreview-style-0": "Inadeguata",
