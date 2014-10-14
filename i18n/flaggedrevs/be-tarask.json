@@ -35,7 +35,7 @@
 	"grouppage-editor": "{{ns:project}}:Рэдактар",
 	"grouppage-reviewer": "{{ns:project}}:Рэцэнзэнт",
 	"group-autoreview": "Аўтаматычныя рэцэнзэнты",
-	"group-autoreview-member": "аўтаматычны рэцэнзэнт",
+	"group-autoreview-member": "{{GENDER:$1|аўтаматычны рэцэнзэнт|аўтаматычная рэцэнзэнтка}}",
 	"grouppage-autoreview": "{{ns:project}}:Аўтаматычны рэцэнзэнт",
 	"revreview-hist-draft": "неправераная вэрсія",
 	"revreview-hist-pending": "чакае праверкі",

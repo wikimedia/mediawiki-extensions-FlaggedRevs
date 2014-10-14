@@ -20,7 +20,7 @@
 	"flaggedrevs-prefs-watch": "ئەو پەڕانەی من بەسەریاندا دەچمە بە پێرستی چاودێریم زیاد بکە",
 	"flaggedrevs-prefs-editdiffs": "جیاوازیی گۆڕانکارییە ھەڵواسراوەکان لە کاتی دەستکاریی پەڕەکان نیشان بدە",
 	"flaggedrevs-prefs-viewdiffs": "جیاوازیی گۆڕانکارییە ھەڵواسراوەکان نیشان بدە لە کاتی دیتنی دوایین پێداچوونەوەی ھەڵواسراو",
-	"flaggedrevs-hidereviewed": "$1 دەستکاریی بەسەرداچووە",
+	"flaggedrevs-hidereviewed": "دەستکاریی بەسەرداچووە $1",
 	"flaggedrevs-hidereviewed-hide": "بیشارەوە",
 	"flaggedrevs-hidereviewed-show": "نیشان بدە",
 	"group-editor": "دەستکاریکەران",
