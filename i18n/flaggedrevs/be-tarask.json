@@ -86,7 +86,7 @@
 	"revreview-depth-4": "Выбраная",
 	"revreview-draft-title": "На гэтай старонцы паказаныя нерэцэнзаваныя зьмены",
 	"revreview-edit": "Рэдагаваць",
-	"revreview-editnotice": "'''Вашыя рэдагаваньні будуць паказаныя пасьля таго, як іх прарэцэнзуе аўтарызаваны удзельнік.([[{{MediaWiki:Validationpage}}|дапамога]])'''",
+	"revreview-editnotice": "'''Вашыя рэдагаваньні будуць паказаныя пасьля таго, як іх ўхваліць упаўнаважаны ўдзельнік ([[{{MediaWiki:Validationpage}}|дапамога]])'''.",
 	"revreview-submitedit": "Прыняць зьмены",
 	"revreview-submitedit-title": "Прапанаваць Вашыя зьмены для рэцэнзаваньня",
 	"revreview-edited": "'''Вашыя рэдагаваньні будуць паказаныя чытачам пасьля таго, як іх прарэцэнзуе аўтарызаваны ўдзельнік.([[{{MediaWiki:Validationpage}}|?]])'''\n\n[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|зьмена|зьмены|зьмены}}] {{PLURAL:$2|''(паказаная ніжэй)'' чакае|''(паказаныя ніжэй)'' чакаюць|''(паказаныя ніжэй)'' чакаюць}} рэцэнзаваньня.",
