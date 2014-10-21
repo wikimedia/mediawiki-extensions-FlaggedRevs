@@ -42,7 +42,7 @@
 	"flaggedrevs-pref-stable-1": "Stets die markierte Version anzeigen, sofern eine vorhanden ist",
 	"flaggedrevs-pref-stable-2": "Stets die neueste Version anzeigen",
 	"flaggedrevs-prefs-watch": "Selbst markierte Seiten automatisch beobachten",
-	"flaggedrevs-prefs-editdiffs": "Zeige beim Bearbeiten auch den Unterschied zur letzten stabilen Version im Versionsvergleich",
+	"flaggedrevs-prefs-editdiffs": "Beim Bearbeiten auch den Unterschied zur letzten stabilen Version im Versionsvergleich anzeigen",
 	"flaggedrevs-prefs-viewdiffs": "Zeige einen Versionsvergleich zur stabilen Version, wenn die neueste unmarkierte Version angezeigt wird",
 	"flaggedrevs-hidereviewed": "Markierte Bearbeitungen $1",
 	"flaggedrevs-hidereviewed-hide": "ausblenden",
