@@ -401,19 +401,7 @@ class PageStabilityProtectForm extends PageStabilityForm {
 	}
 
 	protected function reallyDoCheckParameters() {
-		# WMF temp hack...protection limit quota
-		global $wgFlaggedRevsProtectQuota;
 		$oldConfig = $this->getOldConfig();
-		if ( isset( $wgFlaggedRevsProtectQuota ) // quota exists
-			&& $this->autoreview != '' // and we are protecting
-			&& FRPageConfig::getProtectionLevel( $oldConfig ) == 'none' ) // unprotected
-		{
-			$dbw = wfGetDB( DB_MASTER );
-			$count = $dbw->selectField( 'flaggedpage_config', 'COUNT(*)', '', __METHOD__ );
-			if ( $count >= $wgFlaggedRevsProtectQuota ) {
-				return 'stabilize_protect_quota';
-			}
-		}
 		# Autoreview only when protecting currently unprotected pages
 		$this->reviewThis = ( FRPageConfig::getProtectionLevel( $oldConfig ) == 'none' );
 		# Autoreview restriction => use stable
