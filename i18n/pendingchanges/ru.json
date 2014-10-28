@@ -14,8 +14,8 @@
 	"pendingchanges-legend": "Список проверенных страниц с непроверенными версиями",
 	"pendingchanges-list": "На этой странице перечислены  [[{{MediaWiki:Validationpage}}|проверенные]] страницы с правками, ожидающими проверки.",
 	"pendingchanges-none": "В настоящее время нет страниц, удовлетворяющих этим условиям",
-	"pendingchanges-hours": "($1 {{PLURAL:$1|час|часов|часа}})",
-	"pendingchanges-days": "($1 {{PLURAL:$1|день|дней|дня}})",
+	"pendingchanges-hours": "($1 {{PLURAL:$1|час|часа|часов}})",
+	"pendingchanges-days": "($1 {{PLURAL:$1|день|дня|дней}})",
 	"pendingchanges-recent": "(менее 1 часа)",
 	"pendingchanges-category": "Категория:",
 	"pendingchanges-onwatchlist": "Страницы из моего списка наблюдения",
@@ -23,6 +23,6 @@
 	"pendingchanges-diff": "проверить",
 	"pendingchanges-size": "Наибольшее изменение в байтах:",
 	"pendingchanges-unwatched": "(не следят)",
-	"pendingchanges-watched": "({{PLURAL:$1|следит $1 активный участник|следят $1 активных участников|следят $1 активных участника}})",
+	"pendingchanges-watched": "({{PLURAL:$1|следит $1 активный участник|следят $1 активных участника|следят $1 активных участников}})",
 	"pendingchanges-viewing": "(проверяются)"
 }

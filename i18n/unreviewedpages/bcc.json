@@ -1,12 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"Mostafadaneshvar"
+			"Mostafadaneshvar",
+			"Baloch Afghanistan"
 		]
 	},
 	"unreviewedpages": "صفحات بی بازبینی",
 	"unreviewedpages-legend": "لیست کن صفحات محتوا بی بازبینی",
-	"unreviewedpages-category": "دسته:",
+	"unreviewedpages-category": "تهر:",
 	"unreviewedpages-diff": "بازبینی",
 	"unreviewedpages-unwatched": "(نه چارگ)",
 	"unreviewedpages-watched": "($1 {{PLURAL:$1|user|کابران}} چارگ بیت)",

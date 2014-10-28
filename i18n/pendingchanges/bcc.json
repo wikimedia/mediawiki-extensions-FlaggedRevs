@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Mostafadaneshvar"
+			"Mostafadaneshvar",
+			"Baloch Afghanistan"
 		]
 	},
 	"pendingchanges": "صفحات بازبینی تاریح گوستگین",
@@ -11,7 +12,7 @@
 	"pendingchanges-hours": "($1 {{PLURAL:$1|ساعت|ساعت}})",
 	"pendingchanges-days": "($1 {{PLURAL:$1|روچ|روچان}})",
 	"pendingchanges-recent": "(کمتر چه یک ساعت)",
-	"pendingchanges-category": "دسته:",
+	"pendingchanges-category": "تهر:",
 	"pendingchanges-stable": "رویت بیتگ",
 	"pendingchanges-diff": "بازبینی",
 	"pendingchanges-unwatched": "(نه چارگ بیت)",
