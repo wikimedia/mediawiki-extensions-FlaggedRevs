@@ -59,10 +59,9 @@ class ApiFlagConfig extends ApiBase {
 		return array();
 	}
 
-	public function getParamDescription() {
-		return array();
-	}
-
+	/**
+	 * @deprecated since MediaWiki core 1.25
+	 */
 	public function getDescription() {
 		return array(
 			'Get basic information about review flag configuration for this site.',
@@ -76,11 +75,20 @@ class ApiFlagConfig extends ApiBase {
 		);
 	}
 
+	/**
+	 * @deprecated since MediaWiki core 1.25
+	 */
 	public function getExamples() {
 		return 'api.php?action=flagconfig';
 	}
 
-	public function getVersion() {
-		return __CLASS__ . ': $Id$';
+	/**
+	 * @see ApiBase::getExamplesMessages()
+	 */
+	protected function getExamplesMessages() {
+		return array(
+			'action=flagconfig'
+				=> 'apihelp-flagconfig-example-1',
+		);
 	}
 }

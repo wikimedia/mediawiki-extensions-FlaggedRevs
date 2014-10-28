@@ -159,6 +159,8 @@ class FlaggedRevsSetup {
 		$classes['ApiQueryFlagged'] = "$apiReportDir/ApiQueryFlagged.php";
 		# Site flag config for API
 		$classes['ApiFlagConfig'] = "$apiReportDir/ApiFlagConfig.php";
+		# i18n
+		$messagesDirs['FlaggedRevsApi'] = __DIR__ . '/i18n/api';
 		### End ###
 
 		### Event handler classes ###

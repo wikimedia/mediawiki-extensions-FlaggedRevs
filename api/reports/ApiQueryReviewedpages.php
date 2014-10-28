@@ -134,7 +134,9 @@ class ApiQueryReviewedpages extends ApiQueryGeneratorBase {
 				ApiBase::PARAM_TYPE => array (
 					'newer',
 					'older'
-				)
+				),
+				/** @todo Once support for MediaWiki < 1.25 is dropped, just use ApiBase::PARAM_HELP_MSG directly */
+				constant( 'ApiBase::PARAM_HELP_MSG' ) ?: '' => 'api-help-param-direction',
 			),
 			'namespace' => array (
 				ApiBase::PARAM_DFLT => !$namespaces ?
@@ -166,6 +168,9 @@ class ApiQueryReviewedpages extends ApiQueryGeneratorBase {
 		);
 	}
 
+	/**
+	 * @deprecated since MediaWiki core 1.25
+	 */
 	public function getParamDescription() {
 		return array (
 			'start' 		=> 'Start listing at this page id.',
@@ -182,10 +187,16 @@ class ApiQueryReviewedpages extends ApiQueryGeneratorBase {
 		);
 	}
 
+	/**
+	 * @deprecated since MediaWiki core 1.25
+	 */
 	public function getDescription() {
 		return 'Enumerates pages that have a reviewed version';
 	}
 
+	/**
+	 * @deprecated since MediaWiki core 1.25
+	 */
 	public function getExamples() {
 		return array (
 			'Show a list of reviewed pages',
@@ -195,7 +206,15 @@ class ApiQueryReviewedpages extends ApiQueryGeneratorBase {
 		);
 	}
 
-	public function getVersion() {
-		return __CLASS__ . ': $Id$';
+	/**
+	 * @see ApiBase::getExamplesMessages()
+	 */
+	protected function getExamplesMessages() {
+		return array(
+			'action=query&list=reviewedpages&rpnamespace=0&rpfilterlevel=0'
+				=> 'apihelp-query+reviewedpages-example-1',
+			'action=query&generator=reviewedpages&grplimit=4&prop=info'
+				=> 'apihelp-query+reviewedpages-example-2',
+		);
 	}
 }

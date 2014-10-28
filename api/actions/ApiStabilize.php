@@ -70,10 +70,6 @@ abstract class ApiStabilize extends ApiBase {
 	public function getTokenSalt() {
 		return '';
 	}
-
-	public function getVersion() {
-		return __CLASS__ . ': $Id$';
-	}
 }
 
 // Assumes $wgFlaggedRevsProtection is off
@@ -146,16 +142,26 @@ class ApiStabilizeGeneral extends ApiStabilize {
 				ApiBase :: PARAM_TYPE => $autoreviewLevels,
 				ApiBase :: PARAM_DFLT => 'none',
 			),
-			'expiry'      => 'infinite',
+			'expiry'      => array(
+				ApiBase::PARAM_DFLT => 'infinite',
+				/** @todo Once support for MediaWiki < 1.25 is dropped, just use ApiBase::PARAM_HELP_MSG directly */
+				constant( 'ApiBase::PARAM_HELP_MSG' ) ?: '' => 'apihelp-stabilize-param-expiry-general',
+			),
 			'reason'      => '',
 			'review'      => false,
 			'watch'       => null,
 			'token'       => null,
-			'title'       => null,
+			'title'       => array(
+				/** @todo Once support for MediaWiki < 1.25 is dropped, just use ApiBase::PARAM_HELP_MSG directly */
+				constant( 'ApiBase::PARAM_HELP_MSG' ) ?: '' => 'apihelp-stabilize-param-title-general',
+			),
 		);
 		return $pars;
 	}
 
+	/**
+	 * @deprecated since MediaWiki core 1.25
+	 */
 	public function getParamDescription() {
 		return array(
 			'default'       => 'Default revision to show',
@@ -169,17 +175,33 @@ class ApiStabilizeGeneral extends ApiStabilize {
 		);
 	}
 
+	/**
+	 * @deprecated since MediaWiki core 1.25
+	 */
 	public function getDescription() {
 		return 'Change page stability settings';
 	}
 
+	protected function getDescriptionMessage() {
+		return parent::getDescriptionMessage() . '-general';
+	}
+
+	/**
+	 * @deprecated since MediaWiki core 1.25
+	 */
 	public function getExamples() {
 		return 'api.php?action=stabilize&title=Test&default=stable&reason=Test&token=123ABC';
 	}
 
-	public function getVersion() {
-		return __CLASS__ . ': $Id$';
- 	}
+	/**
+	 * @see ApiBase::getExamplesMessages()
+	 */
+	protected function getExamplesMessages() {
+		return array(
+			'action=stabilize&title=Test&default=stable&reason=Test&token=123ABC'
+				=> 'apihelp-stabilize-example-general',
+		);
+	}
 }
 
 // Assumes $wgFlaggedRevsProtection is on
@@ -226,14 +248,24 @@ class ApiStabilizeProtect extends ApiStabilize {
 				ApiBase :: PARAM_TYPE => $autoreviewLevels,
 				ApiBase :: PARAM_DFLT => 'none',
 			),
-			'expiry'    => 'infinite',
+			'expiry'      => array(
+				ApiBase::PARAM_DFLT => 'infinite',
+				/** @todo Once support for MediaWiki < 1.25 is dropped, just use ApiBase::PARAM_HELP_MSG directly */
+				constant( 'ApiBase::PARAM_HELP_MSG' ) ?: '' => 'apihelp-stabilize-param-expiry-protect',
+			),
 			'reason'    => '',
 			'watch'     => null,
 			'token'     => null,
-			'title'     => null,
+			'title'       => array(
+				/** @todo Once support for MediaWiki < 1.25 is dropped, just use ApiBase::PARAM_HELP_MSG directly */
+				constant( 'ApiBase::PARAM_HELP_MSG' ) ?: '' => 'apihelp-stabilize-param-title-protect',
+			),
 		);
 	}
 
+	/**
+	 * @deprecated since MediaWiki core 1.25
+	 */
 	public function getParamDescription() {
 		return array(
 			'protectlevel'  => 'The review-protection level',
@@ -245,15 +277,28 @@ class ApiStabilizeProtect extends ApiStabilize {
 		);
 	}
 
+	/**
+	 * @deprecated since MediaWiki core 1.25
+	 */
 	public function getDescription() {
 		return 'Configure review-protection settings for a page';
 	}
 
+	protected function getDescriptionMessage() {
+		return parent::getDescriptionMessage() . '-protect';
+	}
+
+	/**
+	 * @deprecated since MediaWiki core 1.25
+	 */
 	public function getExamples() {
 		return 'api.php?action=stabilize&title=Test&protectlevel=none&reason=Test&token=123ABC';
 	}
 
-	public function getVersion() {
-		return __CLASS__ . ': $Id$';
- 	}
+	protected function getExamplesMessages() {
+		return array(
+			'action=stabilize&title=Test&protectlevel=none&reason=Test&token=123ABC'
+				=> 'apihelp-stabilize-example-protect',
+		);
+	}
 }

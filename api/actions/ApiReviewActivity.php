@@ -105,6 +105,9 @@ class ApiReviewActivity extends ApiBase {
 		);
 	}
 
+	/**
+	 * @deprecated since MediaWiki core 1.25
+	 */
 	public function getParamDescription() {
 		return array(
 			'previd'  	=> 'The prior revision ID (for reviewing changes only)',
@@ -114,6 +117,9 @@ class ApiReviewActivity extends ApiBase {
 		);
 	}
 
+	/**
+	 * @deprecated since MediaWiki core 1.25
+	 */
 	public function getDescription() {
 		return 'Advertise or de-advertise yourself as reviewing an unreviewed page or unreviewed changes';
 	}
@@ -126,11 +132,20 @@ class ApiReviewActivity extends ApiBase {
 		return '';
 	}
 
+	/**
+	 * @deprecated since MediaWiki core 1.25
+	 */
 	public function getExamples() {
 		return 'api.php?action=reviewactivity&pageid=12345&reviewing=1';
 	}
 
-	public function getVersion() {
-		return __CLASS__ . ': $Id$';
+	/**
+	 * @see ApiBase::getExamplesMessages()
+	 */
+	protected function getExamplesMessages() {
+		return array(
+			'action=reviewactivity&pageid=12345&reviewing=1'
+				=> 'apihelp-reviewactivity-example-1',
+		);
 	}
 }

@@ -77,6 +77,9 @@ class ApiQueryFlagged extends ApiQueryBase {
 		return array();
 	}
 
+	/**
+	 * @deprecated since MediaWiki core 1.25
+	 */
 	public function getDescription() {
 		return array(
 			'Get information about the flagging status of the given pages.',
@@ -91,6 +94,9 @@ class ApiQueryFlagged extends ApiQueryBase {
 		);
 	}
 
+	/**
+	 * @deprecated since MediaWiki core 1.25
+	 */
 	public function getExamples() {
 		return array (
 			'api.php?action=query&prop=info|flagged&titles=Main%20Page',
@@ -98,7 +104,15 @@ class ApiQueryFlagged extends ApiQueryBase {
 		);
 	}
 
-	public function getVersion() {
-		return __CLASS__ . ': $Id$';
+	/**
+	 * @see ApiBase::getExamplesMessages()
+	 */
+	protected function getExamplesMessages() {
+		return array(
+			'action=query&prop=info|flagged&titles=Main%20Page'
+				=> 'apihelp-query+flagged-example-1',
+			'action=query&generator=allpages&gapfrom=K&prop=flagged'
+				=> 'apihelp-query+flagged-example-2',
+		);
 	}
 }

@@ -151,16 +151,22 @@ class ApiReview extends ApiBase {
 			'unapprove' => false
 		);
 		if ( !FlaggedRevs::binaryFlagging() ) {
+			/** @todo Once support for MediaWiki < 1.25 is dropped, just use ApiBase::PARAM_HELP_MSG directly */
+			$key = constant( 'ApiBase::PARAM_HELP_MSG' ) ?: '';
 			foreach ( FlaggedRevs::getDimensions() as $flagname => $levels ) {
 				$pars['flag_' . $flagname] = array(
 					ApiBase::PARAM_DFLT => 1, // default
-					ApiBase::PARAM_TYPE => array_keys( $levels ) // array of allowed values
+					ApiBase::PARAM_TYPE => array_keys( $levels ), // array of allowed values
+					$key => array( 'apihelp-review-param-flag', $flagname ),
 				);
 			}
 		}
 		return $pars;
 	}
 
+	/**
+	 * @deprecated since MediaWiki core 1.25
+	 */
 	public function getParamDescription() {
 		$desc = array(
 			'revid'  	=> 'The revision ID for which to set the flags',
@@ -176,6 +182,9 @@ class ApiReview extends ApiBase {
 		return $desc;
 	}
 
+	/**
+	 * @deprecated since MediaWiki core 1.25
+	 */
 	public function getDescription() {
 		return 'Review a revision by approving or de-approving it';
 	}
@@ -188,11 +197,20 @@ class ApiReview extends ApiBase {
 		return '';
 	}
 
+	/**
+	 * @deprecated since MediaWiki core 1.25
+	 */
 	public function getExamples() {
 		return 'api.php?action=review&revid=12345&token=123AB&flag_accuracy=1&comment=Ok';
 	}
 
-	public function getVersion() {
-		return __CLASS__ . ': $Id$';
+	/**
+	 * @see ApiBase::getExamplesMessages()
+	 */
+	protected function getExamplesMessages() {
+		return array(
+			'action=review&revid=12345&token=123AB&flag_accuracy=1&comment=Ok'
+				=> 'apihelp-review-example-1',
+		);
 	}
 }

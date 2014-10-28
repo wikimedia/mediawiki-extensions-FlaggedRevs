@@ -144,7 +144,9 @@ class ApiQueryConfiguredpages extends ApiQueryGeneratorBase {
 			),
 			'dir' => array(
 				ApiBase::PARAM_DFLT 	=> 'newer',
-				ApiBase::PARAM_TYPE 	=> array( 'newer', 'older' )
+				ApiBase::PARAM_TYPE 	=> array( 'newer', 'older' ),
+				/** @todo Once support for MediaWiki < 1.25 is dropped, just use ApiBase::PARAM_HELP_MSG directly */
+				constant( 'ApiBase::PARAM_HELP_MSG' ) ?: '' => 'api-help-param-direction',
 			),
 			'namespace' => array(
 				ApiBase::PARAM_DFLT 	=> null,
@@ -169,6 +171,9 @@ class ApiQueryConfiguredpages extends ApiQueryGeneratorBase {
 		);
 	}
 
+	/**
+	 * @deprecated since MediaWiki core 1.25
+	 */
 	public function getParamDescription() {
 		return array(
 			'start' 		=> 'Start listing at this page id.',
@@ -185,10 +190,16 @@ class ApiQueryConfiguredpages extends ApiQueryGeneratorBase {
 		);
 	}
 
+	/**
+	 * @deprecated since MediaWiki core 1.25
+	 */
 	public function getDescription() {
 		return 'Enumerate all pages that have custom review configurations';
 	}
 
+	/**
+	 * @deprecated since MediaWiki core 1.25
+	 */
 	public function getExamples() {
 		return array(
 			'Show a list of pages with custom review configurations',
@@ -198,7 +209,15 @@ class ApiQueryConfiguredpages extends ApiQueryGeneratorBase {
 		);
 	}
 
-	public function getVersion() {
-		return __CLASS__ . ': $Id$';
+	/**
+	 * @see ApiBase::getExamplesMessages()
+	 */
+	protected function getExamplesMessages() {
+		return array(
+			'action=query&list=configuredpages&cpnamespace=0'
+				=> 'apihelp-query+configuredpages-example-1',
+			'action=query&generator=configuredpages&gcplimit=4&prop=info'
+				=> 'apihelp-query+configuredpages-example-2',
+		);
 	}
 }

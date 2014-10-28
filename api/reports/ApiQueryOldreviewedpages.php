@@ -167,7 +167,9 @@ class ApiQueryOldreviewedpages extends ApiQueryGeneratorBase {
 			),
 			'dir' => array(
 				ApiBase::PARAM_DFLT => 'newer',
-				ApiBase::PARAM_TYPE => array( 'newer', 'older' )
+				ApiBase::PARAM_TYPE => array( 'newer', 'older' ),
+				/** @todo Once support for MediaWiki < 1.25 is dropped, just use ApiBase::PARAM_HELP_MSG directly */
+				constant( 'ApiBase::PARAM_HELP_MSG' ) ?: '' => 'api-help-param-direction',
 			),
 			'maxsize' => array(
 				ApiBase::PARAM_TYPE => 'integer',
@@ -200,6 +202,9 @@ class ApiQueryOldreviewedpages extends ApiQueryGeneratorBase {
 		);
 	}
 
+	/**
+	 * @deprecated since MediaWiki core 1.25
+	 */
 	public function getParamDescription() {
 		return array(
 			'start' 	  	=> 'Start listing at this timestamp.',
@@ -218,10 +223,16 @@ class ApiQueryOldreviewedpages extends ApiQueryGeneratorBase {
 		);
 	}
 
+	/**
+	 * @deprecated since MediaWiki core 1.25
+	 */
 	public function getDescription() {
 		return 'Enumerates pages that have changes pending review';
 	}
 
+	/**
+	 * @deprecated since MediaWiki core 1.25
+	 */
 	public function getExamples() {
 		return array(
 			'Show a list of pages with pending unreviewed changes',
@@ -231,7 +242,15 @@ class ApiQueryOldreviewedpages extends ApiQueryGeneratorBase {
 		);
 	}
 
-	public function getVersion() {
-		return __CLASS__ . ': $Id$';
+	/**
+	 * @see ApiBase::getExamplesMessages()
+	 */
+	protected function getExamplesMessages() {
+		return array(
+			'action=query&list=oldreviewedpages&ornamespace=0'
+				=> 'apihelp-query+oldreviewedpages-example-1',
+			'action=query&generator=oldreviewedpages&gorlimit=4&prop=info'
+				=> 'apihelp-query+oldreviewedpages-example-2',
+		);
 	}
 }

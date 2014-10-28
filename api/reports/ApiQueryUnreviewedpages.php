@@ -163,6 +163,9 @@ class ApiQueryUnreviewedpages extends ApiQueryGeneratorBase {
 		);
 	}
 
+	/**
+	 * @deprecated since MediaWiki core 1.25
+	 */
 	public function getParamDescription() {
 		return array (
 			'start'         => 'Start listing at this page title.',
@@ -175,10 +178,16 @@ class ApiQueryUnreviewedpages extends ApiQueryGeneratorBase {
 		);
 	}
 
+	/**
+	 * @deprecated since MediaWiki core 1.25
+	 */
 	public function getDescription() {
 		return 'Enumerates pages that have not been reviewed to a given quality level ("filterlevel")';
 	}
 
+	/**
+	 * @deprecated since MediaWiki core 1.25
+	 */
 	public function getExamples() {
 		return array (
 			'Show a list of unreviewed pages',
@@ -188,7 +197,15 @@ class ApiQueryUnreviewedpages extends ApiQueryGeneratorBase {
 		);
 	}
 
-	public function getVersion() {
-		return __CLASS__ . ': $Id$';
+	/**
+	 * @see ApiBase::getExamplesMessages()
+	 */
+	protected function getExamplesMessages() {
+		return array(
+			'action=query&list=unreviewedpages&urnamespace=0&urfilterlevel=0'
+				=> 'apihelp-query+unreviewedpages-example-1',
+			'action=query&generator=unreviewedpages&urnamespace=0&gurlimit=4&prop=info'
+				=> 'apihelp-query+unreviewedpages-example-2',
+		);
 	}
 }
