@@ -1,0 +1,13 @@
+{
+	"@metadata": {
+		"authors": [
+			"Max20091",
+			"Minh Nguyen"
+		]
+	},
+	"apihelp-query+unreviewedpages-example-1": "Hiển thị danh sách các trang chưa duyệt",
+	"apihelp-stabilize-param-reason": "Lý do.",
+	"apihelp-stabilize-param-watch": "Theo dõi trang này.",
+	"apihelp-stabilize-param-autoreview": "Hạn chế duyệt tự động.",
+	"apihelp-stabilize-param-review": "Xem trang này."
+}

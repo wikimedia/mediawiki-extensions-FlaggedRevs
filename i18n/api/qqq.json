@@ -1,6 +1,8 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Liuxinyu970226"
+		]
 	},
 	"apihelp-flagconfig-description": "{{doc-apihelp-description|flagconfig}}",
 	"apihelp-flagconfig-example-1": "{{doc-apihelp-example|flagconfig}}",
@@ -59,12 +61,12 @@
 	"apihelp-reviewactivity-example-1": "{{doc-apihelp-example|reviewactivity}}",
 	"apihelp-stabilize-description-general": "{{doc-apihelp-description|stabilize|info=This message is used when $wgFlaggedRevsProtection is false}}",
 	"apihelp-stabilize-description-protect": "{{doc-apihelp-description|stabilize|info=This message is used when $wgFlaggedRevsProtection is true}}",
+	"apihelp-stabilize-param-reason": "{{doc-apihelp-param|stabilize|reason}}\n{{Identical|Reason}}",
+	"apihelp-stabilize-param-watch": "{{doc-apihelp-param|stabilize|watch}}",
 	"apihelp-stabilize-param-expiry-general": "{{doc-apihelp-param|stabilize|expiry|info=This message is used when $wgFlaggedRevsProtection is false}}",
 	"apihelp-stabilize-param-expiry-protect": "{{doc-apihelp-param|stabilize|expiry|info=This message is used when $wgFlaggedRevsProtection is true}}",
 	"apihelp-stabilize-param-title-general": "{{doc-apihelp-param|stabilize|title|info=This message is used when $wgFlaggedRevsProtection is false}}",
 	"apihelp-stabilize-param-title-protect": "{{doc-apihelp-param|stabilize|title|info=This message is used when $wgFlaggedRevsProtection is true}}",
-	"apihelp-stabilize-param-reason": "{{doc-apihelp-param|stabilize|reason}}",
-	"apihelp-stabilize-param-watch": "{{doc-apihelp-param|stabilize|watch}}",
 	"apihelp-stabilize-param-default": "{{doc-apihelp-param|stabilize|default|info=This message is used when $wgFlaggedRevsProtection is false}}",
 	"apihelp-stabilize-param-autoreview": "{{doc-apihelp-param|stabilize|autoreview|info=This message is used when $wgFlaggedRevsProtection is false}}",
 	"apihelp-stabilize-param-review": "{{doc-apihelp-param|stabilize|review|info=This message is used when $wgFlaggedRevsProtection is false}}",

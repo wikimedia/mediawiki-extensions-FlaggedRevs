@@ -8,7 +8,8 @@
 			"Tomchiukc",
 			"Waihorace",
 			"Cwlin0416",
-			"LNDDYL"
+			"LNDDYL",
+			"Liuxinyu970226"
 		]
 	},
 	"validationstatistics": "審核統計",
@@ -22,7 +23,7 @@
 	"validationstatistics-stable": "已復審",
 	"validationstatistics-latest": "已同步",
 	"validationstatistics-synced": "已同步/已復審",
-	"validationstatistics-old": "已過期",
+	"validationstatistics-old": "已過時",
 	"validationstatistics-utable": "下面列出了最近{{PLURAL:$2|一小時|$2小時}}內{{PLURAL:$1|最活躍的複審員|最活躍的$1位複審員}}。",
 	"validationstatistics-user": "使用者",
 	"validationstatistics-reviews": "審核者"
