@@ -5,5 +5,7 @@
 		]
 	},
 	"apihelp-stabilize-param-reason": "原因。",
-	"apihelp-stabilize-param-watch": "监视本页。"
+	"apihelp-stabilize-param-watch": "监视本页。",
+	"apihelp-stabilize-param-review": "复核此页面。",
+	"apihelp-stabilize-param-protectlevel": "复核保护级别。"
 }

@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"Metalhead64"
+		]
+	},
+	"apihelp-query+configuredpages-param-default": "Die Standard-Seitenansicht-Version.",
+	"apihelp-stabilize-param-reason": "Grund."
+}

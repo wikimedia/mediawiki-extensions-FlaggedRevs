@@ -1,0 +1,11 @@
+{
+	"@metadata": {
+		"authors": [
+			"Chrumps"
+		]
+	},
+	"apihelp-query+oldreviewedpages-param-category": "Pokaż strony tylko w danej kategorii.",
+	"apihelp-query+unreviewedpages-param-dir": "Kierunek sortowania.",
+	"apihelp-stabilize-param-reason": "Powód.",
+	"apihelp-stabilize-param-watch": "Obserwuj tę stronę."
+}

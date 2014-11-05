@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Vitorvicentevalente"
+		]
+	},
+	"apihelp-query+reviewedpages-param-namespace": "Os domínios a enumerar.",
+	"apihelp-stabilize-param-reason": "Motivo.",
+	"apihelp-stabilize-param-watch": "Vigiar esta página."
+}

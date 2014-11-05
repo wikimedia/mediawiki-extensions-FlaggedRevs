@@ -2,9 +2,10 @@
 	"@metadata": {
 		"authors": [
 			"Kening Aldgilles",
-			"Snakesteuben"
+			"Snakesteuben",
+			"Robin0van0der0vliet"
 		]
 	},
 	"revreview-log": "Oanmerking:",
-	"revreview-reject-cancel": "Ofbrekke"
+	"revreview-reject-cancel": "Annulearje"
 }
