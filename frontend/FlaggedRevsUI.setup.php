@@ -155,7 +155,7 @@ class FlaggedRevsUISetup {
 				'revreview-log-toggle-show', 'revreview-log-toggle-hide',
 				'revreview-log-details-show', 'revreview-log-details-hide'
 			),
-			'dependencies'  => array( 'mediawiki.util' ),
+			'dependencies'  => array( 'jquery.accessKeyLabel' ),
 			'localBasePath' => $localModulePath,
 			'remoteExtPath' => $remoteModulePath,
 		);
@@ -163,7 +163,7 @@ class FlaggedRevsUISetup {
 			'scripts'       => array( 'ext.flaggedRevs.review.js' ),
 			'styles'        => array( 'ext.flaggedRevs.review.css' ),
 			'messages'      => array(
-				'savearticle', 'tooltip-save', 'accesskey-save',
+				'savearticle', 'tooltip-save',
 				'revreview-submitedit', 'revreview-submitedit-title',
 				'revreview-submit-review', 'revreview-submit-unreview',
 				'revreview-submit-reviewed', 'revreview-submit-unreviewed',

@@ -191,18 +191,18 @@ var fr = {
 				$save
 					.val( mw.msg( 'savearticle' ) )
 					.attr( 'title',
-						mw.msg( 'tooltip-save' ) + ' [' + mw.msg( 'accesskey-save' ) + ']'
+						mw.msg( 'tooltip-save' )
 					);
 			// Submit for review
 			} else {
 				$save
 					.val( mw.msg( 'revreview-submitedit' ) )
 					.attr( 'title',
-						mw.msg( 'revreview-submitedit-title' ) + ' [' + mw.msg( 'accesskey-save' ) + ']'
+						mw.msg( 'revreview-submitedit-title' )
 					);
 			}
+			$save.updateTooltipAccessKeys();
 		}
-		mw.util.updateTooltipAccessKeys( [ $save ] ); // update accesskey in save.title
 	}
 };
 
