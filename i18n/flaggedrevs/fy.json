@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Snakesteuben"
+			"Snakesteuben",
+			"Robin0van0der0vliet"
 		]
 	},
 	"editor": "Redakteur",
@@ -13,6 +14,7 @@
 	"grouppage-reviewer": "{{ns:project}}:Einredakteur",
 	"reviewer": "Einredakteur",
 	"revreview-depth-0": "Net kontrolearre",
+	"revreview-edit": "Bewurkje",
 	"revreview-style-2": "Goed",
 	"revreview-revnotfound": "De âlde ferzje fan dizze side dêr't jo om frege hawwe, is der net.\nGean nei of de keppeling dy jo brûkt hawwe wol goed is."
 }
