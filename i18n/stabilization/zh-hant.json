@@ -7,7 +7,8 @@
 			"Liangent",
 			"Mark85296341",
 			"Shinjiman",
-			"Waihorace"
+			"Waihorace",
+			"LNDDYL"
 		]
 	},
 	"stabilization-tab": "調查",
@@ -33,7 +34,7 @@
 	"stabilization-def-short-1": "穩定",
 	"stabilize_page_invalid": "目標頁面名稱是無效的",
 	"stabilize_page_notexists": "目標頁面不存在",
-	"stabilize_page_unreviewable": "目標頁面的名字空間不是一個需要審查的名字空間。",
+	"stabilize_page_unreviewable": "目標頁面不是一個需要審查的命名空間。",
 	"stabilize_invalid_autoreview": "沒有自動複查權限",
 	"stabilize_invalid_level": "無效的保護水平。",
 	"stabilize_expiry_invalid": "無效的到期日。",
