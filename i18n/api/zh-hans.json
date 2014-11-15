@@ -4,8 +4,15 @@
 			"Liuxinyu970226"
 		]
 	},
+	"apihelp-flagconfig-example-1": "检索标记配置",
+	"apihelp-query+flagged-example-1": "获取[[Main Page]]的页面信息和标记状态",
+	"apihelp-query+reviewedpages-param-start": "从此页面ID开始列出。",
+	"apihelp-query+reviewedpages-param-end": "列出至此页面ID为止。",
 	"apihelp-stabilize-param-reason": "原因。",
 	"apihelp-stabilize-param-watch": "监视本页。",
+	"apihelp-stabilize-param-expiry-general": "这些设置的期限。",
+	"apihelp-stabilize-param-expiry-protect": "复核保护期限。",
+	"apihelp-stabilize-param-autoreview": "自动复核限制。",
 	"apihelp-stabilize-param-review": "复核此页面。",
 	"apihelp-stabilize-param-protectlevel": "复核保护级别。"
 }

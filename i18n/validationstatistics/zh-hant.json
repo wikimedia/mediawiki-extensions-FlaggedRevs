@@ -18,7 +18,7 @@
 	"validationstatistics-pndtime": "已確認使用者已經檢查這些編輯，並認為它們是''{{int:validationstatistics-stable|已復審}}''的。\n\n[[Special:OldReviewedPages|含有待複審編輯頁面]]的平均複審延遲是'''$1'''；這一延遲可以確定最早待複審編輯會有多久處於未復審狀態。",
 	"validationstatistics-revtime": "平均等待''未登入用戶''的編輯審核是'''$1'''；中位數是'''$2 '''。\n$3",
 	"validationstatistics-table": "每個名字空間的頁面複審統計資訊如下所示，其中'''不包括'''重新導向頁。含有待複審編輯的頁面會被標記為“已過期”，不存在待複審編輯的頁面會被標記為“已同步”。",
-	"validationstatistics-ns": "名稱空間",
+	"validationstatistics-ns": "命名空間",
 	"validationstatistics-total": "頁面",
 	"validationstatistics-stable": "已復審",
 	"validationstatistics-latest": "已同步",
