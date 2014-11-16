@@ -8,7 +8,8 @@
 			"Siebrand",
 			"Sjoerddebruin",
 			"Tjcool007",
-			"Tvdm"
+			"Tvdm",
+			"Tkinkhorst"
 		]
 	},
 	"action-review": "versies als \"gecontroleerd\" te markeren",
@@ -62,7 +63,7 @@
 	"review-logentry-app": "heeft een versie van [[$1]] gecontroleerd",
 	"review-logentry-dis": "heeft een versie van [[$1]] ongeldig gemaakt",
 	"review-logentry-id": "versie: $2",
-	"review-logentry-diff": "wijzigingen gecontroleerd",
+	"review-logentry-diff": "gecontroleerde wijzigingen",
 	"review-logentry-diff2": "verouderde wijzigingen",
 	"review-logpage": "Controlelogboek",
 	"review-logpagetext": "Dit is een logboek met wijzigingen in de [[{{MediaWiki:Validationpage}}|waarderingsstatus]] van pagina's.",
