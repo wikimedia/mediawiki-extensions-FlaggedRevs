@@ -234,7 +234,7 @@ class FlaggedRevsHooks {
 		$parser->setFunctionHook( 'pagesusingpendingchanges',
 			'FlaggedRevsHooks::parserPagesUsingPendingChanges' );
 		$parser->setFunctionHook( 'pendingchangelevel',
-			'FlaggedRevsHooks::parserPendingChangeLevel', SFH_NO_HASH );
+			'FlaggedRevsHooks::parserPendingChangeLevel', Parser::SFH_NO_HASH );
 		return true;
 	}
 
