@@ -8,6 +8,7 @@
 	"apihelp-query+flagged-example-1": "获取[[Main Page]]的页面信息和标记状态",
 	"apihelp-query+reviewedpages-param-start": "从此页面ID开始列出。",
 	"apihelp-query+reviewedpages-param-end": "列出至此页面ID为止。",
+	"apihelp-query+unreviewedpages-param-dir": "排序方向。",
 	"apihelp-stabilize-param-reason": "原因。",
 	"apihelp-stabilize-param-watch": "监视本页。",
 	"apihelp-stabilize-param-expiry-general": "这些设置的期限。",
