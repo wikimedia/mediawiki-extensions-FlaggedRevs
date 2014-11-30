@@ -9,10 +9,12 @@
 	"apihelp-query+reviewedpages-param-start": "从此页面ID开始列出。",
 	"apihelp-query+reviewedpages-param-end": "列出至此页面ID为止。",
 	"apihelp-query+unreviewedpages-param-dir": "排序方向。",
+	"apihelp-query+unreviewedpages-param-namespace": "要列举的名字空间。",
 	"apihelp-stabilize-param-reason": "原因。",
 	"apihelp-stabilize-param-watch": "监视本页。",
 	"apihelp-stabilize-param-expiry-general": "这些设置的期限。",
 	"apihelp-stabilize-param-expiry-protect": "复核保护期限。",
+	"apihelp-stabilize-param-title-protect": "要复核保护的页面标题。",
 	"apihelp-stabilize-param-autoreview": "自动复核限制。",
 	"apihelp-stabilize-param-review": "复核此页面。",
 	"apihelp-stabilize-param-protectlevel": "复核保护级别。"
