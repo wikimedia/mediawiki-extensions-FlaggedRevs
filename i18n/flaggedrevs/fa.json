@@ -51,7 +51,7 @@
 	"revreview-hist-basic-user": "توسط [[User:$3|$3]] بررسی شد",
 	"revreview-hist-quality-auto": "تأیید خودکار",
 	"revreview-hist-basic-auto": "خودکار بررسی شد",
-	"revreview-hist-pending-difflink": "'''[[{{fullurl:$1|oldid=$2&diff=$3{{MediaWiki:flaggedrevs-diffonly}}}} بازبینی در حال انتظار]]'''",
+	"revreview-hist-pending-difflink": "'''[[{{fullurl:$1|oldid=$2&diff=$3{{MediaWiki:flaggedrevs-diffonly}}}} ویرایش در حال انتظار]]'''",
 	"review-edit-diff": "'''توجه: ''بعضی'' از تغییرات در حال انتظار بر بخشی از صفحه که شما ویرایش می‌کنید تأثیر می‌گذارد.'''",
 	"revreview-diff-toggle-show": "نمایش آن تغییرات",
 	"revreview-diff-toggle-hide": "نهفتن آن تغییرات",
