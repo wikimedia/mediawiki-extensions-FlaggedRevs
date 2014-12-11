@@ -46,7 +46,7 @@
 	"revreview-hist-draft": "未經檢查的修訂",
 	"revreview-hist-pending": "等待審核",
 	"revreview-hist-quality": "[質素]",
-	"revreview-hist-basic": "已察版本",
+	"revreview-hist-basic": "已檢版本",
 	"revreview-hist-quality-user": "由[[User:$3|$3]]通過",
 	"revreview-hist-basic-user": "由[[User:$3|$3]]檢查",
 	"revreview-hist-quality-auto": "已自動複查",

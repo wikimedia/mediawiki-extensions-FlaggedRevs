@@ -126,7 +126,7 @@
 	"revreview-visibility-synced": "'''ХӀокху агӀона ю карлаяккхар [[{{MediaWiki:Validationpage}}|гуш йолу верси]]; гаран версена гӀирс [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} хийца мега].'''",
 	"revreview-visibility-outdated": "'''ХӀокху агӀона ю шира елла [[{{MediaWiki:Validationpage}}|гуш йолу верси]]; гаран версена гӀирс [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} хийца мега].'''",
 	"revreview-visibility-nostable": "'''ХӀокху агӀона яц [[{{MediaWiki:Validationpage}}|гуш йолу верси]]; гаран версена гӀирс [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} хийца мега].'''",
-	"revreview-revnotfound": "АгӀона шира верси цакарий. Дехар до, хьой лелош йолу хьажораг нийса юьй хьажа.",
+	"revreview-revnotfound": "АгӀона шира верси цакарий. Дехар до, хьой лелош йолу хьажорг нийса юьй хьажа.",
 	"right-autoreview": "агӀонийн версеш чекхъяллалц хьаьжна сана автоматически билгалъян",
 	"right-autoreviewrestore": "юхуйоккхуш шашеха хьаьжна",
 	"right-movestable": "гучахь йолу версийн цӀераш хийцар",
