@@ -63,6 +63,10 @@ class ApiReview extends ApiBase {
 		// The flagging parameters have the form 'flag_$name'.
 		// Extract them and put the values into $form->dims
 		foreach ( FlaggedRevs::getTags() as $tag ) {
+			if ( !isset( $params['flag_' . $tag] ) ) {
+				// This shouldn't happen, but sometimes it does.
+				$this->dieUsage( "'flag_$tag' parameter missing from query.", 'missingflag' );
+			}
 			$form->setDim( $tag, (int)$params['flag_' . $tag] );
 		}
 		if ( $form->getAction() === 'approve' ) {
