@@ -130,7 +130,7 @@
 	"revreview-style-2": "خوب",
 	"revreview-style-3": "مختصر",
 	"revreview-style-4": "برگزیده",
-	"revreview-toggle-title": "نمایش/پنهان‌کردن جزئیات",
+	"revreview-toggle-title": "نمایش/پنهان کردن جزئیات",
 	"revreview-visibility-synced": "'''این صفحه دارای [[{{MediaWiki:Validationpage}}|نسخهٔ پایدار]] به‌روز‌شده‌ای است؛ می‌توان تنظیمات پایداری صفحه را [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} پیکربندی کرد].'''",
 	"revreview-visibility-outdated": "'''این صفحه دارای [[{{MediaWiki:Validationpage}}|نسخهٔ پایدار]] تاریخ‌گذشته‌ای است؛ می‌توان تنظیمات پایداری صفحه را [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} پیکربندی کرد].'''",
 	"revreview-visibility-nostable": "'''این صفحه یک [[{{MediaWiki:Validationpage}}|نسخهٔ پایدار]] ندارد؛ تنظیمات پایداری صفحه را می‌توان [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} پیکربندی کرد].'''",
