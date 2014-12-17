@@ -28,12 +28,12 @@ class FlaggedRevsUIHooks {
 		return true;
 	}
 
-	public static function injectGlobalJSVars( array &$globalVars ) {
+	public static function injectGlobalJSVars( array &$globalVars, OutputPage $out ) {
 		# Get the review tags on this wiki
 		$rTags = FlaggedRevs::getJSTagParams();
 		$globalVars['wgFlaggedRevsParams'] = $rTags;
 		# Get page-specific meta-data
-		$fa = FlaggablePageView::globalArticleInstance();
+		$fa = FlaggableWikiPage::getTitleInstance( $out->getTitle() );
 		# Try to only add to relevant pages
 		if ( $fa && $fa->isReviewable() ) {
 			$frev = $fa->getStableRev();
