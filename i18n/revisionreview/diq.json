@@ -28,7 +28,7 @@
 	"revreview-flag": "nop revizyon ser çım bıçarn",
 	"revreview-reflag": "Enê çımraviyarnayışi qontrol ke",
 	"revreview-invalid": "'''hedefo nemeqbul:''' yew revizyono [[{{MediaWiki:Validationpage}}|konrol biyaye]] zi ID de pê nêgıneni.",
-	"revreview-log": "Vatış:",
+	"revreview-log": "Mışewre:",
 	"revreview-main": "qey çım ser çarnayişi, şıma gani pelê muhtewayi ra yew revizyon bıvıcini.\n\nbıewnê [[Special:Unreviewedpages|listeya pelê konrol nêbiyayeyan]].",
 	"revreview-stable1": "[{{fullurl:$1|stableid=$2}} Ena versiyanê nişan biye] bivini, ena pele [{{fullurl:$1|stable=1}} versiyonşê sebiti] eka este ya zi cino bivini.",
 	"revreview-stable2": "Ena pele de [{{fullurl:$1|stable=1}} versiyonê sebiti] (eka este) ti eşkena bivini.",
