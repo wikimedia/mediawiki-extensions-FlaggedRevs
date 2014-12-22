@@ -13,19 +13,19 @@
 			"Cwlin0416"
 		]
 	},
-	"pendingchanges": "已過時複審過的頁面",
-	"pendingchanges-legend": "列示有未複審修訂之複審過的頁面",
-	"pendingchanges-list": "這個頁面列示了[[{{MediaWiki:Validationpage}}|被審查]]頁中具有一個或多個待審查的編輯。",
-	"pendingchanges-none": "這裏現時沒有頁面係合乎這些條件",
-	"pendingchanges-hours": " ($1 小時)",
-	"pendingchanges-days": " ($1 日)",
-	"pendingchanges-recent": " (少於 1 小時)",
-	"pendingchanges-category": "類別：",
+	"pendingchanges": "有待審核變更的頁面",
+	"pendingchanges-legend": "有待審核變更的已審查頁面清單",
+	"pendingchanges-list": "此頁面列出有一筆或多筆編輯等待審查的[[{{MediaWiki:Validationpage}}|已審查]]頁面。",
+	"pendingchanges-none": "目前沒有頁面符合這些條件",
+	"pendingchanges-hours": "($1 小時)",
+	"pendingchanges-days": "($1 日)",
+	"pendingchanges-recent": "(不到 1 小時)",
+	"pendingchanges-category": "分類：",
 	"pendingchanges-onwatchlist": "在我的監視清單中的頁面",
-	"pendingchanges-stable": "預設顯示穩定版本",
-	"pendingchanges-diff": "複審",
-	"pendingchanges-size": "最大變動 (位元組) ：",
-	"pendingchanges-unwatched": " (未看)",
-	"pendingchanges-watched": " (在 $1 位活躍使用者的監視清單中)",
-	"pendingchanges-viewing": " (等待審核)"
+	"pendingchanges-stable": "穩定版本為預設值",
+	"pendingchanges-diff": "審查",
+	"pendingchanges-size": "最大變更 (位元組)：",
+	"pendingchanges-unwatched": "(未被監視)",
+	"pendingchanges-watched": "(有 $1 位活躍的使用者監視中)",
+	"pendingchanges-viewing": "(正在審查)"
 }

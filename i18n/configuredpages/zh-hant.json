@@ -6,10 +6,10 @@
 			"Cwlin0416"
 		]
 	},
-	"configuredpages": "頁面已有複審設定",
-	"configuredpages-list": "下面是已有和網站預設設定不同的審核設定。\n部份設定的更改是向讀者展示的。",
-	"configuredpages-none": "沒有頁面在這個清單中",
+	"configuredpages": "有審查設定的頁面",
+	"configuredpages-list": "以下頁面的核准設定與網站預設值不同。\n部份設定可能會影響顯示給讀者的版本，甚至影響誰可不須審查編輯的限制。",
+	"configuredpages-none": "此清單中沒有頁面。",
 	"configuredpages-config": "設定",
 	"configuredpages-def-draft": "最新版本",
-	"configuredpages-def-stable": "已出版的內容"
+	"configuredpages-def-stable": "穩定版本"
 }

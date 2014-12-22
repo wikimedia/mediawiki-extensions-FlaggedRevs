@@ -3,16 +3,17 @@
 		"authors": [
 			"Horacewai2",
 			"Shinjiman",
-			"Waihorace"
+			"Waihorace",
+			"Cwlin0416"
 		]
 	},
-	"reviewedpages": "複審過的頁面",
-	"reviewedpages-leg": "列示複審過到指定級數之頁面",
-	"reviewedpages-list": "以下的頁面[[{{MediaWiki:Validationpage}}|已經複審]]到一個指定的級數",
+	"reviewedpages": "已審查的頁面",
+	"reviewedpages-leg": "已完成審查的頁面清單",
+	"reviewedpages-list": "此清單中顯示修訂審查等級達到指定等級的[[{{MediaWiki:Validationpage}}|已審查]]頁面。\n\t顯示連結為達到該等級的最後修訂。",
 	"reviewedpages-none": "沒有頁面在這個清單中",
 	"reviewedpages-lev-0": "視察過",
 	"reviewedpages-lev-1": "質素",
 	"reviewedpages-lev-2": "特色",
-	"reviewedpages-all": "複審版",
-	"reviewedpages-best": "最佳修訂"
+	"reviewedpages-all": "已審查的版本",
+	"reviewedpages-best": "最佳的修訂"
 }

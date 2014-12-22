@@ -5,12 +5,13 @@
 			"Horacewai2",
 			"Shinjiman",
 			"Waihorace",
-			"LNDDYL"
+			"LNDDYL",
+			"Cwlin0416"
 		]
 	},
-	"stablepages": "頁面已經通過審核",
-	"stablepages-list": "以下列出的頁面只有某些使用者可以進行編輯而無須通過審查。\n由其他使用者所做的編輯，除非已被獲授權的使用者檢查，否則預設不會向讀者顯示。",
-	"stablepages-none": "沒有頁面在這個清單中",
+	"stablepages": "使用編輯核准的頁面",
+	"stablepages-list": "此頁面列出無須審查只有部份使用者可以編輯的頁面。\n由其他使用者所做的編輯在尚未被已授權的使用者審查前不會公開顯示。",
+	"stablepages-none": "此清單中沒有頁面。",
 	"stablepages-config": "設定",
-	"stablepages-indef": "只限永久到期"
+	"stablepages-indef": "僅無期限"
 }

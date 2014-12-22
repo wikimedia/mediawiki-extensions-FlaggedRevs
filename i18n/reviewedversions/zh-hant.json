@@ -7,10 +7,10 @@
 			"Cwlin0416"
 		]
 	},
-	"reviewedversions": "穩定版本",
-	"reviewedversions-leg1": "列示一版已複審的修訂",
-	"reviewedversions-page": "頁面名",
-	"reviewedversions-none": "[[:$1]]沒有已複審過的修訂。",
-	"reviewedversions-list": "以下是[[:$1]]的{{PLURAL:$2|此唯一|此}}版本{{PLURAL:$2|已|已}}複審的修訂清單：",
-	"reviewedversions-review": "由 $2 於<i>$1</i>進行了複審"
+	"reviewedversions": "已審查的版本",
+	"reviewedversions-leg1": "已審查的頁面修訂清單",
+	"reviewedversions-page": "頁面名稱：",
+	"reviewedversions-none": "\"[[:$1]]\" 沒有己審查的修訂。",
+	"reviewedversions-list": "以下清單為 [[:$1]] {{PLURAL:$2|已|已}}審查的{{PLURAL:$2|唯一修訂|修訂}}：",
+	"reviewedversions-review": "已由 $2 於 <i>$1</i> 審查"
 }
