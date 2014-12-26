@@ -131,7 +131,7 @@ $specialPageAliases['ce'] = array(
 	'StablePages' => array( 'ЧӀагӀелла_агӀонаш' ),
 	'ConfiguredPages' => array( 'Нисйина_агӀонаш' ),
 	'ReviewedVersions' => array( 'Хьаьжна_версеш' ),
-	'UnreviewedPages' => array( 'Хьажанца_агӀонаш' ),
+	'UnreviewedPages' => array( 'Хьажанза_агӀонаш' ),
 	'ValidationStatistics' => array( 'Нисдарийн_статистика' ),
 );
 
