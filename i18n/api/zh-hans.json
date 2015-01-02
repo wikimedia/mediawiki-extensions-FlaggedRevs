@@ -10,6 +10,7 @@
 	"apihelp-query+reviewedpages-param-end": "列出至此页面ID为止。",
 	"apihelp-query+unreviewedpages-param-dir": "排序方向。",
 	"apihelp-query+unreviewedpages-param-namespace": "要列举的名字空间。",
+	"apihelp-review-param-comment": "要复核的评论。",
 	"apihelp-stabilize-param-reason": "原因。",
 	"apihelp-stabilize-param-watch": "监视本页。",
 	"apihelp-stabilize-param-expiry-general": "这些设置的期限。",

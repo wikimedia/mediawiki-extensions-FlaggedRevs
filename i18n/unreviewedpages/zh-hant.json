@@ -5,7 +5,8 @@
 			"Gaoxuewei",
 			"Oapbtommy",
 			"LNDDYL",
-			"Cwlin0416"
+			"Cwlin0416",
+			"Liuxinyu970226"
 		]
 	},
 	"action-unreviewedpages": "檢視未審查的頁面清單",
@@ -14,7 +15,7 @@
 	"unreviewedpages-category": "分類：",
 	"unreviewedpages-diff": "審查",
 	"unreviewedpages-unwatched": "(未被監視)",
-	"unreviewedpages-watched": "($1 位活躍{{PLURAL:$1|使用者|使用者}}正在監視)",
+	"unreviewedpages-watched": "($1 位活躍{{PLURAL:$1|使用者}}正在監視)",
 	"unreviewedpages-list": "此頁面列出了'''尚未'''達到指定[[{{MediaWiki:Validationpage}}|審查]]等級的內容頁面。",
 	"unreviewedpages-none": "目前沒有頁面符合這些條件",
 	"unreviewedpages-viewing": "(正在審查)",
