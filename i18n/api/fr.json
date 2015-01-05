@@ -1,0 +1,18 @@
+{
+	"@metadata": {
+		"authors": [
+			"Gomoko"
+		]
+	},
+	"apihelp-flagconfig-description": "Obtenir des informations de base sur la configuration du marquage de relecture pour ce site.\n\nLes paramètres suivants sont renvoyés pour chaque marque :\n;name:Le nom de clé de cette marque.\n;levels:Nombre de niveaux de cette marque (au-dessus de « non marqué »).\n;tier2:Niveau que doit atteindre la marque pour qu’une révision soit du tiers 2 (qualité).\n;tier3:Niveau que la marque doit atteindre pour que la révision soit du tiers 3 (immaculé).\nLes révisions marquées ont un niveau affecté pour chaque marque. Le plus haut tiers que toutes les marques atteignent est le tiers de relecture de toute la révision.",
+	"apihelp-flagconfig-example-1": "Récupérer la configuration de la marque",
+	"apihelp-query+configuredpages-description": "Énumérer toutes les pages qui ont des configurations de relecture personnalisées.",
+	"apihelp-query+configuredpages-param-start": "Commencer la liste à cet ID de page.",
+	"apihelp-query+configuredpages-param-end": "Arrêter la liste à cet ID de page.",
+	"apihelp-query+configuredpages-param-namespace": "Les espaces de nom à énumérer.",
+	"apihelp-query+configuredpages-param-default": "La version d’affichage de la page par défaut.",
+	"apihelp-query+configuredpages-param-autoreview": "Niveau de restriction de relecture (automatique).",
+	"apihelp-query+configuredpages-param-limit": "Combien de pages renvoyer au total.",
+	"apihelp-query+configuredpages-example-1": "Afficher une liste de pages avec des configurations de relecture personnalisées",
+	"apihelp-query+configuredpages-example-2": "Obtenir de l’information sur les pages avec des configurations de relecture personnalisées"
+}
