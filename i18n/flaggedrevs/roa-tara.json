@@ -21,6 +21,8 @@
 	"flaggedrevs-prefs-editdiffs": "Fà vedè le differenze cu le cangiminde pendende quanne cange le pàggene",
 	"flaggedrevs-prefs-viewdiffs": "Fà vedè le differenze cu le cangiminde pendende quanne vide le urteme revisiune pendende",
 	"flaggedrevs-hidereviewed": "$1 cangiaminde reviste",
+	"flaggedrevs-hidereviewed-hide": "Scunne",
+	"flaggedrevs-hidereviewed-show": "Fà vedè",
 	"group-editor": "Editore",
 	"group-editor-member": "{{GENDER:$1|editore}}",
 	"group-reviewer": "Rivisitatore",
