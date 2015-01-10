@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Metalhead64"
+			"Metalhead64",
+			"Giftpflanze"
 		]
 	},
 	"apihelp-query+configuredpages-param-start": "Auflistung bei dieser Seitenkennung beginnen.",
@@ -17,7 +18,11 @@
 	"apihelp-query+unreviewedpages-param-start": "Liste bei diesem Seitentitel beginnen.",
 	"apihelp-query+unreviewedpages-param-end": "Liste bei diesem Seitentitel beenden.",
 	"apihelp-query+unreviewedpages-param-namespace": "Die aufzulistenden Namensräume.",
+	"apihelp-review-description": "Version als gesichtet oder ungesichtet markieren.",
+	"apihelp-review-param-revid": "Versionsnummer, die gesichtet werden soll.",
 	"apihelp-review-param-comment": "Kommentar für die Sichtung.",
+	"apihelp-review-param-unapprove": "Wenn angegeben, wird die Version entsichtet statt gesichtet.",
+	"apihelp-review-example-1": "Version 12345 mit dem Kommentar „Ok“ sichten",
 	"apihelp-stabilize-param-reason": "Grund.",
 	"apihelp-stabilize-param-watch": "Beobachtet diese Seite.",
 	"apihelp-stabilize-param-expiry-general": "Ablauf für diese Einstellungen.",
