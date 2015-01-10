@@ -134,7 +134,7 @@ class FlaggedRevsLog {
 	/**
 	 * Collapse an associate array into a string
 	 * @param array $pars
-	 * @throws MWException
+	 * @throws Exception
 	 * @return string
 	 */
 	public static function collapseParams( array $pars ) {
@@ -142,9 +142,9 @@ class FlaggedRevsLog {
 		foreach ( $pars as $param => $value ) {
 			// Sanity check...
 			if ( strpos( $param, '=' ) !== false || strpos( $value, '=' ) !== false ) {
-				throw new MWException( "collapseParams() - cannot use equal sign" );
+				throw new Exception( "collapseParams() - cannot use equal sign" );
 			} elseif ( strpos( $param, "\n" ) !== false || strpos( $value, "\n" ) !== false ) {
-				throw new MWException( "collapseParams() - cannot use newline" );
+				throw new Exception( "collapseParams() - cannot use newline" );
 			}
 			$res[] = "{$param}={$value}";
 		}

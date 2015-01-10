@@ -238,7 +238,7 @@ class FlaggedRevsStats {
 	 * Get edit review time statistics (as recent as possible)
 	 * @param $dbCache cache object
 	 * @param $users string "anons" or "users"
-	 * @throws MWException
+	 * @throws Exception
 	 * @return Array associative
 	 */
 	private static function getEditReviewTimes( $dbCache, $users = 'anons' ) {
@@ -311,7 +311,7 @@ class FlaggedRevsStats {
 		} elseif ( $users === 'users' ) {
 			$userCondition = 'rev_user > 0';
 		} else {
-			throw new MWException( 'Invalid $users param given.' );
+			throw new Exception( 'Invalid $users param given.' );
 		}
 		# Avoid having to censor data
 		# Note: if no edits pending, $worstLagTS is the cur time just before we checked

@@ -144,12 +144,12 @@ class FRPageConfig {
 	/**
 	 * Find what protection level a config is in
 	 * @param array $config
-	 * @throws MWException
+	 * @throws Exception
 	 * @return string
 	 */
 	public static function getProtectionLevel( array $config ) {
 		if ( !FlaggedRevs::useProtectionLevels() ) {
-			throw new MWException( '$wgFlaggedRevsProtection is disabled' );
+			throw new Exception( '$wgFlaggedRevsProtection is disabled' );
 		}
 		$defaultConfig = self::getDefaultVisibilitySettings();
 		# Check if the page is not protected at all...

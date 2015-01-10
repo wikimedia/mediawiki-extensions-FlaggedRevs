@@ -25,7 +25,7 @@ class FlaggedRevision {
 
 	/**
 	 * @param Row|array $row (DB row or array)
-	 * @throws MWException
+	 * @throws Exception
 	 * @return \FlaggedRevision
 	 */
 	public function __construct( $row ) {
@@ -65,10 +65,10 @@ class FlaggedRevision {
 			$this->mFiles = isset( $row['fileVersions'] ) ?
 				$row['fileVersions'] : null;
 		} else {
-			throw new MWException( 'FlaggedRevision constructor passed invalid row format.' );
+			throw new Exception( 'FlaggedRevision constructor passed invalid row format.' );
 		}
 		if ( !( $this->mRevision instanceof Revision ) ) {
-			throw new MWException( 'FlaggedRevision constructor passed invalid Revision object.' );
+			throw new Exception( 'FlaggedRevision constructor passed invalid Revision object.' );
 		}
 	}
 

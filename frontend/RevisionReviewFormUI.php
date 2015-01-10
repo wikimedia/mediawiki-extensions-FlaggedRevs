@@ -424,14 +424,14 @@ class RevisionReviewFormUI {
 
 	protected function getFileVersion() {
 		if ( $this->fileVersion === null ) {
-			throw new MWException( "File page file version not provided to review form; call setFileVersion()." );
+			throw new Exception( "File page file version not provided to review form; call setFileVersion()." );
 		}
 		return $this->fileVersion;
 	}
 
 	protected function getIncludeVersions() {
 		if ( $this->templateIDs === null || $this->imageSHA1Keys === null ) {
-			throw new MWException( "Template or file versions not provided to review form; call setIncludeVersions()." );
+			throw new Exception( "Template or file versions not provided to review form; call setIncludeVersions()." );
 		}
 		return array( $this->templateIDs, $this->imageSHA1Keys );
 	}

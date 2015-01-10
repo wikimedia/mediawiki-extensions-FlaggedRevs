@@ -138,14 +138,14 @@ class FRUserCounters {
 	 * Flatten params for a user for DB storage
 	 * Note: param values must be integers
 	 * @param array $params
-	 * @throws MWException
+	 * @throws Exception
 	 * @return string
 	 */
 	protected static function flattenParams( array $params ) {
 		$flatRows = array();
 		foreach ( $params as $key => $value ) {
 			if ( strpos( $key, '=' ) !== false || strpos( $key, "\n" ) !== false ) {
-				throw new MWException( "flattenParams() - key cannot use '=' or newline" );
+				throw new Exception( "flattenParams() - key cannot use '=' or newline" );
 			}
 			if ( $key === 'uniqueContentPages' ) { // list
 				$value = implode( ',', array_map( 'intval', $value ) );
