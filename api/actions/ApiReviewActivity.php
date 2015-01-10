@@ -136,7 +136,7 @@ class ApiReviewActivity extends ApiBase {
 	 * @deprecated since MediaWiki core 1.25
 	 */
 	public function getExamples() {
-		return 'api.php?action=reviewactivity&pageid=12345&reviewing=1';
+		return 'api.php?action=reviewactivity&previd=12345&reviewing=1';
 	}
 
 	/**
@@ -144,7 +144,7 @@ class ApiReviewActivity extends ApiBase {
 	 */
 	protected function getExamplesMessages() {
 		return array(
-			'action=reviewactivity&pageid=12345&reviewing=1'
+			'action=reviewactivity&previd=12345&reviewing=1'
 				=> 'apihelp-reviewactivity-example-1',
 		);
 	}
