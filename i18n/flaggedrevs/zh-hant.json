@@ -43,6 +43,8 @@
 	"group-autoreview": "自動審查員",
 	"group-autoreview-member": "{{GENDER:$1|已自動檢查使用者}}",
 	"grouppage-autoreview": "{{ns:project}}:已自動檢查使用者",
+	"group-autoreview.css": "/* 此 CSS 會影響自動審查員 */",
+	"group-autoreview.js": "/* 此 JS 會影響自動審查員 */",
 	"revreview-hist-draft": "未檢查的修訂",
 	"revreview-hist-pending": "待審核修訂",
 	"revreview-hist-quality": "優質修訂",
