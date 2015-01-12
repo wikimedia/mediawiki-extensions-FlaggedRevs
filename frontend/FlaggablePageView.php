@@ -49,7 +49,7 @@ class FlaggablePageView extends ContextSource {
 			$this->loaded = true;
 			$this->article = self::globalArticleInstance();
 			if ( $this->article == null ) {
-				throw new MWException( 'FlaggablePageView has no context article!' );
+				throw new Exception( 'FlaggablePageView has no context article!' );
 			}
 			$this->out = $this->getOutput(); // convenience
 		}

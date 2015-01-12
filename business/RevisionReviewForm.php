@@ -128,7 +128,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 
 	public function setDim( $tag, $value ) {
 		if ( !in_array( $tag, FlaggedRevs::getTags() ) ) {
-			throw new MWException( "FlaggedRevs tag $tag does not exist.\n" );
+			throw new Exception( "FlaggedRevs tag $tag does not exist.\n" );
 		}
 		$this->trySet( $this->dims[$tag], (int)$value );
 	}
@@ -391,7 +391,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 	 * Adds or updates the flagged revision table for this page/id set
 	 * @param Revision $rev The revision to be accepted
 	 * @param FlaggedRevision $oldFrev Currently accepted version of $rev or null
-	 * @throws MWException
+	 * @throws Exception
 	 * @return bool|array true on success, array of errors on failure
 	 */
 	private function approveRevision( Revision $rev, FlaggedRevision $oldFrev = null ) {
@@ -453,7 +453,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 		}
 		# Insert the new review entry...
 		if ( !$flaggedRevision->insert() ) {
-			throw new MWException(
+			throw new Exception(
 				"Flagged revision with ID {$rev->getId()} exists with unexpected fr_page_id" );
 		}
 

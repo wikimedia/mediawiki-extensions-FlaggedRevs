@@ -29,7 +29,7 @@ class FlaggedRevs {
 			return true;
 		}
 		if ( !FlaggedRevsSetup::isReady() ) { // sanity
-			throw new MWException( 'FlaggedRevs config loaded too soon! Possibly before LocalSettings.php!' );
+			throw new Exception( 'FlaggedRevs config loaded too soon! Possibly before LocalSettings.php!' );
 		}
 		self::$loaded = true;
 		$flaggedRevsTags = null;
@@ -49,7 +49,7 @@ class FlaggedRevs {
 			# Sanity checks
 			$safeTag = htmlspecialchars( $tag );
 			if ( !preg_match( '/^[a-zA-Z]{1,20}$/', $tag ) || $safeTag !== $tag ) {
-				throw new MWException( 'FlaggedRevs given invalid tag name!' );
+				throw new Exception( 'FlaggedRevs given invalid tag name!' );
 			}
 			# Define "quality" and "pristine" reqs
 			if ( is_array( $levels ) ) {
@@ -76,7 +76,7 @@ class FlaggedRevs {
 			}
 			# Sanity checks
 			if ( !is_integer( $minQL ) || !is_integer( $minPL ) ) {
-				throw new MWException( 'FlaggedRevs given invalid tag value!' );
+				throw new Exception( 'FlaggedRevs given invalid tag value!' );
 			}
 			if ( $minQL > $ratingLevels ) {
 				self::$qualityVersions = false;
@@ -104,9 +104,9 @@ class FlaggedRevs {
 		global $wgFlaggedRevsNamespaces;
 		foreach ( $wgFlaggedRevsNamespaces as $ns ) {
 			if ( MWNamespace::isTalk( $ns ) ) {
-				throw new MWException( 'FlaggedRevs given talk namespace in $wgFlaggedRevsNamespaces!' );
+				throw new Exception( 'FlaggedRevs given talk namespace in $wgFlaggedRevsNamespaces!' );
 			} elseif ( $ns == NS_MEDIAWIKI ) {
-				throw new MWException( 'FlaggedRevs given NS_MEDIAWIKI in $wgFlaggedRevsNamespaces!' );
+				throw new Exception( 'FlaggedRevs given NS_MEDIAWIKI in $wgFlaggedRevsNamespaces!' );
 			}
 		}
 		self::$reviewNamespaces = $wgFlaggedRevsNamespaces;
@@ -580,7 +580,7 @@ class FlaggedRevs {
 		} elseif ( $page instanceof Title ) {
 			$article = FlaggableWikiPage::getTitleInstance( $page );
 		} else {
-			throw new MWException( "First argument must be a Title or WikiPage." );
+			throw new Exception( "First argument must be a Title or WikiPage." );
 		}
 		$title = $article->getTitle();
 

@@ -124,12 +124,12 @@ class FRInclusionManager {
 	/**
 	 * Get the "review time" template version for parser
 	 * @param Title $title
-	 * @throws MWException
+	 * @throws Exception
 	 * @return mixed (int/null)
 	 */
 	public function getReviewedTemplateVersion( Title $title ) {
 		if ( !is_array( $this->reviewedVersions ) ) {
-			throw new MWException( "prepareForParse() nor setReviewedVersions() called yet" );
+			throw new Exception( "prepareForParse() nor setReviewedVersions() called yet" );
 		}
 		$dbKey = $title->getDBkey();
 		$namespace = $title->getNamespace();
@@ -142,12 +142,12 @@ class FRInclusionManager {
 	/**
 	 * Get the "review time" file version for parser
 	 * @param Title $title
-	 * @throws MWException
+	 * @throws Exception
 	 * @return array (MW timestamp/'0'/null, sha1/''/null )
 	 */
 	public function getReviewedFileVersion( Title $title ) {
 		if ( !is_array( $this->reviewedVersions ) ) {
-			throw new MWException( "prepareForParse() nor setReviewedVersions() called yet" );
+			throw new Exception( "prepareForParse() nor setReviewedVersions() called yet" );
 		}
 		$dbKey = $title->getDBkey();
 		# All NS_FILE, no need to check namespace
