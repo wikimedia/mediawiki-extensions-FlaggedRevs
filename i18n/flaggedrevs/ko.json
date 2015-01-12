@@ -9,7 +9,8 @@
 			"Priviet",
 			"Yknok29",
 			"아라",
-			"Revi"
+			"Revi",
+			"IRTC1015"
 		]
 	},
 	"action-review": "편집을 검토할",
@@ -52,8 +53,8 @@
 	"revreview-hist-basic": "검토된 판",
 	"revreview-hist-quality-user": "[[User:$3|$3]]에 의해 승인됨",
 	"revreview-hist-basic-user": "[[User:$3|$3]]에 의해 검토됨",
-	"revreview-hist-quality-auto": "자동적으로 승인됨",
-	"revreview-hist-basic-auto": "자동적으로 검토됨",
+	"revreview-hist-quality-auto": "자동으로 승인됨",
+	"revreview-hist-basic-auto": "자동으로 검토됨",
 	"revreview-hist-pending-difflink": "'''[[{{fullurl:$1|oldid=$2&diff=$3{{MediaWiki:flaggedrevs-diffonly}}}} 검토 보류 중]]'''",
 	"review-edit-diff": "'''참고: 검토를 기다리고 있는 편집이 당신이 편집하는 문서에 포함되어 있습니다.'''",
 	"revreview-diff-toggle-show": "차이 보이기",

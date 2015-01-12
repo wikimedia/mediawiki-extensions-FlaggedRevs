@@ -3,7 +3,8 @@
 		"authors": [
 			"Cekli829",
 			"Vago",
-			"Vugar 1981"
+			"Vugar 1981",
+			"Wertuose"
 		]
 	},
 	"stabilization-tab": "vet",
@@ -17,7 +18,7 @@
 	"stabilization-expiry": "Vaxtı bitib:",
 	"stabilization-othertime": "Başqa vaxt:",
 	"stabilization-def-short": "Susmaya görə",
-	"stabilization-def-short-0": "Hazırki",
+	"stabilization-def-short-0": "Hazırkı",
 	"stabilize_invalid_level": "Keçərsiz mühafizə səviyyəsi",
 	"stabilize_expiry_invalid": "Yanlış bitmə tarixi.",
 	"stabilize_denied": "İcazə yoxdur.",
