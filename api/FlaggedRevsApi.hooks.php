@@ -84,8 +84,4 @@ abstract class FlaggedRevsApiHooks extends ApiQueryBase {
 		}
 		return true;
 	}
-
-	public function getVersion() {
-		return __CLASS__ . ': $Id$';
-	}
 }
