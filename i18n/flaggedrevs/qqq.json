@@ -31,7 +31,8 @@
 			"The Evil IP address",
 			"Umherirrender",
 			"Yekrats",
-			"Тест"
+			"Тест",
+			"Liuxinyu970226"
 		]
 	},
 	"action-review": "{{Flagged Revs}}\n{{doc-action|review}}",
@@ -98,10 +99,10 @@
 	"review-logpage": "{{Flagged Revs}}\n{{doc-logpage}}\n\nName of review log Special:Log/review",
 	"review-logpagetext": "{{Flagged Revs}}\nExplanation text at [[Special:Log/review]].\n\nRefers to {{msg-mw|Validationpage}}.\n{{Identical|Content page}}",
 	"reviewer": "{{Flagged Revs}}\n{{Identical|Reviewer}}",
-	"revreview-accuracy": "{{Flagged Revs}}\nUsed on the review form for the tag with this name. It is the label for the currently selected value (such as \"basic\" or \"well sourced\").\nAlso used in the box shown on page view, that gives information about the acceptance status of a revision.",
+	"revreview-accuracy": "{{Flagged Revs}}\nUsed on the review form for the tag with this name. It is the label for the currently selected value (such as \"basic\" or \"well sourced\").\nAlso used in the box shown on page view, that gives information about the acceptance status of a revision.\n{{Identical|Accuracy}}",
 	"revreview-accuracy-0": "{{Flagged Revs-small}}\nPossible value of the 'accuracy' tag for a revision. All accepted revisions must have ratings for each tag type.\nThe value name of any review tag indicating that the revision fails to meet basic standards for that tag type. For example, \"accuracy\" can be \"inadequate\".",
 	"revreview-accuracy-1": "The revision was 'seen', 'looked at', and didn't contain anything obvious to reject; previously called 'sighted'.\nCan also be translated as 'okay', 'ready', 'acceptable', 'accepted'; cf. [[w:imprimatur]].\n\n{{Flagged Revs-small}}\nPossible value of the 'accuracy' tag for a revision. All accepted revisions must have ratings for each tag type.",
-	"revreview-accuracy-2": "{{Flagged Revs}}\nPossible value of the 'accuracy' tag for a revision. All accepted revisions must have ratings for each tag type.",
+	"revreview-accuracy-2": "{{Flagged Revs}}\nPossible value of the 'accuracy' tag for a revision. All accepted revisions must have ratings for each tag type.\n{{Identical|Accurate}}",
 	"revreview-accuracy-3": "{{Flagged Revs}}\nPossible value of the 'accuracy' tag for a revision. All accepted revisions must have ratings for each tag type.",
 	"revreview-accuracy-4": "{{Flagged Revs}}\nPossible value of the 'accuracy' tag for a revision. All accepted revisions must have ratings for each tag type.\n{{Identical|Featured}}",
 	"revreview-auto": "{{Flagged Revs}}\n{{Identical|Automatic}}",
