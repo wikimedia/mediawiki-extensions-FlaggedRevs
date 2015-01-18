@@ -18,6 +18,7 @@
 	"apihelp-query+unreviewedpages-param-start": "Liste bei diesem Seitentitel beginnen.",
 	"apihelp-query+unreviewedpages-param-end": "Liste bei diesem Seitentitel beenden.",
 	"apihelp-query+unreviewedpages-param-namespace": "Die aufzulistenden Namensräume.",
+	"apihelp-query+unreviewedpages-param-limit": "Welche Gesamtanzahl an Seiten zurückgegeben werden soll.",
 	"apihelp-review-description": "Version als gesichtet oder ungesichtet markieren.",
 	"apihelp-review-param-revid": "Versionsnummer, die gesichtet werden soll.",
 	"apihelp-review-param-comment": "Kommentar für die Sichtung.",

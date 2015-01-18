@@ -43,7 +43,7 @@
 	"revreview-hist-basic-user": "чекхдаллалц хьажа декъашхо [[User:$3|$3]]",
 	"revreview-hist-quality-auto": "шашеха бакъдина",
 	"revreview-hist-basic-auto": "авто хьаьжина",
-	"revreview-hist-pending-difflink": "'''[[{{fullurl:$1|oldid=$2&diff=$3{{MediaWiki:flaggedrevs-diffonly}}}} хьажарехь ю]]'''",
+	"revreview-hist-pending-difflink": "'''[[{{fullurl:$1|oldid=$2&diff=$3{{MediaWiki:flaggedrevs-diffonly}}}} хьажа дезаш ю]]'''",
 	"review-edit-diff": "'''ДӀахьедар. ''Цхьаболу'' хьажа биза хийцамаш ахьа таеш йолу агӀона дакъа чохь бу.'''",
 	"revreview-diff-toggle-show": "гайта хийцамаш",
 	"revreview-diff-toggle-hide": "къайлабаха хийцамаш",
