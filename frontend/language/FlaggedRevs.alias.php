@@ -63,6 +63,21 @@ $specialPageAliases['arz'] = array(
 	'ValidationStatistics' => array( 'احصائيات_الصلاحيه' ),
 );
 
+/** Avaric (авар) */
+$specialPageAliases['av'] = array(
+	'PendingChanges' => array( 'Ожидающие_проверки_изменения', 'Устаревшие_проверенные_страницы' ),
+	'ProblemChanges' => array( 'Непроверенные_изменения' ),
+	'QualityOversight' => array( 'Расширенный_журнал_проверок_версий' ),
+	'ReviewedPages' => array( 'Проверенные_страницы' ),
+	'RevisionReview' => array( 'Проверка_версий' ),
+	'Stabilization' => array( 'Стабилизация' ),
+	'StablePages' => array( 'Стабильные_страницы' ),
+	'ConfiguredPages' => array( 'Настроенные_страницы' ),
+	'ReviewedVersions' => array( 'Проверенные_версии', 'Стабильные_версии' ),
+	'UnreviewedPages' => array( 'Непроверенные_страницы' ),
+	'ValidationStatistics' => array( 'Статистика_проверок' ),
+);
+
 /** Bashkir (башҡортса) */
 $specialPageAliases['ba'] = array(
 	'PendingChanges' => array( 'PendingChanges' ),
@@ -522,12 +537,14 @@ $specialPageAliases['mr'] = array(
 
 /** Malay (Bahasa Melayu) */
 $specialPageAliases['ms'] = array(
-	'PendingChanges' => array( 'Laman_diperiksa_lapuk' ),
+	'PendingChanges' => array( 'Perubahan_tertunggu', 'Laman_diperiksa_lapuk' ),
+	'ProblemChanges' => array( 'Masalah_tertunggu' ),
 	'QualityOversight' => array( 'Kawalan_mutu' ),
 	'ReviewedPages' => array( 'Laman_diperiksa' ),
 	'Stabilization' => array( 'Penstabilan' ),
 	'StablePages' => array( 'Laman_stabil' ),
 	'UnreviewedPages' => array( 'Laman_tidak_diperiksa' ),
+	'ValidationStatistics' => array( 'Statistik_pengesahan' ),
 );
 
 /** Norwegian Bokmål (norsk bokmål) */
