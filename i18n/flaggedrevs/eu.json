@@ -7,7 +7,8 @@
 			"Kobazulo",
 			"Unai Fdz. de Betoño",
 			"Xabier Armendaritz",
-			"පසිඳු කාවින්ද"
+			"පසිඳු කාවින්ද",
+			"Subi"
 		]
 	},
 	"editor": "Editorea",
@@ -16,6 +17,8 @@
 	"flaggedrevs-pref-UI-0": "Erabili xehetasunezko kaxak orrien onespen-egoera erakusteko",
 	"flaggedrevs-pref-UI-1": "Erabili ikono txikiak eta testu minimala orrien onespen-egoera erakusteko",
 	"flaggedrevs-prefs-watch": "Aldatzen ditudan orrialdeak nire segimendu zerrendara gehitu",
+	"flaggedrevs-hidereviewed-hide": "Erakutsi",
+	"flaggedrevs-hidereviewed-show": "Ezkutatu",
 	"group-editor": "Editoreak",
 	"group-editor-member": "editorea",
 	"group-reviewer": "Berrikusleak",
@@ -30,8 +33,14 @@
 	"revreview-depth-4": "Nabarmendua",
 	"revreview-draft-title": "Ikuskatzeke dauden aldaketak orri honetan ageri dira",
 	"revreview-edit": "Aldatu",
+	"revreview-quick-quality-old": "'''[[{{MediaWiki:Validationpage}}|Kalitatea]]'''",
+	"revreview-quick-quality-same": "'''[[{{MediaWiki:Validationpage}}|Kalitatea]]'''",
 	"revreview-source": "Iturria ikusi",
+	"revreview-style": "Irakurgarritasuna",
+	"revreview-style-0": "Ezegokia",
+	"revreview-style-1": "Onargarria",
 	"revreview-style-2": "Ona",
+	"revreview-style-3": "Laburra",
 	"revreview-style-4": "Nabarmendua",
 	"revreview-toggle-title": "erakutsi/ezkutatu xehetasunak",
 	"revreview-revnotfound": "Ezin izan da eskatzen ari zaren orrialdearen berrikuspen zaharra aurkitu. Mesedez, egiaztatu orrialde honetara iristeko erabili duzun URLa.",
