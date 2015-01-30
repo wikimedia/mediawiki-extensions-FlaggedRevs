@@ -39,7 +39,7 @@
 	"revreview-stable1": "სავარაუდოდ, თქვენ გსურთ [{{fullurl:$1|stableid=$2}} ამ შემოწმებული ვერსიის] ხილვა ან ამავე გვერდის [{{fullurl:$1|stable=1}}გამოქვეყნებული ვერსიის] (თუ იგი არსებობს).",
 	"revreview-stable2": "იქნებ თქვენ გსურთ ამ გვერდის [{{fullurl:$1|stable=1}} გამოქვეყნებული ვერსიის] ხილვა?",
 	"revreview-submit": "გაგზავნა",
-	"revreview-submitting": "იგზავნება...",
+	"revreview-submitting": "მოწმდება...",
 	"revreview-submit-review": "ვერსიის შემოწმება",
 	"revreview-submit-unreview": "შემოწმების უარყოფა",
 	"revreview-submit-reject": "ცვლილებების გაუქმება",
