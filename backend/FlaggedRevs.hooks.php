@@ -287,12 +287,15 @@ class FlaggedRevsHooks {
 		if ( !( $title instanceof Title ) ) {
 			$title = $parser->getTitle();
 		}
-		if ( !FlaggedRevs::inReviewNamespace( $title ) || !$parser->incrementExpensiveFunctionCount() ) {
+		if ( !FlaggedRevs::inReviewNamespace( $title ) ) {
 			return '';
-		} else {
-			$config = FRPageConfig::getStabilitySettings( $title );
-			return $config['autoreview'];
 		}
+		$page = FlaggableWikiPage::getTitleInstance( $title );
+		if ( !$page->isDataLoaded() && !$parser->incrementExpensiveFunctionCount() ) {
+			return '';
+		}
+		$config = $page->getStabilitySettings();
+		return $config['autoreview'];
 	}
 
 	/**

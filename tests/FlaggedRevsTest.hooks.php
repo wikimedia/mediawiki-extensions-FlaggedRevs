@@ -10,6 +10,9 @@ class FlaggedRevsTestHooks {
 		$files[] = dirname( __FILE__ ) . '/FRParserCacheStableTest.php';
 		$files[] = dirname( __FILE__ ) . '/FlaggablePageTest.php';
 		$files[] = dirname( __FILE__ ) . '/FlaggedRevsSetupTest.php';
+		if ( class_exists( 'Scribunto_LuaEngineTestBase' ) ) {
+			$files[] = dirname( __FILE__ ) . '/FlaggedRevsLibraryTest.php';
+		}
 		return true;
 	}
 
