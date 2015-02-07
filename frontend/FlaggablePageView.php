@@ -349,20 +349,26 @@ class FlaggablePageView extends ContextSource {
 				# Tell MW that parser output is done by setting $outputDone
 				$outputDone = $this->showOldReviewedVersion( $frev, $tag, $prot );
 				$useParserCache = false;
+				$tagTypeClass = 'flaggedrevs_oldstable';
 			// Stable version requested by ID or relevant conditions met to
 			// to override page view with the stable version.
 			} elseif ( $stable || $this->showingStable() ) {
 				# Tell MW that parser output is done by setting $outputDone
 				$outputDone = $this->showStableVersion( $srev, $tag, $prot );
 				$useParserCache = false;
+				$tagTypeClass = ( $this->article->stableVersionIsSynced() ) ?
+					'flaggedrevs_stable_synced' : 'flaggedrevs_stable_notsynced';
 			// Looking at some specific old revision (&oldid=x) or if FlaggedRevs is not
 			// set to override given the relevant conditions (like &stable=0).
 			} else {
 				$this->showDraftVersion( $srev, $tag, $prot );
+				$tagTypeClass = ( $this->article->stableVersionIsSynced() ) ?
+					'flaggedrevs_draft_synced' : 'flaggedrevs_draft_notsynced';
 			}
 		} else {
 			// Looking at a page with no stable version; add "no reviewed version" tag.
 			$this->showUnreviewedPage( $tag, $prot );
+			$tagTypeClass = 'flaggedrevs_unreviewed';
 		}
 		# Some checks for which tag CSS to use
 		if ( $this->useSimpleUI() ) {
@@ -378,9 +384,10 @@ class FlaggablePageView extends ContextSource {
 				$tagClass = 'flaggedrevs_basic';
 			}
 		}
-		# Wrap tag contents in a div
+		# Wrap tag contents in a div, with class indicating sync status and
+		# whether stable version is shown (for customization of the notice)
 		if ( $tag != '' ) {
-			$css = "{$tagClass} plainlinks noprint nomobile";
+			$css = "{$tagClass} {$tagTypeClass} plainlinks noprint nomobile";
 			$notice = "<div id=\"mw-fr-revisiontag\" class=\"{$css}\">{$tag}</div>\n";
 			$this->reviewNotice .= $notice;
 		}
