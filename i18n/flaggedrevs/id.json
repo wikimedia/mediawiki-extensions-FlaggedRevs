@@ -30,6 +30,8 @@
 	"flaggedrevs-prefs-editdiffs": "Tampilkan perbedaan perubahan tertunda ketika menyunting halaman",
 	"flaggedrevs-prefs-viewdiffs": "Tampilkan perbedaan perubahan tertunda ketika melihat revisi tertunda terkini",
 	"flaggedrevs-hidereviewed": "$1 suntingan diperiksa",
+	"flaggedrevs-hidereviewed-hide": "Sembunyikan",
+	"flaggedrevs-hidereviewed-show": "Tampilkan",
 	"group-editor": "Editor",
 	"group-editor-member": "{{GENDER:$1|editor}}",
 	"group-reviewer": "Peninjau",
