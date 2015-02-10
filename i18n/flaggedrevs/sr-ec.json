@@ -80,7 +80,7 @@
 	"revreview-editnotice": "'''Ваше измене ће бити видљиве читаоцима након што их овлашћени корисник провери. ([[{{MediaWiki:Validationpage}}|помоћ]])'''",
 	"revreview-submitedit": "Сачувај",
 	"revreview-submitedit-title": "Пошаљите своје измене за преглед",
-	"revreview-edited": "'''Ваше измене ће бити видљиве након што их овлашћени корисник провери. ([[{{MediaWiki:Validationpage}}|помоћ]])'''\n\nThere {{PLURAL:$2|is|are}} [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 pending {{PLURAL:$2|1=change|changes}}] ''(shown below)'' awaiting review.",
+	"revreview-edited": "'''Ваше измене ће бити видљиве након што их овлашћени корисник провери. ([[{{MediaWiki:Validationpage}}|помоћ]])'''\n\nТренутно проверу чека [{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $2 {{PLURAL:$2|измена|измене|измена}}] ''(приказане доле)''.",
 	"revreview-edited-section": "Назад на одломак странице „[[#$1|$2]]“.",
 	"revreview-newest-basic": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} $3 {{PLURAL:$3|измена|измене}}] у овој верзији {{PLURAL:$3|је|су}} [[{{MediaWiki:Validationpage}}|на чекању за проверу]]. [{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Стабилна верзија] је била [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} проверена] <i>$2</i>.",
 	"revreview-newest-basic-i": "[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} Измене шаблона/датотеке] у овој верзији [[{{MediaWiki:Validationpage}}|чекају на проверу]].\n[{{fullurl:{{FULLPAGENAMEE}}|stable=1}} Стабилна верзија] је [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} проверена] дана <i>$2</i>.",
