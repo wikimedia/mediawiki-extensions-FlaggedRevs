@@ -18,7 +18,6 @@ class FRInclusionCache {
 		Page $article, Revision $rev, User $user, $regen = ''
 	) {
 		global $wgMemc;
-		wfProfileIn( __METHOD__ );
 
 		$key = self::getCacheKey( $article->getTitle(), $rev->getId() );
 		if ( $regen === 'regen' ) {
@@ -74,7 +73,6 @@ class FRInclusionCache {
 			$wgMemc->set( $key, $data, $pOut->getCacheExpiry() );
 		}
 
-		wfProfileOut( __METHOD__ );
 		return $versions;
 	}
 

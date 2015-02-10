@@ -641,12 +641,10 @@ class FlaggedRevs {
 	 * Updates the stable-only cache dependency table
 	 */
 	public static function updateStableOnlyDeps( Page $article, ParserOutput $stableOut ) {
-		wfProfileIn( __METHOD__ );
 		if ( !wfReadOnly() ) {
 			$frDepUpdate = new FRDependencyUpdate( $article->getTitle(), $stableOut );
 			$frDepUpdate->doUpdate();
 		}
-		wfProfileOut( __METHOD__ );
 	}
 
 	/**
@@ -888,7 +886,6 @@ class FlaggedRevs {
 	public static function autoReviewEdit(
 		WikiPage $article, $user, Revision $rev, array $flags = null, $auto = true
 	) {
-		wfProfileIn( __METHOD__ );
 		$title = $article->getTitle(); // convenience
 		# Get current stable version ID (for logging)
 		$oldSv = FlaggedRevision::newFromStable( $title, FR_MASTER );
@@ -908,7 +905,6 @@ class FlaggedRevs {
 				$flags = self::quickTags( FR_CHECKED ); // use minimal level
 			}
 			if ( !is_array( $flags ) ) {
-				wfProfileOut( __METHOD__ );
 				return false; // can't auto-review this revision
 			}
 		}
@@ -995,7 +991,6 @@ class FlaggedRevs {
 		# Update page and tracking tables and clear cache
 		FlaggedRevs::stableVersionUpdates( $article );
 
-		wfProfileOut( __METHOD__ );
 		return true;
 	}
 

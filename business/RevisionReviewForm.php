@@ -395,7 +395,6 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 	 * @return bool|array true on success, array of errors on failure
 	 */
 	private function approveRevision( Revision $rev, FlaggedRevision $oldFrev = null ) {
-		wfProfileIn( __METHOD__ );
 		# Revision rating flags
 		$flags = $this->dims;
 		$quality = 0; // quality tier from flags
@@ -429,7 +428,6 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 			$oldFrev->getTemplateVersions( FR_MASTER ) == $tmpVersions &&
 			$oldFrev->getFileVersions( FR_MASTER ) == $fileVersions )
 		{
-			wfProfileOut( __METHOD__ );
 			return true; // don't record if the same
 		}
 
@@ -475,7 +473,6 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 		# Caller may want to get the change time
 		$this->newLastChangeTime = $flaggedRevision->getTimestamp();
 
-		wfProfileOut( __METHOD__ );
 		return true;
 	}
 
@@ -485,8 +482,6 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 	 * @return bool
 	 */
 	private function unapproveRevision( FlaggedRevision $frev ) {
-		wfProfileIn( __METHOD__ );
-
 		# Get current stable version ID (for logging)
 		$oldSv = FlaggedRevision::newFromStable( $this->page, FR_MASTER );
 
@@ -511,7 +506,6 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 		# Caller may want to get the change time
 		$this->newLastChangeTime = '';
 
-		wfProfileOut( __METHOD__ );
 		return true;
 	}
 

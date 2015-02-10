@@ -179,13 +179,11 @@ class ConfiguredPagesPager extends AlphabeticPager {
 	}
 
 	function doBatchLookups() {
-		wfProfileIn( __METHOD__ );
 		$lb = new LinkBatch();
 		foreach ( $this->mResult as $row ) {
 			$lb->add( $row->page_namespace, $row->page_title );
 		}
 		$lb->execute();
-		wfProfileOut( __METHOD__ );
 	}
 
 	function getStartBody() {
