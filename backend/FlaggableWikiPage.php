@@ -339,7 +339,6 @@ class FlaggableWikiPage extends WikiPage {
 	 * @param bool $synced
 	 */
 	public function updateSyncStatus( $synced ) {
-		wfProfileIn( __METHOD__ );
 		if ( !wfReadOnly() ) {
 			$dbw = wfGetDB( DB_MASTER );
 			$dbw->update( 'flaggedpages',
@@ -348,7 +347,6 @@ class FlaggableWikiPage extends WikiPage {
 				__METHOD__
 			);
 		}
-		wfProfileOut( __METHOD__ );
 	}
 
 	/**
