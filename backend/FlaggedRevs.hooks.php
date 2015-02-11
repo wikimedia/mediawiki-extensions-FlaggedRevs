@@ -831,8 +831,8 @@ class FlaggedRevsHooks {
 		Page $article, $user, $text, $summary, $m, $a, $b, &$f, $rev
 	) {
 		global $wgFlaggedRevsAutopromote, $wgFlaggedRevsAutoconfirm;
-		# Ignore NULL edits or edits by anon users
-		if ( !$rev || !$user->getId() ) {
+		# Ignore NULL edits, edits by anon users, and MW role account edits
+		if ( !$rev || !$user->getId() || !User::isUsableName( $user->getName() ) ) {
 			return true;
 		# No sense in running counters if nothing uses them
 		} elseif ( !$wgFlaggedRevsAutopromote && !$wgFlaggedRevsAutoconfirm ) {
