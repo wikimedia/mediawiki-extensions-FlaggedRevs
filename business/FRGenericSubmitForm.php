@@ -52,7 +52,13 @@ abstract class FRGenericSubmitForm {
 	final public function ready() {
 		if ( $this->state != self::FORM_UNREADY ) {
 			throw new Exception( __CLASS__ . " ready() already called.\n");
-		} 
+		}
+
+		$result = '';
+		if( !Hooks::run( 'FlaggedRevsFRGenericSubmitFormReady', array( $this, &$result ) ) ) {
+			return $result;
+		}
+
 		$this->state = self::FORM_READY;
 		$status = $this->doCheckTargetGiven();
 		if ( $status !== true ) {
@@ -82,7 +88,7 @@ abstract class FRGenericSubmitForm {
 			throw new Exception( __CLASS__ . " fields cannot be set anymore.\n");
 		} else {
 			$field = $value; // still allowing input
-		} 
+		}
 	}
 
 	/*

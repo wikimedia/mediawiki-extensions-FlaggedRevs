@@ -384,6 +384,9 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 				$this->user->addWatch( $this->page );
 			}
 		}
+
+		Hooks::run( 'FlaggedRevsRevisionReviewFormAfterDoSubmit', array( $this, $status ) );
+
 		return $status;
 	}
 
