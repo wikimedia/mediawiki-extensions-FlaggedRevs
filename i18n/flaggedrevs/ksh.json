@@ -162,7 +162,7 @@
 	"revreview-reviewlink": "nohkike",
 	"revreview-reviewlink-title": "Alle de Änderonge, di noch nit nohjekik sin, en einem Rötsch",
 	"revreview-unreviewedpage": "nit nohjekik Sigg",
-	"tooltip-ca-current": "Dä aktoälle Äntworf vun hee dä Sigg aanlooere",
+	"tooltip-ca-current": "Donn dä aktoälle Äntworf met alle Änderonge vun heh dä Sigg aanlohre, di noch nit faßjehallde sin.",
 	"tooltip-ca-stable": "De {{int:stablepages-stable}} vun dä Sigg he beloore",
 	"tooltip-ca-default": "Enshtellunge för de Sigge ier Qualliteit",
 	"flaggedrevs-protect-legend": "Automattesch Änderunge nohkike ([[{{MediaWiki:Validationpage}}|Hölp]])",
