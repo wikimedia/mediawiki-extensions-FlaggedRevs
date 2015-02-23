@@ -25,11 +25,18 @@ abstract class FlaggedRevsApiHooks extends ApiQueryBase {
 		// pageid => revid => array_index of the revision
 		// we will need this later to add data to the result array 
 		$result = $module->getResult();
-		$data = $result->getData();
-		if ( !isset( $data['query'] ) || !isset( $data['query']['pages'] ) ) {
-			return true;
+		if ( defined( 'ApiResult::META_CONTENT' ) ) {
+			$data = ApiResult::removeMetadata(
+				(array)$result->getResultData( array( 'query', 'pages' ) )
+			);
+		} else {
+			$data = $result->getData();
+			if ( !isset( $data['query'] ) || !isset( $data['query']['pages'] ) ) {
+				return true;
+			}
+			$data = $data['query']['pages'];
 		}
-		foreach ( $data['query']['pages'] as $pageid => $page ) {
+		foreach ( $data as $pageid => $page ) {
 			if ( array_key_exists( 'revisions', (array)$page ) ) {
 				foreach ( $page['revisions'] as $index => $rev ) {
 					if ( array_key_exists( 'revid', (array)$rev ) )
