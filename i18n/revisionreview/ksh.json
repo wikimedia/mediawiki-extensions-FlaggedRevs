@@ -46,6 +46,8 @@
 	"revreview-poss-conflict-p": "'''Opjepaß: {{GENDER:$2|Dä|Et|Dä Metmaacher|De|Dat}} [[User:$1|$1]] hät aam $2 öm $3 Uhr aanjefange, heh di Sigg nohzekike.'''",
 	"revreview-poss-conflict-c": "'''Opjepaß: {{GENDER:$2|Dä|Et|Dä Metmaacher|De|Dat}} [[User:$1|$1]] hät aam $2 öm $3 Uhr aanjefange, heh di Änderonge nohzekike.'''",
 	"revreview-adv-reviewing-p": "Opjepaß: De andere Nohkiker künne sinn, dat De di Sigg aam nohkike bes.",
+	"revreview-sadv-reviewing-p": "Do kann de andere Metmaacher $1, dat De heh die Sigg aam nohlohre bes.",
+	"revreview-adv-start-link": "weße lohße",
 	"revreview-toolow": "Do moß för jeede vun dä Eijeschaffte unge en Not udder Präddikaat jävve, wat bäßer wi „{{lcfirst:{{int:revreview-style-0}}}}“ es, domet di Version als nohjekik jeldt. Öm en Version widder zeröckzeshtoofe, donn alle Präddikaate op „{{lcfirst:{{int:revreview-style-0}}}}“ säze.",
 	"revreview-update": "Bes esu joot, un donn all de Änderunge ''(unge sin se opjeliß)'' [[{{MediaWiki:Validationpage}}|nohkike]], di jemaat woodte, zick däm de {{int:stablepages-stable}} et letz [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} {{lcfirst:{{int:revreview-approved}}}}] woode es.<br />\n'''E paa Schablohne, Datteije, udder beeds, sin jeändert woode:'''",
 	"revreview-update-includes": "E paa Schabloone udder Dateije udder beeds sin jeändert woode:",
