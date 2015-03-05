@@ -21,6 +21,8 @@
 	"flaggedrevs-prefs-editdiffs": "Zeisch der Ongerscheid zo de {{int:stablepages-stable}} beim Sigge Ändere",
 	"flaggedrevs-prefs-viewdiffs": "Zeisch der Ongerscheid noh de beschtändije Version wann De en Äntworfs_Sigg annloorß.",
 	"flaggedrevs-hidereviewed": "{{PLURAL:$1|Ein|$1|Kein}} nohjekik Änderonge",
+	"flaggedrevs-hidereviewed-hide": "Ußblände!",
+	"flaggedrevs-hidereviewed-show": "Aanzeije!",
 	"group-editor": "Redaktöre för et Sichte",
 	"group-editor-member": "{{int:editor}}",
 	"group-reviewer": "Redaktöre för et Pröfe",

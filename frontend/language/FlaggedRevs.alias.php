@@ -720,14 +720,14 @@ $specialPageAliases['sq'] = array(
 /** Serbian (Cyrillic script) (српски (ћирилица)‎) */
 $specialPageAliases['sr-ec'] = array(
 	'PendingChanges' => array( 'СтареПрегледанеСтране' ),
-	'ProblemChanges' => array( 'Проблематичне_измене' ),
+	'ProblemChanges' => array( 'ПроблематичнеИзмене', 'Проблематичне_измене' ),
 	'QualityOversight' => array( 'НадгледањеКвалитета' ),
 	'ReviewedPages' => array( 'ПрегледанеСтране' ),
-	'RevisionReview' => array( 'Преглед_измене' ),
+	'RevisionReview' => array( 'ПрегледИзмене', 'Преглед_измене' ),
 	'Stabilization' => array( 'Стабилизација' ),
 	'StablePages' => array( 'СтабилнеСтране', 'Стабилне_странице' ),
-	'ConfiguredPages' => array( 'Подешене_странице' ),
-	'ReviewedVersions' => array( 'Прегледана_издања', 'Прегледане_верзије' ),
+	'ConfiguredPages' => array( 'ПодешенеСтранице', 'Подешене_странице' ),
+	'ReviewedVersions' => array( 'ПрегледанаИздања', 'Прегледана_издања', 'Прегледане_верзије' ),
 	'UnreviewedPages' => array( 'НепрегледанеСтране', 'Непрегледане_странице' ),
 );
 
