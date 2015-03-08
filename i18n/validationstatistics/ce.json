@@ -15,7 +15,7 @@
 	"validationstatistics-total": "АгӀонаш",
 	"validationstatistics-stable": "Нийса йуй хаьжнарш",
 	"validationstatistics-latest": "Юха хьаьжинарш",
-	"validationstatistics-synced": "Юху хьаьжнарш хьаьжна хила чера юкъар",
+	"validationstatistics-synced": "Юху хьаьжжинарш хьаьжжина хила чера юкъар",
 	"validationstatistics-old": "Шира елларш",
 	"validationstatistics-unreviewed": "Хьажанза ерш",
 	"validationstatistics-utable": "Лахахьа гойту $1 {{PLURAL:$1|жигара хьажамхо|жигара хьажамхой}} {{PLURAL:$2|тӀеххьара {{#ifeq:$2|1||$2}} сахьт}} чохь.",
