@@ -148,7 +148,7 @@
 	"right-validate": "סימון גרסאות כ\"איכותיות\"",
 	"right-unreviewedpages": "צפייה ב[[Special:UnreviewedPages|רשימת הדפים שלא נסקרו]]",
 	"rights-editor-revoke": "הסרת הרשאת עורך מ{{GRAMMAR:תחילית|[[$1]]}}",
-	"specialpages-group-quality": "{{int:Prefs-flaggedrevs}}",
+	"specialpages-group-quality": "סקירת עריכות",
 	"stable-logentry-config": "קבע את הגדרות היציבות של \"$1\"",
 	"stable-logentry-modify": "שינה את הגדרות היציבות של \"$1\"",
 	"stable-logentry-reset": "איפס את הגדרות היציבות של \"$1\"",

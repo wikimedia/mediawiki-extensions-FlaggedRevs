@@ -13,12 +13,12 @@
 	"validationstatistics-table": "Лахахьа гойту цӀерийн меттгашца агӀонашка хьажаран статистика дӀасахьажаярш ''юкъахь яц''\nХьажанза нисдарш долу агӀонаш  ''{{int:validationstatistics-old}}'' ю; хьажа дезаш нисдарш доцу агӀонаш ''{{int:validationstatistics-latest}}'' ю.",
 	"validationstatistics-ns": "Цlерийн ана",
 	"validationstatistics-total": "АгӀонаш",
-	"validationstatistics-stable": "Нийса йуй хаьжнарш",
+	"validationstatistics-stable": "Теллинарш",
 	"validationstatistics-latest": "Юха хьаьжинарш",
 	"validationstatistics-synced": "Юху хьаьжжинарш хьаьжжина хила чера юкъар",
 	"validationstatistics-old": "Шира елларш",
 	"validationstatistics-unreviewed": "Хьажанза ерш",
 	"validationstatistics-utable": "Лахахьа гойту $1 {{PLURAL:$1|жигара хьажамхо|жигара хьажамхой}} {{PLURAL:$2|тӀеххьара {{#ifeq:$2|1||$2}} сахьт}} чохь.",
 	"validationstatistics-user": "Декъашхо",
-	"validationstatistics-reviews": "Нийса йуй хьажар"
+	"validationstatistics-reviews": "Талларш"
 }
