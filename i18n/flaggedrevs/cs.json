@@ -8,7 +8,8 @@
 			"Littledogboy",
 			"Matěj Grabovský",
 			"Mormegil",
-			"Vks"
+			"Vks",
+			"Cvanca"
 		]
 	},
 	"action-review": "posoudit revize",
@@ -21,10 +22,15 @@
 	"flaggedrevs-pref-UI-1": "Používat jednoduché uživatelské rozhraní stabilních verzí",
 	"prefs-flaggedrevs-ui": "Označené revize",
 	"flaggedrevs-prefs-stable": "Vždy standardně zobrazovat stabilní verzi stránek s obsahem (pokud existuje)",
+	"flaggedrevs-pref-stable-0": "Použít výchozí nastavení pro každou stránku",
+	"flaggedrevs-pref-stable-1": "Vždy zobrazit stabilní verzi (pokud existuje)",
+	"flaggedrevs-pref-stable-2": "Vždy zobrazit poslední verzi",
 	"flaggedrevs-prefs-watch": "Přidat stránky, které zkontroluji, do mého seznamu sledovaných stránek",
 	"flaggedrevs-prefs-editdiffs": "Při editování stránek zobrazovat rozdíly proti stabilní verzi",
 	"flaggedrevs-prefs-viewdiffs": "Při zobrazování navrhů stránek zobrazovat rozdíly proti stabilní verzi.",
 	"flaggedrevs-hidereviewed": "$1 zhodnocené úpravy",
+	"flaggedrevs-hidereviewed-hide": "Skrýt",
+	"flaggedrevs-hidereviewed-show": "Zobrazit",
 	"group-editor": "Editoři",
 	"group-editor-member": "{{GENDER:$1|editor|editorka|editor}}",
 	"group-reviewer": "Posuzovatelé",
@@ -171,8 +177,8 @@
 	"flaggedrevs-protect-none": "Povolit všem uživatelům",
 	"revreview-locked-title": "Úpravy musejí být posouzeny předtím, než se zobrazí na této stránce.",
 	"revreview-unlocked-title": "Úpravy nevyžadují posouzení, než se zobrazí na této stránce.",
-	"revreview-locked": "Úpravy vyžadují [[{{MediaWiki:Validationpage}}|posouzení]], než se zobrazí na této stránce.",
-	"revreview-unlocked": "Úpravy nevyžadují [[{{MediaWiki:Validationpage}}|posouzení]], než se zobrazí na této stránce.",
+	"revreview-locked": "'''Poznámka:''' Úpravy vyžadují [[{{MediaWiki:Validationpage}}|posouzení]], než se zobrazí na této stránce.",
+	"revreview-unlocked": "'''Poznámka:''' Úpravy nevyžadují [[{{MediaWiki:Validationpage}}|posouzení]], než se zobrazí na této stránce.",
 	"log-show-hide-review": "$1 záznam posouzení",
 	"validationpage": "{{ns:help}}:Ověřování stránek"
 }
