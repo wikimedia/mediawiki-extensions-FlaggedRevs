@@ -3,11 +3,13 @@
 		"authors": [
 			"Aftab1995",
 			"Bellayet",
-			"Zaheen"
+			"Zaheen",
+			"Aftabuzzaman"
 		]
 	},
 	"revisionreview": "সংশোধনগুলি পর্যালোচনা করুন",
 	"revreview-failed": "'''এই সংস্করণ পর্যালোচনা করা সম্ভব নয়।'''",
+	"review_no_oldid": "কোন সংশোধন আইডি উল্লেখ করা হয়নি।",
 	"review_denied": "অনুমতি প্রত্যাখ্যাত হয়েছে।",
 	"review_reject_excessive": "একযোগে অনেকগুলি সম্পাদনা প্রত্যাখ্যান করা যাবে না।",
 	"revreview-check-flag-p": "এই সংস্করণ গ্রহণ করুন ($1টি অমীমাংসিত {{PLURAL:$1|পরিবর্তন}}সহ)",
@@ -30,5 +32,6 @@
 	"revreview-reject-summary": "সারাংশ:",
 	"revreview-reject-confirm": "এই পরিবর্তনগুলি প্রত্যাখ্যান করো",
 	"revreview-reject-cancel": "বাতিল",
-	"revreview-reject-summary-cur": "সর্বশেষ {{PLURAL:$1|লেখা|লেখা $1টি}} পরিবর্তন প্রত্যাখ্যান ($2 কর্তৃক) ও $4-এর করা $3 নং সংশোধন পুনরুদ্ধার"
+	"revreview-reject-summary-cur": "সর্বশেষ {{PLURAL:$1|লেখা|লেখা $1টি}} পরিবর্তন প্রত্যাখ্যান ($2 কর্তৃক) ও $4-এর করা $3 নং সংশোধন পুনরুদ্ধার",
+	"revreview-reject-summary-cur-short": "সর্বশেষ {{PLURAL:$1|লেখা পরিবর্তন| লেখা $1টি পরিবর্তন}} প্রত্যাখ্যান ও $3-এর করা $2 নং সংশোধন পুনরুদ্ধার"
 }

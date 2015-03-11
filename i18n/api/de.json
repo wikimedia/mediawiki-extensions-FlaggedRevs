@@ -10,6 +10,8 @@
 	"apihelp-query+configuredpages-param-namespace": "Die aufzuzählenden Namensräume.",
 	"apihelp-query+configuredpages-param-default": "Die Standard-Seitenansicht-Version.",
 	"apihelp-query+configuredpages-param-limit": "Welche Gesamtanzahl an Seiten zurückgegeben werden sollen.",
+	"apihelp-query+oldreviewedpages-param-start": "Auflistung bei diesem Zeitstempel beginnen.",
+	"apihelp-query+oldreviewedpages-param-end": "Auflistung bei diesem Zeitstempel beenden.",
 	"apihelp-query+oldreviewedpages-param-filterredir": "Wie nach Weiterleitungen gefiltert werden soll.",
 	"apihelp-query+oldreviewedpages-param-limit": "Welche Gesamtanzahl an Seiten zurückgegeben werden soll.",
 	"apihelp-query+reviewedpages-param-start": "Auflistung bei dieser Seitenkennung beginnen.",
