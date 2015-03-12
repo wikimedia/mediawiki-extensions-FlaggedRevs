@@ -418,7 +418,8 @@ class FlaggedRevsHooks {
 		$isOldRevCopy = (bool)$baseRevId; // null edit or rollback
 		# Get the revision ID the incoming one was based off...
 		if ( !$baseRevId && $prevRevId ) {
-			$prevTimestamp = Revision::getTimestampFromId( $title, $prevRevId );
+			$prevTimestamp = Revision::getTimestampFromId(
+				$title, $prevRevId, Revision::READ_LATEST );
 			# The user just made an edit. The one before that should have
 			# been the current version. If not reflected in wpEdittime, an
 			# edit may have been auto-merged in between, in that case, discard
@@ -447,10 +448,11 @@ class FlaggedRevsHooks {
 				$reviewableChange = false;
 			} else { // Edits to existing pages
 				$reviewableNewPage = false; // had previous rev
-				# If a edit was automatically merged, do not trust 'baseRevId' (bug 33481)
-				if ( $editTimestamp
-					&& $editTimestamp !== Revision::getTimestampFromId( $title, $prevRevId ) )
-				{
+				# If a edit was automatically merged, do not trust 'baseRevId' (bug 33481).
+				# Do this by verifying the user-provided edittime against the prior revision.
+				$prevRevTimestamp = Revision::getTimestampFromId(
+					$title, $prevRevId, Revision::READ_LATEST );
+				if ( $editTimestamp && $editTimestamp !== $prevRevTimestamp ) {
 					$baseRevId = $prevRevId;
 					$altBaseRevId = 0;
 				}
@@ -510,7 +512,8 @@ class FlaggedRevsHooks {
 		$title = $article->getTitle(); // convenience
 		# Check wpEdittime against the former current rev for verification
 		if ( $prevRevId ) {
-			$prevTimestamp = Revision::getTimestampFromId( $title, $prevRevId );
+			$prevTimestamp = Revision::getTimestampFromId(
+				$title, $prevRevId, Revision::READ_LATEST );
 		}
 		# Was $rev is an edit to an existing page?
 		if ( $prevTimestamp ) {
