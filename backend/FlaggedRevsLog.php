@@ -87,7 +87,7 @@ class FlaggedRevsLog {
 			$action = FlaggedRevs::isQuality( $oldDims ) ?
 				'unapprove2' : 'unapprove';
 		}
-		$ts = Revision::getTimestampFromId( $title, $revId );
+		$ts = Revision::getTimestampFromId( $title, $revId, Revision::READ_LATEST );
 		# Param format is <rev id, old stable id, rev timestamp>
 		$logid = $log->addEntry( $action, $title, $comment, array( $revId, $stableId, $ts ) );
 		# Make log easily searchable by rev_id
