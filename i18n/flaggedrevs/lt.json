@@ -5,7 +5,8 @@
 			"Homo",
 			"Matasg",
 			"Vpovilaitis",
-			"Reedy"
+			"Reedy",
+			"Hugo.arg"
 		]
 	},
 	"action-review": "vertinti versijas",
@@ -118,6 +119,7 @@
 	"revreview-def-stable": "stabili",
 	"revreview-restriction-any": "bet koks",
 	"revreview-restriction-none": "joks",
+	"tooltip-ca-current": "Žiūrėti šį puslapį su dar nepatikrintais keitimais",
 	"flaggedrevs-protect-none": "Leisti visiems naudotojams",
 	"revreview-locked-title": "Šio puslapio redagavimo veiksmai reikalaują peržiūros.",
 	"revreview-unlocked-title": "Šio puslapio redagavimo veiksmai nereikalaują peržiūros.",
