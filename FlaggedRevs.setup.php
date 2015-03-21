@@ -64,7 +64,6 @@ class FlaggedRevsSetup {
 		# Data access object classes...
 		$classes['FRExtraCacheUpdate'] = "$backendDir/FRExtraCacheUpdate.php";
 		$classes['FRExtraCacheUpdateJob'] = "$backendDir/FRExtraCacheUpdate.php";
-		$classes['FRSquidUpdate'] = "$backendDir/FRExtraCacheUpdate.php";
 		$classes['FRDependencyUpdate'] = "$backendDir/FRDependencyUpdate.php";
 		$classes['FRInclusionManager'] = "$backendDir/FRInclusionManager.php";
 		$classes['FlaggableWikiPage'] = "$backendDir/FlaggableWikiPage.php";
@@ -103,30 +102,37 @@ class FlaggedRevsSetup {
 		$messagesFiles['Stabilization'] = "$langDir/Stabilization.i18n.php";
 		# Reviewed versions list
 		$classes['ReviewedVersions'] = "$spReportDir/ReviewedVersions_body.php";
+		$classes['ReviewedVersionsPager'] = "$spReportDir/ReviewedVersions_body.php";
 		$messagesDirs['ReviewedVersions'] = __DIR__ . '/i18n/reviewedversions';
 		$messagesFiles['ReviewedVersions'] = "$langDir/ReviewedVersions.i18n.php";
 		# Unreviewed pages list
 		$classes['UnreviewedPages'] = "$spReportDir/UnreviewedPages_body.php";
+		$classes['UnreviewedPagesPager'] = "$spReportDir/UnreviewedPages_body.php";
 		$messagesDirs['UnreviewedPages'] = __DIR__ . '/i18n/unreviewedpages';
 		$messagesFiles['UnreviewedPages'] = "$langDir/UnreviewedPages.i18n.php";
 		# Pages with pending changes list
 		$classes['PendingChanges'] = "$spReportDir/PendingChanges_body.php";
+		$classes['PendingChangesPager'] = "$spReportDir/PendingChanges_body.php";
 		$messagesDirs['PendingChanges'] = __DIR__ . '/i18n/pendingchanges';
 		$messagesFiles['PendingChanges'] = "$langDir/PendingChanges.i18n.php";
 		# Pages with tagged pending changes list
 		$classes['ProblemChanges'] = "$spReportDir/ProblemChanges_body.php";
+		$classes['ProblemChangesPager'] = "$spReportDir/ProblemChanges_body.php";
 		$messagesDirs['ProblemChanges'] = __DIR__ . '/i18n/problemchanges';
 		$messagesFiles['ProblemChanges'] = "$langDir/ProblemChanges.i18n.php";
 		# Reviewed pages list
 		$classes['ReviewedPages'] = "$spReportDir/ReviewedPages_body.php";
+		$classes['ReviewedPagesPager'] = "$spReportDir/ReviewedPages_body.php";
 		$messagesDirs['ReviewedPages'] = __DIR__ . '/i18n/reviewedpages';
 		$messagesFiles['ReviewedPages'] = "$langDir/ReviewedPages.i18n.php";
 		# Stable pages list (for protection config)
 		$classes['StablePages'] = "$spReportDir/StablePages_body.php";
+		$classes['StablePagesPager'] = "$spReportDir/StablePages_body.php";
 		$messagesDirs['StablePages'] = __DIR__ . '/i18n/stablepages';
 		$messagesFiles['StablePages'] = "$langDir/StablePages.i18n.php";
 		# Configured pages list (non-protection config)
 		$classes['ConfiguredPages'] = "$spReportDir/ConfiguredPages_body.php";
+		$classes['ConfiguredPagesPager'] = "$spReportDir/ConfiguredPages_body.php";
 		$messagesDirs['ConfiguredPages'] = __DIR__ . '/i18n/configuredpages';
 		$messagesFiles['ConfiguredPages'] = "$langDir/ConfiguredPages.i18n.php";
 		# Filterable review log page to oversee reviews
