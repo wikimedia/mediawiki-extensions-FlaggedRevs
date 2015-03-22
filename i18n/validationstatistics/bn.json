@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Bellayet"
+			"Bellayet",
+			"Aftabuzzaman"
 		]
 	},
+	"validationstatistics": "পাতা পর্যালোচনা পরিসংখ্যান",
 	"validationstatistics-ns": "নামস্থান",
 	"validationstatistics-total": "পাতা",
 	"validationstatistics-stable": "পর্যালোচিত",
