@@ -39,7 +39,7 @@
 	"editor": "{{Flagged Revs}}\n{{Identical|Editor}}",
 	"flaggedrevs": "{{Flagged Revs}}\nGeneral title for the [[Translating:Flagged Revs extension|Flagged Revs]] extension.\n* \"flagged\" in the sense of \"has been seen, has been checked\"",
 	"flaggedrevs-watched-pending": "{{FlaggedRevs}}\nAppears on top of user watchlist ([[Special:Watchlist]]).",
-	"flaggedrevs-desc": "{{Flagged Revs}}\n\n{{desc|name=Flagged Revisions|url=http://www.mediawiki.org/wiki/Extension:FlaggedRevs}}",
+	"flaggedrevs-desc": "{{Flagged Revs}}\n\n{{desc|name=Flagged Revisions|url=https://www.mediawiki.org/wiki/Extension:FlaggedRevs}}",
 	"flaggedrevs-pref-UI": "{{Flagged Revs-small}}\nShown in [[Special:Preferences]], under {{msg-mw|prefs-flaggedrevs}}, as a label for the following alternative choices\n* {{msg-mw|flaggedrevs-pref-UI-0}}\n* {{msg-mw|flaggedrevs-pref-UI-1}}\nSee [[:Image:FlaggedRevs.jpg]] for an example image.",
 	"flaggedrevs-pref-UI-0": "{{Flagged Revs-small}}\nOption in [[Special:Preferences]], under {{msg-mw|prefs-flaggedrevs}}.\n\nSee {{msg-mw|flaggedrevs-pref-UI-1}} for the opposite message.\n\nSee [[:Image:FlaggedRevs.jpg]] for an example image.",
 	"flaggedrevs-pref-UI-1": "{{Flagged Revs-small}}\nOption in [[Special:Preferences]], under {{msg-mw|prefs-flaggedrevs}}.\n\nSee {{msg-mw|flaggedrevs-pref-UI-0}} for the opposite message.\n\nSee [[:Image:FlaggedRevs.jpg]] for an example image.",
