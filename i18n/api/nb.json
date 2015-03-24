@@ -1,0 +1,19 @@
+{
+	"@metadata": {
+		"authors": [
+			"Jeblad"
+		]
+	},
+	"apihelp-flagconfig-example-1": "Hent flaggkonfigurasjon",
+	"apihelp-query+configuredpages-description": "List opp alle sider som har tilpassede gjennomgangskonfigurasjoner.",
+	"apihelp-query+configuredpages-param-start": "Start opplisting på denne sidens ID.",
+	"apihelp-query+configuredpages-param-end": "Stopp opplistingen på denne sidens ID.",
+	"apihelp-query+configuredpages-param-namespace": "Navnerommet som skal opplistes.",
+	"apihelp-query+configuredpages-param-default": "Standardversjon av sidevisning.",
+	"apihelp-query+configuredpages-param-autoreview": "Anmelderes/autoanmelderes rettighetsnivå.",
+	"apihelp-query+configuredpages-param-limit": "Hvor mange sider som totalt skal returneres.",
+	"apihelp-query+configuredpages-example-1": "Vis en liste av sider med tilpassede gjennomgangskonfigurasjoner.",
+	"apihelp-query+oldreviewedpages-description": "List opp sider som har utestående endringer som trenger gjennomgang.",
+	"apihelp-query+oldreviewedpages-param-start": "Start opplisting på dette tidspunktet.",
+	"apihelp-query+oldreviewedpages-param-end": "Stopp opplistingen på dette tidspunktet."
+}
