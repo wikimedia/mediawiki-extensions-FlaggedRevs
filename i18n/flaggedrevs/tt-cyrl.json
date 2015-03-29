@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Ильнар"
+			"Ильнар",
+			"Derslek"
 		]
 	},
 	"revreview-edit": "Үзгәртү",
@@ -13,5 +14,6 @@
 	"revreview-quick-see-quality": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} тикшерелмәгән үзгәрешләрне карарга]]",
 	"revreview-source": "Карау",
 	"revreview-basic-title": "Бу битнең каралган юрамасы",
+	"tooltip-ca-current": "Тикшерелмәгән төзәтмәләр булган әлеге сәхифәне карап чыгу",
 	"validationpage": "{{ns:help}}:Битләрне тикшерү"
 }
