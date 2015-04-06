@@ -15,7 +15,8 @@
 			"Test",
 			"Ата",
 			"Тест",
-			"Lockal"
+			"Lockal",
+			"Piramidion"
 		]
 	},
 	"action-review": "перевірка версій",
@@ -140,9 +141,9 @@
 	"revreview-visibility-outdated": "'''Ця сторінка має застарілу [[{{MediaWiki:Validationpage}}|опубліковану версію]]; налаштування стабілізації сторінки можуть бути [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} змінені].'''",
 	"revreview-visibility-nostable": "'''Ця сторінка не має [[{{MediaWiki:Validationpage}}|опублікованої версії]]; налаштування стабілізації сторінки можуть бути [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} змінені].'''",
 	"revreview-revnotfound": "Неможливо знайти необхідну вам версію статті.\nБудь-ласка, перевірте правильність посилання, яке ви використовували для доступу до цієї статті.",
-	"right-autoreview": "Автоматичне позначення версій сторінок як перевірених",
+	"right-autoreview": "автоматичне позначення версій сторінок як перевірених",
 	"right-autoreviewrestore": "Автоперевірка при відкоті",
-	"right-movestable": "Перейменування опублікованих сторінок",
+	"right-movestable": "перейменування опублікованих сторінок",
 	"right-review": "Позначення версій сторінок як \"перевірених\"",
 	"right-stablesettings": "Налаштування вибору і відображення опублікованої версії",
 	"right-validate": "Позначення версій сторінок \"якісними\"",
