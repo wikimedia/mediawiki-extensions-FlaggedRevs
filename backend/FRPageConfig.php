@@ -86,6 +86,10 @@ class FRPageConfig {
 	 */
 	public static function setStabilitySettings( Title $title, array $config ) {
 		$dbw = wfGetDB( DB_MASTER );
+		# Purge expired entries on one in every 10 queries
+		if ( !mt_rand( 0, 10 ) ) {
+			self::purgeExpiredConfigurations();
+		}
 		# If setting to site default values and there is a row then erase it
 		if ( self::configIsReset( $config ) ) {
 			$dbw->delete( 'flaggedpage_config',
@@ -185,7 +189,9 @@ class FRPageConfig {
 	 * The stable version of pages may change and invalidation may be required.
 	 */
 	public static function purgeExpiredConfigurations() {
-		if ( wfReadOnly() ) return;
+		if ( wfReadOnly() ) {
+			return;
+		}
 		$dbw = wfGetDB( DB_MASTER );
 		# Find pages with expired configs...
 		$config = self::getDefaultVisibilitySettings(); // config is to be reset

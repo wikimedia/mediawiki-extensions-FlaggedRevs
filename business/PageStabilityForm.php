@@ -257,8 +257,6 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 		}
 		# Apply watchlist checkbox value (may be NULL)
 		$this->updateWatchlist();
-		# Take this opportunity to purge out expired configurations
-		FRPageConfig::purgeExpiredConfigurations();
 		return true;
 	}
 

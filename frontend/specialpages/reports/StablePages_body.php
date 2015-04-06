@@ -63,10 +63,6 @@ class StablePages extends SpecialPage {
 		} else {
 			$out->addWikiMsg( 'stablepages-none' );
 		}
-		// Purge expired entries on one in every 10 queries
-		if ( !mt_rand( 0, 10 ) ) {
-			FRPageConfig::purgeExpiredConfigurations();
-		}
 	}
 
 	public function formatRow( $row ) {
