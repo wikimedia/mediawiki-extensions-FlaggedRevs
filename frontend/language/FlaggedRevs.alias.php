@@ -101,6 +101,21 @@ $specialPageAliases['bcc'] = array(
 	'UnreviewedPages' => array( 'صفحات-بی-بازبینی' ),
 );
 
+/** Western Balochi (بلوچی رخشانی) */
+$specialPageAliases['bgn'] = array(
+	'PendingChanges' => array( 'تغیر_به_انتزاری_تا_انت' ),
+	'ProblemChanges' => array( 'تغیرات_مشکل_دارنت' ),
+	'QualityOversight' => array( 'پوره_ئین_دیستین' ),
+	'ReviewedPages' => array( 'دیسته_بوته_ئین_وّرق_ئان' ),
+	'RevisionReview' => array( 'نخسه_پدا_دیستین' ),
+	'Stabilization' => array( 'پایدار_کورتین' ),
+	'StablePages' => array( 'پایدارین_وّرق_ئان' ),
+	'ConfiguredPages' => array( 'تنزیم_بوته_ئین_دیمان' ),
+	'ReviewedVersions' => array( 'پایدارین_نخسه_ئان' ),
+	'UnreviewedPages' => array( 'دیسته_نه_بوته_ئین_وّرق_ئان' ),
+	'ValidationStatistics' => array( 'تائیدی_یی_سرجم' ),
+);
+
 /** Banjar (Bahasa Banjar) */
 $specialPageAliases['bjn'] = array(
 	'ProblemChanges' => array( 'Paubahan_ungkara' ),
