@@ -637,14 +637,13 @@ class FlaggedRevs {
 
 	/**
 	 * @param Page $article
-	 * @param parserOutput $stableOut
+	 * @param ParserOutput $stableOut
+	 * @param integer $mode FRDependencyUpdate::DEFERRED/FRDependencyUpdate::IMMEDIATE
 	 * Updates the stable-only cache dependency table
 	 */
-	public static function updateStableOnlyDeps( Page $article, ParserOutput $stableOut ) {
-		if ( !wfReadOnly() ) {
-			$frDepUpdate = new FRDependencyUpdate( $article->getTitle(), $stableOut );
-			$frDepUpdate->doUpdate();
-		}
+	public static function updateStableOnlyDeps( Page $article, ParserOutput $stableOut, $mode ) {
+		$frDepUpdate = new FRDependencyUpdate( $article->getTitle(), $stableOut );
+		$frDepUpdate->doUpdate( $mode );
 	}
 
 	/**

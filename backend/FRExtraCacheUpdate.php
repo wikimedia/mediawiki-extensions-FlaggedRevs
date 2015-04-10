@@ -64,6 +64,7 @@ class FRExtraCacheUpdate implements DeferrableUpdate {
 			# Insert batch into the queue if there is anything there
 			if ( $first ) {
 				$params = array(
+					'type'  => 'purge',
 					'table' => $this->mTable,
 					'start' => $first,
 					'end'   => $last,
@@ -136,37 +137,65 @@ class FRExtraCacheUpdate implements DeferrableUpdate {
  * @ingroup JobQueue
  */
 class FRExtraCacheUpdateJob extends Job {
-	public $table, $start, $end;
-
 	/**
 	 * Construct a job
 	 * @param Title $title The title linked to
 	 * @param array $params Job parameters (table, start and end page_ids)
-	 * @param integer $id job_id
 	 */
-	function __construct( $title, $params, $id = 0 ) {
-		parent::__construct( 'flaggedrevs_CacheUpdate', $title, $params, $id );
-		$this->table = $params['table'];
-		$this->start = $params['start'];
-		$this->end = $params['end'];
+	function __construct( $title, $params ) {
+		parent::__construct( 'flaggedrevs_CacheUpdate', $title, $params );
+
+		$this->params['type'] = isset( $this->params['type'] )
+			? $this->params['type']
+			: 'purge';
 	}
 
 	function run() {
+		if ( $this->params['type'] === 'purge' ) {
+			$this->doBacklinkPurge();
+		} elseif ( $this->params['type'] === 'updatelinks' ) {
+			$this->doUpdateLinks();
+		} else {
+			throw new InvalidArgumentException( "Missing 'type' parameter." );
+		}
+	}
+
+	protected function doBacklinkPurge() {
 		$update = new FRExtraCacheUpdate( $this->title );
 		# Get query conditions
 		$fromField = $update->getFromField();
 		$conds = $update->getToCondition();
-		if ( $this->start ) {
-			$conds[] = "$fromField >= {$this->start}";
+		if ( $this->params['start'] ) {
+			$conds[] = "$fromField >= {$this->params['start']}";
 		}
-		if ( $this->end ) {
-			$conds[] = "$fromField <= {$this->end}";
+		if ( $this->params['end'] ) {
+			$conds[] = "$fromField <= {$this->params['end']}";
 		}
 		# Run query to get page Ids
 		$dbr = wfGetDB( DB_SLAVE );
-		$res = $dbr->select( $this->table, $fromField, $conds, __METHOD__ );
+		$res = $dbr->select( $this->params['table'], $fromField, $conds, __METHOD__ );
 		# Invalidate the pages
 		$update->invalidateIDs( $res );
 		return true;
+	}
+
+	protected function doUpdateLinks() {
+		$fpage = FlaggableWikiPage::getTitleInstance( $this->title );
+		$srev = $fpage->getStableRev();
+		if ( $srev ) {
+			$pOpts = $fpage->makeParserOptions( 'canonical' );
+			$stableOut = FlaggedRevs::parseStableRevision( $srev, $pOpts );
+
+			if ( $stableOut ) {
+				// Update the stable-only dependency links right now
+				$frDepUpdate = new FRDependencyUpdate( $this->title, $stableOut );
+				$frDepUpdate->doUpdate( FRDependencyUpdate::IMMEDIATE );
+
+				return;
+			}
+		}
+
+		// If not page or revision was found, remove the stable-only links
+		FlaggedRevs::clearStableOnlyDeps( $fpage->getId() );
 	}
 }
