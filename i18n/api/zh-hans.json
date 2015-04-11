@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Liuxinyu970226",
-			"Yfdyh000"
+			"Yfdyh000",
+			"Jiang123aa"
 		]
 	},
 	"apihelp-flagconfig-example-1": "检索标记配置",
@@ -45,7 +46,7 @@
 	"apihelp-review-param-flag": "设置标志''$1''为指定值。",
 	"apihelp-review-example-1": "用评论“Ok”批准版本12345",
 	"apihelp-reviewactivity-description": "广告或取消广告您自己作为未复核页面或未复核更改。",
-	"apihelp-reviewactivity-param-reviewing": "是否广告为正在复核或不再复核。",
+	"apihelp-reviewactivity-param-reviewing": "是否以能回顾的方式宣传或是不再回顾的方式。",
 	"apihelp-stabilize-description-general": "更改页面稳定性设置。",
 	"apihelp-stabilize-description-protect": "为一个页面配置复核保护设置。",
 	"apihelp-stabilize-param-reason": "原因。",
