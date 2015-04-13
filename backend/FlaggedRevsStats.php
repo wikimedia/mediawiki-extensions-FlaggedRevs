@@ -194,7 +194,7 @@ class FlaggedRevsStats {
 	private static function getPerNamespaceTotals() {
 		$ns_total = $ns_reviewed = $ns_synced = array();
 		// Get total, reviewed, and synced page count for each namespace
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_SLAVE, 'vslow' );
 		$res = $dbr->select( array( 'page', 'flaggedpages' ),
 			array( 'page_namespace',
 				'COUNT(*) AS total',
@@ -220,7 +220,7 @@ class FlaggedRevsStats {
 	}
 
 	private static function getMeanPendingEditTime() {
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_SLAVE, 'vslow' );
 		$nowUnix = wfTimestamp( TS_UNIX ); // current time in UNIX TS
 		$unixTimeCall = self::dbUnixTime( $dbr, 'fp_pending_since' );
 		return (int)$dbr->selectField(
@@ -257,7 +257,7 @@ class FlaggedRevsStats {
 		$rPerTable = array(); // review wait percentiles
 		# Only go so far back...otherwise we will get garbage values due to
 		# the fact that FlaggedRevs wasn't enabled until after a while.
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_SLAVE, 'vslow' );
 		$installedUnix = (int)$dbr->selectField( 'logging',
 			self::dbUnixTime( $dbr, 'MIN(log_timestamp)' ),
 			array('log_type' => 'review')
