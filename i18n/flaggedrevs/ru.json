@@ -152,7 +152,7 @@
 	"right-stablesettings": "настройка выбора и показа опубликованной версии",
 	"right-validate": "отметка версий страниц как выверенных",
 	"right-unreviewedpages": "просмотр [[Special:UnreviewedPages|списка непроверенных страниц]]",
-	"rights-editor-revoke": "снял статус досматривающего с [[$1]]",
+	"rights-editor-revoke": "снял статус патрулирующего с [[$1]]",
 	"specialpages-group-quality": "Подтверждение правок",
 	"stable-logentry-config": "установил настройки стабильной версии для «$1»",
 	"stable-logentry-modify": "изменил настройки стабильной версии для «$1»",
