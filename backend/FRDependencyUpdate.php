@@ -11,6 +11,9 @@ class FRDependencyUpdate {
 	protected $sCategories;
 	protected $dbw;
 
+	const IMMEDIATE = 0; // run updates now
+	const DEFERRED = 1; // use the job queue for updates
+
 	public function __construct( Title $title, ParserOutput $stableOutput ) {
 		$this->title = $title;
 		# Stable version links
@@ -20,7 +23,10 @@ class FRDependencyUpdate {
 		$this->sCategories = $stableOutput->getCategories();
 	}
 
-	public function doUpdate() {
+	/**
+	 * @param integer $mode FRDependencyUpdate::IMMEDIATE/FRDependencyUpdate::DEFERRED
+	 */
+	public function doUpdate( $mode = self::IMMEDIATE ) {
 		$deps = array();
 		# Get any links that are only in the stable version...
 		$cLinks = $this->getCurrentVersionLinks();
@@ -58,6 +64,15 @@ class FRDependencyUpdate {
 		$existing = $this->getExistingDeps();
 		# Do incremental updates...
 		if ( $existing != $deps ) {
+			if ( $mode === self::DEFERRED ) {
+				# Let the job queue parse and update
+				JobQueueGroup::singleton()->push( new FRExtraCacheUpdateJob(
+					$this->title,
+					array( 'type' => 'updatelinks' )
+				) );
+				return;
+			}
+
 			$existing = $this->getExistingDeps( FR_MASTER );
 			$insertions = $this->getDepInsertions( $existing, $deps );
 			$deletions = $this->getDepDeletions( $existing, $deps );
