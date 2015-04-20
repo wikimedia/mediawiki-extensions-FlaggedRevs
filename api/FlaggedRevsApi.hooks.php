@@ -26,9 +26,7 @@ abstract class FlaggedRevsApiHooks extends ApiQueryBase {
 		// we will need this later to add data to the result array 
 		$result = $module->getResult();
 		if ( defined( 'ApiResult::META_CONTENT' ) ) {
-			$data = ApiResult::removeMetadata(
-				(array)$result->getResultData( array( 'query', 'pages' ) )
-			);
+			$data = (array)$result->getResultData( array( 'query', 'pages' ), array( 'Strip' => 'all' ) );
 		} else {
 			$data = $result->getData();
 			if ( !isset( $data['query'] ) || !isset( $data['query']['pages'] ) ) {
