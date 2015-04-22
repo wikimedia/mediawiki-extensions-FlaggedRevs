@@ -5,7 +5,8 @@
 			"Gallaecio",
 			"Toliño",
 			"Vivaelcelta",
-			"Xosé"
+			"Xosé",
+			"Fitoschido"
 		]
 	},
 	"action-review": "revisar revisións",
@@ -139,7 +140,7 @@
 	"right-movestable": "Mover páxinas publicadas",
 	"right-review": "Marcar revisións como \"comprobadas\"",
 	"right-stablesettings": "Configurar a forma de seleccionar e mostrar a versión publicada",
-	"right-validate": "Marcar revisións como \"de calidade\"",
+	"right-validate": "Marcar revisións como «de calidade»",
 	"right-unreviewedpages": "Ver a [[Special:UnreviewedPages|lista das páxinas non revisadas]]",
 	"rights-editor-revoke": "eliminado o status de editor de [[$1]]",
 	"specialpages-group-quality": "Aprobación de edicións",
