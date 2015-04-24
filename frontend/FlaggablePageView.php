@@ -1251,7 +1251,7 @@ class FlaggablePageView extends ContextSource {
 			return true; // short-circuit for non-reviewable pages
 		}
 		# Hack for bug 16734 (some actions update and view all at once)
-		if ( $this->pageWriteOpRequested() && wfGetDB( DB_MASTER )->doneWrites() ) {
+		if ( $this->pageWriteOpRequested() && wfGetLB()->hasOrMadeRecentMasterChanges() ) {
 			# Tabs need to reflect the new stable version so users actually
 			# see the results of their action (i.e. "delete"/"rollback")
 			$this->article->loadPageData( 'fromdbmaster' );
