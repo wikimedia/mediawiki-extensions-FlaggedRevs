@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Ansumang",
-			"Psubhashish"
+			"Psubhashish",
+			"Jnanaranjan Sahu"
 		]
 	},
 	"editor": "ସମ୍ପାଦକ",
@@ -40,5 +41,6 @@
 	"revreview-def-draft": "ନଗଦ",
 	"revreview-def-stable": "ସ୍ଥିର",
 	"revreview-restriction-any": "ଯେକୌଣସି",
-	"revreview-restriction-none": "କିଛି ନାହିଁ"
+	"revreview-restriction-none": "କିଛି ନାହିଁ",
+	"tooltip-ca-current": "ଏହି ପୃଷ୍ଠାଟିକୁ ବାକିଥିବା ବଦଳ ସହ ଦେଖନ୍ତୁ"
 }
