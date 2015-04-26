@@ -5,7 +5,8 @@
 			"Harald Khan",
 			"Jon Harald Søby",
 			"Nghtwlkr",
-			"Njardarlogar"
+			"Njardarlogar",
+			"Ranveig"
 		]
 	},
 	"action-review": "vurdere sideversjonar",
@@ -127,7 +128,7 @@
 	"revreview-lev-quality": "kvalitet",
 	"revreview-lev-pristine": "opphavleg",
 	"revreview-reviewlink": "vurder",
-	"tooltip-ca-current": "Syn det noverande utkastet til sida",
+	"tooltip-ca-current": "Syn sida med endringar på vent",
 	"tooltip-ca-stable": "Syn den stabile versjonen av sida",
 	"tooltip-ca-default": "Innstillingar for kvalitetssikring",
 	"revreview-locked-title": "Endringar må verta vurderte før dei vert synte på denne sida.",

@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"KartikMistry"
+			"KartikMistry",
+			"Arbhatt"
 		]
 	},
 	"flaggedrevs-hidereviewed-hide": "છુપાવો",
-	"flaggedrevs-hidereviewed-show": "દર્શાવો"
+	"flaggedrevs-hidereviewed-show": "દર્શાવો",
+	"tooltip-ca-current": "બાકી ફેરફારો છતા આ પાનું જુવો"
 }

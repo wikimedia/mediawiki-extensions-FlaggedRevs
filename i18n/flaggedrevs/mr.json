@@ -6,7 +6,8 @@
 			"Mahitgar",
 			"Shantanoo",
 			"V.narsikar",
-			"संतोष दहिवळ"
+			"संतोष दहिवळ",
+			"अभय नातू"
 		]
 	},
 	"action-review": "आवृत्त्यांचे पुनरावलोकन करा",
@@ -134,7 +135,7 @@
 	"revreview-restriction-none": "कोणतेच नाही",
 	"revreview-reviewlink": "प्रलंबित संपादने",
 	"revreview-unreviewedpage": "न तपासलेली पाने",
-	"tooltip-ca-current": "या पानाची कच्ची प्रत पहा",
+	"tooltip-ca-current": "होऊ घातलेल्या बदलांनिशी हे पान पहा",
 	"tooltip-ca-stable": "या पानाची पक्की प्रत पहा",
 	"tooltip-ca-default": "गुणवत्ता शाश्वत मांडणी",
 	"validationpage": "{{ns:help}}:लेख प्रमाणिकरण"
