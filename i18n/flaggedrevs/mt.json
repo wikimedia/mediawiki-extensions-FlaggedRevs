@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Chrisportelli",
-			"Giangian15"
+			"Giangian15",
+			"Leli Forte"
 		]
 	},
 	"action-review": "tirrevedi reviżjonijiet",
@@ -39,5 +40,6 @@
 	"revreview-depth-0": "Inadegwat",
 	"revreview-depth-2": "Medjokri",
 	"revreview-depth-3": "Għoli",
-	"revreview-revnotfound": "Ir-reviżjoni l-antika tal-paġna li staqsejt dwar ma setgħatx tiġi minsuba. Jekk jogħġbok verifika l-URL li użajt sabiex tidħol f'din il-paġna."
+	"revreview-revnotfound": "Ir-reviżjoni l-antika tal-paġna li staqsejt dwar ma setgħatx tiġi minsuba. Jekk jogħġbok verifika l-URL li użajt sabiex tidħol f'din il-paġna.",
+	"tooltip-ca-current": "Ara dil-paġna bil-bidliet pendenti"
 }

@@ -5,7 +5,8 @@
 			"DCLXVI",
 			"Mitzev",
 			"Spiritia",
-			"Turin"
+			"Turin",
+			"StanProg"
 		]
 	},
 	"editor": "Редактор",
@@ -90,7 +91,7 @@
 	"revreview-levelfilter": "Ниво:",
 	"revreview-defaultfilter": "Версия по подразбиране:",
 	"revreview-reviewlink-title": "Преглед на разликовата препратка с всички промени, очакващи проверка",
-	"tooltip-ca-current": "Преглед на текущата чернова на страницата",
+	"tooltip-ca-current": "Преглед на страницата с непроверените промени",
 	"tooltip-ca-stable": "Преглед на устойчивата версия на страницата",
 	"tooltip-ca-default": "Настройки на контрола на качеството",
 	"flaggedrevs-protect-legend": "Публикуване на редакциите",
