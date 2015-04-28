@@ -61,7 +61,7 @@ class FlaggedRevsUISetup {
 			# Mark items in user contribs
 			$hooks['ContribsPager::getQueryInfo'][] = 'FlaggedRevsUIHooks::addToContribsQuery';
 			$hooks['ContributionsLineEnding'][] = 'FlaggedRevsUIHooks::addToContribsLine';
-		} 
+		}
 
 		# RC filter UIs
 		$hooks['SpecialNewPagesFilters'][] = 'FlaggedRevsUIHooks::addHideReviewedFilter';
@@ -143,6 +143,7 @@ class FlaggedRevsUISetup {
 		$localModulePath = dirname( __FILE__ ) . '/modules/';
 		$remoteModulePath = 'FlaggedRevs/frontend/modules';
 		$modules['ext.flaggedRevs.basic'] = array(
+			'position'		=> 'top',
 			'styles'        => array( 'ext.flaggedRevs.basic.css' ),
 			'localBasePath' => $localModulePath,
 			'remoteExtPath' => $remoteModulePath,
