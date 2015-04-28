@@ -50,5 +50,6 @@
 	"revreview-filter-auto": "Automatisk",
 	"revreview-filter-manual": "Manuelt",
 	"revreview-def-draft": "seneste",
-	"revreview-restriction-none": "ingen"
+	"revreview-restriction-none": "ingen",
+	"tooltip-ca-current": "Se denne side med de afventende ændringer"
 }
