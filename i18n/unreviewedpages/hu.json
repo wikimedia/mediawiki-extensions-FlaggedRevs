@@ -8,9 +8,11 @@
 			"Gondnok",
 			"KossuthRad",
 			"Misibacsi",
-			"Samat"
+			"Samat",
+			"Tacsipacsi"
 		]
 	},
+	"action-unreviewedpages": "ellenőrizetlen lapok listájának megtekintése",
 	"unreviewedpages": "Ellenőrizetlen lapok",
 	"unreviewedpages-legend": "Nem ellenőrzött lapok listája",
 	"unreviewedpages-category": "Kategória:",
