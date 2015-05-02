@@ -520,6 +520,46 @@ class FlaggedRevs {
 	# ################ Parsing functions #################
 
 	/**
+	 * Get the HTML output of a revision, using PoolCounter in the process
+	 *
+	 * Returns a Status if pool is full, null if the revision is missing
+	 *
+	 * @param FlaggedRevision $frev
+	 * @param ParserOptions $pOpts
+	 * @return ParserOutput|Status|null
+	 */
+	public static function parseStableRevisionPooled(
+		FlaggedRevision $frev, ParserOptions $pOpts
+	) {
+		$page = WikiPage::factory( $frev->getTitle() );
+		$keyPrefix = FRParserCacheStable::singleton()->getKey( $page, $pOpts );
+		$keyPrefix = $keyPrefix ?: wfMemcKey( 'articleview', 'missingcachekey' );
+
+		$work = new PoolCounterWorkViaCallback(
+			'ArticleView', // use standard parse PoolCounter config
+			$keyPrefix . ':revid:' . $frev->getRevId(),
+			array(
+				'doWork' => function () use ( $frev, $pOpts ) {
+					return FlaggedRevs::parseStableRevision( $frev, $pOpts );
+				},
+				'doCachedWork' => function () use ( $page, $pOpts ) {
+					// Use new cache value from other thread
+					return FRParserCacheStable::singleton()->get( $page, $pOpts );
+				},
+				'fallback' => function () use ( $page, $pOpts ) {
+					// Use stale cache if possible
+					return FRParserCacheStable::singleton()->getDirty( $page, $pOpts );
+				},
+				'error' => function ( Status $status ) {
+					return $status;
+				},
+			)
+		);
+
+		return $work->execute();
+	}
+
+	/**
 	 * Get the HTML output of a revision.
 	 * @param FlaggedRevision $frev
 	 * @param ParserOptions $pOpts

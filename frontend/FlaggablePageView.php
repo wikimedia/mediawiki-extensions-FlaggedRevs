@@ -681,23 +681,25 @@ class FlaggablePageView extends ContextSource {
 			# Cache hit. Note that redirects are not cached.
 			$this->out->addParserOutput( $parserOut );
 		} else {
+			$parserOut = false;
 			# Get the new stable parser output...
 			if ( FlaggedRevs::inclusionSetting() == FR_INCLUDES_CURRENT && $synced ) {
 				# We can try the current version cache, since they are the same revision
 				$parserOut = ParserCache::singleton()->get( $this->article, $pOpts );
-			} else {
-				$parserOut = false;
 			}
 
 			if ( !$parserOut ) {
-				$parserOut = FlaggedRevs::parseStableRevision( $srev, $pOpts );
+				# Actually parse the revision from source text
+				$parserOut = FlaggedRevs::parseStableRevisionPooled( $srev, $pOpts );
 			}
 
-			if ( !$parserOut ) { // serious error
-				$this->out->addWikiMsg( 'missing-article',
-					$this->article->getTitle()->getPrefixedText(),
-					$this->msg( 'missingarticle-rev', $srev->getRevId() )->text()
-				);
+			if ( $parserOut instanceof Status ) {
+				$this->showPoolError( $parserOut );
+
+				return null;
+			} elseif ( !( $parserOut instanceof ParserOutput ) ) { // serious error
+				$this->showMissingRevError( $srev->getRevId() );
+
 				return null;
 			}
 
@@ -719,6 +721,24 @@ class FlaggablePageView extends ContextSource {
 		}
 
 		return $parserOut;
+	}
+
+	protected function showPoolError( Status $status ) {
+		$this->out->enableClientCache( false );
+		$this->out->setRobotPolicy('noindex,nofollow' );
+
+		$errortext = $status->getWikiText( false, 'view-pool-error' );
+		$this->out->addWikiText( '<div class="errorbox">' . $errortext . '</div>' );
+	}
+
+	protected function showMissingRevError( $revId ) {
+		$this->out->enableClientCache( false );
+		$this->out->setRobotPolicy( 'noindex,nofollow' );
+
+		$this->out->addWikiMsg( 'missing-article',
+			$this->article->getTitle()->getPrefixedText(),
+			$this->msg( 'missingarticle-rev', $revId )->text()
+		);
 	}
 
 	// Show icons for draft/stable/old reviewed versions
