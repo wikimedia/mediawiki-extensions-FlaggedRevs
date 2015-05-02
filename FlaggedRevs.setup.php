@@ -63,7 +63,7 @@ class FlaggedRevsSetup {
 		$classes['FlaggedRevsStats'] = "$backendDir/FlaggedRevsStats.php";
 		# Data access object classes...
 		$classes['FRExtraCacheUpdate'] = "$backendDir/FRExtraCacheUpdate.php";
-		$classes['FRExtraCacheUpdateJob'] = "$backendDir/FRExtraCacheUpdate.php";
+		$classes['FRExtraCacheUpdateJob'] = "$backendDir/FRExtraCacheUpdateJob.php";
 		$classes['FRDependencyUpdate'] = "$backendDir/FRDependencyUpdate.php";
 		$classes['FRInclusionManager'] = "$backendDir/FRInclusionManager.php";
 		$classes['FlaggableWikiPage'] = "$backendDir/FlaggableWikiPage.php";
