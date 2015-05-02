@@ -4,7 +4,7 @@
 			"Ahmed-Najib-Biabani-Ibrahimkhel"
 		]
 	},
-	"pendingchanges-hours": "($1 {{PLURAL:$1|ساعت|ساعتونه}})",
+	"pendingchanges-hours": "$1 {{PLURAL:$1|گړۍ|گړۍ}}",
 	"pendingchanges-days": "($1 {{PLURAL:$1|ورځ|ورځې}})",
 	"pendingchanges-recent": "(له 1 گړۍ نه لږ وخت)",
 	"pendingchanges-category": "وېشنيزه:",

@@ -7,7 +7,7 @@
 	"unreviewedpages-category": "وېشنيزه:",
 	"unreviewedpages-diff": "مخکتنه",
 	"unreviewedpages-watched": "($1 فعاله {{PLURAL:$1|کارن|کارنان}} يې ګوري)",
-	"unreviewedpages-hours": "($1 {{PLURAL:$1|ساعت|ساعتونه}})",
+	"unreviewedpages-hours": "$1 {{PLURAL:$1|گړۍ|گړۍ}}",
 	"unreviewedpages-days": "($1 {{PLURAL:$1|ورځ|ورځې}})",
 	"unreviewedpages-recent": "(له 1 گړۍ نه لږ وخت)"
 }
