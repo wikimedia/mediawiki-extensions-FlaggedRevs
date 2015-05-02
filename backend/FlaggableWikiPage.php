@@ -336,17 +336,20 @@ class FlaggableWikiPage extends WikiPage {
 
 	/**
 	 * Updates the fp_reviewed field for this article
-	 * @param bool $synced
 	 */
-	public function updateSyncStatus( $synced ) {
-		if ( !wfReadOnly() ) {
-			$dbw = wfGetDB( DB_MASTER );
-			$dbw->update( 'flaggedpages',
-				array( 'fp_reviewed' => $synced ? 1 : 0 ),
-				array( 'fp_page_id'  => $this->getID() ),
-				__METHOD__
-			);
+	public function lazyUpdateSyncStatus() {
+		if ( wfReadOnly() ) {
+			return;
 		}
+
+		JobQueueGroup::singleton()->push( EnqueueJob::newFromLocalJobs(
+			new JobSpecification(
+				'flaggedrevs_CacheUpdate',
+				array( 'type' => 'updatesyncstate' ),
+				array( 'removeDuplicates' => true ),
+				$this->getTitle()
+			)
+		) );
 	}
 
 	/**

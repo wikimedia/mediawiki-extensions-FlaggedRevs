@@ -66,10 +66,15 @@ class FRDependencyUpdate {
 		if ( $existing != $deps ) {
 			if ( $mode === self::DEFERRED ) {
 				# Let the job queue parse and update
-				JobQueueGroup::singleton()->push( new FRExtraCacheUpdateJob(
-					$this->title,
-					array( 'type' => 'updatelinks' )
+				JobQueueGroup::singleton()->push( EnqueueJob::newFromLocalJobs(
+					new JobSpecification(
+						'flaggedrevs_CacheUpdate',
+						array( 'type' => 'updatelinks' ),
+						array( 'removeDuplicates' => true ),
+						$this->title
+					)
 				) );
+
 				return;
 			}
 

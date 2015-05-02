@@ -22,6 +22,8 @@ class FRExtraCacheUpdateJob extends Job {
 			$this->doBacklinkPurge();
 		} elseif ( $this->params['type'] === 'updatelinks' ) {
 			$this->doUpdateLinks();
+		} elseif ( $this->params['type'] === 'updatesyncstate' ) {
+			$this->doUpdateSyncState();
 		} else {
 			throw new InvalidArgumentException( "Missing 'type' parameter." );
 		}
@@ -64,5 +66,22 @@ class FRExtraCacheUpdateJob extends Job {
 
 		// If not page or revision was found, remove the stable-only links
 		FlaggedRevs::clearStableOnlyDeps( $fpage->getId() );
+	}
+
+	protected function doUpdateSyncState() {
+		$fpage = FlaggableWikiPage::getTitleInstance( $this->title );
+		if ( !$fpage->getId() || !$fpage->getStable() ) {
+			return;
+		}
+
+		$synced = $fpage->stableVersionIsSynced();
+		if ( $fpage->syncedInTracking() != $synced ) {
+			$dbw = wfGetDB( DB_MASTER );
+			$dbw->update( 'flaggedpages',
+				array( 'fp_reviewed' => $synced ? 1 : 0 ),
+				array( 'fp_page_id' => $fpage->getId() ),
+				__METHOD__
+			);
+		}
 	}
 }
