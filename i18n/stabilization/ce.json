@@ -5,9 +5,20 @@
 			"Умар"
 		]
 	},
+	"stabilization-tab": "дикаллин урхалла",
+	"stabilization": "АгӀо чӀагӀъяр",
+	"stabilization-text": "'''Лахарчу форманца [[:$1|$1]] агӀона гуш йолу верси гаран хийцамаш бан йиш ю'''",
+	"stabilization-perm": "Хьан декъашхочун дӀаяздаран и хийцамаш бан бакъонаш яц.\nКхузахь гойтуш ю [[:$1|$1]] агӀона гаран карара гӀирсан нисъярш:",
 	"stabilization-page": "АгӀон цӀе:",
+	"stabilization-leg": "Гуш йолу версин нисъяр бакъдар",
+	"stabilization-def": "Ӏад йитарца гуш йолу верси",
+	"stabilization-def1": "ЧӀагӀъелла верси, ишттаниг яцахь тӀеххьара верси",
 	"stabilization-def2": "ТӀаьхьара верси",
+	"stabilization-restrict": "Таллар дехкар/ша-шен талларш",
+	"stabilization-restrict-none": "Кхин сов дехкарш дац",
 	"stabilization-submit": "Бакъдан",
+	"stabilization-notexists": "«[[:$1|$1]]» цӀе йолуш агӀо яц. Нисъян цало.",
+	"stabilization-notcontent": "«[[:$1|$1]]» агӀо талла таро яц. Нисъян цало.",
 	"stabilization-comment": "Бахьна:",
 	"stabilization-otherreason": "Кхин бахьна:",
 	"stabilization-expiry": "Чекхйолу:",
@@ -17,5 +28,12 @@
 	"stabilization-def-short-1": "Чутоьхнарг",
 	"stabilize_page_invalid": "Агlонан чулацамца йогlуш йоцу цlе.",
 	"stabilize_page_notexists": "Iалаше хьажийна агӀо я яц.",
-	"stabilize-expiring": "чакхйолу $1 (UTC)"
+	"stabilize_page_unreviewable": "Хьожуш йолу цӀерийн анахь Ӏалашонан агӀо яц.",
+	"stabilize_invalid_autoreview": "Авто талларан гӀалате дехкар",
+	"stabilize_invalid_level": "ГӀароллин гӀалате тӀегӀа.",
+	"stabilize_expiry_invalid": "Чекхъяларан гӀалате терахь.",
+	"stabilize_expiry_old": "Дешдерг чекхдала хӀоттина хан тӀех яьлла.",
+	"stabilize_denied": "ТӀекхача ца магийна.",
+	"stabilize-expiring": "чакхйолу $1 (UTC)",
+	"stabilization-review": "Карара верси теллина санна билгалъе"
 }
