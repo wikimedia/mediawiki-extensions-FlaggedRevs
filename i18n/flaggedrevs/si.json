@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"පසිඳු කාවින්ද"
+			"පසිඳු කාවින්ද",
+			"හරිත"
 		]
 	},
 	"action-review": "සංශෝධන නිරීක්ෂණය කරන්න",
@@ -113,6 +114,7 @@
 	"revreview-restriction-none": "කිසිවක් නොමැත",
 	"revreview-reviewlink": "බලාපොරොත්තුවන සංස්කරණ",
 	"revreview-unreviewedpage": "පරික්ෂා නොකළ පිටුව",
+	"tooltip-ca-current": "මෙම පිටුව බලාපොරොත්තු වන වෙනස්කම් සමග බලන්න",
 	"tooltip-ca-stable": "මෙම පිටුවෙහි ස්ථාවර අනුවාදය නරඹන්න",
 	"tooltip-ca-default": "ගුණාත්මක ආරක්ෂණ සැකසුම්",
 	"flaggedrevs-protect-legend": "ස්වයංක්‍රීය සංස්කරණ නිරීක්ෂණය ([[{{MediaWiki:Validationpage}}|උදව්]])",
