@@ -10,7 +10,8 @@
 			"Geraki",
 			"Glavkos",
 			"Omnipaedista",
-			"ZaDiak"
+			"ZaDiak",
+			"Protnet"
 		]
 	},
 	"action-review": "επισκόπηση εκδόσεων",
@@ -31,13 +32,13 @@
 	"flaggedrevs-prefs-viewdiffs": "Εμφάνιση διαφορών στις εκκρεμείς αλλαγές, όταν προβάλλεται η τελευταία αναθεώρηση σε εκκρεμότητα",
 	"flaggedrevs-hidereviewed": "$1 αναθεωρημένες επεξεργασίες",
 	"group-editor": "Συντάκτες",
-	"group-editor-member": "{{GENDER:$1|συντάκτης}}",
+	"group-editor-member": "{{GENDER:$1|συντάκτης|συντάκτρια}}",
 	"group-reviewer": "Επανεξεταστές",
-	"group-reviewer-member": "{{GENDER:$1|συντάκτης}}",
+	"group-reviewer-member": "{{GENDER:$1|συντάκτης|συντάκτρια}}",
 	"grouppage-editor": "{{ns:project}}:Συντάκτης",
 	"grouppage-reviewer": "{{ns:project}}:Κριτικός",
 	"group-autoreview": "Αυτοελεγχόμενοι χρήστες",
-	"group-autoreview-member": "{{GENDER:$1|αυτοελεγχόμενος χρήστης|αυτοελεγχόμενη χρήστης}}",
+	"group-autoreview-member": "{{GENDER:$1|αυτοελεγχόμενος χρήστης|αυτοελεγχόμενη χρήστρια}}",
 	"grouppage-autoreview": "{{ns:project}}:Αυτοελεγχόμενοι χρήστες",
 	"group-editor.css": "/* Η CSS που βρίσκεται εδώ θα επηρεάσει μόνο τους συντάκτες */",
 	"group-editor.js": "/* Η JS που τοποθετήθηκε εδώ θα επηρεάσει μόνο τους συντάκτες */",
