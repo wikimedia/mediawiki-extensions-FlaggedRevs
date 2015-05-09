@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Amire80"
+		]
+	},
+	"apihelp-stabilize-param-reason": "סיבה.",
+	"apihelp-stabilize-param-watch": "מעקב אחרי הדף הזה.",
+	"apihelp-stabilize-param-expiry-general": "זמן פקיעה להגדרות האלו."
+}
