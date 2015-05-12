@@ -48,7 +48,7 @@ $specialPageAliases['ar'] = array(
 	'ValidationStatistics' => array( 'إحصاءات_التحقق' ),
 );
 
-/** Egyptian Spoken Arabic (مصرى) */
+/** Egyptian Arabic (مصرى) */
 $specialPageAliases['arz'] = array(
 	'PendingChanges' => array( 'صفح_مراجعه_قديمه' ),
 	'ProblemChanges' => array( 'تغييرات_المشاكل' ),
@@ -165,7 +165,7 @@ $specialPageAliases['ce'] = array(
 	'ValidationStatistics' => array( 'Нисдарийн_статистика' ),
 );
 
-/** Sorani Kurdish (کوردی) */
+/** Central Kurdish (کوردی) */
 $specialPageAliases['ckb'] = array(
 	'PendingChanges' => array( 'گۆڕانکارییە_ھەڵواسراوەکان' ),
 	'ProblemChanges' => array( 'گۆڕانکارییە_گرفتسازەکان' ),
@@ -276,7 +276,7 @@ $specialPageAliases['fr'] = array(
 	'ValidationStatistics' => array( 'Statistiques_de_validation' ),
 );
 
-/** Franco-Provençal (arpetan) */
+/** Arpitan (arpetan) */
 $specialPageAliases['frp'] = array(
 	'PendingChanges' => array( 'Pâges_que_les_vèrsions_sont_dèpassâs', 'PâgesQueLesVèrsionsSontDèpassâs' ),
 	'QualityOversight' => array( 'Supèrvision_de_qualitât', 'SupèrvisionDeQualitât' ),

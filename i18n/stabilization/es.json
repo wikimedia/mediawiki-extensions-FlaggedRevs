@@ -10,7 +10,8 @@
 			"Manuelt15",
 			"Peter17",
 			"Sanbec",
-			"Translationista"
+			"Translationista",
+			"Macofe"
 		]
 	},
 	"stabilization-tab": "vetar",
@@ -31,7 +32,7 @@
 	"stabilization-otherreason": "Otra razón:",
 	"stabilization-expiry": "Expira:",
 	"stabilization-othertime": "Otra vez:",
-	"stabilization-def-short": "Por defecto",
+	"stabilization-def-short": "Predeterminado",
 	"stabilization-def-short-0": "Actual",
 	"stabilization-def-short-1": "Publicado",
 	"stabilize_page_invalid": "El título de la página de destino es inválido.",
