@@ -105,6 +105,10 @@ class ConfiguredPages extends SpecialPage {
 		return "<li>{$link} ({$config}) <b>[$default]</b> " .
 			"{$restr}<i>{$expiry_description}</i></li>";
 	}
+
+	protected function getGroupName() {
+		return 'quality';
+	}
 }
 
 /**

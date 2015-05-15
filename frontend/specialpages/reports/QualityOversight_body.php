@@ -147,4 +147,8 @@ class QualityOversight extends SpecialPage {
 		}
 		return $showActions;
 	}
+
+	protected function getGroupName() {
+		return 'quality';
+	}
 }

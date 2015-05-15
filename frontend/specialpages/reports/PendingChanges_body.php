@@ -289,6 +289,10 @@ class PendingChanges extends SpecialPage {
 			return "";
 		}
 	}
+
+	protected function getGroupName() {
+		return 'quality';
+	}
 }
 
 /**

@@ -277,6 +277,10 @@ class UnreviewedPages extends SpecialPage {
 			__METHOD__ );
 		$dbw->commit();
 	}
+
+	protected function getGroupName() {
+		return 'quality';
+	}
 }
 
 /**

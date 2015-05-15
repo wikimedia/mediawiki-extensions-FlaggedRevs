@@ -365,10 +365,10 @@ class FlaggedRevsSetup {
 	 * @return void
 	 */
 	public static function setSpecialPages() {
-		global $wgSpecialPages, $wgSpecialPageGroups, $wgSpecialPageCacheUpdates;
+		global $wgSpecialPages, $wgSpecialPageCacheUpdates;
 
 		FlaggedRevsUISetup::defineSpecialPages(
-			$wgSpecialPages, $wgSpecialPageGroups, $wgSpecialPageCacheUpdates );
+			$wgSpecialPages, $wgSpecialPageCacheUpdates );
 	}
 
 	/**

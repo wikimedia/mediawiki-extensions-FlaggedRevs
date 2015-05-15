@@ -330,4 +330,8 @@ class ValidationStatistics extends IncludableSpecialPage {
 
 		return $data;
 	}
+
+	protected function getGroupName() {
+		return 'quality';
+	}
 }

@@ -101,6 +101,10 @@ class StablePages extends SpecialPage {
 		$utilLinks = $this->getLanguage()->pipeList( $utilLinks );
 		return "<li>{$link} ({$utilLinks}) {$restr}<i>{$expiry_description}</i></li>";
 	}
+
+	protected function getGroupName() {
+		return 'quality';
+	}
 }
 
 /**

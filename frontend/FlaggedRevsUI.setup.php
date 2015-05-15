@@ -92,11 +92,10 @@ class FlaggedRevsUISetup {
 	/**
 	 * Register FlaggedRevs special pages as needed.
 	 * @param $pages Array $wgSpecialPages (list of special pages)
-	 * @param $groups Array $wgSpecialPageGroups (assoc array of special page groups)
 	 * @param $updates Array $wgSpecialPageCacheUpdates (assoc array of special page updaters)
 	 * @return void
 	 */
-	public static function defineSpecialPages( array &$pages, array &$groups, array &$updates ) {
+	public static function defineSpecialPages( array &$pages, array &$updates ) {
 		global $wgFlaggedRevsProtection, $wgFlaggedRevsNamespaces, $wgUseTagFilter;
 
 		// Show special pages only if FlaggedRevs is enabled on some namespaces
@@ -104,31 +103,23 @@ class FlaggedRevsUISetup {
 			$pages['RevisionReview'] = 'RevisionReview'; // unlisted
 			$pages['ReviewedVersions'] = 'ReviewedVersions'; // unlisted
 			$pages['PendingChanges'] = 'PendingChanges';
-			$groups['PendingChanges'] = 'quality';
 			// Show tag filtered pending edit page if there are tags
 			if ( $wgUseTagFilter ) {
 				$pages['ProblemChanges'] = 'ProblemChanges';
-				$groups['ProblemChanges'] = 'quality';
 			}
 			if ( !$wgFlaggedRevsProtection ) {
 				$pages['ReviewedPages'] = 'ReviewedPages';
-				$groups['ReviewedPages'] = 'quality';
 				$pages['UnreviewedPages'] = 'UnreviewedPages';
-				$groups['UnreviewedPages'] = 'quality';
 				$updates['UnreviewedPages'] = 'UnreviewedPages::updateQueryCache';
 			}
 			$pages['QualityOversight'] = 'QualityOversight';
-			$groups['QualityOversight'] = 'quality';
 			$pages['ValidationStatistics'] = 'ValidationStatistics';
-			$groups['ValidationStatistics'] = 'quality';
 			$updates['ValidationStatistics'] = 'FlaggedRevsStats::updateCache';
 			// Protect levels define allowed stability settings
 			if ( $wgFlaggedRevsProtection ) {
 				$pages['StablePages'] = 'StablePages';
-				$groups['StablePages'] = 'quality';
 			} else {
 				$pages['ConfiguredPages'] = 'ConfiguredPages';
-				$groups['ConfiguredPages'] = 'quality';
 				$pages['Stabilization'] = 'Stabilization'; // unlisted
 			}
 		}

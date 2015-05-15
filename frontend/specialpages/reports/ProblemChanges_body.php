@@ -280,6 +280,10 @@ class ProblemChanges extends SpecialPage {
 		else
 			return "";
 	}
+
+	protected function getGroupName() {
+		return 'quality';
+	}
 }
 
 /**
