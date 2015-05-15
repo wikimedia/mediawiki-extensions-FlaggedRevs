@@ -9,7 +9,8 @@
 			"Mihai",
 			"Minisarm",
 			"Misterr",
-			"Stelistcristi"
+			"Stelistcristi",
+			"ImGelu"
 		]
 	},
 	"action-review": "revizuire versiuni",
@@ -130,7 +131,7 @@
 	"revreview-reviewlink": "modificări în așteptare",
 	"revreview-reviewlink-title": "Vezi diferenţele între modificările în curs",
 	"revreview-unreviewedpage": "pagină neverificată",
-	"tooltip-ca-current": "Vizualizaţi această pagină cu modificările în aşteptare",
+	"tooltip-ca-current": "Vezi această pagină cu modificările în aşteptare",
 	"tooltip-ca-stable": "Vizualizați versiunea stabilă a acestei pagini",
 	"tooltip-ca-default": "Setările asigurării de calitate",
 	"flaggedrevs-protect-legend": "([[{{MediaWiki:Validationpage}}|Ajutor]]) asupra revizuirii automate",

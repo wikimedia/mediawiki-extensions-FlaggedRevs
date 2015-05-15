@@ -165,7 +165,7 @@ $specialPageAliases['ce'] = array(
 	'ValidationStatistics' => array( 'Нисдарийн_статистика' ),
 );
 
-/** Central Kurdish (کوردی) */
+/** Central Kurdish (کوردیی ناوەندی) */
 $specialPageAliases['ckb'] = array(
 	'PendingChanges' => array( 'گۆڕانکارییە_ھەڵواسراوەکان' ),
 	'ProblemChanges' => array( 'گۆڕانکارییە_گرفتسازەکان' ),
