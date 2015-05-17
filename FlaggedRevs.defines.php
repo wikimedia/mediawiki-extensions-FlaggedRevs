@@ -31,7 +31,8 @@ define( 'FR_SHOW_STABLE_NEVER', 2 );
 # Autopromote conds (F=70,R=82)
 # @TODO: move these 6 to core
 define( 'APCOND_FR_EDITSUMMARYCOUNT', 70821 );
-define( 'APCOND_FR_NEVERBOCKED', 70822 );
+define( 'APCOND_FR_NEVERBLOCKED', 70822 );
+define( 'APCOND_FR_NEVERBOCKED', 70822 ); // b/c
 define( 'APCOND_FR_UNIQUEPAGECOUNT', 70823 );
 define( 'APCOND_FR_CONTENTEDITCOUNT', 70824 );
 define( 'APCOND_FR_USERPAGEBYTES', 70825 );
