@@ -1,8 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
-			"Macofe"
+			"Macofe",
+			"Fitoschido"
 		]
 	},
-	"apihelp-stabilize-param-reason": "Motivo:"
+	"apihelp-query+oldreviewedpages-param-start": "Comenzar listado en esta marca temporal.",
+	"apihelp-query+oldreviewedpages-param-end": "Detener listado en esta marca temporal.",
+	"apihelp-query+unreviewedpages-param-dir": "Dirección de ordenamiento.",
+	"apihelp-query+unreviewedpages-param-namespace": "Los espacios de nombres que aparecerán.",
+	"apihelp-stabilize-param-reason": "Motivo:",
+	"apihelp-stabilize-param-watch": "Añadir esta página a la lista de seguimiento."
 }
