@@ -326,7 +326,7 @@ class FlaggedRevsSetup {
 				$criteria[] = array( APCOND_EMAILCONFIRMED );
 			}
 			if ( $req['neverBlocked'] ) {
-				$criteria[] = array( APCOND_FR_NEVERBOCKED );
+				$criteria[] = array( APCOND_FR_NEVERBLOCKED );
 			}
 			$wgAutopromoteOnce['onEdit']['autoreview'] = $criteria;
 			$wgGroupPermissions['autoreview']['autoreview'] = true;
@@ -353,7 +353,7 @@ class FlaggedRevsSetup {
 				array( '!', APCOND_ISBOT )
 			);
 			if ( $req['neverBlocked'] ) {
-				$criteria[] = array( APCOND_FR_NEVERBOCKED );
+				$criteria[] = array( APCOND_FR_NEVERBLOCKED );
 			}
 			$wgAutopromoteOnce['onEdit']['editor'] = $criteria;
 		}

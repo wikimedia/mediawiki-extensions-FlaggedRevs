@@ -861,7 +861,7 @@ class FlaggedRevsHooks {
 				$p = FRUserCounters::getParams( $user );
 				$result = ( $p && $p['editComments'] >= $params[0] );
 				break;
-			case APCOND_FR_NEVERBOCKED:
+			case APCOND_FR_NEVERBLOCKED:
 				if ( $user->isBlocked() ) {
 					$result = false; // failed
 				} else {
