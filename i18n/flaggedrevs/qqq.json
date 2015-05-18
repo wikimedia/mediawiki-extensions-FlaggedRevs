@@ -188,7 +188,7 @@
 	"revreview-filter-unapproved": "{{Flagged Revs}}\nShown as dropdown option on lists or log pages to filter results.",
 	"revreview-typefilter": "{{Flagged Revs}}\nShown on lists or log pages to filter results.\n\nUsed as label for the select box which has the following options:\n* {{msg-mw|Revreview-filter-all}}\n* {{msg-mw|Revreview-filter-manual}}\n* {{msg-mw|Revreview-filter-auto}}\n{{Identical|Type}}",
 	"revreview-filter-auto": "{{Flagged Revs}}\nShown as dropdown option on lists or log pages to filter results.\n{{Identical|Automatic}}",
-	"revreview-filter-manual": "{{Flagged Revs}}\nShown as dropdown option on lists or log pages to filter results.",
+	"revreview-filter-manual": "{{Flagged Revs}}\nShown as dropdown option on lists or log pages to filter results.\n{{Identical|Manual}}",
 	"revreview-levelfilter": "{{Flagged Revs}}\nShown as dropdown option on lists or log pages to filter results.\n\nFollowed by the following options:\n* {{msg-mw|Revreview-lev-all}}\n* {{msg-mw|Revreview-lev-basic}}\n* {{msg-mw|Revreview-lev-quality}}\n* {{msg-mw|Revreview-lev-pristine}}\n{{Identical|Level}}",
 	"revreview-lev-all": "{{Flagged Revs}}\nShown as dropdown option on lists or log pages to filter results.\n{{Related|Revreview-lev}}\n{{Identical|Any}}",
 	"revreview-lev-basic": "{{Flagged Revs}}\nShown as dropdown option on lists or log pages to filter results.\n\nUsed in {{msg-mw|Reviewedpages-lev-0}}.\n{{Related|Revreview-lev}}\n{{Identical|Checked}}",

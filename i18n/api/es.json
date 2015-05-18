@@ -2,13 +2,38 @@
 	"@metadata": {
 		"authors": [
 			"Macofe",
-			"Fitoschido"
+			"Fitoschido",
+			"Ryo567"
 		]
 	},
+	"apihelp-query+configuredpages-description": "Enumerar todas las páginas que tienen configuraciones de revisiones personalizadas.",
 	"apihelp-query+oldreviewedpages-param-start": "Comenzar listado en esta marca temporal.",
 	"apihelp-query+oldreviewedpages-param-end": "Detener listado en esta marca temporal.",
+	"apihelp-query+oldreviewedpages-param-filterwatched": "Cómo filtrar las páginas en tu lista de seguimiento.",
+	"apihelp-query+oldreviewedpages-param-category": "Mostrar solo páginas en la categoría dada.",
+	"apihelp-query+oldreviewedpages-param-filterredir": "Cómo filtrar las redirecciones.",
+	"apihelp-query+oldreviewedpages-param-limit": "Cuántos páginas se devolverán.",
+	"apihelp-query+oldreviewedpages-example-2": "Mostrar información acerca de algunas páginas revisadas antiguamente",
+	"apihelp-query+reviewedpages-description": "Enumerar páginas con una versión revisada.",
+	"apihelp-query+reviewedpages-param-filterredir": "Cómo filtrar las redirecciones",
+	"apihelp-query+reviewedpages-param-limit": "Cuántos páginas se devolverán.",
+	"apihelp-query+reviewedpages-example-1": "Mostrar una lista de páginas revisadas",
+	"apihelp-query+reviewedpages-example-2": "Mostrar información acerca de algunas páginas revisadas",
 	"apihelp-query+unreviewedpages-param-dir": "Dirección de ordenamiento.",
 	"apihelp-query+unreviewedpages-param-namespace": "Los espacios de nombres que aparecerán.",
+	"apihelp-query+unreviewedpages-param-filterredir": "Cómo filtrar las redirecciones.",
+	"apihelp-query+unreviewedpages-param-limit": "Cuántos páginas se devolverán.",
+	"apihelp-query+unreviewedpages-example-1": "Mostrar una lista de páginas no revisadas",
+	"apihelp-query+unreviewedpages-example-2": "Mostrar información acerca de algunas páginas no revisadas",
+	"apihelp-review-description": "Revisar una revisión aprobándola o anulando la aprobación.",
+	"apihelp-review-param-comment": "Comentario de la revisión.",
+	"apihelp-review-param-unapprove": "Si se aplica, la revisión anulará la aprobación en lugar de aprobarla.",
+	"apihelp-review-example-1": "Aprobar la revisión 12345 con el comentario \"Ok\"",
+	"apihelp-stabilize-description-general": "Cambiar ajustes de estabilidad de la página.",
 	"apihelp-stabilize-param-reason": "Motivo:",
-	"apihelp-stabilize-param-watch": "Añadir esta página a la lista de seguimiento."
+	"apihelp-stabilize-param-watch": "Añadir esta página a la lista de seguimiento.",
+	"apihelp-stabilize-param-title-general": "Título de la página a estabilizar.",
+	"apihelp-stabilize-param-title-protect": "Título de la página a proteger.",
+	"apihelp-stabilize-param-autoreview": "Restricción de autorevisión.",
+	"apihelp-stabilize-param-review": "Revisar esta página."
 }

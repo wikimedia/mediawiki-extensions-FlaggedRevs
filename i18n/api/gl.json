@@ -4,6 +4,7 @@
 			"Elisardojm"
 		]
 	},
+	"apihelp-flagconfig-description": "Obter información básica sobre a configuración da marca de relectura do sitio.\n\nPara cada etiqueta devólvense os seguintes parámetros:\n;name:O nome de clave da etiqueta.\n;levels:O número de niveis que ten a etiqueta (por riba de \"non etiquetado\").\n;tier2:Nivel que debe alcanzar a etiqueta para que unha revisión sexa nivel 2 (cualidade).\n;tier3:Nivel que debe alcanzar a etiqueta para que unha revisión sexa nivel 2 (prístina). \nAs revións marcadas teñen un nivel marcado para cada etiqueta. O nivel máis alto que cumpren todas as etiquetas é o nivel de revisión de toda a revisión.",
 	"apihelp-flagconfig-example-1": "Recuperar a configuración da marca",
 	"apihelp-query+configuredpages-description": "Enumerar todas as páxinas que teñen configuracións de revisión personalizada.",
 	"apihelp-query+configuredpages-param-start": "Comezar a lista neste identificador de páxina.",
