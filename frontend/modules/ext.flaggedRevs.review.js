@@ -26,7 +26,7 @@ var wgFlaggedRevsParams = mw.config.get( 'wgFlaggedRevsParams' ),
 		/*global jsReviewNeedsChange*/
 		// wtf? this is set in frontend/RevisionReviewFormUI by outputting JS
 		if ( typeof jsReviewNeedsChange !== 'undefined' && jsReviewNeedsChange === 1 ) {
-			$( '#mw-fr-submit-accept' ).prop( 'disabled', 'disabled' );
+			$( '#mw-fr-submit-accept' ).prop( 'disabled', true );
 		}
 
 		// Setup <select> form option colors
@@ -96,7 +96,7 @@ var wgFlaggedRevsParams = mw.config.get( 'wgFlaggedRevsParams' ),
 		// (a) If only a few levels are zero ("incomplete") then disable submission.
 		// (b) Re-enable submission for already accepted revs when ratings change.
 		$( '#mw-fr-submit-accept' )
-			.prop( 'disabled', somezero ? 'disabled' : '' )
+			.prop( 'disabled', somezero )
 			.val( mw.msg( 'revreview-submit-review' ) ); // reset to "Accept"
 
 		// Update colors of <select>
@@ -125,7 +125,7 @@ var wgFlaggedRevsParams = mw.config.get( 'wgFlaggedRevsParams' ),
 	 * Lock review form from submissions (using during AJAX requests)
 	 */
 	'lockReviewForm': function ( form ) {
-		form.find( 'input,textarea,select' ).prop( 'disabled', 'disabled' );
+		form.find( 'input,textarea,select' ).prop( 'disabled', true );
 	},
 
 	/*
@@ -135,12 +135,12 @@ var wgFlaggedRevsParams = mw.config.get( 'wgFlaggedRevsParams' ),
 		var i, inputs = form.find( 'input' );
 		for ( i = 0; i < inputs.length; i++ ) {
 			if ( inputs.eq( i ).prop( 'type' ) !== 'submit' ) { // not all buttons can be enabled
-				inputs.eq( i ).prop( 'disabled', '' );
+				inputs.eq( i ).prop( 'disabled', false );
 			} else {
 				inputs.eq( i ).blur(); // focus off element (bug 24013)
 			}
 		}
-		form.find( 'textarea,select' ).prop( 'disabled', '' );
+		form.find( 'textarea,select' ).prop( 'disabled', false );
 	},
 
 	/*
@@ -240,8 +240,8 @@ var wgFlaggedRevsParams = mw.config.get( 'wgFlaggedRevsParams' ),
 					usubmit.val( mw.msg( 'revreview-submit-unreview' ) );
 					usubmit.css( 'fontWeight', '' ); // back to normal
 					usubmit.show(); // now available
-					usubmit.prop( 'disabled', '' ); // unlock
-					rsubmit.prop( 'disabled', 'disabled' ); // lock if present
+					usubmit.prop( 'disabled', false ); // unlock
+					rsubmit.prop( 'disabled', true ); // lock if present
 				// Revision was unflagged
 				} else if ( usubmit.val() === mw.msg( 'revreview-submitting' ) ) {
 					usubmit.val( mw.msg( 'revreview-submit-unreviewed' ) ); // done!
@@ -249,8 +249,8 @@ var wgFlaggedRevsParams = mw.config.get( 'wgFlaggedRevsParams' ),
 					// Unlock and reset *flag* button
 					asubmit.val( mw.msg( 'revreview-submit-review' ) );
 					asubmit.css( 'fontWeight', '' ); // back to normal
-					asubmit.prop( 'disabled', '' ); // unlock
-					rsubmit.prop( 'disabled', '' ); // unlock if present
+					asubmit.prop( 'disabled', false ); // unlock
+					rsubmit.prop( 'disabled', false ); // unlock if present
 				}
 			}
 			// (b) Remove review tag from drafts
@@ -286,11 +286,11 @@ var wgFlaggedRevsParams = mw.config.get( 'wgFlaggedRevsParams' ),
 				// Revision was flagged
 				if ( asubmit.val() === mw.msg( 'revreview-submitting' ) ) {
 					asubmit.val( mw.msg( 'revreview-submit-review' ) ); // back to normal
-					asubmit.prop( 'disabled', '' ); // unlock
+					asubmit.prop( 'disabled', false ); // unlock
 				// Revision was unflagged
 				} else if ( usubmit.val() === mw.msg( 'revreview-submitting' ) ) {
 					usubmit.val( mw.msg( 'revreview-submit-unreview' ) ); // back to normal
-					usubmit.prop( 'disabled', '' ); // unlock
+					usubmit.prop( 'disabled', false ); // unlock
 				}
 			}
 			// (b) Output any error response message
