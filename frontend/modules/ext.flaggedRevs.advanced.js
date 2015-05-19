@@ -62,7 +62,7 @@ var fr = {
 	 * @context {jQuery}
 	 * @param e {jQuery.Event}
 	 */
-	'toggleBoxDetails': function ( e ) {
+	'toggleBoxDetails': function () {
 		var	toggle = $( '#mw-fr-revisiontoggle' ),
 			ratings = $( '#mw-fr-revisiondetails' );
 
@@ -84,7 +84,7 @@ var fr = {
 	 * @context {jQuery}
 	 * @param e {jQuery.Event}
 	 */
-	'onBoxMouseOver': function ( e ) {
+	'onBoxMouseOver': function () {
 		/*global window*/
 		window.clearTimeout( fr.boxCollapseTimer );
 		fr.boxCollapseTimer = null;
@@ -131,7 +131,7 @@ var fr = {
 	 * @context {jQuery}
 	 * @param e {jQuery.Event}
 	 */
-	'toggleDiff': function ( e ) {
+	'toggleDiff': function () {
 		var	diff = $( '#mw-fr-stablediff' ),
 			toggle = $( '#mw-fr-difftoggle' );
 
@@ -151,7 +151,7 @@ var fr = {
 	 * @context {jQuery}
 	 * @param e {jQuery.Event}
 	 */
-	'toggleLog': function ( e ) {
+	'toggleLog': function () {
 		var	hideMsg, showMsg,
 			log = $( '#mw-fr-logexcerpt' ),
 			toggle = $( '#mw-fr-logtoggle' );

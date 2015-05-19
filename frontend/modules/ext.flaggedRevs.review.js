@@ -16,7 +16,7 @@ var wgFlaggedRevsParams = mw.config.get( 'wgFlaggedRevsParams' ),
 		var form = $( '#mw-fr-reviewform' );
 
 		// Enable AJAX-based submit functionality to the review form on this page
-		$( '#mw-fr-submit-accept,#mw-fr-submit-unaccept' ).click( function ( e ) {
+		$( '#mw-fr-submit-accept,#mw-fr-submit-unaccept' ).click( function () {
 			fr.submitRevisionReview( this, form );
 			return false; // don't do normal non-AJAX submit
 		} );
@@ -32,7 +32,7 @@ var wgFlaggedRevsParams = mw.config.get( 'wgFlaggedRevsParams' ),
 		// Setup <select> form option colors
 		fr.updateReviewFormColors( form );
 		// Update review form on change
-		form.find( 'input,select' ).change( function ( e ) {
+		form.find( 'input,select' ).change( function () {
 			fr.updateReviewForm( form );
 		} );
 
@@ -40,7 +40,7 @@ var wgFlaggedRevsParams = mw.config.get( 'wgFlaggedRevsParams' ),
 		fr.enableAjaxReviewActivity();
 		// "De-advertise" user as "no longer reviewing" on navigate-away
 		/*global window*/
-		$( window ).unload( function ( e ) {
+		$( window ).unload( function () {
 			if ( fr.isUserReviewing === 1 ) {
 				fr.deadvertiseReviewing();
 			}
@@ -192,7 +192,7 @@ var wgFlaggedRevsParams = mw.config.get( 'wgFlaggedRevsParams' ),
 			post_data += '&rsargs[]=' + encodeURIComponent( requestArgs[i] );
 		}
 		// Send POST request via AJAX!
-		var call = $.ajax( {
+		$.ajax( {
 			url      : mw.util.wikiScript( 'index' ),
 			type     : 'POST',
 			data     : post_data,
@@ -200,7 +200,7 @@ var wgFlaggedRevsParams = mw.config.get( 'wgFlaggedRevsParams' ),
 			success  : function ( response ) {
 				fr.postSubmitRevisionReview( form, response );
 			},
-			error    : function ( response ) {
+			error    : function () {
 				fr.unlockReviewForm( form );
 			}
 		} );
@@ -269,7 +269,7 @@ var wgFlaggedRevsParams = mw.config.get( 'wgFlaggedRevsParams' ),
 					url_pars += '&rsargs[]=' + encodeURIComponent( requestArgs[i] );
 				}
 				// Send GET request via AJAX!
-				var call = $.ajax( {
+				$.ajax( {
 					url      : mw.util.wikiScript( 'index' ) + url_pars,
 					type     : 'GET',
 					dataType : 'html', // response type
@@ -389,7 +389,7 @@ var wgFlaggedRevsParams = mw.config.get( 'wgFlaggedRevsParams' ),
 			nRevId = inputOldId ? inputOldId.val() : 0;
 		if ( nRevId > 0 ) {
 			// Send GET request via AJAX!
-			var call = $.ajax( {
+			$.ajax( {
 				url     : mw.util.wikiScript( 'api' ),
 				data    : {
 					action    : 'reviewactivity',
