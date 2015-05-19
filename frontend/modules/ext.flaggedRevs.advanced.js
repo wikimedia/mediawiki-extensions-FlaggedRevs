@@ -207,8 +207,6 @@ var fr = {
 };
 
 // Perform some onload events:
-$( function () {
-	fr.init();
-} );
+$( fr.init );
 
 }( mediaWiki, jQuery ) );

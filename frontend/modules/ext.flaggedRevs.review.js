@@ -415,8 +415,6 @@ var wgFlaggedRevsParams = mw.config.get( 'wgFlaggedRevsParams' ),
 };
 
 // Perform some onload events:
-$( document ).ready( function () {
-	fr.init();
-} );
+$( fr.init );
 
 }( mediaWiki, jQuery ) );
