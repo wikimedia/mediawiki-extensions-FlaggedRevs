@@ -9,10 +9,10 @@
 var wgFlaggedRevsParams = mw.config.get( 'wgFlaggedRevsParams' ),
 	fr = {
 	/* User is reviewing this page? */
-	'isUserReviewing': 0,
+	isUserReviewing: 0,
 
 	/* Startup function */
-	'init': function () {
+	init: function () {
 		var form = $( '#mw-fr-reviewform' );
 
 		// Enable AJAX-based submit functionality to the review form on this page
@@ -55,7 +55,7 @@ var wgFlaggedRevsParams = mw.config.get( 'wgFlaggedRevsParams' ),
 	 * - Also remove comment box clutter in case of invalid input.
 	 * NOTE: all buttons should exist (perhaps hidden though)
 	 */
-	'updateReviewForm': function ( form ) {
+	updateReviewForm: function ( form ) {
 		if ( form.prop( 'disabled' ) ) {
 			return;
 		}
@@ -106,7 +106,7 @@ var wgFlaggedRevsParams = mw.config.get( 'wgFlaggedRevsParams' ),
 	/*
 	 * Update <select> color for the selected item/option
 	 */
-	'updateReviewFormColors': function ( form ) {
+	updateReviewFormColors: function ( form ) {
 		for ( var tag in wgFlaggedRevsParams.tags ) { // for each tag
 			var select = form.find( "[name='wp" + tag + "']" ).eq( 0 );
 			// Look for a selector for this tag
@@ -124,14 +124,14 @@ var wgFlaggedRevsParams = mw.config.get( 'wgFlaggedRevsParams' ),
 	/*
 	 * Lock review form from submissions (using during AJAX requests)
 	 */
-	'lockReviewForm': function ( form ) {
+	lockReviewForm: function ( form ) {
 		form.find( 'input,textarea,select' ).prop( 'disabled', true );
 	},
 
 	/*
 	 * Unlock review form from submissions (using after AJAX requests)
 	 */
-	'unlockReviewForm': function ( form ) {
+	unlockReviewForm: function ( form ) {
 		var i, inputs = form.find( 'input' );
 		for ( i = 0; i < inputs.length; i++ ) {
 			if ( inputs.eq( i ).prop( 'type' ) !== 'submit' ) { // not all buttons can be enabled
@@ -149,7 +149,7 @@ var wgFlaggedRevsParams = mw.config.get( 'wgFlaggedRevsParams' ),
 	 * Note: requestArgs build-up from radios/checkboxes
 	 * based on patch by Daniel Arnold (bug 13744)
 	 */
-	'submitRevisionReview': function ( button, form ) {
+	submitRevisionReview: function ( button, form ) {
 		var i;
 		fr.lockReviewForm( form ); // disallow submissions
 		// Build up arguments array and update submit button text...
@@ -209,7 +209,7 @@ var wgFlaggedRevsParams = mw.config.get( 'wgFlaggedRevsParams' ),
 	/*
 	 * Update form elements after AJAX review.
 	 */
-	'postSubmitRevisionReview': function ( form, response ) {
+	postSubmitRevisionReview: function ( form, response ) {
 		var msg = response.substr( 6 ); // remove <err#> or <suc#>
 		// Read new "last change time" timestamp for conflict handling
 		// @TODO: pass last-chage-time data using JSON or something not retarded
@@ -310,7 +310,7 @@ var wgFlaggedRevsParams = mw.config.get( 'wgFlaggedRevsParams' ),
 	/*
 	 * Enable AJAX-based functionality to set that a user is reviewing a page/diff
 	 */
-	'enableAjaxReviewActivity': function () {
+	enableAjaxReviewActivity: function () {
 		// User is already reviewing in another tab...
 		if ( $( '#mw-fr-user-reviewing' ).val() === 1 ) {
 			fr.isUserReviewing = 1;
@@ -325,7 +325,7 @@ var wgFlaggedRevsParams = mw.config.get( 'wgFlaggedRevsParams' ),
 	/*
 	 * Flag users as "now reviewing"
 	 */
-	'advertiseReviewing': function ( e, isInitial ) {
+	advertiseReviewing: function ( e, isInitial ) {
 		if ( isInitial !== true ) { // don't send if just setting up form
 			if ( !fr.setReviewingStatus( 1 ) ) {
 				return; // failed
@@ -351,7 +351,7 @@ var wgFlaggedRevsParams = mw.config.get( 'wgFlaggedRevsParams' ),
 	/*
 	 * Flag users as "no longer reviewing"
 	 */
-	'deadvertiseReviewing': function ( e, isInitial ) {
+	deadvertiseReviewing: function ( e, isInitial ) {
 		if ( isInitial !== true ) { // don't send if just setting up form
 			if ( !fr.setReviewingStatus( 0 ) ) {
 				return; // failed
@@ -379,7 +379,7 @@ var wgFlaggedRevsParams = mw.config.get( 'wgFlaggedRevsParams' ),
 	/*
 	 * Set reviewing status for this page/diff
 	 */
-	'setReviewingStatus': function ( value ) {
+	setReviewingStatus: function ( value ) {
 		var res = false,
 			// Get {previd,oldid} array for this page view.
 			// The previd value will be 0 if this is not a diff view.
