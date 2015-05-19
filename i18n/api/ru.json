@@ -1,0 +1,13 @@
+{
+	"@metadata": {
+		"authors": [
+			"Okras"
+		]
+	},
+	"apihelp-query+unreviewedpages-param-dir": "Направление сортировки.",
+	"apihelp-query+unreviewedpages-param-namespace": "Пространства имён для перечисления.",
+	"apihelp-query+unreviewedpages-param-limit": "Сколько всего страниц возвращать.",
+	"apihelp-review-param-flag": "Установить флагу ''$1'' указанное значение.",
+	"apihelp-stabilize-param-reason": "Причина.",
+	"apihelp-stabilize-param-watch": "Включить эту страницу в список наблюдения."
+}
