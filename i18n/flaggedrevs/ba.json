@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Haqmar"
+			"Haqmar",
+			"Рустам Нурыев"
 		]
 	},
 	"action-review": "биттәрҙең өлгөләрен тикшереү",
@@ -60,6 +61,7 @@
 	"revreview-reviewlink": "тикшерелмәгән үҙгәрештәр",
 	"revreview-reviewlink-title": "Бөтә тикшерелмәгән үҙгәртеүҙәрҙең айырмаларын ҡарау",
 	"revreview-unreviewedpage": "тикшерелмәгән бит",
+	"tooltip-ca-current": "Тикшерелмәгән үҙгәртеүҙәр булған был битте ҡарап сығыу",
 	"tooltip-ca-stable": "Был биттең тотороҡло өлгөһөн ҡарарға",
 	"tooltip-ca-default": "Сифат һаҡлау көйләүҙәре",
 	"flaggedrevs-protect-none": "Бар ҡулланыусыларға рөхсәт бирергә"

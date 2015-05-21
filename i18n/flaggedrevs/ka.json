@@ -27,6 +27,7 @@
 	"flaggedrevs-prefs-viewdiffs": "შეუმოწმებელი ვერსიის ხილვისას აჩვენეთ გადაუმოწმებელი ცვლილება",
 	"flaggedrevs-hidereviewed": "შემოწმებული გვერდების $1",
 	"flaggedrevs-hidereviewed-hide": "დამალვა",
+	"flaggedrevs-hidereviewed-show": "ჩვენება",
 	"group-editor": "შემმოწმებელი",
 	"group-editor-member": "{{GENDER:$1|შემმოწმებელი}}",
 	"group-reviewer": "რეცენზისტები",
