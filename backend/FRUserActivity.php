@@ -41,21 +41,21 @@ class FRUserActivity {
 		return $count;
 	}
 
-	/*
+	/**
 	 * Get who is currently reviewing a page
 	 * @param int $pageId
 	 * @return array (username or null, MW timestamp or null)
 	 */
 	public static function getUserReviewingPage( $pageId ) {
-		global $wgMemc;
 		$key = wfMemcKey( 'flaggedrevs', 'userReviewingPage', $pageId );
-		$val = $wgMemc->get( $key );
+		$val = ObjectCache::getMainStashInstance()->get( $key );
+
 		return ( count( $val ) == 3 )
 			? array( $val[0], $val[1] )
 			: array( null, null );
 	}
 
-	/*
+	/**
 	 * Check if someone is currently reviewing a page
 	 * @param int $pageId
 	 * @return bool
@@ -65,11 +65,11 @@ class FRUserActivity {
 		return ( $m[0] !== null );
 	}
 
-	/*
+	/**
 	 * Set the flag for who is reviewing a page if not already set by someone.
 	 * If already set, then increment the instance counter (multiple windows)
 	 * and add on time to the expiry.
-	*
+	 *
 	 * @param User $user
 	 * @param int $pageId
 	 * @return bool flag set
@@ -79,7 +79,7 @@ class FRUserActivity {
 		return self::incUserReviewingItem( $key, $user, self::PAGE_REVIEW_SEC );
 	}
 
-	/*
+	/**
 	 * Clear an instance of a user reviewing a page by decrementing the counter.
 	 * If it reaches 0 instances, then clear the flag for who is reviewing the page.
 	 * @param User $user
@@ -91,33 +91,32 @@ class FRUserActivity {
 		return self::decUserReviewingItem( $key, $user, self::PAGE_REVIEW_SEC );
 	}
 
-	/*
+	/**
 	 * Totally clear the flag for who is reviewing a page.
 	 * @param int $pageId
 	 * @return void
 	 */
 	public static function clearAllReviewingPage( $pageId ) {
-		global $wgMemc;
 		$key = wfMemcKey( 'flaggedrevs', 'userReviewingPage', $pageId );
-		$wgMemc->delete( $key );
+		ObjectCache::getMainStashInstance()->delete( $key );
 	}
 
-	/*
+	/**
 	 * Get who is currently reviewing a diff
 	 * @param int $oldId
 	 * @param int $newId
 	 * @return array (username or null, MW timestamp or null)
 	 */
 	public static function getUserReviewingDiff( $oldId, $newId ) {
-		global $wgMemc;
 		$key = wfMemcKey( 'flaggedrevs', 'userReviewingDiff', $oldId, $newId );
-		$val = $wgMemc->get( $key );
+		$val = ObjectCache::getMainStashInstance()->get( $key );
+
 		return ( count( $val ) == 3 )
 			? array( $val[0], $val[1] )
 			: array( null, null );
 	}
 
-	/*
+	/**
 	 * Check if someone is currently reviewing a diff
 	 * @param int $oldId
 	 * @param int $newId
@@ -125,23 +124,26 @@ class FRUserActivity {
 	 */
 	public static function diffIsUnderReview( $oldId, $newId ) {
 		$m = self::getUserReviewingDiff( $oldId, $newId );
+
 		return ( $m[0] !== null );
 	}
 
-	/*
+	/**
 	 * Set the flag for who is reviewing a diff if not already set by someone.
 	 * If already set, then increment the instance counter (multiple windows)
 	 * and add on time to the expiry.
 	 * @param User $user
-	 * @param int $pageId
+	 * @param int $oldId
+	 * @param int $newId
 	 * @return bool flag set
 	 */
 	public static function setUserReviewingDiff( User $user, $oldId, $newId ) {
 		$key = wfMemcKey( 'flaggedrevs', 'userReviewingDiff', $oldId, $newId );
+
 		return self::incUserReviewingItem( $key, $user, self::CHANGE_REVIEW_SEC );
 	}
 
-	/*
+	/**
 	 * Clear an instance of a user reviewing a diff by decrementing the counter.
 	 * If it reaches 0 instances, then clear the flag for who is reviewing the diff.
 	 * @param User $user
@@ -151,63 +153,82 @@ class FRUserActivity {
 	 */
 	public static function clearUserReviewingDiff( User $user, $oldId, $newId ) {
 		$key = wfMemcKey( 'flaggedrevs', 'userReviewingDiff', $oldId, $newId );
+
 		return self::decUserReviewingItem( $key, $user, self::CHANGE_REVIEW_SEC );
 	}
 
-	/*
+	/**
 	 * Totally clear the flag for who is reviewing a diff.
 	 * @param int $oldId
 	 * @param int $newId
 	 * @return void
 	 */
 	public static function clearAllReviewingDiff( $oldId, $newId ) {
-		global $wgMemc;
 		$key = wfMemcKey( 'flaggedrevs', 'userReviewingDiff', $oldId, $newId );
-		$wgMemc->delete( $key );
+		ObjectCache::getMainStashInstance()->delete( $key );
 	}
 
+	/**
+	 * @param string $key
+	 * @param User $user
+	 * @param integer $ttlSec
+	 * @return bool
+	 */
 	protected static function incUserReviewingItem( $key, User $user, $ttlSec ) {
-		global $wgMemc;
 		$wasSet = false; // was changed?
 
-		$wgMemc->lock( $key, 4 ); // 4 sec timeout
-		$oldVal = $wgMemc->get( $key );
-		if ( count( $oldVal ) == 3 ) { // flag set
-			list( $u, $ts, $cnt ) = $oldVal;
-			if ( $u === $user->getName() ) { // by this user
-				$newVal = array( $u, $ts, $cnt+1 ); // inc counter
-				$wgMemc->set( $key, $newVal, $ttlSec );
-				$wasSet = true;
-			}
-		} else { // no flag set
-			$newVal = array( $user->getName(), wfTimestampNow(), 1 );
-			$wgMemc->set( $key, $newVal, $ttlSec );
-			$wasSet = true;
-		}
-		$wgMemc->unlock( $key );
+		ObjectCache::getMainStashInstance()->merge(
+			$key,
+			function( BagOStuff $stash, $key, $oldVal ) use ( $user, &$wasSet ) {
+				if ( count( $oldVal ) == 3 ) { // flag set
+					list( $u, $ts, $cnt ) = $oldVal;
+					if ( $u === $user->getName() ) { // by this user
+						$wasSet = true;
+						return array( $u, $ts, $cnt + 1 ); // inc counter
+					}
+				} else { // no flag set
+					$wasSet = true;
+					return array( $user->getName(), wfTimestampNow(), 1 );
+				}
+
+				return false; // do nothing
+			},
+			$ttlSec
+		);
 
 		return $wasSet;
 	}
 
+	/**
+	 * @param string $key
+	 * @param User $user
+	 * @param integer $ttlSec
+	 * @return bool
+	 */
 	protected static function decUserReviewingItem( $key, User $user, $ttlSec ) {
-		global $wgMemc;
 		$wasSet = false; // was changed?
 
-		$wgMemc->lock( $key, 4 ); // 4 sec timeout
-		$oldVal = $wgMemc->get( $key );
-		if ( count( $oldVal ) == 3 ) { // flag set
-			list( $u, $ts, $cnt ) = $oldVal;
-			if ( $u === $user->getName() ) {
-				if ( $cnt <= 1 ) {
-					$wgMemc->delete( $key );
-				} else {
-					$newVal = array( $u, $ts, $cnt-1 ); // dec counter
-					$wgMemc->set( $key, $newVal );
+		ObjectCache::getMainStashInstance()->merge(
+			$key,
+			function( BagOStuff $stash, $key, $oldVal ) use ( $user, &$wasSet ) {
+				if ( count( $oldVal ) != 3 ) {
+					return false; // flag not set
 				}
-				$wasSet = true;
-			}
-		}
-		$wgMemc->unlock( $key );
+
+				list( $u, $ts, $cnt ) = $oldVal;
+				if ( $u === $user->getName() ) {
+					$wasSet = true;
+					if ( $cnt <= 1 ) {
+						$stash->delete( $key );
+					} else {
+						return array( $u, $ts, $cnt - 1 ); // dec counter
+					}
+				}
+
+				return false; // do nothing
+			},
+			$ttlSec
+		);
 
 		return $wasSet;
 	}
