@@ -12,31 +12,36 @@ class FRUserActivity {
 	 * @return int
 	 */
 	public static function numUsersWatchingPage( Title $title ) {
-		global $wgMemc, $wgCookieExpiration;
+		global $wgMemc, $wgActiveUserDays;
+
 		# Check the cache...
-		$key = wfMemcKey( 'flaggedrevs', 'usersWatching', $title->getArticleID() );
+		$key = wfMemcKey( 'flaggedrevs', 'users-watching', $title->getArticleID() );
 		$val = $wgMemc->get( $key );
 		if ( is_int( $val ) ) {
 			return $val; // cache hit
 		}
+
 		# Get number of active editors watching this page...
 		$dbr = wfGetDB( DB_SLAVE );
-		$cutoff = $dbr->timestamp( wfTimestamp( TS_UNIX ) - 2 * $wgCookieExpiration );
 		$count = (int)$dbr->selectField(
 			array( 'watchlist', 'user' ),
 			'COUNT(*)',
 			array(
-				'wl_namespace'    => $title->getNamespace(),
-				'wl_title'        => $title->getDBkey(),
+				'wl_namespace' => $title->getNamespace(),
+				'wl_title'     => $title->getDBkey(),
 				'wl_user = user_id',
-				'user_touched > ' . $dbr->addQuotes( $cutoff ) // logged in or out
+				'EXISTS(' . $dbr->selectSQLText(
+					'recentchanges',
+					'1',
+					'user_name = rc_user_text',
+					'rc_timestamp > ' . $dbr->timestamp( time() - 86400 * $wgActiveUserDays )
+				) . ')'
 			),
 			__METHOD__
 		);
-		if ( $count > 10 ) {
-			# Save new value to cache (more aggresive for larger counts)
-			$wgMemc->set( $key, $count, ( $count > 200 ) ? 30*60 : 5*60 );
-		}
+
+		# Save new value to cache (more aggresive for larger counts)
+		$wgMemc->set( $key, $count, ( $count > 100 ) ? 30*60 : 5*60 );
 
 		return $count;
 	}
