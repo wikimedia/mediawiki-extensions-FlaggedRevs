@@ -1,10 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Ansumang"
+			"Ansumang",
+			"NehalDaveND"
 		]
 	},
-	"stabilization-page": "पृष्ठ नाम:",
+	"stabilization-page": "पृष्ठनाम :",
 	"stabilization-submit": "स्थिरीकरोतु",
 	"stabilization-comment": "कारणम् :",
 	"stabilization-def-short": "यदभावे"

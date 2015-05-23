@@ -1,0 +1,14 @@
+{
+	"@metadata": {
+		"authors": [
+			"WikiPhoenix"
+		]
+	},
+	"apihelp-flagconfig-example-1": "Hämta flaggkonfiguration",
+	"apihelp-query+oldreviewedpages-param-filterwatched": "Hur du filtrerar sidor i din bevakningssida.",
+	"apihelp-query+unreviewedpages-param-dir": "Riktning att sortera i.",
+	"apihelp-review-example-1": "Godkänn sidversionen 12345 med kommentaren \"Ok\"",
+	"apihelp-stabilize-param-reason": "Anledning.",
+	"apihelp-stabilize-param-watch": "Bevaka denna sida.",
+	"apihelp-stabilize-param-review": "Granska denna sida."
+}

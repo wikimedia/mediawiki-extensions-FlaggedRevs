@@ -1,9 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Ansumang"
+			"Ansumang",
+			"NehalDaveND"
 		]
 	},
-	"revreview-reject-summary": "सारांश:",
-	"revreview-reject-cancel": "निवर्तयते"
+	"revreview-reject-summary": "सारांशः :",
+	"revreview-reject-cancel": "निरस्यताम्"
 }

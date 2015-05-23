@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Sjoerddebruin"
+			"Sjoerddebruin",
+			"Robin0van0der0vliet"
 		]
 	},
+	"apihelp-stabilize-param-reason": "Reden.",
 	"apihelp-stabilize-param-watch": "Deze pagina volgen."
 }

@@ -52,7 +52,7 @@
 	"apihelp-stabilize-description-general": "Cambiar ajustes de estabilidad de la página.",
 	"apihelp-stabilize-description-protect": "Configurar los ajustes de protección de revisión de una página.",
 	"apihelp-stabilize-param-reason": "Motivo:",
-	"apihelp-stabilize-param-watch": "Añadir esta página a la lista de seguimiento.",
+	"apihelp-stabilize-param-watch": "Vigilar esta página.",
 	"apihelp-stabilize-param-title-general": "Título de la página a estabilizar.",
 	"apihelp-stabilize-param-title-protect": "Título de la página a proteger.",
 	"apihelp-stabilize-param-default": "Revisión predeterminada que mostrar.",
