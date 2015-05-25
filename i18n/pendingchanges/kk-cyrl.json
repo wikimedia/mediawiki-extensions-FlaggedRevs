@@ -1,0 +1,18 @@
+{
+	"@metadata": {
+		"authors": [
+			"Arystanbek"
+		]
+	},
+	"pendingchanges": "Өзгерістегі беттер",
+	"pendingchanges-hours": "($1 {{PLURAL:$1|сағат|сағат}})",
+	"pendingchanges-days": "($1 {{PLURAL:$1|күн|күн}})",
+	"pendingchanges-recent": "(бір сағаттан аз)",
+	"pendingchanges-category": "Санат:",
+	"pendingchanges-onwatchlist": "Көру тізімімдегі беттер",
+	"pendingchanges-stable": "Тұрақты нұсқа әдепкі",
+	"pendingchanges-diff": "қарап шығу",
+	"pendingchanges-size": "Ең көп өзгеріс (байт):",
+	"pendingchanges-unwatched": "(көрілмеген)",
+	"pendingchanges-watched": "($1 белсенді {{PLURAL:$1|қатысушы|қатысушы}} қарауда)"
+}

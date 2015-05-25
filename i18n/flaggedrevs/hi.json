@@ -3,7 +3,8 @@
 		"authors": [
 			"Ansumang",
 			"Kaustubh",
-			"Siddhartha Ghai"
+			"Siddhartha Ghai",
+			"NehalDaveND"
 		]
 	},
 	"action-review": "अवतरणों को पुनरीक्षित करने",
@@ -23,6 +24,8 @@
 	"flaggedrevs-prefs-editdiffs": "पृष्ठ सम्पादन करते समय अनिरीक्षित बदलाव दिखाएँ",
 	"flaggedrevs-prefs-viewdiffs": "नवीनतम अनिरीक्षित अवतरण देखते समय अनिरीक्षित बदलाव दिखाएँ",
 	"flaggedrevs-hidereviewed": "पुनरीक्षित सम्पादन $1",
+	"flaggedrevs-hidereviewed-hide": "छुपाएँ",
+	"flaggedrevs-hidereviewed-show": "दिखाएँ",
 	"group-editor": "सम्पादक",
 	"group-editor-member": "{{GENDER:$1|सम्पादक}}",
 	"group-reviewer": "पुनरीक्षक",

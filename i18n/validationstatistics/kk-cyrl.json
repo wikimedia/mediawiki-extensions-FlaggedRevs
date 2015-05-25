@@ -1,0 +1,14 @@
+{
+	"@metadata": {
+		"authors": [
+			"Arystanbek"
+		]
+	},
+	"validationstatistics": "Бетті қарап шығу статистикасы",
+	"validationstatistics-ns": "Атаукеңістік",
+	"validationstatistics-total": "Беттер",
+	"validationstatistics-stable": "Қаралып шығылған",
+	"validationstatistics-unreviewed": "Қаралмаған",
+	"validationstatistics-user": "Қатысушы",
+	"validationstatistics-reviews": "Қарап шығулар"
+}

@@ -1,5 +1,9 @@
 {
-	"@metadata": [],
+	"@metadata": {
+		"authors": [
+			"Arystanbek"
+		]
+	},
 	"reviewedpages": "Сын берілген беттер",
 	"reviewedpages-leg": "Анық деңгейде сын берілген беттерді тізімдеу",
 	"reviewedpages-list": "Келесі беттерге келтірілген деңгейде сын берілген",

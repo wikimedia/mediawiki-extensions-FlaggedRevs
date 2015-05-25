@@ -1,0 +1,14 @@
+{
+	"@metadata": {
+		"authors": [
+			"NehalDaveND"
+		]
+	},
+	"stabilization-comment": "कारण:",
+	"stabilization-otherreason": "अरु कारण:",
+	"stabilization-expiry": "सकिने:",
+	"stabilization-othertime": "अरु समय:",
+	"stabilization-def-short": "पूर्वनिर्धारित",
+	"stabilization-def-short-0": "वर्तमान",
+	"stabilization-def-short-1": "स्थिर"
+}

@@ -1,5 +1,9 @@
 {
-	"@metadata": [],
+	"@metadata": {
+		"authors": [
+			"Arystanbek"
+		]
+	},
 	"stabilization-tab": "(сқ)",
 	"stabilization": "Бетті тиянақтау",
 	"stabilization-text": "Төмендегі бапталымдарды өзгерткенде [[:$1|$1]] дегеннің тиянақты нұсқасы қалай бөлектенуі мен көрсетілуі түзетіледі.",
@@ -9,11 +13,23 @@
 	"stabilization-def": "Беттің әдепкі көрінісінде келтірілетін нұсқа",
 	"stabilization-def1": "Тиянақты нұсқасы; егер жоқ болса, ағымдағылардың біреуі болады",
 	"stabilization-def2": "Ағымдық нұсқасы",
+	"stabilization-restrict": "Қайта қарау/автоматты түрде қарау бағыттауларды.",
+	"stabilization-restrict-none": "Қосымша бағыттаулар жоқ",
 	"stabilization-submit": "Құптау",
 	"stabilization-notexists": "«[[:$1|$1]]» деп аталған еш бет жоқ. Еш бапталым реттелмейді.",
 	"stabilization-notcontent": "«[[:$1|$1]]» деген бетке сын берілмейді. Еш бапталым реттелмейді.",
 	"stabilization-comment": "Себебі:",
+	"stabilization-otherreason": "Басқа себеп:",
+	"stabilization-expiry": "Мерзімі бітпек:",
+	"stabilization-othertime": "Басқа уақыт:",
 	"stabilization-def-short": "Әдепкі",
 	"stabilization-def-short-0": "Ағымдық",
-	"stabilization-def-short-1": "Тиянақты"
+	"stabilization-def-short-1": "Тұрақты",
+	"stabilize_page_invalid": "Нысана бет атауы жарамсыз.",
+	"stabilize_page_notexists": "Нысана бет жоқ.",
+	"stabilize_page_unreviewable": "Атау кеңістігінде нысана бет қайта қаралмайды.",
+	"stabilize_invalid_autoreview": "Жарамсыз автоқарау бағыттауы.",
+	"stabilize_invalid_level": "Жарамсыз қорғаныс деңгейі.",
+	"stabilize_denied": "Рұқсат теріске шықты.",
+	"stabilize-expiring": "мерзімі бітпек: $1 (UTC)"
 }

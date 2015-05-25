@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"NehalDaveND"
+		]
+	},
+	"unreviewedpages-category": "શ્રેણી:",
+	"unreviewedpages-diff": "પરીક્ષણ",
+	"unreviewedpages-hours": "($1 {{PLURAL:$1|કલાક|કલાકો}})",
+	"unreviewedpages-days": "($1 {{PLURAL:$1|દિવસ|દિવસો}})",
+	"unreviewedpages-recent": "(1 કલાક થી ઓછું)"
+}

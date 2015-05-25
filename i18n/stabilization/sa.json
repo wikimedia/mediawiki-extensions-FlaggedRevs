@@ -8,5 +8,8 @@
 	"stabilization-page": "पृष्ठनाम :",
 	"stabilization-submit": "स्थिरीकरोतु",
 	"stabilization-comment": "कारणम् :",
-	"stabilization-def-short": "यदभावे"
+	"stabilization-def-short": "यदभावे",
+	"stabilization-def-short-0": "वर्तमानः",
+	"stabilization-def-short-1": "स्थिरम्",
+	"stabilize_page_invalid": "लक्षितपृष्ठनाम अमान्यम् ।"
 }

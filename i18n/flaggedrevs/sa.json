@@ -6,8 +6,23 @@
 		]
 	},
 	"editor": "योजकः",
+	"flaggedrevs-hidereviewed-hide": "गोप्यताम्",
+	"flaggedrevs-hidereviewed-show": "दृश्यताम्",
 	"group-editor": "योजकाः",
 	"grouppage-editor": "{{ns:project}}:योजकः",
+	"review-logentry-id": "संस्करणम् : $2",
+	"revreview-depth-1": "प्राथमिकम्",
 	"revreview-edit": "सम्पाद्यताम्",
-	"revreview-typefilter": "प्रकारः :"
+	"revreview-style-2": "शोभनम्",
+	"revreview-filter-all": "सर्वाणि",
+	"revreview-filter-stable": "स्थिरम्",
+	"revreview-typefilter": "प्रकारः :",
+	"revreview-filter-auto": "स्वचालितम्",
+	"revreview-filter-manual": "हस्तेन कृतम्",
+	"revreview-levelfilter": "स्तरः :",
+	"revreview-lev-all": "कोऽपि",
+	"revreview-def-all": "कोऽपि",
+	"revreview-def-stable": "स्थिरम्",
+	"revreview-restriction-any": "कोऽपि",
+	"revreview-restriction-none": "नैकमपि"
 }

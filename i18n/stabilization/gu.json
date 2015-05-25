@@ -1,0 +1,15 @@
+{
+	"@metadata": {
+		"authors": [
+			"NehalDaveND"
+		]
+	},
+	"stabilization-page": "પાનાનું નામ:",
+	"stabilization-submit": "ખાતરી કરો",
+	"stabilization-comment": "કારણ:",
+	"stabilization-otherreason": "બીજું કારણ:",
+	"stabilization-expiry": "સમાપ્તિ:",
+	"stabilization-othertime": "અન્ય સમય:",
+	"stabilization-def-short": "મૂળભૂત",
+	"stabilization-def-short-0": "વર્તમાન"
+}

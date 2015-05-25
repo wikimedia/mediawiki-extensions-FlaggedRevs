@@ -1,8 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Ansumang"
+			"Ansumang",
+			"NehalDaveND"
 		]
 	},
+	"validationstatistics-ns": "नामाकाशः",
+	"validationstatistics-total": "पृष्ठानि",
 	"validationstatistics-user": "योजक"
 }

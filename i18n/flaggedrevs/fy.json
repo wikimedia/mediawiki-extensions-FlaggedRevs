@@ -12,6 +12,7 @@
 	"group-reviewer-member": "{{GENDER:$1|einredakteur|einredaktrise}}",
 	"grouppage-editor": "{{ns:project}}:Redakteur",
 	"grouppage-reviewer": "{{ns:project}}:Einredakteur",
+	"review-logentry-id": "ferzje: $2",
 	"reviewer": "Einredakteur",
 	"revreview-depth-0": "Ôfkeurd",
 	"revreview-edit": "Bewurkje",

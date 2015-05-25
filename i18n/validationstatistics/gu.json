@@ -1,9 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"Dineshjk"
+			"Dineshjk",
+			"NehalDaveND"
 		]
 	},
+	"validationstatistics-ns": "નામસ્થળ",
 	"validationstatistics-total": "પાનાં",
-	"validationstatistics-stable": "પરામર્શિત"
+	"validationstatistics-stable": "પરામર્શિત",
+	"validationstatistics-user": "સભ્ય",
+	"validationstatistics-reviews": "પરીક્ષણ"
 }

@@ -1,10 +1,25 @@
 {
-	"@metadata": [],
+	"@metadata": {
+		"authors": [
+			"Arystanbek"
+		]
+	},
 	"revisionreview": "Нұсқаларға сын беру",
+	"revreview-check-flag-y": "Менің өзгерістерістерімді қабылдау",
+	"revreview-check-flag-y-title": "Мұнда жасаған барлық өзгерістерді қабылдау",
 	"revreview-flag": "Бұл нұсқаға сын беру",
+	"revreview-reflag": "Бұл нұсқаға қайта қарау",
 	"revreview-log": "Мәндемесі:",
 	"revreview-main": "Сын беру үшін мағлұмат бетінің ерекше нұсқасын бөлектеуіңіз керек.\n\nСын берілмеген бет тізімі үшін [[{{ns:special}}:Unreviewedpages]] бетін қараңыз.",
 	"revreview-submit": "Сын жіберу",
+	"revreview-submit-review": "Нұсқаны қабылдау",
+	"revreview-submit-unreview": "Нұсқаны қабылдауды болдырмау",
+	"revreview-submit-reject": "Өзгерістерді қайтару",
+	"revreview-submit-reviewed": "Бітті. Қабылданды!",
+	"revreview-submit-unreviewed": "Бітті. Қабылдану болмады!",
 	"revreview-toolow": "Нұсқаға сын берілген деп саналуы үшін төмендегі қасиеттердің қай-қайсысын «бекітілмеген»\nдегеннен жоғары деңгей беруіңіз керек. Нұсқаны кеміту үшін, барлық өрістерді «бекітілмеген» деп тапсырылсын.",
-	"revreview-update": "Тиянақты нұсқа бекітілгеннен бері жасалған өзгерістерге (төменде көрсетілген) сын беріп шығыңыз."
+	"revreview-update": "Тиянақты нұсқа бекітілгеннен бері жасалған өзгерістерге (төменде көрсетілген) сын беріп шығыңыз.",
+	"revreview-reject-summary": "Түйіндемесі:",
+	"revreview-reject-confirm": "Бұл өзгерістерді қабыл алмау",
+	"revreview-reject-cancel": "Болдырмау"
 }
