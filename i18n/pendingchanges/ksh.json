@@ -11,7 +11,7 @@
 	"pendingchanges-hours": "({{PLURAL:$1|en Stund|$1 Stunde|kein Stund}})",
 	"pendingchanges-days": "($1 {{PLURAL:$1|Daach|Dähsch}})",
 	"pendingchanges-recent": "(winnijer wie en Stund)",
-	"pendingchanges-category": "Saachjrupp:",
+	"pendingchanges-category": "Saachjropp:",
 	"pendingchanges-onwatchlist": "Sigge en minge Oppassleß",
 	"pendingchanges-stable": "De {{int:stablepages-stable}} sen der Shtandatt",
 	"pendingchanges-diff": "nohkike",
