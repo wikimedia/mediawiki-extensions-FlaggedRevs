@@ -51,7 +51,7 @@
 	"revreview-adv-reviewing-c": "Opjepaß: De andere Nohkiker künne sinn, dat De heh di Sigg aam nohkike bes.{{GENDER:$1|}}",
 	"revreview-sadv-reviewing-p": "Do kann de andere Metmaacher $1, dat De heh die Sigg aam nohlohre bes.",
 	"revreview-sadv-reviewing-c": "Do kann de andere Metmaacher $1, dat De heh die Sigg aam nohlohre bes.",
-	"revreview-adv-start-link": "weße lohße",
+	"revreview-adv-start-link": "Donn dänne dadd aanzeije",
 	"revreview-adv-stop-link": "Donn dat dänne nit mih aanzeije",
 	"revreview-toolow": "Do moß för jeede vun dä Eijeschaffte unge en Not udder Präddikaat jävve, wat bäßer wi „{{lcfirst:{{int:revreview-style-0}}}}“ es, domet di Version als nohjekik jeldt. Öm en Version widder zeröckzeshtoofe, donn alle Präddikaate op „{{lcfirst:{{int:revreview-style-0}}}}“ säze.",
 	"revreview-update": "Bes esu joot, un donn all de Änderunge ''(unge sin se opjeliß)'' [[{{MediaWiki:Validationpage}}|nohkike]], di jemaat woodte, zick däm de {{int:stablepages-stable}} et letz [{{fullurl:{{#Special:Log}}|type=review&page={{FULLPAGENAMEE}}}} {{lcfirst:{{int:revreview-approved}}}}] woode es.<br />\n'''E paa Schablohne, Datteije, udder beeds, sin jeändert woode:'''",
