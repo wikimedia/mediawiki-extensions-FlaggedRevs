@@ -53,10 +53,13 @@
 	"apihelp-stabilize-description-protect": "Configurar los ajustes de protección de revisión de una página.",
 	"apihelp-stabilize-param-reason": "Motivo:",
 	"apihelp-stabilize-param-watch": "Vigilar esta página.",
+	"apihelp-stabilize-param-expiry-general": "Vencimiento de esta configuración.",
+	"apihelp-stabilize-param-expiry-protect": "Vencimiento de la protección de revisión.",
 	"apihelp-stabilize-param-title-general": "Título de la página a estabilizar.",
 	"apihelp-stabilize-param-title-protect": "Título de la página a proteger.",
 	"apihelp-stabilize-param-default": "Revisión predeterminada que mostrar.",
 	"apihelp-stabilize-param-autoreview": "Restricción de autorevisión.",
 	"apihelp-stabilize-param-review": "Revisar esta página.",
-	"apihelp-stabilize-param-protectlevel": "Nivel de la protección de revisión."
+	"apihelp-stabilize-param-protectlevel": "Nivel de la protección de revisión.",
+	"apihelp-stabilize-example-protect": "Quitar la protección de revisión de [[Test]]"
 }
