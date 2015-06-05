@@ -31,6 +31,7 @@
 	"apihelp-query+unreviewedpages-example-2": "Zeijsch Aanjahbe övver a paa nit nohjekik Sigge",
 	"apihelp-review-example-1": "Donn de Väsjohn 12345 johdheijße mem Kommantaa „Ok“",
 	"apihelp-reviewactivity-param-oldid": "De Kännong vun dä Väsjohn, di nohjekik weed.",
+	"apihelp-reviewactivity-param-reviewing": "Ov mer sesch als „Beim Nohlohre“ udder als „Nit mih beim Nohlohre“ bekänne deiht.",
 	"apihelp-reviewactivity-example-1": "Maach öffentlesch, dat De de Väsjohn 12345 aam Nohkike bes.",
 	"apihelp-stabilize-param-reason": "Jrond.",
 	"apihelp-stabilize-param-watch": "Op di Sigg heh oppaßße.",
