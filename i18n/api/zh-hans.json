@@ -20,6 +20,7 @@
 	"apihelp-query+oldreviewedpages-param-maxsize": "最大字符数变化大小。",
 	"apihelp-query+oldreviewedpages-param-filterwatched": "如何筛选您的监视列表的页面。",
 	"apihelp-query+oldreviewedpages-param-namespace": "要列举的名字空间。",
+	"apihelp-query+oldreviewedpages-param-category": "只显示给定分类的页面。",
 	"apihelp-query+oldreviewedpages-param-filterredir": "如何过滤重定向。",
 	"apihelp-query+oldreviewedpages-param-limit": "返回的总计页面数。",
 	"apihelp-query+oldreviewedpages-example-1": "显示带有等待复核更改的页面列表",

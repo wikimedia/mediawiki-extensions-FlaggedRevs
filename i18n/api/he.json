@@ -4,6 +4,13 @@
 			"Amire80"
 		]
 	},
+	"apihelp-flagconfig-example-1": "אחזור הגדרות דגל",
+	"apihelp-query+configuredpages-description": "רשימת הדפים שיש להן הגדרות סקירה מותאמות.",
+	"apihelp-query+configuredpages-param-start": "להתחיל את רשימת הדפים במזהה הזה.",
+	"apihelp-query+configuredpages-param-end": "להפסיק את רשימת הדפים במזהה הזה.",
+	"apihelp-query+configuredpages-param-namespace": "איזה מרחב שם לרשום.",
+	"apihelp-query+configuredpages-param-default": "בררת המחדל לתצוגת הדף.",
+	"apihelp-query+configuredpages-param-autoreview": "רמת ההגבלה של סקירה וסקירה אוטומטית.",
 	"apihelp-stabilize-param-reason": "סיבה.",
 	"apihelp-stabilize-param-watch": "מעקב אחרי הדף הזה.",
 	"apihelp-stabilize-param-expiry-general": "זמן פקיעה להגדרות האלו."
