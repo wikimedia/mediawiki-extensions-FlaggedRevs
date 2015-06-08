@@ -569,6 +569,7 @@ class FlaggedRevs {
 	 * @param FlaggedRevision|null $oldSv, the old stable version (optional)
 	 * @param Object editInfo Article edit info about the current revision (optional)
 	 * @return bool stable version text/file changed and FR_INCLUDES_STABLE
+	 * @throws Exception
 	 */
 	public static function stableVersionUpdates(
 		$page, $sv = null, $oldSv = null, $editInfo = null
@@ -618,9 +619,13 @@ class FlaggedRevs {
 		}
 		# Lazily rebuild dependancies on next parse (we invalidate below)
 		FlaggedRevs::clearStableOnlyDeps( $title->getArticleID() );
-		# Clear page cache
-		$title->invalidateCache();
-		self::purgeSquid( $title );
+		# Clear page cache unless this is hooked via ArticleEditUpdates, in
+		# which case these updates will happen already with tuned timestamps
+		if ( !$editInfo ) {
+			$title->invalidateCache();
+			self::purgeSquid( $title );
+		}
+
 		return $changed;
 	}
 
