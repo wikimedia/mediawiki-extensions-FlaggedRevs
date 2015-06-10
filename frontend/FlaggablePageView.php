@@ -677,7 +677,7 @@ class FlaggablePageView extends ContextSource {
 		# Do not use the parser cache if it lacks mImageTimeKeys and there is a
 		# chance that a review form will be added to this page (which requires the versions).
 		$canReview = $this->article->getTitle()->userCan( 'review' );
-		if ( $parserOut && ( !$canReview || FlaggedRevs::parserOutputIsVersioned( $parserOut ) ) ) {
+		if ( $parserOut ) {
 			# Cache hit. Note that redirects are not cached.
 			$this->out->addParserOutput( $parserOut );
 		} else {
@@ -1137,11 +1137,10 @@ class FlaggablePageView extends ContextSource {
 
 			# Set the file version we are viewing (for File: pages)
 			$form->setFileVersion( $this->out->getFileVersion() );
-			# $wgOut may not already have the inclusion IDs, such as for diffonly=1.
-			# fr_unversionedIncludes indicates that ParserOutput added to $wgOut lacked inclusion IDs.
+			# $wgOut might not have the inclusion IDs, such as for diffs with diffonly=1.
 			# If they're lacking, then we use getRevIncludes() to get the draft inclusion versions.
 			# Note: showStableVersion() already makes sure that $wgOut has the stable inclusion versions.
-			if ( $this->out->getRevisionId() == $rev->getId() && empty( $this->out->fr_unversionedIncludes ) ) {
+			if ( $this->out->getRevisionId() == $rev->getId() ) {
 				$tmpVers = $this->out->getTemplateIds();
 				$fileVers = $this->out->getFileSearchOptions();
 			} elseif ( $this->oldRevIncludes ) { // e.g. diffonly=1, stable diff
