@@ -10,7 +10,7 @@
 			"Rex"
 		]
 	},
-	"validationstatistics": "Statistik tinjauan halaman",
+	"validationstatistics": "Statistik validasi / tinjauan halaman",
 	"validationstatistics-users": "'''{{SITENAME}}''' saat ini memiliki '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|pengguna}} dengan hak akses [[{{MediaWiki:Validationpage}}|Editor]].\n\nEditor adalah para pengguna tetap yang dapat melakukan pemeriksaan perbaikan di setiap halaman.",
 	"validationstatistics-lastupdate": "''Data berikut terakhir dimutakhirkan pada tanggal $1 pukul $2.''",
 	"validationstatistics-pndtime": "Suntingan yang telah diperiksa oleh Editor dianggap ''{{int:validationstatistics-stable}}''.\n\nLama penundaan tinjauan rata-rata untuk [[Special:OldReviewedPages|halaman dengan penundaan tinjauan suntingan]] adalah '''$1'''; penundaan menunjukkan lama waktu suntingan tunda terlama belum ditinjau.",
