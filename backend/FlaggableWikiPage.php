@@ -271,7 +271,7 @@ class FlaggableWikiPage extends WikiPage {
 
 	/**
 	 * Get the stable revision
-	 * @return mixed (FlaggedRevision/null)
+	 * @return FlaggedRevision|null
 	 */
 	public function getStableRev() {
 		if ( !FlaggedRevs::inReviewNamespace( $this->mTitle ) ) {

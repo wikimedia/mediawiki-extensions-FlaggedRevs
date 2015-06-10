@@ -3,7 +3,9 @@
  * Class representing a web view of a MediaWiki page
  */
 class FlaggablePageView extends ContextSource {
+	/** @var OutputPage */
 	protected $out = null;
+	/** @var FlaggableWikiPage */
 	protected $article = null;
 
 	protected $diffRevs = null; // assoc array of old and new Revisions for diffs
