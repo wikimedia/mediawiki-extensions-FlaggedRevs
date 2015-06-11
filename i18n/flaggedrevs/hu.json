@@ -18,7 +18,8 @@
 			"Samat",
 			"Tgr",
 			"JulesWinnfield-hu",
-			"Csega"
+			"Csega",
+			"Tacsipacsi"
 		]
 	},
 	"action-review": "változatok ellenőrzése",
@@ -46,14 +47,14 @@
 	"group-reviewer-member": "lektor",
 	"grouppage-editor": "{{ns:project}}:Járőrök",
 	"grouppage-reviewer": "{{ns:project}}:Lektorok",
-	"group-autoreview": "Automatikusan megerősített felhasználók",
+	"group-autoreview": "automatikusan megerősített felhasználók",
 	"group-autoreview-member": "automatikusan megerősített felhasználó",
 	"grouppage-autoreview": "{{ns:project}}:Automatikusan megerősített szerkesztő",
 	"revreview-hist-draft": "nem ellenőrzött változat",
 	"revreview-hist-pending": "ellenőrzés folyamatban",
 	"revreview-hist-quality": "minőségi változat",
 	"revreview-hist-basic": "ellenőrzött változat",
-	"revreview-hist-quality-user": "[[User:$3|$3]] ellenőrízte",
+	"revreview-hist-quality-user": "[[User:$3|$3]] ellenőrizte",
 	"revreview-hist-basic-user": "[[User:$3|$3]] ellenőrizte",
 	"revreview-hist-quality-auto": "automatikusan minőséginek jelölve",
 	"revreview-hist-basic-auto": "automatikusan ellenőrzöttnek jelölve",

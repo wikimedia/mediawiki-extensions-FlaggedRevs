@@ -127,7 +127,7 @@
 	"revreview-visibility-synced": "'''Hee di Sigg hät en jeänderte [[{{MediaWiki:Validationpage}}|{{int:stablepages-stable}}]].\nDe {{int:stabilization}} kam_mer [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} ändere].'''",
 	"revreview-visibility-outdated": "'''Hee di Sigg hät en övverhollte [[{{MediaWiki:Validationpage}}|{{int:stablepages-stable}}]].\nDe {{int:stabilization}} kam_mer [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} ändere].'''",
 	"revreview-visibility-nostable": "'''Hee di Sigg hät keij [[{{MediaWiki:Validationpage}}|{{int:stablepages-stable}}]].\nDe {{int:stabilization}} kam_mer [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} ändere].'''",
-	"revreview-revnotfound": "<b>Dä.</b> Die ählere Version vun dä Sigg, wo De noh frochs, es nit do. Schad. Luur ens \nop die URL, die Dich herjebraht hät, die weed verkihrt sin, oder se es villeich üvverhollt, weil einer die Sigg \nfottjeschmesse hät?",
+	"revreview-revnotfound": "<strong>Dä.</strong> Di ählere Väsjohn vun dä Sigg, wo De noh frochs, es nit doh. Schad. Lohr ens \nop däm <i lang=\"en\" xml:lang=\"en\" dir=\"ltr\" title=\"Uniform Ressource Locator\">URL</i> , di Desch herjebraht hät, di weed verkihrt sin, oder se es velleijsch övverhollt, weil einer di Sigg fottjeschmeße hät?",
 	"right-autoreview": "Versione vun Sigge automattesch als „{{lcfirst:{{int:revreview-accuracy-1}}}}“ makeere",
 	"right-autoreviewrestore": "Beim Änderonge Retuur Nämme automattesch op „Nohjeloort“ säze",
 	"right-movestable": "beshtändeje Sigge ömnenne",
