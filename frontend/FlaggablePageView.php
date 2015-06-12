@@ -1728,21 +1728,26 @@ class FlaggablePageView extends ContextSource {
 		$this->article->loadPageData( 'fromdbmaster' );
 		# Get the stable version from the master
 		$frev = $this->article->getStableRev();
-		if ( !$frev || !$this->article->revsArePending() ) {
-			return true; // only for pages with pending edits
+		if ( !$frev ) {
+			return true; // only for pages with stable versions
 		}
+
 		$params = array();
 		// If the edit was not autoreviewed, and the user can actually make a
 		// new stable version, then go to the diff...
-		if ( $frev->userCanSetFlags( $reqUser ) ) {
+		if ( $this->article->revsArePending() && $frev->userCanSetFlags( $reqUser ) ) {
 			$params += array( 'oldid' => $frev->getRevId(), 'diff' => 'cur', 'shownotice' => 1 );
 			$params += FlaggedRevs::diffOnlyCGI();
 		// ...otherwise, go to the draft revision after completing an edit.
-		// This allows for users to immediately see their changes.
+		// This allows for users to immediately see their changes. Even if the stable
+		// and draft page match, we can avoid a parse due to FR_INCLUDES_STABLE.
 		} else {
 			$params += array( 'stable' => 0 );
 			// Show a notice at the top of the page for non-reviewers...
-			if ( !$reqUser->isAllowed( 'review' ) && $this->article->isStableShownByDefault() ) {
+			if ( $this->article->revsArePending()
+				&& $this->article->isStableShownByDefault()
+				&& !$reqUser->isAllowed( 'review' )
+			) {
 				$params += array( 'shownotice' => 1 );
 				if ( $sectionAnchor ) {
 					// Pass a section parameter in the URL as needed to add a link to
