@@ -22,7 +22,8 @@
 			"ToSter",
 			"Wpedzich",
 			"Žekřil71pl",
-			"Chrumps"
+			"Chrumps",
+			"Tar Lócesilion"
 		]
 	},
 	"action-review": "przeglądania wersji",
@@ -62,7 +63,7 @@
 	"revreview-hist-quality-auto": "zatwierdzone automatycznie",
 	"revreview-hist-basic-auto": "automatycznie przejrzana",
 	"revreview-hist-pending-difflink": "'''[[{{fullurl:$1|oldid=$2&diff=$3{{MediaWiki:flaggedrevs-diffonly}}}} oczekuje na przejrzenie]]'''",
-	"review-edit-diff": "'''UWAGA – Niektóre oczekujące zmiany zawierają się w obszarze strony, który właśnie edytujesz.'''",
+	"review-edit-diff": "Niektóre oczekujące zmiany zawierają się w obszarze strony, który właśnie edytujesz.",
 	"revreview-diff-toggle-show": "pokaż zmiany",
 	"revreview-diff-toggle-hide": "ukryj zmiany",
 	"revreview-diff-toggle-title": "Zmień widoczność zmian oczekujących na oznaczenie",

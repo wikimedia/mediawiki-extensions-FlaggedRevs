@@ -23,7 +23,7 @@
 	"flaggedrevs-prefs-viewdiffs": "नवीनतम लंबित संस्करण हेरेको बेला लंबित परिवर्तन भिन्नता देखाउनुहोस्",
 	"flaggedrevs-hidereviewed-hide": "लुकाउनुहोस्",
 	"flaggedrevs-hidereviewed-show": "देखाउनुहोस्",
-	"group-editor": "सम्पादकहरु",
+	"group-editor": "सम्पादकहरू",
 	"group-editor-member": "{{GENDER:$1|सम्पादक}}",
 	"group-reviewer": "समीक्षकहरु",
 	"group-reviewer-member": "{{GENDER:$1|समीक्षक}}",
