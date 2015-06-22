@@ -284,7 +284,7 @@ class FlaggedRevsUIHooks {
 	}
 
 	public static function addHideReviewedFilter( $specialPage, &$filters ) {
-		if ( !FlaggedRevs::useOnlyIfProtected() ) {
+		if ( !FlaggedRevs::useSimpleConfig() ) {
 			$filters['hideReviewed'] = array(
 				'msg' => 'flaggedrevs-hidereviewed', 'default' => false );
 		}
@@ -374,7 +374,7 @@ class FlaggedRevsUIHooks {
 		$fields[] = 'fp_stable';
 		$fields[] = 'fp_pending_since';
 		$join_conds['flaggedpages'] = array( 'LEFT JOIN', 'fp_page_id = rc_cur_id' );
-		if ( $wgRequest->getBool( 'hideReviewed' ) && !FlaggedRevs::useOnlyIfProtected() ) {
+		if ( $wgRequest->getBool( 'hideReviewed' ) && !FlaggedRevs::useSimpleConfig() ) {
 			// Don't filter external changes as FlaggedRevisions doesn't apply to those
 			$conds[] = 'rc_timestamp >= fp_pending_since OR fp_stable IS NULL OR rc_type = ' . RC_EXTERNAL;
 		}
@@ -525,7 +525,7 @@ class FlaggedRevsUIHooks {
 		if ( $rc->mAttribs['fp_stable'] == null ) {
 			// Is this a config were pages start off reviewable?
 			// Hide notice from non-reviewers due to vandalism concerns (bug 24002).
-			if ( !FlaggedRevs::useOnlyIfProtected() && $wgUser->isAllowed( 'review' ) ) {
+			if ( !FlaggedRevs::useSimpleConfig() && $wgUser->isAllowed( 'review' ) ) {
 				$rlink = wfMessage( 'revreview-unreviewedpage' )->escaped();
 				$css = 'flaggedrevs-unreviewed';
 			}
