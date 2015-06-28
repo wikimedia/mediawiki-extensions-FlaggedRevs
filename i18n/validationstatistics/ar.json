@@ -4,7 +4,8 @@
 			";Hiba;1",
 			"Ciphers",
 			"Meno25",
-			"OsamaK"
+			"OsamaK",
+			"محمد أحمد عبد الفتاح"
 		]
 	},
 	"validationstatistics": "إحصاءات مراجعة الصفحة",
@@ -19,6 +20,7 @@
 	"validationstatistics-latest": "محدث",
 	"validationstatistics-synced": "تم تحديثه/تمت مراجعته",
 	"validationstatistics-old": "قديمة",
+	"validationstatistics-unreviewed": "غير مراجعة",
 	"validationstatistics-utable": "بالأسفل قائمة بأكثر {{PLURAL:$1||مراجع نشاطا|مراجعين نشاطا|$1 مراجعين نشاطا|$1 مراجع نشاطا|$1 مراجعا نشاطا}} في {{PLURAL:$2||الساعة الأخيرة|الساعتين الأخيرتين|ال$2 ساعات الأخيرة|ال$2 ساعة الأخيرة}}.",
 	"validationstatistics-user": "المستخدم",
 	"validationstatistics-reviews": "مراجعات"

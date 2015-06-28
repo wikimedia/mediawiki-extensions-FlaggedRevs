@@ -12,7 +12,8 @@
 			"OsamaK",
 			"Ouda",
 			"Prof.Sherif",
-			"زكريا"
+			"زكريا",
+			"محمد أحمد عبد الفتاح"
 		]
 	},
 	"action-review": "راجع المراجعات",
@@ -32,6 +33,8 @@
 	"flaggedrevs-prefs-editdiffs": "اعرض فرق التغييرات قيد الانتظار عند تعديل الصفحات",
 	"flaggedrevs-prefs-viewdiffs": "عرض مقارنة التغييرات بالانتظار عند عرض أحدث مراجعة بالانتظار",
 	"flaggedrevs-hidereviewed": "$1 التعديلات المراجعة",
+	"flaggedrevs-hidereviewed-hide": "أخف",
+	"flaggedrevs-hidereviewed-show": "أظهر",
 	"group-editor": "محررون",
 	"group-editor-member": "{{GENDER:$1|محرر|محررة}}",
 	"group-reviewer": "مراجعون",
