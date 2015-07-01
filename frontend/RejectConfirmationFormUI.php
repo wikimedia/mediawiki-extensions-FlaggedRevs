@@ -72,7 +72,8 @@ class RejectConfirmationFormUI {
 		}
 
 		// List of revisions being undone...
-		$form .= wfMessage( 'revreview-reject-text-list' )->numParams( $rejectIds )
+		$form .= wfMessage( 'revreview-reject-text-list' )
+			->numParams( count( $rejectIds ) )
 			->params( $oldRev->getTitle()->getPrefixedText() )->parse();
 		$form .= '<ul>';
 
