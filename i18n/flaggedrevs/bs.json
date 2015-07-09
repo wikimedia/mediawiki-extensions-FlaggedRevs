@@ -3,7 +3,8 @@
 		"authors": [
 			"CERminator",
 			"KWiki",
-			"Srdjan m"
+			"Srdjan m",
+			"Semso98"
 		]
 	},
 	"action-review": "pregledate revizije",
@@ -22,9 +23,11 @@
 	"flaggedrevs-prefs-watch": "Dodaj stranice koje sam pregledao na moj spisak praćenja",
 	"flaggedrevs-prefs-editdiffs": "Prikaži razlike na čekanju pri uređivanju stranice",
 	"flaggedrevs-prefs-viewdiffs": "Pokaži razlike izmjena na čekanju pri prikazivanju posljednje revizije na čekanju",
-	"flaggedrevs-hidereviewed": "$1 pregledanih izmjena",
+	"flaggedrevs-hidereviewed": "$1 pregledane izmjene",
+	"flaggedrevs-hidereviewed-hide": "Sakrij",
+	"flaggedrevs-hidereviewed-show": "Pokaži",
 	"group-editor": "Urednici",
-	"group-editor-member": "uređivač",
+	"group-editor-member": "{{GENDER:$1|uređivač}}",
 	"group-reviewer": "Provjerivači",
 	"group-reviewer-member": "provjerivač",
 	"grouppage-editor": "{{ns:project}}:Urednik",
