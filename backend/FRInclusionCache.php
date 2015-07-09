@@ -53,8 +53,7 @@ class FRInclusionCache {
 				}
 			}
 
-			// ParserOutput::mImageTimeKeys wasn't always there
-			if ( $pOut == false || !FlaggedRevs::parserOutputIsVersioned( $pOut ) ) {
+			if ( $pOut == false ) {
 				$content = $rev->getContent( Revision::RAW );
 				if ( !$content ) {
 					// Just for extra sanity

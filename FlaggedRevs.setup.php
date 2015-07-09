@@ -202,8 +202,6 @@ class FlaggedRevsSetup {
 		# Parser hooks, selects the desired images/templates
 		$wgHooks['BeforeParserFetchTemplateAndtitle'][] = 'FlaggedRevsHooks::parserFetchStableTemplate';
 		$wgHooks['BeforeParserFetchFileAndTitle'][] = 'FlaggedRevsHooks::parserFetchStableFile';
-		# B/C for before ParserOutput::mImageTimeKeys
-		$wgHooks['OutputPageParserOutput'][] = 'FlaggedRevsHooks::outputSetVersioningFlag';
 		# ########
 
 		# ######## DB write operations #########
