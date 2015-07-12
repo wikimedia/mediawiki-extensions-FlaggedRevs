@@ -14,7 +14,8 @@
 			"Mor",
 			"Savh",
 			"Translationista",
-			"Vivaelcelta"
+			"Vivaelcelta",
+			"Macofe"
 		]
 	},
 	"revisionreview": "Revisar versiones",
@@ -29,13 +30,13 @@
 	"review_not_flagged": "La revisión de destino no está marcada como revisada.",
 	"review_too_low": "La revisión no puede ser revisada con algunos campos dejados \"inadecuados\".",
 	"review_bad_key": "Clave de parámetro de inclusión inválido.",
-	"review_bad_tags": "Algunos de los valores de las variables especificadas son válidas.",
+	"review_bad_tags": "Algunos de los valores de las etiquetas especificadas no son válidos.",
 	"review_denied": "Permiso denegado.",
 	"review_param_missing": "Un parámetro está perdido o es inválido.",
 	"review_cannot_undo": "No es posible deshacer estos cambio, ya que otras ediciones pendientes han cambiado estas áreas.",
 	"review_cannot_reject": "No se pudo rechazar estos cambios porque alguien aceptó algunas (o todas) las modificaciones.",
 	"review_reject_excessive": "No se puede rechazar esta cantidad de modificaciones a la vez.",
-	"review_reject_nulledits": "No se puede rechazar estos cambios, porque todas las revisiones son nulas modificaciones.",
+	"review_reject_nulledits": "No se pueden rechazar estos cambios, porque todas las revisiones son ediciones nulas.",
 	"revreview-check-flag-p": "Aceptar esta versión (incluye {{PLURAL:$1|un cambio pendiente|$1 cambios pendientes}})",
 	"revreview-check-flag-p-title": "Aceptar todos los cambios actualmente pendientesjunto con tu propia edición.\nSolamente usar esto si ya has visto por completo las diferencias de los cambios pendientes.",
 	"revreview-check-flag-u": "Aceptar esta página sin revisar",
