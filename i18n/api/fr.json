@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Gomoko",
-			"0x010C"
+			"0x010C",
+			"TomT0m"
 		]
 	},
 	"apihelp-flagconfig-description": "Obtenir des informations de base sur la configuration du marquage de relecture pour ce site.\n\nLes paramètres suivants sont renvoyés pour chaque marque :\n;name:Le nom de clé de cette marque.\n;levels:Nombre de niveaux de cette marque (au-dessus de « non marqué »).\n;tier2:Niveau que doit atteindre la marque pour qu’une révision soit du tiers 2 (qualité).\n;tier3:Niveau que la marque doit atteindre pour que la révision soit du tiers 3 (immaculé).\nLes révisions marquées ont un niveau affecté pour chaque marque. Le plus haut tiers que toutes les marques atteignent est le tiers de relecture de toute la révision.",
@@ -58,7 +59,7 @@
 	"apihelp-reviewactivity-description": "Vous annoncer ou ne plus vous annoncer comme relisant une page ou des modifications non relues.",
 	"apihelp-reviewactivity-param-previd": "L’ancien ID de révision (pour la relecture de modifications uniquement).",
 	"apihelp-reviewactivity-param-oldid": "L’ID de la révision à relire.",
-	"apihelp-reviewactivity-param-reviewing": "S’il faut annoncer comme en relecture ou plus en relecture.",
+	"apihelp-reviewactivity-param-reviewing": "S’il faut vous déclarer en cours de relecture ou au contraire si vous avez fini.",
 	"apihelp-reviewactivity-example-1": "Vous annoncer comme relisant la révision 12345",
 	"apihelp-stabilize-description-general": "Modifier les paramètres de stabilité de la page.",
 	"apihelp-stabilize-description-protect": "Configurer les paramètres de protection de relecture pour une page.",
