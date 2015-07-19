@@ -18,6 +18,7 @@
 	"validationstatistics-latest": "Сынхранізаваных",
 	"validationstatistics-synced": "Паўторна правераных",
 	"validationstatistics-old": "Састарэлых",
+	"validationstatistics-unreviewed": "Неправераныя",
 	"validationstatistics-utable": "Ніжэй пададзены сьпіс з $1 {{PLURAL:$1|самага актыўнага рэцэнзэнта|самых актыўных рэцэнзэнтаў|самых актыўных рэцэнзэнтаў}} за {{PLURAL:$2|$2 апошнюю гадзіну|$2 апошнія гадзіны|$2 апошніх гадзінаў}}.",
 	"validationstatistics-user": "Удзельнік",
 	"validationstatistics-reviews": "Рэцэнзіяў"
