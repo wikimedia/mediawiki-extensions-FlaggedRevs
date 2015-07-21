@@ -719,7 +719,7 @@ class FlaggablePageView extends ContextSource {
 		# Update page sync status for tracking purposes.
 		# NOTE: avoids master hits and doesn't have to be perfect for what it does
 		if ( $this->article->syncedInTracking() != $synced ) {
-			$this->article->updateSyncStatus( $synced );
+			$this->article->lazyUpdateSyncStatus();
 		}
 
 		return $parserOut;
