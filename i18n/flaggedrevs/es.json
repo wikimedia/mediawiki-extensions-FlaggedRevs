@@ -169,7 +169,7 @@
 	"stable-log-restriction": "Autoobservación: requiere el permiso \"$1\"",
 	"stable-logpage": "Registro de estabilidad",
 	"stable-logpagetext": "Este es un registro de cambios a la configuración de [[{{MediaWiki:Validationpage}}|versión estable]] para páginas de contenido.",
-	"revreview-filter-all": "Todas",
+	"revreview-filter-all": "todas",
 	"revreview-filter-stable": "publicado",
 	"revreview-statusfilter": "Acción de revisión:",
 	"revreview-filter-approved": "Aprobada",
