@@ -45,7 +45,7 @@ class Stabilization extends UnlistedSpecialPage {
 		# Watch checkbox
 		$form->setWatchThis( (bool)$request->getCheck( 'wpWatchthis' ) );
 		# Get auto-review option...
-		$form->setReviewThis( $request->getBool( 'wpReviewthis', true ) );
+		$form->setReviewThis( $request->getCheck( 'wpReviewthis') );
 		# Reason
 		$form->setReasonExtra( $request->getText( 'wpReason' ) );
 		$form->setReasonSelection( $request->getVal( 'wpReasonSelection' ) );
