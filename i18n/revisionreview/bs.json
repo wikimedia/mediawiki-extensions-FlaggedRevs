@@ -3,7 +3,8 @@
 		"authors": [
 			"CERminator",
 			"Edinwiki",
-			"KWiki"
+			"KWiki",
+			"Srdjan m"
 		]
 	},
 	"revisionreview": "Pregledaj revizije",
@@ -59,7 +60,7 @@
 	"revreview-update": "'''Molimo [[{{MediaWiki:Validationpage}}|pregledajte]] sve promjene na čekanju ''(pokazane ispod)'' načinjene od stabilne verzije.'''",
 	"revreview-update-edited": "<span class=\"flaggedrevs_important\">Vaše izmjene još uvijek nisu u stabilnoj verziji.</span>\n\nMolimo provjerite sve izmjene prikazane ispod da bi se vaše izmjene prikazale u stabilnoj verziji.",
 	"revreview-update-edited-prev": "<span class=\"flaggedrevs_important\">Vaše izmjene još uvijek nisu u stabilnoj verziji. Postoje ranije izmjene koje su na čekanju za provjeru</span>\n\nMolimo provjerite sve izmjene prikazane ispod da bi se vaše izmjene prikazale u stabilnoj verziji.",
-	"revreview-update-includes": "''Šabloni/datoteke su ažurirani (nepregledane stranice su bodirane):",
+	"revreview-update-includes": "''Šabloni/datoteke su ažurirani (nepregledane stranice su podebljane):",
 	"revreview-reject-text-list": "Dovršavanjem ove akcije, vi ćete '''odbiti'''  izmjene izvornog teksta od {{PLURAL:$1|slijedeće revizije|slijedećih revizija}} od [[:$2|$2]]:",
 	"revreview-reject-text-revto": "Ovim ćete vratiti stranicu na [{{fullurl:$1|oldid=$2}} verziju od $3].",
 	"revreview-reject-summary": "Sažetak:",
