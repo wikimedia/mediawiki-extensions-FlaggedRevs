@@ -56,7 +56,7 @@
 	"revreview-hist-quality-auto": "자동으로 승인됨",
 	"revreview-hist-basic-auto": "자동으로 검토됨",
 	"revreview-hist-pending-difflink": "'''[[{{fullurl:$1|oldid=$2&diff=$3{{MediaWiki:flaggedrevs-diffonly}}}} 검토 보류 중]]'''",
-	"review-edit-diff": "'''참고: 검토를 기다리고 있는 편집이 당신이 편집하는 문서에 포함되어 있습니다.'''",
+	"review-edit-diff": "'''알림: 검토를 기다리고 있는 편집의 ''일부''가 당신이 편집하는 문서에 포함되어 있습니다.'''",
 	"revreview-diff-toggle-show": "차이 보이기",
 	"revreview-diff-toggle-hide": "차이 숨기기",
 	"revreview-diff-toggle-title": "배포된 문서의 검토를 기다리고 있는 편집 표시 여부를 설정하기",
@@ -186,7 +186,7 @@
 	"flaggedrevs-categoryview": "[{{fullurl:Special:UnreviewedPages|category=$1}} 검토되지 않은 문서]{{MediaWiki:pipe-separator}}[{{fullurl:Special:PendingChanges|category=$1}} 검토 대기 중인 문서]",
 	"revreview-locked-title": "이 문서에 대한 편집은 반드시 검토를 거쳐야 합니다.",
 	"revreview-unlocked-title": "이 문서에 대한 편집은 검토를 필요로 하지 않습니다.",
-	"revreview-locked": "'''주의:''' 이 문서에 편집이 배포되기 전에 반드시 [[{{MediaWiki:Validationpage}}|검토]]를 거쳐야 합니다.",
+	"revreview-locked": "'''참고:''' 이 문서에 편집이 배포되기 전에 반드시 [[{{MediaWiki:Validationpage}}|검토]]를 거쳐야 합니다.",
 	"revreview-unlocked": "'''알림''' 이 문서에 보여지기 전에 편집은 [[{{MediaWiki:Validationpage}}|검토]]가 필요하지 않습니다.",
 	"log-show-hide-review": "문서 검토 기록 $1",
 	"validationpage": "{{ns:help}}:문서 검토"

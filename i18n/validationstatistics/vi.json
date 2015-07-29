@@ -6,7 +6,7 @@
 		]
 	},
 	"validationstatistics": "Thống kê duyệt trang",
-	"validationstatistics-users": "Hiện nay, có '''[[Special:ListUsers/editor|$1]]''' {{PLURAL:$1|thành viên|thành viên}} tại '''{{SITENAME}}''' có quyền [[{{MediaWiki:Validationpage}}|Biên tập viên]].\n\nBiên tập viên là người dùng có kinh nghiệm có khả năng kiểm tra nhanh các thay đổi tại trang.",
+	"validationstatistics-users": "Hiện nay, có '''[[Special:ListUsers/editor|$1]]''' thành viên tại '''{{SITENAME}}''' có quyền [[{{MediaWiki:Validationpage}}|Biên tập viên]].\n\nBiên tập viên là người dùng có kinh nghiệm có khả năng kiểm tra nhanh các thay đổi tại trang.",
 	"validationstatistics-lastupdate": "''Các dữ liệu sau được cập nhật lần cuối vào $1 lúc $2.''",
 	"validationstatistics-pndtime": "Những sửa đổi ''{{int:validationstatistics-stable}}'' khi được người dùng có kinh nghiệm xem qua.\n\n[[Special:OldReviewedPages|Các trang có sửa đổi hiện đang chờ duyệt]] đã chờ đợi '''$1''' trung bình, tính theo sửa đổi cũ nhất đang chờ duyệt.",
 	"validationstatistics-revtime": "Những sửa đổi của ''người dùng vô danh'' phải chờ đợi '''$1''' trung bình; thời gian trung vị là '''$2'''.\n$3",

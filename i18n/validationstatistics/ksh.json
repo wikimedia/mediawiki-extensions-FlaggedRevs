@@ -9,7 +9,7 @@
 	"validationstatistics-lastupdate": "''De Daate heh henger sen et läz aam $1 öm $2 Uhr op der neuste Shtand jebraat woode.''",
 	"validationstatistics-pndtime": "Änderonge vun „aanerkannte“ Metmaacher wääde als ''{{int:validationstatistics-stable}}'' aanjesinn.\n\nEm Schnett dohrd dat '''$1''' för [[Special:OldReviewedPages|Sigge met Änderonge, di nit nohjekik sin]]. Jezallt weed dobei immer de Duur, bes de ählste Änderong nohjekik es.",
 	"validationstatistics-revtime": "De Duur beß de Änderonge vun ''naameloose Metmaacher'' nohjekik sen, es '''$1''' — der Median es '''$2'''.\n$3",
-	"validationstatistics-table": "Schtateßteke vun de Beschtähtejunge för jedes Appachtemang wähde onge jezeisch, ävver der ohne de Sigge met Ömleijdonge.\nSigge sen als ''{{int:validationstatistics-old}}'' enjeschtohf, wann Änderonge doh sen, di noch nit nohjekik sin.\nSigge wääde als ''{{int:validationstatistics-latest}}'' enjeschtohf, wann kein Änderonge zom Nohkike mieh övveresch sen.",
+	"validationstatistics-table": "Schtateßteke vun de Beschtähtejunge för jedes Appachtemang wähde onge jezeisch, ävver der ohne de Sigge met Ömleijdonge.\nSigge sen als ''{{int:validationstatistics-old}}'' enjeschtohf, wann Änderonge doh sen, di noch nit nohjekik sin.\nSigge wääde als ''{{int:validationstatistics-latest}}'' enjeschtohf, wann kein Änderonge zom Nohkike mih övveresch sen.",
 	"validationstatistics-ns": "Appachtemang",
 	"validationstatistics-total": "Sigge ensjesamp",
 	"validationstatistics-stable": "Aanjekik",
