@@ -820,7 +820,7 @@ class FlaggedRevsHooks {
 	 * $wgFlaggedRevsAutopromote. This also handles user stats tallies.
 	 */
 	public static function onArticleSaveComplete(
-		Page $article, $user, $text, $summary, $m, $a, $b, &$f, $rev
+		Page $article, User $user, $text, $summary, $m, $a, $b, &$f, $rev
 	) {
 		global $wgFlaggedRevsAutopromote, $wgFlaggedRevsAutoconfirm;
 		# Ignore NULL edits, edits by anon users, and MW role account edits
@@ -830,11 +830,15 @@ class FlaggedRevsHooks {
 		} elseif ( !$wgFlaggedRevsAutopromote && !$wgFlaggedRevsAutoconfirm ) {
 			return true;
 		}
-		$p = FRUserCounters::getUserParams( $user->getId(), FR_FOR_UPDATE );
-		$changed = FRUserCounters::updateUserParams( $p, $article, $summary );
-		if ( $changed ) {
-			FRUserCounters::saveUserParams( $user->getId(), $p ); // save any updates
-		}
+
+		DeferredUpdates::addCallableUpdate( function() use ( $user, $article, $summary ) {
+			$p = FRUserCounters::getUserParams( $user->getId(), FR_FOR_UPDATE );
+			$changed = FRUserCounters::updateUserParams( $p, $article, $summary );
+			if ( $changed ) {
+				FRUserCounters::saveUserParams( $user->getId(), $p ); // save any updates
+			}
+		} );
+
 		return true;
 	}
 

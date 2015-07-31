@@ -207,8 +207,9 @@ class FRUserCounters {
 				$maxUniquePages = $wgFlaggedRevsAutopromote['uniqueContentPages'];
 			}
 			if ( count( $pages ) < $maxUniquePages // limit the size of this
-				&& !in_array( $article->getId(), $pages ) )
-			{
+				&& $article->getId()
+				&& !in_array( $article->getId(), $pages )
+			) {
 				$pages[] = $article->getId();
 				$p['uniqueContentPages'] = $pages;
 			}

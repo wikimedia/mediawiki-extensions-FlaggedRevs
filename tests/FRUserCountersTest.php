@@ -75,7 +75,6 @@ class FRUserCountersTest extends PHPUnit_Framework_TestCase {
 			"Content edit count on content edit" );
 
 		$expected = $p['uniqueContentPages'];
-		$expected[] = 0;
 		$this->assertEquals( $expected, $copyP['uniqueContentPages'],
 			"Unique content pages on content edit" );
 
