@@ -5,7 +5,7 @@
 		]
 	},
 	"validationstatistics": "Schtatistike vun de Beschtäätejonge för Sigge",
-	"validationstatistics-users": "'''{{ucfirst:{{GRAMMAR:Mominativ|{{SITENAME}}}}}}''' hät em Momang [[Special:ListUsers/editor|{{PLURAL:$1|'''eine''' Metmaacher|'''$1''' Metmaacher|'''keine''' Metmaacher}}]] met däm Rääsch, der [[{{MediaWiki:Validationpage}}|{{int:group-editor-member}}]] ze maache.\n\n{{int:group-editor}} sin doför aanerkannte un extra ußjesöhk Metmaacher, di Versione vun Sigge beshtäteje künne.",
+	"validationstatistics-users": "'''{{ucfirst:{{GRAMMAR:Mominativ|{{SITENAME}}}}}}''' hädd em Momang [[Special:ListUsers/editor|{{PLURAL:$1|'''eine'''|'''$1'''|'''keine'''}} Metmaacher]] met däm Rääsch, der [[{{MediaWiki:Validationpage}}|{{int:group-editor-member}}]] ze maache.\n\n{{int:group-editor}} sin doför aanäkannte un äxtra ußjesöhk Metmaacher, di V#sjohne vun Sigge beschtähteje künne.",
 	"validationstatistics-lastupdate": "''De Daate heh henger sen et läz aam $1 öm $2 Uhr op der neuste Shtand jebraat woode.''",
 	"validationstatistics-pndtime": "Änderonge vun „aanerkannte“ Metmaacher wääde als ''{{int:validationstatistics-stable}}'' aanjesinn.\n\nEm Schnett dohrd dat '''$1''' för [[Special:OldReviewedPages|Sigge met Änderonge, di nit nohjekik sin]]. Jezallt weed dobei immer de Duur, bes de ählste Änderong nohjekik es.",
 	"validationstatistics-revtime": "De Duur beß de Änderonge vun ''naameloose Metmaacher'' nohjekik sen, es '''$1''' — der Median es '''$2'''.\n$3",
