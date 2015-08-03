@@ -25,7 +25,7 @@
 	"flaggedrevs-prefs-viewdiffs": "Pokaži razlike izmjena na čekanju pri prikazivanju posljednje verzije na čekanju",
 	"flaggedrevs-hidereviewed": "$1 pregledane izmjene",
 	"flaggedrevs-hidereviewed-hide": "Sakrij",
-	"flaggedrevs-hidereviewed-show": "Pokaži",
+	"flaggedrevs-hidereviewed-show": "Prikaži",
 	"group-editor": "Urednici",
 	"group-editor-member": "{{GENDER:$1|uređivač}}",
 	"group-reviewer": "Provjerivači",

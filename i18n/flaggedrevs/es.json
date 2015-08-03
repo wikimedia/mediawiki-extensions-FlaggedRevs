@@ -71,7 +71,7 @@
 	"revreview-hist-quality-auto": "aprobada automáticamente",
 	"revreview-hist-basic-auto": "revisada automáticamente",
 	"revreview-hist-pending-difflink": "'''[[{{fullurl:$1|oldid=$2&diff=$3{{MediaWiki:flaggedrevs-diffonly}}}} a espera de revisión]]'''",
-	"review-edit-diff": "'''Aviso: ''Algunos'' de los cambios pendientes afectan la parte de la página que estás editando.'''",
+	"review-edit-diff": "'''Aviso: ''algunos'' de los cambios pendientes afectan la parte de la página que estás editando.'''",
 	"revreview-diff-toggle-show": "mostrar esos cambios",
 	"revreview-diff-toggle-hide": "ocultar esos cambios",
 	"revreview-diff-toggle-title": "Muestra u oculta los cambios pendientes a la versión publicada",
