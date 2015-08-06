@@ -301,7 +301,7 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 		# Update page record and touch page
 		$oldLatest = $nullRev->getParentId();
 		$article->updateRevisionOn( $dbw, $nullRev, $oldLatest );
-		wfRunHooks( 'NewRevisionFromEditComplete',
+		Hooks::run( 'NewRevisionFromEditComplete',
 			array( $article, $nullRev, $oldLatest, $this->user ) );
 
 		# Return null Revision object for autoreview check
