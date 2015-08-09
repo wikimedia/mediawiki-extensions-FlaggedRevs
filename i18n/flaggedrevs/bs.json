@@ -40,7 +40,7 @@
 	"revreview-hist-quality": "provjerena revizija",
 	"revreview-hist-basic": "provjerena revizija",
 	"revreview-hist-quality-user": "provjereno od strane [[User:$3|$3]]",
-	"revreview-hist-basic-user": "pregledano od strane [[User:$3|$3]]",
+	"revreview-hist-basic-user": "pregledao/la [[User:$3|$3]]",
 	"revreview-hist-quality-auto": "automatski odobreno",
 	"revreview-hist-basic-auto": "automatski provjereno",
 	"revreview-hist-pending-difflink": "'''[[{{fullurl:$1|oldid=$2&diff=$3{{MediaWiki:flaggedrevs-diffonly}}}} čeka na provjeru]]'''",
