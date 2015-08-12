@@ -41,8 +41,8 @@
 	"revreview-stable2": "Možda bi htjeli pogledati [{{fullurl:$1|stable=1}} stabilnu verziju] ove stranice.",
 	"revreview-submit": "Pošalji",
 	"revreview-submitting": "Šaljem...",
-	"revreview-submit-review": "Prihvati izmjenu",
-	"revreview-submit-unreview": "Odbij reviziju",
+	"revreview-submit-review": "Prihvati verziju",
+	"revreview-submit-unreview": "Odbij verziju",
 	"revreview-submit-reject": "Odbij izmjene",
 	"revreview-submit-reviewed": "Završeno. Prihvaćeno!",
 	"revreview-submit-unreviewed": "Završeno. Neprihvaćeno!",
@@ -71,6 +71,6 @@
 	"revreview-reject-summary-cur-short": "{{PLURAL:$1|Odbijena posljednja izmjena|Odbijene posljednje $1 izmjene|Odbijeno posljednjih $1 izmjena}} teksta i vraćena verzija $2 korisnika $3",
 	"revreview-reject-summary-old-short": "{{PLURAL:$1|Odbijena prva izmjena|Odbijene prve $1 izmjene|Odbijeno prvih $1 izmjena}} teksta koje su načinjene nakon revizije $2 od $3",
 	"revreview-tt-flag": "Prihvati ovu verziju označavajući je \"pregledanom\"",
-	"revreview-tt-unflag": "Ne prihvati ovu reviziju označavajući je ''neprovjerenom''",
+	"revreview-tt-unflag": "Odbij ovu verziju označavajući je \"neprovjerenom\"",
 	"revreview-tt-reject": "Odbij izmjene ovog izvornog teksta tako što ćete ih vratiti"
 }
