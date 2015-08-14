@@ -20,7 +20,8 @@
 			"Sergey kudryavtsev",
 			"VasilievVV",
 			"Александр Сигачёв",
-			"Cinemantique"
+			"Cinemantique",
+			"WindEwriX"
 		]
 	},
 	"action-review": "проверка версий страниц",
@@ -154,9 +155,9 @@
 	"right-unreviewedpages": "просмотр [[Special:UnreviewedPages|списка непроверенных страниц]]",
 	"rights-editor-revoke": "снял статус досматривающего с [[$1]]",
 	"specialpages-group-quality": "Подтверждение правок",
-	"stable-logentry-config": "установил настройки стабильной версии для «$1»",
-	"stable-logentry-modify": "изменил настройки стабильной версии для «$1»",
-	"stable-logentry-reset": "сбросил настройки стабильной версии для «$1»",
+	"stable-logentry-config": "установлены настройки стабильной версии для «$1»",
+	"stable-logentry-modify": "изменены настройки стабильной версии для «$1»",
+	"stable-logentry-reset": "сброшены настройки стабильной версии для «$1»",
 	"stable-log-restriction": "Автопроверка: требуется разрешение «$1»",
 	"stable-logpage": "Журнал стабилизаций",
 	"stable-logpagetext": "Это журнал изменений настроек [[{{MediaWiki:Validationpage}}|опубликованных версий]] страниц.",
