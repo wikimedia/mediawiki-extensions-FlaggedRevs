@@ -1902,7 +1902,7 @@ class FlaggablePageView extends ContextSource {
 				if ( $this->article->revsArePending() ) {
 					$n = $this->article->getPendingRevCount();
 					$attribs['title'] = $this->msg( 'revreview-check-flag-p-title' )->text();
-					$labelMsg = $this->msg( 'revreview-check-flag-p', $n )->parse();
+					$labelMsg = $this->msg( 'revreview-check-flag-p' )->numParams( $n )->parse();
 				// For just the user's changes...
 				} else {
 					$attribs['title'] = $this->msg( 'revreview-check-flag-y-title' )->parse();
