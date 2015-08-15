@@ -35,7 +35,7 @@
 	"group-autoreview": "Autonadzornici",
 	"group-autoreview-member": "autonadzornik",
 	"grouppage-autoreview": "{{ns:project}}:Autonadzornik",
-	"revreview-hist-draft": "neprovjerena revizija",
+	"revreview-hist-draft": "neprovjerena verzija",
 	"revreview-hist-pending": "čeka na provjeru",
 	"revreview-hist-quality": "provjerena revizija",
 	"revreview-hist-basic": "pregledana verzija",
