@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Sasan700",
-			"Умар"
+			"Умар",
+			"Исмаил Садуев"
 		]
 	},
 	"action-review": "агlонаший варсийшка хьажар",
@@ -120,7 +121,7 @@
 	"revreview-style-0": "ХӀотийна яц",
 	"revreview-style-1": "тӀелаца мега",
 	"revreview-style-2": "дика",
-	"revreview-style-3": "боцо яззам",
+	"revreview-style-3": "боцца яззам",
 	"revreview-style-4": "хаьржина",
 	"revreview-toggle-title": "гайта/къайладаккха мадарра дерг",
 	"revreview-visibility-synced": "'''ХӀокху агӀона ю карлаяккхар [[{{MediaWiki:Validationpage}}|гуш йолу верси]]; гаран версена гӀирс [{{fullurl:{{#Special:Stabilization}}|page={{FULLPAGENAMEE}}}} хийца мега].'''",
