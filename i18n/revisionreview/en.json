@@ -68,7 +68,7 @@
 	"revreview-reject-summary-cur": "Rejected the last {{PLURAL:$1|text change|$1 text changes}} ({{PLURAL:$7|{{GENDER:$5|by}}}} $2) and restored revision $3 {{GENDER:$6|by}} $4",
 	"revreview-reject-summary-old": "Rejected the first {{PLURAL:$1|text change|$1 text changes}} ({{PLURAL:$7|{{GENDER:$5|by}}}} $2) that followed revision $3 {{GENDER:$6|by}} $4",
 	"revreview-reject-summary-cur-short": "Rejected the last {{PLURAL:$1|text change|$1 text changes}} and restored revision $2 {{GENDER:$4|by}} $3",
-	"revreview-reject-summary-old-short": "Rejected the first {{PLURAL:$1|text change|$1 text changes}} that followed revision $2 {{GENDER:$4|by}} $3'",
+	"revreview-reject-summary-old-short": "Rejected the first {{PLURAL:$1|text change|$1 text changes}} that followed revision $2 {{GENDER:$4|by}} $3",
 	"revreview-tt-flag": "Accept this revision by marking it as \"checked\"",
 	"revreview-tt-unflag": "Unaccept this revision by marking it as \"unchecked\"",
 	"revreview-tt-reject": "Reject these source text changes by reverting them"
