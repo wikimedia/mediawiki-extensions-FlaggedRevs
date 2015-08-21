@@ -10,7 +10,9 @@
 			"Xiaomingyan",
 			"阿pp",
 			"Mywood",
-			"Impersonator 1"
+			"Impersonator 1",
+			"Liuxinyu970226",
+			"Nbdd0121"
 		]
 	},
 	"revisionreview": "复核版本",
@@ -44,7 +46,7 @@
 	"revreview-log": "评论：",
 	"revreview-main": "您必须选择内容页的特定版本以复审。\n\n参见[[Special:Unreviewedpages|未复审页面列表]]。",
 	"revreview-stable1": "您可能想要查看[{{fullurl:$1|stableid=$2}} 此已标记的版本]，并检查现在是否已有该页面的[{{fullurl:$1|stable=1}} 稳定版本]。",
-	"revreview-stable2": "你可能想要查看该页面的[{{fullurl:$1|stable=1}} 稳定版本]。",
+	"revreview-stable2": "您可能想要查看该页面的[{{fullurl:$1|stable=1}} 稳定版本]。",
 	"revreview-submit": "提交",
 	"revreview-submitting": "提交中……",
 	"revreview-submit-review": "接受版本",
@@ -72,10 +74,10 @@
 	"revreview-reject-summary": "摘要：",
 	"revreview-reject-confirm": "拒绝这些更改",
 	"revreview-reject-cancel": "取消",
-	"revreview-reject-summary-cur": "拒绝由$2作出的后{{PLURAL:$1|次文字更改|$1次文字更改}}，并由$4恢复到版本$3",
-	"revreview-reject-summary-old": "拒绝由$2作出的前{{PLURAL:$1|次文字更改|$1次文字更改}}，并由$4恢复到版本$3",
-	"revreview-reject-summary-cur-short": "拒绝后{{PLURAL:$1|次文字更改|$1次文字更改}}，并由$3恢复到版本$2",
-	"revreview-reject-summary-old-short": "拒绝前{{PLURAL:$1|次文字更改|$1次文字更改}}，并由$3恢复到版本$2",
+	"revreview-reject-summary-cur": "拒绝{{PLURAL:$7|{{GENDER:$5|由}}}}$2作出的后{{PLURAL:$1|次文字更改|$1次文字更改}}，并{{GENDER:$6|由}}$4恢复到版本$3",
+	"revreview-reject-summary-old": "拒绝{{PLURAL:$7|{{GENDER:$5|由}}}}$2作出的前{{PLURAL:$1|次文字更改|$1次文字更改}}，并{{GENDER:$6|由}}$4恢复到版本$3",
+	"revreview-reject-summary-cur-short": "拒绝后{{PLURAL:$1|次文字更改|$1次文字更改}}，并{{GENDER:$4|由}}$3恢复到版本$2",
+	"revreview-reject-summary-old-short": "拒绝前$1{{PLURAL:$1|次文字更改}}，并{{GENDER:$4|由}}$3恢复到版本$2",
 	"revreview-tt-flag": "接受该版本并将其标记为“已检查”",
 	"revreview-tt-unflag": "不接受该版本并将其标记为“未检查”",
 	"revreview-tt-reject": "拒绝这些对源文本的修改并撤消它们"
