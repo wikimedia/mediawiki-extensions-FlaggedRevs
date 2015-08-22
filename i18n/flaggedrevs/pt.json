@@ -13,7 +13,8 @@
 			"Waldir",
 			"555",
 			"Vitorvicentevalente",
-			"He7d3r"
+			"He7d3r",
+			"Cainamarques"
 		]
 	},
 	"action-review": "rever edições",
@@ -29,7 +30,7 @@
 	"flaggedrevs-pref-stable-0": "Usar as configurações padrão para cada página",
 	"flaggedrevs-pref-stable-1": "Mostrar sempre a versão estável (se existir)",
 	"flaggedrevs-pref-stable-2": "Mostrar sempre a última versão",
-	"flaggedrevs-prefs-watch": "Adicionar às minhas páginas vigiadas as páginas que eu reveja",
+	"flaggedrevs-prefs-watch": "Adicionar às minhas páginas vigiadas as páginas que eu revisar",
 	"flaggedrevs-prefs-editdiffs": "Mostrar diferenças das versões pendentes ao editar páginas",
 	"flaggedrevs-prefs-viewdiffs": "Mostrar as diferenças das alterações pendentes ao ver a última edição pendente",
 	"flaggedrevs-hidereviewed": "$1 edições revistas",

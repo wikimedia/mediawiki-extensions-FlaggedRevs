@@ -5,10 +5,11 @@
 			"Helder.wiki",
 			"Luckas",
 			"Luckas Blade",
-			"He7d3r"
+			"He7d3r",
+			"Cainamarques"
 		]
 	},
-	"revisionreview": "Rever edições",
+	"revisionreview": "Revisar edições",
 	"revreview-failed": "'''Não foi possível revisar esta edição.'''",
 	"revreview-submission-invalid": "Os dados submetidos estão incompletos ou são inválidos.",
 	"review_page_invalid": "O título da página de destino é inválido.",
@@ -33,8 +34,8 @@
 	"revreview-check-flag-u-title": "Aceitar esta versão da página. Faça-o só se já viu a página completa.",
 	"revreview-check-flag-y": "Aceitar estas alterações",
 	"revreview-check-flag-y-title": "Aceitar todas as alterações que realizou nesta edição.",
-	"revreview-flag": "Rever esta edição",
-	"revreview-reflag": "Voltar a revisar esta edição",
+	"revreview-flag": "Revisar esta edição",
+	"revreview-reflag": "Revisar novamente esta edição",
 	"revreview-invalid": "'''Destino inválido:''' não há [[{{MediaWiki:Validationpage}}|edições revisadas]] que correspondam ao ID fornecido.",
 	"revreview-log": "Comentário:",
 	"revreview-main": "Você tem de selecionar uma edição específica de uma página, para revisá-la.\n\nVeja a [[Special:Unreviewedpages|lista de páginas não revisadas]].",
