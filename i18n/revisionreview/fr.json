@@ -9,7 +9,8 @@
 			"Peter17",
 			"PieRRoMaN",
 			"Sherbrooke",
-			"Verdy p"
+			"Verdy p",
+			"Wladek92"
 		]
 	},
 	"revisionreview": "Relire les versions",
@@ -71,10 +72,10 @@
 	"revreview-reject-summary": "Résumé :",
 	"revreview-reject-confirm": "Rejeter ces changements",
 	"revreview-reject-cancel": "Annuler",
-	"revreview-reject-summary-cur": "{{PLURAL:$1|La dernière modification du texte|Les dernières modifications du texte}} (par $2) {{PLURAL:$1|a été rejetée|ont été rejetées}} et la version $3 de $4 a été restaurée",
-	"revreview-reject-summary-old": "{{PLURAL:$1|La première modification du texte|Les premières modifications du texte}} (par $2) qui suivaient la révision $3 ont été rejetées par $4",
-	"revreview-reject-summary-cur-short": "{{PLURAL:$1|La dernière modification du texte a été rejetée|Les $1 dernières modifications du texte ont été rejetées}} et la version $2 de $3 a été restaurée",
-	"revreview-reject-summary-old-short": "{{PLURAL:$1|La première modification du texte|Les $1 premières modifications du texte}} qui suivaient la révision $2 ont été rejetées par $3",
+	"revreview-reject-summary-cur": "{{PLURAL:$1|La dernière modification du texte|Les dernières modifications du texte}} ({{PLURAL:$7|{{GENDER:$5|par}}}} $2){{PLURAL:$1|a été rejetée|ont été rejetées}} et la version $3 {{GENDER:$6|de}} $4 a été restaurée",
+	"revreview-reject-summary-old": "{{PLURAL:$1|A été rejetée la première modification du texte|Ont été rejetées les premières modifications du texte}} ({{PLURAL:$7|{{GENDER:$5|par}}}} $2)  qui {{PLURAL:$1|suivait|suivaient}} la révision $3 {{GENDER:$6|par}} $4",
+	"revreview-reject-summary-cur-short": "{{PLURAL:$1|La dernière modification du texte a été rejetée|Les $1 dernières modifications du texte ont été rejetées}} et la version $2  {{GENDER:$4|de}} $3 a été restaurée",
+	"revreview-reject-summary-old-short": "{{PLURAL:$1|La première modification du texte qui suivait|Les $1 premières modifications du texte qui suivaient}} la révision $2 {{GENDER:$4|de}} $3 {{PLURAL:$1|a été rejetée|ont été rejetées}}",
 	"revreview-tt-flag": "Approuver cette version en la marquant comme vérifiée",
 	"revreview-tt-unflag": "Désapprouver cette version en la marquant comme non-vérifiée",
 	"revreview-tt-reject": "Rejeter ces modifications dans le texte source en les révoquant"
