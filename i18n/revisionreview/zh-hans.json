@@ -77,7 +77,7 @@
 	"revreview-reject-summary-cur": "拒绝{{PLURAL:$7|{{GENDER:$5|由}}}}$2作出的后{{PLURAL:$1|次文字更改|$1次文字更改}}，并{{GENDER:$6|由}}$4恢复到版本$3",
 	"revreview-reject-summary-old": "拒绝{{PLURAL:$7|{{GENDER:$5|由}}}}$2作出的前{{PLURAL:$1|次文字更改|$1次文字更改}}，并{{GENDER:$6|由}}$4恢复到版本$3",
 	"revreview-reject-summary-cur-short": "拒绝后{{PLURAL:$1|次文字更改|$1次文字更改}}，并{{GENDER:$4|由}}$3恢复到版本$2",
-	"revreview-reject-summary-old-short": "拒绝前$1{{PLURAL:$1|次文字更改}}，并{{GENDER:$4|由}}$3恢复到版本$2",
+	"revreview-reject-summary-old-short": "拒绝前{{PLURAL:$1|次文字更改|$1次文字更改}}，并{{GENDER:$4|由}}$3恢复到版本$2",
 	"revreview-tt-flag": "接受该版本并将其标记为“已检查”",
 	"revreview-tt-unflag": "不接受该版本并将其标记为“未检查”",
 	"revreview-tt-reject": "拒绝这些对源文本的修改并撤消它们"

@@ -1,10 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"John Reid"
+			"John Reid",
+			"AmaryllisGardener"
 		]
 	},
 	"flaggedrevs-hidereviewed-hide": "Skauk",
 	"flaggedrevs-hidereviewed-show": "Shaw",
-	"revreview-revnotfound": "The auld reveesion o the page that ye socht coudna be foond. Please check the URL that ye uised tae access this page."
+	"revreview-revnotfound": "The auld reveesion o the page that ye socht coudna be foond. Please check the URL that ye uised tae access this page.",
+	"tooltip-ca-current": "View this page wi the pendin chynges"
 }
