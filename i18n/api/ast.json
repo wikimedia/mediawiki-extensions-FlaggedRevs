@@ -1,0 +1,21 @@
+{
+	"@metadata": {
+		"authors": [
+			"Xuacu"
+		]
+	},
+	"apihelp-flagconfig-example-1": "Algamar la configuración de la marca",
+	"apihelp-query+configuredpages-description": "Enumerar toles páxines que tengan configuración de revisiones personalizada.",
+	"apihelp-query+configuredpages-param-start": "Principiar la llista n'esta ID de páxina.",
+	"apihelp-query+configuredpages-param-end": "Finar la llista n'esta ID de páxina.",
+	"apihelp-query+configuredpages-param-namespace": "Los espacios de nomes a enumerar.",
+	"apihelp-query+configuredpages-param-default": "La versión predeterminada de vista de páxina.",
+	"apihelp-query+configuredpages-param-autoreview": "Nivel de torgues de revisión/revisión automática.",
+	"apihelp-query+configuredpages-param-limit": "Númberu total de páxines a devolver.",
+	"apihelp-query+configuredpages-example-1": "Ver la llista de páxines con configuraciones de revisión personalizaes",
+	"apihelp-stabilize-param-reason": "Motivu.",
+	"apihelp-stabilize-param-watch": "Vixilar esta páxina.",
+	"apihelp-stabilize-param-expiry-general": "Caducidá d'esta configuración.",
+	"apihelp-stabilize-param-expiry-protect": "Caducidá de la protección de revisión.",
+	"apihelp-stabilize-param-title-general": "Títulu de la páxina a estabilizar."
+}
