@@ -1989,7 +1989,7 @@ class FlaggablePageView extends ContextSource {
 				# We are undoing all edits *after* some rev ID (undoafter).
 				# If undoafter is not given, then it is the previous rev ID.
 				$revId = $request->getInt( 'undoafter',
-					$article->getTitle()->getPreviousRevisionID( $latestId, Title::GAID_FOR_UPDATE ) );
+					$article->getTitle()->getPreviousRevisionID( $latestId ) );
 			} else {
 				$revId = $request->getInt( 'altBaseRevId' );
 			}
