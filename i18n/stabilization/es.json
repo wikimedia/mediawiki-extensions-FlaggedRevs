@@ -11,7 +11,8 @@
 			"Peter17",
 			"Sanbec",
 			"Translationista",
-			"Macofe"
+			"Macofe",
+			"Ciencia Al Poder"
 		]
 	},
 	"stabilization-tab": "vetar",
@@ -29,7 +30,7 @@
 	"stabilization-notexists": "No hay una página llamada \"[[:$1|$1]]\".\nLa configuración no es posible.",
 	"stabilization-notcontent": "La página \"[[:$1|$1]]\" no puede ser revisada.\nLa configuración no es posible.",
 	"stabilization-comment": "Razón:",
-	"stabilization-otherreason": "Otra razón:",
+	"stabilization-otherreason": "Otro motivo:",
 	"stabilization-expiry": "Vence:",
 	"stabilization-othertime": "Otra vez:",
 	"stabilization-def-short": "Predeterminado",

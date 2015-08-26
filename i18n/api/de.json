@@ -22,6 +22,7 @@
 	"apihelp-query+reviewedpages-param-end": "Auflistung bei dieser Seitenkennung beenden.",
 	"apihelp-query+reviewedpages-param-namespace": "Die aufzulistenden Namensräume.",
 	"apihelp-query+reviewedpages-param-filterredir": "Wie für Weiterleitungen gefiltert werden soll",
+	"apihelp-query+reviewedpages-param-limit": "Wie viele Seiten insgesamt zurückgegeben werden sollen.",
 	"apihelp-query+unreviewedpages-param-start": "Liste bei diesem Seitentitel beginnen.",
 	"apihelp-query+unreviewedpages-param-end": "Liste bei diesem Seitentitel beenden.",
 	"apihelp-query+unreviewedpages-param-namespace": "Die aufzulistenden Namensräume.",
