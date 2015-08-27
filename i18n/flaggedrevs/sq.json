@@ -5,7 +5,8 @@
 			"Cradel",
 			"Euriditi",
 			"Olsi",
-			"Tëfcí"
+			"Tëfcí",
+			"Liridon"
 		]
 	},
 	"action-review": "redaktimet e shqyrtuara",
@@ -25,5 +26,6 @@
 	"revreview-noflagged": "Nuk ka [[{{MediaWiki:Validationpage}}|versione të shqyrtuara]] të kësaj faqe, ndaj mund të '''mos''' jetë kontrolluar përputhja e saj me standardet.",
 	"revreview-source": "Shiko tekstin",
 	"revreview-revnotfound": "Versioni i vjetër i faqes së kërkuar nuk mund të gjindej. Ju lutem kontrolloni URL-n që përdorët për të ardhur tek kjo faqe.",
+	"tooltip-ca-current": "Shih këtë faqe me ndryshimet në pritje",
 	"validationpage": "{{ns:help}}:Kontrolli i faqes"
 }
