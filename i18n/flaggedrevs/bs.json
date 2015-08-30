@@ -57,7 +57,7 @@
 	"review-diff2stable": "Pogledajte promjene na čekanju u odnosu na objavljenju verziju",
 	"review-logentry-app": "{{GENDER:|pregledao|pregledala}} je verziju stranice [[$1]]",
 	"review-logentry-dis": "{{GENDER:|odbio|odbila}} je verziju stranice [[$1]]",
-	"review-logentry-id": "revizija: $2",
+	"review-logentry-id": "verzija: $2",
 	"review-logentry-diff": "izmjene provjerene",
 	"review-logentry-diff2": "neprovjerene promjene",
 	"review-logpage": "Zapisnik provjera",
