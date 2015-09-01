@@ -8,7 +8,8 @@
 			"Vitorvicentevalente",
 			"Waldir",
 			"555",
-			"He7d3r"
+			"He7d3r",
+			"Fúlvio"
 		]
 	},
 	"revisionreview": "Rever edições",
@@ -70,10 +71,10 @@
 	"revreview-reject-summary": "Resumo:",
 	"revreview-reject-confirm": "Rejeitar estas mudanças",
 	"revreview-reject-cancel": "Cancelar",
-	"revreview-reject-summary-cur": "Rejeitou {{PLURAL:$1|a última alteração|as últimas $1 alterações}} do texto ({{GENDER:$6|de}} $2) e reverteu para a edição $3 {{GENDER:$6|de}} $4",
-	"revreview-reject-summary-old": "Rejeitou {{PLURAL:$1|a primeira alteração|as primeiras $1 alterações}} do texto ({{GENDER:$5|de}} $2) {{PLURAL:$1|feita|feitas}} após a edição $3 {{GENDER:$6|de}} $4",
+	"revreview-reject-summary-cur": "Rejeitou {{PLURAL:$1|a última alteração|as últimas $1 alterações}} do texto ({{PLURAL:$7|{{GENDER:$5|de}}}} $2) e reverteu para a edição $3 {{GENDER:$6|de}} $4",
+	"revreview-reject-summary-old": "Rejeitou {{PLURAL:$1|a primeira alteração|as primeiras $1 alterações}} do texto ({{PLURAL:$7|{{GENDER:$5|de}}}} $2) {{PLURAL:$1|feita|feitas}} após a edição $3 {{GENDER:$6|de}} $4",
 	"revreview-reject-summary-cur-short": "Rejeitou {{PLURAL:$1|a última alteração|as últimas $1 alterações}} do texto e reverteu para a edição $2 {{GENDER:$4|de}} $3",
-	"revreview-reject-summary-old-short": "Rejeitou {{PLURAL:$1|a primeira alteração do texto feita|as primeiras $1 mudanças do texto feitas}} após a edição $2 de $3",
+	"revreview-reject-summary-old-short": "Rejeitou {{PLURAL:$1|a primeira alteração do texto feita|as primeiras $1 mudanças do texto feitas}} após a edição $2 {{GENDER:$4|de}} $3",
 	"revreview-tt-flag": "Aprovar esta edição, marcando-a como \"verificada\"",
 	"revreview-tt-unflag": "Anular a aprovação desta edição, marcando-a como \"não verificada\"",
 	"revreview-tt-reject": "Rejeitar estas alterações ao texto, revertendo-as"

@@ -46,7 +46,7 @@
 	"revreview-submit-reject": "Odbij izmjene",
 	"revreview-submit-reviewed": "Završeno. Prihvaćeno!",
 	"revreview-submit-unreviewed": "Završeno. Neprihvaćeno!",
-	"revreview-successful": "'''Revizija od [[:$1|$1]] je uspješno označena. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} vidi stabilne verzije])'''",
+	"revreview-successful": "'''Uspješno označena verzija stranice [[:$1|$1]]. ([{{fullurl:{{#Special:ReviewedVersions}}|page=$2}} vidi stabilne verzije])'''",
 	"revreview-successful2": "'''Reviziji od [[:$1|$1]] je uspješno uklonjena oznaka.'''",
 	"revreview-poss-conflict-p": "'''Upozorenje: [[User:$1|$1]] je započeo pregled ove stranice dana $2 u $3.'''",
 	"revreview-poss-conflict-c": "'''Upozorenje: [[User:$1|$1]] je započeo pregled ovih izmjena dana $2 u $3.'''",
