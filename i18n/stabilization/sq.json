@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Puntori"
+			"Puntori",
+			"Ammartivari"
 		]
 	},
 	"stabilization-tab": "vet",
@@ -12,6 +13,7 @@
 	"stabilization-notexists": "Nuk ka faqe me emrin \"[[:$1|$1]]\".\nAsnjë konfigurim nuk është i mundshëm.",
 	"stabilization-notcontent": "Faqja \"[[:$1|$1]]\" nuk mund të rishqyrtohet.\nAsnjë konfigurim nuk është i mundshëm.",
 	"stabilization-comment": "Arsyeja:",
+	"stabilization-otherreason": "Arsye tjetër:",
 	"stabilization-expiry": "Skadon:",
 	"stabilization-def-short-0": "Tani",
 	"stabilize_expiry_invalid": "Datë jo vlefshme e skadimit.",
