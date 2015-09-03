@@ -62,7 +62,7 @@
 	"revreview-reject-summary-cur": "{{PLURAL:$1|De läzde Änderong|De läzde $1 Änderonge|Kein Änderonge}} aam Täx <!--{{PLURAL:$5|\n{{GENDER:$2|vum|vum|vumm Metmaacher|vun dä|vum}}|...}}--> vum $2 sin afjelehnt woode un de Version $3 {{GENDER:$4|vum|vum|vumm Metmaacher|vun dä|vum}} [[User:$4|$4]] es widder retuur.",
 	"revreview-reject-summary-old": "{{PLURAL:$1|De eezde Änderong|De eezde $1 Änderonge|Kein Änderonge}} (<!--{{PLURAL:$5|{{GENDER:$2|vum|vum|vumm Metmaacher|vun dä|vum}} [[User:$2|$2]]|vum $2|-}}-->vun $2) aam Täx noh dä de Version $3 {{GENDER:$4|vum|vum|vumm Metmaacher|vun dä|vum}} [[User:$4|$4]] sin afjelehnt woode.",
 	"revreview-reject-summary-cur-short": "{{PLURAL:$1|De läzde Änderong|De läzde $1 Änderonge|Kein Änderonge}} aam Täx sin afjelehnt woode un de Version $2 {{GENDER:$3|vum|vum|vumm Metmaacher|vun dä|vum}} [[User:$3|$3]] es jäz retuur.",
-	"revreview-reject-summary-old-short": "{{PLURAL:$1|De eezde Änderong|De eezde $1 Änderonge|Kein Änderonge}} aam Täx noh dä de Version $2 {{GENDER:$3|vum|vum|vumm Metmaacher|vun dä|vum}} [[User:$3|$3]] sin afjelehnt woode.",
+	"revreview-reject-summary-old-short": "{{PLURAL:$1|De eezde Änderong|De eezde $1 Änderonge|Kein Änderonge}} aam Täx noh dä de Version $2 {{GENDER:$4|vum|vum|vumm Metmaacher|vun dä|vum}} [[User:$3|$3]] sin afjelehnt woode.",
 	"revreview-tt-flag": "Donn heh di Versino aannämme, endämm dat De sähß, dat De se jeprööv häß.",
 	"revreview-tt-reject": "Heh di Änderonge aam Täx aflehne un uß dä Sigg widder eruß nämme"
 }
