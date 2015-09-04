@@ -42,7 +42,7 @@
 	"grouppage-editor": "{{ns:project}}:محرر",
 	"grouppage-reviewer": "{{ns:project}}:مراجع",
 	"group-autoreview": "مراجعون تلقائيون",
-	"group-autoreview-member": "{{GENDER:$1|مستخدم مؤكد تلقائيا}}",
+	"group-autoreview-member": "{{GENDER:$1|مستخدم مراجع تلقائيا|مستخدمة مراجعة تلقائيا}}",
 	"grouppage-autoreview": "{{ns:project}}:مراجع تلقائي",
 	"revreview-hist-draft": "مراجعة غير مفحوصة",
 	"revreview-hist-pending": "مراجعة موقفة",

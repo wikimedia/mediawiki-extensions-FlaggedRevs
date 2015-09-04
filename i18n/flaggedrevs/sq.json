@@ -6,13 +6,18 @@
 			"Euriditi",
 			"Olsi",
 			"Tëfcí",
-			"Liridon"
+			"Liridon",
+			"Ammartivari"
 		]
 	},
 	"action-review": "redaktimet e shqyrtuara",
-	"editor": "Redaktuesi",
+	"editor": "Redaktor",
 	"flaggedrevs-desc": "I jep përdoruesve të drejtën e shqyrtimit të redaktimeve dhe stabilizimit të faqeve",
 	"flaggedrevs-pref-UI": "Ndërfaqe e thjeshtë:",
+	"group-editor": "Redaktorët",
+	"group-editor-member": "{{GJINIA:$1|redaktor|redaktore}}",
+	"grouppage-editor": "{{ns:project}}:{{GJINIA|redaktor|redaktore}}",
+	"group-autoreview": "Përdorues automatikisht të kontrolluar",
 	"revreview-hist-quality-auto": "miratuar automatikisht",
 	"revreview-hist-basic-auto": "kontrolluar automatikisht",
 	"revreview-diff-toggle-show": "trego ndryshimet",

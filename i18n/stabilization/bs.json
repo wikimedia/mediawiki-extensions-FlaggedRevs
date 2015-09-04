@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"CERminator"
+			"CERminator",
+			"Srdjan m"
 		]
 	},
 	"stabilization-tab": "konfig",
@@ -21,7 +22,7 @@
 	"stabilization-comment": "Razlog:",
 	"stabilization-otherreason": "Ostali razlozi:",
 	"stabilization-expiry": "Ističe:",
-	"stabilization-othertime": "Ostali period:",
+	"stabilization-othertime": "Drugo vrijeme:",
 	"stabilization-def-short": "Standardno",
 	"stabilization-def-short-0": "Trenutna",
 	"stabilization-def-short-1": "Objavljeno",
