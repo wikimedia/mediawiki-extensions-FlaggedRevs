@@ -9,7 +9,7 @@
 	"apihelp-query+configuredpages-param-namespace": "Dat Appachtemang zom opzälle.",
 	"apihelp-query+configuredpages-param-autoreview": "Beschrängkonge för et automattesch als nohjekik Makehre.",
 	"apihelp-query+configuredpages-param-limit": "Wi vill Sigge ensjesammp zem aanzeije?",
-	"apihelp-query+flagged-example-1": "Holl AAnjahbe un der  flag status vun de [[Main Page]]<!--\nhttps://translatewiki.net/wiki/Thread:Support/About_MediaWiki:Apihelp-query%2Bflagged-example-1/ksh\n-->",
+	"apihelp-query+flagged-example-1": "Holl Aanjahbe un der Zohschtand vun de Makkehronge vun dä Sigg „<code lang=\"en\" xml:lang=\"en\" dir=\"ltr\">[[Main Page]]</code>“",
 	"apihelp-query+oldreviewedpages-param-start": "Bejenn de Leß met dä Sigg met heh dä Dattom un dä Zigg.",
 	"apihelp-query+oldreviewedpages-param-end": "ühr de Leß met dä Sigg met heh dä Dattom un dä Zigg op.",
 	"apihelp-query+oldreviewedpages-param-filterwatched": "Wi de Sigge en Dinge Oppaßleß ußjewählt wähde sulle.",
