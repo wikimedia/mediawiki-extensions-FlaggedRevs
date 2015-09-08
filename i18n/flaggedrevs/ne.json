@@ -66,5 +66,6 @@
 	"revreview-def-all": "कोहि",
 	"revreview-def-stable": "स्थिर",
 	"revreview-restriction-any": "कोहि",
-	"revreview-restriction-none": "कुनै पनि होइन"
+	"revreview-restriction-none": "कुनै पनि होइन",
+	"tooltip-ca-current": "यस पृष्ठको अनिरिक्षित परिवर्तन हेर्नुहोस्"
 }
