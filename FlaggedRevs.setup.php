@@ -376,7 +376,7 @@ class FlaggedRevsSetup {
 	 */
 	public static function setAPIModules() {
 		global $wgAPIModules, $wgAPIListModules, $wgAPIPropModules;
-		global $wgFlaggedRevsProtection, $wgAPIGeneratorModules;
+		global $wgFlaggedRevsProtection;
 
 		if ( $wgFlaggedRevsProtection ) {
 			$wgAPIModules['stabilize'] = 'ApiStabilizeProtect';
@@ -385,10 +385,6 @@ class FlaggedRevsSetup {
 			$wgAPIListModules['reviewedpages'] = 'ApiQueryReviewedpages';
 			$wgAPIListModules['unreviewedpages'] = 'ApiQueryUnreviewedpages';
 			$wgAPIListModules['configuredpages'] = 'ApiQueryConfiguredpages';
-
-			$wgAPIGeneratorModules['reviewedpages'] = 'ApiQueryReviewedpages';
-			$wgAPIGeneratorModules['unreviewedpages'] = 'ApiQueryUnreviewedpages';
-			$wgAPIGeneratorModules['configuredpages'] = 'ApiQueryConfiguredpages';
 		}
 		# Page review module for API
 		$wgAPIModules['review'] = 'ApiReview';
@@ -396,7 +392,6 @@ class FlaggedRevsSetup {
 		$wgAPIModules['reviewactivity'] = 'ApiReviewActivity';
 		# OldReviewedPages for API
 		$wgAPIListModules['oldreviewedpages'] = 'ApiQueryOldreviewedpages';
-		$wgAPIGeneratorModules['oldreviewedpages'] = 'ApiQueryOldreviewedpages';
 		# Flag metadata for pages for API
 		$wgAPIPropModules['flagged'] = 'ApiQueryFlagged';
 		# Site flag config for API
