@@ -67,7 +67,7 @@
 	"revreview-reject-confirm": "Rexeitar estes cambios",
 	"revreview-reject-cancel": "Cancelar",
 	"revreview-reject-summary-cur": "Rexeitou {{PLURAL:$1|o último cambio|os últimos $1 cambios}} no texto ({{PLURAL:$7|{{GENDER:$5|de}}}} $2) e recuperou a revisión $3 {{GENDER:$6|de}} $4",
-	"revreview-reject-summary-old": "Rexeitou {{PLURAL:$1|o primeiro cambio|os primeiros $1 cambios}} no texto (({{PLURAL:$7|{{GENDER:$5|de}}}} $2) que seguen á revisión $3 {{GENDER:$6|de}} $4",
+	"revreview-reject-summary-old": "Rexeitou {{PLURAL:$1|o primeiro cambio|os primeiros $1 cambios}} no texto ({{PLURAL:$7|{{GENDER:$5|de}}}} $2) que seguen á revisión $3 {{GENDER:$6|de}} $4",
 	"revreview-reject-summary-cur-short": "Rexeitou {{PLURAL:$1|o último cambio|os últimos $1 cambios}} no texto e recuperou a revisión $2 {{GENDER:$4|de}} $3",
 	"revreview-reject-summary-old-short": "Rexeitou {{PLURAL:$1|o primeiro cambio|os primeiros $1 cambios}} no texto que seguen á revisión $2 {{GENDER:$4|de}} $3",
 	"revreview-tt-flag": "Aprobar esta revisión marcándoa como comprobada",
