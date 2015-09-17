@@ -14,7 +14,8 @@
 			"Srhat",
 			"Vito Genovese",
 			"Arystanbek",
-			"Sayginer"
+			"Sayginer",
+			"Rapsar"
 		]
 	},
 	"action-review": "revizyonları inceler",
@@ -93,7 +94,7 @@
 	"revreview-depth-3": "Yüksek",
 	"revreview-depth-4": "Seçkin",
 	"revreview-draft-title": "Bekleyen değişiklikler bu sayfada görüntülenmektedir",
-	"revreview-edit": "Düzenle",
+	"revreview-edit": "Değiştir",
 	"revreview-editnotice": "'''Değişiklikleriniz, yetkili bir kullanıcı kabul ettikten sonra görüntülenecektir. ([[{{MediaWiki:Validationpage}}|yardım]])'''",
 	"revreview-submitedit": "Değişiklikleri gönder",
 	"revreview-submitedit-title": "Değişikliklerini incelenmesi için gönder",
