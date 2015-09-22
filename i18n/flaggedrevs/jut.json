@@ -39,9 +39,9 @@
 	"revreview-style-2": "Gue",
 	"revreview-style-3": "Kortfatten",
 	"revreview-style-4": "Fremhääwen",
-	"rights-editor-revoke": "slettet redigærerståt der [[$1]]",
+	"rights-editor-revoke": "slettetj redigiirstatus fra [[$1]]",
 	"tooltip-ca-current": "Sie denn siid mä di åwentjenje øndrenge",
 	"tooltip-ca-stable": "Se'n stabiil versje detter pæge",
-	"tooltip-ca-default": "Kwalitæt assurans endstellenger",
+	"tooltip-ca-default": "Kvalitietsforsikrengsinstellenge",
 	"validationpage": "{{ns:help}}:Artikel vålidåsje"
 }

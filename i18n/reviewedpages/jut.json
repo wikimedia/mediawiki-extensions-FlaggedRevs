@@ -1,16 +1,17 @@
 {
 	"@metadata": {
 		"authors": [
-			"Ælsån"
+			"Ælsån",
+			"Jyllanj"
 		]
 	},
-	"reviewedpages": "Sæn pæger",
+	"reviewedpages": "Korrekturläsen side",
 	"reviewedpages-leg": "Liste pæger sæn til æ ståndvast nivå",
 	"reviewedpages-list": "Æ følgende pæger er sæn til æ spæsifiærn nivå",
-	"reviewedpages-none": "Her er ekke pæger in dette liste",
+	"reviewedpages-none": "Där ä ien side in listen.",
 	"reviewedpages-lev-0": "Sæn",
 	"reviewedpages-lev-1": "Kwalititæt",
 	"reviewedpages-lev-2": "Gådvårende",
-	"reviewedpages-all": "sæn versje",
+	"reviewedpages-all": "korrekturläsen versjone",
 	"reviewedpages-best": "erste versje"
 }

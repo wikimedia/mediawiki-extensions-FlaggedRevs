@@ -5,7 +5,8 @@
 			"Crazymadlover",
 			"Drini",
 			"Locos epraix",
-			"Sanbec"
+			"Sanbec",
+			"Macofe"
 		]
 	},
 	"action-unreviewedpages": "ver la lista de páginas no revisadas",
@@ -14,7 +15,7 @@
 	"unreviewedpages-category": "Categoría:",
 	"unreviewedpages-diff": "revisar",
 	"unreviewedpages-unwatched": "(no vigilado)",
-	"unreviewedpages-watched": "($1 {{PLURAL:$1|usuario|usuarios}} activos vigilando)",
+	"unreviewedpages-watched": "($1 {{PLURAL:$1|usuario activo|usuarios activos}} vigilando)",
 	"unreviewedpages-list": "Esta página lista páginas de contenido que aún ''no'' han sido [[{{MediaWiki:Validationpage}}|revisados]] al nivel especificado.",
 	"unreviewedpages-none": "No hay actualmente páginas que cumplan estos criterios",
 	"unreviewedpages-viewing": "(bajo revisión)",
