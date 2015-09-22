@@ -708,9 +708,9 @@ class FlaggedRevs {
 	 */
 	public static function HTMLCacheUpdates( Title $title ) {
 		# Invalidate caches of articles which include this page...
-		DeferredUpdates::addHTMLCacheUpdate( $title, 'templatelinks' );
+		DeferredUpdates::addUpdate( new HTMLCacheUpdate( $title, 'templatelinks' ) );
 		if ( $title->getNamespace() == NS_FILE ) {
-			DeferredUpdates::addHTMLCacheUpdate( $title, 'imagelinks' );
+			DeferredUpdates::addUpdate( new HTMLCacheUpdate( $title, 'imagelinks' ) );
 		}
 		DeferredUpdates::addUpdate( new FRExtraCacheUpdate( $title ) );
 	}
