@@ -7,7 +7,8 @@
 			"Olsi",
 			"Tëfcí",
 			"Liridon",
-			"Ammartivari"
+			"Ammartivari",
+			"Kosovastar"
 		]
 	},
 	"action-review": "redaktimet e shqyrtuara",
@@ -16,7 +17,7 @@
 	"flaggedrevs-pref-UI": "Ndërfaqe e thjeshtë:",
 	"group-editor": "Redaktorët",
 	"group-editor-member": "{{GJINIA:$1|redaktor|redaktore}}",
-	"grouppage-editor": "{{ns:project}}:{{GJINIA|redaktor|redaktore}}",
+	"grouppage-editor": "{{ns:project}}:{{GENDER|redaktor|redaktore}}",
 	"group-autoreview": "Përdorues automatikisht të kontrolluar",
 	"revreview-hist-quality-auto": "miratuar automatikisht",
 	"revreview-hist-basic-auto": "kontrolluar automatikisht",
