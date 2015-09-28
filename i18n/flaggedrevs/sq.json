@@ -28,7 +28,7 @@
 	"review-logpage": "Regjistri i rishikimeve",
 	"revreview-current": "Ndryshimet në pritje",
 	"revreview-edit": "Redakto",
-	"revreview-editnotice": "'''Ndryshimet tuaja do të shfaqen sapo një përdorues i autorizuar t'i pranojë ato.\n([[{{MediaWiki:Validationpage}}|ndihmë]])'''",
+	"revreview-editnotice": "'''Ndryshimet e tua do të shfaqen sapo një përdorues i autorizuar t'i pranojë ato.\n([[{{MediaWiki:Validationpage}}|ndihmë]])'''",
 	"revreview-submitedit": "Paraqit ndryshimet",
 	"revreview-noflagged": "Nuk ka [[{{MediaWiki:Validationpage}}|versione të shqyrtuara]] të kësaj faqe, ndaj mund të '''mos''' jetë kontrolluar përputhja e saj me standardet.",
 	"revreview-source": "Shiko tekstin",

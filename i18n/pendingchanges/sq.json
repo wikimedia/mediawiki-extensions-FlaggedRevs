@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Cradel"
+			"Cradel",
+			"Kosovastar"
 		]
 	},
 	"pendingchanges": "Faqet me ndryshime në pritje",
@@ -18,5 +19,5 @@
 	"pendingchanges-size": "ndryshimi max. (në bajtë)",
 	"pendingchanges-unwatched": "(e pambikëqyrur)",
 	"pendingchanges-watched": "($1 përdorues {{PLURAL:$1|aktiv|aktivë}} duke e mbikëqyrur)",
-	"pendingchanges-viewing": "(duke u shqyrtuar)"
+	"pendingchanges-viewing": "(duke shqyrtuar)"
 }
