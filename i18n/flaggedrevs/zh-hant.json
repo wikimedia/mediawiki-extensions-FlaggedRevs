@@ -20,7 +20,7 @@
 	"editor": "編輯者",
 	"flaggedrevs": "已標記的修訂",
 	"flaggedrevs-watched-pending": "您監視清單上有積壓的[{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} 編輯]未審查。'''需要您的注意！'''",
-	"flaggedrevs-desc": "讓編輯人員可以審查修訂並穩定化頁面",
+	"flaggedrevs-desc": "讓編輯者可以審查修訂並穩定化頁面",
 	"flaggedrevs-pref-UI": "基礎介面：",
 	"flaggedrevs-pref-UI-0": "使用詳細的審批狀態框來顯示此頁面的審查狀態",
 	"flaggedrevs-pref-UI-1": "使用小圖示和最少的文字來顯示頁面的審查狀態",
