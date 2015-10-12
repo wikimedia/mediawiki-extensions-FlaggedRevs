@@ -1,8 +1,8 @@
 {
-    "@metadata": {
-        "authors": []
-    },
-    "qualityoversight": "Advanced review log",
-    "qualityoversight-list": "This page lists the most recent approvals and deprecations of revisions.",
-    "qualityoversight-legend": "Search recent review logs"
+	"@metadata": {
+		"authors": []
+	},
+	"qualityoversight": "Advanced review log",
+	"qualityoversight-list": "This page lists the most recent approvals and deprecations of revisions.",
+	"qualityoversight-legend": "Search recent review logs"
 }
