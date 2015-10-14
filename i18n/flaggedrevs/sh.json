@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Kolega2357"
+			"Kolega2357",
+			"OC Ripper"
 		]
 	},
 	"group-editor": "Uređivači",
@@ -14,5 +15,6 @@
 	"group-autoreview-member": "{{GENDER:$1|autonadzornik}}",
 	"grouppage-autoreview": "{{ns:project}}:Autonadzornici",
 	"right-autoreview": "Vlastite izmjene se automatski označavaju kao ''provjerene''",
-	"right-autoreviewrestore": "Automatski provjereno pri vraćanju"
+	"right-autoreviewrestore": "Automatski provjereno pri vraćanju",
+	"tooltip-ca-current": "Pogledajte ovu stranicu sa izmjenama na čekanju"
 }
