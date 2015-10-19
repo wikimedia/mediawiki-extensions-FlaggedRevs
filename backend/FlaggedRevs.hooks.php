@@ -719,7 +719,9 @@ class FlaggedRevsHooks {
 						__METHOD__,
 					array( 'ORDER BY' => 'rev_timestamp ASC', 'USE INDEX' => 'user_timestamp' )
 				);
-				if ( $lower !== false ) $benchmarks++;
+				if ( $lower !== false ) {
+					$benchmarks++;
+				}
 			}
 		}
 		if ( $benchmarks >= $pointsReq ) {
@@ -738,20 +740,44 @@ class FlaggedRevsHooks {
 	 * @param $seconds int
 	 * @return bool
 	 */
-	protected static function reviewedEditsCheck( $user, $editsReq, $seconds = 0 ) {
+	protected static function reviewedEditsCheck( User $user, $editsReq, $seconds = 0 ) {
 		$dbr = wfGetDB( DB_SLAVE );
-		# Get cutoff timestamp (excludes edits that are too recent)
-		$encCutoff = $dbr->addQuotes( $dbr->timestamp( time() - $seconds ) );
-		$res = $dbr->select( array( 'revision', 'flaggedpages' ), '1',
-			array(
-				'rev_user' => $user->getId(),
-				"rev_timestamp < $encCutoff",
-				'fp_page_id = rev_page',
-				'fp_pending_since IS NULL OR fp_pending_since > rev_timestamp' // bug 15515
+		// Get cutoff timestamp (excludes edits that are too recent)
+		$baseConds = array(
+			'rev_user' => $user->getId(),
+			'rev_timestamp < ' . $dbr->addQuotes( $dbr->timestamp( time() - $seconds ) )
+		);
+		// Get the lower cutoff to avoid scanning over many rows.
+		// Users with many revisions will only have the last 10k inspected.
+		$lowCutoff = false;
+		if ( $user->getEditCount() > 10000 ) {
+			$lowCutoff = $dbr->selectField(
+				'revision',
+				'rev_timestamp',
+				$baseConds,
+				__METHOD__,
+				array( 'ORDER BY' => 'rev_timestamp DESC', 'OFFSET' => 9999, 'LIMIT' => 1 )
+			);
+		}
+		$lowCutoff = $lowCutoff ?: 1; // default to UNIX 1970
+		// Get revs from pages that have a reviewed rev of equal or higher timestamp
+		$res = $dbr->select(
+			array( 'revision', 'flaggedpages' ),
+			'1',
+			array_merge(
+				$baseConds,
+				array(
+					'fp_page_id = rev_page',
+					// bug 15515
+					'fp_pending_since IS NULL OR fp_pending_since > rev_timestamp',
+					// Avoid too much scanning
+					'rev_timestamp > ' . $dbr->addQuotes( $dbr->timestamp( $lowCutoff ) )
+				)
 			),
 			__METHOD__,
-			array( 'USE INDEX' => array( 'revision' => 'user_timestamp' ), 'LIMIT' => $editsReq )
+			array( 'LIMIT' => $editsReq )
 		);
+
 		return ( $dbr->numRows( $res ) >= $editsReq );
 	}
 
