@@ -72,10 +72,10 @@ class ReviewAllPages extends Maintenance {
 				# Rev should exist, but to be safe...
 				if ( !$frev && $rev ) {
 					$article = new WikiPage( $title );
-					$db->begin();
+					$db->startAtomic( __METHOD__ );
 					FlaggedRevs::autoReviewEdit( $article, $user, $rev, $flags, true );
 					FlaggedRevs::HTMLCacheUpdates( $article->getTitle() );
-					$db->commit();
+					$db->endAtomic( __METHOD__ );
 					$changed++;
 				}
 				$count++;
@@ -83,9 +83,6 @@ class ReviewAllPages extends Maintenance {
 			$db->freeResult( $res );
 			$blockStart += $this->mBatchSize - 1;
 			$blockEnd += $this->mBatchSize - 1;
-
-			// XXX: Don't let deferred jobs array get absurdly large (bug 24375)
-			DeferredUpdates::doUpdates( 'commit' );
 
 			wfWaitForSlaves( 5 );
 		}
