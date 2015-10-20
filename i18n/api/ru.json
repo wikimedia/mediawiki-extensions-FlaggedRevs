@@ -10,6 +10,8 @@
 	"apihelp-query+oldreviewedpages-param-category": "Показать страницы только в данной категории.",
 	"apihelp-query+oldreviewedpages-param-filterredir": "Как фильтровать перенаправления.",
 	"apihelp-query+oldreviewedpages-param-limit": "Сколько всего страниц возвращать.",
+	"apihelp-query+reviewedpages-param-filterredir": "Как фильтровать перенаправления",
+	"apihelp-query+reviewedpages-param-limit": "Сколько всего страниц возвращать.",
 	"apihelp-query+unreviewedpages-param-dir": "Направление сортировки.",
 	"apihelp-query+unreviewedpages-param-namespace": "Пространства имён для перечисления.",
 	"apihelp-query+unreviewedpages-param-filterredir": "Как фильтровать перенаправления.",
