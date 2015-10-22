@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"George Animal"
+			"George Animal",
+			"Bikarhêner"
 		]
 	},
-	"revreview-reject-summary": "Kurte:"
+	"revreview-reject-summary": "Kurte:",
+	"revreview-reject-cancel": "Betal bike"
 }
