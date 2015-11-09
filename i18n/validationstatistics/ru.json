@@ -10,7 +10,8 @@
 			"Okras",
 			"Putnik",
 			"Sergey kudryavtsev",
-			"Александр Сигачёв"
+			"Александр Сигачёв",
+			"Kaganer"
 		]
 	},
 	"validationstatistics": "Статистика проверок страниц",
@@ -26,7 +27,7 @@
 	"validationstatistics-synced": "Доля перепроверенных в проверенных",
 	"validationstatistics-old": "Устаревшие",
 	"validationstatistics-unreviewed": "Непроверенные",
-	"validationstatistics-utable": "Ниже приведён список из $1 наиболее {{PLURAL:$1|активного выверяющего|активных выверяющих}} за {{PLURAL:$2|последний {{#ifeq:$2|1||$2}} час|последние $2 часов|последние $2 часа}}.",
+	"validationstatistics-utable": "Ниже приведён список из $1 наиболее {{PLURAL:$1|активного выверяющего|активных выверяющих}} за {{PLURAL:$2|последний {{#ifeq:$2|1||$2}} час|последние $2 часа|последние $2 часов}}.",
 	"validationstatistics-user": "Участник",
 	"validationstatistics-reviews": "Проверки"
 }

@@ -35,5 +35,12 @@
 	"apihelp-query+unreviewedpages-param-filterredir": "Як фільтрувати перенаправлення.",
 	"apihelp-query+unreviewedpages-param-limit": "Скільки всього сторінок виводити.",
 	"apihelp-query+unreviewedpages-example-1": "Показати список неперевірених сторінок",
-	"apihelp-query+unreviewedpages-example-2": "Показати інформацію про деякі неперевірені сторінки"
+	"apihelp-query+unreviewedpages-example-2": "Показати інформацію про деякі неперевірені сторінки",
+	"apihelp-stabilize-description-general": "Змінити параметри стабільності сторінки.",
+	"apihelp-stabilize-param-reason": "Причина.",
+	"apihelp-stabilize-param-watch": "Спостерігати за цією сторінкою",
+	"apihelp-stabilize-param-expiry-general": "Закінчення терміну цих параметрів.",
+	"apihelp-stabilize-param-title-general": "Назва сторінки, яка стабілізується.",
+	"apihelp-stabilize-param-default": "Версія для показування за замовчуванням.",
+	"apihelp-stabilize-example-general": "Встановити для сторінки [[Test]] відображення стабільної версії за замовчуванням"
 }
