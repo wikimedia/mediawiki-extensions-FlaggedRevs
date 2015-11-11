@@ -29,7 +29,7 @@
 	"group-editor": "Urednici",
 	"group-editor-member": "{{GENDER:$1|urednik|urednica}}",
 	"group-reviewer": "Provjerivači",
-	"group-reviewer-member": "provjerivač",
+	"group-reviewer-member": "{{GENDER:$1|provjerivač|provjerivačica}}",
 	"grouppage-editor": "{{ns:project}}:Urednik",
 	"grouppage-reviewer": "{{ns:project}}:Pregledavač",
 	"group-autoreview": "Autonadzornici",
