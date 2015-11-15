@@ -60,20 +60,29 @@ class FlaggedRevsHooks {
 	 * (b) Autoreview pages moved into reviewable namespaces (bug 19379)
 	 */
 	public static function onTitleMoveComplete(
-		Title $otitle, Title $ntitle, $user, $pageId
+		Title $otitle, Title $ntitle, $user, $pageId, $redirid, $reason
 	) {
-		if ( !FlaggedRevs::inReviewNamespace( $otitle )
-			&& FlaggedRevs::inReviewNamespace( $ntitle )
-			&& FlaggedRevs::autoReviewNewPages()
-		) {
-			$fa = FlaggableWikiPage::getTitleInstance( $ntitle );
-			$fa->loadPageData( 'fromdbmaster' );
-			// Re-validate NS/config (new title may not be reviewable)
-			if ( $fa->isReviewable() && $ntitle->userCan( 'autoreview' ) ) {
-				// Auto-review such edits like new pages...
-				$rev = Revision::newFromTitle( $ntitle, false, Revision::READ_LATEST );
-				if ( $rev ) { // sanity
-					FlaggedRevs::autoReviewEdit( $fa, $user, $rev );
+		if ( FlaggedRevs::inReviewNamespace( $ntitle ) ) {
+			if ( !FlaggedRevs::inReviewNamespace( $otitle ) ) {
+				if ( FlaggedRevs::autoReviewNewPages() ) {
+					$fa = FlaggableWikiPage::getTitleInstance( $ntitle );
+					$fa->loadPageData( 'fromdbmaster' );
+					// Re-validate NS/config (new title may not be reviewable)
+					if ( $fa->isReviewable() && $ntitle->userCan( 'autoreview' ) ) {
+						// Auto-review such edits like new pages...
+						$rev = Revision::newFromTitle( $ntitle, false, Revision::READ_LATEST );
+						if ( $rev ) { // sanity
+							FlaggedRevs::autoReviewEdit( $fa, $user, $rev );
+						}
+					}
+				}
+			} else {
+				$fa = FlaggableWikiPage::getTitleInstance( $ntitle );
+				$fa->loadPageData( 'fromdbmaster' );
+				$config = $fa->getStabilitySettings();
+				// Insert a stable log entry if page doesn't have default wiki settings
+				if ( !FRPageConfig::configIsReset( $config ) ) {
+					FlaggedRevsLog::updateStabilityLogOnMove( $ntitle, $otitle, $reason, $user );
 				}
 			}
 		}
