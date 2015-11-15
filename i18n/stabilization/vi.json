@@ -31,7 +31,7 @@
 	"stabilize_page_notexists": "Trang đích không tồn tại",
 	"stabilize_page_unreviewable": "Trang đích không phải thuộc về không gian tên duyệt được.",
 	"stabilize_invalid_autoreview": "Hạn chết duyệt tự động không hợp lệ.",
-	"stabilize_invalid_level": "Mức độ bảo vệ không hợp lệ.",
+	"stabilize_invalid_level": "Mức độ khóa không hợp lệ.",
 	"stabilize_expiry_invalid": "Thời hạn không hợp lệ.",
 	"stabilize_expiry_old": "Thời hạn đã qua.",
 	"stabilize_denied": "Không cho phép.",

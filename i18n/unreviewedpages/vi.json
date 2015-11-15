@@ -16,6 +16,6 @@
 	"unreviewedpages-none": "Hiện không có trang nào thỏa mãn tiêu chí này",
 	"unreviewedpages-viewing": "(đang duyệt)",
 	"unreviewedpages-hours": "($1 giờ)",
-	"unreviewedpages-days": "($1 ngày){{PLURAL:$1||}}",
+	"unreviewedpages-days": "($1 ngày)",
 	"unreviewedpages-recent": "(ít hơn 1 tiếng)"
 }
