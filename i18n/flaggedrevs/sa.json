@@ -8,7 +8,7 @@
 	"editor": "सदस्यः",
 	"flaggedrevs-hidereviewed-hide": "गोप्यताम्",
 	"flaggedrevs-hidereviewed-show": "दृश्यताम्",
-	"group-editor": "योजकाः",
+	"group-editor": "सदस्याः",
 	"grouppage-editor": "{{ns:project}}:सदस्यः",
 	"review-logentry-id": "संस्करणम् : $2",
 	"revreview-depth-1": "प्राथमिकम्",
@@ -24,5 +24,6 @@
 	"revreview-def-all": "कोऽपि",
 	"revreview-def-stable": "स्थिरम्",
 	"revreview-restriction-any": "कोऽपि",
-	"revreview-restriction-none": "नैकमपि"
+	"revreview-restriction-none": "नैकमपि",
+	"tooltip-ca-current": "एतत् पृष्ठम् अनिरीक्षितपृष्ठैः सह योजयित्वा दृश्यताम्"
 }
