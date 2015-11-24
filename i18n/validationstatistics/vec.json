@@ -3,7 +3,8 @@
 		"authors": [
 			"Candalua",
 			"GatoSelvadego",
-			"V6rg"
+			"V6rg",
+			"C.R."
 		]
 	},
 	"validationstatistics": "Statìsteghe de revision",
@@ -12,7 +13,7 @@
 	"validationstatistics-pndtime": "Le modifiche che xe stà controlà da utenti afidabili le xe considerà ''{{int:validationstatistics-stable}}''..\n\nEl ritardo medio par [[Special:OldReviewedPages|le pagine con canbiamenti in atesa]] el xe '''$1'''; el ritardo el mostra par cuanto tenpo che ła modifega da controłare ła xe restà sensa revixion.",
 	"validationstatistics-revtime": "El tenpo medio da spetare par controlar le modifiche fate da ''utenti anonimi'' xe '''$1'''; la media xe '''$2'''.",
 	"validationstatistics-table": "Cuà soto se cata łe statìsteghe de revision par ogni namespace, ''escluxe'' łe pàjine de redirect. Łe pàjine łe xe tratate come ''{{int:validationstatistics-old}}'' se łe ga canbiamenti in atexa de revixion; o ''{{int:validationstatistics-latest}}'' se no łe ga canbiamenti in atexa de revixion.",
-	"validationstatistics-ns": "نؤمفضا",
+	"validationstatistics-ns": "Namespace",
 	"validationstatistics-total": "Pagine",
 	"validationstatistics-stable": "Ricontrolà",
 	"validationstatistics-latest": "Sincronizà",
