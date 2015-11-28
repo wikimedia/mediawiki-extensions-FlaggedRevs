@@ -5,6 +5,7 @@
 			"Derslek"
 		]
 	},
+	"revreview-depth-1": "төп",
 	"revreview-edit": "Үзгәртү",
 	"revreview-quick-none": "'''[[{{MediaWiki:Validationpage}}|Тикшерелмәгән]]'''",
 	"revreview-quick-quality": "'''[[{{MediaWiki:Validationpage}}|Тикшерелгән]]''' [[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} тикшерелмәгән үзгәртүләрне күрсәтергә]]",
@@ -14,6 +15,7 @@
 	"revreview-quick-see-quality": "[[{{fullurl:{{FULLPAGENAMEE}}|oldid=$1&diff=cur{{MediaWiki:flaggedrevs-diffonly}}}} тикшерелмәгән үзгәрешләрне карарга]]",
 	"revreview-source": "Карау",
 	"revreview-basic-title": "Бу битнең каралган юрамасы",
+	"revreview-filter-all": "барлык",
 	"tooltip-ca-current": "Тикшерелмәгән төзәтмәләр булган әлеге сәхифәне карап чыгу",
 	"validationpage": "{{ns:help}}:Битләрне тикшерү"
 }
