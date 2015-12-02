@@ -39,7 +39,7 @@
 	"revreview-reject-summary": "Ágrip:",
 	"revreview-reject-confirm": "Hafna þessum breytingum",
 	"revreview-reject-cancel": "Hætta við",
-	"revreview-reject-summary-cur": "Hafnaði síðustu $1 {{PLURAL:$1|breytingu|breytingum}} (eftir $2) og breytti aftur til útgáfu $3 eftir $4",
+	"revreview-reject-summary-cur": "Hafnaði síðustu $1 {{PLURAL:$1|breytingu|breytingum}} ({{PLURAL:$7|{{GENDER:$5|eftir}}}} $2) og breytti aftur til útgáfu $3 {{GENDER:$6|eftir}} $4",
 	"revreview-reject-summary-cur-short": "Hafnaði síðustu $1 {{PLURAL:$1|breytingu|breytingum}} og breytti aftur til útgáfu $2 eftir $3",
 	"revreview-tt-flag": "Samþykkja þessa útgáfu með því að merkja hana sem „skoðaða\"",
 	"revreview-tt-unflag": "Hafna þessari útgáfu með því að merkja hana sem „óskoðaða\"",

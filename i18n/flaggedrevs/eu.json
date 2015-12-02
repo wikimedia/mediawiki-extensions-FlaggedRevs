@@ -20,7 +20,7 @@
 	"flaggedrevs-hidereviewed-hide": "Erakutsi",
 	"flaggedrevs-hidereviewed-show": "Ezkutatu",
 	"group-editor": "Editoreak",
-	"group-editor-member": "editorea",
+	"group-editor-member": "{{GENDER:$1|editorea}}",
 	"group-reviewer": "Berrikusleak",
 	"grouppage-editor": "{{ns:project}}:Editorea",
 	"revreview-diff-toggle-show": "erakutsi aldaketa horiek",
