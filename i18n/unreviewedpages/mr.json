@@ -14,7 +14,7 @@
 	"unreviewedpages-unwatched": "(निरीक्षणात नसलेली)",
 	"unreviewedpages-watched": "($1 सक्रिय {{PLURAL:$1|सदस्य}} पहारा देत आहे)",
 	"unreviewedpages-list": "हे पान अशा आशय पानांची यादी दर्शविते जी पाने अद्याप नमूद पातळीवर [[{{MediaWiki:Validationpage}}|तपासलेली]] \"नाहीत\".",
-	"unreviewedpages-none": "ह्या मानदंडांशी जुळणारी पाने नाहीत",
+	"unreviewedpages-none": "या मानदंडांशी जुळणारी पाने नाहीत",
 	"unreviewedpages-viewing": "(पुनरावकोलनात)",
 	"unreviewedpages-hours": "($1 {{PLURAL:$1|तास}})",
 	"unreviewedpages-days": "($1 {{PLURAL:$1|दिवस}})",

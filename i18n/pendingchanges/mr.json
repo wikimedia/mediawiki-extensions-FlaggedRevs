@@ -8,7 +8,7 @@
 	"pendingchanges": "बदल प्रलंबित असलेली पाने",
 	"pendingchanges-legend": "ज्या तपासलेल्या पानांना न तपासलेल्या आवृत्त्या आहेत अशा पानांची यादी तयार करा",
 	"pendingchanges-list": "हे पान अशा [[{{MediaWiki:Validationpage}}|तपासलेल्या पानांची]]  यादी देते ज्यामध्ये न तपासलेले बदल आहेत.",
-	"pendingchanges-none": "ह्या मानदंडांशी जुळणारी पाने नाहीत",
+	"pendingchanges-none": "या मानदंडांशी जुळणारी पाने नाहीत",
 	"pendingchanges-hours": "($1 {{PLURAL:$1|तास}})",
 	"pendingchanges-days": "($1 {{PLURAL:$1|दिवस}})",
 	"pendingchanges-recent": "(१ तासापेक्षा कमी वेळ)",
