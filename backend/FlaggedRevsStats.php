@@ -181,9 +181,7 @@ class FlaggedRevsStats {
 		}
 
 		// Save the data...
-		$dbw->begin();
 		$dbw->insert( 'flaggedrevs_statistics', $dataSet, __FUNCTION__, array( 'IGNORE' ) );
-		$dbw->commit();
 
 		// Stats are now up to date!
 		$key = wfMemcKey( 'flaggedrevs', 'statsUpdated' );
