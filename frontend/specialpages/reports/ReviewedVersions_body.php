@@ -11,7 +11,7 @@ class ReviewedVersions extends UnlistedSpecialPage {
 		$this->setHeaders();
 		# Our target page
 		$this->target = $request->getText( 'page' );
-		$this->page = Title::newFromURL( $this->target );
+		$this->page = Title::newFromText( $this->target );
 		# Revision ID
 		$this->oldid = $request->getVal( 'oldid' );
 		$this->oldid = ( $this->oldid == 'best' ) ? 'best' : intval( $this->oldid );

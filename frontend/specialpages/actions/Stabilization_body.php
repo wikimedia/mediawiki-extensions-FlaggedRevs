@@ -31,7 +31,7 @@ class Stabilization extends UnlistedSpecialPage {
 		$this->setHeaders();
 
 		# Target page
-		$title = Title::newFromURL( $request->getVal( 'page', $par ) );
+		$title = Title::newFromText( $request->getVal( 'page', $par ) );
 		if ( !$title ) {
 			$out->showErrorPage( 'notargettitle', 'notargettext' );
 			return;
