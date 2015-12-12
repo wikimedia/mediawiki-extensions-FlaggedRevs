@@ -28,7 +28,7 @@ class RevisionReview extends UnlistedSpecialPage {
 		$this->setHeaders();
 
 		# Our target page
-		$this->page = Title::newFromURL( $request->getVal( 'target' ) );
+		$this->page = Title::newFromText( $request->getVal( 'target' ) );
 		if ( !$this->page ) {
 			$out->showErrorPage( 'notargettitle', 'notargettext' );
 			return;
