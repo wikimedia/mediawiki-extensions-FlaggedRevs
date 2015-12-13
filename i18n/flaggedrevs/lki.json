@@ -4,5 +4,24 @@
 			"Hosseinblue"
 		]
 	},
+	"action-review": "بازبینی نسخه‌ها",
+	"editor": "دةسکاری کةر",
+	"flaggedrevs": "نسخه‌های علامت‌دار",
+	"flaggedrevs-watched-pending": "هم‌اکنون [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} تغییرات در حال انتظار] در صفحه‌های بازبینی‌شده  در فهرست پی‌گیری‌های شما وجود دارند.\n'''به توجه شما نیاز است!'''",
+	"flaggedrevs-pref-UI": "رابط پایه:",
+	"prefs-flaggedrevs-ui": "بازبینی دةسکاری",
+	"flaggedrevs-hidereviewed-hide": "ئآشاردن-پنهان کردن",
+	"flaggedrevs-hidereviewed-show": "نیشان دائن",
+	"group-editor": "دةسکاری کِرةل",
+	"revreview-log-details-show": "نمایش جزئیات",
+	"revreview-log-details-hide": "نهفتن جزئیات",
+	"revreview-depth": "عمق/قۆڵی",
+	"revreview-depth-0": "نابسنده",
+	"revreview-depth-1": "مقدماتی",
+	"revreview-depth-2": "متوسط",
+	"revreview-depth-3": "بالا/بِڵنگ",
+	"revreview-depth-4": "برگزیده/نازار",
+	"revreview-draft-title": "تغییرات در حال انتظار در این صفحه نمایش داده می‌شوند",
+	"revreview-edit": "دةسکاری",
 	"tooltip-ca-current": "View this page with the pending changes"
 }
