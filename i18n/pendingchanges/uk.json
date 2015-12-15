@@ -4,7 +4,8 @@
 			"Ahonc",
 			"NickK",
 			"Prima klasy4na",
-			"Тест"
+			"Тест",
+			"Piramidion"
 		]
 	},
 	"pendingchanges": "Сторінки з нерецензованими змінами",
@@ -16,7 +17,7 @@
 	"pendingchanges-recent": "(менше 1 години)",
 	"pendingchanges-category": "Категорія:",
 	"pendingchanges-onwatchlist": "Сторінки з мого списку спостереження",
-	"pendingchanges-stable": "Стабільна версія за умовчанням",
+	"pendingchanges-stable": "Стабільна версія за замовчуванням",
 	"pendingchanges-diff": "перевірити",
 	"pendingchanges-size": "Максимальна зміна розміру в байтах:",
 	"pendingchanges-unwatched": "(не спостерігають)",
