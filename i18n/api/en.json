@@ -36,6 +36,7 @@
 	"apihelp-query+reviewedpages-param-limit": "How many total pages to return.",
 	"apihelp-query+reviewedpages-example-1": "Show a list of reviewed pages",
 	"apihelp-query+reviewedpages-example-2": "Show info about some reviewed pages",
+	"apihelp-query+revisions-paramvalue-prop-flagged": "Flagged status of the revision.",
 	"apihelp-query+unreviewedpages-description": "Enumerates pages that have not been reviewed to a given quality level.",
 	"apihelp-query+unreviewedpages-param-start": "Start listing at this page title.",
 	"apihelp-query+unreviewedpages-param-end": "Stop listing at this page title.",
