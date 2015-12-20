@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Lloffiwr"
+			"Lloffiwr",
+			"Diafol"
 		]
 	},
 	"group-editor": "Golygyddion",
@@ -10,5 +11,6 @@
 	"group-reviewer-member": "adolygydd",
 	"grouppage-editor": "{{ns:project}}:Golygydd",
 	"grouppage-reviewer": "{{ns:project}}:Adolygydd",
-	"revreview-revnotfound": "Ni ddaethpwyd o hyd i'r hen ddiwygiad o'r dudalen y gofynnwyd amdano. Gwnewch yn siwr fod yr URL yn gywir os gwelwch yn dda."
+	"revreview-revnotfound": "Ni ddaethpwyd o hyd i'r hen ddiwygiad o'r dudalen y gofynnwyd amdano. Gwnewch yn siwr fod yr URL yn gywir os gwelwch yn dda.",
+	"tooltip-ca-current": "Gweld y dudalen hon gyda newidiadau arfaethedig"
 }
