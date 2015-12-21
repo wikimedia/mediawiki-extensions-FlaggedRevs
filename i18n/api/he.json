@@ -38,6 +38,7 @@
 	"apihelp-query+reviewedpages-param-limit": "כמה דפים בסך הכול להחזיר.",
 	"apihelp-query+reviewedpages-example-1": "הצגת רשימת דפים שנסקרו",
 	"apihelp-query+reviewedpages-example-2": "הצגת מידע על חלק מדפים ישנים שנסקרו",
+	"apihelp-query+revisions-paramvalue-prop-flagged": "מצב מדוגל של הגרסה.",
 	"apihelp-query+unreviewedpages-description": "רשימת דפים שלא נסקרו לרמת איכות נתונה.",
 	"apihelp-query+unreviewedpages-param-start": "להתחיל את הרשימה בשם הדף הזה.",
 	"apihelp-query+unreviewedpages-param-end": "להפסיק את הרשימה בשם הדף הזה.",

@@ -14,7 +14,8 @@
 			"555",
 			"Vitorvicentevalente",
 			"He7d3r",
-			"Cainamarques"
+			"Cainamarques",
+			"Opraco"
 		]
 	},
 	"action-review": "rever edições",
@@ -37,13 +38,13 @@
 	"flaggedrevs-hidereviewed-hide": "Esconder",
 	"flaggedrevs-hidereviewed-show": "Mostrar",
 	"group-editor": "Editores",
-	"group-editor-member": "{{GENDER:$1|editor|editora}}",
+	"group-editor-member": "{{GENDER:$1|editor|editora|editor(a)}}",
 	"group-reviewer": "Revisores",
 	"group-reviewer-member": "{{GENDER:$1|revisor|revisora}}",
 	"grouppage-editor": "{{ns:project}}:Editor",
 	"grouppage-reviewer": "{{ns:project}}:Revisor",
 	"group-autoreview": "Autorrevisores",
-	"group-autoreview-member": "{{GENDER:$1|utilizador autorrevisor|utilizadora autorrevisora}}",
+	"group-autoreview-member": "{{GENDER:$1|utilizador autorrevisor|utilizadora autorrevisora|utilizador(a) autorrevisor(a)}}",
 	"grouppage-autoreview": "{{ns:project}}:Auto-revisores",
 	"revreview-hist-draft": "edição não verificada",
 	"revreview-hist-pending": "revisão pendente",
