@@ -39,6 +39,7 @@
 	"apihelp-query+reviewedpages-param-limit": "{{doc-apihelp-param|query+reviewedpages|limit}}",
 	"apihelp-query+reviewedpages-example-1": "{{doc-apihelp-example|query+reviewedpages}}",
 	"apihelp-query+reviewedpages-example-2": "{{doc-apihelp-example|query+reviewedpages}}",
+	"apihelp-query+revisions-paramvalue-prop-flagged": "{{doc-apihelp-paramvalue|query+revisions|prop|flagged}}",
 	"apihelp-query+unreviewedpages-description": "{{doc-apihelp-description|query+unreviewedpages}}",
 	"apihelp-query+unreviewedpages-param-start": "{{doc-apihelp-param|query+unreviewedpages|start}}",
 	"apihelp-query+unreviewedpages-param-end": "{{doc-apihelp-param|query+unreviewedpages|end}}",
