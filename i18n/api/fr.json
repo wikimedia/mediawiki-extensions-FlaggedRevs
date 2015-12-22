@@ -40,6 +40,7 @@
 	"apihelp-query+reviewedpages-param-limit": "Combien de pages renvoyer au total.",
 	"apihelp-query+reviewedpages-example-1": "voir une liste des pages révisées",
 	"apihelp-query+reviewedpages-example-2": "Afficher des informations sur certaines pages relues",
+	"apihelp-query+revisions-paramvalue-prop-flagged": "État marqué de la révision.",
 	"apihelp-query+unreviewedpages-description": "Énumère les pages qui n’ont pas été relues pour un niveau de qualité donné.",
 	"apihelp-query+unreviewedpages-param-start": "Commencer la liste à ce titre de page.",
 	"apihelp-query+unreviewedpages-param-end": "Arrêter la liste à ce titre de page.",
