@@ -38,6 +38,7 @@
 	"apihelp-query+reviewedpages-param-limit": "Número total de páxinas a devolver.",
 	"apihelp-query+reviewedpages-example-1": "Mostrar unha lista de páxinas revisadas",
 	"apihelp-query+reviewedpages-example-2": "Mostrar información sobre algunhas páxinas revisadas",
+	"apihelp-query+revisions-paramvalue-prop-flagged": "Estado marcado da revisión.",
 	"apihelp-query+unreviewedpages-description": "Enumera as páxinas que non foron revisadas ata o nivel de calidade indicado.",
 	"apihelp-query+unreviewedpages-param-start": "Comezar a lista neste título de páxina.",
 	"apihelp-query+unreviewedpages-param-end": "Rematar a lista neste título de páxina.",
