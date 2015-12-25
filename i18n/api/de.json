@@ -37,5 +37,6 @@
 	"apihelp-stabilize-param-reason": "Grund.",
 	"apihelp-stabilize-param-watch": "Beobachtet diese Seite.",
 	"apihelp-stabilize-param-expiry-general": "Ablauf für diese Einstellungen.",
+	"apihelp-stabilize-param-title-general": "Titel der zu stabilisierenden Seite.",
 	"apihelp-stabilize-param-default": "Anzuzeigende Standardversion."
 }
