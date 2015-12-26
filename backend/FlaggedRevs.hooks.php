@@ -900,7 +900,7 @@ class FlaggedRevsHooks {
 				break;
 			case APCOND_FR_UNIQUEPAGECOUNT:
 				$p = FRUserCounters::getParams( $user );
-				$result = ( $p && $p['uniqueContentPages'] >= $params[0] );
+				$result = ( $p && count( $p['uniqueContentPages'] ) >= $params[0] );
 				break;
 			case APCOND_FR_EDITSPACING:
 				$key = wfMemcKey( 'flaggedrevs', 'autopromote-editspacing',
