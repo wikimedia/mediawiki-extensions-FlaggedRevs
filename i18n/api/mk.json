@@ -38,6 +38,7 @@
 	"apihelp-query+reviewedpages-param-limit": "Колку вкупно страници да се дадат.",
 	"apihelp-query+reviewedpages-example-1": "Прикажи список на непрегледани страници",
 	"apihelp-query+reviewedpages-example-2": "Прикажи информации за извесни проверени страници",
+	"apihelp-query+revisions-paramvalue-prop-flagged": "Обележан статус на преработката.",
 	"apihelp-query+unreviewedpages-description": "Набројува страници што не се прегледани на даден степен на квалитет.",
 	"apihelp-query+unreviewedpages-param-start": "Почни го исписот од овој наслов на страница.",
 	"apihelp-query+unreviewedpages-param-end": "Запри го исписот на овој наслов на страница.",
