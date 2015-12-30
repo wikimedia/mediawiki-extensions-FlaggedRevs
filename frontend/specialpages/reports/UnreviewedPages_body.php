@@ -224,7 +224,7 @@ class UnreviewedPages extends SpecialPage {
 		$dbr->freeResult( $res );
 
 		$dbw = wfGetDB( DB_MASTER );
-		$dbw->begin();
+		$dbw->begin( __METHOD__ );
 		# Clear out any old cached data
 		$dbw->delete( 'querycache', array( 'qc_type' => 'fr_unreviewedpages' ), __METHOD__ );
 		# Insert new data...
@@ -238,7 +238,7 @@ class UnreviewedPages extends SpecialPage {
 			array( 'qci_type' => 'fr_unreviewedpages', 'qci_timestamp' => $dbw->timestamp() ),
 			__METHOD__
 		);
-		$dbw->commit();
+		$dbw->commit( __METHOD__ );
 
 		$insertRows = array();
 		// Find pages that were never marked as "quality"...
@@ -262,7 +262,7 @@ class UnreviewedPages extends SpecialPage {
 		}
 		$dbr->freeResult( $res );
 
-		$dbw->begin();
+		$dbw->begin( __METHOD__ );
 		# Clear out any old cached data
 		$dbw->delete( 'querycache', array( 'qc_type' => 'fr_unreviewedpages_q' ), __METHOD__ );
 		# Insert new data...
@@ -275,7 +275,7 @@ class UnreviewedPages extends SpecialPage {
 		$dbw->insert( 'querycache_info',
 			array( 'qci_type' => 'fr_unreviewedpages_q', 'qci_timestamp' => $dbw->timestamp() ),
 			__METHOD__ );
-		$dbw->commit();
+		$dbw->commit( __METHOD__ );
 	}
 
 	protected function getGroupName() {
