@@ -39,7 +39,7 @@ class UpdateFRAutoPromote extends Maintenance {
 			$res = $dbr->select( 'user', '*', $cond, __METHOD__ );
 			# Go through and clean up missing items, as well as correct fr_quality...
 			foreach ( $res as $row ) {
-				$dbw->begin();
+				$this->beginTransaction( $dbw, __METHOD__ );
 				$user = User::newFromRow( $row );
 				$p = FRUserCounters::getUserParams( $user->getId(), FR_FOR_UPDATE );
 				$oldp = $p;
@@ -79,7 +79,7 @@ class UpdateFRAutoPromote extends Maintenance {
 				}
 
 				$count++;
-				$dbw->commit();
+				$this->commitTransaction( $dbw, __METHOD__ );
 			}
 			wfWaitForSlaves( 5 );
 		}
