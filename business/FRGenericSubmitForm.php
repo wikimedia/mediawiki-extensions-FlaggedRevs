@@ -91,7 +91,7 @@ abstract class FRGenericSubmitForm {
 		}
 	}
 
-	/*
+	/**
 	 * Check that a target is given (e.g. from GET/POST request)
 	 * NOTE: do not do any DB hits here, just check if there is a target
 	 * @return mixed (true on success, error string on failure)
@@ -100,7 +100,7 @@ abstract class FRGenericSubmitForm {
 		return true;
 	}
 
-	/*
+	/**
 	 * Check that the target is valid (e.g. from GET/POST request)
 	 * @param int $flags FOR_SUBMISSION (set on submit)
 	 * @return mixed (true on success, error string on failure)
@@ -109,7 +109,7 @@ abstract class FRGenericSubmitForm {
 		return true;
 	}
 
-	/*
+	/**
 	 * Check that a target is and it is valid (e.g. from GET/POST request)
 	 * NOTE: do not do any DB hits here, just check if there is a target
 	 * @return mixed (true on success, error string on failure)
@@ -125,7 +125,7 @@ abstract class FRGenericSubmitForm {
 		return $this->doCheckTarget();
 	}
 
-	/*
+	/**
 	 * Validate and clean up target/parameters (e.g. from POST request)
 	 * @return mixed (true on success, error string on failure)
 	 */
@@ -137,7 +137,7 @@ abstract class FRGenericSubmitForm {
 		return $this->doCheckParameters();
 	}
 
-	/*
+	/**
 	 * Verify and clean up parameters (e.g. from POST request)
 	 * @return mixed (true on success, error string on failure)
 	 */
@@ -145,7 +145,7 @@ abstract class FRGenericSubmitForm {
 		return true;
 	}
 
-	/*
+	/**
 	 * Preload existing params for the target from the DB (e.g. for GET request)
 	 * NOTE: do not call this and then submit()
 	 * @return mixed (true on success, error string on failure)
@@ -166,7 +166,7 @@ abstract class FRGenericSubmitForm {
 		return true;
 	}
 
-	/*
+	/**
 	 * Preload existing params for the target from the DB (e.g. for GET request)
 	 * @return mixed (true on success, error string on failure)
 	 */

@@ -72,10 +72,10 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 		$this->trySet( $this->autoreview, $value );
 	}
 
-	/*
+	/**
 	 * Get the final expiry, all inputs considered
 	 * Note: does not check if the expiration is less than wfTimestampNow()
-	 * @return 14-char timestamp or "infinity", or false if the input was invalid
+	 * @return string|bool 14-char timestamp or "infinity", or false if the input was invalid
 	 */
 	public function getExpiry() {
 		$oldConfig = $this->getOldConfig();
@@ -101,7 +101,7 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 		return $time;
 	}
 
-	/*
+	/**
 	 * Get the final reason, all inputs considered
 	 * @return string
 	 */
@@ -120,7 +120,7 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 		return $comment;
 	}
 
-	/*
+	/**
 	 * Check that a target is given (e.g. from GET/POST request)
 	 * @return mixed (true on success, error string on failure)
 	 */
@@ -131,7 +131,7 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 		return true;
 	}
 
-	/*
+	/**
 	 * Check that the target page is valid
 	 * @param int $flags FOR_SUBMISSION (set on submit)
 	 * @return mixed (true on success, error string on failure)
@@ -146,7 +146,7 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 		return true;
 	}
 
-	/*
+	/**
 	 * Verify and clean up parameters (e.g. from POST request)
 	 * @return mixed (true on success, error string on failure)
 	 */
@@ -161,14 +161,14 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 		return $status;
 	}
 
-	/*
+	/**
 	 * @return mixed (true on success, error string on failure)
 	 */
 	protected function reallyDoCheckParameters() {
 		return true;
 	}
 
-	/*
+	/**
 	 * Can the user change the settings for this page?
 	 * Note: if the current autoreview restriction is too high for this user
 	 *       then this will return false. Useful for form selectors.
@@ -182,7 +182,7 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 		);
 	}
 
-	/*
+	/**
 	 * Preload existing page settings (e.g. from GET request).
 	 * @return mixed (true on success, error string on failure)
 	 */
@@ -196,7 +196,7 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 		return $this->reallyDoPreloadParameters(); // load the params...
 	}
 
-	/*
+	/**
 	 * @return mixed (true on success, error string on failure)
 	 */
 	protected function reallyDoPreloadParameters() {
@@ -260,7 +260,7 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 		return true;
 	}
 
-	/*
+	/**
 	 * Do history & log updates:
 	 * (a) Add a new stability log entry
 	 * (b) Add a null edit like the log entry
@@ -308,7 +308,7 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 		return $nullRev;
 	}
 
-	/*
+	/**
 	 * Get current stability config array
 	 * @return array
 	 */
@@ -322,7 +322,7 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 		return $this->oldConfig;
 	}
 
-	/*
+	/**
 	 * Get proposed stability config array
 	 * @return array
 	 */
@@ -334,7 +334,7 @@ abstract class PageStabilityForm extends FRGenericSubmitForm {
 		);
 	}
 
-	/*
+	/**
 	 * (a) Watch page if $watchThis is true
 	 * (b) Unwatch if $watchThis is false
 	 */

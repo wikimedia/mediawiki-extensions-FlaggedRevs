@@ -267,7 +267,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 
 	/**
 	 * Submit the form parameters for the page config to the DB.
-	*
+	 *
 	 * @return mixed (true on success, error string on failure)
 	 */
 	public function doSubmit() {
