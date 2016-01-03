@@ -35,6 +35,7 @@
 	"apihelp-query+reviewedpages-param-limit": "返回的总计页面数。",
 	"apihelp-query+reviewedpages-example-1": "显示已复核页面的列表",
 	"apihelp-query+reviewedpages-example-2": "显示有关一些已复核页面的信息",
+	"apihelp-query+revisions-paramvalue-prop-flagged": "标记修订版本状态。",
 	"apihelp-query+unreviewedpages-param-start": "从此页面标题开始列出。",
 	"apihelp-query+unreviewedpages-param-end": "列出至此页面标题为止。",
 	"apihelp-query+unreviewedpages-param-dir": "排序方向。",
