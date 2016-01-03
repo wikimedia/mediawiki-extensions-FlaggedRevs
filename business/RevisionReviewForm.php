@@ -380,7 +380,7 @@ class RevisionReviewForm extends FRGenericSubmitForm {
 		}
 		# Watch page if set to do so
 		if ( $status === true ) {
-			if ( $this->user->getOption( 'flaggedrevswatch' ) && !$this->page->userIsWatching() ) {
+			if ( $this->user->getOption( 'flaggedrevswatch' ) && !$this->user->isWatched( $this->page ) ) {
 				$this->user->addWatch( $this->page );
 			}
 		}

@@ -370,7 +370,7 @@ class PageStabilityGeneralForm extends PageStabilityForm {
 		$oldConfig = $this->getOldConfig();
 		$this->override = $oldConfig['override'];
 		$this->autoreview = $oldConfig['autoreview'];
-		$this->watchThis = $this->page->userIsWatching();
+		$this->watchThis = $this->getUser()->isWatched( $this->page );
 		return true;
 	}
 
@@ -394,7 +394,7 @@ class PageStabilityProtectForm extends PageStabilityForm {
 	protected function reallyDoPreloadParameters() {
 		$oldConfig = $this->getOldConfig();
 		$this->autoreview = $oldConfig['autoreview']; // protect level
-		$this->watchThis = $this->page->userIsWatching();
+		$this->watchThis = $this->getUser()->isWatched( $this->page );
 		return true;
 	}
 

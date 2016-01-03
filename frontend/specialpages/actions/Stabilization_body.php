@@ -84,6 +84,7 @@ class Stabilization extends UnlistedSpecialPage {
 
 	public function showForm( $err = null ) {
 		$out = $this->getOutput();
+		$user = $this->getUser();
 
 		$form = $this->form; // convenience
 		$title = $this->form->getPage();
@@ -204,8 +205,8 @@ class Stabilization extends UnlistedSpecialPage {
 			$watchLabel = $this->msg( 'watchthis' )->parse();
 			$watchAttribs = array( 'accesskey' => $this->msg( 'accesskey-watch' )->text(),
 				'id' => 'wpWatchthis' );
-			$watchChecked = ( $this->getUser()->getOption( 'watchdefault' )
-				|| $title->userIsWatching() );
+			$watchChecked = ( $user->getOption( 'watchdefault' )
+				|| $user->isWatched( $title ) );
 			$reviewLabel = $this->msg( 'stabilization-review' )->parse();
 
 			$s .= ' <tr>
