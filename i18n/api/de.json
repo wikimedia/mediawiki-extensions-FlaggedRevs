@@ -29,14 +29,19 @@
 	"apihelp-query+unreviewedpages-param-end": "Liste bei diesem Seitentitel beenden.",
 	"apihelp-query+unreviewedpages-param-namespace": "Die aufzulistenden Namensräume.",
 	"apihelp-query+unreviewedpages-param-limit": "Welche Gesamtanzahl an Seiten zurückgegeben werden soll.",
+	"apihelp-query+unreviewedpages-example-1": "Zeigt eine Liste ungeprüfter Seiten an",
 	"apihelp-review-description": "Version als gesichtet oder ungesichtet markieren.",
 	"apihelp-review-param-revid": "Versionsnummer, die gesichtet werden soll.",
 	"apihelp-review-param-comment": "Kommentar für die Sichtung.",
 	"apihelp-review-param-unapprove": "Wenn angegeben, wird die Version entsichtet statt gesichtet.",
+	"apihelp-review-param-flag": "Legt die Markierung ''$1'' auf den angegebenen Wert fest.",
 	"apihelp-review-example-1": "Version 12345 mit dem Kommentar „Ok“ sichten",
+	"apihelp-reviewactivity-param-oldid": "Die Kennung der Version, die überprüft werden soll.",
+	"apihelp-stabilize-description-general": "Ändert die Einstellungen zur Seitenstabilität.",
 	"apihelp-stabilize-param-reason": "Grund.",
 	"apihelp-stabilize-param-watch": "Beobachtet diese Seite.",
 	"apihelp-stabilize-param-expiry-general": "Ablauf für diese Einstellungen.",
 	"apihelp-stabilize-param-title-general": "Titel der zu stabilisierenden Seite.",
-	"apihelp-stabilize-param-default": "Anzuzeigende Standardversion."
+	"apihelp-stabilize-param-default": "Anzuzeigende Standardversion.",
+	"apihelp-stabilize-param-review": "Überprüft diese Seite."
 }
