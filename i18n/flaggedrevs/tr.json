@@ -15,11 +15,12 @@
 			"Vito Genovese",
 			"Arystanbek",
 			"Sayginer",
-			"Rapsar"
+			"Rapsar",
+			"Mavrikant"
 		]
 	},
 	"action-review": "revizyonları inceler",
-	"editor": "Editör",
+	"editor": "Devriye",
 	"flaggedrevs": "Bayraklanmış Revizyonlar",
 	"flaggedrevs-watched-pending": "Şu anda izleme listenizdeki incelenmiş sayfaların [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} bekleyen değişiklikleri] mevcut. '''İlgilenmeniz gerekiyor!'''",
 	"flaggedrevs-desc": "Editörlere revizyonları inceleme ve sayfaları kararlı hale getirme yeteneği verir",
@@ -37,7 +38,7 @@
 	"flaggedrevs-hidereviewed": "İncelenmiş değişiklikleri $1",
 	"flaggedrevs-hidereviewed-hide": "gizle",
 	"flaggedrevs-hidereviewed-show": "Göster",
-	"group-editor": "Editörler",
+	"group-editor": "Devriyeler",
 	"group-editor-member": "{{GENDER:$1|editör}}",
 	"group-reviewer": "İnceleyiciler",
 	"group-reviewer-member": "{{GENDER:$1|inceleyici}}",

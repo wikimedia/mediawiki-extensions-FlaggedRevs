@@ -1,15 +1,16 @@
 {
 	"@metadata": {
 		"authors": [
-			"Hosseinblue"
+			"Hosseinblue",
+			"Lakzon"
 		]
 	},
 	"action-review": "بازبینی نسخه‌ها",
-	"editor": "دةسکاری کةر",
+	"editor": "دەسکاری کەر",
 	"flaggedrevs": "نسخه‌های علامت‌دار",
 	"flaggedrevs-watched-pending": "هم‌اکنون [{{fullurl:{{#Special:OldReviewedPages}}|watched=1}} تغییرات در حال انتظار] در صفحه‌های بازبینی‌شده  در فهرست پی‌گیری‌های شما وجود دارند.\n'''به توجه شما نیاز است!'''",
 	"flaggedrevs-pref-UI": "رابط پایه:",
-	"prefs-flaggedrevs-ui": "بازبینی دةسکاری",
+	"prefs-flaggedrevs-ui": "بازبینی دەسکاری",
 	"flaggedrevs-hidereviewed-hide": "ئآشاردن-پنهان کردن",
 	"flaggedrevs-hidereviewed-show": "نیشان دائن",
 	"group-editor": "دةسکاری کِرةل",
@@ -22,6 +23,6 @@
 	"revreview-depth-3": "بالا/بِڵنگ",
 	"revreview-depth-4": "برگزیده/نازار",
 	"revreview-draft-title": "تغییرات در حال انتظار در این صفحه نمایش داده می‌شوند",
-	"revreview-edit": "دةسکاری",
+	"revreview-edit": "دەسکاری",
 	"tooltip-ca-current": "نمایش این صفحه همراه با تغییرات در حال انتظار"
 }
