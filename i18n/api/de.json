@@ -3,7 +3,8 @@
 		"authors": [
 			"Metalhead64",
 			"Giftpflanze",
-			"Andreasburmeister"
+			"Andreasburmeister",
+			"Predatorix"
 		]
 	},
 	"apihelp-query+configuredpages-param-start": "Auflistung bei dieser Seitenkennung beginnen.",
@@ -24,12 +25,18 @@
 	"apihelp-query+reviewedpages-param-namespace": "Die aufzulistenden Namensräume.",
 	"apihelp-query+reviewedpages-param-filterredir": "Wie für Weiterleitungen gefiltert werden soll",
 	"apihelp-query+reviewedpages-param-limit": "Wie viele Seiten insgesamt zurückgegeben werden sollen.",
+	"apihelp-query+reviewedpages-example-1": "Zeigt eine Liste mit überprüften Seiten an",
+	"apihelp-query+reviewedpages-example-2": "Zeigt Informationen über einige überprüfte Seiten an",
 	"apihelp-query+revisions-paramvalue-prop-flagged": "Markierungsstatus der Version.",
 	"apihelp-query+unreviewedpages-param-start": "Liste bei diesem Seitentitel beginnen.",
 	"apihelp-query+unreviewedpages-param-end": "Liste bei diesem Seitentitel beenden.",
+	"apihelp-query+unreviewedpages-param-dir": "Sortierrichtung.",
 	"apihelp-query+unreviewedpages-param-namespace": "Die aufzulistenden Namensräume.",
+	"apihelp-query+unreviewedpages-param-filterredir": "Wie nach Weiterleitungen gefiltert werden soll.",
+	"apihelp-query+unreviewedpages-param-filterlevel": "Wie nach Qualität gefiltert werden soll (0=geprüft, 1=Qualität).",
 	"apihelp-query+unreviewedpages-param-limit": "Welche Gesamtanzahl an Seiten zurückgegeben werden soll.",
 	"apihelp-query+unreviewedpages-example-1": "Zeigt eine Liste ungeprüfter Seiten an",
+	"apihelp-query+unreviewedpages-example-2": "Zeige Infos über einige ungesichtete Seiten",
 	"apihelp-review-description": "Version als gesichtet oder ungesichtet markieren.",
 	"apihelp-review-param-revid": "Versionsnummer, die gesichtet werden soll.",
 	"apihelp-review-param-comment": "Kommentar für die Sichtung.",
@@ -41,7 +48,9 @@
 	"apihelp-stabilize-param-reason": "Grund.",
 	"apihelp-stabilize-param-watch": "Beobachtet diese Seite.",
 	"apihelp-stabilize-param-expiry-general": "Ablauf für diese Einstellungen.",
+	"apihelp-stabilize-param-expiry-protect": "Ablauf des Überprüfungsschutzes.",
 	"apihelp-stabilize-param-title-general": "Titel der zu stabilisierenden Seite.",
 	"apihelp-stabilize-param-default": "Anzuzeigende Standardversion.",
-	"apihelp-stabilize-param-review": "Überprüft diese Seite."
+	"apihelp-stabilize-param-review": "Überprüft diese Seite.",
+	"apihelp-stabilize-param-protectlevel": "Die Höhe des Überprüfungsschutzes."
 }
