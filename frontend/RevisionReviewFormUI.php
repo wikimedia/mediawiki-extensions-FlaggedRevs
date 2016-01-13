@@ -251,7 +251,7 @@ class RevisionReviewFormUI {
 		if ( $this->refRev ) {
 			$priorId = $this->refRev->getId();
 			if ( $priorId == $this->article->getStable() && $priorId != $this->rev->getId() ) {
-				if ( $this->rev->getRawText() != $this->refRev->getRawText() ) {
+				if ( $this->rev->getContent( Revision::RAW ) != $this->refRev->getContent( Revision::RAW ) ) {
 					return $priorId; // left rev must be stable and right one newer
 				}
 			}
