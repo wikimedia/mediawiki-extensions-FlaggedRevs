@@ -130,7 +130,7 @@ $wgGrantPermissions['editprotected']['movestable'] = true;
 $wgFlaggedRevsAutopromote = array(
 	'days'                  => 60, # days since registration
 	'edits'                 => 250, # total edit count
-	'excludeLastDays'       => 1, # exclude the last X days of edits from edit counts
+	'excludeLastDays'       => 1, # exclude the last X days of edits from below edit counts
 	'benchmarks'            => 15, # number of "spread out" edits
 	'spacing'               => 3, # number of days between these edits (the "spread")
 	// Either totalContentEdits reqs OR totalCheckedEdits requirements needed
@@ -151,7 +151,7 @@ $wgFlaggedRevsAutoconfirm = false;
 $wgFlaggedRevsAutoconfirm = array(
 	'days'                  => 30, # days since registration
 	'edits'                 => 50, # total edit count
-	'excludeLastDays'       => 2, # exclude the last X days of edits from edit counts
+	'excludeLastDays'       => 2, # exclude the last X days of edits from below edit counts
 	'benchmarks'            => 7, # number of "spread out" edits
 	'spacing'               => 3, # number of days between these edits (the "spread")
 	// Either totalContentEdits reqs OR totalCheckedEdits requirements needed

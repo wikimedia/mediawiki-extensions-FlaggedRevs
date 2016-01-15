@@ -60,7 +60,7 @@ class FlaggedRevsSetup {
 		if ( is_array( $req ) ) {
 			$criteria = array( '&', // AND
 				array( APCOND_AGE, $req['days']*86400 ),
-				array( APCOND_EDITCOUNT, $req['edits'], $req['excludeLastDays']*86400 ),
+				array( APCOND_EDITCOUNT, $req['edits'] ),
 				array( APCOND_FR_EDITSUMMARYCOUNT, $req['editComments'] ),
 				array( APCOND_FR_UNIQUEPAGECOUNT, $req['uniqueContentPages'] ),
 				array( APCOND_FR_EDITSPACING, $req['spacing'], $req['benchmarks'] ),
