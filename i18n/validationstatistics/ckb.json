@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Calak"
+			"Calak",
+			"Asoxor"
 		]
 	},
 	"validationstatistics": "ئاماری بەسەرداچوونەوەی پەڕە",
@@ -18,6 +19,6 @@
 	"validationstatistics-old": "بەسەرچوو",
 	"validationstatistics-unreviewed": "بەسەردانەچووە",
 	"validationstatistics-utable": "ژێرەوە پێرستێکە لە {{PLURAL:$1|چالاکترین بەسەرداچوونەوەکەر|$1 کەس لە چالاکترین بەسەرداچوونەوەکەران}} لە {{PLURAL:$2|یەک ساعەت|$2 ساعەت}}ی ڕابردوو.",
-	"validationstatistics-user": "بەکارهێنەر",
+	"validationstatistics-user": "بەکارھێنەر",
 	"validationstatistics-reviews": "بەسەرداچوونەوەکان"
 }

@@ -13,6 +13,8 @@
 	"apihelp-query+configuredpages-param-default": "默认页面视图版本。",
 	"apihelp-query+configuredpages-param-autoreview": "复核/自动复核限制级别。",
 	"apihelp-query+configuredpages-param-limit": "返回的总计页面数。",
+	"apihelp-query+configuredpages-example-1": "显示带自定义复核配置的页面列表",
+	"apihelp-query+configuredpages-example-2": "获取一些有关带自定义复核配置页面的信息",
 	"apihelp-query+flagged-description": "获取有关指定页面标记状态的信息。\n\n如果一个页面被标记，将返回以下参数：\n;stable_revid:最新稳定修订版本的修订ID。\n;level\n;level_text:页面的最高标记等级。\n;pending_since:如果当前有任何未复核的页面修订，就记下它们的首次时间戳。\n如果页面有保护配置，将返回以下参数：\n;protection_level:要让页面不需要复核，用户必须有的权限。\n;protection_expiry:保护何时到期。",
 	"apihelp-query+flagged-example-1": "获取[[Main Page]]的页面信息和标记状态",
 	"apihelp-query+flagged-example-2": "获取以“K”开头的页面的标记地位",
