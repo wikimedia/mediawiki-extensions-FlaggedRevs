@@ -40,7 +40,7 @@ var wgFlaggedRevsParams = mw.config.get( 'wgFlaggedRevsParams' ),
 		fr.enableAjaxReviewActivity();
 		// "De-advertise" user as "no longer reviewing" on navigate-away
 		/*global window*/
-		$( window ).unload( function () {
+		$( window ).on( 'unload', function () {
 			if ( fr.isUserReviewing === 1 ) {
 				fr.deadvertiseReviewing();
 			}
